@@ -17,7 +17,7 @@
 
 ### Documentdoel
 
-Dit document is een **voorbeelduitwerking** van de [MOKA Koppelvlak Specificatie Template](KoppelvlakSpecificatieTemplate.md). Het beschrijft het koppelvlak voor een deel van de procesketen Examineren en diplomeren/certificeren (uitvoeren examen tot en met beoordelen en diplomeren), opdat het gebruikt kan worden voor **strategische duiding** of ter **adaptie/implementatie** van logische of technische implementaties. De context van deze uitwerking is **digitale examinering**.
+Dit document is een **voorbeelduitwerking** van de [MOKA Koppelvlak Specificatie Template](../../../../moka-koppelvlakspecificaties/Template/doc/KoppelvlakSpecificatieTemplate.md). Het beschrijft het koppelvlak voor een deel van de procesketen Examineren en diplomeren/certificeren (uitvoeren examen tot en met beoordelen en diplomeren), opdat het gebruikt kan worden voor **strategische duiding** of ter **adaptie/implementatie** van logische of technische implementaties. De context van deze uitwerking is **digitale examinering**.
 
 
 ---
@@ -64,7 +64,7 @@ Dit document is een **voorbeelduitwerking** van de [MOKA Koppelvlak Specificatie
 
 ## 1. Inleiding
 
-Deze voorbeelduitwerking volgt de structuur van de [MOKA Koppelvlak Specificatie Template](KoppelvlakSpecificatieTemplate.md). Het beschrijft het koppelvlak voor het deelgebied Examen uitvoering en beoordeling binnen de MORA procesketen Examineren. Gegevensuitwisseling en verantwoordelijkheden tussen referentiecomponenten worden eenduidig gepositioneerd, zodat implementaties hierop terug te leiden zijn.
+Deze voorbeelduitwerking volgt de structuur van de [MOKA Koppelvlak Specificatie Template](../../../../moka-koppelvlakspecificaties/Template/doc/KoppelvlakSpecificatieTemplate.md). Het beschrijft het koppelvlak voor het deelgebied Examen uitvoering en beoordeling binnen de MORA procesketen Examineren. Gegevensuitwisseling en verantwoordelijkheden tussen referentiecomponenten worden eenduidig gepositioneerd, zodat implementaties hierop terug te leiden zijn.
 
 ---
 
@@ -584,7 +584,7 @@ Voor meer informatie omtrent het koppelvlakprofiel en gerelateerde implementatie
 
 Deze documenten bevatten de actuele technische specificaties en koppelvlakeisen voor externe implementaties.
 
-Dit document is een voorbeelduitwerking van de [MOKA Koppelvlak Specificatie Template](KoppelvlakSpecificatieTemplate.md).
+Dit document is een voorbeelduitwerking van de [MOKA Koppelvlak Specificatie Template](../../../../moka-koppelvlakspecificaties/Template/doc/KoppelvlakSpecificatieTemplate.md).
 
 ---
 
