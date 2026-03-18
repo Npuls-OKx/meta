@@ -1,0 +1,196 @@
+{
+  "bron": "Koppelvlak specifiek informatiemodel view - v20260402.jpg (Figuur 5.3)",
+  "toelichting": "Machine-leesbaar overzicht: per object type (informatieobject, dataobject gegevensgroep, dataobject gegevensgroeptype) met relaties. Gegevensgroeptype heeft relatie naar bovenliggende gegevensgroep; gegevensgroep heeft relatie naar informatieobject.",
+  "objecten": [
+    {
+      "type": "Informatieobject",
+      "naam": "Medewerker",
+      "relaties_naar_informatieobjecten": [],
+      "gegevensgroepen": [
+        {
+          "type": "Dataobject (gegevensgroep)",
+          "naam": "Medewerkergegevens",
+          "relatie_naar_informatieobject": "composition",
+          "gegevensgroeptypes": [
+            { "type": "Dataobject (gegevensgroeptype)", "naam": "MedewerkerId", "relatie_naar_gegevensgroep": "onderdeel van Medewerkergegevens", "referentie_attributen_oke": ["personId", "primaryCode"] },
+            { "type": "Dataobject (gegevensgroeptype)", "naam": "DeelnameRolBinnenMedewerker", "relatie_naar_gegevensgroep": "onderdeel van Medewerkergegevens", "referentie_attributen_oke": ["role"] }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Informatieobject",
+      "naam": "Student",
+      "relaties_naar_informatieobjecten": ["Examenafname", "Examen deelname"],
+      "gegevensgroepen": [
+        {
+          "type": "Dataobject (gegevensgroep)",
+          "naam": "Student Gegevens",
+          "relatie_naar_informatieobject": "composition",
+          "gegevensgroeptypes": [
+            { "type": "Dataobject (gegevensgroeptype)", "naam": "StudentNaam", "relatie_naar_gegevensgroep": "onderdeel van Student Gegevens" },
+            { "type": "Dataobject (gegevensgroeptype)", "naam": "StudentNummer", "relatie_naar_gegevensgroep": "onderdeel van Student Gegevens" },
+            { "type": "Dataobject (gegevensgroeptype)", "naam": "StudentOpleidingId", "relatie_naar_gegevensgroep": "onderdeel van Student Gegevens" },
+            { "type": "Dataobject (gegevensgroeptype)", "naam": "OnderwijsprogrammaRegioStudentId", "relatie_naar_gegevensgroep": "onderdeel van Student Gegevens" }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Informatieobject",
+      "naam": "Examenafname",
+      "relaties_naar_informatieobjecten": ["Student", "Zittingsverslag", "Examen deelname", "Summatieve beoordeling"],
+      "gegevensgroepen": [
+        {
+          "type": "Dataobject (gegevensgroep)",
+          "naam": "Examenafname gegevens",
+          "relatie_naar_informatieobject": "composition",
+          "gegevensgroeptypes": [
+            { "type": "Dataobject (gegevensgroeptype)", "naam": "AfnameNaamEnAanduiding", "relatie_naar_gegevensgroep": "onderdeel van Examenafname gegevens" },
+            { "type": "Dataobject (gegevensgroeptype)", "naam": "AfnameOnderwijslogistiekeContext", "relatie_naar_gegevensgroep": "onderdeel van Examenafname gegevens" },
+            { "type": "Dataobject (gegevensgroeptype)", "naam": "ExamenWindowRelaties", "relatie_naar_gegevensgroep": "onderdeel van Examenafname gegevens" },
+            { "type": "Dataobject (gegevensgroeptype)", "naam": "RelatieTotOpleidingen", "relatie_naar_gegevensgroep": "onderdeel van Examenafname gegevens" }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Informatieobject",
+      "naam": "Zittingsverslag",
+      "relaties_naar_informatieobjecten": ["Te beoordelen werk"],
+      "gegevensgroepen": [
+        {
+          "type": "Dataobject (gegevensgroep)",
+          "naam": "Zittingsverslag gegevens",
+          "relatie_naar_informatieobject": "composition",
+          "gegevensgroeptypes": [
+            { "type": "Dataobject (gegevensgroeptype)", "naam": "RelatieTotExamenAfname", "relatie_naar_gegevensgroep": "onderdeel van Zittingsverslag gegevens" },
+            { "type": "Dataobject (gegevensgroeptype)", "naam": "VerslagTotStandkoming", "relatie_naar_gegevensgroep": "onderdeel van Zittingsverslag gegevens" },
+            { "type": "Dataobject (gegevensgroeptype)", "naam": "RelatieTotOpsteller", "relatie_naar_gegevensgroep": "onderdeel van Zittingsverslag gegevens" }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Informatieobject",
+      "naam": "Te beoordelen werk",
+      "relaties_naar_informatieobjecten": ["Examenafname", "Examen deelname", "Summatieve beoordeling (via Beoordeeld werk gegevens)"],
+      "gegevensgroepen": [
+        {
+          "type": "Dataobject (gegevensgroep)",
+          "naam": "Te beoordelen werk gegevens",
+          "relatie_naar_informatieobject": "composition",
+          "gegevensgroeptypes": [
+            { "type": "Dataobject (gegevensgroeptype)", "naam": "IndieningsGegevens", "relatie_naar_gegevensgroep": "onderdeel van Te beoordelen werk gegevens" },
+            { "type": "Dataobject (gegevensgroeptype)", "naam": "WerkAanduiding", "relatie_naar_gegevensgroep": "onderdeel van Te beoordelen werk gegevens" },
+            { "type": "Dataobject (gegevensgroeptype)", "naam": "BeoordelingsContext", "relatie_naar_gegevensgroep": "onderdeel van Te beoordelen werk gegevens" }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Informatieobject",
+      "naam": "Examen deelname",
+      "relaties_naar_informatieobjecten": ["Examenafname (biedt tot)", "Summatieve beoordeling", "Summatief resultaat", "Examendossier (leidt tot)"],
+      "gegevensgroepen": [
+        {
+          "type": "Dataobject (gegevensgroep)",
+          "naam": "Examen deelname gegevens",
+          "relatie_naar_informatieobject": "composition",
+          "gegevensgroeptypes": [
+            { "type": "Dataobject (gegevensgroeptype)", "naam": "RelatieTotStudent", "relatie_naar_gegevensgroep": "onderdeel van Examen deelname gegevens" },
+            { "type": "Dataobject (gegevensgroeptype)", "naam": "AanwezigheidsIndicatie", "relatie_naar_gegevensgroep": "onderdeel van Examen deelname gegevens" },
+            { "type": "Dataobject (gegevensgroeptype)", "naam": "RelatieTotExamenAfnameContext", "relatie_naar_gegevensgroep": "onderdeel van Examen deelname gegevens" }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Informatieobject",
+      "naam": "Summatieve beoordeling",
+      "relaties_naar_informatieobjecten": ["Summatief resultaat", "Beoordelaar"],
+      "gegevensgroepen": [
+        {
+          "type": "Dataobject (gegevensgroep)",
+          "naam": "Summatieve beoordeling gegevens",
+          "relatie_naar_informatieobject": "composition",
+          "gegevensgroeptypes": [
+            { "type": "Dataobject (gegevensgroeptype)", "naam": "BeoordelingsOordeelIndicatie", "relatie_naar_gegevensgroep": "onderdeel van Summatieve beoordeling gegevens" },
+            { "type": "Dataobject (gegevensgroeptype)", "naam": "BeoordelingsOordeelSpecificatie", "relatie_naar_gegevensgroep": "onderdeel van Summatieve beoordeling gegevens" },
+            { "type": "Dataobject (gegevensgroeptype)", "naam": "MetaDateringOpmaakEnBeoordelingsDatum", "relatie_naar_gegevensgroep": "onderdeel van Summatieve beoordeling gegevens" },
+            { "type": "Dataobject (gegevensgroeptype)", "naam": "RelatieTotBeoordelaar", "relatie_naar_gegevensgroep": "onderdeel van Summatieve beoordeling gegevens" },
+            { "type": "Dataobject (gegevensgroeptype)", "naam": "RelatieTotTeBeoordelenWerk", "relatie_naar_gegevensgroep": "onderdeel van Summatieve beoordeling gegevens" }
+          ]
+        },
+        {
+          "type": "Dataobject (gegevensgroep)",
+          "naam": "Beoordeeld werk gegevens",
+          "relatie_naar_informatieobject": "aggregation (onderdeel van Summatieve beoordeling gegevens, gekoppeld aan Te beoordelen werk)",
+          "gegevensgroeptypes": []
+        }
+      ]
+    },
+    {
+      "type": "Informatieobject",
+      "naam": "Beoordelaar",
+      "relaties_naar_informatieobjecten": ["Summatieve beoordeling"],
+      "gegevensgroepen": [
+        {
+          "type": "Dataobject (gegevensgroep)",
+          "naam": "Beoordelaar gegevens",
+          "relatie_naar_informatieobject": "composition",
+          "gegevensgroeptypes": [
+            { "type": "Dataobject (gegevensgroeptype)", "naam": "BeoordelaarNaam", "relatie_naar_gegevensgroep": "onderdeel van Beoordelaar gegevens" },
+            { "type": "Dataobject (gegevensgroeptype)", "naam": "OnderwijskwalificatieBevoegdBeoordelaar", "relatie_naar_gegevensgroep": "onderdeel van Beoordelaar gegevens" }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Informatieobject",
+      "naam": "Summatief resultaat",
+      "relaties_naar_informatieobjecten": ["Examendossier (is input voor)"],
+      "gegevensgroepen": [
+        {
+          "type": "Dataobject (gegevensgroep)",
+          "naam": "Summatief resultaat gegevens",
+          "relatie_naar_informatieobject": "composition",
+          "gegevensgroeptypes": [
+            { "type": "Dataobject (gegevensgroeptype)", "naam": "ResultaatSamenstelling", "relatie_naar_gegevensgroep": "onderdeel van Summatief resultaat gegevens" },
+            { "type": "Dataobject (gegevensgroeptype)", "naam": "ResultaatAfnameTijdvak", "relatie_naar_gegevensgroep": "onderdeel van Summatief resultaat gegevens" },
+            { "type": "Dataobject (gegevensgroeptype)", "naam": "ResultaatVaststelling", "relatie_naar_gegevensgroep": "onderdeel van Summatief resultaat gegevens" }
+          ]
+        },
+        {
+          "type": "Dataobject (gegevensgroep)",
+          "naam": "Onderwijsresultaat gegevens",
+          "relatie_naar_informatieobject": "aggregation (geaggregeerd door Summatief resultaat gegevens)",
+          "gegevensgroeptypes": [
+            { "type": "Dataobject (gegevensgroeptype)", "naam": "RelatieTotOnderwijsProgramma", "relatie_naar_gegevensgroep": "onderdeel van Onderwijsresultaat gegevens" },
+            { "type": "Dataobject (gegevensgroeptype)", "naam": "RelatieTotSummatiefResultaat", "relatie_naar_gegevensgroep": "onderdeel van Onderwijsresultaat gegevens" },
+            { "type": "Dataobject (gegevensgroeptype)", "naam": "RelatieTotBeoordeeldWerk", "relatie_naar_gegevensgroep": "onderdeel van Onderwijsresultaat gegevens" },
+            { "type": "Dataobject (gegevensgroeptype)", "naam": "RelatieTotExamenDossier", "relatie_naar_gegevensgroep": "onderdeel van Onderwijsresultaat gegevens" }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Informatieobject",
+      "naam": "Examendossier",
+      "relaties_naar_informatieobjecten": [],
+      "gegevensgroepen": [
+        {
+          "type": "Dataobject (gegevensgroep)",
+          "naam": "Examendossier gegevens",
+          "relatie_naar_informatieobject": "composition",
+          "gegevensgroeptypes": [
+            { "type": "Dataobject (gegevensgroeptype)", "naam": "DossierIdentificatie", "relatie_naar_gegevensgroep": "onderdeel van Examendossier gegevens" },
+            { "type": "Dataobject (gegevensgroeptype)", "naam": "OnderwijsprogrammaContext", "relatie_naar_gegevensgroep": "onderdeel van Examendossier gegevens" },
+            { "type": "Dataobject (gegevensgroeptype)", "naam": "OnderwijsresultaatRegistratie", "relatie_naar_gegevensgroep": "onderdeel van Examendossier gegevens" },
+            { "type": "Dataobject (gegevensgroeptype)", "naam": "DossierBeheerContext", "relatie_naar_gegevensgroep": "onderdeel van Examendossier gegevens" }
+          ]
+        }
+      ]
+    }
+  ]
+}

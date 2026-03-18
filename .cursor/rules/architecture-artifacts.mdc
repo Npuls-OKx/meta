@@ -1,0 +1,12 @@
+---
+description: Conventies voor architecture (ADR/meetings)
+globs: architecture/**/*.md
+alwaysApply: false
+---
+
+Voor bestanden onder architecture/:
+
+- ADR's staan in architecture/dr/ en volgen architecture/dr/template.md.
+- Meetings staan in architecture/meetings/ en volgen architecture/meetings/template-notulen.md.
+- Link altijd naar relevante issues, notulen, OKx/OKE docs en benoem impact op architecture/model/model.archimate.
+

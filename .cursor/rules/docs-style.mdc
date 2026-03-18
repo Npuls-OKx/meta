@@ -1,0 +1,12 @@
+---
+description: Stijl en consistentie voor markdown docs
+globs: "**/*.md"
+alwaysApply: false
+---
+
+Schrijf simpel en consistent (ASCII waar mogelijk).
+
+- Gebruik "OKx docs" voor documentatie in deze repo.
+- Het MOKA template zit in `moka-koppelvlakspecificaties/` en is onderdeel van OKx.
+- Gebruik vaste paden in links (bijv. `architecture/dr/`, `architecture/meetings/`).
+

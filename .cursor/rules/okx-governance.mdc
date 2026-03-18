@@ -1,0 +1,22 @@
+---
+description: OKx knowledge base context en governance
+alwaysApply: true
+---
+
+OKx-meta is een knowledge base die team OKx maintaint.
+
+Doel:
+- Leveranciers, instellingen en geinteresseerden kunnen 24/7 federatief en asynchroon bijdragen.
+- Werk verloopt via issues en pull requests (PR's).
+
+Governance:
+- Iedereen mag issues openen en PR's indienen.
+- Alleen OKx-teamleden mergen PR's.
+- Team OKx begeleidt de uitbouw en bewaakt samenhang en richting.
+- Kerngroep OKx geeft periodiek prioriteiten en richting op basis van issues, milestones en PR's (milestones handmatig beheerd).
+
+Workflow regels:
+- Link PR's aan issues (Fixes #... / See also #...).
+- Als iets een architectuurbesluit is, leg het vast als ADR in architecture/dr/ en link naar issues en notulen.
+- Meetings: vastleggen -> (optioneel) transcriberen -> samenvatten in architecture/meetings/. Notulen voeden issues en PR's.
+

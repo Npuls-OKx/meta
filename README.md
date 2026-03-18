@@ -2,9 +2,19 @@
 
 **OKx** staat voor het realiseren van **uniforme, gestandaardiseerde koppelvlakken** voor onderwijslogistiek. Het BOPSI-implementatiepad is het uitgangspunt; de scope start bij **MBO** en wordt later uitgebreid naar **HO** (hoger onderwijs). Door koppelvlakken eenduidig te specificeren ontstaat interoperabiliteit tussen systemen en partijen in de onderwijsketen.
 
+## Doel van deze repository: knowledge base
+
+Deze repository is een **knowledge base** die **team OKx maintaint**. Leveranciers, instellingen en geinteresseerden kunnen 24/7 **federatief en asynchroon** bijdragen via **issues** en **pull requests**.
+
+- **Issues**: voorstellen, vragen, meeting follow-ups, ADR-voorstellen
+- **Pull requests (PR's)**: concrete wijzigingen in docs, ArchiMate model, ADR's, meeting-notulen
+- **Projectmanagement**: boards/epics en (optioneel) milestones (handmatig beheerd)
+
+Het domein is complex. We leggen meetings vast, transcriberen ze en vatten ze samen in deze repo, zodat kennis niet in gesprekken blijft hangen maar via issues/PR's doorontwikkelt.
+
 ## Deliverables en inputs
 
-- **Deliverables** (paars in bijlage 1): de concrete producten die OKx oplevert — MOKA-koppelvlakspecificaties, informatiemodellen en waar mogelijk OEAPI-gebaseerde standaarden. Zie [OKx/doc/OKx_Projectoverzicht.md](OKx/doc/OKx_Projectoverzicht.md). Figuur: beheerketen voor tot standkoming koppelvlak specificaties:
+- **Deliverables** (paars in bijlage 1): de concrete producten die OKx oplevert - MOKA-koppelvlakspecificaties, informatiemodellen en waar mogelijk OEAPI-gebaseerde standaarden. Zie [OKx/doc/OKx_Projectoverzicht.md](OKx/doc/OKx_Projectoverzicht.md). Figuur: beheerketen voor tot standkoming koppelvlak specificaties:
 
   ![Beheerketen voor tot standkoming koppelvlak specificaties](OKx/img/OKx_bijlage2_OKx_project_scope_en_afhankelijkheden.jpg)
 
@@ -18,6 +28,14 @@
 | **Deliverables** | Onder [OKx/OKE/](OKx/OKE/) staat het subdomein *Examen – uitvoering en beoordeling* met de bijbehorende **MOKA-koppelvlakspecificaties** (doc, img, scripts). |
 | **Generiek template** | [OKx/moka-koppelvlakspecificaties/Template/](OKx/moka-koppelvlakspecificaties/Template/): MOKA koppelvlak specificatie template en generieke instructies. |
 | **Machine-interpreteerbaar** | Informatiemodellen (JSON), ContextRules en gestructureerde documenten onder de genoemde paden. |
+
+## Architectuur, ADR's en meeting-notulen
+
+- **ArchiMate model**: `architecture/model/model.archimate`
+- **ADR's (decision records)**: `architecture/dr/`
+- **Meetings (notulen + optioneel transcript)**: `architecture/meetings/`
+
+Voor de werkafspraken, governance en hoe je bijdraagt, zie `CONTRIBUTING.md`. Gebruik de issue templates in `.github/ISSUE_TEMPLATE/` voor nieuwe wijzigingsinitiatieven.
 
 ## Relatie met OEAPI
 
