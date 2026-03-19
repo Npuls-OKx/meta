@@ -1,4 +1,4 @@
-Zet de input om naar meeting-notulen volgens ons template.
+Zet het transcript dat wordt mee gegeven in de $ARGUMENTS om naar meeting-notulen volgens ons template.
 
 Eisen:
 
@@ -8,3 +8,6 @@ Eisen:
 
 Template staat in: architecture/meetings/template-notulen.md
 
+Zorg ervoor dat er een map aangemaakt wordt voor de meeting, volgens de naamconventie: [meetingnaam]_[YYYYMMDD].
+Met onder deze map het letterlijke meeting transcript in Markdown volgens de naam conventie: "transcript_[meetingnaam]_[YYYYMMDD].md"
+en de samenvatting: "samenvatting_transcript_[meetingnaam]_[YYYYMMDD].md"

@@ -2,10 +2,14 @@
 
 In deze map leggen we meetings vast zodat het werk federatief en asynchroon door kan ontwikkelen.
 
-Structuur:
+Structuur (kies één conventie per meeting):
 
-- `YYYY/YYYY-MM-DD-onderwerp.md` (notulen / samenvatting)
-- `YYYY/YYYY-MM-DD-onderwerp-transcript.md` (optioneel transcript)
+- **Map + tweetal bestanden (aanbevolen voor Jamie/Cursor-workflow):**  
+  `[meetingnaam]_[YYYYMMDD]/samenvatting_transcript_[meetingnaam]_[YYYYMMDD].md`  
+  `[meetingnaam]_[YYYYMMDD]/transcript_[meetingnaam]_[YYYYMMDD].md`
+- **Alternatief (vlak in `meetings/`):**  
+  `YYYY/YYYY-MM-DD-onderwerp.md` (notulen / samenvatting)  
+  `YYYY/YYYY-MM-DD-onderwerp-transcript.md` (optioneel transcript)
 
 Afspraak:
 
