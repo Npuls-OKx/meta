@@ -4,7 +4,7 @@ Deze repository is de **publieke knowledge base** van **OKx**: hier verzamelen e
 
 ## Wat is OKx?
 
-**OKx** werkt aan **uniforme, gestandaardiseerde koppelvlakken** zodat systemen in de onderwijsketen beter met elkaar kunnen samenwerken. Het **BOPSI-implementatiepad** is het uitgangspunt; de scope start bij **MBO** en wordt later uitgebreid naar **HO**.
+**OKx** werkt aan **uniforme, gestandaardiseerde koppelvlakken** zodat systemen in de onderwijsketen beter met elkaar kunnen samenwerken. Het **BOPSI-implementatiepad** is het uitgangspunt; de scope start bij **MBO** en wordt later uitgebreid naar **HO**. We zijn onderdeel van het [groeifondsprogramma Npuls, onder de Leren Zonder Drempels pilaar](https://npuls.nl/project-onderwijskoppelingen).
 
 Meer context en de huidige stand van zaken: [`doc/OKx_Projectoverzicht.md`](doc/OKx_Projectoverzicht.md).
 
