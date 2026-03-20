@@ -10,4 +10,4 @@ Schrijf simpel en consistent (ASCII waar mogelijk).
 - Het MOKA template zit in `moka-koppelvlakspecificaties/` en is onderdeel van OKx.
 - Gebruik vaste paden in links (bijv. `architecture/dr/`, `architecture/meetings/`).
 
-Als er een nieuw markdown document aangemaakt word, zorg dan dat de index op de READ.me file geüpdatet wordt.
+Als er een nieuw markdown document aangemaakt wordt, zorg dan dat de index op de READ.me file geüpdatet wordt.
