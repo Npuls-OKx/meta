@@ -48,7 +48,7 @@ Hieronder volgt de strategische samenvatting van de bespreking over de voortgang
   - Deelnemers kunnen discussies starten, issues inschieten voor de backlog en bijdragen aan code via Pull Requests.
   - Dit moet de snelheid van de ontwikkeling verhogen en de technische werkgroep direct betrekken bij de specificaties.
 - Er is discussie over de governance en de structuur van de diverse werkgroepen.
-  - Niek en Scott pleiten voor een werkgericht planbord in GitHub voor het ontwerpproces, los van het algemene projectbord van de projectleiders.
+  - Niek en Niels pleiten voor een werkgericht planbord in GitHub voor het ontwerpproces, los van het algemene projectbord van de projectleiders.
   - Voor de werkgroepvergadering op 7 april 2026 moet de commitment van de acht koploper-scholen expliciet worden bevestigd.
 
 
