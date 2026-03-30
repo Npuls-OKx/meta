@@ -8,7 +8,7 @@ Datum: 2026-03-25
 
 Flexibilisering en **“student kiest”** vereisen dat **onderwijskundige** en **logistieke** informatie **samen** worden ontworpen: alleen “stromen tussen systemen” volstaat niet voor **keuze-articulatie**, **LLO**, en **examen-/resultaatketens**. In het kernteamoverleg (maart 2026) wordt dit onder meer gekoppeld aan een **Student Ontwikkelingswallet (EDU-wallet)** (eigendom, toestemming, EduID), de noodzaak van een **Student Kiest Systeem (SKS)** en een **modulaire onderwijsovereenkomst**, aan **enterprise messaging-patronen** (o.a. guaranteed delivery, dead letter, idempotentie, berichtvolgorde), en aan **student journeys** bij pilotinstellingen en **mockups** om draagvlak te creëren.
 
-**Samenhang:** [0001](0001-publieke-repo-en-samenwerkingsmodel.md) beschrijft **waar** we dit vastleggen. [0002](0002-prioriteitsketen-catalogus-drielagen-fundament.md) beschrijft de **eerste technische keten en fundamenten** waarin deze principes **inhoudelijk** landen.
+**Samenhang:** [0001](0001-publieke-repo-en-samenwerkingsmodel.md) beschrijft **waar** we dit vastleggen. [0002](0002-prioriteitsketen-catalogus-drielagen-fundament.md) beschrijft de **eerste technische keten en fundamenten** waarin deze principes **inhoudelijk** landen. [0004](0004-leeruitkomsten-sbu-ec-logistieke-containergrootte.md) verankert **leeruitkomsten + SBU/EC** als maatstaf voor **logistieke containergrootte** in koppelvlakken.
 
 ### Beslissing (concept)
 
@@ -40,7 +40,7 @@ Flexibilisering en **“student kiest”** vereisen dat **onderwijskundige** en 
 
 ### Relaties en links
 
-- **Gerelateerde ADR’s:** [0001](0001-publieke-repo-en-samenwerkingsmodel.md) (repo en workflow), [0002](0002-prioriteitsketen-catalogus-drielagen-fundament.md) (keten en fundament)
+- **Gerelateerde ADR’s:** [0001](0001-publieke-repo-en-samenwerkingsmodel.md) (repo en workflow), [0002](0002-prioriteitsketen-catalogus-drielagen-fundament.md) (keten en fundament), [0004](0004-leeruitkomsten-sbu-ec-logistieke-containergrootte.md) (SBU/EC als logistieke grootte bij leeruitkomsten)
 - Issues: #(te koppelen)
 - PR: #(te vullen)
 - Meetings:

@@ -1,4 +1,4 @@
-Maak één of meerdere concept ADR's in Markdown volgens ons ADR template op basis van meeting transcripties en samenvattingen $ARGUMENTS.
+Maak één of meerdere concept ADR's in Markdown volgens ons ADR template op basis van meeting transcripties, samenvattingen en bestaande ADR's $ARGUMENTS.
 
 Eisen:
 

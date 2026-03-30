@@ -35,4 +35,5 @@ Template:
 | 0001 | [`0001-publieke-repo-en-samenwerkingsmodel.md`](0001-publieke-repo-en-samenwerkingsmodel.md) | Publieke repo als bron van waarheid, PR’s, issues, review |
 | 0002 | [`0002-prioriteitsketen-catalogus-drielagen-fundament.md`](0002-prioriteitsketen-catalogus-drielagen-fundament.md) | Eerste keten curriculum–catalogus; MORA/MOKA-drielagen-fundament |
 | 0003 | [`0003-student-kiest-leeruitkomsten-domeinprincipes.md`](0003-student-kiest-leeruitkomsten-domeinprincipes.md) | Student kiest, leeruitkomsten, onderwijskundige laag + journeys |
+| 0004 | [`0004-leeruitkomsten-sbu-ec-logistieke-containergrootte.md`](0004-leeruitkomsten-sbu-ec-logistieke-containergrootte.md) | Leeruitkomsten + SBU/EC als logistieke containergrootte (mbo/hbo) |
 
