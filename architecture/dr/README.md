@@ -37,4 +37,9 @@ Template:
 | 0003 | [`0003-student-kiest-leeruitkomsten-domeinprincipes.md`](0003-student-kiest-leeruitkomsten-domeinprincipes.md) | Student kiest, leeruitkomsten, onderwijskundige laag + journeys |
 | 0004 | [`0004-leeruitkomsten-sbu-ec-logistieke-containergrootte.md`](0004-leeruitkomsten-sbu-ec-logistieke-containergrootte.md) | Leeruitkomsten + SBU/EC als logistieke containergrootte (mbo/hbo) |
 | 0005 | [`0005-student-keuze-systeem-zelfstandige-referentiecomponent.md`](0005-student-keuze-systeem-zelfstandige-referentiecomponent.md) | SKS als eigen referentiecomponent; MVP-fundament; koppeling SVS |
+| 0006 | [`0006-studentorientatie-trechter-ketenfase.md`](0006-studentorientatie-trechter-ketenfase.md) | Studentoriëntatie als ketenfase; trechter naar leeruitkomsten *(concept)* |
+| 0007 | [`0007-keuzecriteria-trechters-onderwijscatalogus.md`](0007-keuzecriteria-trechters-onderwijscatalogus.md) | Keuzecriteria en trechters t.o.v. catalogus *(concept)* |
+| 0008 | [`0008-scope-planning-eerst-intra-instelling.md`](0008-scope-planning-eerst-intra-instelling.md) | Eerst intra-instelling; federatie gefaseerd *(concept)* |
+| 0009 | [`0009-sks-svs-rollenverdeling-keuze-vs-resultaat-voortgang.md`](0009-sks-svs-rollenverdeling-keuze-vs-resultaat-voortgang.md) | SKS vs SVS rollen (keuze vs resultaat/LMS) *(concept)* |
+| 0010 | [`0010-archimate-moka-informatiemodel-werkafspraken.md`](0010-archimate-moka-informatiemodel-werkafspraken.md) | Werkafspraken model.archimate + MOKA-IM *(concept)* |
 

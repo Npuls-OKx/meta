@@ -15,11 +15,17 @@ Dit document **vat samen** welke architectuurrichting uit **Architecture Decisio
 | [0003 – Student kiest en leeruitkomsten](../architecture/dr/0003-student-kiest-leeruitkomsten-domeinprincipes.md) | Domeinprincipes flexibilisering |
 | [0004 – Leeruitkomsten en SBU/EC](../architecture/dr/0004-leeruitkomsten-sbu-ec-logistieke-containergrootte.md) | Inhoud (LO) + studielast als logistieke maat |
 | [0005 – SKS als referentiecomponent](../architecture/dr/0005-student-keuze-systeem-zelfstandige-referentiecomponent.md) | Student Keuze Systeem los op de plaat en in het model |
+| [0006 – Studentoriëntatie (trechter)](../architecture/dr/0006-studentorientatie-trechter-ketenfase.md) | Oriëntatie als ketenfase; mapping naar leeruitkomsten *(concept)* |
+| [0007 – Keuzecriteria / trechters](../architecture/dr/0007-keuzecriteria-trechters-onderwijscatalogus.md) | Filters t.o.v. onderwijscatalogus *(concept)* |
+| [0008 – Scope intra-instelling eerst](../architecture/dr/0008-scope-planning-eerst-intra-instelling.md) | Federatie gefaseerd; eerst één instelling *(concept)* |
+| [0009 – SKS vs SVS rollen](../architecture/dr/0009-sks-svs-rollenverdeling-keuze-vs-resultaat-voortgang.md) | Keuze vs resultaat/voortgang *(concept)* |
+| [0010 – Model- en MOKA-werkafspraken](../architecture/dr/0010-archimate-moka-informatiemodel-werkafspraken.md) | Concurrent editing, sync informatiemodel *(concept)* |
 
 ### Meetings (context en onderbouwing)
 
 - `architecture/meetings/okx_kernteam_inhoud_uitwerken_studentkiest_flexibelonderwijs_overeenkomst_20260325/summary.md` (en transcript in dezelfde map)
 - `architecture/meetings/OKx_kernteam_inhoud_voorbereidingleveranciersessie_20260327/summary.md` (en transcript in dezelfde map)
+- `architecture/meetings/okx_kernteam_inhoud_uitwerken_kaderstelling_student_keuze_criteria_20260331/summary.md` (en transcript in dezelfde map; o.a. oriëntatie, trechters, scope, SKS/SVS, modelafspraken)
 - `doc/meetings kernteam/okx_si_team_afstemming_josvdarend_240326/okx_si_team_afstemming_josvdarend_aanhaken_voortgang_okx_240326_summary.md` (en transcript in dezelfde map)
 
 ## Samenvatting per thema
@@ -62,6 +68,13 @@ Dit document **vat samen** welke architectuurrichting uit **Architecture Decisio
 - OKx levert **MVP-fundament** en **minimuminformatie** voor leveranciers; volledige productspecificatie van het SKS valt **buiten** de volledige OKx-scope (zie [0005](../architecture/dr/0005-student-keuze-systeem-zelfstandige-referentiecomponent.md)).
 - **SVS** blijft een **aparte** bouwsteen waaraan het SKS **gekoppeld** wordt; ketenstromen blijven **expliciet**.
 
+### 6. Kaderstelling studentkeuze (kernteam 31 maart 2026, concept-ADR’s)
+
+- **0006–0007:** **Studentoriëntatie** met **trechter** naar gestandaardiseerde **leeruitkomsten** en **gestructureerde keuzecriteria** (o.a. geo, budget, horizon, instroom) vóór overload van de catalogus.
+- **0008:** **Eerst** keten/planning **binnen één instelling**; sectorbrede orchestratie en brokers **gefaseerd**.
+- **0009:** Nadere **rollenverdeling SKS vs SVS** (keuze-interactie versus resultaatstructuren en LMS-voortgang), als verfijning op [0005](../architecture/dr/0005-student-keuze-systeem-zelfstandige-referentiecomponent.md).
+- **0010:** **Werkafspraken** voor `model.archimate` en **MOKA-informatiemodel** (voorkomen merge-conflicten; geplande sync-sessie).
+
 ## Impact op `architecture/model/model.archimate`
 
 Samengevat (detail per ADR):
@@ -71,6 +84,10 @@ Samengevat (detail per ADR):
 - **0003:** **domeinconcepten** (rollen, leeruitkomsten, keuze) zichtbaar of traceerbaar in relevante views.
 - **0004:** **studielast** (SBU/EC) en **relatie leeruitkomst ↔ aanbodsonderdeel** in relevante informatie- en ketenviews.
 - **0005:** **SKS** als **apart** element; relaties voor stromen met **Student Kiest** in de hoofdplaattabel.
+- **0006–0007:** proces- en **informatie-objecten** voor oriëntatie, **filters** en catalogusquery.
+- **0008:** **scenario-/scope-labels** (intra- vs multi-instelling) waar dat de review helpt.
+- **0009:** relaties **SKS** ↔ **catalogus** / **SVS** / **LMS** met **heldere** rollen.
+- **0010:** **proces** voor wijzigingen aan het model; inhoudelijke sync MOKA-IM met keten-ADR’s.
 
 **Let op:** het bestand `model.archimate` wordt **alleen** gewijzigd via het afgesproken repo-proces (geen directe ongecontroleerde edits).
 
