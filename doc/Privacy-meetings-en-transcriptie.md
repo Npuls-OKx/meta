@@ -92,5 +92,5 @@ Dit sluit aan bij het doel van OKx: **publiek** gedachtegoed en sectorbrede afsp
 ## 8. Gerelateerde documenten
 
 - [`README.md`](../README.md) — korte verwijzing en context
-- [`architecture/docs/principes.md`](../architecture/docs/principes.md) — o.a. machine-interpreteerbare formaten en AI-ondersteuning van de repo
+- [`architecture/docs/principes/doc/principes.md`](../architecture/docs/principes/doc/principes.md) — o.a. machine-interpreteerbare formaten en AI-ondersteuning van de repo
 - [`CONTRIBUTING.md`](../CONTRIBUTING.md) — vastleggen van meetings in `architecture/meetings/`

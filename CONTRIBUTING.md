@@ -16,7 +16,7 @@ Uitgebreider en voor nieuwe bijdragers: sectie *Waar draait deze repository om?*
 ### Waar meld je wat? (kort)
 
 - **OKx-kern** (ketenfundament, informatiestromen, ArchiMate/MOKA-views): open een issue/PR in deze repo.
-- **Klein/vroeg koppelvlakinitiatief** (bijv. start met minimaal 2 instellingen + 2 leveranciers): neem contact op met **MOKA** en werk volgens **AMIGO** (`https://www.edustandaard.nl/amigo/aanpak/`) met “**OEAPI, tenzij**”. Voor richtlijnen: [`moka-koppelvlakspecificaties/guidelines/OKx-guidelines-v01-09-25.md`](moka-koppelvlakspecificaties/guidelines/OKx-guidelines-v01-09-25.md).
+- **Klein/vroeg koppelvlakinitiatief** (bijv. start met minimaal 2 instellingen + 2 leveranciers): neem contact op met **MOKA** en werk volgens **AMIGO** (`https://www.edustandaard.nl/amigo/aanpak/`) met “**OEAPI, tenzij**”. Voor richtlijnen: [`moka-koppelvlakspecificaties/guidelines/doc/OKx-guidelines-v01-09-25.md`](moka-koppelvlakspecificaties/guidelines/doc/OKx-guidelines-v01-09-25.md).
 - **Naar standaard/afsprakenstelsel (OKx/MOKA)**: om te komen tot een (sector)standaard en afsprakenstelsel volgens de **OKx guidelines**, moet een initiatief aantoonbaar **breder gedragen** zijn: **meer dan 1 instelling én meer dan 1 leverancier** moeten aangehaakt zijn (minimaal 2+2).
 
 ### Governance
@@ -99,7 +99,7 @@ Uitgebreide uitleg voor beginners (Git, GitHub, Cursor, epics/issues, sprints): 
 
 ### Ontwerpprincipes
 
-Zie [`architecture/docs/principes.md`](architecture/docs/principes.md) (design first, OEAPI als voorkeur tenzij strategisch anders).
+Zie [`architecture/docs/principes/doc/principes.md`](architecture/docs/principes/doc/principes.md) (design first, OEAPI als voorkeur tenzij strategisch anders).
 
 ### Meetings vastleggen
 

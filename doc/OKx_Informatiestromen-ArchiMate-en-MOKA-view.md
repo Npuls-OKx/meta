@@ -2,7 +2,7 @@
 
 Dit document is bedoeld voor **nieuwe aanhakers**: hoe de **hoofdplaat** en de **tabel met informatiestromen** in het [projectoverzicht](OKx_Projectoverzicht.md) samenhangen met het **ArchiMate-model** in deze repository, en **waar** je de grote MOKA-**koppelvlakspecificatie-view** **Basis Model** vindt.
 
-Het is **geen** volledige uitleg van het MOKA-metamodel; zie principes in [`architecture/docs/principes.md`](../architecture/docs/principes.md) en de [ADR’s over keten en fundament](../architecture/dr/0002-prioriteitsketen-catalogus-drielagen-fundament.md).
+Het is **geen** volledige uitleg van het MOKA-metamodel; zie principes in [`architecture/docs/principes/doc/principes.md`](../architecture/docs/principes/doc/principes.md) en de [ADR’s over keten en fundament](../architecture/dr/0002-prioriteitsketen-catalogus-drielagen-fundament.md).
 
 ## Drie lagen: plaat, model, en één view
 
