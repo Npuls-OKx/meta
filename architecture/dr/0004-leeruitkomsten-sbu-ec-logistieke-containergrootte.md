@@ -52,7 +52,7 @@ In de voorbereiding op de **leverancierssessie** (27 maart 2026) is benadrukt da
   - `architecture/meetings/OKx_kernteam_inhoud_voorbereidingleveranciersessie_20260327/transcript.md` — o.a. EC’s in mockups, studieplan, leeruitkomsten/indicatoren
   - `architecture/meetings/okx_kernteam_inhoud_uitwerken_studentkiest_flexibelonderwijs_overeenkomst_20260325/summary.md` (context leeruitkomsten in keten)
 - ArchiMate: `architecture/model/model.archimate`
-- Docs: `[doc/OKx_Projectoverzicht.md](../../doc/OKx_Projectoverzicht.md)`, `[architecture/docs/principes.md](../docs/principes.md)`, [OEAPI v6.0](https://openonderwijsapi.nl/v6.0/)
+- Docs: `[doc/OKx_Projectoverzicht.md](../../doc/OKx_Projectoverzicht.md)`, [`architecture/docs/principes/doc/principes.md`](../docs/principes/doc/principes.md), [OEAPI v6.0](https://openonderwijsapi.nl/v6.0/)
 
 ### Vervangt (optioneel)
 

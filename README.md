@@ -48,7 +48,7 @@ Voor concrete wijzigingen werken we via **issues** en **pull requests**. Zie [`C
 | **Projectcontext** | [`doc/`](doc/) en [`img/`](img/) | Overzichten, ketenplaten, bijlagen en contextdocumenten |
 | **OKE uitwerking** | [`OKE/`](OKE/) | Eerste subdomein-uitwerking (o.a. examen: uitvoering en beoordeling) |
 | **MOKA templates** | [`moka-koppelvlakspecificaties/`](moka-koppelvlakspecificaties/) | Templates en generieke instructies voor koppelvlakspecificaties |
-| **Architectuur & besluiten** | [`architecture/`](architecture/) | ArchiMate-model, ADR’s, meeting-notulen en [`architecture/docs/principes.md`](architecture/docs/principes.md) |
+| **Architectuur & besluiten** | [`architecture/`](architecture/) | ArchiMate-model, ADR’s, meeting-notulen en [`architecture/docs/principes/doc/principes.md`](architecture/docs/principes/doc/principes.md) |
 | **Agent-artifacten** | [`architecture/agent-artifacts/`](architecture/agent-artifacts/) | Projectaanvragen, featureplannen en ontwerpdocumenten (Cursor slash commands); zie [`architecture/agent-artifacts/README.md`](architecture/agent-artifacts/README.md) |
 | **Cursor (AI)** | [`.cursor/commands/`](.cursor/commands/) en [`.cursor/rules/`](.cursor/rules/) | Slash commands (`/…`) en rules; uitleg in [`doc/Bijdragen-voor-beginners.md`](doc/Bijdragen-voor-beginners.md) |
 

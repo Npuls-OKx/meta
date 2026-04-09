@@ -599,7 +599,7 @@ flowchart LR
 
 ## 17. Ontwerp- en standaardprincipes
 
-**Design first**, **OEAPI**, **machine-interpreteerbare formaten**, **show don't tell / diagram-first**: [`architecture/docs/principes.md`](../architecture/docs/principes.md).
+**Design first**, **OEAPI**, **machine-interpreteerbare formaten**, **show don't tell / diagram-first**: [`architecture/docs/principes/doc/principes.md`](../architecture/docs/principes/doc/principes.md).
 
 ---
 
