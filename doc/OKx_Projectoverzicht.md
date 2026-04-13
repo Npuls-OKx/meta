@@ -28,7 +28,7 @@ OKx volgt de **AMIGO-aanpak** voor het komen tot (sectorale) standaardafspraken:
 
 Niet alle koppelvlakken hoeven te wachten op de volledige OKx-projectaanpak. Voor **kleinere of vroege initiatieven** (bijv. start met minimaal 2 instellingen en 2 verschillende leveranciers) is er een route via de **werkgroep MOKA** (Middelbaar Onderwijs Koppelvlakken Architectuur; subdomein onder **MORA**). Een voorbeeld is **OKD** (Onderwijskoppeling Documentmanagement): `https://github.com/Onderwijs-Koppelingen-OKx/OKD-Document-Management`. Dit initiatief is echter nadrukkelijk nog *geen* sector standaard. Tot dat de sector architectuur gremia hierop akkoord geven en de specificaties volgens Edustandaard standaarden zijn beschreven en aangemeld bij dit orgaan.
 
-De AMIGO-aanpak is ook daar de basis; voor praktische richtlijnen en werkwijze verwijzen we naar de (gereleasde) **OKx guidelines**: [`moka-koppelvlakspecificaties/guidelines/OKx-guidelines-v01-09-25.md`](../moka-koppelvlakspecificaties/guidelines/OKx-guidelines-v01-09-25.md).
+De AMIGO-aanpak is ook daar de basis; voor praktische richtlijnen en werkwijze verwijzen we naar de (gereleasde) **OKx guidelines**: [`moka-koppelvlakspecificaties/guidelines/doc/OKx-guidelines-v01-09-25.md`](../moka-koppelvlakspecificaties/guidelines/doc/OKx-guidelines-v01-09-25.md).
 
 Voor vragen neem contact op met de MOKA. Tijdelijk via doorverwijzing via niek.derksen@surf.nl.
 

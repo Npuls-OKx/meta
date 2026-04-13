@@ -37,4 +37,5 @@ Template:
 | 0003 | [`0003-student-kiest-leeruitkomsten-domeinprincipes.md`](0003-student-kiest-leeruitkomsten-domeinprincipes.md) | Student kiest, leeruitkomsten, onderwijskundige laag + journeys |
 | 0004 | [`0004-leeruitkomsten-sbu-ec-logistieke-containergrootte.md`](0004-leeruitkomsten-sbu-ec-logistieke-containergrootte.md) | Leeruitkomsten + SBU/EC als logistieke containergrootte (mbo/hbo) |
 | 0005 | [`0005-student-keuze-systeem-zelfstandige-referentiecomponent.md`](0005-student-keuze-systeem-zelfstandige-referentiecomponent.md) | SKS als eigen referentiecomponent; MVP-fundament; koppeling SVS |
+| 0006 | [`0006-consolidatie-architectuurprincipes.md`](0006-consolidatie-architectuurprincipes.md) | Consolidatie AP01–AP17 → AP01–AP12; review-afwegingen en besluiten |
 
