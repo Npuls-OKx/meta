@@ -4,20 +4,49 @@
 **Datum:** 2026-04-09
 **Consolidatie:** Zie [ADR 0006](../../../dr/0006-consolidatie-architectuurprincipes.md) voor de afwegingen en besluiten achter deze principes.
 
-Dit document vat **richtinggevende principes** samen voor uitwerkingen in deze knowledge base (documentatie, koppelvlakspecificaties, modellen). Het is geen vervanging van concrete ADR's; bij twijfel of uitzondering leg je een besluit vast in `architecture/dr/`.
+Dit document beschrijft de **architectuurprincipes** en **uitgangspunten** voor uitwerkingen in deze knowledge base (documentatie, koppelvlakspecificaties, modellen). Het is geen vervanging van concrete ADR's; bij twijfel of uitzondering leg je een besluit vast in `architecture/dr/`.
 
-De principes zijn geformuleerd in stelling, rationale, implicaties en worden gevoed door de [MOSA-visie op sectorvoorzieningen](MOSA-Visiedocument.md), de [MOSA vs OKx analyse](MOSA_vs_OKx_analyse.md), en de praktijkervaring van het OKx-kernteam.
+**Onderscheid principes en uitgangspunten:**
+
+- **Principes** zijn abstracte, stabiele richtlijnen die niet snel wijzigen. Ze beschrijven *waarom* we dingen op een bepaalde manier doen.
+- **Uitgangspunten** zijn gefundeerde besluiten om blocking issues te voorkomen. Ze zijn concreter, kunnen evolueren met voortschrijdend inzicht, en beschrijven *wat* we aannemen en *hoe* we werken.
+
+Beide worden gevoed door de [MOSA-visie op sectorvoorzieningen](MOSA-Visiedocument.md), de [MOSA vs OKx analyse](MOSA_vs_OKx_analyse.md), en de praktijkervaring van het OKx-kernteam.
 
 ---
 
-## Werkafspraken voor de knowledge base
+## OKx-uitgangspunten
 
-Onderstaande werkafspraken gelden voor iedereen die bijdraagt aan deze repo. Ze zijn niet genummerd als architectuurprincipe, maar vormen de operationele basis.
+Onderstaande uitgangspunten gelden voor iedereen die bijdraagt aan OKx. Ze zijn geen architectuurprincipes maar vormen de gefundeerde basis waarop we werken. Uitgangspunten kunnen wijzigen via **pull request** en, indien nodig, **ADR**.
 
-- **Machine-interpreteerbare formaten** — Uitwerkingen zijn zoveel mogelijk gestructureerd (Markdown, JSON-informatiemodellen, tabellen, schema's). Dit maakt automatisering, AI-assistentie en consistente validatie mogelijk. Publiceer geen vertrouwelijke of persoonsgevoelige gegevens; zie [`doc/Privacy-meetings-en-transcriptie.md`](../../../../doc/Privacy-meetings-en-transcriptie.md).
-- **Show don't tell (diagram-first)** — Liever diagrammen (Mermaid, ArchiMate), tabellen en korte bullets dan lange lappen tekst. Zie [`doc/Bijdragen-voor-beginners.md`](../../../../doc/Bijdragen-voor-beginners.md) voor voorbeelden.
-- **Levend document** — Deze principes mogen worden aangescherpt naarmate OKx volwassener wordt. Wijzigingen gaan via **pull request** en, indien nodig, **ADR**.
+### Technologie en standaarden
+
+- **OEAPI, tenzij** — Technologiekeuze voor koppelvlakken is **[OEAPI](https://openonderwijsapi.nl/)**, tenzij OEAPI aantoonbaar niet past. Afwijkingen bevatten een korte "tenzij"-onderbouwing (wat past niet, trade-offs, impact). Bij structurele afwijking: leg vast als ADR. Geen vendor-specifieke extensies zonder ADR. Dit uitgangspunt ondersteunt AP04 (koppelvlakken als open, gestandaardiseerde contracten).
 - **Open-source tooling voorkeur** — Tooling voor specificatie, validatie en generatie is bij voorkeur open source. Specificaties worden in open formaten opgeleverd (OpenAPI/Swagger, JSON Schema, Markdown). Geen verplichte afhankelijkheid van propriëtaire specificatietools.
+- **Machine-interpreteerbare formaten** — Uitwerkingen zijn zoveel mogelijk gestructureerd (Markdown, JSON-informatiemodellen, tabellen, schema's). Dit maakt automatisering, AI-assistentie en consistente validatie mogelijk. Publiceer geen vertrouwelijke of persoonsgevoelige gegevens; zie [`doc/Privacy-meetings-en-transcriptie.md`](../../../../doc/Privacy-meetings-en-transcriptie.md).
+
+### Randvoorwaardelijke domeinen
+
+- **IDM en provisioning als randvoorwaarde** — Identity Management en provisioning vallen buiten OKx-scope, maar zijn een **kritische randvoorwaarde** voor correcte werking van koppelvlakken. Zonder helder bronsysteem voor persoonsattributen ontstaat het risico dat functionele componenten onbedoeld identiteitsdata gaan distribueren (zie [AP13](#okx-ap13--source-system-ownership-en-doelbinding-per-referentiecomponent)). OKx benoemt IDM/provisioning expliciet als randvoorwaarde in koppelvlakspecificaties, maar schrijft de oplossing niet voor.
+
+### Kwaliteit en verificatie
+
+- **Test-driven op berichtniveau** — Koppelvlakspecificaties worden bij voorkeur test-driven ontwikkeld: beschrijf eerst de **testcase** (given-when-then), ga daarna bouwen. Door op berichtniveau te testen wordt de interoperabiliteit concreet verifieerbaar vóórdat implementaties worden opgeleverd. Dit versnelt validatie bij leveranciers en voorkomt late integratieproblemen.
+
+### Afstemming en beschrijvingswijze
+
+- **Afstemming met referentiearchitecturen** — OKx stemt de beschrijvingswijze af op de aanpak binnen **MORA** (mbo), **HORA** (ho) en **FORA** (federatief), maar blijft **pragmatisch**: het snijvlak is dat we iets moeten realiseren én tegelijkertijd de keten voldoende beschrijven — maar niet zo veel dat we in een ivoren toren belanden. Voldoende beschrijven, niet overbeschrijven.
+- **Show don't tell — praktische voorbeelden zo dicht mogelijk bij het eindresultaat** — Liever OEAPI-profielen, API-specs, mockups, diagrammen (Mermaid, ArchiMate) en korte bullets dan lange lappen tekst. Hoe dichter het artefact bij het eindresultaat, hoe sneller adoptie in diverse gremia verloopt. Zie [`doc/Bijdragen-voor-beginners.md`](../../../../doc/Bijdragen-voor-beginners.md) voor voorbeelden.
+
+### Adoptie en transitie
+
+- **BOPSI-aanpak voor adoptie** — OKx bouwt niet alleen een oplossing maar helpt ook bij het adoptieproces. Via de **BOPSI-aanpak** (Beleid, Organisatie, Proces, Systeem, Informatie) kijken we samen met instellingen waar de huidige situatie (IST) moet veranderen per BOPSI-aspect om toe te groeien naar de streefarchitectuur (SOLL) die we nu uitzetten. Architecture-based designs worden vertaald naar concrete transitiepaden per instelling.
+- **Borging in lijnorganisaties** — OKx is een programma/project met een einddatum. Dragen we actief bij aan de vorming van nieuwe of ondersteuning van bestaande **lijnorganisaties** die beoogde deliverables in beheer gaan nemen. Borgingsaspecten (eigenaarschap, governance, financiering, competenties) worden expliciet meegenomen in het ontwerp, niet pas bedacht bij oplevering.
+
+### Samenwerking en openheid
+
+- **Samen ontwerpen — open boek** — Het domein is te groot en te complex voor één team. OKx werkt als open boek: zoek de fouten, deel ze, en doe constructieve verbetervoorstellen. Iedereen — leveranciers, instellingen, architecten, docenten — is welkom om mee te denken en bij te dragen. Alles via issues en PR's.
+- **Levend document** — Uitgangspunten mogen worden aangescherpt naarmate OKx volwassener wordt. Wijzigingen gaan via **pull request** en, indien nodig, **ADR**.
 
 ### Gerelateerde documenten
 
@@ -28,14 +57,14 @@ Onderstaande werkafspraken gelden voor iedereen die bijdraagt aan deze repo. Ze 
 - [`architecture/dr/`](../../../dr/) — Architecture Decision Records
 - [MOSA-Visiedocument](MOSA-Visiedocument.md) — sectorarchitectuur voor sectorvoorzieningen in het mbo
 - [MOSA vs OKx analyse](MOSA_vs_OKx_analyse.md) — overlap, verschillen en afleidbare principes
-- [ADR 0006 — Consolidatie architectuurprincipes](../../../dr/0006-consolidatie-architectuurprincipes.md) — afwegingen achter de consolidatie van 17 naar 12 principes
+- [ADR 0006 — Consolidatie architectuurprincipes](../../../dr/0006-consolidatie-architectuurprincipes.md) — afwegingen achter de consolidatie en uitgangspunten
 - [Edu-V Architectuurprincipes](https://edu-v.atlassian.net/wiki/spaces/AFSPRAKENS/pages/2031619/Architectuurprincipes) — referentiekader (met name principe D: Regie op gegevens)
 
 ---
 
 ## OKx architectuurprincipes
 
-Onderstaande principes hebben een korte **stelling**, **rationale** en **implicaties**. Waar een principe tot concrete keuzes leidt, leggen we dat vast als **ADR**.
+Onderstaande principes zijn abstract en stabiel. Ze hebben een korte **stelling**, **rationale** en **implicaties**. Waar een principe tot concrete keuzes leidt, leggen we dat vast als **ADR**.
 
 ### OKx-AP01 — Keten vóór koppelvlak
 
@@ -62,25 +91,26 @@ Onderstaande principes hebben een korte **stelling**, **rationale** en **implica
   - Een technische uitwerking bevat altijd verwijzing naar de bijbehorende scenario-, gegevens- en interactieanalyse.
   - OKx werkt onder de standaarden en architectuur van Edustandaard; uitwerkingen moeten daar in passen of een expliciet wijzigingsverzoek bevatten.
 
-### OKx-AP04 — OEAPI, tenzij — open en leverancierneutraal
+### OKx-AP04 — Koppelvlakken als open, gestandaardiseerde contracten
 
-- **Stelling**: Technologiekeuze is **[OEAPI](https://openonderwijsapi.nl/)**, tenzij OEAPI aantoonbaar niet past. Specificaties zijn **leverancierneutraal** en creëren geen lock-in.
-- **Rationale**: Hergebruik van een brede, open sectorstandaard vermindert maatwerk en vergroot interoperabiliteit. MOSA-principe 4 (open ecosysteem, internationale open standaarden) en MOSA-principe 1 (leveranciersonafhankelijkheid) versterken dit. Specificaties moeten door willekeurige leveranciers implementeerbaar zijn, ongeacht hun technologiestack.
+- **Stelling**: Elk koppelvlak fungeert als een **open, gestandaardiseerd contract** tussen referentiecomponenten. Het doel is **modulariteit vergroten** en **lock-in reduceren**: instellingen kunnen componenten onafhankelijk van elkaar vervangen zolang het contract wordt nageleefd.
+- **Rationale**: Zonder gestandaardiseerde contracten zijn instellingen afhankelijk van bilaterale, leverancier-specifieke integraties. Elke leverancierswissel vereist dan herontwerp van alle koppelingen. Door het koppelvlak zelf als het bindende, open contract te behandelen — niet de applicatie of de leveranciersrelatie — ontstaat echte modulariteit: een instelling kan een LMS of SVS vervangen zonder dat de rest van de keten breekt. MOSA-principe 4 (open ecosysteem, internationale open standaarden) en MOSA-principe 1 (leveranciersonafhankelijkheid) versterken dit. De concrete technologiekeuze (OEAPI, tenzij) is vastgelegd als [uitgangspunt](#technologie-en-standaarden).
 - **Implicaties**:
-  - Afwijkingen bevatten een korte "tenzij"-onderbouwing (wat past niet, trade-offs, impact).
-  - Bij structurele afwijking: leg vast als ADR.
-  - Geen vendor-specifieke extensies zonder ADR.
+  - Het koppelvlak is het **contractpunt**: wat niet in de koppelvlakspecificatie staat, kan niet worden afgedwongen tussen ketenpartijen. Dit dwingt expliciete, volledige specificatie af.
   - Specificaties zijn implementeerbaar met gangbare technologiestacks; vermijd afhankelijkheden van specifieke cloudplatformen of propriëtaire tooling.
+  - Geen vendor-specifieke extensies zonder ADR.
   - Houd de oplossing zo dicht mogelijk bij bredere afspraken (MOKA, BOPSI, andere erkende kaders).
+  - De gestandaardiseerde contracten ondersteunen **componentsgewijze vervanging**: een instelling moet een referentiecomponent kunnen vervangen door een ander product dat hetzelfde contract implementeert, zonder impact op de rest van de keten.
 
-### OKx-AP05 — Referentiecomponenten boven applicatiedenken
+### OKx-AP05 — Referentiecomponenten als gedeeld referentiekader
 
-- **Stelling**: OKx beschrijft koppelvlakken tussen **referentiecomponenten**, niet tussen applicaties.
-- **Rationale**: Instellingen denken vaak in applicaties: een systeem dat door één leverancier geleverd wordt en meerdere functies bevat. Die applicatiegrens verschilt per leverancier — de ene noemt iets een "vak", de andere een "module". Zolang we in applicaties denken, is semantische overeenstemming onbereikbaar. Referentiecomponenten (Onderwijscatalogus, SKS, SVS, KRS, LMS, etc.) maken de **functie** expliciet, onafhankelijk van de leverancier die ze invult. MOSA-principe 3 stelt dat componenten onafhankelijk, schaalbaar en ontkoppelbaar moeten zijn.
+- **Stelling**: OKx beschrijft koppelvlakken in termen van **referentiecomponenten** — een gedeeld referentiekader voor functie en gedrag. Leveranciers behouden volledige **soevereiniteit** over de inrichting van hun applicaties.
+- **Rationale**: Applicatie A is niet rechtstreeks vergelijkbaar met applicatie B: elke leverancier biedt een eigen combinatie van functies, onder eigen naamgeving en met eigen grenzen. Zonder gedeeld vocabulaire voor functie en gedrag is semantische overeenstemming op koppelvlakken onbereikbaar. Referentiecomponenten (Onderwijscatalogus, SKS, SVS, KRS, LMS, etc.) bieden dat vocabulaire: ze beschrijven **wat** een component doet en **hoe** het zich gedraagt in de keten, onafhankelijk van welke leverancier het invult. OKx gaat uitsluitend over de **koppelvlakinteractie** tussen die referentiecomponenten — niet over wat er achter het koppelvlak gebeurt. Leveranciers hebben volledige vrijheid in hoe zij hun applicatie(s) inrichten, welke functies zij combineren, en hoe zij de referentiecomponent(en) die zij bedienen intern realiseren. MOSA-principe 3 stelt dat componenten onafhankelijk, schaalbaar en ontkoppelbaar moeten zijn; dit principe vult aan dat die onafhankelijkheid ook de **leveranciersvrijheid** aan de applicatiekant omvat.
 - **Implicaties**:
-  - Koppelvlakken worden gespecificeerd op referentiecomponentniveau, niet op applicatieniveau.
-  - Leveranciers mappen zelf hun applicatie(s) op één of meer referentiecomponenten.
-  - Componenten worden niet stilzwijgend samengevoegd; wijzigingen aan componentafbakening vereisen een ADR + migratiepad.
+  - Koppelvlakken worden gespecificeerd op referentiecomponentniveau, niet op applicatieniveau. Dit is een **taalafspraak** voor standaardisering, geen beperking van applicatiefunctionaliteit.
+  - Leveranciers mappen zelf hun applicatie(s) op één of meer referentiecomponenten. Hoe zij dat intern organiseren is hun eigen keuze.
+  - OKx schrijft niet voor welke functionaliteit een applicatie wel of niet mag bevatten — alleen welk gedrag zichtbaar moet zijn op het koppelvlak.
+  - Componentafbakening in de referentiearchitectuur wijzigt alleen via ADR + migratiepad; dit raakt de koppelvlakdefinitie, niet de applicatie-inrichting van leveranciers.
   - Elk koppelvlak beschrijft welke referentiecomponenten betrokken zijn en welke verantwoordelijkheid bij welk component hoort.
 
 ### OKx-AP06 — Contracten zijn versieerbaar en evolueerbaar
@@ -154,3 +184,14 @@ Onderstaande principes hebben een korte **stelling**, **rationale** en **implica
   - Bij het ontwerp van stromen die gebruikers raken: beschrijf de impact op de **student-ervaring** (student journey als basis).
   - Beschrijf ook hoe de **onderwijskundige, planner, coach/begeleider/docent** en **ondersteunend personeel** de wijziging ervaart.
   - Voorzieningen voor Leven Lang Ontwikkelen (LLO) en flexibel onderwijs zijn toetscriteria voor ketenontwerp.
+
+### OKx-AP13 — Source system ownership en doelbinding per referentiecomponent
+
+- **Stelling**: Elk koppelvlak maakt expliciet welk referentiecomponent de **bron** is van welke data. Een component draagt uitsluitend data die bij zijn eigen functie hoort.
+- **Rationale**: In een keten van referentiecomponenten ontstaat het risico dat het eerste component dat een associatie legt (bijv. SKS koppelt een student aan een LMS) onbedoeld verantwoordelijk wordt voor het doorleveren van persoonsattributen die het downstream systeem nodig heeft. Maar SKS is geen bronsysteem voor persoonsdata — dat is het IDM/provisioningsdomein. Zonder expliciete bronverantwoordelijkheid per attribuut verwatert dataminimalisatie (AP07), worden componentgrenzen (AP05) ondermijnd, en ontstaan schaduw-kopieën van identiteitsdata in systemen die daar niet voor bedoeld zijn. MOSA §6 adresseert IAM als apart domein; OKx maakt dit concreet per koppelvlak.
+- **Implicaties**:
+  - Elke koppelvlakspecificatie bevat een **data-ownership-tabel**: per attribuut of attribuutgroep is aangegeven welk referentiecomponent de bron is (owner), welke consumenten er zijn, en op welke grondslag.
+  - **Associaties boven attributen**: waar een koppelsleutel (pseudoniem, opaque identifier) volstaat om een relatie te leggen, worden geen volledige persoonsattributen meegegeven. Vraag: heeft een toets-/examenafnamesysteem de volledige naam en het BSN nodig, of is een associatie genoeg?
+  - **IDM en provisioning als voorwaardelijk kader**: OKx neemt IDM/provisioning niet in scope, maar benoemt het als **randvoorwaarde** in koppelvlakspecificaties. Koppelvlakken mogen niet impliciet de rol van identiteitsdistributie overnemen.
+  - Functionele componenten (SKS, SVS, LMS, toetssysteem, etc.) zijn **geen doorgeefluik** voor persoonsdata van andere componenten. Als een LMS persoonsattributen nodig heeft, haalt het die uit het IDM — niet uit het SKS-koppelvlak waarmee de leerroute-associatie is gelegd.
+  - Bij afwijking van dit principe (bijv. performance, offline scenario): leg vast als **ADR** met expliciete risico-afweging.

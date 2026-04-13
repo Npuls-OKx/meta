@@ -23,12 +23,12 @@ De volgende thema's komen in beide terug:
 |-------|------|-----|
 | **Interoperabiliteit** | Kernthema: technische, semantische en procesinteroperabiliteit als voorwaarde voor samenwerking (§4.4) | Primair doel: koppelvlakken standaardiseren zodat systemen interoperabel worden |
 | **Standaardisering** | Open standaarden, API-strategie, afsprakenstelsels (principes 3, 4; §4.4) | AMIGO-aanpak, OEAPI als voorkeurstandaard ("OEAPI, tenzij"), MOKA-templates |
-| **Autonomie** | Instellingen behouden keuzes over intern applicatielandschap; MOSA dingt niet af op autonomie (§4.4) | OKx specificeert de buitenkant (interface), niet de binnenkant; referentiecomponenten boven applicatiedenken (AP05) |
+| **Autonomie** | Instellingen behouden keuzes over intern applicatielandschap; MOSA dingt niet af op autonomie (§4.4) | OKx specificeert uitsluitend de koppelvlakinteractie, niet de applicatie-inrichting; referentiecomponenten als gedeeld referentiekader met behoud van leveranciersvrijheid (AP05) |
 | **Flexibilisering** | Modulair onderwijs, persoonlijke leerroute, instellingsoverstijgend aanbod (§1.1, §5.3) | Informatiestromen rond curriculum, catalogus, planning en student-keuze ondersteunen flexibilisering |
 | **Leven Lang Ontwikkelen** | Laagdrempelige, leven-lang-toegang tot onderwijs en portfolio (§1.1, §5) | Referentiecomponenten (SKS, SVS, KRS) faciliteren leven-lang-keuzes en resultaatopbouw |
 | **Keten eerst** | Samenwerking in de hele keten; voorkomen van versnippering (§1.1) | AP01: keten vóór koppelvlak; optimaliseren voor de hele keten |
 | **Privacy en beveiliging** | Principes 8, 9: AVG-conformiteit, vertrouwelijkheid, integriteit, transparantie | AP07: dataminimalisatie, privacy en security by design |
-| **Wendbare componenten** | Principe 3: onafhankelijk, schaalbaar, koppelbaar/ontkoppelbaar | AP05: referentiecomponenten boven applicatiedenken; AP06: versieerbare contracten |
+| **Wendbare componenten** | Principe 3: onafhankelijk, schaalbaar, koppelbaar/ontkoppelbaar | AP05: referentiecomponenten als gedeeld referentiekader; AP06: versieerbare contracten |
 | **Publieke waarden en ethiek** | Principes 2, 4: Ethics by Design, WaardenWijzer, openheid | AP08: transparantie, traceerbaarheid en navolgbaarheid |
 | **Platform als concept** | MOSA = sectorbreed platform met services, portalen, aansluitpartijen | OKx draagt bij als specificeerder van koppelvlakken die het platform voedt |
 
@@ -45,6 +45,7 @@ De volgende thema's komen in beide terug:
 | **Technologiekeuze** | API-strategie (niet specifiek OEAPI) | OEAPI als voorkeur ("tenzij"), MOKA-metamodel |
 | **Governance** | Signaleert governance-uitdagingen; geen uitspraken over inrichting | Governance via federatief werken: issues, PR's, ADR's, reviewcycli |
 | **Identiteit / IAM** | Uitgebreid domein: eduID, SSI, wallets, verifiable credentials, ECK iD | Niet in primaire scope; raakvlak bij toekomstige inschrijvingsstromen |
+| **Source system ownership / IDM en provisioning** | IAM als domein (§6) behandelt identiteit en wallets, maar doet geen expliciete uitspraak over bronsysteemverantwoordelijkheid per koppelvlak of over de relatie tussen IDM/provisioning en functionele componenten | OKx specificeert koppelvlakken en moet daarom expliciet zijn over welk referentiecomponent de **bron** is van welke data. IDM en provisioning vallen buiten OKx-scope maar zijn **voorwaardelijk**: zonder helder bronsysteem voor persoonsattributen ontstaat het risico dat functionele componenten (bijv. SKS) onbedoeld verantwoordelijk worden voor het distribueren van identiteitsdata naar downstream systemen (bijv. LMS). OKx borgt dit via strikte doelbinding per referentiecomponent (AP13). |
 | **Onderzoek** | Domeinarchitectuur Onderzoek voorzien (valorisatie) | Buiten scope |
 | **AI** | Expliciet geadresseerd als aandachtspunt bij realisatie | Operationeel ingezet (Cursor AI-agents), geen architectureel principe |
 
@@ -60,8 +61,8 @@ Onderstaande principes zijn **af te leiden uit de MOSA-visie** en relevant voor 
 |---|---|---|
 | §4.4 Autonomie + interoperabiliteit | **AP01** (Keten vóór koppelvlak) | MOSA onderbouwt dat interoperabiliteit de sleutel is om autonomie te behouden bij ketenoptimalisatie |
 | §4.4 Technische + semantische + procesinteroperabiliteit | **AP02** (Semantiek vóór techniek) | MOSA benoemt drie lagen van interoperabiliteit; OKx AP02 focust op semantiek-eerst, volledig aligned |
-| Principe 3: wendbare componenten, API-strategie | **AP05** (Referentiecomponenten boven applicatiedenken) | MOSA onderbouwt dat componenten onafhankelijk, schaalbaar en ontkoppelbaar moeten zijn |
-| Principe 4: open, delen als norm, open standaarden | **AP04** (OEAPI, tenzij) | MOSA-openheid versterkt de keuze voor open standaarden (OEAPI) |
+| Principe 3: wendbare componenten, API-strategie | **AP05** (Referentiecomponenten als gedeeld referentiekader) | MOSA onderbouwt dat componenten onafhankelijk, schaalbaar en ontkoppelbaar moeten zijn; OKx vult aan dat leveranciers soeverein blijven in applicatie-inrichting |
+| Principe 4: open, delen als norm, open standaarden | **AP04** (Koppelvlakken als open, gestandaardiseerde contracten) | MOSA-openheid versterkt het koppelvlak als gestandaardiseerd contract; OEAPI als voorkeurstechnologie |
 | Principe 7: robuust, continuïteit | **AP10** (Robuust in de praktijk) | MOSA en OKx eisen beide dat niet-happy-flow onderdeel is van de standaard |
 | Principe 8: beveiligd, AVG | **AP07** (Dataminimalisatie, privacy en security by design) | Directe overlap |
 | Principe 9: transparant | **AP08** (Transparantie, traceerbaarheid en navolgbaarheid) | MOSA-transparantie gaat over systeemwerking; OKx AP08 over besluitvorming — complementair |
@@ -71,12 +72,13 @@ Onderstaande principes zijn **af te leiden uit de MOSA-visie** en relevant voor 
 | Thema | Bron in MOSA | Relevantie voor OKx |
 |---|---|---|
 | **Data-soevereiniteit** | §4.4: "de student heeft zelf regie over welke informatie met wie gedeeld wordt"; §6: SSI, wallets, verifiable credentials | OKx-koppelvlakken moeten rekening houden met datasoevereiniteit van de student: consent-mechanismen, doelbinding, en toekomstige wallet-integratie |
-| **Open standaarden en open source** | Principe 4: open ecosysteem, internationale open standaarden; §4.4: standaarden voor verbindingen en semantiek | Explicieter dan AP04: niet alleen OEAPI, maar ook een bredere voorkeur voor open standaarden en open-source-tooling in het specificatieproces |
+| **Open standaarden en open source** | Principe 4: open ecosysteem, internationale open standaarden; §4.4: standaarden voor verbindingen en semantiek | Versterkt AP04: niet alleen OEAPI als technologie, maar het koppelvlak zelf als open, gestandaardiseerd contract dat modulariteit en componentvervanging mogelijk maakt; open-source-tooling als werkafspraak |
 | **Platformneutraliteit** | §4.3: "geen één groot centraal systeem"; §4.4: "interoperabiliteit bevordert autonomie" | OKx-specificaties mogen geen platformlock-in creëren; ze moeten implementeerbaar zijn door willekeurige leveranciers |
 | **Leveranciersonafhankelijkheid** | Principe 1: onafhankelijkheid van leveranciers is geborgd | Koppelvlakspecificaties moeten leverancierneutraal zijn: geen vendor-specifieke extensies zonder ADR |
 | **Doelmatig ecosysteem / student centraal** | Principe 1: student (de lerende) centraal | In ketenoptimalisatie de student-ervaring als toetssteen meenemen: stromen die de student raken moeten de student-centraalheid weerspiegelen |
 | **Duurzaamheid** | Principe 6: milieu en omgeving zo min mogelijk belasten, hergebruik bevorderen | Relevant voor API-ontwerp: efficiënte payloads, vermijden van onnodige polling, hergebruik van bestaande specificaties |
 | **Wendbaarheid via exit-strategie** | Principe 3: exit-plannen in contracten | OKx-koppelvlakken moeten migratie en versieovergang ondersteunen; deprecatie-paden expliciet beschrijven |
+| **Source system ownership en doelbinding per referentiecomponent** | §6: IAM-domein; §4.4: interoperabiliteit vereist heldere verantwoordelijkheden; Principe 8: AVG, doelbinding | OKx-koppelvlakken moeten per referentiecomponent expliciet maken welke data dat component **als bron bezit** en welke data het slechts **consumeert**. Persoonsidentificatie en -attributen (naam, BSN, contactgegevens) zijn domein van IDM/provisioning — niet van functionele componenten als SKS, SVS of een toets-/examenafnamesysteem. Een component mag alleen de data dragen die nodig is voor zijn eigen functie (doelbinding). Waar een associatie volstaat (bijv. een pseudonieme koppelsleutel), is het meesturen van volledige persoonsattributen een schending van dit principe. IDM/provisioning is voorwaardelijk kader voor OKx: buiten scope, maar als randvoorwaarde benoemd in koppelvlakspecificaties. |
 | **Verifiable Credentials / SSI** | §6.1: eduID, wallets, verifiable credentials driehoek (issuer/holder/verifier/registry) | Toekomstig raakvlak voor OKx: resultaten en inschrijvingsgegevens als credentials. Specificeer datastructuren credential-ready |
 
 ---
@@ -105,9 +107,9 @@ voor alle voorzieningen                 koppelvlakken voor
 De MOSA biedt OKx een **sector-strategische onderbouwing** voor architectuurprincipes die OKx al deels heeft geformuleerd. De analyse levert:
 
 1. **Versterking** van 7 bestaande OKx-AP's met MOSA-onderbouwing.
-2. **8 nieuwe/aanvullende thema's** die als OKx-principes opgenomen kunnen worden: data-soevereiniteit, open standaarden/open source, platformneutraliteit, leveranciersonafhankelijkheid, student centraal, duurzaamheid, wendbare exit-strategie, en credential-readiness.
+2. **9 nieuwe/aanvullende thema's** die als OKx-principes opgenomen kunnen worden: data-soevereiniteit, open standaarden/open source, platformneutraliteit, leveranciersonafhankelijkheid, student centraal, duurzaamheid, wendbare exit-strategie, credential-readiness, en source system ownership met doelbinding per component.
 
-Na review en consolidatie ([ADR 0006](../../../dr/0006-consolidatie-architectuurprincipes.md)) zijn deze thema's geïntegreerd in de bestaande principes (AP01–AP12) in [`principes.md`](principes.md). Sommige thema's zijn opgenomen als zelfstandig principe (data-soevereiniteit → AP11, gebruiker centraal → AP12), andere zijn verwerkt in bestaande principes (leveranciersonafhankelijkheid → AP04/AP05, open standaarden → AP04, duurzaamheid → AP10, exit-strategie → AP06, credential-readiness → AP11).
+Na review en consolidatie ([ADR 0006](../../../dr/0006-consolidatie-architectuurprincipes.md)) zijn deze thema's geïntegreerd in de bestaande principes (AP01–AP12) in [`principes.md`](principes.md). Sommige thema's zijn opgenomen als zelfstandig principe (data-soevereiniteit → AP11, gebruiker centraal → AP12, source system ownership → AP13), andere zijn verwerkt in bestaande principes (leveranciersonafhankelijkheid → AP04/AP05, open standaarden → AP04, duurzaamheid → AP10, exit-strategie → AP06, credential-readiness → AP11).
 
 ---
 
