@@ -100,12 +100,12 @@ We consolideren van **17 naar 13 principes**. De oorspronkelijke 17 worden terug
 
 ### Introductie OKx-uitgangspunten (naast principes)
 
-Naast de architectuurprincipes introduceert `principes.md` een sectie **OKx-uitgangspunten**. Het onderscheid:
+Naast de architectuurprincipes in [`principes.md`](../docs/principes/doc/principes.md) is een apart document [`uitgangspunten.md`](../docs/principes/doc/uitgangspunten.md) geïntroduceerd. Het onderscheid:
 
 - **Principes** zijn abstract en stabiel — ze beschrijven *waarom* we dingen op een bepaalde manier doen en wijzigen niet snel.
 - **Uitgangspunten** zijn gefundeerde besluiten om blocking issues te voorkomen — ze zijn concreter, kunnen evolueren, en beschrijven *wat* we aannemen en *hoe* we werken.
 
-De voormalige "werkafspraken" sectie is hernoemd naar uitgangspunten en uitgebreid met:
+De voormalige "werkafspraken" sectie uit `principes.md` is verplaatst naar een eigen document `uitgangspunten.md`, hernoemd naar uitgangspunten en uitgebreid met:
 
 | Uitgangspunt | Toelichting |
 |---|---|
@@ -120,7 +120,7 @@ De voormalige "werkafspraken" sectie is hernoemd naar uitgangspunten en uitgebre
 
 ### Consequenties
 
-- **`principes.md`** wordt herschreven met AP01–AP13 en een nieuwe sectie OKx-uitgangspunten. Oude nummering en "werkafspraken" vervallen.
+- **`principes.md`** wordt herschreven met AP01–AP13. Oude nummering vervalt. Uitgangspunten staan in het aparte **`uitgangspunten.md`**; beide documenten verwijzen naar elkaar.
 - **`MOSA_vs_OKx_analyse.md`** wordt bijgewerkt met verwijzingen naar de nieuwe nummering en het nieuwe thema source system ownership.
 - **OEAPI, tenzij** verhuist van AP04 (principe) naar uitgangspunten; AP04 behoudt de abstracte contractfocus.
 - **Toekomstige ADR's en documenten** refereren aan AP01–AP13 (principes) en aan uitgangspunten waar relevant.
@@ -133,7 +133,8 @@ De voormalige "werkafspraken" sectie is hernoemd naar uitgangspunten en uitgebre
 
 - ADR's: [0003](0003-student-kiest-leeruitkomsten-domeinprincipes.md) (student kiest), [0005](0005-student-keuze-systeem-zelfstandige-referentiecomponent.md) (SKS), [0009](0009-sks-svs-rollenverdeling-keuze-vs-resultaat-voortgang.md) (SKS/SVS-rollenverdeling — context voor AP13: componentgrenzen en dataverantwoordelijkheid)
 - Docs:
-  - [`architecture/docs/principes/doc/principes.md`](../docs/principes/doc/principes.md)
+  - [`architecture/docs/principes/doc/principes.md`](../docs/principes/doc/principes.md) — architectuurprincipes (AP01–AP13)
+  - [`architecture/docs/principes/doc/uitgangspunten.md`](../docs/principes/doc/uitgangspunten.md) — OKx-uitgangspunten
   - [`architecture/docs/principes/doc/MOSA_vs_OKx_analyse.md`](../docs/principes/doc/MOSA_vs_OKx_analyse.md)
   - [`architecture/docs/principes/doc/MOSA-Visiedocument.md`](../docs/principes/doc/MOSA-Visiedocument.md)
 - Extern: [Edu-V Architectuurprincipes](https://edu-v.atlassian.net/wiki/spaces/AFSPRAKENS/pages/2031619/Architectuurprincipes)
