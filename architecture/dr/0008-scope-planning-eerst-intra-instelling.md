@@ -13,7 +13,7 @@ Dit raakt de **volgorde van uitwerking** en de **grenzen van MVP’s**: [0002](0
 ### Beslissing (concept)
 
 1. **Fasering:** OKx prioriteert **uitwerking en validatie** van **planning en onderwijslogistiek binnen één instelling** (één organisatorische context) vóór het normeren van **ketenoverschrijdende** scenario’s waarbij aanbod van **meerdere** instellingen tegelijk wordt gecombineerd.
-2. **Sector-artefacten** (aggregators, broker-concepten, landelijke wallets) worden **niet** als vervanging van deze basis gezien; ze worden **gefaseerd** aangesloten zodra **data- en procesfundament** (o.a. leeruitkomsten, catalogusmetadata, trechters — [0006](0006-studentorientatie-trechter-ketenfase.md), [0007](0007-keuzecriteria-trechters-onderwijscatalogus.md)) voldoende zijn.
+2. **Sector-artefacten** (aggregators, broker-concepten, landelijke wallets) worden **niet** als vervanging van deze basis gezien; ze worden **gefaseerd** aangesloten zodra **data- en procesfundament** (o.a. leeruitkomsten, catalogusmetadata, trechters — [0006](0006-studentorientatie-trechter-ketenfase.md), [0007](0007-student-keuze-criteria-als-query-parameters-onderwijs-aanbod.md)) voldoende zijn.
 3. **Transparantie naar stakeholders:** documentatie en roadmap benoemen **bewust** wat **in scope** is per fase, om **verwachtingen** over “landelijke etalage” te managen.
 
 ### Alternatieven
@@ -38,7 +38,7 @@ Dit raakt de **volgorde van uitwerking** en de **grenzen van MVP’s**: [0002](0
 
 ### Relaties en links
 
-- **Gerelateerde ADR’s:** [0001](0001-publieke-repo-en-samenwerkingsmodel.md), [0002](0002-prioriteitsketen-catalogus-drielagen-fundament.md), [0003](0003-student-kiest-leeruitkomsten-domeinprincipes.md), [0006](0006-studentorientatie-trechter-ketenfase.md), [0007](0007-keuzecriteria-trechters-onderwijscatalogus.md)
+- **Gerelateerde ADR’s:** [0001](0001-publieke-repo-en-samenwerkingsmodel.md), [0002](0002-prioriteitsketen-catalogus-drielagen-fundament.md), [0003](0003-student-kiest-leeruitkomsten-domeinprincipes.md), [0006](0006-studentorientatie-trechter-ketenfase.md), [0007](0007-student-keuze-criteria-als-query-parameters-onderwijs-aanbod.md)
 - Issues: #(te koppelen)
 - PR: #(te vullen)
 - Meetings: `architecture/meetings/okx_kernteam_inhoud_uitwerken_kaderstelling_student_keuze_criteria_20260331/summary.md`, `.../transcript.md`

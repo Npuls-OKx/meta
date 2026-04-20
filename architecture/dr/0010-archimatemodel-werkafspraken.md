@@ -14,7 +14,7 @@ Dit ADR is **primair proces-/workflow** en staat naast inhoudelijke ADR’s [000
 
 1. **Geen gelijktijdige** ongecoördineerde edits op `model.archimate` in **dezelfde of verschillende** feature branches zonder voorafgaande **afstemming** tussen de model-eigenaren (zoals besproken: Niek/Niels-kern).
 2. **Wijzigingen** lopen via **pull request** met **review** en bij voorkeur **kleine, reviewbare** commits (consistent met [0001](0001-publieke-repo-en-samenwerkingsmodel.md)).
-3. **MOKA-informatiemodel** en **data-objecten** onder de koppelvlakspecificatie-view worden **gesynchroniseerd** met proceswijzigingen uit o.a. [0006](0006-studentorientatie-trechter-ketenfase.md) en [0007](0007-keuzecriteria-trechters-onderwijscatalogus.md) in een **aparte sessie** (zoals gepland in het overleg), vastgelegd via PR met link naar dit ADR.
+3. **MOKA-informatiemodel** en **data-objecten** onder de koppelvlakspecificatie-view worden **gesynchroniseerd** met proceswijzigingen uit o.a. [0006](0006-studentorientatie-trechter-ketenfase.md) en [0007](0007-student-keuze-criteria-als-query-parameters-onderwijs-aanbod.md) in een **aparte sessie** (zoals gepland in het overleg), vastgelegd via PR met link naar dit ADR.
 
 ### Alternatieven
 

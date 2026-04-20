@@ -1,4 +1,4 @@
-## Keuzecriteria en trechters tussen leervraag en onderwijscatalogus
+## Studentkeuzecriteria als queryparameters: SKS vertaalt leervraag naar OC-interpreteerbare queries
 
 Status: Voorstel
 
@@ -17,6 +17,7 @@ In hetzelfde overleg zijn **trechters** expliciet benoemd, o.a.: **geografische*
 1. OKx-specificaties en het informatiemodel **moeten** de genoemde **categorieën keuzecriteria** kunnen dragen als **gestructureerde parameters** op de **aanbodquery** (niet alleen vrije tekst), met **minimumset** die in MVP’s afsprakelijk wordt.
 2. **Trechters** zijn **componerbaar**: meerdere queryparameters tegelijk (bijv. geo **en** horizon **en** instroom) — exacte cardinaliteit en defaults in technische uitwerking van koppelvlakken.
 3. **Mapping naar onderwijsbeschrijving:** criteria worden **traceerbaar** gemaakt naar wat in **catalogusmetadata** en **leeruitkomst-uitwerking** beschikbaar moet zijn ([0002](0002-prioriteitsketen-catalogus-drielagen-fundament.md)).
+4. **Rol van SKS:** het **Student Keuze Systeem (SKS)** is de primaire ketenbouwsteen die de (vaak vage) **leervraag** uit studentoriëntatie **vertaalt** naar **OC-interpreteerbare queryparameters** op de aanbodquery. Het SKS orkestreert daarmee de trechter(s) richting de onderwijscatalogus, zonder de onderwijscatalogus zelf te belasten met keuze-interactie of niet-gestandaardiseerde leervraaginterpretatie (zie ook [0005](0005-student-keuze-systeem-zelfstandige-referentiecomponent.md) en [0006](0006-studentorientatie-trechter-ketenfase.md)).
 
 ### Alternatieven
 
