@@ -26,7 +26,7 @@ flowchart TD
   SKS[SKS]
   Planning[Planning]
 
-  subgraph rfoPattern [Request for Offering (RFO) patroon]
+  subgraph rfoPattern ["Request for Offering (RFO) patroon"]
     Criteria[Keuze_en_randvoorwaarden]
     RFO[Request_for_Offering]
     Feasibility[Haalbaarheidstoets]
