@@ -20,6 +20,29 @@ Bron: `architecture/meetings/okx_kernteam_inhoud_uitwerken_studentkeuze_roosteri
 
 We leggen vast dat het OKx-proces een expliciete stap **Request for Offering (RFO)** bevat als **brug** tussen studentkeuze en planning/roostering:
 
+```mermaid
+flowchart TD
+  Student[Student]
+  SKS[SKS]
+  Planning[Planning]
+
+  subgraph rfoPattern [Request for Offering (RFO) patroon]
+    Criteria[Keuze_en_randvoorwaarden]
+    RFO[Request_for_Offering]
+    Feasibility[Haalbaarheidstoets]
+    Response[OfferingResponse]
+  end
+
+  Student -->|"Kies + randvoorwaarden"| SKS
+  SKS -->|"Vertaal naar queryparameters"| Criteria
+  Criteria -->|"Maak RFO"| RFO
+  RFO -->|"Verzoek"| Planning
+  Planning -->|"Toets"| Feasibility
+  Feasibility -->|"Resultaat"| Response
+  Response -->|"Terugkoppeling"| SKS
+  SKS -->|"Toon resultaat"| Student
+```
+
 1. **Initiatie (SKS):** het SKS initieert een RFO op basis van leerroute/leervraag en de gekozen leeractiviteiten (keuzeniveau: leeractiviteit; zie [0011](0011-keuzeniveau-leeractiviteit-leervormen-als-aanbodkenmerk.md)).
 2. **Haalbaarheidstoets (Planning):** de planningsfunctie toetst haalbaarheid op schaarse middelen en planningsconstraints (o.a. beschikbaarheid, doorlooptijd/horizon, belastbaarheid in SBU/EC waar relevant; zie [0004](0004-leeruitkomsten-sbu-ec-logistieke-containergrootte.md)).
 3. **Antwoord (Planning -> SKS):** de uitkomst wordt teruggekoppeld als (minimaal) **acceptatie**, **afwijzing**, of **alternatief voorstel** (bijv. andere periode/locatie/variant), zodat de student zijn route/keuzes kan bijstellen.
