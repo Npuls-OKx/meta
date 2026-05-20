@@ -22,7 +22,7 @@ De Npuls-leerroutes (hoofdstuk 3) maken dit concreet. Ze beschrijven varianten z
 
 ### 1.2 Wat maken koppelvlakken mogelijk?
 
-Koppelvlakken maken het mogelijk dat systemen in de keten dezelfde kerninformatie **op dezelfde manier** uitwisselen. Daarmee kan een onderwijscatalogus aanbod vindbaar en vergelijkbaar maken, kan een planningssysteem haalbaarheid berekenen en capaciteit terugkoppelen, en kan een roostersysteem het onderwijs in tijdsloten en toewijzingen omzetten. Zonder deze afspraken blijft flexibilisering beperkt tot losse pilots en lokale interpretaties.
+Koppelvlakken maken het mogelijk dat systemen in de keten dezelfde kerninformatie **op dezelfde manier** uitwisselen. Daarmee kan een onderwijscatalogus aanbod vindbaar en vergelijkbaar maken, kan een planningssysteem haalbaarheid berekenen en capaciteit terugkoppelen, kan een roostersysteem het onderwijs in tijdsloten, en worden studenten o.b.v. inschrijvingen en keuzes geroosterd en aan de bijbehoordende cursussen in het leermanagement systeem gekoppeld. Zonder deze afspraken blijft flexibilisering beperkt tot losse pilots en lokale interpretaties. Hoe scholen en leveranciers daadwerklijk de te standaardiseren koppelvlakken inzetten wordt niet voorgeschreven. Vanuit OKx wordt geinventariseerd welke interactiepatronen en scenario's er mogelijk dienen te zijn en toetst de specificatie daaraan. Dit zal resulteren in een aantal kant en klare ketenscenario's die een school zonder intergratielaag samen met hun leveranciers kan implementeren. Welke functionaliteit leveranciers exact bieden binnen hun applicatie(s) en hoe scholen met een intergatielaag de koppelvlak-ontsluiting inzetten, neemt OKx enkel een adviserende rol.
 
 ### 1.3 MBO eerst, uiteindelijk sector-overstijgend
 
@@ -160,11 +160,11 @@ De student **meldt** zich vervolgens aan op een keuzedeel. Bij deze aanmelding l
 
 | Voorkeur  | Keuzedeel                            | Onderwijsperiode   | Onderwijslocatie         |
 |-----------|--------------------------------------|--------------------|--------------------------|
-| 1         | Ondernemerschap in de zorg           | Semester 2         | Locatie A                |
-| 2         | Duurzame technologie                 | Semester 1         | Locatie B                |
-| 3         | Digitale vaardigheden                | Semester 2 of 3    | Locatie A of Locatie C   |
+| 1         | Ondernemerschap in de zorg           | Periode 2          | Locatie A                |
+| 2         | Duurzame technologie                 | Periode 1          | Locatie B                |
+| 3         | Digitale vaardigheden                | Periode 2 of 3     | Locatie A of Locatie C   |
 
-
+`<Opmerking Niels> In dit voorbeeld is ook de onderwijsperiode van het keuzedeel flexibel kiesbaar wat individueel roosteren tot een vereiste maakt`
 In deze lijst geeft de student aan dat 'Ondernemerschap in de zorg' het meest gewenste keuzedeel is, gevolgd door 'Duurzame technologie', enzovoorts. Per keuzedeel kan optioneel ook de gewenste volgorde van periodes aangegeven worden, zodat de planning hiermee rekening kan houden. De **onderwijslocatie** kan ook een praktijklocatie, *hub* of private- of publieke instelling zijn.
 
 Wanneer de student **niet** het gewenste keuzedeel op de voorkeurs **onderwijslocatie** en/of voorkeurs **onderwijsperiode**, dan **moet** de student op een andere onderwijslocatie kunnen oriënteren op meer passende keuzedelen.
@@ -173,10 +173,10 @@ Als er geen passend aanbod (combinatie keuzedeel en/of onderwijsperiode en/of on
 
 In essentie betekent dit dat de student **studievertraging** oploopt, aangezien afgeronde keuzedelen onderdeel zijn van het kwalificatiekader binnen het MBO.
 
-Wanneer een passende combinatie van keuzedeel en/of onderwijsperiode en/of onderwijslocatie, voor de student gevonden kan worden. Wordt de keuzedeel aanmelding, omgezet in een inschrijving. Aan een keuzedeel zijn kosten verbonden. Hierbij wordt een contractuele **betalingsverplichting** aangegaan tussen de onderwijsinstelling en de student. Schrijft de student zich uit voor het keuzedeel, dan blijft de betalingsvertplichting voor de student in stand. De kosten van een keuzedeel zijn vaak gerelateerd aan voor de student benodigde leermiddelen voor deelname aan het keuzedeel.
-
+Wanneer een passende combinatie van keuzedeel en/of onderwijsperiode en/of onderwijslocatie, voor de student gevonden kan worden. Wordt de keuzedeel aanmelding, omgezet in een inschrijving. Aan een keuzedeel kunnen kosten verbonden zijn. Wanneer dit het geval is wordt een contractuele **betalingsverplichting** aangegaan tussen de onderwijsinstelling en de student. Schrijft de student zich uit voor het keuzedeel, dan blijft de betalingsvertplichting voor de student in stand. De kosten van een keuzedeel zijn vaak gerelateerd aan voor de student benodigde leermiddelen voor deelname aan het keuzedeel.
+`<Opmerking Niels> Prima om kosten te benoemen, maar is en blijft een beleidskeuze van de school hoe hier mee omgegaan wordt`
 Er kan ten alle tijden maar één keuzedeel gevolgd worden binnen geplande keuzedeelruimte, en daarmee dus precies één actieve inschrijving bestaan voor keuzedelen.
-
+`<Opmerking Niels> Boven is periode vrij te bepalen en hier praat je wel over een geplande keuzedeelruimte?`
 Inactieve inschrijvingen, zoals geannuleerd keuzedeel aanbod van een keuzedeel (dankzij de aanbieder), zijn wel mogelijk.
 
 ##### Wanneer kiest een student keuzedelen?
@@ -184,17 +184,17 @@ Inactieve inschrijvingen, zoals geannuleerd keuzedeel aanbod van een keuzedeel (
 De **aanmelding** voor keuzedelen wordt vast gelegd naarmate de in het **onderwijsprogramma** geplande *keuzdeelruimte* dichterbij komt. De keuze van de student wordt uiterlijk een vast gestelde periode $t$ van te voren vastgelegd.
 
 OF
-
+`<Opmerking Niels> Dit kan dus ook het scenario van het voorgeprogrammeerde keuzedeel in de leerroute zijn `
 - De **aanmelding** voor de keuzedelen van de student worden tijdens de onderwijsintake vast gelegd en **niet** meer gewijzigd.
 
 OF
-
+`<Opmerking Niels> De voorlopige keuze vindt ver van te voren plaats, dit kan vanaf intake of inschrijving worden opgegeven`
 - De **aanmelding** voor de keuzedelen van de student worden tijdens de onderwijsintake vast gelegd als voorlopige keuze, maar naarmate de ontwikkeling van de student vordert, gewijzigd.
 
 > **Vignet — Jochem (voorlopige keuze bij intake).** Jochems instelling legt de keuzedeel-aanmelding **voorlopig bij intake** vast. In het studentjourney-diagram volgt daarna gate **8f**: staat de prioritering nog goed? Zo niet, past hij zijn **aanmelding keuzedeel** aan voordat de planner en het aanbod verder meebewegen.
 
 Samenvattend:
-De door Jochem te volgen route, zoals vastgelegd in het **onderwijsprogramma** is voorspelbaar. Het onderwijs is al uitgewerkt als samenhangend programma, is al gepland voor aanvang van de opleiding (periodes, capaciteit, groepen) en daarna, wanneer het geplande moment dichterbij komt, wordt het onderwijs geroosterd (tijdsloten en toewijzingen). 
+De door Jochem te volgen route, zoals vastgelegd in het **onderwijsprogramma** is voorspelbaar. Het onderwijs is al uitgewerkt als samenhangend programma, is al gepland voor aanvang van de opleiding (periodes, capaciteit, groepen) en daarna, wanneer het geplande moment dichterbij komt, wordt het onderwijs geroosterd (tijdsloten en toewijzingen). `<Opmerking Niels> Jochem kan samen met andere Jochems groepsmatig gepland en geroosterd worden, er is weinig aanleiding om individueel te roosteren`
 
 *Figuur - Student Journey Regulier - Proces studentbeleving regulier studeren*
 
@@ -272,14 +272,14 @@ flowchart TB
   classDef infoObject fill:#fffbe6,stroke:#efd600,stroke-width:2px,color:#333;
   class aanmeldingOpleiding,inschrijvingOpleiding,aanmeldingKeuzedeel,inschrijvingKeuzedeel,gepubliceerdAanbod,gepubliceerdKeuzedeelAanbod infoObject;
 ```
-
+`<Opmerking Niels> Mermaid diagram kun duidelijk niet overweg met langere beschrijvingen, maakt het diagram helaas slecht leesbaar `
 **Wanneer wordt aanmelding inschrijving?**
 
 | Moment | Van (aanmelding) | Naar (inschrijving) | Voorwaarde |
 | --- | --- | --- | --- |
 | **Opleiding** | `Aanmelding opleiding` (geel) na stap 2 | `Inschrijving opleiding en opleidingsprogramma` (geel) na positieve intake-match | Match tussen student en instelling op opleiding/programma |
 | **Keuzedeel** | `Aanmelding keuzedeel` (geel) na vastlegging voorkeuren | `Inschrijving keuzedeel` (geel) na gate 10 | Passende combinatie van keuzedeel, **onderwijsperiode** en **onderwijslocatie**; daarna contractuele **betalingsverplichting**. Bij geen passend aanbod blijft de **keuzedeelruimte** leeg (mogelijke studievertraging). Maximaal **één actieve** keuzedeel-inschrijving per keuzedeelruimte; geannuleerd aanbod kan leiden tot **inactieve** inschrijving. |
-
+`<Opmerking Niels> Onderwijsteams doen er alles aan om het keuzedeel altijd in te vullen, desnoods met een ongewenste keuze. Nadruk op betalingsverplichting niet nodig https://jobmbo.nl/vragen_klachten/mag-een-school-extra-kosten-voor-een-keuzedeel-doorberekenen-aan-de-student/# `
 > **Vignet — Jochem (twee stappen naar inschrijving).** Eerst wordt Jochems **aanmelding opleiding** na positieve intake een **inschrijving opleiding en opleidingsprogramma**. Later, wanneer zijn keuzedeel op voorkeursperiode en -locatie past, wordt **aanmelding keuzedeel** **inschrijving keuzedeel** — met betalingsverplichting. Zonder passend keuzedeelaanbod blijft zijn programma regulier, maar de keuzedeelruimte oningevuld.
 
 ##### 3.3.1.2 De Instellingsbeleving - De Instellingsjourney
@@ -292,7 +292,7 @@ Daarom staan we stil bij de organisatie inrichting achter deze leerroute en haar
 
 *Figuur - Organogram en actoren van een onderwijsinstelling binnen de context van 'regulier' studeren*
 
-> **Vignet — Jochem (actoren).** In de praktijk ontmoet Jochem zijn **SLB'er** (instroom en route), **vakdocenten** (o.a. farmacotherapie en medicatiebewaking), een **BPV-begeleider** in de apotheek en later **examinatoren** rond zijn keuzedeel-examen. Het organogram hieronder laat zien hoe die rollen in teams en domeinen hangen — niet als losse contactpersonen, maar als onderdeel van één keten.
+> **Vignet — Jochem (actoren).** In de praktijk ontmoet Jochem zijn **SLB'er** (instroom en route), **vakdocenten** (o.a. farmacotherapie en medicatiebewaking), een **BPV-begeleider** in de apotheek en later **examinatoren** rond zijn (keuzedeel-)examen(s). Het organogram hieronder laat zien hoe die rollen in teams en domeinen hangen — niet als losse contactpersonen, maar als onderdeel van één keten.
 
 ```mermaid
 flowchart TB
@@ -381,7 +381,7 @@ flowchart TB
 
 ###### 3.3.1.2.2 De procesbeleving achter 'regulier' onderwijs van een Instelling
 
-Zoals de [MORA - de referentiearchitectuur voor het mbo](https://mora.mbodigitaal.nl/index.php/Hoofdpagina) laat zien, is "regulier onderwijs verzorgen" niet één los proces maar een samenhang van hoofdprocessen die samen een school laten werken. Om regulier onderwijs mogelijk te maken moet een instelling niet alleen onderwijs **ontwikkelen**, maar ook studenten **informeren, aanmelden, intake en plaatsen**, onderwijs **plannen en roosteren**, onderwijs **verzorgen en begeleiden**, examinering **vaststellen en uitvoeren**, en uiteindelijk **diplomeren**. Wat voor de student voelt als een voorspelbare route, is voor de instelling dus het resultaat van een veel bredere procesketen. Daarvoor heeft de MORA een aantal procesketens beschreven, zie:
+Zoals de [MORA - de referentiearchitectuur voor het mbo](https://mora.mbodigitaal.nl/index.php/Hoofdpagina) laat zien, is "regulier onderwijs verzorgen" niet één los proces maar een samenhang van hoofdprocessen die samen een school laten werken. Om regulier onderwijs mogelijk te maken moet een instelling niet alleen onderwijs **ontwikkelen**, maar ook studenten **informeren, aanmelden, intake en plaatsen**, onderwijs **plannen en roosteren**, onderwijs **verzorgen en begeleiden**, examinering **uitvoeren en vaststellen**, en uiteindelijk **diplomeren**. Wat voor de student voelt als een voorspelbare route, is voor de instelling dus het resultaat van een veel bredere procesketen. Daarvoor heeft de MORA een aantal procesketens beschreven, zie:
 
 *Figuur - Hoofdprocesmodel MORA 2.6 - 12-05-26*
 ![MORA Hoofdprocesmodel](../img/MORA_hoofdprocesmodel_12_05_26.png)
@@ -416,7 +416,7 @@ Vanaf dat moment verschuift de aandacht van ontwerp naar uitvoering. De instelli
 4. **Detailleren, roosteren en inschrijven**: de instelling werkt leergelegenheden en toetsspecificaties fijnmazig uit, zet planbaar aanbod om in geroosterd aanbod, en schrijft student en docent in op de concrete onderwijs- en examengelegenheden.
 5. **Onderwijs uitvoeren en voortgang begeleiden**: de student volgt het geroosterde onderwijs, de docent verzorgt het onderwijs, plant toetsmomenten in de uitvoering en houdt de formatieve voortgang bij.
 6. **Examineren, vaststellen en diplomeren**: examengelegenheden worden voorbereid en uitgevoerd, examens beoordeeld, resultaten vastgesteld door de examencommissie en uiteindelijk vertaald naar kwalificering en diplomering.
-
+`<Opmerking Niels> Omwille van o.a. tijdsvolgordelijkheid sla je het te plat met 6 fasen. Plannen van examengelegenheden voor 2-4 jaar later vinden niet plaats in fase 2. 3b t/m 5 is een cyclus, waarbij je wel parallel voor de Jochems uit eerdere cohorten (met mogelijke andere leerroutedetails/versionering) steeds een jaarcyclus voorloopt, +/- vertragers en versnellers. Ook BPV plannen en uitvoeren kent hier zijn plek vanuit logistiek oogpunt. In de BPV periode kan BOL-jochem geen, of BBL-Jochem enkel op vaste dagen, BOT/onderwijs volgen. Strategische spreiding maakt inzet van personeel, middelen en faciliteiten efficient en haalbaar, maar heeft eveneens serieuze impact op de realistische keuzevrijheid van Jochem. Dit maakt ook roosteren minder NP hard problem, het aantal mogelijke roosteropties is vrij beperkt.`
 > **Vignet — Jochem door de zes fasen.** (1) De onderwijsontwerper vertaalt Jochems kwalificatiedossier naar een grofmazig programma met keuzedeelruimte. (2) Dezelfde onderwijsontwerper geeft genoeg informatie mee in de onderwijsspecificatie, zodat deze specificatie planbaar wordt. Wanneer het programma gepland is, wordt het programma gepubliceert. (3) Jochem oriënteert, meldt zich aan en wordt ingeschreven; zijn keuzedeel-aanmelding wordt vastgelegd. (4) Leergelegenheden worden uitgewerkt door de onderwijsontwikkelaar en geroosterd; Jochem en zijn docenten worden op leergelegenheden aangemeld en ingeschreven. (5) Hij volgt lessen en BPV; zijn SLB'er begeleidt de voortgang. (6) Examens worden afgenomen, vastgesteld en vertaald naar kwalificering — het eindpunt van dezelfde keten die hij als student als één route ervaart.
 
 Onderstaand figuur is een *conceptuele* model weergave van de door OKx geobserveerde IST situatie van dit proces. **Gele ronde bollen** zijn informatie-objecten (o.a. **aanmelding** en **inschrijving**); keuzedeel-aanmelding wordt **inschrijving keuzedeel** zodra een passende combinatie van keuzedeel, onderwijsperiode en onderwijslocatie is gevonden (zie §3.2.1.1).
@@ -433,8 +433,8 @@ flowchart TB
   end
 
   subgraph onderwijsontwikkelaar["Onderwijsontwikkelaar"]
-    detailleerOnderwijsspecificaties["Onderwijsspecificaties beschrijven en detailleren (fijnmazige onderwijsontwikkeling) op basis van werkprocessen en Leertaken"]
-    detailleerLeergelegenheid["Leergelegenheid instantiëren,  beschrijven en detailleren op basis van Leertaken"]
+    detailleerOnderwijsspecificaties["Onderwijsspecificaties beschrijven en detailleren (fijnmazige onderwijsontwikkeling) op basis van werkprocessen en leertaken"]
+    detailleerLeergelegenheid["Leergelegenheid instantiëren,  beschrijven en detailleren op basis van leertaken"]
     beschrijfToetsspecificatie["Toetsspecificatie op basis van toetsvorm beschrijven"]
   end
 
@@ -463,7 +463,7 @@ flowchart TB
 
   subgraph roosteraar["Roosteraar"]
     roosterAanbod["Roosteren"]
-    geroosterdAanbod(("Geroosterd Aanbod - Leergelegenheid (reeks aan lessen)"))
+    geroosterdAanbod(("Geroosterd aanbod - leergelegenheid (reeks aan lessen)"))
     schrijfInOpGeroosterdAanbod["Inschrijven student en docent op geroosterd aanbod"]
     inschrijvingGeroosterdAanbod(("Inschrijving student en docent op geroosterd onderwijsaanbod (waaronder examengelegenheid)"))
   end
@@ -492,26 +492,26 @@ flowchart TB
 
   subgraph examencommissieVaststelling["Examencomissie"]
     stelExamenbeoordelingVast["Examen beoordeling vaststellen"]
-    kwalificeerEnDiplomeer["Kwalificeren en Diplomeren"]
+    kwalificeerEnDiplomeer["Kwalificeren en diplomeren"]
     kwalificeringEnDiplomering(("Kwalificering en diplomering"))
   end
 
   subgraph examencommissieOntwerp["Examencommissie"]
     examenplan(("Examenplan"))
     examenspecificaties(("Examenspecificatie(s)"))
-    examenInstrumenten(("Examen Instrument(en) en Examen materiaal"))
-    stelExamenplanEnSpecificatiesOp["Opstellen Examenplan en examen specificaties op basis van werkprocessen"]
+    examenInstrumenten(("Examen instrument(en) en examen materiaal"))
+    stelExamenplanEnSpecificatiesOp["Opstellen examenplan en examen specificaties op basis van werkprocessen"]
     bepaalBenodigdeExamenInstrumenten["Bepalen benodigde examen instrumenten"]
-    bepaalBenodigdExamenMateriaal["Bepalen Benodigd Examen materiaal"]
+    bepaalBenodigdExamenMateriaal["Bepalen benodigd examen materiaal"]
     besluitInkopenOfConstrueren["Besluiten inkopen of construeren"]
-    koopExamenInstrumentenIn["Inkopen Examen instrumenten"]
-    construeerExamenInstrumenten["Construeren Examen instrumenten"]
+    koopExamenInstrumentenIn["Inkopen examen instrumenten"]
+    construeerExamenInstrumenten["Construeren examen instrumenten"]
     stelExamenspecificatieEnInstrumentenVast["Vaststellen examen specificatie, examen materiaal en instrumenten"]
   end
 
-  grofmazigeSpecificaties(("Grofmazige Opleidings- / onderwijs- en examenspecificaties"))
-  planbaarOnderwijsaanbod(("Planbaar Onderwijsaanbod (incl. examengelegenheid)"))
-  aanmeldingGeplandAanbod(("Aanmelding voor Opleiding en gepland aanbod"))
+  grofmazigeSpecificaties(("Grofmazige opleidings- / onderwijs- en examenspecificaties"))
+  planbaarOnderwijsaanbod(("Planbaar onderwijsaanbod (incl. examengelegenheid)"))
+  aanmeldingGeplandAanbod(("Aanmelding voor opleiding en gepland aanbod"))
   inschrijvingGeplandAanbod(("Inschrijving op geplande opleidings- en opleidingsprogramma aanbod"))
   onderwijsresultaat(("Onderwijsresultaat"))
 
@@ -556,7 +556,7 @@ flowchart TB
   class bepaalHaalbaarheid,maakPlanbaarAanbod,planbaarOnderwijsaanbod,roosterAanbod,geroosterdAanbod,schrijfInOpGeroosterdAanbod,inschrijvingGeroosterdAanbod greenStep;
 
   %% Toets- en examenstappen (paars)
-  class beschrijfToetsvormen,bescrijfToetsspecificatie,planToetsgelegenheidTijdensLes,toetsStudent,volgToetsgelegenheid,volgExamengelegenheid,bereidExamengelegenheidVoor,voerExamengelegenheidUit,beoordeelGemaaktExamen,stelExamenbeoordelingVast,examenplan,examenspecificaties,examenInstrumenten,stelExamenplanEnSpecificatiesOp,bepaalBenodigdeExamenInstrumenten,bepaalBenodigdExamenMateriaal,besluitInkopenOfConstrueren,koopExamenInstrumentenIn,construeerExamenInstrumenten,stelExamenspecificatieEnInstrumentenVast,kwalificeerEnDiplomeer,kwalificeringEnDiplomering purpleStep;
+  class beschrijfToetsvormen,beschrijfToetsspecificatie,planToetsgelegenheidTijdensLes,toetsStudent,volgToetsgelegenheid,volgExamengelegenheid,bereidExamengelegenheidVoor,voerExamengelegenheidUit,beoordeelGemaaktExamen,stelExamenbeoordelingVast,examenplan,examenspecificaties,examenInstrumenten,stelExamenplanEnSpecificatiesOp,bepaalBenodigdeExamenInstrumenten,bepaalBenodigdExamenMateriaal,besluitInkopenOfConstrueren,koopExamenInstrumentenIn,construeerExamenInstrumenten,stelExamenspecificatieEnInstrumentenVast,kwalificeerEnDiplomeer,kwalificeringEnDiplomering purpleStep;
 
   %% Alle bollen geel
   class kwalificatieKader,geroosterdAanbod,inschrijvingGeroosterdAanbod,grofmazigeSpecificaties,planbaarOnderwijsaanbod,aanmeldingGeplandAanbod,inschrijvingGeplandAanbod,aanmeldingKeuzedeel,inschrijvingKeuzedeel,onderwijsresultaat,examenplan,examenspecificaties,examenInstrumenten,kwalificeringEnDiplomering yellowNode;
@@ -573,7 +573,7 @@ flowchart TB
 
 
 ###### 3.3.1.2.4 Scenario's binnen deze leerroute
-
+`<Opmerking Niels> Dit is zo'n beetje het moment dat je denkt van, niet verder dan 3 lagen diep nummeren is toch best wel aangenaam  `
 Binnen deze leerroute speelt zich niet maar één scenario af. De beschrijving hierboven laat de **nominale beleving** van regulier studeren zien: de student volgt de route zoals de instelling die heeft ontworpen, gepland en geroosterd. In de praktijk kan diezelfde student binnen precies zo'n regulier traject alsnog met verschillende incidenten te maken krijgen. De leerroute blijft dan **regulier**, maar de feitelijke voortgang van de student wijkt tijdelijk af van het bedoelde pad.
 
 De belangrijkste scenario's binnen deze leerroute zijn:
@@ -588,11 +588,12 @@ De `happy flow` en de incidentele varianten van temporiseren, versnellen en hybr
 
 **Overige scenario's specifiek voor leerroute 1**
 - **Wisselen van opleiding en behaalde resultaten meenemen**: een student volgt eerst een deel van de reguliere route, besluit daarna over te stappen naar een andere opleiding of een ander regulier programma, en wil eerder behaalde resultaten meenemen. Dit scenario raakt niet alleen de studentbeleving, maar vooral de vraag hoe resultaten, vrijstellingen, voortgang en passende herplaatsing overgedragen en opnieuw geïnterpreteerd worden binnen de instelling.
+`<Opmerking Niels> Is ook met koplopers besproken en duidelijk frequent scenario dat prio vereist. Een concreet probleem dat kan dienen als kickstarter voor onderwijsflexibiliteit in systemen. Een benoemde specifieker scenario is de switch van regulier onderwijs naar een set certificaten en vise versa. Voor KRS/SVS is dit een ramp waarbij handmatige bedenkelijke procedures dienen uitgevoerd te worden.    `
 
-Deze leerroute volgt een **sterk aanbod-gestuurd model met hybride kenmerken**: het onderwijsaanbod wordt grotendeels vooraf ontwikkeld en gepland. Studenten schrijven zich in op vaste programma’s. Alleen bij uitzonderingen (zoals incidenteel temporiseren of incidenteel versnellen) wijkt men van de hoofdroute af en kan bij op aanvraag aanvullend aanbod worden georganiseerd. Vanwege de statische aard van het onderwijsontwerp, is er voldoende behoefte nodig voor extra aanbod vanuit de studentenpopulatie. Er kan dus vaak niet aan individuele aanvragen vanuit studenten voldaan worden.
-
-Veel instelling binnen Nederland hanteren dit Onderwijsaanbod model. `TO-DO: specificeren hoeveel?`
-
+Deze leerroute volgt een **sterk aanbod-gestuurd model met hybride kenmerken**: het onderwijsaanbod wordt grotendeels vooraf ontwikkeld en gepland. Studenten schrijven zich in op vaste programma’s. Alleen bij uitzonderingen (zoals incidenteel temporiseren of incidenteel versnellen) wijkt men af van de hoofdroute en worden afwijkingen reactief en creatief beantwoord. Vanwege de statische aard van het onderwijsontwerp, is er voldoende behoefte nodig voor extra aanbod vanuit de studentenpopulatie. Er kan dus vaak niet aan individuele aanvragen vanuit studenten voldaan worden.
+`<Opmerking Niels> hierbij geldt ook de eerder benoemde beschikbaarheids factor van BOL- én BBL-Jochem. Het is niet alleen de statische aard van onderwijsontwerp, ook de mogelijke vraag vanuit de studentenpopulatie. Deze fluctueert per periode, dagdeel en locatie. Het is zeker niet reel dat het niet-generieke aanbod elke periode kan plaatsvinden. Afwijkingen cumuleren wel en creeren voorspelbare trendlijnen waar de periodeplanningen afwijken ten opzichte van de initiele jaarplannening `
+Veel instelling binnen Nederland hanteren dit Onderwijsaanbod model. `TO-DO: specificeren hoeveel?` 
+`<Opmerking Niels> allemaal, verschillen zitten in de complexiteit in onwikkelen en plannen`
 Schematisch is deze scenario opbouw als volgt weer te geven:
 
 ```mermaid
@@ -621,7 +622,7 @@ flowchart TD
   leerroute9 --> lr9Hybride["Incidenteel temporiseren en versnellen"]
   leerroute9 --> lr9Overig["Overige route-specifieke scenario's"]
 ```
-
+`<Opmerking Niels> Dit diagream is zelfs op mijn brede scherm niet makkelijk leesbaar te krijgen`
 De uitwerking en specificatie van de scenario's volgt in `HOOFDSTUK X`.
 
 ###### 3.3.1.2.5 Betrokken informatie bij proces
@@ -703,7 +704,7 @@ De tabel is daarmee niet bedoeld als extra abstractielaag naast de scenario's, m
 
 ###### 3.3.1.2.3 Het plan en rooster proces
 
-**Plannen** en **roosteren** brengen het **onderwijsontwerp** en de **werkelijkheid van de instelling** samen: welke perioden, groepen, docenten, zalen en BPV-plekken passen bij een programma als dat van Jochem? In de instellingsjourney (fasen 2 en 4, §3.3.1.2.2) wordt `onderwijsspecificatie` eerst **planbaar** gemaakt en daarna als `onderwijsaanbod` 'aanmeldbaar' en 'inschrijfbaar'. Tegelijkertijd wordt de onderwijsspecificatie verder gedetailleerd uitgewerkt. Dit heet ook wel **fijnmazige onderwijsontwikkeling**. Jochems traject vraagt tegelijk om een semesterblok medicatiebewaking, een bevoegde docent, simulatieruimte én een BPV-cluster in de apotheek — dat zijn geen losse administratieve velden, maar **samenhangende beslissingen** die de hele keten moet voeden.
+**Plannen** en **roosteren** brengen het **onderwijsontwerp** en de **werkelijkheid van de instelling** samen: welke perioden, groepen, docenten, zalen en BPV-plekken passen bij een programma als dat van Jochem? In de instellingsjourney (fasen 2 en 4, §3.3.1.2.2) wordt `onderwijsspecificatie` eerst **planbaar** gemaakt en daarna als `onderwijsaanbod` 'aanmeldbaar' en 'inschrijfbaar'. Tegelijkertijd wordt de onderwijsspecificatie verder gedetailleerd uitgewerkt. Dit heet ook wel **fijnmazige onderwijsontwikkeling**. Jochems traject vraagt tegelijk om een blok van 2 periodes medicatiebewaking, een bevoegde docent, simulatieruimte én een BPV-cluster in de apotheek — dat zijn geen losse administratieve velden, maar **samenhangende beslissingen** die de hele keten moet voeden.
 
 ###### 3.3.1.2.3.1 Randvoorwaarden en puzzel — conceptueel (CSP)
 
@@ -714,10 +715,10 @@ Plannen en roosteren zijn in de literatuur vaak beschreven als een **Constraint 
 - **Regels (constraints):** wat **moet** (geen dubbele docent op hetzelfde moment, medicatiebewaking pas na basisfarmacologie, alleen bevoegde docent) en wat **liever wel** (spreiding over de week, vaste BPV-begeleider, voorkeursteam).
 
 Een **oplossing** is een invulling van alle open vragen waarbij alle regels tegelijk kloppen. *Voor wie de formele term wil opzoeken:* zie de samenvatting op Wikipedia over [Constraint satisfaction problems](https://en.wikipedia.org/wiki/Constraint_satisfaction_problem).
-
+`<Opmerking Niels> Dit komt bij mij altijd een beetje over als een boer vertellen hoe fotosynthese te werk gaat. Ik zou onderwijplannen letterlijk omschrijven als "een invulling van alle open vragen waarbij alle regels tegelijk kloppen" `
 ###### 3.3.1.2.3.2 Keten en informatie als bron van regels
 
-Voordat de planner begint, moet de keten de **planbaarheidsgegevens** uit de vorige paragraaf leveren (SBU, expertise, volgorde, toetsvorm, capaciteit). Daarnaast tellen inschrijvingen, groepen, docenturen, zaalcapaciteit en examenregels mee — zie het vlakkenmodel in §3.3.1.2.5.
+Voordat de planner begint, moet de keten de **planbaarheidsgegevens** uit de vorige paragraaf leveren (BOT, BOT-weekverdeling, expertise, volgorde, capaciteit). Daarnaast tellen inschrijvingen, groepen, docenturen, lokaalcapaciteit en examenregels mee — zie het vlakkenmodel in §3.3.1.2.5.
 
 > **Jochem.** Als bij *Medicatiebewaking* de vereiste docent-expertise of het BPV-venster ontbreekt in de gepubliceerde specificatie, vult het planningssysteem gaten met **aannames**. Jochem kan dan in september een rooster krijgen dat op papier klopt, maar in de uitvoering schuurt — bijvoorbeeld geen stageplek of een docent zonder bevoegdheid. **Standaardisatie en tijdige beschikbaarheid** van keteninformatie is daarom geen integratie-detail, maar een **kwaliteitsvoorwaarde** voor planbaar en houdbaar aanbod.
 
