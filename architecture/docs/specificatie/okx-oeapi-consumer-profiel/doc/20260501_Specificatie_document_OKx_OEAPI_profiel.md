@@ -136,19 +136,19 @@ De 9 leerroutes zijn:
 
 ![Conceptbeeld leerroute 1 - regulier studeren in samenhang](../img/Npuls_leerroute_1.jpg)
 
-**Persona — Jochem (rode draad voor leerroute 1).** In de uitwerkingen hieronder volgen we **Jochem** (17, na het vmbo): hij wil **apothekersassistent** worden en later in een openbare apotheek werken. Zijn traject sluit aan op het kwalificatiedossier *Apothekersassistent* (CREBO-dossier 23450, kwalificatie 27141; zie [Apothekersassistent-2.md](../../../kwalificatiedossier/Apothekersassistent-2.md)). Het basisdeel omvat kerntaken **B1-K1** (farmaceutische patiëntenzorg), **B1-K2** (logistieke taken in de apotheek) en **B1-K3** (kwaliteit en deskundigheid), elk met onderliggende werkprocessen. Een **keuzedeel** is verplicht en wordt afgesloten met een examen. Jochem is geen aparte casus in de keten: hij illustreert waarom dezelfde informatie-objecten, processen en systemen voor élke reguliere student nodig zijn.
+**Persona — Jochem (rode draad voor leerroute 1).** In de uitwerkingen hieronder volgen we **Jochem** (17, na het vmbo): hij wil **apothekersassistent** worden en later in een openbare apotheek werken. Zijn traject sluit aan op het kwalificatiedossier *Apothekersassistent* (CREBO-dossier 23450, kwalificatie 27141; zie [Apothekersassistent-2.md](../../../kwalificatiedossier/Apothekersassistent-2.md)). Het basisdeel omvat kerntaken **B1-K1** (farmaceutische patiëntenzorg), **B1-K2** (logistieke taken in de apotheek) en **B1-K3** (kwaliteit en deskundigheid), elk met onderliggende werkprocessen. Voor een niveau 4 opleiding zijn 720 SBU aan af te nemen keuzedelen verpicht. Jochem dient dus minimaal 1 **keuzedeel** en af te sluiten met een examen. Jochem is geen aparte casus in de keten: hij illustreert waarom dezelfde informatie-objecten, processen en systemen voor élke reguliere student nodig zijn.
 
 #### 3.2.1.1 Wat betekent “regulier studeren”?
 
 ##### 3.2.1.1 De student beleving - De Student Journey
 
-> **Vignet — Jochem (oriëntatie en aanmelding).** Op de website van de mbo-instelling ziet Jochem de opleiding *Apothekersassistent — regulier* met start in september, BPV in een openbare apotheek en het gepubliceerde keuzedeelaanbod. Hij herkent in de beschrijving kerntaken als patiëntenzorg en medicatiebewaking. Dat voelt passend; hij meldt zich aan voor de opleiding. Na de intake volgt zijn **inschrijving** op het opleidingsprogramma — pas dan wordt zijn route contractueel en administratief vast.
+> **Vignet — Jochem (oriëntatie en aanmelding).** Op de website van de mbo-instelling ziet Jochem de opleiding *Apothekersassistent — regulier* met start in september, BPV in een openbare apotheek en het gepubliceerde keuzedeelaanbod. Hij herkent in de beschrijving kerntaken als patiëntenzorg en medicatiebewaking. Dat voelt passend; hij meldt zich aan voor de opleiding. Na aanmelden wordt hij **ingeschreven** op het opleidingsprogramma — pas dan wordt zijn route contractueel en administratief vast.
 
-Vanuit studentperspectief lijkt regulier studeren eenvoudig: een student orienteerd zich op basis van gepubliceerd onderwijsaanbod van instellingen. Ziet hij of zij iets wat passend voelt? Dan meld de student zich aan voor een door de instelling voorgeschreven en aangeboden opleiding. Daarna volgt de onderwijs intake. Zijn de verwachtingen en de vaardigheden van de student een match met de verwachtingen van de instelling? Dan wordt de student ingeschreven op de aangeboden opleiding. Waarna het de intentie voor de student is om de route die de instelling vooraf ontworpen heeft in zijn totaliteit te volgen. Op keuzedelen na wordt de route niet individueel samengesteld, maar institutioneel voorbereid.
+Vanuit studentperspectief lijkt regulier studeren eenvoudig: een student orienteerd zich op basis van gepubliceerd onderwijsaanbod van instellingen. Ziet hij of zij iets wat passend voelt? Dan meld de student zich aan voor een door de instelling voorgeschreven en aangeboden opleiding. Dan wordt de student ingeschreven op de aangeboden opleiding. Waarna het de intentie voor de student is om de route die de instelling vooraf ontworpen heeft in zijn totaliteit te volgen. Op keuzedelen na wordt de route niet individueel samengesteld, maar institutioneel voorbereid.
 
 ##### Keuzedelen
 
-> **Vignet — Jochem (keuzedeel-voorkeuren).** Jochem stelt een geprioriteerde voorkeurslijst samen met *Ondernemerschap in de zorg* op plaats 1 (semester 2, locatie A), gevolgd door alternatieven op lagere prioriteit — zoals in de tabel hieronder. Per keuzedeel legt hij ook de gewenste **onderwijsperiode** en **onderwijslocatie** vast. Als zijn eerste voorkeur niet haalbaar is op die combinatie, moet hij kunnen heroriënteren; anders blijft zijn **keuzedeelruimte** leeg met studievertraging tot gevolg.
+> **Vignet — Jochem (keuzedeel-voorkeuren).** Jochem stelt een geprioriteerde voorkeurslijst samen met *Ondernemerschap in de zorg* op plaats 1 (semester 2, locatie A), gevolgd door alternatieven op lagere prioriteit — zoals in de tabel hieronder. Per keuzedeel legt hij ook de voorgeprogrammeerde **onderwijsperiode** vast en optinioneel de **onderwijslocatie** vast. Als zijn eerste voorkeur niet haalbaar is op die combinatie, moet hij kunnen heroriënteren; anders blijft zijn **keuzedeelruimte** leeg met studievertraging tot gevolg.
 
 De keuzedelen worden van te voren als beschikbaar aanbod gepubliceerd en getoond aan de student tijdens zijn/haar aanbod oriëntatie. Daarna volgen 2 opties, afhankelijk van beleidskeuzes van de instelling:
 
@@ -160,46 +160,33 @@ De student **meldt** zich vervolgens aan op een keuzedeel. Bij deze aanmelding l
 
 | Voorkeur  | Keuzedeel                            | Onderwijsperiode   | Onderwijslocatie         |
 |-----------|--------------------------------------|--------------------|--------------------------|
-| 1         | Ondernemerschap in de zorg           | Periode 2          | Locatie A                |
-| 2         | Duurzame technologie                 | Periode 1          | Locatie B                |
-| 3         | Digitale vaardigheden                | Periode 2 of 3     | Locatie A of Locatie C   |
+| 1         | Ondernemerschap in de zorg           | Periode 7          | Locatie A                |
+| 2         | Duurzame technologie                 | Periode 5          | Locatie B                |
+| 3         | Digitale vaardigheden                | Periode 5 of 7     | Locatie A of Locatie C   |
 
-`<Opmerking Niels> In dit voorbeeld is ook de onderwijsperiode van het keuzedeel flexibel kiesbaar wat individueel roosteren tot een vereiste maakt`
 In deze lijst geeft de student aan dat 'Ondernemerschap in de zorg' het meest gewenste keuzedeel is, gevolgd door 'Duurzame technologie', enzovoorts. Per keuzedeel kan optioneel ook de gewenste volgorde van periodes aangegeven worden, zodat de planning hiermee rekening kan houden. De **onderwijslocatie** kan ook een praktijklocatie, *hub* of private- of publieke instelling zijn.
 
 Wanneer de student **niet** het gewenste keuzedeel op de voorkeurs **onderwijslocatie** en/of voorkeurs **onderwijsperiode**, dan **moet** de student op een andere onderwijslocatie kunnen oriënteren op meer passende keuzedelen.
 
-Als er geen passend aanbod (combinatie keuzedeel en/of onderwijsperiode en/of onderwijslocatie) is voor de student, dan blijft de geplande keuzedeelruimte oningevuld.
+Als er geen passend aanbod (combinatie keuzedeel en/of onderwijsperiode en/of onderwijslocatie) is voor de student, dan blijft de geplande keuzedeelruimte mogelijk oningevuld. Hier wordt actief op gesignaleerd om Jochem een nieuwe keuze te laten maken. 
+Jochem heeft in zijn opleiding een geplande keuzeldeelruimtes, uitgedrukt in SBU's. Jochem dient in deze keuzedeelruimte ook het minimale SBU's voor zijn kwalificatie te bereiken. Ook hier wordt actief op gesignaleerd.   
 
-In essentie betekent dit dat de student **studievertraging** oploopt, aangezien afgeronde keuzedelen onderdeel zijn van het kwalificatiekader binnen het MBO.
-
-Wanneer een passende combinatie van keuzedeel en/of onderwijsperiode en/of onderwijslocatie, voor de student gevonden kan worden. Wordt de keuzedeel aanmelding, omgezet in een inschrijving. Aan een keuzedeel kunnen kosten verbonden zijn. Wanneer dit het geval is wordt een contractuele **betalingsverplichting** aangegaan tussen de onderwijsinstelling en de student. Schrijft de student zich uit voor het keuzedeel, dan blijft de betalingsvertplichting voor de student in stand. De kosten van een keuzedeel zijn vaak gerelateerd aan voor de student benodigde leermiddelen voor deelname aan het keuzedeel.
-`<Opmerking Niels> Prima om kosten te benoemen, maar is en blijft een beleidskeuze van de school hoe hier mee omgegaan wordt`
-Er kan ten alle tijden maar één keuzedeel gevolgd worden binnen geplande keuzedeelruimte, en daarmee dus precies één actieve inschrijving bestaan voor keuzedelen.
-`<Opmerking Niels> Boven is periode vrij te bepalen en hier praat je wel over een geplande keuzedeelruimte?`
-Inactieve inschrijvingen, zoals geannuleerd keuzedeel aanbod van een keuzedeel (dankzij de aanbieder), zijn wel mogelijk.
+Wanneer een passende combinatie van keuzedeel en/of onderwijsperiode en/of onderwijslocatie, voor de student gevonden kan worden. Wordt de keuzedeel aanmelding een intekening.
 
 ##### Wanneer kiest een student keuzedelen?
 
 De **aanmelding** voor keuzedelen wordt vast gelegd naarmate de in het **onderwijsprogramma** geplande *keuzdeelruimte* dichterbij komt. De keuze van de student wordt uiterlijk een vast gestelde periode $t$ van te voren vastgelegd.
 
-OF
-`<Opmerking Niels> Dit kan dus ook het scenario van het voorgeprogrammeerde keuzedeel in de leerroute zijn `
-- De **aanmelding** voor de keuzedelen van de student worden tijdens de onderwijsintake vast gelegd en **niet** meer gewijzigd.
+> **Vignet — Jochem** Jochems instelling legt de keuzedeel-aanmelding **1 periode voorafgaande aan de keuzedeelruimte** vast. Staat de prioritering nog goed? Zo niet, past hij zijn **aanmelding keuzedeel** aan voordat het definitief wordt verwerkt. 
 
-OF
-`<Opmerking Niels> De voorlopige keuze vindt ver van te voren plaats, dit kan vanaf intake of inschrijving worden opgegeven`
-- De **aanmelding** voor de keuzedelen van de student worden tijdens de onderwijsintake vast gelegd als voorlopige keuze, maar naarmate de ontwikkeling van de student vordert, gewijzigd.
+  
 
-> **Vignet — Jochem (voorlopige keuze bij intake).** Jochems instelling legt de keuzedeel-aanmelding **voorlopig bij intake** vast. In het studentjourney-diagram volgt daarna gate **8f**: staat de prioritering nog goed? Zo niet, past hij zijn **aanmelding keuzedeel** aan voordat de planner en het aanbod verder meebewegen.
-
-Samenvattend:
-De door Jochem te volgen route, zoals vastgelegd in het **onderwijsprogramma** is voorspelbaar. Het onderwijs is al uitgewerkt als samenhangend programma, is al gepland voor aanvang van de opleiding (periodes, capaciteit, groepen) en daarna, wanneer het geplande moment dichterbij komt, wordt het onderwijs geroosterd (tijdsloten en toewijzingen). `<Opmerking Niels> Jochem kan samen met andere Jochems groepsmatig gepland en geroosterd worden, er is weinig aanleiding om individueel te roosteren`
 
 *Figuur - Student Journey Regulier - Proces studentbeleving regulier studeren*
 
 **Leeswijzer diagram.** Rechthoeken zijn **processtappen**; ruiten zijn **beslismomenten**; **gele ronde bollen** zijn vastgelegde **informatie-objecten** op het moment dat een **aanmelding** formeel is vastgelegd of is omgezet naar een **inschrijving** (contractuele plaatsing). Voor keuzedelen geldt: maximaal **één actieve inschrijving** per geplande **keuzedeelruimte** in het **onderwijsprogramma**. Bij instellingsbeleid *voorlopige keuze bij intake* (stap 8e) volgt gate **8f**: zolang de prioritering niet meer past, heroriënteert de student en past hij de **keuzedeel-aanmelding** aan (gele bol wordt bijgewerkt) voordat het proces via gate 9 verdergaat.
 
+`<Opmerking Niels> Mermaid diagram dient update te krijgen, of weg, diagrammen zijn alleen nodig wanneer er veel complexititeit in de journey zit`
 ```mermaid
 flowchart TB
   subgraph publicatie["Aanbod zichtbaar"]
@@ -272,15 +259,20 @@ flowchart TB
   classDef infoObject fill:#fffbe6,stroke:#efd600,stroke-width:2px,color:#333;
   class aanmeldingOpleiding,inschrijvingOpleiding,aanmeldingKeuzedeel,inschrijvingKeuzedeel,gepubliceerdAanbod,gepubliceerdKeuzedeelAanbod infoObject;
 ```
-`<Opmerking Niels> Mermaid diagram kun duidelijk niet overweg met langere beschrijvingen, maakt het diagram helaas slecht leesbaar `
-**Wanneer wordt aanmelding inschrijving?**
+
+**Wanneer wordt aanmelding een inschrijving?**
 
 | Moment | Van (aanmelding) | Naar (inschrijving) | Voorwaarde |
 | --- | --- | --- | --- |
-| **Opleiding** | `Aanmelding opleiding` (geel) na stap 2 | `Inschrijving opleiding en opleidingsprogramma` (geel) na positieve intake-match | Match tussen student en instelling op opleiding/programma |
-| **Keuzedeel** | `Aanmelding keuzedeel` (geel) na vastlegging voorkeuren | `Inschrijving keuzedeel` (geel) na gate 10 | Passende combinatie van keuzedeel, **onderwijsperiode** en **onderwijslocatie**; daarna contractuele **betalingsverplichting**. Bij geen passend aanbod blijft de **keuzedeelruimte** leeg (mogelijke studievertraging). Maximaal **één actieve** keuzedeel-inschrijving per keuzedeelruimte; geannuleerd aanbod kan leiden tot **inactieve** inschrijving. |
-`<Opmerking Niels> Onderwijsteams doen er alles aan om het keuzedeel altijd in te vullen, desnoods met een ongewenste keuze. Nadruk op betalingsverplichting niet nodig https://jobmbo.nl/vragen_klachten/mag-een-school-extra-kosten-voor-een-keuzedeel-doorberekenen-aan-de-student/# `
-> **Vignet — Jochem (twee stappen naar inschrijving).** Eerst wordt Jochems **aanmelding opleiding** na positieve intake een **inschrijving opleiding en opleidingsprogramma**. Later, wanneer zijn keuzedeel op voorkeursperiode en -locatie past, wordt **aanmelding keuzedeel** **inschrijving keuzedeel** — met betalingsverplichting. Zonder passend keuzedeelaanbod blijft zijn programma regulier, maar de keuzedeelruimte oningevuld.
+| **Opleiding** | `Aanmelding opleiding` (geel) na stap 2 | `Inschrijving opleiding en opleidingsprogramma` (geel) na positieve plaatsing | Match tussen student en instelling op opleiding/programma |
+| **Keuzedeel** | `Aanmelding keuzedeel` (geel) na vastlegging voorkeuren | `Inschrijving keuzedeel` (geel) na gate 10 | Passende combinatie van keuzedeel, **onderwijsperiode** en **onderwijslocatie**. Bij geen passend aanbod blijft de **keuzedeelruimte** leeg (mogelijke studievertraging); geannuleerd aanbod kan leiden tot **inactieve** inschrijving. |
+`
+> **Vignet — Jochem (twee stappen naar inschrijving).** Eerst wordt Jochems **aanmelding opleiding** na positieve plaatsing een **inschrijving opleiding en opleidingsprogramma**. Later, wanneer zijn keuzedeel op voorkeursperiode en -locatie past, wordt **aanmelding keuzedeel** **inschrijving keuzedeel**. Zonder passend keuzedeelaanbod blijft zijn programma regulier, maar de keuzedeelruimte oningevuld.
+
+##### Jochem's onderwijsperiode start
+Jochem het bericht dat zijn 1e keuze voor **Ondernemerschap in de zorg** is geaccepteerd. Hij ontvangt direct de leermiddelenlijst en is in een lesgroep geplaatst. 
+De periode is gestart en Jochem ziet naast zijn regulier geplande lessen ook het keuzedeel op het rooster staan. In het student volgsysteem zijn ook de toetsen en het examen zichtbaar die hij voor het keuzedeel zal gaan maken. Daarnaast ziet hij in het LMS de leer- en samenwerk omgeving van zijn keuzedeel lesgroep.
+
 
 ##### 3.3.1.2 De Instellingsbeleving - De Instellingsjourney
 
