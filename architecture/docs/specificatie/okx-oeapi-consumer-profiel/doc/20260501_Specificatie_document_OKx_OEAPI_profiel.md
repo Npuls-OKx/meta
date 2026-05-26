@@ -716,7 +716,9 @@ De tabel is daarmee niet bedoeld als extra abstractielaag naast de scenario's, m
 
 **Voetnoot.** OKx richt zich in dit profiel primair tot de diepte van het beschrijven van de **werkproceslaag**. De entiteit *leergelegenheid* (groep van lessen) leidt uiteindelijk tot individueel geroosterde lessen. Binnen geroosterde lessen kunnen op hun beurt geneste lessen voorkomen; in toekomstige iteraties moeten ook deze recursief volgens dit datamodel gemodelleerd kunnen worden. Dit geldt eveneens voor diepere sublagen zoals een *lessenreeks* of specifieke leeractiviteiten binnen een les. Dit erkent expliciet dat onder een *leergelegenheid* of *lessenreeks* nog een hiërarchie van leeronderdelen kan bestaan, met directe impact op bottom-up en top-down aggregatie van onderwijsspecificaties, aanbod en verbintenissen.
 
-##### Het plan en rooster proces - `(TO-DO)`
+##### Het plan en rooster proces
+
+`TO-DO`
 
 **Plannen** en **roosteren** brengen het **onderwijsontwerp** en de **werkelijkheid van de instelling** samen. De leesregel is eenvoudig: **goed beschrijven → goed plannen → goed instelling-breed plannen → goed roosteren**. Een **goed beschreven** `onderwijsspecificatie` levert helderheid in studielast, expertise, volgorde en faciliteiten voor individuele opleidingen. Maar een instelling biedt meerdere opleidingen aan. Om te zorgen dat **al** het door de instelling gewenste aan te bieden onderwijs (zoals beschreven in de `onderwijsspecificatie`), ook echt realiseerbaar is; werkt een planner een strategische jaarplanning uit. Deze planning bevat **Alle opleidingsprogramma's van het komend jaar, voor de gehele instelling**. Is ieder aan te bieden opleidingsprogramma planbaar een goed beschreven — dan kan een planner **zo eenvoudig mogelijk** deze grove jaarplanning maken. Een **goed instelling-breed plan** (over alle opleidingen, niet alleen één programma) maakt **roosteren** een check-en-finetune-stap in plaats van een puzzel die elke periode opnieuw vanaf nul begint. **Naarmate keuze-complexiteit toeneemt** (keuzedelen, overstap, modulair, hybride tempo) is de kwaliteit van dat plan dé randvoorwaarde voor uitvoerbaarheid.
 
@@ -974,18 +976,109 @@ Doel hier is dat de **semantische consistentie** uit §3.2 ook bij implementatie
 
 ##### Procesfasen ↔ interacties op de plaat ↔ informatie
 
-Aansluitend op de **instellingsjourney in 8 fasen** (zie *De procesbeleving achter 'regulier' onderwijs van een Instelling*): per fase de hoofdgebeurtenis, de systemen die elkaar conceptueel raken (lijnen op de plaat), en de informatie die beweegt. Fasen **1–5** vormen de lineaire keten van ontwerp tot start uitvoering; **fase 6** (keuzemomenten) en **fase 7** (bijsturen) zijn cyclische lussen die het strategische jaarplan en het rooster opnieuw raken; **fase 8** sluit af met examineren en diplomeren. Dit is de **leg-up** voor de berichtspecificatie- en interfacespecificatie-stappen van AMIGO (§2.3); koppelvlakdetails (trigger, idempotentie, formaat) staan hier bewust nog niet in.
+**Hier komt alles samen.** Per fase van de **instellingsjourney** (zie *De procesbeleving achter 'regulier' onderwijs van een Instelling*, fasen 1–8) lopen we de [informatiestromenplaat voor leerroute 1](../img/OKx_LR1_informatiestromen_v20260526.jpg) verhalend door. Elke fase heeft een eigen **highlight-uitsnede** van die plaat, en wordt belicht vanuit **drie hoeken**:
 
-| Fase (instellingsjourney) | Hoofdgebeurtenis | Systemen die elkaar raken op de plaat | Informatie die beweegt (conceptueel) | Plaat (highlight) |
-| --- | --- | --- | --- | --- |
-| 1. Kwalificatiekader analyseren en grofmazig ontwerpen | Onderwijsontwerper maakt opleidings- en onderwijsspecificatie en eerste examenplan; curriculum als template over de opleidingsduur. | **OC** → Curriculum-ontwerptool → **OC** | Onderwijsspecificatie op Opleiding, opleidingsprogramma- en onderwijseenheidsniveau; toetsvormen; eerste examenplan; nominaal curriculum-template. | ![OKx informatiestromen Leerroute 1 - Regulier - Procesfase 1](../img/OKx_LR1_informatiestromen_v20260526_f1.jpg)  |
-| 2. Publiceren en planbaar maken | Specificatie is gedetailleerd tot planbare specificatie en staat in **OC**; **OC** verzoekt plansysteem om `onderwijsspecificaties` te transoformeren tot `onderwijsaanbod`. Planner bepaalt haalbaarheid en maakt **onderwijsaanbod** als deel van de instellingsbrede strategische jaarplanning. Niet haalbaar? Planning verzoekt eventueel om `onderwijsspecificatie` wijzigingen, vooral op planning constraints. | **OC** → **Planningsysteem**; Curriculum-ontwerptool → **OC** (specificatie-update + plan-assets); Haalbaar? **Planning** → **OC** (planbaar aanbod) | Gepubliceerde specificatie; planconstraints (bijv. ruimtetypen); gepland `onderwijsaanbod` op basis van `onderwijsspecificaties` (perioden, capaciteit, groepen) | ![OKx informatiestromen Leerroute 1 - Regulier - Procesfase 2](../img/OKx_LR1_informatiestromen_v20260526_f2.jpg) |
-| 3. Instroom, intake en plaatsing | Student oriënteert zich op `onderwijsspecificaties` geplubliceert in **OC**, meldt zich aan, doorloopt intake; positieve uitkomst → registratie van persoon en plaatsing. | **Intake** → **KRS** | Aanmelding;`Opleidingsprogramma verbintenis` en `Persoon` (Student) intake-uitkomst (inschrijving/afwijzing); persoon en plaatsing in KRS; begeleidingscontext. | ![OKx informatiestromen Leerroute 1 - Regulier - Procesfase 3](../img/OKx_LR1_informatiestromen_v20260526_f3.jpg) |
-| 4. Detailleren, roosteren en inschrijven | Onderwijsontwikkelaar werkt `leeronderdeel-` en `toetsonderdeel specificaties` en eventueel `Lesspecificaties` verder uit; zodat deze geroosterd kunnen worden. Verbintenis op concrete gelegenheden. | **OC** → **LMS** (verzoek tot detaillering `leeronderdeel specificaties`); **Planningsysteem** → **KRS** (`plaatsingsgroep` ↔ persoon i.r.t. `opleidingsprogramma`), **Planning** → **KRS** (`planningsgroep` ↔ persoon i.r.t. `opleidingsprogramma`); **Planning** → **Rooster** (te roosteren `leeronderdeelspecificaties`, i.r.t. `onderwijseenheidspecificaties` i.r.t. `opleidingsprogramma specificaties`); **Rooster** → **Aanwezigheidsregistratie** (Aanwezig verwachte Personen i.r.t. leergelegenheid d.m.v. `leergelegenheid verbintenis`); **KRS** → **LMS** (`Onderwijsprogramma verbintenis + Persoon` voor rechtmatige toegang tot `leeronderdeelspecificaties`) | Detailspecificatie van leeronderdelen, lessen en toetsen; groep met deelnemers; geroosterde gelegenheden; lijst van deelnemers in LMS. | ![OKx informatiestromen Leerroute 1 - Regulier - Procesfase 4](../img/OKx_LR1_informatiestromen_v20260526_f4.jpg) |
-| 5. Onderwijs uitvoeren en voortgang begeleiden | Docent verzorgt onderwijs; plant toetsmomenten, en houd formatieve voortgang bij o.a. aanwezigheid registreren. | **Roostersysteem** ↔ **Aanwezigheidsregistratie**; **OC** → **LMS** en **OC** → **SVS** (specificatie als referentiekader); **LMS** → **SVS** (feiten) | Lesuitvoering en deelname; aanwezigheid; formatieve voortgang richting volgsysteem. | ![OKx informatiestromen Leerroute 1 - Regulier - Procesfase 5](../img/OKx_LR1_informatiestromen_v20260526_f5.jpg) |
-| 6. Organiseren van keuzemomenten | Periodieke keuzemomenten: studenten leggen definitieve keuzedelen vast via SKS; instelling verwerkt naar groepen en capaciteit; planbaar en geroosterd aanbod worden geactualiseerd. Student krijgt toegang tot LMS en student `opleidingsprogrammaspecificatie` in SVS wordt bijgewerkt met keuzedeel `opleidingsprogramma` | **OC** → **SKS** (`opleidingsprogramma-aanbod` keuzedeel); **Roostersysteem** → **SKS**; **SKS** → **KRS** en **SKS** → **SVS** (`opleidingsprogramma-verbintenis` keuzedeel); **SKS** → **LMS** (planninggroep); **KRS** ↔ **Planning**; **Planning** → **OC** / **Rooster** → **OC** | `Aanmelding keuzedeel` → `opleidingsprogramma-verbintenis` (keuzedeel); bijgewerkte groepen en capaciteit; mutaties op planbaar en geroosterd aanbod; signalering bij oningevulde keuzedeelruimte. | ![OKx informatiestromen Leerroute 1 - Regulier - Procesfase 6](../img/OKx_LR1_informatiestromen_v20260526_f6.jpg) |
-| 7. Bijsturen planning en aanbod | **Handmatig proces en collectie van** Uitval, temporiseren, versnellen en hybride afwijkingen cumuleren tegen de initiële `opleidingsprogramma specificatie` van de studenten. Planner verzamelt vergelijkbare afwijkingen in planningsgroep. Deze groepen studenten worden uitgeschreven van bestaande `onderwijsonderdeel aanbod`, middels annulering `onderwijsonderdeel verbintenis` annulering. Voor de nieuwe plangroeperingen wordt nieuw `onderwijsaanbod` gemaakt door planner op basis van bestaand `opleidingsprogramma specificatie`. | **SVS** is bron voor bijhouden individueel student voortgang. Incidentele afwijking van programma? → **KRS** (bestaande `onderwijsonderdeel verbintenis` verbreken); **KRS** → **Planning** (gewijzigde populatie van bestaande en nieuwe plangroepen); **Planning** → **OC** (mutaties planbaar aanbod) en **Planning** → **Rooster** voor nieuw rooster | Voortgangs- en uitvalsignalen middels `onderwijsverbintenis resultaten`; gewijzigde `plangroepen`, capaciteit en verbintenissen; mutaties op planbaar én geroosterd onderwijsaanbod; cumulatieve trendlijn periode vs jaarplan. | ![OKx informatiestromen Leerroute 1 - Regulier - Procesfase 7](../img/OKx_LR1_informatiestromen_v20260526_f7.jpg)` |
-| 8. Examineren, vaststellen en diplomeren | Examenaanbod klaargezet door `examenspecificaties` te transformeren tot `examengelegenheden` (volgens examenplan); Afnemen van examen; kandidaatuitkomsten naar student volg systeem; formele vaststelling door examencommissie (binnen SVS) en uiteindelijke diplomering op basis van KRS. | **Toets-/examenplanning** ↔ **Toets-/examenafname**; **Toets-/examenafname** → **SVS**; **SVS** ↔ **KRS** (kwalificering en diplomering) | Geplande `Examengelegenheden`; `Examengelegenheid verbintenis resultaten`; opbouw voor afsluitend onderwijsresultaat in SVS; vastgestelde kwalificering en diplomering. | ![OKx informatiestromen Leerroute 1 - Regulier - Procesfase 8](../img/OKx_LR1_informatiestromen_v20260526_f8.jpg)` |
+- **Jochem (student) — happy flow.** Hoe ervaart hij deze fase als reguliere mbo-student?
+- **De instelling — journey fase N.** Welke actoren, beslissingen en informatie-objecten bewegen er in de keten?
+- **Wat licht op in de plaat.** Welke pijlen en componenten op de informatiestromenplaat horen bij deze fase, in begrippen uit het vlakkenmodel (`specificatie → aanbod → verbintenis → resultaat`).
+
+Bij **fase 5, 6 en 7** is dit verhaal niet af zonder de **variaties** *incidenteel temporiseren*, *incidenteel versnellen* en *hybride*: dezelfde reguliere leerroute, andere voortgang. Die zetten we daar expliciet bij Jochem.
+
+> **Leesregel op de plaat.** De **linkerhelft** is *Onderwijsontwikkeling* (fasen 1–2: het nominale aanbod ontstaat). De **rechterhelft** is *Onderwijsuitvoering* (fasen 3–8: de student studeert, leert en maakt keuzes). De **OKE**-stippellijn (oranje) markeert waar uitvoeringsfeiten richting het volgsysteem worden bemiddeld. Fasen 1–5 lopen lineair; **fase 6** (keuzemomenten) en **fase 7** (bijsturen) zijn cyclische lussen die het strategische jaarplan en het rooster opnieuw raken. Dit hoofdstuk vormt de **leg-up** voor de berichtspecificatie- en interfacespecificatie-stappen van AMIGO (§2.3); koppelvlakdetails (trigger, idempotentie, formaat) staan hier bewust nog niet in.
+
+###### Fase 1 — Kwalificatiekader analyseren en grofmazig ontwerpen
+
+![OKx informatiestromen Leerroute 1 — highlight Procesfase 1](../img/OKx_LR1_informatiestromen_v20260526_f1.jpg)
+
+**De instelling — journey fase 1.** Een **onderwijsontwerper** vertaalt het **`kwalificatiedossier`** (CREBO, kerntaken, werkprocessen, keuzedeelruimte) naar een **`opleidingsspecificatie`** met onderliggende **`opleidingsprogramma-`** en **`onderwijseenheid-specificaties`**, eerste **toetsvormen** en een initieel **examenplan**. Het curriculum ontstaat hier als **template** over de looptijd van de opleiding. De **Curriculum-ontwerptool** publiceert dit grofmazige resultaat naar de **Onderwijscatalogus (OC)**.
+
+**Jochem — happy flow.** Voor Jochem nog onzichtbaar; deze fase voltooit zich vóórdat hij zich oriënteert. Wat hij later in fase 3 op de website ziet — *Apothekersassistent — regulier*, met kerntaken patiëntenzorg en medicatiebewaking en gepubliceerde keuzedeelruimte — is het zichtbare resultaat van dit ontwerp.
+
+**Wat licht op in de plaat.** **Curriculum-ontwerptool → OC** met `opleidingsspecificatie`, `opleidingsprogramma-specificatie`, `onderwijseenheid-specificatie`, `toetsonderdeel-specificatie` en initieel `examenonderdeel-specificatie` — alles op grofmazig niveau.
+
+###### Fase 2 — Publiceren en planbaar maken
+
+![OKx informatiestromen Leerroute 1 — highlight Procesfase 2](../img/OKx_LR1_informatiestromen_v20260526_f2.jpg)
+
+**De instelling — journey fase 2.** De grofmazige specificaties zijn aangevuld tot **planbare specificatie** (tijdvensters, capaciteit, expertise, faciliteit). **OC** verzoekt het **Planningssysteem** om die specificaties te transformeren tot **`onderwijsaanbod`**. De **planner** bepaalt haalbaarheid binnen het **strategische jaarplanning** (mensen, middelen, alle opleidingen) en levert **gepland `opleidings-` en `opleidingsprogramma-aanbod`** terug aan **OC**. Niet haalbaar? Dan verzoekt planning om aanpassingen op de specificatie (vooral planning-constraints) — zie [*Het plan en rooster proces*](#het-plan-en-rooster-proces).
+
+**Jochem — happy flow.** Nog steeds onzichtbaar, maar deze fase bepaalt of zijn opleiding in september start en met welke capaciteit. Onhaalbaar plan = geen aanbod om zich op te oriënteren.
+
+**Wat licht op in de plaat.** **OC → Planningssysteem** (`opleidingsspecificatie` als planopgave); **Curriculum-ontwerptool → OC** (specificatie-update en plan-assets); **Planning → OC** (`opleidingsaanbod`, `opleidingsprogramma-aanbod` als planbaar resultaat). Het strategische jaarplan loopt op de achtergrond.
+
+###### Fase 3 — Instroom, intake en plaatsing
+
+![OKx informatiestromen Leerroute 1 — highlight Procesfase 3](../img/OKx_LR1_informatiestromen_v20260526_f3.jpg)
+
+**Jochem — happy flow.** Jochem ziet het gepubliceerde aanbod (vanuit **OC**) en herkent *Apothekersassistent — regulier* met start in september. Hij **oriënteert**, **meldt zich aan** via het **Intakesysteem** en doorloopt de intake met zijn **SLB'er** (student-journey-stappen 1–4, zie *De student beleving — De Student Journey*). Match? Het Intakesysteem draagt de positieve uitkomst over aan **KRS**; daar wordt zijn `Persoon` vastgelegd plus een **`opleidingsverbintenis`** en **`opleidingsprogramma-verbintenis`**.
+
+**De instelling — journey fase 3.** Vanaf nu bestaat Jochem als formele student in de keten met een inschrijving op opleiding, programma en (waar van toepassing) initiële `plaatsingsgroep`.
+
+**Wat licht op in de plaat.**: **OC → Intakesysteem** (aanbod om op te oriënteren); **Intakesysteem → KRS** (`opleidingsverbintenis`, `opleidingsprogramma-verbintenis` + `Persoon`). KRS wordt master voor persoon en plaatsing.
+
+###### Fase 4 — Detailleren, roosteren en inschrijven
+
+![OKx informatiestromen Leerroute 1 — highlight Procesfase 4](../img/OKx_LR1_informatiestromen_v20260526_f4.jpg)
+
+**De instelling — journey fase 4.** Onderwijsontwikkelaars werken **`leeronderdeel-`** en **`toetsonderdeel-specificaties`** (en waar nodig `lesspecificatie`) fijnmazig uit; **OC → LMS** levert die detailspecificaties ter inrichting. Het **Planningssysteem** definieert **plaatsings-** en **planninggroepen** per `opleidingsprogramma`, koppelt deze in **KRS** aan `Persoon`, en geeft te roosteren `leeronderdeel-specificaties` aan het **Roostersysteem**. Het roostersysteem maakt concrete **`leergelegenheden`**, **`lesgelegenheden`** en (waar van toepassing ) ook **`toetsgelegenheden`** (slots, lokalen, docenten) en deelt verwachte deelnemers als **`leergelegenheid-verbintenis`** met de **Aanwezigheidsregistratie**.
+
+**Jochem — happy flow.** Jochem ontvangt zijn **eerste rooster** en krijgt toegang tot het **LMS** voor periode 1. Latere perioden blijven planbaar tot ze geroosterd worden.
+
+**Wat licht op in de plaat.** **OC → LMS** (`leeronderdeel-specificaties` ter detaillering); **Planning ↔ KRS** (groepen ↔ persoon i.r.t. personen en groepen i.r.t `onderwijsspeicficatie`); **Planning → Rooster** (te roosteren `leeronderdeel-` en `toetsonderdeel-specificaties`); **Rooster → Aanwezigheidsregistratie** (`leergelegenheid-verbintenis` "presentielijst"); **KRS → LMS** (`opleidingsprogramma-verbintenis` + `Persoon` voor rechtmatige toegang).
+
+###### Fase 5 — Onderwijs uitvoeren en voortgang begeleiden
+
+![OKx informatiestromen Leerroute 1 — highlight Procesfase 5](../img/OKx_LR1_informatiestromen_v20260526_f5.jpg)
+
+**Jochem — happy flow.** Jochem volgt zijn lessen, **BPV** in de apotheek en formatieve toetsen (student-journey-stappen 5–7). Aanwezigheid wordt geregistreerd; formatieve voortgang loopt door naar het **SVS**.
+
+**De instelling — journey fase 5.** Docenten verzorgen onderwijs, plannen toetsmomenten tijdens lessen en houden formatieve voortgang bij. **SLB'ers** volgen Jochems studiebeeld in **SVS**.
+
+**Jochem — variaties.**
+
+- *Incidenteel temporiseren:* Jochem mist BPV-weken door ziekte; SLB ziet via **SVS** dat hij achterloopt op `onderwijseenheid-verbintenis resultaten`.
+- *Incidenteel versnellen:* hij pakt theorie sneller op en vraagt eerder toegang tot het volgende blok.
+- *Hybride:* theorie versnelt, BPV temporiseert.
+
+In alle drie blijft de **leerroute regulier**; deze signalen uit fase 5 voeden direct **fase 7** (bijsturen).
+
+**Wat licht op in de plaat.** **OC → LMS** en **OC → SVS** (specificatie als referentiekader); **Roostersysteem ↔ Aanwezigheidsregistratie** (geroosterd aanbod ↔ aanwezigheidsfeiten); **LMS → SVS** (`leergelegenheid-verbintenis resultaten` en `toetsgelegenheid-verbintenis resultaten`, formatief).
+
+###### Fase 6 — Organiseren van keuzemomenten
+
+![OKx informatiestromen Leerroute 1 — highlight Procesfase 6](../img/OKx_LR1_informatiestromen_v20260526_f6.jpg)
+
+**Jochem — happy flow.** De **keuzedeelruimte** nadert; Jochem stelt zijn **geprioriteerde voorkeurslijst** samen in het **SKS** (zie *Wanneer kiest een student keuzedelen?*). Zijn `aanmelding keuzedeel` voor *Ondernemerschap in de zorg* (periode 7, locatie A) past — gate 10 ja. **SKS → KRS** legt zijn **`opleidingsprogramma-verbintenis` (keuzedeel)** vast; **SKS → SVS** voegt het keuzedeelprogramma toe aan zijn studiepad; **SKS → LMS** koppelt hem aan de planninggroep en geeft toegang tot de leeromgeving van het keuzedeel.
+
+**De instelling — journey fase 6.** De planner verwerkt definitieve keuzes **periodiek** naar groepen en capaciteit, actualiseert het planbare aanbod in **OC** en het rooster volgt. Bij **niet-passend aanbod** of **oningevulde keuzedeelruimte** signaleert het systeem actief richting SLB.
+
+**Jochem — variaties.** Past zijn eerste voorkeur niet, dan oriënteert hij op een andere locatie (gate 9a) of een ander keuzedeel; blijft passend aanbod uit, dan blijft zijn keuzedeelruimte (tijdelijk) **leeg** met studievertraging als gevolg — én een signaal naar SLB.
+
+**Wat licht op in de plaat.** **OC → SKS** (`opleidingsprogramma-aanbod` type keuzedeel); **Planningsysteem → Roostersysteem** (te roosteren keuzedeel); **SKS → KRS** en **SKS → SVS** (`opleidingsprogramma-verbintenis` keuzedeel); **SKS → LMS** (planninggroep + verbintenis); **SKS ↔ Planning** (); **Planning → OC** en **Rooster → OC** (geactualiseerd aanbod).
+
+###### Fase 7 — Bijsturen planning en aanbod
+
+![OKx informatiestromen Leerroute 1 — highlight Procesfase 7](../img/OKx_LR1_informatiestromen_v20260526_f7.jpg)
+
+**De instelling — journey fase 7 (IST situatie is grotendeels handmatig).** Tijdens het jaar **cumuleren afwijkingen** (uitval, temporiseren, versnellen, hybride) tegen de initiële `opleidingsprogramma-specificatie` van studenten. **SVS** is bron van die individuele voortgang. De planner verzamelt **vergelijkbare afwijkingen** in een **planninggroep**: bestaande `onderwijseenheid-verbintenissen` worden via **KRS** geannuleerd, voor de nieuwe plangroepen wordt **nieuw `onderwijsaanbod`** gemaakt op basis van dezelfde `opleidingsprogramma-specificatie`. **Planning → OC** publiceert het bijgestuurde planbaar aanbod; **Planning → Rooster** levert het nieuwe rooster. 
+
+**Jochem — variaties.**
+
+- *Temporiseren:* zijn gemiste praktijkles-weken voor medicatieherkenning worden door de planner samengevoegd met andere achterlopers tot een nieuwe `planningsgroeping` i.r.t. `onderwijsspecificatie` in periode 5; zijn bestaande `onderwijseenheid-verbintenis` voor periode 3 wordt geannuleerd, een nieuwe verbintenis volgt op het bijgestuurde aanbod.
+- *Versnellen:* hij komt in een versnel-pool (`planningsgroeping` i.r.t. `onderwijsspecificatie`) met andere studenten die op theorie sneller gaan; nieuw `onderwijseenheid-aanbod` met afwijkende periode.
+- *Hybride:* hij zit in beide `planningsgroeperingen` — theorie sneller, BPV later — wat het strategische jaarplan opnieuw moet absorberen. Bestaande `onderwijseenheid-verbintenissen` zijn geannuleerd.
+
+**Wat licht op in de plaat.** **SVS** als bron van individuele voortgang (`onderwijsverbintenis resultaten`); **KRS** (verbreken bestaande `onderwijseenheid-verbintenis`); **KRS → Planning** (gewijzigde populatie en plangroepen); **Planning → OC** (mutaties planbaar aanbod); **Planning → Rooster** (nieuw rooster).
+
+###### Fase 8 — Examineren, vaststellen en diplomeren
+
+![OKx informatiestromen Leerroute 1 — highlight Procesfase 8](../img/OKx_LR1_informatiestromen_v20260526_f8.jpg)
+
+**De instelling — journey fase 8.** Op basis van het **examenplan** uit fase 1 worden **`examenspecificaties`** getransformeerd tot **`examengelegenheden`**. **Toets-/examenplanning** stelt kandidatenlijsten samen; **Toets-/examenafname** voert de zitting uit en levert resultaten als **`examengelegenheid-verbintenis resultaten`** door aan **SVS**. De **examencommissie** stelt summatief vast (binnen SVS); op basis daarvan registreert **KRS** kwalificering en diplomering.
+
+**Jochem — happy flow.** Jochem legt examens af, ontvangt zijn formele beoordeling en uiteindelijk zijn diploma — het eindpunt van dezelfde keten die hij als reguliere route ervoer.
+
+**Wat licht op in de plaat.** **Toets-/examenplanning ↔ Toets-/examenafname**; **Toets-/examenafname → SVS** (`examengelegenheid-verbintenis resultaten`); **SVS ↔ KRS** (kwalificering en diplomering).
 
 **Aansluiting op de informatiestromenplaat.** De [Informatiestromenplaat](../img/OKx_LR1_informatiestromen_v20260526.jpg) hierboven toont **dezelfde stromen** in begrippen uit het begrippenkader en informatiemodel; in latere AMIGO-stappen worden die vertaald naar **OEAPI-termen** op de flow-relaties (zoals `Programme specification`, `ProgrammeOffering`, `Association`). Hier blijft het bij wat er **conceptueel** beweegt; in berichtspecificatie en interfacespecificatie (§12.2, §2.3) staat hoe dat in uitwisseling wordt gevangen.
 
