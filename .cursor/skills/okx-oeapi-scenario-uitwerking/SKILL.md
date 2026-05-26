@@ -19,9 +19,21 @@ description: >-
 - Werk **binnen** de definities en nummering van dat document; verzin geen parallelle begrippenlijst naast OKx/OEAPI/MORA.
 - **OEAPI-kern** wijzigen doet het profiel niet: gaps → signalering / change request (zoals in §1.4 van het profiel).
 
+## Keuzedelen
+
+- Verplicht onderdeel van mbo; afgesloten met examen.
+- Voor **niveau 4**: **720 SBU** keuzedeelruimte (verwijs naar S-BB waar relevant).
+- **Geprioriteerde voorkeurslijst** met (periode, locatie); maximaal **één actieve inschrijving** per keuzedeelruimte in het onderwijsprogramma.
+- Geen passend aanbod → ruimte kan **leeg** blijven → actieve signalering (studievertraging).
+- Drie instellingsbeleidsvarianten voor het moment van aanmelding: uiterlijk periode *t* vóór de ruimte; definitief bij intake; voorlopig bij intake (met loop 8f).
+
 ## Taal en toon
 
 - **Nederlands**; volledige zinnen; toegankelijk voor bestuurders en onderwijskundigen, precies genoeg voor API- en ketenspecialisten.
+- **Niet te technisch:** schrijf voor onderwijsprofessionals én bouwers; introduceer termen als CSP of NP-Hard alleen als **verdieping**, nooit als ingang.
+- **Concept-eerst, verdieping daarna:** hoofdtekst conceptueel; technische details in expliciete *voor wie dieper wil*-blokken.
+- **Onderwijsplannen** (canonieke formulering): *een invulling van alle open vragen waarbij alle regels tegelijk kloppen*.
+- **Leesregel planproces:** *goed beschrijven → goed plannen → goed instelling-breed plannen → goed roosteren*.
 - Onderscheid bewust:
   - *Student journey* (oriënteren → aanmelden → intake → inschrijven → volgen → toetsen → kwalificeren).
   - *Instellings journey* (ontwerp, publicatie, planbaar en geroosterd aanbod, intake/plaatsing, uitvoering, examinering, diplomering).
@@ -94,6 +106,12 @@ Gebruik per dimensie **kort** wat al besloten, geregeld of beschikbaar moet zijn
   - **Resultaat** → minimaal state; rijkere evidence/LO-bewijsvoering alleen binnen profielgrenzen of als expliciete extensie/koppelvlak zoals het document aangeeft.
 - Gebruik de **ankertabel / cardinaliteiten** in het document als normatieve referentie bij “wat hoort op welk niveau?” — geen synoniemen voor dezelfde entiteit zonder expliciete koppeling aan het model.
 
+### Cyclus van plannen
+
+- **Strategisch jaarplan** (hele instelling) én **opleidingscurriculum** als template over de opleidingsduur; zodra de student leert, wijkt het persoonlijke plan af en moet het jaarplan meebewegen.
+- Onderscheid **vóór** en **na** startweek: grof plan op grofmazige specificatie rijpt mee; na start lopen **keuzemomenten** (fase 6) en **bijsturen** (fase 7) met **cumulatieve trendlijnen** t.o.v. het initiële jaarplan.
+- **Grofmazig vs gedetailleerd planbaar** is een rijpheidscontinuüm op `onderwijsspecificatie`, geen strak binaire stap.
+
 ## Uitwerkingssjabloon (inhoudelijk)
 
 Werk een scenario uit met minimaal:
@@ -118,7 +136,10 @@ Werk een scenario uit met minimaal:
 ## Visueel
 
 - **Mermaid** mag voor processen, journeys en overzichten; houd ID’s onderhoudbaar (`camelCase` met betekenisvolle naam).
+- Diagrammen **alleen** bij echte cyclische of complexe processen; informatiestructuur en scenario-taxonomie werken vaak **beter als tabel** (Npuls-routes × varianten).
 - Diagrammen **niet herscheppen** als de gebruiker vraagt om “intact laten” — alleen labels/ID’s of tekst eromheen aanpassen.
+- Als een mermaid op een breed scherm niet leesbaar is, **verkies tabel** boven een breder diagram.
+- Kleurgebruik consistent met MORA-procesketens en ArchiMate-lagen waar het document dat al doet; **geen nieuwe expliciete `fill:`-styling** in mermaid tenzij het bestaande diagram dat al heeft (theme-default werkt ook in dark mode).
 
 ## Checklist vóór afronden
 
@@ -133,5 +154,6 @@ Werk een scenario uit met minimaal:
 - [ ] **Informatiestromen + AMIGO-voorloper:** beeld of verwijzing + **gegevensanalyse** + **interactieanalyse** op kader-niveau; de **brug** naar technologiekeuze → berichtspecificatie → interfacespecificatie → afsprakenset is leesbaar; geen verzonnen koppelvlakdetails.
 - [ ] **Mijlpaal eindbeeld:** op de in het profiel bedoelde plek (bijv. **start onderwijsuitvoering**), niet ten onrechte einddiplomering.
 - [ ] **Figuren:** Mermaid-ID’s onderhoudbaar (`camelCase`); bestaande diagrammen niet herscheppen tenzij de gebruiker dat vraagt.
+- [ ] **Toon:** concept-eerst, technische diepte in *voor wie dieper wil*-blokken; geen mermaid die niet leesbaar is op een breed scherm.
 - [ ] **Governance:** PR gekoppeld aan issues waar van toepassing (`.cursor/rules/okx-governance.mdc`).
 - [ ] **Traceerbaarheid:** verwijzing naar relevante **§** of **issue** voor vervolgwerk.

@@ -28,7 +28,7 @@ Koppelvlakken maken het mogelijk dat systemen in de keten dezelfde kerninformati
 
 Dit profiel is in eerste instantie gericht op het **mbo**, omdat het direct aansluit op het werk van OKx in de mbo-keten en omdat de use-cases rond keuze, planning, roostering en modulair aanbod daar het meest urgent en concreet zijn. Tegelijk moet het profiel op termijn **sector-overstijgend** en **nationaal** kunnen werken, zodat onderwijsaanbod en leerresultaten uitwisselbaar worden over instellingen en (waar passend) over sectoren heen.
 
-`TO-DO allignment initiatieven benoemen? Klus 53 MBO-Digitaal -> Allginment MORA-HORA basis voor informatiemodel`
+OKx sluit aan op het lopende initiatief **Klus 53** (MBO-Digitaal): alignment van **MORA** en **HORA** als basis voor het informatiemodel in dit profiel (zie ook §3.3.1.2.5).
 
 ### 1.4 Wat is dit profiel?
 
@@ -179,14 +179,10 @@ De **aanmelding** voor keuzedelen wordt vast gelegd naarmate de in het **onderwi
 
 > **Vignet — Jochem** Jochems instelling legt de keuzedeel-aanmelding **1 periode voorafgaande aan de keuzedeelruimte** vast. Staat de prioritering nog goed? Zo niet, past hij zijn **aanmelding keuzedeel** aan voordat het definitief wordt verwerkt. 
 
-  
-
-
-*Figuur - Student Journey Regulier - Proces studentbeleving regulier studeren*
 
 **Leeswijzer diagram.** Rechthoeken zijn **processtappen**; ruiten zijn **beslismomenten**; **gele ronde bollen** zijn vastgelegde **informatie-objecten** op het moment dat een **aanmelding** formeel is vastgelegd of is omgezet naar een **inschrijving** (contractuele plaatsing). Voor keuzedelen geldt: maximaal **één actieve inschrijving** per geplande **keuzedeelruimte** in het **onderwijsprogramma**. Bij instellingsbeleid *voorlopige keuze bij intake* (stap 8e) volgt gate **8f**: zolang de prioritering niet meer past, heroriënteert de student en past hij de **keuzedeel-aanmelding** aan (gele bol wordt bijgewerkt) voordat het proces via gate 9 verdergaat.
+De student ervaart het volgende proces:
 
-`<Opmerking Niels> Mermaid diagram dient update te krijgen, of weg, diagrammen zijn alleen nodig wanneer er veel complexititeit in de journey zit`
 ```mermaid
 flowchart TB
   subgraph publicatie["Aanbod zichtbaar"]
@@ -232,7 +228,7 @@ flowchart TB
   orienteren --> aanmeldenOpleiding --> aanmeldingOpleiding --> intake --> matchOpleiding
   matchOpleiding -->|Ja| inschrijvingOpleiding
   matchOpleiding -->|Nee| geenMatch
-  inschrijvingOpleiding --> roosterOntvangen --> onderwijsVolgen --> voortgang
+  inschrijvingOpleiding --> roosterOntvangen --> onderwijsVolgen
 
   voortgang --> momentKeuzedeel
   momentKeuzedeel -->|Uiterlijk periode t vóór keuzedeelruimte| keuzedeelruimteNadert
@@ -259,6 +255,8 @@ flowchart TB
   classDef infoObject fill:#fffbe6,stroke:#efd600,stroke-width:2px,color:#333;
   class aanmeldingOpleiding,inschrijvingOpleiding,aanmeldingKeuzedeel,inschrijvingKeuzedeel,gepubliceerdAanbod,gepubliceerdKeuzedeelAanbod infoObject;
 ```
+*Figuur - Student Journey Regulier - Proces studentbeleving regulier studeren*
+
 
 **Wanneer wordt aanmelding een inschrijving?**
 
@@ -278,7 +276,7 @@ De periode is gestart en Jochem ziet naast zijn regulier geplande lessen ook het
 
 Vanuit organisatieperspectief is regulier studeren juist een gecoordineerde ketenprestatie van meerdere actoren. Onderwijsontwerpers vertalen het kwalificatiekader naar opleidings- en onderwijsspecificaties. Onderwijsontwikkelaars detailleren die tot leergelegenheden, lessen en toetsing. Planners en roosteraars maken het uitvoerbaar binnen mensen en middelen. Coaches en SLB'ers begeleiden instroom en plaatsing. Docenten, examinatoren en examenbeoordelaars voeren onderwijs en toetsing uit. "Regulier" betekent dus niet dat er weinig hoeft te gebeuren, maar dat de student een stabiele route ziet omdat de instelling vooraf veel afstemming heeft georganiseerd.
 
-###### 3.3.1.2.1 De onderwijsinstelling
+##### De onderwijsinstelling
 
 Daarom staan we stil bij de organisatie inrichting achter deze leerroute en haar actoren.
 
@@ -371,7 +369,7 @@ flowchart TB
   voorzitterExamencommissie --> ledenUitOpleidingsteams
 ```
 
-###### 3.3.1.2.2 De procesbeleving achter 'regulier' onderwijs van een Instelling
+##### De procesbeleving achter 'regulier' onderwijs van een Instelling
 
 Zoals de [MORA - de referentiearchitectuur voor het mbo](https://mora.mbodigitaal.nl/index.php/Hoofdpagina) laat zien, is "regulier onderwijs verzorgen" niet één los proces maar een samenhang van hoofdprocessen die samen een school laten werken. Om regulier onderwijs mogelijk te maken moet een instelling niet alleen onderwijs **ontwikkelen**, maar ook studenten **informeren, aanmelden, intake en plaatsen**, onderwijs **plannen en roosteren**, onderwijs **verzorgen en begeleiden**, examinering **uitvoeren en vaststellen**, en uiteindelijk **diplomeren**. Wat voor de student voelt als een voorspelbare route, is voor de instelling dus het resultaat van een veel bredere procesketen. Daarvoor heeft de MORA een aantal procesketens beschreven, zie:
 
@@ -415,7 +413,7 @@ Vanaf dat moment verschuift de aandacht van ontwerp naar uitvoering. De instelli
 
 Onderstaand figuur is een *conceptuele* model weergave van de door OKx geobserveerde IST situatie van dit proces. **Gele ronde bollen** zijn informatie-objecten (o.a. **aanmelding** en **inschrijving**); keuzedeel-aanmelding wordt **inschrijving keuzedeel** zodra een passende combinatie van keuzedeel, onderwijsperiode en onderwijslocatie is gevonden (zie §3.2.1.1).
 
-`<Opmerking Niels> fasen zijn uitgebreid met impact op diagram: TODO `
+**Leeswijzer diagram.** Fasen 1–5 vormen de lineaire keten van ontwerp tot start uitvoering; **fase 6** (keuzemomenten) en **fase 7** (bijsturen jaarplan) zijn cyclische lussen bovenop die keten — zie terugkoppellijnen naar planner en roosteraar.
 
 ```mermaid
 flowchart TB
@@ -436,7 +434,11 @@ flowchart TB
 
   subgraph plannerInstelling["Planner (instelling)"]
     bepaalHaalbaarheid["Haalbaarheid bepalen (mensen en middelen, alle opleidingen)"]
-    maakPlanbaarAanbod["Planbaar aanbod maken (periodes, capaciteit, groepen) (incl. examengelegenheid)"]
+    maakPlanbaarAanbod["Planbare onderwijsspecificaties tot onderwijsaanbod maken (periodes, capaciteit, groepen) (incl. examengelegenheid)"]
+    organiseerKeuzemoment["Keuzemoment organiseren (periodiek; definitieve keuzes verwerken)"]
+    verwerkDefinitieveKeuzes["Definitieve keuzes verwerken naar groepen en capaciteit"]
+    bijstuurMomentJaarplan["Bijsturen jaarplan op afwijkingen (uitval, temporiseren, versnellen, switch)"]
+    signaleerTrendlijn["Signaleren cumulatieve afwijking t.o.v. initieel jaarplan"]
   end
 
   subgraph studentOrientatie["Student"]
@@ -506,7 +508,7 @@ flowchart TB
   end
 
   grofmazigeSpecificaties(("Grofmazige opleidings- / onderwijs- en examenspecificaties"))
-  planbaarOnderwijsaanbod(("Planbaar onderwijsaanbod (incl. examengelegenheid)"))
+  planbaarOnderwijsaanbod(("Gepland Onderwijsaanbod (incl. examengelegenheid)"))
   aanmeldingGeplandAanbod(("Aanmelding voor opleiding en gepland aanbod"))
   inschrijvingGeplandAanbod(("Inschrijving op geplande opleidings- en opleidingsprogramma aanbod"))
   onderwijsresultaat(("Onderwijsresultaat"))
@@ -547,9 +549,16 @@ flowchart TB
   maakPlanbaarAanbod --> bereidExamengelegenheidVoor --> voerExamengelegenheidUit
   voerExamengelegenheidUit --> beoordeelGemaaktExamen --> stelExamenbeoordelingVast --> onderwijsresultaat --> kwalificeerEnDiplomeer --> kwalificeringEnDiplomering
 
+  inschrijvingKeuzedeel --> organiseerKeuzemoment --> verwerkDefinitieveKeuzes --> roosterAanbod
+  houdFormatieveVoortgangBij --> bijstuurMomentJaarplan
+  bijstuurMomentJaarplan --> maakPlanbaarAanbod
+  bijstuurMomentJaarplan --> roosterAanbod
+  bijstuurMomentJaarplan --> signaleerTrendlijn
+  signaleerTrendlijn -.heroverweeg.-> bepaalHaalbaarheid
+
   %% Class definitions volgens opdracht
   %% Plannen en roosteren stappen (groen)
-  class bepaalHaalbaarheid,maakPlanbaarAanbod,planbaarOnderwijsaanbod,roosterAanbod,geroosterdAanbod,schrijfInOpGeroosterdAanbod,inschrijvingGeroosterdAanbod greenStep;
+  class bepaalHaalbaarheid,maakPlanbaarAanbod,planbaarOnderwijsaanbod,roosterAanbod,geroosterdAanbod,schrijfInOpGeroosterdAanbod,inschrijvingGeroosterdAanbod,organiseerKeuzemoment,verwerkDefinitieveKeuzes,bijstuurMomentJaarplan,signaleerTrendlijn greenStep;
 
   %% Toets- en examenstappen (paars)
   class beschrijfToetsvormen,beschrijfToetsspecificatie,planToetsgelegenheidTijdensLes,toetsStudent,volgToetsgelegenheid,volgExamengelegenheid,bereidExamengelegenheidVoor,voerExamengelegenheidUit,beoordeelGemaaktExamen,stelExamenbeoordelingVast,examenplan,examenspecificaties,examenInstrumenten,stelExamenplanEnSpecificatiesOp,bepaalBenodigdeExamenInstrumenten,bepaalBenodigdExamenMateriaal,besluitInkopenOfConstrueren,koopExamenInstrumentenIn,construeerExamenInstrumenten,stelExamenspecificatieEnInstrumentenVast,kwalificeerEnDiplomeer,kwalificeringEnDiplomering purpleStep;
@@ -567,8 +576,10 @@ flowchart TB
   class kiesOpleidingEnProgramma freeze;
 ```
 
+Voetnoot: Het plan en rooster proces is hier bewust conceptueel (vereenvoudigd) weergegeven. Dit proces is complex en wordt in een volgende paragraaf behandeld.
 
-###### 3.3.1.2.4 Scenario's binnen deze leerroute
+
+##### Scenario's binnen deze leerroute
 Binnen deze leerroute speelt zich niet maar één scenario af. De beschrijving hierboven laat de **nominale beleving** van regulier studeren zien: de student volgt de route zoals de instelling die heeft ontworpen, gepland en geroosterd. In de praktijk kan diezelfde student binnen precies zo'n regulier traject alsnog met verschillende incidenten te maken krijgen. De leerroute blijft dan **regulier**, maar de feitelijke voortgang van de student wijkt tijdelijk af van het bedoelde pad.
 
 De belangrijkste scenario's binnen deze leerroute zijn:
@@ -581,46 +592,52 @@ De belangrijkste scenario's binnen deze leerroute zijn:
 
 De `happy flow` en de incidentele varianten van temporiseren, versnellen en hybride voortgang zijn niet uniek voor leerroute 1. Ze zijn in feite van toepassing op **elke leerroute** in dit document. Ook binnen temporiseren, versnellen, personaliseren of modulair studeren kunnen studenten onderweg in nominaal tempo doorlopen, incidenteel vertragen, incidenteel versnellen of beide tegelijk ervaren. Daarnaast kent iedere leerroute ook eigen, route-specifieke scenario's. Voor leerroute 1 is \"wisselen van opleiding en behaalde resultaten meenemen\" daarvan een belangrijk voorbeeld.
 
-**Overige scenario's specifiek voor leerroute 1**
+##### Overige scenario's specifiek voor leerroute 1
+
 - **Wisselen van opleiding en behaalde resultaten meenemen**: een student volgt eerst een deel van de reguliere route, besluit daarna over te stappen naar een andere opleiding of een ander regulier programma, en wil eerder behaalde resultaten meenemen. Dit scenario raakt niet alleen de studentbeleving, maar vooral de vraag hoe resultaten, vrijstellingen, voortgang en passende herplaatsing overgedragen en opnieuw geïnterpreteerd worden binnen de instelling.
-`<Opmerking Niels> Is ook met koplopers besproken en duidelijk frequent scenario dat prio vereist. Een concreet probleem dat kan dienen als kickstarter voor onderwijsflexibiliteit in systemen. Een benoemde specifieker scenario is de switch van regulier onderwijs naar een set certificaten en vise versa. Voor KRS/SVS is dit een ramp waarbij handmatige bedenkelijke procedures dienen uitgevoerd te worden.    `
 
-Deze leerroute volgt een **sterk aanbod-gestuurd model met hybride kenmerken**: het onderwijsaanbod wordt grotendeels vooraf ontwikkeld en gepland. Studenten schrijven zich in op vaste programma’s. Alleen bij uitzonderingen (zoals incidenteel temporiseren of incidenteel versnellen) wijkt men af van de hoofdroute en worden afwijkingen reactief en creatief beantwoord. Vanwege de statische aard van het onderwijsontwerp, is er voldoende behoefte nodig voor extra aanbod vanuit de studentenpopulatie. Er kan dus vaak niet aan individuele aanvragen vanuit studenten voldaan worden.
-`<Opmerking Niels> hierbij geldt ook de eerder benoemde beschikbaarheids factor van BOL- én BBL-Jochem. Het is niet alleen de statische aard van onderwijsontwerp, ook de mogelijke vraag vanuit de studentenpopulatie. Deze fluctueert per periode, dagdeel en locatie. Het is zeker niet reel dat het niet-generieke aanbod elke periode kan plaatsvinden. Afwijkingen cumuleren wel en creeren voorspelbare trendlijnen waar de periodeplanningen afwijken ten opzichte van de initiele jaarplannening `
-Veel instelling binnen Nederland hanteren dit Onderwijsaanbod model. `TO-DO: specificeren hoeveel?` 
-`<Opmerking Niels> allemaal, verschillen zitten in de complexiteit in onwikkelen en plannen`
-Schematisch is deze scenario opbouw als volgt weer te geven:
+##### Switch regulier onderwijs ↔ set certificaten
 
-```mermaid
-flowchart TD
-  npulsRoutes["Npuls leerroutes"] --> leerroute1["Leerroute 1 - Regulier"]
-  npulsRoutes --> overigeLeerroutes["Leerroute ..."]
-  npulsRoutes --> leerroute9["Leerroute 9 - Vrije keuze"]
+**Trigger.** Een student wil tussentijds het **opleidingsprogramma** loslaten en alleen nog **certificaten** halen (of omgekeerd: van een set certificaten terug naar regulier onderwijs). Dit is met koplopers besproken als **frequent scenario** met hoge prioriteit — een concrete kickstarter voor onderwijsflexibiliteit in ketensystemen.
 
-  leerroute1 --> lr1HappyFlow["Happy flow / nominaal verloop"]
-  leerroute1 --> lr1Temporiseren["Incidenteel temporiseren"]
-  leerroute1 --> lr1Versnellen["Incidenteel versnellen"]
-  leerroute1 --> lr1Hybride["Incidenteel temporiseren en versnellen"]
-  leerroute1 --> lr1Switch["Na verstreken studieduur wisselen en behaalde resultaten meenemen"]
-  leerroute1 --> overigeRouteSpecifiek["Overige route-specifieke scenario's"]
+**Actorflow (hoofdlijnen).** SLB signaleert de wens → onderwijsontwikkelaar/team beoordeelt haalbaarheid en herontwerp → planner en roosteraar hergroeperen aanbod en capaciteit → **KRS/SVS** (en aanverwante registratie) moeten verbintenissen, rechtmatigheid en bekostiging actualiseren. Daar zit nu de grootste pijn: veel **handmatige, foutgevoelige procedures**.
 
+**Informatiestromen-delta t.o.v. reguliere baseline.**
 
-  overigeLeerroutes --> overigeHappyFlow["Happy flow / nominaal verloop"]
-  overigeLeerroutes --> overigeTemporiseren["Incidenteel temporiseren"]
-  overigeLeerroutes --> overigeVersnellen["Incidenteel versnellen"]
-  overigeLeerroutes --> overigeHybride["Incidenteel temporiseren en versnellen"]
-  overigeLeerroutes --> overigeRouteSpecifiek["Overige route-specifieke scenario's"]
+| Aspect | Regulier | Switch naar certificaten (of terug) |
+| --- | --- | --- |
+| Verbintenis | `Opleidingsverbintenis` op programma | Lossen of opdelen in losse **certificaat-verbintenissen** |
+| Resultaten | Voortgang binnen programma | Behaalde resultaten/vrijstellingen **meenemen** en herinterpreteren |
+| Rechtmatigheid / bekostiging | Programma- en cohortlogica | Andere regels per certificaat of traject — vaak niet modelmatig ondersteund |
 
-  leerroute9 --> lr9HappyFlow["Happy flow / nominaal verloop"]
-  leerroute9 --> lr9Temporiseren["Incidenteel temporiseren"]
-  leerroute9 --> lr9Versnellen["Incidenteel versnellen"]
-  leerroute9 --> lr9Hybride["Incidenteel temporiseren en versnellen"]
-  leerroute9 --> lr9Overig["Overige route-specifieke scenario's"]
-```
-`<Opmerking Niels> Dit diagream is zelfs op mijn brede scherm niet makkelijk leesbaar te krijgen`
+**KRS/SVS-knelpunten.** Systemen zijn ingericht op één doorlopende opleidingsverbintenis; switch vereist nu ad-hoc mutaties, dubbele controles en papieren workarounds. Behoefte: **modelmatige steun** in OEAPI/profiel voor opdelen/samenvoegen van verbintenissen, koppeling aan certificaat-aanbod en traceerbare overgang van rechtmatigheidsstatus.
+
+**Randvoorwaarden (kern).**
+
+| Dimensie | Wat moet vastliggen |
+| --- | --- |
+| **Beleid** | Wanneer switch is toegestaan; examencommissie en diplomaregels per certificaat |
+| **Proces** | Vaste keten SLB → team → planner → registratie; geen parallelle Excel-routes |
+| **Informatie** | Welke objecten wijzigen (`Opleidingsverbintenis`, certificaat-aanbod, resultaten) |
+| **Data** | Eenduidige identificatie van certificaten, vrijstellingen en resterende SBU/keuzedeelruimte |
+
+Vervolguitwerking (volledige scenario, negenvlak, interfaces): *See also #TBD*.
+
+Deze leerroute volgt een **sterk aanbod-gestuurd model met hybride kenmerken**: het onderwijsaanbod wordt grotendeels vooraf ontwikkeld en gepland. Studenten schrijven zich in op vaste programma’s. Alleen bij uitzonderingen (zoals incidenteel temporiseren of incidenteel versnellen) wijkt men af van de hoofdroute en worden afwijkingen reactief beantwoord. Naast de **statische** kant van onderwijsontwerp speelt de **vraag uit de studentenpopulatie**: die fluctueert per periode, dagdeel, locatie en **BOL/BBL**-verdeling. Het is niet reëel dat niet-generiek aanbod elke periode kan worden ingepland; **afwijkingen cumuleren** wel tot **voorspelbare trendlijnen** waar periodeplanningen afwijken van het initiële jaarplan (§ *Het plan en rooster proces*).
+
+**Alle mbo-instellingen** hanteren in de praktijk dit aanbod-gestuurde grondmodel; **verschillen zitten in de complexiteit** van ontwikkelen en plannen (aantal opleidingen, locaties, keuzedelen, hybride tempo).
+
+| Leerroute | Happy / nominaal | Incidenteel Temporiseren | Incidenteel Versnellen | Incidenteel Hybride | Route-specifiek (voorbeeld) |
+| --- | --- | --- | --- | --- | --- |
+| **1 — Regulier** | ✓ | ✓ | ✓ | ✓ | Overstap met resultaten; switch regulier ↔ certificaten |
+| **2 — Temporiseren** | ✓ | ✓ | ✓ | ✓ | (eigen lijst in hoofdstuk X) |
+| **3 — Versnellen** | ✓ | ✓ | ✓ | ✓ | (eigen lijst in hoofdstuk X) |
+| **4–8 — Personaliseren / modulair** | ✓ | ✓ | ✓ | ✓ | Per route in hoofdstuk X |
+| **9 — Vrije keuze** | ✓ | ✓ | ✓ | ✓ | Modulair samenstellen |
+
 De uitwerking en specificatie van de scenario's volgt in `HOOFDSTUK X`.
 
-###### 3.3.1.2.5 Betrokken informatie bij proces
+##### Betrokken informatie bij proces
 
 De begrippen in onderstaande tabel vullen het begrippenkader uit paragraaf 2.1 aan. Eerder is beschreven dat een leerroute niet alleen over het studentperspectief gaat, maar ook over drie samenhangende vragen: **wat** geleerd wordt, **hoe** dat onderwijs als specificatie wordt ontworpen, **hoe** dat ontwerp organiseerbaar wordt gemaakt als aanbod, en **hoe** dat aanbod uiteindelijk door studenten en medewerkers daadwerkelijk gevolgd en geadministreerd wordt. De tabel hieronder zet die begrippen om in een vaste set informatie-objecten, zodat scenario's, informatiestromen en koppelvlakken steeds over dezelfde bouwstenen spreken.
 
@@ -643,8 +660,10 @@ De volgende tabel is daarmee de brug tussen het **begrippenkader** en het **gege
 | `Kerntaak` | `Onderwijseenheid-specificatie` | `Onderwijseenheid-aanbod` | `Onderwijseenheid-verbintenis` | `Onderwijseenheid-verbintenis resultaat` |
 | `Werkproces` | `Leeronderdeel-specificatie` | `Leergelegenheid` | `Leergelegenheid-verbintenis` | `Leergelegenheid-verbintenis resultaat` |
 | *n.v.t. binnen kwalificatiekader — eigen beleid instelling* | `Lesspecificatie` | `Lesgelegenheid` | `Lesgelegenheid-verbintenis` | `Lesgelegenheid-verbintenis resultaat` |
-| *n.v.t. binnen kwalificatiekader — toetsing/examen* | `Toetsonderdeel-specificatie` | `Toetsgelegenheid` | `Toetsgelegenheid-verbintenis` | `Toetsgelegenheid-verbintenis resultaat` |
-| *n.v.t. binnen kwalificatiekader — examen (examencommissie)* | `Examenspecificatie` | `Examengelegenheid` | `Examengelegenheid-verbintenis` | `Examengelegenheid-verbintenis resultaat` |
+| *n.v.t. binnen kwalificatiekader — toetsing* | `Toetsonderdeel-specificatie` | `Toetsgelegenheid` | `Toetsgelegenheid-verbintenis` | `Toetsgelegenheid-verbintenis resultaat` |
+| Doorgaands `Werkproces` | `Examenonderdeel-specificatie` | `Examengelegenheid` | `Examengelegenheid-verbintenis` | `Examengelegenheid-verbintenis resultaat` |
+
+**Voetnoot**: Examenonderdelen zijn `speciale` instanties van toetsonderdelen. Examinering vormt echter een gescheiden keten binnen de instelling (zie ook de instelling journey): deze keten kent eigen examenspecificaties, examen-aanbod (gelegenheden), verbintenissen en resultaten. Hoewel de onderliggende informatie in grote lijnen gelijksoortig is aan die van toetsonderdelen, is het doel fundamenteel verschillend: toetsen zijn primair formatief van aard (gericht op leerproces en ontwikkeling), terwijl examens in het kader van kwalificatie, diplomering en/of certificering juist summatief zijn. Voor examens speelt bovendien het verantwoordings- en toezichtaspect richting bijvoorbeeld federale overheidsorganen zoals DUO. Dit verantwoordt de gescheiden keten — onder andere om te borgen dat de beoordelaar (‘de slager’) niet zijn eigen werk beoordeelt (‘eigen vlees keurt’) en scheidt de custody chain en governance van exameninformatie dus bewust af van die van toetsinformatie. Examen-gerelateerde gegevens krijgen doorgaans een striktere (en mogelijk geheel aparte) route van vastleggen, toegang en governance dan toets-gerelateerde gegevens.
 
 **Conceptdefinities per object in het vlakkenmodel** (normatieve kern; uitwerking zie ook §3.3.1.2.5 *Conceptueel gegevensoverzicht*):
 
@@ -689,7 +708,7 @@ De volgende tabel is daarmee de brug tussen het **begrippenkader** en het **gege
 - `Opleidingsaanbod` / `Opleidingsprogramma-aanbod` / `Onderwijseenheid-aanbod` / `Leergelegenheid` / `Lesgelegenheid` `(0..*) Onderwijsverbintenis`
 - Elke `Onderwijsverbintenis` heeft precies `1` actuele statuswaarde (`Association.state`); aanvullende resultaat-/bewijsregistraties zijn optioneel en daarom `Onderwijsverbintenis (0..*) aanvullend resultaatrecord`
 
-Bovenstaande tabel alligned hiermee met het lopende initiatief onder Klus 53, van het architectuurgremia onder vlag van MBO Digitaal. Klus 56 heeft als doel de informatiemodellen van de MORA en HORA te allignen. Zie onderstaande visual, zoals gepresenteerd in de Memo van de uitwerkgroep van Klus 56:
+Bovenstaande tabel alligned hiermee met het lopende initiatief onder **Klus 53** (MBO-Digitaal), van het architectuurgremia: de informatiemodellen van **MORA** en **HORA** worden op elkaar afgestemd. Zie onderstaande visual, zoals gepresenteerd in de memo van de uitwerkgroep van Klus 53:
 
 ![Informatiemodel visual — Klus 53 allignment MORA-HORA](../img/Informatiemodel_visual_Klus_56_allignment_MORA_HORA_20260519.png)
 
@@ -697,90 +716,32 @@ De tabel is daarmee niet bedoeld als extra abstractielaag naast de scenario's, m
 
 **Voetnoot.** OKx richt zich in dit profiel primair tot de diepte van het beschrijven van de **werkproceslaag**. De entiteit *leergelegenheid* (groep van lessen) leidt uiteindelijk tot individueel geroosterde lessen. Binnen geroosterde lessen kunnen op hun beurt geneste lessen voorkomen; in toekomstige iteraties moeten ook deze recursief volgens dit datamodel gemodelleerd kunnen worden. Dit geldt eveneens voor diepere sublagen zoals een *lessenreeks* of specifieke leeractiviteiten binnen een les. Dit erkent expliciet dat onder een *leergelegenheid* of *lessenreeks* nog een hiërarchie van leeronderdelen kan bestaan, met directe impact op bottom-up en top-down aggregatie van onderwijsspecificaties, aanbod en verbintenissen.
 
-###### 3.3.1.2.3 Het plan en rooster proces
+##### Het plan en rooster proces - `(TO-DO)`
 
-**Plannen** en **roosteren** brengen het **onderwijsontwerp** en de **werkelijkheid van de instelling** samen: welke perioden, groepen, docenten, zalen en BPV-plekken passen bij een programma als dat van Jochem? In de instellingsjourney (fasen 2 en 4, §3.3.1.2.2) wordt `onderwijsspecificatie` eerst **planbaar** gemaakt en daarna als `onderwijsaanbod` 'aanmeldbaar' en 'inschrijfbaar'. Tegelijkertijd wordt de onderwijsspecificatie verder gedetailleerd uitgewerkt. Dit heet ook wel **fijnmazige onderwijsontwikkeling**. Jochems traject vraagt tegelijk om een blok van 2 periodes medicatiebewaking, een bevoegde docent, simulatieruimte én een BPV-cluster in de apotheek — dat zijn geen losse administratieve velden, maar **samenhangende beslissingen** die de hele keten moet voeden.
+**Plannen** en **roosteren** brengen het **onderwijsontwerp** en de **werkelijkheid van de instelling** samen. De leesregel is eenvoudig: **goed beschrijven → goed plannen → goed instelling-breed plannen → goed roosteren**. Een **goed beschreven** `onderwijsspecificatie` levert helderheid in studielast, expertise, volgorde en faciliteiten voor individuele opleidingen. Maar een instelling biedt meerdere opleidingen aan. Om te zorgen dat **al** het door de instelling gewenste aan te bieden onderwijs (zoals beschreven in de `onderwijsspecificatie`), ook echt realiseerbaar is; werkt een planner een strategische jaarplanning uit. Deze planning bevat **Alle opleidingsprogramma's van het komend jaar, voor de gehele instelling**. Is ieder aan te bieden opleidingsprogramma planbaar een goed beschreven — dan kan een planner **zo eenvoudig mogelijk** deze grove jaarplanning maken. Een **goed instelling-breed plan** (over alle opleidingen, niet alleen één programma) maakt **roosteren** een check-en-finetune-stap in plaats van een puzzel die elke periode opnieuw vanaf nul begint. **Naarmate keuze-complexiteit toeneemt** (keuzedelen, overstap, modulair, hybride tempo) is de kwaliteit van dat plan dé randvoorwaarde voor uitvoerbaarheid.
 
-###### 3.3.1.2.3.1 Randvoorwaarden en puzzel — conceptueel (CSP)
+In de instellingsjourney wordt `onderwijsspecificatie` eerst **planbaar** gemaakt en daarna als `onderwijsaanbod` aanmeldbaar en inschrijfbaar. Tegelijk rijpt fijnmazige onderwijsontwikkeling door. Jochems traject vraagt om medicatiebewaking, bevoegde docent, simulatieruimte én een BPV-cluster — **samenhangende beslissingen** op instellingsbreed jaarplanniveau, niet losse velden per opleiding.
 
-Plannen en roosteren zijn in de literatuur vaak beschreven als een **Constraint Satisfaction Problem (CSP)**: een puzzel met open vragen, mogelijke antwoorden en regels. In onderwijstaal:
+##### Plannen is cyclisch
 
-- **Open vragen (variabelen):** *In welke periode krijgt Jochems groep medicatiebewaking? Welke docent? Welk lokaal? Welk BPV-venster?*
-- **Mogelijke antwoorden (domeinen):** de perioden die de instelling aanbiedt, de docenten met de juiste expertise, de beschikbare zalen en apotheken met stageplekken.
-- **Regels (constraints):** wat **moet** (geen dubbele docent op hetzelfde moment, medicatiebewaking pas na basisfarmacologie, alleen bevoegde docent) en wat **liever wel** (spreiding over de week, vaste BPV-begeleider, voorkeursteam).
+**Voor de student er is** (instellingsjourney-fasen 1–2): de planner start op een **grofmazige** planbare `onderwijsspecificatie` en maakt een grove **strategisch jaarplanning** met perioden, capaciteit en instroom. Parallel rijpt de `onderwijsspecificatie` vaak in de vorm van een onderwijsprogramma (nominaal programma over de opleidingsduur) mee als template. Beide **rijpen mee** terwijl onderwijsontwikkeling de specificatie detailleert; aanmelding kan al op het grove jaarplan.
 
-Een **oplossing** is een invulling van alle open vragen waarbij alle regels tegelijk kloppen. *Voor wie de formele term wil opzoeken:* zie de samenvatting op Wikipedia over [Constraint satisfaction problems](https://en.wikipedia.org/wiki/Constraint_satisfaction_problem).
-`<Opmerking Niels> Dit komt bij mij altijd een beetje over als een boer vertellen hoe fotosynthese te werk gaat. Ik zou onderwijplannen letterlijk omschrijven als "een invulling van alle open vragen waarbij alle regels tegelijk kloppen" `
-###### 3.3.1.2.3.2 Keten en informatie als bron van regels
+**Bij start onderwijsuitvoering** (fasen 4–5): planbaar aanbod wordt geroosterd aanbod; de student ontvangt het eerste rooster op basis van het curriculum-template. Zodra de student **aan boord** is en gaat leren, wijkt het **persoonlijke plan** af van die template (keuzes, tempo, uitval). Die afwijking raakt groepen, roosters en capaciteit op **instellingsniveau** — en vereist dat het **strategische jaarplan** wordt bijgestuurd, niet alleen een plan in isolatie van één opleiding.
 
-Voordat de planner begint, moet de keten de **planbaarheidsgegevens** uit de vorige paragraaf leveren (BOT, BOT-weekverdeling, expertise, volgorde, capaciteit). Daarnaast tellen inschrijvingen, groepen, docenturen, lokaalcapaciteit en examenregels mee — zie het vlakkenmodel in §3.3.1.2.5.
+**Tijdens het jaar** (fasen 6–7): keuzemomenten, incidenteel versnellen of temporiseren, hybride trajecten, overstap naar een set certificaten en **720 SBU keuzedeelruimte** (niveau 4) vullen de planner met afwijkingen. **Periodeplanningen wijken cumulatief af** van het initiële jaarplan; **trendlijnen** zijn voorspelbaar. De planner anticipeert en geeft wijzigingen door aan de roosteraar.
 
-> **Jochem.** Als bij *Medicatiebewaking* de vereiste docent-expertise of het BPV-venster ontbreekt in de gepubliceerde specificatie, vult het planningssysteem gaten met **aannames**. Jochem kan dan in september een rooster krijgen dat op papier klopt, maar in de uitvoering schuurt — bijvoorbeeld geen stageplek of een docent zonder bevoegdheid. **Standaardisatie en tijdige beschikbaarheid** van keteninformatie is daarom geen integratie-detail, maar een **kwaliteitsvoorwaarde** voor planbaar en houdbaar aanbod.
+> **Jochem.** Hij versnelt op theorie en temporiseert op BPV. Zijn keuzedeel vult de helft van zijn **720 SBU** keuzedeelruimte en moet alsnog passen in een lopend rooster van ruim **2.000** studenten — typisch voor de complexiteit van fase 6 en 7.
 
-###### 3.3.1.2.3.3 Waarom vinden moeilijk is, controleren sneller
+Voordat de planner begint, moet de keten **planbaarheidsgegevens** leveren (zie paragraaf *Planbare onderwijsspecificaties* en §3.3.1.2.5). Ontbreken expertise of BPV-vensters in de specificatie, dan vult het planningssysteem **aannames** in — en schuurt de uitvoering alsnog.
 
-Een rooster dat voor **alle** studenten, docenten en ruimten tegelijk werkt, is in de praktijk **rekenkundig zwaar** om te *vinden* — in de literatuur onder meer als NP-moeilijk beschreven (*voor de theoretische bron:* Cooper en Kingston, *The complexity of timetable construction problems*, [DOI 10.1007/3-540-61794-9_66](https://doi.org/10.1007/3-540-61794-9_66)). Dat verklaart waarom tools **conceptvoorstellen** doen en planners en roosteraars **bijsturen**: een BPV-apotheek die zich terugtrekt, Jochems gekozen keuzedeel of een zieke docent kan het hele plan opnieuw laten schuiven. "Alles digitaal dus automatisch opgelost" is daarmee misleidend; het proces blijft **menselijk te finetunen** op zachte voorkeuren en beleidsafwegingen.
 
-###### 3.3.1.2.3.4 Controle van een voorgestelde oplossing
+##### Voor wie dieper wil: CSP, NP-Hard en controle
 
-**Controleren** gaat daarentegen relatief snel: past Jochems persoonlijke rooster? Overlappen lessen en BPV niet? Is de docent bevoegd? Heeft de zaal capaciteit? Een planner kan een kandidaat-plan of -rooster **regel voor regel** nalopen — ook al was het *vinden* van dat voorstel tijdrovend. In de praktijk wisselen tool-ondersteunde concepten en menselijke beoordeling elkaar af.
+**Onderwijsplannen** is in essentie *een invulling van alle open vragen waarbij alle regels tegelijk kloppen*. In de literatuur heet dat een **Constraint Satisfaction Problem (CSP)**: open vragen (*variabelen*), mogelijke antwoorden (*domeinen*) en regels (*constraints* — harde grenzen en zachte voorkeuren). Voor Jochem: in welke periode medicatiebewaking, welke docent, welk lokaal, welk BPV-venster — allemaal tegelijk geldig.
 
-###### 3.3.1.2.3.5 Het Plan en rooster proces uitgetekend
+Voordat de planner begint, leveren specificatie, inschrijvingen, groepen, capaciteit en beleid die regels (zie ook de informatietabel *Persoon, groep en constraint*). Een rooster dat voor **alle** studenten, docenten en ruimten tegelijk werkt, is **rekenkundig zwaar** om te *vinden* (NP-moeilijk; o.a. Cooper en Kingston, [DOI 10.1007/3-540-61794-9_66](https://doi.org/10.1007/3-540-61794-9_66)). Tools doen **conceptvoorstellen**; planners en roosteraars **bijsturen**. **Controleren** gaat daarentegen sneller: past Jochems rooster, overlappen lessen en BPV niet, is de docent bevoegd? Zie ook [Constraint satisfaction problems](https://en.wikipedia.org/wiki/Constraint_satisfaction_problem) voor de formele termen.
 
-Onderstaand procesdiagram blijft ongewijzigd; lees het met Jochem als voorbeeld: zijn **inschrijving** en **programma** (inclusief keuzedeel) voeden het blok *groepen, inschrijvingen, verbintenissen*; de **gepubliceerde onderwijsspecificatie** komt uit OC; capaciteit en beleid bepalen wat überhaupt mag. De tussenstap *planbaar onderwijsaanbod* is wat Jochem op de website ziet vóór hij zijn concrete lestijden krijgt.
-
-```mermaid
-flowchart TB
-  subgraph keten["Informatie uit de keten"]
-    OCspec["Gepubliceerde onderwijsspecificatie en toetsspecificatie"]
-    cap["Capaciteit: mensen, middelen, ruimtes"]
-    groep["Groepen, inschrijvingen, verbintenissen"]
-    beleid["Beleid: examenregels, didactiek, voorkeuren"]
-  end
-
-  subgraph plan["Planning"]
-    pModel["Model: variabelen en domeinen"]
-    pConstr["Constraintset"]
-    pSolve["CSP Plan Algoritme zoals CP-SAT + heuristiek"]
-    pHitl["Human-in-the-loop"]
-  end
-
-  subgraph tussen["Keten tussenstap"]
-    planbaar["Planbaar onderwijsaanbod"]
-  end
-
-  subgraph rooster["Roostering"]
-    rModel["Model: tijdsloten en toewijzingen"]
-    rConstr["Constraintset aangescherpt"]
-    rSolve["Rooster CSP algoritme - CSP / CP-SAT / heuristiek"]
-    rHitl["Human-in-the-loop"]
-  end
-
-  subgraph resultaat["Resultaat voor de keten"]
-    verify["Snelle constraint-check"]
-    pubOC["Publicatie van rooster"]
-  end
-
-  groep --> pModel
-  OCspec --> pModel
-  cap --> pModel
-  beleid --> pModel
-  pModel --> pConstr --> pSolve --> pHitl
-  pHitl -->|bijsturing| pConstr
-  pHitl --> planbaar
-  planbaar --> rModel
-  OCspec --> rModel
-  groep --> rModel
-  cap --> rModel
-  beleid --> rModel
-  rModel --> rConstr --> rSolve --> rHitl
-  rHitl -->|bijsturing| rConstr
-  rHitl --> verify
-  verify -->|conflicten| rHitl
-  verify --> pubOC
-```
-
-###### voorbeeld van groeperingen en plannen en roosteren
+##### Voorbeeld van groeperingen en plannen en roosteren
 
 > **Jochem.** Zijn **persoonlijke programma** = het nominale apothekersassistent-programma plus het gekozen keuzedeel *Ondernemerschap in de zorg*. Studenten met hetzelfde keuzedeel worden in **groep A** geclusterd; de planner maakt dat planbaar (periode en capaciteit) voordat de roosteraar tijdsloten toewijst.
 
@@ -818,7 +779,7 @@ flowchart TB
 
 **Wanneer wordt een `onderwijsspecificatie` planbaar?** Een `onderwijsspecificatie` begint **grofmazig**: kerntaken en werkprocessen uit het kwalificatiekader zijn vertaald naar opleidings-, opleidingsprogramma- en onderwijseenheid-specificaties, met samenhang en toetsvorm op hoofdlijnen. Op de werkvloer heet die stap vaak **grofmazig onderwijsontwerp**. De specificatie is **planbaar** zodra de planner er zonder giswerk **onderwijsaanbod** van kan maken: perioden, capaciteit, groepen en randvoorwaarden in mensen en middelen. *Planbaar* is daarmee een **rijpheidskenmerk** van de specificatie — geen apart informatie-object naast de specificatie zelf.
 
-**Minimaal benodigde gegevens (conceptueel).** Onderstaande velden maken de overgang van grofmazig naar planbaar expliciet. Ze voeden de constraint-set waarover §3.3.1.2.3 spreekt.
+**Minimaal benodigde gegevens (conceptueel).** Onderstaande velden maken de overgang van grofmazig naar planbaar expliciet. Ze voeden de constraint-set waarover *Het plan en rooster proces* spreekt.
 
 | Gegevensdimensie | Wat de planner nodig heeft | Voorbeeld (generiek) |
 | --- | --- | --- |
@@ -827,6 +788,9 @@ flowchart TB
 | **Volgorde en ingang** | Relaties tussen onderwijseenheden; vrijstellings- en voorwaardelijke paden (zie §3.3.1.2.5) | *Medicatiebewaking* pas na *Basisfarmacologie* |
 | **Toetsvorm** | Op onderwijseenheid-niveau; concrete toetsspecificatie rijpt later | Casuïstiek + praktijkbeoordeling |
 | **Capaciteit en faciliteit** | Groepsgrootte, ruimte-/labtype, benodigd materiaal | Simulatieruimte apotheek, max. 24 studenten |
+| **Tijdvensters** | Start- en einddatum, uiterste inschrijfdatum, BPV-vensters | Start september; uiterste inschrijving 1 augustus; BPV Q2–Q3 |
+
+**Grofmazig vs gedetailleerd planbaar** is een **rijpheidscontinuüm**, geen twee strakke stadia. *Grofmazig planbaar* = perioden, capaciteit en instroomcijfer volstaan voor een grof jaarplan. *Gedetailleerd planbaar* = leergelegenheden, lessen en toetsmomenten met expertise- en faciliteitkoppelingen — nodig voor finetune en roostering, maar het grof plan kan al eerder bestaan en meegroeien (§ *Het plan en rooster proces*).
 
 **Voorbeeld — Jochem, leeronderdeel *Medicatiebewaking* (`B1-K1-W2`).**
 
@@ -856,11 +820,11 @@ flowchart LR
 ```
 
 
-###### 3.3.1.2.3.6 Persoon, groep en constraint — informatie-overzicht
+##### Persoon, groep en constraint — informatie-overzicht
 
-Het procesdiagram in §3.3.1.2.3.5 groepeert keteninvoer in vier blokken. Onderstaande **informatietabel** zegt per blok **welk inzicht** nodig is in **personen** (`Persoon`: student of medewerker), **groepen** (clusters, cohorten, kandidatenlijsten, pools) en **constraints** (harde en zachte grenzen) voordat een CSP-model betrouwbaar kan draaien.
+Het cyclische plandiagram en de instellingsjourney groeperen keteninvoer in vier bronnen. Onderstaande **informatietabel** zegt per bron **welk inzicht** nodig is in **personen** (`Persoon`: student of medewerker), **groepen** (clusters, cohorten, kandidatenlijsten, pools) en **constraints** (harde en zachte grenzen) voordat planning en roostering betrouwbaar zijn.
 
-| **Bron-blok (diagram §3.3.1.2.3.5)** | **Primair inzicht** | **`Persoon` (student / medewerker)** | **Groep / cluster / populatie** | **Constraintdimensie (voorbeelden)** |
+| **Bron (keten)** | **Primair inzicht** | **`Persoon` (student / medewerker)** | **Groep / cluster / populatie** | **Constraintdimensie (voorbeelden)** |
 | --- | --- | --- | --- | --- |
 | **OCspec** (onderwijs- en toetsspecificatie) | welke leer- en toetsmomenten bestaan en in welke volgorde of samenhang ze georganiseerd worden | welke uitvoerende rollen (docent, afnemer, …) inhoudelijk nodig zijn; welke voorzieningen per moment | welke cohorten dezelfde route of parallel delen | harde: examen- en opleidingsregels, verplichte contacttijd, volgorde-eisen; zacht: didactische spreiding |
 | **groep** (inschrijvingen, verbintenissen) | *wie* aanbod volgt en met welke omvang en samenstelling | student-`Persoon` met status, begeleidings- of examenflags | klas / cohort, werkgroep, kandidatenlijst; geaggregeerde **skill-vraag** van de populatie | harde: max. groepsgrootte, lock op cohort, minimale bezetting; zacht: homogene werkgroep |
@@ -873,7 +837,7 @@ Het procesdiagram in §3.3.1.2.3.5 groepeert keteninvoer in vier blokken. Onders
 
 **Reële wereld en strategie.** Daarbovenop liggen constraints die niet “in het hoofd” van één persoon zitten maar de **realiteit van de instelling** vormen: **beperkte tijd** (roosteruren, openingstijden, BPV-vensters), **beperkt geld en capaciteit** (FTE, vervanging, materiaal, collegegeld- of bekostigingskaders), **facilitaire grenzen** (aantal werkplaatsen, labtypes, reisafstand), en **strategische doelen** (doorstroom, inclusie, werkveldafspraken). Die vlakken bepalen **wat er überhaupt in het model mag** voordat een planner of roosteraar een CSP draait.
 
-**Planning en roostering.** Binnen die totale constraintset voeren **planning** en **roostering** het zoeken naar haalbare toewijzingen uit (CSP: §3.3.1.2.3.1; complexiteit en beheer: §3.3.1.2.3.3–§3.3.1.2.3.4; procesdiagram: §3.3.1.2.3.5): variabelen en domeinen komen uit **tijd en ruimte**, **skill-match**, en **populatie-clusters**; de **human-in-the-loop** stappen wegen zachte constraints en beleidsafwegingen. Het procesdiagram in §3.3.1.2.3.5 blijft geldig: *groep* leest hier vooral als **skill-groepering en inschrijf-/cohortrealiteit**, *cap* als **tijd/middelen/facilitair**, *beleid* als **strategie en regels**.
+**Planning en roostering.** Binnen die totale constraintset voeren **planning** en **roostering** het zoeken naar haalbare toewijzingen uit (zie *Voor wie dieper wil: CSP, NP-Hard en controle* en het cyclische plandiagram): variabelen en domeinen komen uit **tijd en ruimte**, **skill-match**, en **populatie-clusters**; planners en roosteraars wegen zachte constraints en beleidsafwegingen. *Groep* leest hier vooral als **skill-groepering en inschrijf-/cohortrealiteit**, *cap* als **tijd/middelen/facilitair**, *beleid* als **strategie en regels**.
 
 | **Hoofdtype `Persoon`** | **Rol of functietitel (voorbeelden; koppelbaar aan HR)** | **Skills-profiel** (vaardigheden, kennis, inzichten; bevoegdheden waar van toepassing) | **Als constraint geformuleerd** (skill-vraag / skill-aanbod; typisch plan vs rooster) |
 | --- | --- | --- | --- |
@@ -936,19 +900,19 @@ Onderstaande tabel vult het vlakkenmodel hierboven aan met **doel**, **conceptue
 
 *Disclaimer.* In deze fase blijven we bewust op **conceptueel** niveau. Tijdens het verdere specificatieproces (OEAPI-objecten, berichten en attributen in AMIGO) worden exacte attributen, cardinaliteiten en koppelvlakken verder uitgewerkt. De voorbeeldattributen in de tabel zijn illustratief — geen normatieve lijst.
 
-###### 3.3.1.2.6 Betrokken systemen bij gegevensuitwisseling
+##### Betrokken systemen bij gegevensuitwisseling
 
 **Jochem op de plaat (leeswijzer).** De onderstaande informatiestromenplaat is geen Jochem-specifiek diagram: hij staat **exemplarisch** voor elke reguliere student. Loop de plaat zo door: (1) **Curriculum-ontwerptool** — Jochems opleidings- en onderwijsspecificaties op basis van het kwalificatiedossier; (2) **OC** — gepubliceerde specificaties en planbaar/gepland aanbod voor de hele keten; (3) **Planning** — Jochems cohort, perioden en capaciteit; (4) **Rooster** — zijn concrete lestijden en locaties; (5) **Intake → KRS** — aanmelding en formele **inschrijving**; (6) **LMS** en **aanwezigheid** — deelname en formatieve voortgang; (7) **SVS** — zijn onderwijsresultaten richting kwalificering. Waarom zoveel systemen? Omdat ontwerp, logistiek, registratie en uitvoering **verschillende bronnen van waarheid** hebben — en de plaat laat zien wie wat leest, schrijft en niet mag dupliceren.
 
-![OKx informatiestroom Leerroute 1 - Regulier - geen keuze](../img/OKx%20informatiestroom%20Leerroute%201%20-%20Regulier%20-%20geen%20keuze.jpg)
+![OKx informatiestromen Leerroute 1 - Regulier](../img/OKx_L1_informatiestromen_vHoofdplaatInformatiestromen_v1.6b_260526.jpg)
 
-###### 3.3.1.2.6.1 Applicatiecomponenten op de plaat — doelen, gegevens en interacties (start gegevens- en interactieanalyse)
+##### Applicatiecomponenten op de plaat — doelen, gegevens en interacties
 
 **Doel.** Dit blok start de **gegevensanalyse** en de **interactieanalyse** voor *Leerroute 1 — regulier, geen inhoudelijke keuze* op kaderniveau. We benoemen welke **applicatiecomponenten** op de informatiestromenplaat hierboven voorkomen, **wat zij doen** in deze keten, welke **anti-patronen / tegengestelde doelen** vermeden moeten worden, en welke **informatie** rond hen leeft. De taal is bewust **conceptueel** (geen API- of berichtdetail): we gebruiken het begrippenkader uit §3.2 — *kwalificatiekader*, *onderwijsspecificatie*, *onderwijsaanbod* (planbaar en geroosterd), *onderwijsverbintenis*, *onderwijsresultaat*. De koppeling naar OEAPI-objecten op de uitwisselrelaties wordt **niet** hier gelegd; daarvoor is de ArchiMate-informatiestromenplaat (zie §12.2 e.v.) en de berichtspecificatie-stap van AMIGO (§2.3) bedoeld.
 
 **Leeswijzer op de plaat.** De plaat kent **twee delen**: *Onderwijsontwikkeling* (inrichting van het nominale aanbod) en *Onderwijsuitvoering* (student studeert). De **OKE**-positionering (oranje stippellijn) markeert waar resultaten vanuit uitvoeringssystemen richting het volgsysteem **bemiddeld** kunnen worden; de plaat schrijft dat niet hard voor — instellingen kunnen die positionering anders kiezen. Op deze plaat staat **geen studiekeuzesysteem (SKS)**: oriëntatie en aanmelding lopen voor dit scenario via de instellingscommunicatie en het **intakesysteem**. Waar later in dit document SKS wel voorkomt (bijv. bij flexibelere routes), is dat een **andere** rol in een **andere** plaat; voorkom hier dus rol-vermenging.
 
-##### 3.3.1.2.6.1.1 Componenten en hun doel — wat hoort hier wel en niet thuis
+##### Componenten en hun doel — wat hoort hier wel en niet thuis
 
 | Component (zoals op plaat) | Hoofddoel in dit scenario | Wat dit systeem **niet** doet (rolafbakening) | Welke informatie hier ontstaat of leeft (conceptueel) |
 | --- | --- | --- | --- |
@@ -967,7 +931,7 @@ Onderstaande tabel vult het vlakkenmodel hierboven aan met **doel**, **conceptue
 
 > **Jochem — één feit, één bron.** Zijn **opleidingsspecificatie** ontstaat in de curriculumtool en wordt via **OC** gelezen door planning, LMS en SVS — niet opnieuw vastgelegd in het LMS. Zijn **inschrijving** leeft in **KRS**; het LMS leest deelnemerscontext. Zijn **behaalde resultaten** op werkprocesniveau worden in **SVS** bijgehouden tegen de specificatie uit OC; het LMS levert daarvoor uitvoeringsfeiten door. Zo voorkom je dat dezelfde gegevens op meerdere plekken verschillend staan.
 
-###### 3.3.1.2.6.1.2 Bron-, lees- en bewerkrollen t.o.v. informatie-objecten
+##### Bron-, lees- en bewerkrollen t.o.v. informatie-objecten
 
 De vorige tabel beschrijft **doelen** en **rolafbakening**. Hieronder staat dezelfde set systemen in termen van het **vlakkenmodel** uit §3.2: welk systeem **bron van waarheid** is voor welke objecten (ketenbreed), wat het **alleen consumeert**, en wat het **muteert of aanmaakt** (inclusief doorlevering naar een andere bron). *Bron* betekent hier: het systeem waar de keten voor dat object op vertrouwt zodra het in productie staat (na publicatie waar dat van toepassing is). *Bewerkt* omvat ook **publiceren naar OC** of **doorgeven aan SVS/KRS** — dat zijn schrijfacties op de keten, ook als het doelsysteem daarna bron wordt.
 
@@ -975,8 +939,8 @@ De vorige tabel beschrijft **doelen** en **rolafbakening**. Hieronder staat deze
 | --- | --- | --- | --- |
 | **Curriculum-ontwerptool** | Bron van `opleidingsspecificatie`, `onderwijseenheidspecificatie`. | Kwalificatiekader en referenties (extern/beleid); desgevraagd de actuele gepubliceerde `onderwijsspecificaties`  uit **OC** bij herziening. | Mutaties op `onderwijsspecificaties` (`opleiding` t/m `onderwijseenheid`, `toetsonderdeel`/toetsvorm); publicatie naar **OC**. |
 | **Onderwijscatalogus (OC)** | **Ketenbreed gepubliceerde** gedetaileerde (fijnmazige) `onderwijsspecificaties`, specifiek de `leeronderdeel specificatie`; **ketenbreed gepubliceerd** planbaar `onderwijsaanbod` voor consumptie door de keten. | Publicatie- en mutatie-events van geautoriseerde bronnen (curriculumtool, planning). | Catalogusbeheer: versies, consistentie, beschikbaar maken voor afnemers (geen onderwijskundige ontwerprol). |
-| **Planningssysteem** | **Planbaar onderwijsaanbod** in de zin van *planningsconstructie* totdat dit in **OC** is gepubliceerd; daarna is **OC** de bron voor wat de keten leest. | `Onderwijsspecificatie` en reeds gepubliceerd aanbod uit **OC**; persoons-, rol-, skill- en reële-wereldconstraintdata (zie §3.3.1.2.3 en *Planbare onderwijsspecificaties*). | `Planbaar onderwijsaanbod`; groepen en capaciteitsbeeld; verzoeken tot specificatie-aanpassing; **publicatie/mutatie van planbaar aanbod naar OC**. |
-| **Roostersysteem** | **Geroosterd onderwijsaanbod** als *roosterconstructie*. | `Onderwijsspecificatie` en gepland `onderwijsaanbod` uit **OC**; deelnemers-, skill- en reële-wereldconstraintdata (zie §3.3.1.2.3 uit o.a. *Planbare onderwijsspecificaties*, facilitaire systemen). | `Lesgelegenheid`, `Leergelegenheid`, `Toetsgelegenheid` `Examengelegenheid` (concrete slots, locaties, docenten); **publicatie/mutatie van geroosterd aanbod naar OC**. |
+| **Planningssysteem** | **Planbaar onderwijsaanbod** in de zin van *planningsconstructie* totdat dit in **OC** is gepubliceerd; daarna is **OC** de bron voor wat de keten leest. | `Onderwijsspecificatie` en reeds gepubliceerd aanbod uit **OC**; persoons-, rol-, skill- en reële-wereldconstraintdata (zie *Het plan en rooster proces* en *Planbare onderwijsspecificaties*). | `Planbaar onderwijsaanbod`; groepen en capaciteitsbeeld; verzoeken tot specificatie-aanpassing; **publicatie/mutatie van planbaar aanbod naar OC**. |
+| **Roostersysteem** | **Geroosterd onderwijsaanbod** als *roosterconstructie*. | `Onderwijsspecificatie` en gepland `onderwijsaanbod` uit **OC**; deelnemers-, skill- en reële-wereldconstraintdata (zie *Het plan en rooster proces* en *Planbare onderwijsspecificaties*, facilitaire systemen). | `Lesgelegenheid`, `Leergelegenheid`, `Toetsgelegenheid` `Examengelegenheid` (concrete slots, locaties, docenten); **publicatie/mutatie van geroosterd aanbod naar OC**. |
 | **Intakesysteem** | **Intake- en aanmeldprocesdossier** (buiten de vijf vlakkenkolommen van §3.2; geen tweede persoonsregister). | Opleidings- en aanbodinformatie (publiek of uit **OC**); geen bron voor `onderwijsspecificatie` of `onderwijsresultaat`. | Aanmelding, intake-uitkomst, voorlopige plaatsing; **overdracht naar KRS** (formele registratie). |
 | **Kernregistratie Systeem studenten (KRS)** | `Persoon`; `onderwijsverbintenis` op opleiding/programma/ (inschrijving, rechtmatigheid). | Gepubliceerde planbare `onderwijsaonderwijsspecificaties` en groepsinformatie als constraint voor planning uit **OC** / planning (voor plaatsing); **geen** bron voor `onderwijsspecificatie`. | Inschrijving middels `onderwijsaanbod verbintenis`; les/stam-groepslidmaatschap (gebaseerd op sociale groeperingsconstraints); mutaties op verbintenis en **rechtmatigheid** (is deze persoon daadwerkelijk gerechtigd om deel te nemen aan dit `onderwijsaanbod`?) in het kader van deelnemerscontext richting **LMS**, en **SVS** (i.h.k.v. toetsing en examenering) |
 | **Studentbegeleidingssysteem** | **Begeleidingsdossier** (afspraken, signalen, SLB-/coachnotities — buiten het kern-vlakkenmodel). | `Persoon` en plaatsing uit **KRS**; desgevraagd voortgangs- of risico-inzichten uit **SVS** (read-only). | Begeleidingsdata gekoppeld aan KRS-identiteit (geen tweede master voor kernpersoonsgegevens). |
@@ -988,7 +952,7 @@ De vorige tabel beschrijft **doelen** en **rolafbakening**. Hieronder staat deze
 
 *Implementatienuance.* De exacte splitsing tussen **KRS** en **SVS** voor grensgevallen (bijv. bepaalde statusvelden op `onderwijsverbintenis` versus leervolgstatus) kan per instelling verschillen; het principe blijft: **één bron per gegeven** en geen tegenstrijdige parallelle masters.
 
-###### 3.3.1.2.6.1.3 Anti-patronen tussen systemen — tegengestelde doelen om te voorkomen
+##### Anti-patronen tussen systemen — tegengestelde doelen om te voorkomen
 
 Doel hier is dat de **semantische consistentie** uit §3.2 ook bij implementatie behouden blijft: één eigenaar per object, één plek voor één feit, één bron van waarheid per kolom van het vlakkenmodel.
 
@@ -996,26 +960,30 @@ Doel hier is dat de **semantische consistentie** uit §3.2 ook bij implementatie
 - **Planning vs Rooster** — planning bewaakt **organiseerbaarheid** (planbaar aanbod), rooster bewaakt **concrete realisatie** (geroosterd aanbod). *Anti-patroon:* rooster maakt capaciteitskeuzes of planning roostert. *Mitigatie:* planbaar → geroosterd is een **ketenovergang**, geen overlap.
 - **KRS vs Studentbegeleiding** — KRS is **persoons- en plaatsingmaster**; begeleiding **leeft mee**. *Anti-patroon:* begeleiding houdt een eigen tweede persoonsregister. *Mitigatie:* begeleiding **refereert** aan KRS-identiteit, voegt context toe.
 - **LMS vs SVS** — LMS doet **uitvoering en formatief**, SVS doet **studiepad, voortgang en resultaat**. *Anti-patroon:* SVS wordt een tweede LMS, of LMS wordt het studiepadsysteem. *Mitigatie:* LMS levert feiten door; SVS aggregeert tot voortgang en resultaat.
-- **Toets-/examenafname vs SVS en examencommissie** — afname levert **feiten**; formele vaststelling ligt bij de **examencommissie** (procesfase 6 in §3.3.1.2.2, niet als systeem op deze plaat). *Anti-patroon:* afname publiceert direct als definitief resultaat. *Mitigatie:* afname → SVS als **kandidaatresultaat**; formele vaststelling buiten dit plaatstuk.
+- **Toets-/examenafname vs SVS en examencommissie** — afname levert **feiten**; formele vaststelling ligt bij de **examencommissie** (instellingsjourney fase 8, niet als systeem op deze plaat). *Anti-patroon:* afname publiceert direct als definitief resultaat. *Mitigatie:* afname → SVS als **kandidaatresultaat**; formele vaststelling buiten dit plaatstuk.
 - **Curriculum-ontwerptool vs OC** — ontwerptool is **werkomgeving**, OC is **publicatiekanaal**. *Anti-patroon:* afnemers lezen direct uit de ontwerptool. *Mitigatie:* alle afnemers consumeren via OC; ontwerptool publiceert.
 - **Intake vs KRS** — intake **verzamelt en beslist**, KRS **registreert** formeel. *Anti-patroon:* intake gaat zelf inschrijvingen bewaken. *Mitigatie:* positieve intake → overdracht aan KRS.
 
-###### 3.3.1.2.6.1.4 Procesfasen ↔ interacties op de plaat ↔ informatie
+##### Procesfasen ↔ interacties op de plaat ↔ informatie
 
-Aansluitend op **§3.3.1.2.2 Instellings Journey in fasen**: per fase de hoofdgebeurtenis, de systemen die elkaar conceptueel raken (lijnen op de plaat), en de informatie die beweegt. Dit is de **leg-up** voor de berichtspecificatie- en interfacespecificatie-stappen van AMIGO (§2.3); koppelvlakdetails (trigger, idempotentie, formaat) staan hier bewust nog niet in.
+Aansluitend op de **instellingsjourney in 8 fasen** (zie *De procesbeleving achter 'regulier' onderwijs van een Instelling*): per fase de hoofdgebeurtenis, de systemen die elkaar conceptueel raken (lijnen op de plaat), en de informatie die beweegt. Fasen **1–5** vormen de lineaire keten van ontwerp tot start uitvoering; **fase 6** (keuzemomenten) en **fase 7** (bijsturen) zijn cyclische lussen die het strategische jaarplan en het rooster opnieuw raken; **fase 8** sluit af met examineren en diplomeren. Dit is de **leg-up** voor de berichtspecificatie- en interfacespecificatie-stappen van AMIGO (§2.3); koppelvlakdetails (trigger, idempotentie, formaat) staan hier bewust nog niet in.
 
 | Fase (instellingsjourney) | Hoofdgebeurtenis | Systemen die elkaar raken op de plaat | Informatie die beweegt (conceptueel) |
 | --- | --- | --- | --- |
-| 1. Kwalificatiekader analyseren en grofmazig ontwerpen | Onderwijsontwerper maakt opleidings- en onderwijsspecificatie en eerste examenplan. | Curriculum-ontwerptool → **OC** | Onderwijsspecificatie op programma- en eenheidsniveau; toetsvormen; eerste examenplan. |
-| 2. Publiceren en planbaar maken | Specificatie staat in OC; planner bepaalt haalbaarheid en maakt **planbaar onderwijsaanbod**. | Curriculum-ontwerptool ↔ **OC**; Curriculum-ontwerptool ↔ **Planning** (specificatie-update + plan-assets); **Planning** → **OC** (planbaar aanbod) | Gepubliceerde specificatie; planassets (bijv. ruimtetypen); planbaar onderwijsaanbod (perioden, capaciteit, groepen). |
+| 1. Kwalificatiekader analyseren en grofmazig ontwerpen | Onderwijsontwerper maakt opleidings- en onderwijsspecificatie en eerste examenplan; curriculum als template over de opleidingsduur. | Curriculum-ontwerptool → **OC** | Onderwijsspecificatie op programma- en eenheidsniveau; toetsvormen; eerste examenplan; nominaal curriculum-template. |
+| 2. Publiceren en planbaar maken | Specificatie staat in OC; planner bepaalt haalbaarheid en maakt **onderwijsaanbod** als deel van de instellingsbrede strategische jaarplanning. | Curriculum-ontwerptool ↔ **OC**; Curriculum-ontwerptool ↔ **Planning** (specificatie-update + plan-assets); **Planning** → **OC** (planbaar aanbod) | Gepubliceerde specificatie; planassets (bijv. ruimtetypen); planbaar onderwijsaanbod (perioden, capaciteit, groepen); grof strategisch jaarplan. |
 | 3. Instroom, intake en plaatsing | Student oriënteert, meldt zich aan, doorloopt intake; positieve uitkomst → registratie van persoon en plaatsing. | **Intake** → **KRS**; **KRS** ↔ **Studentbegeleiding** | Aanmelding; intake-uitkomst; persoon en plaatsing in KRS; begeleidingscontext. |
 | 4. Detailleren, roosteren en inschrijven | Onderwijsontwikkelaar werkt leergelegenheden en lessen verder uit; planbaar → geroosterd; verbintenis op concrete gelegenheden. | **OC** → **LMS** (verzoek tot detaillering `leeronderdeel specificaties`); **Planning** ↔ **KRS** (groep ↔ persoon); **Planning** → **Rooster**; **Rooster** → **Aanwezigheidsregistratie**; **KRS** → **LMS** (deelnemerschip) | Detailspecificatie van leeronderdelen, lessen en toetsen; groep met deelnemers; geroosterde gelegenheden; lijst van deelnemers in LMS. |
 | 5. Onderwijs uitvoeren en voortgang begeleiden | Docent verzorgt onderwijs; LMS en aanwezigheid registreren; formatieve voortgang. | **LMS** ↔ **Aanwezigheidsregistratie**; **OC** → **SVS** (specificatie als referentiekader); **LMS** → **SVS** (feiten) | Lesuitvoering en deelname; aanwezigheid; formatieve voortgang richting volgsysteem. |
-| 6. Examineren, vaststellen en diplomeren | Toets-/examenaanbod klaargezet; afname; kandidaatuitkomsten naar volgsysteem; formele vaststelling door examencommissie (buiten plaat). | **Toets-/examenplanning** ↔ **Toets-/examenafname**; **Toets-/examenafname** → **SVS** | Geplande toets-/examengelegenheden; afnameresultaten; opbouw naar onderwijsresultaat in SVS. |
+| 6. Organiseren van keuzemomenten | Periodieke keuzemomenten: studenten leggen definitieve keuzedelen (en andere keuzes) vast; instelling verwerkt naar groepen en capaciteit; planbaar en geroosterd aanbod worden geactualiseerd. | **LMS / studentportaal** → **KRS** (aanmelding → inschrijving keuzedeel); **KRS** ↔ **Planning** (groepen, capaciteit op keuzedeelruimte); **Planning** → **OC** (geactualiseerd planbaar aanbod); **Planning** → **Rooster** → **OC** (geroosterd aanbod); **Studentbegeleiding** ↔ **KRS** (signaal bij niet-passend aanbod) | `Aanmelding keuzedeel` → `inschrijving keuzedeel`; bijgewerkte groepen en capaciteit; mutaties op planbaar en geroosterd aanbod; signalering bij oningevulde keuzedeelruimte. |
+| 7. Bijsturen planning en aanbod | Uitval, temporiseren, versnellen en hybride afwijkingen cumuleren tegen het initiële jaarplan; planner anticipeert, jaarplan wordt bijgestuurd en wijzigingen lopen door naar rooster. | **LMS** / **Aanwezigheidsregistratie** / **SVS** → **Studentbegeleiding** (signalen); **Studentbegeleiding** ↔ **KRS** (verbintenis-/plaatsingsmutaties); **KRS** → **Planning** (gewijzigde populatie en groepen); **Planning** → **OC** (mutaties planbaar aanbod) en **Planning** → **Rooster** → **OC** (mutaties geroosterd aanbod) | Voortgangs- en uitvalsignalen; gewijzigde groepen, capaciteit en verbintenissen; mutaties op planbaar én geroosterd onderwijsaanbod; cumulatieve trendlijn periode vs jaarplan. |
+| 8. Examineren, vaststellen en diplomeren | Toets-/examenaanbod klaargezet; afname; kandidaatuitkomsten naar volgsysteem; formele vaststelling door examencommissie (buiten plaat) en uiteindelijke diplomering. | **Toets-/examenplanning** ↔ **Toets-/examenafname**; **Toets-/examenafname** → **SVS**; **SVS** ↔ **KRS** (kwalificering en diplomering) | Geplande toets-/examengelegenheden; afnameresultaten; opbouw naar onderwijsresultaat in SVS; vastgestelde kwalificering en diplomering. |
 
 **Aansluiting op de ArchiMate-informatiestromenplaat.** De plaat in `later hoofdstuk` toont **dezelfde stromen** en draagt **OEAPI-termen op de flow-relaties** (zoals `Programme specification`, `ProgrammeOffering`, `groupId`, `LearningComponentOffering`). `Hier vind de veel besproken definitemapping plaats`. Dat is bewust een verdere uitwerking: hier blijft het bij wat er **conceptueel** beweegt; daar staat hoe het in de berichtspecificatie wordt gevangen. De ArchiMate-plaat wordt parallel hieraan bijgewerkt waar het scenario dat vraagt.
 
 **Volgende stap.** Per pijl op de plaat — en per fase hierboven — een **fijnere gegevensanalyse** (welke informatieobjecten uit het vlakkenmodel, met welke sleutels en welke semantiek mag niet vervagen) en **fijnere interactieanalyse** (wie initieert, wie bevestigt, welke volgordeafhankelijkheid). Die uitwerking volgt verder in §12.2 (informatiestromen) en mondt uit in **berichtspecificatie** en **interfacespecificatie** (AMIGO, §2.3) richting de afsprakenset.
+
+
 
 <!-- **Probleemstelling van IST situatie:**
 In de IST-situatie werkt een instelling weliswaar onder een gezamenlijk bestuurlijk en organisatorisch dak, maar beschrijven domeinen en onderliggende onderwijsteams hun onderwijsspecificaties nog ieder op hun eigen manier. Ieder team vertaalt het kwalificatiekader zelfstandig naar lokale begrippen, eigen datastructuren, eigen granulariteit en eigen benamingen. Daardoor ontstaat binnen een instelling geen gedeelde taal voor onderwijsbeschrijving.
@@ -1255,15 +1223,15 @@ flowchart TB
 ```
 
 
-######  Persoon, rollen en skills als denkraam voor constraints
+##### Persoon, rollen en skills als denkraam voor constraints
 
-Naast de onderwijsdata die elders in dit document wordt gemodelleerd, is voor **planning en roostering** (§3.3.1.2.3.5) een **complementair denkpatroon** nodig dat direct met **mensen** en **wat zij kunnen en willen** werkt. In dat denkpatroon is elke **`Persoon`** — **student** of **medewerker** — iemand met **skills**: een samenstel van **vaardigheden**, **kennis** en **inzichten** (inclusief formele bevoegdheden waar dat speelt). Bij **instroom** heeft een student typisch al een skill-profiel en een **leerwens**: welke skills hij of zij verder wil **ontwikkelen** binnen de gekozen **leerroute** en de scenario's die daarbij horen. Een **medewerker** heeft evenzo een skill-profiel, uitgedruikt via **functie en titel** (docent, SLB'er, praktijkbegeleider, examinator, …): die titels zijn **koppelvlakken** naar HR en contract, maar **inhoudelijk** gaat het om **welk skill-pakket** iemand kan **aanbieden** in onderwijs, begeleiding, praktijk of examen.
+Naast de onderwijsdata die elders in dit document wordt gemodelleerd, is voor **planning en roostering** (§ *Het plan en rooster proces*) een **complementair denkpatroon** nodig dat direct met **mensen** en **wat zij kunnen en willen** werkt. In dat denkpatroon is elke **`Persoon`** — **student** of **medewerker** — iemand met **skills**: een samenstel van **vaardigheden**, **kennis** en **inzichten** (inclusief formele bevoegdheden waar dat speelt). Bij **instroom** heeft een student typisch al een skill-profiel en een **leerwens**: welke skills hij of zij verder wil **ontwikkelen** binnen de gekozen **leerroute** en de scenario's die daarbij horen. Een **medewerker** heeft evenzo een skill-profiel, uitgedruikt via **functie en titel** (docent, SLB'er, praktijkbegeleider, examinator, …): die titels zijn **koppelvlakken** naar HR en contract, maar **inhoudelijk** gaat het om **welk skill-pakket** iemand kan **aanbieden** in onderwijs, begeleiding, praktijk of examen.
 
 **Skill-vraag en skill-aanbod.** Groepen zijn in dit denkpatroon **clusters van personen** die qua skill-vector op elkaar lijken of dezelfde **aan te bieden** onderwijs- of begeleidingsbehoefte delen. Tegelijk zoekt de instelling naar het **snijpunt** van (a) **skill-vraag** — wat moet deze populatie **kunnen** na het traject — en (b) **skill-aanbod** — welke medewerkers en welke leer- en praktijkomgeving kunnen dat **leveren**. Dat snijpunt is direct te vertalen naar **harde en zachte constraints** in een CSP: harde grenzen (bevoegdheid ontbreekt, geen docent beschikbaar, zaal te klein) en zachte voorkeuren (vaste teamdag, voorkeurdocent, spreiding SLB).
 
 **Reële wereld en strategie.** Daarbovenop liggen constraints die niet “in het hoofd” van één persoon zitten maar de **realiteit van de instelling** vormen: **beperkte tijd** (roosteruren, openingstijden, BPV-vensters), **beperkt geld en capaciteit** (FTE, vervanging, materiaal, collegegeld- of bekostigingskaders), **facilitaire grenzen** (aantal werkplaatsen, labtypes, reisafstand), en **strategische doelen** (doorstroom, inclusie, werkveldafspraken). Die vlakken bepalen **wat er überhaupt in het model mag** voordat een planner of roosteraar een CSP draait.
 
-**Planning en roostering.** Binnen die totale constraintset voeren **planning** en **roostering** het zoeken naar haalbare toewijzingen uit (CSP: §3.3.1.2.3.1; complexiteit en beheer: §3.3.1.2.3.3–§3.3.1.2.3.4; procesdiagram: §3.3.1.2.3.5): variabelen en domeinen komen uit **tijd en ruimte**, **skill-match**, en **populatie-clusters**; de **human-in-the-loop** stappen wegen zachte constraints en beleidsafwegingen. Het procesdiagram in §3.3.1.2.3.5 blijft geldig: *groep* leest hier vooral als **skill-groepering en inschrijf-/cohortrealiteit**, *cap* als **tijd/middelen/facilitair**, *beleid* als **strategie en regels**.
+**Planning en roostering.** Binnen die totale constraintset voeren **planning** en **roostering** het zoeken naar haalbare toewijzingen uit (zie *Voor wie dieper wil: CSP, NP-Hard en controle* en het cyclische plandiagram): variabelen en domeinen komen uit **tijd en ruimte**, **skill-match**, en **populatie-clusters**; planners en roosteraars wegen zachte constraints en beleidsafwegingen. *Groep* leest hier vooral als **skill-groepering en inschrijf-/cohortrealiteit**, *cap* als **tijd/middelen/facilitair**, *beleid* als **strategie en regels**.
 
 | **Hoofdtype `Persoon`** | **Rol of functietitel (voorbeelden; koppelbaar aan HR)** | **Skills-profiel** (vaardigheden, kennis, inzichten; bevoegdheden waar van toepassing) | **Als constraint geformuleerd** (skill-vraag / skill-aanbod; typisch plan vs rooster) |
 | --- | --- | --- | --- |
@@ -1282,7 +1250,7 @@ Naast de onderwijsdata die elders in dit document wordt gemodelleerd, is voor **
 | **Facilitair en materieel** | zaaltypes, werkplaats-capaciteit, veiligheid, AV, inventaris per vak | **Plan** (wat is organiseerbaar) en **Rooster** (concrete toewijzing) |
 | **Strategie en beleid** | instroomdoelen, inclusie, werkveldafspraken, kwaliteitsagenda, examenregeling | **beleid**-input in het diagram; vertaalt naar zachte en harde constraints in beide fasen |
 
-**Leeswijzer.** Dit blok **vervangt geen** gegevensmodel uit §3.3.1.2.5: het beschrijft **hoe planners en roosteraars redeneren** over mensen en middelen. Technische koppeling naar registers blijft: **student-`Persoon`** en inschrijfcontext leven typisch in **KRS**; **medewerker-`Persoon`**, contract en basisrol in **HR / identiteit**; skills kunnen als **uitbreiding op het profiel** in die bronnen of in een **aparte competentie- of skillservice** worden bijgehouden — zolang er **één waarheid per feit** blijft. De blokken *groep*, *cap* en *beleid* in §3.3.1.2.3.5 vangen deze informatie conceptueel.
+**Leeswijzer.** Dit blok **vervangt geen** gegevensmodel uit §3.3.1.2.5: het beschrijft **hoe planners en roosteraars redeneren** over mensen en middelen. Technische koppeling naar registers blijft: **student-`Persoon`** en inschrijfcontext leven typisch in **KRS**; **medewerker-`Persoon`**, contract en basisrol in **HR / identiteit**; skills kunnen als **uitbreiding op het profiel** in die bronnen of in een **aparte competentie- of skillservice** worden bijgehouden — zolang er **één waarheid per feit** blijft. De bronnen *groep*, *cap* en *beleid* in de informatietabel *Persoon, groep en constraint* vangen deze informatie conceptueel.
 
 #### 3.3.5 Leerroute 5 — Buiten de instelling, binnen de sector (personaliseren diplomaroute) (TO-DO)
 
