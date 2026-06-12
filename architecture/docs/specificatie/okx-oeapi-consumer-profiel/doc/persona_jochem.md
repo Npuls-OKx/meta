@@ -1,10 +1,11 @@
 # Persona Jochem
 
-<img width="2046" height="974" alt="Npuls_leerroute_1" src="https://github.com/user-attachments/assets/44ed64c8-0a40-46e5-8dba-90c146c407ae" />
+![Npuls leerroute 1](https://github.com/user-attachments/assets/44ed64c8-0a40-46e5-8dba-90c146c407ae)
 
 ## Studentjourney
 
 ### Oriënteren
+
 Jochem oriënteert zich op een opleiding via de website van mbo-instelling en socialmediakanalen.
 Hij bezoekt een open dag om een beeld te krijgen van de opleiding.
 
