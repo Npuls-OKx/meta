@@ -17,7 +17,8 @@ Hij heeft geen specifieke ondersteunings- of maatwerkvragen.
 ### Inschrijven
 
 Jochem voert een intakegesprek voor de opleiding waarvoor hij zich heeft aangemeld.
-Er wordt vastgesteld dat hij het standaard leertraject kan volgen.
+Er wordt vastgesteld dat hij het standaard leertraject kan volgen en geen verdere ondersteuningsbehoefte heeft. 
+Jochem ontvangt een bewijs van inschrijving.
 
 ### Informeren
 
@@ -73,6 +74,9 @@ Dit aanbod staat gepubliceerd op de website en is voorzien van voldoende informa
 Om mogelijk te maken dat Jochem zich kan aanmelden voor de opleiding apothekersassistent heeft de onderwijsinstelling het aanmeld systeem (CAMBO/AII) ingericht en de aanmeld functie op de eigen website daaraan gekoppeld. Daar kan Jochem het gewenste startmoment kiezen en de aanmelding voltooien. Zodra de de onderwijsinstelling de aanmelding van Jochem heeft ontvangen, start de vervolg communicatie die door de instelling of opleidingsteam wordt opgepakt. Dit gebeurd volgens een gestandariseerd proces waarbij toelatingseisen worden gecontroleerd en er wordt nagevraagd of er sprake is van een ondersteuningsbehoefte. Als dat het geval is, dan zal er later bij de instelling een uitgebreide intake plaatsvinden waarin die ondersteuningsbehoefte wordt bepaald en vastgelegd.  
 
 ### Inschrijven
+De student wordt op basis van de uitkomst van de intake in de opleiding geplaatst en ingeschreven. De student dient daarvoor een bewijs van inschrijving te ontvangen. 
+Om een student te kunnen inschrijven en plaatsen heeft de onderwijsinstelling het kern registratie systeem(KRS) ingericht. De student wordt als entiteit aangemaakt en verbonden aan o.s. een opleidingsteam, locatie, stam/plaatsinggroep, (start) cohort/periode, OER, leerroute- en resultaat structuur. Er wordt een studentaccount aangemaakt en de accountprovisioning stromen richting alle systemen waar de student gebruik van kan maken worden geinitieerd. 
+Nadat het bewijs van inschrijving is uitgegeven wordt de student registratie uitgewisseld met ROD.
 
 ### Informeren
 
