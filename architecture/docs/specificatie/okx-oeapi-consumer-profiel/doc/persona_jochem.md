@@ -1,6 +1,6 @@
 # Persona Jochem
 
-![Npuls leerroute 1](https://github.com/user-attachments/assets/44ed64c8-0a40-46e5-8dba-90c146c407ae)
+![Npuls leerroute 1](../img/Npuls_leerroute_1.jpg)
 
 ## Studentjourney
 
