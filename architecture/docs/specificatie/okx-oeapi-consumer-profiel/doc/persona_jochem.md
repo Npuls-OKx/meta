@@ -65,5 +65,26 @@ Jochem ontvangt zijn diploma en voltooit daarmee zijn opleiding.
 
 ## Instellingsjourney
 
+### Oriënteren
+De onderwijsinstelling heeft een duidelijk beeld welke opleidingen (en keuzedelen) er worden aangeboden in het eerst volgende instroommoment/schooljaar.
+Dit aanbod staat gepubliceerd op de website en is voorzien van voldoende informatie om studenten te informeren en te verleiden tot inschrijven. Via socialmedia kanalen worden bijzonderheden over het opleidingsaanbod extra onder de aandacht gebracht. De onderwijsinstelling organiseert open dagen om de aspirant studenten een goed beeld en gevoel te geven bij de faciliteiten, docenten en inspirerende inhoud. 
 
+### Aanmelden
 
+### Inschrijven
+
+### Informeren
+
+### Studeren
+
+### BPV
+
+### Kiezen keuzedelen
+
+### Studievoortgang
+
+### Examineren
+
+### Uitstroom
+
+### Diploma
