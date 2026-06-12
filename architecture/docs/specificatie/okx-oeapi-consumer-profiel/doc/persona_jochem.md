@@ -70,6 +70,7 @@ De onderwijsinstelling heeft een duidelijk beeld welke opleidingen (en keuzedele
 Dit aanbod staat gepubliceerd op de website en is voorzien van voldoende informatie om studenten te informeren en te verleiden tot inschrijven. Via socialmedia kanalen worden bijzonderheden over het opleidingsaanbod extra onder de aandacht gebracht. De onderwijsinstelling organiseert open dagen om de aspirant studenten een goed beeld en gevoel te geven bij de faciliteiten, docenten en inspirerende inhoud. 
 
 ### Aanmelden
+Om mogelijk te maken dat Jochem zich kan aanmelden voor de opleiding apothekersassistent heeft de onderwijsinstelling het aanmeld systeem (CAMBO/AII) ingericht en de aanmeld functie op de eigen website daaraan gekoppeld. Daar kan Jochem het gewenste startmoment kiezen en de aanmelding voltooien. Zodra de de onderwijsinstelling de aanmelding van Jochem heeft ontvangen, start de vervolg communicatie die door de instelling of opleidingsteam wordt opgepakt. Dit gebeurd volgens een gestandariseerd proces waarbij toelatingseisen worden gecontroleerd en er wordt nagevraagd of er sprake is van een ondersteuningsbehoefte. Als dat het geval is, dan zal er later bij de instelling een uitgebreide intake plaatsvinden waarin die ondersteuningsbehoefte wordt bepaald en vastgelegd.  
 
 ### Inschrijven
 
