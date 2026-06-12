@@ -126,7 +126,7 @@ Dit concept refereert aan **Onderwijsaanbod verbintenis**.
 
 De 9 leerroutes zijn:
 
-- **Standaard route**: [(1) Regulier](/architecture/docs/specificatie/okx-oeapi-consumer-profiel/doc/persona_jochem), [(2) Temporiseren](/architecture/docs/specificatie/okx-oeapi-consumer-profiel/doc/persona_larissa), [(3) Versnellen](/architecture/docs/specificatie/okx-oeapi-consumer-profiel/doc/persona_linda)
+- **Standaard route**: [(1) Regulier](/architecture/docs/specificatie/okx-oeapi-consumer-profiel/doc/persona_jochem.md), [(2) Temporiseren](/architecture/docs/specificatie/okx-oeapi-consumer-profiel/doc/persona_larissa.md), [(3) Versnellen](/architecture/docs/specificatie/okx-oeapi-consumer-profiel/doc/persona_linda.md)
 - **Personaliseren diplomaroute**: (4) Binnen de instelling, (5) Buiten de instelling, binnen de sector, (6) Buiten de instelling, over sectoren heen
 - **Modulair studeren**: (7) Vrije keuze, (8) Bundelen, (9) Stapelen
 
