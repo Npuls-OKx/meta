@@ -1,6 +1,6 @@
 # Persona Jochem
 
-![Npuls leerroute 1](../img/Npuls_leerroute_1.jpg)
+![Npuls leerroute 1](../img/Npuls-leerroute1-regulier-Jochem.jpg)
 
 ## Studentjourney
 

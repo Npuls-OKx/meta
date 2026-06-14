@@ -3,7 +3,7 @@
 
 # Student journey
 
-![Npuls leerroute 1](../img/Npuls_leerroute_1.jpg)
+![Npuls leerroute 1](../img/Npuls-leerroute3-regulier-Linda.jpg)
 
 ### Oriënteren
 
