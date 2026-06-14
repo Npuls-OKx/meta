@@ -1,7 +1,9 @@
 <!-- markdownlint-disable MD024 -->
 # Persona Linda
 
-## Primair proces
+# Student journey
+
+![Npuls leerroute 1](../img/Npuls_leerroute_1.jpg)
 
 ### Oriënteren
 
