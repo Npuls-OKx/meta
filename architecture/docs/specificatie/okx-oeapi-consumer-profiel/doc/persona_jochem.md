@@ -74,11 +74,14 @@ Dit aanbod staat gepubliceerd op de website en is voorzien van voldoende informa
 Om mogelijk te maken dat Jochem zich kan aanmelden voor de opleiding apothekersassistent heeft de onderwijsinstelling het aanmeld systeem (CAMBO/AII) ingericht en de aanmeld functie op de eigen website daaraan gekoppeld. Daar kan Jochem het gewenste startmoment kiezen en de aanmelding voltooien. Zodra de de onderwijsinstelling de aanmelding van Jochem heeft ontvangen, start de vervolg communicatie die door de instelling of opleidingsteam wordt opgepakt. Dit gebeurd volgens een gestandariseerd proces waarbij toelatingseisen worden gecontroleerd en er wordt nagevraagd of er sprake is van een ondersteuningsbehoefte. Als dat het geval is, dan zal er later bij de instelling een uitgebreide intake plaatsvinden waarin die ondersteuningsbehoefte wordt bepaald en vastgelegd.  
 
 ### Inschrijven
-De student wordt op basis van de uitkomst van de intake in de opleiding geplaatst en ingeschreven. De student dient daarvoor een bewijs van inschrijving te ontvangen. 
-Om een student te kunnen inschrijven en plaatsen heeft de onderwijsinstelling het kern registratie systeem(KRS) ingericht. De student wordt als entiteit aangemaakt en verbonden aan o.s. een opleidingsteam, locatie, stam/plaatsinggroep, (start) cohort/periode, OER, leerroute- en resultaat structuur. Er wordt een studentaccount aangemaakt en de accountprovisioning stromen richting alle systemen waar de student gebruik van kan maken worden geinitieerd. 
-Nadat het bewijs van inschrijving is uitgegeven wordt de student registratie uitgewisseld met ROD.
+Jochem wordt op basis van de uitkomst van de intake in de opleiding geplaatst en ingeschreven. De student dient daarvoor een bewijs van inschrijving te ontvangen. 
+Om een student te kunnen inschrijven en plaatsen heeft de onderwijsinstelling het kern registratie systeem(KRS) ingericht. De student wordt als entiteit aangemaakt en verbonden aan o.s. een opleidingsteam, locatie, stam/plaatsinggroep, (start) cohort/periode, OER, leerroute- en resultaat structuur. Er wordt een studentaccount aangemaakt en de accountprovisioning stromen richting alle systemen waar Jochem gebruik van kan maken worden geinitieerd. 
+Nadat het bewijs van inschrijving is uitgegeven, wordt Jochem's registratie uitgewisseld met ROD.
 
 ### Informeren
+De onderwijsinstelling verstuurd meerdere berichten naar Jochem. Allereest de inloggegevens en instructie hoe Jochem bij de studentenportaal kan komen. Om niet volledig afhankelijk te zijn van de digitale vaardigheden van Jochem, worden de basisgegevens zoals een leermiddelenlijst ook direct aangeboden.
+In het studentenportaal worden alle relevante gegevens uit meerdere systemen ontsloten of allerminst links aangeboden. Jochem's leertraject vormt daarin de basis, van daaruit dient hij inzicht te verkrijgen in de verschillende modules; welke leeruitkomsten daarin kunnen worden bereikt en welke leermiddelen erbij nodig zijn. De docenten hebben ook al een voorbereiding neergezet voor de eerste les. 
+Ondertussen wordt er hard gewerkt om de roosters beschikbaar te stellen. De eerste periode start op een maandag met een introductiedag, maar daarna moet het duidelijk zijn hoe laat en waar Jochem wordt verwacht en wat hij zelf moet meenemen. Tevens wordt er een SLB-er aan Jochem toegewezen die hem zal begeleiden in zijn leertraject. Wie exact Jochem zal begeiden in zijn BPV hoeft nog niet bepaald te zijn, de BPV periode vindt pas in de 4e periode. Hiervoor wordt wel tijd gealloceerd voor de BPV begeleiders. 
 
 ### Studeren
 
