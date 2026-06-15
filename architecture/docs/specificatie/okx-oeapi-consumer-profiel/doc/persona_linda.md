@@ -1,9 +1,9 @@
 <!-- markdownlint-disable MD024 -->
 # Persona Linda
 
-# Student journey
-
 ![Npuls leerroute 1](../img/Npuls-leerroute3-regulier-Linda.jpg)
+
+## Student journey
 
 ### Oriënteren
 

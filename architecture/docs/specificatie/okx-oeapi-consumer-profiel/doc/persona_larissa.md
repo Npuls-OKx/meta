@@ -1,8 +1,8 @@
 # Persona Larissa
 
-## Student journey
-
 ![Npuls leerroute 1](../img/Npuls-leerroute2-regulier-Larissa.jpg)
+
+## Student journey
 
 ### Oriënteren
 
