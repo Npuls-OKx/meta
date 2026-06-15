@@ -1,7 +1,6 @@
 # Persona Jochem
 
-![Npuls leerroute 1](../img/Npuls-leerroute1-regulier-Jochem.jpg)
-
+![Npuls leerroute 1](../img/Npuls-leerroute1-regulier-Jochem.png)
 ## Studentjourney
 
 ### Oriënteren
@@ -89,12 +88,18 @@ Voor elk onderwijsproduct is er in het LMS een omgeving ingericht waarmee de doc
 
 ### BPV
 Jochem blijkt een voorbeeldig student en volgt exact het beoogde schema van het leertraject. Dit betekent dat de BPV periode in het zicht komt en er door de onderwijsinstelling een BPV begeleider aangesteld wordt. Hij/zij helpt vroegtijdig Jochem met het vinden van die ideale BPV-plek, bespreekt wat er van Jochem wordt verwacht om zijn BPV-stage goed af te ronden. Jochem sluit perfect aan bij het aanbod van erkende leerbedrijven en heeft na een kort intakegesprek een ondertekende POK in handen. Deze wordt in het KRS opgeslagen.
-
 Tijdens de BPV volgt Jochem geen lessen op school. Maar kan hij wel inloggen op zijn BPV-omgeving waar hij verslagen kan maken en kan aangeven welke leeruitkomsten hij verder heeft kunnen ontwikkelen. Ook de stagebegeleider houdt een oog in het zeil en komt minimaal een keer op bezoek bij het leerbedrijf. 
 
 ### Kiezen keuzedelen
+Jochem blijkt een voorbeeldig student en volgt exact het beoogde schema van het leertraject. Bij een regulier traject als Jochem zijn is de keuzedeelruimte voorgeprogrammeerd en kan hij elke 3e periode van het schooljaar een keuzedeel volgen.
+Dit betekent dat zijn eerste keuzedeel ruimte nadert en hij een keuze moet gaan maken voor die periode. De onderwijsinstelling heeft het aanbod aan keuzedelen ontsloten in de onderwijscatalogus. Het is niet haalbaar Jochem zomaar uit alle mogelijk keuzedelen te laten kiezen. De onderwijscatalogus toont in eerste instantie alleen de keuzedelen getoond die vanuit de instelling voorgesorteerd zijn op leerroute (en periode), type keuzedeel, domein en locatie. Door deze voorsortering kan de onderwijsinstelling het haalbaar en betaalbaar organiseren. Echter, mocht Jochem op basis van een goede onderbouwing toch een ander keuzedeel willen kiezen dat past bij zijn ambitie, interesse en talent, moet hier ook maatwerk mogelijk zijn.
+
+Als onderwijsstelling is het niet alleen van groot belang dat Jochem een keuze maakt, maar ook dat hij deze tijdig maakt. Het zal dus door de SLB-er al ruimschoots voor het keuzemoment onder de aandacht gebracht te worden. Vol van het informeren en inspireren is het van belang om ook een animo check te doen om voor planning vroegtijd in beeld te krijgen wat populaire keuzes zijn en wat de organisatorische impact daarvan.
+
+Keuzedeelkeuze wordt vastgelegd in het KRS voor de verantwoordeing, in het SVS dienen formatieve en summatieve structuren gekoppeld te worden, Jochem's keuze dient in de planning verwerkt te worden (plaatsen van juiste lesgroep) en bij het LMS dient de juiste leeromgeving gekoppeld te worden.     
 
 ### Studievoortgang
+Jochem blijkt een voorbeeldig student en volgt exact het beoogde schema van het leertraject.
 
 ### Examineren
 
