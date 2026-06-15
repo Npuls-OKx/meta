@@ -84,8 +84,13 @@ In het studentenportaal worden alle relevante gegevens uit meerdere systemen ont
 Ondertussen wordt er hard gewerkt om de roosters beschikbaar te stellen. De eerste periode start op een maandag met een introductiedag, maar daarna moet het duidelijk zijn hoe laat en waar Jochem wordt verwacht en wat hij zelf moet meenemen. Tevens wordt er een SLB-er aan Jochem toegewezen die hem zal begeleiden in zijn leertraject. Wie exact Jochem zal begeiden in zijn BPV hoeft nog niet bepaald te zijn, de BPV periode vindt pas in de 4e periode. Hiervoor wordt wel tijd gealloceerd voor de BPV begeleiders. 
 
 ### Studeren
+In de studeren fase van Jochem is ook voor de onderwijsinstelling de belangrijkste fase, er wordt onderwezen. Docenten hebben hun lessen voorbereid en zijn conform het rooster op de juiste tijd op de juiste plek, om Jochem stappen te laten maken richting zijn felbegeerde leeruitkomsten. Voor de start van de les, neemt de docent de aanwezigheid op. De docent kan immers in het systeem zien wie er, naast Jochem nog meer in de les wordt verwacht. Om Jochem later zijn diploma te kunnen uitrijken, dient de instelling aan te kunnen tonen dat Jochem voldoende onderwijstijd heeft mogen genieten. Ook wanneer bijvoorbeeld de docent ziek zou zijn, dient de onderwijsinstelling een vervanger te plannen of het op een later moment in te halen. Mocht de les uitvallen, stelt Jochem het zeer op prijs dat hij hier vooraf over geinformeerd wordt. 
+Voor elk onderwijsproduct is er in het LMS een omgeving ingericht waarmee de docent, Jochem en zijn medestudenten, samen (of individueel) de beoogde leertaken kunnen oppaken en de voortgang kunnen toetsen.
 
 ### BPV
+Jochem blijkt een voorbeeldig student en volgt exact het beoogde schema van het leertraject. Dit betekent dat de BPV periode in het zicht komt en er door de onderwijsinstelling een BPV begeleider aangesteld wordt. Hij/zij helpt vroegtijdig Jochem met het vinden van die ideale BPV-plek, bespreekt wat er van Jochem wordt verwacht om zijn BPV-stage goed af te ronden. Jochem sluit perfect aan bij het aanbod van erkende leerbedrijven en heeft na een kort intakegesprek een ondertekende POK in handen. Deze wordt in het KRS opgeslagen.
+
+Tijdens de BPV volgt Jochem geen lessen op school. Maar kan hij wel inloggen op zijn BPV-omgeving waar hij verslagen kan maken en kan aangeven welke leeruitkomsten hij verder heeft kunnen ontwikkelen. Ook de stagebegeleider houdt een oog in het zeil en komt minimaal een keer op bezoek bij het leerbedrijf. 
 
 ### Kiezen keuzedelen
 
