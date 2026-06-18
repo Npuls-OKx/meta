@@ -6,21 +6,24 @@
 
 ### Oriënteren
 
-Larissa oriënteert zich op een opleiding via de website van de mbo-instelling en socialmediakanalen. Zij bezoekt daarnaast een open dag om een beter beeld te krijgen van de opleiding en de school.
+Larissa oriënteert zich op een opleiding via de website van de mbo-instelling en socialmediakanalen. Zij bezoekt daarnaast een open dag om een beter beeld te krijgen van de opleiding en de school. Sport & bewegen is populair bij haar teamgenoten, daar wordt de opleiding standaard afgestemd op jonge topsporters. Haar ambitie ligt elders, ze wil niet op een paard wedden en haar affiniteit ligt naast topsport bij ICT. Tijdens de open dag had ze een fijn gesprek met de opleidingscoordinator, die haar vertelde dat het niet vaak voor komt dat een topsporter een ICT opleiding wil volgen. Maar dat het wel mogelijk is om de opleiding, met name rondom haar beperkte beschikbaarheid af te stemmen. Dit overtuigd Larissa.     
 
 ### Aanmelden
 
-Larissa meldt zich aan bij mbo-instelling met de juiste vooropleiding. Zij geeft daarbij aan dat zij persoonlijke omstandigheden heeft waardoor het standaard leertraject mogelijk niet passend is.
+Larissa meldt zich aan bij mbo-instelling met de juiste vooropleiding. Zij geeft daarbij aan dat haar persoonlijke omstandigheden het lastig maken om een standaard leertraject te volgen. 
 
 ### Inschrijven
 
-Larissa voert een intakegesprek waarin zij haar situatie toelicht. Tijdens dit gesprek bespreekt zij met de opleiding hoe haar traject eruit kan zien en of zij het traject binnen de standaardtijd kan volgen of afronden.
+Larissa voert een intakegesprek waarin zij haar situatie toelicht. Ze heeft 3 concrete uitdagingen: 
+1. Ze heeft elke ochtend training, waardoor ze niet voor 10u aanwezig kan zijn.
+2. Haar sport is blessuregevoelig, wanneer ze tijdens een training geblesseerd raakt wordt ze direct onderzocht en behandeld. Wanneer dit het geval is, kan ze waarschijnlijk de hele dag niet aansluiten. 
+3. Deelname aan trainingskampen en toernooien. Larissa heeft jaarlijks 4 grote toernooien en 2 trainingskampen, deze zijn seizoensgebonden (tussen april en oktober) De data zijn vooraf bekend en betekenen concreet dat ze minimaal 4x een donderdag, vrijdag en maandag zal missen. Daarnaast maakt Larissa grote kans op deelname aan de olympische zomerspelen van 2028. Wanneer ze zich daarvoor kwalificeert, krijgt dit alle prioriteit en zal ze in de zomer waarschijnlijk een volledige periode missen.     
+
+Tijdens dit gesprek bespreekt zij met de opleiding hoe haar traject eruit kan zien en in welke mate men een passende oplossing kan bieden. Er worden nog geen concrete beloftes gedaan over de concrete invulling. Door haar roosterbeperkingen wordt het lastig om met een reguliere groep mee te gaan en er per periode bekeken moet worden welke vakken er buiten de boot vallen en hoe/wanneer deze ingehaald kunnen worden. De SLB-er zal hier samen met haar op toezien.  
 
 ### Informeren
 
-Larissa bekijkt bij de start van de opleiding de geplande standaard leerroute, inclusief modules, BPV-uren en examenplanning.
-Zij verdiept zich in de leeruitkomsten en onderwijsproducten en bespreekt met haar SLB’er hoe haar persoonlijke situatie invloed heeft op de planning.
-Indien nodig maakt Larissa afspraken om (delen van) het traject anders in te richten of in een ander tempo te volgen.
+Larissa bekijkt voor de start van de opleiding de geplande standaard leerroute, inclusief modules, BPV-uren en examenplanning. Zij verdiept zich in de leeruitkomsten en onderwijsproducten Nu dat er een concreet rooster beschikbaar is voor de eerste periode, wordt het al snel duidelijk welke lessen ze wel of niet kan volgen. Vanuit haar student keuze systeem kan ze zichzelf uitschrijven voor de lessen die op het eerste uur van de dag gepland staan. Voor 2 lessen geeft het systeem een alternatieve mogelijkheid, waarvan 1 ook op een tijdstip waar geen andere les staat geroosterd. Die kiest ze. Van de ander kan ze zelf niet oordelen welke van de 2 het belangrijkste is. En dan zijn er nog die 2 andere lessen waar geen alternatief voor beschikbaar was. Om geen tijd te verliezen plant ze direct op dag 1 een afspraak met haar SLB-er om haar planningsuitdagingen te bespreken. 
 
 ### Studeren
 
