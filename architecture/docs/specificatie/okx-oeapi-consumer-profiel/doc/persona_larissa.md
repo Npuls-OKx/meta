@@ -10,7 +10,7 @@ Larissa oriënteert zich op een opleiding via de website van de mbo-instelling e
 
 ### Aanmelden
 
-Larissa meldt zich aan bij mbo-instelling met de juiste vooropleiding. Zij geeft daarbij aan dat haar persoonlijke omstandigheden het lastig maken om een standaard leertraject te volgen. 
+Larissa meldt zich aan bij mbo-instelling met de juiste vooropleiding. Zij geeft daarbij aan dat haar persoonlijke omstandigheden het lastig maken om een standaard leertraject te volgen, maar dat ze wel absoluut de niveau 4 opleiding software developer BOL wil behalen. 
 
 ### Inschrijven
 
@@ -23,7 +23,7 @@ Tijdens dit gesprek bespreekt zij met de opleiding hoe haar traject eruit kan zi
 
 ### Informeren
 
-Larissa bekijkt voor de start van de opleiding de geplande standaard leerroute, inclusief modules, BPV-uren en examenplanning. Zij verdiept zich in de leeruitkomsten en onderwijsproducten Nu dat er een concreet rooster beschikbaar is voor de eerste periode, wordt het al snel duidelijk welke lessen ze wel of niet kan volgen. Vanuit haar student keuze systeem kan ze zichzelf uitschrijven voor de lessen die op het eerste uur van de dag gepland staan. Voor 2 lessen geeft het systeem een alternatieve mogelijkheid, waarvan 1 ook op een tijdstip waar geen andere les staat geroosterd. Die kiest ze. Van de ander kan ze zelf niet oordelen welke van de 2 het belangrijkste is. En dan zijn er nog die 2 andere lessen waar geen alternatief voor beschikbaar was. Om geen tijd te verliezen plant ze direct op dag 1 een afspraak met haar SLB-er om haar planningsuitdagingen te bespreken. 
+Larissa bekijkt voor de start van de opleiding de geplande standaard leerroute, inclusief modules, BPV-uren en examenplanning. Zij verdiept zich in de leeruitkomsten en onderwijsproducten. Nu dat er een concreet rooster beschikbaar is voor de eerste periode, wordt het al snel duidelijk welke lessen ze wel of niet kan volgen. Vanuit haar student keuze systeem kan ze zichzelf uitschrijven voor de lessen die op het eerste uur van de dag gepland staan. Voor 2 lessen geeft het systeem een alternatieve mogelijkheid, waarvan 1 ook op een tijdstip waar geen andere les staat geroosterd. Die kiest ze. Van de ander kan ze zelf niet oordelen welke van de 2 het belangrijkste is. En dan zijn er nog die 2 andere lessen waar geen alternatief voor beschikbaar was. Om geen tijd te verliezen plant ze direct op dag 1 een afspraak met haar SLB-er om haar planningsuitdagingen te bespreken. 
 
 ### Studeren
 
@@ -31,17 +31,17 @@ Larissa volgt onderwijs op verschillende manieren: klassikaal, individueel, onli
 Zij werkt doelgericht aan leeruitkomsten en plant haar leeractiviteiten op basis van de vereisten.
 Larissa neemt regie over haar leerproces, bijvoorbeeld door zelfstandig te oefenen of gebruik te maken van aanvullende begeleiding of differentiatie.
 
-### Kiezen in leertraject
+### Persoonlijk leertraject
 
-Larissa bekijkt voorafgaand aan een nieuwe lesperiode haar rooster en ziet welke modules worden aangeboden.
-Zij maakt bewuste keuzes: modules die zij nog moet behalen volgt zij opnieuw, en andere modules plant zij in op een passend moment.
-Wanneer zij zelfstandig aan leeruitkomsten werkt, stemt zij dit af met haar slb’er. De gemaakte afspraken worden vastgelegd in haar begeleidingsdossier.
+Larissa bekijkt voorafgaand aan een nieuwe lesperiode haar rooster en ziet welke modules worden aangeboden. Net als bij de initiele informeren fase, schrijft ze zich uit voor de modules waarbij ze niet aanwezig kan zijn, beschouwd ze alternatieve tijdstippen en bespreekt ze met de SLB-er de mogelijkheden om op koers te blijven. Echter naarmate de opleiding vordert raakt ze steeds verder achter op het standaard traject. Elke periode zijn er een aantal modules geweest waar ze niet of slechts deels bij kon aansluiten. Nu vervallen er ook enkele modules omdat deze voortbouwen op eerdere die ze niet heeft kunnen volgen. Hierdoor onstaan nu ook gaten in haar agenda binnen haar beschikbaarheid. Het is niet zo dat ze deze allemaal kan opvullen met modules die ze nodig heeft voor haar kwalificatie. Niet elke module wordt elke periode aangeboden, enkel als daar voldoende vraag naar is.
+
+Met de SLB-er onderzoekt ze wat ze het beste kan doen om deze gaten op te vullen. Kan ze best zelfstandig aan leeruitkomsten werken door bijvoorbeeld de portfolio opdracht die eigenlijk volgende periode op het (standaard) programma staat al op te pakken, of kan ze misschien bij een andere opleiding de generieke vakken Engels en/of rekenen versneld volgen? Ze hoopt op dat laatste, maar zelf kan ze het niet direct in het student keuze systeem vinden. De SLB-er helpt haar met zoeken en samen vinden ze de optie om Engels te volgen bij de opleiding technicus Engineering. Daar is nog plek en kan ze met goedkeuring van de SLB-er op inschrijven voor de komende periode. De overige tijd zal ze spenderen aan de porfolio opdracht. Hiervoor voldoet ze eigenlijk nog niet aan alle start condities, maar kan ze wel al een start maken. De afronding kan ze over 2 periodes doen, wanneer ze 2 toernooien heeft en gegarandeerd minder tijd zal hebben om dan de portfolio opdracht af te ronden. De gemaakte afspraken worden vastgelegd in haar begeleidingsdossier.
 
 ### BPV
 
-Larissa oriënteert zich op een BPV-plek en kiest een passend leerbedrijf.
-Zij zorgt dat de praktijkovereenkomst (POK) wordt geregeld en start met haar BPV.
-Indien nodig past Larissa de planning van haar BPV aan, bijvoorbeeld wanneer haar traject vertraagt of anders wordt ingericht.
+Larissa oriënteert zich op een BPV-plek en maar vindt niet direct een passend leerbedrijf. Eigenlijk valt de standaard BPV periode ook wat lastig. Ze heeft zich gekwalificeerd voor de olympische zomerspelen en haar voorbereidingen starten al halverwege de beoogde BPV periode. Voor haar zou het fijner zijn wanneer ze pas na de spelen op stage gaat, dan is ook haar trainingsprogramma tijdelijk wat minder strict. Echter is dat dan weer midden in de zomervakantie en ze wil liefst ook niet een volledige periode missen. 
+De BPV-begeleider kent echter een mogelijk ideaal leerbedrijf. Die hebben het altijd extra druk in de zomervakantie en hebben eigenlijk de wens om studenten wat langer op stage te hebben. Ook zijn hun opdrachten zijn doorgaans wat complexer, wat maakt dat Larissa buiten de standaard leeruitkomsten ook kan werken aan die 2 die ze nog niet volledig heeft kunnen aantonen. Larissa gaat op gesprek bij het leerbedrijf en zij stellen zich zeer flexibel op. Ze zijn onder de indruk van Larissa arbeidsethos, ook ICT benaderd ze als een topsporter. 
+De praktijkovereenkomst (POK) wordt geregeld en ze zal 4 augustus starten met haar BPV. Ook de BPV-begeleider maakt voor haar een uitzondering om ondanks zijn/haar vakantie een stagebezoek te plannen. Zo'n complexere opdracht heeft immers ook goede begeleiding nodig.
 
 ### Kiezen keuzedelen
 
@@ -51,23 +51,20 @@ Larissa houdt rekening met haar traject en planning en zorgt dat haar keuzes aan
 
 ### Studievoortgang
 
-Larissa ontvangt regelmatig feedback, feed-up en feedforward over haar voortgang.
-Zij reflecteert op behaalde leeruitkomsten en bepaalt welke stappen nog nodig zijn.
-In overleg met haar SLB’er maakt zij afspraken over het behalen van leeruitkomsten, vooral wanneer zij hier zelfstandig aan werkt.
+Larissa ontvangt regelmatig feedback, feed-up en feedforward over haar voortgang. Voortgangsgesprekken duren over het algemeen wat langer vanuit haar bijzondere omstandigheden. Ondanks haar beperkingen in beschikbaarheid en algehele prioriteit naar sport is Larissa arbeidsethos zodanig dat ze vol zelfdicipline te werk gaat. Haar voortgangstempo ligt beduidend lager dan dat van een regulier traject, maar wat ze oppakt doet ze goed en loopt ze verder geen vertragingen door op. Zij reflecteert op behaalde leeruitkomsten en bepaalt welke stappen nog nodig zijn. Ook dat pakt ze aan als een topsporter. Het is echt aan de SLB-er om haar wat te temperen. Samen maken zij afspraken over het behalen van leeruitkomsten, vooral wanneer zij hier zelfstandig aan werkt.
 Deze afspraken worden vastgelegd in haar begeleidingsdossier.
 
 ### Examineren
 
-Larissa legt examens af volgens het examenplan, passend bij haar traject.
-Zij rondt de opleiding af via (een combinatie van) proeven van bekwaamheid, praktijkexamens en/of portfolio-beoordeling.
+Larissa legt examens af volgens het examenplan, passend bij het tempo van haar persoonlijk traject. De generieke kennisexamens worden vrijwel elke periode afgenomen en kon ze maken wanneer het haar uitkwam. Het plannen van de proeven van bekwaamheid en andere praktijkexamens was wat lastiger, maar omdat deze op individuele basis worden afgenomen kon de examenorganisatie haar ook daarin goed faciliteren. 
 
 ### Uitstroom
 
-Larissa bespreekt samen met haar slb’er haar volgende stap, zoals werk, vervolgopleiding of een andere route.
+Larissa bespreekt samen met haar SLB’er haar volgende stap. Natuurlijk is en blijft dit haar topsportcarriere. Maar ze wil ook voorkomen dat het diploma en opgedane kennis verjaard. Idealiter zou ze elke 2-3 jaar een opfriscursus willen volgen. De onderwijsinstelling heeft dat nu niet in haar aanbod zitten, maar Larissa is niet de eerste die daar om vraagt. De SLB'er zal het doorgeven aan de opleidingsmanager en hem/haar aansporen om het ontwikkelen daarvan serieus nemen.   
 
 ### Diploma
 
-Larissa ontvangt haar diploma en voltooit daarmee haar opleiding.
+Larissa ontvangt haar diploma en voltooit daarmee met slechts een beperkte vertraging haar opleiding. Omdat ze haar laatste examen op een wat minder gebruikelijk moment heeft gehaald moest ze wel 2 maanden wachten totdat ze haar diploma ontving. Larissa was vooraf al op de hoogte dat er maar 4 diploma uitreikmomenten per jaar plaatsvinden, dit stond vanaf dag 1 in haar OER.   
 
 TODO: update van Jochem naar Larissa
 ## Instellingsjourney
