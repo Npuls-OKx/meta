@@ -1,2 +1,8 @@
 # Archi backup (lokaal)
 architecture/model/*.bak
+
+# =========================
+# macOS
+# =========================
+.DS_Store
+._*
