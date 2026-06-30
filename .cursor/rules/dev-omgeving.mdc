@@ -1,0 +1,16 @@
+---
+description: Geisoleerde dev-omgeving (Dev Container) verplicht voor installaties en uitvoer
+alwaysApply: true
+---
+
+Alle pakket-installaties en script-uitvoer gebeuren in de Dev Container, NOOIT op de host.
+
+- Installeer NOOIT iets op de host: geen `pip install`, `npm install`/`npx`, `apt`, `brew`, `choco`, `winget`, enz. buiten de container.
+- Werk binnen de Dev Container in `.devcontainer/`. In Cursor/VS Code: "Reopen in Container".
+- Extra tooling nodig?
+  - Python: voeg het pakket (met versie) toe aan `.devcontainer/requirements.txt`.
+  - Systeem/CLI: voeg het toe aan `.devcontainer/Dockerfile`.
+  - Node: voeg het toe aan `postCreateCommand` in `.devcontainer/devcontainer.json`.
+  Doe dit reproduceerbaar voor het hele team in plaats van ad-hoc te installeren, en rebuild de container.
+- Twijfel je of je in de container zit? Controleer dat eerst (bijv. bestaat `/.dockerenv`, of `whoami` = `vscode`) VOORDAT je iets installeert. Zit je niet in de container, installeer dan niets en meld het.
+- Tijdelijke scripts/artefacten draai je in de werkmap binnen de container en ruim je daarna op.

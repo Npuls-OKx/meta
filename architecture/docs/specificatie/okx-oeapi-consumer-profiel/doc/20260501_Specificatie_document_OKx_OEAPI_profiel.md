@@ -370,6 +370,8 @@ flowchart TB
   voorzitterExamencommissie --> ledenUitOpleidingsteams
 ```
 
+> **Eén vorm, vele varianten.** Dit organogram toont **één veelvoorkomende vorm**: één rechtspersoon, impliciet één locatie. In de praktijk bestaan instellingen in sterk uiteenlopende **organisatorische en geografische** vormen — van kleine één-locatie-instellingen tot grote fusie-instellingen met meerdere campussen, samenwerkende (aparte) rechtspersonen en landelijk gespreide netwerken. Welke gevolgen die varianten hebben voor publicatie, planning, plaatsing en erkenning — en hoe de koppeling over al die dimensies werkend blijft — is uitgewerkt in [§3.3.2.4 Organisatorische en geografische complexiteit van instellingen](#3324-organisatorische-en-geografische-complexiteit-van-instellingen), aan de hand van leerroute 2 (persona Larissa).
+
 ##### De procesbeleving achter 'regulier' onderwijs van een Instelling
 
 Zoals de [MORA - de referentiearchitectuur voor het mbo](https://mora.mbodigitaal.nl/index.php/Hoofdpagina) laat zien, is "regulier onderwijs verzorgen" niet één los proces maar een samenhang van hoofdprocessen die samen een school laten werken. Om regulier onderwijs mogelijk te maken moet een instelling niet alleen onderwijs **ontwikkelen**, maar ook studenten **informeren, aanmelden, intake en plaatsen**, onderwijs **plannen en roosteren**, onderwijs **verzorgen en begeleiden**, examinering **uitvoeren en vaststellen**, en uiteindelijk **diplomeren**. Wat voor de student voelt als een voorspelbare route, is voor de instelling dus het resultaat van een veel bredere procesketen. Daarvoor heeft de MORA een aantal procesketens beschreven, zie:
@@ -1119,20 +1121,270 @@ Onderstaand organogram maakt zichtbaar dat dit probleem niet alleen tussen domei
 4. Student wordt aangemeld en ingeschreven (verbintenis/inschrijving) op en volgt onderwijs volgens rooster.
 5. Toetsing en resultaat (summatief/formatief; voortgang/resultaten vastleggen). -->
 
-#### 3.3.2 Leerroute 2 — Temporiseren (standaard route) (TO-DO)
+#### 3.3.2 Leerroute 2 — Temporiseren (en personaliseren) by design
 
-**Kern**: de student volgt dezelfde opleiding, maar spreidt de belasting in de tijd (bijv. lagere intensiteit, aangepaste volgorde, pauzes).  
-**Implicatie**: meer varianten in persoonlijke leerroute en meer dynamiek in planning/roostering.
+**Anker-persona:** [Larissa](persona_larissa.md) — topsporter (kans op Olympische Spelen 2028) die de mbo-4-opleiding *Software Developer* (BOL) wil halen, maar met **structureel beperkte en deels onvoorspelbare beschikbaarheid**: dagelijks training tot 10:00, blessuregevoeligheid (acute, hele-dag-uitval), vier toernooien en twee trainingskampen per jaar (seizoensgebonden, vooraf bekend) en mogelijk een **volledige periode** afwezig rond de Spelen. Waar [Jochem](persona_jochem.md) in leerroute 1 de **nominale** route als norm volgt, spreidt en personaliseert Larissa diezelfde opleiding **bewust en vanaf dag één** — niet als incident, maar *by design*.
+
+**Kern.** De student volgt **dezelfde kwalificatie en in essentie dezelfde `onderwijsspecificatie`** als in leerroute 1, maar het **persoonlijke programma** wijkt **structureel** af van het nominale programma: lagere intensiteit, andere volgorde, andere perioden, en deelname die per `lesgelegenheid` wordt gekozen. De examenketen, het begrippenkader (`specificatie → aanbod → verbintenis → resultaat`) en de aanbodstadia blijven gelijk; wat verschuift zijn **sturing**, **rollen**, **informatiestromen** en **randvoorwaarden**.
+
+**Leeswijzer.** Deze paragraaf is opgebouwd zoals leerroute 1: eerst de **delta** t.o.v. de reguliere baseline (§3.3.2.1), dan de **studentbeleving** (§3.3.2.2) en de **instellingsbeleving** (§3.3.2.3). Daarna gebruiken we Larissa om twee dingen uit te diepen die in leerroute 1 nog impliciet bleven: de **organisatorische en geografische complexiteit** van instellingen (§3.3.2.4) en het **plan- en rooster proces** onder die complexiteit (§3.3.2.5). Ten slotte concretiseren we **per processtap de data-objecten en attributen** richting een koppelvlakstandaard (§3.3.2.6), met de **negen concern-dimensies** (§3.3.2.7) en de **informatiestromen/AMIGO-voorloper** (§3.3.2.8). Het procesbeeld als geheel staat in de ArchiMate-view [*Onderwijsvisie vertalen naar onderwijsaanbod*](../img/Archimate%20view%20-%20Onderwijsvisie%20vertalen%20naar%20onderwijsaanbod%20-%20Basis%20Model%20v20260626.jpg).
+
+##### 3.3.2.1 Delta t.o.v. leerroute 1 (regulier)
+
+De winst van leerroute 1 als baseline is dat we alleen het **verschil** hoeven te beschrijven. Onderstaande tabel zet de verschuiving op een rij; alles wat niet in de kolom *Leerroute 2* staat, blijft **gelijk aan de reguliere keten**.
+
+| Dimensie | Leerroute 1 — regulier (Jochem) | Leerroute 2 — temporiseren/personaliseren by design (Larissa) |
+| --- | --- | --- |
+| **Sturingsmodel** | Sterk aanbod-gestuurd; student kiest uit wat er is | **Hybride, neigend naar vraag-gestuurd**: het nominale aanbod blijft de ruggengraat, maar het persoonlijke pad stuurt deelname, alternatieven en aanvullend aanbod |
+| **`curriculumType`** | `nominaal` | `flexibel` / `hybride` (vaste kern + per periode samengestelde invulling) |
+| **Persoonlijk programma** | ≈ nominaal programma + keuzedeel | Nominaal programma als **template**, maar met structurele afwijking in tempo, volgorde en periode |
+| **Keuze-eenheid** | Opleiding + keuzedeel (§*Wanneer kiest een student keuzedelen?*) | Ook **deelname per `lesgelegenheid`** (in-/uitschrijven), **alternatieve tijdsloten**, en **cross-opleiding** modules (Engels bij *Technicus Engineering*) |
+| **Planning/roostering** | Check-en-finetune op een stabiel jaarplan | **Continue herplanning**; vraag wordt **gepoold** over perioden, opleidingen en **locaties** tot een drempel |
+| **BPV** | Standaard BPV-venster, regulier leerbedrijf | **Verschoven en verlengde BPV** rond de Spelen; leerbedrijf levert extra leeruitkomsten |
+| **Examinering** | Grotendeels cohort-gepland | **Individueel gepland** (kennisexamens on-demand; praktijk/PvB op individuele basis) |
+| **Begeleiding (SLB)** | Licht, signalerend | **Zware regie- en afstemlast**; `begeleidingsdossier` is spil voor afspraken en goedkeuringen |
+| **Geografie/organisatie** | Impliciet één locatie | **Expliciet**: locatie- en (soms) instelling-overstijgende deelname (zie §3.3.2.4) |
+
+> **Voor wie dieper wil — sturingsmodel.** Leerroute 2 verlaat het aanbod-gestuurde model niet volledig. Het overgrote deel van het curriculum blijft **aanbod-gestuurd** (cohorten, vaste perioden); de **vraag-gestuurde** aanvulling ontstaat waar Larissa's beschikbaarheid de nominale route doorkruist. Dit is exact de **hybride structuur** uit de baseline: individuele verzoeken worden **gepoold/gebatcht** tot een levensvatbare drempel, waarna — mits haalbaar binnen mensen en middelen — **hernieuwd of aanvullend aanbod** ontstaat. Larissa maakt zichtbaar dat dit bij *by design*-temporiseren geen uitzondering meer is, maar een **terugkerend planpatroon**.
+
+##### 3.3.2.2 De studentbeleving — Larissa (student journey)
+
+> Voor de volledige verhaallijn: zie [persona Larissa](persona_larissa.md). Hieronder de stappen die de **leerroute-2-delta** dragen; de overige stappen verlopen als in leerroute 1.
+
+- **Oriënteren & aanmelden.** Larissa kiest bewust **niet** het op topsport afgestemde Sport & Bewegen, maar ICT/Software Developer. Bij aanmelding geeft ze expliciet een **ondersteunings-/maatwerkvraag** op: ze wil de niveau-4-opleiding halen ondanks beperkte beschikbaarheid.
+- **Intake & inschrijven.** In de intake worden haar drie structurele beperkingen vastgelegd (ochtendtraining, blessure-uitval, toernooien/kampen + mogelijke Spelen). Er worden **nog geen concrete beloften** gedaan over invulling: per periode wordt bekeken welke onderdelen wegvallen en hoe/wanneer ze worden ingehaald. De **SLB'er** wordt haar vaste regisseur.
+- **Informeren.** Zodra het **rooster voor periode 1** beschikbaar is, ziet ze meteen welke lessen botsen met haar training. Vanuit haar **student keuze systeem (SKS)** schrijft ze zich **uit** voor de eerste-uurslessen. Voor twee lessen biedt het systeem een **alternatief tijdslot**; één daarvan botst met niets — die kiest ze. Voor twee andere lessen is **geen alternatief**: direct een afspraak met de SLB'er.
+- **Studeren & persoonlijk leertraject.** Elke periode herhaalt zich dit patroon. Naarmate de opleiding vordert **cumuleert achterstand**: sommige modules vervallen omdat ze voortbouwen op gemiste onderdelen, en er ontstaan **gaten** in haar beschikbaarheid die niet altijd met benodigde modules te vullen zijn (niet elke module wordt elke periode aangeboden — alleen bij voldoende vraag). Samen met de SLB'er kiest ze tussen **vooruit werken** (portfolio-opdracht eerder oppakken, ook al voldoet ze nog niet aan alle startcondities) en **cross-opleiding** volgen: ze schrijft zich — met goedkeuring van de SLB'er — in op **Engels bij de opleiding *Technicus Engineering***, waar nog plek is. Afspraken landen in het **begeleidingsdossier**.
+- **BPV.** De standaard BPV botst met haar Spelen-voorbereiding. De BPV-begeleider vindt een leerbedrijf dat juist **in de zomer** extra capaciteit wil en **complexere opdrachten** biedt — geschikt om óók de twee nog niet volledig aangetoonde leeruitkomsten af te ronden. De **POK** wordt geregeld voor een **verschoven, langere** BPV.
+- **Examineren.** Generieke kennisexamens neemt ze **wanneer het uitkomt** (vrijwel elke periode beschikbaar); praktijk/PvB wordt **individueel** ingepland.
+- **Diploma.** Ze haalt het diploma met **beperkte vertraging**; door een examen op een ongebruikelijk moment wacht ze op één van de **vier diploma-uitreikmomenten** per jaar (vooraf bekend uit de OER).
+
+##### 3.3.2.3 De instellingsbeleving — wat de instelling extra moet organiseren
+
+Voor de instelling is leerroute 2 dezelfde [instellingsjourney](#de-procesbeleving-achter-regulier-onderwijs-van-een-instelling) (fasen 1–8) als bij leerroute 1, maar met **zwaartepunt in fase 5–7** (uitvoeren, keuzemomenten, bijsturen). Het ontwerp (fase 1–2) en de examenketen (fase 8) blijven inhoudelijk gelijk; de **organiseerbaarheid** verandert. Concreet vraagt Larissa van de instelling:
+
+- **Deelname-flexibiliteit per `lesgelegenheid`** (in-/uitschrijven, alternatieve slots) in plaats van alleen een vaste groepsplaatsing.
+- **Aanbod-rijping op vraag**: modules die alleen draaien bij voldoende animo, met **animo-/vraagdetectie** ruim vóór de periode.
+- **Cross-opleiding plaatsing** binnen de instelling (Engels bij een andere opleiding) met **goedkeuring** en resultaat-terugkoppeling.
+- **Individuele examenplanning** naast cohort-examinering.
+- **Regie via SLB en `begeleidingsdossier`** als bron voor afspraken, goedkeuringen en signalen.
+
+Dat dit organisatorisch kan, hangt sterk af van **hoe de instelling geografisch en organisatorisch is ingericht**. Daarvoor verbreden we eerst het beeld van *de* onderwijsinstelling. De baseline daarbij blijft het aanbod-gestuurde model met hybride kenmerken:
+
+- **Sterk aanbod-gestuurd onderwijsaanbodmodel met hybride kenmerken**: In de praktijk is het onderwijsmodel primair aanbod-gestuurd. De instelling ontwikkelt en publiceert het overgrote deel van het onderwijsaanbod vooraf, zodat studenten zich inschrijven op geplande programma’s in vaste perioden en groepen. Alleen in uitzonderlijke situaties (unhappy flow, zoals incidenteel moeten temporiseren of versnellen) wordt van deze hoofdroute afgeweken. In dat geval kunnen studenten onderwijs- of onderdeelspecificaties ‘on request’ aanvragen om het volgen of herhalen ervan mogelijk te maken. Individuele verzoeken van studenten om onderdelen opnieuw te mogen volgen worden door de instelling gepoold (‘batched’) tot er een kritieke drempel is bereikt. Pas als er voldoende vraag is, en mits binnen de beschikbare mensen en middelen, kan het onderwijsaanbod opnieuw gepland en aangeboden worden. Zo behoudt het model haar aanbod-gestuurde karakter, maar ontstaat er een hybride structuur: incidentele vraag-gebaseerde verzoeken leiden – mits levensvatbaar – tot hernieuwd of aanvullend aanbod.
+
+##### 3.3.2.4 Organisatorische en geografische complexiteit van instellingen
+
+In leerroute 1 spraken we impliciet over *de* onderwijsinstelling als één organisatie op één locatie (zie het [organogram](#de-onderwijsinstelling)). Larissa's traject — met cross-opleiding deelname en verschoven BPV — maakt zichtbaar dat "de instelling" in de praktijk **vele vormen** heeft. Die vormen bepalen **waar grenzen lopen** voor publicatie, planning, plaatsing en erkenning, en dus **welke koppelvlakken** nodig zijn.
+
+**Het reductie-principe.** De complexiteit blijft beheersbaar door alle varianten terug te brengen tot **twee scoping-vragen** op elk informatie-object:
+
+1. **Wie is eigenaar/aanbieder?** — de **organisatie** (rechtspersoon/BRIN) die het object bezit, publiceert of erkent.
+2. **Waar wordt het uitgevoerd?** — de **locatie** (fysiek, online of hybride) waar het aanbod landt.
+
+Zolang elk object deze twee dimensies **expliciet** draagt (zie de attributen in §3.3.2.6), kan dezelfde keten — met de **Onderwijscatalogus (OC)** als distributiepunt — alle organisatievormen bedienen. Dat is de kern van *"hoe houden we het werkend over alle dimensies"*: **niet** meer koppelvlakken per vorm, maar **consistente scoping** op één koppelvlak.
+
+**Vier organisatievormen.** Onderstaande tabel beschrijft per vorm wat er verandert; de **delta** zit telkens in *grensoverschrijding*, niet in nieuwe objecttypen.
+
+| Organisatievorm | Kenmerk | Grens van OC / publicatie | Grens van planning & rooster | Grens van verbintenis & erkenning | Koppelvlak-implicatie |
+| --- | --- | --- | --- | --- | --- |
+| **A. Kleine instelling, één locatie** | Eén rechtspersoon, één campus | Eén OC-scope | Eén planning, één rooster-master | Verbintenis binnen één organisatie/locatie | **Intern**; scoping-attributen constant. Larissa's cross-opleiding blijft binnenshuis |
+| **B. Grote fusie-instelling, meerdere locaties** | Eén rechtspersoon (één BRIN), meerdere campussen/domeinen | Eén OC, maar aanbod **per locatie** gescoped | Instellingsbrede planning; **rooster per locatie**; gedeelde docenten/ruimten over locaties | Verbintenis binnen één organisatie, maar met **`locationRef`** | **Intern, locatie-bewust**: pooling van vraag over locaties; locatie als harde/zachte constraint |
+| **C. Samenwerkende instellingen** | Meerdere **aparte rechtspersonen** met samenwerkingsafspraak | **Meerdere OC's**; aanbod wordt **cross-gepubliceerd/geconsumeerd** | Twee planningssystemen; **géén gedeelde rooster-master** — afstemming via aanbod + verbintenis | **`homeOrganisation`** (inschrijvend) vs **`hostOrganisation`** (uitvoerend); erkenning via `learningOutcomes`/`credentialDocument` (§7) | **Cross-instelling** (OEAPI/Edubroker, §7); identiteit, erkenning en bekostiging worden expliciet |
+| **D. Landelijk gespreid / sectorbreed** | Veel locaties en/of veel instellingen, geografisch verspreid | Federatie van OC's; **vindbaarheid** op `geographicScope`/regio | Planning blijft lokaal; landelijke laag = **matching en doorverwijzing**, geen centrale roosteraar | Verbintenis blijft bij `homeOrganisation`; mobiliteit via host-afspraken | **Federatief**: standaard-semantiek (§7) is randvoorwaarde; geen centraal planmonopolie |
+
+> **Larissa op de organisatiekaart.** Haar Engels-bij-*Technicus Engineering* is in vorm **A/B** een **interne cross-opleiding** plaatsing (zelfde rechtspersoon, mogelijk andere locatie → `locationRef`). Zou dat Engels bij een **andere instelling** worden gevolgd (vorm **C**), dan wordt haar mbo de **`homeOrganisation`** (inschrijving, diploma, bekostiging) en de andere instelling de **`hostOrganisation`** (uitvoering, aanwezigheid, resultaat-teruglevering) — exact het cross-instelling-patroon uit [§7](#7-cross-instelling-interoperabiliteit). De **informatie-objecten blijven identiek**; alleen de scoping-attributen `homeOrganisation`/`hostOrganisation`/`locationRef` verschillen.
+
+**Hoe blijft de koppeling werken over alle dimensies?** Vier ontwerpregels, alle terug te voeren op bestaande secties:
+
+1. **Eén distributiepunt per scope.** De OC blijft de plek waar specificatie en (planbaar/geroosterd) aanbod worden gepubliceerd en consistent gehouden (§4.1). Bij meerdere organisaties: **meerdere OC's die federatief uitwisselen**, geen gedeelde database.
+2. **Stabiele identiteit.** `organisation`, `location` en `offering` krijgen **stabiele, herkenbare identifiers**; cross-organisatie verwijzingen zijn **referenties** (URI/ID), geen kopieën (consistent met de notatie in §12.5).
+3. **Erkenning via betekenis, niet via systeem.** Wat elders is gehaald, telt mee via `learningOutcomes` + `qualificationReference` + `credentialDocument` (§7), niet via het delen van roosters of persoonsregisters.
+4. **Lokale autonomie waar het mag.** Fysiek lokaal, concrete docent, tijdslot, prijs/bekostiging blijven **instelling-specifiek** (§7); alleen de **semantiek** die de keten nodig heeft, is gestandaardiseerd.
+
+##### 3.3.2.5 Het plan- en rooster proces onder locatie- en organisatiecomplexiteit
+
+Dit is de aangekondigde **uitbreiding** van [*Het plan en rooster proces*](#het-plan-en-rooster-proces). De leesregel blijft *goed beschrijven → goed plannen → goed instelling-breed plannen → goed roosteren*, maar krijgt er een schakel bij: **goed instelling-breed plannen wordt goed locatie- en organisatie-breed plannen**.
+
+**Wat verandert er in de constraint-set?** In leerroute 1 leverde de keten al `Persoon`, `groep` en `constraint` aan de planner (zie de informatietabel *Persoon, groep en constraint* en §3.3.1.2.5). Leerroute 2 voegt daar **locatie- en organisatie-constraints** aan toe:
+
+| Constraint-categorie | In leerroute 1 (impliciet) | In leerroute 2 (expliciet) |
+| --- | --- | --- |
+| **Persoonsbeschikbaarheid** | Voltijd, standaardrooster | Larissa: niet vóór 10:00; geblokkeerde toernooi-/kampdagen; mogelijke hele-periode-blokkade (Spelen) |
+| **Locatie** | Eén locatie, impliciet | `offeringLocation` per aanbod; reistijd tussen locaties; locatie-gebonden faciliteiten |
+| **Organisatie** | Eén organisatie | `offeringOrganisation`; bij host-deelname afstemming over twee agenda's/kalenders |
+| **Aanbod-drempel** | Aanbod staat al | Module draait alleen bij **voldoende animo**; vraag wordt **gepoold over perioden én locaties** |
+| **Deelname-eenheid** | Groepsplaatsing | Deelname per `lesgelegenheid` (alternatieve slots) |
+
+**Twee planlagen, expliciet gescheiden.** Onder organisatiecomplexiteit valt het plan uiteen in:
+
+- **Instellingsbreed (tactisch) jaarplan** — over alle opleidingen *en locaties* van één organisatie. Hier landt pooling van Larissa-achtige vraag: meerdere studenten met vergelijkbare gaten vormen samen de **drempel** voor een (her)geplande module of een alternatief slot.
+- **Lokaal rooster (operationeel)** — per locatie. Het rooster blijft een **check-en-finetune** op het jaarplan, maar moet nu **locatie-overstijgende inzet** (docent/ruimte gedeeld tussen campussen) en **reistijd** respecteren.
+
+Bij **samenwerkende instellingen (vorm C/D)** is er **geen gedeelde rooster-master**. De koppeling loopt dan via twee bewegingen: de `hostOrganisation` publiceert **geroosterd aanbod** (met tijdslot en locatie) naar haar OC; de `homeOrganisation` legt een **verbintenis** op dat aanbod vast en ontvangt later het **resultaat** terug. Plannen blijft lokaal; de keten koppelt op **aanbod** en **verbintenis**, niet op elkaars interne roosters.
+
+> **Voor wie dieper wil — CSP met locatie/organisatie.** In de CSP-termen uit [*Voor wie dieper wil: CSP, NP-Hard en controle*](#voor-wie-dieper-wil-csp-np-hard-en-controle) komen er **variabelen** bij (welke locatie, welke organisatie levert) en **constraints** (reistijd, locatie-capaciteit, host-kalender, persoonsblokkades). Het probleem wordt daarmee zwaarder te *vinden*, maar **controleren** blijft goedkoop: past Larissa's deelname binnen haar beschikbaarheid, op de juiste locatie, met een bevoegde docent, zonder dubbelboeking over locaties heen? Daarom blijven tools **conceptvoorstellen** doen en planners/roosteraars **bijsturen** — nu ook over locatie- en organisatiegrenzen.
+
+##### 3.3.2.6 Per processtap: data-objecten en attributen richting koppelvlak
+
+Doel van deze sectie is de aankondiging uit de inleiding waarmaken: **per processtap** concretiseren welke **data-objecten** en **attributen** bewegen, zodat hierop een **koppelvlakstandaard** te bouwen is. We bouwen voort op de [specificatie-catalogus §12.5](#125-specificatie-catalogus-attribuutniveau--onderwijsontwerp-vóór-oeapi) (die stopt op specificatie-niveau) en vullen de **latere fases** aan — de plekken waar de ArchiMate-plaat nog data-objecten mist: het **aanbod-**, **verbintenis-** en **resultaat**-stadium, plus de **organisatie/locatie-scoping** die leerroute 2 nodig heeft.
+
+> **Notatie en grenzen.** We hanteren de notatie van §12.5 (gegevensgroep → attributen → verwijzing) en blijven **conceptueel**: dit is de **leg-up** naar AMIGO (bericht-/interfacespecificatie), nog geen OEAPI-payload. Mapping naar OEAPI (o.a. `Association`/`state`) en koppelvlakdetails volgen later; **gaten worden gesignaleerd** (§9), de OEAPI-kern lossen we hier niet op.
+
+**Stap 0 — Organisatie- en locatiecontext (geldt op álle objecten).** Dit is de gegevensgroep die leerroute 2 expliciet maakt en die in elk object hieronder terugkomt.
+
+| Gegevensgroep | Attributen (minimaal) | Toelichting |
+| --- | --- | --- |
+| Organisatiecontext | `ownerOrganisation`, `offeringOrganisation`, `homeOrganisation`, `hostOrganisation` | Eigenaar/aanbieder en (bij grensoverschrijding) inschrijvende vs uitvoerende organisatie (§3.3.2.4, §7). |
+| Locatiecontext | `locationRef`, `deliveryMode` (`onSite`/`online`/`hybride`), `geographicScope` | Waar het aanbod landt; mode bepaalt reistijd-/faciliteit-constraints. |
+| Verwijzing | `…Ref` als ID/URI | Cross-organisatie altijd **referentie**, nooit kopie (§12.5-notatie). |
+
+**Stap 1 — Specificatie (fase 1): standaardiseren op leeruitkomsten.** In leerroute 1 kon de specificatie nog **intern** blijven: één team, één manier van uitwerken, nauwelijks uitwisseling. Larissa's leerroute 2 — en zeker de organisatievormen **B, C en D** uit §3.3.2.4 (grote/fusie-instellingen, samenwerkende instellingen, landelijk gespreid) — maakt dat onhoudbaar. Zodra meerdere onderwijsteams (laat staan meerdere instellingen) **ieder hun eigen** onderwijskundige uitwerking van dezelfde `onderwijsspecificatie` hanteren, ontstaan twee problemen:
+
+1. **Uitwisselingsprobleem** — structuur en betekenis sluiten niet op elkaar aan; specificaties zijn niet betrouwbaar te begrijpen of te hergebruiken (zie diagram *Probleem 1* hieronder).
+2. **Zoekprobleem** — zonder gedeelde betekenis is aanbod niet op **inhoud** te vinden; een student of plannend systeem kan niet matchen op "wat leer ik hier eigenlijk" (zie diagram *Probleem 2* hieronder).
+
+De oplossing voor **beide** is dezelfde **lingua franca**: **gestandaardiseerde leeruitkomsten** (bij voorkeur in een sectoroverstijgende skillstaxonomie als CompetentNL, zie hoofdstuk 4 en §5.4). Leeruitkomsten zijn daarmee geen bijkomstig attribuut van de specificatie, maar het **scharnier** dat (a) betekenis **vergelijkbaar** maakt tussen teams en instellingen en (b) de **zoeksleutel** vormt waarop aanbod inhoudelijk vindbaar wordt — inclusief **overlapdetectie** tussen opleidingen en instellingen. Stap 1 is dus **niet ongewijzigd**: we maken leeruitkomsten expliciet in het begrippenkader.
+
+Onderstaand het begrippenkader uit [*Betrokken informatie bij proces*](#betrokken-informatie-bij-proces), hier **uitgebreid met een expliciete kolom 2. Leeruitkomsten** tussen kwalificatiekader en onderwijsspecificatie (overige kolommen hernummerd):
+
+| **1. Kwalificatiekader** | **2. Leeruitkomsten** | **3. Onderwijsspecificatie** | **4. Onderwijsaanbod** | **5. Onderwijsverbintenis** | **6. Onderwijsresultaat** |
+| --- | --- | --- | --- | --- | --- |
+| `Kwalificatiedossier` | Aggregatie van alle `Leeruitkomsten` (diploma-dekking) | `Opleidingsspecificatie` | `Opleidingsaanbod` | `Opleidingsverbintenis` | `Opleidingsverbintenis resultaat` |
+| `Kwalificatie` | Set `Leeruitkomsten` die de kwalificatie dekt | `Opleidingsprogramma-specificatie` | `Opleidingsprogramma-aanbod` | `Opleidingsprogramma-verbintenis` | `Opleidingsprogramma-verbintenis resultaat` |
+| `Kerntaak` | Cluster `Leeruitkomsten` per kerntaak | `Onderwijseenheid-specificatie` | `Onderwijseenheid-aanbod` | `Onderwijseenheid-verbintenis` | `Onderwijseenheid-verbintenis resultaat` |
+| `Werkproces` | `Leeruitkomst` (summatief) — **canoniek niveau** | `Leeronderdeel-specificatie` | `Leergelegenheid` | `Leergelegenheid-verbintenis` | `Leergelegenheid-verbintenis resultaat` |
+| *n.v.t. binnen kwalificatiekader — eigen beleid instelling* | `Lesuitkomst` (formatief) | `Lesspecificatie` | `Lesgelegenheid` | `Lesgelegenheid-verbintenis` | `Lesgelegenheid-verbintenis resultaat` |
+| *n.v.t. binnen kwalificatiekader — toetsing* | Getoetste `Leeruitkomst`/`Lesuitkomst` (assesses) | `Toetsonderdeel-specificatie` | `Toetsgelegenheid` | `Toetsgelegenheid-verbintenis` | `Toetsgelegenheid-verbintenis resultaat` |
+| Doorgaands `Werkproces` | Summatieve `Leeruitkomst` (examineert werkproces) | `Examenonderdeel-specificatie` | `Examengelegenheid` | `Examengelegenheid-verbintenis` | `Examengelegenheid-verbintenis resultaat` |
+
+De `Leeruitkomst` (summatief, op **werkproces**-niveau) en `Lesuitkomst` (formatief, op **les**-niveau) zijn het canonieke vertrekpunt; de hogere rijen (dossier, kwalificatie, kerntaak) zijn **aggregaties** daarvan, de toets-/examenrijen **toetsen** ze (`assesses`). Voor leerroute 2 blijft de specificatie verder aangevuld met `curriculumType` (`flexibel`/`hybride`) op programma-niveau en de organisatiecontext uit stap 0; er ontstaan **geen nieuwe objecttypen**, maar leeruitkomsten worden de **verplichte, gestandaardiseerde drager van betekenis**.
+
+**Probleem 1 — uitwisseling.** Wanneer elk team zijn eigen uitwerking hanteert, loopt zelfs de **interne** uitwisseling al vast:
 
 ```mermaid
-flowchart TD
-  route2[Temporiseren] --> routePlan[Persoonlijke_leerroute_met_spreiding]
-  routePlan --> planning2[Planning_en_roostering_per_periode]
-  planning2 --> bijsturen2[Bijsturen_op_basis_van_voortgang_en_capaciteit]
+sequenceDiagram
+  participant kwalificatiekader as Kwalificatiekader
+  participant teamA as Onderwijsteam A
+  participant teamB as Onderwijsteam B
+
+  kwalificatiekader->>teamA: hetzelfde kwalificatiekader ontvangen
+  kwalificatiekader->>teamB: hetzelfde kwalificatiekader ontvangen
+
+  teamA->>teamA: Vertaal naar onderwijsspecificatie volgens eigen onderwijskundig proces
+  teamB->>teamB: Vertaal naar onderwijsspecificatie volgens eigen onderwijskundig proces
+
+  teamA-->>teamB: Onderwijsspecificatie A uitwisselen
+  Note over teamB: Structuur en betekenis sluiten niet aan
+  teamB--xteamA: Niet goed te begrijpen / niet goed te hergebruiken
+
+  teamB-->>teamA: Onderwijsspecificatie B uitwisselen
+  Note over teamA: Zelfde probleem in omgekeerde richting
+  teamA--xteamB: Geen betrouwbare interne uitwisseling
 ```
 
 
-- **Sterk aanbod-gestuurd onderwijsaanbodmodel met hybride kenmerken**: In de praktijk is het onderwijsmodel primair aanbod-gestuurd. De instelling ontwikkelt en publiceert het overgrote deel van het onderwijsaanbod vooraf, zodat studenten zich inschrijven op geplande programma’s in vaste perioden en groepen. Alleen in uitzonderlijke situaties (unhappy flow, zoals incidenteel moeten temporiseren of versnellen) wordt van deze hoofdroute afgeweken. In dat geval kunnen studenten onderwijs- of onderdeelspecificaties ‘on request’ aanvragen om het volgen of herhalen ervan mogelijk te maken. Individuele verzoeken van studenten om onderdelen opnieuw te mogen volgen worden door de instelling gepoold (‘batched’) tot er een kritieke drempel is bereikt. Pas als er voldoende vraag is, en mits binnen de beschikbare mensen en middelen, kan het onderwijsaanbod opnieuw gepland en aangeboden worden. Zo behoudt het model haar aanbod-gestuurde karakter, maar ontstaat er een hybride structuur: incidentele vraag-gebaseerde verzoeken leiden – mits levensvatbaar – tot hernieuwd of aanvullend aanbod.
+**Probleem 2 — vindbaarheid.** Hetzelfde gebrek aan gedeelde betekenis maakt aanbod ook **onvindbaar op inhoud**. Een student als Larissa zoekt niet op de naam van een module bij een specifiek team, maar op **wat ze wil leren** — uitgedrukt in leeruitkomsten. Alleen als instellingen hun specificaties op **gestandaardiseerde leeruitkomsten** ontsluiten, wordt de leeruitkomst de **query** waarop passend aanbod gevonden én vergeleken kan worden (overlap zichtbaar tussen opleidingen en instellingen). Zonder die gedeelde taxonomie levert dezelfde zoekvraag geen betrouwbare match op.
+
+```mermaid
+flowchart TB
+  leervraag["Leervraag student: gewenste leeruitkomsten"]
+  query["Zoekvraag = gestandaardiseerde leeruitkomsten"]
+  leervraag --> query
+
+  subgraph aanbieders["Gepubliceerde onderwijsspecificaties"]
+    teamA["Team/Instelling A: specificatie met leeruitkomsten"]
+    teamB["Team/Instelling B: specificatie met leeruitkomsten"]
+    teamC["Instelling C: specificatie met leeruitkomsten"]
+  end
+
+  query --> match{"Match op gestandaardiseerde leeruitkomsten?"}
+  teamA --> match
+  teamB --> match
+  teamC --> match
+
+  match -->|"Ja: gedeelde standaard"| passend["Passend aanbod en zichtbare overlap"]
+  passend --> keuze["Inhoudelijke keuze door student"]
+  match -->|"Nee: eigen uitwerking per team"| geenMatch["Niet vindbaar en niet vergelijkbaar"]
+```
+
+**De vereiste standaard schaalt mee met het scenario.** Hoe groter de organisatorische en geografische reikwijdte (§3.3.2.4), hoe hoger het noodzakelijke standaardisatieniveau van leeruitkomsten. De instelling kiest dat niveau **bewust**, op basis van het scenario waarin ze wil opereren:
+
+| Scenario (§3.3.2.4) | Benodigd standaardisatieniveau leeruitkomsten | Zonder die standaard |
+| --- | --- | --- |
+| **A. Kleine instelling, één locatie** | Lokaal/instellingsbreed | Intern niet herbruikbaar of vindbaar |
+| **B. Fusie-instelling, meerdere locaties** | Instellingsbreed, over locaties heen | Locaties leveren onvergelijkbaar aanbod |
+| **C. Samenwerkende instellingen** | Gedeeld/regionaal afgesproken | Geen cross-instelling matching of erkenning |
+| **D. Landelijk gespreid / sectorbreed** | Landelijk (bv. CompetentNL, hoofdstuk 4) | Geen landelijke vindbaarheid of erkenning |
+
+Kortom: leeruitkomsten zijn zowel de **uitwisselsleutel** (probleem 1) als de **zoeksleutel** (probleem 2) van de keten. *Landelijk* opereren vergt een **landelijke** standaard, *regionaal samenwerken* een **regionale**, en puur *lokaal* aanbod een **lokale** — maar in alle gevallen geldt: zonder gestandaardiseerde leeruitkomsten geen betrouwbare uitwisseling én geen inhoudelijke vindbaarheid. Dit is de directe motivatie voor de gestandaardiseerde `educationSpecification` en `learningOutcomes` uit [§7 (cross-instelling interoperabiliteit)](#7-cross-instelling-interoperabiliteit).
+
+**Stap 2 — Planbaar aanbod (fase 2).** Hier ontstaat het eerste object dat §12.5 nog niet op attribuutniveau gaf.
+
+| Gegevensgroep | Attributen (minimaal) | Toelichting |
+| --- | --- | --- |
+| Identificatie & herkomst | `id`, `basedOnSpecification` (ref), `version`, `status` | Aanbod is **afgeleide** van een specificatie, geen kopie. |
+| Tijd & capaciteit | `academicSession`/`period`, `capacity`, `minParticipants`, `enrolmentWindow` | `minParticipants` is de **animodrempel** uit §3.3.2.5. |
+| Planbaarheid | `plannableConstraints` (expertise, ruimtetype, faciliteit, volgorde) | Aggregaat uit de specificatie; voedt de CSP. |
+| Organisatie/locatie (stap 0) | `offeringOrganisation`, `offeringLocation`, `deliveryMode` | Maakt locatie-/organisatie-pooling mogelijk. |
+| Signalering | gaten → §9 | bv. ontbrekende `minParticipants` → onbepaalbare drempel. |
+
+**Stap 3 — Geroosterd aanbod: `leergelegenheid` / `lesgelegenheid` (fase 4).** Dit is een **ontbrekend later-fase-object** dat leerroute 2 expliciet nodig heeft (deelname per gelegenheid, alternatieve slots).
+
+| Gegevensgroep | Attributen (minimaal) | Toelichting |
+| --- | --- | --- |
+| Identificatie & herkomst | `id`, `basedOnOffering` (ref), `status` | Gelegenheid = concretisering van planbaar aanbod. |
+| Tijd & plaats | `timeSlot` (start/eind), `room` (instelling-eigen), `locationRef` | Concreet slot; `room` blijft instelling-specifiek (§7). |
+| Inzet | `teacherAssignment` (ref Persoon, intern), `expectedParticipants` | Concrete docent is instelling-eigen. |
+| Alternatieven | `alternativeOccasionRefs` | Maakt Larissa's *alternatief tijdslot* expliciet. |
+| Aanwezigheid | `attendanceListRef` | Koppeling naar aanwezigheidsregistratie. |
+
+**Stap 4 — Verbintenis: aanmelding → inschrijving (fasen 3, 6).** Het object dat de student aan aanbod/gelegenheid bindt; mapt later op OEAPI `Association`.
+
+| Gegevensgroep | Attributen (minimaal) | Toelichting |
+| --- | --- | --- |
+| Identificatie | `id`, `personRef`, `offeringRef`/`occasionRef` | Wie, op welk aanbod of welke gelegenheid. |
+| Niveau (scope) | `scope` (`opleiding`/`programma`/`onderwijseenheid`/`lesgelegenheid`) | Leerroute 2 voegt deelname op **`lesgelegenheid`** toe. |
+| Status | `state` (`aangemeld`/`ingeschreven`/`bezig`/`afgerond`/`geannuleerd`) | Conform §3.2.4; aanmelding (SKS) → inschrijving (planning) zodra passend. |
+| Governance | `approvedBy` (SLB, ref), `validFrom`/`validUntil` | Larissa's cross-opleiding vereist **SLB-goedkeuring**. |
+| Organisatie/locatie (stap 0) | `homeOrganisation`, `hostOrganisation`, `locationRef`, `recognitionBasis` | Bij grensoverschrijding: erkenningsgrond (§7). |
+
+**Stap 5 — Resultaat: `onderwijsverbintenis-resultaat` (fasen 5, 8).** Sluit de keten en levert terug aan `homeOrganisation`.
+
+| Gegevensgroep | Attributen (minimaal) | Toelichting |
+| --- | --- | --- |
+| Identificatie & herkomst | `id`, `associationRef` | Resultaat hangt aan een verbintenis. |
+| Inhoud | `outcomeRefs` (`Leeruitkomst`/`Lesuitkomst`), `value`/`assessmentStatus` | Formatief en/of summatief (§3.2). |
+| Vaststelling | `assessedBy`, `state` (`voorlopig`/`vastgesteld`), `credentialDocumentRef` | Summatieve vaststelling bij examencommissie (host levert feit, home erkent). |
+| Organisatie/locatie (stap 0) | `producedByOrganisation`, `recognizedByOrganisation` | Wie produceerde, wie erkent (cross-instelling). |
+
+> **Traceerbaarheid.** Deze vijf stappen vormen samen de attribuutketen `specificatie → planbaar aanbod → geroosterd aanbod → verbintenis → resultaat`, telkens met de **organisatie/locatie-scoping** uit stap 0. Daarmee is dit de directe **leg-up** naar §12.2 (wat wordt waar uitgewisseld) en de berichtspecificatie-stap van AMIGO (§2.3). Ontbrekende of dubbelzinnige attributen worden als **signalering** (§9) geregistreerd, niet hier opgelost.
+
+##### 3.3.2.7 Randvoorwaarden — negen concern-dimensies
+
+Per dimensie kort wat besloten, geregeld of beschikbaar moet zijn voordat leerroute 2 (met locatie-/organisatiecomplexiteit) uitvoerbaar is.
+
+| Dimensie | Randvoorwaarde voor leerroute 2 |
+| --- | --- |
+| **Business** | Maatwerk-uitval mag de kwalificatie niet in gevaar brengen; waarde = diploma halen ondanks beperkte beschikbaarheid. |
+| **Strategy** | Bestuurlijke keuze om temporiseren/personaliseren *by design* te faciliteren (niet alleen incidenteel). |
+| **Motivation** | Toegankelijkheid en studeerbaarheid voor (top)sporters/maatwerkstudenten als expliciete driver. |
+| **Beleid** | OER met variabele examenmomenten en diploma-uitreikmomenten; beleid voor cross-opleiding/host-deelname en SLB-goedkeuring. |
+| **Organisatie** | SLB met regie-mandaat; afstemming tussen opleidingsteams en (centrale) onderwijslogistiek; bij vorm C/D samenwerkingsovereenkomst. |
+| **Proces** | Animo-/vraagdetectie vóór de periode; pooling-proces; individuele examenplanning; herplanlus (fase 6–7). |
+| **Informatie** | Organisatie/locatie-scoping op alle objecten; `curriculumType`; deelname op `lesgelegenheid`-niveau. |
+| **Data** | Stabiele identifiers voor organisatie/locatie/aanbod; referenties i.p.v. kopieën; erkenningsgrond vastgelegd. |
+| **Systeem** | OC als (federatief) distributiepunt; SKS dat deelname/alternatieven faciliteert; planning/rooster dat locatie- en host-constraints aankan; §7-koppelvlak bij grensoverschrijding. |
+
+##### 3.3.2.8 Informatiestromen en AMIGO-voorloper
+
+**Beeld/verwijzing.** Het procesbeeld staat in de ArchiMate-view [*Onderwijsvisie vertalen naar onderwijsaanbod*](../img/Archimate%20view%20-%20Onderwijsvisie%20vertalen%20naar%20onderwijsaanbod%20-%20Basis%20Model%20v20260626.jpg); een leerroute-2-specifieke informatiestromenplaat (analoog aan die van leerroute 1) volgt als afgeleide. De latere fases op die plaat worden aangevuld met de objecten uit §3.3.2.6 (geroosterd aanbod, verbintenis, resultaat) inclusief organisatie/locatie-scoping.
+
+**Gegevensanalyse (kader).** Producerend → consumerend, met de minimale referenties uit §3.3.2.6: specificatie (CO → OC) → planbaar aanbod (Planning → OC) → geroosterd aanbod (Rooster → OC) → verbintenis (SKS → Planning → KRS) → resultaat (uitvoering/examen → SVS, terug naar `homeOrganisation`). Semantiek die **niet** mag vervagen: het verschil tussen `homeOrganisation` en `hostOrganisation`, en tussen `scope`-niveaus van de verbintenis.
+
+**Interactieanalyse (kader).** Nieuw t.o.v. de route-1-baseline zijn: (1) **deelname-mutaties per `lesgelegenheid`** (student via SKS, met SLB-goedkeuring); (2) **cross-opleiding/host-plaatsing** (home ↔ host via OC + verbintenis); (3) **pooling-signalen** (animo/vraag) richting planning. Publish/event/pull worden pas in de AMIGO-vervolgstap (§2.3) hard gemaakt.
+
+**Doorverwijzing AMIGO.** Deze gegevens- en interactieanalyse voedt in een volgende iteratie **technologiekeuze → berichtspecificatie → interfacespecificatie → afsprakenset**. Dit hoofdstuk blijft bewust op analyse-niveau (skill-leesregel), met §12.2 en §12.5 als brug naar attribuut- en uitwisseldetails.
 
 #### 3.3.3 Leerroute 3 — Versnellen (standaard route) (TO-DO)
 

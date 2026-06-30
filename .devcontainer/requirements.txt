@@ -1,0 +1,5 @@
+# Python-dependencies voor de OKx-meta dev container.
+# Voeg hier nieuwe pakketten toe (met versie) i.p.v. ad-hoc `pip install`,
+# zodat het team dezelfde set krijgt na een rebuild.
+
+Pillow>=10.0

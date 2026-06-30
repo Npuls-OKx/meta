@@ -48,7 +48,8 @@ Voor concrete wijzigingen werken we via **issues** en **pull requests**. Zie [`C
 | **MOKA templates** | [`moka-koppelvlakspecificaties/`](moka-koppelvlakspecificaties/) | Templates en generieke instructies voor koppelvlakspecificaties |
 | **Architectuur & besluiten** | [`architecture/`](architecture/) | ArchiMate-model, ADR’s, meeting-notulen en [`architecture/docs/principes.md`](architecture/docs/principes.md) |
 | **Agent-artifacten** | [`architecture/agent-artifacts/`](architecture/agent-artifacts/) | Projectaanvragen, featureplannen en ontwerpdocumenten (Cursor slash commands); zie [`architecture/agent-artifacts/README.md`](architecture/agent-artifacts/README.md) |
-| **Cursor (AI)** | [`.cursor/commands/`](.cursor/commands/) en [`.cursor/rules/`](.cursor/rules/) | Slash commands (`/…`) en rules; uitleg in [`doc/Bijdragen-voor-beginners.md`](doc/Bijdragen-voor-beginners.md) |
+| **Cursor (AI)** | [`.cursor/commands/`](.cursor/commands/), [`.cursor/rules/`](.cursor/rules/) en [`.cursor/hooks.json`](.cursor/hooks.json) | Slash commands (`/…`), rules en hooks (o.a. blokkade van pakket-installaties op de host); uitleg in [`doc/Bijdragen-voor-beginners.md`](doc/Bijdragen-voor-beginners.md) |
+| **Dev container** | [`.devcontainer/`](.devcontainer/) | Geisoleerde, reproduceerbare dev-omgeving (Docker); "Reopen in Container" — zie [`.devcontainer/README.md`](.devcontainer/README.md) |
 
 ## Relatie met OEAPI
 

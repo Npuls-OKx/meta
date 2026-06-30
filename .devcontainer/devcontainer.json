@@ -1,0 +1,41 @@
+{
+  // OKx-meta dev container.
+  // Collega's: open de repo in Cursor/VS Code en kies "Reopen in Container".
+  // Daarna draaien terminal, agents en installaties in deze geisoleerde omgeving.
+  "name": "OKx-meta dev",
+
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "."
+  },
+
+  // Node komt uit een devcontainer-feature (betrouwbaar beheerd).
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "lts"
+    }
+  },
+
+  // npm-tooling globaal installeren nadat Node beschikbaar is.
+  // markdownlint-cli2 : linten van markdown docs
+  // @mermaid-js/mermaid-cli : mermaid-diagrammen renderen (gebruikt de chromium uit de Dockerfile)
+  "postCreateCommand": "npm install -g markdownlint-cli2 @mermaid-js/mermaid-cli",
+
+  "containerEnv": {
+    "PUPPETEER_SKIP_DOWNLOAD": "true",
+    "PUPPETEER_EXECUTABLE_PATH": "/usr/bin/chromium"
+  },
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "DavidAnson.vscode-markdownlint",
+        "bierner.markdown-mermaid",
+        "ms-python.python"
+      ]
+    }
+  },
+
+  // Niet-root gebruiker (meegeleverd door het base image).
+  "remoteUser": "vscode"
+}

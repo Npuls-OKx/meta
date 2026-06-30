@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "hooks": {
+    "beforeShellExecution": [
+      {
+        "command": "python .cursor/hooks/guard-install.py",
+        "matcher": "(pip3?|pipx|uv|conda|poetry)\\s+(install|add)|npm\\s+(install|i|add|ci)|pnpm\\s+(install|i|add)|yarn\\s+add|easy_install",
+        "failClosed": false
+      }
+    ]
+  }
+}
