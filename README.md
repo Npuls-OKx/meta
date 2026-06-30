@@ -44,6 +44,7 @@ Voor concrete wijzigingen werken we via **issues** en **pull requests**. Zie [`C
 | Onderdeel | Locatie | Inhoud |
 |-----------|---------|--------|
 | **Projectcontext** | [`doc/`](doc/) en [`img/`](img/) | Overzichten, ketenplaten, bijlagen en contextdocumenten |
+| **Release & versionering** | [`doc/OKx_Release-management-en-versionering.md`](doc/OKx_Release-management-en-versionering.md) | Voorstel voor versienummers en de verhouding tussen meta- en spec-releases |
 | **OKE uitwerking** | [`OKE/`](OKE/) | Eerste subdomein-uitwerking (o.a. examen: uitvoering en beoordeling) |
 | **MOKA templates** | [`moka-koppelvlakspecificaties/`](moka-koppelvlakspecificaties/) | Templates en generieke instructies voor koppelvlakspecificaties |
 | **Architectuur & besluiten** | [`architecture/`](architecture/) | ArchiMate-model, ADR’s, meeting-notulen en [`architecture/docs/principes.md`](architecture/docs/principes.md) |

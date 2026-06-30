@@ -9,5 +9,6 @@ Schrijf simpel en consistent (ASCII waar mogelijk).
 - Gebruik "OKx docs" voor documentatie in deze repo.
 - Het MOKA template zit in `moka-koppelvlakspecificaties/` en is onderdeel van OKx.
 - Gebruik vaste paden in links (bijv. `architecture/dr/`, `architecture/meetings/`).
+- "Show don't tell" is het uitgangsprincipe. Wanneer je iets kunt uitleggen in natuurlijke taal, voeg dan waar mogelijk altijd een klein diagram toe in mermaid of UML, of insert een suggest / placeholder voor een natuurlijk persoon om een infographic toe te voegen.
 
 Als er een nieuw markdown document aangemaakt wordt, zorg dan dat de index op de READ.me file geüpdatet wordt.
