@@ -1,5 +1,10 @@
 > created: "2026-04-14T15:00:00+02:00"  
-> updated: "2026-05-01T14:40:00+02:00"  
+
+
+
+
+'
+> updated: "2026-06-13:01:00+02:00"  
 > human_authors: "Niek Derksen (Architect OKx)"  
 > notes: "Human-in-the-loop: auteurs keuren inhoud goed vóór merge. Zevende iteratie — bijgewerkte referentie-interactiepatronen, aanvullingen op sequentiediagrammen Curriculum-ontwerp ↔ OC ↔ Planning, bredere negenvlaks-mapping van specificatie/aanbod/association, bijgewerkte resource- en CSP-input opgenomen."
 
@@ -1086,6 +1091,99 @@ In alle drie blijft de **leerroute regulier**; deze signalen uit fase 5 voeden d
 
 **Aansluiting op de informatiestromenplaat.** De [Informatiestromenplaat](../img/OKx_LR1_informatiestromen_v20260526.jpg) hierboven toont **dezelfde stromen** in begrippen uit het begrippenkader en informatiemodel; in latere AMIGO-stappen worden die vertaald naar **OEAPI-termen** op de flow-relaties (zoals `Programme specification`, `ProgrammeOffering`, `Association`). Hier blijft het bij wat er **conceptueel** beweegt; in berichtspecificatie en interfacespecificatie (§12.2, §2.3) staat hoe dat in uitwisseling wordt gevangen.
 
+##### Concept informatiemodel — geneste onderwijsspecificatie (Jochem, Apothekersassistent)
+
+Om de begrippen uit het [begrippenkader (§3.2)](#32-begrippenkader--hoe-beschrijven-we-flexibel-onderwijs) en de **ankertabel** (§3.2.6) tastbaar te maken, werken we hieronder de **onderwijsspecificatie** voor Jochems opleiding *Apothekersassistent* (Crebo-dossier 23450, kwalificatie 27141) volledig genest uit — als ASCII-boom. De uitwerking is **gefaseerd** volgens de instellingsjourney: eerst het **grofmazige ontwerp** (fase 1) dat **publiceerbaar en planbaar** wordt gemaakt (fase 2), daarna de **detaillering** tot lessenreeks- en lesniveau (fase 4). Attribuutnamen volgen de **specificatie-catalogus** (§12.5); leeruitkomsten, studielast en overige waarden zijn **indicatief** en **concept** (nog geen OEAPI-payload).
+
+**Fase 1–2 — grofmazig onderwijsontwerp: publiceerbaar en planbaar.** De **onderwijsontwerper** vertaalt het kwalificatiedossier naar één **opleidingsspecificatie** met daaronder meerdere **opleidingsprogramma-specificaties** (leerwegen), per programma geneste **onderwijseenheden** (blokken die corresponderen met kerntaken) en daaronder **leeronderdelen** (die corresponderen met werkprocessen). Op leeronderdeel-niveau staan de organiseerbaarheids-waarden (BOT/OOT, BPV, ruimtetype, expertiseprofiel). Aan het einde van fase 2 zijn deze specificaties **gepubliceerd** in de OC en door planning voorzien van periode + capaciteit (**planbaar aanbod**, stadium 2a, §3.2.3) — nog zónder concrete lokalen/docenten.
+
+```text
+OPLEIDINGSSPECIFICATIE                         (rij: Kwalificatiedossier | OEAPI: Programme[root])
+= Apothekersassistent  -  Crebo-dossier 23450
+  qualificationReference: {scheme: SBB, dossier: 23450, kwalificatie: 27141}
+  curriculumType: nominaal | status: definitief | version: 2026.1
+  credentialDocument: {type: diploma, register: DUO}
+  studyLoad: ~4800 SBU (indicatief; mbo-4, 3 jaar)
+|
++-- OPLEIDINGSPROGRAMMA-SPECIFICATIE           (rij: Kwalificatie | OEAPI: Programme[track])
+|   = BOL - voltijd
+|     learningRouteType: regulier | curriculumType: nominaal
+|     targetsLearningOutcomes: LO-sets van B1-K1..B1-K3
+|     studyLoad: 4800 SBU | timeModel: 4 perioden/jaar
+|   |
+|   +-- ONDERWIJSEENHEID-SPECIFICATIE          (rij: Kerntaak | OEAPI: Course)
+|   |   = Blok B1-K1  "Biedt farmaceutische patientenzorg"
+|   |     targetsLearningOutcomes: LO-sets van W1..W4
+|   |     deliveryForm: mix | timeAllocation: BOT 320 / OOT 300 SBU (indicatief)
+|   |     roomType: skillslab + balie-simulatie
+|   |     expertiseProfiles: [docent farmacie, apothekersassistent-BPV]
+|   |   |
+|   |   +-- LEERONDERDEEL-SPECIFICATIE         (rij: Werkproces | OEAPI: LearningComponent[learning_activity])
+|   |   |   = B1-K1-W1  "Neemt de zorg-/adviesvraag in behandeling"
+|   |   |     deliveryForm: simulatie + werkplekleren (BPV)
+|   |   |     timeAllocation: BOT 60 / OOT 40 SBU  |  BPV: 80 SBU
+|   |   |     roomType: balie-simulatie | expertiseProfiles: [apothekersassistent-docent]
+|   |   |     learningResourceGroups: [EPD-simulator, rollenspelcasus, triageprotocol]
+|   |   |
+|   |   +-- LEERONDERDEEL-SPECIFICATIE = B1-K1-W2 "Voert medicatiebewaking uit"
+|   |   |     deliveryForm: theorie + simulatie | timeAllocation: BOT 50 / OOT 50 SBU
+|   |   +-- LEERONDERDEEL-SPECIFICATIE = B1-K1-W3 "Verstrekt (zelfzorg)medicijnen/hulpmiddelen"
+|   |   +-- LEERONDERDEEL-SPECIFICATIE = B1-K1-W4 "Geeft informatie en advies (leefstijl)"
+|   |
+|   +-- ONDERWIJSEENHEID-SPECIFICATIE = Blok B1-K2 "Voert logistieke taken uit"           (W1..W2)
+|   +-- ONDERWIJSEENHEID-SPECIFICATIE = Blok B1-K3 "Werkt mee aan kwaliteit/deskundigheid" (W1..W3)
+|   +-- ONDERWIJSEENHEID-SPECIFICATIE = Keuzedeelruimte (720 SBU, mbo-4) | choiceAvailable: true
+|   +-- ONDERWIJSEENHEID-SPECIFICATIE = Generieke onderdelen (NL, rekenen, Engels(niv.4), LB&B)
+|
++-- OPLEIDINGSPROGRAMMA-SPECIFICATIE = BBL - werkend leren
+|     learningRouteType: regulier | zelfde kerntaak-structuur
+|     accent: meer werkplekleren (BPV), minder BOT
+|
++-- OPLEIDINGSPROGRAMMA-SPECIFICATIE = Havisten-route (verkort)
+      learningRouteType: regulier | zelfde kerntaak-structuur
+      accent: ingekorte doorlooptijd / vrijstellingen generiek deel
+```
+
+> **Aggregatie-invariant.** De studielast telt **bottom-up** op: `SOM(leeronderdelen) = onderwijseenheid` en `SOM(onderwijseenheden) = programma` (§5.3). De drie programma's (BOL/BBL/Havisten) delen dezelfde kerntaak-/werkprocesstructuur; alleen leerweg-afhankelijke waarden (BOT vs BPV, doorlooptijd) verschillen. In **fase 2** krijgt elke onderwijseenheid bovendien `spreadPattern` + capaciteit voor planbaar aanbod — de resources blijven **profielen** (`roomType`, `expertiseProfiles`), nog geen instanties.
+
+**Fase 4 — detaillering: lessenreeksen en lessen.** De **onderwijsontwikkelaar** werkt de grofmazige leeronderdelen fijnmazig uit tot **lessenreeksen** en **lessen**, met **lesplannen**, **werkinstructies** (leertaken), **leermaterialen** en **lesdoelen** (lesuitkomsten). Hieronder ingezoomd op één werkproces (`B1-K1-W1`); de overige werkprocessen volgen hetzelfde patroon (indicatief ingekort).
+
+```text
+LEERONDERDEEL-SPECIFICATIE = B1-K1-W1 "Neemt de zorg-/adviesvraag in behandeling"
+  (OEAPI: LearningComponent[learning_activity])
+|
++-- LESSENREEKS = "Baliegesprek & triage"      (geneste LearningComponent[learning_activity])
+|   targetsLearningOutcomes: "Voert professioneel baliegesprek en triage"
+|   spreadPattern: 6 weken x 1 dagdeel (indicatief)
+|   |
+|   +-- LESSPECIFICATIE = Les 1 "Introductie WHAM-vragen & triage"
+|   |     (rij: Lesdoel/Lesuitkomst | OEAPI: LearningComponent[lesson_assignment])
+|   |     targetsLessonOutcomes: "Past WHAM-vragen correct toe in intakegesprek"
+|   |     deliveryForm: werkcollege | timeAllocation: BOT 2u / OOT 2u
+|   |     |
+|   |     +-- lessonPlanRef ----> LESPLAN (hulpspecificatie, §12.5.7)
+|   |     |                        phases: intro / instructie / oefening / reflectie
+|   |     |                        formativeChecks: quiz WHAM-vragen
+|   |     +-- learningTasks ----> LEERTAAK-SPECIFICATIE (werkinstructie, §12.5.8)
+|   |     |                        taskDescription: rollenspel baliegesprek (in tweetal)
+|   |     |                        deliverables: ingevuld triageformulier
+|   |     |                        acceptanceCriteria: alle WHAM-velden + gekozen vervolgstap
+|   |     +-- learningMaterials -> LESMATERIAALSPECIFICATIES (§12.5.9)
+|   |                              [rollenspelcasus-kaarten, EPD-simulator, triageprotocol]
+|   |
+|   +-- LESSPECIFICATIE = Les 2 "Vervolgstap kiezen & controlevragen"      (idem opbouw)
+|   +-- LESSPECIFICATIE = Les 3 "Discreet omgaan met vertrouwelijke info"  (idem opbouw)
+|
++-- LESSENREEKS = "Medicatieverificatie bij overdracht"   (indicatief, verkort)
+|
++-- TOETSONDERDEEL-SPECIFICATIE = "Praktijktoets baliegesprek (OSCE)"
+      (toetsrij | OEAPI: TestComponent)
+      assessmentLevel: summatief | assessmentScope: {workProcessCodes: [B1-K1-W1]}
+      testForm: OSCE/praktijksimulatie | resultModel: {scale: onvold/vold/goed}
+```
+
+> **Van detail naar uitvoering.** Deze detailspecificaties voeden **OC → LMS** ter inrichting (§12.2, fase 4). Op dezelfde specificaties ontstaat het **geroosterde aanbod** — `leergelegenheid` en `lesgelegenheid` (stadium 2b) — en vervolgens de **verbintenis** en het **resultaat** (kolommen 5–6 van de ankertabel), minimaal gedragen door `Association.state` (§3.2.4). De boom blijft hier bewust **conceptueel**: geen concrete lokalen, personen of payloads.
+
 
 
 <!-- **Probleemstelling van IST situatie:**
@@ -1385,6 +1483,51 @@ Per dimensie kort wat besloten, geregeld of beschikbaar moet zijn voordat leerro
 **Interactieanalyse (kader).** Nieuw t.o.v. de route-1-baseline zijn: (1) **deelname-mutaties per `lesgelegenheid`** (student via SKS, met SLB-goedkeuring); (2) **cross-opleiding/host-plaatsing** (home ↔ host via OC + verbintenis); (3) **pooling-signalen** (animo/vraag) richting planning. Publish/event/pull worden pas in de AMIGO-vervolgstap (§2.3) hard gemaakt.
 
 **Doorverwijzing AMIGO.** Deze gegevens- en interactieanalyse voedt in een volgende iteratie **technologiekeuze → berichtspecificatie → interfacespecificatie → afsprakenset**. Dit hoofdstuk blijft bewust op analyse-niveau (skill-leesregel), met §12.2 en §12.5 als brug naar attribuut- en uitwisseldetails.
+
+##### 3.3.2.9 Concept informatiemodel — geneste onderwijsspecificatie (delta t.o.v. LR1)
+
+Larissa volgt *Software Developer* (BOL, mbo-4, **indicatief**) en temporiseert *by design*. Het waardevolle inzicht van leerroute 2 is dat de **boomstructuur identiek** is aan die van leerroute 1 (Jochem, zie het [concept informatiemodel bij §3.2.1.1](#concept-informatiemodel--geneste-onderwijsspecificatie-jochem-apothekersassistent)): dezelfde niveaus (opleiding → programma → onderwijseenheid → leeronderdeel → lessenreeks → les) en dezelfde ankertabel-families. **Alleen een beperkte set attributen verandert.** Die markeren we hieronder met `Δ`; alles zónder `Δ` blijft gelijk aan de reguliere baseline.
+
+**Fase 1–2 — delta in het grofmazige ontwerp.** De temporiseer-variant komt als **track** naast het reguliere programma; de structuur eronder is ongewijzigd.
+
+```text
+OPLEIDINGSSPECIFICATIE = Software Developer (BOL, mbo-4, indicatief)
+  Δ curriculumType: hybride                    (LR1: nominaal)
+|
++-- OPLEIDINGSPROGRAMMA-SPECIFICATIE = BOL - regulier          (baseline, = LR1)
+|
++-- OPLEIDINGSPROGRAMMA-SPECIFICATIE = BOL - track "Temporiseren"
+|   Δ programmeStructure: track van hetzelfde programma
+|   Δ learningRouteType: getemporiseerd        (LR1: regulier)
+|   Δ curriculumType: hybride
+|   |
+|   +-- ONDERWIJSEENHEID-SPECIFICATIE = Blok B1-K1 "Realiseert software" (indicatief)
+|   |     targetsLearningOutcomes / deliveryForm / expertiseProfiles: = LR1 (ongewijzigd)
+|   |   |
+|   |   +-- LEERONDERDEEL-SPECIFICATIE = B1-K1-W1 "Ontwerpt software" (indicatief)
+|   |         timeAllocation: BOT 60 / OOT 40 SBU   (zelfde BOT/OOT-totaal als LR1)
+|   |         Δ spreadPattern: OOT gespreid over meer weken (topsport-agenda)
+|   |         Δ (triggert planning-constraints in fase 2/4: niet voor 10:00;
+|   |            geblokkeerde toernooi-/kampdagen; mogelijke hele-periode-blokkade Spelen)
+|   |
+|   +-- ONDERWIJSEENHEID-SPECIFICATIE = Keuzedeel / generiek (o.a. Engels)
+|         Δ bij cross-opleiding: homeOrganisation / hostOrganisation + locationRef
+|            wanneer Engels bij een ander team/instelling loopt (zie §3.3.2.4 en §7)
+```
+
+**Fase 4 — delta in de detaillering.** De **specificatie** van lessenreeks en les verandert niet; het verschil zit in **aanbod** en **verbintenis**: deelname op gelegenheidsniveau en alternatieve slots.
+
+```text
+LEERONDERDEEL-SPECIFICATIE = B1-K1-W1 (track "Temporiseren")
+|
++-- LESSENREEKS = "..."   Δ spreadPattern: langer venster, herhaalde/alternatieve gelegenheden
+|   |
+|   +-- LESSPECIFICATIE = Les n   (specificatie-inhoud = LR1; delta zit in aanbod/verbintenis:)
+|         Δ scope: lesgelegenheid   (deelname per lesgelegenheid, i.p.v. alleen per eenheid)
+|         Δ alternativeOccasionRefs: student bindt zich aan een alternatief tijdslot
+```
+
+> **Kernpunt (skill-conform).** De **structuur en semantiek** van de onderwijsspecificatie veranderen niet t.o.v. leerroute 1 — dezelfde objecten, dezelfde ankertabel-families (§3.2.6). Wat verschuift zit in **sturing** en een handvol **attributen** op leeronderdeel-/gelegenheidsniveau: `spreadPattern`, planning-constraints (beschikbaarheid), `scope` en `alternativeOccasionRefs`, en bij grensoverschrijding `homeOrganisation`/`hostOrganisation` + `locationRef`. Attribuutdetails staan in §3.3.2.6, de organisatievormen in §3.3.2.4, en het cross-instelling-patroon in §7.
 
 #### 3.3.3 Leerroute 3 — Versnellen (standaard route) (TO-DO)
 
