@@ -94,7 +94,7 @@ Omdat de **spec wordt gebouwd op basis van meta**, zijn er **twee versielijnen**
 | Artefact | Repository | Eigenaar / verantwoordelijk | Rol |
 |----------|------------|------------------------------|-----|
 | **meta** (kaderstelling) | [`Npuls-OKx/meta`](https://github.com/Npuls-OKx/meta) | **Kernteam OKx** ([GitHub-team `kernteam-okx`](https://github.com/orgs/Npuls-OKx/teams/kernteam-okx)) | Referentiekader, business architectuur en OEAPI-profiel op businesslaag; richting, samenhang en releases. |
-| **spec** (OEAPI profiel technisch) | [`Npuls-OKx/specification`](https://github.com/Npuls-OKx/specification) | **Technische werkgroep OKx** | Technische implementatie van het OEAPI-profiel (OpenAPI); spec-releases binnen het kader van meta. |
+| **spec** (OEAPI profiel technisch) | [`Npuls-OKx/specification`](https://github.com/Npuls-OKx/specification) | **Kerngroep Techniek OKx** | Technische implementatie van het OEAPI-profiel (OpenAPI); spec-releases binnen het kader van meta. |
 
 Uitgangspunt: **iedereen** mag issues en PR's indienen; **alleen het verantwoordelijke team merget** in de betreffende repo (zie [`CONTRIBUTING.md`](../CONTRIBUTING.md) en [`.cursor/rules/okx-governance.mdc`](../.cursor/rules/okx-governance.mdc)). Het kernteam bewaakt het kader; de technische werkgroep bewaakt de bouwbare standaard. Beide werken met dezelfde branchstrategie (§9): feature → `dev` → `main`, met **tags op `main`** als release-labels.
 
