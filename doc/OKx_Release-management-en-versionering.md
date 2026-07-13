@@ -12,7 +12,7 @@ Dit document wordt pas afspraak na review en merge door de eigenaren (zie [§2 E
 
 OKx levert een samenhangende keten van **projectdeliverables** — van kaderstelling tot borging in de sector. Dit document gaat over **release management en versionering** van twee repositories: **meta** (kaderstelling) en **spec** (technische implementatie van het OEAPI-profiel).
 
-Het diagram leest **van boven naar beneden**: **meta** (kaderstelling) bovenaan, **spec**, adoptie en borging onderaan. De gestippelde pijlen zijn wijzigingsverzoeken terug naar kaderstelling.
+Het diagram heeft twee delen: **boven** de deliverable-keten (boven → beneden), **onder** de terugkoppeling van wijzigingsverzoeken (gestippeld, zonder de keten te verstoren — dat voorkomt layoutproblemen in GitHub).
 
 ```mermaid
 flowchart TB
@@ -24,7 +24,7 @@ flowchart TB
       subgraph refKader [Referentiekader / business architectuur]
         direction TB
         k1["Begrippenkader"] --> k2["Sectorarchitecturen"]
-        k2 --> k3["Scenario's · persona's"]
+        k2 --> k3["Procesbeeld a.d.h.v. Scenario's · persona's"]
         k3 --> k4["Informatiemodellen"]
         k4 --> k5["Informatiestromen"]
         k5 --> k6["Interactieanalyse"]
@@ -39,25 +39,29 @@ flowchart TB
       k6 --> s1
     end
 
-    subgraph uitrol [spec repo · adoptie · borging]
+    subgraph uitrol ["spec repo · adoptie · borging"]
       direction TB
-      openapi["spec repo · OEAPI OpenAPI"]
-      pilot["Instelling acceptatie-pilots"]
-      bopsi["Adoptie BOPSI"]
-      borging["Borging"]
-      openapi --> pilot --> bopsi --> borging
+      openapi["OEAPI OpenAPI"] --> pilot["Instelling acceptatie-pilots"]
+      pilot --> bopsi["Adoptie BOPSI"]
+      bopsi --> borging["Borging"]
     end
 
     s5 --> openapi
   end
 
-  pilot -.->|wijzigingsverzoeken| k1
-  bopsi -.->|wijzigingsverzoeken| k1
-  borging -.->|wijzigingsverzoeken| k1
+  subgraph terug ["↩ Wijzigingsverzoeken naar kaderstelling"]
+    direction LR
+    tr_openapi["OEAPI OpenAPI"] -.-> tr_meta["Kaderstelling · meta repo"]
+    tr_pilot["Acceptatie-pilots"] -.-> tr_meta
+    tr_bopsi["Adoptie BOPSI"] -.-> tr_meta
+    tr_borging["Borging"] -.-> tr_meta
+  end
 
-  classDef metaFill fill:#dbeafe,stroke:#2563eb,stroke-width:2px
-  classDef specFill fill:#dcfce7,stroke:#16a34a,stroke-width:2px
-  class k1,k2,k3,k4,k5,k6,s1,s2,s3,s4,s5 metaFill
+  okx ~~~ terug
+
+  classDef metaFill fill:#e8eef9,stroke:#1e40af,stroke-width:2px,color:#0f172a
+  classDef specFill fill:#e8f5ef,stroke:#047857,stroke-width:2px,color:#0f172a
+  class k1,k2,k3,k4,k5,k6,s1,s2,s3,s4,s5,tr_meta metaFill
   class openapi specFill
 ```
 
@@ -74,7 +78,7 @@ flowchart TB
 - **Adoptie via BOPSI** — scholen helpen de standaard in te bedden: OKx-businessarchitectuur mappen naar de organisatie, het instellingsdatamodel naar het OKx-datamodel, en koppelingen met bestaande systemen activeren.
 - **Borging** — overdracht naar lijnorganisaties zodra het Npuls-programma afloopt.
 
-Vanaf **instelling acceptatie-pilots** lopen **wijzigingsverzoeken** (gestippeld in het diagram) terug naar **kaderstelling** in meta — daar worden ze verwerkt in nieuwe meta-/spec-releases.
+Vanaf **OEAPI OpenAPI**, **instelling acceptatie-pilots**, **BOPSI** en **borging** kunnen **wijzigingsverzoeken** terug naar **kaderstelling** in meta (onderste blok in het diagram).
 
 Omdat de **spec wordt gebouwd op basis van meta**, zijn er **twee versielijnen** die los kunnen bewegen maar een vaste **verhouding** hebben (baseline, §5). Instelling acceptatie-pilots, adoptie en borging volgen eigen planning; zij **consumeren** vastgelegde meta- en spec-releases en kunnen **wijzigingsverzoeken** terugvoeren. Dit document legt vast:
 
