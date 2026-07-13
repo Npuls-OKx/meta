@@ -73,7 +73,8 @@ flowchart TB
       subgraph refKader [Referentiekader / business architectuur]
         direction TB
         k1["Begrippenkader"] --> k2["Sectorarchitecturen"]
-        k2 --> k3["Procesbeeld a.d.h.v. Scenario's · persona's"]
+        k2["sectorachitecturen"] --> k7["OKx principes en uitgangspunten"]
+        k7 --> k3["Procesbeeld a.d.h.v. Scenario's · persona's"]
         k3 --> k4["Informatiemodellen"]
         k4 --> k5["Informatiestromen"]
         k5 --> k6["Interactieanalyse"]
@@ -110,7 +111,7 @@ flowchart TB
 
   classDef metaFill fill:#e8eef9,stroke:#1e40af,stroke-width:2px,color:#0f172a
   classDef specFill fill:#e8f5ef,stroke:#047857,stroke-width:2px,color:#0f172a
-  class k1,k2,k3,k4,k5,k6,s1,s2,s3,s4,s5,tr_meta metaFill
+  class k1,k2,k3,k4,k5,k6,k7,s1,s2,s3,s4,s5,tr_meta metaFill
   class openapi specFill
 ```
 
