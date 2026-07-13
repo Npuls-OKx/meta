@@ -123,6 +123,19 @@ De kernuitgangspunten:
 - **U7 — Deprecaten vóór verwijderen.** Iets dat verdwijnt, wordt eerst **als deprecated** gemarkeerd in een minor (met alternatief en termijn) en pas in een **volgende major** verwijderd.
 - **U8 — Eén release = één bumptype.** De zwaarste wijziging in een release bepaalt de bump (één breaking change maakt de hele release major).
 - **U9 — Bump wordt voorgesteld in de PR, bevestigd bij release.** De indiener labelt de PR (`semver:major` / `semver:minor` / `semver:patch`); het verantwoordelijke team bevestigt het bij het samenstellen van de release vanuit `dev` → `main`.
+- **U10 — Twee major-versies ondersteund (spec).** OKx ondersteunt tegelijk hooguit **twee major-versies** van de **spec** (OpenAPI): de **actuele major** (*latest*) en de **voorafgaande major** (*latest-1*). Oudere majors vallen buiten het ondersteuningsvenster. Instellingen en leveranciers die op *latest-1* draaien en nieuwe functionaliteit willen, worden **actief aangeraden** zo spoedig mogelijk te upgraden naar *latest*.
+
+### Ondersteunde major-versies (spec)
+
+Voor implementaties en integraties geldt:
+
+| Versie | Status | Richtlijn |
+|--------|--------|-----------|
+| **latest** (actuele major, bijv. `v3.x`) | Ondersteund | Doelversie voor nieuwe implementaties en uitbreidingen. |
+| **latest-1** (vorige major, bijv. `v2.x`) | Ondersteund (beperkt) | Alleen voor bestaande implementaties tijdens migratie; geen nieuwe scope buiten patches/onderhoud tenzij het kernteam anders afspreekt. |
+| **latest-2 en ouder** | Niet ondersteund | Upgrade naar *latest* of *latest-1* vereist. |
+
+Bij een nieuwe **spec-major** verschuift de ondersteuningslijn mee: wat *latest* was wordt *latest-1*; de oudste ondersteunde major valt weg. Communicatie bij een major-release (§6) benoemt dit venster expliciet en wijst afnemers op *latest-1* → *latest* als zij nieuwe mogelijkheden willen benutten.
 
 ### Versielifecycle meta (OKx)
 
@@ -207,7 +220,7 @@ en herhaal het in de README/`COMPATIBILITY.md` van de spec-repo.
 
 - **C1 — Spec verwijst altijd naar een meta-baseline.** Een spec-release zonder baseline is incompleet.
 - **C2 — meta-minor is voorwaarts compatibel binnen dezelfde meta-major.** Een spec met baseline `1.2` blijft conceptueel geldig tegen meta `1.2`, `1.3`, ... (meta-minors zijn additief, U3). De spec hoeft niet bij elke meta-minor mee te bumpen; hij doet dat alleen als hij de nieuwe mogelijkheid **overneemt**.
-- **C3 — meta-major dwingt een spec-major (re-baseline).** Een breaking kaderwijziging (U2) betekent dat de spec niet zomaar geldig blijft. De technische werkgroep plant een **spec-major** met een nieuwe baseline (`2.x`). Tot die er is, blijft de bestaande spec een **onderhoudslijn** tegen de vorige meta-major (alleen patches), met een communicatie over het migratievenster.
+- **C3 — meta-major dwingt een spec-major (re-baseline).** Een breaking kaderwijziging (U2) betekent dat de spec niet zomaar geldig blijft. De technische werkgroep plant een **spec-major** met een nieuwe baseline (`2.x`). Tot die er is, blijft de bestaande spec een **onderhoudslijn** tegen de vorige meta-major (alleen patches), met een communicatie over het migratievenster. Het **ondersteuningsvenster** voor spec-majors is beperkt tot *latest* en *latest-1* (U10).
 - **C4 — spec mag onafhankelijk majoren/minoren.** De spec kan een eigen **breaking** OpenAPI-wijziging doen (bijv. een betere contractstructuur) zonder dat meta wijzigt; dan stijgt alleen de spec-major, met dezelfde baseline.
 - **C5 — meta-patch raakt de spec niet.** Editoriale meta-patches vragen geen spec-actie.
 
@@ -236,7 +249,7 @@ flowchart TD
 
 ## 6. Communicatie naar belanghebbenden
 
-- **Major** → **wel** communiceren. Release notes + migratiehandleiding (wat breekt, wat te doen, deprecatietermijn). Bij meta-major ook: gevolg voor de spec-roadmap.
+- **Major** → **wel** communiceren. Release notes + migratiehandleiding (wat breekt, wat te doen, deprecatietermijn). Bij meta-major ook: gevolg voor de spec-roadmap. Vermeld het **ondersteuningsvenster** (U10): *latest* en *latest-1*; actief upgrade-advies voor afnemers op *latest-1* die nieuwe functionaliteit willen.
 - **Minor** → **wel** communiceren. Release notes met de nieuwe (optionele) mogelijkheden; expliciet dat er **niets breekt**.
 - **Patch** → **niet** actief communiceren naar belanghebbenden. Wel zichtbaar in de git-historie, tags en (optioneel) een changelog-regel, maar geen aankondiging.
 
@@ -380,6 +393,7 @@ Toelichting op de regels:
 | meta-lifecycle | `0.0.x` fundament → **`v0.1.0`** eerste minor (spec-start na kerngroep) → `0.1.x` patches / `0.2+` breder → **`v1.0.0`** ecosysteem compleet → `1.1+` additief → **`v2.0`** breaking |
 | 0.x-fase | Minor mag (vermijdbaar) breaking zijn tot `1.0.0` (U6) |
 | Communicatie | Major + minor: wel; patch: niet (§6); `v0.1.0` via PR naar **kerngroep techniek** |
+| Ondersteuning spec | Hooguit **twee majors**: *latest* + *latest-1*; upgrade-advies *latest-1* → *latest* (U10) |
 | Eigenaar meta | Kernteam OKx (§2) |
 | Eigenaar spec | Technische werkgroep OKx (§2) |
 
@@ -388,7 +402,7 @@ Toelichting op de regels:
 ## 10. Openstaande punten / vervolg
 
 - Vastleggen als **ADR** in [`architecture/dr/`](../architecture/dr/) zodra geaccepteerd (link naar het issue en deze pagina).
-- Afspraak over **deprecatietermijn / migratievenster** (hoeveel minors blijft een vorige major onderhouden?).
+- Afspraak over **deprecatietermijn / migratievenster** voor oudere minors binnen een major (U10 regelt het venster voor **majors**: *latest* + *latest-1*).
 - Inrichten van **release notes / CHANGELOG**-conventie en eventueel automatisering (PR-labels → changelog) in beide repo's.
 
 
