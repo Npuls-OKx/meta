@@ -55,9 +55,9 @@ Daarnaast: om **attribuutniveau** en OEAPI-consequentie te borgen, wordt in hetz
 ### Relaties en links
 
 - Meetings:
-  - `architecture/meetings/nde_nvd_informatie_stromen_hoofdplaat_20260501/summary.md`
-  - `architecture/meetings/nde_nvd_informatie_stromen_hoofdplaat_20260501/transcript.md`
-  - `architecture/meetings/okx_nde_nvd_sks_examens_resultaat_structuren_20260428/summary.md` (keten richting RFO/planning, modulaire examenopbouw)
+  - `architecture/meetings/20260501_nde_nvd_informatie_stromen_hoofdplaat/summary.md`
+  - `architecture/meetings/20260501_nde_nvd_informatie_stromen_hoofdplaat/transcript.md`
+  - `architecture/meetings/20260428_okx_nde_nvd_sks_examens_resultaat_structuren/summary.md` (keten richting RFO/planning, modulaire examenopbouw)
 - ArchiMate model: `architecture/model/model.archimate` — **impact (conceptueel, geen modelwijziging in deze PR):** uitbreiden/verscherpen van **interacties** tussen **Curriculumontwerp** en **Onderwijscatalogus** (sequenties, data-objecten voor UUID-sets, status terug naar CO); toevoegen of labelen van **integration/messaging** (topic/subscription) voor **specification update events**; **federatie**-relaties (broker) voor adopt/clone met traceerbaarheid. Raadpleeg [0010](0010-archimate-moka-informatiemodel-werkafspraken.md).
 - OKx docs: `[doc/OKx_Projectoverzicht.md](../../doc/OKx_Projectoverzicht.md)`, `[doc/OKx_Informatiesstromen.md](../../doc/OKx_Informatiesstromen.md)`
 

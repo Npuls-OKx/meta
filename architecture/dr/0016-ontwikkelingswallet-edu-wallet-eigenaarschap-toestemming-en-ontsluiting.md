@@ -17,8 +17,8 @@ Daarnaast komt de wallet in latere uitwerking terug als bron voor **credentialco
 Tot nu toe wordt de wallet in OKx wel genoemd als randvoorwaarde (o.a. [0003](0003-student-kiest-leeruitkomsten-domeinprincipes.md), [0013](0013-microcredentials-scope-en-credentialcontrole-intake.md)), maar er is nog geen expliciet ADR dat de wallet als **ketenvoorziening** positioneert met alternatieven, consequenties en impact op `architecture/model/model.archimate`.
 
 Bronnen:
-- `architecture/meetings/okx_kernteam_inhoud_uitwerken_studentkiest_flexibelonderwijs_overeenkomst_20260325/summary.md`
-- `architecture/meetings/okx_kernteam_inhoud_uitwerken_studentkiest_20260413/summary.md`
+- `architecture/meetings/20260325_okx_kernteam_inhoud_uitwerken_studentkiest_flexibelonderwijs_overeenkomst/summary.md`
+- `architecture/meetings/20260413_okx_kernteam_inhoud_uitwerken_studentkiest/summary.md`
 
 ### Beslissing
 
@@ -54,7 +54,7 @@ We leggen vast dat OKx de **ontwikkelingswallet (EDU-wallet)** hanteert als kete
 - Issues: #(te koppelen)
 - PR: #(te vullen)
 - Meetings:
-  - `architecture/meetings/okx_kernteam_inhoud_uitwerken_studentkiest_flexibelonderwijs_overeenkomst_20260325/summary.md`
-  - `architecture/meetings/okx_kernteam_inhoud_uitwerken_studentkiest_20260413/summary.md`
+  - `architecture/meetings/20260325_okx_kernteam_inhoud_uitwerken_studentkiest_flexibelonderwijs_overeenkomst/summary.md`
+  - `architecture/meetings/20260413_okx_kernteam_inhoud_uitwerken_studentkiest/summary.md`
 - ArchiMate model: `architecture/model/model.archimate` (voeg EDU-wallet als ketenvoorziening toe; modelleer relaties met EduID, intake/credentialcontrole en relevante referentiecomponenten; benoem toestemming/consent als expliciet concept in views waar passend)
 

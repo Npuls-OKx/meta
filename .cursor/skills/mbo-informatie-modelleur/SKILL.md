@@ -93,7 +93,7 @@ Hulpspecificaties (§12.5.7–12.5.10): `Lesplan`, `Leertaak-specificatie`, `Les
 | `leervorm`              | `deliveryForm`             |
 | `tijdsverdeling`        | `timeAllocation` (BOT/OOT) |
 | `spreidingspatroon`     | `spreadPattern`            |
-| `ruimtetype`            | `roomType`                 |
+| `lokaalType`            | `roomType`                 |
 | `ruimtevereisten`       | `roomRequirements`         |
 | `expertiseprofielen`    | `expertiseProfiles`        |
 | `leermiddelengroepen`   | `learningResourceGroups`   |
@@ -114,8 +114,8 @@ Hulpspecificaties (§12.5.7–12.5.10): `Lesplan`, `Leertaak-specificatie`, `Les
 | `formatieveControles`   | `formativeChecks`          |
 | `bereik`                | `scope`                    |
 | `alternatieveGelegenheden` | `alternativeOccasionRefs`|
-| `thuisorganisatie`      | `homeOrganisation`         |
-| `gastorganisatie`       | `hostOrganisation`         |
+| `thuisOrganisatie`      | `homeOrganisation`         |
+| `gastheerOrganisatie`   | `hostOrganisation`         |
 | `locatieverwijzing`     | `locationRef`              |
 | `keuzeruimte`           | keuzedeelruimte (SBU)      |
 | `keuzeBeschikbaar`      | `choiceAvailable`          |

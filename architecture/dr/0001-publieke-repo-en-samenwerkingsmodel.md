@@ -44,9 +44,9 @@ In de SI-afstemming met Jos van den Arend (maart 2024) is de **centrale GitHub-r
 - Issues: #(te koppelen)
 - PR: #(te vullen)
 - Meetings:
-  - `doc/meetings kernteam/okx_si_team_afstemming_josvdarend_240326/okx_si_team_afstemming_josvdarend_aanhaken_voortgang_okx_240326_summary.md`
-  - `doc/meetings kernteam/okx_si_team_afstemming_josvdarend_240326/okx_si_team_afstemming_josvdarend_aanhaken_voortgang_okx_240326_transcript.md`
-  - `architecture/meetings/okx_kernteam_inhoud_uitwerken_studentkiest_flexibelonderwijs_overeenkomst_20260325/summary.md`
+  - `architecture/meetings/20260324_okx_si_team_afstemming_josvdarend/okx_si_team_afstemming_josvdarend_aanhaken_voortgang_okx_240326_summary.md`
+  - `architecture/meetings/20260324_okx_si_team_afstemming_josvdarend/okx_si_team_afstemming_josvdarend_aanhaken_voortgang_okx_240326_transcript.md`
+  - `architecture/meetings/20260325_okx_kernteam_inhoud_uitwerken_studentkiest_flexibelonderwijs_overeenkomst/summary.md`
 - ArchiMate: `architecture/model/model.archimate`
 - Governance: [`CONTRIBUTING.md`](../../CONTRIBUTING.md), [`doc/Bijdragen-voor-beginners.md`](../../doc/Bijdragen-voor-beginners.md)
 

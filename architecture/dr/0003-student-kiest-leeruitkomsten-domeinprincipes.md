@@ -44,9 +44,9 @@ Flexibilisering en **“student kiest”** vereisen dat **onderwijskundige** en 
 - Issues: #(te koppelen)
 - PR: #(te vullen)
 - Meetings:
-  - `architecture/meetings/okx_kernteam_inhoud_uitwerken_studentkiest_flexibelonderwijs_overeenkomst_20260325/summary.md`
-  - `architecture/meetings/okx_kernteam_inhoud_uitwerken_studentkiest_flexibelonderwijs_overeenkomst_20260325/transcript.md`
-  - `doc/meetings kernteam/okx_si_team_afstemming_josvdarend_240326/okx_si_team_afstemming_josvdarend_aanhaken_voortgang_okx_240326_summary.md` (context bredere OKx-aanpak)
+  - `architecture/meetings/20260325_okx_kernteam_inhoud_uitwerken_studentkiest_flexibelonderwijs_overeenkomst/summary.md`
+  - `architecture/meetings/20260325_okx_kernteam_inhoud_uitwerken_studentkiest_flexibelonderwijs_overeenkomst/transcript.md`
+  - `architecture/meetings/20260324_okx_si_team_afstemming_josvdarend/okx_si_team_afstemming_josvdarend_aanhaken_voortgang_okx_240326_summary.md` (context bredere OKx-aanpak)
 - ArchiMate: `architecture/model/model.archimate`
 - Docs: [`doc/OKx_Projectoverzicht.md`](../../doc/OKx_Projectoverzicht.md), [`architecture/docs/principes.md`](../docs/principes.md)
 

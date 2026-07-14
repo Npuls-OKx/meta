@@ -5,3 +5,15 @@
 *.pdf  binary
 *.xlsx binary
 *.vsdx binary
+
+# Het ArchiMate-model is een XML-boom van ~5 MB waarin views via ID's verwijzen naar
+# elementen elders in het bestand. Een regelgebaseerde merge laat elementen wegvallen
+# terwijl de views blijven staan: het resultaat is geldige XML met dode verwijzingen,
+# die Archi bij de eerstvolgende save stilzwijgend weggooit.
+#
+# `-merge` laat git weigeren dit bestand samen te voegen. Bij een conflict kies je
+# expliciet een kant (`git checkout --ours|--theirs -- <pad>`) en breng je de andere
+# kant terug via Archi: File > Import > Another model into the selected model.
+# Valideer daarna met `python3 scripts/validate-archimate.py`.
+# Zie architecture/dr/0010-archimatemodel-werkafspraken.md
+architecture/model/*.archimate -merge

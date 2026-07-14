@@ -1,6 +1,10 @@
 # Archi backup (lokaal)
 architecture/model/*.bak
 
+# Tijdelijke modelbestanden voor een Archi model-import (bij conflictherstel).
+# Zie architecture/dr/0010-archimatemodel-werkafspraken.md
+architecture/model/_import_*.archimate
+
 # =========================
 # macOS
 # =========================

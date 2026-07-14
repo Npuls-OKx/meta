@@ -13,7 +13,7 @@ In het overleg over **student keuzecriteria en plaatsing** is herbevestigd dat d
 
 Zonder deze scheiding ontstaat een ontwerp waarin keuze-interactie, administratieve bewijsvoering en logistieke plaatsing door elkaar gaan lopen, met als gevolg onduidelijke verantwoordelijkheden tussen referentiecomponenten (met name rond SKS, KRS en eventuele intake/plaatsing-stappen).
 
-Bron: `architecture/meetings/okx_kernteam_inhoud_verdiepen_student_keuze_criteria_en_plaatsing_20260409/summary.md`.
+Bron: `architecture/meetings/20260409_okx_kernteam_inhoud_verdiepen_student_keuze_criteria_en_plaatsing/summary.md`.
 
 ### Beslissing
 
@@ -46,6 +46,6 @@ We leggen vast dat het OKx-proces en de koppelvlakspecificaties **inschrijving**
   - [0012](0012-leerroute-onafhankelijk-keuzegate-nominaal-maatwerk.md) — keuzegate nominaal/maatwerk, leerroute vs leertraject
 - Issues: #(te koppelen)
 - PR: #(te vullen)
-- Meetings: `architecture/meetings/okx_kernteam_inhoud_verdiepen_student_keuze_criteria_en_plaatsing_20260409/summary.md`
+- Meetings: `architecture/meetings/20260409_okx_kernteam_inhoud_verdiepen_student_keuze_criteria_en_plaatsing/summary.md`
 - ArchiMate model: `architecture/model/model.archimate` (splits processtappen en relaties tussen KRS/inschrijving en SKS/studentkeuze expliciet in relevante views)
 

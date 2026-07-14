@@ -47,4 +47,4 @@ Het keuzeniveau voor de student is vastgesteld op de **leeractiviteit**: een col
 - ADR's: `architecture/dr/0011-keuzeniveau-leeractiviteit-leervormen-als-aanbodkenmerk.md`, `architecture/dr/0012-leerroute-onafhankelijk-keuzegate-nominaal-maatwerk.md`, `architecture/dr/0013-microcredentials-scope-en-credentialcontrole-intake.md`
 - OKx/OKE docs: TBD
 - ArchiMate impact: ja – de keuzegate nominaal/maatwerk, leeractiviteit als keuzeniveau en de rol van de ontwikkelingswallet/credentials moeten in het model verwerkt worden
-- Transcript: `architecture/meetings/okx_kernteam_inhoud_uitwerken_studentkiest_20260413/transcript.md`
+- Transcript: `architecture/meetings/20260413_okx_kernteam_inhoud_uitwerken_studentkiest/transcript.md`
