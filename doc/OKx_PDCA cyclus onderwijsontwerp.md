@@ -44,7 +44,7 @@ Een aantal concrete voorbeelden:
 
 - Hoeveel tijd heeft een docent nodig om een nieuwe leerspecificatie eigen te maken?
 
-| Type wijziging | Voorbeeld | Acceptatie |
+| Type wijziging | Casus | Acceptatie |
 | --- | --- | --- |
 | Fundamentele wijziging | Nieuw kwalificatiedossier, gewijzigde wettelijke eisen, nieuwe onderwijsvisie | Nieuwe specificatie; meestal alleen voor nieuwe instroom |
 | Wijziging met | Aanpassing in examenplan, summatieve resultaatstructuur of administratieve eigenschappen | Alleen accepteren na expliciete impactanalyse en besluitvorming |
