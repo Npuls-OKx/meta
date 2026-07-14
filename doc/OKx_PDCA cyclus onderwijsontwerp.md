@@ -24,7 +24,7 @@ Voor acceptatie van wijzigingen zijn daarom duidelijke uitgangspunten nodig:
 
 - Een wijziging mag lopende verbintenissen niet ongecontroleerd raken.
 
-- Een examenplan/OER mag niet zonder zorgvuldige afweging worden aangepast.
+- Een examenplan/OER en onderliggende summatieve structuur mag niet zonder zorgvuldige afweging worden aangepast.
 
 - Specificaties waarop al aanbod heeft plaatsgevonden, worden niet handmatig verwijderd maar gedeactiveerd.
 
@@ -34,7 +34,7 @@ Voor acceptatie van wijzigingen zijn daarom duidelijke uitgangspunten nodig:
 
 - De onderwijscatalogus is verantwoordelijk voor versionering en releasemanagement van specificaties.
 
-Naast de inhoudelijke systematiek is organisatorische afstemming noodzakelijk. Ontwikkelen, plannen en roosteren kennen vooral een ketenafhankelijk proces waarin tijd en capaciteit beschikbaar moeten zijn om vervolgstappen tijdig af te ronden. Daarom moet beleid duidelijk maken tot welk moment wijzigingen nog worden geaccepteerd, wanneer uitzonderingen mogelijk zijn en welke afstemming nodig is met planning, roostering en uitvoering.
+Naast de inhoudelijke systematiek is organisatorische afstemming noodzakelijk. Ontwikkelen, plannen en roosteren kennen vooral een ketenafhankelijk proces waarin tijd en capaciteit beschikbaar moeten zijn om vervolgstappen tijdig af te ronden. Het fijnmazige aanbod kent geen wettelijke vaststelling. De wendbaarheid van de organisatie en het applicatielandschap is daarin leidend. Het is vooral beleid dat duidelijk dient te maken tot welk moment wijzigingen nog worden geaccepteerd, wanneer uitzonderingen mogelijk zijn en welke afstemming nodig is met planning, roostering en uitvoering.
 
 Een aantal concrete voorbeelden:
 
@@ -43,6 +43,8 @@ Een aantal concrete voorbeelden:
 - Tot wanneer worden er nog wijziging geaccepteerd aan een leerspecificaties en aanbodplanning ten opzichte van de (wenselijke) publicatie van roosters?
 
 - Hoeveel tijd heeft een docent nodig om een nieuwe leerspecificatie eigen te maken?
+
+Een uitwerking van beleid dient allerminst een classificatie van beoogde wijzigingen te bevatten en vereisten van acceptatie: 
 
 | Type wijziging | Casus | Acceptatie |
 | --- | --- | --- |
