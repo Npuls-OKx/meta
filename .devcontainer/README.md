@@ -27,7 +27,32 @@ cat /.dockerenv # bestaat -> je zit in een container
 
 - Python 3.12 + `pip` (zie [`requirements.txt`](requirements.txt), o.a. Pillow).
 - Node.js LTS + `npm` (via devcontainer-feature) + `markdownlint-cli2` + `mermaid-cli`.
+- **GitHub CLI (`gh`)** (via devcontainer-feature) - zie hieronder.
 - `imagemagick`, `graphviz`, `pandoc`, `chromium`.
+
+## GitHub vanuit de container (eenmalig inloggen)
+
+Zonder login kan de container **niet pushen** (`could not read Username for 'https://github.com'`)
+en kunnen agents geen PR's openen of reviewen. Log daarom na de eerste build eenmalig in:
+
+```bash
+gh auth login        # kies: GitHub.com -> HTTPS -> login met browser/device code
+gh auth setup-git    # maakt gh de git credential helper, zodat ook `git push` werkt
+```
+
+Controleren:
+
+```bash
+gh auth status
+git push --dry-run   # moet nu slagen zonder om een gebruikersnaam te vragen
+```
+
+De login wordt bewaard in een **named volume** (`okx-meta-gh-config`, gemount op
+`~/.config/gh`), dus je hoeft dit **niet** te herhalen na een `Rebuild Container`.
+
+Daarmee kunnen mens en agent hetzelfde: committen, pushen, PR's openen (`gh pr create`),
+reviewen en mergen - allemaal **binnen** de container, conform
+[`dev-omgeving.mdc`](../.cursor/rules/dev-omgeving.mdc).
 
 ## Extra tooling toevoegen (reproduceerbaar voor het team)
 
@@ -38,6 +63,7 @@ Installeer **niet** ad-hoc; voeg het toe aan de juiste plek en rebuild:
 | Python-pakket | [`requirements.txt`](requirements.txt) |
 | Systeem/CLI-tool | [`Dockerfile`](Dockerfile) |
 | Node-tool (globaal) | `postCreateCommand` in [`devcontainer.json`](devcontainer.json) |
+| CLI met eigen feature (bv. `gh`) | `features` in [`devcontainer.json`](devcontainer.json) |
 
 Daarna: commandpalet -> **`Dev Containers: Rebuild Container`**.
 
