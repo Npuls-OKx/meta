@@ -28,6 +28,7 @@ cat /.dockerenv # bestaat -> je zit in een container
 - Python 3.12 + `pip` (zie [`requirements.txt`](requirements.txt), o.a. Pillow).
 - Node.js LTS + `npm` (via devcontainer-feature) + `markdownlint-cli2` + `mermaid-cli`.
 - **GitHub CLI (`gh`)** (via devcontainer-feature) - zie hieronder.
+- **Claude Code** (`Anthropic.claude-code`) - VS Code/Cursor-extensie; zie hieronder.
 - `imagemagick`, `graphviz`, `pandoc`, `chromium`.
 
 ## GitHub vanuit de container (eenmalig inloggen)
@@ -54,6 +55,12 @@ Daarmee kunnen mens en agent hetzelfde: committen, pushen, PR's openen (`gh pr c
 reviewen en mergen - allemaal **binnen** de container, conform
 [`dev-omgeving.mdc`](../.cursor/rules/dev-omgeving.mdc).
 
+## Claude Code (extensie)
+
+De extensie wordt automatisch geïnstalleerd bij **Rebuild Container**. Eenmalig inloggen
+via de Claude Code-sidebar in Cursor/VS Code (Anthropic-account of API key, afhankelijk
+van jullie licentie). Zie [Claude Code in VS Code](https://code.claude.com/docs/en/vscode).
+
 ## Extra tooling toevoegen (reproduceerbaar voor het team)
 
 Installeer **niet** ad-hoc; voeg het toe aan de juiste plek en rebuild:
@@ -63,6 +70,7 @@ Installeer **niet** ad-hoc; voeg het toe aan de juiste plek en rebuild:
 | Python-pakket | [`requirements.txt`](requirements.txt) |
 | Systeem/CLI-tool | [`Dockerfile`](Dockerfile) |
 | Node-tool (globaal) | `postCreateCommand` in [`devcontainer.json`](devcontainer.json) |
+| VS Code/Cursor-extensie | `customizations.vscode.extensions` in [`devcontainer.json`](devcontainer.json) |
 | CLI met eigen feature (bv. `gh`) | `features` in [`devcontainer.json`](devcontainer.json) |
 
 Daarna: commandpalet -> **`Dev Containers: Rebuild Container`**.
