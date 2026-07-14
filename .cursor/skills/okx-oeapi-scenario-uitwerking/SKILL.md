@@ -66,7 +66,19 @@ Gebruik per dimensie **kort** wat al besloten, geregeld of beschikbaar moet zijn
 
 **Scheiding Informatie vs Data:** *Informatie* = wat betekent het voor de keten en de actor; *Data* = hoe wordt het technisch en beheerbaar vastgelegd en uitgewisseld. Die split komt overeen met veel EA-praktijk (conceptueel/logisch vs. fysiek en contracten).
 
-**Solution architecture:** zoom bij **Systeem** (en waar nodig **Data**) in op concrete services, API’s, integratiepatronen en afhankelijkheden — alleen voor zover het profiel of een gelinkte specificatie dat toestaat; geen verzonnen koppelvlakken.
+**Solution architecture:** zoom bij **Systeem** (en waar nodig **Data**) in op concrete services, API’s en integratiepatronen — alleen voor zover het profiel of een gelinkte specificatie dat toestaat. Onderscheid **koppeling** (gestandaardiseerde stroom) en **koppelvlak** (endpoints); verzin geen koppelvlakdetails zonder vastgelegde koppeling.
+
+## Informatiestromen, koppelingen en koppelvlakken
+
+Drie lagen — van concept naar bouwbaar contract:
+
+| Laag | Definitie | AMIGO-stap | Release-relevantie |
+| --- | --- | --- | --- |
+| **Informatiestroom** | Conceptuele gegevensbeweging tussen ketenpartners/systemen: wie levert welke informatie aan wie, en in welk processtadium. Zichtbaar op de OKx-informatiestromenplaat en in scenario-uitwerkingen. | Scenario-analyse (stap 1); input voor gegevens- en interactie-analyse | Milestone 3 dekt de OC P-stromen (CO→OC, OC↔planning, planning↔rooster) voor LR1–LR3. |
+| **Koppeling** | Gestandaardiseerde **realisatie/implementatie** van één of meer informatiestromen: afspraken over berichten, interactiepatronen en semantiek — nog **zonder** de volledige endpoint-set. | Interactie-analyse + berichtspecificatie (stap 3–5) | Milestone 3 / meta **`v0.1.0`** levert eerste gestandaardiseerde koppelingen; zie [`doc/OKx_Release-management-en-versionering.md`](../../../doc/OKx_Release-management-en-versionering.md) §8. |
+| **Koppelvlak** | Technische uitwerking van een koppeling: het geheel van **endpoints** waarmee de koppeling in software wordt gebouwd. Eén koppelvlak kan meerdere endpoints omvatten. | Interfacespecificatie (stap 6) in de **spec**-repo | Volgt **nadat** koppelingen gestandaardiseerd zijn; compleet bij meta **`v1.0.0`**. |
+
+**Werkvolgorde:** informatiestromen beschrijven in scenario's → koppelingen standaardiseren → op basis daarvan koppelvlakken (endpoints) bouwen in spec. Verwijs in scenario's expliciet naar **welke informatiestroom** wordt geraakt; benoem nog geen endpoint-details tenzij de gebruiker om koppelvlakuitwerking vraagt.
 
 ## AMIGO en keten naar specificatie
 
@@ -126,8 +138,8 @@ Werk een scenario uit met minimaal:
 8. **Informatiestromen + AMIGO-voorloper** (leg-up voor technologiekeuze, berichtspecificatie en interfacespecificatie):
    - **Beeld / verwijzing**: placeholder of verwijzing naar hoofdplaat / latere figuur — geen verzonnen koppelvlakdetails die niet in het profiel staan.
    - **Gegevensanalyse** (kader, nog geen volledige berichtdefinitie): welke informatieobjecten (ankertabel, OEAPI-profieltermen) bewegen in dit scenario; richting **producerend → consumerend**; welke sleutels of referenties minimaal nodig zijn om het verhaal te laten kloppen; welke semantiek **niet** mag vervagen.
-   - **Interactieanalyse** (kader, nog geen volledige interfacecontract): welke **actoren/systemen** welke **handelingen** uitwisselen (initiator, ontvanger, oorspronkelijk vs bevestigend bericht waar relevant); **publish vs event vs pull** alleen benoemen als het scenario dat nodig heeft; welke interacties nieuw zijn t.o.v. de route-1-baseline.
-   - **Doorverwijzing AMIGO:** deze twee analyses voeden in een latere iteratie **technologiekeuze** → **berichtspecificatie** → **interfacespecificatie** → **afsprakenset** (zoals de AMIGO-keten in het profiel). Houd het scenario-document op dit punt bewust op **analyse-niveau**, tenzij het team expliciet om uitwerking tot bericht/interface vraagt.
+   - **Interactieanalyse** (kader, nog geen koppelvlak/endpoints): welke **actoren/systemen** welke **handelingen** uitwisselen; welke **koppelingen** (gestandaardiseerde realisaties van informatiestromen) ontstaan; **publish vs event vs pull** alleen benoemen als het scenario dat nodig heeft; welke koppelingen nieuw zijn t.o.v. de route-1-baseline.
+   - **Doorverwijzing AMIGO:** deze analyses voeden **technologiekeuze** → **berichtspecificatie** (koppelingen) → **interfacespecificatie** (koppelvlakken/endpoints) → **afsprakenset**. Houd het scenario-document op **analyse-niveau**, tenzij het team expliciet om bericht-/interfacedetail vraagt.
 
 ## Governance (repository)
 
@@ -151,7 +163,8 @@ Werk een scenario uit met minimaal:
 - [ ] **IST / SOLL en baseline:** waar nuttig positionering (“veel instellingen”: **1–3** IST, **4–9** SOLL); voor leerroute **2–9** expliciete **delta t.o.v. route 1** (regulier, sterk aanbod-gestuurd) in keten, rollen, data en sturing.
 - [ ] **MORA:** link met relevante **procesketens** waar “wat doet de instelling?” centraal staat (§2.2 — werken onder architectuur).
 - [ ] **Negen concern-dimensies** (profiel §3.4.0): ingevuld als randvoorwaarden; **niet** verwarren met het **ArchiMate-kern-laagmodel** noch met het **andere negenvlaks-informatiemodel** (specificatie/aanbod/verbintenis) uit het profiel.
-- [ ] **Informatiestromen + AMIGO-voorloper:** beeld of verwijzing + **gegevensanalyse** + **interactieanalyse** op kader-niveau; de **brug** naar technologiekeuze → berichtspecificatie → interfacespecificatie → afsprakenset is leesbaar; geen verzonnen koppelvlakdetails.
+- [ ] **Informatiestromen → koppelingen → koppelvlakken:** benoemde stromen kloppen met de informatiestromenplaat; koppelingen als gestandaardiseerde realisaties; **geen** endpoint-/koppelvlakdetails tenzij expliciet gevraagd.
+- [ ] **Informatiestromen + AMIGO-voorloper:** beeld of verwijzing + **gegevensanalyse** + **interactieanalyse** op kader-niveau; brug naar koppelingen en (later) koppelvlakken leesbaar.
 - [ ] **Mijlpaal eindbeeld:** op de in het profiel bedoelde plek (bijv. **start onderwijsuitvoering**), niet ten onrechte einddiplomering.
 - [ ] **Figuren:** Mermaid-ID’s onderhoudbaar (`camelCase`); bestaande diagrammen niet herscheppen tenzij de gebruiker dat vraagt.
 - [ ] **Toon:** concept-eerst, technische diepte in *voor wie dieper wil*-blokken; geen mermaid die niet leesbaar is op een breed scherm.

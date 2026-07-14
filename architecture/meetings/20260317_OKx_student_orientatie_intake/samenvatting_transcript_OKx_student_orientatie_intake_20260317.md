@@ -49,4 +49,4 @@ Doel: Proces- en ketenpositionering voor studentvolgsysteem / student kiest: van
 - ADR's: **overwegen** — `architecture/dr/` — o.a. *levenscyclus leervraag (initieel vs iteratief)*; *data-domeinen wallet (educatieve context vs studentidentiteit vs zorg)*; *sector-broker vs instelling*
 - OKx/OKE docs: [in te vullen — relevante paden in repo]
 - ArchiMate impact: **ja** — nieuwe/verfijnde procesblokken (studentoriëntatie, splitsing intake, broker/wallet conceptueel), relaties naar KRS/ROD/DUO-onderwerpen; **MORA-basismodel niet hernoemen**
-- Transcript (ruw): `architecture/meetings/OKx_student_orientatie_intake_20260317/transcript_OKx_student_orientatie_intake_20260317.md` (**aanvullen met volledige Jamie-export indien nog niet compleet**)
+- Transcript (ruw): `architecture/meetings/20260317_OKx_student_orientatie_intake/transcript_OKx_student_orientatie_intake_20260317.md` (**aanvullen met volledige Jamie-export indien nog niet compleet**)

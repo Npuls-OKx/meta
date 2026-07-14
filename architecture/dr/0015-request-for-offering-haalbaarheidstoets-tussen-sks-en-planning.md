@@ -14,7 +14,7 @@ Deze stap is relevant omdat studentkeuze (zeker bij maatwerk en iteratieve keuze
 - planning impliciet alle keuze-logica moet absorberen, of
 - de student pas laat (na onrealistische combinaties) feedback krijgt.
 
-Bron: `architecture/meetings/okx_kernteam_inhoud_uitwerken_studentkeuze_roostering_planning_pocs_20260417/summary.md`.
+Bron: `architecture/meetings/20260417_okx_kernteam_inhoud_uitwerken_studentkeuze_roostering_planning_pocs/summary.md`.
 
 ### Beslissing
 
@@ -73,6 +73,6 @@ Deze beslissing definieert het **proces- en informatiemodelpatroon**; de preciez
   - [0012](0012-leerroute-onafhankelijk-keuzegate-nominaal-maatwerk.md) — leerroute/leertraject en keuzegate
 - Issues: #(te koppelen)
 - PR: #(te vullen)
-- Meetings: `architecture/meetings/okx_kernteam_inhoud_uitwerken_studentkeuze_roostering_planning_pocs_20260417/summary.md`
+- Meetings: `architecture/meetings/20260417_okx_kernteam_inhoud_uitwerken_studentkeuze_roostering_planning_pocs/summary.md`
 - ArchiMate model: `architecture/model/model.archimate` (voeg processtap “Request for Offering” toe en informatie-objecten “OfferingRequest”/“OfferingResponse”; modelleer expliciete relatie SKS -> Planning en terugkoppeling)
 

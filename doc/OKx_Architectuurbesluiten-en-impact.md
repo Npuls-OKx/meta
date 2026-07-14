@@ -23,10 +23,10 @@ Dit document **vat samen** welke architectuurrichting uit **Architecture Decisio
 
 ### Meetings (context en onderbouwing)
 
-- `architecture/meetings/okx_kernteam_inhoud_uitwerken_studentkiest_flexibelonderwijs_overeenkomst_20260325/summary.md` (en transcript in dezelfde map)
-- `architecture/meetings/OKx_kernteam_inhoud_voorbereidingleveranciersessie_20260327/summary.md` (en transcript in dezelfde map)
-- `architecture/meetings/okx_kernteam_inhoud_uitwerken_kaderstelling_student_keuze_criteria_20260331/summary.md` (en transcript in dezelfde map; o.a. oriëntatie, trechters, scope, SKS/SVS, modelafspraken)
-- `doc/meetings kernteam/okx_si_team_afstemming_josvdarend_240326/okx_si_team_afstemming_josvdarend_aanhaken_voortgang_okx_240326_summary.md` (en transcript in dezelfde map)
+- `architecture/meetings/20260325_okx_kernteam_inhoud_uitwerken_studentkiest_flexibelonderwijs_overeenkomst/summary.md` (en transcript in dezelfde map)
+- `architecture/meetings/20260327_OKx_kernteam_inhoud_voorbereidingleveranciersessie/summary.md` (en transcript in dezelfde map)
+- `architecture/meetings/20260331_okx_kernteam_inhoud_uitwerken_kaderstelling_student_keuze_criteria/summary.md` (en transcript in dezelfde map; o.a. oriëntatie, trechters, scope, SKS/SVS, modelafspraken)
+- `architecture/meetings/20260324_okx_si_team_afstemming_josvdarend/okx_si_team_afstemming_josvdarend_aanhaken_voortgang_okx_240326_summary.md` (en transcript in dezelfde map)
 
 ## Samenvatting per thema
 

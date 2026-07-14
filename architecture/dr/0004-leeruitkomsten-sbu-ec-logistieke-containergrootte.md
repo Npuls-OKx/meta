@@ -48,9 +48,9 @@ In de voorbereiding op de **leverancierssessie** (27 maart 2026) is benadrukt da
 - Issues: #(te koppelen)
 - PR: #(te vullen)
 - Meetings:
-  - `architecture/meetings/OKx_kernteam_inhoud_voorbereidingleveranciersessie_20260327/summary.md` — o.a. leeruitkomsten als standaard; SBU/EC; schaling leertraject
-  - `architecture/meetings/OKx_kernteam_inhoud_voorbereidingleveranciersessie_20260327/transcript.md` — o.a. EC’s in mockups, studieplan, leeruitkomsten/indicatoren
-  - `architecture/meetings/okx_kernteam_inhoud_uitwerken_studentkiest_flexibelonderwijs_overeenkomst_20260325/summary.md` (context leeruitkomsten in keten)
+  - `architecture/meetings/20260327_OKx_kernteam_inhoud_voorbereidingleveranciersessie/summary.md` — o.a. leeruitkomsten als standaard; SBU/EC; schaling leertraject
+  - `architecture/meetings/20260327_OKx_kernteam_inhoud_voorbereidingleveranciersessie/transcript.md` — o.a. EC’s in mockups, studieplan, leeruitkomsten/indicatoren
+  - `architecture/meetings/20260325_okx_kernteam_inhoud_uitwerken_studentkiest_flexibelonderwijs_overeenkomst/summary.md` (context leeruitkomsten in keten)
 - ArchiMate: `architecture/model/model.archimate`
 - Docs: `[doc/OKx_Projectoverzicht.md](../../doc/OKx_Projectoverzicht.md)`, `[architecture/docs/principes.md](../docs/principes.md)`, [OEAPI v6.0](https://openonderwijsapi.nl/v6.0/)
 

@@ -46,7 +46,7 @@ In de meeting was consensus: OKx hoeft **niet** te bepalen wat precies een leeru
 - **Gerelateerde ADR's:** [0003](0003-student-kiest-leeruitkomsten-domeinprincipes.md) (wallet, leeruitkomsten als sleutel), [0004](0004-leeruitkomsten-sbu-ec-logistieke-containergrootte.md) (SBU/EC), [0006](0006-studentorientatie-trechter-ketenfase.md) (oriëntatiefase → intake), [0012](0012-leerroute-onafhankelijk-keuzegate-nominaal-maatwerk.md) (intake en keuzegate)
 - Issues: #(te koppelen)
 - PR: #(te vullen)
-- Meetings: `architecture/meetings/okx_kernteam_inhoud_uitwerken_studentkiest_20260413/summary.md`, `.../transcript.md`
+- Meetings: `architecture/meetings/20260413_okx_kernteam_inhoud_uitwerken_studentkiest/summary.md`, `.../transcript.md`
 - ArchiMate: `architecture/model/model.archimate`
 
 ### Vervangt (optioneel)

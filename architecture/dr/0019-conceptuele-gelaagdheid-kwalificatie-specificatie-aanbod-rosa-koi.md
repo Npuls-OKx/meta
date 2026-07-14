@@ -92,9 +92,9 @@ Voetnoot: OKx richt zich in dit profiel primair op het beschrijven van de werkpr
 - Issues: #(te koppelen)
 - PR: #(te vullen)
 - Meetings:
-  - `architecture/meetings/nde_nvd_informatie_stromen_hoofdplaat_20260501/summary.md`
-  - `architecture/meetings/nde_nvd_informatie_stromen_hoofdplaat_20260501/transcript.md`
-  - `architecture/meetings/okx_nde_nvd_sks_examens_resultaat_structuren_20260428/summary.md` (examens, naamgevingsverwarring, LO vs specificatie)
+  - `architecture/meetings/20260501_nde_nvd_informatie_stromen_hoofdplaat/summary.md`
+  - `architecture/meetings/20260501_nde_nvd_informatie_stromen_hoofdplaat/transcript.md`
+  - `architecture/meetings/20260428_okx_nde_nvd_sks_examens_resultaat_structuren/summary.md` (examens, naamgevingsverwarring, LO vs specificatie)
 - ArchiMate model: `architecture/model/model.archimate` — **impact (conceptueel, geen modelwijziging in deze PR):** views/diagrammen rond **informatiemodel / hoofdplaat / MOKA-IM** moeten de **drie kolommen** (kader, specificatie, aanbod) en **LO-aggregatie** visueel en in elementnamen weerspiegelen; relaties naar **EducationSpecification**-achtige objecten en **aanbod**-objecten aligneren met ROSA/KOOI-termen; cycli vermijden conform DAG-principe. Zie werkafspraken [0010](0010-archimate-moka-informatiemodel-werkafspraken.md).
 - OKx docs: [`doc/OKx_Projectoverzicht.md`](../../doc/OKx_Projectoverzicht.md), [`doc/OKx_Informatiesstromen.md`](../../doc/OKx_Informatiesstromen.md), [`doc/OKx_Informatiestromen-ArchiMate-en-MOKA-view.md`](../../doc/OKx_Informatiestromen-ArchiMate-en-MOKA-view.md), [`architecture/docs/principes.md`](../docs/principes.md)
 - [specificatie-repository > architecture/agent-artifacts/project-requests](https://github.com/Npuls-OKx/specification/blob/main/meta/architecture/agent-artifacts/project-requests/20260414_1500_okx-oeapi-consumer-profiel/doc/20260501_Specificatie_document_OKx_OEAPI_profiel.md)

@@ -1,54 +1,35 @@
 > created: "2026-04-14T15:00:00+02:00"  
-> updated: "2026-05-01T14:40:00+02:00"  
+> updated: "2026-07-13T16:00:00+02:00"  
 > human_authors: "Niek Derksen (Architect OKx)"  
-> notes: "Human-in-the-loop: auteurs keuren inhoud goed vóór merge. Zevende iteratie — bijgewerkte referentie-interactiepatronen, aanvullingen op sequentiediagrammen Curriculum-ontwerp ↔ OC ↔ Planning, bredere negenvlaks-mapping van specificatie/aanbod/association, bijgewerkte resource- en CSP-input opgenomen."
+> notes: "Human-in-the-loop: auteurs keuren inhoud goed vóór merge. Achtste iteratie — herstructurering inleiding en §1–§3.5 rond deliverable-keten (meta/spec); leeswijzer naar bestaande hoofdstukken; §3.2.1+ ongewijzigd."
 
 # OKx OEAPI Consumer Profiel — Technische Specificatie en implementatieverzoek
 
+*Specificatiedocument · OEAPI-profiel businesslaag · meta-repo*
+
 ## Inleiding
 
-## 1. Profielbeschrijving
+Dit document is kaderstellend namens de **businesslaag** ten behoeve van het OKx OEAPI **profiel**. Het hoort bij de **kaderstelling** in de [meta-repository](https://github.com/Npuls-OKx/meta): samen met referentiekader en business architectuur vormt het de basis waarop de technische OpenAPI-specificatie in de [spec-repository](https://github.com/Npuls-OKx/specification) wordt gebouwd.
 
-### 1.1 Waarom OKx?
+**Voor wie.** Kernteam OKx, kerngroep techniek, architecten, leveranciers en professionals van instellingen die het uiteindelijke profiel willen beoordelen op ontwerp uitgangspunten, passendheid binnen individuele context, implementeren of adopteren.
 
-OKx is een afspraakstelsel om onderwijs op de lange termijn **flexibeler** te maken, zonder dat iedere instelling en leverancier opnieuw dezelfde vertaalslag hoeft te doen. De kern is dat studenten onderwijs op verschillende manieren moeten kunnen volgen en combineren, terwijl instellingen het onderwijs nog steeds **organiseerbaar** moeten houden.
 
-De Npuls-leerroutes (hoofdstuk 3) maken dit concreet. Ze beschrijven varianten zoals regulier, versneld (bijv. met vrijstellingen/EVC), personaliseren binnen de instelling, personaliseren over de instellingsgrens (binnen sector) en modulair studeren (vrije keuze, bundelen, stapelen). In alle varianten komt dezelfde vraag terug:
+## 1. Wat is OKx en wat wil het bereiken?
+
+### 1.1 Wat is OKx?
+
+OKx is een afspraakstelsel, leunend op een gegevensstandaard om onderwijs op de lange termijn **flexibeler** te maken, zonder dat iedere instelling en leverancier opnieuw dezelfde vertaalslag hoeft te doen. De kern is dat studenten onderwijs op verschillende manieren moeten kunnen volgen en combineren, terwijl instellingen het onderwijs nog steeds **organiseerbaar** moeten houden.
+
+De Npuls-leerroutes (zie [§3.5](#35-scenario-analyse--start) en [§3.2.1](#321-de-npuls-leerroutes)) maken dit concreet. Ze beschrijven varianten zoals regulier, versneld (bijv. met vrijstellingen/EVC), personaliseren binnen de instelling, personaliseren over de instellingsgrens (binnen sector) en modulair studeren (vrije keuze, bundelen, stapelen).
+
+### 1.2 Wat wil OKx bereiken?
+
+In alle leerroutes komt dezelfde ketenvraag terug:
 
 - Hoe vindt een student passend onderwijsaanbod?
 - Hoe maken we zichtbaar *wat* het onderwijs is én *hoe* het georganiseerd wordt (tijd, leervorm, ruimte, expertise, middelen)?
 - Hoe kunnen planning en roostering bepalen of het uitvoerbaar is (capaciteit, mensen en middelen)?
 - Hoe leggen we keuze/intekening/inschrijving en voortgang vast, zodat het herleidbaar en overdraagbaar blijft?
-
-### 1.2 Wat maken koppelvlakken mogelijk?
-
-Koppelvlakken maken het mogelijk dat systemen in de keten dezelfde kerninformatie **op dezelfde manier** uitwisselen. Daarmee kan een onderwijscatalogus aanbod vindbaar en vergelijkbaar maken, kan een planningssysteem haalbaarheid berekenen en capaciteit terugkoppelen, kan een roostersysteem het onderwijs in tijdsloten, en worden studenten o.b.v. inschrijvingen en keuzes geroosterd en aan de bijbehoordende cursussen in het leermanagement systeem gekoppeld. Zonder deze afspraken blijft flexibilisering beperkt tot losse pilots en lokale interpretaties. Hoe scholen en leveranciers daadwerklijk de te standaardiseren koppelvlakken inzetten wordt niet voorgeschreven. Vanuit OKx wordt geinventariseerd welke interactiepatronen en scenario's er mogelijk dienen te zijn en toetst de specificatie daaraan. Dit zal resulteren in een aantal kant en klare ketenscenario's die een school zonder intergratielaag samen met hun leveranciers kan implementeren. Welke functionaliteit leveranciers exact bieden binnen hun applicatie(s) en hoe scholen met een intergatielaag de koppelvlak-ontsluiting inzetten, neemt OKx enkel een adviserende rol.
-
-### 1.3 MBO eerst, uiteindelijk sector-overstijgend
-
-Dit profiel is in eerste instantie gericht op het **mbo**, omdat het direct aansluit op het werk van OKx in de mbo-keten en omdat de use-cases rond keuze, planning, roostering en modulair aanbod daar het meest urgent en concreet zijn. Tegelijk moet het profiel op termijn **sector-overstijgend** en **nationaal** kunnen werken, zodat onderwijsaanbod en leerresultaten uitwisselbaar worden over instellingen en (waar passend) over sectoren heen.
-
-OKx sluit aan op het lopende initiatief **Klus 53** (MBO-Digitaal): alignment van **MORA** en **HORA** als basis voor het informatiemodel in dit profiel (zie ook §3.3.1.2.5).
-
-### 1.4 Wat is dit profiel?
-
-Een OEAPI **consumer profiel** (`consumerKey: "okx"`) waarmee de **Onderwijscatalogus (OC)** — als centrale referentiecomponent — haar informatiestromen verrijkt met een **complete onderwijsspecificatie**. Niet alleen *wat* er geleerd wordt, maar ook *hoe*, *waarmee*, *door wie*, *waar* en *hoe lang* — op elk niveau van de hiërarchie.
-
-Dit profiel maakt maximaal gebruik van het **recursieve OEAPI-datamodel** en voegt een gestructureerd specificatie-object toe waar de kern onvoldoende is. Het resultaat is bruikbaar voor:
-
-- **Studenten** die top-down (nominaal programma) of bottom-up (zelf samenstellen) kiezen
-- **Planners** die moeten bepalen of de instelling een onderwijswens kan realiseren
-- **Onderwijs ontwerpers** die opleidingen en gerelateerde onderwijsprogramma's als curriculum pontwerpen en vragen om verdieping binnen de Onderwijs Catalogus
-- **Onderwijsontwikkelaars** die grofmazige onderwijsspecificaties binnnen een curriculum, specificeren tot planbare en uitvoerbare onderwijsspecificaties voor onderwijsprofessionals.
-- **Andere instellingen** die aanbod willen ontvangen en verwerken (interoperabiliteit)
-
-**OEAPI-broncode wordt niet aangepast.** Signaleringen leiden tot OEAPI change requests.
-
-## 2. Projectcontext, doelstellingen en aanpak
-
-Dit hoofdstuk beschrijft eerst **waarom** OKx dit profiel vraagt (doelstellingen), welke **implicaties** dat heeft, en welke **aanpak** we gebruiken om tot herbruikbare specificaties te komen. Pas daarna positioneren we de Onderwijscatalogus (OC) als ontwerpkeuze in de keten.
-
-### 2.1 Projectdoelstellingen OKx
 
 OKx werkt toe naar de volgende resultaten (bron: projectplan OKx v202506):
 
@@ -56,28 +37,119 @@ OKx werkt toe naar de volgende resultaten (bron: projectplan OKx v202506):
 2. Komen tot **functionele** en **technische gegevensuitwisseling** voor het mbo, hbo en wo die **studentmobiliteit** ondersteunen.
 3. Pilot studentmobiliteit starten bij mbo: **implementatie en realisatie van de digitale koppelingen**, eventueel met gebruik van bestaande SURF-diensten.
 
-### 2.2 Implicaties
+### 1.3 Scope
 
-Deze doelstellingen brengen twee implicaties met zich mee:
+Dit profiel is in eerste instantie gericht op het **mbo**, omdat het direct aansluit op het werk van OKx in de mbo-keten en omdat de use-cases rond keuze, planning, roostering en modulair aanbod daar het meest urgent en concreet zijn. Tegelijk moet het profiel op termijn **sector-overstijgend** en **nationaal** kunnen werken, zodat onderwijsaanbod en leerresultaten uitwisselbaar worden over instellingen en (waar passend) over sectoren heen.
 
-1. **Werken onder architectuur**: we sluiten aan op (sectorale en nationale) architectuurkaders, zodat afspraken herbruikbaar en uitlegbaar blijven.
-2. **Werken met en streven naar sectorstandaarden**: we gebruiken waar mogelijk bestaande standaarden en brengen gaps terug als change requests (in plaats van lokale varianten te “verharden”).
+OKx sluit aan op het lopende initiatief **Klus 53** (MBO-Digitaal): alignment van **MORA** en **HORA** als basis voor het informatiemodel in dit profiel (zie ook §3.3.1.2.5).
 
-Onderstaande schets maakt dit visueel: ROSA als knooppunt van architectuurkennis, met sectorale referentiearchitecturen (waaronder MORA voor het mbo).
+### 1.4 Koppelvlakken als doel én als middel
 
-![De ROSA als knooppunt van architectuurkennis](../img/rosa-knooppunt.png)
+Koppelvlakken maken het mogelijk dat systemen in de keten dezelfde kerninformatie **op dezelfde manier** uitwisselen. Daarmee kan een onderwijscatalogus aanbod vindbaar en vergelijkbaar maken, kan een planningssysteem haalbaarheid berekenen en capaciteit terugkoppelen, kan een roostersysteem het onderwijs in tijdsloten, en worden studenten o.b.v. inschrijvingen en keuzes geroosterd en aan de bijbehorende cursussen in het leermanagement systeem gekoppeld.
 
-### 2.3 Projectaanpak (AMIGO)
+Zonder deze afspraken blijft flexibilisering beperkt tot losse pilots en lokale interpretaties. Vanuit OKx wordt geïnventariseerd welke interactiepatronen en scenario's er mogelijk dienen te zijn; de specificatie toetst daaraan. Dit kan resulteren in ketenscenario's die een school samen met leveranciers kan implementeren. **Hoe** scholen en leveranciers koppelvlakken inzetten (met of zonder integratielaag) wordt niet voorgeschreven. OKx neemt daarin een **adviserende** rol. De route van kader naar implementatie loopt via de [projectdeliverables](#2-hoe-okx-dat-bereikt-projectdeliverables) in §2.
 
-Om tot bouwbare specificaties te komen hanteren we de AMIGO-aanpak, zoals beschreven door Edustandaard. Zie [AMIGO aanpak](https://www.edustandaard.nl/amigo/aanpak/).
+## 2. Hoe OKx dat bereikt: projectdeliverables
 
-AMIGO leidt stapsgewijs tot een **afsprakenset** (bouwbare uitwisselspecificatie), door scenario’s te verhelderen en die te vertalen naar gegevens, interacties en uiteindelijk bericht- en interfacespecificaties. De stappen worden soms iteratief doorlopen: keuzes in bericht of interface kunnen aanleiding zijn om scenario, gegevens of interacties aan te scherpen.
+### 2.1 Deliverable-keten
+
+OKx levert een samenhangende keten van **projectdeliverables** — van kaderstelling tot borging in de sector. Het volgende diagram geeft deze deliverables en de volgordelijkheid hiervan weer:
+
+**Leeswijzer.** De [deliverable-keten en versionering](../../../../../../doc/
+OKx_Release-management-en-versionering.md#1-doel-en-scope) staan in het release-document; 
+[ketenplaat, BOPSI en projectfase](../../../../../../doc/OKx_Projectoverzicht.md) in het 
+projectoverzicht.
+
+Het diagram leest **van boven naar beneden**: **meta** (kaderstelling) bovenaan, **spec**, adoptie 
+en borging onderaan. Onder het diagram: terugkoppeling van **wijzigingsverzoeken**.
+
+```mermaid
+flowchart TB
+  subgraph okx [OKx — projectdeliverables]
+    direction TB
+
+    subgraph metaRepo ["meta repo — kaderstelling"]
+      direction TB
+      subgraph refKader [Referentiekader / business architectuur]
+        direction TB
+        k1["Begrippenkader"] --> k2["Sectorarchitecturen"]
+        k2["sectorachitecturen"] --> k7["OKx principes en uitgangspunten"]
+        k7 --> k3["Procesbeeld a.d.h.v. Scenario's · persona's"]
+        k3 --> k4["Informatiemodellen"]
+        k4 --> k5["Informatiestromen"]
+        k5 --> k6["Interactieanalyse"]
+      end
+      subgraph refSpec [Specificatiedocument · OEAPI profiel businesslaag]
+        direction TB
+        s1["Endpointbeschrijvingen"] --> s2["Interactiepatronen"]
+        s2 --> s3["Sequentiediagrammen"]
+        s3 --> s4["Datamodel"]
+        s4 --> s5["Security"]
+      end
+      k6 --> s1
+    end
+
+    subgraph uitrol ["spec repo · adoptie · borging"]
+      direction TB
+      openapi["OEAPI OpenAPI"] --> pilot["Instelling acceptatie-pilots"]
+      pilot --> bopsi["Adoptie BOPSI"]
+      bopsi --> borging["Borging"]
+    end
+
+    s5 --> openapi
+  end
+
+  subgraph terug ["↩ Wijzigingsverzoeken naar kaderstelling"]
+    direction LR
+    tr_openapi["OEAPI OpenAPI"] -.-> tr_meta["Kaderstelling · meta repo"]
+    tr_pilot["Acceptatie-pilots"] -.-> tr_meta
+    tr_bopsi["Adoptie BOPSI"] -.-> tr_meta
+    tr_borging["Borging"] -.-> tr_meta
+  end
+
+  okx ~~~ terug
+
+  classDef metaFill fill:#e8eef9,stroke:#1e40af,stroke-width:2px,color:#0f172a
+  classDef specFill fill:#e8f5ef,stroke:#047857,stroke-width:2px,color:#0f172a
+  class k1,k2,k3,k4,k5,k6,k7,s1,s2,s3,s4,s5,tr_meta metaFill
+  class openapi specFill
+```
+
+*Nummering vanaf §3.2.1 (scenario-uitwerkingen) volgt nog een oudere indeling en wordt in een 
+volgende pass opgeschoond.*
+
+| Stap | Deliverable | Korte omschrijving |
+|------|-------------|-------------------|
+| 1 | **Referentiekader / business architectuur** | Begrippenkader, sectorarchitecturen, procesbeeld (scenario's, persona's), informatiemodellen, informatiestromen, interactieanalyse |
+| 2 | **Specificatiedocument** (dit document) | Data-uitwisselingstandaard op businesslaag: endpoints, interactiepatronen, sequentiediagrammen, datamodel, security |
+| 3 | **OEAPI OpenAPI** (spec-repo) | Technische implementatie — bouwbaar en testbaar koppelvlak |
+| 4 | **Instelling acceptatie-pilots** | Instellingen en leveranciers toetsen de standaard in de praktijk |
+| 5 | **Adoptie via BOPSI** | Business architectuur en datamodel mappen; koppelingen met instellingssystemen activeren |
+| 6 | **Borging** | Overdracht naar lijnorganisaties na afloop Npuls |
+
+### 2.2 Repositories meta en spec
+
+| Repository | Scope | Rol |
+|------------|-------|-----|
+| [**meta**](https://github.com/Npuls-OKx/meta) | **Kaderstelling** t/m **specificatiedocument** (businesslaag) | *Wat* de standaard betekent en *hoe* uitwisseling conceptueel is afgesproken |
+| [**spec**](https://github.com/Npuls-OKx/specification) | **OEAPI OpenAPI** | Technische implementatie van het profiel |
+
+Versiebeheer en releases: [OKx Release management en versionering](../../../../../doc/OKx_Release-management-en-versionering.md).
+
+### 2.3 Terugkoppeling
+
+Vanaf **OEAPI OpenAPI**, **instelling acceptatie-pilots**, **adoptie via BOPSI** en **borging** kunnen **wijzigingsverzoeken** terug naar **kaderstelling** in meta (zie diagram onder de inleiding). Daar worden ze verwerkt in nieuwe meta-/spec-releases. De eerste reviewbare kaderrelease (`v0.1.0`) wordt ter beoordeling aan de **kerngroep techniek** voorgelegd voordat de spec-implementatie start.
+
+### 2.4 Werkwijze: AMIGO
+
+Om van kaderstelling naar een bouwbare afsprakenset te komen hanteren we de **AMIGO-aanpak**, zoals beschreven door Edustandaard. Zie [AMIGO aanpak](https://www.edustandaard.nl/amigo/aanpak/).
+
+AMIGO leidt stapsgewijs tot een **afsprakenset** (bouwbare uitwisselspecificatie), door scenario's te verhelderen en die te vertalen naar gegevens, interacties en uiteindelijk bericht- en interfacespecificaties. De stappen worden soms iteratief doorlopen: keuzes in bericht of interface kunnen aanleiding zijn om scenario, gegevens of interacties aan te scherpen. De referentiekader-deliverables (§2.1 stap 1) voeden de scenario- en analysefase; dit specificatiedocument (stap 2) en de OpenAPI-spec (stap 3) zijn het resultaat op business- respectievelijk technische laag.
 
 ```mermaid
 flowchart TD
-  scenarioAnalyse[Scenario-analyse] --> analyses[Analyse]
-  analyses --> gegevensAnalyse[Gegevensanalyse]
-  analyses --> interactieAnalyse[Interactie-analyse]
+  scenarioAnalyse[Scenario-analyse] --> gegevensAnalyse[Gegevensanalyse]
+  scenarioAnalyse[Scenario-analyse] --> interactieAnalyse[Interactie-analyse]
   gegevensAnalyse --> technologieKeuze[Technologiekeuze]
   interactieAnalyse --> technologieKeuze
   technologieKeuze --> berichtSpecificatie[Berichtspecificatie]
@@ -86,23 +158,68 @@ flowchart TD
   interfaceSpecificatie --> afsprakenSet
 ```
 
-**Brug naar scenario-analyse:** de volgende stap in dit document is de scenario-analyse. In hoofdstuk 3 starten we daarom bij de leerroutes van Npuls (zie [Leerroutes wendbaar georganiseerd onderwijs](https://npuls.nl/kennisbank/leerroutes-wendbaar-georganiseerd-onderwijs)). Het overzicht staat hieronder als bijlage bij de scenario’s.
+### 2.5 Werken onder architectuur
 
-## 3. Kaderstellende specificatie
+De projectdoelstellingen (§1.2) brengen twee implicaties met zich mee:
 
-### 3.1 Npuls programma context
+1. **Werken onder architectuur**: we sluiten aan op (sectorale en nationale) architectuurkaders, zodat afspraken herbruikbaar en uitlegbaar blijven.
+2. **Werken met en streven naar sectorstandaarden**: we gebruiken waar mogelijk bestaande standaarden en brengen gaps terug als change requests (in plaats van lokale varianten te "verharden").
+
+Dit sluit aan op de deliverable **sectorarchitecturen** (MOSA, HOSA, ROSA, MORA, HORA). Onderstaande schets toont ROSA als knooppunt van architectuurkennis, met sectorale referentiearchitecturen (waaronder MORA voor het mbo).
+
+![De ROSA als knooppunt van architectuurkennis](../img/rosa-knooppunt.png)
+
+## 3. Dit document in de keten
+
+### 3.1 Wat is dit document?
+
+Een OEAPI **consumer profiel** (`consumerKey: "okx"`) waarmee de **Onderwijscatalogus (OC)** — als centrale referentiecomponent — haar informatiestromen verrijkt met een **complete onderwijsspecificatie**. Niet alleen *wat* er geleerd wordt, maar ook *hoe*, *waarmee*, *door wie*, *waar* en *hoe lang* — op elk niveau van de hiërarchie.
+
+Dit profiel maakt maximaal gebruik van het **recursieve OEAPI-datamodel** en voegt een gestructureerd specificatie-object toe waar de kern onvoldoende is. Het resultaat is bruikbaar voor:
+
+- **Studenten** die top-down (nominaal programma) of bottom-up (zelf samenstellen) kiezen
+- **Planners** die moeten bepalen of de instelling een onderwijswens kan realiseren
+- **Onderwijs ontwerpers** die opleidingen en gerelateerde onderwijsprogramma's als curriculum ontwerpen en verdieping vragen binnen de Onderwijscatalogus
+- **Onderwijsontwikkelaars** die grofmazige onderwijsspecificaties binnen een curriculum specificeren tot planbare en uitvoerbare onderwijsspecificaties voor onderwijsprofessionals
+- **Andere instellingen** die aanbod willen ontvangen en verwerken (interoperabiliteit)
+
+### 3.2 Wat levert dit document op?
+
+Onderstaande tabel koppelt deliverables uit de keten (§2) aan **bestaande hoofdstukken** in dit document. Hoofdstukken zijn nog niet hernummerd; de verwijzingen wijzen naar de actuele §-nummers.
+
+| Deliverable | Waar in dit document |
+|-------------|----------------------|
+| Begrippenkader | §3.2 Begrippenkader (verderop), ankertabel in scenario's |
+| Sectorarchitecturen | §2.5, §3.4, MORA/HORA in §3.3.1.2.5 |
+| Procesbeeld · scenario's · persona's | §3.5, §3.2.1+, §3.4 scenario-uitwerkingen |
+| Informatiemodellen | §12, conceptmodellen in §3.4 |
+| Informatiestromen | §4, §8, [hoofdplaat](../../../../../doc/OKx_Projectoverzicht.md) |
+| Interactieanalyse | §3.5 Gegevensanalyse, §15 |
+| Endpointbeschrijvingen | §5–§6 |
+| Interactiepatronen | §15 |
+| Sequentiediagrammen | §16–§17 |
+| Datamodel | §5–§6, §12 |
+| Security | §10 Ontwerpkeuzes (uitwerking security volgt) |
+| OEAPI OpenAPI (spec-repo) | *Buiten dit document* — [Npuls-OKx/specification](https://github.com/Npuls-OKx/specification) |
+| Pilots · BOPSI · borging | [Projectoverzicht](../../../../../doc/OKx_Projectoverzicht.md), [release-doc §1](../../../../../doc/OKx_Release-management-en-versionering.md#1-doel-en-scope) |
+
+### 3.3 OEAPI-broncode en signaleringen
+
+**OEAPI-broncode wordt niet aangepast.** Signaleringen uit dit profiel leiden tot OEAPI change requests (zie §9).
+
+### 3.4 Npuls-programmacontext
 
 ![Een wendbaar georganiseerd onderwijssysteem (tekening)](../img/npuls-wendbaar-context-tekening.jpg)
 
 We kennen nu al de gangbare groene route. Hiermee kun je als student van het mbo naar het hbo, en van het hbo naar het wo bewegen, of direct vanuit het mbo, hbo of wo naar het werkveld.
 
-Maar naast de bestaande groene route maken we in het vervolgonderwijs meer mogelijk: leerroutes die dwars door het mbo, hbo en wo gaan. We willen leerroutes mogelijk maken die dwars door het mbo, hbo en wo gaan, waarbij de lerende — zowel de initiële student als de leven lang lerende — regie heeft op haar eigen leerroute.
+Maar naast de bestaande groene route maken we in het vervolgonderwijs meer mogelijk: leerroutes die dwars door het mbo, hbo en wo gaan, waarbij de lerende — zowel de initiële student als de leven lang lerende — regie heeft op haar eigen leerroute.
 
-Die leerroutes zijn divers en kwalitatief van aard, waarbij de lerende een drempelvrij traject heeft. Dat kan op eigen tempo, gepersonaliseerd (binnen de instelling, buiten de instelling of over de sectoren heen) en modulair - een leven lang.
+Die leerroutes zijn divers en kwalitatief van aard, waarbij de lerende een drempelvrij traject heeft. Dat kan op eigen tempo, gepersonaliseerd (binnen de instelling, buiten de instelling of over de sectoren heen) en modulair — een leven lang.
 
-### 3.2 Scenario-analyse — kaderstellende scenario's per leerroute
+### 3.5 Scenario-analyse — start
 
-In deze paragraaf werken we de 9 leerroutes uit als **kaderstellende scenario’s**: ze vormen de basis voor de concrete scenario’s en procesbeschrijvingen die we later verder detailleren.
+In deze paragraaf werken we de 9 leerroutes uit als **kaderstellende scenario's**: ze vormen de basis voor de concrete scenario's en procesbeschrijvingen die we later verder detailleren. Dit is de deliverable **procesbeeld a.d.h.v. scenario's en persona's** uit de keten (§2.1).
 
 Npuls beschrijft de leerroutes primair vanuit het (eerste) studentenperspectief. Voor implementatie binnen het onderwijskundige en onderwijslogistieke domein is dat niet voldoende: om een leerroute te realiseren zijn ook onderwijskundige beschrijvingen, toetsing en onderwijslogistiek nodig. Daarom koppelen we per leerroute expliciet:
 
@@ -110,7 +227,7 @@ Npuls beschrijft de leerroutes primair vanuit het (eerste) studentenperspectief.
 - **Hoe** het wordt aangeleerd: (leervorm, begeleiding, studielast i.d.v. Studie Belastingsuren (SBU) Begeleidde onderwijstijd (BOT), Onbegeleidde onderwijstijd (OOT) en Flexibele uren, onderwijsspecificaties op werkproces- en lesniveau)
 - **Hoe** toetsing en bewijsvoering werken (toets-/examenvorm en scope)
 
-Deze zaken referen aan **Onderwijsspecificatie**.
+Deze zaken refereren aan **Onderwijsspecificatie**.
 
 - **Hoe** de onderwijsspecificatie organiseerbaar is (planning/roostering binnen beperkte tijd en **mensen en middelen**)
 
@@ -119,6 +236,10 @@ Dit concept refereert aan **Onderwijsaanbod**.
 - **Hoe** het geplande aanbod door studenten en instellingsmedewerkers daadwerkelijk gevolgd, beoordeeld en geadministreerd wordt.
 
 Dit concept refereert aan **Onderwijsaanbod verbintenis**.
+
+De uitwerking per leerroute volgt in [§3.2.1](#321-de-npuls-leerroutes) en verderop in dit hoofdstuk.
+
+## Kaderstellende specificatie (vervolg)
 
 ### 3.2.1 De Npuls Leerroutes
 
@@ -379,7 +500,7 @@ Zoals de [MORA - de referentiearchitectuur voor het mbo](https://mora.mbodigitaa
 *Figuur - Hoofdprocesmodel MORA 2.6 - 12-05-26*
 ![MORA Hoofdprocesmodel](../img/MORA_hoofdprocesmodel_12_05_26.png)
 
-Hier sluit **§2.2 implicatie 1 - werken onder architectuur** direct op aan. Door aan te sluiten op MORA beschrijven we deze keten niet als een lokale werkwijze van één school of team, maar als een herbruikbaar en uitlegbaar architectuurkader voor het mbo. Dat helpt om duidelijk te maken **welke processen, rollen, informatieobjecten en applicaties samenhangen**, en voorkomt dat OKx een eigen parallelle werkelijkheid beschrijft naast de sectorarchitectuur. Voor deze specificatie is MORA daarmee het referentiekader om uit te leggen wat een instelling organisatorisch en procesmatig moet doen voordat "regulier studeren" voor een student überhaupt mogelijk wordt.
+Hier sluit **§2.5 implicatie 1 - werken onder architectuur** direct op aan. Door aan te sluiten op MORA beschrijven we deze keten niet als een lokale werkwijze van één school of team, maar als een herbruikbaar en uitlegbaar architectuurkader voor het mbo. Dat helpt om duidelijk te maken **welke processen, rollen, informatieobjecten en applicaties samenhangen**, en voorkomt dat OKx een eigen parallelle werkelijkheid beschrijft naast de sectorarchitectuur. Voor deze specificatie is MORA daarmee het referentiekader om uit te leggen wat een instelling organisatorisch en procesmatig moet doen voordat "regulier studeren" voor een student überhaupt mogelijk wordt.
 
 **Welke processen moet een onderwijsinstelling faciliteren om 'regulier' studeren te realiseren?**
 Procesketen 3, Onderwijsuitvoering en begeleiding:
@@ -913,7 +1034,7 @@ Onderstaande tabel vult het vlakkenmodel hierboven aan met **doel**, **conceptue
 
 ##### Applicatiecomponenten op de plaat — doelen, gegevens en interacties
 
-**Doel.** Dit blok start de **gegevensanalyse** en de **interactieanalyse** voor *Leerroute 1 — regulier, geen inhoudelijke keuze* op kaderniveau. We benoemen welke **applicatiecomponenten** op de informatiestromenplaat hierboven voorkomen, **wat zij doen** in deze keten, welke **anti-patronen / tegengestelde doelen** vermeden moeten worden, en welke **informatie** rond hen leeft. De taal is bewust **conceptueel** (geen API- of berichtdetail): we gebruiken het begrippenkader uit §3.2 — *kwalificatiekader*, *onderwijsspecificatie*, *onderwijsaanbod* (planbaar en geroosterd), *onderwijsverbintenis*, *onderwijsresultaat*. De koppeling naar OEAPI-objecten op de uitwisselrelaties wordt **niet** hier gelegd; daarvoor is de ArchiMate-informatiestromenplaat (zie §12.2 e.v.) en de berichtspecificatie-stap van AMIGO (§2.3) bedoeld.
+**Doel.** Dit blok start de **gegevensanalyse** en de **interactieanalyse** voor *Leerroute 1 — regulier, geen inhoudelijke keuze* op kaderniveau. We benoemen welke **applicatiecomponenten** op de informatiestromenplaat hierboven voorkomen, **wat zij doen** in deze keten, welke **anti-patronen / tegengestelde doelen** vermeden moeten worden, en welke **informatie** rond hen leeft. De taal is bewust **conceptueel** (geen API- of berichtdetail): we gebruiken het begrippenkader uit §3.2 — *kwalificatiekader*, *onderwijsspecificatie*, *onderwijsaanbod* (planbaar en geroosterd), *onderwijsverbintenis*, *onderwijsresultaat*. De koppeling naar OEAPI-objecten op de uitwisselrelaties wordt **niet** hier gelegd; daarvoor is de ArchiMate-informatiestromenplaat (zie §12.2 e.v.) en de berichtspecificatie-stap van AMIGO (§2.4) bedoeld.
 
 **Leeswijzer op de plaat.** De plaat (`OKx_LR1_informatiestromen_v20260526.jpg`) kent **twee delen**: *Onderwijsontwikkeling* (inrichting van nominaal- en keuze-aanbod) en *Onderwijsuitvoering* (student studeert en maakt keuzes). De **OKE**-positionering (oranje stippellijn) markeert waar resultaten vanuit uitvoeringssystemen richting het volgsysteem **bemiddeld** kunnen worden; de plaat schrijft dat niet hard voor — instellingen kunnen die positionering anders kiezen.
 
@@ -988,7 +1109,7 @@ Doel hier is dat de **semantische consistentie** uit §3.2 ook bij implementatie
 
 Bij **fase 5, 6 en 7** is dit verhaal niet af zonder de **variaties** *incidenteel temporiseren*, *incidenteel versnellen* en *hybride*: dezelfde reguliere leerroute, andere voortgang. Die zetten we daar expliciet bij Jochem.
 
-> **Leesregel op de plaat.** De **linkerhelft** is *Onderwijsontwikkeling* (fasen 1–2: het nominale aanbod ontstaat). De **rechterhelft** is *Onderwijsuitvoering* (fasen 3–8: de student studeert, leert en maakt keuzes). De **OKE**-stippellijn (oranje) markeert waar uitvoeringsfeiten richting het volgsysteem worden bemiddeld. Fasen 1–5 lopen lineair; **fase 6** (keuzemomenten) en **fase 7** (bijsturen) zijn cyclische lussen die het strategische jaarplan en het rooster opnieuw raken. Dit hoofdstuk vormt de **leg-up** voor de berichtspecificatie- en interfacespecificatie-stappen van AMIGO (§2.3); koppelvlakdetails (trigger, idempotentie, formaat) staan hier bewust nog niet in.
+> **Leesregel op de plaat.** De **linkerhelft** is *Onderwijsontwikkeling* (fasen 1–2: het nominale aanbod ontstaat). De **rechterhelft** is *Onderwijsuitvoering* (fasen 3–8: de student studeert, leert en maakt keuzes). De **OKE**-stippellijn (oranje) markeert waar uitvoeringsfeiten richting het volgsysteem worden bemiddeld. Fasen 1–5 lopen lineair; **fase 6** (keuzemomenten) en **fase 7** (bijsturen) zijn cyclische lussen die het strategische jaarplan en het rooster opnieuw raken. Dit hoofdstuk vormt de **leg-up** voor de berichtspecificatie- en interfacespecificatie-stappen van AMIGO (§2.4); koppelvlakdetails (trigger, idempotentie, formaat) staan hier bewust nog niet in.
 
 ###### Fase 1 — Kwalificatiekader analyseren en grofmazig ontwerpen
 
@@ -1084,7 +1205,112 @@ In alle drie blijft de **leerroute regulier**; deze signalen uit fase 5 voeden d
 
 **Wat licht op in de plaat.** **Toets-/examenplanning ↔ Toets-/examenafname**; **Toets-/examenafname → SVS** (`examengelegenheid-verbintenis resultaten`); **SVS ↔ KRS** (kwalificering en diplomering).
 
-**Aansluiting op de informatiestromenplaat.** De [Informatiestromenplaat](../img/OKx_LR1_informatiestromen_v20260526.jpg) hierboven toont **dezelfde stromen** in begrippen uit het begrippenkader en informatiemodel; in latere AMIGO-stappen worden die vertaald naar **OEAPI-termen** op de flow-relaties (zoals `Programme specification`, `ProgrammeOffering`, `Association`). Hier blijft het bij wat er **conceptueel** beweegt; in berichtspecificatie en interfacespecificatie (§12.2, §2.3) staat hoe dat in uitwisseling wordt gevangen.
+**Aansluiting op de informatiestromenplaat.** De [Informatiestromenplaat](../img/OKx_LR1_informatiestromen_v20260526.jpg) hierboven toont **dezelfde stromen** in begrippen uit het begrippenkader en informatiemodel; in latere AMIGO-stappen worden die vertaald naar **OEAPI-termen** op de flow-relaties (zoals `Programme specification`, `ProgrammeOffering`, `Association`). Hier blijft het bij wat er **conceptueel** beweegt; in berichtspecificatie en interfacespecificatie (§12.2, §2.4) staat hoe dat in uitwisseling wordt gevangen.
+
+##### Concept informatiemodel — geneste onderwijsspecificatie (Jochem, Apothekersassistent)
+
+Om de begrippen uit het [begrippenkader (§3.2)](#32-begrippenkader--hoe-beschrijven-we-flexibel-onderwijs) en de **ankertabel** (§3.2.6) tastbaar te maken, werken we hieronder de **onderwijsspecificatie** voor Jochems opleiding *Apothekersassistent* (Crebo-dossier 23450, kwalificatie 27141) volledig genest uit — als ASCII-boom. De uitwerking is **gefaseerd** volgens de instellingsjourney: eerst het **grofmazige ontwerp** (fase 1) dat **publiceerbaar en planbaar** wordt gemaakt (fase 2), daarna de **detaillering** tot lessenreeks- en lesniveau (fase 4). Attribuutnamen zijn **Nederlandse concept-labels** (bv. `kwalificatieverwijzing`, `tijdsverdeling`, `spreidingspatroon`), afgeleid van de specificatie-catalogus (§12.5) die de Engelse, OEAPI-nabije namen geeft; leeruitkomsten, studielast en overige waarden zijn **indicatief** en **concept** (nog geen OEAPI-payload).
+
+**Fase 1–2 — grofmazig onderwijsontwerp: publiceerbaar en planbaar.** De **onderwijsontwerper** vertaalt het kwalificatiedossier naar één **opleidingsspecificatie** met daaronder meerdere **opleidingsprogramma-specificaties** (leerwegen), per programma geneste **onderwijseenheden** (blokken die corresponderen met kerntaken) en daaronder **leeronderdelen** (die corresponderen met werkprocessen). Op leeronderdeel-niveau staan de organiseerbaarheids-waarden (BOT/OOT, BPV, ruimtetype, expertiseprofiel). Aan het einde van fase 2 zijn deze specificaties **gepubliceerd** in de OC en door planning voorzien van periode + capaciteit (**planbaar aanbod**, stadium 2a, §3.2.3) — nog zónder concrete lokalen/docenten.
+
+```text
+OPLEIDINGSSPECIFICATIE                         (rij: Kwalificatiedossier | OEAPI: Programme[root])
+= Apothekersassistent  -  Crebo-dossier 23450
+  kwalificatieverwijzing: {schema: SBB, dossier: 23450, kwalificatie: 27141}
+  curriculumtype: nominaal | status: definitief | versie: 2026.1
+  waardedocument: {type: diploma, register: DUO}
+  studielast: ~4800 SBU (indicatief; mbo-4, 3 jaar)
+|
++-- OPLEIDINGSPROGRAMMA-SPECIFICATIE           (rij: Kwalificatie | OEAPI: Programme[track])
+|   = BOL - voltijd  (diplomaprogramma)
+|     leerroutetype: regulier | curriculumtype: nominaal
+|     dektLeeruitkomsten: LO-sets van B1-K1..B1-K3
+|     studielast: 4800 SBU | tijdmodel: 4 perioden/jaar
+|   |
+|   +-- ONDERWIJSEENHEID-SPECIFICATIE          (rij: Kerntaak | OEAPI: Course)
+|   |   = Blok B1-K1  "Biedt farmaceutische patientenzorg"
+|   |     dektLeeruitkomsten: LO-sets van W1..W4
+|   |     leervorm: mix | tijdsverdeling: BOT 320 / OOT 300 SBU (indicatief)
+|   |     ruimtetype: skillslab + balie-simulatie
+|   |     expertiseprofielen: [docent farmacie, apothekersassistent-BPV]
+|   |   |
+|   |   +-- LEERONDERDEEL-SPECIFICATIE         (rij: Werkproces | OEAPI: LearningComponent[learning_activity])
+|   |   |   = B1-K1-W1  "Neemt de zorg-/adviesvraag in behandeling"
+|   |   |     leervorm: simulatie + werkplekleren (BPV)
+|   |   |     tijdsverdeling: BOT 60 / OOT 40 SBU  |  BPV: 80 SBU
+|   |   |     ruimtetype: balie-simulatie | expertiseprofielen: [apothekersassistent-docent]
+|   |   |     leermiddelengroepen: [EPD-simulator, rollenspelcasus, triageprotocol]
+|   |   |
+|   |   +-- LEERONDERDEEL-SPECIFICATIE = B1-K1-W2 "Voert medicatiebewaking uit"
+|   |   |     leervorm: theorie + simulatie | tijdsverdeling: BOT 50 / OOT 50 SBU
+|   |   +-- LEERONDERDEEL-SPECIFICATIE = B1-K1-W3 "Verstrekt (zelfzorg)medicijnen/hulpmiddelen"
+|   |   +-- LEERONDERDEEL-SPECIFICATIE = B1-K1-W4 "Geeft informatie en advies (leefstijl)"
+|   |
+|   +-- ONDERWIJSEENHEID-SPECIFICATIE = Blok B1-K2 "Voert logistieke taken uit"           (W1..W2)
+|   +-- ONDERWIJSEENHEID-SPECIFICATIE = Blok B1-K3 "Werkt mee aan kwaliteit/deskundigheid" (W1..W3)
+|   +-- ONDERWIJSEENHEID-SPECIFICATIE = Generieke onderdelen (NL, rekenen, Engels(niv.4), LB&B)
+|   `-- keuzeruimte: 720 SBU (mbo-4) -> ingevuld vanuit het programma "Keuzedelen" (zie onder)
+|
++-- OPLEIDINGSPROGRAMMA-SPECIFICATIE = BBL - werkend leren  (diplomaprogramma)
+|     leerroutetype: regulier | zelfde kerntaak-structuur
+|     accent: meer werkplekleren (BPV), minder BOT
+|
++-- OPLEIDINGSPROGRAMMA-SPECIFICATIE = Havisten-route (verkort)  (diplomaprogramma)
+|     leerroutetype: regulier | zelfde kerntaak-structuur
+|     accent: ingekorte doorlooptijd / vrijstellingen generiek deel
+|
++-- OPLEIDINGSPROGRAMMA-SPECIFICATIE = Keuzedelen   (zelfstandig programma | OEAPI: Programme)
+      programmatype: keuzedeel-verzameling
+      koppeling: N:M-gekoppeld aan de diplomaprogramma's (BOL/BBL/Havisten), zie §17.3
+      keuzeruimte: 720 SBU (mbo-4) | keuzeBeschikbaar: ja
+      |
+      +-- ONDERWIJSEENHEID-SPECIFICATIE = Keuzedeel "Voorbereiding hbo"           (indicatief)
+      |     dektLeeruitkomsten: keuzedeel-LO-set | studielast: 240 SBU
+      +-- ONDERWIJSEENHEID-SPECIFICATIE = Keuzedeel "Ondernemerschap in de zorg"  (indicatief)
+      +-- ONDERWIJSEENHEID-SPECIFICATIE = Keuzedeel "Verdieping medicatiebewaking" (indicatief)
+```
+
+> **Keuzedelen als zelfstandig programma.** Keuzedelen worden hier **niet** als onderwijseenheid binnen een diplomaprogramma gemodelleerd, maar als een **eigen `opleidingsprogramma-specificatie`** met daaronder de losse keuzedelen als `onderwijseenheid-specificaties`. Dat programma is **N:M-gekoppeld** aan de diplomaprogramma's: één keuzedeel is herbruikbaar over BOL/BBL/Havisten (en potentieel over opleidingen/instellingen heen). Dit is dezelfde lijn als §17.3 (*keuzedeel als zelfstandig Programme*); wil je nóg fijnmaziger, dan kan elk keuzedeel een eigen programma zijn.
+
+> **Aggregatie-invariant.** De studielast telt **bottom-up** op: `SOM(leeronderdelen) = onderwijseenheid` en `SOM(onderwijseenheden) = programma` (§5.3). De diplomaprogramma's (BOL/BBL/Havisten) delen dezelfde kerntaak-/werkprocesstructuur; alleen leerweg-afhankelijke waarden (BOT vs BPV, doorlooptijd) verschillen. In **fase 2** krijgt elke onderwijseenheid bovendien `spreidingspatroon` + capaciteit voor planbaar aanbod — de resources blijven **profielen** (`ruimtetype`, `expertiseprofielen`), nog geen instanties.
+
+**Fase 4 — detaillering: lessenreeksen en lessen.** De **onderwijsontwikkelaar** werkt de grofmazige leeronderdelen fijnmazig uit tot **lessenreeksen** en **lessen**, met **lesplannen**, **werkinstructies** (leertaken), **leermaterialen** en **lesdoelen** (lesuitkomsten). Hieronder ingezoomd op één werkproces (`B1-K1-W1`); de overige werkprocessen volgen hetzelfde patroon (indicatief ingekort).
+
+```text
+LEERONDERDEEL-SPECIFICATIE = B1-K1-W1 "Neemt de zorg-/adviesvraag in behandeling"
+  (OEAPI: LearningComponent[learning_activity])
+|
++-- LESSENREEKS = "Baliegesprek & triage"      (geneste LearningComponent[learning_activity])
+|   dektLeeruitkomsten: "Voert professioneel baliegesprek en triage"
+|   spreidingspatroon: 6 weken x 1 dagdeel (indicatief)
+|   |
+|   +-- LESSPECIFICATIE = Les 1 "Introductie WHAM-vragen & triage"
+|   |     (rij: Lesdoel/Lesuitkomst | OEAPI: LearningComponent[lesson_assignment])
+|   |     dektLesuitkomsten: "Past WHAM-vragen correct toe in intakegesprek"
+|   |     leervorm: werkcollege | tijdsverdeling: BOT 2u / OOT 2u
+|   |     |
+|   |     +-- lesplanverwijzing -> LESPLAN (hulpspecificatie, §12.5.7)
+|   |     |                         fasen: intro / instructie / oefening / reflectie
+|   |     |                         formatieveControles: quiz WHAM-vragen
+|   |     +-- leertaken ---------> LEERTAAK-SPECIFICATIE (werkinstructie, §12.5.8)
+|   |     |                         taakomschrijving: rollenspel baliegesprek (in tweetal)
+|   |     |                         opleverproducten: ingevuld triageformulier
+|   |     |                         acceptatiecriteria: alle WHAM-velden + gekozen vervolgstap
+|   |     +-- leermaterialen ----> LESMATERIAALSPECIFICATIES (§12.5.9)
+|   |                               [rollenspelcasus-kaarten, EPD-simulator, triageprotocol]
+|   |
+|   +-- LESSPECIFICATIE = Les 2 "Vervolgstap kiezen & controlevragen"      (idem opbouw)
+|   +-- LESSPECIFICATIE = Les 3 "Discreet omgaan met vertrouwelijke info"  (idem opbouw)
+|
++-- LESSENREEKS = "Medicatieverificatie bij overdracht"   (indicatief, verkort)
+|
++-- TOETSONDERDEEL-SPECIFICATIE = "Praktijktoets baliegesprek (OSCE)"
+      (toetsrij | OEAPI: TestComponent)
+      toetsniveau: summatief | toetsbereik: {werkprocescodes: [B1-K1-W1]}
+      toetsvorm: OSCE/praktijksimulatie | resultaatmodel: {schaal: onvold/vold/goed}
+```
+
+> **Van detail naar uitvoering.** Deze detailspecificaties voeden **OC → LMS** ter inrichting (§12.2, fase 4). Op dezelfde specificaties ontstaat het **geroosterde aanbod** — `leergelegenheid` en `lesgelegenheid` (stadium 2b) — en vervolgens de **verbintenis** en het **resultaat** (kolommen 5–6 van de ankertabel), minimaal gedragen door `Association.state` (§3.2.4). De boom blijft hier bewust **conceptueel**: geen concrete lokalen, personen of payloads.
 
 
 
@@ -1358,7 +1584,7 @@ Kortom: leeruitkomsten zijn zowel de **uitwisselsleutel** (probleem 1) als de **
 | Vaststelling | `assessedBy`, `state` (`voorlopig`/`vastgesteld`), `credentialDocumentRef` | Summatieve vaststelling bij examencommissie (host levert feit, home erkent). |
 | Organisatie/locatie (stap 0) | `producedByOrganisation`, `recognizedByOrganisation` | Wie produceerde, wie erkent (cross-instelling). |
 
-> **Traceerbaarheid.** Deze vijf stappen vormen samen de attribuutketen `specificatie → planbaar aanbod → geroosterd aanbod → verbintenis → resultaat`, telkens met de **organisatie/locatie-scoping** uit stap 0. Daarmee is dit de directe **leg-up** naar §12.2 (wat wordt waar uitgewisseld) en de berichtspecificatie-stap van AMIGO (§2.3). Ontbrekende of dubbelzinnige attributen worden als **signalering** (§9) geregistreerd, niet hier opgelost.
+> **Traceerbaarheid.** Deze vijf stappen vormen samen de attribuutketen `specificatie → planbaar aanbod → geroosterd aanbod → verbintenis → resultaat`, telkens met de **organisatie/locatie-scoping** uit stap 0. Daarmee is dit de directe **leg-up** naar §12.2 (wat wordt waar uitgewisseld) en de berichtspecificatie-stap van AMIGO (§2.4). Ontbrekende of dubbelzinnige attributen worden als **signalering** (§9) geregistreerd, niet hier opgelost.
 
 ##### 3.3.2.7 Randvoorwaarden — negen concern-dimensies
 
@@ -1382,9 +1608,60 @@ Per dimensie kort wat besloten, geregeld of beschikbaar moet zijn voordat leerro
 
 **Gegevensanalyse (kader).** Producerend → consumerend, met de minimale referenties uit §3.3.2.6: specificatie (CO → OC) → planbaar aanbod (Planning → OC) → geroosterd aanbod (Rooster → OC) → verbintenis (SKS → Planning → KRS) → resultaat (uitvoering/examen → SVS, terug naar `homeOrganisation`). Semantiek die **niet** mag vervagen: het verschil tussen `homeOrganisation` en `hostOrganisation`, en tussen `scope`-niveaus van de verbintenis.
 
-**Interactieanalyse (kader).** Nieuw t.o.v. de route-1-baseline zijn: (1) **deelname-mutaties per `lesgelegenheid`** (student via SKS, met SLB-goedkeuring); (2) **cross-opleiding/host-plaatsing** (home ↔ host via OC + verbintenis); (3) **pooling-signalen** (animo/vraag) richting planning. Publish/event/pull worden pas in de AMIGO-vervolgstap (§2.3) hard gemaakt.
+**Interactieanalyse (kader).** Nieuw t.o.v. de route-1-baseline zijn: (1) **deelname-mutaties per `lesgelegenheid`** (student via SKS, met SLB-goedkeuring); (2) **cross-opleiding/host-plaatsing** (home ↔ host via OC + verbintenis); (3) **pooling-signalen** (animo/vraag) richting planning. Publish/event/pull worden pas in de AMIGO-vervolgstap (§2.4) hard gemaakt.
 
 **Doorverwijzing AMIGO.** Deze gegevens- en interactieanalyse voedt in een volgende iteratie **technologiekeuze → berichtspecificatie → interfacespecificatie → afsprakenset**. Dit hoofdstuk blijft bewust op analyse-niveau (skill-leesregel), met §12.2 en §12.5 als brug naar attribuut- en uitwisseldetails.
+
+##### 3.3.2.9 Concept informatiemodel — geneste onderwijsspecificatie (delta t.o.v. LR1)
+
+Larissa volgt *Software Developer* (BOL, mbo-4, **indicatief**) en temporiseert *by design*. Het waardevolle inzicht van leerroute 2 is dat de **boomstructuur identiek** is aan die van leerroute 1 (Jochem, zie het [concept informatiemodel bij §3.2.1.1](#concept-informatiemodel--geneste-onderwijsspecificatie-jochem-apothekersassistent)): dezelfde niveaus (opleiding → programma → onderwijseenheid → leeronderdeel → lessenreeks → les) en dezelfde ankertabel-families. **Alleen een beperkte set attributen verandert.** Die markeren we hieronder met `Δ`; alles zónder `Δ` blijft gelijk aan de reguliere baseline.
+
+**Fase 1–2 — delta in het grofmazige ontwerp.** De temporiseer-variant komt als **track** naast het reguliere programma; de structuur eronder is ongewijzigd.
+
+```text
+OPLEIDINGSSPECIFICATIE = Software Developer (BOL, mbo-4, indicatief)
+  Δ curriculumtype: hybride                    (LR1: nominaal)
+|
++-- OPLEIDINGSPROGRAMMA-SPECIFICATIE = BOL - regulier          (diplomaprogramma, = LR1)
+|
++-- OPLEIDINGSPROGRAMMA-SPECIFICATIE = BOL - track "Temporiseren"  (diplomaprogramma)
+|   Δ programmastructuur: track van hetzelfde programma
+|   Δ leerroutetype: getemporiseerd            (LR1: regulier)
+|   Δ curriculumtype: hybride
+|   |
+|   +-- ONDERWIJSEENHEID-SPECIFICATIE = Blok B1-K1 "Realiseert software" (indicatief)
+|   |     dektLeeruitkomsten / leervorm / expertiseprofielen: = LR1 (ongewijzigd)
+|   |   |
+|   |   +-- LEERONDERDEEL-SPECIFICATIE = B1-K1-W1 "Ontwerpt software" (indicatief)
+|   |         tijdsverdeling: BOT 60 / OOT 40 SBU   (zelfde BOT/OOT-totaal als LR1)
+|   |         Δ spreidingspatroon: OOT gespreid over meer weken (topsport-agenda)
+|   |         Δ (triggert planning-constraints in fase 2/4: niet voor 10:00;
+|   |            geblokkeerde toernooi-/kampdagen; mogelijke hele-periode-blokkade Spelen)
+|   |
+|   +-- ONDERWIJSEENHEID-SPECIFICATIE = Generieke onderdelen (o.a. Engels niv.4)
+|         Δ bij cross-opleiding: thuisorganisatie / gastorganisatie + locatieverwijzing
+|            wanneer Engels bij een ander team/instelling loopt (zie §3.3.2.4 en §7)
+|
++-- OPLEIDINGSPROGRAMMA-SPECIFICATIE = Keuzedelen   (zelfstandig programma | OEAPI: Programme)
+      koppeling: N:M-gekoppeld aan de diplomaprogramma's (§17.3)
+      keuzeruimte: 720 SBU (mbo-4) | keuzeBeschikbaar: ja
+      +-- ONDERWIJSEENHEID-SPECIFICATIE = Keuzedeel "Voorbereiding hbo-ict"  (indicatief)
+      +-- ONDERWIJSEENHEID-SPECIFICATIE = Keuzedeel "Cybersecurity basis"    (indicatief)
+```
+
+**Fase 4 — delta in de detaillering.** De **specificatie** van lessenreeks en les verandert niet; het verschil zit in **aanbod** en **verbintenis**: deelname op gelegenheidsniveau en alternatieve slots.
+
+```text
+LEERONDERDEEL-SPECIFICATIE = B1-K1-W1 (track "Temporiseren")
+|
++-- LESSENREEKS = "..."   Δ spreidingspatroon: langer venster, herhaalde/alternatieve gelegenheden
+|   |
+|   +-- LESSPECIFICATIE = Les n   (specificatie-inhoud = LR1; delta zit in aanbod/verbintenis:)
+|         Δ bereik: lesgelegenheid   (deelname per lesgelegenheid, i.p.v. alleen per eenheid)
+|         Δ alternatieveGelegenheden: student bindt zich aan een alternatief tijdslot
+```
+
+> **Kernpunt (skill-conform).** De **structuur en semantiek** van de onderwijsspecificatie veranderen niet t.o.v. leerroute 1 — dezelfde objecten, dezelfde ankertabel-families (§3.2.6). Wat verschuift zit in **sturing** en een handvol **attributen** op leeronderdeel-/gelegenheidsniveau: `spreidingspatroon`, planning-constraints (beschikbaarheid), `bereik` en `alternatieveGelegenheden`, en bij grensoverschrijding `thuisorganisatie`/`gastorganisatie` + `locatieverwijzing`. Attribuutdetails staan in §3.3.2.6, de organisatievormen in §3.3.2.4, en het cross-instelling-patroon in §7.
 
 #### 3.3.3 Leerroute 3 — Versnellen (standaard route) (TO-DO)
 
@@ -1995,7 +2272,7 @@ Deze begrippen zijn niet nieuw uitgevonden. Ze sluiten aan op de **MORA** (mbo-r
 | **Onderwijsteam / docent**      | `expertiseProfile` (in `educationSpecification`)                  | Profiel-match, geen instantie-toewijzing in specificatie          |
 | **Lokaalcluster / vlek**        | `roomType` + `roomRequirements`                                   | Profiel-match; instantie pas in stadium 2b                        |
 
-Voor de bredere context (ROSA als knooppunt; HORA-mbo-aliasering) verwijzen we naar §2.2 (waar de architectuurkaders zijn ingeleid) en de uitlijning met "klus 53 — Alignment MORA <> HORA" in het MBO-digitaal Architectuurberaad. -->
+Voor de bredere context (ROSA als knooppunt; HORA-mbo-aliasering) verwijzen we naar §2.5 (waar de architectuurkaders zijn ingeleid) en de uitlijning met "klus 53 — Alignment MORA <> HORA" in het MBO-digitaal Architectuurberaad. -->
 
 <!--
 #### 3.2.6 Het vlaks-model als ankertabel — 6 niveaus × 6 families

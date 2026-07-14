@@ -41,7 +41,7 @@ Dit raakt de **volgorde van uitwerking** en de **grenzen van MVP’s**: [0002](0
 - **Gerelateerde ADR’s:** [0001](0001-publieke-repo-en-samenwerkingsmodel.md), [0002](0002-prioriteitsketen-catalogus-drielagen-fundament.md), [0003](0003-student-kiest-leeruitkomsten-domeinprincipes.md), [0006](0006-studentorientatie-trechter-ketenfase.md), [0007](0007-student-keuze-criteria-als-query-parameters-onderwijs-aanbod.md)
 - Issues: #(te koppelen)
 - PR: #(te vullen)
-- Meetings: `architecture/meetings/okx_kernteam_inhoud_uitwerken_kaderstelling_student_keuze_criteria_20260331/summary.md`, `.../transcript.md`
+- Meetings: `architecture/meetings/20260331_okx_kernteam_inhoud_uitwerken_kaderstelling_student_keuze_criteria/summary.md`, `.../transcript.md`
 - ArchiMate: `architecture/model/model.archimate`
 - Docs: `[doc/OKx_Projectoverzicht.md](../../doc/OKx_Projectoverzicht.md)`
 

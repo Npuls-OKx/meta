@@ -48,9 +48,9 @@ In het kernteamoverleg ter **voorbereiding leverancierssessie** (27 maart 2026) 
 - Issues: #(te koppelen)
 - PR: #(te vullen)
 - Meetings:
-  - `architecture/meetings/OKx_kernteam_inhoud_voorbereidingleveranciersessie_20260327/transcript.md` (o.a. SKS formeel; SVS gekoppeld; student kiest als **losse referentiecomponent**; MVP/fundament SKS)
-  - `architecture/meetings/OKx_kernteam_inhoud_voorbereidingleveranciersessie_20260327/summary.md`
-  - `architecture/meetings/okx_kernteam_inhoud_uitwerken_studentkiest_flexibelonderwijs_overeenkomst_20260325/summary.md` (context student kiest / keten)
+  - `architecture/meetings/20260327_OKx_kernteam_inhoud_voorbereidingleveranciersessie/transcript.md` (o.a. SKS formeel; SVS gekoppeld; student kiest als **losse referentiecomponent**; MVP/fundament SKS)
+  - `architecture/meetings/20260327_OKx_kernteam_inhoud_voorbereidingleveranciersessie/summary.md`
+  - `architecture/meetings/20260325_okx_kernteam_inhoud_uitwerken_studentkiest_flexibelonderwijs_overeenkomst/summary.md` (context student kiest / keten)
 - ArchiMate: `architecture/model/model.archimate`
 - Docs: `[doc/OKx_Projectoverzicht.md](../../doc/OKx_Projectoverzicht.md)`, `[doc/OKx_Informatiesstromen.md](../../doc/OKx_Informatiesstromen.md)`
 

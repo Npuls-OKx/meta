@@ -100,8 +100,10 @@ Zie [`architecture/docs/principes.md`](architecture/docs/principes.md) (design f
 We werken federatief en asynchroon. Meetings worden daarom vastgelegd in de repo. Zie [`doc/Privacy-meetings-en-transcriptie.md`](doc/Privacy-meetings-en-transcriptie.md) voor **opname, AI-transcriptie** en het **publieke** karakter van bijdragen.
 
 1. Vastleggen: opname en/of ruwe aantekeningen.
-2. Transcriberen: optioneel transcript opslaan in `architecture/meetings/YYYY/YYYY-MM-DD-onderwerp-transcript.md`.
-3. Samenvatten: notulen opslaan in `architecture/meetings/YYYY/YYYY-MM-DD-onderwerp.md` met links naar issues/ADR's.
+2. Transcriberen: optioneel transcript opslaan in `architecture/meetings/[YYYYMMDD]_[meetingnaam]/transcript.md`.
+3. Samenvatten: notulen opslaan in `architecture/meetings/[YYYYMMDD]_[meetingnaam]/summary.md` met links naar issues/ADR's.
+
+De datum staat **vooraan** zodat `architecture/meetings/` chronologisch sorteert. Zie [`architecture/meetings/README.md`](architecture/meetings/README.md).
 
 ### Templates
 

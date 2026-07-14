@@ -42,7 +42,7 @@ In hetzelfde overleg zijn **trechters** expliciet benoemd, o.a.: **geografische*
 - **Gerelateerde ADR’s:** [0002](0002-prioriteitsketen-catalogus-drielagen-fundament.md), [0004](0004-leeruitkomsten-sbu-ec-logistieke-containergrootte.md), [0005](0005-student-keuze-systeem-zelfstandige-referentiecomponent.md), [0006](0006-studentorientatie-trechter-ketenfase.md), [0008](0008-scope-planning-eerst-intra-instelling.md)
 - Issues: #(te koppelen)
 - PR: #(te vullen)
-- Meetings: `architecture/meetings/okx_kernteam_inhoud_uitwerken_kaderstelling_student_keuze_criteria_20260331/summary.md`, `.../transcript.md`
+- Meetings: `architecture/meetings/20260331_okx_kernteam_inhoud_uitwerken_kaderstelling_student_keuze_criteria/summary.md`, `.../transcript.md`
 - ArchiMate: `architecture/model/model.archimate`
 - Docs: [`doc/OKx_Projectoverzicht.md`](../../doc/OKx_Projectoverzicht.md)
 

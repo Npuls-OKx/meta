@@ -44,7 +44,7 @@ In het kernteamoverleg **kaderstelling studentkeuze en criteria** (31 maart 2026
 - **Gerelateerde ADR’s:** [0002](0002-prioriteitsketen-catalogus-drielagen-fundament.md), [0003](0003-student-kiest-leeruitkomsten-domeinprincipes.md), [0004](0004-leeruitkomsten-sbu-ec-logistieke-containergrootte.md), [0005](0005-student-keuze-systeem-zelfstandige-referentiecomponent.md), [0007](0007-student-keuze-criteria-als-query-parameters-onderwijs-aanbod.md)
 - Issues: #(te koppelen)
 - PR: #(te vullen)
-- Meetings: `architecture/meetings/okx_kernteam_inhoud_uitwerken_kaderstelling_student_keuze_criteria_20260331/summary.md`, `.../transcript.md`
+- Meetings: `architecture/meetings/20260331_okx_kernteam_inhoud_uitwerken_kaderstelling_student_keuze_criteria/summary.md`, `.../transcript.md`
 - ArchiMate: `architecture/model/model.archimate`
 - Docs: `[doc/OKx_Projectoverzicht.md](../../doc/OKx_Projectoverzicht.md)`
 

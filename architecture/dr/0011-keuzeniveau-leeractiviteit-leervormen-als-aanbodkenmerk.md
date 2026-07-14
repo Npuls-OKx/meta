@@ -44,7 +44,7 @@ Tegelijkertijd is vastgesteld dat **leervormen geen apart keuzemoment** zijn in 
 - **Gerelateerde ADR's:** [0003](0003-student-kiest-leeruitkomsten-domeinprincipes.md) (leeruitkomsten als sleutel), [0004](0004-leeruitkomsten-sbu-ec-logistieke-containergrootte.md) (SBU/EC als logistieke maat), [0005](0005-student-keuze-systeem-zelfstandige-referentiecomponent.md) (SKS als component), [0007](0007-student-keuze-criteria-als-query-parameters-onderwijs-aanbod.md) (trechterparameters), [0009](0009-sks-svs-rollenverdeling-keuze-vs-resultaat-voortgang.md) (SKS/SVS-verdeling)
 - Issues: #(te koppelen)
 - PR: #(te vullen)
-- Meetings: `architecture/meetings/okx_kernteam_inhoud_uitwerken_studentkiest_20260413/summary.md`, `.../transcript.md`
+- Meetings: `architecture/meetings/20260413_okx_kernteam_inhoud_uitwerken_studentkiest/summary.md`, `.../transcript.md`
 - ArchiMate: `architecture/model/model.archimate`
 
 ### Vervangt (optioneel)

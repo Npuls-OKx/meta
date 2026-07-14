@@ -48,7 +48,7 @@ Datum: 2026-04-13
 - **Gerelateerde ADR's:** [0005](0005-student-keuze-systeem-zelfstandige-referentiecomponent.md) (SKS als component), [0006](0006-studentorientatie-trechter-ketenfase.md) (oriëntatiefase), [0008](0008-scope-planning-eerst-intra-instelling.md) (intra-instelling eerst), [0011](0011-keuzeniveau-leeractiviteit-leervormen-als-aanbodkenmerk.md) (keuzeniveau leeractiviteit)
 - Issues: #(te koppelen)
 - PR: #(te vullen)
-- Meetings: `architecture/meetings/okx_kernteam_inhoud_uitwerken_studentkiest_20260413/summary.md`, `.../transcript.md`
+- Meetings: `architecture/meetings/20260413_okx_kernteam_inhoud_uitwerken_studentkiest/summary.md`, `.../transcript.md`
 - ArchiMate: `architecture/model/model.archimate`
 
 ### Vervangt (optioneel)

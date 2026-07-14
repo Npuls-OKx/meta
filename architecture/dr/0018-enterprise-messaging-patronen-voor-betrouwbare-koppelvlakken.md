@@ -15,7 +15,7 @@ In het kernteamoverleg is expliciet besproken dat OKx-koppelvlakken niet alleen 
 
 In [0003](0003-student-kiest-leeruitkomsten-domeinprincipes.md) worden “enterprise messaging‑patronen” al benoemd als randvoorwaarde, maar er is nog geen afzonderlijk besluit vastgelegd dat deze patronen als **ketenbrede niet-functionele eis** positioneert met alternatieven, consequenties en impact op `architecture/model/model.archimate`.
 
-Bron: `architecture/meetings/okx_kernteam_inhoud_uitwerken_studentkiest_flexibelonderwijs_overeenkomst_20260325/summary.md`.
+Bron: `architecture/meetings/20260325_okx_kernteam_inhoud_uitwerken_studentkiest_flexibelonderwijs_overeenkomst/summary.md`.
 
 ### Beslissing
 
@@ -51,6 +51,6 @@ Deze beslissing is technologie-agnostisch (broker, queue, eventbus, API met outb
   - [0015](0015-request-for-offering-haalbaarheidstoets-tussen-sks-en-planning.md) — RFO-stroom vereist robuuste foutafhandeling/ordering in iteratief proces
 - Issues: #(te koppelen)
 - PR: #(te vullen)
-- Meetings: `architecture/meetings/okx_kernteam_inhoud_uitwerken_studentkiest_flexibelonderwijs_overeenkomst_20260325/summary.md`
+- Meetings: `architecture/meetings/20260325_okx_kernteam_inhoud_uitwerken_studentkiest_flexibelonderwijs_overeenkomst/summary.md`
 - ArchiMate model: `architecture/model/model.archimate` (leg messaging‑capabilities/NFR’s vast bij relevante interfaces/stromen; modelleer waar DLQ/monitoring conceptueel hoort in de technology/integration laag)
 

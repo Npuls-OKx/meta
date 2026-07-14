@@ -8,6 +8,9 @@ Eisen:
 
 Template staat in: architecture/meetings/template-notulen.md
 
-Zorg ervoor dat er een map aangemaakt wordt voor de meeting, volgens de naamconventie: [meetingnaam]_[YYYYMMDD].
-Met onder deze map het letterlijke meeting transcript in Markdown volgens de naam conventie: "transcript_[meetingnaam]_[YYYYMMDD].md"
-en de samenvatting: "samenvatting_transcript_[meetingnaam]_[YYYYMMDD].md"
+Zorg ervoor dat er een map aangemaakt wordt voor de meeting, volgens de naamconventie: [YYYYMMDD]_[meetingnaam].
+De datum staat vooraan zodat `architecture/meetings/` chronologisch sorteert.
+Gebruik alleen letters, cijfers en underscores in de meetingnaam: geen spaties, apostrofs, komma's of `&`.
+
+Met onder deze map het letterlijke meeting transcript in Markdown: "transcript.md"
+en de samenvatting: "summary.md"

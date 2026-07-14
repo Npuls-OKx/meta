@@ -16,8 +16,8 @@ Deze ADR legt vast dat OKx voor het informatiemodel en de koppelvlakspecificatie
 - de studiebelasting (SBU/EC) als **logistieke maat** consistent kan worden geaggregeerd (zie [0004](0004-leeruitkomsten-sbu-ec-logistieke-containergrootte.md)).
 
 Bronnen:
-- `architecture/meetings/okx_kernteam_inhoud_uitwerken_studentkeuze_roostering_planning_pocs_20260417/summary.md`
-- `architecture/meetings/okx_kernteam_inhoud_uitwerken_studentkiest_20260413/summary.md`
+- `architecture/meetings/20260417_okx_kernteam_inhoud_uitwerken_studentkeuze_roostering_planning_pocs/summary.md`
+- `architecture/meetings/20260413_okx_kernteam_inhoud_uitwerken_studentkiest/summary.md`
 
 ### Beslissing
 
@@ -52,7 +52,7 @@ We leggen vast dat OKx voor onderwijsaanbod en route/traject-uitwerking een **hi
 - Issues: #(te koppelen)
 - PR: #(te vullen)
 - Meetings:
-  - `architecture/meetings/okx_kernteam_inhoud_uitwerken_studentkeuze_roostering_planning_pocs_20260417/summary.md`
-  - `architecture/meetings/okx_kernteam_inhoud_uitwerken_studentkiest_20260413/summary.md`
+  - `architecture/meetings/20260417_okx_kernteam_inhoud_uitwerken_studentkeuze_roostering_planning_pocs/summary.md`
+  - `architecture/meetings/20260413_okx_kernteam_inhoud_uitwerken_studentkiest/summary.md`
 - ArchiMate model: `architecture/model/model.archimate` (voeg informatie-objecten toe voor de hiërarchieniveaus; modelleer aggregatie/part-of relaties; leg studiebelasting (SBU/EC) en leeruitkomstkoppelingen vast; leg mapping naar OEAPI-constructen vast in views/documentatie)
 
