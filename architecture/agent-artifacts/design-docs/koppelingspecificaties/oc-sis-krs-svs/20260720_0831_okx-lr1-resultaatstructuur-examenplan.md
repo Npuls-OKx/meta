@@ -1,6 +1,6 @@
 ---
 created: "2026-07-20T08:31:00+00:00"
-updated: "2026-07-20T09:32:07+00:00"
+updated: "2026-07-23T14:45:00+00:00"
 human_authors:
   - "Niek Derksen (architect, OKx)"
 human_reviewers: []
@@ -8,8 +8,8 @@ agent_command: "ontwerp-document"
 agent_model: "Claude Opus 4.8 (Claude Code)"
 related_issues: ["#119", "#110", "#105", "#84"]
 source_paths:
-  - "architecture/agent-artifacts/design-docs/20260717_1120_okx-lr1-onderwijsspecificatie-payload-json.md"
-  - "architecture/agent-artifacts/design-docs/20260720_0832_okx-lr1-lifecycle-versionering.md"
+  - "architecture/agent-artifacts/design-docs/koppelingspecificaties/oc-p-en-r/20260717_1120_okx-lr1-onderwijsspecificatie-payload-json.md"
+  - "architecture/agent-artifacts/design-docs/koppelingspecificaties/oc-p-en-r/20260720_0832_okx-lr1-lifecycle-versionering.md"
   - "doc/OKx_PDCA cyclus onderwijsontwerp.md"
   - "OKE/moka-koppelvlakspecificaties/Examen Uitvoering en beoordeling/doc/KoppelvlakSpecificatieDocument.md"
   - "architecture/dr/0009-sks-svs-rollenverdeling-keuze-vs-resultaat-voortgang.md"
@@ -366,6 +366,8 @@ Zelfde mechaniek als de onderwijsspecificatie: semver per specificatie, identite
 Eén verschil: de `examenplanspecificatie` heeft de **strengste acceptatieregels**. Het is een contractuele afspraak met de student, dus een wijziging vraagt altijd expliciete impactanalyse en besluitvorming, ook wanneer die technisch niet-brekend lijkt (memo van Niels, PR #110).
 
 ## 9. Open vragen en signaleringen
+
+- Nominaal versus individueel examenplan (ADR 0022): een keuzedeel kent een eigen examenplandeel met eigen toetsonderdelen en een eigen onderwijsresultaat; het individuele examenplan is de samenstelling van nominaal plus gekozen keuzedeel-delen. Meenemen in de ombouw naar het `examenspecificatie`-model.
 
 - Hangt de `examenplanspecificatie` op de `opleidingsprogrammaspecificatie` (zoals hier, per kwalificatie en doelgroep) of hoger op de `opleidingsspecificatie`? Nu gekozen voor programma-niveau via `geldtVoor`.
 - Is `beoordeelt` (directe uuid-verwijzing) nodig naast de semantische koppeling via `leeruitkomst`, of is één van beide voldoende?

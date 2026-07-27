@@ -8,7 +8,7 @@ agent_command: "ontwerp-document"
 agent_model: "Claude Opus 4.8 (Claude Code)"
 related_issues: ["#119", "#110", "#105"]
 source_paths:
-  - "architecture/agent-artifacts/design-docs/20260717_1120_okx-lr1-onderwijsspecificatie-payload-json.md"
+  - "architecture/agent-artifacts/design-docs/koppelingspecificaties/oc-p-en-r/20260717_1120_okx-lr1-onderwijsspecificatie-payload-json.md"
   - "doc/OKx_PDCA cyclus onderwijsontwerp.md"
   - "doc/OKx_Release-management-en-versionering.md"
   - "architecture/dr/0020-curriculumontwerp-onderwijscatalogus-happy-flow-synchronisatie-en-federatie-adopt-klonen.md"
@@ -16,6 +16,8 @@ notes: "Skeleton. Toelichting achter de versionerings-keuzes in de payload (semv
 ---
 
 # Lifecycle en versionering van onderwijsspecificaties
+
+> **Kopie per koppeling (ADR 0021).** Deze versie hoort bij de koppeling **OC-LMS**. Basis identiek aan de OC-P&R-versie; attributen kunnen per koppeling divergeren. Divergentie wordt in deze kopie bijgehouden.
 
 Context: achterliggende uitwerking bij de [onderwijsspecificatie-payload](20260717_1120_okx-lr1-onderwijsspecificatie-payload-json.md). Status: skeleton (nog uit te werken).
 
@@ -96,7 +98,7 @@ Overgenomen en vertaald uit de memo van Niels, gekoppeld aan semver en identitei
 ## 8. Relaties
 
 - Payload: [onderwijsspecificatie-payload](20260717_1120_okx-lr1-onderwijsspecificatie-payload-json.md).
-- Resultaatstructuur: [resultaatstructuur en examenplan](20260720_0831_okx-lr1-resultaatstructuur-examenplan.md).
+- Resultaatstructuur: [resultaatstructuur en examenplan](../oc-sis-krs-svs/20260720_0831_okx-lr1-resultaatstructuur-examenplan.md).
 - Memo van Niels: `doc/OKx_PDCA cyclus onderwijsontwerp.md` (PR #110).
 - Releasemanagement: `doc/OKx_Release-management-en-versionering.md`.
 - ADR 0020 (CO-OC synchronisatie, adopt vs klonen, UUID-referentie).
