@@ -50,7 +50,7 @@ In de SI-afstemming (maart 2024) is benadrukt dat de **eerste technische focus**
   - `architecture/meetings/20260325_okx_kernteam_inhoud_uitwerken_studentkiest_flexibelonderwijs_overeenkomst/summary.md`
   - `architecture/meetings/20260325_okx_kernteam_inhoud_uitwerken_studentkiest_flexibelonderwijs_overeenkomst/transcript.md`
 - ArchiMate: `architecture/model/model.archimate`
-- Docs: [`architecture/docs/principes.md`](../docs/principes.md), [`doc/OKx_Projectoverzicht.md`](../../doc/OKx_Projectoverzicht.md)
+- Docs: [`architecture/docs/principes.md`](../docs/principes.md), [`doc/Projectoverzicht.md`](../../doc/Projectoverzicht.md)
 
 ### Vervangt (optioneel)
 

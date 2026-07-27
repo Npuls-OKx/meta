@@ -1,6 +1,6 @@
 # Architecture Decision Records (`architecture/dr`)
 
-Deze map hoort bij **OKx-meta**: de **open kennisbasis** rond **onderwijslogistieke ketens**, **MOKA-koppelvlakken** en **informatiestromen** tussen referentiecomponenten. In het [ArchiMate-model](../model/model.archimate) staan o.a. de MOKA-view **`01. Onderwijsvisie vertalen naar onderwijsaanbod - Basis Model`** en het bijbehorende **informatiemodel**-diagram (zelfde koppelvlak); de **hoofdplaat** en tabel met nog te beschrijven stromen staan in het [OKx-projectoverzicht](../../doc/OKx_Projectoverzicht.md). ADR’s leggen hier vast **welke architectuurkeuzes** we maken op weg naar **technische uitwerking** (o.a. berichtspecificaties, modellen, **OEAPI**-passende endpointbeschrijvingen) — traceerbaar en besprekbaar met de sector en architectuurgremia.
+Deze map hoort bij **OKx-meta**: de **open kennisbasis** rond **onderwijslogistieke ketens**, **MOKA-koppelvlakken** en **informatiestromen** tussen referentiecomponenten. In het [ArchiMate-model](../model/model.archimate) staan o.a. de MOKA-view **`01. Onderwijsvisie vertalen naar onderwijsaanbod - Basis Model`** en het bijbehorende **informatiemodel**-diagram (zelfde koppelvlak); de **hoofdplaat** en tabel met nog te beschrijven stromen staan in het [OKx-projectoverzicht](../../doc/Projectoverzicht.md). ADR’s leggen hier vast **welke architectuurkeuzes** we maken op weg naar **technische uitwerking** (o.a. berichtspecificaties, modellen, **OEAPI**-passende endpointbeschrijvingen) — traceerbaar en besprekbaar met de sector en architectuurgremia.
 
 ---
 

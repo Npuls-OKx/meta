@@ -21,7 +21,7 @@ verwijst per stap naar de skill of stapbeschrijving die hem uitwerkt.
 ## Bron van waarheid
 
 - Profiel: `architecture/docs/specificatie/okx-oeapi-consumer-profiel/doc/20260501_Specificatie_document_OKx_OEAPI_profiel.md` (§2.3 Projectaanpak AMIGO).
-- Release-roadmap: [`doc/OKx_Release-management-en-versionering.md`](../../../doc/OKx_Release-management-en-versionering.md) §8 (`v0.1.0` milestone 3 → `v1.0.0` ecosysteem compleet).
+- Release-roadmap: [`doc/release-management/Release-management-meta.md`](../../../doc/release-management/Release-management-meta.md) §8 (`v0.1.0` milestone 3 → `v1.0.0` ecosysteem compleet).
 - Stappen worden **iteratief** doorlopen: een keuze in bericht/interface kan aanleiding zijn scenario, gegevens of interacties aan te scherpen.
 
 ## Ladder: informatiestroom → koppeling → koppelvlak

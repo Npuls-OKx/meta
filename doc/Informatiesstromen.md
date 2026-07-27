@@ -10,11 +10,11 @@ Die technische uitwerking wordt straks vergelijkbaar met bestaande sectorpublica
 
 ## De hoofdplaat als richting (welke stromen nog uitwerken)
 
-De **hoofdplaat OKx informatiestromen** is de **richtinggevende** afbeelding: die maakt zichtbaar **welke** stromen tussen referentiecomponenten **nog** beschreven en gespecificeerd moeten worden. De interpretatie (nummers, componenten, prioriteit) staat in het **[OKx-projectoverzicht](OKx_Projectoverzicht.md)** onder *Hoofdplaat OKx informatiestromen* — daar is de **actuele** plaat en tabel leidend; dit document herhaalt die tabel niet.
+De **hoofdplaat OKx informatiestromen** is de **richtinggevende** afbeelding: die maakt zichtbaar **welke** stromen tussen referentiecomponenten **nog** beschreven en gespecificeerd moeten worden. De interpretatie (nummers, componenten, prioriteit) staat in het **[OKx-projectoverzicht](Projectoverzicht.md)** onder *Hoofdplaat OKx informatiestromen* — daar is de **actuele** plaat en tabel leidend; dit document herhaalt die tabel niet.
 
 ## Huidige uitwerking en wat nog moet
 
-Uitwerking gebeurt volgens de **MOKA-metamodel**-afspraken: **koppelvlakspecificatie-views**, en **andere MOKA-subproducten** (o.a. informatiemodel) waar nodig, aangevuld met **architectuurproducten** in het ArchiMate-model (zie [Informatiestromen, ArchiMate en MOKA-view](OKx_Informatiestromen-ArchiMate-en-MOKA-view.md)).
+Uitwerking gebeurt volgens de **MOKA-metamodel**-afspraken: **koppelvlakspecificatie-views**, en **andere MOKA-subproducten** (o.a. informatiemodel) waar nodig, aangevuld met **architectuurproducten** in het ArchiMate-model (zie [Informatiestromen, ArchiMate en MOKA-view](Informatiestromen-ArchiMate-en-MOKA-view.md)).
 
 **Status (indicatief):** er is al inhoudelijke uitwerking voor o.a. **stroom curriculumontwerp ↔ onderwijscatalogus**, **OC–Planning**, **OC–SVS**, en een **beperkt stuk** rond **Student kiest–KRS**. Er moet **nog veel** worden toegevoegd en verfijnd voor de overige stromen uit de hoofdplaat.
 
@@ -24,7 +24,7 @@ Deze uitwerking is **niet** bedoeld als **directe wijziging** van de MORA. We ge
 
 ## Architectuurbesluiten en impact
 
-De vastgelegde **architectuurrichting** (ADR’s, meetings) en impact op keten en model: **[OKx Architectuurbesluiten en impact](OKx_Architectuurbesluiten-en-impact.md)**.
+De vastgelegde **architectuurrichting** (ADR’s, meetings) en impact op keten en model: **[OKx Architectuurbesluiten en impact](Architectuurbesluiten-en-impact.md)**.
 
 ## Verwijzing naar (technische) specificaties en OEAPI
 

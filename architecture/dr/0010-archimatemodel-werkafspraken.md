@@ -64,7 +64,7 @@ Bij een conflict:
 - PR: #(te vullen)
 - Meetings: `architecture/meetings/20260331_okx_kernteam_inhoud_uitwerken_kaderstelling_student_keuze_criteria/summary.md`, `.../transcript.md`
 - ArchiMate: `architecture/model/model.archimate`
-- Docs: `[doc/OKx_Informatiestromen-ArchiMate-en-MOKA-view.md](../../doc/OKx_Informatiestromen-ArchiMate-en-MOKA-view.md)`
+- Docs: `[doc/Informatiestromen-ArchiMate-en-MOKA-view.md](../../doc/Informatiestromen-ArchiMate-en-MOKA-view.md)`
 
 ### Vervangt (optioneel)
 

@@ -38,12 +38,12 @@ Dit ADR **verfijnt** de architectuurgrens **zonder** [0005](0005-student-keuze-s
 
 ### Relaties en links
 
-- **Gerelateerde ADR’s:** [0005](0005-student-keuze-systeem-zelfstandige-referentiecomponent.md) (SKS als component); projectoverzicht voor **SVS**-stromen: `[doc/OKx_Projectoverzicht.md](../../doc/OKx_Projectoverzicht.md)`
+- **Gerelateerde ADR’s:** [0005](0005-student-keuze-systeem-zelfstandige-referentiecomponent.md) (SKS als component); projectoverzicht voor **SVS**-stromen: `[doc/Projectoverzicht.md](../../doc/Projectoverzicht.md)`
 - Issues: #(te koppelen)
 - PR: #(te vullen)
 - Meetings: `architecture/meetings/20260331_okx_kernteam_inhoud_uitwerken_kaderstelling_student_keuze_criteria/summary.md`, `.../transcript.md`
 - ArchiMate: `architecture/model/model.archimate`
-- Docs: `[doc/OKx_Informatiesstromen.md](../../doc/OKx_Informatiesstromen.md)`
+- Docs: `[doc/Informatiesstromen.md](../../doc/Informatiesstromen.md)`
 
 ### Vervangt (optioneel)
 

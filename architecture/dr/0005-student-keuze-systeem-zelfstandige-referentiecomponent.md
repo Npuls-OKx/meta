@@ -6,7 +6,7 @@ Datum: 2026-03-27
 
 ### Context
 
-[0003](0003-student-kiest-leeruitkomsten-domeinprincipes.md) benoemt **Student Kiest** als leidend uitgangspunt en het **Student Keuze Systeem (SKS)** als randvoorwaarde die in specificaties en model **herkenbaar** moet zijn. De **hoofdplaat OKx** en de interpretatietabel hanteren **Student Kiest (nog niet in MORA)** als **eigen** referentiecomponent met stromen o.a. naar **onderwijscatalogus**, **SVS**, **KRS** en **student** (zie `[doc/OKx_Projectoverzicht.md](../../doc/OKx_Projectoverzicht.md)`).
+[0003](0003-student-kiest-leeruitkomsten-domeinprincipes.md) benoemt **Student Kiest** als leidend uitgangspunt en het **Student Keuze Systeem (SKS)** als randvoorwaarde die in specificaties en model **herkenbaar** moet zijn. De **hoofdplaat OKx** en de interpretatietabel hanteren **Student Kiest (nog niet in MORA)** als **eigen** referentiecomponent met stromen o.a. naar **onderwijscatalogus**, **SVS**, **KRS** en **student** (zie `[doc/Projectoverzicht.md](../../doc/Projectoverzicht.md)`).
 
 In het kernteamoverleg ter **voorbereiding leverancierssessie** (27 maart 2026) is vastgehouden dat er **formeel** richting wordt gegeven aan een **SKS** en dat o.a. een **SVS daaraan gekoppeld** wordt. De **belangrijke conclusie** in datzelfde overleg is dat **student kiest** nu **echt een losse referentiecomponent** moet worden — zodat er **meer expliciete koppelinteractie** ontstaat dan wanneer keuze-implementatie **verspreid** of **verborgen** zit in andere bouwstenen (portaal, catalogus-only, LMS). Tegelijkertijd is afgesproken dat OKx **niet** verantwoordelijk is om het SKS **volledig** uit te schrijven, maar wél **voldoende informatie** moet leveren voor een **MVP** voor leveranciers: het **fundament** en **minimuminformatie**, vergelijkbaar met een **snelweg zonder volledige routebeschrijving** (zie transcript).
 
@@ -39,7 +39,7 @@ In het kernteamoverleg ter **voorbereiding leverancierssessie** (27 maart 2026) 
 ### Impact op `architecture/model/model.archimate`
 
 - **Referentiecomponent:** **SKS** moet als **onderscheiden** applicatie-/systeemelement (conform gekozen ArchiMate-conventie in het model) **zichtbaar** zijn waar **studentkeuze** centraal staat — **gescheiden** van **Onderwijscatalogus**, **SVS**, **LMS** en **KRS**, tenzij een **later** ADR een herindeling vastlegt met migratiepad.
-- **Views / relaties:** Stromen uit `[doc/OKx_Projectoverzicht.md](../../doc/OKx_Projectoverzicht.md)` die **Student Kiest** als bron of doel hebben, moeten in relevante views **terug te vinden** zijn als relaties naar/van het **SKS**-element.
+- **Views / relaties:** Stromen uit `[doc/Projectoverzicht.md](../../doc/Projectoverzicht.md)` die **Student Kiest** als bron of doel hebben, moeten in relevante views **terug te vinden** zijn als relaties naar/van het **SKS**-element.
 - **Niet in dit ADR:** volledige berichtdefinities of OEAPI-consumerprofielen — die volgen uit technische uitwerking onder deze grens.
 
 ### Relaties en links
@@ -52,7 +52,7 @@ In het kernteamoverleg ter **voorbereiding leverancierssessie** (27 maart 2026) 
   - `architecture/meetings/20260327_OKx_kernteam_inhoud_voorbereidingleveranciersessie/summary.md`
   - `architecture/meetings/20260325_okx_kernteam_inhoud_uitwerken_studentkiest_flexibelonderwijs_overeenkomst/summary.md` (context student kiest / keten)
 - ArchiMate: `architecture/model/model.archimate`
-- Docs: `[doc/OKx_Projectoverzicht.md](../../doc/OKx_Projectoverzicht.md)`, `[doc/OKx_Informatiesstromen.md](../../doc/OKx_Informatiesstromen.md)`
+- Docs: `[doc/Projectoverzicht.md](../../doc/Projectoverzicht.md)`, `[doc/Informatiesstromen.md](../../doc/Informatiesstromen.md)`
 
 ### Vervangt (optioneel)
 

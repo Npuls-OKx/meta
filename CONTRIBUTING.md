@@ -6,9 +6,9 @@ Deze repository is een knowledge base die team OKx maintaint. Leveranciers, inst
 
 Voordat je een issue of PR opent, is het nuttig te weten **waar** deze repo voor dient: we bouwen **keteninzicht** en **MOKA-gestuurde koppelvlakuitwerking** op — richting **technische specificaties** (o.a. berichten, modellen, **OEAPI** waar passend), zodat werk **gericht** blijft en we **lokale maxima** in één koppelvlak vermijden.
 
-- **Actuele plaat en prioriteit** (welke informatiestromen tellen mee): [`doc/OKx_Projectoverzicht.md`](doc/OKx_Projectoverzicht.md) — *Hoofdplaat OKx informatiestromen*.
-- **Ketenconcept** (wat de stromen doen, invoer voor specs): [`doc/OKx_Informatiesstromen.md`](doc/OKx_Informatiesstromen.md).
-- **ArchiMate-model** met o.a. MOKA-view **`01. Onderwijsvisie vertalen naar onderwijsaanbod - Basis Model`** en het **informatiemodel** in hetzelfde koppelvlak: [`architecture/model/model.archimate`](architecture/model/model.archimate) — lees [`doc/OKx_Informatiestromen-ArchiMate-en-MOKA-view.md`](doc/OKx_Informatiestromen-ArchiMate-en-MOKA-view.md) voor waar je die views opent.
+- **Actuele plaat en prioriteit** (welke informatiestromen tellen mee): [`doc/Projectoverzicht.md`](doc/Projectoverzicht.md) — *Hoofdplaat OKx informatiestromen*.
+- **Ketenconcept** (wat de stromen doen, invoer voor specs): [`doc/Informatiesstromen.md`](doc/Informatiesstromen.md).
+- **ArchiMate-model** met o.a. MOKA-view **`01. Onderwijsvisie vertalen naar onderwijsaanbod - Basis Model`** en het **informatiemodel** in hetzelfde koppelvlak: [`architecture/model/model.archimate`](architecture/model/model.archimate) — lees [`doc/Informatiestromen-ArchiMate-en-MOKA-view.md`](doc/Informatiestromen-ArchiMate-en-MOKA-view.md) voor waar je die views opent.
 - **Architectuurbesluiten (ADR’s)**: [`architecture/dr/README.md`](architecture/dr/README.md).
 
 Uitgebreider en voor nieuwe bijdragers: sectie *Waar draait deze repository om?* in [`doc/Bijdragen-voor-beginners.md`](doc/Bijdragen-voor-beginners.md).

@@ -1,6 +1,6 @@
 # Informatiestromen, ArchiMate-model en MOKA-koppelvlak-view (Basis Model)
 
-Dit document is bedoeld voor **nieuwe aanhakers**: hoe de **hoofdplaat** en de **tabel met informatiestromen** in het [projectoverzicht](OKx_Projectoverzicht.md) samenhangen met het **ArchiMate-model** in deze repository, en **waar** je de grote MOKA-**koppelvlakspecificatie-view** **Basis Model** vindt.
+Dit document is bedoeld voor **nieuwe aanhakers**: hoe de **hoofdplaat** en de **tabel met informatiestromen** in het [projectoverzicht](Projectoverzicht.md) samenhangen met het **ArchiMate-model** in deze repository, en **waar** je de grote MOKA-**koppelvlakspecificatie-view** **Basis Model** vindt.
 
 Het is **geen** volledige uitleg van het MOKA-metamodel; zie principes in [`architecture/docs/principes.md`](../architecture/docs/principes.md) en de [ADR’s over keten en fundament](../architecture/dr/0002-prioriteitsketen-catalogus-drielagen-fundament.md).
 
@@ -8,7 +8,7 @@ Het is **geen** volledige uitleg van het MOKA-metamodel; zie principes in [`arch
 
 | Laag | Wat je ziet | Rol |
 |------|-------------|-----|
-| **Ketenplaat + tabel** | PNG *Hoofdplaat OKx informatiestromen* en de nummering (stromen 1–17) in [OKx_Projectoverzicht](OKx_Projectoverzicht.md) | **Strategisch overzicht**: welke **referentiecomponenten** (systemen/rollen) en welke **semantiek** van de stroom (bijv. *Uitgewerkt aanbod*). |
+| **Ketenplaat + tabel** | PNG *Hoofdplaat OKx informatiestromen* en de nummering (stromen 1–17) in [Projectoverzicht](Projectoverzicht.md) | **Strategisch overzicht**: welke **referentiecomponenten** (systemen/rollen) en welke **semantiek** van de stroom (bijv. *Uitgewerkt aanbod*). |
 | **ArchiMate-model** | Bestand [`architecture/model/model.archimate`](../architecture/model/model.archimate) | **Structureel model**: processen, rollen, applicatie- en informatie-elementen en **relaties** in meerdere **views** (diagrammen). Niet alles staat op één plaatje. |
 | **MOKA-koppelvlakspecificatie-view** | Één **diagram-view** binnen het model, ingericht volgens het **MOKA-metamodel** voor het koppelvlak *Onderwijsvisie vertalen naar onderwijsaanbod* | **Verdieping** van hoe dit koppelvlak is uitgewerkt: o.a. proces en informatie in samenhang. De view **Basis Model** is één **variant** (naast o.a. Klassiek en Flexibel). |
 
@@ -49,6 +49,6 @@ Als je iets niet terugvindt: **geen fout in jouw lezen** — het model groeit it
 
 ## Zie ook
 
-- [OKx Architectuurbesluiten en impact](OKx_Architectuurbesluiten-en-impact.md)
-- [OKx Informatiestromen](OKx_Informatiesstromen.md)
-- [OKx Projectoverzicht](OKx_Projectoverzicht.md)
+- [OKx Architectuurbesluiten en impact](Architectuurbesluiten-en-impact.md)
+- [OKx Informatiestromen](Informatiesstromen.md)
+- [OKx Projectoverzicht](Projectoverzicht.md)

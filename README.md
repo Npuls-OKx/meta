@@ -6,9 +6,9 @@ Deze repository is de **publieke knowledge base** van **OKx**: hier verzamelen e
 
 Als je hier voor het eerst binnenkomt: we leggen **keteninzicht** en **koppelvlakrichting** vast — samen met de sector, in het open — zodat we geen losse eilandoplossingen per systeem bouwen, maar een **gedeeld minimum** aan afspraken. Concreet werkt het kernteam en de community nu o.a. aan:
 
-- **Informatiestromen (hoofdplaat)**: een overzicht van welke **stromen** tussen referentiecomponenten nog (conceptueel én technisch) beschreven moeten worden. De actuele plaat, uitleg en tabel staan in [`doc/OKx_Projectoverzicht.md`](doc/OKx_Projectoverzicht.md) bij *Hoofdplaat OKx informatiestromen*.
-- **Van concept naar techniek**: wat die stromen in de keten **betekenen**, als **invoer** voor latere deliverables zoals **berichtspecificaties**, **klassendiagrammen** en **API-/OEAPI-beschrijvingen** (vergelijkbaar met bestaande sectorpakketten): [`doc/OKx_Informatiesstromen.md`](doc/OKx_Informatiesstromen.md).
-- **MOKA & ArchiMate-model**: in [`architecture/model/model.archimate`](architecture/model/model.archimate) staan o.a. de MOKA-koppelvlak-view **`01. Onderwijsvisie vertalen naar onderwijsaanbod - Basis Model`** en het bijbehorende **informatiemodel**-diagram. Praktische uitleg waar je die vindt: [`doc/OKx_Informatiestromen-ArchiMate-en-MOKA-view.md`](doc/OKx_Informatiestromen-ArchiMate-en-MOKA-view.md).
+- **Informatiestromen (hoofdplaat)**: een overzicht van welke **stromen** tussen referentiecomponenten nog (conceptueel én technisch) beschreven moeten worden. De actuele plaat, uitleg en tabel staan in [`doc/Projectoverzicht.md`](doc/Projectoverzicht.md) bij *Hoofdplaat OKx informatiestromen*.
+- **Van concept naar techniek**: wat die stromen in de keten **betekenen**, als **invoer** voor latere deliverables zoals **berichtspecificaties**, **klassendiagrammen** en **API-/OEAPI-beschrijvingen** (vergelijkbaar met bestaande sectorpakketten): [`doc/Informatiesstromen.md`](doc/Informatiesstromen.md).
+- **MOKA & ArchiMate-model**: in [`architecture/model/model.archimate`](architecture/model/model.archimate) staan o.a. de MOKA-koppelvlak-view **`01. Onderwijsvisie vertalen naar onderwijsaanbod - Basis Model`** en het bijbehorende **informatiemodel**-diagram. Praktische uitleg waar je die vindt: [`doc/Informatiestromen-ArchiMate-en-MOKA-view.md`](doc/Informatiestromen-ArchiMate-en-MOKA-view.md).
 - **Besluiten vastleggen**: belangrijke architectuurkeuzes staan in **ADR’s**: [`architecture/dr/README.md`](architecture/dr/README.md).
 
 Niet alles is al uitgewerkt — dat hoort erbij. Deze repo is **geen directe wijziging van MORA**; goed gedragen uitwerkingen kunnen later als **onderbouwd voorstel** richting sectorprocessen dienen.
@@ -19,7 +19,7 @@ Wil je meer houvast als nieuwe bijdrager? Lees de sectie *Waar draait deze repos
 
 **OKx** werkt aan **uniforme, gestandaardiseerde koppelvlakken** zodat systemen in de onderwijsketen beter met elkaar kunnen samenwerken. Het **BOPSI-implementatiepad** is het uitgangspunt; de scope start bij **MBO** en wordt later uitgebreid naar **HO**. We zijn onderdeel van het [groeifondsprogramma Npuls, onder de Leren Zonder Drempels pilaar](https://npuls.nl/project-onderwijskoppelingen).
 
-Meer context en de huidige stand van zaken: [`doc/OKx_Projectoverzicht.md`](doc/OKx_Projectoverzicht.md).
+Meer context en de huidige stand van zaken: [`doc/Projectoverzicht.md`](doc/Projectoverzicht.md).
 
 ## Wat proberen we te doen?
 
@@ -44,7 +44,7 @@ Voor concrete wijzigingen werken we via **issues** en **pull requests**. Zie [`C
 | Onderdeel | Locatie | Inhoud |
 |-----------|---------|--------|
 | **Projectcontext** | [`doc/`](doc/) en [`img/`](img/) | Overzichten, ketenplaten, bijlagen en contextdocumenten |
-| **Release & versionering** | [`doc/OKx_Release-management-en-versionering.md`](doc/OKx_Release-management-en-versionering.md) | Voorstel voor versienummers en de verhouding tussen meta- en spec-releases |
+| **Release & versionering** | [`doc/release-management/`](doc/release-management/Release-management-algemeen.md) | Algemene regels, template, en de toepassing per artifact (meta, spec) |
 | **OKE uitwerking** | [`OKE/`](OKE/) | Eerste subdomein-uitwerking (o.a. examen: uitvoering en beoordeling) |
 | **MOKA templates** | [`moka-koppelvlakspecificaties/`](moka-koppelvlakspecificaties/) | Templates en generieke instructies voor koppelvlakspecificaties |
 | **Architectuur & besluiten** | [`architecture/`](architecture/) | ArchiMate-model, ADR’s, meeting-notulen en [`architecture/docs/principes.md`](architecture/docs/principes.md) |

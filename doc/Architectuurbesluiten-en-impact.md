@@ -43,7 +43,7 @@ Dit document **vat samen** welke architectuurrichting uit **Architecture Decisio
 - De **eerste diepgaande technische uitwerking** richt zich op het **uitgewerkte aanbod tussen curriculumontwerp en onderwijscatalogus** — de **onderwijscatalogus** geldt als **bronsysteem** voor veel vervolgstromen.
 - Zolang sectorbrede streeflevering (o.a. volledige MOKA-sectoruitwerking) achterloopt, werkt OKx aan een **minimaal pakket**: verdieping op het **MORA-procesbeeld**, **MOKA-koppelvlakspecificatie-views** en het **MOKA-koppelvlak-informatiemodel** — als **referentiekader**, niet als vervanging van sectorarchitectuur.
 
-**Impact op informatiestromen (zie [OKx_Projectoverzicht](OKx_Projectoverzicht.md)):**
+**Impact op informatiestromen (zie [Projectoverzicht](Projectoverzicht.md)):**
 
 - **Stroom 1** (Curriculum ontwerptool → Onderwijscatalogus, *Uitgewerkt aanbod*) is de **basislijn** waaraan latere stromen (2, 3, …) inhoudelijk hangen.
 - Stromen **2 en 3** zijn **direct downstream** van de catalogus in de prioritering; zonder helder beeld op stroom 1 zijn specs daar lastig te verdedigen.
@@ -93,6 +93,6 @@ Samengevat (detail per ADR):
 
 ## Zie ook
 
-- [OKx Informatiestromen](OKx_Informatiesstromen.md) — overzicht stromen en specs
-- [Informatiestromen, ArchiMate en MOKA-view](OKx_Informatiestromen-ArchiMate-en-MOKA-view.md) — **hoe** je stromen terugvindt in het model
-- [OKx Projectoverzicht](OKx_Projectoverzicht.md) — hoofdplaat en interpretatietabel
+- [OKx Informatiestromen](Informatiesstromen.md) — overzicht stromen en specs
+- [Informatiestromen, ArchiMate en MOKA-view](Informatiestromen-ArchiMate-en-MOKA-view.md) — **hoe** je stromen terugvindt in het model
+- [OKx Projectoverzicht](Projectoverzicht.md) — hoofdplaat en interpretatietabel

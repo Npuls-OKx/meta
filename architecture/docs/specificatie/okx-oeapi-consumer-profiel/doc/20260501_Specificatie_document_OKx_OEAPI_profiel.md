@@ -55,9 +55,8 @@ Zonder deze afspraken blijft flexibilisering beperkt tot losse pilots en lokale 
 
 OKx levert een samenhangende keten van **projectdeliverables** — van kaderstelling tot borging in de sector. Het volgende diagram geeft deze deliverables en de volgordelijkheid hiervan weer:
 
-**Leeswijzer.** De [deliverable-keten en versionering](../../../../../../doc/
-OKx_Release-management-en-versionering.md#1-doel-en-scope) staan in het release-document; 
-[ketenplaat, BOPSI en projectfase](../../../../../../doc/OKx_Projectoverzicht.md) in het 
+**Leeswijzer.** De [release management en versionering](../../../../../../doc/release-management/Release-management-algemeen.md) staan uitgewerkt in de algemene regels, het template en de toepassing per artifact; 
+[ketenplaat, BOPSI en projectfase](../../../../../../doc/Projectoverzicht.md) in het 
 projectoverzicht.
 
 Het diagram leest **van boven naar beneden**: **meta** (kaderstelling) bovenaan, **spec**, adoptie 
@@ -134,7 +133,7 @@ volgende pass opgeschoond.*
 | [**meta**](https://github.com/Npuls-OKx/meta) | **Kaderstelling** t/m **specificatiedocument** (businesslaag) | *Wat* de standaard betekent en *hoe* uitwisseling conceptueel is afgesproken |
 | [**spec**](https://github.com/Npuls-OKx/specification) | **OEAPI OpenAPI** | Technische implementatie van het profiel |
 
-Versiebeheer en releases: [OKx Release management en versionering](../../../../../doc/OKx_Release-management-en-versionering.md).
+Versiebeheer en releases: [OKx Release management, algemene regels](../../../../../doc/release-management/Release-management-algemeen.md), toegepast op [meta](../../../../../doc/release-management/Release-management-meta.md) en (voorstel) [spec](../../../../../doc/release-management/Release-management-spec.md).
 
 ### 2.3 Terugkoppeling
 
@@ -193,7 +192,7 @@ Onderstaande tabel koppelt deliverables uit de keten (§2) aan **bestaande hoofd
 | Sectorarchitecturen | §2.5, §3.4, MORA/HORA in §3.3.1.2.5 |
 | Procesbeeld · scenario's · persona's | §3.5, §3.2.1+, §3.4 scenario-uitwerkingen |
 | Informatiemodellen | §12, conceptmodellen in §3.4 |
-| Informatiestromen | §4, §8, [hoofdplaat](../../../../../doc/OKx_Projectoverzicht.md) |
+| Informatiestromen | §4, §8, [hoofdplaat](../../../../../doc/Projectoverzicht.md) |
 | Interactieanalyse | §3.5 Gegevensanalyse, §15 |
 | Endpointbeschrijvingen | §5–§6 |
 | Interactiepatronen | §15 |
@@ -201,7 +200,7 @@ Onderstaande tabel koppelt deliverables uit de keten (§2) aan **bestaande hoofd
 | Datamodel | §5–§6, §12 |
 | Security | §10 Ontwerpkeuzes (uitwerking security volgt) |
 | OEAPI OpenAPI (spec-repo) | *Buiten dit document* — [Npuls-OKx/specification](https://github.com/Npuls-OKx/specification) |
-| Pilots · BOPSI · borging | [Projectoverzicht](../../../../../doc/OKx_Projectoverzicht.md), [release-doc §1](../../../../../doc/OKx_Release-management-en-versionering.md#1-doel-en-scope) |
+| Pilots · BOPSI · borging | [Projectoverzicht](../../../../../doc/Projectoverzicht.md), [release-doc meta §2](../../../../../doc/release-management/Release-management-meta.md#2-releasepakket) |
 
 ### 3.3 OEAPI-broncode en signaleringen
 

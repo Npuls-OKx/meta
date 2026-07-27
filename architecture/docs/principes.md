@@ -8,7 +8,7 @@ Dit document vat **richtinggevende principes** samen voor uitwerkingen in deze k
 
 - We **ontwerpen en beschrijven** koppelvlakken en informatiestromen **voordat** we ze als “af” beschouwen voor implementatie door leveranciers.
 - Uitwerkingen zijn **iteratief**: concept → review (issues/PR’s) → verfijning.
-- De projectaanpak (begrijpen → ontwerpen → realiseren) uit [`doc/OKx_Projectoverzicht.md`](../../doc/OKx_Projectoverzicht.md) sluit hierbij aan.
+- De projectaanpak (begrijpen → ontwerpen → realiseren) uit [`doc/Projectoverzicht.md`](../../doc/Projectoverzicht.md) sluit hierbij aan.
 
 ---
 
