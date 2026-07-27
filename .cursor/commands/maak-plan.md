@@ -11,23 +11,7 @@ $ARGUMENTS
 - Sla het featureplan op onder **`architecture/agent-artifacts/feature-plans/`**.
 - Conventies: [`architecture/agent-artifacts/README.md`](../../architecture/agent-artifacts/README.md).
 - **Bestandsnaam**: `YYYYMMDD_HHmm_<slug>.md` (bij voorkeur afgeleid van productnaam in het request).
-- **Verplicht YAML frontmatter** bovenaan (werk `updated` bij na elke bewerkingssessie):
-
-```yaml
----
-created: "<ISO-8601>"
-updated: "<ISO-8601>"
-human_authors:
-  - "Naam (rol)"
-human_reviewers: []
-agent_command: "maak-plan"
-agent_model: ""
-related_issues: []
-source_paths:
-  - "architecture/agent-artifacts/project-requests/YYYYMMDD_HHmm_....md"
-notes: "Human-in-the-loop: auteurs zijn verantwoordelijk voor merge naar de officiële werklijn."
----
-```
+- **Geen frontmatter.** GitHub is de bron: auteurschap en datums via de git-historie, koppeling via issues en PR's. Vermeld gerelateerde issues en bronnen in de documenttekst (bijv. een contextregel "Relateert aan: #12").
 
 Vul **`source_paths`** met het (of de) bron-**projectaanvraag**bestand(en). Vraag desnoods wie onder `human_authors` moet staan.
 
@@ -53,7 +37,7 @@ Ontbind het product in **discrete, onafhankelijk ontwerpbare features** en orden
    - **Wat het niet omvat** (scopegrens — voorkom scope-creep in het ontwerp)
 6. **Benoem sequencing-keuzes.** Waar de volgorde debatteerbaar is: noem trade-off en **advies** met reden.
 
-## Uitvoer (markdown na frontmatter)
+## Uitvoer (markdown)
 
 ```markdown
 # [Productnaam] — Featureplan

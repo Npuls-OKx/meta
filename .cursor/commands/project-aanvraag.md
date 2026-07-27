@@ -7,22 +7,7 @@ $ARGUMENTS
 - Sla bestanden **uitsluitend** op onder **`architecture/agent-artifacts/project-requests/`** (mapnaam blijft Engels in de repo).
 - Conventies: [`architecture/agent-artifacts/README.md`](../../architecture/agent-artifacts/README.md).
 - **Bestandsnaam**: `YYYYMMDD_HHmm_<korte-slug>.md` (tijdstip aanmaak of start van een grote nieuwe versie).
-- **Elk bestand begint met YAML-frontmatter** (werk `updated` bij na elke sessie; houd `human_authors` actueel — echte personen die publicatie verantwoorden, niet het model):
-
-```yaml
----
-created: "<ISO-8601-datetime>"
-updated: "<ISO-8601-datetime>"
-human_authors:
-  - "Voor- en achternaam (rol/organisatie)"
-human_reviewers: []
-agent_command: "project-aanvraag"
-agent_model: ""
-related_issues: []
-source_paths: []
-notes: "Human-in-the-loop: auteurs keuren inhoud goed vóór merge naar de officiële werklijn."
----
-```
+- **Geen frontmatter.** GitHub is de bron: auteurschap en datums via de git-historie, koppeling via issues en PR's. Vermeld gerelateerde issues en bronnen in de documenttekst (bijv. een contextregel "Relateert aan: #12").
 
 Als de gebruiker zichzelf nog niet als auteur heeft genoemd, **vraag** vóór de eerste save wie onder `human_authors` moet staan.
 

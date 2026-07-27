@@ -10,4 +10,4 @@ Per **koppeling** (gestandaardiseerde informatiestroom tussen twee referentiecom
 
 Payload-specificaties zijn per koppeling **gedupliceerd** (ADR 0021): structuur en attributen kunnen per koppeling divergeren; elke kopie vermeldt bij welke koppeling hij hoort. De OC-P&R-versies zijn de meest uitgewerkte; kopieën dragen een divergentie-notitie.
 
-Scenario: LR1 (LR2 en LR3 als delta). Leidende prioriteringsvraag (onderwijsvoorbereiding): wat moeten OC-P&R, OC-LMS en OC-SIS uitgewisseld hebben om klaar te zijn voor de start van de student? Alle documenten volgen de agent-artifact-conventie (frontmatter, zie `../../README.md`).
+Scenario: LR1 (LR2 en LR3 als delta). Leidende prioriteringsvraag (onderwijsvoorbereiding): wat moeten OC-P&R, OC-LMS en OC-SIS uitgewisseld hebben om klaar te zijn voor de start van de student? Geen frontmatter in de documenten: auteurschap en datums via de git-historie, koppeling via issues en PR's (zie `../../README.md`).

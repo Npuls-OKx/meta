@@ -1,20 +1,3 @@
----
-created: "2026-07-23T13:04:51+00:00"
-updated: "2026-07-23T13:04:51+00:00"
-human_authors:
-  - "Niek Derksen (architect, OKx)"
-human_reviewers: []
-agent_command: "ontwerp-document"
-agent_model: "Claude Fable 5 (Claude Code)"
-related_issues: ["#98", "#119", "#105", "#84"]
-source_paths:
-  - "architecture/agent-artifacts/design-docs/20260723_1156_okx-lr1-koppelingspecificatie-oc-p-en-r.md"
-  - "architecture/agent-artifacts/design-docs/koppelingspecificaties/oc-p-en-r/20260717_1120_okx-lr1-onderwijsspecificatie-payload-json.md"
-  - "architecture/agent-artifacts/design-docs/koppelingspecificaties/oc-p-en-r/20260720_0832_okx-lr1-lifecycle-versionering.md"
-  - "architecture/docs/specificatie/okx-oeapi-consumer-profiel/doc/20260501_Specificatie_document_OKx_OEAPI_profiel.md"
-notes: "Concept-payload voor het onderwijsaanbod (instantie), geserveerd door het planningssysteem. Volledig Nederlands, plat met verwijzingen. Locatiemodel geinspireerd op OEAPI-issue 635 (Better Location support), zonder OEAPI-termen. Knelpunten als CSP-signalering. Waarden indicatief, alpha."
----
-
 # Onderwijsaanbod als JSON-payload
 
 Context: de instantie van het nieuw gecreëerde onderwijsaanbod, die het planningssysteem (P) serveert en waarnaar het per referentie (uuid) verwijst richting de onderwijscatalogus (OC). Scenario: LR1. Niveau: alpha, waarden indicatief. Status: concept. Relateert aan: #98, #119, #105, #84.

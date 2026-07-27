@@ -1,24 +1,3 @@
----
-created: "2026-07-23T14:02:12+00:00"
-updated: "2026-07-23T14:45:00+00:00"
-human_authors:
-  - "Niek Derksen (architect, OKx)"
-human_reviewers: []
-agent_command: "ontwerp-document"
-agent_model: "Claude Fable 5 (Claude Code)"
-related_issues: ["#98", "#119", "#105", "#110"]
-source_paths:
-  - "architecture/agent-artifacts/design-docs/koppelingspecificaties/oc-p-en-r/20260723_1156_okx-lr1-koppelingspecificatie-oc-p-en-r.md"
-  - "architecture/agent-artifacts/design-docs/koppelingspecificaties/oc-sis-krs-svs/20260717_1120_okx-lr1-onderwijsspecificatie-payload-json.md"
-  - "architecture/agent-artifacts/design-docs/koppelingspecificaties/oc-sis-krs-svs/20260720_0831_okx-lr1-resultaatstructuur-examenplan.md"
-  - "doc/OKx_PDCA cyclus onderwijsontwerp.md"
-  - "architecture/dr/0009-sks-svs-rollenverdeling-keuze-vs-resultaat-voortgang.md"
-  - "architecture/dr/0014-splitsing-inschrijving-rodkrs-en-studentkeuze-sks.md"
-  - "architecture/dr/0021-koppeling-versus-koppelvlak-terminologie.md"
-  - "architecture/dr/0022-resultaatbegrippen-conform-rosa-koi.md"
-notes: "Koppelingspecificatie OC naar SIS (KRS/SVS), afgeleid uit de hoofdplaat (stroom 3 en 9), de ADR's en het patroon van de koppeling OC-P&R. Nog geen werksessie of schets als basis: concept, ter review. Zelfde patroontaal (notify-then-pull, EIP)."
----
-
 # Koppelingspecificatie OC-SIS (KRS/SVS): interactiepatronen (concept)
 
 Context: koppeling onderwijscatalogus (OC) naar studentinformatiesysteem (SIS, de combinatie KRS en SVS), intra-instelling. Scenario: LR1-3. Niveau: concept, afgeleid zonder werksessie; ter review. Relateert aan: #98, #119, #105, #110. Terminologie: ADR 0021.

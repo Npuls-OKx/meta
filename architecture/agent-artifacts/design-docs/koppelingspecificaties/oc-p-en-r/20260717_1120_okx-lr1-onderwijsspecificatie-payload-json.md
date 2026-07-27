@@ -1,23 +1,3 @@
----
-created: "2026-07-17T11:20:30+00:00"
-updated: "2026-07-23T13:04:51+00:00"
-human_authors:
-  - "Niek Derksen (architect, OKx)"
-human_reviewers: []
-agent_command: "ontwerp-document"
-agent_model: "Claude Opus 4.8 (Claude Code)"
-related_issues: ["#119", "#105", "#84", "#120", "#110"]
-source_paths:
-  - "architecture/docs/specificatie/okx-oeapi-consumer-profiel/doc/20260501_Specificatie_document_OKx_OEAPI_profiel.md"
-  - "architecture/docs/kwalificatiedossier/Apothekersassistent-2.md"
-  - ".cursor/skills/mbo-informatie-modelleur/SKILL.md"
-  - "architecture/agent-artifacts/design-docs/20260716_1414_okx-lr1-keuzedelen-requirements-voorstel.md"
-  - "architecture/dr/0017-hierarchisch-datamodel-aanbodstructuur-leeruitkomsten-en-sbuec-aggregatie.md"
-  - "architecture/dr/0020-curriculumontwerp-onderwijscatalogus-happy-flow-synchronisatie-en-federatie-adopt-klonen.md"
-  - "doc/OKx_PDCA cyclus onderwijsontwerp.md"
-notes: "Async sessies: bij elke bewerking 'updated' bijwerken en auteurs aanvullen indien meerdere mensen betrokken. Concept-payload (grofmazig, fase 1-2); attribuutwaarden indicatief. Regels staan los van de onderwijsspecificatie (zie #84/#120). Enums zijn concept en te bevestigen. OEAPI-binding is signalering."
----
-
 # Onderwijsspecificatie als JSON-payload (OC naar P)
 
 Context: koppeling OC naar P (onderwijscatalogus naar planning), vroege processtap "kwalificatiekader analyseren". Scenario: LR1 (Apothekersassistent, Crebo-dossier 23450, kwalificatie 27141). Niveau: concept-payload, grofmazig (fase 1-2). Status: concept. Relateert aan: #119, #105, #84, #120.
@@ -70,7 +50,7 @@ Ankertabel (§3.2.6), specificatie-kolom. Conceptniveaus, bron in het kwalificat
 | `examenplanspecificatie` | OER, summatieve resultaatstructuur | (aparte uitwerking) |
 | `lesspecificatie` (buiten scope) | beleid instelling | LearningComponent (lesson) |
 
-Belangrijke correctie ten opzichte van de vorige versie: de **kwalificatie ligt niet op root-niveau**. De opleiding draagt het kwalificatiedossier als leeruitkomst (`type: kwalificatiedossier`, code 23450). De kwalificatie (27141) hoort op programma-niveau (`type: kwalificatie`).
+De **kwalificatie ligt niet op root-niveau**: de `opleidingsspecificatie` verankert op de leeruitkomst van het kwalificatiedossier (23450), de `opleidingsprogrammaspecificatie` op die van de kwalificatie (27141). Leeruitkomsten zijn zelfstandige objecten (zie de ontwerpkeuze in §5).
 
 Vier eigenschappen die de gelaagdheid bepalen:
 
@@ -122,7 +102,8 @@ Ontwerpkeuzes:
 
 - Eén uniform type. Alle specificaties staan in een platte lijst `onderwijsspecificaties`. Elke specificatie heeft een `bovenliggendId` (uuid; `null` op de root). De structuur reconstrueer je door `bovenliggendId` te volgen; een geneste weergave is daaruit af te leiden.
 - Discriminator `specificatieType` bepaalt het niveau.
-- Verankering via leeruitkomst (vervangt `primaryCode`). Elke specificatie verwijst naar een leeruitkomst met een `type`. Nu de kwalificatiekader-typen (kwalificatiedossier, kwalificatie, kerntaak, werkproces, keuzedeel); later uitbreidbaar met een leeruitkomst-standaard zoals CompetentNL (ADR 0003, 0004).
+- **Leeruitkomst als zelfstandig object met eigen lifecycle.** Leeruitkomsten staan in een eigen platte lijst `leeruitkomsten`, elk met een eigen `leeruitkomstId` (uuid) en `versie`. Elke specificatie verwijst met `leeruitkomstId`: de leeruitkomst is de **sleutel** die aangeeft wat je precies afrondt en hoe dat zich verhoudt tot diploma, certificaat of ander waardedocument (ADR 0022). De huidige onderwijsvorm hangt eraan via `bron` (standaard `sbb-kwalificatiekader`, met type en code); later hangt hier de nationale standaard aan, bijvoorbeeld CompetentNL, zonder dat de sleutel of de specificaties wijzigen (ADR 0003, 0004).
+- **Leeruitkomsten op elk niveau, met een eigen orde van grootte.** Een leeruitkomst bestaat op elk specificatieniveau: op opleidingsniveau is hij van grote orde (jaren werk, een NLQF-kwalificatie, leidend tot een diploma), op onderwijseenheid- en leeronderdeelniveau van kleinere orde (een deelverzameling kan tot een certificaat leiden), en straks op lessenreeks- of lesniveau (aangetoonde kennis, inzichten of vaardigheden). Leeruitkomsten aggregeren onderling via `bovenliggendLeeruitkomstId`: bottom-up telt klein op naar groot, top-down is een grote leeruitkomst te ontleden. Zo is van de grond af zichtbaar welke volgende onderwijsspecificaties je verder brengen richting een waardepapier of microcredential (`waardedocument`).
 - Id's zijn UUID's.
 - Versionering per specificatie met semver (`MAJOR.MINOR.PATCH`). MAJOR = wijziging die betekenis of uitkomst raakt (leeruitkomsten, structuur, studielast), MINOR = additief zonder bestaande betekenis te breken, PATCH = correctie. Temporele geldigheid apart via `geldigVanaf`/`geldigTot` en cohort, niet als versienummer.
 - Identiteit los van versie (uitgangspunt, memo PR #110). `specificatieId` is stabiel; `versie` verandert bij een wijziging binnen dezelfde identiteit. Een fundamentele wijziging (nieuw kwalificatiedossier, nieuwe wettelijke eisen) is een nieuwe specificatie met een nieuw id, niet alleen een MAJOR-bump.
@@ -153,9 +134,11 @@ Concept en te bevestigen. Open sets zijn als zodanig gemarkeerd.
 | `leerweg` | `BOL`, `BBL` |
 | `doelgroep` | `regulier`, `zijinstromer`, `hybride`, `organisatiespecifiek` (open) || `tijdsverdeling` | `BOT` (begeleide onderwijstijd), `OOT` (onbegeleide onderwijstijd) |
 | `studielast.eenheid` | `SBU`, `EC` |
-| `leeruitkomst.type` | `kwalificatiedossier`, `kwalificatie`, `kerntaak`, `werkproces`, `keuzedeel` (open, uitbreidbaar met een leeruitkomst-standaard zoals CompetentNL) |
+| `bron.standaard` | `sbb-kwalificatiekader` (open; later bv. `competentnl`) |
+| `bron.type` | `kwalificatiedossier`, `kwalificatie`, `kerntaak`, `werkproces`, `keuzedeel` (geldt bij `sbb-kwalificatiekader`) |
 | `keuzedeelKlasse` | `algemeen-verbredend`, `beroepsspecifiek-verdiepend` (open, uitbreidbaar; #84 R10) |
-| `leeruitkomst.nlqfNiveau` | `1` t/m `8` (NLQF, geldt voor alle sectoren) |
+| `nlqfNiveau` (op de leeruitkomst) | `1` t/m `8` (NLQF, geldt voor alle sectoren) |
+| `waardedocument` (op de leeruitkomst) | `diploma`, `mbo-certificaat`, `microcredential` (open) |
 
 ## 7. Uitwerking van de payload
 
@@ -163,7 +146,7 @@ Grofmazig, LR1, indicatief. `studielast` telt bottom-up op binnen onderdeel-van 
 
 ### 7.1 Boomstructuur met attributen (ERD)
 
-Alle objecten zijn hetzelfde type (`EducationSpecification`), gespecialiseerd via `specificatieType`. Hieronder per laag getoond met de belangrijkste attributen. `onderdeel_van` = additief (studielast telt op), `variant_van` = alternatief. Elke entiteit draagt daarnaast `versie` (semver); voor de leesbaarheid niet in elke box herhaald.
+Alle specificaties zijn hetzelfde type, gespecialiseerd via `specificatieType`. Hieronder per laag getoond met de belangrijkste attributen. `onderdeel_van` = additief (studielast telt op), `variant_van` = alternatief. Elke entiteit draagt daarnaast `versie` (semver); voor de leesbaarheid niet in elke box herhaald.
 
 ```mermaid
 erDiagram
@@ -176,11 +159,22 @@ erDiagram
     RULESET }o--o{ KEUZEDEELPROGRAMMASPECIFICATIE : kiesbaar
     KEUZEDEELPROGRAMMASPECIFICATIE ||--o{ ONDERWIJSEENHEIDSPECIFICATIE : onderdeel_van
 
+    OPLEIDINGSSPECIFICATIE }o--|| LEERUITKOMST : "verankert op"
+    LEERUITKOMST ||--o{ LEERUITKOMST : "aggregeert bottom-up en top-down"
+    LEERUITKOMST {
+        uuid leeruitkomstId PK
+        string versie "eigen lifecycle"
+        string naam
+        object bron "standaard (nu sbb-kwalificatiekader, later bv. competentnl) + type + code"
+        uuid bovenliggendLeeruitkomstId FK "recursief, orde van grootte per niveau"
+        string waardedocument "diploma, certificaat, later microcredential"
+        int nlqfNiveau
+    }
     OPLEIDINGSSPECIFICATIE {
         uuid specificatieId PK
         string specificatieType "opleidingsspecificatie"
         uuid bovenliggendId "null"
-        object leeruitkomst "type=kwalificatiedossier, code=23450, nlqfNiveau=4"
+        uuid leeruitkomstId FK "sleutel naar leeruitkomst"
         string naam
         string curriculumtype
         string versie
@@ -194,7 +188,7 @@ erDiagram
         uuid specificatieId PK
         string specificatieType "opleidingsprogrammaspecificatie"
         uuid bovenliggendId FK "opleiding"
-        object leeruitkomst "type=kwalificatie, code=27141"
+        uuid leeruitkomstId FK "sleutel naar leeruitkomst"
         string programmaLaag "leerweg"
         string leerweg "BOL of BBL"
         string programmatype "diplomaprogramma"
@@ -220,7 +214,7 @@ erDiagram
         uuid specificatieId PK
         string specificatieType "onderwijseenheidspecificatie"
         uuid bovenliggendId FK "programma of keuzedeelprogramma"
-        object leeruitkomst "type=kerntaak"
+        uuid leeruitkomstId FK "sleutel naar leeruitkomst"
         string naam
         object studielast
     }
@@ -228,7 +222,7 @@ erDiagram
         uuid specificatieId PK
         string specificatieType "leeronderdeelspecificatie"
         uuid bovenliggendId FK "onderwijseenheid"
-        object leeruitkomst "type=werkproces"
+        uuid leeruitkomstId FK "sleutel naar leeruitkomst"
         string naam
         string tijdsverdeling "BOT of OOT"
         object studielast
@@ -244,7 +238,7 @@ erDiagram
         uuid specificatieId PK
         string specificatieType "opleidingsprogrammaspecificatie"
         uuid bovenliggendId "null, zelfstandig"
-        object leeruitkomst "type=keuzedeel"
+        uuid leeruitkomstId FK "sleutel naar leeruitkomst"
         string programmatype "keuzedeelprogramma"
         string keuzedeelKlasse "algemeen-verbredend of beroepsspecifiek-verdiepend"
         object studielast
@@ -261,23 +255,294 @@ erDiagram
 
 ```json
 {
+  "leeruitkomsten": [
+    {
+      "leeruitkomstId": "c5b64fe5-f7bf-490c-acaf-7af1bd24f980",
+      "versie": "0.1.0",
+      "naam": "Apothekersassistent (kwalificatiedossier 23450)",
+      "bron": {
+        "standaard": "sbb-kwalificatiekader",
+        "type": "kwalificatiedossier",
+        "code": "23450"
+      },
+      "bovenliggendLeeruitkomstId": null,
+      "waardedocument": "diploma",
+      "nlqfNiveau": 4
+    },
+    {
+      "leeruitkomstId": "b84dc98b-6c5f-4ee8-bdfb-40b2639ca5a4",
+      "versie": "0.1.0",
+      "naam": "Apothekersassistent (kwalificatie 27141)",
+      "bron": {
+        "standaard": "sbb-kwalificatiekader",
+        "type": "kwalificatie",
+        "code": "27141"
+      },
+      "bovenliggendLeeruitkomstId": "c5b64fe5-f7bf-490c-acaf-7af1bd24f980"
+    },
+    {
+      "leeruitkomstId": "12301838-92d4-4040-aea2-050bb131ceb7",
+      "versie": "0.1.0",
+      "naam": "Biedt farmaceutische patiëntenzorg",
+      "bron": {
+        "standaard": "sbb-kwalificatiekader",
+        "type": "kerntaak",
+        "code": "B1-K1"
+      },
+      "bovenliggendLeeruitkomstId": "b84dc98b-6c5f-4ee8-bdfb-40b2639ca5a4"
+    },
+    {
+      "leeruitkomstId": "bedb4c31-b818-491c-8227-9b32146a3363",
+      "versie": "0.1.0",
+      "naam": "Voert logistieke taken uit in de apotheek",
+      "bron": {
+        "standaard": "sbb-kwalificatiekader",
+        "type": "kerntaak",
+        "code": "B1-K2"
+      },
+      "bovenliggendLeeruitkomstId": "b84dc98b-6c5f-4ee8-bdfb-40b2639ca5a4"
+    },
+    {
+      "leeruitkomstId": "8b085118-ff81-4639-9152-ed2e447db2db",
+      "versie": "0.1.0",
+      "naam": "Werkt mee aan kwaliteit en deskundigheid",
+      "bron": {
+        "standaard": "sbb-kwalificatiekader",
+        "type": "kerntaak",
+        "code": "B1-K3"
+      },
+      "bovenliggendLeeruitkomstId": "b84dc98b-6c5f-4ee8-bdfb-40b2639ca5a4"
+    },
+    {
+      "leeruitkomstId": "78f25d62-9fd4-45c4-aa04-3d22f59213f5",
+      "versie": "0.1.0",
+      "naam": "Neemt de zorg-/adviesvraag in behandeling",
+      "bron": {
+        "standaard": "sbb-kwalificatiekader",
+        "type": "werkproces",
+        "code": "B1-K1-W1"
+      },
+      "bovenliggendLeeruitkomstId": "12301838-92d4-4040-aea2-050bb131ceb7"
+    },
+    {
+      "leeruitkomstId": "0ffa279f-c595-49d7-b033-c91f66d18bb1",
+      "versie": "0.1.0",
+      "naam": "Voert medicatiebewaking uit",
+      "bron": {
+        "standaard": "sbb-kwalificatiekader",
+        "type": "werkproces",
+        "code": "B1-K1-W2"
+      },
+      "bovenliggendLeeruitkomstId": "12301838-92d4-4040-aea2-050bb131ceb7"
+    },
+    {
+      "leeruitkomstId": "9d6a5081-9356-4058-8ac0-a4df8f8c60bd",
+      "versie": "0.1.0",
+      "naam": "Verstrekt (zelfzorg)medicijnen en/of hulpmiddelen",
+      "bron": {
+        "standaard": "sbb-kwalificatiekader",
+        "type": "werkproces",
+        "code": "B1-K1-W3"
+      },
+      "bovenliggendLeeruitkomstId": "12301838-92d4-4040-aea2-050bb131ceb7"
+    },
+    {
+      "leeruitkomstId": "71f42c36-dcfb-42ec-b492-8ed665639eda",
+      "versie": "0.1.0",
+      "naam": "Geeft informatie en advies over medicijngebruik, gezondheid en leefstijl",
+      "bron": {
+        "standaard": "sbb-kwalificatiekader",
+        "type": "werkproces",
+        "code": "B1-K1-W4"
+      },
+      "bovenliggendLeeruitkomstId": "12301838-92d4-4040-aea2-050bb131ceb7"
+    },
+    {
+      "leeruitkomstId": "1d5f3f8e-76d1-4bf1-bcf2-986a4a2fe7fd",
+      "versie": "0.1.0",
+      "naam": "Maakt medicijnen klaar voor gebruik en/of aflevering",
+      "bron": {
+        "standaard": "sbb-kwalificatiekader",
+        "type": "werkproces",
+        "code": "B1-K2-W1"
+      },
+      "bovenliggendLeeruitkomstId": "bedb4c31-b818-491c-8227-9b32146a3363"
+    },
+    {
+      "leeruitkomstId": "772c792b-f5ec-425f-9dd7-87d8fad4d2db",
+      "versie": "0.1.0",
+      "naam": "Houdt de voorraad bij",
+      "bron": {
+        "standaard": "sbb-kwalificatiekader",
+        "type": "werkproces",
+        "code": "B1-K2-W2"
+      },
+      "bovenliggendLeeruitkomstId": "bedb4c31-b818-491c-8227-9b32146a3363"
+    },
+    {
+      "leeruitkomstId": "d929b0df-9119-4b89-ada3-342ab6b9f937",
+      "versie": "0.1.0",
+      "naam": "Draagt bij aan sociaal veilige werkomgeving",
+      "bron": {
+        "standaard": "sbb-kwalificatiekader",
+        "type": "werkproces",
+        "code": "B1-K3-W1"
+      },
+      "bovenliggendLeeruitkomstId": "8b085118-ff81-4639-9152-ed2e447db2db"
+    },
+    {
+      "leeruitkomstId": "5cb6ce9c-82cc-4143-86bd-9f375b2901bc",
+      "versie": "0.1.0",
+      "naam": "Evalueert de werkzaamheden en ontwikkelt zichzelf als professional",
+      "bron": {
+        "standaard": "sbb-kwalificatiekader",
+        "type": "werkproces",
+        "code": "B1-K3-W2"
+      },
+      "bovenliggendLeeruitkomstId": "8b085118-ff81-4639-9152-ed2e447db2db"
+    },
+    {
+      "leeruitkomstId": "ac69e604-6192-4eaf-b786-ed2668dc0faf",
+      "versie": "0.1.0",
+      "naam": "Stemt de farmaceutische zorgverlening af",
+      "bron": {
+        "standaard": "sbb-kwalificatiekader",
+        "type": "werkproces",
+        "code": "B1-K3-W3"
+      },
+      "bovenliggendLeeruitkomstId": "8b085118-ff81-4639-9152-ed2e447db2db"
+    },
+    {
+      "leeruitkomstId": "4dca5ee6-ea76-4cc2-ac34-bbd466d7b6d3",
+      "versie": "0.1.0",
+      "naam": "Keuzedeel Ondernemerschap",
+      "bron": {
+        "standaard": "sbb-kwalificatiekader",
+        "type": "keuzedeel",
+        "code": "K0072"
+      },
+      "bovenliggendLeeruitkomstId": null,
+      "waardedocument": "mbo-certificaat"
+    },
+    {
+      "leeruitkomstId": "235745ac-bf0f-4a94-b966-aa4ebbfcdabb",
+      "versie": "0.1.0",
+      "naam": "Zet een onderneming op in de zorg (indicatief)",
+      "bron": {
+        "standaard": "sbb-kwalificatiekader",
+        "type": "kerntaak",
+        "code": "K0072-K1"
+      },
+      "bovenliggendLeeruitkomstId": "4dca5ee6-ea76-4cc2-ac34-bbd466d7b6d3"
+    },
+    {
+      "leeruitkomstId": "bfcef8b4-49e6-4ba4-87a5-36389838969b",
+      "versie": "0.1.0",
+      "naam": "Stelt een ondernemingsplan op (indicatief)",
+      "bron": {
+        "standaard": "sbb-kwalificatiekader",
+        "type": "werkproces",
+        "code": "K0072-K1-W1"
+      },
+      "bovenliggendLeeruitkomstId": "235745ac-bf0f-4a94-b966-aa4ebbfcdabb"
+    },
+    {
+      "leeruitkomstId": "a12bbc9c-ce75-41df-837b-489f46df500d",
+      "versie": "0.1.0",
+      "naam": "Keuzedeel Ruimtelijk inzicht (illustratief)",
+      "bron": {
+        "standaard": "sbb-kwalificatiekader",
+        "type": "keuzedeel",
+        "code": "K0000-ri"
+      },
+      "bovenliggendLeeruitkomstId": null,
+      "waardedocument": "mbo-certificaat"
+    },
+    {
+      "leeruitkomstId": "3f9dea35-395d-4a4b-8474-64f0d45d19dd",
+      "versie": "0.1.0",
+      "naam": "Past ruimtelijk inzicht toe (illustratief)",
+      "bron": {
+        "standaard": "sbb-kwalificatiekader",
+        "type": "kerntaak",
+        "code": "K0000-ri-K1"
+      },
+      "bovenliggendLeeruitkomstId": "a12bbc9c-ce75-41df-837b-489f46df500d"
+    },
+    {
+      "leeruitkomstId": "92476363-cd8e-4b3c-aeea-b70add98786f",
+      "versie": "0.1.0",
+      "naam": "Interpreteert ruimtelijke figuren (illustratief)",
+      "bron": {
+        "standaard": "sbb-kwalificatiekader",
+        "type": "werkproces",
+        "code": "K0000-ri-K1-W1"
+      },
+      "bovenliggendLeeruitkomstId": "3f9dea35-395d-4a4b-8474-64f0d45d19dd"
+    },
+    {
+      "leeruitkomstId": "0d83e73a-e0d8-47de-8b83-983d2b8226e8",
+      "versie": "0.1.0",
+      "naam": "Keuzedeel Wiskunde 1 (illustratief)",
+      "bron": {
+        "standaard": "sbb-kwalificatiekader",
+        "type": "keuzedeel",
+        "code": "K0000-w1"
+      },
+      "bovenliggendLeeruitkomstId": null,
+      "waardedocument": "mbo-certificaat"
+    },
+    {
+      "leeruitkomstId": "c980007d-93db-40c9-bd8e-405293f1b20f",
+      "versie": "0.1.0",
+      "naam": "Beheerst basale wiskunde (illustratief)",
+      "bron": {
+        "standaard": "sbb-kwalificatiekader",
+        "type": "kerntaak",
+        "code": "K0000-w1-K1"
+      },
+      "bovenliggendLeeruitkomstId": "0d83e73a-e0d8-47de-8b83-983d2b8226e8"
+    },
+    {
+      "leeruitkomstId": "d44a185e-1348-4ed7-92a4-f0cb898dd85b",
+      "versie": "0.1.0",
+      "naam": "Rekent met verhoudingen en formules (illustratief)",
+      "bron": {
+        "standaard": "sbb-kwalificatiekader",
+        "type": "werkproces",
+        "code": "K0000-w1-K1-W1"
+      },
+      "bovenliggendLeeruitkomstId": "c980007d-93db-40c9-bd8e-405293f1b20f"
+    }
+  ],
   "onderwijsspecificaties": [
     {
       "specificatieId": "79736830-1c5c-470f-b2c2-005029c96733",
       "specificatieType": "opleidingsspecificatie",
       "versie": "0.1.0",
       "bovenliggendId": null,
-      "leeruitkomst": { "type": "kwalificatiedossier", "code": "23450", "nlqfNiveau": 4 },
+      "leeruitkomstId": "c5b64fe5-f7bf-490c-acaf-7af1bd24f980",
       "naam": "Apothekersassistent",
       "omschrijving": "Opleiding tot apothekersassistent. Domein Zorg en welzijn.",
       "curriculumtype": "nominaal",
       "status": "concept",
       "geldigVanaf": "2026-08-01",
       "geldigTot": null,
-      "studielast": { "waarde": 4800, "eenheid": "SBU" },
+      "studielast": {
+        "waarde": 4800,
+        "eenheid": "SBU"
+      },
       "manifest": [
-        { "specificatieId": "5ef37812-ae0f-4232-904f-451b9928e45e", "versie": "0.1.0", "relatie": "variant" },
-        { "specificatieId": "93f3c239-5baa-4d96-a56f-728c09d7fefe", "versie": "0.1.0", "relatie": "variant" }
+        {
+          "specificatieId": "5ef37812-ae0f-4232-904f-451b9928e45e",
+          "versie": "0.1.0",
+          "relatie": "variant"
+        },
+        {
+          "specificatieId": "93f3c239-5baa-4d96-a56f-728c09d7fefe",
+          "versie": "0.1.0",
+          "relatie": "variant"
+        }
       ]
     },
     {
@@ -285,33 +550,39 @@ erDiagram
       "specificatieType": "opleidingsprogrammaspecificatie",
       "versie": "0.1.0",
       "bovenliggendId": "79736830-1c5c-470f-b2c2-005029c96733",
-      "leeruitkomst": { "type": "kwalificatie", "code": "27141" },
+      "leeruitkomstId": "b84dc98b-6c5f-4ee8-bdfb-40b2639ca5a4",
       "naam": "Apothekersassistent, leerweg BOL",
       "programmatype": "diplomaprogramma",
       "programmaLaag": "leerweg",
       "leerweg": "BOL",
       "status": "concept",
-      "studielast": { "waarde": 4800, "eenheid": "SBU" }
+      "studielast": {
+        "waarde": 4800,
+        "eenheid": "SBU"
+      }
     },
     {
       "specificatieId": "93f3c239-5baa-4d96-a56f-728c09d7fefe",
       "specificatieType": "opleidingsprogrammaspecificatie",
       "versie": "0.1.0",
       "bovenliggendId": "79736830-1c5c-470f-b2c2-005029c96733",
-      "leeruitkomst": { "type": "kwalificatie", "code": "27141" },
+      "leeruitkomstId": "b84dc98b-6c5f-4ee8-bdfb-40b2639ca5a4",
       "naam": "Apothekersassistent, leerweg BBL",
       "programmatype": "diplomaprogramma",
       "programmaLaag": "leerweg",
       "leerweg": "BBL",
       "status": "concept",
-      "studielast": { "waarde": 4800, "eenheid": "SBU" }
+      "studielast": {
+        "waarde": 4800,
+        "eenheid": "SBU"
+      }
     },
     {
       "specificatieId": "7ae25c1e-ee27-43a2-a001-761ee39ea5c7",
       "specificatieType": "opleidingsprogrammaspecificatie",
       "versie": "0.1.0",
       "bovenliggendId": "5ef37812-ae0f-4232-904f-451b9928e45e",
-      "leeruitkomst": { "type": "kwalificatie", "code": "27141" },
+      "leeruitkomstId": "b84dc98b-6c5f-4ee8-bdfb-40b2639ca5a4",
       "naam": "Regulier BOL",
       "programmatype": "diplomaprogramma",
       "programmaLaag": "doelgroep",
@@ -323,12 +594,31 @@ erDiagram
       "geldigVanaf": "2026-09-01",
       "geldigTot": null,
       "status": "concept",
-      "studielast": { "waarde": 4800, "eenheid": "SBU" },
+      "studielast": {
+        "waarde": 4800,
+        "eenheid": "SBU"
+      },
       "manifest": [
-        { "specificatieId": "402c2342-d897-4df4-a667-7fc5bd930944", "versie": "0.1.0", "relatie": "onderdeel" },
-        { "specificatieId": "aa0a8af1-d383-4981-8a0f-6ec2ba4e6283", "versie": "0.1.0", "relatie": "onderdeel" },
-        { "specificatieId": "f686a286-d555-4eda-bd22-001c5b60e4dc", "versie": "0.1.0", "relatie": "onderdeel" },
-        { "specificatieId": "fb5be5ae-faa0-4b4b-8085-474fce9aae08", "versie": "0.1.0", "relatie": "onderdeel" }
+        {
+          "specificatieId": "402c2342-d897-4df4-a667-7fc5bd930944",
+          "versie": "0.1.0",
+          "relatie": "onderdeel"
+        },
+        {
+          "specificatieId": "aa0a8af1-d383-4981-8a0f-6ec2ba4e6283",
+          "versie": "0.1.0",
+          "relatie": "onderdeel"
+        },
+        {
+          "specificatieId": "f686a286-d555-4eda-bd22-001c5b60e4dc",
+          "versie": "0.1.0",
+          "relatie": "onderdeel"
+        },
+        {
+          "specificatieId": "fb5be5ae-faa0-4b4b-8085-474fce9aae08",
+          "versie": "0.1.0",
+          "relatie": "onderdeel"
+        }
       ]
     },
     {
@@ -336,21 +626,24 @@ erDiagram
       "specificatieType": "opleidingsprogrammaspecificatie",
       "versie": "0.1.0",
       "bovenliggendId": "5ef37812-ae0f-4232-904f-451b9928e45e",
-      "leeruitkomst": { "type": "kwalificatie", "code": "27141" },
+      "leeruitkomstId": "b84dc98b-6c5f-4ee8-bdfb-40b2639ca5a4",
       "naam": "Zijstroom/LLO BOL (illustratief)",
       "programmatype": "diplomaprogramma",
       "programmaLaag": "doelgroep",
       "doelgroep": "zijinstromer",
       "leerweg": "BOL",
       "status": "concept",
-      "studielast": { "waarde": 4800, "eenheid": "SBU" }
+      "studielast": {
+        "waarde": 4800,
+        "eenheid": "SBU"
+      }
     },
     {
       "specificatieId": "685dc983-1597-46d5-9935-001d7e3715ca",
       "specificatieType": "opleidingsprogrammaspecificatie",
       "versie": "0.1.0",
       "bovenliggendId": "5ef37812-ae0f-4232-904f-451b9928e45e",
-      "leeruitkomst": { "type": "kwalificatie", "code": "27141" },
+      "leeruitkomstId": "b84dc98b-6c5f-4ee8-bdfb-40b2639ca5a4",
       "naam": "Hybride BOL (illustratief)",
       "programmatype": "diplomaprogramma",
       "programmaLaag": "doelgroep",
@@ -358,154 +651,201 @@ erDiagram
       "leerweg": "BOL",
       "curriculumtype": "hybride",
       "status": "concept",
-      "studielast": { "waarde": 4800, "eenheid": "SBU" }
+      "studielast": {
+        "waarde": 4800,
+        "eenheid": "SBU"
+      }
     },
     {
       "specificatieId": "23d18a33-dafc-47e7-a60e-84cd31d27613",
       "specificatieType": "opleidingsprogrammaspecificatie",
       "versie": "0.1.0",
       "bovenliggendId": "93f3c239-5baa-4d96-a56f-728c09d7fefe",
-      "leeruitkomst": { "type": "kwalificatie", "code": "27141" },
+      "leeruitkomstId": "b84dc98b-6c5f-4ee8-bdfb-40b2639ca5a4",
       "naam": "Regulier BBL (illustratief)",
       "programmatype": "diplomaprogramma",
       "programmaLaag": "doelgroep",
       "doelgroep": "regulier",
       "leerweg": "BBL",
       "status": "concept",
-      "studielast": { "waarde": 4800, "eenheid": "SBU" }
+      "studielast": {
+        "waarde": 4800,
+        "eenheid": "SBU"
+      }
     },
     {
       "specificatieId": "c295478c-c1c1-4647-9550-dc728aff1a7c",
       "specificatieType": "opleidingsprogrammaspecificatie",
       "versie": "0.1.0",
       "bovenliggendId": "93f3c239-5baa-4d96-a56f-728c09d7fefe",
-      "leeruitkomst": { "type": "kwalificatie", "code": "27141" },
+      "leeruitkomstId": "b84dc98b-6c5f-4ee8-bdfb-40b2639ca5a4",
       "naam": "BBL Ziekenhuis 12 (illustratief)",
       "programmatype": "diplomaprogramma",
       "programmaLaag": "doelgroep",
       "doelgroep": "organisatiespecifiek",
-      "organisatie": { "naam": "Ziekenhuis 12" },
+      "organisatie": {
+        "naam": "Ziekenhuis 12"
+      },
       "leerweg": "BBL",
       "toelichting": "BBL-variant, 4 dagen werken en 1 dag school.",
       "status": "concept",
-      "studielast": { "waarde": 4800, "eenheid": "SBU" }
+      "studielast": {
+        "waarde": 4800,
+        "eenheid": "SBU"
+      }
     },
     {
       "specificatieId": "402c2342-d897-4df4-a667-7fc5bd930944",
       "specificatieType": "onderwijseenheidspecificatie",
       "versie": "0.1.0",
       "bovenliggendId": "7ae25c1e-ee27-43a2-a001-761ee39ea5c7",
-      "leeruitkomst": { "type": "kerntaak", "code": "B1-K1" },
+      "leeruitkomstId": "12301838-92d4-4040-aea2-050bb131ceb7",
       "naam": "Biedt farmaceutische patiëntenzorg",
-      "studielast": { "waarde": 2000, "eenheid": "SBU" }
+      "studielast": {
+        "waarde": 2000,
+        "eenheid": "SBU"
+      }
     },
     {
       "specificatieId": "aa0a8af1-d383-4981-8a0f-6ec2ba4e6283",
       "specificatieType": "onderwijseenheidspecificatie",
       "versie": "0.1.0",
       "bovenliggendId": "7ae25c1e-ee27-43a2-a001-761ee39ea5c7",
-      "leeruitkomst": { "type": "kerntaak", "code": "B1-K2" },
+      "leeruitkomstId": "bedb4c31-b818-491c-8227-9b32146a3363",
       "naam": "Voert logistieke taken uit in de apotheek",
-      "studielast": { "waarde": 1200, "eenheid": "SBU" }
+      "studielast": {
+        "waarde": 1200,
+        "eenheid": "SBU"
+      }
     },
     {
       "specificatieId": "f686a286-d555-4eda-bd22-001c5b60e4dc",
       "specificatieType": "onderwijseenheidspecificatie",
       "versie": "0.1.0",
       "bovenliggendId": "7ae25c1e-ee27-43a2-a001-761ee39ea5c7",
-      "leeruitkomst": { "type": "kerntaak", "code": "B1-K3" },
+      "leeruitkomstId": "8b085118-ff81-4639-9152-ed2e447db2db",
       "naam": "Werkt mee aan kwaliteit en deskundigheid",
-      "studielast": { "waarde": 880, "eenheid": "SBU" }
+      "studielast": {
+        "waarde": 880,
+        "eenheid": "SBU"
+      }
     },
     {
       "specificatieId": "327c8263-3516-4b5a-8d57-c16241ec008d",
       "specificatieType": "leeronderdeelspecificatie",
       "versie": "0.1.0",
       "bovenliggendId": "402c2342-d897-4df4-a667-7fc5bd930944",
-      "leeruitkomst": { "type": "werkproces", "code": "B1-K1-W1" },
+      "leeruitkomstId": "78f25d62-9fd4-45c4-aa04-3d22f59213f5",
       "naam": "Neemt de zorg-/adviesvraag in behandeling",
       "tijdsverdeling": "BOT",
-      "studielast": { "waarde": 600, "eenheid": "SBU" }
+      "studielast": {
+        "waarde": 600,
+        "eenheid": "SBU"
+      }
     },
     {
       "specificatieId": "29522e42-fb32-46d2-a504-0869831f941f",
       "specificatieType": "leeronderdeelspecificatie",
       "versie": "0.1.0",
       "bovenliggendId": "402c2342-d897-4df4-a667-7fc5bd930944",
-      "leeruitkomst": { "type": "werkproces", "code": "B1-K1-W2" },
+      "leeruitkomstId": "0ffa279f-c595-49d7-b033-c91f66d18bb1",
       "naam": "Voert medicatiebewaking uit",
       "tijdsverdeling": "BOT",
-      "studielast": { "waarde": 500, "eenheid": "SBU" }
+      "studielast": {
+        "waarde": 500,
+        "eenheid": "SBU"
+      }
     },
     {
       "specificatieId": "db4ae6c8-7dda-45ef-953e-a4e8bfc557f8",
       "specificatieType": "leeronderdeelspecificatie",
       "versie": "0.1.0",
       "bovenliggendId": "402c2342-d897-4df4-a667-7fc5bd930944",
-      "leeruitkomst": { "type": "werkproces", "code": "B1-K1-W3" },
+      "leeruitkomstId": "9d6a5081-9356-4058-8ac0-a4df8f8c60bd",
       "naam": "Verstrekt (zelfzorg)medicijnen en/of hulpmiddelen",
       "tijdsverdeling": "BOT",
-      "studielast": { "waarde": 500, "eenheid": "SBU" }
+      "studielast": {
+        "waarde": 500,
+        "eenheid": "SBU"
+      }
     },
     {
       "specificatieId": "2a4e31d4-2b27-401f-a28c-f152b0d502db",
       "specificatieType": "leeronderdeelspecificatie",
       "versie": "0.1.0",
       "bovenliggendId": "402c2342-d897-4df4-a667-7fc5bd930944",
-      "leeruitkomst": { "type": "werkproces", "code": "B1-K1-W4" },
+      "leeruitkomstId": "71f42c36-dcfb-42ec-b492-8ed665639eda",
       "naam": "Geeft informatie en advies over medicijngebruik, gezondheid en leefstijl",
       "tijdsverdeling": "BOT",
-      "studielast": { "waarde": 400, "eenheid": "SBU" }
+      "studielast": {
+        "waarde": 400,
+        "eenheid": "SBU"
+      }
     },
     {
       "specificatieId": "c36d635f-7b1c-4459-a035-adfca96768da",
       "specificatieType": "leeronderdeelspecificatie",
       "versie": "0.1.0",
       "bovenliggendId": "aa0a8af1-d383-4981-8a0f-6ec2ba4e6283",
-      "leeruitkomst": { "type": "werkproces", "code": "B1-K2-W1" },
+      "leeruitkomstId": "1d5f3f8e-76d1-4bf1-bcf2-986a4a2fe7fd",
       "naam": "Maakt medicijnen klaar voor gebruik en/of aflevering",
       "tijdsverdeling": "BOT",
-      "studielast": { "waarde": 700, "eenheid": "SBU" }
+      "studielast": {
+        "waarde": 700,
+        "eenheid": "SBU"
+      }
     },
     {
       "specificatieId": "c5262133-0873-44a7-9b54-d15004c9d940",
       "specificatieType": "leeronderdeelspecificatie",
       "versie": "0.1.0",
       "bovenliggendId": "aa0a8af1-d383-4981-8a0f-6ec2ba4e6283",
-      "leeruitkomst": { "type": "werkproces", "code": "B1-K2-W2" },
+      "leeruitkomstId": "772c792b-f5ec-425f-9dd7-87d8fad4d2db",
       "naam": "Houdt de voorraad bij",
       "tijdsverdeling": "BOT",
-      "studielast": { "waarde": 500, "eenheid": "SBU" }
+      "studielast": {
+        "waarde": 500,
+        "eenheid": "SBU"
+      }
     },
     {
       "specificatieId": "f956bad0-f49c-4b5c-a040-c084229b23e0",
       "specificatieType": "leeronderdeelspecificatie",
       "versie": "0.1.0",
       "bovenliggendId": "f686a286-d555-4eda-bd22-001c5b60e4dc",
-      "leeruitkomst": { "type": "werkproces", "code": "B1-K3-W1" },
+      "leeruitkomstId": "d929b0df-9119-4b89-ada3-342ab6b9f937",
       "naam": "Draagt bij aan sociaal veilige werkomgeving",
       "tijdsverdeling": "BOT",
-      "studielast": { "waarde": 280, "eenheid": "SBU" }
+      "studielast": {
+        "waarde": 280,
+        "eenheid": "SBU"
+      }
     },
     {
       "specificatieId": "6d5b468e-ceac-47df-b221-d09dce4cce3c",
       "specificatieType": "leeronderdeelspecificatie",
       "versie": "0.1.0",
       "bovenliggendId": "f686a286-d555-4eda-bd22-001c5b60e4dc",
-      "leeruitkomst": { "type": "werkproces", "code": "B1-K3-W2" },
+      "leeruitkomstId": "5cb6ce9c-82cc-4143-86bd-9f375b2901bc",
       "naam": "Evalueert de werkzaamheden en ontwikkelt zichzelf als professional",
       "tijdsverdeling": "BOT",
-      "studielast": { "waarde": 300, "eenheid": "SBU" }
+      "studielast": {
+        "waarde": 300,
+        "eenheid": "SBU"
+      }
     },
     {
       "specificatieId": "90245c2e-2f2d-4d58-b770-24427e717f97",
       "specificatieType": "leeronderdeelspecificatie",
       "versie": "0.1.0",
       "bovenliggendId": "f686a286-d555-4eda-bd22-001c5b60e4dc",
-      "leeruitkomst": { "type": "werkproces", "code": "B1-K3-W3" },
+      "leeruitkomstId": "ac69e604-6192-4eaf-b786-ed2668dc0faf",
       "naam": "Stemt de farmaceutische zorgverlening af",
       "tijdsverdeling": "BOT",
-      "studielast": { "waarde": 300, "eenheid": "SBU" }
+      "studielast": {
+        "waarde": 300,
+        "eenheid": "SBU"
+      }
     },
     {
       "specificatieId": "fb5be5ae-faa0-4b4b-8085-474fce9aae08",
@@ -514,12 +854,29 @@ erDiagram
       "bovenliggendId": "7ae25c1e-ee27-43a2-a001-761ee39ea5c7",
       "naam": "Keuzedeelruimte",
       "omschrijving": "Ruimte binnen de kwalificatie die met keuzedelen wordt ingevuld.",
-      "studielast": { "waarde": 720, "eenheid": "SBU" },
-      "regelsetVerwijzingen": ["e4037953-17d6-40a4-9e59-92ec1f9c19a8"],
+      "studielast": {
+        "waarde": 720,
+        "eenheid": "SBU"
+      },
+      "regelsetVerwijzingen": [
+        "e4037953-17d6-40a4-9e59-92ec1f9c19a8"
+      ],
       "manifest": [
-        { "specificatieId": "6a5ec549-da21-4034-b0cd-a709731de2eb", "versie": "0.1.0", "relatie": "referentie" },
-        { "specificatieId": "ecf4a1ce-8fe4-4ed2-82d4-6c743862094e", "versie": "0.1.0", "relatie": "referentie" },
-        { "specificatieId": "65342d39-7716-4d33-a5cd-a255cc1a2feb", "versie": "0.1.0", "relatie": "referentie" }
+        {
+          "specificatieId": "6a5ec549-da21-4034-b0cd-a709731de2eb",
+          "versie": "0.1.0",
+          "relatie": "referentie"
+        },
+        {
+          "specificatieId": "ecf4a1ce-8fe4-4ed2-82d4-6c743862094e",
+          "versie": "0.1.0",
+          "relatie": "referentie"
+        },
+        {
+          "specificatieId": "65342d39-7716-4d33-a5cd-a255cc1a2feb",
+          "versie": "0.1.0",
+          "relatie": "referentie"
+        }
       ]
     },
     {
@@ -527,90 +884,117 @@ erDiagram
       "specificatieType": "opleidingsprogrammaspecificatie",
       "versie": "0.1.0",
       "bovenliggendId": null,
-      "leeruitkomst": { "type": "keuzedeel", "code": "K0072" },
+      "leeruitkomstId": "4dca5ee6-ea76-4cc2-ac34-bbd466d7b6d3",
       "naam": "Keuzedeel Ondernemerschap",
       "programmatype": "keuzedeelprogramma",
       "keuzedeelKlasse": "algemeen-verbredend",
-      "studielast": { "waarde": 240, "eenheid": "SBU" }
+      "studielast": {
+        "waarde": 240,
+        "eenheid": "SBU"
+      }
     },
     {
       "specificatieId": "7d4d9a10-bb71-4d05-9b30-0b79d7144be1",
       "specificatieType": "onderwijseenheidspecificatie",
       "versie": "0.1.0",
       "bovenliggendId": "6a5ec549-da21-4034-b0cd-a709731de2eb",
-      "leeruitkomst": { "type": "kerntaak", "code": "K0072-K1" },
+      "leeruitkomstId": "235745ac-bf0f-4a94-b966-aa4ebbfcdabb",
       "naam": "Zet een onderneming op in de zorg (indicatief)",
-      "studielast": { "waarde": 240, "eenheid": "SBU" }
+      "studielast": {
+        "waarde": 240,
+        "eenheid": "SBU"
+      }
     },
     {
       "specificatieId": "b4ec6046-fae8-442e-91df-163c5e9e72f2",
       "specificatieType": "leeronderdeelspecificatie",
       "versie": "0.1.0",
       "bovenliggendId": "7d4d9a10-bb71-4d05-9b30-0b79d7144be1",
-      "leeruitkomst": { "type": "werkproces", "code": "K0072-K1-W1" },
+      "leeruitkomstId": "bfcef8b4-49e6-4ba4-87a5-36389838969b",
       "naam": "Stelt een ondernemingsplan op (indicatief)",
       "tijdsverdeling": "BOT",
-      "studielast": { "waarde": 240, "eenheid": "SBU" }
+      "studielast": {
+        "waarde": 240,
+        "eenheid": "SBU"
+      }
     },
     {
       "specificatieId": "ecf4a1ce-8fe4-4ed2-82d4-6c743862094e",
       "specificatieType": "opleidingsprogrammaspecificatie",
       "versie": "0.1.0",
       "bovenliggendId": null,
-      "leeruitkomst": { "type": "keuzedeel", "code": "K0000-ri" },
+      "leeruitkomstId": "a12bbc9c-ce75-41df-837b-489f46df500d",
       "naam": "Keuzedeel Ruimtelijk inzicht (illustratief)",
       "programmatype": "keuzedeelprogramma",
       "keuzedeelKlasse": "beroepsspecifiek-verdiepend",
-      "studielast": { "waarde": 240, "eenheid": "SBU" }
+      "studielast": {
+        "waarde": 240,
+        "eenheid": "SBU"
+      }
     },
     {
       "specificatieId": "20f1099a-949f-40b8-b893-1aa5bfea3f4c",
       "specificatieType": "onderwijseenheidspecificatie",
       "versie": "0.1.0",
       "bovenliggendId": "ecf4a1ce-8fe4-4ed2-82d4-6c743862094e",
-      "leeruitkomst": { "type": "kerntaak", "code": "K0000-ri-K1" },
+      "leeruitkomstId": "3f9dea35-395d-4a4b-8474-64f0d45d19dd",
       "naam": "Past ruimtelijk inzicht toe (illustratief)",
-      "studielast": { "waarde": 240, "eenheid": "SBU" }
+      "studielast": {
+        "waarde": 240,
+        "eenheid": "SBU"
+      }
     },
     {
       "specificatieId": "9e74eb44-1155-4882-8eb4-24e58a9146b2",
       "specificatieType": "leeronderdeelspecificatie",
       "versie": "0.1.0",
       "bovenliggendId": "20f1099a-949f-40b8-b893-1aa5bfea3f4c",
-      "leeruitkomst": { "type": "werkproces", "code": "K0000-ri-K1-W1" },
+      "leeruitkomstId": "92476363-cd8e-4b3c-aeea-b70add98786f",
       "naam": "Interpreteert ruimtelijke figuren (illustratief)",
       "tijdsverdeling": "BOT",
-      "studielast": { "waarde": 240, "eenheid": "SBU" }
+      "studielast": {
+        "waarde": 240,
+        "eenheid": "SBU"
+      }
     },
     {
       "specificatieId": "65342d39-7716-4d33-a5cd-a255cc1a2feb",
       "specificatieType": "opleidingsprogrammaspecificatie",
       "versie": "0.1.0",
       "bovenliggendId": null,
-      "leeruitkomst": { "type": "keuzedeel", "code": "K0000-w1" },
+      "leeruitkomstId": "0d83e73a-e0d8-47de-8b83-983d2b8226e8",
       "naam": "Keuzedeel Wiskunde 1 (illustratief)",
       "programmatype": "keuzedeelprogramma",
       "keuzedeelKlasse": "beroepsspecifiek-verdiepend",
-      "studielast": { "waarde": 240, "eenheid": "SBU" }
+      "studielast": {
+        "waarde": 240,
+        "eenheid": "SBU"
+      }
     },
     {
       "specificatieId": "729972d9-b83a-418f-91ec-10db1ecb56da",
       "specificatieType": "onderwijseenheidspecificatie",
       "versie": "0.1.0",
       "bovenliggendId": "65342d39-7716-4d33-a5cd-a255cc1a2feb",
-      "leeruitkomst": { "type": "kerntaak", "code": "K0000-w1-K1" },
+      "leeruitkomstId": "c980007d-93db-40c9-bd8e-405293f1b20f",
       "naam": "Beheerst basale wiskunde (illustratief)",
-      "studielast": { "waarde": 240, "eenheid": "SBU" }
+      "studielast": {
+        "waarde": 240,
+        "eenheid": "SBU"
+      }
     },
     {
       "specificatieId": "6952e0af-eca5-422e-aa6a-69cfd38f97c9",
       "specificatieType": "leeronderdeelspecificatie",
       "versie": "0.1.0",
       "bovenliggendId": "729972d9-b83a-418f-91ec-10db1ecb56da",
-      "leeruitkomst": { "type": "werkproces", "code": "K0000-w1-K1-W1" },
+      "leeruitkomstId": "d44a185e-1348-4ed7-92a4-f0cb898dd85b",
       "naam": "Rekent met verhoudingen en formules (illustratief)",
       "tijdsverdeling": "BOT",
-      "studielast": { "waarde": 240, "eenheid": "SBU" }
+      "studielast": {
+        "waarde": 240,
+        "eenheid": "SBU"
+      }
     }
   ],
   "regelsets": [
@@ -621,9 +1005,20 @@ erDiagram
       "omschrijving": "Bepaalt welke keuzedelen in de keuzedeelruimte kiesbaar zijn. Regelstructuur wordt uitgewerkt in #84 en #120; onderstaande regels zijn indicatief.",
       "vanToepassingOp": "fb5be5ae-faa0-4b4b-8085-474fce9aae08",
       "regels": [
-        { "type": "kiesbaar", "bereik": "alle keuzedelen met keuzedeelKlasse algemeen-verbredend" },
-        { "type": "kiesbaar", "keuzedeel": "ecf4a1ce-8fe4-4ed2-82d4-6c743862094e",
-          "voorwaardeVooraf": [ { "vereist": "65342d39-7716-4d33-a5cd-a255cc1a2feb", "status": "afgerond" } ] }
+        {
+          "type": "kiesbaar",
+          "bereik": "alle keuzedelen met keuzedeelKlasse algemeen-verbredend"
+        },
+        {
+          "type": "kiesbaar",
+          "keuzedeel": "ecf4a1ce-8fe4-4ed2-82d4-6c743862094e",
+          "voorwaardeVooraf": [
+            {
+              "vereist": "65342d39-7716-4d33-a5cd-a255cc1a2feb",
+              "status": "afgerond"
+            }
+          ]
+        }
       ]
     }
   ]
@@ -694,7 +1089,8 @@ Achterliggende uitwerkingen die de keuzes in deze payload toelichten:
 - [Lifecycle en versionering](20260720_0832_okx-lr1-lifecycle-versionering.md): semver, identiteit versus versie, manifest en propagatie.
 - Memo "Onderwijs PDCA-cyclus" van Niels: `doc/OKx_PDCA cyclus onderwijsontwerp.md` (PR #110).
 - `naam` en `omschrijving` als string versus meertalig (OEAPI `LanguageTypedString[]`). Nu string, conform de stub in #119.
-- Leeruitkomst enkelvoud versus meervoud. Nu één primaire leeruitkomst per specificatie (verving `primaryCode`). Een specificatie kan meerdere leeruitkomsten dekken; een array-vorm is een latere uitbreiding.
-- Uitbreiding leeruitkomst-standaard. `leeruitkomst.type` is open; koppeling aan CompetentNL (of vergelijkbaar) vaststellen wanneer die standaard beschikbaar is.
+- Leeruitkomst enkelvoud versus meervoud. Nu één `leeruitkomstId` per specificatie. Een specificatie kan meerdere leeruitkomsten dekken; een array-vorm is een latere uitbreiding.
+- Leeruitkomst-aggregatie is nu een boom (`bovenliggendLeeruitkomstId`, conform de SBB-hiërarchie). Dwarsdoorsnedes (een certificaat of microcredential dat leeruitkomsten uit meerdere takken bundelt) vragen om een N:M-vorm; latere uitbreiding, zie ook ADR 0022 (korrelgrootte) en #84 R12.
+- Uitbreiding leeruitkomst-standaard. De `bron` op het leeruitkomst-object is de aanhaakplek; koppeling aan CompetentNL (of vergelijkbaar) vaststellen wanneer die standaard beschikbaar is. De `leeruitkomstId` en de specificaties blijven daarbij ongewijzigd.
 - Enums in §6 zijn concept. Vaststellen welke waarden per veld gelden.
 - LR2 en LR3 als delta: welke attributen wijzigen (bv. `spreidingspatroon`, `bereik`, `thuisOrganisatie`, `gastheerOrganisatie`).

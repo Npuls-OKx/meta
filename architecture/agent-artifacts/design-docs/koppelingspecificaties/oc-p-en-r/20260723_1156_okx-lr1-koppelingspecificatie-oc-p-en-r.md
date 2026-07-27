@@ -1,22 +1,3 @@
----
-created: "2026-07-23T11:56:45+00:00"
-updated: "2026-07-23T14:02:12+00:00"
-human_authors:
-  - "Niek Derksen (architect, OKx)"
-human_reviewers: []
-agent_command: "ontwerp-document"
-agent_model: "Claude Fable 5 (Claude Code)"
-related_issues: ["#98", "#119", "#105"]
-source_paths:
-  - "architecture/agent-artifacts/design-docs/koppelingspecificaties/oc-p-en-r/20260717_1120_okx-lr1-onderwijsspecificatie-payload-json.md"
-  - "architecture/agent-artifacts/design-docs/koppelingspecificaties/oc-sis-krs-svs/20260720_0831_okx-lr1-resultaatstructuur-examenplan.md"
-  - "architecture/agent-artifacts/design-docs/koppelingspecificaties/oc-p-en-r/20260720_0832_okx-lr1-lifecycle-versionering.md"
-  - "doc/OKx_PDCA cyclus onderwijsontwerp.md"
-  - "architecture/dr/0018-enterprise-messaging-patronen-voor-betrouwbare-koppelvlakken.md"
-  - "architecture/dr/0020-curriculumontwerp-onderwijscatalogus-happy-flow-synchronisatie-en-federatie-adopt-klonen.md"
-notes: "Alpha-release voor stakeholder-review (milestone OC - P Koppelvlakspecificatie alpha). Interactiepatronen en sequentiediagrammen centraal. Profiel-document par. 15-18 is verouderd en dient alleen als inspiratie; deze memo is de vervangende lijn. Endpoints REST-based, alpha-niveau."
----
-
 # Koppelingspecificatie OC-P&R: interactiepatronen (alpha)
 
 Context: koppeling onderwijscatalogus (OC) naar planning en roostering (P&R), intra-instelling. Scenario: LR1-3. Niveau: alpha, voor stakeholder-review. Status: concept. Relateert aan: #98, #119, #105.

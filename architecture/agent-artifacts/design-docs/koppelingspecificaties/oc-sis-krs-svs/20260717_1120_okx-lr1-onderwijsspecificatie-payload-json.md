@@ -1,23 +1,3 @@
----
-created: "2026-07-17T11:20:30+00:00"
-updated: "2026-07-23T13:04:51+00:00"
-human_authors:
-  - "Niek Derksen (architect, OKx)"
-human_reviewers: []
-agent_command: "ontwerp-document"
-agent_model: "Claude Opus 4.8 (Claude Code)"
-related_issues: ["#119", "#105", "#84", "#120", "#110"]
-source_paths:
-  - "architecture/docs/specificatie/okx-oeapi-consumer-profiel/doc/20260501_Specificatie_document_OKx_OEAPI_profiel.md"
-  - "architecture/docs/kwalificatiedossier/Apothekersassistent-2.md"
-  - ".cursor/skills/mbo-informatie-modelleur/SKILL.md"
-  - "architecture/agent-artifacts/design-docs/20260716_1414_okx-lr1-keuzedelen-requirements-voorstel.md"
-  - "architecture/dr/0017-hierarchisch-datamodel-aanbodstructuur-leeruitkomsten-en-sbuec-aggregatie.md"
-  - "architecture/dr/0020-curriculumontwerp-onderwijscatalogus-happy-flow-synchronisatie-en-federatie-adopt-klonen.md"
-  - "doc/OKx_PDCA cyclus onderwijsontwerp.md"
-notes: "Async sessies: bij elke bewerking 'updated' bijwerken en auteurs aanvullen indien meerdere mensen betrokken. Concept-payload (grofmazig, fase 1-2); attribuutwaarden indicatief. Regels staan los van de onderwijsspecificatie (zie #84/#120). Enums zijn concept en te bevestigen. OEAPI-binding is signalering."
----
-
 # Onderwijsspecificatie als JSON-payload (OC naar P)
 
 > **Kopie per koppeling (ADR 0021).** Deze versie hoort bij de koppeling **OC-SIS (KRS/SVS)**. Basis identiek aan de OC-P&R-versie; attributen kunnen per koppeling divergeren. Divergentie wordt in deze kopie bijgehouden.

@@ -11,25 +11,7 @@ Wees grondig, vooruitdenkend en detailgericht, met afgewogen trade-offs vanuit e
 - Sla **uitsluitend** op onder **`architecture/agent-artifacts/design-docs/`** (mapnaam blijft Engels in de repo).
 - Conventies: [`architecture/agent-artifacts/README.md`](../../architecture/agent-artifacts/README.md).
 - **Bestandsnaam**: `YYYYMMDD_HHmm_<feature-slug>.md`.
-- **Verplicht YAML-frontmatter** (zet `updated` bij na elke bewerkingssessie):
-
-```yaml
----
-created: "<ISO-8601>"
-updated: "<ISO-8601>"
-human_authors:
-  - "Voor- en achternaam (rol)"
-human_reviewers: []
-agent_command: "ontwerp-document"
-agent_model: ""
-related_issues: []
-source_paths:
-  - "architecture/agent-artifacts/feature-plans/YYYYMMDD_HHmm_....md"
-notes: "Human-in-the-loop: auteurs zijn verantwoordelijk voor juistheid vóór PR/merge."
----
-```
-
-Vul **`source_paths`** met het (of de) **featureplan**- en/of **projectaanvraag**-pad(s). Vraag naar **`human_authors`** als die ontbreken.
+- **Geen frontmatter.** GitHub is de bron: auteurschap en datums via de git-historie, koppeling via issues en PR's. Vermeld gerelateerde issues en bronnen in de documenttekst (bijv. een contextregel "Relateert aan: #12").
 
 **Asynchroon werken**: als het ontwerp in één sessie niet af is, voeg een korte sectie **`## Status voor volgende sessie`** toe met openstaande beslissingen.
 
@@ -49,7 +31,7 @@ Bestaat er een featureplan, lees dat eerst en respecteer de **scopegrenzen** voo
 
 Maak **één** markdown-ontwerpdocument. Niet te abstract: focus op een **concreet probleem**. Voeg wel zoveel structuur en abstractie toe als nodig is voor een betrouwbaar, onderhoudbaar resultaat.
 
-Voeg **bovenaan** (na de frontmatter) een sectie toe met het **concrete probleem** dat opgelost moet worden, en **onderaan** **verificatiestappen** waarmee gecontroleerd kan worden of de uiteindelijke implementatie dat probleem oplost of het doel bereikt — en **niets onnodigs** extra doet.
+Voeg **bovenaan** (onder de titel) een sectie toe met het **concrete probleem** dat opgelost moet worden, en **onderaan** **verificatiestappen** waarmee gecontroleerd kan worden of de uiteindelijke implementatie dat probleem oplost of het doel bereikt — en **niets onnodigs** extra doet.
 
 Sla het bestand op in **`architecture/agent-artifacts/design-docs/`** en **stop**. **Start geen implementatie.**
 

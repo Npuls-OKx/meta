@@ -1,20 +1,3 @@
----
-created: "2026-07-20T08:32:00+00:00"
-updated: "2026-07-20T09:12:44+00:00"
-human_authors:
-  - "Niek Derksen (architect, OKx)"
-human_reviewers: []
-agent_command: "ontwerp-document"
-agent_model: "Claude Opus 4.8 (Claude Code)"
-related_issues: ["#119", "#110", "#105"]
-source_paths:
-  - "architecture/agent-artifacts/design-docs/koppelingspecificaties/oc-p-en-r/20260717_1120_okx-lr1-onderwijsspecificatie-payload-json.md"
-  - "doc/OKx_PDCA cyclus onderwijsontwerp.md"
-  - "doc/OKx_Release-management-en-versionering.md"
-  - "architecture/dr/0020-curriculumontwerp-onderwijscatalogus-happy-flow-synchronisatie-en-federatie-adopt-klonen.md"
-notes: "Skeleton. Toelichting achter de versionerings-keuzes in de payload (semver per node, id los van versie). Concrete regels en voorbeelden nog uit te werken."
----
-
 # Lifecycle en versionering van onderwijsspecificaties
 
 > **Kopie per koppeling (ADR 0021).** Deze versie hoort bij de koppeling **OC-LMS**. Basis identiek aan de OC-P&R-versie; attributen kunnen per koppeling divergeren. Divergentie wordt in deze kopie bijgehouden.

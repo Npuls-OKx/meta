@@ -1,21 +1,3 @@
----
-created: "2026-07-20T08:31:00+00:00"
-updated: "2026-07-23T14:45:00+00:00"
-human_authors:
-  - "Niek Derksen (architect, OKx)"
-human_reviewers: []
-agent_command: "ontwerp-document"
-agent_model: "Claude Opus 4.8 (Claude Code)"
-related_issues: ["#119", "#110", "#105", "#84"]
-source_paths:
-  - "architecture/agent-artifacts/design-docs/koppelingspecificaties/oc-p-en-r/20260717_1120_okx-lr1-onderwijsspecificatie-payload-json.md"
-  - "architecture/agent-artifacts/design-docs/koppelingspecificaties/oc-p-en-r/20260720_0832_okx-lr1-lifecycle-versionering.md"
-  - "doc/OKx_PDCA cyclus onderwijsontwerp.md"
-  - "OKE/moka-koppelvlakspecificaties/Examen Uitvoering en beoordeling/doc/KoppelvlakSpecificatieDocument.md"
-  - "architecture/dr/0009-sks-svs-rollenverdeling-keuze-vs-resultaat-voortgang.md"
-notes: "Concept-payload voor de resultaatstructuur, parallel aan de onderwijsspecificatie-payload. Zelfde mechaniek: recursief met parent, semver, manifest, leeruitkomst-verankering, regels los van de specificatie. Waarden indicatief."
----
-
 # Resultaatstructuur en examenplan als JSON-payload
 
 Context: parallelle uitwerking bij de [onderwijsspecificatie-payload](20260717_1120_okx-lr1-onderwijsspecificatie-payload-json.md). Scenario: LR1 (Apothekersassistent, kwalificatie 27141). Niveau: concept-payload. Status: concept. Relateert aan: #119, #110, #105, #84.
