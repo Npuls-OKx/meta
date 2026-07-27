@@ -4,10 +4,11 @@ Per **koppeling** (gestandaardiseerde informatiestroom tussen twee referentiecom
 
 | Map | Koppeling | Status | Inhoud |
 |---|---|---|---|
-| [`oc-p-en-r/`](oc-p-en-r/) | OC naar Planning en Roostering | Alpha, voor stakeholder-review | Koppelingspecificatie, onderwijsspecificatie-payload, onderwijsaanbod-payload, lifecycle |
-| [`oc-sis-krs-svs/`](oc-sis-krs-svs/) | OC naar SIS (KRS/SVS) | Concept, afgeleid, ter review | Koppelingspecificatie, onderwijsspecificatie-payload, resultaatstructuur/examenplan, lifecycle |
-| [`oc-lms/`](oc-lms/) | OC naar LMS | Concept, afgeleid, ter review | Koppelingspecificatie, onderwijsspecificatie-payload, lifecycle; leermiddelkoppeling-payload volgt |
+| [`gedeeld/`](gedeeld/) | (alle koppelingen) | Richtinggevend | Centrale onderwijsspecificatie-payload en lifecycle-uitwerking |
+| [`oc-p-en-r/`](oc-p-en-r/) | OC naar Planning en Roostering | Alpha, voor stakeholder-review | Koppelingspecificatie, onderwijsaanbod-payload |
+| [`oc-sis-krs-svs/`](oc-sis-krs-svs/) | OC naar SIS (KRS/SVS) | Concept, afgeleid, ter review | Koppelingspecificatie, resultaatstructuur/examenplan |
+| [`oc-lms/`](oc-lms/) | OC naar LMS | Concept, afgeleid, ter review | Koppelingspecificatie; leermiddelkoppeling-payload volgt |
 
-Payload-specificaties zijn per koppeling **gedupliceerd** (ADR 0021): structuur en attributen kunnen per koppeling divergeren; elke kopie vermeldt bij welke koppeling hij hoort. De OC-P&R-versies zijn de meest uitgewerkte; kopieën dragen een divergentie-notitie.
+Gedeelde payload-specificaties staan **éénmaal centraal** in `gedeeld/` (ADR 0021). Elke koppelingspecificatie definieert een **gebruiksprofiel**: welke objecten en velden van de centrale payload die koppeling gebruikt. Voorbeeld: OC-SIS gebruikt de volledige leeruitkomst-laag, OC-P&R alleen leeruitkomst-ids als opaque sleutels (ADR 0023), OC-LMS de leeruitkomst-inhoudsvelden. Koppeling-specifieke payloads staan in de koppeling-map.
 
 Scenario: LR1 (LR2 en LR3 als delta). Leidende prioriteringsvraag (onderwijsvoorbereiding): wat moeten OC-P&R, OC-LMS en OC-SIS uitgewisseld hebben om klaar te zijn voor de start van de student? Geen frontmatter in de documenten: auteurschap en datums via de git-historie, koppeling via issues en PR's (zie `../../README.md`).

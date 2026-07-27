@@ -146,7 +146,7 @@ erDiagram
 
 ## 10. Uitwerking van de payload
 
-LR1, indicatief. De `specificatieVerwijzing`-uuid's komen uit de [onderwijsspecificatie-payload](20260717_1120_okx-lr1-onderwijsspecificatie-payload-json.md).
+LR1, indicatief. De `specificatieVerwijzing`-uuid's komen uit de [onderwijsspecificatie-payload](../gedeeld/20260717_1120_okx-lr1-onderwijsspecificatie-payload-json.md).
 
 ```json
 {
@@ -323,7 +323,7 @@ Eerste aanzet voor de codes (concept):
 ## 13. Gerelateerde uitwerkingen
 
 - [Koppelingspecificatie OC-P&R](20260723_1156_okx-lr1-koppelingspecificatie-oc-p-en-r.md) (interacties waarin deze payload de opvraagbare instantie is).
-- [Onderwijsspecificatie-payload](20260717_1120_okx-lr1-onderwijsspecificatie-payload-json.md) (de specificaties waarnaar `specificatieVerwijzing` wijst).
-- [Lifecycle en versionering](20260720_0832_okx-lr1-lifecycle-versionering.md) (semver, identiteit los van versie).
+- [Onderwijsspecificatie-payload](../gedeeld/20260717_1120_okx-lr1-onderwijsspecificatie-payload-json.md) (de specificaties waarnaar `specificatieVerwijzing` wijst).
+- [Lifecycle en versionering](../gedeeld/20260720_0832_okx-lr1-lifecycle-versionering.md) (semver, identiteit los van versie).
 - OEAPI-issue [Better Location support (#635)](https://github.com/open-education-api/specification/issues/635) (inspiratie locatiemodel).
 - OKx OEAPI consumer-profiel (organogram ter indicatie).

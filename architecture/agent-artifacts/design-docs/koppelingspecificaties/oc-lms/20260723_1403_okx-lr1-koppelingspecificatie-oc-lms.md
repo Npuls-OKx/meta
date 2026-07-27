@@ -132,11 +132,19 @@ sequenceDiagram
     LMS-)OC: L3 Status: inrichting bijgewerkt, of afstemming nodig
 ```
 
-## 8. Payload-specificaties (verwijzing)
+## 8. Payload-specificaties (verwijzing) en gebruiksprofiel
 
-- [Onderwijsspecificatie-payload](20260717_1120_okx-lr1-onderwijsspecificatie-payload-json.md): kopie voor deze koppeling (ADR 0021), basis voor L2.
+Gebruiksprofiel van deze koppeling op de centrale [onderwijsspecificatie-payload](../gedeeld/20260717_1120_okx-lr1-onderwijsspecificatie-payload-json.md) (ADR 0021):
+
+| Onderdeel | Gebruik in OC-LMS |
+|---|---|
+| `onderwijsspecificaties` | Volledig tot en met `leeronderdeelspecificatie` |
+| `leeruitkomsten` | **Met inhoudsvelden** (`omschrijving`, `resultaat`, `gedrag`): dat is precies wat het LMS uitwerkt en aan de student exposet |
+| `regelsets` | Niet meegeleverd (kiesbaarheid is het domein van SKS en SIS) |
+
+- Basis voor L2: de centrale payload.
 - Leermiddelkoppeling-payload: **nog uit te werken** (signalering). Verwachte kern: `leermiddelkoppelingId`, `versie`, per specificatie (id en versie) de leermiddelgroepen, plat met verwijzingen.
-- [Lifecycle en versionering](20260720_0832_okx-lr1-lifecycle-versionering.md): kopie voor deze koppeling.
+- [Lifecycle en versionering](../gedeeld/20260720_0832_okx-lr1-lifecycle-versionering.md): kopie voor deze koppeling.
 
 ## 9. Reviewvragen
 
@@ -149,7 +157,7 @@ sequenceDiagram
 ## 10. Open vragen en signaleringen
 
 - Leermiddelkoppeling-payload uitwerken (§8), inclusief de relatie met `leermiddelengroepen` uit de specificatie-catalogus van het profiel.
-- Divergentie payload-kopie: voor deze koppeling is het object `leeruitkomst` inhoudelijk uitgewerkt (titel, omschrijving, resultaat, gedrag), want dat is precies wat het LMS verder uitvoert. Zie de payload-kopie in deze map.
+- De leeruitkomst-inhoudsvelden (`omschrijving`, `resultaat`, `gedrag`) staan als optionele velden in de centrale payload; dit gebruiksprofiel levert ze mee.
 - Exposen van de LMS-inrichting (inclusief lesniveau) voor andere componenten: optie, zelfde patroon, aparte koppeling (reviewvraag 5).
 - Toewijzing van leermiddelen aan studenten (stroom 12, SVS naar LMS) is een aparte koppeling.
 - Endpoints en operaties volgen na review van dit concept (zelfde vorm als OC-P&R §9).

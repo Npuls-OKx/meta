@@ -1,6 +1,6 @@
 # Resultaatstructuur en examenplan als JSON-payload
 
-Context: parallelle uitwerking bij de [onderwijsspecificatie-payload](20260717_1120_okx-lr1-onderwijsspecificatie-payload-json.md). Scenario: LR1 (Apothekersassistent, kwalificatie 27141). Niveau: concept-payload. Status: concept. Relateert aan: #119, #110, #105, #84.
+Context: parallelle uitwerking bij de [onderwijsspecificatie-payload](../gedeeld/20260717_1120_okx-lr1-onderwijsspecificatie-payload-json.md). Scenario: LR1 (Apothekersassistent, kwalificatie 27141). Niveau: concept-payload. Status: concept. Relateert aan: #119, #110, #105, #84.
 
 ## Inhoudsopgave
 
@@ -343,7 +343,7 @@ erDiagram
 
 ## 8. Lifecycle
 
-Zelfde mechaniek als de onderwijsspecificatie: semver per specificatie, identiteit los van versie, manifest dat onderliggende versies pint, en `validFrom`/`validTo` voor gelijktijdig actieve versies. Zie het hoofdstuk *Onderwijsspecificatie lifecycle* in de payload en de [lifecycle-uitwerking](20260720_0832_okx-lr1-lifecycle-versionering.md).
+Zelfde mechaniek als de onderwijsspecificatie: semver per specificatie, identiteit los van versie, manifest dat onderliggende versies pint, en `validFrom`/`validTo` voor gelijktijdig actieve versies. Zie het hoofdstuk *Onderwijsspecificatie lifecycle* in de payload en de [lifecycle-uitwerking](../gedeeld/20260720_0832_okx-lr1-lifecycle-versionering.md).
 
 Eén verschil: de `examenplanspecificatie` heeft de **strengste acceptatieregels**. Het is een contractuele afspraak met de student, dus een wijziging vraagt altijd expliciete impactanalyse en besluitvorming, ook wanneer die technisch niet-brekend lijkt (memo van Niels, PR #110).
 
@@ -361,8 +361,8 @@ Eén verschil: de `examenplanspecificatie` heeft de **strengste acceptatieregels
 
 ## 10. Gerelateerde uitwerkingen
 
-- Onderwijsspecificatie: [onderwijsspecificatie-payload](20260717_1120_okx-lr1-onderwijsspecificatie-payload-json.md).
-- Lifecycle: [lifecycle en versionering](20260720_0832_okx-lr1-lifecycle-versionering.md).
+- Onderwijsspecificatie: [onderwijsspecificatie-payload](../gedeeld/20260717_1120_okx-lr1-onderwijsspecificatie-payload-json.md).
+- Lifecycle: [lifecycle en versionering](../gedeeld/20260720_0832_okx-lr1-lifecycle-versionering.md).
 - Memo van Niels: `doc/OKx_PDCA cyclus onderwijsontwerp.md` (PR #110).
 - OKE koppelvlak (uitvoering en beoordeling): `OKE/moka-koppelvlakspecificaties/Examen Uitvoering en beoordeling/doc/KoppelvlakSpecificatieDocument.md`.
 - ADR 0009 (SKS/SVS: keuze versus resultaat en voortgang).

@@ -144,11 +144,19 @@ sequenceDiagram
     end
 ```
 
-## 8. Payload-specificaties (verwijzing)
+## 8. Payload-specificaties (verwijzing) en gebruiksprofiel
 
-- [Onderwijsspecificatie-payload](20260717_1120_okx-lr1-onderwijsspecificatie-payload-json.md): kopie voor deze koppeling (ADR 0021), basis voor S2.
+Gebruiksprofiel van deze koppeling op de centrale [onderwijsspecificatie-payload](../gedeeld/20260717_1120_okx-lr1-onderwijsspecificatie-payload-json.md) (ADR 0021):
+
+| Onderdeel | Gebruik in OC-SIS |
+|---|---|
+| `onderwijsspecificaties` | Volledig, inclusief manifest (nominaal template) |
+| `leeruitkomsten` | **Volledig**, inclusief aggregatie (`bovenliggendLeeruitkomstId`), `waardedocument` en `indicatieveOmvang`: de sleutel tussen specificatie, resultaatstructuur en onderwijsresultaat (ADR 0022) |
+| `regelsets` | Volledig (kiesbaarheid keuzedeelruimte, voorwaarden in behaalde leeruitkomsten) |
+
+- Basis voor S2: de centrale payload.
 - [Resultaatstructuur en examenplan](20260720_0831_okx-lr1-resultaatstructuur-examenplan.md): de payload voor S3. Wordt nog omgebouwd naar het `examenspecificatie`-model en naar Nederlandse veldnamen; dat gebeurt in de context van deze koppeling.
-- [Lifecycle en versionering](20260720_0832_okx-lr1-lifecycle-versionering.md): kopie voor deze koppeling; de acceptatieregels van 7.2 komen hieruit.
+- [Lifecycle en versionering](../gedeeld/20260720_0832_okx-lr1-lifecycle-versionering.md): kopie voor deze koppeling; de acceptatieregels van 7.2 komen hieruit.
 
 ## 9. Reviewvragen
 

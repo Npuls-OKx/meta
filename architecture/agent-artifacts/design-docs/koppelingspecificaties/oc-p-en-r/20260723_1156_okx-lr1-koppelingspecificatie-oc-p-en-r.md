@@ -21,7 +21,7 @@ Context: koppeling onderwijscatalogus (OC) naar planning en roostering (P&R), in
 
 Issue #98 vraagt sequentiediagrammen voor de koppeling OC naar P&R, als AMIGO-stap interactie-analyse. Deze memo is die uitwerking: een koppelingspecificatie op alpha-niveau (terminologie: ADR 0021, koppeling versus koppelvlak), met procesbeeld, interactieoverzicht, sequentiediagrammen, een concept-payload voor het `opleidingsaanbod` en eenvoudige endpointbeschrijvingen.
 
-De memo bouwt voort op de [onderwijsspecificatie-payload](20260717_1120_okx-lr1-onderwijsspecificatie-payload-json.md): de berichten over deze koppeling dragen die payload (onderwijsspecificatiestructuur, manifest, semver). De lifecycle-regels komen uit de [lifecycle-uitwerking](20260720_0832_okx-lr1-lifecycle-versionering.md) en de memo van Niels (PR #110).
+De memo bouwt voort op de [onderwijsspecificatie-payload](../gedeeld/20260717_1120_okx-lr1-onderwijsspecificatie-payload-json.md): de berichten over deze koppeling dragen die payload (onderwijsspecificatiestructuur, manifest, semver). De lifecycle-regels komen uit de [lifecycle-uitwerking](../gedeeld/20260720_0832_okx-lr1-lifecycle-versionering.md) en de memo van Niels (PR #110).
 
 De hoofdstukken 15 tot en met 18 van het OKx OEAPI consumer-profiel (interactiepatronen en sequentiediagrammen) zijn een eerdere oefening op een beperkt referentiekader en gelden als **verouderd**. Deze memo vervangt die lijn; het profiel zelf wordt in deze branch niet aangepast (signalering in §11).
 
@@ -102,13 +102,21 @@ erDiagram
 
 Leeswijzer bij het proces: OC beheert de `onderwijsspecificatie`s (met versie en manifest) en de bijbehorende `regelset`s; beide verankeren op leeruitkomsten. P creëert per specificatieversie het `onderwijsaanbod` (de instantie), plaatst dat op een locatie, belegt het bij een onderwijsteam en deelt het in groepen in. Het rooster (R) plaatst het aanbod daarna in de tijd; dat is context buiten deze koppeling (§7.5).
 
-### 6.2 Datamodellen (verwijzing)
+### 6.2 Datamodellen (verwijzing) en gebruiksprofiel
 
-Geen herhaling van de modellen; de bron is de payload-serie.
+Geen herhaling van de modellen; de bron is de centrale [onderwijsspecificatie-payload](../gedeeld/20260717_1120_okx-lr1-onderwijsspecificatie-payload-json.md) (ADR 0021).
 
-- Informatiemodel en ERD: [onderwijsspecificatie-payload §7.1](20260717_1120_okx-lr1-onderwijsspecificatie-payload-json.md).
-- Datamodel en JSON: [onderwijsspecificatie-payload §7.2](20260717_1120_okx-lr1-onderwijsspecificatie-payload-json.md).
-- Lifecycle en manifest: [onderwijsspecificatie-payload §8](20260717_1120_okx-lr1-onderwijsspecificatie-payload-json.md) en de [lifecycle-uitwerking](20260720_0832_okx-lr1-lifecycle-versionering.md).
+Gebruiksprofiel van deze koppeling (welke onderdelen van de centrale payload OC aan P levert):
+
+| Onderdeel | Gebruik in OC-P&R |
+|---|---|
+| `onderwijsspecificaties` | Volledig, inclusief manifest |
+| `regelsets` | Volledig; `voorwaardeVooraf` bevat leeruitkomst-ids uitsluitend als **opaque sleutels** voor volgordebepaling (ADR 0023) |
+| `leeruitkomsten` | **Niet meegeleverd.** Planning heeft de betekenis, aggregatie en inhoud van leeruitkomsten niet nodig (ADR 0023) |
+
+- Informatiemodel en ERD: [onderwijsspecificatie-payload §7.1](../gedeeld/20260717_1120_okx-lr1-onderwijsspecificatie-payload-json.md).
+- Datamodel en JSON: [onderwijsspecificatie-payload §7.2](../gedeeld/20260717_1120_okx-lr1-onderwijsspecificatie-payload-json.md).
+- Lifecycle en manifest: [onderwijsspecificatie-payload §8](../gedeeld/20260717_1120_okx-lr1-onderwijsspecificatie-payload-json.md) en de [lifecycle-uitwerking](../gedeeld/20260720_0832_okx-lr1-lifecycle-versionering.md).
 
 Berichten op deze koppeling:
 
@@ -310,9 +318,9 @@ Gedrag:
 
 ## 12. Gerelateerde uitwerkingen
 
-- [Onderwijsspecificatie-payload](20260717_1120_okx-lr1-onderwijsspecificatie-payload-json.md) (de berichtinhoud van deze koppeling).
+- [Onderwijsspecificatie-payload](../gedeeld/20260717_1120_okx-lr1-onderwijsspecificatie-payload-json.md) (de berichtinhoud van deze koppeling).
 - [Onderwijsaanbod-payload](20260723_1304_okx-lr1-onderwijsaanbod-payload-json.md) (de opvraagbare aanbod-instantie, I5).
-- [Lifecycle en versionering](20260720_0832_okx-lr1-lifecycle-versionering.md) (wijzigingsklassen, acceptatie).
+- [Lifecycle en versionering](../gedeeld/20260720_0832_okx-lr1-lifecycle-versionering.md) (wijzigingsklassen, acceptatie).
 - [Resultaatstructuur en examenplan](../oc-sis-krs-svs/20260720_0831_okx-lr1-resultaatstructuur-examenplan.md) (hoort bij de koppeling OC-SIS, daar verder uit te werken).
 - Memo van Niels: `doc/OKx_PDCA cyclus onderwijsontwerp.md` (PR #110).
 - [Koppelingspecificatie OC-SIS (KRS/SVS)](../oc-sis-krs-svs/20260723_1402_okx-lr1-koppelingspecificatie-oc-sis.md) en [OC-LMS](../oc-lms/20260723_1403_okx-lr1-koppelingspecificatie-oc-lms.md) (zelfde patroon, concept).

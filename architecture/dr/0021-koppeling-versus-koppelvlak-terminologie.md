@@ -12,12 +12,12 @@ Bij het uitwerken van de eerste koppelingspecificatie (OC naar P, #98) en de pay
 
 1. **Koppeling**: de gestandaardiseerde informatiestroom tussen twee referentiecomponenten (bv. OC naar P&R, OC naar SIS, OC naar LMS). Een **koppelingspecificatie** beschrijft die koppeling: procesbeeld, interactiepatronen, conceptueel informatiemodel, sequentiediagrammen, payload-specificaties en endpoints.
 2. **Koppelvlak**: de verzameling van álle koppelingspecificaties, endpoints en operaties die één component raken. Het koppelvlak van de OC is dus de optelsom van de koppelingen OC-P&R, OC-SIS, OC-LMS, enzovoort.
-3. **Documentindeling**: koppelingspecificaties staan per koppeling in een eigen map (`koppelingspecificaties/<koppeling>/`), met daarin de koppelingspecificatie en de payload-specificaties voor de data binnen het afgekaderde informatiemodel van die koppeling. Payload-specificaties worden per koppeling **gedupliceerd**, omdat structuur en attributen per koppeling kunnen divergeren; elke kopie vermeldt expliciet bij welke koppeling hij hoort.
+3. **Documentindeling**: koppelingspecificaties staan per koppeling in een eigen map (`koppelingspecificaties/<koppeling>/`). Gedeelde payload-specificaties (onderwijsspecificatie, lifecycle) staan **éénmaal centraal** in `koppelingspecificaties/gedeeld/`. Elke koppelingspecificatie definieert een **gebruiksprofiel**: welke objecten en velden van de centrale payload die koppeling gebruikt (bv. leeruitkomsten volledig bij OC-SIS, alleen als opaque sleutels bij OC-P&R, zie ADR 0023). Koppeling-specifieke payloads (onderwijsaanbod, resultaatstructuur, leermiddelkoppeling) blijven in de koppeling-map.
 
 ### Alternatieven
 
 - Optie A: "koppelvlak" blijven gebruiken voor beide betekenissen. Afgewezen: veroorzaakt spraakverwarring zodra meerdere koppelingen per component bestaan.
-- Optie B: gedeelde payload-specificaties centraal beheren met verwijzingen. Afgewezen voor nu: attributen gaan per koppeling verschillen; expliciete duplicatie maakt eigenaarschap en divergentie zichtbaar.
+- Optie B: payload-specificaties per koppeling dupliceren. Aanvankelijk gekozen, teruggedraaid: de kopieën liepen direct uit elkaar (divergentie-drift) en de redundantie maakte reviewen zwaarder. Gebruiksprofielen op een centrale payload geven dezelfde afkadering zonder duplicatie.
 
 ### Consequenties
 
