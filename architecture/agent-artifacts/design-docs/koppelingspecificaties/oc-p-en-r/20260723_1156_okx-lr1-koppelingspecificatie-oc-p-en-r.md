@@ -265,8 +265,8 @@ Endpoints die **OC** serveert:
 
 | Endpoint | Methode | Operatie | Parameters | Response | Statuscodes |
 |---|---|---|---|---|---|
-| `/onderwijsspecificatiestructuren/{id}` | GET | I2: volledige structuur ophalen | `versie` (optioneel, standaard laatst gepubliceerd) | Momentopname: `onderwijsspecificaties` + `regelsets` (payload-uitwerking) | 200, 400, 404 |
-| `/onderwijsspecificatiestructuren/{id}/delta` | GET | I2: delta tussen twee versies | `van` (versie, verplicht), `naar` (versie, verplicht) | JSON Patch (RFC 6902) | 200, 400, 404 |
+| `/onderwijsspecificaties/{id}` | GET | I2: volledige structuur ophalen | `versie` (optioneel, standaard laatst gepubliceerd) | Momentopname: `onderwijsspecificaties` + `regelsets` (payload-uitwerking) | 200, 400, 404 |
+| `/onderwijsspecificaties/{id}/delta` | GET | I2: delta tussen twee versies | `van` (versie, verplicht), `naar` (versie, verplicht) | JSON Patch (RFC 6902) | 200, 400, 404 |
 
 Endpoints die **P** serveert:
 
