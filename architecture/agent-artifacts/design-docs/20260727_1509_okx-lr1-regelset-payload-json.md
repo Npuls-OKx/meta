@@ -54,7 +54,7 @@ De vorm volgt de payload-serie van de koppelingen-lijn (#119/#98): volledig Nede
 | `keuzeomvang` | Hoeveel er gekozen moet worden, binnen de hele keuzecontext of binnen een bereik | `omvang` (min en/of max, elk waarde + eenheid) of `aantal` (min en/of max), optioneel `bereikId` (zonder `bereikId` geldt de regel voor de hele context) | R5, R12, R16 |
 | `beschikbaarheid` | Beperking tot locatie en/of periode | `doelSpecificatieId`, `locatieId`, `periode` | R3 |
 
-De scenario's achter deze typen staan schematisch in het [requirements-voorstel §7.4](20260716_1414_okx-lr1-keuzedelen-requirements-voorstel.md); het voorbeeld in §8 is er de één-op-één vertaling van. Met `aantal` en `bereikId` op `keuzeomvang` zijn de vrijere vormen al uitdrukbaar: "kies 1 van 3", "1 tot 2 uit de plusgroep", "minimaal 20 EC uit specialisatie C1" (R5). Zie §5.1; het voorbeeld in §8 gebruikt ze (maximaal 2 uit de algemene set, precies 1 specialisatie, omvang-plafond).
+De scenario's achter deze typen staan schematisch in het [requirements-voorstel §7.4](20260716_1414_okx-lr1-keuzedelen-requirements-voorstel.md) (dekkingstabel requirement naar figuur in §7.5); het voorbeeld in §8 is er de één-op-één vertaling van. Met `aantal` en `bereikId` op `keuzeomvang` zijn de vrijere vormen al uitdrukbaar: "kies 1 van 3", "1 tot 2 uit de plusgroep", "minimaal 20 EC uit specialisatie C1" (R5). Zie §5.1; het voorbeeld in §8 gebruikt ze (maximaal 2 uit de algemene set, precies 1 specialisatie, omvang-plafond).
 
 ### 5.1 Verenigbaarheid met de HO-scenario's
 
