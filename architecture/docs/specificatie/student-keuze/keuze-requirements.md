@@ -1,13 +1,13 @@
 # Keuzes rond onderwijsspecificaties: kiesbaarheid, voorwaarden en aanbod
 
-Context: OC naar P&R (onderwijscatalogus naar planning en roostering), intra-instelling eerst. Scenario: LeerRoute 1 (LR1); de eisen gelden generiek voor **alle keuzes rond onderwijsspecificaties**, keuzedelen zijn het eerste geval. Niveau: requirements (semantisch, nog geen OEAPI-attributen). Status: concept. Relateert aan: #84.
+Context: OC naar P&R (onderwijscatalogus naar planning en roostering), intra-instelling eerst. Scenario: [LeerRoute 1 ([LR1](../okx-oeapi-consumer-profiel/doc/persona_jochem.md "persona Jochem, leerroute 1"))](../okx-oeapi-consumer-profiel/doc/20260501_Specificatie_document_OKx_OEAPI_profiel.md "leerroutes en persona's in het OEAPI-profiel"); de eisen gelden generiek voor **alle keuzes rond onderwijsspecificaties**, keuzedelen zijn het eerste geval. Niveau: requirements (semantisch, nog geen OEAPI-attributen). Status: concept. Relateert aan: #84.
 
 ## Inhoudsopgave
 
 1. [Waarom dit voorstel](#1-waarom-dit-voorstel)
 2. [Doel](#2-doel)
 3. [Scope](#3-scope)
-4. [Scenario (LR1)](#4-scenario-lr1)
+4. [Scenario ([LR1](../okx-oeapi-consumer-profiel/doc/persona_jochem.md "persona Jochem, leerroute 1"))](#4-scenario-lr1)
 5. [Begrippen](#5-begrippen)
 6. [Requirements](#6-requirements)
 7. [Visuals](#7-visuals)
@@ -21,7 +21,7 @@ Context: OC naar P&R (onderwijscatalogus naar planning en roostering), intra-ins
 
 Zonder afspraak vult elke leverancier dit in met eigen aannames. Die worden de-facto standaard en zijn later niet meer te wijzigen. Daarom eerst de eisen, voordat we attributen en endpoints kiezen.
 
-OKx gaat uit van toenemende flexibilisering: uiteindelijk wordt bijna elk onderdeel keuzedeel en stelt elke student een eigen opleiding samen. Dan is het beperken en relateren van keuzes wat de keten beheersbaar houdt. Binnen LR1-3 is de keuzeruimte nog klein.
+OKx gaat uit van toenemende flexibilisering: uiteindelijk wordt bijna elk onderdeel keuzedeel en stelt elke student een eigen opleiding samen. Dan is het beperken en relateren van keuzes wat de keten beheersbaar houdt. Binnen [LR1-3](../okx-oeapi-consumer-profiel/doc/20260501_Specificatie_document_OKx_OEAPI_profiel.md "leerroutes en persona's in het OEAPI-profiel") is de keuzeruimte nog klein.
 
 ## 2. Doel
 
@@ -35,12 +35,12 @@ Buiten scope: definitieve attributen en endpoints. Suggestieve aanbod-attributen
 ## 3. Scope
 
 - Koppeling: OC naar P&R, intra-instelling eerst (ADR 0008).
-- Leerroutes: LR1 uitgewerkt. LR2 en LR3 nog niet af, volgen als verschil (delta) ten opzichte van LR1.
+- Leerroutes: [LR1](../okx-oeapi-consumer-profiel/doc/persona_jochem.md "persona Jochem, leerroute 1") uitgewerkt. [LR2](../okx-oeapi-consumer-profiel/doc/persona_larissa.md "persona Larissa, leerroute 2") en [LR3](../okx-oeapi-consumer-profiel/doc/persona_linda.md "persona Linda, leerroute 3") nog niet af, volgen als verschil (delta) ten opzichte van [LR1](../okx-oeapi-consumer-profiel/doc/persona_jochem.md "persona Jochem, leerroute 1").
 - Diepte: praktisch drie niveaus (opleiding, programma, onderwijseenheid/leeronderdeel). Geen harde grens: onderwijseenheden kunnen geneste onderwijseenheden en leeronderdelen bevatten. Lesniveau valt buiten scope; PMO realiseert dat niet.
 
-## 4. Scenario (LR1)
+## 4. Scenario ([LR1](../okx-oeapi-consumer-profiel/doc/persona_jochem.md "persona Jochem, leerroute 1"))
 
-Jochem volgt regulier Apothekersassistent (LR1) en mag een keuzedeel kiezen. Twee soorten, met een verschillend regelprofiel:
+Jochem volgt regulier Apothekersassistent ([LR1](../okx-oeapi-consumer-profiel/doc/persona_jochem.md "persona Jochem, leerroute 1")) en mag een keuzedeel kiezen. Twee soorten, met een verschillend regelprofiel:
 
 - Algemeen, verbredend keuzedeel: breed aanbod dat elke opleiding mag kiezen.
 - Beroepsspecifiek, verdiepend keuzedeel: met een voorwaarde vooraf. Voorbeeld: Ruimtelijk inzicht vereist afgerond Wiskunde 1.
@@ -66,13 +66,13 @@ De twee soorten zijn huidige voorbeelden, geen vaste indeling (zie R10 en R12).
 
 ## 6. Requirements
 
-Elke eis met een concreet voorbeeld uit LR1-3, en elk voorbeeld is als figuur uitgewerkt in §7 (dekkingstabel in §7.5). "MOET" in de zin van RFC 2119 (MUST).
+Elke eis met een concreet voorbeeld uit [LR1-3](../okx-oeapi-consumer-profiel/doc/20260501_Specificatie_document_OKx_OEAPI_profiel.md "leerroutes en persona's in het OEAPI-profiel"), en elk voorbeeld is als figuur uitgewerkt in §7 (dekkingstabel in §7.5). "MOET" in de zin van RFC 2119 (MUST).
 
 - **R1 Kiesbaarheid bepalen (eligibility).** Bepaalbaar welke onderwijsspecificaties een student mag kiezen, op elk niveau. Voorbeeld: gegeven Jochem in Apothekersassistent, lever de lijst kiesbare keuzedelen. Figuur 7.4.1.
 - **R2 Regels los van items.** Een regel staat los van de items waarop hij werkt. Voorbeeld: de lijst kiesbare keuzedelen kan wijzigen zonder dat de regel "Ruimtelijk inzicht vereist Wiskunde 1" verandert. Figuur 7.1.
 - **R3 Locatie en periode.** Kiesbaarheid en beschikbaarheid kunnen afhangen van locatie en periode. Voorbeeld: Ruimtelijk inzicht wordt alleen in Utrecht in periode 3 aangeboden. Figuur 7.4.3.
 - **R4 Herkenbare groep** (bron: #84, vraag 3). Een groep is herkenbaar te koppelen aan de combinatie keuzedeel, locatie en periode. Voorbeeld: Jochem en 24 anderen kiezen Ruimtelijk inzicht in Utrecht in periode 3; samen zijn zij de groep die hoort bij (Ruimtelijk inzicht, Utrecht, P3). Groepslidmaatschap (group membership) is de stabielste manier om deze keuzes tussen systemen uit te wisselen. Figuur 7.4.3.
-- **R5 Ruimte voor vrijere keuzevormen later.** De regels sluiten vrijere vormen niet uit. Voorbeeld: later moet "kies 2 van 5 keuzedelen" mogelijk zijn zonder de LR1-3-afspraken te breken. Figuur 7.4.1.
+- **R5 Ruimte voor vrijere keuzevormen later.** De regels sluiten vrijere vormen niet uit. Voorbeeld: later moet "kies 2 van 5 keuzedelen" mogelijk zijn zonder de [LR1-3](../okx-oeapi-consumer-profiel/doc/20260501_Specificatie_document_OKx_OEAPI_profiel.md "leerroutes en persona's in het OEAPI-profiel")-afspraken te breken. Figuur 7.4.1.
 - **R6 Zelfde uitkomst bij elk systeem.** Een regel is zo eenduidig dat elk systeem dezelfde uitkomst berekent (voorwaarde voor toetsing, conformance). Voorbeeld: systeem A en B bepalen beide dat Jochem Ruimtelijk inzicht nog niet mag kiezen zolang Wiskunde 1 niet af is. Figuur 7.4.5.
 - **R7 Voorwaarde vooraf in behaalde leeruitkomsten (prerequisite).** Een voorwaarde vooraf wordt uitgedrukt in **behaalde leeruitkomsten**, niet in doorlopen specificaties. Voorbeeld: deelname aan Ruimtelijk inzicht vereist dat de leeruitkomst van Wiskunde 1 is behaald; hoe die behaald is (welke specificatie, welke route) doet er niet toe. Figuur 7.4.2.
 - **R8 Zelfde regel, twee gebruikers.** Dezelfde voorwaarde wordt gebruikt bij het kiezen en door de planning. Voorbeeld: de regel Wiskunde 1 voor Ruimtelijk inzicht stuurt zowel Jochems keuzemoment als de roostering. Figuur 7.4.2.
@@ -84,7 +84,7 @@ Elke eis met een concreet voorbeeld uit LR1-3, en elk voorbeeld is als figuur ui
 - **R14 Leeruitkomst als sleutel.** Elke onderwijsspecificatie verankert op een leeruitkomst met eigen identiteit en eigen lifecycle. Regels, resultaten en waardepapieren verwijzen naar de leeruitkomst, niet naar de specificatie. Voorbeeld: de voorwaarde voor Ruimtelijk inzicht blijft geldig als de specificatie van Wiskunde 1 een nieuwe versie krijgt, zolang de leeruitkomst dezelfde blijft. Figuur 7.4.2.
 - **R15 Evalueerbaar met alleen sleutel en status.** Een regel is te evalueren met uitsluitend leeruitkomst-id's en hun behaald-status. De inhoud van de leeruitkomst is niet nodig. Voorbeeld: planning bepaalt de volgorde Wiskunde 1 voor Ruimtelijk inzicht zonder te weten wat die leeruitkomsten inhouden. Figuur 7.4.2 en 7.4.5.
 - **R16 Regels op elk niveau.** Regels kunnen aangrijpen op elk specificatieniveau en op leeruitkomsten van elke orde van grootte. Voorbeeld: dezelfde regelvorm werkt voor het kiezen van een keuzedeelprogramma nu, en voor het kiezen van een los leeronderdeel straks. Figuur 7.4.4.
-- **R17 Herleidbare regelversie.** Regelsets kennen eigen versionering, en achteraf is vaststelbaar welke regelversie gold bij een keuze. Voorbeeld: voor Jochems cohort 2026 gold regelset-versie 1.2; dat blijft herleidbaar voor de diplomaverantwoording, ook wanneer latere cohorten versie 2.0 volgen. Figuur 7.4.7.
+- **R17 Herleidbare regelversie.** Regelsets kennen eigen versionering, en achteraf is vaststelbaar welke regelversie gold bij een keuze. Voorbeeld: voor [Jochems](../okx-oeapi-consumer-profiel/doc/persona_jochem.md "persona Jochem, leerroute 1") cohort 2026 gold regelset-versie 1.2; dat blijft herleidbaar voor de diplomaverantwoording, ook wanneer latere cohorten versie 2.0 volgen. Figuur 7.4.7.
 
 ## 7. Visuals
 
@@ -108,7 +108,7 @@ erDiagram
     }
 ```
 
-### 7.2 Onderwijsspecificatiestructuur LR1 met keuzedelen en voorwaarde vooraf
+### 7.2 Onderwijsspecificatiestructuur [LR1](../okx-oeapi-consumer-profiel/doc/persona_jochem.md "persona Jochem, leerroute 1") met keuzedelen en voorwaarde vooraf
 
 De reguliere opbouw is een geneste structuur. Keuzedelen hangen als parallelle programma's onder de opleiding. De voorwaarde vooraf is de extra verbinding die er een gerichte acyclische graaf (DAG) van maakt.
 
@@ -148,7 +148,7 @@ gantt
 
 ### 7.4 Keuzescenario's, schematisch
 
-Elk scenario is gekoppeld aan de requirements die het dekt. De schema's zijn de leidraad voor de [regelset-payload](20260727_1509_okx-lr1-regelset-payload-json.md).
+Elk scenario is gekoppeld aan de requirements die het dekt. De schema's zijn de leidraad voor de [regelset-payload](regelset-payload.md).
 
 #### 7.4.1 Keuzecontext met benoemde keuzegroepen
 
@@ -201,7 +201,7 @@ flowchart LR
 
 #### 7.4.4 Zelfde regelvorm op elk niveau
 
-Keuzedeel is de mbo-invulling; de regelvorm werkt op elke onderwijsspecificatie als keuzecontext. Dekt R12, R13, R16.
+In deze context gaat het bij MBO toevallig over "keuzedelen", maar deze regels en de gehanteerde regelvorm moeten toepasbaar zijn op elke onderwijsspecificatie, ongeacht sector of specifieke definitie. Dekt R12, R13, R16.
 
 ```mermaid
 flowchart TB
@@ -221,13 +221,13 @@ Een regel is zo eenduidig dat elk systeem dezelfde uitkomst berekent, met alleen
 ```mermaid
 flowchart TB
     REGEL["Regel: deelname Ruimtelijk inzicht vereist<br/>leeruitkomst Wiskunde 1 behaald"]
-    SA["Systeem A, bv. SKS"]
-    SB["Systeem B, bv. planningssysteem"]
+    SA["Systeem A, bv. SKS instantie van instelling X"]
+    SB["Systeem B, bv. SKS instantie van instelling Y"]
     REGEL --> SA
     REGEL --> SB
     SA --> UA["uitkomst: nog niet kiesbaar"]
     SB --> UB["uitkomst: nog niet kiesbaar"]
-    UA === GELIJK["identieke uitkomst (R6),<br/>toetsbaar in conformance"]
+    UA === GELIJK["identieke uitkomst (R6),<br/>toetsbaar"]
     UB === GELIJK
 ```
 
@@ -340,7 +340,7 @@ Open vragen:
 ## 10. Vervolg
 
 1. R1-R17 vaststellen en laten accorderen na review op #84.
-2. Regelset-payload-voorstel (zie [regelset-payload](20260727_1509_okx-lr1-regelset-payload-json.md)) als eerste concretisering.
+2. Regelset-payload-voorstel (zie [regelset-payload](regelset-payload.md)) als eerste concretisering.
 3. Gegevensanalyse (AMIGO-stap 2): entiteiten en attributen afleiden, met OEAPI-mapping.
 4. Berichtspecificatie en OEAPI-profiel (AMIGO-stap 5 en 6): het toetsbare contract.
-5. LR2 en LR3 als delta ten opzichte van LR1.
+5. [LR2](../okx-oeapi-consumer-profiel/doc/persona_larissa.md "persona Larissa, leerroute 2") en [LR3](../okx-oeapi-consumer-profiel/doc/persona_linda.md "persona Linda, leerroute 3") als delta ten opzichte van [LR1](../okx-oeapi-consumer-profiel/doc/persona_jochem.md "persona Jochem, leerroute 1").

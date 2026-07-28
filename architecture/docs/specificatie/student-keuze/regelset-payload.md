@@ -1,6 +1,6 @@
 # Regelset als JSON-payload (keuzes rond onderwijsspecificaties)
 
-Context: eerste concretisering van het [requirements-voorstel keuzes rond onderwijsspecificaties](20260716_1414_okx-lr1-keuzedelen-requirements-voorstel.md) (R1-R16). Scenario: LR1 (Apothekersassistent). Niveau: concept-payload, waarden indicatief. Status: concept. Relateert aan: #84, #120.
+Context: eerste concretisering van het [requirements-voorstel keuzes rond onderwijsspecificaties](keuze-requirements.md) (R1-R16). Scenario: [LR1](../okx-oeapi-consumer-profiel/doc/persona_jochem.md "persona Jochem, leerroute 1") (Apothekersassistent). Niveau: concept-payload, waarden indicatief. Status: concept. Relateert aan: #84, #120.
 
 ## Inhoudsopgave
 
@@ -29,12 +29,12 @@ De vorm volgt de payload-serie van de koppelingen-lijn (#119/#98): volledig Nede
 
 ## 3. Scope
 
-- LR1: de keuzedeelruimte van Apothekersassistent als voorbeeld. De vorm is generiek voor alle keuzes rond onderwijsspecificaties, op elk niveau (R16).
-- Buiten scope: de evaluatie-implementatie (wie rekent wanneer), de studentgegevens die daarvoor nodig zijn (raakt ADR 0009), Vrijere keuzevormen zijn uitdrukbaar (§5.1) en deels al in het voorbeeld gebruikt (maximaal 2, precies 1); wat LR1-3 werkelijk vraagt bepaalt de vaststelling.
+- [LR1](../okx-oeapi-consumer-profiel/doc/persona_jochem.md "persona Jochem, leerroute 1"): de keuzedeelruimte van Apothekersassistent als voorbeeld. De vorm is generiek voor alle keuzes rond onderwijsspecificaties, op elk niveau (R16).
+- Buiten scope: de evaluatie-implementatie (wie rekent wanneer), de studentgegevens die daarvoor nodig zijn (raakt ADR 0009), Vrijere keuzevormen zijn uitdrukbaar (§5.1) en deels al in het voorbeeld gebruikt (maximaal 2, precies 1); wat [LR1-3](../okx-oeapi-consumer-profiel/doc/20260501_Specificatie_document_OKx_OEAPI_profiel.md "leerroutes en persona's in het OEAPI-profiel") werkelijk vraagt bepaalt de vaststelling.
 
 ## 4. Ontwerpkeuzes
 
-- **Generiek over alle onderwijsspecificaties (R16).** Een regelset kadert af wat een student kan kiezen en is toepasbaar op **elke** onderwijsspecificatie als keuzecontext. "Keuzedeel" is de mbo-specifieke invulling binnen LR1-3; de regelvorm kent dat onderscheid niet.
+- **Generiek over alle onderwijsspecificaties (R16).** Een regelset kadert af wat een student kan kiezen en is toepasbaar op **elke** onderwijsspecificatie als keuzecontext. "Keuzedeel" is de mbo-specifieke invulling binnen [LR1-3](../okx-oeapi-consumer-profiel/doc/20260501_Specificatie_document_OKx_OEAPI_profiel.md "leerroutes en persona's in het OEAPI-profiel"); de regelvorm kent dat onderscheid niet.
 - **Regels los van items (R2).** Regelsets staan in een eigen platte lijst. Een specificatie verwijst via `regelsetVerwijzingen` naar regelsets; de regelset verwijst via id's naar de items waarop hij werkt. Beide kanten kunnen wijzigen zonder de ander te raken.
 - **Benoemde bereiken, eenmaal gedefinieerd.** Een regelset definieert zijn keuzegroepen één keer in `bereiken[]` (met eigen `bereikId` en naam); regels verwijzen met `bereikId`. Geen duplicatie van sets over regels, geen regel-naar-regel-verwijzing.
 - **Bereik is opsomming of selectie.** Een bereik is óf een **opsomming** (`specificatieIds`, statisch: de set ligt vast) óf een **selectie** (`{attribuut, waarde}`, een match-term op attributen van onderwijsspecificaties, zoals `keuzedeelKlasse`). Een selectie is dynamisch: OC evalueert haar op het moment van gebruik, en een nieuwe specificatie met dat attribuut valt er direct onder. Het attribuut is een eigenschap van de specificatie; de regel spreekt er alleen een verwachting over uit.
@@ -54,7 +54,7 @@ De vorm volgt de payload-serie van de koppelingen-lijn (#119/#98): volledig Nede
 | `keuzeomvang` | Hoeveel er gekozen moet worden, binnen de hele keuzecontext of binnen een bereik | `omvang` (min en/of max, elk waarde + eenheid) of `aantal` (min en/of max), optioneel `bereikId` (zonder `bereikId` geldt de regel voor de hele context) | R5, R12, R16 |
 | `beschikbaarheid` | Beperking tot locatie en/of periode | `doelSpecificatieId`, `locatieId`, `periode` | R3 |
 
-De scenario's achter deze typen staan schematisch in het [requirements-voorstel §7.4](20260716_1414_okx-lr1-keuzedelen-requirements-voorstel.md) (dekkingstabel requirement naar figuur in §7.5); het voorbeeld in §8 is er de één-op-één vertaling van. Met `aantal` en `bereikId` op `keuzeomvang` zijn de vrijere vormen al uitdrukbaar: "kies 1 van 3", "1 tot 2 uit de plusgroep", "minimaal 20 EC uit specialisatie C1" (R5). Zie §5.1; het voorbeeld in §8 gebruikt ze (maximaal 2 uit de algemene set, precies 1 specialisatie, omvang-plafond).
+De scenario's achter deze typen staan schematisch in het [requirements-voorstel §7.4](keuze-requirements.md) (dekkingstabel requirement naar figuur in §7.5); het voorbeeld in §8 is er de één-op-één vertaling van. Met `aantal` en `bereikId` op `keuzeomvang` zijn de vrijere vormen al uitdrukbaar: "kies 1 van 3", "1 tot 2 uit de plusgroep", "minimaal 20 EC uit specialisatie C1" (R5). Zie §5.1; het voorbeeld in §8 gebruikt ze (maximaal 2 uit de algemene set, precies 1 specialisatie, omvang-plafond).
 
 ### 5.1 Verenigbaarheid met de HO-scenario's
 
@@ -123,7 +123,7 @@ erDiagram
 
 ## 8. Uitwerking van de payload
 
-LR1, indicatief. De specificatie- en leeruitkomst-id's zijn illustratief; na samenvoeging met de koppelingen-lijn (#119) verwijzen ze naar de id's uit de centrale onderwijsspecificatie-payload.
+[LR1](../okx-oeapi-consumer-profiel/doc/persona_jochem.md "persona Jochem, leerroute 1"), indicatief. De specificatie- en leeruitkomst-id's zijn illustratief; na samenvoeging met de koppelingen-lijn (#119) verwijzen ze naar de id's uit de centrale onderwijsspecificatie-payload.
 
 ```json
 {
@@ -234,7 +234,7 @@ LR1, indicatief. De specificatie- en leeruitkomst-id's zijn illustratief; na sam
 }
 ```
 
-Dit voorbeeld is de vertaling van de schema's in [requirements §7.4](20260716_1414_okx-lr1-keuzedelen-requirements-voorstel.md) (7.4.1 keuzegroepen, 7.4.2 voorwaarde, 7.4.3 beschikbaarheid). Leeswijzer, in gewone taal: met deze specificatie en deze keuzedeelruimte (begroot 720 SBU) mag de student uit de **algemene set** (klasse algemeen-verbredend, momenteel zo'n 20 keuzedelen) er **maximaal 2** kiezen, waarbij de **totale omvang van de keuze** niet boven de begrote 720 SBU uitkomt. **Daarnaast specialiseert de student**: uit de 5 beschikbare specialisatie-keuzedelen kiest hij er **precies 1**. Voor de specialisatie Ruimtelijk inzicht geldt bovendien een deelnamevoorwaarde (leeruitkomst Wiskunde 1 behaald) en een beschikbaarheid (Utrecht, periode 3). Alle regels gelden samen (EN-semantiek); samen kaderen ze af wat deze student kan kiezen (R1, R8, R9). De twee keuzegroepen zijn éénmaal gedefinieerd als benoemd bereik: de algemene groep als **selectie** (match-term op `keuzedeelKlasse`, dynamisch), de specialisatiegroep als **opsomming** (statisch, 5 id's); de regels verwijzen met `bereikId`, zonder duplicatie.
+Dit voorbeeld is de vertaling van de schema's in [requirements §7.4](keuze-requirements.md) (7.4.1 keuzegroepen, 7.4.2 voorwaarde, 7.4.3 beschikbaarheid). Leeswijzer, in gewone taal: met deze specificatie en deze keuzedeelruimte (begroot 720 SBU) mag de student uit de **algemene set** (klasse algemeen-verbredend, momenteel zo'n 20 keuzedelen) er **maximaal 2** kiezen, waarbij de **totale omvang van de keuze** niet boven de begrote 720 SBU uitkomt. **Daarnaast specialiseert de student**: uit de 5 beschikbare specialisatie-keuzedelen kiest hij er **precies 1**. Voor de specialisatie Ruimtelijk inzicht geldt bovendien een deelnamevoorwaarde (leeruitkomst Wiskunde 1 behaald) en een beschikbaarheid (Utrecht, periode 3). Alle regels gelden samen (EN-semantiek); samen kaderen ze af wat deze student kan kiezen (R1, R8, R9). De twee keuzegroepen zijn éénmaal gedefinieerd als benoemd bereik: de algemene groep als **selectie** (match-term op `keuzedeelKlasse`, dynamisch), de specialisatiegroep als **opsomming** (statisch, 5 id's); de regels verwijzen met `bereikId`, zonder duplicatie.
 
 ## 8.1 Lifecycle en koppeling aan specificaties
 
@@ -254,6 +254,6 @@ Dit voorbeeld is de vertaling van de schema's in [requirements §7.4](20260716_1
 
 ## 10. Gerelateerde uitwerkingen
 
-- [Requirements-voorstel keuzes rond onderwijsspecificaties](20260716_1414_okx-lr1-keuzedelen-requirements-voorstel.md) (R1-R16, de bron van dit document).
+- [Requirements-voorstel keuzes rond onderwijsspecificaties](keuze-requirements.md) (R1-R16, de bron van dit document).
 - Koppelingen-lijn (#119/#98, aparte branch): centrale onderwijsspecificatie-payload, ADR 0022 (resultaatbegrippen conform ROSA KOI), ADR 0023 (leeruitkomst-ids als opaque sleutels binnen OC-P&R).
 - ADR 0009 (rolverdeling keuze versus resultaat en voortgang).
