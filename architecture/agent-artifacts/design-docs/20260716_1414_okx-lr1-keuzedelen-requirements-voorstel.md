@@ -1,23 +1,6 @@
----
-created: "2026-07-16T14:14:49+00:00"
-updated: "2026-07-16T14:47:57+00:00"
-human_authors:
-  - "Niek Derksen (lead architect, OKx)"
-human_reviewers: []
-agent_command: "ontwerp-document"
-agent_model: "Claude Opus 4.8 (Claude Code)"
-related_issues: ["#84"]
-source_paths:
-  - ".cursor/skills/mbo-informatie-modelleur/SKILL.md"
-  - "architecture/dr/0008-scope-planning-eerst-intra-instelling.md"
-  - "architecture/dr/0009-sks-svs-rollenverdeling-keuze-vs-resultaat-voortgang.md"
-  - "architecture/dr/0020-curriculumontwerp-onderwijscatalogus-happy-flow-synchronisatie-en-federatie-adopt-klonen.md"
-notes: "Async sessies: bij elke bewerking 'updated' bijwerken en auteurs aanvullen indien meerdere mensen betrokken. Requirements-niveau; nog geen OEAPI-attributen. Milestone: Deel OKx specificatie document - OC P afgerond."
----
+# Keuzes rond onderwijsspecificaties: kiesbaarheid, voorwaarden en aanbod
 
-# Keuzedelen: kiesbaarheid, voorwaarden en aanbod
-
-Context: OC naar P&R (onderwijscatalogus naar planning en roostering), intra-instelling eerst. Scenario: LeerRoute 1 (LR1). Niveau: requirements (semantisch, nog geen OEAPI-attributen). Status: concept. Relateert aan: #84.
+Context: OC naar P&R (onderwijscatalogus naar planning en roostering), intra-instelling eerst. Scenario: LeerRoute 1 (LR1); de eisen gelden generiek voor **alle keuzes rond onderwijsspecificaties**, keuzedelen zijn het eerste geval. Niveau: requirements (semantisch, nog geen OEAPI-attributen). Status: concept. Relateert aan: #84.
 
 ## Inhoudsopgave
 
@@ -34,7 +17,7 @@ Context: OC naar P&R (onderwijscatalogus naar planning en roostering), intra-ins
 
 ## 1. Waarom dit voorstel
 
-#84 vraagt: hoe leggen we vast welke keuzedelen een student mag kiezen, binnen welke opleiding en instelling? De specificatie beschrijft nu de reguliere opbouw, maar niet het aanbod van keuzedelen, het kiezen, en de groepsindeling.
+#84 vraagt: hoe leggen we vast welke keuzedelen een student mag kiezen, binnen welke opleiding en instelling? Dat is het eerste geval van een generieke vraag: hoe leggen we **elke keuze rond onderwijsspecificaties** vast, op elk niveau (keuzedeelprogramma, onderwijseenheid, leeronderdeel). De specificatie beschrijft nu de reguliere opbouw, maar niet het keuzeaanbod, het kiezen, en de groepsindeling.
 
 Zonder afspraak vult elke leverancier dit in met eigen aannames. Die worden de-facto standaard en zijn later niet meer te wijzigen. Daarom eerst de eisen, voordat we attributen en endpoints kiezen.
 
@@ -42,7 +25,8 @@ OKx gaat uit van toenemende flexibilisering: uiteindelijk wordt bijna elk onderd
 
 ## 2. Doel
 
-- Vastleggen wat de standaard moet kunnen rond kiesbaarheid en voorwaarden van keuzedelen, en de doorwerking naar planning en roostering.
+- Vastleggen wat de standaard moet kunnen rond kiesbaarheid en voorwaarden van **keuzes rond onderwijsspecificaties** (nu keuzedelen), en de doorwerking naar planning en roostering.
+- De rol van de **leeruitkomst** in de regels vastleggen: voorwaarden gaan over wat behaald is, niet over welke specificatie doorlopen is.
 - Op requirements-niveau blijven. Geen OEAPI-attributen, entiteiten of endpoints.
 - Invoer voor de gegevensanalyse en berichtspecificatie (AMIGO-stap 2 en 5) en het OEAPI-profiel.
 
@@ -77,30 +61,36 @@ De twee soorten zijn huidige voorbeelden, geen vaste indeling (zie R10 en R12).
 | Groep of lesgroep | Studenten met dezelfde keuze op dezelfde locatie en periode |
 | Individuele opleiding | Per student samengesteld programma (personalisering) |
 | Specificatie versus aanbod | Ontwerp (catalogus) versus planbaar en geroosterd resultaat |
+| Leeruitkomst | Wat je behaalt; zelfstandig object met eigen identiteit en lifecycle, de sleutel tussen specificatie, regel en resultaat |
+| Behaald | Er is een onderwijsresultaat op de leeruitkomst vastgesteld |
 
 ## 6. Requirements
 
 Elke eis met een concreet voorbeeld uit LR1-3. "MOET" in de zin van RFC 2119 (MUST).
 
-- **R1 Kiesbaarheid bepalen (eligibility).** Bepaalbaar welke keuzedelen een student mag kiezen. Voorbeeld: gegeven Jochem in Apothekersassistent, lever de lijst kiesbare keuzedelen.
+- **R1 Kiesbaarheid bepalen (eligibility).** Bepaalbaar welke onderwijsspecificaties een student mag kiezen, op elk niveau. Voorbeeld: gegeven Jochem in Apothekersassistent, lever de lijst kiesbare keuzedelen.
 - **R2 Regels los van items.** Een regel staat los van de items waarop hij werkt. Voorbeeld: de lijst kiesbare keuzedelen kan wijzigen zonder dat de regel "Ruimtelijk inzicht vereist Wiskunde 1" verandert.
 - **R3 Locatie en periode.** Kiesbaarheid en beschikbaarheid kunnen afhangen van locatie en periode. Voorbeeld: Ruimtelijk inzicht wordt alleen in Utrecht in periode 3 aangeboden.
 - **R4 Herkenbare groep** (bron: #84, vraag 3). Een groep is herkenbaar te koppelen aan de combinatie keuzedeel, locatie en periode. Voorbeeld: Jochem en 24 anderen kiezen Ruimtelijk inzicht in Utrecht in periode 3; samen zijn zij de groep die hoort bij (Ruimtelijk inzicht, Utrecht, P3). Groepslidmaatschap (group membership) is de stabielste manier om deze keuzes tussen systemen uit te wisselen.
 - **R5 Ruimte voor vrijere keuzevormen later.** De regels sluiten vrijere vormen niet uit. Voorbeeld: later moet "kies 2 van 5 keuzedelen" mogelijk zijn zonder de LR1-3-afspraken te breken.
 - **R6 Zelfde uitkomst bij elk systeem.** Een regel is zo eenduidig dat elk systeem dezelfde uitkomst berekent (voorwaarde voor toetsing, conformance). Voorbeeld: systeem A en B bepalen beide dat Jochem Ruimtelijk inzicht nog niet mag kiezen zolang Wiskunde 1 niet af is.
-- **R7 Voorwaarde vooraf vastleggen (prerequisite).** Een voorwaarde tussen twee specificaties is vast te leggen. Voorbeeld: Ruimtelijk inzicht vereist afgerond Wiskunde 1.
+- **R7 Voorwaarde vooraf in behaalde leeruitkomsten (prerequisite).** Een voorwaarde vooraf wordt uitgedrukt in **behaalde leeruitkomsten**, niet in doorlopen specificaties. Voorbeeld: deelname aan Ruimtelijk inzicht vereist dat de leeruitkomst van Wiskunde 1 is behaald; hoe die behaald is (welke specificatie, welke route) doet er niet toe.
 - **R8 Zelfde regel, twee gebruikers.** Dezelfde voorwaarde wordt gebruikt bij het kiezen en door de planning. Voorbeeld: de regel Wiskunde 1 voor Ruimtelijk inzicht stuurt zowel Jochems keuzemoment als de roostering.
-- **R9 Voorwaarde bepaalt tijdige plaatsing.** Uit de voorwaarde leidt planning af wanneer iets kan. Voorbeeld: planning zet Ruimtelijk inzicht in een periode na Wiskunde 1.
+- **R9 Voorwaarde bepaalt tijdige plaatsing.** Uit de vereiste leeruitkomsten leidt planning de volgorde af. Voorbeeld: planning zet Ruimtelijk inzicht in een periode na Wiskunde 1.
 - **R10 Open set kiesbaarheidsklassen.** Het onderscheid tussen klassen ligt niet vast; er kunnen klassen bij. Voorbeeld: naast algemeen en beroepsspecifiek moet een instelling een eigen klasse kunnen toevoegen.
-- **R11 Aanbod is afleidbaar.** Uit de specificatieboom plus regels leidt planning geldig, in de tijd gefaseerd aanbod af dat de regels respecteert. Voorbeeld: uit de boom en de voorwaarde volgt aanbod met Wiskunde 1 in periode 1 en Ruimtelijk inzicht in periode 2. Suggestieve aanbod-attributen: §9.
+- **R11 Aanbod is afleidbaar.** Uit de onderwijsspecificatiestructuur plus regels leidt planning geldig, in de tijd gefaseerd aanbod af dat de regels respecteert. Voorbeeld: uit de structuur en de voorwaarde volgt aanbod met Wiskunde 1 in periode 1 en Ruimtelijk inzicht in periode 2. Suggestieve aanbod-attributen: §9.
 - **R12 Ontworpen voor flexibilisering.** Het regelmechanisme werkt ook als bijna elke specificatie een keuzedeel is en elke student een eigen opleiding heeft. Voorbeeld: een volledig individueel programma blijft toetsbaar via dezelfde regels. (ADR 0003, 0011, 0012.)
 - **R13 Bottom-up en top-down samenstellen.** Een opleiding is samen te stellen van onderop (losse lessen of leeronderdelen kiezen) en van bovenaf (blokken kiezen die naar lessen vertalen). Voorbeeld: student A kiest losse leeronderdelen, student B kiest een heel keuzedeelprogramma; beide leiden tot dezelfde onderliggende onderdelen.
+- **R14 Leeruitkomst als sleutel.** Elke onderwijsspecificatie verankert op een leeruitkomst met eigen identiteit en eigen lifecycle. Regels, resultaten en waardepapieren verwijzen naar de leeruitkomst, niet naar de specificatie. Voorbeeld: de voorwaarde voor Ruimtelijk inzicht blijft geldig als de specificatie van Wiskunde 1 een nieuwe versie krijgt, zolang de leeruitkomst dezelfde blijft.
+- **R15 Evalueerbaar met alleen sleutel en status.** Een regel is te evalueren met uitsluitend leeruitkomst-id's en hun behaald-status. De inhoud van de leeruitkomst is niet nodig. Voorbeeld: planning bepaalt de volgorde Wiskunde 1 voor Ruimtelijk inzicht zonder te weten wat die leeruitkomsten inhouden.
+- **R16 Regels op elk niveau.** Regels kunnen aangrijpen op elk specificatieniveau en op leeruitkomsten van elke orde van grootte. Voorbeeld: dezelfde regelvorm werkt voor het kiezen van een keuzedeelprogramma nu, en voor het kiezen van een los leeronderdeel straks.
+- **R17 Herleidbare regelversie.** Regelsets kennen eigen versionering, en achteraf is vaststelbaar welke regelversie gold bij een keuze. Voorbeeld: voor Jochems cohort 2026 gold regelset-versie 1.2; dat blijft herleidbaar voor de diplomaverantwoording, ook wanneer latere cohorten versie 2.0 volgen.
 
 ## 7. Visuals
 
 ### 7.1 Specificatie en regel bestaan naast elkaar (R2)
 
-De specificatieboom bevat de items. Een regel is een apart object dat naar die items verwijst. Zo kun je items of regels wijzigen zonder de ander te raken.
+De onderwijsspecificatiestructuur bevat de items. Een regel is een apart object dat naar die items verwijst. Zo kun je items of regels wijzigen zonder de ander te raken.
 
 ```mermaid
 erDiagram
@@ -110,15 +100,17 @@ erDiagram
     OPLEIDING ||--o{ KEUZEDEELPROGRAMMA : kiesbaar
     KEUZEDEELPROGRAMMA ||--o{ ONDERWIJSEENHEID : bevat
     REGEL }o--o{ ONDERWIJSEENHEID : "werkt op"
+    REGEL }o--o{ LEERUITKOMST : "voorwaarden in behaalde leeruitkomsten"
+    ONDERWIJSEENHEID }o--|| LEERUITKOMST : "verankert op"
     REGEL {
         string type
         string parameters
     }
 ```
 
-### 7.2 Specificatieboom LR1 met keuzedelen en voorwaarde vooraf
+### 7.2 Onderwijsspecificatiestructuur LR1 met keuzedelen en voorwaarde vooraf
 
-De reguliere opbouw is een boom. Keuzedelen hangen als parallelle programma's onder de opleiding. De voorwaarde vooraf is de extra verbinding die er een gerichte acyclische graaf (DAG) van maakt.
+De reguliere opbouw is een geneste structuur. Keuzedelen hangen als parallelle programma's onder de opleiding. De voorwaarde vooraf is de extra verbinding die er een gerichte acyclische graaf (DAG) van maakt.
 
 ```mermaid
 flowchart TD
@@ -135,11 +127,11 @@ flowchart TD
 
 ### 7.3 Van specificatie naar aanbod via het plan- en roosterproces
 
-Specificatieboom plus regels vormen samen de constraint voor het plan- en roosterproces. Het resultaat is aanbod dat in de tijd staat: Wiskunde 1 vóór Ruimtelijk inzicht.
+Onderwijsspecificatiestructuur plus regels vormen samen de constraint voor het plan- en roosterproces. Het resultaat is aanbod dat in de tijd staat: Wiskunde 1 vóór Ruimtelijk inzicht.
 
 ```mermaid
 flowchart LR
-    S["Specificatieboom"] --> P["Plan- en roosterproces"]
+    S["Onderwijsspecificatiestructuur"] --> P["Plan- en roosterproces"]
     R["Regels, bv. Wiskunde 1 voor Ruimtelijk inzicht"] --> P
     P --> A["Aanbod in de tijd"]
 ```
@@ -152,6 +144,74 @@ gantt
     section Opleiding Jochem
     Wiskunde 1          :done,   w1, 2026-09-01, 60d
     Ruimtelijk inzicht  :active, ri, after w1, 60d
+```
+
+### 7.4 Keuzescenario's, schematisch
+
+Elk scenario is gekoppeld aan de requirements die het dekt. De schema's zijn de leidraad voor de [regelset-payload](20260727_1509_okx-lr1-regelset-payload-json.md).
+
+#### 7.4.1 Keuzecontext met benoemde keuzegroepen
+
+Met deze specificatie en deze keuzedeelruimte (begroot 720 SBU): kies maximaal 2 uit de algemene groep, samen binnen de begrote omvang, en kies precies 1 specialisatie uit 5. Dekt R1, R5, R10, R12.
+
+```mermaid
+flowchart TB
+    ST(("Student"))
+    subgraph KR["Keuzecontext: keuzedeelruimte, begroot 720 SBU"]
+        subgraph ALG["Algemene groep (selectie op klasse, ~20 keuzedelen)"]
+            A1["Keuzedeel 1"]
+            A2["Keuzedeel 2"]
+            A3["... t/m 20"]
+        end
+        subgraph SPEC["Specialisatiegroep (opsomming, 5 keuzedelen)"]
+            S1["Ruimtelijk inzicht"]
+            S2["... t/m 5"]
+        end
+    end
+    ST -- "kies maximaal 2 (R1, R5)" --> ALG
+    ST -- "kies precies 1 (R1, R5)" --> SPEC
+    ST -. "totale keuze maximaal 720 SBU (R12)" .-> KR
+```
+
+#### 7.4.2 Voorwaarde in behaalde leeruitkomsten
+
+Deelname vereist behaalde leeruitkomsten, niet doorlopen specificaties. Dezelfde voorwaarde stuurt keuzemoment en planvolgorde. Dekt R7, R8, R9, R14, R15.
+
+```mermaid
+flowchart LR
+    LU["Leeruitkomst Wiskunde 1<br/>(alleen id + status nodig, R15)"]
+    GATE{"behaald? (R7, R14)"}
+    RI["Specialisatie Ruimtelijk inzicht"]
+    PLAN["Planning: Ruimtelijk inzicht in een periode<br/>na Wiskunde 1 (R8, R9)"]
+    LU --> GATE
+    GATE -- "ja: keuze toegestaan" --> RI
+    GATE -- "nee: keuze geblokkeerd" --> X["nog niet kiesbaar"]
+    GATE -. "zelfde regel, tweede gebruiker" .-> PLAN
+```
+
+#### 7.4.3 Beschikbaarheid en groepsvorming
+
+Kiesbaarheid kan afhangen van locatie en periode; de keuze leidt tot een herkenbare groep. Dekt R3, R4.
+
+```mermaid
+flowchart LR
+    RI["Ruimtelijk inzicht"] -- "alleen Utrecht, periode 3 (R3)" --> AANBOD["Aanbod: Utrecht, P3"]
+    AANBOD -- "gekozen door 25 studenten" --> GROEP["Groep KD-RI-27-P3-UTR (R4)<br/>= keuzedeel x locatie x periode"]
+```
+
+#### 7.4.4 Zelfde regelvorm op elk niveau
+
+Keuzedeel is de mbo-invulling; de regelvorm werkt op elke onderwijsspecificatie als keuzecontext. Dekt R12, R13, R16.
+
+```mermaid
+flowchart TB
+    subgraph NU["Nu (LR1-3): mbo-keuzedeelruimte"]
+        K1["Keuzecontext: keuzedeelruimte"] --> R1G["Regelset: maximaal 2, precies 1, omvang-plafond"]
+    end
+    subgraph STRAKS["Straks: elke onderwijsspecificatie"]
+        K2["Keuzecontext: onderwijseenheid<br/>met keuze-leeronderdelen"] --> R2G["Zelfde regelvorm (R16)"]
+    end
+    NU -. "identieke regeltypen en payload-vorm" .- STRAKS
 ```
 
 ## 8. Verhouding tot OEAPI
@@ -175,10 +235,12 @@ Open vragen:
 - OC naar planning: welke studentgegevens (eerder afgerond of ingeschreven) heeft planning nodig, en van welk systeem? Raakt ADR 0009.
 - Landelijke locatietabel (zoals BRIN in het VO) nodig of niet? (#84, vraag 2.)
 - Plek van de regels (bij de specificatie, het aanbod of het programma): later in de gegevensanalyse.
+- Afstemming met de koppelingen-lijn (#98/#119): daar zijn R7, R14 en R15 inmiddels vastgelegd als ADR 0022 (resultaatbegrippen conform ROSA KOI) en ADR 0023 (leeruitkomst-ids als opaque sleutels binnen OC-P&R). Na merge verwijzen beide lijnen naar elkaar.
 
 ## 10. Vervolg
 
-1. R1-R13 vaststellen en laten accorderen na review op #84.
-2. Gegevensanalyse (AMIGO-stap 2): entiteiten en attributen afleiden, met OEAPI-mapping.
-3. Berichtspecificatie en OEAPI-profiel (AMIGO-stap 5 en 6): het toetsbare contract.
-4. LR2 en LR3 als delta ten opzichte van LR1.
+1. R1-R17 vaststellen en laten accorderen na review op #84.
+2. Regelset-payload-voorstel (zie [regelset-payload](20260727_1509_okx-lr1-regelset-payload-json.md)) als eerste concretisering.
+3. Gegevensanalyse (AMIGO-stap 2): entiteiten en attributen afleiden, met OEAPI-mapping.
+4. Berichtspecificatie en OEAPI-profiel (AMIGO-stap 5 en 6): het toetsbare contract.
+5. LR2 en LR3 als delta ten opzichte van LR1.
