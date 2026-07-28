@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "skills": {
+    "architecture-review": {
+      "source": "getsentry/warden",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/architecture-review/SKILL.md",
+      "computedHash": "4f3eb66516d3cb3b28538d2abce6a31f66934d743216689019e0f7613d8d961e"
+    },
+    "business-analysis": {
+      "source": "kienhaminh/anti-chaotic",
+      "sourceType": "github",
+      "skillPath": ".agent/skills/business-analysis/SKILL.md",
+      "computedHash": "a7b0c70d499842d7b3c1709bc6ebff16f33a78eb602432df2add7e820071f294"
+    },
+    "requirements-engineering": {
+      "source": "jasonkneen/kiro",
+      "sourceType": "github",
+      "skillPath": "skills/requirements-engineering/SKILL.md",
+      "computedHash": "b784e2ff7c6ffa2aa9af6cd289011de002089e8d3cecbd0036f4ceec943d14a1"
+    }
+  }
+}

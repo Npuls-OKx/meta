@@ -1,0 +1,13 @@
+---
+description: Product-flow verplicht voor deliverables (requirements, uitwerking, onafhankelijke review)
+alwaysApply: true
+---
+
+Elk nieuw of substantieel gewijzigd deliverable (requirements-document, payload-specificatie, koppelingspecificatie, ADR, scenario) volgt de product-flow uit `.agents/skills/okx-product-flow/SKILL.md`:
+
+- Eerst toetsbare requirements met acceptatiecriteria, vastgesteld met de gebruiker.
+- Dan de uitwerking met de passende specialist-skill.
+- Dan verplicht onafhankelijke review in verse subagent-contexten: tester (`okx-requirements-tester`) en specialist (`okx-semantiek-review`). De maker reviewt niet zijn eigen werk.
+- Itereren tot beide reviews slagen; afsluiten met het agent-rapport in de PR-beschrijving.
+
+Sla de review niet over "omdat het klein is"; kleine wijzigingen aan bestaande documenten (typo's, losse verwijzingen) vallen buiten deze plicht.
