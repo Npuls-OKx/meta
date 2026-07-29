@@ -27,7 +27,7 @@ Rolverdeling ([ADR 0009](../../../../dr/0009-sks-svs-rollenverdeling-keuze-vs-re
 
 ### 1.2 Doel
 
-Deze koppelingbeschrijving is **indicatief, geen voorschrift aan de sector**. Ze onderbouwt welke operaties en endpoints het koppelvlak van de onderwijscatalogus en dat van het studentinformatiesysteem nodig hebben; de som van alle koppelingbeschrijvingen leidt tot de koppelvlakspecificatie per component ([toelichting](../README.md#van-koppelingbeschrijving-naar-koppelvlakspecificatie-doelbinding)).
+Deze koppelingbeschrijving is **indicatief en onderbouwend, geen voorschrift aan de sector**; zij levert bouwstenen voor het koppelvlak van de onderwijscatalogus en dat van het studentinformatiesysteem ([uitgangspunt U1](../uitgangspunten.md#u1-indicatief-en-onderbouwend-niet-voorschrijvend)).
 
 Het document beantwoordt drie vragen:
 
@@ -51,7 +51,7 @@ Al het overige valt buiten dit document, waaronder cross-instelling.
 
 ## 2. Procesbeeld
 
-Zelfde twee principes als bij de koppeling met planning. **Resource-eigenaarschap**: de onderwijscatalogus bezit de specificaties en de resultaatstructuren, het studentinformatiesysteem bezit de studentregistratie met verbintenissen, individuele structuren, voortgang en resultaten. **Notify-then-pull**: de catalogus publiceert een dun event met een referentie ([ADR 0020](../../../../dr/0020-curriculumontwerp-onderwijscatalogus-happy-flow-synchronisatie-en-federatie-adopt-klonen.md)), het studentinformatiesysteem haalt de structuur op wanneer het die nodig heeft.
+**Resource-eigenaarschap** ([U3](../uitgangspunten.md#u3-resource-eigenaarschap)): de onderwijscatalogus bezit de specificaties en de resultaatstructuren, het studentinformatiesysteem de verbintenissen, individuele structuren, voortgang en resultaten. **Notify-then-pull** ([U4](../uitgangspunten.md#u4-notify-then-pull)): de catalogus meldt, het studentinformatiesysteem haalt op.
 
 ```mermaid
 flowchart LR
@@ -70,11 +70,7 @@ Wat het diagram niet toont: het studentinformatiesysteem haalt twee dingen op, d
 ## 3. Interactieoverzicht
 
 De interacties op deze koppeling, met per interactie het messaging-patroon, in dezelfde patroontaal als de koppeling met planning ([Enterprise Integration Patterns, Messaging](https://www.enterpriseintegrationpatterns.com/patterns/messaging/)).
-**Bericht versus kanaal.** Wat hier wordt vastgelegd is het **bericht**: wat erin staat, wanneer het wordt verstuurd, hoe een ontvanger een herhaling herkent en in welke volgorde berichten over dezelfde sleutel aankomen. Hoe dat bericht bij de ontvanger komt, het **kanaal**, is een inrichtingskeuze van instelling en leverancier: een webhook, een bus, een broker of een cloud-pubsubdienst. OKx schrijft dat product niet voor.
-
-Het kanaal is daarmee niet volledig vrij. [ADR 0018](../../../../dr/0018-enterprise-messaging-patronen-voor-betrouwbare-koppelvlakken.md) is technologie-agnostisch maar niet vrijblijvend: welk kanaal je ook kiest, het moet aantoonbaar vier eigenschappen leveren, namelijk gegarandeerde aflevering, idempotente verwerking, een dead-letterpad en behoud van volgorde per sleutel. Die laatste is de scherpste: veel cloud-pubsubdiensten garanderen volgorde niet standaard en vragen daar expliciete configuratie voor. Twee implementaties die allebei "een message gooien" maar de volgorde per `specificatieId` niet bewaken, leveren nog steeds verschillende uitkomsten op.
-
-Open punt: welk afleveringsmechanisme partijen onderling kiezen is nu niet belegd. Twee systemen die beide aan het bericht voldoen maar het ene een webhook aanbiedt en het andere op een eigen broker publiceert, kunnen zonder afspraak of adapter alsnog niet koppelen. Dat is een vraag voor het koppelvlak, niet voor deze koppeling.
+Wat hier wordt vastgelegd is het **bericht**, niet het **kanaal**: hoe het bericht bij de ontvanger komt is een inrichtingskeuze van instelling en leverancier, binnen de vier eigenschappen die [ADR 0018](../../../../dr/0018-enterprise-messaging-patronen-voor-betrouwbare-koppelvlakken.md) eist. Zie [uitgangspunt U5](../uitgangspunten.md#u5-bericht-versus-kanaal).
 
 | # | Interactie | Initiator | Patroon | Synchroniciteit | Gedrag bij dubbele ontvangst | Foutafhandeling |
 |---|---|---|---|---|---|---|

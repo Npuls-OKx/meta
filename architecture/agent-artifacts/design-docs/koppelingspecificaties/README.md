@@ -24,20 +24,11 @@ Kernbegrippen die in elk document terugkomen:
 - **Notify-then-pull** ([ADR 0020](../../../dr/0020-curriculumontwerp-onderwijscatalogus-happy-flow-synchronisatie-en-federatie-adopt-klonen.md)): de bezitter van een resource meldt een dun event met een referentie; de consument haalt de resource op wanneer die hem nodig heeft.
 - **Scenario's met persona's**: de documenten werken leerroute 1 (regulier) uit aan de hand van persona [Jochem](../../../docs/specificatie/okx-oeapi-consumer-profiel/doc/persona_jochem.md) (opleiding Apothekersassistent); leerroute 2 en 3 volgen als verschil. Volledige leerroutes en persona's: [consumer-profiel](../../../docs/specificatie/okx-oeapi-consumer-profiel/README.md).
 
-### Van koppelingbeschrijving naar koppelvlakspecificatie (doelbinding)
+### Uitgangspunten
 
-De koppelingspecificaties in deze map zijn **indicatief en onderbouwend, niet voorschrijvend**. We hebben nog beperkt zicht op de werking van het ecosysteem. Daarom bestuderen en beschrijven we het koppeling voor koppeling, scenario voor scenario: welke interacties vinden er plaats, en welke operaties, endpoints en data vragen die. OKx legt de sector niet op hoe een koppeling gerealiseerd moet worden; partijen kunnen koppelingen zelf vormgeven.
+De aannames die voor **alle** documenten in deze map gelden staan eenmaal in [uitgangspunten.md](uitgangspunten.md), genummerd U1 tot en met U10: de doelbinding (indicatief en onderbouwend, niet voorschrijvend), resource-eigenaarschap, notify-then-pull, het onderscheid tussen bericht en kanaal, de semantiek uit de ankertabel, de payloadvorm en sleutelconventie, en de scope- en documentdiscipline. De afzonderlijke documenten noemen een uitgangspunt in één regel en verwijzen erheen, zodat een wijziging in de redenering maar op één plek hoeft.
 
-De som van de koppelingbeschrijvingen leidt tot de **koppelvlakspecificatie** per referentiecomponent (OC, P&R, LMS, SIS (KRS/SVS), later SKS): de endpoints en operaties die dat component waarschijnlijk moet bieden om het ecosysteem te laten werken, elk gegrond in een beschreven interactie ([ADR 0021](../../../dr/0021-koppeling-versus-koppelvlak-terminologie.md), consequentie interfacespecificatie).
-
-```mermaid
-flowchart LR
-    S["Scenario's leerroute 1-3<br/>(persona's)"] --> KB["Koppelingbeschrijvingen<br/>OC-P&R, OC-LMS, OC-SIS, ..."]
-    N["Nieuwe behoeften<br/>(voorbeeld: SKS vraagt nog niet<br/>bestaande specificatie aan)"] --> KB
-    KB --> KV["Koppelvlakspecificatie per component<br/>endpoints en operaties, onderbouwd"]
-```
-
-De beschreven koppelingen zijn **niet uitputtend**. Nieuwe functionaliteit kan operaties vragen die niet uit de interacties van leerroute 1 tot en met 3 naar voren komen. Voorbeeld: een studentkeuzesysteem (SKS) dat namens een student een nog niet bestaand stuk onderwijs wil aanvragen, als verzoek op het specificaties-endpoint van OC. Zo'n behoefte komt binnen als nieuw scenario met een eigen koppelingbeschrijving en onderbouwt zo een nieuwe operatie op het koppelvlak; het koppelvlak houdt die ruimte. Doelbinding vastgelegd naar aanleiding van het reviewgesprek bij PR #121.
+Kort samengevat: OKx legt de sector niet op hoe een koppeling gerealiseerd moet worden. We beschrijven koppelingen om te ontdekken welke operaties en endpoints nodig zijn; de som ervan levert de koppelvlakspecificatie per component op, met ruimte voor behoeften die nu nog niet uit de scenario's naar voren komen.
 
 Leesvolgorde: eerst deze instap, dan `gedeeld/` (de centrale onderwijsspecificatie-payload en de lifecycle-uitwerking), dan de koppeling van je interesse.
 
@@ -80,7 +71,12 @@ Leidende prioriteringsvraag: wat moeten deze drie koppelingen uitgewisseld hebbe
 
 ### Voor schrijvers
 
-De vaste opbouw van een koppelingspecificatie en van een payload-specificatie, plus de conventies voor veldnamen, schema's en bomen, staan in de skill [`okx-koppelingspecificatie`](../../../../.cursor/skills/okx-koppelingspecificatie/SKILL.md).
+Begin bij de [uitgangspunten](uitgangspunten.md) en kopieer daarna het passende sjabloon:
+
+- [sjabloon-koppelingspecificatie.md](sjabloon-koppelingspecificatie.md) voor een informatiestroom tussen twee componenten;
+- [sjabloon-payload-specificatie.md](sjabloon-payload-specificatie.md) voor de JSON die over zo'n koppeling gaat.
+
+Beide sjablonen bevatten instructies tussen HTML-commentaar die je verwijdert als het onderdeel af is. Werk je met een AI-agent, dan hanteert de skill [`okx-koppelingspecificatie`](../../../../.cursor/skills/okx-koppelingspecificatie/SKILL.md) dezelfde opbouw.
 
 Elke payload-specificatie draagt een **JSON Schema** (alfa en indicatief) plus ASCII-bomen: een **schemaboom** die de vorm leesbaar toont, en per platte array een **instantieboom** die de verwijzingen oplost en de hiërarchie zichtbaar maakt die in de JSON verborgen blijft. Beide worden gegenereerd; draai vóór een commit:
 

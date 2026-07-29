@@ -65,7 +65,7 @@ Dit document beantwoordt drie vragen:
 
 Geslaagd wanneer een studentinformatiesysteem de resultaatstructuur kan inrichten en de aggregatie richting diploma kan berekenen zonder aanvullende uitleg.
 
-De payload is indicatief en onderbouwt welke velden het koppelvlak nodig heeft; het is geen voorschrift aan de sector ([toelichting](../README.md#van-koppelingbeschrijving-naar-koppelvlakspecificatie-doelbinding)).
+De payload is indicatief en onderbouwend, geen voorschrift aan de sector ([uitgangspunt U1](../uitgangspunten.md#u1-indicatief-en-onderbouwend-niet-voorschrijvend)).
 
 ### 1.3 Scope
 

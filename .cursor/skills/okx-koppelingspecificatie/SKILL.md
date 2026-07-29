@@ -12,13 +12,15 @@ description: >-
 
 # Koppeling- en payload-specificaties
 
+**Begin bij de bron, niet bij deze skill.** De inhoudelijke aannames staan in [uitgangspunten.md](../../../architecture/agent-artifacts/design-docs/koppelingspecificaties/uitgangspunten.md), genummerd U1 tot en met U10, en de lege opzet in [sjabloon-koppelingspecificatie.md](../../../architecture/agent-artifacts/design-docs/koppelingspecificaties/sjabloon-koppelingspecificatie.md) en [sjabloon-payload-specificatie.md](../../../architecture/agent-artifacts/design-docs/koppelingspecificaties/sjabloon-payload-specificatie.md). Kopieer het sjabloon en volg de instructies daarin. Deze skill vat samen waar je op let en waarom; bij verschil wint het sjabloon.
+
 Twee documentsoorten met een vaste opbouw. Terminologie volgt [ADR 0021](../../../architecture/dr/0021-koppeling-versus-koppelvlak-terminologie.md): een **koppeling** is de informatiestroom tussen twee referentiecomponenten, een **koppelvlak** is de verzameling koppelingen van één component.
 
 ## Doelbinding (waarom deze documenten bestaan)
 
-Koppelingspecificaties zijn **indicatief en onderbouwend, niet voorschrijvend**. OKx legt de sector niet op hoe een koppeling gerealiseerd moet worden. We bestuderen het ecosysteem koppeling voor koppeling en scenario voor scenario om te ontdekken welke operaties, endpoints en data nodig zijn. De som van de koppelingbeschrijvingen leidt tot de **koppelvlakspecificatie** per component, en er blijft ruimte voor behoeften die nu nog niet uit de scenario's naar voren komen.
+Koppelingspecificaties zijn **indicatief en onderbouwend, niet voorschrijvend** ([U1](../../../architecture/agent-artifacts/design-docs/koppelingspecificaties/uitgangspunten.md#u1-indicatief-en-onderbouwend-niet-voorschrijvend)). Noem die binding in elk document in §1.2 met een link naar U1, zodat een lezer niet denkt dat we koppelingen dichttimmeren. Schrijf de motivering niet over; die staat in de uitgangspunten.
 
-Zet die binding in elk document in §1.2, zodat een lezer niet denkt dat we koppelingen dichttimmeren.
+**Herhaal geen uitgangspunten.** Gaat het over resource-eigenaarschap, notify-then-pull, het onderscheid tussen bericht en kanaal, de semantiek uit de ankertabel, de sleutelconventie of de scopediscipline: noem het in één regel en link naar het betreffende uitgangspunt. Anders staat dezelfde redenering in vijf documenten en moet elke wijziging vijf keer.
 
 ## Opbouw koppelingspecificatie
 
@@ -58,7 +60,7 @@ Eén hoofdstuk met drie subsecties. Na het lezen daarvan weet een nieuwkomer waa
 ## Payload-conventies
 
 - **Nederlands.** Veldnamen en waarden in het Nederlands. Wijkt dat af van de OEAPI-vorm, noteer dat als signalering in plaats van het stil te laten.
-- **Sleutels.** `id` voor de eigen sleutel van een object binnen zijn array; een expliciete getypeerde naam zodra je ergens anders heen wijst (`bovenliggendSpecificatieId`, `leeruitkomstId`, `specificatieVerwijzing.specificatieId`). Een kaal `bovenliggendId` is context-gevoelig en dus verboden.
+- **Sleutels** volgen [U7](../../../architecture/agent-artifacts/design-docs/koppelingspecificaties/uitgangspunten.md#u7-payload-plat-met-verwijzingen-en-de-sleutelconventie): `id` voor de eigen sleutel, een expliciete getypeerde naam zodra je ergens anders heen wijst. Een kaal `bovenliggendId` is context-gevoelig en dus verboden.
 - **Plat met verwijzingen.** Objecten staan in platte arrays met een zelfverwijzende ouder-pointer, niet fysiek genest. Daardoor is de boom in de JSON onzichtbaar; de instantieboom maakt hem weer zichtbaar. Beide horen erbij.
 - **JSON Schema.** Elke payload-specificatie draagt een JSON Schema (draft 2020-12) dat de vorm vastlegt: types, verplicht of optioneel, enums, patronen. Enumeraties horen in het schema, niet in een aparte tabel. Markeer de volwassenheid **in het schema zelf** (`$comment`, `description`) met alfa en indicatief; die markering hoort niet in de documenttitel of de doelstelling.
 - **Gebruiksprofiel.** Gedeelde payloads staan éénmaal centraal. Elke koppelingspecificatie benoemt welke objecten en velden zij gebruikt.
@@ -100,6 +102,7 @@ Loop dit af voordat je een document ter review aanbiedt.
 - [ ] Elk kopje dekt de lading; "Context" geeft context.
 - [ ] De tekst is leesbaar zonder er een issue bij te halen.
 - [ ] Open punten hebben een concrete vraag en een vervolgstap.
+- [ ] Uitgangspunten zijn aangehaald met een link, niet overgeschreven.
 - [ ] `json-tree.py --check` en de linkcontrole zijn schoon.
 
 Bredere schrijfstijl staat in [`docs-style`](../../rules/docs-style.mdc).

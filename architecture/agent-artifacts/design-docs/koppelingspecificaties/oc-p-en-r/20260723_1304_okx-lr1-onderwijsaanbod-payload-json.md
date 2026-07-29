@@ -39,7 +39,7 @@ Dit document beantwoordt drie vragen:
 
 Geslaagd wanneer een leverancier de payload kan bouwen en lezen zonder aanvullende uitleg, en wanneer de knelpuntcodes een planner voldoende houvast geven om te weten wat er misgaat.
 
-De payload is indicatief en onderbouwt welke velden en operaties het koppelvlak nodig heeft; het is geen voorschrift aan de sector ([toelichting](../README.md#van-koppelingbeschrijving-naar-koppelvlakspecificatie-doelbinding)).
+De payload is indicatief en onderbouwend, geen voorschrift aan de sector ([uitgangspunt U1](../uitgangspunten.md#u1-indicatief-en-onderbouwend-niet-voorschrijvend)).
 
 ### 1.3 Scope
 

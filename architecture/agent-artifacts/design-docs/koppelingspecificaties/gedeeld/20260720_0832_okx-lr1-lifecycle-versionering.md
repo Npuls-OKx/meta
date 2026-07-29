@@ -33,7 +33,7 @@ Dit document beantwoordt drie vragen:
 
 Geslaagd wanneer een onderwijscatalogus en een afnemer bij dezelfde wijziging tot hetzelfde oordeel komen over wat er moet gebeuren.
 
-Deze uitwerking is indicatief en onderbouwend, net als de koppelingspecificaties die erop steunen ([toelichting](../README.md#van-koppelingbeschrijving-naar-koppelvlakspecificatie-doelbinding)).
+Deze uitwerking is indicatief en onderbouwend, net als de koppelingspecificaties die erop steunen ([uitgangspunt U1](../uitgangspunten.md#u1-indicatief-en-onderbouwend-niet-voorschrijvend)).
 
 Wat dit document nog niet doet: de publicatiegebeurtenis waarmee een catalogus een samenhangende versie van de hele boom vrijgeeft, en de uitgewerkte voorbeelden van gelijktijdig actieve versies over cohorten heen. Die staan in [§5](#5-open-punten).
 
