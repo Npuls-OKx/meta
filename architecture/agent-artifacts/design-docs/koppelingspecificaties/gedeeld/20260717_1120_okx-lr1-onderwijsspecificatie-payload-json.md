@@ -234,35 +234,194 @@ erDiagram
 
 
 
-Toegestane waarden. Open sets zijn als zodanig gemarkeerd.
+Het schema legt de exacte vorm vast: welke velden er zijn, welke verplicht zijn en welke waarden een veld mag dragen. Het is **alfa en indicatief** en verandert mee zolang de payload nog niet vaststaat.
 
+```json
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://okx.npuls.nl/schema/onderwijsspecificatie/alfa",
+  "title": "Onderwijsspecificatie",
+  "$comment": "Alfa en indicatief. Deze vorm onderbouwt welke velden het koppelvlak nodig heeft en kan wijzigen zolang de payload niet is vastgesteld.",
+  "type": "object",
+  "required": ["onderwijsspecificaties"],
+  "$comment_required": "Alleen onderwijsspecificaties is altijd aanwezig. Of leeruitkomsten en regelsets meekomen bepaalt het gebruiksprofiel van de koppeling; binnen OC-P&R blijven leeruitkomsten weg (ADR 0023).",
+  "properties": {
+    "leeruitkomsten": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "versie", "naam", "bron", "bovenliggendLeeruitkomstId", "indicatieveOmvang"],
+        "properties": {
+          "id": { "type": "string", "format": "uuid" },
+          "versie": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+          "naam": { "type": "string" },
+          "bron": {
+            "type": "object",
+            "required": ["standaard", "type", "code"],
+            "properties": {
+              "standaard": { "type": "string", "$comment": "open lijst; nu sbb-kwalificatiekader, later bijvoorbeeld competentnl" },
+              "type": { "enum": ["kwalificatiedossier", "kwalificatie", "kerntaak", "werkproces", "keuzedeel"] },
+              "code": { "type": "string" }
+            }
+          },
+          "bovenliggendLeeruitkomstId": { "type": ["string", "null"], "format": "uuid" },
+          "indicatieveOmvang": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["waarde", "eenheid"],
+              "properties": {
+                "waarde": { "type": "number" },
+                "eenheid": { "enum": ["SBU", "EC"] }
+              }
+            }
+          },
+          "nlqfNiveau": { "type": "integer", "minimum": 1, "maximum": 8 },
+          "waardedocument": { "type": "string", "$comment": "open lijst: diploma, mbo-certificaat, microcredential" },
+          "omschrijving": { "type": "string" },
+          "resultaat": { "type": "string" },
+          "gedrag": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "onderwijsspecificaties": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "specificatieType", "versie", "bovenliggendSpecificatieId", "naam", "studielast"],
+        "properties": {
+          "id": { "type": "string", "format": "uuid" },
+          "specificatieType": { "enum": ["opleidingsspecificatie", "opleidingsprogrammaspecificatie", "onderwijseenheidspecificatie", "leeronderdeelspecificatie", "keuzedeelruimtespecificatie", "toetsonderdeelspecificatie", "examenplanspecificatie", "resultaateenheidspecificatie"] },
+          "versie": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+          "bovenliggendSpecificatieId": { "type": ["string", "null"], "format": "uuid" },
+          "leeruitkomstId": { "type": "string", "format": "uuid" },
+          "naam": { "type": "string" },
+          "omschrijving": { "type": "string" },
+          "status": { "enum": ["concept", "vastgesteld", "gepubliceerd", "gedeactiveerd", "vervallen", "gearchiveerd"] },
+          "studielast": {
+            "type": "object",
+            "required": ["waarde", "eenheid"],
+            "properties": {
+              "waarde": { "type": "number" },
+              "eenheid": { "enum": ["SBU", "EC"] }
+            }
+          },
+          "curriculumtype": { "enum": ["nominaal", "hybride", "flexibel"] },
+          "programmatype": { "type": "string", "$comment": "open lijst: diplomaprogramma, keuzedeelprogramma, certificaatprogramma" },
+          "programmaLaag": { "enum": ["leerweg", "doelgroep"] },
+          "leerweg": { "enum": ["BOL", "BBL"] },
+          "doelgroep": { "type": "string", "$comment": "open lijst: regulier, zijinstromer, hybride, organisatiespecifiek" },
+          "keuzedeelKlasse": { "type": "string", "$comment": "open lijst: algemeen-verbredend, beroepsspecifiek-verdiepend" },
+          "organisatie": { "type": "object", "$comment": "verwijzing naar de organisatie waarvoor deze variant geldt, bijvoorbeeld een leerbedrijf" },
+          "cohort": { "type": "string" },
+          "startdatum": { "type": "string", "format": "date" },
+          "geldigVanaf": { "type": "string", "format": "date" },
+          "geldigTot": { "type": ["string", "null"], "format": "date" },
+          "tijdsverdeling": { "type": "string", "$comment": "open lijst: BOT (begeleide onderwijstijd), OOT (overige onderwijstijd), BPV" },
+          "toelichting": { "type": "string" },
+          "regelsetVerwijzingen": { "type": "array", "items": { "type": "string", "format": "uuid" } },
+          "manifest": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["specificatieId", "versie", "relatie"],
+              "properties": {
+                "specificatieId": { "type": "string", "format": "uuid" },
+                "versie": { "type": "string" },
+                "relatie": { "enum": ["onderdeel", "variant", "referentie"] }
+              }
+            }
+          }
+        }
+      }
+    },
+    "regelsets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "versie", "naam", "vanToepassingOp", "regels"],
+        "properties": {
+          "id": { "type": "string", "format": "uuid" },
+          "versie": { "type": "string" },
+          "naam": { "type": "string" },
+          "omschrijving": { "type": "string" },
+          "vanToepassingOp": { "type": "string", "format": "uuid" },
+          "regels": { "type": "array", "items": { "type": "object" } }
+        }
+      }
+    }
+  }
+}
+```
 
+Dezelfde vorm, leesbaar:
 
-| Veld                                  | Toegestane waarden                                                                                                                                                                                                                                                                                                                    |
-| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `specificatieType`                    | `opleidingsspecificatie`, `opleidingsprogrammaspecificatie`, `onderwijseenheidspecificatie`, `leeronderdeelspecificatie`, `keuzedeelruimtespecificatie`, `toetsonderdeelspecificatie` (examinering/toetsing, OEAPI TestComponent), `examenplanspecificatie` en `resultaateenheidspecificatie` (resultaatstructuur, aparte uitwerking) |
-| `manifest[].relatie`                  | `onderdeel` (additief), `variant` (alternatief), `referentie` (gepinde verwijzing)                                                                                                                                                                                                                                                    |
-| `status`                              | `concept`, `vastgesteld`, `gepubliceerd`, `gedeactiveerd`, `vervallen`, `gearchiveerd`                                                                                                                                                                                                                                                |
-| `versie`                              | semver `MAJOR.MINOR.PATCH` (bv. `0.1.0`)                                                                                                                                                                                                                                                                                              |
-| `geldigVanaf` / `geldigTot`           | datum; geldigheidsperiode. Meerdere versies kunnen gelijktijdig actief zijn                                                                                                                                                                                                                                                           |
-| `curriculumtype`                      | `nominaal`, `hybride`, `flexibel`                                                                                                                                                                                                                                                                                                     |
-| `programmatype`                       | `diplomaprogramma`, `keuzedeelprogramma`, `certificaatprogramma` (open)                                                                                                                                                                                                                                                               |
-| `programmaLaag`                       | `leerweg`, `doelgroep`                                                                                                                                                                                                                                                                                                                |
-| `leerweg`                             | `BOL`, `BBL`                                                                                                                                                                                                                                                                                                                          |
-| `doelgroep`                           | `regulier`, `zijinstromer`, `hybride`, `organisatiespecifiek` (open)                                                                                                                                                                                                                                                                  |
-| `studielast.eenheid`                  | `SBU`, `EC`                                                                                                                                                                                                                                                                                                                           |
-| `bron.standaard`                      | `sbb-kwalificatiekader` (open; later bv. `competentnl`)                                                                                                                                                                                                                                                                               |
-| `bron.type`                           | `kwalificatiedossier`, `kwalificatie`, `kerntaak`, `werkproces`, `keuzedeel` (geldt bij `sbb-kwalificatiekader`)                                                                                                                                                                                                                      |
-| `keuzedeelKlasse`                     | `algemeen-verbredend`, `beroepsspecifiek-verdiepend` (open, uitbreidbaar; #84 R10)                                                                                                                                                                                                                                                    |
-| `nlqfNiveau` (op de leeruitkomst)     | `1` t/m `8` (NLQF, geldt voor alle sectoren)                                                                                                                                                                                                                                                                                          |
-| `waardedocument` (op de leeruitkomst) | `diploma`, `mbo-certificaat`, `microcredential` (open)                                                                                                                                                                                                                                                                                |
-| `indicatieveOmvang[].eenheid`         | `SBU`, `EC` (beide naast elkaar mogelijk, aansluiting HBO/WO; ADR 0004)                                                                                                                                                                                                                                                               |
-| `voorwaardeVooraf[].status`           | `behaald` (onderwijsresultaat op de leeruitkomst; [ADR 0022](../../../../dr/0022-resultaatbegrippen-conform-rosa-koi.md))                                                                                                                                                                                                                                                                           |
+<!-- json-tree:begin kind=schema -->
+```text
+Onderwijsspecificatie  (Alfa en indicatief. Deze vorm onderbouwt welke velden het koppelvlak nodig heeft en kan wijzigen zolang de payload niet is vastgesteld.)
 
+{root}
++-- leeruitkomsten[]                  optioneel
+|   +-- id                                uuid
+|   +-- versie                            string
+|   +-- naam                              string
+|   +-- bron                              verplicht, object
+|   |   +-- standaard                         string
+|   |   +-- type                              kwalificatiedossier | kwalificatie | kerntaak | werkproces | keuzedeel
+|   |   `-- code                              string
+|   +-- bovenliggendLeeruitkomstId        string of null
+|   +-- indicatieveOmvang[]               verplicht
+|   |   +-- waarde                            number
+|   |   `-- eenheid                           SBU | EC
+|   +-- nlqfNiveau                        integer, optioneel
+|   +-- waardedocument                    string, optioneel
+|   +-- omschrijving                      string, optioneel
+|   +-- resultaat                         string, optioneel
+|   `-- gedrag[]                          optioneel
+|         (string)
++-- onderwijsspecificaties[]          verplicht
+|   +-- id                                uuid
+|   +-- specificatieType                  enum (8 waarden)
+|   +-- versie                            string
+|   +-- bovenliggendSpecificatieId        string of null
+|   +-- leeruitkomstId                    uuid, optioneel
+|   +-- naam                              string
+|   +-- omschrijving                      string, optioneel
+|   +-- status                            enum (6 waarden), optioneel
+|   +-- studielast                        verplicht, object
+|   |   +-- waarde                            number
+|   |   `-- eenheid                           SBU | EC
+|   +-- curriculumtype                    nominaal | hybride | flexibel, optioneel
+|   +-- programmatype                     string, optioneel
+|   +-- programmaLaag                     leerweg | doelgroep, optioneel
+|   +-- leerweg                           BOL | BBL, optioneel
+|   +-- doelgroep                         string, optioneel
+|   +-- keuzedeelKlasse                   string, optioneel
+|   +-- organisatie                       object, optioneel
+|   +-- cohort                            string, optioneel
+|   +-- startdatum                        string, optioneel
+|   +-- geldigVanaf                       string, optioneel
+|   +-- geldigTot                         string of null, optioneel
+|   +-- tijdsverdeling                    string, optioneel
+|   +-- toelichting                       string, optioneel
+|   +-- regelsetVerwijzingen[]            optioneel
+|   |     (uuid)
+|   `-- manifest[]                        optioneel
+|       +-- specificatieId                    uuid
+|       +-- versie                            string
+|       `-- relatie                           onderdeel | variant | referentie
+`-- regelsets[]                       optioneel
+    +-- id                                uuid
+    +-- versie                            string
+    +-- naam                              string
+    +-- omschrijving                      string, optioneel
+    +-- vanToepassingOp                   uuid
+    `-- regels[]                          verplicht
+          (object)
+```
+<!-- json-tree:end -->
 
-
-
-
+Het `manifest` pint per specificatie de versies van haar onderdelen vast: `relatie: onderdeel` telt additief mee in de studielast, `variant` is een alternatief, en `referentie` is een gepinde verwijzing, bijvoorbeeld naar een keuzedeelprogramma.
 
 ### 2.2 Het voorbeeld
 
@@ -1209,6 +1368,215 @@ Leerroute 1, waarden indicatief. De `studielast` telt bottom-up op binnen onderd
 
 De voorwaarde vooraf (Ruimtelijk inzicht vereist Wiskunde 1) staat in de regelset, niet in de specificatie, en is uitgedrukt in de **behaalde leeruitkomst** (`vereisteLeeruitkomstId`), niet in een afgeronde specificatie. Zo blijft de regel los van het item (#84 R2, #120) en toetst hij op wat er werkelijk behaald is ([ADR 0022](../../../../dr/0022-resultaatbegrippen-conform-rosa-koi.md)).
 
+De bomen die in deze platte lijsten verborgen zitten, met de verwijzingen opgelost:
+
+<!-- json-tree:begin kind=instance array=onderwijsspecificaties id=id parent=bovenliggendSpecificatieId label=naam type=specificatieType attrs=studielast,regelsetVerwijzingen -->
+```text
+onderwijsspecificaties  (30 objecten, 4 roots, boom via bovenliggendSpecificatieId)
+
+OPLEIDINGSSPECIFICATIE                                        79736830
+= Apothekersassistent
+  studielast: {waarde: 4800, eenheid: SBU}
+|
++-- OPLEIDINGSPROGRAMMASPECIFICATIE                           5ef37812
+|   = Apothekersassistent, leerweg BOL
+|     studielast: {waarde: 4800, eenheid: SBU}
+|   |
+|   +-- OPLEIDINGSPROGRAMMASPECIFICATIE                       7ae25c1e
+|   |   = Regulier BOL
+|   |     studielast: {waarde: 4800, eenheid: SBU}
+|   |   |
+|   |   +-- ONDERWIJSEENHEIDSPECIFICATIE                      402c2342
+|   |   |   = Biedt farmaceutische patiëntenzorg
+|   |   |     studielast: {waarde: 2000, eenheid: SBU}
+|   |   |   |
+|   |   |   +-- LEERONDERDEELSPECIFICATIE                     327c8263
+|   |   |   |   = Neemt de zorg-/adviesvraag in behandeling
+|   |   |   |     studielast: {waarde: 600, eenheid: SBU}
+|   |   |   +-- LEERONDERDEELSPECIFICATIE                     29522e42
+|   |   |   |   = Voert medicatiebewaking uit
+|   |   |   |     studielast: {waarde: 500, eenheid: SBU}
+|   |   |   +-- LEERONDERDEELSPECIFICATIE                     db4ae6c8
+|   |   |   |   = Verstrekt (zelfzorg)medicijnen en/of hulpmiddelen
+|   |   |   |     studielast: {waarde: 500, eenheid: SBU}
+|   |   |   `-- LEERONDERDEELSPECIFICATIE                     2a4e31d4
+|   |   |       = Geeft informatie en advies over medicijngebruik, gezondheid en leefstijl
+|   |   |         studielast: {waarde: 400, eenheid: SBU}
+|   |   +-- ONDERWIJSEENHEIDSPECIFICATIE                      aa0a8af1
+|   |   |   = Voert logistieke taken uit in de apotheek
+|   |   |     studielast: {waarde: 1200, eenheid: SBU}
+|   |   |   |
+|   |   |   +-- LEERONDERDEELSPECIFICATIE                     c36d635f
+|   |   |   |   = Maakt medicijnen klaar voor gebruik en/of aflevering
+|   |   |   |     studielast: {waarde: 700, eenheid: SBU}
+|   |   |   `-- LEERONDERDEELSPECIFICATIE                     c5262133
+|   |   |       = Houdt de voorraad bij
+|   |   |         studielast: {waarde: 500, eenheid: SBU}
+|   |   +-- ONDERWIJSEENHEIDSPECIFICATIE                      f686a286
+|   |   |   = Werkt mee aan kwaliteit en deskundigheid
+|   |   |     studielast: {waarde: 880, eenheid: SBU}
+|   |   |   |
+|   |   |   +-- LEERONDERDEELSPECIFICATIE                     f956bad0
+|   |   |   |   = Draagt bij aan sociaal veilige werkomgeving
+|   |   |   |     studielast: {waarde: 280, eenheid: SBU}
+|   |   |   +-- LEERONDERDEELSPECIFICATIE                     6d5b468e
+|   |   |   |   = Evalueert de werkzaamheden en ontwikkelt zichzelf als professional
+|   |   |   |     studielast: {waarde: 300, eenheid: SBU}
+|   |   |   `-- LEERONDERDEELSPECIFICATIE                     90245c2e
+|   |   |       = Stemt de farmaceutische zorgverlening af
+|   |   |         studielast: {waarde: 300, eenheid: SBU}
+|   |   `-- KEUZEDEELRUIMTESPECIFICATIE                       fb5be5ae
+|   |       = Keuzedeelruimte
+|   |         studielast: {waarde: 720, eenheid: SBU} | regelsetVerwijzingen: [1]
+|   +-- OPLEIDINGSPROGRAMMASPECIFICATIE                       82de8b94
+|   |   = Zijstroom/LLO BOL (illustratief)
+|   |     studielast: {waarde: 4800, eenheid: SBU}
+|   `-- OPLEIDINGSPROGRAMMASPECIFICATIE                       685dc983
+|       = Hybride BOL (illustratief)
+|         studielast: {waarde: 4800, eenheid: SBU}
+`-- OPLEIDINGSPROGRAMMASPECIFICATIE                           93f3c239
+    = Apothekersassistent, leerweg BBL
+      studielast: {waarde: 4800, eenheid: SBU}
+    |
+    +-- OPLEIDINGSPROGRAMMASPECIFICATIE                       23d18a33
+    |   = Regulier BBL (illustratief)
+    |     studielast: {waarde: 4800, eenheid: SBU}
+    `-- OPLEIDINGSPROGRAMMASPECIFICATIE                       c295478c
+        = BBL Ziekenhuis 12 (illustratief)
+          studielast: {waarde: 4800, eenheid: SBU}
+
+OPLEIDINGSPROGRAMMASPECIFICATIE                               6a5ec549
+= Keuzedeel Ondernemerschap
+  studielast: {waarde: 240, eenheid: SBU}
+|
+`-- ONDERWIJSEENHEIDSPECIFICATIE                              7d4d9a10
+    = Zet een onderneming op in de zorg (indicatief)
+      studielast: {waarde: 240, eenheid: SBU}
+    |
+    `-- LEERONDERDEELSPECIFICATIE                             b4ec6046
+        = Stelt een ondernemingsplan op (indicatief)
+          studielast: {waarde: 240, eenheid: SBU}
+
+OPLEIDINGSPROGRAMMASPECIFICATIE                               ecf4a1ce
+= Keuzedeel Ruimtelijk inzicht (illustratief)
+  studielast: {waarde: 240, eenheid: SBU}
+|
+`-- ONDERWIJSEENHEIDSPECIFICATIE                              20f1099a
+    = Past ruimtelijk inzicht toe (illustratief)
+      studielast: {waarde: 240, eenheid: SBU}
+    |
+    `-- LEERONDERDEELSPECIFICATIE                             9e74eb44
+        = Interpreteert ruimtelijke figuren (illustratief)
+          studielast: {waarde: 240, eenheid: SBU}
+
+OPLEIDINGSPROGRAMMASPECIFICATIE                               65342d39
+= Keuzedeel Wiskunde 1 (illustratief)
+  studielast: {waarde: 240, eenheid: SBU}
+|
+`-- ONDERWIJSEENHEIDSPECIFICATIE                              729972d9
+    = Beheerst basale wiskunde (illustratief)
+      studielast: {waarde: 240, eenheid: SBU}
+    |
+    `-- LEERONDERDEELSPECIFICATIE                             6952e0af
+        = Rekent met verhoudingen en formules (illustratief)
+          studielast: {waarde: 240, eenheid: SBU}
+```
+<!-- json-tree:end -->
+
+De drie keuzedeelprogramma's staan als **losse roots** in deze boom: ze hangen bewust niet onder een opleiding, want een keuzedeel is herbruikbaar over opleidingen heen. Ze zijn alleen bereikbaar via de regelset waarnaar de `keuzedeelruimtespecificatie` verwijst. Dat is precies de N-op-M-relatie die in de platte JSON onzichtbaar blijft.
+
+<!-- json-tree:begin kind=instance array=leeruitkomsten id=id parent=bovenliggendLeeruitkomstId label=naam attrs=indicatieveOmvang,waardedocument -->
+```text
+leeruitkomsten  (23 objecten, 4 roots, boom via bovenliggendLeeruitkomstId)
+
+OBJECT                                                        c5b64fe5
+= Apothekersassistent (kwalificatiedossier 23450)
+  indicatieveOmvang: [2] | waardedocument: diploma
+|
+`-- OBJECT                                                    b84dc98b
+    = Apothekersassistent (kwalificatie 27141)
+      indicatieveOmvang: [1]
+    |
+    +-- OBJECT                                                12301838
+    |   = Biedt farmaceutische patiëntenzorg
+    |     indicatieveOmvang: [1]
+    |   |
+    |   +-- OBJECT                                            78f25d62
+    |   |   = Neemt de zorg-/adviesvraag in behandeling
+    |   |     indicatieveOmvang: [1]
+    |   +-- OBJECT                                            0ffa279f
+    |   |   = Voert medicatiebewaking uit
+    |   |     indicatieveOmvang: [1]
+    |   +-- OBJECT                                            9d6a5081
+    |   |   = Verstrekt (zelfzorg)medicijnen en/of hulpmiddelen
+    |   |     indicatieveOmvang: [1]
+    |   `-- OBJECT                                            71f42c36
+    |       = Geeft informatie en advies over medicijngebruik, gezondheid en leefstijl
+    |         indicatieveOmvang: [1]
+    +-- OBJECT                                                bedb4c31
+    |   = Voert logistieke taken uit in de apotheek
+    |     indicatieveOmvang: [1]
+    |   |
+    |   +-- OBJECT                                            1d5f3f8e
+    |   |   = Maakt medicijnen klaar voor gebruik en/of aflevering
+    |   |     indicatieveOmvang: [1]
+    |   `-- OBJECT                                            772c792b
+    |       = Houdt de voorraad bij
+    |         indicatieveOmvang: [1]
+    `-- OBJECT                                                8b085118
+        = Werkt mee aan kwaliteit en deskundigheid
+          indicatieveOmvang: [1]
+        |
+        +-- OBJECT                                            d929b0df
+        |   = Draagt bij aan sociaal veilige werkomgeving
+        |     indicatieveOmvang: [1]
+        +-- OBJECT                                            5cb6ce9c
+        |   = Evalueert de werkzaamheden en ontwikkelt zichzelf als professional
+        |     indicatieveOmvang: [1]
+        `-- OBJECT                                            ac69e604
+            = Stemt de farmaceutische zorgverlening af
+              indicatieveOmvang: [1]
+
+OBJECT                                                        4dca5ee6
+= Keuzedeel Ondernemerschap
+  indicatieveOmvang: [2] | waardedocument: mbo-certificaat
+|
+`-- OBJECT                                                    235745ac
+    = Zet een onderneming op in de zorg (indicatief)
+      indicatieveOmvang: [1]
+    |
+    `-- OBJECT                                                bfcef8b4
+        = Stelt een ondernemingsplan op (indicatief)
+          indicatieveOmvang: [1]
+
+OBJECT                                                        a12bbc9c
+= Keuzedeel Ruimtelijk inzicht (illustratief)
+  indicatieveOmvang: [2] | waardedocument: mbo-certificaat
+|
+`-- OBJECT                                                    3f9dea35
+    = Past ruimtelijk inzicht toe (illustratief)
+      indicatieveOmvang: [1]
+    |
+    `-- OBJECT                                                92476363
+        = Interpreteert ruimtelijke figuren (illustratief)
+          indicatieveOmvang: [1]
+
+OBJECT                                                        0d83e73a
+= Keuzedeel Wiskunde 1 (illustratief)
+  indicatieveOmvang: [2] | waardedocument: mbo-certificaat
+|
+`-- OBJECT                                                    c980007d
+    = Beheerst basale wiskunde (illustratief)
+      indicatieveOmvang: [1]
+    |
+    `-- OBJECT                                                d44a185e
+        = Rekent met verhoudingen en formules (illustratief)
+          indicatieveOmvang: [1]
+```
+<!-- json-tree:end -->
+
+De leeruitkomstboom volgt de opbouw van het kwalificatiekader: dossier, kwalificatie, kerntaken, werkprocessen. De keuzedeel-leeruitkomsten vormen eigen roots, om dezelfde reden als hierboven.
+
 ## 3. Toelichting bij de keuzes
 
 ### 3.1 Waarom plat met verwijzingen
@@ -1278,12 +1646,19 @@ B blijft in beide gevallen `1.2`. Dezelfde afweging geldt een niveau hoger richt
 
 ```json
 {
-  "id": "7ae25c1e-ee27-43a2-a001-761ee39ea5c7",
-  "specificatieType": "opleidingsprogrammaspecificatie",
-  "versie": "0.1.0",
-  "manifest": [
-    { "specificatieId": "402c2342-d897-4df4-a667-7fc5bd930944", "versie": "0.1.0", "relatie": "onderdeel" },
-    { "specificatieId": "fb5be5ae-faa0-4b4b-8085-474fce9aae08", "versie": "0.1.0", "relatie": "onderdeel" }
+  "onderwijsspecificaties": [
+    {
+      "id": "7ae25c1e-ee27-43a2-a001-761ee39ea5c7",
+      "specificatieType": "opleidingsprogrammaspecificatie",
+      "versie": "0.1.0",
+      "bovenliggendSpecificatieId": "5ef37812-ae0f-4232-904f-451b9928e45e",
+      "naam": "Regulier BOL",
+      "studielast": { "waarde": 4800, "eenheid": "SBU" },
+      "manifest": [
+        { "specificatieId": "402c2342-d897-4df4-a667-7fc5bd930944", "versie": "0.1.0", "relatie": "onderdeel" },
+        { "specificatieId": "fb5be5ae-faa0-4b4b-8085-474fce9aae08", "versie": "0.1.0", "relatie": "onderdeel" }
+      ]
+    }
   ]
 }
 ```

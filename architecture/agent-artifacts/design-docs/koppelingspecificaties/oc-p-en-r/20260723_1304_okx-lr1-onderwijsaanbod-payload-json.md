@@ -114,16 +114,170 @@ erDiagram
     }
 ```
 
-Toegestane waarden:
+Het schema legt de exacte vorm vast: welke velden er zijn, welke verplicht zijn en welke waarden een veld mag dragen. Het is **alfa en indicatief** en verandert mee zolang de payload nog niet vaststaat.
 
-| Veld | Waarden |
-|---|---|
-| `aanbodType` | `opleidingsaanbod`, `opleidingsprogramma-aanbod`, `onderwijseenheid-aanbod`, `leergelegenheid` |
-| `status` | `inPlanning`, `gepland`, `nietRealiseerbaar`, `geannuleerd` |
-| `locatieType` | `campus`, `vestiging`, `gebouw`, `ruimte`, `balie`, `adres`, `geopunt`, `virtueel` |
-| `eenheidType` | `instelling`, `sector`, `college`, `afdeling`, `onderwijsteam` (open lijst) |
-| `knelpunten[].code` | zie [§3.4](#34-knelpunten-plannen-als-constraint-satisfaction-problem) |
-| `versie` | semver `MAJOR.MINOR.PATCH` |
+```json
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://okx.npuls.nl/schema/onderwijsaanbod/alfa",
+  "title": "Onderwijsaanbod",
+  "$comment": "Alfa en indicatief. Deze vorm onderbouwt welke velden het koppelvlak nodig heeft en kan wijzigen zolang de payload niet is vastgesteld.",
+  "type": "object",
+  "required": ["aanbodInstanties"],
+  "properties": {
+    "aanbodInstanties": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "aanbodType", "versie", "bovenliggendAanbodId", "specificatieVerwijzing", "naam", "status"],
+        "properties": {
+          "id": { "type": "string", "format": "uuid" },
+          "aanbodType": { "enum": ["opleidingsaanbod", "opleidingsprogramma-aanbod", "onderwijseenheid-aanbod", "leergelegenheid"] },
+          "versie": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+          "bovenliggendAanbodId": { "type": ["string", "null"], "format": "uuid" },
+          "specificatieVerwijzing": {
+            "type": "object",
+            "required": ["specificatieId", "versie"],
+            "properties": {
+              "specificatieId": { "type": "string", "format": "uuid" },
+              "versie": { "type": "string" }
+            }
+          },
+          "naam": { "type": "string" },
+          "status": { "enum": ["inPlanning", "gepland", "nietRealiseerbaar", "geannuleerd"] },
+          "knelpunten": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["code", "omschrijving"],
+              "properties": {
+                "code": { "type": "string" },
+                "omschrijving": { "type": "string" },
+                "betrokkenSpecificatieIds": { "type": "array", "items": { "type": "string" } }
+              }
+            }
+          },
+          "cohort": { "type": "string" },
+          "periode": {
+            "type": "object",
+            "properties": {
+              "start": { "type": "string", "format": "date" },
+              "eind": { "type": "string", "format": "date" }
+            }
+          },
+          "minAantalStudenten": { "type": "integer" },
+          "maxAantalStudenten": { "type": "integer" },
+          "locatieId": { "type": "string", "format": "uuid" },
+          "uitvoerendTeamId": { "type": "string", "format": "uuid" },
+          "groepen": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["id", "naam"],
+              "properties": {
+                "id": { "type": "string", "format": "uuid" },
+                "naam": { "type": "string" },
+                "capaciteit": { "type": "integer" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "locaties": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "locatieType", "naam"],
+        "properties": {
+          "id": { "type": "string", "format": "uuid" },
+          "locatieType": { "enum": ["campus", "vestiging", "gebouw", "ruimte", "balie", "adres", "geopunt", "virtueel"] },
+          "naam": { "type": "string" },
+          "valtBinnenLocatieId": { "type": ["string", "null"], "format": "uuid" },
+          "adres": { "type": "object" },
+          "geolocatie": { "type": "object" },
+          "verdieping": { "type": "string" },
+          "vleugel": { "type": "string" },
+          "url": { "type": "string" },
+          "codes": { "type": "array", "items": { "type": "object" } }
+        }
+      }
+    },
+    "organisatieEenheden": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "eenheidType", "naam"],
+        "properties": {
+          "id": { "type": "string", "format": "uuid" },
+          "eenheidType": { "type": "string", "$comment": "open lijst: instelling, sector, college, afdeling, onderwijsteam" },
+          "naam": { "type": "string" },
+          "bovenliggendeEenheidId": { "type": ["string", "null"], "format": "uuid" },
+          "professionalIds": { "type": "array", "items": { "type": "string", "format": "uuid" } }
+        }
+      }
+    }
+  }
+}
+```
+
+Dezelfde vorm, leesbaar:
+
+<!-- json-tree:begin kind=schema -->
+```text
+Onderwijsaanbod  (Alfa en indicatief. Deze vorm onderbouwt welke velden het koppelvlak nodig heeft en kan wijzigen zolang de payload niet is vastgesteld.)
+
+{root}
++-- aanbodInstanties[]                verplicht
+|   +-- id                                uuid
+|   +-- aanbodType                        enum (4 waarden)
+|   +-- versie                            string
+|   +-- bovenliggendAanbodId              string of null
+|   +-- specificatieVerwijzing            verplicht, object
+|   |   +-- specificatieId                    uuid
+|   |   `-- versie                            string
+|   +-- naam                              string
+|   +-- status                            inPlanning | gepland | nietRealiseerbaar | geannuleerd
+|   +-- knelpunten[]                      optioneel
+|   |   +-- code                              string
+|   |   +-- omschrijving                      string
+|   |   `-- betrokkenSpecificatieIds[]        optioneel
+|   |         (string)
+|   +-- cohort                            string, optioneel
+|   +-- periode                           optioneel, object
+|   |   +-- start                             string, optioneel
+|   |   `-- eind                              string, optioneel
+|   +-- minAantalStudenten                integer, optioneel
+|   +-- maxAantalStudenten                integer, optioneel
+|   +-- locatieId                         uuid, optioneel
+|   +-- uitvoerendTeamId                  uuid, optioneel
+|   `-- groepen[]                         optioneel
+|       +-- id                                uuid
+|       +-- naam                              string
+|       `-- capaciteit                        integer, optioneel
++-- locaties[]                        optioneel
+|   +-- id                                uuid
+|   +-- locatieType                       campus | vestiging | gebouw | ruimte | balie | adres | geopunt | virtueel
+|   +-- naam                              string
+|   +-- valtBinnenLocatieId               string of null, optioneel
+|   +-- adres                             object, optioneel
+|   +-- geolocatie                        object, optioneel
+|   +-- verdieping                        string, optioneel
+|   +-- vleugel                           string, optioneel
+|   +-- url                               string, optioneel
+|   `-- codes[]                           optioneel
+|         (object)
+`-- organisatieEenheden[]             optioneel
+    +-- id                                uuid
+    +-- eenheidType                       string
+    +-- naam                              string
+    +-- bovenliggendeEenheidId            string of null, optioneel
+    `-- professionalIds[]                 optioneel
+          (uuid)
+```
+<!-- json-tree:end -->
+
+De knelpuntcodes staan toegelicht in [§3.4](#34-knelpunten-plannen-als-constraint-satisfaction-problem).
 
 ### 2.2 Het voorbeeld
 
@@ -257,18 +411,83 @@ Leerroute 1. De `specificatieVerwijzing`-uuid's komen uit de [onderwijsspecifica
 }
 ```
 
+De boom die in deze platte lijsten verborgen zit, met de verwijzingen opgelost:
+
+<!-- json-tree:begin kind=instance array=aanbodInstanties id=id parent=bovenliggendAanbodId label=naam type=aanbodType attrs=periode,status -->
+```text
+aanbodInstanties  (5 objecten, 1 root, boom via bovenliggendAanbodId)
+
+OPLEIDINGSAANBOD                                              7aa6609f
+= Apothekersassistent, cohort 2026
+  periode: {start: 2026-09-01, eind: 2029-07-15} | status: gepland
+|
+`-- OPLEIDINGSPROGRAMMA-AANBOD                                8c494250
+    = Regulier BOL, cohort 2026
+      periode: {start: 2026-09-01, eind: 2029-07-15} | status: gepland
+    |
+    +-- ONDERWIJSEENHEID-AANBOD                               04af26e6
+    |   = Biedt farmaceutische patiëntenzorg, leerjaar 1-2
+    |     periode: {start: 2026-09-01, eind: 2028-07-15} | status: gepland
+    |   |
+    |   `-- LEERGELEGENHEID                                   04070a96
+    |       = Neemt de zorg-/adviesvraag in behandeling, periode 1
+    |         periode: {start: 2026-09-01, eind: 2026-11-13} | status: gepland
+    `-- ONDERWIJSEENHEID-AANBOD                               d18dd9d1
+        = Keuzedeel Ruimtelijk inzicht, periode 3, Utrecht
+          periode: {start: 2027-02-01, eind: 2027-04-16} | status: gepland
+```
+<!-- json-tree:end -->
+
+<!-- json-tree:begin kind=instance array=locaties id=id parent=valtBinnenLocatieId label=naam type=locatieType -->
+```text
+locaties  (4 objecten, 2 roots, boom via valtBinnenLocatieId)
+
+CAMPUS                                                        6293d6a9
+= Campus Utrecht Zorg
+|
+`-- VESTIGING                                                 59807057
+    = Hoofdlocatie Utrecht
+    |
+    `-- RUIMTE                                                cfe4ae31
+        = Praktijklokaal farmacie 2.14
+
+VIRTUEEL                                                      7ea1af8f
+= Online leeromgeving
+```
+<!-- json-tree:end -->
+
+<!-- json-tree:begin kind=instance array=organisatieEenheden id=id parent=bovenliggendeEenheidId label=naam type=eenheidType -->
+```text
+organisatieEenheden  (3 objecten, 1 root, boom via bovenliggendeEenheidId)
+
+INSTELLING                                                    2f1bd932
+= ROC Voorbeeld
+|
+`-- SECTOR                                                    2b76d57f
+    = Sector Zorg en Welzijn
+    |
+    `-- ONDERWIJSTEAM                                         d9561371
+        = Onderwijsteam Farmacie
+```
+<!-- json-tree:end -->
+
 Loopt de planning vast, dan bestaat de instantie wel maar draagt die status en knelpunten. Zie het faalpad in de [koppelingspecificatie §5.3](20260723_1156_okx-lr1-koppelingspecificatie-oc-p-en-r.md):
 
 ```json
 {
-  "id": "7aa6609f-1d1b-471a-a0f8-beae490d31b5",
-  "aanbodType": "opleidingsaanbod",
-  "versie": "0.1.0",
-  "bovenliggendAanbodId": null,
-  "specificatieVerwijzing": { "specificatieId": "79736830-1c5c-470f-b2c2-005029c96733", "versie": "0.1.0" },
-  "status": "nietRealiseerbaar",
-  "knelpunten": [
-    { "code": "expertiseTekort", "omschrijving": "Geen docent beschikbaar met expertiseprofiel farmaceutische zorg voor 4 parallelle groepen.", "betrokkenSpecificatieIds": ["402c2342-d897-4df4-a667-7fc5bd930944"] }
+  "aanbodInstanties": [
+    {
+      "id": "7aa6609f-1d1b-471a-a0f8-beae490d31b5",
+      "aanbodType": "opleidingsaanbod",
+      "versie": "0.1.0",
+      "bovenliggendAanbodId": null,
+      "specificatieVerwijzing": { "specificatieId": "79736830-1c5c-470f-b2c2-005029c96733", "versie": "0.1.0" },
+      "naam": "Apothekersassistent, cohort 2026",
+      "status": "nietRealiseerbaar",
+      "knelpunten": [
+        { "code": "expertiseTekort", "omschrijving": "Geen docent beschikbaar met expertiseprofiel farmaceutische zorg voor 4 parallelle groepen.", "betrokkenSpecificatieIds": ["402c2342-d897-4df4-a667-7fc5bd930944"] }
+      ]
+    }
   ]
 }
 ```

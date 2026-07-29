@@ -141,18 +141,137 @@ erDiagram
     }
 ```
 
-Toegestane waarden. Velden die identiek zijn aan de onderwijsspecificatie-payload (`status`, `versie`, `geldigVanaf`/`geldigTot`, `manifest[].relatie`, `leeruitkomst.type`) staan daar en worden hier niet herhaald.
+Het schema legt de exacte vorm vast. Het is **alfa en indicatief** en verandert mee zolang de payload nog niet vaststaat. Velden die identiek zijn aan de onderwijsspecificatie-payload dragen daar dezelfde betekenis.
 
-| Veld | Toegestane waarden |
-|---|---|
-| `specificatieType` | `examenplanspecificatie`, `resultaateenheidspecificatie`, `toetsonderdeelspecificatie` |
-| `aard` | `summatief`, `formatief` |
-| `aggregatie` | `gewogenGemiddelde`, `som`, `allenVoldoende`, `minimaalAantal` |
-| `resultaatmodel.schaal` | `cijfer-1-10`, `voldoende-onvoldoende`, `punten` (open) |
-| `toetsvorm` | `proeveVanBekwaamheid`, `kennistoets`, `praktijkopdracht`, `portfolio`, `criteriumgesprek` (open) |
-| `weging` | getal, relatief binnen de ouder. `0` bij formatief |
-| `verplicht` | `true`, `false` |
+```json
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://okx.npuls.nl/schema/resultaatstructuur/alfa",
+  "title": "Resultaatstructuur en examenplan",
+  "$comment": "Alfa en indicatief. Deze vorm onderbouwt welke velden het koppelvlak nodig heeft en kan wijzigen zolang de payload niet is vastgesteld.",
+  "type": "object",
+  "required": ["onderwijsspecificaties"],
+  "properties": {
+    "onderwijsspecificaties": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "specificatieType", "versie", "bovenliggendSpecificatieId", "naam", "status", "resultaatmodel"],
+        "properties": {
+          "id": { "type": "string", "format": "uuid" },
+          "specificatieType": { "enum": ["examenplanspecificatie", "resultaateenheidspecificatie", "toetsonderdeelspecificatie"] },
+          "versie": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+          "bovenliggendSpecificatieId": { "type": ["string", "null"], "format": "uuid" },
+          "naam": { "type": "string" },
+          "omschrijving": { "type": "string" },
+          "status": { "type": "string" },
+          "geldigVanaf": { "type": "string", "format": "date" },
+          "geldigTot": { "type": ["string", "null"], "format": "date" },
+          "geldtVoor": { "type": "string", "format": "uuid", "$comment": "de opleidingsprogrammaspecificatie waarvoor dit examenplan geldt" },
+          "beoordeelt": { "type": "string", "format": "uuid", "$comment": "de specificatie die deze resultaateenheid beoordeelt" },
+          "leeruitkomst": {
+            "type": "object",
+            "required": ["type", "code"],
+            "properties": {
+              "type": { "type": "string" },
+              "code": { "type": "string" }
+            }
+          },
+          "aard": { "enum": ["summatief", "formatief"] },
+          "toetsvorm": { "type": "string", "$comment": "open lijst: proeveVanBekwaamheid, kennistoets, praktijkopdracht, portfolio, criteriumgesprek" },
+          "aggregatie": { "enum": ["gewogenGemiddelde", "som", "allenVoldoende", "minimaalAantal"] },
+          "weging": { "type": "number", "$comment": "relatief binnen de ouder; 0 bij formatief" },
+          "verplicht": { "type": "boolean" },
+          "resultaatmodel": {
+            "type": "object",
+            "properties": {
+              "schaal": { "type": "string", "$comment": "open lijst: cijfer-1-10, voldoende-onvoldoende, punten" },
+              "cesuur": { "type": "number" },
+              "decimalen": { "type": "integer" }
+            }
+          },
+          "regelsetVerwijzingen": { "type": "array", "items": { "type": "string", "format": "uuid" } },
+          "manifest": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["specificatieId", "versie", "relatie"],
+              "properties": {
+                "specificatieId": { "type": "string", "format": "uuid" },
+                "versie": { "type": "string" },
+                "relatie": { "enum": ["onderdeel", "variant", "referentie"] }
+              }
+            }
+          }
+        }
+      }
+    },
+    "regelsets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "versie", "naam", "vanToepassingOp", "regels"],
+        "properties": {
+          "id": { "type": "string", "format": "uuid" },
+          "versie": { "type": "string" },
+          "naam": { "type": "string" },
+          "omschrijving": { "type": "string" },
+          "vanToepassingOp": { "type": "string", "format": "uuid" },
+          "regels": { "type": "array", "items": { "type": "object" } }
+        }
+      }
+    }
+  }
+}
+```
 
+Dezelfde vorm, leesbaar:
+
+<!-- json-tree:begin kind=schema -->
+```text
+Resultaatstructuur en examenplan  (Alfa en indicatief. Deze vorm onderbouwt welke velden het koppelvlak nodig heeft en kan wijzigen zolang de payload niet is vastgesteld.)
+
+{root}
++-- onderwijsspecificaties[]          verplicht
+|   +-- id                                uuid
+|   +-- specificatieType                  enum (3 waarden)
+|   +-- versie                            string
+|   +-- bovenliggendSpecificatieId        string of null
+|   +-- naam                              string
+|   +-- omschrijving                      string, optioneel
+|   +-- status                            string
+|   +-- geldigVanaf                       string, optioneel
+|   +-- geldigTot                         string of null, optioneel
+|   +-- geldtVoor                         uuid, optioneel
+|   +-- beoordeelt                        uuid, optioneel
+|   +-- leeruitkomst                      optioneel, object
+|   |   +-- type                              string
+|   |   `-- code                              string
+|   +-- aard                              summatief | formatief, optioneel
+|   +-- toetsvorm                         string, optioneel
+|   +-- aggregatie                        gewogenGemiddelde | som | allenVoldoende | minimaalAantal, optioneel
+|   +-- weging                            number, optioneel
+|   +-- verplicht                         boolean, optioneel
+|   +-- resultaatmodel                    verplicht, object
+|   |   +-- schaal                            string, optioneel
+|   |   +-- cesuur                            number, optioneel
+|   |   `-- decimalen                         integer, optioneel
+|   +-- regelsetVerwijzingen[]            optioneel
+|   |     (uuid)
+|   `-- manifest[]                        optioneel
+|       +-- specificatieId                    uuid
+|       +-- versie                            string
+|       `-- relatie                           onderdeel | variant | referentie
+`-- regelsets[]                       optioneel
+    +-- id                                uuid
+    +-- versie                            string
+    +-- naam                              string
+    +-- omschrijving                      string, optioneel
+    +-- vanToepassingOp                   uuid
+    `-- regels[]                          verplicht
+          (object)
+```
+<!-- json-tree:end -->
 
 ### 2.2 Het voorbeeld
 
@@ -337,6 +456,50 @@ Toegestane waarden. Velden die identiek zijn aan de onderwijsspecificatie-payloa
 ```
 
 **Hoe de weging doorwerkt.** Binnen kerntaak B1-K1 telt de proeve twee keer zo zwaar als de kennistoets (weging 2 tegen 1); de formatieve toets telt niet mee (weging 0). Het gewogen gemiddelde levert een cijfer met cesuur 5.5. Op examenplanniveau geldt `allenVoldoende`: alle vier de resultaateenheden moeten voldoende zijn voor het diploma.
+
+De boom die in deze platte lijst verborgen zit, met de verwijzingen opgelost:
+
+<!-- json-tree:begin kind=instance array=onderwijsspecificaties id=id parent=bovenliggendSpecificatieId label=naam type=specificatieType attrs=weging,aard -->
+```text
+onderwijsspecificaties  (10 objecten, 1 root, boom via bovenliggendSpecificatieId)
+
+EXAMENPLANSPECIFICATIE                                        08b4656d
+= Examenplan Apothekersassistent
+|
++-- RESULTAATEENHEIDSPECIFICATIE                              0512c773
+|   = Resultaat kerntaak B1-K1, biedt farmaceutische patientenzorg
+|     weging: 1
+|   |
+|   +-- TOETSONDERDEELSPECIFICATIE                            941f180d
+|   |   = Proeve van bekwaamheid farmaceutische patientenzorg
+|   |     weging: 2 | aard: summatief
+|   +-- TOETSONDERDEELSPECIFICATIE                            b5dcc33e
+|   |   = Kennistoets medicatiebewaking
+|   |     weging: 1 | aard: summatief
+|   `-- TOETSONDERDEELSPECIFICATIE                            f004ba43
+|       = Formatieve voortgangstoets zorg- en adviesvraag
+|         weging: 0 | aard: formatief
++-- RESULTAATEENHEIDSPECIFICATIE                              aa15c5d9
+|   = Resultaat kerntaak B1-K2, voert logistieke taken uit in de apotheek
+|     weging: 1
+|   |
+|   `-- TOETSONDERDEELSPECIFICATIE                            a1215600
+|       = Praktijkopdracht logistiek in de apotheek
+|         weging: 1 | aard: summatief
++-- RESULTAATEENHEIDSPECIFICATIE                              3c248e38
+|   = Resultaat kerntaak B1-K3, werkt mee aan kwaliteit en deskundigheid
+|     weging: 1
+|   |
+|   `-- TOETSONDERDEELSPECIFICATIE                            7fb3ffd3
+|       = Portfolio professioneel handelen en samenwerken
+|         weging: 1 | aard: summatief
+`-- RESULTAATEENHEIDSPECIFICATIE                              df0d3e50
+    = Resultaat keuzedelen
+      weging: 1
+```
+<!-- json-tree:end -->
+
+De resultaateenheid Keuzedelen heeft geen toetsonderdelen onder zich: welke keuzedeelresultaten meetellen bepaalt de regelset, niet de boom. Dat is het mechanisme waarmee een examenplan keuzes kan verwerken die nog niet bestonden toen het werd vastgesteld.
 
 ## 3. Toelichting bij de keuzes
 

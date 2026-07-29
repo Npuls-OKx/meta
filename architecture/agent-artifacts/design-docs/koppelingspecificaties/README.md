@@ -63,7 +63,14 @@ Leesvolgorde: eerst deze instap, dan `gedeeld/` (de centrale onderwijsspecificat
 
 ### Voor schrijvers
 
-De vaste opbouw van een koppelingspecificatie en van een payload-specificatie, plus de conventies voor veldnamen, schema's en bomen, staan in de skill [`okx-koppelingspecificatie`](../../../../.cursor/skills/okx-koppelingspecificatie/SKILL.md). Draai vóór een commit `python3 scripts/json-tree.py --check <document>`.
+De vaste opbouw van een koppelingspecificatie en van een payload-specificatie, plus de conventies voor veldnamen, schema's en bomen, staan in de skill [`okx-koppelingspecificatie`](../../../../.cursor/skills/okx-koppelingspecificatie/SKILL.md).
+
+Elke payload-specificatie draagt een **JSON Schema** (alfa en indicatief) plus twee ASCII-bomen: de **schemaboom** toont die vorm leesbaar, de **instantieboom** lost de verwijzingen op en maakt de hiërarchie zichtbaar die in de platte JSON onzichtbaar blijft. Beide worden gegenereerd; draai vóór een commit:
+
+```bash
+python3 scripts/json-tree.py --check <document>.md   # faalt bij drift, dode verwijzingen of schemafouten
+python3 scripts/json-tree.py --write <document>.md   # bomen bijwerken
+```
 
 | Map | Koppeling | Status | Inhoud |
 |---|---|---|---|
