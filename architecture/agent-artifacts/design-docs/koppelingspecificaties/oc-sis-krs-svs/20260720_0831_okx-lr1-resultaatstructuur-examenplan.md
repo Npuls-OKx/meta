@@ -1,6 +1,6 @@
 # Resultaatstructuur en examenplan als JSON-payload
 
-Context: parallelle uitwerking bij de [onderwijsspecificatie-payload](../gedeeld/20260717_1120_okx-lr1-onderwijsspecificatie-payload-json.md). Scenario: LR1 (Apothekersassistent, kwalificatie 27141). Niveau: concept-payload. Status: concept. Relateert aan: #119, #110, #105, #84.
+Relateert aan: #119, #110, #105, #84. Waarden in het voorbeeld zijn indicatief.
 
 ## Inhoudsopgave
 
@@ -360,7 +360,7 @@ Eén verschil: de `examenplanspecificatie` heeft de **strengste acceptatieregels
 
 ## 4. Open punten
 
-- Nominaal versus individueel examenplan (ADR 0022): een keuzedeel kent een eigen examenplandeel met eigen toetsonderdelen en een eigen onderwijsresultaat; het individuele examenplan is de samenstelling van nominaal plus gekozen keuzedeel-delen. Meenemen in de ombouw naar het `examenspecificatie`-model.
+- Nominaal versus individueel examenplan ([ADR 0022](../../../../dr/0022-resultaatbegrippen-conform-rosa-koi.md)): een keuzedeel kent een eigen examenplandeel met eigen toetsonderdelen en een eigen onderwijsresultaat; het individuele examenplan is de samenstelling van nominaal plus gekozen keuzedeel-delen. Meenemen in de ombouw naar het `examenspecificatie`-model.
 
 - Hangt de `examenplanspecificatie` op de `opleidingsprogrammaspecificatie` (zoals hier, per kwalificatie en doelgroep) of hoger op de `opleidingsspecificatie`? Nu gekozen voor programma-niveau via `geldtVoor`.
 - Is `beoordeelt` (directe uuid-verwijzing) nodig naast de semantische koppeling via `leeruitkomst`, of is één van beide voldoende?

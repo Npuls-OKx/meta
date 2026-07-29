@@ -1,15 +1,13 @@
-# Koppelingspecificatie OC-SIS (KRS/SVS): interactiepatronen (concept)
+# Koppelingspecificatie onderwijscatalogus naar studentinformatiesysteem
 
-Context: koppeling onderwijscatalogus (OC) naar studentinformatiesysteem (SIS, de combinatie KRS en SVS), intra-instelling. Scenario: LR1-3. Niveau: concept, afgeleid zonder werksessie; ter review. Relateert aan: #98, #119, #105, #110. Terminologie: ADR 0021.
-
-> **Status.** Deze koppelingspecificatie is afgeleid uit de hoofdplaat (stromen 3 en 9), ADR 0009 en 0014, de memo van Niels (PR #110) en het patroon van de [koppeling OC-P&R](../oc-p-en-r/20260723_1156_okx-lr1-koppelingspecificatie-oc-p-en-r.md). Er is nog geen werksessie of schets aan gewijd; alles hieronder is voorstel.
+Relateert aan: #98, #119, #105, #110. Terminologie: [ADR 0021](../../../../dr/0021-koppeling-versus-koppelvlak-terminologie.md).
 
 ## Inhoudsopgave
 
 1. [Inleiding](#1-inleiding) (context, doel, scope)
-2. [Kort procesbeeld](#2-kort-procesbeeld)
+2. [Procesbeeld](#2-procesbeeld)
 3. [Interactieoverzicht](#3-interactieoverzicht)
-4. [Conceptueel informatiemodel](#4-conceptueel-informatiemodel)
+4. [Informatiemodel](#4-informatiemodel)
 5. [Sequentiediagrammen](#5-sequentiediagrammen)
 6. [Payload-specificaties (verwijzing) en gebruiksprofiel](#6-payload-specificaties-verwijzing-en-gebruiksprofiel)
 7. [Reviewvragen](#7-reviewvragen)
@@ -22,26 +20,37 @@ Context: koppeling onderwijscatalogus (OC) naar studentinformatiesysteem (SIS, d
 
 Waar deze koppeling in de keten zit: de onderwijscatalogus (OC) levert de gepubliceerde structuur aan het studentinformatiesysteem (SIS, de combinatie kernregistratie KRS en studentvolgsysteem SVS). Het gaat om de stroom OC naar SVS: nominale leerroute (detail), keuzeaanbod (detail) en resultaatstructuren (stroom 3, prioriteit 2), plus het actualiseren van resultaatstructuren op basis van keuzes (stroom 9). Stroomnummers volgen de interpretatietabel in het [Projectoverzicht](../../../../../doc/OKx_Projectoverzicht.md); het ketenoverzicht en de actuele [hoofdplaat v1.7](../README.md#context) staan in de instap van de README.
 
-Scenario is leerroute 1 (regulier), persona [Jochem](../../../../docs/specificatie/okx-oeapi-consumer-profiel/doc/persona_jochem.md), opleiding Apothekersassistent (Crebo-dossier 23450, kwalificatie 27141): de student volgt het nominale programma en het SIS registreert zijn verbintenis, voortgang en resultaten. LR2 en LR3 volgen als delta. Begrippenkader (ankertabel, zes families; de leeruitkomst is de sleutel voor de resultaatstructuur) en de volledige leerroutes: het [OEAPI consumer-profiel](../../../../docs/specificatie/okx-oeapi-consumer-profiel/README.md). Dat profiel gebruikt nog een oudere hoofdplaat; leidend is v1.7.
+Scenario is leerroute 1 (regulier), persona [Jochem](../../../../docs/specificatie/okx-oeapi-consumer-profiel/doc/persona_jochem.md), opleiding Apothekersassistent (Crebo-dossier 23450, kwalificatie 27141): de student volgt het nominale programma en het SIS registreert zijn verbintenis, voortgang en resultaten. Leerroute 2 en 3 volgen als verschil. Begrippenkader (ankertabel, zes families; de leeruitkomst is de sleutel voor de resultaatstructuur) en de volledige leerroutes: het [OEAPI consumer-profiel](../../../../docs/specificatie/okx-oeapi-consumer-profiel/README.md). Dat profiel gebruikt nog een oudere hoofdplaat; leidend is v1.7.
 
-Rolverdeling (ADR 0009, ADR 0014): het SIS registreert de verbintenis (op aanbod), de individuele structuur, voortgang en onderwijsresultaten. De onderwijskundige keuze leeft bij het studentkeuzesysteem (SKS, aparte koppeling, buiten scope). OC bezit de onderwijsspecificaties en de resultaatstructuren (`examenplanspecificatie`). Deze koppelingspecificatie is afgeleid (geen werksessie) en volgt het patroon van de [koppeling OC-P&R](../oc-p-en-r/20260723_1156_okx-lr1-koppelingspecificatie-oc-p-en-r.md): resource-eigenaarschap, referenties en dunne events.
+Rolverdeling (ADR 0009, [ADR 0014](../../../../dr/0014-splitsing-inschrijving-rodkrs-en-studentkeuze-sks.md)): het SIS registreert de verbintenis (op aanbod), de individuele structuur, voortgang en onderwijsresultaten. De onderwijskundige keuze leeft bij het studentkeuzesysteem (SKS, aparte koppeling, buiten scope). OC bezit de onderwijsspecificaties en de resultaatstructuren (`examenplanspecificatie`). Deze koppelingspecificatie is afgeleid (geen werksessie) en volgt het patroon van de [koppeling OC-P&R](../oc-p-en-r/20260723_1156_okx-lr1-koppelingspecificatie-oc-p-en-r.md): resource-eigenaarschap, referenties en dunne events.
 
 ### 1.2 Doel
 
-- **Doelbinding**: deze koppelingbeschrijving is indicatief, geen voorschrift aan de sector. Ze onderbouwt welke operaties en endpoints het koppelvlak van OC en van het SIS nodig heeft; de som van de koppelingbeschrijvingen leidt tot de koppelvlakspecificatie per component ([toelichting](../README.md#van-koppelingbeschrijving-naar-koppelvlakspecificatie-doelbinding)).
-- De interacties tussen OC en SIS vastleggen als expliciete patronen met sequentiediagrammen.
-- De payload-specificaties voor deze koppeling aanwijzen: de onderwijsspecificatiestructuur en de resultaatstructuur.
-- Concept ter review; werksessie volgt.
+Deze koppelingbeschrijving is **indicatief, geen voorschrift aan de sector**. Ze onderbouwt welke operaties en endpoints het koppelvlak van de onderwijscatalogus en dat van het studentinformatiesysteem nodig hebben; de som van alle koppelingbeschrijvingen leidt tot de koppelvlakspecificatie per component ([toelichting](../README.md#van-koppelingbeschrijving-naar-koppelvlakspecificatie-doelbinding)).
+
+Het document beantwoordt drie vragen:
+
+- Welke interacties zijn nodig om het nominale template en de resultaatstructuur in te richten voordat de student begint?
+- Welke payload draagt elk bericht, en welk deel van de centrale payload heeft dit systeem nodig?
+- Wat gebeurt er als een examenplan wijzigt terwijl er al verbintenissen lopen?
+
+Geslaagd wanneer een leverancier van een studentinformatiesysteem de inrichting kan bouwen, en wanneer duidelijk is welke wijzigingen wel en niet zonder tussenkomst verwerkt mogen worden.
 
 ### 1.3 Scope
 
-- Koppeling: OC naar SIS (KRS en SVS), intra-instelling eerst (ADR 0008). Leerroutes LR1-3.
-- In scope: de onderwijsvoorbereiding. Leidende vraag voor de prioritering: wat moeten OC-P&R, OC-LMS en OC-SIS uitgewisseld hebben om klaar te zijn voor de start van de student? Concreet: eerste inrichting van nominaal template en resultaatstructuur op basis van gepubliceerde specificaties, en wijzigingen daarop.
-- Buiten scope: de studentkeuze zelf (SKS, eigen koppeling), actualisering op basis van individuele keuzes (stroom 9; raakt de SKS-koppeling, volgt), diplomering en waardedocumenten (OKE-domein), cross-instelling, en de LR2/LR3-dynamiek rond versnellen en vertragen (raakt SKS, SIS en P&R; bewust later wegens de prioritering op onderwijsvoorbereiding).
+In scope is de koppeling van de onderwijscatalogus naar het studentinformatiesysteem binnen één instelling ([ADR 0008](../../../../dr/0008-scope-planning-eerst-intra-instelling.md)), voor leerroute 1 tot en met 3: de eerste inrichting van het nominale template en de resultaatstructuur op basis van gepubliceerde specificaties, en de wijzigingen daarop. Leidende vraag voor de prioritering is wat er uitgewisseld moet zijn voordat de student begint.
 
-## 2. Kort procesbeeld
+Drie afbakeningen die anders verwarring geven:
 
-Zelfde kernprincipe als OC-P&R: elk systeem bezit zijn eigen resource. OC bezit specificaties en resultaatstructuren; het SIS bezit de studentregistratie: verbintenissen (op aanbod), individuele structuren, voortgang en resultaten.
+- De **studentkeuze zelf** leeft in het studentkeuzesysteem en is een eigen koppeling, net als het actualiseren van de resultaatstructuur op basis van individuele keuzes (stroom 9).
+- **Diplomering en waardedocumenten** horen bij het examendomein OKE.
+- De **dynamiek van versnellen en vertragen** uit leerroute 2 en 3 raakt drie systemen tegelijk en volgt later, vanwege de prioriteit op de onderwijsvoorbereiding.
+
+Al het overige valt buiten dit document, waaronder cross-instelling.
+
+## 2. Procesbeeld
+
+Zelfde twee principes als bij de koppeling met planning. **Resource-eigenaarschap**: de onderwijscatalogus bezit de specificaties en de resultaatstructuren, het studentinformatiesysteem bezit de studentregistratie met verbintenissen, individuele structuren, voortgang en resultaten. **Notify-then-pull**: de catalogus publiceert een dun event met een referentie ([ADR 0020](../../../../dr/0020-curriculumontwerp-onderwijscatalogus-happy-flow-synchronisatie-en-federatie-adopt-klonen.md)), het studentinformatiesysteem haalt de structuur op wanneer het die nodig heeft.
 
 ```mermaid
 flowchart LR
@@ -55,16 +64,11 @@ flowchart LR
     SKS["Student Keuze Systeem"] -. "keuzes (eigen koppeling, buiten scope)" .-> SIS
 ```
 
-Procesbeschrijving, kort:
-
-1. OC publiceert een `opleidingsprogrammaspecificatie` met bijbehorende `examenplanspecificatie` en meldt het SIS: beschikbaar.
-2. Het SIS haalt de onderwijsspecificatiestructuur en de resultaatstructuur op (pull) en richt in: het nominale template en de resultaatstructuur (welke toetsonderdeelresultaten dichten welke leeruitkomsten af, ADR 0022).
-3. Het SIS meldt de inrichtingsstatus aan OC, met de referentie (uuid) naar de inrichting.
-4. Wijzigt een specificatie of resultaatstructuur, dan notificeert OC (dun event met wijzigingsklasse). Voor de `examenplanspecificatie` gelden de strengste acceptatieregels: lopende verbintenissen mogen niet ongecontroleerd geraakt worden (memo van Niels).
+Wat het diagram niet toont: het studentinformatiesysteem haalt twee dingen op, de specificatiestructuur en de resultaatstructuur, en richt daarmee het **nominale template** in plus de mapping van welke toetsonderdeelresultaten welke leeruitkomsten afdichten ([ADR 0022](../../../../dr/0022-resultaatbegrippen-conform-rosa-koi.md)). Bij een wijziging draagt het event een wijzigingsklasse mee. Voor het examenplan gelden daarbij de strengste acceptatieregels: lopende verbintenissen mogen niet ongecontroleerd geraakt worden.
 
 ## 3. Interactieoverzicht
 
-Zelfde patroontaal als OC-P&R ([Enterprise Integration Patterns, Messaging](https://www.enterpriseintegrationpatterns.com/patterns/messaging/)); notify-then-pull met dunne events.
+De interacties op deze koppeling, met per interactie het messaging-patroon, in dezelfde patroontaal als de koppeling met planning ([Enterprise Integration Patterns, Messaging](https://www.enterpriseintegrationpatterns.com/patterns/messaging/)).
 
 | # | Interactie | Initiator | Patroon | Synchroniciteit | Gedrag bij dubbele ontvangst | Foutafhandeling |
 |---|---|---|---|---|---|---|
@@ -74,7 +78,7 @@ Zelfde patroontaal als OC-P&R ([Enterprise Integration Patterns, Messaging](http
 | S4 | Inrichtingsstatus melden, met referentie naar de inrichting | SIS | [Event Message](https://www.enterpriseintegrationpatterns.com/patterns/messaging/EventMessage.html) (status: ontvangen/gestart, afgekeurd, ingericht, niet ingericht) | Asynchroon | Geen effect: status-id | Retry met backoff, daarna [Dead Letter Channel](https://www.enterpriseintegrationpatterns.com/patterns/messaging/DeadLetterChannel.html) |
 | S5 | Wijziging specificatie of resultaatstructuur melden | OC | [Event Message](https://www.enterpriseintegrationpatterns.com/patterns/messaging/EventMessage.html) (object-id, oude en nieuwe versie, wijzigingsklasse) | Asynchroon | Geen effect: event-id | [Guaranteed Delivery](https://www.enterpriseintegrationpatterns.com/patterns/messaging/GuaranteedDelivery.html); [Dead Letter Channel](https://www.enterpriseintegrationpatterns.com/patterns/messaging/DeadLetterChannel.html) |
 
-## 4. Conceptueel informatiemodel
+## 4. Informatiemodel
 
 Conform het ROSA Kernmodel Onderwijsinformatie (KOI) en ADR 0022: een onderwijsresultaat wordt behaald op leeruitkomsten, en meerdere toetsonderdeelresultaten leiden gewogen tot dat onderwijsresultaat. De verbintenis hoort bij het aanbod (ankertabel), niet bij de specificatie, en staat daarom niet in dit kernmodel.
 
@@ -149,12 +153,12 @@ sequenceDiagram
 
 ## 6. Payload-specificaties (verwijzing) en gebruiksprofiel
 
-Gebruiksprofiel van deze koppeling op de centrale [onderwijsspecificatie-payload](../gedeeld/20260717_1120_okx-lr1-onderwijsspecificatie-payload-json.md) (ADR 0021):
+Gebruiksprofiel van deze koppeling op de centrale [onderwijsspecificatie-payload](../gedeeld/20260717_1120_okx-lr1-onderwijsspecificatie-payload-json.md) ([ADR 0021](../../../../dr/0021-koppeling-versus-koppelvlak-terminologie.md)):
 
 | Onderdeel | Gebruik in OC-SIS |
 |---|---|
 | `onderwijsspecificaties` | Volledig, inclusief manifest (nominaal template) |
-| `leeruitkomsten` | **Volledig**, inclusief aggregatie (`bovenliggendLeeruitkomstId`), `waardedocument` en `indicatieveOmvang`: de sleutel tussen specificatie, resultaatstructuur en onderwijsresultaat (ADR 0022) |
+| `leeruitkomsten` | **Volledig**, inclusief aggregatie (`bovenliggendLeeruitkomstId`), `waardedocument` en `indicatieveOmvang`: de sleutel tussen specificatie, resultaatstructuur en onderwijsresultaat ([ADR 0022](../../../../dr/0022-resultaatbegrippen-conform-rosa-koi.md)) |
 | `regelsets` | Volledig (kiesbaarheid keuzedeelruimte, voorwaarden in behaalde leeruitkomsten) |
 
 - Basis voor S2: de centrale payload.

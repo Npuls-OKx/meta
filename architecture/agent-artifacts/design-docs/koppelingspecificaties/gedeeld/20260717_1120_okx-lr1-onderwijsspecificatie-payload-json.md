@@ -1,8 +1,8 @@
-# Onderwijsspecificatie als JSON-payload (OC naar P)
+# Onderwijsspecificatie als JSON-payload
 
-Context: centrale payload-specificatie voor de onderwijsspecificatiestructuur, gebruikt door alle koppelingen (ADR 0021). Ontstaan in de koppeling OC naar P, vroege processtap "kwalificatiekader analyseren". Scenario: LR1 (Apothekersassistent, Crebo-dossier 23450, kwalificatie 27141). Niveau: concept-payload, grofmazig (fase 1-2). Status: concept. Relateert aan: #119, #105, #84, #120.
+Relateert aan: #119, #105, #84, #120. Waarden in het voorbeeld zijn indicatief.
 
-> **Centrale specificatie.** Dit document is de ene bron voor de onderwijsspecificatie-payload. Welke objecten en velden een koppeling gebruikt staat in het **gebruiksprofiel** van de betreffende koppelingspecificatie (OC-P&R, OC-SIS, OC-LMS). Leeruitkomst-inhoudsvelden zijn optioneel en profiel-afhankelijk; binnen OC-P&R zijn leeruitkomst-ids opaque sleutels (ADR 0023).
+> **Centrale specificatie.** Dit document is de ene bron voor de onderwijsspecificatie-payload. Welke objecten en velden een koppeling gebruikt staat in het **gebruiksprofiel** van de betreffende koppelingspecificatie (OC-P&R, OC-SIS, OC-LMS). Leeruitkomst-inhoudsvelden zijn optioneel en profiel-afhankelijk; binnen OC-P&R zijn leeruitkomst-ids opaque sleutels ([ADR 0023](../../../../dr/0023-leeruitkomsten-als-opaque-sleutels-in-koppeling-oc-p-en-r.md)).
 
 
 
@@ -257,7 +257,7 @@ Toegestane waarden. Open sets zijn als zodanig gemarkeerd.
 | `nlqfNiveau` (op de leeruitkomst)     | `1` t/m `8` (NLQF, geldt voor alle sectoren)                                                                                                                                                                                                                                                                                          |
 | `waardedocument` (op de leeruitkomst) | `diploma`, `mbo-certificaat`, `microcredential` (open)                                                                                                                                                                                                                                                                                |
 | `indicatieveOmvang[].eenheid`         | `SBU`, `EC` (beide naast elkaar mogelijk, aansluiting HBO/WO; ADR 0004)                                                                                                                                                                                                                                                               |
-| `voorwaardeVooraf[].status`           | `behaald` (onderwijsresultaat op de leeruitkomst; ADR 0022)                                                                                                                                                                                                                                                                           |
+| `voorwaardeVooraf[].status`           | `behaald` (onderwijsresultaat op de leeruitkomst; [ADR 0022](../../../../dr/0022-resultaatbegrippen-conform-rosa-koi.md))                                                                                                                                                                                                                                                                           |
 
 
 
@@ -1182,7 +1182,7 @@ Leerroute 1, waarden indicatief. De `studielast` telt bottom-up op binnen onderd
       "regelsetId": "e4037953-17d6-40a4-9e59-92ec1f9c19a8",
       "versie": "0.1.0",
       "naam": "Kiesbare keuzedelen voor Apothekersassistent (LR1)",
-      "omschrijving": "Bepaalt welke keuzedelen in de keuzedeelruimte kiesbaar zijn. Deelname-voorwaarden zijn uitgedrukt in behaalde leeruitkomsten (ADR 0022). Regelstructuur wordt uitgewerkt in #84 en #120; onderstaande regels zijn indicatief.",
+      "omschrijving": "Bepaalt welke keuzedelen in de keuzedeelruimte kiesbaar zijn. Deelname-voorwaarden zijn uitgedrukt in behaalde leeruitkomsten ([ADR 0022](../../../../dr/0022-resultaatbegrippen-conform-rosa-koi.md)). Regelstructuur wordt uitgewerkt in #84 en #120; onderstaande regels zijn indicatief.",
       "vanToepassingOp": "fb5be5ae-faa0-4b4b-8085-474fce9aae08",
       "regels": [
         {
@@ -1207,7 +1207,7 @@ Leerroute 1, waarden indicatief. De `studielast` telt bottom-up op binnen onderd
 
 
 
-De voorwaarde vooraf (Ruimtelijk inzicht vereist Wiskunde 1) staat in de regelset, niet in de specificatie, en is uitgedrukt in de **behaalde leeruitkomst** (`vereisteLeeruitkomstId`), niet in een afgeronde specificatie. Zo blijft de regel los van het item (#84 R2, #120) en toetst hij op wat er werkelijk behaald is (ADR 0022).
+De voorwaarde vooraf (Ruimtelijk inzicht vereist Wiskunde 1) staat in de regelset, niet in de specificatie, en is uitgedrukt in de **behaalde leeruitkomst** (`vereisteLeeruitkomstId`), niet in een afgeronde specificatie. Zo blijft de regel los van het item (#84 R2, #120) en toetst hij op wat er werkelijk behaald is ([ADR 0022](../../../../dr/0022-resultaatbegrippen-conform-rosa-koi.md)).
 
 ## 3. Toelichting bij de keuzes
 
@@ -1227,7 +1227,7 @@ Voorstel: optie C.
 
 - Eén uniform type. Alle specificaties staan in een platte lijst `onderwijsspecificaties`. Elke specificatie heeft een `bovenliggendId` (uuid; `null` op de root). De structuur reconstrueer je door `bovenliggendId` te volgen; een geneste weergave is daaruit af te leiden.
 - Discriminator `specificatieType` bepaalt het niveau.
-- **Leeruitkomst als zelfstandig object met eigen lifecycle.** Leeruitkomsten staan in een eigen platte lijst `leeruitkomsten`, elk met een eigen `leeruitkomstId` (uuid) en `versie`. Elke specificatie verwijst met `leeruitkomstId`: de leeruitkomst is de **sleutel** die aangeeft wat je precies afrondt en hoe dat zich verhoudt tot diploma, certificaat of ander waardedocument (ADR 0022). De huidige onderwijsvorm hangt eraan via `bron` (standaard `sbb-kwalificatiekader`, met type en code); later hangt hier de nationale standaard aan, bijvoorbeeld CompetentNL, zonder dat de sleutel of de specificaties wijzigen (ADR 0003, 0004).
+- **Leeruitkomst als zelfstandig object met eigen lifecycle.** Leeruitkomsten staan in een eigen platte lijst `leeruitkomsten`, elk met een eigen `leeruitkomstId` (uuid) en `versie`. Elke specificatie verwijst met `leeruitkomstId`: de leeruitkomst is de **sleutel** die aangeeft wat je precies afrondt en hoe dat zich verhoudt tot diploma, certificaat of ander waardedocument ([ADR 0022](../../../../dr/0022-resultaatbegrippen-conform-rosa-koi.md)). De huidige onderwijsvorm hangt eraan via `bron` (standaard `sbb-kwalificatiekader`, met type en code); later hangt hier de nationale standaard aan, bijvoorbeeld CompetentNL, zonder dat de sleutel of de specificaties wijzigen (ADR 0003, 0004).
 - **Leeruitkomsten op elk niveau, met een eigen orde van grootte.** Een leeruitkomst bestaat op elk specificatieniveau: op opleidingsniveau is hij van grote orde (jaren werk, een NLQF-kwalificatie, leidend tot een diploma), op onderwijseenheid- en leeronderdeelniveau van kleinere orde (een deelverzameling kan tot een certificaat leiden), en straks op lessenreeks- of lesniveau (aangetoonde kennis, inzichten of vaardigheden). Leeruitkomsten aggregeren onderling via `bovenliggendLeeruitkomstId`: bottom-up telt klein op naar groot, top-down is een grote leeruitkomst te ontleden. Zo is van de grond af zichtbaar welke volgende onderwijsspecificaties je verder brengen richting een waardepapier of microcredential (`waardedocument`). Elke leeruitkomst draagt een `indicatieveOmvang` (kwantificatie in SBU en/of EC naast elkaar, voor aansluiting met HBO en WO; ADR 0004): de logistieke containergrootte van wat je behaalt. Daarnaast kent de leeruitkomst **optionele inhoudsvelden** (`omschrijving`, `resultaat`, `gedrag`, uit het kwalificatiedossier): meegeleverd waar het gebruiksprofiel dat vraagt (OC-LMS wel, OC-P&R niet). Voorbeeld: werkproces B1-K1-W1 in de payload.
 - Id's zijn UUID's.
 - Versionering per specificatie met semver (`MAJOR.MINOR.PATCH`). MAJOR = wijziging die betekenis of uitkomst raakt (leeruitkomsten, structuur, studielast), MINOR = additief zonder bestaande betekenis te breken, PATCH = correctie. Temporele geldigheid apart via `geldigVanaf`/`geldigTot` en cohort, niet als versienummer.
@@ -1237,7 +1237,7 @@ Voorstel: optie C.
 - `bovenliggendId` draagt twee betekenissen: onderdeel-van (additief, bv. kerntaak onder programma) en variant-van (alternatief, bv. doelgroep onder leerweg). De aggregatie-invariant geldt alleen voor onderdeel-van.
 - Niveau, leeruitkomsten en leerroute zijn afleidbaar uit de structuur, niet als losse specificatie-velden. Het NLQF-niveau hangt aan de leeruitkomst. Wie een bepaalde set kerntaken en werkprocessen heeft afgerond, voldoet aan de kwalificatie. Leerroute-typen zijn indicatief voor wat mogelijk wordt en horen niet in het datamodel. Leeruitkomsten worden naar verwachting later flexibeler (ADR 0003, 0004).
 - Keuzeruimte is een eigen specificatie (`keuzedeelruimte`) met studielast, herbruikbaar.
-- Regels los van de onderwijsspecificatie. `regelsetVerwijzingen` op een specificatie verwijst naar losse `regelsets`. De regelset draagt de kiesbaarheid (welke keuzedelen) en de voorwaarde vooraf (prerequisite), uitgedrukt in **behaalde leeruitkomsten** in plaats van afgeronde specificaties: je moet bepaalde leeruitkomsten behaald hebben om deel te nemen (ADR 0022). Interne structuur van de regelset: #84 en #120.
+- Regels los van de onderwijsspecificatie. `regelsetVerwijzingen` op een specificatie verwijst naar losse `regelsets`. De regelset draagt de kiesbaarheid (welke keuzedelen) en de voorwaarde vooraf (prerequisite), uitgedrukt in **behaalde leeruitkomsten** in plaats van afgeronde specificaties: je moet bepaalde leeruitkomsten behaald hebben om deel te nemen ([ADR 0022](../../../../dr/0022-resultaatbegrippen-conform-rosa-koi.md)). Interne structuur van de regelset: #84 en #120.
 - Elke specificatie kan `regelsetVerwijzingen` hebben (generiek), niet alleen de keuzeruimte.
 - Keuzedelen zijn zelfstandige programma-specificaties (`parent: null`), zelf opgebouwd als programma naar onderwijseenheid naar leeronderdeel. Herbruikbaar over opleidingen (N:M via ruleset-referenties).
 - Aggregatie-invariant: `studielast` telt bottom-up op binnen onderdeel-van (SOM children = ouder). Niet over varianten (leerweg, doelgroep).
@@ -1315,7 +1315,7 @@ Achterliggende uitwerkingen die de keuzes in deze payload toelichten:
 - `naam` en `omschrijving` als string versus meertalig (OEAPI `LanguageTypedString[]`). Nu string, conform de stub in #119.
 - Leeruitkomst enkelvoud versus meervoud. Nu één `leeruitkomstId` per specificatie. Een specificatie kan meerdere leeruitkomsten dekken; een array-vorm is een latere uitbreiding.
 - Leeruitkomst-aggregatie is nu een boom (`bovenliggendLeeruitkomstId`, conform de SBB-hiërarchie). Dwarsdoorsnedes (een certificaat of microcredential dat leeruitkomsten uit meerdere takken bundelt) vragen om een N:M-vorm; latere uitbreiding, zie ook ADR 0022 (korrelgrootte) en #84 R12.
-- Gebruiksprofielen: welke objecten en velden per koppeling worden meegeleverd staat in de koppelingspecificaties. Binnen OC-P&R zijn leeruitkomst-ids opaque sleutels (ADR 0023); OC-SIS gebruikt de volledige leeruitkomst-laag; OC-LMS de inhoudsvelden.
+- Gebruiksprofielen: welke objecten en velden per koppeling worden meegeleverd staat in de koppelingspecificaties. Binnen OC-P&R zijn leeruitkomst-ids opaque sleutels ([ADR 0023](../../../../dr/0023-leeruitkomsten-als-opaque-sleutels-in-koppeling-oc-p-en-r.md)); OC-SIS gebruikt de volledige leeruitkomst-laag; OC-LMS de inhoudsvelden.
 - Wat de `indicatieveOmvang` precies kwantificeert (studielast, leerinspanning; SBU, EC of beide) en de verhouding tot de `studielast` op de specificatie: nog te bepalen, met het oog op de aansluiting HBO/WO (ADR 0004).
 - Uitbreiding leeruitkomst-standaard. De `bron` op het leeruitkomst-object is de aanhaakplek; koppeling aan CompetentNL (of vergelijkbaar) vaststellen wanneer die standaard beschikbaar is. De `leeruitkomstId` en de specificaties blijven daarbij ongewijzigd.
 - De toegestane waarden in §2.1 zijn concept. Vaststellen welke waarden per veld gelden.
