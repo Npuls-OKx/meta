@@ -111,7 +111,7 @@ erDiagram
     ROOSTER }o--|| ONDERWIJSAANBOD : "plaatst in de tijd (context)"
 ```
 
-Leeswijzer bij het proces: OC beheert de `onderwijsspecificatie`s (met versie en manifest) en de bijbehorende `regelset`s; beide verankeren op leeruitkomsten. P creëert per specificatieversie het `onderwijsaanbod` (de instantie), plaatst dat op een locatie, belegt het bij een onderwijsteam en deelt het in groepen in. Het rooster (R) plaatst het aanbod daarna in de tijd; dat is context buiten deze koppeling (§5.5).
+Wat het model niet toont: de scheiding loopt precies langs het eigenaarschap. Links de wereld van de catalogus (specificeren), rechts die van planning (instantiëren), verbonden door de verwijzing `instantieert`. Het rooster plaatst het aanbod daarna in de tijd; dat valt buiten deze koppeling (§5.5).
 
 ### 4.2 Datamodellen (verwijzing) en gebruiksprofiel
 
@@ -334,5 +334,5 @@ Gedrag:
 - [Lifecycle en versionering](../gedeeld/20260720_0832_okx-lr1-lifecycle-versionering.md) (wijzigingsklassen, acceptatie).
 - [Resultaatstructuur en examenplan](../oc-sis-krs-svs/20260720_0831_okx-lr1-resultaatstructuur-examenplan.md) (hoort bij de koppeling OC-SIS, daar verder uit te werken).
 - Memo van Niels: `doc/OKx_PDCA cyclus onderwijsontwerp.md` (PR #110).
-- [Koppelingspecificatie OC-SIS (KRS/SVS)](../oc-sis-krs-svs/20260723_1402_okx-lr1-koppelingspecificatie-oc-sis.md) en [OC-LMS](../oc-lms/20260723_1403_okx-lr1-koppelingspecificatie-oc-lms.md) (zelfde patroon, concept).
-- ADR 0018 (messaging-patronen), ADR 0020 (pub/sub bij mutaties), ADR 0008 (intra-instelling eerst), ADR 0021 (koppeling versus koppelvlak).
+- [Koppelingspecificatie OC-SIS (KRS/SVS)](../oc-sis-krs-svs/20260723_1402_okx-lr1-koppelingspecificatie-oc-sis.md) en [OC-LMS](../oc-lms/20260723_1403_okx-lr1-koppelingspecificatie-oc-lms.md): dezelfde patronen, afgeleid van deze koppeling.
+- [ADR 0018](../../../../dr/0018-enterprise-messaging-patronen-voor-betrouwbare-koppelvlakken.md) (messaging-patronen), [ADR 0020](../../../../dr/0020-curriculumontwerp-onderwijscatalogus-happy-flow-synchronisatie-en-federatie-adopt-klonen.md) (pub/sub bij mutaties), [ADR 0008](../../../../dr/0008-scope-planning-eerst-intra-instelling.md) (intra-instelling eerst), [ADR 0021](../../../../dr/0021-koppeling-versus-koppelvlak-terminologie.md) (koppeling versus koppelvlak).

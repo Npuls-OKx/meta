@@ -90,7 +90,7 @@ erDiagram
     LEERMIDDELGROEP ||--o{ LEERMIDDEL : "bevat"
 ```
 
-Leeswijzer: OC beheert de `onderwijsspecificatie`s. Het LMS richt de leeromgeving in naar een specificatieversie en beheert de leermiddelkoppeling: welke leermiddel(groep)en horen bij welke specificatie. OC toont die koppeling bij het aanbod (stroom 4).
+Wat het model niet toont: de leeromgeving vult onder de `leeronderdeelspecificatie` haar eigen lesniveau in. Dat blijft buiten deze koppeling, maar het is wel de reden dat de inrichting een eigen resource is met een eigen referentie.
 
 ## 5. Sequentiediagrammen
 
@@ -172,4 +172,4 @@ Gebruiksprofiel van deze koppeling op de centrale [onderwijsspecificatie-payload
 - [Koppelingspecificatie OC-P&R](../oc-p-en-r/20260723_1156_okx-lr1-koppelingspecificatie-oc-p-en-r.md) (het patroon waarop deze koppeling voortbouwt).
 - [Koppelingspecificatie OC-SIS](../oc-sis-krs-svs/20260723_1402_okx-lr1-koppelingspecificatie-oc-sis.md).
 - OKx OEAPI consumer-profiel (fase 4, inrichting leeromgeving; specificatie-catalogus met `leermiddelengroepen`).
-- ADR 0021 (koppeling versus koppelvlak).
+- [ADR 0021](../../../../dr/0021-koppeling-versus-koppelvlak-terminologie.md) (koppeling versus koppelvlak).

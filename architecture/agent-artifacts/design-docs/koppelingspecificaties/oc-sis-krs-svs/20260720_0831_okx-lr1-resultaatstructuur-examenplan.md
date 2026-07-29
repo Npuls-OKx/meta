@@ -539,4 +539,4 @@ Eén verschil: de `examenplanspecificatie` heeft de **strengste acceptatieregels
 - Lifecycle: [lifecycle en versionering](../gedeeld/20260720_0832_okx-lr1-lifecycle-versionering.md).
 - Memo van Niels: `doc/OKx_PDCA cyclus onderwijsontwerp.md` (PR #110).
 - OKE koppelvlak (uitvoering en beoordeling): `OKE/moka-koppelvlakspecificaties/Examen Uitvoering en beoordeling/doc/KoppelvlakSpecificatieDocument.md`.
-- ADR 0009 (SKS/SVS: keuze versus resultaat en voortgang).
+- [ADR 0009](../../../../dr/0009-sks-svs-rollenverdeling-keuze-vs-resultaat-voortgang.md) (SKS/SVS: keuze versus resultaat en voortgang).

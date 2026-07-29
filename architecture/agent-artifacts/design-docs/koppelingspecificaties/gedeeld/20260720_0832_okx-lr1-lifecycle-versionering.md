@@ -37,7 +37,7 @@ Wat dit document nog niet doet: de publicatiegebeurtenis waarmee een catalogus e
 
 ### 1.3 Scope
 
-In scope is de lifecycle van onderwijsspecificaties op conceptueel niveau: versienummering, identiteit, geldigheid, status, en de classificatie van wijzigingen. Geldt voor leerroute 1 tot en met 3.
+In scope is de lifecycle van onderwijsspecificaties: versienummering, identiteit, geldigheid, status, en de classificatie van wijzigingen, als beleid en niet als techniek. Geldt voor leerroute 1 tot en met 3.
 
 Twee afbakeningen die anders verwarring geven:
 

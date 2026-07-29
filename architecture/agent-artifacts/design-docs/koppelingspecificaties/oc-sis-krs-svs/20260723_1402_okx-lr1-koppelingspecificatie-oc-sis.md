@@ -22,7 +22,7 @@ Waar deze koppeling in de keten zit: de onderwijscatalogus (OC) levert de gepubl
 
 Scenario is leerroute 1 (regulier), persona [Jochem](../../../../docs/specificatie/okx-oeapi-consumer-profiel/doc/persona_jochem.md), opleiding Apothekersassistent (Crebo-dossier 23450, kwalificatie 27141): de student volgt het nominale programma en het SIS registreert zijn verbintenis, voortgang en resultaten. Leerroute 2 en 3 volgen als verschil. Begrippenkader (ankertabel, zes families; de leeruitkomst is de sleutel voor de resultaatstructuur) en de volledige leerroutes: het [OEAPI consumer-profiel](../../../../docs/specificatie/okx-oeapi-consumer-profiel/README.md). Dat profiel gebruikt nog een oudere hoofdplaat; leidend is v1.7.
 
-Rolverdeling (ADR 0009, [ADR 0014](../../../../dr/0014-splitsing-inschrijving-rodkrs-en-studentkeuze-sks.md)): het SIS registreert de verbintenis (op aanbod), de individuele structuur, voortgang en onderwijsresultaten. De onderwijskundige keuze leeft bij het studentkeuzesysteem (SKS, aparte koppeling, buiten scope). OC bezit de onderwijsspecificaties en de resultaatstructuren (`examenplanspecificatie`). Deze koppelingspecificatie is afgeleid (geen werksessie) en volgt het patroon van de [koppeling OC-P&R](../oc-p-en-r/20260723_1156_okx-lr1-koppelingspecificatie-oc-p-en-r.md): resource-eigenaarschap, referenties en dunne events.
+Rolverdeling ([ADR 0009](../../../../dr/0009-sks-svs-rollenverdeling-keuze-vs-resultaat-voortgang.md), [ADR 0014](../../../../dr/0014-splitsing-inschrijving-rodkrs-en-studentkeuze-sks.md)): het SIS registreert de verbintenis (op aanbod), de individuele structuur, voortgang en onderwijsresultaten. De onderwijskundige keuze leeft bij het studentkeuzesysteem (SKS, aparte koppeling, buiten scope). OC bezit de onderwijsspecificaties en de resultaatstructuren (`examenplanspecificatie`). Deze koppelingspecificatie is afgeleid (geen werksessie) en volgt het patroon van de [koppeling OC-P&R](../oc-p-en-r/20260723_1156_okx-lr1-koppelingspecificatie-oc-p-en-r.md): resource-eigenaarschap, referenties en dunne events.
 
 ### 1.2 Doel
 
@@ -80,7 +80,7 @@ De interacties op deze koppeling, met per interactie het messaging-patroon, in d
 
 ## 4. Informatiemodel
 
-Conform het ROSA Kernmodel Onderwijsinformatie (KOI) en ADR 0022: een onderwijsresultaat wordt behaald op leeruitkomsten, en meerdere toetsonderdeelresultaten leiden gewogen tot dat onderwijsresultaat. De verbintenis hoort bij het aanbod (ankertabel), niet bij de specificatie, en staat daarom niet in dit kernmodel.
+Conform het ROSA Kernmodel Onderwijsinformatie (KOI) en [ADR 0022](../../../../dr/0022-resultaatbegrippen-conform-rosa-koi.md): een onderwijsresultaat wordt behaald op leeruitkomsten, en meerdere toetsonderdeelresultaten leiden gewogen tot dat onderwijsresultaat. De verbintenis hoort bij het aanbod (ankertabel), niet bij de specificatie, en staat daarom niet in dit kernmodel.
 
 ```mermaid
 erDiagram
@@ -102,7 +102,9 @@ erDiagram
     ONDERWIJSRESULTAAT }o--|| INDIVIDUEEL_EXAMENPLAN : "telt mee in"
 ```
 
-Leeswijzer: OC beheert de `onderwijsspecificatie`s en het `examenplan` (weging en indeling van `toetsonderdeel`en op leeruitkomsten). Het SIS hanteert de gepubliceerde structuur als **nominaal template** en houdt per student een **individuele structuur** bij: het template plus de via het SKS ingevulde keuzedelen. In LR1-3 wijken nominaal en feitelijk gevolgd uitsluitend daarin af; ook bij versnellen of vertragen (LR2, LR3) blijft het programma en de wijze van afdichten gelijk. Dezelfde symmetrie geldt voor het examenplan: naast het **nominale examenplan** (bij het diplomaprogramma) heeft elk keuzedeel een eigen **examenplandeel** met eigen toetsonderdelen die naar een eigen onderwijsresultaat mappen. Het **individuele examenplan** van de student is de samenstelling van het nominale examenplan plus de examenplandelen van de gekozen keuzedelen, en hoort bij de individuele structuur. Toetsonderdeelresultaten leiden gewogen tot onderwijsresultaten op leeruitkomsten; de mapping welke toetsonderdeelresultaten welke leeruitkomst afdichten is expliciet onderdeel van de resultaatstructuur.
+Wat het model niet toont: het studentinformatiesysteem hanteert de gepubliceerde structuur als **nominaal template** en houdt daarnaast per student een **individuele structuur** bij, namelijk dat template plus de gekozen keuzedelen. In leerroute 1 tot en met 3 wijken nominaal en gevolgd uitsluitend daarin af; ook bij versnellen of vertragen blijft het programma gelijk en verandert alleen het tempo.
+
+Dezelfde symmetrie geldt voor het examenplan. Naast het **nominale examenplan** bij het diplomaprogramma heeft elk keuzedeel een eigen examenplandeel met eigen toetsonderdelen en een eigen onderwijsresultaat. Het **individuele examenplan** is de samenstelling van beide, en hoort bij de individuele structuur.
 
 ## 5. Sequentiediagrammen
 
@@ -182,5 +184,5 @@ Gebruiksprofiel van deze koppeling op de centrale [onderwijsspecificatie-payload
 
 - [Koppelingspecificatie OC-P&R](../oc-p-en-r/20260723_1156_okx-lr1-koppelingspecificatie-oc-p-en-r.md) (het patroon waarop deze koppeling voortbouwt).
 - Memo van Niels: `doc/OKx_PDCA cyclus onderwijsontwerp.md` (PR #110).
-- ADR 0009 (SKS/SVS-rollen), ADR 0014 (splitsing inschrijving en keuze), ADR 0021 (koppeling versus koppelvlak), ADR 0022 (resultaatbegrippen conform ROSA KOI).
+- [ADR 0009](../../../../dr/0009-sks-svs-rollenverdeling-keuze-vs-resultaat-voortgang.md) (SKS/SVS-rollen), [ADR 0014](../../../../dr/0014-splitsing-inschrijving-rodkrs-en-studentkeuze-sks.md) (splitsing inschrijving en keuze), [ADR 0021](../../../../dr/0021-koppeling-versus-koppelvlak-terminologie.md) (koppeling versus koppelvlak), [ADR 0022](../../../../dr/0022-resultaatbegrippen-conform-rosa-koi.md) (resultaatbegrippen conform ROSA KOI).
 - [ROSA Kernmodel Onderwijsinformatie](https://rosa.wikixl.nl/index.php/Kernmodel_Onderwijsinformatie).

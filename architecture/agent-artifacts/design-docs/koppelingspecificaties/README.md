@@ -28,7 +28,7 @@ Kernbegrippen die in elk document terugkomen:
 
 De koppelingspecificaties in deze map zijn **indicatief en onderbouwend, niet voorschrijvend**. We hebben nog beperkt zicht op de werking van het ecosysteem. Daarom bestuderen en beschrijven we het koppeling voor koppeling, scenario voor scenario: welke interacties vinden er plaats, en welke operaties, endpoints en data vragen die. OKx legt de sector niet op hoe een koppeling gerealiseerd moet worden; partijen kunnen koppelingen zelf vormgeven.
 
-De som van de koppelingbeschrijvingen leidt tot de **koppelvlakspecificatie** per referentiecomponent (OC, P&R, LMS, SIS (KRS/SVS), later SKS): de endpoints en operaties die dat component waarschijnlijk moet bieden om het ecosysteem te laten werken, elk gegrond in een beschreven interactie (ADR 0021, consequentie interfacespecificatie).
+De som van de koppelingbeschrijvingen leidt tot de **koppelvlakspecificatie** per referentiecomponent (OC, P&R, LMS, SIS (KRS/SVS), later SKS): de endpoints en operaties die dat component waarschijnlijk moet bieden om het ecosysteem te laten werken, elk gegrond in een beschreven interactie ([ADR 0021](../../../dr/0021-koppeling-versus-koppelvlak-terminologie.md), consequentie interfacespecificatie).
 
 ```mermaid
 flowchart LR
@@ -55,11 +55,20 @@ Leesvolgorde: eerst deze instap, dan `gedeeld/` (de centrale onderwijsspecificat
 | CO | Curriculum-ontwerptool, waar onderwijsspecificaties ontstaan |
 | Leerroute 1-3 | De Npuls-leerroutes: regulier, temporiseren, en versnellen. Leerroute 1 is de basis, 2 en 3 worden als verschil beschreven |
 | SBU | Studiebelastingsuren |
-| [`gedeeld/`](gedeeld/) | Payload-specificaties die alle koppelingen delen |
-| [`oc-p-en-r/`](oc-p-en-r/) | De koppeling onderwijscatalogus naar planning en roostering |
-| [`oc-lms/`](oc-lms/) | De koppeling onderwijscatalogus naar leermanagementsysteem |
-| [`oc-sis-krs-svs/`](oc-sis-krs-svs/) | De koppeling onderwijscatalogus naar studentinformatiesysteem |
 | [`architecture/dr/`](../../../dr/) | Decision records: de vastgelegde architectuurbesluiten (ADR's) |
+
+### Wat staat waar
+
+| Map | Koppeling | Inhoud | Herkomst |
+|---|---|---|---|
+| [`gedeeld/`](gedeeld/) | alle koppelingen | Centrale onderwijsspecificatie-payload en lifecycle-uitwerking | Uitgewerkt vanuit de koppeling met planning |
+| [`oc-p-en-r/`](oc-p-en-r/) | Onderwijscatalogus naar planning en roostering | Koppelingspecificatie, onderwijsaanbod-payload | Werksessie en schets bij issue #98 |
+| [`oc-sis-krs-svs/`](oc-sis-krs-svs/) | Onderwijscatalogus naar studentinformatiesysteem | Koppelingspecificatie, resultaatstructuur en examenplan | Afgeleid van het patroon met planning; werksessie volgt |
+| [`oc-lms/`](oc-lms/) | Onderwijscatalogus naar leermanagementsysteem | Koppelingspecificatie; leermiddelkoppeling-payload volgt | Afgeleid van het patroon met planning; werksessie volgt |
+
+Gedeelde payload-specificaties staan **éénmaal centraal** in `gedeeld/`. Elke koppelingspecificatie definieert een **gebruiksprofiel**: welke objecten en velden van de centrale payload die koppeling gebruikt. Het studentinformatiesysteem krijgt de volledige leeruitkomst-laag, planning alleen de leeruitkomst-ids als opaque sleutels ([ADR 0023](../../../dr/0023-leeruitkomsten-als-opaque-sleutels-in-koppeling-oc-p-en-r.md)), en de leeromgeving de inhoudsvelden. Koppeling-specifieke payloads staan in de koppeling-map.
+
+Leidende prioriteringsvraag: wat moeten deze drie koppelingen uitgewisseld hebben om klaar te zijn voor de start van de student? De documenten dragen geen metadatakop; auteurschap en datums staan in de git-historie, de samenhang in de issues en pull requests (zie [agent-artifacts](../../README.md)).
 
 ### Voor schrijvers
 
@@ -71,14 +80,3 @@ Elke payload-specificatie draagt een **JSON Schema** (alfa en indicatief) plus t
 python3 scripts/json-tree.py --check <document>.md   # faalt bij drift, dode verwijzingen of schemafouten
 python3 scripts/json-tree.py --write <document>.md   # bomen bijwerken
 ```
-
-| Map | Koppeling | Inhoud | Herkomst |
-|---|---|---|---|
-| [`gedeeld/`](gedeeld/) | alle koppelingen | Centrale onderwijsspecificatie-payload en lifecycle-uitwerking | Uitgewerkt vanuit de koppeling met planning |
-| [`oc-p-en-r/`](oc-p-en-r/) | Onderwijscatalogus naar planning en roostering | Koppelingspecificatie, onderwijsaanbod-payload | Werksessie en schets bij issue #98 |
-| [`oc-sis-krs-svs/`](oc-sis-krs-svs/) | Onderwijscatalogus naar studentinformatiesysteem | Koppelingspecificatie, resultaatstructuur en examenplan | Afgeleid van het patroon met planning; werksessie volgt |
-| [`oc-lms/`](oc-lms/) | Onderwijscatalogus naar leermanagementsysteem | Koppelingspecificatie; leermiddelkoppeling-payload volgt | Afgeleid van het patroon met planning; werksessie volgt |
-
-Gedeelde payload-specificaties staan **éénmaal centraal** in `gedeeld/` (ADR 0021). Elke koppelingspecificatie definieert een **gebruiksprofiel**: welke objecten en velden van de centrale payload die koppeling gebruikt. Voorbeeld: OC-SIS gebruikt de volledige leeruitkomst-laag, OC-P&R alleen leeruitkomst-ids als opaque sleutels (ADR 0023), OC-LMS de leeruitkomst-inhoudsvelden. Koppeling-specifieke payloads staan in de koppeling-map.
-
-Scenario: leerroute 1, met leerroute 2 en 3 als verschil. Leidende prioriteringsvraag (onderwijsvoorbereiding): wat moeten OC-P&R, OC-LMS en OC-SIS uitgewisseld hebben om klaar te zijn voor de start van de student? Geen frontmatter in de documenten: auteurschap en datums via de git-historie, koppeling via issues en PR's (zie `../../README.md`).
