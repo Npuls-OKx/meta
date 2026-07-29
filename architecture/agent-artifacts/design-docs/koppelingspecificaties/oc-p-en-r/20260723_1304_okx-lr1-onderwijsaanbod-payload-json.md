@@ -60,7 +60,7 @@ Vier weergaven met elk één taak. Het **informatiemodel** toont welke dingen er
 
 ```mermaid
 erDiagram
-    AANBODINSTANTIE ||--o{ AANBODINSTANTIE : bovenliggendId
+    AANBODINSTANTIE ||--o{ AANBODINSTANTIE : bovenliggendAanbodId
     AANBODINSTANTIE }o--|| ONDERWIJSSPECIFICATIE : specificatieVerwijzing
     AANBODINSTANTIE }o--o| LOCATIE : locatieId
     AANBODINSTANTIE }o--o| ORGANISATIE_EENHEID : uitvoerendTeamId
@@ -69,10 +69,10 @@ erDiagram
     ORGANISATIE_EENHEID ||--o{ ORGANISATIE_EENHEID : bovenliggendeEenheidId
 
     AANBODINSTANTIE {
-        uuid aanbodId PK
+        uuid id PK
         string aanbodType "opleidingsaanbod tot leergelegenheid"
         string versie "semver"
-        uuid bovenliggendId FK "null op root"
+        uuid bovenliggendAanbodId FK "null op root"
         object specificatieVerwijzing "specificatieId + versie"
         string naam
         string status
@@ -85,12 +85,12 @@ erDiagram
         uuid uitvoerendTeamId FK
     }
     GROEP {
-        uuid groepId PK
+        uuid id PK
         string naam
         int capaciteit
     }
     LOCATIE {
-        uuid locatieId PK
+        uuid id PK
         string locatieType "campus tot ruimte, virtueel"
         string naam
         uuid valtBinnenLocatieId FK "recursief"
@@ -102,14 +102,14 @@ erDiagram
         array codes "externe identificaties"
     }
     ORGANISATIE_EENHEID {
-        uuid organisatieEenheidId PK
+        uuid id PK
         string eenheidType "instelling, sector, onderwijsteam"
         string naam
         uuid bovenliggendeEenheidId FK "recursief"
         array professionalIds "alleen uuid's"
     }
     ONDERWIJSSPECIFICATIE {
-        uuid specificatieId PK
+        uuid id PK
         string toelichting "uit de onderwijsspecificatie-payload"
     }
 ```
@@ -133,10 +133,10 @@ Leerroute 1. De `specificatieVerwijzing`-uuid's komen uit de [onderwijsspecifica
 {
   "aanbodInstanties": [
     {
-      "aanbodId": "7aa6609f-1d1b-471a-a0f8-beae490d31b5",
+      "id": "7aa6609f-1d1b-471a-a0f8-beae490d31b5",
       "aanbodType": "opleidingsaanbod",
       "versie": "0.1.0",
-      "bovenliggendId": null,
+      "bovenliggendAanbodId": null,
       "specificatieVerwijzing": { "specificatieId": "79736830-1c5c-470f-b2c2-005029c96733", "versie": "0.1.0" },
       "naam": "Apothekersassistent, cohort 2026",
       "status": "gepland",
@@ -146,10 +146,10 @@ Leerroute 1. De `specificatieVerwijzing`-uuid's komen uit de [onderwijsspecifica
       "uitvoerendTeamId": "d9561371-5ece-482d-a675-a076e63f980f"
     },
     {
-      "aanbodId": "8c494250-b67a-4666-a762-6f9ec1e70aff",
+      "id": "8c494250-b67a-4666-a762-6f9ec1e70aff",
       "aanbodType": "opleidingsprogramma-aanbod",
       "versie": "0.1.0",
-      "bovenliggendId": "7aa6609f-1d1b-471a-a0f8-beae490d31b5",
+      "bovenliggendAanbodId": "7aa6609f-1d1b-471a-a0f8-beae490d31b5",
       "specificatieVerwijzing": { "specificatieId": "7ae25c1e-ee27-43a2-a001-761ee39ea5c7", "versie": "0.1.0" },
       "naam": "Regulier BOL, cohort 2026",
       "status": "gepland",
@@ -159,10 +159,10 @@ Leerroute 1. De `specificatieVerwijzing`-uuid's komen uit de [onderwijsspecifica
       "uitvoerendTeamId": "d9561371-5ece-482d-a675-a076e63f980f"
     },
     {
-      "aanbodId": "04af26e6-96be-480a-8413-87a128164681",
+      "id": "04af26e6-96be-480a-8413-87a128164681",
       "aanbodType": "onderwijseenheid-aanbod",
       "versie": "0.1.0",
-      "bovenliggendId": "8c494250-b67a-4666-a762-6f9ec1e70aff",
+      "bovenliggendAanbodId": "8c494250-b67a-4666-a762-6f9ec1e70aff",
       "specificatieVerwijzing": { "specificatieId": "402c2342-d897-4df4-a667-7fc5bd930944", "versie": "0.1.0" },
       "naam": "Biedt farmaceutische patiëntenzorg, leerjaar 1-2",
       "status": "gepland",
@@ -170,10 +170,10 @@ Leerroute 1. De `specificatieVerwijzing`-uuid's komen uit de [onderwijsspecifica
       "locatieId": "59807057-a6f1-473b-9084-114644557a68"
     },
     {
-      "aanbodId": "04070a96-01e0-4958-9f7e-69b429c72eec",
+      "id": "04070a96-01e0-4958-9f7e-69b429c72eec",
       "aanbodType": "leergelegenheid",
       "versie": "0.1.0",
-      "bovenliggendId": "04af26e6-96be-480a-8413-87a128164681",
+      "bovenliggendAanbodId": "04af26e6-96be-480a-8413-87a128164681",
       "specificatieVerwijzing": { "specificatieId": "327c8263-3516-4b5a-8d57-c16241ec008d", "versie": "0.1.0" },
       "naam": "Neemt de zorg-/adviesvraag in behandeling, periode 1",
       "status": "gepland",
@@ -181,15 +181,15 @@ Leerroute 1. De `specificatieVerwijzing`-uuid's komen uit de [onderwijsspecifica
       "locatieId": "cfe4ae31-d8d1-40f8-9d62-eda917fefbd3",
       "uitvoerendTeamId": "d9561371-5ece-482d-a675-a076e63f980f",
       "groepen": [
-        { "groepId": "13cc9125-6f0d-4faf-b483-9f0e4102790e", "naam": "APO26-1A", "capaciteit": 30 },
-        { "groepId": "93937bfe-4e4a-4f6a-9d5b-2754613aa2df", "naam": "APO26-1B", "capaciteit": 30 }
+        { "id": "13cc9125-6f0d-4faf-b483-9f0e4102790e", "naam": "APO26-1A", "capaciteit": 30 },
+        { "id": "93937bfe-4e4a-4f6a-9d5b-2754613aa2df", "naam": "APO26-1B", "capaciteit": 30 }
       ]
     },
     {
-      "aanbodId": "d18dd9d1-24f2-43c0-b6aa-0090953ac965",
+      "id": "d18dd9d1-24f2-43c0-b6aa-0090953ac965",
       "aanbodType": "onderwijseenheid-aanbod",
       "versie": "0.1.0",
-      "bovenliggendId": "8c494250-b67a-4666-a762-6f9ec1e70aff",
+      "bovenliggendAanbodId": "8c494250-b67a-4666-a762-6f9ec1e70aff",
       "specificatieVerwijzing": { "specificatieId": "ecf4a1ce-8fe4-4ed2-82d4-6c743862094e", "versie": "0.1.0" },
       "naam": "Keuzedeel Ruimtelijk inzicht, periode 3, Utrecht",
       "status": "gepland",
@@ -197,13 +197,13 @@ Leerroute 1. De `specificatieVerwijzing`-uuid's komen uit de [onderwijsspecifica
       "locatieId": "59807057-a6f1-473b-9084-114644557a68",
       "uitvoerendTeamId": "d9561371-5ece-482d-a675-a076e63f980f",
       "groepen": [
-        { "groepId": "9c6dac69-845a-49d8-b3a5-f7a07cfbee5a", "naam": "KD-RI-27-P3-UTR", "capaciteit": 25 }
+        { "id": "9c6dac69-845a-49d8-b3a5-f7a07cfbee5a", "naam": "KD-RI-27-P3-UTR", "capaciteit": 25 }
       ]
     }
   ],
   "locaties": [
     {
-      "locatieId": "6293d6a9-51b4-4983-b652-11d784a32aa9",
+      "id": "6293d6a9-51b4-4983-b652-11d784a32aa9",
       "locatieType": "campus",
       "naam": "Campus Utrecht Zorg",
       "valtBinnenLocatieId": null,
@@ -211,14 +211,14 @@ Leerroute 1. De `specificatieVerwijzing`-uuid's komen uit de [onderwijsspecifica
       "geolocatie": { "breedtegraad": 52.0907, "lengtegraad": 5.1214 }
     },
     {
-      "locatieId": "59807057-a6f1-473b-9084-114644557a68",
+      "id": "59807057-a6f1-473b-9084-114644557a68",
       "locatieType": "vestiging",
       "naam": "Hoofdlocatie Utrecht",
       "valtBinnenLocatieId": "6293d6a9-51b4-4983-b652-11d784a32aa9",
       "codes": [ { "codeType": "vestigingscode", "code": "UTR-01" } ]
     },
     {
-      "locatieId": "cfe4ae31-d8d1-40f8-9d62-eda917fefbd3",
+      "id": "cfe4ae31-d8d1-40f8-9d62-eda917fefbd3",
       "locatieType": "ruimte",
       "naam": "Praktijklokaal farmacie 2.14",
       "valtBinnenLocatieId": "59807057-a6f1-473b-9084-114644557a68",
@@ -226,7 +226,7 @@ Leerroute 1. De `specificatieVerwijzing`-uuid's komen uit de [onderwijsspecifica
       "vleugel": "B"
     },
     {
-      "locatieId": "7ea1af8f-fbac-4fac-891b-8cb7d85af376",
+      "id": "7ea1af8f-fbac-4fac-891b-8cb7d85af376",
       "locatieType": "virtueel",
       "naam": "Online leeromgeving",
       "valtBinnenLocatieId": null,
@@ -235,19 +235,19 @@ Leerroute 1. De `specificatieVerwijzing`-uuid's komen uit de [onderwijsspecifica
   ],
   "organisatieEenheden": [
     {
-      "organisatieEenheidId": "2f1bd932-e862-4b27-9dec-cc1245c1c1c2",
+      "id": "2f1bd932-e862-4b27-9dec-cc1245c1c1c2",
       "eenheidType": "instelling",
       "naam": "ROC Voorbeeld",
       "bovenliggendeEenheidId": null
     },
     {
-      "organisatieEenheidId": "2b76d57f-ab53-4e37-b40a-80d15bc77bc5",
+      "id": "2b76d57f-ab53-4e37-b40a-80d15bc77bc5",
       "eenheidType": "sector",
       "naam": "Sector Zorg en Welzijn",
       "bovenliggendeEenheidId": "2f1bd932-e862-4b27-9dec-cc1245c1c1c2"
     },
     {
-      "organisatieEenheidId": "d9561371-5ece-482d-a675-a076e63f980f",
+      "id": "d9561371-5ece-482d-a675-a076e63f980f",
       "eenheidType": "onderwijsteam",
       "naam": "Onderwijsteam Farmacie",
       "bovenliggendeEenheidId": "2b76d57f-ab53-4e37-b40a-80d15bc77bc5",
@@ -261,10 +261,10 @@ Loopt de planning vast, dan bestaat de instantie wel maar draagt die status en k
 
 ```json
 {
-  "aanbodId": "7aa6609f-1d1b-471a-a0f8-beae490d31b5",
+  "id": "7aa6609f-1d1b-471a-a0f8-beae490d31b5",
   "aanbodType": "opleidingsaanbod",
   "versie": "0.1.0",
-  "bovenliggendId": null,
+  "bovenliggendAanbodId": null,
   "specificatieVerwijzing": { "specificatieId": "79736830-1c5c-470f-b2c2-005029c96733", "versie": "0.1.0" },
   "status": "nietRealiseerbaar",
   "knelpunten": [

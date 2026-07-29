@@ -123,9 +123,9 @@ erDiagram
     OPLEIDINGSPROGRAMMASPECIFICATIE_DOELGROEP ||--o{ ONDERWIJSEENHEIDSPECIFICATIE : onderdeel_van
     OPLEIDINGSPROGRAMMASPECIFICATIE_DOELGROEP ||--|| KEUZEDEELRUIMTESPECIFICATIE : bevat
     ONDERWIJSEENHEIDSPECIFICATIE ||--o{ LEERONDERDEELSPECIFICATIE : onderdeel_van
-    KEUZEDEELRUIMTESPECIFICATIE }o--o{ RULESET : regelsetVerwijzingen
-    RULESET }o--o{ KEUZEDEELPROGRAMMASPECIFICATIE : kiesbaar
-    RULESET }o--o{ LEERUITKOMST : "stelt deelname-voorwaarden in behaalde leeruitkomsten"
+    KEUZEDEELRUIMTESPECIFICATIE }o--o{ REGELSET : regelsetVerwijzingen
+    REGELSET }o--o{ KEUZEDEELPROGRAMMASPECIFICATIE : kiesbaar
+    REGELSET }o--o{ LEERUITKOMST : "stelt deelname-voorwaarden in behaalde leeruitkomsten"
     KEUZEDEELPROGRAMMASPECIFICATIE ||--o{ ONDERWIJSEENHEIDSPECIFICATIE : onderdeel_van
 
     OPLEIDINGSSPECIFICATIE }o--|| LEERUITKOMST : "verankert op"
@@ -136,7 +136,7 @@ erDiagram
     KEUZEDEELPROGRAMMASPECIFICATIE }o--|| LEERUITKOMST : "verankert op"
     LEERUITKOMST ||--o{ LEERUITKOMST : "aggregeert bottom-up en top-down"
     LEERUITKOMST {
-        uuid leeruitkomstId PK
+        uuid id PK
         string versie "eigen lifecycle"
         string naam
         object bron "standaard (nu sbb-kwalificatiekader, later bv. competentnl) + type + code"
@@ -149,9 +149,9 @@ erDiagram
         int nlqfNiveau
     }
     OPLEIDINGSSPECIFICATIE {
-        uuid specificatieId PK
+        uuid id PK
         string specificatieType "opleidingsspecificatie"
-        uuid bovenliggendId "null"
+        uuid bovenliggendSpecificatieId "null"
         uuid leeruitkomstId FK "sleutel naar leeruitkomst"
         string naam
         string curriculumtype
@@ -163,9 +163,9 @@ erDiagram
         string status
     }
     OPLEIDINGSPROGRAMMASPECIFICATIE_LEERWEG {
-        uuid specificatieId PK
+        uuid id PK
         string specificatieType "opleidingsprogrammaspecificatie"
-        uuid bovenliggendId FK "opleiding"
+        uuid bovenliggendSpecificatieId FK "opleiding"
         uuid leeruitkomstId FK "sleutel naar leeruitkomst"
         string programmaLaag "leerweg"
         string leerweg "BOL of BBL"
@@ -173,9 +173,9 @@ erDiagram
         object studielast
     }
     OPLEIDINGSPROGRAMMASPECIFICATIE_DOELGROEP {
-        uuid specificatieId PK
+        uuid id PK
         string specificatieType "opleidingsprogrammaspecificatie"
-        uuid bovenliggendId FK "leerweg-programma"
+        uuid bovenliggendSpecificatieId FK "leerweg-programma"
         uuid leeruitkomstId FK "sleutel naar leeruitkomst"
         string programmaLaag "doelgroep"
         string doelgroep "regulier, zijinstromer, hybride, organisatiespecifiek"
@@ -190,42 +190,42 @@ erDiagram
         array manifest "pins: id + version + relatie"
     }
     ONDERWIJSEENHEIDSPECIFICATIE {
-        uuid specificatieId PK
+        uuid id PK
         string specificatieType "onderwijseenheidspecificatie"
-        uuid bovenliggendId FK "programma of keuzedeelprogramma"
+        uuid bovenliggendSpecificatieId FK "programma of keuzedeelprogramma"
         uuid leeruitkomstId FK "sleutel naar leeruitkomst"
         string naam
         object studielast
     }
     LEERONDERDEELSPECIFICATIE {
-        uuid specificatieId PK
+        uuid id PK
         string specificatieType "leeronderdeelspecificatie"
-        uuid bovenliggendId FK "onderwijseenheid"
+        uuid bovenliggendSpecificatieId FK "onderwijseenheid"
         uuid leeruitkomstId FK "sleutel naar leeruitkomst"
         string naam
         string tijdsverdeling "BOT of OOT"
         object studielast
     }
     KEUZEDEELRUIMTESPECIFICATIE {
-        uuid specificatieId PK
+        uuid id PK
         string specificatieType "keuzedeelruimtespecificatie"
-        uuid bovenliggendId FK "doelgroep-programma"
+        uuid bovenliggendSpecificatieId FK "doelgroep-programma"
         object studielast "keuzeruimte in SBU"
-        array regelsetVerwijzingen FK "naar RULESET"
+        array regelsetVerwijzingen FK "naar REGELSET"
     }
     KEUZEDEELPROGRAMMASPECIFICATIE {
-        uuid specificatieId PK
+        uuid id PK
         string specificatieType "opleidingsprogrammaspecificatie"
-        uuid bovenliggendId "null, zelfstandig"
+        uuid bovenliggendSpecificatieId "null, zelfstandig"
         uuid leeruitkomstId FK "sleutel naar leeruitkomst"
         string programmatype "keuzedeelprogramma"
         string keuzedeelKlasse "algemeen-verbredend of beroepsspecifiek-verdiepend"
         object studielast
     }
-    RULESET {
-        uuid regelsetId PK
+    REGELSET {
+        uuid id PK
         string naam
-        uuid appliesTo FK "keuzedeelruimte"
+        uuid vanToepassingOp FK "keuzedeelruimte"
         array regels "kiesbaar + voorwaardeVooraf in behaalde leeruitkomsten"
     }
 ```
@@ -272,7 +272,7 @@ Leerroute 1, waarden indicatief. De `studielast` telt bottom-up op binnen onderd
 {
   "leeruitkomsten": [
     {
-      "leeruitkomstId": "c5b64fe5-f7bf-490c-acaf-7af1bd24f980",
+      "id": "c5b64fe5-f7bf-490c-acaf-7af1bd24f980",
       "versie": "0.1.0",
       "naam": "Apothekersassistent (kwalificatiedossier 23450)",
       "bron": {
@@ -295,7 +295,7 @@ Leerroute 1, waarden indicatief. De `studielast` telt bottom-up op binnen onderd
       "nlqfNiveau": 4
     },
     {
-      "leeruitkomstId": "b84dc98b-6c5f-4ee8-bdfb-40b2639ca5a4",
+      "id": "b84dc98b-6c5f-4ee8-bdfb-40b2639ca5a4",
       "versie": "0.1.0",
       "naam": "Apothekersassistent (kwalificatie 27141)",
       "bron": {
@@ -312,7 +312,7 @@ Leerroute 1, waarden indicatief. De `studielast` telt bottom-up op binnen onderd
       "bovenliggendLeeruitkomstId": "c5b64fe5-f7bf-490c-acaf-7af1bd24f980"
     },
     {
-      "leeruitkomstId": "12301838-92d4-4040-aea2-050bb131ceb7",
+      "id": "12301838-92d4-4040-aea2-050bb131ceb7",
       "versie": "0.1.0",
       "naam": "Biedt farmaceutische patiëntenzorg",
       "bron": {
@@ -329,7 +329,7 @@ Leerroute 1, waarden indicatief. De `studielast` telt bottom-up op binnen onderd
       "bovenliggendLeeruitkomstId": "b84dc98b-6c5f-4ee8-bdfb-40b2639ca5a4"
     },
     {
-      "leeruitkomstId": "bedb4c31-b818-491c-8227-9b32146a3363",
+      "id": "bedb4c31-b818-491c-8227-9b32146a3363",
       "versie": "0.1.0",
       "naam": "Voert logistieke taken uit in de apotheek",
       "bron": {
@@ -346,7 +346,7 @@ Leerroute 1, waarden indicatief. De `studielast` telt bottom-up op binnen onderd
       "bovenliggendLeeruitkomstId": "b84dc98b-6c5f-4ee8-bdfb-40b2639ca5a4"
     },
     {
-      "leeruitkomstId": "8b085118-ff81-4639-9152-ed2e447db2db",
+      "id": "8b085118-ff81-4639-9152-ed2e447db2db",
       "versie": "0.1.0",
       "naam": "Werkt mee aan kwaliteit en deskundigheid",
       "bron": {
@@ -363,7 +363,7 @@ Leerroute 1, waarden indicatief. De `studielast` telt bottom-up op binnen onderd
       "bovenliggendLeeruitkomstId": "b84dc98b-6c5f-4ee8-bdfb-40b2639ca5a4"
     },
     {
-      "leeruitkomstId": "78f25d62-9fd4-45c4-aa04-3d22f59213f5",
+      "id": "78f25d62-9fd4-45c4-aa04-3d22f59213f5",
       "versie": "0.1.0",
       "naam": "Neemt de zorg-/adviesvraag in behandeling",
       "bron": {
@@ -391,7 +391,7 @@ Leerroute 1, waarden indicatief. De `studielast` telt bottom-up op binnen onderd
       ]
     },
     {
-      "leeruitkomstId": "0ffa279f-c595-49d7-b033-c91f66d18bb1",
+      "id": "0ffa279f-c595-49d7-b033-c91f66d18bb1",
       "versie": "0.1.0",
       "naam": "Voert medicatiebewaking uit",
       "bron": {
@@ -408,7 +408,7 @@ Leerroute 1, waarden indicatief. De `studielast` telt bottom-up op binnen onderd
       "bovenliggendLeeruitkomstId": "12301838-92d4-4040-aea2-050bb131ceb7"
     },
     {
-      "leeruitkomstId": "9d6a5081-9356-4058-8ac0-a4df8f8c60bd",
+      "id": "9d6a5081-9356-4058-8ac0-a4df8f8c60bd",
       "versie": "0.1.0",
       "naam": "Verstrekt (zelfzorg)medicijnen en/of hulpmiddelen",
       "bron": {
@@ -425,7 +425,7 @@ Leerroute 1, waarden indicatief. De `studielast` telt bottom-up op binnen onderd
       "bovenliggendLeeruitkomstId": "12301838-92d4-4040-aea2-050bb131ceb7"
     },
     {
-      "leeruitkomstId": "71f42c36-dcfb-42ec-b492-8ed665639eda",
+      "id": "71f42c36-dcfb-42ec-b492-8ed665639eda",
       "versie": "0.1.0",
       "naam": "Geeft informatie en advies over medicijngebruik, gezondheid en leefstijl",
       "bron": {
@@ -442,7 +442,7 @@ Leerroute 1, waarden indicatief. De `studielast` telt bottom-up op binnen onderd
       "bovenliggendLeeruitkomstId": "12301838-92d4-4040-aea2-050bb131ceb7"
     },
     {
-      "leeruitkomstId": "1d5f3f8e-76d1-4bf1-bcf2-986a4a2fe7fd",
+      "id": "1d5f3f8e-76d1-4bf1-bcf2-986a4a2fe7fd",
       "versie": "0.1.0",
       "naam": "Maakt medicijnen klaar voor gebruik en/of aflevering",
       "bron": {
@@ -459,7 +459,7 @@ Leerroute 1, waarden indicatief. De `studielast` telt bottom-up op binnen onderd
       "bovenliggendLeeruitkomstId": "bedb4c31-b818-491c-8227-9b32146a3363"
     },
     {
-      "leeruitkomstId": "772c792b-f5ec-425f-9dd7-87d8fad4d2db",
+      "id": "772c792b-f5ec-425f-9dd7-87d8fad4d2db",
       "versie": "0.1.0",
       "naam": "Houdt de voorraad bij",
       "bron": {
@@ -476,7 +476,7 @@ Leerroute 1, waarden indicatief. De `studielast` telt bottom-up op binnen onderd
       "bovenliggendLeeruitkomstId": "bedb4c31-b818-491c-8227-9b32146a3363"
     },
     {
-      "leeruitkomstId": "d929b0df-9119-4b89-ada3-342ab6b9f937",
+      "id": "d929b0df-9119-4b89-ada3-342ab6b9f937",
       "versie": "0.1.0",
       "naam": "Draagt bij aan sociaal veilige werkomgeving",
       "bron": {
@@ -493,7 +493,7 @@ Leerroute 1, waarden indicatief. De `studielast` telt bottom-up op binnen onderd
       "bovenliggendLeeruitkomstId": "8b085118-ff81-4639-9152-ed2e447db2db"
     },
     {
-      "leeruitkomstId": "5cb6ce9c-82cc-4143-86bd-9f375b2901bc",
+      "id": "5cb6ce9c-82cc-4143-86bd-9f375b2901bc",
       "versie": "0.1.0",
       "naam": "Evalueert de werkzaamheden en ontwikkelt zichzelf als professional",
       "bron": {
@@ -510,7 +510,7 @@ Leerroute 1, waarden indicatief. De `studielast` telt bottom-up op binnen onderd
       "bovenliggendLeeruitkomstId": "8b085118-ff81-4639-9152-ed2e447db2db"
     },
     {
-      "leeruitkomstId": "ac69e604-6192-4eaf-b786-ed2668dc0faf",
+      "id": "ac69e604-6192-4eaf-b786-ed2668dc0faf",
       "versie": "0.1.0",
       "naam": "Stemt de farmaceutische zorgverlening af",
       "bron": {
@@ -527,7 +527,7 @@ Leerroute 1, waarden indicatief. De `studielast` telt bottom-up op binnen onderd
       "bovenliggendLeeruitkomstId": "8b085118-ff81-4639-9152-ed2e447db2db"
     },
     {
-      "leeruitkomstId": "4dca5ee6-ea76-4cc2-ac34-bbd466d7b6d3",
+      "id": "4dca5ee6-ea76-4cc2-ac34-bbd466d7b6d3",
       "versie": "0.1.0",
       "naam": "Keuzedeel Ondernemerschap",
       "bron": {
@@ -549,7 +549,7 @@ Leerroute 1, waarden indicatief. De `studielast` telt bottom-up op binnen onderd
       "waardedocument": "mbo-certificaat"
     },
     {
-      "leeruitkomstId": "235745ac-bf0f-4a94-b966-aa4ebbfcdabb",
+      "id": "235745ac-bf0f-4a94-b966-aa4ebbfcdabb",
       "versie": "0.1.0",
       "naam": "Zet een onderneming op in de zorg (indicatief)",
       "bron": {
@@ -566,7 +566,7 @@ Leerroute 1, waarden indicatief. De `studielast` telt bottom-up op binnen onderd
       "bovenliggendLeeruitkomstId": "4dca5ee6-ea76-4cc2-ac34-bbd466d7b6d3"
     },
     {
-      "leeruitkomstId": "bfcef8b4-49e6-4ba4-87a5-36389838969b",
+      "id": "bfcef8b4-49e6-4ba4-87a5-36389838969b",
       "versie": "0.1.0",
       "naam": "Stelt een ondernemingsplan op (indicatief)",
       "bron": {
@@ -583,7 +583,7 @@ Leerroute 1, waarden indicatief. De `studielast` telt bottom-up op binnen onderd
       "bovenliggendLeeruitkomstId": "235745ac-bf0f-4a94-b966-aa4ebbfcdabb"
     },
     {
-      "leeruitkomstId": "a12bbc9c-ce75-41df-837b-489f46df500d",
+      "id": "a12bbc9c-ce75-41df-837b-489f46df500d",
       "versie": "0.1.0",
       "naam": "Keuzedeel Ruimtelijk inzicht (illustratief)",
       "bron": {
@@ -605,7 +605,7 @@ Leerroute 1, waarden indicatief. De `studielast` telt bottom-up op binnen onderd
       "waardedocument": "mbo-certificaat"
     },
     {
-      "leeruitkomstId": "3f9dea35-395d-4a4b-8474-64f0d45d19dd",
+      "id": "3f9dea35-395d-4a4b-8474-64f0d45d19dd",
       "versie": "0.1.0",
       "naam": "Past ruimtelijk inzicht toe (illustratief)",
       "bron": {
@@ -622,7 +622,7 @@ Leerroute 1, waarden indicatief. De `studielast` telt bottom-up op binnen onderd
       "bovenliggendLeeruitkomstId": "a12bbc9c-ce75-41df-837b-489f46df500d"
     },
     {
-      "leeruitkomstId": "92476363-cd8e-4b3c-aeea-b70add98786f",
+      "id": "92476363-cd8e-4b3c-aeea-b70add98786f",
       "versie": "0.1.0",
       "naam": "Interpreteert ruimtelijke figuren (illustratief)",
       "bron": {
@@ -639,7 +639,7 @@ Leerroute 1, waarden indicatief. De `studielast` telt bottom-up op binnen onderd
       "bovenliggendLeeruitkomstId": "3f9dea35-395d-4a4b-8474-64f0d45d19dd"
     },
     {
-      "leeruitkomstId": "0d83e73a-e0d8-47de-8b83-983d2b8226e8",
+      "id": "0d83e73a-e0d8-47de-8b83-983d2b8226e8",
       "versie": "0.1.0",
       "naam": "Keuzedeel Wiskunde 1 (illustratief)",
       "bron": {
@@ -661,7 +661,7 @@ Leerroute 1, waarden indicatief. De `studielast` telt bottom-up op binnen onderd
       "waardedocument": "mbo-certificaat"
     },
     {
-      "leeruitkomstId": "c980007d-93db-40c9-bd8e-405293f1b20f",
+      "id": "c980007d-93db-40c9-bd8e-405293f1b20f",
       "versie": "0.1.0",
       "naam": "Beheerst basale wiskunde (illustratief)",
       "bron": {
@@ -678,7 +678,7 @@ Leerroute 1, waarden indicatief. De `studielast` telt bottom-up op binnen onderd
       "bovenliggendLeeruitkomstId": "0d83e73a-e0d8-47de-8b83-983d2b8226e8"
     },
     {
-      "leeruitkomstId": "d44a185e-1348-4ed7-92a4-f0cb898dd85b",
+      "id": "d44a185e-1348-4ed7-92a4-f0cb898dd85b",
       "versie": "0.1.0",
       "naam": "Rekent met verhoudingen en formules (illustratief)",
       "bron": {
@@ -697,10 +697,10 @@ Leerroute 1, waarden indicatief. De `studielast` telt bottom-up op binnen onderd
   ],
   "onderwijsspecificaties": [
     {
-      "specificatieId": "79736830-1c5c-470f-b2c2-005029c96733",
+      "id": "79736830-1c5c-470f-b2c2-005029c96733",
       "specificatieType": "opleidingsspecificatie",
       "versie": "0.1.0",
-      "bovenliggendId": null,
+      "bovenliggendSpecificatieId": null,
       "leeruitkomstId": "c5b64fe5-f7bf-490c-acaf-7af1bd24f980",
       "naam": "Apothekersassistent",
       "omschrijving": "Opleiding tot apothekersassistent. Domein Zorg en welzijn.",
@@ -726,10 +726,10 @@ Leerroute 1, waarden indicatief. De `studielast` telt bottom-up op binnen onderd
       ]
     },
     {
-      "specificatieId": "5ef37812-ae0f-4232-904f-451b9928e45e",
+      "id": "5ef37812-ae0f-4232-904f-451b9928e45e",
       "specificatieType": "opleidingsprogrammaspecificatie",
       "versie": "0.1.0",
-      "bovenliggendId": "79736830-1c5c-470f-b2c2-005029c96733",
+      "bovenliggendSpecificatieId": "79736830-1c5c-470f-b2c2-005029c96733",
       "leeruitkomstId": "b84dc98b-6c5f-4ee8-bdfb-40b2639ca5a4",
       "naam": "Apothekersassistent, leerweg BOL",
       "programmatype": "diplomaprogramma",
@@ -742,10 +742,10 @@ Leerroute 1, waarden indicatief. De `studielast` telt bottom-up op binnen onderd
       }
     },
     {
-      "specificatieId": "93f3c239-5baa-4d96-a56f-728c09d7fefe",
+      "id": "93f3c239-5baa-4d96-a56f-728c09d7fefe",
       "specificatieType": "opleidingsprogrammaspecificatie",
       "versie": "0.1.0",
-      "bovenliggendId": "79736830-1c5c-470f-b2c2-005029c96733",
+      "bovenliggendSpecificatieId": "79736830-1c5c-470f-b2c2-005029c96733",
       "leeruitkomstId": "b84dc98b-6c5f-4ee8-bdfb-40b2639ca5a4",
       "naam": "Apothekersassistent, leerweg BBL",
       "programmatype": "diplomaprogramma",
@@ -758,10 +758,10 @@ Leerroute 1, waarden indicatief. De `studielast` telt bottom-up op binnen onderd
       }
     },
     {
-      "specificatieId": "7ae25c1e-ee27-43a2-a001-761ee39ea5c7",
+      "id": "7ae25c1e-ee27-43a2-a001-761ee39ea5c7",
       "specificatieType": "opleidingsprogrammaspecificatie",
       "versie": "0.1.0",
-      "bovenliggendId": "5ef37812-ae0f-4232-904f-451b9928e45e",
+      "bovenliggendSpecificatieId": "5ef37812-ae0f-4232-904f-451b9928e45e",
       "leeruitkomstId": "b84dc98b-6c5f-4ee8-bdfb-40b2639ca5a4",
       "naam": "Regulier BOL",
       "programmatype": "diplomaprogramma",
@@ -802,10 +802,10 @@ Leerroute 1, waarden indicatief. De `studielast` telt bottom-up op binnen onderd
       ]
     },
     {
-      "specificatieId": "82de8b94-8a43-4ccf-8114-043f8f9bc2f8",
+      "id": "82de8b94-8a43-4ccf-8114-043f8f9bc2f8",
       "specificatieType": "opleidingsprogrammaspecificatie",
       "versie": "0.1.0",
-      "bovenliggendId": "5ef37812-ae0f-4232-904f-451b9928e45e",
+      "bovenliggendSpecificatieId": "5ef37812-ae0f-4232-904f-451b9928e45e",
       "leeruitkomstId": "b84dc98b-6c5f-4ee8-bdfb-40b2639ca5a4",
       "naam": "Zijstroom/LLO BOL (illustratief)",
       "programmatype": "diplomaprogramma",
@@ -819,10 +819,10 @@ Leerroute 1, waarden indicatief. De `studielast` telt bottom-up op binnen onderd
       }
     },
     {
-      "specificatieId": "685dc983-1597-46d5-9935-001d7e3715ca",
+      "id": "685dc983-1597-46d5-9935-001d7e3715ca",
       "specificatieType": "opleidingsprogrammaspecificatie",
       "versie": "0.1.0",
-      "bovenliggendId": "5ef37812-ae0f-4232-904f-451b9928e45e",
+      "bovenliggendSpecificatieId": "5ef37812-ae0f-4232-904f-451b9928e45e",
       "leeruitkomstId": "b84dc98b-6c5f-4ee8-bdfb-40b2639ca5a4",
       "naam": "Hybride BOL (illustratief)",
       "programmatype": "diplomaprogramma",
@@ -837,10 +837,10 @@ Leerroute 1, waarden indicatief. De `studielast` telt bottom-up op binnen onderd
       }
     },
     {
-      "specificatieId": "23d18a33-dafc-47e7-a60e-84cd31d27613",
+      "id": "23d18a33-dafc-47e7-a60e-84cd31d27613",
       "specificatieType": "opleidingsprogrammaspecificatie",
       "versie": "0.1.0",
-      "bovenliggendId": "93f3c239-5baa-4d96-a56f-728c09d7fefe",
+      "bovenliggendSpecificatieId": "93f3c239-5baa-4d96-a56f-728c09d7fefe",
       "leeruitkomstId": "b84dc98b-6c5f-4ee8-bdfb-40b2639ca5a4",
       "naam": "Regulier BBL (illustratief)",
       "programmatype": "diplomaprogramma",
@@ -854,10 +854,10 @@ Leerroute 1, waarden indicatief. De `studielast` telt bottom-up op binnen onderd
       }
     },
     {
-      "specificatieId": "c295478c-c1c1-4647-9550-dc728aff1a7c",
+      "id": "c295478c-c1c1-4647-9550-dc728aff1a7c",
       "specificatieType": "opleidingsprogrammaspecificatie",
       "versie": "0.1.0",
-      "bovenliggendId": "93f3c239-5baa-4d96-a56f-728c09d7fefe",
+      "bovenliggendSpecificatieId": "93f3c239-5baa-4d96-a56f-728c09d7fefe",
       "leeruitkomstId": "b84dc98b-6c5f-4ee8-bdfb-40b2639ca5a4",
       "naam": "BBL Ziekenhuis 12 (illustratief)",
       "programmatype": "diplomaprogramma",
@@ -875,10 +875,10 @@ Leerroute 1, waarden indicatief. De `studielast` telt bottom-up op binnen onderd
       }
     },
     {
-      "specificatieId": "402c2342-d897-4df4-a667-7fc5bd930944",
+      "id": "402c2342-d897-4df4-a667-7fc5bd930944",
       "specificatieType": "onderwijseenheidspecificatie",
       "versie": "0.1.0",
-      "bovenliggendId": "7ae25c1e-ee27-43a2-a001-761ee39ea5c7",
+      "bovenliggendSpecificatieId": "7ae25c1e-ee27-43a2-a001-761ee39ea5c7",
       "leeruitkomstId": "12301838-92d4-4040-aea2-050bb131ceb7",
       "naam": "Biedt farmaceutische patiëntenzorg",
       "studielast": {
@@ -887,10 +887,10 @@ Leerroute 1, waarden indicatief. De `studielast` telt bottom-up op binnen onderd
       }
     },
     {
-      "specificatieId": "aa0a8af1-d383-4981-8a0f-6ec2ba4e6283",
+      "id": "aa0a8af1-d383-4981-8a0f-6ec2ba4e6283",
       "specificatieType": "onderwijseenheidspecificatie",
       "versie": "0.1.0",
-      "bovenliggendId": "7ae25c1e-ee27-43a2-a001-761ee39ea5c7",
+      "bovenliggendSpecificatieId": "7ae25c1e-ee27-43a2-a001-761ee39ea5c7",
       "leeruitkomstId": "bedb4c31-b818-491c-8227-9b32146a3363",
       "naam": "Voert logistieke taken uit in de apotheek",
       "studielast": {
@@ -899,10 +899,10 @@ Leerroute 1, waarden indicatief. De `studielast` telt bottom-up op binnen onderd
       }
     },
     {
-      "specificatieId": "f686a286-d555-4eda-bd22-001c5b60e4dc",
+      "id": "f686a286-d555-4eda-bd22-001c5b60e4dc",
       "specificatieType": "onderwijseenheidspecificatie",
       "versie": "0.1.0",
-      "bovenliggendId": "7ae25c1e-ee27-43a2-a001-761ee39ea5c7",
+      "bovenliggendSpecificatieId": "7ae25c1e-ee27-43a2-a001-761ee39ea5c7",
       "leeruitkomstId": "8b085118-ff81-4639-9152-ed2e447db2db",
       "naam": "Werkt mee aan kwaliteit en deskundigheid",
       "studielast": {
@@ -911,10 +911,10 @@ Leerroute 1, waarden indicatief. De `studielast` telt bottom-up op binnen onderd
       }
     },
     {
-      "specificatieId": "327c8263-3516-4b5a-8d57-c16241ec008d",
+      "id": "327c8263-3516-4b5a-8d57-c16241ec008d",
       "specificatieType": "leeronderdeelspecificatie",
       "versie": "0.1.0",
-      "bovenliggendId": "402c2342-d897-4df4-a667-7fc5bd930944",
+      "bovenliggendSpecificatieId": "402c2342-d897-4df4-a667-7fc5bd930944",
       "leeruitkomstId": "78f25d62-9fd4-45c4-aa04-3d22f59213f5",
       "naam": "Neemt de zorg-/adviesvraag in behandeling",
       "tijdsverdeling": "BOT",
@@ -924,10 +924,10 @@ Leerroute 1, waarden indicatief. De `studielast` telt bottom-up op binnen onderd
       }
     },
     {
-      "specificatieId": "29522e42-fb32-46d2-a504-0869831f941f",
+      "id": "29522e42-fb32-46d2-a504-0869831f941f",
       "specificatieType": "leeronderdeelspecificatie",
       "versie": "0.1.0",
-      "bovenliggendId": "402c2342-d897-4df4-a667-7fc5bd930944",
+      "bovenliggendSpecificatieId": "402c2342-d897-4df4-a667-7fc5bd930944",
       "leeruitkomstId": "0ffa279f-c595-49d7-b033-c91f66d18bb1",
       "naam": "Voert medicatiebewaking uit",
       "tijdsverdeling": "BOT",
@@ -937,10 +937,10 @@ Leerroute 1, waarden indicatief. De `studielast` telt bottom-up op binnen onderd
       }
     },
     {
-      "specificatieId": "db4ae6c8-7dda-45ef-953e-a4e8bfc557f8",
+      "id": "db4ae6c8-7dda-45ef-953e-a4e8bfc557f8",
       "specificatieType": "leeronderdeelspecificatie",
       "versie": "0.1.0",
-      "bovenliggendId": "402c2342-d897-4df4-a667-7fc5bd930944",
+      "bovenliggendSpecificatieId": "402c2342-d897-4df4-a667-7fc5bd930944",
       "leeruitkomstId": "9d6a5081-9356-4058-8ac0-a4df8f8c60bd",
       "naam": "Verstrekt (zelfzorg)medicijnen en/of hulpmiddelen",
       "tijdsverdeling": "BOT",
@@ -950,10 +950,10 @@ Leerroute 1, waarden indicatief. De `studielast` telt bottom-up op binnen onderd
       }
     },
     {
-      "specificatieId": "2a4e31d4-2b27-401f-a28c-f152b0d502db",
+      "id": "2a4e31d4-2b27-401f-a28c-f152b0d502db",
       "specificatieType": "leeronderdeelspecificatie",
       "versie": "0.1.0",
-      "bovenliggendId": "402c2342-d897-4df4-a667-7fc5bd930944",
+      "bovenliggendSpecificatieId": "402c2342-d897-4df4-a667-7fc5bd930944",
       "leeruitkomstId": "71f42c36-dcfb-42ec-b492-8ed665639eda",
       "naam": "Geeft informatie en advies over medicijngebruik, gezondheid en leefstijl",
       "tijdsverdeling": "BOT",
@@ -963,10 +963,10 @@ Leerroute 1, waarden indicatief. De `studielast` telt bottom-up op binnen onderd
       }
     },
     {
-      "specificatieId": "c36d635f-7b1c-4459-a035-adfca96768da",
+      "id": "c36d635f-7b1c-4459-a035-adfca96768da",
       "specificatieType": "leeronderdeelspecificatie",
       "versie": "0.1.0",
-      "bovenliggendId": "aa0a8af1-d383-4981-8a0f-6ec2ba4e6283",
+      "bovenliggendSpecificatieId": "aa0a8af1-d383-4981-8a0f-6ec2ba4e6283",
       "leeruitkomstId": "1d5f3f8e-76d1-4bf1-bcf2-986a4a2fe7fd",
       "naam": "Maakt medicijnen klaar voor gebruik en/of aflevering",
       "tijdsverdeling": "BOT",
@@ -976,10 +976,10 @@ Leerroute 1, waarden indicatief. De `studielast` telt bottom-up op binnen onderd
       }
     },
     {
-      "specificatieId": "c5262133-0873-44a7-9b54-d15004c9d940",
+      "id": "c5262133-0873-44a7-9b54-d15004c9d940",
       "specificatieType": "leeronderdeelspecificatie",
       "versie": "0.1.0",
-      "bovenliggendId": "aa0a8af1-d383-4981-8a0f-6ec2ba4e6283",
+      "bovenliggendSpecificatieId": "aa0a8af1-d383-4981-8a0f-6ec2ba4e6283",
       "leeruitkomstId": "772c792b-f5ec-425f-9dd7-87d8fad4d2db",
       "naam": "Houdt de voorraad bij",
       "tijdsverdeling": "BOT",
@@ -989,10 +989,10 @@ Leerroute 1, waarden indicatief. De `studielast` telt bottom-up op binnen onderd
       }
     },
     {
-      "specificatieId": "f956bad0-f49c-4b5c-a040-c084229b23e0",
+      "id": "f956bad0-f49c-4b5c-a040-c084229b23e0",
       "specificatieType": "leeronderdeelspecificatie",
       "versie": "0.1.0",
-      "bovenliggendId": "f686a286-d555-4eda-bd22-001c5b60e4dc",
+      "bovenliggendSpecificatieId": "f686a286-d555-4eda-bd22-001c5b60e4dc",
       "leeruitkomstId": "d929b0df-9119-4b89-ada3-342ab6b9f937",
       "naam": "Draagt bij aan sociaal veilige werkomgeving",
       "tijdsverdeling": "BOT",
@@ -1002,10 +1002,10 @@ Leerroute 1, waarden indicatief. De `studielast` telt bottom-up op binnen onderd
       }
     },
     {
-      "specificatieId": "6d5b468e-ceac-47df-b221-d09dce4cce3c",
+      "id": "6d5b468e-ceac-47df-b221-d09dce4cce3c",
       "specificatieType": "leeronderdeelspecificatie",
       "versie": "0.1.0",
-      "bovenliggendId": "f686a286-d555-4eda-bd22-001c5b60e4dc",
+      "bovenliggendSpecificatieId": "f686a286-d555-4eda-bd22-001c5b60e4dc",
       "leeruitkomstId": "5cb6ce9c-82cc-4143-86bd-9f375b2901bc",
       "naam": "Evalueert de werkzaamheden en ontwikkelt zichzelf als professional",
       "tijdsverdeling": "BOT",
@@ -1015,10 +1015,10 @@ Leerroute 1, waarden indicatief. De `studielast` telt bottom-up op binnen onderd
       }
     },
     {
-      "specificatieId": "90245c2e-2f2d-4d58-b770-24427e717f97",
+      "id": "90245c2e-2f2d-4d58-b770-24427e717f97",
       "specificatieType": "leeronderdeelspecificatie",
       "versie": "0.1.0",
-      "bovenliggendId": "f686a286-d555-4eda-bd22-001c5b60e4dc",
+      "bovenliggendSpecificatieId": "f686a286-d555-4eda-bd22-001c5b60e4dc",
       "leeruitkomstId": "ac69e604-6192-4eaf-b786-ed2668dc0faf",
       "naam": "Stemt de farmaceutische zorgverlening af",
       "tijdsverdeling": "BOT",
@@ -1028,10 +1028,10 @@ Leerroute 1, waarden indicatief. De `studielast` telt bottom-up op binnen onderd
       }
     },
     {
-      "specificatieId": "fb5be5ae-faa0-4b4b-8085-474fce9aae08",
+      "id": "fb5be5ae-faa0-4b4b-8085-474fce9aae08",
       "specificatieType": "keuzedeelruimtespecificatie",
       "versie": "0.1.0",
-      "bovenliggendId": "7ae25c1e-ee27-43a2-a001-761ee39ea5c7",
+      "bovenliggendSpecificatieId": "7ae25c1e-ee27-43a2-a001-761ee39ea5c7",
       "naam": "Keuzedeelruimte",
       "omschrijving": "Ruimte binnen de kwalificatie die met keuzedelen wordt ingevuld.",
       "studielast": {
@@ -1060,10 +1060,10 @@ Leerroute 1, waarden indicatief. De `studielast` telt bottom-up op binnen onderd
       ]
     },
     {
-      "specificatieId": "6a5ec549-da21-4034-b0cd-a709731de2eb",
+      "id": "6a5ec549-da21-4034-b0cd-a709731de2eb",
       "specificatieType": "opleidingsprogrammaspecificatie",
       "versie": "0.1.0",
-      "bovenliggendId": null,
+      "bovenliggendSpecificatieId": null,
       "leeruitkomstId": "4dca5ee6-ea76-4cc2-ac34-bbd466d7b6d3",
       "naam": "Keuzedeel Ondernemerschap",
       "programmatype": "keuzedeelprogramma",
@@ -1074,10 +1074,10 @@ Leerroute 1, waarden indicatief. De `studielast` telt bottom-up op binnen onderd
       }
     },
     {
-      "specificatieId": "7d4d9a10-bb71-4d05-9b30-0b79d7144be1",
+      "id": "7d4d9a10-bb71-4d05-9b30-0b79d7144be1",
       "specificatieType": "onderwijseenheidspecificatie",
       "versie": "0.1.0",
-      "bovenliggendId": "6a5ec549-da21-4034-b0cd-a709731de2eb",
+      "bovenliggendSpecificatieId": "6a5ec549-da21-4034-b0cd-a709731de2eb",
       "leeruitkomstId": "235745ac-bf0f-4a94-b966-aa4ebbfcdabb",
       "naam": "Zet een onderneming op in de zorg (indicatief)",
       "studielast": {
@@ -1086,10 +1086,10 @@ Leerroute 1, waarden indicatief. De `studielast` telt bottom-up op binnen onderd
       }
     },
     {
-      "specificatieId": "b4ec6046-fae8-442e-91df-163c5e9e72f2",
+      "id": "b4ec6046-fae8-442e-91df-163c5e9e72f2",
       "specificatieType": "leeronderdeelspecificatie",
       "versie": "0.1.0",
-      "bovenliggendId": "7d4d9a10-bb71-4d05-9b30-0b79d7144be1",
+      "bovenliggendSpecificatieId": "7d4d9a10-bb71-4d05-9b30-0b79d7144be1",
       "leeruitkomstId": "bfcef8b4-49e6-4ba4-87a5-36389838969b",
       "naam": "Stelt een ondernemingsplan op (indicatief)",
       "tijdsverdeling": "BOT",
@@ -1099,10 +1099,10 @@ Leerroute 1, waarden indicatief. De `studielast` telt bottom-up op binnen onderd
       }
     },
     {
-      "specificatieId": "ecf4a1ce-8fe4-4ed2-82d4-6c743862094e",
+      "id": "ecf4a1ce-8fe4-4ed2-82d4-6c743862094e",
       "specificatieType": "opleidingsprogrammaspecificatie",
       "versie": "0.1.0",
-      "bovenliggendId": null,
+      "bovenliggendSpecificatieId": null,
       "leeruitkomstId": "a12bbc9c-ce75-41df-837b-489f46df500d",
       "naam": "Keuzedeel Ruimtelijk inzicht (illustratief)",
       "programmatype": "keuzedeelprogramma",
@@ -1113,10 +1113,10 @@ Leerroute 1, waarden indicatief. De `studielast` telt bottom-up op binnen onderd
       }
     },
     {
-      "specificatieId": "20f1099a-949f-40b8-b893-1aa5bfea3f4c",
+      "id": "20f1099a-949f-40b8-b893-1aa5bfea3f4c",
       "specificatieType": "onderwijseenheidspecificatie",
       "versie": "0.1.0",
-      "bovenliggendId": "ecf4a1ce-8fe4-4ed2-82d4-6c743862094e",
+      "bovenliggendSpecificatieId": "ecf4a1ce-8fe4-4ed2-82d4-6c743862094e",
       "leeruitkomstId": "3f9dea35-395d-4a4b-8474-64f0d45d19dd",
       "naam": "Past ruimtelijk inzicht toe (illustratief)",
       "studielast": {
@@ -1125,10 +1125,10 @@ Leerroute 1, waarden indicatief. De `studielast` telt bottom-up op binnen onderd
       }
     },
     {
-      "specificatieId": "9e74eb44-1155-4882-8eb4-24e58a9146b2",
+      "id": "9e74eb44-1155-4882-8eb4-24e58a9146b2",
       "specificatieType": "leeronderdeelspecificatie",
       "versie": "0.1.0",
-      "bovenliggendId": "20f1099a-949f-40b8-b893-1aa5bfea3f4c",
+      "bovenliggendSpecificatieId": "20f1099a-949f-40b8-b893-1aa5bfea3f4c",
       "leeruitkomstId": "92476363-cd8e-4b3c-aeea-b70add98786f",
       "naam": "Interpreteert ruimtelijke figuren (illustratief)",
       "tijdsverdeling": "BOT",
@@ -1138,10 +1138,10 @@ Leerroute 1, waarden indicatief. De `studielast` telt bottom-up op binnen onderd
       }
     },
     {
-      "specificatieId": "65342d39-7716-4d33-a5cd-a255cc1a2feb",
+      "id": "65342d39-7716-4d33-a5cd-a255cc1a2feb",
       "specificatieType": "opleidingsprogrammaspecificatie",
       "versie": "0.1.0",
-      "bovenliggendId": null,
+      "bovenliggendSpecificatieId": null,
       "leeruitkomstId": "0d83e73a-e0d8-47de-8b83-983d2b8226e8",
       "naam": "Keuzedeel Wiskunde 1 (illustratief)",
       "programmatype": "keuzedeelprogramma",
@@ -1152,10 +1152,10 @@ Leerroute 1, waarden indicatief. De `studielast` telt bottom-up op binnen onderd
       }
     },
     {
-      "specificatieId": "729972d9-b83a-418f-91ec-10db1ecb56da",
+      "id": "729972d9-b83a-418f-91ec-10db1ecb56da",
       "specificatieType": "onderwijseenheidspecificatie",
       "versie": "0.1.0",
-      "bovenliggendId": "65342d39-7716-4d33-a5cd-a255cc1a2feb",
+      "bovenliggendSpecificatieId": "65342d39-7716-4d33-a5cd-a255cc1a2feb",
       "leeruitkomstId": "c980007d-93db-40c9-bd8e-405293f1b20f",
       "naam": "Beheerst basale wiskunde (illustratief)",
       "studielast": {
@@ -1164,10 +1164,10 @@ Leerroute 1, waarden indicatief. De `studielast` telt bottom-up op binnen onderd
       }
     },
     {
-      "specificatieId": "6952e0af-eca5-422e-aa6a-69cfd38f97c9",
+      "id": "6952e0af-eca5-422e-aa6a-69cfd38f97c9",
       "specificatieType": "leeronderdeelspecificatie",
       "versie": "0.1.0",
-      "bovenliggendId": "729972d9-b83a-418f-91ec-10db1ecb56da",
+      "bovenliggendSpecificatieId": "729972d9-b83a-418f-91ec-10db1ecb56da",
       "leeruitkomstId": "d44a185e-1348-4ed7-92a4-f0cb898dd85b",
       "naam": "Rekent met verhoudingen en formules (illustratief)",
       "tijdsverdeling": "BOT",
@@ -1179,7 +1179,7 @@ Leerroute 1, waarden indicatief. De `studielast` telt bottom-up op binnen onderd
   ],
   "regelsets": [
     {
-      "regelsetId": "e4037953-17d6-40a4-9e59-92ec1f9c19a8",
+      "id": "e4037953-17d6-40a4-9e59-92ec1f9c19a8",
       "versie": "0.1.0",
       "naam": "Kiesbare keuzedelen voor Apothekersassistent (LR1)",
       "omschrijving": "Bepaalt welke keuzedelen in de keuzedeelruimte kiesbaar zijn. Deelname-voorwaarden zijn uitgedrukt in behaalde leeruitkomsten ([ADR 0022](../../../../dr/0022-resultaatbegrippen-conform-rosa-koi.md)). Regelstructuur wordt uitgewerkt in #84 en #120; onderstaande regels zijn indicatief.",
@@ -1218,28 +1218,28 @@ De voorwaarde vooraf (Ruimtelijk inzicht vereist Wiskunde 1) staat in de regelse
 | ------------------------------------ | -------------------------------------------- | ------------------------------------------------------------------------------------------------ | -------------------------------- |
 | A. Pure nesting                      | children-arrays, alles inline                | Simpel                                                                                           | Hergebruik wordt gedupliceerd    |
 | B. Nesting + referenties             | genest, hergebruik via uuid                  | Minder duplicatie                                                                                | Twee relatievormen door elkaar   |
-| C. Recursief plat met bovenliggendId | uniforme lijst, relatie via `bovenliggendId` | Elk object gelijk, generiek, herbruikbaar, uitlijnbaar met OEAPI `EducationSpecification.parent` | Structuur minder direct leesbaar |
+| C. Recursief plat met een ouder-verwijzing | uniforme lijst, relatie via `bovenliggendSpecificatieId` | Elk object gelijk, generiek, herbruikbaar, uitlijnbaar met OEAPI `EducationSpecification.parent` | Structuur minder direct leesbaar |
 
 
 Voorstel: optie C.
 
 ### 3.2 Ontwerpkeuzes
 
-- Eén uniform type. Alle specificaties staan in een platte lijst `onderwijsspecificaties`. Elke specificatie heeft een `bovenliggendId` (uuid; `null` op de root). De structuur reconstrueer je door `bovenliggendId` te volgen; een geneste weergave is daaruit af te leiden.
+- Eén uniform type. Alle specificaties staan in een platte lijst `onderwijsspecificaties`. Elke specificatie heeft een `bovenliggendSpecificatieId` (uuid; `null` op de root). De structuur reconstrueer je door die verwijzing te volgen; een geneste weergave is daaruit af te leiden.
 - Discriminator `specificatieType` bepaalt het niveau.
 - **Leeruitkomst als zelfstandig object met eigen lifecycle.** Leeruitkomsten staan in een eigen platte lijst `leeruitkomsten`, elk met een eigen `leeruitkomstId` (uuid) en `versie`. Elke specificatie verwijst met `leeruitkomstId`: de leeruitkomst is de **sleutel** die aangeeft wat je precies afrondt en hoe dat zich verhoudt tot diploma, certificaat of ander waardedocument ([ADR 0022](../../../../dr/0022-resultaatbegrippen-conform-rosa-koi.md)). De huidige onderwijsvorm hangt eraan via `bron` (standaard `sbb-kwalificatiekader`, met type en code); later hangt hier de nationale standaard aan, bijvoorbeeld CompetentNL, zonder dat de sleutel of de specificaties wijzigen (ADR 0003, 0004).
 - **Leeruitkomsten op elk niveau, met een eigen orde van grootte.** Een leeruitkomst bestaat op elk specificatieniveau: op opleidingsniveau is hij van grote orde (jaren werk, een NLQF-kwalificatie, leidend tot een diploma), op onderwijseenheid- en leeronderdeelniveau van kleinere orde (een deelverzameling kan tot een certificaat leiden), en straks op lessenreeks- of lesniveau (aangetoonde kennis, inzichten of vaardigheden). Leeruitkomsten aggregeren onderling via `bovenliggendLeeruitkomstId`: bottom-up telt klein op naar groot, top-down is een grote leeruitkomst te ontleden. Zo is van de grond af zichtbaar welke volgende onderwijsspecificaties je verder brengen richting een waardepapier of microcredential (`waardedocument`). Elke leeruitkomst draagt een `indicatieveOmvang` (kwantificatie in SBU en/of EC naast elkaar, voor aansluiting met HBO en WO; ADR 0004): de logistieke containergrootte van wat je behaalt. Daarnaast kent de leeruitkomst **optionele inhoudsvelden** (`omschrijving`, `resultaat`, `gedrag`, uit het kwalificatiedossier): meegeleverd waar het gebruiksprofiel dat vraagt (OC-LMS wel, OC-P&R niet). Voorbeeld: werkproces B1-K1-W1 in de payload.
-- Id's zijn UUID's.
+- **Sleutels en verwijzingen.** Het eigen sleutelveld van een object heet `id`; zodra een veld naar een ander object wijst, draagt het een expliciete naam die zegt waarheen (`bovenliggendSpecificatieId`, `leeruitkomstId`, `regelsetVerwijzingen`, `manifest[].specificatieId`). Een kaal `bovenliggendId` zou context-gevoelig zijn: binnen de ene array betekent het iets anders dan binnen de andere. Alle id's zijn uuid's. Dit wijkt bewust af van de Open Onderwijs API, die getypeerde sleutels hanteert zoals `educationSpecificationId`; deze payload is Nederlandstalig en indicatief, dus die afwijking bestond al. Signalering voor de latere binding.
 - Versionering per specificatie met semver (`MAJOR.MINOR.PATCH`). MAJOR = wijziging die betekenis of uitkomst raakt (leeruitkomsten, structuur, studielast), MINOR = additief zonder bestaande betekenis te breken, PATCH = correctie. Temporele geldigheid apart via `geldigVanaf`/`geldigTot` en cohort, niet als versienummer.
 - Identiteit los van versie (uitgangspunt, memo PR #110). `specificatieId` is stabiel; `versie` verandert bij een wijziging binnen dezelfde identiteit. Een fundamentele wijziging (nieuw kwalificatiedossier, nieuwe wettelijke eisen) is een nieuwe specificatie met een nieuw id, niet alleen een MAJOR-bump.
 - Kwalificatie op programma-niveau, dossier op opleiding-niveau (zie de conceptniveaus in §1.1).
 - `programmaLaag` onderscheidt leerweg- en doelgroep-programma. Beide zijn `programma`.
-- `bovenliggendId` draagt twee betekenissen: onderdeel-van (additief, bv. kerntaak onder programma) en variant-van (alternatief, bv. doelgroep onder leerweg). De aggregatie-invariant geldt alleen voor onderdeel-van.
+- `bovenliggendSpecificatieId` draagt twee betekenissen: onderdeel-van (additief, bv. kerntaak onder programma) en variant-van (alternatief, bv. doelgroep onder leerweg). De aggregatie-invariant geldt alleen voor onderdeel-van.
 - Niveau, leeruitkomsten en leerroute zijn afleidbaar uit de structuur, niet als losse specificatie-velden. Het NLQF-niveau hangt aan de leeruitkomst. Wie een bepaalde set kerntaken en werkprocessen heeft afgerond, voldoet aan de kwalificatie. Leerroute-typen zijn indicatief voor wat mogelijk wordt en horen niet in het datamodel. Leeruitkomsten worden naar verwachting later flexibeler (ADR 0003, 0004).
 - Keuzeruimte is een eigen specificatie (`keuzedeelruimte`) met studielast, herbruikbaar.
 - Regels los van de onderwijsspecificatie. `regelsetVerwijzingen` op een specificatie verwijst naar losse `regelsets`. De regelset draagt de kiesbaarheid (welke keuzedelen) en de voorwaarde vooraf (prerequisite), uitgedrukt in **behaalde leeruitkomsten** in plaats van afgeronde specificaties: je moet bepaalde leeruitkomsten behaald hebben om deel te nemen ([ADR 0022](../../../../dr/0022-resultaatbegrippen-conform-rosa-koi.md)). Interne structuur van de regelset: #84 en #120.
 - Elke specificatie kan `regelsetVerwijzingen` hebben (generiek), niet alleen de keuzeruimte.
-- Keuzedelen zijn zelfstandige programma-specificaties (`parent: null`), zelf opgebouwd als programma naar onderwijseenheid naar leeronderdeel. Herbruikbaar over opleidingen (N:M via ruleset-referenties).
+- Keuzedelen zijn zelfstandige programma-specificaties (zonder ouder-verwijzing), zelf opgebouwd als programma naar onderwijseenheid naar leeronderdeel. Herbruikbaar over opleidingen (N:M via ruleset-referenties).
 - Aggregatie-invariant: `studielast` telt bottom-up op binnen onderdeel-van (SOM children = ouder). Niet over varianten (leerweg, doelgroep).
 
 
@@ -1278,7 +1278,7 @@ B blijft in beide gevallen `1.2`. Dezelfde afweging geldt een niveau hoger richt
 
 ```json
 {
-  "specificatieId": "7ae25c1e-ee27-43a2-a001-761ee39ea5c7",
+  "id": "7ae25c1e-ee27-43a2-a001-761ee39ea5c7",
   "specificatieType": "opleidingsprogrammaspecificatie",
   "versie": "0.1.0",
   "manifest": [
@@ -1294,8 +1294,8 @@ In §2.2 staat het manifest uitgewerkt op drie niveaus: de `opleidingsspecificat
 
 - OEAPI-binding van `specificatieType`. De OEAPI-enum (program, cluster, course) mapt niet 1:1 op onze conceptniveaus. Binding vaststellen in de gegevensanalyse. Signalering; geen OEAPI-kernwijziging.
 - Interne structuur van de ruleset (regeltypes, parameters, evaluatie). Wordt uitgewerkt in #84 en #120. Hier alleen de referentie (`regelsetVerwijzingen`) en indicatieve regels.
-- Parent versus children. Gekozen: `bovenliggendId` (recursief, plat). Een geneste weergave is afleidbaar. Te bevestigen.
-- Dubbele betekenis van `bovenliggendId`: onderdeel-van versus variant-van. Overwegen dit expliciet te maken (bv. veld `parentRelatie`).
+- Ouder-verwijzing versus geneste kinderen. Gekozen: `bovenliggendSpecificatieId` (recursief, plat). Een geneste weergave is afleidbaar. Te bevestigen.
+- Dubbele betekenis van `bovenliggendSpecificatieId`: onderdeel-van versus variant-van. Overwegen dit expliciet te maken met een apart veld voor de relatiesoort.
 - Hergebruik van kwalificatie-inhoud over doelgroep-varianten. Nu hangt de inhoud onder één doelgroep (Regulier BOL); de andere varianten zijn leeg. Bepalen: inhoud herhalen of refereren.
 - `startdatum` en `cohort` raken het cohort- en planbaar-stadium, niet de pure specificatie. Plaatsing te bevestigen.
 - Lifecycle en versionering (apart voorstel, zie Gerelateerde uitwerkingen). De `opleidingsspecificatie` heeft een eigen versie die tevens als manifest de versies van onderliggende onderdelen vastpint (bv. opleiding 2.1 pint onderwijseenheid A 1.1 en B 1.2). Een MAJOR-bump van een onderdeel propageert niet automatisch naar de opleiding; alleen als de afhankelijkheid breekt (leeruitkomsten, weging, diploma-eligibility).
