@@ -3,3 +3,7 @@
 # zodat het team dezelfde set krijgt na een rebuild.
 
 Pillow>=10.0
+
+# Validatie van de voorbeeld-payloads tegen hun JSON Schema (scripts/json-tree.py).
+# Ontbreekt het pakket, dan slaat het script alleen de validatiestap over.
+jsonschema>=4.0
