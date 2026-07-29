@@ -22,7 +22,7 @@ Kernbegrippen die in elk document terugkomen:
 - **Koppeling versus koppelvlak** ([ADR 0021](../../../dr/0021-koppeling-versus-koppelvlak-terminologie.md)): een koppeling is de informatiestroom tussen twee componenten; het koppelvlak van een component is de verzameling van al zijn koppelingen.
 - **Ankertabel, zes begrippenfamilies**: kader, beoogde leeruitkomst, specificatie, aanbod, verbintenis, resultaat. De leeruitkomst is de sleutel; onderwijsresultaten hangen aan leeruitkomsten. Bron: [consumer-profiel](../../../docs/specificatie/okx-oeapi-consumer-profiel/README.md), §3.2.6.
 - **Notify-then-pull** ([ADR 0020](../../../dr/0020-curriculumontwerp-onderwijscatalogus-happy-flow-synchronisatie-en-federatie-adopt-klonen.md)): de bezitter van een resource meldt een dun event met een referentie; de consument haalt de resource op wanneer die hem nodig heeft.
-- **Scenario LR1-3 met persona's**: de documenten werken leerroute 1 (regulier) uit aan de hand van persona [Jochem](../../../docs/specificatie/okx-oeapi-consumer-profiel/doc/persona_jochem.md) (opleiding Apothekersassistent); LR2 en LR3 volgen als delta. Volledige leerroutes en persona's: [consumer-profiel](../../../docs/specificatie/okx-oeapi-consumer-profiel/README.md).
+- **Scenario's met persona's**: de documenten werken leerroute 1 (regulier) uit aan de hand van persona [Jochem](../../../docs/specificatie/okx-oeapi-consumer-profiel/doc/persona_jochem.md) (opleiding Apothekersassistent); leerroute 2 en 3 volgen als verschil. Volledige leerroutes en persona's: [consumer-profiel](../../../docs/specificatie/okx-oeapi-consumer-profiel/README.md).
 
 ### Van koppelingbeschrijving naar koppelvlakspecificatie (doelbinding)
 
@@ -32,12 +32,12 @@ De som van de koppelingbeschrijvingen leidt tot de **koppelvlakspecificatie** pe
 
 ```mermaid
 flowchart LR
-    S["Scenario's LR1-3<br/>(persona's)"] --> KB["Koppelingbeschrijvingen<br/>OC-P&R, OC-LMS, OC-SIS, ..."]
+    S["Scenario's leerroute 1-3<br/>(persona's)"] --> KB["Koppelingbeschrijvingen<br/>OC-P&R, OC-LMS, OC-SIS, ..."]
     N["Nieuwe behoeften<br/>(voorbeeld: SKS vraagt nog niet<br/>bestaande specificatie aan)"] --> KB
     KB --> KV["Koppelvlakspecificatie per component<br/>endpoints en operaties, onderbouwd"]
 ```
 
-De beschreven koppelingen zijn **niet uitputtend**. Nieuwe functionaliteit kan operaties vragen die niet uit de LR1-3-interacties naar voren komen. Voorbeeld: een studentkeuzesysteem (SKS) dat namens een student een nog niet bestaand stuk onderwijs wil aanvragen, als verzoek op het specificaties-endpoint van OC. Zo'n behoefte komt binnen als nieuw scenario met een eigen koppelingbeschrijving en onderbouwt zo een nieuwe operatie op het koppelvlak; het koppelvlak houdt die ruimte. Doelbinding vastgelegd naar aanleiding van het reviewgesprek bij PR #121.
+De beschreven koppelingen zijn **niet uitputtend**. Nieuwe functionaliteit kan operaties vragen die niet uit de interacties van leerroute 1 tot en met 3 naar voren komen. Voorbeeld: een studentkeuzesysteem (SKS) dat namens een student een nog niet bestaand stuk onderwijs wil aanvragen, als verzoek op het specificaties-endpoint van OC. Zo'n behoefte komt binnen als nieuw scenario met een eigen koppelingbeschrijving en onderbouwt zo een nieuwe operatie op het koppelvlak; het koppelvlak houdt die ruimte. Doelbinding vastgelegd naar aanleiding van het reviewgesprek bij PR #121.
 
 Leesvolgorde: eerst deze instap, dan `gedeeld/` (de centrale onderwijsspecificatie-payload en de lifecycle-uitwerking), dan de koppeling van je interesse.
 
@@ -72,13 +72,13 @@ python3 scripts/json-tree.py --check <document>.md   # faalt bij drift, dode ver
 python3 scripts/json-tree.py --write <document>.md   # bomen bijwerken
 ```
 
-| Map | Koppeling | Status | Inhoud |
+| Map | Koppeling | Inhoud | Herkomst |
 |---|---|---|---|
-| [`gedeeld/`](gedeeld/) | (alle koppelingen) | Richtinggevend | Centrale onderwijsspecificatie-payload en lifecycle-uitwerking |
-| [`oc-p-en-r/`](oc-p-en-r/) | OC naar Planning en Roostering | Alpha, voor stakeholder-review | Koppelingspecificatie, onderwijsaanbod-payload |
-| [`oc-sis-krs-svs/`](oc-sis-krs-svs/) | OC naar SIS (KRS/SVS) | Concept, afgeleid, ter review | Koppelingspecificatie, resultaatstructuur/examenplan |
-| [`oc-lms/`](oc-lms/) | OC naar LMS | Concept, afgeleid, ter review | Koppelingspecificatie; leermiddelkoppeling-payload volgt |
+| [`gedeeld/`](gedeeld/) | alle koppelingen | Centrale onderwijsspecificatie-payload en lifecycle-uitwerking | Uitgewerkt vanuit de koppeling met planning |
+| [`oc-p-en-r/`](oc-p-en-r/) | Onderwijscatalogus naar planning en roostering | Koppelingspecificatie, onderwijsaanbod-payload | Werksessie en schets bij issue #98 |
+| [`oc-sis-krs-svs/`](oc-sis-krs-svs/) | Onderwijscatalogus naar studentinformatiesysteem | Koppelingspecificatie, resultaatstructuur en examenplan | Afgeleid van het patroon met planning; werksessie volgt |
+| [`oc-lms/`](oc-lms/) | Onderwijscatalogus naar leermanagementsysteem | Koppelingspecificatie; leermiddelkoppeling-payload volgt | Afgeleid van het patroon met planning; werksessie volgt |
 
 Gedeelde payload-specificaties staan **éénmaal centraal** in `gedeeld/` (ADR 0021). Elke koppelingspecificatie definieert een **gebruiksprofiel**: welke objecten en velden van de centrale payload die koppeling gebruikt. Voorbeeld: OC-SIS gebruikt de volledige leeruitkomst-laag, OC-P&R alleen leeruitkomst-ids als opaque sleutels (ADR 0023), OC-LMS de leeruitkomst-inhoudsvelden. Koppeling-specifieke payloads staan in de koppeling-map.
 
-Scenario: LR1 (LR2 en LR3 als delta). Leidende prioriteringsvraag (onderwijsvoorbereiding): wat moeten OC-P&R, OC-LMS en OC-SIS uitgewisseld hebben om klaar te zijn voor de start van de student? Geen frontmatter in de documenten: auteurschap en datums via de git-historie, koppeling via issues en PR's (zie `../../README.md`).
+Scenario: leerroute 1, met leerroute 2 en 3 als verschil. Leidende prioriteringsvraag (onderwijsvoorbereiding): wat moeten OC-P&R, OC-LMS en OC-SIS uitgewisseld hebben om klaar te zijn voor de start van de student? Geen frontmatter in de documenten: auteurschap en datums via de git-historie, koppeling via issues en PR's (zie `../../README.md`).
