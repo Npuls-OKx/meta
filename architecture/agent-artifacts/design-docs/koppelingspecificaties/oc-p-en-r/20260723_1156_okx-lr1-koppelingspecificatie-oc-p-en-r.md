@@ -77,6 +77,11 @@ Wat het diagram niet toont: het planningssysteem bouwt de planning **asynchroon*
 ## 3. Interactieoverzicht
 
 De interacties op deze koppeling, met per interactie het messaging-patroon. Betrouwbaarheidseisen volgen [ADR 0018](../../../../dr/0018-enterprise-messaging-patronen-voor-betrouwbare-koppelvlakken.md). De events zijn dunne notificaties ([Event Message](https://www.enterpriseintegrationpatterns.com/patterns/messaging/EventMessage.html)): ze dragen de aanleiding (id en versie), niet de inhoud.
+**Bericht versus kanaal.** Wat hier wordt vastgelegd is het **bericht**: wat erin staat, wanneer het wordt verstuurd, hoe een ontvanger een herhaling herkent en in welke volgorde berichten over dezelfde sleutel aankomen. Hoe dat bericht bij de ontvanger komt, het **kanaal**, is een inrichtingskeuze van instelling en leverancier: een webhook, een bus, een broker of een cloud-pubsubdienst. OKx schrijft dat product niet voor.
+
+Het kanaal is daarmee niet volledig vrij. [ADR 0018](../../../../dr/0018-enterprise-messaging-patronen-voor-betrouwbare-koppelvlakken.md) is technologie-agnostisch maar niet vrijblijvend: welk kanaal je ook kiest, het moet aantoonbaar vier eigenschappen leveren, namelijk gegarandeerde aflevering, idempotente verwerking, een dead-letterpad en behoud van volgorde per sleutel. Die laatste is de scherpste: veel cloud-pubsubdiensten garanderen volgorde niet standaard en vragen daar expliciete configuratie voor. Twee implementaties die allebei "een message gooien" maar de volgorde per `specificatieId` niet bewaken, leveren nog steeds verschillende uitkomsten op.
+
+Open punt: welk afleveringsmechanisme partijen onderling kiezen is nu niet belegd. Twee systemen die beide aan het bericht voldoen maar het ene een webhook aanbiedt en het andere op een eigen broker publiceert, kunnen zonder afspraak of adapter alsnog niet koppelen. Dat is een vraag voor het koppelvlak, niet voor deze koppeling.
 
 | # | Interactie | Initiator | Patroon | Synchroniciteit | Gedrag bij dubbele ontvangst | Foutafhandeling |
 |---|---|---|---|---|---|---|
@@ -280,7 +285,7 @@ De payload van de aanbod-instantie is een eigen document: [onderwijsaanbod-paylo
 
 ## 7. Endpointbeschrijvingen (REST)
 
-Endpointset als opstap naar de interfacespecificatie, de zesde AMIGO-stap. Paden en parameters zijn indicatief; een uitgewerkte OpenAPI-beschrijving volgt later. De events (I1, I3, I4) staan hier beschreven als webhook-aflevering, dus een HTTP POST naar de abonnee. Een bus of broker mag dat vervangen; de payload blijft gelijk.
+Endpointset als opstap naar de interfacespecificatie, de zesde AMIGO-stap. Paden en parameters zijn indicatief; een uitgewerkte OpenAPI-beschrijving volgt later. De events (I1, I3, I4) staan hier uitgewerkt als webhook-aflevering, dus een HTTP POST naar de abonnee. Dat is een voorbeeld van een kanaal, geen voorschrift: een bus, broker of cloud-pubsubdienst mag het vervangen zolang die de vier eigenschappen uit §3 levert. Het bericht blijft in alle gevallen gelijk.
 
 Endpoints die **OC** serveert:
 
