@@ -24,14 +24,16 @@ Zet die binding in elk document in §1.2, zodat een lezer niet denkt dat we kopp
 
 1. Inleiding (1.1 Context, 1.2 Doel, 1.3 Scope)
 2. Procesbeeld
-3. Interacties
+3. Interactieoverzicht
 4. Informatiemodel
 5. Sequentiediagrammen
-6. Payload en gebruiksprofiel
-7. Endpoints
+6. Payload-specificaties (verwijzing) en gebruiksprofiel
+7. Endpointbeschrijvingen (REST)
 8. Reviewvragen
 9. Open punten
-10. Gerelateerd
+10. Gerelateerde uitwerkingen
+
+Alle drie de koppelingspecificaties volgen deze nummering, ook wanneer een sectie nog leeg is. Zijn de endpoints nog niet uitgewerkt, zet dan onder §7 waarom niet en wanneer wel, in plaats van de sectie weg te laten. Dan blijft een verwijzing als "§7" over de documenten heen kloppen.
 
 ## Opbouw payload-specificatie
 
@@ -42,8 +44,8 @@ De kern staat voorin. Een lezer heeft de payload binnen twee schermen.
    - 2.1 De vorm: informatiemodel (ERD), JSON Schema, schemaboom
    - 2.2 Het voorbeeld: payload (JSON) en instantieboom
 3. Toelichting bij de keuzes (ontwerpkeuzes, deelmodellen, achtergrond)
-4. Open punten
-5. Gerelateerd
+4. Open punten, als tabel met per vraag een vervolgstap
+5. Gerelateerde uitwerkingen, alleen echte verwijzingen
 
 ## De inleiding
 

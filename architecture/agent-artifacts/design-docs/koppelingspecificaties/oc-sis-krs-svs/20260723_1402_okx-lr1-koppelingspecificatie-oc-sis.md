@@ -10,17 +10,18 @@ Relateert aan: #98, #119, #105, #110. Terminologie: [ADR 0021](../../../../dr/00
 4. [Informatiemodel](#4-informatiemodel)
 5. [Sequentiediagrammen](#5-sequentiediagrammen)
 6. [Payload-specificaties (verwijzing) en gebruiksprofiel](#6-payload-specificaties-verwijzing-en-gebruiksprofiel)
-7. [Reviewvragen](#7-reviewvragen)
-8. [Open vragen en signaleringen](#8-open-vragen-en-signaleringen)
-9. [Gerelateerde uitwerkingen](#9-gerelateerde-uitwerkingen)
+7. [Endpointbeschrijvingen (REST)](#7-endpointbeschrijvingen-rest)
+8. [Reviewvragen](#8-reviewvragen)
+9. [Open punten](#9-open-punten)
+10. [Gerelateerde uitwerkingen](#10-gerelateerde-uitwerkingen)
 
 ## 1. Inleiding
 
 ### 1.1 Context
 
-Waar deze koppeling in de keten zit: de onderwijscatalogus (OC) levert de gepubliceerde structuur aan het studentinformatiesysteem (SIS, de combinatie kernregistratie KRS en studentvolgsysteem SVS). Het gaat om de stroom OC naar SVS: nominale leerroute (detail), keuzeaanbod (detail) en resultaatstructuren (stroom 3, prioriteit 2), plus het actualiseren van resultaatstructuren op basis van keuzes (stroom 9). Stroomnummers volgen de interpretatietabel in het [Projectoverzicht](../../../../../doc/OKx_Projectoverzicht.md); het ketenoverzicht en de actuele [hoofdplaat v1.7](../README.md#context) staan in de instap van de README.
+Waar deze koppeling in de keten zit: de onderwijscatalogus (OC) levert de gepubliceerde structuur aan het studentinformatiesysteem (SIS, de combinatie kernregistratie KRS en studentvolgsysteem SVS). Het gaat om de stroom OC naar SVS: nominale leerroute (detail), keuzeaanbod (detail) en resultaatstructuren (stroom 3, prioriteit 2). Stroomnummers volgen de interpretatietabel in het [Projectoverzicht](../../../../../doc/OKx_Projectoverzicht.md); het ketenoverzicht en de actuele [hoofdplaat v1.7](../README.md#context) staan in de instap van de README.
 
-Scenario is leerroute 1 (regulier), persona [Jochem](../../../../docs/specificatie/okx-oeapi-consumer-profiel/doc/persona_jochem.md), opleiding Apothekersassistent (Crebo-dossier 23450, kwalificatie 27141): de student volgt het nominale programma en het SIS registreert zijn verbintenis, voortgang en resultaten. Leerroute 2 en 3 volgen als verschil. Begrippenkader (ankertabel, zes families; de leeruitkomst is de sleutel voor de resultaatstructuur) en de volledige leerroutes: het [OEAPI consumer-profiel](../../../../docs/specificatie/okx-oeapi-consumer-profiel/README.md). Dat profiel gebruikt nog een oudere hoofdplaat; leidend is v1.7.
+Scenario is leerroute 1 (regulier), persona [Jochem](../../../../docs/specificatie/okx-oeapi-consumer-profiel/doc/persona_jochem.md), opleiding Apothekersassistent (SBB-kwalificatiedossier 23450, kwalificatie 27141): de student volgt het nominale programma en het SIS registreert zijn verbintenis, voortgang en resultaten. Leerroute 2 en 3 volgen als verschil. Begrippenkader (ankertabel, zes families; de leeruitkomst is de sleutel voor de resultaatstructuur) en de volledige leerroutes: het [OEAPI consumer-profiel](../../../../docs/specificatie/okx-oeapi-consumer-profiel/README.md). Dat profiel gebruikt nog een oudere hoofdplaat; leidend is v1.7.
 
 Rolverdeling ([ADR 0009](../../../../dr/0009-sks-svs-rollenverdeling-keuze-vs-resultaat-voortgang.md), [ADR 0014](../../../../dr/0014-splitsing-inschrijving-rodkrs-en-studentkeuze-sks.md)): het SIS registreert de verbintenis (op aanbod), de individuele structuur, voortgang en onderwijsresultaten. De onderwijskundige keuze leeft bij het studentkeuzesysteem (SKS, aparte koppeling, buiten scope). OC bezit de onderwijsspecificaties en de resultaatstructuren (`examenplanspecificatie`). Deze koppelingspecificatie is afgeleid (geen werksessie) en volgt het patroon van de [koppeling OC-P&R](../oc-p-en-r/20260723_1156_okx-lr1-koppelingspecificatie-oc-p-en-r.md): resource-eigenaarschap, referenties en dunne events.
 
@@ -85,7 +86,7 @@ Conform het ROSA Kernmodel Onderwijsinformatie (KOI) en [ADR 0022](../../../../d
 ```mermaid
 erDiagram
     ONDERWIJSSPECIFICATIE ||--o{ ONDERWIJSSPECIFICATIE : "bestaat uit"
-    ONDERWIJSSPECIFICATIE }o--o{ LEERUITKOMST : "dekt"
+    ONDERWIJSSPECIFICATIE }o--o{ LEERUITKOMST : "verankert op"
     NOMINAAL_EXAMENPLAN }o--|| ONDERWIJSSPECIFICATIE : "geldt voor"
     NOMINAAL_EXAMENPLAN ||--o{ TOETSONDERDEEL : "weegt"
     KEUZEDEEL ||--o| KEUZEDEEL_EXAMENPLANDEEL : "kent eigen"
@@ -101,6 +102,8 @@ erDiagram
     ONDERWIJSRESULTAAT }o--o{ LEERUITKOMST : "dicht af"
     ONDERWIJSRESULTAAT }o--|| INDIVIDUEEL_EXAMENPLAN : "telt mee in"
 ```
+
+Het model toont de relatie tussen specificatie en leeruitkomst als veel-op-veel. De payload implementeert dat voorlopig als één `leeruitkomstId` per specificatie; een array-vorm staat als open punt in de [onderwijsspecificatie-payload](../gedeeld/20260717_1120_okx-lr1-onderwijsspecificatie-payload-json.md#4-open-punten).
 
 Wat het model niet toont: het studentinformatiesysteem hanteert de gepubliceerde structuur als **nominaal template** en houdt daarnaast per student een **individuele structuur** bij, namelijk dat template plus de gekozen keuzedelen. In leerroute 1 tot en met 3 wijken nominaal en gevolgd uitsluitend daarin af; ook bij versnellen of vertragen blijft het programma gelijk en verandert alleen het tempo.
 
@@ -164,25 +167,28 @@ Gebruiksprofiel van deze koppeling op de centrale [onderwijsspecificatie-payload
 | `regelsets` | Volledig (kiesbaarheid keuzedeelruimte, voorwaarden in behaalde leeruitkomsten) |
 
 - Basis voor S2: de centrale payload.
-- [Resultaatstructuur en examenplan](20260720_0831_okx-lr1-resultaatstructuur-examenplan.md): de payload voor S3. Wordt nog omgebouwd naar het `examenspecificatie`-model en naar Nederlandse veldnamen; dat gebeurt in de context van deze koppeling.
-- [Lifecycle en versionering](../gedeeld/20260720_0832_okx-lr1-lifecycle-versionering.md): kopie voor deze koppeling; de acceptatieregels van §5.2 komen hieruit.
+- [Resultaatstructuur en examenplan](20260720_0831_okx-lr1-resultaatstructuur-examenplan.md): de payload voor S3. De verankering op leeruitkomsten en het onderscheid tussen het nominale en het individuele examenplan worden nog aangescherpt; dat gebeurt in de context van deze koppeling.
+- [Lifecycle en versionering](../gedeeld/20260720_0832_okx-lr1-lifecycle-versionering.md): staat eenmaal centraal en geldt ook voor deze koppeling; de acceptatieregels van §5.2 komen hieruit.
 
-## 7. Reviewvragen
+## 7. Endpointbeschrijvingen (REST)
+
+Nog niet uitgewerkt. De endpoints volgen zodra de interacties in §3 zijn bevestigd, in dezelfde vorm als bij de [koppeling met planning](../oc-p-en-r/20260723_1156_okx-lr1-koppelingspecificatie-oc-p-en-r.md#7-endpointbeschrijvingen-rest): per endpoint de methode, de operatie, de parameters en de statuscodes, met de events als webhook-aflevering.
+
+## 8. Reviewvragen
 
 1. Klopt de rolverdeling: SIS als één aanspreekpunt (KRS en SVS samen), of moeten KRS en SVS als aparte deelnemers in de diagrammen?
 2. Is de inrichtingsstatus (S4) met inrichting-referentie de juiste terugmelding, en wat wil OC daarmee?
 3. Dekt het faalpad §5.2 de praktijk van wijzigingen bij lopende verbintenissen?
 4. Wat is de juiste plek voor de actualisering op basis van keuzes (stroom 9): deze koppeling of de SKS-koppeling?
 
-## 8. Open vragen en signaleringen
+## 9. Open punten
 
 - De resultaatstructuur-payload moet omgebouwd (naar `examenspecificatie`-model, Nederlandse veldnamen) voordat deze koppeling verder uitgewerkt wordt.
 - Stroom 9 (actualiseren resultaatstructuren op basis van keuzes) raakt het SKS; afbakening volgt bij de SKS-koppeling.
-- Endpoints en operaties volgen na review van dit concept (zelfde vorm als OC-P&R §7).
 
-## 9. Gerelateerde uitwerkingen
+## 10. Gerelateerde uitwerkingen
 
 - [Koppelingspecificatie OC-P&R](../oc-p-en-r/20260723_1156_okx-lr1-koppelingspecificatie-oc-p-en-r.md) (het patroon waarop deze koppeling voortbouwt).
-- Memo van Niels: `doc/OKx_PDCA cyclus onderwijsontwerp.md` (PR #110).
+- Memo "Onderwijs PDCA-cyclus" van Niels: `doc/OKx_PDCA cyclus onderwijsontwerp.md`.
 - [ADR 0009](../../../../dr/0009-sks-svs-rollenverdeling-keuze-vs-resultaat-voortgang.md) (SKS/SVS-rollen), [ADR 0014](../../../../dr/0014-splitsing-inschrijving-rodkrs-en-studentkeuze-sks.md) (splitsing inschrijving en keuze), [ADR 0021](../../../../dr/0021-koppeling-versus-koppelvlak-terminologie.md) (koppeling versus koppelvlak), [ADR 0022](../../../../dr/0022-resultaatbegrippen-conform-rosa-koi.md) (resultaatbegrippen conform ROSA KOI).
 - [ROSA Kernmodel Onderwijsinformatie](https://rosa.wikixl.nl/index.php/Kernmodel_Onderwijsinformatie).

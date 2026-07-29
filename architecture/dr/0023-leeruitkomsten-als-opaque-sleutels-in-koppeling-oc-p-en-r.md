@@ -21,7 +21,7 @@ Regelset-voorwaarden zijn uitgedrukt in behaalde leeruitkomsten (ADR 0022): je m
 
 ### Consequenties
 
-- Het gebruiksprofiel OC-P&R (koppelingspecificatie §6.2) levert `onderwijsspecificaties` en `regelsets`, geen `leeruitkomsten`.
+- Het gebruiksprofiel voor de koppeling met planning (koppelingspecificatie §4.2) levert `onderwijsspecificaties` en `regelsets`, geen `leeruitkomsten`.
 - Planning behandelt leeruitkomst-ids als betekenisloze identifiers; wijzigingen in leeruitkomst-inhoud raken de koppeling OC-P&R niet.
 - Conformance-tests voor OC-P&R toetsen volgordebepaling zonder leeruitkomst-resolutie.
 

@@ -32,7 +32,7 @@ De resultaatstructuur gebruikt dezelfde specificatiefamilie als de onderwijsspec
 
 Koppeling met de onderwijsspecificatie:
 
-- Semantisch via `leeruitkomst` (`kerntaak`, `werkproces`), dezelfde verankering als in de onderwijsspecificatie-payload.
+- Semantisch via `leeruitkomstId`, dezelfde sleutel als in de onderwijsspecificatie-payload. Daarnaast staat de leesbare aanduiding (`type` en `code` uit het kwalificatiekader) als `leeruitkomst` in het object, zodat een mens de structuur kan lezen zonder uuid's op te zoeken.
 - Administratief via `geldtVoor` (de `opleidingsprogrammaspecificatie` waarvoor het examenplan geldt) en optioneel `beoordeelt` (directe verwijzing naar de beoordeelde specificatie).
 
 ```mermaid
@@ -97,7 +97,8 @@ erDiagram
         string specificatieType "examenplanspecificatie"
         uuid bovenliggendSpecificatieId "null"
         uuid geldtVoor FK "opleidingsprogrammaspecificatie"
-        object leeruitkomst "type=kwalificatie, code=27141"
+        uuid leeruitkomstId FK "sleutel naar de leeruitkomst"
+        object leeruitkomst "leesbaar: type=kwalificatie, code=27141"
         string aggregatie "allenVoldoende"
         object resultaatmodel "schaal, cesuur"
         string versie
@@ -110,20 +111,22 @@ erDiagram
         uuid id PK
         string specificatieType "resultaateenheidspecificatie"
         uuid bovenliggendSpecificatieId FK "examenplanspecificatie"
-        object leeruitkomst "type=kerntaak"
-        uuid beoordeelt FK "onderwijseenheidspecificatie, optioneel"
+        uuid leeruitkomstId FK "sleutel naar de leeruitkomst"
+        object leeruitkomst "leesbaar: type=kerntaak"
+        uuid beoordeelt FK "onderwijseenheid of keuzedeelruimte, optioneel"
         number weging "relatief binnen ouder"
         string aggregatie
         object resultaatmodel
         boolean verplicht
-        array regelsetVerwijzingen FK "naar RULESET"
+        array regelsetVerwijzingen FK "naar REGELSET"
         array manifest
     }
     TOETSONDERDEELSPECIFICATIE {
         uuid id PK
         string specificatieType "toetsonderdeelspecificatie"
         uuid bovenliggendSpecificatieId FK "resultaateenheidspecificatie"
-        object leeruitkomst "type=kerntaak of werkproces"
+        uuid leeruitkomstId FK "sleutel naar de leeruitkomst"
+        object leeruitkomst "leesbaar: type=kerntaak of werkproces"
         string aard "summatief of formatief"
         string toetsvorm
         number weging
@@ -137,7 +140,7 @@ erDiagram
     }
     OPLEIDINGSPROGRAMMASPECIFICATIE {
         uuid id PK
-        string toelichting "uit de onderwijsspecificatie-payload"
+        string versie "gepinde versie, het object zelf staat in de onderwijsspecificatie-payload"
     }
 ```
 
@@ -169,8 +172,10 @@ Het schema legt de exacte vorm vast. Het is **alfa en indicatief** en verandert 
           "geldigTot": { "type": ["string", "null"], "format": "date" },
           "geldtVoor": { "type": "string", "format": "uuid", "$comment": "de opleidingsprogrammaspecificatie waarvoor dit examenplan geldt" },
           "beoordeelt": { "type": "string", "format": "uuid", "$comment": "de specificatie die deze resultaateenheid beoordeelt" },
+          "leeruitkomstId": { "type": "string", "format": "uuid", "$comment": "verwijst naar de leeruitkomst in de onderwijsspecificatie-payload; dit is de sleutel waarop het onderwijsresultaat wordt behaald (ADR 0022)" },
           "leeruitkomst": {
             "type": "object",
+            "$comment": "leesbare aanduiding naast de sleutel; type en code komen uit het kwalificatiekader",
             "required": ["type", "code"],
             "properties": {
               "type": { "type": "string" },
@@ -234,7 +239,8 @@ Resultaatstructuur en examenplan  (Alfa en indicatief. Deze vorm onderbouwt welk
 {root}
 +-- onderwijsspecificaties[]          verplicht
 |   +-- id                                uuid
-|   +-- specificatieType                  enum (3 waarden)
+|   +-- specificatieType                  examenplanspecificatie | resultaateenheidspecificatie
+|   |                                     toetsonderdeelspecificatie
 |   +-- versie                            string
 |   +-- bovenliggendSpecificatieId        string of null
 |   +-- naam                              string
@@ -244,6 +250,7 @@ Resultaatstructuur en examenplan  (Alfa en indicatief. Deze vorm onderbouwt welk
 |   +-- geldigTot                         string of null, optioneel
 |   +-- geldtVoor                         uuid, optioneel
 |   +-- beoordeelt                        uuid, optioneel
+|   +-- leeruitkomstId                    uuid, optioneel
 |   +-- leeruitkomst                      optioneel, object
 |   |   +-- type                              string
 |   |   `-- code                              string
@@ -284,6 +291,7 @@ Resultaatstructuur en examenplan  (Alfa en indicatief. Deze vorm onderbouwt welk
       "versie": "0.1.0",
       "bovenliggendSpecificatieId": null,
       "geldtVoor": "7ae25c1e-ee27-43a2-a001-761ee39ea5c7",
+      "leeruitkomstId": "b84dc98b-6c5f-4ee8-bdfb-40b2639ca5a4",
       "leeruitkomst": { "type": "kwalificatie", "code": "27141" },
       "naam": "Examenplan Apothekersassistent",
       "omschrijving": "Summatieve resultaatstructuur voor de kwalificatie 27141, leerweg BOL, doelgroep regulier.",
@@ -305,6 +313,7 @@ Resultaatstructuur en examenplan  (Alfa en indicatief. Deze vorm onderbouwt welk
       "specificatieType": "resultaateenheidspecificatie",
       "versie": "0.1.0",
       "bovenliggendSpecificatieId": "08b4656d-27ec-4175-8c1b-1f1d51780785",
+      "leeruitkomstId": "12301838-92d4-4040-aea2-050bb131ceb7",
       "leeruitkomst": { "type": "kerntaak", "code": "B1-K1" },
       "beoordeelt": "402c2342-d897-4df4-a667-7fc5bd930944",
       "naam": "Resultaat kerntaak B1-K1, biedt farmaceutische patientenzorg",
@@ -324,6 +333,7 @@ Resultaatstructuur en examenplan  (Alfa en indicatief. Deze vorm onderbouwt welk
       "specificatieType": "resultaateenheidspecificatie",
       "versie": "0.1.0",
       "bovenliggendSpecificatieId": "08b4656d-27ec-4175-8c1b-1f1d51780785",
+      "leeruitkomstId": "bedb4c31-b818-491c-8227-9b32146a3363",
       "leeruitkomst": { "type": "kerntaak", "code": "B1-K2" },
       "beoordeelt": "aa0a8af1-d383-4981-8a0f-6ec2ba4e6283",
       "naam": "Resultaat kerntaak B1-K2, voert logistieke taken uit in de apotheek",
@@ -341,6 +351,7 @@ Resultaatstructuur en examenplan  (Alfa en indicatief. Deze vorm onderbouwt welk
       "specificatieType": "resultaateenheidspecificatie",
       "versie": "0.1.0",
       "bovenliggendSpecificatieId": "08b4656d-27ec-4175-8c1b-1f1d51780785",
+      "leeruitkomstId": "8b085118-ff81-4639-9152-ed2e447db2db",
       "leeruitkomst": { "type": "kerntaak", "code": "B1-K3" },
       "beoordeelt": "f686a286-d555-4eda-bd22-001c5b60e4dc",
       "naam": "Resultaat kerntaak B1-K3, werkt mee aan kwaliteit en deskundigheid",
@@ -373,6 +384,7 @@ Resultaatstructuur en examenplan  (Alfa en indicatief. Deze vorm onderbouwt welk
       "specificatieType": "toetsonderdeelspecificatie",
       "versie": "0.1.0",
       "bovenliggendSpecificatieId": "0512c773-9c1b-42c4-ae0d-9af8554f2462",
+      "leeruitkomstId": "12301838-92d4-4040-aea2-050bb131ceb7",
       "leeruitkomst": { "type": "kerntaak", "code": "B1-K1" },
       "naam": "Proeve van bekwaamheid farmaceutische patientenzorg",
       "aard": "summatief",
@@ -387,6 +399,7 @@ Resultaatstructuur en examenplan  (Alfa en indicatief. Deze vorm onderbouwt welk
       "specificatieType": "toetsonderdeelspecificatie",
       "versie": "0.1.0",
       "bovenliggendSpecificatieId": "0512c773-9c1b-42c4-ae0d-9af8554f2462",
+      "leeruitkomstId": "0ffa279f-c595-49d7-b033-c91f66d18bb1",
       "leeruitkomst": { "type": "werkproces", "code": "B1-K1-W2" },
       "naam": "Kennistoets medicatiebewaking",
       "aard": "summatief",
@@ -401,6 +414,7 @@ Resultaatstructuur en examenplan  (Alfa en indicatief. Deze vorm onderbouwt welk
       "specificatieType": "toetsonderdeelspecificatie",
       "versie": "0.1.0",
       "bovenliggendSpecificatieId": "0512c773-9c1b-42c4-ae0d-9af8554f2462",
+      "leeruitkomstId": "78f25d62-9fd4-45c4-aa04-3d22f59213f5",
       "leeruitkomst": { "type": "werkproces", "code": "B1-K1-W1" },
       "naam": "Formatieve voortgangstoets zorg- en adviesvraag",
       "aard": "formatief",
@@ -415,6 +429,7 @@ Resultaatstructuur en examenplan  (Alfa en indicatief. Deze vorm onderbouwt welk
       "specificatieType": "toetsonderdeelspecificatie",
       "versie": "0.1.0",
       "bovenliggendSpecificatieId": "aa15c5d9-133e-4976-9154-d2f6f9e7ad7c",
+      "leeruitkomstId": "bedb4c31-b818-491c-8227-9b32146a3363",
       "leeruitkomst": { "type": "kerntaak", "code": "B1-K2" },
       "naam": "Praktijkopdracht logistiek in de apotheek",
       "aard": "summatief",
@@ -429,6 +444,7 @@ Resultaatstructuur en examenplan  (Alfa en indicatief. Deze vorm onderbouwt welk
       "specificatieType": "toetsonderdeelspecificatie",
       "versie": "0.1.0",
       "bovenliggendSpecificatieId": "3c248e38-504c-4505-b0b8-d860d7b14919",
+      "leeruitkomstId": "8b085118-ff81-4639-9152-ed2e447db2db",
       "leeruitkomst": { "type": "kerntaak", "code": "B1-K3" },
       "naam": "Portfolio professioneel handelen en samenwerken",
       "aard": "summatief",
@@ -507,7 +523,7 @@ De resultaateenheid Keuzedelen heeft geen toetsonderdelen onder zich: welke keuz
 
 Zelfde ontwerpkeuze als de onderwijsspecificatie-payload (optie C: recursief plat met een ouder-verwijzing). Concreet:
 
-- **Eén familie.** De resultaatstructuur gebruikt dezelfde envelope (`onderwijsspecificaties`, `regelsets`), dezelfde velden (`id`, `specificatieType`, `bovenliggendSpecificatieId`, `versie`, `status`, `geldigVanaf`/`geldigTot`, `manifest`, `leeruitkomst`) en dezelfde discriminator. Alleen de typewaarden verschillen.
+- **Eén familie, twee schema's.** De resultaatstructuur gebruikt dezelfde envelope (`onderwijsspecificaties`, `regelsets`), dezelfde sleutel- en verwijsconventie (`id`, `bovenliggendSpecificatieId`, `leeruitkomstId`) en dezelfde discriminator `specificatieType`. De verplichte velden verschillen wel: een onderwijsspecificatie draagt altijd `studielast`, een resultaatspecificatie altijd `resultaatmodel`. Daarom staan het hier en in de onderwijsspecificatie-payload als twee schema's. Of die later samengaan tot één schema met voorwaardelijke eisen per `specificatieType` staat als open punt in §4.
 - **Weging bovenin, niet in het blad.** Een `resultaateenheidspecificatie` draagt `aggregatie` (hoe onderliggende resultaten samenkomen) en haar eigen `weging` binnen de ouder. Zo staat de rekenregel op het niveau waar hij geldt.
 - **Aard expliciet.** `aard` onderscheidt `summatief` (telt mee voor het diploma) van `formatief` (ontwikkelingsgericht, weging 0).
 - **Resultaatmodel per niveau.** `resultaatmodel` legt schaal, cesuur en afronding vast, zodat elk systeem dezelfde uitkomst berekent.
@@ -517,26 +533,29 @@ Zelfde ontwerpkeuze als de onderwijsspecificatie-payload (optie C: recursief pla
 
 ### 3.2 Lifecycle
 
-Zelfde mechaniek als de onderwijsspecificatie: semver per specificatie, identiteit los van versie, manifest dat onderliggende versies pint, en `geldigVanaf`/`geldigTot` voor gelijktijdig actieve versies. Zie het hoofdstuk *Onderwijsspecificatie lifecycle* in de payload en de [lifecycle-uitwerking](../gedeeld/20260720_0832_okx-lr1-lifecycle-versionering.md).
+Zelfde mechaniek als de onderwijsspecificatie: semver per specificatie, identiteit los van versie, manifest dat onderliggende versies pint, en `geldigVanaf`/`geldigTot` voor gelijktijdig actieve versies. Zie [§3.3 van de onderwijsspecificatie-payload](../gedeeld/20260717_1120_okx-lr1-onderwijsspecificatie-payload-json.md#33-lifecycle-versionering-en-manifest) en de [lifecycle-uitwerking](../gedeeld/20260720_0832_okx-lr1-lifecycle-versionering.md).
 
 Eén verschil: de `examenplanspecificatie` heeft de **strengste acceptatieregels**. Het is een contractuele afspraak met de student, dus een wijziging vraagt altijd expliciete impactanalyse en besluitvorming, ook wanneer die technisch niet-brekend lijkt (memo van Niels, PR #110).
 
 ## 4. Open punten
 
-- Nominaal versus individueel examenplan ([ADR 0022](../../../../dr/0022-resultaatbegrippen-conform-rosa-koi.md)): een keuzedeel kent een eigen examenplandeel met eigen toetsonderdelen en een eigen onderwijsresultaat; het individuele examenplan is de samenstelling van nominaal plus gekozen keuzedeel-delen. Meenemen in de ombouw naar het `examenspecificatie`-model.
+| Vraag | Vervolgstap |
+|---|---|
+| Hoe verhouden het nominale en het individuele examenplan zich? Een keuzedeel kent een eigen examenplandeel met eigen toetsonderdelen en een eigen onderwijsresultaat. | Uitwerken samen met de individuele structuur in de koppeling met het studentinformatiesysteem ([ADR 0022](../../../../dr/0022-resultaatbegrippen-conform-rosa-koi.md)). |
+| Hangt de `examenplanspecificatie` op het opleidingsprogramma (zoals hier, per kwalificatie en doelgroep) of hoger op de opleiding? | Voorleggen bij de stakeholderreview; nu gekozen voor programma-niveau via `geldtVoor`. |
+| Is `beoordeelt` nodig naast de verankering via `leeruitkomstId`, of volstaat een van beide? | Bepalen zodra duidelijk is of een systeem op de specificatie of op de leeruitkomst joint. |
+| Hoe verhoudt `weging` zich tot `studielast` in de onderwijsspecificatie? | Nu los van elkaar; verhouding vaststellen bij de uitwerking van de aggregatie. |
+| Horen generieke onderdelen (taal, rekenen, burgerschap, Engels) hier als aparte resultaateenheden, of buiten deze structuur? | Uitzoeken; ze kennen een eigen wettelijk regime. |
+| Hoe houden we de gedeelde enum van `specificatieType` gelijk tussen dit document en de onderwijsspecificatie-payload? | Bij elke uitbreiding beide documenten bijwerken; het schema is de plek waar dat zichtbaar wordt. |
+| Hoe bindt dit aan de Open Onderwijs API? Alleen `toetsonderdeelspecificatie` mapt op TestComponent. | Als signalering melden; geen wijziging aan de OEAPI-kern voorstellen. |
+| Gaan de twee schema's (onderwijsspecificatie en resultaatstructuur) samen tot een schema met voorwaardelijke eisen per `specificatieType`? | Uitwerken zodra beide payloads stabiel zijn; nu twee schema's met dezelfde envelope. |
+| Hoe verhouden dynamische resultaatstructuren zich tot wetgeving en tot de werking van studentinformatiesystemen? | De regelset dekt keuzes die nog niet bestonden bij vaststelling; juridische toets nog te doen. |
 
-- Hangt de `examenplanspecificatie` op de `opleidingsprogrammaspecificatie` (zoals hier, per kwalificatie en doelgroep) of hoger op de `opleidingsspecificatie`? Nu gekozen voor programma-niveau via `geldtVoor`.
-- Is `beoordeelt` (directe uuid-verwijzing) nodig naast de semantische koppeling via `leeruitkomst`, of is één van beide voldoende?
-- Verhouding tussen `weging` in de resultaatstructuur en `studielast` (SBU) in de onderwijsspecificatie. Nu los van elkaar.
-- Generieke onderdelen (taal, rekenen, burgerschap, Engels) hebben een eigen wettelijk regime. Toevoegen als aparte resultaateenheden of buiten deze structuur houden.
-- De drie typen zijn opgenomen in de gedeelde enum van de onderwijsspecificatie-payload. Bij elke uitbreiding moeten beide documenten gelijk blijven.
-- OEAPI-binding: alleen `toetsonderdeelspecificatie` mapt op TestComponent. Voor examenplan en resultaateenheid is er geen OEAPI-object. Signalering, geen OEAPI-kernwijziging.
-- Dynamische resultaatstructuren: de ruleset dekt keuzes die nog niet bestaan bij vaststelling van het examenplan. Verhouding tot wetgeving (VABA) en de werking van SIS'en nog te bepalen.
 
 ## 5. Gerelateerde uitwerkingen
 
 - Onderwijsspecificatie: [onderwijsspecificatie-payload](../gedeeld/20260717_1120_okx-lr1-onderwijsspecificatie-payload-json.md).
 - Lifecycle: [lifecycle en versionering](../gedeeld/20260720_0832_okx-lr1-lifecycle-versionering.md).
-- Memo van Niels: `doc/OKx_PDCA cyclus onderwijsontwerp.md` (PR #110).
-- OKE koppelvlak (uitvoering en beoordeling): `OKE/moka-koppelvlakspecificaties/Examen Uitvoering en beoordeling/doc/KoppelvlakSpecificatieDocument.md`.
+- Memo "Onderwijs PDCA-cyclus" van Niels: `doc/OKx_PDCA cyclus onderwijsontwerp.md`.
+- [OKE-koppelvlak voor uitvoering en beoordeling](../../../../../OKE/moka-koppelvlakspecificaties/Examen%20Uitvoering%20en%20beoordeling/doc/KoppelvlakSpecificatieDocument.md): het examendomein waar dit document buiten blijft.
 - [ADR 0009](../../../../dr/0009-sks-svs-rollenverdeling-keuze-vs-resultaat-voortgang.md) (SKS/SVS: keuze versus resultaat en voortgang).

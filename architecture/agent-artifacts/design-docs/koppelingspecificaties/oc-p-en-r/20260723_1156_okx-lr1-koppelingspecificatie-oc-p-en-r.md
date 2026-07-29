@@ -7,12 +7,12 @@ Relateert aan: #98, #119, #105. Terminologie: [ADR 0021](../../../../dr/0021-kop
 1. [Inleiding](#1-inleiding) (context, doel, scope)
 2. [Procesbeeld](#2-procesbeeld)
 3. [Interactieoverzicht](#3-interactieoverzicht)
-4. [Informatiemodel en datamodel](#4-informatiemodel-en-datamodel)
+4. [Informatiemodel](#4-informatiemodel)
 5. [Sequentiediagrammen](#5-sequentiediagrammen)
-6. [Onderwijsaanbod-payload (verwijzing)](#6-onderwijsaanbod-payload-verwijzing)
+6. [Payload-specificaties (verwijzing) en gebruiksprofiel](#6-payload-specificaties-verwijzing-en-gebruiksprofiel)
 7. [Endpointbeschrijvingen (REST)](#7-endpointbeschrijvingen-rest)
-8. [Reviewvragen voor stakeholders](#8-reviewvragen-voor-stakeholders)
-9. [Open vragen en signaleringen](#9-open-vragen-en-signaleringen)
+8. [Reviewvragen](#8-reviewvragen)
+9. [Open punten](#9-open-punten)
 10. [Gerelateerde uitwerkingen](#10-gerelateerde-uitwerkingen)
 
 ## 1. Inleiding
@@ -21,7 +21,7 @@ Relateert aan: #98, #119, #105. Terminologie: [ADR 0021](../../../../dr/0021-kop
 
 Waar deze koppeling in de keten zit: een curriculum-ontwerptool (CO) levert onderwijsspecificaties aan de onderwijscatalogus (OC); de OC publiceert die en het planningssysteem (P) maakt er planbaar `opleidingsaanbod` van. Dit document beschrijft die stap, de koppeling OC naar P&R (stroom 2 in het [Projectoverzicht](../../../../../doc/OKx_Projectoverzicht.md), "te plannen aanbod"). Het ketenoverzicht en de actuele [hoofdplaat v1.7](../README.md#context) staan in de instap van de README.
 
-Scenario is leerroute 1 (regulier), uitgewerkt aan de hand van persona [Jochem](../../../../docs/specificatie/okx-oeapi-consumer-profiel/doc/persona_jochem.md): hij volgt de voltijd mbo-4-opleiding Apothekersassistent (Crebo-dossier 23450, kwalificatie 27141) in een aanbod-gestuurd traject en kiest uit wat de instelling aanbiedt. Leerroute 2 en 3 volgen later als verschil. Volledige leerroutes, persona's en het begrippenkader (ankertabel, zes families): het [OEAPI consumer-profiel](../../../../docs/specificatie/okx-oeapi-consumer-profiel/README.md). Let op: dat profiel gebruikt nog een oudere hoofdplaat; leidend is v1.7.
+Scenario is leerroute 1 (regulier), uitgewerkt aan de hand van persona [Jochem](../../../../docs/specificatie/okx-oeapi-consumer-profiel/doc/persona_jochem.md): hij volgt de voltijd mbo-4-opleiding Apothekersassistent (SBB-kwalificatiedossier 23450, kwalificatie 27141) in een aanbod-gestuurd traject en kiest uit wat de instelling aanbiedt. Leerroute 2 en 3 volgen later als verschil. Volledige leerroutes, persona's en het begrippenkader (ankertabel, zes families): het [OEAPI consumer-profiel](../../../../docs/specificatie/okx-oeapi-consumer-profiel/README.md). Let op: dat profiel gebruikt nog een oudere hoofdplaat; leidend is v1.7.
 
 Dit document is ontstaan als interactie-analyse, de derde stap van de [AMIGO-aanpak](../../../../../.cursor/skills/amigo-aanpak/SKILL.md) van Edustandaard, en werkt toe naar de interfacespecificatie in stap 6. Het bouwt voort op de centrale [onderwijsspecificatie-payload](../gedeeld/20260717_1120_okx-lr1-onderwijsspecificatie-payload-json.md), waarvan de berichten de structuur, het manifest en de versienummers dragen, op de [lifecycle-uitwerking](../gedeeld/20260720_0832_okx-lr1-lifecycle-versionering.md) en op de memo van Niels over de onderwijs-PDCA-cyclus.
 
@@ -57,7 +57,7 @@ Twee principes bepalen het verkeer over deze koppeling.
 
 **Resource-eigenaarschap.** Elk systeem bezit zijn eigen resource: de onderwijscatalogus de onderwijsspecificaties, het planningssysteem het `opleidingsaanbod`, het roostersysteem het rooster. Niemand kopieert de resource van een ander.
 
-**Notify-then-pull.** Er gaan twee soorten verkeer over de koppeling. De bezitter **publiceert een event** zodra er iets te melden valt, volgens het pub/sub-patroon uit [ADR 0020](../../../../dr/0020-curriculumontwerp-onderwijscatalogus-happy-flow-synchronisatie-en-federatie-adopt-klonen.md); dat event is dun en draagt alleen de aanleiding plus een referentie (uuid). De consument **haalt de resource vervolgens zelf op**, wanneer het hem uitkomt. Het is dus geen pull-only model: het event is de trigger, de pull is het ophalen. De combinatie voorkomt dat systemen elkaar bevragen zonder aanleiding, en voorkomt tegelijk dat een grote payload wordt meegestuurd naar een ontvanger die er nog niets mee doet. Deze keuze is repo-breed vastgelegd en geen keuze per koppeling.
+**Notify-then-pull.** Er gaan twee soorten verkeer over de koppeling. De bezitter **publiceert een event** zodra er iets te melden valt, volgens het pub/sub-patroon uit [ADR 0020](../../../../dr/0020-curriculumontwerp-onderwijscatalogus-happy-flow-synchronisatie-en-federatie-adopt-klonen.md); dat event is dun en draagt alleen de aanleiding plus een referentie (uuid). De consument **haalt de resource vervolgens zelf op**, wanneer het hem uitkomt. Het is dus geen pull-only model: het event is de trigger, de pull is het ophalen. De combinatie voorkomt dat systemen elkaar bevragen zonder aanleiding, en voorkomt tegelijk dat een grote payload wordt meegestuurd naar een ontvanger die er nog niets mee doet. Deze keuze geldt repo-breed en is dus geen keuze per koppeling. Zoals alle aangehaalde besluiten heeft dat besluit nog de status voorstel.
 
 ```mermaid
 flowchart LR
@@ -92,7 +92,7 @@ Context, buiten deze koppeling maar zelfde patroon: P meldt R "planning beschikb
 
 Ordening: per `specificatieId` blijft de berichtvolgorde behouden (zelfde sleutel, zelfde volgorde, [ADR 0018](../../../../dr/0018-enterprise-messaging-patronen-voor-betrouwbare-koppelvlakken.md)).
 
-## 4. Informatiemodel en datamodel
+## 4. Informatiemodel
 
 ### 4.1 Informatiemodel
 
@@ -101,7 +101,7 @@ De begrippen uit het semantisch kader en hun relaties, in de context van dit pro
 ```mermaid
 erDiagram
     ONDERWIJSSPECIFICATIE ||--o{ ONDERWIJSSPECIFICATIE : "bestaat uit"
-    ONDERWIJSSPECIFICATIE }o--o{ LEERUITKOMST : "dekt"
+    ONDERWIJSSPECIFICATIE }o--o{ LEERUITKOMST : "verankert op"
     ONDERWIJSSPECIFICATIE }o--o{ REGELSET : "kent keuzeregels via"
     ONDERWIJSAANBOD }o--|| ONDERWIJSSPECIFICATIE : "instantieert (id en versie)"
     ONDERWIJSAANBOD ||--o{ ONDERWIJSAANBOD : "bestaat uit"
@@ -110,6 +110,8 @@ erDiagram
     ONDERWIJSAANBOD ||--o{ GROEP : "kent"
     ROOSTER }o--|| ONDERWIJSAANBOD : "plaatst in de tijd (context)"
 ```
+
+Het model toont de relatie tussen specificatie en leeruitkomst als veel-op-veel. De payload implementeert dat voorlopig als één `leeruitkomstId` per specificatie; een array-vorm staat als open punt in de [onderwijsspecificatie-payload](../gedeeld/20260717_1120_okx-lr1-onderwijsspecificatie-payload-json.md#4-open-punten).
 
 Wat het model niet toont: de scheiding loopt precies langs het eigenaarschap. Links de wereld van de catalogus (specificeren), rechts die van planning (instantiëren), verbonden door de verwijzing `instantieert`. Het rooster plaatst het aanbod daarna in de tijd; dat valt buiten deze koppeling (§5.5).
 
@@ -138,7 +140,7 @@ Berichten op deze koppeling:
 | Delta tussen twee versies | I2 | OC naar P | Wijzigingen tussen oude en nieuwe versie, als JSON Patch (RFC 6902) | Oude en nieuwe versie |
 | Verwerkingsstatus (event) | I3 | P naar OC | Status (ontvangen/gestart, afgekeurd, gelukt, niet gelukt) plus de referentie (uuid) naar het `opleidingsaanbod` | De specificatieversie waarop de planning is gebaseerd |
 | Specificatie gewijzigd (event) | I4 | OC naar P | Object-id, oude en nieuwe versie, wijzigingsklasse (lifecycle-classificatie) | Oude en nieuwe versie |
-| `opleidingsaanbod` (instantie) | I5 | P naar opvrager | De instantie van het nieuw gecreëerde onderwijsaanbod, eigen document (§6) | Per aanbod-instantie `specificatieVerwijzing` (specificatieId + versie) |
+| `onderwijsaanbod` (instantie) | I5 | Planning naar opvrager | De instantie van het nieuw gecreëerde onderwijsaanbod, eigen document (§6) | Per aanbod-instantie `specificatieVerwijzing` (specificatieId + versie) |
 
 ## 5. Sequentiediagrammen
 
@@ -267,7 +269,7 @@ sequenceDiagram
     end
 ```
 
-## 6. Onderwijsaanbod-payload (verwijzing)
+## 6. Payload-specificaties (verwijzing) en gebruiksprofiel
 
 De payload van de aanbod-instantie is een eigen document: [onderwijsaanbod-payload](20260723_1304_okx-lr1-onderwijsaanbod-payload-json.md). Kern:
 
@@ -291,7 +293,7 @@ Endpoints die **P** serveert:
 
 | Endpoint | Methode | Operatie | Parameters | Response | Statuscodes |
 |---|---|---|---|---|---|
-| `/opleidingsaanbod/{id}` | GET | I5: aanbod-instantie ophalen | `status` (optioneel filter op onderliggende instanties) | `aanbodInstanties` (onderwijsaanbod-payload, §6) | 200, 400, 404 |
+| `/onderwijsaanbod/{id}` | GET | I5: aanbod-instantie ophalen | `status` (optioneel filter op onderliggende instanties) | `aanbodInstanties` (onderwijsaanbod-payload, §6) | 200, 400, 404 |
 
 Event-aflevering, in webhook-vorm:
 
@@ -307,7 +309,7 @@ Gedrag:
 - Event-aflevering: ontvanger bevestigt met 200; bij uitblijven daarvan herhaalt de verzender met backoff en daarna [Dead Letter Channel](https://www.enterpriseintegrationpatterns.com/patterns/messaging/DeadLetterChannel.html). Dubbele aflevering is onschadelijk door het event-id ([Idempotent Receiver](https://www.enterpriseintegrationpatterns.com/patterns/messaging/IdempotentReceiver.html)).
 - Mogelijke uitbreidingen (v-next): filter op `specificatieType` of deelstructuur-selectie bij het ophalen van de structuur, paginering bij grote structuren, abonnementenbeheer (wie ontvangt welke events).
 
-## 8. Reviewvragen voor stakeholders
+## 8. Reviewvragen
 
 > Wordt aangevuld tijdens de uitwerking. Geagendeerd:
 
@@ -320,7 +322,7 @@ Gedrag:
 7. **Event-aflevering:** webhook (zoals beschreven in §7) of een bus of broker? De payload blijft gelijk, de infrastructuurkeuze niet.
 8. **Onderwijsaanbod-payload (apart document, §6):** dekken de vier aanbod-typen en de velden (status, knelpunten, periode, locatie, organisatie, groepen) wat planning teruggeeft, of missen er velden voor jullie praktijk?
 
-## 9. Open vragen en signaleringen
+## 9. Open punten
 
 - Profiel-hoofdstukken 15-18 zijn verouderd; deze memo is de vervangende lijn. Het profiel bijwerken is een aparte actie buiten deze branch.
 - Capaciteitsterugkoppeling (bezetting, parallelle groepen) valt bewust buiten deze uitwerking en volgt in een volgende iteratie.
@@ -333,6 +335,6 @@ Gedrag:
 - [Onderwijsaanbod-payload](20260723_1304_okx-lr1-onderwijsaanbod-payload-json.md) (de opvraagbare aanbod-instantie, I5).
 - [Lifecycle en versionering](../gedeeld/20260720_0832_okx-lr1-lifecycle-versionering.md) (wijzigingsklassen, acceptatie).
 - [Resultaatstructuur en examenplan](../oc-sis-krs-svs/20260720_0831_okx-lr1-resultaatstructuur-examenplan.md) (hoort bij de koppeling OC-SIS, daar verder uit te werken).
-- Memo van Niels: `doc/OKx_PDCA cyclus onderwijsontwerp.md` (PR #110).
+- Memo "Onderwijs PDCA-cyclus" van Niels: `doc/OKx_PDCA cyclus onderwijsontwerp.md`.
 - [Koppelingspecificatie OC-SIS (KRS/SVS)](../oc-sis-krs-svs/20260723_1402_okx-lr1-koppelingspecificatie-oc-sis.md) en [OC-LMS](../oc-lms/20260723_1403_okx-lr1-koppelingspecificatie-oc-lms.md): dezelfde patronen, afgeleid van deze koppeling.
 - [ADR 0018](../../../../dr/0018-enterprise-messaging-patronen-voor-betrouwbare-koppelvlakken.md) (messaging-patronen), [ADR 0020](../../../../dr/0020-curriculumontwerp-onderwijscatalogus-happy-flow-synchronisatie-en-federatie-adopt-klonen.md) (pub/sub bij mutaties), [ADR 0008](../../../../dr/0008-scope-planning-eerst-intra-instelling.md) (intra-instelling eerst), [ADR 0021](../../../../dr/0021-koppeling-versus-koppelvlak-terminologie.md) (koppeling versus koppelvlak).

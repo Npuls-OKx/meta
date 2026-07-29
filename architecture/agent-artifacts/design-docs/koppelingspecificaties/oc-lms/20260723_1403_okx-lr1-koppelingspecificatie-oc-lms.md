@@ -10,9 +10,10 @@ Relateert aan: #98, #119, #105. Terminologie: [ADR 0021](../../../../dr/0021-kop
 4. [Informatiemodel](#4-informatiemodel)
 5. [Sequentiediagrammen](#5-sequentiediagrammen)
 6. [Payload-specificaties (verwijzing) en gebruiksprofiel](#6-payload-specificaties-verwijzing-en-gebruiksprofiel)
-7. [Reviewvragen](#7-reviewvragen)
-8. [Open vragen en signaleringen](#8-open-vragen-en-signaleringen)
-9. [Gerelateerde uitwerkingen](#9-gerelateerde-uitwerkingen)
+7. [Endpointbeschrijvingen (REST)](#7-endpointbeschrijvingen-rest)
+8. [Reviewvragen](#8-reviewvragen)
+9. [Open punten](#9-open-punten)
+10. [Gerelateerde uitwerkingen](#10-gerelateerde-uitwerkingen)
 
 ## 1. Inleiding
 
@@ -83,12 +84,14 @@ De interacties op deze koppeling, met per interactie het messaging-patroon, in d
 ```mermaid
 erDiagram
     ONDERWIJSSPECIFICATIE ||--o{ ONDERWIJSSPECIFICATIE : "bestaat uit"
-    ONDERWIJSSPECIFICATIE }o--o{ LEERUITKOMST : "dekt"
+    ONDERWIJSSPECIFICATIE }o--o{ LEERUITKOMST : "verankert op"
     LEEROMGEVING_INRICHTING }o--|| ONDERWIJSSPECIFICATIE : "is ingericht naar (id en versie)"
     LEERMIDDELKOPPELING }o--|| ONDERWIJSSPECIFICATIE : "hoort bij (id en versie)"
     LEERMIDDELKOPPELING ||--o{ LEERMIDDELGROEP : "bundelt"
     LEERMIDDELGROEP ||--o{ LEERMIDDEL : "bevat"
 ```
+
+Het model toont de relatie tussen specificatie en leeruitkomst als veel-op-veel. De payload implementeert dat voorlopig als één `leeruitkomstId` per specificatie; een array-vorm staat als open punt in de [onderwijsspecificatie-payload](../gedeeld/20260717_1120_okx-lr1-onderwijsspecificatie-payload-json.md#4-open-punten).
 
 Wat het model niet toont: de leeromgeving vult onder de `leeronderdeelspecificatie` haar eigen lesniveau in. Dat blijft buiten deze koppeling, maar het is wel de reden dat de inrichting een eigen resource is met een eigen referentie.
 
@@ -148,10 +151,14 @@ Gebruiksprofiel van deze koppeling op de centrale [onderwijsspecificatie-payload
 | `regelsets` | Niet meegeleverd (kiesbaarheid is het domein van SKS en SIS) |
 
 - Basis voor L2: de centrale payload.
-- Leermiddelkoppeling-payload: **nog uit te werken** (signalering). Verwachte kern: `leermiddelkoppelingId`, `versie`, per specificatie (id en versie) de leermiddelgroepen, plat met verwijzingen.
-- [Lifecycle en versionering](../gedeeld/20260720_0832_okx-lr1-lifecycle-versionering.md): kopie voor deze koppeling.
+- Leermiddelkoppeling-payload: **nog uit te werken** (signalering). Verwachte kern: `id`, `versie`, per specificatie de leermiddelgroepen met een `specificatieVerwijzing` (id en versie), plat met verwijzingen conform de sleutelconventie.
+- [Lifecycle en versionering](../gedeeld/20260720_0832_okx-lr1-lifecycle-versionering.md): staat eenmaal centraal en geldt ook voor deze koppeling.
 
-## 7. Reviewvragen
+## 7. Endpointbeschrijvingen (REST)
+
+Nog niet uitgewerkt. De endpoints volgen zodra de interacties in §3 zijn bevestigd, in dezelfde vorm als bij de [koppeling met planning](../oc-p-en-r/20260723_1156_okx-lr1-koppelingspecificatie-oc-p-en-r.md#7-endpointbeschrijvingen-rest): per endpoint de methode, de operatie, de parameters en de statuscodes, met de events als webhook-aflevering.
+
+## 8. Reviewvragen
 
 1. Klopt de tweerichtingsopzet: structuur heen (L1-L3), leermiddelkoppeling terug (L4-L5)?
 2. Op welk niveau koppelt het LMS leermiddelen in de praktijk: leeronderdeel, onderwijseenheid, of beide?
@@ -159,17 +166,16 @@ Gebruiksprofiel van deze koppeling op de centrale [onderwijsspecificatie-payload
 4. Welke wijzigingen in de specificatie moeten het LMS actief bereiken (wijzigingsklasse-drempel)?
 5. Moet het LMS zijn inrichting (inclusief het lesniveau) als opvraagbare resource exposen voor andere componenten die er straks iets mee willen? Zo ja, dan volgt dat hetzelfde patroon (referentie plus ophalen), als aparte koppeling.
 
-## 8. Open vragen en signaleringen
+## 9. Open punten
 
 - Leermiddelkoppeling-payload uitwerken (§6), inclusief de relatie met `leermiddelengroepen` uit de specificatie-catalogus van het profiel.
 - De leeruitkomst-inhoudsvelden (`omschrijving`, `resultaat`, `gedrag`) staan als optionele velden in de centrale payload; dit gebruiksprofiel levert ze mee.
 - Exposen van de LMS-inrichting (inclusief lesniveau) voor andere componenten: optie, zelfde patroon, aparte koppeling (reviewvraag 5).
 - Toewijzing van leermiddelen aan studenten (stroom 12, SVS naar LMS) is een aparte koppeling.
-- Endpoints en operaties volgen na review van dit concept (zelfde vorm als OC-P&R §7).
 
-## 9. Gerelateerde uitwerkingen
+## 10. Gerelateerde uitwerkingen
 
 - [Koppelingspecificatie OC-P&R](../oc-p-en-r/20260723_1156_okx-lr1-koppelingspecificatie-oc-p-en-r.md) (het patroon waarop deze koppeling voortbouwt).
 - [Koppelingspecificatie OC-SIS](../oc-sis-krs-svs/20260723_1402_okx-lr1-koppelingspecificatie-oc-sis.md).
-- OKx OEAPI consumer-profiel (fase 4, inrichting leeromgeving; specificatie-catalogus met `leermiddelengroepen`).
+- [OKx OEAPI consumer-profiel](../../../../docs/specificatie/okx-oeapi-consumer-profiel/README.md): inrichting van de leeromgeving en de specificatie-catalogus met `leermiddelengroepen`.
 - [ADR 0021](../../../../dr/0021-koppeling-versus-koppelvlak-terminologie.md) (koppeling versus koppelvlak).

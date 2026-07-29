@@ -40,7 +40,11 @@ def parse_args_marker(tekst):
 
 
 def json_blokken(inhoud):
-    """Alle JSON-blokken uit een markdown-document, gesplitst in schema en voorbeelden."""
+    """Alle JSON-blokken uit een markdown-document, gesplitst in schema en voorbeelden.
+
+    Voorbeelden dragen hun startpositie mee, zodat een marker het dichtstbijzijnde
+    voorafgaande blok kan kiezen in plaats van simpelweg het eerste.
+    """
     schema, voorbeelden = None, []
     for m in JSONBLOK.finditer(inhoud):
         try:
@@ -50,7 +54,7 @@ def json_blokken(inhoud):
         if isinstance(data, dict) and "$schema" in data:
             schema = data
         else:
-            voorbeelden.append(data)
+            voorbeelden.append((m.start(), data))
     return schema, voorbeelden
 
 
@@ -93,10 +97,10 @@ def bouw_boom(objecten, id_veld, ouder_veld):
     return kinderen, roots, problemen
 
 
-def entiteitnaam(obj, type_veld):
+def entiteitnaam(obj, type_veld, vast=None):
     if type_veld and obj.get(type_veld):
         return str(obj[type_veld]).upper()
-    return "OBJECT"
+    return (vast or "object").upper()
 
 
 def render_knoop(obj, kinderen, opts, prefix, is_laatste, is_root, regels):
@@ -105,7 +109,7 @@ def render_knoop(obj, kinderen, opts, prefix, is_laatste, is_root, regels):
     attrs = [a for a in opts.get("attrs", "").split(",") if a]
 
     kort = str(obj.get(id_veld, ""))[:KORT]
-    naam = entiteitnaam(obj, type_veld)
+    naam = entiteitnaam(obj, type_veld, opts.get("entity"))
 
     if is_root:
         tak, vervolg = "", ""
@@ -164,10 +168,19 @@ def render_instantieboom(data, opts):
 
 # --- schemaboom ---------------------------------------------------------------------
 
-def typenaam(schema):
+def typenaam(schema, breedte=78):
+    """Geeft het type als tekst. Enums geven hun waarden, desnoods over meerdere regels."""
     if "enum" in schema:
-        waarden = " | ".join(str(w) for w in schema["enum"])
-        return waarden if len(waarden) <= 78 else f"enum ({len(schema['enum'])} waarden)"
+        regels, huidig = [], ""
+        for w in (str(x) for x in schema["enum"]):
+            kandidaat = f"{huidig} | {w}" if huidig else w
+            if len(kandidaat) > breedte and huidig:
+                regels.append(huidig)
+                huidig = w
+            else:
+                huidig = kandidaat
+        regels.append(huidig)
+        return "\n".join(regels)
     t = schema.get("type")
     if isinstance(t, list):
         return " of ".join(t)
@@ -201,7 +214,10 @@ def render_eigenschappen(schema, prefix, regels):
             render_eigenschappen(deel, prefix + vervolg, regels)
         else:
             toel = typenaam(deel) + ("" if naam in verplicht else ", optioneel")
-            regels.append(f"{prefix}{tak}{naam.ljust(34)}{toel}")
+            kop, *vervolgregels = toel.split("\n")
+            regels.append(f"{prefix}{tak}{naam.ljust(34)}{kop}")
+            for extra in vervolgregels:
+                regels.append(f"{prefix}{vervolg}{' ' * 34}{extra}")
 
 
 def render_schemaboom(schema):
@@ -243,8 +259,11 @@ def verwerk(pad, modus):
             if ontbreekt:
                 problemen.append(f"marker mist {', '.join(ontbreekt)}")
                 continue
-            bron = next((v for v in voorbeelden
-                         if isinstance(v, dict) and isinstance(v.get(opts["array"]), list)), None)
+            kandidaten = [(pos, v) for pos, v in voorbeelden
+                          if isinstance(v, dict) and isinstance(v.get(opts["array"]), list)]
+            # het dichtstbijzijnde blok vóór de marker; anders het eerstvolgende erna
+            ervoor = [k for k in kandidaten if k[0] < m.start()]
+            bron = (ervoor[-1][1] if ervoor else kandidaten[0][1]) if kandidaten else None
             if bron is None:
                 problemen.append(f"geen voorbeeldblok met array '{opts['array']}'")
                 continue
@@ -280,9 +299,10 @@ def verwerk(pad, modus):
         try:
             import jsonschema
         except ImportError:
-            meldingen.append(f"{'schemavalidatie':<28}: overgeslagen (jsonschema niet geinstalleerd)")
+            meldingen.append(f"{'schemavalidatie':<28}: OVERGESLAGEN, pakket jsonschema ontbreekt "
+                             "(pip install -r .devcontainer/requirements.txt)")
         else:
-            for i, v in enumerate(voorbeelden):
+            for i, (_, v) in enumerate(voorbeelden):
                 try:
                     jsonschema.validate(v, schema)
                     meldingen.append(f"{'schemavalidatie':<28}: voorbeeld {i + 1} voldoet")

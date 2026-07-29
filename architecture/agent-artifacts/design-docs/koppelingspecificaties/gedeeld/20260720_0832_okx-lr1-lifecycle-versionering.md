@@ -33,11 +33,13 @@ Dit document beantwoordt drie vragen:
 
 Geslaagd wanneer een onderwijscatalogus en een afnemer bij dezelfde wijziging tot hetzelfde oordeel komen over wat er moet gebeuren.
 
+Deze uitwerking is indicatief en onderbouwend, net als de koppelingspecificaties die erop steunen ([toelichting](../README.md#van-koppelingbeschrijving-naar-koppelvlakspecificatie-doelbinding)).
+
 Wat dit document nog niet doet: de publicatiegebeurtenis waarmee een catalogus een samenhangende versie van de hele boom vrijgeeft, en de uitgewerkte voorbeelden van gelijktijdig actieve versies over cohorten heen. Die staan in [§5](#5-open-punten).
 
 ### 1.3 Scope
 
-In scope is de lifecycle van onderwijsspecificaties: versienummering, identiteit, geldigheid, status, en de classificatie van wijzigingen, als beleid en niet als techniek. Geldt voor leerroute 1 tot en met 3.
+In scope is de lifecycle van onderwijsspecificaties: versienummering, identiteit, geldigheid, status, en de classificatie van wijzigingen. Dit gaat over beleid, niet over techniek. Geldt voor leerroute 1 tot en met 3.
 
 Twee afbakeningen die anders verwarring geven:
 

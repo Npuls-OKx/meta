@@ -54,7 +54,7 @@ Al het overige valt buiten dit document.
 
 ## 2. Payload
 
-Vier weergaven met elk één taak. Het **informatiemodel** toont welke dingen er zijn en hoe ze samenhangen. De **payload** is de letterlijke JSON. De **instantieboom** maakt de hiërarchie zichtbaar die in de platte JSON onzichtbaar is. De **knelpunten** hangen aan de instantie en staan toegelicht in [§3.4](#34-knelpunten-plannen-als-constraint-satisfaction-problem).
+Het **informatiemodel**, het **JSON Schema** en de **schemaboom** leggen samen de vorm vast: welke dingen er zijn, hoe ze samenhangen en welke velden ze dragen. De **payload** en de **instantiebomen** geven het voorbeeld, waarbij de bomen de hiërarchie zichtbaar maken die in de platte JSON verborgen blijft. De knelpuntcodes staan toegelicht in [§3.4](#34-knelpunten-plannen-als-constraint-satisfaction-problem).
 
 ### 2.1 De vorm
 
@@ -110,7 +110,7 @@ erDiagram
     }
     ONDERWIJSSPECIFICATIE {
         uuid id PK
-        string toelichting "uit de onderwijsspecificatie-payload"
+        string versie "gepinde versie, het object zelf staat in de onderwijsspecificatie-payload"
     }
 ```
 
@@ -230,7 +230,8 @@ Onderwijsaanbod  (Alfa en indicatief. Deze vorm onderbouwt welke velden het kopp
 {root}
 +-- aanbodInstanties[]                verplicht
 |   +-- id                                uuid
-|   +-- aanbodType                        enum (4 waarden)
+|   +-- aanbodType                        opleidingsaanbod | opleidingsprogramma-aanbod | onderwijseenheid-aanbod
+|   |                                     leergelegenheid
 |   +-- versie                            string
 |   +-- bovenliggendAanbodId              string of null
 |   +-- specificatieVerwijzing            verplicht, object
@@ -344,7 +345,7 @@ Leerroute 1. De `specificatieVerwijzing`-uuid's komen uit de [onderwijsspecifica
       "aanbodType": "onderwijseenheid-aanbod",
       "versie": "0.1.0",
       "bovenliggendAanbodId": "8c494250-b67a-4666-a762-6f9ec1e70aff",
-      "specificatieVerwijzing": { "specificatieId": "ecf4a1ce-8fe4-4ed2-82d4-6c743862094e", "versie": "0.1.0" },
+      "specificatieVerwijzing": { "specificatieId": "20f1099a-949f-40b8-b893-1aa5bfea3f4c", "versie": "0.1.0" },
       "naam": "Keuzedeel Ruimtelijk inzicht, periode 3, Utrecht",
       "status": "gepland",
       "periode": { "start": "2027-02-01", "eind": "2027-04-16" },

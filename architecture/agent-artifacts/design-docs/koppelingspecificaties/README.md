@@ -15,7 +15,7 @@ flowchart LR
     SKS["Student Keuze Systeem"] -. "eigen koppeling, buiten scope hier" .-> SIS
 ```
 
-Actuele architectuurplaat: [OKx hoofdplaat v1.7](../../../model/informatiestromen%20hoofdplaat%20OKx/1.7/OKx%20hoofdplaat%201.7.jpg) (in het [ArchiMate-model](../../../model/)). De genummerde interpretatie van de stromen (stroom 1 tot en met 17) staat in het [Projectoverzicht](../../../../doc/OKx_Projectoverzicht.md); die tabel is nog gebaseerd op de oudere plaat (v20260317) en wordt met v1.7 verzoend. Het [OEAPI consumer-profiel](../../../docs/specificatie/okx-oeapi-consumer-profiel/README.md) gebruikt eveneens nog die oudere plaat; leidend voor de architectuur is v1.7.
+De afkortingen staan verklaard in de tabel verderop. Actuele architectuurplaat: [OKx hoofdplaat v1.7](../../../model/informatiestromen%20hoofdplaat%20OKx/1.7/OKx%20hoofdplaat%201.7.jpg) (in het [ArchiMate-model](../../../model/)). De genummerde interpretatie van de stromen (stroom 1 tot en met 17) staat in het [Projectoverzicht](../../../../doc/OKx_Projectoverzicht.md); die tabel is nog gebaseerd op de oudere plaat (v20260317) en wordt met v1.7 verzoend. Het [OEAPI consumer-profiel](../../../docs/specificatie/okx-oeapi-consumer-profiel/README.md) gebruikt eveneens nog die oudere plaat; leidend voor de architectuur is v1.7.
 
 Kernbegrippen die in elk document terugkomen:
 
@@ -55,6 +55,14 @@ Leesvolgorde: eerst deze instap, dan `gedeeld/` (de centrale onderwijsspecificat
 | CO | Curriculum-ontwerptool, waar onderwijsspecificaties ontstaan |
 | Leerroute 1-3 | De Npuls-leerroutes: regulier, temporiseren, en versnellen. Leerroute 1 is de basis, 2 en 3 worden als verschil beschreven |
 | SBU | Studiebelastingsuren |
+| EC | European Credit, de studiepunt-eenheid van het hoger onderwijs |
+| BOL | Beroepsopleidende leerweg (voltijd op school, met stage) |
+| BBL | Beroepsbegeleidende leerweg (werken en leren gecombineerd) |
+| BPV | Beroepspraktijkvorming, het praktijkdeel van de opleiding |
+| SBB | Samenwerkingsorganisatie Beroepsonderwijs Bedrijfsleven, beheerder van het kwalificatiekader |
+| NLQF | Nederlands kwalificatieraamwerk, dat een niveau aan een leeruitkomst hangt |
+| OER | Onderwijs- en examenregeling, de contractuele afspraak met de student |
+| OEAPI | Open Onderwijs API, de sectorstandaard waarop OKx zoveel mogelijk aansluit |
 | [`architecture/dr/`](../../../dr/) | Decision records: de vastgelegde architectuurbesluiten (ADR's) |
 
 ### Wat staat waar
@@ -74,7 +82,7 @@ Leidende prioriteringsvraag: wat moeten deze drie koppelingen uitgewisseld hebbe
 
 De vaste opbouw van een koppelingspecificatie en van een payload-specificatie, plus de conventies voor veldnamen, schema's en bomen, staan in de skill [`okx-koppelingspecificatie`](../../../../.cursor/skills/okx-koppelingspecificatie/SKILL.md).
 
-Elke payload-specificatie draagt een **JSON Schema** (alfa en indicatief) plus twee ASCII-bomen: de **schemaboom** toont die vorm leesbaar, de **instantieboom** lost de verwijzingen op en maakt de hiërarchie zichtbaar die in de platte JSON onzichtbaar blijft. Beide worden gegenereerd; draai vóór een commit:
+Elke payload-specificatie draagt een **JSON Schema** (alfa en indicatief) plus ASCII-bomen: een **schemaboom** die de vorm leesbaar toont, en per platte array een **instantieboom** die de verwijzingen oplost en de hiërarchie zichtbaar maakt die in de JSON verborgen blijft. Beide worden gegenereerd; draai vóór een commit:
 
 ```bash
 python3 scripts/json-tree.py --check <document>.md   # faalt bij drift, dode verwijzingen of schemafouten
