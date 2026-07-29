@@ -115,9 +115,9 @@ Gebruiksprofiel van deze koppeling (welke onderdelen van de centrale payload OC 
 | `regelsets` | Volledig; `voorwaardeVooraf` bevat leeruitkomst-ids uitsluitend als **opaque sleutels** voor volgordebepaling (ADR 0023) |
 | `leeruitkomsten` | **Niet meegeleverd.** Planning heeft de betekenis, aggregatie en inhoud van leeruitkomsten niet nodig (ADR 0023) |
 
-- Informatiemodel en ERD: [onderwijsspecificatie-payload §7.1](../gedeeld/20260717_1120_okx-lr1-onderwijsspecificatie-payload-json.md).
-- Datamodel en JSON: [onderwijsspecificatie-payload §7.2](../gedeeld/20260717_1120_okx-lr1-onderwijsspecificatie-payload-json.md).
-- Lifecycle en manifest: [onderwijsspecificatie-payload §8](../gedeeld/20260717_1120_okx-lr1-onderwijsspecificatie-payload-json.md) en de [lifecycle-uitwerking](../gedeeld/20260720_0832_okx-lr1-lifecycle-versionering.md).
+- Informatiemodel en ERD: [onderwijsspecificatie-payload §2.1](../gedeeld/20260717_1120_okx-lr1-onderwijsspecificatie-payload-json.md).
+- Datamodel en JSON: [onderwijsspecificatie-payload §2.2](../gedeeld/20260717_1120_okx-lr1-onderwijsspecificatie-payload-json.md).
+- Lifecycle en manifest: [onderwijsspecificatie-payload §3.3](../gedeeld/20260717_1120_okx-lr1-onderwijsspecificatie-payload-json.md) en de [lifecycle-uitwerking](../gedeeld/20260720_0832_okx-lr1-lifecycle-versionering.md).
 
 Berichten op deze koppeling:
 
@@ -315,7 +315,7 @@ Gedrag:
 - Profiel-hoofdstukken 15-18 zijn verouderd; deze memo is de vervangende lijn. Het profiel bijwerken is een aparte actie buiten deze branch.
 - Capaciteitsterugkoppeling (bezetting, parallelle groepen) bewust buiten de alpha; volgt in een volgende iteratie.
 - De [onderwijsaanbod-payload](20260723_1304_okx-lr1-onderwijsaanbod-payload-json.md) concretiseert de eerdere signalering "suggestieve aanbod-attributen" uit de onderwijsspecificatie-payload.
-- Knelpuntcodes (planfouten als constraint-categorieën): eerste aanzet in de onderwijsaanbod-payload §11; genormeerde codelijst en foutmodel zijn een eigen issue waard.
+- Knelpuntcodes (planfouten als constraint-categorieën): aanzet in de onderwijsaanbod-payload §3.4; genormeerde codelijst en foutmodel zijn een eigen issue waard.
 
 ## 10. Gerelateerde uitwerkingen
 

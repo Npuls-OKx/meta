@@ -1,44 +1,24 @@
 # Onderwijsaanbod als JSON-payload
 
-Context: de instantie van het nieuw gecreëerde onderwijsaanbod, die het planningssysteem (P) serveert en waarnaar het per referentie (uuid) verwijst richting de onderwijscatalogus (OC). Scenario: LR1. Niveau: alpha, waarden indicatief. Status: concept. Relateert aan: #98, #119, #105, #84.
+Relateert aan: #98, #119, #105, #84. Waarden in het voorbeeld zijn indicatief.
 
 ## Inhoudsopgave
 
-1. [Inleiding](#1-inleiding)
-2. [Doel](#2-doel)
-3. [Scope](#3-scope)
-4. [Context](#4-context)
-5. [Ontwerpkeuzes](#5-ontwerpkeuzes)
-6. [Locatiemodel](#6-locatiemodel)
-7. [Organisatie-inrichting](#7-organisatie-inrichting)
-8. [Structuur met attributen (ERD)](#8-structuur-met-attributen-erd)
-9. [Enumeraties (concept)](#9-enumeraties-concept)
-10. [Uitwerking van de payload](#10-uitwerking-van-de-payload)
-11. [Knelpunten: plannen als constraint satisfaction problem](#11-knelpunten-plannen-als-constraint-satisfaction-problem)
-12. [Open vragen en signaleringen](#12-open-vragen-en-signaleringen)
-13. [Gerelateerde uitwerkingen](#13-gerelateerde-uitwerkingen)
+1. [Inleiding](#1-inleiding) (context, doel, scope)
+2. [Payload](#2-payload)
+   - [2.1 De vorm](#21-de-vorm)
+   - [2.2 Het voorbeeld](#22-het-voorbeeld)
+3. [Toelichting bij de keuzes](#3-toelichting-bij-de-keuzes)
+4. [Open punten](#4-open-punten)
+5. [Gerelateerde uitwerkingen](#5-gerelateerde-uitwerkingen)
 
 ## 1. Inleiding
 
-De [koppelingspecificatie OC-P&R](20260723_1156_okx-lr1-koppelingspecificatie-oc-p-en-r.md) legt vast dat het planningssysteem het onderwijsaanbod bezit en alleen de referentie (uuid) over het koppelvlak meldt. Dit document beschrijft de payload van die instantie: wat een opvrager (OC, of later R) terugkrijgt bij het ophalen van het aanbod.
+### 1.1 Context
 
-De payload is volledig Nederlands en sluit zo sterk mogelijk aan op het semantisch kader (ankertabel, aanbod-kolom). De OEAPI-binding volgt later in het profiel; hier bewust geen OEAPI-termen.
+Het planningssysteem vertaalt een gepubliceerde onderwijsspecificatie naar **onderwijsaanbod**: wanneer wordt het onderwijs gegeven, waar, met welke groepen en door welk team. De [koppelingspecificatie onderwijscatalogus naar planning en roostering](20260723_1156_okx-lr1-koppelingspecificatie-oc-p-en-r.md) legt vast dat het planningssysteem dat aanbod bezit en alleen een referentie (uuid) over de koppeling meldt. Dit document beschrijft wat een opvrager terugkrijgt wanneer die het aanbod vervolgens ophaalt.
 
-## 2. Doel
-
-- Een eerste, toetsbare JSON-vorm van het onderwijsaanbod voor LR1.
-- Locatie en organisatie-inrichting als expliciete, platte structuren met verwijzingen.
-- De knelpuntcodes van het planproces een eerste vorm geven (signalering).
-
-## 3. Scope
-
-- Aanbod op planniveau: periodes, locaties, groepen, uitvoerend team. Roosterniveau (dag en tijdstip, lokaaltoewijzing per les) is van het roostersysteem en valt buiten dit document.
-- LR1 uitgewerkt; LR2 en LR3 als delta.
-- Personen: alleen verwijzingen (uuid), geen persoonsgegevens (dataminimalisatie).
-
-## 4. Context
-
-Ankertabel, aanbod-kolom. Elke aanbod-instantie instantieert precies één onderwijsspecificatie:
+Het aanbod is de vierde begrippenfamilie uit de ankertabel: de specificatie zegt wat we organiseren, het aanbod zegt wanneer en met wie. Elke aanbod-instantie instantieert precies één onderwijsspecificatie en verwijst via `specificatieVerwijzing` (specificatieId plus versie) naar de exacte versie waarop de planning is gebaseerd.
 
 | Aanbodniveau (`aanbodType`) | Instantieert (specificatie) |
 |---|---|
@@ -47,35 +27,36 @@ Ankertabel, aanbod-kolom. Elke aanbod-instantie instantieert precies één onder
 | `onderwijseenheid-aanbod` | `onderwijseenheidspecificatie` |
 | `leergelegenheid` | `leeronderdeelspecificatie` |
 
-De verwijzing gebeurt per instantie via `specificatieVerwijzing` (specificatieId + versie). Zo is altijd herleidbaar op welke versie van de specificatie de planning is gebaseerd.
+Scenario is leerroute 1 (regulier), persona [Jochem](../../../../docs/specificatie/okx-oeapi-consumer-profiel/doc/persona_jochem.md). Ketenoverzicht en begrippen: de [instap in de README](../README.md#context).
 
-## 5. Ontwerpkeuzes
+### 1.2 Doel
 
-- **Volledig Nederlands.** Veldnamen volgen het semantisch kader (`aanbodId`, `versie`, `studielast`-conventies uit de specificatie-payload). De OEAPI-binding is een aparte stap.
-- **Plat met verwijzingen.** Alles wordt modulair en moet veel scenario's passen. Daarom platte lijsten (`aanbodInstanties`, `locaties`, `organisatieEenheden`) en relaties via id-verwijzingen (foreign keys): `bovenliggendId`, `locatieId`, `uitvoerendTeamId`, `valtBinnenLocatieId`, `bovenliggendeEenheidId`. Geen geneste subbomen.
-- **Zelfde mechaniek als de specificatie-payload.** Uuid's, `versie` (semver), identiteit los van versie, recursie via `bovenliggendId`.
-- **Status en knelpunten op de instantie.** De uitkomst van het planproces (gelukt, niet realiseerbaar) leeft op de aanbod-instantie zelf, met knelpuntcodes (§11).
-- **Groepen als koppeling.** Een groep hangt aan een `leergelegenheid` of `onderwijseenheid-aanbod` en maakt de combinatie specificatie, locatie en periode herkenbaar (#84 R4).
+Dit document beantwoordt drie vragen:
 
-## 6. Locatiemodel
+- Welke velden draagt een aanbod-instantie, en hoe verwijst die naar de onderliggende specificatie?
+- Hoe leggen we locatie en organisatie vast zonder per organisatievorm een eigen model te maken?
+- Hoe meldt het planningssysteem dat een planning niet realiseerbaar is, en waarom?
 
-Geïnspireerd op het OEAPI-voorstel voor betere locatie-ondersteuning (issue [open-education-api/specification#635](https://github.com/open-education-api/specification/issues/635)), hier uitgedrukt in het eigen semantisch kader:
+Geslaagd wanneer een leverancier de payload kan bouwen en lezen zonder aanvullende uitleg, en wanneer de knelpuntcodes een planner voldoende houvast geven om te weten wat er misgaat.
 
-- **Eén locatietype voor elke korrelgrootte.** Eén object `locatie` met een `locatieType`: van campus tot ruimte, en ook virtueel. Geen aparte modellen per niveau.
-- **Recursieve plaatsing via verwijzing.** `valtBinnenLocatieId` drukt de ruimtelijke hiërarchie uit (ruimte valt binnen gebouw, gebouw binnen vestiging, vestiging binnen campus), plat vastgelegd, net als de rest van de payload.
-- **Adres en geopunt naast elkaar.** Een locatie kan een adres dragen (straat, plaats) en onafhankelijk daarvan een geografisch punt (breedtegraad, lengtegraad).
-- **Virtuele locaties zijn volwaardig.** Een online leeromgeving of videoles krijgt `locatieType: virtueel` met een `url`.
-- **Codes voor herkenbaarheid.** `codes` draagt externe identificaties (bv. een vestigingscode). Of hier een landelijke locatietabel voor nodig is, is de open vraag uit #84 (vraag 2).
+De payload is indicatief en onderbouwt welke velden en operaties het koppelvlak nodig heeft; het is geen voorschrift aan de sector ([toelichting](../README.md#van-koppelingbeschrijving-naar-koppelvlakspecificatie-doelbinding)).
 
-## 7. Organisatie-inrichting
+### 1.3 Scope
 
-Het aanbod wordt uitgevoerd door de organisatie. Het organogram uit het OKx OEAPI consumer-profiel dient als indicatie: instelling, daarbinnen sectoren of colleges, daarbinnen onderwijsteams met professionals.
+In scope is het aanbod op **planniveau**: periodes, locaties, groepen, uitvoerend team, en de uitkomst van het planproces. Uitgewerkt voor leerroute 1; leerroute 2 en 3 volgen als verschil ten opzichte daarvan.
 
-- `organisatieEenheden` is een platte lijst met `eenheidType` en `bovenliggendeEenheidId` (zelfde recursiepatroon).
-- Een aanbod-instantie verwijst via `uitvoerendTeamId` naar het onderwijsteam dat het aanbod draagt.
-- Professionals hangen aan het team als `professionalIds` (alleen uuid's). Inzet, beschikbaarheid en competenties leven in het plan-van-inzet-systeem (HRM), buiten deze koppeling. Persoonsgegevens horen niet in deze payload.
+Twee afbakeningen die anders verwarring geven:
 
-## 8. Structuur met attributen (ERD)
+- **Roosterniveau** (dag, tijdstip, lokaaltoewijzing per les) hoort bij het roostersysteem, niet bij dit document.
+- **Personen** komen alleen als verwijzing (uuid) voor. Namen, inzet en beschikbaarheid horen in de personeelssystemen; dataminimalisatie is hier dus een ontwerpeis en geen open kwestie.
+
+Al het overige valt buiten dit document.
+
+## 2. Payload
+
+Vier weergaven met elk één taak. Het **informatiemodel** toont welke dingen er zijn en hoe ze samenhangen. De **payload** is de letterlijke JSON. De **instantieboom** maakt de hiërarchie zichtbaar die in de platte JSON onzichtbaar is. De **knelpunten** hangen aan de instantie en staan toegelicht in [§3.4](#34-knelpunten-plannen-als-constraint-satisfaction-problem).
+
+### 2.1 De vorm
 
 ```mermaid
 erDiagram
@@ -95,7 +76,7 @@ erDiagram
         object specificatieVerwijzing "specificatieId + versie"
         string naam
         string status
-        array knelpunten "code + omschrijving (par. 11)"
+        array knelpunten "code + omschrijving (par. 3.4)"
         string cohort
         object periode "start + eind"
         int minAantalStudenten
@@ -133,20 +114,20 @@ erDiagram
     }
 ```
 
-## 9. Enumeraties (concept)
+Toegestane waarden:
 
-| Veld | Toegestane waarden |
+| Veld | Waarden |
 |---|---|
 | `aanbodType` | `opleidingsaanbod`, `opleidingsprogramma-aanbod`, `onderwijseenheid-aanbod`, `leergelegenheid` |
 | `status` | `inPlanning`, `gepland`, `nietRealiseerbaar`, `geannuleerd` |
 | `locatieType` | `campus`, `vestiging`, `gebouw`, `ruimte`, `balie`, `adres`, `geopunt`, `virtueel` |
-| `eenheidType` | `instelling`, `sector`, `college`, `afdeling`, `onderwijsteam` (open) |
-| `knelpunten[].code` | zie §11 |
+| `eenheidType` | `instelling`, `sector`, `college`, `afdeling`, `onderwijsteam` (open lijst) |
+| `knelpunten[].code` | zie [§3.4](#34-knelpunten-plannen-als-constraint-satisfaction-problem) |
 | `versie` | semver `MAJOR.MINOR.PATCH` |
 
-## 10. Uitwerking van de payload
+### 2.2 Het voorbeeld
 
-LR1, indicatief. De `specificatieVerwijzing`-uuid's komen uit de [onderwijsspecificatie-payload](../gedeeld/20260717_1120_okx-lr1-onderwijsspecificatie-payload-json.md).
+Leerroute 1. De `specificatieVerwijzing`-uuid's komen uit de [onderwijsspecificatie-payload](../gedeeld/20260717_1120_okx-lr1-onderwijsspecificatie-payload-json.md).
 
 ```json
 {
@@ -276,7 +257,7 @@ LR1, indicatief. De `specificatieVerwijzing`-uuid's komen uit de [onderwijsspeci
 }
 ```
 
-Faalvorm (koppelingspecificatie 7.3): bij "niet gelukt" bestaat de instantie wel, met status en knelpunten:
+Loopt de planning vast, dan bestaat de instantie wel maar draagt die status en knelpunten. Zie het faalpad in de [koppelingspecificatie §5.3](20260723_1156_okx-lr1-koppelingspecificatie-oc-p-en-r.md):
 
 ```json
 {
@@ -292,7 +273,35 @@ Faalvorm (koppelingspecificatie 7.3): bij "niet gelukt" bestaat de instantie wel
 }
 ```
 
-## 11. Knelpunten: plannen als constraint satisfaction problem
+## 3. Toelichting bij de keuzes
+
+### 3.1 Ontwerpkeuzes
+
+- **Volledig Nederlands.** Veldnamen volgen het semantisch kader. De binding met de Open Onderwijs API is een aparte stap.
+- **Plat met verwijzingen.** De objecten staan in platte lijsten (`aanbodInstanties`, `locaties`, `organisatieEenheden`) en de samenhang loopt via id-verwijzingen (`bovenliggendAanbodId`, `locatieId`, `uitvoerendTeamId`, `valtBinnenLocatieId`, `bovenliggendeEenheidId`) in plaats van via fysieke nesting. Dat maakt elk object los adresseerbaar en los te versioneren, en voorkomt dat je een halve boom moet meesturen om één les te wijzigen. De prijs is dat de hiërarchie niet meer uit de JSON zelf blijkt; daarom staat er een instantieboom bij.
+- **Zelfde mechaniek als de specificatie-payload.** Uuid's, `versie` (semver), identiteit los van versie, en dezelfde recursie via een ouder-verwijzing.
+- **Status en knelpunten op de instantie.** De uitkomst van het planproces leeft op de aanbod-instantie zelf, met knelpuntcodes (§3.4).
+- **Groepen als koppeling.** Een groep hangt aan een `leergelegenheid` of `onderwijseenheid-aanbod` en maakt de combinatie specificatie, locatie en periode herkenbaar (#84 R4).
+
+### 3.2 Locatiemodel
+
+Geïnspireerd op het voorstel voor betere locatie-ondersteuning in de Open Onderwijs API ([issue 635](https://github.com/open-education-api/specification/issues/635)), hier uitgedrukt in het eigen semantisch kader:
+
+- **Eén locatietype voor elke korrelgrootte.** Eén object `locatie` met een `locatieType`: van campus tot ruimte, en ook virtueel. Geen apart model per niveau.
+- **Recursieve plaatsing via verwijzing.** `valtBinnenLocatieId` drukt de ruimtelijke hiërarchie uit: ruimte binnen gebouw, gebouw binnen vestiging, vestiging binnen campus.
+- **Adres en geopunt naast elkaar.** Een locatie kan een adres dragen en daarnaast, onafhankelijk, een geografisch punt.
+- **Virtuele locaties zijn volwaardig.** Een online leeromgeving of videoles krijgt `locatieType: virtueel` met een `url`.
+- **Codes voor herkenbaarheid.** `codes` draagt externe identificaties, bijvoorbeeld een vestigingscode.
+
+### 3.3 Organisatie-inrichting
+
+Een aanbod wordt uitgevoerd door een team, en planning heeft dat team nodig om te weten of het aanbod haalbaar is. Daarom draagt de payload een minimale organisatiestructuur, met het organogram uit het OEAPI consumer-profiel als indicatie: instelling, daarbinnen sectoren of colleges, daarbinnen onderwijsteams.
+
+- `organisatieEenheden` is een platte lijst met `eenheidType` en `bovenliggendeEenheidId`, hetzelfde recursiepatroon als de rest.
+- Een aanbod-instantie verwijst via `uitvoerendTeamId` naar het team dat het aanbod draagt.
+- Professionals hangen aan het team als `professionalIds`, alleen uuid's. Inzet, beschikbaarheid en competenties leven in het plan-van-inzetsysteem, buiten deze koppeling.
+
+### 3.4 Knelpunten: plannen als constraint satisfaction problem
 
 Plannen is op te vatten als een constraint satisfaction problem (CSP): variabelen (leergelegenheden maal periodes maal middelen) krijgen een waarde binnen randvoorwaarden (constraints) uit de specificatie (studielast, tijdsverdeling, voorwaarden vooraf, keuzeregels), de organisatie (teamcapaciteit, expertise), de infrastructuur (ruimtetypen, locaties) en de kalender (lesweken, urennorm). "Niet realiseerbaar" betekent: een of meer constraints zijn onvervulbaar. De knelpuntcode benoemt de geschonden constraint-categorie, met de betrokken specificaties erbij.
 
@@ -309,21 +318,23 @@ Eerste aanzet voor de codes (concept):
 | `groepsgrootteConflict` | Minimum of maximum aantal studenten | Prognose blijft onder het minimum |
 | `kalenderConflict` | Urennorm of lesweken passen niet | Vereiste begeleide uren passen niet in de beschikbare weken |
 
-**Signalering:** een volledige, genormeerde codelijst met foutmodel (structuur, ernst, herstelacties) verdient een eigen issue en uitwerking. Deze tabel is de aanzet.
+Deze tabel is een aanzet; de genormeerde codelijst met foutmodel (structuur, ernst, herstelacties) staat als open punt in §4.
 
-## 12. Open vragen en signaleringen
+## 4. Open punten
 
-- Landelijke locatietabel: is een gedeelde locatie-identificatie nodig zodat ook andere instellingen weten waar aanbod plaatsvindt (#84, vraag 2)? De `codes` op de locatie zijn de aanhaakplek.
-- Organisatie-inrichting: het organogram is indicatief. Welke eenheidstypen zijn normatief, en wie is bron van de organisatiestructuur (HRM, OC, P)?
-- Professionals: hier alleen uuid-verwijzingen. De koppeling met inzet en beschikbaarheid (plan-van-inzet, HRM) is een eigen koppeling.
-- Knelpuntcodes: eigen issue voor de genormeerde codelijst en het foutmodel (§11).
-- Roosterniveau (`lesgelegenheid`, dag en tijdstip): bij het roostersysteem, volgt in de doorwerking (koppelingspecificatie §7.5).
-- OEAPI-binding van dit model (waaronder het locatiemodel op issue 635): aparte stap in het profiel.
+| Vraag | Vervolgstap |
+|---|---|
+| Is een landelijke locatie-identificatie nodig, zodat instellingen onderling weten waar aanbod plaatsvindt? | Uitzoeken bij de vervolgvraag uit #84; `codes` op de locatie is de aanhaakplek. |
+| Welke `eenheidType`-waarden zijn normatief, en wie is bron van de organisatiestructuur? | Voorleggen aan de instellingen bij de stakeholderreview van de koppelingspecificatie. |
+| Hoe koppelen inzet en beschikbaarheid van professionals aan dit aanbod? | Eigen koppeling met het plan-van-inzetsysteem; buiten deze payload. |
+| Welke knelpuntcodes zijn genormeerd, en welk foutmodel hoort erbij? | Eigen issue aanmaken met codelijst, ernstniveaus en herstelacties. |
+| Hoe ziet het roosterniveau (`lesgelegenheid`, dag en tijdstip) eruit? | Volgt bij de uitwerking van de koppeling met het roostersysteem. |
+| Hoe bindt dit model aan de Open Onderwijs API, inclusief het locatiemodel? | Aparte stap in het consumer-profiel. |
 
-## 13. Gerelateerde uitwerkingen
+## 5. Gerelateerde uitwerkingen
 
-- [Koppelingspecificatie OC-P&R](20260723_1156_okx-lr1-koppelingspecificatie-oc-p-en-r.md) (interacties waarin deze payload de opvraagbare instantie is).
-- [Onderwijsspecificatie-payload](../gedeeld/20260717_1120_okx-lr1-onderwijsspecificatie-payload-json.md) (de specificaties waarnaar `specificatieVerwijzing` wijst).
-- [Lifecycle en versionering](../gedeeld/20260720_0832_okx-lr1-lifecycle-versionering.md) (semver, identiteit los van versie).
-- OEAPI-issue [Better Location support (#635)](https://github.com/open-education-api/specification/issues/635) (inspiratie locatiemodel).
-- OKx OEAPI consumer-profiel (organogram ter indicatie).
+- [Koppelingspecificatie onderwijscatalogus naar planning en roostering](20260723_1156_okx-lr1-koppelingspecificatie-oc-p-en-r.md): de interacties waarin deze payload de opvraagbare instantie is.
+- [Onderwijsspecificatie-payload](../gedeeld/20260717_1120_okx-lr1-onderwijsspecificatie-payload-json.md): de specificaties waarnaar `specificatieVerwijzing` wijst.
+- [Lifecycle en versionering](../gedeeld/20260720_0832_okx-lr1-lifecycle-versionering.md): semver en identiteit los van versie.
+- [Open Onderwijs API, issue 635](https://github.com/open-education-api/specification/issues/635): inspiratie voor het locatiemodel.
+- [OKx OEAPI consumer-profiel](../../../../docs/specificatie/okx-oeapi-consumer-profiel/README.md): organogram ter indicatie.

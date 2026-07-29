@@ -4,38 +4,23 @@ Context: parallelle uitwerking bij de [onderwijsspecificatie-payload](../gedeeld
 
 ## Inhoudsopgave
 
-1. [Inleiding](#1-inleiding)
-2. [Doel](#2-doel)
-3. [Scope](#3-scope)
-4. [Context](#4-context)
-5. [Voorstel: hoe drukken we de resultaatstructuur uit in JSON?](#5-voorstel-hoe-drukken-we-de-resultaatstructuur-uit-in-json)
-6. [Enumeraties (concept)](#6-enumeraties-concept)
-7. [Uitwerking van de payload](#7-uitwerking-van-de-payload)
-8. [Lifecycle](#8-lifecycle)
-9. [Open vragen en signaleringen](#9-open-vragen-en-signaleringen)
-10. [Gerelateerde uitwerkingen](#10-gerelateerde-uitwerkingen)
+1. [Inleiding](#1-inleiding) (context, doel, scope)
+2. [Payload](#2-payload)
+   - [2.1 De vorm](#21-de-vorm)
+   - [2.2 Het voorbeeld](#22-het-voorbeeld)
+3. [Toelichting bij de keuzes](#3-toelichting-bij-de-keuzes)
+4. [Open punten](#4-open-punten)
+5. [Gerelateerde uitwerkingen](#5-gerelateerde-uitwerkingen)
 
 ## 1. Inleiding
 
-De onderwijsspecificatie beschrijft wat een student leert. De resultaatstructuur beschrijft hoe dat wordt getoetst en gewogen richting het diploma. Beide zijn aparte bomen die via **leeruitkomsten** aan elkaar hangen.
+### 1.1 Context
 
-De `examenplanspecificatie` (OER) is de wortel van die tweede boom. Aanleiding is de memo **"Onderwijs PDCA-cyclus" van Niels** (PR #110): het examenplan heeft het zwaarste uitgangspunt omdat het een contractuele afspraak met de student is, en beschrijft de summatieve resultaatstructuur met scope, relatie tot kerntaken, wegingen en formules.
+De onderwijsspecificatie beschrijft wat een student leert. De **resultaatstructuur** beschrijft hoe dat wordt getoetst en gewogen richting het diploma. Het zijn twee aparte bomen die via **leeruitkomsten** aan elkaar hangen: de leeruitkomst is de sleutel waarop een onderwijsresultaat wordt behaald ([ADR 0022](../../../../dr/0022-resultaatbegrippen-conform-rosa-koi.md)).
 
-## 2. Doel
+De `examenplanspecificatie`, in de praktijk de onderwijs- en examenregeling, is de wortel van die tweede boom. Aanleiding is de memo "Onderwijs PDCA-cyclus" van Niels (PR #110): het examenplan kent de zwaarste eisen omdat het een contractuele afspraak met de student is, en beschrijft de summatieve resultaatstructuur met scope, relatie tot kerntaken, wegingen en formules.
 
-- Een eerste, toetsbare JSON-vorm van de resultaatstructuur voor LR1.
-- Dezelfde mechaniek als de onderwijsspecificatie-payload, zodat beide bomen één familie vormen.
-- Invoer voor de berichtspecificatie (AMIGO-stap 5) en het OEAPI-profiel.
-
-Buiten scope: uitvoering en beoordeling (afname, behaalde resultaten, examendossier). Dat is het OKE-domein.
-
-## 3. Scope
-
-- LR1 uitgewerkt, gekoppeld aan de `opleidingsprogrammaspecificatie` Regulier BOL uit de onderwijsspecificatie-payload. LR2 en LR3 volgen als delta.
-- Beroepsgerichte kerntaken. Generieke onderdelen (taal, rekenen, burgerschap, Engels) vallen buiten deze payload.
-- Waarden zijn indicatief; het echte examenplan wordt door de instelling vastgesteld.
-
-## 4. Context
+Scenario is leerroute 1, persona [Jochem](../../../../docs/specificatie/okx-oeapi-consumer-profiel/doc/persona_jochem.md), opleiding Apothekersassistent (kwalificatie 27141). Ketenoverzicht, begrippen en afkortingen: de [instap in de README](../README.md#context).
 
 De resultaatstructuur gebruikt dezelfde specificatiefamilie als de onderwijsspecificatie. Drie typen:
 
@@ -70,36 +55,35 @@ flowchart TD
     RE1 -. aggregeert .-> LU
 ```
 
-## 5. Voorstel: hoe drukken we de resultaatstructuur uit in JSON?
+### 1.2 Doel
 
-Zelfde ontwerpkeuze als de onderwijsspecificatie-payload (optie C: recursief plat met `parent`). Concreet:
+Dit document beantwoordt drie vragen:
 
-- **Eén familie.** De resultaatstructuur gebruikt dezelfde envelope (`educationSpecifications`, `ruleSets`), dezelfde velden (`educationSpecificationId`, `educationSpecificationType`, `parent`, `version`, `status`, `validFrom`/`validTo`, `manifest`, `leeruitkomst`) en dezelfde discriminator. Alleen de typewaarden verschillen.
-- **Weging bovenin, niet in het blad.** Een `resultaateenheidspecificatie` draagt `aggregatie` (hoe onderliggende resultaten samenkomen) en haar eigen `weging` binnen de ouder. Zo staat de rekenregel op het niveau waar hij geldt.
-- **Aard expliciet.** `aard` onderscheidt `summatief` (telt mee voor het diploma) van `formatief` (ontwikkelingsgericht, weging 0).
-- **Resultaatmodel per niveau.** `resultaatmodel` legt schaal, cesuur en afronding vast, zodat elk systeem dezelfde uitkomst berekent.
-- **Regels los van de specificatie.** Dynamische delen (bijvoorbeeld welke keuzedeelresultaten meetellen) staan in een `ruleSet`, niet in de specificatie. Zelfde principe als #84 en #120. Dit maakt de modulaire resultaatstructuur mogelijk die de memo van Niels vraagt: keuzes kunnen worden ingevuld met onderdelen die nog niet bestonden toen het examenplan werd vastgesteld.
-- **Manifest.** Elke specificatie met onderdelen pint de versies daarvan, inclusief de kruisverwijzing naar de `opleidingsprogrammaspecificatie` (`relatie: referentie`).
+- Hoe leg je een examenplan vast als structuur die een systeem kan uitrekenen, in plaats van als tekstdocument?
+- Hoe hangt die structuur aan de onderwijsspecificatie, zodat duidelijk is welke toets welke leeruitkomst afdicht?
+- Hoe blijven keuzedelen mogelijk die nog niet bestonden toen het examenplan werd vastgesteld?
 
-## 6. Enumeraties (concept)
+Geslaagd wanneer een studentinformatiesysteem de resultaatstructuur kan inrichten en de aggregatie richting diploma kan berekenen zonder aanvullende uitleg.
 
-Concept en te bevestigen. Velden die identiek zijn aan de onderwijsspecificatie-payload (`status`, `version`, `validFrom`/`validTo`, `manifest[].relatie`, `leeruitkomst.type`) staan daar en worden hier niet herhaald.
+De payload is indicatief en onderbouwt welke velden het koppelvlak nodig heeft; het is geen voorschrift aan de sector ([toelichting](../README.md#van-koppelingbeschrijving-naar-koppelvlakspecificatie-doelbinding)).
 
-| Veld | Toegestane waarden |
-|---|---|
-| `educationSpecificationType` | `examenplanspecificatie`, `resultaateenheidspecificatie`, `toetsonderdeelspecificatie` |
-| `aard` | `summatief`, `formatief` |
-| `aggregatie` | `gewogenGemiddelde`, `som`, `allenVoldoende`, `minimaalAantal` |
-| `resultaatmodel.schaal` | `cijfer-1-10`, `voldoende-onvoldoende`, `punten` (open) |
-| `toetsvorm` | `proeveVanBekwaamheid`, `kennistoets`, `praktijkopdracht`, `portfolio`, `criteriumgesprek` (open) |
-| `weging` | getal, relatief binnen de ouder. `0` bij formatief |
-| `verplicht` | `true`, `false` |
+### 1.3 Scope
 
-## 7. Uitwerking van de payload
+In scope is de **summatieve** resultaatstructuur voor leerroute 1, gekoppeld aan de `opleidingsprogrammaspecificatie` Regulier BOL uit de onderwijsspecificatie-payload: examenplan, resultaateenheden, toetsonderdelen, wegingen en aggregatie.
 
-LR1, indicatief. Uuid's van de onderwijsspecificatie-payload worden hergebruikt waar naar die boom wordt verwezen.
+Drie afbakeningen die anders verwarring geven:
 
-### 7.1 Structuur met attributen (ERD)
+- **Uitvoering en beoordeling** (afname, behaalde resultaten, examendossier) horen bij het examendomein OKE, niet hier.
+- **Generieke onderdelen** (taal, rekenen, burgerschap, Engels) kennen een eigen wettelijk regime en zitten niet in deze payload.
+- De **waarden zijn indicatief**; het echte examenplan stelt de instelling vast.
+
+Al het overige valt buiten dit document.
+
+## 2. Payload
+
+Twee weergaven met elk een eigen taak. **De vorm** legt vast welke objecten er zijn, welke velden ze dragen en welke waarden zijn toegestaan. **Het voorbeeld** is de letterlijke payload voor leerroute 1; uuid's van de onderwijsspecificatie-payload worden hergebruikt waar naar die boom wordt verwezen.
+
+### 2.1 De vorm
 
 ```mermaid
 erDiagram
@@ -157,7 +141,20 @@ erDiagram
     }
 ```
 
-### 7.2 Payload (JSON)
+Toegestane waarden. Velden die identiek zijn aan de onderwijsspecificatie-payload (`status`, `version`, `validFrom`/`validTo`, `manifest[].relatie`, `leeruitkomst.type`) staan daar en worden hier niet herhaald.
+
+| Veld | Toegestane waarden |
+|---|---|
+| `educationSpecificationType` | `examenplanspecificatie`, `resultaateenheidspecificatie`, `toetsonderdeelspecificatie` |
+| `aard` | `summatief`, `formatief` |
+| `aggregatie` | `gewogenGemiddelde`, `som`, `allenVoldoende`, `minimaalAantal` |
+| `resultaatmodel.schaal` | `cijfer-1-10`, `voldoende-onvoldoende`, `punten` (open) |
+| `toetsvorm` | `proeveVanBekwaamheid`, `kennistoets`, `praktijkopdracht`, `portfolio`, `criteriumgesprek` (open) |
+| `weging` | getal, relatief binnen de ouder. `0` bij formatief |
+| `verplicht` | `true`, `false` |
+
+
+### 2.2 Het voorbeeld
 
 ```json
 {
@@ -341,13 +338,27 @@ erDiagram
 
 **Hoe de weging doorwerkt.** Binnen kerntaak B1-K1 telt de proeve twee keer zo zwaar als de kennistoets (weging 2 tegen 1); de formatieve toets telt niet mee (weging 0). Het gewogen gemiddelde levert een cijfer met cesuur 5.5. Op examenplanniveau geldt `allenVoldoende`: alle vier de resultaateenheden moeten voldoende zijn voor het diploma.
 
-## 8. Lifecycle
+## 3. Toelichting bij de keuzes
+
+### 3.1 Waarom dezelfde vorm als de onderwijsspecificatie
+
+Zelfde ontwerpkeuze als de onderwijsspecificatie-payload (optie C: recursief plat met `parent`). Concreet:
+
+- **Eén familie.** De resultaatstructuur gebruikt dezelfde envelope (`educationSpecifications`, `ruleSets`), dezelfde velden (`educationSpecificationId`, `educationSpecificationType`, `parent`, `version`, `status`, `validFrom`/`validTo`, `manifest`, `leeruitkomst`) en dezelfde discriminator. Alleen de typewaarden verschillen.
+- **Weging bovenin, niet in het blad.** Een `resultaateenheidspecificatie` draagt `aggregatie` (hoe onderliggende resultaten samenkomen) en haar eigen `weging` binnen de ouder. Zo staat de rekenregel op het niveau waar hij geldt.
+- **Aard expliciet.** `aard` onderscheidt `summatief` (telt mee voor het diploma) van `formatief` (ontwikkelingsgericht, weging 0).
+- **Resultaatmodel per niveau.** `resultaatmodel` legt schaal, cesuur en afronding vast, zodat elk systeem dezelfde uitkomst berekent.
+- **Regels los van de specificatie.** Dynamische delen (bijvoorbeeld welke keuzedeelresultaten meetellen) staan in een `ruleSet`, niet in de specificatie. Zelfde principe als #84 en #120. Dit maakt de modulaire resultaatstructuur mogelijk die de memo van Niels vraagt: keuzes kunnen worden ingevuld met onderdelen die nog niet bestonden toen het examenplan werd vastgesteld.
+- **Manifest.** Elke specificatie met onderdelen pint de versies daarvan, inclusief de kruisverwijzing naar de `opleidingsprogrammaspecificatie` (`relatie: referentie`).
+
+
+### 3.2 Lifecycle
 
 Zelfde mechaniek als de onderwijsspecificatie: semver per specificatie, identiteit los van versie, manifest dat onderliggende versies pint, en `validFrom`/`validTo` voor gelijktijdig actieve versies. Zie het hoofdstuk *Onderwijsspecificatie lifecycle* in de payload en de [lifecycle-uitwerking](../gedeeld/20260720_0832_okx-lr1-lifecycle-versionering.md).
 
 Eén verschil: de `examenplanspecificatie` heeft de **strengste acceptatieregels**. Het is een contractuele afspraak met de student, dus een wijziging vraagt altijd expliciete impactanalyse en besluitvorming, ook wanneer die technisch niet-brekend lijkt (memo van Niels, PR #110).
 
-## 9. Open vragen en signaleringen
+## 4. Open punten
 
 - Nominaal versus individueel examenplan (ADR 0022): een keuzedeel kent een eigen examenplandeel met eigen toetsonderdelen en een eigen onderwijsresultaat; het individuele examenplan is de samenstelling van nominaal plus gekozen keuzedeel-delen. Meenemen in de ombouw naar het `examenspecificatie`-model.
 
@@ -359,7 +370,7 @@ Eén verschil: de `examenplanspecificatie` heeft de **strengste acceptatieregels
 - OEAPI-binding: alleen `toetsonderdeelspecificatie` mapt op TestComponent. Voor examenplan en resultaateenheid is er geen OEAPI-object. Signalering, geen OEAPI-kernwijziging.
 - Dynamische resultaatstructuren: de ruleset dekt keuzes die nog niet bestaan bij vaststelling van het examenplan. Verhouding tot wetgeving (VABA) en de werking van SIS'en nog te bepalen.
 
-## 10. Gerelateerde uitwerkingen
+## 5. Gerelateerde uitwerkingen
 
 - Onderwijsspecificatie: [onderwijsspecificatie-payload](../gedeeld/20260717_1120_okx-lr1-onderwijsspecificatie-payload-json.md).
 - Lifecycle: [lifecycle en versionering](../gedeeld/20260720_0832_okx-lr1-lifecycle-versionering.md).

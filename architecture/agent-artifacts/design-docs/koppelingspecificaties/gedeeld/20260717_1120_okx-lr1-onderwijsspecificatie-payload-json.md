@@ -8,46 +8,30 @@ Context: centrale payload-specificatie voor de onderwijsspecificatiestructuur, g
 
 ## Inhoudsopgave
 
-1. [Inleiding](#1-inleiding)
-2. [Doel](#2-doel)
-3. [Scope](#3-scope)
-4. [Context](#4-context)
-5. [Voorstel: hoe drukken we de gelaagdheid uit in JSON?](#5-voorstel-hoe-drukken-we-de-gelaagdheid-uit-in-json)
-6. [Enumeraties (concept)](#6-enumeraties-concept)
-7. [Uitwerking van de payload](#7-uitwerking-van-de-payload)
-8. [Onderwijsspecificatie lifecycle (versionering en manifest)](#8-onderwijsspecificatie-lifecycle-versionering-en-manifest)
-9. [Open vragen en signaleringen](#9-open-vragen-en-signaleringen)
+1. [Inleiding](#1-inleiding) (context, doel, scope)
+2. [Payload](#2-payload)
+   - [2.1 De vorm](#21-de-vorm)
+   - [2.2 Het voorbeeld](#22-het-voorbeeld)
+3. [Toelichting bij de keuzes](#3-toelichting-bij-de-keuzes)
+   - [3.1 Waarom plat met verwijzingen](#31-waarom-plat-met-verwijzingen)
+   - [3.2 Ontwerpkeuzes](#32-ontwerpkeuzes)
+   - [3.3 Lifecycle, versionering en manifest](#33-lifecycle-versionering-en-manifest)
+4. [Open punten](#4-open-punten)
+5. [Gerelateerde uitwerkingen](#5-gerelateerde-uitwerkingen)
 
 
 
 ## 1. Inleiding
 
-Issue #119 vraagt een eerste payload-uitwerking in JSON van de onderwijsspecificatiestructuur voor LR1-3, zodat we kunnen toetsen of die vorm in latere versies overeind blijft. Dit document geeft die vorm en de ontwerpkeuze eronder: hoe leg je de gelaagdheid (de geneste specificatie) generiek vast in JSON.
+### 1.1 Context
 
-Context voor de nieuwkomer: dit is de centrale payload die alle koppelingen (OC-P&R, OC-SIS, OC-LMS) delen (ADR 0021). Zie de [instap in de README](../README.md#context) voor de keten en de actuele [hoofdplaat v1.7](../README.md#context). Scenario is leerroute 1 (regulier), persona [Jochem](../../../../docs/specificatie/okx-oeapi-consumer-profiel/doc/persona_jochem.md), opleiding Apothekersassistent. Het begrippenkader (ankertabel, zes families) staat in het [OEAPI consumer-profiel](../../../../docs/specificatie/okx-oeapi-consumer-profiel/README.md); dat profiel gebruikt nog een oudere hoofdplaat, leidend is v1.7.
+Een onderwijsontwerper vertaalt een kwalificatiedossier naar een **onderwijsspecificatie**: de beschrijving van wat een instelling gaat organiseren, nog los van wanneer en met wie. Die beschrijving is gelaagd, van opleiding tot leeronderdeel, en de onderwijscatalogus publiceert hem naar planning, het leermanagementsysteem en het studentinformatiesysteem.
 
-De ArchiMate-view "01. Onderwijsvisie vertalen naar onderwijsaanbod - Basis Model" gebruikt nog niet het huidige begrippenkader (opleidingsspecificatie, programmaspecificatie, enzovoort). We gebruiken de ankertabel (§3.2.6) uit het OKx OEAPI consumer-profiel, het kwalificatiedossier Apothekersassistent, en de datamodel-schets uit #119.
+Dit is de **centrale payload**: alle koppelingen delen hem, en elke koppelingspecificatie legt in een gebruiksprofiel vast welke objecten en velden zij gebruikt ([ADR 0021](../../../../dr/0021-koppeling-versus-koppelvlak-terminologie.md)). Ketenoverzicht, begrippen en afkortingen: de [instap in de README](../README.md#context).
 
-## 2. Doel
+Scenario is leerroute 1 (regulier), persona [Jochem](../../../../docs/specificatie/okx-oeapi-consumer-profiel/doc/persona_jochem.md), opleiding Apothekersassistent (kwalificatiedossier 23450, kwalificatie 27141). Leerroute 2 en 3 volgen als verschil. Het begrippenkader komt uit de ankertabel van het [OEAPI consumer-profiel](../../../../docs/specificatie/okx-oeapi-consumer-profiel/README.md), specificatie-kolom; de ArchiMate-view "01. Onderwijsvisie vertalen naar onderwijsaanbod" hanteert dat kader nog niet en is hier dus niet leidend.
 
-- Een eerste, toetsbare JSON-vorm van de onderwijsspecificatiestructuur voor LR1-3.
-- Een generieke en herbruikbare ontwerpkeuze voor gelaagdheid en voor keuzeregels.
-- Invoer voor de berichtspecificatie (AMIGO-stap 5) en het OEAPI-profiel.
-
-Buiten scope: definitieve OEAPI-binding, endpoints, het aanbod (planbaar of geroosterd resultaat), en de interne structuur van de regelset (die staat in #84 en #120).
-
-## 3. Scope
-
-- Koppeling: OC naar P, vroege processtap "kwalificatiekader analyseren".
-- Leerroutes: LR1 uitgewerkt. LR2 en LR3 volgen als verschil (delta); structuur gelijk, een handvol attributen wijzigt.
-- Diepte: `opleidingsspecificatie`, `opleidingsprogrammaspecificatie`, `onderwijseenheidspecificatie`, `leeronderdeelspecificatie`. Geen harde grens. De `lesspecificatie` valt buiten scope; PMO realiseert dat niet.
-- Fase: grofmazig ontwerp (fase 1-2). Waarden zijn indicatief. Generieke onderdelen (taal, rekenen, burgerschap, Engels) vallen buiten deze payload.
-
-
-
-## 4. Context
-
-Ankertabel (§3.2.6), specificatie-kolom. Conceptniveaus, bron in het kwalificatiekader en OEAPI-mapping:
+De conceptniveaus, hun bron in het kwalificatiekader en de indicatieve mapping op de Open Onderwijs API:
 
 
 | Conceptniveau (`specificatieType`) | Bron in kwalificatiekader          | OEAPI-mapping (indicatief)        |
@@ -62,14 +46,9 @@ Ankertabel (§3.2.6), specificatie-kolom. Conceptniveaus, bron in het kwalificat
 | `lesspecificatie` (buiten scope)   | beleid instelling                  | LearningComponent (lesson)        |
 
 
-De **kwalificatie ligt niet op root-niveau**: de `opleidingsspecificatie` verankert op de leeruitkomst van het kwalificatiedossier (23450), de `opleidingsprogrammaspecificatie` op die van de kwalificatie (27141). Leeruitkomsten zijn zelfstandige objecten (zie de ontwerpkeuze in §5).
+De **kwalificatie ligt niet op root-niveau**: de `opleidingsspecificatie` verankert op de leeruitkomst van het kwalificatiedossier (23450), de `opleidingsprogrammaspecificatie` op die van de kwalificatie (27141). Leeruitkomsten zijn zelfstandige objecten; waarom, staat in [§3.2](#32-ontwerpkeuzes).
 
-Vier eigenschappen die de gelaagdheid bepalen:
-
-- Recursie: elk niveau is hetzelfde type object en verwijst naar zijn ouder (`bovenliggendId`).
-- Twee programma-lagen, beide een `opleidingsprogrammaspecificatie`: t.b.v. leerweg (BOL, BBL) en daaronder t.b.v. doelgroep (regulier, zijinstromer, hybride, of organisatiespecifiek zoals een ziekenhuis-BBL). De kwalificatie-inhoud (kerntaken, werkprocessen) hangt onder de doelgroep-laag.
-- Keuzeruimte is een eigen, herbruikbare `keuzedeelruimtespecificatie`, geen los veld.
-- Regels staan los van de specificatie. Een specificatie verwijst via `regelsetVerwijzingen` naar een of meer regelsets. De regelset bepaalt welke keuzedelen kiesbaar zijn en stelt deelname-voorwaarden in termen van **behaalde leeruitkomsten** (bv. leeruitkomst Wiskunde 1 behaald voordat je deelneemt aan Ruimtelijk inzicht). Zie #84, #120 en ADR 0022.
+De boom voor leerroute 1, met de keuzedelen die via een regelset bereikbaar zijn:
 
 ```mermaid
 flowchart TD
@@ -104,75 +83,38 @@ flowchart TD
 
 
 
-## 5. Voorstel: hoe drukken we de gelaagdheid uit in JSON?
+### 1.2 Doel
 
+Dit document beantwoordt drie vragen:
 
-| Optie                                | Vorm                                         | Voordeel                                                                                         | Nadeel                           |
-| ------------------------------------ | -------------------------------------------- | ------------------------------------------------------------------------------------------------ | -------------------------------- |
-| A. Pure nesting                      | children-arrays, alles inline                | Simpel                                                                                           | Hergebruik wordt gedupliceerd    |
-| B. Nesting + referenties             | genest, hergebruik via uuid                  | Minder duplicatie                                                                                | Twee relatievormen door elkaar   |
-| C. Recursief plat met bovenliggendId | uniforme lijst, relatie via `bovenliggendId` | Elk object gelijk, generiek, herbruikbaar, uitlijnbaar met OEAPI `EducationSpecification.parent` | Structuur minder direct leesbaar |
+- Hoe leg je de gelaagdheid van een onderwijsspecificatie generiek vast in JSON, zodat de vorm ook bij latere onderwijsvormen overeind blijft?
+- Hoe verhouden leeruitkomsten zich tot de specificaties, en waar hangt de kiesbaarheid van keuzedelen?
+- Welke velden dragen identiteit, versie en geldigheid, zodat een afnemer weet waarop hij plant of inricht?
 
+Geslaagd wanneer een afnemer de structuur kan reconstrueren en verwerken zonder aanvullende uitleg, en wanneer leerroute 2 en 3 erin passen met alleen een handvol afwijkende attributen.
 
-Voorstel: optie C.
+De payload is indicatief en onderbouwt welke velden het koppelvlak nodig heeft; het is geen voorschrift aan de sector ([toelichting](../README.md#van-koppelingbeschrijving-naar-koppelvlakspecificatie-doelbinding)).
 
-Ontwerpkeuzes:
+### 1.3 Scope
 
-- Eén uniform type. Alle specificaties staan in een platte lijst `onderwijsspecificaties`. Elke specificatie heeft een `bovenliggendId` (uuid; `null` op de root). De structuur reconstrueer je door `bovenliggendId` te volgen; een geneste weergave is daaruit af te leiden.
-- Discriminator `specificatieType` bepaalt het niveau.
-- **Leeruitkomst als zelfstandig object met eigen lifecycle.** Leeruitkomsten staan in een eigen platte lijst `leeruitkomsten`, elk met een eigen `leeruitkomstId` (uuid) en `versie`. Elke specificatie verwijst met `leeruitkomstId`: de leeruitkomst is de **sleutel** die aangeeft wat je precies afrondt en hoe dat zich verhoudt tot diploma, certificaat of ander waardedocument (ADR 0022). De huidige onderwijsvorm hangt eraan via `bron` (standaard `sbb-kwalificatiekader`, met type en code); later hangt hier de nationale standaard aan, bijvoorbeeld CompetentNL, zonder dat de sleutel of de specificaties wijzigen (ADR 0003, 0004).
-- **Leeruitkomsten op elk niveau, met een eigen orde van grootte.** Een leeruitkomst bestaat op elk specificatieniveau: op opleidingsniveau is hij van grote orde (jaren werk, een NLQF-kwalificatie, leidend tot een diploma), op onderwijseenheid- en leeronderdeelniveau van kleinere orde (een deelverzameling kan tot een certificaat leiden), en straks op lessenreeks- of lesniveau (aangetoonde kennis, inzichten of vaardigheden). Leeruitkomsten aggregeren onderling via `bovenliggendLeeruitkomstId`: bottom-up telt klein op naar groot, top-down is een grote leeruitkomst te ontleden. Zo is van de grond af zichtbaar welke volgende onderwijsspecificaties je verder brengen richting een waardepapier of microcredential (`waardedocument`). Elke leeruitkomst draagt een `indicatieveOmvang` (kwantificatie in SBU en/of EC naast elkaar, voor aansluiting met HBO en WO; ADR 0004): de logistieke containergrootte van wat je behaalt. Daarnaast kent de leeruitkomst **optionele inhoudsvelden** (`omschrijving`, `resultaat`, `gedrag`, uit het kwalificatiedossier): meegeleverd waar het gebruiksprofiel dat vraagt (OC-LMS wel, OC-P&R niet). Voorbeeld: werkproces B1-K1-W1 in de payload.
-- Id's zijn UUID's.
-- Versionering per specificatie met semver (`MAJOR.MINOR.PATCH`). MAJOR = wijziging die betekenis of uitkomst raakt (leeruitkomsten, structuur, studielast), MINOR = additief zonder bestaande betekenis te breken, PATCH = correctie. Temporele geldigheid apart via `geldigVanaf`/`geldigTot` en cohort, niet als versienummer.
-- Identiteit los van versie (uitgangspunt, memo PR #110). `specificatieId` is stabiel; `versie` verandert bij een wijziging binnen dezelfde identiteit. Een fundamentele wijziging (nieuw kwalificatiedossier, nieuwe wettelijke eisen) is een nieuwe specificatie met een nieuw id, niet alleen een MAJOR-bump.
-- Kwalificatie op programma-niveau, dossier op opleiding-niveau (zie §4).
-- `programmaLaag` onderscheidt leerweg- en doelgroep-programma. Beide zijn `programma`.
-- `bovenliggendId` draagt twee betekenissen: onderdeel-van (additief, bv. kerntaak onder programma) en variant-van (alternatief, bv. doelgroep onder leerweg). De aggregatie-invariant geldt alleen voor onderdeel-van.
-- Niveau, leeruitkomsten en leerroute zijn afleidbaar uit de structuur, niet als losse specificatie-velden. Het NLQF-niveau hangt aan de leeruitkomst. Wie een bepaalde set kerntaken en werkprocessen heeft afgerond, voldoet aan de kwalificatie. Leerroute-typen zijn indicatief voor wat mogelijk wordt en horen niet in het datamodel. Leeruitkomsten worden naar verwachting later flexibeler (ADR 0003, 0004).
-- Keuzeruimte is een eigen specificatie (`keuzedeelruimte`) met studielast, herbruikbaar.
-- Regels los van de onderwijsspecificatie. `regelsetVerwijzingen` op een specificatie verwijst naar losse `regelsets`. De regelset draagt de kiesbaarheid (welke keuzedelen) en de voorwaarde vooraf (prerequisite), uitgedrukt in **behaalde leeruitkomsten** in plaats van afgeronde specificaties: je moet bepaalde leeruitkomsten behaald hebben om deel te nemen (ADR 0022). Interne structuur van de regelset: #84 en #120.
-- Elke specificatie kan `regelsetVerwijzingen` hebben (generiek), niet alleen de keuzeruimte.
-- Keuzedelen zijn zelfstandige programma-specificaties (`parent: null`), zelf opgebouwd als programma naar onderwijseenheid naar leeronderdeel. Herbruikbaar over opleidingen (N:M via ruleset-referenties).
-- Aggregatie-invariant: `studielast` telt bottom-up op binnen onderdeel-van (SOM children = ouder). Niet over varianten (leerweg, doelgroep).
+In scope is de specificatiestructuur van opleiding tot leeronderdeel: `opleidingsspecificatie`, `opleidingsprogrammaspecificatie`, `onderwijseenheidspecificatie` en `leeronderdeelspecificatie`, plus de `keuzedeelruimtespecificatie` en de leeruitkomsten waaraan die verankeren. Uitgewerkt voor leerroute 1 op het niveau van het grofmazige ontwerp; waarden in het voorbeeld zijn indicatief.
 
+Vier afbakeningen die anders verwarring geven:
 
+- De **lesspecificatie** valt erbuiten: het lesniveau leeft in het leermanagementsysteem en wordt binnen dit programma niet gerealiseerd. De diepte is verder geen harde grens.
+- De **interne structuur van een regelset** staat hier niet; deze payload verwijst er alleen naar.
+- **Generieke onderdelen** (taal, rekenen, burgerschap, Engels) zitten niet in dit voorbeeld.
+- Het **aanbod** (wanneer, waar, met wie), de **endpoints** en de **binding met de Open Onderwijs API** zijn eigen uitwerkingen.
 
-## 6. Enumeraties (concept)
+Al het overige valt buiten dit document.
 
-Concept en te bevestigen. Open sets zijn als zodanig gemarkeerd.
+## 2. Payload
 
+Twee weergaven met elk een eigen taak. **De vorm** legt vast welke objecten er zijn, welke velden ze dragen en welke waarden zijn toegestaan. **Het voorbeeld** is de letterlijke payload voor leerroute 1.
 
-| Veld                                  | Toegestane waarden                                                                                                                                                                                                                                                                                                                    |
-| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `specificatieType`                    | `opleidingsspecificatie`, `opleidingsprogrammaspecificatie`, `onderwijseenheidspecificatie`, `leeronderdeelspecificatie`, `keuzedeelruimtespecificatie`, `toetsonderdeelspecificatie` (examinering/toetsing, OEAPI TestComponent), `examenplanspecificatie` en `resultaateenheidspecificatie` (resultaatstructuur, aparte uitwerking) |
-| `manifest[].relatie`                  | `onderdeel` (additief), `variant` (alternatief), `referentie` (gepinde verwijzing)                                                                                                                                                                                                                                                    |
-| `status`                              | `concept`, `vastgesteld`, `gepubliceerd`, `gedeactiveerd`, `vervallen`, `gearchiveerd`                                                                                                                                                                                                                                                |
-| `versie`                              | semver `MAJOR.MINOR.PATCH` (bv. `0.1.0`)                                                                                                                                                                                                                                                                                              |
-| `geldigVanaf` / `geldigTot`           | datum; geldigheidsperiode. Meerdere versies kunnen gelijktijdig actief zijn                                                                                                                                                                                                                                                           |
-| `curriculumtype`                      | `nominaal`, `hybride`, `flexibel`                                                                                                                                                                                                                                                                                                     |
-| `programmatype`                       | `diplomaprogramma`, `keuzedeelprogramma`, `certificaatprogramma` (open)                                                                                                                                                                                                                                                               |
-| `programmaLaag`                       | `leerweg`, `doelgroep`                                                                                                                                                                                                                                                                                                                |
-| `leerweg`                             | `BOL`, `BBL`                                                                                                                                                                                                                                                                                                                          |
-| `doelgroep`                           | `regulier`, `zijinstromer`, `hybride`, `organisatiespecifiek` (open)                                                                                                                                                                                                                                                                  |
-| `studielast.eenheid`                  | `SBU`, `EC`                                                                                                                                                                                                                                                                                                                           |
-| `bron.standaard`                      | `sbb-kwalificatiekader` (open; later bv. `competentnl`)                                                                                                                                                                                                                                                                               |
-| `bron.type`                           | `kwalificatiedossier`, `kwalificatie`, `kerntaak`, `werkproces`, `keuzedeel` (geldt bij `sbb-kwalificatiekader`)                                                                                                                                                                                                                      |
-| `keuzedeelKlasse`                     | `algemeen-verbredend`, `beroepsspecifiek-verdiepend` (open, uitbreidbaar; #84 R10)                                                                                                                                                                                                                                                    |
-| `nlqfNiveau` (op de leeruitkomst)     | `1` t/m `8` (NLQF, geldt voor alle sectoren)                                                                                                                                                                                                                                                                                          |
-| `waardedocument` (op de leeruitkomst) | `diploma`, `mbo-certificaat`, `microcredential` (open)                                                                                                                                                                                                                                                                                |
-| `indicatieveOmvang[].eenheid`         | `SBU`, `EC` (beide naast elkaar mogelijk, aansluiting HBO/WO; ADR 0004)                                                                                                                                                                                                                                                               |
-| `voorwaardeVooraf[].status`           | `behaald` (onderwijsresultaat op de leeruitkomst; ADR 0022)                                                                                                                                                                                                                                                                           |
+### 2.1 De vorm
 
-
-
-
-## 7. Uitwerking van de payload
-
-Grofmazig, LR1, indicatief. `studielast` telt bottom-up op binnen onderdeel-van (kerntaken 2000 + 1200 + 880 = 4080; plus keuzeruimte 720 = 4800 onder Regulier BOL). Programma-varianten (leerweg BOL/BBL, doelgroep regulier/zijinstromer/hybride) zijn alternatieven, geen optelling. De inhoud hangt hier onder één doelgroep (Regulier BOL); de andere varianten zijn leeg (illustratief). Keuzedelen zijn illustratief (de prerequisite Wiskunde 1 voor Ruimtelijk inzicht komt uit #84).
-
-### 7.1 Boomstructuur met attributen (ERD)
-
-Alle specificaties zijn hetzelfde type, gespecialiseerd via `specificatieType`. Hieronder per laag getoond met de belangrijkste attributen. `onderdeel_van` = additief (studielast telt op), `variant_van` = alternatief. Elke entiteit draagt daarnaast `versie` (semver); voor de leesbaarheid niet in elke box herhaald.
+Alle specificaties zijn hetzelfde objecttype, gespecialiseerd via `specificatieType`. In het informatiemodel hieronder betekent `onderdeel_van` additief (de studielast telt op) en `variant_van` alternatief (een keuze tussen varianten, geen optelling). Elke entiteit draagt daarnaast `versie` (semver); dat is voor de leesbaarheid niet in elke box herhaald.
 
 ```mermaid
 erDiagram
@@ -292,7 +234,39 @@ erDiagram
 
 
 
-### 7.2 Payload (JSON)
+Toegestane waarden. Open sets zijn als zodanig gemarkeerd.
+
+
+
+| Veld                                  | Toegestane waarden                                                                                                                                                                                                                                                                                                                    |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `specificatieType`                    | `opleidingsspecificatie`, `opleidingsprogrammaspecificatie`, `onderwijseenheidspecificatie`, `leeronderdeelspecificatie`, `keuzedeelruimtespecificatie`, `toetsonderdeelspecificatie` (examinering/toetsing, OEAPI TestComponent), `examenplanspecificatie` en `resultaateenheidspecificatie` (resultaatstructuur, aparte uitwerking) |
+| `manifest[].relatie`                  | `onderdeel` (additief), `variant` (alternatief), `referentie` (gepinde verwijzing)                                                                                                                                                                                                                                                    |
+| `status`                              | `concept`, `vastgesteld`, `gepubliceerd`, `gedeactiveerd`, `vervallen`, `gearchiveerd`                                                                                                                                                                                                                                                |
+| `versie`                              | semver `MAJOR.MINOR.PATCH` (bv. `0.1.0`)                                                                                                                                                                                                                                                                                              |
+| `geldigVanaf` / `geldigTot`           | datum; geldigheidsperiode. Meerdere versies kunnen gelijktijdig actief zijn                                                                                                                                                                                                                                                           |
+| `curriculumtype`                      | `nominaal`, `hybride`, `flexibel`                                                                                                                                                                                                                                                                                                     |
+| `programmatype`                       | `diplomaprogramma`, `keuzedeelprogramma`, `certificaatprogramma` (open)                                                                                                                                                                                                                                                               |
+| `programmaLaag`                       | `leerweg`, `doelgroep`                                                                                                                                                                                                                                                                                                                |
+| `leerweg`                             | `BOL`, `BBL`                                                                                                                                                                                                                                                                                                                          |
+| `doelgroep`                           | `regulier`, `zijinstromer`, `hybride`, `organisatiespecifiek` (open)                                                                                                                                                                                                                                                                  |
+| `studielast.eenheid`                  | `SBU`, `EC`                                                                                                                                                                                                                                                                                                                           |
+| `bron.standaard`                      | `sbb-kwalificatiekader` (open; later bv. `competentnl`)                                                                                                                                                                                                                                                                               |
+| `bron.type`                           | `kwalificatiedossier`, `kwalificatie`, `kerntaak`, `werkproces`, `keuzedeel` (geldt bij `sbb-kwalificatiekader`)                                                                                                                                                                                                                      |
+| `keuzedeelKlasse`                     | `algemeen-verbredend`, `beroepsspecifiek-verdiepend` (open, uitbreidbaar; #84 R10)                                                                                                                                                                                                                                                    |
+| `nlqfNiveau` (op de leeruitkomst)     | `1` t/m `8` (NLQF, geldt voor alle sectoren)                                                                                                                                                                                                                                                                                          |
+| `waardedocument` (op de leeruitkomst) | `diploma`, `mbo-certificaat`, `microcredential` (open)                                                                                                                                                                                                                                                                                |
+| `indicatieveOmvang[].eenheid`         | `SBU`, `EC` (beide naast elkaar mogelijk, aansluiting HBO/WO; ADR 0004)                                                                                                                                                                                                                                                               |
+| `voorwaardeVooraf[].status`           | `behaald` (onderwijsresultaat op de leeruitkomst; ADR 0022)                                                                                                                                                                                                                                                                           |
+
+
+
+
+
+
+### 2.2 Het voorbeeld
+
+Leerroute 1, waarden indicatief. De `studielast` telt bottom-up op binnen onderdeel-van: de kerntaken 2000 plus 1200 plus 880 is 4080, plus de keuzeruimte van 720 komt op 4800 onder Regulier BOL. Programma-varianten tellen niet op. De inhoud hangt hier onder één doelgroep (Regulier BOL); de andere varianten zijn leeg gelaten. De voorwaarde vooraf van Wiskunde 1 voor Ruimtelijk inzicht komt uit #84.
 
 ```json
 {
@@ -1235,7 +1209,43 @@ erDiagram
 
 De voorwaarde vooraf (Ruimtelijk inzicht vereist Wiskunde 1) staat in de regelset, niet in de specificatie, en is uitgedrukt in de **behaalde leeruitkomst** (`vereisteLeeruitkomstId`), niet in een afgeronde specificatie. Zo blijft de regel los van het item (#84 R2, #120) en toetst hij op wat er werkelijk behaald is (ADR 0022).
 
-## 8. Onderwijsspecificatie lifecycle (versionering en manifest)
+## 3. Toelichting bij de keuzes
+
+### 3.1 Waarom plat met verwijzingen
+
+
+| Optie                                | Vorm                                         | Voordeel                                                                                         | Nadeel                           |
+| ------------------------------------ | -------------------------------------------- | ------------------------------------------------------------------------------------------------ | -------------------------------- |
+| A. Pure nesting                      | children-arrays, alles inline                | Simpel                                                                                           | Hergebruik wordt gedupliceerd    |
+| B. Nesting + referenties             | genest, hergebruik via uuid                  | Minder duplicatie                                                                                | Twee relatievormen door elkaar   |
+| C. Recursief plat met bovenliggendId | uniforme lijst, relatie via `bovenliggendId` | Elk object gelijk, generiek, herbruikbaar, uitlijnbaar met OEAPI `EducationSpecification.parent` | Structuur minder direct leesbaar |
+
+
+Voorstel: optie C.
+
+### 3.2 Ontwerpkeuzes
+
+- Eén uniform type. Alle specificaties staan in een platte lijst `onderwijsspecificaties`. Elke specificatie heeft een `bovenliggendId` (uuid; `null` op de root). De structuur reconstrueer je door `bovenliggendId` te volgen; een geneste weergave is daaruit af te leiden.
+- Discriminator `specificatieType` bepaalt het niveau.
+- **Leeruitkomst als zelfstandig object met eigen lifecycle.** Leeruitkomsten staan in een eigen platte lijst `leeruitkomsten`, elk met een eigen `leeruitkomstId` (uuid) en `versie`. Elke specificatie verwijst met `leeruitkomstId`: de leeruitkomst is de **sleutel** die aangeeft wat je precies afrondt en hoe dat zich verhoudt tot diploma, certificaat of ander waardedocument (ADR 0022). De huidige onderwijsvorm hangt eraan via `bron` (standaard `sbb-kwalificatiekader`, met type en code); later hangt hier de nationale standaard aan, bijvoorbeeld CompetentNL, zonder dat de sleutel of de specificaties wijzigen (ADR 0003, 0004).
+- **Leeruitkomsten op elk niveau, met een eigen orde van grootte.** Een leeruitkomst bestaat op elk specificatieniveau: op opleidingsniveau is hij van grote orde (jaren werk, een NLQF-kwalificatie, leidend tot een diploma), op onderwijseenheid- en leeronderdeelniveau van kleinere orde (een deelverzameling kan tot een certificaat leiden), en straks op lessenreeks- of lesniveau (aangetoonde kennis, inzichten of vaardigheden). Leeruitkomsten aggregeren onderling via `bovenliggendLeeruitkomstId`: bottom-up telt klein op naar groot, top-down is een grote leeruitkomst te ontleden. Zo is van de grond af zichtbaar welke volgende onderwijsspecificaties je verder brengen richting een waardepapier of microcredential (`waardedocument`). Elke leeruitkomst draagt een `indicatieveOmvang` (kwantificatie in SBU en/of EC naast elkaar, voor aansluiting met HBO en WO; ADR 0004): de logistieke containergrootte van wat je behaalt. Daarnaast kent de leeruitkomst **optionele inhoudsvelden** (`omschrijving`, `resultaat`, `gedrag`, uit het kwalificatiedossier): meegeleverd waar het gebruiksprofiel dat vraagt (OC-LMS wel, OC-P&R niet). Voorbeeld: werkproces B1-K1-W1 in de payload.
+- Id's zijn UUID's.
+- Versionering per specificatie met semver (`MAJOR.MINOR.PATCH`). MAJOR = wijziging die betekenis of uitkomst raakt (leeruitkomsten, structuur, studielast), MINOR = additief zonder bestaande betekenis te breken, PATCH = correctie. Temporele geldigheid apart via `geldigVanaf`/`geldigTot` en cohort, niet als versienummer.
+- Identiteit los van versie (uitgangspunt, memo PR #110). `specificatieId` is stabiel; `versie` verandert bij een wijziging binnen dezelfde identiteit. Een fundamentele wijziging (nieuw kwalificatiedossier, nieuwe wettelijke eisen) is een nieuwe specificatie met een nieuw id, niet alleen een MAJOR-bump.
+- Kwalificatie op programma-niveau, dossier op opleiding-niveau (zie de conceptniveaus in §1.1).
+- `programmaLaag` onderscheidt leerweg- en doelgroep-programma. Beide zijn `programma`.
+- `bovenliggendId` draagt twee betekenissen: onderdeel-van (additief, bv. kerntaak onder programma) en variant-van (alternatief, bv. doelgroep onder leerweg). De aggregatie-invariant geldt alleen voor onderdeel-van.
+- Niveau, leeruitkomsten en leerroute zijn afleidbaar uit de structuur, niet als losse specificatie-velden. Het NLQF-niveau hangt aan de leeruitkomst. Wie een bepaalde set kerntaken en werkprocessen heeft afgerond, voldoet aan de kwalificatie. Leerroute-typen zijn indicatief voor wat mogelijk wordt en horen niet in het datamodel. Leeruitkomsten worden naar verwachting later flexibeler (ADR 0003, 0004).
+- Keuzeruimte is een eigen specificatie (`keuzedeelruimte`) met studielast, herbruikbaar.
+- Regels los van de onderwijsspecificatie. `regelsetVerwijzingen` op een specificatie verwijst naar losse `regelsets`. De regelset draagt de kiesbaarheid (welke keuzedelen) en de voorwaarde vooraf (prerequisite), uitgedrukt in **behaalde leeruitkomsten** in plaats van afgeronde specificaties: je moet bepaalde leeruitkomsten behaald hebben om deel te nemen (ADR 0022). Interne structuur van de regelset: #84 en #120.
+- Elke specificatie kan `regelsetVerwijzingen` hebben (generiek), niet alleen de keuzeruimte.
+- Keuzedelen zijn zelfstandige programma-specificaties (`parent: null`), zelf opgebouwd als programma naar onderwijseenheid naar leeronderdeel. Herbruikbaar over opleidingen (N:M via ruleset-referenties).
+- Aggregatie-invariant: `studielast` telt bottom-up op binnen onderdeel-van (SOM children = ouder). Niet over varianten (leerweg, doelgroep).
+
+
+
+
+### 3.3 Lifecycle, versionering en manifest
 
 De volledige lifecycle (classificatie van wijzigingen, acceptatie, deactiveren, migratie) staat in de aparte uitwerking [lifecycle en versionering](20260720_0832_okx-lr1-lifecycle-versionering.md). Hier alleen de mechaniek die de payload zelf raakt.
 
@@ -1278,9 +1288,9 @@ B blijft in beide gevallen `1.2`. Dezelfde afweging geldt een niveau hoger richt
 }
 ```
 
-In §7.2 staat het manifest uitgewerkt op drie niveaus: de `opleidingsspecificatie` (pint de leerweg-varianten), de `opleidingsprogrammaspecificatie` Regulier BOL (pint haar `onderwijseenheidspecificatie`s en de `keuzedeelruimtespecificatie`), en de `keuzedeelruimtespecificatie` (pint de keuzedeelprogramma's als referentie). Voor de leesbaarheid niet op elk niveau herhaald; in een volledige payload draagt elke specificatie met onderdelen een manifest.
+In §2.2 staat het manifest uitgewerkt op drie niveaus: de `opleidingsspecificatie` (pint de leerweg-varianten), de `opleidingsprogrammaspecificatie` Regulier BOL (pint haar `onderwijseenheidspecificatie`s en de `keuzedeelruimtespecificatie`), en de `keuzedeelruimtespecificatie` (pint de keuzedeelprogramma's als referentie). Voor de leesbaarheid niet op elk niveau herhaald; in een volledige payload draagt elke specificatie met onderdelen een manifest.
 
-## 9. Open vragen en signaleringen
+## 4. Open punten
 
 - OEAPI-binding van `specificatieType`. De OEAPI-enum (program, cluster, course) mapt niet 1:1 op onze conceptniveaus. Binding vaststellen in de gegevensanalyse. Signalering; geen OEAPI-kernwijziging.
 - Interne structuur van de ruleset (regeltypes, parameters, evaluatie). Wordt uitgewerkt in #84 en #120. Hier alleen de referentie (`regelsetVerwijzingen`) en indicatieve regels.
@@ -1295,7 +1305,7 @@ In §7.2 staat het manifest uitgewerkt op drie niveaus: de `opleidingsspecificat
 
 
 
-## Gerelateerde uitwerkingen
+## 5. Gerelateerde uitwerkingen
 
 Achterliggende uitwerkingen die de keuzes in deze payload toelichten:
 
@@ -1308,6 +1318,6 @@ Achterliggende uitwerkingen die de keuzes in deze payload toelichten:
 - Gebruiksprofielen: welke objecten en velden per koppeling worden meegeleverd staat in de koppelingspecificaties. Binnen OC-P&R zijn leeruitkomst-ids opaque sleutels (ADR 0023); OC-SIS gebruikt de volledige leeruitkomst-laag; OC-LMS de inhoudsvelden.
 - Wat de `indicatieveOmvang` precies kwantificeert (studielast, leerinspanning; SBU, EC of beide) en de verhouding tot de `studielast` op de specificatie: nog te bepalen, met het oog op de aansluiting HBO/WO (ADR 0004).
 - Uitbreiding leeruitkomst-standaard. De `bron` op het leeruitkomst-object is de aanhaakplek; koppeling aan CompetentNL (of vergelijkbaar) vaststellen wanneer die standaard beschikbaar is. De `leeruitkomstId` en de specificaties blijven daarbij ongewijzigd.
-- Enums in §6 zijn concept. Vaststellen welke waarden per veld gelden.
+- De toegestane waarden in §2.1 zijn concept. Vaststellen welke waarden per veld gelden.
 - LR2 en LR3 als delta: welke attributen wijzigen (bv. `spreidingspatroon`, `bereik`, `thuisOrganisatie`, `gastheerOrganisatie`).
 
