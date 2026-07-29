@@ -6,39 +6,40 @@ Context: koppeling onderwijscatalogus (OC) naar leermanagementsysteem (LMS), int
 
 ## Inhoudsopgave
 
-1. [Inleiding](#1-inleiding)
-2. [Doel](#2-doel)
-3. [Scope](#3-scope)
-4. [Kort procesbeeld](#4-kort-procesbeeld)
-5. [Interactieoverzicht](#5-interactieoverzicht)
-6. [Conceptueel informatiemodel](#6-conceptueel-informatiemodel)
-7. [Sequentiediagrammen](#7-sequentiediagrammen)
-8. [Payload-specificaties (verwijzing)](#8-payload-specificaties-verwijzing)
-9. [Reviewvragen](#9-reviewvragen)
-10. [Open vragen en signaleringen](#10-open-vragen-en-signaleringen)
-11. [Gerelateerde uitwerkingen](#11-gerelateerde-uitwerkingen)
+1. [Inleiding](#1-inleiding) (context, doel, scope)
+2. [Kort procesbeeld](#2-kort-procesbeeld)
+3. [Interactieoverzicht](#3-interactieoverzicht)
+4. [Conceptueel informatiemodel](#4-conceptueel-informatiemodel)
+5. [Sequentiediagrammen](#5-sequentiediagrammen)
+6. [Payload-specificaties (verwijzing) en gebruiksprofiel](#6-payload-specificaties-verwijzing-en-gebruiksprofiel)
+7. [Reviewvragen](#7-reviewvragen)
+8. [Open vragen en signaleringen](#8-open-vragen-en-signaleringen)
+9. [Gerelateerde uitwerkingen](#9-gerelateerde-uitwerkingen)
 
 ## 1. Inleiding
 
-De hoofdplaat benoemt de stroom LMS naar OC: van leermiddel te voorzien aanbod (stroom 4, prioriteit 3). Daarnaast gebruikt het LMS de gepubliceerde onderwijsspecificatiestructuur om de leeromgeving in te richten. Deze koppeling is dus tweerichtingsverkeer: OC levert de structuur, het LMS levert de leermiddelkoppeling terug.
+### 1.1 Context
 
-Beeld van het LMS in deze koppeling: een online leeromgeving die alles aan de student exposet (vergelijk een Coursera-achtig platform), inclusief e-learning. Het **ontwerp** gebeurt er niet in; wel de **gedetailleerde uitwerking** door onderwijsontwikkelaars, op lesniveau (lesplannen, werkinstructies). Van dat lesniveau hoeft OC niets te weten: de koppeling blijft op het niveau van de `leeronderdeelspecificatie`.
+Waar deze koppeling in de keten zit: de onderwijscatalogus (OC) levert de gepubliceerde onderwijsspecificatiestructuur aan het leermanagementsysteem (LMS), dat daarmee de leeromgeving inricht; het LMS levert een leermiddelkoppeling terug (stroom 4, "van leermiddel te voorziene aanbod"). Deze koppeling is dus tweerichtingsverkeer. Stroomnummers volgen de interpretatietabel in het [Projectoverzicht](../../../../../doc/OKx_Projectoverzicht.md); het ketenoverzicht en de actuele [hoofdplaat v1.7](../README.md#context) staan in de instap van de README.
 
-Zelfde patroon als OC-P&R: resource-eigenaarschap, referenties en dunne events. OC bezit de onderwijsspecificaties; het LMS bezit de leeromgeving-inrichting (inclusief het lesniveau) en de leermiddelkoppeling.
+Scenario is leerroute 1 (regulier), persona [Jochem](../../../../docs/specificatie/okx-oeapi-consumer-profiel/doc/persona_jochem.md), opleiding Apothekersassistent: de student vindt zijn lesstof en leermiddelen in de leeromgeving die op de gepubliceerde structuur is ingericht. LR2 en LR3 volgen als delta. Begrippenkader (ankertabel, zes families; het LMS werkt de inhoudsvelden van de leeruitkomst uit) en de volledige leerroutes: het [OEAPI consumer-profiel](../../../../docs/specificatie/okx-oeapi-consumer-profiel/README.md). Dat profiel gebruikt nog een oudere hoofdplaat; leidend is v1.7.
 
-## 2. Doel
+Beeld van het LMS in deze koppeling: een online leeromgeving die alles aan de student exposet (vergelijk een Coursera-achtig platform), inclusief e-learning. Het **ontwerp** gebeurt er niet in; wel de **gedetailleerde uitwerking** door onderwijsontwikkelaars, op lesniveau (lesplannen, werkinstructies). Van dat lesniveau hoeft OC niets te weten: de koppeling blijft op het niveau van de `leeronderdeelspecificatie`. Zelfde patroon als de [koppeling OC-P&R](../oc-p-en-r/20260723_1156_okx-lr1-koppelingspecificatie-oc-p-en-r.md): resource-eigenaarschap, referenties en dunne events. OC bezit de onderwijsspecificaties; het LMS bezit de leeromgeving-inrichting (inclusief het lesniveau) en de leermiddelkoppeling. Deze koppelingspecificatie is afgeleid; er is nog geen werksessie aan gewijd.
 
+### 1.2 Doel
+
+- **Doelbinding**: deze koppelingbeschrijving is indicatief, geen voorschrift aan de sector. Ze onderbouwt welke operaties en endpoints het koppelvlak van OC en van het LMS nodig heeft; de som van de koppelingbeschrijvingen leidt tot de koppelvlakspecificatie per component ([toelichting](../README.md#van-koppelingbeschrijving-naar-koppelvlakspecificatie-doelbinding)).
 - De interacties tussen OC en LMS vastleggen als expliciete patronen met sequentiediagrammen.
 - De payload-specificaties voor deze koppeling aanwijzen: de onderwijsspecificatiestructuur en (nog uit te werken) de leermiddelkoppeling.
 - Concept ter review; werksessie volgt.
 
-## 3. Scope
+### 1.3 Scope
 
 - Koppeling: OC naar LMS en LMS naar OC, intra-instelling eerst (ADR 0008). Leerroutes LR1-3.
 - In scope: de onderwijsvoorbereiding (leidende vraag: wat moeten OC-P&R, OC-LMS en OC-SIS uitgewisseld hebben om klaar te zijn voor de start van de student?). Concreet: inrichting van de leeromgeving op basis van de gepubliceerde structuur, tot en met `leeronderdeelspecificatie`, en de terugmelding van leermiddelkoppelingen.
 - Buiten scope: het lesniveau (lesplannen, werkinstructies; leeft in het LMS, de `lesspecificatie` valt buiten OKx-scope per PMO), leermiddelenlogistiek en licenties, toewijzing van leermiddelen aan studenten (hoofdplaat stroom 12, SVS naar LMS), cross-instelling.
 
-## 4. Kort procesbeeld
+## 2. Kort procesbeeld
 
 ```mermaid
 flowchart LR
@@ -60,7 +61,7 @@ Procesbeschrijving, kort:
 4. Het LMS koppelt leermiddelen(groepen) aan specificaties en meldt OC: leermiddelkoppeling beschikbaar (referentie). OC haalt de koppeling op wanneer OC die wil tonen bij het aanbod (stroom 4).
 5. Wijzigt een specificatie, dan notificeert OC (dun event); het LMS haalt de delta of de volledige structuur op en werkt de inrichting bij.
 
-## 5. Interactieoverzicht
+## 3. Interactieoverzicht
 
 Zelfde patroontaal als OC-P&R ([Enterprise Integration Patterns, Messaging](https://www.enterpriseintegrationpatterns.com/patterns/messaging/)); notify-then-pull met dunne events.
 
@@ -73,7 +74,7 @@ Zelfde patroontaal als OC-P&R ([Enterprise Integration Patterns, Messaging](http
 | L5 | Leermiddelkoppeling ophalen | OC | [Request-Reply](https://www.enterpriseintegrationpatterns.com/patterns/messaging/RequestReply.html) op referentie (GET uuid, alleen-lezen) | Synchroon | Geen effect (alleen-lezen) | HTTP-foutcodes |
 | L6 | Specificatiewijziging melden | OC | [Event Message](https://www.enterpriseintegrationpatterns.com/patterns/messaging/EventMessage.html) (object-id, oude en nieuwe versie, wijzigingsklasse) | Asynchroon | Geen effect: event-id | [Guaranteed Delivery](https://www.enterpriseintegrationpatterns.com/patterns/messaging/GuaranteedDelivery.html); [Dead Letter Channel](https://www.enterpriseintegrationpatterns.com/patterns/messaging/DeadLetterChannel.html) |
 
-## 6. Conceptueel informatiemodel
+## 4. Conceptueel informatiemodel
 
 ```mermaid
 erDiagram
@@ -87,9 +88,9 @@ erDiagram
 
 Leeswijzer: OC beheert de `onderwijsspecificatie`s. Het LMS richt de leeromgeving in naar een specificatieversie en beheert de leermiddelkoppeling: welke leermiddel(groep)en horen bij welke specificatie. OC toont die koppeling bij het aanbod (stroom 4).
 
-## 7. Sequentiediagrammen
+## 5. Sequentiediagrammen
 
-### 7.1 Happy flow: inrichting en leermiddelkoppeling
+### 5.1 Happy flow: inrichting en leermiddelkoppeling
 
 ```mermaid
 sequenceDiagram
@@ -111,7 +112,7 @@ sequenceDiagram
     end
 ```
 
-### 7.2 Wijzigingsnotificatie: specificatie gewijzigd
+### 5.2 Wijzigingsnotificatie: specificatie gewijzigd
 
 ```mermaid
 sequenceDiagram
@@ -132,7 +133,7 @@ sequenceDiagram
     LMS-)OC: L3 Status: inrichting bijgewerkt, of afstemming nodig
 ```
 
-## 8. Payload-specificaties (verwijzing) en gebruiksprofiel
+## 6. Payload-specificaties (verwijzing) en gebruiksprofiel
 
 Gebruiksprofiel van deze koppeling op de centrale [onderwijsspecificatie-payload](../gedeeld/20260717_1120_okx-lr1-onderwijsspecificatie-payload-json.md) (ADR 0021):
 
@@ -146,7 +147,7 @@ Gebruiksprofiel van deze koppeling op de centrale [onderwijsspecificatie-payload
 - Leermiddelkoppeling-payload: **nog uit te werken** (signalering). Verwachte kern: `leermiddelkoppelingId`, `versie`, per specificatie (id en versie) de leermiddelgroepen, plat met verwijzingen.
 - [Lifecycle en versionering](../gedeeld/20260720_0832_okx-lr1-lifecycle-versionering.md): kopie voor deze koppeling.
 
-## 9. Reviewvragen
+## 7. Reviewvragen
 
 1. Klopt de tweerichtingsopzet: structuur heen (L1-L3), leermiddelkoppeling terug (L4-L5)?
 2. Op welk niveau koppelt het LMS leermiddelen in de praktijk: leeronderdeel, onderwijseenheid, of beide?
@@ -154,15 +155,15 @@ Gebruiksprofiel van deze koppeling op de centrale [onderwijsspecificatie-payload
 4. Welke wijzigingen in de specificatie moeten het LMS actief bereiken (wijzigingsklasse-drempel)?
 5. Moet het LMS zijn inrichting (inclusief het lesniveau) als opvraagbare resource exposen voor andere componenten die er straks iets mee willen? Zo ja, dan volgt dat hetzelfde patroon (referentie plus ophalen), als aparte koppeling.
 
-## 10. Open vragen en signaleringen
+## 8. Open vragen en signaleringen
 
-- Leermiddelkoppeling-payload uitwerken (§8), inclusief de relatie met `leermiddelengroepen` uit de specificatie-catalogus van het profiel.
+- Leermiddelkoppeling-payload uitwerken (§6), inclusief de relatie met `leermiddelengroepen` uit de specificatie-catalogus van het profiel.
 - De leeruitkomst-inhoudsvelden (`omschrijving`, `resultaat`, `gedrag`) staan als optionele velden in de centrale payload; dit gebruiksprofiel levert ze mee.
 - Exposen van de LMS-inrichting (inclusief lesniveau) voor andere componenten: optie, zelfde patroon, aparte koppeling (reviewvraag 5).
 - Toewijzing van leermiddelen aan studenten (stroom 12, SVS naar LMS) is een aparte koppeling.
-- Endpoints en operaties volgen na review van dit concept (zelfde vorm als OC-P&R §9).
+- Endpoints en operaties volgen na review van dit concept (zelfde vorm als OC-P&R §7).
 
-## 11. Gerelateerde uitwerkingen
+## 9. Gerelateerde uitwerkingen
 
 - [Koppelingspecificatie OC-P&R](../oc-p-en-r/20260723_1156_okx-lr1-koppelingspecificatie-oc-p-en-r.md) (het patroon waarop deze koppeling voortbouwt).
 - [Koppelingspecificatie OC-SIS](../oc-sis-krs-svs/20260723_1402_okx-lr1-koppelingspecificatie-oc-sis.md).

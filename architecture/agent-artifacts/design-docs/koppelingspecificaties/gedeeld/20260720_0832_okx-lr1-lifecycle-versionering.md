@@ -17,6 +17,8 @@ Context: achterliggende uitwerking bij de [onderwijsspecificatie-payload](202607
 
 De payload zet `version` (semver) op elk niveau en houdt `educationSpecificationId` (identiteit) los van de versie. Dat roept een lifecycle-vraag op: heeft de `opleidingsspecificatie` een eigen versie, en hoe werkt propagatie van wijzigingen? Dit document licht die keuzes toe en schetst de richting.
 
+Context voor de nieuwkomer: dit is een gedeelde uitwerking bij de centrale [onderwijsspecificatie-payload](20260717_1120_okx-lr1-onderwijsspecificatie-payload-json.md); zie de [instap in de README](../README.md#context) voor de keten, de begrippen en de actuele hoofdplaat v1.7. Scenario LR1-3.
+
 Aanleiding is de memo **"Onderwijs PDCA-cyclus" van Niels** (PR #110, `doc/OKx_PDCA cyclus onderwijsontwerp.md`).
 
 ## 2. Doel

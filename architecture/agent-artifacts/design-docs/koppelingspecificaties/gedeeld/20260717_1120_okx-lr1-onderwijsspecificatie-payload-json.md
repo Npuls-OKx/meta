@@ -24,6 +24,8 @@ Context: centrale payload-specificatie voor de onderwijsspecificatiestructuur, g
 
 Issue #119 vraagt een eerste payload-uitwerking in JSON van de onderwijsspecificatiestructuur voor LR1-3, zodat we kunnen toetsen of die vorm in latere versies overeind blijft. Dit document geeft die vorm en de ontwerpkeuze eronder: hoe leg je de gelaagdheid (de geneste specificatie) generiek vast in JSON.
 
+Context voor de nieuwkomer: dit is de centrale payload die alle koppelingen (OC-P&R, OC-SIS, OC-LMS) delen (ADR 0021). Zie de [instap in de README](../README.md#context) voor de keten en de actuele [hoofdplaat v1.7](../README.md#context). Scenario is leerroute 1 (regulier), persona [Jochem](../../../../docs/specificatie/okx-oeapi-consumer-profiel/doc/persona_jochem.md), opleiding Apothekersassistent. Het begrippenkader (ankertabel, zes families) staat in het [OEAPI consumer-profiel](../../../../docs/specificatie/okx-oeapi-consumer-profiel/README.md); dat profiel gebruikt nog een oudere hoofdplaat, leidend is v1.7.
+
 De ArchiMate-view "01. Onderwijsvisie vertalen naar onderwijsaanbod - Basis Model" gebruikt nog niet het huidige begrippenkader (opleidingsspecificatie, programmaspecificatie, enzovoort). We gebruiken de ankertabel (§3.2.6) uit het OKx OEAPI consumer-profiel, het kwalificatiedossier Apothekersassistent, en de datamodel-schets uit #119.
 
 ## 2. Doel
