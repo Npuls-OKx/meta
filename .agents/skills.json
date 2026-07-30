@@ -1,0 +1,68 @@
+{
+  "toelichting": "Manifest van de agent-skills in deze repo (issue #115). Type okx-specifiek = hier onderhouden; type extern = gevendord via npx skills add (provenance in skills-lock.json op repo-root, bijwerken via npx skills update). Externe skills niet rechtstreeks bewerken; OKx-aanpassingen gaan via een adaptatie-wrapper.",
+  "skills": [
+    {
+      "naam": "amigo-aanpak",
+      "type": "okx-specifiek",
+      "doel": "Harnas voor de AMIGO-aanpak: van scenario naar bouwbare afsprakenset in zes stappen, routeert naar substap-skills."
+    },
+    {
+      "naam": "mbo-informatie-modelleur",
+      "type": "okx-specifiek",
+      "doel": "Concept-informatiemodel van mbo-onderwijs (geneste onderwijsspecificaties, ankertabel, Nederlandse attributen). Specialist voor payload-uitwerkingen."
+    },
+    {
+      "naam": "okx-koppelingspecificatie",
+      "type": "okx-specifiek",
+      "doel": "Vaste opbouw en conventies voor koppelingspecificaties en payload-specificaties: verplichte inleiding, kern naar voren, veldnaamgeving, schema- en boomconventies, indienchecklist."
+    },
+    {
+      "naam": "okx-oeapi-scenario-uitwerking",
+      "type": "okx-specifiek",
+      "doel": "Kaderstellende scenario's per leerroute schrijven en aanscherpen binnen het OEAPI consumer-profiel."
+    },
+    {
+      "naam": "okx-product-flow",
+      "type": "okx-specifiek",
+      "doel": "De standaard productketen: requirements opstellen, uitwerken, onafhankelijke review door tester en specialist, itereren tot de review past, agent-rapport."
+    },
+    {
+      "naam": "okx-requirements-tester",
+      "type": "okx-specifiek",
+      "doel": "Onafhankelijke tester: toetst een uitwerking eis-voor-eis tegen de requirements en acceptatiecriteria, in een verse subagent-context."
+    },
+    {
+      "naam": "okx-semantiek-review",
+      "type": "okx-specifiek",
+      "doel": "Onafhankelijke specialist: toetst een deliverable tegen het semantisch kader en de schrijfstijl van OKx."
+    },
+    {
+      "naam": "business-analyse-okx",
+      "type": "okx-specifiek",
+      "doel": "Adaptatie-wrapper: de externe business-analysis- en requirements-engineering-skills toegepast binnen de OKx-kaders (Nederlands, opslagconventies, semantisch kader)."
+    },
+    {
+      "naam": "business-analysis",
+      "type": "extern",
+      "bron": "kienhaminh/anti-chaotic",
+      "doel": "Professionele business-analyse-standaarden: gap-analyse, specificaties, agile documentatie.",
+      "adaptatie": "business-analyse-okx (de opslag- en taalregels van deze skill wijken af van OKx; gebruik hem alleen via de wrapper)",
+      "kanttekening": "Bekend upstream-defect: dode interne link naar references/best-practices/gap-analysis.md in de gevendorde bestanden. Niet zelf patchen; bij npx skills update controleren."
+    },
+    {
+      "naam": "requirements-engineering",
+      "type": "extern",
+      "bron": "jasonkneen/kiro",
+      "licentie": "MIT",
+      "doel": "Toetsbare requirements in EARS-notatie: user stories, acceptatiecriteria, randgevallen, volledigheidscheck.",
+      "adaptatie": "business-analyse-okx"
+    },
+    {
+      "naam": "architecture-review",
+      "type": "extern",
+      "bron": "getsentry/warden",
+      "doel": "Staff-level architectuurreview (structuur, stille fouten, onderhoudbaarheid). Inzetbaar als specialist-reviewer voor tooling en structuurvraagstukken.",
+      "adaptatie": "geen wrapper; het OKx-kader komt uit AGENTS.md. Let op: de skill is code-georienteerd, weeg bevindingen daarop"
+    }
+  ]
+}

@@ -105,8 +105,4 @@ Loop dit af voordat je een document ter review aanbiedt.
 - [ ] Uitgangspunten zijn aangehaald met een link, niet overgeschreven.
 - [ ] `json-tree.py --check` en de linkcontrole zijn schoon.
 
-Bredere schrijfstijl staat in [`docs-style`](../../rules/docs-style.mdc).
-
-## Verhuisnotitie
-
-Deze skill staat in `.cursor/skills/` omdat dat de indeling van deze branch is. Branch 115 verplaatst alle skills naar de canonieke map `.agents/skills/` met symbolische links vanuit `.cursor` en `.claude`. Verplaats deze skill na die merge mee, en laat de indienchecklist opgaan in de `okx-semantiek-review`-skill zodat de reviewer en de schrijver dezelfde maatstaf hanteren.
+Bredere schrijfstijl staat in [`docs-style`](../../../.cursor/rules/docs-style.mdc).

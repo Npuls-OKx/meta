@@ -33,7 +33,7 @@ Uitgebreider en voor nieuwe bijdragers: sectie *Waar draait deze repository om?*
 ### Workflow (kort)
 
 1. Start met een issue (vraag, voorstel, meeting follow-up, ADR-voorstel).
-2. Werk het uit in een PR met concrete wijzigingen.
+2. Werk het uit in een PR met concrete wijzigingen: 1 issue = 1 branch = 1 PR.
 3. Link in de PR naar het issue (Fixes #123 / See also #456).
 4. Als het een architectuurbesluit is: voeg of wijzig een ADR in `architecture/dr/` en link naar notulen/issues.
 
@@ -90,6 +90,10 @@ flowchart TD
 ```
 
 Uitgebreide uitleg voor beginners (Git, GitHub, Cursor, epics/issues, sprints): [`doc/Bijdragen-voor-beginners.md`](doc/Bijdragen-voor-beginners.md) — bewust **in de repo** (niet op de GitHub Wiki), i.v.m. mogelijke migratie naar bijv. self-hosted GitLab.
+
+### AI-agents
+
+Werk je met een AI-agent (Cursor, Claude Code) in deze repo, dan is [`AGENTS.md`](AGENTS.md) het startpunt: principes, kaders, harde regels en de product-flow (requirements, uitwerking, onafhankelijke review). Skills staan canoniek in [`.agents/skills/`](.agents/) met een manifest.
 
 ### Ontwerpprincipes
 
