@@ -20,28 +20,8 @@ Voorbeeld: `20260319_1430_okx-koppelvlak-projectaanvraag.md`
 
 Bij **grote herziening** van hetzelfde onderwerp: nieuw bestand met nieuwe timestamp of suffix `_v2`.
 
-## Verplichte kop (YAML frontmatter)
+## Geen frontmatter
 
-Elk bestand begint met:
-
-```yaml
----
-created: "2026-03-19T14:30:00+01:00"
-updated: "2026-03-19T15:45:00+01:00"
-human_authors:
-  - "Naam (rol/organisatie)"
-human_reviewers: []
-agent_command: "project-aanvraag"
-agent_model: ""
-related_issues: []
-source_paths: []
-notes: "Asynchrone sessies: bij elke bewerking updated bijwerken en auteurs aanvullen indien meerdere mensen betrokken."
----
-```
-
-- **`human_authors`**: minstens één persoon die **inhoudelijk verantwoordelijk** is voor publicatie in de repo (niet de agent).
-- **`updated`**: bij **elke** sessie/beurt die het bestand wijzigt.
-- **`agent_command`**: welke slash-command de basis was (bijv. `project-aanvraag`, `maak-plan`, `ontwerp-document`).
-- **`related_issues`**: optioneel GitHub-issue nummers als `["#12"]`.
+Documenten hier hebben **geen** YAML-frontmatter. GitHub is de bron: **auteurschap en datums** via de git-historie, **koppeling en traceerbaarheid** via issues en pull requests. Vermeld gerelateerde issues en bronnen in de **documenttekst** zelf, bijvoorbeeld met een contextregel onder de titel ("Relateert aan: #12") en een sectie *Gerelateerde uitwerkingen*. Human-in-the-loop blijft gelden: de mens die de PR opent is verantwoordelijk voor de inhoud.
 
 Zie ook [`doc/Bijdragen-voor-beginners.md`](../../doc/Bijdragen-voor-beginners.md) (Cursor-workflow).

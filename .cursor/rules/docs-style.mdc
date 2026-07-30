@@ -9,6 +9,17 @@ Schrijf simpel en consistent (ASCII waar mogelijk).
 - Gebruik "OKx docs" voor documentatie in deze repo.
 - Het MOKA template zit in `moka-koppelvlakspecificaties/` en is onderdeel van OKx.
 - Gebruik vaste paden in links (bijv. `architecture/dr/`, `architecture/meetings/`).
-- "Show don't tell" is het uitgangsprincipe. Wanneer je iets kunt uitleggen in natuurlijke taal, voeg dan waar mogelijk altijd een klein diagram toe in mermaid of UML, of insert een suggest / placeholder voor een natuurlijk persoon om een infographic toe te voegen.
+- "Show don't tell" is het uitgangsprincipe. Wanneer je iets kunt uitleggen in natuurlijke taal, voeg dan een klein diagram toe in mermaid of UML wanneer dat iets toont wat de tekst niet toont, of insert een suggest / placeholder voor een natuurlijk persoon om een infographic toe te voegen.
 
-Als er een nieuw markdown document aangemaakt wordt, zorg dan dat de index op de READ.me file geüpdatet wordt.
+Als er een nieuw markdown document aangemaakt wordt, zorg dan dat de index op de README geüpdatet wordt.
+
+## Leesbaarheid
+
+- **Geen vulwoorden.** "Kort", "conceptueel", "een eerste", "eenvoudige" voegen niets toe in een kopje of zin. Schrap ze.
+- **Eén drager per informatie-eenheid.** Een diagram, een tabel en een alinea die alle drie hetzelfde zeggen is redundantie. Kies er één; laat de andere alleen staan als die iets toevoegt wat de eerste niet toont.
+- **Een kopje dekt de lading.** Een sectie "Context" geeft context, geen opsomming van bronnen. Een inleiding leidt in, en is geen lijst losse feiten.
+- **Statusaanduidingen horen bij het artefact, niet bij het document.** Schrijf niet "alpha" of "een eerste versie" in titel, doel of scope; de volwassenheid van een schema of payload noteer je op dat schema zelf, en de status van het werk staat in de PR en de git-historie.
+- **Afkortingen voluit bij eerste gebruik**, daarna mag de korte vorm. Geldt ook voor mapnamen: leg in een README uit waar `dr/` of `oc-p-en-r/` voor staat. Bij veel afkortingen: een legenda.
+- **Verwijzingen zijn links.** Besluiten (ADR's), stappen, documenten en mappen als echte markdown-link, niet als kale tekst.
+- **Scope sluit af.** Benoem wat in scope is en sluit af met de regel dat al het overige buiten scope valt, zodat een lezer niet hoeft te raden of iets ontbreekt of bewust weggelaten is.
+- **Bouw de verhaallijn niet op een issuenummer.** De herkomst mag in een metadataregel ("Relateert aan: #12"), maar de tekst moet leesbaar zijn zonder dat issue erbij te halen.
