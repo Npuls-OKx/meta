@@ -9,17 +9,30 @@
     "context": "."
   },
 
-  // Node komt uit een devcontainer-feature (betrouwbaar beheerd).
+  // Node en de GitHub CLI komen uit devcontainer-features (betrouwbaar beheerd).
   "features": {
     "ghcr.io/devcontainers/features/node:1": {
       "version": "lts"
+    },
+    // gh: PR's openen, reviewen en mergen vanuit de container.
+    // Eenmalig na het (her)bouwen: `gh auth login`  -> daarna `gh auth setup-git`
+    // zodat ook `git push` werkt (gh wordt dan de credential helper).
+    "ghcr.io/devcontainers/features/github-cli:1": {
+      "version": "latest"
     }
   },
+
+  // De gh-login blijft bewaard in een named volume, zodat je niet opnieuw hoeft
+  // in te loggen na elke "Rebuild Container".
+  "mounts": [
+    "source=okx-meta-gh-config,target=/home/vscode/.config/gh,type=volume"
+  ],
 
   // npm-tooling globaal installeren nadat Node beschikbaar is.
   // markdownlint-cli2 : linten van markdown docs
   // @mermaid-js/mermaid-cli : mermaid-diagrammen renderen (gebruikt de chromium uit de Dockerfile)
-  "postCreateCommand": "npm install -g markdownlint-cli2 @mermaid-js/mermaid-cli",
+  // De chown is nodig omdat een named volume als root wordt aangemaakt.
+  "postCreateCommand": "sudo chown -R vscode:vscode /home/vscode/.config/gh && npm install -g markdownlint-cli2 @mermaid-js/mermaid-cli",
 
   "containerEnv": {
     "PUPPETEER_SKIP_DOWNLOAD": "true",
@@ -28,10 +41,12 @@
 
   "customizations": {
     "vscode": {
+      // Claude Code (Anthropic.claude-code): na Rebuild inloggen via de extensie (OAuth of API key).
       "extensions": [
         "DavidAnson.vscode-markdownlint",
         "bierner.markdown-mermaid",
-        "ms-python.python"
+        "ms-python.python",
+        "Anthropic.claude-code"
       ]
     }
   },

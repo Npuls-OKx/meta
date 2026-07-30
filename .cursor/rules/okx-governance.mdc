@@ -20,3 +20,25 @@ Workflow regels:
 - Als iets een architectuurbesluit is, leg het vast als ADR in architecture/dr/ en link naar issues en notulen.
 - Meetings: vastleggen -> (optioneel) transcriberen -> samenvatten in architecture/meetings/. Notulen voeden issues en PR's.
 
+Branchdiscipline: 1 issue = 1 branch = 1 PR
+- Een branch hoort bij precies EEN issue. Vertrek vanaf `dev`, PR terug naar `dev`.
+- Houd branches KORT. Hoe langer een branch openstaat naast een bewegende `dev`,
+  hoe groter de merge-pijn - en bij `architecture/model/model.archimate` is die pijn
+  echt: dat bestand kan niet regelgebaseerd gemerged worden (zie ADR 0010).
+- Waarom dit ertoe doet (juli 2026): op een langlopende branch stapelden vijf
+  onderwerpen zich op. De merge met `dev` gaf een conflict op `model.archimate`, de
+  handmatige resolutie liet 276 element-definities wegvallen (295 dode verwijzingen,
+  9 views kapot), en het preventiewerk zat vervolgens vast in diezelfde brede PR
+  in plaats van het team meteen te beschermen.
+
+Wat ik (de agent) doe:
+- Ik houd bij welk issue bij de huidige branch hoort (vaak herkenbaar aan de branchnaam).
+- Zie ik werk ontstaan dat daar BUITEN valt - een ander domein, een nieuwe map, een
+  tweede onderwerp - dan BENOEM ik dat en VRAAG ik of het een eigen branch/issue moet
+  worden. Ik blokkeer niet en beslis niet voor je; jij kiest.
+- Kleine aanpalende bijvangst (typo, kapotte link, ontbrekende index-regel) meld ik
+  hooguit kort; daar maak ik geen punt van.
+- Is iets urgent en breed nuttig (bv. een guard of fix die het hele team beschermt),
+  dan stel ik voor het in een APARTE kleine PR te zetten, zodat het niet hoeft te
+  wachten op de review van breder werk.
+

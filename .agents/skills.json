@@ -12,6 +12,11 @@
       "doel": "Concept-informatiemodel van mbo-onderwijs (geneste onderwijsspecificaties, ankertabel, Nederlandse attributen). Specialist voor payload-uitwerkingen."
     },
     {
+      "naam": "okx-koppelingspecificatie",
+      "type": "okx-specifiek",
+      "doel": "Vaste opbouw en conventies voor koppelingspecificaties en payload-specificaties: verplichte inleiding, kern naar voren, veldnaamgeving, schema- en boomconventies, indienchecklist."
+    },
+    {
       "naam": "okx-oeapi-scenario-uitwerking",
       "type": "okx-specifiek",
       "doel": "Kaderstellende scenario's per leerroute schrijven en aanscherpen binnen het OEAPI consumer-profiel."
