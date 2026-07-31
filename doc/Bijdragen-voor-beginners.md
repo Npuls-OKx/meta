@@ -25,7 +25,7 @@ Concreet hangen de belangrijkste “ankers” in deze repo zo samen:
 
 Er is al inhoud voor een deel van de stromen; **veel andere stromen** uit de hoofdplaat moeten nog worden beschreven en daarna naar hetzelfde type **technische** deliverables worden vertaald. Zo voorkomen we **lokale eilandoplossingen** en houden we een **gedeeld minimum** in zicht — waarna onderdelen als **MORA** desgewenst via een **gericht wijzigingsverzoek** kunnen worden gevoed, niet via een omweg buiten het sectorproces om.
 
-**Architectuurbesluiten** (ADR’s) leggen de belangrijkste **keuzes** vast; zie [ADR’s — overzicht](../architecture/dr/README.md).
+**Architectuurbesluiten** (ADR’s) leggen de belangrijkste **keuzes** vast; zie [ADR’s — overzicht](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/README.md).
 
 ---
 
@@ -89,7 +89,7 @@ We hanteren **geen strikt Scrum-handboek**, maar de **beelden** helpen om te zie
 | **Prioriteren / plannen** | **Kernteam OKx** en **kerngroep techniek** kiezen waar focus ligt; issues kunnen aan epics/milestones gekoppeld worden. |
 | **Sprint / werkrithme** | **Sprintachtige periodes** met **variabele duur** (zie §4): focus op een set issues, zonder starre Scrum-verplichting. |
 | **Werk uitvoeren** | **Branches** + **pull requests** met review — concrete wijzigingen in docs en specificaties. |
-| **Opleveren / vastleggen** | **Merge** naar `dev` / `main`, **tags** bij releases, **ADR’s** voor belangrijke architectuurkeuzes (`architecture/dr/`). |
+| **Opleveren / vastleggen** | **Merge** naar `dev` / `main`, **tags** bij releases, **ADR’s** voor belangrijke architectuurkeuzes ([Referentiemateriaal/adr in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr)). |
 
 **Iedereen kan bijdragen** door **problemen en vragen** (en oplossingsrichtingen) in GitHub te zetten. Zo komen ze in **onze projectaanpak** en planning terecht. De **realisatie** — uitwerken, scherpstellen, reviewen — gebeurt in samenwerking met **kernteam OKx** en **kerngroep techniek**, zodat de kennisbasis **betrouwbaar** en **samenhangend** blijft.
 
@@ -177,7 +177,7 @@ GitHub opent dan meestal **geen leeg tekstveld**, maar een **keuzescherm met sja
 |----------------------------|------------------|
 | **Correctie documentatie** | Tikfout, verouderde zin, kapotte link in `doc/` of README. |
 | **OKx specificatie wijziging** | Inhoudelijk voorstel voor specificatie of koppelvlak. |
-| **ADR voorstel** | Een architectuurkeuze vastleggen of wijzigen (`architecture/dr/`). |
+| **ADR voorstel** | Een architectuurkeuze vastleggen of wijzigen ([Referentiemateriaal/adr in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr)). |
 | **Meeting follow up** | Concreet vervolg op een besproken punt (koppel aan meeting of notulen). |
 | **Vraag / verduidelijking** | Iets is onduidelijk; je wilt uitleg of richting voordat je een PR maakt. |
 

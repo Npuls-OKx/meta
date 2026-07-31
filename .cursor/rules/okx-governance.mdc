@@ -17,7 +17,7 @@ Governance:
 
 Workflow regels:
 - Link PR's aan issues (Fixes #... / See also #...).
-- Als iets een architectuurbesluit is, leg het vast als ADR in architecture/dr/ en link naar issues en notulen.
+- Als iets een architectuurbesluit is, leg het vast als ADR in [Referentiemateriaal/adr in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr) en link naar issues en notulen.
 - Meetings: vastleggen -> (optioneel) transcriberen -> samenvatten in architecture/meetings/. Notulen voeden issues en PR's.
 
 Branchdiscipline: 1 issue = 1 branch = 1 PR

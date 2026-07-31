@@ -15,5 +15,5 @@
 # expliciet een kant (`git checkout --ours|--theirs -- <pad>`) en breng je de andere
 # kant terug via Archi: File > Import > Another model into the selected model.
 # Valideer daarna met `python3 scripts/validate-archimate.py`.
-# Zie architecture/dr/0010-archimatemodel-werkafspraken.md
+# Zie https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0010-archimatemodel-werkafspraken.md
 architecture/model/*.archimate -merge

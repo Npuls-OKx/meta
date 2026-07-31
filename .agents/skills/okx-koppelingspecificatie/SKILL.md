@@ -7,18 +7,18 @@ description: >-
   de indeling met de kern naar voren, de veldnaamgeving in payloads, de
   schema- en boomconventies, en een indienchecklist. Gebruik bij het schrijven,
   herzien of reviewen van een koppelingspecificatie of payload-specificatie
-  onder architecture/agent-artifacts/design-docs/koppelingspecificaties/.
+  onder https://github.com/Npuls-OKx/Public/tree/dev/Koppelvlakspecificaties.
 ---
 
 # Koppeling- en payload-specificaties
 
-**Begin bij de bron, niet bij deze skill.** De inhoudelijke aannames staan in [uitgangspunten.md](../../../architecture/agent-artifacts/design-docs/koppelingspecificaties/uitgangspunten.md), genummerd U1 tot en met U10, en de lege opzet in [sjabloon-koppelingspecificatie.md](../../../architecture/agent-artifacts/design-docs/koppelingspecificaties/sjabloon-koppelingspecificatie.md) en [sjabloon-payload-specificatie.md](../../../architecture/agent-artifacts/design-docs/koppelingspecificaties/sjabloon-payload-specificatie.md). Kopieer het sjabloon en volg de instructies daarin. Deze skill vat samen waar je op let en waarom; bij verschil wint het sjabloon.
+**Begin bij de bron, niet bij deze skill.** De inhoudelijke aannames staan in [uitgangspunten.md](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md), genummerd U1 tot en met U10, en de lege opzet in [sjabloon-koppelingspecificatie.md](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/templates/template-koppelingspecificatie.md) en [sjabloon-payload-specificatie.md](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/templates/template-payload-specificatie.md). Kopieer het sjabloon en volg de instructies daarin. Deze skill vat samen waar je op let en waarom; bij verschil wint het sjabloon.
 
-Twee documentsoorten met een vaste opbouw. Terminologie volgt [ADR 0021](../../../architecture/dr/0021-koppeling-versus-koppelvlak-terminologie.md): een **koppeling** is de informatiestroom tussen twee referentiecomponenten, een **koppelvlak** is de verzameling koppelingen van één component.
+Twee documentsoorten met een vaste opbouw. Terminologie volgt [ADR 0021](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0021-koppeling-versus-koppelvlak-terminologie.md): een **koppeling** is de informatiestroom tussen twee referentiecomponenten, een **koppelvlak** is de verzameling koppelingen van één component.
 
 ## Doelbinding (waarom deze documenten bestaan)
 
-Koppelingspecificaties zijn **indicatief en onderbouwend, niet voorschrijvend** ([U1](../../../architecture/agent-artifacts/design-docs/koppelingspecificaties/uitgangspunten.md#u1-indicatief-en-onderbouwend-niet-voorschrijvend)). Noem die binding in elk document in §1.2 met een link naar U1, zodat een lezer niet denkt dat we koppelingen dichttimmeren. Schrijf de motivering niet over; die staat in de uitgangspunten.
+Koppelingspecificaties zijn **indicatief en onderbouwend, niet voorschrijvend** ([U1](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u1-indicatief-en-onderbouwend-niet-voorschrijvend)). Noem die binding in elk document in §1.2 met een link naar U1, zodat een lezer niet denkt dat we koppelingen dichttimmeren. Schrijf de motivering niet over; die staat in de uitgangspunten.
 
 **Herhaal geen uitgangspunten.** Gaat het over resource-eigenaarschap, notify-then-pull, het onderscheid tussen bericht en kanaal, de semantiek uit de ankertabel, de sleutelconventie of de scopediscipline: noem het in één regel en link naar het betreffende uitgangspunt. Anders staat dezelfde redenering in vijf documenten en moet elke wijziging vijf keer.
 
@@ -60,7 +60,7 @@ Eén hoofdstuk met drie subsecties. Na het lezen daarvan weet een nieuwkomer waa
 ## Payload-conventies
 
 - **Nederlands.** Veldnamen en waarden in het Nederlands. Wijkt dat af van de OEAPI-vorm, noteer dat als signalering in plaats van het stil te laten.
-- **Sleutels** volgen [U7](../../../architecture/agent-artifacts/design-docs/koppelingspecificaties/uitgangspunten.md#u7-payload-plat-met-verwijzingen-en-de-sleutelconventie): `id` voor de eigen sleutel, een expliciete getypeerde naam zodra je ergens anders heen wijst. Een kaal `bovenliggendId` is context-gevoelig en dus verboden.
+- **Sleutels** volgen [U7](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u7-payload-plat-met-verwijzingen-en-de-sleutelconventie): `id` voor de eigen sleutel, een expliciete getypeerde naam zodra je ergens anders heen wijst. Een kaal `bovenliggendId` is context-gevoelig en dus verboden.
 - **Plat met verwijzingen.** Objecten staan in platte arrays met een zelfverwijzende ouder-pointer, niet fysiek genest. Daardoor is de boom in de JSON onzichtbaar; de instantieboom maakt hem weer zichtbaar. Beide horen erbij.
 - **JSON Schema.** Elke payload-specificatie draagt een JSON Schema (draft 2020-12) dat de vorm vastlegt: types, verplicht of optioneel, enums, patronen. Enumeraties horen in het schema, niet in een aparte tabel. Markeer de volwassenheid **in het schema zelf** (`$comment`, `description`) met alfa en indicatief; die markering hoort niet in de documenttitel of de doelstelling.
 - **Gebruiksprofiel.** Gedeelde payloads staan éénmaal centraal. Elke koppelingspecificatie benoemt welke objecten en velden zij gebruikt.

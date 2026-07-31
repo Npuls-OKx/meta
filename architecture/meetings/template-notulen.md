@@ -25,7 +25,7 @@ Doel: [doel]
 ### Links (verplicht)
 
 - Issues: #...
-- ADR's: `architecture/dr/...`
+- ADR's: `https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr...`
 - OKx/OKE docs: `doc/...` / `OKE/...`
 - ArchiMate impact: ja/nee + toelichting
 - Transcript (optioneel): `architecture/meetings/...-transcript.md`

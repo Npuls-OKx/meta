@@ -1,6 +1,6 @@
 # Architectuur- en ontwerpprincipes (OKx-meta)
 
-Dit document vat **richtinggevende principes** samen voor uitwerkingen in deze knowledge base (documentatie, koppelvlakspecificaties, modellen). Het is geen vervanging van concrete ADR’s; bij twijfel of uitzondering leg je een besluit vast in `architecture/dr/`.
+Dit document vat **richtinggevende principes** samen voor uitwerkingen in deze knowledge base (documentatie, koppelvlakspecificaties, modellen). Het is geen vervanging van concrete ADR’s; bij twijfel of uitzondering leg je een besluit vast in [Referentiemateriaal/adr in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr).
 
 ---
 
@@ -22,7 +22,7 @@ Dit document vat **richtinggevende principes** samen voor uitwerkingen in deze k
 **Uitzondering (“tenzij strategie”)**: als OEAPI **niet** past of **onvoldoende** is voor een gegeven use case (bijv. domeinspecifieke semantiek, wettelijke eisen, performance of ketenafspraken buiten het OEAPI-model), dan:
 
 1. Beschrijf **waarom** OEAPI onvoldoende is (in issue, PR of ADR).
-2. Leg een **bewuste keuze** vast — bij voorkeur als **ADR** in `architecture/dr/`.
+2. Leg een **bewuste keuze** vast — bij voorkeur als **ADR** in [Referentiemateriaal/adr in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr).
 3. Houd de oplossing **zo dicht mogelijk bij** bredere afspraken (MOKA, BOPSI, andere erkende kaders) en documenteer impact op keten en leveranciers.
 
 ---
@@ -64,4 +64,4 @@ We streven ernaar om uitwerkingen **zoveel mogelijk machine-interpreteerbaar** t
 - [`doc/Bijdragen-voor-beginners.md`](../../doc/Bijdragen-voor-beginners.md) — praktische gids voor bijdragen
 - [`architecture/agent-artifacts/README.md`](../agent-artifacts/README.md) — opslag en frontmatter voor agent-gegenereerde plannen en ontwerpen
 - [`doc/Privacy-meetings-en-transcriptie.md`](../../doc/Privacy-meetings-en-transcriptie.md) — opname/transcriptie, AVG en waarschuwing rond niet-publieke informatie
-- [`architecture/dr/`](../dr/) — Architecture Decision Records
+- [[Referentiemateriaal/adr in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr)](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr) — Architecture Decision Records

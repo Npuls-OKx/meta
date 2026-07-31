@@ -9,7 +9,7 @@ Voordat je een issue of PR opent, is het nuttig te weten **waar** deze repo voor
 - **Actuele plaat en prioriteit** (welke informatiestromen tellen mee): [`doc/OKx_Projectoverzicht.md`](doc/OKx_Projectoverzicht.md) — *Hoofdplaat OKx informatiestromen*.
 - **Ketenconcept** (wat de stromen doen, invoer voor specs): [`doc/OKx_Informatiesstromen.md`](doc/OKx_Informatiesstromen.md).
 - **ArchiMate-model** met o.a. MOKA-view **`01. Onderwijsvisie vertalen naar onderwijsaanbod - Basis Model`** en het **informatiemodel** in hetzelfde koppelvlak: [`architecture/model/model.archimate`](architecture/model/model.archimate) — lees [`doc/OKx_Informatiestromen-ArchiMate-en-MOKA-view.md`](doc/OKx_Informatiestromen-ArchiMate-en-MOKA-view.md) voor waar je die views opent.
-- **Architectuurbesluiten (ADR’s)**: [`architecture/dr/README.md`](architecture/dr/README.md).
+- **Architectuurbesluiten (ADR’s)**: [[ADR-index in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/README.md)](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/README.md).
 
 Uitgebreider en voor nieuwe bijdragers: sectie *Waar draait deze repository om?* in [`doc/Bijdragen-voor-beginners.md`](doc/Bijdragen-voor-beginners.md).
 
@@ -23,7 +23,7 @@ Uitgebreider en voor nieuwe bijdragers: sectie *Waar draait deze repository om?*
 ### Wat hoort waar
 
 - ArchiMate model: `architecture/model/model.archimate`
-- ADR's (decision records): `architecture/dr/`
+- ADR's (decision records): [Referentiemateriaal/adr in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr)
 - Meetings (notulen + optioneel transcript): `architecture/meetings/`
 - OKx context: `doc/` en `img/`
 - OKE uitwerkingen: `OKE/`
@@ -35,7 +35,7 @@ Uitgebreider en voor nieuwe bijdragers: sectie *Waar draait deze repository om?*
 1. Start met een issue (vraag, voorstel, meeting follow-up, ADR-voorstel).
 2. Werk het uit in een PR met concrete wijzigingen: 1 issue = 1 branch = 1 PR.
 3. Link in de PR naar het issue (Fixes #123 / See also #456).
-4. Als het een architectuurbesluit is: voeg of wijzig een ADR in `architecture/dr/` en link naar notulen/issues.
+4. Als het een architectuurbesluit is: voeg of wijzig een ADR in [Referentiemateriaal/adr in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr) en link naar notulen/issues.
 
 ### Branchingstrategie & Pull Requests
 
@@ -113,6 +113,6 @@ De datum staat **vooraan** zodat `architecture/meetings/` chronologisch sorteert
 
 - Issue templates: `.github/ISSUE_TEMPLATE/`
 - PR template: `.github/PULL_REQUEST_TEMPLATE.md`
-- ADR template: `architecture/dr/template.md`
+- ADR template: [ADR-template in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/template.md)
 - Notulen template: `architecture/meetings/template-notulen.md`
 

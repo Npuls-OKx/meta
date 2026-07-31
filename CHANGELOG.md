@@ -13,7 +13,7 @@ Eerste **getagde baseline** van de OKx-meta **publieke knowledge base**: documen
 
 ### Toegevoegd
 
-- **ADR’s (Architecture Decision Records)** in `architecture/dr/`: o.a. publieke repo en samenwerkingsmodel, prioriteitsketen curriculum–onderwijscatalogus en drielagen-fundament, domeinprincipes student kiest en leeruitkomsten, leeruitkomsten met SBU/EC als logistieke containergrootte, Student Keuze Systeem (SKS) als zelfstandige referentiecomponent.
+- **ADR’s (Architecture Decision Records)** in [Referentiemateriaal/adr in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr): o.a. publieke repo en samenwerkingsmodel, prioriteitsketen curriculum–onderwijscatalogus en drielagen-fundament, domeinprincipes student kiest en leeruitkomsten, leeruitkomsten met SBU/EC als logistieke containergrootte, Student Keuze Systeem (SKS) als zelfstandige referentiecomponent.
 - **Documentatie** in `doc/`: o.a. projectoverzicht met hoofdplaat informatiestromen, ketenconcept informatiestromen, ArchiMate/MOKA-view uitleg, architectuurbesluiten en impact, bijdragen voor beginners, privacy bij meetings.
 - **Meetings** onder `architecture/meetings/`: o.a. kernteam (o.a. voorbereiding leverancierssessie, student kiest/flexibel), SI-afstemming, BPMN uit architectuurmapping-sessies.
 - **Koppelvlak- en standaard-artefacten**: MOKA/OKE-uitwerkingen, definitiemapping MORA–OEAPI (Excel/documentatie), product-/PDF-omschrijving waar van toepassing.

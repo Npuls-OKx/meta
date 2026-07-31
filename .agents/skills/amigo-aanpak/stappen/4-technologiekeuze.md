@@ -8,7 +8,7 @@
 
 **Output:** technologie- en standaardenkeuze, verankerd in het Edustandaard Lagenmodel (IT-infrastructuur ↔ applicatie).
 
-**Uitgewerkt in:** _kaderbeschrijving; nog geen eigen skill._ Zie profiel §2.3 (AMIGO) en ADR's in `architecture/dr/`.
+**Uitgewerkt in:** _kaderbeschrijving; nog geen eigen skill._ Zie profiel §2.3 (AMIGO) en ADR's in [Referentiemateriaal/adr in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr).
 
 **Aandachtspunten:**
 
