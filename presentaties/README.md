@@ -83,13 +83,21 @@ Controleer de lijst voordat je hem gebruikt:
 python3 ../scripts/platen-inventariseren.py
 ```
 
-Dat vergelijkt het manifest met wat er werkelijk in beide repositories staat en meldt vier dingen: een bron die is **verdwenen**, een bron die is **gewijzigd** sinds de omschrijving werd geschreven, een **nieuwere versie** die ernaast is verschenen, en een plaat die nog **niet in het manifest** staat. Los meldingen op voordat je een plaat kiest.
+Dat vergelijkt het manifest met wat er werkelijk in beide repositories staat en meldt: een bron die is **verdwenen**, een bron die is **gewijzigd** sinds de omschrijving werd geschreven, een **nieuwere versie** die ernaast is verschenen, een plaat die nog **niet in het manifest** staat, en een kopie in `public/platen/` die is gaan **afwijken van zijn bron**. Los meldingen op voordat je een plaat kiest.
 
 Kopieer wat je nodig hebt naar `public/platen/` en verwijs ernaar met `/platen/<naam>`. Een brede plaat geef je de hele slidebreedte:
 
 ```html
 <img src="/platen/lr1-informatiestromen.jpg" style="width: 100%; max-height: 330px; object-fit: contain;" />
 ```
+
+### Waarom `public/platen/` kopieën bevat
+
+Slidev serveert alleen wat onder `public/` staat; een slide kan niet naar een bestand buiten dit project wijzen. Elke plaat die je gebruikt is daarom een kopie, en dat is bewust: de decks zijn zo zelfstandig te bouwen en de map hoort in git.
+
+De prijs is dat een kopie stil kan achterlopen op zijn bron. Daarom noemt elke manifestregel die in gebruik is zijn kopie in het veld `kopie`, en vergelijkt het controlescript beide. Wat er ligt zonder dat een manifestregel het opeist, wordt gemeld als losse kopie — zo blijft de map een gebruikslijst en geen aanslibsel.
+
+Gebruik je een plaat niet meer, haal de kopie dan weg en laat het veld `kopie` leeg. De manifestregel zelf blijft staan: de plaat bestaat nog, hij wordt alleen even niet getoond.
 
 ### Als je zelf een plaat toevoegt
 

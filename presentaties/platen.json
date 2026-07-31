@@ -4,7 +4,8 @@
   "velden": {
     "versie": "De versie die de plaat zelf draagt, niet de datum waarop hij hier belandde.",
     "varianten": "Glob vanaf de repositorywortel; dekt uitsneden en zusterviews van dezelfde plaat af, zodat het controlescript daar niet over meldt.",
-    "hash": "Van de bron op het moment van opnemen. Wijkt hij af, dan is de plaat hertekend en klopt de omschrijving hier misschien niet meer."
+    "hash": "Van de bron op het moment van opnemen. Wijkt hij af, dan is de plaat hertekend en klopt de omschrijving hier misschien niet meer.",
+    "kopie": "Bestandsnaam onder presentaties/public/platen/ waarmee slides deze plaat aanroepen als /platen/<naam>. Slidev serveert niets buiten public/, dus een gebruikte plaat is altijd een kopie; het controlescript bewaakt dat die gelijk blijft aan de bron."
   },
   "platen": [
     {
@@ -16,6 +17,7 @@
       "toont": "Het totaalbeeld van de keten: alle referentiecomponenten en de informatiestromen ertussen.",
       "gebruik_bij": "Een publiek dat het geheel wil overzien voordat je inzoomt. Kerngroep techniek, leveranciers, technische werkgroep OEAPI.",
       "let_op": "1.7 is leidend voor de architectuur, maar draagt in de legenda zelf nog de aanduiding <concept>. Presenteer de plaat dus als richtinggevend, niet als vastgesteld. Afgeleide platen kunnen bovendien op een oudere versie stoelen; controleer het bijschrift in de hoek van zo'n plaat.",
+      "kopie": "hoofdplaat-1.7.jpg",
       "hash": "b0636de0a49ce6bd"
     },
     {
@@ -30,6 +32,7 @@
       "varianten": [
         "Referentiemateriaal/kaderscenario's/img/OKx_LR1_informatiestromen_v20260526_f*.jpg"
       ],
+      "kopie": "lr1-informatiestromen.jpg",
       "hash": "7c140a65684496aa"
     },
     {
@@ -52,6 +55,7 @@
       "toont": "Alle negen leerroutes, geordend naar standaard, personaliseren en modulair studeren.",
       "gebruik_bij": "Laten zien waar leerroute 1 in het geheel past, en waarom 2 en 3 daarna komen.",
       "let_op": "",
+      "kopie": "leerroutes.png",
       "hash": "6607863c0013c2a5"
     },
     {
@@ -74,6 +78,7 @@
       "toont": "De journey van Jochem, de rode draad door leerroute 1.",
       "gebruik_bij": "Een abstract verhaal aan een concrete student ophangen. Doe dit vroeg in het deck.",
       "let_op": "",
+      "kopie": "jochem.png",
       "hash": "4b42f21ce6eaf713"
     },
     {
@@ -110,6 +115,7 @@
       "varianten": [
         "architecture/model/Koppelvlak views obv 1.7/*.jpg"
       ],
+      "kopie": "koppelvlak-oc.jpg",
       "hash": "4e306c50c91cf0a5"
     },
     {

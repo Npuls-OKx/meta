@@ -12,6 +12,8 @@ Dit script vergelijkt het manifest met wat er werkelijk staat en meldt:
   GEWIJZIGD    de bron is veranderd sinds hij in het manifest werd opgenomen
   NIEUWERE     er staat een hogere versie naast de versie in het manifest
   ONBEKEND     er staat een plaat die het manifest niet noemt
+  KOPIE OUD    de kopie in presentaties/public/platen wijkt af van de bron
+  KOPIE LOS    er ligt een kopie die geen enkele manifestregel opeist
 
 Gebruik:
     python3 scripts/platen-inventariseren.py              # controleren
@@ -32,6 +34,10 @@ REPOS = {
     "Npuls-OKx/Public": Path("/workspaces/OKx/Public"),
 }
 MANIFEST = Path(__file__).resolve().parent.parent / "presentaties" / "platen.json"
+# Slidev serveert alleen bestanden onder public/; een slide kan niet buiten het
+# project wijzen. Een gebruikte plaat is dus altijd een kopie, en een kopie kan
+# achterlopen op zijn bron zonder dat iemand het merkt.
+KOPIEEN = MANIFEST.parent / "public" / "platen"
 BEELD = {".jpg", ".jpeg", ".png", ".svg"}
 # Mappen die geen bronmateriaal zijn: de kopieën in het presentatieproject zelf,
 # afhankelijkheden en de huisstijl-assets.
@@ -160,6 +166,33 @@ def controleer(manifest: dict) -> tuple[list[str], dict]:
                 f"NIEUWERE        {plaat['naam']}\n"
                 f"                er staat een hogere versie: {nieuwer}"
             )
+
+    # De kopieën in public/platen tegen hun bron houden. Zonder deze controle
+    # blijft een deck een oude plaat tonen terwijl de bron al bijgetekend is,
+    # en meldt het manifest netjes dat alles klopt.
+    opgeeist: set[str] = set()
+    for plaat in manifest["platen"]:
+        naam = plaat.get("kopie")
+        if not naam:
+            continue
+        opgeeist.add(naam)
+        kopie = KOPIEEN / naam
+        bron = REPOS[plaat["bron"]] / plaat["pad"]
+        if not kopie.exists():
+            continue   # nog niet in gebruik; dat is geen fout
+        if bron.exists() and hash_van(kopie) != hash_van(bron):
+            meldingen.append(
+                f"KOPIE OUD       {naam}\n"
+                f"                wijkt af van {plaat['naam']}; opnieuw kopiëren uit {plaat['bron']}"
+            )
+
+    if KOPIEEN.is_dir():
+        for kopie in sorted(KOPIEEN.iterdir()):
+            if kopie.is_file() and kopie.name not in opgeeist:
+                meldingen.append(
+                    f"KOPIE LOS       {kopie.name}\n"
+                    f"                geen manifestregel claimt deze kopie; veld 'kopie' invullen of het bestand weghalen"
+                )
 
     for repo, wortel in REPOS.items():
         for pad in beelden_in(wortel):
