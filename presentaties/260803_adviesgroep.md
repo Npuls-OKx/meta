@@ -1,7 +1,7 @@
 ---
 theme: default
 title: OKx — de koppelingspecificaties
-info: Wat er nu ligt voor leerroute 1, hoe we releases en repositories hebben ingericht, en waar we nu aan werken.
+info: Wat er ligt voor leerroute 1, hoe releases en repositories zijn ingericht, en waar nu aan gewerkt wordt.
 author: OKx - Onderwijskoppelingen (Npuls)
 highlighter: shiki
 lineNumbers: false
@@ -22,7 +22,7 @@ fonts:
 <div style="position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 2rem 4rem; z-index: 1;">
   <h1 style="font-size: 3.2rem; line-height: 1.15; margin-bottom: 0.6rem; color: var(--np-ink);">De koppelingspecificaties</h1>
   <p style="font-size: 1.15rem; color: var(--np-dark-gray); max-width: 700px; line-height: 1.5; margin-bottom: 1rem;">
-    Wat er nu ligt, en waar we jullie oordeel bij nodig hebben
+    Wat er ligt voor leerroute 1, en waar een onderwijskundig oordeel over nodig is
   </p>
   <div style="font-size: 0.92rem; color: var(--np-ink);">
     <strong>OKx</strong> &middot; Adviesgroep &middot; 3 augustus 2026
@@ -35,20 +35,20 @@ fonts:
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide2.PNG);"></div>
 
 <div style="margin-left: 42%; height: 100%; display: flex; flex-direction: column; justify-content: center; padding-right: 3rem;">
-  <p class="eyebrow">Wat gaan we bespreken</p>
+  <p class="eyebrow">Onderwerpen</p>
   <h1 style="font-size: 2.2rem !important; margin-bottom: 1.4rem;">Programma</h1>
   <div style="display: flex; flex-direction: column; gap: 1rem;">
     <div style="display: flex; align-items: center; gap: 0.8rem;">
       <span class="np-num">1</span>
-      <div><strong>De koppelingspecificaties</strong><br/><span class="muted" style="font-size: 0.82rem;">Waar we het meeste tijd in hebben gestoken</span></div>
+      <div><strong>De koppelingspecificaties</strong><br/><span class="muted" style="font-size: 0.82rem;">Het zwaartepunt van het werk sinds mei</span></div>
     </div>
     <div style="display: flex; align-items: center; gap: 0.8rem;">
       <span class="np-num" style="background: var(--np-orange);">2</span>
-      <div><strong>Waar het staat</strong><br/><span class="muted" style="font-size: 0.82rem;">Twee repositories en wat een release is</span></div>
+      <div><strong>Waar het materiaal staat</strong><br/><span class="muted" style="font-size: 0.82rem;">Twee repositories en de betekenis van een versienummer</span></div>
     </div>
     <div style="display: flex; align-items: center; gap: 0.8rem;">
       <span class="np-num" style="background: var(--np-green);">3</span>
-      <div><strong>Waar we nu aan werken</strong><br/><span class="muted" style="font-size: 0.82rem;">Wie mag welk keuzedeel kiezen</span></div>
+      <div><strong>Het werk van dit moment</strong><br/><span class="muted" style="font-size: 0.82rem;">Vastleggen wie welk keuzedeel mag kiezen</span></div>
     </div>
   </div>
 </div>
@@ -73,28 +73,32 @@ fonts:
 
 <div class="fill">
 
-# Dit is waar het over gaat
+# Leerroute 1 in één beeld
 
-<p class="np-subtitle">Leerroute 1, Jochem. Links het ontwerp van het onderwijs, rechts de student die studeert en kiest.</p>
+<p class="np-subtitle">Links het ontwerp van het onderwijs, rechts de student die studeert en kiest. Persona: Jochem.</p>
 
 <img src="/platen/lr1-informatiestromen.jpg" style="width: 100%; max-height: 330px; object-fit: contain; margin-top: 0.3rem;" />
 
 <p class="muted" style="font-size: 0.82rem; margin-top: 0.5rem;">
-Elk pijltje is iets dat een systeem aan een ander doorgeeft. Ons werk is die pijltjes zo beschrijven dat twee leveranciers er hetzelfde onder verstaan.
+Elke pijl is iets dat een systeem aan een ander doorgeeft. Het werk van OKx is die pijlen zo beschrijven dat twee leveranciers er hetzelfde onder verstaan.
 </p>
 
 </div>
 
 <!--
-Neem de tijd voor deze plaat. Links: de curriculum ontwerptool maakt
-specificaties, die gaan naar de onderwijscatalogus. Rechts: de student meldt
-zich aan (intake, KRS), kiest een keuzedeel (SKS), volgt onderwijs (LMS), en
-zijn resultaten landen in het studentvolgsysteem (SVS).
+Neem de tijd voor deze plaat. Links: de curriculum-ontwerptool maakt
+specificaties, die gaan naar de onderwijscatalogus. Rechts: de student schrijft
+zich in (KRS), kiest een keuzedeel (SKS), volgt onderwijs (LMS), en de
+resultaten landen in het studentvolgsysteem (SVS).
+
+Deze plaat is getekend op basis van hoofdplaat 1.6b; leidend voor de
+architectuur is inmiddels 1.7. De informatiestromen zijn ongewijzigd, de plaat
+is nog niet bijgetekend. Alleen benoemen als er naar gevraagd wordt.
 -->
 
 ---
 
-<!-- DE DRIE KOPPELINGEN -->
+<!-- DE KETEN -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
@@ -103,27 +107,51 @@ zijn resultaten landen in het studentvolgsysteem (SVS).
 
 <p class="np-subtitle">De onderwijscatalogus is het distributiepunt. Daar staat wat de instelling aanbiedt, en van daaruit gaat het de keten in.</p>
 
-<div class="np-grid-3" style="margin-top: 0.7rem; align-items: start;">
-  <div class="np-card accent-blue">
-    <span class="np-badge blue">OC naar P&amp;R</span>
-    <h3 style="margin-top: 0.5rem;">Planning en roostering</h3>
-    <p class="muted" style="font-size: 0.85rem; margin: 0;">Het planningssysteem maakt er <strong>planbaar aanbod</strong> van: welke periode, hoeveel plekken. Het roostersysteem hangt er daarna tijden en lokalen aan.</p>
-  </div>
-  <div class="np-card accent-orange">
-    <span class="np-badge orange">OC naar LMS</span>
-    <h3 style="margin-top: 0.5rem;">Leermanagementsysteem</h3>
-    <p class="muted" style="font-size: 0.85rem; margin: 0;">De online leeromgeving van de student wordt ingericht op de gepubliceerde structuur. Leermiddelen komen terug richting de catalogus.</p>
-  </div>
-  <div class="np-card accent-green">
-    <span class="np-badge green">OC naar SIS</span>
-    <h3 style="margin-top: 0.5rem;">Studentinformatiesysteem</h3>
-    <p class="muted" style="font-size: 0.85rem; margin: 0;">Dat is KRS plus SVS: inschrijving aan de ene kant, voortgang en resultaten aan de andere. Krijgt de resultaatstructuur en het examenplan.</p>
-  </div>
+<div style="margin-top: 0.6rem;">
+
+```mermaid {scale: 0.52}
+flowchart LR
+    CO["Curriculum-ontwerptool"] --> OC["Onderwijscatalogus (OC)<br/>distributiepunt"]
+    OC -->|"OC-P&R: te plannen aanbod"| PR["Planning en Roostering"]
+    OC -->|"OC-LMS: structuur, leermiddelen terug"| LMS["Leermanagementsysteem"]
+    OC -->|"OC-SIS: nominaal template, resultaatstructuur"| SIS["Studentinformatiesysteem (KRS/SVS)"]
+    SKS["Student Keuze Systeem"] -. "eigen koppeling, buiten scope hier" .-> SIS
+```
+
 </div>
 
-<p class="muted" style="font-size: 0.87rem; margin-top: 1.1rem; line-height: 1.7;">
-Een <strong>koppeling</strong> is één stroom tussen twee systemen. Alle koppelingen van één systeem bij elkaar heten het <strong>koppelvlak</strong> van dat systeem. Dat onderscheid klinkt muggenzifterig, maar het scheelde ons veel verwarring: we gebruikten hetzelfde woord voor twee dingen.
+<p class="muted" style="font-size: 0.88rem; margin-top: 0.8rem; line-height: 1.7;">
+Het planningssysteem maakt van de specificatie <strong>planbaar aanbod</strong>; het roostersysteem hangt daar tijden en lokalen aan. Het leermanagementsysteem richt de online leeromgeving in op de gepubliceerde structuur. Het studentinformatiesysteem — kernregistratie plus studentvolgsysteem — krijgt de resultaatstructuur en het examenplan.
 </p>
+
+</div>
+
+---
+
+<!-- KOPPELING EN KOPPELVLAK -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# Koppeling of koppelvlak
+
+<div class="np-grid-2" style="margin-top: 0.5rem; align-items: center;">
+<div style="font-size: 0.93rem; line-height: 1.75;">
+
+Een **koppeling** is één informatiestroom tussen twee componenten. Alle koppelingen die op één component samenkomen, vormen samen het **koppelvlak** van dat component.
+
+Dat onderscheid klinkt muggenzifterig. Het loste wel een concreet probleem op: hetzelfde woord stond voor twee verschillende dingen, en daardoor liepen afspraken over scope telkens vast. Sinds het vastligt, is per document duidelijk of het over één stroom gaat of over het geheel.
+
+<p class="muted" style="font-size: 0.85rem; margin-top: 0.9rem;">
+Hiernaast: alle koppelingen die op de onderwijscatalogus samenkomen. Dat plaatje is dus een koppelvlak; elke pijl erin is een koppeling.
+</p>
+
+</div>
+<div>
+  <img src="/platen/koppelvlak-oc.jpg" style="width: 100%; max-height: 300px; object-fit: contain; border-radius: 10px;" />
+  <p class="muted" style="font-size: 0.75rem; text-align: center; margin-top: 0.4rem;">Koppelvlak onderwijscatalogus, versie 1.7</p>
+</div>
+</div>
 
 </div>
 
@@ -136,28 +164,28 @@ Een <strong>koppeling</strong> is één stroom tussen twee systemen. Alle koppel
 
 # Eén beschrijving, drie afnemers
 
-<p class="np-subtitle">Ze hebben alle drie een ander stuk van dezelfde onderwijsspecificatie nodig. Dus schrijven we die één keer op.</p>
+<p class="np-subtitle">Alle drie hebben ze een ander deel van dezelfde onderwijsspecificatie nodig. Die staat daarom één keer beschreven.</p>
 
 <div class="np-grid-3" style="margin-top: 0.6rem; align-items: start;">
   <div class="np-card accent-blue">
     <span class="np-badge blue">Planning</span>
     <h3 style="margin-top: 0.5rem;">Alleen de sleutels</h3>
-    <p class="muted" style="font-size: 0.85rem; margin: 0;">Krijgt leeruitkomsten als kaal nummer, genoeg om volgorde en omvang te bepalen. Wat er inhoudelijk in staat hoeft de planner niet te weten.</p>
+    <p class="muted" style="font-size: 0.85rem; margin: 0;">Leeruitkomsten komen mee als kaal nummer. Dat is genoeg om volgorde en omvang te bepalen; de inhoud is voor planning niet nodig.</p>
   </div>
   <div class="np-card accent-green">
     <span class="np-badge green">SIS</span>
     <h3 style="margin-top: 0.5rem;">De hele laag</h3>
-    <p class="muted" style="font-size: 0.85rem; margin: 0;">Krijgt de leeruitkomsten volledig, want daar worden de resultaten op behaald. Zonder die inhoud kun je geen diploma onderbouwen.</p>
+    <p class="muted" style="font-size: 0.85rem; margin: 0;">Leeruitkomsten komen volledig mee, want daarop worden de resultaten behaald. Zonder die inhoud is een diploma niet te onderbouwen.</p>
   </div>
   <div class="np-card accent-orange">
     <span class="np-badge orange">LMS</span>
     <h3 style="margin-top: 0.5rem;">De inhoudsvelden</h3>
-    <p class="muted" style="font-size: 0.85rem; margin: 0;">Krijgt wat nodig is om de leeromgeving in te richten: structuur, lesstof, leermiddelen.</p>
+    <p class="muted" style="font-size: 0.85rem; margin: 0;">Mee komt wat nodig is om de leeromgeving in te richten: structuur, lesstof en leermiddelen.</p>
   </div>
 </div>
 
 <div class="np-bottomline" style="margin-top: 1.2rem;">
-  Zo krijgt elk systeem <strong>precies wat het nodig heeft</strong>, en niet meer dan dat.
+  Elk systeem krijgt <strong>precies wat het nodig heeft</strong>, en niet meer dan dat.
 </div>
 
 </div>
@@ -185,7 +213,7 @@ Een <strong>koppeling</strong> is één stroom tussen twee systemen. Alle koppel
 </div>
 
 <p class="muted" style="font-size: 0.8rem; margin-top: 0.9rem;">
-Lees een rij zo: op dit niveau van het kwalificatiekader hoort deze leeruitkomst, die specificatie, dat aanbod, die verbintenis en dat resultaat. De rijen op de volgende slide vallen buiten het kwalificatiekader.
+Een rij leest zo: op dit niveau van het kwalificatiekader horen deze leeruitkomst, die specificatie, dat aanbod, die verbintenis en dat resultaat. De rijen op de volgende slide vallen buiten het kwalificatiekader.
 </p>
 
 </div>
@@ -224,35 +252,35 @@ Examinering is bewust een <strong>gescheiden keten</strong>: eigen specificaties
 
 ---
 
-<!-- WAAROM DIE KOLOM -->
+<!-- DE LEERUITKOMSTKOLOM -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
 
 # De kolom die erbij moest
 
-<p class="np-subtitle">Kolom 2, de beoogde leeruitkomst, stond er eerst niet in. Dat bleek een gat.</p>
+<p class="np-subtitle">Kolom 2, de beoogde leeruitkomst, ontbrak in de eerdere versie. Dat bleek een gat.</p>
 
 <div class="np-grid-2" style="margin-top: 0.5rem; align-items: start;">
 <div style="font-size: 0.92rem; line-height: 1.75;">
 
-Zonder die kolom lijkt het alsof een onderwijseenheid rechtstreeks uit het kwalificatiedossier rolt. Dat is niet zo. Daartussen zit **jullie werk**: het kader vertalen naar leeruitkomsten die concreet en observeerbaar zijn.
+Zonder die kolom lijkt het alsof een onderwijseenheid rechtstreeks uit het kwalificatiedossier rolt. Dat is niet zo. Daartussen zit de onderwijskundige vertaalslag: het kader omzetten naar leeruitkomsten die concreet en observeerbaar zijn.
 
-En die leeruitkomst is het enige dat **alle kolommen doorkruist**. Specificaties verankeren erop, resultaten worden erop behaald. Vandaar de naam: een *anker*tabel.
+De leeruitkomst is bovendien het enige begrip dat **alle kolommen doorkruist**. Specificaties verankeren erop, resultaten worden erop behaald. Vandaar de naam *anker*tabel.
 
 </div>
 <div>
   <div class="np-card accent-orange">
-    <h3>Vraag aan jullie</h3>
+    <h3>Openstaand punt</h3>
     <p style="font-size: 0.93rem; color: var(--np-dark-gray); line-height: 1.6; margin: 0.4rem 0 0;">
-      Hoort de summatieve leeruitkomst inderdaad aan het <strong>werkproces</strong>? En klopt het dat er op dossier- en kwalificatieniveau alleen aggregatie is?
+      Hangt de summatieve leeruitkomst inderdaad aan het <strong>werkproces</strong>? En klopt het dat er op dossier- en kwalificatieniveau uitsluitend sprake is van aggregatie?
     </p>
   </div>
 </div>
 </div>
 
 <p class="muted" style="font-size: 0.85rem; margin-top: 1rem;">
-Let op: dezelfde leeruitkomst kan over meerdere onderdelen verdeeld zijn, en een onderdeel kan meerdere leeruitkomsten dekken. Dat is precies waarom het een eigen kolom moest worden en niet in de specificatiekolom past.
+Complicatie: dezelfde leeruitkomst kan over meerdere onderdelen verdeeld zijn, en één onderdeel kan meerdere leeruitkomsten dekken. Precies daarom past dit niet in de specificatiekolom en moest het een eigen kolom worden.
 </p>
 
 </div>
@@ -265,8 +293,8 @@ Let op: dezelfde leeruitkomst kan over meerdere onderdelen verdeeld zijn, en een
 <div class="flex items-center justify-center h-full">
   <div style="text-align: center;">
     <p class="eyebrow" style="color: rgba(255,255,255,0.85);">Deel 2</p>
-    <h1 style="color: #FFFFFF !important; font-size: 2.8rem;">Waar het staat</h1>
-    <p style="color: rgba(255,255,255,0.88); font-size: 1.1rem; margin-top: 0.5rem;">Kort, maar wel handig om te weten</p>
+    <h1 style="color: #FFFFFF !important; font-size: 2.8rem;">Waar het materiaal staat</h1>
+    <p style="color: rgba(255,255,255,0.88); font-size: 1.1rem; margin-top: 0.5rem;">Kort, maar nuttig om te weten</p>
   </div>
 </div>
 
@@ -277,27 +305,27 @@ Let op: dezelfde leeruitkomst kan over meerdere onderdelen verdeeld zijn, en een
 
 <div class="fill">
 
-# Twee plekken, en wat een versienummer betekent
+# Twee plekken, en de betekenis van een versienummer
 
 <div class="np-grid-2" style="margin-top: 0.6rem; align-items: start;">
   <div class="np-card accent-blue">
     <span class="np-badge blue">Waar het staat</span>
     <h3 style="margin-top: 0.5rem;">Werkplaats en etalage</h3>
     <p class="muted" style="font-size: 0.87rem; margin: 0.3rem 0 0; line-height: 1.6;">
-      Waar we denken en schuiven staat apart van wat we publiceren. Wil je iets nalezen of doorsturen naar een collega: pak de <strong>publieke</strong> kant. Daar staat geen halffabricaat tussen.
+      Concepten en discussie staan apart van wat gepubliceerd is. Wat doorgestuurd wordt naar een collega of een instelling, komt uit het <strong>publieke</strong> repository. Daar staat geen halffabricaat tussen.
     </p>
   </div>
   <div class="np-card accent-green">
     <span class="np-badge green">Versienummers</span>
     <h3 style="margin-top: 0.5rem;">Een belofte, geen datum</h3>
     <p class="muted" style="font-size: 0.87rem; margin: 0.3rem 0 0; line-height: 1.6;">
-      Laatste cijfer omhoog: er is iets verduidelijkt. Middelste: er kan iets bij, niks breekt. Eerste: er verandert iets fundamenteels, en wie al gebouwd heeft moet aan de bak.
+      Laatste cijfer omhoog: er is iets verduidelijkt. Middelste: er komt iets bij, bestaand werk blijft geldig. Eerste: er verandert iets fundamenteels, en wie al gebouwd heeft moet aanpassen.
     </p>
   </div>
 </div>
 
 <p class="muted" style="font-size: 0.9rem; margin-top: 1.3rem; line-height: 1.7;">
-Waarom dit ertoe doet: zodra dit naar leveranciers gaat, moeten ze aan het nummer kunnen zien of er werk aan de winkel is. Zonder die afspraak weet niemand wanneer hij moet ingrijpen, en wordt elke wijziging een telefoonrondje.
+Waarom dit ertoe doet: zodra dit materiaal naar leveranciers gaat, moet aan het nummer af te lezen zijn of er werk aan de winkel is. Zonder die afspraak is elke wijziging een telefoonrondje.
 </p>
 
 </div>
@@ -310,7 +338,7 @@ Waarom dit ertoe doet: zodra dit naar leveranciers gaat, moeten ze aan het numme
 <div class="flex items-center justify-center h-full">
   <div style="text-align: center;">
     <p class="eyebrow" style="color: rgba(255,255,255,0.85);">Deel 3</p>
-    <h1 style="color: #FFFFFF !important; font-size: 2.8rem;">Waar we nu aan werken</h1>
+    <h1 style="color: #FFFFFF !important; font-size: 2.8rem;">Het werk van dit moment</h1>
     <p style="color: rgba(255,255,255,0.88); font-size: 1.1rem; margin-top: 0.5rem;">Wie mag welk keuzedeel kiezen</p>
   </div>
 </div>
@@ -322,11 +350,17 @@ Waarom dit ertoe doet: zodra dit naar leveranciers gaat, moeten ze aan het numme
 
 <div class="fill">
 
-<div style="display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 2rem;">
-  <div style="font-family: 'Cooper Light BT', serif; font-size: 1.5rem; line-height: 1.5; color: var(--np-blue); max-width: 780px;">
+<div class="np-grid-2" style="align-items: center; height: 100%;">
+<div>
+  <div style="font-family: 'Cooper Light BT', serif; font-size: 1.25rem; line-height: 1.5; color: var(--np-blue);">
     "Binnen de meeste mbo-instellingen mogen niet alle keuzedelen door alle studenten gekozen worden, omdat dit logistiek niet uitvoerbaar is. Hoe zorgen we er in de keten voor dat duidelijk is welke keuzedelen Jochem mag kiezen?"
   </div>
-  <div style="margin-top: 1.4rem; font-size: 0.9rem; color: var(--np-dark-gray);">&mdash; Jan Hendrik van Schaik, juni 2026</div>
+  <div style="margin-top: 1.2rem; font-size: 0.9rem; color: var(--np-dark-gray);">&mdash; Jan Hendrik van Schaik, juni 2026</div>
+</div>
+<div>
+  <img src="/platen/jochem.png" style="width: 100%; max-height: 320px; object-fit: contain;" />
+  <p class="muted" style="font-size: 0.75rem; text-align: center; margin-top: 0.3rem;">Jochem, de persona van leerroute 1</p>
+</div>
 </div>
 
 </div>
@@ -334,8 +368,8 @@ Waarom dit ertoe doet: zodra dit naar leveranciers gaat, moeten ze aan het numme
 <!--
 Kees van Ginkel (Eduarte) herkende dit meteen en noemde verwante gevallen:
 "minimaal twee vreemde talen", "deze keuze mag pas na Engels", en
-slaag-zakregels per opleiding. Dat is de reden dat we het generiek hebben
-opgepakt en niet alleen voor keuzedelen.
+slaag-zakregels per opleiding. Dat is de reden dat het generiek is opgepakt en
+niet alleen voor keuzedelen.
 -->
 
 ---
@@ -352,12 +386,12 @@ opgepakt en niet alleen voor keuzedelen.
 <div class="np-pipeline" style="margin-top: 1rem;">
   <div class="np-step blue" style="flex: 1; max-width: 210px;">
     <strong style="font-size: 0.95rem;">Onderwijsspecificatie</strong>
-    <small>Wat we organiseren</small>
+    <small>Wat er georganiseerd wordt</small>
   </div>
   <div class="np-arrow">&#43;</div>
   <div class="np-step orange" style="flex: 1; max-width: 210px;">
     <strong style="font-size: 0.95rem;">Regelset</strong>
-    <small>Wie mag dit kiezen, en wanneer</small>
+    <small>Wie dit mag kiezen, en wanneer</small>
   </div>
   <div class="np-arrow">&#8594;</div>
   <div class="np-step green" style="flex: 1; max-width: 210px;">
@@ -367,7 +401,7 @@ opgepakt en niet alleen voor keuzedelen.
 </div>
 
 <p class="muted" style="font-size: 0.9rem; margin-top: 1.2rem; line-height: 1.7;">
-Waarom los? Omdat een voorwaarde gaat over <strong>wat een student heeft behaald</strong>, niet over welk vak hij heeft gevolgd. Herzien jullie het onderwijs, dan blijft de regel gewoon geldig. Zestien eisen liggen er; de vorm is nog concept.
+De reden voor die scheiding: een voorwaarde gaat over <strong>wat een student heeft behaald</strong>, niet over welk vak is gevolgd. Bij een herziening van het onderwijs blijft de regel daardoor geldig. Er liggen zestien eisen; de vorm heeft de status <strong>concept</strong>.
 </p>
 
 <div class="np-proof-strip" style="justify-content: center; margin-top: 1rem;">
@@ -382,32 +416,33 @@ Waarom los? Omdat een voorwaarde gaat over <strong>wat een student heeft behaald
 
 ---
 
-<!-- WAT WE VRAGEN -->
+<!-- WAT ER GEVRAAGD WORDT -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
 
-# Waar we jullie voor nodig hebben
+# Wat er van de adviesgroep gevraagd wordt
 
-<div class="np-grid-2" style="margin-top: 0.8rem; align-items: start;">
-  <div class="np-card accent-orange">
-    <span class="np-badge orange">1</span>
-    <h3 style="margin-top: 0.5rem;">Klopt de ankertabel?</h3>
-    <p class="muted" style="font-size: 0.88rem; margin: 0.3rem 0 0; line-height: 1.6;">
-      Vooral de nieuwe kolom. Hangt de summatieve leeruitkomst aan het werkproces, en klopt de aggregatie daarboven? Jullie zien sneller dan wij of dat onderwijskundig hout snijdt.
-    </p>
-  </div>
-  <div class="np-card accent-blue">
-    <span class="np-badge blue">2</span>
-    <h3 style="margin-top: 0.5rem;">Kennen jullie een keuzeregel die niet past?</h3>
-    <p class="muted" style="font-size: 0.88rem; margin: 0.3rem 0 0; line-height: 1.6;">
-      Een regel uit jullie eigen instelling die we hiermee <strong>niet</strong> kunnen uitdrukken. Dat willen we weten voordat de vorm vastligt, niet erna.
-    </p>
-  </div>
-</div>
+<dl class="np-besluit review" style="margin-top: 0.9rem;">
+  <dt>Review gevraagd op</dt>
+  <dd>De ankertabel, en in het bijzonder de nieuwe kolom <em>beoogde leeruitkomst</em>: hangt de summatieve leeruitkomst aan het werkproces, en klopt de aggregatie daarboven?</dd>
+  <dt>Door</dt>
+  <dd>Adviesgroep — onderwijskundig oordeel</dd>
+  <dt>Voor</dt>
+  <dd>19 augustus 2026, het alpha-moment van de koppelvlakspecificatie</dd>
+</dl>
 
-<div class="np-bottomline" style="margin-top: 1.3rem;">
-  Een tegenvoorbeeld helpt ons meer dan instemming. Alles staat nog op <strong>concept</strong>.
+<dl class="np-besluit review" style="margin-top: 0.9rem;">
+  <dt>Review gevraagd op</dt>
+  <dd>De regelset. Gezocht: een keuzeregel uit de eigen instellingspraktijk die de voorgestelde vorm <strong>niet</strong> kan uitdrukken</dd>
+  <dt>Door</dt>
+  <dd>Adviesgroep — IM'ers en onderwijskundigen vanuit de instellingen</dd>
+  <dt>Voor</dt>
+  <dd>31 augustus 2026, voordat de vorm vastligt</dd>
+</dl>
+
+<div class="np-bottomline" style="margin-top: 1.2rem;">
+  Een tegenvoorbeeld is waardevoller dan instemming. Alle onderdelen hebben nog de status <strong>concept</strong>.
 </div>
 
 </div>

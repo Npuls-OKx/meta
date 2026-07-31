@@ -60,21 +60,50 @@ Lees niet alleen de commit-titels. Een titel zegt *wat* er is gewijzigd; een dec
 
 **Noem altijd om welke repository het gaat** als je een branch, pull request of issue noemt. Beide repositories hebben eigen nummering; `#7` alleen is dubbelzinnig.
 
+## Schrijf over de zaak, niet tegen de zaal
+
+Een deck informeert over een onderwerp. Het onderwerp is dus het grammaticale onderwerp, niet het publiek. Dat is dezelfde norm als bij een thesis of een adviesrapport: zakelijk, navolgbaar, zonder de lezer aan te spreken.
+
+**Geen tweede persoon.** Geen "u", "je" of "jullie", ook niet in een kop of een bijschrift. Waar de neiging opkomt het publiek aan te spreken, staat bijna altijd een sterkere formulering klaar met het onderwerp voorop.
+
+| Niet | Wel |
+|---|---|
+| "Waar we jullie voor nodig hebben" | "Besluit nodig op" |
+| "Kennen jullie een keuzeregel die niet past?" | "Gezocht: keuzeregels die de huidige vorm niet kan uitdrukken" |
+| "Als je iets doorstuurt naar een instelling..." | "Wat naar een instelling gaat, komt uit het publieke repository" |
+| "Dat is jullie werk" | "Die vertaalslag ligt bij de onderwijskundige" |
+
+**Eerste persoon spaarzaam.** "We" mag waar het programma echt de handelende partij is ("OKx heeft drie koppelingen beschreven"), maar niet als vulling. "Ik maak me zorgen over de review" wordt "Risico: de reviewcapaciteit in augustus". Een inschatting blijft herkenbaar als inschatting doordat er *risico*, *aanname* of *inschatting* bij staat, niet doordat er "ik" voor staat.
+
+**Besluiten krijgen een vaste vorm.** Een vraag om een besluit is geen alinea maar een blok met vier velden, zodat na afloop vaststaat wat er gevraagd is:
+
+> **Besluit nodig op:** publicatiemoment koppelvlakspecificatie leerroute 1
+> **Door:** programmaleiding, in afstemming met kerngroep techniek OKx
+> **Voor:** 31 augustus 2026
+> **Opties:** publiceren na de kerngroep techniek (september) — of eerder publiceren en wijzigingen accepteren
+
+Zelfde vorm voor een reviewverzoek (*Review gevraagd op / Door / Voor*) en voor kennisname (*Ter kennisname*). Zet nooit een besluit weg als een terloopse zin.
+
 ## Voor wie schrijf je
 
-Het publiek bepaalt het abstractieniveau, niet de inhoud die toevallig voorhanden is. Vraag de gebruiker voor welk gremium het deck is en gebruik het passende profiel. Bij meerdere gremia: maak aparte decks, geen compromis.
+Het publiek bepaalt het abstractieniveau én het register, niet de inhoud die toevallig voorhanden is. Vraag de gebruiker voor welk gremium het deck is. Bij meerdere gremia: maak aparte decks, geen compromis.
 
-| Gremium | Weet al | Wil weten | Toon en diepgang |
-|---|---|---|---|
-| **SI-team (intern)** | De hele context, het jargon, de historie | Wat is er af, wat loopt vast, waar is een besluit nodig | Kort en direct. Openstaande punten en blokkades voorop. Details mogen |
-| **Adviesgroep** | Onderwijskundig sterk; wisselend technisch. IM'ers uit instellingen brengen instellingscontext mee | Wat betekent dit voor het onderwijs en voor hun instelling | **Even informeel als bij de leiding, maar met meer uitleg.** Het is een interne groep vakgenoten: "jullie", korte zinnen, geen plechtigheid. Wel elke stap toelichten en bij de leerroute beginnen, niet bij de payload |
-| **Leveranciers** | Hun eigen systeem en de integratiepraktijk | Wat moeten wij straks bouwen, wanneer, en wat verandert er nog | Concreet over koppelvlakken en contracten. Wees expliciet over wat vaststaat en wat nog concept is |
-| **Kerngroep techniek OKx** | De keten en de architectuur | Klopt de richting, en is de kaderstelling ver genoeg om spec te starten | Diep. Besluiten, alternatieven en open punten. Toon de ankertabel en de payloads |
-| **Technische werkgroep OEAPI** | De OEAPI-standaard | Hoe verhoudt OKx zich tot OEAPI, en welke signaleringen komen eruit | Vergelijkend. Benoem waar we afwijken en waarom, en welke wijzigingsverzoeken richting OEAPI gaan |
-| **Programma- en projectleiding** | Programmadoelen en planning; **geen** inhoudelijke experts | Lopen we op schema, welke risico's zijn er, welk besluit wordt gevraagd | **Informeel en direct**, alsof je het een collega vertelt. Korte zinnen, "ik" en "jullie", geen plechtige formuleringen. Geen payloads, geen ADR-nummers. Maximaal tien slides |
-| **Instellingen** *(komt nog)* | De eigen onderwijspraktijk | Wat verandert er voor ons en wanneer | Nog niet uitgewerkt; stem af met de gebruiker |
+Het onderscheid dat het register bepaalt is **intern of extern**:
 
-Twee regels die voor elk profiel gelden. Vertaal een wijziging altijd naar **wat er nu mogelijk is dat eerst niet kon** — niet naar "document X is bijgewerkt". En sluit af met wat je van dit gremium nodig hebt: een besluit, een review, of alleen kennisname.
+- **Intern** — SI-team, adviesgroep, programma- en projectleiding. Relatief informeel *binnen zakelijke normen*: korte zinnen, gewone woorden, geen plechtige formuleringen. Wel nog steeds over de zaak, zonder aanspreekvorm.
+- **Extern** — kerngroep techniek OKx, technische werkgroep OEAPI, leveranciers, instellingen. Formeler en preciezer. Volledige termen, expliciete status bij elke uitspraak (vastgesteld, concept, voorstel), en geen luchtige formuleringen. Deze gremia nemen het materiaal mee naar hun eigen organisatie; wat daar overkomt als losse opmerking, gaat een eigen leven leiden.
+
+| Gremium | | Weet al | Wil weten | Diepgang |
+|---|---|---|---|---|
+| **SI-team** | intern | De hele context, het jargon, de historie | Wat is af, wat loopt vast, waar een besluit nodig is | Kort en direct. Openstaande punten en blokkades voorop. Details mogen |
+| **Adviesgroep** | intern | Onderwijskundig sterk, wisselend technisch. IM'ers brengen instellingscontext mee | Wat dit betekent voor het onderwijs en voor de instelling | Elke stap toelichten, beginnen bij de leerroute en niet bij de payload. Meer uitleg dan bij de leiding, zelfde register |
+| **Programma- en projectleiding** | intern | Programmadoelen en planning; **geen** inhoudelijke experts | Of het op schema loopt, welke risico's er zijn, welk besluit gevraagd wordt | Geen payloads, geen ADR-nummers. Maximaal tien slides. Risico's en besluitpunten naar voren |
+| **Kerngroep techniek OKx** | extern | De keten en de architectuur | Of de richting klopt, en of de kaderstelling ver genoeg is om spec te starten | Diep. Besluiten, alternatieven en open punten. Ankertabel en payloads horen erbij |
+| **Technische werkgroep OEAPI** | extern | De OEAPI-standaard | Hoe OKx zich tot OEAPI verhoudt, en welke signaleringen eruit komen | Vergelijkend. Benoem afwijkingen met de onderbouwing, en welke wijzigingsverzoeken richting OEAPI gaan |
+| **Leveranciers** | extern | Het eigen systeem en de integratiepraktijk | Wat er gebouwd moet worden, wanneer, en wat er nog verandert | Concreet over koppelvlakken en contracten. Expliciet over wat vaststaat en wat concept is |
+| **Instellingen** *(komt nog)* | extern | De eigen onderwijspraktijk | Wat er verandert en wanneer | Nog niet uitgewerkt; stem af met de gebruiker |
+
+Twee regels die voor elk profiel gelden. Vertaal een wijziging altijd naar **wat er nu mogelijk is dat eerst niet kon** — niet naar "document X is bijgewerkt". En sluit af met wat er van dit gremium gevraagd wordt, in de vaste vorm hierboven: een besluit, een review, of kennisname.
 
 ## Gebruik de termen uit de bron, niet je eigen omschrijving
 

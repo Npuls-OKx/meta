@@ -57,7 +57,9 @@ Dit zijn de dingen die in de praktijk misgingen. Uitgebreider in de skill [`okx-
 
 **Kies je onderwerpen op wat er op tafel moet, niet op wat het meeste werk was.** Een herindeling kan honderden bestanden raken en toch een voetnoot zijn.
 
-**Stem de toon af op het gremium.** De interne gremia, adviesgroep en programmaleiding, krijgen allebei een informele toon: korte zinnen, "ik" en "jullie". Het verschil zit in de diepgang, niet in de plechtigheid. De adviesgroep krijgt meer uitleg per stap, de leiding minder detail en meer beslispunten.
+**Schrijf over de zaak, niet tegen de zaal.** Geen "u", "je" of "jullie", ook niet in een kop. Een deck informeert over een onderwerp, dus dat onderwerp staat vooraan — dezelfde norm als bij een adviesrapport. "Waar we jullie voor nodig hebben" wordt **Besluit nodig op**, met daaronder *Door* (welke partijen), *Voor* (wanneer) en *Opties*. Zo staat na afloop vast wat er gevraagd is.
+
+**Stem het register af op intern of extern.** Intern zijn het SI-team, de adviesgroep en de programma- en projectleiding: relatief informeel binnen zakelijke normen, korte zinnen, gewone woorden. Extern zijn de kerngroep techniek OKx, de technische werkgroep OEAPI, leveranciers en instellingen: formeler en preciezer, met bij elke uitspraak de status erbij — vastgesteld, concept of voorstel. Die gremia nemen het materiaal mee naar hun eigen organisatie. Het verschil tussen adviesgroep en leiding zit in de diepgang, niet in het register.
 
 **Gebruik de termen uit de bron.** Het is *leermanagementsysteem (LMS)*, *studentinformatiesysteem (SIS, dat is KRS plus SVS)*, *onderwijscatalogus*. Niet "leeromgeving" of "studentadministratie" als je het systeem bedoelt. De afkortingenlijst staat in de instap van [Koppelvlakspecificaties](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/README.md).
 

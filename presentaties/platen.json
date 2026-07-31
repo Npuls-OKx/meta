@@ -247,7 +247,7 @@
     }
   ],
   "mermaid": {
-    "toelichting": "Diagrammen die als tekst in de specificaties staan. Slidev rendert mermaid, dus je kunt het blok rechtstreeks in een slide plakken. Kopieer het letterlijk uit de bron en pas hooguit de scale aan: houd die op 0.5 tot 0.6 en de labels kort, anders loopt de slide over. Controleer het resultaat met './deck <naam> beelden'.",
+    "toelichting": "Diagrammen die als tekst in de specificaties staan. Slidev rendert mermaid, dus je kunt het blok rechtstreeks in een slide plakken. Kopieer het letterlijk uit de bron en schaal met de fence-optie: ```mermaid {scale: 0.52}. Doe dat niet met een CSS-transform of een flexwrapper eromheen; het diagram klapt dan in tot zijn intrinsieke maat en de tekst eronder loopt eroverheen. Waarden tussen 0.5 en 0.6 werken meestal. Controleer het resultaat altijd met './deck <naam> beelden'.",
     "bronnen": [
       {
         "onderwerp": "De keten CO naar OC naar P&R, LMS en SIS",

@@ -145,6 +145,47 @@ code {
 .np-card.accent-yellow { border-top-color: var(--np-yellow); }
 .np-card.accent-pink   { border-top-color: var(--np-pink); }
 
+/* ---- Besluitblok ----
+   Een vraag om een besluit, een review of kennisname krijgt altijd dezelfde
+   vorm: waarover, door wie, voor wanneer, en welke opties er liggen. Zo staat
+   na de vergadering vast wat er gevraagd is. Gebruik een <dl>:
+
+     <dl class="np-besluit">
+       <dt>Besluit nodig op</dt><dd>publicatiemoment koppelvlakspecificatie</dd>
+       <dt>Door</dt><dd>programmaleiding</dd>
+       <dt>Voor</dt><dd>31 augustus 2026</dd>
+       <dt>Opties</dt><dd>publiceren in september — of eerder, met wijzigingen</dd>
+     </dl>
+*/
+.np-besluit {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.45rem 1.1rem;
+  background: white;
+  border: 1px solid var(--np-light-gray);
+  border-left: 5px solid var(--np-orange);
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+  margin: 0;
+  box-shadow: 0 4px 18px rgba(27, 42, 107, 0.06);
+}
+.np-besluit dt {
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--np-mid-gray);
+  padding-top: 0.15rem;
+}
+.np-besluit dd {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--np-ink);
+}
+.np-besluit.review     { border-left-color: var(--np-blue); }
+.np-besluit.kennisname { border-left-color: var(--np-mid-gray); }
+
 /* ---- Grids ---- */
 .np-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
 .np-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
