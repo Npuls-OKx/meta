@@ -12,7 +12,7 @@ Maak **release notes** in Markdown voor een GitHub **Release** bij een nieuwe **
    - Optioneel: `git shortlog` of diff-stat voor grotere wijzigingen.
 3. **Scope OKx-meta:** groepeer onder duidelijke kopjes, bijvoorbeeld:
    - **Documentatie** (`doc/`, `README.md`, `CONTRIBUTING.md`)
-   - **Architectuur** (`architecture/dr/`, `architecture/model/model.archimate`, meetings)
+   - **Architectuur** ([Referentiemateriaal/adr in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr), `architecture/model/model.archimate`, meetings)
    - **Governance / bijdragen** (ADR’s, principes)
    - **Overig** (OKE, MOKA-templates, `.cursor`, CI)
 4. **Toon:** helder, **Nederlands** (tenzij de gebruiker Engels vraagt), volledige zinnen. Geen overdreven hype; wel concreet wat er voor stakeholders verandert.

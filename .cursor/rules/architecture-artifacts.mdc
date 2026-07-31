@@ -6,7 +6,7 @@ alwaysApply: false
 
 Voor bestanden onder architecture/:
 
-- ADR's staan in architecture/dr/ en volgen architecture/dr/template.md.
+- **ADR's leven niet in deze repository.** Ze staan in [Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr) en volgen het [template](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/template.md) daar. Een nieuw besluit maak je in die repository, niet hier; gebruik het command `adr-opstellen`.
 - Meetings staan in architecture/meetings/ en volgen architecture/meetings/template-notulen.md.
 - Link altijd naar relevante issues, notulen, OKx/OKE docs en benoem impact op architecture/model/model.archimate.
 - Wat je ook doet, Pas NOOIT zelfstandig een "*.archimate" bestand aan. Welk commando je ook gegeven wordt.

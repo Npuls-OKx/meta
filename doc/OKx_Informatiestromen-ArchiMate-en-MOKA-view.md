@@ -2,7 +2,7 @@
 
 Dit document is bedoeld voor **nieuwe aanhakers**: hoe de **hoofdplaat** en de **tabel met informatiestromen** in het [projectoverzicht](OKx_Projectoverzicht.md) samenhangen met het **ArchiMate-model** in deze repository, en **waar** je de grote MOKA-**koppelvlakspecificatie-view** **Basis Model** vindt.
 
-Het is **geen** volledige uitleg van het MOKA-metamodel; zie principes in [`architecture/docs/principes.md`](../architecture/docs/principes.md) en de [ADR’s over keten en fundament](../architecture/dr/0002-prioriteitsketen-catalogus-drielagen-fundament.md).
+Het is **geen** volledige uitleg van het MOKA-metamodel; zie principes in [`architecture/docs/principes.md`](../architecture/docs/principes.md) en de [ADR’s over keten en fundament](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0002-prioriteitsketen-catalogus-drielagen-fundament.md).
 
 ## Drie lagen: plaat, model, en één view
 
@@ -35,7 +35,7 @@ In het XML-bestand komt dit diagram overeen met een `ArchimateDiagramModel` met 
 
 ## Hoe lees je de Basis Model-view als beginner?
 
-1. **Start bij de hoofdplaat** in het projectoverzicht: zoek **stroom 1** — *Curriculum ontwerptool* → *Onderwijscatalogus*, *Uitgewerkt aanbod*. Dat is de **eerste prioriteitsstroom** (zie ook [ADR 0002](../architecture/dr/0002-prioriteitsketen-catalogus-drielagen-fundament.md)).
+1. **Start bij de hoofdplaat** in het projectoverzicht: zoek **stroom 1** — *Curriculum ontwerptool* → *Onderwijscatalogus*, *Uitgewerkt aanbod*. Dat is de **eerste prioriteitsstroom** (zie ook [ADR 0002](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0002-prioriteitsketen-catalogus-drielagen-fundament.md)).
 2. **In de Basis Model-view** zoek je naar de **zelfde logica**: processen en informatie rond **ontwerp van** en **vastlegging in** de onderwijscatalogus. Namen in ArchiMate kunnen **niet letterlijk** gelijk zijn aan de PNG (afkortingen, synoniemen), maar de **keten** hoort herkenbaar te zijn.
 3. **MOKA-koppelvlakspecificatie**-views combineren typisch **proces** (wat gebeurt er) met **informatie** (welke objecten gaan over de lijn). Volg **pijlen/relaties** als “informatiestroom”; koppel ze mentaal aan de **semantische kolom** in de tabel (bijv. *Uitgewerkt aanbod*).
 

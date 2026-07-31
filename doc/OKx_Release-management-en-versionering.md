@@ -4,7 +4,7 @@
 |--------|-------|--------|
 | Voorstel | 2026-07-13 | Niek Derksen (Kernteam OKx) |
 
-Dit document wordt pas afspraak na review en merge door de eigenaren (zie [§2 Eigenaarschap](#2-eigenaarschap-en-governance)). Leg een geaccepteerd besluit vast als ADR in [`architecture/dr/`](../architecture/dr/). Het bouwt voort op de **branchstrategie** uit de beginnershandleiding, paragraaf 9 ([`doc/Bijdragen-voor-beginners.md` (§9)](Bijdragen-voor-beginners.md#9-branchstrategie-main-dev-feature-branches-tags)).
+Dit document wordt pas afspraak na review en merge door de eigenaren (zie [§2 Eigenaarschap](#2-eigenaarschap-en-governance)). Leg een geaccepteerd besluit vast als ADR in [[Referentiemateriaal/adr in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr)](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr). Het bouwt voort op de **branchstrategie** uit de beginnershandleiding, paragraaf 9 ([`doc/Bijdragen-voor-beginners.md` (§9)](Bijdragen-voor-beginners.md#9-branchstrategie-main-dev-feature-branches-tags)).
 
 ---
 
@@ -401,7 +401,7 @@ Toelichting op de regels:
 
 ## 10. Openstaande punten / vervolg
 
-- Vastleggen als **ADR** in [`architecture/dr/`](../architecture/dr/) zodra geaccepteerd (link naar het issue en deze pagina).
+- Vastleggen als **ADR** in [[Referentiemateriaal/adr in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr)](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr) zodra geaccepteerd (link naar het issue en deze pagina).
 - Afspraak over **deprecatietermijn / migratievenster** voor oudere minors binnen een major (U10 regelt het venster voor **majors**: *latest* + *latest-1*).
 - Inrichten van **release notes / CHANGELOG**-conventie en eventueel automatisering (PR-labels → changelog) in beide repo's.
 

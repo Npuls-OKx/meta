@@ -18,4 +18,4 @@ Controleert dode verwijzingen, dubbele id's en XML-welgevormdheid; exitcode ≠ 
 
 Een `.archimate` mag **nooit** regelgebaseerd worden samengevoegd — niet door git, niet met de hand. `.gitattributes` dwingt dit af (`-merge`): git weigert het bestand te mergen en vraagt om een expliciete keuze voor één kant. De andere kant breng je terug via **Archi → File → Import → Another model into the selected model** (Archi merget op ID-niveau).
 
-Volledige procedure: [ADR 0010](../dr/0010-archimatemodel-werkafspraken.md).
+Volledige procedure: [ADR 0010](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0010-archimatemodel-werkafspraken.md).

@@ -37,7 +37,7 @@ Vastgelegd in [architecture/docs/principes.md](architecture/docs/principes.md):
 | Wat | Waar |
 |---|---|
 | Projectcontext, hoofdplaat informatiestromen | [doc/](doc/) |
-| Architectuurbesluiten (ADR's) | [architecture/dr/](architecture/dr/) |
+| Architectuurbesluiten (ADR's) | [Referentiemateriaal/adr in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr) |
 | ArchiMate-model (niet aanraken) | [architecture/model/](architecture/model/) |
 | Meetingverslagen | [architecture/meetings/](architecture/meetings/) |
 | Specificaties (OEAPI-profiel, persona's) | [architecture/docs/specificatie/](architecture/docs/specificatie/) |

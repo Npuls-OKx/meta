@@ -29,7 +29,7 @@ verwijst per stap naar de skill of stapbeschrijving die hem uitwerkt.
 | Laag | Wat | AMIGO-stap | Waar vastgelegd |
 | --- | --- | --- | --- |
 | **Informatiestroom** | Conceptuele gegevensbeweging tussen ketenpartners | 1 (scenario) + input 2–3 | meta: scenario's, informatiestromenplaat |
-| **Koppeling** | Gestandaardiseerde informatiestroom tussen **twee** referentiecomponenten (bericht + interactie); vastgelegd in een **koppelingspecificatie** per koppeling | 3–5 | meta: `architecture/agent-artifacts/design-docs/koppelingspecificaties/<koppeling>/` (+ spec bij overname) |
+| **Koppeling** | Gestandaardiseerde informatiestroom tussen **twee** referentiecomponenten (bericht + interactie); vastgelegd in een **koppelingspecificatie** per koppeling | 3–5 | meta: `https://github.com/Npuls-OKx/Public/tree/dev/Koppelvlakspecificaties/Koppelingspecificaties/` (+ spec bij overname) |
 | **Koppelvlak** | De verzameling van **alle** koppelingspecificaties, endpoints en operaties die **één component** raken (zie ADR 0021) | 6 | **spec**-repo (OpenAPI) |
 
 Op basis van **alle gestandaardiseerde koppelingen** worden uiteindelijk **alle koppelvlakken** gebouwd. Milestone 3 levert de eerste set koppelingen voor OC P (LR1–LR3) in meta **`v0.1.0`**; **`v1.0.0`** volgt wanneer stromen, koppelingen en koppelvlakken compleet zijn.

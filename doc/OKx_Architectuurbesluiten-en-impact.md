@@ -1,6 +1,6 @@
 # OKx: architectuurbesluiten en impact
 
-Dit document **vat samen** welke architectuurrichting uit **Architecture Decision Records (ADR’s)** en uit **kernteam- en SI-afstemming** volgt, en wat dat betekent voor **documentatie**, **informatiestromen** en het **ArchiMate-model**. Het vervangt geen ADR: voor de volledige onderbouwing en status per besluit gelden de bestanden in [`architecture/dr/`](../architecture/dr/).
+Dit document **vat samen** welke architectuurrichting uit **Architecture Decision Records (ADR’s)** en uit **kernteam- en SI-afstemming** volgt, en wat dat betekent voor **documentatie**, **informatiestromen** en het **ArchiMate-model**. Het vervangt geen ADR: voor de volledige onderbouwing en status per besluit gelden de bestanden in [[Referentiemateriaal/adr in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr)](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr).
 
 **Status:** de onderliggende ADR’s staan als *Voorstel*; deze pagina is eveneens **concept** en wordt mee bijgewerkt als ADR’s worden geaccepteerd of vervangen.
 
@@ -10,16 +10,16 @@ Dit document **vat samen** welke architectuurrichting uit **Architecture Decisio
 
 | ADR | Onderwerp |
 |-----|-----------|
-| [0001 – Publieke repo en samenwerkingsmodel](../architecture/dr/0001-publieke-repo-en-samenwerkingsmodel.md) | Single source of truth, issues, pull requests, review |
-| [0002 – Prioriteitsketen en drielagen-fundament](../architecture/dr/0002-prioriteitsketen-catalogus-drielagen-fundament.md) | Keten curriculumontwerp–onderwijscatalogus; MORA/MOKA-fundament |
-| [0003 – Student kiest en leeruitkomsten](../architecture/dr/0003-student-kiest-leeruitkomsten-domeinprincipes.md) | Domeinprincipes flexibilisering |
-| [0004 – Leeruitkomsten en SBU/EC](../architecture/dr/0004-leeruitkomsten-sbu-ec-logistieke-containergrootte.md) | Inhoud (LO) + studielast als logistieke maat |
-| [0005 – SKS als referentiecomponent](../architecture/dr/0005-student-keuze-systeem-zelfstandige-referentiecomponent.md) | Student Keuze Systeem los op de plaat en in het model |
-| [0006 – Studentoriëntatie (trechter)](../architecture/dr/0006-studentorientatie-trechter-ketenfase.md) | Oriëntatie als ketenfase; mapping naar leeruitkomsten *(concept)* |
-| [0007 – Keuzecriteria / trechters](../architecture/dr/0007-keuzecriteria-trechters-onderwijscatalogus.md) | Filters t.o.v. onderwijscatalogus *(concept)* |
-| [0008 – Scope intra-instelling eerst](../architecture/dr/0008-scope-planning-eerst-intra-instelling.md) | Federatie gefaseerd; eerst één instelling *(concept)* |
-| [0009 – SKS vs SVS rollen](../architecture/dr/0009-sks-svs-rollenverdeling-keuze-vs-resultaat-voortgang.md) | Keuze vs resultaat/voortgang *(concept)* |
-| [0010 – Model- en MOKA-werkafspraken](../architecture/dr/0010-archimate-moka-informatiemodel-werkafspraken.md) | Concurrent editing, sync informatiemodel *(concept)* |
+| [0001 – Publieke repo en samenwerkingsmodel](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0001-publieke-repo-en-samenwerkingsmodel.md) | Single source of truth, issues, pull requests, review |
+| [0002 – Prioriteitsketen en drielagen-fundament](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0002-prioriteitsketen-catalogus-drielagen-fundament.md) | Keten curriculumontwerp–onderwijscatalogus; MORA/MOKA-fundament |
+| [0003 – Student kiest en leeruitkomsten](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0003-student-kiest-leeruitkomsten-domeinprincipes.md) | Domeinprincipes flexibilisering |
+| [0004 – Leeruitkomsten en SBU/EC](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0004-leeruitkomsten-sbu-ec-logistieke-containergrootte.md) | Inhoud (LO) + studielast als logistieke maat |
+| [0005 – SKS als referentiecomponent](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0005-student-keuze-systeem-zelfstandige-referentiecomponent.md) | Student Keuze Systeem los op de plaat en in het model |
+| [0006 – Studentoriëntatie (trechter)](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0006-studentorientatie-trechter-ketenfase.md) | Oriëntatie als ketenfase; mapping naar leeruitkomsten *(concept)* |
+| [0007 – Keuzecriteria / trechters](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0007-keuzecriteria-trechters-onderwijscatalogus.md) | Filters t.o.v. onderwijscatalogus *(concept)* |
+| [0008 – Scope intra-instelling eerst](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0008-scope-planning-eerst-intra-instelling.md) | Federatie gefaseerd; eerst één instelling *(concept)* |
+| [0009 – SKS vs SVS rollen](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0009-sks-svs-rollenverdeling-keuze-vs-resultaat-voortgang.md) | Keuze vs resultaat/voortgang *(concept)* |
+| [0010 – Model- en MOKA-werkafspraken](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0010-archimate-moka-informatiemodel-werkafspraken.md) | Concurrent editing, sync informatiemodel *(concept)* |
 
 ### Meetings (context en onderbouwing)
 
@@ -58,21 +58,21 @@ Dit document **vat samen** welke architectuurrichting uit **Architecture Decisio
 ### 4. Leeruitkomsten en SBU/EC als logistieke containergrootte
 
 - **Leeruitkomsten** blijven de **inhoudelijke** kern; **SBU (mbo)** en **EC (hbo)** zijn de **genormeerde maat** voor de **logistieke grootte** van programma-onderdelen in koppelvlakken (planning, aggregatie, vergelijking tussen aanbieders).
-- **Wettelijke/bekostigingscontainers** (bijv. ROD) kunnen **aanvullend** zijn en worden **gemapt**, niet zonder besluit gelijkgesteld aan deze logistieke maatstaf (zie [0004](../architecture/dr/0004-leeruitkomsten-sbu-ec-logistieke-containergrootte.md)).
+- **Wettelijke/bekostigingscontainers** (bijv. ROD) kunnen **aanvullend** zijn en worden **gemapt**, niet zonder besluit gelijkgesteld aan deze logistieke maatstaf (zie [0004](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0004-leeruitkomsten-sbu-ec-logistieke-containergrootte.md)).
 
 **Impact:** het informatiemodel en API-profielen moeten **studielast per sector** en **koppeling aan leeruitkomsten** kunnen dragen.
 
 ### 5. Student Keuze Systeem (SKS) als eigen component
 
 - Het **SKS** is een **eigen** referentiecomponent op de **hoofdplaat** en in het **ArchiMate-model** — niet stilzwijgend opgenomen in alleen catalogus, LMS of portaal.
-- OKx levert **MVP-fundament** en **minimuminformatie** voor leveranciers; volledige productspecificatie van het SKS valt **buiten** de volledige OKx-scope (zie [0005](../architecture/dr/0005-student-keuze-systeem-zelfstandige-referentiecomponent.md)).
+- OKx levert **MVP-fundament** en **minimuminformatie** voor leveranciers; volledige productspecificatie van het SKS valt **buiten** de volledige OKx-scope (zie [0005](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0005-student-keuze-systeem-zelfstandige-referentiecomponent.md)).
 - **SVS** blijft een **aparte** bouwsteen waaraan het SKS **gekoppeld** wordt; ketenstromen blijven **expliciet**.
 
 ### 6. Kaderstelling studentkeuze (kernteam 31 maart 2026, concept-ADR’s)
 
 - **0006–0007:** **Studentoriëntatie** met **trechter** naar gestandaardiseerde **leeruitkomsten** en **gestructureerde keuzecriteria** (o.a. geo, budget, horizon, instroom) vóór overload van de catalogus.
 - **0008:** **Eerst** keten/planning **binnen één instelling**; sectorbrede orchestratie en brokers **gefaseerd**.
-- **0009:** Nadere **rollenverdeling SKS vs SVS** (keuze-interactie versus resultaatstructuren en LMS-voortgang), als verfijning op [0005](../architecture/dr/0005-student-keuze-systeem-zelfstandige-referentiecomponent.md).
+- **0009:** Nadere **rollenverdeling SKS vs SVS** (keuze-interactie versus resultaatstructuren en LMS-voortgang), als verfijning op [0005](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0005-student-keuze-systeem-zelfstandige-referentiecomponent.md).
 - **0010:** **Werkafspraken** voor `model.archimate` en **MOKA-informatiemodel** (voorkomen merge-conflicten; geplande sync-sessie).
 
 ## Impact op `architecture/model/model.archimate`

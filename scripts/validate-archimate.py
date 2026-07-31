@@ -7,7 +7,7 @@ elementen laten wegvallen terwijl de views blijven staan. Het bestand blijft dan
 geldige XML, maar de views verwijzen naar niets meer -- Archi laat die objecten
 stilzwijgend vallen bij de eerstvolgende save, waarna het verlies definitief is.
 
-Deze check vangt dat. Zie ADR 0010 (architecture/dr/0010-archimatemodel-werkafspraken.md).
+Deze check vangt dat. Zie ADR 0010 (https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0010-archimatemodel-werkafspraken.md).
 
 Gebruik:
     python3 scripts/validate-archimate.py architecture/model/model.archimate
@@ -101,7 +101,7 @@ def validate(path: pathlib.Path) -> int:
             "\nCommit dit model NIET. Een .archimate mag nooit regelgebaseerd worden\n"
             "gemerged: kies bij een conflict een kant wholesale en breng de andere kant\n"
             "terug via Archi (File > Import > Another model into the selected model).\n"
-            "Zie architecture/dr/0010-archimatemodel-werkafspraken.md"
+            "Zie https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0010-archimatemodel-werkafspraken.md"
         )
         return 1
 

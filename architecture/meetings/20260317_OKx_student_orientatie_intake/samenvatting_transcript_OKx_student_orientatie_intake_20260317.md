@@ -46,7 +46,7 @@ Doel: Proces- en ketenpositionering voor studentvolgsysteem / student kiest: van
 ### Links (verplicht)
 
 - Issues: **aan te maken** — DUO/Studielink/bekostiging: minimum inschrijving (opleiding vs school); follow-up **issue #4** (plaatsing/inschrijving) → wiki-documentatie; integratie transcript → issue (processtap-screenshot workflow zoals besproken)
-- ADR's: **overwegen** — `architecture/dr/` — o.a. *levenscyclus leervraag (initieel vs iteratief)*; *data-domeinen wallet (educatieve context vs studentidentiteit vs zorg)*; *sector-broker vs instelling*
+- ADR's: **overwegen** — [Referentiemateriaal/adr in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr) — o.a. *levenscyclus leervraag (initieel vs iteratief)*; *data-domeinen wallet (educatieve context vs studentidentiteit vs zorg)*; *sector-broker vs instelling*
 - OKx/OKE docs: [in te vullen — relevante paden in repo]
 - ArchiMate impact: **ja** — nieuwe/verfijnde procesblokken (studentoriëntatie, splitsing intake, broker/wallet conceptueel), relaties naar KRS/ROD/DUO-onderwerpen; **MORA-basismodel niet hernoemen**
 - Transcript (ruw): `architecture/meetings/20260317_OKx_student_orientatie_intake/transcript_OKx_student_orientatie_intake_20260317.md` (**aanvullen met volledige Jamie-export indien nog niet compleet**)

@@ -9,7 +9,7 @@ Als je hier voor het eerst binnenkomt: we leggen **keteninzicht** en **koppelvla
 - **Informatiestromen (hoofdplaat)**: een overzicht van welke **stromen** tussen referentiecomponenten nog (conceptueel én technisch) beschreven moeten worden. De actuele plaat, uitleg en tabel staan in [`doc/OKx_Projectoverzicht.md`](doc/OKx_Projectoverzicht.md) bij *Hoofdplaat OKx informatiestromen*.
 - **Van concept naar techniek**: wat die stromen in de keten **betekenen**, als **invoer** voor latere deliverables zoals **berichtspecificaties**, **klassendiagrammen** en **API-/OEAPI-beschrijvingen** (vergelijkbaar met bestaande sectorpakketten): [`doc/OKx_Informatiesstromen.md`](doc/OKx_Informatiesstromen.md).
 - **MOKA & ArchiMate-model**: in [`architecture/model/model.archimate`](architecture/model/model.archimate) staan o.a. de MOKA-koppelvlak-view **`01. Onderwijsvisie vertalen naar onderwijsaanbod - Basis Model`** en het bijbehorende **informatiemodel**-diagram. Praktische uitleg waar je die vindt: [`doc/OKx_Informatiestromen-ArchiMate-en-MOKA-view.md`](doc/OKx_Informatiestromen-ArchiMate-en-MOKA-view.md).
-- **Besluiten vastleggen**: belangrijke architectuurkeuzes staan in **ADR’s**: [`architecture/dr/README.md`](architecture/dr/README.md).
+- **Besluiten vastleggen**: belangrijke architectuurkeuzes staan in **ADR’s**: [[ADR-index in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/README.md)](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/README.md).
 
 Niet alles is al uitgewerkt — dat hoort erbij. Deze repo is **geen directe wijziging van MORA**; goed gedragen uitwerkingen kunnen later als **onderbouwd voorstel** richting sectorprocessen dienen.
 
