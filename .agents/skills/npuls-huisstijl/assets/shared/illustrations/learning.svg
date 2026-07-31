@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="Learning">
+  <rect x="60" y="80" width="280" height="160" rx="8" fill="#3D68EC" stroke="#000" stroke-width="4"/>
+  <rect x="80" y="100" width="240" height="120" fill="#FFFFFF"/>
+  <line x1="100" y1="130" x2="220" y2="130" stroke="#000" stroke-width="4"/>
+  <line x1="100" y1="155" x2="300" y2="155" stroke="#DD784B" stroke-width="4"/>
+  <line x1="100" y1="180" x2="270" y2="180" stroke="#00AF81" stroke-width="4"/>
+  <line x1="100" y1="205" x2="200" y2="205" stroke="#F4D74B" stroke-width="4"/>
+  <circle cx="200" cy="280" r="20" fill="#DD784B" stroke="#000" stroke-width="4"/>
+  <rect x="180" y="240" width="40" height="20" fill="#000"/>
+</svg>

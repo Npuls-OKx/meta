@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Npuls concentric rings">
+  <g fill="none" stroke-width="6" stroke-linecap="round">
+    <circle cx="100" cy="100" r="90" stroke="#DD784B"/>
+    <circle cx="100" cy="100" r="70" stroke="#3D68EC"/>
+    <circle cx="100" cy="100" r="50" stroke="#00AF81"/>
+    <circle cx="100" cy="100" r="30" stroke="#F4D74B"/>
+    <circle cx="100" cy="100" r="12" fill="#DD784B" stroke="none"/>
+  </g>
+</svg>

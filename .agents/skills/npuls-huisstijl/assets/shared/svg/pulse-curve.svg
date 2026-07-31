@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 120" role="img" aria-label="Npuls pulse curve">
+  <g fill="none" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M10 80 Q 60 10 110 60 T 230 40" stroke="#DD784B"/>
+    <path d="M10 100 Q 70 40 130 90 T 230 70" stroke="#3D68EC" opacity="0.85"/>
+  </g>
+</svg>

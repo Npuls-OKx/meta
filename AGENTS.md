@@ -43,6 +43,7 @@ Vastgelegd in [architecture/docs/principes.md](architecture/docs/principes.md):
 | Specificaties (OEAPI-profiel, persona's) | [architecture/docs/specificatie/](architecture/docs/specificatie/) |
 | Agent-artifacten (ontwerpen, plannen) | [architecture/agent-artifacts/](architecture/agent-artifacts/) |
 | OKE-subdomein en MOKA-templates | [OKE/](OKE/), [moka-koppelvlakspecificaties/](moka-koppelvlakspecificaties/) |
+| Presentaties (Slidev, Npuls huisstijl) | [presentaties/](presentaties/) |
 | Validatiescripts | [scripts/](scripts/) |
 
 In behandeling op andere branches (na merge hier linken): koppelingspecificaties per koppeling (OC-P&R, OC-SIS, OC-LMS) met payload-specificaties, en de keuze-requirements met regelset-payload onder `architecture/docs/specificatie/student-keuze/`.
@@ -50,7 +51,7 @@ In behandeling op andere branches (na merge hier linken): koppelingspecificaties
 ## Agent-omgeving
 
 - **Skills** (canoniek [.agents/skills/](.agents/skills/); `.cursor/skills` en `.claude/skills` zijn symbolische links (symlinks)): het overzicht met doel en herkomst staat in het manifest [.agents/skills.json](.agents/skills.json). OKx-specifieke skills en extern gevendorde skills (via `npx skills`) staan gescheiden beschreven; externe skills nooit rechtstreeks bewerken, aanpassingen via een adaptatie-wrapper. Werkwijze: [.agents/README.md](.agents/README.md).
-- **Commands** ([.cursor/commands/](.cursor/commands/)): herbruikbare opdrachten, o.a. `adr-opstellen`, `ontwerp-document`, `meeting-notulen-nl`, `release-notes` en `product-flow`.
+- **Commands** ([.cursor/commands/](.cursor/commands/)): herbruikbare opdrachten, o.a. `adr-opstellen`, `ontwerp-document`, `meeting-notulen-nl`, `release-notes`, `product-flow` en `presentatie`.
 - **Rules** ([.cursor/rules/](.cursor/rules/)): altijd geldend: `okx-governance`, `dev-omgeving`, `schrijfstijl`, `product-flow`; gebonden aan bestandstype: `docs-style` (`**/*.md`), `architecture-artifacts` (`architecture/**/*.md`).
 - **Hooks** ([.cursor/hooks/](.cursor/hooks/)): installatie-guard richting de dev-container.
 

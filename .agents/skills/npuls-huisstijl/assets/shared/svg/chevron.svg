@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Npuls chevron">
+  <g fill="none" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="40,40 120,100 40,160" stroke="#DD784B"/>
+    <polyline points="90,40 170,100 90,160" stroke="#3D68EC"/>
+  </g>
+</svg>

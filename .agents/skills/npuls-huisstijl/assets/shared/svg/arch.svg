@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 140" role="img" aria-label="Npuls arch">
+  <path d="M20 130 A 100 100 0 0 1 220 130" fill="none" stroke="#00AF81" stroke-width="14" stroke-linecap="round"/>
+  <path d="M50 130 A 70 70 0 0 1 190 130" fill="none" stroke="#DD784B" stroke-width="14" stroke-linecap="round"/>
+  <path d="M80 130 A 40 40 0 0 1 160 130" fill="none" stroke="#3D68EC" stroke-width="14" stroke-linecap="round"/>
+</svg>
