@@ -1,0 +1,296 @@
+{
+  "toelichting": "Platen en diagrammen die in een OKx-presentatie gebruikt kunnen worden. Een deck wordt beter van een bestaande architectuurplaat dan van een zelfgetekend diagram: die plaat is al besproken en al goedgekeurd, dus je opent geen discussie die je niet wilde voeren. Controleer dit manifest met 'python3 scripts/platen-inventariseren.py' voordat je een plaat kiest; dat meldt gewijzigde bronnen, nieuwere versies en platen die hier nog niet in staan.",
+  "gebruik": "Kopieer de gekozen plaat naar presentaties/public/platen/ en verwijs ernaar met /platen/<naam>. Zet er altijd een regel bij die zegt waar de kijker naar moet kijken; een plaat zonder leeswijzer is decoratie.",
+  "velden": {
+    "versie": "De versie die de plaat zelf draagt, niet de datum waarop hij hier belandde.",
+    "varianten": "Glob vanaf de repositorywortel; dekt uitsneden en zusterviews van dezelfde plaat af, zodat het controlescript daar niet over meldt.",
+    "hash": "Van de bron op het moment van opnemen. Wijkt hij af, dan is de plaat hertekend en klopt de omschrijving hier misschien niet meer."
+  },
+  "platen": [
+    {
+      "naam": "hoofdplaat",
+      "titel": "OKx hoofdplaat informatiestromen",
+      "bron": "Npuls-OKx/meta",
+      "pad": "architecture/model/informatiestromen hoofdplaat OKx/1.7/OKx hoofdplaat 1.7.jpg",
+      "versie": "1.7",
+      "toont": "Het totaalbeeld van de keten: alle referentiecomponenten en de informatiestromen ertussen.",
+      "gebruik_bij": "Een publiek dat het geheel wil overzien voordat je inzoomt. Kerngroep techniek, leveranciers, technische werkgroep OEAPI.",
+      "let_op": "1.7 is leidend voor de architectuur. Afgeleide platen kunnen op een oudere versie stoelen; controleer het bijschrift in de hoek van zo'n plaat.",
+      "hash": "b0636de0a49ce6bd"
+    },
+    {
+      "naam": "lr1-informatiestromen",
+      "titel": "Informatiestromen leerroute 1 (Jochem)",
+      "bron": "Npuls-OKx/Public",
+      "pad": "Referentiemateriaal/kaderscenario's/img/OKx_LR1_informatiestromen_v20260526.jpg",
+      "versie": "v20260526",
+      "toont": "Links het inrichten van nominaal en keuze-aanbod, rechts de student die studeert en kiest. Elke pijl is een informatiestroom tussen twee systemen.",
+      "gebruik_bij": "Uitleggen wat er concreet tussen de systemen beweegt. Werkt voor elk gremium; voor de adviesgroep de sterkste openingsplaat.",
+      "let_op": "De plaat draagt zelf 'obv OKx 1.6b': hij is afgeleid van hoofdplaat 1.6b, terwijl 1.7 leidend is. Benoem dat als iemand het opmerkt, of zet de hoofdplaat ernaast.",
+      "varianten": [
+        "Referentiemateriaal/kaderscenario's/img/OKx_LR1_informatiestromen_v20260526_f*.jpg"
+      ],
+      "hash": "7c140a65684496aa"
+    },
+    {
+      "naam": "lr1-fase",
+      "titel": "Informatiestromen leerroute 1, uitsnede per procesfase",
+      "bron": "Npuls-OKx/Public",
+      "pad": "Referentiemateriaal/kaderscenario's/img/OKx_LR1_informatiestromen_v20260526_f1.jpg",
+      "versie": "v20260526",
+      "toont": "Dezelfde plaat met een procesfase uitgelicht. Er zijn acht uitsneden, _f1 tot en met _f8, voor de acht fasen van de instellingsjourney.",
+      "gebruik_bij": "Stap voor stap door het proces lopen zonder de kijker in de volle plaat te laten verdwalen. Toon eerst de volle plaat, dan de uitsneden.",
+      "let_op": "Zelfde versiekanttekening als de volledige plaat.",
+      "hash": "46c73b7c1d6dcff1"
+    },
+    {
+      "naam": "leerroutes",
+      "titel": "De negen Npuls-leerroutes",
+      "bron": "Npuls-OKx/Public",
+      "pad": "Referentiemateriaal/kaderscenario's/img/npuls-leerroutes.png",
+      "versie": "-",
+      "toont": "Alle negen leerroutes, geordend naar standaard, personaliseren en modulair studeren.",
+      "gebruik_bij": "Laten zien waar leerroute 1 in het geheel past, en waarom 2 en 3 daarna komen.",
+      "let_op": "",
+      "hash": "6607863c0013c2a5"
+    },
+    {
+      "naam": "leerroute-1",
+      "titel": "Conceptbeeld leerroute 1, regulier studeren",
+      "bron": "Npuls-OKx/Public",
+      "pad": "Referentiemateriaal/kaderscenario's/img/Npuls_leerroute_1.jpg",
+      "versie": "-",
+      "toont": "Regulier studeren in samenhang, vanuit studentperspectief.",
+      "gebruik_bij": "Openen bij een onderwijskundig publiek, voordat je naar systemen gaat.",
+      "let_op": "",
+      "hash": "1d7c6316fc108c1b"
+    },
+    {
+      "naam": "jochem",
+      "titel": "Persona Jochem, leerroute 1",
+      "bron": "Npuls-OKx/Public",
+      "pad": "Referentiemateriaal/persona's/img/npuls-leerroute1-regulier-jochem.png",
+      "versie": "-",
+      "toont": "De journey van Jochem, de rode draad door leerroute 1.",
+      "gebruik_bij": "Een abstract verhaal aan een concrete student ophangen. Doe dit vroeg in het deck.",
+      "let_op": "",
+      "hash": "4b42f21ce6eaf713"
+    },
+    {
+      "naam": "persona-larissa",
+      "titel": "Persona Larissa, leerroute 2",
+      "bron": "Npuls-OKx/meta",
+      "pad": "architecture/docs/specificatie/okx-oeapi-consumer-profiel/img/Npuls-leerroute2-regulier-Larissa.jpg",
+      "versie": "-",
+      "toont": "De journey van Larissa, de persona bij leerroute 2.",
+      "gebruik_bij": "Vooruitkijken naar wat na leerroute 1 komt.",
+      "let_op": "Leerroute 2 is nog niet als kaderscenario uitgewerkt in Npuls-OKx/Public. Presenteer dit als vooruitblik, niet als vastgesteld materiaal.",
+      "hash": "f4ac8cdd1c38fb09"
+    },
+    {
+      "naam": "persona-linda",
+      "titel": "Persona Linda, leerroute 3",
+      "bron": "Npuls-OKx/meta",
+      "pad": "architecture/docs/specificatie/okx-oeapi-consumer-profiel/img/Npuls-leerroute3-regulier-Linda.jpg",
+      "versie": "-",
+      "toont": "De journey van Linda, de persona bij leerroute 3.",
+      "gebruik_bij": "Vooruitkijken naar wat na leerroute 1 komt.",
+      "let_op": "Zelfde voorbehoud als bij Larissa: nog geen kaderscenario in Npuls-OKx/Public.",
+      "hash": "8e5c8755927a60d0"
+    },
+    {
+      "naam": "koppelvlak-oc",
+      "titel": "Koppelvlak onderwijscatalogus",
+      "bron": "Npuls-OKx/meta",
+      "pad": "architecture/model/Koppelvlak views obv 1.7/OC koppelvlak (1.7).jpg",
+      "versie": "1.7",
+      "toont": "Alle koppelingen die de onderwijscatalogus raken, bij elkaar in een view.",
+      "gebruik_bij": "Het verschil tussen koppeling en koppelvlak uitleggen, zoals vastgelegd in ADR 0021. Er zijn zusterviews voor P&R, LMS, SIS en SKS in dezelfde map.",
+      "let_op": "",
+      "varianten": [
+        "architecture/model/Koppelvlak views obv 1.7/*.jpg"
+      ],
+      "hash": "4e306c50c91cf0a5"
+    },
+    {
+      "naam": "mora-hoofdproces",
+      "titel": "MORA-hoofdprocesmodel",
+      "bron": "Npuls-OKx/Public",
+      "pad": "Referentiemateriaal/kaderscenario's/img/MORA_hoofdprocesmodel_12_05_26.png",
+      "versie": "12-05-26",
+      "toont": "Het hoofdprocesmodel van de mbo-referentiearchitectuur.",
+      "gebruik_bij": "Laten zien dat OKx op de sectorarchitectuur aansluit en geen eigen werkelijkheid bouwt. Er zijn uitsneden voor keten 3 (onderwijsuitvoering en begeleiding), 4 (onderwijslogistiek) en 6 (onderwijsontwikkeling).",
+      "let_op": "",
+      "varianten": [
+        "Referentiemateriaal/kaderscenario's/img/MORA_hoofdprocesmodel_keten*.png"
+      ],
+      "hash": "bbb1c19d546d9b2e"
+    },
+    {
+      "naam": "informatiemodel-mora-hora",
+      "titel": "Informatiemodel MORA-HORA alignment",
+      "bron": "Npuls-OKx/Public",
+      "pad": "Referentiemateriaal/kaderscenario's/img/Informatiemodel_visual_Klus_56_allignment_MORA_HORA_20260519.png",
+      "versie": "20260519",
+      "toont": "De uitlijning van het informatiemodel tussen mbo en hoger onderwijs.",
+      "gebruik_bij": "Een publiek dat wil weten hoe dit zich tot het ho verhoudt, of waarom we bepaalde begrippen kiezen.",
+      "let_op": "",
+      "hash": "311e576bc2e602ce"
+    },
+    {
+      "naam": "rosa-knooppunt",
+      "titel": "De ROSA als knooppunt van architectuurkennis",
+      "bron": "Npuls-OKx/meta",
+      "pad": "architecture/docs/specificatie/okx-oeapi-consumer-profiel/img/rosa-knooppunt.png",
+      "versie": "-",
+      "toont": "Hoe ROSA, MORA, HORA en de sectorstandaarden zich tot elkaar verhouden.",
+      "gebruik_bij": "De vraag beantwoorden waarom we ons aan bestaande architectuurkaders houden.",
+      "let_op": "",
+      "hash": "27b80d0f058db746"
+    },
+    {
+      "naam": "lr1-bpmn",
+      "titel": "BPMN leerroute 1, scenario 1.1 happy flow",
+      "bron": "Npuls-OKx/meta",
+      "pad": "architecture/docs/specificatie/okx-oeapi-consumer-profiel/doc/img/leerroute-1-scenario-1-regulier-geenkeuze-happyflow.svg",
+      "versie": "-",
+      "toont": "Het referentieproces van scenario 1.1, met de hand-offs tussen actoren.",
+      "gebruik_bij": "Een procesgericht publiek: onderwijskundigen, adviesgroep. Vastgesteld als referentieproces in het consumer-profiel.",
+      "let_op": "Vector, dus schaalt goed, maar met veel lanes onleesbaar op een slide. Snijd een deel uit als het niet past.",
+      "hash": "800f98ff94efa7fe"
+    },
+    {
+      "naam": "onderwijsvisie-naar-aanbod",
+      "titel": "ArchiMate-view: onderwijsvisie vertalen naar onderwijsaanbod",
+      "bron": "Npuls-OKx/meta",
+      "pad": "architecture/docs/specificatie/okx-oeapi-consumer-profiel/doc/img/Archimate view - Onderwijsvisie vertalen naar onderwijsaanbod - Basis Model v20260626.jpg",
+      "versie": "v20260626",
+      "toont": "Het procesbeeld als geheel: hoe een onderwijsvisie via specificatie uitkomt bij concreet aanbod. De MOKA-basisview uit het ArchiMate-model.",
+      "gebruik_bij": "De vraag waarom de keten is zoals hij is, bij een publiek dat het proces wil zien en niet de systemen. Kerngroep techniek, adviesgroep.",
+      "let_op": "15 MB en zeer dicht. Op een slide alleen leesbaar als je een deel uitsnijdt; toon anders liever de hoofdplaat.",
+      "hash": "2f8a3405b4351d3b"
+    },
+    {
+      "naam": "amigo-matrix",
+      "titel": "AMIGO modellenmatrix",
+      "bron": "Npuls-OKx/meta",
+      "pad": "moka-koppelvlakspecificaties/Template/img/AMIGO Modellen matrix v20260204.png",
+      "versie": "v20260204",
+      "toont": "Welke modellen de AMIGO-aanpak onderscheidt en hoe ze op elkaar stapelen.",
+      "gebruik_bij": "Uitleggen waarom een koppelvlakspecificatie eruitziet zoals hij eruitziet.",
+      "let_op": "Alleen zinvol bij een publiek dat AMIGO al kent of wil leren kennen.",
+      "hash": "024201ecc10a8754"
+    },
+    {
+      "naam": "beheerketen",
+      "titel": "Beheerketen totstandkoming koppelvlakspecificaties",
+      "bron": "Npuls-OKx/meta",
+      "pad": "moka-koppelvlakspecificaties/Template/img/Beheerketen voor tot standkoming koppelvlak specificaties.jpg",
+      "versie": "-",
+      "toont": "Wie welke rol heeft in het tot stand brengen en beheren van een koppelvlakspecificatie.",
+      "gebruik_bij": "Governance-vragen bij programmaleiding en adviesgroep: wie besluit wat, en wanneer.",
+      "let_op": "",
+      "hash": "8c07c7d32e5a1f88"
+    },
+    {
+      "naam": "branching",
+      "titel": "Branching setup release management",
+      "bron": "Npuls-OKx/Public",
+      "pad": "Algemeen/release-management/src/branching setup.drawio.png",
+      "versie": "-",
+      "toont": "Hoe een wijziging via een feature branch en dev naar een releasepakket loopt, met de rollen erbij.",
+      "gebruik_bij": "Release management uitleggen aan wie wil weten hoe iets naar buiten komt.",
+      "let_op": "Vrij technisch. Voor programmaleiding meestal te veel detail; vertel daar liever het principe.",
+      "hash": "c2c62d3a557ec436"
+    }
+  ],
+  "overslaan": [
+    {
+      "bron": "Npuls-OKx/meta",
+      "patroon": "architecture/model/informatiestromen hoofdplaat OKx/1.*/*",
+      "reden": "Oudere hoofdplaatversies. Alleen 1.7 is leidend; gebruik een oudere versie alleen om een ontwikkeling te laten zien, en zeg er dan bij waarom."
+    },
+    {
+      "bron": "Npuls-OKx/meta",
+      "patroon": "architecture/docs/specificatie/okx-oeapi-consumer-profiel/img/*",
+      "reden": "Werkkopieën. Wat hiervan is vastgesteld, staat als releaseartefact in Npuls-OKx/Public; pak daar de bron. De platen die hier uniek zijn, staan hierboven wel apart genoemd."
+    },
+    {
+      "bron": "Npuls-OKx/meta",
+      "patroon": "OKE/moka-koppelvlakspecificaties/**/*",
+      "reden": "Uitwerking examinering, eigen spoor. Het template ernaast levert dezelfde generieke platen."
+    },
+    {
+      "bron": "Npuls-OKx/meta",
+      "patroon": "moka-koppelvlakspecificaties/Template/img/*",
+      "reden": "Templateplaten. De twee die in een deck bruikbaar zijn, staan hierboven apart genoemd."
+    },
+    {
+      "bron": "Npuls-OKx/meta",
+      "patroon": "img/bijdragen_voor_beginners*",
+      "reden": "Schermafdrukken bij een handleiding, geen architectuurmateriaal."
+    },
+    {
+      "bron": "Npuls-OKx/meta",
+      "patroon": "img/*",
+      "reden": "Illustraties bij het programmaplan. Historisch materiaal; de actuele varianten staan in architecture/model."
+    },
+    {
+      "bron": "Npuls-OKx/meta",
+      "patroon": "architecture/docs/mappingsessies-instellingen/**/*",
+      "reden": "Tussenresultaat van mappingsessies met instellingen. Momentopname van een werksessie, niet vastgesteld."
+    },
+    {
+      "bron": "Npuls-OKx/meta",
+      "patroon": "presentaties/**/*",
+      "reden": "Het presentatieproject zelf."
+    }
+  ],
+  "mermaid": {
+    "toelichting": "Diagrammen die als tekst in de specificaties staan. Slidev rendert mermaid, dus je kunt het blok rechtstreeks in een slide plakken. Kopieer het letterlijk uit de bron en pas hooguit de scale aan: houd die op 0.5 tot 0.6 en de labels kort, anders loopt de slide over. Controleer het resultaat met './deck <naam> beelden'.",
+    "bronnen": [
+      {
+        "onderwerp": "De keten CO naar OC naar P&R, LMS en SIS",
+        "bron": "Npuls-OKx/Public",
+        "pad": "Koppelvlakspecificaties/README.md",
+        "gebruik_bij": "In een plaatje laten zien welke koppelingen er zijn en waar ze aanhaken."
+      },
+      {
+        "onderwerp": "Van kaderscenario naar koppelvlakspecificatie",
+        "bron": "Npuls-OKx/Public",
+        "pad": "Koppelvlakspecificaties/uitgangspunten.md",
+        "gebruik_bij": "Uitleggen waarom we per koppeling beschrijven: de som ervan levert het koppelvlak per component op."
+      },
+      {
+        "onderwerp": "Sequentiediagrammen koppeling OC met planning en roostering",
+        "bron": "Npuls-OKx/Public",
+        "pad": "Koppelvlakspecificaties/Koppelingspecificaties/oc-p-en-r/koppelingspecificatie-oc-p-en-r.md",
+        "gebruik_bij": "Een technisch publiek stap voor stap door een uitwisseling lopen. Zeven diagrammen, waaronder faalpaden."
+      },
+      {
+        "onderwerp": "Sequentiediagrammen koppeling OC met het LMS",
+        "bron": "Npuls-OKx/Public",
+        "pad": "Koppelvlakspecificaties/Koppelingspecificaties/oc-lms/koppelingspecificatie-oc-lms.md",
+        "gebruik_bij": "Idem, voor het leermanagementsysteem."
+      },
+      {
+        "onderwerp": "Sequentiediagrammen koppeling OC met het SIS",
+        "bron": "Npuls-OKx/Public",
+        "pad": "Koppelvlakspecificaties/Koppelingspecificaties/oc-sis-krs-svs/koppelingspecificatie-oc-sis.md",
+        "gebruik_bij": "Idem, voor kernregistratie en studentvolgsysteem."
+      },
+      {
+        "onderwerp": "Studentjourney en keuzedeelproces leerroute 1",
+        "bron": "Npuls-OKx/Public",
+        "pad": "Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md",
+        "gebruik_bij": "Het keuzeproces van de student volgen, inclusief de beslismomenten."
+      },
+      {
+        "onderwerp": "Structuur van de onderwijsspecificatie-payload",
+        "bron": "Npuls-OKx/Public",
+        "pad": "Koppelvlakspecificaties/Koppelingspecificaties/gedeeld/payload-onderwijsspecificatie.md",
+        "gebruik_bij": "De boom van opleiding tot leeronderdeel tonen, en waar de regelset aanhaakt."
+      }
+    ]
+  }
+}

@@ -63,7 +63,7 @@ Dit zijn de dingen die in de praktijk misgingen. Uitgebreider in de skill [`okx-
 
 **Neem tabellen en cijfers letterlijk over.** Bouw een tabel nooit uit je hoofd na; open het bronbestand en kopieer hem. Bij de ankertabel ging dat een keer mis, en zo'n fout kost geloofwaardigheid precies bij het publiek dat erop let.
 
-**Show, don't tell.** Gebruik de bestaande architectuurplaten in plaats van een eigen diagram. Zet er wel een regel bij die zegt waar de kijker naar moet kijken; een plaat zonder leeswijzer is decoratie.
+**Show, don't tell.** Gebruik de bestaande architectuurplaten in plaats van een eigen diagram: die zijn al besproken en goedgekeurd. Zet er wel een regel bij die zegt waar de kijker naar moet kijken; een plaat zonder leeswijzer is decoratie. Welke platen er zijn, staat hieronder.
 
 **Scheid feit van mening.** Wat uit de repositories komt is feit; wat jij ervan vindt is een inschatting. Zet dat er als zodanig bij, zodat je het in de vergadering niet als vaststaand presenteert.
 
@@ -71,22 +71,35 @@ Dit zijn de dingen die in de praktijk misgingen. Uitgebreider in de skill [`okx-
 
 ## Platen die je kunt gebruiken
 
-Kopieer wat je nodig hebt naar `public/platen/` en verwijs ernaar met `/platen/<naam>`.
+De architectuurplaten staan verspreid over beide repositories, ze hebben versies, en een afgeleide plaat kan op een oudere versie stoelen dan de plaat die inmiddels leidend is. Daarom staat er één lijst: [`platen.json`](platen.json).
 
-| Plaat | Waar |
-|---|---|
-| Informatiestromen leerroute 1, plus acht uitsneden per procesfase | `Referentiemateriaal/kaderscenario's/img/` in Npuls-OKx/Public |
-| De negen Npuls-leerroutes | idem |
-| MORA-hoofdprocesmodel | idem |
-| Persona Jochem | `Referentiemateriaal/persona's/img/` in Npuls-OKx/Public |
-| Hoofdplaat informatiestromen | `architecture/model/informatiestromen hoofdplaat OKx/1.7/` in Npuls-OKx/meta |
-| Koppelvlak per component (OC, P&R, LMS, SIS, SKS) | `architecture/model/Koppelvlak views obv 1.7/` in Npuls-OKx/meta |
+Per plaat lees je daar wat hij toont, bij welk publiek hij werkt, en waar je op moet letten. Onderaan staan de mermaid-diagrammen uit de koppelingspecificaties; die plak je rechtstreeks in een slide, want Slidev rendert ze.
 
-Een brede plaat geef je de hele slidebreedte:
+Controleer de lijst voordat je hem gebruikt:
+
+```bash
+python3 ../scripts/platen-inventariseren.py
+```
+
+Dat vergelijkt het manifest met wat er werkelijk in beide repositories staat en meldt vier dingen: een bron die is **verdwenen**, een bron die is **gewijzigd** sinds de omschrijving werd geschreven, een **nieuwere versie** die ernaast is verschenen, en een plaat die nog **niet in het manifest** staat. Los meldingen op voordat je een plaat kiest.
+
+Kopieer wat je nodig hebt naar `public/platen/` en verwijs ernaar met `/platen/<naam>`. Een brede plaat geef je de hele slidebreedte:
 
 ```html
 <img src="/platen/lr1-informatiestromen.jpg" style="width: 100%; max-height: 330px; object-fit: contain;" />
 ```
+
+### Als je zelf een plaat toevoegt
+
+Zet hem in het manifest en werk daarna de vingerafdrukken bij:
+
+```bash
+python3 ../scripts/platen-inventariseren.py --bijwerken
+```
+
+Twee velden doen het werk. `gebruik_bij` is waar een agent op selecteert, dus schrijf daar het publiek en de situatie, niet de inhoud. `let_op` is waar het voorbehoud staat; wat daar staat komt terug in de afstemming voordat er een deck wordt geschreven.
+
+Hoort een plaat níet in presentaties thuis — een schermafdruk, een tussenresultaat, een ingehaalde versie — zet hem dan onder `overslaan` met de reden erbij. Dan blijft de melding "nog niet in het manifest" betekenen dat er echt iets nieuws is.
 
 ## Wat er in deze map staat
 

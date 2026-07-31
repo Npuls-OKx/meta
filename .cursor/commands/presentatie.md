@@ -9,9 +9,10 @@ Vraag eerst **voor welk gremium** en **welke periode**, tenzij dat al uit de opd
 Ga niet meteen schrijven. Verzamel eerst wat er is gebeurd, en **leg de inhoud voor** aan degene die het deck vraagt:
 
 1. Draai `python3 scripts/wijzigingen-verzamelen.py --sinds JJJJ-MM-DD` en lees de pull request-beschrijvingen en de gewijzigde documenten.
-2. Groepeer wat je vindt in **drie tot zes onderwerpen**, met per onderwerp een zin over wat het betekent.
-3. Leg die lijst voor: *"dit zag ik gebeuren, hier wil ik het over hebben, klopt dat?"* Noem er expliciet bij wat je zou **weglaten** en waarom.
-4. Wacht op het antwoord. Wat technisch de grootste wijziging is, is zelden waar het gesprek over moet gaan; alleen de aanvrager weet wat er maandag op tafel moet.
+2. Draai `python3 scripts/platen-inventariseren.py` en lees `presentaties/platen.json`, zodat je weet welk beeld beschikbaar is voordat je onderwerpen kiest.
+3. Groepeer wat je vindt in **drie tot zes onderwerpen**, met per onderwerp een zin over wat het betekent **en welke plaat je erbij wilt zetten**.
+4. Leg die lijst voor: *"dit zag ik gebeuren, hier wil ik het over hebben, met dit beeld erbij — klopt dat?"* Noem er expliciet bij wat je zou **weglaten** en waarom, en bij welk onderwerp je geen passende plaat kon vinden.
+5. Wacht op het antwoord. Wat technisch de grootste wijziging is, is zelden waar het gesprek over moet gaan; alleen de aanvrager weet wat er maandag op tafel moet, en welke plaat er vorige keer vragen opriep.
 
 Pas als de onderwerpen vaststaan ga je schrijven.
 
@@ -24,7 +25,7 @@ Daarna:
 - **Neem tabellen, cijfers en citaten letterlijk over uit de bron.** Bouw een tabel nooit uit je hoofd na; open het bestand en kopieer hem. Een verzonnen kolom in een ankertabel ondermijnt het hele deck.
 - **Stem de toon af op het gremium.** Zowel programma- en projectleiding als de adviesgroep zijn interne gremia: informeel en direct, alsof je het een collega vertelt. Geen plechtige formuleringen. Het verschil zit in de **diepgang**, niet in de toon: de adviesgroep krijgt meer uitleg per stap, de leiding minder detail.
 - **Gebruik de termen uit de bron.** Verzin geen vriendelijker klinkende variant voor een systeem of begrip. Het is LMS, SIS (dat is KRS plus SVS), onderwijscatalogus; niet "leeromgeving" of "studentadministratie" als het systeem bedoeld is. Twijfel je: zoek de term op in de instap van Koppelvlakspecificaties.
-- **Show, don't tell.** OKx heeft architectuurplaten; gebruik die in plaats van een eigen diagram. De informatiestromenplaat van leerroute 1, de leerroutes, de hoofdplaat en de koppelvlakviews per component staan in beide repositories. Kopieer wat je gebruikt naar `presentaties/public/platen/` en zet er een regel bij die zegt waar de kijker naar moet kijken.
+- **Show, don't tell, zonder dat iemand erom vraagt.** Elke inhoudelijke uitleg krijgt beeld. Kies zelf een passende plaat uit `presentaties/platen.json` op het veld `gebruik_bij`, kopieer hem naar `presentaties/public/platen/` en zet er een regel bij die zegt waar de kijker naar moet kijken. Staat er in `let_op` een voorbehoud, meld dat aan de aanvrager. Voeg een nieuwe of nieuwere plaat toe aan het manifest, met `--bijwerken` voor de hashes.
 - **Scheid feit van inschatting.** Wat uit de repositories komt is feit; wat jij ervan vindt is een oordeel. Meld aan het eind welke uitspraken van jou zijn.
 - Sla het op in `presentaties/JJMMDD_onderwerp.md`, nooit in de Public-werkmap.
 

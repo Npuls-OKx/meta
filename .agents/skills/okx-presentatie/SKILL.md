@@ -92,26 +92,36 @@ De afkortingenlijst staat in de instap van [`Koppelvlakspecificaties/README.md`]
 
 Twijfel je of een term bestaat: zoek hem op in de bron. Staat hij er niet, dan verzin je hem.
 
-## Show, don't tell: gebruik de bestaande platen
+## Show, don't tell: kies zelf een passende plaat
 
-OKx heeft architectuurplaten die het verhaal beter vertellen dan een opsomming. Gebruik ze, in plaats van een eigen diagram te tekenen dat er net naast zit.
+Elke inhoudelijke uitleg krijgt beeld. Dat is geen extraatje waar iemand om moet vragen: **je zoekt zelf een passende plaat en stelt die voor**. OKx heeft architectuurplaten die het verhaal beter vertellen dan een opsomming, en ze zijn al besproken en goedgekeurd — een zelfgetekend diagram opent een discussie die je niet wilde voeren.
 
-| Plaat | Waar | Waarvoor |
-|---|---|---|
-| Informatiestromen leerroute 1 | `Referentiemateriaal/kaderscenario's/img/OKx_LR1_informatiestromen_v20260526.jpg` in Npuls-OKx/Public | Wat er tussen de systemen beweegt. Er zijn ook acht uitsneden per procesfase (`_f1` tot `_f8`) |
-| De negen leerroutes | `.../img/npuls-leerroutes.png` | Waar leerroute 1 in het geheel past |
-| Jochem, leerroute 1 | `Referentiemateriaal/persona's/img/` | De student als rode draad |
-| Hoofdplaat informatiestromen | `architecture/model/informatiestromen hoofdplaat OKx/1.7/` in Npuls-OKx/meta | Het totaalbeeld van de keten |
-| Koppelvlak per component | `architecture/model/Koppelvlak views obv 1.7/` in Npuls-OKx/meta | Alle koppelingen van één systeem samen |
-| MORA-hoofdprocesmodel | `Referentiemateriaal/kaderscenario's/img/MORA_*.png` | Aansluiting op de sectorarchitectuur |
+Het overzicht staat in [`presentaties/platen.json`](../../../presentaties/platen.json). Lees dat bestand voordat je slides schrijft. Per plaat staat er wat hij toont, bij welk publiek hij werkt, en waar je op moet letten. Onderaan staan de mermaid-diagrammen die als tekst in de specificaties leven; die plak je rechtstreeks in een slide, want Slidev rendert ze.
 
-Kopieer wat je gebruikt naar `presentaties/public/platen/` en verwijs ernaar met `/platen/<naam>`. Geef een brede plaat de hele slidebreedte:
+Controleer het manifest eerst tegen de werkelijkheid:
+
+```bash
+python3 scripts/platen-inventariseren.py
+```
+
+Dat meldt bronnen die zijn gewijzigd, versies die zijn ingehaald, en platen die nog nergens beschreven staan. Krijg je meldingen, los die dan op vóór je een plaat kiest; anders zet je een verouderd beeld in een deck.
+
+Werkwijze per onderwerp:
+
+1. Kies een plaat op `gebruik_bij`, niet op wat er toevallig mooi uitziet.
+2. Kopieer hem naar `presentaties/public/platen/` en verwijs ernaar met `/platen/<naam>`.
+3. Zet er een regel bij die zegt **waar de kijker naar moet kijken**. Een plaat zonder leeswijzer is decoratie.
+4. Neem `let_op` over in je afstemming met de aanvrager als daar iets in staat.
+
+Geef een brede plaat de hele slidebreedte:
 
 ```html
 <img src="/platen/lr1-informatiestromen.jpg" style="width: 100%; max-height: 330px; object-fit: contain;" />
 ```
 
-Zet er altijd een regel bij die zegt **waar de kijker naar moet kijken**. Een plaat zonder leeswijzer is decoratie.
+**Spar over je keuze.** Bij het voorleggen van de onderwerpen noem je per onderwerp welke plaat je erbij wilt zetten, en waarom die. Degene die het deck vraagt kent het publiek en weet welke plaat er vorige keer vragen opriep. Staat er niets passends in het manifest, zeg dat dan — dan is dat een signaal dat er een plaat ontbreekt, niet een reden om er zelf een te tekenen.
+
+**Houd het manifest actueel.** Komt er een nieuwe versie van een plaat, of teken je er een die vaker bruikbaar is, neem hem dan op in `platen.json` en werk de hashes bij met `--bijwerken`. Dat is onderdeel van het werk, niet iets voor later: een manifest dat achterloopt op de repositories is erger dan geen manifest, want dan wordt met vertrouwen een verouderde plaat gekozen.
 
 ## Neem tabellen, cijfers en citaten letterlijk over
 
