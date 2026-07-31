@@ -15,3 +15,4 @@ architecture/model/_import_*.archimate
 presentaties/node_modules/
 presentaties/dist/
 presentaties/.slidev/
+presentaties/export/

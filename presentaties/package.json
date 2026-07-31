@@ -5,9 +5,9 @@
   "private": true,
   "type": "commonjs",
   "scripts": {
-    "dev": "echo \"Gebruik: npx slidev JJMMDD_onderwerp.md --open\" && exit 1",
-    "build": "slidev build",
-    "export": "slidev export"
+    "dev": "./deck",
+    "beelden": "./deck",
+    "export": "./deck"
   },
   "license": "UNLICENSED",
   "devDependencies": {

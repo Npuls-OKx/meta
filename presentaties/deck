@@ -1,0 +1,96 @@
+#!/usr/bin/env bash
+#
+# Een deck tonen, bekijken of exporteren.
+#
+# Waarom dit script bestaat: `npx slidev <deck>.md` bindt de dev-server op
+# [::1], alleen IPv6-loopback binnen de dev-container. De poortforwarding van
+# VS Code verbindt via IPv4, waardoor de pagina niet doorkomt en de browser
+# blijft herladen. De vlag --remote lost dat op, maar die moet je onthouden.
+# Dat is precies wat een script hoort weg te nemen.
+#
+#   ./deck                       toont welke decks er zijn
+#   ./deck adviesgroep           start de server en toont de URL's
+#   ./deck adviesgroep beelden   exporteert PNG's om te bekijken
+#   ./deck adviesgroep pdf       exporteert een PDF
+#
+# De naam mag een fragment zijn: "adviesgroep" vindt 260803_adviesgroep.md.
+
+set -euo pipefail
+cd "$(dirname "$0")"
+
+POORT="${DECK_POORT:-3030}"
+
+decks() { ls -1 [0-9]*.md 2>/dev/null || true; }
+
+toon_lijst() {
+  local lijst; lijst=$(decks)
+  if [ -z "$lijst" ]; then
+    echo "Nog geen decks. Begin met:  cp _template.md $(date +%y%m%d)_onderwerp.md"
+    return
+  fi
+  echo "Beschikbare decks:"
+  echo "$lijst" | sed 's/^/  /'
+  echo
+  echo "Gebruik:  ./deck <naam>            start de server"
+  echo "          ./deck <naam> beelden    exporteer PNG's"
+  echo "          ./deck <naam> pdf        exporteer een PDF"
+}
+
+zoek() {
+  local term="$1" treffers
+  treffers=$(decks | grep -i -- "$term" || true)
+  local aantal; aantal=$(printf '%s' "$treffers" | grep -c . || true)
+  if [ "$aantal" -eq 0 ]; then
+    echo "Geen deck gevonden voor '$term'." >&2
+    echo >&2
+    toon_lijst >&2
+    exit 1
+  fi
+  if [ "$aantal" -gt 1 ]; then
+    echo "Meerdere decks passen bij '$term':" >&2
+    echo "$treffers" | sed 's/^/  /' >&2
+    echo >&2
+    echo "Maak de naam specifieker." >&2
+    exit 1
+  fi
+  printf '%s' "$treffers"
+}
+
+if [ $# -eq 0 ]; then toon_lijst; exit 0; fi
+
+bestand=$(zoek "$1")
+actie="${2:-tonen}"
+
+[ -d node_modules ] || { echo "Eenmalig afhankelijkheden installeren..."; npm install --silent --no-audit --no-fund; }
+
+case "$actie" in
+  tonen)
+    echo "Deck:      $bestand"
+    echo "Presentatie:  http://localhost:$POORT/"
+    echo "Presenter:    http://localhost:$POORT/presenter/"
+    echo "Overzicht:    http://localhost:$POORT/overview/"
+    echo
+    echo "Stoppen met Ctrl-C."
+    echo
+    # --remote bindt op 0.0.0.0, zodat de poortforwarding erbij kan.
+    exec npx slidev "$bestand" --port "$POORT" --remote
+    ;;
+  beelden)
+    uit="export/${bestand%.md}"
+    mkdir -p "$uit"
+    npx slidev export "$bestand" --format png --output "$uit" --timeout 60000
+    echo
+    echo "Afbeeldingen staan in: presentaties/$uit"
+    ;;
+  pdf)
+    mkdir -p export
+    uit="export/${bestand%.md}.pdf"
+    npx slidev export "$bestand" --output "$uit" --timeout 60000
+    echo
+    echo "PDF staat in: presentaties/$uit"
+    ;;
+  *)
+    echo "Onbekende actie '$actie'. Kies: tonen, beelden of pdf." >&2
+    exit 1
+    ;;
+esac

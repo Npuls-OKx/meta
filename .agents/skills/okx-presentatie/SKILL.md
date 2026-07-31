@@ -15,10 +15,12 @@ De presentaties leven in [`presentaties/`](../../../presentaties/) in `Npuls-OKx
 
 ```bash
 cd presentaties
-npm install                              # eenmalig, als node_modules ontbreekt
 cp _template.md JJMMDD_onderwerp.md
-npx slidev JJMMDD_onderwerp.md --open
+./deck onderwerp            # start de server en toont de URL's
+./deck onderwerp beelden    # PNG per slide, om te controleren
 ```
+
+**Roep `npx slidev` niet rechtstreeks aan.** De dev-server bindt dan op `[::1]`, alleen IPv6-loopback binnen de dev-container, terwijl de poortforwarding via IPv4 verbindt: de browser blijft dan herladen. Het script zet de vlag die dat oplost. `./deck` zonder argumenten toont welke decks er zijn.
 
 Naamconventie `JJMMDD_onderwerp.md`, bijvoorbeeld `260731_update_kerngroep_techniek.md`. Voor de opbouw van slides, de `np-`-componentbibliotheek en de technische valkuilen: lees `clidev`. Die regels gelden hier onverkort.
 
@@ -83,14 +85,24 @@ Een werkbare basisvorm; wijk af waar de inhoud daarom vraagt.
 
 Voor programmamanagement schuiven 5 en 6 naar voren; voor de kerngroep techniek is 3 en 4 het zwaartepunt.
 
-## Voor je oplevert
+## Voor je oplevert: kijk er zelf naar
 
-- Draai het deck en kijk ernaar. Overflow zie je alleen in de browser.
-- Controleer of elke bewering in het deck terug te voeren is op iets in een van beide repositories. Verzin geen voortgang.
-- Meld de gebruiker het pad en het commando om het deck te openen.
+Een deck dat bouwt is niet hetzelfde als een deck dat klopt. Overflow, een tabel die te breed is, een kaart die uit beeld valt: dat zie je alleen door ernaar te kijken.
 
 ```bash
-npx slidev JJMMDD_onderwerp.md --open        # bekijken op localhost:3030
-npx slidev export JJMMDD_onderwerp.md        # PDF
-npx slidev export JJMMDD_onderwerp.md --format pptx
+./deck onderwerp beelden
+```
+
+Dat levert een PNG per slide in `export/`. **Open die afbeeldingen en bekijk ze**, in elk geval de slides met een tabel, een pipeline of veel tekst. Toon de gebruiker daarna een of twee ervan, zodat die het resultaat ziet zonder eerst een server te hoeven starten.
+
+Verder:
+
+- Controleer of elke bewering terug te voeren is op iets in een van beide repositories. Verzin geen voortgang.
+- Maak onderscheid tussen wat je uit de repositories hebt gehaald en wat je eigen inschatting is. Benoem dat laatste als zodanig, zodat de gebruiker het kan overrulen voordat hij het als standpunt presenteert.
+- Sluit af met het commando waarmee de gebruiker het deck opent.
+
+```bash
+./deck onderwerp            # bekijken op localhost:3030
+./deck onderwerp beelden    # PNG per slide
+./deck onderwerp pdf        # PDF
 ```

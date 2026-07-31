@@ -8,24 +8,30 @@ De aanleiding: die decks werden met de hand gemaakt terwijl alle informatie al i
 
 ```bash
 cd presentaties
-npm install                              # eenmalig, als node_modules ontbreekt
 cp _template.md JJMMDD_onderwerp.md
-npx slidev JJMMDD_onderwerp.md --open     # localhost:3030
+./deck onderwerp                          # start de server en toont de URL's
 ```
+
+`./deck` zonder argumenten toont welke decks er zijn. De naam mag een fragment zijn: `./deck adviesgroep` vindt `260803_adviesgroep.md`. Afhankelijkheden worden bij de eerste keer vanzelf geïnstalleerd.
+
+**Gebruik `npx slidev` niet rechtstreeks.** De dev-server bindt dan op `[::1]`, alleen IPv6-loopback binnen de dev-container, terwijl de poortforwarding van VS Code via IPv4 verbindt. De pagina komt dan niet door en de browser blijft herladen. Het script zet de vlag `--remote` die dat oplost.
 
 Met een agent: start `/presentatie`. Die volgt de skill [`okx-presentatie`](../.agents/skills/okx-presentatie/SKILL.md), vraagt voor welk gremium en welke periode, en verzamelt de wijzigingen uit beide repositories.
 
-Exporteren:
+Bekijken en exporteren:
 
 ```bash
-npx slidev export JJMMDD_onderwerp.md                  # PDF
-npx slidev export JJMMDD_onderwerp.md --format pptx
+./deck onderwerp beelden    # PNG per slide, om te controleren op overflow
+./deck onderwerp pdf        # PDF
 ```
+
+De uitvoer komt in `export/` en blijft buiten git.
 
 ## Wat er in deze map staat
 
 | Onderdeel | Rol |
 | --- | --- |
+| `deck` | Het enige commando dat je nodig hebt: tonen, beelden, pdf |
 | `_template.md` | Startpunt met werkende voorbeelden van elk slidetype |
 | `style.css` | Het designsysteem: Npuls-fonts, kleurtokens en de `np-`-componentbibliotheek |
 | `public/npuls/` | Achtergronden, illustraties, logo en lettertypen |

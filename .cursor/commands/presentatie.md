@@ -16,6 +16,10 @@ Daarna:
 - Bouw het deck met de `np-`-componenten uit `presentaties/style.css`; verzin geen losse inline-stijlen waar een class bestaat.
 - Sla het op in `presentaties/JJMMDD_onderwerp.md`, nooit in de Public-werkmap.
 
-Sluit af met het pad en het commando waarmee de gebruiker het deck opent.
+Sluit af met **het resultaat laten zien**, niet met een mededeling dat het klaar is:
+
+1. Draai `./deck <onderwerp> beelden` in `presentaties/`.
+2. Bekijk de afbeeldingen zelf, in elk geval de slides met een tabel of veel tekst; los overflow op voordat je oplevert.
+3. Toon de gebruiker een of twee slides, en geef daarna het commando `./deck <onderwerp>` om het deck zelf te openen.
 
 Verzin geen voortgang. Elke bewering in het deck moet terug te voeren zijn op iets in een van beide repositories; kun je iets niet staven, laat het weg of benoem het als open punt.
