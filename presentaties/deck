@@ -8,10 +8,11 @@
 # blijft herladen. De vlag --remote lost dat op, maar die moet je onthouden.
 # Dat is precies wat een script hoort weg te nemen.
 #
-#   ./deck                       toont welke decks er zijn
-#   ./deck adviesgroep           start de server en toont de URL's
-#   ./deck adviesgroep beelden   exporteert PNG's om te bekijken
-#   ./deck adviesgroep pdf       exporteert een PDF
+#   ./deck                        toont welke decks er zijn
+#   ./deck adviesgroep            start de server en toont de URL's
+#   ./deck adviesgroep statisch   bouwt en serveert zonder live-herladen
+#   ./deck adviesgroep beelden    exporteert PNG's om te bekijken
+#   ./deck adviesgroep pdf        exporteert een PDF
 #
 # De naam mag een fragment zijn: "adviesgroep" vindt 260803_adviesgroep.md.
 
@@ -31,7 +32,8 @@ toon_lijst() {
   echo "Beschikbare decks:"
   echo "$lijst" | sed 's/^/  /'
   echo
-  echo "Gebruik:  ./deck <naam>            start de server"
+  echo "Gebruik:  ./deck <naam>             start de server"
+  echo "          ./deck <naam> statisch   presenteren zonder live-herladen"
   echo "          ./deck <naam> beelden    exporteer PNG's"
   echo "          ./deck <naam> pdf        exporteer een PDF"
 }
@@ -74,6 +76,43 @@ case "$actie" in
     echo
     # --remote bindt op 0.0.0.0, zodat de poortforwarding erbij kan.
     exec npx slidev "$bestand" --port "$POORT" --remote
+    ;;
+  statisch)
+    # Voor presenteren. De dev-server houdt een websocket open om wijzigingen
+    # live door te voeren; als die verbinding niet tot stand komt, herlaadt de
+    # browser eindeloos. Een gebouwde versie heeft die websocket niet en is
+    # daarmee ongevoelig voor dat probleem.
+    uit="export/${bestand%.md}-statisch"
+    rm -rf "$uit"
+    npx slidev build "$bestand" --out "$uit" --base /
+    echo
+    echo "Deck:         $bestand  (statisch, geen live-herladen)"
+    echo "Presentatie:  http://localhost:$POORT/"
+    echo "Presenter:    http://localhost:$POORT/presenter/"
+    echo
+    echo "Stoppen met Ctrl-C."
+    echo
+    exec python3 - "$uit" "$POORT" <<'PY'
+import http.server, os, socketserver, sys
+map, poort = sys.argv[1], int(sys.argv[2])
+os.chdir(map)
+
+class SPA(http.server.SimpleHTTPRequestHandler):
+    def do_GET(self):
+        # Slidev bouwt een single-page app: /presenter/ en /overview/ bestaan
+        # niet als bestand en moeten door index.html worden afgehandeld.
+        pad = self.translate_path(self.path)
+        if not os.path.exists(pad) or os.path.isdir(pad) and not os.path.exists(os.path.join(pad, 'index.html')):
+            self.path = '/index.html'
+        return super().do_GET()
+
+    def log_message(self, *a):
+        pass
+
+socketserver.TCPServer.allow_reuse_address = True
+with socketserver.TCPServer(("0.0.0.0", poort), SPA) as s:
+    s.serve_forever()
+PY
     ;;
   beelden)
     uit="export/${bestand%.md}"

@@ -10,6 +10,10 @@ drawings:
   enabled: false
 transition: slide-left
 mdc: true
+# De huisstijl levert eigen fonts via style.css; geen Google Fonts ophalen.
+# Dat scheelt een blokkerende externe stylesheet in de head.
+fonts:
+  provider: none
 ---
 
 <!-- De huisstijl komt uit style.css in de projectroot; die wordt automatisch

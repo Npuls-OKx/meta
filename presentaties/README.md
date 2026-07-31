@@ -18,7 +18,17 @@ cp _template.md JJMMDD_onderwerp.md
 
 Met een agent: start `/presentatie`. Die volgt de skill [`okx-presentatie`](../.agents/skills/okx-presentatie/SKILL.md), vraagt voor welk gremium en welke periode, en verzamelt de wijzigingen uit beide repositories.
 
-Bekijken en exporteren:
+## Presenteren
+
+```bash
+./deck onderwerp statisch
+```
+
+Dit bouwt het deck en serveert het zonder live-herladen. Gebruik dit **als je gaat presenteren**, en ook als de gewone server in de browser blijft herladen: de dev-server houdt een websocket open om wijzigingen live door te voeren, en als die verbinding niet tot stand komt blijft de browser opnieuw laden. Een gebouwde versie heeft die websocket niet.
+
+Nadeel: wijzigingen in het bestand komen niet vanzelf door. Draai het commando opnieuw.
+
+## Bekijken en exporteren
 
 ```bash
 ./deck onderwerp beelden    # PNG per slide, om te controleren op overflow
@@ -31,7 +41,7 @@ De uitvoer komt in `export/` en blijft buiten git.
 
 | Onderdeel | Rol |
 | --- | --- |
-| `deck` | Het enige commando dat je nodig hebt: tonen, beelden, pdf |
+| `deck` | Het enige commando dat je nodig hebt: tonen, statisch, beelden, pdf |
 | `_template.md` | Startpunt met werkende voorbeelden van elk slidetype |
 | `style.css` | Het designsysteem: Npuls-fonts, kleurtokens en de `np-`-componentbibliotheek |
 | `public/npuls/` | Achtergronden, illustraties, logo en lettertypen |

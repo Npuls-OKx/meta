@@ -17,8 +17,11 @@ De presentaties leven in [`presentaties/`](../../../presentaties/) in `Npuls-OKx
 cd presentaties
 cp _template.md JJMMDD_onderwerp.md
 ./deck onderwerp            # start de server en toont de URL's
+./deck onderwerp statisch   # bouwen en serveren zonder live-herladen
 ./deck onderwerp beelden    # PNG per slide, om te controleren
 ```
+
+Blijft de browser herladen, wijs dan op `statisch`. De dev-server houdt een websocket open voor live wijzigingen; komt die verbinding niet tot stand, dan laadt de browser eindeloos opnieuw. De gebouwde versie heeft die websocket niet en is daarmee de betrouwbare keuze om mee te presenteren.
 
 **Roep `npx slidev` niet rechtstreeks aan.** De dev-server bindt dan op `[::1]`, alleen IPv6-loopback binnen de dev-container, terwijl de poortforwarding via IPv4 verbindt: de browser blijft dan herladen. Het script zet de vlag die dat oplost. `./deck` zonder argumenten toont welke decks er zijn.
 
