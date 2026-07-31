@@ -67,7 +67,7 @@ Het publiek bepaalt het abstractieniveau, niet de inhoud die toevallig voorhande
 | Gremium | Weet al | Wil weten | Toon en diepgang |
 |---|---|---|---|
 | **SI-team (intern)** | De hele context, het jargon, de historie | Wat is er af, wat loopt vast, waar is een besluit nodig | Kort en direct. Openstaande punten en blokkades voorop. Details mogen |
-| **Adviesgroep** | Onderwijskundig sterk; wisselend technisch. IM'ers uit instellingen brengen instellingscontext mee | Wat betekent dit voor het onderwijs en voor hun instelling | Begin bij de leerroute en de student, niet bij de payload. Leg technische termen uit bij eerste gebruik |
+| **Adviesgroep** | Onderwijskundig sterk; wisselend technisch. IM'ers uit instellingen brengen instellingscontext mee | Wat betekent dit voor het onderwijs en voor hun instelling | **Even informeel als bij de leiding, maar met meer uitleg.** Het is een interne groep vakgenoten: "jullie", korte zinnen, geen plechtigheid. Wel elke stap toelichten en bij de leerroute beginnen, niet bij de payload |
 | **Leveranciers** | Hun eigen systeem en de integratiepraktijk | Wat moeten wij straks bouwen, wanneer, en wat verandert er nog | Concreet over koppelvlakken en contracten. Wees expliciet over wat vaststaat en wat nog concept is |
 | **Kerngroep techniek OKx** | De keten en de architectuur | Klopt de richting, en is de kaderstelling ver genoeg om spec te starten | Diep. Besluiten, alternatieven en open punten. Toon de ankertabel en de payloads |
 | **Technische werkgroep OEAPI** | De OEAPI-standaard | Hoe verhoudt OKx zich tot OEAPI, en welke signaleringen komen eruit | Vergelijkend. Benoem waar we afwijken en waarom, en welke wijzigingsverzoeken richting OEAPI gaan |
@@ -75,6 +75,43 @@ Het publiek bepaalt het abstractieniveau, niet de inhoud die toevallig voorhande
 | **Instellingen** *(komt nog)* | De eigen onderwijspraktijk | Wat verandert er voor ons en wanneer | Nog niet uitgewerkt; stem af met de gebruiker |
 
 Twee regels die voor elk profiel gelden. Vertaal een wijziging altijd naar **wat er nu mogelijk is dat eerst niet kon** — niet naar "document X is bijgewerkt". En sluit af met wat je van dit gremium nodig hebt: een besluit, een review, of alleen kennisname.
+
+## Gebruik de termen uit de bron, niet je eigen omschrijving
+
+Systemen en begrippen hebben in OKx vaste namen. Verzin er geen vriendelijker klinkende variant bij: het publiek kent de echte term, en een eigen woord leest als een fout of als een nieuw begrip.
+
+De afkortingenlijst staat in de instap van [`Koppelvlakspecificaties/README.md`](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/README.md) in Npuls-OKx/Public. De kern:
+
+| Goed | Fout |
+|---|---|
+| Onderwijscatalogus (OC) | "de catalogus van het onderwijs" |
+| Planningssysteem en roostersysteem (P&R) | "planningstool" |
+| Leermanagementsysteem (LMS) | "leeromgeving" als het systeem bedoeld is |
+| Studentinformatiesysteem (SIS), dat is KRS plus SVS | "studentadministratie" |
+| Studentkeuzesysteem (SKS) | "keuzetool" |
+
+Twijfel je of een term bestaat: zoek hem op in de bron. Staat hij er niet, dan verzin je hem.
+
+## Show, don't tell: gebruik de bestaande platen
+
+OKx heeft architectuurplaten die het verhaal beter vertellen dan een opsomming. Gebruik ze, in plaats van een eigen diagram te tekenen dat er net naast zit.
+
+| Plaat | Waar | Waarvoor |
+|---|---|---|
+| Informatiestromen leerroute 1 | `Referentiemateriaal/kaderscenario's/img/OKx_LR1_informatiestromen_v20260526.jpg` in Npuls-OKx/Public | Wat er tussen de systemen beweegt. Er zijn ook acht uitsneden per procesfase (`_f1` tot `_f8`) |
+| De negen leerroutes | `.../img/npuls-leerroutes.png` | Waar leerroute 1 in het geheel past |
+| Jochem, leerroute 1 | `Referentiemateriaal/persona's/img/` | De student als rode draad |
+| Hoofdplaat informatiestromen | `architecture/model/informatiestromen hoofdplaat OKx/1.7/` in Npuls-OKx/meta | Het totaalbeeld van de keten |
+| Koppelvlak per component | `architecture/model/Koppelvlak views obv 1.7/` in Npuls-OKx/meta | Alle koppelingen van één systeem samen |
+| MORA-hoofdprocesmodel | `Referentiemateriaal/kaderscenario's/img/MORA_*.png` | Aansluiting op de sectorarchitectuur |
+
+Kopieer wat je gebruikt naar `presentaties/public/platen/` en verwijs ernaar met `/platen/<naam>`. Geef een brede plaat de hele slidebreedte:
+
+```html
+<img src="/platen/lr1-informatiestromen.jpg" style="width: 100%; max-height: 330px; object-fit: contain;" />
+```
+
+Zet er altijd een regel bij die zegt **waar de kijker naar moet kijken**. Een plaat zonder leeswijzer is decoratie.
 
 ## Neem tabellen, cijfers en citaten letterlijk over
 

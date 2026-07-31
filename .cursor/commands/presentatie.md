@@ -22,7 +22,9 @@ Daarna:
 - Vertaal elke wijziging naar wat er nu mogelijk is dat eerst niet kon.
 - Bouw het deck met de `np-`-componenten uit `presentaties/style.css`; verzin geen losse inline-stijlen waar een class bestaat.
 - **Neem tabellen, cijfers en citaten letterlijk over uit de bron.** Bouw een tabel nooit uit je hoofd na; open het bestand en kopieer hem. Een verzonnen kolom in een ankertabel ondermijnt het hele deck.
-- **Stem de toon af op het gremium.** Voor programma- en projectleiding: informeel en direct, alsof je het een collega vertelt. Geen plechtige formuleringen.
+- **Stem de toon af op het gremium.** Zowel programma- en projectleiding als de adviesgroep zijn interne gremia: informeel en direct, alsof je het een collega vertelt. Geen plechtige formuleringen. Het verschil zit in de **diepgang**, niet in de toon: de adviesgroep krijgt meer uitleg per stap, de leiding minder detail.
+- **Gebruik de termen uit de bron.** Verzin geen vriendelijker klinkende variant voor een systeem of begrip. Het is LMS, SIS (dat is KRS plus SVS), onderwijscatalogus; niet "leeromgeving" of "studentadministratie" als het systeem bedoeld is. Twijfel je: zoek de term op in de instap van Koppelvlakspecificaties.
+- **Show, don't tell.** OKx heeft architectuurplaten; gebruik die in plaats van een eigen diagram. De informatiestromenplaat van leerroute 1, de leerroutes, de hoofdplaat en de koppelvlakviews per component staan in beide repositories. Kopieer wat je gebruikt naar `presentaties/public/platen/` en zet er een regel bij die zegt waar de kijker naar moet kijken.
 - **Scheid feit van inschatting.** Wat uit de repositories komt is feit; wat jij ervan vindt is een oordeel. Meld aan het eind welke uitspraken van jou zijn.
 - Sla het op in `presentaties/JJMMDD_onderwerp.md`, nooit in de Public-werkmap.
 

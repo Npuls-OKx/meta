@@ -66,15 +66,15 @@ fonts:
 <div class="np-pipeline" style="margin-top: 1.1rem;">
   <div class="np-step blue" style="flex: 1; max-width: 190px;">
     <strong style="font-size: 0.95rem;">Planning en rooster</strong>
-    <small>Wanneer draait wat</small>
+    <small>Wanneer en waar het draait</small>
   </div>
   <div class="np-step orange" style="flex: 1; max-width: 190px;">
-    <strong style="font-size: 0.95rem;">Leeromgeving</strong>
+    <strong style="font-size: 0.95rem;">Leeromgeving (LMS)</strong>
     <small>Waar de student leert</small>
   </div>
   <div class="np-step green" style="flex: 1; max-width: 190px;">
-    <strong style="font-size: 0.95rem;">Studentadministratie</strong>
-    <small>Wat er is behaald</small>
+    <strong style="font-size: 0.95rem;">Studentsysteem (SIS)</strong>
+    <small>Inschrijving en resultaten</small>
   </div>
 </div>
 
