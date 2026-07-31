@@ -68,7 +68,33 @@ fonts:
 
 ---
 
-<!-- DE PLAAT -->
+<!-- HET TOTAALBEELD -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# Het totaalbeeld
+
+<p class="np-subtitle">De hoofdplaat informatiestromen, versie 1.7. Richtinggevend voor de architectuur; de plaat zelf staat nog op concept.</p>
+
+<img src="/platen/hoofdplaat-1.7.jpg" style="width: 100%; max-height: 335px; object-fit: contain; margin-top: 0.3rem;" />
+
+<p class="muted" style="font-size: 0.82rem; margin-top: 0.5rem;">
+Alle referentiecomponenten en de informatiestromen ertussen. De volgende plaat zoomt hierop in: leerroute 1, één scenario uit dit geheel.
+</p>
+
+</div>
+
+<!--
+Dit is de bron waar de architectuur op staat: versie 1.7, uit
+architecture/model/informatiestromen hoofdplaat OKx/1.7/ in Npuls-OKx/meta.
+Niet slide voor slide doorlopen; het doel is dat de zaal ziet dat het scenario
+op de volgende slide een uitsnede is en geen losse tekening.
+-->
+
+---
+
+<!-- DE SCENARIOPLAAT -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">

@@ -15,7 +15,7 @@
       "versie": "1.7",
       "toont": "Het totaalbeeld van de keten: alle referentiecomponenten en de informatiestromen ertussen.",
       "gebruik_bij": "Een publiek dat het geheel wil overzien voordat je inzoomt. Kerngroep techniek, leveranciers, technische werkgroep OEAPI.",
-      "let_op": "1.7 is leidend voor de architectuur. Afgeleide platen kunnen op een oudere versie stoelen; controleer het bijschrift in de hoek van zo'n plaat.",
+      "let_op": "1.7 is leidend voor de architectuur, maar draagt in de legenda zelf nog de aanduiding <concept>. Presenteer de plaat dus als richtinggevend, niet als vastgesteld. Afgeleide platen kunnen bovendien op een oudere versie stoelen; controleer het bijschrift in de hoek van zo'n plaat.",
       "hash": "b0636de0a49ce6bd"
     },
     {
