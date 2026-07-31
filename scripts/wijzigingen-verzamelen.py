@@ -56,9 +56,28 @@ def pull_requests(repo: str, sinds: str) -> list[dict]:
     return sorted(prs, key=lambda p: p["mergedAt"])
 
 
-def bestanden(pad: Path, sinds: str, branch: str = "dev") -> dict[str, list[str]]:
+def integratielijn(pad: Path) -> str | None:
+    """De ref die de integratielijn draagt: lokale dev, anders die van een remote.
+
+    Niet elke werkkopie heeft een lokale dev-branch; in Npuls-OKx/meta bestaat
+    alleen de remote variant. Zonder deze terugval levert het script stilzwijgend
+    nul bestanden op, wat eruitziet als "er is niets gebeurd".
+    """
+    if draai(["git", "rev-parse", "--verify", "--quiet", "dev"], cwd=pad).strip():
+        return "dev"
+    for remote in draai(["git", "remote"], cwd=pad).split():
+        ref = f"{remote}/dev"
+        if draai(["git", "rev-parse", "--verify", "--quiet", ref], cwd=pad).strip():
+            return ref
+    return None
+
+
+def bestanden(pad: Path, sinds: str) -> dict[str, list[str]]:
     """Toegevoegde en gewijzigde bestanden sinds een datum."""
     if not (pad / ".git").exists():
+        return {}
+    branch = integratielijn(pad)
+    if branch is None:
         return {}
     uit = draai(["git", "log", f"--since={sinds}", "--name-status",
                  "--pretty=format:", branch], cwd=pad)
