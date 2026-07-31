@@ -51,6 +51,8 @@ git -C /workspaces/OKx/Public   log --since=JJJJ-MM-DD --name-status --oneline d
 
 Staat een repository niet lokaal, val dan terug op de GitHub API via `gh`.
 
+**Stem de onderwerpen af voordat je schrijft.** Verzamel eerst, groepeer in drie tot zes onderwerpen met per onderwerp een zin over wat het betekent, en leg die lijst voor aan degene die het deck vraagt. Wat technisch de grootste wijziging is, is zelden waar het gesprek over moet gaan. Een repo-herindeling of een release-afspraak kan honderden bestanden raken en toch een voetnoot zijn, terwijl het inhoudelijke werk waar de sector op wacht in een paar documenten zit. Sorteer dus niet op omvang maar op **wat er voor dit gremium op het spel staat**. Alleen de aanvrager weet wat er op tafel moet. Noem er expliciet bij wat je zou weglaten.
+
 Lees niet alleen de commit-titels. Een titel zegt *wat* er is gewijzigd; een deck moet zeggen **wat het betekent**. Open de gewijzigde documenten en de pull request-beschrijvingen: daar staat de aanleiding en de afweging. Noem in het deck geen PR-nummers of bestandsnamen tenzij het publiek daar iets aan heeft.
 
 **Noem altijd om welke repository het gaat** als je een branch, pull request of issue noemt. Beide repositories hebben eigen nummering; `#7` alleen is dubbelzinnig.
@@ -66,10 +68,24 @@ Het publiek bepaalt het abstractieniveau, niet de inhoud die toevallig voorhande
 | **Leveranciers** | Hun eigen systeem en de integratiepraktijk | Wat moeten wij straks bouwen, wanneer, en wat verandert er nog | Concreet over koppelvlakken en contracten. Wees expliciet over wat vaststaat en wat nog concept is |
 | **Kerngroep techniek OKx** | De keten en de architectuur | Klopt de richting, en is de kaderstelling ver genoeg om spec te starten | Diep. Besluiten, alternatieven en open punten. Toon de ankertabel en de payloads |
 | **Technische werkgroep OEAPI** | De OEAPI-standaard | Hoe verhoudt OKx zich tot OEAPI, en welke signaleringen komen eruit | Vergelijkend. Benoem waar we afwijken en waarom, en welke wijzigingsverzoeken richting OEAPI gaan |
-| **Programmamanagement** | Programmadoelen en planning; **geen** inhoudelijke experts | Lopen we op schema, welke risico's zijn er, welk besluit wordt gevraagd | Business-taal. Geen payloads, geen ADR-nummers. Voortgang, risico's, beslispunten. Maximaal tien slides |
+| **Programma- en projectleiding** | Programmadoelen en planning; **geen** inhoudelijke experts | Lopen we op schema, welke risico's zijn er, welk besluit wordt gevraagd | **Informeel en direct**, alsof je het een collega vertelt. Korte zinnen, "ik" en "jullie", geen plechtige formuleringen. Geen payloads, geen ADR-nummers. Maximaal tien slides |
 | **Instellingen** *(komt nog)* | De eigen onderwijspraktijk | Wat verandert er voor ons en wanneer | Nog niet uitgewerkt; stem af met de gebruiker |
 
 Twee regels die voor elk profiel gelden. Vertaal een wijziging altijd naar **wat er nu mogelijk is dat eerst niet kon** — niet naar "document X is bijgewerkt". En sluit af met wat je van dit gremium nodig hebt: een besluit, een review, of alleen kennisname.
+
+## Neem tabellen, cijfers en citaten letterlijk over
+
+Bouw een tabel **nooit uit je hoofd na**. Open het bronbestand, kopieer de tabel, en kort daarna hooguit celteksten in met behoud van betekenis. Bij een ankertabel of een begrippenlijst is een verzonnen kolom of een weggelaten rij geen schoonheidsfoutje: het publiek toetst juist die tabel, en een fout ondermijnt het hele deck.
+
+Dat ging hier al een keer mis. Een ankertabel werd uit het geheugen nagemaakt met zeven kolommen in plaats van zes, vier rijen in plaats van zeven, verzonnen korte labels en een ontbrekende examenrij. Het zag er plausibel uit en klopte niet.
+
+Zelfde regel voor cijfers, data en citaten: haal ze uit de bron en controleer ze. Zet in de sprekersnotities waar iets vandaan komt, zodat het bij doorvragen na te lopen is.
+
+## Onderscheid feit en inschatting
+
+Wat uit de repositories komt is feit: aantallen open punten, deadlines, wat er gemerged is. Wat jij ervan vindt is een inschatting: of een deadline haalbaar is, waar het knelt, wat het grootste risico is.
+
+Beide mogen in een deck, maar niet door elkaar. Formuleer een inschatting als inschatting, en meld de aanvrager welke uitspraken van jou zijn, zodat die ze kan overrulen voordat hij ze als projectstandpunt presenteert.
 
 ## Opbouw van een update-deck
 

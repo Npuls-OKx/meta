@@ -2,11 +2,18 @@ Maak een OKx-presentatie of update-deck. $ARGUMENTS
 
 Volg de skill [`okx-presentatie`](../../.agents/skills/okx-presentatie/SKILL.md) stap voor stap.
 
-Vraag de gebruiker eerst om drie dingen, tenzij ze al uit de opdracht blijken:
+Vraag eerst **voor welk gremium** en **welke periode**, tenzij dat al uit de opdracht blijkt.
 
-1. **Voor welk gremium** — SI-team, adviesgroep, leveranciers, kerngroep techniek OKx, technische werkgroep OEAPI of programmamanagement. Dat bepaalt het abstractieniveau. Bij meerdere gremia: aparte decks, geen compromis.
-2. **Welke periode** — vanaf welke datum verzamel je de wijzigingen.
-3. **Waarvoor** — voortgangsupdate, besluitvraag of kennisoverdracht. Dat bepaalt waar het deck op uitkomt.
+## Inventariseer, en stem daarna af
+
+Ga niet meteen schrijven. Verzamel eerst wat er is gebeurd, en **leg de inhoud voor** aan degene die het deck vraagt:
+
+1. Draai `python3 scripts/wijzigingen-verzamelen.py --sinds JJJJ-MM-DD` en lees de pull request-beschrijvingen en de gewijzigde documenten.
+2. Groepeer wat je vindt in **drie tot zes onderwerpen**, met per onderwerp een zin over wat het betekent.
+3. Leg die lijst voor: *"dit zag ik gebeuren, hier wil ik het over hebben, klopt dat?"* Noem er expliciet bij wat je zou **weglaten** en waarom.
+4. Wacht op het antwoord. Wat technisch de grootste wijziging is, is zelden waar het gesprek over moet gaan; alleen de aanvrager weet wat er maandag op tafel moet.
+
+Pas als de onderwerpen vaststaan ga je schrijven.
 
 Daarna:
 
@@ -14,6 +21,9 @@ Daarna:
 - Groepeer per **thema**, niet per repository of per pull request.
 - Vertaal elke wijziging naar wat er nu mogelijk is dat eerst niet kon.
 - Bouw het deck met de `np-`-componenten uit `presentaties/style.css`; verzin geen losse inline-stijlen waar een class bestaat.
+- **Neem tabellen, cijfers en citaten letterlijk over uit de bron.** Bouw een tabel nooit uit je hoofd na; open het bestand en kopieer hem. Een verzonnen kolom in een ankertabel ondermijnt het hele deck.
+- **Stem de toon af op het gremium.** Voor programma- en projectleiding: informeel en direct, alsof je het een collega vertelt. Geen plechtige formuleringen.
+- **Scheid feit van inschatting.** Wat uit de repositories komt is feit; wat jij ervan vindt is een oordeel. Meld aan het eind welke uitspraken van jou zijn.
 - Sla het op in `presentaties/JJMMDD_onderwerp.md`, nooit in de Public-werkmap.
 
 Sluit af met **het resultaat laten zien**, niet met een mededeling dat het klaar is:
