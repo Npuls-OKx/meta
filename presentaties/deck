@@ -77,8 +77,17 @@ class SPA(http.server.SimpleHTTPRequestHandler):
     def log_message(self, *a):
         pass
 
-socketserver.TCPServer.allow_reuse_address = True
-with socketserver.TCPServer(("0.0.0.0", poort), SPA) as s:
+# Threading is hier geen luxe. Een TCPServer bedient een verbinding tegelijk en
+# blijft in readline() hangen zolang een socket open is zonder verzoek. De
+# poortforwarding van VS Code doet precies dat: verbindingen alvast openen. De
+# server bedient dan niets meer, de browser krijgt index.html wel maar de
+# modules niet, en je kijkt naar een wit scherm. Binnen de container valt het
+# niet op, want curl en een headless browser sturen meteen hun verzoek.
+class Server(socketserver.ThreadingTCPServer):
+    allow_reuse_address = True
+    daemon_threads = True
+
+with Server(("0.0.0.0", poort), SPA) as s:
     s.serve_forever()
 PY
 }
