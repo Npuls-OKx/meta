@@ -249,6 +249,12 @@ code {
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
+  /* Een flex-item krijgt van zichzelf min-width: auto en krimpt dus niet onder
+     zijn langste woord. Systeemnamen als "Studentinformatiesysteem" steken dan
+     dwars door de kaartrand heen. min-width: 0 laat het item wel krimpen,
+     overflow-wrap breekt het woord als het dan nog niet past. */
+  min-width: 0;
+  overflow-wrap: break-word;
 }
 .np-step small { font-weight: 400; color: var(--np-mid-gray); font-size: 0.72rem; }
 .np-step.blue   { border-top: 4px solid var(--np-blue); }

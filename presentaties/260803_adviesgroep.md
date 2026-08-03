@@ -336,9 +336,9 @@ Complicatie: dezelfde leeruitkomst kan over meerdere onderdelen verdeeld zijn, e
 <div class="np-grid-2" style="margin-top: 0.6rem; align-items: start;">
   <div class="np-card accent-blue">
     <span class="np-badge blue">Waar het staat</span>
-    <h3 style="margin-top: 0.5rem;">Werkplaats en etalage</h3>
+    <h3 style="margin-top: 0.5rem;">Private source en public source</h3>
     <p class="muted" style="font-size: 0.87rem; margin: 0.3rem 0 0; line-height: 1.6;">
-      Concepten en discussie staan apart van wat gepubliceerd is. Wat doorgestuurd wordt naar een collega of een instelling, komt uit het <strong>publieke</strong> repository. Daar staat geen halffabricaat tussen.
+      Concepten en discussie staan in de <strong>private source</strong>, apart van wat gepubliceerd is. Wat doorgestuurd wordt naar een collega of een instelling, komt uit de <strong>public source</strong>. Daar staat geen halffabricaat tussen.
     </p>
   </div>
   <div class="np-card accent-green">
@@ -355,6 +355,45 @@ Waarom dit ertoe doet: zodra dit materiaal naar leveranciers gaat, moet aan het 
 </p>
 
 </div>
+
+---
+
+<!-- DE DRIE PLEKKEN IN BEELD -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# Dezelfde scheiding, in beeld
+
+<p class="np-subtitle">Waar een stuk tekst staat, bepaalt wat het waard is.</p>
+
+<div style="display: grid; grid-template-columns: 1.25fr 1fr; gap: 1.3rem; align-items: center; margin-top: 0.3rem;">
+
+  <div style="background: #141414; border-radius: 14px; overflow: hidden; line-height: 0;">
+    <img src="/platen/repo-setup.jpg" style="width: 100%; max-height: 300px; object-fit: contain; display: block;" />
+  </div>
+
+  <div style="font-size: 0.86rem; line-height: 1.6;">
+    <p style="margin: 0 0 0.7rem;"><strong>Drie kolommen, van links naar rechts.</strong> Links de <strong>private source</strong>: planning en achtergrondmateriaal. In het midden de <strong>public source</strong>: waar de specificaties geschreven en gereviewd worden. Rechts de <strong>public release</strong>: de pakketten die naar buiten gaan.</p>
+    <p style="margin: 0 0 0.7rem; color: var(--np-dark-gray);">Wat de adviesgroep leest en becommentarieert staat in de middelste kolom. Het is dus openbaar, maar nog niet vrijgegeven.</p>
+    <p style="margin: 0; color: var(--np-dark-gray);">Pas rechts krijgt materiaal een versielabel en de toezegging dat het blijft staan.</p>
+  </div>
+
+</div>
+
+<div class="np-bottomline" style="margin-top: 0.9rem;">
+  Commentaar is het meest waard <strong>vóór</strong> de rechterkolom. Daarna kost een wijziging een nieuwe versie.
+</div>
+
+</div>
+
+<!--
+De plaat komt uit Werkwijze/src/ in Npuls-OKx/Public, naast zijn drawio-bron.
+
+Voor dit gremium is de kern niet de repo-indeling maar het moment: meelezen en
+reageren heeft effect zolang iets in de middelste kolom staat. Wie daarop
+doorvraagt: de release-afspraken staan in Algemeen/release-management/.
+-->
 
 ---
 

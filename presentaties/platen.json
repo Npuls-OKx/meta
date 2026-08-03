@@ -206,8 +206,21 @@
       "versie": "-",
       "toont": "Hoe een wijziging via een feature branch en dev naar een releasepakket loopt, met de rollen erbij.",
       "gebruik_bij": "Release management uitleggen aan wie wil weten hoe iets naar buiten komt.",
-      "let_op": "Vrij technisch. Voor programmaleiding meestal te veel detail; vertel daar liever het principe.",
-      "hash": "c2c62d3a557ec436"
+      "let_op": "Vrij technisch. Voor programmaleiding meestal te veel detail; vertel daar liever het principe. De export heeft bovendien een transparante achtergrond met witte pijlen en witte groepslabels: op een lichte slide vallen de verbindingen weg. Zet de plaat op een donker vlak, of laat hem staan tot de bron opnieuw is geexporteerd.",
+      "hash": "c2c62d3a557ec436",
+      "kopie": "branching.png"
+    },
+    {
+      "naam": "repo-setup",
+      "titel": "Project- en reposetup",
+      "bron": "Npuls-OKx/Public",
+      "pad": "Werkwijze/src/project_en_repo_setup.jpg",
+      "versie": "-",
+      "toont": "De drie containers naast elkaar: private source (interne planning en referentiemateriaal), public source (het bronmateriaal van de releasepakketten, met CI/CD en documentatie) en public release (de pakketten waarmee een implementeerder bouwt). Met de rollen erboven: OKx Techniek, public contributor en public implementer.",
+      "gebruik_bij": "De vraag waar het materiaal staat en wat er uiteindelijk uitkomt. Sterk bij programmaleiding en adviesgroep, omdat de plaat de begrippen private source en public source zelf benoemt in plaats van dat je ze moet uitleggen.",
+      "let_op": "De jpeg heeft een donkere achtergrond die in het bestand zit. Op een lichte slide leest hij als een donker blok; zet hem in een omhulsel met afgeronde hoeken zodat dat een keuze lijkt en geen ongeluk. De bron is een drawio-bestand; wijzigt dat, dan moet de jpeg opnieuw geexporteerd worden.",
+      "hash": "cbd896d0c11ecbeb",
+      "kopie": "repo-setup.jpg"
     }
   ],
   "overslaan": [

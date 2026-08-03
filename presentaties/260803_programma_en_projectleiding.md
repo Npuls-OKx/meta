@@ -64,16 +64,16 @@ fonts:
 <p class="np-subtitle">De kern van het werk: hoe de systemen binnen een instelling onderwijs aan elkaar doorgeven.</p>
 
 <div class="np-pipeline" style="margin-top: 1.1rem;">
-  <div class="np-step blue" style="flex: 1; max-width: 190px;">
-    <strong style="font-size: 0.95rem;">Planning en rooster</strong>
+  <div class="np-step blue" style="flex: 1 1 0; max-width: 270px;">
+    <strong style="font-size: 0.88rem;">Planning en rooster</strong>
     <small>Wanneer en waar het draait</small>
   </div>
-  <div class="np-step orange" style="flex: 1; max-width: 190px;">
-    <strong style="font-size: 0.95rem;">Leermanagementsysteem</strong>
+  <div class="np-step orange" style="flex: 1 1 0; max-width: 270px;">
+    <strong style="font-size: 0.88rem;">Leermanagementsysteem</strong>
     <small>Waar de student leert</small>
   </div>
-  <div class="np-step green" style="flex: 1; max-width: 190px;">
-    <strong style="font-size: 0.95rem;">Studentinformatiesysteem</strong>
+  <div class="np-step green" style="flex: 1 1 0; max-width: 270px;">
+    <strong style="font-size: 0.88rem;">Studentinformatiesysteem</strong>
     <small>Inschrijving en resultaten</small>
   </div>
 </div>
@@ -126,9 +126,9 @@ Die aanpak scheelt werk en houdt de specificaties consistent: wat voor de reguli
   </div>
   <div class="np-card accent-green">
     <span class="np-badge green">Twee repositories</span>
-    <h3 style="margin-top: 0.5rem;">Werkplaats en etalage</h3>
+    <h3 style="margin-top: 0.5rem;">Private source en public source</h3>
     <p class="muted" style="font-size: 0.88rem; margin: 0.3rem 0 0; line-height: 1.6;">
-      Concepten en discussie staan apart van wat gepubliceerd is. Wat naar een instelling gaat, komt uit het publieke repository; daar zit geen halffabricaat tussen.
+      De <strong>private source</strong> draagt de concepten en de discussie, de <strong>public source</strong> de artefacten waarmee een instelling of leverancier bouwt. Wat naar buiten gaat komt uit de public source; daar zit geen halffabricaat tussen.
     </p>
   </div>
 </div>
@@ -138,6 +138,50 @@ Allebei saai, allebei nodig. Zonder deze twee kan er niets naar buiten zonder he
 </p>
 
 </div>
+
+---
+
+<!-- WERKWIJZE PROJECT- EN REPOSETUP -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# Van bron naar releasepakket
+
+<p class="np-subtitle">De werkwijze achter release management: drie plekken, elk met een eigen publiek.</p>
+
+<div style="display: grid; grid-template-columns: 1.25fr 1fr; gap: 1.3rem; align-items: center; margin-top: 0.3rem;">
+
+  <div style="background: #141414; border-radius: 14px; overflow: hidden; line-height: 0;">
+    <img src="/platen/repo-setup.jpg" style="width: 100%; max-height: 300px; object-fit: contain; display: block;" />
+  </div>
+
+  <div style="font-size: 0.86rem; line-height: 1.6;">
+    <p style="margin: 0 0 0.7rem;"><strong>Lees de plaat van links naar rechts.</strong> De <strong>private source</strong> draagt interne planning en referentiemateriaal, de <strong>public source</strong> het bronmateriaal van de releasepakketten, en de <strong>public release</strong> de pakketten zelf.</p>
+    <p style="margin: 0 0 0.7rem; color: var(--np-dark-gray);">Rechts staat wat er uiteindelijk uitkomt: de koppelvlakspecificatie, de OEAPI-profielen en de leerroute-implementatie.</p>
+    <p style="margin: 0; color: var(--np-dark-gray);">De rollen erboven bepalen wie waar bij kan. Een <strong>implementeerder</strong> raakt alleen de rechterkolom; een <strong>contributor</strong> van buiten draagt bij aan de public source.</p>
+  </div>
+
+</div>
+
+<div class="np-bottomline" style="margin-top: 0.9rem;">
+  Alles links van de release is <strong>werk in uitvoering</strong>. Dat onderscheid is precies waarom de scheiding er ligt.
+</div>
+
+</div>
+
+<!--
+De plaat komt uit Werkwijze/src/ in Npuls-OKx/Public, naast zijn drawio-bron.
+
+Bij doorvragen over hoe een wijziging de release in komt: dat staat in
+Release-management-algemeen.md, hoofdstuk 6 Releaseproces, met de rollentabel,
+de zes processtappen en de branchstrategie in 6.1. Die branching-plaat staat in
+het manifest onder de naam 'branching' en kan er desgewenst naast.
+
+Feitelijk: de drie containers en de rollen staan zo in de plaat. Inschatting:
+dat een implementeerder alleen de rechterkolom raakt is de bedoeling van de
+opzet, niet iets wat technisch is afgedwongen.
+-->
 
 ---
 
