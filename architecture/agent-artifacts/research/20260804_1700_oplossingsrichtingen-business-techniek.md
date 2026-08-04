@@ -115,7 +115,211 @@ Het scenario wordt uitvoerbaar. Een happy flow en een faalpad worden geschreven 
 
 ---
 
-## 3. Wat is afgevallen, en waarom voor OKx
+## 3. Hoe dat er in de praktijk uitziet
+
+Eén informatiestroom, helemaal uitgewerkt: van processtap tot endpoint. Alles hieronder gebruikt materiaal dat al bestaat; alleen de verbindingen zijn nieuw.
+
+### De keten
+
+```mermaid
+flowchart TB
+  subgraph business["Businesslaag - hier ontstaat het ID"]
+    P["LR1-F2<br/>processtap<br/>Publiceren en planbaar maken"]
+    IO["IO-onderwijsspecificatie<br/>informatie-object<br/>ankertabel kolom 3"]
+    U["U4<br/>uitgangspunt<br/>notify-then-pull"]
+  end
+
+  subgraph koppeling["Koppellaag - hier wordt het opgepakt"]
+    S["S02<br/>informatiestroom<br/>OC naar Planning"]
+    I["I1<br/>interactie<br/>Specificatie planbaar melden"]
+  end
+
+  subgraph techniek["Technieklaag - hier landt het"]
+    SC["onderwijsspecificatie.json<br/>schema"]
+    EP["GET onderwijsspecificaties per id<br/>endpoint"]
+  end
+
+  T["S02-specificatie-planbaar.feature<br/>scenario als test"]
+
+  P --> S
+  IO --> S
+  U --> I
+  S --> I
+  I --> SC
+  I --> EP
+  T -. toetst .-> I
+  T -. toetst .-> EP
+```
+
+### Waar het ID wordt vastgelegd
+
+Twee regels, en meer is het niet:
+
+- **Declaratie** — het ID staat in het document dat het ding *bezit*, direct onder de kop waar het gedefinieerd wordt.
+- **Verwijzing** — elk document verderop in de keten noemt het ID van waar het op steunt.
+
+| Wat | ID | Gedeclareerd in | Bestaat al? |
+|---|---|---|---|
+| Processtap | `LR1-F2` | Kaderscenario leerroute 1, kop van fase 2 | de fase wel, het ID niet |
+| Informatie-object | `IO-onderwijsspecificatie` | Begrippenkader, ankertabel kolom 3 | het object wel, het ID niet |
+| Uitgangspunt | `U4` | [`uitgangspunten.md`](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md) | **ja** |
+| Informatiestroom | `S02` | Informatiestromenregister | nee, dat register bestaat nog niet |
+| Interactie | `I1` | Koppelingspecificatie §3 Interactieoverzicht | **ja** |
+| Schema | `$id` | [`Datamodelschema's/onderwijsspecificatie.json`](https://github.com/Npuls-OKx/Public/blob/feature/datamodellen/Koppelvlakspecificaties/Datamodelschema's/onderwijsspecificatie.json) ([PR 9](https://github.com/Npuls-OKx/Public/pull/9)) | **ja** |
+| Endpoint | `operationId` | `Referentiecomponenten/onderwijscatalogus.md` ([PR 9](https://github.com/Npuls-OKx/Public/pull/9)) | nog niet als ID |
+| Scenario | tag `@S02` | `.feature`-bestand | nee |
+
+**Dat is het belangrijkste inzicht: we hebben drie van de acht al.** `U4` staat in de uitgangspunten, `I1` tot en met `I5` staan in de interactietabel, en de schema's dragen een `$id`. Het werk is niet ID's verzinnen — het is de bestaande aan elkaar knopen en de ontbrekende toevoegen.
+
+### Wat je letterlijk typt
+
+In [`uitgangspunten.md`](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md), onder de bestaande kop:
+
+```markdown
+## U4. Notify-then-pull
+`req~u4-notify-then-pull~1`
+
+De bezitter van een resource publiceert een event zodra er iets te melden valt.
+
+Needs: stroom
+```
+
+In het informatiestromenregister:
+
+```markdown
+### S02 - Onderwijscatalogus naar planning en roostering
+`stroom~s02-oc-naar-planning~1`
+
+Covers:
+- req~u4-notify-then-pull~1
+
+Needs: interactie
+```
+
+In de koppelingspecificatie, bij interactie I1 die er al staat:
+
+```markdown
+### I1 - Specificatie planbaar melden
+`interactie~i1-specificatie-planbaar~1`
+
+Covers:
+- stroom~s02-oc-naar-planning~1
+
+Needs: schema, test
+```
+
+In het schema, als gewone JSON-sleutel naast het `$id` dat er al staat:
+
+```json
+{
+  "$id": "https://okx.npuls.nl/schema/onderwijsspecificatie/alfa",
+  "$comment": "[schema->interactie~i1-specificatie-planbaar~1]"
+}
+```
+
+En het scenario, in het Nederlands:
+
+```gherkin
+# language: nl
+# [test->interactie~i1-specificatie-planbaar~1]
+Functionaliteit: Specificatie planbaar melden
+
+  Scenario: Planning haalt de specificatie op na een planbaar-melding
+    Gegeven de onderwijscatalogus heeft de opleidingsspecificatie Apothekersassistent gepubliceerd
+    Wanneer de onderwijscatalogus meldt dat die specificatie planbaar is
+    Dan ontvangt het planningssysteem een event met alleen het specificatie-id en de versie
+    En haalt het planningssysteem de volledige specificatie zelf op
+```
+
+Die laatste vier regels zijn tegelijk de **specificatie** van wat U4 betekent op deze koppeling, de **test** die dat toetst, en de **uitleg** die een leverancier leest. Dat is waar richting C over gaat.
+
+### Wat de controle in CI dan doet
+
+Drie dingen, en ze falen alle drie de build:
+
+1. **Elke declaratie is gedekt.** Staat er een `Needs: interactie` bij `S02` en verwijst geen enkele interactie ernaar, dan is de stroom niet belegd. Dat is de controle die de businesslaag levend houdt — precies wat bij VNG ontbrak.
+2. **Elke verwijzing wijst naar iets dat bestaat.** Een typefout of een hernoemd uitgangspunt komt eruit als dode verwijzing, niet als stille drift.
+3. **Het versienummer achter het ID doet het werk bij wijzigingen.** Verander je U4 wezenlijk, dan wordt het `req~u4-notify-then-pull~2`. Alles wat nog naar `~1` verwijst valt om, en je krijgt een lijst van precies wat je moet nalopen. Dat is het antwoord op de vraag die we ons nu niet kunnen stellen: *als ik dit uitgangspunt wijzig, wat raak ik dan?*
+
+### En de platen?
+
+Een plaat hangt aan hetzelfde ID. Het informatiestromenregister is de plek waar de plaat en de techniek elkaar raken: elke stroom in het register krijgt een regel met van, naar, het informatie-object en de interactie die hem realiseert. De uitsneden per procesfase die we al hebben (`_f1` tot en met `_f8` bij leerroute 1) zijn dan geen losse afbeeldingen meer maar de visuele weergave van een rij stromen — en het register zegt welke.
+
+Dat maakt de plaat toetsbaar: elk componentpaar dat in een kaderscenario in een blok *Wat licht op in de plaat* voorkomt, moet als stroom in het register staan. Doet het dat niet, dan is er iets getekend dat nergens is belegd, of andersom.
+
+---
+
+## 4. AMIGO-eisen: wat we aftikken en wat niet
+
+### Waar het risico echt zit
+
+AMIGO staat [in ROSA geregistreerd als Requirement met gebruiksadvies "Verplicht"](https://rosa.wikixl.nl/index.php/Id-2efe8b23fa1041ab955597e8f684c1d5). Toch is niet-voldoen geen directe blokkade: de sector hanteert **comply or explain**, en het [Adviesdocument samenhang koppelvlakkenarchitectuur](https://rosa.wikixl.nl/index.php/Adviesdocument_samenhang_koppelvlakkenarchitectuur) beveelt AMIGO juist op die manier aan. Een gat is dus toegestaan, mits uitgelegd.
+
+De echte risico's zijn praktisch, en er zijn er drie:
+
+| Risico | Waarom het pijn doet |
+|---|---|
+| **Zonder interfacespecificatie is de afsprakenset per definitie niet "bouwbaar"** | Dat is AMIGO's eigen doelstelling. Een leverancier kan er nu niets mee bouwen zonder zelf keuzes te verzinnen |
+| **Zonder vocabulairespecificatie kunnen twee implementaties allebei "voldoen" en toch niet koppelen** | Ze gebruiken andere waardenlijsten. Dit is exact het probleem dat UWLR de kop kostte |
+| **Zonder mapping op de Edukoppeling-transactiepatronen riskeren we herwerk** | We specificeren nu messaging-patronen uit Enterprise Integration Patterns terwijl de sector er al drie heeft afgesproken: Request-Response, Melding-Bevestiging, Asynchrone uitwisseling |
+
+### De vijf onderdelen van de specificatie (§3, p.7)
+
+| Onderdeel | Status | Wat ontbreekt |
+|---|---|---|
+| Scenariobeschrijving | **Deels** | Inhoudelijk compleet, maar het voorgeschreven artefact — het ArchiMate-model — staat in meta en is voor een externe lezer onbereikbaar |
+| Berichtspecificatie | **Gedekt** | JSON Schema is een expliciet toegestane vorm |
+| Vocabulairespecificatie | **Ontbreekt** | Geen enkele waardenlijst of codelijst in Public |
+| Interactiespecificatie | **Gedekt** | Onze sterkste stap: sequentiediagrammen met faalpaden |
+| Interfacespecificatie | **Ontbreekt** | Nul OpenAPI-bestanden. Bewust uitgesteld en zo benoemd |
+
+### De zes stappen en hun modeltaal (§6, p.16)
+
+Let op het onderscheid dat de bron zelf maakt: stap 1 tot en met 3 schrijven `"vorm:"` — één taal, dwingend. Stap 5 en 6 schrijven `"mogelijke vormen:"` — niet-limitatief. Onze vrijheid is aan de technische kant dus groter dan aan de analysekant.
+
+| Stap | Voorgeschreven vorm | Status | Toelichting |
+|---|---|---|---|
+| 1 Scenario-analyse | ArchiMate | **Deels** | Model bestaat, staat in de verkeerde repository |
+| 2 Gegevensanalyse | UML-klassendiagram | **Deels** | Mermaid-ERD per koppeling in plaats van één zelfstandig logisch model; geen aantoonbaar hergebruik van de ROSA-gegevenscatalogus; vocabulaireselectie ontbreekt |
+| 3 Interactie-analyse | UML-sequence plus klassendiagram per bericht | **Deels** | Sequentiediagrammen zijn er; klassendiagram per bericht niet, en de patronen zijn niet op Edukoppeling gemapt |
+| 4 Technologiekeuze | keuze plus rationale | **Deels** | REST is impliciet, nergens als expliciete uitkomst met afweging vastgelegd |
+| 5 Berichtspecificatie | JSON Schema toegestaan | **Gedekt** | |
+| 6 Interfacespecificatie | OAS toegestaan | **Ontbreekt** | |
+
+### De normatieve modelketen (§5.4, p.15) en de leidraden
+
+| Eis | Status | Toelichting |
+|---|---|---|
+| Technische modellen **gegenereerd** uit logische modellen | **Ontbreekt** | Wij doen het omgekeerd: schema met de hand, leesweergaven eruit |
+| **Traceerbaarheidsrelaties** tussen de modellen | **Ontbreekt** | Dit is de helft van §5.4 die we wél kunnen halen zonder generatieketen |
+| G1 — interacties uit Edukoppeling-transactiepatronen | **Ontbreekt** | Edukoppeling komt in heel Public niet voor |
+| G2 — notificatie zonder inhoud, afnemer haalt zelf op | **Gedekt** | Dit is letterlijk onze U4, zelfstandig afgeleid zonder de bron te noemen |
+| G4 — stabiele identifiers plus versie-informatie | **Gedekt** | Dit is onze U7-sleutelconventie, idem |
+| Hoofdstuk 7 — Certificeringsschema/BIV, mandatering, ECKiD en eduID | **Ontbreekt** | Geen van deze bouwblokken komt in Public voor |
+
+### Wat elke richting hieraan bijdraagt
+
+| | Richting A — ID | Richting B — Model | Richting C — Test |
+|---|---|---|---|
+| Traceerbaarheidsrelaties (§5.4) | **Vult dit precies in** | vult het ook in, via generatie | nee |
+| Generatie logisch naar technisch (§5.4) | nee | **de enige die dit haalt** | nee |
+| Scenariobeschrijving in ArchiMate | nee | deels | nee |
+| Interactiespecificatie toetsbaar maken | deels | nee | **ja** |
+| Vocabulairespecificatie | nee | nee | nee |
+| Interfacespecificatie | nee | nee | nee |
+| Edukoppeling-patronen | nee | nee | nee |
+
+Drie dingen springen daaruit:
+
+**Richting A is de goedkoopste route naar het enige deel van §5.4 dat binnen bereik ligt.** AMIGO vraagt twee dingen: generatie *en* traceerbaarheidsrelaties. De generatie kost een modelketen die we nu niet kunnen dragen; de traceerbaarheidsrelaties kosten twee regels notatie per eis. Met richting A voldoen we aan de helft, aantoonbaar, en kunnen we de andere helft uitleggen — precies wat comply-or-explain vraagt.
+
+**Geen enkele richting vult de vocabulaire- en interfacespecificatie.** Dat is inhoudelijk werk dat sowieso moet gebeuren, ongeacht welke kant we op gaan. Het is goed dat scherp te hebben voordat iemand denkt dat een gereedschapskeuze die gaten dicht.
+
+**Drie gaten zijn vrijwel gratis te dichten**, los van elke richting: het ArchiMate-model exporteren naar Public, U4 en U7 laten verwijzen naar G2 en G4, en de messaging-patronen naast de drie Edukoppeling-transactiepatronen leggen. Samen een dag werk, en het haalt drie regels van "ontbreekt" naar "gedekt".
+
+---
+
+## 5. Wat is afgevallen, en waarom voor OKx
 
 | Optie | Waarom niet |
 |---|---|
@@ -135,7 +339,7 @@ Eén optie is **niet** afgevallen maar apart gezet: [NL-ReSpec](https://github.c
 
 ---
 
-## 4. Mijn voorkeur
+## 6. Mijn voorkeur
 
 **C als ruggengraat, A als bindweefsel, B gefaseerd — en het ArchiMate-besluit nú los trekken.**
 
@@ -171,7 +375,7 @@ De **vocabulairespecificatie** en de **interfacespecificatie** ontbreken; geen v
 
 ---
 
-## 5. Om zelf te bekijken vóór het besluit
+## 7. Om zelf te bekijken vóór het besluit
 
 Zeven dingen, ongeveer een uur, in deze volgorde:
 
@@ -187,7 +391,7 @@ Voor wie dieper wil: de [AMIGO-methodiek v1.1.0](https://www.edustandaard.nl/app
 
 ---
 
-## 6. De vraag die voorligt
+## 8. De vraag die voorligt
 
 **Welke richting draagt bij OKx de koppeling tussen business en techniek: het ID, het model, of de test?**
 
