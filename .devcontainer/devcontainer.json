@@ -44,7 +44,6 @@
       // Claude Code (Anthropic.claude-code): na Rebuild inloggen via de extensie (OAuth of API key).
       "extensions": [
         "DavidAnson.vscode-markdownlint",
-        "bierner.markdown-mermaid",
         "ms-python.python",
         "Anthropic.claude-code"
       ]
