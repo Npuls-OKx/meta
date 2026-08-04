@@ -23,4 +23,12 @@ Een verslag is invoer voor een **architectuurbesluit**. Het besluit zelf en de a
 
 De drie verslagen bij issue #130 horen bij elkaar: AMIGO zegt wat er gemaakt moet worden, de praktijk laat zien welke koppelmechanismen het volhouden, en het gereedschapsverslag toetst wat daarvan bij onze randvoorwaarden past.
 
+## Ter besluitvorming
+
+| Document | Waarvoor |
+| --- | --- |
+| [Oplossingsrichtingen business en techniek](20260804_1700_oplossingsrichtingen-business-techniek.md) | Samenvatting van de drie verslagen tot drie oplossingsrichtingen, met wat er afviel, een voorkeur, en een leeslijst om zelf te bekijken vóór het besluit |
+
+Dit is geen vierde verslag maar de **synthese**: het vat samen wat de drie verslagen betekenen voor een keuze. Het besluit zelf hoort daarna in een ADR.
+
 Bestandsnaam en documentconventies: zie de [agent-artifacten-README](../README.md).
