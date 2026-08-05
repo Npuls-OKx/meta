@@ -27,6 +27,11 @@
       "doel": "De standaard productketen: requirements opstellen, uitwerken, onafhankelijke review door tester en specialist, itereren tot de review past, agent-rapport."
     },
     {
+      "naam": "okx-requirements-boom",
+      "type": "okx-specifiek",
+      "doel": "Vaste opbouw en conventies voor de requirementsboom (opdracht, epics, features, stories): laagdefinities, tabelformats, bronplicht, aansluiting op koppelingspecificaties, omvangslimieten en reviewerchecklist."
+    },
+    {
       "naam": "okx-requirements-tester",
       "type": "okx-specifiek",
       "doel": "Onafhankelijke tester: toetst een uitwerking eis-voor-eis tegen de requirements en acceptatiecriteria, in een verse subagent-context."
