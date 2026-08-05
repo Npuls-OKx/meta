@@ -1,0 +1,22 @@
+{
+  "name": "okx-presentaties",
+  "version": "1.0.0",
+  "description": "Presentaties over de voortgang van OKx, in de Npuls huisstijl, gegenereerd uit de OKx-repositories.",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "dev": "./deck",
+    "beelden": "./deck",
+    "export": "./deck"
+  },
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@iconify-json/carbon": "^1.2.19",
+    "@iconify-json/logos": "^1.2.10",
+    "@iconify-json/mdi": "^1.2.3",
+    "@slidev/cli": "^52.14.1",
+    "@slidev/theme-default": "^0.25.0",
+    "@unocss/reset": "^66.6.6",
+    "playwright-chromium": "^1.61.0"
+  }
+}

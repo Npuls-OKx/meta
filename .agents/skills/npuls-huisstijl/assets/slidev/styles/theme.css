@@ -1,0 +1,131 @@
+/* Npuls Slidev theme — afgeleid van Npuls_powerpoint-template.potx */
+
+:root {
+  /* Primary palette */
+  --npuls-orange: #DD784B;
+  --npuls-black:  #000000;
+  --npuls-pink:   #F4D9DC;
+  --npuls-blue:   #3D68EC;
+  --npuls-yellow: #F4D74B;
+  --npuls-green:  #00AF81;
+
+  /* Neutrals */
+  --npuls-white:  #FFFFFF;
+  --npuls-ink:    #1A1A1A;
+  --npuls-muted:  #6B6B6B;
+  --npuls-line:   #E6E6E6;
+
+  /* Typography */
+  --npuls-font-sans: 'General Sans', 'Inter', system-ui, sans-serif;
+  --npuls-font-serif: 'Kansas', 'Cooper Light BT', Georgia, serif;
+
+  /* Layout tokens (based on 13.33 x 7.50 inch slides) */
+  --npuls-gutter: 1in;
+  --npuls-content-top: 2in;
+  --npuls-title-size: 2.6rem;
+  --npuls-body-size: 1.15rem;
+
+  /* Slidev token overrides */
+  --slidev-theme-primary: var(--npuls-orange);
+  --slidev-theme-text: var(--npuls-black);
+  --slidev-theme-background: var(--npuls-white);
+  --slidev-theme-code-background: var(--npuls-pink);
+}
+
+.slidev-layout {
+  font-family: var(--npuls-font-sans);
+  color: var(--npuls-black);
+  background: var(--npuls-white);
+  padding: 2rem 3.5rem;
+}
+
+.slidev-layout h1 {
+  font-family: var(--npuls-font-sans);
+  font-weight: 600;
+  color: var(--npuls-orange);
+  font-size: var(--npuls-title-size);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+.slidev-layout h2 {
+  font-family: var(--npuls-font-sans);
+  font-weight: 600;
+  color: var(--npuls-orange);
+}
+.slidev-layout h3, .slidev-layout h4 {
+  font-family: var(--npuls-font-sans);
+  font-weight: 600;
+  color: var(--npuls-black);
+}
+
+.slidev-layout strong { color: var(--npuls-blue); font-weight: 600; }
+.slidev-layout a      { color: var(--npuls-blue); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px; }
+
+.slidev-layout blockquote {
+  font-family: var(--npuls-font-serif);
+  font-style: italic;
+  font-size: 1.75rem;
+  color: var(--npuls-black);
+  border-left: 4px solid var(--npuls-orange);
+  padding-left: 1.25rem;
+  margin: 1.5rem 0;
+}
+
+/* Utility classes referenced by layouts */
+.npuls-logo {
+  position: absolute;
+  top: 1.2rem;
+  left: 1.2rem;
+  height: 36px;
+  z-index: 10;
+}
+.npuls-accent {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  width: 180px;
+  opacity: 0.95;
+  z-index: 1;
+  pointer-events: none;
+}
+.npuls-page-number {
+  position: absolute;
+  bottom: 0.75rem;
+  left: 1.2rem;
+  font-size: 0.8rem;
+  color: var(--npuls-muted);
+}
+
+/* Colour-combo helpers (goedgekeurde kleurencombinaties) */
+.npuls-combo-orange-black { background: var(--npuls-orange); color: var(--npuls-black); }
+.npuls-combo-black-orange { background: var(--npuls-black);  color: var(--npuls-orange); }
+.npuls-combo-pink-blue    { background: var(--npuls-pink);   color: var(--npuls-blue);   }
+.npuls-combo-blue-pink    { background: var(--npuls-blue);   color: var(--npuls-pink);   }
+.npuls-combo-yellow-green { background: var(--npuls-yellow); color: var(--npuls-green);  }
+.npuls-combo-green-yellow { background: var(--npuls-green);  color: var(--npuls-yellow); }
+
+.npuls-combo-orange-black h1, .npuls-combo-orange-black h2,
+.npuls-combo-black-orange h1, .npuls-combo-black-orange h2,
+.npuls-combo-pink-blue    h1, .npuls-combo-pink-blue    h2,
+.npuls-combo-blue-pink    h1, .npuls-combo-blue-pink    h2,
+.npuls-combo-yellow-green h1, .npuls-combo-yellow-green h2,
+.npuls-combo-green-yellow h1, .npuls-combo-green-yellow h2 { color: inherit; }
+
+/* Tables */
+.slidev-layout table { border-collapse: collapse; width: 100%; }
+.slidev-layout th, .slidev-layout td {
+  border-bottom: 1px solid var(--npuls-line);
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+}
+.slidev-layout th { color: var(--npuls-orange); font-weight: 600; }
+
+/* Code */
+.slidev-layout code {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  background: var(--npuls-pink);
+  color: var(--npuls-black);
+  padding: 0.1em 0.35em;
+  border-radius: 3px;
+}
+.slidev-layout pre code { background: transparent; padding: 0; }

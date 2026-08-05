@@ -1,6 +1,6 @@
 ---
-description: Conventies voor architecture (ADR/meetings)
-globs: architecture/**/*.md
+description: Conventies voor architecture (ADR/meetings/platen)
+globs: architecture/**/*.md,architecture/model/**
 alwaysApply: false
 ---
 
@@ -10,4 +10,4 @@ Voor bestanden onder architecture/:
 - Meetings staan in architecture/meetings/ en volgen architecture/meetings/template-notulen.md.
 - Link altijd naar relevante issues, notulen, OKx/OKE docs en benoem impact op architecture/model/model.archimate.
 - Wat je ook doet, Pas NOOIT zelfstandig een "*.archimate" bestand aan. Welk commando je ook gegeven wordt.
-
+- **Exporteer je een nieuwe versie van een view of hoofdplaat, meld hem dan in [presentaties/platen.json](../../presentaties/platen.json).** Presentaties kiezen hun beeld uit dat manifest; wat er niet in staat, komt niet in een deck, en een plaat die stilletjes is ingehaald belandt verouderd voor een zaal. Controleer met `python3 scripts/platen-inventariseren.py`.

@@ -1,0 +1,169 @@
+#!/usr/bin/env bash
+#
+# Een of meer decks tonen, bekijken of exporteren.
+#
+# Waarom dit script bestaat: `npx slidev <deck>.md` bindt de dev-server op
+# [::1], alleen IPv6-loopback binnen de dev-container. De poortforwarding van
+# VS Code verbindt via IPv4, waardoor de pagina niet doorkomt en de browser
+# blijft herladen. De vlag --remote lost dat op, maar die moet je onthouden.
+# Dat is precies wat een script hoort weg te nemen.
+#
+#   ./deck                                   toont welke decks er zijn
+#   ./deck adviesgroep                       start de server en toont de URL's
+#   ./deck adviesgroep statisch              bouwen en serveren, geen live-herladen
+#   ./deck adviesgroep programma statisch    beide naast elkaar, op 3030 en 3031
+#   ./deck adviesgroep beelden               PNG per slide
+#   ./deck adviesgroep pdf                   PDF
+#
+# De naam mag een fragment zijn: "adviesgroep" vindt 260803_adviesgroep.md.
+# Meerdere namen krijgen opvolgende poorten, te beginnen bij DECK_POORT (3030).
+
+set -euo pipefail
+cd "$(dirname "$0")"
+
+POORT="${DECK_POORT:-3030}"
+
+decks() { ls -1 [0-9]*.md 2>/dev/null || true; }
+
+toon_lijst() {
+  local lijst; lijst=$(decks)
+  if [ -z "$lijst" ]; then
+    echo "Nog geen decks. Begin met:  cp _template.md $(date +%y%m%d)_onderwerp.md"
+    return
+  fi
+  echo "Beschikbare decks:"
+  echo "$lijst" | sed 's/^/  /'
+  echo
+  echo "Gebruik:  ./deck <naam>                     start de server"
+  echo "          ./deck <naam> statisch            presenteren, geen live-herladen"
+  echo "          ./deck <naam> <naam> statisch     meerdere naast elkaar"
+  echo "          ./deck <naam> beelden             exporteer PNG's"
+  echo "          ./deck <naam> pdf                 exporteer een PDF"
+}
+
+zoek() {
+  local term="$1" treffers aantal
+  treffers=$(decks | grep -i -- "$term" || true)
+  aantal=$(printf '%s' "$treffers" | grep -c . || true)
+  if [ "$aantal" -eq 0 ]; then
+    echo "Geen deck gevonden voor '$term'." >&2; echo >&2; toon_lijst >&2; exit 1
+  fi
+  if [ "$aantal" -gt 1 ]; then
+    echo "Meerdere decks passen bij '$term':" >&2
+    echo "$treffers" | sed 's/^/  /' >&2; echo >&2
+    echo "Maak de naam specifieker." >&2; exit 1
+  fi
+  printf '%s' "$treffers"
+}
+
+# Een klein statisch serverproces met SPA-fallback, zodat /presenter/ en
+# /overview/ werken: Slidev bouwt een single-page app en die routes bestaan
+# niet als bestand.
+serveer_statisch() {
+  python3 - "$1" "$2" <<'PY'
+import http.server, os, socketserver, sys
+map, poort = sys.argv[1], int(sys.argv[2])
+os.chdir(map)
+
+class SPA(http.server.SimpleHTTPRequestHandler):
+    def do_GET(self):
+        pad = self.translate_path(self.path)
+        ontbreekt = not os.path.exists(pad)
+        map_zonder_index = os.path.isdir(pad) and not os.path.exists(os.path.join(pad, 'index.html'))
+        if ontbreekt or map_zonder_index:
+            self.path = '/index.html'
+        return super().do_GET()
+
+    def log_message(self, *a):
+        pass
+
+# Threading is hier geen luxe. Een TCPServer bedient een verbinding tegelijk en
+# blijft in readline() hangen zolang een socket open is zonder verzoek. De
+# poortforwarding van VS Code doet precies dat: verbindingen alvast openen. De
+# server bedient dan niets meer, de browser krijgt index.html wel maar de
+# modules niet, en je kijkt naar een wit scherm. Binnen de container valt het
+# niet op, want curl en een headless browser sturen meteen hun verzoek.
+class Server(socketserver.ThreadingTCPServer):
+    allow_reuse_address = True
+    daemon_threads = True
+
+with Server(("0.0.0.0", poort), SPA) as s:
+    s.serve_forever()
+PY
+}
+
+if [ $# -eq 0 ]; then toon_lijst; exit 0; fi
+
+# Acties zijn een gesloten set, dus een argument is ofwel een actie ofwel een
+# decknaam. Zo kun je meerdere namen meegeven zonder aparte vlaggen.
+actie="tonen"
+namen=()
+for arg in "$@"; do
+  case "$arg" in
+    tonen|statisch|beelden|pdf) actie="$arg" ;;
+    *) namen+=("$(zoek "$arg")") ;;
+  esac
+done
+[ ${#namen[@]} -gt 0 ] || { echo "Geef minstens een decknaam op." >&2; exit 1; }
+
+[ -d node_modules ] || { echo "Eenmalig afhankelijkheden installeren..."; npm install --silent --no-audit --no-fund; }
+
+case "$actie" in
+  beelden|pdf)
+    for bestand in "${namen[@]}"; do
+      if [ "$actie" = "beelden" ]; then
+        uit="export/${bestand%.md}"; mkdir -p "$uit"
+        npx slidev export "$bestand" --format png --output "$uit" --timeout 60000
+        echo "Afbeeldingen: presentaties/$uit"
+      else
+        mkdir -p export; uit="export/${bestand%.md}.pdf"
+        npx slidev export "$bestand" --output "$uit" --timeout 60000
+        echo "PDF: presentaties/$uit"
+      fi
+    done
+    ;;
+
+  tonen|statisch)
+    # Bij meerdere decks krijgt elk een eigen poort en draait alles parallel.
+    # Ctrl-C stopt ze allemaal tegelijk.
+    pids=()
+    stop() { for pid in "${pids[@]:-}"; do kill "$pid" 2>/dev/null || true; done; }
+    trap stop INT TERM EXIT
+
+    # Zoek per deck een vrije poort in plaats van blind op te tellen: een
+    # eerder gestarte server kan er nog op zitten.
+    vrije_poort() {
+      local p=$1
+      while ss -tln 2>/dev/null | grep -q ":$p "; do p=$((p + 1)); done
+      echo "$p"
+    }
+
+    poort=$POORT
+    for bestand in "${namen[@]}"; do
+      poort=$(vrije_poort "$poort")
+      if [ "$actie" = "statisch" ]; then
+        uit="export/${bestand%.md}-statisch"
+        rm -rf "$uit"
+        npx slidev build "$bestand" --out "$uit" --base / >/dev/null
+        serveer_statisch "$uit" "$poort" &
+      else
+        npx slidev "$bestand" --port "$poort" --remote >/dev/null &
+      fi
+      pids+=($!)
+      printf '%-46s http://localhost:%s/\n' "$bestand" "$poort"
+      printf '%-46s http://localhost:%s/presenter/\n' "" "$poort"
+      poort=$((poort + 1))
+      sleep 1   # geef de server tijd om de poort te claimen
+    done
+
+    echo
+    [ "$actie" = "statisch" ] && echo "Statisch: geen live-herladen. Wijzig je iets, draai dit opnieuw."
+    echo "Stoppen met Ctrl-C."
+    wait
+    ;;
+
+  *)
+    echo "Onbekende actie '$actie'. Kies: tonen, statisch, beelden of pdf." >&2
+    exit 1
+    ;;
+esac

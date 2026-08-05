@@ -63,6 +63,26 @@
       "bron": "getsentry/warden",
       "doel": "Staff-level architectuurreview (structuur, stille fouten, onderhoudbaarheid). Inzetbaar als specialist-reviewer voor tooling en structuurvraagstukken.",
       "adaptatie": "geen wrapper; het OKx-kader komt uit AGENTS.md. Let op: de skill is code-georienteerd, weeg bevindingen daarop"
+    },
+    {
+      "naam": "npuls-huisstijl",
+      "type": "extern",
+      "bron": "cedanl/.github",
+      "doel": "Merkbronwaarheid voor de Npuls huisstijl: design tokens, kleuren, typografie, vormentaal en kant-en-klare thema's.",
+      "adaptatie": "okx-presentatie (het OKx-specifieke deel); de huisstijl zelf is Npuls-breed en wordt ongewijzigd gebruikt"
+    },
+    {
+      "naam": "clidev",
+      "type": "extern",
+      "bron": "cedanl/.github",
+      "doel": "Slidev-workflow in de Npuls huisstijl: projectopzet, achtergronden, de np-componentbibliotheek en de technische valkuilen.",
+      "adaptatie": "okx-presentatie",
+      "kanttekening": "Beschrijft het CEDA-project clidev-presentaties. OKx heeft een eigen kopie van het designsysteem onder presentaties/; de slide-opbouw en componenten zijn ongewijzigd overgenomen."
+    },
+    {
+      "naam": "okx-presentatie",
+      "type": "okx-specifiek",
+      "doel": "Adaptatie-wrapper: OKx-presentaties en update-decks, met de stakeholderprofielen en het ophalen van wijzigingen uit beide OKx-repositories."
     }
   ]
 }

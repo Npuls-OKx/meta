@@ -1,0 +1,140 @@
+{
+  "brand": {
+    "name": "Npuls",
+    "tagline": "Moving Education.",
+    "website": "https://npuls.nl"
+  },
+  "colors": {
+    "primary": {
+      "oranje": {
+        "hex": "#DD784B",
+        "rgb": [221, 120, 75],
+        "cmyk": [0, 60, 100, 0],
+        "role": "warm-accent"
+      },
+      "zwart": {
+        "hex": "#000000",
+        "rgb": [0, 0, 0],
+        "cmyk": [0, 0, 0, 100],
+        "role": "text-dark-bg"
+      },
+      "roze": {
+        "hex": "#F4D9DC",
+        "rgb": [244, 217, 220],
+        "cmyk": [0, 10, 20, 0],
+        "role": "soft-background"
+      },
+      "blauw": {
+        "hex": "#3D68EC",
+        "rgb": [61, 104, 236],
+        "cmyk": [100, 20, 0, 0],
+        "role": "primary-accent"
+      },
+      "geel": {
+        "hex": "#F4D74B",
+        "rgb": [244, 215, 75],
+        "cmyk": [0, 0, 100, 0],
+        "role": "highlight"
+      },
+      "groen": {
+        "hex": "#00AF81",
+        "rgb": [0, 175, 129],
+        "cmyk": [80, 0, 60, 0],
+        "role": "success-growth"
+      }
+    },
+    "neutral": {
+      "white": "#FFFFFF",
+      "gray-50": "#F9FAFB",
+      "gray-100": "#F3F4F6",
+      "gray-300": "#D1D5DB",
+      "gray-500": "#6B7280",
+      "gray-700": "#374151",
+      "gray-900": "#111827"
+    },
+    "combinations": {
+      "_comment": "Approved background → accent pairings",
+      "blauw": ["geel", "roze"],
+      "roze": ["blauw", "groen", "zwart", "oranje"],
+      "geel": ["oranje", "zwart", "blauw"],
+      "groen": ["roze", "zwart", "oranje"],
+      "oranje": ["zwart", "roze"],
+      "zwart": ["blauw", "oranje", "groen", "geel", "roze"]
+    }
+  },
+  "typography": {
+    "primary": {
+      "family": "General Sans",
+      "fallback": ["Inter", "Arial", "Helvetica", "sans-serif"],
+      "weights": {
+        "regular": 400,
+        "semibold": 600
+      },
+      "usage": "All body text, headings, buttons, labels, UI elements"
+    },
+    "secondary": {
+      "family": "Kansas Regular",
+      "fallback": ["Georgia", "Times New Roman", "serif"],
+      "weights": {
+        "regular": 400
+      },
+      "usage": "Pull-quotes, subtitles, introductory text only"
+    },
+    "google_fonts_import": "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');"
+  },
+  "spacing": {
+    "xs": "4px",
+    "sm": "8px",
+    "md": "16px",
+    "lg": "24px",
+    "xl": "32px",
+    "2xl": "48px",
+    "3xl": "64px",
+    "4xl": "80px"
+  },
+  "radii": {
+    "sm": "4px",
+    "md": "8px",
+    "lg": "12px",
+    "xl": "16px",
+    "2xl": "24px",
+    "round": "9999px"
+  },
+  "shadows": {
+    "sm": "0 1px 2px rgba(0,0,0,0.05)",
+    "md": "0 4px 6px rgba(0,0,0,0.07)",
+    "lg": "0 10px 15px rgba(0,0,0,0.1)"
+  },
+  "icons": {
+    "set": "Font Awesome",
+    "variant": "Solid Sharp",
+    "cdn": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  },
+  "vormentaal": {
+    "_comment": "Geometric shape vocabulary for decorative elements",
+    "shapes": [
+      {"name": "pulse", "description": "U-shaped stroke curve", "meaning": "Heartbeat / education pulse"},
+      {"name": "chevrons", "description": "Double arrow triangles", "meaning": "Forward movement"},
+      {"name": "starburst", "description": "Radial lines from center", "meaning": "Energy / inspiration"},
+      {"name": "circles", "description": "Overlapping colored circles", "meaning": "Community / connection"},
+      {"name": "concentric-rings", "description": "Nested circle outlines (Roze #F4D9DC)", "meaning": "Focus / impact"},
+      {"name": "arch", "description": "Rounded rectangle doorway", "meaning": "Growth / development"},
+      {"name": "wavy-lines", "description": "S-curve strokes", "meaning": "Flow / connection"}
+    ]
+  },
+  "css_variables": {
+    "--npuls-oranje": "#DD784B",
+    "--npuls-zwart": "#000000",
+    "--npuls-roze": "#F4D9DC",
+    "--npuls-blauw": "#3D68EC",
+    "--npuls-geel": "#F4D74B",
+    "--npuls-groen": "#00AF81",
+    "--npuls-white": "#FFFFFF",
+    "--npuls-font-primary": "'General Sans', 'Inter', Arial, Helvetica, sans-serif",
+    "--npuls-font-secondary": "'Kansas Regular', Georgia, 'Times New Roman', serif",
+    "--npuls-radius-sm": "4px",
+    "--npuls-radius-md": "8px",
+    "--npuls-radius-lg": "12px",
+    "--npuls-radius-xl": "16px"
+  }
+}
