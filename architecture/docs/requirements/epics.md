@@ -1,0 +1,17 @@
+# Epics
+
+Laag 2 van de [requirementsboom](README.md): de bekwaamheden van de keten, elk gekoppeld aan een [projectdoel](opdracht.md). Relateert aan: #130.
+
+Vier epics zijn in deze proof of concept (PoC) uitgewerkt tot features en stories; drie zijn benoemd en wachten op uitwerking. De kandidaten daarvoor staan op de [parkeerlijst](../../agent-artifacts/research/20260806_0837_requirementsboom-extractie.md#parkeerlijst).
+
+| Epic | Doel | Draagt bij aan | Status | Bron | Features |
+|---|---|---|---|---|---|
+| Onderwijsaanbod specificeren en ontsluiten | De onderwijscatalogus is het bronsysteem dat onderwijsspecificaties en aanbod ontsluit naar planning en roostering, studentinformatiesysteem en leermanagementsysteem. | D3 | uitgewerkt | [Consumer-profiel §3.4.1](../specificatie/okx-oeapi-consumer-profiel/doc/20260501_Specificatie_document_OKx_OEAPI_profiel.md) | [features](features.md#onderwijsaanbod-specificeren-en-ontsluiten) |
+| Student kiest onderwijsspecificaties | De student stelt zijn leerroute instellingsonafhankelijk samen en kiest onderwijsspecificaties binnen eenduidige, versioneerbare keuzeregels. | D1 | uitgewerkt | [ADR 0012](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0012-leerroute-onafhankelijk-keuzegate-nominaal-maatwerk.md) | [features](features.md#student-kiest-onderwijsspecificaties) |
+| Aanbod plannen en roosteren | Planning en roostering maken van planbare specificaties geldig, gefaseerd en geroosterd aanbod, met haalbaarheidstoetsing en heldere terugkoppeling. | D3 | uitgewerkt | [Consumer-profiel §3.4.1](../specificatie/okx-oeapi-consumer-profiel/doc/20260501_Specificatie_document_OKx_OEAPI_profiel.md) | [features](features.md#aanbod-plannen-en-roosteren) |
+| Keuze en verbintenis vastleggen | De keten legt keuze, intekening en verbintenis gescheiden en herleidbaar vast en zet een definitieve keuze door naar alle betrokken systemen. | D1 | nog niet uitgewerkt | [Persona Jochem, instellingsjourney](../specificatie/okx-oeapi-consumer-profiel/doc/persona_jochem.md) | [features](features.md#keuze-en-verbintenis-vastleggen) |
+| Voortgang en resultaat op leeruitkomsten | Resultaten en voortgang worden geregistreerd en geaggregeerd op leeruitkomsten, zodat ze instellingsoverstijgend herleidbaar zijn. | D1 | uitgewerkt | [Uitgangspunt U6](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md) | [features](features.md#voortgang-en-resultaat-op-leeruitkomsten) |
+| Gezamenlijke taal en standaard | Alle ketenpartijen hanteren hetzelfde begrippenkader en uniforme leeruitkomstdefinities, uitgelijnd met landelijke referentiemodellen. | D2 | nog niet uitgewerkt | [Consumer-profiel §3.2](../specificatie/okx-oeapi-consumer-profiel/doc/20260501_Specificatie_document_OKx_OEAPI_profiel.md) | [features](features.md#gezamenlijke-taal-en-standaard) |
+| Betrouwbare en vervangbare koppelingen | Elke koppeling is betrouwbaar, veilig en versioneerbaar, met eenduidig resource-eigenaarschap, zodat componenten vervangbaar zijn zonder ketenimpact. | D3 | nog niet uitgewerkt | [Architectuurprincipes, OKx-AP04](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/principes/principes.md) | [features](features.md#betrouwbare-en-vervangbare-koppelingen) |
+
+De epic "Voortgang en resultaat op leeruitkomsten" is een eerste opzet: de features staan, stories alleen waar de bron een vastgesteld document is.
