@@ -10,11 +10,11 @@ De pijler kent vijf programmaonderdelen. OKx draagt er een en raakt er twee:
 
 | Programmaonderdeel | Wat het regelt | Rol van OKx |
 |---|---|---|
-| Identiteit | Eenmalige digitale identiteit (eduID) voor alle instellingen | geen |
+| Identiteit | Eenmalige digitale identiteit (eduID) voor alle instellingen | voorwaarde: identiteitsuitgifte (identity provisioning) is nodig voor ketenwerking |
 | Ontsluiten onderwijsaanbod | Gebundelde informatie over onderwijsmogelijkheden | **dit is OKx**, naast OKE en SURFeduhub |
 | Aanmelden en inschrijven | Gestandaardiseerde aanmelding voor volledige en deelopleidingen | raakvlak: keuze en verbintenis |
 | Credentials | Digitale portefeuille (eduwallet) en microcredentials | raakvlak: resultaat op leeruitkomsten |
-| Verrekeningen | Financiële afrekening tussen instellingen | geen |
+| Verrekeningen | Financiële afrekening tussen instellingen | raakvlak: instellingsoverstijgende scenario's |
 
 ## Projectdoelen
 
@@ -32,6 +32,6 @@ De drie doelen waar elke [epic](epics.md) aan bijdraagt.
 |---|---|
 | D1 | Student kiest onderwijsspecificaties; Keuze en verbintenis vastleggen; Voortgang en resultaat op leeruitkomsten |
 | D2 | Gezamenlijke taal en standaard |
-| D3 | Onderwijsaanbod specificeren en ontsluiten; Aanbod plannen en roosteren; Betrouwbare en vervangbare koppelingen |
+| D3 | Onderwijsaanbod specificeren en ontsluiten; Aanbod plannen en roosteren; Betrouwbare en vervangbare koppelingen; Standaard piloteren en adopteren |
 
 De epics zelf, met doel, status en bron: [epics.md](epics.md).

@@ -16,6 +16,7 @@ flowchart TD
   D1 --> E5["Voortgang en resultaat op leeruitkomsten"]
   D2 --> E6["Gezamenlijke taal en standaard"]
   D3 --> E7["Betrouwbare en vervangbare koppelingen"]
+  D3 --> E8["Standaard piloteren en adopteren"]
   E1 --> F11["Catalogus vullen vanuit curriculumontwerp"]
   E1 --> F12["Hiërarchische, refereerbare specificatiestructuur"]
   E1 --> F13["Stabiele identiteit en versionering van specificaties"]
@@ -41,7 +42,7 @@ flowchart TD
   classDef uitgewerkt fill:#e8f5e9,stroke:#2e7d32
   classDef wacht fill:#f0f0f0,stroke:#9e9e9e
   class E1,E2,E3,E5,F11,F12,F13,F14,F21,F22,F23,F24,F25,F31,F32,F33,F34,F35,F51,F52,F53,F54,S1,S2,S3,S5 uitgewerkt
-  class E4,E6,E7 wacht
+  class E4,E6,E7,E8 wacht
 ```
 
 ## Navigatie
@@ -49,7 +50,7 @@ flowchart TD
 | Laag | Bestand | Stand | Voor wie vooral |
 |---|---|---|---|
 | Opdracht | [opdracht.md](opdracht.md) | drie doelen | product owner en kernteam |
-| Epics | [epics.md](epics.md) | zeven epics, vier uitgewerkt | product owner en kernteam |
+| Epics | [epics.md](epics.md) | acht epics, vier uitgewerkt | product owner en kernteam |
 | Features | [features.md](features.md) | dertig features | kernteam en technische werkgroep |
 | Stories | [stories.md](stories.md) | zestien stories met koppelvlakverwijzing | technische werkgroep en leveranciers |
 

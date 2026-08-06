@@ -66,3 +66,7 @@ Laag 3 van de [requirementsboom](README.md): afgebakend gedrag per [epic](epics.
 | Authenticatie via OAuth 2.0 Client Credentials | Elke consument authenticeert zich conform het Edukoppeling REST-profiel niveau 1; elk systeem dat endpoints serveert beheert zijn eigen token-endpoint. | nog niet uitgewerkt | [Public PR 9 (in review)](https://github.com/Npuls-OKx/Public/pull/9) | |
 | Maximaal twee actieve major versies | De standaard ondersteunt maximaal twee major versies actief (de nieuwste en de voorlaatste), zodat afnemers tijd hebben om over te stappen. | nog niet uitgewerkt | [Meetingverslag 14 juli](../../meetings/20260714_SI_afstemming_PR_specificatie_uitwerking_P_en_R/summary.md) | |
 | Intra-instelling eerst, federatie gefaseerd | Koppelingen worden eerst binnen een instelling werkend gemaakt; federatie en cross-instelling volgen gefaseerd. | nog niet uitgewerkt | [Uitgangspunt U10](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md) | |
+
+## Standaard piloteren en adopteren
+
+Nog geen features. Deze epic is toegevoegd bij de review van het boom-concept (6 augustus 2026); kandidaten volgen in de volgende uitwerkingsronde, onder meer uit de [adoptiestrategie van 17 april](../../meetings/20260417_okx_kernteam_inhoud_uitwerken_studentkeuze_roostering_planning_pocs/summary.md).

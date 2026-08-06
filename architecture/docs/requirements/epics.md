@@ -2,7 +2,7 @@
 
 Laag 2 van de [requirementsboom](README.md): de bekwaamheden van de keten, elk gekoppeld aan een [projectdoel](opdracht.md). Relateert aan: #130.
 
-Vier epics zijn in deze proof of concept (PoC) uitgewerkt tot features en stories; drie zijn benoemd en wachten op uitwerking. De kandidaten daarvoor staan op de [parkeerlijst](../../agent-artifacts/research/20260806_0837_requirementsboom-extractie.md#parkeerlijst).
+Vier epics zijn in deze proof of concept (PoC) uitgewerkt tot features en stories; vier zijn benoemd en wachten op uitwerking. De kandidaten daarvoor staan op de [parkeerlijst](../../agent-artifacts/research/20260806_0837_requirementsboom-extractie.md#parkeerlijst).
 
 | Epic | Doel | Draagt bij aan | Status | Bron | Features |
 |---|---|---|---|---|---|
@@ -13,5 +13,6 @@ Vier epics zijn in deze proof of concept (PoC) uitgewerkt tot features en storie
 | Voortgang en resultaat op leeruitkomsten | Resultaten en voortgang worden geregistreerd en geaggregeerd op leeruitkomsten, zodat ze instellingsoverstijgend herleidbaar zijn. | D1 | uitgewerkt | [Uitgangspunt U6](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md) | [features](features.md#voortgang-en-resultaat-op-leeruitkomsten) |
 | Gezamenlijke taal en standaard | Alle ketenpartijen hanteren hetzelfde begrippenkader en uniforme leeruitkomstdefinities, uitgelijnd met landelijke referentiemodellen. | D2 | nog niet uitgewerkt | [Consumer-profiel §3.2](../specificatie/okx-oeapi-consumer-profiel/doc/20260501_Specificatie_document_OKx_OEAPI_profiel.md) | [features](features.md#gezamenlijke-taal-en-standaard) |
 | Betrouwbare en vervangbare koppelingen | Elke koppeling is betrouwbaar, veilig en versioneerbaar, met eenduidig resource-eigenaarschap, zodat componenten vervangbaar zijn zonder ketenimpact. | D3 | nog niet uitgewerkt | [Architectuurprincipes, OKx-AP04](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/principes/principes.md) | [features](features.md#betrouwbare-en-vervangbare-koppelingen) |
+| Standaard piloteren en adopteren | De standaard wordt gepiloteerd bij koploperscholen en ondersteund tot en met implementatie, realisatie en adoptie door instellingen en leveranciers. | D3 | nog niet uitgewerkt | [Meetingverslag 17 april](../../meetings/20260417_okx_kernteam_inhoud_uitwerken_studentkeuze_roostering_planning_pocs/summary.md) | [features](features.md#standaard-piloteren-en-adopteren) |
 
 De epic "Voortgang en resultaat op leeruitkomsten" is een eerste opzet: de features staan, stories alleen waar de bron een vastgesteld document is.
