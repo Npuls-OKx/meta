@@ -53,6 +53,7 @@ flowchart TD
 | Epics | [epics.md](epics.md) | acht epics, vier uitgewerkt | product owner en kernteam |
 | Features | [features.md](features.md) | dertig features | kernteam en technische werkgroep |
 | Stories | [stories.md](stories.md) | zestien stories met koppelvlakverwijzing | technische werkgroep en leveranciers |
+| Leeswijzer | [leeswijzer.md](leeswijzer.md) | leesroutes naar de bestaande documentatie | iedereen |
 
 ## Conventies
 
