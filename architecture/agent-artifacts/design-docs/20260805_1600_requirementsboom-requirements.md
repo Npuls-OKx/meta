@@ -34,7 +34,7 @@ De zes documenten onder `architecture/docs/requirements/`, het extractie-artifac
 | R9 Leeswijzer verwijst, dupliceert niet | De leeswijzer wijst bestaande documenten en secties aan en neemt geen inhoud over. | Geen inhoudelijke passages die ook in het brondocument staan (steekproef door de reviewer). |
 | R10 Achtergrondmechaniek buiten de boom | Geen eis-ID-notatie of uitvoerbare scenario's (Gherkin) in de boomdocumenten; de index verwijst voor die mechaniek naar het ADR en #135. | `grep` op `req~`, `Covers:` en `Functionaliteit:` in `architecture/docs/requirements/` levert niets op. |
 | R11 Mechanisch schoon | Validatie en indexplicht gelden zoals overal in de repo. | `python3 scripts/validate-docs.py architecture/docs/requirements` slaagt; nieuwe bestanden staan in de README-indexen. |
-| R12 Plaat en tabel vertellen hetzelfde | De mermaid-plaat in de index toont dezelfde epics en features als de tabellen. | Elke node in de plaat staat in de tabellen en omgekeerd (stories als verzamelnode). |
+| R12 Plaat en tabel vertellen hetzelfde | De mermaid-plaat in de index toont dezelfde epics en features als de tabellen, binnen de plaatlimiet van de skill. | Elke node in de plaat staat in de tabellen. Omgekeerd: alle epics staan in de plaat, features alleen voor uitgewerkte epics, stories als verzamelnode (verduidelijkt na de testerreview van 6 augustus). |
 
 Het pad dat R2 en R5 samen toetsen, als voorbeeld uit leerroute 1:
 

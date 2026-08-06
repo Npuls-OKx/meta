@@ -4,7 +4,7 @@ De gelaagde breakdown van de OKx-requirements: van de opdracht (Leren zonder Dre
 
 ## De boom in één plaat
 
-Groen is uitgewerkt, grijs wacht op uitwerking. Features staan in de plaat voor de uitgewerkte epics; elke epic toont zijn stories als één verzamelknoop.
+Groen is uitgewerkt, grijs wacht op uitwerking. Features staan in de plaat alleen voor de uitgewerkte epics; features van nog niet uitgewerkte epics staan bewust alleen in de tabel (plaatlimiet uit de skill). Elke uitgewerkte epic toont zijn stories als één verzamelknoop.
 
 ```mermaid
 flowchart TD
@@ -18,7 +18,7 @@ flowchart TD
   D3 --> E7["Betrouwbare en vervangbare koppelingen"]
   D3 --> E8["Standaard piloteren en adopteren"]
   E1 --> F11["Catalogus vullen vanuit curriculumontwerp"]
-  E1 --> F12["Hiërarchische, refereerbare specificatiestructuur"]
+  E1 --> F12["Hiërarchische, refereerbare onderwijsspecificatiestructuur"]
   E1 --> F13["Stabiele identiteit en versionering van specificaties"]
   E1 --> F14["Leeromgeving inrichten op de specificatie"]
   E1 --> S1["3 stories"]
@@ -52,15 +52,16 @@ flowchart TD
 | Opdracht | [opdracht.md](opdracht.md) | drie doelen | product owner en kernteam |
 | Epics | [epics.md](epics.md) | acht epics, vier uitgewerkt | product owner en kernteam |
 | Features | [features.md](features.md) | dertig features | kernteam en technische werkgroep |
-| Stories | [stories.md](stories.md) | zestien stories met koppelvlakverwijzing | technische werkgroep en leveranciers |
+| Stories | [stories.md](stories.md) | zestien stories met koppelingverwijzing | technische werkgroep en leveranciers |
 | Leeswijzer | [leeswijzer.md](leeswijzer.md) | leesroutes naar de bestaande documentatie | iedereen |
 
 ## Conventies
 
 - Vorm en spelregels: [skill okx-requirements-boom](../../../.agents/skills/okx-requirements-boom/SKILL.md). Kern: één document per laag, elke rij één ouder en één bron, overzicht boven volledigheid.
+- Systeemafkortingen in de tabellen: OC (onderwijscatalogus), SKS (studentkeuzesysteem), P&R (planning en roostering), SIS (studentinformatiesysteem), LMS (leermanagementsysteem), SVS (studievoortgangsysteem).
 - Herkomst en verificatie van elke rij: [extractieverantwoording](../../agent-artifacts/research/20260806_0837_requirementsboom-extractie.md), inclusief de parkeerlijst met kandidaten voor een volgende ronde.
 - Eis-id's en uitvoerbare scenario's staan bewust niet in de boom. Die achtergrondmechaniek volgt gefaseerd; zie de [synthese van het onderzoek](../../agent-artifacts/research/20260804_1700_oplossingsrichtingen-business-techniek.md) en issue #135.
 
 ## Scope
 
-Deze map bevat de requirementsboom: de vier laagdocumenten en deze index. De boom verwijst naar bestaande documenten en herhaalt ze niet. Al het overige valt buiten scope.
+Deze map bevat de requirementsboom: de vier laagdocumenten, de leeswijzer en deze index. De boom verwijst naar bestaande documenten en herhaalt ze niet. Al het overige valt buiten scope.
