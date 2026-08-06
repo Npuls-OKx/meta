@@ -20,6 +20,7 @@ Een verslag is invoer voor een **architectuurbesluit**. Het besluit zelf en de a
 | [AMIGO-producten en gat-analyse](20260804_1500_amigo-producten-en-gat-analyse.md) | Wat schrijft AMIGO per stap voor als product, en wat hebben wij daarvan? | Afgerond |
 | [Praktijk in standaardisatieprojecten](20260804_1500_praktijk-standaardisatieprojecten.md) | Hoe verbinden andere projecten hun businesslaag aan hun techniek in Git, en wat werkte daar níet? | Afgerond |
 | [Gereedschap: requirements, architectuur en documentatie als code](20260804_1500_gereedschap-requirements-architectuur-docs-as-code.md) | Welke gereedschappen maken onze laag machine-interpreteerbaar zonder de markdown-bron op te geven? | Afgerond |
+| [Requirementsextractie voor de requirementsboom](20260806_0837_requirementsboom-extractie.md) | Welke geverifieerde kandidaat-requirements dragen de boom onder `architecture/docs/requirements/`, en wat is bewust geparkeerd? | Afgerond |
 
 De drie verslagen bij issue #130 horen bij elkaar: AMIGO zegt wat er gemaakt moet worden, de praktijk laat zien welke koppelmechanismen het volhouden, en het gereedschapsverslag toetst wat daarvan bij onze randvoorwaarden past.
 
