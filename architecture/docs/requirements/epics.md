@@ -2,7 +2,7 @@
 
 Laag 2 van de [requirementsboom](README.md): de bekwaamheden van de keten, elk gekoppeld aan een [projectdoel](opdracht.md). Relateert aan: #130.
 
-Vier epics zijn uitgewerkt tot features en stories; vier zijn benoemd en wachten op uitwerking. De kandidaten daarvoor staan op de [parkeerlijst](../../agent-artifacts/research/20260806_0837_requirementsboom-extractie.md#parkeerlijst).
+Vier epics zijn tot stories uitgewerkt; de andere vier dragen hooguit benoemde features en wachten op verdere uitwerking. De kandidaten daarvoor staan op de [parkeerlijst](../../agent-artifacts/research/20260806_0837_requirementsboom-extractie.md#parkeerlijst).
 
 | Id | Epic | Doel | Draagt bij aan | Bron | Features |
 |---|---|---|---|---|---|
@@ -13,6 +13,6 @@ Vier epics zijn uitgewerkt tot features en stories; vier zijn benoemd en wachten
 | E5 | Voortgang en resultaat op leeruitkomsten | Voortgang en resultaten op leeruitkomsten zijn instellingsoverstijgend herleidbaar voor student en instelling. | D1 | [Uitgangspunt U6](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md) | [features](features.md#voortgang-en-resultaat-op-leeruitkomsten) |
 | E6 | Gezamenlijke taal en standaard | Ketenpartijen spreken dezelfde taal: één begrippenkader en uniforme leeruitkomstdefinities, aangesloten op landelijke referentiemodellen. | D2 | [Consumer-profiel §3.2](../specificatie/okx-oeapi-consumer-profiel/doc/20260501_Specificatie_document_OKx_OEAPI_profiel.md#32-begrippenkader--hoe-beschrijven-we-flexibel-onderwijs) | [features](features.md#gezamenlijke-taal-en-standaard) |
 | E7 | Betrouwbare en vervangbare koppelingen | Instellingen vervangen componenten zonder ketenimpact, dankzij betrouwbare, veilige en versioneerbare koppelingen. | D3 | [Architectuurprincipes, OKx-AP04](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/principes/principes.md) | [features](features.md#betrouwbare-en-vervangbare-koppelingen) |
-| E8 | Standaard piloteren en adopteren | Koploperscholen, instellingen en leveranciers implementeren en adopteren de standaard, beproefd in pilots. | D3 | [Meetingverslag 17 april](../../meetings/20260417_okx_kernteam_inhoud_uitwerken_studentkeuze_roostering_planning_pocs/summary.md#stakeholdermanagement-en-adoptiestrategie) | [features](features.md#standaard-piloteren-en-adopteren) |
+| E8 | Standaard piloteren en adopteren | Pilotscholen, instellingen en leveranciers implementeren en adopteren de standaard, beproefd in pilots. | D3 | [Meetingverslag 17 april](../../meetings/20260417_okx_kernteam_inhoud_uitwerken_studentkeuze_roostering_planning_pocs/summary.md#stakeholdermanagement-en-adoptiestrategie) | [features](features.md#standaard-piloteren-en-adopteren) |
 
 De epic "Voortgang en resultaat op leeruitkomsten" toont alle features; stories staan er alleen waar de bron een vastgesteld document is.

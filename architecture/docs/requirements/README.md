@@ -24,7 +24,7 @@ flowchart TD
 | Laag | Bestand | Stand | Voor wie vooral |
 |---|---|---|---|
 | Opdracht | [opdracht.md](opdracht.md) | drie doelen | product owner en kernteam |
-| Epics | [epics.md](epics.md) | acht epics, vier uitgewerkt | product owner en kernteam |
+| Epics | [epics.md](epics.md) | acht epics, vier tot stories uitgewerkt | product owner en kernteam |
 | Features | [features.md](features.md) | dertig features | kernteam en technische werkgroep |
 | Stories | [stories.md](stories.md) | zestien stories met koppelingverwijzing | technische werkgroep en leveranciers |
 | Leeswijzer | [leeswijzer.md](leeswijzer.md) | leesroutes naar de bestaande documentatie | iedereen |
