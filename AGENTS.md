@@ -37,6 +37,7 @@ Vastgelegd in [architecture/docs/principes.md](architecture/docs/principes.md):
 | Wat | Waar |
 |---|---|
 | Projectcontext, hoofdplaat informatiestromen | [doc/](doc/) |
+| Requirementsboom (opdracht, epics, features, stories) | [architecture/docs/requirements/](architecture/docs/requirements/README.md) |
 | Architectuurbesluiten (ADR's) | [Referentiemateriaal/adr in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr) |
 | ArchiMate-model (niet aanraken) | [architecture/model/](architecture/model/) |
 | Meetingverslagen | [architecture/meetings/](architecture/meetings/) |
