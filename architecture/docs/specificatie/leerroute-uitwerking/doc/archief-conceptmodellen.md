@@ -4,9 +4,10 @@ Voorloper van de koppelingspecificaties, bewaard als bronmateriaal. Dit deel van
 
 | Deel | Waar het nu leeft |
 |---|---|
+| §3.2.2 zes niveaus en de informatie-objectfamilies (OEAPI-kolommen) | concepttermen in het [begrippenkader](begrippenkader.md); de OEAPI-varianten staan hieronder |
 | §3.2.5 MORA cross-walk | nog geen opvolger; komt terug bij de terugkoppeling op het informatiemodel |
 | §3.2.6 ankertabel | concepttermen in het [begrippenkader](begrippenkader.md); de OEAPI-cellen hieronder zijn de oude vertaling |
-| §3.5 eerdere scenario-schetsen | geconsolideerd in de [scenario-uitwerkingen](scenario-uitwerkingen.md) |
+| §3.5 eerdere scenario-schetsen | gedeeltelijk geconsolideerd (leerroute 1 tot en met 3) in de [scenario-uitwerkingen](scenario-uitwerkingen.md); leerroute 4, 5 en 7 tot en met 9 staan alleen nog hier |
 | §4 De "Student Kiest"-keten | requirementsboom (epic Student kiest onderwijsspecificaties) en de keuze-requirements (meta-PR 120, in review) |
 | §5, §6 OEAPI-mapping en extensies | volgt bottom-up uit de endpoint-gedreven datamodellen in Public |
 | §7 tot en met §11 cross-instelling, fasering, signaleringen, ontwerpkeuzes | deels verwerkt in de ADR's en uitgangspunten in Public |
@@ -14,6 +15,38 @@ Voorloper van de koppelingspecificaties, bewaard als bronmateriaal. Dit deel van
 | §13, §14 resourcemapping en CSP-input | nog geen opvolger; input voor de koppeling OC-P&R |
 | §15 tot en met §19 interactiepatronen, sequentiediagrammen, faalmatrix | patroonsecties van de koppelingspecificaties in Public; de faalmatrix heeft nog geen opvolger |
 | §20 bevestigde principes | [architectuurprincipes in Public](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/principes/principes.md) |
+
+## Oude OEAPI-kolommen bij het begrippenkader
+
+De concepttermen staan in het [begrippenkader](begrippenkader.md); hieronder de oude OEAPI-varianten van de kleine niveautabel (§3.2.2) en de informatie-objectfamilies.
+
+#### 3.2.2 Zes niveaus — van diploma tot lesopdracht (met OEAPI-haak)
+
+| Niveau (rij)                       | Wat het betekent                                                       | OEAPI-haak                              |
+| ---------------------------------- | ---------------------------------------------------------------------- | --------------------------------------- |
+| **Kwalificatiedossier**            | Geheel van een mbo-beroepsdomein                                       | `Programme` (root)                      |
+| **Kwalificatie**                   | Diplomeerbare opleiding binnen het dossier                             | `Programme` (root of track)             |
+| **Kerntaak**                       | Samenhangend cluster van werkprocessen                                 | `Course`                                |
+| **Werkproces**                     | Concreet uitvoerbaar onderdeel van het beroep                          | `LearningComponent` (`learning_activity`) |
+| **Lesuitkomst**               | Wat een student in één les leert (formatief)                           | `LearningComponent` (`lesson_assignment`) |
+| **Toets** (cross-cutting)       | Welk LO-/lesuitkomst-cluster wordt summatief beoordeeld                | `TestComponent`                         |
+
+Het OEAPI-recursieve datamodel laat de hiërarchie meegroeien: een kerntaak heeft meerdere werkprocessen, een werkproces meerdere leeruitkomsten, en een leeruitkomst kan over meerdere lessen worden gespreid (DAG). Zie §5 voor de volledige mapping.
+
+#### 3.2.1 Zes informatie-objectfamilies — wat zien we per stap?
+
+Onderwijs is van *idee* tot *resultaat* een keten van zes informatie-objectfamilies. Lees ze als opvolgende vragen die in de keten beantwoord worden:
+
+| Familie (kolom)              | Stelt de vraag                                       | Wie levert dit                          | Voorbeeld (Apothekersassistent)                                |
+| ---------------------------- | ---------------------------------------------------- | --------------------------------------- | -------------------------------------------------------------- |
+| **1. Kader**                 | Wat is *normatief* geldig?                           | SBB, CROHO, examencommissie             | Crebo-dossier 23450, kwalificatie 27141, werkproces B1-K1-W1   |
+| **2. Beoogde leeruitkomst**  | Wat moet de student *kennen en kunnen*?              | Onderwijsontwerper                      | "Neemt de zorg-/adviesvraag in behandeling"                    |
+| **3. Onderwijsspecificatie** | Wat gaan we *organiseren* (sjabloon, herbruikbaar)?  | Onderwijsontwerper + onderwijsontwikkelaar | Course "Balie: zorg-/adviesvraag", LearningComponent simulatie |
+| **4. Onderwijsaanbod**       | *Wanneer / met hoeveel / met wie* gaan we het doen?  | Planner (planbaar) + roosteraar (geroosterd) | "Periode 1, max. 24 studenten, lokaal X, docent Y"             |
+| **5. Onderwijsverbintenis**  | *Welke student* heeft welke relatie met dit aanbod?  | SLB'er + aanmeldsysteem + SVS           | Jochem is `enrolled` of `enlisted` op CourseOffering "Balie 2026-P1"         |
+| **6. Onderwijsresultaat**    | Wat heeft die student *behaald* (state + bewijs)?    | Docent + examencommissie                | `state = completed`, `attendance = present`, microcredential, evidence per Leeruitkomst          |
+
+> **Mentaal model.** *Kolom 1–2 = wat moet?* — *Kolom 3 = wat gaan we doen?* — *Kolom 4 = wanneer doen we het?* — *Kolom 5 = wie doet mee?* — *Kolom 6 = wat is de uitkomst?*
 
 #### 3.2.5 MORA cross-walk — aansluiten op mbo-architectuurtaal
 

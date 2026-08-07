@@ -188,11 +188,12 @@ Onderstaande tabel koppelt deliverables uit de keten (§2) aan de plek waar ze n
 | Deliverable | Waar |
 |-------------|----------------------|
 | Begrippenkader | [begrippenkader.md](begrippenkader.md) met de ankertabel en de stadia |
+| OKx principes en uitgangspunten | [architectuurprincipes](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/principes/principes.md) en [uitgangspunten](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md) in Public |
 | Sectorarchitecturen | §2.5, MORA/HORA in §3.3.1.2.5 |
 | Procesbeeld · scenario's · persona's | §3.5, §3.2.1 en verder, [scenario-uitwerkingen.md](scenario-uitwerkingen.md) |
 | Informatiemodellen | conceptmodellen in het [archief](archief-conceptmodellen.md); terugkoppeling volgt uit de payload-specificaties (Public) |
-| Informatiestromen | gegevensanalyse per leerroute (§3.3.1.2), [hoofdplaat](../../../../../doc/OKx_Projectoverzicht.md) |
-| Interactieanalyse | gegevensanalyse per leerroute (§3.3.1.2); oudere interactiepatronen in het [archief](archief-conceptmodellen.md) |
+| Informatiestromen | de informatiestromenplaat en het blok "Betrokken systemen bij gegevensuitwisseling" in de leerroute-1-uitwerking; [hoofdplaat](../../../../../doc/OKx_Projectoverzicht.md) |
+| Interactieanalyse | het blok "Applicatiecomponenten op de plaat" in de leerroute-1-uitwerking; oudere interactiepatronen in het [archief](archief-conceptmodellen.md) |
 | Endpointbeschrijvingen | koppelingspecificaties en endpoint-sets in Public |
 | Interactiepatronen | patroonsecties van de koppelingspecificaties in Public |
 | Sequentiediagrammen | koppelingspecificaties in Public; oudere versies in het [archief](archief-conceptmodellen.md) |

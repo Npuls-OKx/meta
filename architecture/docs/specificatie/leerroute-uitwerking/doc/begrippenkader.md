@@ -4,9 +4,24 @@ Het semantisch kader van OKx: de zes begrippenfamilies (kader, beoogde leeruitko
 
 Dit bestand is bij de herstructurering van augustus 2026 losgemaakt uit de [leerroute-uitwerking](leerroute-uitwerking-lr1.md). Het beschrijft de begrippen zonder techniekkeuze; de eerdere OEAPI-vertaling staat als bronmateriaal in het [archief](archief-conceptmodellen.md), en de definitieve vertaling volgt bottom-up uit de endpoint-gedreven datamodellen in [Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Koppelvlakspecificaties).
 
-## Zes niveaus: van diploma tot lesopdracht
+## Zes informatie-objectfamilies
 
-Dezelfde zes families komen op meerdere **niveaus** terug. Het kwalificatiekader (SBB) bepaalt de niveaus, OKx volgt diezelfde rij-discipline:
+De leerroutes zijn pas vergelijkbaar, en uitwisselbaar tussen instellingen, als alle ketenpartijen (ontwerper, ontwikkelaar, planner, roosteraar, studieloopbaanbegeleider (SLB'er), student, docent en hun systemen) dezelfde begrippen op dezelfde manier hanteren. Onderwijs is van *idee* tot *resultaat* een keten van zes informatie-objectfamilies. Lees ze als opvolgende vragen die in de keten beantwoord worden:
+
+| Familie (kolom)              | Stelt de vraag                                       | Wie levert dit                          | Voorbeeld (Apothekersassistent)                                |
+| ---------------------------- | ---------------------------------------------------- | --------------------------------------- | -------------------------------------------------------------- |
+| **1. Kader**                 | Wat is *normatief* geldig?                           | SBB, CROHO, examencommissie             | Crebo-dossier 23450, kwalificatie 27141, werkproces B1-K1-W1   |
+| **2. Beoogde leeruitkomst**  | Wat moet de student *kennen en kunnen*?              | Onderwijsontwerper                      | "Neemt de zorg-/adviesvraag in behandeling"                    |
+| **3. Onderwijsspecificatie** | Wat gaan we *organiseren* (sjabloon, herbruikbaar)?  | Onderwijsontwerper + onderwijsontwikkelaar | `Onderwijseenheid-specificatie` "Balie: zorg-/adviesvraag" met een simulatie als leeronderdeel |
+| **4. Onderwijsaanbod**       | *Wanneer / met hoeveel / met wie* gaan we het doen?  | Planner (planbaar) + roosteraar (geroosterd) | "Periode 1, max. 24 studenten, lokaal X, docent Y"             |
+| **5. Onderwijsverbintenis**  | *Welke student* heeft welke relatie met dit aanbod?  | SLB'er + aanmeldsysteem + SVS           | Jochem is aangemeld of ingeschreven op het `onderwijseenheid-aanbod` "Balie 2026-P1" |
+| **6. Onderwijsresultaat**    | Wat heeft die student *behaald* (status en bewijs)?  | Docent + examencommissie                | Afgerond, met aanwezigheid, microcredential en bewijs per leeruitkomst |
+
+> **Mentaal model.** *Kolom 1 en 2: wat moet? Kolom 3: wat gaan we doen? Kolom 4: wanneer doen we het? Kolom 5: wie doet mee? Kolom 6: wat is de uitkomst?*
+
+## Zes niveaus: van diploma tot lesuitkomst
+
+Dezelfde zes families komen op meerdere **niveaus** terug. Het kwalificatiekader van de Samenwerkingsorganisatie Beroepsonderwijs Bedrijfsleven (SBB) bepaalt de niveaus; OKx volgt diezelfde rij-discipline:
 
 | Niveau (rij) | Wat het betekent |
 | ---------------------------------- | ---------------------------------------------------------------------- |
@@ -57,7 +72,7 @@ stateDiagram-v2
     Deelnemend --> Geannuleerd : voortijdig stoppen
 ```
 
-Het minimumresultaat is de status van de verbintenis per niveau (deelgenomen, afgerond). Rijkere bewijsvoering op leeruitkomstniveau vraagt een aanvullend resultaat-koppelvlak; die signalering staat met het oudere conceptmateriaal in het [archief](archief-conceptmodellen.md).
+Het minimumresultaat is de status van de verbintenis per niveau (deelnemend, afgerond). Rijkere bewijsvoering op leeruitkomstniveau vraagt een aanvullend resultaat-koppelvlak; die signalering staat met het oudere conceptmateriaal in het [archief](archief-conceptmodellen.md).
 
 
 ## De ankertabel: zes niveaus maal zes families
@@ -68,18 +83,18 @@ De volgende tabel is de **canonieke verankering** van de zes begrippenfamilies (
 | -------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------- | ---------------------------------------------------- |
 | `Kwalificatiedossier`                                                                        | SBB-dossier                                                                   | *n.v.t. op dit niveau*                                                                        | `Opleidingsspecificatie`           | `Opleidingsaanbod`                                                                                                             | `Opleidingsverbintenis`                      | `Opleidingsresultaat`                                |
 | `Kwalificatie`                                                                               | SBB-kwalificatie                                                              | *n.v.t. op dit niveau*                                                                        | `Opleidingsprogramma-specificatie` | `Opleidingsprogramma-aanbod`                                                                                                   | `Opleidingsprogramma-verbintenis`            | `Opleidingsprogramma-resultaat`                      |
-| `Kerntaak`                                                                                   | SBB-kerntaak                                                                  | **Collectie van LO-collecties** (kerntaak heeft meerdere werkprocessen, elk met eigen LO-set) | `Onderwijseenheid-specificatie`    | `Onderwijseenheid-aanbod`                                                                                                      | `Onderwijseenheid-verbintenis`               | `Onderwijseenheid-resultaat`                         |
-| `Werkproces`                                                                                 | SBB-werkproces                                                                | **Collectie leeruitkomsten** (summatief)                                                      | `Leeronderdeel-specificatie`       | `Leergelegenheid` (groep van lessen)     | Verbintenis op de `leergelegenheid` | Resultaat op de `leergelegenheid` (behaald-status) |
-| *n.v.t. kwalificatiekader*                                                                   | (instelling-eigen)                                                            | `Lesdoel / Lesuitkomst`                                                                       | `Lesspecificatie`                  | `Lesgelegenheid`      | Verbintenis op de `lesgelegenheid` | Resultaat op de `lesgelegenheid` (eventueel aanwezigheid) |
-| Summatief: vaststelling Examencommissie t.o.v. leeruitkomsten / formatief: instellingsbeleid | Examencie-besluit (summatief) of instellingsbeleid (formatief)                | `Lesuitkomst`/set, `Leeruitkomst`/set, `Werkproces`/set, … (scope van toetsing)               | `Toetsonderdeel-specificatie`      | `Toetsgelegenheid`                                                                                                             | `Toetsgelegenheid-verbintenis`               | `Toetsresultaat / Aanwezigheid`                      |
+| `Kerntaak`                                                                                   | SBB-kerntaak                                                                  | **Collectie van leeruitkomst-collecties (LO-collecties)** (kerntaak heeft meerdere werkprocessen, elk met een eigen LO-set) | `Onderwijseenheid-specificatie`    | `Onderwijseenheid-aanbod`                                                                                                      | `Onderwijseenheid-verbintenis`               | `Onderwijseenheid-resultaat`                         |
+| `Werkproces`                                                                                 | SBB-werkproces                                                                | **Collectie leeruitkomsten** (summatief)                                                      | `Leeronderdeel-specificatie`       | `Leergelegenheid` (groep van lessen)     | `Leergelegenheid-verbintenis` | `Leergelegenheid-resultaat` (behaald-status) |
+| *n.v.t. kwalificatiekader*                                                                   | (instelling-eigen)                                                            | `Lesdoel / Lesuitkomst`                                                                       | `Lesspecificatie`                  | `Lesgelegenheid`      | `Lesgelegenheid-verbintenis` | `Lesgelegenheid-resultaat` (eventueel aanwezigheid) |
+| Summatief: vaststelling Examencommissie t.o.v. leeruitkomsten / formatief: instellingsbeleid | Examencommissie-besluit (summatief) of instellingsbeleid (formatief)                | `Lesuitkomst`/set, `Leeruitkomst`/set, `Werkproces`/set, … (scope van toetsing)               | `Toetsonderdeel-specificatie`      | `Toetsgelegenheid`                                                                                                             | `Toetsgelegenheid-verbintenis`               | `Toetsresultaat / Aanwezigheid`                      |
 
-**Cardinaliteit (normatief voor dit profiel):**
+**Cardinaliteit (normatief voor dit begrippenkader):**
 
 - `Kerntaak (1..*) Werkproces`
 - `Werkproces (1..*) Leeruitkomst` (summatief)
 - `Leeruitkomst (0..*) Onderwijseenheid` / `Leeronderdeel` / `Toetsonderdeel` (dezelfde LO kan over meerdere onderdelen verdeeld zijn; onderdelen kunnen meerdere LO's dekken)
 - `Leeruitkomst (0..*) Lesuitkomst` (formatief; DAG/boom-structuur)
 
-**Voetnoot.** OKx richt zich in dit profiel primair op het beschrijven van de **werkproceslaag**. De entiteit *leergelegenheid* (groep van lessen) leidt uiteindelijk tot individueel geroosterde lessen. Binnen geroosterde lessen kunnen op hun beurt geneste lessen voorkomen; in toekomstige iteraties moeten ook deze recursief volgens dit datamodel gemodelleerd kunnen worden. Dit geldt eveneens voor diepere sublagen zoals een *lessenreeks* of specifieke leeractiviteiten binnen een les. Dit erkent expliciet dat onder een *leergelegenheid* of *lessenreeks* nog een hiërarchie van leeronderdelen kan bestaan, met directe impact op bottom-up en top-down aggregatie.
+**Voetnoot.** OKx richt zich in deze uitwerking primair op het beschrijven van de **werkproceslaag**. De entiteit *leergelegenheid* (groep van lessen) leidt uiteindelijk tot individueel geroosterde lessen; een `lesgelegenheid` is zo'n individueel geroosterde les. Binnen geroosterde lessen kunnen op hun beurt geneste lessen voorkomen; in toekomstige iteraties moeten ook deze recursief volgens dit datamodel gemodelleerd kunnen worden. Dit geldt eveneens voor diepere sublagen zoals een *lessenreeks* of specifieke leeractiviteiten binnen een les. Dit erkent expliciet dat onder een *leergelegenheid* of *lessenreeks* nog een hiërarchie van leeronderdelen kan bestaan, met directe impact op bottom-up en top-down aggregatie.
 
 > **Verdiepende verwijzingen:** de uitwerking op attribuutniveau staat in de [payload-onderwijsspecificatie](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Koppelingspecificaties/gedeeld/payload-onderwijsspecificatie.md); het oudere conceptmateriaal en de OEAPI-vertaling staan in het [archief](archief-conceptmodellen.md).

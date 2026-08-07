@@ -1,6 +1,6 @@
 # Scenario-uitwerkingen: leerroute 1, 2 en 3
 
-De concrete gebruikersscenario's per Npuls-leerroute: leerroute 1 (regulier), leerroute 2 (temporiseren by design) en leerroute 3 (versnellen by design), met sjabloon en leeswijzer. In de [leerroute-uitwerking](leerroute-uitwerking-lr1.md) (§3.3) zijn de negen leerroutes aangevuld met onderwijslogistiek en onderwijskundig perspectief; dit bestand vertaalt die aangevulde leerroutes naar concrete gebruikersscenario's. De begrippen staan in het [begrippenkader](begrippenkader.md). Relateert aan: #137.
+De concrete gebruikersscenario's per Npuls-leerroute: leerroute 1 (regulier), leerroute 2 (temporiseren by design) en leerroute 3 (versnellen by design), met sjabloon en leeswijzer. In de [leerroute-uitwerking](leerroute-uitwerking-lr1.md) (§3.2.1 en verder) zijn de negen leerroutes aangevuld met onderwijslogistiek en onderwijskundig perspectief; dit bestand vertaalt die aangevulde leerroutes naar concrete gebruikersscenario's. De begrippen staan in het [begrippenkader](begrippenkader.md). Relateert aan: #137.
 
 
 **Doel.** Externen (leveranciers, instellingen, ketenpartners) moeten in begrijpelijke taal kunnen volgen *wat er allemaal gebeurt* om elke vorm van leerroute mogelijk te maken. Daarbij staan we ook stil bij veel voorkomende wijzigingen op geplande leerroutes. Denk hierbij  *hoe een incidentele wijziging (vertraging/versnelling by incident)* of een *bewuste tempo-keuze (by design)* hierop ingrijpt. De begrippen die we daarvoor gebruiken zijn die van §3.2.
@@ -234,25 +234,3 @@ Dit blok maakt expliciet dat één scenario "regulier-happyflow" mogelijk maken 
 #### 3.4.13 Niet in scope voor §3.4 — flex-flow met meegenomen LO's
 
 > **Buiten scope.** Een student wil op een afwijkend instroommoment instappen óf overstappen vanuit een andere opleiding, en wil **al behaalde leeruitkomsten meenemen** (basisdelen, algemene delen, individuele LO's). Dit raakt LO-erkenning, EVC, bottom-up aggregatie en cross-instelling-interoperabiliteit — die werken we uit als onderdeel van de scenario-uitwerkingen voor leerroutes 4–9 (in een toekomstige paragraaf §3.x).
-
-### 3.5 Gegevens Analyse
-
-### 3.2 Begrippenkader — hoe beschrijven we flexibel onderwijs?
-
-Voordat we scenario's induiken, lijnen we eerst de **taal** uit. De leerroutes zijn pas vergelijkbaar (en uitwisselbaar tussen instellingen) als alle ketenpartijen — ontwerper, ontwikkelaar, planner, roosteraar, SLB'er, student, docent, en hun systemen — dezelfde begrippen op dezelfde manier hanteren. Dit begrippenkader is daarom **leidend voor §3.3 (kaderstellende scenario's), §3.4 (uitgewerkte scenario's) en de volledige rest van het document**. Detailtabellen die in eerdere versies in §12 stonden, zijn naar deze paragraaf verhuisd; §12 verwijst er naar terug.
-
-#### 3.2.1 Zes informatie-objectfamilies — wat zien we per stap?
-
-Onderwijs is van *idee* tot *resultaat* een keten van zes informatie-objectfamilies. Lees ze als opvolgende vragen die in de keten beantwoord worden:
-
-| Familie (kolom)              | Stelt de vraag                                       | Wie levert dit                          | Voorbeeld (Apothekersassistent)                                |
-| ---------------------------- | ---------------------------------------------------- | --------------------------------------- | -------------------------------------------------------------- |
-| **1. Kader**                 | Wat is *normatief* geldig?                           | SBB, CROHO, examencommissie             | Crebo-dossier 23450, kwalificatie 27141, werkproces B1-K1-W1   |
-| **2. Beoogde leeruitkomst**  | Wat moet de student *kennen en kunnen*?              | Onderwijsontwerper                      | "Neemt de zorg-/adviesvraag in behandeling"                    |
-| **3. Onderwijsspecificatie** | Wat gaan we *organiseren* (sjabloon, herbruikbaar)?  | Onderwijsontwerper + onderwijsontwikkelaar | Course "Balie: zorg-/adviesvraag", LearningComponent simulatie |
-| **4. Onderwijsaanbod**       | *Wanneer / met hoeveel / met wie* gaan we het doen?  | Planner (planbaar) + roosteraar (geroosterd) | "Periode 1, max. 24 studenten, lokaal X, docent Y"             |
-| **5. Onderwijsverbintenis**  | *Welke student* heeft welke relatie met dit aanbod?  | SLB'er + aanmeldsysteem + SVS           | Jochem is `enrolled` of `enlisted` op CourseOffering "Balie 2026-P1"         |
-| **6. Onderwijsresultaat**    | Wat heeft die student *behaald* (state + bewijs)?    | Docent + examencommissie                | `state = completed`, `attendance = present`, microcredential, evidence per Leeruitkomst          |
-
-> **Mentaal model.** *Kolom 1–2 = wat moet?* — *Kolom 3 = wat gaan we doen?* — *Kolom 4 = wanneer doen we het?* — *Kolom 5 = wie doet mee?* — *Kolom 6 = wat is de uitkomst?*
-
