@@ -36,7 +36,7 @@ Alles staat in `architecture/docs/requirements/`. De limieten zijn hard; oversch
 
 | Bestand | Inhoud | Limiet |
 |---|---|---|
-| `README.md` | Index: doel, mermaid-boom, navigatietabel, conventies, scope | 120 regels, mermaid 35 nodes |
+| `README.md` | Index: doel, mermaid-boom, navigatietabel, conventies, scope | 120 regels, mermaid 15 knopen |
 | `opdracht.md` | Opdracht en projectdoelen (D1, D2, ...), tabel doel naar epics | 80 regels |
 | `epics.md` | Eén tabel met alle epics | 150 regels, 8 epics |
 | `features.md` | Subsectie per epic met featuretabel | 200 regels, 6 features per epic |
@@ -45,11 +45,11 @@ Alles staat in `architecture/docs/requirements/`. De limieten zijn hard; oversch
 
 ## Tabelformats
 
-Elke laag is een tabel. De doelzin is maximaal 25 woorden. Statuswaarden: `uitgewerkt` of `nog niet uitgewerkt`; andere statusaanduidingen horen bij het artefact of de PR, niet in de boom.
+Elke laag is een tabel en elke rij draagt een id: epics `E<n>`, features `F<epic>.<n>`, stories `S<epic>.<n>`. Dat zijn verwijzings-id's voor issues, reviews en gesprekken, geen traceernotatie. De doelzin beschrijft de beoogde toestand of waarde (wat is er bereikt als dit werkt), niet de werking, en is maximaal 25 woorden. Planningsstatus hoort in milestones en issues, niet in de boom; een epic zonder uitwerking heeft in `features.md` een sectie met één verklarende regel in plaats van een tabel.
 
-- **Epics**: `| Epic | Doel | Draagt bij aan | Status | Bron | Features |`. "Draagt bij aan" verwijst naar een doel (D-nummer) in `opdracht.md`. "Features" is een ankerlink naar de subsectie in `features.md`.
-- **Features**: `| Feature | Doel | Status | Bron | Verwijzing |`, gegroepeerd per epic in een eigen subsectie (de ouder staat in de sectiekop, niet per rij). "Verwijzing" wijst naar een bestaand document dat de feature uitwerkt, of blijft leeg.
-- **Stories**: `| Story | Feature | Bron | Koppeling |`. De story is een actorzin ("Als ... wil ik ... zodat ..."). "Koppeling" bevat de interactie (I-nummer) met link naar de koppelingspecificatie en het systeem dat eigenaar is (bijvoorbeeld `I1, eigenaar OC`), of expliciet "geen".
+- **Epics**: `| Id | Epic | Doel | Draagt bij aan | Bron | Features |`. "Draagt bij aan" verwijst naar een doel (D-nummer) in `opdracht.md`. "Features" is een ankerlink naar de subsectie in `features.md`.
+- **Features**: `| Id | Feature | Doel | Bron | Verwijzing |`, gegroepeerd per epic in een eigen subsectie (de ouder staat in de sectiekop, niet per rij). "Verwijzing" wijst naar een bestaand document dat de feature uitwerkt, of blijft leeg.
+- **Stories**: `| Id | Story | Feature | Bron | Koppeling |`. De story is een actorzin ("Als ... wil ik ... zodat ..."); de featurecel noemt id en naam. "Koppeling" bevat de interactie (I-nummer) met link naar de koppelingspecificatie en het systeem dat eigenaar is (bijvoorbeeld `I1, eigenaar OC`), of expliciet "geen".
 
 ## Bronplicht
 
@@ -71,8 +71,8 @@ De boom eindigt bij specificaties, niet bij implementaties.
 ## Mermaid-conventies voor de indexplaat
 
 - `flowchart TD`, geen puntkomma's (breken de GitHub-render).
-- Maximale diepte drie niveaus: opdracht of doel, epic, feature. Stories staan als één verzamelnode per epic ("N stories"), nooit individueel. Features staan alleen in de plaat voor epics met status `uitgewerkt`; van andere epics staat alleen de epicknoop in de plaat, hun features alleen in de tabel.
-- Status via `classDef`: uitgewerkt groen, nog niet uitgewerkt grijs. De plaat en de tabellen vertellen hetzelfde; wijkt de plaat af, dan is dat een bevinding.
+- De plaat blijft leesbaar door hem met de hand klein te houden: alleen de opdracht, de doelen en de epics (met id in het label), maximaal 15 knopen. Features en stories staan alleen in de tabellen; zo heeft elke informatie-eenheid één drager.
+- Geen statuskleuren of andere planningsinformatie in de plaat. Elke epicknoop staat in `epics.md` en omgekeerd; wijkt de plaat af, dan is dat een bevinding.
 
 ## Plaats in de product-flow
 
@@ -84,9 +84,10 @@ Deze skill is de specialist-skill voor stap 2 (uitwerken) van [`okx-product-flow
 - [ ] Geen twee nodes met dezelfde naam of dezelfde strekking.
 - [ ] Elke rij heeft een gevulde bronkolom; links werken (`python3 scripts/validate-docs.py architecture/docs/requirements`).
 - [ ] Elke story heeft een koppelingverwijzing (interactie plus eigenaar) of expliciet "geen".
-- [ ] Doelzinnen maximaal 25 woorden; alleen de twee statuswaarden.
-- [ ] Omvangslimieten gehaald (regels tellen met `wc -l`, tabelrijen en mermaid-nodes handmatig).
-- [ ] Mermaid-plaat consistent met de tabellen, geen puntkomma's, stories als verzamelnode.
+- [ ] Doelzinnen maximaal 25 woorden en geformuleerd als beoogde toestand, niet als werking.
+- [ ] Elke rij draagt een id in het vaste format (E, F&lt;epic&gt;.&lt;n&gt;, S&lt;epic&gt;.&lt;n&gt;), zonder gaten of dubbelingen; geen statuskolommen.
+- [ ] Omvangslimieten gehaald (regels tellen met `wc -l`, tabelrijen en mermaid-knopen handmatig).
+- [ ] Mermaid-plaat toont alleen opdracht, doelen en epics en is consistent met `epics.md`; geen puntkomma's.
 - [ ] Geen eis-ID's of Gherkin in de boom; achtergrondmechaniek alleen via verwijzing naar het ADR.
 - [ ] Nieuwe bestanden staan in de README-index van de map en van `architecture/docs/`.
 

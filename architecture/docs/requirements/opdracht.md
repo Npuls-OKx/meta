@@ -30,8 +30,8 @@ De drie doelen waar elke [epic](epics.md) aan bijdraagt.
 
 | Doel | Epics die eraan bijdragen |
 |---|---|
-| D1 | Student kiest onderwijsspecificaties; Keuze en verbintenis vastleggen; Voortgang en resultaat op leeruitkomsten |
-| D2 | Gezamenlijke taal en standaard |
-| D3 | Onderwijsaanbod specificeren en ontsluiten; Aanbod plannen en roosteren; Betrouwbare en vervangbare koppelingen; Standaard piloteren en adopteren |
+| D1 | E2 Student kiest onderwijsspecificaties; E4 Keuze en verbintenis vastleggen; E5 Voortgang en resultaat op leeruitkomsten |
+| D2 | E6 Gezamenlijke taal en standaard |
+| D3 | E1 Onderwijsaanbod specificeren en ontsluiten; E3 Aanbod plannen en roosteren; E7 Betrouwbare en vervangbare koppelingen; E8 Standaard piloteren en adopteren |
 
 De epics zelf, met doel, status en bron: [epics.md](epics.md).
