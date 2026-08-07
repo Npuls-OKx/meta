@@ -6,7 +6,7 @@ description: >-
   interactie-analyse, technologiekeuze, berichtspecificatie en
   interfacespecificatie. Routeert naar de juiste substap-skill of stapbeschrijving.
   Gebruik wanneer de gebruiker de AMIGO-aanpak, een specifieke AMIGO-stap of het
-  komen tot bouwbare uitwisselspecificaties voor het OKx OEAPI consumer-profiel
+  komen tot bouwbare uitwisselspecificaties voor de OKx-koppelvlakken
   aan de orde stelt.
 disable-model-invocation: true
 ---
@@ -15,12 +15,12 @@ disable-model-invocation: true
 
 AMIGO leidt ketenpartijen stapsgewijs naar een **bouwbare afsprakenset**
 (uitwisselspecificatie). Bron: [Edustandaard — AMIGO aanpak](https://www.edustandaard.nl/amigo/aanpak/)
-en §2.3 van het OKx OEAPI consumer-profiel. Deze harness bundelt de stappen en
+en §2.3 van de leerroute-uitwerking. Deze harness bundelt de stappen en
 verwijst per stap naar de skill of stapbeschrijving die hem uitwerkt.
 
 ## Bron van waarheid
 
-- Profiel: `architecture/docs/specificatie/okx-oeapi-consumer-profiel/doc/20260501_Specificatie_document_OKx_OEAPI_profiel.md` (§2.3 Projectaanpak AMIGO).
+- Profiel: `architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md` (§2.3 Projectaanpak AMIGO).
 - Release-roadmap: [`doc/OKx_Release-management-en-versionering.md`](../../../doc/OKx_Release-management-en-versionering.md) §8 (`v0.1.0` milestone 3 → `v1.0.0` ecosysteem compleet).
 - Stappen worden **iteratief** doorlopen: een keuze in bericht/interface kan aanleiding zijn scenario, gegevens of interacties aan te scherpen.
 
@@ -65,7 +65,7 @@ Op basis van **alle gestandaardiseerde koppelingen** worden uiteindelijk **alle 
 
 1. Bepaal in welke AMIGO-stap de vraag valt (tabel hierboven).
 2. Open de bijbehorende **skill** (indien aanwezig) of **stapbeschrijving** in [`stappen/`](stappen/).
-3. Blijf **binnen** het consumer-profiel en de ankertabel/§12.5; gaps → signalering (§9), geen OEAPI-kernwijziging.
+3. Blijf **binnen** de leerroute-uitwerking en het begrippenkader met de ankertabel; gaps → signalering, geen OEAPI-kernwijziging.
 4. Houd het per stap op het afgesproken niveau: analyse blijft analyse tot het team om bericht-/interfacedetail vraagt.
 
 ## Status

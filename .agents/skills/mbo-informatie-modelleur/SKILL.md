@@ -2,7 +2,7 @@
 name: mbo-informatie-modelleur
 description: >-
   Modelleert het concept-informatiemodel van mbo-onderwijs binnen het OKx OEAPI
-  consumer-profiel: gefaseerde, geneste onderwijsspecificaties (opleiding ->
+  leerroute-uitwerking: gefaseerde, geneste onderwijsspecificaties (opleiding ->
   programma -> onderwijseenheid -> leeronderdeel -> lessenreeks -> les) in
   ASCII-boomvorm, met Nederlandse concept-attributen, keuzedelen als zelfstandig
   programma, en delta-modellering voor leerroute 2-9 t.o.v. de reguliere
@@ -41,7 +41,7 @@ Milestone 3 ([OC P afgerond](https://github.com/Npuls-OKx/meta/milestone/3)) lev
 
 ## Bron van waarheid
 
-- Primair document: `architecture/docs/specificatie/okx-oeapi-consumer-profiel/doc/20260501_Specificatie_document_OKx_OEAPI_profiel.md`.
+- Primair document: `architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md`.
 - **Ankertabel** (§3.2.6): 6 niveaus × 6 families is de normatieve verankering van entiteiten en cardinaliteiten.
 - **Specificatie-catalogus** (§12.5): attributen per specificatie-object (Engelse, OEAPI-nabije namen).
 - **OEAPI-mapping** (§5): recursief datamodel `Programme` / `Course` / `LearningComponent` / `TestComponent`.

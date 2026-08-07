@@ -18,10 +18,10 @@ Vastgelegd in [architecture/docs/principes.md](architecture/docs/principes.md):
 
 ## Aannames en kaders
 
-- **Scenario's**: leerroutes 1-3 met de persona's uit het [OEAPI consumer-profiel](architecture/docs/specificatie/okx-oeapi-consumer-profiel/README.md); latere leerroutes als delta.
+- **Scenario's**: leerroutes 1-3 met de persona's uit de [leerroute-uitwerking](architecture/docs/specificatie/leerroute-uitwerking/README.md); latere leerroutes als delta.
 - **Intra-instelling eerst**, federatie gefaseerd (ADR 0008).
 - **Taal**: Nederlands, IT-vaktermen tussen haakjes. Stijl: [.cursor/rules/schrijfstijl.mdc](.cursor/rules/schrijfstijl.mdc).
-- **Semantiek**: de zes begrippenfamilies uit de ankertabel van het OEAPI consumer-profiel (kader, beoogde leeruitkomst, specificatie, aanbod, verbintenis, resultaat); de leeruitkomst is de sleutel, onderwijsresultaten hangen aan leeruitkomsten. Subtypen voluit met backquotes; geen verzonnen termen. Een koppeling is de informatiestroom tussen twee componenten; een koppelvlak is de verzameling koppelingen van één component.
+- **Semantiek**: de zes begrippenfamilies uit de ankertabel in het [begrippenkader van de leerroute-uitwerking](architecture/docs/specificatie/leerroute-uitwerking/doc/begrippenkader.md) (kader, beoogde leeruitkomst, specificatie, aanbod, verbintenis, resultaat); de leeruitkomst is de sleutel, onderwijsresultaten hangen aan leeruitkomsten. Subtypen voluit met backquotes; geen verzonnen termen. Een koppeling is de informatiestroom tussen twee componenten; een koppelvlak is de verzameling koppelingen van één component.
 - **Geen metadatakop (frontmatter)** in deliverables en agent-artifacten: GitHub (git-historie, issues, PR's) is de bron voor auteurschap, datums en traceerbaarheid; verwijs in de tekst ("Relateert aan: #12"). Uitzondering: `SKILL.md`-bestanden en `.mdc`-rules houden hun verplichte metadatakop (naam, beschrijving, `alwaysApply`).
 
 ## Harde regels
@@ -41,7 +41,7 @@ Vastgelegd in [architecture/docs/principes.md](architecture/docs/principes.md):
 | Architectuurbesluiten (ADR's) | [Referentiemateriaal/adr in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr) |
 | ArchiMate-model (niet aanraken) | [architecture/model/](architecture/model/) |
 | Meetingverslagen | [architecture/meetings/](architecture/meetings/) |
-| Specificaties (OEAPI-profiel, persona's) | [architecture/docs/specificatie/](architecture/docs/specificatie/) |
+| Specificaties (leerroute-uitwerking, persona's) | [architecture/docs/specificatie/](architecture/docs/specificatie/) |
 | Agent-artifacten (ontwerpen, plannen) | [architecture/agent-artifacts/](architecture/agent-artifacts/) |
 | OKE-subdomein en MOKA-templates | [OKE/](OKE/), [moka-koppelvlakspecificaties/](moka-koppelvlakspecificaties/) |
 | Presentaties (Slidev, Npuls huisstijl) | [presentaties/](presentaties/) |

@@ -14,6 +14,6 @@
 
 - Multi-actor: student journey én instellingsjourney.
 - Leerroute 2–9 als **delta** t.o.v. de reguliere baseline (leerroute 1).
-- Blijf binnen het consumer-profiel; gaps → signalering (§9).
+- Blijf binnen de leerroute-uitwerking; gaps → signalering.
 
 **Status:** uitgewerkt (eigen skill).

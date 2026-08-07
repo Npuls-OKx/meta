@@ -69,7 +69,7 @@ flowchart TB
 
 | Repository | Scope in de keten | Rol |
 |------------|-------------------|-----|
-| [**meta**](https://github.com/Npuls-OKx/meta) (deze repo) | **Kaderstelling** — referentiekader / business architectuur en **specificatiedocument** (OEAPI-profiel op businesslaag) | Zegt *wat* de standaard betekent: begrippenkader, sectorarchitecturen (MOSA, HOSA, ROSA, MORA, HORA), scenario's en persona's, informatiemodellen, informatiestromen, interactieanalyse; plus endpointbeschrijvingen, interactiepatronen, sequentiediagrammen, datamodel en security op kaderniveau (zie [`architecture/docs/specificatie/okx-oeapi-consumer-profiel/`](../architecture/docs/specificatie/okx-oeapi-consumer-profiel/)). **Wijzigingsverzoeken** uit piloten en adoptie komen hier terug. |
+| [**meta**](https://github.com/Npuls-OKx/meta) (deze repo) | **Kaderstelling** — referentiekader / business architectuur en **specificatiedocument** (OEAPI-profiel op businesslaag) | Zegt *wat* de standaard betekent: begrippenkader, sectorarchitecturen (MOSA, HOSA, ROSA, MORA, HORA), scenario's en persona's, informatiemodellen, informatiestromen, interactieanalyse; plus endpointbeschrijvingen, interactiepatronen, sequentiediagrammen, datamodel en security op kaderniveau (zie [`architecture/docs/specificatie/leerroute-uitwerking/`](../architecture/docs/specificatie/leerroute-uitwerking/)). **Wijzigingsverzoeken** uit piloten en adoptie komen hier terug. |
 | [**spec**](https://github.com/Npuls-OKx/specification) | **Technische implementatie** van het OEAPI-profiel | OpenAPI-specificatie — bouwbaar en testbaar koppelvlak. |
 
 **Verdere projectdeliverables** (niet in deze repo's, wel afhankelijk van hun releases):
