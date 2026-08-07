@@ -12,18 +12,22 @@ Dit document vat **richtinggevende principes** samen voor uitwerkingen in deze k
 
 ---
 
-## 2. OEAPI als voorkeur — tenzij strategisch anders
+## 2. Eisen eerst, techniekkeuze daarna (OEAPI als voorkeursvertaling)
 
-**Uitgangspunt**: wat de **Open Onderwijs API (OEAPI)** kan uitdrukken of bedienen, modelleren en specificeren we **zoveel mogelijk op basis van OEAPI** (profielen, extensies, bestaande patronen).
+**Uitgangspunt**: OKx formuleert eerst de eigen **wensen en eisen** (requirements, scenario's, semantiek) en maakt **daarna** de vertaling naar een technische standaard. Een requirement wordt **nooit uitgesloten, afgezwakt of geparkeerd** omdat de Open Onderwijs API (OEAPI) of een andere technische keuze het niet toestaat; zo'n mismatch is een **signalering richting de standaard**, geen blokkade. De verwachting is dat OEAPI zich aanpast aan sectoreisen zoals de onze.
+
+Bij de **vertaling** blijft OEAPI de voorkeur: wat OEAPI kan uitdrukken, modelleren en specificeren we zoveel mogelijk op basis van OEAPI (profielen, extensies, bestaande patronen).
 
 - Raadpleeg de officiële documentatie: [Open Onderwijs API](https://openonderwijsapi.nl/) en bijvoorbeeld [OEAPI v6.0](https://openonderwijsapi.nl/v6.0/).
 - **Waarom**: hergebruik van een brede sectorstandaard vermindert maatwerk, vergroot interoperabiliteit en sluit aan op bestaande implementaties en kennis in het veld.
 
-**Uitzondering (“tenzij strategie”)**: als OEAPI **niet** past of **onvoldoende** is voor een gegeven use case (bijv. domeinspecifieke semantiek, wettelijke eisen, performance of ketenafspraken buiten het OEAPI-model), dan:
+**Afwijken van de voorkeursvertaling**: als OEAPI niet past of onvoldoende is voor een eis:
 
-1. Beschrijf **waarom** OEAPI onvoldoende is (in issue, PR of ADR).
-2. Leg een **bewuste keuze** vast — bij voorkeur als **ADR** in [Referentiemateriaal/adr in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr).
+1. Beschrijf **waarom** OEAPI onvoldoende is (in issue, PR of ADR); de eis zelf blijft staan.
+2. Leg een **bewuste keuze** vast, bij voorkeur als **ADR** in [Referentiemateriaal/adr in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr).
 3. Houd de oplossing **zo dicht mogelijk bij** bredere afspraken (MOKA, BOPSI, andere erkende kaders) en documenteer impact op keten en leveranciers.
+
+**Sectoraansluiting**: de focus ligt op het mbo, maar eisen en endpoints worden zo gedefinieerd dat hbo en wo (wetenschappelijk onderwijs) kunnen aansluiten; we zitten ze niet in de weg.
 
 ---
 

@@ -11,7 +11,7 @@ OKx-meta is de **publieke kennisbank** van OKx (Npuls, pijler Leren Zonder Dremp
 Vastgelegd in [architecture/docs/principes.md](architecture/docs/principes.md):
 
 1. **Design first**: ontwerpen en reviewen vóór "af"; iteratief via issues en PR's.
-2. **OEAPI als voorkeur, tenzij**: afwijkingen bewust en vastgelegd (ADR).
+2. **Eisen eerst, techniekkeuze daarna**: OEAPI als voorkeursvertaling; een eis sneuvelt nooit op een techniekkeuze. Afwijkingen bewust en vastgelegd (ADR).
 3. **Machine-interpreteerbaar**: gestructureerde markdown, JSON, valideerbare definities.
 4. **Show don't tell**: diagrammen (mermaid), tabellen en voorbeelden boven lange tekst.
 5. **Uitbreidbaar**: de principes zijn levend; wijzigen via PR en zo nodig ADR.
