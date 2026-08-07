@@ -47,7 +47,7 @@ Voor concrete wijzigingen werken we via **issues** en **pull requests**. Zie [`C
 | **Release & versionering** | [`doc/OKx_Release-management-en-versionering.md`](doc/OKx_Release-management-en-versionering.md) | Voorstel voor versienummers en de verhouding tussen meta- en spec-releases |
 | **OKE uitwerking** | [`OKE/`](OKE/) | Eerste subdomein-uitwerking (o.a. examen: uitvoering en beoordeling) |
 | **MOKA templates** | [`moka-koppelvlakspecificaties/`](moka-koppelvlakspecificaties/) | Templates en generieke instructies voor koppelvlakspecificaties |
-| **Architectuur & besluiten** | [`architecture/`](architecture/) | ArchiMate-model, ADR’s, meeting-notulen en [`architecture/docs/principes.md`](architecture/docs/principes.md) |
+| **Architectuur & besluiten** | [`architecture/`](architecture/) | ArchiMate-model, ADR’s en meeting-notulen; de [architectuurprincipes staan in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/principes/principes.md) |
 | **Agent-artifacten** | [`architecture/agent-artifacts/`](architecture/agent-artifacts/) | Projectaanvragen, featureplannen en ontwerpdocumenten (Cursor slash commands); zie [`architecture/agent-artifacts/README.md`](architecture/agent-artifacts/README.md) |
 | **Agent-omgeving (AI)** | [`AGENTS.md`](AGENTS.md), [`.agents/`](.agents/) en [`.cursor/`](.cursor/) | Basisdocument voor AI-agents, skills met manifest (`npx skills`), commands, rules en hooks (o.a. blokkade van pakket-installaties op de host); uitleg in [`doc/Bijdragen-voor-beginners.md`](doc/Bijdragen-voor-beginners.md) |
 | **Dev container** | [`.devcontainer/`](.devcontainer/) | Geisoleerde, reproduceerbare dev-omgeving (Docker); "Reopen in Container" — zie [`.devcontainer/README.md`](.devcontainer/README.md) |

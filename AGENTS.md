@@ -6,15 +6,17 @@ Basisdocument voor AI-agents (Cursor, Claude Code, Codex en vergelijkbaar) die i
 
 OKx-meta is de **publieke kennisbank** van OKx (Npuls, pijler Leren Zonder Drempels): gedeelde kennis, afspraken en conceptuitwerkingen rond **gestandaardiseerde koppelvlakken voor onderwijslogistiek**. Dit is een documentatierepository, geen codebase. Scope start bij mbo (leerroutes 1-3 eerst), hoger onderwijs volgt. Volledige introductie: [README.md](README.md) en [doc/OKx_Projectoverzicht.md](doc/OKx_Projectoverzicht.md).
 
-## Kernprincipes
+## Principes en werkafspraken
 
-Vastgelegd in [architecture/docs/principes.md](architecture/docs/principes.md):
+De architectuurprincipes van OKx staan in [Referentiemateriaal/principes in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/principes/principes.md) (OKx-AP01 tot en met AP13; AMIGO als standaardiseringsroute is AP03), naast de [uitgangspunten](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md). Eisen komen vóór de techniekkeuze: een eis sneuvelt nooit omdat OEAPI of een andere technische standaard hem niet toestaat; zo'n mismatch is een signalering richting de standaard (uitgangspunt-voorstel voor Public in voorbereiding, relateert aan #139).
+
+Voor het werk in deze repository gelden drie werkafspraken:
 
 1. **Design first**: ontwerpen en reviewen vóór "af"; iteratief via issues en PR's.
-2. **Eisen eerst, techniekkeuze daarna**: OEAPI als voorkeursvertaling; een eis sneuvelt nooit op een techniekkeuze. Afwijkingen bewust en vastgelegd (ADR).
-3. **Machine-interpreteerbaar**: gestructureerde markdown, JSON, valideerbare definities.
-4. **Show don't tell**: diagrammen (mermaid), tabellen en voorbeelden boven lange tekst.
-5. **Uitbreidbaar**: de principes zijn levend; wijzigen via PR en zo nodig ADR.
+2. **Machine-interpreteerbaar**: gestructureerde markdown, JSON, valideerbare definities.
+3. **Show don't tell**: diagrammen (mermaid), tabellen en voorbeelden boven lange tekst.
+
+De werkafspraken zijn levend; wijzigen via PR.
 
 ## Aannames en kaders
 
