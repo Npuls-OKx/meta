@@ -1,14 +1,17 @@
 # Agent-artifacten (traceerbare AI-sessies)
 
-Hier slaan we **projectaanvragen**, **featureplannen** en **ontwerpdocumenten** op die (mede) met **Cursor-agents** zijn opgebouwd. Zo blijft zichtbaar **wat** wanneer is ontstaan en **welke mensen** verantwoordelijk waren (**human in the loop**).
+Hier slaan we **onderzoeksverslagen**, **projectaanvragen**, **featureplannen** en **ontwerpdocumenten** op die (mede) met **Cursor-agents** zijn opgebouwd. Zo blijft zichtbaar **wat** wanneer is ontstaan en **welke mensen** verantwoordelijk waren (**human in the loop**).
 
 ## Mappen
 
 | Map | Inhoud |
 |-----|--------|
+| [`research/`](research/) | Onderzoek dat een besluit onderbouwt, met bronvermelding |
 | [`project-requests/`](project-requests/) | Iteratieve projectaanvragen (`/project-aanvraag`) |
 | [`feature-plans/`](feature-plans/) | Featureplannen uit een request (`/maak-plan`) |
 | [`design-docs/`](design-docs/) | Ontwerp per feature (`/ontwerp-document`) |
+
+De volgorde is de volgorde van het werk: onderzoek onderbouwt een besluit, een projectaanvraag beschrijft wat we willen maken, een featureplan knipt dat op, en een ontwerpdocument werkt één onderdeel uit. Het besluit zelf hoort niet hier maar als ADR in [`Npuls-OKx/Public`](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr).
 
 ## Bestandsnaam
 
