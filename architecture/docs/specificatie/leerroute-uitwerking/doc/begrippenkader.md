@@ -14,14 +14,16 @@ De leerroutes zijn pas vergelijkbaar, en uitwisselbaar tussen instellingen, als 
 | **2. Beoogde leeruitkomst**  | Wat moet de student *kennen en kunnen*?              | Onderwijsontwerper                      | "Neemt de zorg-/adviesvraag in behandeling"                    |
 | **3. Onderwijsspecificatie** | Wat gaan we *organiseren* (sjabloon, herbruikbaar)?  | Onderwijsontwerper + onderwijsontwikkelaar | `Onderwijseenheid-specificatie` "Balie: zorg-/adviesvraag" met een simulatie als leeronderdeel |
 | **4. Onderwijsaanbod**       | *Wanneer / met hoeveel / met wie* gaan we het doen?  | Planner (planbaar) + roosteraar (geroosterd) | "Periode 1, max. 24 studenten, lokaal X, docent Y"             |
-| **5. Onderwijsverbintenis**  | *Welke student* heeft welke relatie met dit aanbod?  | SLB'er + aanmeldsysteem + SVS           | Jochem is aangemeld of ingeschreven op het `onderwijseenheid-aanbod` "Balie 2026-P1" |
+| **5. Onderwijsverbintenis**  | *Welke student* heeft welke relatie met dit aanbod?  | SLB'er + aanmeldsysteem + SVS           | Jochem is aangemeld of ingeschreven op het `Onderwijseenheid-aanbod` "Balie 2026-P1" |
 | **6. Onderwijsresultaat**    | Wat heeft die student *behaald* (status en bewijs)?  | Docent + examencommissie                | Afgerond, met aanwezigheid, microcredential en bewijs per leeruitkomst |
 
 > **Mentaal model.** *Kolom 1 en 2: wat moet? Kolom 3: wat gaan we doen? Kolom 4: wanneer doen we het? Kolom 5: wie doet mee? Kolom 6: wat is de uitkomst?*
 
+Afkortingen: SBB is de Samenwerkingsorganisatie Beroepsonderwijs Bedrijfsleven, CROHO het Centraal Register Opleidingen Hoger Onderwijs en SVS het studievoortgangsysteem.
+
 ## Zes niveaus: van diploma tot lesuitkomst
 
-Dezelfde zes families komen op meerdere **niveaus** terug. Het kwalificatiekader van de Samenwerkingsorganisatie Beroepsonderwijs Bedrijfsleven (SBB) bepaalt de niveaus; OKx volgt diezelfde rij-discipline:
+Dezelfde zes families komen op meerdere **niveaus** terug. Het kwalificatiekader van SBB bepaalt de niveaus; OKx volgt diezelfde rij-discipline:
 
 | Niveau (rij) | Wat het betekent |
 | ---------------------------------- | ---------------------------------------------------------------------- |
