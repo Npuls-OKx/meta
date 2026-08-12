@@ -599,7 +599,7 @@ flowchart LR
 
 ## 17. Ontwerp- en standaardprincipes
 
-**Design first**, **OEAPI**, **machine-interpreteerbare formaten**, **show don't tell / diagram-first**: [`architecture/docs/principes.md`](../architecture/docs/principes.md).
+**Design first**, **machine-interpreteerbare formaten**, **show don't tell / diagram-first**: werkafspraken in [`AGENTS.md`](../AGENTS.md). De architectuurprincipes (OKx-AP01 tot en met AP13) staan in [Referentiemateriaal/principes in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/principes/principes.md).
 
 ---
 
