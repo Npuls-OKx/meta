@@ -20,7 +20,7 @@ Vijf werkpakketten, in volgorde:
 4. **WP4, data-eisen per processtap (leerroute 1; vervolgissue, nog aan te maken).** Scenario 1.1 uitbreiden met per processtap (oriëntatie tot en met aanmelding) een in- en uitgaande-datatabel, als opstap naar de testkits van de adoptieadviseurs en de latere testsuite tegen de endpoints (58:42-1:00:33). Sjabloonuitbreiding vastleggen in de scenario-README. De datatabellen verwijzen naar de payload-specificaties in Public; zolang PR 9 daar niet gemerged is, verwijzen ze naar de branchversie.
 5. **WP5, leerroutes 2, 3, 4 en 7 (met Niels; vervolgissues per leerroute).** De pitch-scenario's van leerroute 2 en 3 uitwerken volgens het sjabloon, daarna leerroute 4 en 7 als nieuwe delta's ten opzichte van leerroute 1 (34:57-35:15). Niels voert de regie op de businesslaag en het begrippenkader (15:23-16:35, 17:51-18:12); de agent levert concepten en de gates, en toetst begrippenkader-taal tegen de ankertabel.
 
-Planning: het WP2-beslisdocument en de start van WP1 op 13 augustus; PR 140 is al reviewklaar, ruim vóór release 0.3 van woensdag 19 augustus richting de kerngroep techniek (26:16-28:20); WP3 direct na het WP2-besluit; WP4 en WP5 daarna, in het tempo van Niels' reviews (vrijdag: Public PR 6, meta PR 131 en PR 140).
+Planning: het WP2-beslisdocument en de start van WP1 op 13 augustus; PR 140 is al reviewklaar. WP3 direct na het WP2-besluit; WP4 en WP5 daarna. Niels stuurt vanaf vrijdag zijn team aan op basis van het besproken kader en pakt de reviews (Public PR 6, meta PR 131 en PR 140) in zijn eigen tempo op.
 
 ## Buiten scope
 
