@@ -7,7 +7,7 @@ De gelaagde breakdown van de OKx-requirements: van de opdracht (Leren zonder Dre
 De plaat toont de opdracht, de drie doelen en de acht epics. Features en stories staan alleen in de tabellen; elke rij draagt een id (E, F, S) om naar te verwijzen.
 
 ```mermaid
-flowchart TD
+flowchart LR
   LZD["Leren zonder Drempels"] --> D1["D1 keuze en personalisering"] & D2["D2 gezamenlijke taal"] & D3["D3 gegevensuitwisseling en mobiliteit"]
   D1 --> E2["E2 Student kiest onderwijsspecificaties"]
   D1 --> E4["E4 Keuze en verbintenis vastleggen"]
