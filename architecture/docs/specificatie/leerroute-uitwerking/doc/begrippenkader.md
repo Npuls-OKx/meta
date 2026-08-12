@@ -6,7 +6,7 @@
 
 **Positionering in de informatiegelaagdheid (MIM).** In termen van het [Metamodel Informatie Modellering (MIM)](https://docs.geostandaarden.nl/mim/mim/) van Geonovum is dit bestand het model van begrippen (niveau 1). De families en subtypen zijn kandidaat-objecttypen voor het conceptuele informatiemodel (niveau 2), waarvan het concept-informatiemodel in de leerroute-uitwerking de aanzet is; de payload-specificaties en endpoint-sets in Public vormen het logische niveau (niveau 3). Gegevenstypen in MIM-zin, de datatypes van attributen, horen bij die lagere niveaus en niet in dit begrippenkader.
 
-**Aansluiting op MORA en HORA.** De begrippen sluiten aan op de mbo-referentiearchitectuur (MORA) en, via het lopende initiatief Klus 53 (Alignment MORA-HORA) van MBO Digitaal, op de referentiearchitectuur van het hoger onderwijs (HORA). De uitwerking met de Klus 53-visual staat in de [leerroute-uitwerking](leerroute-uitwerking-lr1.md#betrokken-informatie-bij-proces); de oude MORA-cross-walk staat in het [archief](archief-conceptmodellen.md).
+**Aansluiting op MORA en HORA.** De begrippen sluiten aan op de mbo-referentiearchitectuur (MORA) en, via het lopende initiatief Klus 53 (Alignment MORA-HORA) van MBO-Digitaal, op de referentiearchitectuur van het hoger onderwijs (HORA). De uitwerking met de Klus 53-visual staat in de [leerroute-uitwerking](leerroute-uitwerking-lr1.md#betrokken-informatie-bij-proces); de oude MORA-cross-walk staat in het [archief](archief-conceptmodellen.md).
 
 ## Zes informatie-objectfamilies
 

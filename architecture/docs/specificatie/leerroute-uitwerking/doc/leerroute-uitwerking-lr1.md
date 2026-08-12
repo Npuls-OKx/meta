@@ -1946,7 +1946,7 @@ flowchart TD
 
 ### 3.4 Scenario-uitwerkingen
 
-De concrete gebruikersscenario's staan per scenario in een eigen document in de map [scenario-uitwerkingen](scenario-uitwerkingen/README.md); de README daar geeft het sjabloon, de gedeelde casus en de samenhang.
+De concrete gebruikersscenario's staan per scenario in een eigen document in de map [scenario-uitwerkingen](scenario-uitwerkingen/README.md); de README daar geeft het sjabloon, de doorlopende casus en de samenhang.
 
 ## Begrippenkader en archief
 
