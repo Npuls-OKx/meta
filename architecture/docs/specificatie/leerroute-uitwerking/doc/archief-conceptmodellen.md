@@ -7,7 +7,7 @@ Voorloper van de koppelingspecificaties, bewaard als bronmateriaal. Dit deel van
 | §3.2.2 zes niveaus en de informatie-objectfamilies (OEAPI-kolommen) | concepttermen in het [begrippenkader](begrippenkader.md); de OEAPI-varianten staan hieronder |
 | §3.2.5 MORA cross-walk | nog geen opvolger; komt terug bij de terugkoppeling op het informatiemodel |
 | §3.2.6 ankertabel | concepttermen in het [begrippenkader](begrippenkader.md); de OEAPI-cellen hieronder zijn de oude vertaling |
-| §3.5 eerdere scenario-schetsen | gedeeltelijk geconsolideerd (leerroute 1 tot en met 3) in de [scenario-uitwerkingen](scenario-uitwerkingen.md); leerroute 4, 5 en 7 tot en met 9 staan alleen nog hier |
+| §3.5 eerdere scenario-schetsen | gedeeltelijk geconsolideerd (leerroute 1 tot en met 3) in de [scenario-uitwerkingen](scenario-uitwerkingen/README.md); leerroute 4, 5 en 7 tot en met 9 staan alleen nog hier |
 | §4 De "Student Kiest"-keten | requirementsboom (epic Student kiest onderwijsspecificaties) en de keuze-requirements (meta-PR 120, in review) |
 | §5, §6 OEAPI-mapping en extensies | volgt bottom-up uit de endpoint-gedreven datamodellen in Public |
 | §7 tot en met §11 cross-instelling, fasering, signaleringen, ontwerpkeuzes | deels verwerkt in de ADR's en uitgangspunten in Public |

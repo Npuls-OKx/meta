@@ -2,13 +2,13 @@
 
 ## Inleiding
 
-Dit document is de leerroute-uitwerking van OKx volgens de [AMIGO-aanpak](https://www.edustandaard.nl/amigo/aanpak/), stap 1 tot en met 3: scenario-analyse, gegevensanalyse en interactie-analyse. Het beschrijft per Npuls-leerroute de begrippen, actoren, scenario's, betrokken systemen en informatiestromen waarmee de keten flexibel onderwijs organiseert. Het document heette eerder "OKx OEAPI consumer-profiel"; die naam dekte de lading niet en zette de techniekkeuze voorop (#137).
+**Doel.** De leerroute-uitwerking van OKx volgens de [AMIGO-aanpak](https://www.edustandaard.nl/amigo/aanpak/), stap 1 tot en met 3 (scenario-analyse, gegevensanalyse en interactie-analyse): per Npuls-leerroute vastleggen wat de keten moet kunnen, in begrippen, actoren, betrokken systemen en informatiestromen. Dit is de kaderstelling waar de requirementsboom en de koppelingspecificaties op bouwen. Het document heette eerder "OKx OEAPI consumer-profiel"; die naam dekte de lading niet en zette de techniekkeuze voorop (#137).
 
-Leerroute 1 (regulier) is volledig uitgewerkt en vormt de basis; leerroute 2 (temporiseren by design) en leerroute 3 (versnellen by design) zijn beschreven als delta ten opzichte van die basis. Dat de uitwerking op leerroute 1 is gebaseerd betekent niet dat er buiten die route geen eisen bestaan: latere leerroutes stellen eigen eisen en volgen als delta zodra ze aan de beurt zijn.
+**Scope.** Leerroute 1 (regulier) is volledig uitgewerkt en vormt de basis; leerroute 2 (temporiseren by design) en leerroute 3 (versnellen by design) zijn beschreven als delta ten opzichte van die basis. Latere leerroutes (4 tot en met 9) stellen eigen eisen en volgen als delta zodra ze aan de beurt zijn; dat ze hier nog niet staan betekent niet dat daar geen eisen bestaan. De vertaling naar OEAPI of een andere technische standaard valt buiten dit document: eisen komen vóór de techniekkeuze, en de vertaling ontstaat bottom-up en endpoint-gedreven in de koppelingspecificaties en payload-specificaties in [Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Koppelvlakspecificaties). De eerdere top-down conceptmodellen en OEAPI-mappings staan als bronmateriaal in het [archief](archief-conceptmodellen.md).
 
-Eisen komen vóór de techniekkeuze. De vertaling naar OEAPI of een andere technische standaard ontstaat bottom-up en endpoint-gedreven in de koppelingspecificaties en payload-specificaties in [Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Koppelvlakspecificaties); de eerdere top-down conceptmodellen en OEAPI-mappings staan als bronmateriaal in het [archief](archief-conceptmodellen.md).
+**Verhouding tot de scenario-uitwerkingen.** Dit document beschrijft het kader per leerroute: wat de keten moet kunnen. De [scenario-uitwerkingen](scenario-uitwerkingen/README.md) maken dat kader concreet en toetsbaar met één persona die de keten doorloopt, als opstapje naar testgedreven ontwikkeling (test driven development).
 
-**Leeswijzer.** Het [begrippenkader met de ankertabel](begrippenkader.md) definieert de zes begrippenfamilies, de niveaus en de stadia; de [scenario-uitwerkingen](scenario-uitwerkingen.md) geven de concrete gebruikersscenario's per leerroute; de persona's ([Jochem](persona_jochem.md), [Larissa](persona_larissa.md), [Linda](persona_linda.md)) zijn de rode draad per leerroute.
+**Leeswijzer.** Het [begrippenkader met de ankertabel](begrippenkader.md) definieert de zes begrippenfamilies, de niveaus en de stadia; de [scenario-uitwerkingen](scenario-uitwerkingen/README.md) geven per scenario een eigen document; de persona's ([Jochem](persona_jochem.md), [Larissa](persona_larissa.md), [Linda](persona_linda.md)) zijn de rode draad per leerroute.
 
 **Voor wie.** Kernteam OKx, kerngroep techniek, architecten, leveranciers en professionals van instellingen.
 
@@ -190,7 +190,7 @@ Onderstaande tabel koppelt deliverables uit de keten (§2) aan de plek waar ze n
 | Begrippenkader | [begrippenkader.md](begrippenkader.md) met de ankertabel en de stadia |
 | Sectorarchitecturen | §2.5, MORA/HORA in §3.3.1.2.5 |
 | OKx principes en uitgangspunten | [architectuurprincipes](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/principes/principes.md) en [uitgangspunten](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md) in Public |
-| Procesbeeld · scenario's · persona's | §3.5, §3.2.1 en verder, [scenario-uitwerkingen.md](scenario-uitwerkingen.md) |
+| Procesbeeld · scenario's · persona's | §3.5, §3.2.1 en verder, [scenario-uitwerkingen](scenario-uitwerkingen/README.md) |
 | Informatiemodellen | conceptmodellen in het [archief](archief-conceptmodellen.md); terugkoppeling volgt uit de payload-specificaties (Public) |
 | Informatiestromen | de informatiestromenplaat en het blok "Betrokken systemen bij gegevensuitwisseling" in de leerroute-1-uitwerking; [hoofdplaat](../../../../../doc/OKx_Projectoverzicht.md) |
 | Interactieanalyse | het blok "Applicatiecomponenten op de plaat" in de leerroute-1-uitwerking; oudere interactiepatronen in het [archief](archief-conceptmodellen.md) |
@@ -1946,7 +1946,7 @@ flowchart TD
 
 ### 3.4 Scenario-uitwerkingen
 
-De concrete gebruikersscenario's per leerroute staan in [scenario-uitwerkingen.md](scenario-uitwerkingen.md).
+De concrete gebruikersscenario's staan per scenario in een eigen document in de map [scenario-uitwerkingen](scenario-uitwerkingen/README.md); de README daar geeft het sjabloon, de gedeelde casus en de samenhang.
 
 ## Begrippenkader en archief
 
