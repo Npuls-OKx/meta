@@ -20,4 +20,4 @@ Waar de bestaande documentatie staat die de [requirementsboom](README.md) aanwij
 | Waar elke boomrij vandaan komt | [Extractieverantwoording](../../agent-artifacts/research/20260806_0837_requirementsboom-extractie.md) | pijplijn, bronverificatie en parkeerlijst |
 | Hoe ik bijdraag | [CONTRIBUTING](../../../CONTRIBUTING.md) | issues, branches en reviewproces |
 
-Na de merge van PR 120 en Public PR 9 worden de twee "in review"-verwijzingen omgezet naar directe documentlinks.
+Na de merge van PR 120, Public PR 9 en Public PR 15 worden de "in review"-verwijzingen omgezet naar directe documentlinks.
