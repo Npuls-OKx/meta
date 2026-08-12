@@ -13,6 +13,18 @@
       "skillPath": ".agent/skills/business-analysis/SKILL.md",
       "computedHash": "a7b0c70d499842d7b3c1709bc6ebff16f33a78eb602432df2add7e820071f294"
     },
+    "clidev": {
+      "source": "cedanl/.github",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/clidev/SKILL.md",
+      "computedHash": "e4324a745d39b717aa70f044343fa506cf3886c75f96703b70779b9d2ab1add3"
+    },
+    "npuls-huisstijl": {
+      "source": "cedanl/.github",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/npuls-huisstijl/SKILL.md",
+      "computedHash": "a61176757201e4e973ff8acbc4ee0e649ec775268e2e9bf458ba55c4d6b3ccd5"
+    },
     "requirements-engineering": {
       "source": "jasonkneen/kiro",
       "sourceType": "github",

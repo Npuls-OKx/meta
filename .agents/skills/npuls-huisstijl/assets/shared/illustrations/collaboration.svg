@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="Collaboration">
+  <circle cx="120" cy="160" r="80" fill="#F4D9DC" stroke="#000" stroke-width="4"/>
+  <circle cx="280" cy="160" r="80" fill="#F4D74B" stroke="#000" stroke-width="4"/>
+  <path d="M160 160 A 40 40 0 0 0 240 160 A 40 40 0 0 0 160 160 Z" fill="#00AF81" stroke="#000" stroke-width="4"/>
+  <circle cx="120" cy="120" r="20" fill="#3D68EC" stroke="#000" stroke-width="4"/>
+  <circle cx="280" cy="120" r="20" fill="#DD784B" stroke="#000" stroke-width="4"/>
+  <path d="M90 200 Q 120 170 150 200" fill="none" stroke="#000" stroke-width="4" stroke-linecap="round"/>
+  <path d="M250 200 Q 280 170 310 200" fill="none" stroke="#000" stroke-width="4" stroke-linecap="round"/>
+</svg>

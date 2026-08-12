@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="Data insight">
+  <rect x="40" y="40" width="320" height="220" rx="12" fill="#F4D9DC" stroke="#000" stroke-width="4"/>
+  <line x1="70" y1="230" x2="330" y2="230" stroke="#000" stroke-width="4"/>
+  <line x1="70" y1="70"  x2="70"  y2="230" stroke="#000" stroke-width="4"/>
+  <rect x="90"  y="160" width="30" height="70"  fill="#3D68EC"/>
+  <rect x="140" y="120" width="30" height="110" fill="#DD784B"/>
+  <rect x="190" y="90"  width="30" height="140" fill="#00AF81"/>
+  <rect x="240" y="140" width="30" height="90"  fill="#F4D74B"/>
+  <rect x="290" y="100" width="30" height="130" fill="#3D68EC"/>
+  <polyline points="105,150 155,110 205,80 255,130 305,90" fill="none" stroke="#000" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="105" cy="150" r="6" fill="#000"/>
+  <circle cx="155" cy="110" r="6" fill="#000"/>
+  <circle cx="205" cy="80"  r="6" fill="#000"/>
+  <circle cx="255" cy="130" r="6" fill="#000"/>
+  <circle cx="305" cy="90"  r="6" fill="#000"/>
+</svg>

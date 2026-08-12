@@ -1,0 +1,336 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+/* ============================================================
+   Npuls / OKx — Slidev design system
+   Globale stylesheet, automatisch geladen door Slidev vanuit
+   de projectroot. Geldt voor elke presentatie die theme: default
+   gebruikt. Pas hier aan, niet per presentatie.
+   ============================================================ */
+
+/* ---- Npuls fonts (local, from public/npuls/Npuls_lettertype) ---- */
+@font-face {
+  font-family: 'General Sans';
+  src: url('/npuls/Npuls_lettertype/Npuls_lettertype_generalsans_regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'General Sans';
+  src: url('/npuls/Npuls_lettertype/Npuls_lettertype_generalsans_semibold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Cooper Light BT';
+  src: url('/npuls/Npuls_lettertype/Npuls_lettertype_cooper_light_bt.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---- Brand tokens ---- */
+:root {
+  --np-blue:   #3D68EC;
+  --np-orange: #DD784B;
+  --np-green:  #00AF81;
+  --np-yellow: #F4D74B;
+  --np-pink:   #F4D9DC;
+  --np-black:  #000000;
+
+  --np-dark-blue:  #1B2A6B;
+  --np-ink:        #1A1A2E;
+  --np-dark-gray:  #374151;
+  --np-mid-gray:   #6B7280;
+  --np-light-gray: #E5E7EB;
+  --np-bg:         #F7F8FB;
+
+  --np-font: 'General Sans', 'Inter', Arial, Helvetica, sans-serif;
+  --np-serif: 'Cooper Light BT', Georgia, 'Times New Roman', serif;
+}
+
+/* ---- Base ---- */
+.slidev-layout {
+  font-family: var(--np-font);
+  color: var(--np-ink);
+  background: var(--np-bg);
+  padding: 2.2rem 3rem;
+}
+
+h1 {
+  font-family: var(--np-font);
+  color: var(--np-orange);
+  font-weight: 600;
+  line-height: 1.15;
+  font-size: 2.1rem;
+  margin-bottom: 0.2rem;
+}
+h2 { color: var(--np-orange); font-weight: 600; }
+h3 {
+  color: var(--np-dark-blue);
+  font-weight: 600;
+  font-size: 1.05rem;
+  margin: 0 0 0.4rem;
+}
+strong { color: var(--np-blue); font-weight: 600; }
+a { color: var(--np-blue); text-decoration: none; }
+a:hover { color: var(--np-orange); }
+
+ul { margin: 0.2rem 0; }
+li { margin-bottom: 0.3rem; line-height: 1.5; font-size: 0.92rem; }
+li::marker { color: var(--np-blue); }
+
+code {
+  background: #EEF2FF;
+  color: var(--np-blue);
+  border-radius: 5px;
+  padding: 1px 6px;
+  font-size: 0.85em;
+}
+
+/* ---- PowerPoint background plates ---- */
+.np-bg {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  z-index: -1;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Remove default overlays that darken the background plates */
+.slidev-layout {
+  background: transparent !important;
+}
+#slide-content,
+.slide-container {
+  background-color: transparent !important;
+}
+.slidev-layout::before, .slidev-layout::after,
+.slide-container::before, .slide-container::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* ---- Eyebrow / subtitle ---- */
+.eyebrow {
+  color: var(--np-orange);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
+.np-subtitle {
+  color: var(--np-dark-gray);
+  font-size: 1rem;
+  margin: 0 0 0.9rem;
+  max-width: 760px;
+}
+
+/* ---- Cards ---- */
+.np-card {
+  background: white;
+  border: 1px solid var(--np-light-gray);
+  border-top: 4px solid var(--np-blue);
+  border-radius: 14px;
+  padding: 1rem 1.1rem;
+  box-shadow: 0 4px 18px rgba(27, 42, 107, 0.06);
+}
+.np-card ul { padding-left: 1.1rem; }
+.np-card.accent-blue   { border-top-color: var(--np-blue); }
+.np-card.accent-orange { border-top-color: var(--np-orange); }
+.np-card.accent-green  { border-top-color: var(--np-green); }
+.np-card.accent-yellow { border-top-color: var(--np-yellow); }
+.np-card.accent-pink   { border-top-color: var(--np-pink); }
+
+/* ---- Besluitblok ----
+   Een vraag om een besluit, een review of kennisname krijgt altijd dezelfde
+   vorm: waarover, door wie, voor wanneer, en welke opties er liggen. Zo staat
+   na de vergadering vast wat er gevraagd is. Gebruik een <dl>:
+
+     <dl class="np-besluit">
+       <dt>Besluit nodig op</dt><dd>publicatiemoment koppelvlakspecificatie</dd>
+       <dt>Door</dt><dd>programmaleiding</dd>
+       <dt>Voor</dt><dd>31 augustus 2026</dd>
+       <dt>Opties</dt><dd>publiceren in september — of eerder, met wijzigingen</dd>
+     </dl>
+*/
+.np-besluit {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.45rem 1.1rem;
+  background: white;
+  border: 1px solid var(--np-light-gray);
+  border-left: 5px solid var(--np-orange);
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+  margin: 0;
+  box-shadow: 0 4px 18px rgba(27, 42, 107, 0.06);
+}
+.np-besluit dt {
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--np-mid-gray);
+  padding-top: 0.15rem;
+}
+.np-besluit dd {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--np-ink);
+}
+.np-besluit.review     { border-left-color: var(--np-blue); }
+.np-besluit.kennisname { border-left-color: var(--np-mid-gray); }
+
+/* ---- Grids ---- */
+.np-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
+.np-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.np-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.8rem; }
+
+/* ---- Badges ---- */
+.np-badge {
+  display: inline-block;
+  padding: 3px 11px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.np-badge.blue   { background: var(--np-blue);   color: white; }
+.np-badge.orange { background: var(--np-orange); color: white; }
+.np-badge.green  { background: var(--np-green);  color: white; }
+.np-badge.yellow { background: var(--np-yellow); color: var(--np-black); }
+.np-badge.pink   { background: var(--np-pink);   color: var(--np-black); }
+.np-badge.ghost  { background: rgba(255,255,255,0.12); color: white; border: 1px solid rgba(255,255,255,0.25); }
+
+/* ---- Big number ---- */
+.np-big-number {
+  font-family: var(--np-serif);
+  font-size: 4.5rem;
+  font-weight: 300;
+  color: var(--np-orange);
+  line-height: 1;
+}
+
+/* ---- Numbered agenda chips ---- */
+.np-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--np-blue);
+  color: white;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* ---- Pipeline ---- */
+.np-pipeline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+.np-step {
+  background: white;
+  border: 1px solid var(--np-light-gray);
+  border-radius: 12px;
+  padding: 0.9rem 1.1rem;
+  text-align: center;
+  font-weight: 600;
+  color: var(--np-dark-blue);
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  /* Een flex-item krijgt van zichzelf min-width: auto en krimpt dus niet onder
+     zijn langste woord. Systeemnamen als "Studentinformatiesysteem" steken dan
+     dwars door de kaartrand heen. min-width: 0 laat het item wel krimpen,
+     overflow-wrap breekt het woord als het dan nog niet past. */
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+.np-step small { font-weight: 400; color: var(--np-mid-gray); font-size: 0.72rem; }
+.np-step.blue   { border-top: 4px solid var(--np-blue); }
+.np-step.orange { border-top: 4px solid var(--np-orange); }
+.np-step.green  { border-top: 4px solid var(--np-green); }
+.np-arrow { color: var(--np-orange); font-size: 1.5rem; font-weight: 700; }
+
+/* ---- Proof strip ---- */
+.np-proof-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  padding: 0.7rem 1rem;
+  background: white;
+  border: 1px solid var(--np-light-gray);
+  border-radius: 12px;
+}
+.np-proof-item { display: flex; align-items: center; gap: 0.45rem; font-size: 0.82rem; color: var(--np-dark-gray); font-weight: 600; }
+.np-proof-check {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 20px; height: 20px; border-radius: 50%;
+  background: var(--np-green); color: white; font-size: 0.7rem;
+}
+.np-proof-divider { width: 1px; height: 22px; background: var(--np-light-gray); }
+
+/* ---- Bottomline / impact callout ---- */
+.np-bottomline {
+  margin-top: 1rem;
+  padding: 0.8rem 1.2rem;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--np-blue), var(--np-orange));
+  color: white;
+  font-size: 0.95rem;
+  text-align: center;
+}
+.np-bottomline strong { color: var(--np-yellow); }
+
+/* ---- Screenshot / chart frame ---- */
+.np-frame {
+  background: white;
+  border: 1px solid var(--np-light-gray);
+  border-radius: 14px;
+  padding: 0.5rem;
+  box-shadow: 0 8px 30px rgba(27, 42, 107, 0.10);
+  overflow: hidden;
+}
+.np-frame img { width: 100%; border-radius: 8px; display: block; }
+.np-shot {
+  width: 100%;
+  height: 320px;
+  border-radius: 8px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* ---- Placeholder ---- */
+.np-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  border: 2px dashed var(--np-light-gray);
+  border-radius: 14px;
+  background: white;
+  color: var(--np-mid-gray);
+  text-align: center;
+  padding: 2rem;
+}
+.np-placeholder .np-ph-icon { font-size: 2rem; }
+
+/* ---- Utility ---- */
+.text-center { text-align: center; }
+.muted { color: var(--np-mid-gray); }
+.fill { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; padding: 2.2rem 3rem; }
