@@ -18,7 +18,7 @@ Voorloper van de koppelingspecificaties, bewaard als bronmateriaal. Dit deel van
 
 ## Oude OEAPI-kolommen bij het begrippenkader
 
-De concepttermen staan in het [begrippenkader](begrippenkader.md); hieronder de oude OEAPI-varianten van de kleine niveautabel (§3.2.2) en de informatie-objectfamilies.
+De concepttermen staan in het [begrippenkader](begrippenkader.md); hieronder de oude OEAPI-varianten van de kleine niveautabel (§3.2.2) en de informatie-objectfamilies. Deze tabellen bevriezen ook de oude naamgeving: familie 1 heette hier nog "Kader", in het begrippenkader heet die inmiddels "Kwalificatiekader".
 
 #### 3.2.2 Zes niveaus — van diploma tot lesopdracht (met OEAPI-haak)
 
