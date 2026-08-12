@@ -10,7 +10,7 @@ Wanneer het oude aanbod niet meer uitvoerbaar is, kan migratie van achterblijven
 
 Kleinere wijzigingen komen vaker voor. Vooral nieuwe of nog beperkt uitgevoerde onderwijsontwerpen zullen iteratief worden getoetst op kwaliteit, haalbaarheid en betaalbaarheid. Dit kan leiden tot aanpassingen zonder dat direct een volledig nieuwe opleidingsspecificatie nodig is.
 
-Een belangrijk uitgangspunt is dat er niet zomaar wijzigingen kunnen worden doorgevoerd in een opleiding wanneer het SIS al lopende verbintenissen kent. Tegelijkertijd is een opleiding het hoogste niveau in de specificatiestructuur. Een wijziging aan een opleidingsonderdeel, leerspecificatie of lesspecificatie hoeft daarom niet automatisch een breaking change voor de volledige opleiding te zijn. Idealiter hebben deze onderdelen een eigen lifecycle, zodat een opleiding kan bestaan uit actieve, herbruikbare onderdelen die ook in andere opleidingen of zelfs los aangeboden kunnen worden.
+Een belangrijk uitgangspunt is dat er niet zomaar wijzigingen kunnen worden doorgevoerd in een opleiding wanneer het SIS al lopende verbintenissen kent. Tegelijkertijd is een opleiding het hoogste niveau in de specificatiestructuur. Een wijziging aan een onderwijssonderdeel-, leeronderdeel- of lesspecificatie hoeft daarom niet automatisch een breaking change voor de volledige opleiding te zijn. Idealiter hebben deze onderdelen een eigen lifecycle, zodat een opleiding kan bestaan uit actieve, herbruikbare onderdelen die ook in andere opleidingen of zelfs los aangeboden kunnen worden.
 
 Daarom is het essentieel om **identificerende codering** en **versionering** strikt van elkaar te scheiden. Een minor update aan een onderwijseenheid hoeft niet te betekenen dat ook de volledige opleidingsspecificatie wijzigt. De vraag is steeds of er sprake is van een nieuwe specificatie, een nieuwe versie van een onderdeel, of alleen een niet-brekende aanpassing binnen dezelfde lifecycle.
 
@@ -38,11 +38,11 @@ Naast de inhoudelijke systematiek is organisatorische afstemming noodzakelijk. O
 
 Een aantal concrete voorbeelden:
 
-- Kan een ontwikkelaar al starten met de uitwerking van een leerspecificatie wanneer het curriculum ontwerp nog in concept staat en wijzigingen reëel zijn?
+- Kan een ontwikkelaar al starten met de uitwerking van een lesspecificatie wanneer het curriculum ontwerp nog in concept staat en wijzigingen reëel zijn?
 
-- Tot wanneer worden er nog wijziging geaccepteerd aan een leerspecificaties en aanbodplanning ten opzichte van de (wenselijke) publicatie van roosters?
+- Tot wanneer worden er nog wijziging geaccepteerd aan een lesspecificaties en aanbodplanning ten opzichte van de (wenselijke) publicatie van roosters?
 
-- Hoeveel tijd heeft een docent nodig om een nieuwe leerspecificatie eigen te maken?
+- Hoeveel tijd heeft een docent nodig om een nieuwe lesspecificatie eigen te maken?
 
 Een uitwerking van beleid dient allerminst een classificatie van beoogde wijzigingen te bevatten en vereisten van acceptatie: 
 
@@ -51,5 +51,5 @@ Een uitwerking van beleid dient allerminst een classificatie van beoogde wijzigi
 | Fundamentele wijziging | Nieuw kwalificatiedossier, gewijzigde wettelijke eisen, nieuwe onderwijsvisie | Nieuwe specificatie; meestal alleen voor nieuwe instroom |
 | Wijziging met | Aanpassing in examenplan, summatieve resultaatstructuur of administratieve eigenschappen | Alleen accepteren na expliciete impactanalyse en besluitvorming |
 | Niet-brekende wijziging | Actualisatie van lessen, materiaal, didactische uitwerking of uitvoeringsvorm | Kan als versie-update binnen bestaande lifecycle |
-| Wijziging | Update van leerspecificatie of onderwijseenheid | Alleen het onderdeel krijgt een nieuwe versie, tenzij afhankelijkheden breken |
+| Wijziging | Update van lesspecificatie of onderwijseenheid | Alleen het onderdeel krijgt een nieuwe versie, tenzij afhankelijkheden breken |
 | Wijziging na planning/roostering | Aanpassing nadat aanbod of rooster al is gepubliceerd | Alleen bij uitzondering en na ketenafstemming |
