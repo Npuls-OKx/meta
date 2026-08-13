@@ -1,9 +1,19 @@
 # OKx Projectoverzicht
 
+**Doel.** Dit is het context-artefact van OKx: het leest vóór de [opdracht](../architecture/docs/requirements/opdracht.md) en beschrijft waar het project vandaan komt, hoe het werkt en welke informatiestromen het wil standaardiseren.
+
+**Scope.** Context en aanpak; de doelen zelf staan in de opdracht, de afspraken in de artefacten die daaruit voortkomen (zie "Van context naar artefacten" hieronder).
+
 ## Doelbinding
 Project OKx is een onderdeel van het [groeifonds programma NPuls](https://npuls.nl/project-onderwijskoppelingen), zoals bekrachtigd door het Nederlandse ministerie van Onderwijs, Cultuur en Wetenschap. De repository dient als een knowledge base voor het inhoudelijke component van dit project.
 
-OKx heeft als doel **uniforme en gestandaardiseerde koppelvlakken** voor onderwijslogistiek te realiseren, met het BOPSI-implementatiepad als uitgangspunt. De scope start bij **MBO**; **HO** (hoger onderwijs) volgt in een later stadium. Door koppelvlakken eenduidig te specificeren ontstaat interoperabiliteit tussen systemen en partijen in de onderwijsketen.
+OKx heeft als doel **uniforme en gestandaardiseerde koppelvlakken** voor onderwijslogistiek te realiseren, met het BOPSI-implementatiepad als uitgangspunt. De scope start bij **MBO**; **HO** (hoger onderwijs) volgt in een later stadium. Door koppelvlakken eenduidig te specificeren ontstaat interoperabiliteit tussen systemen en partijen in de onderwijsketen. Waar passend sluiten uitwerkingen aan op [OEAPI](https://openonderwijsapi.nl/); eisen komen vóór de techniekkeuze.
+
+OKx maakt **eenduidige afspraken** mogelijk tussen instellingen, leveranciers en andere ketenpartijen, en zorgt dat kennis niet versnippert: besluiten, open vragen en uitwerkingen landen in deze repositories en groeien door via issues en pull requests. Dat is niet vanzelf klaar: onderwijslogistiek raakt processen, beleid en techniek tegelijk, de fasering start in het mbo en bouwt stapsgewijs uit, en delen van het geheel zijn nog onderwerp van verkenning, ontwerp en besluitvorming.
+
+## Van context naar artefacten
+
+Al het werk komt voort uit één lijn: de [opdracht](../architecture/docs/requirements/opdracht.md) met drie doelen, via de [requirementsboom](../architecture/docs/requirements/README.md) (epics, features, stories) naar de koppelingen, en van daaruit naar de koppelvlakspecificaties in [Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Koppelvlakspecificaties). De stories komen uit de [leerroute-uitwerkingen](../architecture/docs/specificatie/leerroute-uitwerking/README.md) en hun scenario's. Architectuurbesluiten (ADR's) en agent-skills zijn losse artefacten die op de opdracht voortbouwen of ernaar verwijzen; ze leggen de opdracht niet uit.
 
 ## Scope: OKx vs OKE
 
@@ -27,11 +37,11 @@ Het projectteam OKx wil de vraagstelling van de **sector** (van de instellingen)
 
 **In de plaat: rood = eerste prioriteit.**
 
-![Hoofdplaat OKx informatiestromen](../img/Hoofdplaat%20OKx%20informatiestromen%20v20260317.png)
+![Hoofdplaat OKx informatiestromen](../img/hoofdplaat-okx-informatiestromen-v20260317.png)
 
 ### Interpretatie van de informatiestromen (uit de hoofdplaat)
 
-De onderstaande tabel interpreteert de plaat **"Hoofdplaat OKx informatiestromen v20260317.png"**. Alleen de flowlijnen die **niet blauw** (procedureel) en **niet oranje** (o.a. OKE/Edubroker) zijn, zijn opgenomen — dit zijn de informatiestromen die verder gespecificeerd moeten worden. De semantische beschrijving op of bij elke lijn in de plaat is overgenomen en waar nodig kort uitgebreid. **Context:** linkervlak = onderwijsontwikkeling, inrichting van nominale- en keuze aanbod; rechter (grijs) vlak = student studeert en maakt keuzes / onderwijsuitvoering (flexibel onderwijs).
+De onderstaande tabel interpreteert de plaat **"hoofdplaat-okx-informatiestromen-v20260317.png"**. Alleen de flowlijnen die **niet blauw** (procedureel) en **niet oranje** (o.a. OKE/Edubroker) zijn, zijn opgenomen — dit zijn de informatiestromen die verder gespecificeerd moeten worden. De semantische beschrijving op of bij elke lijn in de plaat is overgenomen en waar nodig kort uitgebreid. **Context:** linkervlak = onderwijsontwikkeling, inrichting van nominale- en keuze aanbod; rechter (grijs) vlak = student studeert en maakt keuzes / onderwijsuitvoering (flexibel onderwijs).
 
 | Nr | Referentie component (van) | Referentie component (naar) | Semantische beschrijving informatiestroom | Context | Prioriteit |
 |----|----------------------------|-----------------------------|------------------------------------------|---------|------------|
@@ -83,4 +93,4 @@ Het functionele en technische ontwerp wordt ondersteund door een **ArchiMate-mod
 | OKE uitwerking | `OKE/` | Eerste subdomein-uitwerking (o.a. examen: uitvoering en beoordeling) |
 | Generiek template | `moka-koppelvlakspecificaties/Template/` | MOKA-template en generieke instructies |
 
-Zie ook de [root README](../README.md) voor de generieke intro, repo-indeling en de verwijzingen naar Wiki/Discussions, en [Bijdragen voor beginners](Bijdragen-voor-beginners.md) voor git/GitHub, branches en PR’s.
+Zie ook de [root README](../README.md) als startpunt van de leeslijn, en [Bijdragen voor beginners](Bijdragen-voor-beginners.md) voor git/GitHub, branches en PR’s.
