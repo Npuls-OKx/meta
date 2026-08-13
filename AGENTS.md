@@ -4,7 +4,7 @@ Basisdocument voor AI-agents (Cursor, Claude Code, Codex en vergelijkbaar) die i
 
 ## Wat is deze repository
 
-OKx-meta is de **publieke kennisbank** van OKx (Npuls, pijler Leren Zonder Drempels): gedeelde kennis, afspraken en conceptuitwerkingen rond **gestandaardiseerde koppelvlakken voor onderwijslogistiek**. Dit is een documentatierepository, geen codebase. Scope start bij mbo (leerroutes 1-3 eerst), hoger onderwijs volgt. Volledige introductie: [README.md](README.md) en [doc/OKx_Projectoverzicht.md](doc/OKx_Projectoverzicht.md).
+OKx-meta is de **werkomgeving en kennisbank** van OKx (Npuls, pijler Leren Zonder Drempels): gedeelde kennis, afspraken en conceptuitwerkingen rond **gestandaardiseerde koppelvlakken voor onderwijslogistiek**. Dit is een documentatierepository, geen codebase. Scope start bij mbo (leerroutes 1-3 eerst), hoger onderwijs volgt. Volledige introductie: [README.md](README.md) en [doc/OKx_Projectoverzicht.md](doc/OKx_Projectoverzicht.md).
 
 ## Kernprincipes
 
@@ -22,7 +22,7 @@ Vastgelegd in [architecture/docs/principes.md](architecture/docs/principes.md):
 - **Intra-instelling eerst**, federatie gefaseerd (ADR 0008).
 - **Taal**: Nederlands, IT-vaktermen tussen haakjes. Stijl: [.cursor/rules/schrijfstijl.mdc](.cursor/rules/schrijfstijl.mdc).
 - **Semantiek**: de zes begrippenfamilies uit de ankertabel in het [begrippenkader van de leerroute-uitwerking](architecture/docs/specificatie/leerroute-uitwerking/doc/begrippenkader.md) (kwalificatiekader, beoogde leeruitkomst, onderwijsspecificatie, onderwijsaanbod, onderwijsverbintenis, onderwijsresultaat); de leeruitkomst is de sleutel, onderwijsresultaten hangen aan leeruitkomsten. Subtypen voluit met backquotes; geen verzonnen termen. Een koppeling is de informatiestroom tussen twee componenten; een koppelvlak is de verzameling koppelingen van één component.
-- **Geen metadatakop (frontmatter)** in deliverables en agent-artifacten: GitHub (git-historie, issues, PR's) is de bron voor auteurschap, datums en traceerbaarheid; verwijs in de tekst ("Relateert aan: #12"). Uitzondering: `SKILL.md`-bestanden en `.mdc`-rules houden hun verplichte metadatakop (naam, beschrijving, `alwaysApply`).
+- **Zelfstandige documenten, zonder metadatakop en zonder issueverwijzingen**: deliverables worden voor stakeholders tot DocX- en PDF-documenten gegenereerd en moeten op zichzelf staan. GitHub (git-historie, issues, PR's) is de bron voor auteurschap, datums en traceerbaarheid; die verwijzingen horen in commits en PR-beschrijvingen, niet in de documenttekst. Interne agent-artifacten (plannen, onderzoeken) mogen wél naar issues verwijzen ("Relateert aan: #12"). Uitzondering: `SKILL.md`-bestanden en `.mdc`-rules houden hun verplichte metadatakop (naam, beschrijving, `alwaysApply`).
 
 ## Harde regels
 
