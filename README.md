@@ -8,7 +8,7 @@ De werkomgeving en kennisbank van **OKx** (Npuls, pijler Leren zonder Drempels):
 2. **[De opdracht](architecture/docs/requirements/opdracht.md)**: de doelen waaruit al het werk volgt.
 3. **[De requirementsboom](architecture/docs/requirements/README.md)**: van opdracht via epics, features en stories naar de koppelingen.
 4. **[De leerroute-uitwerking](architecture/docs/specificatie/leerroute-uitwerking/README.md)**: begrippenkader, leerroutes en scenario's; de bron van de stories.
-5. **[Koppelvlakspecificaties en besluiten](https://github.com/Npuls-OKx/Public/tree/dev/Koppelvlakspecificaties)**: de koppelingspecificaties, payload-specificaties, uitgangspunten en architectuurbesluiten (ADR's) in Npuls-OKx/Public.
+5. **[Koppelvlakspecificaties](https://github.com/Npuls-OKx/Public/tree/dev/Koppelvlakspecificaties)** en **[architectuurbesluiten (ADR's)](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr)**: de koppelingspecificaties, payload-specificaties en uitgangspunten, en de besluiten, in Npuls-OKx/Public.
 
 De artefacten komen voort uit die ene lijn: opdracht, epics, features, stories, koppelingen, koppelvlakken. Architectuurbesluiten en agent-skills zijn losse artefacten die op de opdracht voortbouwen of ernaar verwijzen; ze leggen de opdracht niet uit.
 

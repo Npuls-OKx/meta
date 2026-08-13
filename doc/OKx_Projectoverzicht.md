@@ -2,18 +2,18 @@
 
 **Doel.** Dit is het context-artefact van OKx: het leest vóór de [opdracht](../architecture/docs/requirements/opdracht.md) en beschrijft waar het project vandaan komt, hoe het werkt en welke informatiestromen het wil standaardiseren.
 
-**Scope.** Context en aanpak; de doelen zelf staan in de opdracht, de afspraken in de artefacten die daaruit voortkomen (zie "Van context naar artefacten" hieronder).
+**Scope.** Context en aanpak; de doelen zijn in detail uitgewerkt in de opdracht, de afspraken in de artefacten die daaruit voortkomen (zie "Van context naar artefacten" hieronder).
 
 ## Doelbinding
-Project OKx is een onderdeel van het [groeifonds programma NPuls](https://npuls.nl/project-onderwijskoppelingen), zoals bekrachtigd door het Nederlandse ministerie van Onderwijs, Cultuur en Wetenschap. De repository dient als een knowledge base voor het inhoudelijke component van dit project.
+Project OKx is een onderdeel van het [groeifondsprogramma Npuls](https://npuls.nl/pijlers/leren-zonder-drempels), zoals bekrachtigd door het Nederlandse ministerie van Onderwijs, Cultuur en Wetenschap. De repository dient als een knowledge base voor het inhoudelijke component van dit project.
 
-OKx heeft als doel **uniforme en gestandaardiseerde koppelvlakken** voor onderwijslogistiek te realiseren, met het BOPSI-implementatiepad als uitgangspunt. De scope start bij **MBO**; **HO** (hoger onderwijs) volgt in een later stadium. Door koppelvlakken eenduidig te specificeren ontstaat interoperabiliteit tussen systemen en partijen in de onderwijsketen. Waar passend sluiten uitwerkingen aan op [OEAPI](https://openonderwijsapi.nl/); eisen komen vóór de techniekkeuze.
+OKx heeft als doel **uniforme en gestandaardiseerde koppelvlakken** voor onderwijslogistiek te realiseren, met het BOPSI-implementatiepad als uitgangspunt. De scope start bij **MBO**; **HO** (hoger onderwijs) volgt in een later stadium. Door koppelvlakken eenduidig te specificeren ontstaat interoperabiliteit tussen systemen en partijen in de onderwijsketen. Waar passend sluiten uitwerkingen aan op de [Open Onderwijs API (OEAPI)](https://openonderwijsapi.nl/); eisen komen vóór de techniekkeuze.
 
 OKx maakt **eenduidige afspraken** mogelijk tussen instellingen, leveranciers en andere ketenpartijen, en zorgt dat kennis niet versnippert: besluiten, open vragen en uitwerkingen landen in deze repositories en groeien door via issues en pull requests. Dat is niet vanzelf klaar: onderwijslogistiek raakt processen, beleid en techniek tegelijk, de fasering start in het mbo en bouwt stapsgewijs uit, en delen van het geheel zijn nog onderwerp van verkenning, ontwerp en besluitvorming.
 
 ## Van context naar artefacten
 
-Al het werk komt voort uit één lijn: de [opdracht](../architecture/docs/requirements/opdracht.md) met drie doelen, via de [requirementsboom](../architecture/docs/requirements/README.md) (epics, features, stories) naar de koppelingen, en van daaruit naar de koppelvlakspecificaties in [Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Koppelvlakspecificaties). De stories komen uit de [leerroute-uitwerkingen](../architecture/docs/specificatie/leerroute-uitwerking/README.md) en hun scenario's. Architectuurbesluiten (ADR's) en agent-skills zijn losse artefacten die op de opdracht voortbouwen of ernaar verwijzen; ze leggen de opdracht niet uit.
+Al het werk komt voort uit één lijn, de [requirementsboom](../architecture/docs/requirements/README.md): van de [opdracht](../architecture/docs/requirements/opdracht.md) met drie doelen via epics, features en stories naar de koppelingen, en van daaruit naar de koppelingspecificaties in [Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Koppelvlakspecificaties). De stories komen uit de [leerroute-uitwerking](../architecture/docs/specificatie/leerroute-uitwerking/README.md) en haar scenario's. Architectuurbesluiten (ADR's) en agent-skills zijn losse artefacten die op de opdracht voortbouwen of ernaar verwijzen; ze leggen de opdracht niet uit.
 
 ## Scope: OKx vs OKE
 
@@ -88,6 +88,7 @@ Het functionele en technische ontwerp wordt ondersteund door een **ArchiMate-mod
 | Onderdeel | Locatie | Inhoud |
 |-----------|---------|--------|
 | OKx context | `doc/`, `img/` | Projectoverzicht, besluitboom/historie, informatiestromen, bijlagen |
+| Release en versionering | [`OKx_Release-management-en-versionering.md`](OKx_Release-management-en-versionering.md) | Voorstel voor versienummers en de verhouding tussen meta- en spec-releases |
 | Architectuurbesluiten (samenvatting) | [`doc/OKx_Architectuurbesluiten-en-impact.md`](OKx_Architectuurbesluiten-en-impact.md) | ADR’s, impact op keten/model |
 | ArchiMate en MOKA-view (gids) | [`doc/OKx_Informatiestromen-ArchiMate-en-MOKA-view.md`](OKx_Informatiestromen-ArchiMate-en-MOKA-view.md) | Hoofdplaat ↔ model ↔ Basis Model-view |
 | OKE uitwerking | `OKE/` | Eerste subdomein-uitwerking (o.a. examen: uitvoering en beoordeling) |
