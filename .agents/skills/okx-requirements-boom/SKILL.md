@@ -45,11 +45,11 @@ Alles staat in `architecture/docs/requirements/`. De limieten zijn hard; oversch
 
 ## Tabelformats
 
-Elke laag is een tabel en elke rij draagt een id: epics `E<n>`, features `F<epic>.<n>`, stories `S<epic>.<n>`. Dat zijn verwijzings-id's voor issues, reviews en gesprekken, geen traceernotatie. Elke node heeft precies één hoofdouder: daar staat hij, daar telt hij mee voor de omvangslimieten en daar landt zijn issue. Draagt een feature of story aantoonbaar bij aan een tweede epic of feature, dan noemt de optionele kolom "Raakt ook" die id's; die kolom is alleen aanwezig in tabellen waar minstens één rij hem vult (het domein is geen strikte boom: de leeruitkomst-cardinaliteiten in het begrippenkader zijn N:M). De doelzin beschrijft de beoogde toestand of waarde (wat is er bereikt als dit werkt), niet de werking, en is maximaal 25 woorden. Planningsstatus hoort in milestones en issues, niet in de boom; een epic zonder uitwerking heeft in `features.md` een sectie met één verklarende regel in plaats van een tabel.
+Elke laag is een tabel en elke rij draagt een id: epics `E<n>`, features `F<epic>.<n>`, stories `S<epic>.<n>`. Dat zijn verwijzings-id's voor issues, reviews en gesprekken, geen traceernotatie. Let op: de id-vorm wijzigt bij de vastgestelde hernummering (plat per soort, zonder oudernummer in het id, conform het id-conventievoorstel in PR 136); die hernummering volgt in één mechanische stap na de merge van de lopende reviewreeks. Elke node heeft precies één ouder: daar staat hij, daar telt hij mee voor de omvangslimieten en daar landt zijn issue. De boom is strikt: epics overlappen niet, en valt een feature of story inhoudelijk onder meerdere ouders, dan is die leaf te groot en wordt hij opgeknipt tot delen die elk precies één ouder hebben (besluit 13 augustus, overleg Niek-Garik). Dat het onderwijsdomein zelf N:M-relaties kent (de leeruitkomst-cardinaliteiten in het begrippenkader) verandert daar niets aan: die relaties leven in de payloads, niet in de boomstructuur. De doelzin beschrijft de beoogde toestand of waarde (wat is er bereikt als dit werkt), niet de werking, en is maximaal 25 woorden. Planningsstatus hoort in milestones en issues, niet in de boom; een epic zonder uitwerking heeft in `features.md` een sectie met één verklarende regel in plaats van een tabel.
 
 - **Epics**: `| Id | Epic | Doel | Draagt bij aan | Bron | Features |`. "Draagt bij aan" verwijst naar een doel (D-nummer) in `opdracht.md`. "Features" is een ankerlink naar de subsectie in `features.md`.
-- **Features**: `| Id | Feature | Doel | Bron | Verwijzing |`, eventueel aangevuld met `Raakt ook`, gegroepeerd per epic in een eigen subsectie (de ouder staat in de sectiekop, niet per rij). "Verwijzing" wijst naar een bestaand document dat de feature uitwerkt, of blijft leeg.
-- **Stories**: `| Id | Story | Feature | Bron | Koppeling |`, eventueel aangevuld met `Raakt ook`. De story is een actorzin ("Als ... wil ik ... zodat ..."); de featurecel noemt id en naam. "Koppeling" bevat de interactie (I-nummer) met link naar de koppelingspecificatie en het systeem dat eigenaar is (bijvoorbeeld `I1, eigenaar OC`), of expliciet "geen".
+- **Features**: `| Id | Feature | Doel | Bron | Verwijzing |`, gegroepeerd per epic in een eigen subsectie (de ouder staat in de sectiekop, niet per rij). "Verwijzing" wijst naar een bestaand document dat de feature uitwerkt, of blijft leeg.
+- **Stories**: `| Id | Story | Feature | Bron | Koppeling |`. De story is een actorzin ("Als ... wil ik ... zodat ..."); de featurecel noemt id en naam. "Koppeling" bevat de interactie (I-nummer) met link naar de koppelingspecificatie en het systeem dat eigenaar is (bijvoorbeeld `I1, eigenaar OC`), of expliciet "geen".
 
 ## Bronplicht
 
@@ -80,7 +80,7 @@ Deze skill is de specialist-skill voor stap 2 (uitwerken) van [`okx-product-flow
 
 ## Reviewerchecklist
 
-- [ ] Elke node heeft precies één hoofdouder; geen laag overgeslagen (opdracht, epic, feature, story). Extra relaties staan als id's in de kolom "Raakt ook", nooit als tweede ouder.
+- [ ] Elke node heeft precies één ouder; geen laag overgeslagen (opdracht, epic, feature, story). Raakt een leaf inhoudelijk een tweede ouder, dan is hij te groot: opknippen, nooit een tweede relatie vastleggen.
 - [ ] Geen twee nodes met dezelfde naam of dezelfde strekking.
 - [ ] Elke rij heeft een gevulde bronkolom; links werken (`python3 scripts/validate-docs.py architecture/docs/requirements`).
 - [ ] Elke story heeft een koppelingverwijzing (interactie plus eigenaar) of expliciet "geen".
