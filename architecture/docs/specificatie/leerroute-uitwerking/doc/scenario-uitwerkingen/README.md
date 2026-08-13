@@ -1,6 +1,6 @@
 # Scenario-uitwerkingen
 
-**Doel.** Elk scenario beschrijft in begrijpelijke taal wat er in de keten gebeurt om één concrete studentroute mogelijk te maken: één persona, één casus, van kwalificatiekader tot eerste lesdag en verder. De scenario's dienen als opstapje naar testgedreven ontwikkeling (test driven development): de vaste Given/When/Then-opbouw van het sjabloon is direct vertaalbaar naar acceptatietests op de koppelingen. Relateert aan: #137.
+**Doel.** Elk scenario beschrijft in begrijpelijke taal wat er in de keten gebeurt om één concrete studentroute mogelijk te maken: één persona, één casus, van kwalificatiekader tot eerste lesdag en verder. De scenario's dienen als opstapje naar testgedreven ontwikkeling (test driven development): de vaste Given/When/Then-opbouw van het sjabloon is direct vertaalbaar naar acceptatietests op de koppelingen.
 
 **Scope.** De scenario's voor leerroute 1 (regulier), 2 (temporiseren by design) en 3 (versnellen by design), elk met de incidentele varianten vertraging, versnelling en hybride. Eén scenario per document; scenario 1.1 is de uitgewerkte basislijn, de overige beschrijven hun delta en zijn nog uit te werken. De kaderstelling per leerroute staat in de [leerroute-uitwerking](../leerroute-uitwerking-lr1.md), de begrippen in het [begrippenkader](../begrippenkader.md).
 
@@ -32,6 +32,8 @@ flowchart LR
 | 3.4 | [Scenario 3.4: versnellen by design plus hybride by accident](scenario-3.4-versnellen-plus-hybride.md) | pitch, nog uit te werken |
 
 ## Sjabloon en leeswijzer
+
+Elk scenariodocument opent met vier vaste velden: **Doel**, **Scope**, **Persona** (link naar het persona-bestand; in deze reeks steeds Jochem, per scenario op een andere levensloop) en **Verantwoordt** (de story-id's uit de requirementsboom die uit het scenario volgen; ingevuld bij de scenario-story-verantwoording, na de hernummering van de boom).
 
 We gebruiken voor elk scenario hetzelfde sjabloon. Lees het als een verhaal in zeven blokken (A–G), met steeds één persona (**Jochem**) en één doorlopende casus (**Apothekersassistent**, Crebo dossier 23450, kwalificatie 27141). De BPMN-uitwerking in `../bpmn/leerroute-1-scenario-1-regulier-geenkeuze-happyflow.bpmn2` (zie [SVG](../img/leerroute-1-scenario-1-regulier-geenkeuze-happyflow.svg)) is de **basis-procesplaat** voor scenario 1.1; voor de andere scenario's beschrijven we waar het proces afwijkt.
 

@@ -1,6 +1,6 @@
 # Archief: conceptmodellen en OEAPI-vertaling
 
-Voorloper van de koppelingspecificaties, bewaard als bronmateriaal. Dit deel van het voormalige consumer-profiel probeerde top-down, vanuit de conceptlaag, datamodellen en interacties af te leiden. Die aanpak is vervangen: datamodellen ontstaan nu bottom-up en endpoint-gedreven in de koppelingspecificaties en payload-specificaties in [Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Koppelvlakspecificaties), en worden daarna teruggekoppeld op het informatiemodel. Niets in dit archief is normatief; verwijzingen en paragraafnummers verwijzen naar de oude documentstructuur. Relateert aan: #137.
+Voorloper van de koppelingspecificaties, bewaard als bronmateriaal. Dit deel van het voormalige consumer-profiel probeerde top-down, vanuit de conceptlaag, datamodellen en interacties af te leiden. Die aanpak is vervangen: datamodellen ontstaan nu bottom-up en endpoint-gedreven in de koppelingspecificaties en payload-specificaties in [Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Koppelvlakspecificaties), en worden daarna teruggekoppeld op het informatiemodel. Niets in dit archief is normatief; verwijzingen en paragraafnummers verwijzen naar de oude documentstructuur.
 
 | Deel | Waar het nu leeft |
 |---|---|

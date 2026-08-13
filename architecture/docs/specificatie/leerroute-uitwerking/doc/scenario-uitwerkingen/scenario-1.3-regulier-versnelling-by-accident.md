@@ -1,8 +1,12 @@
 # Scenario 1.3: regulier, versnelling by accident
 
-**Doel.** Toetsen hoe de keten een niet-ontworpen versnelling verwerkt: eerder roosteren en toetsen zonder dat er een formele versnelde route bestaat. Relateert aan: #137.
+**Doel.** Toetsen hoe de keten een niet-ontworpen versnelling verwerkt: eerder roosteren en toetsen zonder dat er een formele versnelde route bestaat.
 
 **Scope.** Leerroute 1 met versnelling by accident; delta ten opzichte van [scenario 1.1](scenario-1.1-regulier-happyflow.md). Status: pitch, nog uit te werken. Het sjabloon, de casus en de samenhang staan in de [README](README.md).
+
+**Persona.** [Jochem](../persona_jochem.md), in de levensloopvariant van dit scenario (zie het sjabloon in de [README](README.md)).
+
+**Verantwoordt.** De bijbehorende story-id's volgen bij de scenario-story-verantwoording, na de hernummering van de requirementsboom.
 
 > **Status.** *By accident, alleen versnelling.* **Pitch.** *Jochem blijkt tijdens periode 1 sneller te leren dan verwacht. Hij rondt twee leergelegenheden vroeg af, kan in periode 2 alvast werkprocessen uit periode 3 oppakken en is — zonder dat dit ooit als route ontworpen is — drie maanden vóór op het cohort.*
 >
