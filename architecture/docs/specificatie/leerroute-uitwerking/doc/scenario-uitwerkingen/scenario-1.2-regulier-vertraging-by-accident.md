@@ -1,8 +1,12 @@
 # Scenario 1.2: regulier, vertraging by accident
 
-**Doel.** Toetsen hoe de keten een incidentele vertraging verwerkt terwijl specificatie en aanbod ongewijzigd blijven: alleen de verbintenis muteert en er komt een inhaalgelegenheid. Relateert aan: #137.
+**Doel.** Toetsen hoe de keten een incidentele vertraging verwerkt terwijl specificatie en aanbod ongewijzigd blijven: alleen de verbintenis muteert en er komt een inhaalgelegenheid.
 
 **Scope.** Leerroute 1 met vertraging by accident; delta ten opzichte van [scenario 1.1](scenario-1.1-regulier-happyflow.md). Status: pitch, nog uit te werken. Het sjabloon, de casus en de samenhang staan in de [README](README.md).
+
+**Persona.** [Jochem](../persona_jochem.md), in de levensloopvariant van dit scenario (zie het sjabloon in de [README](README.md)).
+
+**Verantwoordt.** De bijbehorende story-id's volgen bij de scenario-story-verantwoording, na de hernummering van de requirementsboom.
 
 > **Status.** *By accident, alleen vertraging.* **Pitch.** *Halverwege periode 2 wordt Jochem ziek (lange griep, daarna concentratieproblemen). Hij mist drie weken onderwijs, haalt twee leergelegenheden niet op tijd, en moet in periode 3 of 4 inhalen — waardoor hij voor één werkproces uit ritme raakt en uiteindelijk twee maanden uitloopt op zijn diploma.*
 >

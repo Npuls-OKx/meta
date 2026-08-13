@@ -1,8 +1,12 @@
 # Scenario 1.1: regulier, happyflow
 
-**Doel.** De happyflow-basislijn vastleggen: wat moet er bij ontwerp, ontwikkeling, planning, roostering, intake en leeromgeving geregeld zijn voordat de student zijn eerste les binnenloopt. Alle andere scenario's beschrijven hun verschil ten opzichte van deze basislijn; de Given/When/Then-opbouw is de opstap naar acceptatietests. Relateert aan: #137.
+**Doel.** De happyflow-basislijn vastleggen: wat moet er bij ontwerp, ontwikkeling, planning, roostering, intake en leeromgeving geregeld zijn voordat de student zijn eerste les binnenloopt. Alle andere scenario's beschrijven hun verschil ten opzichte van deze basislijn; de Given/When/Then-opbouw is de opstap naar acceptatietests.
 
 **Scope.** Leerroute 1 (regulier), zonder keuze en zonder incidenten. Status: uitgewerkt (blokken A tot en met G). Het sjabloon, de casus en de samenhang staan in de [README](README.md).
+
+**Persona.** [Jochem](../persona_jochem.md), in de levensloopvariant van dit scenario (zie het sjabloon in de [README](README.md)).
+
+**Verantwoordt.** De bijbehorende story-id's volgen bij de scenario-story-verantwoording, na de hernummering van de requirementsboom.
 
 **Status.** *Happyflow.* Geen vertraagd of versneld ontwerp, geen keuzes, geen incidenten tijdens het volgen van de studie. Alles loopt volgens plan.
 
