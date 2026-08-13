@@ -2,7 +2,7 @@
 
 Relateert aan: #135, bouwt voort op #130. Eisen: [requirements](20260804_1900_requirements-id-conventie.md).
 
-Dit is een voorstel om af te stemmen, geen besluit. Bij akkoord wordt het een regel in `Npuls-OKx/Public`; wat daarvoor moet gebeuren staat in §10.
+De hoofdconventie is op 12 augustus vastgesteld (zie het plan bij #143): het soort-nummer-patroon geldt voor alle lagen, met voluit en eenduidige soortnamen en een uitbreidbare soortenlijst. De kernteamvragen 2 tot en met 4 in §9 staan nog open; wat er voor de verhuizing naar `Npuls-OKx/Public` moet gebeuren staat in §10.
 
 ## 1. De vorm
 
@@ -14,7 +14,7 @@ Drie voorbeelden:
 
 ```text
 object-014
-stroom-004
+informatiestroom-004
 eis-001
 ```
 
@@ -31,7 +31,7 @@ Bovendien werd het ID onvindbaar. Het patroon dat namen toeliet gaf over beide r
 Met alleen cijfers achter de soort verdwijnen beide problemen. Het patroon wordt:
 
 ```text
-\b(object|stroom|koppeling|interactie|eis|principe|scenario|besluit)-\d{3}\b
+\b(object|informatiestroom|koppeling|interactie|eis|uitgangspunt|wens|architectuur-principe|scenario|besluit)-\d{3}\b
 ```
 
 Nagemeten over beide repositories: **nul valse treffers**.
@@ -43,15 +43,16 @@ De les uit GitHub blijft overeind, alleen scherper dan ik hem eerst nam. Een iss
 | Prefix | Waarvoor | Waar het register staat |
 |---|---|---|
 | `object-` | Informatie-objecten uit de ankertabel | `Objecten/` |
-| `stroom-` | Informatiestromen: conceptuele gegevensbeweging tussen ketenpartners | `Informatiestromen/` |
+| `informatiestroom-` | Informatiestromen: conceptuele gegevensbeweging tussen ketenpartners | `Informatiestromen/` |
 | `koppeling-` | Gestandaardiseerde informatiestroom tussen twee referentiecomponenten | de map van de koppelingspecificatie |
 | `interactie-` | Interacties binnen één koppeling | idem |
-| `eis-` | Uitgangspunten en normatieve eisen | `Eisen/` |
-| `principe-` | Architectuurprincipes `OKx-AP01` tot en met `OKx-AP13` | `Referentiemateriaal/principes/` |
+| `eis-` | Normatieve eisen (requirements) | `Eisen/` |
+| `uitgangspunt-` | Uitgangspunten (nu `U1` tot en met `U10`) | `Koppelvlakspecificaties/` (de uitgangspuntenlijst) |
+| `architectuur-principe-` | Architectuurprincipes `OKx-AP01` tot en met `OKx-AP13` | `Referentiemateriaal/principes/` |
 | `scenario-` | Kaderscenario's en varianten | `Kaderscenario's/` |
 | `besluit-` | Architectuurbesluiten | `Referentiemateriaal/adr/` |
 
-Elke soort heeft één doorlopende reeks van drie cijfers met voorloopnullen: ruimte tot 999 per soort, en op naam sorteerbaar.
+Elke soort heeft één doorlopende reeks van drie cijfers met voorloopnullen: ruimte tot 999 per soort, en op naam sorteerbaar. **De soortenlijst is uitbreidbaar**: een nieuwe soort (bijvoorbeeld `wens-`, zodra wensen naast eisen worden vastgelegd) krijgt een eigen voluit geschreven prefix en een eigen register; de conventie zelf wijzigt daar niet voor, alleen het zoekpatroon groeit mee.
 
 **Stroom en koppeling zijn niet hetzelfde**, en dat onderscheid is niet van dit voorstel. De [AMIGO-ladder](../../../.agents/skills/amigo-aanpak/SKILL.md) kent drie lagen: een *informatiestroom* is de conceptuele gegevensbeweging uit de scenario-analyse, een *koppeling* is de gestandaardiseerde vorm daarvan tussen twee referentiecomponenten, en een *koppelvlak* is de verzameling koppelingen die één component raken. Dat laatste is vastgelegd in [ADR 0021](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0021-koppeling-versus-koppelvlak-terminologie.md) en in U2. Eén stroom kan uitmonden in één koppeling, of in geen enkele zolang hij nog niet is gestandaardiseerd.
 
@@ -193,17 +194,17 @@ Het alternatief, vier bestaande nummervormen naast elkaar toelaten om een eenmal
 
 | Bestaat nu | Wordt | Werk |
 |---|---|---|
-| `U1` tot en met `U10` | `eis-001` tot en met `eis-010` | 61 verwijzingen, plus 27 ankerverwijzingen naar de U-koppen |
-| `R1` tot en met `R17` in het keuzedocument | `eis-011` tot en met `eis-027` | koppen in dat document, 14 verwijzingen uit `payload-regelset.md` |
+| `U1` tot en met `U10` | `uitgangspunt-001` tot en met `uitgangspunt-010` | 61 verwijzingen, plus 27 ankerverwijzingen naar de U-koppen |
+| `R1` tot en met `R17` in het keuzedocument | `eis-001` tot en met `eis-017` | koppen in dat document, 14 verwijzingen uit `payload-regelset.md` |
 | `I1`–`I5`, `S1`–`S5`, `L1`–`L6` | `interactie-001` tot en met `interactie-016` | koppen in drie koppelingspecificaties |
-| `OKx-AP01` tot en met `OKx-AP13` | `principe-001` tot en met `principe-013` | verwijzingen vanuit de uitgangspunten |
+| `OKx-AP01` tot en met `OKx-AP13` | `architectuur-principe-001` tot en met `architectuur-principe-013` | verwijzingen vanuit de uitgangspunten |
 | ADR-bestandsnamen | `besluit-001.md` tot en met `besluit-024.md` | 56 padverwijzingen in Public |
 
 Alles mechanisch: een tabel oud naar nieuw, één zoek-en-vervang, en `check-links.py` bewijst dat er niets is blijven hangen.
 
 **Ook de interactienummers.** Die zijn per koppeling uitgedeeld met een eigen letter, `I` bij planning, `S` bij het studentinformatiesysteem, `L` bij de leeromgeving, en daardoor toevallig uniek. Dat loopt stuk zodra er een vierde koppeling komt en iemand opnieuw bij `I` begint. Welke interactie bij welke koppeling hoort, staat in het register.
 
-**Wat je inlevert.** `U5` leest prettiger dan `eis-005`, en de uitgangspunten zeggen dat zelf: *"genummerd (U1 tot en met U10) zodat je er in een document of een review naar kunt verwijzen: conform U5"*. Dat is een reële prijs. Daar staat tegenover dat `eis-005` klikbaar is, machinaal vindbaar, en niet botst met de R-nummers uit een ander document.
+**Wat je inlevert.** `U5` leest prettiger dan `uitgangspunt-005`, en de uitgangspunten zeggen dat zelf: *"genummerd (U1 tot en met U10) zodat je er in een document of een review naar kunt verwijzen: conform U5"*. Dat is een reële prijs. Daar staat tegenover dat `uitgangspunt-005` klikbaar is, machinaal vindbaar, en niet botst met de R-nummers uit een ander document.
 
 ## 6. Het MORA-veld en zijn waarden
 
@@ -246,12 +247,12 @@ De laatste bepaalt of de businesslaag levend blijft. Het onderzoek bij #130 conc
 
 | Vraag | Voorstel | Waarom het uitmaakt |
 |---|---|---|
-| Hernummeren we `U1`–`U10` naar `eis-001`–`eis-010`? | Ja | 61 verwijzingen plus 27 ankers, mechanisch. Het alternatief maakt vier nummervormen permanent. Kost de leesbaarheid van "conform U5" |
+| ~~Hernummeren we `U1`–`U10`?~~ **Besloten, 12 augustus**: ja, naar `uitgangspunt-001`–`uitgangspunt-010` (eigen soort, geen `eis-`) | Ja | 61 verwijzingen plus 27 ankers, mechanisch; uitvoering ná de merge van de lopende reviewreeks |
 | Eén bestand per artefact, of één tabel per soort? | Eén bestand | Reviewbaarheid en merge-conflicten tegenover overzicht |
 | Krijgen de ADR's ook de nieuwe vorm? | Ja | Uniformiteit. Hun nummers zijn al uniek, dus alleen de vorm en de bestandsnaam wijzigen, en dat raakt 56 verwijzingen |
 | Wie stelt vast dat iets vervalt, en wie is eigenaar van een register? | *geen voorstel* | Governance. Regel 3 en de vierde controle veronderstellen allebei een besluitmoment dat nergens is belegd |
 
-De zwaarste is de eerste. Wie hernummeren van de uitgangspunten te duur vindt, kan voorstellen ze hun `U`-nummer te laten houden. Dan zijn er twee nummervormen binnen dezelfde soort en is de keuze half. Ik zou hem heel maken, juist omdat dit het enige moment is waarop het mag.
+De eerste vraag is op 12 augustus beslecht: hernummeren, heel en in één keer, met `uitgangspunt-` als eigen soort. De uitvoering wacht op de merge van de lopende reviewreeks (meta-PR 131 en de gestapelde refactors), zodat lopende reviews niet breken.
 
 ## 10. Van voorstel naar regel in Public
 
