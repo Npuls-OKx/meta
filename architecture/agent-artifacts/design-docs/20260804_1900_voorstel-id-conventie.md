@@ -2,7 +2,7 @@
 
 Relateert aan: #135, bouwt voort op #130. Eisen: [requirements](20260804_1900_requirements-id-conventie.md).
 
-De hoofdconventie is op 12 augustus vastgesteld (zie het plan bij #143): het soort-nummer-patroon geldt voor alle lagen, met voluit en eenduidige soortnamen en een uitbreidbare soortenlijst. De kernteamvragen 2 tot en met 4 in §9 staan nog open; wat er voor de verhuizing naar `Npuls-OKx/Public` moet gebeuren staat in §10.
+De hoofdconventie is op 12 augustus vastgesteld en de schrijfwijze op 13 augustus (zie het plan bij #143): het soort-nummer-patroon geldt voor alle lagen, voluit geschreven met vier cijfers, met eenduidige soortnamen en een uitbreidbare soortenlijst. De kernteamvragen 2 tot en met 4 in §9 staan nog open; wat er voor de verhuizing naar `Npuls-OKx/Public` moet gebeuren staat in §10.
 
 ## 1. De vorm
 
@@ -13,16 +13,16 @@ De hoofdconventie is op 12 augustus vastgesteld (zie het plan bij #143): het soo
 Drie voorbeelden:
 
 ```text
-object-014
-informatiestroom-004
-eis-001
+object-0014
+informatiestroom-0004
+eis-0001
 ```
 
-Meer is het niet. **De naam zit niet in het ID.** Die staat ernaast: als linktekst in markdown, als kop in het registerbestand, als `title` in een schema.
+Meer is het niet. **De naam zit niet in het ID.** Die staat ernaast: als linktekst in markdown, als kop in het registerbestand, als `title` in een schema. **De ouder zit er ook niet in**: een feature onder epic 3 heet `feature-0007`, niet `feature-3.1` (besluit 13 augustus; de boom is strikt en het id draagt geen structuur, zodat opknippen en herordenen nooit hernummert).
 
 ### Waarom de naam er niet in zit
 
-Een eerdere versie van dit voorstel gebruikte `object-014-onderwijseenheid-specificatie`, naar het model van een GitHub-branchnaam. Dat bleek twee eigenschappen te beloven die elkaar uitsluiten.
+Een eerdere versie van dit voorstel gebruikte `object-0014-onderwijseenheid-specificatie`, naar het model van een GitHub-branchnaam. Dat bleek twee eigenschappen te beloven die elkaar uitsluiten.
 
 Zit de naam in de bestandsnaam, dan breekt hernoemen elke verwijzing: `check-links.py` toetst het volledige pad, niet het nummer. Dat is nagemeten met het echte script, en het gaf exitcode 1. De belofte dat hernoemen gratis is ([R3](20260804_1900_requirements-id-conventie.md#r3--identiteit-staat-los-van-naam)) haalde je dus niet.
 
@@ -31,7 +31,7 @@ Bovendien werd het ID onvindbaar. Het patroon dat namen toeliet gaf over beide r
 Met alleen cijfers achter de soort verdwijnen beide problemen. Het patroon wordt:
 
 ```text
-\b(object|informatiestroom|koppeling|interactie|eis|uitgangspunt|wens|architectuur-principe|scenario|besluit)-\d{3}\b
+\b(object|informatiestroom|koppeling|interactie|eis|uitgangspunt|wens|architectuur-principe|scenario|besluit)-\d{4}\b
 ```
 
 Nagemeten over beide repositories: **nul valse treffers**.
@@ -52,7 +52,7 @@ De les uit GitHub blijft overeind, alleen scherper dan ik hem eerst nam. Een iss
 | `scenario-` | Kaderscenario's en varianten | `Kaderscenario's/` |
 | `besluit-` | Architectuurbesluiten | `Referentiemateriaal/adr/` |
 
-Elke soort heeft één doorlopende reeks van drie cijfers met voorloopnullen: ruimte tot 999 per soort, en op naam sorteerbaar. **De soortenlijst is uitbreidbaar**: een nieuwe soort (bijvoorbeeld `wens-`, zodra wensen naast eisen worden vastgelegd) krijgt een eigen voluit geschreven prefix en een eigen register; de conventie zelf wijzigt daar niet voor, alleen het zoekpatroon groeit mee.
+Elke soort heeft één doorlopende reeks van vier cijfers met voorloopnullen: ruimte tot 9999 per soort, en op naam sorteerbaar (besluit 13 augustus: ruim genoeg voor de honderden stories die verwacht worden). **De soortenlijst is uitbreidbaar**: een nieuwe soort (bijvoorbeeld `wens-`, zodra wensen naast eisen worden vastgelegd) krijgt een eigen voluit geschreven prefix en een eigen register; de conventie zelf wijzigt daar niet voor, alleen het zoekpatroon groeit mee.
 
 **Stroom en koppeling zijn niet hetzelfde**, en dat onderscheid is niet van dit voorstel. De [AMIGO-ladder](../../../.agents/skills/amigo-aanpak/SKILL.md) kent drie lagen: een *informatiestroom* is de conceptuele gegevensbeweging uit de scenario-analyse, een *koppeling* is de gestandaardiseerde vorm daarvan tussen twee referentiecomponenten, en een *koppelvlak* is de verzameling koppelingen die één component raken. Dat laatste is vastgelegd in [ADR 0021](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0021-koppeling-versus-koppelvlak-terminologie.md) en in U2. Eén stroom kan uitmonden in één koppeling, of in geen enkele zolang hij nog niet is gestandaardiseerd.
 
@@ -80,15 +80,15 @@ Eén nummer per ding. Een artefact met een geregistreerd ID gebruikt dat ID **oo
 
 ### Regel 1. Een nummer wordt nooit hergebruikt
 
-Ook niet als het artefact vervalt. Vervalt `object-014`, dan blijft dat nummer voor altijd aan dat object gebonden en krijgt de opvolger een nieuw nummer. Gaten in de reeks zijn normaal en verwacht.
+Ook niet als het artefact vervalt. Vervalt `object-0014`, dan blijft dat nummer voor altijd aan dat object gebonden en krijgt de opvolger een nieuw nummer. Gaten in de reeks zijn normaal en verwacht.
 
-De reden is de lezer van over drie jaar. Die vindt in een gearchiveerde specificatie een verwijzing naar `object-014` en moet kunnen achterhalen wat daarmee is gebeurd. Wijst dat nummer inmiddels naar iets anders, dan leest hij stilzwijgend het verkeerde, en dat merkt niemand.
+De reden is de lezer van over drie jaar. Die vindt in een gearchiveerde specificatie een verwijzing naar `object-0014` en moet kunnen achterhalen wat daarmee is gebeurd. Wijst dat nummer inmiddels naar iets anders, dan leest hij stilzwijgend het verkeerde, en dat merkt niemand.
 
 Geonovum legt dezelfde regel vast voor de API Design Rules: *"Design rules have unique and permanent numbers. In the event of design rules being deprecated or restructured, they are removed from the list. Therefore, gaps in the sequence can occur."* ([APIDesignRuleNumbering.md](https://github.com/Geonovum/KP-APIs/blob/master/API-strategie-governance/APIDesignRuleNumbering.md)). Op één punt wijken we bewust af: bij Geonovum verdwijnt de vervallen regel uit de lijst, bij ons blijft hij staan met zijn status en opvolger. Zie regel 3.
 
 ### Regel 2. Een naam mag wijzigen, een nummer niet
 
-Omdat het ID alleen uit soort en nummer bestaat, raakt hernoemen precies één plek: de kop in het registerbestand. Geen enkele verwijzing breekt, want die wijst naar `object-014.md` en die bestandsnaam verandert niet.
+Omdat het ID alleen uit soort en nummer bestaat, raakt hernoemen precies één plek: de kop in het registerbestand. Geen enkele verwijzing breekt, want die wijst naar `object-0014.md` en die bestandsnaam verandert niet.
 
 Voor OKx is dat geen randgeval. We lopen voor op MORA en de terminologie zet zich nog; de ankertabel is al een keer herzien.
 
@@ -122,9 +122,9 @@ Het register is een map met één bestand per artefact, en de bestandsnaam is he
 ```text
 Objecten/
 ├── README.md            gegenereerd overzicht
-├── object-001.md
-├── object-014.md
-└── object-027.md
+├── object-0001.md
+├── object-0014.md
+└── object-0027.md
 ```
 
 Zo'n bestand ziet er zo uit:
@@ -158,7 +158,7 @@ De keerzijde is dat je het overzicht in één oogopslag kwijtraakt. Dat lost een
 
 ```markdown
 De onderwijscatalogus publiceert de
-[onderwijseenheid-specificatie](../Objecten/object-014.md) voor planning.
+[onderwijseenheid-specificatie](../Objecten/object-0014.md) voor planning.
 ```
 
 Voor de lezer is dat een normale link met een leesbare naam. Voor de controle is het een verwijzing naar een bestand dat moet bestaan, en dat toetst `check-links.py` vandaag al.
@@ -169,8 +169,8 @@ Voor de lezer is dat een normale link met een leesbare naam. Voor de controle is
 {
   "$id": "https://okx.npuls.nl/schema/onderwijsspecificatie/alfa",
   "title": "Onderwijsspecificatie",
-  "x-okx-realiseert": ["interactie-001"],
-  "x-okx-object": "object-014"
+  "x-okx-realiseert": ["interactie-0001"],
+  "x-okx-object": "object-0014"
 }
 ```
 
@@ -180,7 +180,7 @@ Onbekende sleutelwoorden worden door de metaschema toegestaan en in de standaard
 
 ```gherkin
 # language: nl
-# realiseert: interactie-001
+# realiseert: interactie-0001
 Functionaliteit: Specificatie planbaar melden
 ```
 
@@ -194,17 +194,17 @@ Het alternatief, vier bestaande nummervormen naast elkaar toelaten om een eenmal
 
 | Bestaat nu | Wordt | Werk |
 |---|---|---|
-| `U1` tot en met `U10` | `uitgangspunt-001` tot en met `uitgangspunt-010` | 61 verwijzingen, plus 27 ankerverwijzingen naar de U-koppen |
-| `R1` tot en met `R17` in het keuzedocument | `eis-001` tot en met `eis-017` | koppen in dat document, 14 verwijzingen uit `payload-regelset.md` |
-| `I1`–`I5`, `S1`–`S5`, `L1`–`L6` | `interactie-001` tot en met `interactie-016` | koppen in drie koppelingspecificaties |
-| `OKx-AP01` tot en met `OKx-AP13` | `architectuur-principe-001` tot en met `architectuur-principe-013` | verwijzingen vanuit de uitgangspunten |
-| ADR-bestandsnamen | `besluit-001.md` tot en met `besluit-024.md` | 56 padverwijzingen in Public |
+| `U1` tot en met `U10` | `uitgangspunt-0001` tot en met `uitgangspunt-0010` | 61 verwijzingen, plus 27 ankerverwijzingen naar de U-koppen |
+| `R1` tot en met `R17` in het keuzedocument | `eis-0001` tot en met `eis-0017` | koppen in dat document, 14 verwijzingen uit `payload-regelset.md` |
+| `I1`–`I5`, `S1`–`S5`, `L1`–`L6` | `interactie-0001` tot en met `interactie-0016` | koppen in drie koppelingspecificaties |
+| `OKx-AP01` tot en met `OKx-AP13` | `architectuur-principe-0001` tot en met `architectuur-principe-0013` | verwijzingen vanuit de uitgangspunten |
+| ADR-bestandsnamen | `besluit-0001.md` tot en met `besluit-0024.md` | 56 padverwijzingen in Public |
 
 Alles mechanisch: een tabel oud naar nieuw, één zoek-en-vervang, en `check-links.py` bewijst dat er niets is blijven hangen.
 
 **Ook de interactienummers.** Die zijn per koppeling uitgedeeld met een eigen letter, `I` bij planning, `S` bij het studentinformatiesysteem, `L` bij de leeromgeving, en daardoor toevallig uniek. Dat loopt stuk zodra er een vierde koppeling komt en iemand opnieuw bij `I` begint. Welke interactie bij welke koppeling hoort, staat in het register.
 
-**Wat je inlevert.** `U5` leest prettiger dan `uitgangspunt-005`, en de uitgangspunten zeggen dat zelf: *"genummerd (U1 tot en met U10) zodat je er in een document of een review naar kunt verwijzen: conform U5"*. Dat is een reële prijs. Daar staat tegenover dat `uitgangspunt-005` klikbaar is, machinaal vindbaar, en niet botst met de R-nummers uit een ander document.
+**Wat je inlevert.** `U5` leest prettiger dan `uitgangspunt-0005`, en de uitgangspunten zeggen dat zelf: *"genummerd (U1 tot en met U10) zodat je er in een document of een review naar kunt verwijzen: conform U5"*. Dat is een reële prijs. Daar staat tegenover dat `uitgangspunt-0005` klikbaar is, machinaal vindbaar, en niet botst met de R-nummers uit een ander document.
 
 ## 6. Het MORA-veld en zijn waarden
 
@@ -227,9 +227,9 @@ Vier controles, elk met exitcode 1 bij een probleem, zodat ze in een workflow pa
 
 | Controle | Faalt wanneer | Testgeval |
 |---|---|---|
-| Uniciteit | Twee bestanden claimen hetzelfde `<soort>-<nummer>` | Twee bestanden `object-014.md` in verschillende mappen |
-| Bestaan | Een verwijzing wijst naar een ID dat niet in het register staat | Een document verwijst naar `object-999` |
-| Onveranderlijkheid | Een ID verdwijnt uit het register of wisselt van betekenis ten opzichte van de vorige versie | Een `object-014.md` wordt verwijderd |
+| Uniciteit | Twee bestanden claimen hetzelfde `<soort>-<nummer>` | Twee bestanden `object-0014.md` in verschillende mappen |
+| Bestaan | Een verwijzing wijst naar een ID dat niet in het register staat | Een document verwijst naar `object-0999` |
+| Onveranderlijkheid | Een ID verdwijnt uit het register of wisselt van betekenis ten opzichte van de vorige versie | Een `object-0014.md` wordt verwijderd |
 | Volledigheid | Een object mist het MORA-veld, of een uitgangspunt wordt nergens aangehaald | Een object zonder MORA-regel |
 
 De laatste bepaalt of de businesslaag levend blijft. Het onderzoek bij #130 concludeert dat een businesslaag verdampt zonder eigenaar **én** zonder controle die faalt als de koppeling breekt. Deze conventie levert het tweede. Het eerste, wie eigenaar is en wie vaststelt dat iets vervalt, staat als open punt in §9.
@@ -247,7 +247,7 @@ De laatste bepaalt of de businesslaag levend blijft. Het onderzoek bij #130 conc
 
 | Vraag | Voorstel | Waarom het uitmaakt |
 |---|---|---|
-| ~~Hernummeren we `U1`–`U10`?~~ **Besloten, 12 augustus**: ja, naar `uitgangspunt-001`–`uitgangspunt-010` (eigen soort, geen `eis-`) | Ja | 61 verwijzingen plus 27 ankers, mechanisch; uitvoering ná de merge van de lopende reviewreeks |
+| ~~Hernummeren we `U1`–`U10`?~~ **Besloten, 12 augustus**: ja, naar `uitgangspunt-0001`–`uitgangspunt-0010` (eigen soort, geen `eis-`) | Ja | 61 verwijzingen plus 27 ankers, mechanisch; uitvoering ná de merge van de lopende reviewreeks |
 | Eén bestand per artefact, of één tabel per soort? | Eén bestand | Reviewbaarheid en merge-conflicten tegenover overzicht |
 | Krijgen de ADR's ook de nieuwe vorm? | Ja | Uniformiteit. Hun nummers zijn al uniek, dus alleen de vorm en de bestandsnaam wijzigen, en dat raakt 56 verwijzingen |
 | Wie stelt vast dat iets vervalt, en wie is eigenaar van een register? | *geen voorstel* | Governance. Regel 3 en de vierde controle veronderstellen allebei een besluitmoment dat nergens is belegd |
