@@ -68,11 +68,11 @@ De boom eindigt bij specificaties, niet bij implementaties.
 - De redenering is: wie deze featureset wil ondersteunen, wordt eigenaar van deze endpoints. Hoe een leverancier dat intern oplost valt buiten de boom.
 - Endpoint-sets die nog in een open pull request staan volgen de regel voor niet-gemergde bronnen.
 
-## Mermaid-conventies voor de indexplaat
+## Mermaid-conventies voor de platen in de README
 
-- `flowchart LR`, geen puntkomma's (breken de GitHub-render).
-- De plaat blijft leesbaar door hem met de hand klein te houden: alleen de opdracht, de doelen en de epics (met id in het label), maximaal 15 knopen. Features en stories staan alleen in de tabellen; zo heeft elke informatie-eenheid één drager.
-- Geen statuskleuren of andere planningsinformatie in de plaat. Elke epicknoop staat in `epics.md` en omgekeerd; wijkt de plaat af, dan is dat een bevinding.
+- `flowchart LR`, geen puntkomma's (breken de GitHub-render); maximaal 15 knopen per plaat.
+- De **boomplaat** blijft leesbaar door hem met de hand klein te houden: alleen de opdracht, de doelen en de epics (met id in het label). Features en stories staan alleen in de tabellen; zo heeft elke informatie-eenheid één drager. Geen statuskleuren of andere planningsinformatie; elke epicknoop staat in `epics.md` en omgekeerd — wijkt de plaat af, dan is dat een bevinding.
+- De **lagenplaat** (van opdracht naar endpoint) toont de lagen zelf, één knoop per laag zonder instanties, met de naad tussen boom en koppelvlakspecificaties als subgraph-grens.
 
 ## Plaats in de product-flow
 
@@ -87,7 +87,7 @@ Deze skill is de specialist-skill voor stap 2 (uitwerken) van [`okx-product-flow
 - [ ] Doelzinnen en feature-omschrijvingen maximaal 25 woorden en geformuleerd als beoogde toestand, niet als werking; een feature-omschrijving herhaalt het epicdoel niet.
 - [ ] Elke rij draagt een id in het vaste format (`doel-0001`, `epic-0001`, `feature-0001`, `story-0001`), zonder dubbelingen en zonder oude id-vormen (E1, F2.1, S2.3); geen statuskolommen.
 - [ ] Omvangslimieten gehaald (regels tellen met `wc -l`, tabelrijen en mermaid-knopen handmatig).
-- [ ] Mermaid-plaat toont alleen opdracht, doelen en epics, liggend (`flowchart LR`) zodat de boom hoog wordt in plaats van breed, en is consistent met `epics.md`; geen puntkomma's.
+- [ ] De boomplaat toont alleen opdracht, doelen en epics en is consistent met `epics.md`; de lagenplaat toont één knoop per laag zonder instanties; beide liggend (`flowchart LR`), zonder puntkomma's.
 - [ ] Geen eis-ID's of Gherkin in de boom; achtergrondmechaniek alleen via verwijzing naar het ADR.
 - [ ] Nieuwe bestanden staan in de README-index van de map en van `architecture/docs/`.
 
