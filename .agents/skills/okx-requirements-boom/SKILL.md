@@ -36,7 +36,7 @@ Alles staat in `architecture/docs/requirements/`. De limieten zijn hard; oversch
 
 | Bestand | Inhoud | Limiet |
 |---|---|---|
-| `README.md` | Index: doel, mermaid-boom, navigatietabel, conventies, scope | 120 regels, mermaid 15 knopen |
+| `README.md` | Index: doel, mermaid-boom, lagenplaat (opdracht tot endpoint), navigatietabel, conventies, scope | 120 regels, mermaid 15 knopen per plaat |
 | `opdracht.md` | Opdracht en projectdoelen (doel-0001, doel-0002, ...), tabel doel naar epics | 80 regels |
 | `epics.md` | Eén tabel met alle epics | 150 regels, 8 epics |
 | `features.md` | Subsectie per epic met featuretabel | 200 regels, 6 features per epic |

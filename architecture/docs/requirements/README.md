@@ -19,6 +19,23 @@ flowchart LR
   DL3 --> EP8["epic-0008 Voortgang en resultaat op leeruitkomsten"]
 ```
 
+## Van opdracht naar endpoint
+
+Elke laag verwijst naar de laag eronder. De boom eindigt bij stories; hun kolom Functionele eisen wijst de koppelvlakspecificaties in.
+
+```mermaid
+flowchart LR
+  subgraph boom["Requirementsboom (deze map)"]
+    OPD["opdracht"] --> DOEL["doel"] --> EPIC["epic"] --> FEAT["feature"] --> STORY["story"]
+  end
+  subgraph kvs["Koppelvlakspecificaties (Npuls-OKx/Public)"]
+    FE["functionele eis"] --> IA["interactie"] --> EP["endpoint"]
+  end
+  STORY --> FE
+```
+
+De laatste drie stappen leven in Npuls-OKx/Public: de functionele eis staat bij zijn [interactiepatroon](https://github.com/Npuls-OKx/Public/tree/dev/Koppelvlakspecificaties/Interactiepatronen), het interactieoverzicht daar somt de interacties op, en de endpointtabellen van de [applicatiecomponenten](https://github.com/Npuls-OKx/Public/tree/dev/Koppelvlakspecificaties/Applicatiecomponenten) noemen per endpoint de methode en de interacties die hij draagt. Wie een featureset wil ondersteunen, wordt eigenaar van de bijbehorende endpoints. Dezelfde lijn bestaat keten-breed in de [afbakening](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/afbakening.md#2-eisen-aan-de-keten): keten-eis, functionele eis, interactiepatroon, endpoint.
+
 ## Navigatie
 
 | Laag | Bestand | Stand | Voor wie vooral |
