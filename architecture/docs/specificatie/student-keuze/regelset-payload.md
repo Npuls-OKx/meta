@@ -1,6 +1,6 @@
 # Regelset als JSON-payload (keuzes rond onderwijsspecificaties)
 
-Context: eerste concretisering van het [requirements-voorstel keuzes rond onderwijsspecificaties](keuze-requirements.md) (R1-R16). Scenario: [LR1](../okx-oeapi-consumer-profiel/doc/persona_jochem.md "persona Jochem, leerroute 1") (Apothekersassistent). Niveau: concept-payload, waarden indicatief. Status: concept. Relateert aan: #84, #120.
+Context: eerste concretisering van het [requirements-voorstel keuzes rond onderwijsspecificaties](keuze-requirements.md) (R1-R16). Scenario: [LR1](../leerroute-uitwerking/doc/persona_jochem.md "persona Jochem, leerroute 1") (Apothekersassistent). Niveau: concept-payload, waarden indicatief. Status: concept. Relateert aan: #84, #120.
 
 ## Inhoudsopgave
 
@@ -29,12 +29,12 @@ De vorm volgt de payload-serie van de koppelingen-lijn (#119/#98): volledig Nede
 
 ## 3. Scope
 
-- [LR1](../okx-oeapi-consumer-profiel/doc/persona_jochem.md "persona Jochem, leerroute 1"): de keuzedeelruimte van Apothekersassistent als voorbeeld. De vorm is generiek voor alle keuzes rond onderwijsspecificaties, op elk niveau (R16).
-- Buiten scope: de evaluatie-implementatie (wie rekent wanneer), de studentgegevens die daarvoor nodig zijn (raakt ADR 0009), Vrijere keuzevormen zijn uitdrukbaar (§5.1) en deels al in het voorbeeld gebruikt (maximaal 2, precies 1); wat [LR1-3](../okx-oeapi-consumer-profiel/doc/20260501_Specificatie_document_OKx_OEAPI_profiel.md "leerroutes en persona's in het OEAPI-profiel") werkelijk vraagt bepaalt de vaststelling.
+- [LR1](../leerroute-uitwerking/doc/persona_jochem.md "persona Jochem, leerroute 1"): de keuzedeelruimte van Apothekersassistent als voorbeeld. De vorm is generiek voor alle keuzes rond onderwijsspecificaties, op elk niveau (R16).
+- Buiten scope: de evaluatie-implementatie (wie rekent wanneer), de studentgegevens die daarvoor nodig zijn (raakt ADR 0009), Vrijere keuzevormen zijn uitdrukbaar (§5.1) en deels al in het voorbeeld gebruikt (maximaal 2, precies 1); wat [LR1-3](../leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md "leerroutes en persona's in het OEAPI-profiel") werkelijk vraagt bepaalt de vaststelling.
 
 ## 4. Ontwerpkeuzes
 
-- **Generiek over alle onderwijsspecificaties (R16).** Een regelset kadert af wat een student kan kiezen en is toepasbaar op **elke** onderwijsspecificatie als keuzecontext. "Keuzedeel" is de mbo-specifieke invulling binnen [LR1-3](../okx-oeapi-consumer-profiel/doc/20260501_Specificatie_document_OKx_OEAPI_profiel.md "leerroutes en persona's in het OEAPI-profiel"); de regelvorm kent dat onderscheid niet.
+- **Generiek over alle onderwijsspecificaties (R16).** Een regelset kadert af wat een student kan kiezen en is toepasbaar op **elke** onderwijsspecificatie als keuzecontext. "Keuzedeel" is de mbo-specifieke invulling binnen [LR1-3](../leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md "leerroutes en persona's in het OEAPI-profiel"); de regelvorm kent dat onderscheid niet.
 - **Regels los van items (R2).** Regelsets staan in een eigen platte lijst. Een specificatie verwijst via `regelsetVerwijzingen` naar regelsets; de regelset verwijst via id's naar de items waarop hij werkt. Beide kanten kunnen wijzigen zonder de ander te raken.
 - **Benoemde bereiken, eenmaal gedefinieerd.** Een regelset definieert zijn keuzegroepen één keer in `bereiken[]` (met eigen `bereikId` en naam); regels verwijzen met `bereikId`. Geen duplicatie van sets over regels, geen regel-naar-regel-verwijzing.
 - **Bereik is opsomming of selectie.** Een bereik is óf een **opsomming** (`specificatieIds`, statisch: de set ligt vast) óf een **selectie** (`{attribuut, waarde}`, een match-term op attributen van onderwijsspecificaties, zoals `keuzedeelKlasse`). Een selectie is dynamisch: OC evalueert haar op het moment van gebruik, en een nieuwe specificatie met dat attribuut valt er direct onder. Het attribuut is een eigenschap van de specificatie; de regel spreekt er alleen een verwachting over uit.
@@ -123,7 +123,7 @@ erDiagram
 
 ## 8. Uitwerking van de payload
 
-[LR1](../okx-oeapi-consumer-profiel/doc/persona_jochem.md "persona Jochem, leerroute 1"), indicatief. De specificatie- en leeruitkomst-id's zijn illustratief; na samenvoeging met de koppelingen-lijn (#119) verwijzen ze naar de id's uit de centrale onderwijsspecificatie-payload.
+[LR1](../leerroute-uitwerking/doc/persona_jochem.md "persona Jochem, leerroute 1"), indicatief. De specificatie- en leeruitkomst-id's zijn illustratief; na samenvoeging met de koppelingen-lijn (#119) verwijzen ze naar de id's uit de centrale onderwijsspecificatie-payload.
 
 ```json
 {

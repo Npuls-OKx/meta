@@ -25,8 +25,8 @@ flowchart LR
 |---|---|---|---|
 | Opdracht | [opdracht.md](opdracht.md) | drie doelen | product owner en kernteam |
 | Epics | [epics.md](epics.md) | acht epics, zes tot stories uitgewerkt | product owner en kernteam |
-| Features | [features.md](features.md) | vijfendertig features | kernteam en technische werkgroep |
-| Stories | [stories.md](stories.md) | tweeëntwintig stories, negen met interactiekoppeling | technische werkgroep en leveranciers |
+| Features | [features.md](features.md) | zesendertig features | kernteam en technische werkgroep |
+| Stories | [stories.md](stories.md) | vierentwintig stories, negen met interactiekoppeling | technische werkgroep en leveranciers |
 | Leeswijzer | [leeswijzer.md](leeswijzer.md) | leesroutes naar de bestaande documentatie | iedereen |
 
 ## Conventies

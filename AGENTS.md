@@ -49,7 +49,7 @@ De werkafspraken zijn levend; wijzigen via PR.
 | Presentaties (Slidev, Npuls huisstijl) | [presentaties/](presentaties/) |
 | Validatiescripts | [scripts/](scripts/) |
 
-In behandeling op andere branches (na merge hier linken): koppelingspecificaties per koppeling (OC-P&R, OC-SIS, OC-LMS) met payload-specificaties, en de keuze-requirements met regelset-payload onder `architecture/docs/specificatie/student-keuze/`.
+De koppelingspecificaties per koppeling (OC-P&R, OC-SIS, OC-LMS) leven als interactiepatronen met datamodelschema's in [Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Koppelvlakspecificaties); de [keuze-requirements met regelset-payload](architecture/docs/specificatie/student-keuze/keuze-requirements.md) staan onder `architecture/docs/specificatie/student-keuze/`.
 
 ## Agent-omgeving
 

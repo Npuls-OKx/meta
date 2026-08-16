@@ -15,9 +15,7 @@ Waar de bestaande documentatie staat die de [requirementsboom](README.md) aanwij
 | Welke aannames onder de koppelingen liggen | [Uitgangspunten](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md) | U1 tot en met U11 |
 | Welke besluiten er genomen zijn | [ADR-register](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr) | 0001 tot en met 0026, waarvan 0025 nog niet is uitgegeven |
 | Hoe de koppelingen technisch werken | [Koppelvlakspecificaties](https://github.com/Npuls-OKx/Public/tree/dev/Koppelvlakspecificaties) | interactiepatronen per koppeling (OC-P&R, OC-SIS, OC-LMS), koppelvlakken per applicatiecomponent en datamodelschema's |
-| Waar de keuzeregels staan | [PR 120 (in review)](https://github.com/Npuls-OKx/meta/pull/120) | keuze-requirements en regelset-payload |
+| Waar de keuzeregels staan | [Keuze-requirements](../specificatie/student-keuze/keuze-requirements.md) en [regelset-payload](../specificatie/student-keuze/regelset-payload.md) | eisen R1 tot en met R17 en de concept-payload voor regelsets |
 | Waar de endpoint-sets staan | [Applicatiecomponenten](https://github.com/Npuls-OKx/Public/tree/dev/Koppelvlakspecificaties/Applicatiecomponenten) | endpointtabellen per referentiecomponent |
 | Waar elke boomrij vandaan komt | [Extractieverantwoording](../../agent-artifacts/research/20260806_0837_requirementsboom-extractie.md) | pijplijn, bronverificatie en parkeerlijst |
 | Hoe ik bijdraag | [CONTRIBUTING](../../../CONTRIBUTING.md) | issues, branches en reviewproces |
-
-Na de merge van PR 120 worden de resterende "in review"-verwijzingen omgezet naar directe documentlinks.

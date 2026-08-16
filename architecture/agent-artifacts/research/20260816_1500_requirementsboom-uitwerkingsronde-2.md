@@ -56,10 +56,19 @@ Twee verse agent-contexten hebben gereviewd: een specialist tegen de skill-check
 
 ## Bewust niet gedaan
 
-- **Verwijzingen naar PR 120 blijven staan** met de noot "in review": die pull request is nog open. De leeswijzer benoemt de omzetting als vervolgpunt.
 - **Bestaande stories die "geen" dragen houden "geen".** Per story gecontroleerd: S1.1 (publicatievalidatie, koppeling CO-OC niet uitgewerkt), S2.1 tot en met S2.5 (studentkeuzesysteem heeft nog geen interactiepatroon), S3.3 tot en met S3.6, S5.1 en S5.2 (uitvoerings- en keuze-interacties buiten de drie uitgewerkte koppelingen). Er bestaat voor geen van deze stories een interactie in de gemergde interactiepatronen.
 - **De parkeerlijst in de extractieverantwoording is niet herschreven**: dat document is een momentopname. Deze verantwoording legt vast welke items zijn teruggehaald (S2.6, S7.1) en dat de overige kandidaten voorraad blijven.
 - **E6 en E8 dragen geen stories**: de E8-bronnen zijn meetingniveau en de E6-features beschrijven taaleigenschappen zonder toetsbare actorwens met harde bron; verzonnen invulling hoort niet in de boom. De onderbouwing van E8 steunt bovendien volledig op één meetingverslag; verdieping is werk voor een volgende ronde.
+
+## Addendum: PR 120 gemerged
+
+Nog tijdens de review van deze ronde is [PR 120](https://github.com/Npuls-OKx/meta/pull/120) gemerged; de keuze-requirements en de regelset-payload staan sindsdien onder [`architecture/docs/specificatie/student-keuze/`](../../docs/specificatie/student-keuze/keuze-requirements.md). Daarmee is het laatste vervolgpunt uit de leeswijzer ingelost:
+
+- **Alle tien "PR 120, R… (in review)"-bronnen zijn directe documentlinks geworden** (F2.1, F2.3, F2.5, F3.3, F5.2, F6.4, S2.3, S2.4, S2.5, S3.3, plus de leeswijzerrij over de keuzeregels). De eisen zijn lijstitems zonder eigen anker; de links wijzen daarom naar §6 Requirements met het R-nummer in het linklabel.
+- **F2.4 draagt de keuze-requirements R14 en R15 als tweede bron** naast ADR 0026: het besluit en de eis beschrijven dezelfde sleutelrol van de leeruitkomst.
+- **R13 en R16 zijn van de parkeerlijst gepromoveerd**, elk opnieuw tegen de nu gemergde bron gelezen: R13 als feature F2.6 (bottom-up en top-down samenstellen) met story S2.7, R16 als story S2.8 onder F2.3. Daarmee is elke keuze-requirement herleidbaar in de boom: R1 tot en met R11 en R17 waren al gedragen, R14 en R15 lopen via F2.4, en R12 blijft geparkeerd als duplicaat van de doelen van E2 en F2.1.
+- **Merge-fallout gerepareerd.** PR 120 is geschreven vóór de hernoeming van het consumer-profiel (PR #140) en na die hernoeming gemerged: de relatieve verwijzingen naar `okx-oeapi-consumer-profiel/` in beide student-keuze-documenten waren dood, net als de submap-verwijzing in de specificatie-README. Alle paden wijzen nu naar `leerroute-uitwerking/`; het hoofddocument `20260501_Specificatie_document_OKx_OEAPI_profiel.md` is vervangen door zijn opvolger `leerroute-uitwerking-lr1.md`. Ook de AGENTS.md-regel "in behandeling op andere branches (na merge hier linken)" is ingelost.
+- **Kanttekening bij de validatie:** `validate-docs.py` sloeg deze dode relatieve links niet aan, vermoedelijk doordat ze een titelattribuut dragen (`[tekst](pad "titel")`); dat is, naast het ontbreken van een controle op absolute links, een tweede gat in de linkcontrole en een vervolgpunt.
 
 ## Bevinding voor Public
 
