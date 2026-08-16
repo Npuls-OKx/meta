@@ -21,6 +21,8 @@ Een verslag is invoer voor een **architectuurbesluit**. Het besluit zelf en de a
 | [Praktijk in standaardisatieprojecten](20260804_1500_praktijk-standaardisatieprojecten.md) | Hoe verbinden andere projecten hun businesslaag aan hun techniek in Git, en wat werkte daar níet? | Afgerond |
 | [Gereedschap: requirements, architectuur en documentatie als code](20260804_1500_gereedschap-requirements-architectuur-docs-as-code.md) | Welke gereedschappen maken onze laag machine-interpreteerbaar zonder de markdown-bron op te geven? | Afgerond |
 | [Requirementsextractie voor de requirementsboom](20260806_0837_requirementsboom-extractie.md) | Welke geverifieerde kandidaat-requirements dragen de boom onder `architecture/docs/requirements/`, en wat is bewust geparkeerd? | Afgerond |
+| [Requirementsboom uitwerkingsronde 2](20260816_1500_requirementsboom-uitwerkingsronde-2.md) | Welke wijzigingen draagt de tweede uitwerkingsronde, op welke bron steunt elke nieuwe rij, en wat is bewust niet gedaan? | Afgerond |
+| [Keten-eisen versus requirementsboom](20260816_1530_afbakening-keteneisen-versus-requirementsboom.md) | Kan de boom de rol van de keten-eisen K1 tot en met K5 in het Public-releasepakket overnemen, binnen de PDF-randvoorwaarden? | Afgerond |
 
 De drie verslagen bij issue #130 horen bij elkaar: AMIGO zegt wat er gemaakt moet worden, de praktijk laat zien welke koppelmechanismen het volhouden, en het gereedschapsverslag toetst wat daarvan bij onze randvoorwaarden past.
 

@@ -34,4 +34,4 @@ De drie doelen waar elke [epic](epics.md) aan bijdraagt.
 | D2 | E6 Gezamenlijke taal en standaard |
 | D3 | E1 Onderwijsaanbod specificeren en ontsluiten; E3 Aanbod plannen en roosteren; E7 Betrouwbare en vervangbare koppelingen; E8 Standaard piloteren en adopteren |
 
-De epics zelf, met doel, status en bron: [epics.md](epics.md).
+De epics zelf, met doel en bron: [epics.md](epics.md).
