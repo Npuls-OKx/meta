@@ -31,7 +31,7 @@ De drie doelen waar elke [epic](epics.md) aan bijdraagt.
 | Doel | Epics die eraan bijdragen |
 |---|---|
 | doel-0001 | epic-0001 Gezamenlijke taal en standaard |
-| doel-0002 | epic-0002 Onderwijsaanbod specificeren en ontsluiten; epic-0003 Aanbod plannen en roosteren; epic-0004 Betrouwbare en vervangbare koppelingen; epic-0005 Standaard piloteren en adopteren |
+| doel-0002 | epic-0002 Onderwijsaanbod specificeren en ontsluiten; epic-0003 Aanbod plannen en roosteren; epic-0004 Betrouwbare en vervangbare koppelingen; epic-0005 Standaard beproeven en adopteren |
 | doel-0003 | epic-0006 Student kiest onderwijsspecificaties; epic-0007 Keuze en verbintenis vastleggen; epic-0008 Voortgang en resultaat op leeruitkomsten |
 
 De epics zelf, met doel en bron: [epics.md](epics.md).

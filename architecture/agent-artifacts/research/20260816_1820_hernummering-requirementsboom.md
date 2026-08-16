@@ -18,6 +18,16 @@ Vaste vervolgregel uit de skill: een nieuwe rij krijgt het eerstvolgende vrije n
 - **GitHub-issues** die oude id's noemen (#149, #150, #151) zijn niet herschreven; bij oppakken geldt deze tabel.
 - **Valse vrienden** zijn bewust onaangeraakt: de faalmodi F1-F12 in het archief van de leerroute-uitwerking (§19), de OC-SIS-interactienummers S1-S5, OC-P&R I-nummers, OC-LMS L-nummers en mermaid-node-id's elders.
 
+## Reviewronde 16 augustus (na de mechanische hernummering)
+
+Nieks review op de PR leidde tot wijzigingen bovenop de mechanische stap; die staan hier apart, zodat de mechanische claim hierboven zuiver blijft:
+
+- `features.md`: kolomkop "Doel" is "Omschrijving" geworden (het doel leeft op epicniveau; de featurekolom beschrijft het gedrag) en elke rij draagt een anker om het id heen, zodat stories er direct op linken.
+- `stories.md`: de kolom "Koppeling" heet in alle secties "Functionele eisen" en verwijst vooruit naar de koppelvlakspecificaties (zolang genummerde functionele eisen daar ontbreken: de interactie plus eigenaar); de featurecel is een ankerlink naar de feature; de kolom "Raakt ook" is geschrapt — een story traceert via zijn feature terug naar de epic, en de opknip van story-0002/feature-0027 blijft geborgd in het opknip-issue.
+- epic-0005 heet "Standaard beproeven en adopteren" (was "Standaard piloteren en adopteren"; naam liep niet).
+- feature-0034 is hernoemd en herformuleerd naar de bron (keuze-requirement R7): "Voorwaarden vooraf uitgedrukt in behaalde leeruitkomsten".
+- De skill `okx-requirements-boom` is op al deze punten bijgewerkt (tabelformats, aansluiting op de techniek, checklist).
+
 ## Doelen
 
 | Oud | Nieuw | Doel |
@@ -34,7 +44,7 @@ Vaste vervolgregel uit de skill: een nieuwe rij krijgt het eerstvolgende vrije n
 | E1 | epic-0002 | Onderwijsaanbod specificeren en ontsluiten | doel-0002 |
 | E3 | epic-0003 | Aanbod plannen en roosteren | doel-0002 |
 | E7 | epic-0004 | Betrouwbare en vervangbare koppelingen | doel-0002 |
-| E8 | epic-0005 | Standaard piloteren en adopteren | doel-0002 |
+| E8 | epic-0005 | Standaard beproeven en adopteren (bij de hernummering: Standaard piloteren en adopteren) | doel-0002 |
 | E2 | epic-0006 | Student kiest onderwijsspecificaties | doel-0003 |
 | E4 | epic-0007 | Keuze en verbintenis vastleggen | doel-0003 |
 | E5 | epic-0008 | Voortgang en resultaat op leeruitkomsten | doel-0003 |

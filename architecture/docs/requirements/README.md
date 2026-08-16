@@ -13,7 +13,7 @@ flowchart LR
   DL2 --> EP2["epic-0002 Onderwijsaanbod specificeren en ontsluiten"]
   DL2 --> EP3["epic-0003 Aanbod plannen en roosteren"]
   DL2 --> EP4["epic-0004 Betrouwbare en vervangbare koppelingen"]
-  DL2 --> EP5["epic-0005 Standaard piloteren en adopteren"]
+  DL2 --> EP5["epic-0005 Standaard beproeven en adopteren"]
   DL3 --> EP6["epic-0006 Student kiest onderwijsspecificaties"]
   DL3 --> EP7["epic-0007 Keuze en verbintenis vastleggen"]
   DL3 --> EP8["epic-0008 Voortgang en resultaat op leeruitkomsten"]
@@ -26,7 +26,7 @@ flowchart LR
 | Opdracht | [opdracht.md](opdracht.md) | drie doelen | product owner en kernteam |
 | Epics | [epics.md](epics.md) | acht epics, zes tot stories uitgewerkt | product owner en kernteam |
 | Features | [features.md](features.md) | zesendertig features | kernteam en technische werkgroep |
-| Stories | [stories.md](stories.md) | vierentwintig stories, negen met interactiekoppeling | technische werkgroep en leveranciers |
+| Stories | [stories.md](stories.md) | vierentwintig stories, negen verwijzend naar de koppelvlakspecificaties | technische werkgroep en leveranciers |
 | Leeswijzer | [leeswijzer.md](leeswijzer.md) | leesroutes naar de bestaande documentatie | iedereen |
 
 ## Conventies
