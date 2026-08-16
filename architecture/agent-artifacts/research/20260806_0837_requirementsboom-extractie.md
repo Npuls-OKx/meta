@@ -52,7 +52,7 @@ Dit is afgeleid werk van de hoofdagent, geen pijplijnuitvoer. Twee ingrepen:
 | Groep herkenbaar koppelen aan keuzedeel, locatie en periode | [PR 120](https://github.com/Npuls-OKx/meta/pull/120), keuze-requirements.md R4, in review | story onder "Geldig, gefaseerd aanbod afleiden" |
 | Dezelfde voorwaarde-regel voor keuzemoment en planning | [PR 120](https://github.com/Npuls-OKx/meta/pull/120), keuze-requirements.md R8, in review | story onder "Regelsets los van items, met min/max-keuzeregels" |
 | Open set kiesbaarheidsklassen met eigen klassen per instelling | [PR 120](https://github.com/Npuls-OKx/meta/pull/120), keuze-requirements.md R10, in review | story onder "Regelsets los van items, met min/max-keuzeregels" |
-| Student ziet eerst voorgesorteerd keuzedeelaanbod | [persona_jochem.md](../../docs/specificatie/okx-oeapi-consumer-profiel/doc/persona_jochem.md), instellingsjourney, kiezen keuzedelen | story onder "Kiesbaarheid bepalen" |
+| Student ziet eerst voorgesorteerd keuzedeelaanbod | [persona_jochem.md](../../docs/specificatie/leerroute-uitwerking/doc/persona_jochem.md), instellingsjourney, kiezen keuzedelen | story onder "Kiesbaarheid bepalen" |
 
 2. **De epic "Voortgang en resultaat op leeruitkomsten" is een eerste opzet.** Besluit bij de vaststelling van de eisen (R4): features volledig, stories alleen waar de bron een vastgesteld document is.
 

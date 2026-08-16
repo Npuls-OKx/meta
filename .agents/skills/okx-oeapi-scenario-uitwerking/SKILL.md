@@ -1,21 +1,21 @@
 ---
 name: okx-oeapi-scenario-uitwerking
 description: >-
-  Schrijft en scherpt kaderstellende OKx OEAPI consumer-profiel scenario's af:
+  Schrijft en scherpt kaderstellende scenario's voor de OKx leerroute-uitwerking af:
   Npuls-leerroutes, multi-actor (student + instelling), MORA- en
   architectuurlagen, begrippenkader (specificatie / aanbod / verbintenis /
   resultaat), AMIGO-volgorde en verwijzing naar het specificatiedocument.
   Gebruik bij scenario-analyse, §3.x scenario-uitwerkingen, leerroute 1–9,
   happy flow en incidentele tempo-varianten, of wanneer de gebruiker OKx,
-  OC, OEAPI consumer-profiel of Npuls-leerroutes in scenario-vorm wil
+  OC, leerroute-uitwerking of Npuls-leerroutes in scenario-vorm wil
   uitwerken.
 ---
 
-# OKx OEAPI — scenario-uitwerking (consumer profiel)
+# OKx scenario-uitwerking (leerroute-uitwerking)
 
 ## Bron van waarheid
 
-- Primair document: `architecture/docs/specificatie/okx-oeapi-consumer-profiel/doc/20260501_Specificatie_document_OKx_OEAPI_profiel.md`.
+- Primair document: `architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md`.
 - Werk **binnen** de definities en nummering van dat document; verzin geen parallelle begrippenlijst naast OKx/OEAPI/MORA.
 - **OEAPI-kern** wijzigen doet het profiel niet: gaps → signalering / change request (zoals in §1.4 van het profiel).
 
@@ -155,7 +155,7 @@ Werk een scenario uit met minimaal:
 
 ## Checklist vóór afronden
 
-- [ ] **Bron en scope:** aansluiting op het consumer-profiel en nummering; geen parallelle begrippenlijst naast OKx/OEAPI/MORA; OEAPI-kern niet ter plekke “oplossen” (gaps → signalering / change request).
+- [ ] **Bron en scope:** aansluiting op de leerroute-uitwerking en nummering; geen parallelle begrippenlijst naast OKx/OEAPI/MORA; OEAPI-kern niet ter plekke “oplossen” (gaps → signalering / change request).
 - [ ] **Perspectieven:** *student journey* én *instellings journey* / multi-actor meegenomen waar het scenario dat raakt; relevante **ketenpartners en systemen** (o.a. OC, SKS/SVS, planning, rooster, LMS) alleen benoemd voor zover het profiel dat ondersteunt.
 - [ ] **Informatieketen en semantiek:** specificatie ↔ aanbod ↔ verbintenis ↔ resultaat consequent volgens **ankertabel en cardinaliteiten**; geen synoniemen zonder expliciete mapping naar het model.
 - [ ] **Scenario-taxonomie:** happy flow en incidentele varianten (temporiseren / versnellen / hybride) correct t.o.v. **route-specifieke** scenario’s.

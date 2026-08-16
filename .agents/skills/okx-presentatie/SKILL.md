@@ -35,7 +35,7 @@ OKx werkt met twee repositories die naast elkaar in de workspace staan:
 
 | Repository | Werkmap | Wat je eruit haalt |
 |---|---|---|
-| `Npuls-OKx/meta` | `/workspaces/OKx/OKx-meta` | Kaderstelling, ArchiMate-model, meeting-notulen, het OEAPI consumer-profiel |
+| `Npuls-OKx/meta` | `/workspaces/OKx/OKx-meta` | Kaderstelling, ArchiMate-model, meeting-notulen, de leerroute-uitwerking |
 | `Npuls-OKx/Public` | `/workspaces/OKx/Public` | Releaseartefacten: koppelvlakspecificaties, referentiemateriaal, besluiten |
 
 Een update-deck gaat over wat er in **beide** is gebeurd. Verzamel per repository over de gevraagde periode:

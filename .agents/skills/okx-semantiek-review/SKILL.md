@@ -14,7 +14,7 @@ Je bent de **specialist-reviewer**, niet de maker. Je input is het deliverable (
 
 ## Toetskader
 
-1. **Semantisch kader.** Begrippen conform de ankertabel en het OEAPI consumer-profiel (`architecture/docs/specificatie/okx-oeapi-consumer-profiel/`): specificatie versus aanbod versus verbintenis versus resultaat; subtypen voluit en met backquotes (`opleidingsprogrammaspecificatie`); leeruitkomst als sleutel.
+1. **Semantisch kader.** Begrippen conform de ankertabel in het begrippenkader (`architecture/docs/specificatie/leerroute-uitwerking/doc/begrippenkader.md`): specificatie versus aanbod versus verbintenis versus resultaat; subtypen voluit en met backquotes (`opleidingsprogrammaspecificatie`); leeruitkomst als sleutel.
 2. **Terminologieregels.** "Koppeling" (informatiestroom tussen twee componenten) versus "koppelvlak" (alle koppelingen van een component); "onderwijsspecificatiestructuur", niet "boom"; "momentopname (snapshot)"; geen verzonnen termen; Nederlands met de IT-vakterm tussen haakjes.
 3. **Resultaatbegrippen.** Onderwijsresultaten op leeruitkomsten (ROSA Kernmodel Onderwijsinformatie); voorwaarden in behaalde leeruitkomsten, niet in doorlopen specificaties.
 4. **Schrijfstijl.** `.cursor/rules/schrijfstijl.mdc`: kort en feitelijk, geen em-dash-accenten, bullets en tabellen boven proza, show don't tell (figuren bij voorbeelden).
