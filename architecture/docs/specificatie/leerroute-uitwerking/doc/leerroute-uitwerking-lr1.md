@@ -873,7 +873,7 @@ Voordat de planner begint, leveren specificatie, inschrijvingen, groepen, capaci
 
 > **Jochem.** Zijn **persoonlijke programma** = het nominale apothekersassistent-programma plus het gekozen keuzedeel *Ondernemerschap in de zorg*. Studenten met hetzelfde keuzedeel worden in **groep A** geclusterd; de planner maakt dat planbaar (periode en capaciteit) voordat de roosteraar tijdsloten toewijst.
 
-Hieruit volgt [story-0008](../../../requirements/stories.md#story-0008): de planner herkent de groep aan het gekozen keuzedeel en de periode.
+Hieruit volgt [story-0008](../../../requirements/stories.md#story-0008): de planner herkent de groep aan de combinatie keuzedeel, locatie en periode.
 
 Verschil tussen nominaal en persoonlijk programma in deze leerroute.
 
@@ -1201,8 +1201,8 @@ Hieruit volgt [story-0014](../../../requirements/stories.md#story-0014): een keu
 
 **Jochem — variaties.**
 
-- *Temporiseren:* zijn gemiste praktijkles-weken voor medicatieherkenning worden door de planner samengevoegd met andere achterlopers tot een nieuwe `planningsgroeping` i.r.t. `onderwijsspecificatie` in periode 5; zijn bestaande `onderwijseenheid-verbintenis` voor periode 3 wordt geannuleerd, een nieuwe verbintenis volgt op het bijgestuurde aanbod. Hieruit volgen [story-0025](../../../requirements/stories.md#story-0025) (verbintenis onderbroken en hervat) en [story-0028](../../../requirements/stories.md#story-0028) (inhalen in een latere periode).
-- *Versnellen:* hij komt in een versnel-pool (`planningsgroeping` i.r.t. `onderwijsspecificatie`) met andere studenten die op theorie sneller gaan; nieuw `onderwijseenheid-aanbod` met afwijkende periode. Hieruit volgt [story-0026](../../../requirements/stories.md#story-0026): de planner plant aanbod met afwijkende periode tussentijds bij.
+- *Temporiseren:* zijn gemiste praktijkles-weken voor medicatieherkenning worden door de planner samengevoegd met andere achterlopers tot een nieuwe `planningsgroeping` i.r.t. `onderwijsspecificatie` in periode 5; zijn bestaande `onderwijseenheid-verbintenis` voor periode 3 wordt geannuleerd, een nieuwe verbintenis volgt op het bijgestuurde aanbod. Hieruit volgt [story-0028](../../../requirements/stories.md#story-0028): gemiste leergelegenheden in een latere periode inhalen.
+- *Versnellen:* hij komt in een versnel-pool (`planningsgroeping` i.r.t. `onderwijsspecificatie`) met andere studenten die op theorie sneller gaan; nieuw `onderwijseenheid-aanbod` met afwijkende periode. Hieruit volgt [story-0026](../../../requirements/stories.md#story-0026): de planner haalt leergelegenheden uit een latere periode naar voren.
 - *Hybride:* hij zit in beide `planningsgroeperingen` — theorie sneller, BPV later — wat het strategische jaarplan opnieuw moet absorberen. Bestaande `onderwijseenheid-verbintenissen` zijn geannuleerd.
 
 **Wat licht op in de plaat.** **SVS** als bron van individuele voortgang (`onderwijsverbintenis resultaten`); **KRS** (verbreken bestaande `onderwijseenheid-verbintenis`); **KRS → Planning** (gewijzigde populatie en plangroepen); **Planning → OC** (mutaties planbaar aanbod); **Planning → Rooster** (nieuw rooster).
