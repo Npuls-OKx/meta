@@ -11,13 +11,13 @@ Waar de bestaande documentatie staat die de [requirementsboom](README.md) aanwij
 | Welke begrippen we hanteren | [Begrippenkader](../specificatie/leerroute-uitwerking/doc/begrippenkader.md) | zes begrippenfamilies, zes niveaus, stadia en de ankertabel |
 | Wie de student is en wat die wil | [Persona Jochem](../specificatie/leerroute-uitwerking/doc/persona_jochem.md), [Larissa](../specificatie/leerroute-uitwerking/doc/persona_larissa.md), [Linda](../specificatie/leerroute-uitwerking/doc/persona_linda.md) | leerroutes 1, 2 en 3 |
 | Hoe de scenario's verlopen | [Scenario-uitwerkingen](../specificatie/leerroute-uitwerking/doc/scenario-uitwerkingen/README.md) | per scenario een document; sjabloon en samenhang in de README |
-| Welke ontwerpprincipes gelden | [OKx-meta-principes](../principes.md) en [architectuurprincipes](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/principes/principes.md) | vijf werkprincipes; OKx-AP01 tot en met AP13 |
-| Welke aannames onder de koppelingen liggen | [Uitgangspunten](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md) | U1 tot en met U10 |
-| Welke besluiten er genomen zijn | [ADR-register](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr) | 0001 tot en met 0024 |
-| Hoe de koppelingen technisch werken | [Koppelingspecificaties](https://github.com/Npuls-OKx/Public/tree/dev/Koppelvlakspecificaties) | OC-P&R, OC-SIS, OC-LMS met payloads |
+| Welke ontwerpprincipes gelden | [Architectuurprincipes](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/principes/principes.md) | OKx-AP01 tot en met AP13 |
+| Welke aannames onder de koppelingen liggen | [Uitgangspunten](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md) | U1 tot en met U11 |
+| Welke besluiten er genomen zijn | [ADR-register](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr) | 0001 tot en met 0026, waarvan 0025 nog niet is uitgegeven |
+| Hoe de koppelingen technisch werken | [Koppelvlakspecificaties](https://github.com/Npuls-OKx/Public/tree/dev/Koppelvlakspecificaties) | interactiepatronen per koppeling (OC-P&R, OC-SIS, OC-LMS), koppelvlakken per applicatiecomponent en datamodelschema's |
 | Waar de keuzeregels staan | [PR 120 (in review)](https://github.com/Npuls-OKx/meta/pull/120) | keuze-requirements en regelset-payload |
-| Waar de endpoint-sets landen | [Public PR 9 (in review)](https://github.com/Npuls-OKx/Public/pull/9) | datamodellen en endpointtabellen per referentiecomponent |
+| Waar de endpoint-sets staan | [Applicatiecomponenten](https://github.com/Npuls-OKx/Public/tree/dev/Koppelvlakspecificaties/Applicatiecomponenten) | endpointtabellen per referentiecomponent |
 | Waar elke boomrij vandaan komt | [Extractieverantwoording](../../agent-artifacts/research/20260806_0837_requirementsboom-extractie.md) | pijplijn, bronverificatie en parkeerlijst |
 | Hoe ik bijdraag | [CONTRIBUTING](../../../CONTRIBUTING.md) | issues, branches en reviewproces |
 
-Na de merge van PR 120, Public PR 9 en Public PR 15 worden de "in review"-verwijzingen omgezet naar directe documentlinks.
+Na de merge van PR 120 worden de resterende "in review"-verwijzingen omgezet naar directe documentlinks.

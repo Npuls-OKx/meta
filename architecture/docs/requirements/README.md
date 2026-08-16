@@ -24,9 +24,9 @@ flowchart LR
 | Laag | Bestand | Stand | Voor wie vooral |
 |---|---|---|---|
 | Opdracht | [opdracht.md](opdracht.md) | drie doelen | product owner en kernteam |
-| Epics | [epics.md](epics.md) | acht epics, vier tot stories uitgewerkt | product owner en kernteam |
-| Features | [features.md](features.md) | dertig features | kernteam en technische werkgroep |
-| Stories | [stories.md](stories.md) | zestien stories met koppelingverwijzing | technische werkgroep en leveranciers |
+| Epics | [epics.md](epics.md) | acht epics, zes tot stories uitgewerkt | product owner en kernteam |
+| Features | [features.md](features.md) | vijfendertig features | kernteam en technische werkgroep |
+| Stories | [stories.md](stories.md) | tweeëntwintig stories, negen met interactiekoppeling | technische werkgroep en leveranciers |
 | Leeswijzer | [leeswijzer.md](leeswijzer.md) | leesroutes naar de bestaande documentatie | iedereen |
 
 ## Conventies
@@ -34,6 +34,7 @@ flowchart LR
 - Vorm en spelregels: [skill okx-requirements-boom](../../../.agents/skills/okx-requirements-boom/SKILL.md). Kern: één document per laag, elke rij één ouder, één bron en een id, overzicht boven volledigheid.
 - Id's (E1, F2.1, S2.3) zijn verwijzings-id's voor issues, reviews en gesprekken; planningsstatus leeft in milestones en issues, niet in deze tabellen.
 - Systeemafkortingen in de tabellen: OC (onderwijscatalogus), SKS (studentkeuzesysteem), P&R (planning en roostering), SIS (studentinformatiesysteem), LMS (leermanagementsysteem), SVS (studievoortgangsysteem).
+- Bronafkortingen in de tabellen: ADR (architecture decision record, in Npuls-OKx/Public), U (uitgangspunt bij de koppelvlakspecificaties), OKx-AP (architectuurprincipe).
 - Herkomst en verificatie van elke rij: [extractieverantwoording](../../agent-artifacts/research/20260806_0837_requirementsboom-extractie.md), inclusief de parkeerlijst met kandidaten voor een volgende ronde.
 - Eis-id's en uitvoerbare scenario's staan bewust niet in de boom. Die achtergrondmechaniek volgt gefaseerd; zie de [synthese van het onderzoek](../../agent-artifacts/research/20260804_1700_oplossingsrichtingen-business-techniek.md) en issue #135.
 

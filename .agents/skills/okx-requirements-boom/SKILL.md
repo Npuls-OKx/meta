@@ -49,7 +49,7 @@ Elke laag is een tabel en elke rij draagt een id: epics `E<n>`, features `F<epic
 
 - **Epics**: `| Id | Epic | Doel | Draagt bij aan | Bron | Features |`. "Draagt bij aan" verwijst naar een doel (D-nummer) in `opdracht.md`. "Features" is een ankerlink naar de subsectie in `features.md`.
 - **Features**: `| Id | Feature | Doel | Bron | Verwijzing |`, gegroepeerd per epic in een eigen subsectie (de ouder staat in de sectiekop, niet per rij). "Verwijzing" wijst naar een bestaand document dat de feature uitwerkt, of blijft leeg.
-- **Stories**: `| Id | Story | Feature | Bron | Koppeling |`. De story is een actorzin ("Als ... wil ik ... zodat ..."); de featurecel noemt id en naam. "Koppeling" bevat de interactie (I-nummer) met link naar de koppelingspecificatie en het systeem dat eigenaar is (bijvoorbeeld `I1, eigenaar OC`), of expliciet "geen".
+- **Stories**: `| Id | Story | Feature | Bron | Koppeling |`. De story is een actorzin ("Als ... wil ik ... zodat ..."); de featurecel noemt id en naam. "Koppeling" bevat de interactie (I-nummer) met link naar de koppelingspecificatie en het systeem dat eigenaar is (bijvoorbeeld `OC-P&R I1, eigenaar OC`; het koppelingsacroniem voorop voorkomt verwarring tussen interactienummers en story-id's), of expliciet "geen".
 
 ## Bronplicht
 
@@ -70,7 +70,7 @@ De boom eindigt bij specificaties, niet bij implementaties.
 
 ## Mermaid-conventies voor de indexplaat
 
-- `flowchart TD`, geen puntkomma's (breken de GitHub-render).
+- `flowchart LR`, geen puntkomma's (breken de GitHub-render).
 - De plaat blijft leesbaar door hem met de hand klein te houden: alleen de opdracht, de doelen en de epics (met id in het label), maximaal 15 knopen. Features en stories staan alleen in de tabellen; zo heeft elke informatie-eenheid één drager.
 - Geen statuskleuren of andere planningsinformatie in de plaat. Elke epicknoop staat in `epics.md` en omgekeerd; wijkt de plaat af, dan is dat een bevinding.
 

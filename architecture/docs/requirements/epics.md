@@ -2,7 +2,7 @@
 
 Laag 2 van de [requirementsboom](README.md): de bekwaamheden van de keten, elk gekoppeld aan een [projectdoel](opdracht.md). Relateert aan: #130.
 
-Vier epics zijn tot stories uitgewerkt; de andere vier dragen hooguit benoemde features en wachten op verdere uitwerking. De kandidaten daarvoor staan op de [parkeerlijst](../../agent-artifacts/research/20260806_0837_requirementsboom-extractie.md#parkeerlijst).
+Zes epics zijn tot stories uitgewerkt, in wisselende diepte; de epics voor gezamenlijke taal en voor piloteren en adopteren dragen alleen features. De kandidaten voor verdere uitwerking staan op de [parkeerlijst](../../agent-artifacts/research/20260806_0837_requirementsboom-extractie.md#parkeerlijst).
 
 | Id | Epic | Doel | Draagt bij aan | Bron | Features |
 |---|---|---|---|---|---|
@@ -14,5 +14,3 @@ Vier epics zijn tot stories uitgewerkt; de andere vier dragen hooguit benoemde f
 | E6 | Gezamenlijke taal en standaard | Ketenpartijen spreken dezelfde taal: één begrippenkader en uniforme leeruitkomstdefinities, aangesloten op landelijke referentiemodellen. | D2 | [Begrippenkader](../specificatie/leerroute-uitwerking/doc/begrippenkader.md) | [features](features.md#gezamenlijke-taal-en-standaard) |
 | E7 | Betrouwbare en vervangbare koppelingen | Instellingen vervangen componenten zonder ketenimpact, dankzij betrouwbare, veilige en versioneerbare koppelingen. | D3 | [Architectuurprincipes, OKx-AP04](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/principes/principes.md) | [features](features.md#betrouwbare-en-vervangbare-koppelingen) |
 | E8 | Standaard piloteren en adopteren | Pilotscholen, instellingen en leveranciers implementeren en adopteren de standaard, beproefd in pilots. | D3 | [Meetingverslag 17 april](../../meetings/20260417_okx_kernteam_inhoud_uitwerken_studentkeuze_roostering_planning_pocs/summary.md#stakeholdermanagement-en-adoptiestrategie) | [features](features.md#standaard-piloteren-en-adopteren) |
-
-De epic "Voortgang en resultaat op leeruitkomsten" toont alle features; stories staan er alleen waar de bron een vastgesteld document is.
