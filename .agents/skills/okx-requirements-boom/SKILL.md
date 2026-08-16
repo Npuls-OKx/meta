@@ -49,7 +49,7 @@ Elke laag is een tabel en elke rij draagt een id, plat per soort, voluit met vie
 
 - **Epics**: `| Id | Epic | Doel | Draagt bij aan | Bron | Features |`. "Draagt bij aan" verwijst naar een doel (doel-id) in `opdracht.md`. "Features" is een ankerlink naar de subsectie in `features.md`.
 - **Features**: `| Id | Feature | Omschrijving | Bron | Verwijzing |`, gegroepeerd per epic in een eigen subsectie (de ouder staat in de sectiekop, niet per rij; de omschrijving herhaalt het epicdoel niet). Elke rij draagt een anker om het id heen (`<a id="feature-0001"></a>feature-0001`) zodat stories er direct op linken. "Verwijzing" wijst naar een bestaand document dat de feature uitwerkt, of blijft leeg.
-- **Stories**: `| Id | Story | Feature | Bron | Functionele eisen |`. De story is een actorzin ("Als ... wil ik ... zodat ..."); de featurecel is een ankerlink naar de feature — id en naam als linktekst, het feature-anker in `features.md` als doel — zo traceert een story via zijn feature terug naar de epic, een tweede ouderrelatie bestaat niet. "Functionele eisen" verwijst naar de functionele eisen in de koppelingspecificatie: het koppelingsacroniem voorop en dan de FR-nummers (bijvoorbeeld `OC-P&R FR2 en FR4`), als link naar de sectie Functionele eisen van het interactiepatroon in Npuls-OKx/Public — FR-nummers zijn per koppeling genummerd, dus zonder acroniem zijn ze ambigu. Bestaat er geen functionele eis, dan expliciet "geen".
+- **Stories**: `| Id | Story | Feature | Bron | Functionele eisen |`. Elke rij draagt een anker om het id heen, net als features, zodat uitwerkingen op de story kunnen linken. De story is een actorzin ("Als ... wil ik ... zodat ..."); de featurecel is een ankerlink naar de feature — id en naam als linktekst, het feature-anker in `features.md` als doel — zo traceert een story via zijn feature terug naar de epic, een tweede ouderrelatie bestaat niet. "Functionele eisen" verwijst naar de functionele eisen in de koppelingspecificatie: het koppelingsacroniem voorop en dan de FR-nummers (bijvoorbeeld `OC-P&R FR2 en FR4`), als link naar de sectie Functionele eisen van het interactiepatroon in Npuls-OKx/Public — FR-nummers zijn per koppeling genummerd, dus zonder acroniem zijn ze ambigu. Bestaat er geen functionele eis, dan expliciet "geen".
 
 ## Bronplicht
 
@@ -59,6 +59,7 @@ Elke rij heeft een gevulde bronkolom. Een kandidaat zonder herleidbare bron staa
 - Repobestanden krijgen een relatieve link met sectie-anker. Documenten in `Npuls-OKx/Public` krijgen een absolute GitHub-link.
 - Nog niet gemergde bronnen (een open pull request) krijgen een absolute link naar de pull request met de noot "in review". Na de merge wordt dat een gewone link; benoem die omzetting als vervolgpunt in de PR-tekst.
 - Meetingbronnen verwijzen naar het verslag in `architecture/meetings/`, of naar het extractie-artifact wanneer de meeting alleen extern (Jamie) is vastgelegd.
+- **Tweerichtingsverkeer met de leerroute-uitwerking**: wijst de bron van een story naar de leerroute-uitwerking (een scenario, persona of passage), dan benoemt dat document de story terug op de plek van oorsprong — scenario's in het veld Verantwoordt, andere documenten met een zin "Hieruit volgt story-..." — telkens als ankerlink op het story-id. De terugverwijzing wordt per leerroute ingevoerd, te beginnen bij leerroute 1; een scenario van een nog niet ingevoerde leerroute draagt het plaatshoudende Verantwoordt-veld. Het archief is bevroren en verwijst niet terug.
 
 ## Aansluiting op de techniek
 
@@ -88,6 +89,7 @@ Deze skill is de specialist-skill voor stap 2 (uitwerken) van [`okx-product-flow
 - [ ] Elke rij draagt een id in het vaste format (`doel-0001`, `epic-0001`, `feature-0001`, `story-0001`), zonder dubbelingen en zonder oude id-vormen (E1, F2.1, S2.3); geen statuskolommen.
 - [ ] Omvangslimieten gehaald (regels tellen met `wc -l`, tabelrijen en mermaid-knopen handmatig).
 - [ ] De boomplaat toont alleen opdracht, doelen en epics en is consistent met `epics.md`; de lagenplaat toont één knoop per laag zonder instanties; beide liggend (`flowchart LR`), zonder puntkomma's.
+- [ ] Elke story met een bron in een al ingevoerde leerroute (nu: leerroute 1) heeft daar een terugverwijzing (Verantwoordt-veld of "Hieruit volgt"-zin met ankerlink); elk leerroute-1-scenario verantwoordt minstens één story.
 - [ ] Geen eis-ID's of Gherkin in de boom; achtergrondmechaniek alleen via verwijzing naar het ADR.
 - [ ] Nieuwe bestanden staan in de README-index van de map en van `architecture/docs/`.
 

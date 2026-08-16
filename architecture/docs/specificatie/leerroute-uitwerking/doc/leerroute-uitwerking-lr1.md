@@ -198,6 +198,7 @@ Onderstaande tabel koppelt deliverables uit de keten (§2) aan de plek waar ze n
 | Interactiepatronen | patroonsecties van de koppelingspecificaties in Public |
 | Sequentiediagrammen | koppelingspecificaties in Public; oudere versies in het [archief](archief-conceptmodellen.md) |
 | Datamodel | payload-specificaties in Public, bottom-up en endpoint-gedreven |
+| Requirementsboom (opdracht, epics, features, stories) | [requirementsboom](../../../requirements/README.md); elk scenario benoemt in zijn veld Verantwoordt de stories die eruit volgen, en elke story wijst met zijn bron terug naar de passage hier |
 | Security | uitwerking volgt; oudere ontwerpkeuzes in het [archief](archief-conceptmodellen.md) |
 | OEAPI OpenAPI (spec-repo) | *Buiten dit document* — [Npuls-OKx/specification](https://github.com/Npuls-OKx/specification) |
 | Pilots · BOPSI · borging | [Projectoverzicht](../../../../../doc/OKx_Projectoverzicht.md), [release-doc §1](../../../../../doc/OKx_Release-management-en-versionering.md#1-doel-en-scope) |
@@ -271,6 +272,8 @@ Vanuit studentperspectief lijkt regulier studeren eenvoudig: een student oriente
 > **Vignet — Jochem (keuzedeel-voorkeuren).** Jochem stelt een geprioriteerde voorkeurslijst samen met *Ondernemerschap in de zorg* op plaats 1 (semester 2, locatie A), gevolgd door alternatieven op lagere prioriteit — zoals in de tabel hieronder. Per keuzedeel legt hij ook de voorgeprogrammeerde **onderwijsperiode** vast en optinioneel de **onderwijslocatie** vast. Als zijn eerste voorkeur niet haalbaar is op die combinatie, moet hij kunnen heroriënteren; anders blijft zijn **keuzedeelruimte** leeg met studievertraging tot gevolg.
 
 De keuzedelen worden van te voren als beschikbaar aanbod gepubliceerd en getoond aan de student tijdens zijn/haar aanbod oriëntatie. Hierbij zal de onderwijsinstelling vanuit organiseerbaarheid in het individuele aanbod voorsorteren op geschikte beroepsspecifieke keuzedelen in het assortiment en het bredere aanbod van generieke keuzedelen.
+
+Hieruit volgt [story-0013](../../../requirements/stories.md#story-0013): de student ziet eerst de keuzedelen die de instelling heeft voorgesorteerd.
 
 Naarmate de student zijn route aflegt, wordt de voortgang van de student gemonitord en de keuze van keuzedelen gefaciliteerd. Zodra de geplande **keuzedeelruimte** dichterbij komt, mag een student zijn/haar geprioriteerde keuzedeel-voorkeurslijst samenstellen. Hierin staat op nummer 1 het keuzedeel met de hoogste voorkeur van de student, en op een hoger volgnummer $x$ (waarbij $x>1$), de keuzedelen met lagere prioriteit.
 
@@ -711,7 +714,7 @@ De belangrijkste scenario's binnen deze leerroute zijn:
 
 - **Incidenteel temporiseren**: de student loopt tijdelijk achter door een gebeurtenis in de uitvoering. Denk aan ziekte, persoonlijke omstandigheden, gemiste lessen, onvoldoende voortgang of een toetsmoment dat niet in een keer wordt behaald. De route blijft regulier, maar de student moet onderdelen later volgen, herkansen of opnieuw laten inplannen.
 - **Incidenteel versnellen**: de student blijkt sneller door bepaalde onderdelen heen te gaan dan vooraf verwacht. Dat kan komen doordat een student eerder vaardigheden oppakt, sneller formatieve doelen behaalt of ruimte krijgt om eerder aan een toetsmoment deel te nemen. Ook dan blijft de route regulier, kan de student aanvragen om op onderdelen sneller door dezelfde keten te bewegen.
-- **Incidenteel versnellen en temporiseren**: de student loopt op het ene onderdeel voor en op het andere onderdeel achter. Bijvoorbeeld: theorie gaat sneller dan gepland, maar praktijk, BPV of een specifiek werkproces vraagt juist meer tijd. In dat geval ontstaat een gemengd beeld waarin de student nog steeds binnen de reguliere leerroute valt, maar de voortgang per onderdeel niet meer overal gelijk oploopt.
+- **Incidenteel versnellen en temporiseren**: de student loopt op het ene onderdeel voor en op het andere onderdeel achter. Bijvoorbeeld: theorie gaat sneller dan gepland, maar praktijk, BPV of een specifiek werkproces vraagt juist meer tijd. In dat geval ontstaat een gemengd beeld waarin de student nog steeds binnen de reguliere leerroute valt, maar de voortgang per onderdeel niet meer overal gelijk oploopt. Hieruit volgt [story-0027](../../../requirements/stories.md#story-0027): per werkproces is de actuele verbintenisstatus vast te stellen.
 
 De `happy flow` en de incidentele varianten van temporiseren, versnellen en hybride voortgang zijn niet uniek voor leerroute 1. Ze zijn in feite van toepassing op **elke leerroute** in dit document. Ook binnen temporiseren, versnellen, personaliseren of modulair studeren kunnen studenten onderweg in nominaal tempo doorlopen, incidenteel vertragen, incidenteel versnellen of beide tegelijk ervaren. Daarnaast kent iedere leerroute ook eigen, route-specifieke scenario's. Voor leerroute 1 is \"wisselen van opleiding en behaalde resultaten meenemen\" daarvan een belangrijk voorbeeld.
 
@@ -869,6 +872,8 @@ Voordat de planner begint, leveren specificatie, inschrijvingen, groepen, capaci
 ##### Voorbeeld van groeperingen en plannen en roosteren
 
 > **Jochem.** Zijn **persoonlijke programma** = het nominale apothekersassistent-programma plus het gekozen keuzedeel *Ondernemerschap in de zorg*. Studenten met hetzelfde keuzedeel worden in **groep A** geclusterd; de planner maakt dat planbaar (periode en capaciteit) voordat de roosteraar tijdsloten toewijst.
+
+Hieruit volgt [story-0008](../../../requirements/stories.md#story-0008): de planner herkent de groep aan het gekozen keuzedeel en de periode.
 
 Verschil tussen nominaal en persoonlijk programma in deze leerroute.
 
@@ -1126,6 +1131,8 @@ Bij **fase 5, 6 en 7** is dit verhaal niet af zonder de **variaties** *incidente
 
 **De instelling — journey fase 2.** De grofmazige specificaties zijn aangevuld tot **planbare specificatie** (tijdvensters, capaciteit, expertise, faciliteit). **OC** verzoekt het **Planningssysteem** om die specificaties te transformeren tot **`onderwijsaanbod`**. De **planner** bepaalt haalbaarheid binnen het **strategische jaarplanning** (mensen, middelen, alle opleidingen) en levert **gepland `opleidings-` en `opleidingsprogramma-aanbod`** terug aan **OC**. Niet haalbaar? Dan verzoekt planning om aanpassingen op de specificatie (vooral planning-constraints) — zie [*Het plan en rooster proces*](#het-plan-en-rooster-proces).
 
+Hieruit volgen [story-0007](../../../requirements/stories.md#story-0007) (de verwerkingsstatus met referentie terugmelden) en [story-0009](../../../requirements/stories.md#story-0009) (de haalbaarheidstoets op het concept vóór publicatie).
+
 **Jochem — happy flow.** Nog steeds onzichtbaar, maar deze fase bepaalt of zijn opleiding in september start en met welke capaciteit. Onhaalbaar plan = geen aanbod om zich op te oriënteren.
 
 **Wat licht op in de plaat.** **OC → Planningssysteem** (`opleidingsspecificatie` als planopgave); **Curriculum-ontwerptool → OC** (specificatie-update en plan-assets); **Planning → OC** (`opleidingsaanbod`, `opleidingsprogramma-aanbod` als planbaar resultaat). Het strategische jaarplan loopt op de achtergrond.
@@ -1148,6 +1155,8 @@ Bij **fase 5, 6 en 7** is dit verhaal niet af zonder de **variaties** *incidente
 
 **Jochem — happy flow.** Jochem ontvangt zijn **eerste rooster** en krijgt toegang tot het **LMS** voor periode 1. Latere perioden blijven planbaar tot ze geroosterd worden.
 
+Hieruit volgen [story-0004](../../../requirements/stories.md#story-0004) (geroosterd aanbod per periode publiceren) en [story-0005](../../../requirements/stories.md#story-0005) (vóór de start toegang tot leeromgeving en rooster).
+
 **Wat licht op in de plaat.** **OC → LMS** (`leeronderdeel-specificaties` ter detaillering); **Planning ↔ KRS** (groepen ↔ persoon i.r.t. personen en groepen i.r.t `onderwijsspeicficatie`); **Planning → Rooster** (te roosteren `leeronderdeel-` en `toetsonderdeel-specificaties`); **Rooster → Aanwezigheidsregistratie** (`leergelegenheid-verbintenis` "presentielijst"); **KRS → LMS** (`opleidingsprogramma-verbintenis` + `Persoon` voor rechtmatige toegang).
 
 ###### Fase 5 — Onderwijs uitvoeren en voortgang begeleiden
@@ -1157,6 +1166,8 @@ Bij **fase 5, 6 en 7** is dit verhaal niet af zonder de **variaties** *incidente
 **Jochem — happy flow.** Jochem volgt zijn lessen, **BPV** in de apotheek en formatieve toetsen (student-journey-stappen 5–7). Aanwezigheid wordt geregistreerd; formatieve voortgang loopt door naar het **SVS**.
 
 **De instelling — journey fase 5.** Docenten verzorgen onderwijs, plannen toetsmomenten tijdens lessen en houden formatieve voortgang bij. **SLB'ers** volgen Jochems studiebeeld in **SVS**.
+
+Hieruit volgt [story-0021](../../../requirements/stories.md#story-0021): de docent legt tijdens de uitvoering voortgang en resultaat per les vast.
 
 **Jochem — variaties.**
 
@@ -1174,6 +1185,8 @@ In alle drie blijft de **leerroute regulier**; deze signalen uit fase 5 voeden d
 
 **Jochem — happy flow.** De **keuzedeelruimte** nadert; Jochem stelt zijn **geprioriteerde voorkeurslijst** samen in het **SKS** (zie *Wanneer kiest een student keuzedelen?*). Zijn `aanmelding keuzedeel` voor *Ondernemerschap in de zorg* (periode 7, locatie A) past — gate 10 ja. **SKS → Planning** geeft zijn keuzestelling door als `opleidingsprogramma-verbintenis` op het gekozen `opleidingsprogramma-aanbod`. De planner verwerkt die keuze; bij passend aanbod levert **Planning → KRS** de formele **inschrijving** op het keuzedeel; **KRS/SVS/LMS** en rooster volgen.
 
+Hieruit volgt [story-0014](../../../requirements/stories.md#story-0014): een keuzedeel is alleen kiesbaar wanneer locatie en periode passen.
+
 **De instelling — journey fase 6.** De planner verwerkt definitieve keuzes **periodiek** naar groepen en capaciteit, actualiseert het planbare aanbod in **OC** en het rooster volgt. Bij **niet-passend aanbod** of **oningevulde keuzedeelruimte** signaleert het systeem actief richting SLB.
 
 **Jochem — variaties.** Past zijn eerste voorkeur niet, dan oriënteert hij op een andere locatie (gate 9a) of een ander keuzedeel; blijft passend aanbod uit, dan blijft zijn keuzedeelruimte (tijdelijk) **leeg** met studievertraging als gevolg — én een signaal naar SLB.
@@ -1188,8 +1201,8 @@ In alle drie blijft de **leerroute regulier**; deze signalen uit fase 5 voeden d
 
 **Jochem — variaties.**
 
-- *Temporiseren:* zijn gemiste praktijkles-weken voor medicatieherkenning worden door de planner samengevoegd met andere achterlopers tot een nieuwe `planningsgroeping` i.r.t. `onderwijsspecificatie` in periode 5; zijn bestaande `onderwijseenheid-verbintenis` voor periode 3 wordt geannuleerd, een nieuwe verbintenis volgt op het bijgestuurde aanbod.
-- *Versnellen:* hij komt in een versnel-pool (`planningsgroeping` i.r.t. `onderwijsspecificatie`) met andere studenten die op theorie sneller gaan; nieuw `onderwijseenheid-aanbod` met afwijkende periode.
+- *Temporiseren:* zijn gemiste praktijkles-weken voor medicatieherkenning worden door de planner samengevoegd met andere achterlopers tot een nieuwe `planningsgroeping` i.r.t. `onderwijsspecificatie` in periode 5; zijn bestaande `onderwijseenheid-verbintenis` voor periode 3 wordt geannuleerd, een nieuwe verbintenis volgt op het bijgestuurde aanbod. Hieruit volgt [story-0028](../../../requirements/stories.md#story-0028): gemiste leergelegenheden in een latere periode inhalen.
+- *Versnellen:* hij komt in een versnel-pool (`planningsgroeping` i.r.t. `onderwijsspecificatie`) met andere studenten die op theorie sneller gaan; nieuw `onderwijseenheid-aanbod` met afwijkende periode. Hieruit volgt [story-0026](../../../requirements/stories.md#story-0026): de planner haalt leergelegenheden uit een latere periode naar voren.
 - *Hybride:* hij zit in beide `planningsgroeperingen` — theorie sneller, BPV later — wat het strategische jaarplan opnieuw moet absorberen. Bestaande `onderwijseenheid-verbintenissen` zijn geannuleerd.
 
 **Wat licht op in de plaat.** **SVS** als bron van individuele voortgang (`onderwijsverbintenis resultaten`); **KRS** (verbreken bestaande `onderwijseenheid-verbintenis`); **KRS → Planning** (gewijzigde populatie en plangroepen); **Planning → OC** (mutaties planbaar aanbod); **Planning → Rooster** (nieuw rooster).
@@ -1351,6 +1364,8 @@ Onderstaand organogram maakt zichtbaar dat dit probleem niet alleen tussen domei
 **Anker-persona:** [Larissa](persona_larissa.md) — topsporter (kans op Olympische Spelen 2028) die de mbo-4-opleiding *Software Developer* (BOL) wil halen, maar met **structureel beperkte en deels onvoorspelbare beschikbaarheid**: dagelijks training tot 10:00, blessuregevoeligheid (acute, hele-dag-uitval), vier toernooien en twee trainingskampen per jaar (seizoensgebonden, vooraf bekend) en mogelijk een **volledige periode** afwezig rond de Spelen. Waar [Jochem](persona_jochem.md) in leerroute 1 de **nominale** route als norm volgt, spreidt en personaliseert Larissa diezelfde opleiding **bewust en vanaf dag één** — niet als incident, maar *by design*.
 
 **Kern.** De student volgt **dezelfde kwalificatie en in essentie dezelfde `onderwijsspecificatie`** als in leerroute 1, maar het **persoonlijke programma** wijkt **structureel** af van het nominale programma: lagere intensiteit, andere volgorde, andere perioden, en deelname die per `lesgelegenheid` wordt gekozen. De examenketen, het begrippenkader (`specificatie → aanbod → verbintenis → resultaat`) en de aanbodstadia blijven gelijk; wat verschuift zijn **sturing**, **rollen**, **informatiestromen** en **randvoorwaarden**.
+
+Hieruit volgt [story-0012](../../../requirements/stories.md#story-0012): dezelfde opleiding by design in een lager tempo volgen.
 
 **Leeswijzer.** Deze paragraaf is opgebouwd zoals leerroute 1: eerst de **delta** t.o.v. de reguliere baseline (§3.3.2.1), dan de **studentbeleving** (§3.3.2.2) en de **instellingsbeleving** (§3.3.2.3). Daarna gebruiken we Larissa om twee dingen uit te diepen die in leerroute 1 nog impliciet bleven: de **organisatorische en geografische complexiteit** van instellingen (§3.3.2.4) en het **plan- en rooster proces** onder die complexiteit (§3.3.2.5). Ten slotte concretiseren we **per processtap de data-objecten en attributen** richting een koppelvlakstandaard (§3.3.2.6), met de **negen concern-dimensies** (§3.3.2.7) en de **informatiestromen/AMIGO-voorloper** (§3.3.2.8). Het procesbeeld als geheel staat in de ArchiMate-view [*Onderwijsvisie vertalen naar onderwijsaanbod*](img/archimate-view-onderwijsvisie-vertalen-naar-onderwijsaanbod-basis-model-v20260626.jpg).
 
@@ -1666,6 +1681,8 @@ LEERONDERDEEL-SPECIFICATIE = B1-K1-W1 (track "Temporiseren")
 
 **Kern**: de student rondt sneller af door vrijstellingen/EVC, hogere intensiteit of het overslaan van onderdelen.  
 **Implicatie**: toetsing kan onafhankelijk(er) van deelname nodig zijn; planning moet kleine groepen en afwijkende paden kunnen dragen.
+
+Hieruit volgt [story-0024](../../../requirements/stories.md#story-0024): vrijstellingen aanvragen op eerder behaalde resultaten of aangetoonde competenties.
 
 ```mermaid
 flowchart TD
