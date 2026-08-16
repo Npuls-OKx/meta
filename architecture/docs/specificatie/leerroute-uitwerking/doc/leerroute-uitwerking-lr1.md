@@ -873,7 +873,7 @@ Voordat de planner begint, leveren specificatie, inschrijvingen, groepen, capaci
 
 > **Jochem.** Zijn **persoonlijke programma** = het nominale apothekersassistent-programma plus het gekozen keuzedeel *Ondernemerschap in de zorg*. Studenten met hetzelfde keuzedeel worden in **groep A** geclusterd; de planner maakt dat planbaar (periode en capaciteit) voordat de roosteraar tijdsloten toewijst.
 
-Hieruit volgt [story-0008](../../../requirements/stories.md#story-0008): de planner herkent de groep aan de combinatie keuzedeel, locatie en periode.
+Hieruit volgt [story-0008](../../../requirements/stories.md#story-0008): de planner herkent de groep aan het gekozen keuzedeel en de periode.
 
 Verschil tussen nominaal en persoonlijk programma in deze leerroute.
 
