@@ -59,7 +59,7 @@ Elke rij heeft een gevulde bronkolom. Een kandidaat zonder herleidbare bron staa
 - Repobestanden krijgen een relatieve link met sectie-anker. Documenten in `Npuls-OKx/Public` krijgen een absolute GitHub-link.
 - Nog niet gemergde bronnen (een open pull request) krijgen een absolute link naar de pull request met de noot "in review". Na de merge wordt dat een gewone link; benoem die omzetting als vervolgpunt in de PR-tekst.
 - Meetingbronnen verwijzen naar het verslag in `architecture/meetings/`, of naar het extractie-artifact wanneer de meeting alleen extern (Jamie) is vastgelegd.
-- **Tweerichtingsverkeer met de leerroute-uitwerking**: wijst de bron van een story naar de leerroute-uitwerking (een scenario, persona of passage), dan benoemt dat document de story terug op de plek van oorsprong — scenario's in het veld Verantwoordt, andere documenten met een zin "Hieruit volgt story-..." — telkens als ankerlink op het story-id. Het archief is bevroren en verwijst niet terug.
+- **Tweerichtingsverkeer met de leerroute-uitwerking**: wijst de bron van een story naar de leerroute-uitwerking (een scenario, persona of passage), dan benoemt dat document de story terug op de plek van oorsprong — scenario's in het veld Verantwoordt, andere documenten met een zin "Hieruit volgt story-..." — telkens als ankerlink op het story-id. De terugverwijzing wordt per leerroute ingevoerd, te beginnen bij leerroute 1; een scenario van een nog niet ingevoerde leerroute draagt het plaatshoudende Verantwoordt-veld. Het archief is bevroren en verwijst niet terug.
 
 ## Aansluiting op de techniek
 
@@ -89,7 +89,7 @@ Deze skill is de specialist-skill voor stap 2 (uitwerken) van [`okx-product-flow
 - [ ] Elke rij draagt een id in het vaste format (`doel-0001`, `epic-0001`, `feature-0001`, `story-0001`), zonder dubbelingen en zonder oude id-vormen (E1, F2.1, S2.3); geen statuskolommen.
 - [ ] Omvangslimieten gehaald (regels tellen met `wc -l`, tabelrijen en mermaid-knopen handmatig).
 - [ ] De boomplaat toont alleen opdracht, doelen en epics en is consistent met `epics.md`; de lagenplaat toont één knoop per laag zonder instanties; beide liggend (`flowchart LR`), zonder puntkomma's.
-- [ ] Elke story met een bron in de leerroute-uitwerking heeft daar een terugverwijzing (Verantwoordt-veld of "Hieruit volgt"-zin met ankerlink); elk leerroute-1-scenario verantwoordt minstens één story.
+- [ ] Elke story met een bron in een al ingevoerde leerroute (nu: leerroute 1) heeft daar een terugverwijzing (Verantwoordt-veld of "Hieruit volgt"-zin met ankerlink); elk leerroute-1-scenario verantwoordt minstens één story.
 - [ ] Geen eis-ID's of Gherkin in de boom; achtergrondmechaniek alleen via verwijzing naar het ADR.
 - [ ] Nieuwe bestanden staan in de README-index van de map en van `architecture/docs/`.
 

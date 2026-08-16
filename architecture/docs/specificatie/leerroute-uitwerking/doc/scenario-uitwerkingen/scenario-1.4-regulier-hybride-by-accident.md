@@ -6,7 +6,7 @@
 
 **Persona.** [Jochem](../persona_jochem.md), in de levensloopvariant van dit scenario (zie het sjabloon in de [README](README.md)).
 
-**Verantwoordt.** [story-0027](../../../../requirements/stories.md#story-0027): per werkproces is de actuele verbintenis- en aanbodstatus zichtbaar.
+**Verantwoordt.** [story-0027](../../../../requirements/stories.md#story-0027): per werkproces is de actuele verbintenisstatus vast te stellen.
 
 > **Status.** *By accident, hybride.* **Pitch.** *Jochem versnelt op B1-K2-W2 (voorraadbeheer — hij heeft een vakantiebaan in een drogist), maar blijft achter op B1-K3-W2 (reflectie/portfolio — hij vindt het taalkundig ingewikkeld). Voor één werkproces loopt hij voor; voor een ander loopt hij achter. Het netto-effect kan diploma-neutraal zijn, maar de planning is complexer.*
 >
