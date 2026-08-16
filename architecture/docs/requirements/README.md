@@ -43,7 +43,7 @@ De laatste drie stappen leven in Npuls-OKx/Public: de functionele eis staat bij 
 | Opdracht | [opdracht.md](opdracht.md) | drie doelen | product owner en kernteam |
 | Epics | [epics.md](epics.md) | acht epics, zes tot stories uitgewerkt | product owner en kernteam |
 | Features | [features.md](features.md) | zesendertig features | kernteam en technische werkgroep |
-| Stories | [stories.md](stories.md) | vierentwintig stories, negen verwijzend naar de koppelvlakspecificaties | technische werkgroep en leveranciers |
+| Stories | [stories.md](stories.md) | zevenentwintig stories, negen verwijzend naar de koppelvlakspecificaties | technische werkgroep en leveranciers |
 | Leeswijzer | [leeswijzer.md](leeswijzer.md) | leesroutes naar de bestaande documentatie | iedereen |
 
 ## Conventies

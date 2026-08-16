@@ -33,7 +33,7 @@ flowchart LR
 
 ## Sjabloon en leeswijzer
 
-Elk scenariodocument opent met vier vaste velden: **Doel**, **Scope**, **Persona** (link naar het persona-bestand; in deze reeks steeds Jochem, per scenario op een andere levensloop) en **Verantwoordt** (de story-id's uit de requirementsboom die uit het scenario volgen; ingevuld bij de scenario-story-verantwoording, na de hernummering van de boom).
+Elk scenariodocument opent met vier vaste velden: **Doel**, **Scope**, **Persona** (link naar het persona-bestand; in deze reeks steeds Jochem, per scenario op een andere levensloop) en **Verantwoordt** (de story-id's uit de requirementsboom die uit het scenario volgen, als ankerlinks op het story-id; zo is de relatie in beide richtingen naloopbaar: het scenario wijst de stories aan, de bronkolom van de story wijst terug).
 
 We gebruiken voor elk scenario hetzelfde sjabloon. Lees het als een verhaal in zeven blokken (A–G), met steeds één persona (**Jochem**) en één doorlopende casus (**Apothekersassistent**, Crebo dossier 23450, kwalificatie 27141). De BPMN-uitwerking in `../bpmn/leerroute-1-scenario-1-regulier-geenkeuze-happyflow.bpmn2` (zie [SVG](../img/leerroute-1-scenario-1-regulier-geenkeuze-happyflow.svg)) is de **basis-procesplaat** voor scenario 1.1; voor de andere scenario's beschrijven we waar het proces afwijkt.
 

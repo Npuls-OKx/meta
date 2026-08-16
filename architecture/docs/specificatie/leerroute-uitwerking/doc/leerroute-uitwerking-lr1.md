@@ -198,6 +198,7 @@ Onderstaande tabel koppelt deliverables uit de keten (§2) aan de plek waar ze n
 | Interactiepatronen | patroonsecties van de koppelingspecificaties in Public |
 | Sequentiediagrammen | koppelingspecificaties in Public; oudere versies in het [archief](archief-conceptmodellen.md) |
 | Datamodel | payload-specificaties in Public, bottom-up en endpoint-gedreven |
+| Requirementsboom (opdracht, epics, features, stories) | [requirementsboom](../../../requirements/README.md); elk scenario benoemt in zijn veld Verantwoordt de stories die eruit volgen, en elke story wijst met zijn bron terug naar de passage hier |
 | Security | uitwerking volgt; oudere ontwerpkeuzes in het [archief](archief-conceptmodellen.md) |
 | OEAPI OpenAPI (spec-repo) | *Buiten dit document* — [Npuls-OKx/specification](https://github.com/Npuls-OKx/specification) |
 | Pilots · BOPSI · borging | [Projectoverzicht](../../../../../doc/OKx_Projectoverzicht.md), [release-doc §1](../../../../../doc/OKx_Release-management-en-versionering.md#1-doel-en-scope) |
