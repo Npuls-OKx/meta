@@ -49,7 +49,7 @@ Elke laag is een tabel en elke rij draagt een id, plat per soort, voluit met vie
 
 - **Epics**: `| Id | Epic | Doel | Draagt bij aan | Bron | Features |`. "Draagt bij aan" verwijst naar een doel (doel-id) in `opdracht.md`. "Features" is een ankerlink naar de subsectie in `features.md`.
 - **Features**: `| Id | Feature | Omschrijving | Bron | Verwijzing |`, gegroepeerd per epic in een eigen subsectie (de ouder staat in de sectiekop, niet per rij; de omschrijving herhaalt het epicdoel niet). Elke rij draagt een anker om het id heen (`<a id="feature-0001"></a>feature-0001`) zodat stories er direct op linken. "Verwijzing" wijst naar een bestaand document dat de feature uitwerkt, of blijft leeg.
-- **Stories**: `| Id | Story | Feature | Bron | Functionele eisen |`. De story is een actorzin ("Als ... wil ik ... zodat ..."); de featurecel is een ankerlink naar de feature — id en naam als linktekst, het feature-anker in `features.md` als doel — zo traceert een story via zijn feature terug naar de epic, een tweede ouderrelatie bestaat niet. "Functionele eisen" verwijst vooruit naar de functionele eisen in de koppelvlakspecificaties; zolang die daar nog niet als genummerde eisen bestaan, noemt de cel de interactie met link naar de koppelingspecificatie en het systeem dat eigenaar is (bijvoorbeeld `OC-P&R I1, eigenaar OC`; het koppelingsacroniem staat voorop zodat het interactienummer altijd bij zijn koppeling leest), of expliciet "geen".
+- **Stories**: `| Id | Story | Feature | Bron | Functionele eisen |`. De story is een actorzin ("Als ... wil ik ... zodat ..."); de featurecel is een ankerlink naar de feature — id en naam als linktekst, het feature-anker in `features.md` als doel — zo traceert een story via zijn feature terug naar de epic, een tweede ouderrelatie bestaat niet. "Functionele eisen" verwijst naar de functionele eisen in de koppelingspecificatie: het koppelingsacroniem voorop en dan de FR-nummers (bijvoorbeeld `OC-P&R FR2 en FR4`), als link naar de sectie Functionele eisen van het interactiepatroon in Npuls-OKx/Public — FR-nummers zijn per koppeling genummerd, dus zonder acroniem zijn ze ambigu. Bestaat er geen functionele eis, dan expliciet "geen".
 
 ## Bronplicht
 
@@ -64,7 +64,7 @@ Elke rij heeft een gevulde bronkolom. Een kandidaat zonder herleidbare bron staa
 
 De boom eindigt bij specificaties, niet bij implementaties.
 
-- De kolom Functionele eisen verbindt de boom met de koppelvlakspecificaties: een story verwijst naar de functionele eisen die zijn wens technisch dragen. Zolang die eisen nog niet genummerd bestaan, verwijst de story naar een interactie (I-nummer) in een koppelingspecificatie en noemt het systeem dat eigenaar wordt van de bijbehorende endpoint-set (OC, SKS, planningssysteem).
+- De kolom Functionele eisen verbindt de boom met de koppelvlakspecificaties: een story verwijst naar de functionele eisen (FR-nummers) die zijn wens technisch dragen; de FR verwijst zelf door naar het interactiepatroon en via het interactieoverzicht naar de endpoint-sets van de applicatiecomponenten. De keten is dus story, functionele eis, interactie, endpoint-set — het spiegelbeeld van de keten-eisenlijn in de afbakening van de koppelvlakspecificaties (keten-eis, functionele eis, interactiepatroon, endpoint).
 - De redenering is: wie deze featureset wil ondersteunen, wordt eigenaar van deze endpoints. Hoe een leverancier dat intern oplost valt buiten de boom.
 - Endpoint-sets die nog in een open pull request staan volgen de regel voor niet-gemergde bronnen.
 
@@ -83,7 +83,7 @@ Deze skill is de specialist-skill voor stap 2 (uitwerken) van [`okx-product-flow
 - [ ] Elke node heeft precies één ouder; geen laag overgeslagen (opdracht, epic, feature, story). Raakt een leaf inhoudelijk een tweede ouder, dan is hij te groot: opknippen, nooit een tweede relatie vastleggen.
 - [ ] Geen twee nodes met dezelfde naam of dezelfde strekking.
 - [ ] Elke rij heeft een gevulde bronkolom; links werken (`python3 scripts/validate-docs.py architecture/docs/requirements`).
-- [ ] Elke story heeft in de kolom Functionele eisen een verwijzing (functionele eis, of zolang die ontbreekt de interactie plus eigenaar) of expliciet "geen", en een featurecel die als ankerlink naar de feature werkt.
+- [ ] Elke story heeft in de kolom Functionele eisen een FR-verwijzing (koppelingsacroniem voorop, link naar de sectie Functionele eisen van het interactiepatroon) of expliciet "geen", en een featurecel die als ankerlink naar de feature werkt.
 - [ ] Doelzinnen en feature-omschrijvingen maximaal 25 woorden en geformuleerd als beoogde toestand, niet als werking; een feature-omschrijving herhaalt het epicdoel niet.
 - [ ] Elke rij draagt een id in het vaste format (`doel-0001`, `epic-0001`, `feature-0001`, `story-0001`), zonder dubbelingen en zonder oude id-vormen (E1, F2.1, S2.3); geen statuskolommen.
 - [ ] Omvangslimieten gehaald (regels tellen met `wc -l`, tabelrijen en mermaid-knopen handmatig).

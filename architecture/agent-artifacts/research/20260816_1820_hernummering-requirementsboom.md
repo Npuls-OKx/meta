@@ -23,7 +23,7 @@ Vaste vervolgregel uit de skill: een nieuwe rij krijgt het eerstvolgende vrije n
 Nieks review op de PR leidde tot wijzigingen bovenop de mechanische stap; die staan hier apart, zodat de mechanische claim hierboven zuiver blijft:
 
 - `features.md`: kolomkop "Doel" is "Omschrijving" geworden (het doel leeft op epicniveau; de featurekolom beschrijft het gedrag) en elke rij draagt een anker om het id heen, zodat stories er direct op linken.
-- `stories.md`: de kolom "Koppeling" heet in alle secties "Functionele eisen" en verwijst vooruit naar de koppelvlakspecificaties (zolang genummerde functionele eisen daar ontbreken: de interactie plus eigenaar); de featurecel is een ankerlink naar de feature; de kolom "Raakt ook" is geschrapt — een story traceert via zijn feature terug naar de epic, en de opknip van story-0002/feature-0027 blijft geborgd in het opknip-issue.
+- `stories.md`: de kolom "Koppeling" heet in alle secties "Functionele eisen" en verwijst naar de FR-nummers in de sectie Functionele eisen van het betreffende interactiepatroon in Public (koppelingsacroniem voorop; de negen interactieverwijzingen zijn omgezet naar hun dragende FR's); de featurecel is een ankerlink naar de feature; de kolom "Raakt ook" is geschrapt — een story traceert via zijn feature terug naar de epic, en de opknip van story-0002/feature-0027 blijft geborgd in het opknip-issue.
 - epic-0005 heet "Standaard beproeven en adopteren" (was "Standaard piloteren en adopteren"; naam liep niet).
 - feature-0034 is hernoemd en herformuleerd naar de bron (keuze-requirement R7): "Voorwaarden vooraf uitgedrukt in behaalde leeruitkomsten".
 - De skill `okx-requirements-boom` is op al deze punten bijgewerkt (tabelformats, aansluiting op de techniek, checklist).
