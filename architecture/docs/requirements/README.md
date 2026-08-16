@@ -1,22 +1,22 @@
 # Requirementsboom
 
-De gelaagde breakdown van de OKx-requirements: van de opdracht (Leren zonder Drempels) via epics en features naar stories, met onderaan de aansluiting op de koppelingspecificaties. De boom is de getoonde koppeling tussen business en techniek; elke rij draagt een bron. Relateert aan: #130.
+De gelaagde breakdown van de OKx-requirements: van de opdracht (Leren zonder Drempels) via epics en features naar stories, met onderaan de aansluiting op de koppelingspecificaties. De boom is de getoonde koppeling tussen business en techniek; elke rij draagt een bron.
 
 ## De boom in één plaat
 
-De plaat toont de opdracht, de drie doelen en de acht epics. Features en stories staan alleen in de tabellen; elke rij draagt een id (E, F, S) om naar te verwijzen.
+De plaat toont de opdracht, de drie doelen en de acht epics. Features en stories staan alleen in de tabellen; elke rij draagt een id (epic, feature, story) om naar te verwijzen.
 
 ```mermaid
 flowchart LR
-  LZD["Leren zonder Drempels"] --> D1["D1 keuze en personalisering"] & D2["D2 gezamenlijke taal"] & D3["D3 gegevensuitwisseling en mobiliteit"]
-  D1 --> E2["E2 Student kiest onderwijsspecificaties"]
-  D1 --> E4["E4 Keuze en verbintenis vastleggen"]
-  D1 --> E5["E5 Voortgang en resultaat op leeruitkomsten"]
-  D2 --> E6["E6 Gezamenlijke taal en standaard"]
-  D3 --> E1["E1 Onderwijsaanbod specificeren en ontsluiten"]
-  D3 --> E3["E3 Aanbod plannen en roosteren"]
-  D3 --> E7["E7 Betrouwbare en vervangbare koppelingen"]
-  D3 --> E8["E8 Standaard piloteren en adopteren"]
+  LZD["Leren zonder Drempels"] --> DL1["doel-0001 gezamenlijke taal"] & DL2["doel-0002 gegevensuitwisseling en mobiliteit"] & DL3["doel-0003 keuze en personalisering"]
+  DL1 --> EP1["epic-0001 Gezamenlijke taal en standaard"]
+  DL2 --> EP2["epic-0002 Onderwijsaanbod specificeren en ontsluiten"]
+  DL2 --> EP3["epic-0003 Aanbod plannen en roosteren"]
+  DL2 --> EP4["epic-0004 Betrouwbare en vervangbare koppelingen"]
+  DL2 --> EP5["epic-0005 Standaard piloteren en adopteren"]
+  DL3 --> EP6["epic-0006 Student kiest onderwijsspecificaties"]
+  DL3 --> EP7["epic-0007 Keuze en verbintenis vastleggen"]
+  DL3 --> EP8["epic-0008 Voortgang en resultaat op leeruitkomsten"]
 ```
 
 ## Navigatie
@@ -32,11 +32,11 @@ flowchart LR
 ## Conventies
 
 - Vorm en spelregels: [skill okx-requirements-boom](../../../.agents/skills/okx-requirements-boom/SKILL.md). Kern: één document per laag, elke rij één ouder, één bron en een id, overzicht boven volledigheid.
-- Id's (E1, F2.1, S2.3) zijn verwijzings-id's voor issues, reviews en gesprekken; planningsstatus leeft in milestones en issues, niet in deze tabellen.
+- Id's (epic-0001, feature-0001, story-0001) zijn verwijzings-id's voor issues, reviews en gesprekken: plat per soort, voluit met vier cijfers, zonder oudernummer in het id. Planningsstatus leeft in milestones en issues, niet in deze tabellen.
 - Systeemafkortingen in de tabellen: OC (onderwijscatalogus), SKS (studentkeuzesysteem), P&R (planning en roostering), SIS (studentinformatiesysteem), LMS (leermanagementsysteem), SVS (studievoortgangsysteem).
 - Bronafkortingen in de tabellen: ADR (architecture decision record, in Npuls-OKx/Public), U (uitgangspunt bij de koppelvlakspecificaties), OKx-AP (architectuurprincipe).
-- Herkomst en verificatie van elke rij: [extractieverantwoording](../../agent-artifacts/research/20260806_0837_requirementsboom-extractie.md), inclusief de parkeerlijst met kandidaten voor een volgende ronde.
-- Eis-id's en uitvoerbare scenario's staan bewust niet in de boom. Die achtergrondmechaniek volgt gefaseerd; zie de [synthese van het onderzoek](../../agent-artifacts/research/20260804_1700_oplossingsrichtingen-business-techniek.md) en issue #135.
+- Herkomst en verificatie van elke rij: [extractieverantwoording](../../agent-artifacts/research/20260806_0837_requirementsboom-extractie.md), inclusief de parkeerlijst met kandidaten voor een volgende ronde. Oudere documenten en verantwoordingen gebruiken de id-vormen van vóór de hernummering (E1, F2.1, S2.3); de [hernummeringstabel](../../agent-artifacts/research/20260816_1820_hernummering-requirementsboom.md) vertaalt oud naar nieuw.
+- Eis-id's en uitvoerbare scenario's staan bewust niet in de boom. Die achtergrondmechaniek volgt gefaseerd; zie de [synthese van het onderzoek](../../agent-artifacts/research/20260804_1700_oplossingsrichtingen-business-techniek.md).
 
 ## Scope
 
