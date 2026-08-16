@@ -97,7 +97,7 @@ Werk je met een AI-agent (Cursor, Claude Code) in deze repo, dan is [`AGENTS.md`
 
 ### Ontwerpprincipes
 
-Zie [`architecture/docs/principes.md`](architecture/docs/principes.md) (design first, OEAPI als voorkeur tenzij strategisch anders).
+De architectuurprincipes (OKx-AP01 tot en met AP13) staan in [Referentiemateriaal/principes in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/principes/principes.md); de werkafspraken voor deze repository (design first, machine-interpreteerbaar, show don't tell) staan in [`AGENTS.md`](AGENTS.md).
 
 ### Meetings vastleggen
 

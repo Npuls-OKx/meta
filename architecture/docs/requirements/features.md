@@ -13,13 +13,13 @@ Laag 3 van de [requirementsboom](README.md): afgebakend gedrag per [epic](epics.
 
 ## Student kiest onderwijsspecificaties
 
-| Id | Feature | Doel | Bron | Verwijzing | Raakt ook |
-|---|---|---|---|---|---|
-| F2.1 | Kiesbaarheid bepalen | Voor elke student staat op elk niveau vast welke onderwijsspecificaties hij mag kiezen (eligibility). | [PR 120, R1 (in review)](https://github.com/Npuls-OKx/meta/pull/120) |  | |
-| F2.2 | Keuzecriteria als queryparameters op de aanbodquery | Systemen doorzoeken het onderwijsaanbod met precieze, herbruikbare criteria die rechtstreeks uit de leervraag volgen. | [ADR 0007](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0007-student-keuze-criteria-als-query-parameters-onderwijs-aanbod.md) |  | |
-| F2.3 | Regelsets los van items, met min/max-keuzeregels | Beheerders wijzigen regelsets los van catalogusitems en drukken keuzevormen met een minimum en maximum uit. | [PR 120, R2 en R5 (in review)](https://github.com/Npuls-OKx/meta/pull/120) |  | |
-| F2.4 | Leeruitkomst-id's als opaque sleutels in keuzeregels | Systemen wisselen keuzegegevens uit zonder de inhoud van leeruitkomsten te hoeven delen. | [ADR 0023](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0023-leeruitkomsten-als-opaque-sleutels-in-koppeling-oc-p-en-r.md) | [Koppelingspecificatie OC-P&R](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Koppelingspecificaties/oc-p-en-r/koppelingspecificatie-oc-p-en-r.md) | E3, E5 |
-| F2.5 | Regelsets versioneren voor verantwoording | Achteraf staat vast welke regelversie gold bij een keuze, nodig voor de diplomaverantwoording. | [PR 120, R17 (in review)](https://github.com/Npuls-OKx/meta/pull/120) |  | |
+| Id | Feature | Doel | Bron | Verwijzing |
+|---|---|---|---|---|
+| F2.1 | Kiesbaarheid bepalen | Voor elke student staat op elk niveau vast welke onderwijsspecificaties hij mag kiezen (eligibility). | [PR 120, R1 (in review)](https://github.com/Npuls-OKx/meta/pull/120) |  |
+| F2.2 | Keuzecriteria als queryparameters op de aanbodquery | Systemen doorzoeken het onderwijsaanbod met precieze, herbruikbare criteria die rechtstreeks uit de leervraag volgen. | [ADR 0007](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0007-student-keuze-criteria-als-query-parameters-onderwijs-aanbod.md) |  |
+| F2.3 | Regelsets los van items, met min/max-keuzeregels | Beheerders wijzigen regelsets los van catalogusitems en drukken keuzevormen met een minimum en maximum uit. | [PR 120, R2 en R5 (in review)](https://github.com/Npuls-OKx/meta/pull/120) |  |
+| F2.4 | Leeruitkomst-id's als verbindende sleutels in keuzeregels | Systemen wisselen keuzegegevens uit zonder de inhoud van leeruitkomsten te hoeven delen. | [ADR 0026 (in review, Public PR 15)](https://github.com/Npuls-OKx/Public/pull/15) | [Koppelingspecificatie OC-P&R](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Koppelingspecificaties/oc-p-en-r/koppelingspecificatie-oc-p-en-r.md) |
+| F2.5 | Regelsets versioneren voor verantwoording | Achteraf staat vast welke regelversie gold bij een keuze, nodig voor de diplomaverantwoording. | [PR 120, R17 (in review)](https://github.com/Npuls-OKx/meta/pull/120) |  |
 
 ## Aanbod plannen en roosteren
 
