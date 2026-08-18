@@ -572,36 +572,54 @@ Dit deel beantwoordt de kernvraag uit de aanleiding: wanneer is iets af. Kort ho
 
 # Van bron naar releasepakket
 
-<div class="np-pipeline" style="margin-top: 1.6rem;">
-  <div class="np-step blue" style="flex: 1; max-width: 230px;">
-    <strong style="font-size: 0.92rem;">Geconsolideerde bron</strong>
-    <small>de publieke repository</small>
+<div class="np-pipeline" style="margin-top: 1rem;">
+  <div class="np-step blue" style="flex: 1; max-width: 250px;">
+    <strong style="font-size: 0.92rem;">Publieke bron</strong>
+    <small>bronbestanden per onderwerp: eisen, interacties, endpoints, datamodellen, auth</small>
   </div>
   <div class="np-arrow">&#8594;</div>
-  <div class="np-step orange" style="flex: 1; max-width: 230px;">
+  <div class="np-step orange" style="flex: 1; max-width: 250px;">
     <strong style="font-size: 0.92rem;">Automatische controle en bouw</strong>
+    <small>tot het koppelvlakspecificatie-document (CI/CD)</small>
   </div>
   <div class="np-arrow">&#8594;</div>
-  <div class="np-step green" style="flex: 1; max-width: 230px;">
+  <div class="np-step green" style="flex: 1; max-width: 250px;">
     <strong style="font-size: 0.92rem;">Releasepakket</strong>
     <small>&eacute;&eacute;n document, docx en pdf</small>
   </div>
 </div>
 
-<div class="np-proof-strip" style="justify-content: center; margin-top: 1.4rem;">
+<div class="np-proof-strip" style="justify-content: center; margin-top: 0.9rem;">
   <div class="np-proof-item"><span class="np-proof-check">&#10003;</span>Links en conventies automatisch gecontroleerd</div>
   <div class="np-proof-divider"></div>
   <div class="np-proof-item"><span class="np-proof-check">&#10003;</span>Diagrammen meegebouwd</div>
-  <div class="np-proof-divider"></div>
-  <div class="np-proof-item"><span class="np-proof-check">&#10003;</span>Versienummer zegt wat er gold</div>
+</div>
+
+<div class="np-grid-2" style="margin-top: 0.9rem; align-items: start;">
+  <div class="np-card accent-green">
+    <h3 style="font-size: 0.95rem;">v0.0.1 staat: de aftrap</h3>
+    <p class="muted" style="font-size: 0.82rem; margin: 0;">Elke release hierna groeit door wat we samen vinden.</p>
+  </div>
+  <div class="np-card accent-blue">
+    <h3 style="font-size: 0.95rem;">v1.0.0 is het doel</h3>
+    <p class="muted" style="font-size: 0.82rem; margin: 0;">De versie waarop leveranciers kunnen implementeren.</p>
+  </div>
+</div>
+
+<div style="display: flex; justify-content: center; margin-top: 0.7rem;">
+  <div class="np-card accent-orange" style="padding: 0.45rem 0.9rem;">
+    <span class="np-badge orange">Opdracht</span>
+    <span style="font-size: 0.84rem; color: var(--np-dark-gray); margin-left: 0.5rem;">Vind de release v0.0.1 op github.com/Npuls-OKx/Public. Waar staan de releases?</span>
+  </div>
 </div>
 
 </div>
 
 <!--
 Antwoord op "wanneer is iets af": als het in een release zit. Verwijzen gebeurt naar een
-versienummer, niet naar de laatste stand van een branch. Feedback loopt via issues; elke
-volgende release verwerkt die zichtbaar.
+versienummer, niet naar de laatste stand van een branch. Toon positief: dit is de aftrap
+van de samenwerking; werkt iets niet, dan horen we het graag als issue en groeit de
+volgende release. Wie wil kan hier al issues gaan zoeken in de spec.
 -->
 
 ---
