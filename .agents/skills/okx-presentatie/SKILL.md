@@ -101,6 +101,18 @@ Uit de deckreview van 18 augustus 2026; elke regel is daar in de praktijk misgeg
 - **Eén onderwerp per slide.** Inhoud en vraagstelling zijn twee slides, nooit één.
 - **Niet alles hoeft getekend.** Wat de spreker kan zeggen, hoort in de sprekersnotitie; losse pijltjes en tekstelementen naast een diagram zijn een gebrek, geen oplossing.
 
+## Compositie en didactiek
+
+Uit de finetunerondes van 18 augustus 2026, vastgesteld door de product owner.
+
+- **Eén doorlopende voorbeeldlijn.** Kies één casus en laat die door het hele deck lopen (opbouw, voorbeeld, vooruitblik); herkenning stapelt, losse voorbeelden per slide niet.
+- **Opdrachten bij de stof, geen apart werkdeel.** Een interactieve opdracht hangt aan de content-slide zelf, met QR-code en link ter plekke.
+- **Verken, herken, vind.** Bij kennismaking met nieuw materiaal drie opdrachten in deze volgorde: vrij kijken (wat valt op), iets bekends terugvinden (draagt de continuïteitsboodschap) en benoemen wat niet vindbaar is (voedt de issues). De ophaal-slide erna stelt dezelfde vragen terug.
+- **Een vraag aan de zaal krijgt een eigen opvallende kaart**, met vraagicoon en de doelgroepnaam erin.
+- **Blokreeksen wisselen accentkleuren af**; nooit twee dezelfde naast elkaar. Elk blok draagt één ondertitel, zonder aankondigwoorden als "bijvoorbeeld".
+- **Diagrammen volledig of niet.** Een sequentiediagram toont ook de terugweg, het eigen proces en het foutpad; JSON-voorbeelden gebruiken echte veldnamen en types uit het schema, met een beletselteken voor de rest.
+- **Backlog en planning worden afgeleid, niet verzonnen.** Toon de afleidingslijn (leerroutes en scenario's naar features, stories en functionele eisen) en stel de toetsvraag aan de zaal in plaats van zelf een lijst te bedenken.
+
 ## Voor wie schrijf je
 
 Het publiek bepaalt het abstractieniveau én het register, niet de inhoud die toevallig voorhanden is. Vraag de gebruiker voor welk gremium het deck is. Bij meerdere gremia: maak aparte decks, geen compromis.
@@ -140,6 +152,8 @@ Twijfel je of een term bestaat: zoek hem op in de bron. Staat hij er niet, dan v
 
 ## Show, don't tell: kies zelf een passende plaat
 
+**Voorbehouden horen in platen.json.** Ondergrond-eisen (transparant of donker getekend), terminologie-afwijkingen in de plaat en de bronstatus staan in het manifest bij de plaat, zodat het volgende deck ze kent zonder de fout te herhalen.
+
 Elke inhoudelijke uitleg krijgt beeld. Dat is geen extraatje waar iemand om moet vragen: **je zoekt zelf een passende plaat en stelt die voor**. OKx heeft architectuurplaten die het verhaal beter vertellen dan een opsomming, en ze zijn al besproken en goedgekeurd — een zelfgetekend diagram opent een discussie die je niet wilde voeren.
 
 Het overzicht staat in [`presentaties/platen.json`](../../../presentaties/platen.json). Lees dat bestand voordat je slides schrijft. Per plaat staat er wat hij toont, bij welk publiek hij werkt, en waar je op moet letten. Onderaan staan de mermaid-diagrammen die als tekst in de specificaties leven; die plak je rechtstreeks in een slide, want Slidev rendert ze.
@@ -177,6 +191,8 @@ Dat ging hier al een keer mis. Een ankertabel werd uit het geheugen nagemaakt me
 
 Zelfde regel voor cijfers, data en citaten: haal ze uit de bron en controleer ze. Zet in de sprekersnotities waar iets vandaan komt, zodat het bij doorvragen na te lopen is.
 
+**Versienummers letterlijk uit het releasemanifest.** Het manifest zegt v0.0.1; schrijf dan nooit v0.01 of een eigen notatie.
+
 ## Onderscheid feit en inschatting
 
 Wat uit de repositories komt is feit: aantallen open punten, deadlines, wat er gemerged is. Wat jij ervan vindt is een inschatting: of een deadline haalbaar is, waar het knelt, wat het grootste risico is.
@@ -200,6 +216,8 @@ Een werkbare basisvorm; wijk af waar de inhoud daarom vraagt.
 Voor programmamanagement schuiven 5 en 6 naar voren; voor de kerngroep techniek is 3 en 4 het zwaartepunt.
 
 ## Voor je oplevert: kijk er zelf naar
+
+**Na elke geautomatiseerde tekstveeg een bouwcontrole.** Een script dat leestekens of woorden vervangt kan de YAML-frontmatter breken; de dev-server toont dan stil de laatste goede versie en de wijzigingen lijken te verdwijnen. Parse na een veegronde minimaal de frontmatter of herbouw het deck.
 
 **Vraag eerst of het release-klaar is.** Finetunen en opleveren zijn twee fasen. Exporteer, deel of publiceer een visueel product (deck, plaat, PDF, deellink) pas nadat de opdrachtgever expliciet heeft gezegd dat het release-klaar is; tot dat moment is elke versie werkmateriaal.
 
