@@ -63,6 +63,8 @@ Dit zijn de dingen die in de praktijk misgingen. Uitgebreider in de skill [`okx-
 
 **Meta-taal blijft buiten de slide.** "Houd het kort" is een instructie voor de maker, geen slidetekst: een titel als "De aanleiding, kort" vertelt hoe het deck gemaakt is in plaats van wat er staat. Als de slide kort is, ziet de zaal dat vanzelf; de aanwijzing zelf hoort in de sprekersnotitie.
 
+**De opdracht is regie, geen slidetekst.** De briefing van de opdrachtgever ("het idee is dat ze meteen zien wat we komen brengen") is nooit zelf de titel of tekst van de slide. Vertaal de aanwijzing: wat is de essentie voor het publiek, en hoe zou je die zelf willen lezen als je in de zaal zat? Wie de briefing letterlijk terugleest heeft genotuleerd, niet gemaakt.
+
 **Stem het register af op intern of extern.** Intern zijn het SI-team, de adviesgroep en de programma- en projectleiding: relatief informeel binnen zakelijke normen, korte zinnen, gewone woorden. Extern zijn de kerngroep techniek OKx, de technische werkgroep OEAPI, leveranciers en instellingen: formeler en preciezer, met bij elke uitspraak de status erbij — vastgesteld, concept of voorstel. Die gremia nemen het materiaal mee naar hun eigen organisatie. Het verschil tussen adviesgroep en leiding zit in de diepgang, niet in het register.
 
 **Gebruik de termen uit de bron.** Het is *leermanagementsysteem (LMS)*, *studentinformatiesysteem (SIS, dat is KRS plus SVS)*, *onderwijscatalogus*. Niet "leeromgeving" of "studentadministratie" als je het systeem bedoelt. De afkortingenlijst staat in de instap van [Koppelvlakspecificaties](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/README.md).

@@ -77,6 +77,8 @@ Een deck informeert over een onderwerp. Het onderwerp is dus het grammaticale on
 
 **Meta-taal blijft buiten de slide.** Een aanwijzing van de opdrachtgever over de vorm — "houd het kort", "stip het even aan", "niet te diep" — is een instructie voor de maker, geen slidetekst. Een titel als "De aanleiding, kort" vertelt de zaal hoe het deck gemaakt is in plaats van wat er staat; als de slide kort is, laat dat zichzelf zien. Dus geen "kort", "even", "samengevat" of "in vogelvlucht" in titels of zichtbare tekst; zulke aanwijzingen landen in de sprekersnotitie.
 
+**De opdracht is regie, geen slidetekst.** Wat de opdrachtgever zegt over een slide — het doel, de verwachting, een ad-hoc aanwijzing — is een briefing aan de maker, nooit de tekst van de slide. "Het idee is dat ze meteen zien wat Garik en Niek komen brengen" wordt dus géén titel "Doel: wat Garik en Niek komen brengen in één overzicht"; het wordt een slide die dat idee wáármaakt — een opening die zegt wat er bereikt is. Vertaal elke aanwijzing in twee stappen: eerst, wat is de essentie die het publiek moet meekrijgen? Dan: hoe verwoord je die zoals je hem zelf zou willen lezen als je in de zaal zat — gewaardeerde collega's, geen ontvangers van een werkbon. Wie de briefing letterlijk terugleest in de slide heeft de opdracht niet uitgevoerd maar genotuleerd.
+
 **Besluiten krijgen een vaste vorm.** Een vraag om een besluit is geen alinea maar een blok met vier velden, zodat na afloop vaststaat wat er gevraagd is:
 
 > **Besluit nodig op:** publicatiemoment koppelvlakspecificatie leerroute 1
