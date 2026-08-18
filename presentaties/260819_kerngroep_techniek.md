@@ -195,15 +195,15 @@ prioriteiten: werken versus opleveren.
 <div class="np-grid-2" style="margin-top: 0.8rem; align-items: start;">
 <div style="font-size: 0.95rem; line-height: 1.9;">
 
-- De meta-repository wordt <strong>privé</strong>: daar gaat het team aan het werk, en blijft het
-- Wat daar leeft: bronbestanden en iteraties, <strong>productiviteitstooling</strong>, en interne context zoals memo's van de adviesgroep
+- De meta-repository wordt <strong>privé</strong>, en daar blijft het team werken
+- Wat daar blijft: de bronbestanden die de <strong>kaderstelling</strong> dragen, en de verdiepende context bij de werkwijze, zoals productiviteitstooling en interne memo's
 - De publieke repository is puur de <strong>productrepository</strong>: de specificaties en hun releases
 
 </div>
 <div>
   <div class="np-card accent-blue">
     <h3>Wat dit voor afnemers betekent</h3>
-    <p class="muted" style="font-size: 0.86rem; margin: 0;">Alles wat nodig is om een koppelvlak te bouwen, staat in de publieke repository. Niets daarbuiten is nodig.</p>
+    <p class="muted" style="font-size: 0.86rem; margin: 0;">Alles wat nodig is om een koppelvlak te bouwen, staat in de publieke repository. Vraagt iets om externe verdieping of verantwoording, dan wegen we overheveling naar de publieke bron.</p>
   </div>
 </div>
 </div>
