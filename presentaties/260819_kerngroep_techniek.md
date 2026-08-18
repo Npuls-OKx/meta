@@ -465,13 +465,14 @@ twee systemen verloopt. Dezelfde eis bestaat ook keten-breed in de afbakening.
 {
   "learningOutcomes": [ … ],
   "educationSpecifications": [{
-    "id": …,
-    "specificationType": …,
-    "version": …,
-    "name": …,
-    "parentSpecificationId": …,
-    "learningOutcomeId": …,
-    "studyLoad": …
+    "id": "uuid",
+    "specificationType": "enum, bijv. onderwijseenheidspecificatie",
+    "version": "string",
+    "name": "string",
+    "parentSpecificationId": "uuid of null",
+    "learningOutcomeId": "uuid",
+    "studyLoad": "volume.json",
+    …
   }],
   "ruleSets": [ … ]
 }
