@@ -820,9 +820,9 @@ en keuzeregels met regelset) al in de maak zijn; de volgende slide toont alle ze
     <h3 style="font-size: 0.95rem;">Eerste item, al gestart: keuzeregels en regelset</h3>
     <p class="muted" style="font-size: 0.82rem; margin: 0;">De vraag uit de sector: hoe leggen we vast welke keuzedelen gekozen mogen worden, binnen welke opleiding en instelling?</p>
   </div>
-  <div class="np-card accent-orange">
-    <h3 style="font-size: 0.95rem;">Aan de kerngroep</h3>
-    <p class="muted" style="font-size: 0.82rem; margin: 0;">Klopt deze route? En wat verdient als eerste een plek op het bord?</p>
+  <div class="np-card accent-orange" style="border-width: 2px;">
+    <h3 style="font-size: 1.05rem;">&#10067; Vraag aan de kerngroep techniek</h3>
+    <p style="font-size: 0.9rem; color: var(--np-ink); font-weight: 600; margin: 0.3rem 0 0;">Klopt deze route? En wat verdient als eerste een plek op het bord?</p>
   </div>
 </div>
 
