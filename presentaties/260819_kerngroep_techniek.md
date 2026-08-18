@@ -513,17 +513,17 @@ zelf na.
   <div class="np-arrow">&#8594;</div>
   <div class="np-step blue" style="flex: 1;">
     <strong style="font-size: 0.85rem;">Epics</strong>
-    <small>bijvoorbeeld: aanbod plannen en roosteren</small>
+    <small>aanbod plannen en roosteren</small>
   </div>
   <div class="np-arrow">&#8594;</div>
   <div class="np-step orange" style="flex: 1;">
     <strong style="font-size: 0.85rem;">Features en stories</strong>
-    <small>bijvoorbeeld: geldig, gefaseerd aanbod afleiden</small>
+    <small>geldig, gefaseerd aanbod afleiden</small>
   </div>
   <div class="np-arrow">&#8594;</div>
   <div class="np-step green" style="flex: 1;">
     <strong style="font-size: 0.85rem;">Functionele eisen</strong>
-    <small>bijvoorbeeld: planbare specificaties melden aan het planningssysteem</small>
+    <small>planbare specificaties melden aan het planningssysteem</small>
   </div>
 </div>
 
