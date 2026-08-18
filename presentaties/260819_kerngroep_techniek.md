@@ -645,9 +645,11 @@ Alpha zegt precies wat het is: compleet genoeg om op te schieten, niet af.
 
 <div class="fill">
 
-# De structuur staat
+# Koppelvlakspecificatie-document: de structuur staat
 
-<div class="np-grid-3" style="margin-top: 0.7rem; gap: 0.5rem; align-items: stretch;">
+<p style="margin-top: 0.4rem; font-size: 0.95rem; color: var(--np-dark-gray);">De inhoud is bewust nog niet af: die geven we samen vorm.</p>
+
+<div class="np-grid-3" style="margin-top: 0.5rem; gap: 0.5rem; align-items: stretch;">
   <div class="np-card accent-blue" style="padding: 0.5rem 0.7rem;"><strong style="font-size: 0.85rem;">Inleiding en afbakening</strong><br/><span class="muted" style="font-size: 0.75rem;">de eisen aan de keten</span></div>
   <div class="np-card accent-orange" style="padding: 0.5rem 0.7rem;"><strong style="font-size: 0.85rem;">Applicatiecomponenten</strong><br/><span class="muted" style="font-size: 0.75rem;">met hun endpoints</span></div>
   <div class="np-card accent-green" style="padding: 0.5rem 0.7rem;"><strong style="font-size: 0.85rem;">Interactiepatronen</strong><br/><span class="muted" style="font-size: 0.75rem;">met functionele eisen, per koppeling</span></div>
@@ -685,11 +687,15 @@ requirementsboom is de eerstvolgende iteratie. Niet openen; dat gebeurt in het w
 - Het bestaande OKE-document (hoofdstuk 5) blijft leidend tot het profiel definitief is
 
 </div>
-<div>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
   <div class="np-card accent-green">
     <h3 style="font-size: 0.98rem;">Status</h3>
     <p class="muted" style="font-size: 0.84rem; margin: 0;">Voorlopig vastgesteld als uitgangspunt; formele bekrachtiging loopt via de werkgroep OKx.</p>
   </div>
+  <a href="https://www.edustandaard.nl/app/uploads/2026/06/2026-06-01-Edukoppeling-OAuth-client-credentials-profiel-voor-RESTful-APIs.pdf" style="display: flex; flex-direction: column; align-items: center; gap: 0.2rem; text-decoration: none;">
+    <img src="/shots/qr-edukoppeling-profiel.png" style="width: 105px; border-radius: 6px; border: 1px solid #e2e8f0;" />
+    <span class="muted" style="font-size: 0.7rem;">Edukoppeling-profiel (pdf, edustandaard.nl)</span>
+  </a>
 </div>
 </div>
 
