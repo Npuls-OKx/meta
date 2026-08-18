@@ -47,7 +47,9 @@ vinden we het?" Dit gezelschap heet de kerngroep techniek.
   </div>
   <p style="margin-top: 1.2rem; font-size: 1.05rem; color: var(--np-dark-gray); max-width: 640px; line-height: 1.6;">
     Gereleased als alpha-document v0.0.1, in docx en pdf.
-    Vandaag: hoe die structuur in elkaar zit, en of ermee te werken is.
+  </p>
+  <p style="margin-top: 1rem; font-size: 1.25rem; color: var(--np-ink); max-width: 680px; line-height: 1.6;">
+    Vandaag onderzoeken we samen of de structuur werkt voor onze doelen, en hoe we verder bouwen.
   </p>
 </div>
 
