@@ -308,8 +308,13 @@ naar elkaar door. Niet dieper ingaan dan dit; wie meer wil ziet het straks in he
 
 <div class="np-pipeline" style="margin-top: 1.2rem;">
   <div class="np-step blue" style="flex: 1;">
+    <strong style="font-size: 0.88rem;">Leren zonder Drempels</strong>
+    <small>de Npuls-pijler</small>
+  </div>
+  <div class="np-arrow">&#8594;</div>
+  <div class="np-step blue" style="flex: 1;">
     <strong style="font-size: 0.88rem;">Opdracht</strong>
-    <small>Leren zonder Drempels</small>
+    <small>OKx</small>
   </div>
   <div class="np-arrow">&#8594;</div>
   <div class="np-step blue" style="flex: 1;">
