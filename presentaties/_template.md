@@ -84,7 +84,6 @@ Sprekersnotities horen in een HTML-commentaarblok onderaan elke slide.
 
 # Slidetitel
 
-<p class="np-subtitle">Een ondertitel die de slide in een zin samenvat.</p>
 
 <div class="np-grid-2" style="margin-top: 0.3rem;">
 <div style="font-size: 0.92rem; line-height: 1.7;">
@@ -115,7 +114,6 @@ Sprekersnotities horen in een HTML-commentaarblok onderaan elke slide.
 
 # Slidetitel
 
-<p class="np-subtitle">Drie punten naast elkaar in accentkaarten.</p>
 
 <div class="np-grid-3" style="margin-top: 0.5rem; align-items: start;">
   <div class="np-card accent-blue">
@@ -150,7 +148,6 @@ Sprekersnotities horen in een HTML-commentaarblok onderaan elke slide.
 
 # Hoe het werkt
 
-<p class="np-subtitle">Drie stappen van invoer naar resultaat.</p>
 
 <div class="np-pipeline" style="margin-top: 1.5rem;">
   <div class="np-step blue" style="flex: 1; max-width: 200px;">

@@ -88,6 +88,19 @@ Een deck informeert over een onderwerp. Het onderwerp is dus het grammaticale on
 
 Zelfde vorm voor een reviewverzoek (*Review gevraagd op / Door / Voor*) en voor kennisname (*Ter kennisname*). Zet nooit een besluit weg als een terloopse zin.
 
+## Slides zijn schaars: de anti-bloatregels
+
+Uit de deckreview van 18 augustus 2026; elke regel is daar in de praktijk misgegaan.
+
+- **Elke zichtbare zin heeft een bron of sneuvelt.** Subtekst die niets toevoegt is bloat; liever leegte dan vulling. Toets elke zin: waar staat dit in de repositories?
+- **Geen subtitel onder de slidetitel.** De ruimte gaat naar de plaat of het schema; wat de subtitel wilde zeggen gaat in de titel, de tekst of de sprekersnotitie.
+- **Titels plat en concreet.** Geen bedachte constructies ("Elk hoofdstuk in één voorbeeld"); benoem wat de slide toont ("Voorbeeld", "Van bron naar releasepakket").
+- **Echte beelden boven nagebouwde.** Een bestaande plaat of een screenshot verslaat een ASCII-boom of een gegenereerd diagram.
+- **Bullets eerst, plaat groot.** Vaste leesvolgorde: tekstpunten aan de ene kant, de plaat zo groot mogelijk aan de andere.
+- **Geen beloften met een datum.** "Tonen we de volgende sessie" bindt het team vast; planning is aan de spreker.
+- **Eén onderwerp per slide.** Inhoud en vraagstelling zijn twee slides, nooit één.
+- **Niet alles hoeft getekend.** Wat de spreker kan zeggen, hoort in de sprekersnotitie; losse pijltjes en tekstelementen naast een diagram zijn een gebrek, geen oplossing.
+
 ## Voor wie schrijf je
 
 Het publiek bepaalt het abstractieniveau én het register, niet de inhoud die toevallig voorhanden is. Vraag de gebruiker voor welk gremium het deck is. Bij meerdere gremia: maak aparte decks, geen compromis.
