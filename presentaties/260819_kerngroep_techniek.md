@@ -272,11 +272,73 @@ Bouwen gebeurt uit <strong>Koppelvlakspecificaties/</strong>; het waarom staat i
 </div>
 </div>
 
+<div style="display: flex; align-items: center; justify-content: center; gap: 1rem; margin-top: 0.7rem;">
+  <div class="np-card accent-orange" style="padding: 0.5rem 0.9rem; max-width: 30rem;">
+    <span class="np-badge orange">Opdracht</span>
+    <p style="font-size: 0.88rem; color: var(--np-dark-gray); margin: 0.3rem 0 0;">Open de repository en verken de folders. Wat valt als eerste op?</p>
+  </div>
+  <img src="/shots/qr-npuls-okx-public.png" style="width: 110px; border-radius: 6px; border: 1px solid #e2e8f0;" />
+  <span class="muted" style="font-size: 0.8rem;">github.com/Npuls-OKx/Public</span>
+</div>
+
 </div>
 
 <!--
-Hier meteen de opdracht geven: de link staat in de chat en als QR verderop. Open
-github.com/Npuls-OKx/Public en klik mee door de folders terwijl dit deel loopt.
+Link ook in de chat delen. Vijf minuten laten klikken terwijl dit deel doorloopt;
+de oogst komt op de volgende slide.
+-->
+
+---
+
+<!-- OPHALEN VERKENNING -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; text-align: center; padding: 0 2rem;">
+  <div style="font-family: 'Cooper Light BT', serif; font-size: 2rem; line-height: 1.4; color: var(--np-blue); max-width: 700px;">
+    Kun je vinden wat je zoekt?
+  </div>
+  <p style="margin-top: 1rem; font-size: 1.05rem; color: var(--np-dark-gray); max-width: 600px; line-height: 1.7;">
+    Wat zoek je als eerste? En waar verwachtte je het?
+  </p>
+</div>
+
+</div>
+
+<!--
+Ophalen en spelen met de zaal: een paar mensen laten vertellen wat ze aanklikten en of
+ze vonden wat ze zochten. Wat niet vindbaar is, is de eerste oogst aan feedback.
+-->
+
+---
+
+<!-- BIJDRAGEFLOW -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# Iets gezien dat niet klopt, of dat anders kan?
+
+```mermaid
+flowchart LR
+  M["Melding (issue)"] --> R["Refinen en prioriteren"] --> PL["Plannen"] --> W["Wijzigingsvoorstel (pull request)"] --> RV["Review door collega's"]
+  RV -->|akkoord| B["Onderdeel van de bron"] --> D["Nieuw koppelvlakspecificatie-document"]
+  RV -->|nog niet akkoord| A["Aanpassen"] --> RV
+```
+
+<div class="np-bottomline" style="margin-top: 0.7rem;">
+  Elke bijdrage volgt dezelfde route: van melding tot een nieuw gebouwd document. <strong>Niets verandert stilletjes.</strong>
+</div>
+
+</div>
+
+<!--
+Voor wie GitHub niet kent, in gewone taal: een melding heet daar een issue; die wordt
+gerefined en geprioriteerd, ingepland, en uitgewerkt tot een wijzigingsvoorstel dat
+collega's reviewen. Akkoord betekent onderdeel van de bron; nog niet akkoord betekent
+aanpassen tot het goed is, of archiveren. Uit de bron bouwt de pipeline het nieuwe
+document.
 -->
 
 ---
