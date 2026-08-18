@@ -392,33 +392,48 @@ en de zwarte relatielabels zijn slecht leesbaar.
 
 # Voorbeeld
 
-<div style="max-width: 44rem; margin: 0.6rem auto 0; display: flex; flex-direction: column; gap: 0.15rem; font-size: 0.8rem;">
-  <div class="np-card accent-blue" style="padding: 0.45rem 0.8rem;">
-    <span class="np-badge blue">Afbakening &middot; keten-eis</span>
-    <p style="margin: 0.25rem 0 0; color: var(--np-dark-gray);"><em>"Een vastgestelde specificatie bereikt elk systeem dat ermee werkt."</em></p>
+<div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 1rem; align-items: center; margin-top: 0.5rem;">
+<div style="display: flex; flex-direction: column; gap: 0.15rem; font-size: 0.74rem; line-height: 1.45;">
+  <div class="np-card accent-blue" style="padding: 0.4rem 0.7rem;">
+    <span class="np-badge blue">Requirementsboom &middot; story</span>
+    <p style="margin: 0.25rem 0 0; color: var(--np-dark-gray);"><em>"Als planner wil ik dat de catalogus een planbaar geworden specificatie met een dun event (id en versie) meldt en ik de structuur of delta kan ophalen, zodat ik er opleidingsaanbod van kan maken."</em></p>
   </div>
-  <div style="text-align: center; color: var(--np-mid-gray); font-size: 0.72rem;">&#8595; per koppeling afgeleid naar</div>
-  <div class="np-card accent-blue" style="padding: 0.45rem 0.8rem;">
+  <div style="text-align: center; color: var(--np-mid-gray); font-size: 0.7rem;">&#8595; technisch gedragen door</div>
+  <div class="np-card accent-blue" style="padding: 0.4rem 0.7rem;">
     <span class="np-badge blue">Interactiepatroon &middot; functionele eis</span>
     <p style="margin: 0.25rem 0 0; color: var(--np-dark-gray);"><em>"De onderwijscatalogus moet het planningssysteem kunnen laten weten dat een specificatie gereed is om te plannen&nbsp;&hellip;"</em></p>
   </div>
-  <div style="text-align: center; color: var(--np-mid-gray); font-size: 0.72rem;">&#8595; werkt via</div>
-  <div class="np-card accent-orange" style="padding: 0.45rem 0.8rem;">
+  <div style="text-align: center; color: var(--np-mid-gray); font-size: 0.7rem;">&#8595; werkt via</div>
+  <div class="np-card accent-orange" style="padding: 0.4rem 0.7rem;">
     <span class="np-badge orange">Interactiepatroon &middot; interactie</span>
-    <p style="margin: 0.25rem 0 0; color: var(--np-dark-gray);"><strong>Specificatie planbaar melden</strong>, volgens het patroon notify-then-pull: een dun event met id en versie; de afnemer haalt de structuur of de delta op.</p>
+    <p style="margin: 0.25rem 0 0; color: var(--np-dark-gray);"><strong>Specificatie planbaar melden</strong>, volgens het patroon notify-then-pull.</p>
   </div>
-  <div style="text-align: center; color: var(--np-mid-gray); font-size: 0.72rem;">&#8595; landt op</div>
-  <div class="np-card accent-green" style="padding: 0.45rem 0.8rem;">
+  <div style="text-align: center; color: var(--np-mid-gray); font-size: 0.7rem;">&#8595; landt op</div>
+  <div class="np-card accent-green" style="padding: 0.4rem 0.7rem;">
     <span class="np-badge green">Applicatiecomponent &middot; endpoint</span>
     <p style="margin: 0.25rem 0 0; color: var(--np-dark-gray);"><code>/onderwijsspecificaties/{id}</code> &middot; GET &middot; antwoord <code>education-specification.json</code></p>
   </div>
+</div>
+<div style="display: flex; justify-content: center;">
+
+```mermaid
+sequenceDiagram
+  participant OC as Onderwijscatalogus
+  participant P as Planning
+  OC->>P: specificatie planbaar (id + versie)
+  P->>OC: structuur of delta ophalen
+  P->>OC: opleidingsaanbod terug
+```
+
+</div>
 </div>
 
 </div>
 
 <!--
-Niet voorlezen; de keten wijst zichzelf. Eén zin erbij: zo grijpt elk hoofdstuk in het
-volgende, van eis tot schema. In het werkdeel loopt iedereen precies deze lijn zelf na.
+Niet voorlezen; de keten wijst zichzelf: van de wens van de planner tot het endpoint,
+met rechts hoe de interactie tussen de twee systemen verloopt. Dezelfde eis bestaat ook
+keten-breed in de afbakening. In het werkdeel loopt iedereen deze lijn zelf na.
 -->
 
 ---
