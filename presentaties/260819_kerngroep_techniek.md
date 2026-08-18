@@ -1,7 +1,7 @@
 ---
 theme: default
 title: Koppelvlakspecificaties, geconsolideerd en releasebaar
-info: Sessie kerngroep techniek, 19 augustus 2026 — nieuwe werkwijze, publieke repository, release management en het alpha-document v0.01.
+info: Sessie kerngroep techniek, 19 augustus 2026 — versimpelde werkwijze, publieke repository, release management en het alpha-document v0.01.
 author: OKx - Onderwijskoppelingen (Npuls)
 highlighter: shiki
 lineNumbers: false
@@ -46,7 +46,7 @@ Let op de term: dit gezelschap heet de kerngroep techniek.
   <div style="display: flex; flex-direction: column; gap: 0.7rem;">
     <div style="display: flex; align-items: center; gap: 0.8rem;">
       <span class="np-num">1</span>
-      <div><strong>Nieuwe werkwijze</strong><br/><span class="muted" style="font-size: 0.8rem;">Eenvoudig maken en consolideren</span></div>
+      <div><strong>Versimpelde werkwijze</strong><br/><span class="muted" style="font-size: 0.8rem;">Eenvoudiger gemaakt en geconsolideerd</span></div>
     </div>
     <div style="display: flex; align-items: center; gap: 0.8rem;">
       <span class="np-num" style="background: var(--np-orange);">2</span>
@@ -81,14 +81,14 @@ bewust geen volledige demo; het werk is nog niet af en dat hoeft het ook niet te
 <div class="flex items-center justify-center h-full">
   <div style="text-align: center;">
     <p class="eyebrow" style="color: rgba(255,255,255,0.85);">Deel 1</p>
-    <h1 style="color: #FFFFFF !important; font-size: 3rem;">Nieuwe werkwijze</h1>
-    <p style="color: rgba(255,255,255,0.88); font-size: 1.15rem; margin-top: 0.5rem;">Eenvoudig maken, consolideren en bestendigen</p>
+    <h1 style="color: #FFFFFF !important; font-size: 3rem;">Versimpelde werkwijze</h1>
+    <p style="color: rgba(255,255,255,0.88); font-size: 1.15rem; margin-top: 0.5rem;">Gewerkt en nagedacht: eenvoudiger gemaakt, geconsolideerd en bestendigd</p>
   </div>
 </div>
 
 <!--
-Kernwoorden: eenvoudig, consolidatie, bestendiging. De inhoud die jullie kennen blijft;
-we maken hem beter vindbaar en expliciet af of niet-af.
+Kernwoorden: versimpeld, consolidatie, bestendiging — nooit "nieuw" of "anders".
+De inhoud die jullie kennen blijft; we maken hem beter vindbaar en expliciet af of niet-af.
 -->
 
 ---
@@ -98,16 +98,15 @@ we maken hem beter vindbaar en expliciet af of niet-af.
 
 <div class="fill">
 
-# Waarom deze stap
+# De aanleiding, kort
 
 <p class="np-subtitle">Jullie vroegen het zelf: "wanneer is iets af, en waar vinden we het?"</p>
 
 <div class="np-grid-2" style="margin-top: 0.3rem;">
-<div style="font-size: 0.92rem; line-height: 1.7;">
+<div style="font-size: 0.95rem; line-height: 1.8;">
 
-- Werkmateriaal en afspraken liepen door elkaar: <strong>onderzoek, concepten en vastgestelde specificaties</strong> op dezelfde plek
-- Voor een leverancier was niet te zien <strong>welke versie telt</strong>
-- De inhoud zelf verandert niet: <strong>dezelfde informatiestromen, dezelfde begrippen</strong>
+- Af en onderweg stonden door elkaar; <strong>welke versie telt</strong> was niet te zien
+- De inhoud verandert niet: <strong>dezelfde informatiestromen, dezelfde begrippen</strong>
 
 </div>
 <div>
@@ -124,8 +123,10 @@ we maken hem beter vindbaar en expliciet af of niet-af.
 </div>
 
 <!--
-Dit is het antwoord op leveranciersfeedback, geen interne hobby. Benadrukken:
-de informatiestromen-hoofdplaat en het begrippenkader blijven de kern; die zijn niet veranderd.
+Kort houden op de slide; de rest mondeling, zoals in het overleg: werkmateriaal
+(onderzoek, concepten) en vastgestelde specificaties stonden op dezelfde plek,
+daardoor was voor leveranciers niet te zien wat telde. Benadrukken: de
+informatiestromen-hoofdplaat en het begrippenkader blijven de kern; die zijn niet veranderd.
 -->
 
 ---
@@ -511,7 +512,7 @@ van dit gesprek mag de zaal zelf bepalen; Ruud jaagt de discussie aan als het st
 
 # Aan de slag — zelf kijken
 
-<p class="np-subtitle">Geen demo; jullie zoeken zelf. Dat is precies de bedoeling van de nieuwe opzet.</p>
+<p class="np-subtitle">Geen demo; jullie zoeken zelf. Dat is precies de bedoeling van deze opzet.</p>
 
 <div class="np-grid-3" style="margin-top: 0.6rem; align-items: start;">
   <div class="np-card accent-blue">
