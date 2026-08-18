@@ -1,7 +1,7 @@
 ---
 theme: default
 title: Koppelvlakspecificaties, geconsolideerd en releasebaar
-info: Sessie kerngroep techniek, 19 augustus 2026 — versimpelde werkwijze, publieke repository, release management en het alpha-document v0.01.
+info: Sessie kerngroep techniek, 19 augustus 2026 — de eerste structuur voor het eindproduct, de publieke repository, release management en het alpha-document v0.01.
 author: OKx - Onderwijskoppelingen (Npuls)
 highlighter: shiki
 lineNumbers: false
@@ -20,7 +20,7 @@ fonts:
 <div style="position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 2rem 4rem; z-index: 1;">
   <h1 style="font-size: 3rem; line-height: 1.15; margin-bottom: 0.6rem; color: var(--np-ink);">Koppelvlakspecificaties</h1>
   <p style="font-size: 1.15rem; color: var(--np-dark-gray); max-width: 680px; line-height: 1.5; margin-bottom: 1rem;">
-    Geconsolideerd, vindbaar en releasebaar &mdash; dezelfde inhoud, eenvoudiger gemaakt
+    De eerste structuur voor het eindproduct
   </p>
   <div style="font-size: 0.92rem; color: var(--np-ink);">
     <strong>Kerngroep techniek</strong> &middot; Amersfoort
@@ -29,10 +29,33 @@ fonts:
 </div>
 
 <!--
-Framing vanaf de eerste zin: dit is een VEREENVOUDIGING en CONSOLIDATIE van wat er al was,
-geen koerswijziging. Niet zeggen "alles wordt anders". De aanleiding is jullie eigen vraag:
-"wanneer is iets af, en waar vinden we het?" Vandaag laten we zien hoe we die vraag beantwoorden.
-Let op de term: dit gezelschap heet de kerngroep techniek.
+Framing vanaf de eerste zin: vereenvoudiging en consolidatie van wat er al was, geen
+koerswijziging. De aanleiding is de vraag uit de keten zelf: "wanneer is iets af, en waar
+vinden we het?" Dit gezelschap heet de kerngroep techniek.
+-->
+
+---
+
+<!-- OPENING: HET KERNPUNT -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; text-align: center; padding: 0 2rem;">
+  <div style="font-family: 'Cooper Light BT', serif; font-size: 2.1rem; line-height: 1.4; color: var(--np-blue); max-width: 760px;">
+    De eerste structuur van de koppelvlakspecificatie staat.
+  </div>
+  <p style="margin-top: 1.2rem; font-size: 1.05rem; color: var(--np-dark-gray); max-width: 640px; line-height: 1.6;">
+    Gereleased als alpha-document v0.01, in docx en pdf.
+    Vandaag: hoe die structuur in elkaar zit &mdash; en of ermee te werken is.
+  </p>
+</div>
+
+</div>
+
+<!--
+Dit is de boodschap van de hele sessie, in de eerste minuut. Alles wat volgt is uitwerking
+van deze ene zin. Niet doorpraten; laten landen en door naar het programma.
 -->
 
 ---
@@ -46,31 +69,30 @@ Let op de term: dit gezelschap heet de kerngroep techniek.
   <div style="display: flex; flex-direction: column; gap: 0.7rem;">
     <div style="display: flex; align-items: center; gap: 0.8rem;">
       <span class="np-num">1</span>
-      <div><strong>Versimpelde werkwijze</strong><br/><span class="muted" style="font-size: 0.8rem;">Eenvoudiger gemaakt en geconsolideerd</span></div>
+      <div><strong>Versimpelde werkwijze</strong><br/><span class="muted" style="font-size: 0.8rem;">Twee bronnen, elk hun eigen prioriteit</span></div>
     </div>
     <div style="display: flex; align-items: center; gap: 0.8rem;">
       <span class="np-num" style="background: var(--np-orange);">2</span>
-      <div><strong>De publieke repository</strong><br/><span class="muted" style="font-size: 0.8rem;">Structuur en opbouw van een koppelvlakspecificatie</span></div>
+      <div><strong>De publieke repository</strong><br/><span class="muted" style="font-size: 0.8rem;">De opbouw van een koppelvlakspecificatie</span></div>
     </div>
     <div style="display: flex; align-items: center; gap: 0.8rem;">
       <span class="np-num" style="background: var(--np-green);">3</span>
-      <div><strong>Release management</strong><br/><span class="muted" style="font-size: 0.8rem;">Wanneer is iets af, en hoe versies werken</span></div>
+      <div><strong>Release management</strong><br/><span class="muted" style="font-size: 0.8rem;">Van bron naar releasepakket</span></div>
     </div>
     <div style="display: flex; align-items: center; gap: 0.8rem;">
       <span class="np-num">4</span>
-      <div><strong>Alpha-document v0.01</strong><br/><span class="muted" style="font-size: 0.8rem;">Het eerste releasepakket, om in te lezen</span></div>
+      <div><strong>Alpha-document v0.01</strong><br/><span class="muted" style="font-size: 0.8rem;">Wat erin zit en wat we vragen</span></div>
     </div>
     <div style="display: flex; align-items: center; gap: 0.8rem;">
       <span class="np-num" style="background: var(--np-orange);">5</span>
-      <div><strong>Sprintplanning</strong><br/><span class="muted" style="font-size: 0.8rem;">De belangrijkste issues voor de komende periode</span></div>
+      <div><strong>Planning</strong><br/><span class="muted" style="font-size: 0.8rem;">De belangrijkste issues voor de komende periode</span></div>
     </div>
   </div>
 </div>
 
 <!--
-De volgorde is de agenda zoals Ruud die heeft vastgesteld. Tussendoor is er een werkdeel:
-we zetten iedereen zelf aan het werk in de repository en het document. Er is vandaag
-bewust geen volledige demo; het werk is nog niet af en dat hoeft het ook niet te zijn.
+De volgorde is de agenda zoals Ruud die heeft vastgesteld. Tussendoor een werkdeel: iedereen
+gaat zelf de repository en het document in. Er is bewust geen volledige demo.
 -->
 
 ---
@@ -82,38 +104,36 @@ bewust geen volledige demo; het werk is nog niet af en dat hoeft het ook niet te
   <div style="text-align: center;">
     <p class="eyebrow" style="color: rgba(255,255,255,0.85);">Deel 1</p>
     <h1 style="color: #FFFFFF !important; font-size: 3rem;">Versimpelde werkwijze</h1>
-    <p style="color: rgba(255,255,255,0.88); font-size: 1.15rem; margin-top: 0.5rem;">Gewerkt en nagedacht: eenvoudiger gemaakt, geconsolideerd en bestendigd</p>
   </div>
 </div>
 
 <!--
 Kernwoorden: versimpeld, consolidatie, bestendiging — nooit "nieuw" of "anders".
-De inhoud die jullie kennen blijft; we maken hem beter vindbaar en expliciet af of niet-af.
+De inhoud die iedereen kent blijft; hij wordt beter vindbaar en expliciet af of niet-af.
 -->
 
 ---
 
-<!-- WAAROM -->
+<!-- AANLEIDING -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
 
 # De aanleiding
 
-<p class="np-subtitle">De vraag kwam uit de keten zelf: "wanneer is iets af, en waar vinden we het?"</p>
+<div class="np-grid-2" style="margin-top: 0.8rem;">
+<div style="font-size: 0.98rem; line-height: 1.9;">
 
-<div class="np-grid-2" style="margin-top: 0.3rem;">
-<div style="font-size: 0.95rem; line-height: 1.8;">
-
-- Af en onderweg stonden door elkaar; <strong>welke versie telt</strong> was niet te zien
-- De inhoud verandert niet: <strong>dezelfde informatiestromen, dezelfde begrippen</strong>
+- De vraag uit de keten: <strong>"wanneer is iets af, en waar vinden we het?"</strong>
+- Af en onderweg stonden door elkaar; welke versie telt was niet te zien
+- De inhoud verandert niet: dezelfde informatiestromen, dezelfde begrippen
 
 </div>
 <div>
   <div class="np-card accent-orange">
     <h3>Consolidatie, geen koerswijziging</h3>
     <p style="font-size: 0.95rem; color: var(--np-dark-gray); line-height: 1.6; margin: 0.4rem 0 0;">
-      Wat af is, staat voortaan op &eacute;&eacute;n publieke plek en krijgt via
+      Wat af is, staat op &eacute;&eacute;n publieke plek en krijgt via
       release management een versienummer. Wat nog rijpt, blijft werkmateriaal.
     </p>
   </div>
@@ -123,10 +143,9 @@ De inhoud die jullie kennen blijft; we maken hem beter vindbaar en expliciet af 
 </div>
 
 <!--
-Kort houden op de slide; de rest mondeling, zoals in het overleg: werkmateriaal
-(onderzoek, concepten) en vastgestelde specificaties stonden op dezelfde plek,
-daardoor was voor leveranciers niet te zien wat telde. Benadrukken: de
-informatiestromen-hoofdplaat en het begrippenkader blijven de kern; die zijn niet veranderd.
+Kort houden; de rest mondeling: werkmateriaal (onderzoek, concepten) en vastgestelde
+specificaties stonden op dezelfde plek, daardoor was voor leveranciers niet te zien wat
+telde. De informatiestromen-hoofdplaat en het begrippenkader blijven de kern.
 -->
 
 ---
@@ -136,24 +155,61 @@ informatiestromen-hoofdplaat en het begrippenkader blijven de kern; die zijn nie
 
 <div class="fill">
 
-# Twee bronnen, één richting
+# Twee bronnen, elk hun eigen prioriteit
 
-<p class="np-subtitle">Van werkomgeving naar publieke bron: alleen wat af is, steekt over.</p>
+<div class="np-grid-2" style="margin-top: 0.6rem; align-items: center; gap: 1rem;">
+<div style="font-size: 0.92rem; line-height: 1.85;">
 
-<div style="display: flex; justify-content: center; margin-top: 0.2rem;">
-  <img src="/platen/repo-setup.jpg" style="max-height: 360px; width: auto; border: 1px solid #e2e8f0; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.12);" />
+- De <strong>werkomgeving</strong>: bronbestanden, iteraties en context &mdash; daar wordt gewerkt
+- De <strong>publieke bron</strong>: het product &mdash; geconsolideerde koppelvlakspecificaties en hun releases
+- Wat rijp is, verhuist via review van werkomgeving naar publieke bron
+
 </div>
-
-<div class="np-bottomline" style="margin-top: 0.6rem;">
-  Kijk naar de richting van de pijl: consolidatie stroomt van <strong>werkomgeving</strong> naar <strong>Npuls-OKx/Public</strong> &mdash; nooit andersom.
+<div style="display: flex; justify-content: center;">
+  <img src="/platen/repo-setup.jpg" style="max-height: 400px; width: auto; border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.18);" />
+</div>
 </div>
 
 </div>
 
 <!--
-Leeswijzer bij de plaat: links de werkomgeving (onderzoek, notulen, memo's, eerste uitwerkingen),
-rechts de publieke bron met alleen geconsolideerde koppelvlakspecificaties. Wat rijp is verhuist
-via een review naar Public; daar komt het in een release terecht.
+Leeswijzer bij de plaat: links de private source (interne planning en referentiemateriaal),
+midden de public source met CI/CD, rechts de public release waarmee een implementeerder
+bouwt — met de rollen erboven. De scheiding is er een van prioriteiten: werken versus
+opleveren.
+-->
+
+---
+
+<!-- META WORDT PRIVE -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# De werkomgeving wordt privé
+
+<div class="np-grid-2" style="margin-top: 0.8rem; align-items: start;">
+<div style="font-size: 0.95rem; line-height: 1.9;">
+
+- De meta-repository wordt <strong>privé</strong>: daar gaat het team aan het werk, en blijft het
+- Wat daar leeft: bronbestanden en iteraties, <strong>productiviteitstooling</strong>, en interne context zoals memo's van de adviesgroep
+- De publieke repository is puur de <strong>productrepository</strong>: de specificaties en hun releases
+
+</div>
+<div>
+  <div class="np-card accent-blue">
+    <h3>Wat dit voor afnemers betekent</h3>
+    <p class="muted" style="font-size: 0.86rem; margin: 0;">Alles wat nodig is om een koppelvlak te bouwen, staat in de publieke repository. Niets daarbuiten is nodig.</p>
+  </div>
+</div>
+</div>
+
+</div>
+
+<!--
+Deze vraag komt sowieso: wat gebeurt er in meta versus public. Meta is de source repository
+met complexere bestanden en meer context; de koppelvlakspecificaties hebben markdown-bronnen
+die daar geïtereerd worden; releases en definitieve documenten leven publiek.
 -->
 
 ---
@@ -165,13 +221,12 @@ via een review naar Public; daar komt het in een release terecht.
   <div style="text-align: center;">
     <p class="eyebrow" style="color: rgba(255,255,255,0.85);">Deel 2</p>
     <h1 style="color: #FFFFFF !important; font-size: 3rem;">De publieke repository</h1>
-    <p style="color: rgba(255,255,255,0.88); font-size: 1.15rem; margin-top: 0.5rem;">Waar wat staat, en hoe een koppelvlakspecificatie is opgebouwd</p>
   </div>
 </div>
 
 <!--
-Dit deel is het zwaartepunt: de kaart van de repository en de vaste opbouw van een
-koppelvlakspecificatie. Alles wat hier voorbijkomt is straks in het werkdeel zelf te vinden.
+Zwaartepunt van de sessie: de kaart van de repository en de vaste opbouw van een
+koppelvlakspecificatie. Alles hier is straks in het werkdeel zelf aan te klikken.
 -->
 
 ---
@@ -181,11 +236,9 @@ koppelvlakspecificatie. Alles wat hier voorbijkomt is straks in het werkdeel zel
 
 <div class="fill">
 
-# Eén map om te bouwen, één map voor context
+# Twee folders
 
-<p class="np-subtitle">github.com/Npuls-OKx/Public &mdash; compact en compleet.</p>
-
-<div class="np-grid-2" style="margin-top: 0.4rem; align-items: start;">
+<div class="np-grid-2" style="margin-top: 0.6rem; align-items: start;">
 <div>
 
 <pre style="background: #f6f8fa; color: var(--np-ink); border: 1px solid #e2e8f0; border-radius: 8px; padding: 0.8rem 1rem; font-size: 0.78rem; line-height: 1.55; margin: 0; font-family: ui-monospace, monospace;">Koppelvlakspecificaties/
@@ -218,9 +271,8 @@ Bouwen gebeurt uit <strong>Koppelvlakspecificaties/</strong>; het waarom staat i
 </div>
 
 <!--
-Dit is de kaart van de repository. Alles wat een leverancier nodig heeft om een koppelvlak
-te bouwen staat in de ene map; de onderbouwing van keuzes (ADR's, principes, kaderscenario's)
-staat ernaast, ter referentie, niet als verplichte kost.
+Hier meteen de opdracht geven: de link staat in de chat (en als QR verderop) — open
+github.com/Npuls-OKx/Public en klik mee door de folders terwijl dit deel loopt.
 -->
 
 ---
@@ -232,19 +284,16 @@ staat ernaast, ter referentie, niet als verplichte kost.
 
 # De opbouw van een koppelvlakspecificatie
 
-<p class="np-subtitle">Vier bouwstenen per koppelvlak, met authenticatie als gedeelde pijler.</p>
-
-<div class="np-grid-2" style="margin-top: 0.2rem; align-items: center; gap: 1rem;">
-<div style="display: flex; justify-content: center;">
-  <img src="/platen/koppelvlak-specificatie-breakdown.png" style="max-height: 350px; width: auto; border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.18);" />
-</div>
+<div class="np-grid-2" style="margin-top: 0.5rem; align-items: center; gap: 1rem;">
 <div style="display: flex; flex-direction: column; gap: 0.35rem; font-size: 0.76rem;">
   <div class="np-card accent-blue" style="padding: 0.4rem 0.7rem;"><strong>Functionele eisen</strong> — dragen de doelen van Leren zonder Drempels</div>
   <div class="np-card accent-orange" style="padding: 0.4rem 0.7rem;"><strong>Interactiepatronen</strong> — de processen waarmee referentiecomponenten interacteren</div>
   <div class="np-card accent-green" style="padding: 0.4rem 0.7rem;"><strong>Endpoints</strong> — wat een referentiecomponent implementeert, per interactie</div>
   <div class="np-card accent-blue" style="padding: 0.4rem 0.7rem;"><strong>Applicatiecomponenten</strong> — de componenten die via koppelvlakken interacteren</div>
   <div class="np-card accent-green" style="padding: 0.4rem 0.7rem;"><strong>Datamodelschema's</strong> — JSON-schema's van de payloads</div>
-  <div class="np-card accent-orange" style="padding: 0.4rem 0.7rem;"><strong>Auth-standaard</strong> — authenticatie en autorisatie voor alle koppelvlakken</div>
+</div>
+<div style="display: flex; justify-content: center;">
+  <img src="/platen/koppelvlak-specificatie-breakdown.png" style="max-height: 400px; width: auto; border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.18);" />
 </div>
 </div>
 
@@ -255,127 +304,78 @@ staat ernaast, ter referentie, niet als verplichte kost.
 </div>
 
 <!--
-Per koppelvlak dezelfde bouwstenen: wie (applicatiecomponenten met hun endpoints),
-hoe (interactiepatronen met functionele eisen), wat (JSON-datamodelschema's) en
-toegang (de auth-standaard, als gedeelde pijler voor alle koppelvlakken).
-De plaat toont hoe ze elkaar bepalen; de leeswijzer in de balk benoemt de pijlrichting.
+De authenticatiestandaard hoort hier mondeling bij: die ligt als buitenlaag om alle
+koppelvlakken heen en komt in deel 4 apart terug; de plaat wordt daar nog op bijgetekend.
+Wie/wat/hoe: applicatiecomponenten (wie), datamodelschema's (wat), interactiepatronen (hoe).
 -->
 
 ---
 
-<!-- VOORBEELDEN PER HOOFDSTUK -->
+<!-- VOORBEELD -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
 
-# Elk hoofdstuk in één voorbeeld
+# Voorbeeld
 
-<p class="np-subtitle">Zo leest de specificatie &mdash; van eis tot endpoint.</p>
+<div style="max-width: 46rem; margin: 1rem auto 0; font-size: 0.98rem; line-height: 1.9;">
 
-<div style="font-size: 0.78rem; margin-top: 0.3rem;">
+Eén lijn door het document. De keten-eis <em>"een vastgestelde specificatie bereikt elk systeem dat ermee werkt"</em> is per koppeling afgeleid naar een functionele eis &mdash; voor planning en roostering: <em>"de onderwijscatalogus moet het planningssysteem kunnen laten weten dat een specificatie gereed is om te plannen&nbsp;&hellip;"</em>.
 
-| Hoofdstuk | Voorbeeld uit het document |
-|---|---|
-| Afbakening: eisen aan de keten | "Een vastgestelde specificatie bereikt elk systeem dat ermee werkt" — afgeleid naar functionele eisen per koppeling |
-| Interactiepatroon (functionele eis) | "De onderwijscatalogus moet het planningssysteem kunnen laten weten dat een specificatie gereed is om te plannen …" |
-| Interactiepatroon (interactie) | Specificatie planbaar melden: dun event met id en versie, asynchroon; daarna haalt de afnemer de structuur of delta op |
-| Applicatiecomponent (endpoint) | `/onderwijsspecificaties/{id}` · GET · response `education-specification.json` · statuscodes 200, 400, 404 |
-| Datamodelschema | `education-specification.json`: hiërarchische onderwijsspecificatie, valideerbaar JSON-schema |
+Die eis werkt via de interactie <strong>specificatie planbaar melden</strong>: een dun event met id en versie, waarna de afnemer de structuur of de delta ophaalt. De interactie landt op het endpoint <code>/onderwijsspecificaties/{id}</code>, met <code>education-specification.json</code> als antwoord.
 
-</div>
+Zo leest elk hoofdstuk door naar het volgende: eis, proces, endpoint, schema.
 
-<div class="np-bottomline" style="margin-top: 0.5rem;">
-  De lijn is steeds dezelfde: <strong>keten-eis &rarr; functionele eis &rarr; interactie &rarr; endpoint</strong>.
 </div>
 
 </div>
 
 <!--
-Per hoofdstuk kort stilstaan bij dit voorbeeld; alles komt uit hetzelfde document en wijst
-naar elkaar door. Niet dieper ingaan dan dit; wie meer wil ziet het straks in het werkdeel zelf.
+Rustig voorlezen; dit is de leeservaring die het document zelf moet geven. In het werkdeel
+loopt iedereen precies deze lijn zelf na.
 -->
 
 ---
 
-<!-- FUNCTIONELE EISEN + VOORUITBLIK BOOM -->
+<!-- VOORUITBLIK FUNCTIONELE EISEN -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
 
-# Waar komen de functionele eisen vandaan?
+# Waar de functionele eisen vandaan komen
 
-<p class="np-subtitle">Vooruitblik: elke eis wordt herleidbaar tot de opdracht van Npuls.</p>
-
-<div class="np-pipeline" style="margin-top: 1.2rem;">
+<div class="np-pipeline" style="margin-top: 1.4rem;">
   <div class="np-step blue" style="flex: 1;">
-    <strong style="font-size: 0.88rem;">Leren zonder Drempels</strong>
-    <small>de Npuls-pijler</small>
+    <strong style="font-size: 0.9rem;">Leren zonder Drempels</strong>
   </div>
   <div class="np-arrow">&#8594;</div>
   <div class="np-step blue" style="flex: 1;">
-    <strong style="font-size: 0.88rem;">Opdracht</strong>
-    <small>OKx</small>
-  </div>
-  <div class="np-arrow">&#8594;</div>
-  <div class="np-step blue" style="flex: 1;">
-    <strong style="font-size: 0.88rem;">Doelen en epics</strong>
-    <small>wat de keten kan</small>
+    <strong style="font-size: 0.9rem;">Doelen en epics</strong>
   </div>
   <div class="np-arrow">&#8594;</div>
   <div class="np-step orange" style="flex: 1;">
-    <strong style="font-size: 0.88rem;">Features en stories</strong>
-    <small>toetsbare wensen</small>
+    <strong style="font-size: 0.9rem;">Features en stories</strong>
   </div>
   <div class="np-arrow">&#8594;</div>
   <div class="np-step green" style="flex: 1;">
-    <strong style="font-size: 0.88rem;">Functionele eisen</strong>
-    <small>per koppelvlak</small>
+    <strong style="font-size: 0.9rem;">Functionele eisen</strong>
   </div>
 </div>
 
-<div class="np-pipeline" style="margin-top: 0.35rem;">
-  <div style="flex: 1;"></div>
-  <div class="np-arrow" style="visibility: hidden;">&#8594;</div>
-  <div style="flex: 1;"></div>
-  <div class="np-arrow" style="visibility: hidden;">&#8594;</div>
-  <div style="flex: 1;"></div>
-  <div class="np-arrow" style="visibility: hidden;">&#8594;</div>
-  <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 0.1rem;">
-    <span class="muted" style="font-size: 0.7rem;">wensen en eisen</span>
-    <div style="display: flex; justify-content: center; gap: 1.2rem;">
-      <div style="display: flex; flex-direction: column; align-items: center; gap: 0.1rem;">
-        <div class="np-arrow">&#8593;</div>
-        <div class="np-step blue" style="padding: 0.3rem 0.7rem;"><strong style="font-size: 0.76rem;">Instellingen</strong></div>
-      </div>
-      <div style="display: flex; flex-direction: column; align-items: center; gap: 0.1rem;">
-        <div class="np-arrow">&#8593;</div>
-        <div class="np-step green" style="padding: 0.3rem 0.7rem;"><strong style="font-size: 0.76rem;">Leveranciers</strong></div>
-      </div>
-    </div>
-  </div>
-  <div class="np-arrow" style="visibility: hidden;">&#8594;</div>
-  <div style="flex: 1;"></div>
-</div>
-
-<div class="np-grid-2" style="margin-top: 0.6rem; align-items: start;">
-  <div class="np-card accent-green">
-    <h3 style="font-size: 0.98rem;">Wat dit oplevert</h3>
-    <p class="muted" style="font-size: 0.82rem; margin: 0;">Bij elke functionele eis is na te lopen w&aacute;&aacute;rom hij bestaat &mdash; en andersom: geen eis zonder herkomst.</p>
-  </div>
-  <div class="np-card accent-orange">
-    <h3 style="font-size: 0.98rem;">Vandaag alleen de aankondiging</h3>
-    <p class="muted" style="font-size: 0.82rem; margin: 0;">De requirementsboom is in opbouw; de uitwerking tonen we in een volgende sessie.</p>
+<div style="display: flex; justify-content: center; margin-top: 1.4rem;">
+  <div class="np-card accent-green" style="max-width: 34rem;">
+    <p style="font-size: 0.95rem; color: var(--np-dark-gray); line-height: 1.6; margin: 0;">
+      Elke functionele eis wordt herleidbaar tot de wens waaruit hij voortkomt &mdash; en andersom: geen eis zonder herkomst.
+    </p>
   </div>
 </div>
 
 </div>
 
 <!--
-De voedingslijn benoemen: wensen van instellingen en van leveranciers landen
-rechtstreeks als features en stories in de boom — de zaal zit er dus zelf in.
-Alleen aankondigen, niet uitwerken (afspraak met Ruud en Garik). Als er vragen komen:
-prima gespreksstof voor het werkdeel, de werkvraag daar is precies "hoe komen we tot
-die functionele eisen?". Niet de boom zelf laten zien; die is nog niet af.
+Alleen aankondigen, niet uitwerken; geen toezeggingen over wanneer. Mondeling: wensen en
+eisen van instellingen en van leveranciers landen als features en stories in deze keten —
+de zaal zit er dus zelf in. Bij vragen: dat is precies de werkvraag van het werkdeel.
 -->
 
 ---
@@ -387,44 +387,39 @@ die functionele eisen?". Niet de boom zelf laten zien; die is nog niet af.
   <div style="text-align: center;">
     <p class="eyebrow" style="color: rgba(255,255,255,0.85);">Deel 3</p>
     <h1 style="color: #FFFFFF !important; font-size: 3rem;">Release management</h1>
-    <p style="color: rgba(255,255,255,0.88); font-size: 1.15rem; margin-top: 0.5rem;">Wanneer iets af is, zeggen we het met een versienummer</p>
   </div>
 </div>
 
 <!--
-Dit deel beantwoordt de kernvraag van de aanleiding: wanneer is iets af. Kort houden;
-de volgende slide toont het hele mechanisme in drie stappen.
+Dit deel beantwoordt de kernvraag uit de aanleiding: wanneer is iets af. Kort houden.
 -->
 
 ---
 
-<!-- RELEASE-WERKWIJZE -->
+<!-- RELEASE -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
 
-# Van repository naar releasepakket
+# Van bron naar releasepakket
 
-<p class="np-subtitle">Een release is een gebouwd, gebundeld en genummerd document &mdash; geen losse map bestanden.</p>
-
-<div class="np-pipeline" style="margin-top: 1.3rem;">
-  <div class="np-step blue" style="flex: 1; max-width: 210px;">
+<div class="np-pipeline" style="margin-top: 1.6rem;">
+  <div class="np-step blue" style="flex: 1; max-width: 230px;">
     <strong style="font-size: 0.92rem;">Geconsolideerde bron</strong>
     <small>de publieke repository</small>
   </div>
   <div class="np-arrow">&#8594;</div>
-  <div class="np-step orange" style="flex: 1; max-width: 210px;">
-    <strong style="font-size: 0.92rem;">Releasemanifest</strong>
-    <small>volgorde en versienummer</small>
+  <div class="np-step orange" style="flex: 1; max-width: 230px;">
+    <strong style="font-size: 0.92rem;">Automatische controle en bouw</strong>
   </div>
   <div class="np-arrow">&#8594;</div>
-  <div class="np-step green" style="flex: 1; max-width: 210px;">
+  <div class="np-step green" style="flex: 1; max-width: 230px;">
     <strong style="font-size: 0.92rem;">Releasepakket</strong>
-    <small>&eacute;&eacute;n document + losse bestanden</small>
+    <small>&eacute;&eacute;n document, docx en pdf</small>
   </div>
 </div>
 
-<div class="np-proof-strip" style="justify-content: center; margin-top: 1.2rem;">
+<div class="np-proof-strip" style="justify-content: center; margin-top: 1.4rem;">
   <div class="np-proof-item"><span class="np-proof-check">&#10003;</span>Links en conventies automatisch gecontroleerd</div>
   <div class="np-proof-divider"></div>
   <div class="np-proof-item"><span class="np-proof-check">&#10003;</span>Diagrammen meegebouwd</div>
@@ -435,9 +430,9 @@ de volgende slide toont het hele mechanisme in drie stappen.
 </div>
 
 <!--
-Antwoord op "wanneer is iets af": als het in een release zit. Verwijzen doe je naar een
-versienummer, niet naar "de laatste stand van een branch". Feedback loopt via issues op de
-publieke repository; elke volgende release verwerkt die zichtbaar.
+Antwoord op "wanneer is iets af": als het in een release zit. Verwijzen gebeurt naar een
+versienummer, niet naar de laatste stand van een branch. Feedback loopt via issues; elke
+volgende release verwerkt die zichtbaar.
 -->
 
 ---
@@ -449,30 +444,25 @@ publieke repository; elke volgende release verwerkt die zichtbaar.
   <div style="text-align: center;">
     <p class="eyebrow" style="color: rgba(255,255,255,0.85);">Deel 4</p>
     <h1 style="color: #FFFFFF !important; font-size: 3rem;">Alpha-document v0.01</h1>
-    <p style="color: rgba(255,255,255,0.88); font-size: 1.15rem; margin-top: 0.5rem;">Het eerste releasepakket ligt er &mdash; om in te lezen en op te schieten</p>
   </div>
 </div>
 
 <!--
-Alpha zegt precies wat het is: compleet genoeg om op te schieten, niet af. De oproep van
-dit deel is concreet: inlezen en verschillen melden.
+Alpha zegt precies wat het is: compleet genoeg om op te schieten, niet af.
 -->
 
 ---
 
-<!-- ALPHA-DOCUMENT -->
+<!-- WAT ERIN ZIT -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
 
-# Wat er in v0.01 zit — en wat we vragen
+# Wat er in v0.01 zit
 
-<div class="np-grid-2" style="margin-top: 0.5rem; align-items: start;">
-<div style="font-size: 0.88rem; line-height: 1.7;">
+<div style="max-width: 40rem; margin: 0.8rem auto 0; font-size: 0.98rem; line-height: 2.0;">
 
-**Inhoud, in leesvolgorde:**
-
-- Inleiding en afbakening met de <strong>eisen aan de keten</strong>
+- Inleiding en afbakening, met de <strong>eisen aan de keten</strong>
 - <strong>Applicatiecomponenten</strong> met hun endpoints
 - <strong>Interactiepatronen</strong> met functionele eisen, per koppeling
 - <strong>Authenticatiestandaard</strong>
@@ -480,19 +470,42 @@ dit deel is concreet: inlezen en verschillen melden.
 - Uitgangspunten en veldnamenmapping
 
 </div>
-<div>
-  <div class="np-card accent-orange">
-    <h3 style="font-size: 0.98rem;">Wat we vragen</h3>
-    <p class="muted" style="font-size: 0.82rem; margin: 0;">Inlezen v&oacute;&oacute;r de volgende sessie. Wat schuurt met de eigen implementatie of met de oude situatie: meld het dan als issue onder OKx Public.</p>
-  </div>
+
+</div>
+
+<!--
+Leesvolgorde is de volgorde van het gebundelde document. Kort langslopen, niet openen —
+dat gebeurt in het werkdeel.
+-->
+
+---
+
+<!-- VRAAGSTELLING -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# Gevraagd: feedback op de structuur
+
+<div class="np-grid-2" style="margin-top: 0.8rem; align-items: center;">
+<div style="font-size: 0.95rem; line-height: 1.9;">
+
+- Is het document <strong>logisch te volgen</strong> en navigeerbaar?
+- De inhoud is nog niet af: modellen, authenticatielagen en interactiepatronen worden nog ge&iuml;tereerd &mdash; inhoudelijke feedback komt in latere rondes
+- Wat schuurt in de structuur: <strong>meld het als issue onder OKx Public</strong>
+
+</div>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 0.4rem;">
+  <img src="/shots/qr-npuls-okx-public.png" style="width: 190px; border-radius: 8px; border: 1px solid #e2e8f0;" />
+  <span class="muted" style="font-size: 0.8rem;">github.com/Npuls-OKx/Public</span>
 </div>
 </div>
 
 </div>
 
 <!--
-Alpha betekent: compleet genoeg om op te schieten, niet af. Jos kijkt mee met de OKE-bril
-op oud versus nieuw; nodig de rest uit hetzelfde te doen vanuit hun eigen systeem.
+Expliciet ontmoedigen dat mensen morgen de inhoud gaan fileren: daar wordt nog veel
+overheen geïtereerd. De vraag is of de structuur draagt. Link ook in de chat delen.
 -->
 
 ---
@@ -502,16 +515,14 @@ op oud versus nieuw; nodig de rest uit hetzelfde te doen vanuit hun eigen systee
 
 <div class="fill">
 
-# Authenticatie: bewust eenvoudig
+# Authenticatie en autorisatie
 
-<p class="np-subtitle">Eén uitgangspunt voor alle koppelvlakken, aansluitend op wat er al is.</p>
+<div class="np-grid-2" style="margin-top: 0.8rem; align-items: start;">
+<div style="font-size: 0.95rem; line-height: 1.9;">
 
-<div class="np-grid-2" style="margin-top: 0.5rem; align-items: start;">
-<div style="font-size: 0.9rem; line-height: 1.75;">
-
-- Uitgangspunt: <strong>OAuth 2.0 client credentials</strong>, conform het Edukoppeling-profiel
-- Machine-naar-machine, cloudvriendelijk &mdash; de les uit eerdere PKI-discussies
-- Zolang het profiel niet definitief is, blijft het bestaande <strong>OKE-document</strong> leidend
+- Doel: <strong>standaarden vaststellen</strong> voor de API-endpoints en de koppelvlakspecificatielaag &mdash; niet h&oacute;e een partij dat implementeert
+- Uitgangspunt: open standaarden &mdash; <strong>OAuth 2.0 client credentials</strong>, conform het Edukoppeling-profiel
+- Het bestaande OKE-document (hoofdstuk 5) blijft leidend tot het profiel definitief is
 
 </div>
 <div>
@@ -525,8 +536,8 @@ op oud versus nieuw; nodig de rest uit hetzelfde te doen vanuit hun eigen systee
 </div>
 
 <!--
-Bewust kort en simpel houden: geen lange lijst eisen richting leveranciers. De diepgang
-van dit gesprek mag de zaal zelf bepalen; Ruud jaagt de discussie aan als het stil blijft.
+Bewust kort en eenvoudig: geen lijst eisen richting leveranciers. De diepgang van dit
+gesprek bepaalt de zaal; Ruud jaagt de discussie aan als het stil blijft.
 -->
 
 ---
@@ -536,11 +547,9 @@ van dit gesprek mag de zaal zelf bepalen; Ruud jaagt de discussie aan als het st
 
 <div class="fill">
 
-# Aan de slag — zelf kijken
+# Aan de slag
 
-<p class="np-subtitle">Geen demo; zelf zoeken is precies de bedoeling van deze opzet.</p>
-
-<div class="np-grid-3" style="margin-top: 0.6rem; align-items: start;">
+<div class="np-grid-3" style="margin-top: 0.8rem; align-items: start;">
   <div class="np-card accent-blue">
     <span class="np-badge blue">Opdracht 1</span>
     <h3 style="margin-top: 0.5rem; font-size: 0.95rem;">Vind het eigen systeem</h3>
@@ -549,7 +558,7 @@ van dit gesprek mag de zaal zelf bepalen; Ruud jaagt de discussie aan als het st
   <div class="np-card accent-green">
     <span class="np-badge green">Opdracht 2</span>
     <h3 style="margin-top: 0.5rem; font-size: 0.95rem;">Open het releasepakket</h3>
-    <p class="muted" style="font-size: 0.8rem; margin: 0;">Open het gebouwde v0.01-document en volg &eacute;&eacute;n functionele eis naar zijn interactie en endpoint.</p>
+    <p class="muted" style="font-size: 0.8rem; margin: 0;">Open v0.01 (docx of pdf) en volg &eacute;&eacute;n functionele eis naar zijn interactie en endpoint.</p>
   </div>
   <div class="np-card accent-orange">
     <span class="np-badge orange">Werkvraag</span>
@@ -565,9 +574,8 @@ van dit gesprek mag de zaal zelf bepalen; Ruud jaagt de discussie aan als het st
 </div>
 
 <!--
-Uitwerksessie: iedereen zelf laten klikken. Loop rond, verzamel wat mensen niet kunnen vinden;
-dat zijn de eerste issues. De werkvraag over functionele eisen is de brug naar de boom-sessie
-van de volgende keer.
+Uitwerksessie: iedereen zelf laten klikken. Rondlopen en verzamelen wat mensen niet kunnen
+vinden — dat zijn de eerste issues. De werkvraag is de brug naar de boom-uitwerking.
 -->
 
 ---
@@ -578,8 +586,7 @@ van de volgende keer.
 <div class="flex items-center justify-center h-full">
   <div style="text-align: center;">
     <p class="eyebrow" style="color: rgba(255,255,255,0.85);">Deel 5</p>
-    <h1 style="color: #FFFFFF !important; font-size: 3rem;">Sprintplanning</h1>
-    <p style="color: rgba(255,255,255,0.88); font-size: 1.15rem; margin-top: 0.5rem;">Wat er de komende periode op de plank ligt</p>
+    <h1 style="color: #FFFFFF !important; font-size: 3rem;">Planning</h1>
   </div>
 </div>
 
@@ -589,14 +596,12 @@ Overdracht aan Ruud: hij heeft de issues geselecteerd en loopt ze langs.
 
 ---
 
-<!-- SPRINTPLANNING -->
+<!-- PLANNING -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
 
-# Sprintplanning
-
-<p class="np-subtitle">De belangrijkste issues voor de komende periode &mdash; selectie en toelichting door Ruud.</p>
+# Planning
 
 <div class="np-grid-2" style="margin-top: 0.8rem; align-items: start;">
   <div class="np-card accent-blue">
@@ -609,13 +614,12 @@ Overdracht aan Ruud: hij heeft de issues geselecteerd en loopt ze langs.
   </div>
 </div>
 
-<p class="muted" style="font-size: 0.82rem; margin-top: 1rem;">Vooruitblik: de komende periode werken we minimaal drie koppelvlakken op deze manier uit.</p>
+<p class="muted" style="font-size: 0.82rem; margin-top: 1rem;">De komende periode werken we minimaal drie koppelvlakken op deze manier uit.</p>
 
 </div>
 
 <!--
-Dit agendapunt is van Ruud; hij selecteert de issues en loopt ze langs. De slide is het haakje,
-niet de inhoud.
+Dit agendapunt is van Ruud; de slide is het haakje, niet de inhoud.
 -->
 
 ---
@@ -624,6 +628,5 @@ niet de inhoud.
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide17.PNG);"></div>
 
 <!--
-Afsluiting: bedanken, oproep herhalen (inlezen v0.01, feedback als issue), volgende sessie
-komt de requirementsboom-uitwerking.
+Afsluiting: oproep herhalen — inlezen v0.01, structuurfeedback als issue onder OKx Public.
 -->
