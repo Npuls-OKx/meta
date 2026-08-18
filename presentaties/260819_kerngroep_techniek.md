@@ -523,7 +523,7 @@ zelf na.
   <div class="np-arrow">&#8594;</div>
   <div class="np-step green" style="flex: 1;">
     <strong style="font-size: 0.85rem;">Functionele eisen</strong>
-    <small>per koppelvlak</small>
+    <small>bijvoorbeeld: planbare specificaties melden aan het planningssysteem</small>
   </div>
 </div>
 
