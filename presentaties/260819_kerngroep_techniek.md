@@ -322,7 +322,7 @@ naar elkaar door. Niet dieper ingaan dan dit; wie meer wil ziet het straks in he
     <small>wat de keten kan</small>
   </div>
   <div class="np-arrow">&#8594;</div>
-  <div class="np-step orange" style="flex: 1; outline: 2.5px solid var(--np-orange); outline-offset: 2px;">
+  <div class="np-step orange" style="flex: 1;">
     <strong style="font-size: 0.88rem;">Features en stories</strong>
     <small>toetsbare wensen</small>
   </div>
