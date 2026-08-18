@@ -394,8 +394,8 @@ en de zwarte relatielabels zijn slecht leesbaar.
 
 <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 1rem; align-items: center; margin-top: 0.6rem;">
 <div style="display: flex; flex-direction: column; gap: 0.2rem; font-size: 0.78rem; line-height: 1.5;">
-  <div class="np-card accent-blue" style="padding: 0.45rem 0.8rem;">
-    <span class="np-badge blue">Requirementsboom &middot; story</span>
+  <div class="np-card accent-green" style="padding: 0.45rem 0.8rem;">
+    <span class="np-badge green">Requirementsboom &middot; story</span>
     <p style="margin: 0.25rem 0 0; color: var(--np-dark-gray);"><em>"Als planner wil ik dat de catalogus een planbaar geworden specificatie met een dun event (id en versie) meldt en ik de structuur of delta kan ophalen, zodat ik er opleidingsaanbod van kan maken."</em></p>
   </div>
   <div style="text-align: center; color: var(--np-mid-gray); font-size: 0.72rem;">&#8595; technisch gedragen door</div>
@@ -415,9 +415,11 @@ en de zwarte relatielabels zijn slecht leesbaar.
 sequenceDiagram
   participant OC as Onderwijscatalogus
   participant P as Planning
-  OC->>P: specificatie planbaar (id + versie)
-  P->>OC: structuur of delta ophalen
-  P->>OC: opleidingsaanbod terug
+  OC->>P: event: specificatie planbaar (id + versie)
+  P->>OC: specificatiestructuur of delta opvragen
+  OC->>P: specificatiestructuur terug
+  P->>P: eigen planproces
+  P->>OC: onderwijsaanbod terug, of foutmelding met beperkingen
 ```
 
 </div>
@@ -452,8 +454,8 @@ twee systemen verloopt. Dezelfde eis bestaat ook keten-breed in de afbakening.
     <p style="margin: 0.25rem 0 0; color: var(--np-dark-gray);"><code>/onderwijsspecificaties/{id}</code> &middot; GET &middot; statuscodes 200, 400, 404</p>
   </div>
   <div style="text-align: center; color: var(--np-mid-gray); font-size: 0.72rem;">&#8595; wisselt uit volgens</div>
-  <div class="np-card accent-green" style="padding: 0.45rem 0.8rem;">
-    <span class="np-badge green">Datamodelschema</span>
+  <div class="np-card accent-blue" style="padding: 0.45rem 0.8rem;">
+    <span class="np-badge blue">Datamodelschema</span>
     <p style="margin: 0.25rem 0 0; color: var(--np-dark-gray);"><code>education-specification.json</code>: valideerbaar JSON-schema van het antwoord.</p>
   </div>
 </div>
