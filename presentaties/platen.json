@@ -230,9 +230,9 @@
       "versie": "-",
       "toont": "Het pakket koppelvlakspecificatie uitgesplitst: sectoreisen (uit de OKx-requirementsboom) voeden de functionele eisen; die bepalen de processen (interactiepatronen), de processen de endpoints, en endpoints gebruiken de datamodelschema's; de auth-standaard staat als losse pijler. Transparant, groene blokken, geschikt voor lichte slides.",
       "gebruik_bij": "Uitleggen hoe een koppelvlakspecificatie in elkaar zit; kerngroep techniek en leveranciers die het releasepakket gaan lezen.",
-      "let_op": "Het blok heet nog Referentiesystemen; de vastgestelde term is applicatiecomponenten. De relatielabels zijn zwarte chips met slecht leesbare tekst; hertekenen in de drawio-bron. Bron nog niet gecommit op een Public-branch.",
+      "let_op": "Het blok heet nog Referentiesystemen; de vastgestelde term is applicatiecomponenten. De labels Gebruikt en Heeft betrekking op dragen nog zwarte chips met slecht leesbare tekst; de overige labels zijn hersteld. Bron nog niet gecommit op een Public-branch.",
       "kopie": "koppelvlak-specificatie-breakdown.png",
-      "hash": "d1c1f3e50573f674"
+      "hash": "8af94f27b83f6de2"
     },
     {
       "naam": "repo-inrichting",

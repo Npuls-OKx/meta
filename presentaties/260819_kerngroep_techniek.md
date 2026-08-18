@@ -360,21 +360,17 @@ document.
 
 # De opbouw van een koppelvlakspecificatie
 
-<div class="np-grid-2" style="margin-top: 0.5rem; align-items: center; gap: 1rem;">
-<div style="display: flex; flex-direction: column; gap: 0.35rem; font-size: 0.76rem;">
-  <div class="np-card accent-blue" style="padding: 0.4rem 0.7rem;"><strong>Functionele eisen</strong>: wat moet dit koppelvlak concreet doen om de sectoreisen waar te maken?</div>
-  <div class="np-card accent-orange" style="padding: 0.4rem 0.7rem;"><strong>Interactiepatronen</strong>: de machine-naar-machineprocessen waarmee applicatiecomponenten interacteren</div>
-  <div class="np-card accent-blue" style="padding: 0.4rem 0.7rem;"><strong>Applicatiecomponenten</strong>: wie zijn de spelers in de keten?</div>
-  <div class="np-card accent-green" style="padding: 0.4rem 0.7rem;"><strong>Endpoints</strong>: de aanspreekpunten waarmee een speler zijn verantwoordelijkheden waarmaakt</div>
-  <div class="np-card accent-green" style="padding: 0.4rem 0.7rem;"><strong>Datamodelschema's</strong>: de exacte afspraak waarmee gegevens worden uitgewisseld</div>
+<div style="display: grid; grid-template-columns: 1fr 2.3fr; gap: 1rem; align-items: center; margin-top: 0.5rem;">
+<div style="display: flex; flex-direction: column; gap: 0.3rem; font-size: 0.72rem; line-height: 1.45;">
+  <div class="np-card accent-blue" style="padding: 0.35rem 0.6rem;"><strong>Functionele eisen</strong><br/>Wat moet dit koppelvlak concreet doen om de sectoreisen waar te maken?</div>
+  <div class="np-card accent-blue" style="padding: 0.35rem 0.6rem;"><strong>Applicatiecomponenten</strong><br/>De spelers: welke systemen interacteren met elkaar?</div>
+  <div class="np-card accent-orange" style="padding: 0.35rem 0.6rem;"><strong>Interactiepatronen</strong><br/>De machine-naar-machineprocessen waarmee de spelers interacteren</div>
+  <div class="np-card accent-green" style="padding: 0.35rem 0.6rem;"><strong>Endpoints</strong><br/>De aanspreekpunten waarmee een speler zijn verantwoordelijkheden waarmaakt</div>
+  <div class="np-card accent-green" style="padding: 0.35rem 0.6rem;"><strong>Datamodelschema's</strong><br/>De exacte afspraak waarmee gegevens worden uitgewisseld</div>
 </div>
 <div style="display: flex; justify-content: center;">
-  <img src="/platen/koppelvlak-specificatie-breakdown.png" style="max-height: 430px; max-width: 100%; width: auto;" />
+  <img src="/platen/koppelvlak-specificatie-breakdown.png" style="max-height: 470px; max-width: 100%; width: auto;" />
 </div>
-</div>
-
-<div class="np-bottomline" style="margin-top: 0.5rem;">
-  Volg de pijlen: de <strong>sectoreisen</strong> voeden de functionele eisen; die bepalen de processen, de processen de <strong>endpoints</strong>, en endpoints gebruiken de <strong>datamodelschema's</strong>.
 </div>
 
 </div>
