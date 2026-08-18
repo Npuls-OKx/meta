@@ -1,7 +1,7 @@
 ---
 theme: default
 title: Koppelvlakspecificaties, geconsolideerd en releasebaar
-info: Sessie kerngroep techniek, 19 augustus 2026: de eerste structuur voor het eindproduct, de publieke repository, release management en het alpha-document v0.0.1.
+info: "Sessie kerngroep techniek, 19 augustus 2026: de eerste structuur voor het eindproduct, de publieke repository, release management en het alpha-document v0.0.1."
 author: OKx - Onderwijskoppelingen (Npuls)
 highlighter: shiki
 lineNumbers: false
