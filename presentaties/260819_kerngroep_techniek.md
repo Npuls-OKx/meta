@@ -271,7 +271,7 @@ Bouwen gebeurt uit <strong>Koppelvlakspecificaties/</strong>; het waarom staat i
 </div>
 
 <!--
-Hier meteen de opdracht geven: de link staat in de chat (en als QR verderop): open
+Hier meteen de opdracht geven: de link staat in de chat en als QR verderop. Open
 github.com/Npuls-OKx/Public en klik mee door de folders terwijl dit deel loopt.
 -->
 
@@ -628,5 +628,5 @@ Dit agendapunt is van Ruud; de slide is het haakje, niet de inhoud.
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide17.PNG);"></div>
 
 <!--
-Afsluiting: oproep herhalen: inlezen v0.01, structuurfeedback als issue onder OKx Public.
+Afsluiting: herhaal de oproep. Inlezen v0.01, structuurfeedback als issue onder OKx Public.
 -->
