@@ -188,29 +188,25 @@ koppelvlakspecificatie. Alles wat hier voorbijkomt is straks in het werkdeel zel
 <div class="np-grid-2" style="margin-top: 0.4rem; align-items: start;">
 <div>
 
-```text
-Koppelvlakspecificaties/
+<pre style="background: #f6f8fa; color: var(--np-ink); border: 1px solid #e2e8f0; border-radius: 8px; padding: 0.8rem 1rem; font-size: 0.78rem; line-height: 1.55; margin: 0; font-family: ui-monospace, monospace;">Koppelvlakspecificaties/
 ├── inleiding.md
 ├── afbakening.md          ← eisen aan de keten
 ├── Applicatiecomponenten/ ← rollen + endpoints
 ├── Interactiepatronen/    ← per koppeling, met
 │                            functionele eisen
-├── Datamodelschema's/     ← JSON-schema's
+├── Datamodelschema's      ← JSON-schema's
 ├── auth-standaard.md      ← eigen pijler
-└── uitgangspunten.md
-```
+└── uitgangspunten.md</pre>
 
 </div>
 <div>
 
-```text
-Referentiemateriaal/
+<pre style="background: #f6f8fa; color: var(--np-ink); border: 1px solid #e2e8f0; border-radius: 8px; padding: 0.8rem 1rem; font-size: 0.78rem; line-height: 1.55; margin: 0; font-family: ui-monospace, monospace;">Referentiemateriaal/
 ├── adr/                   ← besluiten met
 │                            onderbouwing
 ├── principes/
 ├── kaderscenario's/       ← de leerroutes
-└── persona's/             ← wie de student is
-```
+└── persona's/             ← wie de student is</pre>
 
 <p class="muted" style="font-size: 0.82rem; margin-top: 0.4rem;">
 Bouwen gebeurt uit <strong>Koppelvlakspecificaties/</strong>; het waarom staat in <strong>Referentiemateriaal/</strong>.
