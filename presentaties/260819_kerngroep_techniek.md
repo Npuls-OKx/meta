@@ -797,25 +797,22 @@ en keuzeregels met regelset) al in de maak zijn; de volgende slide toont alle ze
 
 # De zeven grote items
 
-<div style="font-size: 0.8rem; margin-top: 0.5rem;">
-
-| Backlog-item | Hangt onder epic |
-|---|---|
-| Requirementsboom: kaderstelling en sectorverantwoording publiceren | Gezamenlijke taal en standaard |
-| Keuzeregels en regelset-payload uitwerken | Student kiest onderwijsspecificaties |
-| Functionele eisen per koppelvlak completeren, onder andere foutherstel en abonnementen voor SIS en LMS | Betrouwbare en vervangbare koppelingen |
-| Authenticatiestandaard bekrachtigen (Edukoppeling-profiel) | Betrouwbare en vervangbare koppelingen |
-| Datamodelschema's itereren met voorbeeldpayloads | Onderwijsaanbod specificeren en ontsluiten |
-| Volgende koppelvlakken uitwerken, minimaal drie | Aanbod plannen en roosteren |
-| Feedback uit deze sessie verwerken richting de volgende release | Standaard beproeven en adopteren |
-
+<div class="np-grid-3" style="margin-top: 0.7rem; gap: 0.5rem; align-items: stretch;">
+  <div class="np-card accent-blue" style="padding: 0.5rem 0.7rem; font-size: 0.78rem;">Requirementsboom: kaderstelling en sectorverantwoording publiceren</div>
+  <div class="np-card accent-orange" style="padding: 0.5rem 0.7rem; font-size: 0.78rem;">Keuzeregels en regelset-payload uitwerken</div>
+  <div class="np-card accent-green" style="padding: 0.5rem 0.7rem; font-size: 0.78rem;">Functionele eisen per koppelvlak completeren</div>
+  <div class="np-card accent-green" style="padding: 0.5rem 0.7rem; font-size: 0.78rem;">Authenticatiestandaard bekrachtigen (Edukoppeling-profiel)</div>
+  <div class="np-card accent-blue" style="padding: 0.5rem 0.7rem; font-size: 0.78rem;">Datamodelschema's itereren met voorbeeldpayloads</div>
+  <div class="np-card accent-orange" style="padding: 0.5rem 0.7rem; font-size: 0.78rem;">Volgende koppelvlakken uitwerken, minimaal drie</div>
+  <div class="np-card accent-blue" style="padding: 0.5rem 0.7rem; font-size: 0.78rem;">Feedback uit deze sessie verwerken richting de volgende release</div>
 </div>
 
 </div>
 
 <!--
-De epics komen uit de requirementsboom; elk backlog-item krijgt daar zijn plek zodat de
-herleidbaarheid vanaf dag een meeloopt. Prioritering is aan Ruud met de kerngroep.
+Elk item krijgt in de requirementsboom zijn plek onder een epic, zodat de herleidbaarheid
+vanaf dag een meeloopt; dat detail hier mondeling. Prioritering is aan Ruud met de kerngroep.
+De eerste twee items zijn al in de maak.
 -->
 
 ---
