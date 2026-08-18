@@ -322,7 +322,7 @@ naar elkaar door. Niet dieper ingaan dan dit; wie meer wil ziet het straks in he
     <small>wat de keten kan</small>
   </div>
   <div class="np-arrow">&#8594;</div>
-  <div class="np-step orange" style="flex: 1;">
+  <div class="np-step orange" style="flex: 1; outline: 2.5px solid var(--np-orange); outline-offset: 2px;">
     <strong style="font-size: 0.88rem;">Features en stories</strong>
     <small>toetsbare wensen</small>
   </div>
@@ -333,7 +333,16 @@ naar elkaar door. Niet dieper ingaan dan dit; wie meer wil ziet het straks in he
   </div>
 </div>
 
-<div class="np-grid-2" style="margin-top: 1rem; align-items: start;">
+<div style="display: flex; margin-top: 0.35rem;">
+  <div style="margin-left: auto; margin-right: 13%; display: flex; align-items: center; gap: 0.4rem;">
+    <div class="np-step blue" style="padding: 0.3rem 0.7rem;"><strong style="font-size: 0.76rem;">Instellingen en leveranciers</strong></div>
+    <div class="np-arrow">&#8594;</div>
+    <div class="np-step orange" style="padding: 0.3rem 0.7rem;"><strong style="font-size: 0.76rem;">Adviesgroep</strong></div>
+    <div class="np-arrow">&#8593;</div>
+  </div>
+</div>
+
+<div class="np-grid-2" style="margin-top: 0.6rem; align-items: start;">
   <div class="np-card accent-green">
     <h3 style="font-size: 0.98rem;">Wat dit oplevert</h3>
     <p class="muted" style="font-size: 0.82rem; margin: 0;">Bij elke functionele eis is na te lopen w&aacute;&aacute;rom hij bestaat &mdash; en andersom: geen eis zonder herkomst.</p>
@@ -347,6 +356,8 @@ naar elkaar door. Niet dieper ingaan dan dit; wie meer wil ziet het straks in he
 </div>
 
 <!--
+De voedingslijn benoemen: wensen van instellingen en leveranciers landen via de
+adviesgroep als features en stories in de boom — de zaal zit er dus zelf in.
 Alleen aankondigen, niet uitwerken (afspraak met Ruud en Garik). Als er vragen komen:
 prima gespreksstof voor het werkdeel, de werkvraag daar is precies "hoe komen we tot
 die functionele eisen?". Niet de boom zelf laten zien; die is nog niet af.
