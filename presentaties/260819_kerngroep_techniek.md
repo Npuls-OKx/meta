@@ -390,28 +390,23 @@ en de zwarte relatielabels zijn slecht leesbaar.
 
 <div class="fill">
 
-# Voorbeeld
+# Voorbeeld: van wens naar interactie
 
-<div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 1rem; align-items: center; margin-top: 0.5rem;">
-<div style="display: flex; flex-direction: column; gap: 0.15rem; font-size: 0.74rem; line-height: 1.45;">
-  <div class="np-card accent-blue" style="padding: 0.4rem 0.7rem;">
+<div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 1rem; align-items: center; margin-top: 0.6rem;">
+<div style="display: flex; flex-direction: column; gap: 0.2rem; font-size: 0.78rem; line-height: 1.5;">
+  <div class="np-card accent-blue" style="padding: 0.45rem 0.8rem;">
     <span class="np-badge blue">Requirementsboom &middot; story</span>
     <p style="margin: 0.25rem 0 0; color: var(--np-dark-gray);"><em>"Als planner wil ik dat de catalogus een planbaar geworden specificatie met een dun event (id en versie) meldt en ik de structuur of delta kan ophalen, zodat ik er opleidingsaanbod van kan maken."</em></p>
   </div>
-  <div style="text-align: center; color: var(--np-mid-gray); font-size: 0.7rem;">&#8595; technisch gedragen door</div>
-  <div class="np-card accent-blue" style="padding: 0.4rem 0.7rem;">
-    <span class="np-badge blue">Interactiepatroon &middot; functionele eis</span>
+  <div style="text-align: center; color: var(--np-mid-gray); font-size: 0.72rem;">&#8595; technisch gedragen door</div>
+  <div class="np-card accent-blue" style="padding: 0.45rem 0.8rem;">
+    <span class="np-badge blue">Functionele eis</span>
     <p style="margin: 0.25rem 0 0; color: var(--np-dark-gray);"><em>"De onderwijscatalogus moet het planningssysteem kunnen laten weten dat een specificatie gereed is om te plannen&nbsp;&hellip;"</em></p>
   </div>
-  <div style="text-align: center; color: var(--np-mid-gray); font-size: 0.7rem;">&#8595; werkt via</div>
-  <div class="np-card accent-orange" style="padding: 0.4rem 0.7rem;">
+  <div style="text-align: center; color: var(--np-mid-gray); font-size: 0.72rem;">&#8595; werkt via</div>
+  <div class="np-card accent-orange" style="padding: 0.45rem 0.8rem;">
     <span class="np-badge orange">Interactiepatroon &middot; interactie</span>
     <p style="margin: 0.25rem 0 0; color: var(--np-dark-gray);"><strong>Specificatie planbaar melden</strong>, volgens het patroon notify-then-pull.</p>
-  </div>
-  <div style="text-align: center; color: var(--np-mid-gray); font-size: 0.7rem;">&#8595; landt op</div>
-  <div class="np-card accent-green" style="padding: 0.4rem 0.7rem;">
-    <span class="np-badge green">Applicatiecomponent &middot; endpoint</span>
-    <p style="margin: 0.25rem 0 0; color: var(--np-dark-gray);"><code>/onderwijsspecificaties/{id}</code> &middot; GET &middot; antwoord <code>education-specification.json</code></p>
   </div>
 </div>
 <div style="display: flex; justify-content: center;">
@@ -431,9 +426,59 @@ sequenceDiagram
 </div>
 
 <!--
-Niet voorlezen; de keten wijst zichzelf: van de wens van de planner tot het endpoint,
-met rechts hoe de interactie tussen de twee systemen verloopt. Dezelfde eis bestaat ook
-keten-breed in de afbakening. In het werkdeel loopt iedereen deze lijn zelf na.
+Niet voorlezen; de keten wijst zichzelf: de wens van de planner wordt technisch gedragen
+door een functionele eis en werkt via een interactie. Rechts hoe die interactie tussen de
+twee systemen verloopt. Dezelfde eis bestaat ook keten-breed in de afbakening.
+-->
+
+---
+
+<!-- VOORBEELD DEEL 2 -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# Voorbeeld: van interactie naar gegevens
+
+<div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 1rem; align-items: center; margin-top: 0.6rem;">
+<div style="display: flex; flex-direction: column; gap: 0.2rem; font-size: 0.78rem; line-height: 1.5;">
+  <div class="np-card accent-orange" style="padding: 0.45rem 0.8rem;">
+    <span class="np-badge orange">Interactiepatroon &middot; interactie</span>
+    <p style="margin: 0.25rem 0 0; color: var(--np-dark-gray);"><strong>Specificatie planbaar melden</strong>: de afnemer haalt de structuur of de delta op.</p>
+  </div>
+  <div style="text-align: center; color: var(--np-mid-gray); font-size: 0.72rem;">&#8595; landt op</div>
+  <div class="np-card accent-green" style="padding: 0.45rem 0.8rem;">
+    <span class="np-badge green">Applicatiecomponent &middot; endpoint</span>
+    <p style="margin: 0.25rem 0 0; color: var(--np-dark-gray);"><code>/onderwijsspecificaties/{id}</code> &middot; GET &middot; statuscodes 200, 400, 404</p>
+  </div>
+  <div style="text-align: center; color: var(--np-mid-gray); font-size: 0.72rem;">&#8595; wisselt uit volgens</div>
+  <div class="np-card accent-green" style="padding: 0.45rem 0.8rem;">
+    <span class="np-badge green">Datamodelschema</span>
+    <p style="margin: 0.25rem 0 0; color: var(--np-dark-gray);"><code>education-specification.json</code>: valideerbaar JSON-schema van het antwoord.</p>
+  </div>
+</div>
+<div>
+
+```json
+{
+  "learningOutcomes": [ … ],
+  "educationSpecifications": [ … ],
+  "ruleSets": [ … ]
+}
+```
+
+<p class="muted" style="font-size: 0.74rem; margin-top: 0.3rem; text-align: center;">De drie hoofdonderdelen van het antwoord, elk voluit beschreven in het schema.</p>
+
+</div>
+</div>
+
+</div>
+
+<!--
+De landing: het endpoint levert een antwoord dat exact aan het schema voldoet; leeruitkomsten,
+specificaties en regelsets zijn de drie hoofdonderdelen. Hiermee is de lijn rond: wens,
+functionele eis, interactie, endpoint, gegevens. In het werkdeel loopt iedereen deze lijn
+zelf na.
 -->
 
 ---
