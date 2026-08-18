@@ -848,7 +848,7 @@ applicatiecomponenten. Het keuzeregels-item is het issue van Jan Hendrik van Sch
 <div style="font-size: 0.95rem; line-height: 1.9;">
 
 - De <strong>structuur staat</strong>, gereleased als koppelvlakspecificatie v0.0.1
-- De werkwijze is versimpeld: <strong>&eacute;&eacute;n publieke bron</strong>, met releases die zeggen wat geldt
+- De werkwijze is versimpeld: <strong>&eacute;&eacute;n publieke bron</strong>, met genummerde releases als vast ijkpunt
 - Volgende iteratie: sectorwensen en het eindproduct koppelvlakspecificatie <strong>sterker verbinden</strong>, met de requirementsboom als proof of concept
 
 </div>
