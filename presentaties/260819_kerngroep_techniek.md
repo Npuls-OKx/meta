@@ -330,8 +330,9 @@ ze vonden wat ze zochten. Wat niet vindbaar is, is de eerste oogst aan feedback.
 
 # Iets gezien dat niet klopt, of dat anders kan?
 
-```mermaid
-flowchart LR
+```mermaid {scale: 0.55}
+%%{init: {'themeVariables': {'fontSize': '20px'}}}%%
+flowchart TD
   M["Melding (issue)"] --> R["Refinen en prioriteren"] --> PL["Plannen"] --> W["Wijzigingsvoorstel (pull request)"] --> RV["Review door collega's"]
   RV -->|akkoord| B["Onderdeel van de bron"] --> D["Nieuw koppelvlakspecificatie-document"]
   RV -->|nog niet akkoord| A["Aanpassen"] --> RV
