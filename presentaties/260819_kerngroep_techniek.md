@@ -113,8 +113,8 @@ De inhoud die jullie kennen blijft; we maken hem beter vindbaar en expliciet af 
   <div class="np-card accent-orange">
     <h3>Consolidatie, geen koerswijziging</h3>
     <p style="font-size: 0.95rem; color: var(--np-dark-gray); line-height: 1.6; margin: 0.4rem 0 0;">
-      Wat af is, staat voortaan op &eacute;&eacute;n publieke plek met een versienummer.
-      Wat nog rijpt, blijft werkmateriaal.
+      Wat af is, staat voortaan op &eacute;&eacute;n publieke plek en krijgt via
+      release management een versienummer. Wat nog rijpt, blijft werkmateriaal.
     </p>
   </div>
 </div>
