@@ -478,8 +478,6 @@ twee systemen verloopt. Dezelfde eis bestaat ook keten-breed in de afbakening.
 }
 ```
 
-<p class="muted" style="font-size: 0.74rem; margin-top: 0.3rem; text-align: center;"><code>parentSpecificationId</code> draagt de hiërarchie; <code>learningOutcomeId</code> is de verbindende sleutel.</p>
-
 </div>
 </div>
 
