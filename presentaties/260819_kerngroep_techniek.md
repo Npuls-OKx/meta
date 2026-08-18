@@ -194,7 +194,7 @@ koppelvlakspecificatie. Alles wat hier voorbijkomt is straks in het werkdeel zel
 ├── Applicatiecomponenten/ ← rollen + endpoints
 ├── Interactiepatronen/    ← per koppeling, met
 │                            functionele eisen
-├── Datamodelschema's      ← JSON-schema's
+├── Datamodelschema's/     ← JSON-schema's
 ├── auth-standaard.md      ← eigen pijler
 └── uitgangspunten.md</pre>
 
