@@ -464,12 +464,20 @@ twee systemen verloopt. Dezelfde eis bestaat ook keten-breed in de afbakening.
 ```json
 {
   "learningOutcomes": [ … ],
-  "educationSpecifications": [ … ],
+  "educationSpecifications": [{
+    "id": …,
+    "specificationType": …,
+    "version": …,
+    "name": …,
+    "parentSpecificationId": …,
+    "learningOutcomeId": …,
+    "studyLoad": …
+  }],
   "ruleSets": [ … ]
 }
 ```
 
-<p class="muted" style="font-size: 0.74rem; margin-top: 0.3rem; text-align: center;">De drie hoofdonderdelen van het antwoord, elk voluit beschreven in het schema.</p>
+<p class="muted" style="font-size: 0.74rem; margin-top: 0.3rem; text-align: center;"><code>parentSpecificationId</code> draagt de hiërarchie; <code>learningOutcomeId</code> is de verbindende sleutel.</p>
 
 </div>
 </div>
