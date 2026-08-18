@@ -333,8 +333,14 @@ naar elkaar door. Niet dieper ingaan dan dit; wie meer wil ziet het straks in he
   </div>
 </div>
 
-<div style="display: flex; margin-top: 0.35rem;">
-  <div style="margin-left: auto; margin-right: 11%; display: flex; gap: 1.2rem;">
+<div class="np-pipeline" style="margin-top: 0.35rem;">
+  <div style="flex: 1;"></div>
+  <div class="np-arrow" style="visibility: hidden;">&#8594;</div>
+  <div style="flex: 1;"></div>
+  <div class="np-arrow" style="visibility: hidden;">&#8594;</div>
+  <div style="flex: 1;"></div>
+  <div class="np-arrow" style="visibility: hidden;">&#8594;</div>
+  <div style="flex: 1; display: flex; justify-content: center; gap: 1.2rem;">
     <div style="display: flex; flex-direction: column; align-items: center; gap: 0.1rem;">
       <div class="np-arrow">&#8593;</div>
       <div class="np-step blue" style="padding: 0.3rem 0.7rem;"><strong style="font-size: 0.76rem;">Instellingen</strong></div>
@@ -344,6 +350,8 @@ naar elkaar door. Niet dieper ingaan dan dit; wie meer wil ziet het straks in he
       <div class="np-step green" style="padding: 0.3rem 0.7rem;"><strong style="font-size: 0.76rem;">Leveranciers</strong></div>
     </div>
   </div>
+  <div class="np-arrow" style="visibility: hidden;">&#8594;</div>
+  <div style="flex: 1;"></div>
 </div>
 
 <div class="np-grid-2" style="margin-top: 0.6rem; align-items: start;">
