@@ -167,7 +167,9 @@ de kern.
   <div><strong>Public release</strong><br/>Het geversioneerde koppelvlakspecificatie-document.</div>
 </div>
 <div style="display: flex; justify-content: center;">
-  <img src="/platen/repo-inrichting.png" style="max-height: 440px; max-width: 100%; width: auto;" />
+  <div style="background: #1d2733; border-radius: 12px; padding: 0.9rem 1.1rem;">
+    <img src="/platen/repo-inrichting.png" style="max-height: 415px; max-width: 100%; width: auto; display: block;" />
+  </div>
 </div>
 </div>
 

@@ -242,7 +242,7 @@
       "versie": "-",
       "toont": "Drie containers naast elkaar: private source (interne planning en referentiemateriaal), public source (bronmateriaal van de releasepakketten, CI/CD en documentatie) en public release (de pakketten, waaronder de koppelvlakspecificatie en OEAPI-profielen), met de rollen erboven: OKx Techniek, public contributor en public implementer.",
       "gebruik_bij": "De vraag waar het materiaal staat en wat er uiteindelijk uitkomt; kerngroep techniek en leveranciers. Transparante achtergrond, dus bruikbaar op lichte slides zonder omhulsel.",
-      "let_op": "Aangeleverd door Niek (18 augustus); de bron staat nog niet gecommit op een Public-branch. De relatielabels bovenin hebben zwarte vlakjes; op donkere achtergronden vallen ze weg.",
+      "let_op": "Getekend voor een donkere ondergrond: witte pijlen en lichtgrijze containerlabels verdwijnen op wit. Zet hem op een donker paneel (bijvoorbeeld inktkleur met afgeronde hoeken), of exporteer uit de drawio-bron opnieuw met donkere lijnen. Aangeleverd door Niek (18 augustus); de bron staat nog niet gecommit op een Public-branch.",
       "kopie": "repo-inrichting.png",
       "hash": "29eca256d661a543"
     }
