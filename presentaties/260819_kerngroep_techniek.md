@@ -1,7 +1,7 @@
 ---
 theme: default
 title: Koppelvlakspecificaties, geconsolideerd en releasebaar
-info: Sessie kerngroep techniek, 19 augustus 2026: de eerste structuur voor het eindproduct, de publieke repository, release management en het alpha-document v0.01.
+info: Sessie kerngroep techniek, 19 augustus 2026: de eerste structuur voor het eindproduct, de publieke repository, release management en het alpha-document v0.0.1.
 author: OKx - Onderwijskoppelingen (Npuls)
 highlighter: shiki
 lineNumbers: false
@@ -46,7 +46,7 @@ vinden we het?" Dit gezelschap heet de kerngroep techniek.
     De eerste structuur van de koppelvlakspecificatie staat.
   </div>
   <p style="margin-top: 1.2rem; font-size: 1.05rem; color: var(--np-dark-gray); max-width: 640px; line-height: 1.6;">
-    Gereleased als alpha-document v0.01, in docx en pdf.
+    Gereleased als alpha-document v0.0.1, in docx en pdf.
     Vandaag: hoe die structuur in elkaar zit, en of ermee te werken is.
   </p>
 </div>
@@ -81,7 +81,7 @@ van deze ene zin. Niet doorpraten; laten landen en door naar het programma.
     </div>
     <div style="display: flex; align-items: center; gap: 0.8rem;">
       <span class="np-num">4</span>
-      <div><strong>Alpha-document v0.01</strong><br/><span class="muted" style="font-size: 0.8rem;">Wat erin zit en wat we vragen</span></div>
+      <div><strong>Alpha-document v0.0.1</strong><br/><span class="muted" style="font-size: 0.8rem;">Wat erin zit en wat we vragen</span></div>
     </div>
     <div style="display: flex; align-items: center; gap: 0.8rem;">
       <span class="np-num" style="background: var(--np-orange);">5</span>
@@ -443,7 +443,7 @@ volgende release verwerkt die zichtbaar.
 <div class="flex items-center justify-center h-full">
   <div style="text-align: center;">
     <p class="eyebrow" style="color: rgba(255,255,255,0.85);">Deel 4</p>
-    <h1 style="color: #FFFFFF !important; font-size: 3rem;">Alpha-document v0.01</h1>
+    <h1 style="color: #FFFFFF !important; font-size: 3rem;">Alpha-document v0.0.1</h1>
   </div>
 </div>
 
@@ -458,7 +458,7 @@ Alpha zegt precies wat het is: compleet genoeg om op te schieten, niet af.
 
 <div class="fill">
 
-# Wat er in v0.01 zit
+# Wat er in v0.0.1 zit
 
 <div style="max-width: 40rem; margin: 0.8rem auto 0; font-size: 0.98rem; line-height: 2.0;">
 
@@ -558,7 +558,7 @@ gesprek bepaalt de zaal; Ruud jaagt de discussie aan als het stil blijft.
   <div class="np-card accent-green">
     <span class="np-badge green">Opdracht 2</span>
     <h3 style="margin-top: 0.5rem; font-size: 0.95rem;">Open het releasepakket</h3>
-    <p class="muted" style="font-size: 0.8rem; margin: 0;">Open v0.01 (docx of pdf) en volg &eacute;&eacute;n functionele eis naar zijn interactie en endpoint.</p>
+    <p class="muted" style="font-size: 0.8rem; margin: 0;">Open v0.0.1 (docx of pdf) en volg &eacute;&eacute;n functionele eis naar zijn interactie en endpoint.</p>
   </div>
   <div class="np-card accent-orange">
     <span class="np-badge orange">Werkvraag</span>
@@ -628,5 +628,5 @@ Dit agendapunt is van Ruud; de slide is het haakje, niet de inhoud.
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide17.PNG);"></div>
 
 <!--
-Afsluiting: herhaal de oproep. Inlezen v0.01, structuurfeedback als issue onder OKx Public.
+Afsluiting: herhaal de oproep. Inlezen v0.0.1, structuurfeedback als issue onder OKx Public.
 -->

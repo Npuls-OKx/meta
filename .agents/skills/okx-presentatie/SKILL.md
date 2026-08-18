@@ -201,6 +201,8 @@ Voor programmamanagement schuiven 5 en 6 naar voren; voor de kerngroep techniek 
 
 ## Voor je oplevert: kijk er zelf naar
 
+**Vraag eerst of het release-klaar is.** Finetunen en opleveren zijn twee fasen. Exporteer, deel of publiceer een visueel product (deck, plaat, PDF, deellink) pas nadat de opdrachtgever expliciet heeft gezegd dat het release-klaar is; tot dat moment is elke versie werkmateriaal.
+
 Een deck dat bouwt is niet hetzelfde als een deck dat klopt. Overflow, een tabel die te breed is, een kaart die uit beeld valt: dat zie je alleen door ernaar te kijken.
 
 ```bash
