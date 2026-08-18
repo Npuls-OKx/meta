@@ -170,9 +170,11 @@ Beide mogen in een deck, maar niet door elkaar. Formuleer een inschatting als in
 
 ## Opbouw van een update-deck
 
+**Kernpunt eerst.** Het publiek hoort binnen de eerste minuut wat de sprekers komen brengen: wat er bereikt is, in één concrete zin ("de eerste structuur voor het eindproduct: de koppelvlakspecificatie"). Die essentie staat vóór het programma — als eigen openingsslide of als de subtitel van de titelslide. Een subtitel die niet de essentie draagt, vervalt; sfeerzinnen zijn vulling. Pas daarna volgen agenda en uitwerking.
+
 Een werkbare basisvorm; wijk af waar de inhoud daarom vraagt.
 
-1. **Titel** — periode en gremium
+1. **Titel** — periode en gremium, met de essentie als subtitel of direct erna als openingsslide
 2. **Waar we stonden** — één slide, zodat het deck zelfstandig te lezen is
 3. **Wat er is gebeurd** — per thema, niet per repository of per pull request. Het publiek denkt in onderwerpen
 4. **Wat dat betekent** — de consequentie voor dit gremium

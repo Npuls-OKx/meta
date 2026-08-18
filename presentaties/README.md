@@ -57,6 +57,8 @@ Dit zijn de dingen die in de praktijk misgingen. Uitgebreider in de skill [`okx-
 
 **Kies je onderwerpen op wat er op tafel moet, niet op wat het meeste werk was.** Een herindeling kan honderden bestanden raken en toch een voetnoot zijn.
 
+**Kernpunt eerst.** Het publiek hoort binnen de eerste minuut wat de sprekers komen brengen: wat er bereikt is, in één concrete zin, vóór het programma. Een subtitel op de titelslide draagt die essentie of vervalt — sfeerzinnen zijn vulling.
+
 **Schrijf over de zaak, niet tegen de zaal.** Geen "u", "je" of "jullie", ook niet in een kop. Een deck informeert over een onderwerp, dus dat onderwerp staat vooraan — dezelfde norm als bij een adviesrapport. "Waar we jullie voor nodig hebben" wordt **Besluit nodig op**, met daaronder *Door* (welke partijen), *Voor* (wanneer) en *Opties*. Zo staat na afloop vast wat er gevraagd is.
 
 **Meta-taal blijft buiten de slide.** "Houd het kort" is een instructie voor de maker, geen slidetekst: een titel als "De aanleiding, kort" vertelt hoe het deck gemaakt is in plaats van wat er staat. Als de slide kort is, ziet de zaal dat vanzelf; de aanwijzing zelf hoort in de sprekersnotitie.
