@@ -221,6 +221,18 @@
       "let_op": "De jpeg heeft een donkere achtergrond die in het bestand zit. Op een lichte slide leest hij als een donker blok; zet hem in een omhulsel met afgeronde hoeken zodat dat een keuze lijkt en geen ongeluk. De bron is een drawio-bestand; wijzigt dat, dan moet de jpeg opnieuw geexporteerd worden.",
       "hash": "cbd896d0c11ecbeb",
       "kopie": "repo-setup.jpg"
+    },
+    {
+      "naam": "koppelvlak-specificatie-breakdown",
+      "titel": "Opbouw van een koppelvlakspecificatie",
+      "bron": "Npuls-OKx/meta",
+      "pad": "presentaties/public/platen/koppelvlak-specificatie-breakdown.png",
+      "versie": "-",
+      "toont": "Het pakket koppelvlakspecificatie uitgesplitst in zijn onderdelen: datamodelschema's, applicatiecomponenten, functionele eisen en de auth-standaard, met rechts de endpoints en interactiepatronen. De pijlen dragen de samenhang: functionele eisen bepalen de processen (interactiepatronen), die bepalen de endpoints, en endpoints gebruiken de datamodelschema's.",
+      "gebruik_bij": "Uitleggen hoe een koppelvlakspecificatie in elkaar zit; kerngroep techniek en leveranciers die het releasepakket gaan lezen.",
+      "let_op": "Donkere achtergrond in het bestand zelf; zet hem op een lichte slide in een omhulsel met afgeronde hoeken. De bron heeft nog geen vaste plek in een repository; zodra hij in Public landt, het pad bijwerken.",
+      "kopie": "koppelvlak-specificatie-breakdown.png",
+      "hash": "911489fd92ea66b5"
     }
   ],
   "overslaan": [

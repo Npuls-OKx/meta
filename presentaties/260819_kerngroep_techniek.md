@@ -234,42 +234,21 @@ staat ernaast, ter referentie, niet als verplichte kost.
 
 <p class="np-subtitle">Vier bouwstenen per koppelvlak, met authenticatie als gedeelde pijler.</p>
 
-<!-- Zodra de componenten-plaat is geupload naar public/platen/, deze img activeren
-     en de kaarten hieronder verwijderen of naar de sprekersnotities verplaatsen:
 <div style="display: flex; justify-content: center; margin-top: 0.2rem;">
-  <img src="/platen/koppelvlakspec-opbouw.png" style="max-height: 400px; width: auto;" />
+  <img src="/platen/koppelvlak-specificatie-breakdown.png" style="max-height: 390px; width: auto; border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.18);" />
 </div>
--->
 
-<div class="np-grid-2" style="margin-top: 0.4rem; align-items: start; gap: 0.7rem;">
-  <div class="np-card accent-blue" style="padding: 0.7rem 0.9rem;">
-    <span class="np-badge blue">Wie</span>
-    <h3 style="margin-top: 0.3rem; font-size: 1rem;">Applicatiecomponenten</h3>
-    <p class="muted" style="font-size: 0.8rem; margin: 0;">Rollen uit de MORA; per component de endpoints die hij aanbiedt. E&eacute;n systeem kan meerdere rollen vervullen.</p>
-  </div>
-  <div class="np-card accent-orange" style="padding: 0.7rem 0.9rem;">
-    <span class="np-badge orange">Hoe</span>
-    <h3 style="margin-top: 0.3rem; font-size: 1rem;">Interactiepatronen</h3>
-    <p class="muted" style="font-size: 0.8rem; margin: 0;">Per koppeling de interacties (melden, ophalen, terugmelden), verankerd in functionele eisen.</p>
-  </div>
-  <div class="np-card accent-green" style="padding: 0.7rem 0.9rem;">
-    <span class="np-badge green">Wat</span>
-    <h3 style="margin-top: 0.3rem; font-size: 1rem;">Datamodelschema's</h3>
-    <p class="muted" style="font-size: 0.8rem; margin: 0;">JSON-schema's van de payloads; hi&euml;rarchisch en valideerbaar.</p>
-  </div>
-  <div class="np-card accent-blue" style="padding: 0.7rem 0.9rem;">
-    <span class="np-badge blue">Toegang</span>
-    <h3 style="margin-top: 0.3rem; font-size: 1rem;">Authenticatiestandaard</h3>
-    <p class="muted" style="font-size: 0.8rem; margin: 0;">E&eacute;n gedeeld mechanisme voor alle koppelvlakken; eigen pijler, los van de inhoud.</p>
-  </div>
+<div class="np-bottomline" style="margin-top: 0.6rem;">
+  Volg de pijlen: <strong>functionele eisen</strong> bepalen de processen (interactiepatronen), die bepalen de <strong>endpoints</strong>, en endpoints gebruiken de <strong>datamodelschema's</strong>.
 </div>
 
 </div>
 
 <!--
-Per koppelvlak dezelfde vier bouwstenen: wie (applicatiecomponent met endpoints),
-hoe (interactiepatroon met functionele eisen), wat (JSON-schema's) en toegang (auth).
-Als de eigen componenten-plaat is geupload vervangt die de vier kaarten; de leeswijzer blijft gelijk.
+Per koppelvlak dezelfde bouwstenen: wie (applicatiecomponenten met hun endpoints),
+hoe (interactiepatronen met functionele eisen), wat (JSON-datamodelschema's) en
+toegang (de auth-standaard, als gedeelde pijler voor alle koppelvlakken).
+De plaat toont hoe ze elkaar bepalen; de leeswijzer in de balk benoemt de pijlrichting.
 -->
 
 ---
