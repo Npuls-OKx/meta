@@ -225,14 +225,14 @@
     {
       "naam": "koppelvlak-specificatie-breakdown",
       "titel": "Opbouw van een koppelvlakspecificatie",
-      "bron": "Npuls-OKx/meta",
-      "pad": "presentaties/public/platen/koppelvlak-specificatie-breakdown.png",
+      "bron": "Npuls-OKx/Public",
+      "pad": "Koppelvlakspecificaties/src/koppelvlak_specificatie_breakdown.png",
       "versie": "-",
-      "toont": "Het pakket koppelvlakspecificatie uitgesplitst in zijn onderdelen: datamodelschema's, applicatiecomponenten, functionele eisen en de auth-standaard, met rechts de endpoints en interactiepatronen. De pijlen dragen de samenhang: functionele eisen bepalen de processen (interactiepatronen), die bepalen de endpoints, en endpoints gebruiken de datamodelschema's.",
+      "toont": "Het pakket koppelvlakspecificatie uitgesplitst: sectoreisen (uit de OKx-requirementsboom) voeden de functionele eisen; die bepalen de processen (interactiepatronen), de processen de endpoints, en endpoints gebruiken de datamodelschema's; de auth-standaard staat als losse pijler. Transparant, groene blokken, geschikt voor lichte slides.",
       "gebruik_bij": "Uitleggen hoe een koppelvlakspecificatie in elkaar zit; kerngroep techniek en leveranciers die het releasepakket gaan lezen.",
-      "let_op": "Donkere achtergrond in het bestand zelf; zet hem op een lichte slide in een omhulsel met afgeronde hoeken. De bron heeft nog geen vaste plek in een repository; zodra hij in Public landt, het pad bijwerken.",
+      "let_op": "Het blok heet nog Referentiesystemen; de vastgestelde term is applicatiecomponenten. De relatielabels zijn zwarte chips met slecht leesbare tekst; hertekenen in de drawio-bron. Bron nog niet gecommit op een Public-branch.",
       "kopie": "koppelvlak-specificatie-breakdown.png",
-      "hash": "911489fd92ea66b5"
+      "hash": "d1c1f3e50573f674"
     },
     {
       "naam": "repo-inrichting",
