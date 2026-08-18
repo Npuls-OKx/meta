@@ -761,23 +761,31 @@ Overdracht aan Ruud: hij heeft de issues geselecteerd en loopt ze langs.
 
 # Planning
 
-<div class="np-grid-2" style="margin-top: 0.8rem; align-items: start;">
-  <div class="np-card accent-blue">
-    <h3 style="font-size: 0.98rem;">Zo plannen we</h3>
-    <p class="muted" style="font-size: 0.84rem; margin: 0;">Een openbaar issuebord op OKx Public: issues refinen en prioriteren we in de kerngroep, en wie ruimte heeft pakt een issue op. Zichtbaar voor iedereen, zonder claim op andermans agenda.</p>
+<div class="np-pipeline" style="margin-top: 1.6rem;">
+  <div class="np-step blue" style="flex: 1; max-width: 240px;">
+    <strong style="font-size: 0.92rem;">Issuebord</strong>
+    <small>openbaar, op OKx Public</small>
   </div>
-  <div class="np-card accent-orange">
-    <h3 style="font-size: 0.98rem;">In uitwerking</h3>
-    <p class="muted" style="font-size: 0.84rem; margin: 0;">Een voorstel voor alle requirements (de requirementsboom) en voor de keuzeregels met de bijbehorende regelset.</p>
+  <div class="np-arrow">&#8594;</div>
+  <div class="np-step orange" style="flex: 1; max-width: 240px;">
+    <strong style="font-size: 0.92rem;">Refinen en prioriteren</strong>
+    <small>in de kerngroep</small>
+  </div>
+  <div class="np-arrow">&#8594;</div>
+  <div class="np-step green" style="flex: 1; max-width: 240px;">
+    <strong style="font-size: 0.92rem;">Oppakken</strong>
+    <small>wie ruimte heeft</small>
   </div>
 </div>
+
+<p class="muted" style="text-align: center; font-size: 0.85rem; margin-top: 1.2rem;">Zichtbaar voor iedereen, zonder claim op andermans agenda.</p>
 
 </div>
 
 <!--
 Overdracht aan Ruud. Plannen zonder directe zeggenschap over inzet en beschikbaarheid:
-transparantie doet het werk; het bord toont wat er ligt, de kerngroep prioriteert, en
-capaciteit volgt vrijwillig. De volgende slide toont de zeven grote backlog-items.
+transparantie doet het werk. Benoemen dat de eerste twee backlog-items (requirementsboom
+en keuzeregels met regelset) al in de maak zijn; de volgende slide toont alle zeven.
 -->
 
 ---
