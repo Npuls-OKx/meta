@@ -500,27 +500,38 @@ zelf na.
 
 # Waar de functionele eisen vandaan komen
 
-<div class="np-pipeline" style="margin-top: 1.4rem;">
-  <div class="np-step blue" style="flex: 1;">
-    <strong style="font-size: 0.9rem;">Leren zonder Drempels</strong>
+<div class="np-pipeline" style="margin-top: 1.3rem;">
+  <div class="np-step blue" style="flex: 1.3;">
+    <strong style="font-size: 0.85rem;">Npuls: Leren zonder Drempels</strong>
+    <small>lerenden krijgen regie over hun leerroute, zonder drempels</small>
   </div>
   <div class="np-arrow">&#8594;</div>
   <div class="np-step blue" style="flex: 1;">
-    <strong style="font-size: 0.9rem;">Doelen en epics</strong>
+    <strong style="font-size: 0.85rem;">OKx-projectdoelen</strong>
+  </div>
+  <div class="np-arrow">&#8594;</div>
+  <div class="np-step blue" style="flex: 1;">
+    <strong style="font-size: 0.85rem;">Epics</strong>
   </div>
   <div class="np-arrow">&#8594;</div>
   <div class="np-step orange" style="flex: 1;">
-    <strong style="font-size: 0.9rem;">Features en stories</strong>
+    <strong style="font-size: 0.85rem;">Features en stories</strong>
   </div>
   <div class="np-arrow">&#8594;</div>
   <div class="np-step green" style="flex: 1;">
-    <strong style="font-size: 0.9rem;">Functionele eisen</strong>
+    <strong style="font-size: 0.85rem;">Functionele eisen</strong>
+    <small>per koppelvlak</small>
   </div>
 </div>
 
-<div style="display: flex; justify-content: center; margin-top: 1.4rem;">
-  <div class="np-card accent-green" style="max-width: 34rem;">
-    <p style="font-size: 0.95rem; color: var(--np-dark-gray); line-height: 1.6; margin: 0;">
+<div class="np-grid-2" style="margin-top: 1.2rem; align-items: start;">
+  <div class="np-card accent-orange">
+    <p style="font-size: 0.9rem; color: var(--np-dark-gray); line-height: 1.6; margin: 0;">
+      De sector levert de input: via de opdracht Leren zonder Drempels, en via de adviesgroep als features en stories. De kerngroep techniek vertaalt die naar de functionele eisen per koppelvlak.
+    </p>
+  </div>
+  <div class="np-card accent-green">
+    <p style="font-size: 0.9rem; color: var(--np-dark-gray); line-height: 1.6; margin: 0;">
       Elke functionele eis wordt herleidbaar tot de wens waaruit hij voortkomt. En andersom: geen eis zonder herkomst.
     </p>
   </div>
