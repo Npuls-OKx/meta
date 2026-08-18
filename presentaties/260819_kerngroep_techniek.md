@@ -506,22 +506,22 @@ zelf na.
     <small>lerenden krijgen regie over hun leerroute, zonder drempels</small>
   </div>
   <div class="np-arrow">&#8594;</div>
-  <div class="np-step blue" style="flex: 1;">
+  <div class="np-step orange" style="flex: 1;">
     <strong style="font-size: 0.85rem;">OKx-projectdoelen</strong>
     <small>één taal, werkende gegevensuitwisseling, ruimte voor studentkeuze</small>
   </div>
   <div class="np-arrow">&#8594;</div>
-  <div class="np-step blue" style="flex: 1;">
+  <div class="np-step green" style="flex: 1;">
     <strong style="font-size: 0.85rem;">Epics</strong>
     <small>aanbod plannen en roosteren</small>
   </div>
   <div class="np-arrow">&#8594;</div>
-  <div class="np-step orange" style="flex: 1;">
+  <div class="np-step blue" style="flex: 1;">
     <strong style="font-size: 0.85rem;">Features en stories</strong>
     <small>geldig, gefaseerd aanbod afleiden</small>
   </div>
   <div class="np-arrow">&#8594;</div>
-  <div class="np-step green" style="flex: 1;">
+  <div class="np-step orange" style="flex: 1;">
     <strong style="font-size: 0.85rem;">Functionele eisen</strong>
     <small>planbare specificaties melden aan het planningssysteem</small>
   </div>
