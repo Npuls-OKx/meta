@@ -5,7 +5,8 @@ alwaysApply: true
 
 Schrijf kort, feitelijk en zonder AI-tell.
 
-- Geen em-dash (—) en geen verbindingsstreepjes als accent. Gebruik punt, komma of dubbele punt.
+- Geen em-dash (—) en geen verbindingsstreepjes als accent. Gebruik punt, komma of dubbele punt. Dit geldt ook voor HTML-varianten (&mdash;) in slides en gegenereerde documenten.
+- Accenttekens alleen waar de betekenis erom vraagt: "één" alleen als telwoord dat anders met het lidwoord "een" verward wordt. Nooit accenten als nadruk ("én", "dé", "hét", "zó"); nadruk komt uit de zinsbouw.
 - Geen opwarm- of afsluitzinnen. Begin bij de inhoud.
 - Vermijd "niet X, maar Y"-constructies en vergelijkbare retoriek.
 - Bullets en tabellen boven proza waar dat kan.
