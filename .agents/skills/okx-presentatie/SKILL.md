@@ -75,6 +75,8 @@ Een deck informeert over een onderwerp. Het onderwerp is dus het grammaticale on
 
 **Eerste persoon spaarzaam.** "We" mag waar het programma echt de handelende partij is ("OKx heeft drie koppelingen beschreven"), maar niet als vulling. "Ik maak me zorgen over de review" wordt "Risico: de reviewcapaciteit in augustus". Een inschatting blijft herkenbaar als inschatting doordat er *risico*, *aanname* of *inschatting* bij staat, niet doordat er "ik" voor staat.
 
+**Meta-taal blijft buiten de slide.** Een aanwijzing van de opdrachtgever over de vorm — "houd het kort", "stip het even aan", "niet te diep" — is een instructie voor de maker, geen slidetekst. Een titel als "De aanleiding, kort" vertelt de zaal hoe het deck gemaakt is in plaats van wat er staat; als de slide kort is, laat dat zichzelf zien. Dus geen "kort", "even", "samengevat" of "in vogelvlucht" in titels of zichtbare tekst; zulke aanwijzingen landen in de sprekersnotitie.
+
 **Besluiten krijgen een vaste vorm.** Een vraag om een besluit is geen alinea maar een blok met vier velden, zodat na afloop vaststaat wat er gevraagd is:
 
 > **Besluit nodig op:** publicatiemoment koppelvlakspecificatie leerroute 1

@@ -59,6 +59,8 @@ Dit zijn de dingen die in de praktijk misgingen. Uitgebreider in de skill [`okx-
 
 **Schrijf over de zaak, niet tegen de zaal.** Geen "u", "je" of "jullie", ook niet in een kop. Een deck informeert over een onderwerp, dus dat onderwerp staat vooraan — dezelfde norm als bij een adviesrapport. "Waar we jullie voor nodig hebben" wordt **Besluit nodig op**, met daaronder *Door* (welke partijen), *Voor* (wanneer) en *Opties*. Zo staat na afloop vast wat er gevraagd is.
 
+**Meta-taal blijft buiten de slide.** "Houd het kort" is een instructie voor de maker, geen slidetekst: een titel als "De aanleiding, kort" vertelt hoe het deck gemaakt is in plaats van wat er staat. Als de slide kort is, ziet de zaal dat vanzelf; de aanwijzing zelf hoort in de sprekersnotitie.
+
 **Stem het register af op intern of extern.** Intern zijn het SI-team, de adviesgroep en de programma- en projectleiding: relatief informeel binnen zakelijke normen, korte zinnen, gewone woorden. Extern zijn de kerngroep techniek OKx, de technische werkgroep OEAPI, leveranciers en instellingen: formeler en preciezer, met bij elke uitspraak de status erbij — vastgesteld, concept of voorstel. Die gremia nemen het materiaal mee naar hun eigen organisatie. Het verschil tussen adviesgroep en leiding zit in de diepgang, niet in het register.
 
 **Gebruik de termen uit de bron.** Het is *leermanagementsysteem (LMS)*, *studentinformatiesysteem (SIS, dat is KRS plus SVS)*, *onderwijscatalogus*. Niet "leeromgeving" of "studentadministratie" als je het systeem bedoelt. De afkortingenlijst staat in de instap van [Koppelvlakspecificaties](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/README.md).

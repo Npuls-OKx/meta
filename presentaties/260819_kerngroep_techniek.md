@@ -98,7 +98,7 @@ De inhoud die jullie kennen blijft; we maken hem beter vindbaar en expliciet af 
 
 <div class="fill">
 
-# De aanleiding, kort
+# De aanleiding
 
 <p class="np-subtitle">De vraag kwam uit de keten zelf: "wanneer is iets af, en waar vinden we het?"</p>
 
