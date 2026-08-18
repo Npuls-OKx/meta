@@ -100,7 +100,7 @@ De inhoud die jullie kennen blijft; we maken hem beter vindbaar en expliciet af 
 
 # De aanleiding, kort
 
-<p class="np-subtitle">Jullie vroegen het zelf: "wanneer is iets af, en waar vinden we het?"</p>
+<p class="np-subtitle">De vraag kwam uit de keten zelf: "wanneer is iets af, en waar vinden we het?"</p>
 
 <div class="np-grid-2" style="margin-top: 0.3rem;">
 <div style="font-size: 0.95rem; line-height: 1.8;">
@@ -169,6 +169,11 @@ via een review naar Public; daar komt het in een release terecht.
   </div>
 </div>
 
+<!--
+Dit deel is het zwaartepunt: de kaart van de repository en de vaste opbouw van een
+koppelvlakspecificatie. Alles wat hier voorbijkomt is straks in het werkdeel zelf te vinden.
+-->
+
 ---
 
 <!-- REPO-STRUCTUUR -->
@@ -203,13 +208,12 @@ Referentiemateriaal/
 ├── adr/                   ← besluiten met
 │                            onderbouwing
 ├── principes/
-├── kaderscenario's/       ← leerroutes,
-│                            persona's
-└── memos/
+├── kaderscenario's/       ← de leerroutes
+└── persona's/             ← wie de student is
 ```
 
 <p class="muted" style="font-size: 0.82rem; margin-top: 0.4rem;">
-Bouwen doe je uit <strong>Koppelvlakspecificaties/</strong>; het waarom vind je in <strong>Referentiemateriaal/</strong>.
+Bouwen gebeurt uit <strong>Koppelvlakspecificaties/</strong>; het waarom staat in <strong>Referentiemateriaal/</strong>.
 </p>
 
 </div>
@@ -288,7 +292,7 @@ Als de eigen componenten-plaat is geupload vervangt die de vier kaarten; de lees
 | Hoofdstuk | Voorbeeld uit het document |
 |---|---|
 | Afbakening: eisen aan de keten | "Een vastgestelde specificatie bereikt elk systeem dat ermee werkt" — afgeleid naar functionele eisen per koppeling |
-| Interactiepatroon (functionele eis) | "De onderwijscatalogus moet het planningssysteem kunnen laten weten dat een specificatie gereed is om te plannen" |
+| Interactiepatroon (functionele eis) | "De onderwijscatalogus moet het planningssysteem kunnen laten weten dat een specificatie gereed is om te plannen …" |
 | Interactiepatroon (interactie) | Specificatie planbaar melden: dun event met id en versie, asynchroon; daarna haalt de afnemer de structuur of delta op |
 | Applicatiecomponent (endpoint) | `/onderwijsspecificaties/{id}` · GET · response `education-specification.json` · statuscodes 200, 400, 404 |
 | Datamodelschema | `education-specification.json`: hiërarchische onderwijsspecificatie, valideerbaar JSON-schema |
@@ -371,6 +375,11 @@ die functionele eisen?". Niet de boom zelf laten zien; die is nog niet af.
   </div>
 </div>
 
+<!--
+Dit deel beantwoordt de kernvraag van de aanleiding: wanneer is iets af. Kort houden;
+de volgende slide toont het hele mechanisme in drie stappen.
+-->
+
 ---
 
 <!-- RELEASE-WERKWIJZE -->
@@ -428,6 +437,11 @@ publieke repository; elke volgende release verwerkt die zichtbaar.
   </div>
 </div>
 
+<!--
+Alpha zegt precies wat het is: compleet genoeg om op te schieten, niet af. De oproep van
+dit deel is concreet: inlezen en verschillen melden.
+-->
+
 ---
 
 <!-- ALPHA-DOCUMENT -->
@@ -452,12 +466,12 @@ publieke repository; elke volgende release verwerkt die zichtbaar.
 </div>
 <div>
   <div class="np-card accent-orange" style="margin-bottom: 0.6rem;">
-    <h3 style="font-size: 0.98rem;">Wat we van jullie vragen</h3>
-    <p class="muted" style="font-size: 0.82rem; margin: 0;">Inlezen v&oacute;&oacute;r de volgende sessie. Wat schuurt met je eigen implementatie of met de oude situatie: meld het als issue.</p>
+    <h3 style="font-size: 0.98rem;">Wat we vragen</h3>
+    <p class="muted" style="font-size: 0.82rem; margin: 0;">Inlezen v&oacute;&oacute;r de volgende sessie. Wat schuurt met de eigen implementatie of met de oude situatie: meld het als issue.</p>
   </div>
   <div class="np-card accent-blue">
     <h3 style="font-size: 0.98rem;">Oud versus nieuw</h3>
-    <p class="muted" style="font-size: 0.82rem; margin: 0;">De inhoudelijke lijn van OKE loopt door; wat anders leest dan je gewend bent horen we graag expliciet.</p>
+    <p class="muted" style="font-size: 0.82rem; margin: 0;">De inhoudelijke lijn van OKE loopt door; wat anders leest dan voorheen horen we graag expliciet.</p>
   </div>
 </div>
 </div>
@@ -512,13 +526,13 @@ van dit gesprek mag de zaal zelf bepalen; Ruud jaagt de discussie aan als het st
 
 # Aan de slag — zelf kijken
 
-<p class="np-subtitle">Geen demo; jullie zoeken zelf. Dat is precies de bedoeling van deze opzet.</p>
+<p class="np-subtitle">Geen demo; zelf zoeken is precies de bedoeling van deze opzet.</p>
 
 <div class="np-grid-3" style="margin-top: 0.6rem; align-items: start;">
   <div class="np-card accent-blue">
     <span class="np-badge blue">Opdracht 1</span>
-    <h3 style="margin-top: 0.5rem; font-size: 0.95rem;">Vind je eigen rol</h3>
-    <p class="muted" style="font-size: 0.8rem; margin: 0;">Open <strong>github.com/Npuls-OKx/Public</strong> en zoek het applicatiecomponent-document dat jouw systeem beschrijft. Welke endpoints raken jou?</p>
+    <h3 style="margin-top: 0.5rem; font-size: 0.95rem;">Vind het eigen systeem</h3>
+    <p class="muted" style="font-size: 0.8rem; margin: 0;">Open <strong>github.com/Npuls-OKx/Public</strong> en zoek het applicatiecomponent-document van het eigen systeem. Welke endpoints raken dat systeem?</p>
   </div>
   <div class="np-card accent-green">
     <span class="np-badge green">Opdracht 2</span>
@@ -528,12 +542,12 @@ van dit gesprek mag de zaal zelf bepalen; Ruud jaagt de discussie aan als het st
   <div class="np-card accent-orange">
     <span class="np-badge orange">Werkvraag</span>
     <h3 style="margin-top: 0.5rem; font-size: 0.95rem;">Hoe komen we tot de functionele eisen?</h3>
-    <p class="muted" style="font-size: 0.8rem; margin: 0;">Wat is er voor jouw systeem nodig om een eis compleet te noemen? Wat mist er?</p>
+    <p class="muted" style="font-size: 0.8rem; margin: 0;">Wat is er per systeem nodig om een eis compleet te noemen? Wat mist er?</p>
   </div>
 </div>
 
 <div class="np-bottomline" style="margin-top: 0.8rem;">
-  Kom je iets tegen dat niet klopt of niet vindbaar is? <strong>Dat is precies de feedback die we zoeken.</strong>
+  Klopt er iets niet, of is iets niet vindbaar? <strong>Dat is precies de feedback die we zoeken.</strong>
 </div>
 
 </div>
@@ -542,6 +556,23 @@ van dit gesprek mag de zaal zelf bepalen; Ruud jaagt de discussie aan als het st
 Uitwerksessie: iedereen zelf laten klikken. Loop rond, verzamel wat mensen niet kunnen vinden;
 dat zijn de eerste issues. De werkvraag over functionele eisen is de brug naar de boom-sessie
 van de volgende keer.
+-->
+
+---
+
+<!-- DIVIDER DEEL 5 -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide14.PNG);"></div>
+
+<div class="flex items-center justify-center h-full">
+  <div style="text-align: center;">
+    <p class="eyebrow" style="color: rgba(255,255,255,0.85);">Deel 5</p>
+    <h1 style="color: #FFFFFF !important; font-size: 3rem;">Sprintplanning</h1>
+    <p style="color: rgba(255,255,255,0.88); font-size: 1.15rem; margin-top: 0.5rem;">Wat er de komende periode op de plank ligt</p>
+  </div>
+</div>
+
+<!--
+Overdracht aan Ruud: hij heeft de issues geselecteerd en loopt ze langs.
 -->
 
 ---
