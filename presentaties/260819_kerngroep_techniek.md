@@ -392,21 +392,33 @@ en de zwarte relatielabels zijn slecht leesbaar.
 
 # Voorbeeld
 
-<div style="max-width: 46rem; margin: 1rem auto 0; font-size: 0.98rem; line-height: 1.9;">
-
-Eén lijn door het document. De keten-eis <em>"een vastgestelde specificatie bereikt elk systeem dat ermee werkt"</em> is per koppeling afgeleid naar een functionele eis. Voor planning en roostering: <em>"de onderwijscatalogus moet het planningssysteem kunnen laten weten dat een specificatie gereed is om te plannen&nbsp;&hellip;"</em>.
-
-Die eis werkt via de interactie <strong>specificatie planbaar melden</strong>: een dun event met id en versie, waarna de afnemer de structuur of de delta ophaalt. De interactie landt op het endpoint <code>/onderwijsspecificaties/{id}</code>, met <code>education-specification.json</code> als antwoord.
-
-Zo leest elk hoofdstuk door naar het volgende: eis, proces, endpoint, schema.
-
+<div style="max-width: 44rem; margin: 0.6rem auto 0; display: flex; flex-direction: column; gap: 0.15rem; font-size: 0.8rem;">
+  <div class="np-card accent-blue" style="padding: 0.45rem 0.8rem;">
+    <span class="np-badge blue">Afbakening &middot; keten-eis</span>
+    <p style="margin: 0.25rem 0 0; color: var(--np-dark-gray);"><em>"Een vastgestelde specificatie bereikt elk systeem dat ermee werkt."</em></p>
+  </div>
+  <div style="text-align: center; color: var(--np-mid-gray); font-size: 0.72rem;">&#8595; per koppeling afgeleid naar</div>
+  <div class="np-card accent-blue" style="padding: 0.45rem 0.8rem;">
+    <span class="np-badge blue">Interactiepatroon &middot; functionele eis</span>
+    <p style="margin: 0.25rem 0 0; color: var(--np-dark-gray);"><em>"De onderwijscatalogus moet het planningssysteem kunnen laten weten dat een specificatie gereed is om te plannen&nbsp;&hellip;"</em></p>
+  </div>
+  <div style="text-align: center; color: var(--np-mid-gray); font-size: 0.72rem;">&#8595; werkt via</div>
+  <div class="np-card accent-orange" style="padding: 0.45rem 0.8rem;">
+    <span class="np-badge orange">Interactieoverzicht &middot; interactie</span>
+    <p style="margin: 0.25rem 0 0; color: var(--np-dark-gray);"><strong>Specificatie planbaar melden</strong>: een dun event met id en versie; de afnemer haalt de structuur of de delta op.</p>
+  </div>
+  <div style="text-align: center; color: var(--np-mid-gray); font-size: 0.72rem;">&#8595; landt op</div>
+  <div class="np-card accent-green" style="padding: 0.45rem 0.8rem;">
+    <span class="np-badge green">Applicatiecomponent &middot; endpoint</span>
+    <p style="margin: 0.25rem 0 0; color: var(--np-dark-gray);"><code>/onderwijsspecificaties/{id}</code> &middot; GET &middot; antwoord <code>education-specification.json</code></p>
+  </div>
 </div>
 
 </div>
 
 <!--
-Rustig voorlezen; dit is de leeservaring die het document zelf moet geven. In het werkdeel
-loopt iedereen precies deze lijn zelf na.
+Niet voorlezen; de keten wijst zichzelf. Eén zin erbij: zo grijpt elk hoofdstuk in het
+volgende, van eis tot schema. In het werkdeel loopt iedereen precies deze lijn zelf na.
 -->
 
 ---
