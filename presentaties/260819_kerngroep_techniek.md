@@ -481,13 +481,9 @@ dit deel is concreet: inlezen en verschillen melden.
 
 </div>
 <div>
-  <div class="np-card accent-orange" style="margin-bottom: 0.6rem;">
+  <div class="np-card accent-orange">
     <h3 style="font-size: 0.98rem;">Wat we vragen</h3>
-    <p class="muted" style="font-size: 0.82rem; margin: 0;">Inlezen v&oacute;&oacute;r de volgende sessie. Wat schuurt met de eigen implementatie of met de oude situatie: meld het als issue.</p>
-  </div>
-  <div class="np-card accent-blue">
-    <h3 style="font-size: 0.98rem;">Oud versus nieuw</h3>
-    <p class="muted" style="font-size: 0.82rem; margin: 0;">De inhoudelijke lijn van OKE loopt door; wat anders leest dan voorheen horen we graag expliciet.</p>
+    <p class="muted" style="font-size: 0.82rem; margin: 0;">Inlezen v&oacute;&oacute;r de volgende sessie. Wat schuurt met de eigen implementatie of met de oude situatie: meld het dan als issue onder OKx Public.</p>
   </div>
 </div>
 </div>
