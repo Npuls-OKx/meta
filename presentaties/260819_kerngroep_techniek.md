@@ -266,7 +266,7 @@ koppelvlakspecificatie. Alles hier is straks in het werkdeel zelf aan te klikken
 └── persona's/             ← wie de student is</pre>
 
 <p class="muted" style="font-size: 0.82rem; margin-top: 0.4rem;">
-Bouwen gebeurt uit <strong>Koppelvlakspecificaties/</strong>; het waarom staat in <strong>Referentiemateriaal/</strong>.
+Bouwen gebeurt uit <strong>Koppelvlakspecificaties/</strong>; de context die nodig is om de koppelvlakspecificaties te begrijpen staat in <strong>Referentiemateriaal/</strong>.
 </p>
 
 </div>
