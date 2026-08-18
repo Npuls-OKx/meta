@@ -362,27 +362,29 @@ document.
 
 <div class="np-grid-2" style="margin-top: 0.5rem; align-items: center; gap: 1rem;">
 <div style="display: flex; flex-direction: column; gap: 0.35rem; font-size: 0.76rem;">
-  <div class="np-card accent-blue" style="padding: 0.4rem 0.7rem;"><strong>Functionele eisen</strong>: dragen de doelen van Leren zonder Drempels</div>
-  <div class="np-card accent-orange" style="padding: 0.4rem 0.7rem;"><strong>Interactiepatronen</strong>: de processen waarmee referentiecomponenten interacteren</div>
-  <div class="np-card accent-green" style="padding: 0.4rem 0.7rem;"><strong>Endpoints</strong>: wat een referentiecomponent implementeert, per interactie</div>
-  <div class="np-card accent-blue" style="padding: 0.4rem 0.7rem;"><strong>Applicatiecomponenten</strong>: de componenten die via koppelvlakken interacteren</div>
-  <div class="np-card accent-green" style="padding: 0.4rem 0.7rem;"><strong>Datamodelschema's</strong>: JSON-schema's van de payloads</div>
+  <div class="np-card accent-blue" style="padding: 0.4rem 0.7rem;"><strong>Functionele eisen</strong>: wat moet dit koppelvlak concreet doen om de sectoreisen waar te maken?</div>
+  <div class="np-card accent-orange" style="padding: 0.4rem 0.7rem;"><strong>Interactiepatronen</strong>: de machine-naar-machineprocessen waarmee applicatiecomponenten interacteren</div>
+  <div class="np-card accent-blue" style="padding: 0.4rem 0.7rem;"><strong>Applicatiecomponenten</strong>: wie zijn de spelers in de keten?</div>
+  <div class="np-card accent-green" style="padding: 0.4rem 0.7rem;"><strong>Endpoints</strong>: de aanspreekpunten waarmee een speler zijn verantwoordelijkheden waarmaakt</div>
+  <div class="np-card accent-green" style="padding: 0.4rem 0.7rem;"><strong>Datamodelschema's</strong>: de exacte afspraak waarmee gegevens worden uitgewisseld</div>
 </div>
 <div style="display: flex; justify-content: center;">
-  <img src="/platen/koppelvlak-specificatie-breakdown.png" style="max-height: 400px; width: auto; border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.18);" />
+  <img src="/platen/koppelvlak-specificatie-breakdown.png" style="max-height: 430px; max-width: 100%; width: auto;" />
 </div>
 </div>
 
 <div class="np-bottomline" style="margin-top: 0.5rem;">
-  Volg de pijlen: <strong>functionele eisen</strong> bepalen de processen, die bepalen de <strong>endpoints</strong>, en endpoints gebruiken de <strong>datamodelschema's</strong>.
+  Volg de pijlen: de <strong>sectoreisen</strong> voeden de functionele eisen; die bepalen de processen, de processen de <strong>endpoints</strong>, en endpoints gebruiken de <strong>datamodelschema's</strong>.
 </div>
 
 </div>
 
 <!--
-De authenticatiestandaard hoort hier mondeling bij: die ligt als buitenlaag om alle
-koppelvlakken heen en komt in deel 4 apart terug; de plaat wordt daar nog op bijgetekend.
-Wie/wat/hoe: applicatiecomponenten (wie), datamodelschema's (wat), interactiepatronen (hoe).
+Nieuw in de plaat: het blok sectoreisen, de wensen en eisen van instellingen, leveranciers
+en opdrachtgever, gebundeld in de OKx-requirementsboom; de brug naar de vooruitblik-slide.
+De authenticatiestandaard mondeling duiden als losse pijler voor alle koppelvlakken.
+Plaatcorrecties voor later: het blok Referentiesystemen moet applicatiecomponenten heten,
+en de zwarte relatielabels zijn slecht leesbaar.
 -->
 
 ---
