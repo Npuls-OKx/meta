@@ -233,6 +233,18 @@
       "let_op": "Donkere achtergrond in het bestand zelf; zet hem op een lichte slide in een omhulsel met afgeronde hoeken. De bron heeft nog geen vaste plek in een repository; zodra hij in Public landt, het pad bijwerken.",
       "kopie": "koppelvlak-specificatie-breakdown.png",
       "hash": "911489fd92ea66b5"
+    },
+    {
+      "naam": "repo-inrichting",
+      "titel": "Project- en repo-inrichting (transparant)",
+      "bron": "Npuls-OKx/Public",
+      "pad": "Werkwijze/src/project_en_repo_inrichting.png",
+      "versie": "-",
+      "toont": "Drie containers naast elkaar: private source (interne planning en referentiemateriaal), public source (bronmateriaal van de releasepakketten, CI/CD en documentatie) en public release (de pakketten, waaronder de koppelvlakspecificatie en OEAPI-profielen), met de rollen erboven: OKx Techniek, public contributor en public implementer.",
+      "gebruik_bij": "De vraag waar het materiaal staat en wat er uiteindelijk uitkomt; kerngroep techniek en leveranciers. Transparante achtergrond, dus bruikbaar op lichte slides zonder omhulsel.",
+      "let_op": "Aangeleverd door Niek (18 augustus); de bron staat nog niet gecommit op een Public-branch. De relatielabels bovenin hebben zwarte vlakjes; op donkere achtergronden vallen ze weg.",
+      "kopie": "repo-inrichting.png",
+      "hash": "29eca256d661a543"
     }
   ],
   "overslaan": [

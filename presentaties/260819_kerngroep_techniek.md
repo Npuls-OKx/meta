@@ -158,18 +158,16 @@ de kern.
 
 <div class="fill">
 
-# Twee bronnen, elk hun eigen prioriteit
+# Van werkomgeving naar release
 
-<div class="np-grid-2" style="margin-top: 0.6rem; align-items: center; gap: 1rem;">
-<div style="font-size: 0.92rem; line-height: 1.85;">
-
-- De <strong>werkomgeving</strong>: bronbestanden, iteraties en context; daar wordt gewerkt
-- De <strong>publieke bron</strong>: het product, de geconsolideerde koppelvlakspecificaties en hun releases
-- Wat rijp is, verhuist via review van werkomgeving naar publieke bron
-
+<div style="display: grid; grid-template-columns: 1fr 1.9fr; gap: 1.2rem; align-items: center; margin-top: 0.6rem;">
+<div style="font-size: 0.92rem; line-height: 1.75; display: flex; flex-direction: column; gap: 0.7rem;">
+  <div><strong>Private source</strong><br/>De werkomgeving van het projectteam: bronbestanden, ideeën en memo's. Alle context om het eindproduct te realiseren.</div>
+  <div><strong>Public source</strong><br/>Alle bronbestanden van de koppelvlakspecificatie.</div>
+  <div><strong>Public release</strong><br/>Het geversioneerde koppelvlakspecificatie-document.</div>
 </div>
 <div style="display: flex; justify-content: center;">
-  <img src="/platen/repo-setup.jpg" style="max-height: 400px; width: auto; border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.18);" />
+  <img src="/platen/repo-inrichting.png" style="max-height: 440px; max-width: 100%; width: auto;" />
 </div>
 </div>
 
@@ -177,9 +175,10 @@ de kern.
 
 <!--
 Leeswijzer bij de plaat: links de private source (interne planning en referentiemateriaal),
-midden de public source met CI/CD, rechts de public release waarmee een implementeerder
-bouwt, met de rollen erboven. De scheiding is er een van prioriteiten: werken versus
-opleveren.
+midden de public source met bronmateriaal, CI/CD en documentatie, rechts de public release
+met de pakketten, en de rollen erboven: OKx Techniek draagt bij, contributors dragen bij
+aan de public source, implementers gebruiken de release. De scheiding is er een van
+prioriteiten: werken versus opleveren.
 -->
 
 ---
