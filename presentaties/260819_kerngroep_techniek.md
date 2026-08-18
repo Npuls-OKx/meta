@@ -645,54 +645,27 @@ Alpha zegt precies wat het is: compleet genoeg om op te schieten, niet af.
 
 <div class="fill">
 
-# Wat er in v0.0.1 zit
+# De structuur staat
 
-<div style="max-width: 40rem; margin: 0.8rem auto 0; font-size: 0.98rem; line-height: 2.0;">
+<div class="np-grid-3" style="margin-top: 0.7rem; gap: 0.5rem; align-items: stretch;">
+  <div class="np-card accent-blue" style="padding: 0.5rem 0.7rem;"><strong style="font-size: 0.85rem;">Inleiding en afbakening</strong><br/><span class="muted" style="font-size: 0.75rem;">de eisen aan de keten</span></div>
+  <div class="np-card accent-orange" style="padding: 0.5rem 0.7rem;"><strong style="font-size: 0.85rem;">Applicatiecomponenten</strong><br/><span class="muted" style="font-size: 0.75rem;">met hun endpoints</span></div>
+  <div class="np-card accent-green" style="padding: 0.5rem 0.7rem;"><strong style="font-size: 0.85rem;">Interactiepatronen</strong><br/><span class="muted" style="font-size: 0.75rem;">met functionele eisen, per koppeling</span></div>
+  <div class="np-card accent-green" style="padding: 0.5rem 0.7rem;"><strong style="font-size: 0.85rem;">Authenticatiestandaard</strong><br/><span class="muted" style="font-size: 0.75rem;">&eacute;&eacute;n pijler voor alle koppelvlakken</span></div>
+  <div class="np-card accent-blue" style="padding: 0.5rem 0.7rem;"><strong style="font-size: 0.85rem;">Datamodelschema's</strong><br/><span class="muted" style="font-size: 0.75rem;">met voorbeeldpayloads</span></div>
+  <div class="np-card accent-orange" style="padding: 0.5rem 0.7rem;"><strong style="font-size: 0.85rem;">Uitgangspunten en mapping</strong><br/><span class="muted" style="font-size: 0.75rem;">de aannames en veldnamen</span></div>
+</div>
 
-- Inleiding en afbakening, met de <strong>eisen aan de keten</strong>
-- <strong>Applicatiecomponenten</strong> met hun endpoints
-- <strong>Interactiepatronen</strong> met functionele eisen, per koppeling
-- <strong>Authenticatiestandaard</strong>
-- <strong>Datamodelschema's</strong> en voorbeeldpayloads
-- Uitgangspunten en veldnamenmapping
-
+<div class="np-bottomline" style="margin-top: 0.9rem;">
+  Het belangrijkste gat: de <strong>kaderstelling en sectorverantwoording</strong>. De eerstvolgende iteratie daarop is de <strong>requirementsboom</strong>.
 </div>
 
 </div>
 
 <!--
-Leesvolgorde is de volgorde van het gebundelde document. Kort langslopen, niet openen ,
-dat gebeurt in het werkdeel.
--->
-
----
-
-<!-- VRAAGSTELLING -->
-<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
-
-<div class="fill">
-
-# Gevraagd: feedback op de structuur
-
-<div class="np-grid-2" style="margin-top: 0.8rem; align-items: center;">
-<div style="font-size: 0.95rem; line-height: 1.9;">
-
-- Is het document <strong>logisch te volgen</strong> en navigeerbaar?
-- De inhoud is nog niet af: modellen, authenticatielagen en interactiepatronen worden nog ge&iuml;tereerd; inhoudelijke feedback komt in latere rondes
-- Wat schuurt in de structuur: <strong>meld het als issue onder OKx Public</strong>
-
-</div>
-<div style="display: flex; flex-direction: column; align-items: center; gap: 0.4rem;">
-  <img src="/shots/qr-npuls-okx-public.png" style="width: 190px; border-radius: 8px; border: 1px solid #e2e8f0;" />
-  <span class="muted" style="font-size: 0.8rem;">github.com/Npuls-OKx/Public</span>
-</div>
-</div>
-
-</div>
-
-<!--
-Expliciet ontmoedigen dat mensen morgen de inhoud gaan fileren: daar wordt nog veel
-overheen geïtereerd. De vraag is of de structuur draagt. Link ook in de chat delen.
+De boodschap is niet de hoofdstukkenlijst maar dat de structuur staat, inclusief de
+hoofdstukken. Het gat expliciet benoemen en doorspelen naar de planning: de
+requirementsboom is de eerstvolgende iteratie. Niet openen; dat gebeurt in het werkdeel.
 -->
 
 ---
@@ -726,6 +699,38 @@ overheen geïtereerd. De vraag is of de structuur draagt. Link ook in de chat de
 Bewust kort en eenvoudig: geen lijst eisen richting leveranciers. De diepgang van dit
 gesprek bepaalt de zaal; Ruud jaagt de discussie aan als het stil blijft.
 -->
+
+---
+
+<!-- VRAAGSTELLING -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# Gevraagd: feedback op de structuur
+
+<div class="np-grid-2" style="margin-top: 0.8rem; align-items: center;">
+<div style="font-size: 0.95rem; line-height: 1.9;">
+
+- Is het document <strong>logisch te volgen</strong> en navigeerbaar?
+- De inhoud is nog niet af: modellen, authenticatielagen en interactiepatronen worden nog ge&iuml;tereerd; inhoudelijke feedback komt in latere rondes
+- Wat schuurt in de structuur: <strong>meld het als issue onder OKx Public</strong>
+
+</div>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 0.4rem;">
+  <img src="/shots/qr-npuls-okx-public.png" style="width: 190px; border-radius: 8px; border: 1px solid #e2e8f0;" />
+  <span class="muted" style="font-size: 0.8rem;">github.com/Npuls-OKx/Public</span>
+</div>
+</div>
+
+</div>
+
+<!--
+Expliciet ontmoedigen dat mensen morgen de inhoud gaan fileren: daar wordt nog veel
+overheen geïtereerd. De vraag is of de structuur draagt. Link ook in de chat delen.
+-->
+
+---
 
 ---
 
