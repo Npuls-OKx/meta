@@ -334,11 +334,15 @@ naar elkaar door. Niet dieper ingaan dan dit; wie meer wil ziet het straks in he
 </div>
 
 <div style="display: flex; margin-top: 0.35rem;">
-  <div style="margin-left: auto; margin-right: 13%; display: flex; align-items: center; gap: 0.4rem;">
-    <div class="np-step blue" style="padding: 0.3rem 0.7rem;"><strong style="font-size: 0.76rem;">Instellingen en leveranciers</strong></div>
-    <div class="np-arrow">&#8594;</div>
-    <div class="np-step orange" style="padding: 0.3rem 0.7rem;"><strong style="font-size: 0.76rem;">Adviesgroep</strong></div>
-    <div class="np-arrow">&#8593;</div>
+  <div style="margin-left: auto; margin-right: 11%; display: flex; gap: 1.2rem;">
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.1rem;">
+      <div class="np-arrow">&#8593;</div>
+      <div class="np-step blue" style="padding: 0.3rem 0.7rem;"><strong style="font-size: 0.76rem;">Instellingen</strong></div>
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.1rem;">
+      <div class="np-arrow">&#8593;</div>
+      <div class="np-step green" style="padding: 0.3rem 0.7rem;"><strong style="font-size: 0.76rem;">Leveranciers</strong></div>
+    </div>
   </div>
 </div>
 
@@ -356,8 +360,8 @@ naar elkaar door. Niet dieper ingaan dan dit; wie meer wil ziet het straks in he
 </div>
 
 <!--
-De voedingslijn benoemen: wensen van instellingen en leveranciers landen via de
-adviesgroep als features en stories in de boom — de zaal zit er dus zelf in.
+De voedingslijn benoemen: wensen van instellingen en van leveranciers landen
+rechtstreeks als features en stories in de boom — de zaal zit er dus zelf in.
 Alleen aankondigen, niet uitwerken (afspraak met Ruud en Garik). Als er vragen komen:
 prima gespreksstof voor het werkdeel, de werkvraag daar is precies "hoe komen we tot
 die functionele eisen?". Niet de boom zelf laten zien; die is nog niet af.
