@@ -245,7 +245,7 @@ koppelvlakspecificatie. Alles hier is straks in het werkdeel zelf aan te klikken
 <div class="np-grid-2" style="margin-top: 0.6rem; align-items: start;">
 <div>
 
-<pre style="background: #f6f8fa; color: var(--np-ink); border: 1px solid #e2e8f0; border-radius: 8px; padding: 0.8rem 1rem; font-size: 0.78rem; line-height: 1.55; margin: 0; font-family: ui-monospace, monospace;">Koppelvlakspecificaties/
+<pre style="background: #f6f8fa; color: var(--np-ink); border: 1px solid #e2e8f0; border-radius: 8px; padding: 0.7rem 0.9rem; font-size: 0.72rem; line-height: 1.5; margin: 0; font-family: ui-monospace, monospace;">Koppelvlakspecificaties/
 ├── inleiding.md
 ├── afbakening.md          ← eisen aan de keten
 ├── Applicatiecomponenten/ ← rollen + endpoints
@@ -258,7 +258,7 @@ koppelvlakspecificatie. Alles hier is straks in het werkdeel zelf aan te klikken
 </div>
 <div>
 
-<pre style="background: #f6f8fa; color: var(--np-ink); border: 1px solid #e2e8f0; border-radius: 8px; padding: 0.8rem 1rem; font-size: 0.78rem; line-height: 1.55; margin: 0; font-family: ui-monospace, monospace;">Referentiemateriaal/
+<pre style="background: #f6f8fa; color: var(--np-ink); border: 1px solid #e2e8f0; border-radius: 8px; padding: 0.7rem 0.9rem; font-size: 0.72rem; line-height: 1.5; margin: 0; font-family: ui-monospace, monospace;">Referentiemateriaal/
 ├── adr/                   ← besluiten met
 │                            onderbouwing
 ├── principes/
@@ -272,13 +272,23 @@ Bouwen gebeurt uit <strong>Koppelvlakspecificaties/</strong>; de context die nod
 </div>
 </div>
 
-<div style="display: flex; align-items: center; justify-content: center; gap: 1rem; margin-top: 0.7rem;">
-  <div class="np-card accent-orange" style="padding: 0.5rem 0.9rem; max-width: 30rem;">
-    <span class="np-badge orange">Opdracht</span>
-    <p style="font-size: 0.88rem; color: var(--np-dark-gray); margin: 0.3rem 0 0;">Open de repository en verken de folders. Wat valt als eerste op?</p>
+<div style="display: flex; align-items: stretch; justify-content: center; gap: 0.6rem; margin-top: 0.6rem;">
+  <div class="np-card accent-blue" style="padding: 0.45rem 0.7rem; flex: 1; max-width: 15rem;">
+    <span class="np-badge blue">Verken</span>
+    <p style="font-size: 0.78rem; color: var(--np-dark-gray); margin: 0.25rem 0 0;">Loop door de twee folders. Wat valt als eerste op?</p>
   </div>
-  <img src="/shots/qr-npuls-okx-public.png" style="width: 110px; border-radius: 6px; border: 1px solid #e2e8f0;" />
-  <span class="muted" style="font-size: 0.8rem;">github.com/Npuls-OKx/Public</span>
+  <div class="np-card accent-green" style="padding: 0.45rem 0.7rem; flex: 1; max-width: 15rem;">
+    <span class="np-badge green">Herken</span>
+    <p style="font-size: 0.78rem; color: var(--np-dark-gray); margin: 0.25rem 0 0;">Zoek iets dat je al kent: het eigen systeem, een interactie, een begrip van de hoofdplaat. Staat het waar je het verwacht?</p>
+  </div>
+  <div class="np-card accent-orange" style="padding: 0.45rem 0.7rem; flex: 1; max-width: 15rem;">
+    <span class="np-badge orange">Vind</span>
+    <p style="font-size: 0.78rem; color: var(--np-dark-gray); margin: 0.25rem 0 0;">Wat zoek je en kun je niet vinden?</p>
+  </div>
+  <div style="display: flex; flex-direction: column; align-items: center; gap: 0.2rem; justify-content: center;">
+    <img src="/shots/qr-npuls-okx-public.png" style="width: 100px; border-radius: 6px; border: 1px solid #e2e8f0;" />
+    <span class="muted" style="font-size: 0.7rem;">github.com/Npuls-OKx/Public</span>
+  </div>
 </div>
 
 </div>
@@ -299,8 +309,8 @@ de oogst komt op de volgende slide.
   <div style="font-family: 'Cooper Light BT', serif; font-size: 2rem; line-height: 1.4; color: var(--np-blue); max-width: 700px;">
     Kun je vinden wat je zoekt?
   </div>
-  <p style="margin-top: 1rem; font-size: 1.05rem; color: var(--np-dark-gray); max-width: 600px; line-height: 1.7;">
-    Wat zoek je als eerste? En waar verwachtte je het?
+  <p style="margin-top: 1rem; font-size: 1.05rem; color: var(--np-dark-gray); max-width: 620px; line-height: 1.7;">
+    Wat viel als eerste op? Wat herkende je? En wat kon je niet vinden?
   </p>
 </div>
 
