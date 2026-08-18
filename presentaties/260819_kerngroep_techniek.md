@@ -795,24 +795,44 @@ en keuzeregels met regelset) al in de maak zijn; de volgende slide toont alle ze
 
 <div class="fill">
 
-# De zeven grote items
+# Waar de backlog vandaan komt
 
-<div class="np-grid-3" style="margin-top: 0.7rem; gap: 0.5rem; align-items: stretch;">
-  <div class="np-card accent-blue" style="padding: 0.5rem 0.7rem; font-size: 0.78rem;">Requirementsboom: kaderstelling en sectorverantwoording publiceren</div>
-  <div class="np-card accent-orange" style="padding: 0.5rem 0.7rem; font-size: 0.78rem;">Keuzeregels en regelset-payload uitwerken</div>
-  <div class="np-card accent-green" style="padding: 0.5rem 0.7rem; font-size: 0.78rem;">Functionele eisen per koppelvlak completeren</div>
-  <div class="np-card accent-green" style="padding: 0.5rem 0.7rem; font-size: 0.78rem;">Authenticatiestandaard bekrachtigen (Edukoppeling-profiel)</div>
-  <div class="np-card accent-blue" style="padding: 0.5rem 0.7rem; font-size: 0.78rem;">Datamodelschema's itereren met voorbeeldpayloads</div>
-  <div class="np-card accent-orange" style="padding: 0.5rem 0.7rem; font-size: 0.78rem;">Volgende koppelvlakken uitwerken, minimaal drie</div>
-  <div class="np-card accent-blue" style="padding: 0.5rem 0.7rem; font-size: 0.78rem;">Feedback uit deze sessie verwerken richting de volgende release</div>
+<div class="np-pipeline" style="margin-top: 1.1rem;">
+  <div class="np-step blue" style="flex: 1;">
+    <strong style="font-size: 0.85rem;">Leerroutes en scenario's</strong>
+  </div>
+  <div class="np-arrow">&#8594;</div>
+  <div class="np-step orange" style="flex: 1;">
+    <strong style="font-size: 0.85rem;">Features en stories</strong>
+  </div>
+  <div class="np-arrow">&#8594;</div>
+  <div class="np-step green" style="flex: 1;">
+    <strong style="font-size: 0.85rem;">Functionele eisen</strong>
+  </div>
+  <div class="np-arrow">&#8594;</div>
+  <div class="np-step blue" style="flex: 1;">
+    <strong style="font-size: 0.85rem;">Endpoints en applicatiecomponenten</strong>
+  </div>
+</div>
+
+<div class="np-grid-2" style="margin-top: 1.1rem; align-items: start;">
+  <div class="np-card accent-green">
+    <h3 style="font-size: 0.95rem;">Eerste item, al gestart: keuzeregels en regelset</h3>
+    <p class="muted" style="font-size: 0.82rem; margin: 0;">De vraag uit de sector: hoe leggen we vast welke keuzedelen gekozen mogen worden, binnen welke opleiding en instelling?</p>
+  </div>
+  <div class="np-card accent-orange">
+    <h3 style="font-size: 0.95rem;">Aan de kerngroep</h3>
+    <p class="muted" style="font-size: 0.82rem; margin: 0;">Klopt deze route? En wat verdient als eerste een plek op het bord?</p>
+  </div>
 </div>
 
 </div>
 
 <!--
-Elk item krijgt in de requirementsboom zijn plek onder een epic, zodat de herleidbaarheid
-vanaf dag een meeloopt; dat detail hier mondeling. Prioritering is aan Ruud met de kerngroep.
-De eerste twee items zijn al in de maak.
+De backlog wordt niet verzonnen maar afgeleid: uit de leerroute-uitwerkingen en scenario's
+volgen features en stories, daaruit de functionele eisen, en die hangen aan endpoints en
+applicatiecomponenten. Het keuzeregels-item is het issue van Jan Hendrik van Schaik
+(nummer 1 op OKx Public) en is al in uitwerking. Hier toetsen hoe iedereen dit ziet.
 -->
 
 ---
