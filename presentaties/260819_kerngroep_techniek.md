@@ -837,6 +837,40 @@ applicatiecomponenten. Het keuzeregels-item is het issue van Jan Hendrik van Sch
 
 ---
 
+<!-- RECAP EN OPDRACHT -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# Tot slot
+
+<div class="np-grid-2" style="margin-top: 0.8rem; align-items: center;">
+<div style="font-size: 0.95rem; line-height: 1.9;">
+
+- De <strong>structuur staat</strong>, gereleased als koppelvlakspecificatie v0.0.1
+- De werkwijze is versimpeld: <strong>&eacute;&eacute;n publieke bron</strong>, met releases die zeggen wat geldt
+- De <strong>requirementsboom</strong> is de volgende iteratie: van sectorwens tot functionele eis
+
+</div>
+<div>
+  <div class="np-card accent-orange">
+    <span class="np-badge orange">Voor de volgende sessie</span>
+    <p style="font-size: 0.9rem; color: var(--np-dark-gray); line-height: 1.6; margin: 0.4rem 0 0;">
+      Werk de release door, review hem en maak issues aan; vooral op de structuur. Inhoudelijke feedback is altijd welkom.
+    </p>
+  </div>
+</div>
+</div>
+
+</div>
+
+<!--
+Kort houden: drie zinnen recap, een opdracht. De QR en link staan eerder in het deck en
+in de chat; wie nu al issues heeft aangemaakt: dank, dat is precies de bedoeling.
+-->
+
+---
+
 <!-- AFSLUITSLIDE -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide17.PNG);"></div>
 
