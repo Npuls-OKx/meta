@@ -234,12 +234,22 @@ staat ernaast, ter referentie, niet als verplichte kost.
 
 <p class="np-subtitle">Vier bouwstenen per koppelvlak, met authenticatie als gedeelde pijler.</p>
 
-<div style="display: flex; justify-content: center; margin-top: 0.2rem;">
-  <img src="/platen/koppelvlak-specificatie-breakdown.png" style="max-height: 390px; width: auto; border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.18);" />
+<div class="np-grid-2" style="margin-top: 0.2rem; align-items: center; gap: 1rem;">
+<div style="display: flex; justify-content: center;">
+  <img src="/platen/koppelvlak-specificatie-breakdown.png" style="max-height: 350px; width: auto; border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.18);" />
+</div>
+<div style="display: flex; flex-direction: column; gap: 0.35rem; font-size: 0.76rem;">
+  <div class="np-card accent-blue" style="padding: 0.4rem 0.7rem;"><strong>Functionele eisen</strong> — dragen de doelen van Leren zonder Drempels</div>
+  <div class="np-card accent-orange" style="padding: 0.4rem 0.7rem;"><strong>Interactiepatronen</strong> — de processen waarmee referentiecomponenten interacteren</div>
+  <div class="np-card accent-green" style="padding: 0.4rem 0.7rem;"><strong>Endpoints</strong> — wat een referentiecomponent implementeert, per interactie</div>
+  <div class="np-card accent-blue" style="padding: 0.4rem 0.7rem;"><strong>Applicatiecomponenten</strong> — de componenten die via koppelvlakken interacteren</div>
+  <div class="np-card accent-green" style="padding: 0.4rem 0.7rem;"><strong>Datamodelschema's</strong> — JSON-schema's van de payloads</div>
+  <div class="np-card accent-orange" style="padding: 0.4rem 0.7rem;"><strong>Auth-standaard</strong> — authenticatie en autorisatie voor alle koppelvlakken</div>
+</div>
 </div>
 
-<div class="np-bottomline" style="margin-top: 0.6rem;">
-  Volg de pijlen: <strong>functionele eisen</strong> bepalen de processen (interactiepatronen), die bepalen de <strong>endpoints</strong>, en endpoints gebruiken de <strong>datamodelschema's</strong>.
+<div class="np-bottomline" style="margin-top: 0.5rem;">
+  Volg de pijlen: <strong>functionele eisen</strong> bepalen de processen, die bepalen de <strong>endpoints</strong>, en endpoints gebruiken de <strong>datamodelschema's</strong>.
 </div>
 
 </div>
