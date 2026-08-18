@@ -404,8 +404,8 @@ en de zwarte relatielabels zijn slecht leesbaar.
   </div>
   <div style="text-align: center; color: var(--np-mid-gray); font-size: 0.72rem;">&#8595; werkt via</div>
   <div class="np-card accent-orange" style="padding: 0.45rem 0.8rem;">
-    <span class="np-badge orange">Interactieoverzicht &middot; interactie</span>
-    <p style="margin: 0.25rem 0 0; color: var(--np-dark-gray);"><strong>Specificatie planbaar melden</strong>: een dun event met id en versie; de afnemer haalt de structuur of de delta op.</p>
+    <span class="np-badge orange">Interactiepatroon &middot; interactie</span>
+    <p style="margin: 0.25rem 0 0; color: var(--np-dark-gray);"><strong>Specificatie planbaar melden</strong>, volgens het patroon notify-then-pull: een dun event met id en versie; de afnemer haalt de structuur of de delta op.</p>
   </div>
   <div style="text-align: center; color: var(--np-mid-gray); font-size: 0.72rem;">&#8595; landt op</div>
   <div class="np-card accent-green" style="padding: 0.45rem 0.8rem;">
