@@ -575,7 +575,7 @@ Dit deel beantwoordt de kernvraag uit de aanleiding: wanneer is iets af. Kort ho
 <div class="np-pipeline" style="margin-top: 1rem;">
   <div class="np-step blue" style="flex: 1; max-width: 250px;">
     <strong style="font-size: 0.92rem;">Publieke bron</strong>
-    <small>bronbestanden per onderwerp: eisen, interacties, endpoints, datamodellen, auth</small>
+    <small>bronbestanden per onderwerp: eisen, applicatiecomponenten, interacties, endpoints, datamodellen, auth</small>
   </div>
   <div class="np-arrow">&#8594;</div>
   <div class="np-step orange" style="flex: 1; max-width: 250px;">
@@ -630,7 +630,7 @@ volgende release. Wie wil kan hier al issues gaan zoeken in de spec.
 <div class="flex items-center justify-center h-full">
   <div style="text-align: center;">
     <p class="eyebrow" style="color: rgba(255,255,255,0.85);">Deel 4</p>
-    <h1 style="color: #FFFFFF !important; font-size: 3rem;">Alpha-document v0.0.1</h1>
+    <h1 style="color: #FFFFFF !important; font-size: 3rem;">Koppelvlakspecificatie v0.0.1</h1>
   </div>
 </div>
 
