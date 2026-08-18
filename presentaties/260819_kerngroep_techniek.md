@@ -1,7 +1,7 @@
 ---
 theme: default
 title: Koppelvlakspecificaties, geconsolideerd en releasebaar
-info: Sessie kerngroep techniek, 19 augustus 2026 — de eerste structuur voor het eindproduct, de publieke repository, release management en het alpha-document v0.01.
+info: Sessie kerngroep techniek, 19 augustus 2026: de eerste structuur voor het eindproduct, de publieke repository, release management en het alpha-document v0.01.
 author: OKx - Onderwijskoppelingen (Npuls)
 highlighter: shiki
 lineNumbers: false
@@ -47,7 +47,7 @@ vinden we het?" Dit gezelschap heet de kerngroep techniek.
   </div>
   <p style="margin-top: 1.2rem; font-size: 1.05rem; color: var(--np-dark-gray); max-width: 640px; line-height: 1.6;">
     Gereleased als alpha-document v0.01, in docx en pdf.
-    Vandaag: hoe die structuur in elkaar zit &mdash; en of ermee te werken is.
+    Vandaag: hoe die structuur in elkaar zit, en of ermee te werken is.
   </p>
 </div>
 
@@ -108,7 +108,7 @@ gaat zelf de repository en het document in. Er is bewust geen volledige demo.
 </div>
 
 <!--
-Kernwoorden: versimpeld, consolidatie, bestendiging — nooit "nieuw" of "anders".
+Kernwoorden: versimpeld, consolidatie, bestendiging; nooit "nieuw" of "anders".
 De inhoud die iedereen kent blijft; hij wordt beter vindbaar en expliciet af of niet-af.
 -->
 
@@ -160,8 +160,8 @@ telde. De informatiestromen-hoofdplaat en het begrippenkader blijven de kern.
 <div class="np-grid-2" style="margin-top: 0.6rem; align-items: center; gap: 1rem;">
 <div style="font-size: 0.92rem; line-height: 1.85;">
 
-- De <strong>werkomgeving</strong>: bronbestanden, iteraties en context &mdash; daar wordt gewerkt
-- De <strong>publieke bron</strong>: het product &mdash; geconsolideerde koppelvlakspecificaties en hun releases
+- De <strong>werkomgeving</strong>: bronbestanden, iteraties en context; daar wordt gewerkt
+- De <strong>publieke bron</strong>: het product, de geconsolideerde koppelvlakspecificaties en hun releases
 - Wat rijp is, verhuist via review van werkomgeving naar publieke bron
 
 </div>
@@ -175,7 +175,7 @@ telde. De informatiestromen-hoofdplaat en het begrippenkader blijven de kern.
 <!--
 Leeswijzer bij de plaat: links de private source (interne planning en referentiemateriaal),
 midden de public source met CI/CD, rechts de public release waarmee een implementeerder
-bouwt — met de rollen erboven. De scheiding is er een van prioriteiten: werken versus
+bouwt, met de rollen erboven. De scheiding is er een van prioriteiten: werken versus
 opleveren.
 -->
 
@@ -271,7 +271,7 @@ Bouwen gebeurt uit <strong>Koppelvlakspecificaties/</strong>; het waarom staat i
 </div>
 
 <!--
-Hier meteen de opdracht geven: de link staat in de chat (en als QR verderop) — open
+Hier meteen de opdracht geven: de link staat in de chat (en als QR verderop): open
 github.com/Npuls-OKx/Public en klik mee door de folders terwijl dit deel loopt.
 -->
 
@@ -286,11 +286,11 @@ github.com/Npuls-OKx/Public en klik mee door de folders terwijl dit deel loopt.
 
 <div class="np-grid-2" style="margin-top: 0.5rem; align-items: center; gap: 1rem;">
 <div style="display: flex; flex-direction: column; gap: 0.35rem; font-size: 0.76rem;">
-  <div class="np-card accent-blue" style="padding: 0.4rem 0.7rem;"><strong>Functionele eisen</strong> — dragen de doelen van Leren zonder Drempels</div>
-  <div class="np-card accent-orange" style="padding: 0.4rem 0.7rem;"><strong>Interactiepatronen</strong> — de processen waarmee referentiecomponenten interacteren</div>
-  <div class="np-card accent-green" style="padding: 0.4rem 0.7rem;"><strong>Endpoints</strong> — wat een referentiecomponent implementeert, per interactie</div>
-  <div class="np-card accent-blue" style="padding: 0.4rem 0.7rem;"><strong>Applicatiecomponenten</strong> — de componenten die via koppelvlakken interacteren</div>
-  <div class="np-card accent-green" style="padding: 0.4rem 0.7rem;"><strong>Datamodelschema's</strong> — JSON-schema's van de payloads</div>
+  <div class="np-card accent-blue" style="padding: 0.4rem 0.7rem;"><strong>Functionele eisen</strong>: dragen de doelen van Leren zonder Drempels</div>
+  <div class="np-card accent-orange" style="padding: 0.4rem 0.7rem;"><strong>Interactiepatronen</strong>: de processen waarmee referentiecomponenten interacteren</div>
+  <div class="np-card accent-green" style="padding: 0.4rem 0.7rem;"><strong>Endpoints</strong>: wat een referentiecomponent implementeert, per interactie</div>
+  <div class="np-card accent-blue" style="padding: 0.4rem 0.7rem;"><strong>Applicatiecomponenten</strong>: de componenten die via koppelvlakken interacteren</div>
+  <div class="np-card accent-green" style="padding: 0.4rem 0.7rem;"><strong>Datamodelschema's</strong>: JSON-schema's van de payloads</div>
 </div>
 <div style="display: flex; justify-content: center;">
   <img src="/platen/koppelvlak-specificatie-breakdown.png" style="max-height: 400px; width: auto; border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.18);" />
@@ -320,7 +320,7 @@ Wie/wat/hoe: applicatiecomponenten (wie), datamodelschema's (wat), interactiepat
 
 <div style="max-width: 46rem; margin: 1rem auto 0; font-size: 0.98rem; line-height: 1.9;">
 
-Eén lijn door het document. De keten-eis <em>"een vastgestelde specificatie bereikt elk systeem dat ermee werkt"</em> is per koppeling afgeleid naar een functionele eis &mdash; voor planning en roostering: <em>"de onderwijscatalogus moet het planningssysteem kunnen laten weten dat een specificatie gereed is om te plannen&nbsp;&hellip;"</em>.
+Eén lijn door het document. De keten-eis <em>"een vastgestelde specificatie bereikt elk systeem dat ermee werkt"</em> is per koppeling afgeleid naar een functionele eis. Voor planning en roostering: <em>"de onderwijscatalogus moet het planningssysteem kunnen laten weten dat een specificatie gereed is om te plannen&nbsp;&hellip;"</em>.
 
 Die eis werkt via de interactie <strong>specificatie planbaar melden</strong>: een dun event met id en versie, waarna de afnemer de structuur of de delta ophaalt. De interactie landt op het endpoint <code>/onderwijsspecificaties/{id}</code>, met <code>education-specification.json</code> als antwoord.
 
@@ -365,7 +365,7 @@ loopt iedereen precies deze lijn zelf na.
 <div style="display: flex; justify-content: center; margin-top: 1.4rem;">
   <div class="np-card accent-green" style="max-width: 34rem;">
     <p style="font-size: 0.95rem; color: var(--np-dark-gray); line-height: 1.6; margin: 0;">
-      Elke functionele eis wordt herleidbaar tot de wens waaruit hij voortkomt &mdash; en andersom: geen eis zonder herkomst.
+      Elke functionele eis wordt herleidbaar tot de wens waaruit hij voortkomt. En andersom: geen eis zonder herkomst.
     </p>
   </div>
 </div>
@@ -374,7 +374,7 @@ loopt iedereen precies deze lijn zelf na.
 
 <!--
 Alleen aankondigen, niet uitwerken; geen toezeggingen over wanneer. Mondeling: wensen en
-eisen van instellingen en van leveranciers landen als features en stories in deze keten —
+eisen van instellingen en van leveranciers landen als features en stories in deze keten ,
 de zaal zit er dus zelf in. Bij vragen: dat is precies de werkvraag van het werkdeel.
 -->
 
@@ -474,7 +474,7 @@ Alpha zegt precies wat het is: compleet genoeg om op te schieten, niet af.
 </div>
 
 <!--
-Leesvolgorde is de volgorde van het gebundelde document. Kort langslopen, niet openen —
+Leesvolgorde is de volgorde van het gebundelde document. Kort langslopen, niet openen ,
 dat gebeurt in het werkdeel.
 -->
 
@@ -491,7 +491,7 @@ dat gebeurt in het werkdeel.
 <div style="font-size: 0.95rem; line-height: 1.9;">
 
 - Is het document <strong>logisch te volgen</strong> en navigeerbaar?
-- De inhoud is nog niet af: modellen, authenticatielagen en interactiepatronen worden nog ge&iuml;tereerd &mdash; inhoudelijke feedback komt in latere rondes
+- De inhoud is nog niet af: modellen, authenticatielagen en interactiepatronen worden nog ge&iuml;tereerd; inhoudelijke feedback komt in latere rondes
 - Wat schuurt in de structuur: <strong>meld het als issue onder OKx Public</strong>
 
 </div>
@@ -520,8 +520,8 @@ overheen geïtereerd. De vraag is of de structuur draagt. Link ook in de chat de
 <div class="np-grid-2" style="margin-top: 0.8rem; align-items: start;">
 <div style="font-size: 0.95rem; line-height: 1.9;">
 
-- Doel: <strong>standaarden vaststellen</strong> voor de API-endpoints en de koppelvlakspecificatielaag &mdash; niet h&oacute;e een partij dat implementeert
-- Uitgangspunt: open standaarden &mdash; <strong>OAuth 2.0 client credentials</strong>, conform het Edukoppeling-profiel
+- Doel: <strong>standaarden vaststellen</strong> voor de API-endpoints en de koppelvlakspecificatielaag, niet hoe een partij dat implementeert
+- Uitgangspunt: open standaarden, <strong>OAuth 2.0 client credentials</strong>, conform het Edukoppeling-profiel
 - Het bestaande OKE-document (hoofdstuk 5) blijft leidend tot het profiel definitief is
 
 </div>
@@ -575,7 +575,7 @@ gesprek bepaalt de zaal; Ruud jaagt de discussie aan als het stil blijft.
 
 <!--
 Uitwerksessie: iedereen zelf laten klikken. Rondlopen en verzamelen wat mensen niet kunnen
-vinden — dat zijn de eerste issues. De werkvraag is de brug naar de boom-uitwerking.
+vinden: dat zijn de eerste issues. De werkvraag is de brug naar de boom-uitwerking.
 -->
 
 ---
@@ -628,5 +628,5 @@ Dit agendapunt is van Ruud; de slide is het haakje, niet de inhoud.
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide17.PNG);"></div>
 
 <!--
-Afsluiting: oproep herhalen — inlezen v0.01, structuurfeedback als issue onder OKx Public.
+Afsluiting: oproep herhalen: inlezen v0.01, structuurfeedback als issue onder OKx Public.
 -->
