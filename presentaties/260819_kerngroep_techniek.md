@@ -718,9 +718,9 @@ gesprek bepaalt de zaal; Ruud jaagt de discussie aan als het stil blijft.
 <div class="np-grid-2" style="margin-top: 0.8rem; align-items: center;">
 <div style="font-size: 0.95rem; line-height: 1.9;">
 
-- Is het document <strong>logisch te volgen</strong> en navigeerbaar?
-- De inhoud is nog niet af: modellen, authenticatielagen en interactiepatronen worden nog ge&iuml;tereerd; inhoudelijke feedback komt in latere rondes
-- Wat schuurt in de structuur: <strong>meld het als issue onder OKx Public</strong>
+- Vandaag vooral: is het document <strong>logisch te volgen</strong> en navigeerbaar?
+- Inhoudelijke feedback trappen we <strong>vanaf nu</strong> af; modellen, authenticatielagen en interactiepatronen itereren door
+- Alle feedback, structuur en inhoud: <strong>leg het vast als issue onder OKx Public</strong>
 
 </div>
 <div style="display: flex; flex-direction: column; align-items: center; gap: 0.4rem;">
@@ -734,46 +734,6 @@ gesprek bepaalt de zaal; Ruud jaagt de discussie aan als het stil blijft.
 <!--
 Expliciet ontmoedigen dat mensen morgen de inhoud gaan fileren: daar wordt nog veel
 overheen geïtereerd. De vraag is of de structuur draagt. Link ook in de chat delen.
--->
-
----
-
----
-
-<!-- WERKDEEL -->
-<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
-
-<div class="fill">
-
-# Aan de slag
-
-<div class="np-grid-3" style="margin-top: 0.8rem; align-items: start;">
-  <div class="np-card accent-blue">
-    <span class="np-badge blue">Opdracht 1</span>
-    <h3 style="margin-top: 0.5rem; font-size: 0.95rem;">Vind het eigen systeem</h3>
-    <p class="muted" style="font-size: 0.8rem; margin: 0;">Open <strong>github.com/Npuls-OKx/Public</strong> en zoek het applicatiecomponent-document van het eigen systeem. Welke endpoints raken dat systeem?</p>
-  </div>
-  <div class="np-card accent-green">
-    <span class="np-badge green">Opdracht 2</span>
-    <h3 style="margin-top: 0.5rem; font-size: 0.95rem;">Open het releasepakket</h3>
-    <p class="muted" style="font-size: 0.8rem; margin: 0;">Open v0.0.1 (docx of pdf) en volg &eacute;&eacute;n functionele eis naar zijn interactie en endpoint.</p>
-  </div>
-  <div class="np-card accent-orange">
-    <span class="np-badge orange">Werkvraag</span>
-    <h3 style="margin-top: 0.5rem; font-size: 0.95rem;">Hoe komen we tot de functionele eisen?</h3>
-    <p class="muted" style="font-size: 0.8rem; margin: 0;">Wat is er per systeem nodig om een eis compleet te noemen? Wat mist er?</p>
-  </div>
-</div>
-
-<div class="np-bottomline" style="margin-top: 0.8rem;">
-  Klopt er iets niet, of is iets niet vindbaar? <strong>Dat is precies de feedback die we zoeken.</strong>
-</div>
-
-</div>
-
-<!--
-Uitwerksessie: iedereen zelf laten klikken. Rondlopen en verzamelen wat mensen niet kunnen
-vinden: dat zijn de eerste issues. De werkvraag is de brug naar de boom-uitwerking.
 -->
 
 ---
@@ -803,21 +763,51 @@ Overdracht aan Ruud: hij heeft de issues geselecteerd en loopt ze langs.
 
 <div class="np-grid-2" style="margin-top: 0.8rem; align-items: start;">
   <div class="np-card accent-blue">
-    <h3 style="font-size: 0.98rem;">Uit de publieke repository</h3>
-    <p class="muted" style="font-size: 0.84rem; margin: 0;">De issues die de koppelvlakspecificaties zelf aanscherpen.</p>
+    <h3 style="font-size: 0.98rem;">Zo plannen we</h3>
+    <p class="muted" style="font-size: 0.84rem; margin: 0;">Een openbaar issuebord op OKx Public: issues refinen en prioriteren we in de kerngroep, en wie ruimte heeft pakt een issue op. Zichtbaar voor iedereen, zonder claim op andermans agenda.</p>
   </div>
   <div class="np-card accent-orange">
-    <h3 style="font-size: 0.98rem;">Uit de werkomgeving</h3>
-    <p class="muted" style="font-size: 0.84rem; margin: 0;">Wat er in voorbereiding staat om over te steken naar de publieke bron.</p>
+    <h3 style="font-size: 0.98rem;">In uitwerking</h3>
+    <p class="muted" style="font-size: 0.84rem; margin: 0;">Een voorstel voor alle requirements (de requirementsboom) en voor de keuzeregels met de bijbehorende regelset.</p>
   </div>
 </div>
-
-<p class="muted" style="font-size: 0.82rem; margin-top: 1rem;">De komende periode werken we minimaal drie koppelvlakken op deze manier uit.</p>
 
 </div>
 
 <!--
-Dit agendapunt is van Ruud; de slide is het haakje, niet de inhoud.
+Overdracht aan Ruud. Plannen zonder directe zeggenschap over inzet en beschikbaarheid:
+transparantie doet het werk; het bord toont wat er ligt, de kerngroep prioriteert, en
+capaciteit volgt vrijwillig. De volgende slide toont de zeven grote backlog-items.
+-->
+
+---
+
+<!-- BACKLOG -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# De zeven grote items
+
+<div style="font-size: 0.8rem; margin-top: 0.5rem;">
+
+| Backlog-item | Hangt onder epic |
+|---|---|
+| Requirementsboom: kaderstelling en sectorverantwoording publiceren | Gezamenlijke taal en standaard |
+| Keuzeregels en regelset-payload uitwerken | Student kiest onderwijsspecificaties |
+| Functionele eisen per koppelvlak completeren, onder andere foutherstel en abonnementen voor SIS en LMS | Betrouwbare en vervangbare koppelingen |
+| Authenticatiestandaard bekrachtigen (Edukoppeling-profiel) | Betrouwbare en vervangbare koppelingen |
+| Datamodelschema's itereren met voorbeeldpayloads | Onderwijsaanbod specificeren en ontsluiten |
+| Volgende koppelvlakken uitwerken, minimaal drie | Aanbod plannen en roosteren |
+| Feedback uit deze sessie verwerken richting de volgende release | Standaard beproeven en adopteren |
+
+</div>
+
+</div>
+
+<!--
+De epics komen uit de requirementsboom; elk backlog-item krijgt daar zijn plek zodat de
+herleidbaarheid vanaf dag een meeloopt. Prioritering is aan Ruud met de kerngroep.
 -->
 
 ---
