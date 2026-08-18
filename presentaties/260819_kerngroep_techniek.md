@@ -126,9 +126,9 @@ De inhoud die iedereen kent blijft; hij wordt beter vindbaar en expliciet af of 
 <div class="np-grid-2" style="margin-top: 0.8rem;">
 <div style="font-size: 0.98rem; line-height: 1.9;">
 
-- De vraag uit de keten: <strong>"wanneer is iets af, en waar vinden we het?"</strong>
-- Af en onderweg stonden door elkaar; welke versie telt was niet te zien
-- De inhoud verandert niet: dezelfde informatiestromen, dezelfde begrippen
+- Stakeholders konden de informatie niet vinden: <strong>"wanneer is iets af, en waar vinden we het?"</strong>
+- Het werken via GitHub werd breder geadopteerd en het team groeide
+- De behoefte: een <strong>professionele werkomgeving</strong>, en producten die <strong>klaar zijn voor gebruik</strong>
 
 </div>
 <div>
@@ -145,9 +145,10 @@ De inhoud die iedereen kent blijft; hij wordt beter vindbaar en expliciet af of 
 </div>
 
 <!--
-Kort houden; de rest mondeling: werkmateriaal (onderzoek, concepten) en vastgestelde
-specificaties stonden op dezelfde plek, daardoor was voor leveranciers niet te zien wat
-telde. De informatiestromen-hoofdplaat en het begrippenkader blijven de kern.
+Kort houden; de rest mondeling: werkmateriaal en vastgestelde specificaties stonden op
+dezelfde plek, daardoor was niet te zien wat telde. Geruststelling erbij vertellen: de
+inhoud verandert niet, dezelfde informatiestromen en hetzelfde begrippenkader blijven
+de kern.
 -->
 
 ---
