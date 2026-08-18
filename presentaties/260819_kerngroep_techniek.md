@@ -508,6 +508,7 @@ zelf na.
   <div class="np-arrow">&#8594;</div>
   <div class="np-step blue" style="flex: 1;">
     <strong style="font-size: 0.85rem;">OKx-projectdoelen</strong>
+    <small>één taal, werkende gegevensuitwisseling, ruimte voor studentkeuze</small>
   </div>
   <div class="np-arrow">&#8594;</div>
   <div class="np-step blue" style="flex: 1;">
