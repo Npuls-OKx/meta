@@ -683,15 +683,11 @@ requirementsboom is de eerstvolgende iteratie. Niet openen; dat gebeurt in het w
 <div style="font-size: 0.95rem; line-height: 1.9;">
 
 - Doel: <strong>standaarden vaststellen</strong> voor de API-endpoints en de koppelvlakspecificatielaag, niet hoe een partij dat implementeert
-- Uitgangspunt: open standaarden, <strong>OAuth 2.0 client credentials</strong>, conform het Edukoppeling-profiel
-- Het bestaande OKE-document (hoofdstuk 5) blijft leidend tot het profiel definitief is
+- Uitgangspunt: <strong>hoofdstuk 5 van het OKE-profiel</strong>, in combinatie met het <strong>Edukoppeling OAuth client credentials-profiel</strong>
+- Dat blijft het uitgangspunt tot de kerngroep techniek anders besluit
 
 </div>
 <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
-  <div class="np-card accent-green">
-    <h3 style="font-size: 0.98rem;">Status</h3>
-    <p class="muted" style="font-size: 0.84rem; margin: 0;">Voorlopig vastgesteld als uitgangspunt; formele bekrachtiging loopt via de werkgroep OKx.</p>
-  </div>
   <a href="https://www.edustandaard.nl/app/uploads/2026/06/2026-06-01-Edukoppeling-OAuth-client-credentials-profiel-voor-RESTful-APIs.pdf" style="display: flex; flex-direction: column; align-items: center; gap: 0.2rem; text-decoration: none;">
     <img src="/shots/qr-edukoppeling-profiel.png" style="width: 105px; border-radius: 6px; border: 1px solid #e2e8f0;" />
     <span class="muted" style="font-size: 0.7rem;">Edukoppeling-profiel (pdf, edustandaard.nl)</span>
