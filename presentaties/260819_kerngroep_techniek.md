@@ -602,7 +602,7 @@ Dit deel beantwoordt de kernvraag uit de aanleiding: wanneer is iets af. Kort ho
   </div>
   <div class="np-card accent-blue">
     <h3 style="font-size: 0.95rem;">v1.0.0 is het doel</h3>
-    <p class="muted" style="font-size: 0.82rem; margin: 0;">De versie waarop leveranciers kunnen implementeren.</p>
+    <p class="muted" style="font-size: 0.82rem; margin: 0;">Alle koppelvlakken gespecificeerd. Tussentijds bouwen op een minor- of patchversie kan, als we dat samen besluiten.</p>
   </div>
 </div>
 
