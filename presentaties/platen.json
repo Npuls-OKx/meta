@@ -221,6 +221,30 @@
       "let_op": "De jpeg heeft een donkere achtergrond die in het bestand zit. Op een lichte slide leest hij als een donker blok; zet hem in een omhulsel met afgeronde hoeken zodat dat een keuze lijkt en geen ongeluk. De bron is een drawio-bestand; wijzigt dat, dan moet de jpeg opnieuw geexporteerd worden.",
       "hash": "cbd896d0c11ecbeb",
       "kopie": "repo-setup.jpg"
+    },
+    {
+      "naam": "koppelvlak-specificatie-breakdown",
+      "titel": "Opbouw van een koppelvlakspecificatie",
+      "bron": "Npuls-OKx/Public",
+      "pad": "Koppelvlakspecificaties/src/koppelvlak_specificatie_breakdown.png",
+      "versie": "-",
+      "toont": "Het pakket koppelvlakspecificatie uitgesplitst: sectoreisen (uit de OKx-requirementsboom) voeden de functionele eisen; die bepalen de processen (interactiepatronen), de processen de endpoints, en endpoints gebruiken de datamodelschema's; de auth-standaard staat als losse pijler. Transparant, groene blokken, geschikt voor lichte slides.",
+      "gebruik_bij": "Uitleggen hoe een koppelvlakspecificatie in elkaar zit; kerngroep techniek en leveranciers die het releasepakket gaan lezen.",
+      "let_op": "Het blok heet nog Referentiesystemen; de vastgestelde term is applicatiecomponenten. De labels Gebruikt en Heeft betrekking op dragen nog zwarte chips met slecht leesbare tekst; de overige labels zijn hersteld. Bron nog niet gecommit op een Public-branch.",
+      "kopie": "koppelvlak-specificatie-breakdown.png",
+      "hash": "3c0e79d269fb6961"
+    },
+    {
+      "naam": "repo-inrichting",
+      "titel": "Project- en repo-inrichting (transparant)",
+      "bron": "Npuls-OKx/Public",
+      "pad": "Werkwijze/src/project_en_repo_inrichting.png",
+      "versie": "-",
+      "toont": "Drie containers naast elkaar: private source (interne planning en referentiemateriaal), public source (bronmateriaal van de releasepakketten, CI/CD en documentatie) en public release (de pakketten, waaronder de koppelvlakspecificatie en OEAPI-profielen), met de rollen erboven: OKx Techniek, public contributor en public implementer.",
+      "gebruik_bij": "De vraag waar het materiaal staat en wat er uiteindelijk uitkomt; kerngroep techniek en leveranciers. Transparante achtergrond, dus bruikbaar op lichte slides zonder omhulsel.",
+      "let_op": "Getekend voor een donkere ondergrond: witte pijlen en lichtgrijze containerlabels verdwijnen op wit. Zet hem op een donker paneel (bijvoorbeeld inktkleur met afgeronde hoeken), of exporteer uit de drawio-bron opnieuw met donkere lijnen. Aangeleverd door Niek (18 augustus); de bron staat nog niet gecommit op een Public-branch.",
+      "kopie": "repo-inrichting.png",
+      "hash": "29eca256d661a543"
     }
   ],
   "overslaan": [

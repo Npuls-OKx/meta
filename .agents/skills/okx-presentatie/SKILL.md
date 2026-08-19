@@ -75,6 +75,10 @@ Een deck informeert over een onderwerp. Het onderwerp is dus het grammaticale on
 
 **Eerste persoon spaarzaam.** "We" mag waar het programma echt de handelende partij is ("OKx heeft drie koppelingen beschreven"), maar niet als vulling. "Ik maak me zorgen over de review" wordt "Risico: de reviewcapaciteit in augustus". Een inschatting blijft herkenbaar als inschatting doordat er *risico*, *aanname* of *inschatting* bij staat, niet doordat er "ik" voor staat.
 
+**Meta-taal blijft buiten de slide.** Een aanwijzing van de opdrachtgever over de vorm — "houd het kort", "stip het even aan", "niet te diep" — is een instructie voor de maker, geen slidetekst. Een titel als "De aanleiding, kort" vertelt de zaal hoe het deck gemaakt is in plaats van wat er staat; als de slide kort is, laat dat zichzelf zien. Dus geen "kort", "even", "samengevat" of "in vogelvlucht" in titels of zichtbare tekst; zulke aanwijzingen landen in de sprekersnotitie.
+
+**De opdracht is regie, geen slidetekst.** Wat de opdrachtgever zegt over een slide — het doel, de verwachting, een ad-hoc aanwijzing — is een briefing aan de maker, nooit de tekst van de slide. "Het idee is dat ze meteen zien wat Garik en Niek komen brengen" wordt dus géén titel "Doel: wat Garik en Niek komen brengen in één overzicht"; het wordt een slide die dat idee wáármaakt — een opening die zegt wat er bereikt is. Vertaal elke aanwijzing in twee stappen: eerst, wat is de essentie die het publiek moet meekrijgen? Dan: hoe verwoord je die zoals je hem zelf zou willen lezen als je in de zaal zat — gewaardeerde collega's, geen ontvangers van een werkbon. Wie de briefing letterlijk terugleest in de slide heeft de opdracht niet uitgevoerd maar genotuleerd.
+
 **Besluiten krijgen een vaste vorm.** Een vraag om een besluit is geen alinea maar een blok met vier velden, zodat na afloop vaststaat wat er gevraagd is:
 
 > **Besluit nodig op:** publicatiemoment koppelvlakspecificatie leerroute 1
@@ -83,6 +87,31 @@ Een deck informeert over een onderwerp. Het onderwerp is dus het grammaticale on
 > **Opties:** publiceren na de kerngroep techniek (september) — of eerder publiceren en wijzigingen accepteren
 
 Zelfde vorm voor een reviewverzoek (*Review gevraagd op / Door / Voor*) en voor kennisname (*Ter kennisname*). Zet nooit een besluit weg als een terloopse zin.
+
+## Slides zijn schaars: de anti-bloatregels
+
+Uit de deckreview van 18 augustus 2026; elke regel is daar in de praktijk misgegaan.
+
+- **Elke zichtbare zin heeft een bron of sneuvelt.** Subtekst die niets toevoegt is bloat; liever leegte dan vulling. Toets elke zin: waar staat dit in de repositories?
+- **Geen subtitel onder de slidetitel.** De ruimte gaat naar de plaat of het schema; wat de subtitel wilde zeggen gaat in de titel, de tekst of de sprekersnotitie.
+- **Titels plat en concreet.** Geen bedachte constructies ("Elk hoofdstuk in één voorbeeld"); benoem wat de slide toont ("Voorbeeld", "Van bron naar releasepakket").
+- **Echte beelden boven nagebouwde.** Een bestaande plaat of een screenshot verslaat een ASCII-boom of een gegenereerd diagram.
+- **Bullets eerst, plaat groot.** Vaste leesvolgorde: tekstpunten aan de ene kant, de plaat zo groot mogelijk aan de andere.
+- **Geen beloften met een datum.** "Tonen we de volgende sessie" bindt het team vast; planning is aan de spreker.
+- **Eén onderwerp per slide.** Inhoud en vraagstelling zijn twee slides, nooit één.
+- **Niet alles hoeft getekend.** Wat de spreker kan zeggen, hoort in de sprekersnotitie; losse pijltjes en tekstelementen naast een diagram zijn een gebrek, geen oplossing.
+
+## Compositie en didactiek
+
+Uit de finetunerondes van 18 augustus 2026, vastgesteld door de product owner.
+
+- **Eén doorlopende voorbeeldlijn.** Kies één casus en laat die door het hele deck lopen (opbouw, voorbeeld, vooruitblik); herkenning stapelt, losse voorbeelden per slide niet.
+- **Opdrachten bij de stof, geen apart werkdeel.** Een interactieve opdracht hangt aan de content-slide zelf, met QR-code en link ter plekke.
+- **Verken, herken, vind.** Bij kennismaking met nieuw materiaal drie opdrachten in deze volgorde: vrij kijken (wat valt op), iets bekends terugvinden (draagt de continuïteitsboodschap) en benoemen wat niet vindbaar is (voedt de issues). De ophaal-slide erna stelt dezelfde vragen terug.
+- **Een vraag aan de zaal krijgt een eigen opvallende kaart**, met vraagicoon en de doelgroepnaam erin.
+- **Blokreeksen wisselen accentkleuren af**; nooit twee dezelfde naast elkaar. Elk blok draagt één ondertitel, zonder aankondigwoorden als "bijvoorbeeld".
+- **Diagrammen volledig of niet.** Een sequentiediagram toont ook de terugweg, het eigen proces en het foutpad; JSON-voorbeelden gebruiken echte veldnamen en types uit het schema, met een beletselteken voor de rest.
+- **Backlog en planning worden afgeleid, niet verzonnen.** Toon de afleidingslijn (leerroutes en scenario's naar features, stories en functionele eisen) en stel de toetsvraag aan de zaal in plaats van zelf een lijst te bedenken.
 
 ## Voor wie schrijf je
 
@@ -123,6 +152,8 @@ Twijfel je of een term bestaat: zoek hem op in de bron. Staat hij er niet, dan v
 
 ## Show, don't tell: kies zelf een passende plaat
 
+**Voorbehouden horen in platen.json.** Ondergrond-eisen (transparant of donker getekend), terminologie-afwijkingen in de plaat en de bronstatus staan in het manifest bij de plaat, zodat het volgende deck ze kent zonder de fout te herhalen.
+
 Elke inhoudelijke uitleg krijgt beeld. Dat is geen extraatje waar iemand om moet vragen: **je zoekt zelf een passende plaat en stelt die voor**. OKx heeft architectuurplaten die het verhaal beter vertellen dan een opsomming, en ze zijn al besproken en goedgekeurd — een zelfgetekend diagram opent een discussie die je niet wilde voeren.
 
 Het overzicht staat in [`presentaties/platen.json`](../../../presentaties/platen.json). Lees dat bestand voordat je slides schrijft. Per plaat staat er wat hij toont, bij welk publiek hij werkt, en waar je op moet letten. Onderaan staan de mermaid-diagrammen die als tekst in de specificaties leven; die plak je rechtstreeks in een slide, want Slidev rendert ze.
@@ -160,6 +191,8 @@ Dat ging hier al een keer mis. Een ankertabel werd uit het geheugen nagemaakt me
 
 Zelfde regel voor cijfers, data en citaten: haal ze uit de bron en controleer ze. Zet in de sprekersnotities waar iets vandaan komt, zodat het bij doorvragen na te lopen is.
 
+**Versienummers letterlijk uit het releasemanifest.** Het manifest zegt v0.0.1; schrijf dan nooit v0.01 of een eigen notatie.
+
 ## Onderscheid feit en inschatting
 
 Wat uit de repositories komt is feit: aantallen open punten, deadlines, wat er gemerged is. Wat jij ervan vindt is een inschatting: of een deadline haalbaar is, waar het knelt, wat het grootste risico is.
@@ -168,9 +201,11 @@ Beide mogen in een deck, maar niet door elkaar. Formuleer een inschatting als in
 
 ## Opbouw van een update-deck
 
+**Kernpunt eerst.** Het publiek hoort binnen de eerste minuut wat de sprekers komen brengen: wat er bereikt is, in één concrete zin ("de eerste structuur voor het eindproduct: de koppelvlakspecificatie"). Die essentie staat vóór het programma — als eigen openingsslide of als de subtitel van de titelslide. Een subtitel die niet de essentie draagt, vervalt; sfeerzinnen zijn vulling. Pas daarna volgen agenda en uitwerking.
+
 Een werkbare basisvorm; wijk af waar de inhoud daarom vraagt.
 
-1. **Titel** — periode en gremium
+1. **Titel** — periode en gremium, met de essentie als subtitel of direct erna als openingsslide
 2. **Waar we stonden** — één slide, zodat het deck zelfstandig te lezen is
 3. **Wat er is gebeurd** — per thema, niet per repository of per pull request. Het publiek denkt in onderwerpen
 4. **Wat dat betekent** — de consequentie voor dit gremium
@@ -181,6 +216,10 @@ Een werkbare basisvorm; wijk af waar de inhoud daarom vraagt.
 Voor programmamanagement schuiven 5 en 6 naar voren; voor de kerngroep techniek is 3 en 4 het zwaartepunt.
 
 ## Voor je oplevert: kijk er zelf naar
+
+**Na elke geautomatiseerde tekstveeg een bouwcontrole.** Een script dat leestekens of woorden vervangt kan de YAML-frontmatter breken; de dev-server toont dan stil de laatste goede versie en de wijzigingen lijken te verdwijnen. Parse na een veegronde minimaal de frontmatter of herbouw het deck.
+
+**Vraag eerst of het release-klaar is.** Finetunen en opleveren zijn twee fasen. Exporteer, deel of publiceer een visueel product (deck, plaat, PDF, deellink) pas nadat de opdrachtgever expliciet heeft gezegd dat het release-klaar is; tot dat moment is elke versie werkmateriaal.
 
 Een deck dat bouwt is niet hetzelfde als een deck dat klopt. Overflow, een tabel die te breed is, een kaart die uit beeld valt: dat zie je alleen door ernaar te kijken.
 

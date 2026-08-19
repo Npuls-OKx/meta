@@ -57,7 +57,15 @@ Dit zijn de dingen die in de praktijk misgingen. Uitgebreider in de skill [`okx-
 
 **Kies je onderwerpen op wat er op tafel moet, niet op wat het meeste werk was.** Een herindeling kan honderden bestanden raken en toch een voetnoot zijn.
 
+**Kernpunt eerst.** Het publiek hoort binnen de eerste minuut wat de sprekers komen brengen: wat er bereikt is, in één concrete zin, vóór het programma. Een subtitel op de titelslide draagt die essentie of vervalt — sfeerzinnen zijn vulling.
+
 **Schrijf over de zaak, niet tegen de zaal.** Geen "u", "je" of "jullie", ook niet in een kop. Een deck informeert over een onderwerp, dus dat onderwerp staat vooraan — dezelfde norm als bij een adviesrapport. "Waar we jullie voor nodig hebben" wordt **Besluit nodig op**, met daaronder *Door* (welke partijen), *Voor* (wanneer) en *Opties*. Zo staat na afloop vast wat er gevraagd is.
+
+**Meta-taal blijft buiten de slide.** "Houd het kort" is een instructie voor de maker, geen slidetekst: een titel als "De aanleiding, kort" vertelt hoe het deck gemaakt is in plaats van wat er staat. Als de slide kort is, ziet de zaal dat vanzelf; de aanwijzing zelf hoort in de sprekersnotitie.
+
+**De opdracht is regie, geen slidetekst.** De briefing van de opdrachtgever ("het idee is dat ze meteen zien wat we komen brengen") is nooit zelf de titel of tekst van de slide. Vertaal de aanwijzing: wat is de essentie voor het publiek, en hoe zou je die zelf willen lezen als je in de zaal zat? Wie de briefing letterlijk terugleest heeft genotuleerd, niet gemaakt.
+
+**Liever leegte dan vulling.** Elke zichtbare zin heeft een bron of sneuvelt. Geen subtitels onder de slidetitel, platte titels, echte beelden boven nagebouwde ASCII-structuren, en wat de spreker kan zeggen staat in de sprekersnotitie — niet geforceerd in een diagram. De volledige anti-bloatregels staan in de skill.
 
 **Stem het register af op intern of extern.** Intern zijn het SI-team, de adviesgroep en de programma- en projectleiding: relatief informeel binnen zakelijke normen, korte zinnen, gewone woorden. Extern zijn de kerngroep techniek OKx, de technische werkgroep OEAPI, leveranciers en instellingen: formeler en preciezer, met bij elke uitspraak de status erbij — vastgesteld, concept of voorstel. Die gremia nemen het materiaal mee naar hun eigen organisatie. Het verschil tussen adviesgroep en leiding zit in de diepgang, niet in het register.
 
