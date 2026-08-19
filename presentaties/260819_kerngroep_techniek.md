@@ -202,7 +202,7 @@ prioriteiten: werken versus opleveren.
 </div>
 <div>
   <div class="np-card accent-blue">
-    <h3>Wat dit voor afnemers betekent</h3>
+    <h3>Wat dit voor jullie betekent</h3>
     <p class="muted" style="font-size: 0.86rem; margin: 0;">Alles wat nodig is om een koppelvlak te bouwen, staat in de publieke repository. Vraagt iets om externe verdieping of verantwoording, dan wegen we overheveling naar de publieke bron.</p>
   </div>
 </div>
