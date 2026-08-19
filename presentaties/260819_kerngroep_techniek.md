@@ -852,7 +852,7 @@ applicatiecomponenten. Het keuzeregels-item is het issue van Jan Hendrik van Sch
   <div class="np-card accent-orange">
     <span class="np-badge orange">Voor de volgende sessie</span>
     <p style="font-size: 0.9rem; color: var(--np-dark-gray); line-height: 1.6; margin: 0.4rem 0 0;">
-      Werk de release door, review hem en maak issues aan; vooral op de structuur. Inhoudelijke feedback is altijd welkom.
+      Werk de release door, review hem en maak issues aan; vooral op de structuur. Inhoudelijke feedback is altijd welkom. En: geef akkoord op het referentiemateriaal in de publieke repository.
     </p>
   </div>
 </div>
