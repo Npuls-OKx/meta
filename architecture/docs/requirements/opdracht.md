@@ -22,16 +22,16 @@ De drie doelen waar elke [epic](epics.md) aan bijdraagt.
 
 | Doel | Omschrijving | Bron |
 |---|---|---|
-| doel-0001 | OKx levert een gezamenlijke taal en standaarden voor gegevensuitwisseling die een scala aan flexibilisering mogelijk maken. | [Leerroute-uitwerking §1.2](../specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#12-wat-wil-okx-bereiken) |
-| doel-0002 | OKx realiseert functionele en technische gegevensuitwisseling voor mbo, hbo en wo die studentmobiliteit ondersteunt. | [Leerroute-uitwerking §1.2](../specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#12-wat-wil-okx-bereiken) |
-| doel-0003 | OKx ondersteunt keuze, personalisering en ketenoverstijgende routes van de student binnen wettelijke en kwaliteitskaders, met de leeruitkomst als sleutel. | [ADR 0003](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0003-student-kiest-leeruitkomsten-domeinprincipes.md) |
+| <a id="doel-0001"></a>doel-0001 | OKx levert een gezamenlijke taal en standaarden voor gegevensuitwisseling die een scala aan flexibilisering mogelijk maken. | [Leerroute-uitwerking §1.2](../specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#12-wat-wil-okx-bereiken) |
+| <a id="doel-0002"></a>doel-0002 | OKx realiseert functionele en technische gegevensuitwisseling voor mbo, hbo en wo die studentmobiliteit ondersteunt. | [Leerroute-uitwerking §1.2](../specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#12-wat-wil-okx-bereiken) |
+| <a id="doel-0003"></a>doel-0003 | OKx ondersteunt keuze, personalisering en ketenoverstijgende routes van de student binnen wettelijke en kwaliteitskaders, met de leeruitkomst als sleutel. | [ADR 0003](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0003-student-kiest-leeruitkomsten-domeinprincipes.md) |
 
 ## Van doel naar epic
 
 | Doel | Epics die eraan bijdragen |
 |---|---|
-| doel-0001 | epic-0001 Gezamenlijke taal en standaard |
-| doel-0002 | epic-0002 Onderwijsaanbod specificeren en ontsluiten; epic-0003 Aanbod plannen en roosteren; epic-0004 Betrouwbare en vervangbare koppelingen; epic-0005 Standaard beproeven en adopteren |
-| doel-0003 | epic-0006 Student kiest onderwijsspecificaties; epic-0007 Keuze en verbintenis vastleggen; epic-0008 Voortgang en resultaat op leeruitkomsten |
+| [doel-0001](#doel-0001) | [epic-0001 Gezamenlijke taal en standaard](epics.md#epic-0001) |
+| [doel-0002](#doel-0002) | [epic-0002 Onderwijsaanbod specificeren en ontsluiten](epics.md#epic-0002); [epic-0003 Aanbod plannen en roosteren](epics.md#epic-0003); [epic-0004 Betrouwbare en vervangbare koppelingen](epics.md#epic-0004); [epic-0005 Standaard beproeven en adopteren](epics.md#epic-0005) |
+| [doel-0003](#doel-0003) | [epic-0006 Student kiest onderwijsspecificaties](epics.md#epic-0006); [epic-0007 Keuze en verbintenis vastleggen](epics.md#epic-0007); [epic-0008 Voortgang en resultaat op leeruitkomsten](epics.md#epic-0008) |
 
 De epics zelf, met doel en bron: [epics.md](epics.md).
