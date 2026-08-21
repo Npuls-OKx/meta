@@ -1,6 +1,6 @@
 # De opdracht: Leren zonder Drempels
 
-Laag 1 van de [requirementsboom](README.md): waarom OKx bestaat en aan welke doelen elke epic bijdraagt. Relateert aan: #130.
+Laag 1 van de [requirementsboom](README.md): waarom OKx bestaat en aan welke doelen elke epic bijdraagt.
 
 ## Context
 
@@ -22,16 +22,16 @@ De drie doelen waar elke [epic](epics.md) aan bijdraagt.
 
 | Doel | Omschrijving | Bron |
 |---|---|---|
-| D1 | OKx ondersteunt keuze, personalisering en ketenoverstijgende routes van de student binnen wettelijke en kwaliteitskaders, met de leeruitkomst als sleutel. | [ADR 0003](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0003-student-kiest-leeruitkomsten-domeinprincipes.md) |
-| D2 | OKx levert een gezamenlijke taal en standaarden voor gegevensuitwisseling die een scala aan flexibilisering mogelijk maken. | [Leerroute-uitwerking §1.2](../specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#12-wat-wil-okx-bereiken) |
-| D3 | OKx realiseert functionele en technische gegevensuitwisseling voor mbo, hbo en wo die studentmobiliteit ondersteunt. | [Leerroute-uitwerking §1.2](../specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#12-wat-wil-okx-bereiken) |
+| doel-0001 | OKx levert een gezamenlijke taal en standaarden voor gegevensuitwisseling die een scala aan flexibilisering mogelijk maken. | [Leerroute-uitwerking §1.2](../specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#12-wat-wil-okx-bereiken) |
+| doel-0002 | OKx realiseert functionele en technische gegevensuitwisseling voor mbo, hbo en wo die studentmobiliteit ondersteunt. | [Leerroute-uitwerking §1.2](../specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#12-wat-wil-okx-bereiken) |
+| doel-0003 | OKx ondersteunt keuze, personalisering en ketenoverstijgende routes van de student binnen wettelijke en kwaliteitskaders, met de leeruitkomst als sleutel. | [ADR 0003](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0003-student-kiest-leeruitkomsten-domeinprincipes.md) |
 
 ## Van doel naar epic
 
 | Doel | Epics die eraan bijdragen |
 |---|---|
-| D1 | E2 Student kiest onderwijsspecificaties; E4 Keuze en verbintenis vastleggen; E5 Voortgang en resultaat op leeruitkomsten |
-| D2 | E6 Gezamenlijke taal en standaard |
-| D3 | E1 Onderwijsaanbod specificeren en ontsluiten; E3 Aanbod plannen en roosteren; E7 Betrouwbare en vervangbare koppelingen; E8 Standaard piloteren en adopteren |
+| doel-0001 | epic-0001 Gezamenlijke taal en standaard |
+| doel-0002 | epic-0002 Onderwijsaanbod specificeren en ontsluiten; epic-0003 Aanbod plannen en roosteren; epic-0004 Betrouwbare en vervangbare koppelingen; epic-0005 Standaard beproeven en adopteren |
+| doel-0003 | epic-0006 Student kiest onderwijsspecificaties; epic-0007 Keuze en verbintenis vastleggen; epic-0008 Voortgang en resultaat op leeruitkomsten |
 
 De epics zelf, met doel en bron: [epics.md](epics.md).

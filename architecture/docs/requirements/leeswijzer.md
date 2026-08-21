@@ -1,6 +1,6 @@
 # Leeswijzer
 
-Waar de bestaande documentatie staat die de [requirementsboom](README.md) aanwijst. De leeswijzer verwijst alleen; de inhoud staat in de bronnen en wordt hier niet herhaald. Relateert aan: #130.
+Waar de bestaande documentatie staat die de [requirementsboom](README.md) aanwijst. De leeswijzer verwijst alleen; de inhoud staat in de bronnen en wordt hier niet herhaald.
 
 ## Leesroutes
 

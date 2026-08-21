@@ -6,7 +6,7 @@
 
 **Persona.** [Jochem](../persona_jochem.md), in de levensloopvariant van dit scenario (zie het sjabloon in de [README](README.md)).
 
-**Verantwoordt.** De bijbehorende story-id's volgen bij de scenario-story-verantwoording, na de hernummering van de requirementsboom.
+**Verantwoordt.** [story-0004](../../../../requirements/stories.md#story-0004) (roosteraar publiceert geroosterd aanbod per periode), [story-0005](../../../../requirements/stories.md#story-0005) (student heeft vóór de start toegang tot leeromgeving en rooster) en [story-0021](../../../../requirements/stories.md#story-0021) (docent legt voortgang en resultaat per les vast).
 
 **Status.** *Happyflow.* Geen vertraagd of versneld ontwerp, geen keuzes, geen incidenten tijdens het volgen van de studie. Alles loopt volgens plan.
 
