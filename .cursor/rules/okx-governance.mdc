@@ -16,7 +16,12 @@ Governance:
 - Kerngroep OKx geeft periodiek prioriteiten en richting op basis van issues, milestones en PR's (milestones handmatig beheerd).
 
 Workflow regels:
-- Link PR's aan issues (Fixes #... / See also #...).
+- Link PR's aan issues (Fixes #... / See also #...). Let op: "Fixes" sluit een issue
+  alleen automatisch bij een merge naar de default branch (main); na een merge naar
+  `dev` sluit je het issue handmatig, met een comment die naar de PR verwijst.
+- Elk issue hangt onder een milestone; een grotere klus krijgt een eigen milestone.
+  Milestones zijn herleidbaar naar de requirementsboom (architecture/docs/requirements:
+  doel, epic of feature).
 - Als iets een architectuurbesluit is, leg het vast als ADR in [Referentiemateriaal/adr in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr) en link naar issues en notulen.
 - Meetings: vastleggen -> (optioneel) transcriberen -> samenvatten in architecture/meetings/. Notulen voeden issues en PR's.
 
@@ -33,6 +38,10 @@ Branchdiscipline: 1 issue = 1 branch = 1 PR
 
 Wat ik (de agent) doe:
 - Ik houd bij welk issue bij de huidige branch hoort (vaak herkenbaar aan de branchnaam).
+- Komt er een idee voor een issue binnen terwijl we niet binnen een milestone werken,
+  dan vraag ik door tot het grotere plaatje duidelijk is: past het onder een bestaande
+  milestone, dan hang ik het issue daaronder; anders stel ik een nieuwe milestone voor
+  (herleidbaar naar de requirementsboom). Ik maak geen losse issues zonder milestone.
 - Zie ik werk ontstaan dat daar BUITEN valt - een ander domein, een nieuwe map, een
   tweede onderwerp - dan BENOEM ik dat en VRAAG ik of het een eigen branch/issue moet
   worden. Ik blokkeer niet en beslis niet voor je; jij kiest.
