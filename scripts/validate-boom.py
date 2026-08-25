@@ -17,6 +17,12 @@ Controleert de laagverwijzingen in architecture/docs/requirements/:
    rij-anker in de Public-checkout naast deze repository; ontbreekt die
    checkout, dan wordt dit punt met een waarschuwing overgeslagen.
 
+Bekende grenzen: alleen inline-links ([tekst](bestand#anker)) worden
+gecontroleerd, referentiestijl-links niet (komen in de boom niet voor);
+anker-achtige tekst in codeblokken telt mee als anker (faalt naar de
+veilige kant); de featurecel vereist id en naam als linktekst, conform
+het tabelformat in de skill okx-requirements-boom.
+
 Gebruik: python3 scripts/validate-boom.py [requirements-map] [public-map]
 Standaard: architecture/docs/requirements en ../Public naast de repo-root.
 Exitcodes: 0 = schoon, 1 = problemen gevonden, 2 = pad niet gevonden.
@@ -50,7 +56,7 @@ def main() -> int:
     boommap = sys.argv[1] if len(sys.argv) > 1 else "architecture/docs/requirements"
     public = sys.argv[2] if len(sys.argv) > 2 else os.path.join(os.getcwd(), "..", "Public")
     if not os.path.isdir(boommap):
-        print(f"pad niet gevonden: {boommap}")
+        print(f"pad niet gevonden: {boommap}", file=sys.stderr)
         return 2
     problemen: list[str] = []
     tekst = {n: lees(os.path.join(boommap, n))
