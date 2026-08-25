@@ -1,6 +1,6 @@
 # Features
 
-Laag 3 van de [requirementsboom](README.md): afgebakend gedrag per [epic](epics.md). De ouder staat in de sectiekop; de kolom Stories linkt per feature naar zijn uitgewerkte [stories](stories.md), of draagt “geen” zolang die uitwerking ontbreekt.
+Laag 3 van de [requirementsboom](README.md): afgebakend gedrag per [epic](epics.md). De ouder staat in de sectiekop; de kolom Stories linkt per feature naar zijn uitgewerkte [stories](stories.md), of draagt "geen" zolang die uitwerking ontbreekt.
 
 ## [Gezamenlijke taal en standaard](epics.md#epic-0001)
 
