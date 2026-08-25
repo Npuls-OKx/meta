@@ -2,7 +2,7 @@
 
 Laag 4 van de [requirementsboom](README.md): toetsbare wensen van één actor, per uitgewerkte [epic](epics.md). Een story traceert via zijn feature terug naar de epic; de kolom Functionele eisen verwijst vooruit naar de functionele eisen (FR-nummers) in de [koppelvlakspecificaties](https://github.com/Npuls-OKx/Public/tree/dev/Koppelvlakspecificaties). De FR-nummers zijn per koppeling genummerd, dus staat het koppelingsacroniem voorop; elke FR verwijst zelf door naar interacties en endpoint-sets, en wie de featureset wil ondersteunen, wordt eigenaar van die endpoints.
 
-## Onderwijsaanbod specificeren en ontsluiten
+## [Onderwijsaanbod specificeren en ontsluiten](epics.md#epic-0002)
 
 | Id | Story | Feature | Bron | Functionele eisen |
 |---|---|---|---|---|
@@ -10,7 +10,7 @@ Laag 4 van de [requirementsboom](README.md): toetsbare wensen van één actor, p
 | <a id="story-0002"></a>story-0002 | Als planner wil ik dat bij een specificatie-update de vorige versie actief blijft voor lopend aanbod en de nieuwe alleen op nieuw aanbod geldt, zodat lopende planningen niet breken. | [feature-0009 Stabiele identiteit en versionering van specificaties](features.md#feature-0009) | [Archief leerroute-uitwerking §19, F10](../specificatie/leerroute-uitwerking/doc/archief-conceptmodellen.md#19-faalmatrix--overzicht-ketenfaalmodi) | [OC-P&R FR4](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Interactiepatronen/onderwijscatalogus-planning-en-roostering.md#functionele-eisen) |
 | <a id="story-0003"></a>story-0003 | Als onderwijsontwikkelaar wil ik dat het leermanagementsysteem de gelegde leermiddelkoppeling als eigen resource terugmeldt, zodat de catalogus die kan ophalen en tonen bij het aanbod. | [feature-0010 Leeromgeving inrichten op de specificatie](features.md#feature-0010) | [Interactiepatroon OC-LMS, interactieoverzicht](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Interactiepatronen/onderwijscatalogus-leermanagementsysteem.md#interactieoverzicht) | [OC-LMS FR2](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Interactiepatronen/onderwijscatalogus-leermanagementsysteem.md#functionele-eisen) |
 
-## Aanbod plannen en roosteren
+## [Aanbod plannen en roosteren](epics.md#epic-0003)
 
 | Id | Story | Feature | Bron | Functionele eisen |
 |---|---|---|---|---|
@@ -23,14 +23,14 @@ Laag 4 van de [requirementsboom](README.md): toetsbare wensen van één actor, p
 | <a id="story-0028"></a>story-0028 | Als student wil ik gemiste leergelegenheden in een latere periode kunnen inhalen, zodat ik met beperkte uitloop mijn diploma haal. | [feature-0013 Geldig, gefaseerd aanbod afleiden](features.md#feature-0013) | [Scenario 1.2](../specificatie/leerroute-uitwerking/doc/scenario-uitwerkingen/scenario-1.2-regulier-vertraging-by-accident.md) | geen |
 | <a id="story-0009"></a>story-0009 | Als onderwijsontwerper wil ik dat het planningssysteem mijn concept-programma met een snelle toets (quick scan) op realiseerbaarheid beoordeelt, zodat ik het ontwerp vóór publicatie kan aanpassen. | [feature-0015 Haalbaarheid van keuze en ontwerp toetsen](features.md#feature-0015) | [Archief leerroute-uitwerking §19, F3](../specificatie/leerroute-uitwerking/doc/archief-conceptmodellen.md#19-faalmatrix--overzicht-ketenfaalmodi) | geen |
 
-## Betrouwbare en vervangbare koppelingen
+## [Betrouwbare en vervangbare koppelingen](epics.md#epic-0004)
 
 | Id | Story | Feature | Bron | Functionele eisen |
 |---|---|---|---|---|
 | <a id="story-0010"></a>story-0010 | Als beheerder van een afnemend systeem wil ik een afleveradres met event-typen kunnen registreren voordat events afgeleverd worden, zodat de aflevering vastligt. | [feature-0016 Betrouwbaar berichtenverkeer](features.md#feature-0016) | [Interactiepatroon OC-P&R, abonnement registreren](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Interactiepatronen/onderwijscatalogus-planning-en-roostering.md#abonnement-registreren) | [OC-P&R FR7](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Interactiepatronen/onderwijscatalogus-planning-en-roostering.md#functionele-eisen) |
 | <a id="story-0011"></a>story-0011 | Als beheerder van een afnemend systeem wil ik na een gemist of onverwerkbaar event de gepubliceerde specificaties en aanbod-instanties opnieuw kunnen opvragen, zodat uitval geen informatie kost. | [feature-0016 Betrouwbaar berichtenverkeer](features.md#feature-0016) | [Interactiepatroon OC-P&R, reconciliatie](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Interactiepatronen/onderwijscatalogus-planning-en-roostering.md#reconciliatie-na-gemist-event) | [OC-P&R FR6](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Interactiepatronen/onderwijscatalogus-planning-en-roostering.md#functionele-eisen) |
 
-## Student kiest onderwijsspecificaties
+## [Student kiest onderwijsspecificaties](epics.md#epic-0006)
 
 | Id | Story | Feature | Bron | Functionele eisen |
 |---|---|---|---|---|
@@ -43,7 +43,7 @@ Laag 4 van de [requirementsboom](README.md): toetsbare wensen van één actor, p
 | <a id="story-0018"></a>story-0018 | Als instelling wil ik dezelfde regelvorm op elk specificatieniveau en op leeruitkomsten van elke orde kunnen toepassen, zodat keuzedelen nu en losse leeronderdelen straks dezelfde regels volgen. | [feature-0026 Regelsets los van items, met min/max-keuzeregels](features.md#feature-0026) | [Keuze-requirements R16](../specificatie/student-keuze/keuze-requirements.md#6-requirements) | geen |
 | <a id="story-0019"></a>story-0019 | Als student wil ik mijn opleiding van onderop uit losse leeronderdelen kunnen samenstellen, zodat ik dezelfde leeruitkomsten bereik als via de nominale route van bovenaf. | [feature-0029 Bottom-up en top-down samenstellen](features.md#feature-0029) | [Keuze-requirements R13](../specificatie/student-keuze/keuze-requirements.md#6-requirements) | geen |
 
-## Keuze en verbintenis vastleggen
+## [Keuze en verbintenis vastleggen](epics.md#epic-0007)
 
 | Id | Story | Feature | Bron | Functionele eisen |
 |---|---|---|---|---|
@@ -51,7 +51,7 @@ Laag 4 van de [requirementsboom](README.md): toetsbare wensen van één actor, p
 | <a id="story-0027"></a>story-0027 | Als instelling wil ik per werkproces de actuele verbintenisstatus kunnen vaststellen, zodat zichtbaar is dat een student in totaal op tempo is maar per werkproces uit ritme. | [feature-0030 Verbintenis als toestandsmachine per niveau](features.md#feature-0030) | [Scenario 1.4](../specificatie/leerroute-uitwerking/doc/scenario-uitwerkingen/scenario-1.4-regulier-hybride-by-accident.md) | geen |
 | <a id="story-0020"></a>story-0020 | Als examencommissie wil ik dat een examenplanwijziging op een resultaatstructuur waarop verbintenissen lopen eerst een acceptatietoets doorloopt, zodat lopende verbintenissen beschermd blijven. | [feature-0032 Examenplanwijzigingen alleen na impactanalyse](features.md#feature-0032) | [Interactiepatroon OC-SIS, acceptatietoets](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Interactiepatronen/onderwijscatalogus-studentinformatiesysteem.md#acceptatietoets-bij-wijziging-examenplan) | [OC-SIS FR2](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Interactiepatronen/onderwijscatalogus-studentinformatiesysteem.md#functionele-eisen) |
 
-## Voortgang en resultaat op leeruitkomsten
+## [Voortgang en resultaat op leeruitkomsten](epics.md#epic-0008)
 
 | Id | Story | Feature | Bron | Functionele eisen |
 |---|---|---|---|---|
