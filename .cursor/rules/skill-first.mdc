@@ -1,0 +1,23 @@
+---
+description: Skill-check-plicht - voor elke opdracht eerst controleren of een relevante skill bestaat
+alwaysApply: true
+---
+
+Voordat een agent een opdracht met een herkenbaar type uitvoert (tests schrijven,
+requirements, review, presentatie, ADR, koppelingspecificatie, scenario, payload,
+notulen, validatiescript), geldt de skill-check:
+
+1. Controleer EERST het skills-manifest [.agents/skills.json](../../.agents/skills.json)
+   op een relevante skill; zodra de externe bronnenlijst bestaat (issue #182), hoort
+   die er ook bij.
+2. Is er een passende skill: gebruik die, en benoem hem in de PR-beschrijving.
+3. Is er geen passende skill (of past hij aantoonbaar niet): benoem dat expliciet in
+   de PR-beschrijving ("geen passende skill; met de hand, conform <rule of
+   werkafspraak>") en overweeg een issue om het gat te dichten (zoals #181 voor de
+   testpersona).
+
+Stilzwijgend met de hand bouwen wat een skill dekt is geen optie: dat ging mis bij
+PR #178, waar handgeschreven tests zonder de gangbare conventies (given-when-then,
+tests-map, Engelse identifiers) pas in menselijke review boven kwamen.
+
+Vastgelegd via issue #183 (milestone "Agent-harness verbeteren").
