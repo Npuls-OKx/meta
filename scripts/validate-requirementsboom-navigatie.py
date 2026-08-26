@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Tweerichtingscontrole van de requirementsboom (OKx-meta, issue #171).
+"""Navigatiecontrole van de requirementsboom (OKx-meta, issue #171).
 
 Controleert de laagverwijzingen in architecture/docs/requirements/:
 1. Ankerintegriteit en id-conventie: elke fragmentlink naar een boom-id
@@ -23,10 +23,10 @@ anker-achtige tekst in codeblokken telt mee als anker (faalt naar de
 veilige kant); de featurecel vereist id en naam als linktekst, conform
 het tabelformat in de skill okx-requirements-boom.
 
-Gebruik: python3 scripts/validate-boom.py [requirements-map] [public-map]
+Gebruik: python3 scripts/validate-requirementsboom-navigatie.py [requirements-map] [public-map]
 Standaard: architecture/docs/requirements en ../Public naast de repo-root.
 Exitcodes: 0 = schoon, 1 = problemen gevonden, 2 = pad niet gevonden.
-Testgevallen: python3 scripts/test-validate-boom.py.
+Testgevallen: python3 scripts/test-validate-requirementsboom-navigatie.py.
 """
 import os
 import re

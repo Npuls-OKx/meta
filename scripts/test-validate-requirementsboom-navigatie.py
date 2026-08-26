@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Testgevallen voor validate-boom.py (issue #171).
+"""Testgevallen voor validate-requirementsboom-navigatie.py (issue #171).
 
 Elk geval draait het script tegen een verse kopie van de boom in een
 tijdelijke map, met precies een geinjecteerde breuk, en toetst exitcode
@@ -8,7 +8,7 @@ en foutmelding. P-gevallen zijn positief (schoon), N-gevallen negatief
 Zo is per testgeval naloopbaar wat er gedraaid is en wat het resultaat
 was (werkafspraak 26 augustus, issue #172).
 
-Gebruik: python3 scripts/test-validate-boom.py
+Gebruik: python3 scripts/test-validate-requirementsboom-navigatie.py
 Exitcodes: 0 = alle gevallen geslaagd, 1 = minstens een geval gefaald.
 """
 import os
@@ -18,7 +18,7 @@ import sys
 import tempfile
 
 BRON = "architecture/docs/requirements"
-SCRIPT = "scripts/validate-boom.py"
+SCRIPT = "scripts/validate-requirementsboom-navigatie.py"
 PUBLIC = os.path.join(os.getcwd(), "..", "Public")
 PUBLIC_AANWEZIG = os.path.isdir(os.path.join(PUBLIC, ".git"))
 
