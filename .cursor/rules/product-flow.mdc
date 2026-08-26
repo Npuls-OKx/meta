@@ -9,5 +9,12 @@ Elk nieuw of substantieel gewijzigd deliverable (requirements-document, payload-
 - Dan de uitwerking met de passende specialist-skill.
 - Dan verplicht onafhankelijke review in verse subagent-contexten: tester (`okx-requirements-tester`) en specialist (`okx-semantiek-review`). De maker reviewt niet zijn eigen werk.
 - Itereren tot beide reviews slagen; afsluiten met het agent-rapport in de PR-beschrijving.
+- Testgevallen zijn expliciet en naloopbaar (afspraak 26 augustus, issue #172): een script of
+  valideerbare definitie krijgt tests in de map `tests/` (`tests/test_<naam>.py`, stdlib
+  `unittest`, draaibaar met `python3 -m unittest discover -s tests`). Elk testgeval volgt de
+  given-when-then-conventie: in de methodenaam (`test_given_X_when_Y_then_Z`) en als de drie
+  stappen in de testcode. Identifiers in code zijn Engels; gebruikersuitvoer is Nederlands.
+  De PR-beschrijving rapporteert per testgeval wat gedraaid is en wat de uitkomst was;
+  beweringen als "getest" zonder naloopbare gevallen tellen niet als verificatie.
 
 Sla de review niet over "omdat het klein is"; kleine wijzigingen aan bestaande documenten (typo's, losse verwijzingen) vallen buiten deze plicht.
