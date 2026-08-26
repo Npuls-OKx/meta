@@ -26,6 +26,7 @@ het tabelformat in de skill okx-requirements-boom.
 Gebruik: python3 scripts/validate-boom.py [requirements-map] [public-map]
 Standaard: architecture/docs/requirements en ../Public naast de repo-root.
 Exitcodes: 0 = schoon, 1 = problemen gevonden, 2 = pad niet gevonden.
+Testgevallen: python3 scripts/test-validate-boom.py.
 """
 import os
 import re
