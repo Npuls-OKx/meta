@@ -10,11 +10,12 @@ OKx-meta is de **publieke kennisbank** van OKx (Npuls, pijler Leren Zonder Dremp
 
 De architectuurprincipes van OKx staan in [Referentiemateriaal/principes in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/principes/principes.md) (OKx-AP01 tot en met AP13; AMIGO als standaardiseringsroute is AP03), naast de [uitgangspunten](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md). Eisen komen vóór de techniekkeuze: een eis sneuvelt nooit omdat OEAPI of een andere technische standaard hem niet toestaat; zo'n mismatch is een signalering richting de standaard (uitgangspunt-voorstel voor Public in voorbereiding, relateert aan #139).
 
-Voor het werk in deze repository gelden drie werkafspraken:
+Voor het werk in deze repository gelden vier werkafspraken:
 
 1. **Design first**: ontwerpen en reviewen vóór "af"; iteratief via issues en PR's.
 2. **Machine-interpreteerbaar**: gestructureerde markdown, JSON, valideerbare definities.
 3. **Show don't tell**: diagrammen (mermaid), tabellen en voorbeelden boven lange tekst.
+4. **Milestone-gedreven**: een grotere klus krijgt een GitHub-milestone die herleidbaar is naar de [requirementsboom](architecture/docs/requirements/README.md) (doel, epic of feature); elk issue hangt onder een milestone. Bij een los idee zonder milestone-context vraagt de agent de indiener door tot het grotere plaatje duidelijk is, en stelt dan een bestaande of nieuwe milestone voor (issue #179).
 
 De werkafspraken zijn levend; wijzigen via PR.
 
