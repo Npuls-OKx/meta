@@ -33,16 +33,37 @@ def run_validator(tree_dir: str, public_dir: str) -> tuple[int, str]:
     return result.returncode, result.stdout + result.stderr
 
 
+def count_anchors(file_name: str, kind: str) -> int:
+    """Onafhankelijke telling: rij-ankers van een soort in een boombestand.
+
+    Bewust een andere methode (kale substring-telling) dan de rijparsing
+    van het validatiescript, zodat de test de telling van het script echt
+    controleert in plaats van hem na te doen.
+    """
+    with open(os.path.join(TREE_DIR, file_name), encoding="utf-8") as handle:
+        return handle.read().count(f'<a id="{kind}-')
+
+
 class CleanTreeTest(unittest.TestCase):
     """Positief geval: de boom zoals hij in de repository staat."""
 
     def test_given_unchanged_tree_when_validated_then_clean_with_expected_counts(self):
-        # Given: de requirementsboom zoals ingecheckt
+        # Given: de requirementsboom zoals ingecheckt, met onafhankelijk
+        # getelde aantallen per laag (groeit dynamisch mee met de boom)
+        stories = count_anchors("stories.md", "story")
+        features = count_anchors("features.md", "feature")
+        epics = count_anchors("epics.md", "epic")
+        goals = count_anchors("opdracht.md", "doel")
+        for layer, count in (("stories", stories), ("features", features),
+                             ("epics", epics), ("doelen", goals)):
+            self.assertGreater(count, 0, f"onafhankelijke telling {layer} is 0")
         # When: het validatiescript draait
         exit_code, output = run_validator(TREE_DIR, PUBLIC_DIR)
-        # Then: schoon, met de verwachte telwaarden
+        # Then: schoon, en de telwaarden van het script komen exact overeen
+        # met de onafhankelijke telling
         self.assertEqual(exit_code, 0, output)
-        self.assertIn("28 stories, 36 features, 8 epics, 3 doelen", output)
+        self.assertIn(f"{stories} stories, {features} features, "
+                      f"{epics} epics, {goals} doelen", output)
         self.assertIn("0 problemen", output)
 
 
