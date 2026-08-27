@@ -80,10 +80,12 @@ Omdat uitwerkingen in deze repo **publiek** kunnen worden en AI-hulpmiddelen bij
 - **Deel geen** strikt vertrouwelijke, persoonsgevoelige of anderszins **niet-publieke** informatie die je niet in de openbare kennisbaan wilt zien.
 - Werk **vanuit het principe**: alles wat je zegt, kan (al dan niet na bewerking) **terugkomen in tekst** die met anderen wordt gedeeld.
 
-Maak een risico inschatting: 
-- Wat is het risico dat deze informatie op straat komt te liggen? *Note:* In het geval van getranscribeerde meetings binnen de context van deze repo is deze kans dus 1.0 (100%).
-- Wat zijn de consequenties voor mezelf, mijn omgeving en mijn organisatie; wanneer dit publiekelijk bekend word?
-- $risico\_indicatie = omvang\_van\_risico\_consequentie * kans\_op\_publiek\_beschikbaar\_worden\_informatie$
+Maak een risico-inschatting langs twee vragen, en weeg ze samen:
+
+- **Kans**: hoe groot is de kans dat deze informatie publiek wordt? Voor getranscribeerde meetings in deze repo is die kans 100% — alles kan terugkomen in gedeelde tekst.
+- **Gevolg**: wat zijn de consequenties voor mijzelf, mijn omgeving en mijn organisatie wanneer dit publiek bekend wordt?
+
+De risico-indicatie is simpelweg **gevolg maal kans**: hoe zwaarder het gevolg en hoe groter de kans, hoe minder er gedeeld moet worden. Bij meetings in deze repo (kans 100%) telt dus alleen nog het gevolg.
 
 Dit sluit aan bij het doel van OKx: **publiek** gedachtegoed en sectorbrede afspraken — niet een besloten achterkamer.
 
