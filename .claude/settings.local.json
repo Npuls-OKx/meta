@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(grep -v \"^$\")"
+      "Bash(grep -v \"^$\")",
+      "Bash(python3 *)",
+      "Bash(grep -n \"^#\\\\{1,4\\\\} \" \"/workspaces/OKx/OKx-meta/architecture/docs/specificatie/okx-oeapi-consumer-profiel/doc/20260501_Specificatie_document_OKx_OEAPI_profiel.md\"2)"
     ]
   }
 }

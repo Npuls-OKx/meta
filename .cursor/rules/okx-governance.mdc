@@ -20,8 +20,8 @@ Workflow regels:
   alleen automatisch bij een merge naar de default branch (main); na een merge naar
   `dev` sluit je het issue handmatig, met een comment die naar de PR verwijst.
 - Elk issue hangt onder een milestone; een grotere klus krijgt een eigen milestone.
-  Milestones zijn herleidbaar naar de requirementsboom (architecture/docs/requirements:
-  doel, epic of feature).
+  Milestones zijn herleidbaar naar de requirementsboom (Npuls-OKx/Public,
+  Referentiemateriaal/requirementsboom: doel, epic of feature).
 - Als iets een architectuurbesluit is, leg het vast als ADR in [Referentiemateriaal/adr in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr) en link naar issues en notulen.
 - Meetings: vastleggen -> (optioneel) transcriberen -> samenvatten in architecture/meetings/. Notulen voeden issues en PR's.
 

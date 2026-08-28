@@ -14,7 +14,7 @@ Dit staat er, per bron:
 - **De FR-laag.** Elk interactiepatroon opent met een tabel `| # | Functionele eis | Interactiepatroon |`; de FR-nummers zijn per document genummerd en dus niet globaal uniek (FR1 bestaat drie keer). Story-id's in de boom (S3.1) zijn wél globaal uniek.
 - **De K-laag wordt buiten `afbakening.md` niet aangehaald.** `grep -rn '\bK[1-5]\b'` over de volledige pakketmap `Koppelvlakspecificaties/` treft buiten `afbakening.md` alleen kerntaakcodes in `Datamodelschema's/voorbeeldpayloads.md` (zoals `B1-K1`), geen keten-eisen. Vervanging raakt dus één document (gecontroleerd op Public `dev` d.d. 16 augustus 2026).
 - **De releasebundel.** [`release.json`](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/release.json) bepaalt de bundelvolgorde; `afbakening.md` is een top-level document in de bundel. Alle paden in het manifest liggen binnen `Koppelvlakspecificaties/`. [`build-release.py`](https://github.com/Npuls-OKx/Public/blob/dev/scripts/build-release.py) herschrijft interne relatieve verwijzingen naar ankers binnen het gebundelde document.
-- **De boom.** De vier lagen met bronplicht staan in [`architecture/docs/requirements/`](../../docs/requirements/README.md) (meta); 22 stories waarvan een deel met interactie- en eigenaarverwijzing naar de Public-interactiepatronen.
+- **De boom.** De vier lagen met bronplicht staan in [`Referentiemateriaal/requirementsboom/`](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/requirementsboom/README.md) (destijds op meta, sinds 28 augustus op Public); 22 stories waarvan een deel met interactie- en eigenaarverwijzing naar de Public-interactiepatronen.
 
 ## De inhoudelijke overlap tussen K-laag en boom
 
