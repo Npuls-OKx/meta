@@ -15,7 +15,7 @@ Voor het werk in deze repository gelden vier werkafspraken:
 1. **Design first**: ontwerpen en reviewen vóór "af"; iteratief via issues en PR's.
 2. **Machine-interpreteerbaar**: gestructureerde markdown, JSON, valideerbare definities.
 3. **Show don't tell**: diagrammen (mermaid), tabellen en voorbeelden boven lange tekst.
-4. **Milestone-gedreven**: een grotere klus krijgt een GitHub-milestone die herleidbaar is naar de [requirementsboom](architecture/docs/requirements/README.md) (doel, epic of feature); elk issue hangt onder een milestone. Bij een los idee zonder milestone-context vraagt de agent de indiener door tot het grotere plaatje duidelijk is, en stelt dan een bestaande of nieuwe milestone voor (issue #179).
+4. **Milestone-gedreven**: een grotere klus krijgt een GitHub-milestone die herleidbaar is naar de [requirementsboom](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/requirementsboom/README.md) (doel, epic of feature); elk issue hangt onder een milestone. Bij een los idee zonder milestone-context vraagt de agent de indiener door tot het grotere plaatje duidelijk is, en stelt dan een bestaande of nieuwe milestone voor (issue #179).
 
 De werkafspraken zijn levend; wijzigen via PR.
 
@@ -40,7 +40,7 @@ De werkafspraken zijn levend; wijzigen via PR.
 | Wat | Waar |
 |---|---|
 | Projectcontext, hoofdplaat informatiestromen | [doc/](doc/) |
-| Requirementsboom (opdracht, epics, features, stories) | [architecture/docs/requirements/](architecture/docs/requirements/README.md) |
+| Requirementsboom (opdracht, epics, features, stories) | [Referentiemateriaal/requirementsboom in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/requirementsboom/README.md) |
 | Architectuurbesluiten (ADR's) | [Referentiemateriaal/adr in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr) |
 | ArchiMate-model (niet aanraken) | [architecture/model/](architecture/model/) |
 | Meetingverslagen | [architecture/meetings/](architecture/meetings/) |

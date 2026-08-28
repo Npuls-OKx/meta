@@ -6,7 +6,7 @@
 
 **Persona.** [Jochem](../persona_jochem.md), in de levensloopvariant van dit scenario (zie het sjabloon in de [README](README.md)).
 
-**Verantwoordt.** [story-0004](../../../../requirements/stories.md#story-0004) (roosteraar publiceert geroosterd aanbod per periode), [story-0005](../../../../requirements/stories.md#story-0005) (student heeft vóór de start toegang tot leeromgeving en rooster) en [story-0021](../../../../requirements/stories.md#story-0021) (docent legt voortgang en resultaat per les vast).
+**Verantwoordt.** [story-0004](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/requirementsboom/stories.md#story-0004) (roosteraar publiceert geroosterd aanbod per periode), [story-0005](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/requirementsboom/stories.md#story-0005) (student heeft vóór de start toegang tot leeromgeving en rooster) en [story-0021](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/requirementsboom/stories.md#story-0021) (docent legt voortgang en resultaat per les vast).
 
 **Status.** *Happyflow.* Geen vertraagd of versneld ontwerp, geen keuzes, geen incidenten tijdens het volgen van de studie. Alles loopt volgens plan.
 

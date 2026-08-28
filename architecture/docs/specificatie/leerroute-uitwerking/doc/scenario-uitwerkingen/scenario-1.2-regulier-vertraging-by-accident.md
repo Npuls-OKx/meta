@@ -6,7 +6,7 @@
 
 **Persona.** [Jochem](../persona_jochem.md), in de levensloopvariant van dit scenario (zie het sjabloon in de [README](README.md)).
 
-**Verantwoordt.** [story-0025](../../../../requirements/stories.md#story-0025) (de verbintenis wordt onderbroken en daarna hervat) en [story-0028](../../../../requirements/stories.md#story-0028) (gemiste leergelegenheden worden in een latere periode ingehaald).
+**Verantwoordt.** [story-0025](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/requirementsboom/stories.md#story-0025) (de verbintenis wordt onderbroken en daarna hervat) en [story-0028](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/requirementsboom/stories.md#story-0028) (gemiste leergelegenheden worden in een latere periode ingehaald).
 
 > **Status.** *By accident, alleen vertraging.* **Pitch.** *Halverwege periode 2 wordt Jochem ziek (lange griep, daarna concentratieproblemen). Hij mist drie weken onderwijs, haalt twee leergelegenheden niet op tijd, en moet in periode 3 of 4 inhalen — waardoor hij voor één werkproces uit ritme raakt en uiteindelijk twee maanden uitloopt op zijn diploma.*
 >
