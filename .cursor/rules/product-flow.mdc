@@ -15,6 +15,7 @@ Elk nieuw of substantieel gewijzigd deliverable (requirements-document, payload-
   given-when-then-conventie: in de methodenaam (`test_given_X_when_Y_then_Z`) en als de drie
   stappen in de testcode. Identifiers in code zijn Engels; gebruikersuitvoer is Nederlands.
   De PR-beschrijving rapporteert per testgeval wat gedraaid is en wat de uitkomst was;
-  beweringen als "getest" zonder naloopbare gevallen tellen niet als verificatie.
+  beweringen als "getest" zonder naloopbare gevallen tellen niet als verificatie. Testgevallen
+  worden opgesteld en beoordeeld met de persona `.agents/skills/okx-test-persona/SKILL.md`.
 
 Sla de review niet over "omdat het klein is"; kleine wijzigingen aan bestaande documenten (typo's, losse verwijzingen) vallen buiten deze plicht.
