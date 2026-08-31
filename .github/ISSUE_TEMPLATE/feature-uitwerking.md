@@ -18,7 +18,7 @@ Genummerd en toetsbaar; samen definiëren ze wanneer de feature af is.
 
 ## Testgevallen
 
-Per acceptatiecriterium minstens één geval dat aantoont dat het werkt; voor de vorm zie de skill business-analyse-okx.
+Per acceptatiecriterium minstens één geval dat aantoont dat het werkt; voor de vorm zie de skill [business-analyse-okx](../../.agents/skills/business-analyse-okx/SKILL.md).
 
 - Bij AC1: [geval]. Bron: [...]. Verwacht resultaat: [...].
 - Bij AC2: [geval]. Bron: [...]. Verwacht resultaat: [...].
