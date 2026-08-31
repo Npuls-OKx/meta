@@ -1,28 +1,36 @@
 ---
 name: Feature-uitwerking
-about: Baat, acceptatiecriteria en testgevallen voor een feature; stopmoment vóór de uitwerking start
+about: Story, acceptatiecriteria en testgevallen voor een feature
 title: "Feature: "
 labels: ["enhancement"]
 ---
 
-## Baat
+## Story
 
-[voor welke actor, welk knelpunt]
+Als [actor] wil ik [actie] zodat [resultaat].
+
+<!-- Actor: de rol die de wens heeft, bijvoorbeeld planner, student, onderwijsontwerper. Geen systeem.
+     Actie: wat die rol wil kunnen. Beschrijf het effect in de keten, niet de werking binnen een systeem.
+     Resultaat: waarom het ertoe doet. Kun je het zodat-deel niet invullen, dan is de wens nog niet scherp.
+     Herkomst: noem waar de wens vandaan komt (gesprek met een instelling met datum, scenario, besluit).
+     Past de story onder een bestaande feature en epic? Zo niet, bespreek de plek voordat je verder schrijft. -->
 
 ## Acceptatiecriteria
 
-Genummerd en toetsbaar; samen definiëren ze wanneer de feature af is.
+1.
+2.
 
-1. [criterium]
-2. [criterium]
+<!-- Beschrijf per criterium wat waarneembaar klopt zodra de feature werkt, niet hoe het gebouwd wordt.
+     Toetsbaar betekent: twee mensen komen los van elkaar tot hetzelfde oordeel.
+     Dek ook de randen: wat mag juist niet gebeuren, en wat gebeurt er als het misgaat.
+     Vermijd "moet ondersteunen" of "moet mogelijk zijn" zonder waarneembaar resultaat. -->
 
 ## Testgevallen
 
-Per acceptatiecriterium minstens één geval dat aantoont dat het werkt; voor de vorm zie de skill [business-analyse-okx](../../.agents/skills/business-analyse-okx/SKILL.md).
+- Bij 1: gegeven [uitgangssituatie], wanneer [handeling], dan [verwacht resultaat].
+- Bij 2:
 
-- Bij AC1: [geval]. Bron: [...]. Verwacht resultaat: [...].
-- Bij AC2: [geval]. Bron: [...]. Verwacht resultaat: [...].
-
-## Stopmoment
-
-De uitwerking start pas na akkoord van de indiener op de acceptatiecriteria en de testgevallen hierboven.
+<!-- Per acceptatiecriterium ten minste een geval, in dezelfde drieslag: uitgangssituatie, handeling, verwacht resultaat.
+     Dek het gangbare verloop, per faalmodus een geval, en de randen (lege invoer, ontbrekende gegevens, grenswaarden).
+     Een verwacht resultaat is waarneembaar: een melding, een status, een exitcode, een zichtbaar gevolg in de keten.
+     Voor scripts en valideerbare definities gelden de conventies uit de skill okx-test-persona. -->
