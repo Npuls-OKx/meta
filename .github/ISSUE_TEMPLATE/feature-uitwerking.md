@@ -1,27 +1,27 @@
 ---
 name: Feature-uitwerking
-about: Benefit, acceptatiecriteria en testgevallen voor een feature; stopmoment vóór de uitwerking start
+about: Baat, acceptatiecriteria en testgevallen voor een feature; stopmoment vóór de uitwerking start
 title: "Feature: "
 labels: ["enhancement"]
 ---
 
-## Benefit
+## Baat
 
-[voor welke actor, welk knelpunt (1-2 zinnen)]
+[voor welke actor, welk knelpunt]
 
 ## Acceptatiecriteria
 
-Genummerd, toetsbaar. 3 tot 8 criteria die "af" definiëren.
+Genummerd en toetsbaar; samen definiëren ze wanneer de feature af is.
 
 1. [criterium]
 2. [criterium]
 
 ## Testgevallen
 
-Per acceptatiecriterium minstens één geval dat aantoont dat het werkt. Voor scripts en valideerbare definities: een geautomatiseerd testgeval. Voor documenten: een controleerbare bewering met bron en verwacht resultaat.
+Per acceptatiecriterium minstens één geval dat aantoont dat het werkt; voor de vorm zie de skill business-analyse-okx.
 
-- Bij AC1: [bewering] - bron: [...] - verwacht resultaat: [...]
-- Bij AC2: [bewering] - bron: [...] - verwacht resultaat: [...]
+- Bij AC1: [geval]. Bron: [...]. Verwacht resultaat: [...].
+- Bij AC2: [geval]. Bron: [...]. Verwacht resultaat: [...].
 
 ## Stopmoment
 

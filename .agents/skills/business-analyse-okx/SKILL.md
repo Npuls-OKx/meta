@@ -25,5 +25,5 @@ Wrapper om de externe skills [`business-analysis`](../business-analysis/SKILL.md
 
 1. Lees de vraag en de bestaande OKx-context (relevante ADR's, bestaande requirements-documenten).
 2. Pas gap-analyse toe (business-analysis): wat is er al, wat ontbreekt, welke beperkingen gelden.
-3. Stel de eisen op in de OKx-requirements-vorm, scherp ze aan met EARS waar dat helpt. Lever bij elk acceptatiecriterium minstens één testgeval: voor scripts en valideerbare definities een geautomatiseerd testgeval, voor documenten een controleerbare bewering met bron en verwacht resultaat.
+3. Stel de eisen op in de OKx-requirements-vorm, scherp ze aan met EARS waar dat helpt. Lever bij elk acceptatiecriterium minstens één testgeval: voor scripts en valideerbare definities geautomatiseerd, voor documenten een controleerbare bewering met bron en verwacht resultaat.
 4. Sluit af met open vragen en een voorstel voor acceptatie (wie stelt vast).
