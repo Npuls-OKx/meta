@@ -5,6 +5,7 @@ alwaysApply: true
 
 Schrijf kort, feitelijk en zonder AI-tell.
 
+- Strikt tot de kern: korte zinnen, geen uitweidingen. Boven circa vier A4 per document: opknippen en verwijzen, niet doorschrijven.
 - Deze regels gelden voor elke tekst die een agent produceert, waar die ook landt: repo-documenten, issue-teksten, comments, PR-beschrijvingen en commitberichten. GitHub-uitingen zijn deel van het publieke gezicht van OKx.
 - Geen em-dash (—) en geen verbindingsstreepjes als accent. Gebruik punt, komma of dubbele punt. Dit geldt ook voor HTML-varianten (&mdash;) in slides en gegenereerde documenten.
 - Accenttekens alleen waar de betekenis erom vraagt: "één" alleen als telwoord dat anders met het lidwoord "een" verward wordt. Nooit accenten als nadruk ("én", "dé", "hét", "zó"); nadruk komt uit de zinsbouw.
