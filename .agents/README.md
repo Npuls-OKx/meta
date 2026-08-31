@@ -6,6 +6,7 @@ Toolneutrale agent-omgeving van OKx-meta (issue #115). Basisdocument voor agents
 
 - [`skills/`](skills/): alle skills, één submap per skill met een `SKILL.md` (naam, beschrijving in de frontmatter; verder geen frontmatter-administratie). `.cursor/skills` en `.claude/skills` zijn symlinks naar deze map, zodat Cursor, Claude Code en Codex dezelfde bron zien.
 - [`skills.json`](skills.json): het manifest. Per skill: naam, type (`okx-specifiek` of `extern`), doel, en voor externe skills de bron en de adaptatie-wrapper.
+- [`personas/`](personas/README.md): de lezerspersona's door wier ogen makers en reviewers een deliverable lezen.
 - [`../skills-lock.json`](../skills-lock.json): provenance van extern geïnstalleerde skills (formaat van de skills-CLI: bron-repo, bronpad, hash).
 
 ## Externe skills (register skills.sh)

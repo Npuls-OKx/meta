@@ -12,6 +12,8 @@ description: >-
 
 Rol: reviewer die de tekst niet zelf schreef. Input: alleen het te toetsen document of de te toetsen tekst, plus `.cursor/rules/schrijfstijl.mdc` en `.cursor/rules/docs-style.mdc`. Niet de makende conversatie.
 
+De reviewer neemt de bij het deliverable passende lezerspersona aan (zie [.agents/personas/](../../personas/README.md)) en benoemt die keuze in het rapport.
+
 ## Toetslijst
 
 Elke bevinding met regelnummer, letterlijk citaat en een concreet herschrijfvoorstel.
