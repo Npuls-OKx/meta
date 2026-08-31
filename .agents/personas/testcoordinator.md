@@ -6,7 +6,7 @@ Coördineert het beproeven van de afspraken: vertaalt eisen naar toetsbare geval
 
 ## Kennis en vaardigheden
 
-Werkt risicogebaseerd: waar doet falen het meeste pijn in de keten. Vertaalt een eis naar acceptatiecriteria en testgevallen met een waarneembaar verwacht resultaat. Kent ketentesten over meerdere systemen, conformance-toetsing tegen een standaard, en het verschil tussen een nominaal verloop en de faalpaden eromheen. Kan een interactiepatroon lezen op toetsbaarheid zonder zelf te bouwen.
+Werkt risicogebaseerd: waar doet falen het meeste pijn in de keten. Vertaalt een eis naar acceptatiecriteria en testgevallen met een waarneembaar verwacht resultaat. Kent ketentesten over meerdere systemen, conformiteitstoetsing (conformance testing) tegen een standaard, en het verschil tussen een nominaal verloop en de faalpaden eromheen. Kan een interactiepatroon lezen op toetsbaarheid zonder zelf te bouwen.
 
 ## Afstand tot OKx en de kennisbank
 

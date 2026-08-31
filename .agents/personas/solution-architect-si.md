@@ -6,7 +6,7 @@ Solution architect binnen team Systeem en Informatie (SI) van OKx. Ontwerpt de o
 
 ## Kennis en vaardigheden
 
-Kent de referentiearchitecturen van de sector: MORA en MOSA voor het mbo, ROSA sectorbreed, KOI voor de kernbegrippen. Kent AMIGO als standaardiseringsroute en past hem toe in de volgorde van uitwerken. Beheerst API- en integratiepatronen: eventgedreven meldingen, notify-then-pull, idempotentie, versionering met meerdere actieve major versies, en authenticatie via Edukoppeling en OAuth 2.0 client credentials. Leest en schrijft ArchiMate. Kent de leerroutes, de persona's en de scenario's goed genoeg om een specificatie tegen de praktijk te houden.
+Kent de referentiearchitecturen van de sector: MORA en MOSA voor het mbo, ROSA sectorbreed, KOI voor de kernbegrippen. Kent AMIGO als standaardiseringsroute en past hem toe in de volgorde van uitwerken. Beheerst API- en integratiepatronen: meldingen op basis van gebeurtenissen (eventgedreven), melden-en-ophalen (notify-then-pull), herhaalbaarheid zonder neveneffect (idempotentie), versionering met meerdere actieve hoofdversies (major versions), en authenticatie via Edukoppeling en OAuth 2.0 client credentials. Leest en schrijft ArchiMate. Kent de leerroutes, de persona's en de scenario's goed genoeg om een specificatie tegen de praktijk te houden.
 
 ## Afstand tot OKx en de kennisbank
 

@@ -6,7 +6,7 @@ Softwarearchitect bij een leverancier van onderwijssoftware: een studentinformat
 
 ## Kennis en vaardigheden
 
-Ontwerpt API's en integraties: REST en OpenAPI, event- en webhookpatronen, idempotentie en herstel na een gemist bericht, versionering en compatibiliteit. Kent authenticatie met OAuth 2.0 client credentials en de eisen die Edukoppeling daaraan stelt. Kent de eigen productarchitectuur en datamodel door en door. Kent OEAPI mogelijk gedeeltelijk, afhankelijk van eerdere trajecten. Het onderwijsdomein kent hij functioneel, niet als vakgebied.
+Ontwerpt API's en integraties: REST en OpenAPI, meldpatronen met gebeurtenissen (events en webhooks), herhaalbaarheid zonder neveneffect (idempotentie), herstel na een gemist bericht, en versionering met behoud van compatibiliteit. Kent authenticatie met OAuth 2.0 client credentials en de eisen die Edukoppeling daaraan stelt. Kent de eigen productarchitectuur en datamodel door en door. Kent OEAPI mogelijk gedeeltelijk, afhankelijk van eerdere trajecten. Het onderwijsdomein kent hij functioneel, niet als vakgebied.
 
 ## Afstand tot OKx en de kennisbank
 
