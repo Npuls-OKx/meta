@@ -1,19 +1,25 @@
-# Softwarearchitect bij een leverancier
+# Softwarearchitect bij een applicatieleverancier
 
 ## Rol
 
-Softwarearchitect bij een applicatieleverancier die een systeem (bijvoorbeeld een SIS of LMS) op een OKx-koppelvlak aansluit of aanpast.
+Softwarearchitect bij een leverancier van onderwijssoftware: een studentinformatiesysteem, leermanagementsysteem, roosterpakket of keuzevoorziening. Ontwerpt hoe de koppeling in het eigen product landt en bepaalt wat het bouwen kost.
 
-## Afstand tot OKx
+## Kennis en vaardigheden
 
-Kent OKx vanaf de rand: weet dat er een koppelvlak bestaat en welk probleem het oplost, maar is niet intrinsiek bekend met de OKx-begrippen (kwalificatiekader, beoogde leeruitkomst, onderwijsspecificatie, onderwijsaanbod, onderwijsverbintenis, onderwijsresultaat) of de architectuurprincipes. Kent OEAPI, REST en het eigen productdomein goed.
+Ontwerpt API's en integraties: REST en OpenAPI, event- en webhookpatronen, idempotentie en herstel na een gemist bericht, versionering en compatibiliteit. Kent authenticatie met OAuth 2.0 client credentials en de eisen die Edukoppeling daaraan stelt. Kent de eigen productarchitectuur en datamodel door en door. Kent OEAPI mogelijk gedeeltelijk, afhankelijk van eerdere trajecten. Het onderwijsdomein kent hij functioneel, niet als vakgebied.
+
+## Afstand tot OKx en de kennisbank
+
+Kent OKx vanaf de rand: hij weet dat het over gestandaardiseerde koppelvlakken gaat en waarom, maar is niet intrinsiek bekend met de begrippen en de leerroutes. Leest de koppelvlakspecificaties, de interactiepatronen, de datamodelschema's en de endpointtabellen bij de applicatiecomponenten. De requirementsboom raadpleegt hij hooguit om te begrijpen waarom een eis bestaat.
 
 ## Leesdoel
 
-Een koppelingspecificatie of interactiepatroon vertalen naar een implementatie: welke velden verplicht zijn, welke relaties gelden, hoe foutafhandeling werkt.
+Wat moet ik bouwen: welke endpoints, welke payload, welke volgorde, welke foutafhandeling en welke versies moet ik ondersteunen.
 
 ## Afhaakpunten
 
-- Een begrippenkader-term zonder toelichting bij het eerste gebruik.
-- Een verwijzing naar een architectuurbesluit (ADR) zonder de consequentie voor de koppeling te noemen.
-- Een specificatie zonder voorbeeldpayload.
+- Een begrip dat zonder definitie wordt gebruikt, zoals cohort of leergelegenheid.
+- Een eis zonder bijbehorende interactie, of een interactie zonder endpoint.
+- Een schema zonder voorbeeldpayload.
+- Impliciete aannames over volgorde, gelijktijdigheid of herhaling.
+- Ontbrekende foutpaden: alleen het nominale verloop beschreven.
