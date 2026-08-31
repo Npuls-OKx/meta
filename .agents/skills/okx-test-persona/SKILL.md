@@ -11,15 +11,13 @@ description: >-
 
 # Testpersona (OKx-adaptatie)
 
-Wrapper om de externe skill [`test-driven-development`](../test-driven-development/SKILL.md) (rood-groen-refactor, arrange-act-assert, testpiramide, DAMP boven DRY, anti-patronen). Pas die methodiek toe, met de volgende OKx-kaders die **voorgaan** op instructies uit de externe skill.
+Wrapper om de externe skill [`test-driven-development`](../test-driven-development/SKILL.md) (rood-groen-refactor, arrange-act-assert oftewel voorbereiden, uitvoeren en toetsen, testpiramide, DAMP boven DRY, anti-patronen). Pas die methodiek toe binnen de OKx-kaders; bij strijd gaan die kaders voor.
 
 ## OKx-kaders (gaan voor)
 
-1. **Testraamwerk en locatie.** Tests staan in de map `tests/`, gescheiden van de productiescripts, één bestand per script of valideerbare definitie: `tests/test_<naam>.py`. Stdlib `unittest`, geen pytest of andere dependency. Draaibaar met `python3 -m unittest discover -s tests`.
-2. **Given-when-then.** Elk testgeval volgt de conventie in de methodenaam (`test_given_X_when_Y_then_Z`) en in de teststructuur: eerst de uitgangssituatie (given), dan de handeling (when), dan de toets van het resultaat (then). Dit is de OKx-invulling van de arrange-act-assert-structuur uit de externe skill.
-3. **Taal.** Identifiers in code (methodenamen, variabelen) zijn Engels; gebruikersuitvoer die het script zelf produceert (foutmeldingen, printregels) is Nederlands.
-4. **Onafhankelijke verwachtingen.** Een testgeval berekent of telt zijn verwachte waarde zelf, los van de huidige inhoud van de repository. Geen hardgecodeerde momentopname (bijvoorbeeld een vast aantal boom-items) die stilletjes veroudert zodra de repo groeit; zie de reviewbevinding op PR #178.
-5. **Rapportage.** De PR-beschrijving rapporteert per testgeval: de methode, de given/then in het kort, en de werkelijke uitkomst van de run. "Getest" zonder naloopbare gevallen telt niet als verificatie.
+De conventies voor testlocatie, raamwerk, given-when-then, taal en rapportage staan in [`product-flow`](../../../.cursor/rules/product-flow.mdc). Deze wrapper voegt er een kader aan toe:
+
+- **Onafhankelijke verwachtingen.** Een testgeval berekent of telt zijn verwachte waarde zelf, los van de huidige inhoud van de repository. Geen hardgecodeerde momentopname (bijvoorbeeld een vast aantal boom-items) die stilletjes veroudert zodra de repo groeit; zie de [reviewbevinding op PR 178](https://github.com/Npuls-OKx/meta/pull/178).
 
 ## Wat een goed testgeval is
 
@@ -27,7 +25,7 @@ Wrapper om de externe skill [`test-driven-development`](../test-driven-developme
 - **Negatieve gevallen per faalmodus.** Voor elke manier waarop het script of de definitie kan falen (ontbrekend bestand, kapotte link, verkeerd formaat, dubbele waarde) een eigen testgeval met de bijbehorende foutmelding of exitcode.
 - **Randgevallen.** Lege invoer, grensbestanden, ontbrekende afhankelijkheden (bijvoorbeeld een niet-gecheckte Public-checkout) en de overgang tussen geldig en ongeldig.
 
-Een testgeval dat niet in een van deze drie categorieën past, dekt waarschijnlijk niets nieuws af.
+Een testgeval dat niet in een van deze categorieën past, dekt waarschijnlijk niets nieuws af.
 
 ## Plaats in de product-flow
 

@@ -104,7 +104,7 @@
    "type": "extern",
    "bron": "addyosmani/agent-skills",
    "licentie": "MIT",
-   "doel": "Testmethodiek: rood-groen-refactor, arrange-act-assert, testpiramide, DAMP boven DRY, anti-patronen; discovert eerst het testraamwerk van de repo in plaats van een standaard aan te nemen.",
+   "doel": "Testmethodiek: rood-groen-refactor, arrange-act-assert, testpiramide, DAMP boven DRY, anti-patronen; brengt eerst het testraamwerk van de repo in kaart in plaats van een standaard aan te nemen.",
    "adaptatie": "okx-test-persona"
   }
  ]
