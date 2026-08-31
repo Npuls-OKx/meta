@@ -30,6 +30,12 @@
       "sourceType": "github",
       "skillPath": "skills/requirements-engineering/SKILL.md",
       "computedHash": "b784e2ff7c6ffa2aa9af6cd289011de002089e8d3cecbd0036f4ceec943d14a1"
+    },
+    "test-driven-development": {
+      "source": "addyosmani/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/test-driven-development/SKILL.md",
+      "computedHash": "a8fef2b010af8402fd2979bdb2e5e39e5baa1ca14b5cdec366ee75df5e1dec68"
     }
   }
 }
