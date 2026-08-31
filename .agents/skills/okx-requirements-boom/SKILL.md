@@ -14,10 +14,11 @@ description: >-
 
 De boom is de getoonde koppeling tussen business en techniek: van de opdracht (Leren zonder Drempels) via epics en features naar stories, en van stories naar de interacties en endpoint-sets in de koppelingspecificaties. Achterliggende mechaniek (uitvoerbare scenario's, eigen eis-uitwerking) staat niet in de boom; de functionele-eis-id's in de storytabel zijn verwijzingen naar de koppelvlakspecificaties, geen eigen mechaniek. Zie het architectuurbesluit bij issue #130 en de ID-conventie bij issue #135.
 
-Twee leidende regels, uit de sparsessie van 5 augustus 2026 (issue #130):
+Drie leidende regels (1 en 2 uit de sparsessie van 5 augustus 2026, issue #130; 3 uit de leesroute-review van 31 augustus):
 
 1. **Overzicht boven volledigheid.** Liever iets minder informatie met overzicht dan volledigheid zonder overzicht. Wat niet past gaat naar de parkeerlijst, niet in een extra laag of voetnoot.
 2. **Eén document per laag**, met een overkoepelende index. Geen document per requirement.
+3. **Kort en feitelijk, niet exacter dan nodig.** Toelichtende tekst noemt geen aantallen, statussen, bereiken of maakproceslimieten; die leven in de tabellen, platen en validatie en bewegen daar mee.
 
 ## De vier lagen
 
@@ -36,12 +37,11 @@ Alles staat in Npuls-OKx/Public onder `Referentiemateriaal/requirementsboom/` (i
 
 | Bestand | Inhoud | Limiet |
 |---|---|---|
-| `README.md` | Index: doel, mermaid-boom, lagenplaat (opdracht tot endpoint), navigatietabel, conventies, scope | 120 regels, mermaid 15 knopen per plaat |
+| `README.md` | Leesroute: doel, visualisatie, per laag hoe je een rij leest met contextlinks, van story naar techniek, bijdragen, scope | 120 regels, mermaid 15 knopen per plaat |
 | `opdracht.md` | Opdracht en projectdoelen (doel-0001, doel-0002, ...), tabel doel naar epics | 80 regels |
 | `epics.md` | Eén tabel met alle epics | 150 regels, 8 epics |
 | `features.md` | Subsectie per epic met featuretabel | 200 regels, 6 features per epic |
 | `stories.md` | Stories van de uitgewerkte epics | 250 regels, 15 stories per epic |
-| `leeswijzer.md` | Leesroutes naar bestaande documenten | 100 regels |
 
 ## Tabelformats
 
@@ -89,6 +89,7 @@ Deze skill is de specialist-skill voor stap 2 (uitwerken) van [`okx-product-flow
 - [ ] Elke story heeft in de kolom Functionele eisen een functionele-eis-id-link naar de rij van de eis in het interactiepatroon of expliciet "geen", en een featurecel die als ankerlink naar de feature werkt.
 - [ ] De Stories-kolom van elke feature bevat exact de stories die met hun featurecel naar die feature terugwijzen (tweerichtingsconsistentie), of expliciet "geen".
 - [ ] De Epic-cel van elke featurerij linkt naar een bestaande epic en komt overeen met de sectie waarin de rij staat.
+- [ ] Toelichtende tekst noemt geen aantallen, statussen, bereiken of maakproceslimieten.
 - [ ] Doelzinnen en feature-omschrijvingen maximaal 25 woorden en geformuleerd als beoogde toestand, niet als werking; een feature-omschrijving herhaalt het epicdoel niet.
 - [ ] Elke rij draagt een id in het vaste format (`doel-0001`, `epic-0001`, `feature-0001`, `story-0001`), zonder dubbelingen en zonder oude id-vormen (E1, F2.1, S2.3); geen statuskolommen.
 - [ ] Omvangslimieten gehaald (regels tellen met `wc -l`, tabelrijen en mermaid-knopen handmatig).
