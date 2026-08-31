@@ -18,6 +18,7 @@ De keuze volgt meestal uit het deliverable: een architectuurbesluit is voor de i
 | [Informatiearchitect (SI of BOP)](informatiearchitect.md) | Modelleert begrippen, objecten en relaties | Begrippenkader, datamodelschema's, payloads |
 | [Onderwijskundig procesbespecialist (BOP)](bop-procesbespecialist.md) | Bewaakt het onderwijsproces in de keten | Kaderscenario's, leerroute-uitwerking, bovenste boomlagen |
 | [Testcoördinator](testcoordinator.md) | Vertaalt eisen naar toetsbare gevallen | Functionele eisen, interactiepatronen, acceptatiecriteria |
+| [Lid kerngroep techniek](lid-kerngroep-techniek.md) | Toetst of de kaderstelling rijp is voor specificatie | Kaderstelling, boom, afbakening, interactiepatronen, payloads |
 
 ## Buiten het kernteam
 
