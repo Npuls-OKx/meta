@@ -36,12 +36,11 @@ Alles staat in Npuls-OKx/Public onder `Referentiemateriaal/requirementsboom/` (i
 
 | Bestand | Inhoud | Limiet |
 |---|---|---|
-| `README.md` | Index: doel, mermaid-boom, lagenplaat (opdracht tot endpoint), navigatietabel, conventies, scope | 120 regels, mermaid 15 knopen per plaat |
+| `README.md` | Leesroute: doel, visualisatie, per laag hoe je een rij leest met contextlinks, van story naar techniek, bijdragen, scope | 120 regels, mermaid 15 knopen per plaat |
 | `opdracht.md` | Opdracht en projectdoelen (doel-0001, doel-0002, ...), tabel doel naar epics | 80 regels |
 | `epics.md` | Eén tabel met alle epics | 150 regels, 8 epics |
 | `features.md` | Subsectie per epic met featuretabel | 200 regels, 6 features per epic |
 | `stories.md` | Stories van de uitgewerkte epics | 250 regels, 15 stories per epic |
-| `leeswijzer.md` | Leesroutes naar bestaande documenten | 100 regels |
 
 ## Tabelformats
 
