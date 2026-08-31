@@ -2,7 +2,7 @@
 
 ## Rol
 
-Informatiearchitect binnen OKx, werkzaam vanuit team SI of team BOP. Modelleert de informatie in de keten: begrippen, objecttypen, relaties en cardinaliteiten. Vormt de brug tussen de procesbeschrijving van BOP en het datamodel waarmee SI en de leveranciers verder werken.
+Informatiearchitect binnen OKx, werkzaam vanuit team SI of team BOP. Modelleert de informatie in de keten: begrippen, objecttypen, relaties en cardinaliteiten. Is de vertaler aan de kant van team BOP: zet wat het onderwijsproces vraagt om in modellen waar team SI en de leveranciers mee verder kunnen, en brengt omgekeerd de gevolgen van een modelkeuze terug naar het proces.
 
 ## Kennis en vaardigheden
 

@@ -1,6 +1,10 @@
 # Lezerspersona's
 
-Een lezerspersona is de lezer door wiens ogen een deliverable geschreven en gereviewd wordt. De maker kiest de persona vooraf, de reviewer neemt dezelfde rol aan bij het toetsen. Elke persona beschrijft de rol, de kennis en vaardigheden die de lezer meebrengt, zijn afstand tot OKx en de kennisbank, zijn leesdoel en de punten waarop hij afhaakt.
+Een lezerspersona is de lezer door wiens ogen een deliverable geschreven en gereviewd wordt. De maker kiest de persona vooraf, de reviewer neemt dezelfde rol aan bij het toetsen. Elke persona beschrijft de rol, de kennis en vaardigheden die de lezer meebrengt, zijn afstand tot OKx en de kennisbank, zijn leesdoel en de punten waarop hij afhaakt. Waar belangen meespelen staan die er ook bij.
+
+## Gelaagdheid
+
+Sommige persona's zijn een verzamelrol: zij beschrijven een gremium of team en verwijzen naar de onderliggende rollen met hun eigen accenten. Ken je de concrete lezer, kies dan de onderliggende rol. Gaat een document het hele gremium aan, kies dan de verzamelrol.
 
 ## Afbakening
 
@@ -12,19 +16,28 @@ De keuze volgt meestal uit het deliverable: een architectuurbesluit is voor de i
 
 ## Binnen het OKx-kernteam
 
+[Kernteamlid](kernteamlid.md) is de verzamelrol voor werkafspraken die het hele team aangaan.
+
+| Persona | Team | Leest vooral |
+|---|---|---|
+| [Solution architect](solution-architect-si.md) | SI | Alle deliverables, besluiten en specificaties |
+| [Informatiearchitect](informatiearchitect.md) | BOP, met SI | Begrippenkader, datamodelschema's, gegevenssets |
+| [Onderwijskundig procesbespecialist](bop-procesbespecialist.md) | BOP | Kaderscenario's, leerroute-uitwerking, bovenste boomlagen |
+| [Testcoördinator](testcoordinator.md) | BOP, met SI | Functionele eisen, interactiepatronen, acceptatiecriteria |
+
+## In de gremia rond OKx
+
+[Lid kerngroep techniek](lid-kerngroep-techniek.md) is de verzamelrol voor de kerngroep; de deelnemers zijn architect, technisch specialist of product owner.
+
+| Persona | Belang | Leest vooral |
+|---|---|---|
+| [Lid technische werkgroep, sector](lid-technische-werkgroep-sector.md) | Een standaard die overal werkt, leveranciersonafhankelijk | Specificaties, mapping, standaardbesluiten |
+| [Lid technische werkgroep, leverancier](lid-technische-werkgroep-leverancier.md) | Samenhang eigen productlandschap, lagere beheerlast | Interactiepatronen, gegevenssets, afbakening |
+
+## Bij instellingen en leveranciers
+
 | Persona | Rol | Leest vooral |
 |---|---|---|
-| [Solution architect (SI)](solution-architect-si.md) | Ontwerpt de oplossingsrichting, adviseert BOP | Alle deliverables, besluiten en specificaties |
-| [Informatiearchitect (SI of BOP)](informatiearchitect.md) | Modelleert begrippen, objecten en relaties | Begrippenkader, datamodelschema's, payloads |
-| [Onderwijskundig procesbespecialist (BOP)](bop-procesbespecialist.md) | Bewaakt het onderwijsproces in de keten | Kaderscenario's, leerroute-uitwerking, bovenste boomlagen |
-| [Testcoördinator](testcoordinator.md) | Vertaalt eisen naar toetsbare gevallen | Functionele eisen, interactiepatronen, acceptatiecriteria |
-| [Lid kerngroep techniek](lid-kerngroep-techniek.md) | Toetst of de kaderstelling rijp is voor specificatie | Kaderstelling, boom, afbakening, interactiepatronen, payloads |
-
-## Buiten het kernteam
-
-| Persona | Rol | Leest vooral |
-|---|---|---|
-| [Informatiemanager van een instelling](informatiemanager-instelling.md) | Bepaalt impact op de eigen instelling | Architectuurbesluiten, uitgangspunten, releases |
-| [Enterprise architect van een instelling](enterprise-architect-instelling.md) | Toetst aan de eigen doelarchitectuur | Besluiten, principes, afbakening, componentindeling |
+| [Informatiemanager van een instelling](informatiemanager-instelling.md) | Bepaalt impact op de eigen instelling | Besluiten, uitgangspunten, releases |
+| [Enterprise architect van een instelling](enterprise-architect-instelling.md) | Toetst doelarchitectuur en semantische samenhang | Besluiten, principes, afbakening, componentindeling |
 | [Softwarearchitect bij een leverancier](softwarearchitect-leverancier.md) | Bouwt de koppeling in een product | Koppelvlakspecificaties, interactiepatronen, schema's |
-| [Lid technische werkgroep](lid-technische-werkgroep.md) | Toetst aansluiting op de standaard | Specificaties, mapping, standaardbesluiten |

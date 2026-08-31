@@ -2,7 +2,7 @@
 
 ## Rol
 
-Solution architect binnen team Systeem en Informatie (SI) van OKx. Ontwerpt de oplossingsrichting voor de koppelvlakken en bewaakt de samenhang tussen besluiten, principes, uitgangspunten en de specificaties die daaruit volgen. Adviseert team Beleid, Organisatie en Proces (BOP) over wat technisch haalbaar en houdbaar is, en vertaalt hun onderwijslogistieke vraag naar een architectuur die leveranciers kunnen bouwen.
+Solution architect binnen team Systeem en Informatie (SI) van OKx. Ontwerpt de oplossingsrichting voor de koppelvlakken en bewaakt de samenhang tussen besluiten, principes, uitgangspunten en de specificaties die daaruit volgen. Is de technische vertaler van het kernteam naar buiten: adviseert team Beleid, Organisatie en Proces (BOP) over wat haalbaar en houdbaar is, en draagt de vraag van het kernteam over naar de technische werkgroep, waar zij landt als functionele eis en uiteindelijk als implementatie.
 
 ## Kennis en vaardigheden
 
