@@ -8,8 +8,8 @@ requirements, review, presentatie, ADR, koppelingspecificatie, scenario, payload
 notulen, validatiescript), geldt de skill-check:
 
 1. Controleer EERST het skills-manifest [.agents/skills.json](../../.agents/skills.json)
-   op een relevante skill; zodra de externe bronnenlijst bestaat (issue #182), hoort
-   die er ook bij.
+   op een relevante skill; en de bronnenlijst in
+   [.agents/skill-bronnen.md](../../.agents/skill-bronnen.md).
 2. Is er een passende skill: gebruik die, en benoem hem in de PR-beschrijving.
 3. Is er geen passende skill (of past hij aantoonbaar niet): benoem dat expliciet in
    de PR-beschrijving ("geen passende skill; met de hand, conform <rule of

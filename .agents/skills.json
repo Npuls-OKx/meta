@@ -87,12 +87,25 @@
    "doel": "Onafhankelijke specialist: toetst een deliverable tegen het semantisch kader en de schrijfstijl van OKx."
   },
   {
+   "naam": "okx-test-persona",
+   "type": "okx-specifiek",
+   "doel": "Adaptatie-wrapper: schrijft en reviewt testgevallen voor scripts en valideerbare definities binnen de OKx-conventies (tests/, stdlib unittest, given-when-then, onafhankelijke verwachtingen, rapportage per testgeval)."
+  },
+  {
    "naam": "requirements-engineering",
    "type": "extern",
    "bron": "jasonkneen/kiro",
    "licentie": "MIT",
    "doel": "Toetsbare requirements in EARS-notatie: user stories, acceptatiecriteria, randgevallen, volledigheidscheck.",
    "adaptatie": "business-analyse-okx"
+  },
+  {
+   "naam": "test-driven-development",
+   "type": "extern",
+   "bron": "addyosmani/agent-skills",
+   "licentie": "MIT",
+   "doel": "Testmethodiek: rood-groen-refactor, arrange-act-assert, testpiramide, DAMP boven DRY, anti-patronen; discovert eerst het testraamwerk van de repo in plaats van een standaard aan te nemen.",
+   "adaptatie": "okx-test-persona"
   }
  ]
 }

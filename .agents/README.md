@@ -8,6 +8,7 @@ Toolneutrale agent-omgeving van OKx-meta (issue #115). Basisdocument voor agents
 - [`skills.json`](skills.json): het manifest. Per skill: naam, type (`okx-specifiek` of `extern`), doel, en voor externe skills de bron en de adaptatie-wrapper.
 - [`personas/`](personas/README.md): de lezerspersona's door wier ogen makers en reviewers een deliverable lezen.
 - [`../skills-lock.json`](../skills-lock.json): provenance van extern geïnstalleerde skills (formaat van de skills-CLI: bron-repo, bronpad, hash).
+- [`skill-bronnen.md`](skill-bronnen.md): de vaste bronnenlijst waarover we zoeken, plus het selectieproces.
 
 ## Externe skills (register skills.sh)
 
