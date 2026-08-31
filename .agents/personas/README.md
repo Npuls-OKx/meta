@@ -25,6 +25,15 @@ De keuze volgt meestal uit het deliverable: een architectuurbesluit is voor de i
 | [Onderwijskundig procesbespecialist](bop-procesbespecialist.md) | BOP | Kaderscenario's, leerroute-uitwerking, bovenste boomlagen |
 | [Testcoördinator](testcoordinator.md) | BOP, met SI | Functionele eisen, interactiepatronen, acceptatiecriteria |
 
+## Sturing op het project
+
+Beiden zijn geen specialist. Zij willen keuzes voorgelegd krijgen als korte afweging: A, B of C, met per optie het gevolg in een of twee zinnen en een aanbeveling.
+
+| Persona | Verantwoordelijkheid | Leest vooral |
+|---|---|---|
+| [Projectmanager](projectmanager.md) | Operationeel: planning, capaciteit, scope | Milestones, voortgang, bovenste boomlagen |
+| [Programmamanager en opdrachtgever](programmamanager-opdrachtgever.md) | Strategisch: richting, mandaat, besluiten | Opdracht en doelen, besluitpunten, samenvattingen |
+
 ## In de gremia rond OKx
 
 [Lid kerngroep techniek](lid-kerngroep-techniek.md) is de verzamelrol voor de kerngroep; de deelnemers zijn architect, technisch specialist of product owner.
