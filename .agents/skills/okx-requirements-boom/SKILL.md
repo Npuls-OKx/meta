@@ -14,10 +14,11 @@ description: >-
 
 De boom is de getoonde koppeling tussen business en techniek: van de opdracht (Leren zonder Drempels) via epics en features naar stories, en van stories naar de interacties en endpoint-sets in de koppelingspecificaties. Achterliggende mechaniek (uitvoerbare scenario's, eigen eis-uitwerking) staat niet in de boom; de functionele-eis-id's in de storytabel zijn verwijzingen naar de koppelvlakspecificaties, geen eigen mechaniek. Zie het architectuurbesluit bij issue #130 en de ID-conventie bij issue #135.
 
-Twee leidende regels, uit de sparsessie van 5 augustus 2026 (issue #130):
+Drie leidende regels (1 en 2 uit de sparsessie van 5 augustus 2026, issue #130; 3 uit de leesroute-review van 31 augustus):
 
 1. **Overzicht boven volledigheid.** Liever iets minder informatie met overzicht dan volledigheid zonder overzicht. Wat niet past gaat naar de parkeerlijst, niet in een extra laag of voetnoot.
 2. **Eén document per laag**, met een overkoepelende index. Geen document per requirement.
+3. **Proza beschrijft de aard, niet de stand.** Toelichtende tekst (leesroute, sectie-intro's, plaat-toelichtingen) noemt geen aantallen, uitwerkingsstatussen, bereiken of maakproces-limieten: die waarden bewegen met de inhoud mee en verouderen stilletjes. De tabellen, de platen en de validatie dragen de exacte waarden; een omschrijving is feitelijk maar niet exacter dan nodig, zodat hij waar blijft terwijl de boom groeit.
 
 ## De vier lagen
 
@@ -88,6 +89,7 @@ Deze skill is de specialist-skill voor stap 2 (uitwerken) van [`okx-product-flow
 - [ ] Elke story heeft in de kolom Functionele eisen een functionele-eis-id-link naar de rij van de eis in het interactiepatroon of expliciet "geen", en een featurecel die als ankerlink naar de feature werkt.
 - [ ] De Stories-kolom van elke feature bevat exact de stories die met hun featurecel naar die feature terugwijzen (tweerichtingsconsistentie), of expliciet "geen".
 - [ ] De Epic-cel van elke featurerij linkt naar een bestaande epic en komt overeen met de sectie waarin de rij staat.
+- [ ] Toelichtende tekst bevat geen aantallen, statussen, bereiken of maakproces-limieten die met de inhoud meebewegen (proza beschrijft de aard, niet de stand).
 - [ ] Doelzinnen en feature-omschrijvingen maximaal 25 woorden en geformuleerd als beoogde toestand, niet als werking; een feature-omschrijving herhaalt het epicdoel niet.
 - [ ] Elke rij draagt een id in het vaste format (`doel-0001`, `epic-0001`, `feature-0001`, `story-0001`), zonder dubbelingen en zonder oude id-vormen (E1, F2.1, S2.3); geen statuskolommen.
 - [ ] Omvangslimieten gehaald (regels tellen met `wc -l`, tabelrijen en mermaid-knopen handmatig).
