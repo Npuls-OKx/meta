@@ -169,7 +169,7 @@ Dat meldt bronnen die zijn gewijzigd, versies die zijn ingehaald, en platen die 
 Werkwijze per onderwerp:
 
 1. Kies een plaat op `gebruik_bij`, niet op wat er toevallig mooi uitziet.
-2. Kopieer hem naar `presentaties/public/platen/` en verwijs ernaar met `/platen/<naam>`.
+2. Kopieer hem naar `presentaties/src/public/platen/` en verwijs ernaar met `/platen/<naam>`.
 3. Zet er een regel bij die zegt **waar de kijker naar moet kijken**. Een plaat zonder leeswijzer is decoratie.
 4. Neem `let_op` over in je afstemming met de aanvrager als daar iets in staat.
 

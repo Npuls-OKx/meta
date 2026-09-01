@@ -12,7 +12,7 @@ Dit script vergelijkt het manifest met wat er werkelijk staat en meldt:
   GEWIJZIGD    de bron is veranderd sinds hij in het manifest werd opgenomen
   NIEUWERE     er staat een hogere versie naast de versie in het manifest
   ONBEKEND     er staat een plaat die het manifest niet noemt
-  KOPIE OUD    de kopie in presentaties/public/platen wijkt af van de bron
+  KOPIE OUD    de kopie in presentaties/src/public/platen wijkt af van de bron
   KOPIE LOS    er ligt een kopie die geen enkele manifestregel opeist
 
 Gebruik:
@@ -37,11 +37,11 @@ MANIFEST = Path(__file__).resolve().parent.parent / "presentaties" / "platen.jso
 # Slidev serveert alleen bestanden onder public/; een slide kan niet buiten het
 # project wijzen. Een gebruikte plaat is dus altijd een kopie, en een kopie kan
 # achterlopen op zijn bron zonder dat iemand het merkt.
-KOPIEEN = MANIFEST.parent / "public" / "platen"
+KOPIEEN = MANIFEST.parent / "src" / "public" / "platen"
 BEELD = {".jpg", ".jpeg", ".png", ".svg"}
 # Mappen die geen bronmateriaal zijn: de kopieën in het presentatieproject zelf,
 # afhankelijkheden en de huisstijl-assets.
-NEGEER = ("node_modules", "presentaties/public", ".git", "/export/", ".agents/skills")
+NEGEER = ("node_modules", "presentaties/src/public", ".git", "/export/", ".agents/skills")
 
 
 def hash_van(pad: Path) -> str:

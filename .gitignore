@@ -13,6 +13,7 @@ architecture/model/_import_*.archimate
 
 # Slidev: afhankelijkheden en build-output van de presentaties
 presentaties/node_modules/
+presentaties/**/node_modules/
 presentaties/dist/
 presentaties/.slidev/
 

@@ -17,9 +17,10 @@ cd presentaties
 ./deck adviesgroep programma statisch   # allebei tegelijk, op 3030 en 3031
 ./deck adviesgroep beelden              # een PNG per slide, om te controleren
 ./deck adviesgroep pdf                  # een PDF om rond te sturen
+./deck adviesgroep pptx                 # een PowerPoint
 ```
 
-De naam mag een fragment zijn: `adviesgroep` vindt `260803_adviesgroep.md`. Passen er meerdere, dan vraagt het script om een specifiekere naam.
+De bronnen staan in `src/`; de naam mag een fragment zijn, `adviesgroep` vindt `src/260803_adviesgroep.md`. Passen er meerdere, dan vraagt het script om een specifiekere naam.
 
 ### Gewoon of statisch?
 
@@ -45,11 +46,11 @@ Die vraagt voor welk gremium en over welke periode, verzamelt de wijzigingen uit
 Met de hand:
 
 ```bash
-cp _template.md 260803_onderwerp.md
+cp src/_template.md src/260803_onderwerp.md
 ./deck onderwerp
 ```
 
-Naamgeving: `JJMMDD_onderwerp.md`. Het template bevat een werkend voorbeeld van elk slidetype.
+Naamgeving: `src/JJMMDD_onderwerp.md`. Het template bevat een werkend voorbeeld van elk slidetype.
 
 ## Waar je op let bij het schrijven
 

@@ -14,8 +14,10 @@
 #   ./deck adviesgroep programma statisch    beide naast elkaar, op 3030 en 3031
 #   ./deck adviesgroep beelden               PNG per slide
 #   ./deck adviesgroep pdf                   PDF
+#   ./deck adviesgroep pptx                  PowerPoint
 #
-# De naam mag een fragment zijn: "adviesgroep" vindt 260803_adviesgroep.md.
+# De bronnen staan in src/; de naam mag een fragment zijn, "adviesgroep" vindt
+# src/260803_adviesgroep.md. De exports komen in export/.
 # Meerdere namen krijgen opvolgende poorten, te beginnen bij DECK_POORT (3030).
 
 set -euo pipefail
@@ -23,12 +25,14 @@ cd "$(dirname "$0")"
 
 POORT="${DECK_POORT:-3030}"
 
-decks() { ls -1 [0-9]*.md 2>/dev/null || true; }
+BRON="src"
+
+decks() { (cd "$BRON" 2>/dev/null && ls -1 [0-9]*.md) 2>/dev/null || true; }
 
 toon_lijst() {
   local lijst; lijst=$(decks)
   if [ -z "$lijst" ]; then
-    echo "Nog geen decks. Begin met:  cp _template.md $(date +%y%m%d)_onderwerp.md"
+    echo "Nog geen decks. Begin met:  cp $BRON/_template.md $BRON/$(date +%y%m%d)_onderwerp.md"
     return
   fi
   echo "Beschikbare decks:"
@@ -39,6 +43,7 @@ toon_lijst() {
   echo "          ./deck <naam> <naam> statisch     meerdere naast elkaar"
   echo "          ./deck <naam> beelden             exporteer PNG's"
   echo "          ./deck <naam> pdf                 exporteer een PDF"
+  echo "          ./deck <naam> pptx                exporteer een PowerPoint"
 }
 
 zoek() {
@@ -100,7 +105,7 @@ actie="tonen"
 namen=()
 for arg in "$@"; do
   case "$arg" in
-    tonen|statisch|beelden|pdf) actie="$arg" ;;
+    tonen|statisch|beelden|pdf|pptx) actie="$arg" ;;
     *) namen+=("$(zoek "$arg")") ;;
   esac
 done
@@ -109,15 +114,19 @@ done
 [ -d node_modules ] || { echo "Eenmalig afhankelijkheden installeren..."; npm install --silent --no-audit --no-fund; }
 
 case "$actie" in
-  beelden|pdf)
+  beelden|pdf|pptx)
     for bestand in "${namen[@]}"; do
       if [ "$actie" = "beelden" ]; then
         uit="export/${bestand%.md}"; mkdir -p "$uit"
-        npx slidev export "$bestand" --format png --output "$uit" --timeout 60000
+        npx slidev export "$BRON/$bestand" --format png --output "$uit" --timeout 60000
         echo "Afbeeldingen: presentaties/$uit"
+      elif [ "$actie" = "pptx" ]; then
+        mkdir -p export; uit="export/${bestand%.md}.pptx"
+        npx slidev export "$BRON/$bestand" --format pptx --output "$uit" --timeout 60000
+        echo "PowerPoint: presentaties/$uit"
       else
         mkdir -p export; uit="export/${bestand%.md}.pdf"
-        npx slidev export "$bestand" --output "$uit" --timeout 60000
+        npx slidev export "$BRON/$bestand" --output "$uit" --timeout 60000
         echo "PDF: presentaties/$uit"
       fi
     done
@@ -144,10 +153,10 @@ case "$actie" in
       if [ "$actie" = "statisch" ]; then
         uit="export/${bestand%.md}-statisch"
         rm -rf "$uit"
-        npx slidev build "$bestand" --out "$uit" --base / >/dev/null
+        npx slidev build "$BRON/$bestand" --out "$uit" --base / >/dev/null
         serveer_statisch "$uit" "$poort" &
       else
-        npx slidev "$bestand" --port "$poort" --remote >/dev/null &
+        npx slidev "$BRON/$bestand" --port "$poort" --remote >/dev/null &
       fi
       pids+=($!)
       printf '%-46s http://localhost:%s/\n' "$bestand" "$poort"
