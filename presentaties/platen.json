@@ -245,6 +245,17 @@
       "let_op": "Getekend voor een donkere ondergrond: witte pijlen en lichtgrijze containerlabels verdwijnen op wit. Zet hem op een donker paneel (bijvoorbeeld inktkleur met afgeronde hoeken), of exporteer uit de drawio-bron opnieuw met donkere lijnen. Aangeleverd door Niek (18 augustus); de bron staat nog niet gecommit op een Public-branch.",
       "kopie": "repo-inrichting.png",
       "hash": "29eca256d661a543"
+    },
+    {
+      "naam": "release-branching",
+      "titel": "Branchmodel en releasestore",
+      "bron": "Npuls-OKx/Public",
+      "pad": "Algemeen/release-management/src/release-branching.drawio.png",
+      "versie": "2026-09",
+      "toont": "Hoe een snapshot van dev via een pull request een release wordt, en dat de huidige en de vorige majorversie allebei als branch en als pakket blijven bestaan.",
+      "gebruik_bij": "Release management uitleggen aan wie wil weten hoe iets naar buiten komt en hoelang een vorige versie beschikbaar blijft. Kerngroep techniek, leveranciers.",
+      "let_op": "Komt uit Public PR 81 en is nog niet gemerged op dev. In de plaat staan tester en reviewer nog als een blok; afgesproken is dat het twee rollen worden. Benoem dat erbij.",
+      "kopie": "release-branching.png"
     }
   ],
   "overslaan": [

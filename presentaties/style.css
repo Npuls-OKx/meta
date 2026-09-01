@@ -334,3 +334,29 @@ code {
 .text-center { text-align: center; }
 .muted { color: var(--np-mid-gray); }
 .fill { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; padding: 2.2rem 3rem; }
+
+/* ---- Tabellen ----
+   Markdown-tabellen op een slide kregen geen eigen opmaak, waardoor de koprij
+   niet te onderscheiden was van een gewone rij. Deze regels gelden repo-breed,
+   zodat elk deck dezelfde leesbare tabel krijgt. */
+.slidev-layout table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.slidev-layout thead th {
+  text-align: left;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--np-mid-gray);
+  background: var(--np-light-gray, #f1f4f8);
+  padding: 0.45rem 0.7rem;
+  border-bottom: 2px solid var(--np-blue);
+}
+.slidev-layout tbody td {
+  padding: 0.42rem 0.7rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+  vertical-align: top;
+}
+.slidev-layout tbody tr:last-child td { border-bottom: none; }
