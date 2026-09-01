@@ -23,7 +23,7 @@ Elke bevinding met regelnummer, letterlijk citaat en een concreet herschrijfvoor
 3. **Aard, niet stand.** Toelichtende tekst noemt geen aantallen, uitwerkingsstatussen, bereiken of maakproceslimieten; die leven in tabellen, platen en validatie.
 4. **Geen definitie-echo.** Een toelichting herdefinieert niet wat een kolom, veld of begrip "is"; hij benoemt de rol (ouder, stap omlaag, bron). Definities leven in het begrippenkader of de skill.
 5. **Referenties op één plek.** Verwijzingen leven in de tabel of bronkolom; toelichtingen herhalen ze niet.
-6. **Nederlands.** IT-vaktermen tussen haakjes bij eerste gebruik; begrippenkader-termen voluit; geen verzonnen termen; geen onnodig Engels.
+6. **Nederlands.** Elke vakterm staat in het Nederlands met de Engelse term erachter tussen haakjes bij eerste gebruik, bijvoorbeeld machine naar machine (machine-to-machine of M2M). Een onvertaalde Engelse term zonder Nederlandse tegenhanger is een bevinding, ook als hij in de sector gangbaar is. Begrippenkader-termen voluit; geen verzonnen termen.
 7. **Meta-taal blijft buiten de tekst.** Geen "kort", "samengevat", aanwijzingen aan de maker of verwijzingen naar het maakproces in het deliverable zelf.
 
 ## Oordeel
