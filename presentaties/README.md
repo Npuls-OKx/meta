@@ -86,11 +86,11 @@ Elk deck krijgt een eigen map onder `export/`:
 export/260901_kerngroep_techniek/
   260901_kerngroep_techniek.pdf     om rond te sturen
   260901_kerngroep_techniek.pptx    om te bewerken
-  beelden/                          een PNG per slide
+  img/                              een PNG per slide
   statisch/                         de gebouwde site voor het presenteren
 ```
 
-De pdf en de pptx staan in de repository, zodat wie een deck wil doorsturen niet eerst Slidev hoeft te draaien. `beelden/` en `statisch/` blijven erbuiten; die lopen per deck in de tientallen MB's.
+De pdf en de pptx staan in de repository, zodat wie een deck wil doorsturen niet eerst Slidev hoeft te draaien. `img/` en `statisch/` blijven erbuiten; die lopen per deck in de tientallen MB's.
 
 ## De PowerPoint-export
 

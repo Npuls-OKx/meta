@@ -30,7 +30,7 @@ BRON="src"
 decks() { (cd "$BRON" 2>/dev/null && ls -1 [0-9]*.md) 2>/dev/null || true; }
 
 # Elk deck krijgt een eigen map onder export/: daarin de pdf en de pptx om
-# te delen, en de bouwmappen beelden/ en statisch/ die buiten git blijven.
+# te delen, en de bouwmappen img/ en statisch/ die buiten git blijven.
 mapvan() { echo "export/${1%.md}"; }
 
 toon_lijst() {
@@ -121,7 +121,7 @@ case "$actie" in
   beelden|pdf|pptx)
     for bestand in "${namen[@]}"; do
       if [ "$actie" = "beelden" ]; then
-        uit="$(mapvan "$bestand")/beelden"; mkdir -p "$uit"
+        uit="$(mapvan "$bestand")/img"; mkdir -p "$uit"
         npx slidev export "$BRON/$bestand" --format png --output "$uit" --timeout 60000
         echo "Afbeeldingen: presentaties/$uit"
       elif [ "$actie" = "pptx" ]; then
