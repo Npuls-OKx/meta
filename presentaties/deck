@@ -14,8 +14,7 @@
 #   ./deck adviesgroep programma statisch    beide naast elkaar, op 3030 en 3031
 #   ./deck adviesgroep beelden               PNG per slide
 #   ./deck adviesgroep pdf                   PDF
-#   ./deck adviesgroep pptx                  PowerPoint, slides als beeld
-#   ./deck adviesgroep bewerkbaar            PowerPoint met bewerkbare tekst
+#   ./deck adviesgroep pptx                  PowerPoint, tekst bewerkbaar
 #
 # De bronnen staan in src/; de naam mag een fragment zijn, "adviesgroep" vindt
 # src/260803_adviesgroep.md. De exports komen in export/.
@@ -44,8 +43,7 @@ toon_lijst() {
   echo "          ./deck <naam> <naam> statisch     meerdere naast elkaar"
   echo "          ./deck <naam> beelden             exporteer PNG's"
   echo "          ./deck <naam> pdf                 exporteer een PDF"
-  echo "          ./deck <naam> pptx                exporteer een PowerPoint, slides als beeld"
-  echo "          ./deck <naam> bewerkbaar          exporteer een bewerkbare PowerPoint"
+  echo "          ./deck <naam> pptx                exporteer een PowerPoint"
 }
 
 zoek() {
@@ -107,7 +105,7 @@ actie="tonen"
 namen=()
 for arg in "$@"; do
   case "$arg" in
-    tonen|statisch|beelden|pdf|pptx|bewerkbaar) actie="$arg" ;;
+    tonen|statisch|beelden|pdf|pptx) actie="$arg" ;;
     *) namen+=("$(zoek "$arg")") ;;
   esac
 done
@@ -116,20 +114,19 @@ done
 [ -d node_modules ] || { echo "Eenmalig afhankelijkheden installeren..."; npm install --silent --no-audit --no-fund; }
 
 case "$actie" in
-  beelden|pdf|pptx|bewerkbaar)
+  beelden|pdf|pptx)
     for bestand in "${namen[@]}"; do
       if [ "$actie" = "beelden" ]; then
         uit="export/${bestand%.md}"; mkdir -p "$uit"
         npx slidev export "$BRON/$bestand" --format png --output "$uit" --timeout 60000
         echo "Afbeeldingen: presentaties/$uit"
-      elif [ "$actie" = "bewerkbaar" ]; then
-        # Slidev zet elke slide als plaatje in een pptx. Wie de tekst wil
-        # bewerken heeft daar niets aan.
-        #
-        # Deze route gaat via de pdf: LibreOffice leest die in Impress en
-        # schrijft hem weg als pptx. Elk element houdt zijn plek, de tekst
-        # wordt bewerkbaar en de diagrammen komen als vectorvormen mee.
-        # Een omweg via markdown is geprobeerd en levert alleen kale tekst op.
+      elif [ "$actie" = "pptx" ]; then
+        # De pptx-export van Slidev zet elke slide als plaatje in het bestand;
+        # daar valt niets aan te bewerken. Deze route gaat via de pdf:
+        # LibreOffice leest die in Impress en schrijft hem weg als PowerPoint.
+        # Elk element houdt zijn plek, de tekst is bewerkbaar en de diagrammen
+        # komen als vectorvormen mee. Een omweg via markdown en pandoc is
+        # geprobeerd en levert alleen kale tekst op.
         command -v soffice >/dev/null || {
           echo "LibreOffice ontbreekt. Herbouw de dev-container, of:" >&2
           echo "  sudo apt-get install -y --no-install-recommends libreoffice-impress libreoffice-draw" >&2
@@ -140,13 +137,9 @@ case "$actie" in
         npx slidev export "$BRON/$bestand" --output "$tussen/deck.pdf" --timeout 60000 >/dev/null
         soffice --headless --convert-to pptx:"Impress MS PowerPoint 2007 XML" \
           --infilter="impress_pdf_import" "$tussen/deck.pdf" --outdir "$tussen" >/dev/null 2>&1
-        uit="export/${bestand%.md}-bewerkbaar.pptx"
+        uit="export/${bestand%.md}.pptx"
         mv "$tussen/deck.pptx" "$uit"
         rm -rf "$tussen"
-        echo "Bewerkbaar: presentaties/$uit"
-      elif [ "$actie" = "pptx" ]; then
-        mkdir -p export; uit="export/${bestand%.md}.pptx"
-        npx slidev export "$BRON/$bestand" --format pptx --output "$uit" --timeout 60000
         echo "PowerPoint: presentaties/$uit"
       else
         mkdir -p export; uit="export/${bestand%.md}.pdf"
