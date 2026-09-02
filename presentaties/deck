@@ -29,6 +29,10 @@ BRON="src"
 
 decks() { (cd "$BRON" 2>/dev/null && ls -1 [0-9]*.md) 2>/dev/null || true; }
 
+# Elk deck krijgt een eigen map onder export/: daarin de pdf en de pptx om
+# te delen, en de bouwmappen beelden/ en statisch/ die buiten git blijven.
+mapvan() { echo "export/${1%.md}"; }
+
 toon_lijst() {
   local lijst; lijst=$(decks)
   if [ -z "$lijst" ]; then
@@ -117,7 +121,7 @@ case "$actie" in
   beelden|pdf|pptx)
     for bestand in "${namen[@]}"; do
       if [ "$actie" = "beelden" ]; then
-        uit="export/${bestand%.md}"; mkdir -p "$uit"
+        uit="$(mapvan "$bestand")/beelden"; mkdir -p "$uit"
         npx slidev export "$BRON/$bestand" --format png --output "$uit" --timeout 60000
         echo "Afbeeldingen: presentaties/$uit"
       elif [ "$actie" = "pptx" ]; then
@@ -132,17 +136,17 @@ case "$actie" in
           echo "  sudo apt-get install -y --no-install-recommends libreoffice-impress libreoffice-draw" >&2
           exit 1
         }
-        mkdir -p export
+        mkdir -p "$(mapvan "$bestand")"
         tussen=$(mktemp -d)
         npx slidev export "$BRON/$bestand" --output "$tussen/deck.pdf" --timeout 60000 >/dev/null
         soffice --headless --convert-to pptx:"Impress MS PowerPoint 2007 XML" \
           --infilter="impress_pdf_import" "$tussen/deck.pdf" --outdir "$tussen" >/dev/null 2>&1
-        uit="export/${bestand%.md}.pptx"
+        uit="$(mapvan "$bestand")/${bestand%.md}.pptx"
         mv "$tussen/deck.pptx" "$uit"
         rm -rf "$tussen"
         echo "PowerPoint: presentaties/$uit"
       else
-        mkdir -p export; uit="export/${bestand%.md}.pdf"
+        mkdir -p "$(mapvan "$bestand")"; uit="$(mapvan "$bestand")/${bestand%.md}.pdf"
         npx slidev export "$BRON/$bestand" --output "$uit" --timeout 60000
         echo "PDF: presentaties/$uit"
       fi
@@ -168,7 +172,7 @@ case "$actie" in
     for bestand in "${namen[@]}"; do
       poort=$(vrije_poort "$poort")
       if [ "$actie" = "statisch" ]; then
-        uit="export/${bestand%.md}-statisch"
+        uit="$(mapvan "$bestand")/statisch"
         rm -rf "$uit"
         npx slidev build "$BRON/$bestand" --out "$uit" --base / >/dev/null
         serveer_statisch "$uit" "$poort" &

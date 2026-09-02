@@ -22,8 +22,10 @@ presentaties/src/templates/npuls-pandoc-referentie.pptx
 # Exports: de deelbare bestanden horen in de repository, de losse
 # afbeeldingen en statische sites niet; die lopen in de tientallen MB's.
 presentaties/export/*
-!presentaties/export/*.pdf
-!presentaties/export/*.pptx
+!presentaties/export/*/
+presentaties/export/*/*
+!presentaties/export/*/*.pdf
+!presentaties/export/*/*.pptx
 
 # Python
 __pycache__/

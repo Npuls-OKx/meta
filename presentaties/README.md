@@ -78,6 +78,20 @@ Dit zijn de dingen die in de praktijk misgingen. Uitgebreider in de skill [`okx-
 
 **Scheid feit van mening.** Wat uit de repositories komt is feit; wat jij ervan vindt is een inschatting. Zet dat er als zodanig bij, zodat je het in de vergadering niet als vaststaand presenteert.
 
+## Waar de exports landen
+
+Elk deck krijgt een eigen map onder `export/`:
+
+```
+export/260901_kerngroep_techniek/
+  260901_kerngroep_techniek.pdf     om rond te sturen
+  260901_kerngroep_techniek.pptx    om te bewerken
+  beelden/                          een PNG per slide
+  statisch/                         de gebouwde site voor het presenteren
+```
+
+De pdf en de pptx staan in de repository, zodat wie een deck wil doorsturen niet eerst Slidev hoeft te draaien. `beelden/` en `statisch/` blijven erbuiten; die lopen per deck in de tientallen MB's.
+
 ## De PowerPoint-export
 
 `./deck <naam> pptx` levert een bestand waarin de tekst aan te passen is en de slides eruitzien als het deck. De route loopt via de pdf: LibreOffice leest die in Impress en schrijft hem weg als PowerPoint. Elk element houdt zijn plek, de diagrammen komen als vectorvormen mee.
