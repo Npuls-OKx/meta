@@ -17,8 +17,8 @@ cd presentaties
 ./deck adviesgroep programma statisch   # allebei tegelijk, op 3030 en 3031
 ./deck adviesgroep beelden              # een PNG per slide, om te controleren
 ./deck adviesgroep pdf                  # een PDF om rond te sturen
-./deck adviesgroep pptx                 # een PowerPoint, elke slide als beeld
 ./deck adviesgroep bewerkbaar           # een PowerPoint met bewerkbare tekst
+./deck adviesgroep pptx                 # een PowerPoint met elke slide als beeld
 ```
 
 De bronnen staan in `src/`; de naam mag een fragment zijn, `adviesgroep` vindt `src/260803_adviesgroep.md`. Passen er meerdere, dan vraagt het script om een specifiekere naam.
@@ -78,6 +78,14 @@ Dit zijn de dingen die in de praktijk misgingen. Uitgebreider in de skill [`okx-
 **Show, don't tell.** Gebruik de bestaande architectuurplaten in plaats van een eigen diagram: die zijn al besproken en goedgekeurd. Zet er wel een regel bij die zegt waar de kijker naar moet kijken; een plaat zonder leeswijzer is decoratie. Welke platen er zijn, staat hieronder.
 
 **Scheid feit van mening.** Wat uit de repositories komt is feit; wat jij ervan vindt is een inschatting. Zet dat er als zodanig bij, zodat je het in de vergadering niet als vaststaand presenteert.
+
+## Een bewerkbare PowerPoint
+
+`./deck <naam> bewerkbaar` levert een pptx waarin de tekst aan te passen is en de slides eruitzien als het deck. De route loopt via de pdf: LibreOffice leest die in Impress en schrijft hem weg als PowerPoint. Elk element houdt zijn plek, de diagrammen komen als vectorvormen mee.
+
+Wat je merkt: bij een opsomming die over twee regels loopt, staat de tweede regel strak onder de eerste. Dat is een gevolg van de pdf-import en met de regelafstand in PowerPoint zo bijgesteld.
+
+`./deck <naam> pptx` bestaat ook nog, maar zet elke slide als afbeelding in het bestand. Dat is alleen bruikbaar als je een slide als plaatje wilt overnemen, en daarvoor werkt `beelden` beter.
 
 **Kijk naar je slides voordat je ze deelt.** `./deck <naam> beelden` geeft een PNG per slide. Overflow en te brede tabellen zie je alleen zo.
 

@@ -124,16 +124,25 @@ case "$actie" in
         echo "Afbeeldingen: presentaties/$uit"
       elif [ "$actie" = "bewerkbaar" ]; then
         # Slidev zet elke slide als plaatje in een pptx. Wie de tekst wil
-        # bewerken heeft daar niets aan, dus loopt deze route via pandoc: de
-        # opmaak eruit, de inhoud in het Npuls-sjabloon. De diagrammen vallen
-        # weg; die haal je met `./deck <naam> beelden` los op.
+        # bewerken heeft daar niets aan.
+        #
+        # Deze route gaat via de pdf: LibreOffice leest die in Impress en
+        # schrijft hem weg als pptx. Elk element houdt zijn plek, de tekst
+        # wordt bewerkbaar en de diagrammen komen als vectorvormen mee.
+        # Een omweg via markdown is geprobeerd en levert alleen kale tekst op.
+        command -v soffice >/dev/null || {
+          echo "LibreOffice ontbreekt. Herbouw de dev-container, of:" >&2
+          echo "  sudo apt-get install -y --no-install-recommends libreoffice-impress libreoffice-draw" >&2
+          exit 1
+        }
         mkdir -p export
-        python3 ../scripts/bouw-pandoc-referentie.py >/dev/null
-        tussen=$(mktemp --suffix=.md)
-        python3 ../scripts/deck-naar-tekst.py "$BRON/$bestand" "$tussen" >/dev/null
+        tussen=$(mktemp -d)
+        npx slidev export "$BRON/$bestand" --output "$tussen/deck.pdf" --timeout 60000 >/dev/null
+        soffice --headless --convert-to pptx:"Impress MS PowerPoint 2007 XML" \
+          --infilter="impress_pdf_import" "$tussen/deck.pdf" --outdir "$tussen" >/dev/null 2>&1
         uit="export/${bestand%.md}-bewerkbaar.pptx"
-        pandoc "$tussen" --reference-doc "$BRON/templates/npuls-pandoc-referentie.pptx" -o "$uit"
-        rm -f "$tussen"
+        mv "$tussen/deck.pptx" "$uit"
+        rm -rf "$tussen"
         echo "Bewerkbaar: presentaties/$uit"
       elif [ "$actie" = "pptx" ]; then
         mkdir -p export; uit="export/${bestand%.md}.pptx"
