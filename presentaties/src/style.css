@@ -134,9 +134,7 @@ code {
   background: white;
   border: 1px solid var(--np-light-gray);
   border-top: 4px solid var(--np-blue);
-  border-radius: 14px;
   padding: 1rem 1.1rem;
-  box-shadow: 0 4px 18px rgba(27, 42, 107, 0.06);
 }
 .np-card ul { padding-left: 1.1rem; }
 .np-card.accent-blue   { border-top-color: var(--np-blue); }
@@ -164,10 +162,8 @@ code {
   background: white;
   border: 1px solid var(--np-light-gray);
   border-left: 5px solid var(--np-orange);
-  border-radius: 12px;
   padding: 1rem 1.2rem;
   margin: 0;
-  box-shadow: 0 4px 18px rgba(27, 42, 107, 0.06);
 }
 .np-besluit dt {
   font-size: 0.74rem;
@@ -301,7 +297,6 @@ code {
   border: 1px solid var(--np-light-gray);
   border-radius: 14px;
   padding: 0.5rem;
-  box-shadow: 0 8px 30px rgba(27, 42, 107, 0.10);
   overflow: hidden;
 }
 .np-frame img { width: 100%; border-radius: 8px; display: block; }
@@ -334,6 +329,12 @@ code {
 .text-center { text-align: center; }
 .muted { color: var(--np-mid-gray); }
 .fill { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; padding: 2.2rem 3rem; }
+
+/* Geen box-shadow en geen border-radius op een blok met een dikke rand aan
+   een kant: een zachte schaduw wordt in een pdf een
+   transparantiemasker, en de pdf-import van LibreOffice maakt daar een
+   dichte zwarte rechthoek van bij `./deck <naam> bewerkbaar`. Een afronding
+   samen met zo'n rand loopt daar dicht in de randkleur. */
 
 /* ---- Tabellen ----
    Markdown-tabellen op een slide kregen geen eigen opmaak, waardoor de koprij
