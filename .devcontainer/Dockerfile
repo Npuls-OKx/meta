@@ -12,6 +12,9 @@ FROM mcr.microsoft.com/devcontainers/python:3.12-bookworm
 # - graphviz    : diagram-rendering
 # - pandoc      : markdown -> pdf/docx conversies
 # - chromium    : headless browser voor mermaid-cli (geen losse download nodig)
+# - libreoffice : een presentatie-pdf omzetten naar een bewerkbare PowerPoint,
+#                 met impress en draw voor de pdf-import (./deck <naam> bewerkbaar)
+# - poppler     : pdftoppm, om een omzetting terug naar beeld te controleren
 RUN apt-get update \
  && export DEBIAN_FRONTEND=noninteractive \
  && apt-get install -y --no-install-recommends \
@@ -19,6 +22,9 @@ RUN apt-get update \
       graphviz \
       pandoc \
       chromium \
+      libreoffice-impress \
+      libreoffice-draw \
+      poppler-utils \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
