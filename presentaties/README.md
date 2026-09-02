@@ -17,7 +17,8 @@ cd presentaties
 ./deck adviesgroep programma statisch   # allebei tegelijk, op 3030 en 3031
 ./deck adviesgroep beelden              # een PNG per slide, om te controleren
 ./deck adviesgroep pdf                  # een PDF om rond te sturen
-./deck adviesgroep pptx                 # een PowerPoint
+./deck adviesgroep pptx                 # een PowerPoint, elke slide als beeld
+./deck adviesgroep bewerkbaar           # een PowerPoint met bewerkbare tekst
 ```
 
 De bronnen staan in `src/`; de naam mag een fragment zijn, `adviesgroep` vindt `src/260803_adviesgroep.md`. Passen er meerdere, dan vraagt het script om een specifiekere naam.

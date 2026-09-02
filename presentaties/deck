@@ -14,7 +14,8 @@
 #   ./deck adviesgroep programma statisch    beide naast elkaar, op 3030 en 3031
 #   ./deck adviesgroep beelden               PNG per slide
 #   ./deck adviesgroep pdf                   PDF
-#   ./deck adviesgroep pptx                  PowerPoint
+#   ./deck adviesgroep pptx                  PowerPoint, slides als beeld
+#   ./deck adviesgroep bewerkbaar            PowerPoint met bewerkbare tekst
 #
 # De bronnen staan in src/; de naam mag een fragment zijn, "adviesgroep" vindt
 # src/260803_adviesgroep.md. De exports komen in export/.
@@ -43,7 +44,8 @@ toon_lijst() {
   echo "          ./deck <naam> <naam> statisch     meerdere naast elkaar"
   echo "          ./deck <naam> beelden             exporteer PNG's"
   echo "          ./deck <naam> pdf                 exporteer een PDF"
-  echo "          ./deck <naam> pptx                exporteer een PowerPoint"
+  echo "          ./deck <naam> pptx                exporteer een PowerPoint, slides als beeld"
+  echo "          ./deck <naam> bewerkbaar          exporteer een bewerkbare PowerPoint"
 }
 
 zoek() {
@@ -105,7 +107,7 @@ actie="tonen"
 namen=()
 for arg in "$@"; do
   case "$arg" in
-    tonen|statisch|beelden|pdf|pptx) actie="$arg" ;;
+    tonen|statisch|beelden|pdf|pptx|bewerkbaar) actie="$arg" ;;
     *) namen+=("$(zoek "$arg")") ;;
   esac
 done
@@ -114,12 +116,25 @@ done
 [ -d node_modules ] || { echo "Eenmalig afhankelijkheden installeren..."; npm install --silent --no-audit --no-fund; }
 
 case "$actie" in
-  beelden|pdf|pptx)
+  beelden|pdf|pptx|bewerkbaar)
     for bestand in "${namen[@]}"; do
       if [ "$actie" = "beelden" ]; then
         uit="export/${bestand%.md}"; mkdir -p "$uit"
         npx slidev export "$BRON/$bestand" --format png --output "$uit" --timeout 60000
         echo "Afbeeldingen: presentaties/$uit"
+      elif [ "$actie" = "bewerkbaar" ]; then
+        # Slidev zet elke slide als plaatje in een pptx. Wie de tekst wil
+        # bewerken heeft daar niets aan, dus loopt deze route via pandoc: de
+        # opmaak eruit, de inhoud in het Npuls-sjabloon. De diagrammen vallen
+        # weg; die haal je met `./deck <naam> beelden` los op.
+        mkdir -p export
+        python3 ../scripts/bouw-pandoc-referentie.py >/dev/null
+        tussen=$(mktemp --suffix=.md)
+        python3 ../scripts/deck-naar-tekst.py "$BRON/$bestand" "$tussen" >/dev/null
+        uit="export/${bestand%.md}-bewerkbaar.pptx"
+        pandoc "$tussen" --reference-doc "$BRON/templates/npuls-pandoc-referentie.pptx" -o "$uit"
+        rm -f "$tussen"
+        echo "Bewerkbaar: presentaties/$uit"
       elif [ "$actie" = "pptx" ]; then
         mkdir -p export; uit="export/${bestand%.md}.pptx"
         npx slidev export "$BRON/$bestand" --format pptx --output "$uit" --timeout 60000

@@ -16,6 +16,8 @@ presentaties/node_modules/
 presentaties/**/node_modules/
 presentaties/dist/
 presentaties/.slidev/
+# Wordt uit het Npuls-sjabloon gebouwd door bouw-pandoc-referentie.py
+presentaties/src/templates/npuls-pandoc-referentie.pptx
 
 # Exports: de deelbare bestanden horen in de repository, de losse
 # afbeeldingen en statische sites niet; die lopen in de tientallen MB's.
