@@ -38,29 +38,21 @@ lijn. Zo brengen.
 
 # Aanleiding
 
-<div style="font-size: 1rem; line-height: 1.65; margin-top: 0.7rem; max-width: 88%;">
-
-De opdrachtgever stelde een vraag die het waard is om uit te zoeken.
-
-</div>
-
-<div class="np-card" style="border-top-color: #0B4F6C; font-size: 1.05rem; line-height: 1.6; margin-top: 0.7rem; max-width: 90%;">
+<div class="np-card" style="border-top-color: #0B4F6C; font-size: 1.15rem; line-height: 1.6; margin-top: 1.4rem; max-width: 92%;">
 Bouwen we geen stoomtrein door koppelvlakken te standaardiseren? Zeker met de opkomst van AI. Hebben we straks geen vliegende auto's?
 </div>
 
-<div style="font-size: 0.98rem; line-height: 1.6; margin-top: 0.9rem; max-width: 88%;">
+<div style="font-size: 1.05rem; line-height: 1.65; margin-top: 1.2rem; max-width: 88%;">
 
-Achter die vraag zit een reele zorg. Een standaardisatietraject duurt jaren, en de wereld eromheen verandert sneller dan ooit. Wie in 1995 het perfecte faxprotocol standaardiseerde, had gelijk en verloor toch.
-
-De vraag is dus terecht. En hij is te beantwoorden, want zulke golven hebben een patroon.
+Een terechte vraag. Een standaardisatietraject duurt jaren, en de wereld eromheen verandert snel. Wie in 1995 het perfecte faxprotocol standaardiseerde, had gelijk en verloor toch.
 
 </div>
 
 </div>
 
 <!--
-De vraag laten staan zoals hij gesteld is en er niet meteen tegenin gaan. Het
-faxvoorbeeld erkent dat de zorg hout snijdt.
+De vraag van de opdrachtgever, kort. Niet meteen tegenspreken; het faxvoorbeeld
+erkent dat de zorg hout snijdt.
 -->
 
 ---
@@ -72,34 +64,34 @@ faxvoorbeeld erkent dat de zorg hout snijdt.
 
 # Hoe we dat uitzoeken
 
-<div style="display: flex; flex-direction: column; gap: 0.35rem; margin-top: 0.9rem; max-width: 84%;">
+<div style="display: flex; flex-direction: column; gap: 0.45rem; margin-top: 1.1rem; max-width: 86%;">
 
-  <div style="display: flex; align-items: center; gap: 1.1rem; background: #eef2f7; border-left: 6px solid #0B4F6C; border-radius: 4px; padding: 0.9rem 1.2rem;">
-    <div style="flex: 0 0 2.2rem; height: 2.2rem; border-radius: 50%; background: #0B4F6C; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700;">1</div>
-    <div style="font-size: 1rem; line-height: 1.45;"><strong>De historie volgen.</strong> Welke lagen kwamen er in dertig jaar bij een IT-ecosysteem bij, en wat deden ze met de rest?</div>
+  <div style="display: flex; align-items: center; gap: 1.1rem; background: #dceffa; border-radius: 8px; padding: 1rem 1.3rem;">
+    <div style="flex: 0 0 2.4rem; height: 2.4rem; border-radius: 50%; background: #2E86C1; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.05rem;">1</div>
+    <div style="font-size: 1.05rem; line-height: 1.45;"><strong style="color: #2E86C1;">Historie volgen.</strong> Welke lagen kwamen er in dertig jaar bij?</div>
   </div>
 
-  <div style="display: flex; align-items: center; gap: 1.1rem; background: #eef4f2; border-left: 6px solid #0E7C66; border-radius: 4px; padding: 0.9rem 1.2rem;">
-    <div style="flex: 0 0 2.2rem; height: 2.2rem; border-radius: 50%; background: #0E7C66; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700;">2</div>
-    <div style="font-size: 1rem; line-height: 1.45;"><strong>De trend eruit halen.</strong> Wat elke golf vroeg, en of daar een richting in zit.</div>
+  <div style="display: flex; align-items: center; gap: 1.1rem; background: #d9f5ec; border-radius: 8px; padding: 1rem 1.3rem;">
+    <div style="flex: 0 0 2.4rem; height: 2.4rem; border-radius: 50%; background: #0E9E7E; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.05rem;">2</div>
+    <div style="font-size: 1.05rem; line-height: 1.45;"><strong style="color: #0E9E7E;">Trend eruit halen.</strong> Wat vroeg elke golf?</div>
   </div>
 
-  <div style="display: flex; align-items: center; gap: 1.1rem; background: #fdf3ea; border-left: 6px solid #D4A017; border-radius: 4px; padding: 0.9rem 1.2rem;">
-    <div style="flex: 0 0 2.2rem; height: 2.2rem; border-radius: 50%; background: #D4A017; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700;">3</div>
-    <div style="font-size: 1rem; line-height: 1.45;"><strong>Ons traject ernaast leggen.</strong> Ligt het werk van OKx op die lijn, en welke kansen en risico's levert dat op?</div>
+  <div style="display: flex; align-items: center; gap: 1.1rem; background: #ffeed9; border-radius: 8px; padding: 1rem 1.3rem;">
+    <div style="flex: 0 0 2.4rem; height: 2.4rem; border-radius: 50%; background: #E8912B; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.05rem;">3</div>
+    <div style="font-size: 1.05rem; line-height: 1.45;"><strong style="color: #E8912B;">Ons traject ernaast leggen.</strong> Welke kansen en risico's levert dat op?</div>
   </div>
 
 </div>
 
-<div class="np-card" style="border-top-color: #0E7C66; font-size: 0.95rem; line-height: 1.5; margin-top: 0.9rem; max-width: 88%;">
-<strong style="color: #0E7C66;">De uitkomst vooraf</strong>: de trend wijst een kant op, en ons traject ligt op die lijn. Dat levert vier kansen op en vier risico's. De vraag aan het eind gaat over waar we op inzetten.
+<div style="background: #f0e9fb; border-radius: 8px; padding: 1rem 1.3rem; margin-top: 1rem; max-width: 86%; font-size: 1.05rem; line-height: 1.5;">
+<strong style="color: #7a5dba;">De uitkomst</strong>: de trend wijst een kant op, en ons traject ligt op die lijn.
 </div>
 
 </div>
 
 <!--
-De uitkomst staat er alvast, zodat niemand tot slide 14 hoeft te wachten. De
-opbouw daarna is de onderbouwing en hoeft niet lineair.
+Drie stappen, en de uitkomst er alvast bij. De rest van het deck is de
+onderbouwing en hoeft niet lineair.
 -->
 
 ---
@@ -109,32 +101,41 @@ opbouw daarna is de onderbouwing en hoeft niet lineair.
 
 <div class="fill">
 
-# Een systeem, jaren negentig
+# Fundament IT-applicaties, jaren 80 en 90
 
-<div style="font-size: 0.62rem;">
+<div style="font-size: 0.52rem;">
 
 ```mermaid
 flowchart LR
-  UI["Gebruikersschil"] --> APP["Toepassing"]
-  APP --> DB[("Gegevensopslag")]
-  style UI fill:#e9edf2,stroke:#94a3b0,color:#1f2937
-  style APP fill:#e9edf2,stroke:#94a3b0,color:#1f2937
+  U(("Gebruiker"))
+  GUI["Gebruikersschil<br/>frontend, GUI"]
+  BE["Verwerking<br/>backend, logica en transacties"]
+  DB[("Gegevensopslag<br/>database")]
+  U -- "invoer en vraag" --> GUI
+  GUI -- "verzoek" --> BE
+  BE -- "opvragen en schrijven" --> DB
+  DB -- "gegevens" --> BE
+  BE -- "antwoord" --> GUI
+  GUI -- "beeld" --> U
+  style U fill:#fff2d6,stroke:#D4A017,color:#3b2a02
+  style GUI fill:#e9edf2,stroke:#94a3b0,color:#1f2937
+  style BE fill:#e9edf2,stroke:#94a3b0,color:#1f2937
   style DB fill:#e9edf2,stroke:#94a3b0,color:#1f2937
 ```
 
 </div>
 
-<div style="font-size: 0.95rem; line-height: 1.55; margin-top: 0.9rem; max-width: 90%;">
+<div style="font-size: 0.92rem; line-height: 1.5; margin-top: 0.7rem; max-width: 92%;">
 
-Drie delen. Een scherm waarmee iemand werkt, een toepassing die de logica draait, en een plek waar de gegevens staan. Alles binnen een organisatie, alles onder een dak.
+Drie blokken en een kringloop. De gebruiker geeft invoer of stelt een vraag aan de gebruikersschil, die stuurt een verzoek naar de verwerking, die haalt of schrijft in de gegevensopslag en stuurt het antwoord terug. Alles binnen een organisatie.
 
 </div>
 
 </div>
 
 <!--
-Bewust simpel beginnen. Iedereen in de zaal herkent dit beeld. De volgende
-slides voegen er laag voor laag iets aan toe.
+De pijlen zijn het punt, niet de blokken. Elke pijl is een informatiestroom met
+een vraag en een antwoord.
 -->
 
 ---
@@ -144,37 +145,50 @@ slides voegen er laag voor laag iets aan toe.
 
 <div class="fill">
 
-# Wat de dot-comjaren toevoegden
+# Systeem in de jaren 2000
 
-<div style="font-size: 0.58rem;">
+<div style="font-size: 0.46rem;">
 
 ```mermaid
 flowchart LR
-  UI["Gebruikersschil"] --> APP["Toepassing"]
-  APP --> DB[("Gegevensopslag")]
-  DB --> DWH[("Datawarehouse")]
-  DWH --> BI["Rapportage en<br/>stuurinformatie"]
-  style UI fill:#e9edf2,stroke:#94a3b0,color:#1f2937
-  style APP fill:#e9edf2,stroke:#94a3b0,color:#1f2937
+  U(("Gebruiker"))
+  GUI["Gebruikersschil<br/>frontend, GUI"]
+  BE["Verwerking<br/>backend, logica en transacties"]
+  DB[("Gegevensopslag<br/>database")]
+  U -- "invoer en vraag" --> GUI
+  GUI -- "verzoek" --> BE
+  BE -- "opvragen en schrijven" --> DB
+  DB -- "gegevens" --> BE
+  BE -- "antwoord" --> GUI
+  GUI -- "beeld" --> U
+  DWH[("Datawarehouse<br/>historie en samenhang")]
+  BI["Rapportage<br/>stuurinformatie, BI"]
+  M(("Manager"))
+  DB -- "periodieke kopie" --> DWH
+  DWH -- "cijfers" --> BI
+  BI -- "overzicht" --> M
+  style U fill:#fff2d6,stroke:#D4A017,color:#3b2a02
+  style GUI fill:#e9edf2,stroke:#94a3b0,color:#1f2937
+  style BE fill:#e9edf2,stroke:#94a3b0,color:#1f2937
   style DB fill:#e9edf2,stroke:#94a3b0,color:#1f2937
   style DWH fill:#1D4ED8,stroke:#1D4ED8,color:#ffffff
   style BI fill:#1D4ED8,stroke:#1D4ED8,color:#ffffff
+  style M fill:#fff2d6,stroke:#D4A017,color:#3b2a02
 ```
 
 </div>
 
-<div style="font-size: 0.95rem; line-height: 1.55; margin-top: 0.8rem; max-width: 90%;">
+<div style="font-size: 0.9rem; line-height: 1.5; margin-top: 0.6rem; max-width: 92%;">
 
-Organisaties wilden weten wat er in hun gegevens zat. Er kwam een datawarehouse bij, en daarbovenop rapportage en stuurinformatie. Een nieuwe laag, met een nieuwe vraag: hoe komen gegevens uit de bronsystemen daarin terecht?
+Er komt een tweede kringloop bij. De gegevensopslag levert periodiek een kopie aan het datawarehouse, dat daar historie en samenhang uit haalt, en de rapportage levert een overzicht aan een tweede gebruiker. Nieuwe laag, nieuwe stromen.
 
 </div>
 
 </div>
 
 <!--
-Dit is het patroon dat door het hele verhaal loopt: elke nieuwe laag leunt op
-gegevens uit de laag eronder. De vraag naar uitwisseling werd dus groter, niet
-kleiner.
+Hier begint het patroon: elke nieuwe laag leunt op gegevens uit de laag
+eronder, dus de vraag naar uitwisseling wordt groter.
 -->
 
 ---
@@ -184,24 +198,42 @@ kleiner.
 
 <div class="fill">
 
-# Wat cloud, platformen en machine learning toevoegden
+# Systeem in de jaren 2010
 
-<div style="font-size: 0.5rem;">
+<div style="font-size: 0.4rem;">
 
 ```mermaid
 flowchart LR
-  UI["Gebruikersschil"] --> APP["Toepassing"]
-  APP --> DB[("Gegevensopslag")]
-  DB --> DWH[("Datawarehouse")]
-  DWH --> BI["Rapportage en<br/>stuurinformatie"]
-  DWH --> LH[("Data lakehouse<br/>met rekenkracht")]
-  LH --> ML["Modellen en<br/>voorspellingen"]
-  EXT["Externe bronnen:<br/>platformen, sensoren, partners"] --> LH
-  style UI fill:#e9edf2,stroke:#94a3b0,color:#1f2937
-  style APP fill:#e9edf2,stroke:#94a3b0,color:#1f2937
+  U(("Gebruiker"))
+  GUI["Gebruikersschil<br/>frontend, GUI"]
+  BE["Verwerking<br/>backend, logica en transacties"]
+  DB[("Gegevensopslag<br/>database")]
+  U -- "invoer en vraag" --> GUI
+  GUI -- "verzoek" --> BE
+  BE -- "opvragen en schrijven" --> DB
+  DB -- "gegevens" --> BE
+  BE -- "antwoord" --> GUI
+  GUI -- "beeld" --> U
+  DWH[("Datawarehouse<br/>historie en samenhang")]
+  BI["Rapportage<br/>stuurinformatie, BI"]
+  M(("Manager"))
+  DB -- "periodieke kopie" --> DWH
+  DWH -- "cijfers" --> BI
+  BI -- "overzicht" --> M
+  LH[("Data lakehouse<br/>opslag met rekenkracht")]
+  ML["Modellen<br/>machine learning"]
+  EXT["Externe bronnen<br/>platformen, partners"]
+  DWH -- "doorstroom" --> LH
+  EXT -- "koppeling" --> LH
+  LH -- "trainen" --> ML
+  ML -- "voorspelling" --> BE
+  style U fill:#fff2d6,stroke:#D4A017,color:#3b2a02
+  style GUI fill:#e9edf2,stroke:#94a3b0,color:#1f2937
+  style BE fill:#e9edf2,stroke:#94a3b0,color:#1f2937
   style DB fill:#e9edf2,stroke:#94a3b0,color:#1f2937
   style DWH fill:#e9edf2,stroke:#94a3b0,color:#1f2937
   style BI fill:#e9edf2,stroke:#94a3b0,color:#1f2937
+  style M fill:#fff2d6,stroke:#D4A017,color:#3b2a02
   style LH fill:#1D4ED8,stroke:#1D4ED8,color:#ffffff
   style ML fill:#1D4ED8,stroke:#1D4ED8,color:#ffffff
   style EXT fill:#1D4ED8,stroke:#1D4ED8,color:#ffffff
@@ -209,9 +241,9 @@ flowchart LR
 
 </div>
 
-<div style="font-size: 0.92rem; line-height: 1.5; margin-top: 0.7rem; max-width: 92%;">
+<div style="font-size: 0.88rem; line-height: 1.45; margin-top: 0.5rem; max-width: 94%;">
 
-De hoeveelheid gegevens groeide, en de rekenkracht verhuisde naar de cloud. Het datawarehouse kreeg een opvolger die ook ongestructureerde gegevens aankan en er rekenkracht naast zet. Daarbovenop kwamen modellen en voorspellingen. En er kwamen bronnen bij van buiten de eigen organisatie.
+Opslag en rekenkracht komen samen in het lakehouse, gevoed door het datawarehouse en door bronnen van buiten de organisatie. Daarop worden modellen getraind, en die sturen een voorspelling terug de verwerking in. De kringloop loopt nu ook buiten de eigen muren.
 
 </div>
 
@@ -229,46 +261,65 @@ bronnen betekenen dat uitwisseling niet meer alleen intern is.
 
 <div class="fill">
 
-# Wat AI toevoegt
+# Systeem nu
 
-<div style="font-size: 0.46rem;">
+<div style="font-size: 0.42rem;">
 
 ```mermaid
 flowchart LR
-  UI["Gebruikersschil"] --> APP["Toepassing"]
-  APP --> DB[("Gegevensopslag")]
-  DB --> DWH[("Datawarehouse")]
-  DWH --> BI["Rapportage en<br/>stuurinformatie"]
-  DWH --> LH[("Data lakehouse<br/>met rekenkracht")]
-  LH --> ML["Modellen en<br/>voorspellingen"]
-  EXT["Externe bronnen:<br/>platformen, sensoren, partners"] --> LH
-  LH --> AI["AI-laag:<br/>assistenten en agents"]
-  ML --> AI
-  AI --> UI
-  style UI fill:#e9edf2,stroke:#94a3b0,color:#1f2937
-  style APP fill:#e9edf2,stroke:#94a3b0,color:#1f2937
+  U(("Gebruiker"))
+  GUI["Gebruikersschil<br/>frontend, GUI"]
+  BE["Verwerking<br/>backend, logica en transacties"]
+  DB[("Gegevensopslag<br/>database")]
+  U -- "invoer en vraag" --> GUI
+  GUI -- "verzoek" --> BE
+  BE -- "opvragen en schrijven" --> DB
+  DB -- "gegevens" --> BE
+  BE -- "antwoord" --> GUI
+  GUI -- "beeld" --> U
+  DWH[("Datawarehouse<br/>historie en samenhang")]
+  BI["Rapportage<br/>stuurinformatie, BI"]
+  M(("Manager"))
+  DB -- "periodieke kopie" --> DWH
+  DWH -- "cijfers" --> BI
+  BI -- "overzicht" --> M
+  LH[("Data lakehouse<br/>opslag met rekenkracht")]
+  ML["Modellen<br/>machine learning"]
+  EXT["Externe bronnen<br/>platformen, partners"]
+  DWH -- "doorstroom" --> LH
+  EXT -- "koppeling" --> LH
+  LH -- "trainen" --> ML
+  ML -- "voorspelling" --> BE
+  AI["AI-laag<br/>assistenten en agents"]
+  LH -- "context" --> AI
+  ML -- "model" --> AI
+  AI -- "bevraagt" --> BE
+  AI -- "antwoord en actie" --> GUI
+  style U fill:#fff2d6,stroke:#D4A017,color:#3b2a02
+  style GUI fill:#e9edf2,stroke:#94a3b0,color:#1f2937
+  style BE fill:#e9edf2,stroke:#94a3b0,color:#1f2937
   style DB fill:#e9edf2,stroke:#94a3b0,color:#1f2937
   style DWH fill:#e9edf2,stroke:#94a3b0,color:#1f2937
   style BI fill:#e9edf2,stroke:#94a3b0,color:#1f2937
+  style M fill:#fff2d6,stroke:#D4A017,color:#3b2a02
   style LH fill:#e9edf2,stroke:#94a3b0,color:#1f2937
   style ML fill:#e9edf2,stroke:#94a3b0,color:#1f2937
   style EXT fill:#e9edf2,stroke:#94a3b0,color:#1f2937
   style AI fill:#1D4ED8,stroke:#1D4ED8,color:#ffffff
-  linkStyle default stroke:#D4A017,stroke-width:2.5px
+  linkStyle default stroke:#8a94a3,stroke-width:1.4px
 ```
 
 </div>
 
-<div class="np-card" style="border-top-color: #D4A017; font-size: 0.95rem; line-height: 1.5; margin-top: 0.6rem; max-width: 92%;">
-Elke laag in dertig jaar is erbij gekomen, geen enkele is verdwenen. En elke nieuwe laag leunt zwaarder op de laag eronder. Wat al die lagen verbindt, is <strong>gegevensuitwisseling</strong>: nog altijd via afspraken over wat er heen en weer gaat.
+<div class="np-card" style="border-top-color: #D4A017; font-size: 0.9rem; line-height: 1.45; margin-top: 0.5rem; max-width: 94%;">
+Elke laag van dertig jaar staat er nog. Wat ze verbindt zijn de pijlen: <strong>informatiestromen, vastgelegd in afspraken</strong>. De AI-laag heeft zelf geen opslag en bestaat volledig bij de gratie van wat die pijlen aanleveren.
 </div>
 
 </div>
 
 <!--
-De pijlen zijn hier goudkleurig: dat is de gegevensuitwisseling, en dat is het
-enige element dat in alle vier de plaatjes voorkomt. Dit is het kantelpunt van
-het verhaal.
+Dit is het kantelpunt. De AI-laag heeft zelf geen opslag: hij bestaat bij de
+gratie van wat de pijlen aanleveren.
 -->
 
 ---
