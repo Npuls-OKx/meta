@@ -62,21 +62,21 @@ het perfecte faxprotocol standaardiseerde had gelijk en verloor toch.
 
 # Conclusie
 
-<div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1.2rem; max-width: 90%;">
-
-  <div style="background: #d9f5ec; border-left: 6px solid #0E9E7E; border-radius: 8px; padding: 1rem 1.3rem; font-size: 1.05rem; line-height: 1.5;">Elke technologiegolf van dertig jaar maakte gegevensuitwisseling belangrijker. Geen enkele maakte hem kleiner.</div>
-
-  <div style="background: #dceffa; border-left: 6px solid #2E86C1; border-radius: 8px; padding: 1rem 1.3rem; font-size: 1.05rem; line-height: 1.5;">AI is de eerste laag die zelf niets opslaat. Die leunt volledig op wat de lagen eronder aanleveren.</div>
-
-  <div style="background: #ffeed9; border-left: 6px solid #E8912B; border-radius: 8px; padding: 1rem 1.3rem; font-size: 1.05rem; line-height: 1.5;">OKx werkt precies daar: aan de afspraken over wat er tussen systemen gaat en wat het betekent.</div>
-
+<div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.9rem; max-width: 88%;">
+<div style="background:#d9f5ec; border-left:6px solid #0E9E7E; border-radius:8px;padding:0.85rem 1.2rem; font-size:1.05rem; line-height:1.5;">Ja, wij leggen spoor, terwijl de markt aan zelfrijdende auto's werkt.</div>
+<div style="background:#dceffa; border-left:6px solid #2E86C1; border-radius:8px;padding:0.85rem 1.2rem; font-size:1.05rem; line-height:1.5;">Maar spoor is geen stoomtrein. Het is wat elke volgende trein nodig heeft.</div>
+<div style="background:#ffeed9; border-left:6px solid #E8912B; border-radius:8px;padding:0.85rem 1.2rem; font-size:1.05rem; line-height:1.5;">En zodra het spoor er ligt, versnelt alles wat erover gaat.</div>
 </div>
+
+<div style="margin-top:1.1rem; max-width:88%;"><div style="display:flex; justify-content:space-between; align-items:center;"><div style="background:#fff; border:2px solid #5b6670; border-radius:999px;padding:0.3rem 0.9rem; font-size:0.85rem; font-weight:700; color:#3b4550;">stoomtrein</div><div style="background:#fff; border:2px solid #5b6670; border-radius:999px;padding:0.3rem 0.9rem; font-size:0.85rem; font-weight:700; color:#3b4550;">hogesnelheidstrein</div><div style="background:#fff; border:2px dashed #5b6670; border-radius:999px;padding:0.3rem 0.9rem; font-size:0.85rem; font-weight:700; color:#3b4550;">wat hierna komt</div></div><div style="position:relative; height:1.6rem; margin-top:0.4rem;"><div style="position:absolute; top:0.3rem; left:0; right:0; height:0.85rem;background:repeating-linear-gradient(90deg, #b98b63 0 7px, transparent 7px 22px);"></div><div style="position:absolute; top:0.2rem; left:0; right:0; height:4px; background:#5b6670; border-radius:2px;"></div><div style="position:absolute; top:1.1rem; left:0; right:0; height:4px; background:#5b6670; border-radius:2px;"></div></div><div style="font-size:0.85rem; color:var(--np-mid-gray); margin-top:0.5rem; text-align:center;">Dezelfde spoorbreedte, afgesproken in de negentiende eeuw, draagt de trein van vandaag.</div></div>
 
 </div>
 
 <!--
-Conclusie voorop, drie regels. De rest van het deck is de onderbouwing en hoeft
-niet lineair doorlopen te worden.
+De transcontinentale spoorlijn maakte van losse markten een markt, en dat werkte
+alleen omdat de spoorbreedte overal gelijk was. Waar die verschilde moest alles
+worden overgeladen: dat is de puntkoppeling van nu. De rest van het deck is de
+onderbouwing en hoeft niet lineair doorlopen te worden.
 -->
 
 ---
@@ -636,7 +636,11 @@ boodschap is de verhouding: blokken maal ruim twee, stromen maal bijna drie.
 
 # Wat OKx doet
 
-<div style="font-size: 0.5rem;">
+<div style="font-size: 0.88rem; color: var(--np-mid-gray); margin-bottom: 0.1rem;">
+Van al die stromen leggen we er nu drie vast, tussen vier systemen.
+</div>
+
+<div style="font-size: 0.46rem;">
 
 ```mermaid
 flowchart LR
@@ -656,15 +660,18 @@ flowchart LR
 
 </div>
 
-<div class="np-card" style="border-top-color: #0E9E7E; font-size: 0.98rem; line-height: 1.55; margin-top: 0.7rem; max-width: 94%;">
-OKx wijst de punten aan waar systemen elkaar raken, en legt vast wat er over zo'n punt gaat en wat het betekent. Niet willekeurig, maar op basis van wat een student moet kunnen: kiezen, inschrijven, leren, resultaat halen.
+<div style="display:flex; gap:0.8rem; margin-top:0.5rem; max-width:96%;">
+<div style="flex:1; background:#d9f5ec; border-left:6px solid #0E9E7E; border-radius:8px; padding:0.85rem 1.1rem;"><div style="font-size:0.98rem; font-weight:700; color:#0E9E7E; margin-bottom:0.25rem;">Spoor, geen draad</div><div style="font-size:0.92rem; line-height:1.45;">Per instelling en per leverancier opnieuw bedacht is een draad. Met een afspraak eronder is het spoor waar iedereen op aansluit, en mag veranderen wat erover rijdt.</div></div>
+<div style="flex:1; background:#ffeed9; border-left:6px solid #E8912B; border-radius:8px; padding:0.85rem 1.1rem;"><div style="font-size:0.98rem; font-weight:700; color:#E8912B; margin-bottom:0.25rem;">En daar leeft AI van</div><div style="font-size:0.92rem; line-height:1.45;">Een agent verzint geen betekenis, die leest wat de systemen aanleveren. Rommel erin is rommel eruit.</div></div>
 </div>
 
 </div>
 
 <!--
-Drie koppelingen op een koppelvlak, dat van de onderwijscatalogus. De gouden
-lijnen zijn het werk. De doelen eronder komen uit de requirementsboom.
+De gouden lijnen zijn het werk: drie koppelingen op een koppelvlak, dat van de
+onderwijscatalogus. Hier valt de lijn samen: het spoor uit de conclusie, de
+stromen die op de vorige plaat hard opliepen, en de voorwaarde voor AI. Shit in,
+shit out, als je het zo wilt zeggen.
 -->
 
 ---
