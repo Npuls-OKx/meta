@@ -737,25 +737,24 @@ worden, met raamwerk is het telkens dezelfde beweging.
 
 # Drie kansen
 
-<div style="font-size: 0.95rem; line-height: 1.5; margin-top: 0.7rem; max-width: 94%;">
-
-| Kans | Waar die vandaan komt |
-|---|---|
-| Voortbouwen op wie ons voor is | Andere sectoren zijn verder, hun keuzes zijn over te nemen in plaats van uit te vinden |
-| Tempo dat de sector kan bijbenen | Twee releases in twee weken, mediaan negen dagen per issue |
-| De specificatie kan meer dragen dan tekst | De payloads zijn al machineleesbaar, dezelfde bron voedt straks meer |
-
+<div style="font-size: 0.88rem; color: var(--np-mid-gray); margin-bottom: 0.1rem;">
+Waarom dit het moment is
 </div>
 
-<div style="font-size: 0.92rem; color: var(--np-dark-gray); margin-top: 0.9rem; max-width: 92%;">
-We lopen achter, en juist daarom is de weg korter: het pad is al gelopen, wij hoeven het alleen te kiezen.
+<div style="display:flex; gap:1rem; margin-top:1rem; max-width:96%; align-items:stretch;">
+<div style="flex:1; background:#dceffa; border-radius:10px; padding:1rem 1.15rem; display:flex; flex-direction:column;"><div style="font-size:1.02rem; font-weight:700; color:#2E86C1; margin-bottom:0.4rem;">De opbrengst stijgt</div><div style="font-size:0.94rem; line-height:1.45; flex:1;">AI is de eerste laag die zelf niets opslaat. Die leunt volledig op wat de lagen eronder aanleveren, en dus op de afspraak.</div><div style="font-size:0.82rem; line-height:1.35; color:#2E86C1; font-weight:700; margin-top:0.7rem; border-top:1px solid #2E86C133; padding-top:0.5rem;">Elke golf maakte uitwisseling belangrijker. Deze het meest.</div></div><div style="flex:1; background:#d9f5ec; border-radius:10px; padding:1rem 1.15rem; display:flex; flex-direction:column;"><div style="font-size:1.02rem; font-weight:700; color:#0E9E7E; margin-bottom:0.4rem;">De prijs daalt</div><div style="font-size:0.94rem; line-height:1.45; flex:1;">Een afspraak sneuvelde vroeger op de kosten van opschrijven en aansluiten. Precies dat werk is nu goedkoper geworden.</div><div style="font-size:0.82rem; line-height:1.35; color:#0E9E7E; font-weight:700; margin-top:0.7rem; border-top:1px solid #0E9E7E33; padding-top:0.5rem;">Twee releases in twee weken, mediaan negen dagen per issue.</div></div><div style="flex:1; background:#ffeed9; border-radius:10px; padding:1rem 1.15rem; display:flex; flex-direction:column;"><div style="font-size:1.02rem; font-weight:700; color:#E8912B; margin-bottom:0.4rem;">Een afspraak, veel vragen</div><div style="font-size:0.94rem; line-height:1.45; flex:1;">De leeruitkomst bedient nu al drie heel verschillende vragen. Wat er nog aan vragen bij komt, rijdt over hetzelfde spoor.</div><div style="font-size:0.82rem; line-height:1.35; color:#E8912B; font-weight:700; margin-top:0.7rem; border-top:1px solid #E8912B33; padding-top:0.5rem;">Onderwijsontwerp, ori&euml;ntatie en leerroute, lesopzet.</div></div>
+</div>
+
+<div style="font-size: 0.95rem; color: var(--np-dark-gray); margin-top: 1rem; max-width: 92%;">
+We zijn laat. Maar de rekening valt gunstiger uit dan ooit: wat een afspraak oplevert stijgt, wat hij kost daalt.
 </div>
 
 </div>
 
 <!--
-Achterlopen is hier geen excuus maar de kans zelf. De derde is de enige die we
-zelf in de hand hebben.
+Niet drie deugden van het project, maar drie redenen waarom nu. De eerste twee
+vormen samen een som: opbrengst omhoog, prijs omlaag. De derde is waarom het
+niet bij deze drie koppelingen blijft.
 -->
 
 ---
