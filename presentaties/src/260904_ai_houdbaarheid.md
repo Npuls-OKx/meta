@@ -161,41 +161,29 @@ een vraag en een antwoord.
 
 ```mermaid
 flowchart LR
-  subgraph A["Organisatie A"]
-    direction TB
-    GA["Gebruikersschil"] --> BA["Verwerking"]
-    BA --> DA[("Opslag")]
-    BA --> PA["API"]
-  end
-  subgraph B["Organisatie B"]
-    direction TB
-    GB["Gebruikersschil"] --> BB["Verwerking"]
-    BB --> DB2[("Opslag")]
-    BB --> PB["API"]
-  end
-  subgraph C["Organisatie C"]
-    direction TB
-    GC["Gebruikersschil"] --> BC["Verwerking"]
-    BC --> DC[("Opslag")]
-    BC --> PC["API"]
-  end
-  PA -->|"verzoek en antwoord"| BB
-  PB -->|"verzoek en antwoord"| BC
-  PC -->|"verzoek en antwoord"| BA
-  style A fill:#f2f5f8,stroke:#b7c0ca,color:#1f2937
-  style B fill:#f2f5f8,stroke:#b7c0ca,color:#1f2937
-  style C fill:#f2f5f8,stroke:#b7c0ca,color:#1f2937
+  GA["Gebruikersschil A"] --> BA["Verwerking A"]
+  BA --> DA[("Opslag A")]
+  BA --> PA["API A"]
+  GB["Gebruikersschil B"] --> BB["Verwerking B"]
+  BB --> DB[("Opslag B")]
+  BB --> PB["API B"]
+  GC["Gebruikersschil C"] --> BC["Verwerking C"]
+  BC --> DC[("Opslag C")]
+  BC --> PC["API C"]
+  PA <-->|"verzoek en antwoord"| PB
+  PB <-->|"verzoek en antwoord"| PC
+  PA <-->|"verzoek en antwoord"| PC
   style GA fill:#e9edf2,stroke:#94a3b0,color:#1f2937
   style BA fill:#e9edf2,stroke:#94a3b0,color:#1f2937
   style DA fill:#e9edf2,stroke:#94a3b0,color:#1f2937
+  style PA fill:#d9f2e6,stroke:#0E9E7E,stroke-width:2px,color:#0f3b2e
   style GB fill:#e9edf2,stroke:#94a3b0,color:#1f2937
   style BB fill:#e9edf2,stroke:#94a3b0,color:#1f2937
-  style DB2 fill:#e9edf2,stroke:#94a3b0,color:#1f2937
+  style DB fill:#e9edf2,stroke:#94a3b0,color:#1f2937
+  style PB fill:#d9f2e6,stroke:#0E9E7E,stroke-width:2px,color:#0f3b2e
   style GC fill:#e9edf2,stroke:#94a3b0,color:#1f2937
   style BC fill:#e9edf2,stroke:#94a3b0,color:#1f2937
   style DC fill:#e9edf2,stroke:#94a3b0,color:#1f2937
-  style PA fill:#d9f2e6,stroke:#0E9E7E,stroke-width:2px,color:#0f3b2e
-  style PB fill:#d9f2e6,stroke:#0E9E7E,stroke-width:2px,color:#0f3b2e
   style PC fill:#d9f2e6,stroke:#0E9E7E,stroke-width:2px,color:#0f3b2e
   linkStyle 9,10,11 stroke:#D4A017,stroke-width:3.5px
 ```
@@ -205,9 +193,9 @@ flowchart LR
 </div>
 
 <!--
-De verwerking krijgt een API, en die API praat met de verwerking van een andere
-applicatie. Drie organisaties leveren drie koppelingen op; bij tien zijn het er
-vijfenveertig. Elke lijn is een afspraak.
+De API is de rand van de organisatie en praat met de API van een ander. Drie
+organisaties leveren drie koppelingen op; bij tien zijn het er vijfenveertig.
+Elke lijn is een afspraak.
 -->
 
 ---
@@ -311,7 +299,52 @@ ecosysteem.
 
 ---
 
-<!-- 9. LAAG 3 -->
+<!-- 9. TWEE WERELDEN -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# Organisaties koppelen ook onderling
+
+<div style="font-size: 0.46rem;">
+
+```mermaid
+flowchart LR
+  INST["Onderwijsinstelling"]
+  LEV["Leverancier"]
+  OV["Openbaar vervoerder"]
+  MARK["Marketingbedrijf"]
+  GEM["Gemeente"]
+  INST <-->|"leeruitkomst?"| LEV
+  INST <-->|"deelnemer?"| GEM
+  INST <-->|"reis?"| OV
+  MARK <-->|"klant?"| OV
+  MARK <-->|"doelgroep?"| INST
+  style INST fill:#d9f2e6,stroke:#0E9E7E,stroke-width:2px,color:#0f3b2e
+  style LEV fill:#e9edf2,stroke:#94a3b0,color:#1f2937
+  style OV fill:#e9edf2,stroke:#94a3b0,color:#1f2937
+  style MARK fill:#e9edf2,stroke:#94a3b0,color:#1f2937
+  style GEM fill:#e9edf2,stroke:#94a3b0,color:#1f2937
+  linkStyle 0,1,2,3,4 stroke:#A8481F,stroke-width:3px
+```
+
+</div>
+
+<div class="np-card" style="border-top-color: #A8481F; font-size: 0.98rem; line-height: 1.55; margin-top: 0.7rem; max-width: 94%;">
+Een marketingbedrijf en een vervoerder zeggen allebei <strong>klant</strong>. Een onderwijsontwerper en een planner zeggen allebei <strong>groep</strong>. De leiding leggen is techniek. Het eens worden over wat het woord betekent, is dat niet.
+</div>
+
+</div>
+
+<!--
+Hier komt de kern van het probleem op tafel: partijen uit verschillende werelden
+die elkaars gegevens nodig hebben. Elke lijn draagt een woord met een vraagteken,
+want daar zit de wrijving. Dit is de opmaat naar de slide over waar OKx werkt.
+-->
+
+---
+
+<!-- 10. LAAG 3 -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
@@ -369,7 +402,7 @@ bronnen betekenen dat uitwisseling niet meer alleen intern is.
 
 ---
 
-<!-- 10. LAAG 4 -->
+<!-- 11. LAAG 4 -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
@@ -437,7 +470,7 @@ gratie van wat de pijlen aanleveren.
 
 ---
 
-<!-- 11. DE TREND -->
+<!-- 12. DE TREND -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
@@ -500,7 +533,7 @@ boodschap is de verhouding: blokken maal ruim twee, stromen maal bijna drie.
 
 ---
 
-<!-- 12. WAAR OKX ZIT -->
+<!-- 13. WAAR OKX ZIT -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
@@ -555,7 +588,7 @@ worden.
 
 ---
 
-<!-- 13. KANSEN -->
+<!-- 14. KANSEN -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
@@ -587,7 +620,7 @@ vertellen buiten de sector.
 
 ---
 
-<!-- 14. RISICO'S -->
+<!-- 15. RISICO'S -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
@@ -618,7 +651,7 @@ doet zonder er een verwijt van te maken.
 
 ---
 
-<!-- 15. WAT DE SECTOR MERKT -->
+<!-- 16. WAT DE SECTOR MERKT -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
@@ -655,7 +688,7 @@ wordt als het terugdraaien van een toezegging.
 
 ---
 
-<!-- 16. WAAR ZETTEN WE OP IN -->
+<!-- 17. WAAR ZETTEN WE OP IN -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
@@ -692,7 +725,7 @@ apart bij omdat die de langste doorlooptijd heeft.
 
 ---
 
-<!-- 17. AFSLUITER -->
+<!-- 18. AFSLUITER -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide17.PNG);"></div>
 
 <!--
