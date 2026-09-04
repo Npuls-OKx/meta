@@ -1,7 +1,7 @@
 ---
 theme: default
-title: "Bouwen we het verkeerde? OKx tegenover de AI-ontwikkeling"
-info: "Antwoord op de vraag van de opdrachtgever of OKx een stoomtrein bouwt terwijl de AI-ontwikkeling om vliegtuigen vraagt. Voor programma- en projectleiding."
+title: "Hoe weten we of we het juiste bouwen?"
+info: "OKx naast dertig jaar technologietrend gelegd, met de kansen en risico's die dat oplevert. Voor programma- en projectleiding."
 author: OKx - Onderwijskoppelingen (Npuls)
 highlighter: shiki
 lineNumbers: false
@@ -18,15 +18,15 @@ fonts:
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide1.PNG);"></div>
 
 <div style="position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 2rem 4rem; z-index: 1;">
-  <h1 style="font-size: 2.6rem; line-height: 1.15; margin-bottom: 0.7rem; color: var(--np-ink);">Bouwen we het verkeerde?</h1>
-  <p style="font-size: 1.15rem; color: var(--np-dark-gray); max-width: 760px; line-height: 1.5;">Geen koerswijziging in de richting, wel een keuze over welke gaten voor v0.1.0 dicht moeten</p>
+  <h1 style="font-size: 2.6rem; line-height: 1.15; margin-bottom: 0.7rem; color: var(--np-ink);">Hoe weten we of we het juiste bouwen?</h1>
+  <p style="font-size: 1.15rem; color: var(--np-dark-gray); max-width: 780px; line-height: 1.5;">Dertig jaar technologietrend, en het traject van OKx daarnaast gelegd</p>
   <div style="font-size: 0.9rem; color: var(--np-mid-gray); margin-top: 0.9rem;">Niek Derksen &middot; OKx &middot; 4-9-2026</div>
 </div>
 
 <!--
-De vraag komt van de opdrachtgever: bouwen we een stoomtrein terwijl de
-AI-ontwikkeling straks om vliegtuigen vraagt. De ondertitel is het antwoord.
-Twee besluiten aan het eind; die zijn het doel van dit gesprek.
+De vraag komt van de opdrachtgever, maar het deck is geen verdediging. Het is
+een onderzoek: welke kant wijst de historie op, en ligt ons traject op die
+lijn. Zo brengen.
 -->
 
 ---
@@ -40,65 +40,66 @@ Twee besluiten aan het eind; die zijn het doel van dit gesprek.
 
 <div style="font-size: 1rem; line-height: 1.65; margin-top: 0.7rem; max-width: 88%;">
 
-De opdrachtgever stelde een vraag die het waard is om serieus te nemen.
+De opdrachtgever stelde een vraag die het waard is om uit te zoeken.
 
 </div>
 
-<div class="np-card" style="border-top-color: #A8481F; font-size: 1.05rem; line-height: 1.6; margin-top: 0.7rem; max-width: 90%;">
+<div class="np-card" style="border-top-color: #0B4F6C; font-size: 1.05rem; line-height: 1.6; margin-top: 0.7rem; max-width: 90%;">
 Bouwen we geen stoomtrein door koppelvlakken te standaardiseren? Zeker met de opkomst van AI. Hebben we straks geen vliegende auto's?
 </div>
 
 <div style="font-size: 0.98rem; line-height: 1.6; margin-top: 0.9rem; max-width: 88%;">
 
-Achter die vraag zit een reele zorg: een standaardisatietraject duurt jaren, en de wereld eromheen verandert sneller dan ooit. Wie in 1995 het perfecte faxprotocol standaardiseerde, had gelijk en verloor toch.
+Achter die vraag zit een reele zorg. Een standaardisatietraject duurt jaren, en de wereld eromheen verandert sneller dan ooit. Wie in 1995 het perfecte faxprotocol standaardiseerde, had gelijk en verloor toch.
 
-Dit deck beantwoordt de vraag in twee stappen. Eerst wat AI werkelijk doet met een IT-ecosysteem, aan de hand van dertig jaar lagen die erbij kwamen. Daarna waar OKx in dat beeld staat.
+De vraag is dus terecht. En hij is te beantwoorden, want zulke golven hebben een patroon.
 
 </div>
 
 </div>
 
 <!--
-Kort houden en de vraag laten staan zoals hij gesteld is. Niet meteen
-verdedigen; de zorg is terecht. Het faxvoorbeeld maakt duidelijk dat de vraag
-niet flauw is.
+De vraag laten staan zoals hij gesteld is en er niet meteen tegenin gaan. Het
+faxvoorbeeld erkent dat de zorg hout snijdt.
 -->
 
 ---
 
-<!-- 3. CONCLUSIE -->
+<!-- 3. HOE WE HET UITZOEKEN -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
 
-# Conclusie
+# Hoe we dat uitzoeken
 
-<div style="display: flex; flex-direction: column; gap: 0.3rem; margin-top: 0.6rem; max-width: 94%;">
+<div style="display: flex; flex-direction: column; gap: 0.35rem; margin-top: 0.9rem; max-width: 84%;">
 
-  <div style="background: #0B4F6C; color: #fff; border-radius: 4px; padding: 0.85rem 1.2rem; font-size: 1rem; line-height: 1.4;">
-    Geen stoomtrein. OKx maakt afspraken over betekenis en eigenaarschap. Die overleven een technologiewissel; de techniek eromheen is vervangbaar.
+  <div style="display: flex; align-items: center; gap: 1.1rem; background: #eef2f7; border-left: 6px solid #0B4F6C; border-radius: 4px; padding: 0.9rem 1.2rem;">
+    <div style="flex: 0 0 2.2rem; height: 2.2rem; border-radius: 50%; background: #0B4F6C; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700;">1</div>
+    <div style="font-size: 1rem; line-height: 1.45;"><strong>De historie volgen.</strong> Welke lagen kwamen er in dertig jaar bij een IT-ecosysteem bij, en wat deden ze met de rest?</div>
   </div>
 
-  <div style="background: #eef4f2; border-left: 6px solid #0E7C66; border-radius: 4px; padding: 0.8rem 1.2rem; font-size: 0.95rem; line-height: 1.4;">
-    Ook de verhouding klopt: het zwaartepunt van het werk ligt al op de betekenislaag, niet op de technische uitwerking. Dat is precies de laag die zijn waarde houdt.
+  <div style="display: flex; align-items: center; gap: 1.1rem; background: #eef4f2; border-left: 6px solid #0E7C66; border-radius: 4px; padding: 0.9rem 1.2rem;">
+    <div style="flex: 0 0 2.2rem; height: 2.2rem; border-radius: 50%; background: #0E7C66; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700;">2</div>
+    <div style="font-size: 1rem; line-height: 1.45;"><strong>De trend eruit halen.</strong> Wat elke golf vroeg, en of daar een richting in zit.</div>
   </div>
 
-  <div style="background: #fdf3ea; border-left: 6px solid #D4A017; border-radius: 4px; padding: 0.8rem 1.2rem; font-size: 0.95rem; line-height: 1.4;">
-    Wat de vraag wel blootlegt zijn vier gaten. Drie ervan staan los van AI en zijn al bekend. Het vierde wordt door AI wel urgenter.
+  <div style="display: flex; align-items: center; gap: 1.1rem; background: #fdf3ea; border-left: 6px solid #D4A017; border-radius: 4px; padding: 0.9rem 1.2rem;">
+    <div style="flex: 0 0 2.2rem; height: 2.2rem; border-radius: 50%; background: #D4A017; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700;">3</div>
+    <div style="font-size: 1rem; line-height: 1.45;"><strong>Ons traject ernaast leggen.</strong> Ligt het werk van OKx op die lijn, en welke kansen en risico's levert dat op?</div>
   </div>
 
 </div>
 
-<div class="np-card" style="border-top-color: #A8481F; font-size: 0.92rem; line-height: 1.5; margin-top: 0.7rem; max-width: 94%;">
-<strong style="color: #A8481F;">Twee besluiten gevraagd</strong>: welke gaten voor de release-PR van v0.1.0 dicht moeten, en bij wie het beheer na Npuls komt te liggen. Aanbeveling en opties op slide 8 en 9.
+<div class="np-card" style="border-top-color: #0E7C66; font-size: 0.95rem; line-height: 1.5; margin-top: 0.9rem; max-width: 88%;">
+<strong style="color: #0E7C66;">De uitkomst vooraf</strong>: de trend wijst een kant op, en ons traject ligt op die lijn. Dat levert vier kansen op en vier risico's. De vraag aan het eind gaat over waar we op inzetten.
 </div>
 
 </div>
 
 <!--
-Conclusie voorop. Let op de tweede regel: die weerspreekt de aanname dat het
-gewicht verkeerd ligt. Dat is gemeten, niet aangenomen; de cijfers staan op
-slide 5. Niet defensief brengen, wel feitelijk.
+De uitkomst staat er alvast, zodat niemand tot slide 14 hoeft te wachten. De
+opbouw daarna is de onderbouwing en hoeft niet lineair.
 -->
 
 ---
@@ -298,113 +299,107 @@ Elke golf maakte de vraag naar gegevensuitwisseling groter. Geen enkele maakte h
 </div>
 
 <!--
-Dit is de kern van het antwoord op de vraag. De geschiedenis wijst een kant op
-en die kant is meer uitwisseling, niet minder. Wie dat betwist, moet uitleggen
+Dit is de richting die uit de historie komt. Wie hem betwist, moet uitleggen
 waarom deze golf de eerste is die het patroon omkeert.
 -->
 
 ---
 
-<!-- 9. WAAR OKX ZIT -->
+<!-- 9. ONS TRAJECT ERNAAST -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
 
-# Waar OKx in dit beeld staat
+# Ons traject ernaast gelegd
 
 <div style="font-size: 0.95rem; line-height: 1.55; margin-top: 0.6rem; max-width: 92%;">
 
-OKx werkt niet aan een laag. OKx werkt aan de verbinding tussen de lagen: welke gegevens tussen systemen gaan, wat ze betekenen, en wie waarvan de bron is. Dat is precies het element dat in alle vier de plaatjes voorkomt.
+OKx werkt niet aan een laag. OKx werkt aan de verbinding tussen de lagen: welke gegevens tussen systemen gaan, wat ze betekenen, en wie waarvan de bron is. Dat is precies het element dat in alle vier de platen voorkomt en dat elke golf overleefde.
 
 </div>
 
-<div class="np-grid-2" style="margin-top: 0.8rem; gap: 1.5rem; font-size: 0.9rem; line-height: 1.5; max-width: 94%;">
-<div style="border-left: 4px solid #0E7C66; padding-left: 0.9rem;">
+<div style="font-size: 0.9rem; line-height: 1.5; margin-top: 0.8rem; max-width: 94%;">
 
-<strong style="color: #0E7C66;">Wat dit voor de vraag betekent</strong>
+| De trend vraagt | Wat OKx daarvoor maakt |
+|---|---|
+| Afspraken tussen partijen, niet binnen een organisatie | Koppelingen tussen referentiecomponenten, met een eigenaar per gegeven |
+| Bronnen van betere kwaliteit, herleidbaar | Een begrippenkader waarin vastligt wat een leeruitkomst is |
+| Vindbaar en interpreteerbaar zonder mens | 24 datamodelschema's, meegeleverd bij elke release |
 
+</div>
+
+<div class="np-card" style="border-top-color: #0E7C66; font-size: 0.95rem; line-height: 1.5; margin-top: 0.8rem; max-width: 92%;">
 Een instelling met losse systemen en onduidelijke begrippen heeft niets aan een AI-laag: die kan alleen bevragen wat ontsloten en gedefinieerd is. Meer interconnectie levert sterkere bronnen op, en sterkere bronnen zijn waar AI op aanhaakt.
-
-</div>
-<div style="border-left: 4px solid #A8481F; padding-left: 0.9rem;">
-
-<strong style="color: #A8481F;">Waar de zorg wel terecht is</strong>
-
-Wij zijn laat. Andere sectoren hebben deze afspraken al. Dat is geen argument om het niet te doen, maar wel om er tempo op te zetten en om de uitwisseling zo vast te leggen dat een machine hem kan lezen.
-
-</div>
 </div>
 
 </div>
 
 <!--
-Hier komen de twee helften bij elkaar: de trend rechtvaardigt het werk, en de
-zorg over tempo blijft staan. Niet doorslaan naar zelffelicitatie.
+Dit is het antwoord op de vraag, maar dan als bevinding en niet als
+verdediging. De tabel koppelt elke trendeis aan iets dat aantoonbaar bestaat.
 -->
 
 ---
 
-<!-- 10. WAT STANDHOUDT -->
+<!-- 10. KANSEN -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
 
-# Wat standhoudt, en wat niet
+# Vier kansen
 
 <div style="font-size: 0.88rem; line-height: 1.45; margin-top: 0.5rem; max-width: 96%;">
 
-| Onderdeel | Blijft | Waarom |
-|---|---|---|
-| Wat begrippen betekenen | Ja | Een model kan een voorstel doen; de sector moet het vaststellen. Dat blijft een bestuurlijk besluit |
-| Welk systeem bron is van welk gegeven | Ja | Een onderwijsverbintenis en een waardedocument zijn administratief bindend. Daar hoort vastlegging bij, geen inschatting |
-| De inhoud van een bericht, los van het kanaal waarover het gaat | Ja | Vastgelegd als uitgangspunt. Een ander kanaal raakt de inhoud niet |
-| De keuze voor OEAPI en voor OAuth 2.0 | Nee | Dit zijn expliciete keuzes met een tenzij-clausule. Ze zijn vervangbaar; dat is bewust zo opgezet |
-| Het detailniveau per koppeling | Nee | Groeit mee met wat leveranciers nodig hebben om te bouwen |
+| Kans | Waar die vandaan komt |
+|---|---|
+| De sector als eerste met een specificatie die een agent kan gebruiken | De payloads zijn al machineleesbaar. Wie ook de interactie zo uitgeeft, levert iets dat elders nog niet bestaat |
+| Ons eigen tempo als voorbeeld | Twee releases in twee weken, mediaan 9 dagen per issue, met AI in de keten. Dat is een werkwijze die andere standaardisatietrajecten missen |
+| De verschuiving werkt in ons voordeel | Bouwen wordt goedkoop, het eens worden over betekenis niet. Precies dat laatste is wat OKx maakt |
+| Laat zijn heeft een voordeel | Andere sectoren zijn ons voor. Hun keuzes zijn over te nemen in plaats van uit te vinden |
 
 </div>
 
-<div style="font-size: 0.86rem; color: var(--np-dark-gray); margin-top: 0.7rem; max-width: 92%;">
-Alle genoemde afspraken hebben op dit moment de status voorstel. Ze zijn vastgelegd in de principes en uitgangspunten, en nog niet formeel bekrachtigd.
+<div style="font-size: 0.9rem; color: var(--np-dark-gray); margin-top: 0.8rem; max-width: 92%;">
+De eerste twee zijn een positie die we kunnen innemen. De laatste twee zijn meewind die er sowieso is.
 </div>
 
 </div>
 
 <!--
-De laatste regel is belangrijk: eerder stond hier dat het staande afspraken
-zijn. Dat is niet zo, alles staat op status voorstel. Wie dat controleert en
-het anders aantreft, gelooft de rest van het deck ook niet meer.
+Deze slide ontbrak eerst helemaal; het deck signaleerde alleen gaten. De eerste
+kans is de interessantste voor de opdrachtgever: dat is iets om over te
+vertellen buiten de sector.
 -->
 
 ---
 
-<!-- 11. DE VIER GATEN -->
+<!-- 11. RISICO'S -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
 
-# Vier gaten die de vraag blootlegt
+# Vier risico's
 
 <div style="font-size: 0.86rem; line-height: 1.45; margin-top: 0.5rem; max-width: 96%;">
 
-| Gat | Stand van zaken | Door AI urgenter |
+| Risico | Stand van zaken | Wat er gebeurt als het blijft |
 |---|---|---|
-| Doorlooptijd tot een gedragen afspraak | Binnen het project gaat het snel: mediaan 9 dagen per issue, twee releases in twee weken. Wat niet gemeten is, is de tijd tot een afspraak die de sector draagt. De eerste echte toets is de review van v0.1.0 | Nee |
-| Machineleesbaar op interactieniveau | De 24 datamodelschema's zijn machineleesbaar en worden meegeleverd. De interactiepatronen en de endpoints zijn dat niet | **Ja** |
-| Binding naar OEAPI | De payloads zijn Nederlandstalig en wijken bewust af van de OEAPI-sleutelnamen. Ook het afleveringsmechanisme tussen partijen is nog niet belegd | Nee |
-| Beheerpartij na Npuls | De route ligt vast: standaardiseren via AMIGO, richting Edustandaard. Welke partij het overneemt is niet belegd | Nee |
+| Doorlooptijd tot een gedragen afspraak | Binnen het project gaat het snel. De tijd tot een afspraak die de sector draagt is niet gemeten; de eerste toets is de review van v0.1.0 | De uitkomst van die review overvalt ons |
+| Interactie niet machineleesbaar | De 24 datamodelschema's wel, de interactiepatronen en endpoints niet | Kans 1 gaat naar een andere sector |
+| Binding naar OEAPI open | Payloads zijn Nederlandstalig en wijken bewust af; het afleveringsmechanisme is niet belegd | Twee partijen die beide aan de specificatie voldoen, kunnen alsnog niet koppelen |
+| Beheerpartij na Npuls | De route ligt vast via AMIGO richting Edustandaard. De partij niet | Alles in dit deck verloopt op de dag dat het programma stopt |
 
 </div>
 
-<div style="font-size: 0.86rem; color: var(--np-dark-gray); margin-top: 0.7rem; max-width: 92%;">
-Alleen het tweede gat wordt door de AI-ontwikkeling groter: wie met een agent wil bouwen, kan de payloads gebruiken maar moet de interactie nog zelf uit tekst halen.
+<div style="font-size: 0.9rem; color: var(--np-dark-gray); margin-top: 0.8rem; max-width: 92%;">
+Drie van de vier staan los van AI en waren al bekend. Alleen het tweede wordt door de AI-ontwikkeling urgenter.
 </div>
 
 </div>
 
 <!--
-Dit is de eerlijkste slide. Let op de eerste rij: het tempo binnen het project
-is aantoonbaar hoog. Wat we niet weten is de doorlooptijd naar draagvlak; dat
-is een risico, geen vastgestelde tekortkoming. Zo ook brengen.
+Signalering, geen aanklacht. De derde kolom maakt duidelijk waarom het ertoe
+doet zonder er een verwijt van te maken.
 -->
 
 ---
@@ -421,137 +416,69 @@ is een risico, geen vastgestelde tekortkoming. Zo ook brengen.
 
 <strong style="color: #0B4F6C;">Instellingen</strong>
 
-Een student kan alleen over systemen heen kiezen als die systemen het eens zijn over wat een leeruitkomst is. Dat is wat OKx vastlegt. Sluit gat 2 en 3, dan kan een instelling straks controleren of haar leveranciers zich eraan houden, in plaats van het te moeten geloven.
+Een student kan alleen over systemen heen kiezen als die systemen het eens zijn over wat een leeruitkomst is. Dat is wat OKx vastlegt. Wordt de interactie machineleesbaar, dan kan een instelling straks controleren of haar leveranciers zich eraan houden, in plaats van het te moeten geloven.
 
 </div>
 <div style="border-left: 4px solid #A8481F; padding-left: 0.9rem;">
 
 <strong style="color: #A8481F;">Leveranciers</strong>
 
-Zij bouwen tegen het koppelvlak van de onderwijscatalogus, met drie koppelingen: naar planning en roostering, naar het studentinformatiesysteem en naar het leermanagementsysteem. Zolang gat 2 openstaat, leest een leverancier de interactie uit tekst en kan hij niet automatisch valideren.
+Zij bouwen tegen het koppelvlak van de onderwijscatalogus, met drie koppelingen: naar planning en roostering, naar het studentinformatiesysteem en naar het leermanagementsysteem. Zolang de interactie alleen in tekst staat, kunnen zij niet automatisch valideren.
 
 </div>
 </div>
 
 <div class="np-card" style="border-top-color: #D4A017; font-size: 0.9rem; line-height: 1.5; margin-top: 0.9rem; max-width: 94%;">
-<strong style="color: #D4A017;">Wat geen enkele optie verandert</strong>: het detailniveau dat leveranciers toegezegd hebben gekregen voor v0.1.0. Wordt daaraan getornd, dan is dat een apart gesprek met elke leverancier, gevoerd door de projectleiding, en geen bijvangst van dit besluit.
+<strong style="color: #D4A017;">Wat hier niet ter discussie staat</strong>: het detailniveau dat leveranciers toegezegd hebben gekregen voor v0.1.0. Wordt daaraan getornd, dan is dat een apart gesprek met elke leverancier, gevoerd door de projectleiding.
 </div>
 
 </div>
 
 <!--
-Deze slide is toegevoegd op verzoek: het deck ging alleen over OKx zelf.
-De onderste kaart is de belangrijkste: eerder stond "leveranciers krijgen later
-detail" verstopt in een kostenkolom. Dat is nu expliciet uitgesloten.
+De onderste kaart voorkomt dat een inzetkeuze op de volgende slide gelezen
+wordt als het terugdraaien van een toezegging.
 -->
 
 ---
 
-<!-- 13. WAT WE DOEN -->
+<!-- 13. WAAR ZETTEN WE OP IN -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
 
-# De vier gaten dichten
+# Waar zetten we op in?
 
-<div style="font-size: 0.84rem; line-height: 1.4; margin-top: 0.5rem; max-width: 98%;">
+<div style="font-size: 0.95rem; line-height: 1.55; margin-top: 0.5rem; max-width: 92%;">
 
-| Gat | Wat er gebeurt | Inschatting | Hoort bij |
-|---|---|---|---|
-| Doorlooptijd | Norm afspreken van eerste concept naar gedragen afspraak, en erop rapporteren | 1 week, projectleiding | Sowieso |
-| Beheerpartij | Gesprek met Edustandaard en Npuls over overname na afloop | Maanden doorlooptijd, opdrachtgever | Sowieso |
-| Machineleesbare interactie | Interactiepatronen en endpoints ook als schema uitgeven, naast de leesbare versie | 3 tot 4 weken, plus onderhoud per release | Besluit 1 |
-| OEAPI-binding | Sleutelnamen en afleveringsmechanisme vastleggen | 4 tot 6 weken, samen met de technische werkgroep | Besluit 1 |
+Drie richtingen waar de kansen en de risico's samenkomen. Ze kunnen niet alle drie tegelijk voorrang krijgen.
 
 </div>
 
-<div style="font-size: 0.86rem; color: var(--np-dark-gray); margin-top: 0.7rem; max-width: 94%;">
-De eerste twee gebeuren ongeacht de uitkomst; ze staan los van de AI-vraag en zijn al langer bekend. De laatste twee zijn het onderwerp van besluit 1. De doorlooptijden zijn een inschatting, geen toezegging.
-</div>
+<div style="font-size: 0.86rem; line-height: 1.45; margin-top: 0.7rem; max-width: 96%;">
+
+| Inzet | Wat het oplevert | Wat het vraagt |
+|---|---|---|
+| **Tempo** | Een gedragen afspraak voordat de praktijk verder is. Dekt risico 1 | Een norm op doorlooptijd en sturing erop, bij de projectleiding |
+| **Machineleesbaar** | Kans 1 verzilveren en risico 2 wegnemen | 3 tot 4 weken werk, plus onderhoud per release. Inschatting |
+| **Borging** | Alles behouden na afloop van het programma. Dekt risico 4 | Een gesprek met Edustandaard en Npuls, met de langste doorlooptijd van de drie |
 
 </div>
 
-<!--
-De kolom "Hoort bij" is toegevoegd omdat eerder onduidelijk was wat er met een
-besluit meekwam. Twee regels gebeuren sowieso; die niet als onderhandelbaar
-presenteren.
--->
-
----
-
-<!-- 14. BESLUIT 1 -->
-<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
-
-<div class="fill">
-
-# Besluit 1: volgorde richting v0.1.0
-
-<div class="np-card" style="border-top-color: #0B4F6C; font-size: 0.92rem; line-height: 1.55; margin-top: 0.4rem; max-width: 94%;">
-<strong>Besluit nodig op:</strong> of de machineleesbare interactie en de OEAPI-binding voor v0.1.0 af moeten<br/>
-<strong>Door:</strong> opdrachtgever en programmamanagement. De kaderstelling zelf wordt bij v0.1.0 door de kerngroep techniek beoordeeld; dat blijft hun gate<br/>
-<strong>Voor:</strong> de release-PR van v0.1.0, datum uit de projectplanning
-</div>
-
-<div style="font-size: 0.84rem; line-height: 1.4; margin-top: 0.6rem; max-width: 98%;">
-
-| Optie | Gevolg voor v0.1.0 | Gevolg voor de sector | Aanbeveling |
-|---|---|---|---|
-| **A.** Beide gaten dicht voor v0.1.0 | Schuift met 4 tot 6 weken | Leveranciers kunnen bij de review meteen automatisch valideren | Nee |
-| **B.** Beide gaten in de 0.1.x-reeks daarna | v0.1.0 op de geplande datum, gaten benoemd in de release notes | De kerngroep techniek weet wat er nog komt en wanneer | **Ja** |
-| **C.** Beide gaten niet plannen | v0.1.0 op datum | De kerngroep techniek vindt de gaten zelf bij de review, zonder antwoord van ons | Nee |
-
-</div>
-
-<div style="font-size: 0.86rem; color: var(--np-dark-gray); margin-top: 0.6rem; max-width: 94%;">
-Zonder besluit geldt C. Dat is de enige uitkomst waarin een bevinding van de kerngroep techniek ons overvalt.
+<div class="np-card" style="border-top-color: #0B4F6C; font-size: 0.92rem; line-height: 1.55; margin-top: 0.8rem; max-width: 94%;">
+<strong>Gevraagd</strong>: welke van deze drie voorrang krijgt richting v0.1.0, en of borging daar los van alvast in gang gezet wordt. De binding naar OEAPI hoort bij de technische werkgroep en staat hier daarom niet als keuze.
 </div>
 
 </div>
 
 <!--
-A en C zijn allebei reeel: A is verdedigbaar als de review zwaar weegt, C is
-wat er gebeurt bij uitstel. Bij B hoort dat de gaten in de release notes staan;
-dat is de mitigatie en die niet vergeten te noemen.
+Geen aanbeveling met ja en nee, want dat is niet aan mij. Wel de drie
+richtingen met wat ze kosten, zodat de keuze te maken is. Borging staat er
+apart bij omdat die de langste doorlooptijd heeft.
 -->
 
 ---
 
-<!-- 15. BESLUIT 2 -->
-<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
-
-<div class="fill">
-
-# Besluit 2: beheer na Npuls
-
-<div class="np-card" style="border-top-color: #A8481F; font-size: 0.92rem; line-height: 1.55; margin-top: 0.4rem; max-width: 94%;">
-<strong>Besluit nodig op:</strong> welke partij de afspraken overneemt als het programma stopt<br/>
-<strong>Door:</strong> opdrachtgever, met Npuls-programmamanagement<br/>
-<strong>Voor:</strong> zo snel mogelijk. Dit besluit heeft de langste doorlooptijd van alles in dit deck en staat los van de AI-vraag
-</div>
-
-<div style="font-size: 0.9rem; line-height: 1.5; margin-top: 0.8rem; max-width: 94%;">
-
-De route ligt al vast: standaardiseren volgens AMIGO, richting Edustandaard, dat de OKE-standaard al beheert. Wat niet belegd is, is de partij die het daadwerkelijk overneemt, met mensen en geld erbij.
-
-Zolang dat open staat, verliest elke afspraak in dit deck geldigheid op de dag dat het programma stopt. Dat is geen AI-vraagstuk; het zou ook zonder deze discussie opgelost moeten worden.
-
-</div>
-
-<div style="font-size: 0.86rem; color: var(--np-dark-gray); margin-top: 0.9rem; max-width: 94%;">
-Gevraagd: een eigenaar en een datum waarop het gesprek met Edustandaard gevoerd is.
-</div>
-
-</div>
-
-<!--
-Dit stond eerder als voetnoot onder besluit 1. Het hoort er los van: beheer
-speelt bij elke uitkomst en heeft de langste doorlooptijd. Als er vandaag maar
-een ding besloten wordt, dan dit.
--->
-
----
-
-<!-- 16. AFSLUITER -->
+<!-- 14. AFSLUITER -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide17.PNG);"></div>
 
 <!--
