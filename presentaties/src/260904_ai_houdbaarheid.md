@@ -738,23 +738,23 @@ worden, met raamwerk is het telkens dezelfde beweging.
 # Drie kansen
 
 <div style="font-size: 0.88rem; color: var(--np-mid-gray); margin-bottom: 0.1rem;">
-Waarom dit het moment is
+Wat er kan zodra het spoor er ligt
 </div>
 
-<div style="display:flex; gap:1rem; margin-top:1rem; max-width:96%; align-items:stretch;">
-<div style="flex:1; background:#dceffa; border-radius:10px; padding:1rem 1.15rem; display:flex; flex-direction:column;"><div style="font-size:1.02rem; font-weight:700; color:#2E86C1; margin-bottom:0.4rem;">De opbrengst stijgt</div><div style="font-size:0.94rem; line-height:1.45; flex:1;">AI is de eerste laag die zelf niets opslaat. Die leunt volledig op wat de lagen eronder aanleveren, en dus op de afspraak.</div><div style="font-size:0.82rem; line-height:1.35; color:#2E86C1; font-weight:700; margin-top:0.7rem; border-top:1px solid #2E86C133; padding-top:0.5rem;">Elke golf maakte uitwisseling belangrijker. Deze het meest.</div></div><div style="flex:1; background:#d9f5ec; border-radius:10px; padding:1rem 1.15rem; display:flex; flex-direction:column;"><div style="font-size:1.02rem; font-weight:700; color:#0E9E7E; margin-bottom:0.4rem;">De prijs daalt</div><div style="font-size:0.94rem; line-height:1.45; flex:1;">Een afspraak sneuvelde vroeger op de kosten van opschrijven en aansluiten. Precies dat werk is nu goedkoper geworden.</div><div style="font-size:0.82rem; line-height:1.35; color:#0E9E7E; font-weight:700; margin-top:0.7rem; border-top:1px solid #0E9E7E33; padding-top:0.5rem;">Twee releases in twee weken, mediaan negen dagen per issue.</div></div><div style="flex:1; background:#ffeed9; border-radius:10px; padding:1rem 1.15rem; display:flex; flex-direction:column;"><div style="font-size:1.02rem; font-weight:700; color:#E8912B; margin-bottom:0.4rem;">Een afspraak, veel vragen</div><div style="font-size:0.94rem; line-height:1.45; flex:1;">De leeruitkomst bedient nu al drie heel verschillende vragen. Wat er nog aan vragen bij komt, rijdt over hetzelfde spoor.</div><div style="font-size:0.82rem; line-height:1.35; color:#E8912B; font-weight:700; margin-top:0.7rem; border-top:1px solid #E8912B33; padding-top:0.5rem;">Onderwijsontwerp, ori&euml;ntatie en leerroute, lesopzet.</div></div>
+<div style="display:flex; gap:1rem; margin-top:0.9rem; max-width:96%; align-items:stretch;">
+<div style="flex:1; background:#dceffa; border-radius:10px; padding:1rem 1.15rem; display:flex; flex-direction:column;"><div style="font-size:1.02rem; font-weight:700; color:#2E86C1; margin-bottom:0.4rem;">Flexibel onderwijs wordt uitvoerbaar</div><div style="font-size:0.94rem; line-height:1.45; flex:1;">Modulair en flexibel onderwijs staat al jaren in plannen. Een van de blokkades is dat systemen elkaars leeruitkomsten niet kennen. Die blokkade haalt de afspraak weg.</div><div style="margin-top:0.7rem; border-top:1px solid #2E86C133; padding-top:0.5rem;"><div style="font-size:0.7rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:#2E86C1; margin-bottom:0.15rem;">Vandaag</div><div style="font-size:0.85rem; line-height:1.35;">Elke instelling regelt het in eigen systemen, en bij de grens houdt het op.</div></div></div><div style="flex:1; background:#d9f5ec; border-radius:10px; padding:1rem 1.15rem; display:flex; flex-direction:column;"><div style="font-size:1.02rem; font-weight:700; color:#0E9E7E; margin-bottom:0.4rem;">Onderwijs kan meebewegen met de arbeidsmarkt</div><div style="font-size:0.94rem; line-height:1.45; flex:1;">Aanbod dat in leeruitkomsten staat, is te leggen naast de vaardigheden die gevraagd worden. Bijstellen wordt daarmee een cyclus in plaats van een herziening.</div><div style="margin-top:0.7rem; border-top:1px solid #0E9E7E33; padding-top:0.5rem;"><div style="font-size:0.7rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:#0E9E7E; margin-bottom:0.15rem;">Vandaag</div><div style="font-size:0.85rem; line-height:1.35;">Met de hand, per opleiding, per herziening.</div></div></div><div style="flex:1; background:#ffeed9; border-radius:10px; padding:1rem 1.15rem; display:flex; flex-direction:column;"><div style="font-size:1.02rem; font-weight:700; color:#E8912B; margin-bottom:0.4rem;">Leren over instellingen en sectoren heen</div><div style="font-size:0.94rem; line-height:1.45; flex:1;">Wat een student elders heeft gehaald, is te herkennen in plaats van opnieuw uit te zoeken. Dat geldt binnen het mbo en straks richting het hbo.</div><div style="margin-top:0.7rem; border-top:1px solid #E8912B33; padding-top:0.5rem;"><div style="font-size:0.7rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:#E8912B; margin-bottom:0.15rem;">Vandaag</div><div style="font-size:0.85rem; line-height:1.35;">Per instelling opnieuw uitzoeken, vaak op papier.</div></div></div>
 </div>
 
-<div style="font-size: 0.95rem; color: var(--np-dark-gray); margin-top: 1rem; max-width: 92%;">
-We zijn laat. Maar de rekening valt gunstiger uit dan ooit: wat een afspraak oplevert stijgt, wat hij kost daalt.
+<div class="np-card" style="border-top-color: #A8481F; font-size: 0.98rem; line-height: 1.55; margin-top: 0.9rem; max-width: 96%;">
+OKx bouwt deze drie dingen niet zelf. OKx legt het spoor waarop een ander ze kan bouwen. <strong>Daar zit de kans: katalysator zijn voor onderwijsinnovatie.</strong>
 </div>
 
 </div>
 
 <!--
-Niet drie deugden van het project, maar drie redenen waarom nu. De eerste twee
-vormen samen een som: opbrengst omhoog, prijs omlaag. De derde is waarom het
-niet bij deze drie koppelingen blijft.
+Drie dingen die de sector al jaren wil en die stuklopen op hetzelfde punt.
+Niet ons tempo als kans, want snelheid zegt nog niets over kwaliteit. Wel wat
+er aan de andere kant van de afspraak vrijkomt.
 -->
 
 ---
