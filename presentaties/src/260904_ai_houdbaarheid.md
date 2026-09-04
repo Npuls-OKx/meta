@@ -730,26 +730,26 @@ worden, met raamwerk is het telkens dezelfde beweging.
 
 # Vier kansen
 
-<div style="font-size: 0.88rem; line-height: 1.45; margin-top: 0.5rem; max-width: 96%;">
+<div style="font-size: 0.95rem; line-height: 1.5; margin-top: 0.7rem; max-width: 94%;">
 
 | Kans | Waar die vandaan komt |
 |---|---|
-| De sector als eerste met een specificatie die een agent kan gebruiken | De payloads zijn al machineleesbaar. Wie ook de interactie zo uitgeeft, levert iets dat elders nog niet bestaat |
-| De specificatie als meer dan een document | Dezelfde bron kan een API-definitie voeden en de invoer zijn voor een testomgeving waarin een leverancier zich meet |
-| Ons eigen tempo als voorbeeld | Twee releases in twee weken, mediaan 9 dagen per issue, met AI in de keten |
-| Laat zijn heeft een voordeel | Andere sectoren zijn ons voor. Hun keuzes zijn over te nemen in plaats van uit te vinden |
+| Eerste sector met een specificatie die een agent kan lezen | De payloads zijn al machineleesbaar |
+| De specificatie als meer dan een document | Dezelfde bron kan meer dragen dan tekst |
+| Ons tempo als voorbeeld | Twee releases in twee weken, mediaan negen dagen per issue |
+| Laat zijn heeft een voordeel | Andere sectoren zijn ons voor, hun keuzes zijn over te nemen |
 
 </div>
 
-<div style="font-size: 0.9rem; color: var(--np-dark-gray); margin-top: 0.8rem; max-width: 92%;">
+<div style="font-size: 0.92rem; color: var(--np-dark-gray); margin-top: 0.9rem; max-width: 92%;">
 De eerste twee zijn een positie die we kunnen innemen. De laatste twee zijn meewind die er sowieso is.
 </div>
 
 </div>
 
 <!--
-De tweede kans is nieuw en de interessantste: de specificatie is nu een
-document, maar dezelfde inhoud kan meer dragen.
+De tweede kans is de interessantste: de specificatie is nu een document, maar
+dezelfde inhoud kan meer dragen.
 -->
 
 ---
@@ -761,30 +761,38 @@ document, maar dezelfde inhoud kan meer dragen.
 
 # Twee risico's
 
-<div style="display: flex; flex-direction: column; gap: 0.6rem; margin-top: 1rem; max-width: 94%;">
+<div style="display: flex; flex-direction: column; gap: 0.7rem; margin-top: 0.9rem; max-width: 96%;">
 
-  <div style="background:#fdf3ea; border-left:6px solid #D4A017; border-radius:8px; padding:1rem 1.3rem;">
-    <div style="font-size:1.05rem; font-weight:700; color:#8a5a12; margin-bottom:0.3rem;">Doorlooptijd tot een gedragen afspraak</div>
-    <div style="font-size:0.95rem; line-height:1.5;">Binnen het project gaat het snel. De tijd tot een afspraak die de sector draagt is niet gemeten; de eerste toets is de review van v0.1.0. Duurt dat te lang, dan is de uitkomst achterhaald bij oplevering.</div>
+  <div style="display:flex; gap:0.8rem; align-items:stretch;">
+    <div style="flex:1.25; background:#fdf3ea; border-left:6px solid #8a5a12; border-radius:8px; padding:0.85rem 1.1rem;">
+      <div style="font-size:1rem; font-weight:700; color:#8a5a12; margin-bottom:0.25rem;">De afspraak komt te laat</div>
+      <div style="font-size:0.92rem; line-height:1.45;">De praktijk koppelt al. Elke maand zonder gedragen afspraak is een maand waarin systemen op eigen houtje aan elkaar geknoopt worden, en die knopen zijn later moeilijk terug te draaien.</div>
+    </div>
+    <div style="flex:1; background:#e8f6f1; border-left:6px solid #0E9E7E; border-radius:8px; padding:0.85rem 1.1rem;">
+      <div style="font-size:0.78rem; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:#0E9E7E; margin-bottom:0.25rem;">Wat we al doen</div>
+      <div style="font-size:0.92rem; line-height:1.45;">Het platform staat en er wordt op gebouwd. Sinds de vorige sessie van de kerngroep techniek zijn er 89 issues van acht deelnemers, waaronder een leverancier. Draagvlak komt traag op gang, maar de beweging is meetbaar.</div>
+    </div>
   </div>
 
-  <div style="background:#fbf1ec; border-left:6px solid #A8481F; border-radius:8px; padding:1rem 1.3rem;">
-    <div style="font-size:1.05rem; font-weight:700; color:#A8481F; margin-bottom:0.3rem;">Vastgroeien aan een standaard</div>
-    <div style="font-size:0.95rem; line-height:1.5;">Als de eisen alleen in OEAPI-vorm bestaan, kost een nieuwe versie of een ander protocol een nieuwe specificatie. Dat is het stoomtreinrisico, maar dan van binnenuit.</div>
+
+  <div style="display:flex; gap:0.8rem; align-items:stretch;">
+    <div style="flex:1.25; background:#fbf1ec; border-left:6px solid #A8481F; border-radius:8px; padding:0.85rem 1.1rem;">
+      <div style="font-size:1rem; font-weight:700; color:#A8481F; margin-bottom:0.25rem;">Specificeren in een standaard in plaats van in eisen</div>
+      <div style="font-size:0.92rem; line-height:1.45;">Leggen we alleen vast hoe het in OEAPI moet, dan verdwijnt de eis erachter uit beeld. Bij een nieuwe versie of een ander protocol begint het specificeren dan opnieuw.</div>
+    </div>
+    <div style="flex:1; background:#e8f6f1; border-left:6px solid #0E9E7E; border-radius:8px; padding:0.85rem 1.1rem;">
+      <div style="font-size:0.78rem; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:#0E9E7E; margin-bottom:0.25rem;">Wat we al doen</div>
+      <div style="font-size:0.92rem; line-height:1.45;">Werken aan een referentiekader dat los staat van de techniek: uitlijnen met MORA en HORA, het OKx-kader uitwerken in het businesskader, en expliciet maken wat we bouwen, voor wie en onder welke omstandigheden.</div>
+    </div>
   </div>
 
-</div>
-
-<div class="np-card" style="border-top-color: #0E9E7E; font-size: 0.98rem; line-height: 1.55; margin-top: 0.9rem; max-width: 94%;">
-<strong style="color: #0E9E7E;">De remedie</strong>: wensen en eisen standaardonafhankelijk vastleggen, en die pas daarna vertalen naar de techniekkeuze. De eis blijft dan staan als de techniek wisselt.
 </div>
 
 </div>
 
 <!--
-Het risico is niet dat we te weinig standaardiseren, maar dat we ons vastleggen
-op een standaard in plaats van op de eis eronder. Machineleesbaar zijn we al;
-dat is geen risico maar een vertrekpunt.
+Geen van beide is een verwijt: het eerste is een wedloop met de praktijk, het
+tweede een keuze over waar de eis vastligt. Bij allebei loopt de maatregel al.
 -->
 
 ---
@@ -794,34 +802,35 @@ dat is geen risico maar een vertrekpunt.
 
 <div class="fill">
 
-# Wat instellingen en leveranciers hiervan merken
+# Wat de sector hiervan merkt
 
-<div class="np-grid-2" style="margin-top: 0.7rem; gap: 1.5rem; font-size: 0.92rem; line-height: 1.5; max-width: 94%;">
-<div style="background:#dceffa; border-radius:10px; padding:1rem 1.2rem;">
+<div style="display:flex; gap:1.2rem; margin-top:1.2rem; max-width:96%;">
 
-<strong style="color: #2E86C1;">Instellingen</strong>
+  <div style="flex:1; background:#d9f5ec; border-radius:10px; padding:1rem 1.2rem;">
+    <div style="font-size:0.95rem; font-weight:700; color:#0E9E7E; margin-bottom:0.45rem;">Studenten</div>
+    <div style="font-size:0.95rem; line-height:1.5;">Een keuze die klopt over instellingen heen, niet per systeem opnieuw.</div>
+  </div>
 
-Een student kan alleen over systemen heen kiezen als die systemen het eens zijn over wat een leeruitkomst is. Ligt de eis standaardonafhankelijk vast, dan zit een instelling niet vast aan de techniekkeuze van een leverancier.
 
-</div>
-<div style="background:#ffeed9; border-radius:10px; padding:1rem 1.2rem;">
+  <div style="flex:1; background:#dceffa; border-radius:10px; padding:1rem 1.2rem;">
+    <div style="font-size:0.95rem; font-weight:700; color:#2E86C1; margin-bottom:0.45rem;">Instellingen</div>
+    <div style="font-size:0.95rem; line-height:1.5;">Kiezen over systemen heen kan alleen als die systemen het eens zijn over wat een leeruitkomst is.</div>
+  </div>
 
-<strong style="color: #E8912B;">Leveranciers</strong>
 
-Zij bouwen tegen het koppelvlak van de onderwijscatalogus, met drie koppelingen. Komt er een nieuwe versie of een ander protocol, dan kost dat een vertaling in plaats van opnieuw specificeren.
+  <div style="flex:1; background:#ffeed9; border-radius:10px; padding:1rem 1.2rem;">
+    <div style="font-size:0.95rem; font-weight:700; color:#E8912B; margin-bottom:0.45rem;">Leveranciers</div>
+    <div style="font-size:0.95rem; line-height:1.5;">Bouwen tegen een afspraak, in plaats van tegen elke instelling apart.</div>
+  </div>
 
-</div>
-</div>
-
-<div class="np-card" style="border-top-color: #D4A017; font-size: 0.92rem; line-height: 1.5; margin-top: 0.9rem; max-width: 94%;">
-<strong style="color: #D4A017;">Wat hier niet ter discussie staat</strong>: het detailniveau dat leveranciers toegezegd hebben gekregen voor v0.1.0. Wordt daaraan getornd, dan is dat een apart gesprek met elke leverancier, gevoerd door de projectleiding.
 </div>
 
 </div>
 
 <!--
-De onderste kaart voorkomt dat een inzetkeuze gelezen wordt als het
-terugdraaien van een toezegging.
+Als het gesprek naar het detailniveau gaat dat leveranciers is toegezegd: dat
+is een apart gesprek per leverancier, gevoerd door de projectleiding, en niet
+wat hier voorligt.
 -->
 
 ---
@@ -843,9 +852,9 @@ Drie richtingen waar de kansen en de risico's samenkomen. Ze kunnen niet alle dr
 
 | Inzet | Wat het oplevert | Wat het vraagt |
 |---|---|---|
-| **Tempo** | Een gedragen afspraak voordat de praktijk verder is | Een norm op doorlooptijd en sturing erop, bij de projectleiding |
-| **Standaardonafhankelijk vastleggen** | De eis blijft staan als de techniek wisselt | De eisen los van OEAPI opschrijven, en de vertaling apart houden |
-| **Meer dan een document** | De specificatie voedt ook een API-definitie en een testomgeving | Werk aan de uitgave, en onderhoud daarvan per release |
+| **Tempo** | Vragen uit de sector snel beantwoorden: herleiden, versioneren en uitwerken kan nu | Een norm op doorlooptijd en sturing erop, bij de projectleiding |
+| **Standaardonafhankelijk vastleggen** | De eis blijft staan als de techniek wisselt | De eisen in een referentiekader vastleggen, de vertaling naar OEAPI apart houden |
+| **Meer dan een document** | Klaar voor de vliegende auto's: de specificatie werkt nu al met AI en draagt de doorontwikkeling | Adoptie en onderhoud in het team |
 
 </div>
 
