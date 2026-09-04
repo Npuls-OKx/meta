@@ -679,21 +679,21 @@ lijnen zijn het werk. De doelen eronder komen uit de requirementsboom.
 <div style="display:flex; gap:1rem; margin-top:0.9rem; max-width:96%;">
 
   <div style="flex:1; background:#d9f5ec; border-radius:10px; padding:0.9rem 1rem; display:flex; flex-direction:column; align-items:center;">
-    <div style="font-size:0.95rem; font-weight:700; color:#0E9E7E; margin-bottom:0.6rem;">Ori&euml;ntatie</div>
-    <div style="width:100%;"><div style="background:#fff; border:1px solid #0E9E7E; border-radius:6px; padding:0.3rem 0.6rem; font-size:0.78rem; margin-bottom:0.25rem; text-align:center;">Aanbod van meerdere instellingen</div><div style="background:#fff; border:1px solid #0E9E7E; border-radius:6px; padding:0.3rem 0.6rem; font-size:0.78rem; margin-bottom:0.25rem; text-align:center;">Jouw profiel in leeruitkomsten</div></div>
+    <div style="font-size:0.95rem; font-weight:700; color:#0E9E7E; margin-bottom:0.6rem;">Onderwijsontwerp</div>
+    <div style="width:100%;"><div style="background:#fff; border:1px solid #0E9E7E; border-radius:6px; padding:0.3rem 0.6rem; font-size:0.78rem; margin-bottom:0.25rem; text-align:center;">Ons aanbod in leeruitkomsten</div><div style="background:#fff; border:1px solid #0E9E7E; border-radius:6px; padding:0.3rem 0.6rem; font-size:0.78rem; margin-bottom:0.25rem; text-align:center;">Gevraagde vaardigheden uit de markt</div></div>
     <div style="font-size:1.1rem; color:#0E9E7E; line-height:1;">&#9660;</div>
     <div style="background:#0E9E7E; color:#fff; border-radius:6px; padding:0.35rem 0.9rem; font-size:0.85rem; font-weight:700; margin:0.25rem 0;">Agent</div>
     <div style="font-size:1.1rem; color:#0E9E7E; line-height:1;">&#9660;</div>
-    <div style="font-size:0.85rem; text-align:center; line-height:1.35; margin-top:0.25rem;">Welk aanbod sluit het best aan bij jouw doelen voor de komende periode</div>
+    <div style="font-size:0.85rem; text-align:center; line-height:1.35; margin-top:0.25rem;">Waar sluit ons aanbod niet aan op de markt, en wat ontwikkelen we bij</div>
   </div>
 
   <div style="flex:1; background:#dceffa; border-radius:10px; padding:0.9rem 1rem; display:flex; flex-direction:column; align-items:center;">
-    <div style="font-size:0.95rem; font-weight:700; color:#2E86C1; margin-bottom:0.6rem;">Leerroute</div>
-    <div style="width:100%;"><div style="background:#fff; border:1px solid #2E86C1; border-radius:6px; padding:0.3rem 0.6rem; font-size:0.78rem; margin-bottom:0.25rem; text-align:center;">Behaalde leeruitkomsten</div><div style="background:#fff; border:1px solid #2E86C1; border-radius:6px; padding:0.3rem 0.6rem; font-size:0.78rem; margin-bottom:0.25rem; text-align:center;">Gewenste leeruitkomsten</div></div>
+    <div style="font-size:0.95rem; font-weight:700; color:#2E86C1; margin-bottom:0.6rem;">Ori&euml;ntatie en leerroute</div>
+    <div style="width:100%;"><div style="background:#fff; border:1px solid #2E86C1; border-radius:6px; padding:0.3rem 0.6rem; font-size:0.78rem; margin-bottom:0.25rem; text-align:center;">Behaalde en gewenste leeruitkomsten</div><div style="background:#fff; border:1px solid #2E86C1; border-radius:6px; padding:0.3rem 0.6rem; font-size:0.78rem; margin-bottom:0.25rem; text-align:center;">Aanbod van meerdere instellingen</div></div>
     <div style="font-size:1.1rem; color:#2E86C1; line-height:1;">&#9660;</div>
     <div style="background:#2E86C1; color:#fff; border-radius:6px; padding:0.35rem 0.9rem; font-size:0.85rem; font-weight:700; margin:0.25rem 0;">Agent</div>
     <div style="font-size:1.1rem; color:#2E86C1; line-height:1;">&#9660;</div>
-    <div style="font-size:0.85rem; text-align:center; line-height:1.35; margin-top:0.25rem;">Wat is de volgende stap binnen jouw lopende route</div>
+    <div style="font-size:0.85rem; text-align:center; line-height:1.35; margin-top:0.25rem;">Welke volgende stap past bij jouw doelen, ook bij een andere instelling</div>
   </div>
 
   <div style="flex:1; background:#f0e9fb; border-radius:10px; padding:0.9rem 1rem; display:flex; flex-direction:column; align-items:center;">
@@ -715,9 +715,9 @@ De agent moet bij die informatie kunnen <strong>en</strong> weten wat ze beteken
 
 <!--
 Drie gevallen, elk met dezelfde vorm: bronnen, agent, resultaat. De boodschap
-zit in de herhaling: telkens dezelfde systemen, telkens dezelfde voorwaarde.
-Oriëntatie kijkt naar buiten, over instellingen heen. Leerroute kijkt naar
-binnen, naar de eigen voortgang.
+zit in de herhaling: telkens dezelfde sleutel, telkens dezelfde voorwaarde.
+De eerste is de instelling die haar aanbod tegen de arbeidsmarkt legt, de
+tweede de student die kiest, de derde de docent die uitwerkt.
 -->
 
 ---
