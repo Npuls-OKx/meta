@@ -24,9 +24,8 @@ fonts:
 </div>
 
 <!--
-De vraag komt van de opdrachtgever, maar het deck is geen verdediging. Het is
-een onderzoek: welke kant wijst de historie op, en ligt ons traject op die
-lijn. Zo brengen.
+Geen verdediging maar een onderzoek: welke kant wijst de historie op, en ligt
+ons traject op die lijn.
 -->
 
 ---
@@ -38,65 +37,76 @@ lijn. Zo brengen.
 
 # Aanleiding
 
-<div class="np-card" style="border-top-color: #0B4F6C; font-size: 1.15rem; line-height: 1.6; margin-top: 1.4rem; max-width: 92%;">
-Bouwen we geen stoomtrein door koppelvlakken te standaardiseren? Zeker met de opkomst van AI. Hebben we straks geen vliegende auto's?
-</div>
+<div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1.6rem; max-width: 88%;">
 
-<div style="font-size: 1.05rem; line-height: 1.65; margin-top: 1.2rem; max-width: 88%;">
+  <div style="background: #ffeed9; border-left: 6px solid #E8912B; border-radius: 8px; padding: 1rem 1.3rem; font-size: 1.2rem; line-height: 1.5;">Bouwen we geen stoomtrein door koppelvlakken te standaardiseren?</div>
 
-Een terechte vraag. Een standaardisatietraject duurt jaren, en de wereld eromheen verandert snel. Wie in 1995 het perfecte faxprotocol standaardiseerde, had gelijk en verloor toch.
+  <div style="background: #f0e9fb; border-left: 6px solid #7a5dba; border-radius: 8px; padding: 1rem 1.3rem; font-size: 1.2rem; line-height: 1.5;">Zeker met de opkomst van AI. Hebben we straks geen vliegende auto's?</div>
 
 </div>
 
 </div>
 
 <!--
-De vraag van de opdrachtgever, kort. Niet meteen tegenspreken; het faxvoorbeeld
-erkent dat de zorg hout snijdt.
+De vraag van de opdrachtgever, in twee blokken. Het verhaal eromheen vertel ik:
+een standaardisatietraject duurt jaren en de wereld verandert snel; wie in 1995
+het perfecte faxprotocol standaardiseerde had gelijk en verloor toch.
 -->
 
 ---
 
-<!-- 3. HOE WE HET UITZOEKEN -->
+<!-- 3. CONCLUSIE -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
 
-# Hoe we dat uitzoeken
+# Conclusie
 
-<div style="display: flex; flex-direction: column; gap: 0.45rem; margin-top: 1.1rem; max-width: 86%;">
+<div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1.2rem; max-width: 90%;">
 
-  <div style="display: flex; align-items: center; gap: 1.1rem; background: #dceffa; border-radius: 8px; padding: 1rem 1.3rem;">
-    <div style="flex: 0 0 2.4rem; height: 2.4rem; border-radius: 50%; background: #2E86C1; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.05rem;">1</div>
-    <div style="font-size: 1.05rem; line-height: 1.45;"><strong style="color: #2E86C1;">Historie volgen.</strong> Welke lagen kwamen er in dertig jaar bij?</div>
-  </div>
+  <div style="background: #d9f5ec; border-left: 6px solid #0E9E7E; border-radius: 8px; padding: 1rem 1.3rem; font-size: 1.05rem; line-height: 1.5;">Elke technologiegolf van dertig jaar maakte gegevensuitwisseling belangrijker. Geen enkele maakte hem kleiner.</div>
 
-  <div style="display: flex; align-items: center; gap: 1.1rem; background: #d9f5ec; border-radius: 8px; padding: 1rem 1.3rem;">
-    <div style="flex: 0 0 2.4rem; height: 2.4rem; border-radius: 50%; background: #0E9E7E; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.05rem;">2</div>
-    <div style="font-size: 1.05rem; line-height: 1.45;"><strong style="color: #0E9E7E;">Trend eruit halen.</strong> Wat vroeg elke golf?</div>
-  </div>
+  <div style="background: #dceffa; border-left: 6px solid #2E86C1; border-radius: 8px; padding: 1rem 1.3rem; font-size: 1.05rem; line-height: 1.5;">AI is de eerste laag die zelf niets opslaat. Die leunt volledig op wat de lagen eronder aanleveren.</div>
 
-  <div style="display: flex; align-items: center; gap: 1.1rem; background: #ffeed9; border-radius: 8px; padding: 1rem 1.3rem;">
-    <div style="flex: 0 0 2.4rem; height: 2.4rem; border-radius: 50%; background: #E8912B; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.05rem;">3</div>
-    <div style="font-size: 1.05rem; line-height: 1.45;"><strong style="color: #E8912B;">Ons traject ernaast leggen.</strong> Welke kansen en risico's levert dat op?</div>
-  </div>
+  <div style="background: #ffeed9; border-left: 6px solid #E8912B; border-radius: 8px; padding: 1rem 1.3rem; font-size: 1.05rem; line-height: 1.5;">OKx werkt precies daar: aan de afspraken over wat er tussen systemen gaat en wat het betekent.</div>
 
-</div>
-
-<div style="background: #f0e9fb; border-radius: 8px; padding: 1rem 1.3rem; margin-top: 1rem; max-width: 86%; font-size: 1.05rem; line-height: 1.5;">
-<strong style="color: #7a5dba;">De uitkomst</strong>: de trend wijst een kant op, en ons traject ligt op die lijn.
 </div>
 
 </div>
 
 <!--
-Drie stappen, en de uitkomst er alvast bij. De rest van het deck is de
-onderbouwing en hoeft niet lineair.
+Conclusie voorop, drie regels. De rest van het deck is de onderbouwing en hoeft
+niet lineair doorlopen te worden.
 -->
 
 ---
 
-<!-- 4. LAAG 1 -->
+<!-- 4. ONDERBOUWING -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# Onderbouwing
+
+<div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1.3rem; max-width: 86%;">
+
+  <div style="background: #dceffa; border-left: 6px solid #2E86C1; border-radius: 8px; padding: 1rem 1.3rem; font-size: 1.05rem; line-height: 1.5;"><strong>Historie volgen.</strong> Welke lagen kwamen er in dertig jaar bij?</div>
+
+  <div style="background: #d9f5ec; border-left: 6px solid #0E9E7E; border-radius: 8px; padding: 1rem 1.3rem; font-size: 1.05rem; line-height: 1.5;"><strong>Trend eruit halen.</strong> Wat vroeg elke golf?</div>
+
+  <div style="background: #ffeed9; border-left: 6px solid #E8912B; border-radius: 8px; padding: 1rem 1.3rem; font-size: 1.05rem; line-height: 1.5;"><strong>Ons traject ernaast leggen.</strong> Welke kansen en risico's levert dat op?</div>
+
+</div>
+
+</div>
+
+<!--
+De leeswijzer voor de rest van het deck.
+-->
+
+---
+
+<!-- 5. LAAG 1 -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
@@ -140,7 +150,61 @@ een vraag en een antwoord.
 
 ---
 
-<!-- 5. LAAG 2 -->
+<!-- 6. INTERNET -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# Het internet: systemen aan elkaar
+
+<div style="font-size: 0.5rem;">
+
+```mermaid
+flowchart LR
+  subgraph A["Organisatie A"]
+    direction TB
+    GA["Gebruikersschil"] --> BA["Verwerking"] --> DA[("Opslag")]
+  end
+  subgraph B["Organisatie B"]
+    direction TB
+    GB["Gebruikersschil"] --> BB["Verwerking"] --> DB2[("Opslag")]
+  end
+  subgraph C["Organisatie C"]
+    direction TB
+    GC["Gebruikersschil"] --> BC["Verwerking"] --> DC[("Opslag")]
+  end
+  BA <-->|koppeling| BB
+  BB <-->|koppeling| BC
+  BA <-->|koppeling| BC
+  style A fill:#f2f5f8,stroke:#b7c0ca,color:#1f2937
+  style B fill:#f2f5f8,stroke:#b7c0ca,color:#1f2937
+  style C fill:#f2f5f8,stroke:#b7c0ca,color:#1f2937
+  style GA fill:#e9edf2,stroke:#94a3b0,color:#1f2937
+  style BA fill:#d9f2e6,stroke:#0E9E7E,color:#0f3b2e
+  style DA fill:#e9edf2,stroke:#94a3b0,color:#1f2937
+  style GB fill:#e9edf2,stroke:#94a3b0,color:#1f2937
+  style BB fill:#d9f2e6,stroke:#0E9E7E,color:#0f3b2e
+  style DB2 fill:#e9edf2,stroke:#94a3b0,color:#1f2937
+  style GC fill:#e9edf2,stroke:#94a3b0,color:#1f2937
+  style BC fill:#d9f2e6,stroke:#0E9E7E,color:#0f3b2e
+  style DC fill:#e9edf2,stroke:#94a3b0,color:#1f2937
+  linkStyle 6,7,8 stroke:#D4A017,stroke-width:3px
+```
+
+</div>
+
+</div>
+
+<!--
+Backends aan elkaar hangen. Vanaf hier is het geen systeem meer maar een
+ecosysteem van applicaties, en elke verbinding vraagt een afspraak. Drie
+organisaties leveren al drie koppelingen op; bij tien zijn het er
+vijfenveertig.
+-->
+
+---
+
+<!-- 7. LAAG 2 -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
@@ -171,18 +235,13 @@ flowchart LR
   style GUI fill:#e9edf2,stroke:#94a3b0,color:#1f2937
   style BE fill:#e9edf2,stroke:#94a3b0,color:#1f2937
   style DB fill:#e9edf2,stroke:#94a3b0,color:#1f2937
-  style DWH fill:#1D4ED8,stroke:#1D4ED8,color:#ffffff
-  style BI fill:#1D4ED8,stroke:#1D4ED8,color:#ffffff
+  style DWH fill:#d9f2e6,stroke:#0E9E7E,color:#0f3b2e
+  style BI fill:#d9f2e6,stroke:#0E9E7E,color:#0f3b2e
   style M fill:#fff2d6,stroke:#D4A017,color:#3b2a02
 ```
 
 </div>
 
-<div style="font-size: 0.9rem; line-height: 1.5; margin-top: 0.6rem; max-width: 92%;">
-
-Er komt een tweede kringloop bij. De gegevensopslag levert periodiek een kopie aan het datawarehouse, dat daar historie en samenhang uit haalt, en de rapportage levert een overzicht aan een tweede gebruiker. Nieuwe laag, nieuwe stromen.
-
-</div>
 
 </div>
 
@@ -193,7 +252,7 @@ eronder, dus de vraag naar uitwisseling wordt groter.
 
 ---
 
-<!-- 6. LAAG 3 -->
+<!-- 8. LAAG 3 -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
@@ -234,18 +293,13 @@ flowchart LR
   style DWH fill:#e9edf2,stroke:#94a3b0,color:#1f2937
   style BI fill:#e9edf2,stroke:#94a3b0,color:#1f2937
   style M fill:#fff2d6,stroke:#D4A017,color:#3b2a02
-  style LH fill:#1D4ED8,stroke:#1D4ED8,color:#ffffff
-  style ML fill:#1D4ED8,stroke:#1D4ED8,color:#ffffff
-  style EXT fill:#1D4ED8,stroke:#1D4ED8,color:#ffffff
+  style LH fill:#d9f2e6,stroke:#0E9E7E,color:#0f3b2e
+  style ML fill:#d9f2e6,stroke:#0E9E7E,color:#0f3b2e
+  style EXT fill:#d9f2e6,stroke:#0E9E7E,color:#0f3b2e
 ```
 
 </div>
 
-<div style="font-size: 0.88rem; line-height: 1.45; margin-top: 0.5rem; max-width: 94%;">
-
-Opslag en rekenkracht komen samen in het lakehouse, gevoed door het datawarehouse en door bronnen van buiten de organisatie. Daarop worden modellen getraind, en die sturen een voorspelling terug de verwerking in. De kringloop loopt nu ook buiten de eigen muren.
-
-</div>
 
 </div>
 
@@ -256,7 +310,7 @@ bronnen betekenen dat uitwisseling niet meer alleen intern is.
 
 ---
 
-<!-- 7. LAAG 4 -->
+<!-- 9. LAAG 4 -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
@@ -305,7 +359,7 @@ flowchart LR
   style LH fill:#e9edf2,stroke:#94a3b0,color:#1f2937
   style ML fill:#e9edf2,stroke:#94a3b0,color:#1f2937
   style EXT fill:#e9edf2,stroke:#94a3b0,color:#1f2937
-  style AI fill:#1D4ED8,stroke:#1D4ED8,color:#ffffff
+  style AI fill:#d9f2e6,stroke:#0E9E7E,color:#0f3b2e
   linkStyle default stroke:#8a94a3,stroke-width:1.4px
 ```
 
@@ -324,75 +378,125 @@ gratie van wat de pijlen aanleveren.
 
 ---
 
-<!-- 8. DE TREND -->
+<!-- 10. DE TREND -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
 
-# De trend achter dertig jaar lagen
+# Steeds meer lagen om te verbinden
 
-<div style="font-size: 0.92rem; line-height: 1.5; margin-top: 0.6rem; max-width: 96%;">
+<div style="font-size: 0.95rem; line-height: 1.5; margin-top: 0.5rem; max-width: 92%;">
 
-| Periode | Wat erbij kwam | Wat dat vroeg van uitwisseling |
-|---|---|---|
-| Jaren negentig | Datawarehouse en rapportage | Gegevens uit bronsystemen halen, periodiek |
-| Dot-com en daarna | Webkoppelingen tussen organisaties | Afspraken tussen partijen in plaats van binnen een organisatie |
-| Cloud en platformen | Externe bronnen en rekenkracht op afstand | Continu, over organisatiegrenzen heen |
-| Machine learning | Modellen die op veel bronnen tegelijk leunen | Meer bronnen, betere kwaliteit, herleidbaar |
-| AI-assistenten en agents | Een laag die alles wil kunnen bevragen | Alles hierboven, plus vindbaar en interpreteerbaar zonder mens |
+Geteld in de vier platen hiervoor: het aantal blokken groeide, maar het aantal informatiestromen ertussen groeide harder.
 
 </div>
 
-<div class="np-card" style="border-top-color: #0E7C66; font-size: 0.95rem; line-height: 1.5; margin-top: 0.7rem; max-width: 94%;">
-Elke golf maakte de vraag naar gegevensuitwisseling groter. Geen enkele maakte hem kleiner. AI is de eerste laag die niets eigens opslaat en dus volledig afhankelijk is van wat de lagen eronder aanleveren.
+<div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.9rem; max-width: 88%;">
+
+  <div style="display: flex; align-items: center; gap: 1rem;">
+    <div style="flex: 0 0 12rem; font-size: 0.92rem;">Jaren 80 en 90</div>
+    <div style="flex: 0 0 5.5rem; font-size: 0.85rem; color: var(--np-mid-gray);">4 blokken</div>
+    <div style="flex: 1; display: flex; align-items: center; gap: 0.6rem;">
+      <div style="height: 1.1rem; width: 28%; background: #94a3b0; border-radius: 3px;"></div>
+      <div style="font-size: 0.9rem; font-weight: 700; color: #94a3b0;">6 stromen</div>
+    </div>
+  </div>
+  <div style="display: flex; align-items: center; gap: 1rem;">
+    <div style="flex: 0 0 12rem; font-size: 0.92rem;">Jaren 2000</div>
+    <div style="flex: 0 0 5.5rem; font-size: 0.85rem; color: var(--np-mid-gray);">7 blokken</div>
+    <div style="flex: 1; display: flex; align-items: center; gap: 0.6rem;">
+      <div style="height: 1.1rem; width: 42%; background: #2E86C1; border-radius: 3px;"></div>
+      <div style="font-size: 0.9rem; font-weight: 700; color: #2E86C1;">9 stromen</div>
+    </div>
+  </div>
+  <div style="display: flex; align-items: center; gap: 1rem;">
+    <div style="flex: 0 0 12rem; font-size: 0.92rem;">Jaren 2010</div>
+    <div style="flex: 0 0 5.5rem; font-size: 0.85rem; color: var(--np-mid-gray);">10 blokken</div>
+    <div style="flex: 1; display: flex; align-items: center; gap: 0.6rem;">
+      <div style="height: 1.1rem; width: 60%; background: #0E9E7E; border-radius: 3px;"></div>
+      <div style="font-size: 0.9rem; font-weight: 700; color: #0E9E7E;">13 stromen</div>
+    </div>
+  </div>
+  <div style="display: flex; align-items: center; gap: 1rem;">
+    <div style="flex: 0 0 12rem; font-size: 0.92rem;">Nu, met AI</div>
+    <div style="flex: 0 0 5.5rem; font-size: 0.85rem; color: var(--np-mid-gray);">11 blokken</div>
+    <div style="flex: 1; display: flex; align-items: center; gap: 0.6rem;">
+      <div style="height: 1.1rem; width: 72%; background: #E8912B; border-radius: 3px;"></div>
+      <div style="font-size: 0.9rem; font-weight: 700; color: #E8912B;">17 stromen</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="np-card" style="border-top-color: #E8912B; font-size: 0.95rem; line-height: 1.5; margin-top: 0.9rem; max-width: 92%;">
+En dat is nog binnen een organisatie. Zet er de koppelingen tussen organisaties naast en het loopt hard op. AI verwerkt informatie makkelijker dan ooit, en vergroot daarmee de vraag naar wat er te verwerken valt.
 </div>
 
 </div>
 
 <!--
-Dit is de richting die uit de historie komt. Wie hem betwist, moet uitleggen
-waarom deze golf de eerste is die het patroon omkeert.
+De aantallen komen uit de platen hiervoor, dus ze zijn na te tellen. De
+boodschap is de verhouding: blokken maal ruim twee, stromen maal bijna drie.
 -->
 
 ---
 
-<!-- 9. ONS TRAJECT ERNAAST -->
+<!-- 11. WAAR OKX ZIT -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
 
-# Ons traject ernaast gelegd
+# Precies daar werkt OKx
 
-<div style="font-size: 0.95rem; line-height: 1.55; margin-top: 0.6rem; max-width: 92%;">
+<div style="font-size: 0.52rem;">
 
-OKx werkt niet aan een laag. OKx werkt aan de verbinding tussen de lagen: welke gegevens tussen systemen gaan, wat ze betekenen, en wie waarvan de bron is. Dat is precies het element dat in alle vier de platen voorkomt en dat elke golf overleefde.
+```mermaid
+flowchart LR
+  OC["Onderwijscatalogus"]
+  PR["Planning en roostering"]
+  SIS["Studentinformatiesysteem"]
+  LMS["Leermanagementsysteem"]
+  OC <-->|"onderwijsspecificatie"| PR
+  OC <-->|"verbintenis en resultaat"| SIS
+  OC <-->|"leermiddel"| LMS
+  style OC fill:#d9f2e6,stroke:#0E9E7E,stroke-width:2px,color:#0f3b2e
+  style PR fill:#e9edf2,stroke:#94a3b0,color:#1f2937
+  style SIS fill:#e9edf2,stroke:#94a3b0,color:#1f2937
+  style LMS fill:#e9edf2,stroke:#94a3b0,color:#1f2937
+  linkStyle 0,1,2 stroke:#D4A017,stroke-width:4px
+```
 
 </div>
 
-<div style="font-size: 0.9rem; line-height: 1.5; margin-top: 0.8rem; max-width: 94%;">
+<div class="np-grid-2" style="margin-top: 0.6rem; gap: 1.4rem; font-size: 0.88rem; line-height: 1.45; max-width: 94%;">
+<div style="background: #d9f5ec; border-radius: 8px; padding: 0.85rem 1.1rem;">
 
-| De trend vraagt | Wat OKx daarvoor maakt |
-|---|---|
-| Afspraken tussen partijen, niet binnen een organisatie | Koppelingen tussen referentiecomponenten, met een eigenaar per gegeven |
-| Bronnen van betere kwaliteit, herleidbaar | Een begrippenkader waarin vastligt wat een leeruitkomst is |
-| Vindbaar en interpreteerbaar zonder mens | 24 datamodelschema's, meegeleverd bij elke release |
+<strong style="color: #0E9E7E;">Waar AI bij helpt</strong>
+
+Koppelen wordt goedkoper. Een model leest een schema, schrijft een adapter, en vertaalt tussen formaten. Het bouwwerk eromheen wordt sneller gemaakt dan ooit.
 
 </div>
+<div style="background: #ffeed9; border-radius: 8px; padding: 0.85rem 1.1rem;">
 
-<div class="np-card" style="border-top-color: #0E7C66; font-size: 0.95rem; line-height: 1.5; margin-top: 0.8rem; max-width: 92%;">
-Een instelling met losse systemen en onduidelijke begrippen heeft niets aan een AI-laag: die kan alleen bevragen wat ontsloten en gedefinieerd is. Meer interconnectie levert sterkere bronnen op, en sterkere bronnen zijn waar AI op aanhaakt.
+<strong style="color: #E8912B;">Waar AI niet bij helpt</strong>
+
+Beleid, afspraken, semantiek en duiding. Wat een systeem uit twee verschillende werelden bedoelt met hetzelfde woord, is geen taalvraag maar een bestuurlijke. Wat er nu is, zijn slimme taalmodellen, geen AGI.
+
+</div>
 </div>
 
 </div>
 
 <!--
-Dit is het antwoord op de vraag, maar dan als bevinding en niet als
-verdediging. De tabel koppelt elke trendeis aan iets dat aantoonbaar bestaat.
+De gouden pijlen zijn wat OKx maakt: de afspraak over wat er tussen twee
+systemen gaat en wat het betekent. Het grootste probleem is systemen uit twee
+werelden integreren; daar helpt een model wel bij het bouwen, niet bij het eens
+worden.
 -->
 
 ---
 
-<!-- 10. KANSEN -->
+<!-- 12. KANSEN -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
@@ -424,7 +528,7 @@ vertellen buiten de sector.
 
 ---
 
-<!-- 11. RISICO'S -->
+<!-- 13. RISICO'S -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
@@ -455,7 +559,7 @@ doet zonder er een verwijt van te maken.
 
 ---
 
-<!-- 12. WAT DE SECTOR MERKT -->
+<!-- 14. WAT DE SECTOR MERKT -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
@@ -492,7 +596,7 @@ wordt als het terugdraaien van een toezegging.
 
 ---
 
-<!-- 13. WAAR ZETTEN WE OP IN -->
+<!-- 15. WAAR ZETTEN WE OP IN -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
@@ -529,7 +633,7 @@ apart bij omdat die de langste doorlooptijd heeft.
 
 ---
 
-<!-- 14. AFSLUITER -->
+<!-- 16. AFSLUITER -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide17.PNG);"></div>
 
 <!--
