@@ -679,7 +679,7 @@ lijnen zijn het werk. De doelen eronder komen uit de requirementsboom.
 <div style="display:flex; gap:1rem; margin-top:0.9rem; max-width:96%;">
 
   <div style="flex:1; background:#d9f5ec; border-radius:10px; padding:0.9rem 1rem; display:flex; flex-direction:column; align-items:center;">
-    <div style="font-size:0.95rem; font-weight:700; color:#0E9E7E; margin-bottom:0.6rem;">Onderwijsontwerp</div>
+    <div style="font-size:0.95rem; font-weight:700; color:#0E9E7E; margin-bottom:0.6rem;">Onderwijsontwerp</div><div style="font-size:0.68rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:#0E9E7E; opacity:0.75; margin:-0.4rem 0 0.55rem 0; text-align:center;">vraag naast aanbod</div>
     <div style="width:100%;"><div style="background:#fff; border:1px solid #0E9E7E; border-radius:6px; padding:0.3rem 0.6rem; font-size:0.78rem; margin-bottom:0.25rem; text-align:center;">Ons aanbod in leeruitkomsten</div><div style="background:#fff; border:1px solid #0E9E7E; border-radius:6px; padding:0.3rem 0.6rem; font-size:0.78rem; margin-bottom:0.25rem; text-align:center;">Gevraagde vaardigheden uit de markt</div></div>
     <div style="font-size:1.1rem; color:#0E9E7E; line-height:1;">&#9660;</div>
     <div style="background:#0E9E7E; color:#fff; border-radius:6px; padding:0.35rem 0.9rem; font-size:0.85rem; font-weight:700; margin:0.25rem 0;">Agent</div>
@@ -688,7 +688,7 @@ lijnen zijn het werk. De doelen eronder komen uit de requirementsboom.
   </div>
 
   <div style="flex:1; background:#dceffa; border-radius:10px; padding:0.9rem 1rem; display:flex; flex-direction:column; align-items:center;">
-    <div style="font-size:0.95rem; font-weight:700; color:#2E86C1; margin-bottom:0.6rem;">Ori&euml;ntatie en leerroute</div>
+    <div style="font-size:0.95rem; font-weight:700; color:#2E86C1; margin-bottom:0.6rem;">Ori&euml;ntatie en leerroute</div><div style="font-size:0.68rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:#2E86C1; opacity:0.75; margin:-0.4rem 0 0.55rem 0; text-align:center;">tussen instellingen en sectoren</div>
     <div style="width:100%;"><div style="background:#fff; border:1px solid #2E86C1; border-radius:6px; padding:0.3rem 0.6rem; font-size:0.78rem; margin-bottom:0.25rem; text-align:center;">Behaalde en gewenste leeruitkomsten</div><div style="background:#fff; border:1px solid #2E86C1; border-radius:6px; padding:0.3rem 0.6rem; font-size:0.78rem; margin-bottom:0.25rem; text-align:center;">Aanbod van meerdere instellingen</div></div>
     <div style="font-size:1.1rem; color:#2E86C1; line-height:1;">&#9660;</div>
     <div style="background:#2E86C1; color:#fff; border-radius:6px; padding:0.35rem 0.9rem; font-size:0.85rem; font-weight:700; margin:0.25rem 0;">Agent</div>
@@ -697,7 +697,7 @@ lijnen zijn het werk. De doelen eronder komen uit de requirementsboom.
   </div>
 
   <div style="flex:1; background:#f0e9fb; border-radius:10px; padding:0.9rem 1rem; display:flex; flex-direction:column; align-items:center;">
-    <div style="font-size:0.95rem; font-weight:700; color:#7a5dba; margin-bottom:0.6rem;">Lesopzet</div>
+    <div style="font-size:0.95rem; font-weight:700; color:#7a5dba; margin-bottom:0.6rem;">Lesopzet</div><div style="font-size:0.68rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:#7a5dba; opacity:0.75; margin:-0.4rem 0 0.55rem 0; text-align:center;">binnen de instelling</div>
     <div style="width:100%;"><div style="background:#fff; border:1px solid #7a5dba; border-radius:6px; padding:0.3rem 0.6rem; font-size:0.78rem; margin-bottom:0.25rem; text-align:center;">Onderwijsspecificatie</div><div style="background:#fff; border:1px solid #7a5dba; border-radius:6px; padding:0.3rem 0.6rem; font-size:0.78rem; margin-bottom:0.25rem; text-align:center;">Leermiddelen in het LMS</div></div>
     <div style="font-size:1.1rem; color:#7a5dba; line-height:1;">&#9660;</div>
     <div style="background:#7a5dba; color:#fff; border-radius:6px; padding:0.35rem 0.9rem; font-size:0.85rem; font-weight:700; margin:0.25rem 0;">Agent</div>
@@ -708,16 +708,17 @@ lijnen zijn het werk. De doelen eronder komen uit de requirementsboom.
 </div>
 
 <div class="np-card" style="border-top-color: #A8481F; font-size: 0.98rem; line-height: 1.55; margin-top: 0.9rem; max-width: 96%;">
-De agent moet bij die informatie kunnen <strong>en</strong> weten wat ze betekent. Het eerste is een koppeling. Het tweede is een afspraak.
+<strong>Drie schalen, hetzelfde raamwerk eronder.</strong> De agent moet bij die informatie kunnen en weten wat ze betekent. Het eerste is een koppeling. Het tweede is een afspraak.
 </div>
 
 </div>
 
 <!--
-Drie gevallen, elk met dezelfde vorm: bronnen, agent, resultaat. De boodschap
-zit in de herhaling: telkens dezelfde sleutel, telkens dezelfde voorwaarde.
-De eerste is de instelling die haar aanbod tegen de arbeidsmarkt legt, de
-tweede de student die kiest, de derde de docent die uitwerkt.
+Drie gevallen, elk met dezelfde vorm: bronnen, agent, resultaat. Wat verschilt
+is de schaal waarop vergeleken wordt: vraag naast aanbod, tussen instellingen
+en over mbo, hbo en wo heen, en binnen een instelling. Wat gelijk blijft is de
+sleutel eronder. Zonder dat raamwerk moet elke vergelijking apart gebouwd
+worden, met raamwerk is het telkens dezelfde beweging.
 -->
 
 ---
