@@ -644,9 +644,9 @@ flowchart LR
   PR["Planning en roostering"]
   SIS["Studentinformatiesysteem"]
   LMS["Leeromgeving"]
-  OC <-->|"onderwijsspecificatie"| PR
-  OC <-->|"verbintenis en resultaat"| SIS
-  OC <-->|"leermiddel"| LMS
+  OC <-->|"specificatiestructuur<br/>en aanbod"| PR
+  OC <-->|"specificatiestructuur,<br/>verbintenis en resultaat"| SIS
+  OC <-->|"specificatiestructuur<br/>en leermiddel"| LMS
   style OC fill:#d9f2e6,stroke:#0E9E7E,stroke-width:2px,color:#0f3b2e
   style PR fill:#e9edf2,stroke:#94a3b0,color:#1f2937
   style SIS fill:#e9edf2,stroke:#94a3b0,color:#1f2937
@@ -676,38 +676,48 @@ lijnen zijn het werk. De doelen eronder komen uit de requirementsboom.
 
 # Wat dat straks mogelijk maakt
 
-<div style="font-size: 0.95rem; line-height: 1.5; margin-top: 0.5rem; max-width: 92%;">
+<div style="display:flex; gap:1rem; margin-top:0.9rem; max-width:96%;">
 
-Als die punten vastliggen en hun betekenis erbij staat, kan een agent ze ook vinden. En dan kan hij er niet alleen over praten, maar ook mee handelen.
+  <div style="flex:1; background:#d9f5ec; border-radius:10px; padding:0.9rem 1rem; display:flex; flex-direction:column; align-items:center;">
+    <div style="font-size:0.95rem; font-weight:700; color:#0E9E7E; margin-bottom:0.6rem;">Ori&euml;ntatie</div>
+    <div style="width:100%;"><div style="background:#fff; border:1px solid #0E9E7E; border-radius:6px; padding:0.3rem 0.6rem; font-size:0.78rem; margin-bottom:0.25rem; text-align:center;">Aanbod van meerdere instellingen</div><div style="background:#fff; border:1px solid #0E9E7E; border-radius:6px; padding:0.3rem 0.6rem; font-size:0.78rem; margin-bottom:0.25rem; text-align:center;">Jouw profiel in leeruitkomsten</div></div>
+    <div style="font-size:1.1rem; color:#0E9E7E; line-height:1;">&#9660;</div>
+    <div style="background:#0E9E7E; color:#fff; border-radius:6px; padding:0.35rem 0.9rem; font-size:0.85rem; font-weight:700; margin:0.25rem 0;">Agent</div>
+    <div style="font-size:1.1rem; color:#0E9E7E; line-height:1;">&#9660;</div>
+    <div style="font-size:0.85rem; text-align:center; line-height:1.35; margin-top:0.25rem;">Welk aanbod sluit het best aan bij jouw doelen voor de komende periode</div>
+  </div>
+
+  <div style="flex:1; background:#dceffa; border-radius:10px; padding:0.9rem 1rem; display:flex; flex-direction:column; align-items:center;">
+    <div style="font-size:0.95rem; font-weight:700; color:#2E86C1; margin-bottom:0.6rem;">Leerroute</div>
+    <div style="width:100%;"><div style="background:#fff; border:1px solid #2E86C1; border-radius:6px; padding:0.3rem 0.6rem; font-size:0.78rem; margin-bottom:0.25rem; text-align:center;">Behaalde leeruitkomsten</div><div style="background:#fff; border:1px solid #2E86C1; border-radius:6px; padding:0.3rem 0.6rem; font-size:0.78rem; margin-bottom:0.25rem; text-align:center;">Gewenste leeruitkomsten</div></div>
+    <div style="font-size:1.1rem; color:#2E86C1; line-height:1;">&#9660;</div>
+    <div style="background:#2E86C1; color:#fff; border-radius:6px; padding:0.35rem 0.9rem; font-size:0.85rem; font-weight:700; margin:0.25rem 0;">Agent</div>
+    <div style="font-size:1.1rem; color:#2E86C1; line-height:1;">&#9660;</div>
+    <div style="font-size:0.85rem; text-align:center; line-height:1.35; margin-top:0.25rem;">Wat is de volgende stap binnen jouw lopende route</div>
+  </div>
+
+  <div style="flex:1; background:#f0e9fb; border-radius:10px; padding:0.9rem 1rem; display:flex; flex-direction:column; align-items:center;">
+    <div style="font-size:0.95rem; font-weight:700; color:#7a5dba; margin-bottom:0.6rem;">Lesopzet</div>
+    <div style="width:100%;"><div style="background:#fff; border:1px solid #7a5dba; border-radius:6px; padding:0.3rem 0.6rem; font-size:0.78rem; margin-bottom:0.25rem; text-align:center;">Onderwijsspecificatie</div><div style="background:#fff; border:1px solid #7a5dba; border-radius:6px; padding:0.3rem 0.6rem; font-size:0.78rem; margin-bottom:0.25rem; text-align:center;">Leermiddelen in het LMS</div></div>
+    <div style="font-size:1.1rem; color:#7a5dba; line-height:1;">&#9660;</div>
+    <div style="background:#7a5dba; color:#fff; border-radius:6px; padding:0.35rem 0.9rem; font-size:0.85rem; font-weight:700; margin:0.25rem 0;">Agent</div>
+    <div style="font-size:1.1rem; color:#7a5dba; line-height:1;">&#9660;</div>
+    <div style="font-size:0.85rem; text-align:center; line-height:1.35; margin-top:0.25rem;">Een concept-lesopzet bij de specificatie</div>
+  </div>
 
 </div>
 
-<div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.8rem; max-width: 92%;">
-
-  <div style="background: #d9f5ec; border-radius: 8px; padding: 0.9rem 1.2rem; font-size: 1rem; line-height: 1.45;">
-    Een agent schrijft je in voor al je onderwijs, in plaats van dat je zeven schermen doorloopt.
-  </div>
-
-  <div style="background: #dceffa; border-radius: 8px; padding: 0.9rem 1.2rem; font-size: 1rem; line-height: 1.45;">
-    Een agent stelt een leerroute samen uit wat er in de onderwijscatalogus staat, passend bij wat je al hebt gehaald.
-  </div>
-
-  <div style="background: #f0e9fb; border-radius: 8px; padding: 0.9rem 1.2rem; font-size: 1rem; line-height: 1.45;">
-    Een agent schrijft een lesopzet op basis van de specificatie in de catalogus en het materiaal in de leeromgeving.
-  </div>
-
-</div>
-
-<div class="np-card" style="border-top-color: #A8481F; font-size: 0.98rem; line-height: 1.55; margin-top: 0.8rem; max-width: 94%;">
-Daarvoor moet die agent bij de informatie kunnen <strong>en</strong> weten wat ze betekent. Het eerste is een koppeling. Het tweede is een afspraak. Precies die twee maakt OKx.
+<div class="np-card" style="border-top-color: #A8481F; font-size: 0.98rem; line-height: 1.55; margin-top: 0.9rem; max-width: 96%;">
+De agent moet bij die informatie kunnen <strong>en</strong> weten wat ze betekent. Het eerste is een koppeling. Het tweede is een afspraak.
 </div>
 
 </div>
 
 <!--
-Dit is het antwoord op de vraag, omgedraaid: AI maakt OKx niet overbodig, OKx
-is de voorwaarde waaronder AI in deze sector iets kan. De drie voorbeelden zijn
-bewust concreet en herkenbaar voor een bestuurder.
+Drie gevallen, elk met dezelfde vorm: bronnen, agent, resultaat. De boodschap
+zit in de herhaling: telkens dezelfde systemen, telkens dezelfde voorwaarde.
+Oriëntatie kijkt naar buiten, over instellingen heen. Leerroute kijkt naar
+binnen, naar de eigen voortgang.
 -->
 
 ---
@@ -724,8 +734,8 @@ bewust concreet en herkenbaar voor een bestuurder.
 | Kans | Waar die vandaan komt |
 |---|---|
 | De sector als eerste met een specificatie die een agent kan gebruiken | De payloads zijn al machineleesbaar. Wie ook de interactie zo uitgeeft, levert iets dat elders nog niet bestaat |
-| Ons eigen tempo als voorbeeld | Twee releases in twee weken, mediaan 9 dagen per issue, met AI in de keten. Dat is een werkwijze die andere standaardisatietrajecten missen |
-| De verschuiving werkt in ons voordeel | Bouwen wordt goedkoop, het eens worden over betekenis niet. Precies dat laatste is wat OKx maakt |
+| De specificatie als meer dan een document | Dezelfde bron kan een API-definitie voeden en de invoer zijn voor een testomgeving waarin een leverancier zich meet |
+| Ons eigen tempo als voorbeeld | Twee releases in twee weken, mediaan 9 dagen per issue, met AI in de keten |
 | Laat zijn heeft een voordeel | Andere sectoren zijn ons voor. Hun keuzes zijn over te nemen in plaats van uit te vinden |
 
 </div>
@@ -737,9 +747,8 @@ De eerste twee zijn een positie die we kunnen innemen. De laatste twee zijn meew
 </div>
 
 <!--
-Deze slide ontbrak eerst helemaal; het deck signaleerde alleen gaten. De eerste
-kans is de interessantste voor de opdrachtgever: dat is iets om over te
-vertellen buiten de sector.
+De tweede kans is nieuw en de interessantste: de specificatie is nu een
+document, maar dezelfde inhoud kan meer dragen.
 -->
 
 ---
@@ -749,28 +758,32 @@ vertellen buiten de sector.
 
 <div class="fill">
 
-# Vier risico's
+# Twee risico's
 
-<div style="font-size: 0.86rem; line-height: 1.45; margin-top: 0.5rem; max-width: 96%;">
+<div style="display: flex; flex-direction: column; gap: 0.6rem; margin-top: 1rem; max-width: 94%;">
 
-| Risico | Stand van zaken | Wat er gebeurt als het blijft |
-|---|---|---|
-| Doorlooptijd tot een gedragen afspraak | Binnen het project gaat het snel. De tijd tot een afspraak die de sector draagt is niet gemeten; de eerste toets is de review van v0.1.0 | De uitkomst van die review overvalt ons |
-| Interactie niet machineleesbaar | De 24 datamodelschema's wel, de interactiepatronen en endpoints niet | Kans 1 gaat naar een andere sector |
-| Binding naar OEAPI open | Payloads zijn Nederlandstalig en wijken bewust af; het afleveringsmechanisme is niet belegd | Twee partijen die beide aan de specificatie voldoen, kunnen alsnog niet koppelen |
-| Beheerpartij na Npuls | De route ligt vast via AMIGO richting Edustandaard. De partij niet | Alles in dit deck verloopt op de dag dat het programma stopt |
+  <div style="background:#fdf3ea; border-left:6px solid #D4A017; border-radius:8px; padding:1rem 1.3rem;">
+    <div style="font-size:1.05rem; font-weight:700; color:#8a5a12; margin-bottom:0.3rem;">Doorlooptijd tot een gedragen afspraak</div>
+    <div style="font-size:0.95rem; line-height:1.5;">Binnen het project gaat het snel. De tijd tot een afspraak die de sector draagt is niet gemeten; de eerste toets is de review van v0.1.0. Duurt dat te lang, dan is de uitkomst achterhaald bij oplevering.</div>
+  </div>
+
+  <div style="background:#fbf1ec; border-left:6px solid #A8481F; border-radius:8px; padding:1rem 1.3rem;">
+    <div style="font-size:1.05rem; font-weight:700; color:#A8481F; margin-bottom:0.3rem;">Vastgroeien aan een standaard</div>
+    <div style="font-size:0.95rem; line-height:1.5;">Als de eisen alleen in OEAPI-vorm bestaan, kost een nieuwe versie of een ander protocol een nieuwe specificatie. Dat is het stoomtreinrisico, maar dan van binnenuit.</div>
+  </div>
 
 </div>
 
-<div style="font-size: 0.9rem; color: var(--np-dark-gray); margin-top: 0.8rem; max-width: 92%;">
-Drie van de vier staan los van AI en waren al bekend. Alleen het tweede wordt door de AI-ontwikkeling urgenter.
+<div class="np-card" style="border-top-color: #0E9E7E; font-size: 0.98rem; line-height: 1.55; margin-top: 0.9rem; max-width: 94%;">
+<strong style="color: #0E9E7E;">De remedie</strong>: wensen en eisen standaardonafhankelijk vastleggen, en die pas daarna vertalen naar de techniekkeuze. De eis blijft dan staan als de techniek wisselt.
 </div>
 
 </div>
 
 <!--
-Signalering, geen aanklacht. De derde kolom maakt duidelijk waarom het ertoe
-doet zonder er een verwijt van te maken.
+Het risico is niet dat we te weinig standaardiseren, maar dat we ons vastleggen
+op een standaard in plaats van op de eis eronder. Machineleesbaar zijn we al;
+dat is geen risico maar een vertrekpunt.
 -->
 
 ---
@@ -782,32 +795,32 @@ doet zonder er een verwijt van te maken.
 
 # Wat instellingen en leveranciers hiervan merken
 
-<div class="np-grid-2" style="margin-top: 0.6rem; gap: 1.5rem; font-size: 0.9rem; line-height: 1.5; max-width: 94%;">
-<div style="border-left: 4px solid #0B4F6C; padding-left: 0.9rem;">
+<div class="np-grid-2" style="margin-top: 0.7rem; gap: 1.5rem; font-size: 0.92rem; line-height: 1.5; max-width: 94%;">
+<div style="background:#dceffa; border-radius:10px; padding:1rem 1.2rem;">
 
-<strong style="color: #0B4F6C;">Instellingen</strong>
+<strong style="color: #2E86C1;">Instellingen</strong>
 
-Een student kan alleen over systemen heen kiezen als die systemen het eens zijn over wat een leeruitkomst is. Dat is wat OKx vastlegt. Wordt de interactie machineleesbaar, dan kan een instelling straks controleren of haar leveranciers zich eraan houden, in plaats van het te moeten geloven.
-
-</div>
-<div style="border-left: 4px solid #A8481F; padding-left: 0.9rem;">
-
-<strong style="color: #A8481F;">Leveranciers</strong>
-
-Zij bouwen tegen het koppelvlak van de onderwijscatalogus, met drie koppelingen: naar planning en roostering, naar het studentinformatiesysteem en naar het leermanagementsysteem. Zolang de interactie alleen in tekst staat, kunnen zij niet automatisch valideren.
+Een student kan alleen over systemen heen kiezen als die systemen het eens zijn over wat een leeruitkomst is. Ligt de eis standaardonafhankelijk vast, dan zit een instelling niet vast aan de techniekkeuze van een leverancier.
 
 </div>
+<div style="background:#ffeed9; border-radius:10px; padding:1rem 1.2rem;">
+
+<strong style="color: #E8912B;">Leveranciers</strong>
+
+Zij bouwen tegen het koppelvlak van de onderwijscatalogus, met drie koppelingen. Komt er een nieuwe versie of een ander protocol, dan kost dat een vertaling in plaats van opnieuw specificeren.
+
+</div>
 </div>
 
-<div class="np-card" style="border-top-color: #D4A017; font-size: 0.9rem; line-height: 1.5; margin-top: 0.9rem; max-width: 94%;">
+<div class="np-card" style="border-top-color: #D4A017; font-size: 0.92rem; line-height: 1.5; margin-top: 0.9rem; max-width: 94%;">
 <strong style="color: #D4A017;">Wat hier niet ter discussie staat</strong>: het detailniveau dat leveranciers toegezegd hebben gekregen voor v0.1.0. Wordt daaraan getornd, dan is dat een apart gesprek met elke leverancier, gevoerd door de projectleiding.
 </div>
 
 </div>
 
 <!--
-De onderste kaart voorkomt dat een inzetkeuze op de volgende slide gelezen
-wordt als het terugdraaien van een toezegging.
+De onderste kaart voorkomt dat een inzetkeuze gelezen wordt als het
+terugdraaien van een toezegging.
 -->
 
 ---
@@ -825,26 +838,25 @@ Drie richtingen waar de kansen en de risico's samenkomen. Ze kunnen niet alle dr
 
 </div>
 
-<div style="font-size: 0.86rem; line-height: 1.45; margin-top: 0.7rem; max-width: 96%;">
+<div style="font-size: 0.88rem; line-height: 1.45; margin-top: 0.8rem; max-width: 96%;">
 
 | Inzet | Wat het oplevert | Wat het vraagt |
 |---|---|---|
-| **Tempo** | Een gedragen afspraak voordat de praktijk verder is. Dekt risico 1 | Een norm op doorlooptijd en sturing erop, bij de projectleiding |
-| **Machineleesbaar** | Kans 1 verzilveren en risico 2 wegnemen | 3 tot 4 weken werk, plus onderhoud per release. Inschatting |
-| **Borging** | Alles behouden na afloop van het programma. Dekt risico 4 | Een gesprek met Edustandaard en Npuls, met de langste doorlooptijd van de drie |
+| **Tempo** | Een gedragen afspraak voordat de praktijk verder is | Een norm op doorlooptijd en sturing erop, bij de projectleiding |
+| **Standaardonafhankelijk vastleggen** | De eis blijft staan als de techniek wisselt | De eisen los van OEAPI opschrijven, en de vertaling apart houden |
+| **Meer dan een document** | De specificatie voedt ook een API-definitie en een testomgeving | Werk aan de uitgave, en onderhoud daarvan per release |
 
 </div>
 
-<div class="np-card" style="border-top-color: #0B4F6C; font-size: 0.92rem; line-height: 1.55; margin-top: 0.8rem; max-width: 94%;">
-<strong>Gevraagd</strong>: welke van deze drie voorrang krijgt richting v0.1.0, en of borging daar los van alvast in gang gezet wordt. De binding naar OEAPI hoort bij de technische werkgroep en staat hier daarom niet als keuze.
+<div class="np-card" style="border-top-color: #0B4F6C; font-size: 0.95rem; line-height: 1.55; margin-top: 0.9rem; max-width: 94%;">
+<strong>Gevraagd</strong>: welke van deze drie voorrang krijgt richting v0.1.0.
 </div>
 
 </div>
 
 <!--
-Geen aanbeveling met ja en nee, want dat is niet aan mij. Wel de drie
-richtingen met wat ze kosten, zodat de keuze te maken is. Borging staat er
-apart bij omdat die de langste doorlooptijd heeft.
+Geen aanbeveling met ja en nee; die keuze is niet aan de opsteller. Wel de drie
+richtingen met wat ze kosten, zodat de keuze te maken is.
 -->
 
 ---
