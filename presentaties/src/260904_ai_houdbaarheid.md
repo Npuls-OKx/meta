@@ -789,7 +789,7 @@ in de vorm van die techniek bestaat.
 # Wat de afspraak op gang brengt
 
 <div style="display:flex; gap:0.6rem; margin-top:1.1rem; max-width:96%;">
-<div style="flex:1; background:#eef4fa; border-top:5px solid #2E86C1; border-radius:8px; padding:0.85rem 0.9rem; text-align:center;"><div style="font-size:0.72rem; font-weight:700; color:#2E86C1; letter-spacing:0.06em; margin-bottom:0.3rem;">1</div><div style="font-size:0.95rem; line-height:1.4;">De afspraak staat</div></div><div style="align-self:center; font-size:1.4rem; color:#2E86C1; line-height:1;">&#9654;</div><div style="flex:1; background:#eef4fa; border-top:5px solid #2E86C1; border-radius:8px; padding:0.85rem 0.9rem; text-align:center;"><div style="font-size:0.72rem; font-weight:700; color:#2E86C1; letter-spacing:0.06em; margin-bottom:0.3rem;">2</div><div style="font-size:0.95rem; line-height:1.4;">Systemen koppelen erop</div></div><div style="align-self:center; font-size:1.4rem; color:#2E86C1; line-height:1;">&#9654;</div><div style="flex:1; background:#eef4fa; border-top:5px solid #2E86C1; border-radius:8px; padding:0.85rem 0.9rem; text-align:center;"><div style="font-size:0.72rem; font-weight:700; color:#2E86C1; letter-spacing:0.06em; margin-bottom:0.3rem;">3</div><div style="font-size:0.95rem; line-height:1.4;">Meer uitwisseling, meer data</div></div><div style="align-self:center; font-size:1.4rem; color:#2E86C1; line-height:1;">&#9654;</div><div style="flex:1; background:#eef4fa; border-top:5px solid #2E86C1; border-radius:8px; padding:0.85rem 0.9rem; text-align:center;"><div style="font-size:0.72rem; font-weight:700; color:#2E86C1; letter-spacing:0.06em; margin-bottom:0.3rem;">4</div><div style="font-size:0.95rem; line-height:1.4;">Voedingsbodem voor AI</div></div>
+<div style="flex:1; background:#eef4fa; border-top:5px solid #2E86C1; border-radius:8px; padding:0.85rem 0.9rem; text-align:center;"><div style="font-size:0.72rem; font-weight:700; color:#2E86C1; letter-spacing:0.06em; margin-bottom:0.3rem;">1</div><div style="font-size:0.95rem; line-height:1.4;">De afspraak staat</div></div><div style="align-self:center; font-size:1.4rem; color:#2E86C1; line-height:1;">&#9654;</div><div style="flex:1; background:#eef4fa; border-top:5px solid #2E86C1; border-radius:8px; padding:0.85rem 0.9rem; text-align:center;"><div style="font-size:0.72rem; font-weight:700; color:#2E86C1; letter-spacing:0.06em; margin-bottom:0.3rem;">2</div><div style="font-size:0.95rem; line-height:1.4;">Systemen koppelen erop</div></div><div style="align-self:center; font-size:1.4rem; color:#2E86C1; line-height:1;">&#9654;</div><div style="flex:1; background:#eef4fa; border-top:5px solid #2E86C1; border-radius:8px; padding:0.85rem 0.9rem; text-align:center;"><div style="font-size:0.72rem; font-weight:700; color:#2E86C1; letter-spacing:0.06em; margin-bottom:0.3rem;">3</div><div style="font-size:0.95rem; line-height:1.4;">Meer data van hoge kwaliteit, volgens de OKx-standaard</div></div><div style="align-self:center; font-size:1.4rem; color:#2E86C1; line-height:1;">&#9654;</div><div style="flex:1; background:#eef4fa; border-top:5px solid #2E86C1; border-radius:8px; padding:0.85rem 0.9rem; text-align:center;"><div style="font-size:0.72rem; font-weight:700; color:#2E86C1; letter-spacing:0.06em; margin-bottom:0.3rem;">4</div><div style="font-size:0.95rem; line-height:1.4;">Voedingsbodem voor AI</div></div>
 </div>
 
 <div style="font-size:0.85rem; color: var(--np-mid-gray); margin-top:0.5rem; max-width:90%;">
@@ -826,15 +826,12 @@ Drie richtingen waar de kansen en de risico's samenkomen. Ze kunnen niet alle dr
 
 | Inzet | Wat het oplevert | Wat het vraagt |
 |---|---|---|
-| **Tempo** | Vragen uit de sector snel beantwoorden: herleiden, versioneren en uitwerken kan nu | Een norm op doorlooptijd en sturing erop, bij de projectleiding |
+| **Tempo** | Vragen uit de sector snel beantwoorden: herleiden, versioneren en uitwerken kan nu | Focus en capaciteit voor het uitwerken van de specificatie |
 | **Standaardonafhankelijk vastleggen** | De eis blijft staan als de techniek wisselt | De eisen in een referentiekader vastleggen, de vertaling naar OEAPI apart houden |
-| **Meer dan een document** | Klaar voor de vliegende auto's: de specificatie werkt nu al met AI en draagt de doorontwikkeling | Adoptie en onderhoud in het team |
+| **Meer dan een document** | Klaar voor de vliegende auto's: de specificatie werkt nu al met AI en draagt de doorontwikkeling | Adoptie en onderhoud van het GitHub-platform in het team |
 
 </div>
 
-<div class="np-card" style="border-top-color: #0B4F6C; font-size: 0.95rem; line-height: 1.55; margin-top: 0.9rem; max-width: 94%;">
-<strong>Gevraagd</strong>: welke van deze drie voorrang krijgt richting v0.1.0.
-</div>
 
 </div>
 
