@@ -157,38 +157,47 @@ een vraag en een antwoord.
 
 # Het internet: systemen aan elkaar
 
-<div style="font-size: 0.5rem;">
+<div style="font-size: 0.46rem;">
 
 ```mermaid
 flowchart LR
   subgraph A["Organisatie A"]
     direction TB
-    GA["Gebruikersschil"] --> BA["Verwerking"] --> DA[("Opslag")]
+    GA["Gebruikersschil"] --> BA["Verwerking"]
+    BA --> DA[("Opslag")]
+    BA --> PA["API"]
   end
   subgraph B["Organisatie B"]
     direction TB
-    GB["Gebruikersschil"] --> BB["Verwerking"] --> DB2[("Opslag")]
+    GB["Gebruikersschil"] --> BB["Verwerking"]
+    BB --> DB2[("Opslag")]
+    BB --> PB["API"]
   end
   subgraph C["Organisatie C"]
     direction TB
-    GC["Gebruikersschil"] --> BC["Verwerking"] --> DC[("Opslag")]
+    GC["Gebruikersschil"] --> BC["Verwerking"]
+    BC --> DC[("Opslag")]
+    BC --> PC["API"]
   end
-  BA <-->|koppeling| BB
-  BB <-->|koppeling| BC
-  BA <-->|koppeling| BC
+  PA -->|"verzoek en antwoord"| BB
+  PB -->|"verzoek en antwoord"| BC
+  PC -->|"verzoek en antwoord"| BA
   style A fill:#f2f5f8,stroke:#b7c0ca,color:#1f2937
   style B fill:#f2f5f8,stroke:#b7c0ca,color:#1f2937
   style C fill:#f2f5f8,stroke:#b7c0ca,color:#1f2937
   style GA fill:#e9edf2,stroke:#94a3b0,color:#1f2937
-  style BA fill:#d9f2e6,stroke:#0E9E7E,color:#0f3b2e
+  style BA fill:#e9edf2,stroke:#94a3b0,color:#1f2937
   style DA fill:#e9edf2,stroke:#94a3b0,color:#1f2937
   style GB fill:#e9edf2,stroke:#94a3b0,color:#1f2937
-  style BB fill:#d9f2e6,stroke:#0E9E7E,color:#0f3b2e
+  style BB fill:#e9edf2,stroke:#94a3b0,color:#1f2937
   style DB2 fill:#e9edf2,stroke:#94a3b0,color:#1f2937
   style GC fill:#e9edf2,stroke:#94a3b0,color:#1f2937
-  style BC fill:#d9f2e6,stroke:#0E9E7E,color:#0f3b2e
+  style BC fill:#e9edf2,stroke:#94a3b0,color:#1f2937
   style DC fill:#e9edf2,stroke:#94a3b0,color:#1f2937
-  linkStyle 6,7,8 stroke:#D4A017,stroke-width:3px
+  style PA fill:#d9f2e6,stroke:#0E9E7E,stroke-width:2px,color:#0f3b2e
+  style PB fill:#d9f2e6,stroke:#0E9E7E,stroke-width:2px,color:#0f3b2e
+  style PC fill:#d9f2e6,stroke:#0E9E7E,stroke-width:2px,color:#0f3b2e
+  linkStyle 9,10,11 stroke:#D4A017,stroke-width:3.5px
 ```
 
 </div>
@@ -196,10 +205,9 @@ flowchart LR
 </div>
 
 <!--
-Backends aan elkaar hangen. Vanaf hier is het geen systeem meer maar een
-ecosysteem van applicaties, en elke verbinding vraagt een afspraak. Drie
-organisaties leveren al drie koppelingen op; bij tien zijn het er
-vijfenveertig.
+De verwerking krijgt een API, en die API praat met de verwerking van een andere
+applicatie. Drie organisaties leveren drie koppelingen op; bij tien zijn het er
+vijfenveertig. Elke lijn is een afspraak.
 -->
 
 ---
@@ -252,7 +260,58 @@ eronder, dus de vraag naar uitwisseling wordt groter.
 
 ---
 
-<!-- 8. LAAG 3 -->
+<!-- 8. ECOSYSTEEM -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# Van applicatie naar ecosysteem van applicaties
+
+<div style="font-size: 0.42rem;">
+
+```mermaid
+flowchart LR
+  subgraph ORG["Een organisatie"]
+    direction LR
+    KERN["Kernapplicatie"]
+    VERKOOP["Verkoopplatform"]
+    RAPPORT["Rapportage-app"]
+    MARKET["Marketinginzichten"]
+    SOCIAL["Socialmediaplatform"]
+  end
+  KERN -->|API| VERKOOP
+  KERN -->|API| RAPPORT
+  KERN -->|API| MARKET
+  VERKOOP -->|API| RAPPORT
+  VERKOOP -->|API| MARKET
+  MARKET -->|API| SOCIAL
+  RAPPORT -->|API| MARKET
+  style ORG fill:#f2f5f8,stroke:#b7c0ca,color:#1f2937
+  style KERN fill:#e9edf2,stroke:#94a3b0,color:#1f2937
+  style VERKOOP fill:#d9f2e6,stroke:#0E9E7E,color:#0f3b2e
+  style MARKET fill:#d9f2e6,stroke:#0E9E7E,color:#0f3b2e
+  style RAPPORT fill:#d9f2e6,stroke:#0E9E7E,color:#0f3b2e
+  style SOCIAL fill:#d9f2e6,stroke:#0E9E7E,color:#0f3b2e
+  linkStyle 0,1,2,3,4,5,6 stroke:#D4A017,stroke-width:3px
+```
+
+</div>
+
+<div class="np-card" style="border-top-color: #D4A017; font-size: 0.92rem; line-height: 1.5; margin-top: 0.6rem; max-width: 92%;">
+Vijf applicaties, zeven koppelingen. Niet meer een applicatie met een paar lagen, maar tientallen applicaties naast elkaar, elk met eigen verwerking en opslag.
+</div>
+
+</div>
+
+<!--
+Dit is inmiddels het normale beeld bij een instelling, en het is de
+voedingsbodem voor de laag die hierna komt: het lakehouse voedt zich uit dit
+ecosysteem.
+-->
+
+---
+
+<!-- 9. LAAG 3 -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
@@ -310,7 +369,7 @@ bronnen betekenen dat uitwisseling niet meer alleen intern is.
 
 ---
 
-<!-- 9. LAAG 4 -->
+<!-- 10. LAAG 4 -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
@@ -378,7 +437,7 @@ gratie van wat de pijlen aanleveren.
 
 ---
 
-<!-- 10. DE TREND -->
+<!-- 11. DE TREND -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
@@ -441,7 +500,7 @@ boodschap is de verhouding: blokken maal ruim twee, stromen maal bijna drie.
 
 ---
 
-<!-- 11. WAAR OKX ZIT -->
+<!-- 12. WAAR OKX ZIT -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
@@ -496,7 +555,7 @@ worden.
 
 ---
 
-<!-- 12. KANSEN -->
+<!-- 13. KANSEN -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
@@ -528,7 +587,7 @@ vertellen buiten de sector.
 
 ---
 
-<!-- 13. RISICO'S -->
+<!-- 14. RISICO'S -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
@@ -559,7 +618,7 @@ doet zonder er een verwijt van te maken.
 
 ---
 
-<!-- 14. WAT DE SECTOR MERKT -->
+<!-- 15. WAT DE SECTOR MERKT -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
@@ -596,7 +655,7 @@ wordt als het terugdraaien van een toezegging.
 
 ---
 
-<!-- 15. WAAR ZETTEN WE OP IN -->
+<!-- 16. WAAR ZETTEN WE OP IN -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
@@ -633,7 +692,7 @@ apart bij omdat die de langste doorlooptijd heeft.
 
 ---
 
-<!-- 16. AFSLUITER -->
+<!-- 17. AFSLUITER -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide17.PNG);"></div>
 
 <!--
