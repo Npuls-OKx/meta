@@ -141,6 +141,11 @@ Drie blokken en een kringloop. De gebruiker geeft invoer of stelt een vraag aan 
 
 </div>
 
+
+<div style="display:flex; align-items:center; gap:0.7rem; margin-top:0.6rem; max-width:92%;">
+  <div style="background:#ffeed9; color:#8a5a12; font-weight:700; font-size:0.8rem; padding:0.25rem 0.7rem; border-radius:999px;">Voorbeeld</div>
+  <div style="font-size:0.92rem; line-height:1.4;">De schooladministratie op een server in de kelder. Een applicatie, een gebruiker, een gebouw.</div>
+</div>
 </div>
 
 <!--
@@ -157,30 +162,42 @@ een vraag en een antwoord.
 
 # Het internet: systemen aan elkaar
 
-<div style="font-size: 0.46rem;">
+<div style="font-size: 0.44rem;">
 
 ```mermaid
 flowchart LR
-  GA["Gebruikersschil A"] --> BA["Verwerking A"]
-  BA --> DA[("Opslag A")]
-  BA --> PA["API A"]
-  GB["Gebruikersschil B"] --> BB["Verwerking B"]
-  BB --> DB[("Opslag B")]
-  BB --> PB["API B"]
-  GC["Gebruikersschil C"] --> BC["Verwerking C"]
-  BC --> DC[("Opslag C")]
-  BC --> PC["API C"]
+  subgraph SA["Applicatie A"]
+    direction TB
+    GA["Gebruikersschil"] --> BA["Verwerking"]
+    BA --> DA[("Opslag")]
+    BA --> PA["API"]
+  end
+  subgraph SB["Applicatie B"]
+    direction TB
+    GB["Gebruikersschil"] --> BB["Verwerking"]
+    BB --> DB[("Opslag")]
+    BB --> PB["API"]
+  end
+  subgraph SC["Applicatie C"]
+    direction TB
+    GC["Gebruikersschil"] --> BC["Verwerking"]
+    BC --> DC[("Opslag")]
+    BC --> PC["API"]
+  end
   PA <-->|"verzoek en antwoord"| PB
   PB <-->|"verzoek en antwoord"| PC
   PA <-->|"verzoek en antwoord"| PC
+  style SA fill:#f7f9fb,stroke:#b7c0ca,color:#1f2937
   style GA fill:#e9edf2,stroke:#94a3b0,color:#1f2937
   style BA fill:#e9edf2,stroke:#94a3b0,color:#1f2937
   style DA fill:#e9edf2,stroke:#94a3b0,color:#1f2937
   style PA fill:#d9f2e6,stroke:#0E9E7E,stroke-width:2px,color:#0f3b2e
+  style SB fill:#f7f9fb,stroke:#b7c0ca,color:#1f2937
   style GB fill:#e9edf2,stroke:#94a3b0,color:#1f2937
   style BB fill:#e9edf2,stroke:#94a3b0,color:#1f2937
   style DB fill:#e9edf2,stroke:#94a3b0,color:#1f2937
   style PB fill:#d9f2e6,stroke:#0E9E7E,stroke-width:2px,color:#0f3b2e
+  style SC fill:#f7f9fb,stroke:#b7c0ca,color:#1f2937
   style GC fill:#e9edf2,stroke:#94a3b0,color:#1f2937
   style BC fill:#e9edf2,stroke:#94a3b0,color:#1f2937
   style DC fill:#e9edf2,stroke:#94a3b0,color:#1f2937
@@ -190,11 +207,16 @@ flowchart LR
 
 </div>
 
+<div style="display:flex; align-items:center; gap:0.7rem; margin-top:0.6rem; max-width:92%;">
+  <div style="background:#ffeed9; color:#8a5a12; font-weight:700; font-size:0.8rem; padding:0.25rem 0.7rem; border-radius:999px;">Voorbeeld</div>
+  <div style="font-size:0.92rem; line-height:1.4;">iDEAL. De webwinkel praat met je bank, zonder dat die twee ooit samen zijn gebouwd.</div>
+</div>
+
 </div>
 
 <!--
-De API is de rand van de organisatie en praat met de API van een ander. Drie
-organisaties leveren drie koppelingen op; bij tien zijn het er vijfenveertig.
+De API is de rand van de applicatie en praat met de API van een ander. Drie
+applicaties leveren drie koppelingen op; bij tien zijn het er vijfenveertig.
 Elke lijn is een afspraak.
 -->
 
@@ -239,6 +261,11 @@ flowchart LR
 </div>
 
 
+
+<div style="display:flex; align-items:center; gap:0.7rem; margin-top:0.6rem; max-width:92%;">
+  <div style="background:#ffeed9; color:#8a5a12; font-weight:700; font-size:0.8rem; padding:0.25rem 0.7rem; border-radius:999px;">Voorbeeld</div>
+  <div style="font-size:0.92rem; line-height:1.4;">De bonuskaart. De supermarkt weet wat er verkocht is en stuurt daarop bij.</div>
+</div>
 </div>
 
 <!--
@@ -289,6 +316,11 @@ flowchart LR
 Vijf applicaties, zeven koppelingen. Niet meer een applicatie met een paar lagen, maar tientallen applicaties naast elkaar, elk met eigen verwerking en opslag.
 </div>
 
+
+<div style="display:flex; align-items:center; gap:0.7rem; margin-top:0.6rem; max-width:92%;">
+  <div style="background:#ffeed9; color:#8a5a12; font-weight:700; font-size:0.8rem; padding:0.25rem 0.7rem; border-radius:999px;">Voorbeeld</div>
+  <div style="font-size:0.92rem; line-height:1.4;">Een instelling met tientallen pakketten naast elkaar: rooster, leeromgeving, studentinformatie, aanmeldportaal, wallet.</div>
+</div>
 </div>
 
 <!--
@@ -304,47 +336,101 @@ ecosysteem.
 
 <div class="fill">
 
-# Organisaties koppelen ook onderling
+# Ecosystemen koppelen aan ecosystemen
 
-<div style="font-size: 0.46rem;">
+<div style="font-size: 0.56rem;">
 
 ```mermaid
 flowchart LR
-  INST["Onderwijsinstelling"]
-  LEV["Leverancier"]
-  OV["Openbaar vervoerder"]
-  MARK["Marketingbedrijf"]
-  GEM["Gemeente"]
-  INST <-->|"leeruitkomst?"| LEV
-  INST <-->|"deelnemer?"| GEM
-  INST <-->|"reis?"| OV
-  MARK <-->|"klant?"| OV
-  MARK <-->|"doelgroep?"| INST
-  style INST fill:#d9f2e6,stroke:#0E9E7E,stroke-width:2px,color:#0f3b2e
-  style LEV fill:#e9edf2,stroke:#94a3b0,color:#1f2937
-  style OV fill:#e9edf2,stroke:#94a3b0,color:#1f2937
-  style MARK fill:#e9edf2,stroke:#94a3b0,color:#1f2937
-  style GEM fill:#e9edf2,stroke:#94a3b0,color:#1f2937
-  linkStyle 0,1,2,3,4 stroke:#A8481F,stroke-width:3px
+  subgraph ONDERWIJS["Onderwijsinstelling"]
+    direction TB
+    OC["Onderwijscatalogus"]
+    SIS["Studentinformatiesysteem"]
+    LMS["Leeromgeving"]
+  end
+  subgraph OVERHEID["Uitvoeringsorganisatie"]
+    direction TB
+    INSCHR["Inschrijvingenregister"]
+    RECHT["Rechtenadministratie"]
+  end
+  subgraph VERVOER["Vervoerder"]
+    direction TB
+    KAART["Kaartsysteem"]
+    REIS["Reisadministratie"]
+  end
+  SIS <-->|"koppeling"| INSCHR
+  RECHT <-->|"koppeling"| KAART
+  OC <-->|"koppeling"| RECHT
+  style ONDERWIJS fill:#f7f9fb,stroke:#b7c0ca,color:#1f2937
+  style OVERHEID fill:#f7f9fb,stroke:#b7c0ca,color:#1f2937
+  style VERVOER fill:#f7f9fb,stroke:#b7c0ca,color:#1f2937
+  style OC fill:#e9edf2,stroke:#94a3b0,color:#1f2937
+  style SIS fill:#e9edf2,stroke:#94a3b0,color:#1f2937
+  style LMS fill:#e9edf2,stroke:#94a3b0,color:#1f2937
+  style INSCHR fill:#e9edf2,stroke:#94a3b0,color:#1f2937
+  style RECHT fill:#e9edf2,stroke:#94a3b0,color:#1f2937
+  style KAART fill:#e9edf2,stroke:#94a3b0,color:#1f2937
+  style REIS fill:#e9edf2,stroke:#94a3b0,color:#1f2937
+  linkStyle 0,1,2 stroke:#D4A017,stroke-width:3.5px
 ```
 
 </div>
 
-<div class="np-card" style="border-top-color: #A8481F; font-size: 0.98rem; line-height: 1.55; margin-top: 0.7rem; max-width: 94%;">
-Een marketingbedrijf en een vervoerder zeggen allebei <strong>klant</strong>. Een onderwijsontwerper en een planner zeggen allebei <strong>groep</strong>. De leiding leggen is techniek. Het eens worden over wat het woord betekent, is dat niet.
+<div style="display:flex; align-items:center; gap:0.7rem; margin-top:0.6rem; max-width:92%;">
+  <div style="background:#ffeed9; color:#8a5a12; font-weight:700; font-size:0.8rem; padding:0.25rem 0.7rem; border-radius:999px;">Voorbeeld</div>
+  <div style="font-size:0.92rem; line-height:1.4;">Het studentenreisproduct. Instelling, uitvoeringsorganisatie en vervoerder moeten het eens zijn over wie student is en vanaf wanneer.</div>
 </div>
 
 </div>
 
 <!--
-Hier komt de kern van het probleem op tafel: partijen uit verschillende werelden
-die elkaars gegevens nodig hebben. Elke lijn draagt een woord met een vraagteken,
-want daar zit de wrijving. Dit is de opmaat naar de slide over waar OKx werkt.
+Niet meer twee applicaties, maar drie ecosystemen uit drie verschillende
+domeinen die elkaars gegevens nodig hebben. Elk heeft zijn eigen taal, eigen
+regels en eigen belangen.
 -->
 
 ---
 
-<!-- 10. LAAG 3 -->
+<!-- 10. HETZELFDE WOORD -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# Hetzelfde woord, een andere betekenis
+
+<div style="display: flex; align-items: stretch; gap: 1rem; margin-top: 1rem; max-width: 96%;">
+
+  <div style="flex: 1; background: #dceffa; border-radius: 10px; padding: 1.1rem 1.3rem;">
+    <div style="font-size: 0.85rem; color: #2E86C1; font-weight: 700;">Onderwijsontwerper</div>
+    <div style="font-size: 1.35rem; font-weight: 700; margin: 0.35rem 0; color: #1f2937;">groep</div>
+    <div style="font-size: 0.95rem; line-height: 1.45;">Studenten die samen dezelfde leeruitkomst nastreven, ongeacht waar en wanneer.</div>
+  </div>
+
+  <div style="flex: 0 0 4rem; display: flex; align-items: center; justify-content: center; font-size: 2.6rem; font-weight: 700; color: #A8481F;">&ne;</div>
+
+  <div style="flex: 1; background: #ffeed9; border-radius: 10px; padding: 1.1rem 1.3rem;">
+    <div style="font-size: 0.85rem; color: #E8912B; font-weight: 700;">Planner</div>
+    <div style="font-size: 1.35rem; font-weight: 700; margin: 0.35rem 0; color: #1f2937;">groep</div>
+    <div style="font-size: 0.95rem; line-height: 1.45;">Het aantal studenten dat op dat tijdstip in dat lokaal past.</div>
+  </div>
+
+</div>
+
+<div class="np-card" style="border-top-color: #A8481F; font-size: 1rem; line-height: 1.55; margin-top: 1rem; max-width: 96%;">
+Twee systemen die allebei werken, en toch niet samenwerken. De leiding leggen is techniek. Het eens worden over wat het woord betekent, is dat niet.
+</div>
+
+</div>
+
+<!--
+Dit is het hele probleem in een plaatje. Het werkt met elk woord: klant,
+deelnemer, periode, resultaat. Zolang dit niet vastligt, levert elke koppeling
+een nieuw misverstand op.
+-->
+
+---
+
+<!-- 11. LAAG 3 -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
@@ -393,6 +479,11 @@ flowchart LR
 </div>
 
 
+
+<div style="display:flex; align-items:center; gap:0.7rem; margin-top:0.6rem; max-width:92%;">
+  <div style="background:#ffeed9; color:#8a5a12; font-weight:700; font-size:0.8rem; padding:0.25rem 0.7rem; border-radius:999px;">Voorbeeld</div>
+  <div style="font-size:0.92rem; line-height:1.4;">Spotify. Wat je te horen krijgt komt uit modellen die op miljarden luisterbeurten zijn getraind.</div>
+</div>
 </div>
 
 <!--
@@ -402,7 +493,7 @@ bronnen betekenen dat uitwisseling niet meer alleen intern is.
 
 ---
 
-<!-- 11. LAAG 4 -->
+<!-- 12. LAAG 4 -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
@@ -461,6 +552,11 @@ flowchart LR
 Elke laag van dertig jaar staat er nog. Wat ze verbindt zijn de pijlen: <strong>informatiestromen, vastgelegd in afspraken</strong>. De AI-laag heeft zelf geen opslag en bestaat volledig bij de gratie van wat die pijlen aanleveren.
 </div>
 
+
+<div style="display:flex; align-items:center; gap:0.7rem; margin-top:0.6rem; max-width:92%;">
+  <div style="background:#ffeed9; color:#8a5a12; font-weight:700; font-size:0.8rem; padding:0.25rem 0.7rem; border-radius:999px;">Voorbeeld</div>
+  <div style="font-size:0.92rem; line-height:1.4;">Een assistent die je hele reis boekt terwijl jij een zin typt.</div>
+</div>
 </div>
 
 <!--
@@ -470,7 +566,7 @@ gratie van wat de pijlen aanleveren.
 
 ---
 
-<!-- 12. DE TREND -->
+<!-- 13. DE TREND -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
@@ -533,21 +629,21 @@ boodschap is de verhouding: blokken maal ruim twee, stromen maal bijna drie.
 
 ---
 
-<!-- 13. WAAR OKX ZIT -->
+<!-- 14. WAAR OKX ZIT -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
 
-# Precies daar werkt OKx
+# Wat OKx doet
 
-<div style="font-size: 0.52rem;">
+<div style="font-size: 0.5rem;">
 
 ```mermaid
 flowchart LR
   OC["Onderwijscatalogus"]
   PR["Planning en roostering"]
   SIS["Studentinformatiesysteem"]
-  LMS["Leermanagementsysteem"]
+  LMS["Leeromgeving"]
   OC <-->|"onderwijsspecificatie"| PR
   OC <-->|"verbintenis en resultaat"| SIS
   OC <-->|"leermiddel"| LMS
@@ -560,35 +656,63 @@ flowchart LR
 
 </div>
 
-<div class="np-grid-2" style="margin-top: 0.6rem; gap: 1.4rem; font-size: 0.88rem; line-height: 1.45; max-width: 94%;">
-<div style="background: #d9f5ec; border-radius: 8px; padding: 0.85rem 1.1rem;">
-
-<strong style="color: #0E9E7E;">Waar AI bij helpt</strong>
-
-Koppelen wordt goedkoper. Een model leest een schema, schrijft een adapter, en vertaalt tussen formaten. Het bouwwerk eromheen wordt sneller gemaakt dan ooit.
-
-</div>
-<div style="background: #ffeed9; border-radius: 8px; padding: 0.85rem 1.1rem;">
-
-<strong style="color: #E8912B;">Waar AI niet bij helpt</strong>
-
-Beleid, afspraken, semantiek en duiding. Wat een systeem uit twee verschillende werelden bedoelt met hetzelfde woord, is geen taalvraag maar een bestuurlijke. Wat er nu is, zijn slimme taalmodellen, geen AGI.
-
-</div>
+<div class="np-card" style="border-top-color: #0E9E7E; font-size: 0.98rem; line-height: 1.55; margin-top: 0.7rem; max-width: 94%;">
+OKx wijst de punten aan waar systemen elkaar raken, en legt vast wat er over zo'n punt gaat en wat het betekent. Niet willekeurig, maar op basis van wat een student moet kunnen: kiezen, inschrijven, leren, resultaat halen.
 </div>
 
 </div>
 
 <!--
-De gouden pijlen zijn wat OKx maakt: de afspraak over wat er tussen twee
-systemen gaat en wat het betekent. Het grootste probleem is systemen uit twee
-werelden integreren; daar helpt een model wel bij het bouwen, niet bij het eens
-worden.
+Drie koppelingen op een koppelvlak, dat van de onderwijscatalogus. De gouden
+lijnen zijn het werk. De doelen eronder komen uit de requirementsboom.
 -->
 
 ---
 
-<!-- 14. KANSEN -->
+<!-- 15. WAT DAT MOGELIJK MAAKT -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# Wat dat straks mogelijk maakt
+
+<div style="font-size: 0.95rem; line-height: 1.5; margin-top: 0.5rem; max-width: 92%;">
+
+Als die punten vastliggen en hun betekenis erbij staat, kan een agent ze ook vinden. En dan kan hij er niet alleen over praten, maar ook mee handelen.
+
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.8rem; max-width: 92%;">
+
+  <div style="background: #d9f5ec; border-radius: 8px; padding: 0.9rem 1.2rem; font-size: 1rem; line-height: 1.45;">
+    Een agent schrijft je in voor al je onderwijs, in plaats van dat je zeven schermen doorloopt.
+  </div>
+
+  <div style="background: #dceffa; border-radius: 8px; padding: 0.9rem 1.2rem; font-size: 1rem; line-height: 1.45;">
+    Een agent stelt een leerroute samen uit wat er in de onderwijscatalogus staat, passend bij wat je al hebt gehaald.
+  </div>
+
+  <div style="background: #f0e9fb; border-radius: 8px; padding: 0.9rem 1.2rem; font-size: 1rem; line-height: 1.45;">
+    Een agent schrijft een lesopzet op basis van de specificatie in de catalogus en het materiaal in de leeromgeving.
+  </div>
+
+</div>
+
+<div class="np-card" style="border-top-color: #A8481F; font-size: 0.98rem; line-height: 1.55; margin-top: 0.8rem; max-width: 94%;">
+Daarvoor moet die agent bij de informatie kunnen <strong>en</strong> weten wat ze betekent. Het eerste is een koppeling. Het tweede is een afspraak. Precies die twee maakt OKx.
+</div>
+
+</div>
+
+<!--
+Dit is het antwoord op de vraag, omgedraaid: AI maakt OKx niet overbodig, OKx
+is de voorwaarde waaronder AI in deze sector iets kan. De drie voorbeelden zijn
+bewust concreet en herkenbaar voor een bestuurder.
+-->
+
+---
+
+<!-- 16. KANSEN -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
@@ -620,7 +744,7 @@ vertellen buiten de sector.
 
 ---
 
-<!-- 15. RISICO'S -->
+<!-- 17. RISICO'S -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
@@ -651,7 +775,7 @@ doet zonder er een verwijt van te maken.
 
 ---
 
-<!-- 16. WAT DE SECTOR MERKT -->
+<!-- 18. WAT DE SECTOR MERKT -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
@@ -688,7 +812,7 @@ wordt als het terugdraaien van een toezegging.
 
 ---
 
-<!-- 17. WAAR ZETTEN WE OP IN -->
+<!-- 19. WAAR ZETTEN WE OP IN -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
@@ -725,7 +849,7 @@ apart bij omdat die de langste doorlooptijd heeft.
 
 ---
 
-<!-- 18. AFSLUITER -->
+<!-- 20. AFSLUITER -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide17.PNG);"></div>
 
 <!--
