@@ -728,28 +728,27 @@ worden, met raamwerk is het telkens dezelfde beweging.
 
 <div class="fill">
 
-# Vier kansen
+# Drie kansen
 
 <div style="font-size: 0.95rem; line-height: 1.5; margin-top: 0.7rem; max-width: 94%;">
 
 | Kans | Waar die vandaan komt |
 |---|---|
-| Eerste sector met een specificatie die een agent kan lezen | De payloads zijn al machineleesbaar |
-| De specificatie als meer dan een document | Dezelfde bron kan meer dragen dan tekst |
-| Ons tempo als voorbeeld | Twee releases in twee weken, mediaan negen dagen per issue |
-| Laat zijn heeft een voordeel | Andere sectoren zijn ons voor, hun keuzes zijn over te nemen |
+| Voortbouwen op wie ons voor is | Andere sectoren zijn verder, hun keuzes zijn over te nemen in plaats van uit te vinden |
+| Tempo dat de sector kan bijbenen | Twee releases in twee weken, mediaan negen dagen per issue |
+| De specificatie kan meer dragen dan tekst | De payloads zijn al machineleesbaar, dezelfde bron voedt straks meer |
 
 </div>
 
 <div style="font-size: 0.92rem; color: var(--np-dark-gray); margin-top: 0.9rem; max-width: 92%;">
-De eerste twee zijn een positie die we kunnen innemen. De laatste twee zijn meewind die er sowieso is.
+We lopen achter, en juist daarom is de weg korter: het pad is al gelopen, wij hoeven het alleen te kiezen.
 </div>
 
 </div>
 
 <!--
-De tweede kans is de interessantste: de specificatie is nu een document, maar
-dezelfde inhoud kan meer dragen.
+Achterlopen is hier geen excuus maar de kans zelf. De derde is de enige die we
+zelf in de hand hebben.
 -->
 
 ---
@@ -762,75 +761,44 @@ dezelfde inhoud kan meer dragen.
 # Twee risico's
 
 <div style="display: flex; flex-direction: column; gap: 0.7rem; margin-top: 0.9rem; max-width: 96%;">
-
-  <div style="display:flex; gap:0.8rem; align-items:stretch;">
-    <div style="flex:1.25; background:#fdf3ea; border-left:6px solid #8a5a12; border-radius:8px; padding:0.85rem 1.1rem;">
-      <div style="font-size:1rem; font-weight:700; color:#8a5a12; margin-bottom:0.25rem;">De afspraak komt te laat</div>
-      <div style="font-size:0.92rem; line-height:1.45;">De praktijk koppelt al. Elke maand zonder gedragen afspraak is een maand waarin systemen op eigen houtje aan elkaar geknoopt worden, en die knopen zijn later moeilijk terug te draaien.</div>
-    </div>
-    <div style="flex:1; background:#e8f6f1; border-left:6px solid #0E9E7E; border-radius:8px; padding:0.85rem 1.1rem;">
-      <div style="font-size:0.78rem; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:#0E9E7E; margin-bottom:0.25rem;">Wat we al doen</div>
-      <div style="font-size:0.92rem; line-height:1.45;">Het platform staat en er wordt op gebouwd. Sinds de vorige sessie van de kerngroep techniek zijn er 89 issues van acht deelnemers, waaronder een leverancier. Draagvlak komt traag op gang, maar de beweging is meetbaar.</div>
-    </div>
-  </div>
-
-
-  <div style="display:flex; gap:0.8rem; align-items:stretch;">
-    <div style="flex:1.25; background:#fbf1ec; border-left:6px solid #A8481F; border-radius:8px; padding:0.85rem 1.1rem;">
-      <div style="font-size:1rem; font-weight:700; color:#A8481F; margin-bottom:0.25rem;">Specificeren in een standaard in plaats van in eisen</div>
-      <div style="font-size:0.92rem; line-height:1.45;">Leggen we alleen vast hoe het in OEAPI moet, dan verdwijnt de eis erachter uit beeld. Bij een nieuwe versie of een ander protocol begint het specificeren dan opnieuw.</div>
-    </div>
-    <div style="flex:1; background:#e8f6f1; border-left:6px solid #0E9E7E; border-radius:8px; padding:0.85rem 1.1rem;">
-      <div style="font-size:0.78rem; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:#0E9E7E; margin-bottom:0.25rem;">Wat we al doen</div>
-      <div style="font-size:0.92rem; line-height:1.45;">Werken aan een referentiekader dat los staat van de techniek: uitlijnen met MORA en HORA, het OKx-kader uitwerken in het businesskader, en expliciet maken wat we bouwen, voor wie en onder welke omstandigheden.</div>
-    </div>
-  </div>
-
+<div style="display:flex; gap:0.8rem; align-items:stretch;"><div style="flex:1.3; background:#fdf3ea; border-left:6px solid #8a5a12; border-radius:8px; padding:0.85rem 1.1rem;"><div style="font-size:1rem; font-weight:700; color:#8a5a12; margin-bottom:0.25rem;">De afspraak komt te laat</div><div style="font-size:0.92rem; line-height:1.45;">De praktijk koppelt al. Elke maand zonder gedragen afspraak is een maand waarin systemen op eigen houtje aan elkaar geknoopt worden.</div></div><div style="flex:0.85; background:#e8f6f1; border-left:6px solid #0E9E7E; border-radius:8px; padding:0.85rem 1.1rem;"><div style="font-size:0.75rem; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:#0E9E7E; margin-bottom:0.35rem;">Wat we al doen</div><div style="font-size:0.88rem; line-height:1.35;"><div style="display:flex; gap:0.45rem; align-items:baseline; margin-bottom:0.25rem;"><span style="color:#0E9E7E; font-weight:700;">&bull;</span><span>Platform staat, er wordt op gebouwd</span></div><div style="display:flex; gap:0.45rem; align-items:baseline; margin-bottom:0.25rem;"><span style="color:#0E9E7E; font-weight:700;">&bull;</span><span>89 issues, acht deelnemers, ook een leverancier</span></div><div style="display:flex; gap:0.45rem; align-items:baseline; margin-bottom:0.25rem;"><span style="color:#0E9E7E; font-weight:700;">&bull;</span><span>Draagvlak traag, beweging meetbaar</span></div></div></div></div>
+<div style="display:flex; gap:0.8rem; align-items:stretch;"><div style="flex:1.3; background:#fbf1ec; border-left:6px solid #C0392B; border-radius:8px; padding:0.85rem 1.1rem;"><div style="font-size:1rem; font-weight:700; color:#C0392B; margin-bottom:0.25rem;">Specificeren in een standaard in plaats van in eisen</div><div style="font-size:0.92rem; line-height:1.45;">Leggen we alleen vast hoe het in OEAPI moet, dan verdwijnt de eis erachter uit beeld. Bij een nieuwe versie of een ander protocol begint het specificeren opnieuw.</div><div style="font-size:0.92rem; font-weight:700; color:#C0392B; margin-top:0.5rem;">Hier bouw je de stoomtrein, in plaats van het spoor waar de vliegende auto ook op past.</div></div><div style="flex:0.85; background:#e8f6f1; border-left:6px solid #0E9E7E; border-radius:8px; padding:0.85rem 1.1rem;"><div style="font-size:0.75rem; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:#0E9E7E; margin-bottom:0.35rem;">Wat we al doen</div><div style="font-size:0.88rem; line-height:1.35;"><div style="display:flex; gap:0.45rem; align-items:baseline; margin-bottom:0.25rem;"><span style="color:#0E9E7E; font-weight:700;">&bull;</span><span>Uitlijnen met MORA en HORA</span></div><div style="display:flex; gap:0.45rem; align-items:baseline; margin-bottom:0.25rem;"><span style="color:#0E9E7E; font-weight:700;">&bull;</span><span>OKx-kader in het businesskader</span></div><div style="display:flex; gap:0.45rem; align-items:baseline; margin-bottom:0.25rem;"><span style="color:#0E9E7E; font-weight:700;">&bull;</span><span>Wat bouwen we, voor wie, onder welke omstandigheden</span></div></div></div></div>
 </div>
 
 </div>
 
 <!--
-Geen van beide is een verwijt: het eerste is een wedloop met de praktijk, het
-tweede een keuze over waar de eis vastligt. Bij allebei loopt de maatregel al.
+Het tweede risico is de vraag van de opdrachtgever, maar dan van binnenuit: de
+stoomtrein ontstaat niet door de techniekkeuze, maar doordat de eis alleen nog
+in de vorm van die techniek bestaat.
 -->
 
 ---
 
-<!-- 18. WAT DE SECTOR MERKT -->
+<!-- 18. WAT DE AFSPRAAK OP GANG BRENGT -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
 
-# Wat de sector hiervan merkt
+# Wat de afspraak op gang brengt
 
-<div style="display:flex; gap:1.2rem; margin-top:1.2rem; max-width:96%;">
+<div style="display:flex; gap:0.6rem; margin-top:1.1rem; max-width:96%;">
+<div style="flex:1; background:#eef4fa; border-top:5px solid #2E86C1; border-radius:8px; padding:0.85rem 0.9rem; text-align:center;"><div style="font-size:0.72rem; font-weight:700; color:#2E86C1; letter-spacing:0.06em; margin-bottom:0.3rem;">1</div><div style="font-size:0.95rem; line-height:1.4;">De afspraak staat</div></div><div style="align-self:center; font-size:1.4rem; color:#2E86C1; line-height:1;">&#9654;</div><div style="flex:1; background:#eef4fa; border-top:5px solid #2E86C1; border-radius:8px; padding:0.85rem 0.9rem; text-align:center;"><div style="font-size:0.72rem; font-weight:700; color:#2E86C1; letter-spacing:0.06em; margin-bottom:0.3rem;">2</div><div style="font-size:0.95rem; line-height:1.4;">Systemen koppelen erop</div></div><div style="align-self:center; font-size:1.4rem; color:#2E86C1; line-height:1;">&#9654;</div><div style="flex:1; background:#eef4fa; border-top:5px solid #2E86C1; border-radius:8px; padding:0.85rem 0.9rem; text-align:center;"><div style="font-size:0.72rem; font-weight:700; color:#2E86C1; letter-spacing:0.06em; margin-bottom:0.3rem;">3</div><div style="font-size:0.95rem; line-height:1.4;">Meer uitwisseling, meer data</div></div><div style="align-self:center; font-size:1.4rem; color:#2E86C1; line-height:1;">&#9654;</div><div style="flex:1; background:#eef4fa; border-top:5px solid #2E86C1; border-radius:8px; padding:0.85rem 0.9rem; text-align:center;"><div style="font-size:0.72rem; font-weight:700; color:#2E86C1; letter-spacing:0.06em; margin-bottom:0.3rem;">4</div><div style="font-size:0.95rem; line-height:1.4;">Voedingsbodem voor AI</div></div>
+</div>
 
-  <div style="flex:1; background:#d9f5ec; border-radius:10px; padding:1rem 1.2rem;">
-    <div style="font-size:0.95rem; font-weight:700; color:#0E9E7E; margin-bottom:0.45rem;">Studenten</div>
-    <div style="font-size:0.95rem; line-height:1.5;">Een keuze die klopt over instellingen heen, niet per systeem opnieuw.</div>
-  </div>
+<div style="font-size:0.85rem; color: var(--np-mid-gray); margin-top:0.5rem; max-width:90%;">
+Elke fase levert de eisen op voor de volgende.
+</div>
 
-
-  <div style="flex:1; background:#dceffa; border-radius:10px; padding:1rem 1.2rem;">
-    <div style="font-size:0.95rem; font-weight:700; color:#2E86C1; margin-bottom:0.45rem;">Instellingen</div>
-    <div style="font-size:0.95rem; line-height:1.5;">Kiezen over systemen heen kan alleen als die systemen het eens zijn over wat een leeruitkomst is.</div>
-  </div>
-
-
-  <div style="flex:1; background:#ffeed9; border-radius:10px; padding:1rem 1.2rem;">
-    <div style="font-size:0.95rem; font-weight:700; color:#E8912B; margin-bottom:0.45rem;">Leveranciers</div>
-    <div style="font-size:0.95rem; line-height:1.5;">Bouwen tegen een afspraak, in plaats van tegen elke instelling apart.</div>
-  </div>
-
+<div class="np-card" style="border-top-color: #0E9E7E; font-size: 0.98rem; line-height: 1.55; margin-top: 0.9rem; max-width: 96%;">
+<strong style="color: #0E9E7E;">Daarmee versnelt de doorontwikkeling</strong> naar de volgende fase van integratie in het onderwijsecosysteem: meer aanbod dat te vergelijken is, meer resultaten die meetellen, meer ondersteuning die op echte gegevens staat. Dat helpt de student, de instelling en de leverancier tegelijk.
 </div>
 
 </div>
 
 <!--
-Als het gesprek naar het detailniveau gaat dat leveranciers is toegezegd: dat
-is een apart gesprek per leverancier, gevoerd door de projectleiding, en niet
-wat hier voorligt.
+De afspraak is geen eindpunt maar een startpunt. Zonder die eerste stap komt de
+data niet op gang, en zonder data blijft AI-ondersteuning gokwerk.
 -->
 
 ---
