@@ -31,7 +31,42 @@ Twee besluiten aan het eind; die zijn het doel van dit gesprek.
 
 ---
 
-<!-- 2. CONCLUSIE -->
+<!-- 2. AANLEIDING -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# Aanleiding
+
+<div style="font-size: 1rem; line-height: 1.65; margin-top: 0.7rem; max-width: 88%;">
+
+De opdrachtgever stelde een vraag die het waard is om serieus te nemen.
+
+</div>
+
+<div class="np-card" style="border-top-color: #A8481F; font-size: 1.05rem; line-height: 1.6; margin-top: 0.7rem; max-width: 90%;">
+Bouwen we geen stoomtrein door koppelvlakken te standaardiseren? Zeker met de opkomst van AI. Hebben we straks geen vliegende auto's?
+</div>
+
+<div style="font-size: 0.98rem; line-height: 1.6; margin-top: 0.9rem; max-width: 88%;">
+
+Achter die vraag zit een reele zorg: een standaardisatietraject duurt jaren, en de wereld eromheen verandert sneller dan ooit. Wie in 1995 het perfecte faxprotocol standaardiseerde, had gelijk en verloor toch.
+
+Dit deck beantwoordt de vraag in twee stappen. Eerst wat AI werkelijk doet met een IT-ecosysteem, aan de hand van dertig jaar lagen die erbij kwamen. Daarna waar OKx in dat beeld staat.
+
+</div>
+
+</div>
+
+<!--
+Kort houden en de vraag laten staan zoals hij gesteld is. Niet meteen
+verdedigen; de zorg is terecht. Het faxvoorbeeld maakt duidelijk dat de vraag
+niet flauw is.
+-->
+
+---
+
+<!-- 3. CONCLUSIE -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
@@ -68,42 +103,248 @@ slide 5. Niet defensief brengen, wel feitelijk.
 
 ---
 
-<!-- 3. DE VRAAG -->
+<!-- 4. LAAG 1 -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
 
-# De vraag
+# Een systeem, jaren negentig
 
-<div class="np-card" style="border-top-color: #0B4F6C; font-size: 1.05rem; line-height: 1.6; margin-top: 0.5rem; max-width: 90%;">
-Bouwen we met OKx niet een stoomtrein, terwijl de AI-ontwikkeling straks om vliegtuigen vraagt?
+<div style="font-size: 0.62rem;">
+
+```mermaid
+flowchart LR
+  UI["Gebruikersschil"] --> APP["Toepassing"]
+  APP --> DB[("Gegevensopslag")]
+  style UI fill:#e9edf2,stroke:#94a3b0,color:#1f2937
+  style APP fill:#e9edf2,stroke:#94a3b0,color:#1f2937
+  style DB fill:#e9edf2,stroke:#94a3b0,color:#1f2937
+```
+
 </div>
 
-<div style="font-size: 0.9rem; line-height: 1.5; margin-top: 0.8rem; max-width: 94%;">
+<div style="font-size: 0.95rem; line-height: 1.55; margin-top: 0.9rem; max-width: 90%;">
 
-| De vraag kan drie dingen betekenen | Antwoord staat op |
-|---|---|
-| De gekozen techniek is achterhaald | Slide 4: de techniek is de vervangbare laag |
-| Het duurt te lang voordat er een gedragen afspraak ligt | Slide 5: dit is een risico, nog niet gemeten |
-| AI lost de koppelpunten tussen systemen zelf op | Slide 4: de vraag wie waarvan bron is, is bestuurlijk en verdwijnt niet |
+Drie delen. Een scherm waarmee iemand werkt, een toepassing die de logica draait, en een plek waar de gegevens staan. Alles binnen een organisatie, alles onder een dak.
 
-</div>
-
-<div style="font-size: 0.9rem; color: var(--np-dark-gray); margin-top: 0.8rem; max-width: 90%;">
-Alle drie worden beantwoord. De derde is de zwaarste en krijgt daarom de eerste helft van slide 4.
 </div>
 
 </div>
 
 <!--
-De vraag laten staan zoals hij gesteld is, en dan zeggen waar elk antwoord
-staat. Niet wegen welke lezing zwaar is: dat leest als een beoordeling van de
-vrager.
+Bewust simpel beginnen. Iedereen in de zaal herkent dit beeld. De volgende
+slides voegen er laag voor laag iets aan toe.
 -->
 
 ---
 
-<!-- 4. WAT STANDHOUDT -->
+<!-- 5. LAAG 2 -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# Wat de dot-comjaren toevoegden
+
+<div style="font-size: 0.58rem;">
+
+```mermaid
+flowchart LR
+  UI["Gebruikersschil"] --> APP["Toepassing"]
+  APP --> DB[("Gegevensopslag")]
+  DB --> DWH[("Datawarehouse")]
+  DWH --> BI["Rapportage en<br/>stuurinformatie"]
+  style UI fill:#e9edf2,stroke:#94a3b0,color:#1f2937
+  style APP fill:#e9edf2,stroke:#94a3b0,color:#1f2937
+  style DB fill:#e9edf2,stroke:#94a3b0,color:#1f2937
+  style DWH fill:#1D4ED8,stroke:#1D4ED8,color:#ffffff
+  style BI fill:#1D4ED8,stroke:#1D4ED8,color:#ffffff
+```
+
+</div>
+
+<div style="font-size: 0.95rem; line-height: 1.55; margin-top: 0.8rem; max-width: 90%;">
+
+Organisaties wilden weten wat er in hun gegevens zat. Er kwam een datawarehouse bij, en daarbovenop rapportage en stuurinformatie. Een nieuwe laag, met een nieuwe vraag: hoe komen gegevens uit de bronsystemen daarin terecht?
+
+</div>
+
+</div>
+
+<!--
+Dit is het patroon dat door het hele verhaal loopt: elke nieuwe laag leunt op
+gegevens uit de laag eronder. De vraag naar uitwisseling werd dus groter, niet
+kleiner.
+-->
+
+---
+
+<!-- 6. LAAG 3 -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# Wat cloud, platformen en machine learning toevoegden
+
+<div style="font-size: 0.5rem;">
+
+```mermaid
+flowchart LR
+  UI["Gebruikersschil"] --> APP["Toepassing"]
+  APP --> DB[("Gegevensopslag")]
+  DB --> DWH[("Datawarehouse")]
+  DWH --> BI["Rapportage en<br/>stuurinformatie"]
+  DWH --> LH[("Data lakehouse<br/>met rekenkracht")]
+  LH --> ML["Modellen en<br/>voorspellingen"]
+  EXT["Externe bronnen:<br/>platformen, sensoren, partners"] --> LH
+  style UI fill:#e9edf2,stroke:#94a3b0,color:#1f2937
+  style APP fill:#e9edf2,stroke:#94a3b0,color:#1f2937
+  style DB fill:#e9edf2,stroke:#94a3b0,color:#1f2937
+  style DWH fill:#e9edf2,stroke:#94a3b0,color:#1f2937
+  style BI fill:#e9edf2,stroke:#94a3b0,color:#1f2937
+  style LH fill:#1D4ED8,stroke:#1D4ED8,color:#ffffff
+  style ML fill:#1D4ED8,stroke:#1D4ED8,color:#ffffff
+  style EXT fill:#1D4ED8,stroke:#1D4ED8,color:#ffffff
+```
+
+</div>
+
+<div style="font-size: 0.92rem; line-height: 1.5; margin-top: 0.7rem; max-width: 92%;">
+
+De hoeveelheid gegevens groeide, en de rekenkracht verhuisde naar de cloud. Het datawarehouse kreeg een opvolger die ook ongestructureerde gegevens aankan en er rekenkracht naast zet. Daarbovenop kwamen modellen en voorspellingen. En er kwamen bronnen bij van buiten de eigen organisatie.
+
+</div>
+
+</div>
+
+<!--
+Twee dingen tegelijk: de stapel wordt hoger en hij wordt breder. Externe
+bronnen betekenen dat uitwisseling niet meer alleen intern is.
+-->
+
+---
+
+<!-- 7. LAAG 4 -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# Wat AI toevoegt
+
+<div style="font-size: 0.46rem;">
+
+```mermaid
+flowchart LR
+  UI["Gebruikersschil"] --> APP["Toepassing"]
+  APP --> DB[("Gegevensopslag")]
+  DB --> DWH[("Datawarehouse")]
+  DWH --> BI["Rapportage en<br/>stuurinformatie"]
+  DWH --> LH[("Data lakehouse<br/>met rekenkracht")]
+  LH --> ML["Modellen en<br/>voorspellingen"]
+  EXT["Externe bronnen:<br/>platformen, sensoren, partners"] --> LH
+  LH --> AI["AI-laag:<br/>assistenten en agents"]
+  ML --> AI
+  AI --> UI
+  style UI fill:#e9edf2,stroke:#94a3b0,color:#1f2937
+  style APP fill:#e9edf2,stroke:#94a3b0,color:#1f2937
+  style DB fill:#e9edf2,stroke:#94a3b0,color:#1f2937
+  style DWH fill:#e9edf2,stroke:#94a3b0,color:#1f2937
+  style BI fill:#e9edf2,stroke:#94a3b0,color:#1f2937
+  style LH fill:#e9edf2,stroke:#94a3b0,color:#1f2937
+  style ML fill:#e9edf2,stroke:#94a3b0,color:#1f2937
+  style EXT fill:#e9edf2,stroke:#94a3b0,color:#1f2937
+  style AI fill:#1D4ED8,stroke:#1D4ED8,color:#ffffff
+  linkStyle default stroke:#D4A017,stroke-width:2.5px
+```
+
+</div>
+
+<div class="np-card" style="border-top-color: #D4A017; font-size: 0.95rem; line-height: 1.5; margin-top: 0.6rem; max-width: 92%;">
+Elke laag in dertig jaar is erbij gekomen, geen enkele is verdwenen. En elke nieuwe laag leunt zwaarder op de laag eronder. Wat al die lagen verbindt, is <strong>gegevensuitwisseling</strong>: nog altijd via afspraken over wat er heen en weer gaat.
+</div>
+
+</div>
+
+<!--
+De pijlen zijn hier goudkleurig: dat is de gegevensuitwisseling, en dat is het
+enige element dat in alle vier de plaatjes voorkomt. Dit is het kantelpunt van
+het verhaal.
+-->
+
+---
+
+<!-- 8. DE TREND -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# De trend achter dertig jaar lagen
+
+<div style="font-size: 0.92rem; line-height: 1.5; margin-top: 0.6rem; max-width: 96%;">
+
+| Periode | Wat erbij kwam | Wat dat vroeg van uitwisseling |
+|---|---|---|
+| Jaren negentig | Datawarehouse en rapportage | Gegevens uit bronsystemen halen, periodiek |
+| Dot-com en daarna | Webkoppelingen tussen organisaties | Afspraken tussen partijen in plaats van binnen een organisatie |
+| Cloud en platformen | Externe bronnen en rekenkracht op afstand | Continu, over organisatiegrenzen heen |
+| Machine learning | Modellen die op veel bronnen tegelijk leunen | Meer bronnen, betere kwaliteit, herleidbaar |
+| AI-assistenten en agents | Een laag die alles wil kunnen bevragen | Alles hierboven, plus vindbaar en interpreteerbaar zonder mens |
+
+</div>
+
+<div class="np-card" style="border-top-color: #0E7C66; font-size: 0.95rem; line-height: 1.5; margin-top: 0.7rem; max-width: 94%;">
+Elke golf maakte de vraag naar gegevensuitwisseling groter. Geen enkele maakte hem kleiner. AI is de eerste laag die niets eigens opslaat en dus volledig afhankelijk is van wat de lagen eronder aanleveren.
+</div>
+
+</div>
+
+<!--
+Dit is de kern van het antwoord op de vraag. De geschiedenis wijst een kant op
+en die kant is meer uitwisseling, niet minder. Wie dat betwist, moet uitleggen
+waarom deze golf de eerste is die het patroon omkeert.
+-->
+
+---
+
+<!-- 9. WAAR OKX ZIT -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# Waar OKx in dit beeld staat
+
+<div style="font-size: 0.95rem; line-height: 1.55; margin-top: 0.6rem; max-width: 92%;">
+
+OKx werkt niet aan een laag. OKx werkt aan de verbinding tussen de lagen: welke gegevens tussen systemen gaan, wat ze betekenen, en wie waarvan de bron is. Dat is precies het element dat in alle vier de plaatjes voorkomt.
+
+</div>
+
+<div class="np-grid-2" style="margin-top: 0.8rem; gap: 1.5rem; font-size: 0.9rem; line-height: 1.5; max-width: 94%;">
+<div style="border-left: 4px solid #0E7C66; padding-left: 0.9rem;">
+
+<strong style="color: #0E7C66;">Wat dit voor de vraag betekent</strong>
+
+Een instelling met losse systemen en onduidelijke begrippen heeft niets aan een AI-laag: die kan alleen bevragen wat ontsloten en gedefinieerd is. Meer interconnectie levert sterkere bronnen op, en sterkere bronnen zijn waar AI op aanhaakt.
+
+</div>
+<div style="border-left: 4px solid #A8481F; padding-left: 0.9rem;">
+
+<strong style="color: #A8481F;">Waar de zorg wel terecht is</strong>
+
+Wij zijn laat. Andere sectoren hebben deze afspraken al. Dat is geen argument om het niet te doen, maar wel om er tempo op te zetten en om de uitwisseling zo vast te leggen dat een machine hem kan lezen.
+
+</div>
+</div>
+
+</div>
+
+<!--
+Hier komen de twee helften bij elkaar: de trend rechtvaardigt het werk, en de
+zorg over tempo blijft staan. Niet doorslaan naar zelffelicitatie.
+-->
+
+---
+
+<!-- 10. WAT STANDHOUDT -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
@@ -136,7 +377,7 @@ het anders aantreft, gelooft de rest van het deck ook niet meer.
 
 ---
 
-<!-- 5. DE VIER GATEN -->
+<!-- 11. DE VIER GATEN -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
@@ -168,7 +409,7 @@ is een risico, geen vastgestelde tekortkoming. Zo ook brengen.
 
 ---
 
-<!-- 6. WAT DE SECTOR MERKT -->
+<!-- 12. WAT DE SECTOR MERKT -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
@@ -206,7 +447,7 @@ detail" verstopt in een kostenkolom. Dat is nu expliciet uitgesloten.
 
 ---
 
-<!-- 7. WAT WE DOEN -->
+<!-- 13. WAT WE DOEN -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
@@ -238,7 +479,7 @@ presenteren.
 
 ---
 
-<!-- 8. BESLUIT 1 -->
+<!-- 14. BESLUIT 1 -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
@@ -275,7 +516,7 @@ dat is de mitigatie en die niet vergeten te noemen.
 
 ---
 
-<!-- 9. BESLUIT 2 -->
+<!-- 15. BESLUIT 2 -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
@@ -310,7 +551,7 @@ een ding besloten wordt, dan dit.
 
 ---
 
-<!-- 10. AFSLUITER -->
+<!-- 16. AFSLUITER -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide17.PNG);"></div>
 
 <!--
