@@ -88,88 +88,32 @@ alles wat erop volgt.
 
 # Waarom we met informatiestromen werken
 
-<div style="font-size: 0.88rem; color: var(--np-mid-gray); margin-bottom: 0.1rem;">
+<div style="font-size: 0.85rem; color: var(--np-mid-gray); margin-bottom: 0.1rem;">
 Elke golf zette er een laag bij. Geen enkele haalde er een weg.
 </div>
 
-<div style="display:flex; gap:0.9rem; margin-top:0.9rem; max-width:96%; align-items:stretch;">
-<div style="flex:1; display:flex; flex-direction:column;"><div style="font-size:0.85rem; font-weight:700; color:#94a3b0; margin-bottom:0.45rem;">Jaren 80 en 90</div><div style="flex:1;"><div style="background:#eef4fa; border:1px solid #c9d8e6; border-radius:5px;padding:0.22rem 0.45rem; font-size:0.72rem; text-align:center; margin-bottom:0.2rem;">Gebruikersschil</div><div style="background:#eef4fa; border:1px solid #c9d8e6; border-radius:5px;padding:0.22rem 0.45rem; font-size:0.72rem; text-align:center; margin-bottom:0.2rem;">Verwerking</div><div style="background:#eef4fa; border:1px solid #c9d8e6; border-radius:5px;padding:0.22rem 0.45rem; font-size:0.72rem; text-align:center; margin-bottom:0.2rem;">Opslag</div></div><div style="font-size:0.75rem; color:var(--np-mid-gray); margin-top:0.45rem; line-height:1.3;">Een systeem op een server in de kelder. Alles binnen dezelfde muren.</div></div><div style="flex:1; display:flex; flex-direction:column;"><div style="font-size:0.85rem; font-weight:700; color:#2E86C1; margin-bottom:0.45rem;">Jaren 2000</div><div style="flex:1;"><div style="background:#eef4fa; border:1px solid #c9d8e6; border-radius:5px;padding:0.22rem 0.45rem; font-size:0.72rem; text-align:center; margin-bottom:0.2rem;">Gebruikersschil</div><div style="background:#eef4fa; border:1px solid #c9d8e6; border-radius:5px;padding:0.22rem 0.45rem; font-size:0.72rem; text-align:center; margin-bottom:0.2rem;">Verwerking</div><div style="background:#eef4fa; border:1px solid #c9d8e6; border-radius:5px;padding:0.22rem 0.45rem; font-size:0.72rem; text-align:center; margin-bottom:0.2rem;">Opslag</div><div style="background:#eef4fa; border:1px solid #c9d8e6; border-radius:5px;padding:0.22rem 0.45rem; font-size:0.72rem; text-align:center; margin-bottom:0.2rem;">Koppelvlak (API)</div><div style="background:#eef4fa; border:1px solid #c9d8e6; border-radius:5px;padding:0.22rem 0.45rem; font-size:0.72rem; text-align:center; margin-bottom:0.2rem;">Ander systeem</div></div><div style="font-size:0.75rem; color:var(--np-mid-gray); margin-top:0.45rem; line-height:1.3;">Systemen gaan elkaar bevragen. Het koppelvlak komt erbij.</div></div><div style="flex:1; display:flex; flex-direction:column;"><div style="font-size:0.85rem; font-weight:700; color:#0E9E7E; margin-bottom:0.45rem;">Jaren 2010</div><div style="flex:1;"><div style="background:#eef4fa; border:1px solid #c9d8e6; border-radius:5px;padding:0.22rem 0.45rem; font-size:0.72rem; text-align:center; margin-bottom:0.2rem;">Web en mobiel</div><div style="background:#eef4fa; border:1px solid #c9d8e6; border-radius:5px;padding:0.22rem 0.45rem; font-size:0.72rem; text-align:center; margin-bottom:0.2rem;">Verwerking</div><div style="background:#eef4fa; border:1px solid #c9d8e6; border-radius:5px;padding:0.22rem 0.45rem; font-size:0.72rem; text-align:center; margin-bottom:0.2rem;">Opslag</div><div style="background:#eef4fa; border:1px solid #c9d8e6; border-radius:5px;padding:0.22rem 0.45rem; font-size:0.72rem; text-align:center; margin-bottom:0.2rem;">Koppelvlak (API)</div><div style="background:#eef4fa; border:1px solid #c9d8e6; border-radius:5px;padding:0.22rem 0.45rem; font-size:0.72rem; text-align:center; margin-bottom:0.2rem;">Clouddienst</div><div style="background:#eef4fa; border:1px solid #c9d8e6; border-radius:5px;padding:0.22rem 0.45rem; font-size:0.72rem; text-align:center; margin-bottom:0.2rem;">Ander ecosysteem</div></div><div style="font-size:0.75rem; color:var(--np-mid-gray); margin-top:0.45rem; line-height:1.3;">Niet meer een systeem maar een ecosysteem, dat aan andere ecosystemen hangt.</div></div><div style="flex:1; display:flex; flex-direction:column;"><div style="font-size:0.85rem; font-weight:700; color:#E8912B; margin-bottom:0.45rem;">Nu, met AI</div><div style="flex:1;"><div style="background:#eef4fa; border:1px solid #c9d8e6; border-radius:5px;padding:0.22rem 0.45rem; font-size:0.72rem; text-align:center; margin-bottom:0.2rem;">Agent (slaat niets op)</div><div style="background:#eef4fa; border:1px solid #c9d8e6; border-radius:5px;padding:0.22rem 0.45rem; font-size:0.72rem; text-align:center; margin-bottom:0.2rem;">Web en mobiel</div><div style="background:#eef4fa; border:1px solid #c9d8e6; border-radius:5px;padding:0.22rem 0.45rem; font-size:0.72rem; text-align:center; margin-bottom:0.2rem;">Verwerking</div><div style="background:#eef4fa; border:1px solid #c9d8e6; border-radius:5px;padding:0.22rem 0.45rem; font-size:0.72rem; text-align:center; margin-bottom:0.2rem;">Opslag</div><div style="background:#eef4fa; border:1px solid #c9d8e6; border-radius:5px;padding:0.22rem 0.45rem; font-size:0.72rem; text-align:center; margin-bottom:0.2rem;">Koppelvlak (API)</div><div style="background:#eef4fa; border:1px solid #c9d8e6; border-radius:5px;padding:0.22rem 0.45rem; font-size:0.72rem; text-align:center; margin-bottom:0.2rem;">Clouddienst</div><div style="background:#eef4fa; border:1px solid #c9d8e6; border-radius:5px;padding:0.22rem 0.45rem; font-size:0.72rem; text-align:center; margin-bottom:0.2rem;">Ander ecosysteem</div></div><div style="font-size:0.75rem; color:var(--np-mid-gray); margin-top:0.45rem; line-height:1.3;">Er komt een laag bij die zelf niets bewaart en alles van de lagen eronder betrekt.</div></div>
+<div style="display:flex; gap:0.9rem; margin-top:0.6rem; max-width:96%; align-items:stretch; height:9.6rem;">
+<div style="flex:1; display:flex; flex-direction:column;"><div style="font-size:0.82rem; font-weight:700; color:#94a3b0; margin-bottom:0.35rem; text-align:center;">Jaren 80 en 90</div><div style="flex:1; display:flex; flex-direction:column; justify-content:flex-end;"><div style="background:#eef4fa; border:1px solid #c9d8e6; border-radius:5px;padding:0.1rem 0.4rem; font-size:0.62rem; text-align:center; margin-bottom:0.12rem;">Gebruikersschil</div><div style="background:#eef4fa; border:1px solid #c9d8e6; border-radius:5px;padding:0.1rem 0.4rem; font-size:0.62rem; text-align:center; margin-bottom:0.12rem;">Verwerking</div><div style="background:#eef4fa; border:1px solid #c9d8e6; border-radius:5px;padding:0.1rem 0.4rem; font-size:0.62rem; text-align:center; margin-bottom:0.12rem;">Opslag</div></div></div><div style="flex:1; display:flex; flex-direction:column;"><div style="font-size:0.82rem; font-weight:700; color:#2E86C1; margin-bottom:0.35rem; text-align:center;">Jaren 2000</div><div style="flex:1; display:flex; flex-direction:column; justify-content:flex-end;"><div style="background:#eef4fa; border:1px solid #c9d8e6; border-radius:5px;padding:0.1rem 0.4rem; font-size:0.62rem; text-align:center; margin-bottom:0.12rem;">Gebruikersschil</div><div style="background:#eef4fa; border:1px solid #c9d8e6; border-radius:5px;padding:0.1rem 0.4rem; font-size:0.62rem; text-align:center; margin-bottom:0.12rem;">Verwerking</div><div style="background:#eef4fa; border:1px solid #c9d8e6; border-radius:5px;padding:0.1rem 0.4rem; font-size:0.62rem; text-align:center; margin-bottom:0.12rem;">Opslag</div><div style="background:#eef4fa; border:1px solid #c9d8e6; border-radius:5px;padding:0.1rem 0.4rem; font-size:0.62rem; text-align:center; margin-bottom:0.12rem;">Koppelvlak</div><div style="background:#eef4fa; border:1px solid #c9d8e6; border-radius:5px;padding:0.1rem 0.4rem; font-size:0.62rem; text-align:center; margin-bottom:0.12rem;">Ander systeem</div></div></div><div style="flex:1; display:flex; flex-direction:column;"><div style="font-size:0.82rem; font-weight:700; color:#0E9E7E; margin-bottom:0.35rem; text-align:center;">Jaren 2010</div><div style="flex:1; display:flex; flex-direction:column; justify-content:flex-end;"><div style="background:#eef4fa; border:1px solid #c9d8e6; border-radius:5px;padding:0.1rem 0.4rem; font-size:0.62rem; text-align:center; margin-bottom:0.12rem;">Web en mobiel</div><div style="background:#eef4fa; border:1px solid #c9d8e6; border-radius:5px;padding:0.1rem 0.4rem; font-size:0.62rem; text-align:center; margin-bottom:0.12rem;">Verwerking</div><div style="background:#eef4fa; border:1px solid #c9d8e6; border-radius:5px;padding:0.1rem 0.4rem; font-size:0.62rem; text-align:center; margin-bottom:0.12rem;">Opslag</div><div style="background:#eef4fa; border:1px solid #c9d8e6; border-radius:5px;padding:0.1rem 0.4rem; font-size:0.62rem; text-align:center; margin-bottom:0.12rem;">Koppelvlak</div><div style="background:#eef4fa; border:1px solid #c9d8e6; border-radius:5px;padding:0.1rem 0.4rem; font-size:0.62rem; text-align:center; margin-bottom:0.12rem;">Clouddienst</div><div style="background:#eef4fa; border:1px solid #c9d8e6; border-radius:5px;padding:0.1rem 0.4rem; font-size:0.62rem; text-align:center; margin-bottom:0.12rem;">Ander ecosysteem</div></div></div><div style="flex:1; display:flex; flex-direction:column;"><div style="font-size:0.82rem; font-weight:700; color:#E8912B; margin-bottom:0.35rem; text-align:center;">Nu, met AI</div><div style="flex:1; display:flex; flex-direction:column; justify-content:flex-end;"><div style="background:#eef4fa; border:1px solid #c9d8e6; border-radius:5px;padding:0.1rem 0.4rem; font-size:0.62rem; text-align:center; margin-bottom:0.12rem;">Agent (slaat niets op)</div><div style="background:#eef4fa; border:1px solid #c9d8e6; border-radius:5px;padding:0.1rem 0.4rem; font-size:0.62rem; text-align:center; margin-bottom:0.12rem;">Web en mobiel</div><div style="background:#eef4fa; border:1px solid #c9d8e6; border-radius:5px;padding:0.1rem 0.4rem; font-size:0.62rem; text-align:center; margin-bottom:0.12rem;">Verwerking</div><div style="background:#eef4fa; border:1px solid #c9d8e6; border-radius:5px;padding:0.1rem 0.4rem; font-size:0.62rem; text-align:center; margin-bottom:0.12rem;">Opslag</div><div style="background:#eef4fa; border:1px solid #c9d8e6; border-radius:5px;padding:0.1rem 0.4rem; font-size:0.62rem; text-align:center; margin-bottom:0.12rem;">Koppelvlak</div><div style="background:#eef4fa; border:1px solid #c9d8e6; border-radius:5px;padding:0.1rem 0.4rem; font-size:0.62rem; text-align:center; margin-bottom:0.12rem;">Cloud en andere ecosystemen</div></div></div>
+</div>
+
+<div style="max-width:96%; margin-top:0.45rem;"><svg viewBox="0 0 960 112" preserveAspectRatio="none" style="width:100%; height:4.2rem;"><path d="M 120 98 C 240 95, 300 92, 360 88 C 480 82, 540 78, 600 72 C 720 64, 780 60, 840 54" fill="none" stroke="#94a3b0" stroke-width="5" stroke-linecap="round"/><path d="M 120 102 C 240 98, 300 93, 360 86 C 480 74, 540 62, 600 48 C 700 32, 760 18, 840 6" fill="none" stroke="#E8912B" stroke-width="6" stroke-linecap="round"/><circle cx="840" cy="6" r="9" fill="#E8912B"/><circle cx="840" cy="54" r="7" fill="#94a3b0"/></svg><div style="display:flex; gap:1.4rem; margin-top:0.15rem;"><span style="display:inline-flex; align-items:center; gap:0.35rem; font-size:0.75rem;"><span style="display:inline-block; width:1.4rem; height:0.28rem; background:#E8912B; border-radius:2px;"></span>koppelingen en datavraag</span><span style="display:inline-flex; align-items:center; gap:0.35rem; font-size:0.75rem;"><span style="display:inline-block; width:1.4rem; height:0.28rem; background:#94a3b0; border-radius:2px;"></span>onderdelen in een systeem</span></div></div>
+
+<div class="np-card" style="border-top-color: #E8912B; font-size: 0.95rem; line-height: 1.5; margin-top: 0.5rem; max-width: 96%;">
+Het aantal onderdelen groeide. Het aantal koppelingen ertussen groeide harder, en met AI erbij groeit de vraag naar koppelingen en data het hardst van allemaal.
 </div>
 
 </div>
 
 <!--
 Vier tijdvakken op een plaat, want de geschiedenis is de aanloop en niet het
-onderwerp. Wat telt is dat er telkens een laag bij kwam en dat het verbinden
-daarmee elke keer belangrijker werd.
+onderwerp. De lijnen zijn de verhouding, geen meting: onderdelen erbij is
+lineair, verbindingen ertussen loopt harder op, en de datavraag van AI komt daar
+nog bovenop. Absolute aantallen staan er bewust niet, die zijn niet na te tellen.
 -->
 
 ---
 
-<!-- 5. DE TREND -->
-<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
-
-<div class="fill">
-
-# Steeds meer lagen om te verbinden
-
-<div style="font-size: 0.95rem; line-height: 1.5; margin-top: 0.5rem; max-width: 92%;">
-
-Geteld in de vier platen hiervoor: het aantal blokken groeide, maar het aantal informatiestromen ertussen groeide harder.
-
-</div>
-
-<div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.9rem; max-width: 88%;">
-
-  <div style="display: flex; align-items: center; gap: 1rem;">
-    <div style="flex: 0 0 12rem; font-size: 0.92rem;">Jaren 80 en 90</div>
-    <div style="flex: 0 0 5.5rem; font-size: 0.85rem; color: var(--np-mid-gray);">4 blokken</div>
-    <div style="flex: 1; display: flex; align-items: center; gap: 0.6rem;">
-      <div style="height: 1.1rem; width: 28%; background: #94a3b0; border-radius: 3px;"></div>
-      <div style="font-size: 0.9rem; font-weight: 700; color: #94a3b0;">6 stromen</div>
-    </div>
-  </div>
-  <div style="display: flex; align-items: center; gap: 1rem;">
-    <div style="flex: 0 0 12rem; font-size: 0.92rem;">Jaren 2000</div>
-    <div style="flex: 0 0 5.5rem; font-size: 0.85rem; color: var(--np-mid-gray);">7 blokken</div>
-    <div style="flex: 1; display: flex; align-items: center; gap: 0.6rem;">
-      <div style="height: 1.1rem; width: 42%; background: #2E86C1; border-radius: 3px;"></div>
-      <div style="font-size: 0.9rem; font-weight: 700; color: #2E86C1;">9 stromen</div>
-    </div>
-  </div>
-  <div style="display: flex; align-items: center; gap: 1rem;">
-    <div style="flex: 0 0 12rem; font-size: 0.92rem;">Jaren 2010</div>
-    <div style="flex: 0 0 5.5rem; font-size: 0.85rem; color: var(--np-mid-gray);">10 blokken</div>
-    <div style="flex: 1; display: flex; align-items: center; gap: 0.6rem;">
-      <div style="height: 1.1rem; width: 60%; background: #0E9E7E; border-radius: 3px;"></div>
-      <div style="font-size: 0.9rem; font-weight: 700; color: #0E9E7E;">13 stromen</div>
-    </div>
-  </div>
-  <div style="display: flex; align-items: center; gap: 1rem;">
-    <div style="flex: 0 0 12rem; font-size: 0.92rem;">Nu, met AI</div>
-    <div style="flex: 0 0 5.5rem; font-size: 0.85rem; color: var(--np-mid-gray);">11 blokken</div>
-    <div style="flex: 1; display: flex; align-items: center; gap: 0.6rem;">
-      <div style="height: 1.1rem; width: 72%; background: #E8912B; border-radius: 3px;"></div>
-      <div style="font-size: 0.9rem; font-weight: 700; color: #E8912B;">17 stromen</div>
-    </div>
-  </div>
-
-</div>
-
-<div class="np-card" style="border-top-color: #E8912B; font-size: 0.95rem; line-height: 1.5; margin-top: 0.9rem; max-width: 92%;">
-En dat is nog binnen een organisatie. Zet er de koppelingen tussen organisaties naast en het loopt hard op. AI verwerkt informatie makkelijker dan ooit, en vergroot daarmee de vraag naar wat er te verwerken valt.
-</div>
-
-</div>
-
-<!--
-De aantallen komen uit de platen hiervoor, dus ze zijn na te tellen. De
-boodschap is de verhouding: blokken maal ruim twee, stromen maal bijna drie.
--->
-
----
-
-<!-- 6. WIJ KUNNEN ZO'N GIANT ZIJN -->
+<!-- 5. WIJ KUNNEN ZO'N GIANT ZIJN -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
@@ -201,7 +145,7 @@ wie de eis los vastlegt niet.
 
 ---
 
-<!-- 7. WAT ALS AI ALLES ANDERS DOET -->
+<!-- 6. WAT ALS AI ALLES ANDERS DOET -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
@@ -229,7 +173,7 @@ gehouden worden. Een diploma blijft een rechtsfeit. Daarom telt machine-interpre
 
 ---
 
-<!-- 8. WAAR OKX ZIT -->
+<!-- 7. WAAR OKX ZIT -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
@@ -276,7 +220,7 @@ de koppeling is het vervoermiddel, de betekenis is de lading.
 
 ---
 
-<!-- 9. WAT DE AFSPRAAK OP GANG BRENGT -->
+<!-- 8. WAT DE AFSPRAAK OP GANG BRENGT -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
@@ -308,7 +252,7 @@ zien. De afspraak zelf blijft mensenwerk; alles daarna versnelt.
 
 ---
 
-<!-- 10. WAT DAT MOGELIJK MAAKT -->
+<!-- 9. WAT DAT MOGELIJK MAAKT -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
@@ -362,7 +306,7 @@ worden, met raamwerk is het telkens dezelfde beweging.
 
 ---
 
-<!-- 11. RISICO'S -->
+<!-- 10. RISICO'S -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
@@ -386,7 +330,7 @@ drempel is nog niet gehaald, en 40 van de 60 issues komen van een auteur.
 
 ---
 
-<!-- 12. WAAR ZETTEN WE OP IN -->
+<!-- 11. WAAR ZETTEN WE OP IN -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
@@ -410,6 +354,42 @@ Leg de betekenis eenduidig vast en maak haar leesbaar voor een machine. Dan kan 
 <!--
 Een boodschap in plaats van een menu: waar de waarde zit, met de vraag die
 daarbij hoort. De omvang en de termijn van die vraag ontbreken hier nog.
+-->
+
+---
+
+<!-- 12. BESLUIT -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# Waar we op vastlopen
+
+<div class="np-card" style="border-top-color: #A8481F; font-size: 1rem; line-height: 1.5; margin-top: 0.5rem; max-width: 96%;">
+De oplossingsrichting staat en wordt gedragen. Gericht bouwen lukt niet, omdat onvoldoende scherp is <strong>wat er voor die afspraken nodig is</strong>: waar de vraag vandaan komt, wat ze raakt en hoe ze zich vertaalt naar werk.
+</div>
+
+<div style="margin-top:0.9rem; max-width:96%;">
+<div style="display:flex; gap:0.7rem; align-items:baseline; margin-bottom:0.4rem;"><div style="flex:0 0 8.5rem; font-size:0.8rem; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; color:#A8481F;">Besluit nodig op</div><div style="flex:1; font-size:0.95rem; line-height:1.45;">Vaste capaciteit voor business-analyse en architectuur naast Niels, die de vraag uit de instellingen vertaalt naar onderbouwde werkpakketten op de koppelvlakspecificaties</div></div>
+<div style="display:flex; gap:0.7rem; align-items:baseline; margin-bottom:0.4rem;"><div style="flex:0 0 8.5rem; font-size:0.8rem; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; color:#A8481F;">Door</div><div style="flex:1; font-size:0.95rem; line-height:1.45;">Programma- en projectleiding</div></div>
+<div style="display:flex; gap:0.7rem; align-items:baseline; margin-bottom:0.4rem;"><div style="flex:0 0 8.5rem; font-size:0.8rem; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; color:#A8481F;">Voor</div><div style="flex:1; font-size:0.95rem; line-height:1.45;"><span style='background:#ffeed9; padding:0 0.3rem;'>datum invullen</span></div></div>
+<div style="display:flex; gap:0.7rem; align-items:baseline; margin-bottom:0.4rem;"><div style="flex:0 0 8.5rem; font-size:0.8rem; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; color:#A8481F;">Omvang</div><div style="flex:1; font-size:0.95rem; line-height:1.45;"><span style='background:#ffeed9; padding:0 0.3rem;'>omvang en termijn invullen</span></div></div>
+<div style="display:flex; gap:0.7rem; align-items:baseline; margin-bottom:0.4rem;"><div style="flex:0 0 8.5rem; font-size:0.8rem; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; color:#A8481F;">Als het niet komt</div><div style="flex:1; font-size:0.95rem; line-height:1.45;">Risico 1 loopt op: de afspraak komt later dan de praktijk, en er wordt gebouwd zonder dat vaststaat waarop</div></div>
+</div>
+
+<div class="np-card" style="border-top-color: #0E9E7E; font-size: 0.95rem; line-height: 1.5; margin-top: 0.7rem; max-width: 96%;">
+Dat versterkt bovendien wat OKx nu al onderscheidt: <strong style="color:#0E9E7E;">de afspraak is herleidbaar tot de vraag eronder.</strong> Draagvlak en adoptie volgen daaruit, want een instelling herkent haar eigen vraag terug in de specificatie.
+</div>
+
+</div>
+
+<!--
+Dit is het besluit dat in de vorige versie ontbrak. Alle drie de reviewers
+kwamen er onafhankelijk op uit: zonder omvang, termijn en gevolg is het geen
+besluit maar een claim op capaciteit waar niemand ja of nee op kan zeggen.
+Bewust geen product owner gevraagd: het knelpunt is niet de volgorde van het
+werk maar de helderheid over wat er nodig is. Zodra die helderheid er is, komt
+de backlogvraag vanzelf.
 -->
 
 ---
