@@ -362,35 +362,7 @@ drempel is nog niet gehaald, en 40 van de 60 issues komen van een auteur.
 
 ---
 
-<!-- 12. BESLUIT -->
-<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
-
-<div class="fill">
-
-# Waardoor we vertragen
-
-<div style="background:#f0e9fb; border-left:6px solid #7a5dba; border-radius:10px;padding:1rem 1.25rem; margin-top:0.7rem; max-width:96%;"><div style="font-size:1.15rem; font-weight:700; line-height:1.35; color:#7a5dba;">We hebben capaciteit voor technische uitwerking. Wat we zoeken is richting.</div><div style="font-size:0.95rem; line-height:1.45; margin-top:0.45rem;">Wat moet er als eerste uitgewerkt worden? Waar leggen we dit spoor wel, waar bewust niet, en waarom?</div></div>
-
-<div style="display:flex; gap:0.9rem; margin-top:0.9rem; max-width:96%; align-items:stretch;">
-<div style="flex:1; background:#dceffa; border-radius:10px; padding:0.9rem 1rem; display:flex; flex-direction:column;"><div style="font-size:0.95rem; font-weight:700; color:#2E86C1; margin-bottom:0.4rem;">Rollen en producten herverdelen</div><div style="font-size:0.9rem; line-height:1.38; flex:1;">Inventariseren welke rollen, producten en verantwoordelijkheden er zijn, en die opnieuw beleggen zodat er richting vanuit de business komt.</div><div style="font-size:0.8rem; line-height:1.32; color:var(--np-dark-gray); margin-top:0.6rem; border-top:1px solid #2E86C133; padding-top:0.35rem;">Geen extra budget, wel keuzes in wat blijft liggen</div></div><div style="flex:1; background:#ffeed9; border-radius:10px; padding:0.9rem 1rem; display:flex; flex-direction:column;"><div style="font-size:0.95rem; font-weight:700; color:#E8912B; margin-bottom:0.4rem;">De vraag bij de instellingen ophalen</div><div style="font-size:0.9rem; line-height:1.38; flex:1;">POC-scholen beschrijven hun eigen bouwstenen, OKx toetst ze en verbindt ze aan de specificatie.</div><div style="font-size:0.8rem; line-height:1.32; color:var(--np-dark-gray); margin-top:0.6rem; border-top:1px solid #E8912B33; padding-top:0.35rem;">Draagvlak groeit, kost doorlooptijd</div></div><div style="flex:1; background:#d9f5ec; border-radius:10px; padding:0.9rem 1rem; display:flex; flex-direction:column;"><div style="font-size:0.95rem; font-weight:700; color:#0E9E7E; margin-bottom:0.4rem;">Capaciteit erbij</div><div style="font-size:0.9rem; line-height:1.38; flex:1;">Een tweede analist en architect naast Niels, die de vraag vertaalt naar werkpakketten.</div><div style="font-size:0.8rem; line-height:1.32; color:var(--np-dark-gray); margin-top:0.6rem; border-top:1px solid #0E9E7E33; padding-top:0.35rem;">Sneller scherp, kost budget</div></div>
-</div>
-
-<div class="np-card" style="border-top-color: #A8481F; font-size: 0.96rem; line-height: 1.5; margin-top: 0.8rem; max-width: 96%;">
-Zonder keuze blijft de richting bij een persoon liggen en loopt de doorlooptijd op. <strong style="color:#A8481F;">Gevraagd: welke route verkennen we?</strong>
-</div>
-
-</div>
-
-<!--
-De volgorde is bewust: eerst wat we zelf kunnen doen, dan wat we samen met de
-scholen kunnen doen, en pas daarna de vraag om geld. Niets doen staat niet als
-vierde kaart maar als gevolg onderaan. Dit is een verkenning en geen
-capaciteitsclaim; omvang en termijn komen pas als de route gekozen is.
--->
-
----
-
-<!-- 13. CONCLUSIE HERHAALD -->
+<!-- 12. CONCLUSIE HERHAALD -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
@@ -403,10 +375,7 @@ capaciteitsclaim; omvang en termijn komen pas als de route gekozen is.
 <div style="background:#ffeed9; border-left:6px solid #E8912B; border-radius:8px;padding:0.8rem 1.2rem; font-size:1.02rem; line-height:1.45;">En we leggen het zo vast dat AI er straks los op kan.</div>
 </div>
 
-<div style="background:#f0e9fb; border:2px solid #7a5dba; border-radius:10px; padding:1rem 1.3rem; margin-top:1.3rem; max-width:92%;">
-<div style="font-size:1.1rem; line-height:1.45; color:#7a5dba; font-weight:700;">
-We hebben capaciteit voor technische uitwerking en zoeken richting. Welke route verkennen we?</div>
-</div>
+<div style="margin-top:1.1rem; max-width:92%;"><div style="display:flex; justify-content:space-between; align-items:center;"><div style="background:#fff; border:2px solid #5b6670; border-radius:999px;padding:0.26rem 0.8rem; font-size:0.8rem; font-weight:700; color:#3b4550;">stoomtrein</div><div style="background:#fff; border:2px solid #5b6670; border-radius:999px;padding:0.26rem 0.8rem; font-size:0.8rem; font-weight:700; color:#3b4550;">hogesnelheidstrein</div><div style="background:#fff; border:2px solid #5b6670; border-radius:999px;padding:0.26rem 0.8rem; font-size:0.8rem; font-weight:700; color:#3b4550;">magneettrein</div><div style="background:#fff; border:2px dashed #5b6670; border-radius:999px;padding:0.26rem 0.8rem; font-size:0.8rem; font-weight:700; color:#3b4550;">wat hierna komt</div></div><div style="position:relative; height:1.6rem; margin-top:0.4rem;"><div style="position:absolute; top:0.3rem; left:0; right:0; height:0.85rem;background:repeating-linear-gradient(90deg, #b98b63 0 7px, transparent 7px 22px);"></div><div style="position:absolute; top:0.2rem; left:0; right:0; height:4px; background:#5b6670; border-radius:2px;"></div><div style="position:absolute; top:1.1rem; left:0; right:0; height:4px; background:#5b6670; border-radius:2px;"></div></div></div>
 
 </div>
 
@@ -414,6 +383,33 @@ We hebben capaciteit voor technische uitwerking en zoeken richting. Welke route 
 Dezelfde drie regels als aan het begin, zodat het deck sluit waar het opende.
 Het paarse blok haalt de vraag van de vorige slide terug in een zin, zodat de
 laatste inhoudelijke plaat de conclusie en de vraag tegelijk draagt.
+-->
+
+---
+
+<!-- 13. VRAGEN -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# Is de hoofdvraag beantwoord?
+
+<div style="font-size: 0.95rem; line-height: 1.55; color: var(--np-dark-gray); margin-top: 0.5rem; max-width: 88%; border-left: 4px solid var(--np-mid-gray); padding-left: 0.9rem;">
+Bouwen we geen stoomtrein door koppelvlakken te standaardiseren? Zeker met de opkomst van AI. Hebben we straks geen vliegende auto's?
+</div>
+
+<div style="display:flex; gap:1.4rem; justify-content:center; align-items:flex-start; margin-top:1.2rem;"><div style="background:#d9f5ec; border:2px solid #0E9E7E; color:#0E9E7E;border-radius:4.6rem 4.6rem 4.6rem 6px; width:4.6rem; height:4.6rem; display:flex; align-items:center;justify-content:center; font-size:calc(4.6rem * 0.5); font-weight:700; margin-top:1.6rem;">?</div><div style="background:#dceffa; border:2px solid #2E86C1; color:#2E86C1;border-radius:6.2rem 6.2rem 6.2rem 6px; width:6.2rem; height:6.2rem; display:flex; align-items:center;justify-content:center; font-size:calc(6.2rem * 0.5); font-weight:700; margin-top:0rem;">?</div><div style="background:#ffeed9; border:2px solid #E8912B; color:#E8912B;border-radius:5rem 5rem 5rem 6px; width:5rem; height:5rem; display:flex; align-items:center;justify-content:center; font-size:calc(5rem * 0.5); font-weight:700; margin-top:1.1rem;">?</div><div style="background:#f0e9fb; border:2px solid #7a5dba; color:#7a5dba;border-radius:3.8rem 3.8rem 3.8rem 6px; width:3.8rem; height:3.8rem; display:flex; align-items:center;justify-content:center; font-size:calc(3.8rem * 0.5); font-weight:700; margin-top:2.2rem;">?</div></div>
+
+<div style="font-size: 1.05rem; line-height: 1.5; margin-top: 1.3rem; max-width: 88%; text-align: center;">
+En wat is er nog niet beantwoord?
+</div>
+
+</div>
+
+<!--
+De vraag van de opdrachtgever staat er nog een keer, zodat de zaal kan toetsen
+of het deck hem beantwoordt. Geen besluit gevraagd in deze ronde; de vraag over
+richting en capaciteit komt in een apart gesprek.
 -->
 
 ---
