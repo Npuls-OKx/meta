@@ -60,6 +60,18 @@ Lees niet alleen de commit-titels. Een titel zegt *wat* er is gewijzigd; een dec
 
 **Noem altijd om welke repository het gaat** als je een branch, pull request of issue noemt. Beide repositories hebben eigen nummering; `#7` alleen is dubbelzinnig.
 
+## Beantwoord de vraag die gesteld is
+
+Een deck ontstaat bijna altijd uit een vraag: van de opdrachtgever, uit een gremium, uit een issue. Schrijf die vraag letterlijk op voordat je begint, in de woorden van de vraagsteller, en houd hem naast je tijdens het schrijven.
+
+**Wijs bij oplevering de slide aan die de vraag beantwoordt.** Lukt dat niet, dan is het deck niet af, hoe goed het verder ook is opgebouwd. Dit gaat vaak mis bij een deck dat netjes opbouwt: de historie klopt, de onderbouwing klopt, de conclusie klopt, en nergens staat het antwoord. De projectleider verwoordde het zo: "als bespiegeling prima, maar het geeft niet echt antwoord op de vraag."
+
+Twee vervolgregels die daaruit volgen.
+
+**Context is aanloop, geen inhoud.** Historische opbouw, marktontwikkelingen en hoe we hier gekomen zijn: hoogstens een slide, tenzij het gremium er expliciet om vroeg. Wat de spreker kan vertellen hoort in de sprekersnotitie. Vraagt een reviewer bij een slide "wat doet die hier", dan is dat geen verzoek om uitleg maar de constatering dat de slide niet nodig is.
+
+**Neem de aanklacht over in plaats van hem te weerspreken.** Zit er een verwijt in de vraag, dan is de sterkste opening dat verwijt bevestigen en het daarna omdraaien. "Ja, we bouwen een stoomtrein. En we leggen meteen de rails." Dat ontwapent, terwijl een weerlegging de zaal in de verdedigingsstand zet en de vraagsteller uitnodigt om harder te duwen.
+
 ## Schrijf over de zaak, niet tegen de zaal
 
 Een deck informeert over een onderwerp. Het onderwerp is dus het grammaticale onderwerp, niet het publiek. Dat is dezelfde norm als bij een thesis of een adviesrapport: zakelijk, navolgbaar, zonder de lezer aan te spreken.
@@ -101,6 +113,16 @@ Uit de deckreview van 18 augustus 2026; elke regel is daar in de praktijk misgeg
 - **Eén onderwerp per slide.** Inhoud en vraagstelling zijn twee slides, nooit één.
 - **Niet alles hoeft getekend.** Wat de spreker kan zeggen, hoort in de sprekersnotitie; losse pijltjes en tekstelementen naast een diagram zijn een gebrek, geen oplossing.
 
+Uit de reviewronde van 8 september 2026 op het deck bij issue #212.
+
+- **Te veel tekst los je op met een figuur, niet met kortere tekst.** Krijg je "te veel tekst" terug, herteken de slide dan. Drie tekstblokken die inkorten tot drie kortere tekstblokken lost niets op; drie figuurtjes met dezelfde opbouw wel.
+- **Maximaal een regel per blok.** Een blok met drie zinnen wordt gescand en niet gelezen.
+- **Geen bekende doelen herverpakken als nieuw inzicht.** Wie de programmadoelen terugleest in een kansenlijst krijgt terug: "dat vertelt wat we al weten, maar dan in kansen verwoord." Een kans is iets dat nu kan en eerder niet kon, met de reden erbij waarom dat nu verandert.
+- **Beleid is geen risico.** Een genomen besluit hoort niet in een risicolijst. Staat er toch spanning op, benoem dan het risico dat uit het besluit volgt, en zeg in de eerste zin dat het besluit zelf niet ter discussie staat.
+- **Een metafoor per deck.** Twee beelden naast elkaar concurreren en verzwakken allebei. Kies er een en voer hem consequent door, ook in de bijschriften en de kaarten.
+- **Doorlooptijd is geen kwaliteitsbewijs.** Releasesnelheid of het aantal issues per week als bewijs opvoeren nodigt uit tot de tegenvraag of het ook goed is. Gebruik zulke cijfers hoogstens als adoptiesignaal, nooit als kwaliteitsclaim.
+- **Controleer onderwerp en lijdend voorwerp.** "Die blokkade haalt de afspraak weg" betekent het omgekeerde van wat bedoeld was. Lees elke stellende zin een keer terug met de vraag wie wat doet.
+
 ## Compositie en didactiek
 
 Uit de finetunerondes van 18 augustus 2026, vastgesteld door de product owner.
@@ -112,6 +134,16 @@ Uit de finetunerondes van 18 augustus 2026, vastgesteld door de product owner.
 - **Blokreeksen wisselen accentkleuren af**; nooit twee dezelfde naast elkaar. Elk blok draagt één ondertitel, zonder aankondigwoorden als "bijvoorbeeld".
 - **Diagrammen volledig of niet.** Een sequentiediagram toont ook de terugweg, het eigen proces en het foutpad; JSON-voorbeelden gebruiken echte veldnamen en types uit het schema, met een beletselteken voor de rest.
 - **Backlog en planning worden afgeleid, niet verzonnen.** Toon de afleidingslijn (leerroutes en scenario's naar features, stories en functionele eisen) en stel de toetsvraag aan de zaal in plaats van zelf een lijst te bedenken.
+
+## Onderbouw met wat niet te betwisten valt
+
+Een historische parallel of een extern cijfer maakt een betoog sterker, maar alleen als het standhoudt bij iemand die het naslaat. Controleer daarom voor elk extern verband of het omstreden is voordat je erop bouwt.
+
+Concreet voorbeeld uit dit deck. De claim "zonder de spoorlijn was de Verenigde Staten niet die economische macht geworden" ligt voor de hand en is precies het verband dat de economische geschiedenis heeft aangevallen: Fogel berekende het effect in 1964 op ongeveer drie procent van het BNP, en latere herberekeningen komen op dezelfde orde. Wie die claim in een deck zet, kan met een naam onderuit worden gehaald, en juist in een deck dat uit een sceptische vraag ontstaat is dat fataal.
+
+Wat wel standhoudt is het mechanisme in plaats van het effect: er lagen verschillende spoorbreedtes naast elkaar, vracht moest bij elke overgang worden overgeladen, en pas na de afspraak over een gemeenschappelijke maat reed er iets doorheen. Zelfde beeld, geen betwistbare causaliteit.
+
+Vuistregel: gebruik externe parallellen om een **werking** te laten zien, niet om een **groei** te bewijzen. En zet in de sprekersnotitie waarom je de betwistbare variant niet hebt gebruikt, zodat de spreker er iets mee kan als iemand ernaar vraagt.
 
 ## Voor wie schrijf je
 
@@ -182,6 +214,17 @@ Geef een brede plaat de hele slidebreedte:
 **Spar over je keuze.** Bij het voorleggen van de onderwerpen noem je per onderwerp welke plaat je erbij wilt zetten, en waarom die. Degene die het deck vraagt kent het publiek en weet welke plaat er vorige keer vragen opriep. Staat er niets passends in het manifest, zeg dat dan — dan is dat een signaal dat er een plaat ontbreekt, niet een reden om er zelf een te tekenen.
 
 **Houd het manifest actueel.** Komt er een nieuwe versie van een plaat, of teken je er een die vaker bruikbaar is, neem hem dan op in `platen.json` en werk de hashes bij met `--bijwerken`. Dat is onderdeel van het werk, niet iets voor later: een manifest dat achterloopt op de repositories is erger dan geen manifest, want dan wordt met vertrouwen een verouderde plaat gekozen.
+
+
+### Valkuilen bij zelfgetekende figuren
+
+Teken je toch zelf een figuur, in SVG of HTML, let dan op drie dingen die stil misgaan.
+
+- **SVG-tekst erft de fontgrootte van de slide.** Een `font-size="13"` op een `<text>` wordt overschreven door de slide-CSS, en het woord vult het halve paneel. Zet labels als HTML naast of onder de SVG, niet erin.
+- **Gegenereerde HTML moet vlak zijn.** Vier spaties inspringing maakt er in markdown een codeblok van, en een regel met alleen spaties sluit het HTML-blok af waarna de rest als code verschijnt. Genereer dus alles op een regel, zonder inspringing.
+- **Patch geen HTML met een reguliere expressie.** Een blok half vervangen laat een `</div>` te veel of te weinig achter en de slide valt om. Bouw de hele slide opnieuw op.
+
+Een klikstap (`v-click`) voegt geen paginas toe aan de export: de PDF en de PowerPoint tonen de slide in zijn eindtoestand. Een opbouw voor het presenteren kost dus niets in de leesversie.
 
 ## Neem tabellen, cijfers en citaten letterlijk over
 
