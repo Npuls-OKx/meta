@@ -64,8 +64,8 @@ het perfecte faxprotocol standaardiseerde had gelijk en verloor toch.
 
 <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.9rem; max-width: 88%;">
 <div style="background:#d9f5ec; border-left:6px solid #0E9E7E; border-radius:8px;padding:0.85rem 1.2rem; font-size:1.05rem; line-height:1.5;">Ja, we bouwen een stoomtrein. En we leggen meteen de rails.</div>
-<div style="background:#dceffa; border-left:6px solid #2E86C1; border-radius:8px;padding:0.85rem 1.2rem; font-size:1.05rem; line-height:1.5;">De rails overleven de stoomtrein. Wat erover rijdt mag veranderen.</div>
-<div style="background:#ffeed9; border-left:6px solid #E8912B; border-radius:8px;padding:0.85rem 1.2rem; font-size:1.05rem; line-height:1.5;">AI gaat op schouders staan. Wij kunnen die schouders zijn.</div>
+<div style="background:#dceffa; border-left:6px solid #2E86C1; border-radius:8px;padding:0.85rem 1.2rem; font-size:1.05rem; line-height:1.5;">De afspraak maken is mensenwerk. Alles daarna versnelt met AI.</div>
+<div style="background:#ffeed9; border-left:6px solid #E8912B; border-radius:8px;padding:0.85rem 1.2rem; font-size:1.05rem; line-height:1.5;">Daar zit de waarde: betekenis die eenduidig vastligt en die een machine kan lezen.</div>
 </div>
 
 <div style="margin-top:1rem; max-width:88%;"><div style="display:flex; justify-content:space-between; align-items:center;"><div style="background:#fff; border:2px solid #5b6670; border-radius:999px;padding:0.3rem 0.9rem; font-size:0.85rem; font-weight:700; color:#3b4550;">stoomtrein</div><div style="background:#fff; border:2px solid #5b6670; border-radius:999px;padding:0.3rem 0.9rem; font-size:0.85rem; font-weight:700; color:#3b4550;">hogesnelheidstrein</div><div style="background:#fff; border:2px dashed #5b6670; border-radius:999px;padding:0.3rem 0.9rem; font-size:0.85rem; font-weight:700; color:#3b4550;">wat hierna komt</div></div><div style="position:relative; height:1.6rem; margin-top:0.4rem;"><div style="position:absolute; top:0.3rem; left:0; right:0; height:0.85rem;background:repeating-linear-gradient(90deg, #b98b63 0 7px, transparent 7px 22px);"></div><div style="position:absolute; top:0.2rem; left:0; right:0; height:4px; background:#5b6670; border-radius:2px;"></div><div style="position:absolute; top:1.1rem; left:0; right:0; height:4px; background:#5b6670; border-radius:2px;"></div></div><div style="font-size:0.85rem; color:var(--np-mid-gray); margin-top:0.5rem; text-align:center;">Dezelfde spoorbreedte, afgesproken in de negentiende eeuw, draagt de trein van vandaag.</div></div>
@@ -73,9 +73,10 @@ het perfecte faxprotocol standaardiseerde had gelijk en verloor toch.
 </div>
 
 <!--
-De aanklacht wordt hier overgenomen in plaats van weersproken. Ja, de eerste
-trein die erover rijdt is de huidige generatie systemen. De rails gaan langer
-mee dan die trein, en dat is het hele punt.
+De aanklacht wordt overgenomen in plaats van weersproken. Ja, de eerste trein
+die erover rijdt is de huidige generatie systemen. De rails gaan langer mee, en
+de arbeidsdeling eronder is de kern: mensen sluiten de afspraak, AI versnelt
+alles wat erop volgt.
 -->
 
 ---
@@ -278,23 +279,24 @@ de koppeling is het vervoermiddel, de betekenis is de lading.
 
 # Wat de afspraak op gang brengt
 
-<div style="display:flex; gap:0.6rem; margin-top:1.1rem; max-width:96%;">
-<div style="flex:1; background:#eef4fa; border-top:5px solid #2E86C1; border-radius:8px; padding:0.85rem 0.9rem; text-align:center;"><div style="font-size:0.72rem; font-weight:700; color:#2E86C1; letter-spacing:0.06em; margin-bottom:0.3rem;">1</div><div style="font-size:0.95rem; line-height:1.4;">De afspraak staat</div></div><div style="align-self:center; font-size:1.4rem; color:#2E86C1; line-height:1;">&#9654;</div><div style="flex:1; background:#eef4fa; border-top:5px solid #2E86C1; border-radius:8px; padding:0.85rem 0.9rem; text-align:center;"><div style="font-size:0.72rem; font-weight:700; color:#2E86C1; letter-spacing:0.06em; margin-bottom:0.3rem;">2</div><div style="font-size:0.95rem; line-height:1.4;">Systemen koppelen erop</div></div><div style="align-self:center; font-size:1.4rem; color:#2E86C1; line-height:1;">&#9654;</div><div style="flex:1; background:#eef4fa; border-top:5px solid #2E86C1; border-radius:8px; padding:0.85rem 0.9rem; text-align:center;"><div style="font-size:0.72rem; font-weight:700; color:#2E86C1; letter-spacing:0.06em; margin-bottom:0.3rem;">3</div><div style="font-size:0.95rem; line-height:1.4;">Meer data van hoge kwaliteit, volgens de OKx-standaard</div></div><div style="align-self:center; font-size:1.4rem; color:#2E86C1; line-height:1;">&#9654;</div><div style="flex:1; background:#eef4fa; border-top:5px solid #2E86C1; border-radius:8px; padding:0.85rem 0.9rem; text-align:center;"><div style="font-size:0.72rem; font-weight:700; color:#2E86C1; letter-spacing:0.06em; margin-bottom:0.3rem;">4</div><div style="font-size:0.95rem; line-height:1.4;">Voedingsbodem voor AI</div></div>
+<div style="font-size: 0.85rem; color: var(--np-mid-gray); margin-bottom: 0.1rem;">
+Boven wat er gebeurt, onder wat AI eraan toevoegt
 </div>
 
-<div style="font-size:0.85rem; color: var(--np-mid-gray); margin-top:0.5rem; max-width:90%;">
-Elke fase levert de eisen op voor de volgende.
+<div style="display:flex; gap:0.5rem; margin-top:0.8rem; max-width:96%; align-items:stretch;">
+<div style="flex:1; display:flex; flex-direction:column; border-radius:8px; overflow:hidden; border:1px solid #d5dee7;"><div style="background:#eef4fa; padding:0.7rem 0.8rem; text-align:center; flex:1;"><div style="font-size:0.72rem; font-weight:700; color:#2E86C1; letter-spacing:0.06em; margin-bottom:0.25rem;">1</div><div style="font-size:0.92rem; line-height:1.35; font-weight:700;">De afspraak maken</div><div style="font-size:0.78rem; line-height:1.3; color:var(--np-mid-gray); margin-top:0.15rem;">mensenwerk</div></div><div style="background:#ffeed9; padding:0.55rem 0.8rem; text-align:center;"><div style="display:inline-block; background:#E8912B; color:#fff; border-radius:999px; padding:0.05rem 0.5rem; font-size:0.68rem; font-weight:700; margin-bottom:0.2rem;">AI</div><div style="font-size:0.82rem; line-height:1.3;">sneller en meer vastleggen</div></div></div><div style="align-self:center; font-size:1.2rem; color:#2E86C1; line-height:1;">&#9654;</div><div style="flex:1; display:flex; flex-direction:column; border-radius:8px; overflow:hidden; border:1px solid #d5dee7;"><div style="background:#eef4fa; padding:0.7rem 0.8rem; text-align:center; flex:1;"><div style="font-size:0.72rem; font-weight:700; color:#2E86C1; letter-spacing:0.06em; margin-bottom:0.25rem;">2</div><div style="font-size:0.92rem; line-height:1.35; font-weight:700;">Systemen implementeren</div><div style="font-size:0.78rem; line-height:1.3; color:var(--np-mid-gray); margin-top:0.15rem;">leveranciers</div></div><div style="background:#ffeed9; padding:0.55rem 0.8rem; text-align:center;"><div style="display:inline-block; background:#E8912B; color:#fff; border-radius:999px; padding:0.05rem 0.5rem; font-size:0.68rem; font-weight:700; margin-bottom:0.2rem;">AI</div><div style="font-size:0.82rem; line-height:1.3;">koppeling grotendeels genereren en bouwen</div></div></div><div style="align-self:center; font-size:1.2rem; color:#2E86C1; line-height:1;">&#9654;</div><div style="flex:1; display:flex; flex-direction:column; border-radius:8px; overflow:hidden; border:1px solid #d5dee7;"><div style="background:#eef4fa; padding:0.7rem 0.8rem; text-align:center; flex:1;"><div style="font-size:0.72rem; font-weight:700; color:#2E86C1; letter-spacing:0.06em; margin-bottom:0.25rem;">3</div><div style="font-size:0.92rem; line-height:1.35; font-weight:700;">Meer informatie uitgewisseld</div><div style="font-size:0.78rem; line-height:1.3; color:var(--np-mid-gray); margin-top:0.15rem;">het landschap</div></div><div style="background:#ffeed9; padding:0.55rem 0.8rem; text-align:center;"><div style="display:inline-block; background:#E8912B; color:#fff; border-radius:999px; padding:0.05rem 0.5rem; font-size:0.68rem; font-weight:700; margin-bottom:0.2rem;">AI</div><div style="font-size:0.82rem; line-height:1.3;">hogere datadichtheid om mee te werken</div></div></div><div style="align-self:center; font-size:1.2rem; color:#2E86C1; line-height:1;">&#9654;</div><div style="flex:1; display:flex; flex-direction:column; border-radius:8px; overflow:hidden; border:1px solid #d5dee7;"><div style="background:#eef4fa; padding:0.7rem 0.8rem; text-align:center; flex:1;"><div style="font-size:0.72rem; font-weight:700; color:#2E86C1; letter-spacing:0.06em; margin-bottom:0.25rem;">4</div><div style="font-size:0.92rem; line-height:1.35; font-weight:700;">Nieuwe toepassingen</div><div style="font-size:0.78rem; line-height:1.3; color:var(--np-mid-gray); margin-top:0.15rem;">de sector</div></div><div style="background:#ffeed9; padding:0.55rem 0.8rem; text-align:center;"><div style="display:inline-block; background:#E8912B; color:#fff; border-radius:999px; padding:0.05rem 0.5rem; font-size:0.68rem; font-weight:700; margin-bottom:0.2rem;">AI</div><div style="font-size:0.82rem; line-height:1.3;">nieuwe functionaliteit en inzichten</div></div></div>
 </div>
 
-<div class="np-card" style="border-top-color: #0E9E7E; font-size: 0.98rem; line-height: 1.55; margin-top: 0.9rem; max-width: 96%;">
-<strong style="color: #0E9E7E;">AI heeft standaardisatie nodig.</strong> Eenduidige betekenis laat minder ruimte voor interpretatie, en dus minder misinterpretatie en hallucinatie.
+<div class="np-card" style="border-top-color: #0E9E7E; font-size: 0.95rem; line-height: 1.5; margin-top: 0.8rem; max-width: 96%;">
+<strong style="color: #0E9E7E;">AI heeft standaardisatie nodig.</strong> Eenduidige betekenis laat minder ruimte voor interpretatie, en dus minder misinterpretatie en hallucinatie. De afspraak zelf blijft mensenwerk; alles daarna versnelt.
 </div>
 
 </div>
 
 <!--
-De afspraak is geen eindpunt maar een startpunt. Zonder die eerste stap komt de
-data niet op gang, en zonder data blijft AI-ondersteuning gokwerk.
+De onderste rij is de arbeidsdeling uit de conclusie, stap voor stap. Alleen
+de eerste stap blijft mensenwerk; daar helpt AI met vastleggen, niet met
+besluiten. Stap vier is waar de volgende plaat over gaat.
 -->
 
 ---
