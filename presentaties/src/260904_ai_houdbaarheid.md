@@ -361,33 +361,28 @@ daarbij hoort. De omvang en de termijn van die vraag ontbreken hier nog.
 
 <div class="fill">
 
-# Waar we op vastlopen
+# Waardoor we vertragen
 
-<div class="np-card" style="border-top-color: #A8481F; font-size: 1rem; line-height: 1.5; margin-top: 0.5rem; max-width: 96%;">
-De oplossingsrichting staat en wordt gedragen. Gericht bouwen lukt niet, omdat onvoldoende scherp is <strong>wat er voor die afspraken nodig is</strong>: waar de vraag vandaan komt, wat ze raakt en hoe ze zich vertaalt naar werk.
+<div style="font-size: 0.95rem; line-height: 1.5; margin-top: 0.5rem; max-width: 92%;">
+Niet de richting, maar de vertaling ervan: wat is er precies nodig voor deze afspraken, en hoe wordt dat werk?
 </div>
 
-<div style="margin-top:0.9rem; max-width:96%;">
-<div style="display:flex; gap:0.7rem; align-items:baseline; margin-bottom:0.4rem;"><div style="flex:0 0 8.5rem; font-size:0.8rem; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; color:#A8481F;">Besluit nodig op</div><div style="flex:1; font-size:0.95rem; line-height:1.45;">Vaste capaciteit voor business-analyse en architectuur naast Niels, die de vraag uit de instellingen vertaalt naar onderbouwde werkpakketten op de koppelvlakspecificaties</div></div>
-<div style="display:flex; gap:0.7rem; align-items:baseline; margin-bottom:0.4rem;"><div style="flex:0 0 8.5rem; font-size:0.8rem; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; color:#A8481F;">Door</div><div style="flex:1; font-size:0.95rem; line-height:1.45;">Programma- en projectleiding</div></div>
-<div style="display:flex; gap:0.7rem; align-items:baseline; margin-bottom:0.4rem;"><div style="flex:0 0 8.5rem; font-size:0.8rem; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; color:#A8481F;">Voor</div><div style="flex:1; font-size:0.95rem; line-height:1.45;"><span style='background:#ffeed9; padding:0 0.3rem;'>datum invullen</span></div></div>
-<div style="display:flex; gap:0.7rem; align-items:baseline; margin-bottom:0.4rem;"><div style="flex:0 0 8.5rem; font-size:0.8rem; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; color:#A8481F;">Omvang</div><div style="flex:1; font-size:0.95rem; line-height:1.45;"><span style='background:#ffeed9; padding:0 0.3rem;'>omvang en termijn invullen</span></div></div>
-<div style="display:flex; gap:0.7rem; align-items:baseline; margin-bottom:0.4rem;"><div style="flex:0 0 8.5rem; font-size:0.8rem; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; color:#A8481F;">Als het niet komt</div><div style="flex:1; font-size:0.95rem; line-height:1.45;">Risico 1 loopt op: de afspraak komt later dan de praktijk, en er wordt gebouwd zonder dat vaststaat waarop</div></div>
+<div style="display:flex; gap:1rem; margin-top:1rem; max-width:96%; align-items:stretch;">
+<div style="flex:1; background:#d9f5ec; border-radius:10px; padding:1rem 1.1rem; display:flex; flex-direction:column;"><div style="font-size:1rem; font-weight:700; color:#0E9E7E; margin-bottom:0.45rem;">Capaciteit erbij</div><div style="font-size:0.94rem; line-height:1.4; flex:1;">Een tweede analist en architect naast Niels.</div><div style="font-size:0.82rem; line-height:1.35; color:var(--np-dark-gray); margin-top:0.7rem; border-top:1px solid #0E9E7E33; padding-top:0.5rem;">Sneller scherp, kost budget</div></div><div style="flex:1; background:#dceffa; border-radius:10px; padding:1rem 1.1rem; display:flex; flex-direction:column;"><div style="font-size:1rem; font-weight:700; color:#2E86C1; margin-bottom:0.45rem;">Anders verdelen</div><div style="font-size:0.94rem; line-height:1.4; flex:1;">Minder bouwstenen onder de regie van een persoon.</div><div style="font-size:0.82rem; line-height:1.35; color:var(--np-dark-gray); margin-top:0.7rem; border-top:1px solid #2E86C133; padding-top:0.5rem;">Geen extra budget, wel keuzes in wat blijft liggen</div></div><div style="flex:1; background:#ffeed9; border-radius:10px; padding:1rem 1.1rem; display:flex; flex-direction:column;"><div style="font-size:1rem; font-weight:700; color:#E8912B; margin-bottom:0.45rem;">De vraag bij de instellingen ophalen</div><div style="font-size:0.94rem; line-height:1.4; flex:1;">POC-scholen beschrijven hun eigen bouwstenen, OKx toetst en verbindt.</div><div style="font-size:0.82rem; line-height:1.35; color:var(--np-dark-gray); margin-top:0.7rem; border-top:1px solid #E8912B33; padding-top:0.5rem;">Draagvlak groeit, kost doorlooptijd</div></div>
 </div>
 
-<div class="np-card" style="border-top-color: #0E9E7E; font-size: 0.95rem; line-height: 1.5; margin-top: 0.7rem; max-width: 96%;">
-Dat versterkt bovendien wat OKx nu al onderscheidt: <strong style="color:#0E9E7E;">de afspraak is herleidbaar tot de vraag eronder.</strong> Draagvlak en adoptie volgen daaruit, want een instelling herkent haar eigen vraag terug in de specificatie.
+<div class="np-card" style="border-top-color: #A8481F; font-size: 0.98rem; line-height: 1.5; margin-top: 1rem; max-width: 96%;">
+Zonder keuze blijft de vertaling bij een persoon liggen en loopt de doorlooptijd op. <strong style="color:#A8481F;">Gevraagd: welke route verkennen we?</strong>
 </div>
 
 </div>
 
 <!--
-Dit is het besluit dat in de vorige versie ontbrak. Alle drie de reviewers
-kwamen er onafhankelijk op uit: zonder omvang, termijn en gevolg is het geen
-besluit maar een claim op capaciteit waar niemand ja of nee op kan zeggen.
-Bewust geen product owner gevraagd: het knelpunt is niet de volgorde van het
-werk maar de helderheid over wat er nodig is. Zodra die helderheid er is, komt
-de backlogvraag vanzelf.
+Bewust drie routes vooruit en geen nulvariant als vierde kaart: niets doen is
+geen route maar het gevolg, en dat staat onderaan. De derde route is de enige
+die draagvlak en capaciteit tegelijk raakt, en sluit aan op wat Niels al doet
+met de bouwstenen per school. Dit is een verkenning, geen capaciteitsclaim; de
+omvang komt pas als de route gekozen is.
 -->
 
 ---
