@@ -1,7 +1,7 @@
 ---
 theme: default
 title: "Hoe weten we of we het juiste bouwen?"
-info: "OKx naast dertig jaar technologietrend gelegd, met de kansen en risico's die dat oplevert. Voor programma- en projectleiding."
+info: "OKx naast veertig jaar technologietrend gelegd, met de kansen en risico's die dat oplevert. Voor programma- en projectleiding."
 author: OKx - Onderwijskoppelingen (Npuls)
 highlighter: shiki
 lineNumbers: false
@@ -19,7 +19,7 @@ fonts:
 
 <div style="position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 2rem 4rem; z-index: 1;">
   <h1 style="font-size: 2.6rem; line-height: 1.15; margin-bottom: 0.7rem; color: var(--np-ink);">Hoe weten we of we het juiste bouwen?</h1>
-  <p style="font-size: 1.15rem; color: var(--np-dark-gray); max-width: 780px; line-height: 1.5;">Dertig jaar technologietrend, en het traject van OKx daarnaast gelegd</p>
+  <p style="font-size: 1.15rem; color: var(--np-dark-gray); max-width: 780px; line-height: 1.5;">Veertig jaar technologietrend, en het traject van OKx daarnaast gelegd</p>
   <div style="font-size: 0.9rem; color: var(--np-mid-gray); margin-top: 0.9rem;">Niek Derksen &middot; OKx &middot; 4-9-2026</div>
 </div>
 
@@ -192,7 +192,11 @@ Overladen kost tijd, en tijd is waar de groei op stukliep. <strong style="color:
 Bewust geen groeigrafiek van spoorwegen naast het BNP. Fogel prikte dat verband
 in 1964 door en kwam op ongeveer drie procent; die claim houdt geen tegenspraak.
 Wat wel houdt is de maatvoering: het spoor lag er al, de afspraak kwam erbij, en
-pas daarna reed er iets doorheen.
+pas daarna reed er iets doorheen. Tegenwerping om voor te zijn: spoorbreedte is
+in de literatuur het schoolvoorbeeld van padafhankelijkheid, en in Spanje,
+Rusland, India en Ierland werd de vroege maat juist het probleem. Het antwoord
+staat op de risicoslide: wie de eis alleen in een techniek vastlegt zit vast,
+wie de eis los vastlegt niet.
 -->
 
 ---
@@ -243,10 +247,10 @@ flowchart LR
   OC["Onderwijscatalogus"]
   PR["Planning en roostering"]
   SIS["Studentinformatiesysteem"]
-  LMS["Leeromgeving"]
+  LMS["Leermanagementsysteem"]
   OC <-->|"specificatiestructuur<br/>en aanbod"| PR
-  OC <-->|"specificatiestructuur,<br/>verbintenis en resultaat"| SIS
-  OC <-->|"specificatiestructuur<br/>en leermiddel"| LMS
+  OC <-->|"specificatiestructuur<br/>en resultaatstructuur"| SIS
+  OC <-->|"specificatiestructuur<br/>en leermiddelkoppeling"| LMS
   style OC fill:#d9f2e6,stroke:#0E9E7E,stroke-width:2px,color:#0f3b2e
   style PR fill:#e9edf2,stroke:#94a3b0,color:#1f2937
   style SIS fill:#e9edf2,stroke:#94a3b0,color:#1f2937
@@ -256,7 +260,7 @@ flowchart LR
 
 </div>
 
-<div style="display:flex; gap:0.7rem; margin-top:0.4rem; max-width:96%;"><div style="flex:1; background:#d9f5ec; border-radius:8px; padding:0.6rem 0.75rem;"><div style="font-size:0.85rem; font-weight:700; color:#0E9E7E; margin-bottom:0.2rem;">Specificatiestructuur</div><div style="font-size:0.82rem; line-height:1.35;">Wat een opleiding inhoudt, uitgedrukt in leeruitkomsten</div></div><div style="flex:1; background:#dceffa; border-radius:8px; padding:0.6rem 0.75rem;"><div style="font-size:0.85rem; font-weight:700; color:#2E86C1; margin-bottom:0.2rem;">Aanbod</div><div style="font-size:0.82rem; line-height:1.35;">Wanneer het draait, hoeveel plekken, met wie</div></div><div style="flex:1; background:#f0e9fb; border-radius:8px; padding:0.6rem 0.75rem;"><div style="font-size:0.85rem; font-weight:700; color:#7a5dba; margin-bottom:0.2rem;">Verbintenis</div><div style="font-size:0.82rem; line-height:1.35;">Welke student aan welk aanbod vastzit</div></div><div style="flex:1; background:#ffeed9; border-radius:8px; padding:0.6rem 0.75rem;"><div style="font-size:0.85rem; font-weight:700; color:#E8912B; margin-bottom:0.2rem;">Resultaat</div><div style="font-size:0.82rem; line-height:1.35;">Wat die student heeft behaald</div></div></div>
+<div style="display:flex; gap:0.7rem; margin-top:0.4rem; max-width:96%;"><div style="flex:1; background:#d9f5ec; border-radius:8px; padding:0.6rem 0.75rem;"><div style="font-size:0.85rem; font-weight:700; color:#0E9E7E; margin-bottom:0.2rem;">Onderwijsspecificatie</div><div style="font-size:0.82rem; line-height:1.35;">Wat een opleiding inhoudt, uitgedrukt in leeruitkomsten</div></div><div style="flex:1; background:#dceffa; border-radius:8px; padding:0.6rem 0.75rem;"><div style="font-size:0.85rem; font-weight:700; color:#2E86C1; margin-bottom:0.2rem;">Onderwijsaanbod</div><div style="font-size:0.82rem; line-height:1.35;">Wanneer het draait, hoeveel plekken, met wie</div></div><div style="flex:1; background:#f0e9fb; border-radius:8px; padding:0.6rem 0.75rem;"><div style="font-size:0.85rem; font-weight:700; color:#7a5dba; margin-bottom:0.2rem;">Onderwijsverbintenis</div><div style="font-size:0.82rem; line-height:1.35;">Welke relatie een student met dat aanbod heeft</div></div><div style="flex:1; background:#ffeed9; border-radius:8px; padding:0.6rem 0.75rem;"><div style="font-size:0.85rem; font-weight:700; color:#E8912B; margin-bottom:0.2rem;">Onderwijsresultaat</div><div style="font-size:0.82rem; line-height:1.35;">Wat die student heeft behaald</div></div></div>
 
 <div class="np-card" style="border-top-color: #0E9E7E; font-size: 0.95rem; line-height: 1.5; margin-top: 0.6rem; max-width: 96%;">
 Vier begrippen die in elk systeem hetzelfde moeten betekenen. Anders kan een student niet kiezen, inschrijven, leren en een resultaat halen over die systemen heen.
@@ -366,16 +370,18 @@ worden, met raamwerk is het telkens dezelfde beweging.
 # Twee risico's
 
 <div style="display: flex; flex-direction: column; gap: 0.7rem; margin-top: 0.9rem; max-width: 96%;">
-<div style="display:flex; gap:0.8rem; align-items:stretch;"><div style="flex:1.3; background:#fdf3ea; border-left:6px solid #8a5a12; border-radius:8px; padding:0.85rem 1.1rem;"><div style="font-size:1rem; font-weight:700; color:#8a5a12; margin-bottom:0.25rem;">De afspraak komt te laat</div><div style="font-size:0.92rem; line-height:1.45;">De praktijk koppelt al. Techniek wisselt altijd, maar mogelijk komen de wisselingen nu zo snel dat er geen tijd is om ertussen te bouwen en te gebruiken.</div></div><div style="flex:0.85; background:#e8f6f1; border-left:6px solid #0E9E7E; border-radius:8px; padding:0.85rem 1.1rem;"><div style="font-size:0.75rem; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:#0E9E7E; margin-bottom:0.35rem;">Wat we al doen</div><div style="font-size:0.88rem; line-height:1.35;"><div style="display:flex; gap:0.45rem; align-items:baseline; margin-bottom:0.25rem;"><span style="color:#0E9E7E; font-weight:700;">&bull;</span><span>Platform staat, er wordt op gebouwd</span></div><div style="display:flex; gap:0.45rem; align-items:baseline; margin-bottom:0.25rem;"><span style="color:#0E9E7E; font-weight:700;">&bull;</span><span>89 issues, acht deelnemers, ook een leverancier</span></div><div style="display:flex; gap:0.45rem; align-items:baseline; margin-bottom:0.25rem;"><span style="color:#0E9E7E; font-weight:700;">&bull;</span><span>Draagvlak traag, beweging meetbaar</span></div></div></div></div>
-<div style="display:flex; gap:0.8rem; align-items:stretch;"><div style="flex:1.3; background:#fbf1ec; border-left:6px solid #C0392B; border-radius:8px; padding:0.85rem 1.1rem;"><div style="font-size:1rem; font-weight:700; color:#C0392B; margin-bottom:0.25rem;">De eis bestaat straks alleen nog in OEAPI-vorm</div><div style="font-size:0.92rem; line-height:1.45;">De keuze voor OEAPI staat niet ter discussie, dat is beleid. Het risico is dat de eis erachter nergens los is opgeschreven. Bij een nieuwe versie of een ander protocol begint het specificeren dan opnieuw.</div><div style="font-size:0.92rem; font-weight:700; color:#C0392B; margin-top:0.5rem;">Dan bouw je alleen de stoomtrein, en niet de rails eronder.</div></div><div style="flex:0.85; background:#e8f6f1; border-left:6px solid #0E9E7E; border-radius:8px; padding:0.85rem 1.1rem;"><div style="font-size:0.75rem; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:#0E9E7E; margin-bottom:0.35rem;">Wat we al doen</div><div style="font-size:0.88rem; line-height:1.35;"><div style="display:flex; gap:0.45rem; align-items:baseline; margin-bottom:0.25rem;"><span style="color:#0E9E7E; font-weight:700;">&bull;</span><span>Uitlijnen met MORA en HORA</span></div><div style="display:flex; gap:0.45rem; align-items:baseline; margin-bottom:0.25rem;"><span style="color:#0E9E7E; font-weight:700;">&bull;</span><span>OKx-kader in het businesskader</span></div><div style="display:flex; gap:0.45rem; align-items:baseline; margin-bottom:0.25rem;"><span style="color:#0E9E7E; font-weight:700;">&bull;</span><span>Wat bouwen we, voor wie, onder welke omstandigheden</span></div></div></div></div>
+<div style="display:flex; gap:0.8rem; align-items:stretch;"><div style="flex:1.3; background:#fdf3ea; border-left:6px solid #8a5a12; border-radius:8px; padding:0.85rem 1.1rem;"><div style="font-size:1rem; font-weight:700; color:#8a5a12; margin-bottom:0.25rem;">De afspraak komt te laat</div><div style="font-size:0.92rem; line-height:1.45;">De praktijk koppelt al. Techniek wisselt altijd, maar mogelijk komen de wisselingen nu zo snel dat er geen tijd is om ertussen te bouwen en te gebruiken.</div></div><div style="flex:0.85; background:#e8f6f1; border-left:6px solid #0E9E7E; border-radius:8px; padding:0.85rem 1.1rem;"><div style="font-size:0.75rem; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:#0E9E7E; margin-bottom:0.35rem;">Wat we al doen</div><div style="font-size:0.88rem; line-height:1.35;"><div style="display:flex; gap:0.45rem; align-items:baseline; margin-bottom:0.25rem;"><span style="color:#0E9E7E; font-weight:700;">&bull;</span><span>Platform staat, er wordt op gebouwd</span></div><div style="display:flex; gap:0.45rem; align-items:baseline; margin-bottom:0.25rem;"><span style="color:#0E9E7E; font-weight:700;">&bull;</span><span>60 issues in Public, van acht auteurs</span></div><div style="display:flex; gap:0.45rem; align-items:baseline; margin-bottom:0.25rem;"><span style="color:#0E9E7E; font-weight:700;">&bull;</span><span>Eerste leverancier haakt aan</span></div></div></div></div>
+<div style="display:flex; gap:0.8rem; align-items:stretch;"><div style="flex:1.3; background:#fbf1ec; border-left:6px solid #C0392B; border-radius:8px; padding:0.85rem 1.1rem;"><div style="font-size:1rem; font-weight:700; color:#C0392B; margin-bottom:0.25rem;">De eis bestaat straks alleen nog in OEAPI-vorm</div><div style="font-size:0.92rem; line-height:1.45;">Het uitgangspunt is OEAPI, tenzij. Het risico is niet die keuze, maar dat de eis erachter nergens los van OEAPI is opgeschreven. Bij een nieuwe versie of een ander protocol begint het specificeren dan opnieuw.</div><div style="font-size:0.92rem; font-weight:700; color:#C0392B; margin-top:0.5rem;">Dan leg je de maat vast in een spoortype, in plaats van in de maat zelf.</div></div><div style="flex:0.85; background:#e8f6f1; border-left:6px solid #0E9E7E; border-radius:8px; padding:0.85rem 1.1rem;"><div style="font-size:0.75rem; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:#0E9E7E; margin-bottom:0.35rem;">Wat we al doen</div><div style="font-size:0.88rem; line-height:1.35;"><div style="display:flex; gap:0.45rem; align-items:baseline; margin-bottom:0.25rem;"><span style="color:#0E9E7E; font-weight:700;">&bull;</span><span>Uitlijnen met MORA en HORA</span></div><div style="display:flex; gap:0.45rem; align-items:baseline; margin-bottom:0.25rem;"><span style="color:#0E9E7E; font-weight:700;">&bull;</span><span>OKx-kader in het businesskader</span></div><div style="display:flex; gap:0.45rem; align-items:baseline; margin-bottom:0.25rem;"><span style="color:#0E9E7E; font-weight:700;">&bull;</span><span>Wat bouwen we, voor wie, onder welke omstandigheden</span></div></div></div></div>
 </div>
 
 </div>
 
 <!--
-Het tweede risico is de vraag van de opdrachtgever, maar dan van binnenuit: de
-stoomtrein ontstaat niet door de techniekkeuze, maar doordat de eis alleen nog
-in de vorm van die techniek bestaat.
+Het tweede risico is de vraag van de opdrachtgever, maar dan van binnenuit: het
+vastlopen ontstaat niet door de techniekkeuze, maar doordat de eis alleen nog in
+de vorm van die techniek bestaat. Bij navraag: AP09 vraagt minimaal twee
+instellingen en twee leveranciers voordat iets richting standaard gaat. Die
+drempel is nog niet gehaald, en 40 van de 60 issues komen van een auteur.
 -->
 
 ---
@@ -402,9 +408,8 @@ Leg de betekenis eenduidig vast en maak haar leesbaar voor een machine. Dan kan 
 </div>
 
 <!--
-Geen menu van drie richtingen meer. De keuze uit de vorige versie was er een
-die niemand had gevraagd, en de projectleiding had hem al gemaakt. Wat
-overblijft is waar de waarde zit, met de vraag die daarbij hoort.
+Een boodschap in plaats van een menu: waar de waarde zit, met de vraag die
+daarbij hoort. De omvang en de termijn van die vraag ontbreken hier nog.
 -->
 
 ---
