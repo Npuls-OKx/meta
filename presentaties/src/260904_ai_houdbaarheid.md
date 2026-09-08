@@ -309,10 +309,10 @@ worden, met raamwerk is het telkens dezelfde beweging.
 
 <div class="fill">
 
-# Waar de waarde zit
+# Wat wij leveren, en wat AI daarmee kan
 
 <div style="font-size: 0.88rem; color: var(--np-mid-gray); margin-bottom: 0.1rem;">
-Niet in de koppeling, maar in de betekenis eronder
+Onze bijdrage zit niet in de koppeling, maar in de betekenis eronder
 </div>
 
 <div style="display:flex; gap:0.9rem; margin-top:1rem; max-width:96%; align-items:stretch;">
