@@ -32,3 +32,5 @@ Wat vraagt dit van wie, wanneer moet het klaar zijn, en wat gebeurt er met de pl
 - Een genomen besluit dat als risico wordt opgevoerd. De keuze voor een standaard is beleid; wie die als risico opschrijft krijgt terug dat het geen risico is.
 - Twee beelden of metaforen door elkaar. Hij kiest er een en vraagt de andere weg te halen.
 - Een zin waarvan het onderwerp niet klopt. Hij leest hem letterlijk en vraagt wat er staat.
+- Een vraag om capaciteit zonder omvang, termijn en gevolg. Die kan hij niet afwijzen en niet goedkeuren, en hij weet dat zo'n zin later terugkomt als een toezegging die niemand heeft gedaan.
+- Hetzelfde woord dat op twee slides het tegenovergestelde betekent. Hij leest een deck als een reeks uitspraken en struikelt over de tegenspraak, niet over de slide.

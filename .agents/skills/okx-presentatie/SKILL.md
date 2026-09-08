@@ -72,6 +72,27 @@ Twee vervolgregels die daaruit volgen.
 
 **Neem de aanklacht over in plaats van hem te weerspreken.** Zit er een verwijt in de vraag, dan is de sterkste opening dat verwijt bevestigen en het daarna omdraaien. "Ja, we bouwen een stoomtrein. En we leggen meteen de rails." Dat ontwapent, terwijl een weerlegging de zaal in de verdedigingsstand zet en de vraagsteller uitnodigt om harder te duwen.
 
+## Neem de woorden van de opdrachtgever letterlijk over
+
+De sterkste regels in een deck komen bijna nooit van de maker. Ze komen uit de chat, uit een meeting of uit een terloopse opmerking van degene die het onderwerp kent. "We hebben capaciteit voor technische uitwerking, wat we zoeken is richting" is scherper dan elke herformulering ervan. "Ja, we bouwen een stoomtrein, en we leggen meteen de rails" ook.
+
+**Zegt de opdrachtgever iets in zijn eigen woorden, zet dat op de slide.** Niet gepolijst, niet geabstraheerd. De neiging om er iets beters van te maken levert vrijwel altijd iets algemeners op dat minder waar is. Herformuleer alleen als de zin feitelijk niet klopt of als hij de lezer op het verkeerde been zet, en zeg dan wat je hebt veranderd en waarom.
+
+Twee uitzonderingen, allebei uit de praktijk. Een zin die een oordeel over eigen mensen bevat, en een zin waarin een tekort aan een persoon of team hangt, gaan naar de sprekersnotitie: uitgesproken werkt het, op een slide leest het als een verwijt. En een aanwijzing over de vorm blijft altijd buiten de slide (zie [Schrijf over de zaak](#schrijf-over-de-zaak-niet-tegen-de-zaal)).
+
+
+### Kan de lezer een besluit nemen
+
+Naast de vraag of het deck de gestelde vraag beantwoordt, staat de vraag of er iets te besluiten valt. Twee onafhankelijke reviewers kwamen op dit punt uit terwijl geen enkele regel in deze skill het afving.
+
+Loop voor oplevering deze drie na.
+
+- **Staat de vraag ergens waar hij niet te missen is?** Onderaan de voorlaatste slide is te laat.
+- **Is hij te beantwoorden met ja, nee of een keuze?** "Focus en capaciteit" is geen vraag maar een claim: geen omvang, geen termijn, geen rol, geen gevolg. Zo'n regel kan niemand afwijzen en niemand goedkeuren, en hij wordt later geciteerd als een toezegging die niemand heeft gedaan.
+- **Staat er wat er gebeurt als er niets gekozen wordt?** Zonder gevolg is elke optie vrijblijvend.
+
+Bij een vraag om mensen of geld geldt bovendien een volgorde. Zet eerst wat het team zelf kan doen, dan wat samen met de sector kan, en pas als laatste de vraag om extra capaciteit. Wie de laatste kaart leest heeft de eerste twee al gezien, en dat is het verschil tussen een verkenning en een claim. Zet "niets doen" niet als vierde optie neer maar als het gevolg onderaan: als optie geeft het dezelfde status als de rest, als gevolg is het de prijs van niet kiezen.
+
 ## Schrijf over de zaak, niet tegen de zaal
 
 Een deck informeert over een onderwerp. Het onderwerp is dus het grammaticale onderwerp, niet het publiek. Dat is dezelfde norm als bij een thesis of een adviesrapport: zakelijk, navolgbaar, zonder de lezer aan te spreken.
@@ -135,6 +156,16 @@ Uit de finetunerondes van 18 augustus 2026, vastgesteld door de product owner.
 - **Diagrammen volledig of niet.** Een sequentiediagram toont ook de terugweg, het eigen proces en het foutpad; JSON-voorbeelden gebruiken echte veldnamen en types uit het schema, met een beletselteken voor de rest.
 - **Backlog en planning worden afgeleid, niet verzonnen.** Toon de afleidingslijn (leerroutes en scenario's naar features, stories en functionele eisen) en stel de toetsvraag aan de zaal in plaats van zelf een lijst te bedenken.
 
+## Lees het deck als een ketting van kernzinnen
+
+Elke slide klopt op zichzelf en het deck spreekt zichzelf toch tegen. Dat gebeurt bij herschrijven: een slide verandert en de slide vier verder blijft staan.
+
+Doe daarom voor oplevering een aparte ronde waarin je **alleen de titels en de vetgedrukte kernzinnen achter elkaar leest**, in volgorde, zonder de rest. Drie dingen vallen dan op die je in de slides zelf niet ziet.
+
+- **Hetzelfde woord met twee betekenissen.** In dit deck was "stoomtrein" op de conclusieslide het antwoord dat werd omarmd en vier slides verder het risico dat werd gevreesd.
+- **Twee kernzinnen die elkaar uitsluiten.** "AI draagt de verantwoordelijkheid niet" op de ene slide, "bedacht door AI" als de echte winst op de andere. De eerste vraag uit de zaal is dan wie aansprakelijk is.
+- **Een claim die na een herstructurering niet meer klopt.** Toen acht historieslides er een werden, bleef de slide erna aantallen natellen uit platen die niet meer bestonden. **Na elke herstructurering: loop elke slide na die verwees naar wat je hebt weggehaald.**
+
 ## Onderbouw met wat niet te betwisten valt
 
 Een historische parallel of een extern cijfer maakt een betoog sterker, maar alleen als het standhoudt bij iemand die het naslaat. Controleer daarom voor elk extern verband of het omstreden is voordat je erop bouwt.
@@ -144,6 +175,13 @@ Concreet voorbeeld uit dit deck. De claim "zonder de spoorlijn was de Verenigde 
 Wat wel standhoudt is het mechanisme in plaats van het effect: er lagen verschillende spoorbreedtes naast elkaar, vracht moest bij elke overgang worden overgeladen, en pas na de afspraak over een gemeenschappelijke maat reed er iets doorheen. Zelfde beeld, geen betwistbare causaliteit.
 
 Vuistregel: gebruik externe parallellen om een **werking** te laten zien, niet om een **groei** te bewijzen. En zet in de sprekersnotitie waarom je de betwistbare variant niet hebt gebruikt, zodat de spreker er iets mee kan als iemand ernaar vraagt.
+
+
+### De slide draagt het argument, de notitie de verdediging
+
+Bij het inkorten belandt het sterkste deel van een betoog gemakkelijk in de sprekersnotitie. Dat kostte in dit deck bijna het antwoord op de hoofdvraag: de juridische onderbouwing stond alleen in de notities, en de opdrachtgever merkte op dat het antwoord weg is zodra iemand anders het deck doorstuurt of presenteert.
+
+De verdeling is: **op de slide staat waarom de uitspraak waar is, in de notitie staat wat je zegt als iemand hem aanvalt.** Een tegenwerping die je voor wilt zijn, een bron, een cijfer voor bij navraag, een gevoelige nuance: notitie. De redenering zelf: slide.
 
 ## Voor wie schrijf je
 
@@ -162,9 +200,11 @@ Het onderscheid dat het register bepaalt is **intern of extern**:
 | **Kerngroep techniek OKx** | extern | De keten en de architectuur | Of de richting klopt, en of de kaderstelling ver genoeg is om spec te starten | Diep. Besluiten, alternatieven en open punten. Ankertabel en payloads horen erbij |
 | **Technische werkgroep OEAPI** | extern | De OEAPI-standaard | Hoe OKx zich tot OEAPI verhoudt, en welke signaleringen eruit komen | Vergelijkend. Benoem afwijkingen met de onderbouwing, en welke wijzigingsverzoeken richting OEAPI gaan |
 | **Leveranciers** | extern | Het eigen systeem en de integratiepraktijk | Wat er gebouwd moet worden, wanneer, en wat er nog verandert | Concreet over koppelvlakken en contracten. Expliciet over wat vaststaat en wat concept is |
-| **Instellingen** *(komt nog)* | extern | De eigen onderwijspraktijk | Wat er verandert en wanneer | Nog niet uitgewerkt; stem af met de gebruiker |
+| **Instellingen** | extern | De eigen onderwijspraktijk en het eigen applicatielandschap | Wat dit voor hun school betekent, wat ze wanneer moeten regelen, en welk risico ze lopen door niets te doen | Onderwijstaal, geen systeemtaal. Begin bij het proces van de school en niet bij het koppelvlak. Elke OKx-term een keer uitleggen. Expliciet over wat een verplichting is en wat niet, en over de overgangstermijn. Nooit aannemen dat er van elk systeem precies een instantie is |
 
 Twee regels die voor elk profiel gelden. Vertaal een wijziging altijd naar **wat er nu mogelijk is dat eerst niet kon** — niet naar "document X is bijgewerkt". En sluit af met wat er van dit gremium gevraagd wordt, in de vaste vorm hierboven: een besluit, een review, of kennisname.
+
+**Bij een deck richting instellingen** komen daar drie dingen bij, uit de persona's [informatiemanager](../../personas/informatiemanager-instelling.md), [enterprise-architect](../../personas/enterprise-architect-instelling.md), [vertegenwoordiger in de werkgroep](../../personas/vertegenwoordiger-instelling-werkgroep.md) en [bop-procesbespecialist](../../personas/bop-procesbespecialist.md). Beschrijf het onderwijs in de taal van de school en niet in veldnamen of statuswaarden. Leg de relatie met MORA, anders blijft de vertaling naar de eigen architectuur bij de lezer liggen. En veronderstel geen verandervermogen dat een instelling met haar huidige bezetting niet heeft.
 
 ## Gebruik de termen uit de bron, niet je eigen omschrijving
 
@@ -226,6 +266,19 @@ Teken je toch zelf een figuur, in SVG of HTML, let dan op drie dingen die stil m
 
 Een klikstap (`v-click`) voegt geen paginas toe aan de export: de PDF en de PowerPoint tonen de slide in zijn eindtoestand. Een opbouw voor het presenteren kost dus niets in de leesversie.
 
+
+### Een repertoire dat werkt
+
+Zelf tekenen mag als er geen bestaande plaat is, maar houd het bij een kleine vaste woordenschat, zodat slides elkaar herkennen in plaats van dat elke slide een eigen stijl krijgt. Wat in dit deck werkte:
+
+- **Voor en na naast elkaar.** Links wat er misging, rechts wat erna kon, met dezelfde vorm. Drie keer herhaald overtuigt sterker dan een keer uitgelegd.
+- **Een klok als vertraging.** Een klokje bij het probleem zegt "dit kost tijd" zonder een cijfer te claimen.
+- **Mens en machine bij hetzelfde document.** Met vraagtekens waar de betekenis ontbreekt, zonder vraagtekens waar ze wel vastligt. Dezelfde iconen op twee slides maken van die twee slides een paar.
+- **Een keten met een terugpijl.** Blokken met pijlen ertussen en een gestippelde pijl terug naar het begin, met daarop wat elke ronde oplevert.
+- **Een lijn zonder assen.** Een curve toont een verhouding, geen meting. Zet er geen getallen bij, en gebruik geen staafdiagram tenzij de aantallen echt geteld zijn.
+
+**Een grafiek met cijfers vraagt om natellen.** Een staafdiagram met "geteld in de platen hiervoor" nodigt de lezer letterlijk uit dat te doen, en dan moet het kloppen. Twee lijnen die naast elkaar oplopen vertellen dezelfde boodschap zonder die belofte. Kies bij twijfel de lijn.
+
 ## Neem tabellen, cijfers en citaten letterlijk over
 
 Bouw een tabel **nooit uit je hoofd na**. Open het bronbestand, kopieer de tabel, en kort daarna hooguit celteksten in met behoud van betekenis. Bij een ankertabel of een begrippenlijst is een verzonnen kolom of een weggelaten rij geen schoonheidsfoutje: het publiek toetst juist die tabel, en een fout ondermijnt het hele deck.
@@ -233,6 +286,8 @@ Bouw een tabel **nooit uit je hoofd na**. Open het bronbestand, kopieer de tabel
 Dat ging hier al een keer mis. Een ankertabel werd uit het geheugen nagemaakt met zeven kolommen in plaats van zes, vier rijen in plaats van zeven, verzonnen korte labels en een ontbrekende examenrij. Het zag er plausibel uit en klopte niet.
 
 Zelfde regel voor cijfers, data en citaten: haal ze uit de bron en controleer ze. Zet in de sprekersnotities waar iets vandaan komt, zodat het bij doorvragen na te lopen is.
+
+**Een getal uit een query is nog geen antwoord.** Controleer wat de query telt voordat je het cijfer overneemt. In dit deck stond "89 issues" op een risicoslide; dat getal kwam uit de zoek-API van GitHub, die pull requests meetelt. Het waren er 60. Zo'n fout is voor iedereen met een browser binnen een minuut te vinden, en hij kost de geloofwaardigheid van de hele slide.
 
 **Versienummers letterlijk uit het releasemanifest.** Het manifest zegt v0.0.1; schrijf dan nooit v0.01 of een eigen notatie.
 
