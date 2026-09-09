@@ -1,6 +1,6 @@
 {
-  "versie": "v0.1",
-  "scope": "De objecttypen en begrippen van het informatiemodel OKx. Termen uit de rest van de documentatie staan nog niet in deze lijst; de extractie in begrippen-extractie.json houdt bij hoeveel dat er zijn.",
+  "versie": "v0.2",
+  "scope": "De objecttypen en begrippen van het informatiemodel OKx, elk eerst gelegd naast MORA en het Kernmodel Onderwijsinformatie binnen ROSA. HORA is nog niet onderzocht. Termen uit de rest van de documentatie vallen buiten deze versie.",
   "indeling_negeerlijst": [
     "veldnaam",
     "branchnaam",
@@ -15,178 +15,346 @@
   ],
   "begrippen": [
     {
-      "naam": "Onderwijsresultaat",
-      "niveau": 1,
-      "familie": "Onderwijsresultaat",
-      "in_informatiemodel": true,
-      "definitie": "Wat een student op een verbintenis heeft behaald, uitgedrukt in leeruitkomsten",
-      "vindplaats": "architecture/model/informatiemodel/informatiemodel.md#begrippen",
-      "status": "gedefinieerd",
-      "herkomst": "nog niet bepaald",
       "varianten": [
-        "Onderwijsresultaat",
-        "onderwijsresultaat"
+        "Kwalificatiekader MBO"
       ],
-      "voorkomens_corpus": 5
-    },
-    {
-      "naam": "Onderwijskundig kader instelling",
-      "niveau": 1,
-      "familie": "Onderwijskundig kader instelling",
-      "in_informatiemodel": true,
-      "definitie": "De vertaling van het kwalificatiekader naar beoogde leeruitkomsten, gemaakt door de instelling zelf",
-      "vindplaats": "architecture/model/informatiemodel/informatiemodel.md#begrippen",
-      "status": "gedefinieerd",
-      "herkomst": "nog niet bepaald",
-      "varianten": [
-        "Onderwijskundigkader instelling"
-      ],
-      "voorkomens_corpus": 0
-    },
-    {
-      "naam": "Onderwijsaanbod",
-      "niveau": 1,
-      "familie": "Onderwijsaanbod",
-      "in_informatiemodel": true,
-      "definitie": "Een specificatie die is ingepland: een periode, een capaciteit en waar van toepassing concrete plek, docent en tijd",
-      "vindplaats": "architecture/model/informatiemodel/informatiemodel.md#begrippen",
-      "status": "gedefinieerd",
-      "herkomst": "nog niet bepaald",
-      "varianten": [
-        "Onderwijsaanbod",
-        "onderwijsaanbod"
-      ],
-      "voorkomens_corpus": 38
-    },
-    {
-      "naam": "Onderwijsverbintenis",
-      "niveau": 1,
-      "familie": "Onderwijsverbintenis",
-      "in_informatiemodel": true,
-      "definitie": "De relatie tussen een student en een aanbod, van aangemeld tot afgerond",
-      "vindplaats": "architecture/model/informatiemodel/informatiemodel.md#begrippen",
-      "status": "gedefinieerd",
-      "herkomst": "nog niet bepaald",
-      "varianten": [
-        "Onderwijsverbintenis",
-        "onderwijsverbintenis"
-      ],
-      "voorkomens_corpus": 19
-    },
-    {
-      "naam": "Resultaatstructuur",
-      "niveau": 1,
-      "familie": "Resultaatstructuur",
-      "in_informatiemodel": true,
-      "definitie": "De samenstelling en weging waarmee losse resultaten optellen tot een uitspraak over de beoogde leeruitkomsten, en daarmee over een kwalificatie of certificaat",
-      "vindplaats": "architecture/model/informatiemodel/informatiemodel.md#begrippen",
-      "status": "gedefinieerd",
-      "herkomst": "nog niet bepaald",
-      "varianten": [],
-      "voorkomens_corpus": 0
-    },
-    {
-      "naam": "Onderwijsspecificatie",
-      "niveau": 1,
-      "familie": "Onderwijsspecificatie",
-      "in_informatiemodel": true,
-      "definitie": "Het herbruikbare ontwerp van een onderwijsonderdeel, los van wanneer het draait en wie eraan meedoet",
-      "vindplaats": "architecture/model/informatiemodel/informatiemodel.md#begrippen",
-      "status": "gedefinieerd",
-      "herkomst": "nog niet bepaald",
-      "varianten": [
-        "Onderwijsspecificatie",
-        "onderwijsSpecificatie",
-        "onderwijsspecificatie"
-      ],
-      "voorkomens_corpus": 47
-    },
-    {
       "naam": "Kwalificatiekader mbo",
       "niveau": 1,
       "familie": "Kwalificatiekader mbo",
       "in_informatiemodel": true,
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "kwalificatiekader. MORA gebruikt de term kwalificatiestructuur binnen de definities van Kwalificatie dossier en Domein, maar kent geen objecttype met deze naam."
+        },
+        "MORA": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "kwalificatiekader. MORA gebruikt de term kwalificatiestructuur binnen de definities van Kwalificatie dossier en Domein, maar kent geen objecttype met deze naam."
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
       "definitie": "Het geheel van landelijk vastgestelde eisen waaraan een opleiding moet voldoen. Vastgesteld en beheerd buiten OKx",
       "vindplaats": "architecture/model/informatiemodel/informatiemodel.md#begrippen",
+      "bron_soort": "okx-document",
       "status": "gedefinieerd",
-      "herkomst": "nog niet bepaald",
+      "herkomst": "nieuw voor de solution-laag"
+    },
+    {
       "varianten": [
-        "Kwalificatiekader MBO"
+        "Onderwijskundigkader instelling"
       ],
-      "voorkomens_corpus": 0
+      "naam": "Onderwijskundig kader instelling",
+      "niveau": 1,
+      "familie": "Onderwijskundig kader instelling",
+      "in_informatiemodel": true,
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "onderwijskundig kader, onderwijskader. KOI kent onderwijsontwikkeling als proces, niet als informatieobject."
+        },
+        "MORA": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "onderwijskundig kader, onderwijskader. KOI kent onderwijsontwikkeling als proces, niet als informatieobject."
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
+      "definitie": "De vertaling van het kwalificatiekader naar beoogde leeruitkomsten, gemaakt door de instelling zelf",
+      "vindplaats": "architecture/model/informatiemodel/informatiemodel.md#begrippen",
+      "bron_soort": "okx-document",
+      "status": "gedefinieerd",
+      "herkomst": "nieuw voor de solution-laag"
+    },
+    {
+      "varianten": [
+        "onderwijsSpecificatie",
+        "onderwijsspecificatie"
+      ],
+      "naam": "Onderwijsspecificatie",
+      "niveau": 1,
+      "familie": "Onderwijsspecificatie",
+      "in_informatiemodel": true,
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "tegenhanger",
+          "begrip": "onderwijsaanbod (koi)",
+          "url": "https://rosa.wikixl.nl/index.php/Id-6d1ed39571de4ee5b1aefcf051991478",
+          "citaat": "Datgene wat een onderwijsorganisatie organiseert aan onderwijsactiviteiten zowel inhoudelijk als qua aanpak.",
+          "verbijzondering": "De ontwerpkant van het KOI-begrip onderwijsaanbod, losgemaakt van de inplanning omdat een specificatie herbruikbaar is over meerdere aanbodmomenten."
+        },
+        "MORA": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "onderwijsspecificatie"
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
+      "definitie": "Het herbruikbare ontwerp van een onderwijsonderdeel, los van wanneer het draait en wie eraan meedoet",
+      "vindplaats": "architecture/model/informatiemodel/informatiemodel.md#begrippen",
+      "bron_soort": "okx-document",
+      "status": "gedefinieerd",
+      "herkomst": "verbijzondering van `onderwijsaanbod (koi)` (ROSA-KOI)"
+    },
+    {
+      "varianten": [
+        "onderwijsaanbod"
+      ],
+      "naam": "Onderwijsaanbod",
+      "niveau": 1,
+      "familie": "Onderwijsaanbod",
+      "in_informatiemodel": true,
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "tegenhanger",
+          "begrip": "onderwijsaanbod (koi)",
+          "url": "https://rosa.wikixl.nl/index.php/Id-6d1ed39571de4ee5b1aefcf051991478",
+          "citaat": "Datgene wat een onderwijsorganisatie organiseert aan onderwijsactiviteiten zowel inhoudelijk als qua aanpak.",
+          "verbijzondering": "KOI vat ontwerp en uitvoering samen in een begrip. OKx splitst dat in de onderwijsspecificatie, het herbruikbare ontwerp, en het onderwijsaanbod, de ingeplande uitvoering."
+        },
+        "MORA": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "onderwijsaanbod"
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
+      "definitie": "Een specificatie die is ingepland: een periode, een capaciteit en waar van toepassing concrete plek, docent en tijd",
+      "vindplaats": "architecture/model/informatiemodel/informatiemodel.md#begrippen",
+      "bron_soort": "okx-document",
+      "status": "gedefinieerd",
+      "herkomst": "verbijzondering van `onderwijsaanbod (koi)` (ROSA-KOI)"
+    },
+    {
+      "varianten": [
+        "onderwijsverbintenis"
+      ],
+      "naam": "Onderwijsverbintenis",
+      "niveau": 1,
+      "familie": "Onderwijsverbintenis",
+      "in_informatiemodel": true,
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "tegenhanger",
+          "begrip": "onderwijsdeelname (koi)",
+          "url": "https://rosa.wikixl.nl/index.php/Id-ec977035c9be4b01bb1c14a5950a1799",
+          "citaat": "Een afspraak voor het gaan volgen, volgen en hebben gevolgd van onderwijs."
+        },
+        "MORA": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "onderwijsverbintenis"
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
+      "definitie": "Een afspraak voor het gaan volgen, volgen en hebben gevolgd van onderwijs.",
+      "vindplaats": "https://rosa.wikixl.nl/index.php/Id-ec977035c9be4b01bb1c14a5950a1799",
+      "bron_soort": "referentiekader",
+      "status": "gedefinieerd",
+      "herkomst": "overgenomen uit ROSA-KOI"
+    },
+    {
+      "varianten": [
+        "onderwijsresultaat"
+      ],
+      "naam": "Onderwijsresultaat",
+      "niveau": 1,
+      "familie": "Onderwijsresultaat",
+      "in_informatiemodel": true,
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "tegenhanger",
+          "begrip": "onderwijsresultaat (koi)",
+          "url": "https://rosa.wikixl.nl/index.php/Id-e5d21e5384c0482ba4a501571e69927a",
+          "citaat": "Vastgelegde en geformaliseerde beoordeling op basis van een of meer leerresultaten."
+        },
+        "MORA": {
+          "uitkomst": "tegenhanger",
+          "begrip": "Summatief resultaat",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-beaf106a-f329-b3ed-e513-6814b1fd65fa",
+          "citaat": "Een formele, door de instelling geregistreerde waardering voor summatief gemaakt werk (zoals een examen of BPV-beoordeling) die meetelt voor de uiteindelijke kwalificering. Summatieve resultaten worden vastgelegd conform de summatieve resultaatstructuur. Summatieve resultaten worden ook wel examenresultaten genoemd",
+          "verbijzondering": "MORA scheidt het summatieve en het formatieve resultaat. OKx gebruikt onderwijsresultaat als de overkoepelende term van KOI en houdt het onderscheid in de resultaatstructuur."
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
+      "definitie": "Vastgelegde en geformaliseerde beoordeling op basis van een of meer leerresultaten.",
+      "vindplaats": "https://rosa.wikixl.nl/index.php/Id-e5d21e5384c0482ba4a501571e69927a",
+      "bron_soort": "referentiekader",
+      "status": "gedefinieerd",
+      "herkomst": "overgenomen uit ROSA-KOI"
+    },
+    {
+      "varianten": [],
+      "naam": "Resultaatstructuur",
+      "niveau": 1,
+      "familie": "Resultaatstructuur",
+      "in_informatiemodel": true,
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "resultaatstructuur. MORA kent de summatieve en de formatieve resultaatstructuur elk apart, niet als een overkoepelend begrip."
+        },
+        "MORA": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "resultaatstructuur. MORA kent de summatieve en de formatieve resultaatstructuur elk apart, niet als een overkoepelend begrip."
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
+      "definitie": "De samenstelling en weging waarmee losse resultaten optellen tot een uitspraak over de beoogde leeruitkomsten, en daarmee over een kwalificatie of certificaat",
+      "vindplaats": "architecture/model/informatiemodel/informatiemodel.md#begrippen",
+      "bron_soort": "okx-document",
+      "status": "gedefinieerd",
+      "herkomst": "nieuw voor de solution-laag"
     },
     {
       "naam": "Aanwezigheid",
       "niveau": 2,
       "familie": "Onderwijsresultaat",
       "in_informatiemodel": true,
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "aanwezigheid"
+        },
+        "MORA": {
+          "uitkomst": "tegenhanger",
+          "begrip": "Aan- en afwezigheid",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-64aa6ac8-d531-7df9-8bcd-c5e09d4c15e9",
+          "citaat": "Geregistreerde aan- of afwezigheid van een student op een gepland tijdstip in een gespecificeerde omgeving",
+          "verbijzondering": "OKx legt alleen de aanwezigheid vast, als resultaat op een lesgelegenheid."
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
       "definitie": null,
       "vindplaats": null,
+      "bron_soort": null,
       "status": "nog te definieren",
-      "herkomst": "nog niet bepaald",
-      "varianten": [
-        "Aanwezigheid"
-      ],
-      "voorkomens_corpus": 2
+      "herkomst": "verbijzondering van `Aan- en afwezigheid` (MORA)",
+      "varianten": []
     },
     {
+      "scope": "buiten scope",
       "naam": "Competenties / Skills",
       "niveau": 2,
       "familie": "Onderwijskundig kader instelling",
       "in_informatiemodel": true,
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "competenties / skills"
+        },
+        "MORA": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "competenties / skills"
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
       "definitie": null,
       "vindplaats": null,
+      "bron_soort": null,
       "status": "nog te definieren",
-      "herkomst": "nog niet bepaald",
-      "varianten": [],
-      "voorkomens_corpus": 0,
-      "scope": "buiten scope"
+      "herkomst": "nieuw voor de solution-laag",
+      "varianten": []
     },
     {
+      "oeapi": [
+        "TestComponentOffering"
+      ],
       "naam": "Examengelegenheid",
       "niveau": 2,
       "familie": "Onderwijsaanbod",
       "in_informatiemodel": true,
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "examengelegenheid"
+        },
+        "MORA": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "examengelegenheid"
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
       "definitie": "Het georganiseerde aanbod van een examenmoment: planning, locatie, surveillant-capaciteit en kandidaten, gekoppeld aan precies één `Examenspecificatie`.",
       "vindplaats": "architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#betrokken-informatie-bij-proces",
+      "bron_soort": "okx-document",
       "status": "gedefinieerd",
-      "herkomst": "nog niet bepaald",
-      "varianten": [
-        "Examengelegenheid"
-      ],
-      "voorkomens_corpus": 18,
-      "oeapi": [
-        "TestComponentOffering"
-      ]
+      "herkomst": "nieuw voor de solution-laag",
+      "varianten": []
     },
     {
+      "oeapi": [
+        "Result"
+      ],
       "naam": "Examengelegenheid resultaat",
       "niveau": 2,
       "familie": "Onderwijsresultaat",
       "in_informatiemodel": true,
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "examengelegenheid resultaat"
+        },
+        "MORA": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "examengelegenheid resultaat"
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
       "definitie": null,
       "vindplaats": null,
+      "bron_soort": null,
       "status": "nog te definieren",
-      "herkomst": "nog niet bepaald",
-      "varianten": [],
-      "voorkomens_corpus": 0,
-      "oeapi": [
-        "Result"
-      ]
+      "herkomst": "nieuw voor de solution-laag",
+      "varianten": []
     },
     {
+      "oeapi": [
+        "TestComponentOfferingAssociation"
+      ],
       "naam": "Examengelegenheid verbintenis",
       "niveau": 2,
       "familie": "Onderwijsverbintenis",
       "in_informatiemodel": true,
-      "definitie": "De relatie tussen kandidaat en `Examengelegenheid`: inschrijving op en deelname aan de examenafname.",
-      "vindplaats": "architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#betrokken-informatie-bij-proces",
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "examengelegenheid verbintenis"
+        },
+        "MORA": {
+          "uitkomst": "tegenhanger",
+          "begrip": "Examen deelname",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-abbf4971-fe71-2b56-20f1-6135b4a1eb82",
+          "citaat": "De registratie van een formele activiteit (lees examensessie) waarin een examen wordt afgenomen"
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
+      "definitie": "De registratie van een formele activiteit (lees examensessie) waarin een examen wordt afgenomen",
+      "vindplaats": "https://mora.mbodigitaal.nl/index.php/Id-abbf4971-fe71-2b56-20f1-6135b4a1eb82",
+      "bron_soort": "referentiekader",
       "status": "gedefinieerd",
-      "herkomst": "nog niet bepaald",
-      "varianten": [],
-      "voorkomens_corpus": 0,
-      "oeapi": [
-        "TestComponentOfferingAssociation"
+      "herkomst": "overgenomen uit MORA",
+      "varianten": [
+        "Examengelegenheid-verbintenis"
       ]
     },
     {
@@ -194,664 +362,1214 @@
       "niveau": 2,
       "familie": "Resultaatstructuur",
       "in_informatiemodel": true,
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "examenonderdeel weging"
+        },
+        "MORA": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "examenonderdeel weging"
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
       "definitie": null,
       "vindplaats": null,
+      "bron_soort": null,
       "status": "nog te definieren",
-      "herkomst": "nog niet bepaald",
-      "varianten": [],
-      "voorkomens_corpus": 0
+      "herkomst": "nieuw voor de solution-laag",
+      "varianten": []
     },
     {
+      "oeapi": [
+        "TestComponent"
+      ],
       "naam": "Examenonderdeelspecificatie",
       "niveau": 2,
       "familie": "Onderwijsspecificatie",
       "in_informatiemodel": true,
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "examenonderdeelspecificatie"
+        },
+        "MORA": {
+          "uitkomst": "tegenhanger",
+          "begrip": "Examen",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-9c12b2e2-2413-3a7b-ac80-bd44f5e381a5",
+          "citaat": "Een onderzoek naar kennis, inzicht, houding en vaardigheden van de student, op basis waarvan de instelling na beoordeling een formeel bewijs van prestatie toekent",
+          "verbijzondering": "MORA beschrijft het examen als onderzoek naar kennis, inzicht, houding en vaardigheden. OKx specificeert het examenonderdeel apart van de examengelegenheid waarop het wordt afgenomen."
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
       "definitie": null,
       "vindplaats": null,
+      "bron_soort": null,
       "status": "nog te definieren",
-      "herkomst": "nog niet bepaald",
-      "varianten": [],
-      "voorkomens_corpus": 0,
-      "oeapi": [
-        "TestComponent"
+      "herkomst": "verbijzondering van `Examen` (MORA)",
+      "varianten": [
+        "Examenonderdeel-specificatie",
+        "examenonderdeel-specificatie"
       ]
     },
     {
+      "scope": "buiten scope",
       "naam": "Examenplan",
       "niveau": 2,
       "familie": null,
       "in_informatiemodel": true,
-      "definitie": null,
-      "vindplaats": null,
-      "status": "nog te definieren",
-      "herkomst": "nog niet bepaald",
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "examenplan"
+        },
+        "MORA": {
+          "uitkomst": "tegenhanger",
+          "begrip": "Examenplan",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-913bf380-1288-8a49-0bca-906d8b112e8f",
+          "citaat": "Het examenplan geeft per kwalificatie een overzicht van de examenonderdelen en examens die een mbo-school inzet voor de examinering (kwalificerende beoordeling). Het examenplan geeft inzicht in de onderdelen die een student met een voldoende moet afsluiten om in aanmerking te komen voor een diploma"
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
+      "definitie": "Het examenplan geeft per kwalificatie een overzicht van de examenonderdelen en examens die een mbo-school inzet voor de examinering (kwalificerende beoordeling). Het examenplan geeft inzicht in de onderdelen die een student met een voldoende moet afsluiten om in aanmerking te komen voor een diploma",
+      "vindplaats": "https://mora.mbodigitaal.nl/index.php/Id-913bf380-1288-8a49-0bca-906d8b112e8f",
+      "bron_soort": "referentiekader",
+      "status": "gedefinieerd",
+      "herkomst": "overgenomen uit MORA",
       "varianten": [
-        "examenplan",
-        "Examenplan"
-      ],
-      "voorkomens_corpus": 3,
-      "scope": "buiten scope"
+        "examenplan"
+      ]
     },
     {
       "naam": "Formatief resultaat",
       "niveau": 2,
       "familie": "Resultaatstructuur",
       "in_informatiemodel": true,
-      "definitie": null,
-      "vindplaats": null,
-      "status": "nog te definieren",
-      "herkomst": "nog niet bepaald",
-      "varianten": [],
-      "voorkomens_corpus": 0
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "formatief resultaat"
+        },
+        "MORA": {
+          "uitkomst": "tegenhanger",
+          "begrip": "Formatief resultaat",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-2bd2c72b-08d2-169d-9ed1-f4868ad34f5c",
+          "citaat": "Een waardering die de student informatie geeft over de kwaliteit en voortgang van zijn of haar leren, maar niet meetelt voor de uiteindelijke kwalificering. Formatieve resultaten worden vastgelegd conform de formatieve resultaatstructuur. Formatieve resultaten worden ook wel toetsresultaten genoemd"
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
+      "definitie": "Een waardering die de student informatie geeft over de kwaliteit en voortgang van zijn of haar leren, maar niet meetelt voor de uiteindelijke kwalificering. Formatieve resultaten worden vastgelegd conform de formatieve resultaatstructuur. Formatieve resultaten worden ook wel toetsresultaten genoemd",
+      "vindplaats": "https://mora.mbodigitaal.nl/index.php/Id-2bd2c72b-08d2-169d-9ed1-f4868ad34f5c",
+      "bron_soort": "referentiekader",
+      "status": "gedefinieerd",
+      "herkomst": "overgenomen uit MORA",
+      "varianten": []
     },
     {
       "naam": "Formatieve beoordeling",
       "niveau": 2,
       "familie": "Resultaatstructuur",
       "in_informatiemodel": true,
-      "definitie": null,
-      "vindplaats": null,
-      "status": "nog te definieren",
-      "herkomst": "nog niet bepaald",
-      "varianten": [],
-      "voorkomens_corpus": 0
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "formatieve beoordeling"
+        },
+        "MORA": {
+          "uitkomst": "tegenhanger",
+          "begrip": "Formatieve beoordeling",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-26fa321c-d407-817f-68c5-5509997d821b",
+          "citaat": "Een beoordeling, veelal van een toets, die niet meetelt voor de uiteindelijke kwalificering, maar de lerende informatie geeft over de kwaliteit van zijn of haar leren"
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
+      "definitie": "Een beoordeling, veelal van een toets, die niet meetelt voor de uiteindelijke kwalificering, maar de lerende informatie geeft over de kwaliteit van zijn of haar leren",
+      "vindplaats": "https://mora.mbodigitaal.nl/index.php/Id-26fa321c-d407-817f-68c5-5509997d821b",
+      "bron_soort": "referentiekader",
+      "status": "gedefinieerd",
+      "herkomst": "overgenomen uit MORA",
+      "varianten": []
     },
     {
       "naam": "Formatieve resultaat structuur",
       "niveau": 2,
       "familie": "Resultaatstructuur",
       "in_informatiemodel": true,
-      "definitie": null,
-      "vindplaats": null,
-      "status": "nog te definieren",
-      "herkomst": "nog niet bepaald",
-      "varianten": [],
-      "voorkomens_corpus": 0
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "formatieve resultaat structuur"
+        },
+        "MORA": {
+          "uitkomst": "tegenhanger",
+          "begrip": "Formatieve resultaat structuur",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-a5f45830-ae81-5110-df27-b47e642a54a3",
+          "citaat": "Structuur voor de geordende vastlegging van formatieve resultaten bij een opleidingsonderdeel. Per opleidingsonderdeel kunnen één of meerdere resultaatstructuren worden gemaakt. Een formatieve resultaatstructuur bestaat uit een aantal toetsen waarvan de formatieve resultaten kunnen vastgelegd en een berekeningswijze om tot een eindresultaat voor het opleidingsonderdeel als geheel te komen"
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
+      "definitie": "Structuur voor de geordende vastlegging van formatieve resultaten bij een opleidingsonderdeel. Per opleidingsonderdeel kunnen één of meerdere resultaatstructuren worden gemaakt. Een formatieve resultaatstructuur bestaat uit een aantal toetsen waarvan de formatieve resultaten kunnen vastgelegd en een berekeningswijze om tot een eindresultaat voor het opleidingsonderdeel als geheel te komen",
+      "vindplaats": "https://mora.mbodigitaal.nl/index.php/Id-a5f45830-ae81-5110-df27-b47e642a54a3",
+      "bron_soort": "referentiekader",
+      "status": "gedefinieerd",
+      "herkomst": "overgenomen uit MORA",
+      "varianten": []
     },
     {
+      "scope": "buiten scope",
       "naam": "Inzicht",
       "niveau": 2,
       "familie": "Onderwijskundig kader instelling",
       "in_informatiemodel": true,
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "inzicht"
+        },
+        "MORA": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "inzicht"
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
       "definitie": null,
       "vindplaats": null,
+      "bron_soort": null,
       "status": "nog te definieren",
-      "herkomst": "nog niet bepaald",
-      "varianten": [],
-      "voorkomens_corpus": 0,
-      "scope": "buiten scope"
+      "herkomst": "nieuw voor de solution-laag",
+      "varianten": []
     },
     {
+      "scope": "buiten scope",
       "naam": "Kennis",
       "niveau": 2,
       "familie": "Onderwijskundig kader instelling",
       "in_informatiemodel": true,
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "kennis"
+        },
+        "MORA": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "kennis"
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
       "definitie": null,
       "vindplaats": null,
+      "bron_soort": null,
       "status": "nog te definieren",
-      "herkomst": "nog niet bepaald",
-      "varianten": [],
-      "voorkomens_corpus": 0,
-      "scope": "buiten scope"
+      "herkomst": "nieuw voor de solution-laag",
+      "varianten": []
     },
     {
       "naam": "Kerntaak",
       "niveau": 2,
       "familie": "Kwalificatiekader mbo",
       "in_informatiemodel": true,
-      "definitie": null,
-      "vindplaats": null,
-      "status": "nog te definieren",
-      "herkomst": "nog niet bepaald",
-      "varianten": [
-        "Kerntaak"
-      ],
-      "voorkomens_corpus": 10,
-      "toelichting": {
-        "tekst": "Een samenhangend geheel van werkprocessen waarmee een beroep wordt uitgeoefend en waarvan de beheersing het functioneren in een beroep mede bepaalt.",
-        "soort": "doelomschrijving",
-        "vindplaats": "architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#conceptueel-gegevensoverzicht"
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "kerntaak"
+        },
+        "MORA": {
+          "uitkomst": "tegenhanger",
+          "begrip": "Kerntaak",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-99ef9489-49b3-4a3b-7a89-08ae36a3255e",
+          "citaat": "Een kerntaak is een substantieel deel van de beroepsuitoefening naar belang omvang (tijdsbeslag of frequentie) of beide. Een kerntaak bestaat uit een geheel van inhoudelijk met elkaar samenhangende werkprocessen kenmerkend voor de beroepsuitoefening. Een kwalificatiedossier heeft een beperkt aantal kerntaken"
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
       },
-      "verwijzing_mora": {
-        "bron": "mora.mbodigitaal.nl - Kerntaak",
-        "url": "https://mora.mbodigitaal.nl/index.php/Id-99ef9489-49b3-4a3b-7a89-08ae36a3255e",
-        "status": "nog niet geopend"
-      }
+      "definitie": "Een kerntaak is een substantieel deel van de beroepsuitoefening naar belang omvang (tijdsbeslag of frequentie) of beide. Een kerntaak bestaat uit een geheel van inhoudelijk met elkaar samenhangende werkprocessen kenmerkend voor de beroepsuitoefening. Een kwalificatiedossier heeft een beperkt aantal kerntaken",
+      "vindplaats": "https://mora.mbodigitaal.nl/index.php/Id-99ef9489-49b3-4a3b-7a89-08ae36a3255e",
+      "bron_soort": "referentiekader",
+      "status": "gedefinieerd",
+      "herkomst": "overgenomen uit MORA",
+      "varianten": []
     },
     {
+      "oeapi": [
+        "Programme"
+      ],
       "naam": "Keuzedeel",
       "niveau": 2,
       "familie": "Onderwijsspecificatie",
       "in_informatiemodel": true,
-      "definitie": null,
-      "vindplaats": null,
-      "status": "nog te definieren",
-      "herkomst": "nog niet bepaald",
-      "varianten": [],
-      "voorkomens_corpus": 0,
-      "oeapi": [
-        "Programme"
-      ]
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "keuzedeel"
+        },
+        "MORA": {
+          "uitkomst": "tegenhanger",
+          "begrip": "Keuzedeel",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-018c4a8c-4129-ce3e-66a6-55ad855f7661",
+          "citaat": "Keuzedelen zijn een verrijking van de kwalificatie (basis- en profieldeel) en kunnen voor de student verbredend of verdiepend zijn of bijdragen aan een betere doorstroom naar een vervolgopleiding"
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
+      "definitie": "Keuzedelen zijn een verrijking van de kwalificatie (basis- en profieldeel) en kunnen voor de student verbredend of verdiepend zijn of bijdragen aan een betere doorstroom naar een vervolgopleiding",
+      "vindplaats": "https://mora.mbodigitaal.nl/index.php/Id-018c4a8c-4129-ce3e-66a6-55ad855f7661",
+      "bron_soort": "referentiekader",
+      "status": "gedefinieerd",
+      "herkomst": "overgenomen uit MORA",
+      "varianten": []
     },
     {
+      "oeapi": [
+        "ProgrammeOfferingAssociation"
+      ],
       "naam": "Keuzedeel aanbod verbintenis",
       "niveau": 2,
       "familie": "Onderwijsverbintenis",
       "in_informatiemodel": true,
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "keuzedeel aanbod verbintenis"
+        },
+        "MORA": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "keuzedeel aanbod verbintenis"
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
       "definitie": null,
       "vindplaats": null,
+      "bron_soort": null,
       "status": "nog te definieren",
-      "herkomst": "nog niet bepaald",
-      "varianten": [],
-      "voorkomens_corpus": 0,
-      "oeapi": [
-        "ProgrammeOfferingAssociation"
-      ]
+      "herkomst": "nieuw voor de solution-laag",
+      "varianten": []
     },
     {
+      "oeapi": [
+        "Result"
+      ],
       "naam": "Keuzedeel resultaat",
       "niveau": 2,
       "familie": "Onderwijsresultaat",
       "in_informatiemodel": true,
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "keuzedeel resultaat"
+        },
+        "MORA": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "keuzedeel resultaat"
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
       "definitie": null,
       "vindplaats": null,
+      "bron_soort": null,
       "status": "nog te definieren",
-      "herkomst": "nog niet bepaald",
-      "varianten": [],
-      "voorkomens_corpus": 0,
-      "oeapi": [
-        "Result"
-      ]
+      "herkomst": "nieuw voor de solution-laag",
+      "varianten": []
     },
     {
+      "oeapi": [
+        "ProgrammeOffering"
+      ],
       "naam": "Keuzedeelaanbod",
       "niveau": 2,
       "familie": "Onderwijsaanbod",
       "in_informatiemodel": true,
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "keuzedeelaanbod"
+        },
+        "MORA": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "keuzedeelaanbod"
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
       "definitie": null,
       "vindplaats": null,
+      "bron_soort": null,
       "status": "nog te definieren",
-      "herkomst": "nog niet bepaald",
-      "varianten": [],
-      "voorkomens_corpus": 0,
-      "oeapi": [
-        "ProgrammeOffering"
-      ]
+      "herkomst": "nieuw voor de solution-laag",
+      "varianten": []
     },
     {
+      "oeapi": [
+        "Programme"
+      ],
       "naam": "Keuzedeelruimte",
       "niveau": 2,
       "familie": "Onderwijsspecificatie",
       "in_informatiemodel": true,
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "keuzedeelruimte. MORA kent het keuzedeel, niet de ruimte die een programma daarvoor openlaat."
+        },
+        "MORA": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "keuzedeelruimte. MORA kent het keuzedeel, niet de ruimte die een programma daarvoor openlaat."
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
       "definitie": null,
       "vindplaats": null,
+      "bron_soort": null,
       "status": "nog te definieren",
-      "herkomst": "nog niet bepaald",
-      "varianten": [],
-      "voorkomens_corpus": 0,
-      "oeapi": [
-        "Programme"
-      ]
+      "herkomst": "nieuw voor de solution-laag",
+      "varianten": []
     },
     {
       "naam": "Kwalificatie",
       "niveau": 2,
       "familie": "Kwalificatiekader mbo",
       "in_informatiemodel": true,
-      "definitie": null,
-      "vindplaats": null,
-      "status": "nog te definieren",
-      "herkomst": "nog niet bepaald",
-      "varianten": [
-        "Kwalificatie"
-      ],
-      "voorkomens_corpus": 11,
-      "toelichting": {
-        "tekst": "Beschrijft een kwalificatie als afgerond geheel binnen één kwalificatiedossier.",
-        "soort": "doelomschrijving",
-        "vindplaats": "architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#conceptueel-gegevensoverzicht"
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "kwalificatie"
+        },
+        "MORA": {
+          "uitkomst": "tegenhanger",
+          "begrip": "Kwalificatie",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-f54b73a9-9562-2b28-deca-724e992bbcdb",
+          "citaat": "De kwalificatie is de combinatie van het basis- en profieldeel uit het kwalificatiedossier. De kwalificatie omvat wat de beginnend beroepsbeoefenaar moet kennen en kunnen als hij gediplomeerd is en start op de arbeidsmarkt"
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
       },
-      "verwijzing_mora": {
-        "bron": "mora.mbodigitaal.nl - Kwalificatie",
-        "url": "https://mora.mbodigitaal.nl/index.php/Id-f54b73a9-9562-2b28-deca-724e992bbcdb",
-        "status": "nog niet geopend"
-      }
+      "definitie": "De kwalificatie is de combinatie van het basis- en profieldeel uit het kwalificatiedossier. De kwalificatie omvat wat de beginnend beroepsbeoefenaar moet kennen en kunnen als hij gediplomeerd is en start op de arbeidsmarkt",
+      "vindplaats": "https://mora.mbodigitaal.nl/index.php/Id-f54b73a9-9562-2b28-deca-724e992bbcdb",
+      "bron_soort": "referentiekader",
+      "status": "gedefinieerd",
+      "herkomst": "overgenomen uit MORA",
+      "varianten": []
     },
     {
       "naam": "Kwalificatie dossier",
       "niveau": 2,
       "familie": "Kwalificatiekader mbo",
       "in_informatiemodel": true,
-      "definitie": null,
-      "vindplaats": null,
-      "status": "nog te definieren",
-      "herkomst": "nog niet bepaald",
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "kwalificatie dossier"
+        },
+        "MORA": {
+          "uitkomst": "tegenhanger",
+          "begrip": "Kwalificatie dossier",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-3389d485-20a7-6e53-21df-d09eb49d4762",
+          "citaat": "Het kwalificatiedossier beschrijft de eisen waaraan een student moet voldoen om zijn diploma te behalen. Elk dossier bevat een of meer kwalificaties en iedere kwalificatie leidt tot een diploma. Alle kwalificatiedossiers samen, aangevuld met de keuzedelen, vormen de kwalificatiestructuur. Een kwalificatiedossier bestaat uit een basisdeel en een of meer profieldelen"
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
+      "definitie": "Het kwalificatiedossier beschrijft de eisen waaraan een student moet voldoen om zijn diploma te behalen. Elk dossier bevat een of meer kwalificaties en iedere kwalificatie leidt tot een diploma. Alle kwalificatiedossiers samen, aangevuld met de keuzedelen, vormen de kwalificatiestructuur. Een kwalificatiedossier bestaat uit een basisdeel en een of meer profieldelen",
+      "vindplaats": "https://mora.mbodigitaal.nl/index.php/Id-3389d485-20a7-6e53-21df-d09eb49d4762",
+      "bron_soort": "referentiekader",
+      "status": "gedefinieerd",
+      "herkomst": "overgenomen uit MORA",
       "varianten": [
         "Kwalificatiedossier",
         "kwalificatiedossier"
-      ],
-      "voorkomens_corpus": 12,
-      "toelichting": {
-        "tekst": "Legt het sectorale referentiekader vast waartegen instellingen opleiden en examineren.",
-        "soort": "doelomschrijving",
-        "vindplaats": "architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#conceptueel-gegevensoverzicht"
-      },
-      "verwijzing_mora": {
-        "bron": "mora.mbodigitaal.nl - Kwalificatiedossier",
-        "url": "https://mora.mbodigitaal.nl/index.php/Id-3389d485-20a7-6e53-21df-d09eb49d4762",
-        "status": "nog niet geopend"
-      }
+      ]
     },
     {
+      "oeapi": [
+        "LearningComponentOffering"
+      ],
       "naam": "Leergelegenheid",
       "niveau": 2,
       "familie": "Onderwijsaanbod",
       "in_informatiemodel": true,
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "leergelegenheid"
+        },
+        "MORA": {
+          "uitkomst": "tegenhanger",
+          "begrip": "Leeractiviteit",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-b25709e2-388a-d36b-696b-b82fd908f076",
+          "citaat": "De roosterbare eenheden waaruit een opleidingsonderdeel is opgebouwd, dus de activiteiten die in het rooster moeten worden opgenomen, de te roosteren onderwijsmomenten. Leeractiviteiten kunnen van toepassing zijn op meerdere opleidingsonderdelen",
+          "verbijzondering": "De ingeplande kant van de MORA-leeractiviteit, op het niveau van een groep lessen."
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
       "definitie": null,
       "vindplaats": null,
+      "bron_soort": null,
       "status": "nog te definieren",
-      "herkomst": "nog niet bepaald",
+      "herkomst": "verbijzondering van `Leeractiviteit` (MORA)",
       "varianten": [
-        "Leergelegenheid",
         "leergelegenheid"
-      ],
-      "voorkomens_corpus": 23,
-      "toelichting": {
-        "tekst": "Groepeert lessen tot een planbaar/geroosterd leermoment.",
-        "soort": "doelomschrijving",
-        "vindplaats": "architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#conceptueel-gegevensoverzicht"
-      },
-      "oeapi": [
-        "LearningComponentOffering"
       ]
     },
     {
+      "oeapi": [
+        "Result"
+      ],
       "naam": "Leergelegenheid resultaat",
       "niveau": 2,
       "familie": "Onderwijsresultaat",
       "in_informatiemodel": true,
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "leergelegenheid resultaat"
+        },
+        "MORA": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "leergelegenheid resultaat"
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
       "definitie": null,
       "vindplaats": null,
+      "bron_soort": null,
       "status": "nog te definieren",
-      "herkomst": "nog niet bepaald",
-      "varianten": [],
-      "voorkomens_corpus": 0,
-      "oeapi": [
-        "Result"
+      "herkomst": "nieuw voor de solution-laag",
+      "varianten": [
+        "Leergelegenheid-resultaat"
       ]
     },
     {
+      "oeapi": [
+        "LearningComponentOfferingAssociation"
+      ],
       "naam": "Leergelegenheid verbintenis",
       "niveau": 2,
       "familie": "Onderwijsverbintenis",
       "in_informatiemodel": true,
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "leergelegenheid verbintenis"
+        },
+        "MORA": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "leergelegenheid verbintenis"
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
       "definitie": null,
       "vindplaats": null,
+      "bron_soort": null,
       "status": "nog te definieren",
-      "herkomst": "nog niet bepaald",
-      "varianten": [],
-      "voorkomens_corpus": 0,
+      "herkomst": "nieuw voor de solution-laag",
+      "varianten": [
+        "Leergelegenheid-verbintenis",
+        "leergelegenheid verbintenis",
+        "leergelegenheid-verbintenis"
+      ],
       "toelichting": {
         "tekst": "Koppelt persoon aan leergelegenheid (incl. docent).",
         "soort": "doelomschrijving",
         "vindplaats": "architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#conceptueel-gegevensoverzicht"
-      },
-      "oeapi": [
-        "LearningComponentOfferingAssociation"
-      ]
+      }
     },
     {
+      "oeapi": [
+        "LearningComponent"
+      ],
       "naam": "Leeronderdeel specificatie",
       "niveau": 2,
       "familie": "Onderwijsspecificatie",
       "in_informatiemodel": true,
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "leeronderdeel specificatie"
+        },
+        "MORA": {
+          "uitkomst": "tegenhanger",
+          "begrip": "Leertaak",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-be2dc6b8-cf25-4bd4-2950-2a4c2e4f2ffa",
+          "citaat": "De lesstof en opdrachten waarin de student kennis en/of vaardigheden verwerft, die een student opleiden voor het examen of andere vorm van validatie van een opleidingsonderdeel, en die een student moet beheersen en hebben laten zien als voorwaarde om voor het opleidingsonderdeel te (mogen) slagen",
+          "verbijzondering": "MORA beschrijft de leertaak als lesstof en opdrachten. OKx maakt daar een herbruikbare specificatie van, binnen de onderwijseenheid."
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
       "definitie": "De specificatie van het deel van de onderwijseenheid (onder meer bestaande uit lesstof en opdrachten) waarin de student competenties kan verwerven.",
       "vindplaats": "architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#betrokken-informatie-bij-proces",
+      "bron_soort": "okx-document",
       "status": "gedefinieerd",
-      "herkomst": "nog niet bepaald",
+      "herkomst": "verbijzondering van `Leertaak` (MORA)",
       "varianten": [
+        "Leeronderdeel-specificatie",
+        "leeronderdeel specificatie",
         "leeronderdeelspecificatie"
-      ],
-      "voorkomens_corpus": 2,
-      "oeapi": [
-        "LearningComponent"
       ]
     },
     {
+      "oeapi": [
+        "LearningOutcome"
+      ],
       "naam": "Leeruitkomst",
       "niveau": 2,
       "familie": "Onderwijskundig kader instelling",
       "in_informatiemodel": true,
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "leeruitkomst, beoogde leeruitkomst, leerdoel. KOI kent leerresultaat, maar dat is de vastgelegde uitkomst achteraf en niet de vooraf beoogde leeruitkomst."
+        },
+        "MORA": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "leeruitkomst, beoogde leeruitkomst, leerdoel. KOI kent leerresultaat, maar dat is de vastgelegde uitkomst achteraf en niet de vooraf beoogde leeruitkomst."
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
       "definitie": "Een concreet en observeerbaar resultaat van leren, dat beschrijft wat een student na het doorlopen van één of meer leertaken weet, begrijpt of kan toepassen, en dat als voorwaarde geldt om een opleidingsonderdeel succesvol af te ronden — de vertaling van leertaken in een breakdown door onderwijskundigen. Bij voorkeur uitgedrukt in een sectoroverstijgende, gestandaardiseerde skillstaxonomie (zoals CompetentNL), in dimensies kennis, inzicht en vaardigheden; zie hoofdstuk 4.",
       "vindplaats": "architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#betrokken-informatie-bij-proces",
+      "bron_soort": "okx-document",
       "status": "gedefinieerd",
-      "herkomst": "nog niet bepaald",
-      "varianten": [
-        "Leeruitkomst"
-      ],
-      "voorkomens_corpus": 22,
-      "oeapi": [
-        "LearningOutcome"
-      ]
+      "herkomst": "nieuw voor de solution-laag",
+      "varianten": []
     },
     {
+      "oeapi": [
+        "LearningComponent"
+      ],
+      "scope": "buiten scope",
       "naam": "Les specificatie",
       "niveau": 2,
       "familie": "Onderwijsspecificatie",
       "in_informatiemodel": true,
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "les specificatie"
+        },
+        "MORA": {
+          "uitkomst": "tegenhanger",
+          "begrip": "Leeractiviteit",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-b25709e2-388a-d36b-696b-b82fd908f076",
+          "citaat": "De roosterbare eenheden waaruit een opleidingsonderdeel is opgebouwd, dus de activiteiten die in het rooster moeten worden opgenomen, de te roosteren onderwijsmomenten. Leeractiviteiten kunnen van toepassing zijn op meerdere opleidingsonderdelen",
+          "verbijzondering": "MORA noemt de leeractiviteit de roosterbare eenheid. OKx onderscheidt de specificatie van die eenheid van de geroosterde uitvoering."
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
       "definitie": "De specificatie van het kleinste geplande leermoment binnen een leeronderdeel: welke lesinhoud, leeractiviteit of toetsactiviteit in dat moment wordt aangeboden.",
       "vindplaats": "architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#betrokken-informatie-bij-proces",
+      "bron_soort": "okx-document",
       "status": "gedefinieerd",
-      "herkomst": "nog niet bepaald",
+      "herkomst": "verbijzondering van `Leeractiviteit` (MORA)",
       "varianten": [
         "Lesspecificatie",
         "lesspecificatie"
-      ],
-      "voorkomens_corpus": 16,
-      "oeapi": [
-        "LearningComponent"
-      ],
-      "scope": "buiten scope"
+      ]
     },
     {
+      "oeapi": [
+        "LearningComponentOffering"
+      ],
+      "scope": "buiten scope",
       "naam": "Lesgelegenheid",
       "niveau": 2,
       "familie": "Onderwijsaanbod",
       "in_informatiemodel": true,
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "lesgelegenheid"
+        },
+        "MORA": {
+          "uitkomst": "tegenhanger",
+          "begrip": "Leeractiviteit",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-b25709e2-388a-d36b-696b-b82fd908f076",
+          "citaat": "De roosterbare eenheden waaruit een opleidingsonderdeel is opgebouwd, dus de activiteiten die in het rooster moeten worden opgenomen, de te roosteren onderwijsmomenten. Leeractiviteiten kunnen van toepassing zijn op meerdere opleidingsonderdelen",
+          "verbijzondering": "De ingeplande kant van de MORA-leeractiviteit, op het niveau van een enkele les."
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
       "definitie": null,
       "vindplaats": null,
+      "bron_soort": null,
       "status": "nog te definieren",
-      "herkomst": "nog niet bepaald",
+      "herkomst": "verbijzondering van `Leeractiviteit` (MORA)",
       "varianten": [
-        "Lesgelegenheid",
         "lesgelegenheid"
-      ],
-      "voorkomens_corpus": 27,
-      "toelichting": {
-        "tekst": "Concretiseert één les in tijd, ruimte en bemanning.",
-        "soort": "doelomschrijving",
-        "vindplaats": "architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#conceptueel-gegevensoverzicht"
-      },
-      "oeapi": [
-        "LearningComponentOffering"
-      ],
-      "scope": "buiten scope"
+      ]
     },
     {
+      "oeapi": [
+        "Result"
+      ],
+      "scope": "buiten scope",
       "naam": "Lesgelegenheid resultaat",
       "niveau": 2,
       "familie": "Onderwijsresultaat",
       "in_informatiemodel": true,
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "lesgelegenheid resultaat"
+        },
+        "MORA": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "lesgelegenheid resultaat"
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
       "definitie": null,
       "vindplaats": null,
+      "bron_soort": null,
       "status": "nog te definieren",
-      "herkomst": "nog niet bepaald",
-      "varianten": [],
-      "voorkomens_corpus": 0,
-      "oeapi": [
-        "Result"
-      ],
-      "scope": "buiten scope"
+      "herkomst": "nieuw voor de solution-laag",
+      "varianten": [
+        "Lesgelegenheid-resultaat"
+      ]
     },
     {
+      "oeapi": [
+        "LearningComponentOfferingAssociation"
+      ],
+      "scope": "buiten scope",
       "naam": "Lesgelegenheid verbintenis",
       "niveau": 2,
       "familie": "Onderwijsverbintenis",
       "in_informatiemodel": true,
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "lesgelegenheid verbintenis"
+        },
+        "MORA": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "lesgelegenheid verbintenis"
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
       "definitie": null,
       "vindplaats": null,
+      "bron_soort": null,
       "status": "nog te definieren",
-      "herkomst": "nog niet bepaald",
-      "varianten": [],
-      "voorkomens_corpus": 0,
+      "herkomst": "nieuw voor de solution-laag",
+      "varianten": [
+        "Lesgelegenheid-verbintenis"
+      ],
       "toelichting": {
         "tekst": "Koppelt persoon aan concrete lesuitvoering.",
         "soort": "doelomschrijving",
         "vindplaats": "architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#conceptueel-gegevensoverzicht"
-      },
-      "oeapi": [
-        "LearningComponentOfferingAssociation"
-      ],
-      "scope": "buiten scope"
+      }
     },
     {
       "naam": "Medewerker",
       "niveau": 2,
       "familie": null,
       "in_informatiemodel": true,
-      "definitie": null,
-      "vindplaats": null,
-      "status": "nog te definieren",
-      "herkomst": "nog niet bepaald",
-      "varianten": [
-        "Medewerker"
-      ],
-      "voorkomens_corpus": 4
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "tegenhanger",
+          "begrip": "onderwijsmedewerker (koi)",
+          "url": "https://rosa.wikixl.nl/index.php/Id-5ea4d7d18cbc4f8eb3aea997a4d9b35d",
+          "citaat": "Een natuurlijk persoon die op grond van een overeenkomst werkzaam is voor een onderwijsorganisatie."
+        },
+        "MORA": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "medewerker"
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
+      "definitie": "Een natuurlijk persoon die op grond van een overeenkomst werkzaam is voor een onderwijsorganisatie.",
+      "vindplaats": "https://rosa.wikixl.nl/index.php/Id-5ea4d7d18cbc4f8eb3aea997a4d9b35d",
+      "bron_soort": "referentiekader",
+      "status": "gedefinieerd",
+      "herkomst": "overgenomen uit ROSA-KOI",
+      "varianten": []
     },
     {
+      "oeapi": [
+        "CourseOffering"
+      ],
       "naam": "Onderwijseenheid aanbod",
       "niveau": 2,
       "familie": "Onderwijsaanbod",
       "in_informatiemodel": true,
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "onderwijseenheid aanbod"
+        },
+        "MORA": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "onderwijseenheid aanbod"
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
       "definitie": null,
       "vindplaats": null,
+      "bron_soort": null,
       "status": "nog te definieren",
-      "herkomst": "nog niet bepaald",
-      "varianten": [],
-      "voorkomens_corpus": 0,
+      "herkomst": "nieuw voor de solution-laag",
+      "varianten": [
+        "Onderwijseenheid-aanbod",
+        "onderwijseenheid-aanbod"
+      ],
       "toelichting": {
         "tekst": "Plant en capaciteert een onderwijseenheid in de tijd.",
         "soort": "doelomschrijving",
         "vindplaats": "architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#conceptueel-gegevensoverzicht"
-      },
-      "oeapi": [
-        "CourseOffering"
-      ]
+      }
     },
     {
+      "oeapi": [
+        "CourseOfferingAssociation"
+      ],
       "naam": "Onderwijseenheid aanbod verbintenis",
       "niveau": 2,
       "familie": "Onderwijsverbintenis",
       "in_informatiemodel": true,
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "onderwijseenheid aanbod verbintenis"
+        },
+        "MORA": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "onderwijseenheid aanbod verbintenis"
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
       "definitie": null,
       "vindplaats": null,
+      "bron_soort": null,
       "status": "nog te definieren",
-      "herkomst": "nog niet bepaald",
-      "varianten": [],
-      "voorkomens_corpus": 0,
-      "oeapi": [
-        "CourseOfferingAssociation"
-      ]
+      "herkomst": "nieuw voor de solution-laag",
+      "varianten": []
     },
     {
+      "oeapi": [
+        "Result"
+      ],
       "naam": "Onderwijseenheid resultaat",
       "niveau": 2,
       "familie": "Onderwijsresultaat",
       "in_informatiemodel": true,
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "onderwijseenheid resultaat"
+        },
+        "MORA": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "onderwijseenheid resultaat"
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
       "definitie": null,
       "vindplaats": null,
+      "bron_soort": null,
       "status": "nog te definieren",
-      "herkomst": "nog niet bepaald",
-      "varianten": [],
-      "voorkomens_corpus": 0,
-      "oeapi": [
-        "Result"
+      "herkomst": "nieuw voor de solution-laag",
+      "varianten": [
+        "Onderwijseenheid-resultaat"
       ]
     },
     {
+      "oeapi": [
+        "Course"
+      ],
       "naam": "Onderwijseenheid specificatie",
       "niveau": 2,
       "familie": "Onderwijsspecificatie",
       "in_informatiemodel": true,
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "tegenhanger",
+          "begrip": "onderwijseenheid (koi)",
+          "url": "https://rosa.wikixl.nl/index.php/Id-c74c161c6f1f4690933a31ce4d11f3b8",
+          "citaat": "Een samenhangend geheel van kennis, inzicht en vaardigheden met een bepaald leerdoel.",
+          "verbijzondering": "KOI beschrijft de onderwijseenheid als samenhangend geheel met een leerdoel. OKx specificeert die eenheid met leeruitkomsten, leeronderdelen en toetsonderdelen, los van de inplanning."
+        },
+        "MORA": {
+          "uitkomst": "tegenhanger",
+          "begrip": "Opleidings-onderdeel",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-17db36ca-368f-450e-cbfe-604b2fafee6e",
+          "citaat": "Een onderscheidbaar geheel van kennis, inzicht en vaardigheden, dat onderdeel kan zijn van één of meer opleidingen. Een opleidingsonderdeel is een afgerond geheel binnen een onderwijsprogramma. De persoonlijke leerroute kan worden samengesteld uit deze opleidingsonderdelen",
+          "verbijzondering": "MORA beschrijft het opleidingsonderdeel als afgerond geheel binnen een onderwijsprogramma. OKx specificeert die eenheid met leeruitkomsten, leeronderdelen en toetsonderdelen, los van de inplanning."
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
       "definitie": "De specificatie van de fundamentele eenheid waarin onderwijs wordt ontworpen en aangeboden, in de vorm van een samenhangend stelsel van één of meer (beoogde) leeruitkomsten, leeronderdelen en/of toetsonderdelen. (NB: Leeruitkomsten omvat o.a. kennis, inzicht en vaardigheden.)",
       "vindplaats": "architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#betrokken-informatie-bij-proces",
+      "bron_soort": "okx-document",
       "status": "gedefinieerd",
-      "herkomst": "nog niet bepaald",
+      "herkomst": "verbijzondering van `onderwijseenheid (koi)` (ROSA-KOI)",
       "varianten": [
+        "Onderwijseenheid-specificatie",
+        "onderwijseenheid-specificatie",
         "onderwijseenheidspecificatie"
-      ],
-      "voorkomens_corpus": 2,
-      "oeapi": [
-        "Course"
       ]
     },
     {
+      "oeapi": [
+        "ProgrammeOfferingAssociation"
+      ],
       "naam": "Opleiding aanbod  verbintenis",
       "niveau": 2,
       "familie": "Onderwijsverbintenis",
       "in_informatiemodel": true,
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "opleiding aanbod  verbintenis"
+        },
+        "MORA": {
+          "uitkomst": "tegenhanger",
+          "begrip": "Inschrijving",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-b329667d-f273-4c9c-2866-73ccce570d18",
+          "citaat": "Een overeenkomst tussen de onderwijsaanbieder en de student waar de rechten en plichten van onderwijsaanbieder en student in staan. Deze overeenkomst bevat ook voorwaarden waarin o.a. is opgenomen dat de student (en bij minderjarigen de ouders) akkoord gaan met alle voor het onderwijs relevante onderdelen zoals de BPV",
+          "verbijzondering": "MORA kent de inschrijving als overeenkomst met de instelling. OKx legt die vast als verbintenis op een concreet opleidingaanbod."
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
       "definitie": null,
       "vindplaats": null,
+      "bron_soort": null,
       "status": "nog te definieren",
-      "herkomst": "nog niet bepaald",
-      "varianten": [],
-      "voorkomens_corpus": 0,
-      "oeapi": [
-        "ProgrammeOfferingAssociation"
-      ]
+      "herkomst": "verbijzondering van `Inschrijving` (MORA)",
+      "varianten": []
     },
     {
+      "oeapi": [
+        "Result"
+      ],
       "naam": "Opleiding aanbod resultaat",
       "niveau": 2,
       "familie": "Onderwijsresultaat",
       "in_informatiemodel": true,
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "opleiding aanbod resultaat"
+        },
+        "MORA": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "opleiding aanbod resultaat"
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
       "definitie": null,
       "vindplaats": null,
+      "bron_soort": null,
       "status": "nog te definieren",
-      "herkomst": "nog niet bepaald",
-      "varianten": [],
-      "voorkomens_corpus": 0,
-      "oeapi": [
-        "Result"
-      ]
+      "herkomst": "nieuw voor de solution-laag",
+      "varianten": []
     },
     {
+      "oeapi": [
+        "Programme"
+      ],
       "naam": "Opleiding specificatie",
       "niveau": 2,
       "familie": "Onderwijsspecificatie",
       "in_informatiemodel": true,
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "opleiding specificatie"
+        },
+        "MORA": {
+          "uitkomst": "tegenhanger",
+          "begrip": "Opleidings eenheid",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-422e89b9-f9e3-a3ae-56f7-25855f01d433",
+          "citaat": "Een geheel van kennis, inzicht en vaardigheden. Een opleidingseenheid kan beschreven worden naar het waardedocument dat de student ontvangt na het afronden van de aangeboden opleiding. In dat geval kent de opleidingseenheid de volgende varianten: diploma-opleiding, branche-opleiding, certificaat-opleiding, maatwerk-opleiding",
+          "verbijzondering": "MORA beschrijft de opleidingseenheid naar het waardedocument dat volgt. OKx gebruikt de specificatie als de instellingseigen beschrijving van die eenheid."
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
       "definitie": null,
       "vindplaats": null,
+      "bron_soort": null,
       "status": "nog te definieren",
-      "herkomst": "nog niet bepaald",
+      "herkomst": "verbijzondering van `Opleidings eenheid` (MORA)",
       "varianten": [
         "Opleidingspecificatie"
-      ],
-      "voorkomens_corpus": 2,
-      "oeapi": [
-        "Programme"
       ]
     },
     {
+      "oeapi": [
+        "ProgrammeOffering"
+      ],
       "naam": "Opleidingaanbod",
       "niveau": 2,
       "familie": "Onderwijsaanbod",
       "in_informatiemodel": true,
-      "definitie": null,
-      "vindplaats": null,
-      "status": "nog te definieren",
-      "herkomst": "nog niet bepaald",
-      "varianten": [],
-      "voorkomens_corpus": 0,
-      "oeapi": [
-        "ProgrammeOffering"
-      ]
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "opleidingaanbod"
+        },
+        "MORA": {
+          "uitkomst": "tegenhanger",
+          "begrip": "Aangeboden opleiding",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-e723f9e6-adfc-40a1-0527-ee1b75b380dc",
+          "citaat": "Een opleidingseenheid die door een onderwijsaanbieder aangeboden wordt in een bepaalde vorm, al dan niet op een bepaalde onderwijslocatie, waarop een onderwijsvolger zich kan inschrijven"
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
+      "definitie": "Een opleidingseenheid die door een onderwijsaanbieder aangeboden wordt in een bepaalde vorm, al dan niet op een bepaalde onderwijslocatie, waarop een onderwijsvolger zich kan inschrijven",
+      "vindplaats": "https://mora.mbodigitaal.nl/index.php/Id-e723f9e6-adfc-40a1-0527-ee1b75b380dc",
+      "bron_soort": "referentiekader",
+      "status": "gedefinieerd",
+      "herkomst": "overgenomen uit MORA",
+      "varianten": []
     },
     {
       "naam": "Opleidingsaanbod van Instelling",
       "niveau": 2,
       "familie": "Onderwijsaanbod",
       "in_informatiemodel": true,
-      "definitie": null,
-      "vindplaats": null,
-      "status": "nog te definieren",
-      "herkomst": "nog niet bepaald",
-      "varianten": [],
-      "voorkomens_corpus": 0
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "opleidingsaanbod van instelling"
+        },
+        "MORA": {
+          "uitkomst": "tegenhanger",
+          "begrip": "Opleidingen overzicht",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-9a23241c-a60e-6623-e13a-d945a761ab17",
+          "citaat": "Het geheel van opleiding dat door de instelling wordt aangeboden"
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
+      "definitie": "Het geheel van opleiding dat door de instelling wordt aangeboden",
+      "vindplaats": "https://mora.mbodigitaal.nl/index.php/Id-9a23241c-a60e-6623-e13a-d945a761ab17",
+      "bron_soort": "referentiekader",
+      "status": "gedefinieerd",
+      "herkomst": "overgenomen uit MORA",
+      "varianten": []
     },
     {
+      "oeapi": [
+        "ProgrammeOffering"
+      ],
       "naam": "Opleidingsprogramma aanbod",
       "niveau": 2,
       "familie": "Onderwijsaanbod",
       "in_informatiemodel": true,
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "opleidingsprogramma aanbod"
+        },
+        "MORA": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "opleidingsprogramma aanbod"
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
       "definitie": null,
       "vindplaats": null,
+      "bron_soort": null,
       "status": "nog te definieren",
-      "herkomst": "nog niet bepaald",
-      "varianten": [],
-      "voorkomens_corpus": 0,
+      "herkomst": "nieuw voor de solution-laag",
+      "varianten": [
+        "Opleidingsprogramma-aanbod",
+        "opleidingsprogramma-aanbod"
+      ],
       "toelichting": {
         "tekst": "Biedt een concreet programma-instantie aan (cohort, variant).",
         "soort": "doelomschrijving",
         "vindplaats": "architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#conceptueel-gegevensoverzicht"
-      },
-      "oeapi": [
-        "ProgrammeOffering"
-      ]
+      }
     },
     {
+      "oeapi": [
+        "ProgrammeOfferingAssociation"
+      ],
       "naam": "Opleidingsprogramma aanbod verbintenis",
       "niveau": 2,
       "familie": "Onderwijsverbintenis",
       "in_informatiemodel": true,
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "opleidingsprogramma aanbod verbintenis"
+        },
+        "MORA": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "opleidingsprogramma aanbod verbintenis"
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
       "definitie": null,
       "vindplaats": null,
+      "bron_soort": null,
       "status": "nog te definieren",
-      "herkomst": "nog niet bepaald",
-      "varianten": [],
-      "voorkomens_corpus": 0,
-      "oeapi": [
-        "ProgrammeOfferingAssociation"
-      ]
+      "herkomst": "nieuw voor de solution-laag",
+      "varianten": []
     },
     {
+      "oeapi": [
+        "Result"
+      ],
       "naam": "Opleidingsprogramma resultaat",
       "niveau": 2,
       "familie": "Onderwijsresultaat",
       "in_informatiemodel": true,
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "opleidingsprogramma resultaat"
+        },
+        "MORA": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "opleidingsprogramma resultaat"
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
       "definitie": null,
       "vindplaats": null,
+      "bron_soort": null,
       "status": "nog te definieren",
-      "herkomst": "nog niet bepaald",
-      "varianten": [],
-      "voorkomens_corpus": 0,
-      "oeapi": [
-        "Result"
+      "herkomst": "nieuw voor de solution-laag",
+      "varianten": [
+        "Opleidingsprogramma-resultaat"
       ]
     },
     {
+      "oeapi": [
+        "Programme"
+      ],
       "naam": "Opleidingsprogramma specificatie",
       "niveau": 2,
       "familie": "Onderwijsspecificatie",
       "in_informatiemodel": true,
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "opleidingsprogramma specificatie"
+        },
+        "MORA": {
+          "uitkomst": "tegenhanger",
+          "begrip": "Onderwijs programma",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-3a7bb8e1-5748-3381-24f6-43c98479fe35",
+          "citaat": "Een planbaar geheel van opleidingsonderdelen, met daarbij aanvullende informatie over hoe deze door de student kunnen worden gevolgd. Het onderwijsprogramma beschrijft één of meerdere standaard leerroutes die model staan voor de persoonlijke leerroute en beschrijft welke keuzevrijheid de student daarin heeft",
+          "verbijzondering": "De specificatiekant van het MORA-begrip onderwijs programma. MORA beschrijft het programma inclusief de planbaarheid; OKx scheidt de specificatie van het aanbod."
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
       "definitie": "Een samenhangende verzameling van één of meer (deel)programma's, onderwijseenheden, of leeruitkomsten die kunnen leiden tot een kwalificatie.",
       "vindplaats": "architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#betrokken-informatie-bij-proces",
+      "bron_soort": "okx-document",
       "status": "gedefinieerd",
-      "herkomst": "nog niet bepaald",
+      "herkomst": "verbijzondering van `Onderwijs programma` (MORA)",
       "varianten": [
+        "Opleidingsprogramma-specificatie",
+        "opleidingsprogramma specificatie",
+        "opleidingsprogramma-specificatie",
         "opleidingsprogrammaspecificatie"
-      ],
-      "voorkomens_corpus": 1,
-      "oeapi": [
-        "Programme"
       ]
     },
     {
-      "naam": "Persoon",
-      "niveau": 2,
-      "familie": null,
-      "in_informatiemodel": true,
-      "definitie": null,
-      "vindplaats": null,
-      "status": "nog te definieren",
-      "herkomst": "nog niet bepaald",
-      "varianten": [
-        "Persoon",
-        "persoon"
-      ],
-      "voorkomens_corpus": 37,
       "oeapi": [
         "Person"
+      ],
+      "naam": "Persoon",
+      "niveau": 2,
+      "familie": "Buiten de kolommen",
+      "in_informatiemodel": true,
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "persoon. KOI kent onderwijsdeelnemer en onderwijsmedewerker als natuurlijke personen in een rol, niet de persoon als eigen object."
+        },
+        "MORA": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "persoon. KOI kent onderwijsdeelnemer en onderwijsmedewerker als natuurlijke personen in een rol, niet de persoon als eigen object."
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
+      "definitie": null,
+      "vindplaats": null,
+      "bron_soort": null,
+      "status": "nog te definieren",
+      "herkomst": "nieuw voor de solution-laag",
+      "varianten": [
+        "persoon"
       ]
     },
     {
@@ -859,29 +1577,57 @@
       "niveau": 2,
       "familie": "Resultaatstructuur",
       "in_informatiemodel": true,
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "persoonlijke ontwikkeling"
+        },
+        "MORA": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "persoonlijke ontwikkeling"
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
       "definitie": null,
       "vindplaats": null,
+      "bron_soort": null,
       "status": "nog te definieren",
-      "herkomst": "nog niet bepaald",
-      "varianten": [],
-      "voorkomens_corpus": 0
+      "herkomst": "nieuw voor de solution-laag",
+      "varianten": []
     },
     {
-      "naam": "Plaatsingsgroep",
-      "niveau": 2,
-      "familie": null,
-      "in_informatiemodel": true,
-      "definitie": null,
-      "vindplaats": null,
-      "status": "nog te definieren",
-      "herkomst": "nog niet bepaald",
-      "varianten": [
-        "plaatsingsgroep",
-        "Plaatsingsgroep"
-      ],
-      "voorkomens_corpus": 4,
       "oeapi": [
         "Group"
+      ],
+      "naam": "Plaatsingsgroep",
+      "niveau": 2,
+      "familie": "Buiten de kolommen",
+      "in_informatiemodel": true,
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "plaatsingsgroep"
+        },
+        "MORA": {
+          "uitkomst": "tegenhanger",
+          "begrip": "Cohort / periode",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-67cf6837-c59e-52aa-47e6-006c572259e1",
+          "citaat": "Groep van studenten die onder hetzelfde onderwijs- en examenreglement vallen, binnen hetzelfde tijdvak (lopend van het eerste jaar van de opleiding tot en met het laatste jaar, uitgaande van de studieduur)",
+          "verbijzondering": "MORA groepeert studenten per cohort onder hetzelfde reglement. OKx gebruikt de plaatsingsgroep om verbintenissen op elk aanbodniveau te bundelen."
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
+      "definitie": null,
+      "vindplaats": null,
+      "bron_soort": null,
+      "status": "nog te definieren",
+      "herkomst": "verbijzondering van `Cohort / periode` (MORA)",
+      "varianten": [
+        "plaatsingsgroep"
       ]
     },
     {
@@ -889,137 +1635,281 @@
       "niveau": 2,
       "familie": null,
       "in_informatiemodel": true,
-      "definitie": null,
-      "vindplaats": null,
-      "status": "nog te definieren",
-      "herkomst": "nog niet bepaald",
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "tegenhanger",
+          "begrip": "onderwijsdeelnemer (koi)",
+          "url": "https://rosa.wikixl.nl/index.php/Id-ca1e8048bd094f02a348cf843fa07ae7",
+          "citaat": "Een natuurlijk persoon die deelneemt aan een onderwijsactiviteit om zich kennis, vaardigheden en attitudes eigen te maken."
+        },
+        "MORA": {
+          "uitkomst": "tegenhanger",
+          "begrip": "Student",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-c7c163ee-2fa5-5b58-bc08-f401d0350c3a",
+          "citaat": "Een persoon die aan onderwijsactiviteiten deelneemt of dat wil gaan doen. Dit omvat ingeschreven studenten, potentiële studenten en alumni"
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
+      "definitie": "Een persoon die aan onderwijsactiviteiten deelneemt of dat wil gaan doen. Dit omvat ingeschreven studenten, potentiële studenten en alumni",
+      "vindplaats": "https://mora.mbodigitaal.nl/index.php/Id-c7c163ee-2fa5-5b58-bc08-f401d0350c3a",
+      "bron_soort": "referentiekader",
+      "status": "gedefinieerd",
+      "herkomst": "overgenomen uit MORA",
       "varianten": [
-        "Student",
         "student"
-      ],
-      "voorkomens_corpus": 3
+      ]
     },
     {
       "naam": "Student keuze regelset",
       "niveau": 2,
       "familie": "Onderwijsspecificatie",
       "in_informatiemodel": true,
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "keuzeregels, regelset, keuzevrijheid. MORA beschrijft keuzevrijheid als tekst binnen Onderwijs programma."
+        },
+        "MORA": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "keuzeregels, regelset, keuzevrijheid. MORA beschrijft keuzevrijheid als tekst binnen Onderwijs programma."
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
       "definitie": null,
       "vindplaats": null,
+      "bron_soort": null,
       "status": "nog te definieren",
-      "herkomst": "nog niet bepaald",
-      "varianten": [],
-      "voorkomens_corpus": 0
+      "herkomst": "nieuw voor de solution-laag",
+      "varianten": []
     },
     {
       "naam": "Summatief Afrondingscriterium",
       "niveau": 2,
       "familie": "Resultaatstructuur",
       "in_informatiemodel": true,
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "summatief afrondingscriterium"
+        },
+        "MORA": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "summatief afrondingscriterium"
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
       "definitie": null,
       "vindplaats": null,
+      "bron_soort": null,
       "status": "nog te definieren",
-      "herkomst": "nog niet bepaald",
-      "varianten": [],
-      "voorkomens_corpus": 0
+      "herkomst": "nieuw voor de solution-laag",
+      "varianten": []
     },
     {
       "naam": "Summatief resultaat",
       "niveau": 2,
       "familie": "Resultaatstructuur",
       "in_informatiemodel": true,
-      "definitie": null,
-      "vindplaats": null,
-      "status": "nog te definieren",
-      "herkomst": "nog niet bepaald",
-      "varianten": [],
-      "voorkomens_corpus": 0
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "summatief resultaat"
+        },
+        "MORA": {
+          "uitkomst": "tegenhanger",
+          "begrip": "Summatief resultaat",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-beaf106a-f329-b3ed-e513-6814b1fd65fa",
+          "citaat": "Een formele, door de instelling geregistreerde waardering voor summatief gemaakt werk (zoals een examen of BPV-beoordeling) die meetelt voor de uiteindelijke kwalificering. Summatieve resultaten worden vastgelegd conform de summatieve resultaatstructuur. Summatieve resultaten worden ook wel examenresultaten genoemd"
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
+      "definitie": "Een formele, door de instelling geregistreerde waardering voor summatief gemaakt werk (zoals een examen of BPV-beoordeling) die meetelt voor de uiteindelijke kwalificering. Summatieve resultaten worden vastgelegd conform de summatieve resultaatstructuur. Summatieve resultaten worden ook wel examenresultaten genoemd",
+      "vindplaats": "https://mora.mbodigitaal.nl/index.php/Id-beaf106a-f329-b3ed-e513-6814b1fd65fa",
+      "bron_soort": "referentiekader",
+      "status": "gedefinieerd",
+      "herkomst": "overgenomen uit MORA",
+      "varianten": []
     },
     {
       "naam": "Summatieve beoordeling",
       "niveau": 2,
       "familie": "Resultaatstructuur",
       "in_informatiemodel": true,
-      "definitie": null,
-      "vindplaats": null,
-      "status": "nog te definieren",
-      "herkomst": "nog niet bepaald",
-      "varianten": [],
-      "voorkomens_corpus": 0
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "summatieve beoordeling"
+        },
+        "MORA": {
+          "uitkomst": "tegenhanger",
+          "begrip": "Summatieve beoordeling",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-0a14e5af-bf2e-2584-3320-095341367128",
+          "citaat": "De beoordeling van summatief gemaakt werk, zoals de beoordeling van een examen of een BPV-beoordeling"
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
+      "definitie": "De beoordeling van summatief gemaakt werk, zoals de beoordeling van een examen of een BPV-beoordeling",
+      "vindplaats": "https://mora.mbodigitaal.nl/index.php/Id-0a14e5af-bf2e-2584-3320-095341367128",
+      "bron_soort": "referentiekader",
+      "status": "gedefinieerd",
+      "herkomst": "overgenomen uit MORA",
+      "varianten": []
     },
     {
       "naam": "Summatieve resultaat structuur",
       "niveau": 2,
       "familie": "Resultaatstructuur",
       "in_informatiemodel": true,
-      "definitie": null,
-      "vindplaats": null,
-      "status": "nog te definieren",
-      "herkomst": "nog niet bepaald",
-      "varianten": [],
-      "voorkomens_corpus": 0
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "summatieve resultaat structuur"
+        },
+        "MORA": {
+          "uitkomst": "tegenhanger",
+          "begrip": "Summatieve resultaat structuur",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-a3020bda-2b3d-d3ac-ea08-a5be84de56cc",
+          "citaat": "Structuur voor de geordende vastlegging van summatieve resultaten bij een onderwijsprogramma. Een summatieve resultaatstructuur bestaat uit een aantal examens of examenonderdelen waarvan de summatieve resultaten kunnen worden vastgelegd en een berekeningswijze om tot een eindresultaat voor het onderwijsprogramma als geheel te komen"
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
+      "definitie": "Structuur voor de geordende vastlegging van summatieve resultaten bij een onderwijsprogramma. Een summatieve resultaatstructuur bestaat uit een aantal examens of examenonderdelen waarvan de summatieve resultaten kunnen worden vastgelegd en een berekeningswijze om tot een eindresultaat voor het onderwijsprogramma als geheel te komen",
+      "vindplaats": "https://mora.mbodigitaal.nl/index.php/Id-a3020bda-2b3d-d3ac-ea08-a5be84de56cc",
+      "bron_soort": "referentiekader",
+      "status": "gedefinieerd",
+      "herkomst": "overgenomen uit MORA",
+      "varianten": []
     },
     {
+      "oeapi": [
+        "TestComponentOffering"
+      ],
       "naam": "Toetsgelegenheid",
       "niveau": 2,
       "familie": "Onderwijsaanbod",
       "in_informatiemodel": true,
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "toetsgelegenheid"
+        },
+        "MORA": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "toetsgelegenheid"
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
       "definitie": "Het georganiseerde aanbod van een toetsmoment: wanneer, waar en onder welke condities een toetsonderdeel wordt afgenomen, gekoppeld aan precies één `Toetsonderdeel-specificatie`.",
       "vindplaats": "architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#betrokken-informatie-bij-proces",
+      "bron_soort": "okx-document",
       "status": "gedefinieerd",
-      "herkomst": "nog niet bepaald",
+      "herkomst": "nieuw voor de solution-laag",
       "varianten": [
-        "Toetsgelegenheid",
         "toetsgelegenheid"
-      ],
-      "voorkomens_corpus": 25,
-      "oeapi": [
-        "TestComponentOffering"
       ]
     },
     {
+      "oeapi": [
+        "Result"
+      ],
       "naam": "Toetsgelegenheid resultaat",
       "niveau": 2,
       "familie": "Onderwijsresultaat",
       "in_informatiemodel": true,
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "toetsgelegenheid resultaat"
+        },
+        "MORA": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "toetsgelegenheid resultaat"
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
       "definitie": null,
       "vindplaats": null,
+      "bron_soort": null,
       "status": "nog te definieren",
-      "herkomst": "nog niet bepaald",
-      "varianten": [],
-      "voorkomens_corpus": 0,
-      "oeapi": [
-        "Result"
-      ]
+      "herkomst": "nieuw voor de solution-laag",
+      "varianten": []
     },
     {
+      "oeapi": [
+        "TestComponentOfferingAssociation"
+      ],
       "naam": "Toetsgelegenheid verbintenis",
       "niveau": 2,
       "familie": "Onderwijsverbintenis",
       "in_informatiemodel": true,
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "toetsgelegenheid verbintenis"
+        },
+        "MORA": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "toetsgelegenheid verbintenis"
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
       "definitie": "De relatie tussen een persoon en een `Toetsgelegenheid`: de feitelijke (voorbereide of lopende) deelname aan dat toetsmoment.",
       "vindplaats": "architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#betrokken-informatie-bij-proces",
+      "bron_soort": "okx-document",
       "status": "gedefinieerd",
-      "herkomst": "nog niet bepaald",
-      "varianten": [],
-      "voorkomens_corpus": 0,
-      "oeapi": [
-        "TestComponentOfferingAssociation"
+      "herkomst": "nieuw voor de solution-laag",
+      "varianten": [
+        "Toetsgelegenheid-verbintenis",
+        "toetsgelegenheid verbintenis"
       ]
     },
     {
+      "oeapi": [
+        "TestComponent"
+      ],
       "naam": "Toetsonderdeel specificatie",
       "niveau": 2,
       "familie": "Onderwijsspecificatie",
       "in_informatiemodel": true,
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "toetsonderdeel, toets. MORA noemt toetsen alleen binnen de formatieve resultaatstructuur, niet als eigen informatieobject."
+        },
+        "MORA": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "toetsonderdeel, toets. MORA noemt toetsen alleen binnen de formatieve resultaatstructuur, niet als eigen informatieobject."
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
       "definitie": "De specificatie van het deel van de onderwijseenheid (bestaand uit een onderzoek naar kennis, inzicht, houding en vaardigheden van de student), waarmee wordt vastgesteld over welke competenties de student beschikt, leidend tot een formatieve of summatieve beoordeling.",
       "vindplaats": "architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#betrokken-informatie-bij-proces",
+      "bron_soort": "okx-document",
       "status": "gedefinieerd",
-      "herkomst": "nog niet bepaald",
-      "varianten": [],
-      "voorkomens_corpus": 0,
-      "oeapi": [
-        "TestComponent"
+      "herkomst": "nieuw voor de solution-laag",
+      "varianten": [
+        "Toetsonderdeel-specificatie",
+        "toetsonderdeel-specificatie"
       ]
     },
     {
@@ -1027,73 +1917,133 @@
       "niveau": 2,
       "familie": "Resultaatstructuur",
       "in_informatiemodel": true,
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "toetsonderdeel weging"
+        },
+        "MORA": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "toetsonderdeel weging"
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
       "definitie": null,
       "vindplaats": null,
+      "bron_soort": null,
       "status": "nog te definieren",
-      "herkomst": "nog niet bepaald",
-      "varianten": [],
-      "voorkomens_corpus": 0
+      "herkomst": "nieuw voor de solution-laag",
+      "varianten": []
     },
     {
+      "scope": "buiten scope",
       "naam": "Vaardigheid",
       "niveau": 2,
       "familie": "Onderwijskundig kader instelling",
       "in_informatiemodel": true,
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "vaardigheid"
+        },
+        "MORA": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "vaardigheid"
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
       "definitie": null,
       "vindplaats": null,
+      "bron_soort": null,
       "status": "nog te definieren",
-      "herkomst": "nog niet bepaald",
-      "varianten": [],
-      "voorkomens_corpus": 0,
-      "scope": "buiten scope"
+      "herkomst": "nieuw voor de solution-laag",
+      "varianten": []
     },
     {
       "naam": "Verzoek tot Aanbod / Intekening op specificatie",
       "niveau": 2,
-      "familie": null,
+      "familie": "Buiten de kolommen",
       "in_informatiemodel": true,
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "verzoek tot aanbod / intekening op specificatie"
+        },
+        "MORA": {
+          "uitkomst": "tegenhanger",
+          "begrip": "Leervraag",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-306e945a-d2ff-000e-f950-f1acaa91a0bc",
+          "citaat": "De vraag van een (potentiele) student aan de onderwijsaanbieder waarin verwoord wordt wat men wil leren. Het formuleren van de leervraag is een activiteit van de begeleider samen met de deelnemer of opdrachtgever waarin de leervraag wordt uitgedrukt in producten uit de onderwijscatalogus (eventueel) aangevuld met additionele wensen en voorwaarden",
+          "verbijzondering": "MORA kent de leervraag als de vraag van de student. OKx maakt daar een uitwisselbaar verzoek van, dat leidt tot aanbod of tot intekening op bestaand aanbod."
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
       "definitie": null,
       "vindplaats": null,
+      "bron_soort": null,
       "status": "nog te definieren",
-      "herkomst": "nog niet bepaald",
-      "varianten": [],
-      "voorkomens_corpus": 0
+      "herkomst": "verbijzondering van `Leervraag` (MORA)",
+      "varianten": []
     },
     {
       "naam": "Waarde document (diploma / certificaat)",
       "niveau": 2,
       "familie": null,
       "in_informatiemodel": true,
-      "definitie": null,
-      "vindplaats": null,
-      "status": "nog te definieren",
-      "herkomst": "nog niet bepaald",
-      "varianten": [],
-      "voorkomens_corpus": 0
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "waarde document (diploma / certificaat)"
+        },
+        "MORA": {
+          "uitkomst": "tegenhanger",
+          "begrip": "Waarde document (diploma / certificaat)",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-8647eba0-e31d-5bcf-c12a-4d477069943c",
+          "citaat": "Het bewijsstuk van een eindoordeel over het voltooien van een opleiding, keuzedeel, deelkwalificatie of module"
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
+      "definitie": "Het bewijsstuk van een eindoordeel over het voltooien van een opleiding, keuzedeel, deelkwalificatie of module",
+      "vindplaats": "https://mora.mbodigitaal.nl/index.php/Id-8647eba0-e31d-5bcf-c12a-4d477069943c",
+      "bron_soort": "referentiekader",
+      "status": "gedefinieerd",
+      "herkomst": "overgenomen uit MORA",
+      "varianten": []
     },
     {
       "naam": "Werkproces",
       "niveau": 2,
       "familie": "Kwalificatiekader mbo",
       "in_informatiemodel": true,
-      "definitie": null,
-      "vindplaats": null,
-      "status": "nog te definieren",
-      "herkomst": "nog niet bepaald",
-      "varianten": [
-        "Werkproces"
-      ],
-      "voorkomens_corpus": 17,
-      "toelichting": {
-        "tekst": "Een samenhangend geheel van taken die uitgevoerd worden binnen een beroep en die leiden tot een herkenbaar resultaat, waarmee de beginnend beroepsbeoefenaar aantoont het beroep te beheersen.",
-        "soort": "doelomschrijving",
-        "vindplaats": "architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#conceptueel-gegevensoverzicht"
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "werkproces"
+        },
+        "MORA": {
+          "uitkomst": "tegenhanger",
+          "begrip": "Werkproces",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-9cf4d404-b06c-473f-57d9-3945af33cfa8",
+          "citaat": "Een werkproces is een afgebakend geheel van beroepshandelingen binnen een kerntaak. Het werkproces kent een begin en een eind heeft een resultaat en wordt als kenmerkend herkend in de beroepspraktijk"
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
       },
-      "verwijzing_mora": {
-        "bron": "mora.mbodigitaal.nl - Werkproces",
-        "url": "https://mora.mbodigitaal.nl/index.php/Id-9cf4d404-b06c-473f-57d9-3945af33cfa8",
-        "status": "nog niet geopend"
-      }
+      "definitie": "Een werkproces is een afgebakend geheel van beroepshandelingen binnen een kerntaak. Het werkproces kent een begin en een eind heeft een resultaat en wordt als kenmerkend herkend in de beroepspraktijk",
+      "vindplaats": "https://mora.mbodigitaal.nl/index.php/Id-9cf4d404-b06c-473f-57d9-3945af33cfa8",
+      "bron_soort": "referentiekader",
+      "status": "gedefinieerd",
+      "herkomst": "overgenomen uit MORA",
+      "varianten": []
     }
   ],
   "negeerlijst": [
@@ -1153,5 +2103,795 @@
       "term": "Association.state",
       "reden": "veldpad in OEAPI"
     }
+  ],
+  "kaders": [
+    "ROSA-KOI",
+    "MORA",
+    "HORA"
+  ],
+  "zoekmethode": "Gezocht in de volledige lijst van het MORA-informatiemodel (81 informatieobjecten, https://mora.mbodigitaal.nl/index.php/Informatiemodel) en in het volledige overzicht van het Kernmodel Onderwijsinformatie (https://rosa.wikixl.nl/index.php/Kernmodel_Onderwijsinformatie), opgehaald op 9 september 2026. Een begrip dat in beide lijsten ontbreekt staat als 'geen tegenhanger gevonden'.",
+  "werkvoorraad": [
+    "\"ask\"",
+    "\"deny\"",
+    "\"enrolled\"",
+    "\"key\":\"conf0002\"",
+    "\"mogelijkevormen:\"",
+    "\"securitylevel\":\"loose\"",
+    "\"specialisation\"",
+    "\"vorm:\"",
+    "###ap05—naam",
+    "##3.interactieoverzicht",
+    "##[v0.0.1]—yyyymmdd",
+    "##openvoorvervolg",
+    "##sessiestatus",
+    "##statusvoorvolgendesessie",
+    "##userstory·[userstory#65]",
+    "#ap05naam",
+    "#api12representatieopmaatwordtondersteund",
+    "$arguments",
+    "$comment",
+    "$id",
+    "$ref",
+    "&mdash",
+    "(indicatief)",
+    "(rij:kerntaak|oeapi:course)",
+    "**credentialdocument",
+    "**educationspecification",
+    "**qualificationreference",
+    "*offering",
+    "0.0.x",
+    "0.1.x",
+    "0.x",
+    "0.y.z",
+    "01.onderwijsvisievertalennaaronderwijsaanbodbasismodel",
+    "1.onderwijsvisievertalennaaronderwijsaanbodinformatiemodel",
+    "1.x",
+    "1b9kanv0h0dp",
+    "1cctd3mdc08t",
+    "1cnino5pzw3y",
+    "1d9dj5d9szlj",
+    "2.x",
+    "392d045",
+    "8e19656",
+    "<details>",
+    "<img>",
+    "<small>",
+    "<strong>",
+    "<style>",
+    "@s02",
+    "@uc003",
+    "@uc003f001",
+    "[[def:]]",
+    "[[ref:]]",
+    "[[wikilinks]]",
+    "[tekst](pad\"titel\")",
+    "\\s",
+    "\\s+",
+    "```mermaid",
+    "```text",
+    "`req~naam~1`",
+    "aanbod",
+    "aanbodverbintenis",
+    "aangemeld",
+    "aanmeldingkeuzedeel",
+    "aanmeldingopleiding",
+    "aantal",
+    "aard:formatief",
+    "abstractscenario",
+    "accentblue",
+    "accentgreen",
+    "accentorange",
+    "accentpink",
+    "accentyellow",
+    "acceptatiecriteria",
+    "achtergrond",
+    "actor",
+    "actors.fsh",
+    "adropstellen",
+    "adviesgroep",
+    "afgerond",
+    "aggregatie",
+    "aliases.fsh",
+    "aligned",
+    "alignitems:start",
+    "allebeschikbareleergelegenhedeni.r.t.leeruitkomsten",
+    "alliances",
+    "als",
+    "anthropic.claudecode",
+    "api05",
+    "apispecificatie",
+    "appointment",
+    "architecture/model/*.archimatemerge",
+    "architectureartifacts",
+    "architecturereview",
+    "as",
+    "assesses",
+    "association",
+    "assometype",
+    "b1k1",
+    "b1k1w1",
+    "b1k1w2",
+    "b1k2",
+    "b1k2w2",
+    "b1k3",
+    "b1k3w2",
+    "background",
+    "backgroundimage",
+    "badge",
+    "bak",
+    "beelden",
+    "begeleidingsdossier",
+    "behaald",
+    "behaaldeleeruitkomstenengevraagdeleeruitkomsten",
+    "bereik",
+    "bereiken[]",
+    "beschikbaarheid",
+    "bestaatuit",
+    "bevat",
+    "bezig",
+    "blankissuesenabled:false",
+    "blended",
+    "blue",
+    "borderradius:8px",
+    "bot",
+    "boxshadow",
+    "bpv",
+    "browsertestingwithdevtools",
+    "bs",
+    "build.gradle",
+    "bundelen",
+    "businessanalyseokx",
+    "businessanalysis",
+    "c4context",
+    "cancelled",
+    "capabilitystatements.fsh",
+    "capacity",
+    "capitalization",
+    "cargo.toml",
+    "catch",
+    "certificaat",
+    "cf9d62a",
+    "checkjsonschema",
+    "choiceavailable:true",
+    "chromium",
+    "classroom",
+    "clidevpresentaties",
+    "cnl:requires",
+    "color:#ffffff",
+    "commitmessagenl",
+    "completed",
+    "componentoffering(planbaretoets&zitting)",
+    "concept",
+    "conceptmeerjarenplanning",
+    "conceptonderwijsprogrammaenopleidingsonderdelen",
+    "conditional",
+    "conform",
+    "conformance",
+    "constraint",
+    "consumer.okx.leerroutetype:\"getemporiseerd\"",
+    "consumerkey:\"okx\"",
+    "context",
+    "context7",
+    "continu",
+    "controleerdocument",
+    "couldnotreadusernamefor'https://github.com'",
+    "course\"datasciencefundamentals\"",
+    "course\"pedagogiek\"",
+    "courseoffering(opleidingsdeel)",
+    "courses",
+    "cover.vue",
+    "covers",
+    "created",
+    "credentialdocument:microcredential",
+    "ctk",
+    "curriculumtype:nominaal",
+    "cursor",
+    "customizations.vscode.extensions",
+    "d47bb0c",
+    "dan",
+    "database",
+    "date",
+    "datum",
+    "daytimerange",
+    "decisionmakers",
+    "deck",
+    "deelkwalificatie",
+    "deelnamevereisten",
+    "deelnamevoorwaarde",
+    "default.vue",
+    "definitiemappingoeapivsokx",
+    "definition",
+    "deliverables",
+    "deliveryform:simulation",
+    "deprecated",
+    "designer",
+    "devcontainers:rebuildcontainer",
+    "devcontainers:reopenincontainer",
+    "develop",
+    "devomgeving",
+    "diploma",
+    "dob",
+    "dockerfile",
+    "docsstyle",
+    "docx",
+    "doel0001",
+    "doorstroomaantallen/stamgroepen",
+    "duaal",
+    "ec",
+    "edition",
+    "educationspecification.deliveryform",
+    "educationspecification.expertiseprofiles",
+    "educationspecification.learningresourcegroups",
+    "educationspecification.roomtype",
+    "educationspecification.timeallocation",
+    "en",
+    "end.vue",
+    "endpoints",
+    "enlisted",
+    "enrolled",
+    "epic0001",
+    "established",
+    "examen",
+    "examengelegenheden",
+    "examengelegenheidverbintenisresultaat",
+    "examengelegenheidverbintenisresultaten",
+    "exameninstrument",
+    "examenplanspecificatiegewijzigd",
+    "examenplant.b.h.v.opstellensummatieveresultaatstructuur",
+    "examenspecificatie",
+    "examenspecificaties",
+    "existence",
+    "expand",
+    "expertiseprofiel(en)",
+    "expertiseprofielen",
+    "extern",
+    "eyebrow",
+    "fasen",
+    "feature0001",
+    "feature:uc003f001",
+    "features",
+    "fijmazigopleidingsaanbod",
+    "fill",
+    "fill:#00af81,color:#fff",
+    "fill:#3d68ec,stroke:#dd784b,color:#fff",
+    "fill:#dd784b,stroke:#3d68ec,color:#fff",
+    "fixes#123",
+    "flexibel",
+    "flexitemscenterjustifycenterhfull",
+    "flowchart",
+    "flowchartlr",
+    "flowcharttd",
+    "formative",
+    "fsh",
+    "full",
+    "functionaliteit",
+    "functioneleeis0004",
+    "fundamenteel",
+    "gallery.vue",
+    "gantt",
+    "gastorganisatie",
+    "geannuleerd",
+    "gedeactiveerd",
+    "gedrag",
+    "geentegenhangergevonden",
+    "gegeven",
+    "gelegenheden",
+    "gelegenheidsverbintenis",
+    "gemfile",
+    "genmmd|dot|d2|plantuml",
+    "geroosterdaanbod",
+    "gh",
+    "ghost",
+    "git",
+    "gitattributes",
+    "github",
+    "gitignore",
+    "globs",
+    "go.mod",
+    "gotest./",
+    "grades",
+    "graphviz",
+    "green",
+    "groep",
+    "grofmazigonderwijsontwerp",
+    "happyflow",
+    "head",
+    "heading",
+    "herbruikbaar(fijnmazig)aanbod",
+    "hoofdstukx",
+    "html",
+    "http400badrequest",
+    "https",
+    "hybrid",
+    "hybride",
+    "i1",
+    "i1,eigenaaroc",
+    "i5",
+    "imageleft.vue",
+    "imagemagick",
+    "imageright.vue",
+    "img",
+    "informatiemodelonderwijsontwerp",
+    "ingeschreven",
+    "inputs",
+    "inschrijvingkeuzedeel",
+    "inschrijvingopleidingenopleidingsprogramma",
+    "instance[]",
+    "instanceof:actordefinition",
+    "instanceof:examplescenario",
+    "instanceof:requirements",
+    "instanceof:testplan",
+    "intermezzo.vue",
+    "internship",
+    "inzetplanningmensenenmiddelen",
+    "ioonderwijsspecificatie",
+    "jaarplanning",
+    "jaarplanningexamens",
+    "jaarplanningsbeperkingen",
+    "journey",
+    "kennisgebied",
+    "kerntaak/werkproces",
+    "kernteamokx",
+    "keuzedeelruimtespecificatie",
+    "keuzeomvang",
+    "keuzeruimte",
+    "key",
+    "kiesbaarheid",
+    "kopie",
+    "koppelvlak:onderwijscatalogus(obv1.7)",
+    "koppelvlakspecificatiev1.2.0",
+    "kwalificatiekaderanalyseren",
+    "kwalificatieverwijzing",
+    "label",
+    "label:waarde",
+    "laboratory",
+    "leadarchitect",
+    "leerenlesgelegenheden",
+    "leergelegenheden",
+    "leergelegenheidverbintenisresultaat",
+    "leergelegenheidverbintenisresultaten",
+    "leermaterialen",
+    "leermiddelengroepen",
+    "leermiddelkoppelingbeschikbaar",
+    "leeronderdeel",
+    "leeronderdeelspecificaties",
+    "leerresultaat",
+    "leerroutetype:\"versneld\"",
+    "leerroutetype:versneld",
+    "leertaakspecificatie",
+    "leertaken",
+    "leeruitkomsten",
+    "leervorm",
+    "leervormspecificatie",
+    "lesdoel/lesuitkomst",
+    "lesgelegenheden",
+    "lesgelegenheidverbintenisresultaat",
+    "lesgroepenvanuitverenigdrooster",
+    "lesplan",
+    "lesplanverwijzing",
+    "lesspecificaties",
+    "lesuitkomst",
+    "lesuitkomsten",
+    "loapoth001b",
+    "locatie",
+    "locatieverwijzing",
+    "location",
+    "lokalenvlek/cluster",
+    "lr",
+    "lr1f2",
+    "maar",
+    "maatwerk",
+    "major",
+    "major.minor",
+    "major.minor.patch",
+    "makefile",
+    "manifest",
+    "marginleft:42%",
+    "markdownlintcli2",
+    "match(",
+    "match()",
+    "materials",
+    "max",
+    "mboinformatiemodelleur",
+    "meetingfollowup",
+    "meetingnotulennl",
+    "mermaidcli",
+    "microcredential",
+    "mim.ttl",
+    "min",
+    "minor",
+    "missing",
+    "mrn",
+    "msvscoderemote.remotecontainers",
+    "muted",
+    "naam",
+    "naar",
+    "naplanningofroostering",
+    "needflow",
+    "needs:interactie",
+    "nietbrekend",
+    "nieuwespecificatie",
+    "nieuwvoordesolutionlaag",
+    "nl",
+    "node",
+    "nognietonderzocht",
+    "nominaal",
+    "notes",
+    "np",
+    "nparrow",
+    "npbadge",
+    "npbg",
+    "npbottomline",
+    "npcard",
+    "npframe",
+    "npgrid2",
+    "npgrid3",
+    "npgrid4",
+    "npi",
+    "npnum",
+    "nppipeline",
+    "npproofcheck",
+    "npproofdivider",
+    "npproofitem",
+    "npproofstrip",
+    "npstep",
+    "npsubtitle",
+    "npulscolorcontinuous()",
+    "npulscolorscale()",
+    "npulsggplottheme()",
+    "npulshuisstijl",
+    "npulslogo()",
+    "npulslogo(appname,subtitle)",
+    "npulspalette(n)",
+    "npulspowerpointtemplate.potx",
+    "npulsringsdecoration()",
+    "npulsringsdecoration(color,size,opacity)",
+    "npulssectionlabel",
+    "npulstheme()",
+    "null",
+    "obj[key]",
+    "occurrence",
+    "ocp&ri4,eigenaaroc",
+    "offering",
+    "ofttrace",
+    "okxgovernance",
+    "okxmeta",
+    "okxmetaghconfig",
+    "okxoeapiconsumerprofiel",
+    "okxoeapiscenariouitwerking",
+    "okxpresentatie",
+    "okxproductflow",
+    "okxpublicartefact",
+    "okxrequirementsboom",
+    "okxrequirementstester",
+    "okxschrijfstijl",
+    "okxschrijfstijlreview",
+    "okxsemantiekreview",
+    "okxspecifiek",
+    "okxtestpersona",
+    "omschrijving",
+    "omvang",
+    "onderbroken",
+    "onderdeel",
+    "ondersteunend",
+    "onderwijsaanbodmodel",
+    "onderwijsaanbodverbintenis",
+    "onderwijsaonderwijsspecificaties",
+    "onderwijsdeelname",
+    "onderwijsdeelnemer",
+    "onderwijseenheid",
+    "onderwijseenheidspecificaties",
+    "onderwijseenheidverbintenis",
+    "onderwijseenheidverbintenisresultaat",
+    "onderwijseenheidverbintenisresultaten",
+    "onderwijseenheidverbintenissen",
+    "onderwijsmedewerker",
+    "onderwijsonderdeelverbintenis",
+    "onderwijsprogrammaspecificaties",
+    "onderwijsresultaten",
+    "onderwijsspecificaties",
+    "onderwijsspecificatiesi.c.m.examensentoetsen",
+    "onderwijsspecificatiestructuur(requestforlmsstructuur)",
+    "onderwijsspeicficatie",
+    "onderwijsteamvlekkenplan",
+    "onderwijsverbintenisresultaat",
+    "onderwijsverbintenisresultaten",
+    "online",
+    "ontsnapt",
+    "ontwerpdocument",
+    "oot",
+    "openeducationapi",
+    "operationdefinitions.fsh",
+    "opleiding",
+    "opleidings",
+    "opleidingsaanbod",
+    "opleidingsaanbodverbintenis",
+    "opleidingseenheidspecifiekeplanning",
+    "opleidingsprogramma",
+    "opleidingsprogrammaverbintenis",
+    "opleidingsprogrammaverbintenisresultaat",
+    "opleidingsresultaat",
+    "opleidingsspecificatie",
+    "opleidingsverbintenis",
+    "opleidingsverbintenisresultaat",
+    "opleverproducten",
+    "orange",
+    "origin",
+    "outputs",
+    "overgenomen",
+    "overhevelenuitmeta",
+    "overslaan",
+    "p",
+    "pandoc",
+    "paragraph",
+    "partial",
+    "participating",
+    "partner.vue",
+    "patch",
+    "pending",
+    "period",
+    "periode",
+    "pharmaceutical",
+    "phases",
+    "pink",
+    "pip",
+    "plain",
+    "planbaaronderwijsaanbod",
+    "plangroepering/conceptlesgroep",
+    "planningsgroeperingen",
+    "planningsgroeping",
+    "planningsysteem",
+    "planvaninzetsysteem",
+    "png|jpg|json|drawio",
+    "post",
+    "postman",
+    "preprepocontext",
+    "presentatie",
+    "primair",
+    "process.step",
+    "productflow",
+    "productmanager",
+    "profile",
+    "profiles",
+    "prognoseoppotentiëleaanmeldingen",
+    "programma",
+    "programmastructuur",
+    "programmatype",
+    "programme\"alo\"",
+    "programme\"apothekersassistent\"",
+    "programme\"pabo\"",
+    "programme\"track:versneld\"",
+    "programmeoffering.maxnumberstudents",
+    "programmeoffering.pendingnumberstudents",
+    "programmespecification",
+    "programmetype:\"minor\"",
+    "programmetype:\"programme\"",
+    "programmetype:\"track\"",
+    "properties",
+    "provider",
+    "public",
+    "publicatie",
+    "publicatiepreview",
+    "pyproject.toml",
+    "pytest",
+    "quote.vue",
+    "reason",
+    "rebuildcontainer",
+    "regels[].type",
+    "regelsets",
+    "register",
+    "regulier",
+    "relateertaan",
+    "relateertaan:#",
+    "relateertaan:#12",
+    "relatie",
+    "release*",
+    "releasenotes",
+    "releasevoorbereiden",
+    "remarkgfm",
+    "remarklintfrontmattervalidation",
+    "request",
+    "required",
+    "requirements",
+    "requirements.fsh",
+    "requirements.statement.satisfiedby",
+    "requirementsengineering",
+    "req~",
+    "req~u4notifythenpull~2",
+    "research",
+    "resultaat",
+    "resultaateenheidspecificatie",
+    "resultaatmodel",
+    "ri",
+    "room",
+    "rsvgconvert",
+    "ruimtetype",
+    "ruimtevereisten",
+    "s02",
+    "sbu",
+    "scale",
+    "scenario",
+    "schaal",
+    "schaarstevanmiddelen",
+    "schrijfstijl",
+    "scope",
+    "scripts",
+    "scripts\\md2docx.bat",
+    "scripts\\md2docx.batdoc\\mijn.mddoc\\mijn.docx",
+    "sdoc",
+    "section.vue",
+    "sector",
+    "seealso#",
+    "seealso#45",
+    "seealso#tbd",
+    "selectie",
+    "semver:major",
+    "semver:minor",
+    "semver:patch",
+    "sequence",
+    "shapesgrid.vue",
+    "simulation",
+    "skillfirst",
+    "slidev",
+    "speciale",
+    "specialty",
+    "specificatiebeschikbaar",
+    "specificatieenresultaatstructuurbeschikbaar",
+    "specificatieplanbaar",
+    "specificaties",
+    "specificatiestatusgewijzigd",
+    "specificatieverwijzing.specificatieid",
+    "specstatus:wv|cv|vv|def|basis",
+    "spectype:no|st|im|pr|hr|wa|bd|al|bp",
+    "spelling",
+    "spreidingspatroon",
+    "st.error",
+    "st.info",
+    "st.success",
+    "st.warning",
+    "stapelen",
+    "state:\"pending\"",
+    "statediagramv2",
+    "statisch",
+    "steps.vue",
+    "steps[]",
+    "story0001",
+    "strategischkaderstart/stopopleidingsaanbod",
+    "structurizrlocal",
+    "studielast",
+    "studyload:5ects",
+    "subgraphdatabase",
+    "substitution",
+    "summative",
+    "swagger",
+    "taakomschrijving",
+    "table.cell",
+    "td",
+    "teacher",
+    "temporiserend",
+    "testdrivendevelopment",
+    "testplans.fsh",
+    "text",
+    "theme",
+    "theme:./theme",
+    "theme:default",
+    "tijdmodel",
+    "tijdsbesteding",
+    "tijdsverdeling",
+    "time",
+    "titleonly.vue",
+    "tmforum.org",
+    "toc.vue",
+    "todo",
+    "toetsbereik",
+    "toetsgelegenheden",
+    "toetsgelegenheidverbintenisresultaat",
+    "toetsgelegenheidverbintenisresultaten",
+    "toetsniveau",
+    "toetsonderdeel",
+    "toetsonderdeelspecificaties",
+    "toetsresultaat/aanwezigheid",
+    "toetsspecificatie",
+    "toetsspecificaties",
+    "toetsvorm",
+    "toetsvormspecificatie",
+    "transaction",
+    "twocol.vue",
+    "twocoltext.vue",
+    "u4",
+    "uc003f001",
+    "ui",
+    "uitgangspunt0001",
+    "unittest",
+    "updated",
+    "upstream",
+    "uri",
+    "usecase",
+    "usecaselibrary",
+    "usecases.fsh",
+    "uwlr2.3technischebestandenv20241213.zip",
+    "v",
+    "v0.0.1",
+    "v0.0.2",
+    "v0.0.x",
+    "v0.1.1",
+    "v0.1.2",
+    "v0.1.x",
+    "v0.2.0",
+    "v0.2.1",
+    "v0.3.0",
+    "v0.n.0",
+    "v1.1.0",
+    "v1.2.0",
+    "v1.4.2",
+    "v1.5.0rc.1",
+    "v2.0",
+    "v2.0.0",
+    "v2.x",
+    "v3.x",
+    "value??defaultvalue",
+    "van",
+    "var(npblue)",
+    "var(npdarkblue)",
+    "var(npdarkgray)",
+    "var(npgreen)",
+    "var(npink)",
+    "var(npmidgray)",
+    "var(nporange)",
+    "var(nppink)",
+    "var(npyellow)",
+    "variants",
+    "vastgesteld",
+    "vclick",
+    "verbijzonderingvan<begrip>",
+    "verbintenis",
+    "vereisteleeruitkomsten[]",
+    "vereisteleeruitkomsten[].status",
+    "versneld",
+    "verwijzingnaarlesmethodestructuuro.b.v.onderwijsspecificaties",
+    "viasymlink",
+    "vmajor.minor.patch",
+    "voorbeelden",
+    "voorlopig",
+    "voorwaardeop",
+    "vraagarticulatiestudent(ocquery)",
+    "vraagverduidelijking",
+    "vx.y.z",
+    "waardedocument",
+    "wallet",
+    "walleta",
+    "walletb",
+    "wanneer",
+    "wcl",
+    "weging",
+    "werkprocescodes",
+    "wordtineenaparteuitwerkingbehandeld",
+    "wordtuitgewerktin#84",
+    "wordtvertaaldnaar",
+    "workflows[]",
+    "workshop",
+    "x1",
+    "x2",
+    "xlsx",
+    "xokxvolwassenheid",
+    "xooapiextensibleenum",
+    "yellow",
+    "zindex:1",
+    "{\"sectie\",\"inleiding\",\"documenten\"}",
+    "{1|23|all}",
+    "{attribuut,waarde}",
+    "{bot:number,oot:number,unit:enum}",
+    "{courseid:uuid,type:\"completed\"|\"concurrent\"}",
+    "{id}",
+    "{learningcomponentid:uuid,type:enum}",
+    "{type,register}",
+    "{type:enum,register:string}",
+    "{uri:string,type:enum,label:string}",
+    "|#|functioneleeis|interactiepatroon|",
+    "|id|epic|doel|draagtbijaan|bron|features|",
+    "|id|feature|omschrijving|bron|epic|stories|",
+    "|id|story|feature|bron|functioneleeisen|",
+    "§pdex91",
+    "δcurriculumtype:hybride(lr1:nominaal)"
   ]
 }

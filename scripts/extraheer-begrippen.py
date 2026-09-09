@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
 """Oogst elke term tussen backquotes uit de markdown van OKx-meta en Public.
 
-De extractie gaat vooraf aan de interpretatie: dit script beslist niet wat een
-begrip is, het levert per constructie de volledige lijst van wat er feitelijk
-staat, met aantal voorkomens en vindplaatsen. De indeling in begrip, veldnaam
-en ruis is een voorstel dat een mens bevestigt of verwerpt.
+Het script levert per schrijfwijze wat er in de markdown staat, met aantal
+voorkomens en vindplaatsen. Wat daarvan een begrip is, bepaalt een mens: de
+indeling in begrip, veldnaam, pad, commando, uitdrukking en ruis is een voorstel.
+
+De map met de begrippenlijst zelf blijft buiten de oogst. Anders zou elk begrip
+zichzelf bewijzen zodra het in de lijst staat.
 
 Gebruik:
-    python3 scripts/extraheer-begrippen.py [--json <pad>]
+    python3 scripts/extraheer-begrippen.py [--oeapi <pad naar de OpenAPI-JSON>]
 """
 
 import argparse
@@ -17,21 +19,25 @@ import sys
 from collections import defaultdict
 from pathlib import Path
 
+WORTEL = Path(__file__).resolve().parent.parent
 REPOS = {
-    "meta": Path("/workspaces/OKx/OKx-meta"),
-    "public": Path("/workspaces/OKx/Public"),
+    "meta": WORTEL,
+    "public": WORTEL.parent / "Public",
 }
+UITVOER = "architecture/docs/specificatie/begrippen/begrippen-extractie.json"
 
+# Paden binnen een repository die niet meetellen, als voorvoegsel.
+UITGESLOTEN_PADEN = ("architecture/docs/specificatie/begrippen",)
 UITGESLOTEN_MAPPEN = {
     ".git", "node_modules", ".venv", "venv", "dist", ".next", "build",
     ".obsidian", ".pytest_cache", "__pycache__",
 }
 
-# Fenced blocks (```/~~~) en HTML-commentaar tellen niet mee: daarin staat code,
+# Afgebakende codeblokken (fenced code blocks) en HTML-commentaar bevatten code,
 # geen begrip.
 FENCE = re.compile(r"^\s*(```|~~~)")
 HTML_COMMENT = re.compile(r"<!--.*?-->", re.DOTALL)
-# Inline code: een of meer backquotes, niet-gulzig, zonder aangrenzende backquote.
+# Code in de regel (inline code): een of meer backquotes, niet-gulzig.
 INLINE = re.compile(r"(?<!`)(`+)(?!`)([^\n]+?)(?<!`)\1(?!`)")
 
 PAD_ACHTERVOEGSELS = (
@@ -44,24 +50,26 @@ COMMANDO_STARTS = (
     "./", "pip ", "docker", "soffice", "bash", "grep", "sed ", "curl",
 )
 HTTP_STARTS = ("GET ", "POST ", "PUT ", "PATCH ", "DELETE ", "HEAD ")
-# Cardinaliteiten, pijlen en toekenningen zijn uitdrukkingen over begrippen,
-# geen begrippen. Ze worden apart gezet zodat ze de lijst niet vervuilen.
-EXPRESSIE = re.compile(r"\(\s*\d\s*\.\.|\u2192|->|\u21d2|=|\bt/m\b|\u2026")
+# Cardinaliteiten, pijlen en toekenningen zijn uitdrukkingen over begrippen.
+EXPRESSIE = re.compile(r"\(\s*\d\s*\.\.|→|->|⇒|=|\bt/m\b|…")
 
 
-def markdown_bestanden():
-    for repo, wortel in REPOS.items():
-        if not wortel.is_dir():
+def markdown_bestanden(repos, uitgesloten_paden=UITGESLOTEN_PADEN):
+    for repo, wortel in sorted(repos.items()):
+        if not Path(wortel).is_dir():
             print(f"waarschuwing: {wortel} bestaat niet, overgeslagen", file=sys.stderr)
             continue
-        for pad in sorted(wortel.rglob("*.md")):
-            if UITGESLOTEN_MAPPEN & set(pad.relative_to(wortel).parts):
+        for pad in sorted(Path(wortel).rglob("*.md")):
+            rel = pad.relative_to(wortel)
+            if UITGESLOTEN_MAPPEN & set(rel.parts):
                 continue
-            yield repo, wortel, pad
+            if any(rel.as_posix().startswith(p) for p in uitgesloten_paden):
+                continue
+            yield repo, Path(wortel), pad
 
 
 def regels_zonder_code(tekst):
-    """Geef (regelnummer, regel) terug voor regels buiten fenced code blocks."""
+    """Geef (regelnummer, regel) voor regels buiten afgebakende codeblokken."""
     tekst = HTML_COMMENT.sub("", tekst)
     binnen = False
     for nr, regel in enumerate(tekst.splitlines(), start=1):
@@ -73,15 +81,20 @@ def regels_zonder_code(tekst):
 
 
 def normaliseer(term):
-    """Sleutel waaronder schrijfwijzevarianten van hetzelfde begrip samenvallen."""
+    """Sleutel waaronder schrijfwijzevarianten van hetzelfde begrip samenvallen.
+
+    Koppeltekens, lage streepjes en spaties tellen niet mee, zodat
+    'Onderwijseenheid-specificatie', 'Onderwijseenheid specificatie' en
+    'onderwijseenheidspecificatie' dezelfde sleutel krijgen.
+    """
     kern = term.strip().strip(".,;:!?")
     kern = kern.replace("-", " ").replace("_", " ").replace("/", " / ")
-    kern = re.sub(r"\s+", " ", kern)
+    kern = re.sub(r"\s+", "", kern)
     return kern.lower()
 
 
 def classificeer(term, oeapi_schemas=frozenset(), oeapi_velden=frozenset()):
-    """Voorstel voor de indeling. Een mens bevestigt of verwerpt."""
+    """Voorstel voor de indeling."""
     kaal = term.strip()
     if not kaal:
         return "leeg"
@@ -105,7 +118,7 @@ def classificeer(term, oeapi_schemas=frozenset(), oeapi_velden=frozenset()):
         return "veldnaam"
     if re.fullmatch(r"\d[\d.\-]*", kaal):
         return "getal"
-    if re.fullmatch(r"[#A-Fa-f0-9]{4,9}", kaal) and kaal.startswith("#"):
+    if re.fullmatch(r"#[A-Fa-f0-9]{3,8}", kaal):
         return "ruis"
     if len(kaal) > 80:
         return "ruis"
@@ -114,40 +127,32 @@ def classificeer(term, oeapi_schemas=frozenset(), oeapi_velden=frozenset()):
     return "ruis"
 
 
-def main():
-    p = argparse.ArgumentParser()
-    p.add_argument("--json", default="architecture/docs/specificatie/begrippen/begrippen-extractie.json")
-    p.add_argument("--vindplaatsen", type=int, default=6,
-                   help="maximaal aantal bewaarde vindplaatsen per schrijfwijze")
-    p.add_argument("--oeapi", default=None,
-                   help="pad naar de OEAPI OpenAPI-specificatie (JSON); zonder dit "
-                        "argument worden OEAPI-namen niet herkend")
-    args = p.parse_args()
+def oeapi_namen(pad):
+    """Schema- en veldnamen uit de OEAPI OpenAPI-specificatie."""
+    spec = json.loads(Path(pad).read_text(encoding="utf-8"))
+    schemas = spec.get("components", {}).get("schemas", {})
+    velden = set()
 
-    oeapi_schemas, oeapi_velden = set(), set()
-    if args.oeapi:
-        spec = json.loads(Path(args.oeapi).read_text(encoding="utf-8"))
-        schemas = spec.get("components", {}).get("schemas", {})
-        oeapi_schemas = set(schemas)
+    def loop(o):
+        if isinstance(o, dict):
+            for k, v in o.items():
+                if k == "properties" and isinstance(v, dict):
+                    velden.update(v)
+                loop(v)
+        elif isinstance(o, list):
+            for x in o:
+                loop(x)
 
-        def loop(o):
-            if isinstance(o, dict):
-                for k, v in o.items():
-                    if k == "properties" and isinstance(v, dict):
-                        oeapi_velden.update(v)
-                    loop(v)
-            elif isinstance(o, list):
-                for x in o:
-                    loop(x)
+    loop(schemas)
+    return set(schemas), velden - set(schemas)
 
-        loop(schemas)
-        oeapi_velden -= oeapi_schemas
 
-    # sleutel -> schrijfwijze -> {aantal, vindplaatsen}
+def extraheer(repos, oeapi_schemas=frozenset(), oeapi_velden=frozenset(),
+              max_vindplaatsen=6, uitgesloten_paden=UITGESLOTEN_PADEN):
     varianten = defaultdict(lambda: defaultdict(lambda: {"aantal": 0, "vindplaatsen": []}))
     bestanden = 0
-
-    for repo, wortel, pad in markdown_bestanden():
+    weggelaten = 0
+    for repo, wortel, pad in markdown_bestanden(repos, uitgesloten_paden):
         bestanden += 1
         try:
             tekst = pad.read_text(encoding="utf-8")
@@ -157,35 +162,58 @@ def main():
         for nr, regel in regels_zonder_code(tekst):
             for m in INLINE.finditer(regel):
                 term = m.group(2).strip()
-                if not term:
-                    continue
-                sleutel = normaliseer(term)
+                sleutel = normaliseer(term) if term else ""
                 if not sleutel:
                     continue
                 item = varianten[sleutel][term]
                 item["aantal"] += 1
-                if len(item["vindplaatsen"]) < args.vindplaatsen:
+                if len(item["vindplaatsen"]) < max_vindplaatsen:
                     item["vindplaatsen"].append(f"{rel}:{nr}")
+                else:
+                    weggelaten += 1
 
     termen = []
     for sleutel in sorted(varianten):
         schrijfwijzen = varianten[sleutel]
-        totaal = sum(v["aantal"] for v in schrijfwijzen.values())
         gekozen = max(schrijfwijzen.items(), key=lambda kv: (kv[1]["aantal"], kv[0]))[0]
         termen.append({
             "sleutel": sleutel,
-            "aantal": totaal,
+            "aantal": sum(v["aantal"] for v in schrijfwijzen.values()),
             "indeling": classificeer(gekozen, oeapi_schemas, oeapi_velden),
             "schrijfwijzen": [
                 {"schrijfwijze": s, "aantal": d["aantal"], "vindplaatsen": d["vindplaatsen"]}
                 for s, d in sorted(schrijfwijzen.items(), key=lambda kv: -kv[1]["aantal"])
             ],
         })
+    return termen, bestanden, weggelaten
+
+
+def main():
+    p = argparse.ArgumentParser()
+    p.add_argument("--json", default=UITVOER)
+    p.add_argument("--vindplaatsen", type=int, default=6,
+                   help="maximaal aantal bewaarde vindplaatsen per schrijfwijze")
+    p.add_argument("--oeapi", default=None,
+                   help="pad naar de OEAPI OpenAPI-specificatie (JSON); zonder dit "
+                        "argument worden OEAPI-namen niet herkend")
+    args = p.parse_args()
+
+    schemas, velden = (oeapi_namen(args.oeapi) if args.oeapi else (set(), set()))
+    termen, bestanden, weggelaten = extraheer(
+        REPOS, schemas, velden, args.vindplaatsen)
 
     uitvoer = {
         "bron": {
             "repositories": {k: str(v) for k, v in REPOS.items()},
+            "uitgesloten_paden": list(UITGESLOTEN_PADEN),
             "markdownbestanden": bestanden,
+            "vindplaatsen_per_schrijfwijze": args.vindplaatsen,
+            "vindplaatsen_weggelaten": weggelaten,
+            "oeapi_specificatie": args.oeapi,
+            "oeapi_schemas": len(schemas),
+            "oeapi_velden": len(velden),
+            "commando": ("python3 scripts/extraheer-begrippen.py"
+                         + (f" --oeapi {args.oeapi}" if args.oeapi else "")),
         },
         "termen": termen,
     }
@@ -196,13 +224,14 @@ def main():
     per_indeling = defaultdict(int)
     for t in termen:
         per_indeling[t["indeling"]] += 1
-    meervoudig = [t for t in termen if len(t["schrijfwijzen"]) > 1]
+    meervoudig = sum(1 for t in termen if len(t["schrijfwijzen"]) > 1)
 
     print(f"{bestanden} markdownbestanden gelezen")
     print(f"{len(termen)} termen na ontdubbeling van schrijfwijzen")
-    for indeling, aantal in sorted(per_indeling.items(), key=lambda kv: -kv[1]):
-        print(f"  {aantal:5d}  {indeling}")
-    print(f"{len(meervoudig)} termen met meer dan een schrijfwijze")
+    for indeling, n in sorted(per_indeling.items(), key=lambda kv: -kv[1]):
+        print(f"  {n:5d}  {indeling}")
+    print(f"{meervoudig} termen met meer dan één schrijfwijze")
+    print(f"{weggelaten} vindplaatsen niet bewaard door de cap van {args.vindplaatsen}")
     print(f"geschreven naar {doel}")
 
 
