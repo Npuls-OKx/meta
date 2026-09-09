@@ -28520,7 +28520,7 @@ Vraagstuk hoeveel niet- onderwijs specificatie informatie willen we in de OC opn
           </child>
         </element>
       </folder>
-      <folder name="OOAPI Mapping" id="id-9669d1ca9a734eb5ad645834b0e2d788">
+      <folder name="Informatiemodel en mappingen" id="id-9669d1ca9a734eb5ad645834b0e2d788">
         <element xsi:type="archimate:ArchimateDiagramModel" name="Praatplaat Definitiemapping OOAPI v6 v1.2" id="id-bfe87d5262574b48a021409b31c45633">
           <child xsi:type="archimate:DiagramObject" id="id-b9010cb8afa04b0e8d4144656790afc6" targetConnections="id-d2ab5a03360f4339baff6ac854fba347" textAlignment="1" archimateElement="id-d3a9fa43c53944a380b196673dd852fc">
             <bounds x="768" y="12" width="904" height="509"/>
