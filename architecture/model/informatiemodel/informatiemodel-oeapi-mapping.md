@@ -32,6 +32,7 @@ De relatie is `Realization`: het OEAPI-object realiseert het OKx-objecttype. Dat
 | `Leergelegenheid` | `LearningComponentOffering` | Realization |
 | `Leergelegenheid resultaat` | `Result` | Realization |
 | `Leergelegenheid verbintenis` | `ComponentOfferingAssociation` | Realization |
+| `Leeronderdeel specificatie` | `LearningComponent` | Realization |
 | `Les specificatie` | `LearningComponent` | Realization |
 | `Lesgelegenheid` | `LearningComponentOffering` | Realization |
 | `Lesgelegenheid resultaat` | `Result` | Realization |
@@ -42,8 +43,8 @@ De relatie is `Realization`: het OEAPI-object realiseert het OKx-objecttype. Dat
 | `Onderwijseenheid specificatie` | `Course` | Realization |
 | `Opleiding aanbod  verbintenis` | `ProgrammeOfferingAssociation` | Realization |
 | `Opleiding aanbod resultaat` | `Result` | Realization |
+| `Opleiding specificatie` | `Programme` | Realization |
 | `Opleidingaanbod` | `ProgrammeOffering` | Realization |
-| `Opleidingspecificatie` | `Programme` | Realization |
 | `Opleidingsprogramma aanbod` | `ProgrammeOffering` | Realization |
 | `Opleidingsprogramma aanbod verbintenis` | `ProgrammeOfferingAssociation` | Realization |
 | `Opleidingsprogramma resultaat` | `Result` | Realization |
@@ -54,7 +55,6 @@ De relatie is `Realization`: het OEAPI-object realiseert het OKx-objecttype. Dat
 | `Toetsgelegenheid resultaat` | `Result` | Realization |
 | `Toetsgelegenheid verbintenis` | `TestComponentOfferingAssociation` | Realization |
 | `Toetsonderdeel specificatie` | `TestComponent` | Realization |
-| `leeronderdeel specificatie` | `LearningComponent` | Realization |
 <!-- /gegenereerd -->
 
 ## Waar meerdere OKx-objecttypen op hetzelfde OEAPI-object uitkomen
@@ -65,9 +65,9 @@ Dit is de kern van de signalering: OKx onderscheidt op verschillende plaatsen ie
 | OEAPI v6 | OKx-objecttypen |
 |---|---|
 | `ComponentOfferingAssociation` | `Leergelegenheid verbintenis`, `Lesgelegenheid verbintenis` |
-| `LearningComponent` | `Les specificatie`, `leeronderdeel specificatie` |
+| `LearningComponent` | `Leeronderdeel specificatie`, `Les specificatie` |
 | `LearningComponentOffering` | `Leergelegenheid`, `Lesgelegenheid` |
-| `Programme` | `Keuzedeel`, `Keuzedeelruimte`, `Opleidingspecificatie`, `Opleidingsprogramma specificatie` |
+| `Programme` | `Keuzedeel`, `Keuzedeelruimte`, `Opleiding specificatie`, `Opleidingsprogramma specificatie` |
 | `ProgrammeOffering` | `Keuzedeelaanbod`, `Opleidingaanbod`, `Opleidingsprogramma aanbod` |
 | `ProgrammeOfferingAssociation` | `Keuzedeel aanbod verbintenis`, `Opleiding aanbod  verbintenis`, `Opleidingsprogramma aanbod verbintenis` |
 | `Result` | `Examengelegenheid resultaat`, `Keuzedeel resultaat`, `Leergelegenheid resultaat`, `Lesgelegenheid resultaat`, `Onderwijseenheid resultaat`, `Opleiding aanbod resultaat`, `Opleidingsprogramma resultaat`, `Toetsgelegenheid resultaat` |

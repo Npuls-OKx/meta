@@ -108,7 +108,7 @@ def main():
         if kolom in kolommen:
             blokken.append(f"### {kolom}\n\n{tabel(kolommen[kolom])}")
     blokken.append(f"### Buiten de kolommen\n\n{tabel(buiten)}")
-    vervang(MAP / "informatiemodel.md", "objecttypen",
+    vervang(MAP / "informatiemodel-objecten-en-relaties.md", "objecttypen",
             f"In totaal {len(alle)} objecttypen.\n\n" + "\n\n".join(blokken))
 
     rel_ids = {k.get("archimateRelationship") for k in v.iter() if k.get("archimateRelationship")}
@@ -129,7 +129,7 @@ def main():
         rijen = sorted(per_soort.get(soort, []))
         kop = f"### {soort} ({len(rijen)})\n\n{uitleg[soort]}\n\n| Van | Naar | Label |\n|---|---|---|"
         stukken.append(kop + "\n" + "\n".join(f"| `{a}` | `{b}` | {c or ''} |" for a, b, c in rijen))
-    vervang(MAP / "informatiemodel.md", "relaties", "\n\n".join(stukken))
+    vervang(MAP / "informatiemodel-objecten-en-relaties.md", "relaties", "\n\n".join(stukken))
 
     vm = view(wortel, VIEW_MAP)
     map_rels = {k.get("archimateRelationship") for k in vm.iter() if k.get("archimateRelationship")}
