@@ -542,6 +542,12 @@
     {
       "soort": "Access",
       "van": "Persoon",
+      "naar": "Examengelegenheid",
+      "label": null
+    },
+    {
+      "soort": "Access",
+      "van": "Persoon",
       "naar": "Examengelegenheid resultaat",
       "label": null
     },
@@ -585,6 +591,12 @@
       "soort": "Access",
       "van": "Persoon",
       "naar": "Leergelegenheid verbintenis",
+      "label": null
+    },
+    {
+      "soort": "Access",
+      "van": "Persoon",
+      "naar": "Lesgelegenheid",
       "label": null
     },
     {
@@ -651,6 +663,12 @@
       "soort": "Access",
       "van": "Persoon",
       "naar": "Opleidingsprogramma resultaat",
+      "label": null
+    },
+    {
+      "soort": "Access",
+      "van": "Persoon",
+      "naar": "Toetsgelegenheid",
       "label": null
     },
     {
