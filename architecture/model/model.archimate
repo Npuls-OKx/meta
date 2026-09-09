@@ -30241,8 +30241,8 @@ Denk aan de metafoor van geld. Zonder geld is het gissen en handje klappen om in
             <child xsi:type="archimate:DiagramObject" id="id-0ad79a882a0e484d898d95ea9438ecd7" targetConnections="id-8e08f2c66d704fcc8e0cfb2e2116ec46" archimateElement="id-c5d55306a14d416381b2565c2602c477">
               <bounds x="84" y="216" width="120" height="55"/>
               <sourceConnection xsi:type="archimate:Connection" id="id-c1d25a0b308a4bddafe472c12eca8c7e" source="id-0ad79a882a0e484d898d95ea9438ecd7" target="id-0cf7748771e046768faa2eadde228cf0" archimateRelationship="id-3ff276589e13403792a002584f9eb33c">
-                <bendpoint startX="-108" startY="-2" endX="240" endY="106"/>
-                <bendpoint startX="-108" startY="-98" endX="240" endY="10"/>
+                <bendpoint startX="-108" startY="-2" endX="240" endY="96"/>
+                <bendpoint startX="-108" startY="-86" endX="240" endY="12"/>
               </sourceConnection>
             </child>
             <child xsi:type="archimate:DiagramObject" id="id-fa8a891c496042f69594925132e4ca7b" targetConnections="id-a78b7cf9c4fe4489b3744a20c3cbc455" archimateElement="id-5fcb76f5cfb242838cb912eea6b94a0f">
@@ -30345,7 +30345,7 @@ Denk aan de metafoor van geld. Zonder geld is het gissen en handje klappen om in
             <child xsi:type="archimate:DiagramObject" id="id-b9f51cfe8c364e06a630f95c1dae5ead" targetConnections="id-eee8d1a1c32a483f9a7b90ef39901bd6 id-f1d2d86ccb4e47f8aad88952d1963e5e id-773f32e2a4a54140951b6cc526b38932" archimateElement="id-e521f1dec2f845f9a39dcb4d24a74d70">
               <bounds x="23" y="1488" width="193" height="55"/>
               <sourceConnection xsi:type="archimate:Connection" id="id-c6f1960515c945cd96e878f85860001f" source="id-b9f51cfe8c364e06a630f95c1dae5ead" target="id-f903372fdfa04711a6835dfbe31688a9" archimateRelationship="id-3fcb1132aaf84ba4822bc777faee5eb4">
-                <bendpoint startX="74" startY="-254" endX="98" endY="10"/>
+                <bendpoint startX="74" startY="-338" endX="98" endY="-2"/>
               </sourceConnection>
             </child>
             <child xsi:type="archimate:DiagramObject" id="id-651ab75a31024bb9913a5625c5014265" targetConnections="id-bb58d52caf594319bcd994ab460adb54 id-2c349d78c5b14a8e9e3463b3e6660a70" archimateElement="id-4431e0cd22934e8f9bdd5429c86d9e90">
@@ -30730,9 +30730,9 @@ Denk aan de metafoor van geld. Zonder geld is het gissen en handje klappen om in
             </sourceConnection>
           </child>
           <child xsi:type="archimate:DiagramObject" id="id-0cf7748771e046768faa2eadde228cf0" targetConnections="id-4950cdf9961b44dbb0660c1418e8ddf9 id-c1d25a0b308a4bddafe472c12eca8c7e" archimateElement="id-552add20c64949ec9a0cdd873b49a87d">
-            <bounds x="-432" y="1728" width="120" height="55"/>
+            <bounds x="-432" y="1728" width="120" height="73"/>
           </child>
-          <child xsi:type="archimate:DiagramObject" id="id-20e9e61e079b4eb5b84eb9ea6ecebdb3" fillColor="#e0e0e0" archimateElement="id-4c3403108739418988e7b97b336dc6b2">
+          <child xsi:type="archimate:DiagramObject" id="id-20e9e61e079b4eb5b84eb9ea6ecebdb3" fillColor="#e8e8e8" archimateElement="id-4c3403108739418988e7b97b336dc6b2">
             <bounds x="-432" y="1668" width="120" height="55"/>
             <sourceConnection xsi:type="archimate:Connection" id="id-03b9699cc76a4e19b11bb01f31ccf292" source="id-20e9e61e079b4eb5b84eb9ea6ecebdb3" target="id-b2a23aaf92c74573a5c6b63c38420525" archimateRelationship="id-63e1d8b490e9482697a2cc1f60dea371"/>
             <sourceConnection xsi:type="archimate:Connection" id="id-1da63597befe4ce5b8bca3240fd9cfb3" source="id-20e9e61e079b4eb5b84eb9ea6ecebdb3" target="id-e6c872b541fb46bb9955cda71ed50e2f" archimateRelationship="id-893eee7916464b3cb63be649dfb14e64">
