@@ -29372,18 +29372,18 @@ Denk aan de metafoor van geld. Zonder geld is het gissen en handje klappen om in
             <child xsi:type="archimate:DiagramObject" id="id-0686b7d289784e0da83086170d9192ce" targetConnections="id-586485b1a78346be99c0c2aa71a73e96 id-5be9abf8ad5f47059e492b341d8aedfc id-adfe1d30acf24a188167092c905dc736 id-3be56b2fb7ec4b0bae1a8132b9de840f id-dc2e9854d7ea423baec20f8a83c98285 id-e08a9abfedbd4ca7b9dffeb24f72defa id-15e8edcca00142d8a268c063e4624401 id-0b616e23ce9044d5a12ca0e83dd0730f id-593d1162b11449f9820fc9b27ebbc26b id-879e9bc168fe464eb72da5e2bfe356e7" fillColor="#e8e8e8" archimateElement="id-0fdba1607f7749c2a0e1ab907ce850c3">
               <bounds x="144" y="264" width="120" height="64"/>
               <sourceConnection xsi:type="archimate:Connection" id="id-cff2229e52924e428482f4184d7689df" source="id-0686b7d289784e0da83086170d9192ce" target="id-eb66326b9c024a6789dc8f1315ab3ef2" archimateRelationship="id-7060bac28fcc4d198aed0b98c5bb4983">
-                <bendpoint startX="-216" startY="4" endX="144" endY="105"/>
+                <bendpoint startX="-216" startY="4" endX="144" endY="93"/>
                 <bendpoint startX="-216" startY="-105" endX="144" endY="-2"/>
               </sourceConnection>
               <sourceConnection xsi:type="archimate:Connection" id="id-3dccfdead31b49f6af428c61307f028e" source="id-0686b7d289784e0da83086170d9192ce" target="id-1ca49b6ce84b434f81bd6e2fcce8a1d0" archimateRelationship="id-66a1fd3b9e6c47f69a2b1df75aa408ef">
-                <bendpoint startX="-192" startY="4" endX="168" endY="-3"/>
+                <bendpoint startX="-192" startY="4" endX="168" endY="-15"/>
               </sourceConnection>
               <sourceConnection xsi:type="archimate:Connection" id="id-ad20177315a14f7da86e5490eff25f2b" source="id-0686b7d289784e0da83086170d9192ce" target="id-e7b8dcbf4b784f38a8e91c4f8dd6c150" archimateRelationship="id-4db589f9ec7a4af5a4473eb8ce362f7c">
-                <bendpoint startX="-216" startY="4" endX="144" endY="-111"/>
+                <bendpoint startX="-216" startY="4" endX="144" endY="-123"/>
                 <bendpoint startX="-216" startY="111" endX="144" endY="-2"/>
               </sourceConnection>
               <sourceConnection xsi:type="archimate:Connection" id="id-2f3079df59724a958bd95a61a50ccb85" source="id-0686b7d289784e0da83086170d9192ce" target="id-798e7fb44f354388aa292b770dbc939d" archimateRelationship="id-00fa4bb7e668474f8b7eb0bebb8bda19">
-                <bendpoint startX="-216" startY="4" endX="144" endY="-219"/>
+                <bendpoint startX="-216" startY="4" endX="144" endY="-231"/>
                 <bendpoint startX="-216" startY="219" endX="144" endY="-2"/>
               </sourceConnection>
               <sourceConnection xsi:type="archimate:Connection" id="id-33071ee898cd44c9ae15217f49ae7bad" source="id-0686b7d289784e0da83086170d9192ce" target="id-dacb1a6da8d14da79c3304f5e3b13d58" archimateRelationship="id-5b4f3e15215a4e4aa102c76d3f1ad626"/>
@@ -29452,9 +29452,10 @@ Denk aan de metafoor van geld. Zonder geld is het gissen en handje klappen om in
               <sourceConnection xsi:type="archimate:Connection" id="id-a17bdb96cf4047a2adbd20c6cc320cd1" source="id-3738f7e91a98491c8a83afdf97fa57be" target="id-508059fd3056474f94df6b2dd8ed5f09" archimateRelationship="id-b4b1fbb1a1e44677a238d611df953ee9"/>
               <sourceConnection xsi:type="archimate:Connection" id="id-e5220807a902499a80c5e47cd6c57b75" source="id-3738f7e91a98491c8a83afdf97fa57be" target="id-7bc8630f4fcd43cb9e55db2d7505074f" archimateRelationship="id-a69f4340aa9a49828509a29f23e418ec">
                 <bendpoint startY="-74" endX="84" endY="298"/>
-                <bendpoint startY="-87" endX="85" endY="69"/>
-                <bendpoint startX="-216" startY="-87" endX="-131" endY="69"/>
-                <bendpoint startX="-216" startY="-147" endX="-131" endY="9"/>
+                <bendpoint startY="-99" endX="85" endY="57"/>
+                <bendpoint startX="-204" startY="-99" endX="-119" endY="57"/>
+                <bendpoint startX="-204" startY="-111" endX="-119" endY="45"/>
+                <bendpoint startX="-204" startY="-147" endX="-119" endY="9"/>
               </sourceConnection>
             </child>
             <child xsi:type="archimate:DiagramObject" id="id-508059fd3056474f94df6b2dd8ed5f09" targetConnections="id-cd3439cd23344aafb27b8222c5a724ee id-a17bdb96cf4047a2adbd20c6cc320cd1" archimateElement="id-01c2f076f0cc4dabb5718ded270e4b74">
@@ -29488,18 +29489,18 @@ Denk aan de metafoor van geld. Zonder geld is het gissen en handje klappen om in
           <child xsi:type="archimate:Group" id="id-d83e64775e0b4770bdd7e99c3f4eec29" name="Kwalificatiekader MBO" textAlignment="1">
             <bounds x="-432" y="24" width="240" height="1348"/>
             <child xsi:type="archimate:DiagramObject" id="id-798e7fb44f354388aa292b770dbc939d" targetConnections="id-999ac35865c04f7aae56ee039d70cd11 id-2f3079df59724a958bd95a61a50ccb85" archimateElement="14521c7f-0165-4976-9ab8-35faf28dc32c">
-              <bounds x="48" y="492" width="120" height="55"/>
+              <bounds x="48" y="504" width="120" height="55"/>
             </child>
             <child xsi:type="archimate:DiagramObject" id="id-e7b8dcbf4b784f38a8e91c4f8dd6c150" targetConnections="id-42cee45f104d4d228e8809e2528d8751 id-ad20177315a14f7da86e5490eff25f2b id-fd77e4abbd9a47de8f30919b27181a7f" archimateElement="192fbc79-8d01-4760-b3be-f535680bc275">
-              <bounds x="48" y="384" width="120" height="55"/>
+              <bounds x="48" y="396" width="120" height="55"/>
               <sourceConnection xsi:type="archimate:Connection" id="id-999ac35865c04f7aae56ee039d70cd11" source="id-e7b8dcbf4b784f38a8e91c4f8dd6c150" target="id-798e7fb44f354388aa292b770dbc939d" archimateRelationship="6105e78d-dfe2-4d73-af42-44a119e83412"/>
             </child>
             <child xsi:type="archimate:DiagramObject" id="id-1ca49b6ce84b434f81bd6e2fcce8a1d0" targetConnections="id-74d154ad14034fada42692d188ad934c id-3dccfdead31b49f6af428c61307f028e" archimateElement="a068d2f1-33b6-4b06-9518-8ecde00ee615">
-              <bounds x="48" y="276" width="120" height="55"/>
+              <bounds x="48" y="288" width="120" height="55"/>
               <sourceConnection xsi:type="archimate:Connection" id="id-42cee45f104d4d228e8809e2528d8751" source="id-1ca49b6ce84b434f81bd6e2fcce8a1d0" target="id-e7b8dcbf4b784f38a8e91c4f8dd6c150" archimateRelationship="f3a6fc2b-a970-4549-8af9-5e3fd6a5c029"/>
             </child>
             <child xsi:type="archimate:DiagramObject" id="id-eb66326b9c024a6789dc8f1315ab3ef2" targetConnections="id-cff2229e52924e428482f4184d7689df" archimateElement="6bc5bfb8-fc44-4f14-9bd1-7261fcb18bf1">
-              <bounds x="48" y="168" width="120" height="55"/>
+              <bounds x="48" y="180" width="120" height="55"/>
               <sourceConnection xsi:type="archimate:Connection" id="id-74d154ad14034fada42692d188ad934c" source="id-eb66326b9c024a6789dc8f1315ab3ef2" target="id-1ca49b6ce84b434f81bd6e2fcce8a1d0" archimateRelationship="9a300c01-9925-4aa5-a6f4-29525201eeeb"/>
             </child>
           </child>
@@ -29606,10 +29607,10 @@ Denk aan de metafoor van geld. Zonder geld is het gissen en handje klappen om in
               </sourceConnection>
             </child>
             <child xsi:type="archimate:DiagramObject" id="id-fd9b5f9727464fe98243cf0437281a25" targetConnections="id-d923aeda8c044f879252435aec634c08 id-9b97e3865bcf4842a566d3b0f2f4e461 id-5f000ddba6ce4336b306991dc0cde99b id-417f138207184f41b43ff6d3e68373fd" archimateElement="id-7da33095e2d94456a1fa9e9f605850be">
-              <bounds x="95" y="660" width="120" height="55"/>
+              <bounds x="95" y="660" width="145" height="55"/>
               <sourceConnection xsi:type="archimate:Connection" id="id-c4faf44eaaec455d9dc366d305a155c4" source="id-fd9b5f9727464fe98243cf0437281a25" target="id-ddf422b0a2c049fc8652d84e599b1d50" archimateRelationship="id-ee27a53786fd4965b252f90bacba6b31"/>
               <sourceConnection xsi:type="archimate:Connection" id="id-120f9fc122ab4e159894c6872b369979" source="id-fd9b5f9727464fe98243cf0437281a25" target="id-9547d86d963d4e008544b9c9d129eb0c" archimateRelationship="id-e46a5ceb451d414984a84473e8666a13">
-                <bendpoint startX="349" startY="-11" endX="-42" endY="559"/>
+                <bendpoint startX="337" startY="-11" endX="-42" endY="559"/>
               </sourceConnection>
               <sourceConnection xsi:type="archimate:Connection" id="id-9b97e3865bcf4842a566d3b0f2f4e461" source="id-fd9b5f9727464fe98243cf0437281a25" target="id-fd9b5f9727464fe98243cf0437281a25" archimateRelationship="id-2849f7b2dd994cbca80d3ddabe55495b">
                 <bendpoint startX="-24" startY="62" endX="-24" endY="62"/>
@@ -29617,8 +29618,8 @@ Denk aan de metafoor van geld. Zonder geld is het gissen en handje klappen om in
               </sourceConnection>
               <sourceConnection xsi:type="archimate:Connection" id="id-32ed9fdd04774255b1089097472d8378" source="id-fd9b5f9727464fe98243cf0437281a25" target="id-8c68ecb5873042898a79474919009d3a" archimateRelationship="id-f956eb4df4a941c19da73e2a6babf71b"/>
               <sourceConnection xsi:type="archimate:Connection" id="id-3be56b2fb7ec4b0bae1a8132b9de840f" source="id-fd9b5f9727464fe98243cf0437281a25" target="id-0686b7d289784e0da83086170d9192ce" archimateRelationship="id-fe9f949815df49598f901c9a2c8facde">
-                <bendpoint startX="-227" startY="-11" endX="228" endY="374"/>
-                <bendpoint startX="-227" startY="-395" endX="228" endY="-8"/>
+                <bendpoint startX="-239" startY="-11" endX="228" endY="376"/>
+                <bendpoint startX="-239" startY="-395" endX="228" endY="-8"/>
               </sourceConnection>
             </child>
             <child xsi:type="archimate:DiagramObject" id="id-ddf422b0a2c049fc8652d84e599b1d50" targetConnections="id-c4faf44eaaec455d9dc366d305a155c4 id-4630adb97ea642169520e3ff234a5cf3 id-c3ccebf12831410eb368484d3e99d6b6" archimateElement="id-99a877a4652a467aa823105c7c43eaf3">
@@ -30119,7 +30120,7 @@ Denk aan de metafoor van geld. Zonder geld is het gissen en handje klappen om in
             </sourceConnection>
           </child>
           <child xsi:type="archimate:DiagramObject" id="id-9f50019939684e71beaee04fcb4f76aa" targetConnections="id-fbe7dffd8fa84bf58a9e32dd113db27f id-87d6ada7ea0041cea095b1412c791807" archimateElement="id-552add20c64949ec9a0cdd873b49a87d">
-            <bounds x="-432" y="1728" width="120" height="55"/>
+            <bounds x="-432" y="1728" width="120" height="73"/>
           </child>
           <child xsi:type="archimate:DiagramObject" id="id-3962f790736c417baf25c8c480576780" fillColor="#e0e0e0" archimateElement="id-4c3403108739418988e7b97b336dc6b2">
             <bounds x="-432" y="1668" width="120" height="55"/>
