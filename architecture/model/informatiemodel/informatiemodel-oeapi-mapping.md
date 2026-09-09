@@ -14,25 +14,25 @@ Per objecttype vaststellen of de standaard volstaat, aangepast moet worden, of b
 
 ## Scope
 
-Objectniveau. Attributen liggen in de payload-specificaties.
+Objectniveau. Attributen, datatypes en multipliciteit liggen in de payload-specificaties en vallen hier buiten.
 
 ![Informatiemodel OKx naast de mapping op OEAPI v6, versie v0.1 van 9 september 2026](<OKx informatiemodel en mapping OEAPI v0.1.jpg>)
 
 ## Notatie
 
-De blauwe objecten zijn OEAPI v6 en staan als data-object in het model; de OKx-objecttypen zijn bedrijfsobject. De relatie is realisatie: het data-object is de vorm waarin een OKx-objecttype over de lijn gaat. Dat is ook de enige plek in dit model waar realisatie voorkomt, want realisatie overbrugt lagen en loopt niet tussen twee bedrijfsobjecten. `Persoon` naar `Person` is de uitzondering, daar is de relatie een associatie.
+De blauwe objecten zijn OEAPI v6 en staan als data-object in het model. Van de OKx-objecttypen zijn er 61 bedrijfsobject en 3 bedrijfsactor: `Persoon`, `Student` en `Medewerker`. De relatie is realisatie: het data-object is de vorm waarin een OKx-objecttype over de lijn gaat. Dat is ook de enige plek in dit model waar realisatie voorkomt, want realisatie overbrugt lagen en loopt niet tussen twee bedrijfsobjecten. `Persoon` naar `Person` is de uitzondering, en dat volgt uit die typering: realisatie loopt naar een bedrijfsobject, niet naar een bedrijfsactor, dus daar is de relatie een associatie.
 
 ## Dekking door OEAPI v6
 
-**Een OEAPI-object draagt vaak meerdere OKx-objecttypen.** `Programme` draagt vier specificatietypen, `ProgrammeOffering` drie aanbodtypen en `Result` elk resultaat in de kolom Onderwijsresultaat. OEAPI kent daarnaast wel niveau-specifieke varianten van `Result`, maar het onderscheid tussen de OKx-objecttypen moet buiten de standaard vastliggen.
+**Een OEAPI-object draagt vaak meerdere OKx-objecttypen.** `Programme` draagt vier specificatietypen, `ProgrammeOffering` drie aanbodtypen en `Result` acht van de negen objecttypen in de kolom Onderwijsresultaat, alle behalve `Aanwezigheid`. OEAPI kent daarnaast wel niveau-specifieke varianten van `Result`, maar het onderscheid tussen de OKx-objecttypen moet buiten de standaard vastliggen.
 
 **Het kwalificatiekader heeft geen tegenhanger.** Kwalificatiedossier, kwalificatie, kerntaak en werkproces komen in OEAPI niet voor. Nationale kaderstelling is geen uitwisselbaar aanbod. De leeruitkomst zelf heeft die tegenhanger wel: `LearningOutcome`, met eigen endpoints.
 
-**De resultaatstructuur heeft geen tegenhanger.** OEAPI kent een `weight` per individueel resultaat, niet een weging op de specificatie, en het afrondingscriterium bestaat er alleen als vrije tekst in `qualificationRequirements`. De samenstelling van een summatieve structuur is daarmee niet machineleesbaar uit te drukken.
+**De resultaatstructuur heeft geen tegenhanger in OEAPI.** OEAPI kent `weight` per resultaat, niet per specificatie. Het afrondingscriterium bestaat er alleen als vrije tekst in `qualificationRequirements`. De samenstelling van een summatieve structuur is daarmee niet in OEAPI uit te drukken. OKx legt hem wel machineleesbaar vast, in [`result-structure.json`](https://github.com/Npuls-OKx/Public/tree/dev/Koppelvlakspecificaties/Datamodelschema%27s).
 
 ### Objecttypen binnen scope zonder tegenhanger
 
-21 van de objecttypen binnen scope hebben geen OEAPI-object. Per objecttype is een besluit nodig: signalering richting de standaard, of bewuste afwijking.
+Deze objecttypen binnen scope hebben geen OEAPI-object. Per objecttype is een besluit nodig: signalering richting de standaard, of bewuste afwijking.
 
 | OKx-objecttype |
 |---|

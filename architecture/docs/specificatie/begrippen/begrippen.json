@@ -62,7 +62,7 @@
           "uitkomst": "nog niet onderzocht"
         }
       },
-      "definitie": "De vertaling van het kwalificatiekader naar beoogde leeruitkomsten, gemaakt door de instelling zelf",
+      "definitie": "De beoogde leeruitkomsten waartegen een instelling haar onderwijs specificeert. OKx gaat uit van landelijk gestandaardiseerde en beheerde leeruitkomsten; de onderwijskundige vrijheid van de instelling zit in de specificaties",
       "vindplaats": "architecture/model/informatiemodel/informatiemodel.md#begrippen",
       "bron_soort": "okx-document",
       "status": "gedefinieerd",
