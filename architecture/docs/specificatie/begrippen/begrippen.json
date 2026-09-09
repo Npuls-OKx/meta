@@ -1,0 +1,1157 @@
+{
+  "versie": "v0.1",
+  "scope": "De objecttypen en begrippen van het informatiemodel OKx. Termen uit de rest van de documentatie staan nog niet in deze lijst; de extractie in begrippen-extractie.json houdt bij hoeveel dat er zijn.",
+  "indeling_negeerlijst": [
+    "veldnaam",
+    "branchnaam",
+    "statuswaarde",
+    "versienummer",
+    "pad",
+    "commando",
+    "uitdrukking",
+    "bestandsextensie",
+    "naam van een gebeurtenis",
+    "veldpad in OEAPI"
+  ],
+  "begrippen": [
+    {
+      "naam": "Onderwijsresultaat",
+      "niveau": 1,
+      "familie": "Onderwijsresultaat",
+      "in_informatiemodel": true,
+      "definitie": "Wat een student op een verbintenis heeft behaald, uitgedrukt in leeruitkomsten",
+      "vindplaats": "architecture/model/informatiemodel/informatiemodel.md#begrippen",
+      "status": "gedefinieerd",
+      "herkomst": "nog niet bepaald",
+      "varianten": [
+        "Onderwijsresultaat",
+        "onderwijsresultaat"
+      ],
+      "voorkomens_corpus": 5
+    },
+    {
+      "naam": "Onderwijskundig kader instelling",
+      "niveau": 1,
+      "familie": "Onderwijskundig kader instelling",
+      "in_informatiemodel": true,
+      "definitie": "De vertaling van het kwalificatiekader naar beoogde leeruitkomsten, gemaakt door de instelling zelf",
+      "vindplaats": "architecture/model/informatiemodel/informatiemodel.md#begrippen",
+      "status": "gedefinieerd",
+      "herkomst": "nog niet bepaald",
+      "varianten": [
+        "Onderwijskundigkader instelling"
+      ],
+      "voorkomens_corpus": 0
+    },
+    {
+      "naam": "Onderwijsaanbod",
+      "niveau": 1,
+      "familie": "Onderwijsaanbod",
+      "in_informatiemodel": true,
+      "definitie": "Een specificatie die is ingepland: een periode, een capaciteit en waar van toepassing concrete plek, docent en tijd",
+      "vindplaats": "architecture/model/informatiemodel/informatiemodel.md#begrippen",
+      "status": "gedefinieerd",
+      "herkomst": "nog niet bepaald",
+      "varianten": [
+        "Onderwijsaanbod",
+        "onderwijsaanbod"
+      ],
+      "voorkomens_corpus": 38
+    },
+    {
+      "naam": "Onderwijsverbintenis",
+      "niveau": 1,
+      "familie": "Onderwijsverbintenis",
+      "in_informatiemodel": true,
+      "definitie": "De relatie tussen een student en een aanbod, van aangemeld tot afgerond",
+      "vindplaats": "architecture/model/informatiemodel/informatiemodel.md#begrippen",
+      "status": "gedefinieerd",
+      "herkomst": "nog niet bepaald",
+      "varianten": [
+        "Onderwijsverbintenis",
+        "onderwijsverbintenis"
+      ],
+      "voorkomens_corpus": 19
+    },
+    {
+      "naam": "Resultaatstructuur",
+      "niveau": 1,
+      "familie": "Resultaatstructuur",
+      "in_informatiemodel": true,
+      "definitie": "De samenstelling en weging waarmee losse resultaten optellen tot een uitspraak over de beoogde leeruitkomsten, en daarmee over een kwalificatie of certificaat",
+      "vindplaats": "architecture/model/informatiemodel/informatiemodel.md#begrippen",
+      "status": "gedefinieerd",
+      "herkomst": "nog niet bepaald",
+      "varianten": [],
+      "voorkomens_corpus": 0
+    },
+    {
+      "naam": "Onderwijsspecificatie",
+      "niveau": 1,
+      "familie": "Onderwijsspecificatie",
+      "in_informatiemodel": true,
+      "definitie": "Het herbruikbare ontwerp van een onderwijsonderdeel, los van wanneer het draait en wie eraan meedoet",
+      "vindplaats": "architecture/model/informatiemodel/informatiemodel.md#begrippen",
+      "status": "gedefinieerd",
+      "herkomst": "nog niet bepaald",
+      "varianten": [
+        "Onderwijsspecificatie",
+        "onderwijsSpecificatie",
+        "onderwijsspecificatie"
+      ],
+      "voorkomens_corpus": 47
+    },
+    {
+      "naam": "Kwalificatiekader mbo",
+      "niveau": 1,
+      "familie": "Kwalificatiekader mbo",
+      "in_informatiemodel": true,
+      "definitie": "Het geheel van landelijk vastgestelde eisen waaraan een opleiding moet voldoen. Vastgesteld en beheerd buiten OKx",
+      "vindplaats": "architecture/model/informatiemodel/informatiemodel.md#begrippen",
+      "status": "gedefinieerd",
+      "herkomst": "nog niet bepaald",
+      "varianten": [
+        "Kwalificatiekader MBO"
+      ],
+      "voorkomens_corpus": 0
+    },
+    {
+      "naam": "Aanwezigheid",
+      "niveau": 2,
+      "familie": "Onderwijsresultaat",
+      "in_informatiemodel": true,
+      "definitie": null,
+      "vindplaats": null,
+      "status": "nog te definieren",
+      "herkomst": "nog niet bepaald",
+      "varianten": [
+        "Aanwezigheid"
+      ],
+      "voorkomens_corpus": 2
+    },
+    {
+      "naam": "Competenties / Skills",
+      "niveau": 2,
+      "familie": "Onderwijskundig kader instelling",
+      "in_informatiemodel": true,
+      "definitie": null,
+      "vindplaats": null,
+      "status": "nog te definieren",
+      "herkomst": "nog niet bepaald",
+      "varianten": [],
+      "voorkomens_corpus": 0,
+      "scope": "buiten scope"
+    },
+    {
+      "naam": "Examengelegenheid",
+      "niveau": 2,
+      "familie": "Onderwijsaanbod",
+      "in_informatiemodel": true,
+      "definitie": "Het georganiseerde aanbod van een examenmoment: planning, locatie, surveillant-capaciteit en kandidaten, gekoppeld aan precies één `Examenspecificatie`.",
+      "vindplaats": "architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#betrokken-informatie-bij-proces",
+      "status": "gedefinieerd",
+      "herkomst": "nog niet bepaald",
+      "varianten": [
+        "Examengelegenheid"
+      ],
+      "voorkomens_corpus": 18,
+      "oeapi": [
+        "TestComponentOffering"
+      ]
+    },
+    {
+      "naam": "Examengelegenheid resultaat",
+      "niveau": 2,
+      "familie": "Onderwijsresultaat",
+      "in_informatiemodel": true,
+      "definitie": null,
+      "vindplaats": null,
+      "status": "nog te definieren",
+      "herkomst": "nog niet bepaald",
+      "varianten": [],
+      "voorkomens_corpus": 0,
+      "oeapi": [
+        "Result"
+      ]
+    },
+    {
+      "naam": "Examengelegenheid verbintenis",
+      "niveau": 2,
+      "familie": "Onderwijsverbintenis",
+      "in_informatiemodel": true,
+      "definitie": "De relatie tussen kandidaat en `Examengelegenheid`: inschrijving op en deelname aan de examenafname.",
+      "vindplaats": "architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#betrokken-informatie-bij-proces",
+      "status": "gedefinieerd",
+      "herkomst": "nog niet bepaald",
+      "varianten": [],
+      "voorkomens_corpus": 0,
+      "oeapi": [
+        "TestComponentOfferingAssociation"
+      ]
+    },
+    {
+      "naam": "Examenonderdeel weging",
+      "niveau": 2,
+      "familie": "Resultaatstructuur",
+      "in_informatiemodel": true,
+      "definitie": null,
+      "vindplaats": null,
+      "status": "nog te definieren",
+      "herkomst": "nog niet bepaald",
+      "varianten": [],
+      "voorkomens_corpus": 0
+    },
+    {
+      "naam": "Examenonderdeelspecificatie",
+      "niveau": 2,
+      "familie": "Onderwijsspecificatie",
+      "in_informatiemodel": true,
+      "definitie": null,
+      "vindplaats": null,
+      "status": "nog te definieren",
+      "herkomst": "nog niet bepaald",
+      "varianten": [],
+      "voorkomens_corpus": 0,
+      "oeapi": [
+        "TestComponent"
+      ]
+    },
+    {
+      "naam": "Examenplan",
+      "niveau": 2,
+      "familie": null,
+      "in_informatiemodel": true,
+      "definitie": null,
+      "vindplaats": null,
+      "status": "nog te definieren",
+      "herkomst": "nog niet bepaald",
+      "varianten": [
+        "examenplan",
+        "Examenplan"
+      ],
+      "voorkomens_corpus": 3,
+      "scope": "buiten scope"
+    },
+    {
+      "naam": "Formatief resultaat",
+      "niveau": 2,
+      "familie": "Resultaatstructuur",
+      "in_informatiemodel": true,
+      "definitie": null,
+      "vindplaats": null,
+      "status": "nog te definieren",
+      "herkomst": "nog niet bepaald",
+      "varianten": [],
+      "voorkomens_corpus": 0
+    },
+    {
+      "naam": "Formatieve beoordeling",
+      "niveau": 2,
+      "familie": "Resultaatstructuur",
+      "in_informatiemodel": true,
+      "definitie": null,
+      "vindplaats": null,
+      "status": "nog te definieren",
+      "herkomst": "nog niet bepaald",
+      "varianten": [],
+      "voorkomens_corpus": 0
+    },
+    {
+      "naam": "Formatieve resultaat structuur",
+      "niveau": 2,
+      "familie": "Resultaatstructuur",
+      "in_informatiemodel": true,
+      "definitie": null,
+      "vindplaats": null,
+      "status": "nog te definieren",
+      "herkomst": "nog niet bepaald",
+      "varianten": [],
+      "voorkomens_corpus": 0
+    },
+    {
+      "naam": "Inzicht",
+      "niveau": 2,
+      "familie": "Onderwijskundig kader instelling",
+      "in_informatiemodel": true,
+      "definitie": null,
+      "vindplaats": null,
+      "status": "nog te definieren",
+      "herkomst": "nog niet bepaald",
+      "varianten": [],
+      "voorkomens_corpus": 0,
+      "scope": "buiten scope"
+    },
+    {
+      "naam": "Kennis",
+      "niveau": 2,
+      "familie": "Onderwijskundig kader instelling",
+      "in_informatiemodel": true,
+      "definitie": null,
+      "vindplaats": null,
+      "status": "nog te definieren",
+      "herkomst": "nog niet bepaald",
+      "varianten": [],
+      "voorkomens_corpus": 0,
+      "scope": "buiten scope"
+    },
+    {
+      "naam": "Kerntaak",
+      "niveau": 2,
+      "familie": "Kwalificatiekader mbo",
+      "in_informatiemodel": true,
+      "definitie": null,
+      "vindplaats": null,
+      "status": "nog te definieren",
+      "herkomst": "nog niet bepaald",
+      "varianten": [
+        "Kerntaak"
+      ],
+      "voorkomens_corpus": 10,
+      "toelichting": {
+        "tekst": "Een samenhangend geheel van werkprocessen waarmee een beroep wordt uitgeoefend en waarvan de beheersing het functioneren in een beroep mede bepaalt.",
+        "soort": "doelomschrijving",
+        "vindplaats": "architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#conceptueel-gegevensoverzicht"
+      },
+      "verwijzing_mora": {
+        "bron": "mora.mbodigitaal.nl - Kerntaak",
+        "url": "https://mora.mbodigitaal.nl/index.php/Id-99ef9489-49b3-4a3b-7a89-08ae36a3255e",
+        "status": "nog niet geopend"
+      }
+    },
+    {
+      "naam": "Keuzedeel",
+      "niveau": 2,
+      "familie": "Onderwijsspecificatie",
+      "in_informatiemodel": true,
+      "definitie": null,
+      "vindplaats": null,
+      "status": "nog te definieren",
+      "herkomst": "nog niet bepaald",
+      "varianten": [],
+      "voorkomens_corpus": 0,
+      "oeapi": [
+        "Programme"
+      ]
+    },
+    {
+      "naam": "Keuzedeel aanbod verbintenis",
+      "niveau": 2,
+      "familie": "Onderwijsverbintenis",
+      "in_informatiemodel": true,
+      "definitie": null,
+      "vindplaats": null,
+      "status": "nog te definieren",
+      "herkomst": "nog niet bepaald",
+      "varianten": [],
+      "voorkomens_corpus": 0,
+      "oeapi": [
+        "ProgrammeOfferingAssociation"
+      ]
+    },
+    {
+      "naam": "Keuzedeel resultaat",
+      "niveau": 2,
+      "familie": "Onderwijsresultaat",
+      "in_informatiemodel": true,
+      "definitie": null,
+      "vindplaats": null,
+      "status": "nog te definieren",
+      "herkomst": "nog niet bepaald",
+      "varianten": [],
+      "voorkomens_corpus": 0,
+      "oeapi": [
+        "Result"
+      ]
+    },
+    {
+      "naam": "Keuzedeelaanbod",
+      "niveau": 2,
+      "familie": "Onderwijsaanbod",
+      "in_informatiemodel": true,
+      "definitie": null,
+      "vindplaats": null,
+      "status": "nog te definieren",
+      "herkomst": "nog niet bepaald",
+      "varianten": [],
+      "voorkomens_corpus": 0,
+      "oeapi": [
+        "ProgrammeOffering"
+      ]
+    },
+    {
+      "naam": "Keuzedeelruimte",
+      "niveau": 2,
+      "familie": "Onderwijsspecificatie",
+      "in_informatiemodel": true,
+      "definitie": null,
+      "vindplaats": null,
+      "status": "nog te definieren",
+      "herkomst": "nog niet bepaald",
+      "varianten": [],
+      "voorkomens_corpus": 0,
+      "oeapi": [
+        "Programme"
+      ]
+    },
+    {
+      "naam": "Kwalificatie",
+      "niveau": 2,
+      "familie": "Kwalificatiekader mbo",
+      "in_informatiemodel": true,
+      "definitie": null,
+      "vindplaats": null,
+      "status": "nog te definieren",
+      "herkomst": "nog niet bepaald",
+      "varianten": [
+        "Kwalificatie"
+      ],
+      "voorkomens_corpus": 11,
+      "toelichting": {
+        "tekst": "Beschrijft een kwalificatie als afgerond geheel binnen één kwalificatiedossier.",
+        "soort": "doelomschrijving",
+        "vindplaats": "architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#conceptueel-gegevensoverzicht"
+      },
+      "verwijzing_mora": {
+        "bron": "mora.mbodigitaal.nl - Kwalificatie",
+        "url": "https://mora.mbodigitaal.nl/index.php/Id-f54b73a9-9562-2b28-deca-724e992bbcdb",
+        "status": "nog niet geopend"
+      }
+    },
+    {
+      "naam": "Kwalificatie dossier",
+      "niveau": 2,
+      "familie": "Kwalificatiekader mbo",
+      "in_informatiemodel": true,
+      "definitie": null,
+      "vindplaats": null,
+      "status": "nog te definieren",
+      "herkomst": "nog niet bepaald",
+      "varianten": [
+        "Kwalificatiedossier",
+        "kwalificatiedossier"
+      ],
+      "voorkomens_corpus": 12,
+      "toelichting": {
+        "tekst": "Legt het sectorale referentiekader vast waartegen instellingen opleiden en examineren.",
+        "soort": "doelomschrijving",
+        "vindplaats": "architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#conceptueel-gegevensoverzicht"
+      },
+      "verwijzing_mora": {
+        "bron": "mora.mbodigitaal.nl - Kwalificatiedossier",
+        "url": "https://mora.mbodigitaal.nl/index.php/Id-3389d485-20a7-6e53-21df-d09eb49d4762",
+        "status": "nog niet geopend"
+      }
+    },
+    {
+      "naam": "Leergelegenheid",
+      "niveau": 2,
+      "familie": "Onderwijsaanbod",
+      "in_informatiemodel": true,
+      "definitie": null,
+      "vindplaats": null,
+      "status": "nog te definieren",
+      "herkomst": "nog niet bepaald",
+      "varianten": [
+        "Leergelegenheid",
+        "leergelegenheid"
+      ],
+      "voorkomens_corpus": 23,
+      "toelichting": {
+        "tekst": "Groepeert lessen tot een planbaar/geroosterd leermoment.",
+        "soort": "doelomschrijving",
+        "vindplaats": "architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#conceptueel-gegevensoverzicht"
+      },
+      "oeapi": [
+        "LearningComponentOffering"
+      ]
+    },
+    {
+      "naam": "Leergelegenheid resultaat",
+      "niveau": 2,
+      "familie": "Onderwijsresultaat",
+      "in_informatiemodel": true,
+      "definitie": null,
+      "vindplaats": null,
+      "status": "nog te definieren",
+      "herkomst": "nog niet bepaald",
+      "varianten": [],
+      "voorkomens_corpus": 0,
+      "oeapi": [
+        "Result"
+      ]
+    },
+    {
+      "naam": "Leergelegenheid verbintenis",
+      "niveau": 2,
+      "familie": "Onderwijsverbintenis",
+      "in_informatiemodel": true,
+      "definitie": null,
+      "vindplaats": null,
+      "status": "nog te definieren",
+      "herkomst": "nog niet bepaald",
+      "varianten": [],
+      "voorkomens_corpus": 0,
+      "toelichting": {
+        "tekst": "Koppelt persoon aan leergelegenheid (incl. docent).",
+        "soort": "doelomschrijving",
+        "vindplaats": "architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#conceptueel-gegevensoverzicht"
+      },
+      "oeapi": [
+        "LearningComponentOfferingAssociation"
+      ]
+    },
+    {
+      "naam": "Leeronderdeel specificatie",
+      "niveau": 2,
+      "familie": "Onderwijsspecificatie",
+      "in_informatiemodel": true,
+      "definitie": "De specificatie van het deel van de onderwijseenheid (onder meer bestaande uit lesstof en opdrachten) waarin de student competenties kan verwerven.",
+      "vindplaats": "architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#betrokken-informatie-bij-proces",
+      "status": "gedefinieerd",
+      "herkomst": "nog niet bepaald",
+      "varianten": [
+        "leeronderdeelspecificatie"
+      ],
+      "voorkomens_corpus": 2,
+      "oeapi": [
+        "LearningComponent"
+      ]
+    },
+    {
+      "naam": "Leeruitkomst",
+      "niveau": 2,
+      "familie": "Onderwijskundig kader instelling",
+      "in_informatiemodel": true,
+      "definitie": "Een concreet en observeerbaar resultaat van leren, dat beschrijft wat een student na het doorlopen van één of meer leertaken weet, begrijpt of kan toepassen, en dat als voorwaarde geldt om een opleidingsonderdeel succesvol af te ronden — de vertaling van leertaken in een breakdown door onderwijskundigen. Bij voorkeur uitgedrukt in een sectoroverstijgende, gestandaardiseerde skillstaxonomie (zoals CompetentNL), in dimensies kennis, inzicht en vaardigheden; zie hoofdstuk 4.",
+      "vindplaats": "architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#betrokken-informatie-bij-proces",
+      "status": "gedefinieerd",
+      "herkomst": "nog niet bepaald",
+      "varianten": [
+        "Leeruitkomst"
+      ],
+      "voorkomens_corpus": 22,
+      "oeapi": [
+        "LearningOutcome"
+      ]
+    },
+    {
+      "naam": "Les specificatie",
+      "niveau": 2,
+      "familie": "Onderwijsspecificatie",
+      "in_informatiemodel": true,
+      "definitie": "De specificatie van het kleinste geplande leermoment binnen een leeronderdeel: welke lesinhoud, leeractiviteit of toetsactiviteit in dat moment wordt aangeboden.",
+      "vindplaats": "architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#betrokken-informatie-bij-proces",
+      "status": "gedefinieerd",
+      "herkomst": "nog niet bepaald",
+      "varianten": [
+        "Lesspecificatie",
+        "lesspecificatie"
+      ],
+      "voorkomens_corpus": 16,
+      "oeapi": [
+        "LearningComponent"
+      ],
+      "scope": "buiten scope"
+    },
+    {
+      "naam": "Lesgelegenheid",
+      "niveau": 2,
+      "familie": "Onderwijsaanbod",
+      "in_informatiemodel": true,
+      "definitie": null,
+      "vindplaats": null,
+      "status": "nog te definieren",
+      "herkomst": "nog niet bepaald",
+      "varianten": [
+        "Lesgelegenheid",
+        "lesgelegenheid"
+      ],
+      "voorkomens_corpus": 27,
+      "toelichting": {
+        "tekst": "Concretiseert één les in tijd, ruimte en bemanning.",
+        "soort": "doelomschrijving",
+        "vindplaats": "architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#conceptueel-gegevensoverzicht"
+      },
+      "oeapi": [
+        "LearningComponentOffering"
+      ],
+      "scope": "buiten scope"
+    },
+    {
+      "naam": "Lesgelegenheid resultaat",
+      "niveau": 2,
+      "familie": "Onderwijsresultaat",
+      "in_informatiemodel": true,
+      "definitie": null,
+      "vindplaats": null,
+      "status": "nog te definieren",
+      "herkomst": "nog niet bepaald",
+      "varianten": [],
+      "voorkomens_corpus": 0,
+      "oeapi": [
+        "Result"
+      ],
+      "scope": "buiten scope"
+    },
+    {
+      "naam": "Lesgelegenheid verbintenis",
+      "niveau": 2,
+      "familie": "Onderwijsverbintenis",
+      "in_informatiemodel": true,
+      "definitie": null,
+      "vindplaats": null,
+      "status": "nog te definieren",
+      "herkomst": "nog niet bepaald",
+      "varianten": [],
+      "voorkomens_corpus": 0,
+      "toelichting": {
+        "tekst": "Koppelt persoon aan concrete lesuitvoering.",
+        "soort": "doelomschrijving",
+        "vindplaats": "architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#conceptueel-gegevensoverzicht"
+      },
+      "oeapi": [
+        "LearningComponentOfferingAssociation"
+      ],
+      "scope": "buiten scope"
+    },
+    {
+      "naam": "Medewerker",
+      "niveau": 2,
+      "familie": null,
+      "in_informatiemodel": true,
+      "definitie": null,
+      "vindplaats": null,
+      "status": "nog te definieren",
+      "herkomst": "nog niet bepaald",
+      "varianten": [
+        "Medewerker"
+      ],
+      "voorkomens_corpus": 4
+    },
+    {
+      "naam": "Onderwijseenheid aanbod",
+      "niveau": 2,
+      "familie": "Onderwijsaanbod",
+      "in_informatiemodel": true,
+      "definitie": null,
+      "vindplaats": null,
+      "status": "nog te definieren",
+      "herkomst": "nog niet bepaald",
+      "varianten": [],
+      "voorkomens_corpus": 0,
+      "toelichting": {
+        "tekst": "Plant en capaciteert een onderwijseenheid in de tijd.",
+        "soort": "doelomschrijving",
+        "vindplaats": "architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#conceptueel-gegevensoverzicht"
+      },
+      "oeapi": [
+        "CourseOffering"
+      ]
+    },
+    {
+      "naam": "Onderwijseenheid aanbod verbintenis",
+      "niveau": 2,
+      "familie": "Onderwijsverbintenis",
+      "in_informatiemodel": true,
+      "definitie": null,
+      "vindplaats": null,
+      "status": "nog te definieren",
+      "herkomst": "nog niet bepaald",
+      "varianten": [],
+      "voorkomens_corpus": 0,
+      "oeapi": [
+        "CourseOfferingAssociation"
+      ]
+    },
+    {
+      "naam": "Onderwijseenheid resultaat",
+      "niveau": 2,
+      "familie": "Onderwijsresultaat",
+      "in_informatiemodel": true,
+      "definitie": null,
+      "vindplaats": null,
+      "status": "nog te definieren",
+      "herkomst": "nog niet bepaald",
+      "varianten": [],
+      "voorkomens_corpus": 0,
+      "oeapi": [
+        "Result"
+      ]
+    },
+    {
+      "naam": "Onderwijseenheid specificatie",
+      "niveau": 2,
+      "familie": "Onderwijsspecificatie",
+      "in_informatiemodel": true,
+      "definitie": "De specificatie van de fundamentele eenheid waarin onderwijs wordt ontworpen en aangeboden, in de vorm van een samenhangend stelsel van één of meer (beoogde) leeruitkomsten, leeronderdelen en/of toetsonderdelen. (NB: Leeruitkomsten omvat o.a. kennis, inzicht en vaardigheden.)",
+      "vindplaats": "architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#betrokken-informatie-bij-proces",
+      "status": "gedefinieerd",
+      "herkomst": "nog niet bepaald",
+      "varianten": [
+        "onderwijseenheidspecificatie"
+      ],
+      "voorkomens_corpus": 2,
+      "oeapi": [
+        "Course"
+      ]
+    },
+    {
+      "naam": "Opleiding aanbod  verbintenis",
+      "niveau": 2,
+      "familie": "Onderwijsverbintenis",
+      "in_informatiemodel": true,
+      "definitie": null,
+      "vindplaats": null,
+      "status": "nog te definieren",
+      "herkomst": "nog niet bepaald",
+      "varianten": [],
+      "voorkomens_corpus": 0,
+      "oeapi": [
+        "ProgrammeOfferingAssociation"
+      ]
+    },
+    {
+      "naam": "Opleiding aanbod resultaat",
+      "niveau": 2,
+      "familie": "Onderwijsresultaat",
+      "in_informatiemodel": true,
+      "definitie": null,
+      "vindplaats": null,
+      "status": "nog te definieren",
+      "herkomst": "nog niet bepaald",
+      "varianten": [],
+      "voorkomens_corpus": 0,
+      "oeapi": [
+        "Result"
+      ]
+    },
+    {
+      "naam": "Opleiding specificatie",
+      "niveau": 2,
+      "familie": "Onderwijsspecificatie",
+      "in_informatiemodel": true,
+      "definitie": null,
+      "vindplaats": null,
+      "status": "nog te definieren",
+      "herkomst": "nog niet bepaald",
+      "varianten": [
+        "Opleidingspecificatie"
+      ],
+      "voorkomens_corpus": 2,
+      "oeapi": [
+        "Programme"
+      ]
+    },
+    {
+      "naam": "Opleidingaanbod",
+      "niveau": 2,
+      "familie": "Onderwijsaanbod",
+      "in_informatiemodel": true,
+      "definitie": null,
+      "vindplaats": null,
+      "status": "nog te definieren",
+      "herkomst": "nog niet bepaald",
+      "varianten": [],
+      "voorkomens_corpus": 0,
+      "oeapi": [
+        "ProgrammeOffering"
+      ]
+    },
+    {
+      "naam": "Opleidingsaanbod van Instelling",
+      "niveau": 2,
+      "familie": "Onderwijsaanbod",
+      "in_informatiemodel": true,
+      "definitie": null,
+      "vindplaats": null,
+      "status": "nog te definieren",
+      "herkomst": "nog niet bepaald",
+      "varianten": [],
+      "voorkomens_corpus": 0
+    },
+    {
+      "naam": "Opleidingsprogramma aanbod",
+      "niveau": 2,
+      "familie": "Onderwijsaanbod",
+      "in_informatiemodel": true,
+      "definitie": null,
+      "vindplaats": null,
+      "status": "nog te definieren",
+      "herkomst": "nog niet bepaald",
+      "varianten": [],
+      "voorkomens_corpus": 0,
+      "toelichting": {
+        "tekst": "Biedt een concreet programma-instantie aan (cohort, variant).",
+        "soort": "doelomschrijving",
+        "vindplaats": "architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#conceptueel-gegevensoverzicht"
+      },
+      "oeapi": [
+        "ProgrammeOffering"
+      ]
+    },
+    {
+      "naam": "Opleidingsprogramma aanbod verbintenis",
+      "niveau": 2,
+      "familie": "Onderwijsverbintenis",
+      "in_informatiemodel": true,
+      "definitie": null,
+      "vindplaats": null,
+      "status": "nog te definieren",
+      "herkomst": "nog niet bepaald",
+      "varianten": [],
+      "voorkomens_corpus": 0,
+      "oeapi": [
+        "ProgrammeOfferingAssociation"
+      ]
+    },
+    {
+      "naam": "Opleidingsprogramma resultaat",
+      "niveau": 2,
+      "familie": "Onderwijsresultaat",
+      "in_informatiemodel": true,
+      "definitie": null,
+      "vindplaats": null,
+      "status": "nog te definieren",
+      "herkomst": "nog niet bepaald",
+      "varianten": [],
+      "voorkomens_corpus": 0,
+      "oeapi": [
+        "Result"
+      ]
+    },
+    {
+      "naam": "Opleidingsprogramma specificatie",
+      "niveau": 2,
+      "familie": "Onderwijsspecificatie",
+      "in_informatiemodel": true,
+      "definitie": "Een samenhangende verzameling van één of meer (deel)programma's, onderwijseenheden, of leeruitkomsten die kunnen leiden tot een kwalificatie.",
+      "vindplaats": "architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#betrokken-informatie-bij-proces",
+      "status": "gedefinieerd",
+      "herkomst": "nog niet bepaald",
+      "varianten": [
+        "opleidingsprogrammaspecificatie"
+      ],
+      "voorkomens_corpus": 1,
+      "oeapi": [
+        "Programme"
+      ]
+    },
+    {
+      "naam": "Persoon",
+      "niveau": 2,
+      "familie": null,
+      "in_informatiemodel": true,
+      "definitie": null,
+      "vindplaats": null,
+      "status": "nog te definieren",
+      "herkomst": "nog niet bepaald",
+      "varianten": [
+        "Persoon",
+        "persoon"
+      ],
+      "voorkomens_corpus": 37,
+      "oeapi": [
+        "Person"
+      ]
+    },
+    {
+      "naam": "Persoonlijke ontwikkeling",
+      "niveau": 2,
+      "familie": "Resultaatstructuur",
+      "in_informatiemodel": true,
+      "definitie": null,
+      "vindplaats": null,
+      "status": "nog te definieren",
+      "herkomst": "nog niet bepaald",
+      "varianten": [],
+      "voorkomens_corpus": 0
+    },
+    {
+      "naam": "Plaatsingsgroep",
+      "niveau": 2,
+      "familie": null,
+      "in_informatiemodel": true,
+      "definitie": null,
+      "vindplaats": null,
+      "status": "nog te definieren",
+      "herkomst": "nog niet bepaald",
+      "varianten": [
+        "plaatsingsgroep",
+        "Plaatsingsgroep"
+      ],
+      "voorkomens_corpus": 4,
+      "oeapi": [
+        "Group"
+      ]
+    },
+    {
+      "naam": "Student",
+      "niveau": 2,
+      "familie": null,
+      "in_informatiemodel": true,
+      "definitie": null,
+      "vindplaats": null,
+      "status": "nog te definieren",
+      "herkomst": "nog niet bepaald",
+      "varianten": [
+        "Student",
+        "student"
+      ],
+      "voorkomens_corpus": 3
+    },
+    {
+      "naam": "Student keuze regelset",
+      "niveau": 2,
+      "familie": "Onderwijsspecificatie",
+      "in_informatiemodel": true,
+      "definitie": null,
+      "vindplaats": null,
+      "status": "nog te definieren",
+      "herkomst": "nog niet bepaald",
+      "varianten": [],
+      "voorkomens_corpus": 0
+    },
+    {
+      "naam": "Summatief Afrondingscriterium",
+      "niveau": 2,
+      "familie": "Resultaatstructuur",
+      "in_informatiemodel": true,
+      "definitie": null,
+      "vindplaats": null,
+      "status": "nog te definieren",
+      "herkomst": "nog niet bepaald",
+      "varianten": [],
+      "voorkomens_corpus": 0
+    },
+    {
+      "naam": "Summatief resultaat",
+      "niveau": 2,
+      "familie": "Resultaatstructuur",
+      "in_informatiemodel": true,
+      "definitie": null,
+      "vindplaats": null,
+      "status": "nog te definieren",
+      "herkomst": "nog niet bepaald",
+      "varianten": [],
+      "voorkomens_corpus": 0
+    },
+    {
+      "naam": "Summatieve beoordeling",
+      "niveau": 2,
+      "familie": "Resultaatstructuur",
+      "in_informatiemodel": true,
+      "definitie": null,
+      "vindplaats": null,
+      "status": "nog te definieren",
+      "herkomst": "nog niet bepaald",
+      "varianten": [],
+      "voorkomens_corpus": 0
+    },
+    {
+      "naam": "Summatieve resultaat structuur",
+      "niveau": 2,
+      "familie": "Resultaatstructuur",
+      "in_informatiemodel": true,
+      "definitie": null,
+      "vindplaats": null,
+      "status": "nog te definieren",
+      "herkomst": "nog niet bepaald",
+      "varianten": [],
+      "voorkomens_corpus": 0
+    },
+    {
+      "naam": "Toetsgelegenheid",
+      "niveau": 2,
+      "familie": "Onderwijsaanbod",
+      "in_informatiemodel": true,
+      "definitie": "Het georganiseerde aanbod van een toetsmoment: wanneer, waar en onder welke condities een toetsonderdeel wordt afgenomen, gekoppeld aan precies één `Toetsonderdeel-specificatie`.",
+      "vindplaats": "architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#betrokken-informatie-bij-proces",
+      "status": "gedefinieerd",
+      "herkomst": "nog niet bepaald",
+      "varianten": [
+        "Toetsgelegenheid",
+        "toetsgelegenheid"
+      ],
+      "voorkomens_corpus": 25,
+      "oeapi": [
+        "TestComponentOffering"
+      ]
+    },
+    {
+      "naam": "Toetsgelegenheid resultaat",
+      "niveau": 2,
+      "familie": "Onderwijsresultaat",
+      "in_informatiemodel": true,
+      "definitie": null,
+      "vindplaats": null,
+      "status": "nog te definieren",
+      "herkomst": "nog niet bepaald",
+      "varianten": [],
+      "voorkomens_corpus": 0,
+      "oeapi": [
+        "Result"
+      ]
+    },
+    {
+      "naam": "Toetsgelegenheid verbintenis",
+      "niveau": 2,
+      "familie": "Onderwijsverbintenis",
+      "in_informatiemodel": true,
+      "definitie": "De relatie tussen een persoon en een `Toetsgelegenheid`: de feitelijke (voorbereide of lopende) deelname aan dat toetsmoment.",
+      "vindplaats": "architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#betrokken-informatie-bij-proces",
+      "status": "gedefinieerd",
+      "herkomst": "nog niet bepaald",
+      "varianten": [],
+      "voorkomens_corpus": 0,
+      "oeapi": [
+        "TestComponentOfferingAssociation"
+      ]
+    },
+    {
+      "naam": "Toetsonderdeel specificatie",
+      "niveau": 2,
+      "familie": "Onderwijsspecificatie",
+      "in_informatiemodel": true,
+      "definitie": "De specificatie van het deel van de onderwijseenheid (bestaand uit een onderzoek naar kennis, inzicht, houding en vaardigheden van de student), waarmee wordt vastgesteld over welke competenties de student beschikt, leidend tot een formatieve of summatieve beoordeling.",
+      "vindplaats": "architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#betrokken-informatie-bij-proces",
+      "status": "gedefinieerd",
+      "herkomst": "nog niet bepaald",
+      "varianten": [],
+      "voorkomens_corpus": 0,
+      "oeapi": [
+        "TestComponent"
+      ]
+    },
+    {
+      "naam": "Toetsonderdeel weging",
+      "niveau": 2,
+      "familie": "Resultaatstructuur",
+      "in_informatiemodel": true,
+      "definitie": null,
+      "vindplaats": null,
+      "status": "nog te definieren",
+      "herkomst": "nog niet bepaald",
+      "varianten": [],
+      "voorkomens_corpus": 0
+    },
+    {
+      "naam": "Vaardigheid",
+      "niveau": 2,
+      "familie": "Onderwijskundig kader instelling",
+      "in_informatiemodel": true,
+      "definitie": null,
+      "vindplaats": null,
+      "status": "nog te definieren",
+      "herkomst": "nog niet bepaald",
+      "varianten": [],
+      "voorkomens_corpus": 0,
+      "scope": "buiten scope"
+    },
+    {
+      "naam": "Verzoek tot Aanbod / Intekening op specificatie",
+      "niveau": 2,
+      "familie": null,
+      "in_informatiemodel": true,
+      "definitie": null,
+      "vindplaats": null,
+      "status": "nog te definieren",
+      "herkomst": "nog niet bepaald",
+      "varianten": [],
+      "voorkomens_corpus": 0
+    },
+    {
+      "naam": "Waarde document (diploma / certificaat)",
+      "niveau": 2,
+      "familie": null,
+      "in_informatiemodel": true,
+      "definitie": null,
+      "vindplaats": null,
+      "status": "nog te definieren",
+      "herkomst": "nog niet bepaald",
+      "varianten": [],
+      "voorkomens_corpus": 0
+    },
+    {
+      "naam": "Werkproces",
+      "niveau": 2,
+      "familie": "Kwalificatiekader mbo",
+      "in_informatiemodel": true,
+      "definitie": null,
+      "vindplaats": null,
+      "status": "nog te definieren",
+      "herkomst": "nog niet bepaald",
+      "varianten": [
+        "Werkproces"
+      ],
+      "voorkomens_corpus": 17,
+      "toelichting": {
+        "tekst": "Een samenhangend geheel van taken die uitgevoerd worden binnen een beroep en die leiden tot een herkenbaar resultaat, waarmee de beginnend beroepsbeoefenaar aantoont het beroep te beheersen.",
+        "soort": "doelomschrijving",
+        "vindplaats": "architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#conceptueel-gegevensoverzicht"
+      },
+      "verwijzing_mora": {
+        "bron": "mora.mbodigitaal.nl - Werkproces",
+        "url": "https://mora.mbodigitaal.nl/index.php/Id-9cf4d404-b06c-473f-57d9-3945af33cfa8",
+        "status": "nog niet geopend"
+      }
+    }
+  ],
+  "negeerlijst": [
+    {
+      "term": "dev",
+      "reden": "branchnaam"
+    },
+    {
+      "term": "main",
+      "reden": "branchnaam"
+    },
+    {
+      "term": "clidev",
+      "reden": "branchnaam"
+    },
+    {
+      "term": "v0.1.0",
+      "reden": "versienummer"
+    },
+    {
+      "term": "v1.0.0",
+      "reden": "versienummer"
+    },
+    {
+      "term": "id",
+      "reden": "veldnaam"
+    },
+    {
+      "term": "versie",
+      "reden": "veldnaam"
+    },
+    {
+      "term": "status",
+      "reden": "veldnaam"
+    },
+    {
+      "term": "gepubliceerd",
+      "reden": "statuswaarde"
+    },
+    {
+      "term": "inrichtingsstatus",
+      "reden": "veldnaam"
+    },
+    {
+      "term": "verwerkingsstatus",
+      "reden": "veldnaam"
+    },
+    {
+      "term": "specificatie-gewijzigd",
+      "reden": "naam van een gebeurtenis"
+    },
+    {
+      "term": ".feature",
+      "reden": "bestandsextensie"
+    },
+    {
+      "term": "Association.state",
+      "reden": "veldpad in OEAPI"
+    }
+  ]
+}
