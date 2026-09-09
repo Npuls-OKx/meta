@@ -20,7 +20,7 @@ Objectniveau. Attributen liggen in de payload-specificaties.
 
 ## Notatie
 
-De blauwe objecten zijn OEAPI v6. De relatie is realisatie: OEAPI is de vorm waarin een OKx-objecttype over de lijn gaat. `Persoon` naar `Person` is de uitzondering, daar is de relatie een associatie.
+De blauwe objecten zijn OEAPI v6 en staan als data-object in het model; de OKx-objecttypen zijn bedrijfsobject. De relatie is realisatie: het data-object is de vorm waarin een OKx-objecttype over de lijn gaat. Dat is ook de enige plek in dit model waar realisatie voorkomt, want realisatie overbrugt lagen en loopt niet tussen twee bedrijfsobjecten. `Persoon` naar `Person` is de uitzondering, daar is de relatie een associatie.
 
 ## Dekking door OEAPI v6
 
