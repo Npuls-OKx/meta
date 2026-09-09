@@ -4,17 +4,19 @@
 
 **Doel.** Vastleggen welke objecttypen OKx onderscheidt, hoe ze zich tot elkaar verhouden, en waar de grens van de OKx-scope ligt. Dit document beschrijft de plaat [OKx informatiemodel v0.1.jpg](<OKx informatiemodel v0.1.jpg>); de mapping naar OEAPI staat apart in [informatiemodel-oeapi-mapping.md](informatiemodel-oeapi-mapping.md).
 
-**Bron.** Alle objecttypen en relaties in dit document zijn uit het ArchiMate-model gehaald, uit de view `OKx informatiemodel`. Er is niets van de plaat overgetypt.
+**Bron.** De tabellen in dit document worden gegenereerd uit het ArchiMate-model, uit de view `OKx informatiemodel`, met `python3 scripts/genereer-informatiemodel-doc.py`. Er is niets van de plaat overgetypt. Wijzigt het model, draai het script dan opnieuw.
 
 ## Positionering
 
-Het [begrippenkader](../../docs/specificatie/leerroute-uitwerking/doc/begrippenkader.md) is het model van begrippen, MIM-niveau 1: de zes families, de zes niveaus en de ankertabel. Dit document is het conceptuele informatiemodel, **MIM-niveau 2**: objecttypen, relaties en cardinaliteiten. De payload-specificaties en endpoint-sets in [Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Koppelvlakspecificaties) vormen het logische niveau, MIM-niveau 3.
+Dit model draagt **MIM-niveau 1 en 2 tegelijk**. De kolommen zijn de begrippen waarin OKx de keten indeelt, en dat is niveau 1: het model van begrippen. De objecttypen binnen die kolommen, met hun onderlinge relaties, zijn niveau 2: het conceptuele informatiemodel. De payload-specificaties en endpoint-sets in [Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Koppelvlakspecificaties) vormen het logische niveau, MIM-niveau 3.
 
-Begrippen en objecttypen blijven elk op hun eigen niveau. Waar een objecttype samenvalt met een begrip uit de ankertabel, staat hier geen tweede definitie maar een verwijzing.
+Dit model **vervangt het vlakkenmodel** uit de [leerroute-uitwerking](../../docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md), de tabel van niveaus maal families. Dat vlakkenmodel blijft bruikbaar als versimpelde weergave voor doelgroepen die geen 62 objecttypen nodig hebben, maar het is niet langer de bron. Zie ook de afbakening hieronder over de koppeling tussen niveau en objecttype.
+
+De definities van de begrippen zelf staan niet hier maar in de begrippenlijst (#223), zodat begrip en objecttype elk op hun eigen niveau blijven en niets dubbel wordt vastgelegd.
 
 ## Leeswijzer bij de plaat
 
-De plaat leest van links naar rechts als de keten uit het begrippenkader: van wat normatief geldt, via wat we organiseren en aanbieden, naar wie meedoet en wat er behaald is. De kolommen zijn de families uit de ankertabel.
+De plaat leest van links naar rechts als de keten van idee tot resultaat: van wat normatief geldt, via wat we organiseren en aanbieden, naar wie meedoet en wat er behaald is. De kolommen zijn de begrippen waarin OKx die keten indeelt.
 
 | Kolom | Beantwoordt de vraag |
 |---|---|
@@ -30,117 +32,120 @@ Kleur zegt iets over scope, niet over belang. Geel is het OKx-referentiekader, u
 
 ## Objecttypen
 
-In totaal 62 objecttypen, waarvan er **38 niet in de ankertabel voorkomen**. Die laatste groep heeft nog geen vastgestelde definitie; dat is de brug naar de begrippenlijst (#223).
+<!-- gegenereerd:objecttypen -->
+In totaal 62 objecttypen.
 
 ### Kwalificatiekader MBO
 
-| Objecttype | Scope | In de ankertabel |
-|---|---|---|
-| `Kerntaak` | binnen scope | ja |
-| `Kwalificatie` | binnen scope | ja |
-| `Kwalificatie dossier` | binnen scope | ja |
-| `Werkproces` | binnen scope | ja |
+| Objecttype | Scope |
+|---|---|
+| `Kerntaak` | binnen scope |
+| `Kwalificatie` | binnen scope |
+| `Kwalificatie dossier` | binnen scope |
+| `Werkproces` | binnen scope |
 
 ### Onderwijskundigkader instelling
 
-| Objecttype | Scope | In de ankertabel |
-|---|---|---|
-| `Competenties / Skills` | binnen scope | nee, nieuw |
-| `Inzicht` | binnen scope | nee, nieuw |
-| `Kennis` | binnen scope | nee, nieuw |
-| `Leeruitkomst` | buiten scope (landelijk belegd) | ja |
-| `Vaardigheid` | binnen scope | nee, nieuw |
+| Objecttype | Scope |
+|---|---|
+| `Competenties / Skills` | binnen scope |
+| `Inzicht` | binnen scope |
+| `Kennis` | binnen scope |
+| `Leeruitkomst` | buiten scope (landelijk belegd) |
+| `Vaardigheid` | binnen scope |
 
 ### Onderwijsspecificatie
 
-| Objecttype | Scope | In de ankertabel |
-|---|---|---|
-| `Examenonderdeelspecificatie` | binnen scope | nee, nieuw |
-| `Keuzedeel` | binnen scope | nee, nieuw |
-| `Keuzedeelruimte` | binnen scope | nee, nieuw |
-| `Les specificatie` | buiten scope (les-laag) | ja |
-| `Onderwijseenheid specificatie` | binnen scope | ja |
-| `Opleidingspecificatie` | binnen scope | ja |
-| `Student keuze regelset` | binnen scope | nee, nieuw |
-| `Toetsonderdeel specificatie` | binnen scope | ja |
-| `leeronderdeel specificatie` | binnen scope | ja |
+| Objecttype | Scope |
+|---|---|
+| `Examenonderdeelspecificatie` | binnen scope |
+| `Keuzedeel` | binnen scope |
+| `Keuzedeelruimte` | binnen scope |
+| `Les specificatie` | buiten scope (les-laag) |
+| `Onderwijseenheid specificatie` | binnen scope |
+| `Opleidingspecificatie` | binnen scope |
+| `Student keuze regelset` | binnen scope |
+| `Toetsonderdeel specificatie` | binnen scope |
+| `leeronderdeel specificatie` | binnen scope |
 
 ### Onderwijsaanbod
 
-| Objecttype | Scope | In de ankertabel |
-|---|---|---|
-| `Examengelegenheid` | binnen scope | nee, nieuw |
-| `Keuzedeelaanbod` | binnen scope | nee, nieuw |
-| `Leergelegenheid` | binnen scope | ja |
-| `Lesgelegenheid` | buiten scope (les-laag) | ja |
-| `Onderwijseenheid aanbod` | binnen scope | ja |
-| `Opleidingaanbod` | binnen scope | nee, nieuw |
-| `Opleidingsaanbod van Instelling` | binnen scope | nee, nieuw |
-| `Opleidingsprogramma aanbod` | binnen scope | ja |
-| `Toetsgelegenheid` | binnen scope | ja |
+| Objecttype | Scope |
+|---|---|
+| `Examengelegenheid` | binnen scope |
+| `Keuzedeelaanbod` | binnen scope |
+| `Leergelegenheid` | binnen scope |
+| `Lesgelegenheid` | buiten scope (les-laag) |
+| `Onderwijseenheid aanbod` | binnen scope |
+| `Opleidingaanbod` | binnen scope |
+| `Opleidingsaanbod van Instelling` | binnen scope |
+| `Opleidingsprogramma aanbod` | binnen scope |
+| `Toetsgelegenheid` | binnen scope |
 
 ### Onderwijsverbintenis
 
-| Objecttype | Scope | In de ankertabel |
-|---|---|---|
-| `Examengelegenheid verbintenis` | binnen scope | nee, nieuw |
-| `Keuzedeel aanbod verbintenis` | binnen scope | nee, nieuw |
-| `Leergelegenheid verbintenis` | binnen scope | ja |
-| `Lesgelegenheid verbintenis` | buiten scope (les-laag) | ja |
-| `Onderwijseenheid aanbod verbintenis` | binnen scope | nee, nieuw |
-| `Opleiding aanbod  verbintenis` | binnen scope | nee, nieuw |
-| `Opleidingsprogramma aanbod verbintenis` | binnen scope | nee, nieuw |
-| `Toetsgelegenheid verbintenis` | binnen scope | ja |
+| Objecttype | Scope |
+|---|---|
+| `Examengelegenheid verbintenis` | binnen scope |
+| `Keuzedeel aanbod verbintenis` | binnen scope |
+| `Leergelegenheid verbintenis` | binnen scope |
+| `Lesgelegenheid verbintenis` | buiten scope (les-laag) |
+| `Onderwijseenheid aanbod verbintenis` | binnen scope |
+| `Opleiding aanbod  verbintenis` | binnen scope |
+| `Opleidingsprogramma aanbod verbintenis` | binnen scope |
+| `Toetsgelegenheid verbintenis` | binnen scope |
 
 ### Onderwijsresultaat
 
-| Objecttype | Scope | In de ankertabel |
-|---|---|---|
-| `Aanwezigheid` | binnen scope | ja |
-| `Examengelegenheid resultaat` | binnen scope | nee, nieuw |
-| `Keuzedeel resultaat` | binnen scope | nee, nieuw |
-| `Leergelegenheid resultaat` | binnen scope | ja |
-| `Lesgelegenheid resultaat` | buiten scope (les-laag) | ja |
-| `Onderwijseenheid resultaat` | binnen scope | ja |
-| `Opleiding aanbod resultaat` | binnen scope | nee, nieuw |
-| `Opleidingsprogramma resultaat` | binnen scope | ja |
-| `Toetsgelegenheid resultaat` | binnen scope | nee, nieuw |
+| Objecttype | Scope |
+|---|---|
+| `Aanwezigheid` | binnen scope |
+| `Examengelegenheid resultaat` | binnen scope |
+| `Keuzedeel resultaat` | binnen scope |
+| `Leergelegenheid resultaat` | binnen scope |
+| `Lesgelegenheid resultaat` | buiten scope (les-laag) |
+| `Onderwijseenheid resultaat` | binnen scope |
+| `Opleiding aanbod resultaat` | binnen scope |
+| `Opleidingsprogramma resultaat` | binnen scope |
+| `Toetsgelegenheid resultaat` | binnen scope |
 
 ### Resultaatstructuur
 
-| Objecttype | Scope | In de ankertabel |
-|---|---|---|
-| `Examenonderdeel weging` | binnen scope | nee, nieuw |
-| `Formatief resultaat` | binnen scope | nee, nieuw |
-| `Formatieve beoordeling` | binnen scope | nee, nieuw |
-| `Formatieve resultaat structuur` | binnen scope | nee, nieuw |
-| `Persoonlijke ontwikkeling` | binnen scope | nee, nieuw |
-| `Summatief Afrondingscriterium` | binnen scope | nee, nieuw |
-| `Summatief resultaat` | binnen scope | nee, nieuw |
-| `Summatieve beoordeling` | binnen scope | nee, nieuw |
-| `Summatieve resultaat structuur` | binnen scope | nee, nieuw |
-| `Toetsonderdeel weging` | binnen scope | nee, nieuw |
+| Objecttype | Scope |
+|---|---|
+| `Examenonderdeel weging` | binnen scope |
+| `Formatief resultaat` | binnen scope |
+| `Formatieve beoordeling` | binnen scope |
+| `Formatieve resultaat structuur` | binnen scope |
+| `Persoonlijke ontwikkeling` | binnen scope |
+| `Summatief Afrondingscriterium` | binnen scope |
+| `Summatief resultaat` | binnen scope |
+| `Summatieve beoordeling` | binnen scope |
+| `Summatieve resultaat structuur` | binnen scope |
+| `Toetsonderdeel weging` | binnen scope |
 
 ### Buiten de kolommen
 
-| Objecttype | Scope | In de ankertabel |
-|---|---|---|
-| `Examenplan` | buiten scope (instellingsartefact) | nee, nieuw |
-| `Medewerker` | binnen scope | nee, nieuw |
-| `Opleidingsprogramma specificatie` | binnen scope | ja |
-| `Persoon` | binnen scope | nee, nieuw |
-| `Plaatsingsgroep` | binnen scope | nee, nieuw |
-| `Student` | binnen scope | nee, nieuw |
-| `Verzoek tot Aanbod / Intekening op specificatie` | binnen scope | nee, nieuw |
-| `Waarde document (diploma / certificaat)` | binnen scope | nee, nieuw |
+| Objecttype | Scope |
+|---|---|
+| `Examenplan` | buiten scope (instellingsartefact) |
+| `Medewerker` | binnen scope |
+| `Opleidingsprogramma specificatie` | binnen scope |
+| `Persoon` | binnen scope |
+| `Plaatsingsgroep` | binnen scope |
+| `Student` | binnen scope |
+| `Verzoek tot Aanbod / Intekening op specificatie` | binnen scope |
+| `Waarde document (diploma / certificaat)` | binnen scope |
+<!-- /gegenereerd -->
 
 ## Relaties
 
-Het model gebruikt vier relatiesoorten. De betekenis per soort staat hieronder, gevolgd door de volledige lijst uit het model.
+Het model gebruikt vier relatiesoorten.
 
+<!-- gegenereerd:relaties -->
 ### Specialization (13)
 
-Het ene objecttype is een verbijzondering van het andere. Hier zit de scheiding tussen toetsen en examineren, en de opbouw van het keuzedeel.
+Het ene objecttype is een verbijzondering van het andere.
 
 | Van | Naar | Label |
 |---|---|---|
@@ -160,7 +165,7 @@ Het ene objecttype is een verbijzondering van het andere. Hier zit de scheiding 
 
 ### Aggregation (25)
 
-Het ene objecttype bestaat uit het andere. De recursieve varianten (een specificatie die een specificatie bevat) zijn bewust: structuren kunnen genest zijn.
+Het ene objecttype bestaat uit het andere. De recursieve varianten zijn bewust: structuren kunnen genest zijn.
 
 | Van | Naar | Label |
 |---|---|---|
@@ -278,7 +283,7 @@ Een inhoudelijke samenhang zonder eigenaarschap of samenstelling.
 
 ### Access (23)
 
-Een persoon raakt het objecttype: als student of als medewerker.
+Een persoon raakt het objecttype, als student of als medewerker.
 
 | Van | Naar | Label |
 |---|---|---|
@@ -305,6 +310,7 @@ Een persoon raakt het objecttype: als student of als medewerker.
 | `Persoon` | `Toetsgelegenheid resultaat` |  |
 | `Persoon` | `Toetsgelegenheid verbintenis` |  |
 | `Persoon` | `Verzoek tot Aanbod / Intekening op specificatie` |  |
+<!-- /gegenereerd -->
 
 ## Bewuste keuzes en afbakening
 
@@ -312,9 +318,13 @@ Een persoon raakt het objecttype: als student of als medewerker.
 
 **De les-laag valt buiten de uitwisseling.** `Les specificatie`, `Lesgelegenheid`, `Lesgelegenheid verbintenis` en `Lesgelegenheid resultaat` staan wel in het model maar buiten scope. Ze worden erkend zodat een latere behoefte om tot op lesniveau te beschrijven niet geblokkeerd wordt, maar er lopen geen uitwisselingen tussen applicatiecomponenten over. Dit is het antwoord op #216.
 
-**Het examenonderdeel is een verbijzondering van het toetsonderdeel.** `Examenonderdeelspecificatie` is in het model een specialisatie van `Toetsonderdeel specificatie`. Wat beide gemeen hebben, het afdichten van leeruitkomsten en de reeks gelegenheid, verbintenis en resultaat, staat op het generieke type. Het verschil is dat het examenonderdeel summatief is, door de examencommissie wordt vastgesteld en meetelt in de resultaatstructuur. Dit is de lijn uit #162 en uit [Public#98](https://github.com/Npuls-OKx/Public/issues/98).
+**Het examenonderdeel is een verbijzondering van het toetsonderdeel.** `Examenonderdeelspecificatie` is in het model een specialisatie van `Toetsonderdeel specificatie`. Wat beide gemeen hebben, het afdichten van leeruitkomsten en de reeks gelegenheid, verbintenis en resultaat, staat op het generieke type. Het verschil is dat het examenonderdeel summatief is, door de examencommissie wordt vastgesteld en meetelt in de resultaatstructuur. Dit is geen nieuwe keuze maar een herstel. Het oorspronkelijke vlakkenmodel in de leerroute-uitwerking had toetsing en examinering al als twee gescheiden rijen, met een voetnoot over de gescheiden keten: summatief tegenover formatief, verantwoording richting DUO, en het scheiden van de custody chain. Die scheiding is verloren gegaan toen de tabel naar het begrippenkader werd uitgetrokken. Zie #162 en [Public#98](https://github.com/Npuls-OKx/Public/issues/98).
 
 **Verbintenissen lopen ook via een groep.** `Plaatsingsgroep` hangt aan `Persoon` en associeert met vijf verbintenistypen. Daarmee is een verbintenis niet uitsluitend per student vast te leggen. Dit is het antwoord op #217.
+
+**Het niveau waarop iets gespecificeerd wordt ligt niet vast.** In het vlakkenmodel hoorde bij elk niveau precies een specificatietype: een `Onderwijseenheid-specificatie` hoorde bij het niveau kerntaak. Dat is in dit model bewust losgelaten. Een `Onderwijseenheid specificatie` **kan** op kerntaakniveau worden gespecificeerd, en veel instellingen zullen dat ook doen, maar dat hoeft niet zo te blijven. De koppeling loopt via de leeruitkomst, en op welk niveau een instelling haar specificaties formuleert is haar keuze binnen de onderwijskundige vrijheid.
+
+Daarom staat het niveau niet als eigenschap bij de objecttypen. Wie het vlakkenmodel als versimpelde weergave gebruikt, kijkt dus naar een gangbare indeling en niet naar een vaste koppeling.
 
 **Het examenplan is geen objecttype van OKx.** `Examenplan` staat grijs en kent de summatieve resultaatstructuur. Het examenplan is het document waarin een instelling die structuur publiceert en vaststelt; de structuur zelf is wat uitgewisseld wordt.
 
@@ -323,9 +333,10 @@ Een persoon raakt het objecttype: als student of als medewerker.
 | Punt | Waarom het opgelost moet worden | Issue |
 |---|---|---|
 | De plaat gebruikt drie grijstinten en de legenda kent er een | Een lezer kan nu niet zien of `Leeruitkomst`, de les-laag en `Examenplan` om dezelfde reden buiten scope staan | #215 |
-| `Leeruitkomst` is in het model een specialisatie van `Kwalificatie dossier`, `Kwalificatie`, `Kerntaak`, `Werkproces` en `Competenties / Skills` | Die richting leest als: een leeruitkomst is een soort kerntaak. Waarschijnlijk is bedoeld op welk niveau een leeruitkomst is geformuleerd. Een associatie met een label past daar beter bij dan een specialisatie | nog aan te maken |
 | `Opleidingsprogramma specificatie` valt op de plaat buiten de kolom Onderwijsspecificatie | Alleen een tekenkwestie, maar het maakt de kolomindeling automatisch onbetrouwbaar | nog aan te maken |
-| 38 objecttypen hebben nog geen vastgestelde definitie | Zonder definitie is de plaat interpreteerbaar en daarmee betwistbaar | #223 |
+| De objecttypen hebben nog geen vastgestelde definitie | Zonder definitie is de plaat interpreteerbaar en daarmee betwistbaar | #223 |
 | Cardinaliteiten staan nog niet in het model | MIM-niveau 2 vraagt erom; nu staat alleen `Minimaal 1` als los label | nog aan te maken |
+| `Leeruitkomst` is in het model een specialisatie van `Kwalificatie dossier`, `Kwalificatie`, `Kerntaak`, `Werkproces` en `Competenties / Skills` | Die richting leest als: een leeruitkomst is een soort kerntaak. Bedoeld is waarschijnlijk op welk niveau een leeruitkomst is geformuleerd | nog aan te maken |
+| De naamgeving van de objecttypen is nog niet consequent | Spaties, koppeltekens en hoofdletters lopen door elkaar, en een dubbele spatie | wordt opgepakt |
 
 Relateert aan: #163
