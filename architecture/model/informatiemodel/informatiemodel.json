@@ -1,4 +1,22 @@
 {
+  "oeapi_objecten": [
+    "Course",
+    "CourseOffering",
+    "CourseOfferingAssociation",
+    "Group",
+    "LearningComponent",
+    "LearningComponentOffering",
+    "LearningComponentOfferingAssociation",
+    "LearningOutcome",
+    "Person",
+    "Programme",
+    "ProgrammeOffering",
+    "ProgrammeOfferingAssociation",
+    "Result",
+    "TestComponent",
+    "TestComponentOffering",
+    "TestComponentOfferingAssociation"
+  ],
   "bron": {
     "model": "architecture/model/model.archimate",
     "views": [
@@ -11,23 +29,21 @@
       "naam": "Aanwezigheid",
       "kolom": "Onderwijsresultaat",
       "scope": "binnen",
-      "reden_buiten_scope": null,
-      "oeapi": [
-        "Attendance"
-      ]
+      "vulkleur": null,
+      "oeapi": null
     },
     {
       "naam": "Competenties / Skills",
       "kolom": "Onderwijskundigkader instelling",
       "scope": "buiten",
-      "reden_buiten_scope": "landelijk belegd",
+      "vulkleur": "#e8e8e8",
       "oeapi": null
     },
     {
       "naam": "Examengelegenheid",
       "kolom": "Onderwijsaanbod",
       "scope": "binnen",
-      "reden_buiten_scope": null,
+      "vulkleur": null,
       "oeapi": [
         "TestComponentOffering"
       ]
@@ -36,7 +52,7 @@
       "naam": "Examengelegenheid resultaat",
       "kolom": "Onderwijsresultaat",
       "scope": "binnen",
-      "reden_buiten_scope": null,
+      "vulkleur": null,
       "oeapi": [
         "Result"
       ]
@@ -45,7 +61,7 @@
       "naam": "Examengelegenheid verbintenis",
       "kolom": "Onderwijsverbintenis",
       "scope": "binnen",
-      "reden_buiten_scope": null,
+      "vulkleur": null,
       "oeapi": [
         "TestComponentOfferingAssociation"
       ]
@@ -54,14 +70,14 @@
       "naam": "Examenonderdeel weging",
       "kolom": "Resultaatstructuur",
       "scope": "binnen",
-      "reden_buiten_scope": null,
+      "vulkleur": null,
       "oeapi": null
     },
     {
       "naam": "Examenonderdeelspecificatie",
       "kolom": "Onderwijsspecificatie",
       "scope": "binnen",
-      "reden_buiten_scope": null,
+      "vulkleur": null,
       "oeapi": [
         "TestComponent"
       ]
@@ -70,56 +86,56 @@
       "naam": "Examenplan",
       "kolom": null,
       "scope": "buiten",
-      "reden_buiten_scope": "landelijk belegd",
+      "vulkleur": "#e8e8e8",
       "oeapi": null
     },
     {
       "naam": "Formatief resultaat",
       "kolom": "Resultaatstructuur",
       "scope": "binnen",
-      "reden_buiten_scope": null,
+      "vulkleur": null,
       "oeapi": null
     },
     {
       "naam": "Formatieve beoordeling",
       "kolom": "Resultaatstructuur",
       "scope": "binnen",
-      "reden_buiten_scope": null,
+      "vulkleur": null,
       "oeapi": null
     },
     {
       "naam": "Formatieve resultaat structuur",
       "kolom": "Resultaatstructuur",
       "scope": "binnen",
-      "reden_buiten_scope": null,
+      "vulkleur": null,
       "oeapi": null
     },
     {
       "naam": "Inzicht",
       "kolom": "Onderwijskundigkader instelling",
       "scope": "buiten",
-      "reden_buiten_scope": "landelijk belegd",
+      "vulkleur": "#e8e8e8",
       "oeapi": null
     },
     {
       "naam": "Kennis",
       "kolom": "Onderwijskundigkader instelling",
       "scope": "buiten",
-      "reden_buiten_scope": "landelijk belegd",
+      "vulkleur": "#e8e8e8",
       "oeapi": null
     },
     {
       "naam": "Kerntaak",
       "kolom": "Kwalificatiekader MBO",
       "scope": "binnen",
-      "reden_buiten_scope": null,
+      "vulkleur": null,
       "oeapi": null
     },
     {
       "naam": "Keuzedeel",
       "kolom": "Onderwijsspecificatie",
       "scope": "binnen",
-      "reden_buiten_scope": null,
+      "vulkleur": null,
       "oeapi": [
         "Programme"
       ]
@@ -128,7 +144,7 @@
       "naam": "Keuzedeel aanbod verbintenis",
       "kolom": "Onderwijsverbintenis",
       "scope": "binnen",
-      "reden_buiten_scope": null,
+      "vulkleur": null,
       "oeapi": [
         "ProgrammeOfferingAssociation"
       ]
@@ -137,7 +153,7 @@
       "naam": "Keuzedeel resultaat",
       "kolom": "Onderwijsresultaat",
       "scope": "binnen",
-      "reden_buiten_scope": null,
+      "vulkleur": null,
       "oeapi": [
         "Result"
       ]
@@ -146,7 +162,7 @@
       "naam": "Keuzedeelaanbod",
       "kolom": "Onderwijsaanbod",
       "scope": "binnen",
-      "reden_buiten_scope": null,
+      "vulkleur": null,
       "oeapi": [
         "ProgrammeOffering"
       ]
@@ -155,7 +171,7 @@
       "naam": "Keuzedeelruimte",
       "kolom": "Onderwijsspecificatie",
       "scope": "binnen",
-      "reden_buiten_scope": null,
+      "vulkleur": null,
       "oeapi": [
         "Programme"
       ]
@@ -164,21 +180,21 @@
       "naam": "Kwalificatie",
       "kolom": "Kwalificatiekader MBO",
       "scope": "binnen",
-      "reden_buiten_scope": null,
+      "vulkleur": null,
       "oeapi": null
     },
     {
       "naam": "Kwalificatie dossier",
       "kolom": "Kwalificatiekader MBO",
       "scope": "binnen",
-      "reden_buiten_scope": null,
+      "vulkleur": null,
       "oeapi": null
     },
     {
       "naam": "Leergelegenheid",
       "kolom": "Onderwijsaanbod",
       "scope": "binnen",
-      "reden_buiten_scope": null,
+      "vulkleur": null,
       "oeapi": [
         "LearningComponentOffering"
       ]
@@ -187,7 +203,7 @@
       "naam": "Leergelegenheid resultaat",
       "kolom": "Onderwijsresultaat",
       "scope": "binnen",
-      "reden_buiten_scope": null,
+      "vulkleur": null,
       "oeapi": [
         "Result"
       ]
@@ -196,16 +212,16 @@
       "naam": "Leergelegenheid verbintenis",
       "kolom": "Onderwijsverbintenis",
       "scope": "binnen",
-      "reden_buiten_scope": null,
+      "vulkleur": null,
       "oeapi": [
-        "ComponentOfferingAssociation"
+        "LearningComponentOfferingAssociation"
       ]
     },
     {
       "naam": "Leeronderdeel specificatie",
       "kolom": "Onderwijsspecificatie",
       "scope": "binnen",
-      "reden_buiten_scope": null,
+      "vulkleur": null,
       "oeapi": [
         "LearningComponent"
       ]
@@ -213,15 +229,17 @@
     {
       "naam": "Leeruitkomst",
       "kolom": "Onderwijskundigkader instelling",
-      "scope": "buiten",
-      "reden_buiten_scope": "landelijk belegd",
-      "oeapi": null
+      "scope": "binnen",
+      "vulkleur": null,
+      "oeapi": [
+        "LearningOutcome"
+      ]
     },
     {
       "naam": "Les specificatie",
       "kolom": "Onderwijsspecificatie",
       "scope": "buiten",
-      "reden_buiten_scope": "les-laag",
+      "vulkleur": "#f2f2f2",
       "oeapi": [
         "LearningComponent"
       ]
@@ -230,7 +248,7 @@
       "naam": "Lesgelegenheid",
       "kolom": "Onderwijsaanbod",
       "scope": "buiten",
-      "reden_buiten_scope": "les-laag",
+      "vulkleur": "#f2f2f2",
       "oeapi": [
         "LearningComponentOffering"
       ]
@@ -239,7 +257,7 @@
       "naam": "Lesgelegenheid resultaat",
       "kolom": "Onderwijsresultaat",
       "scope": "buiten",
-      "reden_buiten_scope": "les-laag",
+      "vulkleur": "#f2f2f2",
       "oeapi": [
         "Result"
       ]
@@ -248,23 +266,23 @@
       "naam": "Lesgelegenheid verbintenis",
       "kolom": "Onderwijsverbintenis",
       "scope": "buiten",
-      "reden_buiten_scope": "les-laag",
+      "vulkleur": "#f2f2f2",
       "oeapi": [
-        "ComponentOfferingAssociation"
+        "LearningComponentOfferingAssociation"
       ]
     },
     {
       "naam": "Medewerker",
       "kolom": null,
       "scope": "binnen",
-      "reden_buiten_scope": null,
+      "vulkleur": null,
       "oeapi": null
     },
     {
       "naam": "Onderwijseenheid aanbod",
       "kolom": "Onderwijsaanbod",
       "scope": "binnen",
-      "reden_buiten_scope": null,
+      "vulkleur": null,
       "oeapi": [
         "CourseOffering"
       ]
@@ -273,7 +291,7 @@
       "naam": "Onderwijseenheid aanbod verbintenis",
       "kolom": "Onderwijsverbintenis",
       "scope": "binnen",
-      "reden_buiten_scope": null,
+      "vulkleur": null,
       "oeapi": [
         "CourseOfferingAssociation"
       ]
@@ -282,7 +300,7 @@
       "naam": "Onderwijseenheid resultaat",
       "kolom": "Onderwijsresultaat",
       "scope": "binnen",
-      "reden_buiten_scope": null,
+      "vulkleur": null,
       "oeapi": [
         "Result"
       ]
@@ -291,7 +309,7 @@
       "naam": "Onderwijseenheid specificatie",
       "kolom": "Onderwijsspecificatie",
       "scope": "binnen",
-      "reden_buiten_scope": null,
+      "vulkleur": null,
       "oeapi": [
         "Course"
       ]
@@ -300,7 +318,7 @@
       "naam": "Opleiding aanbod  verbintenis",
       "kolom": "Onderwijsverbintenis",
       "scope": "binnen",
-      "reden_buiten_scope": null,
+      "vulkleur": null,
       "oeapi": [
         "ProgrammeOfferingAssociation"
       ]
@@ -309,7 +327,7 @@
       "naam": "Opleiding aanbod resultaat",
       "kolom": "Onderwijsresultaat",
       "scope": "binnen",
-      "reden_buiten_scope": null,
+      "vulkleur": null,
       "oeapi": [
         "Result"
       ]
@@ -318,7 +336,7 @@
       "naam": "Opleiding specificatie",
       "kolom": "Onderwijsspecificatie",
       "scope": "binnen",
-      "reden_buiten_scope": null,
+      "vulkleur": null,
       "oeapi": [
         "Programme"
       ]
@@ -327,7 +345,7 @@
       "naam": "Opleidingaanbod",
       "kolom": "Onderwijsaanbod",
       "scope": "binnen",
-      "reden_buiten_scope": null,
+      "vulkleur": null,
       "oeapi": [
         "ProgrammeOffering"
       ]
@@ -336,14 +354,14 @@
       "naam": "Opleidingsaanbod van Instelling",
       "kolom": "Onderwijsaanbod",
       "scope": "binnen",
-      "reden_buiten_scope": null,
+      "vulkleur": null,
       "oeapi": null
     },
     {
       "naam": "Opleidingsprogramma aanbod",
       "kolom": "Onderwijsaanbod",
       "scope": "binnen",
-      "reden_buiten_scope": null,
+      "vulkleur": null,
       "oeapi": [
         "ProgrammeOffering"
       ]
@@ -352,7 +370,7 @@
       "naam": "Opleidingsprogramma aanbod verbintenis",
       "kolom": "Onderwijsverbintenis",
       "scope": "binnen",
-      "reden_buiten_scope": null,
+      "vulkleur": null,
       "oeapi": [
         "ProgrammeOfferingAssociation"
       ]
@@ -361,16 +379,16 @@
       "naam": "Opleidingsprogramma resultaat",
       "kolom": "Onderwijsresultaat",
       "scope": "binnen",
-      "reden_buiten_scope": null,
+      "vulkleur": null,
       "oeapi": [
         "Result"
       ]
     },
     {
       "naam": "Opleidingsprogramma specificatie",
-      "kolom": null,
+      "kolom": "Onderwijsspecificatie",
       "scope": "binnen",
-      "reden_buiten_scope": null,
+      "vulkleur": null,
       "oeapi": [
         "Programme"
       ]
@@ -379,7 +397,7 @@
       "naam": "Persoon",
       "kolom": null,
       "scope": "binnen",
-      "reden_buiten_scope": null,
+      "vulkleur": null,
       "oeapi": [
         "Person"
       ]
@@ -388,14 +406,14 @@
       "naam": "Persoonlijke ontwikkeling",
       "kolom": "Resultaatstructuur",
       "scope": "binnen",
-      "reden_buiten_scope": null,
+      "vulkleur": null,
       "oeapi": null
     },
     {
       "naam": "Plaatsingsgroep",
       "kolom": null,
       "scope": "binnen",
-      "reden_buiten_scope": null,
+      "vulkleur": null,
       "oeapi": [
         "Group"
       ]
@@ -404,49 +422,49 @@
       "naam": "Student",
       "kolom": null,
       "scope": "binnen",
-      "reden_buiten_scope": null,
+      "vulkleur": null,
       "oeapi": null
     },
     {
       "naam": "Student keuze regelset",
       "kolom": "Onderwijsspecificatie",
       "scope": "binnen",
-      "reden_buiten_scope": null,
+      "vulkleur": null,
       "oeapi": null
     },
     {
       "naam": "Summatief Afrondingscriterium",
       "kolom": "Resultaatstructuur",
       "scope": "binnen",
-      "reden_buiten_scope": null,
+      "vulkleur": null,
       "oeapi": null
     },
     {
       "naam": "Summatief resultaat",
       "kolom": "Resultaatstructuur",
       "scope": "binnen",
-      "reden_buiten_scope": null,
+      "vulkleur": null,
       "oeapi": null
     },
     {
       "naam": "Summatieve beoordeling",
       "kolom": "Resultaatstructuur",
       "scope": "binnen",
-      "reden_buiten_scope": null,
+      "vulkleur": null,
       "oeapi": null
     },
     {
       "naam": "Summatieve resultaat structuur",
       "kolom": "Resultaatstructuur",
       "scope": "binnen",
-      "reden_buiten_scope": null,
+      "vulkleur": null,
       "oeapi": null
     },
     {
       "naam": "Toetsgelegenheid",
       "kolom": "Onderwijsaanbod",
       "scope": "binnen",
-      "reden_buiten_scope": null,
+      "vulkleur": null,
       "oeapi": [
         "TestComponentOffering"
       ]
@@ -455,7 +473,7 @@
       "naam": "Toetsgelegenheid resultaat",
       "kolom": "Onderwijsresultaat",
       "scope": "binnen",
-      "reden_buiten_scope": null,
+      "vulkleur": null,
       "oeapi": [
         "Result"
       ]
@@ -464,7 +482,7 @@
       "naam": "Toetsgelegenheid verbintenis",
       "kolom": "Onderwijsverbintenis",
       "scope": "binnen",
-      "reden_buiten_scope": null,
+      "vulkleur": null,
       "oeapi": [
         "TestComponentOfferingAssociation"
       ]
@@ -473,7 +491,7 @@
       "naam": "Toetsonderdeel specificatie",
       "kolom": "Onderwijsspecificatie",
       "scope": "binnen",
-      "reden_buiten_scope": null,
+      "vulkleur": null,
       "oeapi": [
         "TestComponent"
       ]
@@ -482,35 +500,35 @@
       "naam": "Toetsonderdeel weging",
       "kolom": "Resultaatstructuur",
       "scope": "binnen",
-      "reden_buiten_scope": null,
+      "vulkleur": null,
       "oeapi": null
     },
     {
       "naam": "Vaardigheid",
       "kolom": "Onderwijskundigkader instelling",
       "scope": "buiten",
-      "reden_buiten_scope": "landelijk belegd",
+      "vulkleur": "#e8e8e8",
       "oeapi": null
     },
     {
       "naam": "Verzoek tot Aanbod / Intekening op specificatie",
       "kolom": null,
       "scope": "binnen",
-      "reden_buiten_scope": null,
+      "vulkleur": null,
       "oeapi": null
     },
     {
       "naam": "Waarde document (diploma / certificaat)",
       "kolom": null,
       "scope": "binnen",
-      "reden_buiten_scope": null,
+      "vulkleur": null,
       "oeapi": null
     },
     {
       "naam": "Werkproces",
       "kolom": "Kwalificatiekader MBO",
       "scope": "binnen",
-      "reden_buiten_scope": null,
+      "vulkleur": null,
       "oeapi": null
     }
   ],
@@ -794,13 +812,13 @@
     {
       "soort": "Aggregation",
       "van": "Summatieve resultaat structuur",
-      "naar": "Examenonderdeelspecificatie",
+      "naar": "Summatieve resultaat structuur",
       "label": null
     },
     {
       "soort": "Aggregation",
       "van": "Summatieve resultaat structuur",
-      "naar": "Summatieve resultaat structuur",
+      "naar": "Toetsonderdeel specificatie",
       "label": null
     },
     {
@@ -1358,11 +1376,6 @@
   ],
   "oeapi_mapping": [
     {
-      "okx": "Aanwezigheid",
-      "oeapi": "Attendance",
-      "relatie": "Realization"
-    },
-    {
       "okx": "Examengelegenheid",
       "oeapi": "TestComponentOffering",
       "relatie": "Realization"
@@ -1419,12 +1432,17 @@
     },
     {
       "okx": "Leergelegenheid verbintenis",
-      "oeapi": "ComponentOfferingAssociation",
+      "oeapi": "LearningComponentOfferingAssociation",
       "relatie": "Realization"
     },
     {
       "okx": "Leeronderdeel specificatie",
       "oeapi": "LearningComponent",
+      "relatie": "Realization"
+    },
+    {
+      "okx": "Leeruitkomst",
+      "oeapi": "LearningOutcome",
       "relatie": "Realization"
     },
     {
@@ -1444,7 +1462,7 @@
     },
     {
       "okx": "Lesgelegenheid verbintenis",
-      "oeapi": "ComponentOfferingAssociation",
+      "oeapi": "LearningComponentOfferingAssociation",
       "relatie": "Realization"
     },
     {

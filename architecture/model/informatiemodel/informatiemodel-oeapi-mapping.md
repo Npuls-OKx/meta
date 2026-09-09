@@ -24,13 +24,41 @@ De blauwe objecten zijn OEAPI v6. De relatie is realisatie: OEAPI is de vorm waa
 
 ## Dekking door OEAPI v6
 
-**Eén OEAPI-object draagt vaak meerdere OKx-objecttypen.** Het onderscheid tussen die objecttypen moet daarom buiten OEAPI vastliggen; de standaard draagt het niet.
+**Een OEAPI-object draagt vaak meerdere OKx-objecttypen.** `Programme` draagt vier specificatietypen, `ProgrammeOffering` drie aanbodtypen en `Result` elk resultaat in de kolom Onderwijsresultaat. OEAPI kent daarnaast wel niveau-specifieke varianten van `Result`, maar het onderscheid tussen de OKx-objecttypen moet buiten de standaard vastliggen.
 
-**Het kwalificatiekader heeft geen tegenhanger.** Kwalificatiedossier, kwalificatie, kerntaak, werkproces en de onderwijskundige begrippen komen in OEAPI niet voor. Nationale kaderstelling is geen uitwisselbaar aanbod.
+**Het kwalificatiekader heeft geen tegenhanger.** Kwalificatiedossier, kwalificatie, kerntaak en werkproces komen in OEAPI niet voor. Nationale kaderstelling is geen uitwisselbaar aanbod. De leeruitkomst zelf heeft die tegenhanger wel: `LearningOutcome`, met eigen endpoints.
 
-**De resultaatstructuur heeft geen tegenhanger.** Wegingen, afrondingscriteria en de samenstelling van een summatieve structuur zijn in OEAPI niet uit te drukken.
+**De resultaatstructuur heeft geen tegenhanger.** OEAPI kent een `weight` per individueel resultaat, niet een weging op de specificatie, en het afrondingscriterium bestaat er alleen als vrije tekst in `qualificationRequirements`. De samenstelling van een summatieve structuur is daarmee niet machineleesbaar uit te drukken.
 
-De volledige mapping staat in [`informatiemodel.json`](informatiemodel.json), onder `oeapi_mapping`.
+### Objecttypen binnen scope zonder tegenhanger
+
+21 van de objecttypen binnen scope hebben geen OEAPI-object. Per objecttype is een besluit nodig: signalering richting de standaard, of bewuste afwijking.
+
+| OKx-objecttype |
+|---|
+| `Aanwezigheid` |
+| `Examenonderdeel weging` |
+| `Formatief resultaat` |
+| `Formatieve beoordeling` |
+| `Formatieve resultaat structuur` |
+| `Kerntaak` |
+| `Kwalificatie` |
+| `Kwalificatie dossier` |
+| `Medewerker` |
+| `Opleidingsaanbod van Instelling` |
+| `Persoonlijke ontwikkeling` |
+| `Student` |
+| `Student keuze regelset` |
+| `Summatief Afrondingscriterium` |
+| `Summatief resultaat` |
+| `Summatieve beoordeling` |
+| `Summatieve resultaat structuur` |
+| `Toetsonderdeel weging` |
+| `Verzoek tot Aanbod / Intekening op specificatie` |
+| `Waarde document (diploma / certificaat)` |
+| `Werkproces` |
+
+`Aanwezigheid` staat hier omdat OEAPI aanwezigheid alleen als attribuut op een association kent en niet als eigen object.
 
 ## Verwante documenten
 

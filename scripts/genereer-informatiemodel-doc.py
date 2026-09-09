@@ -22,11 +22,6 @@ VIEW_IM = "OKx informatiemodel"
 VIEW_MAP = "OKx informatiemodel en mapping OEAPI"
 LEGENDA = {"Buiten scope binnen OKx", "OKx referentiekader alligned met MORA en HORA via klus 53",
            "OEAPI v6 Object of attribuut"}
-GRIJS = {"#f2f2f2": "les-laag", "#e8e8e8": "landelijk belegd", "#e0e0e0": "instellingsartefact"}
-OEAPI = {"Attendance", "ComponentOfferingAssociation", "Course", "CourseOffering",
-         "CourseOfferingAssociation", "Group", "LearningComponent", "LearningComponentOffering",
-         "Person", "Programme", "ProgrammeOffering", "ProgrammeOfferingAssociation", "Result",
-         "TestComponent", "TestComponentOffering", "TestComponentOfferingAssociation"}
 KOLOMVOLGORDE = ["Kwalificatiekader MBO", "Onderwijskundigkader instelling", "Onderwijsspecificatie",
                  "Onderwijsaanbod", "Onderwijsverbintenis", "Onderwijsresultaat", "Resultaatstructuur"]
 
@@ -92,7 +87,7 @@ def main():
             "naam": n,
             "kolom": kolom_van[n],
             "scope": "binnen" if k == "standaard" else "buiten",
-            "reden_buiten_scope": None if k == "standaard" else GRIJS.get(k, k),
+            "vulkleur": None if k == "standaard" else k,
         })
 
     rel_ids = {k.get("archimateRelationship") for k in v.iter() if k.get("archimateRelationship")}
@@ -106,14 +101,20 @@ def main():
     relatielijst.sort(key=lambda r: (r["soort"], r["van"], r["naar"]))
 
     vm = view(wortel, VIEW_MAP)
+    # De OEAPI-objecten zijn per definitie de elementen die wel op de mappingview
+    # staan en niet op het informatiemodel. Zo hoeft er geen lijst bijgehouden te
+    # worden en verschijnt een hernoeming in het model vanzelf hier.
+    op_im = {elementen[k.get("archimateElement")] for k in v.iter() if k.get("archimateElement")}
+    op_map = {elementen[k.get("archimateElement")] for k in vm.iter() if k.get("archimateElement")}
+    oeapi_namen = op_map - op_im - LEGENDA
     map_rels = {k.get("archimateRelationship") for k in vm.iter() if k.get("archimateRelationship")}
     mapping = []
     for rid in sorted(map_rels):
         if rid not in relaties:
             continue
         soort, van, naar = relaties[rid][0], naam(relaties[rid][1]), naam(relaties[rid][2])
-        if (van in OEAPI) != (naar in OEAPI):
-            okx, oeapi = (naar, van) if van in OEAPI else (van, naar)
+        if (van in oeapi_namen) != (naar in oeapi_namen):
+            okx, oeapi = (naar, van) if van in oeapi_namen else (van, naar)
             mapping.append({"okx": okx, "oeapi": oeapi, "relatie": soort})
     mapping.sort(key=lambda m: (m["okx"], m["oeapi"]))
     gemapt = {m["okx"] for m in mapping}
@@ -121,6 +122,7 @@ def main():
         o["oeapi"] = sorted({m["oeapi"] for m in mapping if m["okx"] == o["naam"]}) or None
 
     uit = {
+        "oeapi_objecten": sorted(oeapi_namen),
         "bron": {"model": str(MODEL), "views": [VIEW_IM, VIEW_MAP]},
         "objecttypen": objecttypen,
         "relaties": relatielijst,

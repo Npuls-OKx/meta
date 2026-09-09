@@ -32,18 +32,18 @@ De kolommen op de plaat zijn de begrippen waarin OKx de keten indeelt. Ze vormen
 | Begrip | Wat het is | Beantwoordt de vraag |
 |---|---|---|
 | Kwalificatiekader mbo | Het geheel van landelijk vastgestelde eisen waaraan een opleiding moet voldoen. Vastgesteld en beheerd buiten OKx | Wat is normatief geldig |
-| Onderwijskundig kader instelling | De vertaling van dat kwalificatiekader naar wat een student moet kennen en kunnen, gemaakt door de instelling zelf | Wat moet de student kennen en kunnen |
+| Onderwijskundig kader instelling | De vertaling van het kwalificatiekader naar beoogde leeruitkomsten, gemaakt door de instelling zelf | Wat moet de student kennen en kunnen |
 | Onderwijsspecificatie | Het herbruikbare ontwerp van een onderwijsonderdeel, los van wanneer het draait en wie eraan meedoet | Wat wordt georganiseerd |
 | Onderwijsaanbod | Een specificatie die is ingepland: een periode, een capaciteit en waar van toepassing concrete plek, docent en tijd | Wanneer, met hoeveel plekken, met wie |
 | Onderwijsverbintenis | De relatie tussen een student en een aanbod, van aangemeld tot afgerond | Welke relatie heeft een student met dat aanbod |
 | Onderwijsresultaat | Wat een student op een verbintenis heeft behaald, uitgedrukt in leeruitkomsten | Wat is er behaald |
-| Resultaatstructuur | De samenstelling en weging waarmee losse resultaten optellen tot een uitspraak over een kwalificatie of certificaat | Hoe telt dat op tot een uitspraak over de kwalificatie |
+| Resultaatstructuur | De samenstelling en weging waarmee losse resultaten optellen tot een uitspraak over de beoogde leeruitkomsten, en daarmee over een kwalificatie of certificaat | Hoe telt dat op tot een uitspraak over de kwalificatie |
 
 Objecttypen buiten de kolommen raken de hele keten: `Persoon`, `Student`, `Medewerker` en `Plaatsingsgroep`, het `Verzoek tot Aanbod / Intekening op specificatie` als brug van specificatie naar aanbod, en `Examenplan` en `Waarde document (diploma / certificaat)` die buiten scope staan.
 
 ## Notatie
 
-**Kleur is scope.** Grijs staat als erkend begrip in het model, maar wordt door OKx niet vastgelegd.
+**Kleur is scope.** Grijs staat als erkend begrip in het model, maar wordt door OKx niet vastgelegd. Dat geldt voor de leslaag, voor het examenplan als document, en voor de onderwijskundige begrippen kennis, vaardigheid en inzicht.
 
 **Relatiesoorten**, in ArchiMate-notatie.
 
@@ -56,10 +56,11 @@ Objecttypen buiten de kolommen raken de hele keten: `Persoon`, `Student`, `Medew
 
 ## Ontwerpkeuzes
 
-1. **De leeruitkomst is de sleutel, en OKx legt hem niet vast.** Leeruitkomsten zijn landelijk gestandaardiseerd en in beheer, en instellingen vertalen kwalificatiekaders zelf vanuit hun onderwijskundige vrijheid. OKx gebruikt de leeruitkomst om specificatie, aanbod, verbintenis en resultaat aan elkaar te knopen.
+1. **De leeruitkomst is de sleutel die specificaties en resultaatstructuur verbindt.** Elke specificatie wijst naar leeruitkomsten en de summatieve resultaatstructuur ook; daarmee is de leeruitkomst het enige objecttype dat over de begrippen heen loopt. Instellingen maken die vertaling zelf, vanuit hun onderwijskundige vrijheid.
+7. **Uitwisseling tussen instellingen vraagt landelijk gestandaardiseerde leeruitkomsten.** Die standaardisatie en dat beheer bestaan nog niet; er loopt een apart traject voor, waarvan OKx de aanjager is. Zonder dat blijft een leeruitkomst instellingseigen en is aanbod van verschillende instellingen niet te vergelijken.
 2. **Het niveau waarop iets gespecificeerd wordt ligt niet vast.** Een `Onderwijseenheid specificatie` kan op kerntaakniveau liggen of op een ander niveau dat de instelling kiest. De koppeling loopt via de leeruitkomst, en daarom is het niveau geen eigenschap van de objecttypen.
 3. **De leslaag valt buiten de uitwisseling.** `Les specificatie`, `Lesgelegenheid`, `Lesgelegenheid verbintenis` en `Lesgelegenheid resultaat` staan in het model zodat een latere behoefte om tot op lesniveau te beschrijven niet geblokkeerd wordt.
-4. **Een examenonderdeel is een specialisatie van een toetsonderdeel.** Instellingen kunnen formatieve toetsen laten meetellen in de summatieve structuur. Daarom delen beide dezelfde informatiestructuur, terwijl hun totstandkoming strikt gescheiden is: een examenonderdeel wordt vastgesteld door de examencommissie, een toetsonderdeel volgt instellingsbeleid.
+5. **Een examenonderdeel is een specialisatie van een toetsonderdeel.** Beide delen dezelfde informatiestructuur; hun totstandkoming is strikt gescheiden, want een examenonderdeel wordt vastgesteld door de examencommissie en een toetsonderdeel volgt instellingsbeleid. De summatieve resultaatstructuur is samengesteld uit toetsonderdelen, zodat een instelling ook een formatief toetsonderdeel summatief kan laten meetellen. Wordt een toetsonderdeel op die manier opgenomen, dan volgt het vanaf dat moment de examenketen.
 5. **Het examenplan berust op de summatieve resultaatstructuur.** OKx wisselt de `Summatieve resultaat structuur` uit: de examenonderdelen met hun wegingen en het afrondingscriterium dat de zak-slaagregeling draagt. Het examenplan als document valt buiten de uitwisseling.
 6. **Een verbintenis loopt bij voorkeur via een groep.** `Plaatsingsgroep` maakt regulier onderwijs makkelijker te plannen en te roosteren. Het model sluit individuele verbintenissen niet uit.
 
