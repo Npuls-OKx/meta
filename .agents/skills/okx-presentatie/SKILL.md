@@ -308,6 +308,8 @@ Zelf tekenen mag als er geen bestaande plaat is, maar houd het bij een kleine va
 
 Een icoon is een vlakke SVG-vorm in een gekleurde cirkel, zonder tekst erin (zie de valkuil over SVG-tekst hierboven), op één regel gegenereerd, met de tekst als HTML ernaast in een flexrij. Pastelkleuren uit de huisstijl: groen `#7CCBA8`, grijs `#B8BEC7`, oranje `#E9A27F`, blauw `#7A97F2`. Eén icoon per regel, elke regel hoogstens één zin; de toelichting gaat naar de sprekersnotitie. Gebruik voor hetzelfde soort ding op elke slide hetzelfde icoon, zodat de slides elkaar herkennen. Een emoji is geen alternatief: de exportbrowser in de container heeft geen emojifont en toont dan een leeg blokje.
 
+**Een plaat beeldvullend, zonder titel.** Een architectuurplaat die het verhaal draagt krijgt een eigen slide: wit vlak over de hele slide, de plaat met `object-fit: contain` zo groot als de verhouding toelaat, geen titel en geen achtergrondplaat van de huisstijl, want die kosten ruimte die de plaat nodig heeft. De leeswijzer gaat naar de sprekersnotitie; de bevindingen naar de slide erna. Blijft er witruimte over, dan zit die in de export van de plaat zelf en moet de bron strakker gesneden worden.
+
 **Voortgang per onderwerp als balk.** Voor de backlogslide van een update-deck: een balk per milestone, groen het aantal gesloten issues, lichtgrijs het aantal open, de lengte het totaal, elk segment met zijn getal erin. Ernaast een pull request-icoon met nummer waar het werk in een branch ter review ligt, een `+n sinds <vorige sessie>` bij wat er gesloten is, en een oranje stip bij wat vandaag op de agenda staat. Legenda eronder met de vier tekens en hun betekenis, want een statuskleur staat nooit alleen. Gebruik het verzadigde groen (`#00AF81`) tegen lichtgrijs (`#E5E7EB`): de pastelversie viel in de kleurvalidatie door de te kleine afstand. Onderwerpen zijn milestones, niet repositories; noem de repository klein achter de naam. De cijfers sinds de vorige sessie (pull requests, issues, commits) gaan op de slide erna als tegels met een groot getal per repository, met een icoon per kolom. Beide uit GitHub op de dag van maken, met de datum in de voetregel.
 
 **Een grafiek met cijfers vraagt om natellen.** Een staafdiagram met "geteld in de platen hiervoor" nodigt de lezer letterlijk uit dat te doen, en dan moet het kloppen. Twee lijnen die naast elkaar oplopen vertellen dezelfde boodschap zonder die belofte. Kies bij twijfel de lijn.
@@ -345,6 +347,27 @@ Een werkbare basisvorm; wijk af waar de inhoud daarom vraagt.
 7. **Afsluitslide**
 
 Voor programmamanagement schuiven 5 en 6 naar voren; voor de kerngroep techniek is 3 en 4 het zwaartepunt.
+
+## De vaste vorm voor de kerngroep techniek
+
+De kerngroep techniek komt tweewekelijks bijeen en krijgt elke keer hetzelfde deck in een andere vulling. De vorm is vastgelegd in [#206](https://github.com/Npuls-OKx/meta/issues/206) en in de reviewronde van 11 september 2026 per slide van een visuele vorm voorzien. Het deck van 15 september 2026 (`presentaties/src/260915_kerngroep_techniek.md`) is het sjabloon: kopieer het en vervang de vulling, verzin de vorm niet opnieuw.
+
+| Slide | Inhoud | Vorm |
+|---|---|---|
+| Titel | Gremium en datum, met de essentie van de sessie als subtitel | Npuls-titelplaat |
+| Stand van zaken | Wat er sinds de vorige sessie ligt, met status | Mermaid-flow van de releases en pull requests, plus een tabel *afgesproken / stand* |
+| Opdrachten vorige sessie | Elk openstaand punt van toen met wat ermee gebeurd is; wat niet is opgepakt staat er ook | Tabel; een reviewvraag die niet is beantwoord staat vragend, met een vraagkaart |
+| Divider per thema | Deel 1, 2, 3 | Donkere Npuls-plaat met het deelnummer als eyebrow |
+| Thema | Wat er nu kan dat eerst niet kon, per onderwerp en niet per repository | Een plaat beeldvullend op wit zonder titel, met de leeswijzer in de sprekersnotitie; bevindingen op de slide erna; een echte vraag aan de zaal als vraagkaart |
+| Werk per onderwerp | De backlog per milestone | Voortgangsbalken, zie het repertoire |
+| Wat er is verzet | De cijfers sinds de vorige sessie | Tegels met een groot getal per repository, een icoon per kolom |
+| Voorstel prioritering | Wat nu, wat wacht | Twee kaarten: play in groen pastel, pauze in grijs; het gevolg zonder keuze eronder |
+| Gevraagd | Input, review, besluit, elk in het besluitblok | Een icoon per soort vraag naast het blok |
+| Vervolg | Datum en locatie van de volgende sessie, dan wat er dan ligt | Kalender en locatiepin in een kaart, een pijl per vervolgstap |
+| Peiling | Cijfer, wat ging goed, wat kan beter | Meter, vinkje, pijl omhoog, met de cijferbalk ernaast |
+| Afsluiter | | Npuls-afsluitplaat |
+
+Drie dingen die bij deze vorm horen. Een ontwerpkeuze die het kernteam zelf moet maken hoort niet in dit deck maar in een issue op meta, in de vorm vraag, opties, gevolg (zie [Een keuze voorleggen](#een-keuze-voorleggen-vraag-opties-gevolg)); het deck verwijst ernaar. Het blok van een tweede spreker staat tussen twee dividers, zodat die eraan kan sleutelen zonder de rest te raken. En de getallen op de backlog- en cijferslides zijn de stand van de dag van maken; controleer ze opnieuw op de dag van de sessie.
 
 ## Voor je oplevert: kijk er zelf naar
 
