@@ -366,6 +366,39 @@ drempel is nog niet gehaald, en 40 van de 60 issues komen van een auteur.
 
 ---
 
+<!-- 11b. MCP -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# En MCP: van endpoint naar gereedschapskist
+
+<div style="display:flex;gap:1rem;margin-top:0.7rem;max-width:96%;"><div style="flex:1;background:#dceffa;border-radius:10px;padding:0.9rem 1rem;display:flex;flex-direction:column;align-items:center;gap:0.3rem;"><div style="font-size:0.95rem;font-weight:700;color:#2E86C1;">Nu: REST</div><div style="font-size:0.68rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#2E86C1;opacity:0.75;margin-top:-0.3rem;">een endpoint per vraag</div><div style="background:#fff;border:1px solid #2E86C1;border-radius:6px;padding:0.3rem 0.6rem;font-size:0.78rem;text-align:center;font-weight:400;color:inherit;min-width:auto;">Student</div><div style="font-size:1rem;color:#2E86C1;line-height:1;">&#9660;</div><div style="background:#fff;border:1px solid #2E86C1;border-radius:6px;padding:0.3rem 0.6rem;font-size:0.78rem;text-align:center;font-weight:400;color:inherit;min-width:auto;">Website of app</div><div style="font-size:1rem;color:#2E86C1;line-height:1;">&#9660;</div><div style="background:#2E86C1;border:1px solid #2E86C1;border-radius:6px;padding:0.3rem 0.6rem;font-size:0.78rem;text-align:center;font-weight:700;color:#fff;min-width:auto;">Endpoint</div><div style="font-size:1rem;color:#2E86C1;line-height:1;">&#9660;</div><div style="background:#fff;border:1px solid #2E86C1;border-radius:6px;padding:0.3rem 0.6rem;font-size:0.78rem;text-align:center;font-weight:400;color:inherit;min-width:auto;">Specificatie van een school ophalen</div><div style="font-size:0.82rem;text-align:center;line-height:1.35;margin-top:0.4rem;">Zo werken scholen nu. Hier begint OKx.</div></div><div style="flex:1;background:#d9f5ec;border-radius:10px;padding:0.9rem 1rem;display:flex;flex-direction:column;align-items:center;gap:0.3rem;"><div style="font-size:0.95rem;font-weight:700;color:#0E9E7E;">Straks: MCP</div><div style="font-size:0.68rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#0E9E7E;opacity:0.75;margin-top:-0.3rem;">een gereedschapskist voor een agent</div><div style="background:#fff;border:1px solid #0E9E7E;border-radius:6px;padding:0.3rem 0.6rem;font-size:0.78rem;text-align:center;font-weight:400;color:inherit;min-width:auto;">Student</div><div style="font-size:1rem;color:#0E9E7E;line-height:1;">&#9660;</div><div style="background:#0E9E7E;border:1px solid #0E9E7E;border-radius:6px;padding:0.3rem 0.6rem;font-size:0.78rem;text-align:center;font-weight:700;color:#fff;min-width:auto;">Agent</div><div style="font-size:1rem;color:#0E9E7E;line-height:1;">&#9660;</div><div style="display:flex;gap:0.35rem;width:100%;"><div style="background:#fff;border:1px solid #0E9E7E;border-radius:6px;padding:0.3rem 0.6rem;font-size:0.78rem;text-align:center;font-weight:400;color:inherit;min-width:0;">Specificatie ophalen</div><div style="background:#fff;border:1px solid #0E9E7E;border-radius:6px;padding:0.3rem 0.6rem;font-size:0.78rem;text-align:center;font-weight:400;color:inherit;min-width:0;">Inschrijven</div><div style="background:#fff;border:1px solid #0E9E7E;border-radius:6px;padding:0.3rem 0.6rem;font-size:0.78rem;text-align:center;font-weight:400;color:inherit;min-width:0;">Rooster ophalen</div></div><div style="font-size:0.82rem;text-align:center;line-height:1.35;margin-top:0.4rem;font-style:italic;">"Ik moet 1 september beginnen met studeren, ik heb een studie gekozen. Zorg dat alles geregeld is."</div></div></div>
+
+<div class="np-card" style="border-top-color: #0E9E7E; font-size: 0.95rem; line-height: 1.5; margin-top: 0.8rem; max-width: 96%;">
+<strong>Dezelfde afspraak, een andere techniek.</strong> De betekenis staat los van REST, dus de vertaling naar MCP en agentic koppelingen is een vervolg, geen herontwerp. <strong style="color:#0E9E7E;">Nog niet in de bouwfase; wel klaar zodra instellingen erom vragen.</strong>
+</div>
+
+</div>
+
+<!--
+Toegevoegd op verzoek van Hans na de teammeeting van 9 september, om mee te nemen binnen Npuls.
+Bron: de discussie in die meeting na de risico's. Garik: "Wij gaan nu wel een beetje hard in op
+REST-endpoints. En ik zie dat wel clashen met bijvoorbeeld MCP straks. Misschien is het handig om
+niet REST-endpoints te noemen, maar meer functies. Om AI-proof te zijn, maar ook techniek-proof."
+Antwoord: MCP, het Model Context Protocol, stelt in plaats van een endpoint een gereedschapskist
+beschikbaar aan een agent zoals Claude of ChatGPT, die daar handelingen mee verricht: niet alleen
+de specificatie ophalen, maar inschrijven en het rooster ophalen. We beginnen met REST omdat scholen
+nu zo functioneren; de vraag "kunnen we dit ook voor MCP doen" gaat komen, ook voor agentic
+koppelingen. Nog niet in de bouwfase opnemen: de cyclus is of instellingen dit willen en er geld
+voor beschikbaar stellen, dan bouwen leveranciers het. Juist omdat de businesskant los staat van
+de techniekkant is die vertaling later goed te maken. Hans vatte samen: zo techniekonafhankelijk
+mogelijk voorbereiden, want de twintig procent die we nog niet kunnen inschatten komt.
+Dit is de derde conclusiezin uitgewerkt: we leggen het zo vast dat AI er straks los op kan.
+-->
+
+---
+
 <!-- 12. CONCLUSIE HERHAALD -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
