@@ -28,7 +28,7 @@ De blauwe objecten zijn OEAPI v6 en staan als data-object in het model. Van de O
 
 **Het kwalificatiekader heeft geen tegenhanger.** Kwalificatiedossier, kwalificatie, kerntaak en werkproces komen in OEAPI niet voor. Nationale kaderstelling is geen uitwisselbaar aanbod. De leeruitkomst zelf heeft die tegenhanger wel: `LearningOutcome`, met eigen endpoints.
 
-**De resultaatstructuur heeft geen tegenhanger in OEAPI.** OEAPI kent `weight` per resultaat, niet per specificatie. Het afrondingscriterium bestaat er alleen als vrije tekst in `qualificationRequirements`. De samenstelling van een summatieve structuur is daarmee niet in OEAPI uit te drukken. OKx legt hem wel machineleesbaar vast, in [`result-structure.json`](https://github.com/Npuls-OKx/Public/tree/dev/Koppelvlakspecificaties/Datamodelschema%27s).
+**De resultaatstructuur is nog niet op OEAPI gemapt.** OEAPI kent `weight` per resultaat, niet per specificatie, en het afrondingscriterium bestaat er alleen als vrije tekst in `qualificationRequirements`. Of de samenstelling van een summatieve structuur daarmee in OEAPI is uit te drukken is nog niet vastgesteld; op grond van deze twee punten lijkt het niet te kunnen. OKx legt hem wel machineleesbaar vast, in [`result-structure.json`](https://github.com/Npuls-OKx/Public/tree/dev/Koppelvlakspecificaties/Datamodelschema%27s).
 
 ### Objecttypen binnen scope zonder tegenhanger
 
