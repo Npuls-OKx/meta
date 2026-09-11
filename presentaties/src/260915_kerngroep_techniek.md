@@ -415,36 +415,37 @@ inschatting dat het niet kan; vastgesteld is dat niet.
 
 # Eerste begrippenkader
 
-<div style="font-size: 0.98rem; line-height: 1.8; margin-top: 1rem;">
+<div style="font-size: 0.95rem; line-height: 1.7; margin-top: 0.3rem;">
 
 - Elk begrip gerelateerd aan de referentiearchitecturen: MORA, ROSA (Kernmodel Onderwijsinformatie) en HORA
 - Doel: iteratief uitbreiden en reviewen
 
 </div>
 
-<div style="font-size: 0.92rem; line-height: 1.6; margin-top: 1rem; max-width: 34rem;">
+<div style="font-size: 0.74rem; line-height: 1.35; margin-top: 0.6rem; max-width: 88%;">
 
-| | |
-|---|---|
-| Begrippen en objecttypen van het informatiemodel | 69 |
-| Definitie overgenomen uit MORA of ROSA | 20 |
-| Eigen OKx-definitie | 14 |
-| Nog geen definitie | 35 |
+| Begrip | Definitie | Herkomst | ROSA | MORA | HORA |
+|---|---|---|---|---|---|
+| `Kwalificatie dossier` | Het kwalificatiedossier beschrijft de eisen waaraan een student moet voldoen om zijn diploma te behalen | overgenomen uit MORA | geen tegenhanger | <a href="https://mora.mbodigitaal.nl/index.php/Id-3389d485-20a7-6e53-21df-d09eb49d4762">Kwalificatie dossier</a> | nog niet onderzocht |
+| `Onderwijsverbintenis` | Een afspraak voor het gaan volgen, volgen en hebben gevolgd van onderwijs | overgenomen uit ROSA | <a href="https://rosa.wikixl.nl/index.php/Id-ec977035c9be4b01bb1c14a5950a1799">onderwijsdeelname</a> | geen tegenhanger | nog niet onderzocht |
+| `Onderwijseenheid specificatie` | De specificatie van de fundamentele eenheid waarin onderwijs wordt ontworpen en aangeboden | verbijzondering | <a href="https://rosa.wikixl.nl/index.php/Id-c74c161c6f1f4690933a31ce4d11f3b8">onderwijseenheid</a> | <a href="https://mora.mbodigitaal.nl/index.php/Id-17db36ca-368f-450e-cbfe-604b2fafee6e">Opleidings-onderdeel</a> | nog niet onderzocht |
+| `Toetsgelegenheid` | Het georganiseerde aanbod van een toetsmoment: wanneer, waar en onder welke condities | nieuw voor OKx | geen tegenhanger | geen tegenhanger | nog niet onderzocht |
+| `Keuzedeelruimte` | <em>nog te definiëren</em> | nieuw voor OKx | geen tegenhanger | geen tegenhanger | nog niet onderzocht |
 
 </div>
 
-<div style="font-size: 0.85rem; color: var(--np-dark-gray); margin-top: 1rem;">
-Status: v0.2, concept. MORA en ROSA zijn geraadpleegd, HORA volgt.
+<div style="font-size: 0.8rem; color: var(--np-dark-gray); margin-top: 0.6rem;">
+Uitsnede: vijf van de 69 begrippen en objecttypen. Status: v0.2, concept. MORA en ROSA zijn geraadpleegd, HORA volgt.
 </div>
 
 </div>
 
 <!--
-Bron: begrippenlijst.md op de branch van meta PR 225, stand 11 september. De getallen
-veranderen zolang de PR beweegt; vlak voor de sessie opnieuw tegen de bron controleren.
-Per begrip staat in de lijst per kader of er een tegenhanger is (met citaat en link), of er
-gezocht is zonder resultaat, of dat het nog niet is onderzocht. MORA en KOI zijn op 9 september
-opgehaald; elke definitie staat letterlijk in referentiekaders.json met URL en ophaaldatum.
+Uitsnede uit begrippenlijst.md op de branch van meta PR 225, stand 11 september. Definities
+zijn ingekort tot de eerste zin; de volledige tekst staat in de lijst met citaat, URL en
+ophaaldatum. De vijf rijen laten de vier soorten zien: overgenomen uit MORA, overgenomen uit
+ROSA, een verbijzondering waar OKx verder gaat dan het kader, en een eigen of nog leeg begrip.
+Stand van de hele lijst: 69 begrippen, 20 overgenomen, 14 eigen OKx-definitie, 35 nog open.
 -->
 
 ---
