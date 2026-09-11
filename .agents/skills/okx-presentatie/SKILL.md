@@ -297,6 +297,17 @@ Zelf tekenen mag als er geen bestaande plaat is, maar houd het bij een kleine va
 - **Een keten met een terugpijl.** Blokken met pijlen ertussen en een gestippelde pijl terug naar het begin, met daarop wat elke ronde oplevert.
 - **Een lijn zonder assen.** Een curve toont een verhouding, geen meting. Zet er geen getallen bij, en gebruik geen staafdiagram tenzij de aantallen echt geteld zijn.
 
+**Iconen in plaats van tekst.** Uit de reviewronde van 11 september 2026: een prioriteringstabel met een kolom *waarom* kreeg "te veel tekst" terug, en de vraag om symbolen. Wat werkte, en sindsdien de vaste vorm is voor de slotslides van elk update-deck:
+
+| Slide | Icoon | Betekenis |
+|---|---|---|
+| Prioritering | play in groen pastel, pauze in grijs | wat nu wordt opgepakt, wat wacht |
+| Gevraagd | tekstballon (input), vergrootglas (review), vinkje (besluit) | het soort vraag, naast het besluitblok |
+| Vervolg | kalender en locatiepin voor de volgende sessie, pijl per vervolgstap | wanneer en waar, en wat er dan ligt |
+| Peiling | meter (cijfer), vinkje (ging goed), pijl omhoog (kan beter) | de drie vaste vragen |
+
+Een icoon is een vlakke SVG-vorm in een gekleurde cirkel, zonder tekst erin (zie de valkuil over SVG-tekst hierboven), op één regel gegenereerd, met de tekst als HTML ernaast in een flexrij. Pastelkleuren uit de huisstijl: groen `#7CCBA8`, grijs `#B8BEC7`, oranje `#E9A27F`, blauw `#7A97F2`. Eén icoon per regel, elke regel hoogstens één zin; de toelichting gaat naar de sprekersnotitie. Gebruik voor hetzelfde soort ding op elke slide hetzelfde icoon, zodat de slides elkaar herkennen. Een emoji is geen alternatief: de exportbrowser in de container heeft geen emojifont en toont dan een leeg blokje.
+
 **Een grafiek met cijfers vraagt om natellen.** Een staafdiagram met "geteld in de platen hiervoor" nodigt de lezer letterlijk uit dat te doen, en dan moet het kloppen. Twee lijnen die naast elkaar oplopen vertellen dezelfde boodschap zonder die belofte. Kies bij twijfel de lijn.
 
 ## Neem tabellen, cijfers en citaten letterlijk over
