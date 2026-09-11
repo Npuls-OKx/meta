@@ -323,23 +323,16 @@ feedback op de plaat, die is verwerkt.
 ---
 
 <!-- 12. DE PLAAT -->
-<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
-
-<div class="fill">
-
-# Het informatiemodel
-
-<img src="/platen/informatiemodel-v0.1.jpg" style="width: 100%; max-height: 380px; object-fit: contain; margin-top: 0.4rem;" />
-
-<div style="font-size: 0.85rem; color: var(--np-dark-gray); margin-top: 0.5rem;">
-De kolommen zijn de begrippen, van kwalificatiekader tot resultaatstructuur. Geel is het OKx-referentiekader, grijs valt buiten scope. De leeruitkomst is de sleutel.
-</div>
-
+<div style="position: absolute; inset: 0; background: #FFFFFF; display: flex; align-items: center; justify-content: center; padding: 0.5rem;">
+  <img src="/platen/informatiemodel-v0.1.jpg" style="max-width: 100%; max-height: 100%; object-fit: contain;" />
 </div>
 
 <!--
-Plaat op volle breedte, de leeswijzer eronder. Versie v0.1 van 9 september, 62 objecttypen,
-147 relaties. Bron: architecture/model/informatiemodel/ in meta, branch van PR 225.
+Het informatiemodel OKx, versie v0.1 van 9 september. Leeswijzer: de kolommen zijn de begrippen,
+van kwalificatiekader links tot resultaatstructuur onderaan. Geel is het OKx-referentiekader,
+grijs valt buiten scope. De leeruitkomst, tweede kolom, is de sleutel: elke specificatie en de
+summatieve resultaatstructuur wijzen ernaar. Bron: architecture/model/informatiemodel/ in meta,
+branch van PR 225. Op de sessie inzoomen in de browser of het document ernaast openen.
 -->
 
 ---
@@ -375,26 +368,37 @@ in het begrippenkader en de begrippenlijst.
 
 ---
 
-<!-- 15. NAAST OEAPI -->
+<!-- 14. DE MAPPINGPLAAT -->
+<div style="position: absolute; inset: 0; background: #FFFFFF; display: flex; align-items: center; justify-content: center; padding: 0.5rem;">
+  <img src="/platen/informatiemodel-oeapi-mapping-v0.1.jpg" style="max-width: 100%; max-height: 100%; object-fit: contain;" />
+</div>
+
+<!--
+Dezelfde objecttypen met OEAPI v6 ernaast. Blauw is OEAPI; de pijl is realisatie: het
+OEAPI-object is de vorm waarin een OKx-objecttype over de lijn gaat. Versie v0.1 van
+9 september. De bevindingen staan op de volgende slide.
+-->
+
+---
+
+<!-- 15. BEVINDINGEN OEAPI -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
 
-# Waar OEAPI v6 het model dekt, en waar niet
+# Wat de mapping op OEAPI v6 laat zien
 
-<div class="np-grid-2" style="margin-top: 0.6rem; gap: 1.2rem; align-items: start;">
-<div style="font-size: 0.9rem; line-height: 1.75;">
+<div style="font-size: 0.98rem; line-height: 1.9; margin-top: 1rem;">
 
 - Eén OEAPI-object draagt vaak meerdere OKx-objecttypen: `Programme` vier, `ProgrammeOffering` drie
-- Het kwalificatiekader heeft geen tegenhanger; de leeruitkomst wel, `LearningOutcome`
-- De resultaatstructuur is nog niet op OEAPI gemapt; de vraag is of dat kan, en het lijkt er nu op van niet
+- De leeruitkomst heeft een tegenhanger, `LearningOutcome`
+- De resultaatstructuur is nog niet gemapt; de vraag is of dat kan, en het lijkt er nu op van niet
 - 21 objecttypen binnen scope zonder OEAPI-object: per stuk signalering of bewuste afwijking
 
 </div>
-<div>
-  <img src="/platen/informatiemodel-oeapi-mapping-v0.1.jpg" style="width: 100%; max-height: 330px; object-fit: contain;" />
-  <div style="font-size: 0.78rem; color: var(--np-mid-gray); margin-top: 0.3rem;">Blauw is OEAPI v6; de pijl is realisatie.</div>
-</div>
+
+<div class="np-card" style="margin-top: 1.2rem; font-size: 0.98rem;">
+Gezocht: hoe mapt OEAPI een kwalificatiekader naar objecten? Kwalificatiedossier, kwalificatie, kerntaak en werkproces hebben in de mapping nu geen tegenhanger.
 </div>
 
 </div>
@@ -404,7 +408,10 @@ Bron: informatiemodel-oeapi-mapping.md. Geverifieerd tegen de OEAPI 6.0 OpenAPI-
 LearningOutcome bestaat met eigen endpoints. Voor de resultaatstructuur is de mapping nog niet
 gemaakt; wat er tot nu toe gevonden is: weight staat per resultaat, niet per specificatie, en
 het afrondingscriterium bestaat alleen als vrije tekst in qualificationRequirements. Daarom de
-inschatting dat het niet kan; vastgesteld is dat niet.
+inschatting dat het niet kan; vastgesteld is dat niet. De vraag over het kwalificatiekader is
+een echte vraag aan de zaal: in de OpenAPI-specificatie is geen object voor dossier, kwalificatie,
+kerntaak of werkproces gevonden, maar wie OEAPI in de praktijk implementeert weet misschien hoe
+dat elders wordt opgelost.
 -->
 
 ---
