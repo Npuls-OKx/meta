@@ -390,11 +390,12 @@ Verder:
 - Sluit af met het commando waarmee de gebruiker het deck opent.
 
 ```bash
-./deck onderwerp                  # bekijken op localhost:3030
-./deck onderwerp beelden          # PNG per slide
-./deck onderwerp pdf              # PDF
-./deck onderwerp pptx             # PowerPoint uit de slidebeelden, met notities
-./deck onderwerp pptx-bewerkbaar  # PowerPoint met bewerkbare tekst, via LibreOffice
+./deck onderwerp            # bekijken op localhost:3030
+./deck onderwerp beelden    # PNG per slide
+./deck onderwerp pdf        # PDF
+./deck onderwerp pptx       # PowerPoint met bewerkbare tekst, via LibreOffice
 ```
 
-**De deelbare PowerPoint komt uit de slidebeelden.** Op 11 september 2026 bleek dat de route via LibreOffice (pdf naar pptx) kaarten met een gekleurde linkerrand de randkleur als vulling geeft en een eigen tekening de hele slide zwart kan maken; de pdf was goed, de pptx niet. `pptx` bouwt daarom elke slide als beeld op volle grootte met de sprekersnotitie erbij: niet bewerkbaar, wel overal zoals in de browser. Wil iemand tekst bewerken, gebruik dan `pptx-bewerkbaar` en controleer de uitkomst slide voor slide, bijvoorbeeld door de pptx met `soffice --headless --convert-to pdf` terug te renderen en de pagina's te bekijken. Dat geldt voor elke export die de deur uit gaat: kijk naar het bestand dat verstuurd wordt, niet alleen naar de bron.
+**De PowerPoint blijft bewerkbaar, dus de bron moet de omzetting overleven.** De pptx ontstaat door LibreOffice de pdf te laten inlezen; de tekst is dan bewerkbaar en dat is een eis van de product owner, een export als slidebeelden is bewust afgewezen. Het filter van LibreOffice breekt op twee dingen, getest op 11 september 2026 met een proefdeck: een gedeeltelijke rand (`border-left`, `border-top`) samen met `border-radius` op hetzelfde element, waardoor de hele kaart de randkleur als vulling krijgt; en een CSS-gradient (`linear-gradient`, `repeating-linear-gradient`), die een zwart vlak over de hele slide wordt. Wat wel overleeft: een kaart met radius en een losse, absoluut geplaatste balk erin (`position:relative` op de kaart, een `div` met `position:absolute; left:0; top:0; bottom:0; width:6px` als balk), een gedeeltelijke rand zonder radius, `np-card` met `border-top`, en losse blokjes in plaats van een gradient. Vlakke SVG-iconen komen goed mee.
+
+**Controleer de pptx zelf, niet alleen de pdf.** Render hem terug en bekijk de pagina's: `soffice --headless --convert-to pdf <deck>.pptx`. De pdf kan goed zijn terwijl de pptx het niet is. Let daarbij op kleuren en vlakken, niet op de regelval: LibreOffice heeft de huisstijlfont niet en zet een bredere vervanger in, waardoor lange regels in die controle uitlopen terwijl ze in PowerPoint passen.
