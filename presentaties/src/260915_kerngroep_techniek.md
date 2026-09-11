@@ -267,7 +267,7 @@ en hoe flexibel een leverancier kan zijn.
 </div>
 
 <div class="np-card" style="margin-top: 1.4rem; font-size: 0.98rem;">
-Gezocht: welke variant landt in de implementatie het best, gezien vanuit het eigen systeem.
+Gezocht: welke variant sluit het best aan bij de ervaring in het veld, A, B of een andere.
 </div>
 
 </div>
@@ -575,19 +575,15 @@ meta. De 21 nieuwe issues op meta zijn grotendeels intern harness- en reviewwerk
 
 # Voorstel voor de prioritering
 
-<div style="font-size: 0.92rem; line-height: 1.7; margin-top: 1rem;">
-
-| | Eerst | Waarom |
-|---|---|---|
-| 1 | Review op de pull requests: versionering ([Public PR 100](https://github.com/Npuls-OKx/Public/pull/100)), v0.0.2 ([Public PR 82](https://github.com/Npuls-OKx/Public/pull/82)), het informatiemodel zodra het naar Public gaat | Zonder review geen release, en zonder release geen bouw |
-| 2 | Keuzedeelregels: de typologie toetsen aan de echte scenario's ([Public #74](https://github.com/Npuls-OKx/Public/issues/74), [#64](https://github.com/Npuls-OKx/Public/issues/64), [#1](https://github.com/Npuls-OKx/Public/issues/1)) | Elke studentkeuze werkt door in planning, rooster en leeromgeving; dit is de spil van flexibilisering |
-
+<div class="np-grid-2" style="margin-top: 1rem; gap: 1.6rem; align-items: start;">
+<div class="np-card accent-green" style="background: #F3FAF6;">
+<strong>Nu</strong>
+<div style="display:flex;align-items:center;gap:0.7rem;margin-top:0.55rem;font-size:0.95rem;line-height:1.35;"><svg width="44" height="44" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#7CCBA8"/><polygon points="17,12 34,22 17,32" fill="#fff"/></svg><div>Review op de pull requests: versionering (<a href="https://github.com/Npuls-OKx/Public/pull/100">Public PR 100</a>), v0.0.2 (<a href="https://github.com/Npuls-OKx/Public/pull/82">Public PR 82</a>), het informatiemodel</div></div><div style="display:flex;align-items:center;gap:0.7rem;margin-top:0.55rem;font-size:0.95rem;line-height:1.35;"><svg width="44" height="44" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#7CCBA8"/><polygon points="17,12 34,22 17,32" fill="#fff"/></svg><div>Student keuze regelsets toetsen aan de scenario's (<a href="https://github.com/Npuls-OKx/Public/issues/74">Public #74</a>, <a href="https://github.com/Npuls-OKx/Public/issues/64">#64</a>, <a href="https://github.com/Npuls-OKx/Public/issues/1">#1</a>)</div></div>
 </div>
-
-<div style="font-size: 0.92rem; line-height: 1.7; margin-top: 1rem;">
-
-**Wat daarmee wacht:** meerdere instanties van een referentiecomponent ([meta #80](https://github.com/Npuls-OKx/meta/issues/80)), de terminologie- en correctie-issues, en de verdieping van de requirementsboom.
-
+<div class="np-card" style="border-top-color: #B8BEC7; background: #F6F7F9;">
+<strong>Wacht</strong>
+<div style="display:flex;align-items:center;gap:0.7rem;margin-top:0.55rem;font-size:0.95rem;line-height:1.35;"><svg width="44" height="44" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#B8BEC7"/><rect x="15" y="12" width="5" height="20" rx="1" fill="#fff"/><rect x="24" y="12" width="5" height="20" rx="1" fill="#fff"/></svg><div>Meerdere instanties van een referentiecomponent (<a href="https://github.com/Npuls-OKx/meta/issues/80">meta #80</a>)</div></div><div style="display:flex;align-items:center;gap:0.7rem;margin-top:0.55rem;font-size:0.95rem;line-height:1.35;"><svg width="44" height="44" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#B8BEC7"/><rect x="15" y="12" width="5" height="20" rx="1" fill="#fff"/><rect x="24" y="12" width="5" height="20" rx="1" fill="#fff"/></svg><div>Terminologie- en correctie-issues</div></div><div style="display:flex;align-items:center;gap:0.7rem;margin-top:0.55rem;font-size:0.95rem;line-height:1.35;"><svg width="44" height="44" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#B8BEC7"/><rect x="15" y="12" width="5" height="20" rx="1" fill="#fff"/><rect x="24" y="12" width="5" height="20" rx="1" fill="#fff"/></svg><div>Verdieping van de requirementsboom</div></div>
+</div>
 </div>
 
 <div style="font-size: 0.85rem; color: var(--np-dark-gray); margin-top: 1rem;">
@@ -597,8 +593,10 @@ Status: voorstel van het kernteam. Zonder keuze blijft alles even zwaar en bewee
 </div>
 
 <!--
-Voorstel, geen besluit. De volgorde en de twee prioriteiten komen van Niek; de rest is afgeleid
-uit de backlog. Vraag aan de groep: klopt deze volgorde, en wat ontbreekt?
+Voorstel, geen besluit. Links wat het kernteam eerst wil doen: zonder review geen release en
+zonder release geen bouw; en de student keuze regelsets, omdat elke studentkeuze doorwerkt in
+planning, rooster en leeromgeving. Rechts wat daarmee wacht. Vraag aan de groep: klopt deze
+volgorde, en wat ontbreekt? De naam student keuze regelset volgt het informatiemodel.
 -->
 
 ---
@@ -610,27 +608,18 @@ uit de backlog. Vraag aan de groep: klopt deze volgorde, en wat ontbreekt?
 
 # Gevraagd
 
-<dl class="np-besluit kennisname" style="margin-top: 1rem;">
-  <dt>Input</dt><dd>welke versioneringsvariant landt in de implementatie het best, A of B</dd>
-</dl>
-
-<dl class="np-besluit review" style="margin-top: 0.8rem;">
-  <dt>Review</dt><dd>het informatiemodel op conceptueel niveau: klopt de samenhang, welke objecttypen missen, en welke begrippen missen in de lijst. Tot de volgende sessie, in <a href="https://github.com/Npuls-OKx/meta/pull/225">meta PR 225</a></dd>
-</dl>
-
-<dl class="np-besluit" style="margin-top: 0.8rem;">
-  <dt>Besluit</dt><dd>de prioritering van het open werk: eerst de reviews, dan de keuzedeelregels</dd>
-</dl>
-
-<dl class="np-besluit kennisname" style="margin-top: 0.8rem;">
-  <dt>Input</dt><dd>de bevindingen op v0.0.2, en wat er nodig is om de review te laten gebeuren</dd>
-</dl>
+<div style="display:flex;align-items:center;gap:0.9rem;margin-top:0.7rem;"><svg width="40" height="40" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#7A97F2"/><path d="M11 13 h22 a3 3 0 0 1 3 3 v11 a3 3 0 0 1 -3 3 h-12 l-6 5 v-5 h-4 a3 3 0 0 1 -3 -3 v-11 a3 3 0 0 1 3 -3 z" fill="#fff"/></svg><dl class="np-besluit kennisname" style="flex:1;"><dt>Input</dt><dd>het versioneringsvraagstuk: welke variant sluit het best aan bij de ervaring in het veld, A, B of een andere</dd></dl></div>
+<div style="display:flex;align-items:center;gap:0.9rem;margin-top:0.7rem;"><svg width="40" height="40" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#7A97F2"/><circle cx="19" cy="19" r="8" fill="none" stroke="#fff" stroke-width="3"/><line x1="25" y1="25" x2="33" y2="33" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg><dl class="np-besluit review" style="flex:1;"><dt>Review</dt><dd>het informatiemodel op conceptueel niveau: klopt de samenhang, welke objecttypen missen, welke begrippen missen. Tot de volgende sessie, in <a href="https://github.com/Npuls-OKx/meta/pull/225">meta PR 225</a></dd></dl></div>
+<div style="display:flex;align-items:center;gap:0.9rem;margin-top:0.7rem;"><svg width="40" height="40" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#E9A27F"/><polyline points="12,23 19,30 32,15" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg><dl class="np-besluit " style="flex:1;"><dt>Besluit</dt><dd>de prioritering van het open werk: eerst de reviews, dan de student keuze regelsets</dd></dl></div>
+<div style="display:flex;align-items:center;gap:0.9rem;margin-top:0.7rem;"><svg width="40" height="40" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#7A97F2"/><path d="M11 13 h22 a3 3 0 0 1 3 3 v11 a3 3 0 0 1 -3 3 h-12 l-6 5 v-5 h-4 a3 3 0 0 1 -3 -3 v-11 a3 3 0 0 1 3 -3 z" fill="#fff"/></svg><dl class="np-besluit kennisname" style="flex:1;"><dt>Input</dt><dd>de bevindingen op v0.0.2, en wat er nodig is om de review te laten gebeuren</dd></dl></div>
 
 </div>
 
 <!--
 Geen besluit over het informatiemodel zelf: dat is pas aan de orde als de ADR-punten zijn
-opgelost. Wel een besluit over de prioritering, want zonder keuze beweegt niets.
+opgelost (meta #227 en #228). Wel een besluit over de prioritering, want zonder keuze beweegt
+niets. Bij de versionering zijn A en B de voorgegeven opties; een variant uit de praktijk van
+een leverancier is net zo welkom.
 -->
 
 ---
@@ -648,7 +637,7 @@ Volgende sessie:
 
 - De gekozen versioneringsvariant, uitgewerkt in Public PR 100
 - Het informatiemodel na de interne besluiten als pull request naar Public
-- De keuzedeelregels, getoetst aan de scenario's
+- De student keuze regelsets, getoetst aan de scenario's
 
 </div>
 
