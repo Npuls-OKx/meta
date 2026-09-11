@@ -475,44 +475,23 @@ Stand van de hele lijst: 69 begrippen, 20 overgenomen, 14 eigen OKx-definitie, 3
 
 <div class="fill">
 
-# Open werk in Npuls-OKx/Public
+# Werk per onderwerp
 
-<div class="np-grid-2" style="margin-top: 0.8rem; gap: 1.6rem; font-size: 0.86rem; line-height: 1.55;">
-<div>
+<div style="margin-top:0.6rem;max-width:88%;"><div style="display:grid;grid-template-columns:19rem 1fr;align-items:center;gap:0.8rem;margin-top:0.42rem;font-size:0.82rem;"><div style="line-height:1.25;"><a href="https://github.com/Npuls-OKx/Public/milestone/4" style="color:var(--np-ink);">Koppelvlakspecificatie releaseproces en kwaliteit</a> <span style="color:var(--np-mid-gray);font-size:0.7rem;">Public</span></div><div style="display:flex;align-items:center;"><div style="display:flex;width:57%;height:20px;border-radius:4px;overflow:hidden;gap:2px;"><div style="flex:11;background:#E5E7EB;display:flex;align-items:center;justify-content:center;color:var(--np-ink);font-size:0.72rem;">11</div></div><span style="display:inline-flex;align-items:center;gap:0.25rem;margin-left:0.5rem;font-size:0.72rem;color:var(--np-ink);"><svg width="18" height="18" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#7A97F2"/><circle cx="15" cy="13" r="4" fill="#fff"/><circle cx="15" cy="31" r="4" fill="#fff"/><circle cx="30" cy="31" r="4" fill="#fff"/><line x1="15" y1="17" x2="15" y2="27" stroke="#fff" stroke-width="3"/><path d="M30 27 v-6 a5 5 0 0 0 -5 -5 h-4" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg><a href="https://github.com/Npuls-OKx/Public/pull/82">PR 82</a></span></div></div><div style="display:grid;grid-template-columns:19rem 1fr;align-items:center;gap:0.8rem;margin-top:0.42rem;font-size:0.82rem;"><div style="line-height:1.25;"><a href="https://github.com/Npuls-OKx/Public/milestone/3" style="color:var(--np-ink);">Requirementsboom doorontwikkelen</a> <span style="color:var(--np-mid-gray);font-size:0.7rem;">Public</span></div><div style="display:flex;align-items:center;"><div style="display:flex;width:57%;height:20px;border-radius:4px;overflow:hidden;gap:2px;"><div style="flex:2;background:#00AF81;display:flex;align-items:center;justify-content:center;color:#fff;font-size:0.72rem;font-weight:600;">2</div><div style="flex:9;background:#E5E7EB;display:flex;align-items:center;justify-content:center;color:var(--np-ink);font-size:0.72rem;">9</div></div></div></div><div style="display:grid;grid-template-columns:19rem 1fr;align-items:center;gap:0.8rem;margin-top:0.42rem;font-size:0.82rem;"><div style="line-height:1.25;"><span style="color:var(--np-orange);font-weight:600;">&#9679;</span> <a href="https://github.com/Npuls-OKx/Public/milestone/5" style="color:var(--np-ink);">Koppelingspecificatiestructuur doorontwikkelen</a> <span style="color:var(--np-mid-gray);font-size:0.7rem;">Public</span></div><div style="display:flex;align-items:center;"><div style="display:flex;width:41%;height:20px;border-radius:4px;overflow:hidden;gap:2px;"><div style="flex:1;background:#00AF81;display:flex;align-items:center;justify-content:center;color:#fff;font-size:0.72rem;font-weight:600;">1</div><div style="flex:7;background:#E5E7EB;display:flex;align-items:center;justify-content:center;color:var(--np-ink);font-size:0.72rem;">7</div></div><span style="display:inline-flex;align-items:center;gap:0.25rem;margin-left:0.5rem;font-size:0.72rem;color:var(--np-ink);"><svg width="18" height="18" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#7A97F2"/><circle cx="15" cy="13" r="4" fill="#fff"/><circle cx="15" cy="31" r="4" fill="#fff"/><circle cx="30" cy="31" r="4" fill="#fff"/><line x1="15" y1="17" x2="15" y2="27" stroke="#fff" stroke-width="3"/><path d="M30 27 v-6 a5 5 0 0 0 -5 -5 h-4" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg><a href="https://github.com/Npuls-OKx/Public/pull/100">PR 100</a></span></div></div><div style="display:grid;grid-template-columns:19rem 1fr;align-items:center;gap:0.8rem;margin-top:0.42rem;font-size:0.82rem;"><div style="line-height:1.25;"><span style="color:var(--np-orange);font-weight:600;">&#9679;</span> <a href="https://github.com/Npuls-OKx/meta/milestone/7" style="color:var(--np-ink);">Begrippenkader en informatiemodel verdiepen</a> <span style="color:var(--np-mid-gray);font-size:0.7rem;">meta</span></div><div style="display:flex;align-items:center;"><div style="display:flex;width:78%;height:20px;border-radius:4px;overflow:hidden;gap:2px;"><div style="flex:15;background:#E5E7EB;display:flex;align-items:center;justify-content:center;color:var(--np-ink);font-size:0.72rem;">15</div></div><span style="display:inline-flex;align-items:center;gap:0.25rem;margin-left:0.5rem;font-size:0.72rem;color:var(--np-ink);"><svg width="18" height="18" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#7A97F2"/><circle cx="15" cy="13" r="4" fill="#fff"/><circle cx="15" cy="31" r="4" fill="#fff"/><circle cx="30" cy="31" r="4" fill="#fff"/><line x1="15" y1="17" x2="15" y2="27" stroke="#fff" stroke-width="3"/><path d="M30 27 v-6 a5 5 0 0 0 -5 -5 h-4" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg><a href="https://github.com/Npuls-OKx/meta/pull/225">PR 225</a></span></div></div><div style="display:grid;grid-template-columns:19rem 1fr;align-items:center;gap:0.8rem;margin-top:0.42rem;font-size:0.82rem;"><div style="line-height:1.25;"><a href="https://github.com/Npuls-OKx/Public/milestone/1" style="color:var(--np-ink);">Leerroute-refactor met harness-waarborgen</a> <span style="color:var(--np-mid-gray);font-size:0.7rem;">Public</span></div><div style="display:flex;align-items:center;"><div style="display:flex;width:26%;height:20px;border-radius:4px;overflow:hidden;gap:2px;"><div style="flex:2;background:#00AF81;display:flex;align-items:center;justify-content:center;color:#fff;font-size:0.72rem;font-weight:600;">2</div><div style="flex:3;background:#E5E7EB;display:flex;align-items:center;justify-content:center;color:var(--np-ink);font-size:0.72rem;">3</div></div><span style="color:#00AF81;font-weight:600;font-size:0.74rem;margin-left:0.5rem;">+1 sinds 1 sep</span></div></div><div style="display:grid;grid-template-columns:19rem 1fr;align-items:center;gap:0.8rem;margin-top:0.42rem;font-size:0.82rem;"><div style="line-height:1.25;"><span style="color:var(--np-orange);font-weight:600;">&#9679;</span> <a href="https://github.com/Npuls-OKx/Public/milestone/7" style="color:var(--np-ink);">Keuzedelen kiesbaarheid en groepsindeling</a> <span style="color:var(--np-mid-gray);font-size:0.7rem;">Public</span></div><div style="display:flex;align-items:center;"><div style="display:flex;width:16%;height:20px;border-radius:4px;overflow:hidden;gap:2px;"><div style="flex:3;background:#E5E7EB;display:flex;align-items:center;justify-content:center;color:var(--np-ink);font-size:0.72rem;">3</div></div></div></div><div style="display:grid;grid-template-columns:19rem 1fr;align-items:center;gap:0.8rem;margin-top:0.42rem;font-size:0.82rem;"><div style="line-height:1.25;"><a href="https://github.com/Npuls-OKx/Public/milestone/6" style="color:var(--np-ink);">Informatiestromen hoofdplaat</a> <span style="color:var(--np-mid-gray);font-size:0.7rem;">Public</span></div><div style="display:flex;align-items:center;"><div style="display:flex;width:21%;height:20px;border-radius:4px;overflow:hidden;gap:2px;"><div style="flex:4;background:#00AF81;display:flex;align-items:center;justify-content:center;color:#fff;font-size:0.72rem;font-weight:600;">4</div></div><span style="color:#00AF81;font-weight:600;font-size:0.74rem;margin-left:0.5rem;">+4 sinds 1 sep</span></div></div><div style="display:flex;gap:1.4rem;align-items:center;font-size:0.74rem;color:var(--np-mid-gray);margin-top:0.7rem;"><span><span style="display:inline-block;width:12px;height:12px;background:#00AF81;border-radius:2px;vertical-align:-1px;"></span> issues gesloten</span><span><span style="display:inline-block;width:12px;height:12px;background:#E5E7EB;border-radius:2px;vertical-align:-1px;"></span> issues open</span><span style="display:inline-flex;align-items:center;gap:0.25rem;"><svg width="14" height="14" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#7A97F2"/><circle cx="15" cy="13" r="4" fill="#fff"/><circle cx="15" cy="31" r="4" fill="#fff"/><circle cx="30" cy="31" r="4" fill="#fff"/><line x1="15" y1="17" x2="15" y2="27" stroke="#fff" stroke-width="3"/><path d="M30 27 v-6 a5 5 0 0 0 -5 -5 h-4" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg> pull request ter review</span><span><span style="color:var(--np-orange);">&#9679;</span> vandaag op de agenda</span></div></div>
 
-**Zes milestones met openstaand werk**
-
-| Milestone | Open |
-|---|---|
-| [Releaseproces en kwaliteit](https://github.com/Npuls-OKx/Public/milestone/4) | 11 |
-| [Requirementsboom doorontwikkelen](https://github.com/Npuls-OKx/Public/milestone/3) | 9 |
-| [Koppelingspecificatiestructuur doorontwikkelen](https://github.com/Npuls-OKx/Public/milestone/5) | 7 |
-| [Leerroute-refactor](https://github.com/Npuls-OKx/Public/milestone/1) | 3 |
-| [Keuzedelen](https://github.com/Npuls-OKx/Public/milestone/7) | 3 |
-| [Agent-harness](https://github.com/Npuls-OKx/Public/milestone/2) | 2 |
-
-</div>
-<div>
-
-**Sinds 1 september van buiten het kernteam**
-
-- Vijf issues van Kees over granulariteit, definities, eigenaarschap en leestijd ([#85](https://github.com/Npuls-OKx/Public/issues/85) tot en met [#89](https://github.com/Npuls-OKx/Public/issues/89))
-- Twee van Xedule: notificaties ontvangen ([#84](https://github.com/Npuls-OKx/Public/issues/84)) en de opmerkingen per story ([#99](https://github.com/Npuls-OKx/Public/issues/99))
-
-**Wat nu loopt**
-
-- Versionering ([PR 100](https://github.com/Npuls-OKx/Public/pull/100)), informatiemodel ([#89](https://github.com/Npuls-OKx/Public/issues/89)), granulariteit ([#85](https://github.com/Npuls-OKx/Public/issues/85)), stories met de PoC-instellingen ([#99](https://github.com/Npuls-OKx/Public/issues/99))
-
-</div>
+<div style="font-size: 0.8rem; color: var(--np-dark-gray); margin-top: 0.7rem;">
+Stand van 11 september. Onderwerpen zijn de milestones; de balklengte is het aantal issues. Niet getoond: Agent-harness (Public, 2 open) en de interne milestones van meta.
 </div>
 
 </div>
 
 <!--
-Stand van 11 september: 44 open issues, waarvan 7 zonder milestone. Links de milestones met hun
-aantallen; rechts wat er van buiten binnenkwam en wat er aantoonbaar aan gewerkt wordt (een
-pull request, een toegewezen persoon, of een antwoord in het issue). Wat niet in de laatste
-regel staat, wordt op dit moment niet opgepakt.
+Een balk per milestone, groen wat gesloten is, grijs wat open staat, met het pull request-icoon
+waar het werk in een branch ter review ligt. Oranje stip: staat vandaag op de agenda. Het beeld:
+het grote werk van deze periode zit in de pull requests en niet in gesloten issues; de hoofdplaat
+is af (vier correcties gesloten sinds 1 september). Van buiten het kernteam kwamen sinds
+1 september zeven issues: vijf van Kees (#85 tot en met #89) en twee van Xedule (#84, #99).
+Bron: de milestones en issues van beide repositories, GitHub, 11 september.
 -->
 
 ---
@@ -524,35 +503,17 @@ regel staat, wordt op dit moment niet opgepakt.
 
 # Wat er sinds 1 september is verzet
 
-<div style="font-size: 0.86rem; line-height: 1.5; margin-top: 0.6rem; max-width: 60%;">
+<div style="display:grid;grid-template-columns:8.5rem repeat(5,1fr);gap:0.6rem 0.7rem;align-items:center;margin-top:0.8rem;max-width:90%;"><div></div><div style="display:flex;align-items:center;gap:0.4rem;font-size:0.76rem;color:var(--np-mid-gray);justify-content:center;"><svg width="22" height="22" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#7A97F2"/><circle cx="14" cy="12" r="4" fill="#fff"/><circle cx="14" cy="32" r="4" fill="#fff"/><circle cx="31" cy="22" r="4" fill="#fff"/><path d="M14 16 v12 M14 22 h13" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg>PR gemerged</div><div style="display:flex;align-items:center;gap:0.4rem;font-size:0.76rem;color:var(--np-mid-gray);justify-content:center;"><svg width="22" height="22" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#7A97F2"/><line x1="22" y1="12" x2="22" y2="32" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/><line x1="12" y1="22" x2="32" y2="22" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/></svg>PR geopend</div><div style="display:flex;align-items:center;gap:0.4rem;font-size:0.76rem;color:var(--np-mid-gray);justify-content:center;"><svg width="22" height="22" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#7A97F2"/><polyline points="12,23 19,30 32,15" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>issues gesloten</div><div style="display:flex;align-items:center;gap:0.4rem;font-size:0.76rem;color:var(--np-mid-gray);justify-content:center;"><svg width="22" height="22" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#7A97F2"/><line x1="22" y1="12" x2="22" y2="32" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/><line x1="12" y1="22" x2="32" y2="22" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/></svg>issues geopend</div><div style="display:flex;align-items:center;gap:0.4rem;font-size:0.76rem;color:var(--np-mid-gray);justify-content:center;"><svg width="22" height="22" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#7A97F2"/><line x1="8" y1="22" x2="36" y2="22" stroke="#fff" stroke-width="3"/><circle cx="22" cy="22" r="6" fill="#fff"/></svg>commits op dev</div><div style="font-size:0.84rem;font-weight:600;color:var(--np-ink);">Public</div><div style="background:#fff;border:1px solid var(--np-light-gray);border-radius:8px;padding:0.55rem 0;text-align:center;font-size:1.9rem;font-weight:600;color:var(--np-ink);line-height:1.1;">2</div><div style="background:#fff;border:1px solid var(--np-light-gray);border-radius:8px;padding:0.55rem 0;text-align:center;font-size:1.9rem;font-weight:600;color:var(--np-ink);line-height:1.1;">1</div><div style="background:#fff;border:1px solid var(--np-light-gray);border-radius:8px;padding:0.55rem 0;text-align:center;font-size:1.9rem;font-weight:600;color:var(--np-ink);line-height:1.1;">5</div><div style="background:#fff;border:1px solid var(--np-light-gray);border-radius:8px;padding:0.55rem 0;text-align:center;font-size:1.9rem;font-weight:600;color:var(--np-ink);line-height:1.1;">8</div><div style="background:#fff;border:1px solid var(--np-light-gray);border-radius:8px;padding:0.55rem 0;text-align:center;font-size:1.9rem;font-weight:600;color:var(--np-ink);line-height:1.1;">1</div><div style="font-size:0.84rem;font-weight:600;color:var(--np-ink);">meta</div><div style="background:#fff;border:1px solid var(--np-light-gray);border-radius:8px;padding:0.55rem 0;text-align:center;font-size:1.9rem;font-weight:600;color:var(--np-ink);line-height:1.1;">4</div><div style="background:#fff;border:1px solid var(--np-light-gray);border-radius:8px;padding:0.55rem 0;text-align:center;font-size:1.9rem;font-weight:600;color:var(--np-ink);line-height:1.1;">6</div><div style="background:#fff;border:1px solid var(--np-light-gray);border-radius:8px;padding:0.55rem 0;text-align:center;font-size:1.9rem;font-weight:600;color:var(--np-ink);line-height:1.1;">11</div><div style="background:#fff;border:1px solid var(--np-light-gray);border-radius:8px;padding:0.55rem 0;text-align:center;font-size:1.9rem;font-weight:600;color:var(--np-ink);line-height:1.1;">21</div><div style="background:#fff;border:1px solid var(--np-light-gray);border-radius:8px;padding:0.55rem 0;text-align:center;font-size:1.9rem;font-weight:600;color:var(--np-ink);line-height:1.1;">47</div></div>
 
-| | Npuls-OKx/Public | Npuls-OKx/meta |
-|---|---|---|
-| Pull requests gemerged | 2 | 4 |
-| Pull requests geopend | 1 | 6 |
-| Issues gesloten | 5 | 11 |
-| Issues geopend | 8 | 21 |
-| Commits op `dev` | 1 | 47 |
-
-</div>
-
-<div class="np-grid-2" style="margin-top: 0.6rem; gap: 1.6rem; font-size: 0.84rem; line-height: 1.55; max-width: 86%;">
+<div class="np-grid-2" style="margin-top: 1rem; gap: 1.6rem; font-size: 0.86rem; line-height: 1.55; max-width: 90%;">
 <div>
 
-**Public**
-
-- Overzichtsplaat en branching-diagram; redactie op kaderscenario leerroute 1
-- Applicatiediensten en versionering in voorbereiding: 63 bestanden op een branch ([PR 100](https://github.com/Npuls-OKx/Public/pull/100))
-- Vijf correctie-issues op de hoofdplaat en het kaderscenario gesloten
+**Public:** overzichtsplaat en branching-diagram; redactie op kaderscenario leerroute 1; applicatiediensten en versionering op een branch, 63 bestanden ([PR 100](https://github.com/Npuls-OKx/Public/pull/100))
 
 </div>
 <div>
 
-**meta**
-
-- Deck van 1 september met PowerPoint-export, Nederlands als voertaal, lezerspersona's
-- Informatiemodel en begrippenlijst: 22 commits op een branch ([PR 225](https://github.com/Npuls-OKx/meta/pull/225))
-- Elf issues gesloten, vooral de harness rond presentaties en reviews
+**meta:** deck van 1 september met PowerPoint-export; Nederlands als voertaal; lezerspersona's; informatiemodel en begrippenlijst op een branch, 22 commits ([PR 225](https://github.com/Npuls-OKx/meta/pull/225))
 
 </div>
 </div>
