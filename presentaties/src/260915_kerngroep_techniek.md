@@ -4,6 +4,7 @@ title: "Kerngroep techniek, 15 september 2026"
 info: "Update kerngroep techniek: versionering en modulariteit van de koppelvlakspecificatie, het informatiemodel met de begrippenlijst, en het open werk met een voorstel voor de prioritering."
 author: OKx - Onderwijskoppelingen (Npuls)
 highlighter: shiki
+colorSchema: light
 lineNumbers: false
 drawings:
   persist: false
