@@ -439,39 +439,33 @@ inschatting dat het niet kan; vastgesteld is dat niet.
 
 ---
 
-<!-- 16. BEGRIPPENLIJST -->
+<!-- 16. BEGRIPPENKADER -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
 
-# Begrippenlijst: eerst het kader, dan eigen woorden
+# Eerste begrippenkader
 
-<div class="np-grid-2" style="margin-top: 0.8rem; gap: 1.6rem; align-items: start;">
-<div style="font-size: 0.9rem; line-height: 1.6;">
+<div style="font-size: 0.98rem; line-height: 1.8; margin-top: 1rem;">
+
+- Elk begrip gerelateerd aan de referentiearchitecturen: MORA, ROSA (Kernmodel Onderwijsinformatie) en HORA
+- Doel: iteratief uitbreiden en reviewen
+
+</div>
+
+<div style="font-size: 0.92rem; line-height: 1.6; margin-top: 1rem; max-width: 34rem;">
 
 | | |
 |---|---|
-| Begrippen en objecttypen van het model | 69 |
-| Definitie uit MORA of het Kernmodel Onderwijsinformatie | 20 |
-| Eigen OKx-definitie, als verbijzondering of nieuw | 14 |
+| Begrippen en objecttypen van het informatiemodel | 69 |
+| Definitie overgenomen uit MORA of ROSA | 20 |
+| Eigen OKx-definitie | 14 |
 | Nog geen definitie | 35 |
 
 </div>
-<div style="font-size: 0.92rem; line-height: 1.8;">
-
-Per begrip, per kader, een van drie uitkomsten:
-
-- een tegenhanger, met citaat en link
-- `geen tegenhanger gevonden`, met de zoekterm
-- `nog niet onderzocht`
-
-Nooit een lege cel. HORA staat overal op de derde.
-
-</div>
-</div>
 
 <div style="font-size: 0.85rem; color: var(--np-dark-gray); margin-top: 1rem;">
-Status: v0.2, concept. Een gat staat als gat in de lijst, niet als dichtgeschreven aanname.
+Status: v0.2, concept. MORA en ROSA zijn geraadpleegd, HORA volgt.
 </div>
 
 </div>
@@ -479,8 +473,9 @@ Status: v0.2, concept. Een gat staat als gat in de lijst, niet als dichtgeschrev
 <!--
 Bron: begrippenlijst.md op de branch van meta PR 225, stand 11 september. De getallen
 veranderen zolang de PR beweegt; vlak voor de sessie opnieuw tegen de bron controleren.
-MORA en KOI zijn op 9 september opgehaald; elke definitie staat letterlijk in
-referentiekaders.json met URL en ophaaldatum.
+Per begrip staat in de lijst per kader of er een tegenhanger is (met citaat en link), of er
+gezocht is zonder resultaat, of dat het nog niet is onderzocht. MORA en KOI zijn op 9 september
+opgehaald; elke definitie staat letterlijk in referentiekaders.json met URL en ophaaldatum.
 -->
 
 ---
