@@ -307,7 +307,7 @@ variant in PR 100 wordt uitgewerkt.
 
 - Het antwoord: twee platen uit het ArchiMate-model, met de conventies en de keuzes erachter
 - Het OKx-model staat los van OEAPI; de mapping is een tweede plaat
-- Status: concept, interne review afgerond, ter review in [meta PR 225](https://github.com/Npuls-OKx/meta/pull/225)
+- Status: concept, interne review afgerond, ter review in [meta PR 225](https://github.com/Npuls-OKx/meta/pull/225); twee ontwerpkeuzes liggen bij het kernteam ([meta #227](https://github.com/Npuls-OKx/meta/issues/227), [#228](https://github.com/Npuls-OKx/meta/issues/228))
 
 </div>
 
@@ -370,73 +370,6 @@ Plaat op volle breedte, de leeswijzer eronder. Versie v0.1 van 9 september, 62 o
 Letterlijk overgenomen uit de begrippentabel in informatiemodel.md. Het informatiemodel is de
 aanzet tot het conceptueel informatiemodel, MIM-niveau 2; de begrippen zelf staan op niveau 1
 in het begrippenkader en de begrippenlijst.
--->
-
----
-
-<!-- 14. KEUZE 1: NIVEAU VAN DE LEERUITKOMST -->
-<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
-
-<div class="fill">
-
-# Uit welk niveau van het kwalificatiekader komt een leeruitkomst?
-
-<div style="font-size: 0.92rem; line-height: 1.6; margin-top: 0.4rem;">
-Een leeruitkomst wordt vertaald uit het kwalificatiekader. De vraag is op welk niveau die vertaling mag beginnen.
-</div>
-
-<div class="np-grid-3" style="margin-top: 0.8rem; gap: 1rem; font-size: 0.86rem; line-height: 1.5;">
-<div class="np-card accent-blue"><strong>A. Alleen kerntaak en werkproces</strong><div style="display:flex;gap:0.3rem;align-items:stretch;margin-top:0.5rem;"><div style="display:flex;flex-direction:column;gap:0.25rem;flex:1;"><div style="display:flex;align-items:center;gap:0.4rem;"><div style="flex:1;border:1px solid var(--np-light-gray);border-radius:4px;padding:0.15rem 0.4rem;font-size:0.72rem;color:var(--np-mid-gray);background:#fff;">Kwalificatiedossier</div><div style="width:1rem;text-align:center;font-size:0.9rem;color:var(--np-blue);">&nbsp;</div></div><div style="display:flex;align-items:center;gap:0.4rem;"><div style="flex:1;border:1px solid var(--np-light-gray);border-radius:4px;padding:0.15rem 0.4rem;font-size:0.72rem;color:var(--np-mid-gray);background:#fff;">Kwalificatie</div><div style="width:1rem;text-align:center;font-size:0.9rem;color:var(--np-blue);">&nbsp;</div></div><div style="display:flex;align-items:center;gap:0.4rem;"><div style="flex:1;border:1px solid var(--np-light-gray);border-radius:4px;padding:0.15rem 0.4rem;font-size:0.72rem;color:var(--np-ink);background:#fff;">Kerntaak</div><div style="width:1rem;text-align:center;font-size:0.9rem;color:var(--np-blue);">&#8594;</div></div><div style="display:flex;align-items:center;gap:0.4rem;"><div style="flex:1;border:1px solid var(--np-light-gray);border-radius:4px;padding:0.15rem 0.4rem;font-size:0.72rem;color:var(--np-ink);background:#fff;">Werkproces</div><div style="width:1rem;text-align:center;font-size:0.9rem;color:var(--np-blue);">&#8594;</div></div></div><div style="display:flex;align-items:center;"><div style="border:1px solid var(--np-blue);border-radius:4px;padding:0.3rem 0.5rem;font-size:0.72rem;color:var(--np-ink);background:#fff;">Leeruitkomst</div></div></div><div style="margin-top:0.4rem;color:var(--np-dark-gray);">Zoals ADR 0019 zegt</div></div>
-<div class="np-card accent-orange"><strong>B. Alle vier de niveaus</strong><div style="display:flex;gap:0.3rem;align-items:stretch;margin-top:0.5rem;"><div style="display:flex;flex-direction:column;gap:0.25rem;flex:1;"><div style="display:flex;align-items:center;gap:0.4rem;"><div style="flex:1;border:1px solid var(--np-light-gray);border-radius:4px;padding:0.15rem 0.4rem;font-size:0.72rem;color:var(--np-ink);background:#fff;">Kwalificatiedossier</div><div style="width:1rem;text-align:center;font-size:0.9rem;color:var(--np-blue);">&#8594;</div></div><div style="display:flex;align-items:center;gap:0.4rem;"><div style="flex:1;border:1px solid var(--np-light-gray);border-radius:4px;padding:0.15rem 0.4rem;font-size:0.72rem;color:var(--np-ink);background:#fff;">Kwalificatie</div><div style="width:1rem;text-align:center;font-size:0.9rem;color:var(--np-blue);">&#8594;</div></div><div style="display:flex;align-items:center;gap:0.4rem;"><div style="flex:1;border:1px solid var(--np-light-gray);border-radius:4px;padding:0.15rem 0.4rem;font-size:0.72rem;color:var(--np-ink);background:#fff;">Kerntaak</div><div style="width:1rem;text-align:center;font-size:0.9rem;color:var(--np-blue);">&#8594;</div></div><div style="display:flex;align-items:center;gap:0.4rem;"><div style="flex:1;border:1px solid var(--np-light-gray);border-radius:4px;padding:0.15rem 0.4rem;font-size:0.72rem;color:var(--np-ink);background:#fff;">Werkproces</div><div style="width:1rem;text-align:center;font-size:0.9rem;color:var(--np-blue);">&#8594;</div></div></div><div style="display:flex;align-items:center;"><div style="border:1px solid var(--np-blue);border-radius:4px;padding:0.3rem 0.5rem;font-size:0.72rem;color:var(--np-ink);background:#fff;">Leeruitkomst</div></div></div><div style="margin-top:0.4rem;color:var(--np-dark-gray);">Zoals de plaat nu staat</div></div>
-<div class="np-card accent-green"><strong>C. Niet vastgelegd</strong><div style="display:flex;gap:0.3rem;align-items:stretch;margin-top:0.5rem;"><div style="display:flex;flex-direction:column;gap:0.25rem;flex:1;"><div style="display:flex;align-items:center;gap:0.4rem;"><div style="flex:1;border:1px dashed var(--np-mid-gray);border-radius:4px;padding:0.15rem 0.4rem;font-size:0.72rem;color:var(--np-ink);background:#fff;">Kwalificatiedossier</div><div style="width:1rem;text-align:center;font-size:0.9rem;color:var(--np-blue);">&#8594;</div></div><div style="display:flex;align-items:center;gap:0.4rem;"><div style="flex:1;border:1px dashed var(--np-mid-gray);border-radius:4px;padding:0.15rem 0.4rem;font-size:0.72rem;color:var(--np-ink);background:#fff;">Kwalificatie</div><div style="width:1rem;text-align:center;font-size:0.9rem;color:var(--np-blue);">&#8594;</div></div><div style="display:flex;align-items:center;gap:0.4rem;"><div style="flex:1;border:1px dashed var(--np-mid-gray);border-radius:4px;padding:0.15rem 0.4rem;font-size:0.72rem;color:var(--np-ink);background:#fff;">Kerntaak</div><div style="width:1rem;text-align:center;font-size:0.9rem;color:var(--np-blue);">&#8594;</div></div><div style="display:flex;align-items:center;gap:0.4rem;"><div style="flex:1;border:1px dashed var(--np-mid-gray);border-radius:4px;padding:0.15rem 0.4rem;font-size:0.72rem;color:var(--np-ink);background:#fff;">Werkproces</div><div style="width:1rem;text-align:center;font-size:0.9rem;color:var(--np-blue);">&#8594;</div></div></div><div style="display:flex;align-items:center;"><div style="border:1px solid var(--np-blue);border-radius:4px;padding:0.3rem 0.5rem;font-size:0.72rem;color:var(--np-ink);background:#fff;">Leeruitkomst</div></div></div><div style="margin-top:0.4rem;color:var(--np-dark-gray);">De instelling kiest per leeruitkomst</div></div>
-</div>
-
-<div style="font-size: 0.85rem; color: var(--np-dark-gray); margin-top: 0.9rem;">
-Zonder keuze blijft de plaat op B staan en spreekt hij ADR 0019 tegen. Een ander voorstel is welkom.
-</div>
-
-</div>
-
-<!--
-Wat de lezer moet weten: ADR 0019 (voorstel) zegt dat leeruitkomsten niet op dossier- en
-kwalificatieniveau worden opgeplakt en dat aggregatie van werkproces naar kerntaak loopt.
-ADR 0022 (voorstel) zegt dat de korrelgrootte ook het kwalificatiedossier omvat. De plaat
-tekent nu alle vier. Optie C sluit aan op ontwerpkeuze 4 in informatiemodel.md: het niveau
-waarop iets gespecificeerd wordt ligt niet vast. Geen voorkeur van het kernteam vastgelegd.
--->
-
----
-
-<!-- 14b. KEUZE 2: SCHRIJFWIJZE -->
-<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
-
-<div class="fill">
-
-# Hoe schrijven we de objecttypen?
-
-<div style="font-size: 0.92rem; line-height: 1.6; margin-top: 0.4rem;">
-MORA schrijft sommige objecten met spaties, de Nederlandse spelling zegt aaneen of met een koppelteken. De plaat doet nu beide.
-</div>
-
-<div class="np-grid-3" style="margin-top: 0.8rem; gap: 1rem; font-size: 0.86rem; line-height: 1.7;">
-<div class="np-card accent-blue"><strong>A. MORA waar MORA het kent, anders Nederlands</strong><div style="margin-top:0.5rem;"><code style="font-size:0.74rem;">Summatieve resultaat structuur</code><br/><code style="font-size:0.74rem;">Onderwijseenheid-specificatie</code></div><div style="margin-top:0.4rem;color:var(--np-dark-gray);">Voorstel kernteam, meta #223</div></div>
-<div class="np-card accent-orange"><strong>B. Overal Nederlandse spelling</strong><div style="margin-top:0.5rem;"><code style="font-size:0.74rem;">Summatieve resultaatstructuur</code><br/><code style="font-size:0.74rem;">Onderwijseenheid-specificatie</code></div><div style="margin-top:0.4rem;color:var(--np-dark-gray);">Wijkt af van MORA</div></div>
-<div class="np-card accent-green"><strong>C. Overal spaties, zoals de plaat</strong><div style="margin-top:0.5rem;"><code style="font-size:0.74rem;">Summatieve resultaat structuur</code><br/><code style="font-size:0.74rem;">Onderwijseenheid specificatie</code></div><div style="margin-top:0.4rem;color:var(--np-dark-gray);">Geen Nederlandse spelling</div></div>
-</div>
-
-<div style="font-size: 0.85rem; color: var(--np-dark-gray); margin-top: 0.9rem;">
-Zonder keuze blijven twee schrijfwijzen naast elkaar staan in dezelfde specificatie.
-</div>
-
-</div>
-
-<!--
-Bron: de analyse onder meta #223. MORA schrijft Kwalificatie dossier, Summatieve resultaat
-structuur en Waarde document (diploma / certificaat) letterlijk zo; het corpus van OKx schrijft
-Onderwijseenheid-specificatie 19 keer met koppelteken en 2 keer met spatie. Optie A is
-ADR 0019 beslissing 3 toegepast op de naamgeving: volg ROSA en KOI waar de sector het voorschrijft,
-documenteer de afwijkingen. De derde correctie uit de reviews, de richting van de keuzeregelset
-naar de leeruitkomst, is geen keuze maar een fix (R7) en staat daarom niet hier.
 -->
 
 ---
