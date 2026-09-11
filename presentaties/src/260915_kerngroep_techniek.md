@@ -74,22 +74,21 @@ en is een herindeling van de koppelvlakspecificatie geworden.
 <div style="font-size: 0.95rem; line-height: 1.8; margin-top: 1rem;">
 
 - Eén reactie binnen: Xedule en YNC, een pdf met opmerkingen per story ([Public #99](https://github.com/Npuls-OKx/Public/issues/99))
-- Uit de pull request zelf: onduidelijk wat er van een reviewer verwacht wordt, de vorm of de inhoud ([Public PR 82](https://github.com/Npuls-OKx/Public/pull/82))
-- Verder geen reacties op de pull request
+- Op de pull request zelf geen review ingediend; de reacties die erop staan komen uit de demo van 1 september ([Public PR 82](https://github.com/Npuls-OKx/Public/pull/82))
 
 </div>
 
 <div class="np-card" style="margin-top: 1.4rem; font-size: 0.98rem;">
-Gezocht: de bevindingen van ieder die v0.0.2 heeft doorgenomen, en wat een reviewverzoek nodig heeft om beantwoord te worden.
+Gezocht: de bevindingen van ieder die v0.0.2 heeft doorgenomen, en wat er nodig is om de review te laten gebeuren.
 </div>
 
 </div>
 
 <!--
-Vragend stellen, niet verwijtend. Jan Hendrik schreef op PR 82 letterlijk dat hij niet wist wat
-er van hem verwacht werd. Dat is een signaal over de vraagstelling, niet over de reviewer.
-De pdf van Xedule en YNC bevat acht pagina's opmerkingen per story; Niels heeft daarop
-geantwoord dat de stories met de PoC-instellingen verder worden aangepakt.
+Vragend stellen, niet verwijtend. De drie reviewregels en de comment op PR 82 zijn tijdens de
+demo van 1 september geplaatst en tellen niet als review. De pdf van Xedule en YNC bevat acht
+pagina's opmerkingen per story; Niels heeft daarop geantwoord dat de stories met de
+PoC-instellingen verder worden aangepakt.
 -->
 
 ---
@@ -598,7 +597,7 @@ uit de backlog. Vraag aan de groep: klopt deze volgorde, en wat ontbreekt?
 </dl>
 
 <dl class="np-besluit kennisname" style="margin-top: 0.8rem;">
-  <dt>Input</dt><dd>de bevindingen op v0.0.2, en wat een reviewverzoek nodig heeft om beantwoord te worden</dd>
+  <dt>Input</dt><dd>de bevindingen op v0.0.2, en wat er nodig is om de review te laten gebeuren</dd>
 </dl>
 
 </div>
