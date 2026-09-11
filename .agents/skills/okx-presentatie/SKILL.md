@@ -270,6 +270,10 @@ Geef een brede plaat de hele slidebreedte:
 **Houd het manifest actueel.** Komt er een nieuwe versie van een plaat, of teken je er een die vaker bruikbaar is, neem hem dan op in `platen.json` en werk de hashes bij met `--bijwerken`. Dat is onderdeel van het werk, niet iets voor later: een manifest dat achterloopt op de repositories is erger dan geen manifest, want dan wordt met vertrouwen een verouderde plaat gekozen.
 
 
+### Contrast op een slide
+
+Uit de reviewronde van 11 september 2026. Begrippen tussen backquotes renderden als blauwe letters op een lichtblauw vlak: "bijna niet te lezen" op een scherm, en op een beamer nog minder. `style.css` zet inline code daarom op zwarte letters (`--np-ink`) op lichtgrijs, zonder rand. Een highlight op een slide contrasteert in helderheid, niet alleen in kleur: donkere tekst op een licht vlak of andersom. Kleur op kleur (blauw op lichtblauw, oranje op geel) valt op het scherm van de maker mee en op de beamer weg. Wie een nieuwe accentstijl toevoegt, bekijkt de export op een klein formaat voordat hij hem gebruikt.
+
 ### Valkuilen bij zelfgetekende figuren
 
 Teken je toch zelf een figuur, in SVG of HTML, let dan op drie dingen die stil misgaan.
