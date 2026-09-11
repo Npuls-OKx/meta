@@ -417,7 +417,7 @@ Vandaag geen besluit vragen, wel kennisname: de punten liggen bij het kernteam.
 
 - Eén OEAPI-object draagt vaak meerdere OKx-objecttypen: `Programme` vier, `ProgrammeOffering` drie
 - Het kwalificatiekader heeft geen tegenhanger; de leeruitkomst wel, `LearningOutcome`
-- De resultaatstructuur is niet in OEAPI uit te drukken
+- De resultaatstructuur is nog niet op OEAPI gemapt; de vraag is of dat kan, en het lijkt er nu op van niet
 - 21 objecttypen binnen scope zonder OEAPI-object: per stuk signalering of bewuste afwijking
 
 </div>
@@ -431,8 +431,10 @@ Vandaag geen besluit vragen, wel kennisname: de punten liggen bij het kernteam.
 
 <!--
 Bron: informatiemodel-oeapi-mapping.md. Geverifieerd tegen de OEAPI 6.0 OpenAPI-specificatie:
-LearningOutcome bestaat met eigen endpoints; weight staat per resultaat, niet per specificatie;
-het afrondingscriterium bestaat alleen als vrije tekst in qualificationRequirements.
+LearningOutcome bestaat met eigen endpoints. Voor de resultaatstructuur is de mapping nog niet
+gemaakt; wat er tot nu toe gevonden is: weight staat per resultaat, niet per specificatie, en
+het afrondingscriterium bestaat alleen als vrije tekst in qualificationRequirements. Daarom de
+inschatting dat het niet kan; vastgesteld is dat niet.
 -->
 
 ---
