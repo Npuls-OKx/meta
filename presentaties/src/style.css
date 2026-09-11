@@ -82,8 +82,9 @@ li { margin-bottom: 0.3rem; line-height: 1.5; font-size: 0.92rem; }
 li::marker { color: var(--np-blue); }
 
 code {
-  background: #EEF2FF;
-  color: var(--np-blue);
+  background: #F1F3F5;
+  color: var(--np-ink);
+  border: none;
   border-radius: 5px;
   padding: 1px 6px;
   font-size: 0.85em;

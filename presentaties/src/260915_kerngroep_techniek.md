@@ -478,7 +478,7 @@ Stand van de hele lijst: 69 begrippen, 20 overgenomen, 14 eigen OKx-definitie, 3
 |---|---|
 | [Releaseproces en kwaliteit](https://github.com/Npuls-OKx/Public/milestone/4) | 11 |
 | [Requirementsboom doorontwikkelen](https://github.com/Npuls-OKx/Public/milestone/3) | 9 |
-| [Interactiepatroon-documenten](https://github.com/Npuls-OKx/Public/milestone/5) | 7 |
+| [Koppelingspecificatiestructuur doorontwikkelen](https://github.com/Npuls-OKx/Public/milestone/5) | 7 |
 | [Leerroute-refactor](https://github.com/Npuls-OKx/Public/milestone/1) | 3 |
 | [Keuzedelen](https://github.com/Npuls-OKx/Public/milestone/7) | 3 |
 | [Agent-harness](https://github.com/Npuls-OKx/Public/milestone/2) | 2 |
@@ -505,6 +505,57 @@ Stand van 11 september: 44 open issues, waarvan 7 zonder milestone. Links de mil
 aantallen; rechts wat er van buiten binnenkwam en wat er aantoonbaar aan gewerkt wordt (een
 pull request, een toegewezen persoon, of een antwoord in het issue). Wat niet in de laatste
 regel staat, wordt op dit moment niet opgepakt.
+-->
+
+---
+
+<!-- 18b. VERZET WERK -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# Wat er sinds 1 september is verzet
+
+<div style="font-size: 0.86rem; line-height: 1.5; margin-top: 0.6rem; max-width: 60%;">
+
+| | Npuls-OKx/Public | Npuls-OKx/meta |
+|---|---|---|
+| Pull requests gemerged | 2 | 4 |
+| Pull requests geopend | 1 | 6 |
+| Issues gesloten | 5 | 11 |
+| Issues geopend | 8 | 21 |
+| Commits op `dev` | 1 | 47 |
+
+</div>
+
+<div class="np-grid-2" style="margin-top: 0.6rem; gap: 1.6rem; font-size: 0.84rem; line-height: 1.55; max-width: 86%;">
+<div>
+
+**Public**
+
+- Overzichtsplaat en branching-diagram; redactie op kaderscenario leerroute 1
+- Applicatiediensten en versionering in voorbereiding: 63 bestanden op een branch ([PR 100](https://github.com/Npuls-OKx/Public/pull/100))
+- Vijf correctie-issues op de hoofdplaat en het kaderscenario gesloten
+
+</div>
+<div>
+
+**meta**
+
+- Deck van 1 september met PowerPoint-export, Nederlands als voertaal, lezerspersona's
+- Informatiemodel en begrippenlijst: 22 commits op een branch ([PR 225](https://github.com/Npuls-OKx/meta/pull/225))
+- Elf issues gesloten, vooral de harness rond presentaties en reviews
+
+</div>
+</div>
+
+</div>
+
+<!--
+Stand van 11 september, beide repositories, alles na 1 september. De aantallen zeggen iets
+over de hoeveelheid werk, niet over de kwaliteit ervan; dat oordeel ligt bij de review. Het
+grote werk van deze periode staat op branches en niet op dev: PR 100 in Public en PR 225 in
+meta. De 21 nieuwe issues op meta zijn grotendeels intern harness- en reviewwerk.
 -->
 
 ---
