@@ -91,6 +91,20 @@ Loop voor oplevering deze drie na.
 - **Is hij te beantwoorden met ja, nee of een keuze?** "Focus en capaciteit" is geen vraag maar een claim: geen omvang, geen termijn, geen rol, geen gevolg. Zo'n regel kan niemand afwijzen en niemand goedkeuren, en hij wordt later geciteerd als een toezegging die niemand heeft gedaan.
 - **Staat er wat er gebeurt als er niets gekozen wordt?** Zonder gevolg is elke optie vrijblijvend.
 
+### Een keuze voorleggen: vraag, opties, gevolg
+
+Uit de reviewronde van 11 september 2026 op het deck voor de kerngroep techniek. Een slide "Drie punten die een besluit vragen" met een tabel *punt / waarom het een besluit is* kreeg terug: "Geen idee wat je hier wil bereiken. ADR 19 vs ADR 22 niemand heeft die scherp." De tabel beschreef het probleem; niemand kon er iets mee kiezen.
+
+Een keuze krijgt daarom altijd deze vorm, en één keuze per slide.
+
+- **De vraag is de titel.** "Uit welk niveau van het kwalificatiekader komt een leeruitkomst?" en niet "Wat er nog open staat".
+- **Hoogstens twee zinnen wat de lezer moet weten.** Zonder ADR-nummers, issuenummers of verwijzingen naar eerdere besluiten als veronderstelde kennis; die horen in de sprekersnotitie voor wie doorvraagt. Lukt het niet in twee zinnen, dan is de keuze nog niet rijp voor de zaal.
+- **Twee of drie opties als kaarten, elk met een kleine figuur.** Dezelfde figuur per kaart, met alleen het verschil erin: dezelfde vier blokken met andere pijlen, dezelfde twee namen in een andere schrijfwijze. Zo ziet de lezer het verschil zonder de tekst te lezen. Accentkleuren wisselen per kaart.
+- **Per optie één regel eronder wat hij betekent of waar hij vandaan komt** ("Zoals de plaat nu staat", "Voorstel kernteam"). Een voorkeur staat er alleen bij als die is uitgesproken; anders leest de zaal een voorkeur die niemand heeft.
+- **Onderaan het gevolg zonder keuze**, en de uitnodiging voor een ander voorstel. Zonder gevolg is elke optie vrijblijvend.
+
+**Een correctie is geen keuze.** Staat het antwoord al in een bron (een requirement, een vastgesteld besluit), dan hoort het niet tussen de opties: dat wekt de indruk dat het nog open is. Zet het in het vervolg of in de notitie bij de slide waar het speelt.
+
 Bij een vraag om mensen of geld geldt bovendien een volgorde. Zet eerst wat het team zelf kan doen, dan wat samen met de sector kan, en pas als laatste de vraag om extra capaciteit. Wie de laatste kaart leest heeft de eerste twee al gezien, en dat is het verschil tussen een verkenning en een claim. Zet "niets doen" niet als vierde optie neer maar als het gevolg onderaan: als optie geeft het dezelfde status als de rest, als gevolg is het de prijs van niet kiezen.
 
 ## Schrijf over de zaak, niet tegen de zaal
