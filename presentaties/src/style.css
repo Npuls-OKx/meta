@@ -81,7 +81,7 @@ ul { margin: 0.2rem 0; }
 li { margin-bottom: 0.3rem; line-height: 1.5; font-size: 0.92rem; }
 li::marker { color: var(--np-blue); }
 
-/* Inline code: zwarte letters op lichtgrijs, in de lichte en de donkere modus van Slidev.
+/* Inline code: oranje letters op lichtgrijs, in de lichte en de donkere modus van Slidev.
    Het thema zet in de donkere modus een donkere achtergrond op code; zonder deze
    regel worden dat zwarte vakken. */
 code,
@@ -89,7 +89,7 @@ code,
 html.dark code,
 html.dark .slidev-layout code {
   background: #F1F3F5 !important;
-  color: var(--np-ink) !important;
+  color: var(--np-orange) !important;
   border: none !important;
   border-radius: 5px;
   padding: 1px 6px;

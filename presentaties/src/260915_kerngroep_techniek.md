@@ -429,8 +429,8 @@ inschatting dat het niet kan; vastgesteld is dat niet.
 |---|---|---|---|---|---|
 | `Kwalificatie dossier` | Het kwalificatiedossier beschrijft de eisen waaraan een student moet voldoen om zijn diploma te behalen | overgenomen uit MORA | geen tegenhanger | <a href="https://mora.mbodigitaal.nl/index.php/Id-3389d485-20a7-6e53-21df-d09eb49d4762">Kwalificatie dossier</a> | nog niet onderzocht |
 | `Onderwijsverbintenis` | Een afspraak voor het gaan volgen, volgen en hebben gevolgd van onderwijs | overgenomen uit ROSA | <a href="https://rosa.wikixl.nl/index.php/Id-ec977035c9be4b01bb1c14a5950a1799">onderwijsdeelname</a> | geen tegenhanger | nog niet onderzocht |
-| `Onderwijseenheid specificatie` | De specificatie van de fundamentele eenheid waarin onderwijs wordt ontworpen en aangeboden | verbijzondering | <a href="https://rosa.wikixl.nl/index.php/Id-c74c161c6f1f4690933a31ce4d11f3b8">onderwijseenheid</a> | <a href="https://mora.mbodigitaal.nl/index.php/Id-17db36ca-368f-450e-cbfe-604b2fafee6e">Opleidings-onderdeel</a> | nog niet onderzocht |
-| `Toetsgelegenheid` | Het georganiseerde aanbod van een toetsmoment: wanneer, waar en onder welke condities | nieuw voor OKx | geen tegenhanger | geen tegenhanger | nog niet onderzocht |
+| `Onderwijseenheid specificatie` | De specificatie van de fundamentele eenheid waarin onderwijs wordt ontworpen en aangeboden | afgeleid uit klus 53 | <a href="https://rosa.wikixl.nl/index.php/Id-c74c161c6f1f4690933a31ce4d11f3b8">onderwijseenheid</a> | <a href="https://mora.mbodigitaal.nl/index.php/Id-17db36ca-368f-450e-cbfe-604b2fafee6e">Opleidings-onderdeel</a> | nog niet onderzocht |
+| `Toetsgelegenheid` | Het georganiseerde aanbod van een toetsmoment: wanneer, waar en onder welke condities | afgeleid uit klus 53 | geen tegenhanger | geen tegenhanger | nog niet onderzocht |
 | `Keuzedeelruimte` | <em>nog te definiëren</em> | nieuw voor OKx | geen tegenhanger | geen tegenhanger | nog niet onderzocht |
 
 </div>
@@ -445,7 +445,7 @@ Uitsnede: vijf van de 69 begrippen en objecttypen. Status: v0.2, concept. MORA e
 Uitsnede uit begrippenlijst.md op de branch van meta PR 225, stand 11 september. Definities
 zijn ingekort tot de eerste zin; de volledige tekst staat in de lijst met citaat, URL en
 ophaaldatum. De vijf rijen laten de vier soorten zien: overgenomen uit MORA, overgenomen uit
-ROSA, een verbijzondering waar OKx verder gaat dan het kader, en een eigen of nog leeg begrip.
+ROSA, twee die zijn afgeleid uit de alignment MORA en HORA (klus 53), en een nog leeg begrip.
 Stand van de hele lijst: 69 begrippen, 20 overgenomen, 14 eigen OKx-definitie, 35 nog open.
 -->
 
