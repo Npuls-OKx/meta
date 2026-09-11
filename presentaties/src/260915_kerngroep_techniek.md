@@ -631,25 +631,20 @@ een leverancier is net zo welkom.
 
 # Vervolg
 
-<div style="font-size: 1rem; line-height: 2.1; margin-top: 1.4rem;">
+<div class="np-card accent-orange" style="margin-top: 0.8rem; padding: 0.8rem 1.2rem;"><div style="display:flex;align-items:center;gap:0.8rem;margin-top:0;font-size:1.05rem;line-height:1.4;"><svg width="44" height="44" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#E9A27F"/><rect x="11" y="14" width="22" height="19" rx="2" fill="#fff"/><rect x="11" y="14" width="22" height="5" fill="#E9A27F" opacity="0.35"/><rect x="15" y="10" width="3" height="6" rx="1" fill="#fff"/><rect x="26" y="10" width="3" height="6" rx="1" fill="#fff"/><rect x="15" y="22" width="4" height="4" fill="#E9A27F"/><rect x="21" y="22" width="4" height="4" fill="#E9A27F"/><rect x="27" y="22" width="4" height="4" fill="#E9A27F"/></svg><div><strong>Volgende sessie: woensdag 30 september 2026</strong></div></div><div style="display:flex;align-items:center;gap:0.8rem;margin-top:0.5rem;font-size:1.05rem;line-height:1.4;"><svg width="44" height="44" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#E9A27F"/><path d="M22 10 a8 8 0 0 1 8 8 c0 6 -8 15 -8 15 s-8 -9 -8 -15 a8 8 0 0 1 8 -8 z" fill="#fff"/><circle cx="22" cy="18" r="3" fill="#E9A27F"/></svg><div>Amersfoort, op locatie</div></div></div>
 
-Volgende sessie:
+<div style="margin-top: 0.6rem;"><div style="display:flex;align-items:center;gap:0.8rem;margin-top:0.7rem;font-size:0.98rem;line-height:1.4;"><svg width="40" height="40" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#7A97F2"/><line x1="12" y1="22" x2="30" y2="22" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/><polyline points="24,15 31,22 24,29" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg><div>De gekozen versioneringsvariant, uitgewerkt in <a href="https://github.com/Npuls-OKx/Public/pull/100">Public PR 100</a></div></div><div style="display:flex;align-items:center;gap:0.8rem;margin-top:0.7rem;font-size:0.98rem;line-height:1.4;"><svg width="40" height="40" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#7A97F2"/><line x1="12" y1="22" x2="30" y2="22" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/><polyline points="24,15 31,22 24,29" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg><div>Het informatiemodel na de interne besluiten als pull request naar Public</div></div><div style="display:flex;align-items:center;gap:0.8rem;margin-top:0.7rem;font-size:0.98rem;line-height:1.4;"><svg width="40" height="40" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#7A97F2"/><line x1="12" y1="22" x2="30" y2="22" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/><polyline points="24,15 31,22 24,29" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg><div>De student keuze regelsets, getoetst aan de scenario's</div></div><div style="display:flex;align-items:center;gap:0.8rem;margin-top:0.7rem;font-size:0.92rem;line-height:1.4;"><svg width="40" height="40" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#B8BEC7"/><rect x="11" y="14" width="22" height="19" rx="2" fill="#fff"/><rect x="11" y="14" width="22" height="5" fill="#B8BEC7" opacity="0.35"/><rect x="15" y="10" width="3" height="6" rx="1" fill="#fff"/><rect x="26" y="10" width="3" height="6" rx="1" fill="#fff"/><rect x="15" y="22" width="4" height="4" fill="#B8BEC7"/><rect x="21" y="22" width="4" height="4" fill="#B8BEC7"/><rect x="27" y="22" width="4" height="4" fill="#B8BEC7"/></svg><div>Maandag 6 oktober: leeruitkomstendag, waar het informatiemodel wordt getoond</div></div></div>
 
-- De gekozen versioneringsvariant, uitgewerkt in Public PR 100
-- Het informatiemodel na de interne besluiten als pull request naar Public
-- De student keuze regelsets, getoetst aan de scenario's
-
-</div>
-
-<div style="font-size: 0.95rem; color: var(--np-dark-gray); margin-top: 1.6rem;">
-Op 6 oktober is de leeruitkomstendag; daar wordt het informatiemodel getoond. Commentaar op een lopende release: in de pull request. Nieuw punt: als issue op <strong>github.com/Npuls-OKx/Public</strong>
+<div style="font-size: 0.85rem; color: var(--np-dark-gray); margin-top: 0.8rem;">
+Commentaar op een lopende release: in de pull request. Nieuw punt: als issue op <strong>github.com/Npuls-OKx/Public</strong>
 </div>
 
 </div>
 
 <!--
-De drie regels volgen uit Gevraagd; de datum van 6 oktober komt uit de afstemming van
-11 september. Geen andere data beloven.
+De volgende sessie is op locatie in Amersfoort, woensdag 30 september; expliciet noemen, want de
+vaste tweewekelijkse dinsdag verschuift. De drie pijlen volgen uit Gevraagd. De datum van
+6 oktober komt uit de afstemming van 11 september. Geen andere data beloven.
 -->
 
 ---
@@ -662,13 +657,7 @@ De drie regels volgen uit Gevraagd; de datum van 6 oktober komt uit de afstemmin
 # Hoe gaat het?
 
 <div class="np-grid-2" style="margin-top: 1.2rem; gap: 1.8rem; align-items: center;">
-<div style="font-size: 1.05rem; line-height: 2.2;">
-
-- Welk cijfer krijgt de voortgang, en waarom?
-- Wat ging er goed?
-- Wat kan er beter?
-
-</div>
+<div><div style="display:flex;align-items:center;gap:0.8rem;margin-top:0;font-size:1.05rem;line-height:1.4;"><svg width="44" height="44" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#7A97F2"/><path d="M12 27 a10 10 0 0 1 20 0" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/><line x1="22" y1="27" x2="27" y2="19" stroke="#fff" stroke-width="3" stroke-linecap="round"/><circle cx="22" cy="27" r="2.5" fill="#fff"/></svg><div>Welk cijfer krijgt de voortgang, en waarom?</div></div><div style="display:flex;align-items:center;gap:0.8rem;margin-top:1rem;font-size:1.05rem;line-height:1.4;"><svg width="44" height="44" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#7CCBA8"/><polyline points="12,23 19,30 32,15" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg><div>Wat ging er goed?</div></div><div style="display:flex;align-items:center;gap:0.8rem;margin-top:1rem;font-size:1.05rem;line-height:1.4;"><svg width="44" height="44" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#E9A27F"/><line x1="22" y1="32" x2="22" y2="13" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/><polyline points="14,21 22,13 30,21" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg><div>Wat kan er beter?</div></div></div>
 <div>
   <div style="display: flex; gap: 0.32rem; justify-content: center;">
     <div style="width: 46px; height: 46px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1rem; font-weight: 600; background: #f3d9d4; color: #8a4038;">1</div>
