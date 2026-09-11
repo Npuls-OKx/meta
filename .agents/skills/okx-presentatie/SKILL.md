@@ -390,7 +390,11 @@ Verder:
 - Sluit af met het commando waarmee de gebruiker het deck opent.
 
 ```bash
-./deck onderwerp            # bekijken op localhost:3030
-./deck onderwerp beelden    # PNG per slide
-./deck onderwerp pdf        # PDF
+./deck onderwerp                  # bekijken op localhost:3030
+./deck onderwerp beelden          # PNG per slide
+./deck onderwerp pdf              # PDF
+./deck onderwerp pptx             # PowerPoint uit de slidebeelden, met notities
+./deck onderwerp pptx-bewerkbaar  # PowerPoint met bewerkbare tekst, via LibreOffice
 ```
+
+**De deelbare PowerPoint komt uit de slidebeelden.** Op 11 september 2026 bleek dat de route via LibreOffice (pdf naar pptx) kaarten met een gekleurde linkerrand de randkleur als vulling geeft en een eigen tekening de hele slide zwart kan maken; de pdf was goed, de pptx niet. `pptx` bouwt daarom elke slide als beeld op volle grootte met de sprekersnotitie erbij: niet bewerkbaar, wel overal zoals in de browser. Wil iemand tekst bewerken, gebruik dan `pptx-bewerkbaar` en controleer de uitkomst slide voor slide, bijvoorbeeld door de pptx met `soffice --headless --convert-to pdf` terug te renderen en de pagina's te bekijken. Dat geldt voor elke export die de deur uit gaat: kijk naar het bestand dat verstuurd wordt, niet alleen naar de bron.
