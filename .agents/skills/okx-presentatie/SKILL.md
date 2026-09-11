@@ -272,7 +272,9 @@ Geef een brede plaat de hele slidebreedte:
 
 ### Contrast op een slide
 
-Uit de reviewronde van 11 september 2026. Begrippen tussen backquotes renderden als blauwe letters op een lichtblauw vlak: "bijna niet te lezen" op een scherm, en op een beamer nog minder. `style.css` zet inline code daarom op zwarte letters (`--np-ink`) op lichtgrijs, zonder rand. Een highlight op een slide contrasteert in helderheid, niet alleen in kleur: donkere tekst op een licht vlak of andersom. Kleur op kleur (blauw op lichtblauw, oranje op geel) valt op het scherm van de maker mee en op de beamer weg. Wie een nieuwe accentstijl toevoegt, bekijkt de export op een klein formaat voordat hij hem gebruikt.
+Uit de reviewronde van 11 september 2026. Begrippen tussen backquotes renderden als blauwe letters op een lichtblauw vlak: "bijna niet te lezen" op een scherm, en op een beamer nog minder. De vastgestelde stijl is nu **oranje letters (`--np-orange`) op lichtgrijs (`#F1F3F5`), zonder rand**, in `style.css`. Een highlight op een slide contrasteert in helderheid, niet alleen in kleur; kleur op kleur (blauw op lichtblauw, oranje op geel) valt op het scherm van de maker mee en op de beamer weg. Wie een nieuwe accentstijl toevoegt, bekijkt de export op een klein formaat voordat hij hem gebruikt.
+
+**Pin elk deck op de lichte modus** met `colorSchema: light` in de frontmatter. Slidev volgt anders de donkere modus van de browser, en het thema zet daarin een donkere achtergrond onder code: de begrippen worden dan zwarte vakken. De coderegel in `style.css` wint met `!important` van het thema in beide modi, maar de pin voorkomt dat de rest van het deck in de donkere modus terechtkomt.
 
 ### Valkuilen bij zelfgetekende figuren
 
