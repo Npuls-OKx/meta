@@ -37,6 +37,14 @@ flowchart LR
 4. **Iteratielus.** Alle reviews moeten slagen. Bevindingen terug naar stap 2; deugen de eisen zelf niet, terug naar stap 1. Maximaal drie iteraties, daarna escaleren naar de mens met de openstaande bevindingen.
 5. **Eindresultaat.** (a) Het requirements-document, (b) het uitgewerkte deliverable, (c) het **agent-rapport** in de PR-beschrijving (GitHub is de bron; geen extra bestanden).
 
+## Opleveren: maak het leesbaar voor de reviewer
+
+Een review die niet gelezen wordt telt niet. Twee regels, allebei uit de praktijk.
+
+**Zet de leesbare uitgave bovenaan in de PR-beschrijving.** Bij een visueel deliverable, zoals een deck of een plaat, is de eerste regel een directe link naar de PDF of de afbeelding, niet naar de bron. De lead architect opende de pull request, kwam in de diffweergave terecht en vroeg letterlijk: geef mij gewoon even die PDF. Een PDF in een GitHub-repository opent in de browser; een `.md` of een `.pptx` doet dat niet.
+
+**Een reviewvraag benoemt waar de twijfel zit.** "Willen jullie meelezen" levert instemming op. Stel drie tot vijf genummerde vragen die elk een concreet punt raken, en zeg welke vraag de belangrijkste is. Zet er bij dat er al eerder onjuistheden uit een reviewronde kwamen, met hoeveel: dat nodigt uit om te zoeken in plaats van goed te keuren.
+
 ## Agent-rapport (format)
 
 Kort, in de PR-beschrijving:

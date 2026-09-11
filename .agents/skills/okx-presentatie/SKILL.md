@@ -60,6 +60,53 @@ Lees niet alleen de commit-titels. Een titel zegt *wat* er is gewijzigd; een dec
 
 **Noem altijd om welke repository het gaat** als je een branch, pull request of issue noemt. Beide repositories hebben eigen nummering; `#7` alleen is dubbelzinnig.
 
+## Beantwoord de vraag die gesteld is
+
+Een deck ontstaat bijna altijd uit een vraag: van de opdrachtgever, uit een gremium, uit een issue. Schrijf die vraag letterlijk op voordat je begint, in de woorden van de vraagsteller, en houd hem naast je tijdens het schrijven.
+
+**Wijs bij oplevering de slide aan die de vraag beantwoordt.** Lukt dat niet, dan is het deck niet af, hoe goed het verder ook is opgebouwd. Dit gaat vaak mis bij een deck dat netjes opbouwt: de historie klopt, de onderbouwing klopt, de conclusie klopt, en nergens staat het antwoord. De projectleider verwoordde het zo: "als bespiegeling prima, maar het geeft niet echt antwoord op de vraag."
+
+Twee vervolgregels die daaruit volgen.
+
+**Context is aanloop, geen inhoud.** Historische opbouw, marktontwikkelingen en hoe we hier gekomen zijn: hoogstens een slide, tenzij het gremium er expliciet om vroeg. Wat de spreker kan vertellen hoort in de sprekersnotitie. Vraagt een reviewer bij een slide "wat doet die hier", dan is dat geen verzoek om uitleg maar de constatering dat de slide niet nodig is.
+
+**Neem de aanklacht over in plaats van hem te weerspreken.** Zit er een verwijt in de vraag, dan is de sterkste opening dat verwijt bevestigen en het daarna omdraaien. "Ja, we bouwen een stoomtrein. En we leggen meteen de rails." Dat ontwapent, terwijl een weerlegging de zaal in de verdedigingsstand zet en de vraagsteller uitnodigt om harder te duwen.
+
+## Neem de woorden van de opdrachtgever letterlijk over
+
+De sterkste regels in een deck komen bijna nooit van de maker. Ze komen uit de chat, uit een meeting of uit een terloopse opmerking van degene die het onderwerp kent. "We hebben capaciteit voor technische uitwerking, wat we zoeken is richting" is scherper dan elke herformulering ervan. "Ja, we bouwen een stoomtrein, en we leggen meteen de rails" ook.
+
+**Zegt de opdrachtgever iets in zijn eigen woorden, zet dat op de slide.** Niet gepolijst, niet geabstraheerd. De neiging om er iets beters van te maken levert vrijwel altijd iets algemeners op dat minder waar is. Herformuleer alleen als de zin feitelijk niet klopt of als hij de lezer op het verkeerde been zet, en zeg dan wat je hebt veranderd en waarom.
+
+Twee uitzonderingen, allebei uit de praktijk. Een zin die een oordeel over eigen mensen bevat, en een zin waarin een tekort aan een persoon of team hangt, gaan naar de sprekersnotitie: uitgesproken werkt het, op een slide leest het als een verwijt. En een aanwijzing over de vorm blijft altijd buiten de slide (zie [Schrijf over de zaak](#schrijf-over-de-zaak-niet-tegen-de-zaal)).
+
+
+### Kan de lezer een besluit nemen
+
+Naast de vraag of het deck de gestelde vraag beantwoordt, staat de vraag of er iets te besluiten valt. Twee onafhankelijke reviewers kwamen op dit punt uit terwijl geen enkele regel in deze skill het afving.
+
+Loop voor oplevering deze drie na.
+
+- **Staat de vraag ergens waar hij niet te missen is?** Onderaan de voorlaatste slide is te laat.
+- **Is hij te beantwoorden met ja, nee of een keuze?** "Focus en capaciteit" is geen vraag maar een claim: geen omvang, geen termijn, geen rol, geen gevolg. Zo'n regel kan niemand afwijzen en niemand goedkeuren, en hij wordt later geciteerd als een toezegging die niemand heeft gedaan.
+- **Staat er wat er gebeurt als er niets gekozen wordt?** Zonder gevolg is elke optie vrijblijvend.
+
+### Een keuze voorleggen: vraag, opties, gevolg
+
+Uit de reviewronde van 11 september 2026 op het deck voor de kerngroep techniek. Een slide "Drie punten die een besluit vragen" met een tabel *punt / waarom het een besluit is* kreeg terug: "Geen idee wat je hier wil bereiken. ADR 19 vs ADR 22 niemand heeft die scherp." De tabel beschreef het probleem; niemand kon er iets mee kiezen.
+
+Een keuze krijgt daarom altijd deze vorm, en één keuze per slide.
+
+- **De vraag is de titel.** "Uit welk niveau van het kwalificatiekader komt een leeruitkomst?" en niet "Wat er nog open staat".
+- **Hoogstens twee zinnen wat de lezer moet weten.** Zonder ADR-nummers, issuenummers of verwijzingen naar eerdere besluiten als veronderstelde kennis; die horen in de sprekersnotitie voor wie doorvraagt. Lukt het niet in twee zinnen, dan is de keuze nog niet rijp voor de zaal.
+- **Twee of drie opties als kaarten, elk met een kleine figuur.** Dezelfde figuur per kaart, met alleen het verschil erin: dezelfde vier blokken met andere pijlen, dezelfde twee namen in een andere schrijfwijze. Zo ziet de lezer het verschil zonder de tekst te lezen. Accentkleuren wisselen per kaart.
+- **Per optie één regel eronder wat hij betekent of waar hij vandaan komt** ("Zoals de plaat nu staat", "Voorstel kernteam"). Een voorkeur staat er alleen bij als die is uitgesproken; anders leest de zaal een voorkeur die niemand heeft.
+- **Onderaan het gevolg zonder keuze**, en de uitnodiging voor een ander voorstel. Zonder gevolg is elke optie vrijblijvend.
+
+**Een correctie is geen keuze.** Staat het antwoord al in een bron (een requirement, een vastgesteld besluit), dan hoort het niet tussen de opties: dat wekt de indruk dat het nog open is. Zet het in het vervolg of in de notitie bij de slide waar het speelt.
+
+Bij een vraag om mensen of geld geldt bovendien een volgorde. Zet eerst wat het team zelf kan doen, dan wat samen met de sector kan, en pas als laatste de vraag om extra capaciteit. Wie de laatste kaart leest heeft de eerste twee al gezien, en dat is het verschil tussen een verkenning en een claim. Zet "niets doen" niet als vierde optie neer maar als het gevolg onderaan: als optie geeft het dezelfde status als de rest, als gevolg is het de prijs van niet kiezen.
+
 ## Schrijf over de zaak, niet tegen de zaal
 
 Een deck informeert over een onderwerp. Het onderwerp is dus het grammaticale onderwerp, niet het publiek. Dat is dezelfde norm als bij een thesis of een adviesrapport: zakelijk, navolgbaar, zonder de lezer aan te spreken.
@@ -101,6 +148,16 @@ Uit de deckreview van 18 augustus 2026; elke regel is daar in de praktijk misgeg
 - **Eén onderwerp per slide.** Inhoud en vraagstelling zijn twee slides, nooit één.
 - **Niet alles hoeft getekend.** Wat de spreker kan zeggen, hoort in de sprekersnotitie; losse pijltjes en tekstelementen naast een diagram zijn een gebrek, geen oplossing.
 
+Uit de reviewronde van 8 september 2026 op het deck bij issue #212.
+
+- **Te veel tekst los je op met een figuur, niet met kortere tekst.** Krijg je "te veel tekst" terug, herteken de slide dan. Drie tekstblokken die inkorten tot drie kortere tekstblokken lost niets op; drie figuurtjes met dezelfde opbouw wel.
+- **Maximaal een regel per blok.** Een blok met drie zinnen wordt gescand en niet gelezen.
+- **Geen bekende doelen herverpakken als nieuw inzicht.** Wie de programmadoelen terugleest in een kansenlijst krijgt terug: "dat vertelt wat we al weten, maar dan in kansen verwoord." Een kans is iets dat nu kan en eerder niet kon, met de reden erbij waarom dat nu verandert.
+- **Beleid is geen risico.** Een genomen besluit hoort niet in een risicolijst. Staat er toch spanning op, benoem dan het risico dat uit het besluit volgt, en zeg in de eerste zin dat het besluit zelf niet ter discussie staat.
+- **Een metafoor per deck.** Twee beelden naast elkaar concurreren en verzwakken allebei. Kies er een en voer hem consequent door, ook in de bijschriften en de kaarten.
+- **Doorlooptijd is geen kwaliteitsbewijs.** Releasesnelheid of het aantal issues per week als bewijs opvoeren nodigt uit tot de tegenvraag of het ook goed is. Gebruik zulke cijfers hoogstens als adoptiesignaal, nooit als kwaliteitsclaim.
+- **Controleer onderwerp en lijdend voorwerp.** "Die blokkade haalt de afspraak weg" betekent het omgekeerde van wat bedoeld was. Lees elke stellende zin een keer terug met de vraag wie wat doet.
+
 ## Compositie en didactiek
 
 Uit de finetunerondes van 18 augustus 2026, vastgesteld door de product owner.
@@ -112,6 +169,33 @@ Uit de finetunerondes van 18 augustus 2026, vastgesteld door de product owner.
 - **Blokreeksen wisselen accentkleuren af**; nooit twee dezelfde naast elkaar. Elk blok draagt één ondertitel, zonder aankondigwoorden als "bijvoorbeeld".
 - **Diagrammen volledig of niet.** Een sequentiediagram toont ook de terugweg, het eigen proces en het foutpad; JSON-voorbeelden gebruiken echte veldnamen en types uit het schema, met een beletselteken voor de rest.
 - **Backlog en planning worden afgeleid, niet verzonnen.** Toon de afleidingslijn (leerroutes en scenario's naar features, stories en functionele eisen) en stel de toetsvraag aan de zaal in plaats van zelf een lijst te bedenken.
+
+## Lees het deck als een ketting van kernzinnen
+
+Elke slide klopt op zichzelf en het deck spreekt zichzelf toch tegen. Dat gebeurt bij herschrijven: een slide verandert en de slide vier verder blijft staan.
+
+Doe daarom voor oplevering een aparte ronde waarin je **alleen de titels en de vetgedrukte kernzinnen achter elkaar leest**, in volgorde, zonder de rest. Drie dingen vallen dan op die je in de slides zelf niet ziet.
+
+- **Hetzelfde woord met twee betekenissen.** In dit deck was "stoomtrein" op de conclusieslide het antwoord dat werd omarmd en vier slides verder het risico dat werd gevreesd.
+- **Twee kernzinnen die elkaar uitsluiten.** "AI draagt de verantwoordelijkheid niet" op de ene slide, "bedacht door AI" als de echte winst op de andere. De eerste vraag uit de zaal is dan wie aansprakelijk is.
+- **Een claim die na een herstructurering niet meer klopt.** Toen acht historieslides er een werden, bleef de slide erna aantallen natellen uit platen die niet meer bestonden. **Na elke herstructurering: loop elke slide na die verwees naar wat je hebt weggehaald.**
+
+## Onderbouw met wat niet te betwisten valt
+
+Een historische parallel of een extern cijfer maakt een betoog sterker, maar alleen als het standhoudt bij iemand die het naslaat. Controleer daarom voor elk extern verband of het omstreden is voordat je erop bouwt.
+
+Concreet voorbeeld uit dit deck. De claim "zonder de spoorlijn was de Verenigde Staten niet die economische macht geworden" ligt voor de hand en is precies het verband dat de economische geschiedenis heeft aangevallen: Fogel berekende het effect in 1964 op ongeveer drie procent van het BNP, en latere herberekeningen komen op dezelfde orde. Wie die claim in een deck zet, kan met een naam onderuit worden gehaald, en juist in een deck dat uit een sceptische vraag ontstaat is dat fataal.
+
+Wat wel standhoudt is het mechanisme in plaats van het effect: er lagen verschillende spoorbreedtes naast elkaar, vracht moest bij elke overgang worden overgeladen, en pas na de afspraak over een gemeenschappelijke maat reed er iets doorheen. Zelfde beeld, geen betwistbare causaliteit.
+
+Vuistregel: gebruik externe parallellen om een **werking** te laten zien, niet om een **groei** te bewijzen. En zet in de sprekersnotitie waarom je de betwistbare variant niet hebt gebruikt, zodat de spreker er iets mee kan als iemand ernaar vraagt.
+
+
+### De slide draagt het argument, de notitie de verdediging
+
+Bij het inkorten belandt het sterkste deel van een betoog gemakkelijk in de sprekersnotitie. Dat kostte in dit deck bijna het antwoord op de hoofdvraag: de juridische onderbouwing stond alleen in de notities, en de opdrachtgever merkte op dat het antwoord weg is zodra iemand anders het deck doorstuurt of presenteert.
+
+De verdeling is: **op de slide staat waarom de uitspraak waar is, in de notitie staat wat je zegt als iemand hem aanvalt.** Een tegenwerping die je voor wilt zijn, een bron, een cijfer voor bij navraag, een gevoelige nuance: notitie. De redenering zelf: slide.
 
 ## Voor wie schrijf je
 
@@ -130,9 +214,11 @@ Het onderscheid dat het register bepaalt is **intern of extern**:
 | **Kerngroep techniek OKx** | extern | De keten en de architectuur | Of de richting klopt, en of de kaderstelling ver genoeg is om spec te starten | Diep. Besluiten, alternatieven en open punten. Ankertabel en payloads horen erbij |
 | **Technische werkgroep OEAPI** | extern | De OEAPI-standaard | Hoe OKx zich tot OEAPI verhoudt, en welke signaleringen eruit komen | Vergelijkend. Benoem afwijkingen met de onderbouwing, en welke wijzigingsverzoeken richting OEAPI gaan |
 | **Leveranciers** | extern | Het eigen systeem en de integratiepraktijk | Wat er gebouwd moet worden, wanneer, en wat er nog verandert | Concreet over koppelvlakken en contracten. Expliciet over wat vaststaat en wat concept is |
-| **Instellingen** *(komt nog)* | extern | De eigen onderwijspraktijk | Wat er verandert en wanneer | Nog niet uitgewerkt; stem af met de gebruiker |
+| **Instellingen** | extern | De eigen onderwijspraktijk en het eigen applicatielandschap | Wat dit voor hun school betekent, wat ze wanneer moeten regelen, en welk risico ze lopen door niets te doen | Onderwijstaal, geen systeemtaal. Begin bij het proces van de school en niet bij het koppelvlak. Elke OKx-term een keer uitleggen. Expliciet over wat een verplichting is en wat niet, en over de overgangstermijn. Nooit aannemen dat er van elk systeem precies een instantie is |
 
 Twee regels die voor elk profiel gelden. Vertaal een wijziging altijd naar **wat er nu mogelijk is dat eerst niet kon** — niet naar "document X is bijgewerkt". En sluit af met wat er van dit gremium gevraagd wordt, in de vaste vorm hierboven: een besluit, een review, of kennisname.
+
+**Bij een deck richting instellingen** komen daar drie dingen bij, uit de persona's [informatiemanager](../../personas/informatiemanager-instelling.md), [enterprise-architect](../../personas/enterprise-architect-instelling.md), [vertegenwoordiger in de werkgroep](../../personas/vertegenwoordiger-instelling-werkgroep.md) en [bop-procesbespecialist](../../personas/bop-procesbespecialist.md). Beschrijf het onderwijs in de taal van de school en niet in veldnamen of statuswaarden. Leg de relatie met MORA, anders blijft de vertaling naar de eigen architectuur bij de lezer liggen. En veronderstel geen verandervermogen dat een instelling met haar huidige bezetting niet heeft.
 
 ## Gebruik de termen uit de bron, niet je eigen omschrijving
 
@@ -183,6 +269,51 @@ Geef een brede plaat de hele slidebreedte:
 
 **Houd het manifest actueel.** Komt er een nieuwe versie van een plaat, of teken je er een die vaker bruikbaar is, neem hem dan op in `platen.json` en werk de hashes bij met `--bijwerken`. Dat is onderdeel van het werk, niet iets voor later: een manifest dat achterloopt op de repositories is erger dan geen manifest, want dan wordt met vertrouwen een verouderde plaat gekozen.
 
+
+### Contrast op een slide
+
+Uit de reviewronde van 11 september 2026. Begrippen tussen backquotes renderden als blauwe letters op een lichtblauw vlak: "bijna niet te lezen" op een scherm, en op een beamer nog minder. De vastgestelde stijl is nu **oranje letters (`--np-orange`) op lichtgrijs (`#F1F3F5`), zonder rand**, in `style.css`. Een highlight op een slide contrasteert in helderheid, niet alleen in kleur; kleur op kleur (blauw op lichtblauw, oranje op geel) valt op het scherm van de maker mee en op de beamer weg. Wie een nieuwe accentstijl toevoegt, bekijkt de export op een klein formaat voordat hij hem gebruikt.
+
+**Pin elk deck op de lichte modus** met `colorSchema: light` in de frontmatter. Slidev volgt anders de donkere modus van de browser, en het thema zet daarin een donkere achtergrond onder code: de begrippen worden dan zwarte vakken. De coderegel in `style.css` wint met `!important` van het thema in beide modi, maar de pin voorkomt dat de rest van het deck in de donkere modus terechtkomt.
+
+### Valkuilen bij zelfgetekende figuren
+
+Teken je toch zelf een figuur, in SVG of HTML, let dan op drie dingen die stil misgaan.
+
+- **SVG-tekst erft de fontgrootte van de slide.** Een `font-size="13"` op een `<text>` wordt overschreven door de slide-CSS, en het woord vult het halve paneel. Zet labels als HTML naast of onder de SVG, niet erin.
+- **Gegenereerde HTML moet vlak zijn.** Vier spaties inspringing maakt er in markdown een codeblok van, en een regel met alleen spaties sluit het HTML-blok af waarna de rest als code verschijnt. Genereer dus alles op een regel, zonder inspringing.
+- **Patch geen HTML met een reguliere expressie.** Een blok half vervangen laat een `</div>` te veel of te weinig achter en de slide valt om. Bouw de hele slide opnieuw op.
+
+Een klikstap (`v-click`) voegt geen paginas toe aan de export: de PDF en de PowerPoint tonen de slide in zijn eindtoestand. Een opbouw voor het presenteren kost dus niets in de leesversie.
+
+
+### Een repertoire dat werkt
+
+Zelf tekenen mag als er geen bestaande plaat is, maar houd het bij een kleine vaste woordenschat, zodat slides elkaar herkennen in plaats van dat elke slide een eigen stijl krijgt. Wat in dit deck werkte:
+
+- **Voor en na naast elkaar.** Links wat er misging, rechts wat erna kon, met dezelfde vorm. Drie keer herhaald overtuigt sterker dan een keer uitgelegd.
+- **Een klok als vertraging.** Een klokje bij het probleem zegt "dit kost tijd" zonder een cijfer te claimen.
+- **Mens en machine bij hetzelfde document.** Met vraagtekens waar de betekenis ontbreekt, zonder vraagtekens waar ze wel vastligt. Dezelfde iconen op twee slides maken van die twee slides een paar.
+- **Een keten met een terugpijl.** Blokken met pijlen ertussen en een gestippelde pijl terug naar het begin, met daarop wat elke ronde oplevert.
+- **Een lijn zonder assen.** Een curve toont een verhouding, geen meting. Zet er geen getallen bij, en gebruik geen staafdiagram tenzij de aantallen echt geteld zijn.
+
+**Iconen in plaats van tekst.** Uit de reviewronde van 11 september 2026: een prioriteringstabel met een kolom *waarom* kreeg "te veel tekst" terug, en de vraag om symbolen. Wat werkte, en sindsdien de vaste vorm is voor de slotslides van elk update-deck:
+
+| Slide | Icoon | Betekenis |
+|---|---|---|
+| Prioritering | play in groen pastel, pauze in grijs | wat nu wordt opgepakt, wat wacht |
+| Gevraagd | tekstballon (input), vergrootglas (review), vinkje (besluit) | het soort vraag, naast het besluitblok |
+| Vervolg | kalender en locatiepin voor de volgende sessie, pijl per vervolgstap | wanneer en waar, en wat er dan ligt |
+| Peiling | meter (cijfer), vinkje (ging goed), pijl omhoog (kan beter) | de drie vaste vragen |
+
+Een icoon is een vlakke SVG-vorm in een gekleurde cirkel, zonder tekst erin (zie de valkuil over SVG-tekst hierboven), op één regel gegenereerd, met de tekst als HTML ernaast in een flexrij. Pastelkleuren uit de huisstijl: groen `#7CCBA8`, grijs `#B8BEC7`, oranje `#E9A27F`, blauw `#7A97F2`. Eén icoon per regel, elke regel hoogstens één zin; de toelichting gaat naar de sprekersnotitie. Gebruik voor hetzelfde soort ding op elke slide hetzelfde icoon, zodat de slides elkaar herkennen. Een emoji is geen alternatief: de exportbrowser in de container heeft geen emojifont en toont dan een leeg blokje.
+
+**Een plaat beeldvullend, zonder titel.** Een architectuurplaat die het verhaal draagt krijgt een eigen slide: wit vlak over de hele slide, de plaat met `object-fit: contain` zo groot als de verhouding toelaat, geen titel en geen achtergrondplaat van de huisstijl, want die kosten ruimte die de plaat nodig heeft. De leeswijzer gaat naar de sprekersnotitie; de bevindingen naar de slide erna. Blijft er witruimte over, dan zit die in de export van de plaat zelf en moet de bron strakker gesneden worden.
+
+**Voortgang per onderwerp als balk.** Voor de backlogslide van een update-deck: een balk per milestone, groen het aantal gesloten issues, lichtgrijs het aantal open, de lengte het totaal, elk segment met zijn getal erin. Ernaast een pull request-icoon met nummer waar het werk in een branch ter review ligt, een `+n sinds <vorige sessie>` bij wat er gesloten is, en een oranje stip bij wat vandaag op de agenda staat. Legenda eronder met de vier tekens en hun betekenis, want een statuskleur staat nooit alleen. Gebruik het verzadigde groen (`#00AF81`) tegen lichtgrijs (`#E5E7EB`): de pastelversie viel in de kleurvalidatie door de te kleine afstand. Onderwerpen zijn milestones, niet repositories; noem de repository klein achter de naam. De cijfers sinds de vorige sessie (pull requests, issues, commits) gaan op de slide erna als tegels met een groot getal per repository, met een icoon per kolom. Beide uit GitHub op de dag van maken, met de datum in de voetregel.
+
+**Een grafiek met cijfers vraagt om natellen.** Een staafdiagram met "geteld in de platen hiervoor" nodigt de lezer letterlijk uit dat te doen, en dan moet het kloppen. Twee lijnen die naast elkaar oplopen vertellen dezelfde boodschap zonder die belofte. Kies bij twijfel de lijn.
+
 ## Neem tabellen, cijfers en citaten letterlijk over
 
 Bouw een tabel **nooit uit je hoofd na**. Open het bronbestand, kopieer de tabel, en kort daarna hooguit celteksten in met behoud van betekenis. Bij een ankertabel of een begrippenlijst is een verzonnen kolom of een weggelaten rij geen schoonheidsfoutje: het publiek toetst juist die tabel, en een fout ondermijnt het hele deck.
@@ -190,6 +321,8 @@ Bouw een tabel **nooit uit je hoofd na**. Open het bronbestand, kopieer de tabel
 Dat ging hier al een keer mis. Een ankertabel werd uit het geheugen nagemaakt met zeven kolommen in plaats van zes, vier rijen in plaats van zeven, verzonnen korte labels en een ontbrekende examenrij. Het zag er plausibel uit en klopte niet.
 
 Zelfde regel voor cijfers, data en citaten: haal ze uit de bron en controleer ze. Zet in de sprekersnotities waar iets vandaan komt, zodat het bij doorvragen na te lopen is.
+
+**Een getal uit een query is nog geen antwoord.** Controleer wat de query telt voordat je het cijfer overneemt. In dit deck stond "89 issues" op een risicoslide; dat getal kwam uit de zoek-API van GitHub, die pull requests meetelt. Het waren er 60. Zo'n fout is voor iedereen met een browser binnen een minuut te vinden, en hij kost de geloofwaardigheid van de hele slide.
 
 **Versienummers letterlijk uit het releasemanifest.** Het manifest zegt v0.0.1; schrijf dan nooit v0.01 of een eigen notatie.
 
@@ -214,6 +347,27 @@ Een werkbare basisvorm; wijk af waar de inhoud daarom vraagt.
 7. **Afsluitslide**
 
 Voor programmamanagement schuiven 5 en 6 naar voren; voor de kerngroep techniek is 3 en 4 het zwaartepunt.
+
+## De vaste vorm voor de kerngroep techniek
+
+De kerngroep techniek komt tweewekelijks bijeen en krijgt elke keer hetzelfde deck in een andere vulling. De vorm is vastgelegd in [#206](https://github.com/Npuls-OKx/meta/issues/206) en in de reviewronde van 11 september 2026 per slide van een visuele vorm voorzien. Het deck van 15 september 2026 (`presentaties/src/260915_kerngroep_techniek.md`) is het sjabloon: kopieer het en vervang de vulling, verzin de vorm niet opnieuw.
+
+| Slide | Inhoud | Vorm |
+|---|---|---|
+| Titel | Gremium en datum, met de essentie van de sessie als subtitel | Npuls-titelplaat |
+| Stand van zaken | Wat er sinds de vorige sessie ligt, met status | Mermaid-flow van de releases en pull requests, plus een tabel *afgesproken / stand* |
+| Opdrachten vorige sessie | Elk openstaand punt van toen met wat ermee gebeurd is; wat niet is opgepakt staat er ook | Tabel; een reviewvraag die niet is beantwoord staat vragend, met een vraagkaart |
+| Divider per thema | Deel 1, 2, 3 | Donkere Npuls-plaat met het deelnummer als eyebrow |
+| Thema | Wat er nu kan dat eerst niet kon, per onderwerp en niet per repository | Een plaat beeldvullend op wit zonder titel, met de leeswijzer in de sprekersnotitie; bevindingen op de slide erna; een echte vraag aan de zaal als vraagkaart |
+| Werk per onderwerp | De backlog per milestone | Voortgangsbalken, zie het repertoire |
+| Wat er is verzet | De cijfers sinds de vorige sessie | Tegels met een groot getal per repository, een icoon per kolom |
+| Voorstel prioritering | Wat nu, wat wacht | Twee kaarten: play in groen pastel, pauze in grijs; het gevolg zonder keuze eronder |
+| Gevraagd | Input, review, besluit, elk in het besluitblok | Een icoon per soort vraag naast het blok |
+| Vervolg | Datum en locatie van de volgende sessie, dan wat er dan ligt | Kalender en locatiepin in een kaart, een pijl per vervolgstap |
+| Peiling | Cijfer, wat ging goed, wat kan beter | Meter, vinkje, pijl omhoog, met de cijferbalk ernaast |
+| Afsluiter | | Npuls-afsluitplaat |
+
+Drie dingen die bij deze vorm horen. Een ontwerpkeuze die het kernteam zelf moet maken hoort niet in dit deck maar in een issue op meta, in de vorm vraag, opties, gevolg (zie [Een keuze voorleggen](#een-keuze-voorleggen-vraag-opties-gevolg)); het deck verwijst ernaar. Het blok van een tweede spreker staat tussen twee dividers, zodat die eraan kan sleutelen zonder de rest te raken. En de getallen op de backlog- en cijferslides zijn de stand van de dag van maken; controleer ze opnieuw op de dag van de sessie.
 
 ## Voor je oplevert: kijk er zelf naar
 
