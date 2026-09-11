@@ -14,7 +14,8 @@
 #   ./deck adviesgroep programma statisch    beide naast elkaar, op 3030 en 3031
 #   ./deck adviesgroep beelden               PNG per slide
 #   ./deck adviesgroep pdf                   PDF
-#   ./deck adviesgroep pptx                  PowerPoint, tekst bewerkbaar
+#   ./deck adviesgroep pptx                  PowerPoint uit de slidebeelden, met notities (deelbaar)
+#   ./deck adviesgroep pptx-bewerkbaar       PowerPoint via LibreOffice, tekst bewerkbaar; kaarten en figuren kunnen vervormen
 #
 # De bronnen staan in src/; de naam mag een fragment zijn, "adviesgroep" vindt
 # src/260803_adviesgroep.md. De exports komen in export/.
@@ -47,7 +48,8 @@ toon_lijst() {
   echo "          ./deck <naam> <naam> statisch     meerdere naast elkaar"
   echo "          ./deck <naam> beelden             exporteer PNG's"
   echo "          ./deck <naam> pdf                 exporteer een PDF"
-  echo "          ./deck <naam> pptx                exporteer een PowerPoint"
+  echo "          ./deck <naam> pptx                PowerPoint uit de slidebeelden, met notities"
+  echo "          ./deck <naam> pptx-bewerkbaar     PowerPoint met bewerkbare tekst (via LibreOffice)"
 }
 
 zoek() {
@@ -109,7 +111,7 @@ actie="tonen"
 namen=()
 for arg in "$@"; do
   case "$arg" in
-    tonen|statisch|beelden|pdf|pptx) actie="$arg" ;;
+    tonen|statisch|beelden|pdf|pptx|pptx-bewerkbaar) actie="$arg" ;;
     *) namen+=("$(zoek "$arg")") ;;
   esac
 done
@@ -118,19 +120,26 @@ done
 [ -d node_modules ] || { echo "Eenmalig afhankelijkheden installeren..."; npm install --silent --no-audit --no-fund; }
 
 case "$actie" in
-  beelden|pdf|pptx)
+  beelden|pdf|pptx|pptx-bewerkbaar)
     for bestand in "${namen[@]}"; do
       if [ "$actie" = "beelden" ]; then
         uit="$(mapvan "$bestand")/img"; mkdir -p "$uit"
         npx slidev export "$BRON/$bestand" --format png --output "$uit" --timeout 60000
         echo "Afbeeldingen: presentaties/$uit"
       elif [ "$actie" = "pptx" ]; then
-        # De pptx-export van Slidev zet elke slide als plaatje in het bestand;
-        # daar valt niets aan te bewerken. Deze route gaat via de pdf:
-        # LibreOffice leest die in Impress en schrijft hem weg als PowerPoint.
-        # Elk element houdt zijn plek, de tekst is bewerkbaar en de diagrammen
-        # komen als vectorvormen mee. Een omweg via markdown en pandoc is
-        # geprobeerd en levert alleen kale tekst op.
+        # Elke slide als beeld op volle grootte, met de sprekersnotitie erbij.
+        # Niet bewerkbaar, wel overal precies zoals in de browser. De route via
+        # LibreOffice (pptx-bewerkbaar) vervormt kaarten met een gekleurde rand
+        # en eigen figuren; die is er voor wie tekst wil bewerken.
+        uit="$(mapvan "$bestand")/img"; mkdir -p "$uit"
+        npx slidev export "$BRON/$bestand" --format png --output "$uit" --timeout 60000 >/dev/null
+        python3 pptx-uit-beelden.py "$BRON/$bestand" "$uit" "$(mapvan "$bestand")/${bestand%.md}.pptx"
+      elif [ "$actie" = "pptx-bewerkbaar" ]; then
+        # Via de pdf: LibreOffice leest die in Impress en schrijft hem weg als
+        # PowerPoint. De tekst is bewerkbaar en diagrammen komen als vectorvormen
+        # mee, maar een kaart met een gekleurde linkerrand krijgt die kleur als
+        # vulling en een eigen tekening kan de hele slide zwart maken. Controleer
+        # de uitkomst slide voor slide voordat je hem deelt.
         command -v soffice >/dev/null || {
           echo "LibreOffice ontbreekt. Herbouw de dev-container, of:" >&2
           echo "  sudo apt-get install -y --no-install-recommends libreoffice-impress libreoffice-draw" >&2
