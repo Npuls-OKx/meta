@@ -1,0 +1,1601 @@
+{
+  "oeapi_objecten": [
+    "Course",
+    "CourseOffering",
+    "CourseOfferingAssociation",
+    "Group",
+    "LearningComponent",
+    "LearningComponentOffering",
+    "LearningComponentOfferingAssociation",
+    "LearningOutcome",
+    "Person",
+    "Programme",
+    "ProgrammeOffering",
+    "ProgrammeOfferingAssociation",
+    "Result",
+    "TestComponent",
+    "TestComponentOffering",
+    "TestComponentOfferingAssociation"
+  ],
+  "bron": {
+    "model": "architecture/model/model.archimate",
+    "views": [
+      "OKx informatiemodel",
+      "OKx informatiemodel en mapping OEAPI"
+    ]
+  },
+  "objecttypen": [
+    {
+      "naam": "Aanwezigheid",
+      "kolom": "Onderwijsresultaat",
+      "scope": "binnen",
+      "vulkleur": null,
+      "oeapi": null
+    },
+    {
+      "naam": "Competenties / Skills",
+      "kolom": "Onderwijskundigkader instelling",
+      "scope": "buiten",
+      "vulkleur": "#e8e8e8",
+      "oeapi": null
+    },
+    {
+      "naam": "Examengelegenheid",
+      "kolom": "Onderwijsaanbod",
+      "scope": "binnen",
+      "vulkleur": null,
+      "oeapi": [
+        "TestComponentOffering"
+      ]
+    },
+    {
+      "naam": "Examengelegenheid resultaat",
+      "kolom": "Onderwijsresultaat",
+      "scope": "binnen",
+      "vulkleur": null,
+      "oeapi": [
+        "Result"
+      ]
+    },
+    {
+      "naam": "Examengelegenheid verbintenis",
+      "kolom": "Onderwijsverbintenis",
+      "scope": "binnen",
+      "vulkleur": null,
+      "oeapi": [
+        "TestComponentOfferingAssociation"
+      ]
+    },
+    {
+      "naam": "Examenonderdeel weging",
+      "kolom": "Resultaatstructuur",
+      "scope": "binnen",
+      "vulkleur": null,
+      "oeapi": null
+    },
+    {
+      "naam": "Examenonderdeelspecificatie",
+      "kolom": "Onderwijsspecificatie",
+      "scope": "binnen",
+      "vulkleur": null,
+      "oeapi": [
+        "TestComponent"
+      ]
+    },
+    {
+      "naam": "Examenplan",
+      "kolom": null,
+      "scope": "buiten",
+      "vulkleur": "#e8e8e8",
+      "oeapi": null
+    },
+    {
+      "naam": "Formatief resultaat",
+      "kolom": "Resultaatstructuur",
+      "scope": "binnen",
+      "vulkleur": null,
+      "oeapi": null
+    },
+    {
+      "naam": "Formatieve beoordeling",
+      "kolom": "Resultaatstructuur",
+      "scope": "binnen",
+      "vulkleur": null,
+      "oeapi": null
+    },
+    {
+      "naam": "Formatieve resultaat structuur",
+      "kolom": "Resultaatstructuur",
+      "scope": "binnen",
+      "vulkleur": null,
+      "oeapi": null
+    },
+    {
+      "naam": "Inzicht",
+      "kolom": "Onderwijskundigkader instelling",
+      "scope": "buiten",
+      "vulkleur": "#e8e8e8",
+      "oeapi": null
+    },
+    {
+      "naam": "Kennis",
+      "kolom": "Onderwijskundigkader instelling",
+      "scope": "buiten",
+      "vulkleur": "#e8e8e8",
+      "oeapi": null
+    },
+    {
+      "naam": "Kerntaak",
+      "kolom": "Kwalificatiekader MBO",
+      "scope": "binnen",
+      "vulkleur": null,
+      "oeapi": null
+    },
+    {
+      "naam": "Keuzedeel",
+      "kolom": "Onderwijsspecificatie",
+      "scope": "binnen",
+      "vulkleur": null,
+      "oeapi": [
+        "Programme"
+      ]
+    },
+    {
+      "naam": "Keuzedeel aanbod verbintenis",
+      "kolom": "Onderwijsverbintenis",
+      "scope": "binnen",
+      "vulkleur": null,
+      "oeapi": [
+        "ProgrammeOfferingAssociation"
+      ]
+    },
+    {
+      "naam": "Keuzedeel resultaat",
+      "kolom": "Onderwijsresultaat",
+      "scope": "binnen",
+      "vulkleur": null,
+      "oeapi": [
+        "Result"
+      ]
+    },
+    {
+      "naam": "Keuzedeelaanbod",
+      "kolom": "Onderwijsaanbod",
+      "scope": "binnen",
+      "vulkleur": null,
+      "oeapi": [
+        "ProgrammeOffering"
+      ]
+    },
+    {
+      "naam": "Keuzedeelruimte",
+      "kolom": "Onderwijsspecificatie",
+      "scope": "binnen",
+      "vulkleur": null,
+      "oeapi": [
+        "Programme"
+      ]
+    },
+    {
+      "naam": "Kwalificatie",
+      "kolom": "Kwalificatiekader MBO",
+      "scope": "binnen",
+      "vulkleur": null,
+      "oeapi": null
+    },
+    {
+      "naam": "Kwalificatie dossier",
+      "kolom": "Kwalificatiekader MBO",
+      "scope": "binnen",
+      "vulkleur": null,
+      "oeapi": null
+    },
+    {
+      "naam": "Leergelegenheid",
+      "kolom": "Onderwijsaanbod",
+      "scope": "binnen",
+      "vulkleur": null,
+      "oeapi": [
+        "LearningComponentOffering"
+      ]
+    },
+    {
+      "naam": "Leergelegenheid resultaat",
+      "kolom": "Onderwijsresultaat",
+      "scope": "binnen",
+      "vulkleur": null,
+      "oeapi": [
+        "Result"
+      ]
+    },
+    {
+      "naam": "Leergelegenheid verbintenis",
+      "kolom": "Onderwijsverbintenis",
+      "scope": "binnen",
+      "vulkleur": null,
+      "oeapi": [
+        "LearningComponentOfferingAssociation"
+      ]
+    },
+    {
+      "naam": "Leeronderdeel specificatie",
+      "kolom": "Onderwijsspecificatie",
+      "scope": "binnen",
+      "vulkleur": null,
+      "oeapi": [
+        "LearningComponent"
+      ]
+    },
+    {
+      "naam": "Leeruitkomst",
+      "kolom": "Onderwijskundigkader instelling",
+      "scope": "binnen",
+      "vulkleur": null,
+      "oeapi": [
+        "LearningOutcome"
+      ]
+    },
+    {
+      "naam": "Les specificatie",
+      "kolom": "Onderwijsspecificatie",
+      "scope": "buiten",
+      "vulkleur": "#e8e8e8",
+      "oeapi": [
+        "LearningComponent"
+      ]
+    },
+    {
+      "naam": "Lesgelegenheid",
+      "kolom": "Onderwijsaanbod",
+      "scope": "buiten",
+      "vulkleur": "#e8e8e8",
+      "oeapi": [
+        "LearningComponentOffering"
+      ]
+    },
+    {
+      "naam": "Lesgelegenheid resultaat",
+      "kolom": "Onderwijsresultaat",
+      "scope": "buiten",
+      "vulkleur": "#f2f2f2",
+      "oeapi": [
+        "Result"
+      ]
+    },
+    {
+      "naam": "Lesgelegenheid verbintenis",
+      "kolom": "Onderwijsverbintenis",
+      "scope": "buiten",
+      "vulkleur": "#e8e8e8",
+      "oeapi": [
+        "LearningComponentOfferingAssociation"
+      ]
+    },
+    {
+      "naam": "Medewerker",
+      "kolom": null,
+      "scope": "binnen",
+      "vulkleur": null,
+      "oeapi": null
+    },
+    {
+      "naam": "Onderwijseenheid aanbod",
+      "kolom": "Onderwijsaanbod",
+      "scope": "binnen",
+      "vulkleur": null,
+      "oeapi": [
+        "CourseOffering"
+      ]
+    },
+    {
+      "naam": "Onderwijseenheid aanbod verbintenis",
+      "kolom": "Onderwijsverbintenis",
+      "scope": "binnen",
+      "vulkleur": null,
+      "oeapi": [
+        "CourseOfferingAssociation"
+      ]
+    },
+    {
+      "naam": "Onderwijseenheid resultaat",
+      "kolom": "Onderwijsresultaat",
+      "scope": "binnen",
+      "vulkleur": null,
+      "oeapi": [
+        "Result"
+      ]
+    },
+    {
+      "naam": "Onderwijseenheid specificatie",
+      "kolom": "Onderwijsspecificatie",
+      "scope": "binnen",
+      "vulkleur": null,
+      "oeapi": [
+        "Course"
+      ]
+    },
+    {
+      "naam": "Opleiding aanbod  verbintenis",
+      "kolom": "Onderwijsverbintenis",
+      "scope": "binnen",
+      "vulkleur": null,
+      "oeapi": [
+        "ProgrammeOfferingAssociation"
+      ]
+    },
+    {
+      "naam": "Opleiding aanbod resultaat",
+      "kolom": "Onderwijsresultaat",
+      "scope": "binnen",
+      "vulkleur": null,
+      "oeapi": [
+        "Result"
+      ]
+    },
+    {
+      "naam": "Opleiding specificatie",
+      "kolom": "Onderwijsspecificatie",
+      "scope": "binnen",
+      "vulkleur": null,
+      "oeapi": [
+        "Programme"
+      ]
+    },
+    {
+      "naam": "Opleidingaanbod",
+      "kolom": "Onderwijsaanbod",
+      "scope": "binnen",
+      "vulkleur": null,
+      "oeapi": [
+        "ProgrammeOffering"
+      ]
+    },
+    {
+      "naam": "Opleidingsaanbod van Instelling",
+      "kolom": "Onderwijsaanbod",
+      "scope": "binnen",
+      "vulkleur": null,
+      "oeapi": null
+    },
+    {
+      "naam": "Opleidingsprogramma aanbod",
+      "kolom": "Onderwijsaanbod",
+      "scope": "binnen",
+      "vulkleur": null,
+      "oeapi": [
+        "ProgrammeOffering"
+      ]
+    },
+    {
+      "naam": "Opleidingsprogramma aanbod verbintenis",
+      "kolom": "Onderwijsverbintenis",
+      "scope": "binnen",
+      "vulkleur": null,
+      "oeapi": [
+        "ProgrammeOfferingAssociation"
+      ]
+    },
+    {
+      "naam": "Opleidingsprogramma resultaat",
+      "kolom": "Onderwijsresultaat",
+      "scope": "binnen",
+      "vulkleur": null,
+      "oeapi": [
+        "Result"
+      ]
+    },
+    {
+      "naam": "Opleidingsprogramma specificatie",
+      "kolom": "Onderwijsspecificatie",
+      "scope": "binnen",
+      "vulkleur": null,
+      "oeapi": [
+        "Programme"
+      ]
+    },
+    {
+      "naam": "Persoon",
+      "kolom": null,
+      "scope": "binnen",
+      "vulkleur": null,
+      "oeapi": [
+        "Person"
+      ]
+    },
+    {
+      "naam": "Persoonlijke ontwikkeling",
+      "kolom": "Resultaatstructuur",
+      "scope": "binnen",
+      "vulkleur": null,
+      "oeapi": null
+    },
+    {
+      "naam": "Plaatsingsgroep",
+      "kolom": null,
+      "scope": "binnen",
+      "vulkleur": null,
+      "oeapi": [
+        "Group"
+      ]
+    },
+    {
+      "naam": "Student",
+      "kolom": null,
+      "scope": "binnen",
+      "vulkleur": null,
+      "oeapi": null
+    },
+    {
+      "naam": "Student keuze regelset",
+      "kolom": "Onderwijsspecificatie",
+      "scope": "binnen",
+      "vulkleur": null,
+      "oeapi": null
+    },
+    {
+      "naam": "Summatief Afrondingscriterium",
+      "kolom": "Resultaatstructuur",
+      "scope": "binnen",
+      "vulkleur": null,
+      "oeapi": null
+    },
+    {
+      "naam": "Summatief resultaat",
+      "kolom": "Resultaatstructuur",
+      "scope": "binnen",
+      "vulkleur": null,
+      "oeapi": null
+    },
+    {
+      "naam": "Summatieve beoordeling",
+      "kolom": "Resultaatstructuur",
+      "scope": "binnen",
+      "vulkleur": null,
+      "oeapi": null
+    },
+    {
+      "naam": "Summatieve resultaat structuur",
+      "kolom": "Resultaatstructuur",
+      "scope": "binnen",
+      "vulkleur": null,
+      "oeapi": null
+    },
+    {
+      "naam": "Toetsgelegenheid",
+      "kolom": "Onderwijsaanbod",
+      "scope": "binnen",
+      "vulkleur": null,
+      "oeapi": [
+        "TestComponentOffering"
+      ]
+    },
+    {
+      "naam": "Toetsgelegenheid resultaat",
+      "kolom": "Onderwijsresultaat",
+      "scope": "binnen",
+      "vulkleur": null,
+      "oeapi": [
+        "Result"
+      ]
+    },
+    {
+      "naam": "Toetsgelegenheid verbintenis",
+      "kolom": "Onderwijsverbintenis",
+      "scope": "binnen",
+      "vulkleur": null,
+      "oeapi": [
+        "TestComponentOfferingAssociation"
+      ]
+    },
+    {
+      "naam": "Toetsonderdeel specificatie",
+      "kolom": "Onderwijsspecificatie",
+      "scope": "binnen",
+      "vulkleur": null,
+      "oeapi": [
+        "TestComponent"
+      ]
+    },
+    {
+      "naam": "Toetsonderdeel weging",
+      "kolom": "Resultaatstructuur",
+      "scope": "binnen",
+      "vulkleur": null,
+      "oeapi": null
+    },
+    {
+      "naam": "Vaardigheid",
+      "kolom": "Onderwijskundigkader instelling",
+      "scope": "buiten",
+      "vulkleur": "#e8e8e8",
+      "oeapi": null
+    },
+    {
+      "naam": "Verzoek tot Aanbod / Intekening op specificatie",
+      "kolom": null,
+      "scope": "binnen",
+      "vulkleur": null,
+      "oeapi": null
+    },
+    {
+      "naam": "Waarde document (diploma / certificaat)",
+      "kolom": null,
+      "scope": "binnen",
+      "vulkleur": null,
+      "oeapi": null
+    },
+    {
+      "naam": "Werkproces",
+      "kolom": "Kwalificatiekader MBO",
+      "scope": "binnen",
+      "vulkleur": null,
+      "oeapi": null
+    }
+  ],
+  "relaties": [
+    {
+      "soort": "Access",
+      "van": "Persoon",
+      "naar": "Aanwezigheid",
+      "label": null
+    },
+    {
+      "soort": "Access",
+      "van": "Persoon",
+      "naar": "Examengelegenheid",
+      "label": null
+    },
+    {
+      "soort": "Access",
+      "van": "Persoon",
+      "naar": "Examengelegenheid resultaat",
+      "label": null
+    },
+    {
+      "soort": "Access",
+      "van": "Persoon",
+      "naar": "Examengelegenheid verbintenis",
+      "label": null
+    },
+    {
+      "soort": "Access",
+      "van": "Persoon",
+      "naar": "Keuzedeel aanbod verbintenis",
+      "label": null
+    },
+    {
+      "soort": "Access",
+      "van": "Persoon",
+      "naar": "Keuzedeel resultaat",
+      "label": null
+    },
+    {
+      "soort": "Access",
+      "van": "Persoon",
+      "naar": "Keuzedeelaanbod",
+      "label": null
+    },
+    {
+      "soort": "Access",
+      "van": "Persoon",
+      "naar": "Leergelegenheid",
+      "label": null
+    },
+    {
+      "soort": "Access",
+      "van": "Persoon",
+      "naar": "Leergelegenheid resultaat",
+      "label": null
+    },
+    {
+      "soort": "Access",
+      "van": "Persoon",
+      "naar": "Leergelegenheid verbintenis",
+      "label": null
+    },
+    {
+      "soort": "Access",
+      "van": "Persoon",
+      "naar": "Lesgelegenheid",
+      "label": null
+    },
+    {
+      "soort": "Access",
+      "van": "Persoon",
+      "naar": "Lesgelegenheid resultaat",
+      "label": null
+    },
+    {
+      "soort": "Access",
+      "van": "Persoon",
+      "naar": "Lesgelegenheid verbintenis",
+      "label": null
+    },
+    {
+      "soort": "Access",
+      "van": "Persoon",
+      "naar": "Onderwijseenheid aanbod",
+      "label": null
+    },
+    {
+      "soort": "Access",
+      "van": "Persoon",
+      "naar": "Onderwijseenheid aanbod verbintenis",
+      "label": null
+    },
+    {
+      "soort": "Access",
+      "van": "Persoon",
+      "naar": "Onderwijseenheid resultaat",
+      "label": null
+    },
+    {
+      "soort": "Access",
+      "van": "Persoon",
+      "naar": "Opleiding aanbod  verbintenis",
+      "label": null
+    },
+    {
+      "soort": "Access",
+      "van": "Persoon",
+      "naar": "Opleiding aanbod resultaat",
+      "label": null
+    },
+    {
+      "soort": "Access",
+      "van": "Persoon",
+      "naar": "Opleidingaanbod",
+      "label": null
+    },
+    {
+      "soort": "Access",
+      "van": "Persoon",
+      "naar": "Opleidingsprogramma aanbod",
+      "label": null
+    },
+    {
+      "soort": "Access",
+      "van": "Persoon",
+      "naar": "Opleidingsprogramma aanbod verbintenis",
+      "label": null
+    },
+    {
+      "soort": "Access",
+      "van": "Persoon",
+      "naar": "Opleidingsprogramma resultaat",
+      "label": null
+    },
+    {
+      "soort": "Access",
+      "van": "Persoon",
+      "naar": "Toetsgelegenheid",
+      "label": null
+    },
+    {
+      "soort": "Access",
+      "van": "Persoon",
+      "naar": "Toetsgelegenheid resultaat",
+      "label": null
+    },
+    {
+      "soort": "Access",
+      "van": "Persoon",
+      "naar": "Toetsgelegenheid verbintenis",
+      "label": null
+    },
+    {
+      "soort": "Access",
+      "van": "Persoon",
+      "naar": "Verzoek tot Aanbod / Intekening op specificatie",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Competenties / Skills",
+      "naar": "Inzicht",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Competenties / Skills",
+      "naar": "Kennis",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Competenties / Skills",
+      "naar": "Vaardigheid",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Formatieve resultaat structuur",
+      "naar": "Toetsonderdeel specificatie",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Formatieve resultaat structuur",
+      "naar": "Toetsonderdeel weging",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Kerntaak",
+      "naar": "Werkproces",
+      "label": "bestaat uit"
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Kwalificatie",
+      "naar": "Kerntaak",
+      "label": "bestaat uit"
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Kwalificatie dossier",
+      "naar": "Kwalificatie",
+      "label": "bevat"
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Leergelegenheid",
+      "naar": "Lesgelegenheid",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Leeronderdeel specificatie",
+      "naar": "Les specificatie",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Leeruitkomst",
+      "naar": "Leeruitkomst",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Onderwijseenheid aanbod",
+      "naar": "Leergelegenheid",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Onderwijseenheid specificatie",
+      "naar": "Leeronderdeel specificatie",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Onderwijseenheid specificatie",
+      "naar": "Onderwijseenheid specificatie",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Opleiding specificatie",
+      "naar": "Opleidingsprogramma specificatie",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Opleidingaanbod",
+      "naar": "Opleidingsprogramma aanbod",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Opleidingsaanbod van Instelling",
+      "naar": "Opleidingaanbod",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Opleidingsprogramma aanbod",
+      "naar": "Onderwijseenheid aanbod",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Opleidingsprogramma specificatie",
+      "naar": "Onderwijseenheid specificatie",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Opleidingsprogramma specificatie",
+      "naar": "Opleidingsprogramma specificatie",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Persoon",
+      "naar": "Medewerker",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Persoon",
+      "naar": "Student",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Summatieve resultaat structuur",
+      "naar": "Examenonderdeel weging",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Summatieve resultaat structuur",
+      "naar": "Summatieve resultaat structuur",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Summatieve resultaat structuur",
+      "naar": "Toetsonderdeel specificatie",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Aanwezigheid",
+      "naar": "Lesgelegenheid resultaat",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Examengelegenheid",
+      "naar": "Examengelegenheid verbintenis",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Examengelegenheid resultaat",
+      "naar": "Aanwezigheid",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Examengelegenheid verbintenis",
+      "naar": "Examengelegenheid resultaat",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Examenonderdeel weging",
+      "naar": "Examenonderdeelspecificatie",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Examenonderdeelspecificatie",
+      "naar": "Examengelegenheid",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Examenonderdeelspecificatie",
+      "naar": "Leeruitkomst",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Examenonderdeelspecificatie",
+      "naar": "Verzoek tot Aanbod / Intekening op specificatie",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Examenplan",
+      "naar": "Kerntaak",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Examenplan",
+      "naar": "Summatieve resultaat structuur",
+      "label": "kent"
+    },
+    {
+      "soort": "Association",
+      "van": "Formatieve beoordeling",
+      "naar": "Formatief resultaat",
+      "label": "kent"
+    },
+    {
+      "soort": "Association",
+      "van": "Formatieve resultaat structuur",
+      "naar": "Formatief resultaat",
+      "label": "conform"
+    },
+    {
+      "soort": "Association",
+      "van": "Kerntaak",
+      "naar": "Leeruitkomst",
+      "label": "Wordt vertaald naar"
+    },
+    {
+      "soort": "Association",
+      "van": "Keuzedeel",
+      "naar": "Keuzedeelaanbod",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Keuzedeel",
+      "naar": "Keuzedeelruimte",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Keuzedeel",
+      "naar": "Verzoek tot Aanbod / Intekening op specificatie",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Keuzedeel aanbod verbintenis",
+      "naar": "Keuzedeel resultaat",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Keuzedeelaanbod",
+      "naar": "Keuzedeel aanbod verbintenis",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Keuzedeelaanbod",
+      "naar": "Verzoek tot Aanbod / Intekening op specificatie",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Keuzedeelruimte",
+      "naar": "Student keuze regelset",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Kwalificatie",
+      "naar": "Leeruitkomst",
+      "label": "Wordt vertaald naar"
+    },
+    {
+      "soort": "Association",
+      "van": "Kwalificatie dossier",
+      "naar": "Leeruitkomst",
+      "label": "Wordt vertaald naar"
+    },
+    {
+      "soort": "Association",
+      "van": "Leergelegenheid",
+      "naar": "Leergelegenheid verbintenis",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Leergelegenheid",
+      "naar": "Verzoek tot Aanbod / Intekening op specificatie",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Leergelegenheid verbintenis",
+      "naar": "Leergelegenheid resultaat",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Leeronderdeel specificatie",
+      "naar": "Leergelegenheid",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Leeronderdeel specificatie",
+      "naar": "Leeruitkomst",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Leeronderdeel specificatie",
+      "naar": "Verzoek tot Aanbod / Intekening op specificatie",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Leeruitkomst",
+      "naar": "Student keuze regelset",
+      "label": "voorwaarde op"
+    },
+    {
+      "soort": "Association",
+      "van": "Les specificatie",
+      "naar": "Leeruitkomst",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Les specificatie",
+      "naar": "Lesgelegenheid",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Les specificatie",
+      "naar": "Verzoek tot Aanbod / Intekening op specificatie",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Lesgelegenheid",
+      "naar": "Lesgelegenheid verbintenis",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Lesgelegenheid",
+      "naar": "Verzoek tot Aanbod / Intekening op specificatie",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Lesgelegenheid verbintenis",
+      "naar": "Lesgelegenheid resultaat",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Onderwijseenheid aanbod",
+      "naar": "Onderwijseenheid aanbod verbintenis",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Onderwijseenheid aanbod",
+      "naar": "Verzoek tot Aanbod / Intekening op specificatie",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Onderwijseenheid aanbod verbintenis",
+      "naar": "Onderwijseenheid resultaat",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Onderwijseenheid specificatie",
+      "naar": "Leeruitkomst",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Onderwijseenheid specificatie",
+      "naar": "Onderwijseenheid aanbod",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Onderwijseenheid specificatie",
+      "naar": "Verzoek tot Aanbod / Intekening op specificatie",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Opleiding aanbod  verbintenis",
+      "naar": "Opleiding aanbod resultaat",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Opleiding aanbod  verbintenis",
+      "naar": "Opleidingsprogramma aanbod verbintenis",
+      "label": "Minimaal 1"
+    },
+    {
+      "soort": "Association",
+      "van": "Opleiding specificatie",
+      "naar": "Leeruitkomst",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Opleiding specificatie",
+      "naar": "Opleidingaanbod",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Opleiding specificatie",
+      "naar": "Verzoek tot Aanbod / Intekening op specificatie",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Opleidingaanbod",
+      "naar": "Opleiding aanbod  verbintenis",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Opleidingsprogramma aanbod",
+      "naar": "Opleidingsprogramma aanbod verbintenis",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Opleidingsprogramma aanbod",
+      "naar": "Verzoek tot Aanbod / Intekening op specificatie",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Opleidingsprogramma aanbod verbintenis",
+      "naar": "Opleidingsprogramma resultaat",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Opleidingsprogramma specificatie",
+      "naar": "Leeruitkomst",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Opleidingsprogramma specificatie",
+      "naar": "Opleidingsprogramma aanbod",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Persoon",
+      "naar": "Plaatsingsgroep",
+      "label": "Worden gegroepeerd via"
+    },
+    {
+      "soort": "Association",
+      "van": "Persoonlijke ontwikkeling",
+      "naar": "Competenties / Skills",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Persoonlijke ontwikkeling",
+      "naar": "Formatieve resultaat structuur",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Plaatsingsgroep",
+      "naar": "Examengelegenheid verbintenis",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Plaatsingsgroep",
+      "naar": "Keuzedeel aanbod verbintenis",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Plaatsingsgroep",
+      "naar": "Leergelegenheid verbintenis",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Plaatsingsgroep",
+      "naar": "Lesgelegenheid verbintenis",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Plaatsingsgroep",
+      "naar": "Onderwijseenheid aanbod verbintenis",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Plaatsingsgroep",
+      "naar": "Opleiding aanbod  verbintenis",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Plaatsingsgroep",
+      "naar": "Opleidingsprogramma aanbod verbintenis",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Plaatsingsgroep",
+      "naar": "Toetsgelegenheid verbintenis",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Student keuze regelset",
+      "naar": "Keuzedeel",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Student keuze regelset",
+      "naar": "Leeronderdeel specificatie",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Student keuze regelset",
+      "naar": "Les specificatie",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Student keuze regelset",
+      "naar": "Onderwijseenheid specificatie",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Student keuze regelset",
+      "naar": "Opleiding specificatie",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Student keuze regelset",
+      "naar": "Opleidingsprogramma specificatie",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Summatief Afrondingscriterium",
+      "naar": "Waarde document (diploma / certificaat)",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Summatieve beoordeling",
+      "naar": "Summatief resultaat",
+      "label": "met"
+    },
+    {
+      "soort": "Association",
+      "van": "Summatieve resultaat structuur",
+      "naar": "Leeruitkomst",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Summatieve resultaat structuur",
+      "naar": "Summatief Afrondingscriterium",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Summatieve resultaat structuur",
+      "naar": "Summatief resultaat",
+      "label": "conform"
+    },
+    {
+      "soort": "Association",
+      "van": "Summatieve resultaat structuur",
+      "naar": "Waarde document (diploma / certificaat)",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Toetsgelegenheid",
+      "naar": "Toetsgelegenheid verbintenis",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Toetsgelegenheid resultaat",
+      "naar": "Aanwezigheid",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Toetsgelegenheid verbintenis",
+      "naar": "Toetsgelegenheid resultaat",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Toetsonderdeel specificatie",
+      "naar": "Leeruitkomst",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Toetsonderdeel specificatie",
+      "naar": "Toetsgelegenheid",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Toetsonderdeel specificatie",
+      "naar": "Verzoek tot Aanbod / Intekening op specificatie",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Toetsonderdeel weging",
+      "naar": "Toetsonderdeel specificatie",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Verzoek tot Aanbod / Intekening op specificatie",
+      "naar": "Examengelegenheid",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Verzoek tot Aanbod / Intekening op specificatie",
+      "naar": "Opleidingaanbod",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Verzoek tot Aanbod / Intekening op specificatie",
+      "naar": "Opleidingsprogramma specificatie",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Verzoek tot Aanbod / Intekening op specificatie",
+      "naar": "Toetsgelegenheid",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Werkproces",
+      "naar": "Leeruitkomst",
+      "label": "Wordt vertaald naar"
+    },
+    {
+      "soort": "Specialization",
+      "van": "Examenonderdeelspecificatie",
+      "naar": "Toetsonderdeel specificatie",
+      "label": null
+    },
+    {
+      "soort": "Specialization",
+      "van": "Formatieve beoordeling",
+      "naar": "Toetsgelegenheid resultaat",
+      "label": null
+    },
+    {
+      "soort": "Specialization",
+      "van": "Keuzedeel",
+      "naar": "Opleidingsprogramma specificatie",
+      "label": null
+    },
+    {
+      "soort": "Specialization",
+      "van": "Keuzedeel aanbod verbintenis",
+      "naar": "Opleidingsprogramma aanbod verbintenis",
+      "label": null
+    },
+    {
+      "soort": "Specialization",
+      "van": "Keuzedeel resultaat",
+      "naar": "Opleidingsprogramma resultaat",
+      "label": null
+    },
+    {
+      "soort": "Specialization",
+      "van": "Keuzedeelaanbod",
+      "naar": "Opleidingsprogramma aanbod",
+      "label": null
+    },
+    {
+      "soort": "Specialization",
+      "van": "Keuzedeelruimte",
+      "naar": "Opleidingsprogramma specificatie",
+      "label": null
+    },
+    {
+      "soort": "Specialization",
+      "van": "Leeruitkomst",
+      "naar": "Competenties / Skills",
+      "label": null
+    },
+    {
+      "soort": "Specialization",
+      "van": "Summatieve beoordeling",
+      "naar": "Examengelegenheid resultaat",
+      "label": null
+    }
+  ],
+  "oeapi_mapping": [
+    {
+      "okx": "Examengelegenheid",
+      "oeapi": "TestComponentOffering",
+      "relatie": "Realization"
+    },
+    {
+      "okx": "Examengelegenheid resultaat",
+      "oeapi": "Result",
+      "relatie": "Realization"
+    },
+    {
+      "okx": "Examengelegenheid verbintenis",
+      "oeapi": "TestComponentOfferingAssociation",
+      "relatie": "Realization"
+    },
+    {
+      "okx": "Examenonderdeelspecificatie",
+      "oeapi": "TestComponent",
+      "relatie": "Realization"
+    },
+    {
+      "okx": "Keuzedeel",
+      "oeapi": "Programme",
+      "relatie": "Realization"
+    },
+    {
+      "okx": "Keuzedeel aanbod verbintenis",
+      "oeapi": "ProgrammeOfferingAssociation",
+      "relatie": "Realization"
+    },
+    {
+      "okx": "Keuzedeel resultaat",
+      "oeapi": "Result",
+      "relatie": "Realization"
+    },
+    {
+      "okx": "Keuzedeelaanbod",
+      "oeapi": "ProgrammeOffering",
+      "relatie": "Realization"
+    },
+    {
+      "okx": "Keuzedeelruimte",
+      "oeapi": "Programme",
+      "relatie": "Realization"
+    },
+    {
+      "okx": "Leergelegenheid",
+      "oeapi": "LearningComponentOffering",
+      "relatie": "Realization"
+    },
+    {
+      "okx": "Leergelegenheid resultaat",
+      "oeapi": "Result",
+      "relatie": "Realization"
+    },
+    {
+      "okx": "Leergelegenheid verbintenis",
+      "oeapi": "LearningComponentOfferingAssociation",
+      "relatie": "Realization"
+    },
+    {
+      "okx": "Leeronderdeel specificatie",
+      "oeapi": "LearningComponent",
+      "relatie": "Realization"
+    },
+    {
+      "okx": "Leeruitkomst",
+      "oeapi": "LearningOutcome",
+      "relatie": "Realization"
+    },
+    {
+      "okx": "Les specificatie",
+      "oeapi": "LearningComponent",
+      "relatie": "Realization"
+    },
+    {
+      "okx": "Lesgelegenheid",
+      "oeapi": "LearningComponentOffering",
+      "relatie": "Realization"
+    },
+    {
+      "okx": "Lesgelegenheid resultaat",
+      "oeapi": "Result",
+      "relatie": "Realization"
+    },
+    {
+      "okx": "Lesgelegenheid verbintenis",
+      "oeapi": "LearningComponentOfferingAssociation",
+      "relatie": "Realization"
+    },
+    {
+      "okx": "Onderwijseenheid aanbod",
+      "oeapi": "CourseOffering",
+      "relatie": "Realization"
+    },
+    {
+      "okx": "Onderwijseenheid aanbod verbintenis",
+      "oeapi": "CourseOfferingAssociation",
+      "relatie": "Realization"
+    },
+    {
+      "okx": "Onderwijseenheid resultaat",
+      "oeapi": "Result",
+      "relatie": "Realization"
+    },
+    {
+      "okx": "Onderwijseenheid specificatie",
+      "oeapi": "Course",
+      "relatie": "Realization"
+    },
+    {
+      "okx": "Opleiding aanbod  verbintenis",
+      "oeapi": "ProgrammeOfferingAssociation",
+      "relatie": "Realization"
+    },
+    {
+      "okx": "Opleiding aanbod resultaat",
+      "oeapi": "Result",
+      "relatie": "Realization"
+    },
+    {
+      "okx": "Opleiding specificatie",
+      "oeapi": "Programme",
+      "relatie": "Realization"
+    },
+    {
+      "okx": "Opleidingaanbod",
+      "oeapi": "ProgrammeOffering",
+      "relatie": "Realization"
+    },
+    {
+      "okx": "Opleidingsprogramma aanbod",
+      "oeapi": "ProgrammeOffering",
+      "relatie": "Realization"
+    },
+    {
+      "okx": "Opleidingsprogramma aanbod verbintenis",
+      "oeapi": "ProgrammeOfferingAssociation",
+      "relatie": "Realization"
+    },
+    {
+      "okx": "Opleidingsprogramma resultaat",
+      "oeapi": "Result",
+      "relatie": "Realization"
+    },
+    {
+      "okx": "Opleidingsprogramma specificatie",
+      "oeapi": "Programme",
+      "relatie": "Realization"
+    },
+    {
+      "okx": "Persoon",
+      "oeapi": "Person",
+      "relatie": "Association"
+    },
+    {
+      "okx": "Plaatsingsgroep",
+      "oeapi": "Group",
+      "relatie": "Realization"
+    },
+    {
+      "okx": "Toetsgelegenheid",
+      "oeapi": "TestComponentOffering",
+      "relatie": "Realization"
+    },
+    {
+      "okx": "Toetsgelegenheid resultaat",
+      "oeapi": "Result",
+      "relatie": "Realization"
+    },
+    {
+      "okx": "Toetsgelegenheid verbintenis",
+      "oeapi": "TestComponentOfferingAssociation",
+      "relatie": "Realization"
+    },
+    {
+      "okx": "Toetsonderdeel specificatie",
+      "oeapi": "TestComponent",
+      "relatie": "Realization"
+    }
+  ]
+}

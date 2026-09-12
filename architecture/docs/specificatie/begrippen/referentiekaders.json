@@ -1,0 +1,263 @@
+{
+  "toelichting": "Letterlijk overgenomen definities uit de referentiearchitecturen, met bron-URL en ophaaldatum. Deze bestanden zijn de bron voor de kolom herkomst in begrippen.json. Werkwijze: zie de skill okx-referentiearchitectuur-eerst.",
+  "opgehaald": "2026-09-09",
+  "kaders": {
+    "MORA": {
+      "naam": "MORA, de mbo-referentiearchitectuur van MBO Digitaal",
+      "overzicht": "https://mora.mbodigitaal.nl/index.php/Informatiemodel",
+      "begrippen": [
+        {
+          "naam": "Aan- en afwezigheid",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-64aa6ac8-d531-7df9-8bcd-c5e09d4c15e9",
+          "definitie": "Geregistreerde aan- of afwezigheid van een student op een gepland tijdstip in een gespecificeerde omgeving"
+        },
+        {
+          "naam": "Aangeboden opleiding",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-e723f9e6-adfc-40a1-0527-ee1b75b380dc",
+          "definitie": "Een opleidingseenheid die door een onderwijsaanbieder aangeboden wordt in een bepaalde vorm, al dan niet op een bepaalde onderwijslocatie, waarop een onderwijsvolger zich kan inschrijven"
+        },
+        {
+          "naam": "Aanmelding",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-666a838e-d9bd-c5fd-ad85-545ec69f1566",
+          "definitie": "Het schriftelijke verzoek om een student toe te laten tot een school en/of een specifieke opleiding"
+        },
+        {
+          "naam": "Certificaat",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-4b956a9f-0487-7d1f-d915-5c887b43d41f",
+          "definitie": "Een mbo-certificaat bevat een deel van de kwalificatie-eisen van een mbo-opleiding. Dit kan gaan om keuzedelen of beroepsgerichte onderdelen. De minister van OCW stelt met een regeling vast aan welke onderdelen van een mbo-opleiding een mbo-certificaat wordt verbonden. Een door de student behaald mbo-certificaat wordt geregistreerd in het diplomaregister van DUO"
+        },
+        {
+          "naam": "Cohort / periode",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-67cf6837-c59e-52aa-47e6-006c572259e1",
+          "definitie": "Groep van studenten die onder hetzelfde onderwijs- en examenreglement vallen, binnen hetzelfde tijdvak (lopend van het eerste jaar van de opleiding tot en met het laatste jaar, uitgaande van de studieduur)"
+        },
+        {
+          "naam": "Diploma",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-39568458-7a8e-36ed-9ec1-971592a7e099",
+          "definitie": "Waardedocument dat de student behaalt nadat aan alle eisen is voldaan die beschreven zijn in de kwalificatie"
+        },
+        {
+          "naam": "Examen",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-9c12b2e2-2413-3a7b-ac80-bd44f5e381a5",
+          "definitie": "Een onderzoek naar kennis, inzicht, houding en vaardigheden van de student, op basis waarvan de instelling na beoordeling een formeel bewijs van prestatie toekent"
+        },
+        {
+          "naam": "Examen deelname",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-abbf4971-fe71-2b56-20f1-6135b4a1eb82",
+          "definitie": "De registratie van een formele activiteit (lees examensessie) waarin een examen wordt afgenomen"
+        },
+        {
+          "naam": "Examenplan",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-913bf380-1288-8a49-0bca-906d8b112e8f",
+          "definitie": "Het examenplan geeft per kwalificatie een overzicht van de examenonderdelen en examens die een mbo-school inzet voor de examinering (kwalificerende beoordeling). Het examenplan geeft inzicht in de onderdelen die een student met een voldoende moet afsluiten om in aanmerking te komen voor een diploma"
+        },
+        {
+          "naam": "Formatief resultaat",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-2bd2c72b-08d2-169d-9ed1-f4868ad34f5c",
+          "definitie": "Een waardering die de student informatie geeft over de kwaliteit en voortgang van zijn of haar leren, maar niet meetelt voor de uiteindelijke kwalificering. Formatieve resultaten worden vastgelegd conform de formatieve resultaatstructuur. Formatieve resultaten worden ook wel toetsresultaten genoemd"
+        },
+        {
+          "naam": "Formatieve beoordeling",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-26fa321c-d407-817f-68c5-5509997d821b",
+          "definitie": "Een beoordeling, veelal van een toets, die niet meetelt voor de uiteindelijke kwalificering, maar de lerende informatie geeft over de kwaliteit van zijn of haar leren"
+        },
+        {
+          "naam": "Formatieve resultaat structuur",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-a5f45830-ae81-5110-df27-b47e642a54a3",
+          "definitie": "Structuur voor de geordende vastlegging van formatieve resultaten bij een opleidingsonderdeel. Per opleidingsonderdeel kunnen één of meerdere resultaatstructuren worden gemaakt. Een formatieve resultaatstructuur bestaat uit een aantal toetsen waarvan de formatieve resultaten kunnen vastgelegd en een berekeningswijze om tot een eindresultaat voor het opleidingsonderdeel als geheel te komen"
+        },
+        {
+          "naam": "Generiek examenonderdeel",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-da9eca0c-230d-ff88-be08-fa6224c28f48",
+          "definitie": "De examenonderdelen uit het kwalificatiedossier die binnen het basisdeel vallen. Het basisdeel bevat de generieke onderdelen Nederlandse taal, rekenen, loopbaan en burgerschap en Engels (uitsluitend voor niveau 4)"
+        },
+        {
+          "naam": "Inschrijving",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-b329667d-f273-4c9c-2866-73ccce570d18",
+          "definitie": "Een overeenkomst tussen de onderwijsaanbieder en de student waar de rechten en plichten van onderwijsaanbieder en student in staan. Deze overeenkomst bevat ook voorwaarden waarin o.a. is opgenomen dat de student (en bij minderjarigen de ouders) akkoord gaan met alle voor het onderwijs relevante onderdelen zoals de BPV"
+        },
+        {
+          "naam": "Kerntaak",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-99ef9489-49b3-4a3b-7a89-08ae36a3255e",
+          "definitie": "Een kerntaak is een substantieel deel van de beroepsuitoefening naar belang omvang (tijdsbeslag of frequentie) of beide. Een kerntaak bestaat uit een geheel van inhoudelijk met elkaar samenhangende werkprocessen kenmerkend voor de beroepsuitoefening. Een kwalificatiedossier heeft een beperkt aantal kerntaken"
+        },
+        {
+          "naam": "Keuzedeel",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-018c4a8c-4129-ce3e-66a6-55ad855f7661",
+          "definitie": "Keuzedelen zijn een verrijking van de kwalificatie (basis- en profieldeel) en kunnen voor de student verbredend of verdiepend zijn of bijdragen aan een betere doorstroom naar een vervolgopleiding"
+        },
+        {
+          "naam": "Kwalificatie",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-f54b73a9-9562-2b28-deca-724e992bbcdb",
+          "definitie": "De kwalificatie is de combinatie van het basis- en profieldeel uit het kwalificatiedossier. De kwalificatie omvat wat de beginnend beroepsbeoefenaar moet kennen en kunnen als hij gediplomeerd is en start op de arbeidsmarkt"
+        },
+        {
+          "naam": "Kwalificatie dossier",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-3389d485-20a7-6e53-21df-d09eb49d4762",
+          "definitie": "Het kwalificatiedossier beschrijft de eisen waaraan een student moet voldoen om zijn diploma te behalen. Elk dossier bevat een of meer kwalificaties en iedere kwalificatie leidt tot een diploma. Alle kwalificatiedossiers samen, aangevuld met de keuzedelen, vormen de kwalificatiestructuur. Een kwalificatiedossier bestaat uit een basisdeel en een of meer profieldelen"
+        },
+        {
+          "naam": "Leeractiviteit",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-b25709e2-388a-d36b-696b-b82fd908f076",
+          "definitie": "De roosterbare eenheden waaruit een opleidingsonderdeel is opgebouwd, dus de activiteiten die in het rooster moeten worden opgenomen, de te roosteren onderwijsmomenten. Leeractiviteiten kunnen van toepassing zijn op meerdere opleidingsonderdelen"
+        },
+        {
+          "naam": "Leertaak",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-be2dc6b8-cf25-4bd4-2950-2a4c2e4f2ffa",
+          "definitie": "De lesstof en opdrachten waarin de student kennis en/of vaardigheden verwerft, die een student opleiden voor het examen of andere vorm van validatie van een opleidingsonderdeel, en die een student moet beheersen en hebben laten zien als voorwaarde om voor het opleidingsonderdeel te (mogen) slagen"
+        },
+        {
+          "naam": "Leervraag",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-306e945a-d2ff-000e-f950-f1acaa91a0bc",
+          "definitie": "De vraag van een (potentiele) student aan de onderwijsaanbieder waarin verwoord wordt wat men wil leren. Het formuleren van de leervraag is een activiteit van de begeleider samen met de deelnemer of opdrachtgever waarin de leervraag wordt uitgedrukt in producten uit de onderwijscatalogus (eventueel) aangevuld met additionele wensen en voorwaarden"
+        },
+        {
+          "naam": "Onderwijs aanbieder",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-64f8ba53-233e-46fe-6581-1b8148927876",
+          "definitie": "Een organisatie die door een bevoegd gezag is ingesteld voor het verzorgen van onderwijs"
+        },
+        {
+          "naam": "Onderwijs programma",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-3a7bb8e1-5748-3381-24f6-43c98479fe35",
+          "definitie": "Een planbaar geheel van opleidingsonderdelen, met daarbij aanvullende informatie over hoe deze door de student kunnen worden gevolgd. Het onderwijsprogramma beschrijft één of meerdere standaard leerroutes die model staan voor de persoonlijke leerroute en beschrijft welke keuzevrijheid de student daarin heeft"
+        },
+        {
+          "naam": "Onderwijsplan",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-8e2d0035-fb6e-8666-381b-d6d235b79b85",
+          "definitie": "Het onderwijsplan beschrijft per aangeboden opleiding het onderwijsprogramma inclusief de opleidingsonderdelen en standaard leerroute(s). Het onderwijsplan bevat daarnaast o.a. een globale beschrijving van de leeractiviteiten en leertaken en kan aanvullende informatie omvatten, zoals de doelen van de opleiding, de leerinhoud, toetsen, didactische principes en/of de wijze en het tijdstip waarop dit aangeboden wordt. In het onderwijsplan staat binnen welke omgeving (mbo-school, zelfstudie of beroepspraktijk) het onderwijs plaatsvindt. Hierbij houdt de school rekening met de praktische haalbaarheid en de doelgroep"
+        },
+        {
+          "naam": "Opleidingen overzicht",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-9a23241c-a60e-6623-e13a-d945a761ab17",
+          "definitie": "Het geheel van opleiding dat door de instelling wordt aangeboden"
+        },
+        {
+          "naam": "Opleidings eenheid",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-422e89b9-f9e3-a3ae-56f7-25855f01d433",
+          "definitie": "Een geheel van kennis, inzicht en vaardigheden. Een opleidingseenheid kan beschreven worden naar het waardedocument dat de student ontvangt na het afronden van de aangeboden opleiding. In dat geval kent de opleidingseenheid de volgende varianten: diploma-opleiding, branche-opleiding, certificaat-opleiding, maatwerk-opleiding"
+        },
+        {
+          "naam": "Opleidings-onderdeel",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-17db36ca-368f-450e-cbfe-604b2fafee6e",
+          "definitie": "Een onderscheidbaar geheel van kennis, inzicht en vaardigheden, dat onderdeel kan zijn van één of meer opleidingen. Een opleidingsonderdeel is een afgerond geheel binnen een onderwijsprogramma. De persoonlijke leerroute kan worden samengesteld uit deze opleidingsonderdelen"
+        },
+        {
+          "naam": "Persoonlijke leerroute",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-24c6cb1f-773c-ce02-b525-053322772250",
+          "definitie": "Een planbaar geheel van opleidingsonderdelen dat is afgestemd op de leervraag van de student. De standaard leerroutes uit het onderwijsprogramma staan hier model voor. Afwijken van de standaard leerroute kan met begeleiding en binnen de keuzevrijheid die het onderwijsprogramma biedt"
+        },
+        {
+          "naam": "Plaatsing",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-871a4ac0-e5e2-242d-7204-976fdc5cd613",
+          "definitie": "De plaatsing of deelname van een student in een opleiding"
+        },
+        {
+          "naam": "Student",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-c7c163ee-2fa5-5b58-bc08-f401d0350c3a",
+          "definitie": "Een persoon die aan onderwijsactiviteiten deelneemt of dat wil gaan doen. Dit omvat ingeschreven studenten, potentiële studenten en alumni"
+        },
+        {
+          "naam": "Summatief resultaat",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-beaf106a-f329-b3ed-e513-6814b1fd65fa",
+          "definitie": "Een formele, door de instelling geregistreerde waardering voor summatief gemaakt werk (zoals een examen of BPV-beoordeling) die meetelt voor de uiteindelijke kwalificering. Summatieve resultaten worden vastgelegd conform de summatieve resultaatstructuur. Summatieve resultaten worden ook wel examenresultaten genoemd"
+        },
+        {
+          "naam": "Summatieve beoordeling",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-0a14e5af-bf2e-2584-3320-095341367128",
+          "definitie": "De beoordeling van summatief gemaakt werk, zoals de beoordeling van een examen of een BPV-beoordeling"
+        },
+        {
+          "naam": "Summatieve resultaat structuur",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-a3020bda-2b3d-d3ac-ea08-a5be84de56cc",
+          "definitie": "Structuur voor de geordende vastlegging van summatieve resultaten bij een onderwijsprogramma. Een summatieve resultaatstructuur bestaat uit een aantal examens of examenonderdelen waarvan de summatieve resultaten kunnen worden vastgelegd en een berekeningswijze om tot een eindresultaat voor het onderwijsprogramma als geheel te komen"
+        },
+        {
+          "naam": "Waarde document (diploma / certificaat)",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-8647eba0-e31d-5bcf-c12a-4d477069943c",
+          "definitie": "Het bewijsstuk van een eindoordeel over het voltooien van een opleiding, keuzedeel, deelkwalificatie of module"
+        },
+        {
+          "naam": "Werkproces",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-9cf4d404-b06c-473f-57d9-3945af33cfa8",
+          "definitie": "Een werkproces is een afgebakend geheel van beroepshandelingen binnen een kerntaak. Het werkproces kent een begin en een eind heeft een resultaat en wordt als kenmerkend herkend in de beroepspraktijk"
+        }
+      ]
+    },
+    "ROSA-KOI": {
+      "naam": "Kernmodel Onderwijsinformatie (KOI) binnen ROSA",
+      "overzicht": "https://rosa.wikixl.nl/index.php/Kernmodel_Onderwijsinformatie",
+      "begrippen": [
+        {
+          "naam": "leerresultaat (koi)",
+          "url": "https://rosa.wikixl.nl/index.php/Id-943051f7f72246b0a3d3656c8e0b75cd",
+          "definitie": "Vastgelegde uitkomst van een door een onderwijsdeelnemer uitgevoerde leeractiviteit."
+        },
+        {
+          "naam": "onderwijsaanbod (koi)",
+          "url": "https://rosa.wikixl.nl/index.php/Id-6d1ed39571de4ee5b1aefcf051991478",
+          "definitie": "Datgene wat een onderwijsorganisatie organiseert aan onderwijsactiviteiten zowel inhoudelijk als qua aanpak."
+        },
+        {
+          "naam": "onderwijsactiviteit (koi)",
+          "url": "https://rosa.wikixl.nl/index.php/Id-a5b4e50fc6eb4e7186d4b7e5ec62f3c7",
+          "definitie": "Het aanleren van kennis, vaardigheden en attitudes om vooraf vastgelegde doelen na te streven."
+        },
+        {
+          "naam": "onderwijsdeelname (koi)",
+          "url": "https://rosa.wikixl.nl/index.php/Id-ec977035c9be4b01bb1c14a5950a1799",
+          "definitie": "Een afspraak voor het gaan volgen, volgen en hebben gevolgd van onderwijs."
+        },
+        {
+          "naam": "onderwijsdeelnemer (koi)",
+          "url": "https://rosa.wikixl.nl/index.php/Id-ca1e8048bd094f02a348cf843fa07ae7",
+          "definitie": "Een natuurlijk persoon die deelneemt aan een onderwijsactiviteit om zich kennis, vaardigheden en attitudes eigen te maken."
+        },
+        {
+          "naam": "onderwijseenheid (koi)",
+          "url": "https://rosa.wikixl.nl/index.php/Id-c74c161c6f1f4690933a31ce4d11f3b8",
+          "definitie": "Een samenhangend geheel van kennis, inzicht en vaardigheden met een bepaald leerdoel."
+        },
+        {
+          "naam": "onderwijslocatie (koi)",
+          "url": "https://rosa.wikixl.nl/index.php/Id-4255ee059f4448279eaeff1f151ebbd6",
+          "definitie": "Een plek waar onderwijs wordt gegeven."
+        },
+        {
+          "naam": "onderwijsmateriaal (koi)",
+          "url": "https://rosa.wikixl.nl/index.php/Id-d79862549a824a3ca72a7df50489bdee",
+          "definitie": "Content en (fysieke) benodigdheden bestemd voor gebruik binnen onderwijsactiviteiten."
+        },
+        {
+          "naam": "onderwijsmedewerker (koi)",
+          "url": "https://rosa.wikixl.nl/index.php/Id-5ea4d7d18cbc4f8eb3aea997a4d9b35d",
+          "definitie": "Een natuurlijk persoon die op grond van een overeenkomst werkzaam is voor een onderwijsorganisatie."
+        },
+        {
+          "naam": "onderwijsondersteuning (koi)",
+          "url": "https://rosa.wikixl.nl/index.php/Id-223e100616a846aaac245ccc9023a328",
+          "definitie": "Alle activiteiten die nodig zijn om de deelname aan het onderwijs mogelijk te maken."
+        },
+        {
+          "naam": "onderwijsontwikkeling (koi)",
+          "url": "https://rosa.wikixl.nl/index.php/Id-13d010dc71ff492f86a1fa6ea9e46d7c",
+          "definitie": "Het samenstellen van onderwijsprogramma's, curricula en/of leerlijnen en het variëren en arrangeren in het beschikbare onderwijsaanbod en/of het ontwikkelen van onderwijsmateriaal gebruikmakend van beschikbare onderwijsmaterialen."
+        },
+        {
+          "naam": "onderwijsorganisatie (koi)",
+          "url": "https://rosa.wikixl.nl/index.php/Id-25e646d0ef8b4cc298d0976f745869b0",
+          "definitie": "Een organisatie die onderwijs aanbiedt en verzorgt en regelt dat aan de gestelde randvoorwaarden wordt voldaan."
+        },
+        {
+          "naam": "onderwijsresultaat (koi)",
+          "url": "https://rosa.wikixl.nl/index.php/Id-e5d21e5384c0482ba4a501571e69927a",
+          "definitie": "Vastgelegde en geformaliseerde beoordeling op basis van een of meer leerresultaten."
+        }
+      ]
+    },
+    "HORA": {
+      "naam": "HORA, de referentiearchitectuur van het hoger onderwijs",
+      "overzicht": "https://hora.surf.nl/",
+      "begrippen": []
+    }
+  }
+}
