@@ -50,7 +50,7 @@ flowchart LR
 | Afgesproken op 1 september | Stand |
 |---|---|
 | Versioneringsvoorstel als pull request | Ligt er: [Public PR 100](https://github.com/Npuls-OKx/Public/pull/100), groter geworden dan aangekondigd |
-| Uitkomst van de review op v0.0.2 | Eén reactie binnen, zie de volgende slide |
+| Uitkomst van de review op v0.0.2 | Twee reacties binnen, zie de volgende slide |
 | Informatiemodel eerst reviewen, dan de payloads | Ligt er: [Public PR 104](https://github.com/Npuls-OKx/Public/pull/104), laag 1 en 2 van de informatie- en gegevensmodellen |
 
 </div>
@@ -70,26 +70,42 @@ en is een herindeling van de koppelvlakspecificatie geworden.
 
 <div class="fill">
 
-# Review op v0.0.2: wat is er gezien?
+# Review op v0.0.2: twee reacties, één rode draad
 
-<div style="font-size: 0.95rem; line-height: 1.8; margin-top: 1rem;">
+<div style="font-size: 0.95rem; line-height: 1.7; margin-top: 0.6rem;">
 
-- Eén reactie binnen: Xedule en YNC, een pdf met opmerkingen per story ([Public #99](https://github.com/Npuls-OKx/Public/issues/99))
-- Op de pull request zelf geen review ingediend; de reacties die erop staan komen uit de demo van 1 september ([Public PR 82](https://github.com/Npuls-OKx/Public/pull/82))
+- Xedule en YNC: een pdf met opmerkingen per story ([Public #99](https://github.com/Npuls-OKx/Public/issues/99))
+- Kees en Luke: 28 reviewopmerkingen op inleiding, ADR 0025, epics, features en stories ([Public PR 82](https://github.com/Npuls-OKx/Public/pull/82), 14 september); de formele review volgt
 
 </div>
 
-<div class="np-card" style="margin-top: 1.4rem; font-size: 0.98rem;">
-Gezocht: de bevindingen van ieder die v0.0.2 heeft doorgenomen, en wat er nodig is om de review te laten gebeuren.
+<div class="np-grid-3" style="margin-top: 0.9rem; gap: 1rem;">
+<div class="np-card" style="font-size: 0.9rem; line-height: 1.45;"><strong>Functionaliteit, geen koppelvlak</strong><br/>Stories en features beschrijven hoe een onderwijscatalogus werkt of wat een school kiest, niet de interactie tussen systemen</div>
+<div class="np-card" style="font-size: 0.9rem; line-height: 1.45;"><strong>Uitgangspunt of feature</strong><br/>Leeruitkomsten als gegeven, versionering, query-parameters: uitgangspunten en implementatiekeuzes staan als feature</div>
+<div class="np-card" style="font-size: 0.9rem; line-height: 1.45;"><strong>Notify of transactie</strong><br/>Wanneer informeren systemen elkaar en wanneer verandert een aanroep echt iets; wie is de client van het endpoint en wie is waarvoor verantwoordelijk</div>
+</div>
+
+<div class="np-card accent-green" style="margin-top: 0.9rem; font-size: 0.95rem; background: #F3FAF6;">
+Voorstel van Kees en Luke voor vandaag: eerst vaststellen wat een koppelvlakspecificatie bepaalt en vastlegt, dan pas de inhoud van de stories.
 </div>
 
 </div>
 
 <!--
-Vragend stellen, niet verwijtend. De drie reviewregels en de comment op PR 82 zijn tijdens de
-demo van 1 september geplaatst en tellen niet als review. De pdf van Xedule en YNC bevat acht
-pagina's opmerkingen per story; Niels heeft daarop geantwoord dat de stories met de
-PoC-instellingen verder worden aangepakt.
+Twee reacties op v0.0.2. De pdf van Xedule en YNC (#99) bevat acht pagina's opmerkingen per
+story; Niels heeft daarop geantwoord dat de stories met de PoC-instellingen verder worden
+aangepakt. Kees en Luke hebben op 14 september de epics, features en stories bekeken: 28
+opmerkingen op PR 82 (inleiding 3, ADR 0025 1, epics 3, features 15, stories 6), de review
+zelf volgt via GitHub. Hun overkoepelende gevoel, per mail aan Niek: het neigt naar een
+functionele beschrijving van applicaties of componenten of naar beleidskeuzes van een school,
+in plaats van een aanloop naar een koppelvlakspecificatie; dezelfde afdronk als in #99. Voorbeelden
+uit de opmerkingen: "is onderwijscatalogusfunctionaliteit, niet iets met koppelvlak te maken"
+(stories 9 en 19), "je kiest hier hoe een school zijn onderwijs gaat doen" (epics 14), "is dit
+geen uitgangspunt in plaats van feature" (features 41, 42, 44), "wanneer transactioneel en
+synchroon" (features 39, 70), "wat we missen is de client van het endpoint" (ADR 0025), "welke
+verbintenistoestand, opleiding of leergelegenheid; beschrijf wat de docent wil doen" (stories 58).
+De reacties uit de demo van 1 september tellen niet als review. Vragend stellen: het voorstel
+om eerst het kader te bespreken past bij het eerste agendapunt.
 -->
 
 ---
