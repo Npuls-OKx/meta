@@ -20,7 +20,7 @@ De objecttypen van het informatiemodel, [MIM-niveau 2](https://docs.geostandaard
 
 ## Notatie
 
-De blauwe objecten zijn OEAPI v6 en staan als data-object in het model. Van de OKx-objecttypen zijn er 59 bedrijfsobject en 3 bedrijfsactor: `Persoon`, `Student` en `Medewerker`. Draagt één OEAPI-object meerdere OKx-objecttypen, dan staat het op de plaat bij elk van die objecttypen apart. De relatie is realisatie: het data-object is de vorm waarin een OKx-objecttype wordt uitgewisseld. Realisatie overbrugt lagen en komt daarom alleen hier voor. `Persoon` naar `Person` is de uitzondering, en dat volgt uit die typering: realisatie loopt naar een bedrijfsobject, niet naar een bedrijfsactor, dus daar is de relatie een associatie (association).
+De blauwe objecten zijn OEAPI v6 en staan als data-object in het model. Van de OKx-objecttypen zijn er 63 bedrijfsobject en 3 bedrijfsactor: `Persoon`, `Student` en `Medewerker`. Draagt één OEAPI-object meerdere OKx-objecttypen, dan staat het op de plaat bij elk van die objecttypen apart. De relatie is realisatie: het data-object is de vorm waarin een OKx-objecttype wordt uitgewisseld. Realisatie overbrugt lagen en komt daarom alleen hier voor. `Persoon` naar `Person` is de uitzondering, en dat volgt uit die typering: realisatie loopt naar een bedrijfsobject, niet naar een bedrijfsactor, dus daar is de relatie een associatie (association).
 
 ## Dekking door OEAPI v6
 
@@ -75,7 +75,7 @@ Uit `informatiemodel.json`: de 35 realisaties en de associatie van `Persoon` naa
 
 ### OKx-objecttypen zonder OEAPI-equivalent
 
-Voor deze 21 objecttypen binnen scope is nog geen equivalent in OEAPI v6 geïdentificeerd. Per groep staat waarom, en wat het besluit vraagt: een signalering richting de standaard, of een bewuste afwijking.
+Voor deze 24 objecttypen binnen scope is nog geen equivalent in OEAPI v6 geïdentificeerd. Per groep staat waarom, en wat het besluit vraagt: een signalering richting de standaard, of een bewuste afwijking.
 
 | Groep | Objecttypen | Waarom geen equivalent | Besluit |
 |---|---|---|---|
@@ -84,7 +84,9 @@ Voor deze 21 objecttypen binnen scope is nog geen equivalent in OEAPI v6 geïden
 | Onderwijsresultaat | `Summatief resultaat`, `Formatief resultaat`, `Summatieve beoordeling`, `Formatieve beoordeling` | `Result` in OEAPI hangt aan een association of attempt en heeft `final`, `pass`, `score` en `assessor` als velden; het onderscheid formatief of summatief en de beoordeling als eigen object kent OEAPI niet | open |
 | Rollen | `Student`, `Medewerker` | OEAPI kent ze niet als object maar als `affiliations` op `Person` | open: rol als attribuut van `Person` volstaat mogelijk |
 | Aanwezigheid | `Aanwezigheid` | OEAPI kent aanwezigheid alleen als attribuut op een association, niet als eigen object | open |
-| Keuze en verzoek | `Student keuze regelset`, `Verzoek tot Aanbod / Intekening op specificatie` | Geen object in OEAPI voor de regelset (OKx legt die vast in `rule-set.json`) en voor het verzoek om nieuw aanbod te maken. Intekenen op bestaand aanbod kent OEAPI wel: een association met `state` `pending` of `queued` | open |
+| Keuze en verzoek | `Student keuze regelset`, `Verzoek tot Aanbod / Intekening op specificatie` | Geen object in OEAPI voor de regelset (OKx legt die vast in `rule-set.json`) en voor het verzoek om nieuw aanbod te maken | open |
+| Aanmelding en inschrijving | `Aanmelding`, `Inschrijving` | OEAPI kent geen eigen object: een aanmelding is een association met `state` `pending` of `queued`, een inschrijving dezelfde association met `state` `associated`. De toestand van de association draagt wat op de plaat twee objecttypen zijn | open: mapping op de associationtoestand ligt voor de hand |
+| Cohort | `Cohort / periode` | OEAPI kent `AcademicSession` (schooljaar, periode) als tijdvak; de groepering van studenten onder dezelfde onderwijs- en examenregeling is er niet als object | open |
 | Overig | `Opleidingsaanbod van Instelling`, `Waarde document (diploma / certificaat)`, `Persoonlijke ontwikkeling` | Geen object in OEAPI gevonden | open |
 
 ### OEAPI-objecten zonder OKx-objecttype
@@ -94,7 +96,7 @@ De omgekeerde dekking: objecten die OEAPI v6 wel kent en die op de plaat geen ob
 | OEAPI-object | Wat het draagt | Stand op de plaat |
 |---|---|---|
 | `Organisation` | De onderwijsaanbieder en zijn organisatie-eenheden, met `parent` en `root` | Nog niet gemodelleerd; ook in het logisch gegevensmodel alleen als `ORGANISATIE_EENHEID` |
-| `AcademicSession` | Schooljaar en periode, waar een offering aan hangt | Nog niet gemodelleerd; de periode is op de plaat een kenmerk van het aanbod |
+| `AcademicSession` | Schooljaar en periode, waar een offering aan hangt | Op de plaat is `Cohort / periode` het tijdvak dat studenten onder dezelfde regeling groepeert; nog niet gemapt |
 | `Group` en `Membership` | Een groep met leden, rol en status | `Plaatsingsgroep` is op `Group` gemapt; het lidmaatschap als eigen object ontbreekt |
 | `TestComponentOfferingAssociationAttempt` | Een poging op een toetsonderdeel, met `attempt`, `opportunity`, `attendance` en een eigen `result` | Nog niet gemodelleerd: de plaat kent geen poging of herkansing als objecttype |
 
