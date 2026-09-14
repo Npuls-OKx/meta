@@ -26,8 +26,22 @@
   },
   "objecttypen": [
     {
+      "naam": "Aanmelding",
+      "kolom": null,
+      "scope": "binnen",
+      "vulkleur": null,
+      "oeapi": null
+    },
+    {
       "naam": "Aanwezigheid",
       "kolom": "Onderwijsresultaat",
+      "scope": "binnen",
+      "vulkleur": null,
+      "oeapi": null
+    },
+    {
+      "naam": "Cohort / periode",
+      "kolom": null,
       "scope": "binnen",
       "vulkleur": null,
       "oeapi": null
@@ -106,6 +120,13 @@
     {
       "naam": "Formatieve resultaat structuur",
       "kolom": "Resultaatstructuur",
+      "scope": "binnen",
+      "vulkleur": null,
+      "oeapi": null
+    },
+    {
+      "naam": "Inschrijving",
+      "kolom": "Onderwijsverbintenis",
       "scope": "binnen",
       "vulkleur": null,
       "oeapi": null
@@ -276,6 +297,13 @@
       "kolom": null,
       "scope": "binnen",
       "vulkleur": null,
+      "oeapi": null
+    },
+    {
+      "naam": "OER",
+      "kolom": null,
+      "scope": "buiten",
+      "vulkleur": "#e8e8e8",
       "oeapi": null
     },
     {
@@ -536,13 +564,13 @@
     {
       "soort": "Access",
       "van": "Persoon",
-      "naar": "Aanwezigheid",
+      "naar": "Aanmelding",
       "label": null
     },
     {
       "soort": "Access",
       "van": "Persoon",
-      "naar": "Examengelegenheid",
+      "naar": "Aanwezigheid",
       "label": null
     },
     {
@@ -554,31 +582,7 @@
     {
       "soort": "Access",
       "van": "Persoon",
-      "naar": "Examengelegenheid verbintenis",
-      "label": null
-    },
-    {
-      "soort": "Access",
-      "van": "Persoon",
-      "naar": "Keuzedeel aanbod verbintenis",
-      "label": null
-    },
-    {
-      "soort": "Access",
-      "van": "Persoon",
       "naar": "Keuzedeel resultaat",
-      "label": null
-    },
-    {
-      "soort": "Access",
-      "van": "Persoon",
-      "naar": "Keuzedeelaanbod",
-      "label": null
-    },
-    {
-      "soort": "Access",
-      "van": "Persoon",
-      "naar": "Leergelegenheid",
       "label": null
     },
     {
@@ -590,37 +594,7 @@
     {
       "soort": "Access",
       "van": "Persoon",
-      "naar": "Leergelegenheid verbintenis",
-      "label": null
-    },
-    {
-      "soort": "Access",
-      "van": "Persoon",
-      "naar": "Lesgelegenheid",
-      "label": null
-    },
-    {
-      "soort": "Access",
-      "van": "Persoon",
       "naar": "Lesgelegenheid resultaat",
-      "label": null
-    },
-    {
-      "soort": "Access",
-      "van": "Persoon",
-      "naar": "Lesgelegenheid verbintenis",
-      "label": null
-    },
-    {
-      "soort": "Access",
-      "van": "Persoon",
-      "naar": "Onderwijseenheid aanbod",
-      "label": null
-    },
-    {
-      "soort": "Access",
-      "van": "Persoon",
-      "naar": "Onderwijseenheid aanbod verbintenis",
       "label": null
     },
     {
@@ -632,31 +606,7 @@
     {
       "soort": "Access",
       "van": "Persoon",
-      "naar": "Opleiding aanbod  verbintenis",
-      "label": null
-    },
-    {
-      "soort": "Access",
-      "van": "Persoon",
       "naar": "Opleiding aanbod resultaat",
-      "label": null
-    },
-    {
-      "soort": "Access",
-      "van": "Persoon",
-      "naar": "Opleidingaanbod",
-      "label": null
-    },
-    {
-      "soort": "Access",
-      "van": "Persoon",
-      "naar": "Opleidingsprogramma aanbod",
-      "label": null
-    },
-    {
-      "soort": "Access",
-      "van": "Persoon",
-      "naar": "Opleidingsprogramma aanbod verbintenis",
       "label": null
     },
     {
@@ -668,25 +618,19 @@
     {
       "soort": "Access",
       "van": "Persoon",
-      "naar": "Toetsgelegenheid",
-      "label": null
-    },
-    {
-      "soort": "Access",
-      "van": "Persoon",
       "naar": "Toetsgelegenheid resultaat",
       "label": null
     },
     {
       "soort": "Access",
       "van": "Persoon",
-      "naar": "Toetsgelegenheid verbintenis",
+      "naar": "Verzoek tot Aanbod / Intekening op specificatie",
       "label": null
     },
     {
       "soort": "Access",
-      "van": "Persoon",
-      "naar": "Verzoek tot Aanbod / Intekening op specificatie",
+      "van": "Student",
+      "naar": "Cohort / periode",
       "label": null
     },
     {
@@ -753,6 +697,12 @@
       "soort": "Aggregation",
       "van": "Leeruitkomst",
       "naar": "Leeruitkomst",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "OER",
+      "naar": "Examenplan",
       "label": null
     },
     {
@@ -829,9 +779,75 @@
     },
     {
       "soort": "Association",
+      "van": "Aanmelding",
+      "naar": "Examengelegenheid verbintenis",
+      "label": "middels"
+    },
+    {
+      "soort": "Association",
+      "van": "Aanmelding",
+      "naar": "Keuzedeel aanbod verbintenis",
+      "label": "middels"
+    },
+    {
+      "soort": "Association",
+      "van": "Aanmelding",
+      "naar": "Leergelegenheid verbintenis",
+      "label": "middels"
+    },
+    {
+      "soort": "Association",
+      "van": "Aanmelding",
+      "naar": "Lesgelegenheid verbintenis",
+      "label": "middels"
+    },
+    {
+      "soort": "Association",
+      "van": "Aanmelding",
+      "naar": "Onderwijseenheid aanbod verbintenis",
+      "label": "middels"
+    },
+    {
+      "soort": "Association",
+      "van": "Aanmelding",
+      "naar": "Opleiding aanbod  verbintenis",
+      "label": "middels"
+    },
+    {
+      "soort": "Association",
+      "van": "Aanmelding",
+      "naar": "Opleidingsprogramma aanbod verbintenis",
+      "label": "middels"
+    },
+    {
+      "soort": "Association",
+      "van": "Aanmelding",
+      "naar": "Toetsgelegenheid verbintenis",
+      "label": "middels"
+    },
+    {
+      "soort": "Association",
       "van": "Aanwezigheid",
       "naar": "Lesgelegenheid resultaat",
       "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Cohort / periode",
+      "naar": "OER",
+      "label": "wordt uitgewerkt in"
+    },
+    {
+      "soort": "Association",
+      "van": "Cohort / periode",
+      "naar": "Summatieve resultaat structuur",
+      "label": "Groepeert Studenten op toepasbare"
+    },
+    {
+      "soort": "Association",
+      "van": "Examengelegenheid",
+      "naar": "Aanmelding",
+      "label": "Op basis van"
     },
     {
       "soort": "Association",
@@ -932,6 +948,12 @@
     {
       "soort": "Association",
       "van": "Keuzedeelaanbod",
+      "naar": "Aanmelding",
+      "label": "Op basis van"
+    },
+    {
+      "soort": "Association",
+      "van": "Keuzedeelaanbod",
       "naar": "Keuzedeel aanbod verbintenis",
       "label": null
     },
@@ -952,6 +974,12 @@
       "van": "Kwalificatie dossier",
       "naar": "Leeruitkomst",
       "label": "Wordt vertaald naar"
+    },
+    {
+      "soort": "Association",
+      "van": "Leergelegenheid",
+      "naar": "Aanmelding",
+      "label": "Op basis van"
     },
     {
       "soort": "Association",
@@ -1010,6 +1038,12 @@
     {
       "soort": "Association",
       "van": "Lesgelegenheid",
+      "naar": "Aanmelding",
+      "label": "Op basis van"
+    },
+    {
+      "soort": "Association",
+      "van": "Lesgelegenheid",
       "naar": "Lesgelegenheid verbintenis",
       "label": null
     },
@@ -1018,6 +1052,18 @@
       "van": "Lesgelegenheid verbintenis",
       "naar": "Lesgelegenheid resultaat",
       "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "OER",
+      "naar": "Kwalificatie",
+      "label": "staat beschreven in"
+    },
+    {
+      "soort": "Association",
+      "van": "Onderwijseenheid aanbod",
+      "naar": "Aanmelding",
+      "label": "Op basis van"
     },
     {
       "soort": "Association",
@@ -1082,8 +1128,20 @@
     {
       "soort": "Association",
       "van": "Opleidingaanbod",
+      "naar": "Aanmelding",
+      "label": "Op basis van"
+    },
+    {
+      "soort": "Association",
+      "van": "Opleidingaanbod",
       "naar": "Opleiding aanbod  verbintenis",
       "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Opleidingsprogramma aanbod",
+      "naar": "Aanmelding",
+      "label": "Op basis van"
     },
     {
       "soort": "Association",
@@ -1256,6 +1314,12 @@
     {
       "soort": "Association",
       "van": "Toetsgelegenheid",
+      "naar": "Aanmelding",
+      "label": "Op basis van"
+    },
+    {
+      "soort": "Association",
+      "van": "Toetsgelegenheid",
       "naar": "Toetsgelegenheid verbintenis",
       "label": null
     },
@@ -1348,6 +1412,12 @@
       "van": "Werkproces",
       "naar": "Leeruitkomst",
       "label": "Wordt vertaald naar"
+    },
+    {
+      "soort": "Specialization",
+      "van": "Aanmelding",
+      "naar": "Inschrijving",
+      "label": "wordt"
     },
     {
       "soort": "Specialization",
