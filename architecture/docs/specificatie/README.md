@@ -4,5 +4,6 @@ Kaderstellende documentatie voor OKx-**specificaties** op profielniveau. Elke sp
 
 Submappen:
 
+- [`begrippen/`](begrippen/): de [begrippenlijst](begrippen/begrippenlijst.md) met per begrip een definitie, de vindplaats en de mapping naar MORA en het Kernmodel Onderwijsinformatie, plus de extractie van elke term tussen backquotes in meta en Public.
 - [`leerroute-uitwerking/`](leerroute-uitwerking/): de uitwerking van de leerroutes met de persona's (Jochem, Larissa, Linda), het begrippenkader en de scenario-uitwerkingen.
 - [`student-keuze/`](student-keuze/): [keuze-requirements](student-keuze/keuze-requirements.md) (eisen R1-R17 voor alle keuzes rond onderwijsspecificaties, met scenario-figuren) en [regelset-payload](student-keuze/regelset-payload.md) (concept-JSON voor regelsets met benoemde bereiken, herleidbaar naar de requirements).
