@@ -456,7 +456,7 @@
     {
       "naam": "Formatief resultaat",
       "niveau": 2,
-      "familie": "Resultaatstructuur",
+      "familie": "Onderwijsresultaat",
       "in_informatiemodel": true,
       "kaders": {
         "ROSA-KOI": {
@@ -483,7 +483,7 @@
     {
       "naam": "Formatieve beoordeling",
       "niveau": 2,
-      "familie": "Resultaatstructuur",
+      "familie": "Onderwijsresultaat",
       "in_informatiemodel": true,
       "kaders": {
         "ROSA-KOI": {
@@ -749,10 +749,10 @@
           "uitkomst": "nog niet onderzocht"
         }
       },
-      "definitie": null,
-      "vindplaats": null,
-      "bron_soort": null,
-      "status": "nog te definieren",
+      "definitie": "Een keuzedeelruimte is een oningevuld keuzedeel: onderwijskundig vrijgemaakte ruimte van een bepaalde omvang waarin een student een keuzedeel kiest.",
+      "vindplaats": "architecture/model/informatiemodel/informatiemodel.md#ontwerpkeuzes",
+      "bron_soort": "okx-document",
+      "status": "gedefinieerd",
       "herkomst": "nieuw voor OKx",
       "varianten": []
     },
@@ -1779,7 +1779,7 @@
     {
       "naam": "Summatief resultaat",
       "niveau": 2,
-      "familie": "Resultaatstructuur",
+      "familie": "Onderwijsresultaat",
       "in_informatiemodel": true,
       "kaders": {
         "ROSA-KOI": {
@@ -1806,7 +1806,7 @@
     {
       "naam": "Summatieve beoordeling",
       "niveau": 2,
-      "familie": "Resultaatstructuur",
+      "familie": "Onderwijsresultaat",
       "in_informatiemodel": true,
       "kaders": {
         "ROSA-KOI": {
@@ -2062,10 +2062,10 @@
           "uitkomst": "nog niet onderzocht"
         }
       },
-      "definitie": null,
-      "vindplaats": null,
-      "bron_soort": null,
-      "status": "nog te definieren",
+      "definitie": "Het `Verzoek tot Aanbod / Intekening op specificatie` is een verzoek om aanbod te maken voor een specificatie. Het heeft specificaties als input en leidt tot aanbod; of intekenen op bestaand aanbod hetzelfde is, is nog niet vastgesteld.",
+      "vindplaats": "architecture/model/informatiemodel/informatiemodel.md#ontwerpkeuzes",
+      "bron_soort": "okx-document",
+      "status": "gedefinieerd",
       "herkomst": "verbijzondering van `Leervraag` (MORA)",
       "varianten": []
     },

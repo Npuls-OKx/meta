@@ -50,7 +50,7 @@ Dit model volgt het begrippenkader op en wijzigt het op twee punten. De familie 
 | Onderwijsresultaat | Vastgelegde en geformaliseerde beoordeling op basis van een of meer leerresultaten | Wat is er behaald op een verbintenis |
 | Resultaatstructuur | De samenstelling en weging waarmee losse resultaten optellen tot een uitspraak over de beoogde leeruitkomsten, en daarmee over een kwalificatie of certificaat | Hoe telt dat op tot bewijs voor een leeruitkomst |
 
-Objecttypen buiten de kolommen raken de hele keten: `Persoon`, `Student`, `Medewerker` en `Plaatsingsgroep`, het `Verzoek tot Aanbod / Intekening op specificatie` als brug van specificatie naar aanbod, en `Waarde document (diploma / certificaat)`. `Examenplan` staat als enige van deze groep buiten scope.
+Objecttypen buiten de kolommen raken de hele keten: `Persoon` met de rollen `Student` en `Medewerker`, `Plaatsingsgroep`, het `Verzoek tot Aanbod / Intekening op specificatie` als brug van specificatie naar aanbod (`Input voor`, `Leidt tot`), en `Waarde document (diploma / certificaat)`. `Examenplan` staat als enige van deze groep buiten scope.
 
 ## Notatie
 
@@ -65,7 +65,7 @@ Objecttypen buiten de kolommen raken de hele keten: `Persoon`, `Student`, `Medew
 | `───` | Associatie (association) | Inhoudelijke samenhang zonder eigenaarschap of samenstelling |
 | `╌╌>` | Toegang (access) | `Persoon` gebruikt of wijzigt dit objecttype |
 
-Waar de betekenis niet uit de twee objecttypen volgt, draagt de relatie een label. Op associaties staan `Wordt vertaald naar`, `voorwaarde op`, `conform`, `kent`, `met`, `Worden gegroepeerd via` en de cardinaliteit `Minimaal 1`; op aggregaties `bestaat uit` en `bevat`. De labels staan op de plaat.
+Waar de betekenis niet uit de twee objecttypen volgt, draagt de relatie een label. Op associaties staan `Wordt vertaald naar`, `voorwaarde op`, `Input voor`, `Leidt tot`, `conform`, `kent`, `met`, `Worden gegroepeerd via` en de cardinaliteit `Minimaal 1`; op aggregaties `bestaat uit` en `bevat`. De labels staan op de plaat.
 
 ## Ontwerpkeuzes
 
@@ -82,7 +82,10 @@ Elke keuze noemt zijn bron; staat er *voorstel*, dan is de keuze in dit model ge
 9. **Een examenonderdeel is een specialisatie van een toetsonderdeel.** Beide delen dezelfde informatiestructuur; hun totstandkoming is gescheiden: een examenonderdeel wordt vastgesteld door de examencommissie, een toetsonderdeel volgt instellingsbeleid. De summatieve resultaatstructuur is samengesteld uit toetsonderdelen, zodat een instelling ook een formatief toetsonderdeel summatief kan laten meetellen. Wordt een toetsonderdeel op die manier opgenomen, dan volgt het vanaf dat moment de examenketen. Voorstel.
 10. **OKx wisselt de summatieve resultaatstructuur uit, niet het examenplan.** De `Summatieve resultaat structuur` draagt de examenonderdelen met hun wegingen en het afrondingscriterium dat de zak-slaagregeling draagt. Zij is onderdeel van een examenplan en verwijst daarnaar; het examenplan zelf, het document dat de examencommissie vaststelt, valt buiten de uitwisseling. Bron: MORA onderscheidt examenplan en summatieve resultaatstructuur op dezelfde manier.
 11. **Een leeruitkomst is een geformuleerde competentie.** `Leeruitkomst` specialiseert `Competenties / Skills`: het is dezelfde informatiestructuur, uitgedrukt op het niveau waarop de instelling formuleert. De onderliggende begrippen kennis, vaardigheid en inzicht staan in het model maar vallen buiten de uitwisseling. Voorstel.
-12. **Een verbintenis loopt bij voorkeur via een groep.** `Plaatsingsgroep` maakt regulier onderwijs makkelijker te plannen en te roosteren en geldt voor elk verbintenistype. Het model sluit individuele verbintenissen niet uit. Voorstel.
+12. **Een keuzedeelruimte is een oningevuld keuzedeel.** Een keuzedeelruimte is een oningevuld keuzedeel: onderwijskundig vrijgemaakte ruimte van een bepaalde omvang waarin een student een keuzedeel kiest. `Keuzedeel` en `Keuzedeelruimte` zijn losse objecttypen die hetzelfde gat in het programma vullen; daarom specialiseren beide de `Opleidingsprogramma specificatie`. Voorstel.
+13. **Een verzoek leidt tot aanbod.** Het `Verzoek tot Aanbod / Intekening op specificatie` is een verzoek om aanbod te maken voor een specificatie. Het heeft specificaties als input en leidt tot aanbod; of intekenen op bestaand aanbod hetzelfde is, is nog niet vastgesteld. Open vraag voor de kerngroep techniek: wat is intekenen, en is dat een verzoek tot aanbod?
+14. **Student en medewerker zijn rollen van een persoon.** `Student` en `Medewerker` specialiseren `Persoon`; een persoon kan beide tegelijk zijn. Toegang tot de objecttypen loopt via `Persoon`. Voorstel.
+15. **Een verbintenis loopt bij voorkeur via een groep.** `Plaatsingsgroep` maakt regulier onderwijs makkelijker te plannen en te roosteren en geldt voor elk verbintenistype. Het model sluit individuele verbintenissen niet uit. Voorstel.
 
 ## Verwante documenten
 
