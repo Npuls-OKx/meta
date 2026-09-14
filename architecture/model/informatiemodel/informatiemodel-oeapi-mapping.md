@@ -14,7 +14,7 @@ Per objecttype vaststellen of de standaard volstaat, aangepast moet worden, of b
 
 ## Scope
 
-Objectniveau. Attributen, datatypes en multipliciteit liggen in de payload-specificaties en vallen hier buiten.
+De objecttypen van het informatiemodel, [MIM-niveau 2](https://docs.geostandaarden.nl/mim/mim/#beschouwingsniveau-2-conceptueel-informatiemodel), naast de objecten van OEAPI v6. OEAPI is een standaard voor gegevensuitwisseling en hoort daarmee op [niveau 3](https://docs.geostandaarden.nl/mim/mim/#beschouwingsniveau-3-logisch-informatie-of-gegevensmodel); dit document is de brug tussen die twee niveaus. Attributen, datatypes en multipliciteit vallen hier buiten; die staan in de [datamodelschema's](https://github.com/Npuls-OKx/Public/tree/dev/Koppelvlakspecificaties/Datamodelschema%27s) in Public.
 
 ![Informatiemodel OKx naast de mapping op OEAPI v6, versie v0.1 van 9 september 2026](<OKx informatiemodel en mapping OEAPI v0.1.jpg>)
 
@@ -26,13 +26,13 @@ De blauwe objecten zijn OEAPI v6 en staan als data-object in het model. Van de O
 
 **Een OEAPI-object draagt vaak meerdere OKx-objecttypen.** `Programme` draagt vier specificatietypen, `ProgrammeOffering` drie aanbodtypen en `Result` acht van de negen objecttypen in de kolom Onderwijsresultaat, alle behalve `Aanwezigheid`. OEAPI kent daarnaast wel niveau-specifieke varianten van `Result`, maar het onderscheid tussen de OKx-objecttypen moet buiten de standaard vastliggen.
 
-**Het kwalificatiekader heeft geen tegenhanger.** Kwalificatiedossier, kwalificatie, kerntaak en werkproces komen in OEAPI niet voor. Nationale kaderstelling is geen uitwisselbaar aanbod. De leeruitkomst zelf heeft die tegenhanger wel: `LearningOutcome`, met eigen endpoints.
+**Voor het kwalificatiekader is nog geen equivalent geïdentificeerd.** Kwalificatiedossier, kwalificatie, kerntaak en werkproces zijn in de OpenAPI-specificatie van OEAPI v6 niet als object gevonden; de vraag hoe OEAPI een kwalificatiekader draagt ligt bij de kerngroep techniek. De leeruitkomst zelf heeft wel een equivalent: `LearningOutcome`, met eigen endpoints.
 
 **De resultaatstructuur is nog niet op OEAPI gemapt.** OEAPI kent `weight` per resultaat, niet per specificatie, en het afrondingscriterium bestaat er alleen als vrije tekst in `qualificationRequirements`. Of de samenstelling van een summatieve structuur daarmee in OEAPI is uit te drukken is nog niet vastgesteld; op grond van deze twee punten lijkt het niet te kunnen. OKx legt hem wel machineleesbaar vast, in [`result-structure.json`](https://github.com/Npuls-OKx/Public/tree/dev/Koppelvlakspecificaties/Datamodelschema%27s).
 
-### Objecttypen binnen scope zonder tegenhanger
+### OKx-objecttypen zonder OEAPI-equivalent
 
-Deze objecttypen binnen scope hebben geen OEAPI-object. Per objecttype is een besluit nodig: signalering richting de standaard, of bewuste afwijking.
+Voor deze objecttypen binnen scope is nog geen equivalent in OEAPI v6 geïdentificeerd. Per objecttype volgt een besluit: een signalering richting de standaard, of een bewuste afwijking.
 
 | OKx-objecttype |
 |---|

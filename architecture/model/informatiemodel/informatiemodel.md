@@ -10,11 +10,19 @@ Dit document zet het informatiemodel van OKx uiteen: welke objecttypen de keten 
 
 ## Doel
 
-Het uiteenzetten van de informatiearchitectuur van de belangrijkste informatieobjecten binnen het OKx-ecosysteem, als gedeelde grondslag voor de koppelvlakspecificaties. Het model wordt bekrachtigd door de kerngroep techniek en is daarna de bron waaruit payloads en endpoints worden afgeleid.
+Het uiteenzetten van de informatiearchitectuur van de belangrijkste informatieobjecten binnen het OKx-ecosysteem, als gedeelde grondslag voor de koppelvlakspecificaties. Het model wordt bekrachtigd door de kerngroep techniek en is daarna de bron waaruit de datamodelschema's en endpoints op niveau 3 worden afgeleid.
 
 ## Scope
 
-De businesslaag en het informatieaspect, binnen een instelling. Buiten scope: applicatiecomponenten, techniekkeuzes, federatie tussen instellingen, en de attributen en datatypes die in de payload-specificaties thuishoren.
+De scope volgt de beschouwingsniveaus van het [Metamodel Informatie Modellering (MIM)](https://docs.geostandaarden.nl/mim/mim/).
+
+| | Niveau | Wat hier staat |
+|---|---|---|
+| Binnen scope | [1, model van begrippen](https://docs.geostandaarden.nl/mim/mim/#beschouwingsniveau-1-model-van-begrippen) | De zeven begrippen waarin OKx de keten indeelt, de kolommen op de plaat. De volledige lijst met definities en bronnen staat in de [begrippenlijst](../../docs/specificatie/begrippen/begrippenlijst.md) |
+| Binnen scope | [2, conceptueel informatiemodel](https://docs.geostandaarden.nl/mim/mim/#beschouwingsniveau-2-conceptueel-informatiemodel) | De objecttypen en hun relaties, binnen een instelling: de plaat. Attribuutsoorten en multipliciteit horen ook bij dit niveau en volgen in een latere versie |
+| Buiten scope | [3, logisch informatiemodel](https://docs.geostandaarden.nl/mim/mim/#beschouwingsniveau-3-logisch-informatie-of-gegevensmodel) | Attributen, datatypes en berichten. Die staan in de [datamodelschema's](https://github.com/Npuls-OKx/Public/tree/dev/Koppelvlakspecificaties/Datamodelschema%27s) in Public |
+
+Verder buiten scope: applicatiecomponenten, techniekkeuzes en federatie tussen instellingen. Een conceptueel informatiemodel is volgens MIM onafhankelijk van standaarden voor gegevensuitwisseling; de verhouding tot OEAPI staat daarom in een [apart document](informatiemodel-oeapi-mapping.md).
 
 ![Informatiemodel OKx, versie v0.1 van 9 september 2026](<OKx informatiemodel v0.1.jpg>)
 
@@ -23,11 +31,11 @@ De businesslaag en het informatieaspect, binnen een instelling. Buiten scope: ap
 | | |
 |---|---|
 | **Voor wie** | Kerngroep techniek, implementerende partijen, informatiemanagers en enterprise-architecten van instellingen |
-| **Detailniveau** | Objecttypen en hun samenhang. Geen attributen, geen datatypes en geen multipliciteit; de normatieve cardinaliteiten staan in het [begrippenkader](../../docs/specificatie/leerroute-uitwerking/doc/begrippenkader.md) |
+| **Detailniveau** | MIM-niveau 1 en 2: begrippen, objecttypen en hun relaties. Geen attributen, geen datatypes en geen multipliciteit; de normatieve cardinaliteiten staan in het [begrippenkader](../../docs/specificatie/leerroute-uitwerking/doc/begrippenkader.md) |
 
 ## Begrippen
 
-De kolommen op de plaat zijn de begrippen waarin OKx de keten indeelt. De plaat zelf is de aanzet tot het conceptueel informatiemodel, niveau 2 in het [Metamodel Informatie Modellering (MIM)](https://docs.geostandaarden.nl/mim/mim/): objecttypen en relatiesoorten, nog zonder attribuutsoorten en multipliciteit. Het model van begrippen, niveau 1, bestaat uit het [begrippenkader](../../docs/specificatie/leerroute-uitwerking/doc/begrippenkader.md) en de [begrippenlijst](../../docs/specificatie/begrippen/begrippenlijst.md); daar staat per begrip de definitie met bron.
+De kolommen op de plaat zijn de begrippen waarin OKx de keten indeelt: MIM-niveau 1, bedoeld om elkaar te begrijpen en dezelfde taal te spreken. De objecttypen binnen die kolommen zijn niveau 2, het conceptuele informatiemodel. Het volledige model van begrippen staat in het [begrippenkader](../../docs/specificatie/leerroute-uitwerking/doc/begrippenkader.md) en de [begrippenlijst](../../docs/specificatie/begrippen/begrippenlijst.md); daar staat per begrip de definitie met bron.
 
 | Begrip | Wat het is | Beantwoordt de vraag |
 |---|---|---|

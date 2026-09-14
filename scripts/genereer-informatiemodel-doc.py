@@ -129,7 +129,9 @@ def main():
         "oeapi_mapping": mapping,
     }
     doel = MAP / "informatiemodel.json"
-    doel.write_text(json.dumps(uit, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    tekst = json.dumps(uit, ensure_ascii=False, indent=2) + "\n"
+    json.loads(tekst)  # controle: wat we schrijven moet weer te lezen zijn
+    doel.write_text(tekst, encoding="utf-8")
     zonder = [o["naam"] for o in objecttypen if not o["oeapi"]]
     print(f"{doel}: {len(objecttypen)} objecttypen, {len(relatielijst)} relaties, "
           f"{len(mapping)} OEAPI-koppelingen, {len(zonder)} objecttypen zonder tegenhanger")
