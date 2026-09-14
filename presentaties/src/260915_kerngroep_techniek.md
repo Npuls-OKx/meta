@@ -467,47 +467,36 @@ zonder tegenhanger. Stand van de hele lijst op 14 september: 69 begrippen, 18 ov
 
 <div class="fill">
 
-# Wat is intekenen, en hoe verhoudt het zich tot het verzoek tot aanbod?
+# Waarop teken je in: de specificatie, of aanbod in een van zijn fasen?
 
-<div style="font-size: 0.95rem; line-height: 1.6; margin-top: 0.3rem;">
-Op de plaat is het één object: <code>Verzoek tot Aanbod / Intekening op specificatie</code>, met specificaties als input en aanbod als uitkomst.
-</div>
-
-<div class="np-grid-4" style="margin-top: 1rem; align-items: start;">
-<div class="np-card" style="border-top-color:#7CCBA8;padding-bottom:0.6rem;">
-<strong>A. Hetzelfde object</strong>
-<svg width="100%" viewBox="0 0 200 90" style="display:block;margin:0.5rem 0 0.3rem;"><rect x="20" y="30" width="160" height="30" rx="6" fill="#7CCBA8" stroke="#7CCBA8" stroke-width="2"/><text x="100.0" y="49" text-anchor="middle" fill="#FFFFFF" style="font-size:11px;font-family:inherit">verzoek = intekening</text></svg>
-<div style="font-size:0.85rem;line-height:1.4;color:var(--np-dark-gray);">Huidige aanname.</div>
-</div>
-<div class="np-card" style="border-top-color:#7A97F2;padding-bottom:0.6rem;">
-<strong>B. Verschillend</strong>
-<svg width="100%" viewBox="0 0 200 90" style="display:block;margin:0.5rem 0 0.3rem;"><rect x="6" y="30" width="80" height="30" rx="6" fill="#7A97F2" stroke="#7A97F2" stroke-width="2"/><text x="46.0" y="49" text-anchor="middle" fill="#FFFFFF" style="font-size:10px;font-family:inherit">verzoek</text><rect x="114" y="30" width="80" height="30" rx="6" fill="#7A97F2" stroke="#7A97F2" stroke-width="2"/><text x="154.0" y="49" text-anchor="middle" fill="#FFFFFF" style="font-size:10px;font-family:inherit">intekening</text><text x="100" y="50" text-anchor="middle" fill="#7A97F2" style="font-size:20px;font-weight:700;font-family:inherit">?</text></svg>
-<div style="font-size:0.85rem;line-height:1.4;color:var(--np-dark-gray);">Wat is intekenen dan?</div>
-</div>
-<div class="np-card" style="border-top-color:#E9A27F;padding-bottom:0.6rem;">
-<strong>C. Ook op aanbod</strong>
-<svg width="100%" viewBox="0 0 200 90" style="display:block;margin:0.5rem 0 0.3rem;"><rect x="60" y="4" width="80" height="30" rx="6" fill="#E9A27F" stroke="#E9A27F" stroke-width="2"/><text x="100.0" y="23" text-anchor="middle" fill="#FFFFFF" style="font-size:10px;font-family:inherit">intekening</text><rect x="6" y="56" width="80" height="30" rx="6" fill="#FFFFFF" stroke="#E9A27F" stroke-width="2"/><text x="46.0" y="75" text-anchor="middle" fill="#4A4F57" style="font-size:10px;font-family:inherit">specificatie</text><rect x="114" y="56" width="80" height="30" rx="6" fill="#FFFFFF" stroke="#E9A27F" stroke-width="2"/><text x="154.0" y="75" text-anchor="middle" fill="#4A4F57" style="font-size:10px;font-family:inherit">aanbod</text><line x1="85" y1="34" x2="46" y2="56" stroke="#E9A27F" stroke-width="2"/><circle cx="46" cy="56" r="3" fill="#E9A27F"/><line x1="115" y1="34" x2="154" y2="56" stroke="#E9A27F" stroke-width="2"/><circle cx="154" cy="56" r="3" fill="#E9A27F"/></svg>
-<div style="font-size:0.85rem;line-height:1.4;color:var(--np-dark-gray);">Op een specificatie en op bestaand aanbod.</div>
-</div>
-<div class="np-card" style="border-top-color:#B8BEC7;padding-bottom:0.6rem;">
-<strong>D. Iets anders</strong>
-<svg width="100%" viewBox="0 0 200 90" style="display:block;margin:0.5rem 0 0.3rem;"><circle cx="100" cy="45" r="30" fill="#B8BEC7"/><text x="100" y="56" text-anchor="middle" fill="#fff" style="font-size:32px;font-weight:700;font-family:inherit">?</text></svg>
-<div style="font-size:0.85rem;line-height:1.4;color:var(--np-dark-gray);">Geen van bovenstaande.</div>
-</div>
+<div style="font-size: 0.92rem; line-height: 1.5; margin-top: 0.2rem;">
+Op de plaat is het één object, <code>Verzoek tot Aanbod / Intekening op specificatie</code>. Uit de afstemming van 14 september komt dit beeld: aanbod rijpt in fasen, en intekenen kan in elke fase.
 </div>
 
-<div style="font-size: 0.85rem; color: var(--np-dark-gray); margin-top: 1rem;">
-Zonder keuze houdt het object zijn dubbele naam en weet de koppeling SIS naar P&amp;R niet wat een intekening is.
+<svg width="100%" viewBox="0 0 940 190" style="display:block;margin:0.6rem 0 0.2rem;"><rect x="10" y="34" width="190" height="78" rx="8" fill="#FFFFFF" stroke="#7A97F2" stroke-width="2"/><text x="105.0" y="58" text-anchor="middle" fill="#1B1B2F" style="font-size:14px;font-weight:700;font-family:inherit">Specificatie</text><text x="105.0" y="78" text-anchor="middle" fill="#4A4F57" style="font-size:11px;font-family:inherit">het ontwerp,</text><text x="105.0" y="93" text-anchor="middle" fill="#4A4F57" style="font-size:11px;font-family:inherit">los van wanneer</text><text x="580" y="20" text-anchor="middle" fill="#6B7280" style="font-size:11px;letter-spacing:1px;font-family:inherit">ONDERWIJSAANBOD, STEEDS RIJPER</text><line x1="240" y1="26" x2="920" y2="26" stroke="#6B7280" stroke-width="1"/><rect x="240" y="34" width="210" height="78" rx="8" fill="#E6F7F0" stroke="#00AF81" stroke-width="2"/><text x="345.0" y="58" text-anchor="middle" fill="#1B1B2F" style="font-size:14px;font-weight:700;font-family:inherit">Intentie</text><text x="345.0" y="78" text-anchor="middle" fill="#4A4F57" style="font-size:11px;font-family:inherit">we gaan dit aanbieden;</text><text x="345.0" y="93" text-anchor="middle" fill="#4A4F57" style="font-size:11px;font-family:inherit">gaat door bij voldoende vraag</text><rect x="475" y="34" width="210" height="78" rx="8" fill="#B3E8D3" stroke="#00AF81" stroke-width="2"/><text x="580.0" y="58" text-anchor="middle" fill="#1B1B2F" style="font-size:14px;font-weight:700;font-family:inherit">Grofmazig gepland</text><text x="580.0" y="78" text-anchor="middle" fill="#4A4F57" style="font-size:11px;font-family:inherit">periode en start, gebouw,</text><text x="580.0" y="93" text-anchor="middle" fill="#4A4F57" style="font-size:11px;font-family:inherit">misschien al een docent</text><rect x="710" y="34" width="210" height="78" rx="8" fill="#00AF81" stroke="#00AF81" stroke-width="2"/><text x="815.0" y="58" text-anchor="middle" fill="#FFFFFF" style="font-size:14px;font-weight:700;font-family:inherit">Geroosterd</text><text x="815.0" y="78" text-anchor="middle" fill="#F0FFF8" style="font-size:11px;font-family:inherit">dag, tijd, lokaal, docent,</text><text x="815.0" y="93" text-anchor="middle" fill="#F0FFF8" style="font-size:11px;font-family:inherit">groep</text><line x1="202" y1="73" x2="236" y2="73" stroke="#6B7280" stroke-width="2"/><polygon points="236,68 242,73 236,78" fill="#6B7280"/><line x1="452" y1="73" x2="486" y2="73" stroke="#6B7280" stroke-width="2"/><polygon points="486,68 492,73 486,78" fill="#6B7280"/><line x1="687" y1="73" x2="721" y2="73" stroke="#6B7280" stroke-width="2"/><polygon points="721,68 727,73 721,78" fill="#6B7280"/><path d="M12 122 v8 H918 v-8" fill="none" stroke="#7A97F2" stroke-width="2"/><text x="465.0" y="146" text-anchor="middle" fill="#7A97F2" style="font-size:13px;font-weight:700;font-family:inherit">intekenen: op de specificatie (regel dit) en op aanbod in elke fase</text><path d="M242 156 v8 H918 v-8" fill="none" stroke="#E9A27F" stroke-width="2"/><text x="580.0" y="180" text-anchor="middle" fill="#E9A27F" style="font-size:13px;font-weight:700;font-family:inherit">inschrijven: op aanbod</text></svg>
+
+<div style="display:flex;align-items:center;gap:0.5rem;margin-top:0.3rem;font-size:0.8rem;color:var(--np-dark-gray);">Geldt op elk niveau:&nbsp;<span style="display:inline-block;padding:0.15rem 0.6rem;border-radius:999px;background:#F1F3F5;color:var(--np-ink);font-size:0.78rem;margin-right:0.35rem;">opleiding</span><span style="display:inline-block;padding:0.15rem 0.6rem;border-radius:999px;background:#F1F3F5;color:var(--np-ink);font-size:0.78rem;margin-right:0.35rem;">opleidingsprogramma</span><span style="display:inline-block;padding:0.15rem 0.6rem;border-radius:999px;background:#F1F3F5;color:var(--np-ink);font-size:0.78rem;margin-right:0.35rem;">onderwijseenheid</span><span style="display:inline-block;padding:0.15rem 0.6rem;border-radius:999px;background:#F1F3F5;color:var(--np-ink);font-size:0.78rem;margin-right:0.35rem;">leeronderdeel</span><span style="display:inline-block;padding:0.15rem 0.6rem;border-radius:999px;background:#F1F3F5;color:var(--np-ink);font-size:0.78rem;margin-right:0.35rem;">les</span></div>
+
+<div class="np-card" style="margin-top: 0.7rem; font-size: 0.95rem; line-height: 1.5; padding: 0.7rem 1rem;">
+<strong>Klopt dit beeld?</strong> En hoort de fasering van het aanbod in het informatiemodel: als toestand op het aanbod, of als eigen objecttypen per fase?
 </div>
 
 </div>
 
 <!--
-Uit de tegenlezing op meta PR 225 en de modelronde van 14 september. MORA kent de leervraag (wat
-een student wil leren, uitgedrukt in producten uit de onderwijscatalogus) en de aanmelding (het
-verzoek om toegelaten te worden). Op de plaat is dat nu één verzoek dat leidt tot aanbod. A is
-de huidige aanname van het kernteam; B, C en D staan er omdat de naam op de plaat ze toelaat.
-Gevraagd: welke lezing past bij de praktijk in SIS en P&R. De uitkomst wordt ontwerpkeuze 13.
+Bron: afstemming met Niels en Ronald op 14 september (Jamie, minuut 9 tot 17). Niels: een
+aanbod heeft fasen, van "we gaan een opleiding aanbieden" via start, periode, gebouw en
+misschien een docent, tot concreet geroosterd (eerste uur maandag, lokaal, leerlingen en
+docenten); daartussen nog een fase waarin we wel aanbieden maar nog niet weten hoe vaak en
+hoeveel, met keuzedelen als voorbeeld (gaat alleen door bij voldoende vraag). Ronald: in de
+praktijk aanbodgedreven op opleidingsniveau, inschrijven op aanbod (op de opleidingsgroep),
+intekenen vraaggestuurd met aanmelden-tot en afmelden-tot. Niek: intekenen in eerste
+instantie op de specificatie (ik zie nog geen aanbod, school, regel dit) en daarna op de lagen
+van aanbod; de gelaagdheid van aanbod zit nog niet in het model en vraagt uitwerking, met de
+vraag of dat in dit model hoort: hoe rijper het aanbod, hoe meer data en hoe dichter bij het
+geplande moment. Niels' conclusie: intekenen op specificatie kan; aanmelden, intekenen en
+inschrijven kunnen op aanbod. De uitkomst wordt ontwerpkeuze 13; de fasering raakt Public #105
+en de POC-sessies bij de instellingen.
 -->
 
 ---
