@@ -6,23 +6,24 @@ OKx maakt gestandaardiseerde koppelvlakken voor onderwijslogistiek. Die koppelvl
 
 ## Inleiding
 
-Dit document zet het informatiemodel van OKx uiteen: welke objecttypen de keten van kwalificatiekader tot resultaat kent, hoe ze samenhangen, en welke begrippen die keten indelen. De plaat is de weergave, dit document geeft de conventies en de keuzes erachter.
+Dit document zet het informatiemodel van OKx uiteen: welke objecttypen de keten van kwalificatiekader tot resultaat kent, hoe ze samenhangen, en welke begrippen die keten indelen. De plaat is de weergave, dit document geeft de conventies en de keuzes erachter. Versie v0.1, concept; ter bekrachtiging door de kerngroep techniek.
 
 ## Doel
 
-Het uiteenzetten van de informatiearchitectuur van de belangrijkste informatieobjecten binnen het OKx-ecosysteem, als gedeelde grondslag voor de koppelvlakspecificaties. Het model wordt bekrachtigd door de kerngroep techniek en is daarna de bron waaruit de datamodelschema's en endpoints op niveau 3 worden afgeleid.
+Het uiteenzetten van de informatiearchitectuur van de belangrijkste informatieobjecten binnen het OKx-ecosysteem, als gedeelde grondslag voor de koppelvlakspecificaties. Na bekrachtiging is het model de gedeelde grondslag waaraan de datamodelschema's en de koppelvlakspecificatie zich houden.
 
 ## Scope
 
 De scope volgt de beschouwingsniveaus van het [Metamodel Informatie Modellering (MIM)](https://docs.geostandaarden.nl/mim/mim/).
 
-| | Niveau | Wat hier staat |
+| | Niveau | Waar het staat |
 |---|---|---|
-| Binnen scope | [1, model van begrippen](https://docs.geostandaarden.nl/mim/mim/#beschouwingsniveau-1-model-van-begrippen) | De zeven begrippen waarin OKx de keten indeelt, de kolommen op de plaat. De volledige lijst met definities en bronnen staat in de [begrippenlijst](../../docs/specificatie/begrippen/begrippenlijst.md) |
-| Binnen scope | [2, conceptueel informatiemodel](https://docs.geostandaarden.nl/mim/mim/#beschouwingsniveau-2-conceptueel-informatiemodel) | De objecttypen en hun relaties, binnen een instelling: de plaat. Attribuutsoorten en multipliciteit horen ook bij dit niveau en volgen in een latere versie |
-| Buiten scope | [3, logisch informatiemodel](https://docs.geostandaarden.nl/mim/mim/#beschouwingsniveau-3-logisch-informatie-of-gegevensmodel) | Attributen, datatypes en berichten. Die staan in de [datamodelschema's](https://github.com/Npuls-OKx/Public/tree/dev/Koppelvlakspecificaties/Datamodelschema%27s) in Public |
+| Uitsnede | [1, model van begrippen](https://docs.geostandaarden.nl/mim/mim/#beschouwingsniveau-1-model-van-begrippen) | Het [begrippenkader](../../docs/specificatie/leerroute-uitwerking/doc/begrippenkader.md) en de [begrippenlijst](../../docs/specificatie/begrippen/begrippenlijst.md). De plaat toont daarvan een uitsnede: de zeven begrippenfamilies als kolommen |
+| Dit document | [2, conceptueel informatiemodel](https://docs.geostandaarden.nl/mim/mim/#beschouwingsniveau-2-conceptueel-informatiemodel) | De objecttypen en hun relaties, binnen een instelling: de plaat. Attribuutsoorten en multipliciteit horen ook bij dit niveau en staan er nog niet; de plaat draagt één cardinaliteit (`Minimaal 1`) en het begrippenkader de normatieve cardinaliteiten |
+| Buiten scope | [3, logisch informatiemodel](https://docs.geostandaarden.nl/mim/mim/#beschouwingsniveau-3-logisch-informatie-of-gegevensmodel) | De entiteiten met hun velden en relaties per begrippenfamilie: de [informatiemodellen bij de datamodelschema's](https://github.com/Npuls-OKx/Public/tree/dev/Datamodelschema%27s/informatiemodellen.md) in Public |
+| Buiten scope | [4, technisch datamodel](https://docs.geostandaarden.nl/mim/mim/#beschouwingsniveau-4-fysiek-of-technisch-gegevens-of-datamodel) | De [JSON-schema's](https://github.com/Npuls-OKx/Public/tree/dev/Datamodelschema%27s/schemas) en de endpoints in de koppelvlakspecificatie |
 
-Verder buiten scope: applicatiecomponenten, techniekkeuzes en federatie tussen instellingen. Een conceptueel informatiemodel is volgens MIM onafhankelijk van standaarden voor gegevensuitwisseling; de verhouding tot OEAPI staat daarom in een [apart document](informatiemodel-oeapi-mapping.md).
+Verder buiten scope: applicatiecomponenten, techniekkeuzes en federatie tussen instellingen. Welke component welk objecttype bezit staat in [uitgangspunt U3](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u3-resource-eigenaarschap) van de koppelvlakspecificatie. Een conceptueel informatiemodel is volgens MIM onafhankelijk van standaarden voor gegevensuitwisseling; de verhouding tot de Open Education API (OEAPI) staat daarom in een [apart document](informatiemodel-oeapi-mapping.md).
 
 ![Informatiemodel OKx, versie v0.1 van 9 september 2026](<OKx informatiemodel v0.1.jpg>)
 
@@ -31,27 +32,29 @@ Verder buiten scope: applicatiecomponenten, techniekkeuzes en federatie tussen i
 | | |
 |---|---|
 | **Voor wie** | Kerngroep techniek, implementerende partijen, informatiemanagers en enterprise-architecten van instellingen |
-| **Detailniveau** | MIM-niveau 1 en 2: begrippen, objecttypen en hun relaties. Geen attributen, geen datatypes en geen multipliciteit; de normatieve cardinaliteiten staan in het [begrippenkader](../../docs/specificatie/leerroute-uitwerking/doc/begrippenkader.md) |
+| **Detailniveau** | MIM-niveau 2: objecttypen en hun relaties, met de begrippenfamilies als indeling. Geen attributen en geen datatypes |
 
-## Begrippen
+## Begrippenfamilies
 
-De kolommen op de plaat zijn de begrippen waarin OKx de keten indeelt: MIM-niveau 1, bedoeld om elkaar te begrijpen en dezelfde taal te spreken. De objecttypen binnen die kolommen zijn niveau 2, het conceptuele informatiemodel. Het volledige model van begrippen staat in het [begrippenkader](../../docs/specificatie/leerroute-uitwerking/doc/begrippenkader.md) en de [begrippenlijst](../../docs/specificatie/begrippen/begrippenlijst.md); daar staat per begrip de definitie met bron.
+De kolommen op de plaat zijn de begrippenfamilies waarin OKx de keten indeelt. Ze zijn een uitsnede van het model van begrippen (MIM-niveau 1); de objecttypen binnen de kolommen zijn het conceptuele informatiemodel (niveau 2). Het volledige model van begrippen staat in het [begrippenkader](../../docs/specificatie/leerroute-uitwerking/doc/begrippenkader.md) en de [begrippenlijst](../../docs/specificatie/begrippen/begrippenlijst.md); daar staat per begrip de definitie met bron.
+
+Dit model volgt het begrippenkader op en wijzigt het op twee punten. De familie *beoogde leeruitkomst* heet hier `Onderwijskundig kader instelling`: de invulling door de instelling van de beoogde leeruitkomsten uit het kwalificatiekader. En `Resultaatstructuur` is een zevende familie, omdat de samenstelling en weging van resultaten een eigen objecttype vragen dat in geen van de zes families past.
 
 | Begrip | Wat het is | Beantwoordt de vraag |
 |---|---|---|
 | Kwalificatiekader mbo | Het geheel van landelijk vastgestelde eisen waaraan een opleiding moet voldoen. Vastgesteld en beheerd buiten OKx | Wat is normatief geldig |
-| Onderwijskundig kader instelling | De beoogde leeruitkomsten waartegen een instelling haar onderwijs specificeert. OKx gaat uit van landelijk gestandaardiseerde en beheerde leeruitkomsten; de onderwijskundige vrijheid van de instelling zit in de specificaties | Wat moet de student kennen en kunnen |
+| Onderwijskundig kader instelling | De invulling door de instelling van de beoogde leeruitkomsten uit het kwalificatiekader | Wat moet de student kennen en kunnen |
 | Onderwijsspecificatie | Het herbruikbare ontwerp van een onderwijsonderdeel, los van wanneer het draait en wie eraan meedoet | Wat wordt georganiseerd |
 | Onderwijsaanbod | Een specificatie die is ingepland: een periode, een capaciteit en waar van toepassing concrete plek, docent en tijd | Wanneer, met hoeveel plekken, met wie |
-| Onderwijsverbintenis | De relatie tussen een student en een aanbod, van aangemeld tot afgerond | Welke relatie heeft een student met dat aanbod |
-| Onderwijsresultaat | Vastgelegde en geformaliseerde beoordeling op basis van een of meer leerresultaten | Wat is er behaald |
-| Resultaatstructuur | De samenstelling en weging waarmee losse resultaten optellen tot een uitspraak over de beoogde leeruitkomsten, en daarmee over een kwalificatie of certificaat | Hoe telt dat op tot een uitspraak over de kwalificatie |
+| Onderwijsverbintenis | Een afspraak voor het gaan volgen, volgen en hebben gevolgd van onderwijs | Welke relatie heeft een student met dat aanbod |
+| Onderwijsresultaat | Vastgelegde en geformaliseerde beoordeling op basis van een of meer leerresultaten | Wat is er behaald op een verbintenis |
+| Resultaatstructuur | De samenstelling en weging waarmee losse resultaten optellen tot een uitspraak over de beoogde leeruitkomsten, en daarmee over een kwalificatie of certificaat | Hoe telt dat op tot bewijs voor een leeruitkomst |
 
 Objecttypen buiten de kolommen raken de hele keten: `Persoon`, `Student`, `Medewerker` en `Plaatsingsgroep`, het `Verzoek tot Aanbod / Intekening op specificatie` als brug van specificatie naar aanbod, en `Waarde document (diploma / certificaat)`. `Examenplan` staat als enige van deze groep buiten scope.
 
 ## Notatie
 
-**Kleur.** Geel is het OKx-referentiekader. Het sluit aan op MORA en, via het lopende initiatief klus 53 (Alignment MORA en HORA, MBO Digitaal), op HORA. Grijs staat als erkend begrip in het model maar valt buiten de scope van OKx: de leslaag, het examenplan als document, en de onderwijskundige begrippen `Competenties / Skills`, `Kennis`, `Vaardigheid` en `Inzicht`. Blauw is OEAPI v6 en komt alleen voor op de [mapping](informatiemodel-oeapi-mapping.md).
+**Kleur.** Geel is het OKx-referentiekader. Het sluit aan op de mbo-referentiearchitectuur (MORA) en, via het lopende initiatief klus 53 (Alignment MORA en HORA, MBO Digitaal), op de referentiearchitectuur van het hoger onderwijs (HORA). Grijs staat als erkend begrip in het model maar valt buiten de scope van OKx: de leslaag, het examenplan als document, en de onderwijskundige begrippen `Competenties / Skills`, `Kennis`, `Vaardigheid` en `Inzicht`. Blauw is OEAPI v6 en komt alleen voor op de [mapping](informatiemodel-oeapi-mapping.md).
 
 **Relatiesoorten**, in ArchiMate-notatie.
 
@@ -66,17 +69,20 @@ Waar de betekenis niet uit de twee objecttypen volgt, draagt de relatie een labe
 
 ## Ontwerpkeuzes
 
-1. **De leeruitkomst is de sleutel die specificaties en resultaatstructuur verbindt.** Zeven specificatietypen wijzen rechtstreeks naar leeruitkomsten, `Keuzedeel` en `Keuzedeelruimte` doen dat via specialisatie, en de summatieve resultaatstructuur wijst er ook naar. De leeruitkomst is daarmee het enige objecttype waar zowel de specificatiekant als de resultaatstructuur op uitkomt. Een leeruitkomst kan subleeruitkomsten bevatten.
-2. **Het kwalificatiekader wordt vertaald naar leeruitkomsten, niet gespecialiseerd.** Kwalificatiedossier, kwalificatie, kerntaak en werkproces stellen vast wat normatief geldig is; de instelling vertaalt dat naar leeruitkomsten, vanuit haar onderwijskundige vrijheid. Een leeruitkomst is dus geen bijzonder geval van een werkproces. Een instelling die geen eigen leeruitkomsten formuleert kan die vertaling een op een maken, waarbij de leeruitkomst met het werkproces samenvalt.
-3. **Uitwisseling tussen instellingen vraagt landelijk gestandaardiseerde leeruitkomsten.** Die standaardisatie en dat beheer bestaan nog niet; er loopt een apart traject voor, waarvan OKx de aanjager is. Zonder dat blijft een leeruitkomst instellingseigen en is aanbod van verschillende instellingen niet te vergelijken.
-4. **Het niveau waarop iets gespecificeerd wordt ligt niet vast.** Een `Onderwijseenheid specificatie` kan op kerntaakniveau liggen of op een ander niveau dat de instelling kiest. De koppeling loopt via de leeruitkomst, en daarom is het niveau geen eigenschap van de objecttypen.
-5. **Een specificatie kan zelfstandig bestaan.** Specificaties onder de `Opleiding specificatie` kunnen onderdeel zijn van een bovenliggende specificatie, maar hoeven dat niet. Een `Opleidingsprogramma specificatie` zonder bovenliggende `Opleiding specificatie` is geldig.
-6. **De student kiest uit specificaties, de voorwaarde staat in behaalde leeruitkomsten.** De `Student keuze regelset` wijst naar de specificatietypen waaruit gekozen kan worden. Een voorwaarde vooraf in die regelset wordt uitgedrukt in behaalde leeruitkomsten en niet in doorlopen specificaties: deelname aan Ruimtelijk inzicht vereist dat de leeruitkomst van Wiskunde 1 behaald is, ongeacht via welke specificatie. Zie R7 in de [keuze-requirements](../../docs/specificatie/student-keuze/keuze-requirements.md).
-7. **De leslaag valt buiten de uitwisseling.** `Les specificatie`, `Lesgelegenheid`, `Lesgelegenheid verbintenis` en `Lesgelegenheid resultaat` staan in het model zodat een latere behoefte om tot op lesniveau te beschrijven niet geblokkeerd wordt.
-8. **Een examenonderdeel is een specialisatie van een toetsonderdeel.** Beide delen dezelfde informatiestructuur; hun totstandkoming is strikt gescheiden, want een examenonderdeel wordt vastgesteld door de examencommissie en een toetsonderdeel volgt instellingsbeleid. De summatieve resultaatstructuur is samengesteld uit toetsonderdelen, zodat een instelling ook een formatief toetsonderdeel summatief kan laten meetellen. Wordt een toetsonderdeel op die manier opgenomen, dan volgt het vanaf dat moment de examenketen.
-9. **Het examenplan berust op de summatieve resultaatstructuur.** OKx wisselt de `Summatieve resultaat structuur` uit: de examenonderdelen met hun wegingen en het afrondingscriterium dat de zak-slaagregeling draagt. Het examenplan als document valt buiten de uitwisseling.
-10. **Een leeruitkomst is een geformuleerde competentie.** `Leeruitkomst` specialiseert `Competenties / Skills`: het is dezelfde informatiestructuur, uitgedrukt op het niveau waarop de instelling formuleert. De onderliggende begrippen kennis, vaardigheid en inzicht staan in het model maar vallen buiten de uitwisseling.
-11. **Een verbintenis loopt bij voorkeur via een groep.** `Plaatsingsgroep` maakt regulier onderwijs makkelijker te plannen en te roosteren en geldt voor alle acht verbintenistypen. Het model sluit individuele verbintenissen niet uit.
+Elke keuze noemt zijn bron; staat er *voorstel*, dan is de keuze in dit model gemaakt en wacht hij op bekrachtiging.
+
+1. **De leeruitkomst is de sleutel die specificaties en resultaatstructuur verbindt.** Zeven specificatietypen wijzen rechtstreeks naar leeruitkomsten, `Keuzedeel` en `Keuzedeelruimte` doen dat via specialisatie, en de summatieve resultaatstructuur wijst er ook naar. Een leeruitkomst kan subleeruitkomsten bevatten. Bron: [ADR 0026](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0026-leeruitkomst-als-verbindende-sleutel.md).
+2. **Het kwalificatiekader wordt vertaald naar leeruitkomsten, niet gespecialiseerd.** Kwalificatiedossier, kwalificatie, kerntaak en werkproces stellen vast wat normatief geldig is. Een leeruitkomst is de invulling door de instelling van wat het kwalificatiekader beoogt: wat een student moet kennen en kunnen, zo geformuleerd dat specificaties ernaar kunnen verwijzen en dat behaalde toets- en examenresultaten er het bewijs voor leveren. Een leeruitkomst is dus geen bijzonder geval van een werkproces; een instelling die geen eigen leeruitkomsten formuleert kan de vertaling een op een maken. Voorstel.
+3. **Randvoorwaarde: uitwisseling tussen instellingen vraagt landelijk gestandaardiseerde leeruitkomsten.** Zonder een landelijk beheerde set blijft een leeruitkomst instellingseigen en is aanbod van verschillende instellingen niet te vergelijken. Dit model gaat van die set uit; de onderwijskundige vrijheid van de instelling zit in de specificaties waarmee zij de leeruitkomsten bereikt. Randvoorwaarde voor een latere fase; federatie valt buiten dit model.
+4. **Het niveau waarop iets gespecificeerd wordt ligt niet vast.** Een `Onderwijseenheid specificatie` kan op kerntaakniveau liggen of op een ander niveau dat de instelling kiest. De koppeling loopt via de leeruitkomst, en daarom is het niveau geen eigenschap van de objecttypen. Voorstel.
+5. **Een specificatie kan zelfstandig bestaan.** Specificaties onder de `Opleiding specificatie` kunnen onderdeel zijn van een bovenliggende specificatie, maar hoeven dat niet. Een `Opleidingsprogramma specificatie` zonder bovenliggende `Opleiding specificatie` is geldig. Voorstel.
+6. **De student kiest uit specificaties, de voorwaarde staat in behaalde leeruitkomsten.** De `Student keuze regelset` wijst naar de specificatietypen waaruit gekozen kan worden. Een voorwaarde vooraf in die regelset wordt uitgedrukt in behaalde leeruitkomsten en niet in doorlopen specificaties: deelname aan Ruimtelijk inzicht vereist dat de leeruitkomst van Wiskunde 1 behaald is, ongeacht via welke specificatie. Bron: [R7 in de keuze-requirements](../../docs/specificatie/student-keuze/keuze-requirements.md) en [ADR 0026](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0026-leeruitkomst-als-verbindende-sleutel.md).
+7. **Resultaten hangen aan verbintenissen, niet rechtstreeks aan leeruitkomsten.** Een student toont aan dat hij een leeruitkomst heeft door toetsen en examens af te ronden; de resultaten daarvan ontstaan op de verbintenis, via specificatie, aanbod en verbintenis. De summatieve resultaatstructuur wijst naar de leeruitkomsten en zegt daarmee welke resultaten samen het bewijs voor een leeruitkomst vormen, ook voor een later leeruitkomstenregister, Edubadges of een eduwallet. Daarom heeft geen enkel resultaattype een eigen relatie met `Leeruitkomst`. Voorstel; verfijnt [ADR 0022](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0022-resultaatbegrippen-conform-rosa-koi.md), dat "behaald op leeruitkomsten" zegt zonder de weg via de structuur te noemen.
+8. **De leslaag valt buiten de uitwisseling.** `Les specificatie`, `Lesgelegenheid`, `Lesgelegenheid verbintenis` en `Lesgelegenheid resultaat` staan in het model, zodat beschrijven tot op lesniveau later mogelijk blijft. Voorstel.
+9. **Een examenonderdeel is een specialisatie van een toetsonderdeel.** Beide delen dezelfde informatiestructuur; hun totstandkoming is gescheiden: een examenonderdeel wordt vastgesteld door de examencommissie, een toetsonderdeel volgt instellingsbeleid. De summatieve resultaatstructuur is samengesteld uit toetsonderdelen, zodat een instelling ook een formatief toetsonderdeel summatief kan laten meetellen. Wordt een toetsonderdeel op die manier opgenomen, dan volgt het vanaf dat moment de examenketen. Voorstel.
+10. **OKx wisselt de summatieve resultaatstructuur uit, niet het examenplan.** De `Summatieve resultaat structuur` draagt de examenonderdelen met hun wegingen en het afrondingscriterium dat de zak-slaagregeling draagt. Zij is onderdeel van een examenplan en verwijst daarnaar; het examenplan zelf, het document dat de examencommissie vaststelt, valt buiten de uitwisseling. Bron: MORA onderscheidt examenplan en summatieve resultaatstructuur op dezelfde manier.
+11. **Een leeruitkomst is een geformuleerde competentie.** `Leeruitkomst` specialiseert `Competenties / Skills`: het is dezelfde informatiestructuur, uitgedrukt op het niveau waarop de instelling formuleert. De onderliggende begrippen kennis, vaardigheid en inzicht staan in het model maar vallen buiten de uitwisseling. Voorstel.
+12. **Een verbintenis loopt bij voorkeur via een groep.** `Plaatsingsgroep` maakt regulier onderwijs makkelijker te plannen en te roosteren en geldt voor elk verbintenistype. Het model sluit individuele verbintenissen niet uit. Voorstel.
 
 ## Verwante documenten
 

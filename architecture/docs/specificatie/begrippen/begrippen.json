@@ -36,13 +36,14 @@
         }
       },
       "definitie": "Het geheel van landelijk vastgestelde eisen waaraan een opleiding moet voldoen. Vastgesteld en beheerd buiten OKx",
-      "vindplaats": "architecture/model/informatiemodel/informatiemodel.md#begrippen",
+      "vindplaats": "architecture/model/informatiemodel/informatiemodel.md#begrippenfamilies",
       "bron_soort": "okx-document",
       "status": "gedefinieerd",
-      "herkomst": "nieuw voor de solution-laag"
+      "herkomst": "nieuw voor OKx"
     },
     {
       "varianten": [
+        "Beoogde leeruitkomst",
         "Onderwijskundigkader instelling"
       ],
       "naam": "Onderwijskundig kader instelling",
@@ -62,11 +63,11 @@
           "uitkomst": "nog niet onderzocht"
         }
       },
-      "definitie": "De beoogde leeruitkomsten waartegen een instelling haar onderwijs specificeert. OKx gaat uit van landelijk gestandaardiseerde en beheerde leeruitkomsten; de onderwijskundige vrijheid van de instelling zit in de specificaties",
-      "vindplaats": "architecture/model/informatiemodel/informatiemodel.md#begrippen",
+      "definitie": "De invulling door de instelling van de beoogde leeruitkomsten uit het kwalificatiekader",
+      "vindplaats": "architecture/model/informatiemodel/informatiemodel.md#begrippenfamilies",
       "bron_soort": "okx-document",
       "status": "gedefinieerd",
-      "herkomst": "nieuw voor de solution-laag"
+      "herkomst": "nieuw voor OKx"
     },
     {
       "varianten": [
@@ -94,7 +95,7 @@
         }
       },
       "definitie": "Het herbruikbare ontwerp van een onderwijsonderdeel, los van wanneer het draait en wie eraan meedoet",
-      "vindplaats": "architecture/model/informatiemodel/informatiemodel.md#begrippen",
+      "vindplaats": "architecture/model/informatiemodel/informatiemodel.md#begrippenfamilies",
       "bron_soort": "okx-document",
       "status": "gedefinieerd",
       "herkomst": "verbijzondering van `onderwijsaanbod (koi)` (ROSA-KOI)"
@@ -124,7 +125,7 @@
         }
       },
       "definitie": "Een specificatie die is ingepland: een periode, een capaciteit en waar van toepassing concrete plek, docent en tijd",
-      "vindplaats": "architecture/model/informatiemodel/informatiemodel.md#begrippen",
+      "vindplaats": "architecture/model/informatiemodel/informatiemodel.md#begrippenfamilies",
       "bron_soort": "okx-document",
       "status": "gedefinieerd",
       "herkomst": "verbijzondering van `onderwijsaanbod (koi)` (ROSA-KOI)"
@@ -210,10 +211,10 @@
         }
       },
       "definitie": "De samenstelling en weging waarmee losse resultaten optellen tot een uitspraak over de beoogde leeruitkomsten, en daarmee over een kwalificatie of certificaat",
-      "vindplaats": "architecture/model/informatiemodel/informatiemodel.md#begrippen",
+      "vindplaats": "architecture/model/informatiemodel/informatiemodel.md#begrippenfamilies",
       "bron_soort": "okx-document",
       "status": "gedefinieerd",
-      "herkomst": "nieuw voor de solution-laag"
+      "herkomst": "nieuw voor OKx"
     },
     {
       "naam": "Aanwezigheid",
@@ -266,7 +267,7 @@
       "vindplaats": null,
       "bron_soort": null,
       "status": "nog te definieren",
-      "herkomst": "nieuw voor de solution-laag",
+      "herkomst": "nieuw voor OKx",
       "varianten": []
     },
     {
@@ -299,7 +300,8 @@
       "afgeleid_van": {
         "bron": "Het vlakkenmodel in de leerroute-uitwerking, dat is afgestemd op klus 53 (alignment MORA en HORA)",
         "vindplaats": "architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#betrokken-informatie-bij-proces"
-      }
+      },
+      "noot": "Het citaat noemt `Examenspecificatie`; in het informatiemodel heet dat objecttype `Examenonderdeelspecificatie`."
     },
     {
       "oeapi": [
@@ -326,7 +328,7 @@
       "vindplaats": null,
       "bron_soort": null,
       "status": "nog te definieren",
-      "herkomst": "nieuw voor de solution-laag",
+      "herkomst": "nieuw voor OKx",
       "varianten": []
     },
     {
@@ -346,17 +348,18 @@
           "uitkomst": "tegenhanger",
           "begrip": "Examen deelname",
           "url": "https://mora.mbodigitaal.nl/index.php/Id-abbf4971-fe71-2b56-20f1-6135b4a1eb82",
-          "citaat": "De registratie van een formele activiteit (lees examensessie) waarin een examen wordt afgenomen"
+          "citaat": "De registratie van een formele activiteit (lees examensessie) waarin een examen wordt afgenomen",
+          "verbijzondering": "MORA registreert de examensessie waarin een examen wordt afgenomen. OKx legt de relatie vast tussen de kandidaat en de examengelegenheid, met dezelfde informatiestructuur als de toetsgelegenheidverbintenis."
         },
         "HORA": {
           "uitkomst": "nog niet onderzocht"
         }
       },
-      "definitie": "De registratie van een formele activiteit (lees examensessie) waarin een examen wordt afgenomen",
-      "vindplaats": "https://mora.mbodigitaal.nl/index.php/Id-abbf4971-fe71-2b56-20f1-6135b4a1eb82",
-      "bron_soort": "referentiekader",
+      "definitie": "De relatie tussen kandidaat en `Examengelegenheid`: inschrijving op en deelname aan de examenafname.",
+      "vindplaats": "architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#betrokken-informatie-bij-proces",
+      "bron_soort": "okx-document",
       "status": "gedefinieerd",
-      "herkomst": "overgenomen uit MORA",
+      "herkomst": "verbijzondering van `Examen deelname` (MORA)",
       "varianten": [
         "Examengelegenheid-verbintenis"
       ]
@@ -383,7 +386,7 @@
       "vindplaats": null,
       "bron_soort": null,
       "status": "nog te definieren",
-      "herkomst": "nieuw voor de solution-laag",
+      "herkomst": "nieuw voor OKx",
       "varianten": []
     },
     {
@@ -435,13 +438,13 @@
           "uitkomst": "tegenhanger",
           "begrip": "Examenplan",
           "url": "https://mora.mbodigitaal.nl/index.php/Id-913bf380-1288-8a49-0bca-906d8b112e8f",
-          "citaat": "Het examenplan geeft per kwalificatie een overzicht van de examenonderdelen en examens die een mbo-school inzet voor de examinering (kwalificerende beoordeling). Het examenplan geeft inzicht in de onderdelen die een student met een voldoende moet afsluiten om in aanmerking te komen voor een diploma"
+          "citaat": "Het examenplan geeft per kwalificatie een overzicht van de examenonderdelen en examens die een mbo-school inzet voor de examinering (kwalificerende beoordeling). Het examenplan geeft inzicht in de onderdelen die een student met een voldoende moet afsluiten om in aanmerking te komen voor een diploma. In het examenplan staat binnen welke omgeving (mbo-school of beroepspraktijk) de examens plaatsvinden. Hierbij houdt de school rekening met de praktische haalbaarheid van de examinering binnen de praktijksituatie en de afspraken in het sectoraal examenprofiel. In een examenplan staan de examenonderdelen en examens voor de beroepsgerichte eisen en de generieke taal- en rekeneisen. Ook de wijze waarop een school deze onderdelen examineert, staat in het examenplan."
         },
         "HORA": {
           "uitkomst": "nog niet onderzocht"
         }
       },
-      "definitie": "Het examenplan geeft per kwalificatie een overzicht van de examenonderdelen en examens die een mbo-school inzet voor de examinering (kwalificerende beoordeling). Het examenplan geeft inzicht in de onderdelen die een student met een voldoende moet afsluiten om in aanmerking te komen voor een diploma",
+      "definitie": "Het examenplan geeft per kwalificatie een overzicht van de examenonderdelen en examens die een mbo-school inzet voor de examinering (kwalificerende beoordeling). Het examenplan geeft inzicht in de onderdelen die een student met een voldoende moet afsluiten om in aanmerking te komen voor een diploma. In het examenplan staat binnen welke omgeving (mbo-school of beroepspraktijk) de examens plaatsvinden. Hierbij houdt de school rekening met de praktische haalbaarheid van de examinering binnen de praktijksituatie en de afspraken in het sectoraal examenprofiel. In een examenplan staan de examenonderdelen en examens voor de beroepsgerichte eisen en de generieke taal- en rekeneisen. Ook de wijze waarop een school deze onderdelen examineert, staat in het examenplan.",
       "vindplaats": "https://mora.mbodigitaal.nl/index.php/Id-913bf380-1288-8a49-0bca-906d8b112e8f",
       "bron_soort": "referentiekader",
       "status": "gedefinieerd",
@@ -554,7 +557,7 @@
       "vindplaats": null,
       "bron_soort": null,
       "status": "nog te definieren",
-      "herkomst": "nieuw voor de solution-laag",
+      "herkomst": "nieuw voor OKx",
       "varianten": []
     },
     {
@@ -580,7 +583,7 @@
       "vindplaats": null,
       "bron_soort": null,
       "status": "nog te definieren",
-      "herkomst": "nieuw voor de solution-laag",
+      "herkomst": "nieuw voor OKx",
       "varianten": []
     },
     {
@@ -597,13 +600,13 @@
           "uitkomst": "tegenhanger",
           "begrip": "Kerntaak",
           "url": "https://mora.mbodigitaal.nl/index.php/Id-99ef9489-49b3-4a3b-7a89-08ae36a3255e",
-          "citaat": "Een kerntaak is een substantieel deel van de beroepsuitoefening naar belang omvang (tijdsbeslag of frequentie) of beide. Een kerntaak bestaat uit een geheel van inhoudelijk met elkaar samenhangende werkprocessen kenmerkend voor de beroepsuitoefening. Een kwalificatiedossier heeft een beperkt aantal kerntaken"
+          "citaat": "Een kerntaak is een substantieel deel van de beroepsuitoefening naar belang omvang (tijdsbeslag of frequentie) of beide. Een kerntaak bestaat uit een geheel van inhoudelijk met elkaar samenhangende werkprocessen kenmerkend voor de beroepsuitoefening. Een kwalificatiedossier heeft een beperkt aantal kerntaken. Alle kerntaken samen beschrijven de essentie van de beroepsuitoefening van de betreffende beroepengroep."
         },
         "HORA": {
           "uitkomst": "nog niet onderzocht"
         }
       },
-      "definitie": "Een kerntaak is een substantieel deel van de beroepsuitoefening naar belang omvang (tijdsbeslag of frequentie) of beide. Een kerntaak bestaat uit een geheel van inhoudelijk met elkaar samenhangende werkprocessen kenmerkend voor de beroepsuitoefening. Een kwalificatiedossier heeft een beperkt aantal kerntaken",
+      "definitie": "Een kerntaak is een substantieel deel van de beroepsuitoefening naar belang omvang (tijdsbeslag of frequentie) of beide. Een kerntaak bestaat uit een geheel van inhoudelijk met elkaar samenhangende werkprocessen kenmerkend voor de beroepsuitoefening. Een kwalificatiedossier heeft een beperkt aantal kerntaken. Alle kerntaken samen beschrijven de essentie van de beroepsuitoefening van de betreffende beroepengroep.",
       "vindplaats": "https://mora.mbodigitaal.nl/index.php/Id-99ef9489-49b3-4a3b-7a89-08ae36a3255e",
       "bron_soort": "referentiekader",
       "status": "gedefinieerd",
@@ -627,17 +630,18 @@
           "uitkomst": "tegenhanger",
           "begrip": "Keuzedeel",
           "url": "https://mora.mbodigitaal.nl/index.php/Id-018c4a8c-4129-ce3e-66a6-55ad855f7661",
-          "citaat": "Keuzedelen zijn een verrijking van de kwalificatie (basis- en profieldeel) en kunnen voor de student verbredend of verdiepend zijn of bijdragen aan een betere doorstroom naar een vervolgopleiding"
+          "citaat": "Keuzedelen zijn een verrijking van de kwalificatie (basis- en profieldeel) en kunnen voor de student verbredend of verdiepend zijn of bijdragen aan een betere doorstroom naar een vervolgopleiding",
+          "verbijzondering": "In MORA hangt het keuzedeel in de kwalificatiestructuur, naast het kwalificatiedossier. In OKx is het keuzedeel een specialisatie van de opleidingsprogrammaspecificatie: het ontwerp waarmee een instelling het landelijke keuzedeel aanbiedt. Dezelfde naam, een andere plek."
         },
         "HORA": {
           "uitkomst": "nog niet onderzocht"
         }
       },
-      "definitie": "Keuzedelen zijn een verrijking van de kwalificatie (basis- en profieldeel) en kunnen voor de student verbredend of verdiepend zijn of bijdragen aan een betere doorstroom naar een vervolgopleiding",
-      "vindplaats": "https://mora.mbodigitaal.nl/index.php/Id-018c4a8c-4129-ce3e-66a6-55ad855f7661",
-      "bron_soort": "referentiekader",
-      "status": "gedefinieerd",
-      "herkomst": "overgenomen uit MORA",
+      "definitie": null,
+      "vindplaats": null,
+      "bron_soort": null,
+      "status": "nog te definieren",
+      "herkomst": "verbijzondering van `Keuzedeel` (MORA)",
       "varianten": []
     },
     {
@@ -665,7 +669,7 @@
       "vindplaats": null,
       "bron_soort": null,
       "status": "nog te definieren",
-      "herkomst": "nieuw voor de solution-laag",
+      "herkomst": "nieuw voor OKx",
       "varianten": []
     },
     {
@@ -693,7 +697,7 @@
       "vindplaats": null,
       "bron_soort": null,
       "status": "nog te definieren",
-      "herkomst": "nieuw voor de solution-laag",
+      "herkomst": "nieuw voor OKx",
       "varianten": []
     },
     {
@@ -721,7 +725,7 @@
       "vindplaats": null,
       "bron_soort": null,
       "status": "nog te definieren",
-      "herkomst": "nieuw voor de solution-laag",
+      "herkomst": "nieuw voor OKx",
       "varianten": []
     },
     {
@@ -749,7 +753,7 @@
       "vindplaats": null,
       "bron_soort": null,
       "status": "nog te definieren",
-      "herkomst": "nieuw voor de solution-laag",
+      "herkomst": "nieuw voor OKx",
       "varianten": []
     },
     {
@@ -793,13 +797,13 @@
           "uitkomst": "tegenhanger",
           "begrip": "Kwalificatie dossier",
           "url": "https://mora.mbodigitaal.nl/index.php/Id-3389d485-20a7-6e53-21df-d09eb49d4762",
-          "citaat": "Het kwalificatiedossier beschrijft de eisen waaraan een student moet voldoen om zijn diploma te behalen. Elk dossier bevat een of meer kwalificaties en iedere kwalificatie leidt tot een diploma. Alle kwalificatiedossiers samen, aangevuld met de keuzedelen, vormen de kwalificatiestructuur. Een kwalificatiedossier bestaat uit een basisdeel en een of meer profieldelen"
+          "citaat": "Het kwalificatiedossier beschrijft de eisen waaraan een student moet voldoen om zijn diploma te behalen. Elk dossier bevat een of meer kwalificaties en iedere kwalificatie leidt tot een diploma. Alle kwalificatiedossiers samen, aangevuld met de keuzedelen, vormen de kwalificatiestructuur. Een kwalificatiedossier bestaat uit een basisdeel en een of meer profieldelen. Het basisdeel bevat de generieke onderdelen Nederlandse taal, rekenen, loopbaan en burgerschap en Engels (uitsluitend voor niveau 4). Verder bevat het gemeenschappelijke elementen, die gelden voor alle kwalificaties in het dossier: kerntaken, werkprocessen, vakkennis, vaardigheden en houdingsaspecten. Het profieldeel beschrijft de specifieke onderdelen. Keuzedelen zijn een plus op de kwalificatie en maken de opleiding compleet."
         },
         "HORA": {
           "uitkomst": "nog niet onderzocht"
         }
       },
-      "definitie": "Het kwalificatiedossier beschrijft de eisen waaraan een student moet voldoen om zijn diploma te behalen. Elk dossier bevat een of meer kwalificaties en iedere kwalificatie leidt tot een diploma. Alle kwalificatiedossiers samen, aangevuld met de keuzedelen, vormen de kwalificatiestructuur. Een kwalificatiedossier bestaat uit een basisdeel en een of meer profieldelen",
+      "definitie": "Het kwalificatiedossier beschrijft de eisen waaraan een student moet voldoen om zijn diploma te behalen. Elk dossier bevat een of meer kwalificaties en iedere kwalificatie leidt tot een diploma. Alle kwalificatiedossiers samen, aangevuld met de keuzedelen, vormen de kwalificatiestructuur. Een kwalificatiedossier bestaat uit een basisdeel en een of meer profieldelen. Het basisdeel bevat de generieke onderdelen Nederlandse taal, rekenen, loopbaan en burgerschap en Engels (uitsluitend voor niveau 4). Verder bevat het gemeenschappelijke elementen, die gelden voor alle kwalificaties in het dossier: kerntaken, werkprocessen, vakkennis, vaardigheden en houdingsaspecten. Het profieldeel beschrijft de specifieke onderdelen. Keuzedelen zijn een plus op de kwalificatie en maken de opleiding compleet.",
       "vindplaats": "https://mora.mbodigitaal.nl/index.php/Id-3389d485-20a7-6e53-21df-d09eb49d4762",
       "bron_soort": "referentiekader",
       "status": "gedefinieerd",
@@ -981,8 +985,8 @@
           "uitkomst": "nog niet onderzocht"
         }
       },
-      "definitie": "Een concreet en observeerbaar resultaat van leren, dat beschrijft wat een student na het doorlopen van één of meer leertaken weet, begrijpt of kan toepassen, en dat als voorwaarde geldt om een opleidingsonderdeel succesvol af te ronden — de vertaling van leertaken in een breakdown door onderwijskundigen. Bij voorkeur uitgedrukt in een sectoroverstijgende, gestandaardiseerde skillstaxonomie (zoals CompetentNL), in dimensies kennis, inzicht en vaardigheden; zie hoofdstuk 4.",
-      "vindplaats": "architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#betrokken-informatie-bij-proces",
+      "definitie": "Een leeruitkomst is de invulling door de instelling van wat het kwalificatiekader beoogt: wat een student moet kennen en kunnen, zo geformuleerd dat specificaties ernaar kunnen verwijzen en dat behaalde toets- en examenresultaten er het bewijs voor leveren.",
+      "vindplaats": "architecture/model/informatiemodel/informatiemodel.md#ontwerpkeuzes",
       "bron_soort": "okx-document",
       "status": "gedefinieerd",
       "herkomst": "afgeleid uit het vlakkenmodel, afgestemd op klus 53",
@@ -1007,11 +1011,8 @@
           "zoekterm": "les specificatie"
         },
         "MORA": {
-          "uitkomst": "tegenhanger",
-          "begrip": "Leeractiviteit",
-          "url": "https://mora.mbodigitaal.nl/index.php/Id-b25709e2-388a-d36b-696b-b82fd908f076",
-          "citaat": "De roosterbare eenheden waaruit een opleidingsonderdeel is opgebouwd, dus de activiteiten die in het rooster moeten worden opgenomen, de te roosteren onderwijsmomenten. Leeractiviteiten kunnen van toepassing zijn op meerdere opleidingsonderdelen",
-          "verbijzondering": "MORA noemt de leeractiviteit de roosterbare eenheid. OKx onderscheidt de specificatie van die eenheid van de geroosterde uitvoering."
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "lesspecificatie, les, leertaak. MORA kent de leeractiviteit als roosterbare eenheid, dat is aanbod, en de leertaak als lesstof en opdrachten op het niveau van het leeronderdeel; geen object voor het ontwerp van een afzonderlijke les."
         },
         "HORA": {
           "uitkomst": "nog niet onderzocht"
@@ -1091,7 +1092,7 @@
       "vindplaats": null,
       "bron_soort": null,
       "status": "nog te definieren",
-      "herkomst": "nieuw voor de solution-laag",
+      "herkomst": "nieuw voor OKx",
       "varianten": [
         "Lesgelegenheid-resultaat"
       ]
@@ -1326,10 +1327,10 @@
         },
         "MORA": {
           "uitkomst": "tegenhanger",
-          "begrip": "Inschrijving",
-          "url": "https://mora.mbodigitaal.nl/index.php/Id-b329667d-f273-4c9c-2866-73ccce570d18",
-          "citaat": "Een overeenkomst tussen de onderwijsaanbieder en de student waar de rechten en plichten van onderwijsaanbieder en student in staan. Deze overeenkomst bevat ook voorwaarden waarin o.a. is opgenomen dat de student (en bij minderjarigen de ouders) akkoord gaan met alle voor het onderwijs relevante onderdelen zoals de BPV",
-          "verbijzondering": "MORA kent de inschrijving als overeenkomst met de instelling. OKx legt die vast als verbintenis op een concreet opleidingaanbod."
+          "begrip": "Plaatsing",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-871a4ac0-e5e2-242d-7204-976fdc5cd613",
+          "citaat": "De plaatsing of deelname van een student in een opleiding",
+          "verbijzondering": "MORA kent de plaatsing als de deelname van een student aan een opleiding, en de inschrijving als de overeenkomst met rechten en plichten. OKx legt de verbintenis vast op een concreet opleidingaanbod; de overeenkomst blijft bij het studentinformatiesysteem."
         },
         "HORA": {
           "uitkomst": "nog niet onderzocht"
@@ -1339,7 +1340,7 @@
       "vindplaats": null,
       "bron_soort": null,
       "status": "nog te definieren",
-      "herkomst": "verbijzondering van `Inschrijving` (MORA)",
+      "herkomst": "verbijzondering van `Plaatsing` (MORA)",
       "varianten": []
     },
     {
@@ -1367,7 +1368,7 @@
       "vindplaats": null,
       "bron_soort": null,
       "status": "nog te definieren",
-      "herkomst": "nieuw voor de solution-laag",
+      "herkomst": "nieuw voor OKx",
       "varianten": []
     },
     {
@@ -1631,7 +1632,7 @@
       "vindplaats": null,
       "bron_soort": null,
       "status": "nog te definieren",
-      "herkomst": "nieuw voor de solution-laag",
+      "herkomst": "nieuw voor OKx",
       "varianten": [
         "persoon"
       ]
@@ -1658,7 +1659,7 @@
       "vindplaats": null,
       "bron_soort": null,
       "status": "nog te definieren",
-      "herkomst": "nieuw voor de solution-laag",
+      "herkomst": "nieuw voor OKx",
       "varianten": []
     },
     {
@@ -1747,7 +1748,7 @@
       "vindplaats": null,
       "bron_soort": null,
       "status": "nog te definieren",
-      "herkomst": "nieuw voor de solution-laag",
+      "herkomst": "nieuw voor OKx",
       "varianten": []
     },
     {
@@ -1772,7 +1773,7 @@
       "vindplaats": null,
       "bron_soort": null,
       "status": "nog te definieren",
-      "herkomst": "nieuw voor de solution-laag",
+      "herkomst": "nieuw voor OKx",
       "varianten": []
     },
     {
@@ -1888,7 +1889,8 @@
       "afgeleid_van": {
         "bron": "Het vlakkenmodel in de leerroute-uitwerking, dat is afgestemd op klus 53 (alignment MORA en HORA)",
         "vindplaats": "architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#betrokken-informatie-bij-proces"
-      }
+      },
+      "noot": "Het citaat schrijft `Toetsonderdeel-specificatie` met koppelteken, de oudere schrijfwijze van `Toetsonderdeel specificatie`."
     },
     {
       "oeapi": [
@@ -1915,7 +1917,7 @@
       "vindplaats": null,
       "bron_soort": null,
       "status": "nog te definieren",
-      "herkomst": "nieuw voor de solution-laag",
+      "herkomst": "nieuw voor OKx",
       "varianten": []
     },
     {
@@ -2010,7 +2012,7 @@
       "vindplaats": null,
       "bron_soort": null,
       "status": "nog te definieren",
-      "herkomst": "nieuw voor de solution-laag",
+      "herkomst": "nieuw voor OKx",
       "varianten": []
     },
     {
@@ -2036,7 +2038,7 @@
       "vindplaats": null,
       "bron_soort": null,
       "status": "nog te definieren",
-      "herkomst": "nieuw voor de solution-laag",
+      "herkomst": "nieuw voor OKx",
       "varianten": []
     },
     {
@@ -2054,7 +2056,7 @@
           "begrip": "Leervraag",
           "url": "https://mora.mbodigitaal.nl/index.php/Id-306e945a-d2ff-000e-f950-f1acaa91a0bc",
           "citaat": "De vraag van een (potentiele) student aan de onderwijsaanbieder waarin verwoord wordt wat men wil leren. Het formuleren van de leervraag is een activiteit van de begeleider samen met de deelnemer of opdrachtgever waarin de leervraag wordt uitgedrukt in producten uit de onderwijscatalogus (eventueel) aangevuld met additionele wensen en voorwaarden",
-          "verbijzondering": "MORA kent de leervraag als de vraag van de student. OKx maakt daar een uitwisselbaar verzoek van, dat leidt tot aanbod of tot intekening op bestaand aanbod."
+          "verbijzondering": "MORA kent de leervraag als de vraag van de student wat hij wil leren, en de aanmelding als het verzoek om toegelaten te worden tot een opleiding. OKx bundelt beide in een uitwisselbaar verzoek dat leidt tot nieuw aanbod of tot intekening op bestaand aanbod."
         },
         "HORA": {
           "uitkomst": "nog niet onderzocht"
@@ -2081,13 +2083,13 @@
           "uitkomst": "tegenhanger",
           "begrip": "Waarde document (diploma / certificaat)",
           "url": "https://mora.mbodigitaal.nl/index.php/Id-8647eba0-e31d-5bcf-c12a-4d477069943c",
-          "citaat": "Het bewijsstuk van een eindoordeel over het voltooien van een opleiding, keuzedeel, deelkwalificatie of module"
+          "citaat": "Het bewijsstuk van een eindoordeel over het voltooien van een opleiding, keuzedeel, deelkwalificatie of module door een onderwijsaanbieder."
         },
         "HORA": {
           "uitkomst": "nog niet onderzocht"
         }
       },
-      "definitie": "Het bewijsstuk van een eindoordeel over het voltooien van een opleiding, keuzedeel, deelkwalificatie of module",
+      "definitie": "Het bewijsstuk van een eindoordeel over het voltooien van een opleiding, keuzedeel, deelkwalificatie of module door een onderwijsaanbieder.",
       "vindplaats": "https://mora.mbodigitaal.nl/index.php/Id-8647eba0-e31d-5bcf-c12a-4d477069943c",
       "bron_soort": "referentiekader",
       "status": "gedefinieerd",
@@ -2108,13 +2110,13 @@
           "uitkomst": "tegenhanger",
           "begrip": "Werkproces",
           "url": "https://mora.mbodigitaal.nl/index.php/Id-9cf4d404-b06c-473f-57d9-3945af33cfa8",
-          "citaat": "Een werkproces is een afgebakend geheel van beroepshandelingen binnen een kerntaak. Het werkproces kent een begin en een eind heeft een resultaat en wordt als kenmerkend herkend in de beroepspraktijk"
+          "citaat": "Een werkproces is een afgebakend geheel van beroepshandelingen binnen een kerntaak. Het werkproces kent een begin en een eind heeft een resultaat en wordt als kenmerkend herkend in de beroepspraktijk. Een werkproces bestaat dus nooit uit één handeling of gedraging. Meerdere werkprocessen kunnen gelijktijdig lopen. Dat ze een begin en eind hebben wil niet per se zeggen dat ze na elkaar komen maar dat ze duidelijk te onderscheiden zijn van andere werkprocessen."
         },
         "HORA": {
           "uitkomst": "nog niet onderzocht"
         }
       },
-      "definitie": "Een werkproces is een afgebakend geheel van beroepshandelingen binnen een kerntaak. Het werkproces kent een begin en een eind heeft een resultaat en wordt als kenmerkend herkend in de beroepspraktijk",
+      "definitie": "Een werkproces is een afgebakend geheel van beroepshandelingen binnen een kerntaak. Het werkproces kent een begin en een eind heeft een resultaat en wordt als kenmerkend herkend in de beroepspraktijk. Een werkproces bestaat dus nooit uit één handeling of gedraging. Meerdere werkprocessen kunnen gelijktijdig lopen. Dat ze een begin en eind hebben wil niet per se zeggen dat ze na elkaar komen maar dat ze duidelijk te onderscheiden zijn van andere werkprocessen.",
       "vindplaats": "https://mora.mbodigitaal.nl/index.php/Id-9cf4d404-b06c-473f-57d9-3945af33cfa8",
       "bron_soort": "referentiekader",
       "status": "gedefinieerd",

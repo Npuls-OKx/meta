@@ -29,7 +29,7 @@ De koppelvlakken van OKx wisselen informatie uit tussen instellingen en tussen s
 
 ## Inleiding
 
-Deze lijst geeft per begrip de vastgestelde schrijfwijze, een definitie en de vindplaats van die definitie. Een begrip zonder vindplaats staat er als gat in, niet als dichtgeschreven aanname.
+Deze lijst geeft per begrip de schrijfwijze, een definitie en de vindplaats van die definitie, en legt elk begrip naast de referentiearchitecturen: de mbo-referentiearchitectuur (MORA), het Kernmodel Onderwijsinformatie (KOI) binnen de Referentiearchitectuur Onderwijs (ROSA), en de referentiearchitectuur van het hoger onderwijs (HORA). Een begrip zonder vindplaats staat er als open post in.
 
 ## Doel
 
@@ -49,6 +49,7 @@ VOET = """
 | [`begrippen.json`](begrippen.json) | Deze lijst machineleesbaar; dit document wordt eruit gegenereerd |
 | [`begrippen-extractie.json`](begrippen-extractie.json) | Elke term tussen backquotes in meta en Public, met vindplaatsen |
 | [`referentiekaders.json`](referentiekaders.json) | De letterlijk overgenomen definities uit MORA en KOI, met bron-URL en ophaaldatum |
+| [MORA-definitiemapping v0.4](../../definitie_mapping_MORA_OEAPI_excel/) | Eerdere mapping van MORA-objecten op OEAPI, als werkblad; deze lijst vervangt hem niet en verwijst ernaar waar de keuzes verschillen |
 """
 
 
@@ -268,6 +269,14 @@ def kadercel(k, map_pad):
     return k["uitkomst"]
 
 
+def reden(b):
+    """De reden van een verbijzondering, uit de mapping."""
+    for k in b.get("kaders", {}).values():
+        if k.get("uitkomst") == "tegenhanger" and k.get("verbijzondering"):
+            return k["verbijzondering"]
+    return ""
+
+
 def schrijf(data, referentie, doel):
     map_pad = doel.parent
     r = [KOP.rstrip("\n"), "", data["scope"], "", data["zoekmethode"], ""]
@@ -277,20 +286,18 @@ def schrijf(data, referentie, doel):
     uit_kader = [b for b in gedef if b.get("bron_soort") == "referentiekader"]
 
     r += ["## Dekking", "",
-          f"Versie {data['versie']}. De kaders zijn geraadpleegd op {referentie['opgehaald']}.", "",
+          f"Versie {data['versie']}, concept. De kaders zijn geraadpleegd op {referentie['opgehaald']}.", "",
           "| | |", "|---|---|",
           f"| Begrippen en objecttypen | {len(begrippen)} |",
           f"| Met een definitie uit een referentiekader | {len(uit_kader)} |",
           f"| Met een definitie uit een OKx-document | {len(gedef) - len(uit_kader)} |",
           f"| Zonder definitie | {len(open_b)} |",
-          f"| Termen uit de markdown die nog wachten | {len(data.get('werkvoorraad', []))} |",
           ""]
 
-    r += ["## Begrippen", "",
-          "De begrippen delen de keten in. Ze zijn niveau 1 in het "
-          "[Metamodel Informatie Modellering (MIM)](https://docs.geostandaarden.nl/mim/mim/); "
-          "de objecttypen eronder zijn niveau 2. De uitleg van die gelaagdheid staat in het "
-          "[informatiemodel](../../../model/informatiemodel/informatiemodel.md#begrippen).", "",
+    r += ["## Begrippenfamilies", "",
+          "De begrippenfamilies delen de keten in; het zijn de kolommen op de plaat van het "
+          "[informatiemodel](../../../model/informatiemodel/informatiemodel.md#begrippenfamilies). "
+          "De objecttypen eronder zijn het conceptuele informatiemodel.", "",
           "| Begrip | Definitie | Herkomst | Bron |", "|---|---|---|---|"]
     for b in [x for x in begrippen if x["niveau"] == 1]:
         d = b["definitie"] or "*nog te definiëren*"
@@ -298,15 +305,19 @@ def schrijf(data, referentie, doel):
     r.append("")
 
     r += ["## Objecttypen met een definitie", "",
-          "| Objecttype | Begrip | Definitie | Herkomst | Bron |", "|---|---|---|---|---|"]
+          "Bij een verbijzondering gaat OKx verder dan het kader; de reden staat in de laatste kolom. "
+          "Een noot geeft aan waar een citaat een oudere naam of schrijfwijze gebruikt.", "",
+          "| Objecttype | Begrip | Definitie | Herkomst | Bron | Reden of noot |", "|---|---|---|---|---|---|"]
     for b in sorted([x for x in gedef if x["niveau"] == 2], key=lambda x: (x["familie"] or "", x["naam"])):
+        extra = " ".join(t for t in (reden(b), b.get("noot", "")) if t)
         r.append(f"| `{b['naam']}` | {b['familie'] or ''} | {b['definitie']} | {b['herkomst']} "
-                 f"| {bron(b, map_pad)} |")
+                 f"| {bron(b, map_pad)} | {extra} |")
     r.append("")
 
     r += ["## Objecttypen zonder definitie", "",
-          "Deze objecttypen staan op de plaat, hebben geen tegenhanger in MORA of KOI, en zijn "
-          "binnen OKx nog niet gedefinieerd.", "",
+          "Deze objecttypen staan op de plaat maar hebben nog geen definitie. Waar een kader een "
+          "tegenhanger kent is dat een verbijzondering waarvan de eigen definitie nog ontbreekt; "
+          "de mapping hieronder toont de tegenhanger en de reden.", "",
           "| Begrip | Objecttypen |", "|---|---|"]
     per_familie = defaultdict(list)
     for b in [x for x in open_b if x["niveau"] == 2]:
@@ -316,22 +327,28 @@ def schrijf(data, referentie, doel):
     r.append("")
 
     r += ["## Mapping naar de referentiekaders", "",
-          "Per kader een van drie uitkomsten, nooit een lege cel: een tegenhanger met link, "
-          "`geen tegenhanger gevonden`, of `nog niet onderzocht`. Bij een verbijzondering gaat OKx "
-          "verder dan het kader; de reden staat in "
-          "[`begrippen.json`](begrippen.json).", "",
-          "| Begrip of objecttype | " + " | ".join(data["kaders"]) + " |",
-          "|---" * (len(data["kaders"]) + 1) + "|"]
+          "Per kader een van drie uitkomsten: een tegenhanger met link, `geen tegenhanger gevonden`, "
+          "of `nog niet onderzocht`. Bij een verbijzondering staat de reden erbij.", "",
+          "| Begrip of objecttype | " + " | ".join(data["kaders"]) + " | Reden bij verbijzondering |",
+          "|---" * (len(data["kaders"]) + 2) + "|"]
     for b in sorted(begrippen, key=lambda x: (x["niveau"], x["familie"] or "", x["naam"])):
         cellen = [kadercel(b.get("kaders", {}).get(k), map_pad) for k in data["kaders"]]
-        r.append(f"| `{b['naam']}` | " + " | ".join(cellen) + " |")
+        r.append(f"| `{b['naam']}` | " + " | ".join(cellen) + f" | {reden(b)} |")
     r.append("")
 
-    r += ["## Negeerlijst", "",
-          "Termen die tussen backquotes voorkomen maar geen begrip zijn.", "",
-          "| Term | Reden |", "|---|---|"]
-    for n in sorted(data["negeerlijst"], key=lambda n: (n["reden"], n["term"])):
-        r.append(f"| `{n['term']}` | {n['reden']} |")
+    # Omgekeerd: welke objecten uit de kaders geen OKx-objecttype hebben.
+    gebruikt = {(k, c.get("begrip")) for b in begrippen for k, c in b.get("kaders", {}).items()
+                if c.get("uitkomst") == "tegenhanger"}
+    r += ["## Objecten uit de kaders zonder OKx-objecttype", "",
+          "De omgekeerde dekking: objecten uit MORA en KOI die in de lijst niet als tegenhanger "
+          "voorkomen. Voor de vertaling van een eigen doelarchitectuur naar OKx zegt dit waar OKx "
+          "niets over uitwisselt.", "",
+          "| Kader | Object | Definitie |", "|---|---|---|"]
+    for k, kader in referentie["kaders"].items():
+        for o in kader["begrippen"]:
+            if (k, o["naam"]) not in gebruikt:
+                r.append(f"| {k} | [`{o['naam']}`]({o['url']}) | {o['definitie']} |")
+    r.append("")
 
     r.append(VOET)
     doel.write_text("\n".join(r).rstrip("\n") + "\n", encoding="utf-8")
