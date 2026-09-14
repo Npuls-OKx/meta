@@ -91,14 +91,14 @@
     },
     {
       "naam": "Formatief resultaat",
-      "kolom": "Resultaatstructuur",
+      "kolom": "Onderwijsresultaat",
       "scope": "binnen",
       "vulkleur": null,
       "oeapi": null
     },
     {
       "naam": "Formatieve beoordeling",
-      "kolom": "Resultaatstructuur",
+      "kolom": "Onderwijsresultaat",
       "scope": "binnen",
       "vulkleur": null,
       "oeapi": null
@@ -441,14 +441,14 @@
     },
     {
       "naam": "Summatief resultaat",
-      "kolom": "Resultaatstructuur",
+      "kolom": "Onderwijsresultaat",
       "scope": "binnen",
       "vulkleur": null,
       "oeapi": null
     },
     {
       "naam": "Summatieve beoordeling",
-      "kolom": "Resultaatstructuur",
+      "kolom": "Onderwijsresultaat",
       "scope": "binnen",
       "vulkleur": null,
       "oeapi": null
@@ -811,18 +811,6 @@
     },
     {
       "soort": "Aggregation",
-      "van": "Persoon",
-      "naar": "Medewerker",
-      "label": null
-    },
-    {
-      "soort": "Aggregation",
-      "van": "Persoon",
-      "naar": "Student",
-      "label": null
-    },
-    {
-      "soort": "Aggregation",
       "van": "Summatieve resultaat structuur",
       "naar": "Examenonderdeel weging",
       "label": null
@@ -885,7 +873,7 @@
       "soort": "Association",
       "van": "Examenonderdeelspecificatie",
       "naar": "Verzoek tot Aanbod / Intekening op specificatie",
-      "label": null
+      "label": "Input voor"
     },
     {
       "soort": "Association",
@@ -933,7 +921,7 @@
       "soort": "Association",
       "van": "Keuzedeel",
       "naar": "Verzoek tot Aanbod / Intekening op specificatie",
-      "label": null
+      "label": "Input voor"
     },
     {
       "soort": "Association",
@@ -945,12 +933,6 @@
       "soort": "Association",
       "van": "Keuzedeelaanbod",
       "naar": "Keuzedeel aanbod verbintenis",
-      "label": null
-    },
-    {
-      "soort": "Association",
-      "van": "Keuzedeelaanbod",
-      "naar": "Verzoek tot Aanbod / Intekening op specificatie",
       "label": null
     },
     {
@@ -979,12 +961,6 @@
     },
     {
       "soort": "Association",
-      "van": "Leergelegenheid",
-      "naar": "Verzoek tot Aanbod / Intekening op specificatie",
-      "label": null
-    },
-    {
-      "soort": "Association",
       "van": "Leergelegenheid verbintenis",
       "naar": "Leergelegenheid resultaat",
       "label": null
@@ -1005,7 +981,7 @@
       "soort": "Association",
       "van": "Leeronderdeel specificatie",
       "naar": "Verzoek tot Aanbod / Intekening op specificatie",
-      "label": null
+      "label": "Input voor"
     },
     {
       "soort": "Association",
@@ -1029,18 +1005,12 @@
       "soort": "Association",
       "van": "Les specificatie",
       "naar": "Verzoek tot Aanbod / Intekening op specificatie",
-      "label": null
+      "label": "Input voor"
     },
     {
       "soort": "Association",
       "van": "Lesgelegenheid",
       "naar": "Lesgelegenheid verbintenis",
-      "label": null
-    },
-    {
-      "soort": "Association",
-      "van": "Lesgelegenheid",
-      "naar": "Verzoek tot Aanbod / Intekening op specificatie",
       "label": null
     },
     {
@@ -1053,12 +1023,6 @@
       "soort": "Association",
       "van": "Onderwijseenheid aanbod",
       "naar": "Onderwijseenheid aanbod verbintenis",
-      "label": null
-    },
-    {
-      "soort": "Association",
-      "van": "Onderwijseenheid aanbod",
-      "naar": "Verzoek tot Aanbod / Intekening op specificatie",
       "label": null
     },
     {
@@ -1083,7 +1047,7 @@
       "soort": "Association",
       "van": "Onderwijseenheid specificatie",
       "naar": "Verzoek tot Aanbod / Intekening op specificatie",
-      "label": null
+      "label": "Input voor"
     },
     {
       "soort": "Association",
@@ -1113,7 +1077,7 @@
       "soort": "Association",
       "van": "Opleiding specificatie",
       "naar": "Verzoek tot Aanbod / Intekening op specificatie",
-      "label": null
+      "label": "Input voor"
     },
     {
       "soort": "Association",
@@ -1131,7 +1095,7 @@
       "soort": "Association",
       "van": "Opleidingsprogramma aanbod",
       "naar": "Verzoek tot Aanbod / Intekening op specificatie",
-      "label": null
+      "label": "Leidt tot"
     },
     {
       "soort": "Association",
@@ -1150,6 +1114,12 @@
       "van": "Opleidingsprogramma specificatie",
       "naar": "Opleidingsprogramma aanbod",
       "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Opleidingsprogramma specificatie",
+      "naar": "Verzoek tot Aanbod / Intekening op specificatie",
+      "label": "Input voor"
     },
     {
       "soort": "Association",
@@ -1323,7 +1293,7 @@
       "soort": "Association",
       "van": "Toetsonderdeel specificatie",
       "naar": "Verzoek tot Aanbod / Intekening op specificatie",
-      "label": null
+      "label": "Input voor"
     },
     {
       "soort": "Association",
@@ -1335,25 +1305,43 @@
       "soort": "Association",
       "van": "Verzoek tot Aanbod / Intekening op specificatie",
       "naar": "Examengelegenheid",
-      "label": null
+      "label": "Leidt tot"
+    },
+    {
+      "soort": "Association",
+      "van": "Verzoek tot Aanbod / Intekening op specificatie",
+      "naar": "Keuzedeelaanbod",
+      "label": "Leidt tot"
+    },
+    {
+      "soort": "Association",
+      "van": "Verzoek tot Aanbod / Intekening op specificatie",
+      "naar": "Leergelegenheid",
+      "label": "Leidt tot"
+    },
+    {
+      "soort": "Association",
+      "van": "Verzoek tot Aanbod / Intekening op specificatie",
+      "naar": "Lesgelegenheid",
+      "label": "Leidt tot"
+    },
+    {
+      "soort": "Association",
+      "van": "Verzoek tot Aanbod / Intekening op specificatie",
+      "naar": "Onderwijseenheid aanbod",
+      "label": "Leidt tot"
     },
     {
       "soort": "Association",
       "van": "Verzoek tot Aanbod / Intekening op specificatie",
       "naar": "Opleidingaanbod",
-      "label": null
-    },
-    {
-      "soort": "Association",
-      "van": "Verzoek tot Aanbod / Intekening op specificatie",
-      "naar": "Opleidingsprogramma specificatie",
-      "label": null
+      "label": "Leidt tot"
     },
     {
       "soort": "Association",
       "van": "Verzoek tot Aanbod / Intekening op specificatie",
       "naar": "Toetsgelegenheid",
-      "label": null
+      "label": "Leidt tot"
     },
     {
       "soort": "Association",
@@ -1365,6 +1353,12 @@
       "soort": "Specialization",
       "van": "Examenonderdeelspecificatie",
       "naar": "Toetsonderdeel specificatie",
+      "label": null
+    },
+    {
+      "soort": "Specialization",
+      "van": "Formatief resultaat",
+      "naar": "Toetsgelegenheid resultaat",
       "label": null
     },
     {
@@ -1407,6 +1401,24 @@
       "soort": "Specialization",
       "van": "Leeruitkomst",
       "naar": "Competenties / Skills",
+      "label": null
+    },
+    {
+      "soort": "Specialization",
+      "van": "Medewerker",
+      "naar": "Persoon",
+      "label": null
+    },
+    {
+      "soort": "Specialization",
+      "van": "Student",
+      "naar": "Persoon",
+      "label": null
+    },
+    {
+      "soort": "Specialization",
+      "van": "Summatief resultaat",
+      "naar": "Examengelegenheid resultaat",
       "label": null
     },
     {
