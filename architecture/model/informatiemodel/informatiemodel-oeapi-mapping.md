@@ -14,9 +14,9 @@ Per objecttype vaststellen of de standaard volstaat, aangepast moet worden, of b
 
 ## Scope
 
-De objecttypen van het informatiemodel, [MIM-niveau 2](https://docs.geostandaarden.nl/mim/mim/#beschouwingsniveau-2-conceptueel-informatiemodel), naast de objecten van OEAPI v6. OEAPI is een standaard voor gegevensuitwisseling: het logische model ervan is [niveau 3](https://docs.geostandaarden.nl/mim/mim/#beschouwingsniveau-3-logisch-informatie-of-gegevensmodel), de JSON-vorm en de endpoints zijn [niveau 4](https://docs.geostandaarden.nl/mim/mim/#beschouwingsniveau-4-fysiek-of-technisch-gegevens-of-datamodel). Dit document is de brug tussen niveau 2 en die twee. Attributen, datatypes en multipliciteit vallen hier buiten; die staan in de [datamodelschema's](https://github.com/Npuls-OKx/Public/tree/dev/Koppelvlakspecificaties/Datamodelschema%27s) in Public.
+De objecttypen van het informatiemodel, [MIM-niveau 2](https://docs.geostandaarden.nl/mim/mim/#beschouwingsniveau-2-conceptueel-informatiemodel), naast de objecten van OEAPI v6. OEAPI is een standaard voor gegevensuitwisseling: het logische model ervan is [niveau 3](https://docs.geostandaarden.nl/mim/mim/#beschouwingsniveau-3-logisch-informatie-of-gegevensmodel), de JSON-vorm en de endpoints zijn [niveau 4](https://docs.geostandaarden.nl/mim/mim/#beschouwingsniveau-4-fysiek-of-technisch-gegevens-of-datamodel). Dit document is de brug tussen niveau 2 en die twee. Attributen, datatypes en multipliciteit vallen hier buiten; die staan in het [logisch gegevensmodel en de schema's](https://github.com/Npuls-OKx/Public/tree/dev/Informatie-en-gegevensmodellen) in Public.
 
-![Informatiemodel OKx naast de mapping op OEAPI v6, versie v0.1 van 9 september 2026](<OKx informatiemodel en mapping OEAPI v0.1.jpg>)
+![Informatiemodel OKx naast de mapping op OEAPI v6, versie v0.1 van 14 september 2026](<OKx informatiemodel en mapping OEAPI v0.1.jpg>)
 
 ## Notatie
 
@@ -24,11 +24,11 @@ De blauwe objecten zijn OEAPI v6 en staan als data-object in het model. Van de O
 
 ## Dekking door OEAPI v6
 
-**Een OEAPI-object draagt vaak meerdere OKx-objecttypen.** `Programme` draagt vier specificatietypen, `ProgrammeOffering` drie aanbodtypen en `Result` acht van de negen objecttypen in de kolom Onderwijsresultaat, alle behalve `Aanwezigheid`. Het onderscheid tussen die OKx-objecttypen ligt dan buiten de standaard, in de datamodelschema's van OKx.
+**Een OEAPI-object draagt vaak meerdere OKx-objecttypen.** `Programme` draagt vier specificatietypen, `ProgrammeOffering` drie aanbodtypen en `Result` acht van de negen objecttypen in de kolom Onderwijsresultaat, alle behalve `Aanwezigheid`. Het onderscheid tussen die OKx-objecttypen ligt dan buiten de standaard, in het logisch gegevensmodel en de schema's van OKx.
 
 **Voor het kwalificatiekader is nog geen equivalent geïdentificeerd.** Kwalificatiedossier, kwalificatie, kerntaak en werkproces zijn in de OpenAPI-specificatie van OEAPI v6 niet als object gevonden; de vraag hoe OEAPI een kwalificatiekader draagt ligt bij de kerngroep techniek. De leeruitkomst zelf heeft wel een equivalent: `LearningOutcome`, met eigen endpoints.
 
-**De resultaatstructuur is nog niet op OEAPI gemapt.** OEAPI kent `weight` per resultaat, niet per specificatie, en het afrondingscriterium bestaat er alleen als vrije tekst in `qualificationRequirements`. Of de samenstelling van een summatieve structuur daarmee in OEAPI is uit te drukken is nog niet vastgesteld; op grond van deze twee punten lijkt het niet te kunnen. OKx legt hem wel machineleesbaar vast, in [`result-structure.json`](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Datamodelschema%27s/result-structure.json).
+**De resultaatstructuur is nog niet op OEAPI gemapt.** OEAPI kent `weight` per resultaat, niet per specificatie, en het afrondingscriterium bestaat er alleen als vrije tekst in `qualificationRequirements`. Of de samenstelling van een summatieve structuur daarmee in OEAPI is uit te drukken is nog niet vastgesteld; op grond van deze twee punten lijkt het niet te kunnen. OKx legt hem wel machineleesbaar vast, in [`result-structure.json`](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/result-structure.json).
 
 ### Mapping per objecttype
 
@@ -80,7 +80,7 @@ Voor deze 21 objecttypen binnen scope is nog geen equivalent in OEAPI v6 geïden
 | Groep | Objecttypen | Waarom geen equivalent | Besluit |
 |---|---|---|---|
 | Kwalificatiekader | `Kwalificatie dossier`, `Kwalificatie`, `Kerntaak`, `Werkproces` | Nationale kaderstelling is in OEAPI geen object; de vraag hoe OEAPI een kwalificatiekader draagt ligt bij de kerngroep techniek | open |
-| Resultaatstructuur | `Summatieve resultaat structuur`, `Formatieve resultaat structuur`, `Examenonderdeel weging`, `Toetsonderdeel weging`, `Summatief Afrondingscriterium`, `Summatief resultaat`, `Formatief resultaat`, `Summatieve beoordeling`, `Formatieve beoordeling` | OEAPI kent `weight` per resultaat en het afrondingscriterium alleen als vrije tekst; OKx legt de structuur vast in [`result-structure.json`](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Datamodelschema%27s/result-structure.json) | open |
+| Resultaatstructuur | `Summatieve resultaat structuur`, `Formatieve resultaat structuur`, `Examenonderdeel weging`, `Toetsonderdeel weging`, `Summatief Afrondingscriterium`, `Summatief resultaat`, `Formatief resultaat`, `Summatieve beoordeling`, `Formatieve beoordeling` | OEAPI kent `weight` per resultaat en het afrondingscriterium alleen als vrije tekst; OKx legt de structuur vast in [`result-structure.json`](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/result-structure.json) | open |
 | Rollen | `Student`, `Medewerker` | OEAPI kent ze niet als object maar als `affiliations` op `Person` | open: rol als attribuut van `Person` volstaat mogelijk |
 | Aanwezigheid | `Aanwezigheid` | OEAPI kent aanwezigheid alleen als attribuut op een association, niet als eigen object | open |
 | Keuze en verzoek | `Student keuze regelset`, `Verzoek tot Aanbod / Intekening op specificatie` | Geen object in OEAPI; OKx legt de regelset vast in `rule-set.json` | open |
