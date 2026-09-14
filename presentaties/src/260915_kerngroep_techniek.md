@@ -430,7 +430,7 @@ dat elders wordt opgelost.
 
 </div>
 
-<div style="font-size: 0.74rem; line-height: 1.35; margin-top: 0.6rem; max-width: 88%;">
+<div style="font-size: 0.7rem; line-height: 1.3; margin-top: 0.4rem; max-width: 88%;">
 
 | Begrip | Definitie | Herkomst | ROSA | MORA | HORA |
 |---|---|---|---|---|---|
@@ -438,7 +438,7 @@ dat elders wordt opgelost.
 | `Onderwijsverbintenis` | Een afspraak voor het gaan volgen, volgen en hebben gevolgd van onderwijs | overgenomen uit ROSA | <a href="https://rosa.wikixl.nl/index.php/Id-ec977035c9be4b01bb1c14a5950a1799">onderwijsdeelname</a> | geen tegenhanger | nog niet onderzocht |
 | `Onderwijseenheid specificatie` | De specificatie van de fundamentele eenheid waarin onderwijs wordt ontworpen en aangeboden | afgeleid uit klus 53 | <a href="https://rosa.wikixl.nl/index.php/Id-c74c161c6f1f4690933a31ce4d11f3b8">onderwijseenheid</a> | <a href="https://mora.mbodigitaal.nl/index.php/Id-17db36ca-368f-450e-cbfe-604b2fafee6e">Opleidings-onderdeel</a> | nog niet onderzocht |
 | `Toetsgelegenheid` | Het georganiseerde aanbod van een toetsmoment: wanneer, waar en onder welke condities | afgeleid uit klus 53 | geen tegenhanger | geen tegenhanger | nog niet onderzocht |
-| `Keuzedeelruimte` | <em>nog te definiëren</em> | nieuw voor OKx | geen tegenhanger | geen tegenhanger | nog niet onderzocht |
+| `Keuzedeelruimte` | Een oningevuld keuzedeel: vrijgemaakte ruimte waarin een student een keuzedeel kiest | nieuw voor OKx | geen tegenhanger | geen tegenhanger | nog niet onderzocht |
 
 </div>
 
@@ -452,8 +452,54 @@ Uitsnede: vijf van de 69 begrippen en objecttypen. Status: v0.2, concept. MORA e
 Uitsnede uit begrippenlijst.md op de branch van meta PR 225, stand 11 september. Definities
 zijn ingekort tot de eerste zin; de volledige tekst staat in de lijst met citaat, URL en
 ophaaldatum. De vijf rijen laten de vier soorten zien: overgenomen uit MORA, overgenomen uit
-ROSA, twee die zijn afgeleid uit de alignment MORA en HORA (klus 53), en een nog leeg begrip.
-Stand van de hele lijst: 69 begrippen, 20 overgenomen, 14 eigen OKx-definitie, 35 nog open.
+ROSA, twee die zijn afgeleid uit de alignment MORA en HORA (klus 53), en een eigen OKx-definitie
+zonder tegenhanger. Stand van de hele lijst op 14 september: 69 begrippen, 18 overgenomen,
+17 eigen OKx-definitie, 34 nog open.
+-->
+
+---
+
+<!-- 17a. KEUZE: WAT IS INTEKENEN -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# Wat is intekenen: een verzoek tot aanbod?
+
+<div style="font-size: 0.95rem; line-height: 1.6; margin-top: 0.3rem;">
+Op de plaat staat één object, <code>Verzoek tot Aanbod / Intekening op specificatie</code>, met specificaties als input en aanbod als uitkomst. Of intekenen op bestaand aanbod hetzelfde is, is nog niet vastgesteld.
+</div>
+
+<div class="np-grid-3" style="margin-top: 0.9rem; gap: 1.2rem; align-items: start;">
+<div class="np-card" style="border-top-color:#7CCBA8;">
+<strong>A. Hetzelfde object</strong>
+<svg width="100%" viewBox="0 0 300 70" style="display:block;margin:0.4rem 0 0.2rem;"><rect x="6" y="18" width="84" height="34" rx="6" fill="#FFFFFF" stroke="#7CCBA8" stroke-width="2"/><text x="48" y="39" text-anchor="middle" fill="#4A4F57" style="font-size:11px;font-family:inherit">specificatie</text><rect x="108" y="18" width="84" height="34" rx="6" fill="#7CCBA8" stroke="#7CCBA8" stroke-width="2"/><text x="150" y="39" text-anchor="middle" fill="#FFFFFF" style="font-size:11px;font-family:inherit">verzoek</text><rect x="210" y="18" width="84" height="34" rx="6" fill="#FFFFFF" stroke="#7CCBA8" stroke-width="2"/><text x="252" y="39" text-anchor="middle" fill="#4A4F57" style="font-size:11px;font-family:inherit">aanbod</text><line x1="92" y1="35" x2="102" y2="35" stroke="#7CCBA8" stroke-width="2"/><polygon points="102,30 108,35 102,40" fill="#7CCBA8"/><text x="99.0" y="14" text-anchor="middle" fill="#4A4F57" style="font-size:9px;font-family:inherit">input voor</text><line x1="194" y1="35" x2="204" y2="35" stroke="#7CCBA8" stroke-width="2"/><polygon points="204,30 210,35 204,40" fill="#7CCBA8"/><text x="201.0" y="14" text-anchor="middle" fill="#4A4F57" style="font-size:9px;font-family:inherit">leidt tot</text></svg>
+<div style="font-size:0.85rem;line-height:1.4;color:var(--np-dark-gray);">Een verzoek en intekenen zijn hetzelfde: input uit specificaties, leidt tot aanbod. Zoals de plaat nu staat; inschatting kernteam.</div>
+</div>
+<div class="np-card" style="border-top-color:#7A97F2;">
+<strong>B. Twee objecten</strong>
+<svg width="100%" viewBox="0 0 300 70" style="display:block;margin:0.4rem 0 0.2rem;"><rect x="6" y="18" width="84" height="34" rx="6" fill="#FFFFFF" stroke="#7A97F2" stroke-width="2"/><text x="48" y="39" text-anchor="middle" fill="#4A4F57" style="font-size:11px;font-family:inherit">aanbod</text><rect x="108" y="18" width="84" height="34" rx="6" fill="#7A97F2" stroke="#7A97F2" stroke-width="2"/><text x="150" y="39" text-anchor="middle" fill="#FFFFFF" style="font-size:11px;font-family:inherit">intekening</text><rect x="210" y="18" width="84" height="34" rx="6" fill="#FFFFFF" stroke="#7A97F2" stroke-width="2"/><text x="252" y="39" text-anchor="middle" fill="#4A4F57" style="font-size:11px;font-family:inherit">verbintenis</text><line x1="92" y1="35" x2="102" y2="35" stroke="#7A97F2" stroke-width="2"/><polygon points="102,30 108,35 102,40" fill="#7A97F2"/><text x="99.0" y="14" text-anchor="middle" fill="#4A4F57" style="font-size:9px;font-family:inherit">op bestaand</text><line x1="194" y1="35" x2="204" y2="35" stroke="#7A97F2" stroke-width="2"/><polygon points="204,30 210,35 204,40" fill="#7A97F2"/><text x="201.0" y="14" text-anchor="middle" fill="#4A4F57" style="font-size:9px;font-family:inherit">leidt tot</text></svg>
+<div style="font-size:0.85rem;line-height:1.4;color:var(--np-dark-gray);">Intekenen is iets anders: een student tekent in op bestaand aanbod, en dat leidt tot een verbintenis.</div>
+</div>
+<div class="np-card" style="border-top-color:#E9A27F;">
+<strong>C. Na elkaar</strong>
+<svg width="100%" viewBox="0 0 300 70" style="display:block;margin:0.4rem 0 0.2rem;"><rect x="6" y="18" width="84" height="34" rx="6" fill="#E9A27F" stroke="#E9A27F" stroke-width="2"/><text x="48" y="39" text-anchor="middle" fill="#FFFFFF" style="font-size:11px;font-family:inherit">verzoek</text><rect x="108" y="18" width="84" height="34" rx="6" fill="#FFFFFF" stroke="#E9A27F" stroke-width="2"/><text x="150" y="39" text-anchor="middle" fill="#4A4F57" style="font-size:11px;font-family:inherit">aanbod</text><rect x="210" y="18" width="84" height="34" rx="6" fill="#E9A27F" stroke="#E9A27F" stroke-width="2"/><text x="252" y="39" text-anchor="middle" fill="#FFFFFF" style="font-size:11px;font-family:inherit">intekening</text><line x1="92" y1="35" x2="102" y2="35" stroke="#E9A27F" stroke-width="2"/><polygon points="102,30 108,35 102,40" fill="#E9A27F"/><text x="99.0" y="14" text-anchor="middle" fill="#4A4F57" style="font-size:9px;font-family:inherit">maakt</text><line x1="194" y1="35" x2="204" y2="35" stroke="#E9A27F" stroke-width="2"/><polygon points="204,30 210,35 204,40" fill="#E9A27F"/><text x="201.0" y="14" text-anchor="middle" fill="#4A4F57" style="font-size:9px;font-family:inherit">daarna</text></svg>
+<div style="font-size:0.85rem;line-height:1.4;color:var(--np-dark-gray);">Het verzoek maakt het aanbod; intekenen op dat aanbod maakt de verbintenis. Twee stappen, twee objecten.</div>
+</div>
+</div>
+
+<div style="font-size: 0.85rem; color: var(--np-dark-gray); margin-top: 0.9rem;">
+Zonder keuze houdt het object zijn dubbele naam en weet de koppeling SIS naar P&R niet of een intekening aanbod maakt of erop volgt. Een ander voorstel is welkom.
+</div>
+
+</div>
+
+<!--
+Uit de tegenlezing op meta PR 225 en de modelronde van 14 september. MORA kent de leervraag (wat
+een student wil leren, uitgedrukt in producten uit de onderwijscatalogus) en de aanmelding (het
+verzoek om toegelaten te worden). OKx bundelt die nu in één verzoek. De inschatting van het
+kernteam is A: beide leiden tot de creatie van aanbod. B en C staan erbij omdat de naam op de
+plaat ze allebei toelaat. Gevraagd: welke lezing past bij de praktijk in SIS en P&R.
 -->
 
 ---
