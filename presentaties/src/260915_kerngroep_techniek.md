@@ -1,7 +1,7 @@
 ---
 theme: default
 title: "Kerngroep techniek, 15 september 2026"
-info: "Update kerngroep techniek: versionering en modulariteit van de koppelvlakspecificatie, het informatiemodel met de begrippenlijst, en het open werk met een voorstel voor de prioritering."
+info: "Kerngroep techniek 15 september 2026: stories, applicatiediensten en versionering, informatiemodel."
 author: OKx - Onderwijskoppelingen (Npuls)
 highlighter: shiki
 colorSchema: light
@@ -20,7 +20,7 @@ fonts:
 
 <div style="position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 2rem 4rem; z-index: 1;">
   <h1 style="font-size: 3.2rem; line-height: 1.15; margin-bottom: 0.8rem; color: var(--np-ink);">Kerngroep techniek</h1>
-  <div style="font-size: 1.1rem; line-height: 1.5; color: var(--np-ink); margin-bottom: 0.8rem; max-width: 34rem;">De koppelvlakspecificatie krijgt een laag die versioneren mogelijk maakt, en het informatiemodel waar om gevraagd is ligt er</div>
+  <div style="font-size: 1.1rem; line-height: 1.5; color: var(--np-ink); margin-bottom: 0.8rem; max-width: 34rem;">Stories &middot; Applicatiediensten en versionering &middot; Informatiemodel</div>
   <div style="font-size: 0.95rem; color: var(--np-mid-gray);">OKx &middot; Npuls &middot; 15 september 2026</div>
 </div>
 
@@ -42,7 +42,7 @@ Daarna het open werk met een voorstel voor de prioritering.
 ```mermaid
 flowchart LR
   A["v0.0.2<br/>Public PR 82, ter review sinds 1 september"] --> B["Applicatiediensten en versionering<br/>Public PR 100, voorstel"]
-  A --> C["Informatiemodel en begrippenlijst<br/>meta PR 225, interne review"]
+  A --> C["Informatiemodel en begrippenlijst<br/>Public PR 104, gestapeld"]
 ```
 
 <div style="font-size: 0.92rem; line-height: 1.7; margin-top: 1rem;">
@@ -51,7 +51,7 @@ flowchart LR
 |---|---|
 | Versioneringsvoorstel als pull request | Ligt er: [Public PR 100](https://github.com/Npuls-OKx/Public/pull/100), groter geworden dan aangekondigd |
 | Uitkomst van de review op v0.0.2 | Eén reactie binnen, zie de volgende slide |
-| Informatiemodel eerst reviewen, dan de payloads | Issue geworden ([meta #163](https://github.com/Npuls-OKx/meta/issues/163)), uitgewerkt in [meta PR 225](https://github.com/Npuls-OKx/meta/pull/225) |
+| Informatiemodel eerst reviewen, dan de payloads | Ligt er: [Public PR 104](https://github.com/Npuls-OKx/Public/pull/104), laag 1 en 2 van de informatie- en gegevensmodellen |
 
 </div>
 
@@ -108,7 +108,7 @@ PoC-instellingen verder worden aangepakt.
 | Versionering per koppeling ([Public #47](https://github.com/Npuls-OKx/Public/issues/47)) | Voorstel ligt er als [Public PR 100](https://github.com/Npuls-OKx/Public/pull/100), vandaag op tafel |
 | Meerdere instanties van een referentiecomponent ([meta #80](https://github.com/Npuls-OKx/meta/issues/80)) | Niet opgepakt |
 | Keuzes en regelsets ([Public #74](https://github.com/Npuls-OKx/Public/issues/74)) | Niet opgepakt; staat in het voorstel voor de prioritering |
-| Informatiemodel voor payloads ([meta #163](https://github.com/Npuls-OKx/meta/issues/163)) | Uitgewerkt in [meta PR 225](https://github.com/Npuls-OKx/meta/pull/225), vandaag op tafel |
+| Informatiemodel voor payloads ([meta #163](https://github.com/Npuls-OKx/meta/issues/163)) | Uitgewerkt in [meta PR 225](https://github.com/Npuls-OKx/meta/pull/225), ter review voor leveranciers in [Public PR 104](https://github.com/Npuls-OKx/Public/pull/104); vandaag op tafel |
 
 </div>
 
@@ -308,7 +308,7 @@ variant in PR 100 wordt uitgewerkt.
 
 - Het antwoord: twee platen uit het ArchiMate-model, met de conventies en de keuzes erachter
 - Het OKx-model staat los van OEAPI; de mapping is een tweede plaat
-- Status: concept, interne review afgerond, ter review in [meta PR 225](https://github.com/Npuls-OKx/meta/pull/225); twee ontwerpkeuzes liggen bij het kernteam ([meta #227](https://github.com/Npuls-OKx/meta/issues/227), [#228](https://github.com/Npuls-OKx/meta/issues/228))
+- Status: concept; gereviewd in [meta PR 225](https://github.com/Npuls-OKx/meta/pull/225) en gepubliceerd als laag 1 en 2 van het pakket informatie- en gegevensmodellen in [Public PR 104](https://github.com/Npuls-OKx/Public/pull/104), gestapeld op PR 100. Twee ontwerpkeuzes liggen bij het kernteam ([meta #227](https://github.com/Npuls-OKx/meta/issues/227), [#228](https://github.com/Npuls-OKx/meta/issues/228)); de modelvragen uit de tegenlezing staan in [meta #234](https://github.com/Npuls-OKx/meta/issues/234)
 
 </div>
 
@@ -328,11 +328,12 @@ feedback op de plaat, die is verwerkt.
 </div>
 
 <!--
-Het informatiemodel OKx, versie v0.1 van 9 september. Leeswijzer: de kolommen zijn de begrippen,
+Het informatiemodel OKx, versie v0.1, stand 14 september. Leeswijzer: de kolommen zijn de begrippen,
 van kwalificatiekader links tot resultaatstructuur onderaan. Geel is het OKx-referentiekader,
 grijs valt buiten scope. De leeruitkomst, tweede kolom, is de sleutel: elke specificatie en de
 summatieve resultaatstructuur wijzen ernaar. Bron: architecture/model/informatiemodel/ in meta,
-branch van PR 225. Op de sessie inzoomen in de browser of het document ernaast openen.
+branch van PR 225, nu ook in Public PR 104 als Informatie-en-gegevensmodellen/informatiemodel.md.
+Op de sessie inzoomen in de browser of het document ernaast openen.
 -->
 
 ---
@@ -375,8 +376,8 @@ in het begrippenkader en de begrippenlijst.
 
 <!--
 Dezelfde objecttypen met OEAPI v6 ernaast. Blauw is OEAPI; de pijl is realisatie: het
-OEAPI-object is de vorm waarin een OKx-objecttype over de lijn gaat. Versie v0.1 van
-9 september. De bevindingen staan op de volgende slide.
+OEAPI-object is de vorm waarin een OKx-objecttype over de lijn gaat. Versie v0.1, stand
+14 september. De bevindingen staan op de volgende slide.
 -->
 
 ---
@@ -392,7 +393,7 @@ OEAPI-object is de vorm waarin een OKx-objecttype over de lijn gaat. Versie v0.1
 
 - Eén OEAPI-object draagt vaak meerdere OKx-objecttypen: `Programme` vier, `ProgrammeOffering` drie
 - De leeruitkomst heeft een tegenhanger, `LearningOutcome`
-- De resultaatstructuur is nog niet gemapt; de vraag is of dat kan, en het lijkt er nu op van niet
+- De resultaatstructuur is nog niet gemapt: OEAPI kent cesuur, schaal en pogingen per toetsonderdeel, maar geen weging per specificatie en geen aggregatieregel
 - 21 objecttypen binnen scope zonder OEAPI-object: per stuk signalering of bewuste afwijking
 
 </div>
@@ -406,9 +407,11 @@ Gezocht: hoe mapt OEAPI een kwalificatiekader naar objecten? Kwalificatiedossier
 <!--
 Bron: informatiemodel-oeapi-mapping.md. Geverifieerd tegen de OEAPI 6.0 OpenAPI-specificatie:
 LearningOutcome bestaat met eigen endpoints. Voor de resultaatstructuur is de mapping nog niet
-gemaakt; wat er tot nu toe gevonden is: weight staat per resultaat, niet per specificatie, en
-het afrondingscriterium bestaat alleen als vrije tekst in qualificationRequirements. Daarom de
-inschatting dat het niet kan; vastgesteld is dat niet. De vraag over het kwalificatiekader is
+gemaakt; wat er tot nu toe gevonden is: weight staat per resultaat, niet per specificatie;
+passFrom (cesuur), resultValueType (schaal) en attempts staan op het toetsonderdeel; final op
+het resultaat; het afrondingscriterium over onderdelen heen bestaat alleen als vrije tekst in
+qualificationRequirements. Of het kan is niet vastgesteld. Andersom kent OEAPI objecten die de
+plaat niet heeft: Organisation, AcademicSession, Membership en de poging (Attempt). De vraag over het kwalificatiekader is
 een echte vraag aan de zaal: in de OpenAPI-specificatie is geen object voor dossier, kwalificatie,
 kerntaak of werkproces gevonden, maar wie OEAPI in de praktijk implementeert weet misschien hoe
 dat elders wordt opgelost.
@@ -449,7 +452,7 @@ Uitsnede: vijf van de 69 begrippen en objecttypen. Status: v0.2, concept. MORA e
 </div>
 
 <!--
-Uitsnede uit begrippenlijst.md op de branch van meta PR 225, stand 11 september. Definities
+Uitsnede uit begrippen.md in Public PR 104, stand 14 september. Definities
 zijn ingekort tot de eerste zin; de volledige tekst staat in de lijst met citaat, URL en
 ophaaldatum. De vijf rijen laten de vier soorten zien: overgenomen uit MORA, overgenomen uit
 ROSA, twee die zijn afgeleid uit de alignment MORA en HORA (klus 53), en een eigen OKx-definitie
@@ -464,32 +467,37 @@ zonder tegenhanger. Stand van de hele lijst op 14 september: 69 begrippen, 18 ov
 
 <div class="fill">
 
-# Wat is intekenen: een verzoek tot aanbod?
+# Wat is intekenen, en hoe verhoudt het zich tot het verzoek tot aanbod?
 
 <div style="font-size: 0.95rem; line-height: 1.6; margin-top: 0.3rem;">
-Op de plaat staat één object, <code>Verzoek tot Aanbod / Intekening op specificatie</code>, met specificaties als input en aanbod als uitkomst. Of intekenen op bestaand aanbod hetzelfde is, is nog niet vastgesteld.
+Op de plaat is het één object: <code>Verzoek tot Aanbod / Intekening op specificatie</code>, met specificaties als input en aanbod als uitkomst.
 </div>
 
-<div class="np-grid-3" style="margin-top: 0.9rem; gap: 1.2rem; align-items: start;">
-<div class="np-card" style="border-top-color:#7CCBA8;">
+<div class="np-grid-4" style="margin-top: 1rem; align-items: start;">
+<div class="np-card" style="border-top-color:#7CCBA8;padding-bottom:0.6rem;">
 <strong>A. Hetzelfde object</strong>
-<svg width="100%" viewBox="0 0 300 70" style="display:block;margin:0.4rem 0 0.2rem;"><rect x="6" y="18" width="84" height="34" rx="6" fill="#FFFFFF" stroke="#7CCBA8" stroke-width="2"/><text x="48" y="39" text-anchor="middle" fill="#4A4F57" style="font-size:11px;font-family:inherit">specificatie</text><rect x="108" y="18" width="84" height="34" rx="6" fill="#7CCBA8" stroke="#7CCBA8" stroke-width="2"/><text x="150" y="39" text-anchor="middle" fill="#FFFFFF" style="font-size:11px;font-family:inherit">verzoek</text><rect x="210" y="18" width="84" height="34" rx="6" fill="#FFFFFF" stroke="#7CCBA8" stroke-width="2"/><text x="252" y="39" text-anchor="middle" fill="#4A4F57" style="font-size:11px;font-family:inherit">aanbod</text><line x1="92" y1="35" x2="102" y2="35" stroke="#7CCBA8" stroke-width="2"/><polygon points="102,30 108,35 102,40" fill="#7CCBA8"/><text x="99.0" y="14" text-anchor="middle" fill="#4A4F57" style="font-size:9px;font-family:inherit">input voor</text><line x1="194" y1="35" x2="204" y2="35" stroke="#7CCBA8" stroke-width="2"/><polygon points="204,30 210,35 204,40" fill="#7CCBA8"/><text x="201.0" y="14" text-anchor="middle" fill="#4A4F57" style="font-size:9px;font-family:inherit">leidt tot</text></svg>
-<div style="font-size:0.85rem;line-height:1.4;color:var(--np-dark-gray);">Een verzoek en intekenen zijn hetzelfde: input uit specificaties, leidt tot aanbod. Zoals de plaat nu staat; inschatting kernteam.</div>
+<svg width="100%" viewBox="0 0 200 90" style="display:block;margin:0.5rem 0 0.3rem;"><rect x="20" y="30" width="160" height="30" rx="6" fill="#7CCBA8" stroke="#7CCBA8" stroke-width="2"/><text x="100.0" y="49" text-anchor="middle" fill="#FFFFFF" style="font-size:11px;font-family:inherit">verzoek = intekening</text></svg>
+<div style="font-size:0.85rem;line-height:1.4;color:var(--np-dark-gray);">Huidige aanname.</div>
 </div>
-<div class="np-card" style="border-top-color:#7A97F2;">
-<strong>B. Twee objecten</strong>
-<svg width="100%" viewBox="0 0 300 70" style="display:block;margin:0.4rem 0 0.2rem;"><rect x="6" y="18" width="84" height="34" rx="6" fill="#FFFFFF" stroke="#7A97F2" stroke-width="2"/><text x="48" y="39" text-anchor="middle" fill="#4A4F57" style="font-size:11px;font-family:inherit">aanbod</text><rect x="108" y="18" width="84" height="34" rx="6" fill="#7A97F2" stroke="#7A97F2" stroke-width="2"/><text x="150" y="39" text-anchor="middle" fill="#FFFFFF" style="font-size:11px;font-family:inherit">intekening</text><rect x="210" y="18" width="84" height="34" rx="6" fill="#FFFFFF" stroke="#7A97F2" stroke-width="2"/><text x="252" y="39" text-anchor="middle" fill="#4A4F57" style="font-size:11px;font-family:inherit">verbintenis</text><line x1="92" y1="35" x2="102" y2="35" stroke="#7A97F2" stroke-width="2"/><polygon points="102,30 108,35 102,40" fill="#7A97F2"/><text x="99.0" y="14" text-anchor="middle" fill="#4A4F57" style="font-size:9px;font-family:inherit">op bestaand</text><line x1="194" y1="35" x2="204" y2="35" stroke="#7A97F2" stroke-width="2"/><polygon points="204,30 210,35 204,40" fill="#7A97F2"/><text x="201.0" y="14" text-anchor="middle" fill="#4A4F57" style="font-size:9px;font-family:inherit">leidt tot</text></svg>
-<div style="font-size:0.85rem;line-height:1.4;color:var(--np-dark-gray);">Intekenen is iets anders: een student tekent in op bestaand aanbod, en dat leidt tot een verbintenis.</div>
+<div class="np-card" style="border-top-color:#7A97F2;padding-bottom:0.6rem;">
+<strong>B. Verschillend</strong>
+<svg width="100%" viewBox="0 0 200 90" style="display:block;margin:0.5rem 0 0.3rem;"><rect x="6" y="30" width="80" height="30" rx="6" fill="#7A97F2" stroke="#7A97F2" stroke-width="2"/><text x="46.0" y="49" text-anchor="middle" fill="#FFFFFF" style="font-size:10px;font-family:inherit">verzoek</text><rect x="114" y="30" width="80" height="30" rx="6" fill="#7A97F2" stroke="#7A97F2" stroke-width="2"/><text x="154.0" y="49" text-anchor="middle" fill="#FFFFFF" style="font-size:10px;font-family:inherit">intekening</text><text x="100" y="50" text-anchor="middle" fill="#7A97F2" style="font-size:20px;font-weight:700;font-family:inherit">?</text></svg>
+<div style="font-size:0.85rem;line-height:1.4;color:var(--np-dark-gray);">Wat is intekenen dan?</div>
 </div>
-<div class="np-card" style="border-top-color:#E9A27F;">
-<strong>C. Na elkaar</strong>
-<svg width="100%" viewBox="0 0 300 70" style="display:block;margin:0.4rem 0 0.2rem;"><rect x="6" y="18" width="84" height="34" rx="6" fill="#E9A27F" stroke="#E9A27F" stroke-width="2"/><text x="48" y="39" text-anchor="middle" fill="#FFFFFF" style="font-size:11px;font-family:inherit">verzoek</text><rect x="108" y="18" width="84" height="34" rx="6" fill="#FFFFFF" stroke="#E9A27F" stroke-width="2"/><text x="150" y="39" text-anchor="middle" fill="#4A4F57" style="font-size:11px;font-family:inherit">aanbod</text><rect x="210" y="18" width="84" height="34" rx="6" fill="#E9A27F" stroke="#E9A27F" stroke-width="2"/><text x="252" y="39" text-anchor="middle" fill="#FFFFFF" style="font-size:11px;font-family:inherit">intekening</text><line x1="92" y1="35" x2="102" y2="35" stroke="#E9A27F" stroke-width="2"/><polygon points="102,30 108,35 102,40" fill="#E9A27F"/><text x="99.0" y="14" text-anchor="middle" fill="#4A4F57" style="font-size:9px;font-family:inherit">maakt</text><line x1="194" y1="35" x2="204" y2="35" stroke="#E9A27F" stroke-width="2"/><polygon points="204,30 210,35 204,40" fill="#E9A27F"/><text x="201.0" y="14" text-anchor="middle" fill="#4A4F57" style="font-size:9px;font-family:inherit">daarna</text></svg>
-<div style="font-size:0.85rem;line-height:1.4;color:var(--np-dark-gray);">Het verzoek maakt het aanbod; intekenen op dat aanbod maakt de verbintenis. Twee stappen, twee objecten.</div>
+<div class="np-card" style="border-top-color:#E9A27F;padding-bottom:0.6rem;">
+<strong>C. Ook op aanbod</strong>
+<svg width="100%" viewBox="0 0 200 90" style="display:block;margin:0.5rem 0 0.3rem;"><rect x="60" y="4" width="80" height="30" rx="6" fill="#E9A27F" stroke="#E9A27F" stroke-width="2"/><text x="100.0" y="23" text-anchor="middle" fill="#FFFFFF" style="font-size:10px;font-family:inherit">intekening</text><rect x="6" y="56" width="80" height="30" rx="6" fill="#FFFFFF" stroke="#E9A27F" stroke-width="2"/><text x="46.0" y="75" text-anchor="middle" fill="#4A4F57" style="font-size:10px;font-family:inherit">specificatie</text><rect x="114" y="56" width="80" height="30" rx="6" fill="#FFFFFF" stroke="#E9A27F" stroke-width="2"/><text x="154.0" y="75" text-anchor="middle" fill="#4A4F57" style="font-size:10px;font-family:inherit">aanbod</text><line x1="85" y1="34" x2="46" y2="56" stroke="#E9A27F" stroke-width="2"/><circle cx="46" cy="56" r="3" fill="#E9A27F"/><line x1="115" y1="34" x2="154" y2="56" stroke="#E9A27F" stroke-width="2"/><circle cx="154" cy="56" r="3" fill="#E9A27F"/></svg>
+<div style="font-size:0.85rem;line-height:1.4;color:var(--np-dark-gray);">Op een specificatie en op bestaand aanbod.</div>
+</div>
+<div class="np-card" style="border-top-color:#B8BEC7;padding-bottom:0.6rem;">
+<strong>D. Iets anders</strong>
+<svg width="100%" viewBox="0 0 200 90" style="display:block;margin:0.5rem 0 0.3rem;"><circle cx="100" cy="45" r="30" fill="#B8BEC7"/><text x="100" y="56" text-anchor="middle" fill="#fff" style="font-size:32px;font-weight:700;font-family:inherit">?</text></svg>
+<div style="font-size:0.85rem;line-height:1.4;color:var(--np-dark-gray);">Geen van bovenstaande.</div>
 </div>
 </div>
 
-<div style="font-size: 0.85rem; color: var(--np-dark-gray); margin-top: 0.9rem;">
-Zonder keuze houdt het object zijn dubbele naam en weet de koppeling SIS naar P&R niet of een intekening aanbod maakt of erop volgt. Een ander voorstel is welkom.
+<div style="font-size: 0.85rem; color: var(--np-dark-gray); margin-top: 1rem;">
+Zonder keuze houdt het object zijn dubbele naam en weet de koppeling SIS naar P&amp;R niet wat een intekening is.
 </div>
 
 </div>
@@ -497,9 +505,9 @@ Zonder keuze houdt het object zijn dubbele naam en weet de koppeling SIS naar P&
 <!--
 Uit de tegenlezing op meta PR 225 en de modelronde van 14 september. MORA kent de leervraag (wat
 een student wil leren, uitgedrukt in producten uit de onderwijscatalogus) en de aanmelding (het
-verzoek om toegelaten te worden). OKx bundelt die nu in één verzoek. De inschatting van het
-kernteam is A: beide leiden tot de creatie van aanbod. B en C staan erbij omdat de naam op de
-plaat ze allebei toelaat. Gevraagd: welke lezing past bij de praktijk in SIS en P&R.
+verzoek om toegelaten te worden). Op de plaat is dat nu één verzoek dat leidt tot aanbod. A is
+de huidige aanname van het kernteam; B, C en D staan er omdat de naam op de plaat ze toelaat.
+Gevraagd: welke lezing past bij de praktijk in SIS en P&R. De uitkomst wordt ontwerpkeuze 13.
 -->
 
 ---
@@ -523,10 +531,10 @@ plaat ze allebei toelaat. Gevraagd: welke lezing past bij de praktijk in SIS en 
 
 # Werk per onderwerp
 
-<div style="margin-top:0.6rem;max-width:88%;"><div style="display:grid;grid-template-columns:19rem 1fr;align-items:center;gap:0.8rem;margin-top:0.42rem;font-size:0.82rem;"><div style="line-height:1.25;"><a href="https://github.com/Npuls-OKx/Public/milestone/4" style="color:var(--np-ink);">Koppelvlakspecificatie releaseproces en kwaliteit</a> <span style="color:var(--np-mid-gray);font-size:0.7rem;">Public</span></div><div style="display:flex;align-items:center;"><div style="display:flex;width:57%;height:20px;border-radius:4px;overflow:hidden;gap:2px;"><div style="flex:11;background:#E5E7EB;display:flex;align-items:center;justify-content:center;color:var(--np-ink);font-size:0.72rem;">11</div></div><span style="display:inline-flex;align-items:center;gap:0.25rem;margin-left:0.5rem;font-size:0.72rem;color:var(--np-ink);"><svg width="18" height="18" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#7A97F2"/><circle cx="15" cy="13" r="4" fill="#fff"/><circle cx="15" cy="31" r="4" fill="#fff"/><circle cx="30" cy="31" r="4" fill="#fff"/><line x1="15" y1="17" x2="15" y2="27" stroke="#fff" stroke-width="3"/><path d="M30 27 v-6 a5 5 0 0 0 -5 -5 h-4" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg><a href="https://github.com/Npuls-OKx/Public/pull/82">PR 82</a></span></div></div><div style="display:grid;grid-template-columns:19rem 1fr;align-items:center;gap:0.8rem;margin-top:0.42rem;font-size:0.82rem;"><div style="line-height:1.25;"><a href="https://github.com/Npuls-OKx/Public/milestone/3" style="color:var(--np-ink);">Requirementsboom doorontwikkelen</a> <span style="color:var(--np-mid-gray);font-size:0.7rem;">Public</span></div><div style="display:flex;align-items:center;"><div style="display:flex;width:57%;height:20px;border-radius:4px;overflow:hidden;gap:2px;"><div style="flex:2;background:#00AF81;display:flex;align-items:center;justify-content:center;color:#fff;font-size:0.72rem;font-weight:600;">2</div><div style="flex:9;background:#E5E7EB;display:flex;align-items:center;justify-content:center;color:var(--np-ink);font-size:0.72rem;">9</div></div></div></div><div style="display:grid;grid-template-columns:19rem 1fr;align-items:center;gap:0.8rem;margin-top:0.42rem;font-size:0.82rem;"><div style="line-height:1.25;"><span style="color:var(--np-orange);font-weight:600;">&#9679;</span> <a href="https://github.com/Npuls-OKx/Public/milestone/5" style="color:var(--np-ink);">Koppelingspecificatiestructuur doorontwikkelen</a> <span style="color:var(--np-mid-gray);font-size:0.7rem;">Public</span></div><div style="display:flex;align-items:center;"><div style="display:flex;width:41%;height:20px;border-radius:4px;overflow:hidden;gap:2px;"><div style="flex:1;background:#00AF81;display:flex;align-items:center;justify-content:center;color:#fff;font-size:0.72rem;font-weight:600;">1</div><div style="flex:7;background:#E5E7EB;display:flex;align-items:center;justify-content:center;color:var(--np-ink);font-size:0.72rem;">7</div></div><span style="display:inline-flex;align-items:center;gap:0.25rem;margin-left:0.5rem;font-size:0.72rem;color:var(--np-ink);"><svg width="18" height="18" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#7A97F2"/><circle cx="15" cy="13" r="4" fill="#fff"/><circle cx="15" cy="31" r="4" fill="#fff"/><circle cx="30" cy="31" r="4" fill="#fff"/><line x1="15" y1="17" x2="15" y2="27" stroke="#fff" stroke-width="3"/><path d="M30 27 v-6 a5 5 0 0 0 -5 -5 h-4" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg><a href="https://github.com/Npuls-OKx/Public/pull/100">PR 100</a></span></div></div><div style="display:grid;grid-template-columns:19rem 1fr;align-items:center;gap:0.8rem;margin-top:0.42rem;font-size:0.82rem;"><div style="line-height:1.25;"><span style="color:var(--np-orange);font-weight:600;">&#9679;</span> <a href="https://github.com/Npuls-OKx/meta/milestone/7" style="color:var(--np-ink);">Begrippenkader en informatiemodel verdiepen</a> <span style="color:var(--np-mid-gray);font-size:0.7rem;">meta</span></div><div style="display:flex;align-items:center;"><div style="display:flex;width:78%;height:20px;border-radius:4px;overflow:hidden;gap:2px;"><div style="flex:15;background:#E5E7EB;display:flex;align-items:center;justify-content:center;color:var(--np-ink);font-size:0.72rem;">15</div></div><span style="display:inline-flex;align-items:center;gap:0.25rem;margin-left:0.5rem;font-size:0.72rem;color:var(--np-ink);"><svg width="18" height="18" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#7A97F2"/><circle cx="15" cy="13" r="4" fill="#fff"/><circle cx="15" cy="31" r="4" fill="#fff"/><circle cx="30" cy="31" r="4" fill="#fff"/><line x1="15" y1="17" x2="15" y2="27" stroke="#fff" stroke-width="3"/><path d="M30 27 v-6 a5 5 0 0 0 -5 -5 h-4" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg><a href="https://github.com/Npuls-OKx/meta/pull/225">PR 225</a></span></div></div><div style="display:grid;grid-template-columns:19rem 1fr;align-items:center;gap:0.8rem;margin-top:0.42rem;font-size:0.82rem;"><div style="line-height:1.25;"><a href="https://github.com/Npuls-OKx/Public/milestone/1" style="color:var(--np-ink);">Leerroute-refactor met harness-waarborgen</a> <span style="color:var(--np-mid-gray);font-size:0.7rem;">Public</span></div><div style="display:flex;align-items:center;"><div style="display:flex;width:26%;height:20px;border-radius:4px;overflow:hidden;gap:2px;"><div style="flex:2;background:#00AF81;display:flex;align-items:center;justify-content:center;color:#fff;font-size:0.72rem;font-weight:600;">2</div><div style="flex:3;background:#E5E7EB;display:flex;align-items:center;justify-content:center;color:var(--np-ink);font-size:0.72rem;">3</div></div><span style="color:#00AF81;font-weight:600;font-size:0.74rem;margin-left:0.5rem;">+1 sinds 1 sep</span></div></div><div style="display:grid;grid-template-columns:19rem 1fr;align-items:center;gap:0.8rem;margin-top:0.42rem;font-size:0.82rem;"><div style="line-height:1.25;"><span style="color:var(--np-orange);font-weight:600;">&#9679;</span> <a href="https://github.com/Npuls-OKx/Public/milestone/7" style="color:var(--np-ink);">Keuzedelen kiesbaarheid en groepsindeling</a> <span style="color:var(--np-mid-gray);font-size:0.7rem;">Public</span></div><div style="display:flex;align-items:center;"><div style="display:flex;width:16%;height:20px;border-radius:4px;overflow:hidden;gap:2px;"><div style="flex:3;background:#E5E7EB;display:flex;align-items:center;justify-content:center;color:var(--np-ink);font-size:0.72rem;">3</div></div></div></div><div style="display:grid;grid-template-columns:19rem 1fr;align-items:center;gap:0.8rem;margin-top:0.42rem;font-size:0.82rem;"><div style="line-height:1.25;"><a href="https://github.com/Npuls-OKx/Public/milestone/6" style="color:var(--np-ink);">Informatiestromen hoofdplaat</a> <span style="color:var(--np-mid-gray);font-size:0.7rem;">Public</span></div><div style="display:flex;align-items:center;"><div style="display:flex;width:21%;height:20px;border-radius:4px;overflow:hidden;gap:2px;"><div style="flex:4;background:#00AF81;display:flex;align-items:center;justify-content:center;color:#fff;font-size:0.72rem;font-weight:600;">4</div></div><span style="color:#00AF81;font-weight:600;font-size:0.74rem;margin-left:0.5rem;">+4 sinds 1 sep</span></div></div><div style="display:flex;gap:1.4rem;align-items:center;font-size:0.74rem;color:var(--np-mid-gray);margin-top:0.7rem;"><span><span style="display:inline-block;width:12px;height:12px;background:#00AF81;border-radius:2px;vertical-align:-1px;"></span> issues gesloten</span><span><span style="display:inline-block;width:12px;height:12px;background:#E5E7EB;border-radius:2px;vertical-align:-1px;"></span> issues open</span><span style="display:inline-flex;align-items:center;gap:0.25rem;"><svg width="14" height="14" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#7A97F2"/><circle cx="15" cy="13" r="4" fill="#fff"/><circle cx="15" cy="31" r="4" fill="#fff"/><circle cx="30" cy="31" r="4" fill="#fff"/><line x1="15" y1="17" x2="15" y2="27" stroke="#fff" stroke-width="3"/><path d="M30 27 v-6 a5 5 0 0 0 -5 -5 h-4" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg> pull request ter review</span><span><span style="color:var(--np-orange);">&#9679;</span> vandaag op de agenda</span></div></div>
+<div style="margin-top:0.6rem;max-width:74%;"><div style="display:grid;grid-template-columns:19rem 1fr;align-items:center;gap:0.8rem;margin-top:0.42rem;font-size:0.82rem;"><div style="line-height:1.25;"><a href="https://github.com/Npuls-OKx/Public/milestone/4" style="color:var(--np-ink);">Koppelvlakspecificatie releaseproces en kwaliteit</a> <span style="color:var(--np-mid-gray);font-size:0.7rem;">Public</span></div><div style="display:flex;align-items:center;"><div style="display:flex;width:48%;height:20px;border-radius:4px;overflow:hidden;gap:2px;"><div style="flex:11;background:#E5E7EB;display:flex;align-items:center;justify-content:center;color:var(--np-ink);font-size:0.72rem;">11</div></div><span style="display:inline-flex;align-items:center;gap:0.25rem;margin-left:0.5rem;font-size:0.72rem;color:var(--np-ink);white-space:nowrap;"><svg width="18" height="18" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#7A97F2"/><circle cx="15" cy="13" r="4" fill="#fff"/><circle cx="15" cy="31" r="4" fill="#fff"/><circle cx="30" cy="31" r="4" fill="#fff"/><line x1="15" y1="17" x2="15" y2="27" stroke="#fff" stroke-width="3"/><path d="M30 27 v-6 a5 5 0 0 0 -5 -5 h-4" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg><a href="https://github.com/Npuls-OKx/Public/pull/82">PR 82</a></span></div></div><div style="display:grid;grid-template-columns:19rem 1fr;align-items:center;gap:0.8rem;margin-top:0.42rem;font-size:0.82rem;"><div style="line-height:1.25;"><span style="color:var(--np-orange);font-weight:600;">&#9679;</span> <a href="https://github.com/Npuls-OKx/Public/milestone/3" style="color:var(--np-ink);">Requirementsboom doorontwikkelen</a> <span style="color:var(--np-mid-gray);font-size:0.7rem;">Public</span></div><div style="display:flex;align-items:center;"><div style="display:flex;width:48%;height:20px;border-radius:4px;overflow:hidden;gap:2px;"><div style="flex:2;background:#00AF81;display:flex;align-items:center;justify-content:center;color:#fff;font-size:0.72rem;font-weight:600;">2</div><div style="flex:9;background:#E5E7EB;display:flex;align-items:center;justify-content:center;color:var(--np-ink);font-size:0.72rem;">9</div></div></div></div><div style="display:grid;grid-template-columns:19rem 1fr;align-items:center;gap:0.8rem;margin-top:0.42rem;font-size:0.82rem;"><div style="line-height:1.25;"><span style="color:var(--np-orange);font-weight:600;">&#9679;</span> <a href="https://github.com/Npuls-OKx/Public/milestone/5" style="color:var(--np-ink);">Koppelingspecificatiestructuur doorontwikkelen</a> <span style="color:var(--np-mid-gray);font-size:0.7rem;">Public</span></div><div style="display:flex;align-items:center;"><div style="display:flex;width:48%;height:20px;border-radius:4px;overflow:hidden;gap:2px;"><div style="flex:1;background:#00AF81;display:flex;align-items:center;justify-content:center;color:#fff;font-size:0.72rem;font-weight:600;">1</div><div style="flex:10;background:#E5E7EB;display:flex;align-items:center;justify-content:center;color:var(--np-ink);font-size:0.72rem;">10</div></div><span style="display:inline-flex;align-items:center;gap:0.25rem;margin-left:0.5rem;font-size:0.72rem;color:var(--np-ink);white-space:nowrap;"><svg width="18" height="18" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#7A97F2"/><circle cx="15" cy="13" r="4" fill="#fff"/><circle cx="15" cy="31" r="4" fill="#fff"/><circle cx="30" cy="31" r="4" fill="#fff"/><line x1="15" y1="17" x2="15" y2="27" stroke="#fff" stroke-width="3"/><path d="M30 27 v-6 a5 5 0 0 0 -5 -5 h-4" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg><a href="https://github.com/Npuls-OKx/Public/pull/100">PR 100</a>, <a href="https://github.com/Npuls-OKx/Public/pull/104">PR 104</a></span></div></div><div style="display:grid;grid-template-columns:19rem 1fr;align-items:center;gap:0.8rem;margin-top:0.42rem;font-size:0.82rem;"><div style="line-height:1.25;"><span style="color:var(--np-orange);font-weight:600;">&#9679;</span> <a href="https://github.com/Npuls-OKx/meta/milestone/7" style="color:var(--np-ink);">Begrippenkader en informatiemodel verdiepen</a> <span style="color:var(--np-mid-gray);font-size:0.7rem;">meta</span></div><div style="display:flex;align-items:center;"><div style="display:flex;width:74%;height:20px;border-radius:4px;overflow:hidden;gap:2px;"><div style="flex:17;background:#E5E7EB;display:flex;align-items:center;justify-content:center;color:var(--np-ink);font-size:0.72rem;">17</div></div><span style="display:inline-flex;align-items:center;gap:0.25rem;margin-left:0.5rem;font-size:0.72rem;color:var(--np-ink);white-space:nowrap;"><svg width="18" height="18" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#7A97F2"/><circle cx="15" cy="13" r="4" fill="#fff"/><circle cx="15" cy="31" r="4" fill="#fff"/><circle cx="30" cy="31" r="4" fill="#fff"/><line x1="15" y1="17" x2="15" y2="27" stroke="#fff" stroke-width="3"/><path d="M30 27 v-6 a5 5 0 0 0 -5 -5 h-4" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg><a href="https://github.com/Npuls-OKx/meta/pull/225">PR 225</a>, <a href="https://github.com/Npuls-OKx/meta/pull/233">PR 233</a></span></div></div><div style="display:grid;grid-template-columns:19rem 1fr;align-items:center;gap:0.8rem;margin-top:0.42rem;font-size:0.82rem;"><div style="line-height:1.25;"><a href="https://github.com/Npuls-OKx/Public/milestone/1" style="color:var(--np-ink);">Leerroute-refactor met harness-waarborgen</a> <span style="color:var(--np-mid-gray);font-size:0.7rem;">Public</span></div><div style="display:flex;align-items:center;"><div style="display:flex;width:26%;height:20px;border-radius:4px;overflow:hidden;gap:2px;"><div style="flex:3;background:#00AF81;display:flex;align-items:center;justify-content:center;color:#fff;font-size:0.72rem;font-weight:600;">3</div><div style="flex:3;background:#E5E7EB;display:flex;align-items:center;justify-content:center;color:var(--np-ink);font-size:0.72rem;">3</div></div></div></div><div style="display:grid;grid-template-columns:19rem 1fr;align-items:center;gap:0.8rem;margin-top:0.42rem;font-size:0.82rem;"><div style="line-height:1.25;"><a href="https://github.com/Npuls-OKx/Public/milestone/7" style="color:var(--np-ink);">Keuzedelen kiesbaarheid en groepsindeling</a> <span style="color:var(--np-mid-gray);font-size:0.7rem;">Public</span></div><div style="display:flex;align-items:center;"><div style="display:flex;width:13%;height:20px;border-radius:4px;overflow:hidden;gap:2px;"><div style="flex:3;background:#E5E7EB;display:flex;align-items:center;justify-content:center;color:var(--np-ink);font-size:0.72rem;">3</div></div></div></div><div style="display:grid;grid-template-columns:19rem 1fr;align-items:center;gap:0.8rem;margin-top:0.42rem;font-size:0.82rem;"><div style="line-height:1.25;"><a href="https://github.com/Npuls-OKx/Public/milestone/6" style="color:var(--np-ink);">Informatiestromen hoofdplaat</a> <span style="color:var(--np-mid-gray);font-size:0.7rem;">Public</span></div><div style="display:flex;align-items:center;"><div style="display:flex;width:18%;height:20px;border-radius:4px;overflow:hidden;gap:2px;"><div style="flex:4;background:#00AF81;display:flex;align-items:center;justify-content:center;color:#fff;font-size:0.72rem;font-weight:600;">4</div></div></div></div></div>
 
 <div style="font-size: 0.8rem; color: var(--np-dark-gray); margin-top: 0.7rem;">
-Stand van 11 september. Onderwerpen zijn de milestones; de balklengte is het aantal issues. Niet getoond: Agent-harness (Public, 2 open) en de interne milestones van meta.
+Stand van 14 september. Onderwerpen zijn de milestones; de balklengte is het aantal issues, groen gesloten, grijs open; het icoon markeert werk dat als pull request ter review ligt. Oranje: staat vandaag op de agenda. Niet getoond: Agent-harness (Public, 2 open) en de interne milestones van meta.
 </div>
 
 </div>
@@ -537,7 +545,9 @@ waar het werk in een branch ter review ligt. Oranje stip: staat vandaag op de ag
 het grote werk van deze periode zit in de pull requests en niet in gesloten issues; de hoofdplaat
 is af (vier correcties gesloten sinds 1 september). Van buiten het kernteam kwamen sinds
 1 september zeven issues: vijf van Kees (#85 tot en met #89) en twee van Xedule (#84, #99).
-Bron: de milestones en issues van beide repositories, GitHub, 11 september.
+Nieuw sinds 11 september: het informatiemodel ligt als Public PR 104 gestapeld op PR 100, met
+de 26 modelvragen uit de leverancierstegenlezing in meta #234 (milestone Begrippenkader, 17 open).
+Bron: de milestones en issues van beide repositories, GitHub, 14 september.
 -->
 
 ---
@@ -559,7 +569,7 @@ Bron: de milestones en issues van beide repositories, GitHub, 11 september.
 </div>
 <div>
 
-**meta:** deck van 1 september met PowerPoint-export; Nederlands als voertaal; lezerspersona's; informatiemodel en begrippenlijst op een branch, 22 commits ([PR 225](https://github.com/Npuls-OKx/meta/pull/225))
+**meta:** deck van 1 september met PowerPoint-export; Nederlands als voertaal; lezerspersona's; informatiemodel en begrippenlijst, 28 commits ([PR 225](https://github.com/Npuls-OKx/meta/pull/225)), gepubliceerd naar Public ([PR 104](https://github.com/Npuls-OKx/Public/pull/104))
 
 </div>
 </div>
@@ -569,8 +579,8 @@ Bron: de milestones en issues van beide repositories, GitHub, 11 september.
 <!--
 Stand van 11 september, beide repositories, alles na 1 september. De aantallen zeggen iets
 over de hoeveelheid werk, niet over de kwaliteit ervan; dat oordeel ligt bij de review. Het
-grote werk van deze periode staat op branches en niet op dev: PR 100 in Public en PR 225 in
-meta. De 21 nieuwe issues op meta zijn grotendeels intern harness- en reviewwerk.
+grote werk van deze periode staat op branches en niet op dev: PR 100 en PR 104 in Public en
+PR 225 in meta. De 21 nieuwe issues op meta zijn grotendeels intern harness- en reviewwerk.
 -->
 
 ---
