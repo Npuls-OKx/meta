@@ -394,7 +394,7 @@ OEAPI-object is de vorm waarin een OKx-objecttype over de lijn gaat. Versie v0.1
 - Eén OEAPI-object draagt vaak meerdere OKx-objecttypen: `Programme` vier, `ProgrammeOffering` drie
 - De leeruitkomst heeft een tegenhanger, `LearningOutcome`
 - De resultaatstructuur is nog niet gemapt: OEAPI kent cesuur, schaal en pogingen per toetsonderdeel, maar geen weging per specificatie en geen aggregatieregel
-- 21 objecttypen binnen scope zonder OEAPI-object: per stuk signalering of bewuste afwijking
+- 24 objecttypen binnen scope zonder OEAPI-object: per stuk signalering of bewuste afwijking
 
 </div>
 
@@ -446,7 +446,7 @@ dat elders wordt opgelost.
 </div>
 
 <div style="font-size: 0.8rem; color: var(--np-dark-gray); margin-top: 0.6rem;">
-Uitsnede: vijf van de 69 begrippen en objecttypen. Status: v0.2, concept. MORA en ROSA zijn geraadpleegd, HORA volgt.
+Uitsnede: vijf van de 73 begrippen en objecttypen. Status: v0.2, concept. MORA en ROSA zijn geraadpleegd, HORA volgt.
 </div>
 
 </div>
@@ -456,8 +456,8 @@ Uitsnede uit begrippen.md in Public PR 104, stand 14 september. Definities
 zijn ingekort tot de eerste zin; de volledige tekst staat in de lijst met citaat, URL en
 ophaaldatum. De vijf rijen laten de vier soorten zien: overgenomen uit MORA, overgenomen uit
 ROSA, twee die zijn afgeleid uit de alignment MORA en HORA (klus 53), en een eigen OKx-definitie
-zonder tegenhanger. Stand van de hele lijst op 14 september: 69 begrippen, 18 overgenomen,
-17 eigen OKx-definitie, 34 nog open.
+zonder tegenhanger. Stand van de hele lijst op 14 september: 73 begrippen, 22 overgenomen,
+18 eigen OKx-definitie, 33 nog open.
 -->
 
 ---
@@ -470,10 +470,10 @@ zonder tegenhanger. Stand van de hele lijst op 14 september: 69 begrippen, 18 ov
 # Waarop teken je in: de specificatie, of aanbod in een van zijn fasen?
 
 <div style="font-size: 0.92rem; line-height: 1.5; margin-top: 0.2rem;">
-Op de plaat is het één object, <code>Verzoek tot Aanbod / Intekening op specificatie</code>. Uit de afstemming van 14 september komt dit beeld: aanbod rijpt in fasen, en intekenen kan in elke fase.
+De plaat onderscheidt nu drie stappen: het <code>Verzoek tot Aanbod / Intekening op specificatie</code>, de <code>Aanmelding</code> op aanbod en de <code>Inschrijving</code> als verbintenis. Uit de afstemming van 14 september komt dit beeld: aanbod rijpt in fasen, en aanmelden kan in elke fase.
 </div>
 
-<svg width="100%" viewBox="0 0 940 190" style="display:block;margin:0.6rem 0 0.2rem;"><rect x="10" y="34" width="190" height="78" rx="8" fill="#FFFFFF" stroke="#7A97F2" stroke-width="2"/><text x="105.0" y="58" text-anchor="middle" fill="#1B1B2F" style="font-size:14px;font-weight:700;font-family:inherit">Specificatie</text><text x="105.0" y="78" text-anchor="middle" fill="#4A4F57" style="font-size:11px;font-family:inherit">het ontwerp,</text><text x="105.0" y="93" text-anchor="middle" fill="#4A4F57" style="font-size:11px;font-family:inherit">los van wanneer</text><text x="580" y="20" text-anchor="middle" fill="#6B7280" style="font-size:11px;letter-spacing:1px;font-family:inherit">ONDERWIJSAANBOD, STEEDS RIJPER</text><line x1="240" y1="26" x2="920" y2="26" stroke="#6B7280" stroke-width="1"/><rect x="240" y="34" width="210" height="78" rx="8" fill="#E6F7F0" stroke="#00AF81" stroke-width="2"/><text x="345.0" y="58" text-anchor="middle" fill="#1B1B2F" style="font-size:14px;font-weight:700;font-family:inherit">Intentie</text><text x="345.0" y="78" text-anchor="middle" fill="#4A4F57" style="font-size:11px;font-family:inherit">we gaan dit aanbieden;</text><text x="345.0" y="93" text-anchor="middle" fill="#4A4F57" style="font-size:11px;font-family:inherit">gaat door bij voldoende vraag</text><rect x="475" y="34" width="210" height="78" rx="8" fill="#B3E8D3" stroke="#00AF81" stroke-width="2"/><text x="580.0" y="58" text-anchor="middle" fill="#1B1B2F" style="font-size:14px;font-weight:700;font-family:inherit">Grofmazig gepland</text><text x="580.0" y="78" text-anchor="middle" fill="#4A4F57" style="font-size:11px;font-family:inherit">periode en start, gebouw,</text><text x="580.0" y="93" text-anchor="middle" fill="#4A4F57" style="font-size:11px;font-family:inherit">misschien al een docent</text><rect x="710" y="34" width="210" height="78" rx="8" fill="#00AF81" stroke="#00AF81" stroke-width="2"/><text x="815.0" y="58" text-anchor="middle" fill="#FFFFFF" style="font-size:14px;font-weight:700;font-family:inherit">Geroosterd</text><text x="815.0" y="78" text-anchor="middle" fill="#F0FFF8" style="font-size:11px;font-family:inherit">dag, tijd, lokaal, docent,</text><text x="815.0" y="93" text-anchor="middle" fill="#F0FFF8" style="font-size:11px;font-family:inherit">groep</text><line x1="202" y1="73" x2="236" y2="73" stroke="#6B7280" stroke-width="2"/><polygon points="236,68 242,73 236,78" fill="#6B7280"/><line x1="452" y1="73" x2="486" y2="73" stroke="#6B7280" stroke-width="2"/><polygon points="486,68 492,73 486,78" fill="#6B7280"/><line x1="687" y1="73" x2="721" y2="73" stroke="#6B7280" stroke-width="2"/><polygon points="721,68 727,73 721,78" fill="#6B7280"/><path d="M12 122 v8 H918 v-8" fill="none" stroke="#7A97F2" stroke-width="2"/><text x="465.0" y="146" text-anchor="middle" fill="#7A97F2" style="font-size:13px;font-weight:700;font-family:inherit">intekenen: op de specificatie (regel dit) en op aanbod in elke fase</text><path d="M242 156 v8 H918 v-8" fill="none" stroke="#E9A27F" stroke-width="2"/><text x="580.0" y="180" text-anchor="middle" fill="#E9A27F" style="font-size:13px;font-weight:700;font-family:inherit">inschrijven: op aanbod</text></svg>
+<svg width="100%" viewBox="0 0 940 190" style="display:block;margin:0.6rem 0 0.2rem;"><rect x="10" y="34" width="190" height="78" rx="8" fill="#FFFFFF" stroke="#7A97F2" stroke-width="2"/><text x="105.0" y="58" text-anchor="middle" fill="#1B1B2F" style="font-size:14px;font-weight:700;font-family:inherit">Specificatie</text><text x="105.0" y="78" text-anchor="middle" fill="#4A4F57" style="font-size:11px;font-family:inherit">het ontwerp,</text><text x="105.0" y="93" text-anchor="middle" fill="#4A4F57" style="font-size:11px;font-family:inherit">los van wanneer</text><text x="580" y="20" text-anchor="middle" fill="#6B7280" style="font-size:11px;letter-spacing:1px;font-family:inherit">ONDERWIJSAANBOD, STEEDS RIJPER</text><line x1="240" y1="26" x2="920" y2="26" stroke="#6B7280" stroke-width="1"/><rect x="240" y="34" width="210" height="78" rx="8" fill="#E6F7F0" stroke="#00AF81" stroke-width="2"/><text x="345.0" y="58" text-anchor="middle" fill="#1B1B2F" style="font-size:14px;font-weight:700;font-family:inherit">Intentie</text><text x="345.0" y="78" text-anchor="middle" fill="#4A4F57" style="font-size:11px;font-family:inherit">we gaan dit aanbieden;</text><text x="345.0" y="93" text-anchor="middle" fill="#4A4F57" style="font-size:11px;font-family:inherit">gaat door bij voldoende vraag</text><rect x="475" y="34" width="210" height="78" rx="8" fill="#B3E8D3" stroke="#00AF81" stroke-width="2"/><text x="580.0" y="58" text-anchor="middle" fill="#1B1B2F" style="font-size:14px;font-weight:700;font-family:inherit">Grofmazig gepland</text><text x="580.0" y="78" text-anchor="middle" fill="#4A4F57" style="font-size:11px;font-family:inherit">periode en start, gebouw,</text><text x="580.0" y="93" text-anchor="middle" fill="#4A4F57" style="font-size:11px;font-family:inherit">misschien al een docent</text><rect x="710" y="34" width="210" height="78" rx="8" fill="#00AF81" stroke="#00AF81" stroke-width="2"/><text x="815.0" y="58" text-anchor="middle" fill="#FFFFFF" style="font-size:14px;font-weight:700;font-family:inherit">Geroosterd</text><text x="815.0" y="78" text-anchor="middle" fill="#F0FFF8" style="font-size:11px;font-family:inherit">dag, tijd, lokaal, docent,</text><text x="815.0" y="93" text-anchor="middle" fill="#F0FFF8" style="font-size:11px;font-family:inherit">groep</text><line x1="202" y1="73" x2="236" y2="73" stroke="#6B7280" stroke-width="2"/><polygon points="236,68 242,73 236,78" fill="#6B7280"/><line x1="452" y1="73" x2="486" y2="73" stroke="#6B7280" stroke-width="2"/><polygon points="486,68 492,73 486,78" fill="#6B7280"/><line x1="687" y1="73" x2="721" y2="73" stroke="#6B7280" stroke-width="2"/><polygon points="721,68 727,73 721,78" fill="#6B7280"/><path d="M12 122 v8 H918 v-8" fill="none" stroke="#7A97F2" stroke-width="2"/><text x="465.0" y="146" text-anchor="middle" fill="#7A97F2" style="font-size:13px;font-weight:700;font-family:inherit">intekenen op de specificatie (regel dit); aanmelden op aanbod, in elke fase</text><path d="M242 156 v8 H918 v-8" fill="none" stroke="#E9A27F" stroke-width="2"/><text x="580.0" y="180" text-anchor="middle" fill="#E9A27F" style="font-size:13px;font-weight:700;font-family:inherit">inschrijven: op aanbod</text></svg>
 
 <div style="display:flex;align-items:center;gap:0.5rem;margin-top:0.3rem;font-size:0.8rem;color:var(--np-dark-gray);">Geldt op elk niveau:&nbsp;<span style="display:inline-block;padding:0.15rem 0.6rem;border-radius:999px;background:#F1F3F5;color:var(--np-ink);font-size:0.78rem;margin-right:0.35rem;">opleiding</span><span style="display:inline-block;padding:0.15rem 0.6rem;border-radius:999px;background:#F1F3F5;color:var(--np-ink);font-size:0.78rem;margin-right:0.35rem;">opleidingsprogramma</span><span style="display:inline-block;padding:0.15rem 0.6rem;border-radius:999px;background:#F1F3F5;color:var(--np-ink);font-size:0.78rem;margin-right:0.35rem;">onderwijseenheid</span><span style="display:inline-block;padding:0.15rem 0.6rem;border-radius:999px;background:#F1F3F5;color:var(--np-ink);font-size:0.78rem;margin-right:0.35rem;">leeronderdeel</span><span style="display:inline-block;padding:0.15rem 0.6rem;border-radius:999px;background:#F1F3F5;color:var(--np-ink);font-size:0.78rem;margin-right:0.35rem;">les</span></div>
 
@@ -495,8 +495,9 @@ instantie op de specificatie (ik zie nog geen aanbod, school, regel dit) en daar
 van aanbod; de gelaagdheid van aanbod zit nog niet in het model en vraagt uitwerking, met de
 vraag of dat in dit model hoort: hoe rijper het aanbod, hoe meer data en hoe dichter bij het
 geplande moment. Niels' conclusie: intekenen op specificatie kan; aanmelden, intekenen en
-inschrijven kunnen op aanbod. De uitkomst wordt ontwerpkeuze 13; de fasering raakt Public #105
-en de POC-sessies bij de instellingen.
+inschrijven kunnen op aanbod. Verwerkt als ontwerpkeuze 13 op de plaat van 14 september (aanmelding, inschrijving, cohort en OER
+erbij); de fasering van aanbod staat daar als open vraag en raakt Public #105 en de POC-sessies
+bij de instellingen.
 -->
 
 ---
