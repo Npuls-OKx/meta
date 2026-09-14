@@ -413,21 +413,22 @@
           "uitkomst": "nog niet onderzocht"
         }
       },
-      "definitie": null,
-      "vindplaats": null,
-      "bron_soort": null,
-      "status": "nog te definieren",
+      "definitie": "De specificatie van een summatief examen (opstelling, instrumenten, beoordelingskader) zoals vastgesteld door de examencommissie, gekoppeld aan te behalen leeruitkomsten of werkprocessen.",
+      "vindplaats": "architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#betrokken-informatie-bij-proces",
+      "bron_soort": "okx-document",
+      "status": "gedefinieerd",
       "herkomst": "verbijzondering van `Examen` (MORA)",
       "varianten": [
         "Examenonderdeel-specificatie",
         "examenonderdeel-specificatie"
-      ]
+      ],
+      "noot": "De bron schrijft `Examenspecificatie`; op de plaat heet het objecttype `Examenonderdeelspecificatie` (ontwerpkeuze 9: een examenonderdeel is een specialisatie van een toetsonderdeel)."
     },
     {
       "scope": "buiten scope",
       "naam": "Examenplan",
       "niveau": 2,
-      "familie": null,
+      "familie": "Buiten de kolommen",
       "in_informatiemodel": true,
       "kaders": {
         "ROSA-KOI": {
@@ -1140,7 +1141,7 @@
     {
       "naam": "Medewerker",
       "niveau": 2,
-      "familie": null,
+      "familie": "Buiten de kolommen",
       "in_informatiemodel": true,
       "kaders": {
         "ROSA-KOI": {
@@ -1698,7 +1699,7 @@
     {
       "naam": "Student",
       "niveau": 2,
-      "familie": null,
+      "familie": "Buiten de kolommen",
       "in_informatiemodel": true,
       "kaders": {
         "ROSA-KOI": {
@@ -2056,7 +2057,7 @@
           "begrip": "Leervraag",
           "url": "https://mora.mbodigitaal.nl/index.php/Id-306e945a-d2ff-000e-f950-f1acaa91a0bc",
           "citaat": "De vraag van een (potentiele) student aan de onderwijsaanbieder waarin verwoord wordt wat men wil leren. Het formuleren van de leervraag is een activiteit van de begeleider samen met de deelnemer of opdrachtgever waarin de leervraag wordt uitgedrukt in producten uit de onderwijscatalogus (eventueel) aangevuld met additionele wensen en voorwaarden",
-          "verbijzondering": "MORA kent de leervraag als de vraag van de student wat hij wil leren, en de aanmelding als het verzoek om toegelaten te worden tot een opleiding. OKx bundelt beide in een uitwisselbaar verzoek dat leidt tot nieuw aanbod of tot intekening op bestaand aanbod."
+          "verbijzondering": "MORA kent de leervraag als de vraag van de student wat hij wil leren. OKx verbijzondert die tot een uitwisselbaar verzoek dat leidt tot aanbod. De aanmelding (het verzoek om toegelaten te worden tot een opleiding) blijft, net als de inschrijving, bij het studentinformatiesysteem."
         },
         "HORA": {
           "uitkomst": "nog niet onderzocht"
@@ -2072,7 +2073,7 @@
     {
       "naam": "Waarde document (diploma / certificaat)",
       "niveau": 2,
-      "familie": null,
+      "familie": "Buiten de kolommen",
       "in_informatiemodel": true,
       "kaders": {
         "ROSA-KOI": {
@@ -2187,7 +2188,7 @@
     "MORA",
     "HORA"
   ],
-  "zoekmethode": "Gezocht in de volledige lijst van het MORA-informatiemodel (81 informatieobjecten, https://mora.mbodigitaal.nl/index.php/Informatiemodel) en in het volledige overzicht van het Kernmodel Onderwijsinformatie (https://rosa.wikixl.nl/index.php/Kernmodel_Onderwijsinformatie), opgehaald op 9 september 2026. Een begrip dat in beide lijsten ontbreekt staat als 'geen tegenhanger gevonden'.",
+  "zoekmethode": "Gezocht in de volledige lijst van het MORA-informatiemodel (81 informatieobjecten, https://mora.mbodigitaal.nl/index.php/Informatiemodel) en in het volledige overzicht van het Kernmodel Onderwijsinformatie (https://rosa.wikixl.nl/index.php/Kernmodel_Onderwijsinformatie), opgehaald op 9 september 2026 en opnieuw op 14 september 2026. Een begrip dat in beide lijsten ontbreekt staat als 'geen tegenhanger gevonden'.",
   "werkvoorraad": [
     "\"ask\"",
     "\"deny\"",

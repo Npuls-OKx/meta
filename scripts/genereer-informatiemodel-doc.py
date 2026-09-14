@@ -135,6 +135,50 @@ def main():
     zonder = [o["naam"] for o in objecttypen if not o["oeapi"]]
     print(f"{doel}: {len(objecttypen)} objecttypen, {len(relatielijst)} relaties, "
           f"{len(mapping)} OEAPI-koppelingen, {len(zonder)} objecttypen zonder tegenhanger")
+    schrijf_mappingtabel(objecttypen, mapping)
+
+
+# De kolomnamen op de plaat en de familienamen in de begrippenlijst lopen nog uiteen;
+# de documentatie volgt de begrippenlijst, de JSON blijft de plaat volgen.
+FAMILIE = {"Kwalificatiekader MBO": "Kwalificatiekader mbo",
+           "Onderwijskundigkader instelling": "Onderwijskundig kader instelling"}
+
+
+def mappingtabel(objecttypen, mapping):
+    """De rijen van de tabel 'Mapping per objecttype' in informatiemodel-oeapi-mapping.md.
+
+    Het oordeel telt alleen objecttypen binnen scope: een OEAPI-object dat naast een
+    objecttype binnen scope alleen een buiten-scope type draagt, volstaat.
+    """
+    scope = {o["naam"]: o["scope"] for o in objecttypen}
+    kolom = {o["naam"]: o["kolom"] for o in objecttypen}
+    dragers = {}
+    for m in mapping:
+        if scope[m["okx"]] == "binnen":
+            dragers.setdefault(m["oeapi"], set()).add(m["okx"])
+    regels = ["| OKx-objecttype | Begrippenfamilie | OEAPI-object | Voorlopig oordeel |", "|---|---|---|---|"]
+    for m in mapping:
+        fam = kolom[m["okx"]]
+        fam = FAMILIE.get(fam, fam) if fam else "buiten de kolommen"
+        if scope[m["okx"]] == "buiten":
+            oordeel = "buiten scope: de leslaag valt buiten de uitwisseling"
+        else:
+            n = len(dragers[m["oeapi"]])
+            oordeel = "volstaat" if n == 1 else f"te grof: draagt {n} OKx-objecttypen binnen scope, het onderscheid ligt buiten de standaard"
+        regels.append(f"| `{m['okx']}` | {fam} | `{m['oeapi']}` | {oordeel} |")
+    return regels
+
+
+def schrijf_mappingtabel(objecttypen, mapping):
+    """Vervangt de tabel onder 'Mapping per objecttype' in het mappingdocument."""
+    doc = MAP / "informatiemodel-oeapi-mapping.md"
+    inhoud = doc.read_text(encoding="utf-8")
+    kop = "| OKx-objecttype | Begrippenfamilie | OEAPI-object | Voorlopig oordeel |"
+    begin = inhoud.index(kop)
+    einde = inhoud.index("\n\n", begin)
+    tabel = "\n".join(mappingtabel(objecttypen, mapping))
+    doc.write_text(inhoud[:begin] + tabel + inhoud[einde:], encoding="utf-8")
+    print(f"{doc}: mappingtabel bijgewerkt")
 
 
 if __name__ == "__main__":

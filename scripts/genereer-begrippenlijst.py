@@ -339,9 +339,12 @@ def schrijf(data, referentie, doel):
     # Omgekeerd: welke objecten uit de kaders geen OKx-objecttype hebben.
     gebruikt = {(k, c.get("begrip")) for b in begrippen for k, c in b.get("kaders", {}).items()
                 if c.get("uitkomst") == "tegenhanger"}
+    aantal = {k: len(kader["begrippen"]) for k, kader in referentie["kaders"].items()}
     r += ["## Objecten uit de kaders zonder OKx-objecttype", "",
-          "De omgekeerde dekking: objecten uit MORA en KOI die in de lijst niet als tegenhanger "
-          "voorkomen. Voor de vertaling van een eigen doelarchitectuur naar OKx zegt dit waar OKx "
+          "De omgekeerde dekking: objecten uit MORA en KOI die bij het zoeken naar tegenhangers zijn "
+          f"opgehaald ({aantal.get('MORA', 0)} van de 81 MORA-informatieobjecten en alle {aantal.get('ROSA-KOI', 0)} "
+          "KOI-begrippen) en die in de lijst niet als tegenhanger voorkomen. De overige MORA-objecten zijn nog niet "
+          "beoordeeld en staan hier niet. Voor de vertaling van een eigen doelarchitectuur naar OKx zegt dit waar OKx "
           "niets over uitwisselt.", "",
           "| Kader | Object | Definitie |", "|---|---|---|"]
     for k, kader in referentie["kaders"].items():

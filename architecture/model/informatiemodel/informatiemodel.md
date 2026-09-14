@@ -21,7 +21,7 @@ De scope volgt de beschouwingsniveaus van het [Metamodel Informatie Modellering 
 | Uitsnede | [1, model van begrippen](https://docs.geostandaarden.nl/mim/mim/#beschouwingsniveau-1-model-van-begrippen) | Het [begrippenkader](../../docs/specificatie/leerroute-uitwerking/doc/begrippenkader.md) en de [begrippenlijst](../../docs/specificatie/begrippen/begrippenlijst.md). De plaat toont daarvan een uitsnede: de zeven begrippenfamilies als kolommen |
 | Dit document | [2, conceptueel informatiemodel](https://docs.geostandaarden.nl/mim/mim/#beschouwingsniveau-2-conceptueel-informatiemodel) | De objecttypen en hun relaties, binnen een instelling: de plaat. Attribuutsoorten en multipliciteit horen ook bij dit niveau en staan er nog niet; de plaat draagt één cardinaliteit (`Minimaal 1`) en het begrippenkader de normatieve cardinaliteiten |
 | Buiten scope | [3, logisch informatiemodel](https://docs.geostandaarden.nl/mim/mim/#beschouwingsniveau-3-logisch-informatie-of-gegevensmodel) | De entiteiten met hun velden en relaties per begrippenfamilie: het [logisch gegevensmodel](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/logisch-gegevensmodel.md) in Public; de [brug daarheen](#naar-het-logisch-gegevensmodel) staat in dit document |
-| Buiten scope | [4, technisch datamodel](https://docs.geostandaarden.nl/mim/mim/#beschouwingsniveau-4-fysiek-of-technisch-gegevens-of-datamodel) | De [JSON-schema's](https://github.com/Npuls-OKx/Public/tree/dev/Informatie-en-gegevensmodellen/schemas) en de endpoints in de koppelvlakspecificatie |
+| Buiten scope | [4, technisch datamodel](https://docs.geostandaarden.nl/mim/mim/#beschouwingsniveau-4-fysiek-of-technisch-gegevens-of-datamodel) | De [JSON Schema's](https://github.com/Npuls-OKx/Public/tree/dev/Informatie-en-gegevensmodellen/schemas) en de endpoints in de koppelvlakspecificatie |
 
 Verder buiten scope: applicatiecomponenten, techniekkeuzes en federatie tussen instellingen. Welke component welk objecttype bezit staat in [uitgangspunt U3](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u3-resource-eigenaarschap) van de koppelvlakspecificatie. Een conceptueel informatiemodel is volgens MIM onafhankelijk van standaarden voor gegevensuitwisseling; de verhouding tot de Open Education API (OEAPI) staat daarom in een [apart document](informatiemodel-oeapi-mapping.md).
 
@@ -83,7 +83,7 @@ Elke keuze noemt zijn bron; staat er *voorstel*, dan is de keuze in dit model ge
 10. **OKx wisselt de summatieve resultaatstructuur uit, niet het examenplan.** De `Summatieve resultaat structuur` draagt de examenonderdelen met hun wegingen en het afrondingscriterium dat de zak-slaagregeling draagt. Zij is onderdeel van een examenplan en verwijst daarnaar; het examenplan zelf, het document dat de examencommissie vaststelt, valt buiten de uitwisseling. Bron: MORA onderscheidt examenplan en summatieve resultaatstructuur op dezelfde manier.
 11. **Een leeruitkomst is een geformuleerde competentie.** `Leeruitkomst` specialiseert `Competenties / Skills`: het is dezelfde informatiestructuur, uitgedrukt op het niveau waarop de instelling formuleert. De onderliggende begrippen kennis, vaardigheid en inzicht staan in het model maar vallen buiten de uitwisseling. Voorstel.
 12. **Een keuzedeelruimte is een oningevuld keuzedeel.** Een keuzedeelruimte is een oningevuld keuzedeel: onderwijskundig vrijgemaakte ruimte van een bepaalde omvang waarin een student een keuzedeel kiest. `Keuzedeel` en `Keuzedeelruimte` zijn losse objecttypen die hetzelfde gat in het programma vullen; daarom specialiseren beide de `Opleidingsprogramma specificatie`. Voorstel.
-13. **Een verzoek leidt tot aanbod.** Het `Verzoek tot Aanbod / Intekening op specificatie` is een verzoek om aanbod te maken voor een specificatie. Het heeft specificaties als input en leidt tot aanbod; of intekenen op bestaand aanbod hetzelfde is, is nog niet vastgesteld. Open vraag voor de kerngroep techniek: wat is intekenen, en is dat een verzoek tot aanbod?
+13. **Een verzoek leidt tot aanbod.** Het `Verzoek tot Aanbod / Intekening op specificatie` is een verzoek om aanbod te maken voor een specificatie. Het heeft specificaties als input en leidt tot aanbod; of intekenen op bestaand aanbod hetzelfde is, is nog niet vastgesteld. Open vraag: wat is intekenen, en is dat een verzoek tot aanbod?
 14. **Student en medewerker zijn rollen van een persoon.** `Student` en `Medewerker` specialiseren `Persoon`; een persoon kan beide tegelijk zijn. Toegang tot de objecttypen loopt via `Persoon`. Voorstel.
 15. **Een verbintenis loopt bij voorkeur via een groep.** `Plaatsingsgroep` maakt regulier onderwijs makkelijker te plannen en te roosteren en geldt voor elk verbintenistype. Het model sluit individuele verbintenissen niet uit. Voorstel.
 
@@ -94,29 +94,29 @@ Het [logisch gegevensmodel](https://github.com/Npuls-OKx/Public/blob/dev/Informa
 | Entiteit (niveau 3) | Objecttype (niveau 2) | Verhouding |
 |---|---|---|
 | `LEERUITKOMST` | `Leeruitkomst` | Gelijk |
-| `ONDERWIJSSPECIFICATIE` | De familie `Onderwijsspecificatie` | Eén entiteit met `specificatieType`; elke waarde daarvan is op de plaat een eigen objecttype |
+| `ONDERWIJSSPECIFICATIE` | De familie `Onderwijsspecificatie` | Eén entiteit met `specificatieType`; de plaat kent de subtypen als objecttypen. De waarden lopen niet één op één: `examenplanspecificatie` en `resultaateenheidspecificatie` horen op de plaat bij de resultaatstructuur, `Keuzedeel` deelt de waarde `opleidingsprogrammaspecificatie`, en `Examenonderdeelspecificatie` heeft nog geen waarde |
 | `OPLEIDINGSSPECIFICATIE` | `Opleiding specificatie` | Gelijk |
 | `OPLEIDINGSPROGRAMMASPECIFICATIE`, `OPLEIDINGSPROGRAMMASPECIFICATIE_LEERWEG`, `OPLEIDINGSPROGRAMMASPECIFICATIE_DOELGROEP` | `Opleidingsprogramma specificatie` | Het logisch model splitst via `programmaLaag` in leerweg en doelgroep; de plaat kent één objecttype. Open: attribuut of eigen objecttype |
 | `ONDERWIJSEENHEIDSPECIFICATIE` | `Onderwijseenheid specificatie` | Gelijk |
 | `LEERONDERDEELSPECIFICATIE` | `Leeronderdeel specificatie` | Gelijk |
-| `TOETSONDERDEELSPECIFICATIE` | `Toetsonderdeel specificatie` | Gelijk. `Examenonderdeelspecificatie` (ontwerpkeuze 9) heeft nog geen eigen entiteit |
+| `TOETSONDERDEELSPECIFICATIE` | `Toetsonderdeel specificatie` | Hetzelfde objecttype, op een andere plek: het logisch model hangt het toetsonderdeel onder de resultaateenheid (de examenplanboom), de plaat onder de onderwijseenheid. Open. `Examenonderdeelspecificatie` (ontwerpkeuze 9) heeft nog geen eigen entiteit |
 | `KEUZEDEELPROGRAMMASPECIFICATIE` | `Keuzedeel` | Gelijk in betekenis; naam verschilt |
 | `KEUZEDEELRUIMTESPECIFICATIE` | `Keuzedeelruimte` | Gelijk in betekenis (ontwerpkeuze 12); naam verschilt |
-| `REGELSET` | `Student keuze regelset` | Gelijk in betekenis (ontwerpkeuze 6); naam verschilt |
-| `EXAMENPLANSPECIFICATIE` | `Examenplan` | Buiten scope op de plaat: OKx wisselt het examenplan niet uit (ontwerpkeuze 10). De entiteit maakt plaats voor de resultaatstructuur |
-| `RESULTAATEENHEIDSPECIFICATIE` | `Summatieve resultaat structuur` met `Toetsonderdeel weging` en `Examenonderdeel weging` | Een knoop in de structuur die weegt; op de plaat zijn structuur en weging aparte objecttypen. `Summatief Afrondingscriterium` heeft nog geen entiteit |
-| `AANBODINSTANTIE` | De familie `Onderwijsaanbod` | Eén entiteit met `aanbodType`, van `Opleidingaanbod` tot `Leergelegenheid`; `Lesgelegenheid` valt buiten de uitwisseling (ontwerpkeuze 8) |
-| `GROEP` | `Plaatsingsgroep` | Gelijk in betekenis (ontwerpkeuze 15); naam verschilt |
+| `REGELSET` | `Student keuze regelset` | Gelijk in betekenis voor de keuzeregels (ontwerpkeuze 6); naam verschilt. Het logisch model gebruikt `REGELSET` ook in de resultaatstructuur, voor welke resultaten meetellen; die tweede betekenis heeft op de plaat geen objecttype. Open |
+| `EXAMENPLANSPECIFICATIE` | `Examenplan` | Buiten scope op de plaat: OKx wisselt het examenplan niet uit (ontwerpkeuze 10). In het logisch model en in `result-structure.json` is het examenplan nog de wortel van de resultaatstructuur; de vervanging door de summatieve resultaatstructuur is in voorbereiding. Tot die tijd spreken laag 2 en laag 3 elkaar hier tegen |
+| `RESULTAATEENHEIDSPECIFICATIE` | `Summatieve resultaat structuur` met `Examenonderdeel weging` | Een knoop in de structuur die weegt; op de plaat zijn structuur en weging aparte objecttypen. `Summatief Afrondingscriterium` is in het logisch model geen entiteit maar de velden `aggregatie` en `resultaatmodel` |
+| `AANBODINSTANTIE` | De familie `Onderwijsaanbod` | Eén entiteit met `aanbodType`; de waarden dekken `Opleidingaanbod` tot `Leergelegenheid`. `Keuzedeelaanbod`, `Toetsgelegenheid`, `Examengelegenheid` en `Opleidingsaanbod van Instelling` hebben nog geen waarde; `Lesgelegenheid` valt buiten de uitwisseling (ontwerpkeuze 8) |
+| `GROEP` | `Plaatsingsgroep` | Dezelfde rol (ontwerpkeuze 15), niet dezelfde inhoud: het logisch model kent de groep als naam met capaciteit onder een aanbodinstantie, de plaat als verzameling personen met verbintenissen. Open |
 | `LOCATIE` | Geen objecttype | Op de plaat een kenmerk van het aanbod (plek), geen eigen objecttype. Nog niet besproken |
 | `ORGANISATIE_EENHEID` | Geen objecttype | Nog niet aan bod gekomen in de analyses |
 
-De families `Kwalificatiekader mbo`, `Onderwijsverbintenis` en `Onderwijsresultaat` en de objecttypen buiten de kolommen hebben nog geen entiteit met velden; het logisch model beschrijft ze alleen in de koppelingsbeelden. Ze volgen zodra de koppelingen die ze dragen worden uitgewerkt.
+De families `Onderwijsverbintenis` en `Onderwijsresultaat`, de `Formatieve resultaat structuur` en de objecttypen buiten de kolommen hebben nog geen entiteit met velden; het logisch model beschrijft ze alleen in de koppelingsbeelden (`ONDERWIJSRESULTAAT`, `TOETSONDERDEELRESULTAAT`, `ROOSTER`, `ONDERWIJSTEAM`). Ze volgen zodra de koppelingen die ze dragen worden uitgewerkt. Het `Kwalificatiekader mbo` is in het logisch model geen entiteit maar de bron van een leeruitkomst (`leeruitkomst.bron`); dat is een ontwerpbeslissing van laag 3, geen leemte.
 
 ## Verwante documenten
 
 | Document | Verhouding |
 |---|---|
-| [Mapping naar OEAPI v6](informatiemodel-oeapi-mapping.md) | Dezelfde objecttypen met de Open Onderwijs API ernaast |
+| [Mapping naar OEAPI v6](informatiemodel-oeapi-mapping.md) | Dezelfde objecttypen met de Open Education API ernaast |
 | [Begrippenlijst OKx](../../docs/specificatie/begrippen/begrippenlijst.md) | Geeft per begrip de definitie, de bron en de mapping naar MORA en het Kernmodel Onderwijsinformatie |
 | [Begrippenkader](../../docs/specificatie/leerroute-uitwerking/doc/begrippenkader.md) | Werkt de begrippen, hun subtypen en de normatieve cardinaliteiten verder uit |
 | [Logisch gegevensmodel](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/logisch-gegevensmodel.md) | Werkt deze objecttypen uit tot entiteiten met velden; de brug staat hierboven |

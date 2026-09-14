@@ -3,6 +3,7 @@
 import importlib.util
 import json
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -121,6 +122,62 @@ class Vindplaatsen(unittest.TestCase):
         fouten = []
         publiceer.controleer_vindplaatsen(begrippen, "", fouten)
         self.assertEqual(fouten, [])
+
+
+class Teksten(unittest.TestCase):
+    def test_given_statuszin_in_informatiemodel_when_herschreven_then_weg(self):
+        fouten = []
+        bron = "".join(oud for oud, _ in publiceer.TEKSTEN["informatiemodel.md"])
+        with tempfile.TemporaryDirectory() as tmp:
+            # De omgezette teksten verwijzen naar documenten van het pakket zelf.
+            (Path(tmp) / "logisch-gegevensmodel.md").write_text("# lgm\n", encoding="utf-8")
+            uit = publiceer.herschrijf(bron, COMMIT, Path(tmp), fouten, "informatiemodel.md")
+        self.assertNotIn("Versie v0.1", uit)
+        self.assertNotIn(" in Public", uit)
+        self.assertEqual(fouten, [])
+
+    def test_given_verwachte_tekst_ontbreekt_when_herschreven_then_fout(self):
+        fouten = []
+        publiceer.herschrijf("niets van dit alles", COMMIT, Path("/nergens"), fouten, "begrippen.md")
+        self.assertTrue(fouten and all("verwachte tekst niet gevonden" in f for f in fouten))
+
+    def test_given_linktekst_met_metanaam_when_herschreven_then_publicnaam(self):
+        fouten = []
+        uit = publiceer.herschrijf("[leerroute-uitwerking-lr1.md](../leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#x)",
+                                   COMMIT, Path("/nergens"), fouten, "test.md")
+        self.assertTrue(uit.startswith("[leerroute-1-regulier.md]("))
+
+
+class BegrippenJson(unittest.TestCase):
+    BRON = {"versie": "0.2", "werkvoorraad": ["x"], "negeerlijst": ["dev"], "indeling_negeerlijst": [],
+            "begrippen": [{"naam": "A", "vindplaats": "architecture/model/informatiemodel/informatiemodel.md#ontwerpkeuzes",
+                           "toelichting": {"vindplaats": "architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#y"}},
+                          {"naam": "B", "vindplaats": "https://mora.example/x"},
+                          {"naam": "C", "vindplaats": None}]}
+
+    def test_given_werkproces_sleutels_when_omgezet_then_weg(self):
+        uit = publiceer.begrippen_voor_public(self.BRON, [])
+        self.assertEqual(set(uit), {"versie", "begrippen"})
+
+    def test_given_meta_vindplaatsen_when_omgezet_then_public_paden_met_anchor(self):
+        fouten = []
+        uit = publiceer.begrippen_voor_public(self.BRON, fouten)
+        self.assertEqual(uit["begrippen"][0]["vindplaats"], "informatiemodel.md#ontwerpkeuzes")
+        self.assertEqual(uit["begrippen"][0]["toelichting"]["vindplaats"], publiceer.KADERSCENARIO + "#y")
+        self.assertEqual(uit["begrippen"][1]["vindplaats"], "https://mora.example/x")
+        self.assertIsNone(uit["begrippen"][2]["vindplaats"])
+        self.assertEqual(fouten, [])
+
+    def test_given_onbekende_vindplaats_when_omgezet_then_fout(self):
+        fouten = []
+        bron = {"begrippen": [{"naam": "A", "vindplaats": "architecture/elders.md#z"}]}
+        publiceer.begrippen_voor_public(bron, fouten)
+        self.assertEqual(len(fouten), 1)
+
+    def test_given_bron_when_omgezet_then_bron_onveranderd(self):
+        kopie = json.loads(json.dumps(self.BRON))
+        publiceer.begrippen_voor_public(self.BRON, [])
+        self.assertEqual(self.BRON, kopie)
 
 
 class Tabel(unittest.TestCase):

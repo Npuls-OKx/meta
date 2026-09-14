@@ -57,10 +57,11 @@ DOCUMENTEN = {
 BESTANDEN = {
     MODELMAP / "OKx informatiemodel v0.1.jpg": "img/informatiemodel.jpg",
     MODELMAP / "OKx informatiemodel en mapping OEAPI v0.1.jpg": "img/informatiemodel-oeapi-mapping.jpg",
-    MODELMAP / "informatiemodel.json": "informatiemodel.json",
-    BEGRIPPENMAP / "begrippen.json": "begrippen.json",
     BEGRIPPENMAP / "referentiekaders.json": "referentiekaders.json",
 }
+# informatiemodel.json en begrippen.json worden niet gekopieerd maar herschreven: de
+# modelverwijzing gepind, de werkvoorraad en negeerlijst eruit, de vindplaatsen omgezet.
+JSON_UITVOER = ("informatiemodel.json", "begrippen.json")
 
 # Verwijzingen zoals ze in de meta-documenten staan, en waar ze in Public heen wijzen.
 # {commit} wordt de gepinde meta-commit. Een pad met anchor houdt zijn anchor, tenzij
@@ -91,6 +92,40 @@ VERWIJZINGEN = {
 # Een ADR-verwijzing naar Public dev wordt relatief; het bestand zelf blijft gelijk.
 ADR_PREFIX = PUBLIC_DEV + "Referentiemateriaal/adr/"
 
+# Linkteksten die de meta-bestandsnaam noemen krijgen de Public-naam.
+LINKTEKSTEN = {"leerroute-uitwerking-lr1.md": "leerroute-1-regulier.md",
+               "Begrippenkader leerroute-uitwerking": "Ankertabel kaderscenario leerroute 1"}
+
+# Zinnen die alleen in meta kloppen. Per document: (meta-tekst, Public-tekst). Elke
+# meta-tekst moet voorkomen, anders is het brondocument veranderd en faalt het script:
+# liever dat dan een statuszin of een verkeerd perspectief in een gereleased document.
+# Statuszinnen vervallen: U10 van de koppelvlakspecificatie laat geen statusaanduiding
+# in de inhoud toe; de status staat in de pull request en de git-historie.
+TEKSTEN = {
+    "informatiemodel.md": [
+        (" Versie v0.1, concept; ter bekrachtiging door de kerngroep techniek.", ""),
+        (" in Public (MIM-niveau 3) zet", " (MIM-niveau 3) zet"),
+        ("het [logisch gegevensmodel](logisch-gegevensmodel.md) in Public; de", "het [logisch gegevensmodel](logisch-gegevensmodel.md) in dit pakket; de"),
+        ("gegenereerd uit `model.archimate`", "gegenereerd uit het ArchiMate-model in de meta-repository"),
+    ],
+    "informatiemodel-oeapi-mapping.md": [
+        (" Versie v0.1, concept; de oordelen per objecttype zijn voorlopig tot de kerngroep techniek ze bekrachtigt.", ""),
+        ("](logisch-gegevensmodel.md) in Public.", "](logisch-gegevensmodel.md) in dit pakket."),
+        ("ligt bij de kerngroep techniek", "ligt bij de kerngroep techniek van OKx, het technisch overleg met instellingen en leveranciers"),
+        ("gegenereerd uit `model.archimate`", "gegenereerd uit het ArchiMate-model in de meta-repository"),
+    ],
+    "begrippen.md": [
+        ("Versie v0.2, concept. De kaders zijn geraadpleegd op 2026-09-14.", "De kaders zijn geraadpleegd op 14 september 2026."),
+        ("Elke term tussen backquotes in meta en Public, met vindplaatsen", "Elke term tussen backquotes in de meta-repository en in dit repository, met vindplaatsen"),
+    ],
+}
+# Sleutels in begrippen.json die bij het werkproces horen en niet mee naar Public gaan.
+WERKPROCES_SLEUTELS = ("werkvoorraad", "negeerlijst", "indeling_negeerlijst")
+VINDPLAATSEN = {
+    "architecture/model/informatiemodel/informatiemodel.md": "informatiemodel.md",
+    "architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md": KADERSCENARIO,
+}
+
 LINK = re.compile(r"(!?)\[([^\]]*)\]\(<?([^)>]+?)>?\)")
 ENTITEIT = re.compile(r"^\s{4}([A-Z][A-Z0-9_]+)\s*\{", re.MULTILINE)
 BACKQUOTE = re.compile(r"`([^`]+)`")
@@ -116,7 +151,7 @@ def herschrijf_verwijzing(doel: str, commit: str, pakketmap: Path, fouten: list,
         return doel
     elif pad == "":
         return doel  # anchor binnen hetzelfde document
-    elif (pakketmap / pad).exists() or pad in DOCUMENTEN.values() or pad in BESTANDEN.values():
+    elif (pakketmap / pad).exists() or pad in DOCUMENTEN.values() or pad in BESTANDEN.values() or pad in JSON_UITVOER:
         return doel  # lost binnen het pakket op
     else:
         fouten.append(f"{waar}: onbekende verwijzing, niet in de tabel en niet in het pakket: {doel}")
@@ -131,8 +166,36 @@ def herschrijf(inhoud: str, commit: str, pakketmap: Path, fouten: list, waar: st
         beeld, tekst, doel = m.group(1), m.group(2), m.group(3)
         nieuw = herschrijf_verwijzing(doel, commit, pakketmap, fouten, waar)
         haakjes = f"<{nieuw}>" if " " in nieuw else nieuw
-        return f"{beeld}[{tekst}]({haakjes})"
-    return LINK.sub(vervang, inhoud)
+        return f"{beeld}[{LINKTEKSTEN.get(tekst, tekst)}]({haakjes})"
+    uit = LINK.sub(vervang, inhoud)
+    for oud, nieuw in TEKSTEN.get(waar, []):
+        if oud not in uit:
+            fouten.append(f"{waar}: verwachte tekst niet gevonden, is de bron veranderd? {oud[:60]!r}")
+        uit = uit.replace(oud, nieuw)
+    return uit
+
+
+def begrippen_voor_public(begrippen: dict, fouten: list) -> dict:
+    """begrippen.json zonder werkvoorraad en negeerlijst, met vindplaatsen binnen Public."""
+    uit = {k: v for k, v in begrippen.items() if k not in WERKPROCES_SLEUTELS}
+    uit["begrippen"] = []
+    def omgezet(v: str) -> str:
+        if not v or v.startswith("http") or v.startswith("Npuls-OKx/"):
+            return v
+        pad, _, anchor = v.partition("#")
+        if pad not in VINDPLAATSEN:
+            fouten.append(f"begrippen.json: vindplaats zonder Public-tegenhanger: {v}")
+            return v
+        return VINDPLAATSEN[pad] + (f"#{anchor}" if anchor else "")
+
+    for b in begrippen["begrippen"]:
+        b = dict(b)
+        b["vindplaats"] = omgezet(b.get("vindplaats"))
+        for sleutel in ("afgeleid_van", "toelichting"):
+            if isinstance(b.get(sleutel), dict) and b[sleutel].get("vindplaats"):
+                b[sleutel] = dict(b[sleutel], vindplaats=omgezet(b[sleutel]["vindplaats"]))
+        uit["begrippen"].append(b)
+    return uit
 
 
 def controleer_brug(informatiemodel_md: str, lgm: str, model: dict, fouten: list) -> None:
@@ -213,7 +276,16 @@ def publiceer(doel: Path, commit: str, alleen_controle: bool) -> list:
     for bron, naam in BESTANDEN.items():
         (pakketmap / naam).parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(bron, pakketmap / naam)
+    schrijf_json(pakketmap / "begrippen.json", begrippen_voor_public(begrippen, fouten))
+    model["bron"]["model"] = META_BLOB.format(commit=commit) + "architecture/model/model.archimate"
+    schrijf_json(pakketmap / "informatiemodel.json", model)
     return fouten
+
+
+def schrijf_json(doel: Path, data: dict) -> None:
+    tekst = json.dumps(data, ensure_ascii=False, indent=2) + "\n"
+    json.loads(tekst)
+    doel.write_text(tekst, encoding="utf-8")
 
 
 def main(argv: list[str]) -> int:
