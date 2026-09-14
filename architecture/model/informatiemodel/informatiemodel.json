@@ -1093,12 +1093,6 @@
     },
     {
       "soort": "Association",
-      "van": "Opleidingsprogramma aanbod",
-      "naar": "Verzoek tot Aanbod / Intekening op specificatie",
-      "label": "Leidt tot"
-    },
-    {
-      "soort": "Association",
       "van": "Opleidingsprogramma aanbod verbintenis",
       "naar": "Opleidingsprogramma resultaat",
       "label": null
@@ -1335,6 +1329,12 @@
       "soort": "Association",
       "van": "Verzoek tot Aanbod / Intekening op specificatie",
       "naar": "Opleidingaanbod",
+      "label": "Leidt tot"
+    },
+    {
+      "soort": "Association",
+      "van": "Verzoek tot Aanbod / Intekening op specificatie",
+      "naar": "Opleidingsprogramma aanbod",
       "label": "Leidt tot"
     },
     {
