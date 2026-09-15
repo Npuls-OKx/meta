@@ -235,11 +235,84 @@ flowchart LR
 
 # Interactiepatronen
 
-<div class="np-card accent-blue" style="margin-top: 2.2rem; max-width: 85%;">
-  <p style="font-size: 1.45rem; line-height: 1.6; color: var(--np-ink); margin: 0;">Een verzameling generieke interactiepatronen waarmee berichtstromen worden gerealiseerd.</p>
+<div style="font-size: 1.0rem; line-height: 1.6; margin-top: 0.4rem;">
+Een interactiepatroon beschrijft hoe twee partijen informatie uitwisselen, los van welke partijen dat zijn en welke informatie het betreft. Een koppelingspecificatie kiest per interactie een patroon en vult het in; het patroon staat één keer, in rollen: de <strong>bezitter</strong> van de resource en de <strong>consument</strong>.
+</div>
+
+<div style="font-size: 0.86rem; line-height: 1.4; margin-top: 0.8rem; max-width: 92%;">
+
+| Patroon | Waarvoor | Naam uit |
+|---|---|---|
+| [Event Notification](https://github.com/Npuls-OKx/Public/blob/feature/restructure-and-versioning/Koppelvlakspecificaties/Interactiepatronen/event-notification.md) | De bezitter meldt dat er iets is; de consument haalt het op wanneer het hem uitkomt | Fowler |
+| [Event-Carried State Transfer](https://github.com/Npuls-OKx/Public/blob/feature/restructure-and-versioning/Koppelvlakspecificaties/Interactiepatronen/event-carried-state-transfer.md) | Het event draagt de wijziging zelf; de ontvanger hoeft niets op te halen | Fowler |
+| [Asynchronous Request-Reply](https://github.com/Npuls-OKx/Public/blob/feature/restructure-and-versioning/Koppelvlakspecificaties/Interactiepatronen/asynchronous-request-reply.md) | De verwerking duurt; de uitkomst komt terug als apart bericht | Azure Cloud Design Patterns, AIP-151 |
+| [Request-Reply](https://github.com/Npuls-OKx/Public/blob/feature/restructure-and-versioning/Koppelvlakspecificaties/Interactiepatronen/request-reply.md) | De afnemer vraagt zelf op, zonder voorafgaand event | Enterprise Integration Patterns |
+| [Subscription registration](https://github.com/Npuls-OKx/Public/blob/feature/restructure-and-versioning/Koppelvlakspecificaties/Interactiepatronen/subscription-registration.md) | Vastleggen waar events afgeleverd mogen worden | WebSub (W3C), CloudEvents Subscriptions |
+
+</div>
+
+<div style="font-size: 0.85rem; color: var(--np-dark-gray); margin-top: 0.7rem;">
+Vijf patronen, alle uit bestaande catalogi onder de naam die daar geldt. Bron: <code>Koppelvlakspecificaties/Interactiepatronen/</code> in Public PR 100.
 </div>
 
 </div>
+
+<!--
+Uit de README van de interactiepatronen op de branch van Public PR 100. Twee onderscheidingen
+bepalen de keuze: of het event genoeg draagt om zonder opvraag te handelen scheidt de eerste
+twee; wie begint scheidt de derde van de vierde. Wie bezitter en wie consument is volgt uit
+resource-eigenaarschap (U3) en wisselt per resource, ook binnen een koppeling. De eisen aan
+aflevering, idempotentie, foutafhandeling en volgorde staan in ADR 0018.
+-->
+
+---
+
+<!-- VOORBEELD INTERACTIEPATROON -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# Voorbeeld: Event Notification
+
+<div class="np-grid-2" style="margin-top: 0.4rem; gap: 1.6rem; align-items: start; grid-template-columns: 1.15fr 1fr;">
+<div>
+
+```mermaid
+sequenceDiagram
+    autonumber
+    participant B as Bezitter
+    participant C as Consument
+    Note over B: De resource wijzigt
+    B-)C: Event: resource-id en versie
+    Note over C: Moment van ophalen bepaalt de consument
+    C->>B: Opvraag op id en versie
+    B-->>C: De resource, of de delta tussen twee versies
+```
+
+</div>
+<div style="font-size: 0.95rem; line-height: 1.6;">
+
+- Het event draagt de aanleiding, de opvraag draagt de inhoud
+- De consument kiest het moment en de vorm: de volledige structuur of de delta
+- Een gemist event is herstelbaar, want de inhoud blijft bij de bezitter
+- Geen bevestiging en geen termijn; wil de bezitter de uitkomst weten, dan is dat Asynchronous Request-Reply
+
+<div class="np-card" style="margin-top: 0.8rem; font-size: 0.9rem;">
+Vastgelegd als uitgangspunt U4. Toegepast in alle drie de koppelingen: de onderwijscatalogus meldt dat een specificatie planbaar, beschikbaar of gewijzigd is; planning, SIS en LMS halen de structuur of de delta op.
+</div>
+
+</div>
+</div>
+
+</div>
+
+<!--
+Uit event-notification.md op de branch van Public PR 100. De naam en afbakening komen van
+Martin Fowler; dat het bericht een verwijzing draagt in plaats van de inhoud is Claim Check,
+in CloudEvents het attribuut dataref. Het event is idempotent op event-id en de volgorde blijft
+behouden per resource-id. Het verschil met Event-Carried State Transfer: daar is een verloren
+bericht verloren informatie, hier haalt de consument alsnog op met Request-Reply.
+-->
 
 ---
 
