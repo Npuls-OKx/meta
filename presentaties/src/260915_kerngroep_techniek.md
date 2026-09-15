@@ -323,20 +323,32 @@ bericht verloren informatie, hier haalt de consument alsnog op met Request-Reply
 
 # Voorbeeld uit de koppelvlakspecificatie
 
-<div style="margin-top: 1.4rem;">
+<div style="font-size: 0.95rem; color: var(--np-dark-gray); margin-top: 0.3rem;">Dezelfde bouwblokken, ingevuld voor één berichtstroom.</div>
 
-```mermaid {scale: 0.62}
-%%{init: {"flowchart": {"wrappingWidth": 460}}}%%
-flowchart LR
-  KV["Koppelvlakspecificatie"] -->|bevat| K["Onderwijscatalogus naar<br/>planning en roostering"]
-  K -->|bevat| D["Opleidingsaanbod aanmaken<br/><i>1 van 7 berichtstromen</i>"]
-  D -->|gebruikt| A["onderwijsspecificatiestructuur-aanbieder<br/>onderwijsspecificatiestructuur-afnemer<br/>verwerkingsuitkomst-afnemer<br/>planbaar-onderwijsaanbod-aanbieder"]
-  D -->|gerealiseerd met| I["Event Notification<br/>Asynchronous Request-Reply"]
-```
+<div style="display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:0.6rem;align-items:center;margin-top:1.2rem;">
+<div class="np-card" style="border-top-color:#B8BEC7;padding:0.7rem 0.9rem;"><div style="font-size:0.7rem;letter-spacing:1px;text-transform:uppercase;color:var(--np-mid-gray);margin-bottom:0.35rem;">Koppelvlakspecificatie</div><div style="font-size:0.95rem;line-height:1.4;color:var(--np-ink);">Koppelvlakspecificatie OKx, versie 0.0.2 in Public PR 100</div></div>
+<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--np-mid-gray);font-size:0.72rem;"><span>bevat</span><svg width="34" height="16" viewBox="0 0 34 16"><line x1="0" y1="8" x2="26" y2="8" stroke="#6B7280" stroke-width="2"/><polygon points="26,3 34,8 26,13" fill="#6B7280"/></svg></div>
+<div class="np-card" style="border-top-color:#7A97F2;padding:0.7rem 0.9rem;"><div style="font-size:0.7rem;letter-spacing:1px;text-transform:uppercase;color:var(--np-mid-gray);margin-bottom:0.35rem;">Koppelingspecificatie</div><div style="font-size:0.95rem;line-height:1.4;color:var(--np-ink);">Onderwijscatalogus naar planning en roostering</div></div>
+<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--np-mid-gray);font-size:0.72rem;"><span>bevat</span><svg width="34" height="16" viewBox="0 0 34 16"><line x1="0" y1="8" x2="26" y2="8" stroke="#6B7280" stroke-width="2"/><polygon points="26,3 34,8 26,13" fill="#6B7280"/></svg></div>
+<div class="np-card" style="border-top-color:#7CCBA8;padding:0.7rem 0.9rem;"><div style="font-size:0.7rem;letter-spacing:1px;text-transform:uppercase;color:var(--np-mid-gray);margin-bottom:0.35rem;">Berichtstroom</div><div style="font-size:0.95rem;line-height:1.4;color:var(--np-ink);"><strong>Opleidingsaanbod aanmaken</strong><br/><span style="font-size:0.82rem;color:var(--np-dark-gray);">1 van 7 berichtstromen, versie 1.0</span></div></div>
+</div>
 
+<div style="display:grid;grid-template-columns:1fr auto 1.6fr;gap:0.6rem 0.8rem;align-items:center;margin-top:0.9rem;">
+<div></div><div style="display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--np-mid-gray);font-size:0.72rem;"><span>gebruikt</span><svg width="34" height="16" viewBox="0 0 34 16"><line x1="0" y1="8" x2="26" y2="8" stroke="#6B7280" stroke-width="2"/><polygon points="26,3 34,8 26,13" fill="#6B7280"/></svg></div><div class="np-card" style="border-top-color:#E9A27F;padding:0.7rem 0.9rem;font-size:0.85rem;"><div style="font-size:0.7rem;letter-spacing:1px;text-transform:uppercase;color:var(--np-mid-gray);margin-bottom:0.35rem;">Applicatiediensten</div><div style="font-size:0.95rem;line-height:1.4;color:var(--np-ink);"><code>onderwijsspecificatiestructuur-afnemer</code><br/><code>onderwijsspecificatiestructuur-aanbieder</code><br/><code>verwerkingsuitkomst-afnemer</code><br/><code>planbaar-onderwijsaanbod-aanbieder</code></div></div>
+<div></div><div style="display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--np-mid-gray);font-size:0.72rem;"><span>gerealiseerd met</span><svg width="34" height="16" viewBox="0 0 34 16"><line x1="0" y1="8" x2="26" y2="8" stroke="#6B7280" stroke-width="2"/><polygon points="26,3 34,8 26,13" fill="#6B7280"/></svg></div><div class="np-card" style="border-top-color:#00AF81;padding:0.7rem 0.9rem;"><div style="font-size:0.7rem;letter-spacing:1px;text-transform:uppercase;color:var(--np-mid-gray);margin-bottom:0.35rem;">Interactiepatronen</div><div style="font-size:0.95rem;line-height:1.4;color:var(--np-ink);">Event Notification<br/>Asynchronous Request-Reply</div></div>
 </div>
 
 </div>
+
+<!--
+Uit Koppelvlakspecificaties/Koppelingspecificaties/onderwijscatalogus-planning-en-roostering.md
+op de branch van Public PR 100. De koppeling kent zeven berichtstromen: opleidingsaanbod
+aanmaken, opleidingsaanbod herplannen, planning niet gelukt melden, acceptatietoets bij late
+wijziging, specificatiestatus gewijzigd melden, reconciliatie na gemist event, abonnement
+registreren. Opleidingsaanbod aanmaken (versie 1.0) gebruikt vier applicatiediensten en twee
+patronen: de onderwijscatalogus meldt dat een specificatie planbaar is (Event Notification),
+planning haalt de structuur op en meldt de verwerkingsuitkomst terug (Asynchronous Request-Reply).
+-->
 
 ---
 
