@@ -866,6 +866,45 @@ inschrijving. Open: of de fasering van aanbod een toestand is of eigen objecttyp
 
 ---
 
+<!-- 17a2. VERBINTENIS EN VERZOEK -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# Verbintenissen bestaan alleen op aanbod. Hoe dan met intekenen?
+
+<div class="np-grid-2" style="margin-top: 0.5rem; gap: 1.4rem; align-items: start;">
+<div class="np-card" style="border-top-color:#00AF81;padding:0.7rem 1rem;">
+<strong>Aanmelden en inschrijven: middels een verbintenis</strong>
+<svg width="100%" viewBox="0 0 400 150" style="display:block;margin:0.3rem 0 0.1rem;"><rect x="4" y="16" width="88" height="40" rx="7" fill="#FFFFFF" stroke="#7A97F2" stroke-width="2"/><text x="48.0" y="40.0" text-anchor="middle" fill="#1B1B2F" style="font-size:11px;font-weight:700;font-family:inherit">Persoon</text><rect x="156" y="16" width="88" height="40" rx="7" fill="#00AF81" stroke="#00AF81" stroke-width="2"/><text x="200.0" y="35.0" text-anchor="middle" fill="#FFFFFF" style="font-size:11px;font-weight:700;font-family:inherit">Aanmelding</text><text x="200.0" y="49.0" text-anchor="middle" fill="#FFFFFF" style="font-size:9px;font-family:inherit">wordt Inschrijving</text><rect x="308" y="16" width="88" height="40" rx="7" fill="#FFFFFF" stroke="#00AF81" stroke-width="2"/><text x="352.0" y="40.0" text-anchor="middle" fill="#1B1B2F" style="font-size:11px;font-weight:700;font-family:inherit">Aanbod</text><rect x="156" y="100" width="88" height="40" rx="7" fill="#00AF81" stroke="#00AF81" stroke-width="2"/><text x="200.0" y="124.0" text-anchor="middle" fill="#FFFFFF" style="font-size:11px;font-weight:700;font-family:inherit">Verbintenis</text><line x1="92" y1="36.0" x2="156" y2="36.0" stroke="#6B7280" stroke-width="2"/><polygon points="156,36.0 148.0,32.0 148.0,40.0" fill="#6B7280"/><text x="124.0" y="28.0" text-anchor="middle" fill="#6B7280" style="font-size:9px;font-family:inherit">doet</text><line x1="308" y1="36.0" x2="244" y2="36.0" stroke="#6B7280" stroke-width="2"/><polygon points="244,36.0 252.0,40.0 252.0,32.0" fill="#6B7280"/><text x="276.0" y="28.0" text-anchor="middle" fill="#6B7280" style="font-size:9px;font-family:inherit">op basis van</text><line x1="200.0" y1="56" x2="200.0" y2="100" stroke="#6B7280" stroke-width="2"/><polygon points="200.0,100 204.0,92.0 196.0,92.0" fill="#6B7280"/><text x="228.0" y="82" text-anchor="middle" fill="#6B7280" style="font-size:9px;font-family:inherit">middels</text></svg>
+<div style="font-size:0.86rem;line-height:1.4;color:var(--np-dark-gray);">De verbintenis is de afspraak op het aanbod. Een aanmelding gaat op aanbod, loopt via een verbintenis en wordt een inschrijving: beide zijn uit te wisselen omdat er aanbod is om aan te hangen.</div>
+</div>
+<div class="np-card" style="border-top-color:#E9A27F;padding:0.7rem 1rem;">
+<strong>Intekenen: nog geen aanbod, dus geen verbintenis</strong>
+<svg width="100%" viewBox="0 0 400 150" style="display:block;margin:0.3rem 0 0.1rem;"><rect x="4" y="16" width="88" height="40" rx="7" fill="#FFFFFF" stroke="#7A97F2" stroke-width="2"/><text x="48.0" y="40.0" text-anchor="middle" fill="#1B1B2F" style="font-size:11px;font-weight:700;font-family:inherit">Persoon</text><rect x="156" y="16" width="88" height="40" rx="7" fill="#E9A27F" stroke="#E9A27F" stroke-width="2"/><text x="200.0" y="35.0" text-anchor="middle" fill="#FFFFFF" style="font-size:9px;font-weight:700;font-family:inherit">Verzoek tot aanbod</text><text x="200.0" y="49.0" text-anchor="middle" fill="#FFFFFF" style="font-size:9px;font-family:inherit">intekening</text><rect x="308" y="16" width="88" height="40" rx="7" fill="#FFFFFF" stroke="#7A97F2" stroke-width="2"/><text x="352.0" y="40.0" text-anchor="middle" fill="#1B1B2F" style="font-size:11px;font-weight:700;font-family:inherit">Specificatie</text><rect x="156" y="100" width="88" height="40" rx="7" fill="#FFFFFF" stroke="#00AF81" stroke-width="2"/><text x="200.0" y="124.0" text-anchor="middle" fill="#1B1B2F" style="font-size:11px;font-weight:700;font-family:inherit">Aanbod</text><line x1="92" y1="36.0" x2="156" y2="36.0" stroke="#6B7280" stroke-width="2"/><polygon points="156,36.0 148.0,32.0 148.0,40.0" fill="#6B7280"/><text x="124.0" y="28.0" text-anchor="middle" fill="#6B7280" style="font-size:9px;font-family:inherit">doet</text><line x1="308" y1="36.0" x2="244" y2="36.0" stroke="#6B7280" stroke-width="2"/><polygon points="244,36.0 252.0,40.0 252.0,32.0" fill="#6B7280"/><text x="276.0" y="28.0" text-anchor="middle" fill="#6B7280" style="font-size:9px;font-family:inherit">input voor</text><line x1="200.0" y1="56" x2="200.0" y2="100" stroke="#6B7280" stroke-width="2"/><polygon points="200.0,100 204.0,92.0 196.0,92.0" fill="#6B7280"/><text x="228.0" y="82" text-anchor="middle" fill="#6B7280" style="font-size:9px;font-family:inherit">leidt tot</text></svg>
+<div style="font-size:0.86rem;line-height:1.4;color:var(--np-dark-gray);">Concept: het <code>Verzoek tot Aanbod</code> (request for offering) als eigen objecttype. Specificaties zijn de input, het leidt tot aanbod; zodra dat er is volgt de bevestiging en daarmee de aanmelding.</div>
+</div>
+</div>
+
+<div class="np-card" style="margin-top: 0.7rem; font-size: 0.93rem; line-height: 1.45; padding: 0.55rem 1rem;">
+<strong>Vraag:</strong> is een verzoek tot aanbod als eigen objecttype de juiste manier om intekenen zonder verbintenis uit te wisselen, of zien jullie een andere?
+</div>
+
+</div>
+
+<!--
+Op de plaat: de aanmelding gaat Op basis van een aanbod en middels een verbintenis, en wordt
+een inschrijving; de inschrijving staat in de kolom Onderwijsverbintenis. Intekenen gebeurt op
+een specificatie, en een verbintenis is per definitie een afspraak op aanbod (Kernmodel
+Onderwijsinformatie: het gaan volgen, volgen en hebben gevolgd van onderwijs). Daarom staat het
+Verzoek tot Aanbod / Intekening op specificatie als eigen objecttype buiten de kolommen, met
+Input voor vanuit de specificaties en Leidt tot naar het aanbod. Het sluit aan op ADR 0015,
+Request for Offering: de haalbaarheidstoets tussen studentkeuze en planning. Uit de afstemming
+van 14 september: intekenen op specificatie kan, aanmelden en inschrijven op aanbod.
+-->
+
+---
+
 <!-- 17b. GEVRAAGD OP HET INFORMATIEMODEL -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
