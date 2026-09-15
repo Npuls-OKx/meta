@@ -61,37 +61,41 @@ en 4 samen.
 
 <div class="fill">
 
-# Wat er ligt, en wat er terugkwam
+# Meer tijd gevraagd op 1 september: hoe staat het ermee?
 
-<div style="font-size: 0.95rem; line-height: 1.5; margin-top: 0.2rem; color: var(--np-dark-gray);">
-Op 1 september klonk: wij lopen achter en moeten inhalen. Twee weken later, van 1 tot 15 september.
+<div style="font-size: 0.95rem; line-height: 1.55; margin-top: 0.2rem; color: var(--np-dark-gray);">
+Die vraag is gehoord. Ondertussen werkt het kernteam door, zodat er iets ligt om op te reageren zodra de tijd er is.
 </div>
 
-<div style="margin-top:0.8rem;max-width:94%;">
-<div style="display:grid;grid-template-columns:8rem 1fr;gap:0.8rem;align-items:center;padding:0.55rem 0;border-top:1px solid #E5E7EB;"><div style="font-weight:700;color:#7A97F2;font-size:0.95rem;">Kernteam levert</div><div><span style="display:inline-block;padding:0.25rem 0.6rem;border-radius:6px;margin:0.15rem 0.3rem 0.15rem 0;font-size:0.8rem;line-height:1.3;background:#7A97F2;color:#fff;">v0.0.2 ter review, Public PR 82</span><span style="display:inline-block;padding:0.25rem 0.6rem;border-radius:6px;margin:0.15rem 0.3rem 0.15rem 0;font-size:0.8rem;line-height:1.3;background:#7A97F2;color:#fff;">applicatiediensten en versionering, Public PR 100</span><span style="display:inline-block;padding:0.25rem 0.6rem;border-radius:6px;margin:0.15rem 0.3rem 0.15rem 0;font-size:0.8rem;line-height:1.3;background:#7A97F2;color:#fff;">informatiemodel en begrippen, Public PR 104</span><span style="display:inline-block;padding:0.25rem 0.6rem;border-radius:6px;margin:0.15rem 0.3rem 0.15rem 0;font-size:0.8rem;line-height:1.3;background:#fff;border:1.5px solid #7A97F2;color:var(--np-ink);">7 PR's gemerged</span><span style="display:inline-block;padding:0.25rem 0.6rem;border-radius:6px;margin:0.15rem 0.3rem 0.15rem 0;font-size:0.8rem;line-height:1.3;background:#fff;border:1.5px solid #7A97F2;color:var(--np-ink);">64 commits op dev</span><span style="display:inline-block;padding:0.25rem 0.6rem;border-radius:6px;margin:0.15rem 0.3rem 0.15rem 0;font-size:0.8rem;line-height:1.3;background:#fff;border:1.5px solid #7A97F2;color:var(--np-ink);">16 issues gesloten</span></div></div>
-<div style="display:grid;grid-template-columns:8rem 1fr;gap:0.8rem;align-items:center;padding:0.55rem 0;border-top:1px solid #E5E7EB;"><div style="font-weight:700;color:#E9A27F;font-size:0.95rem;">Kerngroep reageert</div><div><span style="display:inline-block;padding:0.25rem 0.6rem;border-radius:6px;margin:0.15rem 0.3rem 0.15rem 0;font-size:0.8rem;line-height:1.3;background:#fff;border:1.5px solid #E9A27F;color:var(--np-ink);">1 september: demo-opmerkingen op PR 82</span><span style="display:inline-block;padding:0.25rem 0.6rem;border-radius:6px;margin:0.15rem 0.3rem 0.15rem 0;font-size:0.8rem;line-height:1.3;background:#E9A27F;color:#fff;">Xedule en YNC: pdf per story, Public #99</span><span style="display:inline-block;padding:0.25rem 0.6rem;border-radius:6px;margin:0.15rem 0.3rem 0.15rem 0;font-size:0.8rem;line-height:1.3;background:#E9A27F;color:#fff;">14 september: 28 opmerkingen van Kees en Luke, PR 82</span><span style="display:inline-block;padding:0.25rem 0.6rem;border-radius:6px;margin:0.15rem 0.3rem 0.15rem 0;font-size:0.8rem;line-height:1.3;background:#fff;border:1.5px solid #E9A27F;color:var(--np-ink);">formele reviews ingediend: 0</span></div></div>
+<div class="np-grid-2" style="margin-top: 1rem; gap: 1.4rem; align-items: start;">
+<div class="np-card" style="border-top-color:#7A97F2;">
+<strong>Wat er ligt om naar te kijken</strong>
+<div style="margin-top:0.5rem;"><span style="display:inline-block;padding:0.25rem 0.6rem;border-radius:6px;margin:0.15rem 0.3rem 0.15rem 0;font-size:0.8rem;line-height:1.3;background:#7A97F2;color:#fff;">v0.0.2, Public PR 82</span><span style="display:inline-block;padding:0.25rem 0.6rem;border-radius:6px;margin:0.15rem 0.3rem 0.15rem 0;font-size:0.8rem;line-height:1.3;background:#7A97F2;color:#fff;">applicatiediensten en versionering, Public PR 100</span><span style="display:inline-block;padding:0.25rem 0.6rem;border-radius:6px;margin:0.15rem 0.3rem 0.15rem 0;font-size:0.8rem;line-height:1.3;background:#7A97F2;color:#fff;">informatiemodel en begrippen, Public PR 104</span></div>
+<div style="font-size:0.85rem;color:var(--np-dark-gray);margin-top:0.5rem;">Sinds 1 september: 7 pull requests gemerged, 16 issues gesloten, 64 commits.</div>
+</div>
+<div class="np-card" style="border-top-color:#E9A27F;">
+<strong>Wat er al terugkwam</strong>
+<div style="margin-top:0.5rem;"><span style="display:inline-block;padding:0.25rem 0.6rem;border-radius:6px;margin:0.15rem 0.3rem 0.15rem 0;font-size:0.8rem;line-height:1.3;background:#E9A27F;color:#fff;">Xedule en YNC: opmerkingen per story, Public #99</span><span style="display:inline-block;padding:0.25rem 0.6rem;border-radius:6px;margin:0.15rem 0.3rem 0.15rem 0;font-size:0.8rem;line-height:1.3;background:#E9A27F;color:#fff;">Kees en Luke: 28 opmerkingen op PR 82, 14 september</span></div>
+<div style="font-size:0.85rem;color:var(--np-dark-gray);margin-top:0.5rem;">Formeel ingediende reviews: nog geen. De werkwijze vraagt per pull request een accept, of een iteratie, voordat er gereleased wordt.</div>
+</div>
 </div>
 
 <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.1rem;max-width:94%;">
-<div style="display:flex;align-items:center;gap:0.7rem;font-size:0.92rem;line-height:1.35;"><svg width="40" height="40" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#7A97F2"/><path d="M12 13 h8 a2 2 0 0 1 2 2 v16 a2 2 0 0 0 -2 -2 h-8 z M32 13 h-8 a2 2 0 0 0 -2 2 v16 a2 2 0 0 1 2 -2 h8 z" fill="#fff"/></svg><div>Is er bijgelezen, en waar in de specificatie loopt het vast?</div></div>
-<div style="display:flex;align-items:center;gap:0.7rem;font-size:0.92rem;line-height:1.35;"><svg width="40" height="40" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#E9A27F"/><text x="22" y="30" text-anchor="middle" fill="#fff" style="font-size:22px;font-weight:700;font-family:inherit">?</text></svg><div>Wat is nodig om een review af te ronden: tijd, uitleg, een sessie?</div></div>
-<div style="display:flex;align-items:center;gap:0.7rem;font-size:0.92rem;line-height:1.35;"><svg width="40" height="40" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#7CCBA8"/><path d="M14 24 v-9 a2 2 0 0 1 4 0 v7 M18 22 v-11 a2 2 0 0 1 4 0 v11 M22 22 v-9 a2 2 0 0 1 4 0 v9 M26 23 v-6 a2 2 0 0 1 4 0 v9 c0 5 -3 8 -8 8 c-5 0 -8 -3 -8 -8" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><div>Waar kan het kernteam helpen?</div></div>
-</div>
-
-<div style="font-size: 0.85rem; color: var(--np-dark-gray); margin-top: 1rem;">
-Zonder reviews blijft het werk op branches staan: niets landt op dev, niets wordt gereleased.
+<div style="display:flex;align-items:center;gap:0.7rem;font-size:0.92rem;line-height:1.35;"><svg width="40" height="40" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#7A97F2"/><path d="M12 13 h8 a2 2 0 0 1 2 2 v16 a2 2 0 0 0 -2 -2 h-8 z M32 13 h-8 a2 2 0 0 0 -2 2 v16 a2 2 0 0 1 2 -2 h8 z" fill="#fff"/></svg><div>Is er ruimte geweest om bij te lezen, en waar loopt het vast?</div></div>
+<div style="display:flex;align-items:center;gap:0.7rem;font-size:0.92rem;line-height:1.35;"><svg width="40" height="40" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#E9A27F"/><text x="22" y="30" text-anchor="middle" fill="#fff" style="font-size:22px;font-weight:700;font-family:inherit">?</text></svg><div>Wat helpt om een review af te ronden: tijd, uitleg, een sessie samen?</div></div>
+<div style="display:flex;align-items:center;gap:0.7rem;font-size:0.92rem;line-height:1.35;"><svg width="40" height="40" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#7CCBA8"/><path d="M14 24 v-9 a2 2 0 0 1 4 0 v7 M18 22 v-11 a2 2 0 0 1 4 0 v11 M22 22 v-9 a2 2 0 0 1 4 0 v9 M26 23 v-6 a2 2 0 0 1 4 0 v9 c0 5 -3 8 -8 8 c-5 0 -8 -3 -8 -8" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><div>Waar kan het kernteam bijspringen?</div></div>
 </div>
 
 </div>
 
 <!--
-Vragend, niet verwijtend. De aantallen komen uit GitHub, stand 15 september, beide repositories
-samen: PR's gemerged 2 Public en 5 meta, commits op dev 6 en 58, issues gesloten 5 en 11. De
-reacties: de demo-opmerkingen van 1 september tellen niet als review; de pdf van Xedule en YNC
-en de 28 opmerkingen van Kees en Luke van gisteren wel als inhoudelijke reactie, maar er is nog
-geen review ingediend op PR 82. De vraag van Garik uit de voorbereiding: hoe gaat het met
-inhalen, is er bijgelezen, kunnen wij ergens mee helpen. Het is niet handig dat de groep
-achterloopt, en het kernteam kan het tempo niet alleen bepalen.
+Positief en vragend. De vraag om meer tijd van 1 september is gehoord; het kernteam is
+doorgegaan zodat er iets ligt zodra de tijd er is. De aantallen komen uit GitHub, stand
+15 september, beide repositories samen: PR's gemerged 2 Public en 5 meta, issues gesloten 5 en
+11, commits op dev 6 en 58. Wat terugkwam: de pdf van Xedule en YNC en de 28 opmerkingen van
+Kees en Luke van gisteren zijn inhoudelijke reacties; een formele review op PR 82 is er nog
+niet, en de werkwijze vraagt die voor een release (accepteren of itereren). De demo-opmerkingen
+van 1 september tellen niet mee. De drie vragen zijn die van Garik uit de voorbereiding.
 -->
 
 ---
