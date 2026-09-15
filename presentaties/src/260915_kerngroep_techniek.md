@@ -32,6 +32,70 @@ Daarna het open werk met een voorstel voor de prioritering.
 
 ---
 
+<!-- 1b. AGENDA -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# Agenda
+
+<div style="margin-top:0.6rem;max-width:92%;">
+<div style="display:grid;grid-template-columns:2.2rem 1fr;gap:0.6rem;align-items:start;margin-top:0.55rem;"><div style="width:2rem;height:2rem;border-radius:50%;background:#B8BEC7;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.95rem;">1</div><div style="line-height:1.4;"><strong>Terugblik op 1 september</strong><br/><span style="font-size:0.9rem;color:var(--np-dark-gray);">De vier openstaande punten en de review van v0.0.2 (Public PR 82): de bevindingen en wat nodig is om de review verder te brengen</span></div></div>
+<div style="display:grid;grid-template-columns:2.2rem 1fr;gap:0.6rem;align-items:start;margin-top:0.55rem;"><div style="width:2rem;height:2rem;border-radius:50%;background:#7A97F2;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.95rem;">2</div><div style="line-height:1.4;"><strong>Versionering en modulariteit (Garik)</strong><br/><span style="font-size:0.9rem;color:var(--np-dark-gray);">Een laag applicatiediensten tussen component en endpoint, en de datamodellen als eigen pakket: het antwoord op de discussie van 19 augustus in Amersfoort</span></div></div>
+<div style="display:grid;grid-template-columns:2.2rem 1fr;gap:0.6rem;align-items:start;margin-top:0.55rem;"><div style="width:2rem;height:2rem;border-radius:50%;background:#7CCBA8;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.95rem;">3</div><div style="line-height:1.4;"><strong>Informatiemodel OKx (Niek)</strong><br/><span style="font-size:0.9rem;color:var(--np-dark-gray);">Antwoord op Public #89: twee overzichtsplaten, de begrippen, de ontwerpkeuzes, de dekking door OEAPI en een eerste begrippenlijst met MORA en het Kernmodel Onderwijsinformatie</span></div></div>
+<div style="display:grid;grid-template-columns:2.2rem 1fr;gap:0.6rem;align-items:start;margin-top:0.55rem;"><div style="width:2rem;height:2rem;border-radius:50%;background:#E9A27F;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.95rem;">4</div><div style="line-height:1.4;"><strong>Open werk en prioritering</strong><br/><span style="font-size:0.9rem;color:var(--np-dark-gray);">De backlog per milestone, wat sinds 1 september van buiten binnenkwam, en een voorstel voor de volgorde: eerst de reviews, dan de keuzeregels</span></div></div>
+<div style="display:grid;grid-template-columns:2.2rem 1fr;gap:0.6rem;align-items:start;margin-top:0.55rem;"><div style="width:2rem;height:2rem;border-radius:50%;background:#00AF81;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.95rem;">5</div><div style="line-height:1.4;"><strong>W.v.t.t.k., vervolg en voortgangspeiling</strong><br/><span style="font-size:0.9rem;color:var(--np-dark-gray);"></span></div></div>
+</div>
+
+</div>
+
+<!--
+Dezelfde agenda als in de uitnodiging, ingekort. Deel 2 is van Garik, deel 3 van Niek; deel 1
+en 4 samen.
+-->
+
+---
+
+<!-- 1c. SIGNALERING -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# Wat er ligt, en wat er terugkwam
+
+<div style="font-size: 0.95rem; line-height: 1.5; margin-top: 0.2rem; color: var(--np-dark-gray);">
+Op 1 september klonk: wij lopen achter en moeten inhalen. Twee weken later, van 1 tot 15 september.
+</div>
+
+<div style="margin-top:0.8rem;max-width:94%;">
+<div style="display:grid;grid-template-columns:8rem 1fr;gap:0.8rem;align-items:center;padding:0.55rem 0;border-top:1px solid #E5E7EB;"><div style="font-weight:700;color:#7A97F2;font-size:0.95rem;">Kernteam levert</div><div><span style="display:inline-block;padding:0.25rem 0.6rem;border-radius:6px;margin:0.15rem 0.3rem 0.15rem 0;font-size:0.8rem;line-height:1.3;background:#7A97F2;color:#fff;">v0.0.2 ter review, Public PR 82</span><span style="display:inline-block;padding:0.25rem 0.6rem;border-radius:6px;margin:0.15rem 0.3rem 0.15rem 0;font-size:0.8rem;line-height:1.3;background:#7A97F2;color:#fff;">applicatiediensten en versionering, Public PR 100</span><span style="display:inline-block;padding:0.25rem 0.6rem;border-radius:6px;margin:0.15rem 0.3rem 0.15rem 0;font-size:0.8rem;line-height:1.3;background:#7A97F2;color:#fff;">informatiemodel en begrippen, Public PR 104</span><span style="display:inline-block;padding:0.25rem 0.6rem;border-radius:6px;margin:0.15rem 0.3rem 0.15rem 0;font-size:0.8rem;line-height:1.3;background:#fff;border:1.5px solid #7A97F2;color:var(--np-ink);">7 PR's gemerged</span><span style="display:inline-block;padding:0.25rem 0.6rem;border-radius:6px;margin:0.15rem 0.3rem 0.15rem 0;font-size:0.8rem;line-height:1.3;background:#fff;border:1.5px solid #7A97F2;color:var(--np-ink);">64 commits op dev</span><span style="display:inline-block;padding:0.25rem 0.6rem;border-radius:6px;margin:0.15rem 0.3rem 0.15rem 0;font-size:0.8rem;line-height:1.3;background:#fff;border:1.5px solid #7A97F2;color:var(--np-ink);">16 issues gesloten</span></div></div>
+<div style="display:grid;grid-template-columns:8rem 1fr;gap:0.8rem;align-items:center;padding:0.55rem 0;border-top:1px solid #E5E7EB;"><div style="font-weight:700;color:#E9A27F;font-size:0.95rem;">Kerngroep reageert</div><div><span style="display:inline-block;padding:0.25rem 0.6rem;border-radius:6px;margin:0.15rem 0.3rem 0.15rem 0;font-size:0.8rem;line-height:1.3;background:#fff;border:1.5px solid #E9A27F;color:var(--np-ink);">1 september: demo-opmerkingen op PR 82</span><span style="display:inline-block;padding:0.25rem 0.6rem;border-radius:6px;margin:0.15rem 0.3rem 0.15rem 0;font-size:0.8rem;line-height:1.3;background:#E9A27F;color:#fff;">Xedule en YNC: pdf per story, Public #99</span><span style="display:inline-block;padding:0.25rem 0.6rem;border-radius:6px;margin:0.15rem 0.3rem 0.15rem 0;font-size:0.8rem;line-height:1.3;background:#E9A27F;color:#fff;">14 september: 28 opmerkingen van Kees en Luke, PR 82</span><span style="display:inline-block;padding:0.25rem 0.6rem;border-radius:6px;margin:0.15rem 0.3rem 0.15rem 0;font-size:0.8rem;line-height:1.3;background:#fff;border:1.5px solid #E9A27F;color:var(--np-ink);">formele reviews ingediend: 0</span></div></div>
+</div>
+
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.1rem;max-width:94%;">
+<div style="display:flex;align-items:center;gap:0.7rem;font-size:0.92rem;line-height:1.35;"><svg width="40" height="40" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#7A97F2"/><path d="M12 13 h8 a2 2 0 0 1 2 2 v16 a2 2 0 0 0 -2 -2 h-8 z M32 13 h-8 a2 2 0 0 0 -2 2 v16 a2 2 0 0 1 2 -2 h8 z" fill="#fff"/></svg><div>Is er bijgelezen, en waar in de specificatie loopt het vast?</div></div>
+<div style="display:flex;align-items:center;gap:0.7rem;font-size:0.92rem;line-height:1.35;"><svg width="40" height="40" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#E9A27F"/><text x="22" y="30" text-anchor="middle" fill="#fff" style="font-size:22px;font-weight:700;font-family:inherit">?</text></svg><div>Wat is nodig om een review af te ronden: tijd, uitleg, een sessie?</div></div>
+<div style="display:flex;align-items:center;gap:0.7rem;font-size:0.92rem;line-height:1.35;"><svg width="40" height="40" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#7CCBA8"/><path d="M14 24 v-9 a2 2 0 0 1 4 0 v7 M18 22 v-11 a2 2 0 0 1 4 0 v11 M22 22 v-9 a2 2 0 0 1 4 0 v9 M26 23 v-6 a2 2 0 0 1 4 0 v9 c0 5 -3 8 -8 8 c-5 0 -8 -3 -8 -8" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><div>Waar kan het kernteam helpen?</div></div>
+</div>
+
+<div style="font-size: 0.85rem; color: var(--np-dark-gray); margin-top: 1rem;">
+Zonder reviews blijft het werk op branches staan: niets landt op dev, niets wordt gereleased.
+</div>
+
+</div>
+
+<!--
+Vragend, niet verwijtend. De aantallen komen uit GitHub, stand 15 september, beide repositories
+samen: PR's gemerged 2 Public en 5 meta, commits op dev 6 en 58, issues gesloten 5 en 11. De
+reacties: de demo-opmerkingen van 1 september tellen niet als review; de pdf van Xedule en YNC
+en de 28 opmerkingen van Kees en Luke van gisteren wel als inhoudelijke reactie, maar er is nog
+geen review ingediend op PR 82. De vraag van Garik uit de voorbereiding: hoe gaat het met
+inhalen, is er bijgelezen, kunnen wij ergens mee helpen. Het is niet handig dat de groep
+achterloopt, en het kernteam kan het tempo niet alleen bepalen.
+-->
+
+---
+
 <!-- 2. STAND VAN ZAKEN -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
@@ -762,6 +826,34 @@ bij de instellingen.
 
 ---
 
+<!-- 17b. GEVRAAGD OP HET INFORMATIEMODEL -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# Gevraagd: het informatiemodel naast het eigen model leggen
+
+<div class="np-grid-3" style="margin-top: 1rem; gap: 1.2rem; align-items: start;">
+<div class="np-card" style="border-top-color:#7A97F2;padding:0.8rem 1rem;"><div style="display:flex;align-items:center;gap:0.6rem;"><div style="width:2rem;height:2rem;border-radius:50%;background:#7A97F2;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;">1</div><strong>Lezen</strong></div><div style="font-size:0.9rem;line-height:1.45;color:var(--np-dark-gray);margin-top:0.5rem;">Het informatiemodel met de ontwerpkeuzes, de mapping op OEAPI v6 en de begrippenlijst: laag 1 en 2 van het pakket informatie- en gegevensmodellen in <a href="https://github.com/Npuls-OKx/Public/pull/104">Public PR 104</a></div></div>
+<div class="np-card" style="border-top-color:#7CCBA8;padding:0.8rem 1rem;"><div style="display:flex;align-items:center;gap:0.6rem;"><div style="width:2rem;height:2rem;border-radius:50%;background:#7CCBA8;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;">2</div><strong>Mappen</strong></div><div style="font-size:0.9rem;line-height:1.45;color:var(--np-dark-gray);margin-top:0.5rem;">Per objecttype naast het eigen informatiemodel: gelijk, een verbijzondering, of ontbreekt. Waar botst een ontwerpkeuze met de praktijk, welke definitie is een andere</div></div>
+<div class="np-card" style="border-top-color:#E9A27F;padding:0.8rem 1rem;"><div style="display:flex;align-items:center;gap:0.6rem;"><div style="width:2rem;height:2rem;border-radius:50%;background:#E9A27F;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;">3</div><strong>Terugmelden</strong></div><div style="font-size:0.9rem;line-height:1.45;color:var(--np-dark-gray);margin-top:0.5rem;">Wat je ziet en wat je mist, als reviewopmerking op de pull request of als issue in Public. Ook een half antwoord helpt</div></div>
+</div>
+
+<div class="np-card accent-green" style="margin-top: 1.1rem; font-size: 0.95rem; background: #F3FAF6;">
+Aanbod: het informatiemodel als onderwerp van het volgende architectuur-inloopuur, met het kernteam erbij voor vragen.
+</div>
+
+</div>
+
+<!--
+Dit is de concrete vraag bij deel 3. Niet: keur het goed, maar: leg het naast je eigen model en
+zeg waar het wringt. De leverancierstegenlezing (meta #234) laat zien wat zo'n mapping oplevert;
+Public #105 vraagt specifiek naar lifecycle, sleutels en BPV. Het inloopuur is de plek voor wie
+liever praat dan schrijft.
+-->
+
+---
+
 <!-- DIVIDER DEEL 3 -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide14.PNG);"></div>
 
@@ -809,7 +901,7 @@ Bron: de milestones en issues van beide repositories, GitHub, 14 september.
 
 # Wat er sinds 1 september is verzet
 
-<div style="display:grid;grid-template-columns:8.5rem repeat(5,1fr);gap:0.6rem 0.7rem;align-items:center;margin-top:0.8rem;max-width:90%;"><div></div><div style="display:flex;align-items:center;gap:0.4rem;font-size:0.76rem;color:var(--np-mid-gray);justify-content:center;"><svg width="22" height="22" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#7A97F2"/><circle cx="14" cy="12" r="4" fill="#fff"/><circle cx="14" cy="32" r="4" fill="#fff"/><circle cx="31" cy="22" r="4" fill="#fff"/><path d="M14 16 v12 M14 22 h13" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg>PR gemerged</div><div style="display:flex;align-items:center;gap:0.4rem;font-size:0.76rem;color:var(--np-mid-gray);justify-content:center;"><svg width="22" height="22" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#7A97F2"/><line x1="22" y1="12" x2="22" y2="32" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/><line x1="12" y1="22" x2="32" y2="22" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/></svg>PR geopend</div><div style="display:flex;align-items:center;gap:0.4rem;font-size:0.76rem;color:var(--np-mid-gray);justify-content:center;"><svg width="22" height="22" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#7A97F2"/><polyline points="12,23 19,30 32,15" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>issues gesloten</div><div style="display:flex;align-items:center;gap:0.4rem;font-size:0.76rem;color:var(--np-mid-gray);justify-content:center;"><svg width="22" height="22" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#7A97F2"/><line x1="22" y1="12" x2="22" y2="32" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/><line x1="12" y1="22" x2="32" y2="22" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/></svg>issues geopend</div><div style="display:flex;align-items:center;gap:0.4rem;font-size:0.76rem;color:var(--np-mid-gray);justify-content:center;"><svg width="22" height="22" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#7A97F2"/><line x1="8" y1="22" x2="36" y2="22" stroke="#fff" stroke-width="3"/><circle cx="22" cy="22" r="6" fill="#fff"/></svg>commits op dev</div><div style="font-size:0.84rem;font-weight:600;color:var(--np-ink);">Public</div><div style="background:#fff;border:1px solid var(--np-light-gray);border-radius:8px;padding:0.55rem 0;text-align:center;font-size:1.9rem;font-weight:600;color:var(--np-ink);line-height:1.1;">2</div><div style="background:#fff;border:1px solid var(--np-light-gray);border-radius:8px;padding:0.55rem 0;text-align:center;font-size:1.9rem;font-weight:600;color:var(--np-ink);line-height:1.1;">1</div><div style="background:#fff;border:1px solid var(--np-light-gray);border-radius:8px;padding:0.55rem 0;text-align:center;font-size:1.9rem;font-weight:600;color:var(--np-ink);line-height:1.1;">5</div><div style="background:#fff;border:1px solid var(--np-light-gray);border-radius:8px;padding:0.55rem 0;text-align:center;font-size:1.9rem;font-weight:600;color:var(--np-ink);line-height:1.1;">8</div><div style="background:#fff;border:1px solid var(--np-light-gray);border-radius:8px;padding:0.55rem 0;text-align:center;font-size:1.9rem;font-weight:600;color:var(--np-ink);line-height:1.1;">1</div><div style="font-size:0.84rem;font-weight:600;color:var(--np-ink);">meta</div><div style="background:#fff;border:1px solid var(--np-light-gray);border-radius:8px;padding:0.55rem 0;text-align:center;font-size:1.9rem;font-weight:600;color:var(--np-ink);line-height:1.1;">4</div><div style="background:#fff;border:1px solid var(--np-light-gray);border-radius:8px;padding:0.55rem 0;text-align:center;font-size:1.9rem;font-weight:600;color:var(--np-ink);line-height:1.1;">6</div><div style="background:#fff;border:1px solid var(--np-light-gray);border-radius:8px;padding:0.55rem 0;text-align:center;font-size:1.9rem;font-weight:600;color:var(--np-ink);line-height:1.1;">11</div><div style="background:#fff;border:1px solid var(--np-light-gray);border-radius:8px;padding:0.55rem 0;text-align:center;font-size:1.9rem;font-weight:600;color:var(--np-ink);line-height:1.1;">21</div><div style="background:#fff;border:1px solid var(--np-light-gray);border-radius:8px;padding:0.55rem 0;text-align:center;font-size:1.9rem;font-weight:600;color:var(--np-ink);line-height:1.1;">47</div></div>
+<div style="display:grid;grid-template-columns:8.5rem repeat(5,1fr);gap:0.6rem 0.7rem;align-items:center;margin-top:0.8rem;max-width:90%;"><div></div><div style="display:flex;align-items:center;gap:0.4rem;font-size:0.76rem;color:var(--np-mid-gray);justify-content:center;"><svg width="22" height="22" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#7A97F2"/><circle cx="14" cy="12" r="4" fill="#fff"/><circle cx="14" cy="32" r="4" fill="#fff"/><circle cx="31" cy="22" r="4" fill="#fff"/><path d="M14 16 v12 M14 22 h13" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg>PR gemerged</div><div style="display:flex;align-items:center;gap:0.4rem;font-size:0.76rem;color:var(--np-mid-gray);justify-content:center;"><svg width="22" height="22" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#7A97F2"/><line x1="22" y1="12" x2="22" y2="32" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/><line x1="12" y1="22" x2="32" y2="22" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/></svg>PR geopend</div><div style="display:flex;align-items:center;gap:0.4rem;font-size:0.76rem;color:var(--np-mid-gray);justify-content:center;"><svg width="22" height="22" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#7A97F2"/><polyline points="12,23 19,30 32,15" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>issues gesloten</div><div style="display:flex;align-items:center;gap:0.4rem;font-size:0.76rem;color:var(--np-mid-gray);justify-content:center;"><svg width="22" height="22" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#7A97F2"/><line x1="22" y1="12" x2="22" y2="32" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/><line x1="12" y1="22" x2="32" y2="22" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/></svg>issues geopend</div><div style="display:flex;align-items:center;gap:0.4rem;font-size:0.76rem;color:var(--np-mid-gray);justify-content:center;"><svg width="22" height="22" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#7A97F2"/><line x1="8" y1="22" x2="36" y2="22" stroke="#fff" stroke-width="3"/><circle cx="22" cy="22" r="6" fill="#fff"/></svg>commits op dev</div><div style="font-size:0.84rem;font-weight:600;color:var(--np-ink);">Public</div><div style="background:#fff;border:1px solid var(--np-light-gray);border-radius:8px;padding:0.55rem 0;text-align:center;font-size:1.9rem;font-weight:600;color:var(--np-ink);line-height:1.1;">2</div><div style="background:#fff;border:1px solid var(--np-light-gray);border-radius:8px;padding:0.55rem 0;text-align:center;font-size:1.9rem;font-weight:600;color:var(--np-ink);line-height:1.1;">2</div><div style="background:#fff;border:1px solid var(--np-light-gray);border-radius:8px;padding:0.55rem 0;text-align:center;font-size:1.9rem;font-weight:600;color:var(--np-ink);line-height:1.1;">5</div><div style="background:#fff;border:1px solid var(--np-light-gray);border-radius:8px;padding:0.55rem 0;text-align:center;font-size:1.9rem;font-weight:600;color:var(--np-ink);line-height:1.1;">12</div><div style="background:#fff;border:1px solid var(--np-light-gray);border-radius:8px;padding:0.55rem 0;text-align:center;font-size:1.9rem;font-weight:600;color:var(--np-ink);line-height:1.1;">6</div><div style="font-size:0.84rem;font-weight:600;color:var(--np-ink);">meta</div><div style="background:#fff;border:1px solid var(--np-light-gray);border-radius:8px;padding:0.55rem 0;text-align:center;font-size:1.9rem;font-weight:600;color:var(--np-ink);line-height:1.1;">5</div><div style="background:#fff;border:1px solid var(--np-light-gray);border-radius:8px;padding:0.55rem 0;text-align:center;font-size:1.9rem;font-weight:600;color:var(--np-ink);line-height:1.1;">9</div><div style="background:#fff;border:1px solid var(--np-light-gray);border-radius:8px;padding:0.55rem 0;text-align:center;font-size:1.9rem;font-weight:600;color:var(--np-ink);line-height:1.1;">11</div><div style="background:#fff;border:1px solid var(--np-light-gray);border-radius:8px;padding:0.55rem 0;text-align:center;font-size:1.9rem;font-weight:600;color:var(--np-ink);line-height:1.1;">25</div><div style="background:#fff;border:1px solid var(--np-light-gray);border-radius:8px;padding:0.55rem 0;text-align:center;font-size:1.9rem;font-weight:600;color:var(--np-ink);line-height:1.1;">58</div></div>
 
 <div class="np-grid-2" style="margin-top: 1rem; gap: 1.6rem; font-size: 0.86rem; line-height: 1.55; max-width: 90%;">
 <div>
@@ -827,10 +919,10 @@ Bron: de milestones en issues van beide repositories, GitHub, 14 september.
 </div>
 
 <!--
-Stand van 11 september, beide repositories, alles na 1 september. De aantallen zeggen iets
+Stand van 15 september, beide repositories, alles na 1 september. De aantallen zeggen iets
 over de hoeveelheid werk, niet over de kwaliteit ervan; dat oordeel ligt bij de review. Het
 grote werk van deze periode staat op branches en niet op dev: PR 100 en PR 104 in Public en
-PR 225 in meta. De 21 nieuwe issues op meta zijn grotendeels intern harness- en reviewwerk.
+PR 225 in meta. De 25 nieuwe issues op meta zijn grotendeels intern harness- en reviewwerk, plus de modelvragen uit de tegenlezing (#234, #235).
 -->
 
 ---
@@ -845,7 +937,7 @@ PR 225 in meta. De 21 nieuwe issues op meta zijn grotendeels intern harness- en 
 <div class="np-grid-2" style="margin-top: 1rem; gap: 1.6rem; align-items: start;">
 <div class="np-card accent-green" style="background: #F3FAF6;">
 <strong>Nu</strong>
-<div style="display:flex;align-items:center;gap:0.7rem;margin-top:0.55rem;font-size:0.95rem;line-height:1.35;"><svg width="44" height="44" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#7CCBA8"/><polygon points="17,12 34,22 17,32" fill="#fff"/></svg><div>Review op de pull requests: versionering (<a href="https://github.com/Npuls-OKx/Public/pull/100">Public PR 100</a>), v0.0.2 (<a href="https://github.com/Npuls-OKx/Public/pull/82">Public PR 82</a>), het informatiemodel</div></div><div style="display:flex;align-items:center;gap:0.7rem;margin-top:0.55rem;font-size:0.95rem;line-height:1.35;"><svg width="44" height="44" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#7CCBA8"/><polygon points="17,12 34,22 17,32" fill="#fff"/></svg><div>Student keuze regelsets toetsen aan de scenario's (<a href="https://github.com/Npuls-OKx/Public/issues/74">Public #74</a>, <a href="https://github.com/Npuls-OKx/Public/issues/64">#64</a>, <a href="https://github.com/Npuls-OKx/Public/issues/1">#1</a>)</div></div>
+<div style="display:flex;align-items:center;gap:0.7rem;margin-top:0.55rem;font-size:0.95rem;line-height:1.35;"><svg width="44" height="44" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#7CCBA8"/><polygon points="17,12 34,22 17,32" fill="#fff"/></svg><div>Review op de pull requests: versionering (<a href="https://github.com/Npuls-OKx/Public/pull/100">Public PR 100</a>), het informatiemodel (<a href="https://github.com/Npuls-OKx/Public/pull/104">Public PR 104</a>), v0.0.2 (<a href="https://github.com/Npuls-OKx/Public/pull/82">Public PR 82</a>: bij open vragen verwerken en opnieuw itereren)</div></div><div style="display:flex;align-items:center;gap:0.7rem;margin-top:0.55rem;font-size:0.95rem;line-height:1.35;"><svg width="44" height="44" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#7CCBA8"/><polygon points="17,12 34,22 17,32" fill="#fff"/></svg><div>Student keuze regelsets toetsen aan de scenario's (<a href="https://github.com/Npuls-OKx/Public/issues/74">Public #74</a>, <a href="https://github.com/Npuls-OKx/Public/issues/64">#64</a>, <a href="https://github.com/Npuls-OKx/Public/issues/1">#1</a>)</div></div>
 </div>
 <div class="np-card" style="border-top-color: #B8BEC7; background: #F6F7F9;">
 <strong>Wacht</strong>
