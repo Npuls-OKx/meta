@@ -80,7 +80,7 @@ en is een herindeling van de koppelvlakspecificatie geworden.
 </div>
 
 <div class="np-grid-3" style="margin-top: 0.9rem; gap: 1rem;">
-<div class="np-card" style="font-size: 0.9rem; line-height: 1.45;"><strong>Functionaliteit, geen koppelvlak</strong><br/>Stories en features beschrijven hoe een onderwijscatalogus werkt of wat een school kiest, niet de interactie tussen systemen</div>
+<div class="np-card" style="font-size: 0.9rem; line-height: 1.45;"><strong>Applicatiefunctionaliteit, geen koppelvlak</strong><br/>Stories en features beschrijven hoe een onderwijscatalogus werkt of wat een school kiest, niet de interactie tussen systemen</div>
 <div class="np-card" style="font-size: 0.9rem; line-height: 1.45;"><strong>Uitgangspunt of feature</strong><br/>Leeruitkomsten als gegeven, versionering, query-parameters: uitgangspunten en implementatiekeuzes staan als feature</div>
 <div class="np-card" style="font-size: 0.9rem; line-height: 1.45;"><strong>Notify of transactie</strong><br/>Wanneer informeren systemen elkaar en wanneer verandert een aanroep echt iets; wie is de client van het endpoint en wie is waarvoor verantwoordelijk</div>
 </div>
@@ -216,7 +216,7 @@ flowchart LR
 # Applicatiediensten
 
 <div class="np-card accent-blue" style="margin-top: 2.2rem; max-width: 85%;">
-  <p style="font-size: 1.45rem; line-height: 1.6; color: var(--np-ink); margin: 0;">Een verzameling functionaliteiten die een component kan implementeren.</p>
+  <p style="font-size: 1.45rem; line-height: 1.6; color: var(--np-ink); margin: 0;">Een verzameling koppelvlakfunctionaliteiten die een component kan implementeren.</p>
 </div>
 
 <div class="np-grid-2" style="margin-top: 1.2rem; max-width: 85%;">
