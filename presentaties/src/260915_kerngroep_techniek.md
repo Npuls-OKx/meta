@@ -184,19 +184,19 @@ om eerst het kader te bespreken past bij het eerste agendapunt.
 
 # Van story naar koppelvlak: waar OKx ophoudt
 
-<div style="display:grid;grid-template-columns:1.45fr 1fr;gap:1.4rem;align-items:start;margin-top:0.4rem;">
+<div style="display:grid;grid-template-columns:2.3fr 1fr;gap:1.2rem;align-items:start;margin-top:0.3rem;">
 <div>
-  <img src="/platen/concept-uitleg-business-architectuur.png" style="width:100%;max-height:26rem;object-fit:contain;" />
+  <img src="/platen/concept-uitleg-business-architectuur.png" style="width:100%;max-height:29rem;object-fit:contain;" />
   <div style="font-size:0.78rem;color:var(--np-mid-gray);margin-top:0.2rem;">Schets van Niels, concept.</div>
 </div>
-<div style="font-size:0.88rem;line-height:1.45;">
+<div style="font-size:0.8rem;line-height:1.4;">
 
-- **Scholen praten in stories** en in wat een applicatie moet kunnen; de PoC-casussen leveren die stories
-- **OKx maakt er generieke stories en bouwstenen van**: de gedeelde laag, herleidbaar naar leerroutes, studentreis en instellingsreis
-- **Alleen rechts is de koppelvlakspecificatie**: koppelvlakdienst, koppeling, endpoints, interactie. App-dienst en sectordienst blijven van leverancier en school
+- **Scholen praten in stories** en in wat een applicatie moet kunnen
+- **OKx maakt er generieke stories en bouwstenen van**, herleidbaar naar de leerroutes
+- **Alleen rechts is de koppelvlakspecificatie**: koppelvlakdienst, koppeling, endpoints, interactie
 
-<div class="np-card" style="margin-top:0.6rem;font-size:0.88rem;padding:0.6rem 0.9rem;">
-Een story die applicatiefunctionaliteit beschrijft is de aanloop, niet het product. De vraag aan de groep: waar ligt de grens precies.
+<div class="np-card" style="margin-top:0.6rem;font-size:0.82rem;padding:0.55rem 0.8rem;">
+Een story die applicatiefunctionaliteit beschrijft is de aanloop, niet het product.
 </div>
 
 </div>
