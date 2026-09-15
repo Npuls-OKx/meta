@@ -180,6 +180,16 @@
           "naam": "Werkproces",
           "url": "https://mora.mbodigitaal.nl/index.php/Id-9cf4d404-b06c-473f-57d9-3945af33cfa8",
           "definitie": "Een werkproces is een afgebakend geheel van beroepshandelingen binnen een kerntaak. Het werkproces kent een begin en een eind heeft een resultaat en wordt als kenmerkend herkend in de beroepspraktijk. Een werkproces bestaat dus nooit uit één handeling of gedraging. Meerdere werkprocessen kunnen gelijktijdig lopen. Dat ze een begin en eind hebben wil niet per se zeggen dat ze na elkaar komen maar dat ze duidelijk te onderscheiden zijn van andere werkprocessen."
+        },
+        {
+          "naam": "OER",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-9841b314-8781-36c9-8033-ce304c022d72",
+          "definitie": "Het onderwijs- en examenreglement bevat het onderwijsprogramma en het examenreglement en -handboek. In het OER staan de regels en afspraken die binnen de instelling gelden omtrent het onderwijs, de examinering en diplomering. Ieder cohort valt onder een eigen (specifiek voor het cohort) OER."
+        },
+        {
+          "naam": "Opleidingsgroep",
+          "url": "https://mora.mbodigitaal.nl/index.php/Opleidingsgroep",
+          "definitie": "Een groep van bij elkaar behorende opleidingen."
         }
       ]
     },

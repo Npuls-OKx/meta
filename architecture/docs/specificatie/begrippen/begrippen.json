@@ -43,6 +43,36 @@
     },
     {
       "varianten": [
+        "onderwijsaanbod"
+      ],
+      "naam": "Onderwijsaanbod",
+      "niveau": 1,
+      "familie": "Onderwijsaanbod",
+      "in_informatiemodel": true,
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "tegenhanger",
+          "begrip": "onderwijsaanbod (koi)",
+          "url": "https://rosa.wikixl.nl/index.php/Id-6d1ed39571de4ee5b1aefcf051991478",
+          "citaat": "Datgene wat een onderwijsorganisatie organiseert aan onderwijsactiviteiten zowel inhoudelijk als qua aanpak.",
+          "verbijzondering": "KOI vat ontwerp en uitvoering samen in een begrip. OKx splitst dat in de onderwijsspecificatie, het herbruikbare ontwerp, en het onderwijsaanbod, de ingeplande uitvoering."
+        },
+        "MORA": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "onderwijsaanbod"
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
+      "definitie": "Een specificatie die is ingepland: een periode, een capaciteit en waar van toepassing concrete plek, docent en tijd",
+      "vindplaats": "architecture/model/informatiemodel/informatiemodel.md#begrippenfamilies",
+      "bron_soort": "okx-document",
+      "status": "gedefinieerd",
+      "herkomst": "verbijzondering van `onderwijsaanbod (koi)` (ROSA-KOI)"
+    },
+    {
+      "varianten": [
         "Beoogde leeruitkomst",
         "Onderwijskundigkader instelling"
       ],
@@ -71,6 +101,38 @@
     },
     {
       "varianten": [
+        "onderwijsresultaat"
+      ],
+      "naam": "Onderwijsresultaat",
+      "niveau": 1,
+      "familie": "Onderwijsresultaat",
+      "in_informatiemodel": true,
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "tegenhanger",
+          "begrip": "onderwijsresultaat (koi)",
+          "url": "https://rosa.wikixl.nl/index.php/Id-e5d21e5384c0482ba4a501571e69927a",
+          "citaat": "Vastgelegde en geformaliseerde beoordeling op basis van een of meer leerresultaten."
+        },
+        "MORA": {
+          "uitkomst": "tegenhanger",
+          "begrip": "Summatief resultaat",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-beaf106a-f329-b3ed-e513-6814b1fd65fa",
+          "citaat": "Een formele, door de instelling geregistreerde waardering voor summatief gemaakt werk (zoals een examen of BPV-beoordeling) die meetelt voor de uiteindelijke kwalificering. Summatieve resultaten worden vastgelegd conform de summatieve resultaatstructuur. Summatieve resultaten worden ook wel examenresultaten genoemd",
+          "verbijzondering": "MORA scheidt het summatieve en het formatieve resultaat. OKx gebruikt onderwijsresultaat als de overkoepelende term van KOI en houdt het onderscheid in de resultaatstructuur."
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
+      "definitie": "Vastgelegde en geformaliseerde beoordeling op basis van een of meer leerresultaten.",
+      "vindplaats": "https://rosa.wikixl.nl/index.php/Id-e5d21e5384c0482ba4a501571e69927a",
+      "bron_soort": "referentiekader",
+      "status": "gedefinieerd",
+      "herkomst": "overgenomen uit ROSA-KOI"
+    },
+    {
+      "varianten": [
         "onderwijsSpecificatie",
         "onderwijsspecificatie"
       ],
@@ -95,36 +157,6 @@
         }
       },
       "definitie": "Het herbruikbare ontwerp van een onderwijsonderdeel, los van wanneer het draait en wie eraan meedoet",
-      "vindplaats": "architecture/model/informatiemodel/informatiemodel.md#begrippenfamilies",
-      "bron_soort": "okx-document",
-      "status": "gedefinieerd",
-      "herkomst": "verbijzondering van `onderwijsaanbod (koi)` (ROSA-KOI)"
-    },
-    {
-      "varianten": [
-        "onderwijsaanbod"
-      ],
-      "naam": "Onderwijsaanbod",
-      "niveau": 1,
-      "familie": "Onderwijsaanbod",
-      "in_informatiemodel": true,
-      "kaders": {
-        "ROSA-KOI": {
-          "uitkomst": "tegenhanger",
-          "begrip": "onderwijsaanbod (koi)",
-          "url": "https://rosa.wikixl.nl/index.php/Id-6d1ed39571de4ee5b1aefcf051991478",
-          "citaat": "Datgene wat een onderwijsorganisatie organiseert aan onderwijsactiviteiten zowel inhoudelijk als qua aanpak.",
-          "verbijzondering": "KOI vat ontwerp en uitvoering samen in een begrip. OKx splitst dat in de onderwijsspecificatie, het herbruikbare ontwerp, en het onderwijsaanbod, de ingeplande uitvoering."
-        },
-        "MORA": {
-          "uitkomst": "geen tegenhanger gevonden",
-          "zoekterm": "onderwijsaanbod"
-        },
-        "HORA": {
-          "uitkomst": "nog niet onderzocht"
-        }
-      },
-      "definitie": "Een specificatie die is ingepland: een periode, een capaciteit en waar van toepassing concrete plek, docent en tijd",
       "vindplaats": "architecture/model/informatiemodel/informatiemodel.md#begrippenfamilies",
       "bron_soort": "okx-document",
       "status": "gedefinieerd",
@@ -160,38 +192,6 @@
       "herkomst": "overgenomen uit ROSA-KOI"
     },
     {
-      "varianten": [
-        "onderwijsresultaat"
-      ],
-      "naam": "Onderwijsresultaat",
-      "niveau": 1,
-      "familie": "Onderwijsresultaat",
-      "in_informatiemodel": true,
-      "kaders": {
-        "ROSA-KOI": {
-          "uitkomst": "tegenhanger",
-          "begrip": "onderwijsresultaat (koi)",
-          "url": "https://rosa.wikixl.nl/index.php/Id-e5d21e5384c0482ba4a501571e69927a",
-          "citaat": "Vastgelegde en geformaliseerde beoordeling op basis van een of meer leerresultaten."
-        },
-        "MORA": {
-          "uitkomst": "tegenhanger",
-          "begrip": "Summatief resultaat",
-          "url": "https://mora.mbodigitaal.nl/index.php/Id-beaf106a-f329-b3ed-e513-6814b1fd65fa",
-          "citaat": "Een formele, door de instelling geregistreerde waardering voor summatief gemaakt werk (zoals een examen of BPV-beoordeling) die meetelt voor de uiteindelijke kwalificering. Summatieve resultaten worden vastgelegd conform de summatieve resultaatstructuur. Summatieve resultaten worden ook wel examenresultaten genoemd",
-          "verbijzondering": "MORA scheidt het summatieve en het formatieve resultaat. OKx gebruikt onderwijsresultaat als de overkoepelende term van KOI en houdt het onderscheid in de resultaatstructuur."
-        },
-        "HORA": {
-          "uitkomst": "nog niet onderzocht"
-        }
-      },
-      "definitie": "Vastgelegde en geformaliseerde beoordeling op basis van een of meer leerresultaten.",
-      "vindplaats": "https://rosa.wikixl.nl/index.php/Id-e5d21e5384c0482ba4a501571e69927a",
-      "bron_soort": "referentiekader",
-      "status": "gedefinieerd",
-      "herkomst": "overgenomen uit ROSA-KOI"
-    },
-    {
       "varianten": [],
       "naam": "Resultaatstructuur",
       "niveau": 1,
@@ -215,6 +215,37 @@
       "bron_soort": "okx-document",
       "status": "gedefinieerd",
       "herkomst": "nieuw voor OKx"
+    },
+    {
+      "naam": "Aanmelding",
+      "niveau": 2,
+      "familie": "Buiten de kolommen",
+      "in_informatiemodel": true,
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "aanmelding"
+        },
+        "MORA": {
+          "uitkomst": "tegenhanger",
+          "begrip": "Aanmelding",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-666a838e-d9bd-c5fd-ad85-545ec69f1566",
+          "citaat": "Het schriftelijke verzoek om een student toe te laten tot een school en/of een specifieke opleiding"
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
+      "definitie": "Het schriftelijke verzoek om een student toe te laten tot een school en/of een specifieke opleiding",
+      "vindplaats": "https://mora.mbodigitaal.nl/index.php/Id-666a838e-d9bd-c5fd-ad85-545ec69f1566",
+      "bron_soort": "referentiekader",
+      "status": "gedefinieerd",
+      "herkomst": "overgenomen uit MORA",
+      "varianten": [
+        "aanmelding",
+        "aanmelden"
+      ],
+      "noot": "Op de plaat gaat een aanmelding op aanbod (`Op basis van`) en loopt zij `middels` een verbintenis; een aanmelding `wordt` een inschrijving. Het verzoek om aanbod te maken is een ander objecttype: `Verzoek tot Aanbod / Intekening op specificatie`."
     },
     {
       "naam": "Aanwezigheid",
@@ -243,6 +274,38 @@
       "status": "nog te definieren",
       "herkomst": "verbijzondering van `Aan- en afwezigheid` (MORA)",
       "varianten": []
+    },
+    {
+      "naam": "Cohort / periode",
+      "niveau": 2,
+      "familie": "Buiten de kolommen",
+      "in_informatiemodel": true,
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "cohort / periode"
+        },
+        "MORA": {
+          "uitkomst": "tegenhanger",
+          "begrip": "Cohort / periode",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-67cf6837-c59e-52aa-47e6-006c572259e1",
+          "citaat": "Groep van studenten die onder hetzelfde onderwijs- en examenreglement vallen, binnen hetzelfde tijdvak (lopend van het eerste jaar van de opleiding tot en met het laatste jaar, uitgaande van de studieduur)"
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
+      "definitie": "Groep van studenten die onder hetzelfde onderwijs- en examenreglement vallen, binnen hetzelfde tijdvak (lopend van het eerste jaar van de opleiding tot en met het laatste jaar, uitgaande van de studieduur)",
+      "vindplaats": "https://mora.mbodigitaal.nl/index.php/Id-67cf6837-c59e-52aa-47e6-006c572259e1",
+      "bron_soort": "referentiekader",
+      "status": "gedefinieerd",
+      "herkomst": "overgenomen uit MORA",
+      "varianten": [
+        "cohort",
+        "cohort / periode",
+        "periode"
+      ],
+      "noot": "Op de plaat groepeert het cohort studenten op de summatieve resultaatstructuur die op hen van toepassing is, en wordt het uitgewerkt in de OER."
     },
     {
       "scope": "buiten scope",
@@ -413,21 +476,22 @@
           "uitkomst": "nog niet onderzocht"
         }
       },
-      "definitie": null,
-      "vindplaats": null,
-      "bron_soort": null,
-      "status": "nog te definieren",
+      "definitie": "De specificatie van een summatief examen (opstelling, instrumenten, beoordelingskader) zoals vastgesteld door de examencommissie, gekoppeld aan te behalen leeruitkomsten of werkprocessen.",
+      "vindplaats": "architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#betrokken-informatie-bij-proces",
+      "bron_soort": "okx-document",
+      "status": "gedefinieerd",
       "herkomst": "verbijzondering van `Examen` (MORA)",
       "varianten": [
         "Examenonderdeel-specificatie",
         "examenonderdeel-specificatie"
-      ]
+      ],
+      "noot": "De bron schrijft `Examenspecificatie`; op de plaat heet het objecttype `Examenonderdeelspecificatie` (ontwerpkeuze 9: een examenonderdeel is een specialisatie van een toetsonderdeel)."
     },
     {
       "scope": "buiten scope",
       "naam": "Examenplan",
       "niveau": 2,
-      "familie": null,
+      "familie": "Buiten de kolommen",
       "in_informatiemodel": true,
       "kaders": {
         "ROSA-KOI": {
@@ -533,6 +597,36 @@
       "status": "gedefinieerd",
       "herkomst": "overgenomen uit MORA",
       "varianten": []
+    },
+    {
+      "naam": "Inschrijving",
+      "niveau": 2,
+      "familie": "Onderwijsverbintenis",
+      "in_informatiemodel": true,
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "inschrijving"
+        },
+        "MORA": {
+          "uitkomst": "tegenhanger",
+          "begrip": "Inschrijving",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-b329667d-f273-4c9c-2866-73ccce570d18",
+          "citaat": "Een overeenkomst tussen de onderwijsaanbieder en de student waar de rechten en plichten van onderwijsaanbieder en student in staan. Deze overeenkomst bevat ook voorwaarden waarin o.a. is opgenomen dat de student (en bij minderjarigen de ouders) akkoord gaan met alle voor het onderwijs relevante onderdelen zoals de BPV"
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
+      "definitie": "Een overeenkomst tussen de onderwijsaanbieder en de student waar de rechten en plichten van onderwijsaanbieder en student in staan. Deze overeenkomst bevat ook voorwaarden waarin o.a. is opgenomen dat de student (en bij minderjarigen de ouders) akkoord gaan met alle voor het onderwijs relevante onderdelen zoals de BPV",
+      "vindplaats": "https://mora.mbodigitaal.nl/index.php/Id-b329667d-f273-4c9c-2866-73ccce570d18",
+      "bron_soort": "referentiekader",
+      "status": "gedefinieerd",
+      "herkomst": "overgenomen uit MORA",
+      "varianten": [
+        "inschrijving",
+        "inschrijven"
+      ]
     },
     {
       "scope": "buiten scope",
@@ -1140,7 +1234,7 @@
     {
       "naam": "Medewerker",
       "niveau": 2,
-      "familie": null,
+      "familie": "Buiten de kolommen",
       "in_informatiemodel": true,
       "kaders": {
         "ROSA-KOI": {
@@ -1163,6 +1257,39 @@
       "status": "gedefinieerd",
       "herkomst": "overgenomen uit ROSA-KOI",
       "varianten": []
+    },
+    {
+      "scope": "buiten scope",
+      "naam": "OER",
+      "niveau": 2,
+      "familie": "Buiten de kolommen",
+      "in_informatiemodel": true,
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "oer"
+        },
+        "MORA": {
+          "uitkomst": "tegenhanger",
+          "begrip": "OER",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-9841b314-8781-36c9-8033-ce304c022d72",
+          "citaat": "Het onderwijs- en examenreglement bevat het onderwijsprogramma en het examenreglement en -handboek. In het OER staan de regels en afspraken die binnen de instelling gelden omtrent het onderwijs, de examinering en diplomering. Ieder cohort valt onder een eigen (specifiek voor het cohort) OER."
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
+      "definitie": "Het onderwijs- en examenreglement bevat het onderwijsprogramma en het examenreglement en -handboek. In het OER staan de regels en afspraken die binnen de instelling gelden omtrent het onderwijs, de examinering en diplomering. Ieder cohort valt onder een eigen (specifiek voor het cohort) OER.",
+      "vindplaats": "https://mora.mbodigitaal.nl/index.php/Id-9841b314-8781-36c9-8033-ce304c022d72",
+      "bron_soort": "referentiekader",
+      "status": "gedefinieerd",
+      "herkomst": "overgenomen uit MORA",
+      "varianten": [
+        "oer",
+        "onderwijs- en examenregeling",
+        "onderwijs- en examenreglement"
+      ],
+      "noot": "Buiten scope: OKx wisselt de OER niet uit, wel de summatieve resultaatstructuur die het examenplan erin draagt (ontwerpkeuze 10)."
     },
     {
       "oeapi": [
@@ -1676,11 +1803,8 @@
           "zoekterm": "plaatsingsgroep"
         },
         "MORA": {
-          "uitkomst": "tegenhanger",
-          "begrip": "Cohort / periode",
-          "url": "https://mora.mbodigitaal.nl/index.php/Id-67cf6837-c59e-52aa-47e6-006c572259e1",
-          "citaat": "Groep van studenten die onder hetzelfde onderwijs- en examenreglement vallen, binnen hetzelfde tijdvak (lopend van het eerste jaar van de opleiding tot en met het laatste jaar, uitgaande van de studieduur)",
-          "verbijzondering": "MORA groepeert studenten per cohort onder hetzelfde reglement. OKx gebruikt de plaatsingsgroep om verbintenissen op elk aanbodniveau te bundelen."
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "plaatsingsgroep, lesgroep, klas. MORA kent `Cohort / periode` (op de plaat een eigen objecttype) en `Opleidingsgroep` (een groep van bij elkaar behorende opleidingen, geen studenten)."
         },
         "HORA": {
           "uitkomst": "nog niet onderzocht"
@@ -1690,7 +1814,7 @@
       "vindplaats": null,
       "bron_soort": null,
       "status": "nog te definieren",
-      "herkomst": "verbijzondering van `Cohort / periode` (MORA)",
+      "herkomst": "nieuw voor OKx",
       "varianten": [
         "plaatsingsgroep"
       ]
@@ -1698,7 +1822,7 @@
     {
       "naam": "Student",
       "niveau": 2,
-      "familie": null,
+      "familie": "Buiten de kolommen",
       "in_informatiemodel": true,
       "kaders": {
         "ROSA-KOI": {
@@ -2056,13 +2180,13 @@
           "begrip": "Leervraag",
           "url": "https://mora.mbodigitaal.nl/index.php/Id-306e945a-d2ff-000e-f950-f1acaa91a0bc",
           "citaat": "De vraag van een (potentiele) student aan de onderwijsaanbieder waarin verwoord wordt wat men wil leren. Het formuleren van de leervraag is een activiteit van de begeleider samen met de deelnemer of opdrachtgever waarin de leervraag wordt uitgedrukt in producten uit de onderwijscatalogus (eventueel) aangevuld met additionele wensen en voorwaarden",
-          "verbijzondering": "MORA kent de leervraag als de vraag van de student wat hij wil leren, en de aanmelding als het verzoek om toegelaten te worden tot een opleiding. OKx bundelt beide in een uitwisselbaar verzoek dat leidt tot nieuw aanbod of tot intekening op bestaand aanbod."
+          "verbijzondering": "MORA kent de leervraag als de vraag van de student wat hij wil leren. OKx verbijzondert die tot een uitwisselbaar verzoek op de specificatie dat leidt tot aanbod. De aanmelding op dat aanbod is op de plaat een eigen objecttype, overgenomen uit MORA."
         },
         "HORA": {
           "uitkomst": "nog niet onderzocht"
         }
       },
-      "definitie": "Het `Verzoek tot Aanbod / Intekening op specificatie` is een verzoek om aanbod te maken voor een specificatie. Het heeft specificaties als input en leidt tot aanbod; of intekenen op bestaand aanbod hetzelfde is, is nog niet vastgesteld.",
+      "definitie": "Het `Verzoek tot Aanbod / Intekening op specificatie` is een verzoek om aanbod te maken voor een specificatie. Het heeft specificaties als input en leidt tot aanbod; aanmelden gebeurt daarna op dat aanbod en inschrijven is de verbintenis.",
       "vindplaats": "architecture/model/informatiemodel/informatiemodel.md#ontwerpkeuzes",
       "bron_soort": "okx-document",
       "status": "gedefinieerd",
@@ -2072,7 +2196,7 @@
     {
       "naam": "Waarde document (diploma / certificaat)",
       "niveau": 2,
-      "familie": null,
+      "familie": "Buiten de kolommen",
       "in_informatiemodel": true,
       "kaders": {
         "ROSA-KOI": {
@@ -2187,7 +2311,7 @@
     "MORA",
     "HORA"
   ],
-  "zoekmethode": "Gezocht in de volledige lijst van het MORA-informatiemodel (81 informatieobjecten, https://mora.mbodigitaal.nl/index.php/Informatiemodel) en in het volledige overzicht van het Kernmodel Onderwijsinformatie (https://rosa.wikixl.nl/index.php/Kernmodel_Onderwijsinformatie), opgehaald op 9 september 2026. Een begrip dat in beide lijsten ontbreekt staat als 'geen tegenhanger gevonden'.",
+  "zoekmethode": "Gezocht in de volledige lijst van het MORA-informatiemodel (81 informatieobjecten, https://mora.mbodigitaal.nl/index.php/Informatiemodel) en in het volledige overzicht van het Kernmodel Onderwijsinformatie (https://rosa.wikixl.nl/index.php/Kernmodel_Onderwijsinformatie), opgehaald op 9 september 2026 en opnieuw op 14 september 2026. Een begrip dat in beide lijsten ontbreekt staat als 'geen tegenhanger gevonden'.",
   "werkvoorraad": [
     "\"ask\"",
     "\"deny\"",
