@@ -256,6 +256,30 @@
       "gebruik_bij": "Release management uitleggen aan wie wil weten hoe iets naar buiten komt en hoelang een vorige versie beschikbaar blijft. Kerngroep techniek, leveranciers.",
       "let_op": "Komt uit Public PR 81 en is nog niet gemerged op dev. In de plaat staan tester en reviewer nog als een blok; afgesproken is dat het twee rollen worden. Benoem dat erbij.",
       "kopie": "release-branching.png"
+    },
+    {
+      "naam": "informatiemodel",
+      "titel": "Informatiemodel OKx",
+      "bron": "Npuls-OKx/meta",
+      "pad": "architecture/model/informatiemodel/OKx informatiemodel v0.1.jpg",
+      "versie": "v0.1",
+      "toont": "De keten van kwalificatiekader tot resultaatstructuur als zeven kolommen, met de 62 objecttypen en hun relaties. Geel is het OKx-referentiekader, grijs valt buiten scope.",
+      "gebruik_bij": "De vraag hoe alles op conceptueel niveau aan elkaar hangt, voordat de payloads aan bod komen. Kerngroep techniek, leveranciers, technische werkgroep OEAPI.",
+      "let_op": "Status concept, ter review in meta PR 225. De plaat is dicht bezet; op een slide alleen op volle breedte tonen en de leeswijzer erbij: kolommen zijn begrippen, de leeruitkomst is de sleutel. De legenda draagt de tikfout 'alligned'. Bron staat op branch 89-informatiemodel-en-begrippenkader tot de PR is gemerged.",
+      "kopie": "informatiemodel-v0.1.jpg",
+      "hash": "b88e96ee94aace72"
+    },
+    {
+      "naam": "informatiemodel-oeapi-mapping",
+      "titel": "Informatiemodel OKx naast OEAPI v6",
+      "bron": "Npuls-OKx/meta",
+      "pad": "architecture/model/informatiemodel/OKx informatiemodel en mapping OEAPI v0.1.jpg",
+      "versie": "v0.1",
+      "toont": "Dezelfde objecttypen met de OEAPI v6-objecten in blauw ernaast; de relatie is realisatie. 21 objecttypen binnen scope hebben geen OEAPI-object.",
+      "gebruik_bij": "De vraag waar OEAPI het model dekt en waar niet. Technische werkgroep OEAPI, kerngroep techniek.",
+      "let_op": "Status concept, ter review in meta PR 225. Nog drukker dan de basisplaat; werkt alleen op volle breedte met de conclusie ernaast in tekst.",
+      "kopie": "informatiemodel-oeapi-mapping-v0.1.jpg",
+      "hash": "4a0cd7f482e8e55e"
     }
   ],
   "overslaan": [
