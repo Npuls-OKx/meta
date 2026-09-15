@@ -25,7 +25,7 @@ fonts:
 </div>
 
 <!--
-Ruud is afwezig. Niek en Garik trekken de sessie. Twee thema's: versionering en modulariteit
+Ruud is afwezig. Niek en Garik trekken de sessie. Twee thema's: modulariteit en versionering
 (Garik, het grootste deel van de tijd) en het informatiemodel met de begrippenlijst (Niek).
 Daarna het open werk met een voorstel voor de prioritering.
 -->
@@ -144,14 +144,215 @@ het rondje uit de kerngroep en verder niets.
 <div class="flex items-center justify-center h-full">
   <div style="text-align: center;">
     <p class="eyebrow" style="color: rgba(255,255,255,0.85);">Deel 1</p>
-    <h1 style="color: #FFFFFF !important; font-size: 3rem;">Versionering en modulariteit</h1>
+    <h1 style="color: #FFFFFF !important; font-size: 3rem;">Modulariteit en versionering</h1>
   </div>
 </div>
 
 <!--
-Blok van Garik: slides 6 tot en met 9. De opzet staat; Garik vervangt en vult aan met zijn
+Blok van Garik. De opzet staat; Garik vervangt en vult aan met zijn
 eigen sheets, voorbeeld en diagrammen.
 -->
+
+---
+
+<!-- BOUWBLOKKEN -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# Bouwblokken van de koppelvlakspecificatie
+
+<div style="margin-top: 2.5rem;">
+
+```mermaid {scale: 0.75}
+flowchart LR
+  KV["Koppelvlakspecificatie"] -->|bevat| K["Koppelingspecificaties"]
+  K -->|bevatten elk| D["Datastromen"]
+  D -->|gebruiken| A["Applicatiediensten"]
+  D -->|gerealiseerd met| I["Interactiepatronen"]
+```
+
+</div>
+
+</div>
+
+---
+
+<!-- KOPPELINGSPECIFICATIE -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# Koppelingspecificatie
+
+<div class="np-card accent-blue" style="margin-top: 2.2rem; max-width: 85%;">
+  <p style="font-size: 1.45rem; line-height: 1.6; color: var(--np-ink); margin: 0;">Een benoemde verbinding tussen twee of meer componenten die met elkaar moeten interacteren. Per interactie bevat zij een lijst van datastromen.</p>
+</div>
+
+</div>
+
+---
+
+<!-- DATASTROMEN -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# Datastromen
+
+<div class="np-card accent-blue" style="margin-top: 2.2rem; max-width: 85%;">
+  <p style="font-size: 1.45rem; line-height: 1.6; color: var(--np-ink); margin: 0;">Een verzameling gegevensstromen die gegevens tussen systemen overdraagt.</p>
+</div>
+
+</div>
+
+---
+
+<!-- APPLICATIEDIENSTEN -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# Applicatiediensten
+
+<div class="np-card accent-blue" style="margin-top: 2.2rem; max-width: 85%;">
+  <p style="font-size: 1.45rem; line-height: 1.6; color: var(--np-ink); margin: 0;">Een verzameling functionaliteiten die een component kan implementeren.</p>
+</div>
+
+<div class="np-grid-2" style="margin-top: 1.2rem; max-width: 85%;">
+  <div class="np-card"><p style="font-size: 1.1rem; margin: 0;">Een verzameling endpoints</p></div>
+  <div class="np-card"><p style="font-size: 1.1rem; margin: 0;">Het vermogen om specifieke soorten gegevens af te nemen</p></div>
+</div>
+
+</div>
+
+---
+
+<!-- INTERACTIEPATRONEN -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# Interactiepatronen
+
+<div class="np-card accent-blue" style="margin-top: 2.2rem; max-width: 85%;">
+  <p style="font-size: 1.45rem; line-height: 1.6; color: var(--np-ink); margin: 0;">Een verzameling generieke interactiepatronen waarmee datastromen worden gerealiseerd.</p>
+</div>
+
+</div>
+
+---
+
+<!-- VOORBEELD UIT DE SPECIFICATIE -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# Voorbeeld uit de koppelvlakspecificatie
+
+<div style="margin-top: 1.4rem;">
+
+```mermaid {scale: 0.62}
+%%{init: {"flowchart": {"wrappingWidth": 460}}}%%
+flowchart LR
+  KV["Koppelvlakspecificatie"] -->|bevat| K["Onderwijscatalogus naar<br/>planning en roostering"]
+  K -->|bevat| D["Opleidingsaanbod aanmaken<br/><i>1 van 7 datastromen</i>"]
+  D -->|gebruikt| A["onderwijsspecificatiestructuur-aanbieder<br/>onderwijsspecificatiestructuur-afnemer<br/>verwerkingsuitkomst-afnemer<br/>planbaar-onderwijsaanbod-aanbieder"]
+  D -->|gerealiseerd met| I["Event Notification<br/>Asynchronous Request-Reply"]
+```
+
+</div>
+
+</div>
+
+---
+
+<!-- VERSIONERING: NIVEAU -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# Versionering op het niveau van datastromen
+
+<div class="np-grid-2" style="margin-top: 2.2rem; max-width: 85%;">
+  <div class="np-card accent-blue"><p style="font-size: 1.3rem; line-height: 1.55; margin: 0;">Elke datastroom kan een versie dragen</p></div>
+  <div class="np-card accent-green"><p style="font-size: 1.3rem; line-height: 1.55; margin: 0;">Versies bestaan meestal naast elkaar, in plaats van elkaar te vervangen</p></div>
+</div>
+
+</div>
+
+---
+
+<!-- VERSIONERING: AFHANKELIJKHEDEN -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# Wat een datastroom nodig heeft
+
+<div style="margin-top: 1.6rem;">
+
+```mermaid {scale: 0.75}
+flowchart LR
+  subgraph KV["Koppelvlakspecificatie"]
+    D["Datastroom"] --> A["Applicatiediensten"] --> E["Endpoints"]
+  end
+  subgraph DM["Apart pakket"]
+    S["Datamodelschema's"]
+  end
+  E -->|ondersteunde versies| S
+```
+
+</div>
+
+<div class="np-bottomline" style="margin-top: 1.6rem;">
+  Welke applicatiediensten en endpoints beschikbaar zijn, bepaalt de <strong>versie van de koppelvlakspecificatie</strong>.
+</div>
+
+</div>
+
+---
+
+<!-- VERSIONERING: VOORBEELD -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# Voorbeeld: koppelvlakspecificatie 0.5
+
+<div class="np-grid-3" style="margin-top: 2rem; max-width: 85%; text-align: center;">
+  <div class="np-card"><div class="np-big-number">5</div><p style="font-size: 1.05rem; margin: 0.6rem 0 0;">datastromen</p></div>
+  <div class="np-card"><div class="np-big-number">20</div><p style="font-size: 1.05rem; margin: 0.6rem 0 0;">applicatiediensten</p></div>
+  <div class="np-card"><div class="np-big-number">0.5</div><p style="font-size: 1.05rem; margin: 0.6rem 0 0;">versie</p></div>
+</div>
+
+<div class="np-bottomline" style="margin-top: 1.6rem;">
+  Alle applicatiediensten dragen versie 0.5, de versie van de koppelvlakspecificatie.
+</div>
+
+</div>
+
+---
+
+<!-- VERSIONERING: OPHOGEN -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# Wanneer de versie ophoogt
+
+<div class="np-grid-2" style="margin-top: 2rem; max-width: 90%; align-items: start;">
+  <div class="np-card accent-green">
+    <span class="np-badge green">Patch</span>
+    <p style="font-size: 1.15rem; line-height: 1.55; margin: 0.7rem 0 0;">Een datastroom toevoegen of wijzigen zonder iets te breken, zolang die bestaande applicatiediensten en interactiepatronen gebruikt</p>
+  </div>
+  <div class="np-card accent-orange">
+    <span class="np-badge orange">Major, minor of patch</span>
+    <p style="font-size: 1.15rem; line-height: 1.55; margin: 0.7rem 0 0;">Applicatiediensten toevoegen, bijwerken of wijzigen; de zwaarte van de wijziging bepaalt de ophoging</p>
+  </div>
+</div>
+
+</div>
 
 ---
 
@@ -162,9 +363,21 @@ eigen sheets, voorbeeld en diagrammen.
 
 # Een veld erbij in een datamodel, en dan?
 
-```mermaid
+```mermaid {scale: 0.7}
 flowchart LR
-  D["Datamodel"] --> E["Endpoint"] --> S["Applicatiedienst"] --> K["Koppeling"]
+  D["Datamodel<br/>+1 veld"]:::bron
+  D --> E1["Endpoint"]:::geraakt & E2["Endpoint"]:::geraakt
+  E1 --> A1["Applicatiedienst"]:::geraakt & A2["Applicatiedienst"]:::geraakt
+  E2 --> A2 & A3["Applicatiedienst"]:::geraakt
+  A1 --> B1["Berichtenstroom"]:::geraakt & B2["Berichtenstroom"]:::geraakt
+  A2 --> B2 & B3["Berichtenstroom"]:::geraakt
+  A3 --> B3 & B4["Berichtenstroom"]:::geraakt
+  B1 --> K1["Koppeling"]:::geraakt
+  B2 --> K1
+  B3 --> K2["Koppeling"]:::geraakt
+  B4 --> K2
+  classDef bron fill:#E07A4B,stroke:#E07A4B,color:#fff
+  classDef geraakt fill:#FBE3D6,stroke:#E07A4B,color:#1F2937
 ```
 
 <div style="font-size: 0.98rem; line-height: 1.9; margin-top: 1.4rem;">
@@ -181,48 +394,6 @@ flowchart LR
 BLOK GARIK. Bron: de afstemming van 11 september. Het voorbeeld dat Garik gaf: partij een
 implementeert het nieuwe veld, partij twee niet, en niemand kan zien dat de een op versie Y
 zit en de ander op X. Hier komt zijn eigen voorbeeld en diagram.
--->
-
----
-
-<!-- 7. DE LAAG -->
-<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
-
-<div class="fill">
-
-# Applicatiediensten als laag tussen component en endpoint
-
-<div class="np-grid-2" style="margin-top: 1rem; gap: 1.6rem; font-size: 0.92rem; line-height: 1.8;">
-<div>
-
-**Wat het oplost**
-
-- Eén contract, niet drie keer beschreven per koppeling
-- Aanbieden en afnemen zijn twee losse diensten
-- Elke dienst zelfstandig te claimen en te versioneren
-
-</div>
-<div>
-
-**Wat er ligt**
-
-- Veertien paren aanbieder en afnemer, uit de requirementsboom
-- Vijf generieke interactiepatronen, met de naam uit de catalogus waar ze vandaan komen
-- Twaalf functionele eisen vervangen door de stories die ze navertelden
-
-</div>
-</div>
-
-<div style="font-size: 0.85rem; color: var(--np-dark-gray); margin-top: 1.4rem;">
-Status: voorstel, <a href="https://github.com/Npuls-OKx/Public/pull/100">Public PR 100</a>. Hoogstens twee gelijktijdig actieve major versies per dienst.
-</div>
-
-</div>
-
-<!--
-BLOK GARIK. Bron: de beschrijving van Public PR 100 en Koppelvlakspecificaties/Applicatiediensten/README.md
-op de branch. Er is nog geen plaat van de nieuwe laag; de opgeslagen overzichtsplaat toont
-de oude opbouw. Garik levert het diagram.
 -->
 
 ---
