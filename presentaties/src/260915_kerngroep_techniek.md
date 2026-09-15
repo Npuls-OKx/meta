@@ -61,17 +61,16 @@ en 4 samen.
 
 <div class="fill">
 
-# Meer tijd gevraagd op 1 september: hoe staat het ermee?
+# Meer tijd gevraagd op 1 september: voortgangscheck
 
 <div style="font-size: 0.95rem; line-height: 1.55; margin-top: 0.2rem; color: var(--np-dark-gray);">
-Die vraag is gehoord. Ondertussen werkt het kernteam door, zodat er iets ligt om op te reageren zodra de tijd er is.
+Die vraag is gehoord. Ondertussen werkt het kernteam door, zodat er iets ligt om op te reageren zodra de tijd er is. Grijs is wat vandaag voor het eerst op tafel komt.
 </div>
 
 <div class="np-grid-2" style="margin-top: 1rem; gap: 1.4rem; align-items: start;">
 <div class="np-card" style="border-top-color:#7A97F2;">
 <strong>Wat er ligt om naar te kijken</strong>
-<div style="margin-top:0.5rem;"><span style="display:inline-block;padding:0.25rem 0.6rem;border-radius:6px;margin:0.15rem 0.3rem 0.15rem 0;font-size:0.8rem;line-height:1.3;background:#7A97F2;color:#fff;">v0.0.2, Public PR 82</span><span style="display:inline-block;padding:0.25rem 0.6rem;border-radius:6px;margin:0.15rem 0.3rem 0.15rem 0;font-size:0.8rem;line-height:1.3;background:#7A97F2;color:#fff;">applicatiediensten en versionering, Public PR 100</span><span style="display:inline-block;padding:0.25rem 0.6rem;border-radius:6px;margin:0.15rem 0.3rem 0.15rem 0;font-size:0.8rem;line-height:1.3;background:#7A97F2;color:#fff;">informatiemodel en begrippen, Public PR 104</span></div>
-<div style="font-size:0.85rem;color:var(--np-dark-gray);margin-top:0.5rem;">Sinds 1 september: 7 pull requests gemerged, 16 issues gesloten, 64 commits.</div>
+<div style="margin-top:0.5rem;"><span style="display:inline-block;padding:0.25rem 0.6rem;border-radius:6px;margin:0.15rem 0.3rem 0.15rem 0;font-size:0.8rem;line-height:1.3;background:#7A97F2;color:#fff;">v0.0.2 met de requirementsboom als structuur, Public PR 82</span><div style="margin-top:0.35rem;font-size:0.72rem;letter-spacing:1px;text-transform:uppercase;color:var(--np-mid-gray);">Vandaag op tafel</div><span style="display:inline-block;padding:0.25rem 0.6rem;border-radius:6px;margin:0.15rem 0.3rem 0.15rem 0;font-size:0.8rem;line-height:1.3;background:#B8BEC7;color:#fff;">applicatiediensten en versionering, Public PR 100</span><span style="display:inline-block;padding:0.25rem 0.6rem;border-radius:6px;margin:0.15rem 0.3rem 0.15rem 0;font-size:0.8rem;line-height:1.3;background:#B8BEC7;color:#fff;">informatiemodel en begrippen, Public PR 104</span></div>
 </div>
 <div class="np-card" style="border-top-color:#E9A27F;">
 <strong>Wat er al terugkwam</strong>
@@ -91,8 +90,8 @@ Die vraag is gehoord. Ondertussen werkt het kernteam door, zodat er iets ligt om
 <!--
 Positief en vragend. De vraag om meer tijd van 1 september is gehoord; het kernteam is
 doorgegaan zodat er iets ligt zodra de tijd er is. De aantallen komen uit GitHub, stand
-15 september, beide repositories samen: PR's gemerged 2 Public en 5 meta, issues gesloten 5 en
-11, commits op dev 6 en 58. Wat terugkwam: de pdf van Xedule en YNC en de 28 opmerkingen van
+15 september. PR 100 en PR 104 staan grijs: die komen vandaag voor het eerst op tafel en
+vragen nog geen review. Wat terugkwam: de pdf van Xedule en YNC en de 28 opmerkingen van
 Kees en Luke van gisteren zijn inhoudelijke reacties; een formele review op PR 82 is er nog
 niet, en de werkwijze vraagt die voor een release (accepteren of itereren). De demo-opmerkingen
 van 1 september tellen niet mee. De drie vragen zijn die van Garik uit de voorbereiding.
