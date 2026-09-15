@@ -41,7 +41,7 @@ Daarna het open werk met een voorstel voor de prioritering.
 
 <div style="margin-top:0.6rem;max-width:92%;">
 <div style="display:grid;grid-template-columns:2.2rem 1fr;gap:0.6rem;align-items:start;margin-top:0.55rem;"><div style="width:2rem;height:2rem;border-radius:50%;background:#B8BEC7;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.95rem;">1</div><div style="line-height:1.4;"><strong>Terugblik op de afgelopen sprint</strong><br/><span style="font-size:0.9rem;color:var(--np-dark-gray);">De vier openstaande punten van 1 september en de review van v0.0.2 (Public PR 82): de requirementsboom als structuur en de stories, de bevindingen tot nu toe en wat nodig is om de review af te ronden</span></div></div>
-<div style="display:grid;grid-template-columns:2.2rem 1fr;gap:0.6rem;align-items:start;margin-top:0.55rem;"><div style="width:2rem;height:2rem;border-radius:50%;background:#7A97F2;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.95rem;">2</div><div style="line-height:1.4;"><strong>Versionering en modulariteit (Garik)</strong><br/><span style="font-size:0.9rem;color:var(--np-dark-gray);">Een laag applicatiediensten tussen component en endpoint, en de datamodellen als eigen pakket: het antwoord op de discussie van 19 augustus in Amersfoort</span></div></div>
+<div style="display:grid;grid-template-columns:2.2rem 1fr;gap:0.6rem;align-items:start;margin-top:0.55rem;"><div style="width:2rem;height:2rem;border-radius:50%;background:#7A97F2;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.95rem;">2</div><div style="line-height:1.4;"><strong>Modulariteit en versionering (Garik)</strong><br/><span style="font-size:0.9rem;color:var(--np-dark-gray);">Een laag applicatiediensten tussen component en endpoint, en de datamodellen als eigen pakket: het antwoord op de discussie van 19 augustus in Amersfoort</span></div></div>
 <div style="display:grid;grid-template-columns:2.2rem 1fr;gap:0.6rem;align-items:start;margin-top:0.55rem;"><div style="width:2rem;height:2rem;border-radius:50%;background:#7CCBA8;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.95rem;">3</div><div style="line-height:1.4;"><strong>Informatiemodel OKx (Niek)</strong><br/><span style="font-size:0.9rem;color:var(--np-dark-gray);">Antwoord op Public #89: twee overzichtsplaten, de begrippen, de ontwerpkeuzes, de dekking door OEAPI en een eerste begrippenlijst met MORA en het Kernmodel Onderwijsinformatie</span></div></div>
 <div style="display:grid;grid-template-columns:2.2rem 1fr;gap:0.6rem;align-items:start;margin-top:0.55rem;"><div style="width:2rem;height:2rem;border-radius:50%;background:#E9A27F;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.95rem;">4</div><div style="line-height:1.4;"><strong>Open werk en prioritering</strong><br/><span style="font-size:0.9rem;color:var(--np-dark-gray);">De backlog per milestone, wat sinds 1 september van buiten binnenkwam, en een voorstel voor de volgorde: eerst de reviews, dan de keuzeregels</span></div></div>
 <div style="display:grid;grid-template-columns:2.2rem 1fr;gap:0.6rem;align-items:start;margin-top:0.55rem;"><div style="width:2rem;height:2rem;border-radius:50%;background:#00AF81;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.95rem;">5</div><div style="line-height:1.4;"><strong>W.v.t.t.k., vervolg en voortgangspeiling</strong><br/><span style="font-size:0.9rem;color:var(--np-dark-gray);"></span></div></div>
@@ -253,7 +253,7 @@ het rondje uit de kerngroep en verder niets.
 <div class="flex items-center justify-center h-full">
   <div style="text-align: center;">
     <p class="eyebrow" style="color: rgba(255,255,255,0.85);">Deel 1</p>
-    <h1 style="color: #FFFFFF !important; font-size: 3rem;">Modulariteit en versionering</h1>
+    <h1 style="color: #FFFFFF !important; font-size: 3rem;">Modulariteit</h1>
   </div>
 </div>
 
@@ -261,6 +261,73 @@ het rondje uit de kerngroep en verder niets.
 Blok van Garik. De opzet staat; Garik vervangt en vult aan met zijn
 eigen sheets, voorbeeld en diagrammen.
 -->
+
+---
+
+<!-- VERSIONERING: WAAR WE VANDAAN KOMEN -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# Waar we vandaan komen
+
+<div style="margin-top: 1.6rem;">
+
+```mermaid {scale: 0.62}
+flowchart LR
+  subgraph KV["Koppelvlakspecificatie"]
+    direction LR
+    subgraph IP["Interactiepatroon per koppeling"]
+      direction TB
+      FE["Functionele eisen"]
+      I1["Interactie"]
+      I2["Interactie"]
+    end
+    subgraph AC["Applicatiecomponent"]
+      direction TB
+      E["Endpoints"]
+    end
+    S["Datamodelschema's"]
+  end
+  IP -->|gebruikt| AC
+  E -->|gebruiken| S
+```
+
+</div>
+
+</div>
+
+---
+
+<!-- VERSIONERING: WAAR WE STAAN -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# Waar we staan
+
+<div style="margin-top: 1.6rem;">
+
+```mermaid {scale: 0.8}
+flowchart LR
+  subgraph KV["Koppelvlakspecificatie"]
+    direction LR
+    subgraph K["Koppelingspecificatie"]
+      direction TB
+      B1["Berichtstroom"]
+      B2["Berichtstroom"]
+      B3["Berichtstroom"]
+    end
+    A["Applicatiediensten"]
+    I["Interactiepatronen"]
+  end
+  K -->|gebruiken| A
+  K -->|gerealiseerd met| I
+```
+
+</div>
+
+</div>
 
 ---
 
@@ -294,8 +361,20 @@ flowchart LR
 
 # Koppelingspecificatie
 
-<div class="np-card accent-blue" style="margin-top: 2.2rem; max-width: 85%;">
-  <p style="font-size: 1.45rem; line-height: 1.6; color: var(--np-ink); margin: 0;">Een benoemde verbinding tussen twee of meer componenten die met elkaar moeten interacteren. Per interactie bevat zij een lijst van berichtstromen.</p>
+<div class="np-grid-2" style="margin-top: 1.6rem; gap: 2rem; align-items: center;">
+<div class="np-card accent-blue">
+  <p style="font-size: 1.35rem; line-height: 1.6; color: var(--np-ink); margin: 0;">Een benoemde verbinding tussen twee of meer componenten die met elkaar moeten interacteren. Per interactie bevat zij een lijst van berichtstromen.</p>
+</div>
+<div>
+
+```mermaid {scale: 0.56}
+%%{init: {"flowchart": {"wrappingWidth": 420}}}%%
+flowchart LR
+  OC["Onderwijscatalogus"] <--> K["<b>Onderwijscatalogus naar<br/>planning en roostering</b><br/><br/>Opleidingsaanbod aanmaken<br/>Opleidingsaanbod herplannen<br/>Planning niet gelukt melden<br/>Acceptatietoets bij late wijziging<br/>Specificatiestatus gewijzigd melden<br/>Reconciliatie na gemist event<br/>Abonnement registreren"] <--> P["Planningssysteem"]
+  style K fill:#FBE3D6,stroke:#E07A4B
+```
+
+</div>
 </div>
 
 </div>
@@ -309,8 +388,26 @@ flowchart LR
 
 # Berichtstromen
 
-<div class="np-card accent-blue" style="margin-top: 2.2rem; max-width: 85%;">
-  <p style="font-size: 1.45rem; line-height: 1.6; color: var(--np-ink); margin: 0;">Een verzameling gegevensstromen die gegevens tussen systemen overdraagt.</p>
+<div class="np-grid-2" style="margin-top: 1.6rem; gap: 2rem; align-items: center;">
+<div class="np-card accent-blue">
+  <p style="font-size: 1.35rem; line-height: 1.6; color: var(--np-ink); margin: 0;">Een verzameling gegevensstromen die gegevens tussen systemen overdraagt.</p>
+</div>
+<div>
+
+```mermaid {scale: 0.72}
+sequenceDiagram
+  participant OC as Onderwijscatalogus
+  participant P as Planningssysteem
+  rect rgb(251, 227, 214)
+    Note over OC,P: Berichtstroom: opleidingsaanbod aanmaken
+    OC-)P: Event: specificatie planbaar
+    P->>OC: Specificatie ophalen
+    OC-->>P: Onderwijsspecificatie
+    P-)OC: Status: gelukt, met referentie
+  end
+```
+
+</div>
 </div>
 
 </div>
@@ -324,13 +421,26 @@ flowchart LR
 
 # Applicatiediensten
 
-<div class="np-card accent-blue" style="margin-top: 2.2rem; max-width: 85%;">
-  <p style="font-size: 1.45rem; line-height: 1.6; color: var(--np-ink); margin: 0;">Een verzameling koppelvlakfunctionaliteiten die een component kan implementeren.</p>
+<div class="np-grid-2" style="margin-top: 1.6rem; gap: 2rem; align-items: center;">
+<div>
+<div class="np-card accent-blue">
+  <p style="font-size: 1.3rem; line-height: 1.55; color: var(--np-ink); margin: 0;">Een verzameling koppelvlakfunctionaliteiten die een component kan implementeren.</p>
 </div>
+<div class="np-card" style="margin-top: 0.9rem;"><p style="font-size: 1.05rem; margin: 0;">Een verzameling endpoints</p></div>
+<div class="np-card" style="margin-top: 0.7rem;"><p style="font-size: 1.05rem; margin: 0;">Het vermogen om specifieke soorten gegevens af te nemen</p></div>
+</div>
+<div>
 
-<div class="np-grid-2" style="margin-top: 1.2rem; max-width: 85%;">
-  <div class="np-card"><p style="font-size: 1.1rem; margin: 0;">Een verzameling endpoints</p></div>
-  <div class="np-card"><p style="font-size: 1.1rem; margin: 0;">Het vermogen om specifieke soorten gegevens af te nemen</p></div>
+```mermaid {scale: 0.56}
+%%{init: {"flowchart": {"wrappingWidth": 440}}}%%
+flowchart TB
+  OC["Onderwijscatalogus"] -->|implementeert| AB["<b>onderwijsspecificatiestructuur-aanbieder</b><br/><br/>GET /onderwijsspecificaties/{id}<br/>GET /onderwijsspecificaties/{id}/delta<br/>GET /onderwijsspecificaties"]
+  PS["Planningssysteem"] -->|implementeert| AF["<b>onderwijsspecificatiestructuur-afnemer</b><br/><br/>POST specificatie-beschikbaar<br/>POST specificatie-gewijzigd<br/>POST specificatie-status-gewijzigd"]
+  style AB fill:#FBE3D6,stroke:#E07A4B
+  style AF fill:#FBE3D6,stroke:#E07A4B
+```
+
+</div>
 </div>
 
 </div>
@@ -449,6 +559,51 @@ flowchart LR
 
 ---
 
+<!-- DIVIDER DEEL 2 -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide14.PNG);"></div>
+
+<div class="flex items-center justify-center h-full">
+  <div style="text-align: center;">
+    <p class="eyebrow" style="color: rgba(255,255,255,0.85);">Deel 2</p>
+    <h1 style="color: #FFFFFF !important; font-size: 3rem;">Versionering</h1>
+  </div>
+</div>
+
+
+---
+
+<!-- VERSIONERING: WAAR WE TEGENAAN LIEPEN -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# Waar we tegenaan liepen
+
+<div class="np-grid-3" style="margin-top: 2.2rem; gap: 1.2rem; max-width: 95%; align-items: start;">
+  <div class="np-card accent-orange">
+    <h3 style="margin: 0 0 0.4rem;">Eén versienummer voor alles</h3>
+    <p style="font-size: 0.98rem; line-height: 1.5; color: var(--np-dark-gray); margin: 0;">Schema's, koppelingen en componenten zaten in één pakket. Een schemawijziging en een nieuwe koppeling deelden hetzelfde nummer.</p>
+  </div>
+  <div class="np-card accent-orange">
+    <h3 style="margin: 0 0 0.4rem;">Niet te zien wie wat ondersteunt</h3>
+    <p style="font-size: 0.98rem; line-height: 1.5; color: var(--np-dark-gray); margin: 0;">Partij één implementeert een nieuw veld, partij twee niet, en niemand ziet wie op welke versie zit.</p>
+  </div>
+  <div class="np-card accent-orange">
+    <h3 style="margin: 0 0 0.4rem;">Koppelvlakken die elkaar bijten</h3>
+    <p style="font-size: 0.98rem; line-height: 1.5; color: var(--np-dark-gray); margin: 0;">Eén leverancier met twee koppelvlakken, het ene op v2 en het andere op v3, met breaking changes ertussen.</p>
+  </div>
+</div>
+
+</div>
+
+<!--
+Bronnen: de afstemming van 11 september (niet te zien wie welk veld
+ondersteunt), Public issue #47 (twee koppelvlakken van één leverancier op v2 en v3), en de
+structuur op dev (datamodelschema's in hetzelfde pakket als de koppelingen, één versie).
+-->
+
+---
+
 <!-- VERSIONERING: NIVEAU -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
@@ -459,57 +614,6 @@ flowchart LR
 <div class="np-grid-2" style="margin-top: 2.2rem; max-width: 85%;">
   <div class="np-card accent-blue"><p style="font-size: 1.3rem; line-height: 1.55; margin: 0;">Elke berichtstroom kan een versie dragen</p></div>
   <div class="np-card accent-green"><p style="font-size: 1.3rem; line-height: 1.55; margin: 0;">Versies bestaan meestal naast elkaar, in plaats van elkaar te vervangen</p></div>
-</div>
-
-</div>
-
----
-
-<!-- VERSIONERING: AFHANKELIJKHEDEN -->
-<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
-
-<div class="fill">
-
-# Wat een berichtstroom nodig heeft
-
-<div style="margin-top: 1.6rem;">
-
-```mermaid {scale: 0.75}
-flowchart LR
-  subgraph KV["Koppelvlakspecificatie"]
-    D["Berichtstroom"] --> A["Applicatiediensten"] --> E["Endpoints"]
-  end
-  subgraph DM["Apart pakket"]
-    S["Datamodelschema's"]
-  end
-  E -->|ondersteunde versies| S
-```
-
-</div>
-
-<div class="np-bottomline" style="margin-top: 1.6rem;">
-  Welke applicatiediensten en endpoints beschikbaar zijn, bepaalt de <strong>versie van de koppelvlakspecificatie</strong>.
-</div>
-
-</div>
-
----
-
-<!-- VERSIONERING: VOORBEELD -->
-<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
-
-<div class="fill">
-
-# Voorbeeld: koppelvlakspecificatie 0.5
-
-<div class="np-grid-3" style="margin-top: 2rem; max-width: 85%; text-align: center;">
-  <div class="np-card"><div class="np-big-number">5</div><p style="font-size: 1.05rem; margin: 0.6rem 0 0;">berichtstromen</p></div>
-  <div class="np-card"><div class="np-big-number">20</div><p style="font-size: 1.05rem; margin: 0.6rem 0 0;">applicatiediensten</p></div>
-  <div class="np-card"><div class="np-big-number">0.5</div><p style="font-size: 1.05rem; margin: 0.6rem 0 0;">versie</p></div>
-</div>
-
-<div class="np-bottomline" style="margin-top: 1.6rem;">
-  Alle applicatiediensten dragen versie 0.5, de versie van de koppelvlakspecificatie.
 </div>
 
 </div>
@@ -587,7 +691,39 @@ zit en de ander op X. Hier komt zijn eigen voorbeeld en diagram.
 
 # Datamodellen als eigen pakket
 
-<div style="font-size: 0.98rem; line-height: 1.9; margin-top: 1rem;">
+```mermaid {scale: 0.5}
+flowchart RL
+  subgraph DP["Pakket: datamodellen"]
+    D["Datamodel<br/>+1 veld"]:::bron
+  end
+  subgraph KV["Pakket: koppelvlakspecificatie"]
+    E1["Endpoint"]:::geraakt
+    E2["Endpoint"]:::geraakt
+    A1["Applicatiedienst"]:::geraakt
+    A2["Applicatiedienst"]:::geraakt
+    A3["Applicatiedienst"]:::geraakt
+    B1["Berichtenstroom"]:::geraakt
+    B2["Berichtenstroom"]:::geraakt
+    B3["Berichtenstroom"]:::geraakt
+    B4["Berichtenstroom"]:::geraakt
+    K1["Koppeling"]:::geraakt
+    K2["Koppeling"]:::geraakt
+  end
+  E1 & E2 --> D
+  A1 & A2 --> E1
+  A2 & A3 --> E2
+  B1 & B2 --> A1
+  B2 & B3 --> A2
+  B3 & B4 --> A3
+  K1 --> B1
+  K1 --> B2
+  K2 --> B3
+  K2 --> B4
+  classDef bron fill:#E07A4B,stroke:#E07A4B,color:#fff
+  classDef geraakt fill:#FBE3D6,stroke:#E07A4B,color:#1F2937
+```
+
+<div style="font-size: 0.95rem; line-height: 1.7; margin-top: 0.4rem;">
 
 - De datamodellen krijgen samen een eigen versie, los van endpoint en dienst
 - Een kleine wijziging in een model dwingt geen ophoging af in de lagen erboven
@@ -649,12 +785,12 @@ variant in PR 100 wordt uitgewerkt.
 
 ---
 
-<!-- DIVIDER DEEL 2 -->
+<!-- DIVIDER DEEL 3 -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide14.PNG);"></div>
 
 <div class="flex items-center justify-center h-full">
   <div style="text-align: center;">
-    <p class="eyebrow" style="color: rgba(255,255,255,0.85);">Deel 2</p>
+    <p class="eyebrow" style="color: rgba(255,255,255,0.85);">Deel 3</p>
     <h1 style="color: #FFFFFF !important; font-size: 3rem;">Informatiemodel</h1>
   </div>
 </div>
@@ -933,12 +1069,12 @@ liever praat dan schrijft.
 
 ---
 
-<!-- DIVIDER DEEL 3 -->
+<!-- DIVIDER DEEL 4 -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide14.PNG);"></div>
 
 <div class="flex items-center justify-center h-full">
   <div style="text-align: center;">
-    <p class="eyebrow" style="color: rgba(255,255,255,0.85);">Deel 3</p>
+    <p class="eyebrow" style="color: rgba(255,255,255,0.85);">Deel 4</p>
     <h1 style="color: #FFFFFF !important; font-size: 3rem;">Open werk</h1>
   </div>
 </div>
