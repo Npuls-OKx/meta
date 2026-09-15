@@ -167,7 +167,7 @@ eigen sheets, voorbeeld en diagrammen.
 ```mermaid {scale: 0.75}
 flowchart LR
   KV["Koppelvlakspecificatie"] -->|bevat| K["Koppelingspecificaties"]
-  K -->|bevatten elk| D["Datastromen"]
+  K -->|bevatten elk| D["Berichtstromen"]
   D -->|gebruiken| A["Applicatiediensten"]
   D -->|gerealiseerd met| I["Interactiepatronen"]
 ```
@@ -186,7 +186,7 @@ flowchart LR
 # Koppelingspecificatie
 
 <div class="np-card accent-blue" style="margin-top: 2.2rem; max-width: 85%;">
-  <p style="font-size: 1.45rem; line-height: 1.6; color: var(--np-ink); margin: 0;">Een benoemde verbinding tussen twee of meer componenten die met elkaar moeten interacteren. Per interactie bevat zij een lijst van datastromen.</p>
+  <p style="font-size: 1.45rem; line-height: 1.6; color: var(--np-ink); margin: 0;">Een benoemde verbinding tussen twee of meer componenten die met elkaar moeten interacteren. Per interactie bevat zij een lijst van berichtstromen.</p>
 </div>
 
 </div>
@@ -198,7 +198,7 @@ flowchart LR
 
 <div class="fill">
 
-# Datastromen
+# Berichtstromen
 
 <div class="np-card accent-blue" style="margin-top: 2.2rem; max-width: 85%;">
   <p style="font-size: 1.45rem; line-height: 1.6; color: var(--np-ink); margin: 0;">Een verzameling gegevensstromen die gegevens tussen systemen overdraagt.</p>
@@ -236,7 +236,7 @@ flowchart LR
 # Interactiepatronen
 
 <div class="np-card accent-blue" style="margin-top: 2.2rem; max-width: 85%;">
-  <p style="font-size: 1.45rem; line-height: 1.6; color: var(--np-ink); margin: 0;">Een verzameling generieke interactiepatronen waarmee datastromen worden gerealiseerd.</p>
+  <p style="font-size: 1.45rem; line-height: 1.6; color: var(--np-ink); margin: 0;">Een verzameling generieke interactiepatronen waarmee berichtstromen worden gerealiseerd.</p>
 </div>
 
 </div>
@@ -256,7 +256,7 @@ flowchart LR
 %%{init: {"flowchart": {"wrappingWidth": 460}}}%%
 flowchart LR
   KV["Koppelvlakspecificatie"] -->|bevat| K["Onderwijscatalogus naar<br/>planning en roostering"]
-  K -->|bevat| D["Opleidingsaanbod aanmaken<br/><i>1 van 7 datastromen</i>"]
+  K -->|bevat| D["Opleidingsaanbod aanmaken<br/><i>1 van 7 berichtstromen</i>"]
   D -->|gebruikt| A["onderwijsspecificatiestructuur-aanbieder<br/>onderwijsspecificatiestructuur-afnemer<br/>verwerkingsuitkomst-afnemer<br/>planbaar-onderwijsaanbod-aanbieder"]
   D -->|gerealiseerd met| I["Event Notification<br/>Asynchronous Request-Reply"]
 ```
@@ -272,10 +272,10 @@ flowchart LR
 
 <div class="fill">
 
-# Versionering op het niveau van datastromen
+# Versionering op het niveau van berichtstromen
 
 <div class="np-grid-2" style="margin-top: 2.2rem; max-width: 85%;">
-  <div class="np-card accent-blue"><p style="font-size: 1.3rem; line-height: 1.55; margin: 0;">Elke datastroom kan een versie dragen</p></div>
+  <div class="np-card accent-blue"><p style="font-size: 1.3rem; line-height: 1.55; margin: 0;">Elke berichtstroom kan een versie dragen</p></div>
   <div class="np-card accent-green"><p style="font-size: 1.3rem; line-height: 1.55; margin: 0;">Versies bestaan meestal naast elkaar, in plaats van elkaar te vervangen</p></div>
 </div>
 
@@ -288,14 +288,14 @@ flowchart LR
 
 <div class="fill">
 
-# Wat een datastroom nodig heeft
+# Wat een berichtstroom nodig heeft
 
 <div style="margin-top: 1.6rem;">
 
 ```mermaid {scale: 0.75}
 flowchart LR
   subgraph KV["Koppelvlakspecificatie"]
-    D["Datastroom"] --> A["Applicatiediensten"] --> E["Endpoints"]
+    D["Berichtstroom"] --> A["Applicatiediensten"] --> E["Endpoints"]
   end
   subgraph DM["Apart pakket"]
     S["Datamodelschema's"]
@@ -321,7 +321,7 @@ flowchart LR
 # Voorbeeld: koppelvlakspecificatie 0.5
 
 <div class="np-grid-3" style="margin-top: 2rem; max-width: 85%; text-align: center;">
-  <div class="np-card"><div class="np-big-number">5</div><p style="font-size: 1.05rem; margin: 0.6rem 0 0;">datastromen</p></div>
+  <div class="np-card"><div class="np-big-number">5</div><p style="font-size: 1.05rem; margin: 0.6rem 0 0;">berichtstromen</p></div>
   <div class="np-card"><div class="np-big-number">20</div><p style="font-size: 1.05rem; margin: 0.6rem 0 0;">applicatiediensten</p></div>
   <div class="np-card"><div class="np-big-number">0.5</div><p style="font-size: 1.05rem; margin: 0.6rem 0 0;">versie</p></div>
 </div>
@@ -344,7 +344,7 @@ flowchart LR
 <div class="np-grid-2" style="margin-top: 2rem; max-width: 90%; align-items: start;">
   <div class="np-card accent-green">
     <span class="np-badge green">Patch</span>
-    <p style="font-size: 1.15rem; line-height: 1.55; margin: 0.7rem 0 0;">Een datastroom toevoegen of wijzigen zonder iets te breken, zolang die bestaande applicatiediensten en interactiepatronen gebruikt</p>
+    <p style="font-size: 1.15rem; line-height: 1.55; margin: 0.7rem 0 0;">Een berichtstroom toevoegen of wijzigen zonder iets te breken, zolang die bestaande applicatiediensten en interactiepatronen gebruikt</p>
   </div>
   <div class="np-card accent-orange">
     <span class="np-badge orange">Major, minor of patch</span>
