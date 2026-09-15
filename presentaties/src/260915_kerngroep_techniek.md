@@ -177,6 +177,48 @@ om eerst het kader te bespreken past bij het eerste agendapunt.
 
 ---
 
+<!-- 3b. VAN STORY NAAR KOPPELVLAK -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# Van story naar koppelvlak: waar OKx ophoudt
+
+<div style="display:grid;grid-template-columns:1.45fr 1fr;gap:1.4rem;align-items:start;margin-top:0.4rem;">
+<div>
+  <img src="/platen/concept-uitleg-business-architectuur.png" style="width:100%;max-height:26rem;object-fit:contain;" />
+  <div style="font-size:0.78rem;color:var(--np-mid-gray);margin-top:0.2rem;">Schets van Niels, concept.</div>
+</div>
+<div style="font-size:0.88rem;line-height:1.45;">
+
+- **Scholen praten in stories** en in wat een applicatie moet kunnen; de PoC-casussen leveren die stories
+- **OKx maakt er generieke stories en bouwstenen van**: de gedeelde laag, herleidbaar naar leerroutes, studentreis en instellingsreis
+- **Alleen rechts is de koppelvlakspecificatie**: koppelvlakdienst, koppeling, endpoints, interactie. App-dienst en sectordienst blijven van leverancier en school
+
+<div class="np-card" style="margin-top:0.6rem;font-size:0.88rem;padding:0.6rem 0.9rem;">
+Een story die applicatiefunctionaliteit beschrijft is de aanloop, niet het product. De vraag aan de groep: waar ligt de grens precies.
+</div>
+
+</div>
+</div>
+
+</div>
+
+<!--
+Antwoord op de rode draad van Kees en Luke: de stories neigen naar applicatiefunctionaliteit
+of beleidskeuzes. De schets van Niels legt de lagen naast elkaar: het PoC-schoolperspectief
+(userstories van de app, app-dienst, sectordienst), het gedeelde perspectief (leerroutes,
+studentreis en instellingsreis, userstories OKx, generieke userstories en bouwstenen) en de
+OKx-architectuur met de kerngroep techniek (features, koppelvlakdienst, koppeling, endpoints,
+interactie, informatiemodel). OKx specificeert de koppelvlakfunctionaliteit; de
+applicatiefunctionaliteit is een interne zaak van het component, ook al hangen ze samen.
+Uit de voorbereiding met Garik: wij zitten niet op het terrein van de leverancier maar op de
+grens, omdat een koppeling anders niet vast te leggen is. Soll-min is haalbaar op korte en
+middellange termijn (leerroutes 1 tot 3), Soll-plus het ideaalplaatje (leerroutes 4 tot 9).
+-->
+
+---
+
 <!-- 4. OPDRACHTEN VORIGE SESSIE -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
