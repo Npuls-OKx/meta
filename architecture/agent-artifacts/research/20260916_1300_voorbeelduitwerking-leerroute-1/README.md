@@ -52,3 +52,14 @@ Zo renderen de regels op GitHub:
 En de hoofdplaat v1.7 (zonder context applicaties) uit het model, met negen informatieobjecten als label:
 
 ![Hoofdplaat v1.7 uit Archi](poc/hoofdplaat-v17-zonder-context.svg)
+
+## Tegenlezingen op het featureplan
+
+Het featureplan staat in [feature-plans/20260917_1500_jochem-in-het-informatiemodel.md](../../feature-plans/20260917_1500_jochem-in-het-informatiemodel.md). Versie 1 is tegengelezen in verse contexten; versie 2 verwerkt de bevindingen.
+
+| Bestand | Persona of skill | Oordeel op versie 1 |
+|---|---|---|
+| [tegenlezing-plan-tester.md](tegenlezing-plan-tester.md) | okx-requirements-tester en okx-test-persona | Gefaald: basisbranch niet benoemd; tien moet-punten; testgevallen per script bijgeleverd |
+| [tegenlezing-plan-projectmanager.md](tegenlezing-plan-projectmanager.md) | projectmanager en testcoördinator | Niet uitvoerbaar in de huidige vorm; wel na afslanken op werkdagen met drie aanpassingen |
+| [tegenlezing-plan-informatiearchitect-kerngroep.md](tegenlezing-plan-informatiearchitect-kerngroep.md) | informatiearchitect en lid kerngroep techniek, okx-semantiek-review | Gefaald op relatiecontrole en vragenpagina; vorm en doel haalbaar |
+
