@@ -32,3 +32,23 @@ flowchart LR
 | [tegenlezing-enterprise-architect-instelling.md](tegenlezing-enterprise-architect-instelling.md) | Is het voorbeeld te verdedigen in een architectuurraad: MORA-koppeling, begrippen, generaliseerbaarheid, onderhoud |
 
 Bronvoorbehoud: de laaganalyses citeren de sessie van de kerngroep techniek van 15 september; deelnemers van leveranciers zijn geanonimiseerd als leverancier A tot D. Regelverwijzingen naar bestanden gelden voor de stand van de worktrees op 16 september (meta na PR #233, Public op de branch van PR Npuls-OKx/Public#104).
+
+## Vorm van het eindproduct: mock-up en PoC
+
+De vorm is in vier ronden gekozen (zie de comment onder #237). Uitkomst: per fase van de instellingsreis een stapel regels in ArchiMate-vormtaal, van twee soorten. Een **ontstaat**-regel: wie, processtap, informatieobjecten van de plaat met één instantie voor Jochem ("bestaat uit" als nesting, aannames gestippeld). Een **stroomt**-regel: bezitter, informatieobject, afnemer, met het pijlnummer van de hoofdplaat en de koppeling-ID. Scope: MIM 1 en 2, leslaag binnen scope, geen payloads of diensten.
+
+| Bestand | Wat |
+|---|---|
+| [mockup-eindproduct.html](mockup-eindproduct.html) | De mock-up (versie 4), met de gegenereerde regels en de hoofdplaat uit Archi erin. Lokaal openen in een browser |
+| [poc/blok.py](poc/blok.py) | Tekent een regel uit JSON ([ontstaat.json](poc/ontstaat.json), [stroomt.json](poc/stroomt.json)) als SVG zonder externe fonts |
+| [poc/hoofdplaat.py](poc/hoofdplaat.py) | Rendert een view uit `model.archimate` (alleen lezen) als SVG: posities en knikpunten uit Archi, kleur en icoon per ArchiMate-type, labels op de pijlen uit [labels-v17.json](poc/labels-v17.json) |
+
+Zo renderen de regels op GitHub:
+
+![Ontstaat-regel](poc/blok-ontstaat.svg)
+
+![Stroomt-regel](poc/blok-stroomt.svg)
+
+En de hoofdplaat v1.7 (zonder context applicaties) uit het model, met negen informatieobjecten als label:
+
+![Hoofdplaat v1.7 uit Archi](poc/hoofdplaat-v17-zonder-context.svg)
