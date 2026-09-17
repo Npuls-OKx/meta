@@ -24,6 +24,7 @@ Een verslag is invoer voor een **architectuurbesluit**. Het besluit zelf en de a
 | [Requirementsboom uitwerkingsronde 2](20260816_1500_requirementsboom-uitwerkingsronde-2.md) | Welke wijzigingen draagt de tweede uitwerkingsronde, op welke bron steunt elke nieuwe rij, en wat is bewust niet gedaan? | Afgerond |
 | [Keten-eisen versus requirementsboom](20260816_1530_afbakening-keteneisen-versus-requirementsboom.md) | Kan de boom de rol van de keten-eisen K1 tot en met K5 in het Public-releasepakket overnemen, binnen de PDF-randvoorwaarden? | Afgerond |
 | [Hernummering requirementsboom](20260816_1820_hernummering-requirementsboom.md) | Welke oude id draagt welke nieuwe id na de hernummering naar de id-conventie, en wat bleef bewust buiten scope? | Afgerond |
+| [20260916_1300_voorbeelduitwerking-leerroute-1/](20260916_1300_voorbeelduitwerking-leerroute-1/README.md) | Wat is nodig om het informatiemodel aan het kaderscenario leerroute 1 te koppelen, zodat één opleiding (Jochem) van abstract naar implementatie te volgen is voor de kerngroep techniek (Npuls-OKx/Public#106) | Concept, tegengelezen door drie persona's; plan in uitvoering tot 30 september 2026 |
 
 De drie verslagen bij issue #130 horen bij elkaar: AMIGO zegt wat er gemaakt moet worden, de praktijk laat zien welke koppelmechanismen het volhouden, en het gereedschapsverslag toetst wat daarvan bij onze randvoorwaarden past.
 

@@ -1,0 +1,34 @@
+# Voorbeelduitwerking leerroute 1 (Jochem): analyse, plan en tegenlezingen
+
+Relateert aan: Npuls-OKx/Public#106 (het deliverable), #237 (dit artifact), #234 en #235 (open modelvragen). Stand 16 september 2026; concept ter bespreking, niets hiervan is besloten.
+
+De kerngroep techniek vroeg op 15 september om één opleiding helemaal uit te drukken in het informatiemodel, van abstract naar implementatie. Vóór het bouwen is per laag geanalyseerd wat de bronnen dragen, is daaruit een plan gemaakt, en is dat plan door drie lezerspersona's tegengelezen. De korte, visuele samenvatting staat onder Public#106; hier staat de onderbouwing.
+
+```mermaid
+flowchart LR
+  L1["1 Proces"] --> P["Plan van aanpak"]
+  L2["2 Componenten en diensten"] --> P
+  L3["3 Berichtstromen"] --> P
+  L4["4 Datamodellen"] --> P
+  L5["5 Informatiemodel"] --> P
+  L6["6 Verbinding over de lagen"] --> P
+  P --> T1["Tegenlezing lid kerngroep techniek"]
+  P --> T2["Tegenlezing softwarearchitect leverancier"]
+  P --> T3["Tegenlezing enterprise architect instelling"]
+  T1 & T2 & T3 --> P2["Plan, bijgewerkt (sectie 9 zegt wat veranderde)"]
+```
+
+| Bestand | Vraag die het beantwoordt |
+|---|---|
+| [plan.md](plan.md) | Wat is nodig om het informatiemodel aan de leerroute te koppelen, welke uitsnede, welke volgorde tot 30 september, welke besluiten en vragen |
+| [laag-1-proces.md](laag-1-proces.md) | Wat dragen kaderscenario, persona en scenario 1.1 voor de casus Jochem, en waar zitten de leemtes |
+| [laag-2-componenten-en-diensten.md](laag-2-componenten-en-diensten.md) | Welke referentiecomponenten en diensten raken Jochems traject, en wat vroegen de leveranciers op 15 september |
+| [laag-3-berichtstromen.md](laag-3-berichtstromen.md) | Welke van de elf berichtstromen vuren in Jochems traject, met welk patroon, en wat blijft zonder stroom |
+| [laag-4-datamodellen.md](laag-4-datamodellen.md) | Welke entiteiten en schema's dragen de casus, valideren de voorbeeldpayloads, en waar spreken plaat en schema elkaar tegen |
+| [laag-5-informatiemodel.md](laag-5-informatiemodel.md) | Welke van de 66 objecttypen zijn direct, afleidbaar of niet te instantiëren, en welke ontwerpkeuzes forceren een besluit |
+| [laag-6-verbinding.md](laag-6-verbinding.md) | Waar zitten de naden tussen de lagen, wat eist de kerngroep aan de vorm, en hoe ziet het deliverable eruit |
+| [tegenlezing-lid-kerngroep-techniek.md](tegenlezing-lid-kerngroep-techniek.md) | Herkent een leverancier in de kerngroep zijn eigen koppeling en zijn vraag van 15 september |
+| [tegenlezing-softwarearchitect-leverancier.md](tegenlezing-softwarearchitect-leverancier.md) | Kan een bouwteam hiermee bouwen: bericht, endpoint, foutpad, versie, schemavalidatie |
+| [tegenlezing-enterprise-architect-instelling.md](tegenlezing-enterprise-architect-instelling.md) | Is het voorbeeld te verdedigen in een architectuurraad: MORA-koppeling, begrippen, generaliseerbaarheid, onderhoud |
+
+Bronvoorbehoud: de laaganalyses citeren de sessie van de kerngroep techniek van 15 september; deelnemers van leveranciers zijn geanonimiseerd als leverancier A tot D. Regelverwijzingen naar bestanden gelden voor de stand van de worktrees op 16 september (meta na PR #233, Public op de branch van PR Npuls-OKx/Public#104).
