@@ -159,3 +159,11 @@ Een stroom toont de pijl van component naar component bovenaan als horizontale s
 Fase 2 met de planbare waarden uit het onderwijsontwerp in het verzoek (paars) en twee verdiepingen op de conceptplaat: ruimtes en mensen op de specificatie, en de examenplanning uit de resultaatstructuur.
 
 ![Fase 2 met het planproces](poc/regels-fase-2.png)
+
+## Beeldtitels en leesbare beelden, 18 september
+
+Regel-ID's zijn vervangen door beeldtitels (een beschrijvende zin van wat het beeld toont), bovenaan in het beeld en als kop in het document. Beelden zijn hooguit ongeveer 1000 px breed met letters van 12 en 14 px: rol en stap bovenaan, de objecten eronder, ketens in een kolom of over rijen. Fase 3 zonder CAMBO: aanmelding via AII met verbintenissen, intake met plaatsingsgroep en eerste keuzedeelvoorkeur.
+
+![Fase 2, verzoek en planproces](poc/regels-fase-2-leesbaar.png)
+
+![Fase 3, aanmelden en intake](poc/regels-fase-3-aanmelden.png)
