@@ -93,3 +93,7 @@ De Archi-PNG ligt 1:1 op de modelcoördinaten (extent plus 10 px marge). `script
 
 ![Hoofdplaat met informatieobjecten op de pijlen](poc/hoofdplaat-v17-zonder-context-met-objecten.png)
 
+Met `--objecten` laat het script de pijlteksten op de kopie weg en met `--ruimte 25` schuift het de elementen een kwart uit elkaar (groepen groeien mee), zodat alleen de informatieobjecten op de pijlen staan. Het model in de repository blijft gelijk; de bewerking gebeurt op de kopie die Archi rendert.
+
+![Hoofdplaat met alleen de informatieobjecten, 25 procent ruimer](poc/hoofdplaat-v17-zonder-context-alleen-objecten.png)
+
