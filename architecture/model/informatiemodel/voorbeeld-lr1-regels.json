@@ -1,0 +1,51 @@
+{
+  "model": {
+    "informatiemodel_commit": "0cf6e29",
+    "begrippen_commit": "8ebfaca"
+  },
+  "fasen": [
+    {"nummer": 1, "naam": "Kwalificatiekader analyseren en grofmazig ontwerpen", "mora_hoofdproces": "Ontwikkelen", "bron": "leerroute-1-regulier.md, sectiekop Fase 1",
+     "stappen": ["Kwalificatiedossier analyseren", "Leeruitkomsten formuleren", "Specificatieboom grofmazig ontwerpen", "Examenplan initieel opstellen"],
+     "verwacht": ["Kwalificatie dossier", "Kwalificatie", "Kerntaak", "Werkproces", "Leeruitkomst", "Opleiding specificatie", "Opleidingsprogramma specificatie", "Onderwijseenheid specificatie", "Keuzedeelruimte", "Keuzedeel", "Student keuze regelset", "Toetsonderdeel specificatie", "Examenonderdeelspecificatie"]},
+    {"nummer": 2, "naam": "Publiceren en planbaar maken", "mora_hoofdproces": "Plannen en roosteren", "bron": "leerroute-1-regulier.md, sectiekop Fase 2",
+     "stappen": ["Specificatie publiceren en planopgave doen", "Opleidingsaanbod maken", "Onderwijseenheden en leergelegenheden plannen", "Aanbod publiceren"],
+     "verwacht": ["Verzoek tot Aanbod / Intekening op specificatie", "Opleidingsaanbod van Instelling", "Opleidingaanbod", "Opleidingsprogramma aanbod", "Onderwijseenheid aanbod", "Leergelegenheid", "Toetsgelegenheid", "Cohort / periode"]},
+    {"nummer": 3, "naam": "Instroom, intake en plaatsing", "mora_hoofdproces": "Informeren, aanmelden, intake en plaatsen", "bron": "leerroute-1-regulier.md, sectiekop Fase 3",
+     "stappen": ["Orienteren en aanmelden", "Intake en plaatsen", "Inschrijving bevestigen"],
+     "verwacht": ["Persoon", "Student", "Aanmelding", "Inschrijving", "Opleiding aanbod verbintenis", "Opleidingsprogramma aanbod verbintenis", "Plaatsingsgroep"]},
+    {"nummer": 4, "naam": "Detailleren, roosteren en inschrijven", "mora_hoofdproces": "Plannen en roosteren", "bron": "leerroute-1-regulier.md, sectiekop Fase 4",
+     "stappen": ["Leeronderdelen detailleren", "LMS inrichten", "Resultaatstructuur inrichten", "Groepen definieren", "Periode 1 roosteren", "Inschrijven op gelegenheden"],
+     "verwacht": ["Leeronderdeel specificatie", "Les specificatie", "Lesgelegenheid", "Summatieve resultaat structuur", "Examenonderdeel weging", "Summatief Afrondingscriterium", "Onderwijseenheid aanbod verbintenis", "Leergelegenheid verbintenis", "Lesgelegenheid verbintenis", "Medewerker"]},
+    {"nummer": 5, "naam": "Onderwijs uitvoeren en voortgang begeleiden", "mora_hoofdproces": "Verzorgen en begeleiden", "bron": "leerroute-1-regulier.md, sectiekop Fase 5",
+     "stappen": ["Lessen volgen", "Aanwezigheid registreren", "Formatief toetsen", "Voortgang volgen"],
+     "verwacht": ["Aanwezigheid", "Lesgelegenheid resultaat", "Leergelegenheid resultaat", "Toetsgelegenheid verbintenis", "Toetsgelegenheid resultaat", "Formatief resultaat", "Formatieve beoordeling", "Formatieve resultaat structuur", "Toetsonderdeel weging", "Persoonlijke ontwikkeling", "Onderwijseenheid resultaat"]},
+    {"nummer": 6, "naam": "Organiseren van keuzemomenten", "mora_hoofdproces": "Plannen en roosteren", "bron": "leerroute-1-regulier.md, sectiekop Fase 6",
+     "stappen": ["Voorkeurslijst samenstellen", "Keuze toetsen en verwerken", "Keuzedeel inschrijven"],
+     "verwacht": ["Keuzedeelaanbod", "Keuzedeel aanbod verbintenis", "Keuzedeel resultaat"]},
+    {"nummer": 7, "naam": "Bijsturen planning en aanbod", "mora_hoofdproces": "Plannen en roosteren", "bron": "leerroute-1-regulier.md, sectiekop Fase 7",
+     "stappen": ["Afwijkingen verzamelen", "Herplannen"],
+     "verwacht": []},
+    {"nummer": 8, "naam": "Examineren, vaststellen en diplomeren", "mora_hoofdproces": "Examens uitvoeren en vaststellen; diplomeren", "bron": "leerroute-1-regulier.md, sectiekop Fase 8",
+     "stappen": ["Examengelegenheden plannen", "Examen afnemen", "Summatief vaststellen", "Diplomeren"],
+     "verwacht": ["Examengelegenheid", "Examengelegenheid verbintenis", "Examengelegenheid resultaat", "Summatief resultaat", "Summatieve beoordeling", "Opleidingsprogramma resultaat", "Opleiding aanbod resultaat", "Waarde document (diploma / certificaat)"]}
+  ],
+  "rollen": ["onderwijsontwerper", "onderwijsontwikkelaar", "examencommissie", "planner", "roosteraar", "SLB'er", "docent", "examinator", "student"],
+  "toestanden": [
+    {"naam": "planbaar", "bron": "leerroute-1-regulier.md, Fase 2 en 4: planbaar aanbod"},
+    {"naam": "geroosterd", "bron": "leerroute-1-regulier.md, Fase 4: geroosterd aanbod"}
+  ],
+  "scope_uitzonderingen": [
+    {"objecttype": "Les specificatie", "motivering": "Besluit modelleur 17 september 2026: de leslaag doet mee; hoofdplaat v1.7 wisselt lesgelegenheden uit van Roostersysteem naar KRS en het kaderscenario roostert tot lesniveau. Ontwerpkeuze 8 wordt na 30 september herzien."},
+    {"objecttype": "Lesgelegenheid", "motivering": "Zie Les specificatie."},
+    {"objecttype": "Lesgelegenheid verbintenis", "motivering": "Zie Les specificatie."},
+    {"objecttype": "Lesgelegenheid resultaat", "motivering": "Zie Les specificatie."}
+  ],
+  "koppelingen": {
+    "Onderwijscatalogus > Planningssysteem": "OC-P&R",
+    "Planningssysteem > Onderwijscatalogus": "OC-P&R",
+    "Onderwijscatalogus > Kernregistratie systeem studenten (KRS)": "OC-SIS",
+    "Onderwijscatalogus > Student volg systeem (SVS)": "OC-SIS",
+    "Onderwijscatalogus > Leer management systeem (LMS)": "OC-LMS"
+  },
+  "regels": []
+}

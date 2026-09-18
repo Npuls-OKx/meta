@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "voorbeeld-lr1-regels.schema.json",
+  "title": "Regeltabel voorbeelduitwerking leerroute 1 (Jochem)",
+  "description": "Bron voor het document dat de opleiding van Jochem stap voor stap in het informatiemodel uitdrukt. Elke regel is een fragment van de plaat bij een processtap; de controle toetst namen, relaties, rollen, stappen en pijlen tegen informatiemodel.json en stromen.json.",
+  "type": "object",
+  "required": ["model", "fasen", "rollen", "toestanden", "scope_uitzonderingen", "koppelingen", "regels"],
+  "properties": {
+    "model": {
+      "type": "object",
+      "required": ["informatiemodel_commit", "begrippen_commit"],
+      "properties": {
+        "informatiemodel_commit": {"type": "string", "description": "git-commit van informatiemodel.json waartegen is gecontroleerd"},
+        "begrippen_commit": {"type": "string", "description": "git-commit van begrippen.json waartegen is gecontroleerd"}
+      }
+    },
+    "fasen": {
+      "type": "array",
+      "description": "De acht fasen van de instellingsreis, naam letterlijk uit de sectiekop van het kaderscenario leerroute 1, met de stappen erin en de objecttypen die daar voor het eerst verschijnen.",
+      "items": {
+        "type": "object",
+        "required": ["nummer", "naam", "bron", "stappen", "verwacht"],
+        "properties": {
+          "nummer": {"type": "integer", "minimum": 1, "maximum": 8},
+          "naam": {"type": "string"},
+          "mora_hoofdproces": {"type": "string"},
+          "bron": {"type": "string", "description": "bestand en regel of sectiekop"},
+          "stappen": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+          "verwacht": {"type": "array", "items": {"type": "string"}, "description": "objecttypen (plaatnaam) die in deze fase voor het eerst verschijnen"}
+        }
+      }
+    },
+    "rollen": {"type": "array", "items": {"type": "string"}, "description": "gesloten lijst, uit het kaderscenario"},
+    "toestanden": {"type": "array", "items": {"type": "object", "required": ["naam", "bron"], "properties": {"naam": {"type": "string"}, "bron": {"type": "string"}}}},
+    "scope_uitzonderingen": {
+      "type": "array",
+      "items": {"type": "object", "required": ["objecttype", "motivering"], "properties": {"objecttype": {"type": "string"}, "motivering": {"type": "string"}}},
+      "description": "objecttypen met scope buiten die het voorbeeld toch meeneemt, met motivering"
+    },
+    "koppelingen": {
+      "type": "object",
+      "description": "koppeling-ID uit Public per (van > naar) op hoofdplaat v1.7",
+      "additionalProperties": {"type": "string"}
+    },
+    "regels": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["fase", "stap", "soort", "objecttype", "instantie", "bron"],
+        "properties": {
+          "fase": {"type": "integer", "minimum": 1, "maximum": 8},
+          "stap": {"type": "string", "description": "moet in fasen[fase].stappen staan"},
+          "soort": {"type": "string", "enum": ["ontstaat", "verandert", "stroomt"]},
+          "wie": {"type": "string", "description": "rol uit de rollenlijst; verplicht bij ontstaat en verandert"},
+          "van": {"type": "string", "description": "componentnaam letterlijk uit v1.7; verplicht bij stroomt"},
+          "naar": {"type": "string", "description": "componentnaam letterlijk uit v1.7; verplicht bij stroomt"},
+          "pijl": {"type": "string", "description": "relatie-id uit stromen.json, of 'geen pijl op de hoofdplaat'; verplicht bij stroomt"},
+          "objecttype": {"type": "string", "description": "plaatnaam letterlijk (witruimte genormaliseerd)"},
+          "instantie": {"type": "string", "description": "de waarde voor Jochem, leesbare naam"},
+          "toestand": {"type": "string", "description": "uit de toestandenlijst; alleen bij verandert"},
+          "relatie": {
+            "type": "object",
+            "description": "de relatie van de plaat waarmee dit object aan een ander object in dezelfde stap hangt",
+            "required": ["soort", "van", "naar"],
+            "properties": {
+              "soort": {"type": "string", "enum": ["Aggregation", "Composition", "Association", "Specialization", "Access"]},
+              "van": {"type": "string"},
+              "naar": {"type": "string"},
+              "label": {"type": "string"}
+            }
+          },
+          "aanname": {"type": "boolean", "default": false},
+          "bron": {"type": "string", "description": "bestand en regel of id; bij een aanname de bron van de aanname of 'geen bron, keuze van het voorbeeld'"},
+          "zin": {"type": "string", "description": "een zin, uit het kaderscenario waar die er is"},
+          "vraag": {"type": "string", "description": "als de plaat en de bronnen elkaar tegenspreken: de vraag voor de vragenpagina"}
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,199 @@
+#!/usr/bin/env python3
+"""De regeltabel van de voorbeelduitwerking controleren tegen het informatiemodel.
+
+Waarom dit script bestaat: het voorbeeld (de opleiding van Jochem, stap voor stap
+in het informatiemodel) mag geen eigen dialect worden naast de plaat. Elke regel
+wijst daarom naar een objecttype, een relatie, een rol en een pijl die bestaan;
+dit script faalt zodra dat niet zo is, en meldt per fase welke objecttypen binnen
+scope nog geen ontstaat-regel hebben.
+
+    python3 scripts/controleer-voorbeeldregels.py [--regels PAD] [--model PAD]
+        [--stromen PAD] [--fasen 2,3,4] [--model-commit SHA]
+
+Controles (R1 en R2 uit het featureplan):
+1. schema: verplichte velden per soort regel (eigen validatie, geen afhankelijkheid);
+2. elke objecttypenaam bestaat in informatiemodel.json (witruimte genormaliseerd);
+   een objecttype buiten scope alleen met een scope-uitzondering;
+3. elke relatie bestaat als (soort, van, naar); nesting alleen op aggregatie of compositie;
+4. elke rol staat in de rollenlijst, elke toestand in de toestandenlijst, elke stap in de fasenlijst;
+5. elke stroomt-regel wijst naar een relatie-id in stromen.json of draagt de markering
+   "geen pijl op de hoofdplaat";
+6. dekking: elk objecttype binnen scope heeft precies een ontstaat-regel, in de fase van de
+   verwachting; latere verschijningen zijn verandert-regels;
+7. de model-commit in de kop komt overeen met de meegegeven commit (waarschuwing).
+
+Exitcode 0: geen bevindingen; 1: bevindingen; 2: invoer niet leesbaar.
+"""
+
+import argparse
+import json
+import pathlib
+import sys
+
+REGELS = pathlib.Path("architecture/model/informatiemodel/voorbeeld-lr1-regels.json")
+MODEL = pathlib.Path("architecture/model/informatiemodel/informatiemodel.json")
+STROMEN = pathlib.Path("architecture/model/informatiemodel/stromen.json")
+GEEN_PIJL = "geen pijl op de hoofdplaat"
+NESTING = {"Aggregation", "Composition"}
+SOORTEN = {"ontstaat", "verandert", "stroomt"}
+
+
+def norm(naam):
+    return " ".join(str(naam).split())
+
+
+def lees_json(pad, wat):
+    try:
+        return json.loads(pathlib.Path(pad).read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        sys.exit(f"{wat} niet gevonden: {pad}")
+    except json.JSONDecodeError as fout:
+        print(f"{wat} is geen geldige JSON: {pad}, regel {fout.lineno}: {fout.msg}", file=sys.stderr)
+        raise SystemExit(1)
+
+
+def schema(regels):
+    """Verplichte velden en typen; geeft bevindingen."""
+    uit = []
+    for sleutel in ("model", "fasen", "rollen", "toestanden", "scope_uitzonderingen", "koppelingen", "regels"):
+        if sleutel not in regels:
+            uit.append(f"kop: veld {sleutel} ontbreekt")
+    for i, r in enumerate(regels.get("regels", [])):
+        plek = f"regel {i + 1} (fase {r.get('fase')}, {r.get('stap')})"
+        for veld in ("fase", "stap", "soort", "objecttype", "instantie", "bron"):
+            if veld not in r or r[veld] in ("", None):
+                uit.append(f"{plek}: veld {veld} ontbreekt")
+        soort = r.get("soort")
+        if soort not in SOORTEN:
+            uit.append(f"{plek}: soort {soort!r} is niet ontstaat, verandert of stroomt")
+        if soort in ("ontstaat", "verandert") and not r.get("wie"):
+            uit.append(f"{plek}: veld wie ontbreekt")
+        if soort == "verandert" and not r.get("toestand"):
+            uit.append(f"{plek}: veld toestand ontbreekt bij verandert")
+        if soort == "stroomt":
+            for veld in ("van", "naar", "pijl"):
+                if not r.get(veld):
+                    uit.append(f"{plek}: veld {veld} ontbreekt bij stroomt")
+        rel = r.get("relatie")
+        if rel is not None and (not isinstance(rel, dict) or not all(k in rel for k in ("soort", "van", "naar"))):
+            uit.append(f"{plek}: relatie moet soort, van en naar hebben")
+        if rel is not None and isinstance(rel, dict) and rel.get("label") == "":
+            uit.append(f"{plek}: relatielabel is leeg; laat het veld weg of vul het")
+    return uit
+
+
+def controleer(regels, model, stromen=None, fasen_filter=None, model_commit=None):
+    """Alle controles; geeft (bevindingen, waarschuwingen, ontbrekend per fase)."""
+    bevindingen = schema(regels)
+    waarschuwingen = []
+    if bevindingen and any(b.startswith("kop:") for b in bevindingen):
+        return bevindingen, waarschuwingen, {}
+
+    typen = {norm(o["naam"]): o for o in model["objecttypen"]}
+    relaties = {(r["soort"], norm(r["van"]), norm(r["naar"])): (r.get("label") or "") for r in model["relaties"]}
+    uitzonderingen = {norm(u["objecttype"]) for u in regels["scope_uitzonderingen"]}
+    binnen = {n for n, o in typen.items() if o.get("scope") == "binnen"} | uitzonderingen
+    rollen = set(regels["rollen"])
+    toestanden = {t["naam"] for t in regels["toestanden"]}
+    fasen = {f["nummer"]: f for f in regels["fasen"]}
+    pijlen = {s["id"] for s in (stromen or {}).get("stromen", [])}
+
+    for u in uitzonderingen:
+        if u not in typen:
+            bevindingen.append(f"scope-uitzondering {u!r} bestaat niet in het informatiemodel")
+    for f in regels["fasen"]:
+        for v in f["verwacht"]:
+            if norm(v) not in typen:
+                bevindingen.append(f"fase {f['nummer']}: verwacht objecttype {v!r} bestaat niet in het informatiemodel")
+    if model_commit and regels["model"].get("informatiemodel_commit") != model_commit:
+        waarschuwingen.append(f"kop noemt informatiemodel_commit {regels['model'].get('informatiemodel_commit')}, gecontroleerd tegen {model_commit}")
+
+    ontstaan = {}
+    for i, r in enumerate(regels["regels"]):
+        plek = f"regel {i + 1} (fase {r.get('fase')}, {r.get('stap')})"
+        naam = norm(r.get("objecttype", ""))
+        if naam not in typen:
+            bevindingen.append(f"{plek}: objecttype {r.get('objecttype')!r} bestaat niet in het informatiemodel")
+            continue
+        if naam not in binnen:
+            bevindingen.append(f"{plek}: objecttype {naam!r} staat buiten scope en heeft geen scope-uitzondering")
+        fase = fasen.get(r.get("fase"))
+        if fase is None:
+            bevindingen.append(f"{plek}: fase {r.get('fase')} staat niet in de fasenlijst")
+        elif r.get("stap") not in fase["stappen"]:
+            bevindingen.append(f"{plek}: stap {r.get('stap')!r} staat niet in fase {r.get('fase')}")
+        if r.get("soort") in ("ontstaat", "verandert") and r.get("wie") not in rollen:
+            bevindingen.append(f"{plek}: rol {r.get('wie')!r} staat niet in de rollenlijst")
+        if r.get("soort") == "verandert" and r.get("toestand") not in toestanden:
+            bevindingen.append(f"{plek}: toestand {r.get('toestand')!r} staat niet in de toestandenlijst")
+        if r.get("soort") == "stroomt":
+            if r.get("pijl") != GEEN_PIJL and stromen is not None and r.get("pijl") not in pijlen:
+                bevindingen.append(f"{plek}: pijl {r.get('pijl')!r} staat niet in stromen.json")
+            if r.get("pijl") == GEEN_PIJL:
+                waarschuwingen.append(f"{plek}: geen pijl op de hoofdplaat ({r.get('van')} naar {r.get('naar')})")
+        rel = r.get("relatie")
+        if isinstance(rel, dict) and all(k in rel for k in ("soort", "van", "naar")):
+            sleutel = (rel["soort"], norm(rel["van"]), norm(rel["naar"]))
+            if sleutel not in relaties:
+                bevindingen.append(f"{plek}: relatie {rel['soort']} van {rel['van']!r} naar {rel['naar']!r} staat niet op de plaat")
+            elif rel.get("label") and relaties[sleutel] != rel["label"]:
+                bevindingen.append(f"{plek}: relatielabel {rel['label']!r} wijkt af van de plaat ({relaties[sleutel]!r})")
+            if rel.get("nesting") and rel["soort"] not in NESTING:
+                bevindingen.append(f"{plek}: nesting alleen op een aggregatie of compositie, niet op {rel['soort']}")
+        if r.get("soort") == "ontstaat":
+            ontstaan.setdefault(naam, []).append((r.get("fase"), plek))
+
+    for naam, plekken in ontstaan.items():
+        if len(plekken) > 1:
+            bevindingen.append(f"objecttype {naam!r} heeft {len(plekken)} ontstaat-regels; een latere verschijning is een verandert-regel")
+    verwachting = {norm(v): f["nummer"] for f in regels["fasen"] for v in f["verwacht"]}
+    for naam, plekken in ontstaan.items():
+        fase, plek = plekken[0]
+        if naam in verwachting and verwachting[naam] != fase:
+            bevindingen.append(f"{plek}: objecttype {naam!r} ontstaat in fase {fase}, verwacht in fase {verwachting[naam]}")
+    ontbrekend = {}
+    for naam in sorted(binnen):
+        if naam in ontstaan:
+            continue
+        fase = verwachting.get(naam)
+        if fase is None:
+            bevindingen.append(f"objecttype {naam!r} binnen scope staat in geen enkele fase-verwachting")
+            continue
+        if fasen_filter and fase not in fasen_filter:
+            continue
+        ontbrekend.setdefault(fase, []).append(naam)
+    for fase in sorted(ontbrekend):
+        bevindingen.append(f"fase {fase}: geen ontstaat-regel voor {', '.join(ontbrekend[fase])}")
+    return bevindingen, waarschuwingen, ontbrekend
+
+
+def main(argv=None):
+    parser = argparse.ArgumentParser(description=__doc__.split("\n")[0])
+    parser.add_argument("--regels", type=pathlib.Path, default=REGELS)
+    parser.add_argument("--model", type=pathlib.Path, default=MODEL)
+    parser.add_argument("--stromen", type=pathlib.Path, default=STROMEN)
+    parser.add_argument("--fasen", help="alleen de dekking van deze fasen melden, bijvoorbeeld 2,3,4")
+    parser.add_argument("--model-commit", help="commit van informatiemodel.json om tegen de kop te toetsen")
+    args = parser.parse_args(argv)
+    for pad, wat in ((args.regels, "regeltabel"), (args.model, "informatiemodel")):
+        if not pathlib.Path(pad).exists():
+            print(f"{wat} niet gevonden: {pad}", file=sys.stderr)
+            return 2
+    regels = lees_json(args.regels, "regeltabel")
+    model = lees_json(args.model, "informatiemodel")
+    stromen = lees_json(args.stromen, "stromen") if pathlib.Path(args.stromen).exists() else None
+    if stromen is None:
+        print(f"waarschuwing: {args.stromen} ontbreekt; pijlen niet gecontroleerd", file=sys.stderr)
+    fasen_filter = {int(x) for x in args.fasen.split(",")} if args.fasen else None
+    bevindingen, waarschuwingen, _ = controleer(regels, model, stromen, fasen_filter, args.model_commit)
+    for w in waarschuwingen:
+        print(f"waarschuwing: {w}")
+    for b in bevindingen:
+        print(f"bevinding: {b}")
+    n = len(regels.get("regels", []))
+    print(f"{n} regels gecontroleerd, {len(bevindingen)} bevindingen, {len(waarschuwingen)} waarschuwingen")
+    return 1 if bevindingen else 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
