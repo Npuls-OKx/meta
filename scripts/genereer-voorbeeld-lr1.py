@@ -15,10 +15,15 @@ met twee lege kolommen voor de lezer, en de vragenpagina.
 
 import argparse
 import collections
+import importlib.util
 import json
 import pathlib
 import re
 import sys
+
+_spec = importlib.util.spec_from_file_location("teken_voorbeeldregels", pathlib.Path(__file__).resolve().parent / "teken-voorbeeldregels.py")
+teken = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(teken)
 
 REGELS = pathlib.Path("architecture/model/informatiemodel/voorbeeld-lr1-regels.json")
 MODEL = pathlib.Path("architecture/model/informatiemodel/informatiemodel.json")
@@ -43,27 +48,11 @@ def lees(pad, wat):
         sys.exit(f"{wat} niet gevonden: {pad}")
 
 
-def slug(s):
-    return re.sub(r"[^a-z0-9]+", "-", s.lower()).strip("-")
-
-
-def bestandsnaam(fase, volgnummer, stap):
-    return f"f{fase}-{volgnummer:02d}-{slug(stap)}.svg"
-
-
 def blokken_per_fase(regels):
-    """Dezelfde groepering als teken-voorbeeldregels.py, zodat de bestandsnamen kloppen."""
+    """De groepering en bestandsnamen van de renderer, zodat verwijzingen en bestanden gelijk lopen."""
     uit = collections.defaultdict(list)
-    n = 0
-    vorige = None
-    for r in regels["regels"]:
-        sleutel = ("stroomt", r["fase"], r["stap"], r.get("van"), r.get("naar"), r["objecttype"]) if r["soort"] == "stroomt" \
-            else ("ontstaat", r["fase"], r["stap"], r.get("wie"))
-        if r["soort"] == "stroomt" or sleutel != vorige:
-            n += 1
-            uit[r["fase"]].append({"nr": n, "stap": r["stap"], "soort": "stroomt" if r["soort"] == "stroomt" else "ontstaat", "regels": []})
-            vorige = sleutel if r["soort"] != "stroomt" else None
-        uit[r["fase"]][-1]["regels"].append(r)
+    for n, blok in enumerate(teken.groepeer(regels), 1):
+        uit[blok["fase"]].append({"naam": teken.bestandsnaam(blok, n), "stap": blok["stap"], "soort": blok["soort"]})
     return uit
 
 
@@ -117,8 +106,7 @@ def fase_sectie(f, blokken, regels_in_fase):
     if not regels_in_fase:
         return uit + STUBZIN + "\n\n"
     for b in blokken:
-        naam = bestandsnaam(f["nummer"], b["nr"], b["stap"])
-        uit += f"![{b['soort']}: {b['stap']}]({REGELMAP}/{naam})\n\n"
+        uit += f"![{b['soort']}: {b['stap']}]({REGELMAP}/{b['naam']})\n\n"
     return uit
 
 
