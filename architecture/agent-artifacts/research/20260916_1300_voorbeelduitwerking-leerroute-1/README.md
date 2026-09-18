@@ -133,3 +133,9 @@ Fase 5 (uitvoeren en formatieve voortgang), 6 (keuzemomenten, in de volgorde van
 ![Regels fase 7](poc/regels-fase-7.png)
 
 ![Regels fase 8](poc/regels-fase-8.png)
+
+## De leeruitkomst als invulling van de instelling, 18 september
+
+Drieluik onder de stap "Kwalificatiedossier vertalen naar leeruitkomsten". Boven: de leeruitkomst spreekt met de stem van de instelling (levensechte apotheekomgeving). Midden: een verdieping op de conceptplaat "Informatiemodel Onderwijsontwerp" (gestippelde rand, chip): de kerntaak wordt onderwijskundig vertaald tot een leerdoel, de onderwijsvorm specificatie legt vast hoe de instelling de leeruitkomst wil bereiken, onder haar leervormstrategie. Onder: dezelfde leeruitkomst in CompetentNL-termen, met kennisgebied en inzicht. De conceptverdieping wordt getoetst tegen een export van de conceptview (`exporteer-conceptplaat.py`) en telt niet mee in bijlage en invulblad.
+
+![Leeruitkomst, kader en skills](poc/regels-leeruitkomst-drieluik.png)
