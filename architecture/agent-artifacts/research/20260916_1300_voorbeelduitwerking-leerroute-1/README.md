@@ -71,3 +71,19 @@ Tweede ronde op versie 2: [tester](tegenlezing-plan-tester-ronde-2.md) GESLAAGD 
 
 ![E2E-render hoofdplaat v1.7 zonder context](poc/hoofdplaat-v17-zonder-context-e2e.png)
 
+## Archi headless als platenexport, 18 september
+
+Archi 5.10 draait headless in de dev-container (eigen JRE, geen display) en rendert via `--html.createReport` alle views als PNG, pixelgelijk aan wat de modelleur in Archi ziet. Daarmee vervalt de eigen hoofdplaat-renderer: de plaat komt uit Archi, `stromen.json` uit `exporteer-archimate-view.py`, beide uit hetzelfde model. De aanroep, op een kopie van het model zodat het bestand in de repository byte-gelijk blijft:
+
+```
+Archi -application com.archimatetool.commandline.app -consoleLog -nosplash --loadModel model.archimate --html.createReport rapport
+```
+
+| Beeld | Bron |
+|---|---|
+| ![Hoofdplaat v1.7 zonder context, Archi headless](poc/hoofdplaat-v17-zonder-context-archi-headless.png) | Archi headless, view "OKx hoofdplaat v1.7<concept> (zonder context applicaties)" |
+| ![Hoofdplaat v1.7, Archi headless](poc/hoofdplaat-v17-archi-headless.png) | Archi headless, view "OKx hoofdplaat v1.7<concept>" |
+| ![Informatiemodel, Archi headless](poc/informatiemodel-archi-headless.png) | Archi headless, view "OKx informatiemodel" |
+
+Ter vergelijking de eigen renderer van dezelfde ochtend: [hoofdplaat-v17-zonder-context-e2e.png](poc/hoofdplaat-v17-zonder-context-e2e.png). Die blijft alleen bestaan voor de regels (feature 2), niet voor de platen.
+
