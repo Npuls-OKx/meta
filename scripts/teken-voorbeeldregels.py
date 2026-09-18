@@ -61,16 +61,17 @@ def text(x, y, s, size=13, bold=False, fill=INK, anchor="start"):
     return f'<text x="{x:.0f}" y="{y:.0f}" font-family="{FONT}" font-size="{size}"{fw} fill="{fill}" text-anchor="{anchor}">{html.escape(s)}</text>'
 
 
-def element(x, y, kind, label, inst, fill=BUS, line=BUS_L, labelkleur=BUS_T, rx=0, dashed=False, toestand=None):
-    """Eén element: typelabel klein, instantie vet, optioneel de toestand eronder. Geeft (svg, w, h)."""
-    regels = [inst] + ([f"toestand: {toestand}"] if toestand else [])
-    w = max(120, max([tw(label, 11)] + [tw(r, 13, True) for r in regels]) + 42)
-    h = 46 + (16 if toestand else 0)
+def element(x, y, kind, label, inst, fill=BUS, line=BUS_L, labelkleur=BUS_T, rx=0, dashed=False, toestand=None, verwijzing=None):
+    """Eén element: typelabel klein, instantie vet, optioneel de toestand of een verwijzing naar een object
+    uit een eerdere stap eronder. Geeft (svg, w, h)."""
+    extra = [f"toestand: {toestand}"] if toestand else ([verwijzing] if verwijzing else [])
+    w = max(120, max([tw(label, 11), tw(inst, 13, True)] + [tw(e, 11) for e in extra]) + 42)
+    h = 46 + (16 if extra else 0)
     s = box(x, y, w, h, fill, line, rx, dashed) + icon(kind, x + w - 22, y + 5)
     s += text(x + 10, y + 17, label, 11, fill=labelkleur)
     s += text(x + 10, y + 34, inst, 13, True)
-    if toestand:
-        s += text(x + 10, y + 50, f"toestand: {toestand}", 12, fill=MUTED)
+    for e in extra:
+        s += text(x + 10, y + 50, e, 11, fill=MUTED)
     return s, w, h
 
 
@@ -94,7 +95,7 @@ def objecten(x, y, items, uitzonderingen):
             out += box(cx, y, w, h, fill, line, 0, dashed) + icon("object", cx + w - 22, y + 5)
             out += text(cx + 10, y + 17, it["type"], 11, fill=lk) + text(cx + 10, y + 34, it["instantie"], 13, True) + ksvg
         else:
-            s, w, h = element(cx, y, "object", it["type"], it["instantie"], fill, line, lk, 0, dashed, it.get("toestand"))
+            s, w, h = element(cx, y, "object", it["type"], it["instantie"], fill, line, lk, 0, dashed, it.get("toestand"), it.get("verwijzing"))
             out += s
         cx += w + 8
         maxh = max(maxh, h)
@@ -173,13 +174,20 @@ def groepeer(regels):
         if soort == "verandert":
             item["toestand"] = r.get("toestand")
         rel = r.get("relatie")
+        in_blok = {it.get("type") for it in laatste["objecten"]} | {k.get("type") for it in laatste["objecten"] for k in it.get("kinderen", [])}
         if rel and rel.get("nesting"):
             ouder = next((it for it in laatste["objecten"] if it.get("type") == rel["van"]), None)
             if ouder is not None:
                 ouder.setdefault("kinderen", []).append(item)
                 continue
-        elif rel and rel.get("label"):
-            laatste["objecten"].append({"relatie": rel["label"]})
+        if rel and rel.get("label"):
+            ander = rel["naar"] if rel["van"] == r["objecttype"] else rel["van"]
+            if ander in in_blok:
+                # het andere eind staat in dit blok: label ertussen
+                laatste["objecten"].append({"relatie": rel["label"]})
+            else:
+                # het andere eind ontstond in een eerdere stap: label aan het object, met de naam van dat eind
+                item["verwijzing"] = f'{rel["label"]} {ander}' if rel["van"] == r["objecttype"] else f'{ander} {rel["label"]}'
         laatste["objecten"].append(item)
         if r.get("zin") and not laatste["zin"]:
             laatste["zin"] = r["zin"]
