@@ -209,25 +209,32 @@ class PlaatsingTests(unittest.TestCase):
         pad.write_text(xml, encoding="utf-8")
         return pad
 
-    def test_given_diagonal_flow_when_orthogonalised_then_one_bendpoint_with_right_angle(self):
-        # A midden (50,25), B op (300,200) midden (350,225): schuin; verwacht een knik op (350,25) of (50,225)
+    def test_given_almost_straight_flow_when_hoekvast_then_one_bendpoint_makes_it_straight(self):
+        # A midden (50,25), B op (300,10) midden (350,35): 10 px verschil in y, binnen de halve hoogte van B
+        xml = model_xml(obj("oA", "A", 0, 0, conns=conn("oB", "rAB")) + obj("oB", "B", 300, 10))
+        pad = self.schrijf(xml)
+        uit = pad.parent / "kopie.archimate"
+        ep.bewerkte_kopie(pad, uit, "Testview", hoekvast_aan=True)
+        bps = list(ET.parse(uit).getroot().iter("bendpoint"))
+        self.assertEqual(len(bps), 1)
+        self.assertEqual(int(bps[0].get("startY")), 0)  # knik op de y van de bron: eerste poot horizontaal
+
+    def test_given_clearly_diagonal_flow_when_hoekvast_then_untouched(self):
         xml = model_xml(obj("oA", "A", 0, 0, conns=conn("oB", "rAB")) + obj("oB", "B", 300, 200))
         pad = self.schrijf(xml)
         uit = pad.parent / "kopie.archimate"
-        ep.bewerkte_kopie(pad, uit, "Testview", orthogonaal=True)
-        root = ET.parse(uit).getroot()
-        bps = list(root.iter("bendpoint"))
-        self.assertEqual(len(bps), 1)
-        bp = bps[0]
-        knik = (50 + int(bp.get("startX")), 25 + int(bp.get("startY")))
-        self.assertIn(knik, [(350, 25), (50, 225)])
+        ep.bewerkte_kopie(pad, uit, "Testview", hoekvast_aan=True)
+        self.assertEqual(list(ET.parse(uit).getroot().iter("bendpoint")), [])
 
-    def test_given_straight_flow_when_orthogonalised_then_no_bendpoint_added(self):
-        xml = model_xml(obj("oA", "A", 0, 0, conns=conn("oB", "rAB")) + obj("oB", "B", 300, 0))
+    def test_given_slightly_skewed_right_angle_when_hoekvast_then_exactly_right(self):
+        # A midden (50,25), B op (300,300) midden (350,325); knik bedoeld op (350,25) maar 5 px scheef: (345,30)
+        xml = model_xml(obj("oA", "A", 0, 0, conns=conn("oB", "rAB", '<bendpoint startX="295" startY="5" endX="-5" endY="-295"/>')) + obj("oB", "B", 300, 300))
         pad = self.schrijf(xml)
         uit = pad.parent / "kopie.archimate"
-        ep.bewerkte_kopie(pad, uit, "Testview", orthogonaal=True)
-        self.assertEqual(list(ET.parse(uit).getroot().iter("bendpoint")), [])
+        ep.bewerkte_kopie(pad, uit, "Testview", hoekvast_aan=True)
+        bp = next(ET.parse(uit).getroot().iter("bendpoint"))
+        knik = (50 + int(bp.get("startX")), 25 + int(bp.get("startY")))
+        self.assertEqual(knik, (350, 25))
 
 
 @unittest.skipUnless(shutil.which("archi") or Path("/opt/Archi/Archi").exists(), "Archi niet in deze container")

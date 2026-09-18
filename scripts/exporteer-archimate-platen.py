@@ -15,7 +15,9 @@ objectvak op het langste segment van de pijl, als SVG met de PNG ingebed.
 
 Met --objecten worden de pijlteksten (labelexpressies) op de kopie weggelaten, zodat
 alleen de informatieobjecten op de pijlen staan; --ruimte N schuift de elementen
-op de kopie N procent uit elkaar zodat de objectvakken niet over de elementen vallen.
+op de kopie N procent uit elkaar zodat de objectvakken niet over de elementen vallen;
+--hoekvast houdt de rechte hoeken van de modelleur exact recht en maakt bijna rechte
+pijlen recht, zonder de routering te veranderen.
 Beide bewerkingen raken alleen de kopie; het model in de repository blijft gelijk.
 
 Vereist Archi in de dev-container (Dockerfile: /opt/Archi, commando `archi`).
@@ -49,47 +51,61 @@ def views_in(model):
     return {e.get("name"): e.get("id") for e in root.iter("element") if e.get(XSI) == "archimate:ArchimateDiagramModel"}
 
 
-def orthogonaliseer(view, middens, dozen, ouder_van):
-    """Vervangt elk schuin segment van een flow door een rechte hoek. Per schuin segment twee
-    kandidaten (eerst horizontaal dan verticaal, of andersom); gekozen wordt de kandidaat waarvan
-    het hoekpunt buiten alle elementen ligt, en bij gelijke stand de kandidaat die de richting van
-    het vorige segment voortzet, zodat buurpijlen evenwijdig lopen."""
-    def binnen(punt, eigen):
-        return any(d["x"] < punt[0] < d["x"] + d["w"] and d["y"] < punt[1] < d["y"] + d["h"] for k, d in dozen.items() if k not in eigen)
+def hoekvast(view, middens, dozen, ouder_van):
+    """Twee regels die de plaat van de modelleur respecteren en alleen bij schalen ontstane scheefheid wegnemen.
+    1. Waar twee opeenvolgende segmenten een rechte hoek vormen (het ene horizontaal, het andere verticaal,
+       binnen een marge), wordt het knikpunt zo gezet dat de hoek exact recht is: de horizontale poot krijgt
+       de y van zijn buurpunt, de verticale poot de x.
+    2. Een pijl zonder knikpunten die bijna horizontaal of bijna verticaal loopt (het andere verschil kleiner
+       dan de halve hoogte of breedte van het doel) wordt recht gemaakt met één knikpunt op de rand van het
+       doel, zodat er geen omweg ontstaat maar de lijn wel recht binnenkomt."""
+    MARGE = 12
 
     for conn in view.iter("sourceConnection"):
         bron_id, doel_id = ouder_van.get(conn.get("id")), conn.get("target")
         if bron_id not in middens or doel_id not in middens:
             continue
         ca, cb = middens[bron_id], middens[doel_id]
-        oud = [(ca[0] + int(bp.get("startX", 0)), ca[1] + int(bp.get("startY", 0))) for bp in conn.findall("bendpoint")]
-        punten = [ca] + oud + [cb]
-        nieuw = []
-        vorige_richting = None
-        for i in range(len(punten) - 1):
-            (x1, y1), (x2, y2) = punten[i], punten[i + 1]
-            dx, dy = abs(x2 - x1), abs(y2 - y1)
-            schuin = dx > 6 and dy > 6
-            if schuin:
-                kandidaten = [((x2, y1), "h"), ((x1, y2), "v")]
-                if vorige_richting == "v":
-                    kandidaten.reverse()
-                gekozen = next((k for k, r in kandidaten if not binnen(k, {bron_id, doel_id})), kandidaten[0][0])
-                nieuw.append(gekozen)
-                vorige_richting = "v" if gekozen[0] == x2 else "h"
-            else:
-                vorige_richting = "h" if dx > dy else "v"
-            if i + 1 < len(punten) - 1:
-                nieuw.append(punten[i + 1])
-        for bp in list(conn.findall("bendpoint")):
-            conn.remove(bp)
-        for px, py in nieuw:
-            bp = ET.SubElement(conn, "bendpoint")
-            bp.set("startX", str(round(px - ca[0]))); bp.set("startY", str(round(py - ca[1])))
-            bp.set("endX", str(round(px - cb[0]))); bp.set("endY", str(round(py - cb[1])))
+        knikken = [(ca[0] + int(bp.get("startX", 0)), ca[1] + int(bp.get("startY", 0))) for bp in conn.findall("bendpoint")]
+        if knikken:
+            punten = [ca] + knikken + [cb]
+            # regel 1: bestaande rechte hoeken exact recht maken, van bron naar doel
+            for i in range(1, len(punten) - 1):
+                vorig, hier, volgend = punten[i - 1], punten[i], punten[i + 1]
+                naar_vorig_h = abs(hier[1] - vorig[1]) <= MARGE and abs(hier[0] - vorig[0]) > MARGE
+                naar_vorig_v = abs(hier[0] - vorig[0]) <= MARGE and abs(hier[1] - vorig[1]) > MARGE
+                naar_volgend_h = abs(hier[1] - volgend[1]) <= MARGE and abs(hier[0] - volgend[0]) > MARGE
+                naar_volgend_v = abs(hier[0] - volgend[0]) <= MARGE and abs(hier[1] - volgend[1]) > MARGE
+                x, y = hier
+                if naar_vorig_h:
+                    y = vorig[1]
+                elif naar_vorig_v:
+                    x = vorig[0]
+                if naar_volgend_h and not naar_vorig_h:
+                    y = volgend[1]
+                elif naar_volgend_v and not naar_vorig_v:
+                    x = volgend[0]
+                punten[i] = (x, y)
+            nieuwe = punten[1:-1]
+        else:
+            # regel 2: bijna rechte pijl zonder knikpunten recht maken
+            doos = dozen.get(doel_id)
+            dx, dy = cb[0] - ca[0], cb[1] - ca[1]
+            nieuwe = []
+            if doos and abs(dy) <= doos["h"] / 2 and abs(dx) > MARGE and abs(dy) > 2:
+                nieuwe = [(cb[0] - (doos["w"] / 2 + 1) * (1 if dx > 0 else -1), ca[1])]
+            elif doos and abs(dx) <= doos["w"] / 2 and abs(dy) > MARGE and abs(dx) > 2:
+                nieuwe = [(ca[0], cb[1] - (doos["h"] / 2 + 1) * (1 if dy > 0 else -1))]
+        if nieuwe != knikken:
+            for bp in list(conn.findall("bendpoint")):
+                conn.remove(bp)
+            for px, py in nieuwe:
+                bp = ET.SubElement(conn, "bendpoint")
+                bp.set("startX", str(round(px - ca[0]))); bp.set("startY", str(round(py - ca[1])))
+                bp.set("endX", str(round(px - cb[0]))); bp.set("endY", str(round(py - cb[1])))
 
 
-def bewerkte_kopie(model, kopie, viewnaam, zonder_pijltekst=False, ruimte=0, orthogonaal=False):
+def bewerkte_kopie(model, kopie, viewnaam, zonder_pijltekst=False, ruimte=0, hoekvast_aan=False):
     """Schrijft een kopie van het model waarin, alleen voor de gegeven view, de pijlteksten zijn
     weggelaten en de elementen uit elkaar zijn geschoven. Geeft de schaalfactor terug."""
     boom = ET.parse(model)
@@ -149,7 +165,7 @@ def bewerkte_kopie(model, kopie, viewnaam, zonder_pijltekst=False, ruimte=0, ort
                 nx, ny = px * factor, py * factor
                 bp.set("startX", str(round(nx - na[bron_id][0]))); bp.set("startY", str(round(ny - na[bron_id][1])))
                 bp.set("endX", str(round(nx - na[doel_id][0]))); bp.set("endY", str(round(ny - na[doel_id][1])))
-    if orthogonaal:
+    if hoekvast_aan:
         def verzamel(knoop, ox, oy, mid, doos):
             b = knoop.find("bounds")
             x, y = ox + int(b.get("x", 0)), oy + int(b.get("y", 0))
@@ -166,16 +182,16 @@ def bewerkte_kopie(model, kopie, viewnaam, zonder_pijltekst=False, ruimte=0, ort
         for knoop in view.iter("child"):
             for conn in knoop.findall("sourceConnection"):
                 ouders[conn.get("id")] = knoop.get("id")
-        orthogonaliseer(view, mid, doos, ouders)
+        hoekvast(view, mid, doos, ouders)
     boom.write(kopie, encoding="UTF-8", xml_declaration=True)
     return factor
 
 
-def render_rapport(model, werkmap, viewnaam=None, zonder_pijltekst=False, ruimte=0, orthogonaal=False):
+def render_rapport(model, werkmap, viewnaam=None, zonder_pijltekst=False, ruimte=0, hoekvast_aan=False):
     """Laat Archi het HTML-rapport maken op een kopie van het model; geeft de map met PNG's."""
     kopie = werkmap / "model.archimate"
-    if viewnaam and (zonder_pijltekst or ruimte or orthogonaal):
-        bewerkte_kopie(model, kopie, viewnaam, zonder_pijltekst, ruimte, orthogonaal)
+    if viewnaam and (zonder_pijltekst or ruimte or hoekvast_aan):
+        bewerkte_kopie(model, kopie, viewnaam, zonder_pijltekst, ruimte, hoekvast_aan)
     else:
         shutil.copy(model, kopie)
     rapport = werkmap / "rapport"
@@ -313,7 +329,7 @@ def main(argv=None):
     parser.add_argument("--uit", required=True, action="append", type=pathlib.Path, help="doelpad (.png, of .svg met --objecten)")
     parser.add_argument("--objecten", type=pathlib.Path, help="JSON {relatie-id: objecttype}; alleen voor .svg-uitvoer")
     parser.add_argument("--ruimte", type=int, default=0, help="elementen N procent uit elkaar schuiven (alleen op de kopie)")
-    parser.add_argument("--orthogonaal", action="store_true", help="schuine pijlsegmenten vervangen door rechte hoeken (alleen op de kopie)")
+    parser.add_argument("--hoekvast", action="store_true", help="bestaande rechte hoeken exact recht houden en bijna rechte pijlen recht maken (alleen op de kopie)")
     args = parser.parse_args(argv)
     if len(args.view) != len(args.uit):
         sys.exit("geef evenveel --view als --uit")
@@ -329,11 +345,11 @@ def main(argv=None):
         werkmap = pathlib.Path(werk)
         gedeeld = None  # een rapport voor alle onbewerkte views
         for viewnaam, doel in zip(args.view, args.uit):
-            bewerkt = doel.suffix.lower() == ".svg" and (bool(objecten) or args.ruimte or args.orthogonaal)
+            bewerkt = doel.suffix.lower() == ".svg" and (bool(objecten) or args.ruimte or args.hoekvast)
             if bewerkt:
                 eigen = werkmap / bekend[viewnaam]
                 eigen.mkdir()
-                beelden = render_rapport(args.model, eigen, viewnaam, zonder_pijltekst=bool(objecten), ruimte=args.ruimte, orthogonaal=args.orthogonaal)
+                beelden = render_rapport(args.model, eigen, viewnaam, zonder_pijltekst=bool(objecten), ruimte=args.ruimte, hoekvast_aan=args.hoekvast)
                 bron = eigen / "model.archimate"
             else:
                 if gedeeld is None:
