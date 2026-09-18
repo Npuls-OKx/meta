@@ -87,3 +87,9 @@ Archi -application com.archimatetool.commandline.app -consoleLog -nosplash --loa
 
 Ter vergelijking de eigen renderer van dezelfde ochtend: [hoofdplaat-v17-zonder-context-e2e.png](poc/hoofdplaat-v17-zonder-context-e2e.png). Die blijft alleen bestaan voor de regels (feature 2), niet voor de platen.
 
+## Informatieobjecten op de Archi-plaat, 18 september
+
+De Archi-PNG ligt 1:1 op de modelcoördinaten (extent plus 10 px marge). `scripts/exporteer-archimate-platen.py` op de werkbranch legt daarom de informatieobjecten als laag over de plaat: per flow (relatie-id uit Archi) een geel objectvak op het langste segment van de pijl, als SVG met de PNG ingebed. Archi tekent, het script voegt alleen de objecten toe; jArchi (de scripting-plugin met SVG-export) valt af omdat de binary niet herverdeelbaar is. Nog te verbeteren: de vakjes staan soms op de bestaande pijltekst; op termijn draagt de flow in Archi het objecttype zelf (sub-issue 8, meta #247) en vervalt de laag.
+
+![Hoofdplaat met informatieobjecten op de pijlen](poc/hoofdplaat-v17-zonder-context-met-objecten.png)
+
