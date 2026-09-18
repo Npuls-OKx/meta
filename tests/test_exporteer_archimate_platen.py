@@ -77,9 +77,9 @@ class GeometrieTests(unittest.TestCase):
         knopen, _, _ = ep.lees_view(pad, "Testview")
         self.assertEqual((knopen["oB"]["x"], knopen["oB"]["y"]), (110, 110))
 
-    def test_given_three_segments_when_longest_chosen_then_its_midpoint(self):
+    def test_given_three_segments_when_candidates_listed_then_longest_midpoint_first(self):
         punten = [(0, 0), (10, 0), (10, 100), (20, 100)]
-        self.assertEqual(ep.midden_langste_segment(punten), (10, 50))
+        self.assertEqual(ep.kandidaten(punten)[0], (10, 50))
 
     def test_given_objects_when_overlay_made_then_one_box_per_flow_with_object(self):
         pad = self.schrijf(model_xml(obj("oA", "A", 0, 0, conns=conn("oB", "rAB") + conn("oB", "sAB")) + obj("oB", "B", 300, 0)))
@@ -176,6 +176,58 @@ class KopieTests(unittest.TestCase):
         voor = hashlib.sha256(pad.read_bytes()).hexdigest()
         ep.bewerkte_kopie(pad, pad.parent / "kopie.archimate", "Testview", zonder_pijltekst=True, ruimte=25)
         self.assertEqual(voor, hashlib.sha256(pad.read_bytes()).hexdigest())
+
+
+class PlaatsingTests(unittest.TestCase):
+    """Objectvakken zonder overlap en orthogonaliseren van schuine segmenten."""
+
+    def test_given_two_boxes_on_same_spot_when_placed_then_second_moves_to_next_candidate(self):
+        punten = [(0, 0), (100, 0), (100, 300)]  # langste segment verticaal, midden (100,150)
+        bezet = []
+        m1x, m1y, vak1 = ep.plaats(punten, "Een", bezet); bezet.append(vak1)
+        m2x, m2y, vak2 = ep.plaats(punten, "Twee", bezet)
+        self.assertEqual((m1x, m1y), (100, 150))
+        self.assertNotEqual((m2x, m2y), (100, 150))
+        self.assertFalse(ep.overlapt(vak2, [vak1]))
+
+    def test_given_element_under_segment_midpoint_when_placed_then_box_avoids_element(self):
+        punten = [(0, 0), (300, 0)]
+        element = (120, -20, 60, 40)  # ligt precies op het midden (150, 0)
+        mx, my, vak = ep.plaats(punten, "X", [element])
+        self.assertFalse(ep.overlapt(vak, [element]))
+
+    def test_given_no_free_candidate_when_placed_then_falls_back_to_first(self):
+        punten = [(0, 0), (10, 0)]
+        alles = [(-1000, -1000, 3000, 3000)]
+        mx, my, _ = ep.plaats(punten, "X", alles)
+        self.assertEqual((mx, my), (5, 0))
+
+    def schrijf(self, xml):
+        map_ = tempfile.TemporaryDirectory()
+        self.addCleanup(map_.cleanup)
+        pad = Path(map_.name) / "model.archimate"
+        pad.write_text(xml, encoding="utf-8")
+        return pad
+
+    def test_given_diagonal_flow_when_orthogonalised_then_one_bendpoint_with_right_angle(self):
+        # A midden (50,25), B op (300,200) midden (350,225): schuin; verwacht een knik op (350,25) of (50,225)
+        xml = model_xml(obj("oA", "A", 0, 0, conns=conn("oB", "rAB")) + obj("oB", "B", 300, 200))
+        pad = self.schrijf(xml)
+        uit = pad.parent / "kopie.archimate"
+        ep.bewerkte_kopie(pad, uit, "Testview", orthogonaal=True)
+        root = ET.parse(uit).getroot()
+        bps = list(root.iter("bendpoint"))
+        self.assertEqual(len(bps), 1)
+        bp = bps[0]
+        knik = (50 + int(bp.get("startX")), 25 + int(bp.get("startY")))
+        self.assertIn(knik, [(350, 25), (50, 225)])
+
+    def test_given_straight_flow_when_orthogonalised_then_no_bendpoint_added(self):
+        xml = model_xml(obj("oA", "A", 0, 0, conns=conn("oB", "rAB")) + obj("oB", "B", 300, 0))
+        pad = self.schrijf(xml)
+        uit = pad.parent / "kopie.archimate"
+        ep.bewerkte_kopie(pad, uit, "Testview", orthogonaal=True)
+        self.assertEqual(list(ET.parse(uit).getroot().iter("bendpoint")), [])
 
 
 @unittest.skipUnless(shutil.which("archi") or Path("/opt/Archi/Archi").exists(), "Archi niet in deze container")

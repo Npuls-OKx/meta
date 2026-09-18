@@ -49,7 +49,47 @@ def views_in(model):
     return {e.get("name"): e.get("id") for e in root.iter("element") if e.get(XSI) == "archimate:ArchimateDiagramModel"}
 
 
-def bewerkte_kopie(model, kopie, viewnaam, zonder_pijltekst=False, ruimte=0):
+def orthogonaliseer(view, middens, dozen, ouder_van):
+    """Vervangt elk schuin segment van een flow door een rechte hoek. Per schuin segment twee
+    kandidaten (eerst horizontaal dan verticaal, of andersom); gekozen wordt de kandidaat waarvan
+    het hoekpunt buiten alle elementen ligt, en bij gelijke stand de kandidaat die de richting van
+    het vorige segment voortzet, zodat buurpijlen evenwijdig lopen."""
+    def binnen(punt, eigen):
+        return any(d["x"] < punt[0] < d["x"] + d["w"] and d["y"] < punt[1] < d["y"] + d["h"] for k, d in dozen.items() if k not in eigen)
+
+    for conn in view.iter("sourceConnection"):
+        bron_id, doel_id = ouder_van.get(conn.get("id")), conn.get("target")
+        if bron_id not in middens or doel_id not in middens:
+            continue
+        ca, cb = middens[bron_id], middens[doel_id]
+        oud = [(ca[0] + int(bp.get("startX", 0)), ca[1] + int(bp.get("startY", 0))) for bp in conn.findall("bendpoint")]
+        punten = [ca] + oud + [cb]
+        nieuw = []
+        vorige_richting = None
+        for i in range(len(punten) - 1):
+            (x1, y1), (x2, y2) = punten[i], punten[i + 1]
+            dx, dy = abs(x2 - x1), abs(y2 - y1)
+            schuin = dx > 6 and dy > 6
+            if schuin:
+                kandidaten = [((x2, y1), "h"), ((x1, y2), "v")]
+                if vorige_richting == "v":
+                    kandidaten.reverse()
+                gekozen = next((k for k, r in kandidaten if not binnen(k, {bron_id, doel_id})), kandidaten[0][0])
+                nieuw.append(gekozen)
+                vorige_richting = "v" if gekozen[0] == x2 else "h"
+            else:
+                vorige_richting = "h" if dx > dy else "v"
+            if i + 1 < len(punten) - 1:
+                nieuw.append(punten[i + 1])
+        for bp in list(conn.findall("bendpoint")):
+            conn.remove(bp)
+        for px, py in nieuw:
+            bp = ET.SubElement(conn, "bendpoint")
+            bp.set("startX", str(round(px - ca[0]))); bp.set("startY", str(round(py - ca[1])))
+            bp.set("endX", str(round(px - cb[0]))); bp.set("endY", str(round(py - cb[1])))
+
+
+def bewerkte_kopie(model, kopie, viewnaam, zonder_pijltekst=False, ruimte=0, orthogonaal=False):
     """Schrijft een kopie van het model waarin, alleen voor de gegeven view, de pijlteksten zijn
     weggelaten en de elementen uit elkaar zijn geschoven. Geeft de schaalfactor terug."""
     boom = ET.parse(model)
@@ -109,15 +149,33 @@ def bewerkte_kopie(model, kopie, viewnaam, zonder_pijltekst=False, ruimte=0):
                 nx, ny = px * factor, py * factor
                 bp.set("startX", str(round(nx - na[bron_id][0]))); bp.set("startY", str(round(ny - na[bron_id][1])))
                 bp.set("endX", str(round(nx - na[doel_id][0]))); bp.set("endY", str(round(ny - na[doel_id][1])))
+    if orthogonaal:
+        def verzamel(knoop, ox, oy, mid, doos):
+            b = knoop.find("bounds")
+            x, y = ox + int(b.get("x", 0)), oy + int(b.get("y", 0))
+            w, h = int(b.get("width", 0)), int(b.get("height", 0))
+            mid[knoop.get("id")] = (x + w / 2, y + h / 2)
+            if not knoop.get(XSI, "").endswith("Group"):
+                doos[knoop.get("id")] = dict(x=x, y=y, w=w, h=h)
+            for kind in knoop.findall("child"):
+                verzamel(kind, x, y, mid, doos)
+        mid, doos = {}, {}
+        for kind in view.findall("child"):
+            verzamel(kind, 0, 0, mid, doos)
+        ouders = {}
+        for knoop in view.iter("child"):
+            for conn in knoop.findall("sourceConnection"):
+                ouders[conn.get("id")] = knoop.get("id")
+        orthogonaliseer(view, mid, doos, ouders)
     boom.write(kopie, encoding="UTF-8", xml_declaration=True)
     return factor
 
 
-def render_rapport(model, werkmap, viewnaam=None, zonder_pijltekst=False, ruimte=0):
+def render_rapport(model, werkmap, viewnaam=None, zonder_pijltekst=False, ruimte=0, orthogonaal=False):
     """Laat Archi het HTML-rapport maken op een kopie van het model; geeft de map met PNG's."""
     kopie = werkmap / "model.archimate"
-    if viewnaam and (zonder_pijltekst or ruimte):
-        bewerkte_kopie(model, kopie, viewnaam, zonder_pijltekst, ruimte)
+    if viewnaam and (zonder_pijltekst or ruimte or orthogonaal):
+        bewerkte_kopie(model, kopie, viewnaam, zonder_pijltekst, ruimte, orthogonaal)
     else:
         shutil.copy(model, kopie)
     rapport = werkmap / "rapport"
@@ -146,7 +204,7 @@ def lees_view(model, viewnaam):
         b = c.find("bounds")
         x, y = ox + int(b.get("x", 0)), oy + int(b.get("y", 0))
         w, h = int(b.get("width", 120)), int(b.get("height", 55))
-        knopen[c.get("id")] = dict(x=x, y=y, w=w, h=h)
+        knopen[c.get("id")] = dict(x=x, y=y, w=w, h=h, groep=c.get(XSI, "").endswith("Group"))
         for sc in c.findall("sourceConnection"):
             bps = [(int(bp.get("startX", 0)), int(bp.get("startY", 0)), int(bp.get("endX", 0)), int(bp.get("endY", 0)))
                    for bp in sc.findall("bendpoint")]
@@ -185,10 +243,30 @@ def pad(conn, knopen):
     return punten
 
 
-def midden_langste_segment(punten):
-    segmenten = [(punten[i], punten[i + 1]) for i in range(len(punten) - 1)]
-    a, b = max(segmenten, key=lambda s: math.hypot(s[1][0] - s[0][0], s[1][1] - s[0][1]))
-    return (a[0] + b[0]) / 2, (a[1] + b[1]) / 2
+def kandidaten(punten):
+    """Middens van de segmenten, langste eerst; daarna de kwartpunten van het langste segment."""
+    segmenten = sorted(((punten[i], punten[i + 1]) for i in range(len(punten) - 1)),
+                       key=lambda s: -math.hypot(s[1][0] - s[0][0], s[1][1] - s[0][1]))
+    uit = [((a[0] + b[0]) / 2, (a[1] + b[1]) / 2) for a, b in segmenten]
+    a, b = segmenten[0]
+    uit += [(a[0] + (b[0] - a[0]) * f, a[1] + (b[1] - a[1]) * f) for f in (0.3, 0.7, 0.2, 0.8)]
+    return uit
+
+
+def overlapt(vak, bezet):
+    x, y, w, h = vak
+    return any(x < bx + bw and bx < x + w and y < by + bh and by < y + h for bx, by, bw, bh in bezet)
+
+
+def plaats(punten, naam, bezet):
+    """Eerste kandidaatpositie waar het objectvak niets raakt wat al bezet is (elementen en eerdere vakken)."""
+    w, h = len(naam) * 7.0 + 32, 22
+    for mx, my in kandidaten(punten):
+        vak = (mx - w / 2, my - h / 2, w, h)
+        if not overlapt(vak, bezet):
+            return mx, my, vak
+    mx, my = kandidaten(punten)[0]
+    return mx, my, (mx - w / 2, my - h / 2, w, h)
 
 
 def objectvak(mx, my, naam):
@@ -210,6 +288,8 @@ def met_objecten(model, viewnaam, png, objecten):
     b64 = base64.b64encode(png.read_bytes()).decode()
     delen = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}">',
              f'<image href="data:image/png;base64,{b64}" x="0" y="0" width="{W}" height="{H}"/>']
+    # bezet: alle elementen (behalve groepen, die zijn achtergrond) en de vakken die al staan
+    bezet = [(k["x"], k["y"], k["w"], k["h"]) for kid, k in knopen.items() if not k.get("groep")]
     gebruikt = set()
     for conn in connecties:
         rel = rels.get(conn["relatie"])
@@ -218,7 +298,8 @@ def met_objecten(model, viewnaam, png, objecten):
             continue
         if conn["bron"] not in knopen or conn["doel"] not in knopen:
             continue
-        mx, my = midden_langste_segment(pad(conn, knopen))
+        mx, my, vak = plaats(pad(conn, knopen), naam, bezet)
+        bezet.append(vak)
         delen.append(objectvak(mx - minx, my - miny, naam))
         gebruikt.add(conn["relatie"])
     delen.append("</svg>")
@@ -232,6 +313,7 @@ def main(argv=None):
     parser.add_argument("--uit", required=True, action="append", type=pathlib.Path, help="doelpad (.png, of .svg met --objecten)")
     parser.add_argument("--objecten", type=pathlib.Path, help="JSON {relatie-id: objecttype}; alleen voor .svg-uitvoer")
     parser.add_argument("--ruimte", type=int, default=0, help="elementen N procent uit elkaar schuiven (alleen op de kopie)")
+    parser.add_argument("--orthogonaal", action="store_true", help="schuine pijlsegmenten vervangen door rechte hoeken (alleen op de kopie)")
     args = parser.parse_args(argv)
     if len(args.view) != len(args.uit):
         sys.exit("geef evenveel --view als --uit")
@@ -247,11 +329,11 @@ def main(argv=None):
         werkmap = pathlib.Path(werk)
         gedeeld = None  # een rapport voor alle onbewerkte views
         for viewnaam, doel in zip(args.view, args.uit):
-            bewerkt = doel.suffix.lower() == ".svg" and (bool(objecten) or args.ruimte)
+            bewerkt = doel.suffix.lower() == ".svg" and (bool(objecten) or args.ruimte or args.orthogonaal)
             if bewerkt:
                 eigen = werkmap / bekend[viewnaam]
                 eigen.mkdir()
-                beelden = render_rapport(args.model, eigen, viewnaam, zonder_pijltekst=bool(objecten), ruimte=args.ruimte)
+                beelden = render_rapport(args.model, eigen, viewnaam, zonder_pijltekst=bool(objecten), ruimte=args.ruimte, orthogonaal=args.orthogonaal)
                 bron = eigen / "model.archimate"
             else:
                 if gedeeld is None:
