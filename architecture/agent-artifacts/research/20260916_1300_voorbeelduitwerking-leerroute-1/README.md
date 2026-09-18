@@ -139,3 +139,9 @@ Fase 5 (uitvoeren en formatieve voortgang), 6 (keuzemomenten, in de volgorde van
 Drieluik onder de stap "Kwalificatiedossier vertalen naar leeruitkomsten". Boven: de leeruitkomst spreekt met de stem van de instelling (levensechte apotheekomgeving). Midden: een verdieping op de conceptplaat "Informatiemodel Onderwijsontwerp" (gestippelde rand, chip): de kerntaak wordt onderwijskundig vertaald tot een leerdoel, de onderwijsvorm specificatie legt vast hoe de instelling de leeruitkomst wil bereiken, onder haar leervormstrategie. Onder: dezelfde leeruitkomst in CompetentNL-termen, met kennisgebied en inzicht. De conceptverdieping wordt getoetst tegen een export van de conceptview (`exporteer-conceptplaat.py`) en telt niet mee in bijlage en invulblad.
 
 ![Leeruitkomst, kader en skills](poc/regels-leeruitkomst-drieluik.png)
+
+## Regel-ID's en de opleiding zoals ontworpen, 18 september
+
+Elke regel draagt nu een stabiel ID (R, fase, volgnummer) rechtsboven in het object; het regelregister achterin het document koppelt ID, beeld en bron met links. Toets- en examenonderdelen, onderwijseenheid, leeronderdeel en de resultaatstructuur verwijzen naar de leeruitkomst die zij aftikken. De uitwisseling van fase 1 gaat als gelinkt geheel: leeruitkomsten, specificatiestructuur en resultaatstructuur.
+
+![Toets- en resultaatstructuur en de uitwisseling van fase 1](poc/regels-fase-1-uitwisseling.png)
