@@ -61,18 +61,28 @@ def text(x, y, s, size=13, bold=False, fill=INK, anchor="start"):
     return f'<text x="{x:.0f}" y="{y:.0f}" font-family="{FONT}" font-size="{size}"{fw} fill="{fill}" text-anchor="{anchor}">{html.escape(s)}</text>'
 
 
-def element(x, y, kind, label, inst, fill=BUS, line=BUS_L, labelkleur=BUS_T, rx=0, dashed=False, toestand=None, verwijzing=None):
-    """Eén element: typelabel klein, instantie vet, optioneel de toestand of een verwijzing naar een object
-    uit een eerdere stap eronder. Geeft (svg, w, h)."""
-    extra = [f"toestand: {toestand}"] if toestand else ([verwijzing] if verwijzing else [])
-    w = max(120, max([tw(label, 11), tw(inst, 13, True)] + [tw(e, 11) for e in extra]) + 42)
-    h = 46 + (16 if extra else 0)
+def element(x, y, kind, label, inst, fill=BUS, line=BUS_L, labelkleur=BUS_T, rx=0, dashed=False, toestand=None, verwijzing=None, verwijzingen=(), rid=None):
+    """Eén element: typelabel klein (met het regel-ID rechts), instantie vet, en eronder de toestand en de
+    verwijzingen naar objecten buiten het blok. Geeft (svg, w, h)."""
+    extra = _extra(toestand, verwijzing, verwijzingen)
+    w = max(120, max([tw(label, 11) + (tw(rid, 10) + 12 if rid else 0), tw(inst, 13, True)] + [tw(e, 11) for e in extra]) + 42)
+    h = 46 + 16 * len(extra)
     s = box(x, y, w, h, fill, line, rx, dashed) + icon(kind, x + w - 22, y + 5)
     s += text(x + 10, y + 17, label, 11, fill=labelkleur)
+    if rid:
+        s += text(x + w - 28, y + 17, rid, 10, fill=MUTED, anchor="end")
     s += text(x + 10, y + 34, inst, 13, True)
-    for e in extra:
-        s += text(x + 10, y + 50, e, 11, fill=MUTED)
+    for i, e in enumerate(extra):
+        s += text(x + 10, y + 50 + 16 * i, e, 11, fill=MUTED)
     return s, w, h
+
+
+def _extra(toestand, verwijzing, verwijzingen):
+    uit = [f"toestand: {toestand}"] if toestand else []
+    if verwijzing:
+        uit.append(verwijzing)
+    uit += [v for v in verwijzingen if v]
+    return uit
 
 
 RELATIE_AFSTAND = 56  # ruimte tussen twee objecten waar een relatielijn loopt
@@ -180,18 +190,21 @@ def _objecten_rij(x, y, items, uitzonderingen):
         buiten = it["type"] in uitzonderingen
         fill, line, lk = (GRIJS, GRIJS_L, GRIJS_T) if buiten else (BUS, BUS_L, BUS_T)
         if it.get("kinderen"):
-            # een container toont, net als een los element, de toestand of een verwijzing onder de instantie
-            extra = f"toestand: {it['toestand']}" if it.get("toestand") else it.get("verwijzing")
-            kop = 40 + (16 if extra else 0)
+            # een container toont, net als een los element, de toestand en verwijzingen onder de instantie
+            extra = _extra(it.get("toestand"), it.get("verwijzing"), it.get("verwijzingen", ()))
+            kop = 40 + 16 * len(extra)
             ksvg, kw, kh = _kinderen(cx + 14, y + kop, it["kinderen"], uitzonderingen)
-            w = max(kw + 24, tw(it["type"], 11) + 42, tw(it["instantie"], 13, True) + 42, (tw(extra, 11) + 42) if extra else 0)
+            rid = it.get("id")
+            w = max([kw + 24, tw(it["type"], 11) + (tw(rid, 10) + 12 if rid else 0) + 42, tw(it["instantie"], 13, True) + 42] + [tw(e, 11) + 42 for e in extra])
             h = kop + kh + 10
             out += box(cx, y, w, h, fill, line, 0, dashed) + icon("object", cx + w - 22, y + 5)
             out += text(cx + 10, y + 17, it["type"], 11, fill=lk) + text(cx + 10, y + 34, it["instantie"], 13, True) + ksvg
-            if extra:
-                out += text(cx + 10, y + 50, extra, 11, fill=MUTED)
+            if rid:
+                out += text(cx + w - 28, y + 17, rid, 10, fill=MUTED, anchor="end")
+            for i, e in enumerate(extra):
+                out += text(cx + 10, y + 50 + 16 * i, e, 11, fill=MUTED)
         else:
-            s, w, h = element(cx, y, "object", it["type"], it["instantie"], fill, line, lk, 0, dashed, it.get("toestand"), it.get("verwijzing"))
+            s, w, h = element(cx, y, "object", it["type"], it["instantie"], fill, line, lk, 0, dashed, it.get("toestand"), it.get("verwijzing"), it.get("verwijzingen", ()), it.get("id"))
             out += s
         vorige_rand = (cx + w, y + 23)
         cx += w + 8
@@ -277,6 +290,18 @@ def regel_stroomt(blok, uitzonderingen):
     return wrap(W, H, body)
 
 
+STANDAARDLABEL = {"Specialization": "is een", "Aggregation": "bevat", "Composition": "bevat"}
+
+
+def _verwijzing(rel, objecttype):
+    """De tekst van een verwijzing: het label van de plaat (of een standaardlabel) en het andere eind,
+    in leesrichting; met de instantie aan het andere eind als de regel die geeft."""
+    ander = rel["naar"] if rel["van"] == objecttype else rel["van"]
+    label = rel.get("label") or STANDAARDLABEL.get(rel["soort"], "hangt aan")
+    tekst = f"{label} {ander}" if rel["van"] == objecttype else f"{ander} {label}"
+    return f"{tekst}: {rel['instantie']}" if rel.get("instantie") else tekst
+
+
 def groepeer(regels):
     """Regels met dezelfde fase, stap en soort worden één blok; ontstaat en verandert samen. Een regel met
     het veld verdieping vormt met zijn gelijken een eigen blok onder dezelfde stap."""
@@ -285,14 +310,18 @@ def groepeer(regels):
         soort = r["soort"]
         if soort == "stroomt":
             laatste = blokken[-1] if blokken else None
-            item = {"type": r["objecttype"], "instantie": r["instantie"], "aanname": r.get("aanname", False)}
+            item = {"type": r["objecttype"], "instantie": r["instantie"], "aanname": r.get("aanname", False), "id": r.get("id"),
+                    "verwijzingen": [_verwijzing(x, r["objecttype"]) for x in r.get("relaties", [])]}
             rel = r.get("relatie")
             if laatste and laatste["soort"] == "stroomt" and (laatste["fase"], laatste["stap"], laatste["van"], laatste["naar"]) == (r["fase"], r["stap"], r["van"], r["naar"]):
-                in_blok_s = {it.get("type") for it in laatste["objecten"]}
+                buur_s = next((it for it in reversed(laatste["objecten"]) if "type" in it), None)
+                in_blok_s = ({buur_s["type"]} | {k.get("type") for k in buur_s.get("kinderen", [])}) if buur_s else set()
                 if rel and not rel.get("nesting"):
                     ander = rel["naar"] if rel["van"] == r["objecttype"] else rel["van"]
                     if ander in in_blok_s:
                         laatste["objecten"].append({"relatie": rel.get("label") or "", "soort": rel["soort"], "naar_rechts": rel["naar"] == r["objecttype"]})
+                    else:
+                        item["verwijzing"] = _verwijzing(rel, r["objecttype"])
                 if rel and rel.get("nesting"):
                     def zoek_s(items):
                         for it in items:
@@ -316,7 +345,8 @@ def groepeer(regels):
             laatste = {"soort": "ontstaat", "fase": r["fase"], "stap": r["stap"], "wie": r.get("wie"), "verdieping": r.get("verdieping"),
                        "plaat": r.get("plaat", "informatiemodel"), "objecten": [], "zin": r.get("zin", "")}
             blokken.append(laatste)
-        item = {"type": r["objecttype"], "instantie": r["instantie"], "aanname": r.get("aanname", False)}
+        item = {"type": r["objecttype"], "instantie": r["instantie"], "aanname": r.get("aanname", False), "id": r.get("id"),
+                "verwijzingen": [_verwijzing(x, r["objecttype"]) for x in r.get("relaties", [])]}
         if soort == "verandert":
             item["toestand"] = r.get("toestand")
         rel = r.get("relatie")
@@ -339,12 +369,11 @@ def groepeer(regels):
                 continue
         if rel and not rel.get("nesting"):
             ander = rel["naar"] if rel["van"] == r["objecttype"] else rel["van"]
-            label = rel.get("label") or {"Specialization": "is een", "Aggregation": "bevat", "Composition": "bevat"}.get(rel["soort"], "hangt aan")
             if ander in in_blok:
                 # het andere eind staat ernaast in dit blok: relatielijn ertussen; naar_rechts als dit object het doel is
                 laatste["objecten"].append({"relatie": rel.get("label") or "", "soort": rel["soort"], "naar_rechts": rel["naar"] == r["objecttype"]})
             else:
-                item["verwijzing"] = f"{label} {ander}" if rel["van"] == r["objecttype"] else f"{ander} {label}"
+                item["verwijzing"] = _verwijzing(rel, r["objecttype"])
         laatste["objecten"].append(item)
         if r.get("zin") and not laatste["zin"]:
             laatste["zin"] = r["zin"]

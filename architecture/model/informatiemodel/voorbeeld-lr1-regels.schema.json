@@ -46,8 +46,9 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["fase", "stap", "soort", "objecttype", "instantie", "bron"],
+        "required": ["id", "fase", "stap", "soort", "objecttype", "instantie", "bron"],
         "properties": {
+          "id": {"type": "string", "pattern": "^R[1-8]-[0-9]{3}$", "description": "stabiel regel-ID: R, het fasenummer, een volgnummer binnen de fase (R1-012); eenmaal uitgegeven verandert het niet, ook niet bij invoegen"},
           "fase": {"type": "integer", "minimum": 1, "maximum": 8},
           "stap": {"type": "string", "description": "moet in fasen[fase].stappen staan"},
           "verdieping": {"type": "string", "description": "verdieping van de regel erboven binnen dezelfde stap; regels met dezelfde verdieping vormen een eigen blok en beeld"},
@@ -69,6 +70,21 @@
               "van": {"type": "string"},
               "naar": {"type": "string"},
               "label": {"type": "string"}
+            }
+          },
+          "relaties": {
+            "type": "array",
+            "description": "verdere relaties van de plaat vanaf dit object, als verwijzing op het object (nooit nesting); met de instantie aan het andere eind waar die helpt",
+            "items": {
+              "type": "object",
+              "required": ["soort", "van", "naar"],
+              "properties": {
+                "soort": {"type": "string", "enum": ["Aggregation", "Composition", "Association", "Specialization", "Access"]},
+                "van": {"type": "string"},
+                "naar": {"type": "string"},
+                "label": {"type": "string"},
+                "instantie": {"type": "string"}
+              }
             }
           },
           "aanname": {"type": "boolean", "default": false},

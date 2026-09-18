@@ -83,6 +83,26 @@ class TekenTests(unittest.TestCase):
         self.assertIn("6 4", rects(svg)[0].get("stroke-dasharray", ""))
         self.assertNotIn("stroke-dasharray", rects(tv.regel_ontstaat(blokken[0], set()))[0])
 
+    def test_given_rule_id_when_drawn_then_id_in_object_and_in_container(self):
+        r = regels()
+        r["regels"][0]["id"] = "R2-001"
+        r["regels"][1]["id"] = "R2-002"
+        blok = [b for b in self.blokken(r) if b["stap"] == "Aanbod maken"][0]
+        ts = teksten(tv.regel_ontstaat(blok, set()))
+        self.assertIn("R2-001", ts)
+        self.assertIn("R2-002", ts)
+
+    def test_given_extra_relations_when_grouped_then_each_a_reference_with_instance_and_stacked(self):
+        r = regels()
+        r["regels"][3]["relaties"] = [{"soort": "Association", "van": "Opleidingaanbod", "naar": "Leeruitkomst", "instantie": "Baliegesprek"},
+                                      {"soort": "Association", "van": "Toetsonderdeel specificatie", "naar": "Opleidingaanbod", "label": "toetst"}]
+        blok = [b for b in self.blokken(r) if b["soort"] == "stroomt"][0]
+        self.assertEqual(blok["objecten"][0]["verwijzingen"], ["hangt aan Leeruitkomst: Baliegesprek", "Toetsonderdeel specificatie toetst"])
+        svg = tv.regel_stroomt(blok, set())
+        ys = {x.text: float(x.get("y")) for x in ET.fromstring(svg).iter(f"{SVG}text") if x.text in ("hangt aan Leeruitkomst: Baliegesprek", "Toetsonderdeel specificatie toetst")}
+        self.assertEqual(len(ys), 2)
+        self.assertNotEqual(*ys.values())
+
     def test_given_ontstaat_rule_when_drawn_then_svg_contains_role_step_and_each_instance(self):
         blok = self.blokken()[0]
         svg = tv.regel_ontstaat(blok, {"Lesgelegenheid"})

@@ -22,7 +22,9 @@ Controles (R1 en R2 uit het featureplan):
    verwachting; latere verschijningen zijn verandert-regels; een genest kind van hetzelfde
    objecttype in dezelfde stap (zelfaggregatie) telt niet als tweede ontstaan;
 7. de model-commit in de kop komt overeen met de meegegeven commit (waarschuwing);
-8. een regel met plaat "onderwijsontwerp" hoort bij een verdieping en wijst naar een objecttype en
+8. elk regel-ID volgt R<fase>-<nnn>, is uniek en noemt de fase van de regel; verdere relaties
+   (relaties) bestaan op de plaat en dragen geen nesting;
+9. een regel met plaat "onderwijsontwerp" hoort bij een verdieping en wijst naar een objecttype en
    een relatie op de conceptplaat (conceptplaat-onderwijsontwerp.json); zulke regels tellen niet
    mee in de dekking en kennen geen scope.
 
@@ -32,6 +34,7 @@ Exitcode 0: geen bevindingen; 1: bevindingen; 2: invoer niet leesbaar.
 import argparse
 import json
 import pathlib
+import re
 import sys
 
 REGELS = pathlib.Path("architecture/model/informatiemodel/voorbeeld-lr1-regels.json")
@@ -39,6 +42,7 @@ MODEL = pathlib.Path("architecture/model/informatiemodel/informatiemodel.json")
 STROMEN = pathlib.Path("architecture/model/informatiemodel/stromen.json")
 CONCEPTPLAAT = pathlib.Path("architecture/model/informatiemodel/conceptplaat-onderwijsontwerp.json")
 PLATEN = {"informatiemodel", "onderwijsontwerp"}
+ID_PATROON = re.compile(r"^R([1-8])-\d{3}$")
 GEEN_PIJL = "geen pijl op de hoofdplaat"
 NESTING = {"Aggregation", "Composition"}
 SOORTEN = {"ontstaat", "verandert", "stroomt"}
@@ -64,11 +68,22 @@ def schema(regels):
     for sleutel in ("model", "fasen", "rollen", "toestanden", "scope_uitzonderingen", "koppelingen", "regels"):
         if sleutel not in regels:
             uit.append(f"kop: veld {sleutel} ontbreekt")
+    ids = {}
     for i, r in enumerate(regels.get("regels", [])):
-        plek = f"regel {i + 1} (fase {r.get('fase')}, {r.get('stap')})"
-        for veld in ("fase", "stap", "soort", "objecttype", "instantie", "bron"):
+        plek = f"regel {r.get('id') or i + 1} (fase {r.get('fase')}, {r.get('stap')})"
+        for veld in ("id", "fase", "stap", "soort", "objecttype", "instantie", "bron"):
             if veld not in r or r[veld] in ("", None):
                 uit.append(f"{plek}: veld {veld} ontbreekt")
+        rid = r.get("id")
+        if rid:
+            m = ID_PATROON.match(str(rid))
+            if not m:
+                uit.append(f"{plek}: id {rid!r} volgt niet R<fase>-<nnn>")
+            elif int(m.group(1)) != r.get("fase"):
+                uit.append(f"{plek}: id {rid!r} noemt een andere fase dan de regel")
+            if rid in ids:
+                uit.append(f"{plek}: id {rid!r} is al gebruikt door regel {ids[rid]}")
+            ids.setdefault(rid, i + 1)
         soort = r.get("soort")
         if soort not in SOORTEN:
             uit.append(f"{plek}: soort {soort!r} is niet ontstaat, verandert of stroomt")
@@ -89,6 +104,11 @@ def schema(regels):
             uit.append(f"{plek}: relatie moet soort, van en naar hebben")
         if rel is not None and isinstance(rel, dict) and rel.get("label") == "":
             uit.append(f"{plek}: relatielabel is leeg; laat het veld weg of vul het")
+        for x in r.get("relaties") or []:
+            if not isinstance(x, dict) or not all(k in x for k in ("soort", "van", "naar")):
+                uit.append(f"{plek}: elke relatie in relaties moet soort, van en naar hebben")
+            elif x.get("nesting"):
+                uit.append(f"{plek}: nesting hoort in relatie, niet in relaties")
     return uit
 
 
@@ -122,7 +142,7 @@ def controleer(regels, model, stromen=None, fasen_filter=None, model_commit=None
 
     ontstaan = {}
     for i, r in enumerate(regels["regels"]):
-        plek = f"regel {i + 1} (fase {r.get('fase')}, {r.get('stap')})"
+        plek = f"regel {r.get('id') or i + 1} (fase {r.get('fase')}, {r.get('stap')})"
         naam = norm(r.get("objecttype", ""))
         concept = r.get("plaat") == "onderwijsontwerp"
         if concept and conceptplaat is None:
@@ -158,6 +178,16 @@ def controleer(regels, model, stromen=None, fasen_filter=None, model_commit=None
                 bevindingen.append(f"{plek}: relatielabel {rel['label']!r} wijkt af van {plaatnaam} ({plaat_relaties[sleutel]!r})")
             if rel.get("nesting") and rel["soort"] not in NESTING:
                 bevindingen.append(f"{plek}: nesting alleen op een aggregatie of compositie, niet op {rel['soort']}")
+        for x in r.get("relaties") or []:
+            if not isinstance(x, dict) or not all(k in x for k in ("soort", "van", "naar")):
+                continue
+            sleutel = (x["soort"], norm(x["van"]), norm(x["naar"]))
+            if sleutel not in plaat_relaties:
+                bevindingen.append(f"{plek}: relatie {x['soort']} van {x['van']!r} naar {x['naar']!r} (relaties) staat niet op {plaatnaam}")
+            elif x.get("label") and plaat_relaties[sleutel] != x["label"]:
+                bevindingen.append(f"{plek}: relatielabel {x['label']!r} (relaties) wijkt af van {plaatnaam} ({plaat_relaties[sleutel]!r})")
+            if naam not in (norm(x["van"]), norm(x["naar"])):
+                bevindingen.append(f"{plek}: relatie in relaties raakt het objecttype {naam!r} niet")
         if r.get("soort") == "ontstaat" and not concept:
             # een genest kind van hetzelfde objecttype (zelfaggregatie op de plaat, bijvoorbeeld een
             # leeruitkomst onder een leeruitkomst) in dezelfde stap telt niet als tweede ontstaan

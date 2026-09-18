@@ -43,9 +43,9 @@ def regels():
             "rollen": ["planner", "student"], "toestanden": [], "scope_uitzonderingen": [{"objecttype": "Lesgelegenheid", "motivering": "besluit"}],
             "koppelingen": {"Planningssysteem > Onderwijscatalogus": "OC-P&R"},
             "regels": [
-                {"fase": 2, "stap": "Aanbod maken", "soort": "ontstaat", "wie": "planner", "objecttype": "Opleidingaanbod", "instantie": "AA 2026", "bron": "b", "aanname": True, "vraag": "Is cohort een object?"},
-                {"fase": 2, "stap": "Aanbod maken", "soort": "stroomt", "van": "Planningssysteem", "naar": "Onderwijscatalogus", "pijl": "rel-1", "koppeling": "OC-P&R", "objecttype": "Opleidingaanbod", "instantie": "AA 2026", "bron": "b"},
-                {"fase": 3, "stap": "Aanmelden", "soort": "ontstaat", "wie": "student", "objecttype": "Aanmelding", "instantie": "April", "bron": "b", "vraag": "Is inschrijving een toestand?"}]}
+                {"id": "R2-001", "fase": 2, "stap": "Aanbod maken", "soort": "ontstaat", "wie": "planner", "objecttype": "Opleidingaanbod", "instantie": "AA 2026", "bron": "leerroute-1-regulier.md, r52 en r1026", "aanname": True, "vraag": "Is cohort een object?"},
+                {"id": "R2-002", "fase": 2, "stap": "Aanbod maken", "soort": "stroomt", "van": "Planningssysteem", "naar": "Onderwijscatalogus", "pijl": "rel-1", "koppeling": "OC-P&R", "objecttype": "Opleidingaanbod", "instantie": "AA 2026", "bron": "b"},
+                {"id": "R3-001", "fase": 3, "stap": "Aanmelden", "soort": "ontstaat", "wie": "student", "objecttype": "Aanmelding", "instantie": "April", "bron": "b", "vraag": "Is inschrijving een toestand?"}]}
 
 
 class GenereerTests(unittest.TestCase):
@@ -84,6 +84,21 @@ class GenereerTests(unittest.TestCase):
         self.assertNotIn("| 2 | Aanbod maken | Leervormstrategie |", doc)
         self.assertIn("conceptplaat", doc)
 
+    def test_given_ids_when_generated_then_register_lists_each_rule_with_image_and_source_links(self):
+        doc = self.bouw()
+        reg = doc[doc.index("## Regelregister"):]
+        self.assertIn("| R2-001 | Aanbod maken | ontstaat | Opleidingaanbod | AA 2026 | [f2-01-aanbod-maken.svg](img/regels/f2-01-aanbod-maken.svg) |", reg)
+        self.assertIn("[leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [r52](", reg)
+        self.assertIn("?plain=1#L1026)", reg)
+        self.assertIn("| R2-002 | Aanbod maken | stroomt |", reg)
+        self.assertIn("| R2-001 | Aanbod maken | Opleidingaanbod | | | | |", doc[doc.index("### Invulblad"):])
+
+    def test_given_source_with_fase_when_linked_then_fase_anchor_and_unknown_source_stays_text(self):
+        links = {1: "https://x/#fase-1"}
+        self.assertEqual(gv.bronlinks("leerroute-1-regulier.md, Fase 1: iets", links), "[leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 1](https://x/#fase-1): iets")
+        self.assertEqual(gv.bronlinks("geen bron, keuze van het voorbeeld"), "geen bron, keuze van het voorbeeld")
+        self.assertIn("scenario-uitwerkingen/scenario-1.1-regulier-happyflow.md?plain=1#L82", gv.bronlinks("scenario-1.1-regulier-happyflow.md, r82: intake"))
+
     def test_given_scope_when_generated_then_family_tables_cover_in_scope_types(self):
         doc = self.bouw()
         bijlage = doc[doc.index("## Bijlage"):doc.index("## Vragen")]
@@ -92,7 +107,7 @@ class GenereerTests(unittest.TestCase):
 
     def test_given_type_without_rule_when_generated_then_marked_with_stub_sentence(self):
         doc = self.bouw()
-        self.assertRegex(doc, r"\| Lesgelegenheid \| regels volgen na 30 september \| 4 \|")
+        self.assertRegex(doc, r"\| Lesgelegenheid \|  \| regels volgen na 30 september \| 4 \|")
 
     def test_given_fase_without_rules_when_generated_then_stub_with_chips_and_sentence(self):
         doc = self.bouw()
@@ -111,9 +126,9 @@ class GenereerTests(unittest.TestCase):
     def test_given_questions_when_generated_then_each_refers_to_rule_and_max_seven(self):
         r = regels()
         for i in range(10):
-            r["regels"].append({"fase": 3, "stap": "Aanmelden", "soort": "verandert", "wie": "student", "objecttype": "Aanmelding", "instantie": "x", "toestand": "t", "bron": "b", "vraag": f"Vraag {i}?"})
+            r["regels"].append({"id": f"R3-{i + 2:03d}", "fase": 3, "stap": "Aanmelden", "soort": "verandert", "wie": "student", "objecttype": "Aanmelding", "instantie": "x", "toestand": "t", "bron": "b", "vraag": f"Vraag {i}?"})
         doc = self.bouw(r)
-        vragen = re.findall(r"^\d+\. (.+?) \(fase \d, ", doc[doc.index("## Vragen"):], re.M)
+        vragen = re.findall(r"^\d+\. (.+?) \(R\d-\d{3}: fase \d, ", doc[doc.index("## Vragen"):], re.M)
         self.assertEqual(len(vragen), 7)
         self.assertIn("Is cohort een object?", vragen)
 
@@ -128,8 +143,8 @@ class GenereerTests(unittest.TestCase):
 
     def test_given_definition_status_when_generated_then_shown(self):
         doc = self.bouw()
-        self.assertRegex(doc, r"\| Opleidingaanbod \| AA 2026 \| 2 \| ja \| ja \| ProgrammeOffering \|")
-        self.assertRegex(doc, r"\| Aanmelding \| April \| 3 \|  \| nog niet \| geen equivalent \|")
+        self.assertRegex(doc, r"\| Opleidingaanbod \| R2-001 \| AA 2026 \| 2 \| ja \| ja \| ProgrammeOffering \|")
+        self.assertRegex(doc, r"\| Aanmelding \| R3-001 \| April \| 3 \|  \| nog niet \| geen equivalent \|")
 
     def test_given_missing_svg_directory_when_run_then_exit_two(self):
         with tempfile.TemporaryDirectory() as map_:

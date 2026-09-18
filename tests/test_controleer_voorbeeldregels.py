@@ -47,15 +47,15 @@ def regels():
             "scope_uitzonderingen": [{"objecttype": "Lesgelegenheid", "motivering": "besluit"}],
             "koppelingen": {"Planningssysteem > Onderwijscatalogus": "OC-P&R"},
             "regels": [
-                {"fase": 2, "stap": "Aanbod maken", "soort": "ontstaat", "wie": "planner", "objecttype": "Opleidingaanbod", "instantie": "Apothekersassistent 2026", "bron": "ks r1"},
-                {"fase": 2, "stap": "Aanbod maken", "soort": "ontstaat", "wie": "planner", "objecttype": "Opleidingsprogramma aanbod", "instantie": "Regulier BOL 2026", "bron": "ks r2",
+                {"id": "R2-001", "fase": 2, "stap": "Aanbod maken", "soort": "ontstaat", "wie": "planner", "objecttype": "Opleidingaanbod", "instantie": "Apothekersassistent 2026", "bron": "ks r1"},
+                {"id": "R2-002", "fase": 2, "stap": "Aanbod maken", "soort": "ontstaat", "wie": "planner", "objecttype": "Opleidingsprogramma aanbod", "instantie": "Regulier BOL 2026", "bron": "ks r2",
                  "relatie": {"soort": "Aggregation", "van": "Opleidingaanbod", "naar": "Opleidingsprogramma aanbod", "nesting": True}},
-                {"fase": 2, "stap": "Aanbod publiceren", "soort": "stroomt", "van": "Planningssysteem", "naar": "Onderwijscatalogus", "pijl": "rel-1", "objecttype": "Opleidingaanbod", "instantie": "Apothekersassistent 2026", "bron": "v1.7"},
-                {"fase": 3, "stap": "Aanmelden", "soort": "ontstaat", "wie": "student", "objecttype": "Aanmelding", "instantie": "April 2026", "bron": "ks r3",
+                {"id": "R2-003", "fase": 2, "stap": "Aanbod publiceren", "soort": "stroomt", "van": "Planningssysteem", "naar": "Onderwijscatalogus", "pijl": "rel-1", "objecttype": "Opleidingaanbod", "instantie": "Apothekersassistent 2026", "bron": "v1.7"},
+                {"id": "R3-001", "fase": 3, "stap": "Aanmelden", "soort": "ontstaat", "wie": "student", "objecttype": "Aanmelding", "instantie": "April 2026", "bron": "ks r3",
                  "relatie": {"soort": "Association", "van": "Opleidingaanbod", "naar": "Aanmelding", "label": "Op basis van"}},
-                {"fase": 3, "stap": "Aanmelden", "soort": "ontstaat", "wie": "student", "objecttype": "Opleiding aanbod verbintenis", "instantie": "Jochem 2026", "bron": "ks r4"},
-                {"fase": 4, "stap": "Roosteren", "soort": "ontstaat", "wie": "planner", "objecttype": "Lesgelegenheid", "instantie": "ma 09:00", "bron": "ks r5"},
-                {"fase": 4, "stap": "Roosteren", "soort": "verandert", "wie": "planner", "objecttype": "Opleidingaanbod", "instantie": "Apothekersassistent 2026", "toestand": "geroosterd", "bron": "ks r6"}]}
+                {"id": "R3-002", "fase": 3, "stap": "Aanmelden", "soort": "ontstaat", "wie": "student", "objecttype": "Opleiding aanbod verbintenis", "instantie": "Jochem 2026", "bron": "ks r4"},
+                {"id": "R4-001", "fase": 4, "stap": "Roosteren", "soort": "ontstaat", "wie": "planner", "objecttype": "Lesgelegenheid", "instantie": "ma 09:00", "bron": "ks r5"},
+                {"id": "R4-002", "fase": 4, "stap": "Roosteren", "soort": "verandert", "wie": "planner", "objecttype": "Opleidingaanbod", "instantie": "Apothekersassistent 2026", "toestand": "geroosterd", "bron": "ks r6"}]}
 
 
 def bevindingen(r=None, m=None, s="standaard", **kw):
@@ -72,7 +72,7 @@ class ControleTests(unittest.TestCase):
     def test_given_rule_without_required_field_when_checked_then_finding_names_rule_and_field(self):
         r = regels(); del r["regels"][0]["instantie"]
         b, _, _ = bevindingen(r)
-        self.assertTrue(any("regel 1" in x and "instantie" in x for x in b))
+        self.assertTrue(any("regel R2-001" in x and "instantie" in x for x in b))
 
     def test_given_unknown_objecttype_when_checked_then_finding_names_type(self):
         r = regels(); r["regels"][0]["objecttype"] = "Bestaat niet"
@@ -213,7 +213,7 @@ def conceptplaat():
 
 
 def conceptregel(**extra):
-    r = {"fase": 2, "stap": "Aanbod maken", "verdieping": "kader", "plaat": "onderwijsontwerp", "soort": "ontstaat", "wie": "planner",
+    r = {"id": "R2-009", "fase": 2, "stap": "Aanbod maken", "verdieping": "kader", "plaat": "onderwijsontwerp", "soort": "ontstaat", "wie": "planner",
          "objecttype": "Leerdoel", "instantie": "Leren door te doen", "bron": "conceptplaat",
          "relatie": {"soort": "Association", "van": "Leervormstrategie", "naar": "Leerdoel"}}
     r.update(extra)
@@ -247,7 +247,7 @@ class ConceptplaatTests(unittest.TestCase):
 
     def test_given_concept_rule_when_checked_then_not_counted_in_coverage_nor_scope(self):
         r = regels(); r["regels"].append(conceptregel(objecttype="Leerdoel", instantie="x", relatie=None))
-        r["regels"].append(conceptregel(instantie="y", relatie=None))
+        r["regels"].append(conceptregel(id="R2-010", instantie="y", relatie=None))
         b, _, _ = bevindingen(r, conceptplaat=conceptplaat())
         self.assertFalse(any("ontstaat-regels" in x or "buiten scope" in x for x in b))
 
@@ -255,6 +255,33 @@ class ConceptplaatTests(unittest.TestCase):
         r = regels(); r["regels"].append(conceptregel(plaat="hoofdplaat"))
         b, _, _ = bevindingen(r, conceptplaat=conceptplaat())
         self.assertTrue(any("plaat 'hoofdplaat'" in x for x in b))
+
+
+class IdEnRelatiesTests(unittest.TestCase):
+    def test_given_id_missing_or_wrong_when_checked_then_finding(self):
+        r = regels(); del r["regels"][0]["id"]
+        b, _, _ = bevindingen(r)
+        self.assertTrue(any("veld id ontbreekt" in x for x in b))
+        r = regels(); r["regels"][0]["id"] = "F2-01"
+        b, _, _ = bevindingen(r)
+        self.assertTrue(any("volgt niet R<fase>-<nnn>" in x for x in b))
+        r = regels(); r["regels"][0]["id"] = "R3-001"
+        b, _, _ = bevindingen(r)
+        self.assertTrue(any("andere fase" in x for x in b))
+        self.assertTrue(any("is al gebruikt" in x for x in b))
+
+    def test_given_extra_relations_when_checked_then_each_must_exist_on_plaat_touch_object_and_not_nest(self):
+        r = regels()
+        r["regels"][0]["relaties"] = [{"soort": "Association", "van": "Opleidingaanbod", "naar": "Aanmelding", "label": "Op basis van"}]
+        b, _, _ = bevindingen(r)
+        self.assertEqual(b, [])
+        r["regels"][0]["relaties"] = [{"soort": "Association", "van": "Opleidingaanbod", "naar": "Aanmelding", "label": "fout"},
+                                      {"soort": "Aggregation", "van": "Aanmelding", "naar": "Lesgelegenheid"},
+                                      {"soort": "Aggregation", "van": "Opleidingaanbod", "naar": "Opleidingsprogramma aanbod", "nesting": True}]
+        b, _, _ = bevindingen(r)
+        self.assertTrue(any("(relaties) wijkt af" in x for x in b))
+        self.assertTrue(any("raakt het objecttype" in x for x in b))
+        self.assertTrue(any("nesting hoort in relatie" in x for x in b))
 
 
 class MainTests(unittest.TestCase):

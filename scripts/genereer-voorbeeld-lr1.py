@@ -35,6 +35,28 @@ KOLOMVOLGORDE = ["Kwalificatiekader MBO", "Onderwijskundigkader instelling", "On
 KOLOMNAAM = {None: "Buiten de kolommen (persoon, groep, cohort, verzoek)", "Kwalificatiekader MBO": "Kwalificatiekader mbo",
              "Onderwijskundigkader instelling": "Onderwijskundig kader instelling"}
 STUBZIN = "Regels volgen na 30 september."
+PUBLIC = "https://github.com/Npuls-OKx/Public/blob/dev/"
+BRONNEN = {
+    "leerroute-1-regulier.md": PUBLIC + "Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md",
+    "voorbeeldpayloads.md": PUBLIC + "Koppelvlakspecificaties/Datamodelschema's/voorbeeldpayloads.md",
+    "scenario-1.1-regulier-happyflow.md": "../../docs/specificatie/leerroute-uitwerking/doc/scenario-uitwerkingen/scenario-1.1-regulier-happyflow.md",
+    "informatiemodel.md": "informatiemodel.md",
+}
+
+
+def bronlinks(bron, faselinks=None):
+    """De bron als tekst met links: het bestand naar zijn plek, elk regelnummer (r1046) naar die regel,
+    en 'Fase n' in het kaderscenario naar de fasekop. Onbekende bronnen blijven tekst."""
+    m = re.match(r"([\w\-.']+\.md)(.*)", bron)
+    if not m or m.group(1) not in BRONNEN:
+        return bron
+    bestand, rest = m.group(1), m.group(2)
+    url = BRONNEN[bestand]
+    rest = re.sub(r"\br(\d+)\b", lambda x: f"[r{x.group(1)}]({url}?plain=1#L{x.group(1)})", rest)
+    rest = re.sub(r"\btot (\d+)\b", lambda x: f"tot [{x.group(1)}]({url}?plain=1#L{x.group(1)})", rest)
+    if bestand == "leerroute-1-regulier.md" and faselinks:
+        rest = re.sub(r"\bFase (\d)\b", lambda x: f"[Fase {x.group(1)}]({faselinks[int(x.group(1))]})" if int(x.group(1)) in faselinks else x.group(0), rest)
+    return f"[{bestand}]({url}){rest}"
 
 
 def norm(s):
@@ -66,6 +88,8 @@ Relateert aan: het [kaderscenario leerroute 1](https://github.com/Npuls-OKx/Publ
 ## Leeswijzer
 
 Dit document loopt stap voor stap door de instellingsreis van het kaderscenario en toont per stap wat er in het informatiemodel ontstaat en wat er tussen systemen beweegt, met de waarde voor Jochem erin. Het is een leeshulp op conceptueel niveau (MIM 1 en 2): geen payloads, geen endpoints, geen diensten. Eén instantie per objecttype toont het type, niet het aantal.
+
+Elke regel heeft een stabiel ID (R, fasenummer, volgnummer: R1-012) dat in het beeld rechtsboven in het object staat en in het regelregister achterin; verwijs daarmee.
 
 Vier termen, overal gelijk:
 
@@ -128,7 +152,7 @@ def familietabellen(regels, model, begrippen):
     eerste = {}
     for r in regels["regels"]:
         n = norm(r["objecttype"])
-        if r["soort"] in ("ontstaat", "verandert") and n not in eerste:
+        if r["soort"] in ("ontstaat", "verandert") and n not in eerste and r.get("plaat", "informatiemodel") == "informatiemodel":
             eerste[n] = r
     verwachting = {norm(v): f["nummer"] for f in regels["fasen"] for v in f["verwacht"]}
     uit = "## Bijlage: alle objecttypen per begrippenfamilie\n\nPer objecttype de instantie voor Jochem, de fase waarin hij verschijnt, de status van de definitie in de begrippenlijst en het OEAPI-object uit de mapping. De laatste twee kolommen zijn voor de lezer.\n\n"
@@ -136,7 +160,7 @@ def familietabellen(regels, model, begrippen):
         rijen = [n for n, o in typen.items() if o.get("kolom") == kolom and (o.get("scope") == "binnen" or n in uitz)]
         if not rijen:
             continue
-        uit += f"### {KOLOMNAAM.get(kolom, kolom)}\n\n| Objecttype | Jochem | Fase | Aanname | Definitie | OEAPI | Heet bij u | Hangt bij u onder |\n|---|---|---|---|---|---|---|---|\n"
+        uit += f"### {KOLOMNAAM.get(kolom, kolom)}\n\n| Objecttype | Regel | Jochem | Fase | Aanname | Definitie | OEAPI | Heet bij u | Hangt bij u onder |\n|---|---|---|---|---|---|---|---|---|\n"
         for n in sorted(rijen):
             r = eerste.get(n)
             inst = r["instantie"] if r else STUBZIN.lower().rstrip(".")
@@ -144,7 +168,8 @@ def familietabellen(regels, model, begrippen):
             aanname = "ja" if r and r.get("aanname") else ""
             defin = definitie.get(n, "")
             defin = {"gedefinieerd": "ja", "open": "nog niet"}.get(defin, defin or "nog niet")
-            uit += f"| {n} | {inst} | {fase} | {aanname} | {defin} | {', '.join(oeapi.get(n, [])) or 'geen equivalent'} | | |\n"
+            rid = r.get("id", "") if r else ""
+            uit += f"| {n} | {rid} | {inst} | {fase} | {aanname} | {defin} | {', '.join(oeapi.get(n, [])) or 'geen equivalent'} | | |\n"
         uit += "\n"
     return uit
 
@@ -153,18 +178,43 @@ def vragenpagina(regels):
     vragen = []
     for r in regels["regels"]:
         if r.get("vraag") and r["vraag"] not in [v for v, _ in vragen]:
-            vragen.append((r["vraag"], f"fase {r['fase']}, {r['stap']}, `{norm(r['objecttype'])}`"))
+            vragen.append((r["vraag"], f"{r.get('id', '')}: fase {r['fase']}, {r['stap']}, `{norm(r['objecttype'])}`"))
     uit = "## Vragen aan de kerngroep\n\nDe vragen die de regels zelf oproepen, met de regel waar de vraag zichtbaar wordt. Feedback, geen commitment.\n\n"
     for i, (v, plek) in enumerate(vragen[:7], 1):
         uit += f"{i}. {v} ({plek})\n"
     for v, plek in vragen[7:]:
         print(f"waarschuwing: vraag buiten de zeven, niet in het document: {plek}", file=sys.stderr)
     uit += "\nVragen over patronen, schema's, de toetslijst en endpoints horen bij de koppelvlakspecificatie en staan hier niet.\n\n"
-    uit += "### Invulblad\n\nPer regel één van vier antwoorden: herken ik dit; heet bij ons anders (welke term); hangt bij ons anders (waaronder); ontbreekt.\n\n| Fase | Stap | Objecttype | Herken | Heet anders | Hangt anders | Ontbreekt |\n|---|---|---|---|---|---|---|\n"
+    uit += "### Invulblad\n\nPer regel één van vier antwoorden: herken ik dit; heet bij ons anders (welke term); hangt bij ons anders (waaronder); ontbreekt.\n\n| Regel | Stap | Objecttype | Herken | Heet anders | Hangt anders | Ontbreekt |\n|---|---|---|---|---|---|---|\n"
     for r in regels["regels"]:
         if r["soort"] in ("ontstaat", "verandert") and r.get("plaat", "informatiemodel") == "informatiemodel":
-            uit += f"| {r['fase']} | {r['stap']} | {norm(r['objecttype'])} | | | | |\n"
+            uit += f"| {r.get('id', '')} | {r['stap']} | {norm(r['objecttype'])} | | | | |\n"
     return uit + "\n"
+
+
+def regelregister(regels, per_fase):
+    """Elke regel met haar ID, het beeld waarin zij staat en de bron met links, om naar te verwijzen."""
+    faselinks = {f["nummer"]: f["link"] for f in regels["fasen"] if f.get("link")}
+    beeld = {}
+    for n, blok in enumerate(teken.groepeer(regels), 1):
+        naam = teken.bestandsnaam(blok, n)
+        for it in blok["objecten"]:
+            for rid in _ids(it):
+                beeld[rid] = naam
+    uit = "## Regelregister\n\nElke regel met haar stabiele ID (R, fase, volgnummer), het beeld waarin zij staat en de bron. Verwijs naar een regel met het ID.\n\n| Regel | Stap | Soort | Objecttype | Instantie | Beeld | Bron |\n|---|---|---|---|---|---|---|\n"
+    for r in regels["regels"]:
+        rid = r.get("id", "")
+        soort = r["soort"] + (" (conceptplaat)" if r.get("plaat") == "onderwijsontwerp" else "")
+        b = beeld.get(rid)
+        uit += f"| {rid} | {r['stap']} | {soort} | {norm(r['objecttype'])} | {r['instantie']} | " + (f"[{b}]({REGELMAP}/{b})" if b else "") + f" | {bronlinks(r['bron'], faselinks)} |\n"
+    return uit + "\n"
+
+
+def _ids(item):
+    if item.get("id"):
+        yield item["id"]
+    for k in item.get("kinderen", []):
+        yield from _ids(k)
 
 
 def bouw(regels, model, begrippen):
@@ -175,6 +225,7 @@ def bouw(regels, model, begrippen):
         uit += fase_sectie(f, per_fase.get(f["nummer"], []), regels_in_fase)
     uit += familietabellen(regels, model, begrippen)
     uit += vragenpagina(regels)
+    uit += regelregister(regels, per_fase)
     return uit
 
 
