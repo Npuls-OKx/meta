@@ -153,3 +153,9 @@ Een stroom toont de pijl van component naar component bovenaan als horizontale s
 ![Fase 1 na de herziening](poc/regels-fase-1.png)
 
 ![Fase 4 na de herziening](poc/regels-fase-4.png)
+
+## Het planproces verdiept, 18 september
+
+Fase 2 met de planbare waarden uit het onderwijsontwerp in het verzoek (paars) en twee verdiepingen op de conceptplaat: ruimtes en mensen op de specificatie, en de examenplanning uit de resultaatstructuur.
+
+![Fase 2 met het planproces](poc/regels-fase-2.png)
