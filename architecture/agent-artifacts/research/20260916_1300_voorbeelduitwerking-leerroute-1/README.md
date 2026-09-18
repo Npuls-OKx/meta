@@ -142,6 +142,6 @@ Drieluik onder de stap "Kwalificatiedossier vertalen naar leeruitkomsten". Boven
 
 ## Regel-ID's en de opleiding zoals ontworpen, 18 september
 
-Elke regel draagt nu een stabiel ID (R, fase, volgnummer) rechtsboven in het object; het regelregister achterin het document koppelt ID, beeld en bron met links. Toets- en examenonderdelen, onderwijseenheid, leeronderdeel en de resultaatstructuur verwijzen naar de leeruitkomst die zij aftikken. De uitwisseling van fase 1 gaat als gelinkt geheel: leeruitkomsten, specificatiestructuur en resultaatstructuur.
+Elke regel draagt nu een stabiel ID (R, fase, volgnummer) rechtsboven in het object en onder elk beeld; het regelregister achterin het document koppelt ID, beeld en bron met links. Toets- en examenonderdelen, onderwijseenheid, leeronderdeel en de resultaatstructuur verwijzen naar de leeruitkomst die zij aftikken. De uitwisseling van fase 1 gaat als gelinkt geheel: leeruitkomsten met hun skills (grijs, buiten scope), de specificatiestructuur met het onderwijsontwerp van de conceptplaat (paars) en de resultaatstructuur; de objecten blijven naast elkaar, verbonden door de stippellijn van de pijl, en lopen door op een volgende rij. Het keuzedeel is een eigen programmaspecificatie in een eigen stap; in de opleiding blijft de keuzedeelruimte met de regelset.
 
-![Toets- en resultaatstructuur en de uitwisseling van fase 1](poc/regels-fase-1-uitwisseling.png)
+![Specificatie, keuzedeel en de uitwisseling van fase 1](poc/regels-fase-1-uitwisseling.png)
