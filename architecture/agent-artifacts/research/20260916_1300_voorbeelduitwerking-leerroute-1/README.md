@@ -63,3 +63,5 @@ Het featureplan staat in [feature-plans/20260917_1500_jochem-in-het-informatiemo
 | [tegenlezing-plan-projectmanager.md](tegenlezing-plan-projectmanager.md) | projectmanager en testcoördinator | Niet uitvoerbaar in de huidige vorm; wel na afslanken op werkdagen met drie aanpassingen |
 | [tegenlezing-plan-informatiearchitect-kerngroep.md](tegenlezing-plan-informatiearchitect-kerngroep.md) | informatiearchitect en lid kerngroep techniek, okx-semantiek-review | Gefaald op relatiecontrole en vragenpagina; vorm en doel haalbaar |
 
+Tweede ronde op versie 2: [tester](tegenlezing-plan-tester-ronde-2.md) GESLAAGD met twee moet-punten (pijlidentiteit uniek, één view), [projectmanager en testcoördinator](tegenlezing-plan-projectmanager-ronde-2.md) uitvoerbaar met drie moet-punten (pijlidentiteit, testgevallen op versie 2, akkoord op 18 september), [informatiearchitect en lid kerngroep techniek](tegenlezing-plan-informatiearchitect-kerngroep-ronde-2.md) dialectvrij na drie moet-punten (term koppeling, anonimisering, toestandslijst). Alle moet-punten zijn in versie 3 van het plan verwerkt.
+
