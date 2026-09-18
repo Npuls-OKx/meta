@@ -159,6 +159,13 @@ class ControleTests(unittest.TestCase):
         b, _, _ = bevindingen(r)
         self.assertTrue(any("2 ontstaat-regels" in x for x in b))
 
+    def test_given_self_nested_child_of_same_type_when_checked_then_not_a_second_ontstaat(self):
+        m = model(); m["relaties"].append({"soort": "Aggregation", "van": "Aanmelding", "naar": "Aanmelding", "label": None})
+        r = regels(); r["regels"].append({"fase": 3, "stap": "Aanmelden", "soort": "ontstaat", "wie": "student", "objecttype": "Aanmelding", "instantie": "genest", "bron": "b",
+                                          "relatie": {"soort": "Aggregation", "van": "Aanmelding", "naar": "Aanmelding", "nesting": True}})
+        b, _, _ = bevindingen(r, m)
+        self.assertFalse(any("ontstaat-regels" in x for x in b))
+
     def test_given_type_with_ontstaat_and_verandert_when_checked_then_accepted(self):
         b, _, _ = bevindingen()
         self.assertFalse(any("Opleidingaanbod" in x and "ontstaat-regels" in x for x in b))

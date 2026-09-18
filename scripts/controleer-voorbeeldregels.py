@@ -19,7 +19,8 @@ Controles (R1 en R2 uit het featureplan):
 5. elke stroomt-regel wijst naar een relatie-id in stromen.json of draagt de markering
    "geen pijl op de hoofdplaat";
 6. dekking: elk objecttype binnen scope heeft precies een ontstaat-regel, in de fase van de
-   verwachting; latere verschijningen zijn verandert-regels;
+   verwachting; latere verschijningen zijn verandert-regels; een genest kind van hetzelfde
+   objecttype in dezelfde stap (zelfaggregatie) telt niet als tweede ontstaan;
 7. de model-commit in de kop komt overeen met de meegegeven commit (waarschuwing).
 
 Exitcode 0: geen bevindingen; 1: bevindingen; 2: invoer niet leesbaar.
@@ -141,7 +142,11 @@ def controleer(regels, model, stromen=None, fasen_filter=None, model_commit=None
             if rel.get("nesting") and rel["soort"] not in NESTING:
                 bevindingen.append(f"{plek}: nesting alleen op een aggregatie of compositie, niet op {rel['soort']}")
         if r.get("soort") == "ontstaat":
-            ontstaan.setdefault(naam, []).append((r.get("fase"), plek))
+            # een genest kind van hetzelfde objecttype (zelfaggregatie op de plaat, bijvoorbeeld een
+            # leeruitkomst onder een leeruitkomst) in dezelfde stap telt niet als tweede ontstaan
+            zelf = isinstance(rel, dict) and rel.get("nesting") and norm(rel.get("van", "")) == naam == norm(rel.get("naar", ""))
+            if not zelf:
+                ontstaan.setdefault(naam, []).append((r.get("fase"), plek))
 
     for naam, plekken in ontstaan.items():
         if len(plekken) > 1:

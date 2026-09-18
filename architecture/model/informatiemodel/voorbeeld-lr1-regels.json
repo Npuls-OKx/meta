@@ -10,8 +10,10 @@
    "mora_hoofdproces": "Ontwikkelen",
    "bron": "leerroute-1-regulier.md, Fase 1: een onderwijsontwerper vertaalt het kwalificatiedossier naar een opleidingsspecificatie met onderliggende opleidingsprogramma- en onderwijseenheid-specificaties, eerste toetsvormen en een initieel examenplan; de Curriculum-ontwerptool publiceert dit naar de OC",
    "stappen": [
+    "Kwalificatiedossier analyseren",
     "Examenplan vaststellen",
     "Kwalificatiedossier vertalen naar leeruitkomsten",
+    "Skills-kader vertalen naar leeruitkomsten",
     "Opleidingsspecificatie met programma en eenheden beschrijven",
     "Toetsonderdelen en resultaatstructuur uit het examenplan afleiden",
     "Grofmazig resultaat publiceren naar de onderwijscatalogus"
@@ -209,6 +211,10 @@
   {
    "naam": "fijnmazig",
    "bron": "leerroute-1-regulier.md, Fase 4: fijnmazig uitgewerkt"
+  },
+  {
+   "naam": "variant skills-kader",
+   "bron": "keuze van het voorbeeld: dezelfde leeruitkomst, vertaald uit een skills-kader in plaats van het kwalificatiedossier"
   }
  ],
  "scope_uitzonderingen": [
@@ -231,6 +237,14 @@
   {
    "objecttype": "Examenplan",
    "motivering": "Alleen als oorsprong van de summatieve resultaatstructuur getoond (relatie kent op de plaat); het examenplan zelf blijft buiten de uitwisseling (ontwerpkeuze 10)."
+  },
+  {
+   "objecttype": "Competenties / Skills",
+   "motivering": "Alleen in de variant met een skills-kader getoond, als de bron waaruit leeruitkomsten worden vertaald (Leeruitkomst is op de plaat een specialisatie van Competenties / Skills); het kader zelf blijft buiten de uitwisseling."
+  },
+  {
+   "objecttype": "Vaardigheid",
+   "motivering": "Zie Competenties / Skills; CompetentNL-vaardigheden als voorbeeld van een skills-kader."
   }
  ],
  "koppelingen": {
@@ -243,29 +257,17 @@
  "regels": [
   {
    "fase": 1,
-   "stap": "Examenplan vaststellen",
-   "soort": "ontstaat",
-   "wie": "examencommissie",
-   "objecttype": "Examenplan",
-   "instantie": "Examenplan Apothekersassistent, cohort 2026",
-   "bron": "leerroute-1-regulier.md, Fase 1: een initieel examenplan; Fase 8: op basis van het examenplan uit fase 1",
-   "aanname": true,
-   "zin": "De examencommissie stelt het examenplan vast: wat wordt geexamineerd en wanneer de opleiding is afgerond; buiten de uitwisseling, wel de oorsprong van de resultaatstructuur.",
-   "vraag": "Het kaderscenario zet het examenplan in fase 1 en de resultaatstructuur pas in fase 4 bij OC-SIS. Ontstaat de summatieve resultaatstructuur in de curriculum-ontwerptool uit het examenplan, en gaat zij met de specificatie mee naar de catalogus?"
-  },
-  {
-   "fase": 1,
-   "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
+   "stap": "Kwalificatiedossier analyseren",
    "soort": "ontstaat",
    "wie": "onderwijsontwerper",
    "objecttype": "Kwalificatie dossier",
    "instantie": "Apothekersassistent, crebo 23450",
    "bron": "leerroute-1-regulier.md, r52 en r1026",
-   "zin": "De onderwijsontwerper vertaalt het kwalificatiedossier naar leeruitkomsten: per werkproces een leeruitkomst."
+   "zin": "De onderwijsontwerper analyseert het kwalificatiedossier: kwalificatie, kerntaken en werkprocessen."
   },
   {
    "fase": 1,
-   "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
+   "stap": "Kwalificatiedossier analyseren",
    "soort": "ontstaat",
    "wie": "onderwijsontwerper",
    "objecttype": "Kwalificatie",
@@ -281,7 +283,7 @@
   },
   {
    "fase": 1,
-   "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
+   "stap": "Kwalificatiedossier analyseren",
    "soort": "ontstaat",
    "wie": "onderwijsontwerper",
    "objecttype": "Kerntaak",
@@ -297,7 +299,7 @@
   },
   {
    "fase": 1,
-   "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
+   "stap": "Kwalificatiedossier analyseren",
    "soort": "ontstaat",
    "wie": "onderwijsontwerper",
    "objecttype": "Werkproces",
@@ -313,20 +315,92 @@
   },
   {
    "fase": 1,
+   "stap": "Examenplan vaststellen",
+   "soort": "ontstaat",
+   "wie": "examencommissie",
+   "objecttype": "Examenplan",
+   "instantie": "Examenplan Apothekersassistent, cohort 2026",
+   "bron": "leerroute-1-regulier.md, Fase 1: een initieel examenplan; Fase 8: op basis van het examenplan uit fase 1",
+   "aanname": true,
+   "zin": "Op basis van het kwalificatiedossier stelt de examencommissie het examenplan vast: wat wordt geexamineerd en wanneer de opleiding is afgerond; buiten de uitwisseling, wel de oorsprong van de resultaatstructuur.",
+   "vraag": "Het kaderscenario zet het examenplan in fase 1 en de resultaatstructuur pas in fase 4 bij OC-SIS. Ontstaat de summatieve resultaatstructuur in de curriculum-ontwerptool uit het examenplan, en gaat zij met de specificatie mee naar de catalogus?"
+  },
+  {
+   "fase": 1,
    "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
    "soort": "ontstaat",
    "wie": "onderwijsontwerper",
    "objecttype": "Leeruitkomst",
-   "instantie": "Voert professioneel baliegesprek en triage",
-   "bron": "leerroute-1-regulier.md, r1092",
+   "instantie": "Biedt farmaceutische patiëntenzorg (kerntaakniveau)",
+   "bron": "leerroute-1-regulier.md, r1092 en ontwerpkeuze 2: vertaald, gelaagd als het kwalificatiedossier",
    "aanname": true,
    "relatie": {
     "soort": "Association",
-    "van": "Werkproces",
+    "van": "Kerntaak",
     "naar": "Leeruitkomst",
     "label": "Wordt vertaald naar"
    },
-   "vraag": "Leeruitkomsten zijn in de bronnen niet geformuleerd; het voorbeeld neemt een op een per werkproces (ontwerpkeuze 2). Formuleert de instelling eigen leeruitkomsten?"
+   "zin": "Variant A: de leeruitkomsten nemen de gelaagdheid van het kwalificatiedossier over; per kerntaak een leeruitkomst met daaronder een per werkproces.",
+   "vraag": "Leeruitkomsten zijn in de bronnen niet geformuleerd; het voorbeeld toont twee varianten (dossierstructuur en skills-kader). Hoe formuleert de instelling ze?"
+  },
+  {
+   "fase": 1,
+   "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
+   "soort": "ontstaat",
+   "wie": "onderwijsontwerper",
+   "objecttype": "Leeruitkomst",
+   "instantie": "Voert professioneel baliegesprek en triage (werkprocesniveau)",
+   "bron": "leerroute-1-regulier.md, r1092",
+   "aanname": true,
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Leeruitkomst",
+    "naar": "Leeruitkomst",
+    "nesting": true
+   }
+  },
+  {
+   "fase": 1,
+   "stap": "Skills-kader vertalen naar leeruitkomsten",
+   "soort": "ontstaat",
+   "wie": "onderwijsontwerper",
+   "objecttype": "Competenties / Skills",
+   "instantie": "Sociale en communicatieve vaardigheden (CompetentNL laag 1)",
+   "bron": "CompetentNL versie 2, documentatie vaardighedentaxonomie (TNO, UWV, SBB): drie lagen, 6 verzamelconcepten, 24 generieke en 128 specifieke vaardigheden, op ESCO gebaseerd",
+   "aanname": true,
+   "zin": "Variant B: hetzelfde kan via een skills-kader; CompetentNL kent drie lagen vaardigheden, en de leeruitkomst is op de plaat een specialisatie van competenties en skills. De leeruitkomst blijft de sleutel."
+  },
+  {
+   "fase": 1,
+   "stap": "Skills-kader vertalen naar leeruitkomsten",
+   "soort": "ontstaat",
+   "wie": "onderwijsontwerper",
+   "objecttype": "Vaardigheid",
+   "instantie": "Communicatieve vaardigheden (CompetentNL laag 2)",
+   "bron": "CompetentNL versie 2, documentatie vaardighedentaxonomie (TNO, UWV, SBB): drie lagen, 6 verzamelconcepten, 24 generieke en 128 specifieke vaardigheden, op ESCO gebaseerd",
+   "aanname": true,
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Competenties / Skills",
+    "naar": "Vaardigheid",
+    "nesting": true
+   }
+  },
+  {
+   "fase": 1,
+   "stap": "Skills-kader vertalen naar leeruitkomsten",
+   "soort": "verandert",
+   "wie": "onderwijsontwerper",
+   "objecttype": "Leeruitkomst",
+   "instantie": "Voert professioneel baliegesprek en triage",
+   "toestand": "variant skills-kader",
+   "bron": "CompetentNL versie 2, documentatie vaardighedentaxonomie (TNO, UWV, SBB): drie lagen, 6 verzamelconcepten, 24 generieke en 128 specifieke vaardigheden, op ESCO gebaseerd; leerroute-1-regulier.md, r1092",
+   "aanname": true,
+   "relatie": {
+    "soort": "Specialization",
+    "van": "Leeruitkomst",
+    "naar": "Competenties / Skills"
+   }
   },
   {
    "fase": 1,
