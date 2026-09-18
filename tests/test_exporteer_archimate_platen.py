@@ -123,6 +123,61 @@ class GeometrieTests(unittest.TestCase):
             self.assertEqual(ep.main(["--model", str(Path(map_) / "geen.archimate"), "--view", "x", "--uit", str(Path(map_) / "u.png")]), 2)
 
 
+class KopieTests(unittest.TestCase):
+    """De bewerkte kopie: pijlteksten weg, elementen uit elkaar, knikpunten op hun plek."""
+
+    def schrijf(self, xml):
+        map_ = tempfile.TemporaryDirectory()
+        self.addCleanup(map_.cleanup)
+        pad = Path(map_.name) / "model.archimate"
+        pad.write_text(xml, encoding="utf-8")
+        return pad
+
+    def kopie(self, xml, **kw):
+        pad = self.schrijf(xml)
+        uit = pad.parent / "kopie.archimate"
+        ep.bewerkte_kopie(pad, uit, "Testview", **kw)
+        return ET.parse(uit).getroot()
+
+    def test_given_label_expressions_when_copied_without_arrow_text_then_removed_only_in_view(self):
+        xml = model_xml(obj("oA", "A", 0, 0, conns=conn("oB", "rAB", '<feature name="labelExpression" value="tekst"/>')) + obj("oB", "B", 300, 0))
+        root = self.kopie(xml, zonder_pijltekst=True)
+        self.assertEqual([f for f in root.iter("feature") if f.get("name") == "labelExpression"], [])
+
+    def test_given_ruimte_when_copied_then_top_level_positions_scaled_and_sizes_kept(self):
+        xml = model_xml(obj("oA", "A", 100, 200) + obj("oB", "B", 300, 0))
+        root = self.kopie(xml, ruimte=50)
+        b = {c.get("id"): c.find("bounds") for c in root.iter("child")}
+        self.assertEqual((b["oA"].get("x"), b["oA"].get("y"), b["oA"].get("width")), ("150", "300", "100"))
+
+    def test_given_nested_element_when_copied_with_ruimte_then_child_keeps_relative_position(self):
+        xml = model_xml(obj("oA", "A", 100, 100, w=300, h=300, kinderen=obj("oB", "B", 20, 30)))
+        root = self.kopie(xml, ruimte=50)
+        b = {c.get("id"): c.find("bounds") for c in root.iter("child")}
+        self.assertEqual((b["oB"].get("x"), b["oB"].get("y")), ("20", "30"))
+
+    def test_given_bendpoint_when_copied_with_ruimte_then_absolute_point_scaled_and_offsets_consistent(self):
+        # A midden (50,25), B midden (350,25); knik op absoluut (200,105): start (150,80), end (-150,80)
+        xml = model_xml(obj("oA", "A", 0, 0, conns=conn("oB", "rAB", '<bendpoint startX="150" startY="80" endX="-150" endY="80"/>')) + obj("oB", "B", 300, 0))
+        root = self.kopie(xml, ruimte=100)
+        bp = next(root.iter("bendpoint"))
+        # na factor 2: A midden (50,25), B midden (650,25), knik (400,210)
+        self.assertEqual((bp.get("startX"), bp.get("startY")), ("350", "185"))
+        self.assertEqual((bp.get("endX"), bp.get("endY")), ("-250", "185"))
+
+    def test_given_copy_when_written_then_archimate_namespace_prefix_kept(self):
+        pad = self.schrijf(model_xml(obj("oA", "A", 0, 0)))
+        uit = pad.parent / "kopie.archimate"
+        ep.bewerkte_kopie(pad, uit, "Testview", ruimte=10)
+        self.assertIn("<archimate:model", uit.read_text(encoding="utf-8"))
+
+    def test_given_copy_when_made_then_source_model_unchanged(self):
+        pad = self.schrijf(model_xml(obj("oA", "A", 0, 0)))
+        voor = hashlib.sha256(pad.read_bytes()).hexdigest()
+        ep.bewerkte_kopie(pad, pad.parent / "kopie.archimate", "Testview", zonder_pijltekst=True, ruimte=25)
+        self.assertEqual(voor, hashlib.sha256(pad.read_bytes()).hexdigest())
+
+
 @unittest.skipUnless(shutil.which("archi") or Path("/opt/Archi/Archi").exists(), "Archi niet in deze container")
 class ArchiIntegratieTests(unittest.TestCase):
     def test_given_real_model_when_exported_then_png_written_and_model_unchanged(self):

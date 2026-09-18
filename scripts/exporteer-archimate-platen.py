@@ -62,6 +62,25 @@ def bewerkte_kopie(model, kopie, viewnaam, zonder_pijltekst=False, ruimte=0):
                 if feature.get("name") == "labelExpression":
                     conn.remove(feature)
     if ruimte:
+        # Eerst de absolute middens van alle diagramobjecten, voor en na het schuiven.
+        def middens(knoop, ox, oy, uit):
+            b = knoop.find("bounds")
+            x, y = ox + int(b.get("x", 0)), oy + int(b.get("y", 0))
+            uit[knoop.get("id")] = (x + int(b.get("width", 0)) / 2, y + int(b.get("height", 0)) / 2)
+            for kind in knoop.findall("child"):
+                middens(kind, x, y, uit)
+        voor = {}
+        for kind in view.findall("child"):
+            middens(kind, 0, 0, voor)
+        # Een knikpunt is in Archi een punt, opgeslagen als offset ten opzichte van bron en van doel
+        # (beide wijzen naar hetzelfde punt). Bewaar het absolute punt voordat er iets schuift.
+        knikken = {}
+        for conn in view.iter("sourceConnection"):
+            knikken[conn.get("id")] = [(int(bp.get("startX", 0)), int(bp.get("startY", 0))) for bp in conn.findall("bendpoint")]
+        ouder_van = {}
+        for knoop in view.iter("child"):
+            for conn in knoop.findall("sourceConnection"):
+                ouder_van[conn.get("id")] = knoop.get("id")
         # De bovenste laag en de groepen schuiven uit elkaar; elementen binnen een groep of component
         # bewegen mee met hun ouder en houden hun maat. Een groep groeit mee zodat zijn kinderen erin blijven.
         def schaal(knoop, groep_of_top):
@@ -77,11 +96,19 @@ def bewerkte_kopie(model, kopie, viewnaam, zonder_pijltekst=False, ruimte=0):
                 schaal(kind, is_groep)
         for kind in view.findall("child"):
             schaal(kind, True)
-        # Knikpunten zijn offsets ten opzichte van bron en doel; die schalen mee met de afstand ertussen.
+        na = {}
+        for kind in view.findall("child"):
+            middens(kind, 0, 0, na)
+        # Elk knikpunt: absoluut punt schalen zoals de posities, en opnieuw als offset opslaan.
         for conn in view.iter("sourceConnection"):
-            for bp in conn.findall("bendpoint"):
-                for k in ("startX", "startY", "endX", "endY"):
-                    bp.set(k, str(round(int(bp.get(k, 0)) * factor)))
+            bron_id, doel_id = ouder_van.get(conn.get("id")), conn.get("target")
+            if bron_id not in voor or doel_id not in voor:
+                continue
+            for bp, (sx, sy) in zip(conn.findall("bendpoint"), knikken[conn.get("id")]):
+                px, py = voor[bron_id][0] + sx, voor[bron_id][1] + sy
+                nx, ny = px * factor, py * factor
+                bp.set("startX", str(round(nx - na[bron_id][0]))); bp.set("startY", str(round(ny - na[bron_id][1])))
+                bp.set("endX", str(round(nx - na[doel_id][0]))); bp.set("endY", str(round(ny - na[doel_id][1])))
     boom.write(kopie, encoding="UTF-8", xml_declaration=True)
     return factor
 
