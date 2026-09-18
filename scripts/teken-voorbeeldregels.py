@@ -188,7 +188,7 @@ def groepeer(regels):
                 laatste["objecten"].append({"relatie": label})
             elif ander not in in_blok:
                 # het andere eind ontstond in een eerdere stap of staat niet in het blok: verwijzing op het object
-                item["verwijzing"] = f"{label} {ander}" if rel["van"] == r["objecttype"] else f"{ander} {label}""
+                item["verwijzing"] = f"{label} {ander}" if rel["van"] == r["objecttype"] else f"{ander} {label}"
         laatste["objecten"].append(item)
         if r.get("zin") and not laatste["zin"]:
             laatste["zin"] = r["zin"]
