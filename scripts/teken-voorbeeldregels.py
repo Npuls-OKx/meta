@@ -253,7 +253,9 @@ def _objecten_rijen(x, y, items, uitzonderingen, maxbreedte=STROOM_MAX_BREEDTE):
         # een relatie aan het begin van een vervolgrij hoort bij het vorige object: als verwijzing tonen
         if rij and "type" not in rij[0]:
             rel = rij.pop(0)
-            rij[0].setdefault("verwijzingen", []).append(f"{rel['relatie'] or STANDAARDLABEL.get(rel['soort'], 'hangt aan')} (vorige rij)")
+            label = rel["relatie"] or STANDAARDLABEL.get(rel["soort"], "hangt aan")
+            ander = rel.get("ander", "")
+            rij[0].setdefault("verwijzingen", []).append(f"{ander} {label}".strip() if rel.get("naar_rechts", True) else f"{label} {ander}".strip())
         svg, w, h = _objecten_rij(x, ry, rij, uitzonderingen, True)
         out += svg
         uit.append((ry, x + w))
@@ -377,7 +379,7 @@ def groepeer(regels):
                 if rel and not rel.get("nesting"):
                     ander = rel["naar"] if rel["van"] == r["objecttype"] else rel["van"]
                     if ander in in_blok_s:
-                        laatste["objecten"].append({"relatie": rel.get("label") or "", "soort": rel["soort"], "naar_rechts": rel["naar"] == r["objecttype"]})
+                        laatste["objecten"].append({"relatie": rel.get("label") or "", "soort": rel["soort"], "naar_rechts": rel["naar"] == r["objecttype"], "ander": ander})
                     else:
                         item["verwijzing"] = _verwijzing(rel, r["objecttype"])
                 if rel and rel.get("nesting"):
@@ -432,7 +434,7 @@ def groepeer(regels):
             ander = rel["naar"] if rel["van"] == r["objecttype"] else rel["van"]
             if ander in in_blok:
                 # het andere eind staat ernaast in dit blok: relatielijn ertussen; naar_rechts als dit object het doel is
-                laatste["objecten"].append({"relatie": rel.get("label") or "", "soort": rel["soort"], "naar_rechts": rel["naar"] == r["objecttype"]})
+                laatste["objecten"].append({"relatie": rel.get("label") or "", "soort": rel["soort"], "naar_rechts": rel["naar"] == r["objecttype"], "ander": ander})
             else:
                 item["verwijzing"] = _verwijzing(rel, r["objecttype"])
         laatste["objecten"].append(item)

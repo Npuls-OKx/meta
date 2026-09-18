@@ -75,7 +75,8 @@ Bekijk het beeld zelf voordat je het meldt: `soffice --headless --convert-to png
 - Een keuzedeel is een eigen programmaspecificatie, gelijksoortig vormgegeven maar los van de opleiding; in de opleiding zit alleen de keuzedeelruimte met de regelset. Welk keuzedeel de ruimte vult, bepaalt het studentkeuzesysteem later.
 - Het examenplan blijft buiten de uitwisseling; de summatieve resultaatstructuur is zijn oorsprong en gaat wel mee. Het cohort hangt aan die structuur.
 - Skills: CompetentNL (ontologie 2.1.0) als verdieping van de leeruitkomst, niet als aparte bron; vaardigheden gelaagd, kennisgebieden op ISCED-F; laag 3 vraagt de viewer.
-- Het onderwijskundig kader van de instelling (leervormstrategie, leerdoel, onderwijsvorm specificatie, leeromgeving) staat op de conceptplaat en niet op de informatiemodelplaat: een verdieping en een vraag.
+- Het onderwijskundig kader van de instelling (leervormstrategie, leerdoel, onderwijsvorm specificatie, leeromgeving, docentprofiel, studiebelasting in BOT en OOT) staat op de conceptplaat en niet op de informatiemodelplaat: een verdieping en een vraag. Die planbare waarden gaan met het verzoek mee naar planning; planning plot er ruimtes en mensen op (lokaaltypes, medewerkers, schaarste in het aanbodmodel van het jaarplan) en leidt de examenplanning af uit de resultaatstructuur en het examenplan.
+- Het aanmeldbare aanbod gaat van de catalogus naar de kernregistratie, die het ontsluit aan de centrale aanmeldvoorziening (CAMBO, straks AII); de intake-uitkomst gaat als geheel terug: persoon, verbintenissen en plaatsingsgroep.
 - Een stroom die het kaderscenario noemt maar v1.7 niet kent, staat als "geen pijl op de hoofdplaat" (afname naar SVS, SVS naar KRS). De inschrijving op het keuzedeel loopt op v1.7 via SKS naar KRS.
 
 ## Stopmomenten
