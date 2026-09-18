@@ -53,6 +53,16 @@ class TekenTests(unittest.TestCase):
         self.assertEqual(len(ontstaat), 1)
         self.assertEqual(ontstaat[0]["wie"], "planner")
 
+    def test_given_verdieping_in_same_step_when_grouped_then_own_block_named_and_drawn_with_it(self):
+        extra = [{"fase": 2, "stap": "Aanbod maken", "verdieping": "aanbod naar skills", "soort": "verandert", "wie": "planner",
+                  "objecttype": "Opleidingaanbod", "instantie": "Apothekersassistent 2026", "toestand": "verdiept", "bron": "b"}]
+        b = [x for x in self.blokken(regels(extra)) if x["soort"] == "ontstaat" and x["stap"] == "Aanbod maken"]
+        self.assertEqual([x.get("verdieping") for x in b], [None, "aanbod naar skills"])
+        self.assertTrue(tv.bestandsnaam(b[1], 2).endswith("-aanbod-maken-verdieping.svg"))
+        self.assertFalse(tv.bestandsnaam(b[0], 1).endswith("-verdieping.svg"))
+        self.assertIn("verdieping: aanbod naar skills", teksten(tv.regel_ontstaat(b[1], set())))
+        self.assertNotIn("verdieping: aanbod naar skills", teksten(tv.regel_ontstaat(b[0], set())))
+
     def test_given_ontstaat_rule_when_drawn_then_svg_contains_role_step_and_each_instance(self):
         blok = self.blokken()[0]
         svg = tv.regel_ontstaat(blok, {"Lesgelegenheid"})
@@ -70,6 +80,17 @@ class TekenTests(unittest.TestCase):
         self.assertGreaterEqual(float(kind["x"]), float(ouder["x"]))
         self.assertLessEqual(float(kind["x"]) + float(kind["width"]), float(ouder["x"]) + float(ouder["width"]))
         self.assertLessEqual(float(kind["y"]) + float(kind["height"]), float(ouder["y"]) + float(ouder["height"]))
+
+    def test_given_container_with_toestand_when_drawn_then_toestand_shown_above_children(self):
+        extra = [{"fase": 4, "stap": "Roosteren", "soort": "verandert", "wie": "roosteraar", "objecttype": "Opleidingaanbod", "instantie": "AA 2026", "toestand": "geroosterd", "bron": "b"},
+                 {"fase": 4, "stap": "Roosteren", "soort": "ontstaat", "wie": "roosteraar", "objecttype": "Onderwijseenheid aanbod", "instantie": "Blok 1", "bron": "b",
+                  "relatie": {"soort": "Aggregation", "van": "Opleidingaanbod", "naar": "Onderwijseenheid aanbod", "nesting": True}}]
+        blok = [b for b in self.blokken(regels(extra)) if b["stap"] == "Roosteren"][0]
+        svg = tv.regel_ontstaat(blok, set())
+        ts = {t.text: (float(t.get("x")), float(t.get("y"))) for t in ET.fromstring(svg).iter(f"{SVG}text") if t.text}
+        self.assertIn("toestand: geroosterd", ts)
+        self.assertLess(ts["toestand: geroosterd"][1], ts["Blok 1"][1])
+        self.assertIn(("AA 2026"), ts)
 
     def test_given_assumption_when_drawn_then_rect_has_dasharray(self):
         blok = self.blokken()[0]
@@ -104,6 +125,14 @@ class TekenTests(unittest.TestCase):
         blok["koppeling"] = None
         svg = tv.regel_stroomt(blok, set())
         self.assertIn("zonder koppelingspecificatie", teksten(svg))
+
+    def test_given_stroomt_without_arrow_on_hoofdplaat_when_drawn_then_marked_as_such(self):
+        extra = [{"fase": 2, "stap": "Aanbod publiceren", "soort": "stroomt", "van": "Curriculum ontwerptool", "naar": "Onderwijscatalogus",
+                  "pijl": "geen pijl op de hoofdplaat", "koppeling": None, "objecttype": "Opleidingaanbod", "instantie": "AA 2026", "bron": "b"}]
+        blok = [b for b in self.blokken(regels(extra)) if b["soort"] == "stroomt" and b["van"] == "Curriculum ontwerptool"][0]
+        svg = tv.regel_stroomt(blok, set())
+        self.assertIn("geen pijl op de hoofdplaat", teksten(svg))
+        self.assertNotIn("zonder koppelingspecificatie", teksten(svg))
 
     def test_given_any_rule_when_drawn_then_svg_wellformed_and_self_contained(self):
         for blok in self.blokken():

@@ -52,7 +52,7 @@ def blokken_per_fase(regels):
     """De groepering en bestandsnamen van de renderer, zodat verwijzingen en bestanden gelijk lopen."""
     uit = collections.defaultdict(list)
     for n, blok in enumerate(teken.groepeer(regels), 1):
-        uit[blok["fase"]].append({"naam": teken.bestandsnaam(blok, n), "stap": blok["stap"], "soort": blok["soort"]})
+        uit[blok["fase"]].append({"naam": teken.bestandsnaam(blok, n), "stap": blok["stap"], "soort": blok["soort"], "verdieping": blok.get("verdieping")})
     return uit
 
 
@@ -108,7 +108,8 @@ def fase_sectie(f, blokken, regels_in_fase):
     if not regels_in_fase:
         return uit + STUBZIN + "\n\n"
     for b in blokken:
-        uit += f"![{b['soort']}: {b['stap']}]({REGELMAP}/{b['naam']})\n\n"
+        alt = f"{b['soort']}: {b['stap']}" + (f", verdieping: {b['verdieping']}" if b.get("verdieping") else "")
+        uit += f"![{alt}]({REGELMAP}/{b['naam']})\n\n"
     return uit
 
 
@@ -154,6 +155,8 @@ def vragenpagina(regels):
     uit = "## Vragen aan de kerngroep\n\nDe vragen die de regels zelf oproepen, met de regel waar de vraag zichtbaar wordt. Feedback, geen commitment.\n\n"
     for i, (v, plek) in enumerate(vragen[:7], 1):
         uit += f"{i}. {v} ({plek})\n"
+    for v, plek in vragen[7:]:
+        print(f"waarschuwing: vraag buiten de zeven, niet in het document: {plek}", file=sys.stderr)
     uit += "\nVragen over patronen, schema's, de toetslijst en endpoints horen bij de koppelvlakspecificatie en staan hier niet.\n\n"
     uit += "### Invulblad\n\nPer regel één van vier antwoorden: herken ik dit; heet bij ons anders (welke term); hangt bij ons anders (waaronder); ontbreekt.\n\n| Fase | Stap | Objecttype | Herken | Heet anders | Hangt anders | Ontbreekt |\n|---|---|---|---|---|---|---|\n"
     for r in regels["regels"]:

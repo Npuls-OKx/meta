@@ -37,7 +37,7 @@ De fase in detail: [kaderscenario leerroute 1, fase 1](https://github.com/Npuls-
 
 ![ontstaat: Kwalificatiedossier vertalen naar leeruitkomsten](img/regels/f1-03-kwalificatiedossier-vertalen-naar-leeruitkomsten.svg)
 
-![ontstaat: Skills-kader vertalen naar leeruitkomsten](img/regels/f1-04-skills-kader-vertalen-naar-leeruitkomsten.svg)
+![ontstaat: Kwalificatiedossier vertalen naar leeruitkomsten, verdieping: leeruitkomst naar skills](img/regels/f1-04-kwalificatiedossier-vertalen-naar-leeruitkomsten-verdieping.svg)
 
 ![ontstaat: Opleidingsspecificatie met programma en eenheden beschrijven](img/regels/f1-05-opleidingsspecificatie-met-programma-en-eenheden-beschrijven.svg)
 
@@ -105,33 +105,77 @@ De fase in detail: [kaderscenario leerroute 1, fase 4](https://github.com/Npuls-
 
 De fase in detail: [kaderscenario leerroute 1, fase 5](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-5--onderwijs-uitvoeren-en-voortgang-begeleiden).
 
-**Ontstaat:** `Aanwezigheid`, `Lesgelegenheid resultaat`, `Leergelegenheid resultaat`, `Toetsgelegenheid verbintenis`, `Toetsgelegenheid resultaat`, `Formatief resultaat`, `Formatieve beoordeling`, `Formatieve resultaat structuur`, `Toetsonderdeel weging`, `Persoonlijke ontwikkeling`, `Onderwijseenheid resultaat`. **MORA-hoofdproces:** Verzorgen en begeleiden.
+**Ontstaat:** `Lesgelegenheid verbintenis`, `Aanwezigheid`, `Lesgelegenheid resultaat`, `Toetsgelegenheid verbintenis`, `Formatieve resultaat structuur`, `Toetsonderdeel weging`, `Toetsgelegenheid resultaat`, `Formatief resultaat`, `Formatieve beoordeling`, `Persoonlijke ontwikkeling`, `Leergelegenheid resultaat`, `Onderwijseenheid resultaat`. **Stroomt:** Leer management systeem (LMS) naar Student volg systeem (SVS). **MORA-hoofdproces:** Verzorgen en begeleiden.
 
-Regels volgen na 30 september.
+![ontstaat: Onderwijs verzorgen](img/regels/f5-27-onderwijs-verzorgen.svg)
+
+![ontstaat: Toetsmomenten plannen tijdens lessen](img/regels/f5-28-toetsmomenten-plannen-tijdens-lessen.svg)
+
+![ontstaat: Formatieve voortgang bijhouden](img/regels/f5-29-formatieve-voortgang-bijhouden.svg)
+
+![stroomt: Formatieve voortgang bijhouden](img/regels/f5-30-formatieve-voortgang-bijhouden.svg)
+
+![ontstaat: Studiebeeld volgen in het studentvolgsysteem](img/regels/f5-31-studiebeeld-volgen-in-het-studentvolgsysteem.svg)
 
 ## Fase 6: Organiseren van keuzemomenten
 
 De fase in detail: [kaderscenario leerroute 1, fase 6](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-6--organiseren-van-keuzemomenten).
 
-**Ontstaat:** `Keuzedeelaanbod`, `Keuzedeel aanbod verbintenis`, `Keuzedeel resultaat`. **MORA-hoofdproces:** Plannen en roosteren.
+**Ontstaat:** `Keuzedeelaanbod`, `Keuzedeel aanbod verbintenis`. **Stroomt:** Onderwijscatalogus naar Student Keuze Systeem (SKS); Student Keuze Systeem (SKS) naar Planningssysteem; Planningssysteem naar Onderwijscatalogus; Student Keuze Systeem (SKS) naar Kernregistratie systeem studenten (KRS). **MORA-hoofdproces:** Plannen en roosteren.
 
-Regels volgen na 30 september.
+![ontstaat: Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem](img/regels/f6-32-keuzedeelaanbod-ontsluiten-naar-het-studentkeuzesysteem.svg)
+
+![stroomt: Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem](img/regels/f6-33-keuzedeelaanbod-ontsluiten-naar-het-studentkeuzesysteem.svg)
+
+![ontstaat: Voorkeurslijst samenstellen in het studentkeuzesysteem](img/regels/f6-34-voorkeurslijst-samenstellen-in-het-studentkeuzesysteem.svg)
+
+![stroomt: Voorkeurslijst samenstellen in het studentkeuzesysteem](img/regels/f6-35-voorkeurslijst-samenstellen-in-het-studentkeuzesysteem.svg)
+
+![ontstaat: Definitieve keuzes verwerken naar groepen en capaciteit](img/regels/f6-36-definitieve-keuzes-verwerken-naar-groepen-en-capaciteit.svg)
+
+![stroomt: Planbaar aanbod actualiseren](img/regels/f6-37-planbaar-aanbod-actualiseren.svg)
+
+![ontstaat: Keuzedeel formeel inschrijven](img/regels/f6-38-keuzedeel-formeel-inschrijven.svg)
+
+![stroomt: Keuzedeel formeel inschrijven](img/regels/f6-39-keuzedeel-formeel-inschrijven.svg)
 
 ## Fase 7: Bijsturen planning en aanbod
 
 De fase in detail: [kaderscenario leerroute 1, fase 7](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-7--bijsturen-planning-en-aanbod).
 
-**Ontstaat:** geen nieuwe objecttypen; deze fase raakt bestaande objecttypen. **MORA-hoofdproces:** Plannen en roosteren.
+**Ontstaat:** `Plaatsingsgroep`, `Onderwijseenheid aanbod verbintenis`, `Onderwijseenheid aanbod`. **Stroomt:** Kernregistratie systeem studenten (KRS) naar Planningssysteem; Planningssysteem naar Onderwijscatalogus; Planningssysteem naar Roostersysteem. **MORA-hoofdproces:** Plannen en roosteren.
 
-Regels volgen na 30 september.
+![ontstaat: Afwijkingen verzamelen in een planninggroep](img/regels/f7-40-afwijkingen-verzamelen-in-een-planninggroep.svg)
+
+![ontstaat: Bestaande verbintenissen annuleren](img/regels/f7-41-bestaande-verbintenissen-annuleren.svg)
+
+![stroomt: Bestaande verbintenissen annuleren](img/regels/f7-42-bestaande-verbintenissen-annuleren.svg)
+
+![ontstaat: Nieuw aanbod maken en publiceren](img/regels/f7-43-nieuw-aanbod-maken-en-publiceren.svg)
+
+![stroomt: Nieuw aanbod maken en publiceren](img/regels/f7-44-nieuw-aanbod-maken-en-publiceren.svg)
+
+![stroomt: Nieuw aanbod maken en publiceren](img/regels/f7-45-nieuw-aanbod-maken-en-publiceren.svg)
 
 ## Fase 8: Examineren, vaststellen en diplomeren
 
 De fase in detail: [kaderscenario leerroute 1, fase 8](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-8--examineren-vaststellen-en-diplomeren).
 
-**Ontstaat:** `Examengelegenheid`, `Examengelegenheid verbintenis`, `Examengelegenheid resultaat`, `Summatief resultaat`, `Summatieve beoordeling`, `Opleidingsprogramma resultaat`, `Opleiding aanbod resultaat`, `Waarde document (diploma / certificaat)`. **MORA-hoofdproces:** Examens uitvoeren en vaststellen; diplomeren.
+**Ontstaat:** `Examengelegenheid`, `Examengelegenheid verbintenis`, `Examengelegenheid resultaat`, `Summatief resultaat`, `Summatieve beoordeling`, `Opleidingsprogramma resultaat`, `Keuzedeel resultaat`, `Opleiding aanbod resultaat`, `Waarde document (diploma / certificaat)`. **Stroomt:** Toets- en examen afname systeem naar Student volg systeem (SVS); Student volg systeem (SVS) naar Kernregistratie systeem studenten (KRS). **MORA-hoofdproces:** Examens uitvoeren en vaststellen; diplomeren.
 
-Regels volgen na 30 september.
+![ontstaat: Examenspecificaties omzetten in examengelegenheden](img/regels/f8-46-examenspecificaties-omzetten-in-examengelegenheden.svg)
+
+![ontstaat: Kandidatenlijsten samenstellen](img/regels/f8-47-kandidatenlijsten-samenstellen.svg)
+
+![ontstaat: Zitting uitvoeren en resultaten doorgeven](img/regels/f8-48-zitting-uitvoeren-en-resultaten-doorgeven.svg)
+
+![stroomt: Zitting uitvoeren en resultaten doorgeven](img/regels/f8-49-zitting-uitvoeren-en-resultaten-doorgeven.svg)
+
+![ontstaat: Summatief vaststellen](img/regels/f8-50-summatief-vaststellen.svg)
+
+![stroomt: Summatief vaststellen](img/regels/f8-51-summatief-vaststellen.svg)
+
+![ontstaat: Kwalificering en diplomering registreren](img/regels/f8-52-kwalificering-en-diplomering-registreren.svg)
 
 ## Bijlage: alle objecttypen per begrippenfamilie
 
@@ -150,7 +194,7 @@ Per objecttype de instantie voor Jochem, de fase waarin hij verschijnt, de statu
 
 | Objecttype | Jochem | Fase | Aanname | Definitie | OEAPI | Heet bij u | Hangt bij u onder |
 |---|---|---|---|---|---|---|---|
-| Competenties / Skills | Sociale en communicatieve vaardigheden (CompetentNL laag 1) | 1 | ja | nog te definieren | geen equivalent | | |
+| Competenties / Skills | Vaardigheden bij deze leeruitkomst (CompetentNL) | 1 | ja | nog te definieren | geen equivalent | | |
 | Leeruitkomst | Biedt farmaceutische patiëntenzorg (kerntaakniveau) | 1 | ja | ja | LearningOutcome | | |
 | Vaardigheid | Communicatieve vaardigheden (CompetentNL laag 2) | 1 | ja | nog te definieren | geen equivalent | | |
 
@@ -173,8 +217,8 @@ Per objecttype de instantie voor Jochem, de fase waarin hij verschijnt, de statu
 
 | Objecttype | Jochem | Fase | Aanname | Definitie | OEAPI | Heet bij u | Hangt bij u onder |
 |---|---|---|---|---|---|---|---|
-| Examengelegenheid | regels volgen na 30 september | 8 |  | ja | TestComponentOffering | | |
-| Keuzedeelaanbod | regels volgen na 30 september | 6 |  | nog te definieren | ProgrammeOffering | | |
+| Examengelegenheid | Proeve van bekwaamheid B1-K1, periode 12 | 8 | ja | ja | TestComponentOffering | | |
+| Keuzedeelaanbod | Ondernemerschap in de zorg, periode 7, locatie A | 6 | ja | nog te definieren | ProgrammeOffering | | |
 | Leergelegenheid | B1-K1-W1, periode 1, planbaar | 2 |  | nog te definieren | LearningComponentOffering | | |
 | Lesgelegenheid | Les 1, maandag 1 september 09:00, simulatieruimte 2.14 | 4 |  | nog te definieren | LearningComponentOffering | | |
 | Onderwijseenheid aanbod | B1-K1, leerjaar 1 | 2 |  | nog te definieren | CourseOffering | | |
@@ -187,44 +231,44 @@ Per objecttype de instantie voor Jochem, de fase waarin hij verschijnt, de statu
 
 | Objecttype | Jochem | Fase | Aanname | Definitie | OEAPI | Heet bij u | Hangt bij u onder |
 |---|---|---|---|---|---|---|---|
-| Examengelegenheid verbintenis | regels volgen na 30 september | 8 |  | ja | TestComponentOfferingAssociation | | |
+| Examengelegenheid verbintenis | Jochem op de proeve, periode 12 | 8 |  | ja | TestComponentOfferingAssociation | | |
 | Inschrijving | Juni 2026 | 3 |  | ja | geen equivalent | | |
-| Keuzedeel aanbod verbintenis | regels volgen na 30 september | 6 |  | nog te definieren | ProgrammeOfferingAssociation | | |
+| Keuzedeel aanbod verbintenis | Jochem op Ondernemerschap in de zorg, periode 7 (voorkeur 1) | 6 |  | nog te definieren | ProgrammeOfferingAssociation | | |
 | Leergelegenheid verbintenis | Jochem op B1-K1-W1, periode 1 | 4 |  | nog te definieren | LearningComponentOfferingAssociation | | |
 | Lesgelegenheid verbintenis | Jochem op les 1, 1 september 09:00 | 4 |  | nog te definieren | LearningComponentOfferingAssociation | | |
 | Onderwijseenheid aanbod verbintenis | Jochem op B1-K1, leerjaar 1 | 4 |  | nog te definieren | CourseOfferingAssociation | | |
 | Opleiding aanbod verbintenis | Jochem op Apothekersassistent 2026, aangemeld | 3 |  | nog te definieren | ProgrammeOfferingAssociation | | |
 | Opleidingsprogramma aanbod verbintenis | Jochem op Regulier BOL 2026, aangemeld | 3 |  | nog te definieren | ProgrammeOfferingAssociation | | |
-| Toetsgelegenheid verbintenis | regels volgen na 30 september | 5 |  | ja | TestComponentOfferingAssociation | | |
+| Toetsgelegenheid verbintenis | Jochem op de OSCE, einde periode 1 | 5 |  | ja | TestComponentOfferingAssociation | | |
 
 ### Onderwijsresultaat
 
 | Objecttype | Jochem | Fase | Aanname | Definitie | OEAPI | Heet bij u | Hangt bij u onder |
 |---|---|---|---|---|---|---|---|
-| Aanwezigheid | regels volgen na 30 september | 5 |  | nog te definieren | geen equivalent | | |
-| Examengelegenheid resultaat | regels volgen na 30 september | 8 |  | nog te definieren | Result | | |
-| Formatief resultaat | regels volgen na 30 september | 5 |  | ja | geen equivalent | | |
-| Formatieve beoordeling | regels volgen na 30 september | 5 |  | ja | geen equivalent | | |
-| Keuzedeel resultaat | regels volgen na 30 september | 6 |  | nog te definieren | Result | | |
-| Leergelegenheid resultaat | regels volgen na 30 september | 5 |  | nog te definieren | Result | | |
-| Lesgelegenheid resultaat | regels volgen na 30 september | 5 |  | nog te definieren | Result | | |
-| Onderwijseenheid resultaat | regels volgen na 30 september | 5 |  | nog te definieren | Result | | |
-| Opleiding aanbod resultaat | regels volgen na 30 september | 8 |  | nog te definieren | Result | | |
-| Opleidingsprogramma resultaat | regels volgen na 30 september | 8 |  | nog te definieren | Result | | |
-| Summatief resultaat | regels volgen na 30 september | 8 |  | ja | geen equivalent | | |
-| Summatieve beoordeling | regels volgen na 30 september | 8 |  | ja | geen equivalent | | |
-| Toetsgelegenheid resultaat | regels volgen na 30 september | 5 |  | nog te definieren | Result | | |
+| Aanwezigheid | Aanwezig, les 1 | 5 |  | nog te definieren | geen equivalent | | |
+| Examengelegenheid resultaat | Proeve B1-K1: voldoende | 8 |  | nog te definieren | Result | | |
+| Formatief resultaat | Quiz WHAM-vragen: 8 van 10 | 5 | ja | ja | geen equivalent | | |
+| Formatieve beoordeling | Op koers voor B1-K1-W1 | 5 | ja | ja | geen equivalent | | |
+| Keuzedeel resultaat | Ondernemerschap in de zorg: voldoende | 8 |  | nog te definieren | Result | | |
+| Leergelegenheid resultaat | B1-K1-W1 afgerond, periode 1 | 5 |  | nog te definieren | Result | | |
+| Lesgelegenheid resultaat | Les 1 gevolgd | 5 |  | nog te definieren | Result | | |
+| Onderwijseenheid resultaat | B1-K1: in uitvoering | 5 |  | nog te definieren | Result | | |
+| Opleiding aanbod resultaat | Apothekersassistent 2026: gediplomeerd | 8 |  | nog te definieren | Result | | |
+| Opleidingsprogramma resultaat | Regulier BOL 2026: alle kerntaken en keuzedelen voldoende | 8 |  | nog te definieren | Result | | |
+| Summatief resultaat | B1-K1: voldoende, vastgesteld | 8 |  | ja | geen equivalent | | |
+| Summatieve beoordeling | Examencommissie, juni 2029 | 8 | ja | ja | geen equivalent | | |
+| Toetsgelegenheid resultaat | OSCE: voldoende | 5 |  | nog te definieren | Result | | |
 
 ### Resultaatstructuur
 
 | Objecttype | Jochem | Fase | Aanname | Definitie | OEAPI | Heet bij u | Hangt bij u onder |
 |---|---|---|---|---|---|---|---|
 | Examenonderdeel weging | Proeve van bekwaamheid B1-K1: weging 2 | 1 | ja | nog te definieren | geen equivalent | | |
-| Formatieve resultaat structuur | regels volgen na 30 september | 5 |  | ja | geen equivalent | | |
-| Persoonlijke ontwikkeling | regels volgen na 30 september | 5 |  | nog te definieren | geen equivalent | | |
+| Formatieve resultaat structuur | Voortgang B1-K1-W1: quiz WHAM-vragen, rollenspel | 5 | ja | ja | geen equivalent | | |
+| Persoonlijke ontwikkeling | Jochems ontwikkeling in periode 1 | 5 | ja | nog te definieren | geen equivalent | | |
 | Summatief Afrondingscriterium | Alle kerntaken en de keuzedelen voldoende | 1 |  | nog te definieren | geen equivalent | | |
 | Summatieve resultaat structuur | Eerste opzet: kerntaken en keuzedelen, alle voldoende | 1 | ja | ja | geen equivalent | | |
-| Toetsonderdeel weging | regels volgen na 30 september | 5 |  | nog te definieren | geen equivalent | | |
+| Toetsonderdeel weging | Quiz WHAM-vragen: weging 1 | 5 | ja | nog te definieren | geen equivalent | | |
 
 ### Buiten de kolommen (persoon, groep, cohort, verzoek)
 
@@ -238,7 +282,7 @@ Per objecttype de instantie voor Jochem, de fase waarin hij verschijnt, de statu
 | Plaatsingsgroep | APO26-1A | 3 | ja | nog te definieren | Group | | |
 | Student | Jochem, cohort 2026 | 3 |  | ja | geen equivalent | | |
 | Verzoek tot Aanbod / Intekening op specificatie | Planopgave Apothekersassistent, cohort 2026 | 2 | ja | ja | geen equivalent | | |
-| Waarde document (diploma / certificaat) | regels volgen na 30 september | 8 |  | ja | geen equivalent | | |
+| Waarde document (diploma / certificaat) | Diploma Apothekersassistent, juli 2029 | 8 |  | ja | geen equivalent | | |
 
 ## Vragen aan de kerngroep
 
@@ -246,11 +290,11 @@ De vragen die de regels zelf oproepen, met de regel waar de vraag zichtbaar word
 
 1. Het kaderscenario zet het examenplan in fase 1 en de resultaatstructuur pas in fase 4 bij OC-SIS. Ontstaat de summatieve resultaatstructuur in de curriculum-ontwerptool uit het examenplan, en gaat zij met de specificatie mee naar de catalogus? (fase 1, Examenplan vaststellen, `Examenplan`)
 2. Is het cohort een sleutel op aanbod en verbintenis, of een eigen object dat de toepasselijke resultaatstructuur draagt (ontwerpkeuze 17)? (fase 1, Examenplan vaststellen, `Cohort / periode`)
-3. Leeruitkomsten zijn in de bronnen niet geformuleerd; het voorbeeld toont twee varianten (dossierstructuur en skills-kader). Hoe formuleert de instelling ze? (fase 1, Kwalificatiedossier vertalen naar leeruitkomsten, `Leeruitkomst`)
-4. Welke weging moet een studentvolgsysteem aggregeren: op het toetsonderdeel (schema) of op de resultaateenheid (regels)? Meta #234 punt 5. (fase 1, Toetsonderdelen en resultaatstructuur uit het examenplan afleiden, `Examenonderdeel weging`)
-5. Is het verzoek tot aanbod een object met sleutel en toestand, of het startevent van aanbod maken? (fase 2, Planningssysteem verzoeken om onderwijsaanbod, `Verzoek tot Aanbod / Intekening op specificatie`)
-6. Welke groep bij de instelling is de bron van de plaatsingsgroep: stamgroep (KRS), planninggroep of lesgroep (meta #235)? (fase 3, Intake doorlopen en plaatsen, `Plaatsingsgroep`)
-7. Is de inschrijving een eigen object naast de verbintenis, of een toestand van de aanmelding (ontwerpkeuze 13)? (fase 3, Persoon en verbintenissen vastleggen in de kernregistratie, `Inschrijving`)
+3. Leeruitkomsten zijn in de bronnen niet geformuleerd; het voorbeeld toont de dossierstructuur en, als verdieping, de vertaling naar CompetentNL-vaardigheden. Hoe formuleert de instelling ze? (fase 1, Kwalificatiedossier vertalen naar leeruitkomsten, `Leeruitkomst`)
+4. CompetentNL legt vaardigheden gelaagd vast (skos:broader, drie lagen) en de leeruitkomst is op de plaat gelaagd; Vaardigheid is dat niet. Krijgt Vaardigheid een eigen aggregatie, zodat laag 2 onder laag 1 hangt zoals de leeruitkomst onder de leeruitkomst? (fase 1, Kwalificatiedossier vertalen naar leeruitkomsten, `Vaardigheid`)
+5. Welke weging moet een studentvolgsysteem aggregeren: op het toetsonderdeel (schema) of op de resultaateenheid (regels)? Meta #234 punt 5. (fase 1, Toetsonderdelen en resultaatstructuur uit het examenplan afleiden, `Examenonderdeel weging`)
+6. Is het verzoek tot aanbod een object met sleutel en toestand, of het startevent van aanbod maken? (fase 2, Planningssysteem verzoeken om onderwijsaanbod, `Verzoek tot Aanbod / Intekening op specificatie`)
+7. Welke groep bij de instelling is de bron van de plaatsingsgroep: stamgroep (KRS), planninggroep of lesgroep (meta #235)? (fase 3, Intake doorlopen en plaatsen, `Plaatsingsgroep`)
 
 Vragen over patronen, schema's, de toetslijst en endpoints horen bij de koppelvlakspecificatie en staan hier niet.
 
@@ -269,9 +313,10 @@ Per regel één van vier antwoorden: herken ik dit; heet bij ons anders (welke t
 | 1 | Examenplan vaststellen | Cohort / periode | | | | |
 | 1 | Kwalificatiedossier vertalen naar leeruitkomsten | Leeruitkomst | | | | |
 | 1 | Kwalificatiedossier vertalen naar leeruitkomsten | Leeruitkomst | | | | |
-| 1 | Skills-kader vertalen naar leeruitkomsten | Competenties / Skills | | | | |
-| 1 | Skills-kader vertalen naar leeruitkomsten | Vaardigheid | | | | |
-| 1 | Skills-kader vertalen naar leeruitkomsten | Leeruitkomst | | | | |
+| 1 | Kwalificatiedossier vertalen naar leeruitkomsten | Leeruitkomst | | | | |
+| 1 | Kwalificatiedossier vertalen naar leeruitkomsten | Leeruitkomst | | | | |
+| 1 | Kwalificatiedossier vertalen naar leeruitkomsten | Competenties / Skills | | | | |
+| 1 | Kwalificatiedossier vertalen naar leeruitkomsten | Vaardigheid | | | | |
 | 1 | Opleidingsspecificatie met programma en eenheden beschrijven | Opleiding specificatie | | | | |
 | 1 | Opleidingsspecificatie met programma en eenheden beschrijven | Opleidingsprogramma specificatie | | | | |
 | 1 | Opleidingsspecificatie met programma en eenheden beschrijven | Onderwijseenheid specificatie | | | | |
@@ -308,4 +353,32 @@ Per regel één van vier antwoorden: herken ik dit; heet bij ons anders (welke t
 | 4 | Verwachte deelnemers delen en toegang geven | Leergelegenheid verbintenis | | | | |
 | 4 | Verwachte deelnemers delen en toegang geven | Lesgelegenheid verbintenis | | | | |
 | 4 | Verwachte deelnemers delen en toegang geven | Opleidingsprogramma aanbod verbintenis | | | | |
+| 5 | Onderwijs verzorgen | Lesgelegenheid verbintenis | | | | |
+| 5 | Onderwijs verzorgen | Aanwezigheid | | | | |
+| 5 | Onderwijs verzorgen | Lesgelegenheid resultaat | | | | |
+| 5 | Toetsmomenten plannen tijdens lessen | Toetsgelegenheid verbintenis | | | | |
+| 5 | Formatieve voortgang bijhouden | Formatieve resultaat structuur | | | | |
+| 5 | Formatieve voortgang bijhouden | Toetsonderdeel weging | | | | |
+| 5 | Formatieve voortgang bijhouden | Toetsgelegenheid resultaat | | | | |
+| 5 | Formatieve voortgang bijhouden | Formatief resultaat | | | | |
+| 5 | Formatieve voortgang bijhouden | Formatieve beoordeling | | | | |
+| 5 | Formatieve voortgang bijhouden | Persoonlijke ontwikkeling | | | | |
+| 5 | Studiebeeld volgen in het studentvolgsysteem | Leergelegenheid resultaat | | | | |
+| 5 | Studiebeeld volgen in het studentvolgsysteem | Onderwijseenheid resultaat | | | | |
+| 6 | Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem | Keuzedeelaanbod | | | | |
+| 6 | Voorkeurslijst samenstellen in het studentkeuzesysteem | Keuzedeel aanbod verbintenis | | | | |
+| 6 | Definitieve keuzes verwerken naar groepen en capaciteit | Keuzedeelaanbod | | | | |
+| 6 | Keuzedeel formeel inschrijven | Keuzedeel aanbod verbintenis | | | | |
+| 7 | Afwijkingen verzamelen in een planninggroep | Plaatsingsgroep | | | | |
+| 7 | Bestaande verbintenissen annuleren | Onderwijseenheid aanbod verbintenis | | | | |
+| 7 | Nieuw aanbod maken en publiceren | Onderwijseenheid aanbod | | | | |
+| 8 | Examenspecificaties omzetten in examengelegenheden | Examengelegenheid | | | | |
+| 8 | Kandidatenlijsten samenstellen | Examengelegenheid verbintenis | | | | |
+| 8 | Zitting uitvoeren en resultaten doorgeven | Examengelegenheid resultaat | | | | |
+| 8 | Summatief vaststellen | Summatief resultaat | | | | |
+| 8 | Summatief vaststellen | Summatieve beoordeling | | | | |
+| 8 | Summatief vaststellen | Opleidingsprogramma resultaat | | | | |
+| 8 | Summatief vaststellen | Keuzedeel resultaat | | | | |
+| 8 | Kwalificering en diplomering registreren | Opleiding aanbod resultaat | | | | |
+| 8 | Kwalificering en diplomering registreren | Waarde document (diploma / certificaat) | | | | |
 

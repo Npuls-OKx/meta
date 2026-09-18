@@ -65,6 +65,15 @@ class GenereerTests(unittest.TestCase):
             getekend = sorted(n for n, _ in tv.teken(r, map_))
         self.assertEqual(verwezen, getekend)
 
+    def test_given_verdieping_when_generated_then_own_image_after_step_with_alt_text(self):
+        r = regels()
+        r["regels"].insert(1, {"fase": 2, "stap": "Aanbod maken", "verdieping": "aanbod naar skills", "soort": "verandert", "wie": "planner",
+                               "objecttype": "Opleidingaanbod", "instantie": "AA 2026", "toestand": "verdiept", "bron": "b"})
+        doc = self.bouw(r)
+        beelden = re.findall(r"!\[([^\]]+)\]\(img/regels/([^)]+)\)", doc)
+        self.assertEqual(beelden[0][1], "f2-01-aanbod-maken.svg")
+        self.assertEqual(beelden[1], ("ontstaat: Aanbod maken, verdieping: aanbod naar skills", "f2-02-aanbod-maken-verdieping.svg"))
+
     def test_given_scope_when_generated_then_family_tables_cover_in_scope_types(self):
         doc = self.bouw()
         bijlage = doc[doc.index("## Bijlage"):doc.index("## Vragen")]

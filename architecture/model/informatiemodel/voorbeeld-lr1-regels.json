@@ -13,7 +13,6 @@
     "Kwalificatiedossier analyseren",
     "Examenplan vaststellen",
     "Kwalificatiedossier vertalen naar leeruitkomsten",
-    "Skills-kader vertalen naar leeruitkomsten",
     "Opleidingsspecificatie met programma en eenheden beschrijven",
     "Toetsonderdelen en resultaatstructuur uit het examenplan afleiden",
     "Grofmazig resultaat publiceren naar de onderwijscatalogus"
@@ -139,14 +138,15 @@
    "mora_hoofdproces": "Plannen en roosteren",
    "bron": "leerroute-1-regulier.md, Fase 6: de planner verwerkt definitieve keuzes periodiek naar groepen en capaciteit, actualiseert het planbare aanbod in OC en het rooster volgt; Planning naar KRS: formele inschrijving keuzedeel",
    "stappen": [
+    "Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem",
+    "Voorkeurslijst samenstellen in het studentkeuzesysteem",
     "Definitieve keuzes verwerken naar groepen en capaciteit",
     "Planbaar aanbod actualiseren",
     "Keuzedeel formeel inschrijven"
    ],
    "verwacht": [
     "Keuzedeelaanbod",
-    "Keuzedeel aanbod verbintenis",
-    "Keuzedeel resultaat"
+    "Keuzedeel aanbod verbintenis"
    ],
    "link": "https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-6--organiseren-van-keuzemomenten"
   },
@@ -182,6 +182,7 @@
     "Summatief resultaat",
     "Summatieve beoordeling",
     "Opleidingsprogramma resultaat",
+    "Keuzedeel resultaat",
     "Opleiding aanbod resultaat",
     "Waarde document (diploma / certificaat)"
    ],
@@ -213,12 +214,28 @@
    "bron": "leerroute-1-regulier.md, Fase 4: fijnmazig uitgewerkt"
   },
   {
-   "naam": "variant skills-kader",
-   "bron": "keuze van het voorbeeld: dezelfde leeruitkomst, vertaald uit een skills-kader in plaats van het kwalificatiedossier"
+   "naam": "vertaald naar skills",
+   "bron": "keuze van het voorbeeld: dezelfde leeruitkomst, verdiept naar CompetentNL-vaardigheden"
   },
   {
    "naam": "uitgewerkt",
    "bron": "keuze van het voorbeeld: de eerste opzet uit het examenplan, uitgewerkt met toetsonderdelen en wegingen"
+  },
+  {
+   "naam": "afgerond",
+   "bron": "leerroute-1-regulier.md, Fase 5: onderwijs uitvoeren"
+  },
+  {
+   "naam": "geannuleerd",
+   "bron": "leerroute-1-regulier.md, Fase 7: bestaande onderwijseenheid-verbintenissen worden via KRS geannuleerd"
+  },
+  {
+   "naam": "bijgestuurd",
+   "bron": "leerroute-1-regulier.md, Fase 7: bijgestuurd planbaar aanbod"
+  },
+  {
+   "naam": "ingeschreven",
+   "bron": "leerroute-1-regulier.md, Fase 6: bij passend aanbod de formele inschrijving op het keuzedeel"
   }
  ],
  "scope_uitzonderingen": [
@@ -244,11 +261,11 @@
   },
   {
    "objecttype": "Competenties / Skills",
-   "motivering": "Alleen in de variant met een skills-kader getoond, als de bron waaruit leeruitkomsten worden vertaald (Leeruitkomst is op de plaat een specialisatie van Competenties / Skills); het kader zelf blijft buiten de uitwisseling."
+   "motivering": "Alleen in de verdieping van de leeruitkomst naar skills getoond (Leeruitkomst is op de plaat een specialisatie van Competenties / Skills); het skills-kader zelf blijft buiten de uitwisseling."
   },
   {
    "objecttype": "Vaardigheid",
-   "motivering": "Zie Competenties / Skills; CompetentNL-vaardigheden als voorbeeld van een skills-kader."
+   "motivering": "Zie Competenties / Skills; CompetentNL-vaardigheden (cnlo:HumanCapability) als voorbeeld van een skills-kader."
   }
  ],
  "koppelingen": {
@@ -377,8 +394,8 @@
     "naar": "Leeruitkomst",
     "label": "Wordt vertaald naar"
    },
-   "zin": "Variant A: de leeruitkomsten nemen de gelaagdheid van het kwalificatiedossier over; per kerntaak een leeruitkomst met daaronder een per werkproces.",
-   "vraag": "Leeruitkomsten zijn in de bronnen niet geformuleerd; het voorbeeld toont twee varianten (dossierstructuur en skills-kader). Hoe formuleert de instelling ze?"
+   "zin": "De leeruitkomsten nemen de gelaagdheid van het kwalificatiedossier over: per kerntaak een leeruitkomst met daaronder een per werkproces.",
+   "vraag": "Leeruitkomsten zijn in de bronnen niet geformuleerd; het voorbeeld toont de dossierstructuur en, als verdieping, de vertaling naar CompetentNL-vaardigheden. Hoe formuleert de instelling ze?"
   },
   {
    "fase": 1,
@@ -398,46 +415,68 @@
   },
   {
    "fase": 1,
-   "stap": "Skills-kader vertalen naar leeruitkomsten",
-   "soort": "ontstaat",
+   "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
+   "verdieping": "leeruitkomst naar skills",
+   "soort": "verandert",
    "wie": "onderwijsontwerper",
-   "objecttype": "Competenties / Skills",
-   "instantie": "Sociale en communicatieve vaardigheden (CompetentNL laag 1)",
-   "bron": "CompetentNL versie 2, documentatie vaardighedentaxonomie (TNO, UWV, SBB): drie lagen, 6 verzamelconcepten, 24 generieke en 128 specifieke vaardigheden, op ESCO gebaseerd",
+   "objecttype": "Leeruitkomst",
+   "instantie": "Biedt farmaceutische patiëntenzorg (kerntaakniveau)",
+   "toestand": "vertaald naar skills",
+   "bron": "CompetentNL ontologie 2.1.0 (competentnl.nl, TTL, gewijzigd 14 juli 2026): cnlo:HumanCapability (Vaardigheid) gelaagd via skos:broader, drie lagen (6 verzamelconcepten, 24 generieke, 128 specifieke vaardigheden); cnlo:EducationalNorm (Opleidingsnorm) schrijft vaardigheden voor (cnlo:prescribes); leerroute-1-regulier.md, r1092",
    "aanname": true,
-   "zin": "Variant B: hetzelfde kan via een skills-kader; CompetentNL kent drie lagen vaardigheden, en de leeruitkomst is op de plaat een specialisatie van competenties en skills. De leeruitkomst blijft de sleutel."
+   "zin": "Verdieping: dezelfde leeruitkomst, uitgedrukt in CompetentNL-vaardigheden; laag 2 hangt onder laag 1 (Sociale en communicatieve vaardigheden) zoals het werkproces onder de kerntaak, en aggregeert naar boven."
   },
   {
    "fase": 1,
-   "stap": "Skills-kader vertalen naar leeruitkomsten",
-   "soort": "ontstaat",
+   "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
+   "verdieping": "leeruitkomst naar skills",
+   "soort": "verandert",
    "wie": "onderwijsontwerper",
-   "objecttype": "Vaardigheid",
-   "instantie": "Communicatieve vaardigheden (CompetentNL laag 2)",
-   "bron": "CompetentNL versie 2, documentatie vaardighedentaxonomie (TNO, UWV, SBB): drie lagen, 6 verzamelconcepten, 24 generieke en 128 specifieke vaardigheden, op ESCO gebaseerd",
+   "objecttype": "Leeruitkomst",
+   "instantie": "Voert professioneel baliegesprek en triage (werkprocesniveau)",
+   "toestand": "vertaald naar skills",
+   "bron": "CompetentNL ontologie 2.1.0 (competentnl.nl, TTL, gewijzigd 14 juli 2026): cnlo:HumanCapability (Vaardigheid) gelaagd via skos:broader, drie lagen (6 verzamelconcepten, 24 generieke, 128 specifieke vaardigheden); cnlo:EducationalNorm (Opleidingsnorm) schrijft vaardigheden voor (cnlo:prescribes); leerroute-1-regulier.md, r1092",
    "aanname": true,
    "relatie": {
     "soort": "Aggregation",
-    "van": "Competenties / Skills",
-    "naar": "Vaardigheid",
+    "van": "Leeruitkomst",
+    "naar": "Leeruitkomst",
     "nesting": true
    }
   },
   {
    "fase": 1,
-   "stap": "Skills-kader vertalen naar leeruitkomsten",
-   "soort": "verandert",
+   "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
+   "verdieping": "leeruitkomst naar skills",
+   "soort": "ontstaat",
    "wie": "onderwijsontwerper",
-   "objecttype": "Leeruitkomst",
-   "instantie": "Voert professioneel baliegesprek en triage",
-   "toestand": "variant skills-kader",
-   "bron": "CompetentNL versie 2, documentatie vaardighedentaxonomie (TNO, UWV, SBB): drie lagen, 6 verzamelconcepten, 24 generieke en 128 specifieke vaardigheden, op ESCO gebaseerd; leerroute-1-regulier.md, r1092",
+   "objecttype": "Competenties / Skills",
+   "instantie": "Vaardigheden bij deze leeruitkomst (CompetentNL)",
+   "bron": "CompetentNL ontologie 2.1.0 (competentnl.nl, TTL, gewijzigd 14 juli 2026): cnlo:HumanCapability (Vaardigheid) gelaagd via skos:broader, drie lagen (6 verzamelconcepten, 24 generieke, 128 specifieke vaardigheden); cnlo:EducationalNorm (Opleidingsnorm) schrijft vaardigheden voor (cnlo:prescribes)",
    "aanname": true,
    "relatie": {
     "soort": "Specialization",
     "van": "Leeruitkomst",
     "naar": "Competenties / Skills"
    }
+  },
+  {
+   "fase": 1,
+   "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
+   "verdieping": "leeruitkomst naar skills",
+   "soort": "ontstaat",
+   "wie": "onderwijsontwerper",
+   "objecttype": "Vaardigheid",
+   "instantie": "Communicatieve vaardigheden (CompetentNL laag 2)",
+   "bron": "CompetentNL ontologie 2.1.0 (competentnl.nl, TTL, gewijzigd 14 juli 2026): cnlo:HumanCapability (Vaardigheid) gelaagd via skos:broader, drie lagen (6 verzamelconcepten, 24 generieke, 128 specifieke vaardigheden); cnlo:EducationalNorm (Opleidingsnorm) schrijft vaardigheden voor (cnlo:prescribes)",
+   "aanname": true,
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Competenties / Skills",
+    "naar": "Vaardigheid",
+    "nesting": true
+   },
+   "vraag": "CompetentNL legt vaardigheden gelaagd vast (skos:broader, drie lagen) en de leeruitkomst is op de plaat gelaagd; Vaardigheid is dat niet. Krijgt Vaardigheid een eigen aggregatie, zodat laag 2 onder laag 1 hangt zoals de leeruitkomst onder de leeruitkomst?"
   },
   {
    "fase": 1,
@@ -1271,6 +1310,543 @@
    "instantie": "Jochem op Regulier BOL 2026",
    "bron": "leerroute-1-regulier.md, Fase 4: KRS naar LMS (verbintenis en persoon voor rechtmatige toegang)",
    "zin": "De verbintenis gaat naar het LMS zodat Jochem eind augustus toegang krijgt; persoonsgegevens komen uit het IAM."
+  },
+  {
+   "fase": 5,
+   "stap": "Onderwijs verzorgen",
+   "soort": "verandert",
+   "wie": "docent",
+   "objecttype": "Lesgelegenheid verbintenis",
+   "instantie": "Jochem op les 1, 1 september 09:00",
+   "toestand": "afgerond",
+   "bron": "leerroute-1-regulier.md, Fase 5: docenten verzorgen onderwijs",
+   "zin": "De docent verzorgt de les; Jochems aanwezigheid wordt geregistreerd en de les is voor hem afgerond."
+  },
+  {
+   "fase": 5,
+   "stap": "Onderwijs verzorgen",
+   "soort": "ontstaat",
+   "wie": "docent",
+   "objecttype": "Aanwezigheid",
+   "instantie": "Aanwezig, les 1",
+   "bron": "leerroute-1-regulier.md, Fase 5: aanwezigheid wordt geregistreerd",
+   "relatie": {
+    "soort": "Access",
+    "van": "Persoon",
+    "naar": "Aanwezigheid"
+   },
+   "vraag": "Aanwezigheid hangt op de plaat aan een objecttype buiten scope; wisselt OKx aanwezigheid uit of blijft dat intern? Meta #234 punt 15."
+  },
+  {
+   "fase": 5,
+   "stap": "Onderwijs verzorgen",
+   "soort": "ontstaat",
+   "wie": "docent",
+   "objecttype": "Lesgelegenheid resultaat",
+   "instantie": "Les 1 gevolgd",
+   "bron": "leerroute-1-regulier.md, Fase 5",
+   "relatie": {
+    "soort": "Association",
+    "van": "Lesgelegenheid verbintenis",
+    "naar": "Lesgelegenheid resultaat"
+   }
+  },
+  {
+   "fase": 5,
+   "stap": "Toetsmomenten plannen tijdens lessen",
+   "soort": "ontstaat",
+   "wie": "docent",
+   "objecttype": "Toetsgelegenheid verbintenis",
+   "instantie": "Jochem op de OSCE, einde periode 1",
+   "bron": "leerroute-1-regulier.md, Fase 5: docenten plannen toetsmomenten tijdens lessen",
+   "relatie": {
+    "soort": "Association",
+    "van": "Toetsgelegenheid",
+    "naar": "Toetsgelegenheid verbintenis"
+   },
+   "zin": "De docent plant het toetsmoment; Jochem krijgt een verbintenis op de toetsgelegenheid."
+  },
+  {
+   "fase": 5,
+   "stap": "Formatieve voortgang bijhouden",
+   "soort": "ontstaat",
+   "wie": "docent",
+   "objecttype": "Formatieve resultaat structuur",
+   "instantie": "Voortgang B1-K1-W1: quiz WHAM-vragen, rollenspel",
+   "bron": "leerroute-1-regulier.md, r1096 tot 1099: formatieve controles per les",
+   "aanname": true,
+   "zin": "De docent houdt de formatieve voortgang bij: welke onderdelen tellen voor het beeld van Jochems ontwikkeling, en het resultaat per toetsgelegenheid."
+  },
+  {
+   "fase": 5,
+   "stap": "Formatieve voortgang bijhouden",
+   "soort": "ontstaat",
+   "wie": "docent",
+   "objecttype": "Toetsonderdeel weging",
+   "instantie": "Quiz WHAM-vragen: weging 1",
+   "bron": "geen bron, keuze van het voorbeeld",
+   "aanname": true,
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Formatieve resultaat structuur",
+    "naar": "Toetsonderdeel weging",
+    "nesting": true
+   }
+  },
+  {
+   "fase": 5,
+   "stap": "Formatieve voortgang bijhouden",
+   "soort": "ontstaat",
+   "wie": "docent",
+   "objecttype": "Toetsgelegenheid resultaat",
+   "instantie": "OSCE: voldoende",
+   "bron": "leerroute-1-regulier.md, r1117: schaal onvoldoende, voldoende, goed",
+   "relatie": {
+    "soort": "Association",
+    "van": "Toetsgelegenheid verbintenis",
+    "naar": "Toetsgelegenheid resultaat"
+   }
+  },
+  {
+   "fase": 5,
+   "stap": "Formatieve voortgang bijhouden",
+   "soort": "ontstaat",
+   "wie": "docent",
+   "objecttype": "Formatief resultaat",
+   "instantie": "Quiz WHAM-vragen: 8 van 10",
+   "bron": "geen bron, keuze van het voorbeeld",
+   "aanname": true,
+   "relatie": {
+    "soort": "Specialization",
+    "van": "Formatief resultaat",
+    "naar": "Toetsgelegenheid resultaat"
+   }
+  },
+  {
+   "fase": 5,
+   "stap": "Formatieve voortgang bijhouden",
+   "soort": "ontstaat",
+   "wie": "docent",
+   "objecttype": "Formatieve beoordeling",
+   "instantie": "Op koers voor B1-K1-W1",
+   "bron": "geen bron, keuze van het voorbeeld",
+   "aanname": true,
+   "relatie": {
+    "soort": "Association",
+    "van": "Formatieve beoordeling",
+    "naar": "Formatief resultaat",
+    "label": "kent"
+   }
+  },
+  {
+   "fase": 5,
+   "stap": "Formatieve voortgang bijhouden",
+   "soort": "ontstaat",
+   "wie": "docent",
+   "objecttype": "Persoonlijke ontwikkeling",
+   "instantie": "Jochems ontwikkeling in periode 1",
+   "bron": "geen bron, keuze van het voorbeeld",
+   "aanname": true,
+   "relatie": {
+    "soort": "Association",
+    "van": "Persoonlijke ontwikkeling",
+    "naar": "Formatieve resultaat structuur"
+   },
+   "vraag": "Persoonlijke ontwikkeling en de formatieve structuur hebben geen definitie en geen bron in het kaderscenario; herkent de instelling ze, en wisselt OKx ze uit?"
+  },
+  {
+   "fase": 5,
+   "stap": "Formatieve voortgang bijhouden",
+   "soort": "stroomt",
+   "van": "Leer management systeem (LMS)",
+   "naar": "Student volg systeem (SVS)",
+   "pijl": "id-979d8078315c47139a73942028c0300d",
+   "koppeling": null,
+   "objecttype": "Toetsgelegenheid resultaat",
+   "instantie": "OSCE: voldoende",
+   "bron": "leerroute-1-regulier.md, Fase 5: LMS naar SVS (toetsgelegenheid-verbintenis resultaten, formatief)",
+   "zin": "De formatieve resultaten gaan van het LMS naar het studentvolgsysteem."
+  },
+  {
+   "fase": 5,
+   "stap": "Studiebeeld volgen in het studentvolgsysteem",
+   "soort": "ontstaat",
+   "wie": "SLB'er",
+   "objecttype": "Leergelegenheid resultaat",
+   "instantie": "B1-K1-W1 afgerond, periode 1",
+   "bron": "leerroute-1-regulier.md, Fase 5: SLB'ers volgen Jochems studiebeeld in SVS",
+   "relatie": {
+    "soort": "Association",
+    "van": "Leergelegenheid verbintenis",
+    "naar": "Leergelegenheid resultaat"
+   },
+   "zin": "De SLB'er volgt het studiebeeld: per leergelegenheid en per eenheid het resultaat op de verbintenis."
+  },
+  {
+   "fase": 5,
+   "stap": "Studiebeeld volgen in het studentvolgsysteem",
+   "soort": "ontstaat",
+   "wie": "SLB'er",
+   "objecttype": "Onderwijseenheid resultaat",
+   "instantie": "B1-K1: in uitvoering",
+   "bron": "leerroute-1-regulier.md, Fase 5 en 7: onderwijseenheid-verbintenis resultaten",
+   "relatie": {
+    "soort": "Association",
+    "van": "Onderwijseenheid aanbod verbintenis",
+    "naar": "Onderwijseenheid resultaat"
+   }
+  },
+  {
+   "fase": 6,
+   "stap": "Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem",
+   "soort": "ontstaat",
+   "wie": "planner",
+   "objecttype": "Keuzedeelaanbod",
+   "instantie": "Ondernemerschap in de zorg, periode 7, locatie A",
+   "aanname": true,
+   "bron": "leerroute-1-regulier.md, Fase 6: OC naar SKS (opleidingsprogramma-aanbod type keuzedeel + opleidingsprogramma-specificatie); wanneer het keuzedeelaanbod planbaar wordt, zegt het kaderscenario niet",
+   "relatie": {
+    "soort": "Association",
+    "van": "Keuzedeel",
+    "naar": "Keuzedeelaanbod"
+   },
+   "zin": "De keuzedeelruimte nadert: het keuzedeelaanbod uit het jaarplan wordt met de keuzedeelspecificatie ontsloten naar het studentkeuzesysteem."
+  },
+  {
+   "fase": 6,
+   "stap": "Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem",
+   "soort": "stroomt",
+   "van": "Onderwijscatalogus",
+   "naar": "Student Keuze Systeem (SKS)",
+   "pijl": "id-5f2568d7b99a49eaa863f539ae362f4d",
+   "koppeling": null,
+   "objecttype": "Keuzedeelaanbod",
+   "instantie": "Ondernemerschap in de zorg, periode 7, locatie A",
+   "bron": "leerroute-1-regulier.md, Fase 6: OC naar SKS"
+  },
+  {
+   "fase": 6,
+   "stap": "Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem",
+   "soort": "stroomt",
+   "van": "Onderwijscatalogus",
+   "naar": "Student Keuze Systeem (SKS)",
+   "pijl": "id-5f2568d7b99a49eaa863f539ae362f4d",
+   "koppeling": null,
+   "objecttype": "Keuzedeel",
+   "instantie": "Ondernemerschap in de zorg",
+   "bron": "leerroute-1-regulier.md, Fase 6: OC naar SKS, opleidingsprogramma-specificatie",
+   "relatie": {
+    "soort": "Association",
+    "van": "Keuzedeel",
+    "naar": "Keuzedeelaanbod"
+   }
+  },
+  {
+   "fase": 6,
+   "stap": "Voorkeurslijst samenstellen in het studentkeuzesysteem",
+   "soort": "ontstaat",
+   "wie": "student",
+   "objecttype": "Keuzedeel aanbod verbintenis",
+   "instantie": "Jochem op Ondernemerschap in de zorg, periode 7 (voorkeur 1)",
+   "bron": "leerroute-1-regulier.md, Fase 6: Jochem stelt zijn geprioriteerde voorkeurslijst samen in het SKS; SKS naar Planning geeft zijn keuzestelling door als opleidingsprogramma-verbintenis op het gekozen opleidingsprogramma-aanbod",
+   "relatie": {
+    "soort": "Association",
+    "van": "Keuzedeelaanbod",
+    "naar": "Keuzedeel aanbod verbintenis"
+   },
+   "zin": "Jochem stelt zijn voorkeurslijst samen; zijn keuze is een verbintenis op het gekozen keuzedeelaanbod.",
+   "vraag": "Kiest een student zijn keuzedeel op de specificatie of op gepland aanbod, en levert het studentkeuzesysteem dus een specificatie-id of een aanbod-id (ontwerpkeuzes 6 en 13, geparkeerd op 15 september)?"
+  },
+  {
+   "fase": 6,
+   "stap": "Voorkeurslijst samenstellen in het studentkeuzesysteem",
+   "soort": "stroomt",
+   "van": "Student Keuze Systeem (SKS)",
+   "naar": "Planningssysteem",
+   "pijl": "id-726d0826868b4be1afc4145fbd9ad49c",
+   "koppeling": null,
+   "objecttype": "Keuzedeel aanbod verbintenis",
+   "instantie": "Jochem op Ondernemerschap in de zorg, periode 7 (voorkeur 1)",
+   "bron": "leerroute-1-regulier.md, Fase 6: SKS naar Planning (opleidingsprogramma-verbintenis op gekozen aanbod)",
+   "zin": "De keuzestelling gaat als intekening naar planning."
+  },
+  {
+   "fase": 6,
+   "stap": "Definitieve keuzes verwerken naar groepen en capaciteit",
+   "soort": "verandert",
+   "wie": "planner",
+   "objecttype": "Keuzedeelaanbod",
+   "instantie": "Ondernemerschap in de zorg, periode 7, locatie A: 1 groep, 24 plaatsen",
+   "toestand": "planbaar",
+   "bron": "leerroute-1-regulier.md, Fase 6: de planner verwerkt definitieve keuzes periodiek naar groepen en capaciteit",
+   "zin": "De planner verwerkt de definitieve keuzes periodiek naar groepen en capaciteit."
+  },
+  {
+   "fase": 6,
+   "stap": "Planbaar aanbod actualiseren",
+   "soort": "stroomt",
+   "van": "Planningssysteem",
+   "naar": "Onderwijscatalogus",
+   "pijl": "id-020f091db6ea4763aad7527a98afaf99",
+   "koppeling": "OC-P&R",
+   "objecttype": "Keuzedeelaanbod",
+   "instantie": "Ondernemerschap in de zorg, periode 7, locatie A: 1 groep, 24 plaatsen",
+   "bron": "leerroute-1-regulier.md, Fase 6: actualiseert het planbare aanbod in OC en het rooster volgt; Planning naar OC (geactualiseerd planbaar aanbod)",
+   "zin": "Het geactualiseerde planbare aanbod gaat terug naar de catalogus; het rooster volgt."
+  },
+  {
+   "fase": 6,
+   "stap": "Keuzedeel formeel inschrijven",
+   "soort": "verandert",
+   "wie": "planner",
+   "objecttype": "Keuzedeel aanbod verbintenis",
+   "instantie": "Jochem op Ondernemerschap in de zorg, periode 7",
+   "toestand": "ingeschreven",
+   "bron": "leerroute-1-regulier.md, Fase 6: bij passend aanbod levert Planning naar KRS de formele inschrijving op het keuzedeel",
+   "zin": "Past het aanbod, dan wordt de keuze een formele inschrijving op het keuzedeel; KRS, SVS, LMS en rooster volgen."
+  },
+  {
+   "fase": 6,
+   "stap": "Keuzedeel formeel inschrijven",
+   "soort": "stroomt",
+   "van": "Student Keuze Systeem (SKS)",
+   "naar": "Kernregistratie systeem studenten (KRS)",
+   "pijl": "id-642ea2bf4fcd4d58968ba4f952a7e990",
+   "koppeling": null,
+   "objecttype": "Keuzedeel aanbod verbintenis",
+   "instantie": "Jochem op Ondernemerschap in de zorg, periode 7",
+   "bron": "leerroute-1-regulier.md, Fase 6: Planning naar KRS (formele inschrijving keuzedeel); hoofdplaat v1.7 kent alleen SKS naar KRS",
+   "vraag": "Het kaderscenario laat de formele inschrijving op het keuzedeel van planning naar KRS lopen; hoofdplaat v1.7 kent alleen de pijl van het studentkeuzesysteem naar KRS. Welke component levert de verbintenis aan KRS?"
+  },
+  {
+   "fase": 7,
+   "stap": "Afwijkingen verzamelen in een planninggroep",
+   "soort": "verandert",
+   "wie": "planner",
+   "objecttype": "Plaatsingsgroep",
+   "instantie": "Planninggroep temporiseren B1-K2, periode 5",
+   "toestand": "bijgestuurd",
+   "bron": "leerroute-1-regulier.md, Fase 7: de planner verzamelt vergelijkbare afwijkingen in een planninggroep",
+   "aanname": true,
+   "zin": "Variatie temporiseren: Jochem mist BPV-weken; de planner verzamelt achterlopers in een planninggroep.",
+   "vraag": "De planninggroep uit fase 7 en de plaatsingsgroep uit fase 3 zijn op de plaat een objecttype (Plaatsingsgroep); zijn dat bij de instelling dezelfde groep (meta #235)?"
+  },
+  {
+   "fase": 7,
+   "stap": "Bestaande verbintenissen annuleren",
+   "soort": "verandert",
+   "wie": "planner",
+   "objecttype": "Onderwijseenheid aanbod verbintenis",
+   "instantie": "Jochem op B1-K2, periode 3",
+   "toestand": "geannuleerd",
+   "bron": "leerroute-1-regulier.md, Fase 7: bestaande onderwijseenheid-verbintenissen worden via KRS geannuleerd",
+   "zin": "De bestaande verbintenis op het oude aanbod wordt via KRS geannuleerd; een nieuwe volgt op het bijgestuurde aanbod."
+  },
+  {
+   "fase": 7,
+   "stap": "Bestaande verbintenissen annuleren",
+   "soort": "stroomt",
+   "van": "Kernregistratie systeem studenten (KRS)",
+   "naar": "Planningssysteem",
+   "pijl": "id-97010c562d8841f9b908e72b1d2b3f9a",
+   "koppeling": null,
+   "objecttype": "Plaatsingsgroep",
+   "instantie": "Planninggroep temporiseren B1-K2, periode 5",
+   "bron": "leerroute-1-regulier.md, Fase 7: KRS naar Planning (gewijzigde populatie en plangroepen)"
+  },
+  {
+   "fase": 7,
+   "stap": "Nieuw aanbod maken en publiceren",
+   "soort": "verandert",
+   "wie": "planner",
+   "objecttype": "Onderwijseenheid aanbod",
+   "instantie": "B1-K2, periode 5, planninggroep temporiseren",
+   "toestand": "bijgestuurd",
+   "bron": "leerroute-1-regulier.md, Fase 7: nieuw onderwijsaanbod op basis van dezelfde opleidingsprogramma-specificatie",
+   "zin": "Nieuw aanbod voor de planninggroep op dezelfde specificatie; planning publiceert het naar de catalogus en het rooster volgt."
+  },
+  {
+   "fase": 7,
+   "stap": "Nieuw aanbod maken en publiceren",
+   "soort": "stroomt",
+   "van": "Planningssysteem",
+   "naar": "Onderwijscatalogus",
+   "pijl": "id-020f091db6ea4763aad7527a98afaf99",
+   "koppeling": "OC-P&R",
+   "objecttype": "Onderwijseenheid aanbod",
+   "instantie": "B1-K2, periode 5, bijgestuurd",
+   "bron": "leerroute-1-regulier.md, Fase 7: Planning naar OC (mutaties planbaar aanbod)"
+  },
+  {
+   "fase": 7,
+   "stap": "Nieuw aanbod maken en publiceren",
+   "soort": "stroomt",
+   "van": "Planningssysteem",
+   "naar": "Roostersysteem",
+   "pijl": "id-08467fe302794db6b935ff685e83efe0",
+   "koppeling": null,
+   "objecttype": "Leergelegenheid",
+   "instantie": "B1-K2-W1, periode 5",
+   "bron": "leerroute-1-regulier.md, Fase 7: Planning naar Rooster (nieuw rooster)"
+  },
+  {
+   "fase": 8,
+   "stap": "Examenspecificaties omzetten in examengelegenheden",
+   "soort": "ontstaat",
+   "wie": "examinator",
+   "objecttype": "Examengelegenheid",
+   "instantie": "Proeve van bekwaamheid B1-K1, periode 12",
+   "bron": "leerroute-1-regulier.md, Fase 8: examenspecificaties getransformeerd tot examengelegenheden",
+   "aanname": true,
+   "relatie": {
+    "soort": "Association",
+    "van": "Examenonderdeelspecificatie",
+    "naar": "Examengelegenheid"
+   },
+   "zin": "Op basis van het examenplan uit fase 1 worden de examenonderdelen omgezet in examengelegenheden."
+  },
+  {
+   "fase": 8,
+   "stap": "Kandidatenlijsten samenstellen",
+   "soort": "ontstaat",
+   "wie": "examinator",
+   "objecttype": "Examengelegenheid verbintenis",
+   "instantie": "Jochem op de proeve, periode 12",
+   "bron": "leerroute-1-regulier.md, Fase 8: toets- en examenplanning stelt kandidatenlijsten samen",
+   "relatie": {
+    "soort": "Association",
+    "van": "Examengelegenheid",
+    "naar": "Examengelegenheid verbintenis"
+   },
+   "zin": "De kandidatenlijst: Jochems verbintenis op de examengelegenheid."
+  },
+  {
+   "fase": 8,
+   "stap": "Zitting uitvoeren en resultaten doorgeven",
+   "soort": "ontstaat",
+   "wie": "examinator",
+   "objecttype": "Examengelegenheid resultaat",
+   "instantie": "Proeve B1-K1: voldoende",
+   "bron": "leerroute-1-regulier.md, Fase 8: afname levert examengelegenheid-verbintenis resultaten aan SVS",
+   "relatie": {
+    "soort": "Association",
+    "van": "Examengelegenheid verbintenis",
+    "naar": "Examengelegenheid resultaat"
+   },
+   "zin": "De examinator voert de zitting uit; het resultaat gaat naar het studentvolgsysteem."
+  },
+  {
+   "fase": 8,
+   "stap": "Zitting uitvoeren en resultaten doorgeven",
+   "soort": "stroomt",
+   "van": "Toets- en examen afname systeem",
+   "naar": "Student volg systeem (SVS)",
+   "pijl": "geen pijl op de hoofdplaat",
+   "koppeling": null,
+   "objecttype": "Examengelegenheid resultaat",
+   "instantie": "Proeve B1-K1: voldoende",
+   "bron": "leerroute-1-regulier.md, Fase 8: Toets-/examenafname naar SVS; niet op de view zonder context van hoofdplaat v1.7"
+  },
+  {
+   "fase": 8,
+   "stap": "Summatief vaststellen",
+   "soort": "ontstaat",
+   "wie": "examencommissie",
+   "objecttype": "Summatief resultaat",
+   "instantie": "B1-K1: voldoende, vastgesteld",
+   "bron": "leerroute-1-regulier.md, Fase 8: de examencommissie stelt summatief vast",
+   "relatie": {
+    "soort": "Specialization",
+    "van": "Summatief resultaat",
+    "naar": "Examengelegenheid resultaat"
+   },
+   "zin": "De examencommissie stelt het summatieve resultaat vast, conform de resultaatstructuur uit fase 1."
+  },
+  {
+   "fase": 8,
+   "stap": "Summatief vaststellen",
+   "soort": "ontstaat",
+   "wie": "examencommissie",
+   "objecttype": "Summatieve beoordeling",
+   "instantie": "Examencommissie, juni 2029",
+   "bron": "leerroute-1-regulier.md, Fase 8: binnen SVS",
+   "aanname": true,
+   "relatie": {
+    "soort": "Association",
+    "van": "Summatieve beoordeling",
+    "naar": "Summatief resultaat",
+    "label": "met"
+   }
+  },
+  {
+   "fase": 8,
+   "stap": "Summatief vaststellen",
+   "soort": "ontstaat",
+   "wie": "examencommissie",
+   "objecttype": "Opleidingsprogramma resultaat",
+   "instantie": "Regulier BOL 2026: alle kerntaken en keuzedelen voldoende",
+   "bron": "leerroute-1-regulier.md, Fase 8: kwalificering",
+   "relatie": {
+    "soort": "Association",
+    "van": "Opleidingsprogramma aanbod verbintenis",
+    "naar": "Opleidingsprogramma resultaat"
+   }
+  },
+  {
+   "fase": 8,
+   "stap": "Summatief vaststellen",
+   "soort": "ontstaat",
+   "wie": "examencommissie",
+   "objecttype": "Keuzedeel resultaat",
+   "instantie": "Ondernemerschap in de zorg: voldoende",
+   "bron": "voorbeeldpayloads.md, resultaatstructuur: aggregatie allenVoldoende over kerntaken en keuzedelen; leerroute-1-regulier.md, Fase 8",
+   "relatie": {
+    "soort": "Specialization",
+    "van": "Keuzedeel resultaat",
+    "naar": "Opleidingsprogramma resultaat"
+   }
+  },
+  {
+   "fase": 8,
+   "stap": "Summatief vaststellen",
+   "soort": "stroomt",
+   "van": "Student volg systeem (SVS)",
+   "naar": "Kernregistratie systeem studenten (KRS)",
+   "pijl": "geen pijl op de hoofdplaat",
+   "koppeling": null,
+   "objecttype": "Opleidingsprogramma resultaat",
+   "instantie": "Regulier BOL 2026: alle kerntaken en keuzedelen voldoende",
+   "bron": "leerroute-1-regulier.md, Fase 8: SVS en KRS (kwalificering en diplomering)",
+   "zin": "De vaststelling gaat van het studentvolgsysteem naar de kernregistratie; hoofdplaat v1.7 heeft die pijl nog niet (versie 1.7a volgt)."
+  },
+  {
+   "fase": 8,
+   "stap": "Kwalificering en diplomering registreren",
+   "soort": "ontstaat",
+   "wie": "examencommissie",
+   "objecttype": "Opleiding aanbod resultaat",
+   "instantie": "Apothekersassistent 2026: gediplomeerd",
+   "bron": "leerroute-1-regulier.md, Fase 8: KRS registreert kwalificering en diplomering",
+   "relatie": {
+    "soort": "Association",
+    "van": "Opleiding aanbod verbintenis",
+    "naar": "Opleiding aanbod resultaat"
+   },
+   "zin": "Aan het afrondingscriterium is voldaan; de kernregistratie registreert de kwalificering en het diploma."
+  },
+  {
+   "fase": 8,
+   "stap": "Kwalificering en diplomering registreren",
+   "soort": "ontstaat",
+   "wie": "examencommissie",
+   "objecttype": "Waarde document (diploma / certificaat)",
+   "instantie": "Diploma Apothekersassistent, juli 2029",
+   "bron": "leerroute-1-regulier.md, r58 en Fase 8: diplomering",
+   "relatie": {
+    "soort": "Association",
+    "van": "Summatief Afrondingscriterium",
+    "naar": "Waarde document (diploma / certificaat)"
+   }
   }
  ]
 }

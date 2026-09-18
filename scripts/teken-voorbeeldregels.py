@@ -179,11 +179,16 @@ def _objecten_rij(x, y, items, uitzonderingen):
         buiten = it["type"] in uitzonderingen
         fill, line, lk = (GRIJS, GRIJS_L, GRIJS_T) if buiten else (BUS, BUS_L, BUS_T)
         if it.get("kinderen"):
-            ksvg, kw, kh = _objecten_rij(cx + 14, y + 40, it["kinderen"], uitzonderingen)
-            w = max(kw + 24, tw(it["type"], 11) + 42, tw(it["instantie"], 13, True) + 42)
-            h = 40 + kh + 10
+            # een container toont, net als een los element, de toestand of een verwijzing onder de instantie
+            extra = f"toestand: {it['toestand']}" if it.get("toestand") else it.get("verwijzing")
+            kop = 40 + (16 if extra else 0)
+            ksvg, kw, kh = _objecten_rij(cx + 14, y + kop, it["kinderen"], uitzonderingen)
+            w = max(kw + 24, tw(it["type"], 11) + 42, tw(it["instantie"], 13, True) + 42, (tw(extra, 11) + 42) if extra else 0)
+            h = kop + kh + 10
             out += box(cx, y, w, h, fill, line, 0, dashed) + icon("object", cx + w - 22, y + 5)
             out += text(cx + 10, y + 17, it["type"], 11, fill=lk) + text(cx + 10, y + 34, it["instantie"], 13, True) + ksvg
+            if extra:
+                out += text(cx + 10, y + 50, extra, 11, fill=MUTED)
         else:
             s, w, h = element(cx, y, "object", it["type"], it["instantie"], fill, line, lk, 0, dashed, it.get("toestand"), it.get("verwijzing"))
             out += s
@@ -202,7 +207,8 @@ def regel_ontstaat(blok, uitzonderingen):
     y0 = 10
     wie, ww, wh = element(12, y0, "rol", "rol", blok["wie"], BUS, BUS_L, BUS_T, 8)
     x = 12 + ww + 10
-    stap, sw, sh = element(x, y0, "proces", "processtap", blok["stap"], BUS, BUS_L, BUS_T, 8)
+    verdieping = f"verdieping: {blok['verdieping']}" if blok.get("verdieping") else None
+    stap, sw, sh = element(x, y0, "proces", "processtap", blok["stap"], BUS, BUS_L, BUS_T, 8, verwijzing=verdieping)
     x += sw + 6
     pijl = text(x, y0 + 30, "→", 18, fill=MUTED)
     x += 20
@@ -216,7 +222,7 @@ def regel_ontstaat(blok, uitzonderingen):
 
 def regel_stroomt(blok, uitzonderingen):
     y0 = 10
-    idtekst = blok.get("koppeling") or "zonder koppelingspecificatie"
+    idtekst = blok.get("koppeling") or ("geen pijl op de hoofdplaat" if blok.get("pijl") == "geen pijl op de hoofdplaat" else "zonder koppelingspecificatie")
     idw = tw(idtekst, 11) + 16
     s = box(12, y0 + 14, idw, 18, "#ffffff", "#c8ccc9", 4) + text(20, y0 + 27, idtekst, 11, fill=MUTED)
     x = 12 + idw + 12
@@ -245,7 +251,8 @@ def regel_stroomt(blok, uitzonderingen):
 
 
 def groepeer(regels):
-    """Regels met dezelfde fase en stap en soort worden één blok; ontstaat en verandert samen."""
+    """Regels met dezelfde fase, stap en soort worden één blok; ontstaat en verandert samen. Een regel met
+    het veld verdieping vormt met zijn gelijken een eigen blok onder dezelfde stap."""
     blokken = []
     for r in regels["regels"]:
         soort = r["soort"]
@@ -275,11 +282,11 @@ def groepeer(regels):
                 laatste["objecten"].append(item)
                 continue
             blokken.append({"soort": "stroomt", "fase": r["fase"], "stap": r["stap"], "van": r["van"], "naar": r["naar"],
-                            "koppeling": r.get("koppeling"), "objecten": [item], "zin": r.get("zin", "")})
+                            "koppeling": r.get("koppeling"), "pijl": r.get("pijl"), "objecten": [item], "zin": r.get("zin", "")})
             continue
         laatste = blokken[-1] if blokken else None
-        if not laatste or laatste["soort"] != "ontstaat" or (laatste["fase"], laatste["stap"], laatste["wie"]) != (r["fase"], r["stap"], r.get("wie")):
-            laatste = {"soort": "ontstaat", "fase": r["fase"], "stap": r["stap"], "wie": r.get("wie"), "objecten": [], "zin": r.get("zin", "")}
+        if not laatste or laatste["soort"] != "ontstaat" or (laatste["fase"], laatste["stap"], laatste["wie"], laatste.get("verdieping")) != (r["fase"], r["stap"], r.get("wie"), r.get("verdieping")):
+            laatste = {"soort": "ontstaat", "fase": r["fase"], "stap": r["stap"], "wie": r.get("wie"), "verdieping": r.get("verdieping"), "objecten": [], "zin": r.get("zin", "")}
             blokken.append(laatste)
         item = {"type": r["objecttype"], "instantie": r["instantie"], "aanname": r.get("aanname", False)}
         if soort == "verandert":
@@ -316,6 +323,8 @@ def groepeer(regels):
 
 def bestandsnaam(blok, volgnummer):
     slug = re.sub(r"[^a-z0-9]+", "-", blok["stap"].lower()).strip("-")
+    if blok.get("verdieping"):
+        slug += "-verdieping"
     return f"f{blok['fase']}-{volgnummer:02d}-{slug}.svg"
 
 
