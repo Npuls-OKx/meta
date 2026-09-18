@@ -117,3 +117,19 @@ Fase 1 na de aanwijzingen van de modelleur: de examencommissie stelt het examenp
 
 ![Regels fase 1](poc/regels-fase-1.png)
 
+
+## Verdieping leeruitkomst naar skills, en fase 5 tot 8, 18 september
+
+De skills-variant is geen aparte stap meer. Onder dezelfde stap "Kwalificatiedossier vertalen naar leeruitkomsten" staat een verdieping: dezelfde leeruitkomst op kerntaak- en werkprocesniveau, uitgedrukt in CompetentNL-vaardigheden op laag 2 (bron: CompetentNL ontologie 2.1.0, `cnlo:HumanCapability` gelaagd via `skos:broader`; `cnlo:EducationalNorm` schrijft vaardigheden voor). De vraag die daaruit volgt: de leeruitkomst is op de plaat gelaagd, `Vaardigheid` niet.
+
+![Leeruitkomst met de verdieping naar skills](poc/regels-leeruitkomst-verdieping.png)
+
+Fase 5 (uitvoeren en formatieve voortgang), 6 (keuzemomenten, in de volgorde van het kaderscenario), 7 (bijsturen als verandert-regels) en 8 (examineren tot diploma). Een stroom die het kaderscenario noemt maar v1.7 niet kent, staat als "geen pijl op de hoofdplaat" (afname naar SVS, SVS naar KRS).
+
+![Regels fase 5](poc/regels-fase-5.png)
+
+![Regels fase 6](poc/regels-fase-6.png)
+
+![Regels fase 7](poc/regels-fase-7.png)
+
+![Regels fase 8](poc/regels-fase-8.png)
