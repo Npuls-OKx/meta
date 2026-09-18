@@ -51,6 +51,7 @@
           "fase": {"type": "integer", "minimum": 1, "maximum": 8},
           "stap": {"type": "string", "description": "moet in fasen[fase].stappen staan"},
           "verdieping": {"type": "string", "description": "verdieping van de regel erboven binnen dezelfde stap; regels met dezelfde verdieping vormen een eigen blok en beeld"},
+          "plaat": {"type": "string", "enum": ["informatiemodel", "onderwijsontwerp"], "default": "informatiemodel", "description": "plaat waartegen de regel wordt gecontroleerd; de conceptplaat Informatiemodel Onderwijsontwerp alleen in een verdieping"},
           "soort": {"type": "string", "enum": ["ontstaat", "verandert", "stroomt"]},
           "wie": {"type": "string", "description": "rol uit de rollenlijst; verplicht bij ontstaat en verandert"},
           "van": {"type": "string", "description": "componentnaam letterlijk uit v1.7; verplicht bij stroomt"},

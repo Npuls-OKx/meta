@@ -20,6 +20,8 @@ Twee soorten regels, in de vormtaal van de plaat:
 - **Ontstaat**: een rol (geel, rolicoon) voert een processtap uit (geel, procesicoon) en daaruit ontstaan objecttypen (geel, objecticoon) met Jochems waarde. "Bestaat uit" is nesting; een relatielabel van de plaat staat tussen twee objecten of als verwijzing op een object dat aan een eerdere stap hangt. Een gestippelde rand is een aanname; grijs is een objecttype dat de plaat buiten de uitwisseling zet en dit voorbeeld toch meeneemt.
 - **Stroomt** (blauwe rand): van welk systeem naar welk systeem gaat welk object, met de koppeling-ID of "zonder koppelingspecificatie", en de processtap waarna het gebeurt.
 
+Een **verdieping** (zelfde rol en stap, met "verdieping" op de processtap) zoomt in op een regel erboven. Een verdieping met een gestippelde rand en de chip "conceptplaat: Informatiemodel Onderwijsontwerp" put uit de conceptplaat in het ArchiMate-model: zij laat zien waar de informatiemodelplaat kan groeien en telt niet mee in de bijlage en het invulblad.
+
 Koppeling-ID's op hoofdplaat v1.7: OC-P&R is Onderwijscatalogus naar Planningssysteem; OC-P&R is Planningssysteem naar Onderwijscatalogus; OC-SIS is Onderwijscatalogus naar Kernregistratie systeem studenten (KRS); OC-SIS is Onderwijscatalogus naar Student volg systeem (SVS); OC-LMS is Onderwijscatalogus naar Leer management systeem (LMS). Een pijl die op de hoofdplaat staat maar geen koppelingspecificatie heeft, staat als "zonder koppelingspecificatie"; een stroom uit het kaderscenario zonder pijl op de hoofdplaat staat als "geen pijl op de hoofdplaat".
 
 De fasenamen zijn de sectiekoppen "Fase 1" tot "Fase 8" van het kaderscenario. Het kaderscenario noemt fase 3 in de fasenlijst "Instroom, afstemming en plaatsing" en in de sectiekop "Instroom, intake en plaatsing"; hier geldt de sectiekop.
@@ -29,7 +31,7 @@ Wat hier staat is feedback, geen commitment: het voorbeeld beslist niets over he
 
 De fase in detail: [kaderscenario leerroute 1, fase 1](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-1--kwalificatiekader-analyseren-en-grofmazig-ontwerpen).
 
-**Ontstaat:** `Kwalificatie dossier`, `Kwalificatie`, `Kerntaak`, `Werkproces`, `Examenplan`, `Summatieve resultaat structuur`, `Cohort / periode`, `Leeruitkomst`, `Competenties / Skills`, `Vaardigheid`, `Opleiding specificatie`, `Opleidingsprogramma specificatie`, `Onderwijseenheid specificatie`, `Leeronderdeel specificatie`, `Keuzedeelruimte`, `Keuzedeel`, `Student keuze regelset`, `Toetsonderdeel specificatie`, `Examenonderdeelspecificatie`, `Examenonderdeel weging`, `Summatief Afrondingscriterium`. **Stroomt:** Curriculum ontwerptool naar Onderwijscatalogus. **MORA-hoofdproces:** Ontwikkelen.
+**Ontstaat:** `Kwalificatie dossier`, `Kwalificatie`, `Kerntaak`, `Werkproces`, `Examenplan`, `Summatieve resultaat structuur`, `Cohort / periode`, `Leeruitkomst`, `Competenties / Skills`, `Vaardigheid`, `Kennis`, `Inzicht`, `Opleiding specificatie`, `Opleidingsprogramma specificatie`, `Onderwijseenheid specificatie`, `Leeronderdeel specificatie`, `Keuzedeelruimte`, `Keuzedeel`, `Student keuze regelset`, `Toetsonderdeel specificatie`, `Examenonderdeelspecificatie`, `Examenonderdeel weging`, `Summatief Afrondingscriterium`. **Stroomt:** Curriculum ontwerptool naar Onderwijscatalogus. **MORA-hoofdproces:** Ontwikkelen.
 
 ![ontstaat: Kwalificatiedossier analyseren](img/regels/f1-01-kwalificatiedossier-analyseren.svg)
 
@@ -37,13 +39,15 @@ De fase in detail: [kaderscenario leerroute 1, fase 1](https://github.com/Npuls-
 
 ![ontstaat: Kwalificatiedossier vertalen naar leeruitkomsten](img/regels/f1-03-kwalificatiedossier-vertalen-naar-leeruitkomsten.svg)
 
-![ontstaat: Kwalificatiedossier vertalen naar leeruitkomsten, verdieping: leeruitkomst naar skills](img/regels/f1-04-kwalificatiedossier-vertalen-naar-leeruitkomsten-verdieping.svg)
+![ontstaat: Kwalificatiedossier vertalen naar leeruitkomsten, verdieping: kerntaak onderwijskundig vertaald](img/regels/f1-04-kwalificatiedossier-vertalen-naar-leeruitkomsten-verdieping.svg)
 
-![ontstaat: Opleidingsspecificatie met programma en eenheden beschrijven](img/regels/f1-05-opleidingsspecificatie-met-programma-en-eenheden-beschrijven.svg)
+![ontstaat: Kwalificatiedossier vertalen naar leeruitkomsten, verdieping: leeruitkomst naar skills](img/regels/f1-05-kwalificatiedossier-vertalen-naar-leeruitkomsten-verdieping.svg)
 
-![ontstaat: Toetsonderdelen en resultaatstructuur uit het examenplan afleiden](img/regels/f1-06-toetsonderdelen-en-resultaatstructuur-uit-het-examenplan-afleiden.svg)
+![ontstaat: Opleidingsspecificatie met programma en eenheden beschrijven](img/regels/f1-06-opleidingsspecificatie-met-programma-en-eenheden-beschrijven.svg)
 
-![stroomt: Grofmazig resultaat publiceren naar de onderwijscatalogus](img/regels/f1-07-grofmazig-resultaat-publiceren-naar-de-onderwijscatalogus.svg)
+![ontstaat: Toetsonderdelen en resultaatstructuur uit het examenplan afleiden](img/regels/f1-07-toetsonderdelen-en-resultaatstructuur-uit-het-examenplan-afleiden.svg)
+
+![stroomt: Grofmazig resultaat publiceren naar de onderwijscatalogus](img/regels/f1-08-grofmazig-resultaat-publiceren-naar-de-onderwijscatalogus.svg)
 
 ## Fase 2: Publiceren en planbaar maken
 
@@ -51,15 +55,15 @@ De fase in detail: [kaderscenario leerroute 1, fase 2](https://github.com/Npuls-
 
 **Ontstaat:** `Opleidingsprogramma specificatie`, `Verzoek tot Aanbod / Intekening op specificatie`, `Opleidingsaanbod van Instelling`, `Opleidingaanbod`, `Opleidingsprogramma aanbod`, `Onderwijseenheid aanbod`, `Leergelegenheid`, `Toetsgelegenheid`. **Stroomt:** Onderwijscatalogus naar Planningssysteem; Planningssysteem naar Onderwijscatalogus. **MORA-hoofdproces:** Plannen en roosteren.
 
-![ontstaat: Specificatie aanvullen tot planbare specificatie](img/regels/f2-08-specificatie-aanvullen-tot-planbare-specificatie.svg)
+![ontstaat: Specificatie aanvullen tot planbare specificatie](img/regels/f2-09-specificatie-aanvullen-tot-planbare-specificatie.svg)
 
-![ontstaat: Planningssysteem verzoeken om onderwijsaanbod](img/regels/f2-09-planningssysteem-verzoeken-om-onderwijsaanbod.svg)
+![ontstaat: Planningssysteem verzoeken om onderwijsaanbod](img/regels/f2-10-planningssysteem-verzoeken-om-onderwijsaanbod.svg)
 
-![stroomt: Planningssysteem verzoeken om onderwijsaanbod](img/regels/f2-10-planningssysteem-verzoeken-om-onderwijsaanbod.svg)
+![stroomt: Planningssysteem verzoeken om onderwijsaanbod](img/regels/f2-11-planningssysteem-verzoeken-om-onderwijsaanbod.svg)
 
-![ontstaat: Haalbaarheid bepalen en aanbod plannen](img/regels/f2-11-haalbaarheid-bepalen-en-aanbod-plannen.svg)
+![ontstaat: Haalbaarheid bepalen en aanbod plannen](img/regels/f2-12-haalbaarheid-bepalen-en-aanbod-plannen.svg)
 
-![stroomt: Gepland aanbod terugleveren aan de onderwijscatalogus](img/regels/f2-12-gepland-aanbod-terugleveren-aan-de-onderwijscatalogus.svg)
+![stroomt: Gepland aanbod terugleveren aan de onderwijscatalogus](img/regels/f2-13-gepland-aanbod-terugleveren-aan-de-onderwijscatalogus.svg)
 
 ## Fase 3: Instroom, intake en plaatsing
 
@@ -67,15 +71,15 @@ De fase in detail: [kaderscenario leerroute 1, fase 3](https://github.com/Npuls-
 
 **Ontstaat:** `Persoon`, `Aanmelding`, `Student`, `Opleiding aanbod verbintenis`, `Opleidingsprogramma aanbod verbintenis`, `Plaatsingsgroep`, `Inschrijving`. **Stroomt:** Onderwijscatalogus naar Voorziening Centraal Aanmelden (CAMBO); Voorziening Centraal Aanmelden (CAMBO) naar Kernregistratie systeem studenten (KRS). **MORA-hoofdproces:** Informeren, aanmelden, intake en plaatsen.
 
-![stroomt: Orienteren op het gepubliceerde aanbod](img/regels/f3-13-orienteren-op-het-gepubliceerde-aanbod.svg)
+![stroomt: Orienteren op het gepubliceerde aanbod](img/regels/f3-14-orienteren-op-het-gepubliceerde-aanbod.svg)
 
-![ontstaat: Aanmelden via het intakesysteem](img/regels/f3-14-aanmelden-via-het-intakesysteem.svg)
+![ontstaat: Aanmelden via het intakesysteem](img/regels/f3-15-aanmelden-via-het-intakesysteem.svg)
 
-![stroomt: Aanmelden via het intakesysteem](img/regels/f3-15-aanmelden-via-het-intakesysteem.svg)
+![stroomt: Aanmelden via het intakesysteem](img/regels/f3-16-aanmelden-via-het-intakesysteem.svg)
 
-![ontstaat: Intake doorlopen en plaatsen](img/regels/f3-16-intake-doorlopen-en-plaatsen.svg)
+![ontstaat: Intake doorlopen en plaatsen](img/regels/f3-17-intake-doorlopen-en-plaatsen.svg)
 
-![ontstaat: Persoon en verbintenissen vastleggen in de kernregistratie](img/regels/f3-17-persoon-en-verbintenissen-vastleggen-in-de-kernregistratie.svg)
+![ontstaat: Persoon en verbintenissen vastleggen in de kernregistratie](img/regels/f3-18-persoon-en-verbintenissen-vastleggen-in-de-kernregistratie.svg)
 
 ## Fase 4: Detailleren, roosteren en inschrijven
 
@@ -83,23 +87,23 @@ De fase in detail: [kaderscenario leerroute 1, fase 4](https://github.com/Npuls-
 
 **Ontstaat:** `Leeronderdeel specificatie`, `Les specificatie`, `Leergelegenheid`, `Lesgelegenheid`, `Medewerker`, `Onderwijseenheid aanbod verbintenis`, `Leergelegenheid verbintenis`, `Lesgelegenheid verbintenis`, `Opleidingsprogramma aanbod verbintenis`. **Stroomt:** Onderwijscatalogus naar Leer management systeem (LMS); Onderwijscatalogus naar Student volg systeem (SVS); Kernregistratie systeem studenten (KRS) naar Planningssysteem; Planningssysteem naar Roostersysteem; Roostersysteem naar Kernregistratie systeem studenten (KRS); Kernregistratie systeem studenten (KRS) naar Leer management systeem (LMS). **MORA-hoofdproces:** Plannen en roosteren.
 
-![ontstaat: Leeronderdeel- en toetsonderdeelspecificaties fijnmazig uitwerken](img/regels/f4-18-leeronderdeel-en-toetsonderdeelspecificaties-fijnmazig-uitwerken.svg)
-
-![stroomt: Detailspecificaties leveren aan het LMS](img/regels/f4-19-detailspecificaties-leveren-aan-het-lms.svg)
+![ontstaat: Leeronderdeel- en toetsonderdeelspecificaties fijnmazig uitwerken](img/regels/f4-19-leeronderdeel-en-toetsonderdeelspecificaties-fijnmazig-uitwerken.svg)
 
 ![stroomt: Detailspecificaties leveren aan het LMS](img/regels/f4-20-detailspecificaties-leveren-aan-het-lms.svg)
 
-![stroomt: Plaatsings- en planninggroepen definieren en aan personen koppelen](img/regels/f4-21-plaatsings-en-planninggroepen-definieren-en-aan-personen-koppelen.svg)
+![stroomt: Detailspecificaties leveren aan het LMS](img/regels/f4-21-detailspecificaties-leveren-aan-het-lms.svg)
 
-![stroomt: Te roosteren specificaties aan het roostersysteem geven](img/regels/f4-22-te-roosteren-specificaties-aan-het-roostersysteem-geven.svg)
+![stroomt: Plaatsings- en planninggroepen definieren en aan personen koppelen](img/regels/f4-22-plaatsings-en-planninggroepen-definieren-en-aan-personen-koppelen.svg)
 
-![ontstaat: Leer-, les- en toetsgelegenheden roosteren](img/regels/f4-23-leer-les-en-toetsgelegenheden-roosteren.svg)
+![stroomt: Te roosteren specificaties aan het roostersysteem geven](img/regels/f4-23-te-roosteren-specificaties-aan-het-roostersysteem-geven.svg)
 
-![stroomt: Leer-, les- en toetsgelegenheden roosteren](img/regels/f4-24-leer-les-en-toetsgelegenheden-roosteren.svg)
+![ontstaat: Leer-, les- en toetsgelegenheden roosteren](img/regels/f4-24-leer-les-en-toetsgelegenheden-roosteren.svg)
 
-![ontstaat: Verwachte deelnemers delen en toegang geven](img/regels/f4-25-verwachte-deelnemers-delen-en-toegang-geven.svg)
+![stroomt: Leer-, les- en toetsgelegenheden roosteren](img/regels/f4-25-leer-les-en-toetsgelegenheden-roosteren.svg)
 
-![stroomt: Verwachte deelnemers delen en toegang geven](img/regels/f4-26-verwachte-deelnemers-delen-en-toegang-geven.svg)
+![ontstaat: Verwachte deelnemers delen en toegang geven](img/regels/f4-26-verwachte-deelnemers-delen-en-toegang-geven.svg)
+
+![stroomt: Verwachte deelnemers delen en toegang geven](img/regels/f4-27-verwachte-deelnemers-delen-en-toegang-geven.svg)
 
 ## Fase 5: Onderwijs uitvoeren en voortgang begeleiden
 
@@ -107,15 +111,15 @@ De fase in detail: [kaderscenario leerroute 1, fase 5](https://github.com/Npuls-
 
 **Ontstaat:** `Lesgelegenheid verbintenis`, `Aanwezigheid`, `Lesgelegenheid resultaat`, `Toetsgelegenheid verbintenis`, `Formatieve resultaat structuur`, `Toetsonderdeel weging`, `Toetsgelegenheid resultaat`, `Formatief resultaat`, `Formatieve beoordeling`, `Persoonlijke ontwikkeling`, `Leergelegenheid resultaat`, `Onderwijseenheid resultaat`. **Stroomt:** Leer management systeem (LMS) naar Student volg systeem (SVS). **MORA-hoofdproces:** Verzorgen en begeleiden.
 
-![ontstaat: Onderwijs verzorgen](img/regels/f5-27-onderwijs-verzorgen.svg)
+![ontstaat: Onderwijs verzorgen](img/regels/f5-28-onderwijs-verzorgen.svg)
 
-![ontstaat: Toetsmomenten plannen tijdens lessen](img/regels/f5-28-toetsmomenten-plannen-tijdens-lessen.svg)
+![ontstaat: Toetsmomenten plannen tijdens lessen](img/regels/f5-29-toetsmomenten-plannen-tijdens-lessen.svg)
 
-![ontstaat: Formatieve voortgang bijhouden](img/regels/f5-29-formatieve-voortgang-bijhouden.svg)
+![ontstaat: Formatieve voortgang bijhouden](img/regels/f5-30-formatieve-voortgang-bijhouden.svg)
 
-![stroomt: Formatieve voortgang bijhouden](img/regels/f5-30-formatieve-voortgang-bijhouden.svg)
+![stroomt: Formatieve voortgang bijhouden](img/regels/f5-31-formatieve-voortgang-bijhouden.svg)
 
-![ontstaat: Studiebeeld volgen in het studentvolgsysteem](img/regels/f5-31-studiebeeld-volgen-in-het-studentvolgsysteem.svg)
+![ontstaat: Studiebeeld volgen in het studentvolgsysteem](img/regels/f5-32-studiebeeld-volgen-in-het-studentvolgsysteem.svg)
 
 ## Fase 6: Organiseren van keuzemomenten
 
@@ -123,21 +127,21 @@ De fase in detail: [kaderscenario leerroute 1, fase 6](https://github.com/Npuls-
 
 **Ontstaat:** `Keuzedeelaanbod`, `Keuzedeel aanbod verbintenis`. **Stroomt:** Onderwijscatalogus naar Student Keuze Systeem (SKS); Student Keuze Systeem (SKS) naar Planningssysteem; Planningssysteem naar Onderwijscatalogus; Student Keuze Systeem (SKS) naar Kernregistratie systeem studenten (KRS). **MORA-hoofdproces:** Plannen en roosteren.
 
-![ontstaat: Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem](img/regels/f6-32-keuzedeelaanbod-ontsluiten-naar-het-studentkeuzesysteem.svg)
+![ontstaat: Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem](img/regels/f6-33-keuzedeelaanbod-ontsluiten-naar-het-studentkeuzesysteem.svg)
 
-![stroomt: Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem](img/regels/f6-33-keuzedeelaanbod-ontsluiten-naar-het-studentkeuzesysteem.svg)
+![stroomt: Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem](img/regels/f6-34-keuzedeelaanbod-ontsluiten-naar-het-studentkeuzesysteem.svg)
 
-![ontstaat: Voorkeurslijst samenstellen in het studentkeuzesysteem](img/regels/f6-34-voorkeurslijst-samenstellen-in-het-studentkeuzesysteem.svg)
+![ontstaat: Voorkeurslijst samenstellen in het studentkeuzesysteem](img/regels/f6-35-voorkeurslijst-samenstellen-in-het-studentkeuzesysteem.svg)
 
-![stroomt: Voorkeurslijst samenstellen in het studentkeuzesysteem](img/regels/f6-35-voorkeurslijst-samenstellen-in-het-studentkeuzesysteem.svg)
+![stroomt: Voorkeurslijst samenstellen in het studentkeuzesysteem](img/regels/f6-36-voorkeurslijst-samenstellen-in-het-studentkeuzesysteem.svg)
 
-![ontstaat: Definitieve keuzes verwerken naar groepen en capaciteit](img/regels/f6-36-definitieve-keuzes-verwerken-naar-groepen-en-capaciteit.svg)
+![ontstaat: Definitieve keuzes verwerken naar groepen en capaciteit](img/regels/f6-37-definitieve-keuzes-verwerken-naar-groepen-en-capaciteit.svg)
 
-![stroomt: Planbaar aanbod actualiseren](img/regels/f6-37-planbaar-aanbod-actualiseren.svg)
+![stroomt: Planbaar aanbod actualiseren](img/regels/f6-38-planbaar-aanbod-actualiseren.svg)
 
-![ontstaat: Keuzedeel formeel inschrijven](img/regels/f6-38-keuzedeel-formeel-inschrijven.svg)
+![ontstaat: Keuzedeel formeel inschrijven](img/regels/f6-39-keuzedeel-formeel-inschrijven.svg)
 
-![stroomt: Keuzedeel formeel inschrijven](img/regels/f6-39-keuzedeel-formeel-inschrijven.svg)
+![stroomt: Keuzedeel formeel inschrijven](img/regels/f6-40-keuzedeel-formeel-inschrijven.svg)
 
 ## Fase 7: Bijsturen planning en aanbod
 
@@ -145,17 +149,17 @@ De fase in detail: [kaderscenario leerroute 1, fase 7](https://github.com/Npuls-
 
 **Ontstaat:** `Plaatsingsgroep`, `Onderwijseenheid aanbod verbintenis`, `Onderwijseenheid aanbod`. **Stroomt:** Kernregistratie systeem studenten (KRS) naar Planningssysteem; Planningssysteem naar Onderwijscatalogus; Planningssysteem naar Roostersysteem. **MORA-hoofdproces:** Plannen en roosteren.
 
-![ontstaat: Afwijkingen verzamelen in een planninggroep](img/regels/f7-40-afwijkingen-verzamelen-in-een-planninggroep.svg)
+![ontstaat: Afwijkingen verzamelen in een planninggroep](img/regels/f7-41-afwijkingen-verzamelen-in-een-planninggroep.svg)
 
-![ontstaat: Bestaande verbintenissen annuleren](img/regels/f7-41-bestaande-verbintenissen-annuleren.svg)
+![ontstaat: Bestaande verbintenissen annuleren](img/regels/f7-42-bestaande-verbintenissen-annuleren.svg)
 
-![stroomt: Bestaande verbintenissen annuleren](img/regels/f7-42-bestaande-verbintenissen-annuleren.svg)
+![stroomt: Bestaande verbintenissen annuleren](img/regels/f7-43-bestaande-verbintenissen-annuleren.svg)
 
-![ontstaat: Nieuw aanbod maken en publiceren](img/regels/f7-43-nieuw-aanbod-maken-en-publiceren.svg)
-
-![stroomt: Nieuw aanbod maken en publiceren](img/regels/f7-44-nieuw-aanbod-maken-en-publiceren.svg)
+![ontstaat: Nieuw aanbod maken en publiceren](img/regels/f7-44-nieuw-aanbod-maken-en-publiceren.svg)
 
 ![stroomt: Nieuw aanbod maken en publiceren](img/regels/f7-45-nieuw-aanbod-maken-en-publiceren.svg)
+
+![stroomt: Nieuw aanbod maken en publiceren](img/regels/f7-46-nieuw-aanbod-maken-en-publiceren.svg)
 
 ## Fase 8: Examineren, vaststellen en diplomeren
 
@@ -163,19 +167,19 @@ De fase in detail: [kaderscenario leerroute 1, fase 8](https://github.com/Npuls-
 
 **Ontstaat:** `Examengelegenheid`, `Examengelegenheid verbintenis`, `Examengelegenheid resultaat`, `Summatief resultaat`, `Summatieve beoordeling`, `Opleidingsprogramma resultaat`, `Keuzedeel resultaat`, `Opleiding aanbod resultaat`, `Waarde document (diploma / certificaat)`. **Stroomt:** Toets- en examen afname systeem naar Student volg systeem (SVS); Student volg systeem (SVS) naar Kernregistratie systeem studenten (KRS). **MORA-hoofdproces:** Examens uitvoeren en vaststellen; diplomeren.
 
-![ontstaat: Examenspecificaties omzetten in examengelegenheden](img/regels/f8-46-examenspecificaties-omzetten-in-examengelegenheden.svg)
+![ontstaat: Examenspecificaties omzetten in examengelegenheden](img/regels/f8-47-examenspecificaties-omzetten-in-examengelegenheden.svg)
 
-![ontstaat: Kandidatenlijsten samenstellen](img/regels/f8-47-kandidatenlijsten-samenstellen.svg)
+![ontstaat: Kandidatenlijsten samenstellen](img/regels/f8-48-kandidatenlijsten-samenstellen.svg)
 
-![ontstaat: Zitting uitvoeren en resultaten doorgeven](img/regels/f8-48-zitting-uitvoeren-en-resultaten-doorgeven.svg)
+![ontstaat: Zitting uitvoeren en resultaten doorgeven](img/regels/f8-49-zitting-uitvoeren-en-resultaten-doorgeven.svg)
 
-![stroomt: Zitting uitvoeren en resultaten doorgeven](img/regels/f8-49-zitting-uitvoeren-en-resultaten-doorgeven.svg)
+![stroomt: Zitting uitvoeren en resultaten doorgeven](img/regels/f8-50-zitting-uitvoeren-en-resultaten-doorgeven.svg)
 
-![ontstaat: Summatief vaststellen](img/regels/f8-50-summatief-vaststellen.svg)
+![ontstaat: Summatief vaststellen](img/regels/f8-51-summatief-vaststellen.svg)
 
-![stroomt: Summatief vaststellen](img/regels/f8-51-summatief-vaststellen.svg)
+![stroomt: Summatief vaststellen](img/regels/f8-52-summatief-vaststellen.svg)
 
-![ontstaat: Kwalificering en diplomering registreren](img/regels/f8-52-kwalificering-en-diplomering-registreren.svg)
+![ontstaat: Kwalificering en diplomering registreren](img/regels/f8-53-kwalificering-en-diplomering-registreren.svg)
 
 ## Bijlage: alle objecttypen per begrippenfamilie
 
@@ -195,6 +199,8 @@ Per objecttype de instantie voor Jochem, de fase waarin hij verschijnt, de statu
 | Objecttype | Jochem | Fase | Aanname | Definitie | OEAPI | Heet bij u | Hangt bij u onder |
 |---|---|---|---|---|---|---|---|
 | Competenties / Skills | Vaardigheden bij deze leeruitkomst (CompetentNL) | 1 | ja | nog te definieren | geen equivalent | | |
+| Inzicht | Werking en risico van een geneesmiddel bij de vraag aan de balie | 1 | ja | nog te definieren | geen equivalent | | |
+| Kennis | Farmacie (CompetentNL kennisgebied op ISCED-F 0916) | 1 | ja | nog te definieren | geen equivalent | | |
 | Leeruitkomst | Biedt farmaceutische patiëntenzorg in een levensechte apotheekomgeving (kerntaakniveau) | 1 | ja | ja | LearningOutcome | | |
 | Vaardigheid | Communicatieve vaardigheden (CompetentNL laag 2) | 1 | ja | nog te definieren | geen equivalent | | |
 
@@ -290,7 +296,7 @@ De vragen die de regels zelf oproepen, met de regel waar de vraag zichtbaar word
 
 1. Het kaderscenario zet het examenplan in fase 1 en de resultaatstructuur pas in fase 4 bij OC-SIS. Ontstaat de summatieve resultaatstructuur in de curriculum-ontwerptool uit het examenplan, en gaat zij met de specificatie mee naar de catalogus? (fase 1, Examenplan vaststellen, `Examenplan`)
 2. Is het cohort een sleutel op aanbod en verbintenis, of een eigen object dat de toepasselijke resultaatstructuur draagt (ontwerpkeuze 17)? (fase 1, Examenplan vaststellen, `Cohort / periode`)
-3. De familie Onderwijskundig kader instelling kent op de plaat alleen de leeruitkomst en skills; het kader zelf waarmee de instelling de kerntaak vormgeeft (onderwijsvisie, didactisch concept; MORA: Onderwijsplan) heeft geen objecttype. Krijgt het er een, met 'volgens' naar de leeruitkomst en 'vult in' naar de specificatie? (fase 1, Kwalificatiedossier vertalen naar leeruitkomsten, `Leeruitkomst`)
+3. Het kader waarmee de instelling de kerntaak vormgeeft staat op de conceptplaat (leervormstrategie, leerdoel, onderwijsvorm specificatie, leeromgeving), niet op de informatiemodelplaat. Welke daarvan horen in de uitwisseling, bijvoorbeeld leervorm en leeromgeving op het leeronderdeel, en welke blijven binnen de instelling? (fase 1, Kwalificatiedossier vertalen naar leeruitkomsten, `Onderwijsvorm specificatie`)
 4. CompetentNL legt vaardigheden gelaagd vast (skos:broader, drie lagen) en de leeruitkomst is op de plaat gelaagd; Vaardigheid is dat niet. Krijgt Vaardigheid een eigen aggregatie, zodat laag 2 onder laag 1 hangt zoals de leeruitkomst onder de leeruitkomst? (fase 1, Kwalificatiedossier vertalen naar leeruitkomsten, `Vaardigheid`)
 5. Welke weging moet een studentvolgsysteem aggregeren: op het toetsonderdeel (schema) of op de resultaateenheid (regels)? Meta #234 punt 5. (fase 1, Toetsonderdelen en resultaatstructuur uit het examenplan afleiden, `Examenonderdeel weging`)
 6. Is het verzoek tot aanbod een object met sleutel en toestand, of het startevent van aanbod maken? (fase 2, Planningssysteem verzoeken om onderwijsaanbod, `Verzoek tot Aanbod / Intekening op specificatie`)
@@ -317,6 +323,8 @@ Per regel één van vier antwoorden: herken ik dit; heet bij ons anders (welke t
 | 1 | Kwalificatiedossier vertalen naar leeruitkomsten | Leeruitkomst | | | | |
 | 1 | Kwalificatiedossier vertalen naar leeruitkomsten | Competenties / Skills | | | | |
 | 1 | Kwalificatiedossier vertalen naar leeruitkomsten | Vaardigheid | | | | |
+| 1 | Kwalificatiedossier vertalen naar leeruitkomsten | Kennis | | | | |
+| 1 | Kwalificatiedossier vertalen naar leeruitkomsten | Inzicht | | | | |
 | 1 | Opleidingsspecificatie met programma en eenheden beschrijven | Opleiding specificatie | | | | |
 | 1 | Opleidingsspecificatie met programma en eenheden beschrijven | Opleidingsprogramma specificatie | | | | |
 | 1 | Opleidingsspecificatie met programma en eenheden beschrijven | Onderwijseenheid specificatie | | | | |

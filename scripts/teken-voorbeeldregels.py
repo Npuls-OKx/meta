@@ -76,6 +76,7 @@ def element(x, y, kind, label, inst, fill=BUS, line=BUS_L, labelkleur=BUS_T, rx=
 
 
 RELATIE_AFSTAND = 56  # ruimte tussen twee objecten waar een relatielijn loopt
+CONCEPTPLAAT = "Informatiemodel Onderwijsontwerp"
 
 
 def relatielijn(x1, y, x2, soort, label, naar_rechts=True):
@@ -182,7 +183,7 @@ def _objecten_rij(x, y, items, uitzonderingen):
             # een container toont, net als een los element, de toestand of een verwijzing onder de instantie
             extra = f"toestand: {it['toestand']}" if it.get("toestand") else it.get("verwijzing")
             kop = 40 + (16 if extra else 0)
-            ksvg, kw, kh = _objecten_rij(cx + 14, y + kop, it["kinderen"], uitzonderingen)
+            ksvg, kw, kh = _kinderen(cx + 14, y + kop, it["kinderen"], uitzonderingen)
             w = max(kw + 24, tw(it["type"], 11) + 42, tw(it["instantie"], 13, True) + 42, (tw(extra, 11) + 42) if extra else 0)
             h = kop + kh + 10
             out += box(cx, y, w, h, fill, line, 0, dashed) + icon("object", cx + w - 22, y + 5)
@@ -198,9 +199,27 @@ def _objecten_rij(x, y, items, uitzonderingen):
     return out + lijnen, cx - x - 8, maxh
 
 
-def wrap(W, H, body):
+KINDEREN_MAX_BREEDTE = 900  # breder dan dit: de kinderen onder elkaar in plaats van naast elkaar
+
+
+def _kinderen(x, y, items, uitzonderingen):
+    """Kinderen van een container: naast elkaar, of onder elkaar als de rij te breed wordt."""
+    svg, w, h = _objecten_rij(x, y, items, uitzonderingen)
+    if w <= KINDEREN_MAX_BREEDTE or len(items) < 2:
+        return svg, w, h
+    out, ky, maxw = "", y, 0
+    for it in items:
+        s, iw, ih = _objecten_rij(x, ky, [it], uitzonderingen)
+        out += s
+        ky += ih + 8
+        maxw = max(maxw, iw)
+    return out, maxw, ky - 8 - y
+
+
+def wrap(W, H, body, dashed=False):
+    rand = ' stroke-dasharray="6 4"' if dashed else ""
     return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W:.0f} {H:.0f}" width="{W:.0f}" height="{H:.0f}">'
-            f'<rect x="0.5" y="0.5" width="{W-1:.0f}" height="{H-1:.0f}" rx="10" fill="#ffffff" stroke="{LIJN}"/>{body}</svg>')
+            f'<rect x="0.5" y="0.5" width="{W-1:.0f}" height="{H-1:.0f}" rx="10" fill="#ffffff" stroke="{LIJN}"{rand}/>{body}</svg>')
 
 
 def regel_ontstaat(blok, uitzonderingen):
@@ -215,9 +234,17 @@ def regel_ontstaat(blok, uitzonderingen):
     objs, ow, oh = objecten(x, y0, blok["objecten"], uitzonderingen)
     rowh = max(wh, sh, oh)
     zin_y = y0 + rowh + 22
-    W = max(x + ow + 12, tw(blok.get("zin", ""), 13) + 24)
+    concept = blok.get("plaat") == "onderwijsontwerp"
+    chip, zin_x = "", 12
+    if concept:
+        # een verdieping op de conceptplaat: gestippelde rand en een chip voor de zin
+        tekst = f"conceptplaat: {CONCEPTPLAAT}"
+        cw = tw(tekst, 11) + 16
+        chip = box(12, zin_y - 13, cw, 18, "#ffffff", "#c8ccc9", 9, True, "2 2") + text(20, zin_y, tekst, 11, fill=MUTED)
+        zin_x = 12 + cw + 10
+    W = max(x + ow + 12, zin_x + tw(blok.get("zin", ""), 13) + 12)
     H = zin_y + 12
-    return wrap(W, H, wie + stap + pijl + objs + text(12, zin_y, blok.get("zin", ""), 13, fill=MUTED))
+    return wrap(W, H, wie + stap + pijl + objs + chip + text(zin_x, zin_y, blok.get("zin", ""), 13, fill=MUTED), dashed=concept)
 
 
 def regel_stroomt(blok, uitzonderingen):
@@ -286,13 +313,17 @@ def groepeer(regels):
             continue
         laatste = blokken[-1] if blokken else None
         if not laatste or laatste["soort"] != "ontstaat" or (laatste["fase"], laatste["stap"], laatste["wie"], laatste.get("verdieping")) != (r["fase"], r["stap"], r.get("wie"), r.get("verdieping")):
-            laatste = {"soort": "ontstaat", "fase": r["fase"], "stap": r["stap"], "wie": r.get("wie"), "verdieping": r.get("verdieping"), "objecten": [], "zin": r.get("zin", "")}
+            laatste = {"soort": "ontstaat", "fase": r["fase"], "stap": r["stap"], "wie": r.get("wie"), "verdieping": r.get("verdieping"),
+                       "plaat": r.get("plaat", "informatiemodel"), "objecten": [], "zin": r.get("zin", "")}
             blokken.append(laatste)
         item = {"type": r["objecttype"], "instantie": r["instantie"], "aanname": r.get("aanname", False)}
         if soort == "verandert":
             item["toestand"] = r.get("toestand")
         rel = r.get("relatie")
-        in_blok = {it.get("type") for it in laatste["objecten"]} | {k.get("type") for it in laatste["objecten"] for k in it.get("kinderen", [])}
+        # een relatielijn loopt alleen naar het object ernaast (of een kind daarvan); een relatie naar een
+        # object verder terug in het blok, of uit een eerdere stap, staat als verwijzing op het object
+        buur = next((it for it in reversed(laatste["objecten"]) if "type" in it), None)
+        in_blok = ({buur["type"]} | {k.get("type") for k in buur.get("kinderen", [])}) if buur else set()
         if rel and rel.get("nesting"):
             def zoek(items):
                 for it in items:
@@ -310,10 +341,9 @@ def groepeer(regels):
             ander = rel["naar"] if rel["van"] == r["objecttype"] else rel["van"]
             label = rel.get("label") or {"Specialization": "is een", "Aggregation": "bevat", "Composition": "bevat"}.get(rel["soort"], "hangt aan")
             if ander in in_blok:
-                # het andere eind staat links in dit blok: relatielijn ertussen; naar_rechts als dit object het doel is
+                # het andere eind staat ernaast in dit blok: relatielijn ertussen; naar_rechts als dit object het doel is
                 laatste["objecten"].append({"relatie": rel.get("label") or "", "soort": rel["soort"], "naar_rechts": rel["naar"] == r["objecttype"]})
-            elif ander not in in_blok:
-                # het andere eind ontstond in een eerdere stap of staat niet in het blok: verwijzing op het object
+            else:
                 item["verwijzing"] = f"{label} {ander}" if rel["van"] == r["objecttype"] else f"{ander} {label}"
         laatste["objecten"].append(item)
         if r.get("zin") and not laatste["zin"]:

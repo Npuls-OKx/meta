@@ -8,7 +8,7 @@ dit script faalt zodra dat niet zo is, en meldt per fase welke objecttypen binne
 scope nog geen ontstaat-regel hebben.
 
     python3 scripts/controleer-voorbeeldregels.py [--regels PAD] [--model PAD]
-        [--stromen PAD] [--fasen 2,3,4] [--model-commit SHA]
+        [--stromen PAD] [--conceptplaat PAD] [--fasen 2,3,4] [--model-commit SHA]
 
 Controles (R1 en R2 uit het featureplan):
 1. schema: verplichte velden per soort regel (eigen validatie, geen afhankelijkheid);
@@ -21,7 +21,10 @@ Controles (R1 en R2 uit het featureplan):
 6. dekking: elk objecttype binnen scope heeft precies een ontstaat-regel, in de fase van de
    verwachting; latere verschijningen zijn verandert-regels; een genest kind van hetzelfde
    objecttype in dezelfde stap (zelfaggregatie) telt niet als tweede ontstaan;
-7. de model-commit in de kop komt overeen met de meegegeven commit (waarschuwing).
+7. de model-commit in de kop komt overeen met de meegegeven commit (waarschuwing);
+8. een regel met plaat "onderwijsontwerp" hoort bij een verdieping en wijst naar een objecttype en
+   een relatie op de conceptplaat (conceptplaat-onderwijsontwerp.json); zulke regels tellen niet
+   mee in de dekking en kennen geen scope.
 
 Exitcode 0: geen bevindingen; 1: bevindingen; 2: invoer niet leesbaar.
 """
@@ -34,6 +37,8 @@ import sys
 REGELS = pathlib.Path("architecture/model/informatiemodel/voorbeeld-lr1-regels.json")
 MODEL = pathlib.Path("architecture/model/informatiemodel/informatiemodel.json")
 STROMEN = pathlib.Path("architecture/model/informatiemodel/stromen.json")
+CONCEPTPLAAT = pathlib.Path("architecture/model/informatiemodel/conceptplaat-onderwijsontwerp.json")
+PLATEN = {"informatiemodel", "onderwijsontwerp"}
 GEEN_PIJL = "geen pijl op de hoofdplaat"
 NESTING = {"Aggregation", "Composition"}
 SOORTEN = {"ontstaat", "verandert", "stroomt"}
@@ -75,6 +80,10 @@ def schema(regels):
             for veld in ("van", "naar", "pijl"):
                 if not r.get(veld):
                     uit.append(f"{plek}: veld {veld} ontbreekt bij stroomt")
+        if r.get("plaat", "informatiemodel") not in PLATEN:
+            uit.append(f"{plek}: plaat {r.get('plaat')!r} is niet informatiemodel of onderwijsontwerp")
+        if r.get("plaat") == "onderwijsontwerp" and not r.get("verdieping"):
+            uit.append(f"{plek}: de conceptplaat mag alleen in een verdieping")
         rel = r.get("relatie")
         if rel is not None and (not isinstance(rel, dict) or not all(k in rel for k in ("soort", "van", "naar"))):
             uit.append(f"{plek}: relatie moet soort, van en naar hebben")
@@ -83,7 +92,7 @@ def schema(regels):
     return uit
 
 
-def controleer(regels, model, stromen=None, fasen_filter=None, model_commit=None):
+def controleer(regels, model, stromen=None, fasen_filter=None, model_commit=None, conceptplaat=None):
     """Alle controles; geeft (bevindingen, waarschuwingen, ontbrekend per fase)."""
     bevindingen = schema(regels)
     waarschuwingen = []
@@ -92,6 +101,8 @@ def controleer(regels, model, stromen=None, fasen_filter=None, model_commit=None
 
     typen = {norm(o["naam"]): o for o in model["objecttypen"]}
     relaties = {(r["soort"], norm(r["van"]), norm(r["naar"])): (r.get("label") or "") for r in model["relaties"]}
+    concept_typen = {norm(o["naam"]) for o in (conceptplaat or {}).get("objecttypen", [])}
+    concept_relaties = {(r["soort"], norm(r["van"]), norm(r["naar"])): (r.get("label") or "") for r in (conceptplaat or {}).get("relaties", [])}
     uitzonderingen = {norm(u["objecttype"]) for u in regels["scope_uitzonderingen"]}
     binnen = {n for n, o in typen.items() if o.get("scope") == "binnen"} | uitzonderingen
     rollen = set(regels["rollen"])
@@ -113,10 +124,16 @@ def controleer(regels, model, stromen=None, fasen_filter=None, model_commit=None
     for i, r in enumerate(regels["regels"]):
         plek = f"regel {i + 1} (fase {r.get('fase')}, {r.get('stap')})"
         naam = norm(r.get("objecttype", ""))
-        if naam not in typen:
-            bevindingen.append(f"{plek}: objecttype {r.get('objecttype')!r} bestaat niet in het informatiemodel")
+        concept = r.get("plaat") == "onderwijsontwerp"
+        if concept and conceptplaat is None:
+            bevindingen.append(f"{plek}: regel op de conceptplaat, maar de conceptplaat is niet geladen")
             continue
-        if naam not in binnen:
+        plaat_typen, plaat_relaties = (concept_typen, concept_relaties) if concept else (typen, relaties)
+        plaatnaam = "de conceptplaat" if concept else "de plaat"
+        if naam not in plaat_typen:
+            bevindingen.append(f"{plek}: objecttype {r.get('objecttype')!r} bestaat niet " + ("op de conceptplaat" if concept else "in het informatiemodel"))
+            continue
+        if not concept and naam not in binnen:
             bevindingen.append(f"{plek}: objecttype {naam!r} staat buiten scope en heeft geen scope-uitzondering")
         fase = fasen.get(r.get("fase"))
         if fase is None:
@@ -135,13 +152,13 @@ def controleer(regels, model, stromen=None, fasen_filter=None, model_commit=None
         rel = r.get("relatie")
         if isinstance(rel, dict) and all(k in rel for k in ("soort", "van", "naar")):
             sleutel = (rel["soort"], norm(rel["van"]), norm(rel["naar"]))
-            if sleutel not in relaties:
-                bevindingen.append(f"{plek}: relatie {rel['soort']} van {rel['van']!r} naar {rel['naar']!r} staat niet op de plaat")
-            elif rel.get("label") and relaties[sleutel] != rel["label"]:
-                bevindingen.append(f"{plek}: relatielabel {rel['label']!r} wijkt af van de plaat ({relaties[sleutel]!r})")
+            if sleutel not in plaat_relaties:
+                bevindingen.append(f"{plek}: relatie {rel['soort']} van {rel['van']!r} naar {rel['naar']!r} staat niet op {plaatnaam}")
+            elif rel.get("label") and plaat_relaties[sleutel] != rel["label"]:
+                bevindingen.append(f"{plek}: relatielabel {rel['label']!r} wijkt af van {plaatnaam} ({plaat_relaties[sleutel]!r})")
             if rel.get("nesting") and rel["soort"] not in NESTING:
                 bevindingen.append(f"{plek}: nesting alleen op een aggregatie of compositie, niet op {rel['soort']}")
-        if r.get("soort") == "ontstaat":
+        if r.get("soort") == "ontstaat" and not concept:
             # een genest kind van hetzelfde objecttype (zelfaggregatie op de plaat, bijvoorbeeld een
             # leeruitkomst onder een leeruitkomst) in dezelfde stap telt niet als tweede ontstaan
             zelf = isinstance(rel, dict) and rel.get("nesting") and norm(rel.get("van", "")) == naam == norm(rel.get("naar", ""))
@@ -177,6 +194,7 @@ def main(argv=None):
     parser.add_argument("--regels", type=pathlib.Path, default=REGELS)
     parser.add_argument("--model", type=pathlib.Path, default=MODEL)
     parser.add_argument("--stromen", type=pathlib.Path, default=STROMEN)
+    parser.add_argument("--conceptplaat", type=pathlib.Path, default=CONCEPTPLAAT, help="export van de view Informatiemodel Onderwijsontwerp")
     parser.add_argument("--fasen", help="alleen de dekking van deze fasen melden, bijvoorbeeld 2,3,4")
     parser.add_argument("--model-commit", help="commit van informatiemodel.json om tegen de kop te toetsen")
     args = parser.parse_args(argv)
@@ -189,8 +207,9 @@ def main(argv=None):
     stromen = lees_json(args.stromen, "stromen") if pathlib.Path(args.stromen).exists() else None
     if stromen is None:
         print(f"waarschuwing: {args.stromen} ontbreekt; pijlen niet gecontroleerd", file=sys.stderr)
+    conceptplaat = lees_json(args.conceptplaat, "conceptplaat") if pathlib.Path(args.conceptplaat).exists() else None
     fasen_filter = {int(x) for x in args.fasen.split(",")} if args.fasen else None
-    bevindingen, waarschuwingen, _ = controleer(regels, model, stromen, fasen_filter, args.model_commit)
+    bevindingen, waarschuwingen, _ = controleer(regels, model, stromen, fasen_filter, args.model_commit, conceptplaat)
     for w in waarschuwingen:
         print(f"waarschuwing: {w}")
     for b in bevindingen:

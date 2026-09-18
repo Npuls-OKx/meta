@@ -236,6 +236,10 @@
   {
    "naam": "ingeschreven",
    "bron": "leerroute-1-regulier.md, Fase 6: bij passend aanbod de formele inschrijving op het keuzedeel"
+  },
+  {
+   "naam": "onderwijskundig vertaald",
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Kerntaak 'Word onderwijskundig vertaald tot' Leerdoel; Leerdoel 'Heeft één of meer' Leeruitkomst"
   }
  ],
  "scope_uitzonderingen": [
@@ -266,6 +270,14 @@
   {
    "objecttype": "Vaardigheid",
    "motivering": "Zie Competenties / Skills; CompetentNL-vaardigheden (cnlo:HumanCapability) als voorbeeld van een skills-kader."
+  },
+  {
+   "objecttype": "Kennis",
+   "motivering": "Zie Competenties / Skills; CompetentNL-kennisgebieden (cnlo:KnowledgeArea, op ISCED-F) als voorbeeld."
+  },
+  {
+   "objecttype": "Inzicht",
+   "motivering": "Zie Competenties / Skills; de plaat kent inzicht als apart deel van competenties en skills, CompetentNL niet."
   }
  ],
  "koppelingen": {
@@ -394,8 +406,7 @@
     "naar": "Leeruitkomst",
     "label": "Wordt vertaald naar"
    },
-   "zin": "Het dossier zegt wat de beroepsbeoefenaar kan; de leeruitkomst is de invulling van de instelling: waar en hoe de student dat laat zien. Hier: leren door te simuleren in een levensechte omgeving, met een klein deel theorie.",
-   "vraag": "De familie Onderwijskundig kader instelling kent op de plaat alleen de leeruitkomst en skills; het kader zelf waarmee de instelling de kerntaak vormgeeft (onderwijsvisie, didactisch concept; MORA: Onderwijsplan) heeft geen objecttype. Krijgt het er een, met 'volgens' naar de leeruitkomst en 'vult in' naar de specificatie?"
+   "zin": "Het dossier zegt wat de beroepsbeoefenaar kan; de leeruitkomst is de invulling van de instelling: waar en hoe de student dat laat zien. Hier: leren door te simuleren in een levensechte omgeving, met een klein deel theorie."
   },
   {
    "fase": 1,
@@ -416,6 +427,96 @@
   {
    "fase": 1,
    "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
+   "verdieping": "kerntaak onderwijskundig vertaald",
+   "plaat": "onderwijsontwerp",
+   "wie": "onderwijsontwerper",
+   "aanname": true,
+   "soort": "ontstaat",
+   "objecttype": "Leervormstrategie",
+   "instantie": "Leren door te doen in een levensechte omgeving, theorie ondersteunend",
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Strategisch kader instelling, Leervormstrategie naar Onderwijsvorm specificatie",
+   "relatie": {
+    "soort": "Association",
+    "van": "Leervormstrategie",
+    "naar": "Onderwijsvorm specificatie"
+   },
+   "zin": "Conceptplaat: de instelling vertaalt de kerntaak naar een leerdoel en legt in de onderwijsvorm specificatie vast hoe zij de leeruitkomst wil bereiken, onder haar leervormstrategie."
+  },
+  {
+   "fase": 1,
+   "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
+   "verdieping": "kerntaak onderwijskundig vertaald",
+   "plaat": "onderwijsontwerp",
+   "wie": "onderwijsontwerper",
+   "aanname": true,
+   "soort": "ontstaat",
+   "objecttype": "Leerdoel",
+   "instantie": "Zelfstandig farmaceutische patiëntenzorg bieden in een levensechte setting",
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Kerntaak 'Word onderwijskundig vertaald tot' Leerdoel; leerroute-1-regulier.md, r1046 en r1052 (leervorm simulatie, theorie; ruimtetype balie-simulatie)",
+   "relatie": {
+    "soort": "Association",
+    "van": "Kerntaak",
+    "naar": "Leerdoel",
+    "label": "Word onderwijskundig vertaald tot"
+   }
+  },
+  {
+   "fase": 1,
+   "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
+   "verdieping": "kerntaak onderwijskundig vertaald",
+   "plaat": "onderwijsontwerp",
+   "wie": "onderwijsontwerper",
+   "aanname": true,
+   "soort": "verandert",
+   "objecttype": "Leeruitkomst",
+   "instantie": "Biedt farmaceutische patiëntenzorg in een levensechte apotheekomgeving (kerntaakniveau)",
+   "toestand": "onderwijskundig vertaald",
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Leerdoel 'Heeft één of meer' Leeruitkomst",
+   "relatie": {
+    "soort": "Association",
+    "van": "Leerdoel",
+    "naar": "Leeruitkomst",
+    "label": "Heeft één of meer"
+   }
+  },
+  {
+   "fase": 1,
+   "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
+   "verdieping": "kerntaak onderwijskundig vertaald",
+   "plaat": "onderwijsontwerp",
+   "wie": "onderwijsontwerper",
+   "aanname": true,
+   "soort": "ontstaat",
+   "objecttype": "Onderwijsvorm specificatie",
+   "instantie": "Simulatie in de leerapotheek, theorie ondersteunend",
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Leeruitkomst naar Onderwijsvorm specificatie; leerroute-1-regulier.md, r1046 en r1052 (leervorm simulatie, theorie; ruimtetype balie-simulatie)",
+   "relatie": {
+    "soort": "Association",
+    "van": "Leeruitkomst",
+    "naar": "Onderwijsvorm specificatie"
+   },
+   "vraag": "Het kader waarmee de instelling de kerntaak vormgeeft staat op de conceptplaat (leervormstrategie, leerdoel, onderwijsvorm specificatie, leeromgeving), niet op de informatiemodelplaat. Welke daarvan horen in de uitwisseling, bijvoorbeeld leervorm en leeromgeving op het leeronderdeel, en welke blijven binnen de instelling?"
+  },
+  {
+   "fase": 1,
+   "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
+   "verdieping": "kerntaak onderwijskundig vertaald",
+   "plaat": "onderwijsontwerp",
+   "wie": "onderwijsontwerper",
+   "aanname": true,
+   "soort": "ontstaat",
+   "objecttype": "Gewenste Onderwijskundige Leeromgeving",
+   "instantie": "Balie-simulatie in het skillslab",
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Onderwijsvorm specificatie naar Gewenste Onderwijskundige Leeromgeving; leerroute-1-regulier.md, r1046 en r1052 (leervorm simulatie, theorie; ruimtetype balie-simulatie)",
+   "relatie": {
+    "soort": "Association",
+    "van": "Onderwijsvorm specificatie",
+    "naar": "Gewenste Onderwijskundige Leeromgeving"
+   }
+  },
+  {
+   "fase": 1,
+   "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
    "verdieping": "leeruitkomst naar skills",
    "soort": "verandert",
    "wie": "onderwijsontwerper",
@@ -424,7 +525,7 @@
    "toestand": "vertaald naar skills",
    "bron": "CompetentNL ontologie 2.1.0 (competentnl.nl, TTL, gewijzigd 14 juli 2026): cnlo:HumanCapability (Vaardigheid) gelaagd via skos:broader, drie lagen (6 verzamelconcepten, 24 generieke, 128 specifieke vaardigheden); cnlo:EducationalNorm (Opleidingsnorm) schrijft vaardigheden voor (cnlo:prescribes); leerroute-1-regulier.md, r1092",
    "aanname": true,
-   "zin": "Verdieping: dezelfde leeruitkomst, uitgedrukt in CompetentNL-vaardigheden; laag 2 hangt onder laag 1 (Sociale en communicatieve vaardigheden) zoals het werkproces onder de kerntaak, en aggregeert naar boven."
+   "zin": "Verdieping: dezelfde leeruitkomst in CompetentNL-termen: vaardigheden in drie lagen (hier laag 2), kennisgebieden op ISCED-F, en het inzicht dat de plaat apart benoemt. Hoe fijnmaziger, hoe scherper wat Jochem moet leren."
   },
   {
    "fase": 1,
@@ -452,7 +553,7 @@
    "wie": "onderwijsontwerper",
    "objecttype": "Competenties / Skills",
    "instantie": "Vaardigheden bij deze leeruitkomst (CompetentNL)",
-   "bron": "CompetentNL ontologie 2.1.0 (competentnl.nl, TTL, gewijzigd 14 juli 2026): cnlo:HumanCapability (Vaardigheid) gelaagd via skos:broader, drie lagen (6 verzamelconcepten, 24 generieke, 128 specifieke vaardigheden); cnlo:EducationalNorm (Opleidingsnorm) schrijft vaardigheden voor (cnlo:prescribes)",
+   "bron": "CompetentNL ontologie 2.1.0 (competentnl.nl, TTL, gewijzigd 14 juli 2026): cnlo:HumanCapability (Vaardigheid) gelaagd via skos:broader, drie lagen (6 verzamelconcepten, 24 generieke, 128 specifieke vaardigheden); cnlo:KnowledgeArea (Kennisgebied) met een ISCED-F detailed field als ouder; cnlo:EducationalNorm (Opleidingsnorm) schrijft vaardigheden en kennisgebieden voor (cnlo:prescribes)",
    "aanname": true,
    "relatie": {
     "soort": "Specialization",
@@ -468,7 +569,7 @@
    "wie": "onderwijsontwerper",
    "objecttype": "Vaardigheid",
    "instantie": "Communicatieve vaardigheden (CompetentNL laag 2)",
-   "bron": "CompetentNL ontologie 2.1.0 (competentnl.nl, TTL, gewijzigd 14 juli 2026): cnlo:HumanCapability (Vaardigheid) gelaagd via skos:broader, drie lagen (6 verzamelconcepten, 24 generieke, 128 specifieke vaardigheden); cnlo:EducationalNorm (Opleidingsnorm) schrijft vaardigheden voor (cnlo:prescribes)",
+   "bron": "CompetentNL ontologie 2.1.0 (competentnl.nl, TTL, gewijzigd 14 juli 2026): cnlo:HumanCapability (Vaardigheid) gelaagd via skos:broader, drie lagen (6 verzamelconcepten, 24 generieke, 128 specifieke vaardigheden); cnlo:KnowledgeArea (Kennisgebied) met een ISCED-F detailed field als ouder; cnlo:EducationalNorm (Opleidingsnorm) schrijft vaardigheden en kennisgebieden voor (cnlo:prescribes)",
    "aanname": true,
    "relatie": {
     "soort": "Aggregation",
@@ -477,6 +578,40 @@
     "nesting": true
    },
    "vraag": "CompetentNL legt vaardigheden gelaagd vast (skos:broader, drie lagen) en de leeruitkomst is op de plaat gelaagd; Vaardigheid is dat niet. Krijgt Vaardigheid een eigen aggregatie, zodat laag 2 onder laag 1 hangt zoals de leeruitkomst onder de leeruitkomst?"
+  },
+  {
+   "fase": 1,
+   "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
+   "verdieping": "leeruitkomst naar skills",
+   "soort": "ontstaat",
+   "wie": "onderwijsontwerper",
+   "aanname": true,
+   "objecttype": "Kennis",
+   "instantie": "Farmacie (CompetentNL kennisgebied op ISCED-F 0916)",
+   "bron": "CompetentNL ontologie 2.1.0 (competentnl.nl, TTL, gewijzigd 14 juli 2026): cnlo:HumanCapability (Vaardigheid) gelaagd via skos:broader, drie lagen (6 verzamelconcepten, 24 generieke, 128 specifieke vaardigheden); cnlo:KnowledgeArea (Kennisgebied) met een ISCED-F detailed field als ouder; cnlo:EducationalNorm (Opleidingsnorm) schrijft vaardigheden en kennisgebieden voor (cnlo:prescribes); ISCED-F 2013, detailed field 0916 Pharmacy",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Competenties / Skills",
+    "naar": "Kennis",
+    "nesting": true
+   }
+  },
+  {
+   "fase": 1,
+   "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
+   "verdieping": "leeruitkomst naar skills",
+   "soort": "ontstaat",
+   "wie": "onderwijsontwerper",
+   "aanname": true,
+   "objecttype": "Inzicht",
+   "instantie": "Werking en risico van een geneesmiddel bij de vraag aan de balie",
+   "bron": "geen bron, keuze van het voorbeeld: de plaat kent inzicht als apart deel van competenties en skills, CompetentNL niet",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Competenties / Skills",
+    "naar": "Inzicht",
+    "nesting": true
+   }
   },
   {
    "fase": 1,

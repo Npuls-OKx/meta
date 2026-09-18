@@ -74,6 +74,16 @@ class GenereerTests(unittest.TestCase):
         self.assertEqual(beelden[0][1], "f2-01-aanbod-maken.svg")
         self.assertEqual(beelden[1], ("ontstaat: Aanbod maken, verdieping: aanbod naar skills", "f2-02-aanbod-maken-verdieping.svg"))
 
+    def test_given_concept_rule_when_generated_then_image_shown_but_not_in_chips_nor_invulblad(self):
+        r = regels()
+        r["regels"].insert(1, {"fase": 2, "stap": "Aanbod maken", "verdieping": "kader", "plaat": "onderwijsontwerp", "soort": "ontstaat", "wie": "planner",
+                               "objecttype": "Leervormstrategie", "instantie": "Leren door te doen", "bron": "c"})
+        doc = self.bouw(r)
+        self.assertIn("f2-02-aanbod-maken-verdieping.svg", doc)
+        self.assertNotIn("`Leervormstrategie`", doc)
+        self.assertNotIn("| 2 | Aanbod maken | Leervormstrategie |", doc)
+        self.assertIn("conceptplaat", doc)
+
     def test_given_scope_when_generated_then_family_tables_cover_in_scope_types(self):
         doc = self.bouw()
         bijlage = doc[doc.index("## Bijlage"):doc.index("## Vragen")]

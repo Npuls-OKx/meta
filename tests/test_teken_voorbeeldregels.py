@@ -63,6 +63,26 @@ class TekenTests(unittest.TestCase):
         self.assertIn("verdieping: aanbod naar skills", teksten(tv.regel_ontstaat(b[1], set())))
         self.assertNotIn("verdieping: aanbod naar skills", teksten(tv.regel_ontstaat(b[0], set())))
 
+    def test_given_relation_to_non_adjacent_object_when_grouped_then_reference_not_line(self):
+        r = regels()
+        r["regels"].insert(3, {"fase": 2, "stap": "Aanbod maken", "soort": "ontstaat", "wie": "planner", "objecttype": "Student keuze regelset", "instantie": "Regels", "bron": "b",
+                               "relatie": {"soort": "Association", "van": "Opleidingaanbod", "naar": "Student keuze regelset"}})
+        blok = [b for b in self.blokken(r) if b["stap"] == "Aanbod maken"][0]
+        laatste = blok["objecten"][-1]
+        self.assertEqual(laatste["type"], "Student keuze regelset")
+        self.assertEqual(laatste["verwijzing"], "Opleidingaanbod hangt aan")
+        self.assertNotIn("relatie", blok["objecten"][-2])
+
+    def test_given_concept_block_when_drawn_then_chip_and_dashed_frame(self):
+        extra = [{"fase": 2, "stap": "Aanbod maken", "verdieping": "kader", "plaat": "onderwijsontwerp", "soort": "ontstaat", "wie": "planner",
+                  "objecttype": "Leervormstrategie", "instantie": "Leren door te doen", "bron": "c"}]
+        blokken = [b for b in self.blokken(regels(extra)) if b["stap"] == "Aanbod maken"]
+        self.assertEqual([b.get("plaat") for b in blokken], ["informatiemodel", "onderwijsontwerp"])
+        svg = tv.regel_ontstaat(blokken[1], set())
+        self.assertIn("conceptplaat: Informatiemodel Onderwijsontwerp", teksten(svg))
+        self.assertIn("6 4", rects(svg)[0].get("stroke-dasharray", ""))
+        self.assertNotIn("stroke-dasharray", rects(tv.regel_ontstaat(blokken[0], set()))[0])
+
     def test_given_ontstaat_rule_when_drawn_then_svg_contains_role_step_and_each_instance(self):
         blok = self.blokken()[0]
         svg = tv.regel_ontstaat(blok, {"Lesgelegenheid"})
@@ -91,6 +111,17 @@ class TekenTests(unittest.TestCase):
         self.assertIn("toestand: geroosterd", ts)
         self.assertLess(ts["toestand: geroosterd"][1], ts["Blok 1"][1])
         self.assertIn(("AA 2026"), ts)
+
+    def test_given_wide_row_of_children_when_drawn_then_stacked_within_parent(self):
+        lang = "Een heel lange instantienaam die de rij van kinderen ver voorbij de maximale breedte duwt"
+        extra = [{"fase": 4, "stap": "Roosteren", "soort": "ontstaat", "wie": "roosteraar", "objecttype": f"Kind {i}", "instantie": lang, "bron": "b",
+                  "relatie": {"soort": "Aggregation", "van": "Lesgelegenheid", "naar": f"Kind {i}", "nesting": True}} for i in range(3)]
+        blok = [b for b in self.blokken(regels(extra)) if b["stap"] == "Roosteren"][0]
+        svg = tv.regel_ontstaat(blok, set())
+        ys = {t.text: float(t.get("y")) for t in ET.fromstring(svg).iter(f"{SVG}text") if t.text and t.text.startswith("Kind ")}
+        self.assertEqual(len(ys), 3)
+        self.assertEqual(len(set(ys.values())), 3)
+        self.assertLess(float(ET.fromstring(svg).get("width")), 1500)
 
     def test_given_assumption_when_drawn_then_rect_has_dasharray(self):
         blok = self.blokken()[0]

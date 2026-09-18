@@ -81,6 +81,8 @@ Twee soorten regels, in de vormtaal van de plaat:
 - **Ontstaat**: een rol (geel, rolicoon) voert een processtap uit (geel, procesicoon) en daaruit ontstaan objecttypen (geel, objecticoon) met Jochems waarde. "Bestaat uit" is nesting; een relatielabel van de plaat staat tussen twee objecten of als verwijzing op een object dat aan een eerdere stap hangt. Een gestippelde rand is een aanname; grijs is een objecttype dat de plaat buiten de uitwisseling zet en dit voorbeeld toch meeneemt.
 - **Stroomt** (blauwe rand): van welk systeem naar welk systeem gaat welk object, met de koppeling-ID of "zonder koppelingspecificatie", en de processtap waarna het gebeurt.
 
+Een **verdieping** (zelfde rol en stap, met "verdieping" op de processtap) zoomt in op een regel erboven. Een verdieping met een gestippelde rand en de chip "conceptplaat: Informatiemodel Onderwijsontwerp" put uit de conceptplaat in het ArchiMate-model: zij laat zien waar de informatiemodelplaat kan groeien en telt niet mee in de bijlage en het invulblad.
+
 Koppeling-ID's op hoofdplaat v1.7: {mapping}. Een pijl die op de hoofdplaat staat maar geen koppelingspecificatie heeft, staat als "zonder koppelingspecificatie"; een stroom uit het kaderscenario zonder pijl op de hoofdplaat staat als "geen pijl op de hoofdplaat".
 
 De fasenamen zijn de sectiekoppen "Fase 1" tot "Fase 8" van het kaderscenario. Het kaderscenario noemt fase 3 in de fasenlijst "Instroom, afstemming en plaatsing" en in de sectiekop "Instroom, intake en plaatsing"; hier geldt de sectiekop.
@@ -94,7 +96,7 @@ def fase_sectie(f, blokken, regels_in_fase):
     if f.get("link"):
         kop += f"De fase in detail: [kaderscenario leerroute 1, fase {f['nummer']}]({f['link']}).\n\n"
     mora = f.get("mora_hoofdproces")
-    chips_obj = [norm(r["objecttype"]) for r in regels_in_fase if r["soort"] in ("ontstaat", "verandert")]
+    chips_obj = [norm(r["objecttype"]) for r in regels_in_fase if r["soort"] in ("ontstaat", "verandert") and r.get("plaat", "informatiemodel") == "informatiemodel"]
     chips_obj = list(dict.fromkeys(chips_obj))
     chips_str = list(dict.fromkeys(f"{r['van']} naar {r['naar']}" for r in regels_in_fase if r["soort"] == "stroomt"))
     if not regels_in_fase:
@@ -160,7 +162,7 @@ def vragenpagina(regels):
     uit += "\nVragen over patronen, schema's, de toetslijst en endpoints horen bij de koppelvlakspecificatie en staan hier niet.\n\n"
     uit += "### Invulblad\n\nPer regel één van vier antwoorden: herken ik dit; heet bij ons anders (welke term); hangt bij ons anders (waaronder); ontbreekt.\n\n| Fase | Stap | Objecttype | Herken | Heet anders | Hangt anders | Ontbreekt |\n|---|---|---|---|---|---|---|\n"
     for r in regels["regels"]:
-        if r["soort"] in ("ontstaat", "verandert"):
+        if r["soort"] in ("ontstaat", "verandert") and r.get("plaat", "informatiemodel") == "informatiemodel":
             uit += f"| {r['fase']} | {r['stap']} | {norm(r['objecttype'])} | | | | |\n"
     return uit + "\n"
 

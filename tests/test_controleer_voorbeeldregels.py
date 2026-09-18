@@ -206,6 +206,57 @@ class ControleTests(unittest.TestCase):
         self.assertFalse(any("rel-99" in x for x in b))
 
 
+def conceptplaat():
+    return {"bron": {"view": "Conceptview"},
+            "objecttypen": [{"naam": "Leerdoel", "groep": "Onderwijsplan"}, {"naam": "Leervormstrategie", "groep": "Strategisch kader"}],
+            "relaties": [{"soort": "Association", "van": "Leervormstrategie", "naar": "Leerdoel", "label": None}]}
+
+
+def conceptregel(**extra):
+    r = {"fase": 2, "stap": "Aanbod maken", "verdieping": "kader", "plaat": "onderwijsontwerp", "soort": "ontstaat", "wie": "planner",
+         "objecttype": "Leerdoel", "instantie": "Leren door te doen", "bron": "conceptplaat",
+         "relatie": {"soort": "Association", "van": "Leervormstrategie", "naar": "Leerdoel"}}
+    r.update(extra)
+    return r
+
+
+class ConceptplaatTests(unittest.TestCase):
+    def test_given_concept_rule_in_verdieping_when_checked_against_conceptplaat_then_no_findings(self):
+        r = regels(); r["regels"].append(conceptregel())
+        b, _, o = bevindingen(r, conceptplaat=conceptplaat())
+        self.assertEqual(b, [])
+        self.assertEqual(o, {})
+
+    def test_given_concept_rule_without_verdieping_when_checked_then_finding(self):
+        r = regels(); r["regels"].append(conceptregel(verdieping=None))
+        b, _, _ = bevindingen(r, conceptplaat=conceptplaat())
+        self.assertTrue(any("alleen in een verdieping" in x for x in b))
+
+    def test_given_concept_rule_when_conceptplaat_not_loaded_then_finding(self):
+        r = regels(); r["regels"].append(conceptregel())
+        b, _, _ = bevindingen(r)
+        self.assertTrue(any("conceptplaat is niet geladen" in x for x in b))
+
+    def test_given_concept_rule_with_unknown_type_or_relation_when_checked_then_finding_names_conceptplaat(self):
+        r = regels(); r["regels"].append(conceptregel(objecttype="Onderwijsvorm specificatie"))
+        b, _, _ = bevindingen(r, conceptplaat=conceptplaat())
+        self.assertTrue(any("bestaat niet op de conceptplaat" in x for x in b))
+        r = regels(); r["regels"].append(conceptregel(relatie={"soort": "Aggregation", "van": "Leervormstrategie", "naar": "Leerdoel"}))
+        b, _, _ = bevindingen(r, conceptplaat=conceptplaat())
+        self.assertTrue(any("staat niet op de conceptplaat" in x for x in b))
+
+    def test_given_concept_rule_when_checked_then_not_counted_in_coverage_nor_scope(self):
+        r = regels(); r["regels"].append(conceptregel(objecttype="Leerdoel", instantie="x", relatie=None))
+        r["regels"].append(conceptregel(instantie="y", relatie=None))
+        b, _, _ = bevindingen(r, conceptplaat=conceptplaat())
+        self.assertFalse(any("ontstaat-regels" in x or "buiten scope" in x for x in b))
+
+    def test_given_unknown_plaat_when_checked_then_finding(self):
+        r = regels(); r["regels"].append(conceptregel(plaat="hoofdplaat"))
+        b, _, _ = bevindingen(r, conceptplaat=conceptplaat())
+        self.assertTrue(any("plaat 'hoofdplaat'" in x for x in b))
+
+
 class MainTests(unittest.TestCase):
     def schrijf(self, map_, naam, inhoud):
         p = Path(map_) / naam
