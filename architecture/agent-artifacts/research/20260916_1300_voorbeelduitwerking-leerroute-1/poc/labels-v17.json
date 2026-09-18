@@ -1,0 +1,9 @@
+{"Curriculum ontwerptool>Onderwijscatalogus": "Opleiding specificatie",
+ "Onderwijscatalogus>Planningssysteem": "Opleidingsprogramma specificatie",
+ "Planningssysteem>Onderwijscatalogus": "Opleidingaanbod",
+ "Planningssysteem>Roostersysteem": "Leergelegenheid",
+ "Onderwijscatalogus>Leer management systeem (LMS)": "Leeronderdeel specificatie",
+ "Leer management systeem (LMS)>Student volg systeem (SVS)": "Leergelegenheid resultaat",
+ "Voorziening Centraal Aanmelden (CAMBO)>Kernregistratie systeem studenten (KRS)": "Aanmelding",
+ "Kernregistratie systeem studenten (KRS)>Planningssysteem": "Plaatsingsgroep",
+ "Roostersysteem>Kernregistratie systeem studenten (KRS)": "Lesgelegenheid"}

@@ -1,0 +1,3 @@
+{"soort":"ontstaat","wie":{"type":"rol","naam":"Planner"},"stap":"Opleidingsaanbod maken",
+ "objecten":[{"type":"Opleidingaanbod","instantie":"Apothekersassistent 2026","kinderen":[{"type":"Opleidingsprogramma aanbod","instantie":"Regulier BOL 2026"},{"type":"Onderwijseenheid aanbod","instantie":"B1-K1, leerjaar 1"}]},{"relatie":"Op basis van"},{"type":"Cohort / periode","instantie":"2026"},{"type":"Verzoek tot Aanbod","instantie":"Planopgave cohort 2026","aanname":true}],
+ "zin":"Jaarplanning: 120 studenten, vier perioden van tien weken, per kerntaakblok een aanbod."}
