@@ -113,3 +113,7 @@ Fase 1 (kwalificatiekader en specificatiestructuur genest) en fase 2 (de structu
 
 ![Regels fase 1 en 2](poc/regels-fase-1-en-2.png)
 
+Fase 1 na de aanwijzingen van de modelleur: de examencommissie stelt het examenplan vast (buiten de uitwisseling, als oorsprong), de onderwijsontwerper leidt daaruit de summatieve resultaatstructuur af, en die gaat met de specificatiestructuur naar de catalogus. Brede ketens staan in een kolom.
+
+![Regels fase 1](poc/regels-fase-1.png)
+
