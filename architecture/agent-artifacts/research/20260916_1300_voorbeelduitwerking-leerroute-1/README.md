@@ -145,3 +145,11 @@ Drieluik onder de stap "Kwalificatiedossier vertalen naar leeruitkomsten". Boven
 Elke regel draagt nu een stabiel ID (R, fase, volgnummer) rechtsboven in het object en onder elk beeld; het regelregister achterin het document koppelt ID, beeld en bron met links. Toets- en examenonderdelen, onderwijseenheid, leeronderdeel en de resultaatstructuur verwijzen naar de leeruitkomst die zij aftikken. De uitwisseling van fase 1 gaat als gelinkt geheel: leeruitkomsten met hun skills (grijs, buiten scope), de specificatiestructuur met het onderwijsontwerp van de conceptplaat (paars) en de resultaatstructuur; de objecten blijven naast elkaar, verbonden door de stippellijn van de pijl, en lopen door op een volgende rij. Het keuzedeel is een eigen programmaspecificatie in een eigen stap; in de opleiding blijft de keuzedeelruimte met de regelset.
 
 ![Specificatie, keuzedeel en de uitwisseling van fase 1](poc/regels-fase-1-uitwisseling.png)
+
+## De stroom als lijn bovenaan, alle fasen bijgewerkt, 18 september
+
+Een stroom toont de pijl van component naar component bovenaan als horizontale stippellijn; de objecten die samen overgaan hangen eronder, onderling gerelateerd. Fase 2 tot 8 volgen de principes van fase 1 (leeruitkomst als sleutel, stromen als gelinkt geheel, keuzedeel als eigen specificatie). Per fase leest een tegenlezer in een verse context mee.
+
+![Fase 1 na de herziening](poc/regels-fase-1.png)
+
+![Fase 4 na de herziening](poc/regels-fase-4.png)
