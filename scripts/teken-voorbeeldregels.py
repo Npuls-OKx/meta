@@ -30,6 +30,7 @@ UIT = pathlib.Path("architecture/model/informatiemodel/img/regels")
 BUS, BUS_L, BUS_T = "#ffffb5", "#a8a85a", "#5a5a2a"
 APP, APP_L, APP_T = "#b5ffff", "#5aa8a8", "#2a5a5a"
 GRIJS, GRIJS_L, GRIJS_T = "#e8e8e8", "#9a9a9a", "#666666"
+CONCEPT, CONCEPT_L, CONCEPT_T = "#efe6ff", "#9b86c9", "#4a3a78"  # objecttype van de conceptplaat
 INK, MUTED, LIJN = "#1c1c1c", "#5b6663", "#d8ddda"
 FONT = "Arial, Helvetica, sans-serif"
 ICONS = {
@@ -172,10 +173,15 @@ def _objecten_kolom(x, y, items, uitzonderingen):
     return out + lijnen, maxw, max(h1, ky - 28 - y)
 
 
-def _objecten_rij(x, y, items, uitzonderingen):
+STROOMGAT = 34  # tussenruimte met stippellijn tussen objecten die samen over een pijl gaan
+
+
+def _objecten_rij(x, y, items, uitzonderingen, verbind=False):
+    """verbind: de objecten gaan samen over een pijl; waar geen relatielijn loopt, verbindt een stippellijn ze."""
     out, cx, maxh = "", x, 0
     lijnen = ""
     vorige_rand = None  # rechterrand en middenhoogte van het vorige object
+    na_relatie = False
     for it in items:
         if "relatie" in it and "type" not in it:
             # een relatie tussen het vorige en het volgende object: lijn met ruit of pijl
@@ -185,10 +191,18 @@ def _objecten_rij(x, y, items, uitzonderingen):
                 afstand = max(RELATIE_AFSTAND, tw(it["relatie"], 10) + 24)  # de lijn is minstens zo lang als het label
                 lijnen += relatielijn(x1, ym, x1 + afstand, it_soort, it["relatie"], it.get("naar_rechts", True))
                 cx = x1 + afstand
+                na_relatie = True
             continue
+        if verbind and vorige_rand and not na_relatie:
+            x1, ym = vorige_rand
+            cx = x1 + STROOMGAT
+            lijnen += f'<path d="M{x1:.0f} {ym:.0f}h{STROOMGAT}" stroke="{APP_T}" stroke-width="2" stroke-dasharray="5 4"/>'
+        na_relatie = False
         dashed = it.get("aanname", False)
         buiten = it["type"] in uitzonderingen
         fill, line, lk = (GRIJS, GRIJS_L, GRIJS_T) if buiten else (BUS, BUS_L, BUS_T)
+        if it.get("plaat") == "onderwijsontwerp":
+            fill, line, lk = CONCEPT, CONCEPT_L, CONCEPT_T
         if it.get("kinderen"):
             # een container toont, net als een los element, de toestand en verwijzingen onder de instantie
             extra = _extra(it.get("toestand"), it.get("verwijzing"), it.get("verwijzingen", ()))
@@ -210,6 +224,44 @@ def _objecten_rij(x, y, items, uitzonderingen):
         cx += w + 8
         maxh = max(maxh, h)
     return out + lijnen, cx - x - 8, maxh
+
+
+STROOM_MAX_BREEDTE = 1700  # breder dan dit: de keten over een pijl loopt door op een volgende rij
+
+
+def _objecten_rijen(x, y, items, uitzonderingen, maxbreedte=STROOM_MAX_BREEDTE):
+    """De objecten over een pijl, naast elkaar met stippellijnen ertussen; wordt de rij breder dan
+    maxbreedte, dan gaat de keten verder op een volgende rij. Een relatie blijft bij het object dat volgt.
+    Geeft (svg, w, h, rijen) met per rij (y, rechterrand)."""
+    groepen, wacht = [], []
+    for it in items:
+        wacht.append(it)
+        if "type" in it:
+            groepen.append(wacht)
+            wacht = []
+    rijen, huidige = [], []
+    for g in groepen:
+        proef = huidige + g
+        _, w, _ = _objecten_rij(x, y, proef, uitzonderingen, True)
+        if huidige and w > maxbreedte:
+            rijen.append(huidige)
+            huidige = list(g)
+        else:
+            huidige = proef
+    if huidige:
+        rijen.append(huidige)
+    out, ry, maxw, uit = "", y, 0, []
+    for i, rij in enumerate(rijen):
+        # een relatie aan het begin van een vervolgrij hoort bij het vorige object: als verwijzing tonen
+        if rij and "type" not in rij[0]:
+            rel = rij.pop(0)
+            rij[0].setdefault("verwijzingen", []).append(f"{rel['relatie'] or STANDAARDLABEL.get(rel['soort'], 'hangt aan')} (vorige rij)")
+        svg, w, h = _objecten_rij(x, ry, rij, uitzonderingen, True)
+        out += svg
+        uit.append((ry, x + w))
+        maxw = max(maxw, w)
+        ry += h + 28
+    return out, maxw, ry - 28 - y, uit
 
 
 KINDEREN_MAX_BREEDTE = 900  # breder dan dit: de kinderen onder elkaar in plaats van naast elkaar
@@ -271,20 +323,26 @@ def regel_stroomt(blok, uitzonderingen):
     lijn = 34
     s += van + f'<path d="M{x} {y0+23}h{lijn}" stroke="{APP_T}" stroke-width="2" stroke-dasharray="5 4"/>'
     x += lijn
-    # het object dat over de lijn gaat, als structuur (nesting) of als enkel object
-    osvg, ow, oh = objecten(x, y0, blok["objecten"], uitzonderingen)
+    # de objecten die samen over de pijl gaan, naast elkaar en zo nodig over meer rijen
+    x0 = x
+    osvg, ow, oh, rijen = _objecten_rijen(x, y0, blok["objecten"], uitzonderingen)
+    for ry, rand in rijen[1:]:
+        s += f'<path d="M{x0 - lijn} {ry+23}h{lijn}" stroke="{APP_T}" stroke-width="2" stroke-dasharray="5 4"/>'
+    for ry, rand in rijen[:-1]:
+        s += f'<path d="M{rand} {ry+23}h{lijn}" stroke="{APP_T}" stroke-width="2" stroke-dasharray="5 4"/>'
     s += osvg
-    x += ow
-    s += f'<path d="M{x} {y0+23}h{lijn}" stroke="{APP_T}" stroke-width="2" stroke-dasharray="5 4"/>'
-    s += f'<path d="M{x+lijn-2} {y0+17}l10 6-10 6z" fill="{APP_T}"/>'
+    ly, rand = rijen[-1]
+    x = rand
+    s += f'<path d="M{x} {ly+23}h{lijn}" stroke="{APP_T}" stroke-width="2" stroke-dasharray="5 4"/>'
+    s += f'<path d="M{x+lijn-2} {ly+17}l10 6-10 6z" fill="{APP_T}"/>'
     x += lijn + 10
-    naar, nw, nh = element(x, y0, "component", "naar", blok["naar"], APP, APP_L, APP_T)
+    naar, nw, nh = element(x, ly, "component", "naar", blok["naar"], APP, APP_L, APP_T)
     x += nw + 10
     stapw = tw("na: " + blok["stap"], 11) + 16
-    s += naar + box(x, y0 + 14, stapw, 18, "#ffffff", "#c8ccc9", 9, True, "2 2") + text(x + 8, y0 + 27, "na: " + blok["stap"], 11, fill=MUTED)
+    s += naar + box(x, ly + 14, stapw, 18, "#ffffff", "#c8ccc9", 9, True, "2 2") + text(x + 8, ly + 27, "na: " + blok["stap"], 11, fill=MUTED)
     x += stapw + 12
     zin_y = y0 + max(46, oh) + 22
-    W = max(x, tw(blok.get("zin", ""), 13) + 24)
+    W = max(x, x0 + ow + lijn + 12, tw(blok.get("zin", ""), 13) + 24)
     H = zin_y + 12
     body = f'<rect x="0" y="0" width="4" height="{H:.0f}" fill="{APP_L}"/>' + s + text(12, zin_y, blok.get("zin", ""), 13, fill=MUTED)
     return wrap(W, H, body)
@@ -311,7 +369,7 @@ def groepeer(regels):
         if soort == "stroomt":
             laatste = blokken[-1] if blokken else None
             item = {"type": r["objecttype"], "instantie": r["instantie"], "aanname": r.get("aanname", False), "id": r.get("id"),
-                    "verwijzingen": [_verwijzing(x, r["objecttype"]) for x in r.get("relaties", [])]}
+                    "plaat": r.get("plaat", "informatiemodel"), "verwijzingen": [_verwijzing(x, r["objecttype"]) for x in r.get("relaties", [])]}
             rel = r.get("relatie")
             if laatste and laatste["soort"] == "stroomt" and (laatste["fase"], laatste["stap"], laatste["van"], laatste["naar"]) == (r["fase"], r["stap"], r["van"], r["naar"]):
                 buur_s = next((it for it in reversed(laatste["objecten"]) if "type" in it), None)
@@ -346,7 +404,7 @@ def groepeer(regels):
                        "plaat": r.get("plaat", "informatiemodel"), "objecten": [], "zin": r.get("zin", "")}
             blokken.append(laatste)
         item = {"type": r["objecttype"], "instantie": r["instantie"], "aanname": r.get("aanname", False), "id": r.get("id"),
-                "verwijzingen": [_verwijzing(x, r["objecttype"]) for x in r.get("relaties", [])]}
+                "plaat": r.get("plaat", "informatiemodel"), "verwijzingen": [_verwijzing(x, r["objecttype"]) for x in r.get("relaties", [])]}
         if soort == "verandert":
             item["toestand"] = r.get("toestand")
         rel = r.get("relatie")

@@ -24,7 +24,7 @@ Controles (R1 en R2 uit het featureplan):
 7. de model-commit in de kop komt overeen met de meegegeven commit (waarschuwing);
 8. elk regel-ID volgt R<fase>-<nnn>, is uniek en noemt de fase van de regel; verdere relaties
    (relaties) bestaan op de plaat en dragen geen nesting;
-9. een regel met plaat "onderwijsontwerp" hoort bij een verdieping en wijst naar een objecttype en
+9. een regel met plaat "onderwijsontwerp" hoort bij een verdieping of een stroom en wijst naar een objecttype en
    een relatie op de conceptplaat (conceptplaat-onderwijsontwerp.json); zulke regels tellen niet
    mee in de dekking en kennen geen scope.
 
@@ -97,8 +97,8 @@ def schema(regels):
                     uit.append(f"{plek}: veld {veld} ontbreekt bij stroomt")
         if r.get("plaat", "informatiemodel") not in PLATEN:
             uit.append(f"{plek}: plaat {r.get('plaat')!r} is niet informatiemodel of onderwijsontwerp")
-        if r.get("plaat") == "onderwijsontwerp" and not r.get("verdieping"):
-            uit.append(f"{plek}: de conceptplaat mag alleen in een verdieping")
+        if r.get("plaat") == "onderwijsontwerp" and not r.get("verdieping") and r.get("soort") != "stroomt":
+            uit.append(f"{plek}: de conceptplaat mag alleen in een verdieping of in een stroomt-regel")
         rel = r.get("relatie")
         if rel is not None and (not isinstance(rel, dict) or not all(k in rel for k in ("soort", "van", "naar"))):
             uit.append(f"{plek}: relatie moet soort, van en naar hebben")

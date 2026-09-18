@@ -99,6 +99,12 @@ class GenereerTests(unittest.TestCase):
         self.assertEqual(gv.bronlinks("geen bron, keuze van het voorbeeld"), "geen bron, keuze van het voorbeeld")
         self.assertIn("scenario-uitwerkingen/scenario-1.1-regulier-happyflow.md?plain=1#L82", gv.bronlinks("scenario-1.1-regulier-happyflow.md, r82: intake"))
 
+    def test_given_images_when_generated_then_ids_listed_under_each_image(self):
+        doc = self.bouw()
+        self.assertIn("![ontstaat: Aanbod maken](img/regels/f2-01-aanbod-maken.svg)\n\nRegel `R2-001`\n", doc)
+        self.assertEqual(gv.idreeks(["R1-028", "R1-029", "R1-030"]), "Regels `R1-028` tot `R1-030`")
+        self.assertEqual(gv.idreeks(["R1-028", "R1-030"]), "Regels `R1-028`, `R1-030`")
+
     def test_given_scope_when_generated_then_family_tables_cover_in_scope_types(self):
         doc = self.bouw()
         bijlage = doc[doc.index("## Bijlage"):doc.index("## Vragen")]

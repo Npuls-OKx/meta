@@ -14,6 +14,7 @@
     "Examenplan vaststellen",
     "Kwalificatiedossier vertalen naar leeruitkomsten",
     "Opleidingsspecificatie met programma en eenheden beschrijven",
+    "Keuzedeelprogramma als eigen specificatie vormgeven",
     "Toetsonderdelen en resultaatstructuur uit het examenplan afleiden",
     "Grofmazig resultaat publiceren naar de onderwijscatalogus"
    ],
@@ -724,21 +725,6 @@
    }
   },
   {
-   "id": "R1-026",
-   "fase": 1,
-   "stap": "Opleidingsspecificatie met programma en eenheden beschrijven",
-   "soort": "ontstaat",
-   "wie": "onderwijsontwerper",
-   "objecttype": "Keuzedeel",
-   "instantie": "Ondernemerschap in de zorg",
-   "bron": "leerroute-1-regulier.md, r71 en r1076",
-   "relatie": {
-    "soort": "Association",
-    "van": "Keuzedeel",
-    "naar": "Keuzedeelruimte"
-   }
-  },
-  {
    "id": "R1-027",
    "fase": 1,
    "stap": "Opleidingsspecificatie met programma en eenheden beschrijven",
@@ -752,6 +738,29 @@
     "van": "Keuzedeelruimte",
     "naar": "Student keuze regelset"
    }
+  },
+  {
+   "id": "R1-046",
+   "fase": 1,
+   "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
+   "soort": "ontstaat",
+   "wie": "onderwijsontwerper",
+   "objecttype": "Keuzedeel",
+   "instantie": "Ondernemerschap in de zorg",
+   "bron": "leerroute-1-regulier.md, r1072 tot 1080: keuzedelen als zelfstandig programma, een eigen opleidingsprogramma-specificatie, N:M gekoppeld aan de diplomaprogramma's",
+   "relatie": {
+    "soort": "Specialization",
+    "van": "Keuzedeel",
+    "naar": "Opleidingsprogramma specificatie"
+   },
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Student keuze regelset",
+     "naar": "Keuzedeel"
+    }
+   ],
+   "zin": "Een keuzedeel is zelf een programmaspecificatie, gelijksoortig vormgegeven maar los van Jochems opleiding; welk keuzedeel de ruimte vult, bepaalt het studentkeuzesysteem later met de regelset."
   },
   {
    "id": "R1-028",
@@ -866,7 +875,7 @@
    "objecttype": "Leeruitkomst",
    "instantie": "Biedt farmaceutische patiëntenzorg in een levensechte apotheekomgeving (kerntaakniveau)",
    "bron": "leerroute-1-regulier.md, Fase 1: Curriculum-ontwerptool naar OC, alles op grofmazig niveau; AGENTS.md: de leeruitkomst is de sleutel, specificaties en de resultaatstructuur verwijzen ernaar",
-   "zin": "De opleiding zoals ontworpen gaat als gelinkt geheel naar de catalogus: de leeruitkomsten, de specificatiestructuur en de resultaatstructuur die ernaar verwijzen; op hoofdplaat v1.7 zit de ontwerptool binnen de catalogus, dus geen aparte pijl."
+   "zin": "De opleiding zoals ontworpen gaat als gelinkt geheel naar de catalogus: leeruitkomsten met hun skills, de specificatiestructuur met het onderwijsontwerp (paars: conceptplaat) en de resultaatstructuur; alles verwijst naar de leeruitkomst. Op v1.7 zit de ontwerptool binnen de catalogus, dus geen aparte pijl."
   },
   {
    "id": "R1-034",
@@ -884,6 +893,85 @@
     "soort": "Aggregation",
     "van": "Leeruitkomst",
     "naar": "Leeruitkomst",
+    "nesting": true
+   }
+  },
+  {
+   "id": "R1-047",
+   "fase": 1,
+   "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
+   "soort": "stroomt",
+   "van": "Curriculum ontwerptool",
+   "naar": "Onderwijscatalogus",
+   "pijl": "geen pijl op de hoofdplaat",
+   "koppeling": null,
+   "objecttype": "Competenties / Skills",
+   "instantie": "Vaardigheden bij de leeruitkomst (CompetentNL)",
+   "bron": "CompetentNL ontologie 2.1.0: cnlo:HumanCapability, cnlo:KnowledgeArea; informatiemodel.md: Leeruitkomst is een specialisatie van Competenties / Skills",
+   "aanname": true,
+   "relatie": {
+    "soort": "Specialization",
+    "van": "Leeruitkomst",
+    "naar": "Competenties / Skills"
+   }
+  },
+  {
+   "id": "R1-048",
+   "fase": 1,
+   "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
+   "soort": "stroomt",
+   "van": "Curriculum ontwerptool",
+   "naar": "Onderwijscatalogus",
+   "pijl": "geen pijl op de hoofdplaat",
+   "koppeling": null,
+   "objecttype": "Vaardigheid",
+   "instantie": "Communicatieve vaardigheden (laag 2)",
+   "bron": "CompetentNL ontologie 2.1.0: cnlo:HumanCapability, cnlo:KnowledgeArea; informatiemodel.md: Leeruitkomst is een specialisatie van Competenties / Skills",
+   "aanname": true,
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Competenties / Skills",
+    "naar": "Vaardigheid",
+    "nesting": true
+   }
+  },
+  {
+   "id": "R1-049",
+   "fase": 1,
+   "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
+   "soort": "stroomt",
+   "van": "Curriculum ontwerptool",
+   "naar": "Onderwijscatalogus",
+   "pijl": "geen pijl op de hoofdplaat",
+   "koppeling": null,
+   "objecttype": "Kennis",
+   "instantie": "Farmacie (ISCED-F 0916)",
+   "bron": "CompetentNL ontologie 2.1.0: cnlo:HumanCapability, cnlo:KnowledgeArea; informatiemodel.md: Leeruitkomst is een specialisatie van Competenties / Skills",
+   "aanname": true,
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Competenties / Skills",
+    "naar": "Kennis",
+    "nesting": true
+   }
+  },
+  {
+   "id": "R1-050",
+   "fase": 1,
+   "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
+   "soort": "stroomt",
+   "van": "Curriculum ontwerptool",
+   "naar": "Onderwijscatalogus",
+   "pijl": "geen pijl op de hoofdplaat",
+   "koppeling": null,
+   "objecttype": "Inzicht",
+   "instantie": "Werking en risico van een geneesmiddel",
+   "bron": "geen bron, keuze van het voorbeeld",
+   "aanname": true,
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Competenties / Skills",
+    "naar": "Inzicht",
     "nesting": true
    }
   },
@@ -992,24 +1080,6 @@
    }
   },
   {
-   "id": "R1-040",
-   "fase": 1,
-   "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
-   "soort": "stroomt",
-   "van": "Curriculum ontwerptool",
-   "naar": "Onderwijscatalogus",
-   "pijl": "geen pijl op de hoofdplaat",
-   "koppeling": null,
-   "objecttype": "Keuzedeel",
-   "instantie": "Ondernemerschap in de zorg",
-   "bron": "leerroute-1-regulier.md, r71 en r1076",
-   "relatie": {
-    "soort": "Association",
-    "van": "Keuzedeel",
-    "naar": "Keuzedeelruimte"
-   }
-  },
-  {
    "id": "R1-041",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1025,6 +1095,84 @@
     "soort": "Association",
     "van": "Keuzedeelruimte",
     "naar": "Student keuze regelset"
+   }
+  },
+  {
+   "id": "R1-051",
+   "fase": 1,
+   "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
+   "soort": "stroomt",
+   "van": "Curriculum ontwerptool",
+   "naar": "Onderwijscatalogus",
+   "pijl": "geen pijl op de hoofdplaat",
+   "koppeling": null,
+   "objecttype": "Leerdoel",
+   "instantie": "Zelfstandig farmaceutische patiëntenzorg bieden in een levensechte setting",
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Kerntaak 'Word onderwijskundig vertaald tot' Leerdoel; Leerdoel 'Heeft één of meer' Leeruitkomst",
+   "plaat": "onderwijsontwerp",
+   "aanname": true,
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Kerntaak",
+     "naar": "Leerdoel",
+     "label": "Word onderwijskundig vertaald tot"
+    },
+    {
+     "soort": "Association",
+     "van": "Leerdoel",
+     "naar": "Leeruitkomst",
+     "label": "Heeft één of meer",
+     "instantie": "Biedt farmaceutische patiëntenzorg (kerntaakniveau)"
+    }
+   ]
+  },
+  {
+   "id": "R1-052",
+   "fase": 1,
+   "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
+   "soort": "stroomt",
+   "van": "Curriculum ontwerptool",
+   "naar": "Onderwijscatalogus",
+   "pijl": "geen pijl op de hoofdplaat",
+   "koppeling": null,
+   "objecttype": "Onderwijsvorm specificatie",
+   "instantie": "Simulatie in de leerapotheek, theorie ondersteunend",
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Leeruitkomst naar Onderwijsvorm specificatie",
+   "plaat": "onderwijsontwerp",
+   "aanname": true,
+   "relatie": {
+    "soort": "Association",
+    "van": "Leerdoel",
+    "naar": "Onderwijsvorm specificatie"
+   },
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Leeruitkomst",
+     "naar": "Onderwijsvorm specificatie",
+     "instantie": "Voert baliegesprek en triage uit (werkprocesniveau)"
+    }
+   ]
+  },
+  {
+   "id": "R1-053",
+   "fase": 1,
+   "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
+   "soort": "stroomt",
+   "van": "Curriculum ontwerptool",
+   "naar": "Onderwijscatalogus",
+   "pijl": "geen pijl op de hoofdplaat",
+   "koppeling": null,
+   "objecttype": "Gewenste Onderwijskundige Leeromgeving",
+   "instantie": "Balie-simulatie in het skillslab",
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Onderwijsvorm specificatie naar Gewenste Onderwijskundige Leeromgeving",
+   "plaat": "onderwijsontwerp",
+   "aanname": true,
+   "relatie": {
+    "soort": "Association",
+    "van": "Onderwijsvorm specificatie",
+    "naar": "Gewenste Onderwijskundige Leeromgeving"
    }
   },
   {

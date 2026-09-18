@@ -54,7 +54,7 @@ Elke regel is een fragment van een plaat bij een processtap:
 | `relatie` | de relatie van de plaat waarmee dit object aan een ander object in dezelfde stap hangt: `soort`, `van`, `naar`, `label` (alleen als de plaat er een heeft, letterlijk), `nesting` (alleen aggregatie of compositie) |
 | `relaties` | verdere relaties van de plaat vanaf dit object, als verwijzing op het object; met `instantie` van het andere eind waar dat helpt (toetsonderdeel naar de leeruitkomst die het aftikt) |
 | `verdieping` | zoomt in op een regel erboven binnen dezelfde stap; eigen blok en beeld |
-| `plaat` | `informatiemodel` (standaard) of `onderwijsontwerp`: de conceptplaat, alleen in een verdieping, hooguit een handvol objecten, geen attributen |
+| `plaat` | `informatiemodel` (standaard) of `onderwijsontwerp`: de conceptplaat, alleen in een verdieping of in een stroomt-regel, hooguit een handvol objecten, geen attributen; paars in het beeld |
 | `aanname` | waar de bron zwijgt; gestippeld in het beeld |
 | `bron` | bestand en regelnummer (`leerroute-1-regulier.md, r1046`), payload-id, ontologie met versie, of "geen bron, keuze van het voorbeeld"; het register maakt er links van |
 | `zin` | één zin, uit het kaderscenario waar die er is; laag houden |
@@ -64,14 +64,15 @@ Wat de controle weigert, hoort niet in het voorbeeld: een objecttype dat niet op
 
 ## Beelden
 
-De renderer tekent per blok (fase, stap, rol, verdieping) één SVG in ArchiMate-kleur: geel voor rol, processtap en object, blauw voor component, grijs voor een scope-uitzondering, gestippeld voor een aanname. Nesting is een container; een relatielijn loopt alleen naar het buurobject (ruit bij aggregatie, open pijlpunt bij specialisatie, gelabelde lijn bij associatie), elke andere relatie staat als verwijzing op het object. Brede rijen worden een kolom, brede kinderrijen een stapel. Een conceptverdieping heeft een gestippelde rand en de chip "conceptplaat: Informatiemodel Onderwijsontwerp".
+De renderer tekent per blok (fase, stap, rol, verdieping) één SVG in ArchiMate-kleur: geel voor rol, processtap en object, blauw voor component, grijs voor een scope-uitzondering, gestippeld voor een aanname. Nesting is een container; een relatielijn loopt alleen naar het buurobject (ruit bij aggregatie, open pijlpunt bij specialisatie, gelabelde lijn bij associatie), elke andere relatie staat als verwijzing op het object. Bij ontstaat worden brede rijen een kolom; bij stroomt blijven de objecten naast elkaar, verbonden door de stippellijn van de pijl, en loopt de keten door op een volgende rij als hij te breed wordt. Brede kinderrijen worden een stapel. Een objecttype van de conceptplaat is paars; een conceptverdieping heeft bovendien een gestippelde rand en de chip "conceptplaat: Informatiemodel Onderwijsontwerp". Het document zet onder elk beeld de regel-ID's.
 
 Bekijk het beeld zelf voordat je het meldt: `soffice --headless --convert-to png` in de scratchpad, en zet het beeld voor de gebruiker op een branch met een GitHub-link (bestanden sturen werkt niet in de container).
 
 ## Inhoudelijke afspraken uit de uitwerking van Jochem
 
 - De leeruitkomst is de sleutel: specificaties, toets- en examenonderdelen en de resultaatstructuur verwijzen ernaar. Zij is de invulling van de instelling (waar en hoe de student het laat zien), niet een kopie van de kerntaak.
-- Fase 1 gaat als gelinkt geheel naar de catalogus: leeruitkomsten, specificatiestructuur (met keuzedeelruimte, keuzedeel en regelset) en resultaatstructuur, dat is de opleiding zoals ontworpen.
+- Fase 1 gaat als gelinkt geheel naar de catalogus: leeruitkomsten met hun skills, specificatiestructuur (met keuzedeelruimte en regelset, en het onderwijsontwerp van de conceptplaat) en resultaatstructuur, dat is de opleiding zoals ontworpen.
+- Een keuzedeel is een eigen programmaspecificatie, gelijksoortig vormgegeven maar los van de opleiding; in de opleiding zit alleen de keuzedeelruimte met de regelset. Welk keuzedeel de ruimte vult, bepaalt het studentkeuzesysteem later.
 - Het examenplan blijft buiten de uitwisseling; de summatieve resultaatstructuur is zijn oorsprong en gaat wel mee. Het cohort hangt aan die structuur.
 - Skills: CompetentNL (ontologie 2.1.0) als verdieping van de leeruitkomst, niet als aparte bron; vaardigheden gelaagd, kennisgebieden op ISCED-F; laag 3 vraagt de viewer.
 - Het onderwijskundig kader van de instelling (leervormstrategie, leerdoel, onderwijsvorm specificatie, leeromgeving) staat op de conceptplaat en niet op de informatiemodelplaat: een verdieping en een vraag.

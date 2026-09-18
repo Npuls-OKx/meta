@@ -227,10 +227,13 @@ class ConceptplaatTests(unittest.TestCase):
         self.assertEqual(b, [])
         self.assertEqual(o, {})
 
-    def test_given_concept_rule_without_verdieping_when_checked_then_finding(self):
+    def test_given_concept_rule_without_verdieping_when_checked_then_finding_unless_stroomt(self):
         r = regels(); r["regels"].append(conceptregel(verdieping=None))
         b, _, _ = bevindingen(r, conceptplaat=conceptplaat())
         self.assertTrue(any("alleen in een verdieping" in x for x in b))
+        r = regels(); r["regels"].append(conceptregel(verdieping=None, soort="stroomt", van="Planningssysteem", naar="Onderwijscatalogus", pijl="rel-1", stap="Aanbod publiceren", relatie=None))
+        b, _, _ = bevindingen(r, conceptplaat=conceptplaat())
+        self.assertEqual(b, [])
 
     def test_given_concept_rule_when_conceptplaat_not_loaded_then_finding(self):
         r = regels(); r["regels"].append(conceptregel())

@@ -74,7 +74,8 @@ def blokken_per_fase(regels):
     """De groepering en bestandsnamen van de renderer, zodat verwijzingen en bestanden gelijk lopen."""
     uit = collections.defaultdict(list)
     for n, blok in enumerate(teken.groepeer(regels), 1):
-        uit[blok["fase"]].append({"naam": teken.bestandsnaam(blok, n), "stap": blok["stap"], "soort": blok["soort"], "verdieping": blok.get("verdieping")})
+        uit[blok["fase"]].append({"naam": teken.bestandsnaam(blok, n), "stap": blok["stap"], "soort": blok["soort"], "verdieping": blok.get("verdieping"),
+                                  "ids": [rid for it in blok["objecten"] for rid in _ids(it)]})
     return uit
 
 
@@ -105,7 +106,7 @@ Twee soorten regels, in de vormtaal van de plaat:
 - **Ontstaat**: een rol (geel, rolicoon) voert een processtap uit (geel, procesicoon) en daaruit ontstaan objecttypen (geel, objecticoon) met Jochems waarde. "Bestaat uit" is nesting; een relatielabel van de plaat staat tussen twee objecten of als verwijzing op een object dat aan een eerdere stap hangt. Een gestippelde rand is een aanname; grijs is een objecttype dat de plaat buiten de uitwisseling zet en dit voorbeeld toch meeneemt.
 - **Stroomt** (blauwe rand): van welk systeem naar welk systeem gaat welk object, met de koppeling-ID of "zonder koppelingspecificatie", en de processtap waarna het gebeurt.
 
-Een **verdieping** (zelfde rol en stap, met "verdieping" op de processtap) zoomt in op een regel erboven. Een verdieping met een gestippelde rand en de chip "conceptplaat: Informatiemodel Onderwijsontwerp" put uit de conceptplaat in het ArchiMate-model: zij laat zien waar de informatiemodelplaat kan groeien en telt niet mee in de bijlage en het invulblad.
+Een **verdieping** (zelfde rol en stap, met "verdieping" op de processtap) zoomt in op een regel erboven. Een paars objecttype komt van de conceptplaat "Informatiemodel Onderwijsontwerp" in het ArchiMate-model (een verdieping daaruit heeft ook een gestippelde rand en een chip): het laat zien waar de informatiemodelplaat kan groeien en telt niet mee in de bijlage en het invulblad. Onder elk beeld staan de regel-ID's die erin staan.
 
 Koppeling-ID's op hoofdplaat v1.7: {mapping}. Een pijl die op de hoofdplaat staat maar geen koppelingspecificatie heeft, staat als "zonder koppelingspecificatie"; een stroom uit het kaderscenario zonder pijl op de hoofdplaat staat als "geen pijl op de hoofdplaat".
 
@@ -136,6 +137,8 @@ def fase_sectie(f, blokken, regels_in_fase):
     for b in blokken:
         alt = f"{b['soort']}: {b['stap']}" + (f", verdieping: {b['verdieping']}" if b.get("verdieping") else "")
         uit += f"![{alt}]({REGELMAP}/{b['naam']})\n\n"
+        if b.get("ids"):
+            uit += idreeks(b["ids"]) + "\n\n"
     return uit
 
 
@@ -208,6 +211,14 @@ def regelregister(regels, per_fase):
         b = beeld.get(rid)
         uit += f"| {rid} | {r['stap']} | {soort} | {norm(r['objecttype'])} | {r['instantie']} | " + (f"[{b}]({REGELMAP}/{b})" if b else "") + f" | {bronlinks(r['bron'], faselinks)} |\n"
     return uit + "\n"
+
+
+def idreeks(ids):
+    """De regel-ID's onder een beeld: als reeks (R1-028 tot R1-032) wanneer ze aaneensluiten, anders opgesomd."""
+    nummers = [int(i.split("-")[1]) for i in ids]
+    if len(ids) > 1 and nummers == list(range(nummers[0], nummers[0] + len(ids))):
+        return f"Regels `{ids[0]}` tot `{ids[-1]}`"
+    return "Regel" + ("s " if len(ids) > 1 else " ") + ", ".join(f"`{i}`" for i in ids)
 
 
 def _ids(item):
