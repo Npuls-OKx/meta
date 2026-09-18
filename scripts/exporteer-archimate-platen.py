@@ -1,0 +1,187 @@
+#!/usr/bin/env python3
+"""Platen uit het ArchiMate-model exporteren met Archi headless.
+
+Waarom dit script bestaat: een plaat die met de hand uit Archi is geexporteerd
+raakt stilletjes achter op het model. Archi kan headless draaien en rendert via
+het HTML-rapport elke view als PNG, pixelgelijk aan wat de modelleur in Archi
+ziet. Dit script roept Archi aan op een kopie van het model (het bestand in de
+repository blijft byte-gelijk), haalt de PNG's van de gevraagde views uit het
+rapport en zet ze op de gevraagde paden. Optioneel legt het per view een laag
+met informatieobjecten over de plaat: per flow (relatie-id uit Archi) een
+objectvak op het langste segment van de pijl, als SVG met de PNG ingebed.
+
+    python3 scripts/exporteer-archimate-platen.py --view "OKx hoofdplaat v1.7<concept>" --uit pad.png
+    python3 scripts/exporteer-archimate-platen.py --view NAAM --uit pad.svg --objecten objecten.json
+
+Vereist Archi in de dev-container (Dockerfile: /opt/Archi, commando `archi`).
+Het model wordt alleen gelezen, nooit geschreven.
+"""
+
+import argparse
+import base64
+import html
+import json
+import math
+import pathlib
+import shutil
+import subprocess
+import sys
+import tempfile
+import xml.etree.ElementTree as ET
+
+XSI = "{http://www.w3.org/2001/XMLSchema-instance}type"
+MODEL = pathlib.Path("architecture/model/model.archimate")
+ARCHI = shutil.which("archi") or "/opt/Archi/Archi"
+MARGE = 10  # Archi exporteert een view met 10 px rondom de elementen
+HOUDERS = {"ApplicationComponent", "BusinessActor", "BusinessRole", "Grouping", "Group", "Node"}
+
+
+def views_in(model):
+    root = ET.parse(model).getroot()
+    return {e.get("name"): e.get("id") for e in root.iter("element") if e.get(XSI) == "archimate:ArchimateDiagramModel"}
+
+
+def render_rapport(model, werkmap):
+    """Laat Archi het HTML-rapport maken op een kopie van het model; geeft de map met PNG's."""
+    kopie = werkmap / "model.archimate"
+    shutil.copy(model, kopie)
+    rapport = werkmap / "rapport"
+    opdracht = [ARCHI, "-application", "com.archimatetool.commandline.app", "-consoleLog", "-nosplash",
+                "--loadModel", str(kopie), "--html.createReport", str(rapport)]
+    try:
+        uit = subprocess.run(opdracht, capture_output=True, text=True, timeout=600)
+    except FileNotFoundError:
+        sys.exit(f"Archi niet gevonden ({ARCHI}); zie .devcontainer/Dockerfile")
+    if uit.returncode != 0 or "Report generated" not in uit.stdout + uit.stderr:
+        sys.exit("Archi-rapport mislukt:\n" + (uit.stdout + uit.stderr)[-2000:])
+    mappen = [m for m in rapport.iterdir() if (m / "images").is_dir()]
+    if not mappen:
+        sys.exit("geen images-map in het Archi-rapport")
+    return mappen[0] / "images"
+
+
+def lees_view(model, viewnaam):
+    root = ET.parse(model).getroot()
+    elems = {e.get("id"): (e.get(XSI, "").split(":")[-1], e.get("name") or "") for e in root.iter("element") if e.get(XSI)}
+    rels = {e.get("id"): e for e in root.iter("element") if e.get(XSI, "").endswith("Relationship")}
+    view = next(e for e in root.iter("element") if e.get(XSI) == "archimate:ArchimateDiagramModel" and e.get("name") == viewnaam)
+    knopen, connecties = {}, []
+
+    def loop(c, ox, oy):
+        b = c.find("bounds")
+        x, y = ox + int(b.get("x", 0)), oy + int(b.get("y", 0))
+        w, h = int(b.get("width", 120)), int(b.get("height", 55))
+        knopen[c.get("id")] = dict(x=x, y=y, w=w, h=h)
+        for sc in c.findall("sourceConnection"):
+            bps = [(int(bp.get("startX", 0)), int(bp.get("startY", 0)), int(bp.get("endX", 0)), int(bp.get("endY", 0)))
+                   for bp in sc.findall("bendpoint")]
+            connecties.append(dict(bron=c.get("id"), doel=sc.get("target"), relatie=sc.get("archimateRelationship"), knikpunten=bps))
+        for k in c.findall("child"):
+            loop(k, x, y)
+
+    for c in view.findall("child"):
+        loop(c, 0, 0)
+    return knopen, connecties, rels
+
+
+def rand(p, q, r):
+    """Snijpunt van de lijn p naar q met de rand van rechthoek r (p ligt binnen r)."""
+    cx, cy = p
+    dx, dy = q[0] - cx, q[1] - cy
+    if dx == dy == 0:
+        return p
+    ts = []
+    if dx:
+        ts += [(r["x"] - cx) / dx, (r["x"] + r["w"] - cx) / dx]
+    if dy:
+        ts += [(r["y"] - cy) / dy, (r["y"] + r["h"] - cy) / dy]
+    ts = [t for t in ts if t > 0]
+    return (cx + dx * min(ts), cy + dy * min(ts)) if ts else p
+
+
+def pad(conn, knopen):
+    """Het pad van een connectie zoals Archi het tekent: knikpunt is het gemiddelde van bron- en doeloffset."""
+    a, b = knopen[conn["bron"]], knopen[conn["doel"]]
+    ca = (a["x"] + a["w"] / 2, a["y"] + a["h"] / 2)
+    cb = (b["x"] + b["w"] / 2, b["y"] + b["h"] / 2)
+    punten = [ca] + [((ca[0] + sx + cb[0] + ex) / 2, (ca[1] + sy + cb[1] + ey) / 2) for sx, sy, ex, ey in conn["knikpunten"]] + [cb]
+    punten[0] = rand(ca, punten[1], a)
+    punten[-1] = rand(cb, punten[-2], b)
+    return punten
+
+
+def midden_langste_segment(punten):
+    segmenten = [(punten[i], punten[i + 1]) for i in range(len(punten) - 1)]
+    a, b = max(segmenten, key=lambda s: math.hypot(s[1][0] - s[0][0], s[1][1] - s[0][1]))
+    return (a[0] + b[0]) / 2, (a[1] + b[1]) / 2
+
+
+def objectvak(mx, my, naam):
+    w, h = len(naam) * 6.6 + 30, 22
+    return (f'<g><rect x="{mx-w/2:.0f}" y="{my-h/2:.0f}" width="{w:.0f}" height="{h}" fill="#ffffb5" stroke="#a8a85a"/>'
+            f'<g transform="translate({mx+w/2-20:.0f},{my-h/2+3:.0f})" fill="none" stroke="#444" stroke-width="1.2">'
+            f'<rect x="2" y="3" width="12" height="10"/><path d="M2 6.5h12"/></g>'
+            f'<text x="{mx-w/2+8:.0f}" y="{my+4:.0f}" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#1c1c1c">{html.escape(naam)}</text></g>')
+
+
+def met_objecten(model, viewnaam, png, objecten):
+    """SVG: de Archi-PNG als achtergrond met per flow (relatie-id) een objectvak. Geeft (svg, aantal, ongebruikt)."""
+    knopen, connecties, rels = lees_view(model, viewnaam)
+    minx = min(k["x"] for k in knopen.values()) - MARGE
+    miny = min(k["y"] for k in knopen.values()) - MARGE
+    W = max(k["x"] + k["w"] for k in knopen.values()) + MARGE - minx
+    H = max(k["y"] + k["h"] for k in knopen.values()) + MARGE - miny
+    b64 = base64.b64encode(png.read_bytes()).decode()
+    delen = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}">',
+             f'<image href="data:image/png;base64,{b64}" x="0" y="0" width="{W}" height="{H}"/>']
+    gebruikt = set()
+    for conn in connecties:
+        rel = rels.get(conn["relatie"])
+        naam = objecten.get(conn["relatie"])
+        if rel is None or not rel.get(XSI, "").endswith("FlowRelationship") or not naam:
+            continue
+        if conn["bron"] not in knopen or conn["doel"] not in knopen:
+            continue
+        mx, my = midden_langste_segment(pad(conn, knopen))
+        delen.append(objectvak(mx - minx, my - miny, naam))
+        gebruikt.add(conn["relatie"])
+    delen.append("</svg>")
+    return "".join(delen), len(gebruikt), sorted(set(objecten) - gebruikt)
+
+
+def main(argv=None):
+    parser = argparse.ArgumentParser(description=__doc__.split("\n")[0])
+    parser.add_argument("--model", type=pathlib.Path, default=MODEL)
+    parser.add_argument("--view", required=True, action="append", help="viewnaam; herhaalbaar, in volgorde van --uit")
+    parser.add_argument("--uit", required=True, action="append", type=pathlib.Path, help="doelpad (.png, of .svg met --objecten)")
+    parser.add_argument("--objecten", type=pathlib.Path, help="JSON {relatie-id: objecttype}; alleen voor .svg-uitvoer")
+    args = parser.parse_args(argv)
+    if len(args.view) != len(args.uit):
+        sys.exit("geef evenveel --view als --uit")
+    if not args.model.exists():
+        print(f"model niet gevonden: {args.model}", file=sys.stderr)
+        return 2
+    bekend = views_in(args.model)
+    onbekend = [v for v in args.view if v not in bekend]
+    if onbekend:
+        sys.exit("view niet gevonden: " + ", ".join(onbekend) + "\nbeschikbaar:\n  " + "\n  ".join(sorted(bekend)))
+    objecten = json.loads(args.objecten.read_text(encoding="utf-8")) if args.objecten else {}
+    with tempfile.TemporaryDirectory() as werk:
+        beelden = render_rapport(args.model, pathlib.Path(werk))
+        for viewnaam, doel in zip(args.view, args.uit):
+            png = beelden / f"{bekend[viewnaam]}.png"
+            if not png.exists():
+                sys.exit(f"Archi leverde geen beeld voor view {viewnaam}")
+            doel.parent.mkdir(parents=True, exist_ok=True)
+            if doel.suffix.lower() == ".svg":
+                svg, aantal, ongebruikt = met_objecten(args.model, viewnaam, png, objecten)
+                doel.write_text(svg, encoding="utf-8")
+                print(f"{doel}: {aantal} objecten op de plaat" + (f"; niet op deze view: {', '.join(ongebruikt)}" if ongebruikt else ""))
+            else:
+                shutil.copy(png, doel)
+                print(f"{doel}: geexporteerd")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

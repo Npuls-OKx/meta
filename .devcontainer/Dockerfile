@@ -28,6 +28,22 @@ RUN apt-get update \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
+# Archi (ArchiMate-modelleertool) headless, voor het exporteren van platen en
+# stromen uit model.archimate zonder handmatige stap: de commandline-plugin
+# rendert elke view als PNG via het HTML-rapport. Eigen JRE meegeleverd; geen
+# display nodig. De download is vastgepind op versie en sha256, zodat de build
+# reproduceerbaar is. Gebruik: scripts/exporteer-archimate-platen.py.
+ARG ARCHI_VERSIE=5.10.0
+ARG ARCHI_SHA256=f9422455a00a22f5340dc28692ceafe0ad720c8cde839eaafb0fab1cea57287f
+RUN curl -fsSL -o /tmp/archi.tgz \
+      "https://github.com/archimatetool/archi.io/releases/download/${ARCHI_VERSIE%.*}_${ARCHI_VERSIE##*.}/Archi-Linux64-${ARCHI_VERSIE}.tgz" \
+ && echo "${ARCHI_SHA256}  /tmp/archi.tgz" | sha256sum -c - \
+ && mkdir -p /opt \
+ && tar -xzf /tmp/archi.tgz -C /opt \
+ && rm /tmp/archi.tgz \
+ && ln -s /opt/Archi/Archi /usr/local/bin/archi
+ENV ARCHI_HOME=/opt/Archi
+
 # Laat mermaid-cli/puppeteer de meegeleverde chromium gebruiken i.p.v. te downloaden.
 ENV PUPPETEER_SKIP_DOWNLOAD=true \
     PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium
