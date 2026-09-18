@@ -8,12 +8,12 @@
    "nummer": 1,
    "naam": "Kwalificatiekader analyseren en grofmazig ontwerpen",
    "mora_hoofdproces": "Ontwikkelen",
-   "bron": "leerroute-1-regulier.md, sectiekop Fase 1",
+   "bron": "leerroute-1-regulier.md, Fase 1: een onderwijsontwerper vertaalt het kwalificatiedossier naar een opleidingsspecificatie met onderliggende opleidingsprogramma- en onderwijseenheid-specificaties, eerste toetsvormen en een initieel examenplan; de Curriculum-ontwerptool publiceert dit naar de OC",
    "stappen": [
-    "Kwalificatiedossier analyseren",
-    "Leeruitkomsten formuleren",
-    "Specificatieboom grofmazig ontwerpen",
-    "Examenplan initieel opstellen"
+    "Kwalificatiedossier vertalen naar leeruitkomsten",
+    "Opleidingsspecificatie met programma en eenheden beschrijven",
+    "Toetsvormen en initieel examenplan opstellen",
+    "Grofmazig resultaat publiceren naar de onderwijscatalogus"
    ],
    "verwacht": [
     "Kwalificatie dossier",
@@ -24,6 +24,7 @@
     "Opleiding specificatie",
     "Opleidingsprogramma specificatie",
     "Onderwijseenheid specificatie",
+    "Leeronderdeel specificatie",
     "Keuzedeelruimte",
     "Keuzedeel",
     "Student keuze regelset",
@@ -35,12 +36,12 @@
    "nummer": 2,
    "naam": "Publiceren en planbaar maken",
    "mora_hoofdproces": "Plannen en roosteren",
-   "bron": "leerroute-1-regulier.md, sectiekop Fase 2",
+   "bron": "leerroute-1-regulier.md, Fase 2: de grofmazige specificaties zijn aangevuld tot planbare specificatie; OC verzoekt het Planningssysteem om die te transformeren tot onderwijsaanbod; de planner bepaalt haalbaarheid en levert gepland aanbod terug aan OC",
    "stappen": [
-    "Specificatie publiceren en planopgave doen",
-    "Opleidingsaanbod maken",
-    "Onderwijseenheden en leergelegenheden plannen",
-    "Aanbod publiceren"
+    "Specificatie aanvullen tot planbare specificatie",
+    "Planningssysteem verzoeken om onderwijsaanbod",
+    "Haalbaarheid bepalen en aanbod plannen",
+    "Gepland aanbod terugleveren aan de onderwijscatalogus"
    ],
    "verwacht": [
     "Verzoek tot Aanbod / Intekening op specificatie",
@@ -57,11 +58,12 @@
    "nummer": 3,
    "naam": "Instroom, intake en plaatsing",
    "mora_hoofdproces": "Informeren, aanmelden, intake en plaatsen",
-   "bron": "leerroute-1-regulier.md, sectiekop Fase 3",
+   "bron": "leerroute-1-regulier.md, Fase 3: Jochem orienteert, meldt zich aan via het Intakesysteem en doorloopt de intake met zijn SLB'er; het Intakesysteem draagt de uitkomst over aan KRS, daar worden Persoon, opleidingsverbintenis en opleidingsprogramma-verbintenis vastgelegd",
    "stappen": [
-    "Orienteren en aanmelden",
-    "Intake en plaatsen",
-    "Inschrijving bevestigen"
+    "Orienteren op het gepubliceerde aanbod",
+    "Aanmelden via het intakesysteem",
+    "Intake doorlopen en plaatsen",
+    "Persoon en verbintenissen vastleggen in de kernregistratie"
    ],
    "verwacht": [
     "Persoon",
@@ -77,17 +79,16 @@
    "nummer": 4,
    "naam": "Detailleren, roosteren en inschrijven",
    "mora_hoofdproces": "Plannen en roosteren",
-   "bron": "leerroute-1-regulier.md, sectiekop Fase 4",
+   "bron": "leerroute-1-regulier.md, Fase 4: onderwijsontwikkelaars werken leeronderdeel- en toetsonderdeel-specificaties fijnmazig uit; OC naar LMS levert die ter inrichting; het Planningssysteem definieert plaatsings- en planninggroepen, koppelt die in KRS aan Persoon en geeft te roosteren specificaties aan het Roostersysteem; dat maakt leer-, les- en toetsgelegenheden en deelt verwachte deelnemers",
    "stappen": [
-    "Leeronderdelen detailleren",
-    "LMS inrichten",
-    "Resultaatstructuur inrichten",
-    "Groepen definieren",
-    "Periode 1 roosteren",
-    "Inschrijven op gelegenheden"
+    "Leeronderdeel- en toetsonderdeelspecificaties fijnmazig uitwerken",
+    "Detailspecificaties leveren aan het LMS",
+    "Plaatsings- en planninggroepen definieren en aan personen koppelen",
+    "Te roosteren specificaties aan het roostersysteem geven",
+    "Leer-, les- en toetsgelegenheden roosteren",
+    "Verwachte deelnemers delen en toegang geven"
    ],
    "verwacht": [
-    "Leeronderdeel specificatie",
     "Les specificatie",
     "Lesgelegenheid",
     "Summatieve resultaat structuur",
@@ -103,12 +104,12 @@
    "nummer": 5,
    "naam": "Onderwijs uitvoeren en voortgang begeleiden",
    "mora_hoofdproces": "Verzorgen en begeleiden",
-   "bron": "leerroute-1-regulier.md, sectiekop Fase 5",
+   "bron": "leerroute-1-regulier.md, Fase 5: docenten verzorgen onderwijs, plannen toetsmomenten tijdens lessen en houden formatieve voortgang bij; SLB'ers volgen Jochems studiebeeld in SVS",
    "stappen": [
-    "Lessen volgen",
-    "Aanwezigheid registreren",
-    "Formatief toetsen",
-    "Voortgang volgen"
+    "Onderwijs verzorgen",
+    "Toetsmomenten plannen tijdens lessen",
+    "Formatieve voortgang bijhouden",
+    "Studiebeeld volgen in het studentvolgsysteem"
    ],
    "verwacht": [
     "Aanwezigheid",
@@ -128,11 +129,11 @@
    "nummer": 6,
    "naam": "Organiseren van keuzemomenten",
    "mora_hoofdproces": "Plannen en roosteren",
-   "bron": "leerroute-1-regulier.md, sectiekop Fase 6",
+   "bron": "leerroute-1-regulier.md, Fase 6: de planner verwerkt definitieve keuzes periodiek naar groepen en capaciteit, actualiseert het planbare aanbod in OC en het rooster volgt; Planning naar KRS: formele inschrijving keuzedeel",
    "stappen": [
-    "Voorkeurslijst samenstellen",
-    "Keuze toetsen en verwerken",
-    "Keuzedeel inschrijven"
+    "Definitieve keuzes verwerken naar groepen en capaciteit",
+    "Planbaar aanbod actualiseren",
+    "Keuzedeel formeel inschrijven"
    ],
    "verwacht": [
     "Keuzedeelaanbod",
@@ -144,10 +145,11 @@
    "nummer": 7,
    "naam": "Bijsturen planning en aanbod",
    "mora_hoofdproces": "Plannen en roosteren",
-   "bron": "leerroute-1-regulier.md, sectiekop Fase 7",
+   "bron": "leerroute-1-regulier.md, Fase 7: de planner verzamelt vergelijkbare afwijkingen in een planninggroep; bestaande onderwijseenheid-verbintenissen worden via KRS geannuleerd, voor de nieuwe plangroepen wordt nieuw onderwijsaanbod gemaakt; Planning naar OC en Rooster",
    "stappen": [
-    "Afwijkingen verzamelen",
-    "Herplannen"
+    "Afwijkingen verzamelen in een planninggroep",
+    "Bestaande verbintenissen annuleren",
+    "Nieuw aanbod maken en publiceren"
    ],
    "verwacht": []
   },
@@ -155,12 +157,13 @@
    "nummer": 8,
    "naam": "Examineren, vaststellen en diplomeren",
    "mora_hoofdproces": "Examens uitvoeren en vaststellen; diplomeren",
-   "bron": "leerroute-1-regulier.md, sectiekop Fase 8",
+   "bron": "leerroute-1-regulier.md, Fase 8: examenspecificaties worden getransformeerd tot examengelegenheden; toets- en examenplanning stelt kandidatenlijsten samen; afname voert de zitting uit en levert resultaten aan SVS; de examencommissie stelt summatief vast; KRS registreert kwalificering en diplomering",
    "stappen": [
-    "Examengelegenheden plannen",
-    "Examen afnemen",
+    "Examenspecificaties omzetten in examengelegenheden",
+    "Kandidatenlijsten samenstellen",
+    "Zitting uitvoeren en resultaten doorgeven",
     "Summatief vaststellen",
-    "Diplomeren"
+    "Kwalificering en diplomering registreren"
    ],
    "verwacht": [
     "Examengelegenheid",
@@ -193,6 +196,10 @@
   {
    "naam": "geroosterd",
    "bron": "leerroute-1-regulier.md, Fase 4: geroosterd aanbod"
+  },
+  {
+   "naam": "fijnmazig",
+   "bron": "leerroute-1-regulier.md, Fase 4: fijnmazig uitgewerkt"
   }
  ],
  "scope_uitzonderingen": [
@@ -222,50 +229,403 @@
  },
  "regels": [
   {
+   "fase": 1,
+   "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
+   "soort": "ontstaat",
+   "wie": "onderwijsontwerper",
+   "objecttype": "Kwalificatie dossier",
+   "instantie": "Apothekersassistent, crebo 23450",
+   "bron": "leerroute-1-regulier.md, r52 en r1026",
+   "zin": "De onderwijsontwerper vertaalt het kwalificatiedossier naar leeruitkomsten: per werkproces een leeruitkomst."
+  },
+  {
+   "fase": 1,
+   "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
+   "soort": "ontstaat",
+   "wie": "onderwijsontwerper",
+   "objecttype": "Kwalificatie",
+   "instantie": "Apothekersassistent, 27141",
+   "bron": "leerroute-1-regulier.md, r52 en r1027",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Kwalificatie dossier",
+    "naar": "Kwalificatie",
+    "label": "bevat",
+    "nesting": true
+   }
+  },
+  {
+   "fase": 1,
+   "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
+   "soort": "ontstaat",
+   "wie": "onderwijsontwerper",
+   "objecttype": "Kerntaak",
+   "instantie": "B1-K1 Biedt farmaceutische patiëntenzorg",
+   "bron": "leerroute-1-regulier.md, r1038",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Kwalificatie",
+    "naar": "Kerntaak",
+    "label": "bestaat uit",
+    "nesting": true
+   }
+  },
+  {
+   "fase": 1,
+   "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
+   "soort": "ontstaat",
+   "wie": "onderwijsontwerper",
+   "objecttype": "Werkproces",
+   "instantie": "B1-K1-W1 Neemt de zorg-/adviesvraag in behandeling",
+   "bron": "leerroute-1-regulier.md, r1045",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Kerntaak",
+    "naar": "Werkproces",
+    "label": "bestaat uit",
+    "nesting": true
+   }
+  },
+  {
+   "fase": 1,
+   "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
+   "soort": "ontstaat",
+   "wie": "onderwijsontwerper",
+   "objecttype": "Leeruitkomst",
+   "instantie": "Voert professioneel baliegesprek en triage",
+   "bron": "leerroute-1-regulier.md, r1092",
+   "aanname": true,
+   "relatie": {
+    "soort": "Association",
+    "van": "Werkproces",
+    "naar": "Leeruitkomst",
+    "label": "Wordt vertaald naar"
+   },
+   "vraag": "Leeruitkomsten zijn in de bronnen niet geformuleerd; het voorbeeld neemt een op een per werkproces (ontwerpkeuze 2). Formuleert de instelling eigen leeruitkomsten?"
+  },
+  {
+   "fase": 1,
+   "stap": "Opleidingsspecificatie met programma en eenheden beschrijven",
+   "soort": "ontstaat",
+   "wie": "onderwijsontwerper",
+   "objecttype": "Opleiding specificatie",
+   "instantie": "Apothekersassistent, versie 2026.1",
+   "bron": "leerroute-1-regulier.md, r1024 tot 1030",
+   "zin": "De opleidingsspecificatie met daaronder het programma, de eenheden en de leeronderdelen: het curriculum als template over de looptijd."
+  },
+  {
+   "fase": 1,
+   "stap": "Opleidingsspecificatie met programma en eenheden beschrijven",
+   "soort": "ontstaat",
+   "wie": "onderwijsontwerper",
+   "objecttype": "Opleidingsprogramma specificatie",
+   "instantie": "BOL voltijd, diplomaprogramma",
+   "bron": "leerroute-1-regulier.md, r1032 tot 1036",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Opleiding specificatie",
+    "naar": "Opleidingsprogramma specificatie",
+    "nesting": true
+   }
+  },
+  {
+   "fase": 1,
+   "stap": "Opleidingsspecificatie met programma en eenheden beschrijven",
+   "soort": "ontstaat",
+   "wie": "onderwijsontwerper",
+   "objecttype": "Onderwijseenheid specificatie",
+   "instantie": "Blok B1-K1 Biedt farmaceutische patiëntenzorg",
+   "bron": "leerroute-1-regulier.md, r1038 tot 1043",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Opleidingsprogramma specificatie",
+    "naar": "Onderwijseenheid specificatie",
+    "nesting": true
+   }
+  },
+  {
+   "fase": 1,
+   "stap": "Opleidingsspecificatie met programma en eenheden beschrijven",
+   "soort": "ontstaat",
+   "wie": "onderwijsontwerper",
+   "objecttype": "Leeronderdeel specificatie",
+   "instantie": "B1-K1-W1 Neemt de zorg-/adviesvraag in behandeling, grofmazig",
+   "bron": "leerroute-1-regulier.md, r1045 tot 1049",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Onderwijseenheid specificatie",
+    "naar": "Leeronderdeel specificatie",
+    "nesting": true
+   }
+  },
+  {
+   "fase": 1,
+   "stap": "Opleidingsspecificatie met programma en eenheden beschrijven",
+   "soort": "ontstaat",
+   "wie": "onderwijsontwerper",
+   "objecttype": "Keuzedeelruimte",
+   "instantie": "720 SBU, mbo-4",
+   "bron": "leerroute-1-regulier.md, r1059 en r1072",
+   "relatie": {
+    "soort": "Specialization",
+    "van": "Keuzedeelruimte",
+    "naar": "Opleidingsprogramma specificatie"
+   }
+  },
+  {
+   "fase": 1,
+   "stap": "Opleidingsspecificatie met programma en eenheden beschrijven",
+   "soort": "ontstaat",
+   "wie": "onderwijsontwerper",
+   "objecttype": "Keuzedeel",
+   "instantie": "Ondernemerschap in de zorg",
+   "bron": "leerroute-1-regulier.md, r71 en r1076",
+   "relatie": {
+    "soort": "Association",
+    "van": "Keuzedeel",
+    "naar": "Keuzedeelruimte"
+   }
+  },
+  {
+   "fase": 1,
+   "stap": "Opleidingsspecificatie met programma en eenheden beschrijven",
+   "soort": "ontstaat",
+   "wie": "onderwijsontwerper",
+   "objecttype": "Student keuze regelset",
+   "instantie": "Kiesbare keuzedelen voor Apothekersassistent",
+   "bron": "voorbeeldpayloads.md, regelsets[0] (e4037953)",
+   "relatie": {
+    "soort": "Association",
+    "van": "Keuzedeelruimte",
+    "naar": "Student keuze regelset"
+   }
+  },
+  {
+   "fase": 1,
+   "stap": "Toetsvormen en initieel examenplan opstellen",
+   "soort": "ontstaat",
+   "wie": "onderwijsontwerper",
+   "objecttype": "Toetsonderdeel specificatie",
+   "instantie": "Praktijktoets baliegesprek (OSCE), summatief",
+   "bron": "leerroute-1-regulier.md, r1114 tot 1117",
+   "relatie": {
+    "soort": "Association",
+    "van": "Toetsonderdeel specificatie",
+    "naar": "Leeruitkomst"
+   },
+   "zin": "Eerste toetsvormen en een initieel examenplan; de examenonderdelen zijn in de bronnen niet uitgewerkt."
+  },
+  {
+   "fase": 1,
+   "stap": "Toetsvormen en initieel examenplan opstellen",
+   "soort": "ontstaat",
+   "wie": "examencommissie",
+   "objecttype": "Examenonderdeelspecificatie",
+   "instantie": "Proeve van bekwaamheid B1-K1",
+   "bron": "geen bron, keuze van het voorbeeld: het kaderscenario noemt een initieel examenplan zonder onderdelen",
+   "aanname": true,
+   "relatie": {
+    "soort": "Specialization",
+    "van": "Examenonderdeelspecificatie",
+    "naar": "Toetsonderdeel specificatie"
+   },
+   "vraag": "Het kaderscenario zet examenonderdelen in fase 1 (initieel examenplan) en de resultaatstructuur in fase 4 (OC-SIS). Waar richt de instelling het examenplan in?"
+  },
+  {
+   "fase": 1,
+   "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
+   "soort": "stroomt",
+   "van": "Curriculum ontwerptool",
+   "naar": "Onderwijscatalogus",
+   "pijl": "geen pijl op de hoofdplaat",
+   "koppeling": null,
+   "objecttype": "Opleiding specificatie",
+   "instantie": "Apothekersassistent, versie 2026.1",
+   "bron": "leerroute-1-regulier.md, Fase 1: Curriculum-ontwerptool naar OC, alles op grofmazig niveau",
+   "zin": "De curriculum-ontwerptool publiceert de grofmazige specificatiestructuur naar de onderwijscatalogus; op hoofdplaat v1.7 zit de ontwerptool binnen de catalogus, dus geen aparte pijl."
+  },
+  {
+   "fase": 1,
+   "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
+   "soort": "stroomt",
+   "van": "Curriculum ontwerptool",
+   "naar": "Onderwijscatalogus",
+   "pijl": "geen pijl op de hoofdplaat",
+   "koppeling": null,
+   "objecttype": "Opleidingsprogramma specificatie",
+   "instantie": "BOL voltijd",
+   "bron": "leerroute-1-regulier.md, Fase 1",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Opleiding specificatie",
+    "naar": "Opleidingsprogramma specificatie",
+    "nesting": true
+   }
+  },
+  {
+   "fase": 1,
+   "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
+   "soort": "stroomt",
+   "van": "Curriculum ontwerptool",
+   "naar": "Onderwijscatalogus",
+   "pijl": "geen pijl op de hoofdplaat",
+   "koppeling": null,
+   "objecttype": "Onderwijseenheid specificatie",
+   "instantie": "Blok B1-K1",
+   "bron": "leerroute-1-regulier.md, Fase 1",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Opleidingsprogramma specificatie",
+    "naar": "Onderwijseenheid specificatie",
+    "nesting": true
+   }
+  },
+  {
+   "fase": 1,
+   "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
+   "soort": "stroomt",
+   "van": "Curriculum ontwerptool",
+   "naar": "Onderwijscatalogus",
+   "pijl": "geen pijl op de hoofdplaat",
+   "koppeling": null,
+   "objecttype": "Leeronderdeel specificatie",
+   "instantie": "B1-K1-W1, grofmazig",
+   "bron": "leerroute-1-regulier.md, Fase 1",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Onderwijseenheid specificatie",
+    "naar": "Leeronderdeel specificatie",
+    "nesting": true
+   }
+  },
+  {
    "fase": 2,
-   "stap": "Specificatie publiceren en planopgave doen",
+   "stap": "Specificatie aanvullen tot planbare specificatie",
+   "soort": "verandert",
+   "wie": "onderwijsontwerper",
+   "objecttype": "Opleidingsprogramma specificatie",
+   "instantie": "BOL voltijd, planbaar: tijdvensters, capaciteit, expertise, faciliteit",
+   "toestand": "planbaar",
+   "bron": "leerroute-1-regulier.md, Fase 2: aangevuld tot planbare specificatie",
+   "zin": "De grofmazige specificatie wordt aangevuld met tijdvensters, capaciteit, expertise en faciliteit: planbaar."
+  },
+  {
+   "fase": 2,
+   "stap": "Planningssysteem verzoeken om onderwijsaanbod",
+   "soort": "ontstaat",
+   "wie": "planner",
+   "objecttype": "Verzoek tot Aanbod / Intekening op specificatie",
+   "instantie": "Planopgave Apothekersassistent, cohort 2026",
+   "aanname": true,
+   "bron": "geen bron, keuze van het voorbeeld: op de plaat een objecttype, in het kaderscenario een handeling van OC",
+   "zin": "De catalogus verzoekt planning om aanbod op basis van de specificatiestructuur uit fase 1; op de plaat hangt die structuur als input aan het verzoek.",
+   "vraag": "Is het verzoek tot aanbod een object met sleutel en toestand, of het startevent van aanbod maken?",
+   "relatie": {
+    "soort": "Association",
+    "van": "Opleiding specificatie",
+    "naar": "Verzoek tot Aanbod / Intekening op specificatie",
+    "label": "Input voor"
+   }
+  },
+  {
+   "fase": 2,
+   "stap": "Planningssysteem verzoeken om onderwijsaanbod",
+   "soort": "stroomt",
+   "van": "Onderwijscatalogus",
+   "naar": "Planningssysteem",
+   "pijl": "id-1d27ecfa2c0d4fb7b4f7337e93eed033",
+   "koppeling": "OC-P&R",
+   "objecttype": "Verzoek tot Aanbod / Intekening op specificatie",
+   "instantie": "Planopgave Apothekersassistent, cohort 2026",
+   "bron": "leerroute-1-regulier.md, Fase 2: OC verzoekt het Planningssysteem",
+   "zin": "Het verzoek gaat met de hele specificatiestructuur van de catalogus naar planning."
+  },
+  {
+   "fase": 2,
+   "stap": "Planningssysteem verzoeken om onderwijsaanbod",
+   "soort": "stroomt",
+   "van": "Onderwijscatalogus",
+   "naar": "Planningssysteem",
+   "pijl": "id-1d27ecfa2c0d4fb7b4f7337e93eed033",
+   "koppeling": "OC-P&R",
+   "objecttype": "Opleiding specificatie",
+   "instantie": "Apothekersassistent, versie 2026.1",
+   "bron": "leerroute-1-regulier.md, Fase 2",
+   "relatie": {
+    "soort": "Association",
+    "van": "Opleiding specificatie",
+    "naar": "Verzoek tot Aanbod / Intekening op specificatie",
+    "label": "Input voor"
+   }
+  },
+  {
+   "fase": 2,
+   "stap": "Planningssysteem verzoeken om onderwijsaanbod",
    "soort": "stroomt",
    "van": "Onderwijscatalogus",
    "naar": "Planningssysteem",
    "pijl": "id-1d27ecfa2c0d4fb7b4f7337e93eed033",
    "koppeling": "OC-P&R",
    "objecttype": "Opleidingsprogramma specificatie",
-   "instantie": "Regulier BOL",
-   "bron": "leerroute-1-regulier.md, Fase 2: OC verzoekt het Planningssysteem",
-   "zin": "De gepubliceerde specificatie gaat als planopgave naar planning."
-  },
-  {
-   "fase": 2,
-   "stap": "Specificatie publiceren en planopgave doen",
-   "soort": "ontstaat",
-   "wie": "planner",
-   "objecttype": "Verzoek tot Aanbod / Intekening op specificatie",
-   "instantie": "Planopgave Apothekersassistent, cohort 2026",
-   "aanname": true,
-   "bron": "geen bron, keuze van het voorbeeld: op de plaat is het verzoek een objecttype, in het kaderscenario een handeling van OC",
+   "instantie": "BOL voltijd, planbaar",
+   "bron": "leerroute-1-regulier.md, Fase 2",
    "relatie": {
-    "soort": "Association",
-    "van": "Opleidingsprogramma specificatie",
-    "naar": "Verzoek tot Aanbod / Intekening op specificatie",
-    "label": "Input voor"
-   },
-   "zin": "Op de plaat is de planopgave een verzoek; het kaderscenario noemt het een handeling van de catalogus.",
-   "vraag": "Is het verzoek tot aanbod een object met sleutel en toestand, of het startevent van aanbod maken?"
+    "soort": "Aggregation",
+    "van": "Opleiding specificatie",
+    "naar": "Opleidingsprogramma specificatie",
+    "nesting": true
+   }
   },
   {
    "fase": 2,
-   "stap": "Opleidingsaanbod maken",
+   "stap": "Planningssysteem verzoeken om onderwijsaanbod",
+   "soort": "stroomt",
+   "van": "Onderwijscatalogus",
+   "naar": "Planningssysteem",
+   "pijl": "id-1d27ecfa2c0d4fb7b4f7337e93eed033",
+   "koppeling": "OC-P&R",
+   "objecttype": "Onderwijseenheid specificatie",
+   "instantie": "Blok B1-K1",
+   "bron": "leerroute-1-regulier.md, Fase 2",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Opleidingsprogramma specificatie",
+    "naar": "Onderwijseenheid specificatie",
+    "nesting": true
+   }
+  },
+  {
+   "fase": 2,
+   "stap": "Planningssysteem verzoeken om onderwijsaanbod",
+   "soort": "stroomt",
+   "van": "Onderwijscatalogus",
+   "naar": "Planningssysteem",
+   "pijl": "id-1d27ecfa2c0d4fb7b4f7337e93eed033",
+   "koppeling": "OC-P&R",
+   "objecttype": "Leeronderdeel specificatie",
+   "instantie": "B1-K1-W1",
+   "bron": "leerroute-1-regulier.md, Fase 2",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Onderwijseenheid specificatie",
+    "naar": "Leeronderdeel specificatie",
+    "nesting": true
+   }
+  },
+  {
+   "fase": 2,
+   "stap": "Haalbaarheid bepalen en aanbod plannen",
    "soort": "ontstaat",
    "wie": "planner",
    "objecttype": "Opleidingsaanbod van Instelling",
    "instantie": "ROC Het Voorbeeld",
    "aanname": true,
-   "bron": "scenario-1.1-regulier-happyflow.md, r34: ROC Het Voorbeeld; het objecttype heeft geen instantie in het kaderscenario",
-   "zin": "De planner maakt van de planopgave het aanbod voor cohort 2026: 120 plaatsen, vier perioden van tien weken, start 1 september."
+   "bron": "geen bron, keuze van het voorbeeld: het objecttype heeft geen instantie in het kaderscenario",
+   "zin": "De planner bepaalt de haalbaarheid binnen de strategische jaarplanning en maakt het aanbod: cohort 2026, vier perioden."
   },
   {
    "fase": 2,
-   "stap": "Opleidingsaanbod maken",
+   "stap": "Haalbaarheid bepalen en aanbod plannen",
    "soort": "ontstaat",
    "wie": "planner",
    "objecttype": "Opleidingaanbod",
@@ -280,7 +640,7 @@
   },
   {
    "fase": 2,
-   "stap": "Opleidingsaanbod maken",
+   "stap": "Haalbaarheid bepalen en aanbod plannen",
    "soort": "ontstaat",
    "wie": "planner",
    "objecttype": "Opleidingsprogramma aanbod",
@@ -295,37 +655,26 @@
   },
   {
    "fase": 2,
-   "stap": "Opleidingsaanbod maken",
-   "soort": "ontstaat",
-   "wie": "planner",
-   "objecttype": "Cohort / periode",
-   "instantie": "Cohort 2026",
-   "bron": "scenario-1.1-regulier-happyflow.md, r34 en r78: cohort 2026, 120 studenten",
-   "relatie": {
-    "soort": "Association",
-    "van": "Verzoek tot Aanbod / Intekening op specificatie",
-    "naar": "Opleidingsprogramma aanbod",
-    "label": "Leidt tot"
-   },
-   "vraag": "Is het cohort een sleutel op aanbod en verbintenis, of een eigen object (ontwerpkeuze 17)?"
-  },
-  {
-   "fase": 2,
-   "stap": "Onderwijseenheden en leergelegenheden plannen",
+   "stap": "Haalbaarheid bepalen en aanbod plannen",
    "soort": "ontstaat",
    "wie": "planner",
    "objecttype": "Onderwijseenheid aanbod",
-   "instantie": "B1-K1 Biedt farmaceutische patiëntenzorg, leerjaar 1",
+   "instantie": "B1-K1, leerjaar 1",
    "bron": "voorbeeldpayloads.md, aanbodInstanties[2] (04af26e6)",
-   "zin": "Per kerntaakblok een aanbod, per werkproces een leergelegenheid; alles nog planbaar, nog niet geroosterd."
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Opleidingsprogramma aanbod",
+    "naar": "Onderwijseenheid aanbod",
+    "nesting": true
+   }
   },
   {
    "fase": 2,
-   "stap": "Onderwijseenheden en leergelegenheden plannen",
+   "stap": "Haalbaarheid bepalen en aanbod plannen",
    "soort": "ontstaat",
    "wie": "planner",
    "objecttype": "Leergelegenheid",
-   "instantie": "B1-K1-W1 Neemt de zorg-/adviesvraag in behandeling, periode 1",
+   "instantie": "B1-K1-W1, periode 1, planbaar",
    "bron": "voorbeeldpayloads.md, aanbodInstanties[3] (04070a96)",
    "relatie": {
     "soort": "Aggregation",
@@ -336,16 +685,37 @@
   },
   {
    "fase": 2,
-   "stap": "Onderwijseenheden en leergelegenheden plannen",
+   "stap": "Haalbaarheid bepalen en aanbod plannen",
    "soort": "ontstaat",
    "wie": "planner",
-   "objecttype": "Toetsgelegenheid",
-   "instantie": "Praktijktoets baliegesprek (OSCE), einde periode 1",
-   "bron": "leerroute-1-regulier.md, r1114 tot 1117; scenario-1.1-regulier-happyflow.md, r99: toetsgelegenheid einde P1 planbaar"
+   "objecttype": "Cohort / periode",
+   "instantie": "Cohort 2026",
+   "bron": "leerroute-1-regulier.md, Fase 2 en scenario: cohort 2026",
+   "relatie": {
+    "soort": "Association",
+    "van": "Verzoek tot Aanbod / Intekening op specificatie",
+    "naar": "Opleidingaanbod",
+    "label": "Leidt tot"
+   },
+   "vraag": "Is het cohort een sleutel op aanbod en verbintenis, of een eigen object (ontwerpkeuze 17)?"
   },
   {
    "fase": 2,
-   "stap": "Aanbod publiceren",
+   "stap": "Haalbaarheid bepalen en aanbod plannen",
+   "soort": "ontstaat",
+   "wie": "planner",
+   "objecttype": "Toetsgelegenheid",
+   "instantie": "Praktijktoets baliegesprek (OSCE), einde periode 1, planbaar",
+   "bron": "leerroute-1-regulier.md, r1114 tot 1117",
+   "relatie": {
+    "soort": "Association",
+    "van": "Toetsonderdeel specificatie",
+    "naar": "Toetsgelegenheid"
+   }
+  },
+  {
+   "fase": 2,
+   "stap": "Gepland aanbod terugleveren aan de onderwijscatalogus",
    "soort": "stroomt",
    "van": "Planningssysteem",
    "naar": "Onderwijscatalogus",
@@ -354,11 +724,29 @@
    "objecttype": "Opleidingaanbod",
    "instantie": "Apothekersassistent 2026",
    "bron": "leerroute-1-regulier.md, Fase 2: Planning naar OC (opleidingsaanbod als planbaar resultaat)",
-   "zin": "Het planbare aanbod gaat terug naar de catalogus, die het aan de keten toont."
+   "zin": "Het geplande aanbod gaat terug naar de catalogus, die het aan de keten toont."
+  },
+  {
+   "fase": 2,
+   "stap": "Gepland aanbod terugleveren aan de onderwijscatalogus",
+   "soort": "stroomt",
+   "van": "Planningssysteem",
+   "naar": "Onderwijscatalogus",
+   "pijl": "id-020f091db6ea4763aad7527a98afaf99",
+   "koppeling": "OC-P&R",
+   "objecttype": "Opleidingsprogramma aanbod",
+   "instantie": "Regulier BOL 2026",
+   "bron": "leerroute-1-regulier.md, Fase 2",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Opleidingaanbod",
+    "naar": "Opleidingsprogramma aanbod",
+    "nesting": true
+   }
   },
   {
    "fase": 3,
-   "stap": "Orienteren en aanmelden",
+   "stap": "Orienteren op het gepubliceerde aanbod",
    "soort": "stroomt",
    "van": "Onderwijscatalogus",
    "naar": "Voorziening Centraal Aanmelden (CAMBO)",
@@ -371,7 +759,7 @@
   },
   {
    "fase": 3,
-   "stap": "Orienteren en aanmelden",
+   "stap": "Aanmelden via het intakesysteem",
    "soort": "ontstaat",
    "wie": "student",
    "objecttype": "Persoon",
@@ -381,7 +769,7 @@
   },
   {
    "fase": 3,
-   "stap": "Orienteren en aanmelden",
+   "stap": "Aanmelden via het intakesysteem",
    "soort": "ontstaat",
    "wie": "student",
    "objecttype": "Aanmelding",
@@ -396,7 +784,7 @@
   },
   {
    "fase": 3,
-   "stap": "Orienteren en aanmelden",
+   "stap": "Aanmelden via het intakesysteem",
    "soort": "stroomt",
    "van": "Voorziening Centraal Aanmelden (CAMBO)",
    "naar": "Kernregistratie systeem studenten (KRS)",
@@ -409,7 +797,7 @@
   },
   {
    "fase": 3,
-   "stap": "Intake en plaatsen",
+   "stap": "Intake doorlopen en plaatsen",
    "soort": "ontstaat",
    "wie": "SLB'er",
    "objecttype": "Student",
@@ -424,7 +812,7 @@
   },
   {
    "fase": 3,
-   "stap": "Intake en plaatsen",
+   "stap": "Intake doorlopen en plaatsen",
    "soort": "ontstaat",
    "wie": "SLB'er",
    "objecttype": "Opleiding aanbod verbintenis",
@@ -439,7 +827,7 @@
   },
   {
    "fase": 3,
-   "stap": "Intake en plaatsen",
+   "stap": "Intake doorlopen en plaatsen",
    "soort": "ontstaat",
    "wie": "SLB'er",
    "objecttype": "Opleidingsprogramma aanbod verbintenis",
@@ -454,7 +842,7 @@
   },
   {
    "fase": 3,
-   "stap": "Intake en plaatsen",
+   "stap": "Intake doorlopen en plaatsen",
    "soort": "ontstaat",
    "wie": "SLB'er",
    "objecttype": "Plaatsingsgroep",
@@ -471,7 +859,7 @@
   },
   {
    "fase": 3,
-   "stap": "Inschrijving bevestigen",
+   "stap": "Persoon en verbintenissen vastleggen in de kernregistratie",
    "soort": "ontstaat",
    "wie": "SLB'er",
    "objecttype": "Inschrijving",
@@ -488,8 +876,8 @@
   },
   {
    "fase": 4,
-   "stap": "Leeronderdelen detailleren",
-   "soort": "ontstaat",
+   "stap": "Leeronderdeel- en toetsonderdeelspecificaties fijnmazig uitwerken",
+   "soort": "verandert",
    "wie": "onderwijsontwikkelaar",
    "objecttype": "Leeronderdeel specificatie",
    "instantie": "B1-K1-W1 Neemt de zorg-/adviesvraag in behandeling, lessenreeks Baliegesprek en triage",
@@ -499,11 +887,12 @@
     "van": "Leeronderdeel specificatie",
     "naar": "Leeruitkomst"
    },
-   "zin": "De onderwijsontwikkelaar werkt het leeronderdeel fijnmazig uit tot een lessenreeks van zes weken."
+   "zin": "De onderwijsontwikkelaar werkt het leeronderdeel fijnmazig uit tot een lessenreeks van zes weken.",
+   "toestand": "fijnmazig"
   },
   {
    "fase": 4,
-   "stap": "Leeronderdelen detailleren",
+   "stap": "Leeronderdeel- en toetsonderdeelspecificaties fijnmazig uitwerken",
    "soort": "ontstaat",
    "wie": "onderwijsontwikkelaar",
    "objecttype": "Les specificatie",
@@ -518,7 +907,7 @@
   },
   {
    "fase": 4,
-   "stap": "LMS inrichten",
+   "stap": "Detailspecificaties leveren aan het LMS",
    "soort": "stroomt",
    "van": "Onderwijscatalogus",
    "naar": "Leer management systeem (LMS)",
@@ -531,7 +920,7 @@
   },
   {
    "fase": 4,
-   "stap": "Resultaatstructuur inrichten",
+   "stap": "Leeronderdeel- en toetsonderdeelspecificaties fijnmazig uitwerken",
    "soort": "ontstaat",
    "wie": "examencommissie",
    "objecttype": "Summatieve resultaat structuur",
@@ -546,7 +935,7 @@
   },
   {
    "fase": 4,
-   "stap": "Resultaatstructuur inrichten",
+   "stap": "Leeronderdeel- en toetsonderdeelspecificaties fijnmazig uitwerken",
    "soort": "ontstaat",
    "wie": "examencommissie",
    "objecttype": "Examenonderdeel weging",
@@ -563,7 +952,7 @@
   },
   {
    "fase": 4,
-   "stap": "Resultaatstructuur inrichten",
+   "stap": "Leeronderdeel- en toetsonderdeelspecificaties fijnmazig uitwerken",
    "soort": "ontstaat",
    "wie": "examencommissie",
    "objecttype": "Summatief Afrondingscriterium",
@@ -577,7 +966,7 @@
   },
   {
    "fase": 4,
-   "stap": "Resultaatstructuur inrichten",
+   "stap": "Leeronderdeel- en toetsonderdeelspecificaties fijnmazig uitwerken",
    "soort": "stroomt",
    "van": "Onderwijscatalogus",
    "naar": "Student volg systeem (SVS)",
@@ -590,7 +979,7 @@
   },
   {
    "fase": 4,
-   "stap": "Groepen definieren",
+   "stap": "Plaatsings- en planninggroepen definieren en aan personen koppelen",
    "soort": "stroomt",
    "van": "Kernregistratie systeem studenten (KRS)",
    "naar": "Planningssysteem",
@@ -603,7 +992,7 @@
   },
   {
    "fase": 4,
-   "stap": "Periode 1 roosteren",
+   "stap": "Te roosteren specificaties aan het roostersysteem geven",
    "soort": "stroomt",
    "van": "Planningssysteem",
    "naar": "Roostersysteem",
@@ -616,7 +1005,7 @@
   },
   {
    "fase": 4,
-   "stap": "Periode 1 roosteren",
+   "stap": "Leer-, les- en toetsgelegenheden roosteren",
    "soort": "verandert",
    "wie": "roosteraar",
    "objecttype": "Leergelegenheid",
@@ -627,7 +1016,7 @@
   },
   {
    "fase": 4,
-   "stap": "Periode 1 roosteren",
+   "stap": "Leer-, les- en toetsgelegenheden roosteren",
    "soort": "ontstaat",
    "wie": "roosteraar",
    "objecttype": "Lesgelegenheid",
@@ -642,7 +1031,7 @@
   },
   {
    "fase": 4,
-   "stap": "Periode 1 roosteren",
+   "stap": "Leer-, les- en toetsgelegenheden roosteren",
    "soort": "ontstaat",
    "wie": "roosteraar",
    "objecttype": "Medewerker",
@@ -656,7 +1045,7 @@
   },
   {
    "fase": 4,
-   "stap": "Periode 1 roosteren",
+   "stap": "Leer-, les- en toetsgelegenheden roosteren",
    "soort": "stroomt",
    "van": "Roostersysteem",
    "naar": "Kernregistratie systeem studenten (KRS)",
@@ -670,7 +1059,7 @@
   },
   {
    "fase": 4,
-   "stap": "Inschrijven op gelegenheden",
+   "stap": "Verwachte deelnemers delen en toegang geven",
    "soort": "ontstaat",
    "wie": "SLB'er",
    "objecttype": "Onderwijseenheid aanbod verbintenis",
@@ -685,7 +1074,7 @@
   },
   {
    "fase": 4,
-   "stap": "Inschrijven op gelegenheden",
+   "stap": "Verwachte deelnemers delen en toegang geven",
    "soort": "ontstaat",
    "wie": "SLB'er",
    "objecttype": "Leergelegenheid verbintenis",
@@ -699,7 +1088,7 @@
   },
   {
    "fase": 4,
-   "stap": "Inschrijven op gelegenheden",
+   "stap": "Verwachte deelnemers delen en toegang geven",
    "soort": "ontstaat",
    "wie": "SLB'er",
    "objecttype": "Lesgelegenheid verbintenis",
@@ -713,7 +1102,7 @@
   },
   {
    "fase": 4,
-   "stap": "Inschrijven op gelegenheden",
+   "stap": "Verwachte deelnemers delen en toegang geven",
    "soort": "verandert",
    "wie": "SLB'er",
    "objecttype": "Opleidingsprogramma aanbod verbintenis",
@@ -726,7 +1115,7 @@
   },
   {
    "fase": 4,
-   "stap": "Inschrijven op gelegenheden",
+   "stap": "Verwachte deelnemers delen en toegang geven",
    "soort": "stroomt",
    "van": "Kernregistratie systeem studenten (KRS)",
    "naar": "Leer management systeem (LMS)",

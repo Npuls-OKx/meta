@@ -75,15 +75,45 @@ def element(x, y, kind, label, inst, fill=BUS, line=BUS_L, labelkleur=BUS_T, rx=
     return s, w, h
 
 
+RELATIE_AFSTAND = 56  # ruimte tussen twee objecten waar een relatielijn loopt
+
+
+def relatielijn(x1, y, x2, soort, label, naar_rechts=True):
+    """Een ArchiMate-relatie tussen twee objecten op dezelfde hoogte. naar_rechts: de relatie loopt van het
+    linker object (van) naar het rechter (naar). Aggregatie: open ruit aan de kant van het geheel (van);
+    compositie: gevulde ruit; specialisatie: open pijlpunt aan de kant van het algemene (naar);
+    associatie: lijn, met een kleine pijlpunt als de plaat een richting geeft."""
+    s = f'<path d="M{x1:.0f} {y:.0f}H{x2:.0f}" stroke="#444" stroke-width="1.3" fill="none"/>'
+    geheel, deel = (x1, x2) if naar_rechts else (x2, x1)
+    if soort in ("Aggregation", "Composition"):
+        vulling = "#444" if soort == "Composition" else "#ffffff"
+        r = 1 if geheel < deel else -1
+        s += f'<path d="M{geheel:.0f} {y:.0f}l{7*r} -5l{7*r} 5l{-7*r} 5z" fill="{vulling}" stroke="#444" stroke-width="1.3"/>'
+    elif soort == "Specialization":
+        r = 1 if geheel < deel else -1
+        s += f'<path d="M{deel:.0f} {y:.0f}l{-10*r} -6v12z" fill="#ffffff" stroke="#444" stroke-width="1.3"/>'
+    elif label:
+        r = 1 if geheel < deel else -1
+        s += f'<path d="M{deel:.0f} {y:.0f}l{-8*r} -4v8z" fill="#444"/>'
+    if label:
+        s += text((x1 + x2) / 2, y - 5, label, 10, fill=MUTED, anchor="middle")
+    return s
+
+
 def objecten(x, y, items, uitzonderingen):
-    """Rij van objecten en relatielabels; nesting bij kinderen. Geeft (svg, w, h)."""
+    """Rij van objecten met de relaties van de plaat als lijnen ertussen; nesting bij kinderen.
+    Geeft (svg, w, h)."""
     out, cx, maxh = "", x, 0
+    lijnen = ""
+    vorige_rand = None  # rechterrand en middenhoogte van het vorige object
     for it in items:
         if "relatie" in it and "type" not in it:
-            w = tw(it["relatie"], 11) + 18
-            out += box(cx, y + 15, w, 18, "#ffffff", "#c8ccc9", 9, True, "2 2") + text(cx + w / 2, y + 27, it["relatie"], 11, fill=MUTED, anchor="middle")
-            cx += w + 8
-            maxh = max(maxh, 46)
+            # een relatie tussen het vorige en het volgende object: lijn met ruit of pijl
+            it_soort = it.get("soort", "Association")
+            if vorige_rand:
+                x1, ym = vorige_rand
+                lijnen += relatielijn(x1, ym, x1 + RELATIE_AFSTAND, it_soort, it["relatie"], it.get("naar_rechts", True))
+                cx = x1 + RELATIE_AFSTAND
             continue
         dashed = it.get("aanname", False)
         buiten = it["type"] in uitzonderingen
@@ -97,9 +127,10 @@ def objecten(x, y, items, uitzonderingen):
         else:
             s, w, h = element(cx, y, "object", it["type"], it["instantie"], fill, line, lk, 0, dashed, it.get("toestand"), it.get("verwijzing"))
             out += s
+        vorige_rand = (cx + w, y + 23)
         cx += w + 8
         maxh = max(maxh, h)
-    return out, cx - x - 8, maxh
+    return out + lijnen, cx - x - 8, maxh
 
 
 def wrap(W, H, body):
@@ -134,12 +165,9 @@ def regel_stroomt(blok, uitzonderingen):
     lijn = 34
     s += van + f'<path d="M{x} {y0+23}h{lijn}" stroke="{APP_T}" stroke-width="2" stroke-dasharray="5 4"/>'
     x += lijn
-    o = blok["object"]
-    buiten = o["type"] in uitzonderingen
-    fill, line = (GRIJS, GRIJS_L) if buiten else (BUS, BUS_L)
-    ow = max(tw(o["type"], 12), tw(o["instantie"], 12, True)) + 40
-    s += box(x, y0 + 8, ow, 32, fill, line) + icon("object", x + ow - 20, y0 + 10)
-    s += text(x + 8, y0 + 21, o["type"], 12) + text(x + 8, y0 + 34, o["instantie"], 12, True)
+    # het object dat over de lijn gaat, als structuur (nesting) of als enkel object
+    osvg, ow, oh = objecten(x, y0, blok["objecten"], uitzonderingen)
+    s += osvg
     x += ow
     s += f'<path d="M{x} {y0+23}h{lijn}" stroke="{APP_T}" stroke-width="2" stroke-dasharray="5 4"/>'
     s += f'<path d="M{x+lijn-2} {y0+17}l10 6-10 6z" fill="{APP_T}"/>'
@@ -149,7 +177,7 @@ def regel_stroomt(blok, uitzonderingen):
     stapw = tw("na: " + blok["stap"], 11) + 16
     s += naar + box(x, y0 + 14, stapw, 18, "#ffffff", "#c8ccc9", 9, True, "2 2") + text(x + 8, y0 + 27, "na: " + blok["stap"], 11, fill=MUTED)
     x += stapw + 12
-    zin_y = y0 + 46 + 22
+    zin_y = y0 + max(46, oh) + 22
     W = max(x, tw(blok.get("zin", ""), 13) + 24)
     H = zin_y + 12
     body = f'<rect x="0" y="0" width="4" height="{H:.0f}" fill="{APP_L}"/>' + s + text(12, zin_y, blok.get("zin", ""), 13, fill=MUTED)
@@ -162,9 +190,32 @@ def groepeer(regels):
     for r in regels["regels"]:
         soort = r["soort"]
         if soort == "stroomt":
+            laatste = blokken[-1] if blokken else None
+            item = {"type": r["objecttype"], "instantie": r["instantie"], "aanname": r.get("aanname", False)}
+            rel = r.get("relatie")
+            if laatste and laatste["soort"] == "stroomt" and (laatste["fase"], laatste["stap"], laatste["van"], laatste["naar"]) == (r["fase"], r["stap"], r["van"], r["naar"]):
+                in_blok_s = {it.get("type") for it in laatste["objecten"]}
+                if rel and not rel.get("nesting"):
+                    ander = rel["naar"] if rel["van"] == r["objecttype"] else rel["van"]
+                    if ander in in_blok_s:
+                        laatste["objecten"].append({"relatie": rel.get("label") or "", "soort": rel["soort"], "naar_rechts": rel["naar"] == r["objecttype"]})
+                if rel and rel.get("nesting"):
+                    def zoek_s(items):
+                        for it in items:
+                            if it.get("type") == rel["van"]:
+                                return it
+                            g = zoek_s(it.get("kinderen", []))
+                            if g is not None:
+                                return g
+                        return None
+                    ouder = zoek_s(laatste["objecten"])
+                    if ouder is not None:
+                        ouder.setdefault("kinderen", []).append(item)
+                        continue
+                laatste["objecten"].append(item)
+                continue
             blokken.append({"soort": "stroomt", "fase": r["fase"], "stap": r["stap"], "van": r["van"], "naar": r["naar"],
-                            "koppeling": r.get("koppeling"), "object": {"type": r["objecttype"], "instantie": r["instantie"]},
-                            "zin": r.get("zin", "")})
+                            "koppeling": r.get("koppeling"), "objecten": [item], "zin": r.get("zin", "")})
             continue
         laatste = blokken[-1] if blokken else None
         if not laatste or laatste["soort"] != "ontstaat" or (laatste["fase"], laatste["stap"], laatste["wie"]) != (r["fase"], r["stap"], r.get("wie")):
@@ -176,16 +227,24 @@ def groepeer(regels):
         rel = r.get("relatie")
         in_blok = {it.get("type") for it in laatste["objecten"]} | {k.get("type") for it in laatste["objecten"] for k in it.get("kinderen", [])}
         if rel and rel.get("nesting"):
-            ouder = next((it for it in laatste["objecten"] if it.get("type") == rel["van"]), None)
+            def zoek(items):
+                for it in items:
+                    if it.get("type") == rel["van"]:
+                        return it
+                    gevonden = zoek(it.get("kinderen", []))
+                    if gevonden is not None:
+                        return gevonden
+                return None
+            ouder = zoek(laatste["objecten"])
             if ouder is not None:
                 ouder.setdefault("kinderen", []).append(item)
                 continue
         if rel and not rel.get("nesting"):
             ander = rel["naar"] if rel["van"] == r["objecttype"] else rel["van"]
             label = rel.get("label") or {"Specialization": "is een", "Aggregation": "bevat", "Composition": "bevat"}.get(rel["soort"], "hangt aan")
-            if ander in in_blok and rel.get("label"):
-                # het andere eind staat in dit blok: label ertussen
-                laatste["objecten"].append({"relatie": label})
+            if ander in in_blok:
+                # het andere eind staat links in dit blok: relatielijn ertussen; naar_rechts als dit object het doel is
+                laatste["objecten"].append({"relatie": rel.get("label") or "", "soort": rel["soort"], "naar_rechts": rel["naar"] == r["objecttype"]})
             elif ander not in in_blok:
                 # het andere eind ontstond in een eerdere stap of staat niet in het blok: verwijzing op het object
                 item["verwijzing"] = f"{label} {ander}" if rel["van"] == r["objecttype"] else f"{ander} {label}"
