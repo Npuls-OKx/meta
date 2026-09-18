@@ -1369,7 +1369,15 @@
     "van": "Opleidingsprogramma specificatie",
     "naar": "Onderwijseenheid specificatie",
     "nesting": true
-   }
+   },
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Onderwijseenheid specificatie",
+     "naar": "Leeruitkomst",
+     "instantie": "Biedt farmaceutische patiëntenzorg (kerntaakniveau)"
+    }
+   ]
   },
   {
    "id": "R2-007",
@@ -1388,7 +1396,15 @@
     "van": "Onderwijseenheid specificatie",
     "naar": "Leeronderdeel specificatie",
     "nesting": true
-   }
+   },
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Leeronderdeel specificatie",
+     "naar": "Leeruitkomst",
+     "instantie": "Voert baliegesprek en triage uit (werkprocesniveau)"
+    }
+   ]
   },
   {
    "id": "R2-008",
@@ -1493,7 +1509,8 @@
    "objecttype": "Opleidingaanbod",
    "instantie": "Apothekersassistent 2026",
    "bron": "leerroute-1-regulier.md, Fase 2: Planning naar OC (opleidingsaanbod als planbaar resultaat)",
-   "zin": "Het geplande aanbod gaat terug naar de catalogus, die het aan de keten toont."
+   "zin": "Het geplande aanbod gaat terug naar de catalogus, die het aan de keten toont.",
+   "vraag": "Op de plaat verwijst aanbod niet naar de specificatie waarop het is gemaakt, alleen via het verzoek (Leidt tot). Hoe weet de catalogus bij welke specificatie het teruggeleverde aanbod hoort?"
   },
   {
    "id": "R2-015",
@@ -1512,6 +1529,72 @@
     "van": "Opleidingaanbod",
     "naar": "Opleidingsprogramma aanbod",
     "nesting": true
+   },
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Verzoek tot Aanbod / Intekening op specificatie",
+     "naar": "Opleidingsprogramma aanbod",
+     "label": "Leidt tot",
+     "instantie": "Planopgave Apothekersassistent, cohort 2026"
+    }
+   ]
+  },
+  {
+   "id": "R2-016",
+   "fase": 2,
+   "stap": "Gepland aanbod terugleveren aan de onderwijscatalogus",
+   "soort": "stroomt",
+   "van": "Planningssysteem",
+   "naar": "Onderwijscatalogus",
+   "pijl": "id-020f091db6ea4763aad7527a98afaf99",
+   "koppeling": "OC-P&R",
+   "objecttype": "Onderwijseenheid aanbod",
+   "instantie": "B1-K1, leerjaar 1",
+   "bron": "leerroute-1-regulier.md, Fase 2: planbaar aanbod, periode en capaciteit",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Opleidingsprogramma aanbod",
+    "naar": "Onderwijseenheid aanbod",
+    "nesting": true
+   }
+  },
+  {
+   "id": "R2-017",
+   "fase": 2,
+   "stap": "Gepland aanbod terugleveren aan de onderwijscatalogus",
+   "soort": "stroomt",
+   "van": "Planningssysteem",
+   "naar": "Onderwijscatalogus",
+   "pijl": "id-020f091db6ea4763aad7527a98afaf99",
+   "koppeling": "OC-P&R",
+   "objecttype": "Leergelegenheid",
+   "instantie": "B1-K1-W1, periode 1, planbaar",
+   "bron": "leerroute-1-regulier.md, Fase 2: planbaar aanbod",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Onderwijseenheid aanbod",
+    "naar": "Leergelegenheid",
+    "nesting": true
+   }
+  },
+  {
+   "id": "R2-018",
+   "fase": 2,
+   "stap": "Gepland aanbod terugleveren aan de onderwijscatalogus",
+   "soort": "stroomt",
+   "van": "Planningssysteem",
+   "naar": "Onderwijscatalogus",
+   "pijl": "id-020f091db6ea4763aad7527a98afaf99",
+   "koppeling": "OC-P&R",
+   "objecttype": "Toetsgelegenheid",
+   "instantie": "Praktijktoets baliegesprek (OSCE), einde periode 1",
+   "bron": "leerroute-1-regulier.md, Fase 2: planbaar aanbod",
+   "relatie": {
+    "soort": "Association",
+    "van": "Toetsonderdeel specificatie",
+    "naar": "Toetsgelegenheid",
+    "instantie": "Praktijktoets baliegesprek (OSCE)"
    }
   },
   {
@@ -1567,7 +1650,22 @@
    "objecttype": "Aanmelding",
    "instantie": "April 2026, Apothekersassistent BOL",
    "bron": "leerroute-1-regulier.md, Fase 3: Intakesysteem naar KRS (persoon en verbintenis)",
-   "zin": "De aanmelding komt bij de kernregistratie binnen; buiten OKx, wel in de keten."
+   "zin": "De aanmelding komt bij de kernregistratie binnen; buiten OKx, wel in de keten.",
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Opleidingaanbod",
+     "naar": "Aanmelding",
+     "label": "Op basis van",
+     "instantie": "Apothekersassistent 2026"
+    },
+    {
+     "soort": "Access",
+     "van": "Persoon",
+     "naar": "Aanmelding",
+     "instantie": "Jochem"
+    }
+   ]
   },
   {
    "id": "R3-005",
@@ -1665,7 +1763,8 @@
    "relatie": {
     "soort": "Association",
     "van": "Leeronderdeel specificatie",
-    "naar": "Leeruitkomst"
+    "naar": "Leeruitkomst",
+    "instantie": "Voert baliegesprek en triage uit (werkprocesniveau)"
    },
    "zin": "De onderwijsontwikkelaar werkt het leeronderdeel fijnmazig uit tot een lessenreeks van zes weken.",
    "toestand": "fijnmazig"
@@ -1706,7 +1805,42 @@
    "objecttype": "Leeronderdeel specificatie",
    "instantie": "B1-K1-W1, lessenreeks Baliegesprek en triage",
    "bron": "leerroute-1-regulier.md, Fase 4: OC naar LMS (leeronderdeel-specificaties ter detaillering)",
-   "zin": "De detailspecificaties gaan naar het LMS ter inrichting van de leeromgeving."
+   "zin": "De detailspecificaties gaan naar het LMS ter inrichting van de leeromgeving.",
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Leeronderdeel specificatie",
+     "naar": "Leeruitkomst",
+     "instantie": "Voert baliegesprek en triage uit (werkprocesniveau)"
+    }
+   ]
+  },
+  {
+   "id": "R4-016",
+   "fase": 4,
+   "stap": "Detailspecificaties leveren aan het LMS",
+   "soort": "stroomt",
+   "van": "Onderwijscatalogus",
+   "naar": "Leer management systeem (LMS)",
+   "pijl": "id-d23841b89bed4935b2aebdeb12ee2acf",
+   "koppeling": "OC-LMS",
+   "objecttype": "Les specificatie",
+   "instantie": "Les 1 Introductie WHAM-vragen en triage",
+   "bron": "leerroute-1-regulier.md, Fase 4: detailspecificaties naar het LMS",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Leeronderdeel specificatie",
+    "naar": "Les specificatie",
+    "nesting": true
+   },
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Les specificatie",
+     "naar": "Leeruitkomst",
+     "instantie": "Voert baliegesprek en triage uit (werkprocesniveau)"
+    }
+   ]
   },
   {
    "id": "R4-004",
@@ -1718,9 +1852,62 @@
    "pijl": "id-e2755a76b8244373bd7e8da4ccb7c3f6",
    "koppeling": "OC-SIS",
    "objecttype": "Summatieve resultaat structuur",
-   "instantie": "Examenplan Apothekersassistent",
+   "instantie": "Resultaatstructuur Apothekersassistent",
    "bron": "leerroute-1-regulier.md, Fase 5: OC naar SVS (specificatie als referentiekader); koppelingspecificatie OC-SIS: resultaatstructuur",
-   "zin": "De resultaatstructuur gaat als nominaal template naar het studentvolgsysteem, dat er per student een individueel examenplan van maakt."
+   "zin": "De resultaatstructuur gaat als nominaal template naar het studentvolgsysteem, dat er per student een individueel examenplan van maakt.",
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Summatieve resultaat structuur",
+     "naar": "Leeruitkomst",
+     "instantie": "Biedt farmaceutische patiëntenzorg (kerntaakniveau)"
+    }
+   ]
+  },
+  {
+   "id": "R4-017",
+   "fase": 4,
+   "stap": "Detailspecificaties leveren aan het LMS",
+   "soort": "stroomt",
+   "van": "Onderwijscatalogus",
+   "naar": "Student volg systeem (SVS)",
+   "pijl": "id-e2755a76b8244373bd7e8da4ccb7c3f6",
+   "koppeling": "OC-SIS",
+   "objecttype": "Toetsonderdeel specificatie",
+   "instantie": "Praktijktoets baliegesprek (OSCE), summatief",
+   "bron": "leerroute-1-regulier.md, Fase 4: OC naar SVS, de structuur waarmee het SVS aggregeert",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Summatieve resultaat structuur",
+    "naar": "Toetsonderdeel specificatie",
+    "nesting": true
+   },
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Toetsonderdeel specificatie",
+     "naar": "Leeruitkomst",
+     "instantie": "Voert baliegesprek en triage uit (werkprocesniveau)"
+    }
+   ]
+  },
+  {
+   "id": "R4-018",
+   "fase": 4,
+   "stap": "Detailspecificaties leveren aan het LMS",
+   "soort": "stroomt",
+   "van": "Onderwijscatalogus",
+   "naar": "Student volg systeem (SVS)",
+   "pijl": "id-e2755a76b8244373bd7e8da4ccb7c3f6",
+   "koppeling": "OC-SIS",
+   "objecttype": "Summatief Afrondingscriterium",
+   "instantie": "Alle kerntaken en de keuzedelen voldoende",
+   "bron": "leerroute-1-regulier.md, Fase 4: OC naar SVS",
+   "relatie": {
+    "soort": "Association",
+    "van": "Summatieve resultaat structuur",
+    "naar": "Summatief Afrondingscriterium"
+   }
   },
   {
    "id": "R4-005",
@@ -1748,7 +1935,15 @@
    "objecttype": "Leergelegenheid",
    "instantie": "B1-K1-W1, periode 1",
    "bron": "leerroute-1-regulier.md, Fase 4: Planning naar Rooster (te roosteren specificaties)",
-   "zin": "Planning geeft de leergelegenheden van periode 1 aan het roostersysteem."
+   "zin": "Planning geeft de leergelegenheden van periode 1 aan het roostersysteem.",
+   "relaties": [
+    {
+     "soort": "Aggregation",
+     "van": "Onderwijseenheid aanbod",
+     "naar": "Leergelegenheid",
+     "instantie": "B1-K1, leerjaar 1"
+    }
+   ]
   },
   {
    "id": "R4-007",
@@ -1806,7 +2001,15 @@
    "instantie": "Les 1, ma 09:00, lokaal 2.14",
    "bron": "hoofdplaat v1.7: Roostersysteem naar KRS",
    "zin": "Het rooster gaat naar de kernregistratie; op de plaat een pijl, in de koppelvlakspecificatie nog niets.",
-   "vraag": "De hoofdplaat wisselt lesgelegenheden uit, ontwerpkeuze 8 zet de leslaag buiten de uitwisseling. Herkent de kerngroep deze stroom?"
+   "vraag": "De hoofdplaat wisselt lesgelegenheden uit, ontwerpkeuze 8 zet de leslaag buiten de uitwisseling. Herkent de kerngroep deze stroom?",
+   "relaties": [
+    {
+     "soort": "Aggregation",
+     "van": "Leergelegenheid",
+     "naar": "Lesgelegenheid",
+     "instantie": "B1-K1-W1, periode 1"
+    }
+   ]
   },
   {
    "id": "R4-011",
@@ -1869,6 +2072,24 @@
    "vraag": "Rijpt een verbintenis mee met het aanbod (planbaar naar geroosterd), of is de toestand van de verbintenis los van die van het aanbod (ontwerpkeuze 13)?"
   },
   {
+   "id": "R4-019",
+   "fase": 4,
+   "stap": "Verwachte deelnemers delen en toegang geven",
+   "soort": "stroomt",
+   "van": "Kernregistratie systeem studenten (KRS)",
+   "naar": "Leer management systeem (LMS)",
+   "pijl": "id-865f297e8c1f4371aa143aa225fe4b7f",
+   "koppeling": null,
+   "objecttype": "Student",
+   "instantie": "Jochem, cohort 2026",
+   "bron": "leerroute-1-regulier.md, Fase 4: KRS naar LMS, student, verbintenis en relevante groepen",
+   "relatie": {
+    "soort": "Specialization",
+    "van": "Student",
+    "naar": "Persoon"
+   }
+  },
+  {
    "id": "R4-015",
    "fase": 4,
    "stap": "Verwachte deelnemers delen en toegang geven",
@@ -1880,7 +2101,71 @@
    "objecttype": "Opleidingsprogramma aanbod verbintenis",
    "instantie": "Jochem op Regulier BOL 2026",
    "bron": "leerroute-1-regulier.md, Fase 4: KRS naar LMS (verbintenis en persoon voor rechtmatige toegang)",
-   "zin": "De verbintenis gaat naar het LMS zodat Jochem eind augustus toegang krijgt; persoonsgegevens komen uit het IAM."
+   "zin": "De verbintenis gaat naar het LMS zodat Jochem eind augustus toegang krijgt; persoonsgegevens komen uit het IAM.",
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Opleidingsprogramma aanbod",
+     "naar": "Opleidingsprogramma aanbod verbintenis",
+     "instantie": "Regulier BOL 2026"
+    }
+   ]
+  },
+  {
+   "id": "R4-020",
+   "fase": 4,
+   "stap": "Verwachte deelnemers delen en toegang geven",
+   "soort": "stroomt",
+   "van": "Kernregistratie systeem studenten (KRS)",
+   "naar": "Leer management systeem (LMS)",
+   "pijl": "id-865f297e8c1f4371aa143aa225fe4b7f",
+   "koppeling": null,
+   "objecttype": "Plaatsingsgroep",
+   "instantie": "APO26-1A",
+   "bron": "leerroute-1-regulier.md, Fase 4: relevante groepen",
+   "relatie": {
+    "soort": "Association",
+    "van": "Plaatsingsgroep",
+    "naar": "Opleidingsprogramma aanbod verbintenis"
+   }
+  },
+  {
+   "id": "R4-021",
+   "fase": 4,
+   "stap": "Verwachte deelnemers delen en toegang geven",
+   "soort": "stroomt",
+   "van": "Kernregistratie systeem studenten (KRS)",
+   "naar": "Leer management systeem (LMS)",
+   "pijl": "id-865f297e8c1f4371aa143aa225fe4b7f",
+   "koppeling": null,
+   "objecttype": "Onderwijseenheid aanbod verbintenis",
+   "instantie": "Jochem op B1-K1, leerjaar 1",
+   "bron": "leerroute-1-regulier.md, Fase 4: verwachte deelnemers",
+   "relatie": {
+    "soort": "Association",
+    "van": "Onderwijseenheid aanbod",
+    "naar": "Onderwijseenheid aanbod verbintenis",
+    "instantie": "B1-K1, leerjaar 1"
+   }
+  },
+  {
+   "id": "R4-022",
+   "fase": 4,
+   "stap": "Verwachte deelnemers delen en toegang geven",
+   "soort": "stroomt",
+   "van": "Kernregistratie systeem studenten (KRS)",
+   "naar": "Leer management systeem (LMS)",
+   "pijl": "id-865f297e8c1f4371aa143aa225fe4b7f",
+   "koppeling": null,
+   "objecttype": "Leergelegenheid verbintenis",
+   "instantie": "Jochem op B1-K1-W1, periode 1",
+   "bron": "leerroute-1-regulier.md, Fase 4: verwachte deelnemers",
+   "relatie": {
+    "soort": "Association",
+    "van": "Leergelegenheid",
+    "naar": "Leergelegenheid verbintenis",
+    "instantie": "B1-K1-W1, periode 1"
+   }
   },
   {
    "id": "R5-001",
@@ -1951,7 +2236,15 @@
    "instantie": "Voortgang B1-K1-W1: quiz WHAM-vragen, rollenspel",
    "bron": "leerroute-1-regulier.md, r1096 tot 1099: formatieve controles per les",
    "aanname": true,
-   "zin": "De docent houdt de formatieve voortgang bij: welke onderdelen tellen voor het beeld van Jochems ontwikkeling, en het resultaat per toetsgelegenheid."
+   "zin": "De docent houdt de formatieve voortgang bij: welke onderdelen tellen voor het beeld van Jochems ontwikkeling, en het resultaat per toetsgelegenheid.",
+   "relaties": [
+    {
+     "soort": "Aggregation",
+     "van": "Formatieve resultaat structuur",
+     "naar": "Toetsonderdeel specificatie",
+     "instantie": "Quiz WHAM-vragen, rollenspel"
+    }
+   ]
   },
   {
    "id": "R5-006",
@@ -2036,6 +2329,23 @@
    "vraag": "Persoonlijke ontwikkeling en de formatieve structuur hebben geen definitie en geen bron in het kaderscenario; herkent de instelling ze, en wisselt OKx ze uit?"
   },
   {
+   "id": "R5-012",
+   "fase": 5,
+   "stap": "Formatieve voortgang bijhouden",
+   "soort": "ontstaat",
+   "wie": "docent",
+   "objecttype": "Leergelegenheid resultaat",
+   "instantie": "B1-K1-W1 afgerond, periode 1",
+   "bron": "leerroute-1-regulier.md, Fase 5: SLB'ers volgen Jochems studiebeeld in SVS",
+   "relatie": {
+    "soort": "Association",
+    "van": "Leergelegenheid verbintenis",
+    "naar": "Leergelegenheid resultaat",
+    "instantie": "Jochem op B1-K1-W1, periode 1"
+   },
+   "zin": "De SLB'er volgt het studiebeeld: per leergelegenheid en per eenheid het resultaat op de verbintenis."
+  },
+  {
    "id": "R5-011",
    "fase": 5,
    "stap": "Formatieve voortgang bijhouden",
@@ -2047,23 +2357,60 @@
    "objecttype": "Toetsgelegenheid resultaat",
    "instantie": "OSCE: voldoende",
    "bron": "leerroute-1-regulier.md, Fase 5: LMS naar SVS (toetsgelegenheid-verbintenis resultaten, formatief)",
-   "zin": "De formatieve resultaten gaan van het LMS naar het studentvolgsysteem."
+   "zin": "De formatieve resultaten gaan van het LMS naar het studentvolgsysteem: per toetsgelegenheid en per leergelegenheid, op de verbintenis van Jochem.",
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Toetsgelegenheid verbintenis",
+     "naar": "Toetsgelegenheid resultaat",
+     "instantie": "Jochem op de OSCE"
+    },
+    {
+     "soort": "Access",
+     "van": "Persoon",
+     "naar": "Toetsgelegenheid resultaat",
+     "instantie": "Jochem"
+    }
+   ]
   },
   {
-   "id": "R5-012",
+   "id": "R5-014",
    "fase": 5,
-   "stap": "Studiebeeld volgen in het studentvolgsysteem",
-   "soort": "ontstaat",
-   "wie": "SLB'er",
+   "stap": "Formatieve voortgang bijhouden",
+   "soort": "stroomt",
+   "van": "Leer management systeem (LMS)",
+   "naar": "Student volg systeem (SVS)",
+   "pijl": "id-979d8078315c47139a73942028c0300d",
+   "koppeling": null,
+   "objecttype": "Formatief resultaat",
+   "instantie": "Quiz WHAM-vragen: 8 van 10",
+   "bron": "leerroute-1-regulier.md, Fase 5: LMS naar SVS, formatief",
+   "relatie": {
+    "soort": "Specialization",
+    "van": "Formatief resultaat",
+    "naar": "Toetsgelegenheid resultaat"
+   }
+  },
+  {
+   "id": "R5-015",
+   "fase": 5,
+   "stap": "Formatieve voortgang bijhouden",
+   "soort": "stroomt",
+   "van": "Leer management systeem (LMS)",
+   "naar": "Student volg systeem (SVS)",
+   "pijl": "id-979d8078315c47139a73942028c0300d",
+   "koppeling": null,
    "objecttype": "Leergelegenheid resultaat",
    "instantie": "B1-K1-W1 afgerond, periode 1",
-   "bron": "leerroute-1-regulier.md, Fase 5: SLB'ers volgen Jochems studiebeeld in SVS",
-   "relatie": {
-    "soort": "Association",
-    "van": "Leergelegenheid verbintenis",
-    "naar": "Leergelegenheid resultaat"
-   },
-   "zin": "De SLB'er volgt het studiebeeld: per leergelegenheid en per eenheid het resultaat op de verbintenis."
+   "bron": "leerroute-1-regulier.md, Fase 5: LMS naar SVS, leergelegenheid-verbintenis resultaten",
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Leergelegenheid verbintenis",
+     "naar": "Leergelegenheid resultaat",
+     "instantie": "Jochem op B1-K1-W1, periode 1"
+    }
+   ]
   },
   {
    "id": "R5-013",
@@ -2078,7 +2425,8 @@
     "soort": "Association",
     "van": "Onderwijseenheid aanbod verbintenis",
     "naar": "Onderwijseenheid resultaat"
-   }
+   },
+   "zin": "De SLB'er volgt het studiebeeld: het studentvolgsysteem telt de resultaten per eenheid op de verbintenis bij elkaar."
   },
   {
    "id": "R6-001",
@@ -2129,6 +2477,32 @@
    }
   },
   {
+   "id": "R6-010",
+   "fase": 6,
+   "stap": "Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem",
+   "soort": "stroomt",
+   "van": "Onderwijscatalogus",
+   "naar": "Student Keuze Systeem (SKS)",
+   "pijl": "id-5f2568d7b99a49eaa863f539ae362f4d",
+   "koppeling": null,
+   "objecttype": "Student keuze regelset",
+   "instantie": "Kiesbare keuzedelen voor Apothekersassistent",
+   "bron": "voorbeeldpayloads.md, regelsets[0] (e4037953); keuze-requirements.md",
+   "relatie": {
+    "soort": "Association",
+    "van": "Student keuze regelset",
+    "naar": "Keuzedeel"
+   },
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Keuzedeelruimte",
+     "naar": "Student keuze regelset",
+     "instantie": "720 SBU, mbo-4"
+    }
+   ]
+  },
+  {
    "id": "R6-004",
    "fase": 6,
    "stap": "Voorkeurslijst samenstellen in het studentkeuzesysteem",
@@ -2157,7 +2531,15 @@
    "objecttype": "Keuzedeel aanbod verbintenis",
    "instantie": "Jochem op Ondernemerschap in de zorg, periode 7 (voorkeur 1)",
    "bron": "leerroute-1-regulier.md, Fase 6: SKS naar Planning (opleidingsprogramma-verbintenis op gekozen aanbod)",
-   "zin": "De keuzestelling gaat als intekening naar planning."
+   "zin": "De keuzestelling gaat als intekening naar planning.",
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Keuzedeelaanbod",
+     "naar": "Keuzedeel aanbod verbintenis",
+     "instantie": "Ondernemerschap in de zorg, periode 7, locatie A"
+    }
+   ]
   },
   {
    "id": "R6-006",
@@ -2183,7 +2565,15 @@
    "objecttype": "Keuzedeelaanbod",
    "instantie": "Ondernemerschap in de zorg, periode 7, locatie A: 1 groep, 24 plaatsen",
    "bron": "leerroute-1-regulier.md, Fase 6: actualiseert het planbare aanbod in OC en het rooster volgt; Planning naar OC (geactualiseerd planbaar aanbod)",
-   "zin": "Het geactualiseerde planbare aanbod gaat terug naar de catalogus; het rooster volgt."
+   "zin": "Het geactualiseerde planbare aanbod gaat terug naar de catalogus; het rooster volgt.",
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Keuzedeel",
+     "naar": "Keuzedeelaanbod",
+     "instantie": "Ondernemerschap in de zorg"
+    }
+   ]
   },
   {
    "id": "R6-008",
@@ -2209,7 +2599,20 @@
    "objecttype": "Keuzedeel aanbod verbintenis",
    "instantie": "Jochem op Ondernemerschap in de zorg, periode 7",
    "bron": "leerroute-1-regulier.md, Fase 6: Planning naar KRS (formele inschrijving keuzedeel); hoofdplaat v1.7 kent alleen SKS naar KRS",
-   "vraag": "Het kaderscenario laat de formele inschrijving op het keuzedeel van planning naar KRS lopen; hoofdplaat v1.7 kent alleen de pijl van het studentkeuzesysteem naar KRS. Welke component levert de verbintenis aan KRS?"
+   "vraag": "Het kaderscenario laat de formele inschrijving op het keuzedeel van planning naar KRS lopen; hoofdplaat v1.7 kent alleen de pijl van het studentkeuzesysteem naar KRS. Welke component levert de verbintenis aan KRS?",
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Keuzedeelaanbod",
+     "naar": "Keuzedeel aanbod verbintenis",
+     "instantie": "Ondernemerschap in de zorg, periode 7, locatie A"
+    },
+    {
+     "soort": "Specialization",
+     "van": "Keuzedeel aanbod verbintenis",
+     "naar": "Opleidingsprogramma aanbod verbintenis"
+    }
+   ]
   },
   {
    "id": "R7-001",
@@ -2248,7 +2651,16 @@
    "koppeling": null,
    "objecttype": "Plaatsingsgroep",
    "instantie": "Planninggroep temporiseren B1-K2, periode 5",
-   "bron": "leerroute-1-regulier.md, Fase 7: KRS naar Planning (gewijzigde populatie en plangroepen)"
+   "bron": "leerroute-1-regulier.md, Fase 7: KRS naar Planning (gewijzigde populatie en plangroepen)",
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Persoon",
+     "naar": "Plaatsingsgroep",
+     "label": "Worden gegroepeerd via",
+     "instantie": "Jochem en de andere achterlopers"
+    }
+   ]
   },
   {
    "id": "R7-004",
@@ -2273,7 +2685,15 @@
    "koppeling": "OC-P&R",
    "objecttype": "Onderwijseenheid aanbod",
    "instantie": "B1-K2, periode 5, bijgestuurd",
-   "bron": "leerroute-1-regulier.md, Fase 7: Planning naar OC (mutaties planbaar aanbod)"
+   "bron": "leerroute-1-regulier.md, Fase 7: Planning naar OC (mutaties planbaar aanbod)",
+   "relaties": [
+    {
+     "soort": "Aggregation",
+     "van": "Opleidingsprogramma aanbod",
+     "naar": "Onderwijseenheid aanbod",
+     "instantie": "Regulier BOL 2026"
+    }
+   ]
   },
   {
    "id": "R7-006",
@@ -2286,7 +2706,15 @@
    "koppeling": null,
    "objecttype": "Leergelegenheid",
    "instantie": "B1-K2-W1, periode 5",
-   "bron": "leerroute-1-regulier.md, Fase 7: Planning naar Rooster (nieuw rooster)"
+   "bron": "leerroute-1-regulier.md, Fase 7: Planning naar Rooster (nieuw rooster)",
+   "relaties": [
+    {
+     "soort": "Aggregation",
+     "van": "Onderwijseenheid aanbod",
+     "naar": "Leergelegenheid",
+     "instantie": "B1-K2, periode 5, bijgestuurd"
+    }
+   ]
   },
   {
    "id": "R8-001",
@@ -2348,7 +2776,21 @@
    "koppeling": null,
    "objecttype": "Examengelegenheid resultaat",
    "instantie": "Proeve B1-K1: voldoende",
-   "bron": "leerroute-1-regulier.md, Fase 8: Toets-/examenafname naar SVS; niet op de view zonder context van hoofdplaat v1.7"
+   "bron": "leerroute-1-regulier.md, Fase 8: Toets-/examenafname naar SVS; niet op de view zonder context van hoofdplaat v1.7",
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Examengelegenheid verbintenis",
+     "naar": "Examengelegenheid resultaat",
+     "instantie": "Jochem op de proeve, periode 12"
+    },
+    {
+     "soort": "Access",
+     "van": "Persoon",
+     "naar": "Examengelegenheid resultaat",
+     "instantie": "Jochem"
+    }
+   ]
   },
   {
    "id": "R8-005",
@@ -2414,6 +2856,28 @@
    }
   },
   {
+   "id": "R8-012",
+   "fase": 8,
+   "stap": "Summatief vaststellen",
+   "soort": "stroomt",
+   "van": "Student volg systeem (SVS)",
+   "naar": "Kernregistratie systeem studenten (KRS)",
+   "pijl": "geen pijl op de hoofdplaat",
+   "koppeling": null,
+   "objecttype": "Summatief resultaat",
+   "instantie": "B1-K1: voldoende, vastgesteld",
+   "bron": "leerroute-1-regulier.md, Fase 8: de examencommissie stelt summatief vast; SVS en KRS",
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Summatieve resultaat structuur",
+     "naar": "Summatief resultaat",
+     "label": "conform",
+     "instantie": "Resultaatstructuur Apothekersassistent"
+    }
+   ]
+  },
+  {
    "id": "R8-009",
    "fase": 8,
    "stap": "Summatief vaststellen",
@@ -2425,7 +2889,33 @@
    "objecttype": "Opleidingsprogramma resultaat",
    "instantie": "Regulier BOL 2026: alle kerntaken en keuzedelen voldoende",
    "bron": "leerroute-1-regulier.md, Fase 8: SVS en KRS (kwalificering en diplomering)",
-   "zin": "De vaststelling gaat van het studentvolgsysteem naar de kernregistratie; hoofdplaat v1.7 heeft die pijl nog niet (versie 1.7a volgt)."
+   "zin": "De vaststelling gaat van het studentvolgsysteem naar de kernregistratie; hoofdplaat v1.7 heeft die pijl nog niet (versie 1.7a volgt).",
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Opleidingsprogramma aanbod verbintenis",
+     "naar": "Opleidingsprogramma resultaat",
+     "instantie": "Jochem op Regulier BOL 2026"
+    }
+   ]
+  },
+  {
+   "id": "R8-013",
+   "fase": 8,
+   "stap": "Summatief vaststellen",
+   "soort": "stroomt",
+   "van": "Student volg systeem (SVS)",
+   "naar": "Kernregistratie systeem studenten (KRS)",
+   "pijl": "geen pijl op de hoofdplaat",
+   "koppeling": null,
+   "objecttype": "Keuzedeel resultaat",
+   "instantie": "Ondernemerschap in de zorg: voldoende",
+   "bron": "leerroute-1-regulier.md, Fase 8: SVS en KRS (kwalificering en diplomering)",
+   "relatie": {
+    "soort": "Specialization",
+    "van": "Keuzedeel resultaat",
+    "naar": "Opleidingsprogramma resultaat"
+   }
   },
   {
    "id": "R8-010",

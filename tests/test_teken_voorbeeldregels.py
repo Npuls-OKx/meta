@@ -171,6 +171,12 @@ class TekenTests(unittest.TestCase):
             self.assertIn(s, t)
         self.assertTrue(any(r.get("fill") == tv.APP for r in rects(svg)))
 
+    def test_given_first_stroomt_object_with_relation_when_grouped_then_reference_shown(self):
+        r = regels()
+        r["regels"][3]["relatie"] = {"soort": "Specialization", "van": "Opleidingaanbod", "naar": "Opleidingsaanbod van Instelling"}
+        blok = [b for b in self.blokken(r) if b["soort"] == "stroomt"][0]
+        self.assertEqual(blok["objecten"][0]["verwijzing"], "is een Opleidingsaanbod van Instelling")
+
     def test_given_stroomt_without_koppeling_when_drawn_then_marked(self):
         blok = [b for b in self.blokken() if b["soort"] == "stroomt"][0]
         blok["koppeling"] = None

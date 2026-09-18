@@ -69,7 +69,8 @@
               "soort": {"type": "string", "enum": ["Aggregation", "Composition", "Association", "Specialization", "Access"]},
               "van": {"type": "string"},
               "naar": {"type": "string"},
-              "label": {"type": "string"}
+              "label": {"type": "string"},
+              "instantie": {"type": "string", "description": "de instantie aan het andere eind, getoond in de verwijzing als het andere eind buiten het blok staat"}
             }
           },
           "relaties": {

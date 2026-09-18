@@ -173,11 +173,11 @@ def _objecten_kolom(x, y, items, uitzonderingen):
     return out + lijnen, maxw, max(h1, ky - 28 - y)
 
 
-STROOMGAT = 34  # tussenruimte met stippellijn tussen objecten die samen over een pijl gaan
+STROOMGAT = 24  # tussenruimte tussen objecten die samen over een pijl gaan en geen relatielijn delen
 
 
 def _objecten_rij(x, y, items, uitzonderingen, verbind=False):
-    """verbind: de objecten gaan samen over een pijl; waar geen relatielijn loopt, verbindt een stippellijn ze."""
+    """verbind: de objecten gaan samen over een pijl; waar geen relatielijn loopt, staan ze iets verder uit elkaar."""
     out, cx, maxh = "", x, 0
     lijnen = ""
     vorige_rand = None  # rechterrand en middenhoogte van het vorige object
@@ -194,9 +194,7 @@ def _objecten_rij(x, y, items, uitzonderingen, verbind=False):
                 na_relatie = True
             continue
         if verbind and vorige_rand and not na_relatie:
-            x1, ym = vorige_rand
-            cx = x1 + STROOMGAT
-            lijnen += f'<path d="M{x1:.0f} {ym:.0f}h{STROOMGAT}" stroke="{APP_T}" stroke-width="2" stroke-dasharray="5 4"/>'
+            cx = vorige_rand[0] + STROOMGAT
         na_relatie = False
         dashed = it.get("aanname", False)
         buiten = it["type"] in uitzonderingen
@@ -230,8 +228,8 @@ STROOM_MAX_BREEDTE = 1700  # breder dan dit: de keten over een pijl loopt door o
 
 
 def _objecten_rijen(x, y, items, uitzonderingen, maxbreedte=STROOM_MAX_BREEDTE):
-    """De objecten over een pijl, naast elkaar met stippellijnen ertussen; wordt de rij breder dan
-    maxbreedte, dan gaat de keten verder op een volgende rij. Een relatie blijft bij het object dat volgt.
+    """De objecten over een pijl, naast elkaar; wordt de rij breder dan maxbreedte, dan gaat de keten
+    verder op een volgende rij. Een relatie blijft bij het object dat volgt.
     Geeft (svg, w, h, rijen) met per rij (y, rechterrand)."""
     groepen, wacht = [], []
     for it in items:
@@ -313,36 +311,38 @@ def regel_ontstaat(blok, uitzonderingen):
 
 
 def regel_stroomt(blok, uitzonderingen):
+    """De stroom: bovenaan de pijl van component naar component als horizontale stippellijn, met de
+    koppeling-ID en de processtap; eronder, aan de lijn gehangen, de objecten die samen overgaan."""
     y0 = 10
+    lijn = 34
     idtekst = blok.get("koppeling") or ("geen pijl op de hoofdplaat" if blok.get("pijl") == "geen pijl op de hoofdplaat" else "zonder koppelingspecificatie")
     idw = tw(idtekst, 11) + 16
     s = box(12, y0 + 14, idw, 18, "#ffffff", "#c8ccc9", 4) + text(20, y0 + 27, idtekst, 11, fill=MUTED)
     x = 12 + idw + 12
     van, vw, vh = element(x, y0, "component", "van", blok["van"], APP, APP_L, APP_T)
-    x += vw + 6
-    lijn = 34
-    s += van + f'<path d="M{x} {y0+23}h{lijn}" stroke="{APP_T}" stroke-width="2" stroke-dasharray="5 4"/>'
-    x += lijn
-    # de objecten die samen over de pijl gaan, naast elkaar en zo nodig over meer rijen
-    x0 = x
-    osvg, ow, oh, rijen = _objecten_rijen(x, y0, blok["objecten"], uitzonderingen)
-    for ry, rand in rijen[1:]:
-        s += f'<path d="M{x0 - lijn} {ry+23}h{lijn}" stroke="{APP_T}" stroke-width="2" stroke-dasharray="5 4"/>'
-    for ry, rand in rijen[:-1]:
-        s += f'<path d="M{rand} {ry+23}h{lijn}" stroke="{APP_T}" stroke-width="2" stroke-dasharray="5 4"/>'
+    s += van
+    x_lijn = x + vw + 6
+    # de objecten onder de lijn, iets ingesprongen; ze hangen met een stippellijn aan de pijl
+    ox, oy = x_lijn + 20, y0 + vh + 26
+    osvg, ow, oh, rijen = _objecten_rijen(ox, oy, blok["objecten"], uitzonderingen)
+    naar, nw, nh = element(0, 0, "component", "naar", blok["naar"], APP, APP_L, APP_T)
+    stap_tekst = "na: " + blok["stap"]
+    stapw = tw(stap_tekst, 11) + 16
+    x_naar = max(x_lijn + 240, ox + ow + lijn) 
+    s += f'<path d="M{x_lijn} {y0+23}H{x_naar - 10}" stroke="{APP_T}" stroke-width="2" stroke-dasharray="5 4"/>'
+    s += f'<path d="M{x_naar - 12} {y0+17}l10 6-10 6z" fill="{APP_T}"/>'
+    naar, nw, nh = element(x_naar, y0, "component", "naar", blok["naar"], APP, APP_L, APP_T)
+    s += naar
+    sx = x_naar + nw + 10
+    s += box(sx, y0 + 14, stapw, 18, "#ffffff", "#c8ccc9", 9, True, "2 2") + text(sx + 8, y0 + 27, stap_tekst, 11, fill=MUTED)
+    # de ophanging: van de pijl naar de bovenkant van de eerste rij, en langs de linkerkant van elke rij
+    hx = ox + 24
+    s += f'<path d="M{hx} {y0+23}V{oy - 4}" stroke="{APP_T}" stroke-width="1.5" stroke-dasharray="3 3"/>'
+    for ry, _ in rijen[1:]:
+        s += f'<path d="M{hx} {oy}V{ry - 4}" stroke="{APP_T}" stroke-width="1.5" stroke-dasharray="3 3"/>'
     s += osvg
-    ly, rand = rijen[-1]
-    x = rand
-    s += f'<path d="M{x} {ly+23}h{lijn}" stroke="{APP_T}" stroke-width="2" stroke-dasharray="5 4"/>'
-    s += f'<path d="M{x+lijn-2} {ly+17}l10 6-10 6z" fill="{APP_T}"/>'
-    x += lijn + 10
-    naar, nw, nh = element(x, ly, "component", "naar", blok["naar"], APP, APP_L, APP_T)
-    x += nw + 10
-    stapw = tw("na: " + blok["stap"], 11) + 16
-    s += naar + box(x, ly + 14, stapw, 18, "#ffffff", "#c8ccc9", 9, True, "2 2") + text(x + 8, ly + 27, "na: " + blok["stap"], 11, fill=MUTED)
-    x += stapw + 12
-    zin_y = y0 + max(46, oh) + 22
-    W = max(x, x0 + ow + lijn + 12, tw(blok.get("zin", ""), 13) + 24)
+    zin_y = oy + oh + 22
+    W = max(sx + stapw + 12, ox + ow + 12, tw(blok.get("zin", ""), 13) + 24)
     H = zin_y + 12
     body = f'<rect x="0" y="0" width="4" height="{H:.0f}" fill="{APP_L}"/>' + s + text(12, zin_y, blok.get("zin", ""), 13, fill=MUTED)
     return wrap(W, H, body)
@@ -395,6 +395,9 @@ def groepeer(regels):
                         continue
                 laatste["objecten"].append(item)
                 continue
+            if rel and not rel.get("nesting"):
+                # het eerste object van een stroom: zijn relatie wijst altijd buiten het blok
+                item["verwijzing"] = _verwijzing(rel, r["objecttype"])
             blokken.append({"soort": "stroomt", "fase": r["fase"], "stap": r["stap"], "van": r["van"], "naar": r["naar"],
                             "koppeling": r.get("koppeling"), "pijl": r.get("pijl"), "objecten": [item], "zin": r.get("zin", "")})
             continue
