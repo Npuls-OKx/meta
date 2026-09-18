@@ -32,13 +32,22 @@ def parse(path):
     views = {e.get("name"): e for e in root.iter("element") if e.get(XSI) == "archimate:ArchimateDiagramModel"}
     return elems, rels, views
 
+def labelexpressie(knoop):
+    for feature in knoop.findall("feature"):
+        if feature.get("name") == "labelExpression":
+            return feature.get("value", "").replace("\r", "").strip()
+    return ""
+
+
 def wrap_text(s, width, size=12):
-    words, lines, cur = s.split(), [], ""
-    for w in words:
-        t = (cur + " " + w).strip()
-        if len(t) * size * 0.53 > width - 28 and cur: lines.append(cur); cur = w
-        else: cur = t
-    if cur: lines.append(cur)
+    lines = []
+    for regel in s.split("\n"):
+        words, cur = regel.split(), ""
+        for w in words:
+            t = (cur + " " + w).strip()
+            if len(t) * size * 0.53 > width - 28 and cur: lines.append(cur); cur = w
+            else: cur = t
+        lines.append(cur)
     return lines
 
 def clip(p, q, r):
@@ -61,10 +70,11 @@ def render(path, viewname, out, labels=None):
         w = int(b.get("width", 120)); h = int(b.get("height", 55))
         eid = child.get("archimateElement"); t = child.get(XSI, "").split(":")[-1]
         el = elems.get(eid, {"type": t, "name": child.get("name") or ""})
-        nodes[child.get("id")] = dict(x=x, y=y, w=w, h=h, type=el["type"], name=el["name"], fill=child.get("fillColor"), depth=depth, note=(child.find("content").text if child.find("content") is not None else None))
+        naam = labelexpressie(child) or el["name"]
+        nodes[child.get("id")] = dict(x=x, y=y, w=w, h=h, type=el["type"], name=naam, fill=child.get("fillColor"), depth=depth, note=(child.find("content").text if child.find("content") is not None else None))
         for sc in child.findall("sourceConnection"):
-            bps = [(int(bp.get("startX", 0)), int(bp.get("startY", 0))) for bp in sc.findall("bendpoint")]
-            conns.append(dict(src=child.get("id"), tgt=sc.get("target"), rel=rels.get(sc.get("archimateRelationship")), bps=bps, name=sc.get("name")))
+            bps = [(int(bp.get("startX", 0)), int(bp.get("startY", 0)), int(bp.get("endX", 0)), int(bp.get("endY", 0))) for bp in sc.findall("bendpoint")]
+            conns.append(dict(src=child.get("id"), tgt=sc.get("target"), rel=rels.get(sc.get("archimateRelationship")), bps=bps, name=labelexpressie(sc) or sc.get("name"), colour=sc.get("lineColor")))
         for c in child.findall("child"): walk(c, x, y, depth + 1)
     for c in v.findall("child"): walk(c, 0, 0, 0)
     minx = min(n["x"] for n in nodes.values()) - 20; miny = min(n["y"] for n in nodes.values()) - 20
@@ -89,27 +99,33 @@ def render(path, viewname, out, labels=None):
         if t in ICON: s.append(f'<g transform="translate({n["x"]+n["w"]-20},{n["y"]+4})" fill="none" stroke="#444" stroke-width="1.2">{ICON[t]}</g>')
         lines = wrap_text(n["note"] or n["name"] if t == "Note" else n["name"], n["w"])
         y0 = n["y"] + n["h"] / 2 - (len(lines) - 1) * 7 + 4 if t != "Note" else n["y"] + 16
-        for i, ln in enumerate(lines[:6]):
+        for i, ln in enumerate(lines):
             s.append(f'<text x="{n["x"]+n["w"]/2 if t!="Note" else n["x"]+6}" y="{y0+i*14}" font-size="12" text-anchor="{"middle" if t!="Note" else "start"}" fill="#1c1c1c">{html.escape(ln)}</text>')
     for c in conns:
         a, b = nodes.get(c["src"]), nodes.get(c["tgt"])
         if not a or not b: continue
         ca = (a["x"] + a["w"] / 2, a["y"] + a["h"] / 2); cb = (b["x"] + b["w"] / 2, b["y"] + b["h"] / 2)
-        pts = [ca] + [(ca[0] + bx, ca[1] + by) for bx, by in c["bps"]] + [cb]
+        # Archi: relatief knikpunt (GEF RelativeBendpoint, gewicht 0,5): gemiddelde van bronmidden plus startoffset en doelmidden plus eindoffset
+        pts = [ca] + [((ca[0] + sx + cb[0] + ex) / 2, (ca[1] + sy + cb[1] + ey) / 2) for sx, sy, ex, ey in c["bps"]] + [cb]
         pts[0] = clip(ca, pts[1], (a["x"], a["y"], a["w"], a["h"])); pts[-1] = clip(cb, pts[-2], (b["x"], b["y"], b["w"], b["h"]))
         rt = (c["rel"] or {}).get("type", "Association")
         dash = ' stroke-dasharray="6 4"' if rt in ("Flow", "Realization", "Access") else ''
+        kleur = c.get("colour") or "#333"
         end = {"Flow": "flow", "Triggering": "flow", "Serving": "open", "Realization": "hollow", "Specialization": "hollow", "Access": "open"}.get(rt)
         start = {"Composition": "diamondf", "Aggregation": "diamond"}.get(rt)
         attrs = (f' marker-end="url(#{end})"' if end else '') + (f' marker-start="url(#{start})"' if start else '')
         d = "M" + " L".join(f"{x:.0f} {y:.0f}" for x, y in pts)
-        s.append(f'<path d="{d}" fill="none" stroke="#333" stroke-width="1.4"{dash}{attrs}/>')
+        s.append(f'<path d="{d}" fill="none" stroke="{kleur}" stroke-width="1.4"{dash}{attrs}/>')
         label = (labels or {}).get(f'{a["name"]}>{b["name"]}') or c["name"] or (c["rel"] or {}).get("name")
         if label:
-            m = pts[len(pts) // 2 - 1], pts[len(pts) // 2]; mx, my = (m[0][0] + m[1][0]) / 2, (m[0][1] + m[1][1]) / 2
-            w = len(label) * 6.4 + 12
-            s.append(f'<rect x="{mx-w/2:.0f}" y="{my-10:.0f}" width="{w:.0f}" height="18" fill="#ffffb5" stroke="#a8a85a"/>'
-                     f'<text x="{mx:.0f}" y="{my+3:.0f}" font-size="11" text-anchor="middle" fill="#1c1c1c">{html.escape(label)}</text>')
+            segs = [(pts[i], pts[i + 1]) for i in range(len(pts) - 1)]
+            a_, b_ = max(segs, key=lambda sg: math.hypot(sg[1][0] - sg[0][0], sg[1][1] - sg[0][1]))
+            mx, my = (a_[0] + b_[0]) / 2, (a_[1] + b_[1]) / 2
+            regels = [r for r in label.replace("\r", "").split("\n") if r.strip()]
+            w = max(len(r) for r in regels) * 6.2 + 12; h = 14 * len(regels) + 6
+            s.append(f'<rect x="{mx-w/2:.0f}" y="{my-h/2:.0f}" width="{w:.0f}" height="{h:.0f}" fill="#ffffff" fill-opacity="0.92" stroke="none"/>')
+            for i, r in enumerate(regels):
+                s.append(f'<text x="{mx:.0f}" y="{my-h/2+12+i*14:.0f}" font-size="11" text-anchor="middle" fill="#1c1c1c">{html.escape(r)}</text>')
     s.append("</svg>")
     open(out, "w").write("".join(s))
     return len(nodes), len(conns), W, H

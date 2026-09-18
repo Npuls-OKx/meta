@@ -65,3 +65,9 @@ Het featureplan staat in [feature-plans/20260917_1500_jochem-in-het-informatiemo
 
 Tweede ronde op versie 2: [tester](tegenlezing-plan-tester-ronde-2.md) GESLAAGD met twee moet-punten (pijlidentiteit uniek, één view), [projectmanager en testcoördinator](tegenlezing-plan-projectmanager-ronde-2.md) uitvoerbaar met drie moet-punten (pijlidentiteit, testgevallen op versie 2, akkoord op 18 september), [informatiearchitect en lid kerngroep techniek](tegenlezing-plan-informatiearchitect-kerngroep-ronde-2.md) dialectvrij na drie moet-punten (term koppeling, anonimisering, toestandslijst). Alle moet-punten zijn in versie 3 van het plan verwerkt.
 
+## E2E-render van de hoofdplaat, stand 18 september
+
+`poc/hoofdplaat.py` leest nu de labelexpressies (groepskoppen en pijlteksten), de lijnkleuren en de knikpunten als gemiddelde van bron- en doeloffset uit het model; er is geen labeltabel meer. De render van de view "OKx hoofdplaat v1.7<concept> (zonder context applicaties)" naast de JPG: koppen, pijlteksten, kleuren en notitie kloppen; nog niet kloppen de eindpunten van pijlen naar geneste diensten (lopen door het component), de labelposities (Archi zet ze op een vaste plek langs de lijn, de PoC op het midden van het langste segment, waardoor drie labels rechtsboven overlappen), de regelafbreking van twee notities, en de markerrichting van één flow. Dat is de taaklijst van sub-issue 3b (meta #242); de export van `stromen.json` (sub-issue 3a, meta #241) is onafhankelijk van de layout en levert 24 stromen met de tekst van de JPG als label.
+
+![E2E-render hoofdplaat v1.7 zonder context](poc/hoofdplaat-v17-zonder-context-e2e.png)
+
