@@ -62,19 +62,17 @@ def text(x, y, s, size=13, bold=False, fill=INK, anchor="start"):
     return f'<text x="{x:.0f}" y="{y:.0f}" font-family="{FONT}" font-size="{size}"{fw} fill="{fill}" text-anchor="{anchor}">{html.escape(s)}</text>'
 
 
-def element(x, y, kind, label, inst, fill=BUS, line=BUS_L, labelkleur=BUS_T, rx=0, dashed=False, toestand=None, verwijzing=None, verwijzingen=(), rid=None):
-    """Eén element: typelabel klein (met het regel-ID rechts), instantie vet, en eronder de toestand en de
-    verwijzingen naar objecten buiten het blok. Geeft (svg, w, h)."""
+def element(x, y, kind, label, inst, fill=BUS, line=BUS_L, labelkleur=BUS_T, rx=0, dashed=False, toestand=None, verwijzing=None, verwijzingen=()):
+    """Eén element: typelabel klein, instantie vet, en eronder de toestand en de verwijzingen naar
+    objecten buiten het blok. Geeft (svg, w, h)."""
     extra = _extra(toestand, verwijzing, verwijzingen)
-    w = max(120, max([tw(label, 11) + (tw(rid, 10) + 12 if rid else 0), tw(inst, 13, True)] + [tw(e, 11) for e in extra]) + 42)
-    h = 46 + 16 * len(extra)
+    w = max(120, max([tw(label, 12), tw(inst, 14, True)] + [tw(e, 12) for e in extra]) + 42)
+    h = 48 + 17 * len(extra)
     s = box(x, y, w, h, fill, line, rx, dashed) + icon(kind, x + w - 22, y + 5)
-    s += text(x + 10, y + 17, label, 11, fill=labelkleur)
-    if rid:
-        s += text(x + w - 28, y + 17, rid, 10, fill=MUTED, anchor="end")
-    s += text(x + 10, y + 34, inst, 13, True)
+    s += text(x + 10, y + 18, label, 12, fill=labelkleur)
+    s += text(x + 10, y + 36, inst, 14, True)
     for i, e in enumerate(extra):
-        s += text(x + 10, y + 50 + 16 * i, e, 11, fill=MUTED)
+        s += text(x + 10, y + 53 + 17 * i, e, 12, fill=MUTED)
     return s, w, h
 
 
@@ -112,7 +110,7 @@ def relatielijn(x1, y, x2, soort, label, naar_rechts=True):
     return s
 
 
-MAX_BREEDTE = 1500  # daarboven gaat een keten van relaties onder elkaar in plaats van naast elkaar
+MAX_BREEDTE = 1000  # daarboven gaat een keten van relaties onder elkaar in plaats van naast elkaar
 
 
 def relatielijn_v(x, y1, y2, soort, label, omlaag=True):
@@ -137,23 +135,31 @@ def objecten(x, y, items, uitzonderingen):
     Wordt de rij breder dan MAX_BREEDTE, dan gaat de keten na het eerste object onder elkaar.
     Geeft (svg, w, h)."""
     svg, w, h = _objecten_rij(x, y, items, uitzonderingen)
-    if w <= MAX_BREEDTE or len(items) < 3:
+    objs = [it for it in items if "type" in it]
+    if w <= MAX_BREEDTE or len(objs) < 2:
         return svg, w, h
-    return _objecten_kolom(x, y, items, uitzonderingen)
+    svg, w, h = _objecten_kolom(x, y, items, uitzonderingen)
+    if w <= MAX_BREEDTE:
+        return svg, w, h
+    # ook eerste object plus kolom te breed: alles onder elkaar
+    return _objecten_kolom(x, y, items, uitzonderingen, alles_onder=True)
 
 
-def _objecten_kolom(x, y, items, uitzonderingen):
-    """Eerste object links; de rest als kolom rechts ervan, met verticale relatielijnen."""
+def _objecten_kolom(x, y, items, uitzonderingen, alles_onder=False):
+    """Eerste object links; de rest als kolom rechts ervan, met verticale relatielijnen.
+    alles_onder: ook het eerste object staat in de kolom."""
     eerste = items[0]
     svg1, w1, h1 = _objecten_rij(x, y, [eerste], uitzonderingen)
-    kx = x + w1 + RELATIE_AFSTAND
-    ky = y
+    kx = x if alles_onder else x + w1 + RELATIE_AFSTAND
+    ky = y + h1 + 28 if alles_onder else y
     out = svg1
     lijnen = ""
     vorige_onder = None
     vorige_mid_x = None
     wachtende_relatie = None
-    maxw = w1 + RELATIE_AFSTAND
+    maxw = w1 if alles_onder else w1 + RELATIE_AFSTAND
+    if alles_onder:
+        vorige_onder = y + h1
     for it in items[1:]:
         if "relatie" in it and "type" not in it:
             wachtende_relatie = it
@@ -163,13 +169,13 @@ def _objecten_kolom(x, y, items, uitzonderingen):
         if wachtende_relatie is not None:
             if vorige_onder is None:
                 # relatie tussen het eerste object (links) en dit object: horizontaal, op de hoogte van dit object
-                lijnen += relatielijn(x + w1, ky + 23, kx, wachtende_relatie.get("soort", "Association"), wachtende_relatie["relatie"], wachtende_relatie.get("naar_rechts", True))
+                lijnen += relatielijn(x + w1, ky + 24, kx, wachtende_relatie.get("soort", "Association"), wachtende_relatie["relatie"], wachtende_relatie.get("naar_rechts", True))
             else:
                 lijnen += relatielijn_v(kx + min(w_it, 120) / 2, vorige_onder, ky, wachtende_relatie.get("soort", "Association"), wachtende_relatie["relatie"], wachtende_relatie.get("naar_rechts", True))
             wachtende_relatie = None
         vorige_onder = ky + h_it
         ky += h_it + 28
-        maxw = max(maxw, w1 + RELATIE_AFSTAND + w_it)
+        maxw = max(maxw, w_it if alles_onder else w1 + RELATIE_AFSTAND + w_it)
     return out + lijnen, maxw, max(h1, ky - 28 - y)
 
 
@@ -204,27 +210,24 @@ def _objecten_rij(x, y, items, uitzonderingen, verbind=False):
         if it.get("kinderen"):
             # een container toont, net als een los element, de toestand en verwijzingen onder de instantie
             extra = _extra(it.get("toestand"), it.get("verwijzing"), it.get("verwijzingen", ()))
-            kop = 40 + 16 * len(extra)
+            kop = 42 + 17 * len(extra)
             ksvg, kw, kh = _kinderen(cx + 14, y + kop, it["kinderen"], uitzonderingen)
-            rid = it.get("id")
-            w = max([kw + 24, tw(it["type"], 11) + (tw(rid, 10) + 12 if rid else 0) + 42, tw(it["instantie"], 13, True) + 42] + [tw(e, 11) + 42 for e in extra])
+            w = max([kw + 24, tw(it["type"], 12) + 42, tw(it["instantie"], 14, True) + 42] + [tw(e, 12) + 42 for e in extra])
             h = kop + kh + 10
             out += box(cx, y, w, h, fill, line, 0, dashed) + icon("object", cx + w - 22, y + 5)
-            out += text(cx + 10, y + 17, it["type"], 11, fill=lk) + text(cx + 10, y + 34, it["instantie"], 13, True) + ksvg
-            if rid:
-                out += text(cx + w - 28, y + 17, rid, 10, fill=MUTED, anchor="end")
+            out += text(cx + 10, y + 18, it["type"], 12, fill=lk) + text(cx + 10, y + 36, it["instantie"], 14, True) + ksvg
             for i, e in enumerate(extra):
-                out += text(cx + 10, y + 50 + 16 * i, e, 11, fill=MUTED)
+                out += text(cx + 10, y + 53 + 17 * i, e, 12, fill=MUTED)
         else:
-            s, w, h = element(cx, y, "object", it["type"], it["instantie"], fill, line, lk, 0, dashed, it.get("toestand"), it.get("verwijzing"), it.get("verwijzingen", ()), it.get("id"))
+            s, w, h = element(cx, y, "object", it["type"], it["instantie"], fill, line, lk, 0, dashed, it.get("toestand"), it.get("verwijzing"), it.get("verwijzingen", ()))
             out += s
-        vorige_rand = (cx + w, y + 23)
+        vorige_rand = (cx + w, y + 24)
         cx += w + 8
         maxh = max(maxh, h)
     return out + lijnen, cx - x - 8, maxh
 
 
-STROOM_MAX_BREEDTE = 1700  # breder dan dit: de keten over een pijl loopt door op een volgende rij
+STROOM_MAX_BREEDTE = 1000  # breder dan dit: de keten over een pijl loopt door op een volgende rij
 
 
 def _objecten_rijen(x, y, items, uitzonderingen, maxbreedte=STROOM_MAX_BREEDTE):
@@ -264,7 +267,7 @@ def _objecten_rijen(x, y, items, uitzonderingen, maxbreedte=STROOM_MAX_BREEDTE):
     return out, maxw, ry - 28 - y, uit
 
 
-KINDEREN_MAX_BREEDTE = 900  # breder dan dit: de kinderen onder elkaar in plaats van naast elkaar
+KINDEREN_MAX_BREEDTE = 700  # breder dan dit: de kinderen onder elkaar in plaats van naast elkaar
 
 
 def _kinderen(x, y, items, uitzonderingen):
@@ -281,73 +284,100 @@ def _kinderen(x, y, items, uitzonderingen):
     return out, maxw, ky - 8 - y
 
 
-def wrap(W, H, body, dashed=False):
+KOP = 30  # ruimte bovenin voor de beeldtitel
+ZIN_MAX_BREEDTE = 1000  # de zin onder een beeld loopt door op een volgende regel
+
+
+def alinea(x, y, tekst, size=14, maxw=ZIN_MAX_BREEDTE, fill=MUTED):
+    """Een zin over meer regels als hij breder wordt dan maxw. Geeft (svg, breedte, hoogte)."""
+    woorden, regels, huidige = tekst.split(), [], ""
+    for w in woorden:
+        proef = (huidige + " " + w).strip()
+        if huidige and tw(proef, size) > maxw:
+            regels.append(huidige); huidige = w
+        else:
+            huidige = proef
+    if huidige:
+        regels.append(huidige)
+    svg = "".join(text(x, y + i * (size + 5), r, size, fill=fill) for i, r in enumerate(regels))
+    return svg, max([tw(r, size) for r in regels] + [0]), (len(regels) - 1) * (size + 5) if regels else 0
+
+
+def wrap(W, H, body, dashed=False, titel=None):
     rand = ' stroke-dasharray="6 4"' if dashed else ""
+    kop = text(12, 22, titel, 15, True) if titel else ""
+    W = max(W, tw(titel or "", 15, True) + 24)
     return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W:.0f} {H:.0f}" width="{W:.0f}" height="{H:.0f}">'
-            f'<rect x="0.5" y="0.5" width="{W-1:.0f}" height="{H-1:.0f}" rx="10" fill="#ffffff" stroke="{LIJN}"{rand}/>{body}</svg>')
+            f'<rect x="0.5" y="0.5" width="{W-1:.0f}" height="{H-1:.0f}" rx="10" fill="#ffffff" stroke="{LIJN}"{rand}/>{kop}{body}</svg>')
 
 
 def regel_ontstaat(blok, uitzonderingen):
-    y0 = 10
+    """Bovenaan de rol en de processtap; eronder, aan een stippellijn, de objecten die ontstaan of
+    veranderen, met hun relaties; te brede ketens gaan in een kolom."""
+    y0 = 10 + (KOP if blok.get("beeld") else 0)
     wie, ww, wh = element(12, y0, "rol", "rol", blok["wie"], BUS, BUS_L, BUS_T, 8)
     x = 12 + ww + 10
     verdieping = f"verdieping: {blok['verdieping']}" if blok.get("verdieping") else None
     stap, sw, sh = element(x, y0, "proces", "processtap", blok["stap"], BUS, BUS_L, BUS_T, 8, verwijzing=verdieping)
-    x += sw + 6
-    pijl = text(x, y0 + 30, "→", 18, fill=MUTED)
-    x += 20
-    objs, ow, oh = objecten(x, y0, blok["objecten"], uitzonderingen)
-    rowh = max(wh, sh, oh)
-    zin_y = y0 + rowh + 22
+    kop_h = max(wh, sh)
+    ox, oy = 40, y0 + kop_h + 24
+    objs, ow, oh = objecten(ox, oy, blok["objecten"], uitzonderingen)
+    # de ophanging: van de processtap naar de objecten
+    hx = ox + 24
+    haak = (f'<path d="M{hx} {y0 + kop_h} V{oy - 4}" stroke="{BUS_L}" stroke-width="1.5" stroke-dasharray="3 3"/>'
+            f'<path d="M{hx - 5} {oy - 10} l5 6 5 -6" fill="none" stroke="{BUS_L}" stroke-width="1.5"/>')
+    zin_y = oy + oh + 22
     concept = blok.get("plaat") == "onderwijsontwerp"
     chip, zin_x = "", 12
     if concept:
         # een verdieping op de conceptplaat: gestippelde rand en een chip voor de zin
         tekst = f"conceptplaat: {CONCEPTPLAAT}"
-        cw = tw(tekst, 11) + 16
-        chip = box(12, zin_y - 13, cw, 18, "#ffffff", "#c8ccc9", 9, True, "2 2") + text(20, zin_y, tekst, 11, fill=MUTED)
+        cw = tw(tekst, 12) + 16
+        chip = box(12, zin_y - 14, cw, 19, "#ffffff", "#c8ccc9", 9, True, "2 2") + text(20, zin_y, tekst, 12, fill=MUTED)
         zin_x = 12 + cw + 10
-    W = max(x + ow + 12, zin_x + tw(blok.get("zin", ""), 13) + 12)
-    H = zin_y + 12
-    return wrap(W, H, wie + stap + pijl + objs + chip + text(zin_x, zin_y, blok.get("zin", ""), 13, fill=MUTED), dashed=concept)
+    zin, zw, zh = alinea(zin_x, zin_y, blok.get("zin", ""), 14, max(ZIN_MAX_BREEDTE - (zin_x - 12), ox + ow - zin_x))
+    W = max(x + sw + 12, ox + ow + 12, zin_x + zw + 12)
+    H = zin_y + zh + 12
+    return wrap(W, H, wie + stap + haak + objs + chip + zin, dashed=concept, titel=blok.get("beeld"))
 
 
 def regel_stroomt(blok, uitzonderingen):
     """De stroom: bovenaan de pijl van component naar component als horizontale stippellijn, met de
     koppeling-ID en de processtap; eronder, aan de lijn gehangen, de objecten die samen overgaan."""
-    y0 = 10
+    y0 = 10 + (KOP if blok.get("beeld") else 0)
     lijn = 34
     idtekst = blok.get("koppeling") or ("geen pijl op de hoofdplaat" if blok.get("pijl") == "geen pijl op de hoofdplaat" else "zonder koppelingspecificatie")
-    idw = tw(idtekst, 11) + 16
-    s = box(12, y0 + 14, idw, 18, "#ffffff", "#c8ccc9", 4) + text(20, y0 + 27, idtekst, 11, fill=MUTED)
+    idw = tw(idtekst, 12) + 16
+    s = box(12, y0 + 14, idw, 19, "#ffffff", "#c8ccc9", 4) + text(20, y0 + 27, idtekst, 12, fill=MUTED)
     x = 12 + idw + 12
     van, vw, vh = element(x, y0, "component", "van", blok["van"], APP, APP_L, APP_T)
     s += van
     x_lijn = x + vw + 6
     # de objecten onder de lijn, iets ingesprongen; ze hangen met een stippellijn aan de pijl
-    ox, oy = x_lijn + 20, y0 + vh + 26
+    ox, oy = 40, y0 + vh + 34
     osvg, ow, oh, rijen = _objecten_rijen(ox, oy, blok["objecten"], uitzonderingen)
     naar, nw, nh = element(0, 0, "component", "naar", blok["naar"], APP, APP_L, APP_T)
     stap_tekst = "na: " + blok["stap"]
-    stapw = tw(stap_tekst, 11) + 16
-    x_naar = max(x_lijn + 240, ox + ow + lijn) 
-    s += f'<path d="M{x_lijn} {y0+23}H{x_naar - 10}" stroke="{APP_T}" stroke-width="2" stroke-dasharray="5 4"/>'
-    s += f'<path d="M{x_naar - 12} {y0+17}l10 6-10 6z" fill="{APP_T}"/>'
+    stapw = tw(stap_tekst, 12) + 16
+    x_naar = max(x_lijn + 240, ox + ow - nw)
+    s += f'<path d="M{x_lijn} {y0+24}H{x_naar - 10}" stroke="{APP_T}" stroke-width="2" stroke-dasharray="5 4"/>'
+    s += f'<path d="M{x_naar - 12} {y0+18}l10 6-10 6z" fill="{APP_T}"/>'
     naar, nw, nh = element(x_naar, y0, "component", "naar", blok["naar"], APP, APP_L, APP_T)
     s += naar
-    sx = x_naar + nw + 10
-    s += box(sx, y0 + 14, stapw, 18, "#ffffff", "#c8ccc9", 9, True, "2 2") + text(sx + 8, y0 + 27, stap_tekst, 11, fill=MUTED)
+    sx = 12
+    s += box(sx, y0 + vh + 2, stapw, 19, "#ffffff", "#c8ccc9", 9, True, "2 2") + text(sx + 8, y0 + vh + 16, stap_tekst, 12, fill=MUTED)
     # de ophanging: van de pijl naar de bovenkant van de eerste rij, en langs de linkerkant van elke rij
-    hx = ox + 24
-    s += f'<path d="M{hx} {y0+23}V{oy - 4}" stroke="{APP_T}" stroke-width="1.5" stroke-dasharray="3 3"/>'
+    hx = x_lijn + 14
+    s += f'<path d="M{hx} {y0+24}V{oy - 4}" stroke="{APP_T}" stroke-width="1.5" stroke-dasharray="3 3"/>'
     for ry, _ in rijen[1:]:
-        s += f'<path d="M{hx} {oy}V{ry - 4}" stroke="{APP_T}" stroke-width="1.5" stroke-dasharray="3 3"/>'
+        s += f'<path d="M{ox + 24} {oy}V{ry - 4}" stroke="{APP_T}" stroke-width="1.5" stroke-dasharray="3 3"/>'
     s += osvg
     zin_y = oy + oh + 22
-    W = max(sx + stapw + 12, ox + ow + 12, tw(blok.get("zin", ""), 13) + 24)
-    H = zin_y + 12
-    body = f'<rect x="0" y="0" width="4" height="{H:.0f}" fill="{APP_L}"/>' + s + text(12, zin_y, blok.get("zin", ""), 13, fill=MUTED)
-    return wrap(W, H, body)
+    zin, zw, zh = alinea(12, zin_y, blok.get("zin", ""), 14, max(ZIN_MAX_BREEDTE, ox + ow - 12))
+    W = max(x_naar + nw + 12, ox + ow + 12, zw + 24)
+    H = zin_y + zh + 12
+    body = f'<rect x="0" y="0" width="4" height="{H:.0f}" fill="{APP_L}"/>' + s + zin
+    return wrap(W, H, body, titel=blok.get("beeld"))
 
 
 STANDAARDLABEL = {"Specialization": "is een", "Aggregation": "bevat", "Composition": "bevat"}
@@ -370,10 +400,10 @@ def groepeer(regels):
         soort = r["soort"]
         if soort == "stroomt":
             laatste = blokken[-1] if blokken else None
-            item = {"type": r["objecttype"], "instantie": r["instantie"], "aanname": r.get("aanname", False), "id": r.get("id"),
+            item = {"type": r["objecttype"], "instantie": r["instantie"], "aanname": r.get("aanname", False),
                     "plaat": r.get("plaat", "informatiemodel"), "verwijzingen": [_verwijzing(x, r["objecttype"]) for x in r.get("relaties", [])]}
             rel = r.get("relatie")
-            if laatste and laatste["soort"] == "stroomt" and (laatste["fase"], laatste["stap"], laatste["van"], laatste["naar"]) == (r["fase"], r["stap"], r["van"], r["naar"]):
+            if laatste and laatste["soort"] == "stroomt" and (laatste["fase"], laatste["stap"], laatste["van"], laatste["naar"], laatste.get("beeld")) == (r["fase"], r["stap"], r["van"], r["naar"], r.get("beeld")):
                 buur_s = next((it for it in reversed(laatste["objecten"]) if "type" in it), None)
                 in_blok_s = ({buur_s["type"]} | {k.get("type") for k in buur_s.get("kinderen", [])}) if buur_s else set()
                 if rel and not rel.get("nesting"):
@@ -400,15 +430,15 @@ def groepeer(regels):
             if rel and not rel.get("nesting"):
                 # het eerste object van een stroom: zijn relatie wijst altijd buiten het blok
                 item["verwijzing"] = _verwijzing(rel, r["objecttype"])
-            blokken.append({"soort": "stroomt", "fase": r["fase"], "stap": r["stap"], "van": r["van"], "naar": r["naar"],
+            blokken.append({"soort": "stroomt", "fase": r["fase"], "stap": r["stap"], "van": r["van"], "naar": r["naar"], "beeld": r.get("beeld"),
                             "koppeling": r.get("koppeling"), "pijl": r.get("pijl"), "objecten": [item], "zin": r.get("zin", "")})
             continue
         laatste = blokken[-1] if blokken else None
-        if not laatste or laatste["soort"] != "ontstaat" or (laatste["fase"], laatste["stap"], laatste["wie"], laatste.get("verdieping")) != (r["fase"], r["stap"], r.get("wie"), r.get("verdieping")):
-            laatste = {"soort": "ontstaat", "fase": r["fase"], "stap": r["stap"], "wie": r.get("wie"), "verdieping": r.get("verdieping"),
+        if not laatste or laatste["soort"] != "ontstaat" or (laatste["fase"], laatste["stap"], laatste["wie"], laatste.get("verdieping"), laatste.get("beeld")) != (r["fase"], r["stap"], r.get("wie"), r.get("verdieping"), r.get("beeld")):
+            laatste = {"soort": "ontstaat", "fase": r["fase"], "stap": r["stap"], "wie": r.get("wie"), "verdieping": r.get("verdieping"), "beeld": r.get("beeld"),
                        "plaat": r.get("plaat", "informatiemodel"), "objecten": [], "zin": r.get("zin", "")}
             blokken.append(laatste)
-        item = {"type": r["objecttype"], "instantie": r["instantie"], "aanname": r.get("aanname", False), "id": r.get("id"),
+        item = {"type": r["objecttype"], "instantie": r["instantie"], "aanname": r.get("aanname", False),
                 "plaat": r.get("plaat", "informatiemodel"), "verwijzingen": [_verwijzing(x, r["objecttype"]) for x in r.get("relaties", [])]}
         if soort == "verandert":
             item["toestand"] = r.get("toestand")
@@ -443,11 +473,17 @@ def groepeer(regels):
     return blokken
 
 
-def bestandsnaam(blok, volgnummer):
-    slug = re.sub(r"[^a-z0-9]+", "-", blok["stap"].lower()).strip("-")
-    if blok.get("verdieping"):
-        slug += "-verdieping"
-    return f"f{blok['fase']}-{volgnummer:02d}-{slug}.svg"
+def slug(tekst):
+    tekst = tekst.lower().replace("ë", "e").replace("é", "e").replace("ï", "i").replace("ö", "o").replace("ü", "u")
+    return re.sub(r"[^a-z0-9]+", "-", tekst).strip("-")
+
+
+def bestandsnaam(blok, volgnummer=None):
+    """De bestandsnaam volgt de beeldtitel (stabiel en leesbaar); zonder titel de stap met een volgnummer."""
+    if blok.get("beeld"):
+        return f"f{blok['fase']}-{slug(blok['beeld'])}.svg"
+    s = slug(blok["stap"]) + ("-verdieping" if blok.get("verdieping") else "")
+    return f"f{blok['fase']}-{volgnummer or 0:02d}-{s}.svg"
 
 
 def teken(regels, uitmap):

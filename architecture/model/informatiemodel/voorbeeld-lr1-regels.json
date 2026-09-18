@@ -241,6 +241,10 @@
   {
    "naam": "onderwijskundig vertaald",
    "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Kerntaak 'Word onderwijskundig vertaald tot' Leerdoel; Leerdoel 'Heeft één of meer' Leeruitkomst"
+  },
+  {
+   "naam": "aangemeld",
+   "bron": "leerroute-1-regulier.md, Fase 3: aanmelding, nog geen inschrijving"
   }
  ],
  "scope_uitzonderingen": [
@@ -290,7 +294,7 @@
  },
  "regels": [
   {
-   "id": "R1-001",
+   "beeld": "Het kwalificatiedossier ontleed",
    "fase": 1,
    "stap": "Kwalificatiedossier analyseren",
    "soort": "ontstaat",
@@ -301,7 +305,7 @@
    "zin": "De onderwijsontwerper analyseert het kwalificatiedossier: kwalificatie, kerntaken en werkprocessen."
   },
   {
-   "id": "R1-002",
+   "beeld": "Het kwalificatiedossier ontleed",
    "fase": 1,
    "stap": "Kwalificatiedossier analyseren",
    "soort": "ontstaat",
@@ -318,7 +322,7 @@
    }
   },
   {
-   "id": "R1-003",
+   "beeld": "Het kwalificatiedossier ontleed",
    "fase": 1,
    "stap": "Kwalificatiedossier analyseren",
    "soort": "ontstaat",
@@ -335,7 +339,7 @@
    }
   },
   {
-   "id": "R1-004",
+   "beeld": "Het kwalificatiedossier ontleed",
    "fase": 1,
    "stap": "Kwalificatiedossier analyseren",
    "soort": "ontstaat",
@@ -352,7 +356,7 @@
    }
   },
   {
-   "id": "R1-005",
+   "beeld": "Examenplan, eerste resultaatstructuur en cohort",
    "fase": 1,
    "stap": "Examenplan vaststellen",
    "soort": "ontstaat",
@@ -365,7 +369,7 @@
    "vraag": "Het kaderscenario zet het examenplan in fase 1 en de resultaatstructuur pas in fase 4 bij OC-SIS. Ontstaat de summatieve resultaatstructuur in de curriculum-ontwerptool uit het examenplan, en gaat zij met de specificatie mee naar de catalogus?"
   },
   {
-   "id": "R1-006",
+   "beeld": "Examenplan, eerste resultaatstructuur en cohort",
    "fase": 1,
    "stap": "Examenplan vaststellen",
    "soort": "ontstaat",
@@ -383,7 +387,7 @@
    "zin": "Het examenplan bestaat uit een eerste summatieve resultaatstructuur: welke onderdelen tellen en wanneer de opleiding is afgerond. Daaraan hangt het cohort: de studenten voor wie deze structuur geldt."
   },
   {
-   "id": "R1-007",
+   "beeld": "Examenplan, eerste resultaatstructuur en cohort",
    "fase": 1,
    "stap": "Examenplan vaststellen",
    "soort": "ontstaat",
@@ -400,7 +404,7 @@
    "vraag": "Is het cohort een sleutel op aanbod en verbintenis, of een eigen object dat de toepasselijke resultaatstructuur draagt (ontwerpkeuze 17)?"
   },
   {
-   "id": "R1-008",
+   "beeld": "Leeruitkomsten uit het dossier, in de stem van de instelling",
    "fase": 1,
    "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
    "soort": "ontstaat",
@@ -418,7 +422,7 @@
    "zin": "Het dossier zegt wat de beroepsbeoefenaar kan; de leeruitkomst is de invulling van de instelling: waar en hoe de student dat laat zien. Hier: leren door te simuleren in een levensechte omgeving, met een klein deel theorie."
   },
   {
-   "id": "R1-009",
+   "beeld": "Leeruitkomsten uit het dossier, in de stem van de instelling",
    "fase": 1,
    "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
    "soort": "ontstaat",
@@ -435,7 +439,7 @@
    }
   },
   {
-   "id": "R1-010",
+   "beeld": "Het onderwijsontwerp van de eenheid (conceptplaat)",
    "fase": 1,
    "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
    "verdieping": "kerntaak onderwijskundig vertaald",
@@ -451,10 +455,23 @@
     "van": "Leervormstrategie",
     "naar": "Onderwijsvorm specificatie"
    },
-   "zin": "Conceptplaat: de instelling vertaalt de kerntaak naar een leerdoel en legt in de onderwijsvorm specificatie vast hoe zij de leeruitkomst wil bereiken: leeromgeving, docentprofiel en studiebelasting, onder haar leervormstrategie."
+   "zin": "Conceptplaat: de eenheid draagt het onderwijsontwerp van de instelling: de kerntaak vertaald naar een leerdoel en leeruitkomst, en de onderwijsvorm met leeromgeving, docentprofiel en studiebelasting, onder haar leervormstrategie."
   },
   {
-   "id": "R1-011",
+   "beeld": "Het onderwijsontwerp van de eenheid (conceptplaat)",
+   "fase": 1,
+   "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
+   "verdieping": "kerntaak onderwijskundig vertaald",
+   "plaat": "onderwijsontwerp",
+   "wie": "onderwijsontwerper",
+   "aanname": true,
+   "soort": "ontstaat",
+   "objecttype": "Onderwijseenheid / Opleidingsonderdeel",
+   "instantie": "Blok B1-K1 Biedt farmaceutische patiëntenzorg",
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Onderwijsplan bevat Onderwijseenheid / Opleidingsonderdeel"
+  },
+  {
+   "beeld": "Het onderwijsontwerp van de eenheid (conceptplaat)",
    "fase": 1,
    "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
    "verdieping": "kerntaak onderwijskundig vertaald",
@@ -464,16 +481,25 @@
    "soort": "ontstaat",
    "objecttype": "Leerdoel",
    "instantie": "Zelfstandig farmaceutische patiëntenzorg bieden in een levensechte setting",
-   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Kerntaak 'Word onderwijskundig vertaald tot' Leerdoel; leerroute-1-regulier.md, r1046 en r1052 (leervorm simulatie, theorie; ruimtetype balie-simulatie)",
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Kerntaak 'Word onderwijskundig vertaald tot' Leerdoel; leerroute-1-regulier.md, r1046 en r1052",
    "relatie": {
-    "soort": "Association",
-    "van": "Kerntaak",
+    "soort": "Aggregation",
+    "van": "Onderwijseenheid / Opleidingsonderdeel",
     "naar": "Leerdoel",
-    "label": "Word onderwijskundig vertaald tot"
-   }
+    "nesting": true
+   },
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Kerntaak",
+     "naar": "Leerdoel",
+     "label": "Word onderwijskundig vertaald tot",
+     "instantie": "B1-K1"
+    }
+   ]
   },
   {
-   "id": "R1-012",
+   "beeld": "Het onderwijsontwerp van de eenheid (conceptplaat)",
    "fase": 1,
    "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
    "verdieping": "kerntaak onderwijskundig vertaald",
@@ -486,14 +512,22 @@
    "toestand": "onderwijskundig vertaald",
    "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Leerdoel 'Heeft één of meer' Leeruitkomst",
    "relatie": {
-    "soort": "Association",
-    "van": "Leerdoel",
+    "soort": "Aggregation",
+    "van": "Onderwijseenheid / Opleidingsonderdeel",
     "naar": "Leeruitkomst",
-    "label": "Heeft één of meer"
-   }
+    "nesting": true
+   },
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Leerdoel",
+     "naar": "Leeruitkomst",
+     "label": "Heeft één of meer"
+    }
+   ]
   },
   {
-   "id": "R1-013",
+   "beeld": "Het onderwijsontwerp van de eenheid (conceptplaat)",
    "fase": 1,
    "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
    "verdieping": "kerntaak onderwijskundig vertaald",
@@ -503,16 +537,24 @@
    "soort": "ontstaat",
    "objecttype": "Onderwijsvorm specificatie",
    "instantie": "Simulatie in de leerapotheek, theorie ondersteunend",
-   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Leeruitkomst naar Onderwijsvorm specificatie; leerroute-1-regulier.md, r1046 en r1052 (leervorm simulatie, theorie; ruimtetype balie-simulatie)",
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Leeruitkomst naar Onderwijsvorm specificatie; leerroute-1-regulier.md, r1046 en r1052",
    "relatie": {
-    "soort": "Association",
-    "van": "Leeruitkomst",
-    "naar": "Onderwijsvorm specificatie"
+    "soort": "Aggregation",
+    "van": "Onderwijseenheid / Opleidingsonderdeel",
+    "naar": "Onderwijsvorm specificatie",
+    "nesting": true
    },
-   "vraag": "Het kader waarmee de instelling de kerntaak vormgeeft staat op de conceptplaat (leervormstrategie, leerdoel, onderwijsvorm specificatie, leeromgeving), niet op de informatiemodelplaat. Welke daarvan horen in de uitwisseling, bijvoorbeeld leervorm en leeromgeving op het leeronderdeel, en welke blijven binnen de instelling?"
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Leeruitkomst",
+     "naar": "Onderwijsvorm specificatie"
+    }
+   ],
+   "vraag": "Het kader waarmee de instelling de kerntaak vormgeeft staat op de conceptplaat (leervormstrategie, leerdoel, onderwijsvorm specificatie, leeromgeving, docentprofiel, studiebelasting), niet op de informatiemodelplaat. Welke daarvan horen in de uitwisseling, bijvoorbeeld op het leeronderdeel, en welke blijven binnen de instelling?"
   },
   {
-   "id": "R1-014",
+   "beeld": "Het onderwijsontwerp van de eenheid (conceptplaat)",
    "fase": 1,
    "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
    "verdieping": "kerntaak onderwijskundig vertaald",
@@ -522,51 +564,75 @@
    "soort": "ontstaat",
    "objecttype": "Gewenste Onderwijskundige Leeromgeving",
    "instantie": "Balie-simulatie in het skillslab",
-   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Onderwijsvorm specificatie naar Gewenste Onderwijskundige Leeromgeving; leerroute-1-regulier.md, r1046 en r1052 (leervorm simulatie, theorie; ruimtetype balie-simulatie)",
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Onderwijsvorm specificatie naar Gewenste Onderwijskundige Leeromgeving; leerroute-1-regulier.md, r1048",
    "relatie": {
-    "soort": "Association",
-    "van": "Onderwijsvorm specificatie",
-    "naar": "Gewenste Onderwijskundige Leeromgeving"
-   }
+    "soort": "Aggregation",
+    "van": "Onderwijseenheid / Opleidingsonderdeel",
+    "naar": "Gewenste Onderwijskundige Leeromgeving",
+    "nesting": true
+   },
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Onderwijsvorm specificatie",
+     "naar": "Gewenste Onderwijskundige Leeromgeving"
+    }
+   ]
   },
   {
-   "id": "R1-054",
+   "beeld": "Het onderwijsontwerp van de eenheid (conceptplaat)",
    "fase": 1,
    "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
    "verdieping": "kerntaak onderwijskundig vertaald",
    "plaat": "onderwijsontwerp",
-   "soort": "ontstaat",
    "wie": "onderwijsontwerper",
    "aanname": true,
+   "soort": "ontstaat",
    "objecttype": "Gewenst medewerker competentieprofiel",
    "instantie": "Apothekersassistent-docent met baliepraktijk",
-   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Gewenst medewerker competentieprofiel naar Onderwijsvorm specificatie; leerroute-1-regulier.md, r1048 (expertiseprofielen: apothekersassistent-docent)",
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Gewenst medewerker competentieprofiel naar Onderwijsvorm specificatie; leerroute-1-regulier.md, r1048",
    "relatie": {
-    "soort": "Association",
-    "van": "Gewenst medewerker competentieprofiel",
-    "naar": "Onderwijsvorm specificatie"
-   }
+    "soort": "Aggregation",
+    "van": "Onderwijseenheid / Opleidingsonderdeel",
+    "naar": "Gewenst medewerker competentieprofiel",
+    "nesting": true
+   },
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Gewenst medewerker competentieprofiel",
+     "naar": "Onderwijsvorm specificatie"
+    }
+   ]
   },
   {
-   "id": "R1-055",
+   "beeld": "Het onderwijsontwerp van de eenheid (conceptplaat)",
    "fase": 1,
    "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
    "verdieping": "kerntaak onderwijskundig vertaald",
    "plaat": "onderwijsontwerp",
-   "soort": "ontstaat",
    "wie": "onderwijsontwerper",
    "aanname": true,
+   "soort": "ontstaat",
    "objecttype": "Studiebelasting en begeleide onderwijstijd indicatie",
    "instantie": "BOT 50 / OOT 50 SBU",
-   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Studiebelasting en begeleide onderwijstijd indicatie naar Onderwijsvorm specificatie; leerroute-1-regulier.md, r1052 (tijdsverdeling BOT 50 / OOT 50 SBU)",
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Studiebelasting en begeleide onderwijstijd indicatie naar Onderwijsvorm specificatie; leerroute-1-regulier.md, r1052",
    "relatie": {
-    "soort": "Association",
-    "van": "Studiebelasting en begeleide onderwijstijd indicatie",
-    "naar": "Onderwijsvorm specificatie"
-   }
+    "soort": "Aggregation",
+    "van": "Onderwijseenheid / Opleidingsonderdeel",
+    "naar": "Studiebelasting en begeleide onderwijstijd indicatie",
+    "nesting": true
+   },
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Studiebelasting en begeleide onderwijstijd indicatie",
+     "naar": "Onderwijsvorm specificatie"
+    }
+   ]
   },
   {
-   "id": "R1-015",
+   "beeld": "De leeruitkomst in CompetentNL-skills",
    "fase": 1,
    "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
    "verdieping": "leeruitkomst naar skills",
@@ -580,7 +646,7 @@
    "zin": "Verdieping: dezelfde leeruitkomst in CompetentNL-termen: vaardigheden in drie lagen (hier laag 2), kennisgebieden op ISCED-F, en het inzicht dat de plaat apart benoemt. Hoe fijnmaziger, hoe scherper wat Jochem moet leren."
   },
   {
-   "id": "R1-016",
+   "beeld": "De leeruitkomst in CompetentNL-skills",
    "fase": 1,
    "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
    "verdieping": "leeruitkomst naar skills",
@@ -599,7 +665,7 @@
    }
   },
   {
-   "id": "R1-017",
+   "beeld": "De leeruitkomst in CompetentNL-skills",
    "fase": 1,
    "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
    "verdieping": "leeruitkomst naar skills",
@@ -616,7 +682,7 @@
    }
   },
   {
-   "id": "R1-018",
+   "beeld": "De leeruitkomst in CompetentNL-skills",
    "fase": 1,
    "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
    "verdieping": "leeruitkomst naar skills",
@@ -635,7 +701,7 @@
    "vraag": "CompetentNL legt vaardigheden gelaagd vast (skos:broader, drie lagen) en de leeruitkomst is op de plaat gelaagd; Vaardigheid is dat niet. Krijgt Vaardigheid een eigen aggregatie, zodat laag 2 onder laag 1 hangt zoals de leeruitkomst onder de leeruitkomst?"
   },
   {
-   "id": "R1-019",
+   "beeld": "De leeruitkomst in CompetentNL-skills",
    "fase": 1,
    "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
    "verdieping": "leeruitkomst naar skills",
@@ -653,7 +719,7 @@
    }
   },
   {
-   "id": "R1-020",
+   "beeld": "De leeruitkomst in CompetentNL-skills",
    "fase": 1,
    "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
    "verdieping": "leeruitkomst naar skills",
@@ -671,7 +737,7 @@
    }
   },
   {
-   "id": "R1-021",
+   "beeld": "De opleidingsspecificatie met programma, eenheden en keuzedeelruimte",
    "fase": 1,
    "stap": "Opleidingsspecificatie met programma en eenheden beschrijven",
    "soort": "ontstaat",
@@ -682,7 +748,7 @@
    "zin": "De opleidingsspecificatie met daaronder het programma, de eenheden en de leeronderdelen: het curriculum als template over de looptijd."
   },
   {
-   "id": "R1-022",
+   "beeld": "De opleidingsspecificatie met programma, eenheden en keuzedeelruimte",
    "fase": 1,
    "stap": "Opleidingsspecificatie met programma en eenheden beschrijven",
    "soort": "ontstaat",
@@ -698,7 +764,7 @@
    }
   },
   {
-   "id": "R1-023",
+   "beeld": "De opleidingsspecificatie met programma, eenheden en keuzedeelruimte",
    "fase": 1,
    "stap": "Opleidingsspecificatie met programma en eenheden beschrijven",
    "soort": "ontstaat",
@@ -722,7 +788,7 @@
    ]
   },
   {
-   "id": "R1-024",
+   "beeld": "De opleidingsspecificatie met programma, eenheden en keuzedeelruimte",
    "fase": 1,
    "stap": "Opleidingsspecificatie met programma en eenheden beschrijven",
    "soort": "ontstaat",
@@ -746,7 +812,7 @@
    ]
   },
   {
-   "id": "R1-025",
+   "beeld": "De opleidingsspecificatie met programma, eenheden en keuzedeelruimte",
    "fase": 1,
    "stap": "Opleidingsspecificatie met programma en eenheden beschrijven",
    "soort": "ontstaat",
@@ -761,7 +827,7 @@
    }
   },
   {
-   "id": "R1-027",
+   "beeld": "De opleidingsspecificatie met programma, eenheden en keuzedeelruimte",
    "fase": 1,
    "stap": "Opleidingsspecificatie met programma en eenheden beschrijven",
    "soort": "ontstaat",
@@ -776,7 +842,7 @@
    }
   },
   {
-   "id": "R1-046",
+   "beeld": "Het keuzedeel als eigen programmaspecificatie",
    "fase": 1,
    "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
    "soort": "ontstaat",
@@ -799,7 +865,7 @@
    "zin": "Een keuzedeel is zelf een programmaspecificatie, gelijksoortig vormgegeven maar los van Jochems opleiding; welk keuzedeel de ruimte vult, bepaalt het studentkeuzesysteem later met de regelset."
   },
   {
-   "id": "R1-028",
+   "beeld": "Toetsonderdelen, wegingen en afrondingscriterium",
    "fase": 1,
    "stap": "Toetsonderdelen en resultaatstructuur uit het examenplan afleiden",
    "soort": "verandert",
@@ -819,7 +885,7 @@
    ]
   },
   {
-   "id": "R1-029",
+   "beeld": "Toetsonderdelen, wegingen en afrondingscriterium",
    "fase": 1,
    "stap": "Toetsonderdelen en resultaatstructuur uit het examenplan afleiden",
    "soort": "ontstaat",
@@ -843,7 +909,7 @@
    ]
   },
   {
-   "id": "R1-030",
+   "beeld": "Toetsonderdelen, wegingen en afrondingscriterium",
    "fase": 1,
    "stap": "Toetsonderdelen en resultaatstructuur uit het examenplan afleiden",
    "soort": "ontstaat",
@@ -867,7 +933,7 @@
    ]
   },
   {
-   "id": "R1-031",
+   "beeld": "Toetsonderdelen, wegingen en afrondingscriterium",
    "fase": 1,
    "stap": "Toetsonderdelen en resultaatstructuur uit het examenplan afleiden",
    "soort": "ontstaat",
@@ -885,7 +951,7 @@
    "vraag": "Welke weging moet een studentvolgsysteem aggregeren: op het toetsonderdeel (schema) of op de resultaateenheid (regels)? Meta #234 punt 5."
   },
   {
-   "id": "R1-032",
+   "beeld": "Toetsonderdelen, wegingen en afrondingscriterium",
    "fase": 1,
    "stap": "Toetsonderdelen en resultaatstructuur uit het examenplan afleiden",
    "soort": "ontstaat",
@@ -900,7 +966,7 @@
    }
   },
   {
-   "id": "R1-033",
+   "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
    "soort": "stroomt",
@@ -914,7 +980,7 @@
    "zin": "De opleiding zoals ontworpen gaat als gelinkt geheel naar de catalogus: leeruitkomsten met hun skills, de specificatiestructuur met het onderwijsontwerp (paars: conceptplaat) en de resultaatstructuur; alles verwijst naar de leeruitkomst. Op v1.7 zit de ontwerptool binnen de catalogus, dus geen aparte pijl."
   },
   {
-   "id": "R1-034",
+   "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
    "soort": "stroomt",
@@ -933,7 +999,7 @@
    }
   },
   {
-   "id": "R1-047",
+   "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
    "soort": "stroomt",
@@ -952,7 +1018,7 @@
    }
   },
   {
-   "id": "R1-048",
+   "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
    "soort": "stroomt",
@@ -972,7 +1038,7 @@
    }
   },
   {
-   "id": "R1-049",
+   "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
    "soort": "stroomt",
@@ -992,7 +1058,7 @@
    }
   },
   {
-   "id": "R1-050",
+   "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
    "soort": "stroomt",
@@ -1012,7 +1078,7 @@
    }
   },
   {
-   "id": "R1-035",
+   "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
    "soort": "stroomt",
@@ -1025,7 +1091,7 @@
    "bron": "leerroute-1-regulier.md, Fase 1: Curriculum-ontwerptool naar OC, alles op grofmazig niveau"
   },
   {
-   "id": "R1-036",
+   "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
    "soort": "stroomt",
@@ -1044,7 +1110,7 @@
    }
   },
   {
-   "id": "R1-037",
+   "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
    "soort": "stroomt",
@@ -1071,7 +1137,7 @@
    ]
   },
   {
-   "id": "R1-038",
+   "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
    "soort": "stroomt",
@@ -1098,7 +1164,7 @@
    ]
   },
   {
-   "id": "R1-039",
+   "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
    "soort": "stroomt",
@@ -1116,7 +1182,7 @@
    }
   },
   {
-   "id": "R1-041",
+   "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
    "soort": "stroomt",
@@ -1134,7 +1200,7 @@
    }
   },
   {
-   "id": "R1-051",
+   "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
    "soort": "stroomt",
@@ -1142,47 +1208,39 @@
    "naar": "Onderwijscatalogus",
    "pijl": "geen pijl op de hoofdplaat",
    "koppeling": null,
-   "objecttype": "Leerdoel",
-   "instantie": "Zelfstandig farmaceutische patiëntenzorg bieden in een levensechte setting",
-   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Kerntaak 'Word onderwijskundig vertaald tot' Leerdoel; Leerdoel 'Heeft één of meer' Leeruitkomst",
    "plaat": "onderwijsontwerp",
    "aanname": true,
+   "objecttype": "Onderwijseenheid / Opleidingsonderdeel",
+   "instantie": "Blok B1-K1 (onderwijsontwerp)",
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Onderwijsplan bevat Onderwijseenheid / Opleidingsonderdeel"
+  },
+  {
+   "beeld": "De opleiding zoals ontworpen naar de catalogus",
+   "fase": 1,
+   "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
+   "soort": "stroomt",
+   "van": "Curriculum ontwerptool",
+   "naar": "Onderwijscatalogus",
+   "pijl": "geen pijl op de hoofdplaat",
+   "koppeling": null,
+   "plaat": "onderwijsontwerp",
+   "aanname": true,
+   "objecttype": "Onderwijsvorm specificatie",
+   "instantie": "Simulatie in de leerapotheek, theorie ondersteunend",
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat)",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Onderwijseenheid / Opleidingsonderdeel",
+    "naar": "Onderwijsvorm specificatie",
+    "nesting": true
+   },
    "relaties": [
-    {
-     "soort": "Association",
-     "van": "Kerntaak",
-     "naar": "Leerdoel",
-     "label": "Word onderwijskundig vertaald tot"
-    },
     {
      "soort": "Association",
      "van": "Leerdoel",
-     "naar": "Leeruitkomst",
-     "label": "Heeft één of meer",
-     "instantie": "Biedt farmaceutische patiëntenzorg (kerntaakniveau)"
-    }
-   ]
-  },
-  {
-   "id": "R1-052",
-   "fase": 1,
-   "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
-   "soort": "stroomt",
-   "van": "Curriculum ontwerptool",
-   "naar": "Onderwijscatalogus",
-   "pijl": "geen pijl op de hoofdplaat",
-   "koppeling": null,
-   "objecttype": "Onderwijsvorm specificatie",
-   "instantie": "Simulatie in de leerapotheek, theorie ondersteunend",
-   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Leeruitkomst naar Onderwijsvorm specificatie",
-   "plaat": "onderwijsontwerp",
-   "aanname": true,
-   "relatie": {
-    "soort": "Association",
-    "van": "Leerdoel",
-    "naar": "Onderwijsvorm specificatie"
-   },
-   "relaties": [
+     "naar": "Onderwijsvorm specificatie",
+     "instantie": "Zelfstandig farmaceutische patiëntenzorg bieden in een levensechte setting"
+    },
     {
      "soort": "Association",
      "van": "Leeruitkomst",
@@ -1192,7 +1250,7 @@
    ]
   },
   {
-   "id": "R1-053",
+   "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
    "soort": "stroomt",
@@ -1200,19 +1258,83 @@
    "naar": "Onderwijscatalogus",
    "pijl": "geen pijl op de hoofdplaat",
    "koppeling": null,
-   "objecttype": "Gewenste Onderwijskundige Leeromgeving",
-   "instantie": "Balie-simulatie in het skillslab",
-   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Onderwijsvorm specificatie naar Gewenste Onderwijskundige Leeromgeving",
    "plaat": "onderwijsontwerp",
    "aanname": true,
+   "objecttype": "Gewenste Onderwijskundige Leeromgeving",
+   "instantie": "Balie-simulatie in het skillslab",
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat)",
    "relatie": {
-    "soort": "Association",
-    "van": "Onderwijsvorm specificatie",
-    "naar": "Gewenste Onderwijskundige Leeromgeving"
-   }
+    "soort": "Aggregation",
+    "van": "Onderwijseenheid / Opleidingsonderdeel",
+    "naar": "Gewenste Onderwijskundige Leeromgeving",
+    "nesting": true
+   },
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Onderwijsvorm specificatie",
+     "naar": "Gewenste Onderwijskundige Leeromgeving"
+    }
+   ]
   },
   {
-   "id": "R1-042",
+   "beeld": "De opleiding zoals ontworpen naar de catalogus",
+   "fase": 1,
+   "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
+   "soort": "stroomt",
+   "van": "Curriculum ontwerptool",
+   "naar": "Onderwijscatalogus",
+   "pijl": "geen pijl op de hoofdplaat",
+   "koppeling": null,
+   "plaat": "onderwijsontwerp",
+   "aanname": true,
+   "objecttype": "Gewenst medewerker competentieprofiel",
+   "instantie": "Apothekersassistent-docent met baliepraktijk",
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat)",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Onderwijseenheid / Opleidingsonderdeel",
+    "naar": "Gewenst medewerker competentieprofiel",
+    "nesting": true
+   },
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Gewenst medewerker competentieprofiel",
+     "naar": "Onderwijsvorm specificatie"
+    }
+   ]
+  },
+  {
+   "beeld": "De opleiding zoals ontworpen naar de catalogus",
+   "fase": 1,
+   "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
+   "soort": "stroomt",
+   "van": "Curriculum ontwerptool",
+   "naar": "Onderwijscatalogus",
+   "pijl": "geen pijl op de hoofdplaat",
+   "koppeling": null,
+   "plaat": "onderwijsontwerp",
+   "aanname": true,
+   "objecttype": "Studiebelasting en begeleide onderwijstijd indicatie",
+   "instantie": "BOT 50 / OOT 50 SBU",
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat)",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Onderwijseenheid / Opleidingsonderdeel",
+    "naar": "Studiebelasting en begeleide onderwijstijd indicatie",
+    "nesting": true
+   },
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Studiebelasting en begeleide onderwijstijd indicatie",
+     "naar": "Onderwijsvorm specificatie"
+    }
+   ]
+  },
+  {
+   "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
    "soort": "stroomt",
@@ -1234,7 +1356,7 @@
    "aanname": true
   },
   {
-   "id": "R1-043",
+   "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
    "soort": "stroomt",
@@ -1261,7 +1383,7 @@
    ]
   },
   {
-   "id": "R1-044",
+   "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
    "soort": "stroomt",
@@ -1288,7 +1410,7 @@
    "aanname": true
   },
   {
-   "id": "R1-045",
+   "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
    "soort": "stroomt",
@@ -1306,7 +1428,7 @@
    }
   },
   {
-   "id": "R2-001",
+   "beeld": "De specificatie planbaar gemaakt",
    "fase": 2,
    "stap": "Specificatie aanvullen tot planbare specificatie",
    "soort": "verandert",
@@ -1318,7 +1440,7 @@
    "zin": "De grofmazige specificatie wordt aangevuld met tijdvensters, capaciteit, expertise en faciliteit: planbaar."
   },
   {
-   "id": "R2-002",
+   "beeld": "Het verzoek om onderwijsaanbod",
    "fase": 2,
    "stap": "Planningssysteem verzoeken om onderwijsaanbod",
    "soort": "ontstaat",
@@ -1337,7 +1459,7 @@
    }
   },
   {
-   "id": "R2-003",
+   "beeld": "Verzoek met specificatiestructuur en planbare waarden naar planning",
    "fase": 2,
    "stap": "Planningssysteem verzoeken om onderwijsaanbod",
    "soort": "stroomt",
@@ -1348,10 +1470,10 @@
    "objecttype": "Verzoek tot Aanbod / Intekening op specificatie",
    "instantie": "Planopgave Apothekersassistent, cohort 2026",
    "bron": "leerroute-1-regulier.md, Fase 2: OC verzoekt het Planningssysteem",
-   "zin": "Het verzoek gaat met de hele specificatiestructuur naar planning, met de planbare waarden uit het onderwijsontwerp (paars): leeromgeving, docentprofiel en studiebelasting, waarop planning ruimtes en mensen plot."
+   "zin": "Het verzoek gaat met de hele specificatiestructuur naar planning, met per eenheid de planbare waarden uit het onderwijsontwerp (paars): onderwijsvorm, leeromgeving, docentprofiel en studiebelasting, waarop planning ruimtes en mensen plot."
   },
   {
-   "id": "R2-004",
+   "beeld": "Verzoek met specificatiestructuur en planbare waarden naar planning",
    "fase": 2,
    "stap": "Planningssysteem verzoeken om onderwijsaanbod",
    "soort": "stroomt",
@@ -1370,7 +1492,7 @@
    }
   },
   {
-   "id": "R2-005",
+   "beeld": "Verzoek met specificatiestructuur en planbare waarden naar planning",
    "fase": 2,
    "stap": "Planningssysteem verzoeken om onderwijsaanbod",
    "soort": "stroomt",
@@ -1389,7 +1511,7 @@
    }
   },
   {
-   "id": "R2-006",
+   "beeld": "Verzoek met specificatiestructuur en planbare waarden naar planning",
    "fase": 2,
    "stap": "Planningssysteem verzoeken om onderwijsaanbod",
    "soort": "stroomt",
@@ -1416,7 +1538,7 @@
    ]
   },
   {
-   "id": "R2-007",
+   "beeld": "Verzoek met specificatiestructuur en planbare waarden naar planning",
    "fase": 2,
    "stap": "Planningssysteem verzoeken om onderwijsaanbod",
    "soort": "stroomt",
@@ -1443,7 +1565,7 @@
    ]
   },
   {
-   "id": "R2-019",
+   "beeld": "Verzoek met specificatiestructuur en planbare waarden naar planning",
    "fase": 2,
    "stap": "Planningssysteem verzoeken om onderwijsaanbod",
    "soort": "stroomt",
@@ -1451,11 +1573,32 @@
    "naar": "Planningssysteem",
    "pijl": "id-1d27ecfa2c0d4fb7b4f7337e93eed033",
    "koppeling": "OC-P&R",
-   "objecttype": "Onderwijsvorm specificatie",
-   "instantie": "Simulatie in de leerapotheek, theorie ondersteunend",
-   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat); leerroute-1-regulier.md, r749 (SBU/BOT/OOT, expertise, toetsvorm aangevuld: planbaar)",
    "plaat": "onderwijsontwerp",
    "aanname": true,
+   "objecttype": "Onderwijseenheid / Opleidingsonderdeel",
+   "instantie": "Blok B1-K1 (onderwijsontwerp)",
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Onderwijsplan bevat Onderwijseenheid / Opleidingsonderdeel; leerroute-1-regulier.md, r749 (SBU/BOT/OOT, expertise, toetsvorm aangevuld: planbaar)"
+  },
+  {
+   "beeld": "Verzoek met specificatiestructuur en planbare waarden naar planning",
+   "fase": 2,
+   "stap": "Planningssysteem verzoeken om onderwijsaanbod",
+   "soort": "stroomt",
+   "van": "Onderwijscatalogus",
+   "naar": "Planningssysteem",
+   "pijl": "id-1d27ecfa2c0d4fb7b4f7337e93eed033",
+   "koppeling": "OC-P&R",
+   "plaat": "onderwijsontwerp",
+   "aanname": true,
+   "objecttype": "Onderwijsvorm specificatie",
+   "instantie": "Simulatie in de leerapotheek, theorie ondersteunend",
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat)",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Onderwijseenheid / Opleidingsonderdeel",
+    "naar": "Onderwijsvorm specificatie",
+    "nesting": true
+   },
    "relaties": [
     {
      "soort": "Association",
@@ -1466,7 +1609,7 @@
    ]
   },
   {
-   "id": "R2-020",
+   "beeld": "Verzoek met specificatiestructuur en planbare waarden naar planning",
    "fase": 2,
    "stap": "Planningssysteem verzoeken om onderwijsaanbod",
    "soort": "stroomt",
@@ -1474,19 +1617,27 @@
    "naar": "Planningssysteem",
    "pijl": "id-1d27ecfa2c0d4fb7b4f7337e93eed033",
    "koppeling": "OC-P&R",
+   "plaat": "onderwijsontwerp",
+   "aanname": true,
    "objecttype": "Gewenste Onderwijskundige Leeromgeving",
    "instantie": "Balie-simulatie in het skillslab",
    "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat)",
-   "plaat": "onderwijsontwerp",
-   "aanname": true,
    "relatie": {
-    "soort": "Association",
-    "van": "Onderwijsvorm specificatie",
-    "naar": "Gewenste Onderwijskundige Leeromgeving"
-   }
+    "soort": "Aggregation",
+    "van": "Onderwijseenheid / Opleidingsonderdeel",
+    "naar": "Gewenste Onderwijskundige Leeromgeving",
+    "nesting": true
+   },
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Onderwijsvorm specificatie",
+     "naar": "Gewenste Onderwijskundige Leeromgeving"
+    }
+   ]
   },
   {
-   "id": "R2-021",
+   "beeld": "Verzoek met specificatiestructuur en planbare waarden naar planning",
    "fase": 2,
    "stap": "Planningssysteem verzoeken om onderwijsaanbod",
    "soort": "stroomt",
@@ -1494,19 +1645,27 @@
    "naar": "Planningssysteem",
    "pijl": "id-1d27ecfa2c0d4fb7b4f7337e93eed033",
    "koppeling": "OC-P&R",
+   "plaat": "onderwijsontwerp",
+   "aanname": true,
    "objecttype": "Gewenst medewerker competentieprofiel",
    "instantie": "Apothekersassistent-docent met baliepraktijk",
-   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat); leerroute-1-regulier.md, r1048",
-   "plaat": "onderwijsontwerp",
-   "aanname": true,
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat)",
    "relatie": {
-    "soort": "Association",
-    "van": "Gewenst medewerker competentieprofiel",
-    "naar": "Onderwijsvorm specificatie"
-   }
+    "soort": "Aggregation",
+    "van": "Onderwijseenheid / Opleidingsonderdeel",
+    "naar": "Gewenst medewerker competentieprofiel",
+    "nesting": true
+   },
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Gewenst medewerker competentieprofiel",
+     "naar": "Onderwijsvorm specificatie"
+    }
+   ]
   },
   {
-   "id": "R2-022",
+   "beeld": "Verzoek met specificatiestructuur en planbare waarden naar planning",
    "fase": 2,
    "stap": "Planningssysteem verzoeken om onderwijsaanbod",
    "soort": "stroomt",
@@ -1514,19 +1673,27 @@
    "naar": "Planningssysteem",
    "pijl": "id-1d27ecfa2c0d4fb7b4f7337e93eed033",
    "koppeling": "OC-P&R",
-   "objecttype": "Studiebelasting en begeleide onderwijstijd indicatie",
-   "instantie": "BOT 50 / OOT 50 SBU",
-   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat); leerroute-1-regulier.md, r1052",
    "plaat": "onderwijsontwerp",
    "aanname": true,
+   "objecttype": "Studiebelasting en begeleide onderwijstijd indicatie",
+   "instantie": "BOT 50 / OOT 50 SBU",
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat)",
    "relatie": {
-    "soort": "Association",
-    "van": "Studiebelasting en begeleide onderwijstijd indicatie",
-    "naar": "Onderwijsvorm specificatie"
-   }
+    "soort": "Aggregation",
+    "van": "Onderwijseenheid / Opleidingsonderdeel",
+    "naar": "Studiebelasting en begeleide onderwijstijd indicatie",
+    "nesting": true
+   },
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Studiebelasting en begeleide onderwijstijd indicatie",
+     "naar": "Onderwijsvorm specificatie"
+    }
+   ]
   },
   {
-   "id": "R2-008",
+   "beeld": "Het aanbod gepland: opleiding, programma, eenheid, gelegenheid",
    "fase": 2,
    "stap": "Haalbaarheid bepalen en aanbod plannen",
    "soort": "ontstaat",
@@ -1538,7 +1705,7 @@
    "zin": "De planner bepaalt de haalbaarheid binnen de strategische jaarplanning en maakt het aanbod: cohort 2026, vier perioden."
   },
   {
-   "id": "R2-009",
+   "beeld": "Het aanbod gepland: opleiding, programma, eenheid, gelegenheid",
    "fase": 2,
    "stap": "Haalbaarheid bepalen en aanbod plannen",
    "soort": "ontstaat",
@@ -1554,7 +1721,7 @@
    }
   },
   {
-   "id": "R2-010",
+   "beeld": "Het aanbod gepland: opleiding, programma, eenheid, gelegenheid",
    "fase": 2,
    "stap": "Haalbaarheid bepalen en aanbod plannen",
    "soort": "ontstaat",
@@ -1570,7 +1737,7 @@
    }
   },
   {
-   "id": "R2-011",
+   "beeld": "Het aanbod gepland: opleiding, programma, eenheid, gelegenheid",
    "fase": 2,
    "stap": "Haalbaarheid bepalen en aanbod plannen",
    "soort": "ontstaat",
@@ -1586,7 +1753,7 @@
    }
   },
   {
-   "id": "R2-012",
+   "beeld": "Het aanbod gepland: opleiding, programma, eenheid, gelegenheid",
    "fase": 2,
    "stap": "Haalbaarheid bepalen en aanbod plannen",
    "soort": "ontstaat",
@@ -1602,7 +1769,7 @@
    }
   },
   {
-   "id": "R2-013",
+   "beeld": "Het aanbod gepland: opleiding, programma, eenheid, gelegenheid",
    "fase": 2,
    "stap": "Haalbaarheid bepalen en aanbod plannen",
    "soort": "ontstaat",
@@ -1617,7 +1784,7 @@
    }
   },
   {
-   "id": "R2-023",
+   "beeld": "Ruimtes en mensen op de specificatie (conceptplaat)",
    "fase": 2,
    "stap": "Haalbaarheid bepalen en aanbod plannen",
    "verdieping": "ruimtes en mensen op de specificatie",
@@ -1631,7 +1798,7 @@
    "zin": "Conceptplaat: planning plot ruimtes en mensen op de specificatie; de leeromgeving uit het ontwerp is een lokaaltype, het docentprofiel een medewerkertype, en beide zijn schaars in het aanbodmodel van het jaarplan."
   },
   {
-   "id": "R2-024",
+   "beeld": "Ruimtes en mensen op de specificatie (conceptplaat)",
    "fase": 2,
    "stap": "Haalbaarheid bepalen en aanbod plannen",
    "verdieping": "ruimtes en mensen op de specificatie",
@@ -1649,7 +1816,7 @@
    }
   },
   {
-   "id": "R2-025",
+   "beeld": "Ruimtes en mensen op de specificatie (conceptplaat)",
    "fase": 2,
    "stap": "Haalbaarheid bepalen en aanbod plannen",
    "verdieping": "ruimtes en mensen op de specificatie",
@@ -1667,7 +1834,7 @@
    }
   },
   {
-   "id": "R2-026",
+   "beeld": "Ruimtes en mensen op de specificatie (conceptplaat)",
    "fase": 2,
    "stap": "Haalbaarheid bepalen en aanbod plannen",
    "verdieping": "ruimtes en mensen op de specificatie",
@@ -1685,7 +1852,7 @@
    }
   },
   {
-   "id": "R2-027",
+   "beeld": "Ruimtes en mensen op de specificatie (conceptplaat)",
    "fase": 2,
    "stap": "Haalbaarheid bepalen en aanbod plannen",
    "verdieping": "ruimtes en mensen op de specificatie",
@@ -1703,7 +1870,7 @@
    }
   },
   {
-   "id": "R2-028",
+   "beeld": "Examenplanning uit de resultaatstructuur (conceptplaat)",
    "fase": 2,
    "stap": "Haalbaarheid bepalen en aanbod plannen",
    "verdieping": "examenplanning uit de resultaatstructuur",
@@ -1717,7 +1884,7 @@
    "zin": "Conceptplaat: de examenplanning volgt uit de resultaatstructuur (het examen is er functioneel aan gekoppeld) en het examenplan zegt wanneer; op de informatiemodelplaat blijft het examenplan buiten de uitwisseling (ontwerpkeuze 10)."
   },
   {
-   "id": "R2-029",
+   "beeld": "Examenplanning uit de resultaatstructuur (conceptplaat)",
    "fase": 2,
    "stap": "Haalbaarheid bepalen en aanbod plannen",
    "verdieping": "examenplanning uit de resultaatstructuur",
@@ -1735,7 +1902,7 @@
    }
   },
   {
-   "id": "R2-030",
+   "beeld": "Examenplanning uit de resultaatstructuur (conceptplaat)",
    "fase": 2,
    "stap": "Haalbaarheid bepalen en aanbod plannen",
    "verdieping": "examenplanning uit de resultaatstructuur",
@@ -1755,7 +1922,7 @@
    }
   },
   {
-   "id": "R2-031",
+   "beeld": "Examenplanning uit de resultaatstructuur (conceptplaat)",
    "fase": 2,
    "stap": "Haalbaarheid bepalen en aanbod plannen",
    "verdieping": "examenplanning uit de resultaatstructuur",
@@ -1774,7 +1941,7 @@
    }
   },
   {
-   "id": "R2-032",
+   "beeld": "Examenplanning uit de resultaatstructuur (conceptplaat)",
    "fase": 2,
    "stap": "Haalbaarheid bepalen en aanbod plannen",
    "verdieping": "examenplanning uit de resultaatstructuur",
@@ -1810,7 +1977,7 @@
    "vraag": "Voor de examenplanning is naast de resultaatstructuur (wat en hoe zwaar) ook het moment nodig. Komt dat uit het examenplan, dat buiten de uitwisseling blijft, of uit de plek van het examenonderdeel in de specificatie?"
   },
   {
-   "id": "R2-014",
+   "beeld": "Het geplande aanbod terug naar de catalogus",
    "fase": 2,
    "stap": "Gepland aanbod terugleveren aan de onderwijscatalogus",
    "soort": "stroomt",
@@ -1825,7 +1992,7 @@
    "vraag": "Op de plaat verwijst aanbod niet naar de specificatie waarop het is gemaakt, alleen via het verzoek (Leidt tot). Hoe weet de catalogus bij welke specificatie het teruggeleverde aanbod hoort?"
   },
   {
-   "id": "R2-015",
+   "beeld": "Het geplande aanbod terug naar de catalogus",
    "fase": 2,
    "stap": "Gepland aanbod terugleveren aan de onderwijscatalogus",
    "soort": "stroomt",
@@ -1853,7 +2020,7 @@
    ]
   },
   {
-   "id": "R2-016",
+   "beeld": "Het geplande aanbod terug naar de catalogus",
    "fase": 2,
    "stap": "Gepland aanbod terugleveren aan de onderwijscatalogus",
    "soort": "stroomt",
@@ -1872,7 +2039,7 @@
    }
   },
   {
-   "id": "R2-017",
+   "beeld": "Het geplande aanbod terug naar de catalogus",
    "fase": 2,
    "stap": "Gepland aanbod terugleveren aan de onderwijscatalogus",
    "soort": "stroomt",
@@ -1891,7 +2058,7 @@
    }
   },
   {
-   "id": "R2-018",
+   "beeld": "Het geplande aanbod terug naar de catalogus",
    "fase": 2,
    "stap": "Gepland aanbod terugleveren aan de onderwijscatalogus",
    "soort": "stroomt",
@@ -1910,7 +2077,7 @@
    }
   },
   {
-   "id": "R3-001",
+   "beeld": "Aanmeldbaar aanbod naar de kernregistratie",
    "fase": 3,
    "stap": "Orienteren op het gepubliceerde aanbod",
    "soort": "stroomt",
@@ -1924,23 +2091,23 @@
    "zin": "De catalogus ontsluit het aanmeld- en inschrijfbare aanbod aan de kernregistratie."
   },
   {
-   "id": "R3-010",
+   "beeld": "Aanmeldbaar aanbod van de kernregistratie naar AII",
    "fase": 3,
    "stap": "Orienteren op het gepubliceerde aanbod",
    "soort": "stroomt",
    "van": "Kernregistratie systeem studenten (KRS)",
-   "naar": "Voorziening Centraal Aanmelden (CAMBO)",
+   "naar": "AII (centraal aanmelden)",
    "pijl": "geen pijl op de hoofdplaat",
    "koppeling": null,
    "objecttype": "Opleidingsprogramma aanbod",
    "instantie": "Regulier BOL 2026",
-   "bron": "leerroute-1-regulier.md, Fase 3: OC naar Intakesysteem (aanbod om op te orienteren); keuze van de sectorarchitect: via de kernregistratie",
+   "bron": "leerroute-1-regulier.md, Fase 3: OC naar Intakesysteem (aanbod om op te orienteren); persona_jochem.md, r74 (aanmeldsysteem CAMBO/AII); keuze van de sectorarchitect: via de kernregistratie",
    "aanname": true,
-   "zin": "De kernregistratie ontsluit het aanbod aan de centrale aanmeldvoorziening (CAMBO, straks AII); hoofdplaat v1.7 laat de catalogus dat rechtstreeks doen.",
-   "vraag": "Op v1.7 ontsluit de catalogus het aanmeldbare aanbod ook rechtstreeks aan de centrale aanmeldvoorziening. Moet dat via de kernregistratie lopen, die het aan CAMBO of straks AII ontsluit?"
+   "zin": "De kernregistratie ontsluit het aanbod aan AII, de opvolger van CAMBO; v1.7 kent CAMBO en laat de catalogus rechtstreeks ontsluiten.",
+   "vraag": "Hoofdplaat v1.7 kent CAMBO als component en laat de catalogus het aanmeldbare aanbod rechtstreeks ontsluiten. Wordt dat AII, en loopt het via de kernregistratie?"
   },
   {
-   "id": "R3-002",
+   "beeld": "Jochem meldt zich aan: aanmelding en verbintenissen",
    "fase": 3,
    "stap": "Aanmelden via het intakesysteem",
    "soort": "ontstaat",
@@ -1948,17 +2115,17 @@
    "objecttype": "Persoon",
    "instantie": "Jochem, 17, na het vmbo",
    "bron": "leerroute-1-regulier.md, r52: Jochem, 17, na het vmbo",
-   "zin": "Jochem orienteert zich in maart via de website en meldt zich in april aan voor de BOL-opleiding."
+   "zin": "Jochem meldt zich via AII aan; de aanmelding is zijn verbintenis op de opleiding en, omdat hij BOL kiest, op het programma: aangemeld, nog niet ingeschreven."
   },
   {
-   "id": "R3-003",
+   "beeld": "Jochem meldt zich aan: aanmelding en verbintenissen",
    "fase": 3,
    "stap": "Aanmelden via het intakesysteem",
    "soort": "ontstaat",
    "wie": "student",
    "objecttype": "Aanmelding",
    "instantie": "April 2026, Apothekersassistent BOL",
-   "bron": "scenario-1.1-regulier-happyflow.md, r82 en r84: aanmelding april 2026",
+   "bron": "leerroute-1-regulier.md, Fase 3; persona_jochem.md, r74 (aanmeldsysteem CAMBO/AII)",
    "relatie": {
     "soort": "Association",
     "van": "Opleidingaanbod",
@@ -1967,18 +2134,86 @@
    }
   },
   {
-   "id": "R3-004",
+   "beeld": "Jochem meldt zich aan: aanmelding en verbintenissen",
+   "fase": 3,
+   "stap": "Aanmelden via het intakesysteem",
+   "soort": "ontstaat",
+   "wie": "student",
+   "objecttype": "Opleiding aanbod verbintenis",
+   "instantie": "Jochem op Apothekersassistent 2026, aangemeld",
+   "bron": "leerroute-1-regulier.md, Fase 3: opleidingsverbintenis in KRS",
+   "relatie": {
+    "soort": "Association",
+    "van": "Aanmelding",
+    "naar": "Opleiding aanbod verbintenis",
+    "label": "middels"
+   },
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Opleidingaanbod",
+     "naar": "Opleiding aanbod verbintenis",
+     "instantie": "Apothekersassistent 2026"
+    }
+   ]
+  },
+  {
+   "beeld": "Jochem meldt zich aan: aanmelding en verbintenissen",
+   "fase": 3,
+   "stap": "Aanmelden via het intakesysteem",
+   "soort": "ontstaat",
+   "wie": "student",
+   "objecttype": "Opleidingsprogramma aanbod verbintenis",
+   "instantie": "Jochem op Regulier BOL 2026, aangemeld",
+   "bron": "leerroute-1-regulier.md, Fase 3: opleidingsprogramma-verbintenis in KRS",
+   "relatie": {
+    "soort": "Association",
+    "van": "Opleiding aanbod verbintenis",
+    "naar": "Opleidingsprogramma aanbod verbintenis",
+    "label": "Minimaal 1"
+   },
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Opleidingsprogramma aanbod",
+     "naar": "Opleidingsprogramma aanbod verbintenis",
+     "instantie": "Regulier BOL 2026"
+    }
+   ]
+  },
+  {
+   "beeld": "Aanmelding met persoon en verbintenissen naar de kernregistratie",
    "fase": 3,
    "stap": "Aanmelden via het intakesysteem",
    "soort": "stroomt",
-   "van": "Voorziening Centraal Aanmelden (CAMBO)",
+   "van": "AII (centraal aanmelden)",
    "naar": "Kernregistratie systeem studenten (KRS)",
-   "pijl": "id-eaed86afaeee476d885121adbf18f0b1",
+   "pijl": "geen pijl op de hoofdplaat",
+   "koppeling": null,
+   "objecttype": "Persoon",
+   "instantie": "Jochem, 17, na het vmbo",
+   "bron": "leerroute-1-regulier.md, Fase 3: naar KRS (opleidingsverbintenis, opleidingsprogramma-verbintenis en Persoon); v1.7 tekent deze pijl voor CAMBO",
+   "aanname": true,
+   "zin": "De aanmelding komt via AII bij de kernregistratie binnen: Jochem als persoon met zijn aanmelding en verbintenissen; KRS wordt master voor persoon en plaatsing."
+  },
+  {
+   "beeld": "Aanmelding met persoon en verbintenissen naar de kernregistratie",
+   "fase": 3,
+   "stap": "Aanmelden via het intakesysteem",
+   "soort": "stroomt",
+   "van": "AII (centraal aanmelden)",
+   "naar": "Kernregistratie systeem studenten (KRS)",
+   "pijl": "geen pijl op de hoofdplaat",
    "koppeling": null,
    "objecttype": "Aanmelding",
    "instantie": "April 2026, Apothekersassistent BOL",
-   "bron": "leerroute-1-regulier.md, Fase 3: Intakesysteem naar KRS (persoon en verbintenis)",
-   "zin": "De aanmelding komt bij de kernregistratie binnen; buiten OKx, wel in de keten.",
+   "bron": "leerroute-1-regulier.md, Fase 3",
+   "aanname": true,
+   "relatie": {
+    "soort": "Access",
+    "van": "Persoon",
+    "naar": "Aanmelding"
+   },
    "relaties": [
     {
      "soort": "Association",
@@ -1986,17 +2221,51 @@
      "naar": "Aanmelding",
      "label": "Op basis van",
      "instantie": "Apothekersassistent 2026"
-    },
-    {
-     "soort": "Access",
-     "van": "Persoon",
-     "naar": "Aanmelding",
-     "instantie": "Jochem"
     }
    ]
   },
   {
-   "id": "R3-005",
+   "beeld": "Aanmelding met persoon en verbintenissen naar de kernregistratie",
+   "fase": 3,
+   "stap": "Aanmelden via het intakesysteem",
+   "soort": "stroomt",
+   "van": "AII (centraal aanmelden)",
+   "naar": "Kernregistratie systeem studenten (KRS)",
+   "pijl": "geen pijl op de hoofdplaat",
+   "koppeling": null,
+   "objecttype": "Opleiding aanbod verbintenis",
+   "instantie": "Jochem op Apothekersassistent 2026, aangemeld",
+   "bron": "leerroute-1-regulier.md, Fase 3",
+   "aanname": true,
+   "relatie": {
+    "soort": "Association",
+    "van": "Aanmelding",
+    "naar": "Opleiding aanbod verbintenis",
+    "label": "middels"
+   }
+  },
+  {
+   "beeld": "Aanmelding met persoon en verbintenissen naar de kernregistratie",
+   "fase": 3,
+   "stap": "Aanmelden via het intakesysteem",
+   "soort": "stroomt",
+   "van": "AII (centraal aanmelden)",
+   "naar": "Kernregistratie systeem studenten (KRS)",
+   "pijl": "geen pijl op de hoofdplaat",
+   "koppeling": null,
+   "objecttype": "Opleidingsprogramma aanbod verbintenis",
+   "instantie": "Jochem op Regulier BOL 2026, aangemeld",
+   "bron": "leerroute-1-regulier.md, Fase 3",
+   "aanname": true,
+   "relatie": {
+    "soort": "Association",
+    "van": "Opleiding aanbod verbintenis",
+    "naar": "Opleidingsprogramma aanbod verbintenis",
+    "label": "Minimaal 1"
+   }
+  },
+  {
+   "beeld": "Intake: student, plaatsingsgroep en eerste keuzedeelvoorkeur",
    "fase": 3,
    "stap": "Intake doorlopen en plaatsen",
    "soort": "ontstaat",
@@ -2009,42 +2278,10 @@
     "van": "Student",
     "naar": "Persoon"
    },
-   "zin": "De SLB'er voert de intake uit, plaatst Jochem op het nominale programma en in een plaatsingsgroep."
+   "zin": "De SLB'er voert de intake uit, plaatst Jochem in een plaatsingsgroep en legt zijn eerste keuzedeelvoorkeuren voorlopig vast."
   },
   {
-   "id": "R3-006",
-   "fase": 3,
-   "stap": "Intake doorlopen en plaatsen",
-   "soort": "ontstaat",
-   "wie": "SLB'er",
-   "objecttype": "Opleiding aanbod verbintenis",
-   "instantie": "Jochem op Apothekersassistent 2026, aangemeld",
-   "bron": "leerroute-1-regulier.md, Fase 3: opleidingsverbintenis in KRS",
-   "relatie": {
-    "soort": "Association",
-    "van": "Aanmelding",
-    "naar": "Opleiding aanbod verbintenis",
-    "label": "middels"
-   }
-  },
-  {
-   "id": "R3-007",
-   "fase": 3,
-   "stap": "Intake doorlopen en plaatsen",
-   "soort": "ontstaat",
-   "wie": "SLB'er",
-   "objecttype": "Opleidingsprogramma aanbod verbintenis",
-   "instantie": "Jochem op Regulier BOL 2026, aangemeld",
-   "bron": "leerroute-1-regulier.md, Fase 3: opleidingsprogramma-verbintenis in KRS",
-   "relatie": {
-    "soort": "Association",
-    "van": "Opleiding aanbod verbintenis",
-    "naar": "Opleidingsprogramma aanbod verbintenis",
-    "label": "Minimaal 1"
-   }
-  },
-  {
-   "id": "R3-008",
+   "beeld": "Intake: student, plaatsingsgroep en eerste keuzedeelvoorkeur",
    "fase": 3,
    "stap": "Intake doorlopen en plaatsen",
    "soort": "ontstaat",
@@ -2062,86 +2299,34 @@
    "vraag": "Welke groep bij de instelling is de bron van de plaatsingsgroep: stamgroep (KRS), planninggroep of lesgroep (meta #235)?"
   },
   {
-   "id": "R3-011",
+   "beeld": "Intake: student, plaatsingsgroep en eerste keuzedeelvoorkeur",
    "fase": 3,
    "stap": "Intake doorlopen en plaatsen",
-   "soort": "stroomt",
-   "van": "Voorziening Centraal Aanmelden (CAMBO)",
-   "naar": "Kernregistratie systeem studenten (KRS)",
-   "pijl": "id-eaed86afaeee476d885121adbf18f0b1",
-   "koppeling": null,
-   "objecttype": "Persoon",
-   "instantie": "Jochem, 17, na het vmbo",
-   "bron": "leerroute-1-regulier.md, Fase 3: Intakesysteem naar KRS (opleidingsverbintenis, opleidingsprogramma-verbintenis en Persoon)",
-   "zin": "De positieve uitkomst van de intake gaat naar de kernregistratie: Jochem als persoon met zijn verbintenis op de opleiding en het programma; KRS wordt master voor persoon en plaatsing."
-  },
-  {
-   "id": "R3-012",
-   "fase": 3,
-   "stap": "Intake doorlopen en plaatsen",
-   "soort": "stroomt",
-   "van": "Voorziening Centraal Aanmelden (CAMBO)",
-   "naar": "Kernregistratie systeem studenten (KRS)",
-   "pijl": "id-eaed86afaeee476d885121adbf18f0b1",
-   "koppeling": null,
-   "objecttype": "Opleiding aanbod verbintenis",
-   "instantie": "Jochem op Apothekersassistent 2026, aangemeld",
-   "bron": "leerroute-1-regulier.md, Fase 3: Intakesysteem naar KRS (opleidingsverbintenis, opleidingsprogramma-verbintenis en Persoon)",
+   "soort": "ontstaat",
+   "wie": "SLB'er",
+   "objecttype": "Verzoek tot Aanbod / Intekening op specificatie",
+   "instantie": "Voorlopige keuzedeelvoorkeur: Ondernemerschap in de zorg, top 3",
+   "bron": "leerroute-1-regulier.md, r128 (8e: aanmelding keuzedeel ver vooraf vastleggen, voorlopig); keuze van de sectorarchitect: bij de intake",
+   "aanname": true,
+   "nieuwe_instantie": true,
    "relatie": {
     "soort": "Association",
-    "van": "Aanmelding",
-    "naar": "Opleiding aanbod verbintenis",
-    "label": "middels",
-    "instantie": "April 2026"
+    "van": "Keuzedeel",
+    "naar": "Verzoek tot Aanbod / Intekening op specificatie",
+    "label": "Input voor",
+    "instantie": "Ondernemerschap in de zorg"
    },
    "relaties": [
     {
-     "soort": "Association",
-     "van": "Opleidingaanbod",
-     "naar": "Opleiding aanbod verbintenis",
-     "instantie": "Apothekersassistent 2026"
+     "soort": "Access",
+     "van": "Persoon",
+     "naar": "Verzoek tot Aanbod / Intekening op specificatie",
+     "instantie": "Jochem"
     }
    ]
   },
   {
-   "id": "R3-013",
-   "fase": 3,
-   "stap": "Intake doorlopen en plaatsen",
-   "soort": "stroomt",
-   "van": "Voorziening Centraal Aanmelden (CAMBO)",
-   "naar": "Kernregistratie systeem studenten (KRS)",
-   "pijl": "id-eaed86afaeee476d885121adbf18f0b1",
-   "koppeling": null,
-   "objecttype": "Opleidingsprogramma aanbod verbintenis",
-   "instantie": "Jochem op Regulier BOL 2026, aangemeld",
-   "bron": "leerroute-1-regulier.md, Fase 3: Intakesysteem naar KRS (opleidingsverbintenis, opleidingsprogramma-verbintenis en Persoon)",
-   "relatie": {
-    "soort": "Association",
-    "van": "Opleiding aanbod verbintenis",
-    "naar": "Opleidingsprogramma aanbod verbintenis",
-    "label": "Minimaal 1"
-   }
-  },
-  {
-   "id": "R3-014",
-   "fase": 3,
-   "stap": "Intake doorlopen en plaatsen",
-   "soort": "stroomt",
-   "van": "Voorziening Centraal Aanmelden (CAMBO)",
-   "naar": "Kernregistratie systeem studenten (KRS)",
-   "pijl": "id-eaed86afaeee476d885121adbf18f0b1",
-   "koppeling": null,
-   "objecttype": "Plaatsingsgroep",
-   "instantie": "APO26-1A",
-   "bron": "leerroute-1-regulier.md, Fase 3: Intakesysteem naar KRS (opleidingsverbintenis, opleidingsprogramma-verbintenis en Persoon); initiele plaatsingsgroep",
-   "relatie": {
-    "soort": "Association",
-    "van": "Plaatsingsgroep",
-    "naar": "Opleidingsprogramma aanbod verbintenis"
-   }
-  },
-  {
-   "id": "R3-009",
+   "beeld": "Inschrijving: van aangemeld naar ingeschreven",
    "fase": 3,
    "stap": "Persoon en verbintenissen vastleggen in de kernregistratie",
    "soort": "ontstaat",
@@ -2155,11 +2340,39 @@
     "naar": "Inschrijving",
     "label": "wordt"
    },
-   "zin": "In juni is de inschrijving rond; de verbintenis gaat van aangemeld naar ingeschreven.",
+   "zin": "In juni is de inschrijving rond: de aanmelding wordt een inschrijving en de verbintenissen gaan van aangemeld naar ingeschreven.",
    "vraag": "Is de inschrijving een eigen object naast de verbintenis, of een toestand van de aanmelding (ontwerpkeuze 13)?"
   },
   {
-   "id": "R4-001",
+   "beeld": "Inschrijving: van aangemeld naar ingeschreven",
+   "fase": 3,
+   "stap": "Persoon en verbintenissen vastleggen in de kernregistratie",
+   "soort": "verandert",
+   "wie": "SLB'er",
+   "objecttype": "Opleiding aanbod verbintenis",
+   "instantie": "Jochem op Apothekersassistent 2026",
+   "toestand": "ingeschreven",
+   "bron": "leerroute-1-regulier.md, Fase 3: inschrijving op opleiding en programma"
+  },
+  {
+   "beeld": "Inschrijving: van aangemeld naar ingeschreven",
+   "fase": 3,
+   "stap": "Persoon en verbintenissen vastleggen in de kernregistratie",
+   "soort": "verandert",
+   "wie": "SLB'er",
+   "objecttype": "Opleidingsprogramma aanbod verbintenis",
+   "instantie": "Jochem op Regulier BOL 2026",
+   "toestand": "ingeschreven",
+   "bron": "leerroute-1-regulier.md, Fase 3",
+   "relatie": {
+    "soort": "Association",
+    "van": "Opleiding aanbod verbintenis",
+    "naar": "Opleidingsprogramma aanbod verbintenis",
+    "label": "Minimaal 1"
+   }
+  },
+  {
+   "beeld": "Het leeronderdeel fijnmazig: lessenreeks en les",
    "fase": 4,
    "stap": "Leeronderdeel- en toetsonderdeelspecificaties fijnmazig uitwerken",
    "soort": "verandert",
@@ -2177,7 +2390,7 @@
    "toestand": "fijnmazig"
   },
   {
-   "id": "R4-002",
+   "beeld": "Het leeronderdeel fijnmazig: lessenreeks en les",
    "fase": 4,
    "stap": "Leeronderdeel- en toetsonderdeelspecificaties fijnmazig uitwerken",
    "soort": "ontstaat",
@@ -2201,7 +2414,7 @@
    ]
   },
   {
-   "id": "R4-003",
+   "beeld": "Detailspecificaties naar het LMS",
    "fase": 4,
    "stap": "Detailspecificaties leveren aan het LMS",
    "soort": "stroomt",
@@ -2223,7 +2436,7 @@
    ]
   },
   {
-   "id": "R4-016",
+   "beeld": "Detailspecificaties naar het LMS",
    "fase": 4,
    "stap": "Detailspecificaties leveren aan het LMS",
    "soort": "stroomt",
@@ -2250,7 +2463,7 @@
    ]
   },
   {
-   "id": "R4-004",
+   "beeld": "Resultaatstructuur naar het studentvolgsysteem",
    "fase": 4,
    "stap": "Detailspecificaties leveren aan het LMS",
    "soort": "stroomt",
@@ -2272,7 +2485,7 @@
    ]
   },
   {
-   "id": "R4-017",
+   "beeld": "Resultaatstructuur naar het studentvolgsysteem",
    "fase": 4,
    "stap": "Detailspecificaties leveren aan het LMS",
    "soort": "stroomt",
@@ -2299,7 +2512,7 @@
    ]
   },
   {
-   "id": "R4-018",
+   "beeld": "Resultaatstructuur naar het studentvolgsysteem",
    "fase": 4,
    "stap": "Detailspecificaties leveren aan het LMS",
    "soort": "stroomt",
@@ -2317,7 +2530,69 @@
    }
   },
   {
-   "id": "R4-005",
+   "beeld": "Resultaatstructuur naar de kernregistratie",
+   "fase": 4,
+   "stap": "Detailspecificaties leveren aan het LMS",
+   "soort": "stroomt",
+   "van": "Onderwijscatalogus",
+   "naar": "Kernregistratie systeem studenten (KRS)",
+   "pijl": "id-ec248a00b6234f1688ee3705d46a59f7",
+   "koppeling": "OC-SIS",
+   "objecttype": "Summatieve resultaat structuur",
+   "instantie": "Resultaatstructuur Apothekersassistent",
+   "bron": "keuze van de sectorarchitect: de kernregistratie verantwoordt de studievoortgang aan RIO en heeft daarvoor de resultaatstructuur nodig",
+   "aanname": true,
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Summatieve resultaat structuur",
+     "naar": "Leeruitkomst",
+     "instantie": "Biedt farmaceutische patiëntenzorg (kerntaakniveau)"
+    }
+   ],
+   "zin": "De kernregistratie krijgt de resultaatstructuur ook, voor de verantwoording van de studievoortgang aan RIO."
+  },
+  {
+   "beeld": "Resultaatstructuur naar de kernregistratie",
+   "fase": 4,
+   "stap": "Detailspecificaties leveren aan het LMS",
+   "soort": "stroomt",
+   "van": "Onderwijscatalogus",
+   "naar": "Kernregistratie systeem studenten (KRS)",
+   "pijl": "id-ec248a00b6234f1688ee3705d46a59f7",
+   "koppeling": "OC-SIS",
+   "objecttype": "Toetsonderdeel specificatie",
+   "instantie": "Praktijktoets baliegesprek (OSCE), summatief",
+   "bron": "keuze van de sectorarchitect",
+   "aanname": true,
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Summatieve resultaat structuur",
+    "naar": "Toetsonderdeel specificatie",
+    "nesting": true
+   }
+  },
+  {
+   "beeld": "Resultaatstructuur naar de kernregistratie",
+   "fase": 4,
+   "stap": "Detailspecificaties leveren aan het LMS",
+   "soort": "stroomt",
+   "van": "Onderwijscatalogus",
+   "naar": "Kernregistratie systeem studenten (KRS)",
+   "pijl": "id-ec248a00b6234f1688ee3705d46a59f7",
+   "koppeling": "OC-SIS",
+   "objecttype": "Summatief Afrondingscriterium",
+   "instantie": "Alle kerntaken en de keuzedelen voldoende",
+   "bron": "keuze van de sectorarchitect",
+   "aanname": true,
+   "relatie": {
+    "soort": "Association",
+    "van": "Summatieve resultaat structuur",
+    "naar": "Summatief Afrondingscriterium"
+   }
+  },
+  {
+   "beeld": "Plaatsingsgroepen naar planning",
    "fase": 4,
    "stap": "Plaatsings- en planninggroepen definieren en aan personen koppelen",
    "soort": "stroomt",
@@ -2331,7 +2606,7 @@
    "zin": "De plaatsingsgroepen met hun studenten gaan van de kernregistratie naar planning."
   },
   {
-   "id": "R4-006",
+   "beeld": "Te roosteren leergelegenheden naar het roostersysteem",
    "fase": 4,
    "stap": "Te roosteren specificaties aan het roostersysteem geven",
    "soort": "stroomt",
@@ -2353,7 +2628,7 @@
    ]
   },
   {
-   "id": "R4-007",
+   "beeld": "Roosteren: lesgelegenheid, lokaal en docent",
    "fase": 4,
    "stap": "Leer-, les- en toetsgelegenheden roosteren",
    "soort": "verandert",
@@ -2365,7 +2640,7 @@
    "zin": "De roosteraar roostert alleen periode 1: tijdslot, lokaal en docent; latere perioden blijven planbaar."
   },
   {
-   "id": "R4-008",
+   "beeld": "Roosteren: lesgelegenheid, lokaal en docent",
    "fase": 4,
    "stap": "Leer-, les- en toetsgelegenheden roosteren",
    "soort": "ontstaat",
@@ -2381,7 +2656,7 @@
    }
   },
   {
-   "id": "R4-009",
+   "beeld": "Roosteren: lesgelegenheid, lokaal en docent",
    "fase": 4,
    "stap": "Leer-, les- en toetsgelegenheden roosteren",
    "soort": "ontstaat",
@@ -2396,7 +2671,7 @@
    }
   },
   {
-   "id": "R4-010",
+   "beeld": "Het rooster naar de kernregistratie",
    "fase": 4,
    "stap": "Leer-, les- en toetsgelegenheden roosteren",
    "soort": "stroomt",
@@ -2419,7 +2694,7 @@
    ]
   },
   {
-   "id": "R4-011",
+   "beeld": "Jochems verbintenissen op de geroosterde gelegenheden",
    "fase": 4,
    "stap": "Verwachte deelnemers delen en toegang geven",
    "soort": "ontstaat",
@@ -2435,7 +2710,7 @@
    "zin": "De SLB'er activeert Jochems verbintenissen op de geroosterde gelegenheden van periode 1."
   },
   {
-   "id": "R4-012",
+   "beeld": "Jochems verbintenissen op de geroosterde gelegenheden",
    "fase": 4,
    "stap": "Verwachte deelnemers delen en toegang geven",
    "soort": "ontstaat",
@@ -2450,7 +2725,7 @@
    }
   },
   {
-   "id": "R4-013",
+   "beeld": "Jochems verbintenissen op de geroosterde gelegenheden",
    "fase": 4,
    "stap": "Verwachte deelnemers delen en toegang geven",
    "soort": "ontstaat",
@@ -2465,7 +2740,7 @@
    }
   },
   {
-   "id": "R4-014",
+   "beeld": "Jochems verbintenissen op de geroosterde gelegenheden",
    "fase": 4,
    "stap": "Verwachte deelnemers delen en toegang geven",
    "soort": "verandert",
@@ -2479,7 +2754,7 @@
    "vraag": "Rijpt een verbintenis mee met het aanbod (planbaar naar geroosterd), of is de toestand van de verbintenis los van die van het aanbod (ontwerpkeuze 13)?"
   },
   {
-   "id": "R4-019",
+   "beeld": "Student, verbintenissen en groep naar het LMS",
    "fase": 4,
    "stap": "Verwachte deelnemers delen en toegang geven",
    "soort": "stroomt",
@@ -2497,7 +2772,7 @@
    }
   },
   {
-   "id": "R4-015",
+   "beeld": "Student, verbintenissen en groep naar het LMS",
    "fase": 4,
    "stap": "Verwachte deelnemers delen en toegang geven",
    "soort": "stroomt",
@@ -2519,7 +2794,7 @@
    ]
   },
   {
-   "id": "R4-020",
+   "beeld": "Student, verbintenissen en groep naar het LMS",
    "fase": 4,
    "stap": "Verwachte deelnemers delen en toegang geven",
    "soort": "stroomt",
@@ -2537,7 +2812,7 @@
    }
   },
   {
-   "id": "R4-021",
+   "beeld": "Student, verbintenissen en groep naar het LMS",
    "fase": 4,
    "stap": "Verwachte deelnemers delen en toegang geven",
    "soort": "stroomt",
@@ -2556,7 +2831,7 @@
    }
   },
   {
-   "id": "R4-022",
+   "beeld": "Student, verbintenissen en groep naar het LMS",
    "fase": 4,
    "stap": "Verwachte deelnemers delen en toegang geven",
    "soort": "stroomt",
@@ -2575,7 +2850,7 @@
    }
   },
   {
-   "id": "R5-001",
+   "beeld": "Les gevolgd: aanwezigheid en lesresultaat",
    "fase": 5,
    "stap": "Onderwijs verzorgen",
    "soort": "verandert",
@@ -2587,7 +2862,7 @@
    "zin": "De docent verzorgt de les; Jochems aanwezigheid wordt geregistreerd en de les is voor hem afgerond."
   },
   {
-   "id": "R5-002",
+   "beeld": "Les gevolgd: aanwezigheid en lesresultaat",
    "fase": 5,
    "stap": "Onderwijs verzorgen",
    "soort": "ontstaat",
@@ -2603,7 +2878,7 @@
    "vraag": "Aanwezigheid hangt op de plaat aan een objecttype buiten scope; wisselt OKx aanwezigheid uit of blijft dat intern? Meta #234 punt 15."
   },
   {
-   "id": "R5-003",
+   "beeld": "Les gevolgd: aanwezigheid en lesresultaat",
    "fase": 5,
    "stap": "Onderwijs verzorgen",
    "soort": "ontstaat",
@@ -2618,7 +2893,7 @@
    }
   },
   {
-   "id": "R5-004",
+   "beeld": "Toetsmoment gepland: verbintenis op de toetsgelegenheid",
    "fase": 5,
    "stap": "Toetsmomenten plannen tijdens lessen",
    "soort": "ontstaat",
@@ -2634,7 +2909,7 @@
    "zin": "De docent plant het toetsmoment; Jochem krijgt een verbintenis op de toetsgelegenheid."
   },
   {
-   "id": "R5-005",
+   "beeld": "Formatieve voortgang: structuur, resultaten en beoordeling",
    "fase": 5,
    "stap": "Formatieve voortgang bijhouden",
    "soort": "ontstaat",
@@ -2654,7 +2929,7 @@
    ]
   },
   {
-   "id": "R5-006",
+   "beeld": "Formatieve voortgang: structuur, resultaten en beoordeling",
    "fase": 5,
    "stap": "Formatieve voortgang bijhouden",
    "soort": "ontstaat",
@@ -2671,7 +2946,7 @@
    }
   },
   {
-   "id": "R5-007",
+   "beeld": "Formatieve voortgang: structuur, resultaten en beoordeling",
    "fase": 5,
    "stap": "Formatieve voortgang bijhouden",
    "soort": "ontstaat",
@@ -2686,7 +2961,7 @@
    }
   },
   {
-   "id": "R5-008",
+   "beeld": "Formatieve voortgang: structuur, resultaten en beoordeling",
    "fase": 5,
    "stap": "Formatieve voortgang bijhouden",
    "soort": "ontstaat",
@@ -2702,7 +2977,7 @@
    }
   },
   {
-   "id": "R5-009",
+   "beeld": "Formatieve voortgang: structuur, resultaten en beoordeling",
    "fase": 5,
    "stap": "Formatieve voortgang bijhouden",
    "soort": "ontstaat",
@@ -2719,7 +2994,7 @@
    }
   },
   {
-   "id": "R5-010",
+   "beeld": "Formatieve voortgang: structuur, resultaten en beoordeling",
    "fase": 5,
    "stap": "Formatieve voortgang bijhouden",
    "soort": "ontstaat",
@@ -2736,7 +3011,7 @@
    "vraag": "Persoonlijke ontwikkeling en de formatieve structuur hebben geen definitie en geen bron in het kaderscenario; herkent de instelling ze, en wisselt OKx ze uit?"
   },
   {
-   "id": "R5-012",
+   "beeld": "Formatieve voortgang: structuur, resultaten en beoordeling",
    "fase": 5,
    "stap": "Formatieve voortgang bijhouden",
    "soort": "ontstaat",
@@ -2753,7 +3028,7 @@
    "zin": "De SLB'er volgt het studiebeeld: per leergelegenheid en per eenheid het resultaat op de verbintenis."
   },
   {
-   "id": "R5-011",
+   "beeld": "Formatieve resultaten van het LMS naar het studentvolgsysteem",
    "fase": 5,
    "stap": "Formatieve voortgang bijhouden",
    "soort": "stroomt",
@@ -2781,7 +3056,7 @@
    ]
   },
   {
-   "id": "R5-014",
+   "beeld": "Formatieve resultaten van het LMS naar het studentvolgsysteem",
    "fase": 5,
    "stap": "Formatieve voortgang bijhouden",
    "soort": "stroomt",
@@ -2799,7 +3074,7 @@
    }
   },
   {
-   "id": "R5-015",
+   "beeld": "Formatieve resultaten van het LMS naar het studentvolgsysteem",
    "fase": 5,
    "stap": "Formatieve voortgang bijhouden",
    "soort": "stroomt",
@@ -2820,7 +3095,7 @@
    ]
   },
   {
-   "id": "R5-013",
+   "beeld": "Studiebeeld: het resultaat per eenheid",
    "fase": 5,
    "stap": "Studiebeeld volgen in het studentvolgsysteem",
    "soort": "ontstaat",
@@ -2836,7 +3111,7 @@
    "zin": "De SLB'er volgt het studiebeeld: het studentvolgsysteem telt de resultaten per eenheid op de verbintenis bij elkaar."
   },
   {
-   "id": "R6-001",
+   "beeld": "Keuzedeelaanbod ontsloten",
    "fase": 6,
    "stap": "Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem",
    "soort": "ontstaat",
@@ -2853,7 +3128,7 @@
    "zin": "De keuzedeelruimte nadert: het keuzedeelaanbod uit het jaarplan wordt met de keuzedeelspecificatie ontsloten naar het studentkeuzesysteem."
   },
   {
-   "id": "R6-002",
+   "beeld": "Keuzedeelaanbod, specificatie en regels naar het studentkeuzesysteem",
    "fase": 6,
    "stap": "Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem",
    "soort": "stroomt",
@@ -2866,7 +3141,7 @@
    "bron": "leerroute-1-regulier.md, Fase 6: OC naar SKS"
   },
   {
-   "id": "R6-003",
+   "beeld": "Keuzedeelaanbod, specificatie en regels naar het studentkeuzesysteem",
    "fase": 6,
    "stap": "Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem",
    "soort": "stroomt",
@@ -2884,7 +3159,7 @@
    }
   },
   {
-   "id": "R6-010",
+   "beeld": "Keuzedeelaanbod, specificatie en regels naar het studentkeuzesysteem",
    "fase": 6,
    "stap": "Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem",
    "soort": "stroomt",
@@ -2910,7 +3185,7 @@
    ]
   },
   {
-   "id": "R6-004",
+   "beeld": "Jochems voorkeur: verbintenis op het keuzedeelaanbod",
    "fase": 6,
    "stap": "Voorkeurslijst samenstellen in het studentkeuzesysteem",
    "soort": "ontstaat",
@@ -2927,7 +3202,7 @@
    "vraag": "Kiest een student zijn keuzedeel op de specificatie of op gepland aanbod, en levert het studentkeuzesysteem dus een specificatie-id of een aanbod-id (ontwerpkeuzes 6 en 13, geparkeerd op 15 september)?"
   },
   {
-   "id": "R6-005",
+   "beeld": "Keuzestelling naar planning",
    "fase": 6,
    "stap": "Voorkeurslijst samenstellen in het studentkeuzesysteem",
    "soort": "stroomt",
@@ -2949,7 +3224,7 @@
    ]
   },
   {
-   "id": "R6-006",
+   "beeld": "Definitieve keuzes verwerkt naar groepen en capaciteit",
    "fase": 6,
    "stap": "Definitieve keuzes verwerken naar groepen en capaciteit",
    "soort": "verandert",
@@ -2961,7 +3236,7 @@
    "zin": "De planner verwerkt de definitieve keuzes periodiek naar groepen en capaciteit."
   },
   {
-   "id": "R6-007",
+   "beeld": "Geactualiseerd keuzedeelaanbod terug naar de catalogus",
    "fase": 6,
    "stap": "Planbaar aanbod actualiseren",
    "soort": "stroomt",
@@ -2983,7 +3258,7 @@
    ]
   },
   {
-   "id": "R6-008",
+   "beeld": "Formele inschrijving op het keuzedeel",
    "fase": 6,
    "stap": "Keuzedeel formeel inschrijven",
    "soort": "verandert",
@@ -2995,7 +3270,7 @@
    "zin": "Past het aanbod, dan wordt de keuze een formele inschrijving op het keuzedeel; KRS, SVS, LMS en rooster volgen."
   },
   {
-   "id": "R6-009",
+   "beeld": "Keuzedeelverbintenis naar de kernregistratie",
    "fase": 6,
    "stap": "Keuzedeel formeel inschrijven",
    "soort": "stroomt",
@@ -3022,7 +3297,7 @@
    ]
   },
   {
-   "id": "R7-001",
+   "beeld": "Afwijkingen verzameld in een planninggroep",
    "fase": 7,
    "stap": "Afwijkingen verzamelen in een planninggroep",
    "soort": "verandert",
@@ -3036,7 +3311,7 @@
    "vraag": "De planninggroep uit fase 7 en de plaatsingsgroep uit fase 3 zijn op de plaat een objecttype (Plaatsingsgroep); zijn dat bij de instelling dezelfde groep (meta #235)?"
   },
   {
-   "id": "R7-002",
+   "beeld": "Bestaande verbintenis geannuleerd",
    "fase": 7,
    "stap": "Bestaande verbintenissen annuleren",
    "soort": "verandert",
@@ -3048,7 +3323,7 @@
    "zin": "De bestaande verbintenis op het oude aanbod wordt via KRS geannuleerd; een nieuwe volgt op het bijgestuurde aanbod."
   },
   {
-   "id": "R7-003",
+   "beeld": "Planninggroep van de kernregistratie naar planning",
    "fase": 7,
    "stap": "Bestaande verbintenissen annuleren",
    "soort": "stroomt",
@@ -3070,7 +3345,7 @@
    ]
   },
   {
-   "id": "R7-004",
+   "beeld": "Nieuw aanbod voor de planninggroep",
    "fase": 7,
    "stap": "Nieuw aanbod maken en publiceren",
    "soort": "verandert",
@@ -3082,7 +3357,7 @@
    "zin": "Nieuw aanbod voor de planninggroep op dezelfde specificatie; planning publiceert het naar de catalogus en het rooster volgt."
   },
   {
-   "id": "R7-005",
+   "beeld": "Bijgestuurd aanbod naar de catalogus",
    "fase": 7,
    "stap": "Nieuw aanbod maken en publiceren",
    "soort": "stroomt",
@@ -3103,7 +3378,7 @@
    ]
   },
   {
-   "id": "R7-006",
+   "beeld": "Nieuwe leergelegenheden naar het roostersysteem",
    "fase": 7,
    "stap": "Nieuw aanbod maken en publiceren",
    "soort": "stroomt",
@@ -3124,7 +3399,7 @@
    ]
   },
   {
-   "id": "R8-001",
+   "beeld": "Examengelegenheid uit de examenspecificatie",
    "fase": 8,
    "stap": "Examenspecificaties omzetten in examengelegenheden",
    "soort": "ontstaat",
@@ -3141,7 +3416,7 @@
    "zin": "Op basis van het examenplan uit fase 1 worden de examenonderdelen omgezet in examengelegenheden."
   },
   {
-   "id": "R8-002",
+   "beeld": "Kandidatenlijst: verbintenis op de examengelegenheid",
    "fase": 8,
    "stap": "Kandidatenlijsten samenstellen",
    "soort": "ontstaat",
@@ -3157,7 +3432,7 @@
    "zin": "De kandidatenlijst: Jochems verbintenis op de examengelegenheid."
   },
   {
-   "id": "R8-003",
+   "beeld": "Zitting: het examenresultaat",
    "fase": 8,
    "stap": "Zitting uitvoeren en resultaten doorgeven",
    "soort": "ontstaat",
@@ -3173,7 +3448,7 @@
    "zin": "De examinator voert de zitting uit; het resultaat gaat naar het studentvolgsysteem."
   },
   {
-   "id": "R8-004",
+   "beeld": "Examenresultaat naar het studentvolgsysteem",
    "fase": 8,
    "stap": "Zitting uitvoeren en resultaten doorgeven",
    "soort": "stroomt",
@@ -3200,7 +3475,7 @@
    ]
   },
   {
-   "id": "R8-005",
+   "beeld": "Summatief vastgesteld: resultaten en beoordeling",
    "fase": 8,
    "stap": "Summatief vaststellen",
    "soort": "ontstaat",
@@ -3216,7 +3491,7 @@
    "zin": "De examencommissie stelt het summatieve resultaat vast, conform de resultaatstructuur uit fase 1."
   },
   {
-   "id": "R8-006",
+   "beeld": "Summatief vastgesteld: resultaten en beoordeling",
    "fase": 8,
    "stap": "Summatief vaststellen",
    "soort": "ontstaat",
@@ -3233,7 +3508,7 @@
    }
   },
   {
-   "id": "R8-007",
+   "beeld": "Summatief vastgesteld: resultaten en beoordeling",
    "fase": 8,
    "stap": "Summatief vaststellen",
    "soort": "ontstaat",
@@ -3248,7 +3523,7 @@
    }
   },
   {
-   "id": "R8-008",
+   "beeld": "Summatief vastgesteld: resultaten en beoordeling",
    "fase": 8,
    "stap": "Summatief vaststellen",
    "soort": "ontstaat",
@@ -3263,7 +3538,7 @@
    }
   },
   {
-   "id": "R8-012",
+   "beeld": "Vaststelling naar de kernregistratie",
    "fase": 8,
    "stap": "Summatief vaststellen",
    "soort": "stroomt",
@@ -3285,7 +3560,7 @@
    ]
   },
   {
-   "id": "R8-009",
+   "beeld": "Vaststelling naar de kernregistratie",
    "fase": 8,
    "stap": "Summatief vaststellen",
    "soort": "stroomt",
@@ -3307,7 +3582,7 @@
    ]
   },
   {
-   "id": "R8-013",
+   "beeld": "Vaststelling naar de kernregistratie",
    "fase": 8,
    "stap": "Summatief vaststellen",
    "soort": "stroomt",
@@ -3325,7 +3600,7 @@
    }
   },
   {
-   "id": "R8-010",
+   "beeld": "Gediplomeerd: opleidingsresultaat en diploma",
    "fase": 8,
    "stap": "Kwalificering en diplomering registreren",
    "soort": "ontstaat",
@@ -3341,7 +3616,7 @@
    "zin": "Aan het afrondingscriterium is voldaan; de kernregistratie registreert de kwalificering en het diploma."
   },
   {
-   "id": "R8-011",
+   "beeld": "Gediplomeerd: opleidingsresultaat en diploma",
    "fase": 8,
    "stap": "Kwalificering en diplomering registreren",
    "soort": "ontstaat",

@@ -60,6 +60,7 @@ class TekenTests(unittest.TestCase):
         self.assertEqual([x.get("verdieping") for x in b], [None, "aanbod naar skills"])
         self.assertTrue(tv.bestandsnaam(b[1], 2).endswith("-aanbod-maken-verdieping.svg"))
         self.assertFalse(tv.bestandsnaam(b[0], 1).endswith("-verdieping.svg"))
+        self.assertEqual(tv.bestandsnaam({"fase": 1, "beeld": "Leeruitkomsten uit het dossier, in de stem van de instelling"}), "f1-leeruitkomsten-uit-het-dossier-in-de-stem-van-de-instelling.svg")
         self.assertIn("verdieping: aanbod naar skills", teksten(tv.regel_ontstaat(b[1], set())))
         self.assertNotIn("verdieping: aanbod naar skills", teksten(tv.regel_ontstaat(b[0], set())))
 
@@ -83,14 +84,17 @@ class TekenTests(unittest.TestCase):
         self.assertIn("6 4", rects(svg)[0].get("stroke-dasharray", ""))
         self.assertNotIn("stroke-dasharray", rects(tv.regel_ontstaat(blokken[0], set()))[0])
 
-    def test_given_rule_id_when_drawn_then_id_in_object_and_in_container(self):
+    def test_given_beeld_title_when_grouped_then_own_block_titled_and_filename_from_title(self):
         r = regels()
-        r["regels"][0]["id"] = "R2-001"
-        r["regels"][1]["id"] = "R2-002"
-        blok = [b for b in self.blokken(r) if b["stap"] == "Aanbod maken"][0]
-        ts = teksten(tv.regel_ontstaat(blok, set()))
-        self.assertIn("R2-001", ts)
-        self.assertIn("R2-002", ts)
+        for x in r["regels"][:2]:
+            x["beeld"] = "Het aanbod gemaakt: opleiding en programma"
+        r["regels"][2]["beeld"] = "Het cohort erbij"
+        blokken = [b for b in self.blokken(r) if b["stap"] == "Aanbod maken"]
+        self.assertEqual([b.get("beeld") for b in blokken], ["Het aanbod gemaakt: opleiding en programma", "Het cohort erbij"])
+        self.assertEqual(tv.bestandsnaam(blokken[0]), "f2-het-aanbod-gemaakt-opleiding-en-programma.svg")
+        svg = tv.regel_ontstaat(blokken[0], set())
+        self.assertIn("Het aanbod gemaakt: opleiding en programma", teksten(svg))
+        self.assertNotIn("Het cohort erbij", teksten(svg))
 
     def test_given_extra_relations_when_grouped_then_each_a_reference_with_instance_and_stacked(self):
         r = regels()

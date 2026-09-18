@@ -46,7 +46,7 @@ Elke regel is een fragment van een plaat bij een processtap:
 
 | Veld | Regel |
 |---|---|
-| `id` | `R<fase>-<nnn>`, stabiel: eenmaal uitgegeven verandert het niet, ook niet bij invoegen; het staat rechtsboven in het object en in het regelregister |
+| `beeld` | de titel van het beeld waarin de regel staat: een beschrijvende zin van wat het beeld toont ("De opleiding zoals ontworpen naar de catalogus"), uniek, aaneengesloten, in een fase, stap en soort; de titel staat in het beeld, als kop met anker in het document, en bepaalt de bestandsnaam (`f1-de-opleiding-zoals-ontworpen-naar-de-catalogus.svg`). Verwijs naar een regel met beeld en objecttype |
 | `stap` | letterlijk uit de stappenlijst van de fase; stappen komen uit het kaderscenario (instellingsreis en happy flow), niet uit scenario-uitwerkingen |
 | `soort` | `ontstaat` (rol, stap, objecttype met instantie), `verandert` (zelfde, met `toestand` uit de lijst), `stroomt` (`van`, `naar`, `pijl` als relatie-id uit stromen.json of "geen pijl op de hoofdplaat", `koppeling`) |
 | `objecttype` | plaatnaam letterlijk, witruimte genormaliseerd |
@@ -56,6 +56,7 @@ Elke regel is een fragment van een plaat bij een processtap:
 | `verdieping` | zoomt in op een regel erboven binnen dezelfde stap; eigen blok en beeld |
 | `plaat` | `informatiemodel` (standaard) of `onderwijsontwerp`: de conceptplaat, alleen in een verdieping of in een stroomt-regel, hooguit een handvol objecten, geen attributen; paars in het beeld |
 | `aanname` | waar de bron zwijgt; gestippeld in het beeld |
+| `nieuwe_instantie` | een verdere instantie van een objecttype dat al eerder ontstond, omdat het scenario die nodig heeft (de keuzedeelvoorkeur bij de intake als tweede intekening); telt niet als tweede ontstaan |
 | `bron` | bestand en regelnummer (`leerroute-1-regulier.md, r1046`), payload-id, ontologie met versie, of "geen bron, keuze van het voorbeeld"; het register maakt er links van |
 | `zin` | één zin, uit het kaderscenario waar die er is; laag houden |
 | `vraag` | alleen waar plaat en bron elkaar tegenspreken of de plaat iets mist; het document toont er zeven |
@@ -64,7 +65,7 @@ Wat de controle weigert, hoort niet in het voorbeeld: een objecttype dat niet op
 
 ## Beelden
 
-De renderer tekent per blok (fase, stap, rol, verdieping) één SVG in ArchiMate-kleur: geel voor rol, processtap en object, blauw voor component, grijs voor een scope-uitzondering, gestippeld voor een aanname. Nesting is een container; een relatielijn loopt alleen naar het buurobject (ruit bij aggregatie, open pijlpunt bij specialisatie, gelabelde lijn bij associatie), elke andere relatie staat als verwijzing op het object. Bij ontstaat worden brede rijen een kolom; bij stroomt blijven de objecten naast elkaar, verbonden door de stippellijn van de pijl, en loopt de keten door op een volgende rij als hij te breed wordt. Brede kinderrijen worden een stapel. Een objecttype van de conceptplaat is paars; een conceptverdieping heeft bovendien een gestippelde rand en de chip "conceptplaat: Informatiemodel Onderwijsontwerp". Het document zet onder elk beeld de regel-ID's.
+De renderer tekent per beeld één SVG in ArchiMate-kleur, met de beeldtitel bovenaan: geel voor rol, processtap en object, blauw voor component, grijs voor een scope-uitzondering, gestippeld voor een aanname, paars voor een objecttype van de conceptplaat (een conceptverdieping heeft bovendien een gestippelde rand en een chip). Bovenaan staat wie en wat (rol en processtap) of de pijl van component naar component als horizontale stippellijn met koppeling-ID en stap; eronder hangen de objecten aan een stippellijn, onderling gerelateerd. Nesting is een container; een relatielijn loopt alleen naar het buurobject (ruit bij aggregatie, open pijlpunt bij specialisatie, gelabelde lijn bij associatie), elke andere relatie staat als verwijzing op het object. Leesbaarheid gaat voor breedte: een beeld is hooguit ongeveer 1000 px breed (letters 12 en 14 px), brede ketens gaan in een kolom of over meer rijen, brede kinderrijen worden een stapel en de zin loopt door over meer regels. GitHub schaalt een breder beeld terug tot onleesbaar.
 
 Bekijk het beeld zelf voordat je het meldt: `soffice --headless --convert-to png` in de scratchpad, en zet het beeld voor de gebruiker op een branch met een GitHub-link (bestanden sturen werkt niet in de container).
 

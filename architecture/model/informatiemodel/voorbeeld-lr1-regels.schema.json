@@ -46,9 +46,9 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["id", "fase", "stap", "soort", "objecttype", "instantie", "bron"],
+        "required": ["beeld", "fase", "stap", "soort", "objecttype", "instantie", "bron"],
         "properties": {
-          "id": {"type": "string", "pattern": "^R[1-8]-[0-9]{3}$", "description": "stabiel regel-ID: R, het fasenummer, een volgnummer binnen de fase (R1-012); eenmaal uitgegeven verandert het niet, ook niet bij invoegen"},
+          "beeld": {"type": "string", "description": "de titel van het beeld waarin de regel staat: een beschrijvende zin van wat het beeld toont, uniek per beeld; regels met dezelfde titel vormen samen dat beeld en het bestand ervan"},
           "fase": {"type": "integer", "minimum": 1, "maximum": 8},
           "stap": {"type": "string", "description": "moet in fasen[fase].stappen staan"},
           "verdieping": {"type": "string", "description": "verdieping van de regel erboven binnen dezelfde stap; regels met dezelfde verdieping vormen een eigen blok en beeld"},
@@ -89,6 +89,7 @@
             }
           },
           "aanname": {"type": "boolean", "default": false},
+          "nieuwe_instantie": {"type": "boolean", "default": false, "description": "een verdere instantie van een objecttype dat al eerder ontstond, omdat het scenario die nodig heeft; telt niet als tweede ontstaan"},
           "bron": {"type": "string", "description": "bestand en regel of id; bij een aanname de bron van de aanname of 'geen bron, keuze van het voorbeeld'"},
           "zin": {"type": "string", "description": "een zin, uit het kaderscenario waar die er is"},
           "vraag": {"type": "string", "description": "als de plaat en de bronnen elkaar tegenspreken: de vraag voor de vragenpagina"}

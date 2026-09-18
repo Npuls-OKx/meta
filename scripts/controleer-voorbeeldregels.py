@@ -20,10 +20,12 @@ Controles (R1 en R2 uit het featureplan):
    "geen pijl op de hoofdplaat";
 6. dekking: elk objecttype binnen scope heeft precies een ontstaat-regel, in de fase van de
    verwachting; latere verschijningen zijn verandert-regels; een genest kind van hetzelfde
-   objecttype in dezelfde stap (zelfaggregatie) telt niet als tweede ontstaan;
+   objecttype in dezelfde stap (zelfaggregatie) telt niet als tweede ontstaan, en een regel met
+   nieuwe_instantie evenmin (een verdere instantie die het scenario nodig heeft);
 7. de model-commit in de kop komt overeen met de meegegeven commit (waarschuwing);
-8. elk regel-ID volgt R<fase>-<nnn>, is uniek en noemt de fase van de regel; verdere relaties
-   (relaties) bestaan op de plaat en dragen geen nesting;
+8. elke regel draagt de titel van haar beeld; een beeld is aaneengesloten, ligt in een fase, een stap
+   en een soort (ontstaat of stroomt), en komt niet twee keer voor; verdere relaties (relaties)
+   bestaan op de plaat en dragen geen nesting;
 9. een regel met plaat "onderwijsontwerp" hoort bij een verdieping of een stroom en wijst naar een objecttype en
    een relatie op de conceptplaat (conceptplaat-onderwijsontwerp.json); zulke regels tellen niet
    mee in de dekking en kennen geen scope.
@@ -34,7 +36,6 @@ Exitcode 0: geen bevindingen; 1: bevindingen; 2: invoer niet leesbaar.
 import argparse
 import json
 import pathlib
-import re
 import sys
 
 REGELS = pathlib.Path("architecture/model/informatiemodel/voorbeeld-lr1-regels.json")
@@ -42,7 +43,6 @@ MODEL = pathlib.Path("architecture/model/informatiemodel/informatiemodel.json")
 STROMEN = pathlib.Path("architecture/model/informatiemodel/stromen.json")
 CONCEPTPLAAT = pathlib.Path("architecture/model/informatiemodel/conceptplaat-onderwijsontwerp.json")
 PLATEN = {"informatiemodel", "onderwijsontwerp"}
-ID_PATROON = re.compile(r"^R([1-8])-\d{3}$")
 GEEN_PIJL = "geen pijl op de hoofdplaat"
 NESTING = {"Aggregation", "Composition"}
 SOORTEN = {"ontstaat", "verandert", "stroomt"}
@@ -62,28 +62,31 @@ def lees_json(pad, wat):
         raise SystemExit(1)
 
 
+def plek_van(r, i):
+    return f"regel {i + 1} ({r.get('beeld') or 'zonder beeld'}: {r.get('objecttype')})"
+
+
 def schema(regels):
     """Verplichte velden en typen; geeft bevindingen."""
     uit = []
     for sleutel in ("model", "fasen", "rollen", "toestanden", "scope_uitzonderingen", "koppelingen", "regels"):
         if sleutel not in regels:
             uit.append(f"kop: veld {sleutel} ontbreekt")
-    ids = {}
+    beelden, vorige = {}, None
     for i, r in enumerate(regels.get("regels", [])):
-        plek = f"regel {r.get('id') or i + 1} (fase {r.get('fase')}, {r.get('stap')})"
-        for veld in ("id", "fase", "stap", "soort", "objecttype", "instantie", "bron"):
+        plek = plek_van(r, i)
+        for veld in ("beeld", "fase", "stap", "soort", "objecttype", "instantie", "bron"):
             if veld not in r or r[veld] in ("", None):
                 uit.append(f"{plek}: veld {veld} ontbreekt")
-        rid = r.get("id")
-        if rid:
-            m = ID_PATROON.match(str(rid))
-            if not m:
-                uit.append(f"{plek}: id {rid!r} volgt niet R<fase>-<nnn>")
-            elif int(m.group(1)) != r.get("fase"):
-                uit.append(f"{plek}: id {rid!r} noemt een andere fase dan de regel")
-            if rid in ids:
-                uit.append(f"{plek}: id {rid!r} is al gebruikt door regel {ids[rid]}")
-            ids.setdefault(rid, i + 1)
+        beeld = r.get("beeld")
+        if beeld:
+            sleutel = (r.get("fase"), r.get("stap"), "stroomt" if r.get("soort") == "stroomt" else "ontstaat", r.get("verdieping"))
+            if beeld in beelden and beelden[beeld] != sleutel:
+                uit.append(f"{plek}: beeld {beeld!r} ligt ook in een andere fase, stap, soort of verdieping")
+            elif beeld in beelden and vorige != beeld:
+                uit.append(f"{plek}: beeld {beeld!r} is niet aaneengesloten; regels van een beeld staan bij elkaar")
+            beelden.setdefault(beeld, sleutel)
+        vorige = beeld
         soort = r.get("soort")
         if soort not in SOORTEN:
             uit.append(f"{plek}: soort {soort!r} is niet ontstaat, verandert of stroomt")
@@ -142,7 +145,7 @@ def controleer(regels, model, stromen=None, fasen_filter=None, model_commit=None
 
     ontstaan = {}
     for i, r in enumerate(regels["regels"]):
-        plek = f"regel {r.get('id') or i + 1} (fase {r.get('fase')}, {r.get('stap')})"
+        plek = plek_van(r, i)
         naam = norm(r.get("objecttype", ""))
         concept = r.get("plaat") == "onderwijsontwerp"
         if concept and conceptplaat is None:
@@ -192,7 +195,9 @@ def controleer(regels, model, stromen=None, fasen_filter=None, model_commit=None
             # een genest kind van hetzelfde objecttype (zelfaggregatie op de plaat, bijvoorbeeld een
             # leeruitkomst onder een leeruitkomst) in dezelfde stap telt niet als tweede ontstaan
             zelf = isinstance(rel, dict) and rel.get("nesting") and norm(rel.get("van", "")) == naam == norm(rel.get("naar", ""))
-            if not zelf:
+            if r.get("nieuwe_instantie") and naam not in ontstaan:
+                bevindingen.append(f"{plek}: nieuwe_instantie, maar {naam!r} is nog niet eerder ontstaan")
+            if not zelf and not r.get("nieuwe_instantie"):
                 ontstaan.setdefault(naam, []).append((r.get("fase"), plek))
 
     for naam, plekken in ontstaan.items():
