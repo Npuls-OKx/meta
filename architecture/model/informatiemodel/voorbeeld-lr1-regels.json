@@ -35,7 +35,8 @@
     "Examenonderdeelspecificatie",
     "Summatieve resultaat structuur",
     "Examenonderdeel weging",
-    "Summatief Afrondingscriterium"
+    "Summatief Afrondingscriterium",
+    "Cohort / periode"
    ],
    "link": "https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-1-kwalificatiekader-analyseren-en-grofmazig-ontwerpen"
   },
@@ -57,8 +58,7 @@
     "Opleidingsprogramma aanbod",
     "Onderwijseenheid aanbod",
     "Leergelegenheid",
-    "Toetsgelegenheid",
-    "Cohort / periode"
+    "Toetsgelegenheid"
    ],
    "link": "https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-2-publiceren-en-planbaar-maken"
   },
@@ -215,6 +215,10 @@
   {
    "naam": "variant skills-kader",
    "bron": "keuze van het voorbeeld: dezelfde leeruitkomst, vertaald uit een skills-kader in plaats van het kwalificatiedossier"
+  },
+  {
+   "naam": "uitgewerkt",
+   "bron": "keuze van het voorbeeld: de eerste opzet uit het examenplan, uitgewerkt met toetsonderdelen en wegingen"
   }
  ],
  "scope_uitzonderingen": [
@@ -324,6 +328,39 @@
    "aanname": true,
    "zin": "Op basis van het kwalificatiedossier stelt de examencommissie het examenplan vast: wat wordt geexamineerd en wanneer de opleiding is afgerond; buiten de uitwisseling, wel de oorsprong van de resultaatstructuur.",
    "vraag": "Het kaderscenario zet het examenplan in fase 1 en de resultaatstructuur pas in fase 4 bij OC-SIS. Ontstaat de summatieve resultaatstructuur in de curriculum-ontwerptool uit het examenplan, en gaat zij met de specificatie mee naar de catalogus?"
+  },
+  {
+   "fase": 1,
+   "stap": "Examenplan vaststellen",
+   "soort": "ontstaat",
+   "wie": "examencommissie",
+   "objecttype": "Summatieve resultaat structuur",
+   "instantie": "Eerste opzet: kerntaken en keuzedelen, alle voldoende",
+   "bron": "voorbeeldpayloads.md, resultaatstructuur (08b4656d): aggregatie allenVoldoende",
+   "aanname": true,
+   "relatie": {
+    "soort": "Association",
+    "van": "Examenplan",
+    "naar": "Summatieve resultaat structuur",
+    "label": "kent"
+   },
+   "zin": "Het examenplan bestaat uit een eerste summatieve resultaatstructuur: welke onderdelen tellen en wanneer de opleiding is afgerond. Daaraan hangt het cohort: de studenten voor wie deze structuur geldt."
+  },
+  {
+   "fase": 1,
+   "stap": "Examenplan vaststellen",
+   "soort": "ontstaat",
+   "wie": "examencommissie",
+   "objecttype": "Cohort / periode",
+   "instantie": "Cohort 2026",
+   "bron": "leerroute-1-regulier.md, Fase 2 en scenario: cohort 2026; ontwerpkeuze 17",
+   "relatie": {
+    "soort": "Association",
+    "van": "Cohort / periode",
+    "naar": "Summatieve resultaat structuur",
+    "label": "Groepeert Studenten op toepasbare"
+   },
+   "vraag": "Is het cohort een sleutel op aanbod en verbintenis, of een eigen object dat de toepasselijke resultaatstructuur draagt (ontwerpkeuze 17)?"
   },
   {
    "fase": 1,
@@ -502,18 +539,13 @@
   {
    "fase": 1,
    "stap": "Toetsonderdelen en resultaatstructuur uit het examenplan afleiden",
-   "soort": "ontstaat",
+   "soort": "verandert",
    "wie": "onderwijsontwerper",
    "objecttype": "Summatieve resultaat structuur",
    "instantie": "Resultaatstructuur Apothekersassistent, alle onderdelen voldoende",
    "bron": "voorbeeldpayloads.md, resultaatstructuur (08b4656d): aggregatie allenVoldoende",
-   "relatie": {
-    "soort": "Association",
-    "van": "Examenplan",
-    "naar": "Summatieve resultaat structuur",
-    "label": "kent"
-   },
-   "zin": "Uit het examenplan leidt de onderwijsontwerper af hoe de onderdelen summatief aan elkaar hangen: de resultaatstructuur met wegingen en afrondingscriterium."
+   "zin": "Uit de eerste opzet leidt de onderwijsontwerper af hoe de onderdelen summatief aan elkaar hangen: toetsonderdelen, wegingen en afrondingscriterium.",
+   "toestand": "uitgewerkt"
   },
   {
    "fase": 1,
@@ -858,22 +890,6 @@
     "naar": "Leergelegenheid",
     "nesting": true
    }
-  },
-  {
-   "fase": 2,
-   "stap": "Haalbaarheid bepalen en aanbod plannen",
-   "soort": "ontstaat",
-   "wie": "planner",
-   "objecttype": "Cohort / periode",
-   "instantie": "Cohort 2026",
-   "bron": "leerroute-1-regulier.md, Fase 2 en scenario: cohort 2026",
-   "relatie": {
-    "soort": "Association",
-    "van": "Verzoek tot Aanbod / Intekening op specificatie",
-    "naar": "Opleidingaanbod",
-    "label": "Leidt tot"
-   },
-   "vraag": "Is het cohort een sleutel op aanbod en verbintenis, of een eigen object (ontwerpkeuze 17)?"
   },
   {
    "fase": 2,

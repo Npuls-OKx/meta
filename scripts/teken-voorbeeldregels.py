@@ -171,8 +171,9 @@ def _objecten_rij(x, y, items, uitzonderingen):
             it_soort = it.get("soort", "Association")
             if vorige_rand:
                 x1, ym = vorige_rand
-                lijnen += relatielijn(x1, ym, x1 + RELATIE_AFSTAND, it_soort, it["relatie"], it.get("naar_rechts", True))
-                cx = x1 + RELATIE_AFSTAND
+                afstand = max(RELATIE_AFSTAND, tw(it["relatie"], 10) + 24)  # de lijn is minstens zo lang als het label
+                lijnen += relatielijn(x1, ym, x1 + afstand, it_soort, it["relatie"], it.get("naar_rechts", True))
+                cx = x1 + afstand
             continue
         dashed = it.get("aanname", False)
         buiten = it["type"] in uitzonderingen

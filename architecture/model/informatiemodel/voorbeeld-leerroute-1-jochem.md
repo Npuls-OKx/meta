@@ -29,7 +29,7 @@ Wat hier staat is feedback, geen commitment: het voorbeeld beslist niets over he
 
 De fase in detail: [kaderscenario leerroute 1, fase 1](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-1-kwalificatiekader-analyseren-en-grofmazig-ontwerpen).
 
-**Ontstaat:** `Kwalificatie dossier`, `Kwalificatie`, `Kerntaak`, `Werkproces`, `Examenplan`, `Leeruitkomst`, `Competenties / Skills`, `Vaardigheid`, `Opleiding specificatie`, `Opleidingsprogramma specificatie`, `Onderwijseenheid specificatie`, `Leeronderdeel specificatie`, `Keuzedeelruimte`, `Keuzedeel`, `Student keuze regelset`, `Summatieve resultaat structuur`, `Toetsonderdeel specificatie`, `Examenonderdeelspecificatie`, `Examenonderdeel weging`, `Summatief Afrondingscriterium`. **Stroomt:** Curriculum ontwerptool naar Onderwijscatalogus. **MORA-hoofdproces:** Ontwikkelen.
+**Ontstaat:** `Kwalificatie dossier`, `Kwalificatie`, `Kerntaak`, `Werkproces`, `Examenplan`, `Summatieve resultaat structuur`, `Cohort / periode`, `Leeruitkomst`, `Competenties / Skills`, `Vaardigheid`, `Opleiding specificatie`, `Opleidingsprogramma specificatie`, `Onderwijseenheid specificatie`, `Leeronderdeel specificatie`, `Keuzedeelruimte`, `Keuzedeel`, `Student keuze regelset`, `Toetsonderdeel specificatie`, `Examenonderdeelspecificatie`, `Examenonderdeel weging`, `Summatief Afrondingscriterium`. **Stroomt:** Curriculum ontwerptool naar Onderwijscatalogus. **MORA-hoofdproces:** Ontwikkelen.
 
 ![ontstaat: Kwalificatiedossier analyseren](img/regels/f1-01-kwalificatiedossier-analyseren.svg)
 
@@ -49,7 +49,7 @@ De fase in detail: [kaderscenario leerroute 1, fase 1](https://github.com/Npuls-
 
 De fase in detail: [kaderscenario leerroute 1, fase 2](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-2-publiceren-en-planbaar-maken).
 
-**Ontstaat:** `Opleidingsprogramma specificatie`, `Verzoek tot Aanbod / Intekening op specificatie`, `Opleidingsaanbod van Instelling`, `Opleidingaanbod`, `Opleidingsprogramma aanbod`, `Onderwijseenheid aanbod`, `Leergelegenheid`, `Cohort / periode`, `Toetsgelegenheid`. **Stroomt:** Onderwijscatalogus naar Planningssysteem; Planningssysteem naar Onderwijscatalogus. **MORA-hoofdproces:** Plannen en roosteren.
+**Ontstaat:** `Opleidingsprogramma specificatie`, `Verzoek tot Aanbod / Intekening op specificatie`, `Opleidingsaanbod van Instelling`, `Opleidingaanbod`, `Opleidingsprogramma aanbod`, `Onderwijseenheid aanbod`, `Leergelegenheid`, `Toetsgelegenheid`. **Stroomt:** Onderwijscatalogus naar Planningssysteem; Planningssysteem naar Onderwijscatalogus. **MORA-hoofdproces:** Plannen en roosteren.
 
 ![ontstaat: Specificatie aanvullen tot planbare specificatie](img/regels/f2-08-specificatie-aanvullen-tot-planbare-specificatie.svg)
 
@@ -223,7 +223,7 @@ Per objecttype de instantie voor Jochem, de fase waarin hij verschijnt, de statu
 | Formatieve resultaat structuur | regels volgen na 30 september | 5 |  | ja | geen equivalent | | |
 | Persoonlijke ontwikkeling | regels volgen na 30 september | 5 |  | nog te definieren | geen equivalent | | |
 | Summatief Afrondingscriterium | Alle kerntaken en de keuzedelen voldoende | 1 |  | nog te definieren | geen equivalent | | |
-| Summatieve resultaat structuur | Resultaatstructuur Apothekersassistent, alle onderdelen voldoende | 1 |  | ja | geen equivalent | | |
+| Summatieve resultaat structuur | Eerste opzet: kerntaken en keuzedelen, alle voldoende | 1 | ja | ja | geen equivalent | | |
 | Toetsonderdeel weging | regels volgen na 30 september | 5 |  | nog te definieren | geen equivalent | | |
 
 ### Buiten de kolommen (persoon, groep, cohort, verzoek)
@@ -231,7 +231,7 @@ Per objecttype de instantie voor Jochem, de fase waarin hij verschijnt, de statu
 | Objecttype | Jochem | Fase | Aanname | Definitie | OEAPI | Heet bij u | Hangt bij u onder |
 |---|---|---|---|---|---|---|---|
 | Aanmelding | April 2026, Apothekersassistent BOL | 3 |  | ja | geen equivalent | | |
-| Cohort / periode | Cohort 2026 | 2 |  | ja | geen equivalent | | |
+| Cohort / periode | Cohort 2026 | 1 |  | ja | geen equivalent | | |
 | Examenplan | Examenplan Apothekersassistent, cohort 2026 | 1 | ja | ja | geen equivalent | | |
 | Medewerker | Docent, personeelsnummer 4711 | 4 |  | ja | geen equivalent | | |
 | Persoon | Jochem, 17, na het vmbo | 3 |  | nog te definieren | Person | | |
@@ -245,10 +245,10 @@ Per objecttype de instantie voor Jochem, de fase waarin hij verschijnt, de statu
 De vragen die de regels zelf oproepen, met de regel waar de vraag zichtbaar wordt. Feedback, geen commitment.
 
 1. Het kaderscenario zet het examenplan in fase 1 en de resultaatstructuur pas in fase 4 bij OC-SIS. Ontstaat de summatieve resultaatstructuur in de curriculum-ontwerptool uit het examenplan, en gaat zij met de specificatie mee naar de catalogus? (fase 1, Examenplan vaststellen, `Examenplan`)
-2. Leeruitkomsten zijn in de bronnen niet geformuleerd; het voorbeeld toont twee varianten (dossierstructuur en skills-kader). Hoe formuleert de instelling ze? (fase 1, Kwalificatiedossier vertalen naar leeruitkomsten, `Leeruitkomst`)
-3. Welke weging moet een studentvolgsysteem aggregeren: op het toetsonderdeel (schema) of op de resultaateenheid (regels)? Meta #234 punt 5. (fase 1, Toetsonderdelen en resultaatstructuur uit het examenplan afleiden, `Examenonderdeel weging`)
-4. Is het verzoek tot aanbod een object met sleutel en toestand, of het startevent van aanbod maken? (fase 2, Planningssysteem verzoeken om onderwijsaanbod, `Verzoek tot Aanbod / Intekening op specificatie`)
-5. Is het cohort een sleutel op aanbod en verbintenis, of een eigen object (ontwerpkeuze 17)? (fase 2, Haalbaarheid bepalen en aanbod plannen, `Cohort / periode`)
+2. Is het cohort een sleutel op aanbod en verbintenis, of een eigen object dat de toepasselijke resultaatstructuur draagt (ontwerpkeuze 17)? (fase 1, Examenplan vaststellen, `Cohort / periode`)
+3. Leeruitkomsten zijn in de bronnen niet geformuleerd; het voorbeeld toont twee varianten (dossierstructuur en skills-kader). Hoe formuleert de instelling ze? (fase 1, Kwalificatiedossier vertalen naar leeruitkomsten, `Leeruitkomst`)
+4. Welke weging moet een studentvolgsysteem aggregeren: op het toetsonderdeel (schema) of op de resultaateenheid (regels)? Meta #234 punt 5. (fase 1, Toetsonderdelen en resultaatstructuur uit het examenplan afleiden, `Examenonderdeel weging`)
+5. Is het verzoek tot aanbod een object met sleutel en toestand, of het startevent van aanbod maken? (fase 2, Planningssysteem verzoeken om onderwijsaanbod, `Verzoek tot Aanbod / Intekening op specificatie`)
 6. Welke groep bij de instelling is de bron van de plaatsingsgroep: stamgroep (KRS), planninggroep of lesgroep (meta #235)? (fase 3, Intake doorlopen en plaatsen, `Plaatsingsgroep`)
 7. Is de inschrijving een eigen object naast de verbintenis, of een toestand van de aanmelding (ontwerpkeuze 13)? (fase 3, Persoon en verbintenissen vastleggen in de kernregistratie, `Inschrijving`)
 
@@ -265,6 +265,8 @@ Per regel één van vier antwoorden: herken ik dit; heet bij ons anders (welke t
 | 1 | Kwalificatiedossier analyseren | Kerntaak | | | | |
 | 1 | Kwalificatiedossier analyseren | Werkproces | | | | |
 | 1 | Examenplan vaststellen | Examenplan | | | | |
+| 1 | Examenplan vaststellen | Summatieve resultaat structuur | | | | |
+| 1 | Examenplan vaststellen | Cohort / periode | | | | |
 | 1 | Kwalificatiedossier vertalen naar leeruitkomsten | Leeruitkomst | | | | |
 | 1 | Kwalificatiedossier vertalen naar leeruitkomsten | Leeruitkomst | | | | |
 | 1 | Skills-kader vertalen naar leeruitkomsten | Competenties / Skills | | | | |
@@ -289,7 +291,6 @@ Per regel één van vier antwoorden: herken ik dit; heet bij ons anders (welke t
 | 2 | Haalbaarheid bepalen en aanbod plannen | Opleidingsprogramma aanbod | | | | |
 | 2 | Haalbaarheid bepalen en aanbod plannen | Onderwijseenheid aanbod | | | | |
 | 2 | Haalbaarheid bepalen en aanbod plannen | Leergelegenheid | | | | |
-| 2 | Haalbaarheid bepalen en aanbod plannen | Cohort / periode | | | | |
 | 2 | Haalbaarheid bepalen en aanbod plannen | Toetsgelegenheid | | | | |
 | 3 | Aanmelden via het intakesysteem | Persoon | | | | |
 | 3 | Aanmelden via het intakesysteem | Aanmelding | | | | |
