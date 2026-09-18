@@ -100,3 +100,10 @@ Met `--objecten` laat het script de pijlteksten op de kopie weg en met `--ruimte
 Knikpunten schalen als absolute punten (Archi bewaart een knik als offset ten opzichte van bron en doel), zodat de pijlvorm van de modelleur behouden blijft; objectvakken krijgen per pijl kandidaatposities en het eerste vak dat niets raakt wint; `--hoekvast` houdt de rechte hoeken van de modelleur exact recht en maakt bijna rechte pijlen recht. Een orthogonaliseerstap die pijlen herroutert is geprobeerd en verworpen: hij gooit de ankerpunten van de modelleur weg en levert nieuwe kruisingen op. Pijlen die beter moeten lopen krijgen in Archi een knikpunt en komen dan vanzelf goed mee; de routering blijft in Archi, het script reproduceert en verrijkt.
 
 ![Hoofdplaat met alleen de informatieobjecten, ruimer en hoekvast](poc/hoofdplaat-v17-zonder-context-alleen-objecten.png)
+
+## Fase 2 en 3 gegenereerd, 18 september
+
+De eerste twee fasen uit de regeltabel op de werkbranch, getekend door `scripts/teken-voorbeeldregels.py`: tien regels, waarvan vier stromen op pijlen van hoofdplaat v1.7. Aannames gestippeld; een relatie naar een object uit een eerdere stap staat als verwijzing op het object.
+
+![Regels fase 2 en 3](poc/regels-fase-2-en-3.png)
+
