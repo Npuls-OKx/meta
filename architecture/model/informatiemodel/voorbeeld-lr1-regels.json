@@ -485,6 +485,257 @@
    },
    "zin": "In juni is de inschrijving rond; de verbintenis gaat van aangemeld naar ingeschreven.",
    "vraag": "Is de inschrijving een eigen object naast de verbintenis, of een toestand van de aanmelding (ontwerpkeuze 13)?"
+  },
+  {
+   "fase": 4,
+   "stap": "Leeronderdelen detailleren",
+   "soort": "ontstaat",
+   "wie": "onderwijsontwikkelaar",
+   "objecttype": "Leeronderdeel specificatie",
+   "instantie": "B1-K1-W1 Neemt de zorg-/adviesvraag in behandeling, lessenreeks Baliegesprek en triage",
+   "bron": "leerroute-1-regulier.md, r1086 tot 1110: lessenreeks 6 weken x 1 dagdeel",
+   "relatie": {
+    "soort": "Association",
+    "van": "Leeronderdeel specificatie",
+    "naar": "Leeruitkomst"
+   },
+   "zin": "De onderwijsontwikkelaar werkt het leeronderdeel fijnmazig uit tot een lessenreeks van zes weken."
+  },
+  {
+   "fase": 4,
+   "stap": "Leeronderdelen detailleren",
+   "soort": "ontstaat",
+   "wie": "onderwijsontwikkelaar",
+   "objecttype": "Les specificatie",
+   "instantie": "Les 1 Introductie WHAM-vragen en triage, werkcollege, 2 uur",
+   "bron": "leerroute-1-regulier.md, r1094 tot 1100: lesspecificatie les 1",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Leeronderdeel specificatie",
+    "naar": "Les specificatie",
+    "nesting": true
+   }
+  },
+  {
+   "fase": 4,
+   "stap": "LMS inrichten",
+   "soort": "stroomt",
+   "van": "Onderwijscatalogus",
+   "naar": "Leer management systeem (LMS)",
+   "pijl": "id-d23841b89bed4935b2aebdeb12ee2acf",
+   "koppeling": "OC-LMS",
+   "objecttype": "Leeronderdeel specificatie",
+   "instantie": "B1-K1-W1, lessenreeks Baliegesprek en triage",
+   "bron": "leerroute-1-regulier.md, Fase 4: OC naar LMS (leeronderdeel-specificaties ter detaillering)",
+   "zin": "De detailspecificaties gaan naar het LMS ter inrichting van de leeromgeving."
+  },
+  {
+   "fase": 4,
+   "stap": "Resultaatstructuur inrichten",
+   "soort": "ontstaat",
+   "wie": "examencommissie",
+   "objecttype": "Summatieve resultaat structuur",
+   "instantie": "Examenplan Apothekersassistent, alle onderdelen voldoende",
+   "bron": "voorbeeldpayloads.md, resultaatstructuur (08b4656d): aggregatie allenVoldoende",
+   "relatie": {
+    "soort": "Association",
+    "van": "Summatieve resultaat structuur",
+    "naar": "Leeruitkomst"
+   },
+   "zin": "De examencommissie richt de summatieve resultaatstructuur in: welke onderdelen tellen, met welke weging, en wanneer de opleiding is afgerond."
+  },
+  {
+   "fase": 4,
+   "stap": "Resultaatstructuur inrichten",
+   "soort": "ontstaat",
+   "wie": "examencommissie",
+   "objecttype": "Examenonderdeel weging",
+   "instantie": "Proeve van bekwaamheid B1-K1: weging 2",
+   "bron": "voorbeeldpayloads.md, toetsonderdelen (941f180d): weging 2",
+   "aanname": true,
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Summatieve resultaat structuur",
+    "naar": "Examenonderdeel weging",
+    "nesting": true
+   },
+   "vraag": "Welke weging moet een studentvolgsysteem aggregeren: op het toetsonderdeel (schema) of op de resultaateenheid (regels)? Meta #234 punt 5."
+  },
+  {
+   "fase": 4,
+   "stap": "Resultaatstructuur inrichten",
+   "soort": "ontstaat",
+   "wie": "examencommissie",
+   "objecttype": "Summatief Afrondingscriterium",
+   "instantie": "Alle kerntaken en de keuzedelen voldoende",
+   "bron": "voorbeeldpayloads.md, resultaatstructuur: aggregatie allenVoldoende",
+   "relatie": {
+    "soort": "Association",
+    "van": "Summatieve resultaat structuur",
+    "naar": "Summatief Afrondingscriterium"
+   }
+  },
+  {
+   "fase": 4,
+   "stap": "Resultaatstructuur inrichten",
+   "soort": "stroomt",
+   "van": "Onderwijscatalogus",
+   "naar": "Student volg systeem (SVS)",
+   "pijl": "id-e2755a76b8244373bd7e8da4ccb7c3f6",
+   "koppeling": "OC-SIS",
+   "objecttype": "Summatieve resultaat structuur",
+   "instantie": "Examenplan Apothekersassistent",
+   "bron": "leerroute-1-regulier.md, Fase 5: OC naar SVS (specificatie als referentiekader); koppelingspecificatie OC-SIS: resultaatstructuur",
+   "zin": "De resultaatstructuur gaat naar het studentvolgsysteem als nominaal template."
+  },
+  {
+   "fase": 4,
+   "stap": "Groepen definieren",
+   "soort": "stroomt",
+   "van": "Kernregistratie systeem studenten (KRS)",
+   "naar": "Planningssysteem",
+   "pijl": "id-97010c562d8841f9b908e72b1d2b3f9a",
+   "koppeling": null,
+   "objecttype": "Plaatsingsgroep",
+   "instantie": "APO26-1A, 30 studenten",
+   "bron": "leerroute-1-regulier.md, Fase 4: Planning en KRS (groepen en persoon)",
+   "zin": "De plaatsingsgroepen met hun studenten gaan van de kernregistratie naar planning."
+  },
+  {
+   "fase": 4,
+   "stap": "Periode 1 roosteren",
+   "soort": "stroomt",
+   "van": "Planningssysteem",
+   "naar": "Roostersysteem",
+   "pijl": "id-08467fe302794db6b935ff685e83efe0",
+   "koppeling": null,
+   "objecttype": "Leergelegenheid",
+   "instantie": "B1-K1-W1, periode 1",
+   "bron": "leerroute-1-regulier.md, Fase 4: Planning naar Rooster (te roosteren specificaties)",
+   "zin": "Planning geeft de leergelegenheden van periode 1 aan het roostersysteem."
+  },
+  {
+   "fase": 4,
+   "stap": "Periode 1 roosteren",
+   "soort": "verandert",
+   "wie": "roosteraar",
+   "objecttype": "Leergelegenheid",
+   "instantie": "B1-K1-W1, periode 1, docent 4711",
+   "toestand": "geroosterd",
+   "bron": "scenario-1.1-regulier-happyflow.md, r80: roosteraar roostert alleen periode 1",
+   "zin": "De roosteraar roostert alleen periode 1: tijdslot, lokaal en docent; latere perioden blijven planbaar."
+  },
+  {
+   "fase": 4,
+   "stap": "Periode 1 roosteren",
+   "soort": "ontstaat",
+   "wie": "roosteraar",
+   "objecttype": "Lesgelegenheid",
+   "instantie": "Les 1, maandag 1 september 09:00, simulatieruimte 2.14",
+   "bron": "scenario-1.1-regulier-happyflow.md, r80 en r86: ma 09:00 tot 11:00, lokaal 2.14",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Leergelegenheid",
+    "naar": "Lesgelegenheid",
+    "nesting": true
+   }
+  },
+  {
+   "fase": 4,
+   "stap": "Periode 1 roosteren",
+   "soort": "ontstaat",
+   "wie": "roosteraar",
+   "objecttype": "Medewerker",
+   "instantie": "Docent, personeelsnummer 4711",
+   "bron": "scenario-1.1-regulier-happyflow.md, r80: docent personeelsnr 4711",
+   "relatie": {
+    "soort": "Specialization",
+    "van": "Medewerker",
+    "naar": "Persoon"
+   }
+  },
+  {
+   "fase": 4,
+   "stap": "Periode 1 roosteren",
+   "soort": "stroomt",
+   "van": "Roostersysteem",
+   "naar": "Kernregistratie systeem studenten (KRS)",
+   "pijl": "id-70bdd7dbcb234951ad2c1c719f19c543",
+   "koppeling": null,
+   "objecttype": "Lesgelegenheid",
+   "instantie": "Les 1, ma 09:00, lokaal 2.14",
+   "bron": "hoofdplaat v1.7: Roostersysteem naar KRS",
+   "zin": "Het rooster gaat naar de kernregistratie; op de plaat een pijl, in de koppelvlakspecificatie nog niets.",
+   "vraag": "De hoofdplaat wisselt lesgelegenheden uit, ontwerpkeuze 8 zet de leslaag buiten de uitwisseling. Herkent de kerngroep deze stroom?"
+  },
+  {
+   "fase": 4,
+   "stap": "Inschrijven op gelegenheden",
+   "soort": "ontstaat",
+   "wie": "SLB'er",
+   "objecttype": "Onderwijseenheid aanbod verbintenis",
+   "instantie": "Jochem op B1-K1, leerjaar 1",
+   "bron": "scenario-1.1-regulier-happyflow.md, r96: enrolled op P1-eenheden",
+   "relatie": {
+    "soort": "Association",
+    "van": "Onderwijseenheid aanbod",
+    "naar": "Onderwijseenheid aanbod verbintenis"
+   },
+   "zin": "De SLB'er activeert Jochems verbintenissen op de geroosterde gelegenheden van periode 1."
+  },
+  {
+   "fase": 4,
+   "stap": "Inschrijven op gelegenheden",
+   "soort": "ontstaat",
+   "wie": "SLB'er",
+   "objecttype": "Leergelegenheid verbintenis",
+   "instantie": "Jochem op B1-K1-W1, periode 1",
+   "bron": "scenario-1.1-regulier-happyflow.md, r97: Association.state enrolled op P1-leergelegenheden",
+   "relatie": {
+    "soort": "Association",
+    "van": "Leergelegenheid",
+    "naar": "Leergelegenheid verbintenis"
+   }
+  },
+  {
+   "fase": 4,
+   "stap": "Inschrijven op gelegenheden",
+   "soort": "ontstaat",
+   "wie": "SLB'er",
+   "objecttype": "Lesgelegenheid verbintenis",
+   "instantie": "Jochem op les 1, 1 september 09:00",
+   "bron": "scenario-1.1-regulier-happyflow.md, r98: lesgelegenheden eerste week geroosterd",
+   "relatie": {
+    "soort": "Association",
+    "van": "Lesgelegenheid",
+    "naar": "Lesgelegenheid verbintenis"
+   }
+  },
+  {
+   "fase": 4,
+   "stap": "Inschrijven op gelegenheden",
+   "soort": "verandert",
+   "wie": "SLB'er",
+   "objecttype": "Opleidingsprogramma aanbod verbintenis",
+   "instantie": "Jochem op Regulier BOL 2026",
+   "toestand": "geroosterd",
+   "bron": "scenario-1.1-regulier-happyflow.md, r95: enrolled op nominaal traject",
+   "aanname": true,
+   "zin": "De verbintenis op het programma staat nu op het geroosterde aanbod van periode 1.",
+   "vraag": "Rijpt een verbintenis mee met het aanbod (planbaar naar geroosterd), of is de toestand van de verbintenis los van die van het aanbod (ontwerpkeuze 13)?"
+  },
+  {
+   "fase": 4,
+   "stap": "Inschrijven op gelegenheden",
+   "soort": "stroomt",
+   "van": "Kernregistratie systeem studenten (KRS)",
+   "naar": "Leer management systeem (LMS)",
+   "pijl": "id-865f297e8c1f4371aa143aa225fe4b7f",
+   "koppeling": null,
+   "objecttype": "Opleidingsprogramma aanbod verbintenis",
+   "instantie": "Jochem op Regulier BOL 2026",
+   "bron": "leerroute-1-regulier.md, Fase 4: KRS naar LMS (verbintenis en persoon voor rechtmatige toegang)",
+   "zin": "De verbintenis gaat naar het LMS zodat Jochem eind augustus toegang krijgt; persoonsgegevens komen uit het IAM."
   }
  ]
 }

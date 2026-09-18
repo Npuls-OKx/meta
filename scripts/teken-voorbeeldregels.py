@@ -180,14 +180,15 @@ def groepeer(regels):
             if ouder is not None:
                 ouder.setdefault("kinderen", []).append(item)
                 continue
-        if rel and rel.get("label"):
+        if rel and not rel.get("nesting"):
             ander = rel["naar"] if rel["van"] == r["objecttype"] else rel["van"]
-            if ander in in_blok:
+            label = rel.get("label") or {"Specialization": "is een", "Aggregation": "bevat", "Composition": "bevat"}.get(rel["soort"], "hangt aan")
+            if ander in in_blok and rel.get("label"):
                 # het andere eind staat in dit blok: label ertussen
-                laatste["objecten"].append({"relatie": rel["label"]})
-            else:
-                # het andere eind ontstond in een eerdere stap: label aan het object, met de naam van dat eind
-                item["verwijzing"] = f'{rel["label"]} {ander}' if rel["van"] == r["objecttype"] else f'{ander} {rel["label"]}'
+                laatste["objecten"].append({"relatie": label})
+            elif ander not in in_blok:
+                # het andere eind ontstond in een eerdere stap of staat niet in het blok: verwijzing op het object
+                item["verwijzing"] = f"{label} {ander}" if rel["van"] == r["objecttype"] else f"{ander} {label}""
         laatste["objecten"].append(item)
         if r.get("zin") and not laatste["zin"]:
             laatste["zin"] = r["zin"]
