@@ -13,6 +13,11 @@ objectvak op het langste segment van de pijl, als SVG met de PNG ingebed.
     python3 scripts/exporteer-archimate-platen.py --view "OKx hoofdplaat v1.7<concept>" --uit pad.png
     python3 scripts/exporteer-archimate-platen.py --view NAAM --uit pad.svg --objecten objecten.json
 
+Met --objecten worden de pijlteksten (labelexpressies) op de kopie weggelaten, zodat
+alleen de informatieobjecten op de pijlen staan; --ruimte N schuift de elementen
+op de kopie N procent uit elkaar zodat de objectvakken niet over de elementen vallen.
+Beide bewerkingen raken alleen de kopie; het model in de repository blijft gelijk.
+
 Vereist Archi in de dev-container (Dockerfile: /opt/Archi, commando `archi`).
 Het model wordt alleen gelezen, nooit geschreven.
 """
@@ -30,6 +35,9 @@ import tempfile
 import xml.etree.ElementTree as ET
 
 XSI = "{http://www.w3.org/2001/XMLSchema-instance}type"
+# Zonder deze registratie schrijft ElementTree ns0: in plaats van archimate: en laadt Archi de kopie niet.
+ET.register_namespace("archimate", "http://www.archimatetool.com/archimate")
+ET.register_namespace("xsi", "http://www.w3.org/2001/XMLSchema-instance")
 MODEL = pathlib.Path("architecture/model/model.archimate")
 ARCHI = shutil.which("archi") or "/opt/Archi/Archi"
 MARGE = 10  # Archi exporteert een view met 10 px rondom de elementen
@@ -41,10 +49,50 @@ def views_in(model):
     return {e.get("name"): e.get("id") for e in root.iter("element") if e.get(XSI) == "archimate:ArchimateDiagramModel"}
 
 
-def render_rapport(model, werkmap):
+def bewerkte_kopie(model, kopie, viewnaam, zonder_pijltekst=False, ruimte=0):
+    """Schrijft een kopie van het model waarin, alleen voor de gegeven view, de pijlteksten zijn
+    weggelaten en de elementen uit elkaar zijn geschoven. Geeft de schaalfactor terug."""
+    boom = ET.parse(model)
+    root = boom.getroot()
+    view = next(e for e in root.iter("element") if e.get(XSI) == "archimate:ArchimateDiagramModel" and e.get("name") == viewnaam)
+    factor = 1 + ruimte / 100
+    if zonder_pijltekst:
+        for conn in view.iter("sourceConnection"):
+            for feature in list(conn.findall("feature")):
+                if feature.get("name") == "labelExpression":
+                    conn.remove(feature)
+    if ruimte:
+        # De bovenste laag en de groepen schuiven uit elkaar; elementen binnen een groep of component
+        # bewegen mee met hun ouder en houden hun maat. Een groep groeit mee zodat zijn kinderen erin blijven.
+        def schaal(knoop, groep_of_top):
+            b = knoop.find("bounds")
+            if groep_of_top:
+                b.set("x", str(round(int(b.get("x", 0)) * factor)))
+                b.set("y", str(round(int(b.get("y", 0)) * factor)))
+            is_groep = knoop.get(XSI, "").endswith("Group")
+            if is_groep:
+                b.set("width", str(round(int(b.get("width", 0)) * factor)))
+                b.set("height", str(round(int(b.get("height", 0)) * factor)))
+            for kind in knoop.findall("child"):
+                schaal(kind, is_groep)
+        for kind in view.findall("child"):
+            schaal(kind, True)
+        # Knikpunten zijn offsets ten opzichte van bron en doel; die schalen mee met de afstand ertussen.
+        for conn in view.iter("sourceConnection"):
+            for bp in conn.findall("bendpoint"):
+                for k in ("startX", "startY", "endX", "endY"):
+                    bp.set(k, str(round(int(bp.get(k, 0)) * factor)))
+    boom.write(kopie, encoding="UTF-8", xml_declaration=True)
+    return factor
+
+
+def render_rapport(model, werkmap, viewnaam=None, zonder_pijltekst=False, ruimte=0):
     """Laat Archi het HTML-rapport maken op een kopie van het model; geeft de map met PNG's."""
     kopie = werkmap / "model.archimate"
-    shutil.copy(model, kopie)
+    if viewnaam and (zonder_pijltekst or ruimte):
+        bewerkte_kopie(model, kopie, viewnaam, zonder_pijltekst, ruimte)
+    else:
+        shutil.copy(model, kopie)
     rapport = werkmap / "rapport"
     opdracht = [ARCHI, "-application", "com.archimatetool.commandline.app", "-consoleLog", "-nosplash",
                 "--loadModel", str(kopie), "--html.createReport", str(rapport)]
@@ -117,7 +165,7 @@ def midden_langste_segment(punten):
 
 
 def objectvak(mx, my, naam):
-    w, h = len(naam) * 6.6 + 30, 22
+    w, h = len(naam) * 7.0 + 32, 22
     return (f'<g><rect x="{mx-w/2:.0f}" y="{my-h/2:.0f}" width="{w:.0f}" height="{h}" fill="#ffffb5" stroke="#a8a85a"/>'
             f'<g transform="translate({mx+w/2-20:.0f},{my-h/2+3:.0f})" fill="none" stroke="#444" stroke-width="1.2">'
             f'<rect x="2" y="3" width="12" height="10"/><path d="M2 6.5h12"/></g>'
@@ -125,6 +173,7 @@ def objectvak(mx, my, naam):
 
 
 def met_objecten(model, viewnaam, png, objecten):
+    """model: het (bewerkte) modelbestand waaruit de PNG is gerenderd, zodat geometrie en beeld gelijk lopen."""
     """SVG: de Archi-PNG als achtergrond met per flow (relatie-id) een objectvak. Geeft (svg, aantal, ongebruikt)."""
     knopen, connecties, rels = lees_view(model, viewnaam)
     minx = min(k["x"] for k in knopen.values()) - MARGE
@@ -155,6 +204,7 @@ def main(argv=None):
     parser.add_argument("--view", required=True, action="append", help="viewnaam; herhaalbaar, in volgorde van --uit")
     parser.add_argument("--uit", required=True, action="append", type=pathlib.Path, help="doelpad (.png, of .svg met --objecten)")
     parser.add_argument("--objecten", type=pathlib.Path, help="JSON {relatie-id: objecttype}; alleen voor .svg-uitvoer")
+    parser.add_argument("--ruimte", type=int, default=0, help="elementen N procent uit elkaar schuiven (alleen op de kopie)")
     args = parser.parse_args(argv)
     if len(args.view) != len(args.uit):
         sys.exit("geef evenveel --view als --uit")
@@ -167,14 +217,25 @@ def main(argv=None):
         sys.exit("view niet gevonden: " + ", ".join(onbekend) + "\nbeschikbaar:\n  " + "\n  ".join(sorted(bekend)))
     objecten = json.loads(args.objecten.read_text(encoding="utf-8")) if args.objecten else {}
     with tempfile.TemporaryDirectory() as werk:
-        beelden = render_rapport(args.model, pathlib.Path(werk))
+        werkmap = pathlib.Path(werk)
+        gedeeld = None  # een rapport voor alle onbewerkte views
         for viewnaam, doel in zip(args.view, args.uit):
+            bewerkt = doel.suffix.lower() == ".svg" and (bool(objecten) or args.ruimte)
+            if bewerkt:
+                eigen = werkmap / bekend[viewnaam]
+                eigen.mkdir()
+                beelden = render_rapport(args.model, eigen, viewnaam, zonder_pijltekst=bool(objecten), ruimte=args.ruimte)
+                bron = eigen / "model.archimate"
+            else:
+                if gedeeld is None:
+                    gedeeld = render_rapport(args.model, werkmap)
+                beelden, bron = gedeeld, args.model
             png = beelden / f"{bekend[viewnaam]}.png"
             if not png.exists():
                 sys.exit(f"Archi leverde geen beeld voor view {viewnaam}")
             doel.parent.mkdir(parents=True, exist_ok=True)
             if doel.suffix.lower() == ".svg":
-                svg, aantal, ongebruikt = met_objecten(args.model, viewnaam, png, objecten)
+                svg, aantal, ongebruikt = met_objecten(bron, viewnaam, png, objecten)
                 doel.write_text(svg, encoding="utf-8")
                 print(f"{doel}: {aantal} objecten op de plaat" + (f"; niet op deze view: {', '.join(ongebruikt)}" if ongebruikt else ""))
             else:
