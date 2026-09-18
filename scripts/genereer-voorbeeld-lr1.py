@@ -61,7 +61,7 @@ def leeswijzer(regels, model):
     mapping = "; ".join(f"{v} is {kk.replace(' > ', ' naar ')}" for kk, v in k.items())
     return f"""# De opleiding van Jochem in het informatiemodel
 
-Relateert aan: het kaderscenario leerroute 1 (persona Jochem, Apothekersassistent, cohort 2026) en het [informatiemodel OKx](informatiemodel.md). Gegenereerd uit `voorbeeld-lr1-regels.json`; gecontroleerd tegen `informatiemodel.json` op commit {regels['model']['informatiemodel_commit']} en `begrippen.json` op commit {regels['model']['begrippen_commit']}.
+Relateert aan: het [kaderscenario leerroute 1](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md) (persona Jochem, Apothekersassistent, cohort 2026), het architectuurkader van OKx, en het [informatiemodel OKx](informatiemodel.md). Gegenereerd uit `voorbeeld-lr1-regels.json`; gecontroleerd tegen `informatiemodel.json` op commit {regels['model']['informatiemodel_commit']} en `begrippen.json` op commit {regels['model']['begrippen_commit']}.
 
 ## Leeswijzer
 
@@ -91,6 +91,8 @@ Wat hier staat is feedback, geen commitment: het voorbeeld beslist niets over he
 
 def fase_sectie(f, blokken, regels_in_fase):
     kop = f"## Fase {f['nummer']}: {f['naam']}\n\n"
+    if f.get("link"):
+        kop += f"De fase in detail: [kaderscenario leerroute 1, fase {f['nummer']}]({f['link']}).\n\n"
     mora = f.get("mora_hoofdproces")
     chips_obj = [norm(r["objecttype"]) for r in regels_in_fase if r["soort"] in ("ontstaat", "verandert")]
     chips_obj = list(dict.fromkeys(chips_obj))

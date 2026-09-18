@@ -10,9 +10,10 @@
    "mora_hoofdproces": "Ontwikkelen",
    "bron": "leerroute-1-regulier.md, Fase 1: een onderwijsontwerper vertaalt het kwalificatiedossier naar een opleidingsspecificatie met onderliggende opleidingsprogramma- en onderwijseenheid-specificaties, eerste toetsvormen en een initieel examenplan; de Curriculum-ontwerptool publiceert dit naar de OC",
    "stappen": [
+    "Examenplan vaststellen",
     "Kwalificatiedossier vertalen naar leeruitkomsten",
     "Opleidingsspecificatie met programma en eenheden beschrijven",
-    "Toetsvormen en initieel examenplan opstellen",
+    "Toetsonderdelen en resultaatstructuur uit het examenplan afleiden",
     "Grofmazig resultaat publiceren naar de onderwijscatalogus"
    ],
    "verwacht": [
@@ -29,8 +30,12 @@
     "Keuzedeel",
     "Student keuze regelset",
     "Toetsonderdeel specificatie",
-    "Examenonderdeelspecificatie"
-   ]
+    "Examenonderdeelspecificatie",
+    "Summatieve resultaat structuur",
+    "Examenonderdeel weging",
+    "Summatief Afrondingscriterium"
+   ],
+   "link": "https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-1-kwalificatiekader-analyseren-en-grofmazig-ontwerpen"
   },
   {
    "nummer": 2,
@@ -52,7 +57,8 @@
     "Leergelegenheid",
     "Toetsgelegenheid",
     "Cohort / periode"
-   ]
+   ],
+   "link": "https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-2-publiceren-en-planbaar-maken"
   },
   {
    "nummer": 3,
@@ -73,7 +79,8 @@
     "Opleiding aanbod verbintenis",
     "Opleidingsprogramma aanbod verbintenis",
     "Plaatsingsgroep"
-   ]
+   ],
+   "link": "https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-3-instroom-intake-en-plaatsing"
   },
   {
    "nummer": 4,
@@ -91,14 +98,12 @@
    "verwacht": [
     "Les specificatie",
     "Lesgelegenheid",
-    "Summatieve resultaat structuur",
-    "Examenonderdeel weging",
-    "Summatief Afrondingscriterium",
     "Onderwijseenheid aanbod verbintenis",
     "Leergelegenheid verbintenis",
     "Lesgelegenheid verbintenis",
     "Medewerker"
-   ]
+   ],
+   "link": "https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-4-detailleren-roosteren-en-inschrijven"
   },
   {
    "nummer": 5,
@@ -123,7 +128,8 @@
     "Toetsonderdeel weging",
     "Persoonlijke ontwikkeling",
     "Onderwijseenheid resultaat"
-   ]
+   ],
+   "link": "https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-5-onderwijs-uitvoeren-en-voortgang-begeleiden"
   },
   {
    "nummer": 6,
@@ -139,7 +145,8 @@
     "Keuzedeelaanbod",
     "Keuzedeel aanbod verbintenis",
     "Keuzedeel resultaat"
-   ]
+   ],
+   "link": "https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-6-organiseren-van-keuzemomenten"
   },
   {
    "nummer": 7,
@@ -151,7 +158,8 @@
     "Bestaande verbintenissen annuleren",
     "Nieuw aanbod maken en publiceren"
    ],
-   "verwacht": []
+   "verwacht": [],
+   "link": "https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-7-bijsturen-planning-en-aanbod"
   },
   {
    "nummer": 8,
@@ -174,7 +182,8 @@
     "Opleidingsprogramma resultaat",
     "Opleiding aanbod resultaat",
     "Waarde document (diploma / certificaat)"
-   ]
+   ],
+   "link": "https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-8-examineren-vaststellen-en-diplomeren"
   }
  ],
  "rollen": [
@@ -218,6 +227,10 @@
   {
    "objecttype": "Lesgelegenheid resultaat",
    "motivering": "Zie Les specificatie."
+  },
+  {
+   "objecttype": "Examenplan",
+   "motivering": "Alleen als oorsprong van de summatieve resultaatstructuur getoond (relatie kent op de plaat); het examenplan zelf blijft buiten de uitwisseling (ontwerpkeuze 10)."
   }
  ],
  "koppelingen": {
@@ -228,6 +241,18 @@
   "Onderwijscatalogus > Leer management systeem (LMS)": "OC-LMS"
  },
  "regels": [
+  {
+   "fase": 1,
+   "stap": "Examenplan vaststellen",
+   "soort": "ontstaat",
+   "wie": "examencommissie",
+   "objecttype": "Examenplan",
+   "instantie": "Examenplan Apothekersassistent, cohort 2026",
+   "bron": "leerroute-1-regulier.md, Fase 1: een initieel examenplan; Fase 8: op basis van het examenplan uit fase 1",
+   "aanname": true,
+   "zin": "De examencommissie stelt het examenplan vast: wat wordt geexamineerd en wanneer de opleiding is afgerond; buiten de uitwisseling, wel de oorsprong van de resultaatstructuur.",
+   "vraag": "Het kaderscenario zet het examenplan in fase 1 en de resultaatstructuur pas in fase 4 bij OC-SIS. Ontstaat de summatieve resultaatstructuur in de curriculum-ontwerptool uit het examenplan, en gaat zij met de specificatie mee naar de catalogus?"
+  },
   {
    "fase": 1,
    "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
@@ -402,34 +427,80 @@
   },
   {
    "fase": 1,
-   "stap": "Toetsvormen en initieel examenplan opstellen",
+   "stap": "Toetsonderdelen en resultaatstructuur uit het examenplan afleiden",
+   "soort": "ontstaat",
+   "wie": "onderwijsontwerper",
+   "objecttype": "Summatieve resultaat structuur",
+   "instantie": "Resultaatstructuur Apothekersassistent, alle onderdelen voldoende",
+   "bron": "voorbeeldpayloads.md, resultaatstructuur (08b4656d): aggregatie allenVoldoende",
+   "relatie": {
+    "soort": "Association",
+    "van": "Examenplan",
+    "naar": "Summatieve resultaat structuur",
+    "label": "kent"
+   },
+   "zin": "Uit het examenplan leidt de onderwijsontwerper af hoe de onderdelen summatief aan elkaar hangen: de resultaatstructuur met wegingen en afrondingscriterium."
+  },
+  {
+   "fase": 1,
+   "stap": "Toetsonderdelen en resultaatstructuur uit het examenplan afleiden",
    "soort": "ontstaat",
    "wie": "onderwijsontwerper",
    "objecttype": "Toetsonderdeel specificatie",
    "instantie": "Praktijktoets baliegesprek (OSCE), summatief",
    "bron": "leerroute-1-regulier.md, r1114 tot 1117",
    "relatie": {
-    "soort": "Association",
-    "van": "Toetsonderdeel specificatie",
-    "naar": "Leeruitkomst"
-   },
-   "zin": "Eerste toetsvormen en een initieel examenplan; de examenonderdelen zijn in de bronnen niet uitgewerkt."
+    "soort": "Aggregation",
+    "van": "Summatieve resultaat structuur",
+    "naar": "Toetsonderdeel specificatie",
+    "nesting": true
+   }
   },
   {
    "fase": 1,
-   "stap": "Toetsvormen en initieel examenplan opstellen",
+   "stap": "Toetsonderdelen en resultaatstructuur uit het examenplan afleiden",
    "soort": "ontstaat",
-   "wie": "examencommissie",
+   "wie": "onderwijsontwerper",
    "objecttype": "Examenonderdeelspecificatie",
    "instantie": "Proeve van bekwaamheid B1-K1",
-   "bron": "geen bron, keuze van het voorbeeld: het kaderscenario noemt een initieel examenplan zonder onderdelen",
+   "bron": "geen bron, keuze van het voorbeeld: het kaderscenario noemt een examenplan zonder onderdelen",
    "aanname": true,
    "relatie": {
     "soort": "Specialization",
     "van": "Examenonderdeelspecificatie",
     "naar": "Toetsonderdeel specificatie"
+   }
+  },
+  {
+   "fase": 1,
+   "stap": "Toetsonderdelen en resultaatstructuur uit het examenplan afleiden",
+   "soort": "ontstaat",
+   "wie": "onderwijsontwerper",
+   "objecttype": "Examenonderdeel weging",
+   "instantie": "Proeve van bekwaamheid B1-K1: weging 2",
+   "bron": "voorbeeldpayloads.md, toetsonderdelen (941f180d): weging 2",
+   "aanname": true,
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Summatieve resultaat structuur",
+    "naar": "Examenonderdeel weging",
+    "nesting": true
    },
-   "vraag": "Het kaderscenario zet examenonderdelen in fase 1 (initieel examenplan) en de resultaatstructuur in fase 4 (OC-SIS). Waar richt de instelling het examenplan in?"
+   "vraag": "Welke weging moet een studentvolgsysteem aggregeren: op het toetsonderdeel (schema) of op de resultaateenheid (regels)? Meta #234 punt 5."
+  },
+  {
+   "fase": 1,
+   "stap": "Toetsonderdelen en resultaatstructuur uit het examenplan afleiden",
+   "soort": "ontstaat",
+   "wie": "onderwijsontwerper",
+   "objecttype": "Summatief Afrondingscriterium",
+   "instantie": "Alle kerntaken en de keuzedelen voldoende",
+   "bron": "voorbeeldpayloads.md, resultaatstructuur: aggregatie allenVoldoende",
+   "relatie": {
+    "soort": "Association",
+    "van": "Summatieve resultaat structuur",
+    "naar": "Summatief Afrondingscriterium"
+   }
   },
   {
    "fase": 1,
@@ -442,7 +513,7 @@
    "objecttype": "Opleiding specificatie",
    "instantie": "Apothekersassistent, versie 2026.1",
    "bron": "leerroute-1-regulier.md, Fase 1: Curriculum-ontwerptool naar OC, alles op grofmazig niveau",
-   "zin": "De curriculum-ontwerptool publiceert de grofmazige specificatiestructuur naar de onderwijscatalogus; op hoofdplaat v1.7 zit de ontwerptool binnen de catalogus, dus geen aparte pijl."
+   "zin": "De curriculum-ontwerptool publiceert de specificatiestructuur en de resultaatstructuur naar de onderwijscatalogus; op hoofdplaat v1.7 zit de ontwerptool binnen de catalogus, dus geen aparte pijl."
   },
   {
    "fase": 1,
@@ -495,6 +566,37 @@
     "soort": "Aggregation",
     "van": "Onderwijseenheid specificatie",
     "naar": "Leeronderdeel specificatie",
+    "nesting": true
+   }
+  },
+  {
+   "fase": 1,
+   "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
+   "soort": "stroomt",
+   "van": "Curriculum ontwerptool",
+   "naar": "Onderwijscatalogus",
+   "pijl": "geen pijl op de hoofdplaat",
+   "koppeling": null,
+   "objecttype": "Summatieve resultaat structuur",
+   "instantie": "Resultaatstructuur Apothekersassistent",
+   "bron": "keuze van het voorbeeld: de resultaatstructuur ontstaat in de ontwerptool en gaat met de specificatie mee",
+   "aanname": true
+  },
+  {
+   "fase": 1,
+   "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
+   "soort": "stroomt",
+   "van": "Curriculum ontwerptool",
+   "naar": "Onderwijscatalogus",
+   "pijl": "geen pijl op de hoofdplaat",
+   "koppeling": null,
+   "objecttype": "Toetsonderdeel specificatie",
+   "instantie": "Praktijktoets baliegesprek (OSCE)",
+   "bron": "leerroute-1-regulier.md, Fase 1: toetsonderdeel-specificatie",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Summatieve resultaat structuur",
+    "naar": "Toetsonderdeel specificatie",
     "nesting": true
    }
   },
@@ -920,53 +1022,7 @@
   },
   {
    "fase": 4,
-   "stap": "Leeronderdeel- en toetsonderdeelspecificaties fijnmazig uitwerken",
-   "soort": "ontstaat",
-   "wie": "examencommissie",
-   "objecttype": "Summatieve resultaat structuur",
-   "instantie": "Examenplan Apothekersassistent, alle onderdelen voldoende",
-   "bron": "voorbeeldpayloads.md, resultaatstructuur (08b4656d): aggregatie allenVoldoende",
-   "relatie": {
-    "soort": "Association",
-    "van": "Summatieve resultaat structuur",
-    "naar": "Leeruitkomst"
-   },
-   "zin": "De examencommissie richt de summatieve resultaatstructuur in: welke onderdelen tellen, met welke weging, en wanneer de opleiding is afgerond."
-  },
-  {
-   "fase": 4,
-   "stap": "Leeronderdeel- en toetsonderdeelspecificaties fijnmazig uitwerken",
-   "soort": "ontstaat",
-   "wie": "examencommissie",
-   "objecttype": "Examenonderdeel weging",
-   "instantie": "Proeve van bekwaamheid B1-K1: weging 2",
-   "bron": "voorbeeldpayloads.md, toetsonderdelen (941f180d): weging 2",
-   "aanname": true,
-   "relatie": {
-    "soort": "Aggregation",
-    "van": "Summatieve resultaat structuur",
-    "naar": "Examenonderdeel weging",
-    "nesting": true
-   },
-   "vraag": "Welke weging moet een studentvolgsysteem aggregeren: op het toetsonderdeel (schema) of op de resultaateenheid (regels)? Meta #234 punt 5."
-  },
-  {
-   "fase": 4,
-   "stap": "Leeronderdeel- en toetsonderdeelspecificaties fijnmazig uitwerken",
-   "soort": "ontstaat",
-   "wie": "examencommissie",
-   "objecttype": "Summatief Afrondingscriterium",
-   "instantie": "Alle kerntaken en de keuzedelen voldoende",
-   "bron": "voorbeeldpayloads.md, resultaatstructuur: aggregatie allenVoldoende",
-   "relatie": {
-    "soort": "Association",
-    "van": "Summatieve resultaat structuur",
-    "naar": "Summatief Afrondingscriterium"
-   }
-  },
-  {
-   "fase": 4,
-   "stap": "Leeronderdeel- en toetsonderdeelspecificaties fijnmazig uitwerken",
+   "stap": "Detailspecificaties leveren aan het LMS",
    "soort": "stroomt",
    "van": "Onderwijscatalogus",
    "naar": "Student volg systeem (SVS)",
@@ -975,7 +1031,7 @@
    "objecttype": "Summatieve resultaat structuur",
    "instantie": "Examenplan Apothekersassistent",
    "bron": "leerroute-1-regulier.md, Fase 5: OC naar SVS (specificatie als referentiekader); koppelingspecificatie OC-SIS: resultaatstructuur",
-   "zin": "De resultaatstructuur gaat naar het studentvolgsysteem als nominaal template."
+   "zin": "De resultaatstructuur gaat als nominaal template naar het studentvolgsysteem, dat er per student een individueel examenplan van maakt."
   },
   {
    "fase": 4,

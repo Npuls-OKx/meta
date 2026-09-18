@@ -100,9 +100,68 @@ def relatielijn(x1, y, x2, soort, label, naar_rechts=True):
     return s
 
 
+MAX_BREEDTE = 1500  # daarboven gaat een keten van relaties onder elkaar in plaats van naast elkaar
+
+
+def relatielijn_v(x, y1, y2, soort, label, omlaag=True):
+    """Verticale variant van relatielijn: van het object erboven (y1) naar het object eronder (y2)."""
+    s = f'<path d="M{x:.0f} {y1:.0f}V{y2:.0f}" stroke="#444" stroke-width="1.3" fill="none"/>'
+    geheel, deel = (y1, y2) if omlaag else (y2, y1)
+    r = 1 if geheel < deel else -1
+    if soort in ("Aggregation", "Composition"):
+        vulling = "#444" if soort == "Composition" else "#ffffff"
+        s += f'<path d="M{x:.0f} {geheel:.0f}l-5 {7*r}l5 {7*r}l5 {-7*r}z" fill="{vulling}" stroke="#444" stroke-width="1.3"/>'
+    elif soort == "Specialization":
+        s += f'<path d="M{x:.0f} {deel:.0f}l-6 {-10*r}h12z" fill="#ffffff" stroke="#444" stroke-width="1.3"/>'
+    elif label:
+        s += f'<path d="M{x:.0f} {deel:.0f}l-4 {-8*r}h8z" fill="#444"/>'
+    if label:
+        s += text(x + 8, (y1 + y2) / 2 + 4, label, 10, fill=MUTED)
+    return s
+
+
 def objecten(x, y, items, uitzonderingen):
     """Rij van objecten met de relaties van de plaat als lijnen ertussen; nesting bij kinderen.
+    Wordt de rij breder dan MAX_BREEDTE, dan gaat de keten na het eerste object onder elkaar.
     Geeft (svg, w, h)."""
+    svg, w, h = _objecten_rij(x, y, items, uitzonderingen)
+    if w <= MAX_BREEDTE or len(items) < 3:
+        return svg, w, h
+    return _objecten_kolom(x, y, items, uitzonderingen)
+
+
+def _objecten_kolom(x, y, items, uitzonderingen):
+    """Eerste object links; de rest als kolom rechts ervan, met verticale relatielijnen."""
+    eerste = items[0]
+    svg1, w1, h1 = _objecten_rij(x, y, [eerste], uitzonderingen)
+    kx = x + w1 + RELATIE_AFSTAND
+    ky = y
+    out = svg1
+    lijnen = ""
+    vorige_onder = None
+    vorige_mid_x = None
+    wachtende_relatie = None
+    maxw = w1 + RELATIE_AFSTAND
+    for it in items[1:]:
+        if "relatie" in it and "type" not in it:
+            wachtende_relatie = it
+            continue
+        svg_it, w_it, h_it = _objecten_rij(kx, ky, [it], uitzonderingen)
+        out += svg_it
+        if wachtende_relatie is not None:
+            if vorige_onder is None:
+                # relatie tussen het eerste object (links) en dit object: horizontaal, op de hoogte van dit object
+                lijnen += relatielijn(x + w1, ky + 23, kx, wachtende_relatie.get("soort", "Association"), wachtende_relatie["relatie"], wachtende_relatie.get("naar_rechts", True))
+            else:
+                lijnen += relatielijn_v(kx + min(w_it, 120) / 2, vorige_onder, ky, wachtende_relatie.get("soort", "Association"), wachtende_relatie["relatie"], wachtende_relatie.get("naar_rechts", True))
+            wachtende_relatie = None
+        vorige_onder = ky + h_it
+        ky += h_it + 28
+        maxw = max(maxw, w1 + RELATIE_AFSTAND + w_it)
+    return out + lijnen, maxw, max(h1, ky - 28 - y)
+
+
+def _objecten_rij(x, y, items, uitzonderingen):
     out, cx, maxh = "", x, 0
     lijnen = ""
     vorige_rand = None  # rechterrand en middenhoogte van het vorige object
@@ -119,7 +178,7 @@ def objecten(x, y, items, uitzonderingen):
         buiten = it["type"] in uitzonderingen
         fill, line, lk = (GRIJS, GRIJS_L, GRIJS_T) if buiten else (BUS, BUS_L, BUS_T)
         if it.get("kinderen"):
-            ksvg, kw, kh = objecten(cx + 14, y + 40, it["kinderen"], uitzonderingen)
+            ksvg, kw, kh = _objecten_rij(cx + 14, y + 40, it["kinderen"], uitzonderingen)
             w = max(kw + 24, tw(it["type"], 11) + 42, tw(it["instantie"], 13, True) + 42)
             h = 40 + kh + 10
             out += box(cx, y, w, h, fill, line, 0, dashed) + icon("object", cx + w - 22, y + 5)
