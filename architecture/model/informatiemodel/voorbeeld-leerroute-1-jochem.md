@@ -195,7 +195,7 @@ Per objecttype de instantie voor Jochem, de fase waarin hij verschijnt, de statu
 | Objecttype | Jochem | Fase | Aanname | Definitie | OEAPI | Heet bij u | Hangt bij u onder |
 |---|---|---|---|---|---|---|---|
 | Competenties / Skills | Vaardigheden bij deze leeruitkomst (CompetentNL) | 1 | ja | nog te definieren | geen equivalent | | |
-| Leeruitkomst | Biedt farmaceutische patiëntenzorg (kerntaakniveau) | 1 | ja | ja | LearningOutcome | | |
+| Leeruitkomst | Biedt farmaceutische patiëntenzorg in een levensechte apotheekomgeving (kerntaakniveau) | 1 | ja | ja | LearningOutcome | | |
 | Vaardigheid | Communicatieve vaardigheden (CompetentNL laag 2) | 1 | ja | nog te definieren | geen equivalent | | |
 
 ### Onderwijsspecificatie
@@ -205,7 +205,7 @@ Per objecttype de instantie voor Jochem, de fase waarin hij verschijnt, de statu
 | Examenonderdeelspecificatie | Proeve van bekwaamheid B1-K1 | 1 | ja | ja | TestComponent | | |
 | Keuzedeel | Ondernemerschap in de zorg | 1 |  | nog te definieren | Programme | | |
 | Keuzedeelruimte | 720 SBU, mbo-4 | 1 |  | ja | Programme | | |
-| Leeronderdeel specificatie | B1-K1-W1 Neemt de zorg-/adviesvraag in behandeling, grofmazig | 1 |  | ja | LearningComponent | | |
+| Leeronderdeel specificatie | B1-K1-W1 Baliegesprek en triage: simulatie in de leerapotheek, theorie ondersteunend, grofmazig | 1 |  | ja | LearningComponent | | |
 | Les specificatie | Les 1 Introductie WHAM-vragen en triage, werkcollege, 2 uur | 4 |  | ja | LearningComponent | | |
 | Onderwijseenheid specificatie | Blok B1-K1 Biedt farmaceutische patiëntenzorg | 1 |  | ja | Course | | |
 | Opleiding specificatie | Apothekersassistent, versie 2026.1 | 1 |  | nog te definieren | Programme | | |
@@ -290,7 +290,7 @@ De vragen die de regels zelf oproepen, met de regel waar de vraag zichtbaar word
 
 1. Het kaderscenario zet het examenplan in fase 1 en de resultaatstructuur pas in fase 4 bij OC-SIS. Ontstaat de summatieve resultaatstructuur in de curriculum-ontwerptool uit het examenplan, en gaat zij met de specificatie mee naar de catalogus? (fase 1, Examenplan vaststellen, `Examenplan`)
 2. Is het cohort een sleutel op aanbod en verbintenis, of een eigen object dat de toepasselijke resultaatstructuur draagt (ontwerpkeuze 17)? (fase 1, Examenplan vaststellen, `Cohort / periode`)
-3. Leeruitkomsten zijn in de bronnen niet geformuleerd; het voorbeeld toont de dossierstructuur en, als verdieping, de vertaling naar CompetentNL-vaardigheden. Hoe formuleert de instelling ze? (fase 1, Kwalificatiedossier vertalen naar leeruitkomsten, `Leeruitkomst`)
+3. De familie Onderwijskundig kader instelling kent op de plaat alleen de leeruitkomst en skills; het kader zelf waarmee de instelling de kerntaak vormgeeft (onderwijsvisie, didactisch concept; MORA: Onderwijsplan) heeft geen objecttype. Krijgt het er een, met 'volgens' naar de leeruitkomst en 'vult in' naar de specificatie? (fase 1, Kwalificatiedossier vertalen naar leeruitkomsten, `Leeruitkomst`)
 4. CompetentNL legt vaardigheden gelaagd vast (skos:broader, drie lagen) en de leeruitkomst is op de plaat gelaagd; Vaardigheid is dat niet. Krijgt Vaardigheid een eigen aggregatie, zodat laag 2 onder laag 1 hangt zoals de leeruitkomst onder de leeruitkomst? (fase 1, Kwalificatiedossier vertalen naar leeruitkomsten, `Vaardigheid`)
 5. Welke weging moet een studentvolgsysteem aggregeren: op het toetsonderdeel (schema) of op de resultaateenheid (regels)? Meta #234 punt 5. (fase 1, Toetsonderdelen en resultaatstructuur uit het examenplan afleiden, `Examenonderdeel weging`)
 6. Is het verzoek tot aanbod een object met sleutel en toestand, of het startevent van aanbod maken? (fase 2, Planningssysteem verzoeken om onderwijsaanbod, `Verzoek tot Aanbod / Intekening op specificatie`)

@@ -385,8 +385,8 @@
    "soort": "ontstaat",
    "wie": "onderwijsontwerper",
    "objecttype": "Leeruitkomst",
-   "instantie": "Biedt farmaceutische patiëntenzorg (kerntaakniveau)",
-   "bron": "leerroute-1-regulier.md, r1092 en ontwerpkeuze 2: vertaald, gelaagd als het kwalificatiedossier",
+   "instantie": "Biedt farmaceutische patiëntenzorg in een levensechte apotheekomgeving (kerntaakniveau)",
+   "bron": "informatiemodel.md, familie Onderwijskundig kader instelling: de invulling door de instelling van de beoogde leeruitkomsten; leerroute-1-regulier.md, r1046 en r1052 (leervorm simulatie, theorie) en r1092",
    "aanname": true,
    "relatie": {
     "soort": "Association",
@@ -394,8 +394,8 @@
     "naar": "Leeruitkomst",
     "label": "Wordt vertaald naar"
    },
-   "zin": "De leeruitkomsten nemen de gelaagdheid van het kwalificatiedossier over: per kerntaak een leeruitkomst met daaronder een per werkproces.",
-   "vraag": "Leeruitkomsten zijn in de bronnen niet geformuleerd; het voorbeeld toont de dossierstructuur en, als verdieping, de vertaling naar CompetentNL-vaardigheden. Hoe formuleert de instelling ze?"
+   "zin": "Het dossier zegt wat de beroepsbeoefenaar kan; de leeruitkomst is de invulling van de instelling: waar en hoe de student dat laat zien. Hier: leren door te simuleren in een levensechte omgeving, met een klein deel theorie.",
+   "vraag": "De familie Onderwijskundig kader instelling kent op de plaat alleen de leeruitkomst en skills; het kader zelf waarmee de instelling de kerntaak vormgeeft (onderwijsvisie, didactisch concept; MORA: Onderwijsplan) heeft geen objecttype. Krijgt het er een, met 'volgens' naar de leeruitkomst en 'vult in' naar de specificatie?"
   },
   {
    "fase": 1,
@@ -403,7 +403,7 @@
    "soort": "ontstaat",
    "wie": "onderwijsontwerper",
    "objecttype": "Leeruitkomst",
-   "instantie": "Voert professioneel baliegesprek en triage (werkprocesniveau)",
+   "instantie": "Voert baliegesprek en triage uit in de simulatieapotheek, onderbouwd met theorie (werkprocesniveau)",
    "bron": "leerroute-1-regulier.md, r1092",
    "aanname": true,
    "relatie": {
@@ -420,7 +420,7 @@
    "soort": "verandert",
    "wie": "onderwijsontwerper",
    "objecttype": "Leeruitkomst",
-   "instantie": "Biedt farmaceutische patiëntenzorg (kerntaakniveau)",
+   "instantie": "Biedt farmaceutische patiëntenzorg in een levensechte apotheekomgeving (kerntaakniveau)",
    "toestand": "vertaald naar skills",
    "bron": "CompetentNL ontologie 2.1.0 (competentnl.nl, TTL, gewijzigd 14 juli 2026): cnlo:HumanCapability (Vaardigheid) gelaagd via skos:broader, drie lagen (6 verzamelconcepten, 24 generieke, 128 specifieke vaardigheden); cnlo:EducationalNorm (Opleidingsnorm) schrijft vaardigheden voor (cnlo:prescribes); leerroute-1-regulier.md, r1092",
    "aanname": true,
@@ -433,7 +433,7 @@
    "soort": "verandert",
    "wie": "onderwijsontwerper",
    "objecttype": "Leeruitkomst",
-   "instantie": "Voert professioneel baliegesprek en triage (werkprocesniveau)",
+   "instantie": "Voert baliegesprek en triage uit in de simulatieapotheek, onderbouwd met theorie (werkprocesniveau)",
    "toestand": "vertaald naar skills",
    "bron": "CompetentNL ontologie 2.1.0 (competentnl.nl, TTL, gewijzigd 14 juli 2026): cnlo:HumanCapability (Vaardigheid) gelaagd via skos:broader, drie lagen (6 verzamelconcepten, 24 generieke, 128 specifieke vaardigheden); cnlo:EducationalNorm (Opleidingsnorm) schrijft vaardigheden voor (cnlo:prescribes); leerroute-1-regulier.md, r1092",
    "aanname": true,
@@ -524,8 +524,8 @@
    "soort": "ontstaat",
    "wie": "onderwijsontwerper",
    "objecttype": "Leeronderdeel specificatie",
-   "instantie": "B1-K1-W1 Neemt de zorg-/adviesvraag in behandeling, grofmazig",
-   "bron": "leerroute-1-regulier.md, r1045 tot 1049",
+   "instantie": "B1-K1-W1 Baliegesprek en triage: simulatie in de leerapotheek, theorie ondersteunend, grofmazig",
+   "bron": "leerroute-1-regulier.md, r1021 (organiseerbaarheidswaarden op leeronderdeelniveau), r1045 tot 1052 (leervorm simulatie, ruimtetype balie-simulatie)",
    "relatie": {
     "soort": "Aggregation",
     "van": "Onderwijseenheid specificatie",
