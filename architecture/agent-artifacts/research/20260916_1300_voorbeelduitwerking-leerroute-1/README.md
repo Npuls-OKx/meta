@@ -107,3 +107,9 @@ De eerste twee fasen uit de regeltabel op de werkbranch, getekend door `scripts/
 
 ![Regels fase 2 en 3](poc/regels-fase-2-en-3.png)
 
+## Fase 1 en 2 met geneste structuren en relaties, 18 september
+
+Fase 1 (kwalificatiekader en specificatiestructuur genest) en fase 2 (de structuur hangt via `Input voor` aan het verzoek tot aanbod en gaat als geheel over OC-P&R naar planning). Aggregaties met ruit, specialisaties met open pijlpunt, associaties als gerichte lijn, alles zoals de plaat het legt; de controle weigert een relatie die de plaat niet kent.
+
+![Regels fase 1 en 2](poc/regels-fase-1-en-2.png)
+
