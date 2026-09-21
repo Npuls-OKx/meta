@@ -143,28 +143,39 @@ applicatiefunctionaliteit beschrijft is de aanloop; het product is de koppelvlak
 
 # Het instellingsperspectief: een ecosysteem van koppelingen
 
-<div class="np-grid-2" style="margin-top: 1.2rem; align-items: start; gap: 1.4rem;">
-  <div class="np-card accent-blue" style="font-size: 0.95rem; line-height: 1.6; padding: 0.8rem 1.1rem;">
-    <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.5rem;"><carbon-building style="font-size:1.8rem;color:var(--np-blue);" /><strong style="font-size:1.05rem;">Binnen de deur</strong></div>
-    De onderwijscatalogus als spil, met planning en rooster, studentkeuze, kernregistratie en studentvolgsysteem, LMS en examinering. De informatiestromen ertussen zijn de koppelingen die OKx specificeert.
-  </div>
-  <div class="np-card accent-orange" style="font-size: 0.95rem; line-height: 1.6; padding: 0.8rem 1.1rem;">
-    <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.5rem;"><carbon-connection-signal style="font-size:1.8rem;color:var(--np-orange);" /><strong style="font-size:1.05rem;">Aan de rand van de plaat</strong></div>
-    RIO, centraal aanmelden (CAMBO, straks AII), identity en access management met identity provisioning, EduHub, communicatiesystemen, business intelligence, AI. Daar raken de andere pijlers.
-  </div>
+<p class="eyebrow" style="margin-top:0.6rem;">Binnen de deur</p>
+<div style="display:grid;grid-template-columns:repeat(7,1fr);gap:0.6rem;">
+    <div style="display:flex;flex-direction:column;align-items:center;gap:0.3rem;background:#fff;border:1px solid var(--np-light-gray);border-radius:12px;padding:0.6rem 0.4rem;text-align:center;"><carbon-catalog style="font-size:2rem;color:var(--np-blue);" /><span style="font-size:0.78rem;font-weight:600;color:var(--np-ink);line-height:1.2;">Onderwijscatalogus</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:0.3rem;background:#fff;border:1px solid var(--np-light-gray);border-radius:12px;padding:0.6rem 0.4rem;text-align:center;"><carbon-calendar style="font-size:2rem;color:var(--np-blue);" /><span style="font-size:0.78rem;font-weight:600;color:var(--np-ink);line-height:1.2;">Planning en rooster</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:0.3rem;background:#fff;border:1px solid var(--np-light-gray);border-radius:12px;padding:0.6rem 0.4rem;text-align:center;"><carbon-user-favorite style="font-size:2rem;color:var(--np-blue);" /><span style="font-size:0.78rem;font-weight:600;color:var(--np-ink);line-height:1.2;">Studentkeuze</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:0.3rem;background:#fff;border:1px solid var(--np-light-gray);border-radius:12px;padding:0.6rem 0.4rem;text-align:center;"><carbon-data-base style="font-size:2rem;color:var(--np-blue);" /><span style="font-size:0.78rem;font-weight:600;color:var(--np-ink);line-height:1.2;">Kernregistratie</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:0.3rem;background:#fff;border:1px solid var(--np-light-gray);border-radius:12px;padding:0.6rem 0.4rem;text-align:center;"><carbon-chart-line style="font-size:2rem;color:var(--np-blue);" /><span style="font-size:0.78rem;font-weight:600;color:var(--np-ink);line-height:1.2;">Studentvolgsysteem</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:0.3rem;background:#fff;border:1px solid var(--np-light-gray);border-radius:12px;padding:0.6rem 0.4rem;text-align:center;"><carbon-education style="font-size:2rem;color:var(--np-blue);" /><span style="font-size:0.78rem;font-weight:600;color:var(--np-ink);line-height:1.2;">LMS</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:0.3rem;background:#fff;border:1px solid var(--np-light-gray);border-radius:12px;padding:0.6rem 0.4rem;text-align:center;"><carbon-task-complete style="font-size:2rem;color:var(--np-blue);" /><span style="font-size:0.78rem;font-weight:600;color:var(--np-ink);line-height:1.2;">Examinering</span></div>
 </div>
 
-<div class="np-card accent-green" style="margin-top: 1.3rem; font-size: 0.95rem; line-height: 1.55; padding: 0.7rem 1.1rem;">
-<carbon-view style="font-size:1.3rem;color:var(--np-green);vertical-align:-0.25rem;" /> Het overzicht van het instellingsperspectief staat: de hoofdplaat op de volgende slide. De raakvlakken erna.
+<p class="eyebrow" style="margin-top:0.9rem;color:var(--np-orange);">Aan de rand van de plaat</p>
+<div style="display:grid;grid-template-columns:repeat(7,1fr);gap:0.6rem;">
+    <div style="display:flex;flex-direction:column;align-items:center;gap:0.3rem;background:#fff;border:1px solid var(--np-light-gray);border-radius:12px;padding:0.6rem 0.4rem;text-align:center;"><carbon-building style="font-size:2rem;color:var(--np-orange);" /><span style="font-size:0.78rem;font-weight:600;color:var(--np-ink);line-height:1.2;">RIO</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:0.3rem;background:#fff;border:1px solid var(--np-light-gray);border-radius:12px;padding:0.6rem 0.4rem;text-align:center;"><carbon-user-follow style="font-size:2rem;color:var(--np-orange);" /><span style="font-size:0.78rem;font-weight:600;color:var(--np-ink);line-height:1.2;">Centraal aanmelden, AII</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:0.3rem;background:#fff;border:1px solid var(--np-light-gray);border-radius:12px;padding:0.6rem 0.4rem;text-align:center;"><carbon-user-identification style="font-size:2rem;color:var(--np-orange);" /><span style="font-size:0.78rem;font-weight:600;color:var(--np-ink);line-height:1.2;">IAM, identity provisioning</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:0.3rem;background:#fff;border:1px solid var(--np-light-gray);border-radius:12px;padding:0.6rem 0.4rem;text-align:center;"><carbon-network-3 style="font-size:2rem;color:var(--np-orange);" /><span style="font-size:0.78rem;font-weight:600;color:var(--np-ink);line-height:1.2;">EduHub</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:0.3rem;background:#fff;border:1px solid var(--np-light-gray);border-radius:12px;padding:0.6rem 0.4rem;text-align:center;"><carbon-chat style="font-size:2rem;color:var(--np-orange);" /><span style="font-size:0.78rem;font-weight:600;color:var(--np-ink);line-height:1.2;">Communicatie</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:0.3rem;background:#fff;border:1px solid var(--np-light-gray);border-radius:12px;padding:0.6rem 0.4rem;text-align:center;"><carbon-analytics style="font-size:2rem;color:var(--np-orange);" /><span style="font-size:0.78rem;font-weight:600;color:var(--np-ink);line-height:1.2;">Business intelligence</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:0.3rem;background:#fff;border:1px solid var(--np-light-gray);border-radius:12px;padding:0.6rem 0.4rem;text-align:center;"><carbon-machine-learning-model style="font-size:2rem;color:var(--np-orange);" /><span style="font-size:0.78rem;font-weight:600;color:var(--np-ink);line-height:1.2;">AI</span></div>
+</div>
+
+<div class="np-card accent-green" style="margin-top: 1rem; font-size: 1rem; line-height: 1.5; padding: 0.6rem 1.1rem;">
+<carbon-checkmark-filled style="font-size:1.3rem;color:var(--np-green);vertical-align:-0.25rem;" /> Het overzicht van het instellingsperspectief staat. Daarin zien wij de raakvlakken.
 </div>
 
 </div>
 
 <!--
-Niels licht de plaat toe. Boodschap: wij hebben goed overzicht van het instellingsperspectief,
-hoe het ecosysteem eruitziet, en daarin zien wij de raakvlakken met de andere pijlers: RIO,
-CAMBO en AII, IAM en identity provisioning, EduHub, communicatiesystemen, business intelligence,
-AI. Intern werk en interne planning blijven buiten deze sessie.
+Niels licht de plaat toe (volgende slide). Binnen de deur: de catalogus als spil, de pijlen
+ertussen zijn de koppelingen die OKx specificeert. Aan de rand raken de andere pijlers: RIO,
+CAMBO en straks AII, IAM met identity provisioning, EduHub, communicatiesystemen, business
+intelligence, AI. De raakvlakken zelf komen na de plaat.
 -->
 
 ---
@@ -190,39 +201,41 @@ catalogus naar SIS, catalogus naar LMS.
 
 # Waar OKx andere ontwikkelingen raakt
 
-<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0.8rem;margin-top:0.6rem;">
-  <div class="np-card accent-blue" style="padding:0.65rem 0.8rem;font-size:0.84rem;line-height:1.45;">
-    <div style="display:flex;align-items:center;gap:0.45rem;margin-bottom:0.3rem;"><carbon-user-follow style="font-size:1.6rem;color:var(--np-blue);" /><strong>AII spoor 3</strong></div>
-    aanmelden, intekenen, inschrijven; het ontsluiten van aanmeldbaar aanbod; de aanmelding met verbintenis terug naar de kernregistratie
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0.8rem;margin-top:0.5rem;">
+  <div class="np-card accent-blue" style="padding:0.6rem 0.8rem;font-size:0.84rem;line-height:1.45;">
+    <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.3rem;"><carbon-user-follow style="font-size:1.8rem;color:var(--np-blue);" /><strong>AII spoor 3</strong></div>
+    <ul style="margin:0;padding-left:1.1rem;"><li>aanmelden, intekenen, inschrijven</li><li>aanmeldbaar aanbod ontsluiten</li><li>aanmelding terug naar kernregistratie</li></ul>
   </div>
-  <div class="np-card accent-orange" style="padding:0.65rem 0.8rem;font-size:0.84rem;line-height:1.45;">
-    <div style="display:flex;align-items:center;gap:0.45rem;margin-bottom:0.3rem;"><carbon-network-3 style="font-size:1.6rem;color:var(--np-orange);" /><strong>eduXchange en EduHub</strong></div>
-    keuzedeel, aanbod en verbintenis over instellingen heen; een gedeeld model voor keuzedeel en resultaat
+  <div class="np-card accent-orange" style="padding:0.6rem 0.8rem;font-size:0.84rem;line-height:1.45;">
+    <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.3rem;"><carbon-network-3 style="font-size:1.8rem;color:var(--np-orange);" /><strong>eduXchange en EduHub</strong></div>
+    <ul style="margin:0;padding-left:1.1rem;"><li>keuzedeel over instellingen heen</li><li>aanbod en verbintenis</li><li>een gedeeld model</li></ul>
   </div>
-  <div class="np-card accent-green" style="padding:0.65rem 0.8rem;font-size:0.84rem;line-height:1.45;">
-    <div style="display:flex;align-items:center;gap:0.45rem;margin-bottom:0.3rem;"><carbon-catalog style="font-size:1.6rem;color:var(--np-green);" /><strong>Onderwijscatalogus</strong></div>
-    de spil die haar inhoud door de keten verspreidt: gedeelde uitgangspunten en hetzelfde informatiemodel voor wie er aanbod uit ontsluit
+  <div class="np-card accent-green" style="padding:0.6rem 0.8rem;font-size:0.84rem;line-height:1.45;">
+    <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.3rem;"><carbon-catalog style="font-size:1.8rem;color:var(--np-green);" /><strong>Onderwijscatalogus</strong></div>
+    <ul style="margin:0;padding-left:1.1rem;"><li>de spil in het web</li><li>gedeelde uitgangspunten</li><li>hetzelfde informatiemodel</li></ul>
   </div>
-  <div class="np-card accent-pink" style="padding:0.65rem 0.8rem;font-size:0.84rem;line-height:1.45;">
-    <div style="display:flex;align-items:center;gap:0.45rem;margin-bottom:0.3rem;"><carbon-user-identification style="font-size:1.6rem;color:var(--np-pink);" /><strong>EduID en identity provisioning</strong></div>
-    de student als persoon en deelnemer, van aanmelding tot LMS en toegang; welke voorziening is leidend
+  <div class="np-card accent-pink" style="padding:0.6rem 0.8rem;font-size:0.84rem;line-height:1.45;">
+    <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.3rem;"><carbon-user-identification style="font-size:1.8rem;color:var(--np-pink);" /><strong>EduID, identity provisioning</strong></div>
+    <ul style="margin:0;padding-left:1.1rem;"><li>de student in de keten</li><li>van aanmelding tot toegang</li><li>wie is leidend</li></ul>
   </div>
-  <div class="np-card accent-yellow" style="padding:0.65rem 0.8rem;font-size:0.84rem;line-height:1.45;">
-    <div style="display:flex;align-items:center;gap:0.45rem;margin-bottom:0.3rem;"><mdi-key-variant style="font-size:1.6rem;color:var(--np-yellow);" /><strong>Leeruitkomsten</strong></div>
-    de sleutel waar specificaties, toetsen en resultaten naar verwijzen; als gestandaardiseerde sleutel over de pijlers heen
+  <div class="np-card accent-yellow" style="padding:0.6rem 0.8rem;font-size:0.84rem;line-height:1.45;">
+    <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.3rem;"><mdi-key-variant style="font-size:1.8rem;color:var(--np-yellow);" /><strong>Leeruitkomsten</strong></div>
+    <ul style="margin:0;padding-left:1.1rem;"><li>de sleutel in het model</li><li>gestandaardiseerd over de pijlers</li><li>LUK-definities</li></ul>
   </div>
-  <div class="np-card accent-blue" style="padding:0.65rem 0.8rem;font-size:0.84rem;line-height:1.45;">
-    <div style="display:flex;align-items:center;gap:0.45rem;margin-bottom:0.3rem;"><carbon-machine-learning-model style="font-size:1.6rem;color:var(--np-blue);" /><strong>AI</strong></div>
-    hoe AI in de keten landt; documentatie ontvangen, gesprek te plannen
+  <div class="np-card accent-blue" style="padding:0.6rem 0.8rem;font-size:0.84rem;line-height:1.45;">
+    <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.3rem;"><carbon-machine-learning-model style="font-size:1.8rem;color:var(--np-blue);" /><strong>Toekomstige wijzigingen, zoals AI</strong></div>
+    <ul style="margin:0;padding-left:1.1rem;"><li>modulair en versiebeheerd</li><li>nieuwe eisen landen als bouwsteen</li><li>gesprek te plannen</li></ul>
   </div>
 </div>
 
-<div class="np-grid-2" style="margin-top: 0.9rem; align-items: start; gap: 1.2rem;">
-  <div class="np-card accent-green" style="padding:0.55rem 0.9rem;font-size:0.86rem;line-height:1.45;">
-    <carbon-building style="font-size:1.2rem;color:var(--np-green);vertical-align:-0.2rem;" /> <strong>OKx gaat over</strong> de koppelingen tussen de componenten, hun informatiemodel en hun eisen: nu binnen de instelling, straks ook over instellingen heen.
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:0.8rem;">
+  <div style="display:flex;align-items:center;gap:0.7rem;background:#E6F7F0;border-radius:12px;padding:0.5rem 0.9rem;font-size:0.84rem;">
+    <carbon-building style="font-size:1.6rem;color:var(--np-green);flex-shrink:0;" />
+    <div><strong>OKx</strong> &middot; koppelingen, informatiemodel, eisen &middot; nu binnen de instelling, straks over instellingen heen</div>
   </div>
-  <div class="np-card accent-blue" style="padding:0.55rem 0.9rem;font-size:0.86rem;line-height:1.45;">
-    <carbon-partnership style="font-size:1.2rem;color:var(--np-blue);vertical-align:-0.2rem;" /> <strong>De grens:</strong> applicatie van de leverancier; les en didactiek van de instelling, vastgelegd in de specificatie zodat het uitwisselbaar is; landelijke voorzieningen van hun eigen pijler.
+  <div style="display:flex;align-items:center;gap:0.7rem;background:#EEF2FF;border-radius:12px;padding:0.5rem 0.9rem;font-size:0.84rem;">
+    <carbon-partnership style="font-size:1.6rem;color:var(--np-blue);flex-shrink:0;" />
+    <div><strong>De grens</strong> &middot; applicatie: leverancier &middot; les en didactiek: instelling, vastgelegd in de specificatie &middot; voorzieningen: eigen pijler</div>
   </div>
 </div>
 
@@ -234,7 +247,8 @@ spil in het web en verspreidt haar inhoud door de keten: daar horen gedeelde uit
 hetzelfde informatiemodel bij. De didactiek is van de instelling (in een studio, veel of weinig
 theorie, alles mag), maar de manier waarop dat in de specificatie wordt vastgelegd, met de
 leeruitkomsten erin, is waar de afspraken over gaan; anders is het niet uitwisselbaar.
-Federatie gefaseerd: ADR 0008, intra-instelling eerst.
+AI: de OKx-aanpak is modulair en versiebeheerd, zodat nieuwe eisen als bouwsteen landen;
+Niels heeft documentatie over AI ontvangen, gesprek te plannen. Federatie gefaseerd: ADR 0008.
 -->
 
 ---
@@ -255,7 +269,7 @@ Federatie gefaseerd: ADR 0008, intra-instelling eerst.
   <div style="display:flex;align-items:center;gap:0.5rem;background:#EEF2FF;border-radius:8px;padding:0.22rem 0.6rem;margin-left:0.8rem;font-size:0.8rem;"><span class="np-num" style="width:1.35rem;height:1.35rem;font-size:0.7rem;">2</span><div><strong>Opleidingsprogrammaspecificatie</strong> <span class="muted">&middot; een leerweg, met keuzedeelruimte</span></div></div>
   <div style="display:flex;align-items:center;gap:0.5rem;background:#FFF1E8;border-radius:8px;padding:0.22rem 0.6rem;margin-left:1.6rem;font-size:0.8rem;"><span class="np-num" style="width:1.35rem;height:1.35rem;font-size:0.7rem;background:var(--np-orange);">3</span><div><strong>Onderwijseenheidspecificatie</strong> <span class="muted">&middot; het blok, verbonden aan de kerntaak</span></div></div>
   <div style="display:flex;align-items:center;gap:0.5rem;background:#E6F7F0;border-radius:8px;padding:0.22rem 0.6rem;margin-left:2.4rem;font-size:0.8rem;"><span class="np-num" style="width:1.35rem;height:1.35rem;font-size:0.7rem;background:var(--np-green);">4</span><div><strong>Leeronderdeelspecificatie</strong> <span class="muted">&middot; de leeractiviteit; als aanbod de leergelegenheid</span></div></div>
-  <div style="display:flex;align-items:center;gap:0.5rem;border:1px dashed var(--np-mid-gray);border-radius:8px;padding:0.22rem 0.6rem;margin-left:3.2rem;color:var(--np-dark-gray);font-size:0.8rem;"><carbon-home style="font-size:1.1rem;color:var(--np-mid-gray);" /><div><strong>Lesspecificatie</strong> <span class="muted">&middot; van de instelling: wij zien haar, zij blijft binnen de deur</span></div></div>
+  <div style="display:flex;align-items:center;gap:0.5rem;border:1px dashed var(--np-mid-gray);border-radius:8px;padding:0.22rem 0.6rem;margin-left:3.2rem;color:var(--np-dark-gray);font-size:0.8rem;"><carbon-home style="font-size:1.1rem;color:var(--np-mid-gray);" /><div><strong>Lesspecificatie</strong></div></div>
 </div>
 </div>
 <div class="np-card accent-green" style="padding:0.8rem 1rem;">
@@ -400,18 +414,27 @@ de kernregistratie, en hoe komt de aanmelding met verbintenissen terug.
 </div>
 </div>
 
-<div class="np-card accent-orange" style="margin-top: 0.7rem; font-size: 0.9rem; line-height: 1.5; padding: 0.55rem 1rem;">
-<carbon-partnership style="font-size:1.2rem;color:var(--np-orange);vertical-align:-0.2rem;" /> <strong>Een ecosysteembenadering over de pijlers heen.</strong> eduXchange, EduID en OKx trekken elk aan dezelfde scholen; afstemming op inhoud en op de capaciteit die wij van scholen vragen voorkomt dat oplossingen elkaar in de weg zitten.
+<div class="np-card accent-orange" style="margin-top: 0.7rem; padding: 0.55rem 1rem;">
+<div style="display:flex;align-items:center;gap:0.6rem;font-size:0.95rem;"><carbon-partnership style="font-size:1.5rem;color:var(--np-orange);flex-shrink:0;" /><strong>Ecosysteem eerst, dan de koppelingen</strong> <span class="muted" style="font-size:0.85rem;">&middot; ons architectuurprincipe, ook op programmaniveau</span></div>
+<div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-top:0.45rem;font-size:0.8rem;">
+  <span style="background:#fff;border:1px solid var(--np-light-gray);border-radius:999px;padding:0.2rem 0.7rem;">het ecosysteem lost het probleem van de instelling op</span>
+  <span style="background:#fff;border:1px solid var(--np-light-gray);border-radius:999px;padding:0.2rem 0.7rem;">united front, de juiste mensen aan tafel</span>
+  <span style="background:#fff;border:1px solid var(--np-light-gray);border-radius:999px;padding:0.2rem 0.7rem;">gedeelde expertise naar de scholen</span>
+  <span style="background:#fff;border:1px solid var(--np-light-gray);border-radius:999px;padding:0.2rem 0.7rem;">een claim op de schaarse capaciteit van scholen</span>
+</div>
 </div>
 
 </div>
 
 <!--
-Vraag 3 van Hans. Uit de afstemming van 21 september (Niels): het grootste punt is
-programmabreed: eduXchange, EduID en OKx trekken allemaal aan scholen; de afstemming tussen de
-pijlers en de beslaglegging op de capaciteit van scholen vraagt een aanpak als geheel, met de
-ecosysteembenadering die ook een architectuurprincipe van OKx is. OKx kan die regie niet alleen
-voeren; OKx wil wel aan tafel. De QR-code naar de kennisbasis op de laatste slide.
+Vraag 3 van Hans. Uit de afstemming van 21 september (Niek en Niels): trek het
+OKx-architectuurprincipe "ecosysteem eerst, dan koppelingen" door naar programmaniveau. Lokaal
+goede keuzes zijn te weinig; het ecosysteem moet het probleem oplossen dat instellingen ervaren,
+en daarvoor is gezamenlijke afstemming nodig: een united front met de juiste mensen aan tafel,
+gedeelde expertise naar de scholen (OKx is bereid mensen aan te laten haken, andere pijlers
+ook), omdat eduXchange, EduID en OKx anders elk beslag leggen op de beperkte capaciteit van
+scholen en scholen niet meer weten waar ze op moeten inzetten. OKx voert die regie niet alleen;
+OKx wil wel aan tafel. De QR-code naar de kennisbasis op de laatste slide.
 -->
 
 ---
