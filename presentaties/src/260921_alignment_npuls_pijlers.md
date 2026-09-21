@@ -120,7 +120,37 @@ De schets van Niels op de volgende slide laat de lagen zien.
 
 ---
 
-<!-- 4. PLAAT: SCHETS VAN NIELS -->
+<!-- 4. DE NEGEN LEERROUTES, MET LEERROUTE 1 ALS VOORBEELD -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# Negen leerroutes, leerroute 1 als voorbeeld
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;align-items:start;margin-top:0.6rem;">
+  <div>
+    <img src="/platen/leerroutes.png" style="width:100%;border:1px solid var(--np-light-gray);border-radius:12px;" />
+    <div style="font-size:0.78rem;color:var(--np-mid-gray);margin-top:0.3rem;">De negen Npuls-leerroutes: standaard, personaliseren, modulair studeren. Leerroutes 1 tot 3 eerst.</div>
+  </div>
+  <div>
+    <img src="/platen/jochem.png" style="width:100%;border:1px solid var(--np-light-gray);border-radius:12px;" />
+    <div style="font-size:0.78rem;color:var(--np-mid-gray);margin-top:0.3rem;">Leerroute 1, regulier: persona Jochem, apothekersassistent, BOL, drie jaar. Zijn reis en die van de instelling lopen door alle acht fasen.</div>
+  </div>
+</div>
+
+</div>
+
+<!--
+De leerroutes uit het referentiemateriaal in Npuls-OKx/Public. Standaard (regulier,
+temporiseren, versnellen), personaliseren van de diplomaroute (binnen de instelling, buiten
+de instelling binnen de sector, over sectoren heen), modulair studeren (vrije keuze,
+bundelen, stapelen). Leerroute 1 is uitgewerkt in een kaderscenario met persona Jochem:
+acht fasen van kwalificatiedossier tot diploma, per fase wat er tussen systemen beweegt.
+-->
+
+---
+
+<!-- 5. PLAAT: SCHETS VAN NIELS -->
 <div style="position: absolute; inset: 0; background: #FFFFFF; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1rem 1.5rem 0.6rem;">
   <img src="/platen/concept-uitleg-business-architectuur.png" style="max-width: 100%; max-height: 92%; object-fit: contain;" />
   <div style="font-size: 0.8rem; color: var(--np-mid-gray); margin-top: 0.3rem;">Van de PoC-school (links) via het gedeelde perspectief naar de OKx-architectuur met de kerngroep techniek (rechts). Schets van Niels, concept.</div>
@@ -136,7 +166,7 @@ applicatiefunctionaliteit beschrijft is de aanloop; het product is de koppelvlak
 
 ---
 
-<!-- 5. INSTELLINGSPERSPECTIEF: HET ECOSYSTEEM -->
+<!-- 6. INSTELLINGSPERSPECTIEF: HET ECOSYSTEEM -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
@@ -180,7 +210,7 @@ intelligence, AI. De raakvlakken zelf komen na de plaat.
 
 ---
 
-<!-- 6. PLAAT: HOOFDPLAAT 1.7 -->
+<!-- 7. PLAAT: HOOFDPLAAT 1.7 -->
 <div style="position: absolute; inset: 0; background: #FFFFFF; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1rem 1.5rem 0.6rem;">
   <img src="/platen/hoofdplaat-1.7.jpg" style="max-width: 100%; max-height: 92%; object-fit: contain;" />
   <div style="font-size: 0.8rem; color: var(--np-mid-gray); margin-top: 0.3rem;">Hoofdplaat informatiestromen v1.7: de referentiecomponenten binnen de instelling en de informatiestromen ertussen. Richtinggevend; draagt nog de aanduiding concept.</div>
@@ -194,7 +224,7 @@ catalogus naar SIS, catalogus naar LMS.
 
 ---
 
-<!-- 7. RAAKVLAKKEN OP DE PLAAT (steekwoorden) -->
+<!-- 8. RAAKVLAKKEN OP DE PLAAT (steekwoorden) -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
@@ -253,7 +283,7 @@ Niels heeft documentatie over AI ontvangen, gesprek te plannen. Federatie gefase
 
 ---
 
-<!-- 8. TWEE UITGANGSPUNTEN ALS SCHOT VOOR DE BOEG (visueel) -->
+<!-- 9. TWEE UITGANGSPUNTEN ALS SCHOT VOOR DE BOEG (visueel) -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
@@ -299,7 +329,7 @@ Raad in Woerden, wetend dat die nog bewegen. Dit is het schot voor de boeg dat A
 
 ---
 
-<!-- 9. INFORMATIEMODEL: ZEVEN BEGRIPPEN -->
+<!-- 10. INFORMATIEMODEL: ZEVEN BEGRIPPEN -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
@@ -343,7 +373,7 @@ de voorbereiding: eduXchange moesten wij uitleggen hoe een keuzedeel in het mode
 
 ---
 
-<!-- 10. PLAAT: INFORMATIEMODEL V0.1 -->
+<!-- 11. PLAAT: INFORMATIEMODEL V0.1 -->
 <div style="position: absolute; inset: 0; background: #FFFFFF; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1rem 1.5rem 0.6rem;">
   <img src="/platen/informatiemodel-v0.1.jpg" style="max-width: 100%; max-height: 92%; object-fit: contain;" />
   <div style="font-size: 0.8rem; color: var(--np-mid-gray); margin-top: 0.3rem;">Informatiemodel OKx v0.1: zeven kolommen, een per begrippenfamilie, met de objecttypen en hun relaties. Concept, ter review bij de kerngroep techniek.</div>
@@ -357,7 +387,7 @@ andere kolommen naar verwijzen.
 
 ---
 
-<!-- 11. AII EN OKX: AANMELDEN, INTEKENEN, INSCHRIJVEN -->
+<!-- 12. AII EN OKX: AANMELDEN, INTEKENEN, INSCHRIJVEN -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
@@ -386,7 +416,7 @@ de kernregistratie, en hoe komt de aanmelding met verbintenissen terug.
 
 ---
 
-<!-- 12. OP DE HOOGTE BLIJVEN, EN DE AFSPRAKEN VAN VANDAAG (visueel) -->
+<!-- 13. OP DE HOOGTE BLIJVEN, EN DE AFSPRAKEN VAN VANDAAG (visueel) -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
@@ -439,7 +469,7 @@ OKx wil wel aan tafel. De QR-code naar de kennisbasis op de laatste slide.
 
 ---
 
-<!-- 13. QR-CODE: DE KENNISBASIS -->
+<!-- 14. QR-CODE: DE KENNISBASIS -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
