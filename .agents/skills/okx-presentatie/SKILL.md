@@ -60,9 +60,17 @@ Lees niet alleen de commit-titels. Een titel zegt *wat* er is gewijzigd; een dec
 
 **Noem altijd om welke repository het gaat** als je een branch, pull request of issue noemt. Beide repositories hebben eigen nummering; `#7` alleen is dubbelzinnig.
 
-## Schrijf over de zaak, niet tegen de zaal
+## Schrijf over de zaak
 
-Een deck informeert over een onderwerp. Het onderwerp is dus het grammaticale onderwerp, niet het publiek. Dat is dezelfde norm als bij een thesis of een adviesrapport: zakelijk, navolgbaar, zonder de lezer aan te spreken.
+Een deck informeert over een onderwerp. Het onderwerp is dus het grammaticale onderwerp; het publiek blijft buiten de zin. Dat is dezelfde norm als bij een thesis of een adviesrapport: zakelijk, navolgbaar, zonder de lezer aan te spreken.
+
+**Positief formuleren.** Elke slide zegt wat iets is, doet of waar het begint. Een afzetting tegen wat het niet is ("wij doen X, niet Y", een kaart "wel OKx" naast een kaart "niet OKx", "niet alles vandaag oplossen") zet de zaal in de verdediging en laat de lezer raden naar wat er wel is. Waar een grens hoort, benoem wie of wat het wel doet: "de applicatie is van de leverancier", "de les regelt de instelling zelf", "federatie is de volgende stap".
+
+| Afzetten | Positief |
+|---|---|
+| "OKx specificeert het koppelvlak, niet de applicatie" | "OKx specificeert het koppelvlak; de applicatie is van de leverancier" |
+| "Niet OKx: uitwisseling onder de leeractiviteit" | "Onder de leeractiviteit regelt de instelling het zelf, functioneel of in de klas" |
+| "Doel: aftasten, niet alles oplossen" | "Doel: aftasten waar ieder staat en daar afspraken van maken" |
 
 **Geen tweede persoon.** Geen "u", "je" of "jullie", ook niet in een kop of een bijschrift. Waar de neiging opkomt het publiek aan te spreken, staat bijna altijd een sterkere formulering klaar met het onderwerp voorop.
 
@@ -88,6 +96,10 @@ Een deck informeert over een onderwerp. Het onderwerp is dus het grammaticale on
 
 Zelfde vorm voor een reviewverzoek (*Review gevraagd op / Door / Voor*) en voor kennisname (*Ter kennisname*). Zet nooit een besluit weg als een terloopse zin.
 
+## Het verhaal visueel maken
+
+Een slide draagt verhaalhaakjes, geen verhaal. De werkwijze staat in [`okx-presentatie-visueel`](../okx-presentatie-visueel/SKILL.md): eerst de verhaallijn in een werkbestand, dan per slide de kernzin en drie tot vijf sleutelwoorden als cornerstones, elk met een drager (pictogram met woord, kaart met steekwoorden, pijplijn, trap, diagram, plaat op een eigen slide), binnen het tekstbudget van rond de veertig zichtbare woorden. De spreker vertelt het verhaal aan de hand van die haakjes; wat de spreker kan zeggen, staat in de sprekersnotitie. Die skill draagt ook het pictogramvocabulaire voor de OKx-componenten en de UI/UX-regels uit `ui-ux-pro-max` die voor een statische slide gelden.
+
 ## Slides zijn schaars: de anti-bloatregels
 
 Uit de deckreview van 18 augustus 2026; elke regel is daar in de praktijk misgegaan.
@@ -99,7 +111,7 @@ Uit de deckreview van 18 augustus 2026; elke regel is daar in de praktijk misgeg
 - **Bullets eerst, plaat groot.** Vaste leesvolgorde: tekstpunten aan de ene kant, de plaat zo groot mogelijk aan de andere.
 - **Geen beloften met een datum.** "Tonen we de volgende sessie" bindt het team vast; planning is aan de spreker.
 - **Eén onderwerp per slide.** Inhoud en vraagstelling zijn twee slides, nooit één.
-- **Niet alles hoeft getekend.** Wat de spreker kan zeggen, hoort in de sprekersnotitie; losse pijltjes en tekstelementen naast een diagram zijn een gebrek, geen oplossing.
+- **Wat de spreker kan zeggen, hoort in de sprekersnotitie.** Losse pijltjes en tekstelementen naast een diagram zijn een gebrek.
 
 ## Compositie en didactiek
 
@@ -111,7 +123,7 @@ Uit de finetunerondes van 18 augustus 2026, vastgesteld door de product owner.
 - **Een vraag aan de zaal krijgt een eigen opvallende kaart**, met vraagicoon en de doelgroepnaam erin.
 - **Blokreeksen wisselen accentkleuren af**; nooit twee dezelfde naast elkaar. Elk blok draagt één ondertitel, zonder aankondigwoorden als "bijvoorbeeld".
 - **Diagrammen volledig of niet.** Een sequentiediagram toont ook de terugweg, het eigen proces en het foutpad; JSON-voorbeelden gebruiken echte veldnamen en types uit het schema, met een beletselteken voor de rest.
-- **Backlog en planning worden afgeleid, niet verzonnen.** Toon de afleidingslijn (leerroutes en scenario's naar features, stories en functionele eisen) en stel de toetsvraag aan de zaal in plaats van zelf een lijst te bedenken.
+- **Backlog en planning worden afgeleid.** Toon de afleidingslijn (leerroutes en scenario's naar features, stories en functionele eisen) en stel de toetsvraag aan de zaal in plaats van zelf een lijst te bedenken.
 
 ## Voor wie schrijf je
 

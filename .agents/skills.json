@@ -62,6 +62,11 @@
       "doel": "Adaptatie-wrapper: OKx-presentaties en update-decks, met de stakeholderprofielen en het ophalen van wijzigingen uit beide OKx-repositories."
     },
     {
+      "naam": "okx-presentatie-visueel",
+      "type": "okx-specifiek",
+      "doel": "Het verhaal van een deck visueel maken: verhaallijn in een werkbestand, per slide kernzin en sleutelwoorden als verhaalhaakjes met pictogrammen, kaarten en diagrammen; tekstbudget, dragers, pictogramvocabulaire OKx. Adaptatie-wrapper van ui-ux-pro-max voor presentaties."
+    },
+    {
       "naam": "okx-product-flow",
       "type": "okx-specifiek",
       "doel": "De standaard productketen: requirements opstellen, uitwerken, onafhankelijke review door tester en specialist, itereren tot de review past, agent-rapport."
@@ -111,6 +116,13 @@
       "licentie": "MIT",
       "doel": "Testmethodiek: rood-groen-refactor, arrange-act-assert, testpiramide, DAMP boven DRY, anti-patronen; discovert eerst het testraamwerk van de repo in plaats van een standaard aan te nemen.",
       "adaptatie": "okx-test-persona"
+    },
+    {
+      "naam": "ui-ux-pro-max",
+      "type": "extern",
+      "bron": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "doel": "UI/UX-ontwerpkennis met doorzoekbare data (UX-richtlijnen, pictogrammen, typografie, kleur, lay-out) via een zoekscript zonder afhankelijkheden.",
+      "adaptatie": "okx-presentatie-visueel (alleen de regels voor contrast, pictogrammen, typografie en lay-out van een statische slide; interactie, formulieren, navigatie en stacks blijven buiten beeld)"
     }
   ]
 }
