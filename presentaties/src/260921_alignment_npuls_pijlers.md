@@ -53,7 +53,7 @@ onvoldoende zicht op wat buiten de instelling gebeurt; dat mag hardop.
     </div>
   </div>
   <div class="np-card" style="margin-top: 1.1rem; font-size: 0.85rem; padding: 0.5rem 0.9rem;">
-    Doel vandaag: aftasten waar ieder staat en waar het schuurt, en daar afspraken van maken. Niet alles vandaag oplossen.
+    Doel vandaag: aftasten waar ieder staat en waar het schuurt, en daar afspraken van maken.
   </div>
 </div>
 
@@ -82,7 +82,7 @@ raakvlakkenslide.
 
 - **Binnen**: catalogus, planning en rooster, studentkeuze, kernregistratie en studentvolgsysteem, LMS, examinering; de pijlen zijn de koppelingen die OKx specificeert
 - **Status**: koppelvlakspecificatie v0.0.2 in review bij de kerngroep techniek; informatiemodel v0.1; voorbeelduitwerking leerroute 1 op 30 september; daarna bouwen via de scholen, door leveranciers, en testen
-- **Buiten de deur** (AII, eduXchange, EduID, RIO) hebben wij te weinig beeld van wat andere ontwikkelingen doen
+- **Buiten de deur** werken andere ontwikkelingen: AII, eduXchange, EduID, RIO
 
 <div class="np-card accent-orange" style="margin-top:0.5rem;font-size:0.8rem;padding:0.5rem 0.8rem;">
 Daar zoeken wij vandaag de aansluiting.
@@ -122,7 +122,7 @@ getest.
 - **Specificatiedocumenten**: techniekagnostisch, modulair uit bouwblokken, openbaar en herleidbaar in GitHub
 
 <div class="np-card" style="margin-top:0.5rem;font-size:0.8rem;padding:0.5rem 0.8rem;">
-OKx specificeert het koppelvlak, niet de applicatie.
+OKx specificeert het koppelvlak; de applicatie is van de leverancier.
 </div>
 
 </div>
@@ -148,7 +148,7 @@ Bij vragen over de informatiestromen per leerroute: de plaat OKx_LR1_informaties
 
 <div class="np-grid-2" style="margin-top: 0.6rem; gap: 1.3rem; align-items: start;">
 <div class="np-card accent-blue" style="padding:0.8rem 1rem;">
-<strong style="font-size:1rem;">1. Kiezen door lerenden: niet dieper dan de leeractiviteit</strong>
+<strong style="font-size:1rem;">1. Kiezen door lerenden: tot en met de leeractiviteit</strong>
 <div style="font-size:0.86rem;line-height:1.5;margin-top:0.5rem;">
 Drie niveaus in de koppelingen, gekozen op organiseerbaarheid en betaalbaarheid:
 </div>
@@ -158,7 +158,7 @@ Drie niveaus in de koppelingen, gekozen op organiseerbaarheid en betaalbaarheid:
   <div><span class="np-num" style="width:1.4rem;height:1.4rem;font-size:0.75rem;background:var(--np-green);">3</span>&nbsp; <strong>leeractiviteit</strong> &middot; in OKx: leeronderdeel en leergelegenheid</div>
 </div>
 <div style="font-size:0.84rem;line-height:1.5;margin-top:0.6rem;color:var(--np-dark-gray);">
-Daaronder (de les) wisselt OKx niet uit; wie dat wil, lost het functioneel of in de klas op, niet via de standaardkoppeling.
+De les blijft bij de instelling: die regelt het functioneel of in de klas, de standaardkoppelingen gaan tot en met de leeractiviteit.
 </div>
 </div>
 <div class="np-card accent-green" style="padding:0.8rem 1rem;">
@@ -242,7 +242,7 @@ model hoort.
 - **Per processtap** van de instellingsreis: wat ontstaat in het informatiemodel en wat stroomt tussen systemen, met Jochems waarde erin
 - **De leeruitkomst is de sleutel**: specificaties, toets- en examenonderdelen en de resultaatstructuur verwijzen ernaar; de instelling vult haar in (waar en hoe de student het laat zien)
 - **CompetentNL** als verdieping van dezelfde leeruitkomst: vaardigheden en kennisgebieden
-- Gecontroleerd tegen de plaat; wat de plaat niet kent wordt een vraag
+- Gecontroleerd tegen de plaat; wat buiten de plaat valt wordt een vraag aan de kerngroep
 
 <div class="np-card accent-green" style="margin-top:0.5rem;font-size:0.8rem;padding:0.5rem 0.8rem;">
 Kerngroep techniek, 30 september: het voorbeeld naast het eigen model leggen.
@@ -267,15 +267,15 @@ heen; dat is vraag drie op de laatste slide.
 
 <div class="fill">
 
-# Waar OKx andere ontwikkelingen raakt, en waar niet
+# Waar OKx andere ontwikkelingen raakt
 
 <div style="font-size: 0.84rem; line-height: 1.45; margin-top: 0.4rem;">
 
 | Ontwikkeling | Raakvlak met OKx | Wat wij zien |
 |---|---|---|
 | **AII spoor 3** | aanmelden, intekenen, inschrijven; het ontsluiten van aanmeldbaar aanbod; de aanmelding met verbintenis terug naar de kernregistratie | wij spreken over intekenen op een specificatie, AII hanteert aanmelden, intekenen, inschrijven: begrippen naast elkaar leggen |
-| **eduXchange** | keuzedeel, aanbod en verbintenis over instellingen heen; de catalogus | OKx begint binnen de instelling, federatie is een latere stap; het informatiemodel als gedeelde taal voor keuzedeel en resultaat |
-| **Ontsluiten onderwijsaanbod, functioneel gebied Onderwijs Catalogus** | dezelfde definities en gegevenssets: specificatie, aanbod in fasen van rijpheid, OEAPI v6 | een begrippenlijst en een informatiemodel delen in plaats van ieder een eigen dialect |
+| **eduXchange** | keuzedeel, aanbod en verbintenis over instellingen heen; de catalogus | OKx begint binnen de instelling en federatie is de volgende stap; het informatiemodel als gedeelde taal voor keuzedeel en resultaat |
+| **Ontsluiten onderwijsaanbod, functioneel gebied Onderwijs Catalogus** | dezelfde definities en gegevenssets: specificatie, aanbod in fasen van rijpheid, OEAPI v6 | een begrippenlijst en een informatiemodel delen |
 | **EduID, identity provisioning** | de student als persoon en deelnemer van aanmelding tot LMS en toegang | welke voorziening is leidend, en wat gaat er over de OKx-koppelingen |
 | **RIO** | verantwoording van studievoortgang vanuit de kernregistratie | de resultaatstructuur ook in de kernregistratie |
 
@@ -283,10 +283,10 @@ heen; dat is vraag drie op de laatste slide.
 
 <div class="np-grid-2" style="margin-top: 0.6rem; align-items: start; gap: 1.2rem;">
   <div class="np-card accent-green" style="padding:0.5rem 0.9rem;font-size:0.84rem;line-height:1.45;">
-    <strong>Wel OKx:</strong> de koppelingen tussen de componenten binnen de instelling, hun informatiemodel en hun eisen; kiezen tot en met de leeractiviteit; leeruitkomsten als sleutel.
+    <strong>OKx gaat over</strong> de koppelingen tussen de componenten binnen de instelling, hun informatiemodel en hun eisen; kiezen tot en met de leeractiviteit; leeruitkomsten als sleutel.
   </div>
-  <div class="np-card accent-orange" style="padding:0.5rem 0.9rem;font-size:0.84rem;line-height:1.45;">
-    <strong>Niet OKx:</strong> de functionaliteit binnen een applicatie, uitwisseling onder de leeractiviteit, roosteralgoritmes, didactiek, en de landelijke voorzieningen zelf.
+  <div class="np-card accent-blue" style="padding:0.5rem 0.9rem;font-size:0.84rem;line-height:1.45;">
+    <strong>De grens:</strong> de functionaliteit binnen een applicatie is van de leverancier, alles onder de leeractiviteit en de didactiek zijn van de instelling, roosteren is van het roostersysteem, en de landelijke voorzieningen zijn van hun eigen pijler.
   </div>
 </div>
 
@@ -315,7 +315,7 @@ OKx onderscheidt de <code>Intekening op specificatie</code>, de <code>Aanmelding
 <svg width="100%" viewBox="0 0 940 250" style="display:block;margin:0.5rem 0 0.1rem;"><rect x="10" y="34" width="190" height="78" rx="8" fill="#FFFFFF" stroke="#7A97F2" stroke-width="2"/><text x="105.0" y="58" text-anchor="middle" fill="#1B1B2F" style="font-size:14px;font-weight:700;font-family:inherit">Specificatie</text><text x="105.0" y="78" text-anchor="middle" fill="#4A4F57" style="font-size:11px;font-family:inherit">het ontwerp,</text><text x="105.0" y="93" text-anchor="middle" fill="#4A4F57" style="font-size:11px;font-family:inherit">los van wanneer</text><text x="580" y="20" text-anchor="middle" fill="#6B7280" style="font-size:11px;letter-spacing:1px;font-family:inherit">ONDERWIJSAANBOD, STEEDS RIJPER</text><line x1="240" y1="26" x2="920" y2="26" stroke="#6B7280" stroke-width="1"/><rect x="240" y="34" width="210" height="78" rx="8" fill="#E6F7F0" stroke="#00AF81" stroke-width="2"/><text x="345.0" y="58" text-anchor="middle" fill="#1B1B2F" style="font-size:14px;font-weight:700;font-family:inherit">Intentie</text><text x="345.0" y="78" text-anchor="middle" fill="#4A4F57" style="font-size:11px;font-family:inherit">we gaan dit aanbieden;</text><text x="345.0" y="93" text-anchor="middle" fill="#4A4F57" style="font-size:11px;font-family:inherit">gaat door bij voldoende vraag</text><rect x="475" y="34" width="210" height="78" rx="8" fill="#B3E8D3" stroke="#00AF81" stroke-width="2"/><text x="580.0" y="58" text-anchor="middle" fill="#1B1B2F" style="font-size:14px;font-weight:700;font-family:inherit">Grofmazig gepland</text><text x="580.0" y="78" text-anchor="middle" fill="#4A4F57" style="font-size:11px;font-family:inherit">periode en start, gebouw,</text><text x="580.0" y="93" text-anchor="middle" fill="#4A4F57" style="font-size:11px;font-family:inherit">misschien al een docent</text><rect x="710" y="34" width="210" height="78" rx="8" fill="#00AF81" stroke="#00AF81" stroke-width="2"/><text x="815.0" y="58" text-anchor="middle" fill="#FFFFFF" style="font-size:14px;font-weight:700;font-family:inherit">Geroosterd</text><text x="815.0" y="78" text-anchor="middle" fill="#F0FFF8" style="font-size:11px;font-family:inherit">dag, tijd, lokaal, docent,</text><text x="815.0" y="93" text-anchor="middle" fill="#F0FFF8" style="font-size:11px;font-family:inherit">groep</text><line x1="202" y1="73" x2="236" y2="73" stroke="#6B7280" stroke-width="2"/><polygon points="236,68 242,73 236,78" fill="#6B7280"/><line x1="452" y1="73" x2="486" y2="73" stroke="#6B7280" stroke-width="2"/><polygon points="486,68 492,73 486,78" fill="#6B7280"/><line x1="687" y1="73" x2="721" y2="73" stroke="#6B7280" stroke-width="2"/><polygon points="721,68 727,73 721,78" fill="#6B7280"/><rect x="10" y="130" width="190" height="26" rx="13" fill="#7A97F2"/><text x="24" y="147" fill="#fff" style="font-size:12px;font-weight:700;font-family:inherit">intekenen: op de specificatie</text><rect x="240" y="172" width="680" height="26" rx="13" fill="#3DB88F"/><text x="254" y="189" fill="#fff" style="font-size:12px;font-weight:700;font-family:inherit">aanmelden: op aanbod, in elke fase van rijpheid</text><rect x="710" y="214" width="210" height="26" rx="13" fill="#E9A27F"/><text x="724" y="231" fill="#fff" style="font-size:12px;font-weight:700;font-family:inherit">inschrijven: op geroosterd</text><circle cx="904" cy="227" r="11" fill="#fff"/><text x="904" y="232" text-anchor="middle" fill="#E9A27F" style="font-size:15px;font-weight:700;font-family:inherit">?</text><path d="M200 143 C 225 143, 225 185, 238 185" fill="none" stroke="#6B7280" stroke-width="2"/><polygon points="236,180 244,185 236,190" fill="#6B7280"/><text x="222" y="167" text-anchor="middle" fill="#6B7280" style="font-size:10px;font-family:inherit">bevestiging</text><line x1="815" y1="198" x2="815" y2="212" stroke="#6B7280" stroke-width="2"/><polygon points="810,210 815,216 820,210" fill="#6B7280"/></svg>
 
 <div class="np-card accent-orange" style="margin-top: 0.6rem; font-size: 0.92rem; line-height: 1.5; padding: 0.6rem 1rem;">
-<strong>Vraag aan AII:</strong> intekenen op een specificatie (nog geen aanbod) is wat koploperscholen ons vragen; leveranciers herkennen het nog niet. Zien wij hetzelfde, of noemen wij twee dingen hetzelfde?
+<strong>Vraag aan AII:</strong> intekenen op een specificatie (er is nog geen aanbod) is wat koploperscholen ons vragen; bij leveranciers is het nieuw. Zien wij hetzelfde, of noemen wij twee dingen hetzelfde?
 </div>
 
 </div>
