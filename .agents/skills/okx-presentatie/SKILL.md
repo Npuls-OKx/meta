@@ -96,6 +96,10 @@ Een deck informeert over een onderwerp. Het onderwerp is dus het grammaticale on
 
 Zelfde vorm voor een reviewverzoek (*Review gevraagd op / Door / Voor*) en voor kennisname (*Ter kennisname*). Zet nooit een besluit weg als een terloopse zin.
 
+## Het verhaal visueel maken
+
+Een slide draagt verhaalhaakjes, geen verhaal. De werkwijze staat in [`okx-presentatie-visueel`](../okx-presentatie-visueel/SKILL.md): eerst de verhaallijn in een werkbestand, dan per slide de kernzin en drie tot vijf sleutelwoorden als cornerstones, elk met een drager (pictogram met woord, kaart met steekwoorden, pijplijn, trap, diagram, plaat op een eigen slide), binnen het tekstbudget van rond de veertig zichtbare woorden. De spreker vertelt het verhaal aan de hand van die haakjes; wat de spreker kan zeggen, staat in de sprekersnotitie. Die skill draagt ook het pictogramvocabulaire voor de OKx-componenten en de UI/UX-regels uit `ui-ux-pro-max` die voor een statische slide gelden.
+
 ## Slides zijn schaars: de anti-bloatregels
 
 Uit de deckreview van 18 augustus 2026; elke regel is daar in de praktijk misgegaan.
