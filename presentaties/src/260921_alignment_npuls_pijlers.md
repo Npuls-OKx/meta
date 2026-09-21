@@ -344,8 +344,8 @@ Raad in Woerden, wetend dat die nog bewegen. Dit is het schot voor de boeg dat A
 | Kwalificatiekader mbo | Wat is normatief geldig |
 | Onderwijskundig kader instelling | Wat moet de student kennen en kunnen |
 | Onderwijsspecificatie | Wat wordt georganiseerd |
-| Onderwijsaanbod | Wanneer, met hoeveel plekken, met wie |
-| Onderwijsverbintenis | Welke relatie heeft een student met dat aanbod |
+| Onderwijsaanbod | Wanneer, met hoeveel plekken |
+| Onderwijsverbintenis | Met wie: welke relatie heeft een student met dat aanbod |
 | Onderwijsresultaat | Wat is er behaald |
 | Resultaatstructuur | Hoe telt dat op tot een uitspraak over de kwalificatie |
 
