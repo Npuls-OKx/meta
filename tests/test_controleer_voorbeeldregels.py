@@ -36,8 +36,22 @@ def stromen():
     return {"stromen": [{"id": "rel-1", "van": "Planningssysteem", "naar": "Onderwijscatalogus", "label": "", "koppeling": "OC-P&R"}]}
 
 
+def nummer(r):
+    """Elke regel het ID van haar beeld geven (F<fase>-<volgnummer>), zoals de regeltabel dat doet."""
+    ids, teller = {}, {}
+    for x in r["regels"]:
+        b = x.get("beeld")
+        if not b:
+            continue
+        if b not in ids:
+            teller[x["fase"]] = teller.get(x["fase"], 0) + 1
+            ids[b] = f"F{x['fase']}-{teller[x['fase']]:02d}"
+        x.setdefault("beeld_id", ids[b])
+    return r
+
+
 def regels():
-    return {"model": {"informatiemodel_commit": "abc123", "begrippen_commit": "def456"},
+    return nummer({"model": {"informatiemodel_commit": "abc123", "begrippen_commit": "def456"},
             "fasen": [
                 {"nummer": 2, "naam": "Publiceren", "bron": "ks", "stappen": ["Aanbod maken", "Aanbod publiceren"], "verwacht": ["Opleidingaanbod", "Opleidingsprogramma aanbod"]},
                 {"nummer": 3, "naam": "Instroom", "bron": "ks", "stappen": ["Aanmelden"], "verwacht": ["Aanmelding", "Opleiding aanbod verbintenis"]},
@@ -55,7 +69,7 @@ def regels():
                  "relatie": {"soort": "Association", "van": "Opleidingaanbod", "naar": "Aanmelding", "label": "Op basis van"}},
                 {"beeld": "Aanmelding", "fase": 3, "stap": "Aanmelden", "soort": "ontstaat", "wie": "student", "objecttype": "Opleiding aanbod verbintenis", "instantie": "Jochem 2026", "bron": "ks r4"},
                 {"beeld": "Geroosterd", "fase": 4, "stap": "Roosteren", "soort": "ontstaat", "wie": "planner", "objecttype": "Lesgelegenheid", "instantie": "ma 09:00", "bron": "ks r5"},
-                {"beeld": "Geroosterd", "fase": 4, "stap": "Roosteren", "soort": "verandert", "wie": "planner", "objecttype": "Opleidingaanbod", "instantie": "Apothekersassistent 2026", "toestand": "geroosterd", "bron": "ks r6"}]}
+                {"beeld": "Geroosterd", "fase": 4, "stap": "Roosteren", "soort": "verandert", "wie": "planner", "objecttype": "Opleidingaanbod", "instantie": "Apothekersassistent 2026", "toestand": "geroosterd", "bron": "ks r6"}]})
 
 
 def bevindingen(r=None, m=None, s="standaard", **kw):
@@ -72,7 +86,22 @@ class ControleTests(unittest.TestCase):
     def test_given_rule_without_required_field_when_checked_then_finding_names_rule_and_field(self):
         r = regels(); del r["regels"][0]["instantie"]
         b, _, _ = bevindingen(r)
-        self.assertTrue(any("regel 1 (Aanbod gemaakt: Opleidingaanbod)" in x and "instantie" in x for x in b))
+        self.assertTrue(any("regel 1 (F2-01 - Aanbod gemaakt: Opleidingaanbod)" in x and "instantie" in x for x in b))
+
+    def test_given_beeld_id_when_checked_then_one_id_per_beeld_in_the_right_form_and_rising(self):
+        r = regels(); r["regels"][0]["beeld_id"] = "R2-1"
+        self.assertTrue(any("heeft niet de vorm" in x for x in bevindingen(r)[0]))
+        r = regels(); r["regels"][0]["beeld_id"] = "F3-01"
+        b = bevindingen(r)[0]
+        self.assertTrue(any("noemt een andere fase" in x for x in b))
+        self.assertTrue(any("draagt twee ID's" in x for x in b))
+        r = regels(); r["regels"][3]["beeld_id"] = r["regels"][4]["beeld_id"] = "F2-01"
+        self.assertTrue(any("hoort al bij beeld" in x for x in bevindingen(r)[0]))
+        r = regels(); r["regels"][5]["beeld_id"] = r["regels"][6]["beeld_id"] = "F4-01"
+        r["regels"][0]["beeld_id"] = r["regels"][1]["beeld_id"] = "F2-02"
+        r["regels"][2]["beeld_id"] = "F2-01"
+        self.assertTrue(any("loopt niet op" in x for x in bevindingen(r)[0]))
+        self.assertEqual(bevindingen()[0], [])
 
     def test_given_unknown_objecttype_when_checked_then_finding_names_type(self):
         r = regels(); r["regels"][0]["objecttype"] = "Bestaat niet"
@@ -213,7 +242,7 @@ def conceptplaat():
 
 
 def conceptregel(**extra):
-    r = {"beeld": "Kader (concept)", "fase": 2, "stap": "Aanbod maken", "verdieping": "kader", "plaat": "onderwijsontwerp", "soort": "ontstaat", "wie": "planner",
+    r = {"beeld_id": "F2-09", "beeld": "Kader (concept)", "fase": 2, "stap": "Aanbod maken", "verdieping": "kader", "plaat": "onderwijsontwerp", "soort": "ontstaat", "wie": "planner",
          "objecttype": "Leerdoel", "instantie": "Leren door te doen", "bron": "conceptplaat",
          "relatie": {"soort": "Association", "van": "Leervormstrategie", "naar": "Leerdoel"}}
     r.update(extra)

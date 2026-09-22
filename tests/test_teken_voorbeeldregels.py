@@ -64,6 +64,15 @@ class TekenTests(unittest.TestCase):
         self.assertIn("verdieping: aanbod naar skills", teksten(tv.regel_ontstaat(b[1], set())))
         self.assertNotIn("verdieping: aanbod naar skills", teksten(tv.regel_ontstaat(b[0], set())))
 
+    def test_given_beeld_id_when_drawn_then_id_before_title_and_first_in_filename(self):
+        r = regels()
+        for x in r["regels"][:3]:
+            x["beeld_id"], x["beeld"] = "F2-01", "Het aanbod gemaakt"
+        blok = [b for b in self.blokken(r) if b.get("beeld")][0]
+        self.assertEqual(tv.beeldtitel(blok), "F2-01 - Het aanbod gemaakt")
+        self.assertEqual(tv.bestandsnaam(blok), "f2-01-het-aanbod-gemaakt.svg")
+        self.assertIn("F2-01 - Het aanbod gemaakt", teksten(tv.regel_ontstaat(blok, set())))
+
     def test_given_relation_to_non_adjacent_object_when_grouped_then_reference_not_line(self):
         r = regels()
         r["regels"].insert(3, {"fase": 2, "stap": "Aanbod maken", "soort": "ontstaat", "wie": "planner", "objecttype": "Student keuze regelset", "instantie": "Regels", "bron": "b",

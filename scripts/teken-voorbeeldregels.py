@@ -338,7 +338,7 @@ def regel_ontstaat(blok, uitzonderingen):
     zin, zw, zh = alinea(zin_x, zin_y, blok.get("zin", ""), 14, max(ZIN_MAX_BREEDTE - (zin_x - 12), ox + ow - zin_x))
     W = max(x + sw + 12, ox + ow + 12, zin_x + zw + 12)
     H = zin_y + zh + 12
-    return wrap(W, H, wie + stap + haak + objs + chip + zin, dashed=concept, titel=blok.get("beeld"))
+    return wrap(W, H, wie + stap + haak + objs + chip + zin, dashed=concept, titel=beeldtitel(blok))
 
 
 def regel_stroomt(blok, uitzonderingen):
@@ -377,7 +377,7 @@ def regel_stroomt(blok, uitzonderingen):
     W = max(x_naar + nw + 12, ox + ow + 12, zw + 24)
     H = zin_y + zh + 12
     body = f'<rect x="0" y="0" width="4" height="{H:.0f}" fill="{APP_L}"/>' + s + zin
-    return wrap(W, H, body, titel=blok.get("beeld"))
+    return wrap(W, H, body, titel=beeldtitel(blok))
 
 
 STANDAARDLABEL = {"Specialization": "is een", "Aggregation": "bevat", "Composition": "bevat"}
@@ -430,12 +430,14 @@ def groepeer(regels):
             if rel and not rel.get("nesting"):
                 # het eerste object van een stroom: zijn relatie wijst altijd buiten het blok
                 item["verwijzing"] = _verwijzing(rel, r["objecttype"])
-            blokken.append({"soort": "stroomt", "fase": r["fase"], "stap": r["stap"], "van": r["van"], "naar": r["naar"], "beeld": r.get("beeld"),
+            blokken.append({"soort": "stroomt", "fase": r["fase"], "stap": r["stap"], "van": r["van"], "naar": r["naar"],
+                            "beeld": r.get("beeld"), "beeld_id": r.get("beeld_id"),
                             "koppeling": r.get("koppeling"), "pijl": r.get("pijl"), "objecten": [item], "zin": r.get("zin", "")})
             continue
         laatste = blokken[-1] if blokken else None
         if not laatste or laatste["soort"] != "ontstaat" or (laatste["fase"], laatste["stap"], laatste["wie"], laatste.get("verdieping"), laatste.get("beeld")) != (r["fase"], r["stap"], r.get("wie"), r.get("verdieping"), r.get("beeld")):
-            laatste = {"soort": "ontstaat", "fase": r["fase"], "stap": r["stap"], "wie": r.get("wie"), "verdieping": r.get("verdieping"), "beeld": r.get("beeld"),
+            laatste = {"soort": "ontstaat", "fase": r["fase"], "stap": r["stap"], "wie": r.get("wie"), "verdieping": r.get("verdieping"),
+                       "beeld": r.get("beeld"), "beeld_id": r.get("beeld_id"),
                        "plaat": r.get("plaat", "informatiemodel"), "objecten": [], "zin": r.get("zin", "")}
             blokken.append(laatste)
         item = {"type": r["objecttype"], "instantie": r["instantie"], "aanname": r.get("aanname", False),
@@ -473,15 +475,22 @@ def groepeer(regels):
     return blokken
 
 
+def beeldtitel(blok):
+    """Het ID voor de titel, zodat een beeld kort aan te halen is: "F1-02 - Het kwalificatiedossier ontleed"."""
+    return " - ".join(x for x in (blok.get("beeld_id"), blok.get("beeld")) if x) or None
+
+
 def slug(tekst):
     tekst = tekst.lower().replace("ë", "e").replace("é", "e").replace("ï", "i").replace("ö", "o").replace("ü", "u")
     return re.sub(r"[^a-z0-9]+", "-", tekst).strip("-")
 
 
 def bestandsnaam(blok, volgnummer=None):
-    """De bestandsnaam volgt de beeldtitel (stabiel en leesbaar); zonder titel de stap met een volgnummer."""
+    """De bestandsnaam is het beeld-ID met de titel (stabiel, leesbaar, op leesvolgorde gesorteerd);
+    zonder titel de stap met een volgnummer."""
     if blok.get("beeld"):
-        return f"f{blok['fase']}-{slug(blok['beeld'])}.svg"
+        kop = slug(blok.get("beeld_id") or f"f{blok['fase']}")
+        return f"{kop}-{slug(blok['beeld'])}.svg"
     s = slug(blok["stap"]) + ("-verdieping" if blok.get("verdieping") else "")
     return f"f{blok['fase']}-{volgnummer or 0:02d}-{s}.svg"
 

@@ -46,8 +46,9 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["beeld", "fase", "stap", "soort", "objecttype", "instantie", "bron"],
+        "required": ["beeld_id", "beeld", "fase", "stap", "soort", "objecttype", "instantie", "bron"],
         "properties": {
+          "beeld_id": {"type": "string", "pattern": "^F[1-8]-[0-9]{2}$", "description": "het ID van het beeld waarin de regel staat: F<fase>-<volgnummer>, stabiel zodat verwijzingen blijven kloppen als er een beeld bij komt; staat in het beeld, in de kop, het register, de bijlage en het invulblad"},
           "beeld": {"type": "string", "description": "de titel van het beeld waarin de regel staat: een beschrijvende zin van wat het beeld toont, uniek per beeld; regels met dezelfde titel vormen samen dat beeld en het bestand ervan"},
           "fase": {"type": "integer", "minimum": 1, "maximum": 8},
           "stap": {"type": "string", "description": "moet in fasen[fase].stappen staan"},

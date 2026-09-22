@@ -23,9 +23,10 @@ Controles (R1 en R2 uit het featureplan):
    objecttype in dezelfde stap (zelfaggregatie) telt niet als tweede ontstaan, en een regel met
    nieuwe_instantie evenmin (een verdere instantie die het scenario nodig heeft);
 7. de model-commit in de kop komt overeen met de meegegeven commit (waarschuwing);
-8. elke regel draagt de titel van haar beeld; een beeld is aaneengesloten, ligt in een fase, een stap
-   en een soort (ontstaat of stroomt), en komt niet twee keer voor; verdere relaties (relaties)
-   bestaan op de plaat en dragen geen nesting;
+8. elke regel draagt het ID en de titel van haar beeld; een beeld is aaneengesloten, ligt in een fase,
+   een stap en een soort (ontstaat of stroomt), en komt niet twee keer voor; ID en titel horen
+   een-op-een bij elkaar, het ID heeft de vorm F<fase>-<volgnummer> en loopt op binnen de fase;
+   verdere relaties (relaties) bestaan op de plaat en dragen geen nesting;
 9. een regel met plaat "onderwijsontwerp" hoort bij een verdieping of een stroom en wijst naar een objecttype en
    een relatie op de conceptplaat (conceptplaat-onderwijsontwerp.json); zulke regels tellen niet
    mee in de dekking en kennen geen scope.
@@ -36,6 +37,7 @@ Exitcode 0: geen bevindingen; 1: bevindingen; 2: invoer niet leesbaar.
 import argparse
 import json
 import pathlib
+import re
 import sys
 
 REGELS = pathlib.Path("architecture/model/informatiemodel/voorbeeld-lr1-regels.json")
@@ -63,7 +65,30 @@ def lees_json(pad, wat):
 
 
 def plek_van(r, i):
-    return f"regel {i + 1} ({r.get('beeld') or 'zonder beeld'}: {r.get('objecttype')})"
+    beeld = " - ".join(x for x in (r.get("beeld_id"), r.get("beeld")) if x) or "zonder beeld"
+    return f"regel {i + 1} ({beeld}: {r.get('objecttype')})"
+
+
+def _beeld_id(r, plek, beeld, nieuw, ids):
+    """Het ID hoort een-op-een bij de titel, heeft de vorm F<fase>-<volgnummer> en loopt op binnen de fase."""
+    uit, bid, fase = [], r.get("beeld_id"), r.get("fase")
+    titel_van_id, id_van_titel, hoogste = ids
+    if not bid:
+        return uit
+    if not re.fullmatch(r"F[1-8]-\d{2}", bid):
+        return [f"{plek}: beeld-ID {bid!r} heeft niet de vorm F<fase>-<volgnummer>, bijvoorbeeld F1-02"]
+    if bid[1] != str(fase):
+        uit.append(f"{plek}: beeld-ID {bid!r} noemt een andere fase dan {fase}")
+    if titel_van_id.setdefault(bid, beeld) != beeld:
+        uit.append(f"{plek}: beeld-ID {bid!r} hoort al bij beeld {titel_van_id[bid]!r}")
+    if id_van_titel.setdefault(beeld, bid) != bid:
+        uit.append(f"{plek}: beeld {beeld!r} draagt twee ID's ({id_van_titel[beeld]} en {bid})")
+    if nieuw:
+        nr = int(bid.split("-")[1])
+        if nr <= hoogste.get(fase, 0):
+            uit.append(f"{plek}: beeld-ID {bid!r} loopt niet op binnen fase {fase}")
+        hoogste[fase] = max(nr, hoogste.get(fase, 0))
+    return uit
 
 
 def schema(regels):
@@ -72,10 +97,10 @@ def schema(regels):
     for sleutel in ("model", "fasen", "rollen", "toestanden", "scope_uitzonderingen", "koppelingen", "regels"):
         if sleutel not in regels:
             uit.append(f"kop: veld {sleutel} ontbreekt")
-    beelden, vorige = {}, None
+    beelden, vorige, ids = {}, None, ({}, {}, {})
     for i, r in enumerate(regels.get("regels", [])):
         plek = plek_van(r, i)
-        for veld in ("beeld", "fase", "stap", "soort", "objecttype", "instantie", "bron"):
+        for veld in ("beeld_id", "beeld", "fase", "stap", "soort", "objecttype", "instantie", "bron"):
             if veld not in r or r[veld] in ("", None):
                 uit.append(f"{plek}: veld {veld} ontbreekt")
         beeld = r.get("beeld")
@@ -85,6 +110,7 @@ def schema(regels):
                 uit.append(f"{plek}: beeld {beeld!r} ligt ook in een andere fase, stap, soort of verdieping")
             elif beeld in beelden and vorige != beeld:
                 uit.append(f"{plek}: beeld {beeld!r} is niet aaneengesloten; regels van een beeld staan bij elkaar")
+            uit += _beeld_id(r, plek, beeld, beeld not in beelden, ids)
             beelden.setdefault(beeld, sleutel)
         vorige = beeld
         soort = r.get("soort")

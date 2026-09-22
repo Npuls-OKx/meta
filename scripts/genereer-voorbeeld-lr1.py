@@ -75,7 +75,7 @@ def blokken_per_fase(regels):
     uit = collections.defaultdict(list)
     for n, blok in enumerate(teken.groepeer(regels), 1):
         uit[blok["fase"]].append({"naam": teken.bestandsnaam(blok, n), "stap": blok["stap"], "soort": blok["soort"], "verdieping": blok.get("verdieping"),
-                                  "beeld": blok.get("beeld")})
+                                  "beeld": blok.get("beeld"), "beeld_id": blok.get("beeld_id")})
     return uit
 
 
@@ -90,7 +90,7 @@ Relateert aan: het [kaderscenario leerroute 1](https://github.com/Npuls-OKx/Publ
 
 Dit document loopt stap voor stap door de instellingsreis van het kaderscenario en toont per stap wat er in het informatiemodel ontstaat en wat er tussen systemen beweegt, met de waarde voor Jochem erin. Het is een leeshulp op conceptueel niveau (MIM 1 en 2): geen payloads, geen endpoints, geen diensten. Eén instantie per objecttype toont het type, niet het aantal.
 
-Elk beeld heeft een titel die zegt wat het toont; die staat in het beeld, als kop erboven (met een eigen anker in dit document) en in het regelregister achterin. Verwijs naar een beeld met zijn titel, en naar een regel met beeld en objecttype.
+Elk beeld heeft een ID en een titel die zegt wat het toont: F1-02 is het tweede beeld van fase 1. Beide staan in het beeld zelf, als kop erboven (met een eigen anker in dit document) en in het regelregister achterin; de bijlage en het invulblad noemen het ID. Verwijs naar een beeld met zijn ID, en naar een regel met dat ID en het objecttype.
 
 Vier termen, overal gelijk:
 
@@ -137,7 +137,7 @@ def fase_sectie(f, blokken, regels_in_fase):
     for b in blokken:
         alt = f"{b['soort']}: {b['stap']}" + (f", verdieping: {b['verdieping']}" if b.get("verdieping") else "")
         if b.get("beeld"):
-            uit += f"### {b['beeld']}\n\n"
+            uit += f"### {teken.beeldtitel(b)}\n\n"
         uit += f"![{alt}]({REGELMAP}/{b['naam']})\n\n"
     return uit
 
@@ -158,7 +158,7 @@ def familietabellen(regels, model, begrippen):
         if r["soort"] in ("ontstaat", "verandert") and n not in eerste and r.get("plaat", "informatiemodel") == "informatiemodel":
             eerste[n] = r
     verwachting = {norm(v): f["nummer"] for f in regels["fasen"] for v in f["verwacht"]}
-    uit = "## Bijlage: alle objecttypen per begrippenfamilie\n\nPer objecttype de instantie voor Jochem, de fase waarin hij verschijnt, de status van de definitie in de begrippenlijst en het OEAPI-object uit de mapping. De laatste twee kolommen zijn voor de lezer.\n\n"
+    uit = "## Bijlage: alle objecttypen per begrippenfamilie\n\nPer objecttype het beeld waarin hij verschijnt (het ID uit de kop), de instantie voor Jochem, de fase, de status van de definitie in de begrippenlijst en het OEAPI-object uit de mapping. De laatste twee kolommen zijn voor de lezer.\n\n"
     for kolom in KOLOMVOLGORDE:
         rijen = [n for n, o in typen.items() if o.get("kolom") == kolom and (o.get("scope") == "binnen" or n in uitz)]
         if not rijen:
@@ -171,7 +171,7 @@ def familietabellen(regels, model, begrippen):
             aanname = "ja" if r and r.get("aanname") else ""
             defin = definitie.get(n, "")
             defin = {"gedefinieerd": "ja", "open": "nog niet"}.get(defin, defin or "nog niet")
-            beeld = r.get("beeld", "") if r else ""
+            beeld = r.get("beeld_id", "") if r else ""
             uit += f"| {n} | {beeld} | {inst} | {fase} | {aanname} | {defin} | {', '.join(oeapi.get(n, [])) or 'geen equivalent'} | | |\n"
         uit += "\n"
     return uit
@@ -181,17 +181,17 @@ def vragenpagina(regels):
     vragen = []
     for r in regels["regels"]:
         if r.get("vraag") and r["vraag"] not in [v for v, _ in vragen]:
-            vragen.append((r["vraag"], f"{r.get('beeld', '')}, `{norm(r['objecttype'])}`"))
+            vragen.append((r["vraag"], f"{r.get('beeld_id', '')}, `{norm(r['objecttype'])}`"))
     uit = "## Vragen aan de kerngroep\n\nDe vragen die de regels zelf oproepen, met de regel waar de vraag zichtbaar wordt. Feedback, geen commitment.\n\n"
     for i, (v, plek) in enumerate(vragen[:7], 1):
         uit += f"{i}. {v} ({plek})\n"
     for v, plek in vragen[7:]:
         print(f"waarschuwing: vraag buiten de zeven, niet in het document: {plek}", file=sys.stderr)
     uit += "\nVragen over patronen, schema's, de toetslijst en endpoints horen bij de koppelvlakspecificatie en staan hier niet.\n\n"
-    uit += "### Invulblad\n\nPer regel één van vier antwoorden: herken ik dit; heet bij ons anders (welke term); hangt bij ons anders (waaronder); ontbreekt.\n\n| Fase | Beeld | Objecttype | Herken | Heet anders | Hangt anders | Ontbreekt |\n|---|---|---|---|---|---|---|\n"
+    uit += "### Invulblad\n\nPer regel één van vier antwoorden: herken ik dit; heet bij ons anders (welke term); hangt bij ons anders (waaronder); ontbreekt. De kolom Beeld draagt het beeld-ID uit de kop erboven.\n\n| Fase | Beeld | Objecttype | Herken | Heet anders | Hangt anders | Ontbreekt |\n|---|---|---|---|---|---|---|\n"
     for r in regels["regels"]:
         if r["soort"] in ("ontstaat", "verandert") and r.get("plaat", "informatiemodel") == "informatiemodel":
-            uit += f"| {r['fase']} | {r.get('beeld', '')} | {norm(r['objecttype'])} | | | | |\n"
+            uit += f"| {r['fase']} | {r.get('beeld_id', '')} | {norm(r['objecttype'])} | | | | |\n"
     return uit + "\n"
 
 
@@ -199,13 +199,14 @@ def regelregister(regels, per_fase):
     """Elke regel onder de titel van haar beeld, met bestand en bron als links, om naar te verwijzen."""
     faselinks = {f["nummer"]: f["link"] for f in regels["fasen"] if f.get("link")}
     bestand = {b["beeld"]: b["naam"] for blokken in per_fase.values() for b in blokken if b.get("beeld")}
-    uit = "## Regelregister\n\nElke regel onder de titel van haar beeld (fase, stap, bestand) met de bron. Verwijs naar een beeld met zijn titel en naar een regel met beeld en objecttype.\n\n"
+    uit = "## Regelregister\n\nElke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de bron. Verwijs naar een beeld met zijn ID en naar een regel met dat ID en het objecttype.\n\n"
     vorige = None
     for r in regels["regels"]:
         beeld = r.get("beeld", "")
         if beeld != vorige:
             b = bestand.get(beeld)
-            uit += (("\n" if vorige else "") + f"**{beeld}** (fase {r['fase']}, {r['stap']}" + (f"; [{b}]({REGELMAP}/{b})" if b else "") + ")\n\n"
+            kop = " - ".join(x for x in (r.get("beeld_id"), beeld) if x)
+            uit += (("\n" if vorige else "") + f"**{kop}** (fase {r['fase']}, {r['stap']}" + (f"; [{b}]({REGELMAP}/{b})" if b else "") + ")\n\n"
                     "| Soort | Objecttype | Instantie | Bron |\n|---|---|---|---|\n")
             vorige = beeld
         soort = r["soort"] + (" (conceptplaat)" if r.get("plaat") == "onderwijsontwerp" else "")

@@ -35,8 +35,22 @@ def begrippen():
     return {"begrippen": [{"naam": "Opleidingaanbod", "varianten": [], "status": "gedefinieerd"}, {"naam": "Aanmelding", "varianten": [], "status": "open"}]}
 
 
+def nummer(r):
+    """Elke regel het ID van haar beeld geven (F<fase>-<volgnummer>), zoals de regeltabel dat doet."""
+    ids, teller = {}, {}
+    for x in r["regels"]:
+        b = x.get("beeld")
+        if not b:
+            continue
+        if b not in ids:
+            teller[x["fase"]] = teller.get(x["fase"], 0) + 1
+            ids[b] = f"F{x['fase']}-{teller[x['fase']]:02d}"
+        x.setdefault("beeld_id", ids[b])
+    return r
+
+
 def regels():
-    return {"model": {"informatiemodel_commit": "abc", "begrippen_commit": "def"},
+    return nummer({"model": {"informatiemodel_commit": "abc", "begrippen_commit": "def"},
             "fasen": [{"nummer": 2, "naam": "Publiceren", "mora_hoofdproces": "Plannen", "bron": "ks", "stappen": ["Aanbod maken"], "verwacht": ["Opleidingaanbod"]},
                       {"nummer": 3, "naam": "Instroom", "bron": "ks", "stappen": ["Aanmelden"], "verwacht": ["Aanmelding"]},
                       {"nummer": 4, "naam": "Roosteren", "bron": "ks", "stappen": ["Roosteren"], "verwacht": ["Lesgelegenheid"]}],
@@ -45,7 +59,7 @@ def regels():
             "regels": [
                 {"beeld": "Het aanbod gemaakt", "fase": 2, "stap": "Aanbod maken", "soort": "ontstaat", "wie": "planner", "objecttype": "Opleidingaanbod", "instantie": "AA 2026", "bron": "leerroute-1-regulier.md, r52 en r1026", "aanname": True, "vraag": "Is cohort een object?"},
                 {"beeld": "Aanbod naar de catalogus", "fase": 2, "stap": "Aanbod maken", "soort": "stroomt", "van": "Planningssysteem", "naar": "Onderwijscatalogus", "pijl": "rel-1", "koppeling": "OC-P&R", "objecttype": "Opleidingaanbod", "instantie": "AA 2026", "bron": "b"},
-                {"beeld": "De aanmelding", "fase": 3, "stap": "Aanmelden", "soort": "ontstaat", "wie": "student", "objecttype": "Aanmelding", "instantie": "April", "bron": "b", "vraag": "Is inschrijving een toestand?"}]}
+                {"beeld": "De aanmelding", "fase": 3, "stap": "Aanmelden", "soort": "ontstaat", "wie": "student", "objecttype": "Aanmelding", "instantie": "April", "bron": "b", "vraag": "Is inschrijving een toestand?"}]})
 
 
 class GenereerTests(unittest.TestCase):
@@ -71,7 +85,7 @@ class GenereerTests(unittest.TestCase):
                                "objecttype": "Opleidingaanbod", "instantie": "AA 2026", "toestand": "verdiept", "bron": "b"})
         doc = self.bouw(r)
         beelden = re.findall(r"!\[([^\]]+)\]\(img/regels/([^)]+)\)", doc)
-        self.assertEqual(beelden[0][1], "f2-het-aanbod-gemaakt.svg")
+        self.assertEqual(beelden[0][1], "f2-01-het-aanbod-gemaakt.svg")
         self.assertEqual(beelden[1], ("ontstaat: Aanbod maken, verdieping: aanbod naar skills", "f2-02-aanbod-maken-verdieping.svg"))
 
     def test_given_concept_rule_when_generated_then_image_shown_but_not_in_chips_nor_invulblad(self):
@@ -86,13 +100,13 @@ class GenereerTests(unittest.TestCase):
 
     def test_given_beeld_titles_when_generated_then_heading_per_image_and_register_per_beeld(self):
         doc = self.bouw()
-        self.assertIn("### Het aanbod gemaakt\n\n![ontstaat: Aanbod maken](img/regels/f2-het-aanbod-gemaakt.svg)", doc)
+        self.assertIn("### F2-01 - Het aanbod gemaakt\n\n![ontstaat: Aanbod maken](img/regels/f2-01-het-aanbod-gemaakt.svg)", doc)
         reg = doc[doc.index("## Regelregister"):]
-        self.assertIn("**Het aanbod gemaakt** (fase 2, Aanbod maken; [f2-het-aanbod-gemaakt.svg](img/regels/f2-het-aanbod-gemaakt.svg))", reg)
+        self.assertIn("**F2-01 - Het aanbod gemaakt** (fase 2, Aanbod maken; [f2-01-het-aanbod-gemaakt.svg](img/regels/f2-01-het-aanbod-gemaakt.svg))", reg)
         self.assertIn("| ontstaat | Opleidingaanbod | AA 2026 | [leerroute-1-regulier.md](", reg)
         self.assertIn("?plain=1#L1026)", reg)
-        self.assertIn("| 2 | Het aanbod gemaakt | Opleidingaanbod | | | | |", doc[doc.index("### Invulblad"):])
-        self.assertIn("(Het aanbod gemaakt, `Opleidingaanbod`)", doc)
+        self.assertIn("| 2 | F2-01 | Opleidingaanbod | | | | |", doc[doc.index("### Invulblad"):])
+        self.assertIn("(F2-01, `Opleidingaanbod`)", doc)
 
     def test_given_source_with_fase_when_linked_then_fase_anchor_and_unknown_source_stays_text(self):
         links = {1: "https://x/#fase-1"}
@@ -128,7 +142,7 @@ class GenereerTests(unittest.TestCase):
         r = regels()
         for i in range(10):
             r["regels"].append({"beeld": "De aanmelding", "fase": 3, "stap": "Aanmelden", "soort": "verandert", "wie": "student", "objecttype": "Aanmelding", "instantie": "x", "toestand": "t", "bron": "b", "vraag": f"Vraag {i}?"})
-        doc = self.bouw(r)
+        doc = self.bouw(nummer(r))
         vragen = re.findall(r"^\d+\. (.+?) \([^,]+, `", doc[doc.index("## Vragen"):], re.M)
         self.assertEqual(len(vragen), 7)
         self.assertIn("Is cohort een object?", vragen)
@@ -144,8 +158,8 @@ class GenereerTests(unittest.TestCase):
 
     def test_given_definition_status_when_generated_then_shown(self):
         doc = self.bouw()
-        self.assertRegex(doc, r"\| Opleidingaanbod \| Het aanbod gemaakt \| AA 2026 \| 2 \| ja \| ja \| ProgrammeOffering \|")
-        self.assertRegex(doc, r"\| Aanmelding \| De aanmelding \| April \| 3 \|  \| nog niet \| geen equivalent \|")
+        self.assertRegex(doc, r"\| Opleidingaanbod \| F2-01 \| AA 2026 \| 2 \| ja \| ja \| ProgrammeOffering \|")
+        self.assertRegex(doc, r"\| Aanmelding \| F3-01 \| April \| 3 \|  \| nog niet \| geen equivalent \|")
 
     def test_given_missing_svg_directory_when_run_then_exit_two(self):
         with tempfile.TemporaryDirectory() as map_:

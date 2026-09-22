@@ -294,6 +294,7 @@
  },
  "regels": [
   {
+   "beeld_id": "F1-01",
    "beeld": "Het kwalificatiedossier ontleed",
    "fase": 1,
    "stap": "Kwalificatiedossier analyseren",
@@ -305,6 +306,7 @@
    "zin": "De onderwijsontwerper analyseert het kwalificatiedossier: kwalificatie, kerntaken en werkprocessen."
   },
   {
+   "beeld_id": "F1-01",
    "beeld": "Het kwalificatiedossier ontleed",
    "fase": 1,
    "stap": "Kwalificatiedossier analyseren",
@@ -322,6 +324,7 @@
    }
   },
   {
+   "beeld_id": "F1-01",
    "beeld": "Het kwalificatiedossier ontleed",
    "fase": 1,
    "stap": "Kwalificatiedossier analyseren",
@@ -339,6 +342,7 @@
    }
   },
   {
+   "beeld_id": "F1-01",
    "beeld": "Het kwalificatiedossier ontleed",
    "fase": 1,
    "stap": "Kwalificatiedossier analyseren",
@@ -356,6 +360,7 @@
    }
   },
   {
+   "beeld_id": "F1-02",
    "beeld": "Examenplan, eerste resultaatstructuur en cohort",
    "fase": 1,
    "stap": "Examenplan vaststellen",
@@ -369,6 +374,7 @@
    "vraag": "Het kaderscenario zet het examenplan in fase 1 en de resultaatstructuur pas in fase 4 bij OC-SIS. Ontstaat de summatieve resultaatstructuur in de curriculum-ontwerptool uit het examenplan, en gaat zij met de specificatie mee naar de catalogus?"
   },
   {
+   "beeld_id": "F1-02",
    "beeld": "Examenplan, eerste resultaatstructuur en cohort",
    "fase": 1,
    "stap": "Examenplan vaststellen",
@@ -387,6 +393,7 @@
    "zin": "Het examenplan bestaat uit een eerste summatieve resultaatstructuur: welke onderdelen tellen en wanneer de opleiding is afgerond. Daaraan hangt het cohort: de studenten voor wie deze structuur geldt."
   },
   {
+   "beeld_id": "F1-02",
    "beeld": "Examenplan, eerste resultaatstructuur en cohort",
    "fase": 1,
    "stap": "Examenplan vaststellen",
@@ -404,6 +411,7 @@
    "vraag": "Is het cohort een sleutel op aanbod en verbintenis, of een eigen object dat de toepasselijke resultaatstructuur draagt (ontwerpkeuze 17)?"
   },
   {
+   "beeld_id": "F1-03",
    "beeld": "Leeruitkomsten uit het dossier, in de stem van de instelling",
    "fase": 1,
    "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
@@ -422,6 +430,7 @@
    "zin": "Het dossier zegt wat de beroepsbeoefenaar kan; de leeruitkomst is de invulling van de instelling: waar en hoe de student dat laat zien. Hier: leren door te simuleren in een levensechte omgeving, met een klein deel theorie."
   },
   {
+   "beeld_id": "F1-03",
    "beeld": "Leeruitkomsten uit het dossier, in de stem van de instelling",
    "fase": 1,
    "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
@@ -439,6 +448,7 @@
    }
   },
   {
+   "beeld_id": "F1-04",
    "beeld": "Het onderwijsontwerp van de eenheid (conceptplaat)",
    "fase": 1,
    "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
@@ -458,6 +468,7 @@
    "zin": "Conceptplaat: de eenheid draagt het onderwijsontwerp van de instelling: de kerntaak vertaald naar een leerdoel en leeruitkomst, en de onderwijsvorm met leeromgeving, docentprofiel en studiebelasting, onder haar leervormstrategie."
   },
   {
+   "beeld_id": "F1-04",
    "beeld": "Het onderwijsontwerp van de eenheid (conceptplaat)",
    "fase": 1,
    "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
@@ -471,6 +482,7 @@
    "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Onderwijsplan bevat Onderwijseenheid / Opleidingsonderdeel"
   },
   {
+   "beeld_id": "F1-04",
    "beeld": "Het onderwijsontwerp van de eenheid (conceptplaat)",
    "fase": 1,
    "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
@@ -499,6 +511,7 @@
    ]
   },
   {
+   "beeld_id": "F1-04",
    "beeld": "Het onderwijsontwerp van de eenheid (conceptplaat)",
    "fase": 1,
    "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
@@ -527,6 +540,7 @@
    ]
   },
   {
+   "beeld_id": "F1-04",
    "beeld": "Het onderwijsontwerp van de eenheid (conceptplaat)",
    "fase": 1,
    "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
@@ -554,6 +568,7 @@
    "vraag": "Het kader waarmee de instelling de kerntaak vormgeeft staat op de conceptplaat (leervormstrategie, leerdoel, onderwijsvorm specificatie, leeromgeving, docentprofiel, studiebelasting), niet op de informatiemodelplaat. Welke daarvan horen in de uitwisseling, bijvoorbeeld op het leeronderdeel, en welke blijven binnen de instelling?"
   },
   {
+   "beeld_id": "F1-04",
    "beeld": "Het onderwijsontwerp van de eenheid (conceptplaat)",
    "fase": 1,
    "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
@@ -580,6 +595,7 @@
    ]
   },
   {
+   "beeld_id": "F1-04",
    "beeld": "Het onderwijsontwerp van de eenheid (conceptplaat)",
    "fase": 1,
    "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
@@ -606,6 +622,7 @@
    ]
   },
   {
+   "beeld_id": "F1-04",
    "beeld": "Het onderwijsontwerp van de eenheid (conceptplaat)",
    "fase": 1,
    "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
@@ -632,6 +649,7 @@
    ]
   },
   {
+   "beeld_id": "F1-05",
    "beeld": "De leeruitkomst in CompetentNL-skills",
    "fase": 1,
    "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
@@ -646,6 +664,7 @@
    "zin": "Verdieping: dezelfde leeruitkomst in CompetentNL-termen: vaardigheden in drie lagen (hier laag 2), kennisgebieden op ISCED-F, en het inzicht dat de plaat apart benoemt. Hoe fijnmaziger, hoe scherper wat Jochem moet leren."
   },
   {
+   "beeld_id": "F1-05",
    "beeld": "De leeruitkomst in CompetentNL-skills",
    "fase": 1,
    "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
@@ -665,6 +684,7 @@
    }
   },
   {
+   "beeld_id": "F1-05",
    "beeld": "De leeruitkomst in CompetentNL-skills",
    "fase": 1,
    "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
@@ -682,6 +702,7 @@
    }
   },
   {
+   "beeld_id": "F1-05",
    "beeld": "De leeruitkomst in CompetentNL-skills",
    "fase": 1,
    "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
@@ -701,6 +722,7 @@
    "vraag": "CompetentNL legt vaardigheden gelaagd vast (skos:broader, drie lagen) en de leeruitkomst is op de plaat gelaagd; Vaardigheid is dat niet. Krijgt Vaardigheid een eigen aggregatie, zodat laag 2 onder laag 1 hangt zoals de leeruitkomst onder de leeruitkomst?"
   },
   {
+   "beeld_id": "F1-05",
    "beeld": "De leeruitkomst in CompetentNL-skills",
    "fase": 1,
    "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
@@ -719,6 +741,7 @@
    }
   },
   {
+   "beeld_id": "F1-05",
    "beeld": "De leeruitkomst in CompetentNL-skills",
    "fase": 1,
    "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
@@ -737,6 +760,7 @@
    }
   },
   {
+   "beeld_id": "F1-06",
    "beeld": "De opleidingsspecificatie met programma, eenheden en keuzedeelruimte",
    "fase": 1,
    "stap": "Opleidingsspecificatie met programma en eenheden beschrijven",
@@ -748,6 +772,7 @@
    "zin": "De opleidingsspecificatie met daaronder het programma, de eenheden en de leeronderdelen: het curriculum als template over de looptijd."
   },
   {
+   "beeld_id": "F1-06",
    "beeld": "De opleidingsspecificatie met programma, eenheden en keuzedeelruimte",
    "fase": 1,
    "stap": "Opleidingsspecificatie met programma en eenheden beschrijven",
@@ -764,6 +789,7 @@
    }
   },
   {
+   "beeld_id": "F1-06",
    "beeld": "De opleidingsspecificatie met programma, eenheden en keuzedeelruimte",
    "fase": 1,
    "stap": "Opleidingsspecificatie met programma en eenheden beschrijven",
@@ -788,6 +814,7 @@
    ]
   },
   {
+   "beeld_id": "F1-06",
    "beeld": "De opleidingsspecificatie met programma, eenheden en keuzedeelruimte",
    "fase": 1,
    "stap": "Opleidingsspecificatie met programma en eenheden beschrijven",
@@ -812,6 +839,7 @@
    ]
   },
   {
+   "beeld_id": "F1-06",
    "beeld": "De opleidingsspecificatie met programma, eenheden en keuzedeelruimte",
    "fase": 1,
    "stap": "Opleidingsspecificatie met programma en eenheden beschrijven",
@@ -827,6 +855,7 @@
    }
   },
   {
+   "beeld_id": "F1-06",
    "beeld": "De opleidingsspecificatie met programma, eenheden en keuzedeelruimte",
    "fase": 1,
    "stap": "Opleidingsspecificatie met programma en eenheden beschrijven",
@@ -842,6 +871,7 @@
    }
   },
   {
+   "beeld_id": "F1-07",
    "beeld": "Het keuzedeel als eigen programmaspecificatie",
    "fase": 1,
    "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
@@ -865,6 +895,7 @@
    "zin": "Een keuzedeel is zelf een programmaspecificatie, gelijksoortig vormgegeven maar los van Jochems opleiding; welk keuzedeel de ruimte vult, bepaalt het studentkeuzesysteem later met de regelset."
   },
   {
+   "beeld_id": "F1-08",
    "beeld": "Toetsonderdelen, wegingen en afrondingscriterium",
    "fase": 1,
    "stap": "Toetsonderdelen en resultaatstructuur uit het examenplan afleiden",
@@ -885,6 +916,7 @@
    ]
   },
   {
+   "beeld_id": "F1-08",
    "beeld": "Toetsonderdelen, wegingen en afrondingscriterium",
    "fase": 1,
    "stap": "Toetsonderdelen en resultaatstructuur uit het examenplan afleiden",
@@ -909,6 +941,7 @@
    ]
   },
   {
+   "beeld_id": "F1-08",
    "beeld": "Toetsonderdelen, wegingen en afrondingscriterium",
    "fase": 1,
    "stap": "Toetsonderdelen en resultaatstructuur uit het examenplan afleiden",
@@ -933,6 +966,7 @@
    ]
   },
   {
+   "beeld_id": "F1-08",
    "beeld": "Toetsonderdelen, wegingen en afrondingscriterium",
    "fase": 1,
    "stap": "Toetsonderdelen en resultaatstructuur uit het examenplan afleiden",
@@ -951,6 +985,7 @@
    "vraag": "Welke weging moet een studentvolgsysteem aggregeren: op het toetsonderdeel (schema) of op de resultaateenheid (regels)? Meta #234 punt 5."
   },
   {
+   "beeld_id": "F1-08",
    "beeld": "Toetsonderdelen, wegingen en afrondingscriterium",
    "fase": 1,
    "stap": "Toetsonderdelen en resultaatstructuur uit het examenplan afleiden",
@@ -966,6 +1001,7 @@
    }
   },
   {
+   "beeld_id": "F1-09",
    "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -980,6 +1016,7 @@
    "zin": "De opleiding zoals ontworpen gaat als gelinkt geheel naar de catalogus: leeruitkomsten met hun skills, de specificatiestructuur met het onderwijsontwerp (paars: conceptplaat) en de resultaatstructuur; alles verwijst naar de leeruitkomst. Op v1.7 zit de ontwerptool binnen de catalogus, dus geen aparte pijl."
   },
   {
+   "beeld_id": "F1-09",
    "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -999,6 +1036,7 @@
    }
   },
   {
+   "beeld_id": "F1-09",
    "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1018,6 +1056,7 @@
    }
   },
   {
+   "beeld_id": "F1-09",
    "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1038,6 +1077,7 @@
    }
   },
   {
+   "beeld_id": "F1-09",
    "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1058,6 +1098,7 @@
    }
   },
   {
+   "beeld_id": "F1-09",
    "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1078,6 +1119,7 @@
    }
   },
   {
+   "beeld_id": "F1-09",
    "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1091,6 +1133,7 @@
    "bron": "leerroute-1-regulier.md, Fase 1: Curriculum-ontwerptool naar OC, alles op grofmazig niveau"
   },
   {
+   "beeld_id": "F1-09",
    "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1110,6 +1153,7 @@
    }
   },
   {
+   "beeld_id": "F1-09",
    "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1137,6 +1181,7 @@
    ]
   },
   {
+   "beeld_id": "F1-09",
    "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1164,6 +1209,7 @@
    ]
   },
   {
+   "beeld_id": "F1-09",
    "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1182,6 +1228,7 @@
    }
   },
   {
+   "beeld_id": "F1-09",
    "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1200,6 +1247,7 @@
    }
   },
   {
+   "beeld_id": "F1-09",
    "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1215,6 +1263,7 @@
    "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Onderwijsplan bevat Onderwijseenheid / Opleidingsonderdeel"
   },
   {
+   "beeld_id": "F1-09",
    "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1250,6 +1299,7 @@
    ]
   },
   {
+   "beeld_id": "F1-09",
    "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1278,6 +1328,7 @@
    ]
   },
   {
+   "beeld_id": "F1-09",
    "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1306,6 +1357,7 @@
    ]
   },
   {
+   "beeld_id": "F1-09",
    "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1334,6 +1386,7 @@
    ]
   },
   {
+   "beeld_id": "F1-09",
    "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1356,6 +1409,7 @@
    "aanname": true
   },
   {
+   "beeld_id": "F1-09",
    "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1383,6 +1437,7 @@
    ]
   },
   {
+   "beeld_id": "F1-09",
    "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1410,6 +1465,7 @@
    "aanname": true
   },
   {
+   "beeld_id": "F1-09",
    "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1428,6 +1484,7 @@
    }
   },
   {
+   "beeld_id": "F2-01",
    "beeld": "De specificatie planbaar gemaakt",
    "fase": 2,
    "stap": "Specificatie aanvullen tot planbare specificatie",
@@ -1440,6 +1497,7 @@
    "zin": "De grofmazige specificatie wordt aangevuld met tijdvensters, capaciteit, expertise en faciliteit: planbaar."
   },
   {
+   "beeld_id": "F2-02",
    "beeld": "Het verzoek om onderwijsaanbod",
    "fase": 2,
    "stap": "Planningssysteem verzoeken om onderwijsaanbod",
@@ -1459,6 +1517,7 @@
    }
   },
   {
+   "beeld_id": "F2-03",
    "beeld": "Verzoek met specificatiestructuur en planbare waarden naar planning",
    "fase": 2,
    "stap": "Planningssysteem verzoeken om onderwijsaanbod",
@@ -1473,6 +1532,7 @@
    "zin": "Het verzoek gaat met de hele specificatiestructuur naar planning, met per eenheid de planbare waarden uit het onderwijsontwerp (paars): onderwijsvorm, leeromgeving, docentprofiel en studiebelasting, waarop planning ruimtes en mensen plot."
   },
   {
+   "beeld_id": "F2-03",
    "beeld": "Verzoek met specificatiestructuur en planbare waarden naar planning",
    "fase": 2,
    "stap": "Planningssysteem verzoeken om onderwijsaanbod",
@@ -1492,6 +1552,7 @@
    }
   },
   {
+   "beeld_id": "F2-03",
    "beeld": "Verzoek met specificatiestructuur en planbare waarden naar planning",
    "fase": 2,
    "stap": "Planningssysteem verzoeken om onderwijsaanbod",
@@ -1511,6 +1572,7 @@
    }
   },
   {
+   "beeld_id": "F2-03",
    "beeld": "Verzoek met specificatiestructuur en planbare waarden naar planning",
    "fase": 2,
    "stap": "Planningssysteem verzoeken om onderwijsaanbod",
@@ -1538,6 +1600,7 @@
    ]
   },
   {
+   "beeld_id": "F2-03",
    "beeld": "Verzoek met specificatiestructuur en planbare waarden naar planning",
    "fase": 2,
    "stap": "Planningssysteem verzoeken om onderwijsaanbod",
@@ -1565,6 +1628,7 @@
    ]
   },
   {
+   "beeld_id": "F2-03",
    "beeld": "Verzoek met specificatiestructuur en planbare waarden naar planning",
    "fase": 2,
    "stap": "Planningssysteem verzoeken om onderwijsaanbod",
@@ -1580,6 +1644,7 @@
    "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Onderwijsplan bevat Onderwijseenheid / Opleidingsonderdeel; leerroute-1-regulier.md, r749 (SBU/BOT/OOT, expertise, toetsvorm aangevuld: planbaar)"
   },
   {
+   "beeld_id": "F2-03",
    "beeld": "Verzoek met specificatiestructuur en planbare waarden naar planning",
    "fase": 2,
    "stap": "Planningssysteem verzoeken om onderwijsaanbod",
@@ -1609,6 +1674,7 @@
    ]
   },
   {
+   "beeld_id": "F2-03",
    "beeld": "Verzoek met specificatiestructuur en planbare waarden naar planning",
    "fase": 2,
    "stap": "Planningssysteem verzoeken om onderwijsaanbod",
@@ -1637,6 +1703,7 @@
    ]
   },
   {
+   "beeld_id": "F2-03",
    "beeld": "Verzoek met specificatiestructuur en planbare waarden naar planning",
    "fase": 2,
    "stap": "Planningssysteem verzoeken om onderwijsaanbod",
@@ -1665,6 +1732,7 @@
    ]
   },
   {
+   "beeld_id": "F2-03",
    "beeld": "Verzoek met specificatiestructuur en planbare waarden naar planning",
    "fase": 2,
    "stap": "Planningssysteem verzoeken om onderwijsaanbod",
@@ -1693,6 +1761,7 @@
    ]
   },
   {
+   "beeld_id": "F2-04",
    "beeld": "Het aanbod gepland: opleiding, programma, eenheid, gelegenheid",
    "fase": 2,
    "stap": "Haalbaarheid bepalen en aanbod plannen",
@@ -1705,6 +1774,7 @@
    "zin": "De planner bepaalt de haalbaarheid binnen de strategische jaarplanning en maakt het aanbod: cohort 2026, vier perioden."
   },
   {
+   "beeld_id": "F2-04",
    "beeld": "Het aanbod gepland: opleiding, programma, eenheid, gelegenheid",
    "fase": 2,
    "stap": "Haalbaarheid bepalen en aanbod plannen",
@@ -1721,6 +1791,7 @@
    }
   },
   {
+   "beeld_id": "F2-04",
    "beeld": "Het aanbod gepland: opleiding, programma, eenheid, gelegenheid",
    "fase": 2,
    "stap": "Haalbaarheid bepalen en aanbod plannen",
@@ -1737,6 +1808,7 @@
    }
   },
   {
+   "beeld_id": "F2-04",
    "beeld": "Het aanbod gepland: opleiding, programma, eenheid, gelegenheid",
    "fase": 2,
    "stap": "Haalbaarheid bepalen en aanbod plannen",
@@ -1753,6 +1825,7 @@
    }
   },
   {
+   "beeld_id": "F2-04",
    "beeld": "Het aanbod gepland: opleiding, programma, eenheid, gelegenheid",
    "fase": 2,
    "stap": "Haalbaarheid bepalen en aanbod plannen",
@@ -1769,6 +1842,7 @@
    }
   },
   {
+   "beeld_id": "F2-04",
    "beeld": "Het aanbod gepland: opleiding, programma, eenheid, gelegenheid",
    "fase": 2,
    "stap": "Haalbaarheid bepalen en aanbod plannen",
@@ -1784,6 +1858,7 @@
    }
   },
   {
+   "beeld_id": "F2-05",
    "beeld": "Ruimtes en mensen op de specificatie (conceptplaat)",
    "fase": 2,
    "stap": "Haalbaarheid bepalen en aanbod plannen",
@@ -1798,6 +1873,7 @@
    "zin": "Conceptplaat: planning plot ruimtes en mensen op de specificatie; de leeromgeving uit het ontwerp is een lokaaltype, het docentprofiel een medewerkertype, en beide zijn schaars in het aanbodmodel van het jaarplan."
   },
   {
+   "beeld_id": "F2-05",
    "beeld": "Ruimtes en mensen op de specificatie (conceptplaat)",
    "fase": 2,
    "stap": "Haalbaarheid bepalen en aanbod plannen",
@@ -1816,6 +1892,7 @@
    }
   },
   {
+   "beeld_id": "F2-05",
    "beeld": "Ruimtes en mensen op de specificatie (conceptplaat)",
    "fase": 2,
    "stap": "Haalbaarheid bepalen en aanbod plannen",
@@ -1834,6 +1911,7 @@
    }
   },
   {
+   "beeld_id": "F2-05",
    "beeld": "Ruimtes en mensen op de specificatie (conceptplaat)",
    "fase": 2,
    "stap": "Haalbaarheid bepalen en aanbod plannen",
@@ -1852,6 +1930,7 @@
    }
   },
   {
+   "beeld_id": "F2-05",
    "beeld": "Ruimtes en mensen op de specificatie (conceptplaat)",
    "fase": 2,
    "stap": "Haalbaarheid bepalen en aanbod plannen",
@@ -1870,6 +1949,7 @@
    }
   },
   {
+   "beeld_id": "F2-06",
    "beeld": "Examenplanning uit de resultaatstructuur (conceptplaat)",
    "fase": 2,
    "stap": "Haalbaarheid bepalen en aanbod plannen",
@@ -1884,6 +1964,7 @@
    "zin": "Conceptplaat: de examenplanning volgt uit de resultaatstructuur (het examen is er functioneel aan gekoppeld) en het examenplan zegt wanneer; op de informatiemodelplaat blijft het examenplan buiten de uitwisseling (ontwerpkeuze 10)."
   },
   {
+   "beeld_id": "F2-06",
    "beeld": "Examenplanning uit de resultaatstructuur (conceptplaat)",
    "fase": 2,
    "stap": "Haalbaarheid bepalen en aanbod plannen",
@@ -1902,6 +1983,7 @@
    }
   },
   {
+   "beeld_id": "F2-06",
    "beeld": "Examenplanning uit de resultaatstructuur (conceptplaat)",
    "fase": 2,
    "stap": "Haalbaarheid bepalen en aanbod plannen",
@@ -1922,6 +2004,7 @@
    }
   },
   {
+   "beeld_id": "F2-06",
    "beeld": "Examenplanning uit de resultaatstructuur (conceptplaat)",
    "fase": 2,
    "stap": "Haalbaarheid bepalen en aanbod plannen",
@@ -1941,6 +2024,7 @@
    }
   },
   {
+   "beeld_id": "F2-06",
    "beeld": "Examenplanning uit de resultaatstructuur (conceptplaat)",
    "fase": 2,
    "stap": "Haalbaarheid bepalen en aanbod plannen",
@@ -1977,6 +2061,7 @@
    "vraag": "Voor de examenplanning is naast de resultaatstructuur (wat en hoe zwaar) ook het moment nodig. Komt dat uit het examenplan, dat buiten de uitwisseling blijft, of uit de plek van het examenonderdeel in de specificatie?"
   },
   {
+   "beeld_id": "F2-07",
    "beeld": "Het geplande aanbod terug naar de catalogus",
    "fase": 2,
    "stap": "Gepland aanbod terugleveren aan de onderwijscatalogus",
@@ -1992,6 +2077,7 @@
    "vraag": "Op de plaat verwijst aanbod niet naar de specificatie waarop het is gemaakt, alleen via het verzoek (Leidt tot). Hoe weet de catalogus bij welke specificatie het teruggeleverde aanbod hoort?"
   },
   {
+   "beeld_id": "F2-07",
    "beeld": "Het geplande aanbod terug naar de catalogus",
    "fase": 2,
    "stap": "Gepland aanbod terugleveren aan de onderwijscatalogus",
@@ -2020,6 +2106,7 @@
    ]
   },
   {
+   "beeld_id": "F2-07",
    "beeld": "Het geplande aanbod terug naar de catalogus",
    "fase": 2,
    "stap": "Gepland aanbod terugleveren aan de onderwijscatalogus",
@@ -2039,6 +2126,7 @@
    }
   },
   {
+   "beeld_id": "F2-07",
    "beeld": "Het geplande aanbod terug naar de catalogus",
    "fase": 2,
    "stap": "Gepland aanbod terugleveren aan de onderwijscatalogus",
@@ -2058,6 +2146,7 @@
    }
   },
   {
+   "beeld_id": "F2-07",
    "beeld": "Het geplande aanbod terug naar de catalogus",
    "fase": 2,
    "stap": "Gepland aanbod terugleveren aan de onderwijscatalogus",
@@ -2077,6 +2166,7 @@
    }
   },
   {
+   "beeld_id": "F3-01",
    "beeld": "Aanmeldbaar aanbod naar de kernregistratie",
    "fase": 3,
    "stap": "Orienteren op het gepubliceerde aanbod",
@@ -2091,6 +2181,7 @@
    "zin": "De catalogus ontsluit het aanmeld- en inschrijfbare aanbod aan de kernregistratie."
   },
   {
+   "beeld_id": "F3-02",
    "beeld": "Aanmeldbaar aanbod van de kernregistratie naar AII",
    "fase": 3,
    "stap": "Orienteren op het gepubliceerde aanbod",
@@ -2107,6 +2198,7 @@
    "vraag": "Hoofdplaat v1.7 kent CAMBO als component en laat de catalogus het aanmeldbare aanbod rechtstreeks ontsluiten. Wordt dat AII, en loopt het via de kernregistratie?"
   },
   {
+   "beeld_id": "F3-03",
    "beeld": "Jochem meldt zich aan: aanmelding en verbintenissen",
    "fase": 3,
    "stap": "Aanmelden via het intakesysteem",
@@ -2118,6 +2210,7 @@
    "zin": "Jochem meldt zich via AII aan; de aanmelding is zijn verbintenis op de opleiding en, omdat hij BOL kiest, op het programma: aangemeld, nog niet ingeschreven."
   },
   {
+   "beeld_id": "F3-03",
    "beeld": "Jochem meldt zich aan: aanmelding en verbintenissen",
    "fase": 3,
    "stap": "Aanmelden via het intakesysteem",
@@ -2134,6 +2227,7 @@
    }
   },
   {
+   "beeld_id": "F3-03",
    "beeld": "Jochem meldt zich aan: aanmelding en verbintenissen",
    "fase": 3,
    "stap": "Aanmelden via het intakesysteem",
@@ -2158,6 +2252,7 @@
    ]
   },
   {
+   "beeld_id": "F3-03",
    "beeld": "Jochem meldt zich aan: aanmelding en verbintenissen",
    "fase": 3,
    "stap": "Aanmelden via het intakesysteem",
@@ -2182,6 +2277,7 @@
    ]
   },
   {
+   "beeld_id": "F3-04",
    "beeld": "Aanmelding met persoon en verbintenissen naar de kernregistratie",
    "fase": 3,
    "stap": "Aanmelden via het intakesysteem",
@@ -2197,6 +2293,7 @@
    "zin": "De aanmelding komt via AII bij de kernregistratie binnen: Jochem als persoon met zijn aanmelding en verbintenissen; KRS wordt master voor persoon en plaatsing."
   },
   {
+   "beeld_id": "F3-04",
    "beeld": "Aanmelding met persoon en verbintenissen naar de kernregistratie",
    "fase": 3,
    "stap": "Aanmelden via het intakesysteem",
@@ -2225,6 +2322,7 @@
    ]
   },
   {
+   "beeld_id": "F3-04",
    "beeld": "Aanmelding met persoon en verbintenissen naar de kernregistratie",
    "fase": 3,
    "stap": "Aanmelden via het intakesysteem",
@@ -2245,6 +2343,7 @@
    }
   },
   {
+   "beeld_id": "F3-04",
    "beeld": "Aanmelding met persoon en verbintenissen naar de kernregistratie",
    "fase": 3,
    "stap": "Aanmelden via het intakesysteem",
@@ -2265,6 +2364,7 @@
    }
   },
   {
+   "beeld_id": "F3-05",
    "beeld": "Intake: student, plaatsingsgroep en eerste keuzedeelvoorkeur",
    "fase": 3,
    "stap": "Intake doorlopen en plaatsen",
@@ -2281,6 +2381,7 @@
    "zin": "De SLB'er voert de intake uit, plaatst Jochem in een plaatsingsgroep en legt zijn eerste keuzedeelvoorkeuren voorlopig vast."
   },
   {
+   "beeld_id": "F3-05",
    "beeld": "Intake: student, plaatsingsgroep en eerste keuzedeelvoorkeur",
    "fase": 3,
    "stap": "Intake doorlopen en plaatsen",
@@ -2299,6 +2400,7 @@
    "vraag": "Welke groep bij de instelling is de bron van de plaatsingsgroep: stamgroep (KRS), planninggroep of lesgroep (meta #235)?"
   },
   {
+   "beeld_id": "F3-05",
    "beeld": "Intake: student, plaatsingsgroep en eerste keuzedeelvoorkeur",
    "fase": 3,
    "stap": "Intake doorlopen en plaatsen",
@@ -2326,6 +2428,7 @@
    ]
   },
   {
+   "beeld_id": "F3-06",
    "beeld": "Inschrijving: van aangemeld naar ingeschreven",
    "fase": 3,
    "stap": "Persoon en verbintenissen vastleggen in de kernregistratie",
@@ -2344,6 +2447,7 @@
    "vraag": "Is de inschrijving een eigen object naast de verbintenis, of een toestand van de aanmelding (ontwerpkeuze 13)?"
   },
   {
+   "beeld_id": "F3-06",
    "beeld": "Inschrijving: van aangemeld naar ingeschreven",
    "fase": 3,
    "stap": "Persoon en verbintenissen vastleggen in de kernregistratie",
@@ -2355,6 +2459,7 @@
    "bron": "leerroute-1-regulier.md, Fase 3: inschrijving op opleiding en programma"
   },
   {
+   "beeld_id": "F3-06",
    "beeld": "Inschrijving: van aangemeld naar ingeschreven",
    "fase": 3,
    "stap": "Persoon en verbintenissen vastleggen in de kernregistratie",
@@ -2372,6 +2477,7 @@
    }
   },
   {
+   "beeld_id": "F4-01",
    "beeld": "Het leeronderdeel fijnmazig: lessenreeks en les",
    "fase": 4,
    "stap": "Leeronderdeel- en toetsonderdeelspecificaties fijnmazig uitwerken",
@@ -2390,6 +2496,7 @@
    "toestand": "fijnmazig"
   },
   {
+   "beeld_id": "F4-01",
    "beeld": "Het leeronderdeel fijnmazig: lessenreeks en les",
    "fase": 4,
    "stap": "Leeronderdeel- en toetsonderdeelspecificaties fijnmazig uitwerken",
@@ -2414,6 +2521,7 @@
    ]
   },
   {
+   "beeld_id": "F4-02",
    "beeld": "Detailspecificaties naar het LMS",
    "fase": 4,
    "stap": "Detailspecificaties leveren aan het LMS",
@@ -2436,6 +2544,7 @@
    ]
   },
   {
+   "beeld_id": "F4-02",
    "beeld": "Detailspecificaties naar het LMS",
    "fase": 4,
    "stap": "Detailspecificaties leveren aan het LMS",
@@ -2463,6 +2572,7 @@
    ]
   },
   {
+   "beeld_id": "F4-03",
    "beeld": "Resultaatstructuur naar het studentvolgsysteem",
    "fase": 4,
    "stap": "Detailspecificaties leveren aan het LMS",
@@ -2485,6 +2595,7 @@
    ]
   },
   {
+   "beeld_id": "F4-03",
    "beeld": "Resultaatstructuur naar het studentvolgsysteem",
    "fase": 4,
    "stap": "Detailspecificaties leveren aan het LMS",
@@ -2512,6 +2623,7 @@
    ]
   },
   {
+   "beeld_id": "F4-03",
    "beeld": "Resultaatstructuur naar het studentvolgsysteem",
    "fase": 4,
    "stap": "Detailspecificaties leveren aan het LMS",
@@ -2530,6 +2642,7 @@
    }
   },
   {
+   "beeld_id": "F4-04",
    "beeld": "Resultaatstructuur naar de kernregistratie",
    "fase": 4,
    "stap": "Detailspecificaties leveren aan het LMS",
@@ -2553,6 +2666,7 @@
    "zin": "De kernregistratie krijgt de resultaatstructuur ook, voor de verantwoording van de studievoortgang aan RIO."
   },
   {
+   "beeld_id": "F4-04",
    "beeld": "Resultaatstructuur naar de kernregistratie",
    "fase": 4,
    "stap": "Detailspecificaties leveren aan het LMS",
@@ -2573,6 +2687,7 @@
    }
   },
   {
+   "beeld_id": "F4-04",
    "beeld": "Resultaatstructuur naar de kernregistratie",
    "fase": 4,
    "stap": "Detailspecificaties leveren aan het LMS",
@@ -2592,6 +2707,7 @@
    }
   },
   {
+   "beeld_id": "F4-05",
    "beeld": "Plaatsingsgroepen naar planning",
    "fase": 4,
    "stap": "Plaatsings- en planninggroepen definieren en aan personen koppelen",
@@ -2606,6 +2722,7 @@
    "zin": "De plaatsingsgroepen met hun studenten gaan van de kernregistratie naar planning."
   },
   {
+   "beeld_id": "F4-06",
    "beeld": "Te roosteren leergelegenheden naar het roostersysteem",
    "fase": 4,
    "stap": "Te roosteren specificaties aan het roostersysteem geven",
@@ -2628,6 +2745,7 @@
    ]
   },
   {
+   "beeld_id": "F4-07",
    "beeld": "Roosteren: lesgelegenheid, lokaal en docent",
    "fase": 4,
    "stap": "Leer-, les- en toetsgelegenheden roosteren",
@@ -2640,6 +2758,7 @@
    "zin": "De roosteraar roostert alleen periode 1: tijdslot, lokaal en docent; latere perioden blijven planbaar."
   },
   {
+   "beeld_id": "F4-07",
    "beeld": "Roosteren: lesgelegenheid, lokaal en docent",
    "fase": 4,
    "stap": "Leer-, les- en toetsgelegenheden roosteren",
@@ -2656,6 +2775,7 @@
    }
   },
   {
+   "beeld_id": "F4-07",
    "beeld": "Roosteren: lesgelegenheid, lokaal en docent",
    "fase": 4,
    "stap": "Leer-, les- en toetsgelegenheden roosteren",
@@ -2671,6 +2791,7 @@
    }
   },
   {
+   "beeld_id": "F4-08",
    "beeld": "Het rooster naar de kernregistratie",
    "fase": 4,
    "stap": "Leer-, les- en toetsgelegenheden roosteren",
@@ -2694,6 +2815,7 @@
    ]
   },
   {
+   "beeld_id": "F4-09",
    "beeld": "Jochems verbintenissen op de geroosterde gelegenheden",
    "fase": 4,
    "stap": "Verwachte deelnemers delen en toegang geven",
@@ -2710,6 +2832,7 @@
    "zin": "De SLB'er activeert Jochems verbintenissen op de geroosterde gelegenheden van periode 1."
   },
   {
+   "beeld_id": "F4-09",
    "beeld": "Jochems verbintenissen op de geroosterde gelegenheden",
    "fase": 4,
    "stap": "Verwachte deelnemers delen en toegang geven",
@@ -2725,6 +2848,7 @@
    }
   },
   {
+   "beeld_id": "F4-09",
    "beeld": "Jochems verbintenissen op de geroosterde gelegenheden",
    "fase": 4,
    "stap": "Verwachte deelnemers delen en toegang geven",
@@ -2740,6 +2864,7 @@
    }
   },
   {
+   "beeld_id": "F4-09",
    "beeld": "Jochems verbintenissen op de geroosterde gelegenheden",
    "fase": 4,
    "stap": "Verwachte deelnemers delen en toegang geven",
@@ -2754,6 +2879,7 @@
    "vraag": "Rijpt een verbintenis mee met het aanbod (planbaar naar geroosterd), of is de toestand van de verbintenis los van die van het aanbod (ontwerpkeuze 13)?"
   },
   {
+   "beeld_id": "F4-10",
    "beeld": "Student, verbintenissen en groep naar het LMS",
    "fase": 4,
    "stap": "Verwachte deelnemers delen en toegang geven",
@@ -2772,6 +2898,7 @@
    }
   },
   {
+   "beeld_id": "F4-10",
    "beeld": "Student, verbintenissen en groep naar het LMS",
    "fase": 4,
    "stap": "Verwachte deelnemers delen en toegang geven",
@@ -2794,6 +2921,7 @@
    ]
   },
   {
+   "beeld_id": "F4-10",
    "beeld": "Student, verbintenissen en groep naar het LMS",
    "fase": 4,
    "stap": "Verwachte deelnemers delen en toegang geven",
@@ -2812,6 +2940,7 @@
    }
   },
   {
+   "beeld_id": "F4-10",
    "beeld": "Student, verbintenissen en groep naar het LMS",
    "fase": 4,
    "stap": "Verwachte deelnemers delen en toegang geven",
@@ -2831,6 +2960,7 @@
    }
   },
   {
+   "beeld_id": "F4-10",
    "beeld": "Student, verbintenissen en groep naar het LMS",
    "fase": 4,
    "stap": "Verwachte deelnemers delen en toegang geven",
@@ -2850,6 +2980,7 @@
    }
   },
   {
+   "beeld_id": "F5-01",
    "beeld": "Les gevolgd: aanwezigheid en lesresultaat",
    "fase": 5,
    "stap": "Onderwijs verzorgen",
@@ -2862,6 +2993,7 @@
    "zin": "De docent verzorgt de les; Jochems aanwezigheid wordt geregistreerd en de les is voor hem afgerond."
   },
   {
+   "beeld_id": "F5-01",
    "beeld": "Les gevolgd: aanwezigheid en lesresultaat",
    "fase": 5,
    "stap": "Onderwijs verzorgen",
@@ -2878,6 +3010,7 @@
    "vraag": "Aanwezigheid hangt op de plaat aan een objecttype buiten scope; wisselt OKx aanwezigheid uit of blijft dat intern? Meta #234 punt 15."
   },
   {
+   "beeld_id": "F5-01",
    "beeld": "Les gevolgd: aanwezigheid en lesresultaat",
    "fase": 5,
    "stap": "Onderwijs verzorgen",
@@ -2893,6 +3026,7 @@
    }
   },
   {
+   "beeld_id": "F5-02",
    "beeld": "Toetsmoment gepland: verbintenis op de toetsgelegenheid",
    "fase": 5,
    "stap": "Toetsmomenten plannen tijdens lessen",
@@ -2909,6 +3043,7 @@
    "zin": "De docent plant het toetsmoment; Jochem krijgt een verbintenis op de toetsgelegenheid."
   },
   {
+   "beeld_id": "F5-03",
    "beeld": "Formatieve voortgang: structuur, resultaten en beoordeling",
    "fase": 5,
    "stap": "Formatieve voortgang bijhouden",
@@ -2929,6 +3064,7 @@
    ]
   },
   {
+   "beeld_id": "F5-03",
    "beeld": "Formatieve voortgang: structuur, resultaten en beoordeling",
    "fase": 5,
    "stap": "Formatieve voortgang bijhouden",
@@ -2946,6 +3082,7 @@
    }
   },
   {
+   "beeld_id": "F5-03",
    "beeld": "Formatieve voortgang: structuur, resultaten en beoordeling",
    "fase": 5,
    "stap": "Formatieve voortgang bijhouden",
@@ -2961,6 +3098,7 @@
    }
   },
   {
+   "beeld_id": "F5-03",
    "beeld": "Formatieve voortgang: structuur, resultaten en beoordeling",
    "fase": 5,
    "stap": "Formatieve voortgang bijhouden",
@@ -2977,6 +3115,7 @@
    }
   },
   {
+   "beeld_id": "F5-03",
    "beeld": "Formatieve voortgang: structuur, resultaten en beoordeling",
    "fase": 5,
    "stap": "Formatieve voortgang bijhouden",
@@ -2994,6 +3133,7 @@
    }
   },
   {
+   "beeld_id": "F5-03",
    "beeld": "Formatieve voortgang: structuur, resultaten en beoordeling",
    "fase": 5,
    "stap": "Formatieve voortgang bijhouden",
@@ -3011,6 +3151,7 @@
    "vraag": "Persoonlijke ontwikkeling en de formatieve structuur hebben geen definitie en geen bron in het kaderscenario; herkent de instelling ze, en wisselt OKx ze uit?"
   },
   {
+   "beeld_id": "F5-03",
    "beeld": "Formatieve voortgang: structuur, resultaten en beoordeling",
    "fase": 5,
    "stap": "Formatieve voortgang bijhouden",
@@ -3028,6 +3169,7 @@
    "zin": "De SLB'er volgt het studiebeeld: per leergelegenheid en per eenheid het resultaat op de verbintenis."
   },
   {
+   "beeld_id": "F5-04",
    "beeld": "Formatieve resultaten van het LMS naar het studentvolgsysteem",
    "fase": 5,
    "stap": "Formatieve voortgang bijhouden",
@@ -3056,6 +3198,7 @@
    ]
   },
   {
+   "beeld_id": "F5-04",
    "beeld": "Formatieve resultaten van het LMS naar het studentvolgsysteem",
    "fase": 5,
    "stap": "Formatieve voortgang bijhouden",
@@ -3074,6 +3217,7 @@
    }
   },
   {
+   "beeld_id": "F5-04",
    "beeld": "Formatieve resultaten van het LMS naar het studentvolgsysteem",
    "fase": 5,
    "stap": "Formatieve voortgang bijhouden",
@@ -3095,6 +3239,7 @@
    ]
   },
   {
+   "beeld_id": "F5-05",
    "beeld": "Studiebeeld: het resultaat per eenheid",
    "fase": 5,
    "stap": "Studiebeeld volgen in het studentvolgsysteem",
@@ -3111,6 +3256,7 @@
    "zin": "De SLB'er volgt het studiebeeld: het studentvolgsysteem telt de resultaten per eenheid op de verbintenis bij elkaar."
   },
   {
+   "beeld_id": "F6-01",
    "beeld": "Keuzedeelaanbod ontsloten",
    "fase": 6,
    "stap": "Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem",
@@ -3128,6 +3274,7 @@
    "zin": "De keuzedeelruimte nadert: het keuzedeelaanbod uit het jaarplan wordt met de keuzedeelspecificatie ontsloten naar het studentkeuzesysteem."
   },
   {
+   "beeld_id": "F6-02",
    "beeld": "Keuzedeelaanbod, specificatie en regels naar het studentkeuzesysteem",
    "fase": 6,
    "stap": "Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem",
@@ -3141,6 +3288,7 @@
    "bron": "leerroute-1-regulier.md, Fase 6: OC naar SKS"
   },
   {
+   "beeld_id": "F6-02",
    "beeld": "Keuzedeelaanbod, specificatie en regels naar het studentkeuzesysteem",
    "fase": 6,
    "stap": "Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem",
@@ -3159,6 +3307,7 @@
    }
   },
   {
+   "beeld_id": "F6-02",
    "beeld": "Keuzedeelaanbod, specificatie en regels naar het studentkeuzesysteem",
    "fase": 6,
    "stap": "Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem",
@@ -3185,6 +3334,7 @@
    ]
   },
   {
+   "beeld_id": "F6-03",
    "beeld": "Jochems voorkeur: verbintenis op het keuzedeelaanbod",
    "fase": 6,
    "stap": "Voorkeurslijst samenstellen in het studentkeuzesysteem",
@@ -3202,6 +3352,7 @@
    "vraag": "Kiest een student zijn keuzedeel op de specificatie of op gepland aanbod, en levert het studentkeuzesysteem dus een specificatie-id of een aanbod-id (ontwerpkeuzes 6 en 13, geparkeerd op 15 september)?"
   },
   {
+   "beeld_id": "F6-04",
    "beeld": "Keuzestelling naar planning",
    "fase": 6,
    "stap": "Voorkeurslijst samenstellen in het studentkeuzesysteem",
@@ -3224,6 +3375,7 @@
    ]
   },
   {
+   "beeld_id": "F6-05",
    "beeld": "Definitieve keuzes verwerkt naar groepen en capaciteit",
    "fase": 6,
    "stap": "Definitieve keuzes verwerken naar groepen en capaciteit",
@@ -3236,6 +3388,7 @@
    "zin": "De planner verwerkt de definitieve keuzes periodiek naar groepen en capaciteit."
   },
   {
+   "beeld_id": "F6-06",
    "beeld": "Geactualiseerd keuzedeelaanbod terug naar de catalogus",
    "fase": 6,
    "stap": "Planbaar aanbod actualiseren",
@@ -3258,6 +3411,7 @@
    ]
   },
   {
+   "beeld_id": "F6-07",
    "beeld": "Formele inschrijving op het keuzedeel",
    "fase": 6,
    "stap": "Keuzedeel formeel inschrijven",
@@ -3270,6 +3424,7 @@
    "zin": "Past het aanbod, dan wordt de keuze een formele inschrijving op het keuzedeel; KRS, SVS, LMS en rooster volgen."
   },
   {
+   "beeld_id": "F6-08",
    "beeld": "Keuzedeelverbintenis naar de kernregistratie",
    "fase": 6,
    "stap": "Keuzedeel formeel inschrijven",
@@ -3297,6 +3452,7 @@
    ]
   },
   {
+   "beeld_id": "F7-01",
    "beeld": "Afwijkingen verzameld in een planninggroep",
    "fase": 7,
    "stap": "Afwijkingen verzamelen in een planninggroep",
@@ -3311,6 +3467,7 @@
    "vraag": "De planninggroep uit fase 7 en de plaatsingsgroep uit fase 3 zijn op de plaat een objecttype (Plaatsingsgroep); zijn dat bij de instelling dezelfde groep (meta #235)?"
   },
   {
+   "beeld_id": "F7-02",
    "beeld": "Bestaande verbintenis geannuleerd",
    "fase": 7,
    "stap": "Bestaande verbintenissen annuleren",
@@ -3323,6 +3480,7 @@
    "zin": "De bestaande verbintenis op het oude aanbod wordt via KRS geannuleerd; een nieuwe volgt op het bijgestuurde aanbod."
   },
   {
+   "beeld_id": "F7-03",
    "beeld": "Planninggroep van de kernregistratie naar planning",
    "fase": 7,
    "stap": "Bestaande verbintenissen annuleren",
@@ -3345,6 +3503,7 @@
    ]
   },
   {
+   "beeld_id": "F7-04",
    "beeld": "Nieuw aanbod voor de planninggroep",
    "fase": 7,
    "stap": "Nieuw aanbod maken en publiceren",
@@ -3357,6 +3516,7 @@
    "zin": "Nieuw aanbod voor de planninggroep op dezelfde specificatie; planning publiceert het naar de catalogus en het rooster volgt."
   },
   {
+   "beeld_id": "F7-05",
    "beeld": "Bijgestuurd aanbod naar de catalogus",
    "fase": 7,
    "stap": "Nieuw aanbod maken en publiceren",
@@ -3378,6 +3538,7 @@
    ]
   },
   {
+   "beeld_id": "F7-06",
    "beeld": "Nieuwe leergelegenheden naar het roostersysteem",
    "fase": 7,
    "stap": "Nieuw aanbod maken en publiceren",
@@ -3399,6 +3560,7 @@
    ]
   },
   {
+   "beeld_id": "F8-01",
    "beeld": "Examengelegenheid uit de examenspecificatie",
    "fase": 8,
    "stap": "Examenspecificaties omzetten in examengelegenheden",
@@ -3416,6 +3578,7 @@
    "zin": "Op basis van het examenplan uit fase 1 worden de examenonderdelen omgezet in examengelegenheden."
   },
   {
+   "beeld_id": "F8-02",
    "beeld": "Kandidatenlijst: verbintenis op de examengelegenheid",
    "fase": 8,
    "stap": "Kandidatenlijsten samenstellen",
@@ -3432,6 +3595,7 @@
    "zin": "De kandidatenlijst: Jochems verbintenis op de examengelegenheid."
   },
   {
+   "beeld_id": "F8-03",
    "beeld": "Zitting: het examenresultaat",
    "fase": 8,
    "stap": "Zitting uitvoeren en resultaten doorgeven",
@@ -3448,6 +3612,7 @@
    "zin": "De examinator voert de zitting uit; het resultaat gaat naar het studentvolgsysteem."
   },
   {
+   "beeld_id": "F8-04",
    "beeld": "Examenresultaat naar het studentvolgsysteem",
    "fase": 8,
    "stap": "Zitting uitvoeren en resultaten doorgeven",
@@ -3475,6 +3640,7 @@
    ]
   },
   {
+   "beeld_id": "F8-05",
    "beeld": "Summatief vastgesteld: resultaten en beoordeling",
    "fase": 8,
    "stap": "Summatief vaststellen",
@@ -3491,6 +3657,7 @@
    "zin": "De examencommissie stelt het summatieve resultaat vast, conform de resultaatstructuur uit fase 1."
   },
   {
+   "beeld_id": "F8-05",
    "beeld": "Summatief vastgesteld: resultaten en beoordeling",
    "fase": 8,
    "stap": "Summatief vaststellen",
@@ -3508,6 +3675,7 @@
    }
   },
   {
+   "beeld_id": "F8-05",
    "beeld": "Summatief vastgesteld: resultaten en beoordeling",
    "fase": 8,
    "stap": "Summatief vaststellen",
@@ -3523,6 +3691,7 @@
    }
   },
   {
+   "beeld_id": "F8-05",
    "beeld": "Summatief vastgesteld: resultaten en beoordeling",
    "fase": 8,
    "stap": "Summatief vaststellen",
@@ -3538,6 +3707,7 @@
    }
   },
   {
+   "beeld_id": "F8-06",
    "beeld": "Vaststelling naar de kernregistratie",
    "fase": 8,
    "stap": "Summatief vaststellen",
@@ -3560,6 +3730,7 @@
    ]
   },
   {
+   "beeld_id": "F8-06",
    "beeld": "Vaststelling naar de kernregistratie",
    "fase": 8,
    "stap": "Summatief vaststellen",
@@ -3582,6 +3753,7 @@
    ]
   },
   {
+   "beeld_id": "F8-06",
    "beeld": "Vaststelling naar de kernregistratie",
    "fase": 8,
    "stap": "Summatief vaststellen",
@@ -3600,6 +3772,7 @@
    }
   },
   {
+   "beeld_id": "F8-07",
    "beeld": "Gediplomeerd: opleidingsresultaat en diploma",
    "fase": 8,
    "stap": "Kwalificering en diplomering registreren",
@@ -3616,6 +3789,7 @@
    "zin": "Aan het afrondingscriterium is voldaan; de kernregistratie registreert de kwalificering en het diploma."
   },
   {
+   "beeld_id": "F8-07",
    "beeld": "Gediplomeerd: opleidingsresultaat en diploma",
    "fase": 8,
    "stap": "Kwalificering en diplomering registreren",
