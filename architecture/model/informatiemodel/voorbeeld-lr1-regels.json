@@ -370,7 +370,7 @@
    "instantie": "Examenplan Apothekersassistent, cohort 2026",
    "bron": "leerroute-1-regulier.md, Fase 1: een initieel examenplan; Fase 8: op basis van het examenplan uit fase 1",
    "aanname": true,
-   "zin": "Op basis van het kwalificatiedossier stelt de examencommissie het examenplan vast: wat wordt geexamineerd en wanneer de opleiding is afgerond; buiten de uitwisseling, wel de oorsprong van de resultaatstructuur.",
+   "zin": "Op basis van het kwalificatiedossier stelt de examencommissie het examenplan vast: wat wordt geexamineerd en wanneer de opleiding is afgerond; buiten de uitwisseling, wel de oorsprong van de resultaatstructuur. In dezelfde stap ligt de eerste opzet van de keuzeregelset vast: hoeveel keuzedeel de student moet doen en van welk type.",
    "vraag": "Het kaderscenario zet het examenplan in fase 1 en de resultaatstructuur pas in fase 4 bij OC-SIS. Ontstaat de summatieve resultaatstructuur in de curriculum-ontwerptool uit het examenplan, en gaat zij met de specificatie mee naar de catalogus?"
   },
   {
@@ -390,7 +390,7 @@
     "naar": "Summatieve resultaat structuur",
     "label": "kent"
    },
-   "zin": "Het examenplan bestaat uit een eerste summatieve resultaatstructuur: welke onderdelen tellen en wanneer de opleiding is afgerond. Daaraan hangt het cohort: de studenten voor wie deze structuur geldt."
+   "zin": "Het examenplan bestaat uit een eerste summatieve resultaatstructuur: welke onderdelen tellen en wanneer de opleiding is afgerond. Daaraan hangt het cohort, dat vastlegt welke structuur voor welke lichting studenten geldt."
   },
   {
    "beeld_id": "F1-02",
@@ -409,6 +409,18 @@
     "label": "Groepeert Studenten op toepasbare"
    },
    "vraag": "Is het cohort een sleutel op aanbod en verbintenis, of een eigen object dat de toepasselijke resultaatstructuur draagt (ontwerpkeuze 17)?"
+  },
+  {
+   "beeld_id": "F1-02",
+   "beeld": "Examenplan, eerste resultaatstructuur en cohort",
+   "fase": 1,
+   "stap": "Examenplan vaststellen",
+   "soort": "ontstaat",
+   "wie": "examencommissie",
+   "objecttype": "Student keuze regelset",
+   "instantie": "720 SBU: twee keuzedelen van 360 SBU, een verdiepend en een verbredend",
+   "aanname": true,
+   "bron": "leerroute-1-regulier.md, r52 (720 SBU keuzedelen verplicht voor niveau 4); de verdeling in twee keuzedelen van 360 SBU met een verdiepend en een verbredend deel is een keuze van het voorbeeld"
   },
   {
    "beeld_id": "F1-03",
@@ -1019,16 +1031,17 @@
    "beeld": "De opleidingsspecificatie met programma, eenheden en keuzedeelruimte",
    "fase": 1,
    "stap": "Opleidingsspecificatie met programma en eenheden beschrijven",
-   "soort": "ontstaat",
+   "soort": "verandert",
    "wie": "onderwijsontwerper",
    "objecttype": "Student keuze regelset",
-   "instantie": "Kiesbare keuzedelen voor Apothekersassistent",
-   "bron": "voorbeeldpayloads.md, regelsets[0] (e4037953)",
+   "instantie": "Kiesbare keuzedelen voor Apothekersassistent: verdiepend of verbredend, elk 360 SBU",
+   "bron": "voorbeeldpayloads.md, regelsets[0] (e4037953); de eerste opzet staat bij het examenplan (F1-02)",
    "relatie": {
     "soort": "Association",
     "van": "Keuzedeelruimte",
     "naar": "Student keuze regelset"
-   }
+   },
+   "toestand": "uitgewerkt"
   },
   {
    "beeld_id": "F1-08",
