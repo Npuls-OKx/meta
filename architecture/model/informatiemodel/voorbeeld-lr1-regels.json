@@ -1765,7 +1765,7 @@
    "objecttype": "Verzoek tot Aanbod / Intekening op specificatie",
    "instantie": "Planopgave Apothekersassistent, cohort 2026",
    "bron": "leerroute-1-regulier.md, Fase 2: OC verzoekt het Planningssysteem",
-   "zin": "Het verzoek gaat met de hele specificatiestructuur naar planning, met per eenheid de planbare waarden uit het onderwijsontwerp (paars): onderwijsvorm, leeromgeving, docentprofiel en studiebelasting, waarop planning ruimtes en mensen plot."
+   "zin": "Het verzoek gaat met de hele specificatiestructuur naar planning: de opleiding met haar programma, de eenheden en hun leeronderdelen, elk met de leeruitkomst waarnaar zij verwijzen, en per eenheid de planbare waarden uit het onderwijsontwerp (paars): onderwijsvorm, leeromgeving, docentprofiel en studiebelasting."
   },
   {
    "beeld_id": "F2-03",
@@ -1846,7 +1846,7 @@
    "pijl": "id-1d27ecfa2c0d4fb7b4f7337e93eed033",
    "koppeling": "OC-P&R",
    "objecttype": "Leeronderdeel specificatie",
-   "instantie": "B1-K1-W1",
+   "instantie": "B1-K1-W1 Baliegesprek en triage",
    "bron": "leerroute-1-regulier.md, Fase 2",
    "relatie": {
     "soort": "Aggregation",
@@ -1873,11 +1873,23 @@
    "naar": "Planningssysteem",
    "pijl": "id-1d27ecfa2c0d4fb7b4f7337e93eed033",
    "koppeling": "OC-P&R",
-   "plaat": "onderwijsontwerp",
-   "aanname": true,
-   "objecttype": "Onderwijseenheid / Opleidingsonderdeel",
-   "instantie": "Blok B1-K1 (onderwijsontwerp)",
-   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Onderwijsplan bevat Onderwijseenheid / Opleidingsonderdeel; leerroute-1-regulier.md, r749 (SBU/BOT/OOT, expertise, toetsvorm aangevuld: planbaar)"
+   "objecttype": "Leeronderdeel specificatie",
+   "instantie": "B1-K1-W2 Medicatiebewaking",
+   "bron": "leerroute-1-regulier.md, Fase 2; leerroute-1-regulier.md, r1051 (leeronderdeel B1-K1-W2)",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Onderwijseenheid specificatie",
+    "naar": "Leeronderdeel specificatie",
+    "nesting": true
+   },
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Leeronderdeel specificatie",
+     "naar": "Leeruitkomst",
+     "instantie": "Voert medicatiebewaking uit onder begeleiding in de leerapotheek (werkprocesniveau)"
+    }
+   ]
   },
   {
    "beeld_id": "F2-03",
@@ -1894,12 +1906,6 @@
    "objecttype": "Onderwijsvorm specificatie",
    "instantie": "Simulatie in de leerapotheek, theorie ondersteunend",
    "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat)",
-   "relatie": {
-    "soort": "Aggregation",
-    "van": "Onderwijseenheid / Opleidingsonderdeel",
-    "naar": "Onderwijsvorm specificatie",
-    "nesting": true
-   },
    "relaties": [
     {
      "soort": "Association",
@@ -1925,18 +1931,10 @@
    "instantie": "Balie-simulatie in het skillslab",
    "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat)",
    "relatie": {
-    "soort": "Aggregation",
-    "van": "Onderwijseenheid / Opleidingsonderdeel",
-    "naar": "Gewenste Onderwijskundige Leeromgeving",
-    "nesting": true
-   },
-   "relaties": [
-    {
-     "soort": "Association",
-     "van": "Onderwijsvorm specificatie",
-     "naar": "Gewenste Onderwijskundige Leeromgeving"
-    }
-   ]
+    "soort": "Association",
+    "van": "Onderwijsvorm specificatie",
+    "naar": "Gewenste Onderwijskundige Leeromgeving"
+   }
   },
   {
    "beeld_id": "F2-03",
@@ -1953,12 +1951,6 @@
    "objecttype": "Gewenst medewerker competentieprofiel",
    "instantie": "Apothekersassistent-docent met baliepraktijk",
    "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat)",
-   "relatie": {
-    "soort": "Aggregation",
-    "van": "Onderwijseenheid / Opleidingsonderdeel",
-    "naar": "Gewenst medewerker competentieprofiel",
-    "nesting": true
-   },
    "relaties": [
     {
      "soort": "Association",
@@ -1982,12 +1974,6 @@
    "objecttype": "Studiebelasting en begeleide onderwijstijd indicatie",
    "instantie": "BOT 50 / OOT 50 SBU",
    "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat)",
-   "relatie": {
-    "soort": "Aggregation",
-    "van": "Onderwijseenheid / Opleidingsonderdeel",
-    "naar": "Studiebelasting en begeleide onderwijstijd indicatie",
-    "nesting": true
-   },
    "relaties": [
     {
      "soort": "Association",
