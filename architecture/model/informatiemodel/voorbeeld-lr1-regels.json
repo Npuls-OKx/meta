@@ -569,7 +569,7 @@
   },
   {
    "beeld_id": "F1-05",
-   "beeld": "De gelinkte leeruitkomst en het onderwijsontwerp van de eenheid (conceptplaat)",
+   "beeld": "De eenheidspecificatie met haar leeronderdelen en de gelinkte leeruitkomsten",
    "fase": 1,
    "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
    "verdieping": "van kerntaak naar eenheid en leeronderdelen",
@@ -578,20 +578,12 @@
    "objecttype": "Leeruitkomst",
    "instantie": "Biedt farmaceutische patiëntenzorg in een levensechte apotheekomgeving (kerntaakniveau)",
    "toestand": "onderwijskundig vertaald",
-   "bron": "informatiemodel.json: Onderwijseenheid specificatie naar Leeruitkomst (associatie); leerroute-1-regulier.md, r621 (dezelfde leeruitkomst kan over meerdere onderdelen verdeeld zijn) en r1021",
-   "relaties": [
-    {
-     "soort": "Association",
-     "van": "Onderwijseenheid specificatie",
-     "naar": "Leeruitkomst",
-     "instantie": "Blok B1-K1 Biedt farmaceutische patiëntenzorg"
-    }
-   ],
-   "zin": "Verdieping: de leeruitkomst zit niet in de eenheid, zij hangt ernaast: de onderwijseenheidspecificatie verwijst ernaar, en de eenheid deelt zich op in leeronderdelen op werkprocesniveau die elk naar hun eigen leeruitkomst verwijzen. Daaromheen legt de instelling haar onderwijsontwerp vast."
+   "bron": "informatiemodel.json: Onderwijseenheid specificatie naar Leeruitkomst (associatie); leerroute-1-regulier.md, r621 en r1021",
+   "zin": "Verdieping: de leeruitkomst zit niet in de eenheid, zij staat ernaast. De onderwijseenheidspecificatie verwijst ernaar, en zij deelt zich op in leeronderdeelspecificaties op werkprocesniveau die elk naar hun eigen leeruitkomst verwijzen. De conceptplaat legt daar het onderwijsontwerp omheen. De specificaties zelf komen in het volgende beeld in de opleidingsstructuur te staan."
   },
   {
    "beeld_id": "F1-05",
-   "beeld": "De gelinkte leeruitkomst en het onderwijsontwerp van de eenheid (conceptplaat)",
+   "beeld": "De eenheidspecificatie met haar leeronderdelen en de gelinkte leeruitkomsten",
    "fase": 1,
    "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
    "verdieping": "van kerntaak naar eenheid en leeronderdelen",
@@ -600,11 +592,48 @@
    "objecttype": "Leeruitkomst",
    "instantie": "Voert baliegesprek en triage uit in de simulatieapotheek, onderbouwd met theorie (werkprocesniveau)",
    "toestand": "onderwijskundig vertaald",
-   "bron": "informatiemodel.json: Onderwijseenheid specificatie aggregeert Leeronderdeel specificatie, Leeronderdeel specificatie naar Leeruitkomst (associatie); leerroute-1-regulier.md, r1021 en r1044 (leeronderdeelspecificatie op de rij Werkproces)",
+   "bron": "informatiemodel.json: Leeruitkomst aggregeert Leeruitkomst; leerroute-1-regulier.md, r620 en r1092",
    "relatie": {
     "soort": "Aggregation",
     "van": "Leeruitkomst",
     "naar": "Leeruitkomst",
+    "nesting": true
+   }
+  },
+  {
+   "beeld_id": "F1-05",
+   "beeld": "De eenheidspecificatie met haar leeronderdelen en de gelinkte leeruitkomsten",
+   "fase": 1,
+   "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
+   "verdieping": "van kerntaak naar eenheid en leeronderdelen",
+   "wie": "onderwijsontwerper",
+   "soort": "verandert",
+   "objecttype": "Onderwijseenheid specificatie",
+   "instantie": "Blok B1-K1 Biedt farmaceutische patiëntenzorg",
+   "toestand": "onderwijskundig vertaald",
+   "bron": "informatiemodel.json: Onderwijseenheid specificatie naar Leeruitkomst (associatie); leerroute-1-regulier.md, r576 en r1021 (onderwijseenheden corresponderen met kerntaken)",
+   "relatie": {
+    "soort": "Association",
+    "van": "Onderwijseenheid specificatie",
+    "naar": "Leeruitkomst"
+   }
+  },
+  {
+   "beeld_id": "F1-05",
+   "beeld": "De eenheidspecificatie met haar leeronderdelen en de gelinkte leeruitkomsten",
+   "fase": 1,
+   "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
+   "verdieping": "van kerntaak naar eenheid en leeronderdelen",
+   "wie": "onderwijsontwerper",
+   "soort": "verandert",
+   "objecttype": "Leeronderdeel specificatie",
+   "instantie": "B1-K1-W1 Baliegesprek en triage",
+   "toestand": "onderwijskundig vertaald",
+   "bron": "informatiemodel.json: Onderwijseenheid specificatie aggregeert Leeronderdeel specificatie; leerroute-1-regulier.md, r625, r1021 en r1044 (leeronderdeelspecificatie op de rij Werkproces)",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Onderwijseenheid specificatie",
+    "naar": "Leeronderdeel specificatie",
     "nesting": true
    },
    "relaties": [
@@ -612,13 +641,40 @@
      "soort": "Association",
      "van": "Leeronderdeel specificatie",
      "naar": "Leeruitkomst",
-     "instantie": "B1-K1-W1 Baliegesprek en triage"
+     "instantie": "Voert baliegesprek en triage uit in de simulatieapotheek, onderbouwd met theorie (werkprocesniveau)"
     }
    ]
   },
   {
    "beeld_id": "F1-05",
-   "beeld": "De gelinkte leeruitkomst en het onderwijsontwerp van de eenheid (conceptplaat)",
+   "beeld": "De eenheidspecificatie met haar leeronderdelen en de gelinkte leeruitkomsten",
+   "fase": 1,
+   "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
+   "verdieping": "van kerntaak naar eenheid en leeronderdelen",
+   "wie": "onderwijsontwerper",
+   "soort": "verandert",
+   "objecttype": "Leeronderdeel specificatie",
+   "instantie": "B1-K1-W2 Voert medicatiebewaking uit",
+   "toestand": "onderwijskundig vertaald",
+   "bron": "informatiemodel.json: Onderwijseenheid specificatie aggregeert Leeronderdeel specificatie; leerroute-1-regulier.md, r1051 (leeronderdeel B1-K1-W2)",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Onderwijseenheid specificatie",
+    "naar": "Leeronderdeel specificatie",
+    "nesting": true
+   },
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Leeronderdeel specificatie",
+     "naar": "Leeruitkomst",
+     "instantie": "Voert medicatiebewaking uit (werkprocesniveau)"
+    }
+   ]
+  },
+  {
+   "beeld_id": "F1-05",
+   "beeld": "De eenheidspecificatie met haar leeronderdelen en de gelinkte leeruitkomsten",
    "fase": 1,
    "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
    "verdieping": "van kerntaak naar eenheid en leeronderdelen",
@@ -628,30 +684,11 @@
    "soort": "ontstaat",
    "objecttype": "Leervormstrategie",
    "instantie": "Leren door te doen in een levensechte omgeving, theorie ondersteunend",
-   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Strategisch kader instelling, Leervormstrategie naar Onderwijsvorm specificatie",
-   "relatie": {
-    "soort": "Association",
-    "van": "Leervormstrategie",
-    "naar": "Onderwijsvorm specificatie"
-   }
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Strategisch kader instelling, Leervormstrategie naar Onderwijsvorm specificatie"
   },
   {
    "beeld_id": "F1-05",
-   "beeld": "De gelinkte leeruitkomst en het onderwijsontwerp van de eenheid (conceptplaat)",
-   "fase": 1,
-   "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
-   "verdieping": "van kerntaak naar eenheid en leeronderdelen",
-   "plaat": "onderwijsontwerp",
-   "wie": "onderwijsontwerper",
-   "aanname": true,
-   "soort": "ontstaat",
-   "objecttype": "Onderwijseenheid / Opleidingsonderdeel",
-   "instantie": "Blok B1-K1 Biedt farmaceutische patiëntenzorg",
-   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Onderwijsplan bevat Onderwijseenheid / Opleidingsonderdeel"
-  },
-  {
-   "beeld_id": "F1-05",
-   "beeld": "De gelinkte leeruitkomst en het onderwijsontwerp van de eenheid (conceptplaat)",
+   "beeld": "De eenheidspecificatie met haar leeronderdelen en de gelinkte leeruitkomsten",
    "fase": 1,
    "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
    "verdieping": "van kerntaak naar eenheid en leeronderdelen",
@@ -662,12 +699,6 @@
    "objecttype": "Leerdoel",
    "instantie": "Zelfstandig farmaceutische patiëntenzorg bieden in een levensechte setting",
    "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Kerntaak 'Word onderwijskundig vertaald tot' Leerdoel; leerroute-1-regulier.md, r1046 en r1052",
-   "relatie": {
-    "soort": "Aggregation",
-    "van": "Onderwijseenheid / Opleidingsonderdeel",
-    "naar": "Leerdoel",
-    "nesting": true
-   },
    "relaties": [
     {
      "soort": "Association",
@@ -687,7 +718,7 @@
   },
   {
    "beeld_id": "F1-05",
-   "beeld": "De gelinkte leeruitkomst en het onderwijsontwerp van de eenheid (conceptplaat)",
+   "beeld": "De eenheidspecificatie met haar leeronderdelen en de gelinkte leeruitkomsten",
    "fase": 1,
    "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
    "verdieping": "van kerntaak naar eenheid en leeronderdelen",
@@ -698,12 +729,6 @@
    "objecttype": "Onderwijsvorm specificatie",
    "instantie": "Simulatie in de leerapotheek, theorie ondersteunend",
    "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Leeruitkomst naar Onderwijsvorm specificatie; leerroute-1-regulier.md, r1046 en r1052",
-   "relatie": {
-    "soort": "Aggregation",
-    "van": "Onderwijseenheid / Opleidingsonderdeel",
-    "naar": "Onderwijsvorm specificatie",
-    "nesting": true
-   },
    "relaties": [
     {
      "soort": "Association",
@@ -715,7 +740,7 @@
   },
   {
    "beeld_id": "F1-05",
-   "beeld": "De gelinkte leeruitkomst en het onderwijsontwerp van de eenheid (conceptplaat)",
+   "beeld": "De eenheidspecificatie met haar leeronderdelen en de gelinkte leeruitkomsten",
    "fase": 1,
    "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
    "verdieping": "van kerntaak naar eenheid en leeronderdelen",
@@ -727,22 +752,14 @@
    "instantie": "Balie-simulatie in het skillslab",
    "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Onderwijsvorm specificatie naar Gewenste Onderwijskundige Leeromgeving; leerroute-1-regulier.md, r1048",
    "relatie": {
-    "soort": "Aggregation",
-    "van": "Onderwijseenheid / Opleidingsonderdeel",
-    "naar": "Gewenste Onderwijskundige Leeromgeving",
-    "nesting": true
-   },
-   "relaties": [
-    {
-     "soort": "Association",
-     "van": "Onderwijsvorm specificatie",
-     "naar": "Gewenste Onderwijskundige Leeromgeving"
-    }
-   ]
+    "soort": "Association",
+    "van": "Onderwijsvorm specificatie",
+    "naar": "Gewenste Onderwijskundige Leeromgeving"
+   }
   },
   {
    "beeld_id": "F1-05",
-   "beeld": "De gelinkte leeruitkomst en het onderwijsontwerp van de eenheid (conceptplaat)",
+   "beeld": "De eenheidspecificatie met haar leeronderdelen en de gelinkte leeruitkomsten",
    "fase": 1,
    "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
    "verdieping": "van kerntaak naar eenheid en leeronderdelen",
@@ -753,12 +770,6 @@
    "objecttype": "Gewenst medewerker competentieprofiel",
    "instantie": "Apothekersassistent-docent met baliepraktijk",
    "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Gewenst medewerker competentieprofiel naar Onderwijsvorm specificatie; leerroute-1-regulier.md, r1048",
-   "relatie": {
-    "soort": "Aggregation",
-    "van": "Onderwijseenheid / Opleidingsonderdeel",
-    "naar": "Gewenst medewerker competentieprofiel",
-    "nesting": true
-   },
    "relaties": [
     {
      "soort": "Association",
@@ -769,7 +780,7 @@
   },
   {
    "beeld_id": "F1-05",
-   "beeld": "De gelinkte leeruitkomst en het onderwijsontwerp van de eenheid (conceptplaat)",
+   "beeld": "De eenheidspecificatie met haar leeronderdelen en de gelinkte leeruitkomsten",
    "fase": 1,
    "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
    "verdieping": "van kerntaak naar eenheid en leeronderdelen",
@@ -780,12 +791,6 @@
    "objecttype": "Studiebelasting en begeleide onderwijstijd indicatie",
    "instantie": "BOT 50 / OOT 50 SBU",
    "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Studiebelasting en begeleide onderwijstijd indicatie naar Onderwijsvorm specificatie; leerroute-1-regulier.md, r1052",
-   "relatie": {
-    "soort": "Aggregation",
-    "van": "Onderwijseenheid / Opleidingsonderdeel",
-    "naar": "Studiebelasting en begeleide onderwijstijd indicatie",
-    "nesting": true
-   },
    "relaties": [
     {
      "soort": "Association",

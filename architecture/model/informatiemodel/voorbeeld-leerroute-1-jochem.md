@@ -33,7 +33,7 @@ Wat hier staat is feedback, geen commitment: het voorbeeld beslist niets over he
 
 De fase in detail: [kaderscenario leerroute 1, fase 1](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-1--kwalificatiekader-analyseren-en-grofmazig-ontwerpen).
 
-**Ontstaat:** `Kwalificatie dossier`, `Kwalificatie`, `Kerntaak`, `Werkproces`, `Examenplan`, `Summatieve resultaat structuur`, `Cohort / periode`, `Leeruitkomst`, `Competenties / Skills`, `Vaardigheid`, `Kennis`, `Inzicht`, `Opleiding specificatie`, `Opleidingsprogramma specificatie`, `Onderwijseenheid specificatie`, `Leeronderdeel specificatie`, `Keuzedeelruimte`, `Student keuze regelset`, `Keuzedeel`, `Toetsonderdeel specificatie`, `Examenonderdeelspecificatie`, `Examenonderdeel weging`, `Summatief Afrondingscriterium`. **Stroomt:** Curriculum ontwerptool naar Onderwijscatalogus. **MORA-hoofdproces:** Ontwikkelen.
+**Ontstaat:** `Kwalificatie dossier`, `Kwalificatie`, `Kerntaak`, `Werkproces`, `Examenplan`, `Summatieve resultaat structuur`, `Cohort / periode`, `Leeruitkomst`, `Competenties / Skills`, `Vaardigheid`, `Kennis`, `Inzicht`, `Onderwijseenheid specificatie`, `Leeronderdeel specificatie`, `Opleiding specificatie`, `Opleidingsprogramma specificatie`, `Keuzedeelruimte`, `Student keuze regelset`, `Keuzedeel`, `Toetsonderdeel specificatie`, `Examenonderdeelspecificatie`, `Examenonderdeel weging`, `Summatief Afrondingscriterium`. **Stroomt:** Curriculum ontwerptool naar Onderwijscatalogus. **MORA-hoofdproces:** Ontwikkelen.
 
 ### F1-01 - Het kwalificatiedossier ontleed
 
@@ -51,9 +51,9 @@ De fase in detail: [kaderscenario leerroute 1, fase 1](https://github.com/Npuls-
 
 ![ontstaat: Kwalificatiedossier vertalen naar leeruitkomsten, verdieping: leeruitkomst naar skills](img/regels/f1-04-de-leeruitkomst-in-competentnl-skills.svg)
 
-### F1-05 - De gelinkte leeruitkomst en het onderwijsontwerp van de eenheid (conceptplaat)
+### F1-05 - De eenheidspecificatie met haar leeronderdelen en de gelinkte leeruitkomsten
 
-![ontstaat: Kwalificatiedossier vertalen naar leeruitkomsten, verdieping: van kerntaak naar eenheid en leeronderdelen](img/regels/f1-05-de-gelinkte-leeruitkomst-en-het-onderwijsontwerp-van-de-eenheid-conceptplaat.svg)
+![ontstaat: Kwalificatiedossier vertalen naar leeruitkomsten, verdieping: van kerntaak naar eenheid en leeronderdelen](img/regels/f1-05-de-eenheidspecificatie-met-haar-leeronderdelen-en-de-gelinkte-leeruitkomsten.svg)
 
 ### F1-06 - De opleidingsspecificatie met programma, eenheden en keuzedeelruimte
 
@@ -339,9 +339,9 @@ Per objecttype het beeld waarin hij verschijnt (het ID uit de kop), de instantie
 | Examenonderdeelspecificatie | F1-08 | Proeve van bekwaamheid B1-K1 | 1 | ja | ja | TestComponent | | |
 | Keuzedeel | F1-07 | Ondernemerschap in de zorg | 1 |  | nog te definieren | Programme | | |
 | Keuzedeelruimte | F1-06 | 720 SBU, mbo-4 | 1 |  | ja | Programme | | |
-| Leeronderdeel specificatie | F1-06 | B1-K1-W1 Baliegesprek en triage: simulatie in de leerapotheek, theorie ondersteunend, grofmazig | 1 |  | ja | LearningComponent | | |
+| Leeronderdeel specificatie | F1-05 | B1-K1-W1 Baliegesprek en triage | 1 |  | ja | LearningComponent | | |
 | Les specificatie | F4-01 | Les 1 Introductie WHAM-vragen en triage, werkcollege, 2 uur | 4 |  | ja | LearningComponent | | |
-| Onderwijseenheid specificatie | F1-06 | Blok B1-K1 Biedt farmaceutische patiëntenzorg | 1 |  | ja | Course | | |
+| Onderwijseenheid specificatie | F1-05 | Blok B1-K1 Biedt farmaceutische patiëntenzorg | 1 |  | ja | Course | | |
 | Opleiding specificatie | F1-06 | Apothekersassistent, versie 2026.1 | 1 |  | nog te definieren | Programme | | |
 | Opleidingsprogramma specificatie | F1-06 | BOL voltijd, diplomaprogramma | 1 |  | ja | Programme | | |
 | Student keuze regelset | F1-06 | Kiesbare keuzedelen voor Apothekersassistent | 1 |  | nog te definieren | geen equivalent | | |
@@ -455,6 +455,9 @@ Per regel één van vier antwoorden: herken ik dit; heet bij ons anders (welke t
 | 1 | F1-04 | Inzicht | | | | |
 | 1 | F1-05 | Leeruitkomst | | | | |
 | 1 | F1-05 | Leeruitkomst | | | | |
+| 1 | F1-05 | Onderwijseenheid specificatie | | | | |
+| 1 | F1-05 | Leeronderdeel specificatie | | | | |
+| 1 | F1-05 | Leeronderdeel specificatie | | | | |
 | 1 | F1-06 | Opleiding specificatie | | | | |
 | 1 | F1-06 | Opleidingsprogramma specificatie | | | | |
 | 1 | F1-06 | Onderwijseenheid specificatie | | | | |
@@ -562,14 +565,16 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 | ontstaat | Kennis | Farmacie (CompetentNL kennisgebied op ISCED-F 0916) | CompetentNL ontologie 2.1.0 (competentnl.nl, TTL, gewijzigd 14 juli 2026): cnlo:HumanCapability (Vaardigheid) gelaagd via skos:broader, drie lagen (6 verzamelconcepten, 24 generieke, 128 specifieke vaardigheden); cnlo:KnowledgeArea (Kennisgebied) met een ISCED-F detailed field als ouder; cnlo:EducationalNorm (Opleidingsnorm) schrijft vaardigheden en kennisgebieden voor (cnlo:prescribes); ISCED-F 2013, detailed field 0916 Pharmacy |
 | ontstaat | Inzicht | Werking en risico van een geneesmiddel bij de vraag aan de balie | geen bron, keuze van het voorbeeld: de plaat kent inzicht als apart deel van competenties en skills, CompetentNL niet |
 
-**F1-05 - De gelinkte leeruitkomst en het onderwijsontwerp van de eenheid (conceptplaat)** (fase 1, Kwalificatiedossier vertalen naar leeruitkomsten; [f1-05-de-gelinkte-leeruitkomst-en-het-onderwijsontwerp-van-de-eenheid-conceptplaat.svg](img/regels/f1-05-de-gelinkte-leeruitkomst-en-het-onderwijsontwerp-van-de-eenheid-conceptplaat.svg))
+**F1-05 - De eenheidspecificatie met haar leeronderdelen en de gelinkte leeruitkomsten** (fase 1, Kwalificatiedossier vertalen naar leeruitkomsten; [f1-05-de-eenheidspecificatie-met-haar-leeronderdelen-en-de-gelinkte-leeruitkomsten.svg](img/regels/f1-05-de-eenheidspecificatie-met-haar-leeronderdelen-en-de-gelinkte-leeruitkomsten.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
-| verandert | Leeruitkomst | Biedt farmaceutische patiëntenzorg in een levensechte apotheekomgeving (kerntaakniveau) | informatiemodel.json: Onderwijseenheid specificatie naar Leeruitkomst (associatie); leerroute-1-regulier.md, r621 (dezelfde leeruitkomst kan over meerdere onderdelen verdeeld zijn) en r1021 |
-| verandert | Leeruitkomst | Voert baliegesprek en triage uit in de simulatieapotheek, onderbouwd met theorie (werkprocesniveau) | informatiemodel.json: Onderwijseenheid specificatie aggregeert Leeronderdeel specificatie, Leeronderdeel specificatie naar Leeruitkomst (associatie); leerroute-1-regulier.md, r1021 en r1044 (leeronderdeelspecificatie op de rij Werkproces) |
+| verandert | Leeruitkomst | Biedt farmaceutische patiëntenzorg in een levensechte apotheekomgeving (kerntaakniveau) | informatiemodel.json: Onderwijseenheid specificatie naar Leeruitkomst (associatie); leerroute-1-regulier.md, r621 en r1021 |
+| verandert | Leeruitkomst | Voert baliegesprek en triage uit in de simulatieapotheek, onderbouwd met theorie (werkprocesniveau) | informatiemodel.json: Leeruitkomst aggregeert Leeruitkomst; leerroute-1-regulier.md, r620 en r1092 |
+| verandert | Onderwijseenheid specificatie | Blok B1-K1 Biedt farmaceutische patiëntenzorg | informatiemodel.json: Onderwijseenheid specificatie naar Leeruitkomst (associatie); leerroute-1-regulier.md, r576 en r1021 (onderwijseenheden corresponderen met kerntaken) |
+| verandert | Leeronderdeel specificatie | B1-K1-W1 Baliegesprek en triage | informatiemodel.json: Onderwijseenheid specificatie aggregeert Leeronderdeel specificatie; leerroute-1-regulier.md, r625, r1021 en r1044 (leeronderdeelspecificatie op de rij Werkproces) |
+| verandert | Leeronderdeel specificatie | B1-K1-W2 Voert medicatiebewaking uit | informatiemodel.json: Onderwijseenheid specificatie aggregeert Leeronderdeel specificatie; leerroute-1-regulier.md, r1051 (leeronderdeel B1-K1-W2) |
 | ontstaat (conceptplaat) | Leervormstrategie | Leren door te doen in een levensechte omgeving, theorie ondersteunend | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Strategisch kader instelling, Leervormstrategie naar Onderwijsvorm specificatie |
-| ontstaat (conceptplaat) | Onderwijseenheid / Opleidingsonderdeel | Blok B1-K1 Biedt farmaceutische patiëntenzorg | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Onderwijsplan bevat Onderwijseenheid / Opleidingsonderdeel |
 | ontstaat (conceptplaat) | Leerdoel | Zelfstandig farmaceutische patiëntenzorg bieden in een levensechte setting | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Kerntaak 'Word onderwijskundig vertaald tot' Leerdoel; leerroute-1-regulier.md, r1046 en r1052 |
 | ontstaat (conceptplaat) | Onderwijsvorm specificatie | Simulatie in de leerapotheek, theorie ondersteunend | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Leeruitkomst naar Onderwijsvorm specificatie; leerroute-1-regulier.md, r1046 en r1052 |
 | ontstaat (conceptplaat) | Gewenste Onderwijskundige Leeromgeving | Balie-simulatie in het skillslab | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Onderwijsvorm specificatie naar Gewenste Onderwijskundige Leeromgeving; leerroute-1-regulier.md, r1048 |
