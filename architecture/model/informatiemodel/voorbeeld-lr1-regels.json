@@ -713,7 +713,7 @@
    "objecttype": "Leervormstrategie",
    "instantie": "Leren door te doen in een levensechte omgeving, theorie ondersteunend",
    "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Strategisch kader instelling, Leervormstrategie naar Onderwijsvorm specificatie",
-   "zin": "Verdieping: rond de eenheid legt de instelling haar onderwijsontwerp vast. De gewenste leeromgeving is een ruimteprofiel, geen lokaal: zij zegt welke ruimte past en sorteert daarmee voor op een onderwijslocatie met dat lokaaltype. De leermiddelen staan apart en hangen aan het leeronderdeel."
+   "zin": "Verdieping: rond de eenheid legt de instelling haar onderwijsontwerp vast. De gewenste leeromgeving is een ruimteprofiel, geen lokaal: zij zegt welke ruimte past en sorteert voor op een onderwijslocatie met dat lokaaltype. Het docentprofiel werkt net zo: het beschrijft de gevraagde expertise, die de instelling als medewerkertype in haar organisatie herkent; de persoon zelf volgt bij plannen. De leermiddelen staan apart en hangen aan het leeronderdeel."
   },
   {
    "beeld_id": "F1-06",
@@ -859,13 +859,56 @@
    "aanname": true,
    "soort": "ontstaat",
    "objecttype": "Gewenst medewerker competentieprofiel",
-   "instantie": "Apothekersassistent-docent met baliepraktijk",
-   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Gewenst medewerker competentieprofiel naar Onderwijsvorm specificatie; leerroute-1-regulier.md, r1048",
+   "instantie": "Apothekersassistent-docent: didactisch en communicatief (CompetentNL laag 2), farmacie (ISCED-F 0916)",
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Gewenst medewerker competentieprofiel naar Onderwijsvorm specificatie; CompetentNL ontologie 2.1.0 (competentnl.nl, TTL, gewijzigd 14 juli 2026): cnlo:HumanCapability (Vaardigheid) gelaagd via skos:broader; cnlo:KnowledgeArea (Kennisgebied) op ISCED-F",
    "relaties": [
     {
      "soort": "Association",
      "van": "Gewenst medewerker competentieprofiel",
      "naar": "Onderwijsvorm specificatie"
+    }
+   ],
+   "vraag": "Het gewenste medewerkercompetentieprofiel staat op de conceptplaat los van competenties, vaardigheden en kennis, terwijl de leeruitkomst die structuur wel kent. Hoort onder het docentprofiel dezelfde skills-structuur, zodat de gevraagde expertise in dezelfde termen staat als wat de student leert?"
+  },
+  {
+   "beeld_id": "F1-06",
+   "beeld": "Het onderwijsontwerp van de eenheid: vorm, ruimte, mensen en middelen (conceptplaat)",
+   "fase": 1,
+   "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
+   "verdieping": "onderwijsontwerp met ruimte en middelen",
+   "plaat": "onderwijsontwerp",
+   "wie": "onderwijsontwerper",
+   "aanname": true,
+   "soort": "ontstaat",
+   "objecttype": "Medewerker Type / Expertise Profiel",
+   "instantie": "Docent farmacie met baliepraktijk (expertiseprofiel)",
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Medewerker Type / Expertise Profiel 'Heeft meerdere' Gewenst medewerker competentieprofiel",
+   "relatie": {
+    "soort": "Association",
+    "van": "Medewerker Type / Expertise Profiel",
+    "naar": "Gewenst medewerker competentieprofiel",
+    "label": "Heeft meerdere"
+   }
+  },
+  {
+   "beeld_id": "F1-06",
+   "beeld": "Het onderwijsontwerp van de eenheid: vorm, ruimte, mensen en middelen (conceptplaat)",
+   "fase": 1,
+   "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
+   "verdieping": "onderwijsontwerp met ruimte en middelen",
+   "plaat": "onderwijsontwerp",
+   "wie": "onderwijsontwerper",
+   "aanname": true,
+   "soort": "ontstaat",
+   "objecttype": "Collectie van Medewerkertypes",
+   "instantie": "Docent farmacie en praktijkbegeleider",
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Leeronderdeel / Leeractiviteit specificatie aggregeert Collectie van Medewerkertypes",
+   "relaties": [
+    {
+     "soort": "Aggregation",
+     "van": "Leeronderdeel / Leeractiviteit specificatie",
+     "naar": "Collectie van Medewerkertypes",
+     "instantie": "B1-K1-W1 Baliegesprek en triage"
     }
    ]
   },
