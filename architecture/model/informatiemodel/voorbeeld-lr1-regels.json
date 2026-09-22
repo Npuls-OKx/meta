@@ -579,7 +579,7 @@
    "instantie": "Blok B1-K1 Biedt farmaceutische patiëntenzorg",
    "toestand": "onderwijskundig vertaald",
    "bron": "informatiemodel.json: Onderwijseenheid specificatie naar Leeruitkomst (associatie); leerroute-1-regulier.md, r576 en r1021 (onderwijseenheden corresponderen met kerntaken)",
-   "zin": "Verdieping: de leeruitkomst zit niet in de eenheid, zij staat ernaast. De onderwijseenheidspecificatie verwijst naar de leeruitkomst op kerntaakniveau, en elke leeronderdeelspecificatie naar haar eigen leeruitkomst op werkprocesniveau. Zo loopt de herkomst uit het kwalificatiedossier via de leeruitkomst, niet langs de specificatie zelf. Het onderwijsontwerp van de conceptplaat legt daar een eigen pad omheen dat binnen de instelling blijft: de kerntaak wordt onderwijskundig vertaald tot een leerdoel."
+   "zin": "Verdieping: de leeruitkomst zit niet in de eenheid, zij staat ernaast. De onderwijseenheidspecificatie verwijst naar de leeruitkomst op kerntaakniveau, en elke leeronderdeelspecificatie naar haar eigen leeruitkomst op werkprocesniveau. Zo loopt de herkomst uit het kwalificatiedossier via de leeruitkomst, niet langs de specificatie zelf."
   },
   {
    "beeld_id": "F1-05",
@@ -688,25 +688,26 @@
    ]
   },
   {
-   "beeld_id": "F1-05",
-   "beeld": "De eenheidspecificatie met haar leeronderdelen en de gelinkte leeruitkomsten",
+   "beeld_id": "F1-06",
+   "beeld": "Het onderwijsontwerp van de eenheid: vorm, ruimte, mensen en middelen (conceptplaat)",
    "fase": 1,
    "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
-   "verdieping": "van kerntaak naar eenheid en leeronderdelen",
+   "verdieping": "onderwijsontwerp met ruimte en middelen",
    "plaat": "onderwijsontwerp",
    "wie": "onderwijsontwerper",
    "aanname": true,
    "soort": "ontstaat",
    "objecttype": "Leervormstrategie",
    "instantie": "Leren door te doen in een levensechte omgeving, theorie ondersteunend",
-   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Strategisch kader instelling, Leervormstrategie naar Onderwijsvorm specificatie"
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Strategisch kader instelling, Leervormstrategie naar Onderwijsvorm specificatie",
+   "zin": "Verdieping: rond de eenheid legt de instelling haar onderwijsontwerp vast. De gewenste leeromgeving is een ruimteprofiel, geen lokaal: zij zegt welke ruimte past en sorteert daarmee voor op een onderwijslocatie met dat lokaaltype. De leermiddelen staan apart en hangen aan het leeronderdeel."
   },
   {
-   "beeld_id": "F1-05",
-   "beeld": "De eenheidspecificatie met haar leeronderdelen en de gelinkte leeruitkomsten",
+   "beeld_id": "F1-06",
+   "beeld": "Het onderwijsontwerp van de eenheid: vorm, ruimte, mensen en middelen (conceptplaat)",
    "fase": 1,
    "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
-   "verdieping": "van kerntaak naar eenheid en leeronderdelen",
+   "verdieping": "onderwijsontwerp met ruimte en middelen",
    "plaat": "onderwijsontwerp",
    "wie": "onderwijsontwerper",
    "aanname": true,
@@ -732,11 +733,11 @@
    ]
   },
   {
-   "beeld_id": "F1-05",
-   "beeld": "De eenheidspecificatie met haar leeronderdelen en de gelinkte leeruitkomsten",
+   "beeld_id": "F1-06",
+   "beeld": "Het onderwijsontwerp van de eenheid: vorm, ruimte, mensen en middelen (conceptplaat)",
    "fase": 1,
    "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
-   "verdieping": "van kerntaak naar eenheid en leeronderdelen",
+   "verdieping": "onderwijsontwerp met ruimte en middelen",
    "plaat": "onderwijsontwerp",
    "wie": "onderwijsontwerper",
    "aanname": true,
@@ -754,18 +755,18 @@
    "vraag": "Het kader waarmee de instelling de kerntaak vormgeeft staat op de conceptplaat (leervormstrategie, leerdoel, onderwijsvorm specificatie, leeromgeving, docentprofiel, studiebelasting), niet op de informatiemodelplaat. Welke daarvan horen in de uitwisseling, bijvoorbeeld op het leeronderdeel, en welke blijven binnen de instelling?"
   },
   {
-   "beeld_id": "F1-05",
-   "beeld": "De eenheidspecificatie met haar leeronderdelen en de gelinkte leeruitkomsten",
+   "beeld_id": "F1-06",
+   "beeld": "Het onderwijsontwerp van de eenheid: vorm, ruimte, mensen en middelen (conceptplaat)",
    "fase": 1,
    "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
-   "verdieping": "van kerntaak naar eenheid en leeronderdelen",
+   "verdieping": "onderwijsontwerp met ruimte en middelen",
    "plaat": "onderwijsontwerp",
    "wie": "onderwijsontwerper",
    "aanname": true,
    "soort": "ontstaat",
    "objecttype": "Gewenste Onderwijskundige Leeromgeving",
-   "instantie": "Balie-simulatie in het skillslab",
-   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Onderwijsvorm specificatie naar Gewenste Onderwijskundige Leeromgeving; leerroute-1-regulier.md, r1048",
+   "instantie": "Simulatiegeschikte praktijkruimte voor 24 studenten, balie-opstelling mogelijk",
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Onderwijsvorm specificatie naar Gewenste Onderwijskundige Leeromgeving, Gewenste Onderwijskundige Leeromgeving is een Onderwijsruimte type; leerroute-1-regulier.md, r1048",
    "relatie": {
     "soort": "Association",
     "van": "Onderwijsvorm specificatie",
@@ -773,11 +774,73 @@
    }
   },
   {
-   "beeld_id": "F1-05",
-   "beeld": "De eenheidspecificatie met haar leeronderdelen en de gelinkte leeruitkomsten",
+   "beeld_id": "F1-06",
+   "beeld": "Het onderwijsontwerp van de eenheid: vorm, ruimte, mensen en middelen (conceptplaat)",
    "fase": 1,
    "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
-   "verdieping": "van kerntaak naar eenheid en leeronderdelen",
+   "verdieping": "onderwijsontwerp met ruimte en middelen",
+   "plaat": "onderwijsontwerp",
+   "wie": "onderwijsontwerper",
+   "aanname": true,
+   "soort": "ontstaat",
+   "objecttype": "Onderwijsruimte type",
+   "instantie": "Praktijkruimte met baliesimulatie",
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Gewenste Onderwijskundige Leeromgeving is een Onderwijsruimte type, Onderwijsruimte type is een Lokaal",
+   "relatie": {
+    "soort": "Specialization",
+    "van": "Gewenste Onderwijskundige Leeromgeving",
+    "naar": "Onderwijsruimte type"
+   },
+   "relaties": [
+    {
+     "soort": "Specialization",
+     "van": "Onderwijsruimte type",
+     "naar": "Lokaal",
+     "instantie": "het concrete lokaal volgt pas bij roosteren"
+    }
+   ],
+   "vraag": "De gewenste leeromgeving is op de conceptplaat een onderwijsruimtetype en daarmee indirect een lokaal, terwijl de onderwijslocatie lokaaltypes aggregeert. Hoort er een relatie tussen onderwijsruimtetype en lokaaltype, zodat de voorsortering op locatie in een stap te leggen is?"
+  },
+  {
+   "beeld_id": "F1-06",
+   "beeld": "Het onderwijsontwerp van de eenheid: vorm, ruimte, mensen en middelen (conceptplaat)",
+   "fase": 1,
+   "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
+   "verdieping": "onderwijsontwerp met ruimte en middelen",
+   "plaat": "onderwijsontwerp",
+   "wie": "onderwijsontwerper",
+   "aanname": true,
+   "soort": "ontstaat",
+   "objecttype": "Onderwijs locatie",
+   "instantie": "Vestiging Zuid",
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Onderwijs locatie aggregeert Lokaaltypes"
+  },
+  {
+   "beeld_id": "F1-06",
+   "beeld": "Het onderwijsontwerp van de eenheid: vorm, ruimte, mensen en middelen (conceptplaat)",
+   "fase": 1,
+   "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
+   "verdieping": "onderwijsontwerp met ruimte en middelen",
+   "plaat": "onderwijsontwerp",
+   "wie": "onderwijsontwerper",
+   "aanname": true,
+   "soort": "ontstaat",
+   "objecttype": "Lokaaltypes",
+   "instantie": "Praktijklokalen met baliesimulatie",
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Onderwijs locatie aggregeert Lokaaltypes",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Onderwijs locatie",
+    "naar": "Lokaaltypes",
+    "nesting": true
+   }
+  },
+  {
+   "beeld_id": "F1-06",
+   "beeld": "Het onderwijsontwerp van de eenheid: vorm, ruimte, mensen en middelen (conceptplaat)",
+   "fase": 1,
+   "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
+   "verdieping": "onderwijsontwerp met ruimte en middelen",
    "plaat": "onderwijsontwerp",
    "wie": "onderwijsontwerper",
    "aanname": true,
@@ -794,11 +857,11 @@
    ]
   },
   {
-   "beeld_id": "F1-05",
-   "beeld": "De eenheidspecificatie met haar leeronderdelen en de gelinkte leeruitkomsten",
+   "beeld_id": "F1-06",
+   "beeld": "Het onderwijsontwerp van de eenheid: vorm, ruimte, mensen en middelen (conceptplaat)",
    "fase": 1,
    "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
-   "verdieping": "van kerntaak naar eenheid en leeronderdelen",
+   "verdieping": "onderwijsontwerp met ruimte en middelen",
    "plaat": "onderwijsontwerp",
    "wie": "onderwijsontwerper",
    "aanname": true,
@@ -816,6 +879,48 @@
   },
   {
    "beeld_id": "F1-06",
+   "beeld": "Het onderwijsontwerp van de eenheid: vorm, ruimte, mensen en middelen (conceptplaat)",
+   "fase": 1,
+   "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
+   "verdieping": "onderwijsontwerp met ruimte en middelen",
+   "plaat": "onderwijsontwerp",
+   "wie": "onderwijsontwerper",
+   "aanname": true,
+   "soort": "ontstaat",
+   "objecttype": "Collectie van Leermiddelgroepen",
+   "instantie": "Leermiddelen voor de baliesimulatie",
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Leeronderdeel / Leeractiviteit specificatie aggregeert Collectie van Leermiddelgroepen",
+   "relaties": [
+    {
+     "soort": "Aggregation",
+     "van": "Leeronderdeel / Leeractiviteit specificatie",
+     "naar": "Collectie van Leermiddelgroepen",
+     "instantie": "B1-K1-W1 Baliegesprek en triage"
+    }
+   ]
+  },
+  {
+   "beeld_id": "F1-06",
+   "beeld": "Het onderwijsontwerp van de eenheid: vorm, ruimte, mensen en middelen (conceptplaat)",
+   "fase": 1,
+   "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
+   "verdieping": "onderwijsontwerp met ruimte en middelen",
+   "plaat": "onderwijsontwerp",
+   "wie": "onderwijsontwerper",
+   "aanname": true,
+   "soort": "ontstaat",
+   "objecttype": "Leermiddelgroep",
+   "instantie": "Apotheekbalie-opstelling, receptenlijnsysteem, oefenmedicatie",
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Collectie van Leermiddelgroepen aggregeert Leermiddelgroep",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Collectie van Leermiddelgroepen",
+    "naar": "Leermiddelgroep",
+    "nesting": true
+   }
+  },
+  {
+   "beeld_id": "F1-07",
    "beeld": "De opleidingsspecificatie met programma, eenheden en keuzedeelruimte",
    "fase": 1,
    "stap": "Opleidingsspecificatie met programma en eenheden beschrijven",
@@ -827,7 +932,7 @@
    "zin": "De opleidingsspecificatie met daaronder het programma, de eenheden en de leeronderdelen: het curriculum als template over de looptijd."
   },
   {
-   "beeld_id": "F1-06",
+   "beeld_id": "F1-07",
    "beeld": "De opleidingsspecificatie met programma, eenheden en keuzedeelruimte",
    "fase": 1,
    "stap": "Opleidingsspecificatie met programma en eenheden beschrijven",
@@ -844,7 +949,7 @@
    }
   },
   {
-   "beeld_id": "F1-06",
+   "beeld_id": "F1-07",
    "beeld": "De opleidingsspecificatie met programma, eenheden en keuzedeelruimte",
    "fase": 1,
    "stap": "Opleidingsspecificatie met programma en eenheden beschrijven",
@@ -869,7 +974,7 @@
    ]
   },
   {
-   "beeld_id": "F1-06",
+   "beeld_id": "F1-07",
    "beeld": "De opleidingsspecificatie met programma, eenheden en keuzedeelruimte",
    "fase": 1,
    "stap": "Opleidingsspecificatie met programma en eenheden beschrijven",
@@ -894,7 +999,7 @@
    ]
   },
   {
-   "beeld_id": "F1-06",
+   "beeld_id": "F1-07",
    "beeld": "De opleidingsspecificatie met programma, eenheden en keuzedeelruimte",
    "fase": 1,
    "stap": "Opleidingsspecificatie met programma en eenheden beschrijven",
@@ -910,7 +1015,7 @@
    }
   },
   {
-   "beeld_id": "F1-06",
+   "beeld_id": "F1-07",
    "beeld": "De opleidingsspecificatie met programma, eenheden en keuzedeelruimte",
    "fase": 1,
    "stap": "Opleidingsspecificatie met programma en eenheden beschrijven",
@@ -926,7 +1031,7 @@
    }
   },
   {
-   "beeld_id": "F1-07",
+   "beeld_id": "F1-08",
    "beeld": "Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen",
    "fase": 1,
    "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
@@ -949,7 +1054,7 @@
    "zin": "Een keuzedeel is zelf een programmaspecificatie, gelijksoortig vormgegeven maar los van Jochems opleiding. Het kent dezelfde opbouw als een kwalificatie: kerntaken met werkprocessen eronder, die de instelling vertaalt naar leeruitkomsten en vormgeeft als onderwijseenheid- en leeronderdeelspecificaties. Welk keuzedeel de ruimte vult, bepaalt het studentkeuzesysteem later met de regelset."
   },
   {
-   "beeld_id": "F1-07",
+   "beeld_id": "F1-08",
    "beeld": "Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen",
    "fase": 1,
    "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
@@ -977,7 +1082,7 @@
    ]
   },
   {
-   "beeld_id": "F1-07",
+   "beeld_id": "F1-08",
    "beeld": "Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen",
    "fase": 1,
    "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
@@ -1000,7 +1105,7 @@
    ]
   },
   {
-   "beeld_id": "F1-07",
+   "beeld_id": "F1-08",
    "beeld": "Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen",
    "fase": 1,
    "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
@@ -1026,7 +1131,7 @@
    ]
   },
   {
-   "beeld_id": "F1-07",
+   "beeld_id": "F1-08",
    "beeld": "Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen",
    "fase": 1,
    "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
@@ -1052,7 +1157,7 @@
    ]
   },
   {
-   "beeld_id": "F1-07",
+   "beeld_id": "F1-08",
    "beeld": "Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen",
    "fase": 1,
    "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
@@ -1078,7 +1183,7 @@
    ]
   },
   {
-   "beeld_id": "F1-07",
+   "beeld_id": "F1-08",
    "beeld": "Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen",
    "fase": 1,
    "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
@@ -1104,7 +1209,7 @@
    ]
   },
   {
-   "beeld_id": "F1-07",
+   "beeld_id": "F1-08",
    "beeld": "Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen",
    "fase": 1,
    "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
@@ -1131,7 +1236,7 @@
    "vraag": "Een keuzedeel is een specialisatie van de opleidingsprogrammaspecificatie en kent dezelfde opbouw in kerntaken en werkprocessen. Erft het daarmee ook de aggregatie naar onderwijseenheid- en leeronderdeelspecificaties, of hoort die relatie expliciet op Keuzedeel te staan?"
   },
   {
-   "beeld_id": "F1-08",
+   "beeld_id": "F1-09",
    "beeld": "Toetsonderdelen, wegingen en afrondingscriterium",
    "fase": 1,
    "stap": "Toetsonderdelen en resultaatstructuur uit het examenplan afleiden",
@@ -1152,7 +1257,7 @@
    ]
   },
   {
-   "beeld_id": "F1-08",
+   "beeld_id": "F1-09",
    "beeld": "Toetsonderdelen, wegingen en afrondingscriterium",
    "fase": 1,
    "stap": "Toetsonderdelen en resultaatstructuur uit het examenplan afleiden",
@@ -1177,7 +1282,7 @@
    ]
   },
   {
-   "beeld_id": "F1-08",
+   "beeld_id": "F1-09",
    "beeld": "Toetsonderdelen, wegingen en afrondingscriterium",
    "fase": 1,
    "stap": "Toetsonderdelen en resultaatstructuur uit het examenplan afleiden",
@@ -1202,7 +1307,7 @@
    ]
   },
   {
-   "beeld_id": "F1-08",
+   "beeld_id": "F1-09",
    "beeld": "Toetsonderdelen, wegingen en afrondingscriterium",
    "fase": 1,
    "stap": "Toetsonderdelen en resultaatstructuur uit het examenplan afleiden",
@@ -1221,7 +1326,7 @@
    "vraag": "Welke weging moet een studentvolgsysteem aggregeren: op het toetsonderdeel (schema) of op de resultaateenheid (regels)? Meta #234 punt 5."
   },
   {
-   "beeld_id": "F1-08",
+   "beeld_id": "F1-09",
    "beeld": "Toetsonderdelen, wegingen en afrondingscriterium",
    "fase": 1,
    "stap": "Toetsonderdelen en resultaatstructuur uit het examenplan afleiden",
@@ -1237,7 +1342,7 @@
    }
   },
   {
-   "beeld_id": "F1-09",
+   "beeld_id": "F1-10",
    "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1252,7 +1357,7 @@
    "zin": "De opleiding zoals ontworpen gaat als gelinkt geheel naar de catalogus: leeruitkomsten met hun skills, de specificatiestructuur met het onderwijsontwerp (paars: conceptplaat) en de resultaatstructuur; alles verwijst naar de leeruitkomst. Op v1.7 zit de ontwerptool binnen de catalogus, dus geen aparte pijl."
   },
   {
-   "beeld_id": "F1-09",
+   "beeld_id": "F1-10",
    "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1272,7 +1377,7 @@
    }
   },
   {
-   "beeld_id": "F1-09",
+   "beeld_id": "F1-10",
    "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1292,7 +1397,7 @@
    }
   },
   {
-   "beeld_id": "F1-09",
+   "beeld_id": "F1-10",
    "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1313,7 +1418,7 @@
    }
   },
   {
-   "beeld_id": "F1-09",
+   "beeld_id": "F1-10",
    "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1334,7 +1439,7 @@
    }
   },
   {
-   "beeld_id": "F1-09",
+   "beeld_id": "F1-10",
    "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1355,7 +1460,7 @@
    }
   },
   {
-   "beeld_id": "F1-09",
+   "beeld_id": "F1-10",
    "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1369,7 +1474,7 @@
    "bron": "leerroute-1-regulier.md, Fase 1: Curriculum-ontwerptool naar OC, alles op grofmazig niveau"
   },
   {
-   "beeld_id": "F1-09",
+   "beeld_id": "F1-10",
    "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1389,7 +1494,7 @@
    }
   },
   {
-   "beeld_id": "F1-09",
+   "beeld_id": "F1-10",
    "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1417,7 +1522,7 @@
    ]
   },
   {
-   "beeld_id": "F1-09",
+   "beeld_id": "F1-10",
    "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1445,7 +1550,7 @@
    ]
   },
   {
-   "beeld_id": "F1-09",
+   "beeld_id": "F1-10",
    "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1464,7 +1569,7 @@
    }
   },
   {
-   "beeld_id": "F1-09",
+   "beeld_id": "F1-10",
    "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1483,7 +1588,7 @@
    }
   },
   {
-   "beeld_id": "F1-09",
+   "beeld_id": "F1-10",
    "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1499,7 +1604,7 @@
    "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Onderwijsplan bevat Onderwijseenheid / Opleidingsonderdeel"
   },
   {
-   "beeld_id": "F1-09",
+   "beeld_id": "F1-10",
    "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1535,7 +1640,7 @@
    ]
   },
   {
-   "beeld_id": "F1-09",
+   "beeld_id": "F1-10",
    "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1564,7 +1669,7 @@
    ]
   },
   {
-   "beeld_id": "F1-09",
+   "beeld_id": "F1-10",
    "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1593,7 +1698,7 @@
    ]
   },
   {
-   "beeld_id": "F1-09",
+   "beeld_id": "F1-10",
    "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1622,7 +1727,7 @@
    ]
   },
   {
-   "beeld_id": "F1-09",
+   "beeld_id": "F1-10",
    "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1645,7 +1750,7 @@
    "aanname": true
   },
   {
-   "beeld_id": "F1-09",
+   "beeld_id": "F1-10",
    "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1673,7 +1778,7 @@
    ]
   },
   {
-   "beeld_id": "F1-09",
+   "beeld_id": "F1-10",
    "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1701,7 +1806,7 @@
    "aanname": true
   },
   {
-   "beeld_id": "F1-09",
+   "beeld_id": "F1-10",
    "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",

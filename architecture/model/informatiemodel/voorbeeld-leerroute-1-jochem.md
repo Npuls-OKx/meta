@@ -57,21 +57,25 @@ De fase in detail: [kaderscenario leerroute 1, fase 1](https://github.com/Npuls-
 
 ![ontstaat: Kwalificatiedossier vertalen naar leeruitkomsten, verdieping: van kerntaak naar eenheid en leeronderdelen](img/regels/f1-05-de-eenheidspecificatie-met-haar-leeronderdelen-en-de-gelinkte-leeruitkomsten.svg)
 
-### F1-06 - De opleidingsspecificatie met programma, eenheden en keuzedeelruimte
+### F1-06 - Het onderwijsontwerp van de eenheid: vorm, ruimte, mensen en middelen (conceptplaat)
 
-![ontstaat: Opleidingsspecificatie met programma en eenheden beschrijven](img/regels/f1-06-de-opleidingsspecificatie-met-programma-eenheden-en-keuzedeelruimte.svg)
+![ontstaat: Kwalificatiedossier vertalen naar leeruitkomsten, verdieping: onderwijsontwerp met ruimte en middelen](img/regels/f1-06-het-onderwijsontwerp-van-de-eenheid-vorm-ruimte-mensen-en-middelen-conceptplaat.svg)
 
-### F1-07 - Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen
+### F1-07 - De opleidingsspecificatie met programma, eenheden en keuzedeelruimte
 
-![ontstaat: Keuzedeelprogramma als eigen specificatie vormgeven](img/regels/f1-07-het-keuzedeel-als-eigen-programmaspecificatie-met-kerntaken-en-werkprocessen.svg)
+![ontstaat: Opleidingsspecificatie met programma en eenheden beschrijven](img/regels/f1-07-de-opleidingsspecificatie-met-programma-eenheden-en-keuzedeelruimte.svg)
 
-### F1-08 - Toetsonderdelen, wegingen en afrondingscriterium
+### F1-08 - Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen
 
-![ontstaat: Toetsonderdelen en resultaatstructuur uit het examenplan afleiden](img/regels/f1-08-toetsonderdelen-wegingen-en-afrondingscriterium.svg)
+![ontstaat: Keuzedeelprogramma als eigen specificatie vormgeven](img/regels/f1-08-het-keuzedeel-als-eigen-programmaspecificatie-met-kerntaken-en-werkprocessen.svg)
 
-### F1-09 - De opleiding zoals ontworpen naar de catalogus
+### F1-09 - Toetsonderdelen, wegingen en afrondingscriterium
 
-![stroomt: Grofmazig resultaat publiceren naar de onderwijscatalogus](img/regels/f1-09-de-opleiding-zoals-ontworpen-naar-de-catalogus.svg)
+![ontstaat: Toetsonderdelen en resultaatstructuur uit het examenplan afleiden](img/regels/f1-09-toetsonderdelen-wegingen-en-afrondingscriterium.svg)
+
+### F1-10 - De opleiding zoals ontworpen naar de catalogus
+
+![stroomt: Grofmazig resultaat publiceren naar de onderwijscatalogus](img/regels/f1-10-de-opleiding-zoals-ontworpen-naar-de-catalogus.svg)
 
 ## Fase 2: Publiceren en planbaar maken
 
@@ -338,16 +342,16 @@ Per objecttype het beeld waarin hij verschijnt (het ID uit de kop), de instantie
 
 | Objecttype | Beeld | Jochem | Fase | Aanname | Definitie | OEAPI | Heet bij u | Hangt bij u onder |
 |---|---|---|---|---|---|---|---|---|
-| Examenonderdeelspecificatie | F1-08 | Proeve van bekwaamheid B1-K1 | 1 | ja | ja | TestComponent | | |
-| Keuzedeel | F1-07 | K0262 ARBO, kwaliteitszorg en hulpverlening geschikt voor niveau 3 (240 SBU) | 1 |  | nog te definieren | Programme | | |
-| Keuzedeelruimte | F1-06 | 720 SBU, mbo-4 | 1 |  | ja | Programme | | |
+| Examenonderdeelspecificatie | F1-09 | Proeve van bekwaamheid B1-K1 | 1 | ja | ja | TestComponent | | |
+| Keuzedeel | F1-08 | K0262 ARBO, kwaliteitszorg en hulpverlening geschikt voor niveau 3 (240 SBU) | 1 |  | nog te definieren | Programme | | |
+| Keuzedeelruimte | F1-07 | 720 SBU, mbo-4 | 1 |  | ja | Programme | | |
 | Leeronderdeel specificatie | F1-05 | B1-K1-W1 Baliegesprek en triage | 1 |  | ja | LearningComponent | | |
 | Les specificatie | F4-01 | Les 1 Introductie WHAM-vragen en triage, werkcollege, 2 uur | 4 |  | ja | LearningComponent | | |
 | Onderwijseenheid specificatie | F1-05 | Blok B1-K1 Biedt farmaceutische patiëntenzorg | 1 |  | ja | Course | | |
-| Opleiding specificatie | F1-06 | Apothekersassistent, versie 2026.1 | 1 |  | nog te definieren | Programme | | |
-| Opleidingsprogramma specificatie | F1-06 | BOL voltijd, diplomaprogramma | 1 |  | ja | Programme | | |
-| Student keuze regelset | F1-06 | Kiesbare keuzedelen voor Apothekersassistent | 1 |  | nog te definieren | geen equivalent | | |
-| Toetsonderdeel specificatie | F1-08 | Praktijktoets baliegesprek (OSCE), summatief | 1 |  | ja | TestComponent | | |
+| Opleiding specificatie | F1-07 | Apothekersassistent, versie 2026.1 | 1 |  | nog te definieren | Programme | | |
+| Opleidingsprogramma specificatie | F1-07 | BOL voltijd, diplomaprogramma | 1 |  | ja | Programme | | |
+| Student keuze regelset | F1-07 | Kiesbare keuzedelen voor Apothekersassistent | 1 |  | nog te definieren | geen equivalent | | |
+| Toetsonderdeel specificatie | F1-09 | Praktijktoets baliegesprek (OSCE), summatief | 1 |  | ja | TestComponent | | |
 
 ### Onderwijsaanbod
 
@@ -399,10 +403,10 @@ Per objecttype het beeld waarin hij verschijnt (het ID uit de kop), de instantie
 
 | Objecttype | Beeld | Jochem | Fase | Aanname | Definitie | OEAPI | Heet bij u | Hangt bij u onder |
 |---|---|---|---|---|---|---|---|---|
-| Examenonderdeel weging | F1-08 | Proeve van bekwaamheid B1-K1: weging 2 | 1 | ja | nog te definieren | geen equivalent | | |
+| Examenonderdeel weging | F1-09 | Proeve van bekwaamheid B1-K1: weging 2 | 1 | ja | nog te definieren | geen equivalent | | |
 | Formatieve resultaat structuur | F5-03 | Voortgang B1-K1-W1: quiz WHAM-vragen, rollenspel | 5 | ja | ja | geen equivalent | | |
 | Persoonlijke ontwikkeling | F5-03 | Jochems ontwikkeling in periode 1 | 5 | ja | nog te definieren | geen equivalent | | |
-| Summatief Afrondingscriterium | F1-08 | Alle kerntaken en de keuzedelen voldoende | 1 |  | nog te definieren | geen equivalent | | |
+| Summatief Afrondingscriterium | F1-09 | Alle kerntaken en de keuzedelen voldoende | 1 |  | nog te definieren | geen equivalent | | |
 | Summatieve resultaat structuur | F1-02 | Eerste opzet: kerntaken en keuzedelen, alle voldoende | 1 | ja | ja | geen equivalent | | |
 | Toetsonderdeel weging | F5-03 | Quiz WHAM-vragen: weging 1 | 5 | ja | nog te definieren | geen equivalent | | |
 
@@ -427,10 +431,10 @@ De vragen die de regels zelf oproepen, met de regel waar de vraag zichtbaar word
 1. Het kaderscenario zet het examenplan in fase 1 en de resultaatstructuur pas in fase 4 bij OC-SIS. Ontstaat de summatieve resultaatstructuur in de curriculum-ontwerptool uit het examenplan, en gaat zij met de specificatie mee naar de catalogus? (F1-02, `Examenplan`)
 2. Is het cohort een sleutel op aanbod en verbintenis, of een eigen object dat de toepasselijke resultaatstructuur draagt (ontwerpkeuze 17)? (F1-02, `Cohort / periode`)
 3. CompetentNL legt vaardigheden gelaagd vast (skos:broader, drie lagen) en de leeruitkomst is op de plaat gelaagd; Vaardigheid is dat niet. Krijgt Vaardigheid een eigen aggregatie, zodat laag 2 onder laag 1 hangt zoals de leeruitkomst onder de leeruitkomst? (F1-04, `Vaardigheid`)
-4. Het kader waarmee de instelling de kerntaak vormgeeft staat op de conceptplaat (leervormstrategie, leerdoel, onderwijsvorm specificatie, leeromgeving, docentprofiel, studiebelasting), niet op de informatiemodelplaat. Welke daarvan horen in de uitwisseling, bijvoorbeeld op het leeronderdeel, en welke blijven binnen de instelling? (F1-05, `Onderwijsvorm specificatie`)
-5. Een keuzedeel is een specialisatie van de opleidingsprogrammaspecificatie en kent dezelfde opbouw in kerntaken en werkprocessen. Erft het daarmee ook de aggregatie naar onderwijseenheid- en leeronderdeelspecificaties, of hoort die relatie expliciet op Keuzedeel te staan? (F1-07, `Leeronderdeel specificatie`)
-6. Welke weging moet een studentvolgsysteem aggregeren: op het toetsonderdeel (schema) of op de resultaateenheid (regels)? Meta #234 punt 5. (F1-08, `Examenonderdeel weging`)
-7. Is het verzoek tot aanbod een object met sleutel en toestand, of het startevent van aanbod maken? (F2-02, `Verzoek tot Aanbod / Intekening op specificatie`)
+4. Het kader waarmee de instelling de kerntaak vormgeeft staat op de conceptplaat (leervormstrategie, leerdoel, onderwijsvorm specificatie, leeromgeving, docentprofiel, studiebelasting), niet op de informatiemodelplaat. Welke daarvan horen in de uitwisseling, bijvoorbeeld op het leeronderdeel, en welke blijven binnen de instelling? (F1-06, `Onderwijsvorm specificatie`)
+5. De gewenste leeromgeving is op de conceptplaat een onderwijsruimtetype en daarmee indirect een lokaal, terwijl de onderwijslocatie lokaaltypes aggregeert. Hoort er een relatie tussen onderwijsruimtetype en lokaaltype, zodat de voorsortering op locatie in een stap te leggen is? (F1-06, `Onderwijsruimte type`)
+6. Een keuzedeel is een specialisatie van de opleidingsprogrammaspecificatie en kent dezelfde opbouw in kerntaken en werkprocessen. Erft het daarmee ook de aggregatie naar onderwijseenheid- en leeronderdeelspecificaties, of hoort die relatie expliciet op Keuzedeel te staan? (F1-08, `Leeronderdeel specificatie`)
+7. Welke weging moet een studentvolgsysteem aggregeren: op het toetsonderdeel (schema) of op de resultaateenheid (regels)? Meta #234 punt 5. (F1-09, `Examenonderdeel weging`)
 
 Vragen over patronen, schema's, de toetslijst en endpoints horen bij de koppelvlakspecificatie en staan hier niet.
 
@@ -461,25 +465,25 @@ Per regel één van vier antwoorden: herken ik dit; heet bij ons anders (welke t
 | 1 | F1-05 | Leeronderdeel specificatie | | | | |
 | 1 | F1-05 | Leeruitkomst | | | | |
 | 1 | F1-05 | Leeronderdeel specificatie | | | | |
-| 1 | F1-06 | Opleiding specificatie | | | | |
-| 1 | F1-06 | Opleidingsprogramma specificatie | | | | |
-| 1 | F1-06 | Onderwijseenheid specificatie | | | | |
-| 1 | F1-06 | Leeronderdeel specificatie | | | | |
-| 1 | F1-06 | Keuzedeelruimte | | | | |
-| 1 | F1-06 | Student keuze regelset | | | | |
-| 1 | F1-07 | Leeruitkomst | | | | |
-| 1 | F1-07 | Leeruitkomst | | | | |
-| 1 | F1-07 | Keuzedeel | | | | |
+| 1 | F1-07 | Opleiding specificatie | | | | |
+| 1 | F1-07 | Opleidingsprogramma specificatie | | | | |
 | 1 | F1-07 | Onderwijseenheid specificatie | | | | |
 | 1 | F1-07 | Leeronderdeel specificatie | | | | |
-| 1 | F1-07 | Leeronderdeel specificatie | | | | |
-| 1 | F1-07 | Onderwijseenheid specificatie | | | | |
-| 1 | F1-07 | Leeronderdeel specificatie | | | | |
-| 1 | F1-08 | Summatieve resultaat structuur | | | | |
-| 1 | F1-08 | Toetsonderdeel specificatie | | | | |
-| 1 | F1-08 | Examenonderdeelspecificatie | | | | |
-| 1 | F1-08 | Examenonderdeel weging | | | | |
-| 1 | F1-08 | Summatief Afrondingscriterium | | | | |
+| 1 | F1-07 | Keuzedeelruimte | | | | |
+| 1 | F1-07 | Student keuze regelset | | | | |
+| 1 | F1-08 | Leeruitkomst | | | | |
+| 1 | F1-08 | Leeruitkomst | | | | |
+| 1 | F1-08 | Keuzedeel | | | | |
+| 1 | F1-08 | Onderwijseenheid specificatie | | | | |
+| 1 | F1-08 | Leeronderdeel specificatie | | | | |
+| 1 | F1-08 | Leeronderdeel specificatie | | | | |
+| 1 | F1-08 | Onderwijseenheid specificatie | | | | |
+| 1 | F1-08 | Leeronderdeel specificatie | | | | |
+| 1 | F1-09 | Summatieve resultaat structuur | | | | |
+| 1 | F1-09 | Toetsonderdeel specificatie | | | | |
+| 1 | F1-09 | Examenonderdeelspecificatie | | | | |
+| 1 | F1-09 | Examenonderdeel weging | | | | |
+| 1 | F1-09 | Summatief Afrondingscriterium | | | | |
 | 2 | F2-01 | Opleidingsprogramma specificatie | | | | |
 | 2 | F2-02 | Verzoek tot Aanbod / Intekening op specificatie | | | | |
 | 2 | F2-04 | Opleidingsaanbod van Instelling | | | | |
@@ -585,14 +589,24 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 | verandert | Leeronderdeel specificatie | B1-K1-W1 Baliegesprek en triage | informatiemodel.json: Leeruitkomst aggregeert Leeruitkomst, Leeronderdeel specificatie naar Leeruitkomst; leerroute-1-regulier.md, r620, r1021 en r1044 |
 | verandert | Leeruitkomst | Voert medicatiebewaking uit onder begeleiding in de leerapotheek (werkprocesniveau) | informatiemodel.json: Leeruitkomst aggregeert Leeruitkomst; leerroute-1-regulier.md, r1051 (werkproces B1-K1-W2) |
 | verandert | Leeronderdeel specificatie | B1-K1-W2 Medicatiebewaking | informatiemodel.json: Onderwijseenheid specificatie aggregeert Leeronderdeel specificatie, Leeronderdeel specificatie naar Leeruitkomst; leerroute-1-regulier.md, r1051 |
+
+**F1-06 - Het onderwijsontwerp van de eenheid: vorm, ruimte, mensen en middelen (conceptplaat)** (fase 1, Kwalificatiedossier vertalen naar leeruitkomsten; [f1-06-het-onderwijsontwerp-van-de-eenheid-vorm-ruimte-mensen-en-middelen-conceptplaat.svg](img/regels/f1-06-het-onderwijsontwerp-van-de-eenheid-vorm-ruimte-mensen-en-middelen-conceptplaat.svg))
+
+| Soort | Objecttype | Instantie | Bron |
+|---|---|---|---|
 | ontstaat (conceptplaat) | Leervormstrategie | Leren door te doen in een levensechte omgeving, theorie ondersteunend | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Strategisch kader instelling, Leervormstrategie naar Onderwijsvorm specificatie |
 | ontstaat (conceptplaat) | Leerdoel | Zelfstandig farmaceutische patiëntenzorg bieden in een levensechte setting | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Kerntaak 'Word onderwijskundig vertaald tot' Leerdoel; leerroute-1-regulier.md, r1046 en r1052 |
 | ontstaat (conceptplaat) | Onderwijsvorm specificatie | Simulatie in de leerapotheek, theorie ondersteunend | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Leeruitkomst naar Onderwijsvorm specificatie; leerroute-1-regulier.md, r1046 en r1052 |
-| ontstaat (conceptplaat) | Gewenste Onderwijskundige Leeromgeving | Balie-simulatie in het skillslab | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Onderwijsvorm specificatie naar Gewenste Onderwijskundige Leeromgeving; leerroute-1-regulier.md, r1048 |
+| ontstaat (conceptplaat) | Gewenste Onderwijskundige Leeromgeving | Simulatiegeschikte praktijkruimte voor 24 studenten, balie-opstelling mogelijk | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Onderwijsvorm specificatie naar Gewenste Onderwijskundige Leeromgeving, Gewenste Onderwijskundige Leeromgeving is een Onderwijsruimte type; leerroute-1-regulier.md, r1048 |
+| ontstaat (conceptplaat) | Onderwijsruimte type | Praktijkruimte met baliesimulatie | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Gewenste Onderwijskundige Leeromgeving is een Onderwijsruimte type, Onderwijsruimte type is een Lokaal |
+| ontstaat (conceptplaat) | Onderwijs locatie | Vestiging Zuid | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Onderwijs locatie aggregeert Lokaaltypes |
+| ontstaat (conceptplaat) | Lokaaltypes | Praktijklokalen met baliesimulatie | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Onderwijs locatie aggregeert Lokaaltypes |
 | ontstaat (conceptplaat) | Gewenst medewerker competentieprofiel | Apothekersassistent-docent met baliepraktijk | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Gewenst medewerker competentieprofiel naar Onderwijsvorm specificatie; leerroute-1-regulier.md, r1048 |
 | ontstaat (conceptplaat) | Studiebelasting en begeleide onderwijstijd indicatie | BOT 50 / OOT 50 SBU | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Studiebelasting en begeleide onderwijstijd indicatie naar Onderwijsvorm specificatie; leerroute-1-regulier.md, r1052 |
+| ontstaat (conceptplaat) | Collectie van Leermiddelgroepen | Leermiddelen voor de baliesimulatie | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Leeronderdeel / Leeractiviteit specificatie aggregeert Collectie van Leermiddelgroepen |
+| ontstaat (conceptplaat) | Leermiddelgroep | Apotheekbalie-opstelling, receptenlijnsysteem, oefenmedicatie | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Collectie van Leermiddelgroepen aggregeert Leermiddelgroep |
 
-**F1-06 - De opleidingsspecificatie met programma, eenheden en keuzedeelruimte** (fase 1, Opleidingsspecificatie met programma en eenheden beschrijven; [f1-06-de-opleidingsspecificatie-met-programma-eenheden-en-keuzedeelruimte.svg](img/regels/f1-06-de-opleidingsspecificatie-met-programma-eenheden-en-keuzedeelruimte.svg))
+**F1-07 - De opleidingsspecificatie met programma, eenheden en keuzedeelruimte** (fase 1, Opleidingsspecificatie met programma en eenheden beschrijven; [f1-07-de-opleidingsspecificatie-met-programma-eenheden-en-keuzedeelruimte.svg](img/regels/f1-07-de-opleidingsspecificatie-met-programma-eenheden-en-keuzedeelruimte.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
@@ -603,7 +617,7 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 | ontstaat | Keuzedeelruimte | 720 SBU, mbo-4 | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [r1059](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L1059) en [r1072](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L1072) |
 | ontstaat | Student keuze regelset | Kiesbare keuzedelen voor Apothekersassistent | [voorbeeldpayloads.md](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Datamodelschema's/voorbeeldpayloads.md), regelsets[0] (e4037953) |
 
-**F1-07 - Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen** (fase 1, Keuzedeelprogramma als eigen specificatie vormgeven; [f1-07-het-keuzedeel-als-eigen-programmaspecificatie-met-kerntaken-en-werkprocessen.svg](img/regels/f1-07-het-keuzedeel-als-eigen-programmaspecificatie-met-kerntaken-en-werkprocessen.svg))
+**F1-08 - Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen** (fase 1, Keuzedeelprogramma als eigen specificatie vormgeven; [f1-08-het-keuzedeel-als-eigen-programmaspecificatie-met-kerntaken-en-werkprocessen.svg](img/regels/f1-08-het-keuzedeel-als-eigen-programmaspecificatie-met-kerntaken-en-werkprocessen.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
@@ -616,7 +630,7 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 | ontstaat | Onderwijseenheid specificatie | D1-K2 Verleent EHBO en BHV | K0262-arbo-kwaliteitszorg-en-hulpverlening-niveau-3.md (keuzedeel mbo K0262, gevalideerd 10-11-2015); leerroute-1-regulier.md, r1072 tot 1080 |
 | ontstaat | Leeronderdeel specificatie | D1-K2-W1 Hulp bij calamiteiten | K0262-arbo-kwaliteitszorg-en-hulpverlening-niveau-3.md (keuzedeel mbo K0262, gevalideerd 10-11-2015); leerroute-1-regulier.md, r1072 tot 1080 |
 
-**F1-08 - Toetsonderdelen, wegingen en afrondingscriterium** (fase 1, Toetsonderdelen en resultaatstructuur uit het examenplan afleiden; [f1-08-toetsonderdelen-wegingen-en-afrondingscriterium.svg](img/regels/f1-08-toetsonderdelen-wegingen-en-afrondingscriterium.svg))
+**F1-09 - Toetsonderdelen, wegingen en afrondingscriterium** (fase 1, Toetsonderdelen en resultaatstructuur uit het examenplan afleiden; [f1-09-toetsonderdelen-wegingen-en-afrondingscriterium.svg](img/regels/f1-09-toetsonderdelen-wegingen-en-afrondingscriterium.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
@@ -626,7 +640,7 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 | ontstaat | Examenonderdeel weging | Proeve van bekwaamheid B1-K1: weging 2 | [voorbeeldpayloads.md](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Datamodelschema's/voorbeeldpayloads.md), toetsonderdelen (941f180d): weging 2 |
 | ontstaat | Summatief Afrondingscriterium | Alle kerntaken en de keuzedelen voldoende | [voorbeeldpayloads.md](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Datamodelschema's/voorbeeldpayloads.md), resultaatstructuur: aggregatie allenVoldoende |
 
-**F1-09 - De opleiding zoals ontworpen naar de catalogus** (fase 1, Grofmazig resultaat publiceren naar de onderwijscatalogus; [f1-09-de-opleiding-zoals-ontworpen-naar-de-catalogus.svg](img/regels/f1-09-de-opleiding-zoals-ontworpen-naar-de-catalogus.svg))
+**F1-10 - De opleiding zoals ontworpen naar de catalogus** (fase 1, Grofmazig resultaat publiceren naar de onderwijscatalogus; [f1-10-de-opleiding-zoals-ontworpen-naar-de-catalogus.svg](img/regels/f1-10-de-opleiding-zoals-ontworpen-naar-de-catalogus.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
