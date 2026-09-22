@@ -35,7 +35,7 @@ Wat hier staat is feedback, geen commitment: het voorbeeld beslist niets over he
 
 De fase in detail: [kaderscenario leerroute 1, fase 1](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-1--kwalificatiekader-analyseren-en-grofmazig-ontwerpen).
 
-**Ontstaat:** `Kwalificatie dossier`, `Kwalificatie`, `Kerntaak`, `Werkproces`, `Examenplan`, `Summatieve resultaat structuur`, `Cohort / periode`, `Student keuze regelset`, `Leeruitkomst`, `Competenties / Skills`, `Vaardigheid`, `Kennis`, `Inzicht`, `Onderwijseenheid specificatie`, `Leeronderdeel specificatie`, `Opleiding specificatie`, `Opleidingsprogramma specificatie`, `Keuzedeelruimte`, `Keuzedeel`, `Toetsonderdeel specificatie`, `Examenonderdeelspecificatie`, `Examenonderdeel weging`, `Summatief Afrondingscriterium`. **Stroomt:** Curriculum ontwerptool naar Onderwijscatalogus. **MORA-hoofdproces:** Ontwikkelen.
+**Ontstaat:** `Kwalificatie dossier`, `Kwalificatie`, `Kerntaak`, `Werkproces`, `Examenplan`, `Summatieve resultaat structuur`, `Cohort / periode`, `Leeruitkomst`, `Competenties / Skills`, `Vaardigheid`, `Kennis`, `Inzicht`, `Onderwijseenheid specificatie`, `Leeronderdeel specificatie`, `Opleiding specificatie`, `Opleidingsprogramma specificatie`, `Keuzedeelruimte`, `Student keuze regelset`, `Keuzedeel`, `Toetsonderdeel specificatie`, `Examenonderdeelspecificatie`, `Examenonderdeel weging`, `Summatief Afrondingscriterium`. **Stroomt:** Curriculum ontwerptool naar Onderwijscatalogus. **MORA-hoofdproces:** Ontwikkelen.
 
 ### F1-01 - Het kwalificatiedossier ontleed
 
@@ -344,13 +344,13 @@ Per objecttype het beeld waarin hij verschijnt (het ID uit de kop), de instantie
 |---|---|---|---|---|---|---|---|---|
 | Examenonderdeelspecificatie | F1-09 | Proeve van bekwaamheid B1-K1 | 1 | ja | ja | TestComponent | | |
 | Keuzedeel | F1-08 | K0262 ARBO, kwaliteitszorg en hulpverlening geschikt voor niveau 3 (240 SBU) | 1 |  | nog te definieren | Programme | | |
-| Keuzedeelruimte | F1-07 | 720 SBU, mbo-4 | 1 |  | ja | Programme | | |
+| Keuzedeelruimte | F1-07 | 720 SBU, mbo-4: te vullen met 480 SBU verdiepend en 240 SBU generiek | 1 |  | ja | Programme | | |
 | Leeronderdeel specificatie | F1-05 | B1-K1-W1 Baliegesprek en triage | 1 |  | ja | LearningComponent | | |
 | Les specificatie | F4-01 | Les 1 Introductie WHAM-vragen en triage, werkcollege, 2 uur | 4 |  | ja | LearningComponent | | |
 | Onderwijseenheid specificatie | F1-05 | Blok B1-K1 Biedt farmaceutische patiëntenzorg | 1 |  | ja | Course | | |
 | Opleiding specificatie | F1-07 | Apothekersassistent, versie 2026.1 | 1 |  | nog te definieren | Programme | | |
 | Opleidingsprogramma specificatie | F1-07 | BOL voltijd, diplomaprogramma | 1 |  | ja | Programme | | |
-| Student keuze regelset | F1-02 | 720 SBU: twee keuzedelen van 360 SBU, een verdiepend en een verbredend | 1 | ja | nog te definieren | geen equivalent | | |
+| Student keuze regelset | F1-07 | Kiesbare keuzedelen: K0037 Farmaceutische Patientenzorg (480 SBU, verdiepend) of K0262 ARBO, kwaliteitszorg en hulpverlening (240 SBU, generiek) | 1 |  | nog te definieren | geen equivalent | | |
 | Toetsonderdeel specificatie | F1-09 | Praktijktoets baliegesprek (OSCE), summatief | 1 |  | ja | TestComponent | | |
 
 ### Onderwijsaanbod
@@ -451,7 +451,7 @@ Per regel één van vier antwoorden: herken ik dit; heet bij ons anders (welke t
 | 1 | F1-02 | Examenplan | | | | |
 | 1 | F1-02 | Summatieve resultaat structuur | | | | |
 | 1 | F1-02 | Cohort / periode | | | | |
-| 1 | F1-02 | Student keuze regelset | | | | |
+| 1 | F1-02 | Examenplan | | | | |
 | 1 | F1-03 | Leeruitkomst | | | | |
 | 1 | F1-03 | Leeruitkomst | | | | |
 | 1 | F1-04 | Leeruitkomst | | | | |
@@ -479,6 +479,10 @@ Per regel één van vier antwoorden: herken ik dit; heet bij ons anders (welke t
 | 1 | F1-08 | Leeronderdeel specificatie | | | | |
 | 1 | F1-08 | Leeronderdeel specificatie | | | | |
 | 1 | F1-08 | Onderwijseenheid specificatie | | | | |
+| 1 | F1-08 | Leeronderdeel specificatie | | | | |
+| 1 | F1-08 | Keuzedeel | | | | |
+| 1 | F1-08 | Onderwijseenheid specificatie | | | | |
+| 1 | F1-08 | Leeronderdeel specificatie | | | | |
 | 1 | F1-08 | Leeronderdeel specificatie | | | | |
 | 1 | F1-09 | Summatieve resultaat structuur | | | | |
 | 1 | F1-09 | Toetsonderdeel specificatie | | | | |
@@ -561,7 +565,7 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 | ontstaat | Examenplan | Examenplan Apothekersassistent, cohort 2026 | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 1](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-1--kwalificatiekader-analyseren-en-grofmazig-ontwerpen): een initieel examenplan; [Fase 8](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-8--examineren-vaststellen-en-diplomeren): op basis van het examenplan uit fase 1 |
 | ontstaat | Summatieve resultaat structuur | Eerste opzet: kerntaken en keuzedelen, alle voldoende | [voorbeeldpayloads.md](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Datamodelschema's/voorbeeldpayloads.md), resultaatstructuur (08b4656d): aggregatie allenVoldoende |
 | ontstaat | Cohort / periode | Cohort 2026 | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 2](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-2--publiceren-en-planbaar-maken) en scenario: cohort 2026; ontwerpkeuze 17 |
-| ontstaat | Student keuze regelset | 720 SBU: twee keuzedelen van 360 SBU, een verdiepend en een verbredend | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [r52](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L52) (720 SBU keuzedelen verplicht voor niveau 4); de verdeling in twee keuzedelen van 360 SBU met een verdiepend en een verbredend deel is een keuze van het voorbeeld |
+| ontstaat | Examenplan | Keuzedeeleis: 720 SBU, waarvan een verdiepend keuzedeel | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [r52](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L52) (720 SBU keuzedelen verplicht voor niveau 4); het examenplan staat buiten de uitwisseling, de eis erin is de aanleiding voor de latere keuzeregelset |
 
 **F1-03 - Leeruitkomsten uit het dossier, in de stem van de instelling** (fase 1, Kwalificatiedossier vertalen naar leeruitkomsten; [f1-03-leeruitkomsten-uit-het-dossier-in-de-stem-van-de-instelling.svg](img/regels/f1-03-leeruitkomsten-uit-het-dossier-in-de-stem-van-de-instelling.svg))
 
@@ -616,8 +620,8 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 | ontstaat | Opleidingsprogramma specificatie | BOL voltijd, diplomaprogramma | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [r1032](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L1032) tot [1036](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L1036) |
 | ontstaat | Onderwijseenheid specificatie | Blok B1-K1 Biedt farmaceutische patiëntenzorg | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [r1038](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L1038) tot [1043](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L1043) |
 | ontstaat | Leeronderdeel specificatie | B1-K1-W1 Baliegesprek en triage: simulatie in de leerapotheek, theorie ondersteunend, grofmazig | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [r1021](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L1021) (organiseerbaarheidswaarden op leeronderdeelniveau), [r1045](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L1045) tot [1052](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L1052) (leervorm simulatie, ruimtetype balie-simulatie) |
-| ontstaat | Keuzedeelruimte | 720 SBU, mbo-4 | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [r1059](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L1059) en [r1072](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L1072) |
-| verandert | Student keuze regelset | Kiesbare keuzedelen voor Apothekersassistent: verdiepend of verbredend, elk 360 SBU | [voorbeeldpayloads.md](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Datamodelschema's/voorbeeldpayloads.md), regelsets[0] (e4037953); de eerste opzet staat bij het examenplan (F1-02) |
+| ontstaat | Keuzedeelruimte | 720 SBU, mbo-4: te vullen met 480 SBU verdiepend en 240 SBU generiek | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [r1059](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L1059) en [r1072](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L1072) |
+| ontstaat | Student keuze regelset | Kiesbare keuzedelen: K0037 Farmaceutische Patientenzorg (480 SBU, verdiepend) of K0262 ARBO, kwaliteitszorg en hulpverlening (240 SBU, generiek) | K0037-farmaceutische-patientenzorg.md (keuzedeel mbo K0037, 480 SBU, aard verdiepend, gevalideerd 26-11-2015); leerroute-1-regulier.md, r52 (720 SBU keuzedelen verplicht voor niveau 4); de eis komt uit het examenplan (F1-02) |
 
 **F1-08 - Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen** (fase 1, Keuzedeelprogramma als eigen specificatie vormgeven; [f1-08-het-keuzedeel-als-eigen-programmaspecificatie-met-kerntaken-en-werkprocessen.svg](img/regels/f1-08-het-keuzedeel-als-eigen-programmaspecificatie-met-kerntaken-en-werkprocessen.svg))
 
@@ -631,6 +635,10 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 | ontstaat | Leeronderdeel specificatie | D1-K1-W2 Risico-inventarisatie en -evaluatie | K0262-arbo-kwaliteitszorg-en-hulpverlening-niveau-3.md (keuzedeel mbo K0262, gevalideerd 10-11-2015); leerroute-1-regulier.md, r1072 tot 1080 |
 | ontstaat | Onderwijseenheid specificatie | D1-K2 Verleent EHBO en BHV | K0262-arbo-kwaliteitszorg-en-hulpverlening-niveau-3.md (keuzedeel mbo K0262, gevalideerd 10-11-2015); leerroute-1-regulier.md, r1072 tot 1080 |
 | ontstaat | Leeronderdeel specificatie | D1-K2-W1 Hulp bij calamiteiten | K0262-arbo-kwaliteitszorg-en-hulpverlening-niveau-3.md (keuzedeel mbo K0262, gevalideerd 10-11-2015); leerroute-1-regulier.md, r1072 tot 1080 |
+| ontstaat | Keuzedeel | K0037 Farmaceutische Patientenzorg (480 SBU, verdiepend) | K0037-farmaceutische-patientenzorg.md (keuzedeel mbo K0037, 480 SBU, aard verdiepend, gevalideerd 26-11-2015) |
+| ontstaat | Onderwijseenheid specificatie | D1-K1 Voert farmaceutische patientenzorg uit | K0037-farmaceutische-patientenzorg.md (keuzedeel mbo K0037, 480 SBU, aard verdiepend, gevalideerd 26-11-2015) |
+| ontstaat | Leeronderdeel specificatie | D1-K1-W1 Medicatieoverzicht | K0037-farmaceutische-patientenzorg.md (keuzedeel mbo K0037, 480 SBU, aard verdiepend, gevalideerd 26-11-2015) |
+| ontstaat | Leeronderdeel specificatie | D1-K1-W2 Zorg aan specifieke doelgroepen | K0037-farmaceutische-patientenzorg.md (keuzedeel mbo K0037, 480 SBU, aard verdiepend, gevalideerd 26-11-2015) |
 
 **F1-09 - Toetsonderdelen, wegingen en afrondingscriterium** (fase 1, Toetsonderdelen en resultaatstructuur uit het examenplan afleiden; [f1-09-toetsonderdelen-wegingen-en-afrondingscriterium.svg](img/regels/f1-09-toetsonderdelen-wegingen-en-afrondingscriterium.svg))
 

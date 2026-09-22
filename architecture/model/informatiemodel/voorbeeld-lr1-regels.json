@@ -370,7 +370,7 @@
    "instantie": "Examenplan Apothekersassistent, cohort 2026",
    "bron": "leerroute-1-regulier.md, Fase 1: een initieel examenplan; Fase 8: op basis van het examenplan uit fase 1",
    "aanname": true,
-   "zin": "Op basis van het kwalificatiedossier stelt de examencommissie het examenplan vast: wat wordt geexamineerd en wanneer de opleiding is afgerond; buiten de uitwisseling, wel de oorsprong van de resultaatstructuur. In dezelfde stap ligt de eerste opzet van de keuzeregelset vast: hoeveel keuzedeel de student moet doen en van welk type.",
+   "zin": "Op basis van het kwalificatiedossier stelt de examencommissie het examenplan vast: wat wordt geexamineerd en wanneer de opleiding is afgerond; buiten de uitwisseling, wel de oorsprong van de resultaatstructuur. Het examenplan draagt ook de keuzedeeleis: hoeveel keuzedeel de student moet doen en van welk type. De keuzeregelset die daarop volgt ontstaat bij de opleidingsspecificatie.",
    "vraag": "Het kaderscenario zet het examenplan in fase 1 en de resultaatstructuur pas in fase 4 bij OC-SIS. Ontstaat de summatieve resultaatstructuur in de curriculum-ontwerptool uit het examenplan, en gaat zij met de specificatie mee naar de catalogus?"
   },
   {
@@ -417,10 +417,11 @@
    "stap": "Examenplan vaststellen",
    "soort": "ontstaat",
    "wie": "examencommissie",
-   "objecttype": "Student keuze regelset",
-   "instantie": "720 SBU: twee keuzedelen van 360 SBU, een verdiepend en een verbredend",
+   "objecttype": "Examenplan",
+   "instantie": "Keuzedeeleis: 720 SBU, waarvan een verdiepend keuzedeel",
    "aanname": true,
-   "bron": "leerroute-1-regulier.md, r52 (720 SBU keuzedelen verplicht voor niveau 4); de verdeling in twee keuzedelen van 360 SBU met een verdiepend en een verbredend deel is een keuze van het voorbeeld"
+   "bron": "leerroute-1-regulier.md, r52 (720 SBU keuzedelen verplicht voor niveau 4); het examenplan staat buiten de uitwisseling, de eis erin is de aanleiding voor de latere keuzeregelset",
+   "nieuwe_instantie": true
   },
   {
    "beeld_id": "F1-03",
@@ -1018,7 +1019,7 @@
    "soort": "ontstaat",
    "wie": "onderwijsontwerper",
    "objecttype": "Keuzedeelruimte",
-   "instantie": "720 SBU, mbo-4",
+   "instantie": "720 SBU, mbo-4: te vullen met 480 SBU verdiepend en 240 SBU generiek",
    "bron": "leerroute-1-regulier.md, r1059 en r1072",
    "relatie": {
     "soort": "Specialization",
@@ -1031,17 +1032,16 @@
    "beeld": "De opleidingsspecificatie met programma, eenheden en keuzedeelruimte",
    "fase": 1,
    "stap": "Opleidingsspecificatie met programma en eenheden beschrijven",
-   "soort": "verandert",
+   "soort": "ontstaat",
    "wie": "onderwijsontwerper",
    "objecttype": "Student keuze regelset",
-   "instantie": "Kiesbare keuzedelen voor Apothekersassistent: verdiepend of verbredend, elk 360 SBU",
-   "bron": "voorbeeldpayloads.md, regelsets[0] (e4037953); de eerste opzet staat bij het examenplan (F1-02)",
+   "instantie": "Kiesbare keuzedelen: K0037 Farmaceutische Patientenzorg (480 SBU, verdiepend) of K0262 ARBO, kwaliteitszorg en hulpverlening (240 SBU, generiek)",
+   "bron": "K0037-farmaceutische-patientenzorg.md (keuzedeel mbo K0037, 480 SBU, aard verdiepend, gevalideerd 26-11-2015); leerroute-1-regulier.md, r52 (720 SBU keuzedelen verplicht voor niveau 4); de eis komt uit het examenplan (F1-02)",
    "relatie": {
     "soort": "Association",
     "van": "Keuzedeelruimte",
     "naar": "Student keuze regelset"
-   },
-   "toestand": "uitgewerkt"
+   }
   },
   {
    "beeld_id": "F1-08",
@@ -1064,7 +1064,7 @@
      "instantie": "D1-K1 Draagt bij aan kwaliteitszorg en arbeidsomstandigheden"
     }
    ],
-   "zin": "Een keuzedeel is zelf een programmaspecificatie, gelijksoortig vormgegeven maar los van Jochems opleiding. Het kent dezelfde opbouw als een kwalificatie: kerntaken met werkprocessen eronder, die de instelling vertaalt naar leeruitkomsten en vormgeeft als onderwijseenheid- en leeronderdeelspecificaties. Welk keuzedeel de ruimte vult, bepaalt het studentkeuzesysteem later met de regelset."
+   "zin": "Een keuzedeel is zelf een programmaspecificatie, gelijksoortig vormgegeven maar los van Jochems opleiding. Het kent dezelfde opbouw als een kwalificatie: kerntaken met werkprocessen eronder, die de instelling vertaalt naar leeruitkomsten en vormgeeft als onderwijseenheid- en leeronderdeelspecificaties. Twee keuzedelen vullen samen de ruimte van 720 SBU: een verdiepend van 480 SBU en een generiek van 240 SBU. Welk keuzedeel de student kiest, bepaalt het studentkeuzesysteem later met de regelset."
   },
   {
    "beeld_id": "F1-08",
@@ -1247,6 +1247,108 @@
     }
    ],
    "vraag": "Een keuzedeel is een specialisatie van de opleidingsprogrammaspecificatie en kent dezelfde opbouw in kerntaken en werkprocessen. Erft het daarmee ook de aggregatie naar onderwijseenheid- en leeronderdeelspecificaties, of hoort die relatie expliciet op Keuzedeel te staan?"
+  },
+  {
+   "beeld_id": "F1-08",
+   "beeld": "Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen",
+   "fase": 1,
+   "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
+   "wie": "onderwijsontwerper",
+   "soort": "ontstaat",
+   "objecttype": "Keuzedeel",
+   "instantie": "K0037 Farmaceutische Patientenzorg (480 SBU, verdiepend)",
+   "nieuwe_instantie": true,
+   "bron": "K0037-farmaceutische-patientenzorg.md (keuzedeel mbo K0037, 480 SBU, aard verdiepend, gevalideerd 26-11-2015)",
+   "relatie": {
+    "soort": "Specialization",
+    "van": "Keuzedeel",
+    "naar": "Opleidingsprogramma specificatie"
+   },
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Student keuze regelset",
+     "naar": "Keuzedeel"
+    }
+   ]
+  },
+  {
+   "beeld_id": "F1-08",
+   "beeld": "Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen",
+   "fase": 1,
+   "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
+   "wie": "onderwijsontwerper",
+   "soort": "ontstaat",
+   "objecttype": "Onderwijseenheid specificatie",
+   "instantie": "D1-K1 Voert farmaceutische patientenzorg uit",
+   "nieuwe_instantie": true,
+   "bron": "K0037-farmaceutische-patientenzorg.md (keuzedeel mbo K0037, 480 SBU, aard verdiepend, gevalideerd 26-11-2015)",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Opleidingsprogramma specificatie",
+    "naar": "Onderwijseenheid specificatie",
+    "nesting": true
+   },
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Onderwijseenheid specificatie",
+     "naar": "Leeruitkomst",
+     "instantie": "Voert farmaceutische patientenzorg uit bij specifieke doelgroepen (kerntaakniveau, keuzedeel)"
+    }
+   ]
+  },
+  {
+   "beeld_id": "F1-08",
+   "beeld": "Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen",
+   "fase": 1,
+   "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
+   "wie": "onderwijsontwerper",
+   "soort": "ontstaat",
+   "objecttype": "Leeronderdeel specificatie",
+   "instantie": "D1-K1-W1 Medicatieoverzicht",
+   "nieuwe_instantie": true,
+   "bron": "K0037-farmaceutische-patientenzorg.md (keuzedeel mbo K0037, 480 SBU, aard verdiepend, gevalideerd 26-11-2015)",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Onderwijseenheid specificatie",
+    "naar": "Leeronderdeel specificatie",
+    "nesting": true
+   },
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Leeronderdeel specificatie",
+     "naar": "Leeruitkomst",
+     "instantie": "Zorgt voor een medicatieoverzicht (werkprocesniveau)"
+    }
+   ]
+  },
+  {
+   "beeld_id": "F1-08",
+   "beeld": "Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen",
+   "fase": 1,
+   "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
+   "wie": "onderwijsontwerper",
+   "soort": "ontstaat",
+   "objecttype": "Leeronderdeel specificatie",
+   "instantie": "D1-K1-W2 Zorg aan specifieke doelgroepen",
+   "nieuwe_instantie": true,
+   "bron": "K0037-farmaceutische-patientenzorg.md (keuzedeel mbo K0037, 480 SBU, aard verdiepend, gevalideerd 26-11-2015)",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Onderwijseenheid specificatie",
+    "naar": "Leeronderdeel specificatie",
+    "nesting": true
+   },
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Leeronderdeel specificatie",
+     "naar": "Leeruitkomst",
+     "instantie": "Biedt farmaceutische patientenzorg aan specifieke doelgroepen (werkprocesniveau)"
+    }
+   ]
   },
   {
    "beeld_id": "F1-09",
