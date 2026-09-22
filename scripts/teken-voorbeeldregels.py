@@ -442,6 +442,9 @@ def groepeer(regels):
             blokken.append(laatste)
         item = {"type": r["objecttype"], "instantie": r["instantie"], "aanname": r.get("aanname", False),
                 "plaat": r.get("plaat", "informatiemodel"), "verwijzingen": [_verwijzing(x, r["objecttype"]) for x in r.get("relaties", [])]}
+        _rel = r.get("relatie") or {}
+        if _rel.get("soort") == "Specialization" and _rel.get("van") == r["objecttype"]:
+            item["specialiseert"] = _rel["naar"]
         if soort == "verandert":
             item["toestand"] = r.get("toestand")
         rel = r.get("relatie")
@@ -451,8 +454,11 @@ def groepeer(regels):
         in_blok = ({buur["type"]} | {k.get("type") for k in buur.get("kinderen", [])}) if buur else set()
         if rel and rel.get("nesting"):
             def zoek(items):
-                for it in items:
-                    if it.get("type") == rel["van"]:
+                # van achteren naar voren: een kind hangt onder het laatst getoonde object van dat type,
+                # zodat een tweede eenheid haar eigen leeronderdelen krijgt
+                for it in reversed(items):
+                    # een specialisatie erft de nesting van haar generalisatie (Keuzedeel onder Opleidingsprogramma specificatie)
+                    if rel["van"] in (it.get("type"), it.get("specialiseert")):
                         return it
                     gevonden = zoek(it.get("kinderen", []))
                     if gevonden is not None:

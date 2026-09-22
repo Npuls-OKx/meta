@@ -61,9 +61,9 @@ De fase in detail: [kaderscenario leerroute 1, fase 1](https://github.com/Npuls-
 
 ![ontstaat: Opleidingsspecificatie met programma en eenheden beschrijven](img/regels/f1-06-de-opleidingsspecificatie-met-programma-eenheden-en-keuzedeelruimte.svg)
 
-### F1-07 - Het keuzedeel als eigen programmaspecificatie
+### F1-07 - Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen
 
-![ontstaat: Keuzedeelprogramma als eigen specificatie vormgeven](img/regels/f1-07-het-keuzedeel-als-eigen-programmaspecificatie.svg)
+![ontstaat: Keuzedeelprogramma als eigen specificatie vormgeven](img/regels/f1-07-het-keuzedeel-als-eigen-programmaspecificatie-met-kerntaken-en-werkprocessen.svg)
 
 ### F1-08 - Toetsonderdelen, wegingen en afrondingscriterium
 
@@ -339,7 +339,7 @@ Per objecttype het beeld waarin hij verschijnt (het ID uit de kop), de instantie
 | Objecttype | Beeld | Jochem | Fase | Aanname | Definitie | OEAPI | Heet bij u | Hangt bij u onder |
 |---|---|---|---|---|---|---|---|---|
 | Examenonderdeelspecificatie | F1-08 | Proeve van bekwaamheid B1-K1 | 1 | ja | ja | TestComponent | | |
-| Keuzedeel | F1-07 | Ondernemerschap in de zorg | 1 |  | nog te definieren | Programme | | |
+| Keuzedeel | F1-07 | K0262 ARBO, kwaliteitszorg en hulpverlening geschikt voor niveau 3 (240 SBU) | 1 |  | nog te definieren | Programme | | |
 | Keuzedeelruimte | F1-06 | 720 SBU, mbo-4 | 1 |  | ja | Programme | | |
 | Leeronderdeel specificatie | F1-05 | B1-K1-W1 Baliegesprek en triage | 1 |  | ja | LearningComponent | | |
 | Les specificatie | F4-01 | Les 1 Introductie WHAM-vragen en triage, werkcollege, 2 uur | 4 |  | ja | LearningComponent | | |
@@ -428,9 +428,9 @@ De vragen die de regels zelf oproepen, met de regel waar de vraag zichtbaar word
 2. Is het cohort een sleutel op aanbod en verbintenis, of een eigen object dat de toepasselijke resultaatstructuur draagt (ontwerpkeuze 17)? (F1-02, `Cohort / periode`)
 3. CompetentNL legt vaardigheden gelaagd vast (skos:broader, drie lagen) en de leeruitkomst is op de plaat gelaagd; Vaardigheid is dat niet. Krijgt Vaardigheid een eigen aggregatie, zodat laag 2 onder laag 1 hangt zoals de leeruitkomst onder de leeruitkomst? (F1-04, `Vaardigheid`)
 4. Het kader waarmee de instelling de kerntaak vormgeeft staat op de conceptplaat (leervormstrategie, leerdoel, onderwijsvorm specificatie, leeromgeving, docentprofiel, studiebelasting), niet op de informatiemodelplaat. Welke daarvan horen in de uitwisseling, bijvoorbeeld op het leeronderdeel, en welke blijven binnen de instelling? (F1-05, `Onderwijsvorm specificatie`)
-5. Welke weging moet een studentvolgsysteem aggregeren: op het toetsonderdeel (schema) of op de resultaateenheid (regels)? Meta #234 punt 5. (F1-08, `Examenonderdeel weging`)
-6. Is het verzoek tot aanbod een object met sleutel en toestand, of het startevent van aanbod maken? (F2-02, `Verzoek tot Aanbod / Intekening op specificatie`)
-7. Voor de examenplanning is naast de resultaatstructuur (wat en hoe zwaar) ook het moment nodig. Komt dat uit het examenplan, dat buiten de uitwisseling blijft, of uit de plek van het examenonderdeel in de specificatie? (F2-06, `Examen`)
+5. Een keuzedeel is een specialisatie van de opleidingsprogrammaspecificatie en kent dezelfde opbouw in kerntaken en werkprocessen. Erft het daarmee ook de aggregatie naar onderwijseenheid- en leeronderdeelspecificaties, of hoort die relatie expliciet op Keuzedeel te staan? (F1-07, `Leeronderdeel specificatie`)
+6. Welke weging moet een studentvolgsysteem aggregeren: op het toetsonderdeel (schema) of op de resultaateenheid (regels)? Meta #234 punt 5. (F1-08, `Examenonderdeel weging`)
+7. Is het verzoek tot aanbod een object met sleutel en toestand, of het startevent van aanbod maken? (F2-02, `Verzoek tot Aanbod / Intekening op specificatie`)
 
 Vragen over patronen, schema's, de toetslijst en endpoints horen bij de koppelvlakspecificatie en staan hier niet.
 
@@ -455,10 +455,11 @@ Per regel één van vier antwoorden: herken ik dit; heet bij ons anders (welke t
 | 1 | F1-04 | Vaardigheid | | | | |
 | 1 | F1-04 | Kennis | | | | |
 | 1 | F1-04 | Inzicht | | | | |
-| 1 | F1-05 | Leeruitkomst | | | | |
-| 1 | F1-05 | Leeruitkomst | | | | |
 | 1 | F1-05 | Onderwijseenheid specificatie | | | | |
+| 1 | F1-05 | Leeruitkomst | | | | |
+| 1 | F1-05 | Leeruitkomst | | | | |
 | 1 | F1-05 | Leeronderdeel specificatie | | | | |
+| 1 | F1-05 | Leeruitkomst | | | | |
 | 1 | F1-05 | Leeronderdeel specificatie | | | | |
 | 1 | F1-06 | Opleiding specificatie | | | | |
 | 1 | F1-06 | Opleidingsprogramma specificatie | | | | |
@@ -466,7 +467,14 @@ Per regel één van vier antwoorden: herken ik dit; heet bij ons anders (welke t
 | 1 | F1-06 | Leeronderdeel specificatie | | | | |
 | 1 | F1-06 | Keuzedeelruimte | | | | |
 | 1 | F1-06 | Student keuze regelset | | | | |
+| 1 | F1-07 | Leeruitkomst | | | | |
+| 1 | F1-07 | Leeruitkomst | | | | |
 | 1 | F1-07 | Keuzedeel | | | | |
+| 1 | F1-07 | Onderwijseenheid specificatie | | | | |
+| 1 | F1-07 | Leeronderdeel specificatie | | | | |
+| 1 | F1-07 | Leeronderdeel specificatie | | | | |
+| 1 | F1-07 | Onderwijseenheid specificatie | | | | |
+| 1 | F1-07 | Leeronderdeel specificatie | | | | |
 | 1 | F1-08 | Summatieve resultaat structuur | | | | |
 | 1 | F1-08 | Toetsonderdeel specificatie | | | | |
 | 1 | F1-08 | Examenonderdeelspecificatie | | | | |
@@ -571,11 +579,12 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
-| verandert | Leeruitkomst | Biedt farmaceutische patiëntenzorg in een levensechte apotheekomgeving (kerntaakniveau) | informatiemodel.json: Onderwijseenheid specificatie naar Leeruitkomst (associatie); leerroute-1-regulier.md, r621 en r1021 |
-| verandert | Leeruitkomst | Voert baliegesprek en triage uit in de simulatieapotheek, onderbouwd met theorie (werkprocesniveau) | informatiemodel.json: Leeruitkomst aggregeert Leeruitkomst; leerroute-1-regulier.md, r620 en r1092 |
 | verandert | Onderwijseenheid specificatie | Blok B1-K1 Biedt farmaceutische patiëntenzorg | informatiemodel.json: Onderwijseenheid specificatie naar Leeruitkomst (associatie); leerroute-1-regulier.md, r576 en r1021 (onderwijseenheden corresponderen met kerntaken) |
-| verandert | Leeronderdeel specificatie | B1-K1-W1 Baliegesprek en triage | informatiemodel.json: Onderwijseenheid specificatie aggregeert Leeronderdeel specificatie; leerroute-1-regulier.md, r625, r1021 en r1044 (leeronderdeelspecificatie op de rij Werkproces) |
-| verandert | Leeronderdeel specificatie | B1-K1-W2 Voert medicatiebewaking uit | informatiemodel.json: Onderwijseenheid specificatie aggregeert Leeronderdeel specificatie; leerroute-1-regulier.md, r1051 (leeronderdeel B1-K1-W2) |
+| verandert | Leeruitkomst | Biedt farmaceutische patiëntenzorg in een levensechte apotheekomgeving (kerntaakniveau) | informatiemodel.json: Onderwijseenheid specificatie naar Leeruitkomst (associatie); leerroute-1-regulier.md, r621 |
+| verandert | Leeruitkomst | Voert baliegesprek en triage uit in de simulatieapotheek, onderbouwd met theorie (werkprocesniveau) | informatiemodel.json: Leeruitkomst aggregeert Leeruitkomst, Leeronderdeel specificatie naar Leeruitkomst; leerroute-1-regulier.md, r620, r1021 en r1044 |
+| verandert | Leeronderdeel specificatie | B1-K1-W1 Baliegesprek en triage | informatiemodel.json: Leeruitkomst aggregeert Leeruitkomst, Leeronderdeel specificatie naar Leeruitkomst; leerroute-1-regulier.md, r620, r1021 en r1044 |
+| verandert | Leeruitkomst | Voert medicatiebewaking uit onder begeleiding in de leerapotheek (werkprocesniveau) | informatiemodel.json: Leeruitkomst aggregeert Leeruitkomst; leerroute-1-regulier.md, r1051 (werkproces B1-K1-W2) |
+| verandert | Leeronderdeel specificatie | B1-K1-W2 Medicatiebewaking | informatiemodel.json: Onderwijseenheid specificatie aggregeert Leeronderdeel specificatie, Leeronderdeel specificatie naar Leeruitkomst; leerroute-1-regulier.md, r1051 |
 | ontstaat (conceptplaat) | Leervormstrategie | Leren door te doen in een levensechte omgeving, theorie ondersteunend | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Strategisch kader instelling, Leervormstrategie naar Onderwijsvorm specificatie |
 | ontstaat (conceptplaat) | Leerdoel | Zelfstandig farmaceutische patiëntenzorg bieden in een levensechte setting | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Kerntaak 'Word onderwijskundig vertaald tot' Leerdoel; leerroute-1-regulier.md, r1046 en r1052 |
 | ontstaat (conceptplaat) | Onderwijsvorm specificatie | Simulatie in de leerapotheek, theorie ondersteunend | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Leeruitkomst naar Onderwijsvorm specificatie; leerroute-1-regulier.md, r1046 en r1052 |
@@ -594,11 +603,18 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 | ontstaat | Keuzedeelruimte | 720 SBU, mbo-4 | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [r1059](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L1059) en [r1072](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L1072) |
 | ontstaat | Student keuze regelset | Kiesbare keuzedelen voor Apothekersassistent | [voorbeeldpayloads.md](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Datamodelschema's/voorbeeldpayloads.md), regelsets[0] (e4037953) |
 
-**F1-07 - Het keuzedeel als eigen programmaspecificatie** (fase 1, Keuzedeelprogramma als eigen specificatie vormgeven; [f1-07-het-keuzedeel-als-eigen-programmaspecificatie.svg](img/regels/f1-07-het-keuzedeel-als-eigen-programmaspecificatie.svg))
+**F1-07 - Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen** (fase 1, Keuzedeelprogramma als eigen specificatie vormgeven; [f1-07-het-keuzedeel-als-eigen-programmaspecificatie-met-kerntaken-en-werkprocessen.svg](img/regels/f1-07-het-keuzedeel-als-eigen-programmaspecificatie-met-kerntaken-en-werkprocessen.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
-| ontstaat | Keuzedeel | Ondernemerschap in de zorg | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [r1072](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L1072) tot [1080](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L1080): keuzedelen als zelfstandig programma, een eigen opleidingsprogramma-specificatie, N:M gekoppeld aan de diplomaprogramma's |
+| ontstaat | Leeruitkomst | Draagt bij aan kwaliteitszorg en arbeidsomstandigheden op de eigen werkplek (kerntaakniveau, keuzedeel) | K0262-arbo-kwaliteitszorg-en-hulpverlening-niveau-3.md (keuzedeel mbo K0262, gevalideerd 10-11-2015); leerroute-1-regulier.md, r1072 tot 1080 |
+| ontstaat | Leeruitkomst | Levert een bijdrage aan de inrichting van het kwaliteitszorgsysteem (werkprocesniveau, keuzedeel) | K0262-arbo-kwaliteitszorg-en-hulpverlening-niveau-3.md (keuzedeel mbo K0262, gevalideerd 10-11-2015); leerroute-1-regulier.md, r1072 tot 1080 |
+| ontstaat | Keuzedeel | K0262 ARBO, kwaliteitszorg en hulpverlening geschikt voor niveau 3 (240 SBU) | K0262-arbo-kwaliteitszorg-en-hulpverlening-niveau-3.md (keuzedeel mbo K0262, gevalideerd 10-11-2015); leerroute-1-regulier.md, r1072 tot 1080 |
+| ontstaat | Onderwijseenheid specificatie | D1-K1 Draagt bij aan kwaliteitszorg en arbeidsomstandigheden | K0262-arbo-kwaliteitszorg-en-hulpverlening-niveau-3.md (keuzedeel mbo K0262, gevalideerd 10-11-2015); leerroute-1-regulier.md, r1072 tot 1080 |
+| ontstaat | Leeronderdeel specificatie | D1-K1-W1 Bijdrage aan de inrichting van het kwaliteitszorgsysteem | K0262-arbo-kwaliteitszorg-en-hulpverlening-niveau-3.md (keuzedeel mbo K0262, gevalideerd 10-11-2015); leerroute-1-regulier.md, r1072 tot 1080 |
+| ontstaat | Leeronderdeel specificatie | D1-K1-W2 Risico-inventarisatie en -evaluatie | K0262-arbo-kwaliteitszorg-en-hulpverlening-niveau-3.md (keuzedeel mbo K0262, gevalideerd 10-11-2015); leerroute-1-regulier.md, r1072 tot 1080 |
+| ontstaat | Onderwijseenheid specificatie | D1-K2 Verleent EHBO en BHV | K0262-arbo-kwaliteitszorg-en-hulpverlening-niveau-3.md (keuzedeel mbo K0262, gevalideerd 10-11-2015); leerroute-1-regulier.md, r1072 tot 1080 |
+| ontstaat | Leeronderdeel specificatie | D1-K2-W1 Hulp bij calamiteiten | K0262-arbo-kwaliteitszorg-en-hulpverlening-niveau-3.md (keuzedeel mbo K0262, gevalideerd 10-11-2015); leerroute-1-regulier.md, r1072 tot 1080 |
 
 **F1-08 - Toetsonderdelen, wegingen en afrondingscriterium** (fase 1, Toetsonderdelen en resultaatstructuur uit het examenplan afleiden; [f1-08-toetsonderdelen-wegingen-en-afrondingscriterium.svg](img/regels/f1-08-toetsonderdelen-wegingen-en-afrondingscriterium.svg))
 

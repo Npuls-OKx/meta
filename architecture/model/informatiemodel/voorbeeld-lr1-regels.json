@@ -575,43 +575,24 @@
    "verdieping": "van kerntaak naar eenheid en leeronderdelen",
    "wie": "onderwijsontwerper",
    "soort": "verandert",
-   "objecttype": "Leeruitkomst",
-   "instantie": "Biedt farmaceutische patiëntenzorg in een levensechte apotheekomgeving (kerntaakniveau)",
-   "toestand": "onderwijskundig vertaald",
-   "bron": "informatiemodel.json: Onderwijseenheid specificatie naar Leeruitkomst (associatie); leerroute-1-regulier.md, r621 en r1021",
-   "zin": "Verdieping: de leeruitkomst zit niet in de eenheid, zij staat ernaast. De onderwijseenheidspecificatie verwijst ernaar, en zij deelt zich op in leeronderdeelspecificaties op werkprocesniveau die elk naar hun eigen leeruitkomst verwijzen. Zo loopt de herkomst uit het kwalificatiedossier via de leeruitkomst, niet langs de specificatie zelf. Het onderwijsontwerp van de conceptplaat legt daar een eigen pad omheen dat binnen de instelling blijft: de kerntaak wordt onderwijskundig vertaald tot een leerdoel."
-  },
-  {
-   "beeld_id": "F1-05",
-   "beeld": "De eenheidspecificatie met haar leeronderdelen en de gelinkte leeruitkomsten",
-   "fase": 1,
-   "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
-   "verdieping": "van kerntaak naar eenheid en leeronderdelen",
-   "wie": "onderwijsontwerper",
-   "soort": "verandert",
-   "objecttype": "Leeruitkomst",
-   "instantie": "Voert baliegesprek en triage uit in de simulatieapotheek, onderbouwd met theorie (werkprocesniveau)",
-   "toestand": "onderwijskundig vertaald",
-   "bron": "informatiemodel.json: Leeruitkomst aggregeert Leeruitkomst; leerroute-1-regulier.md, r620 en r1092",
-   "relatie": {
-    "soort": "Aggregation",
-    "van": "Leeruitkomst",
-    "naar": "Leeruitkomst",
-    "nesting": true
-   }
-  },
-  {
-   "beeld_id": "F1-05",
-   "beeld": "De eenheidspecificatie met haar leeronderdelen en de gelinkte leeruitkomsten",
-   "fase": 1,
-   "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
-   "verdieping": "van kerntaak naar eenheid en leeronderdelen",
-   "wie": "onderwijsontwerper",
-   "soort": "verandert",
    "objecttype": "Onderwijseenheid specificatie",
    "instantie": "Blok B1-K1 Biedt farmaceutische patiëntenzorg",
    "toestand": "onderwijskundig vertaald",
    "bron": "informatiemodel.json: Onderwijseenheid specificatie naar Leeruitkomst (associatie); leerroute-1-regulier.md, r576 en r1021 (onderwijseenheden corresponderen met kerntaken)",
+   "zin": "Verdieping: de leeruitkomst zit niet in de eenheid, zij staat ernaast. De onderwijseenheidspecificatie verwijst naar de leeruitkomst op kerntaakniveau, en elke leeronderdeelspecificatie naar haar eigen leeruitkomst op werkprocesniveau. Zo loopt de herkomst uit het kwalificatiedossier via de leeruitkomst, niet langs de specificatie zelf. Het onderwijsontwerp van de conceptplaat legt daar een eigen pad omheen dat binnen de instelling blijft: de kerntaak wordt onderwijskundig vertaald tot een leerdoel."
+  },
+  {
+   "beeld_id": "F1-05",
+   "beeld": "De eenheidspecificatie met haar leeronderdelen en de gelinkte leeruitkomsten",
+   "fase": 1,
+   "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
+   "verdieping": "van kerntaak naar eenheid en leeronderdelen",
+   "wie": "onderwijsontwerper",
+   "soort": "verandert",
+   "objecttype": "Leeruitkomst",
+   "instantie": "Biedt farmaceutische patiëntenzorg in een levensechte apotheekomgeving (kerntaakniveau)",
+   "toestand": "onderwijskundig vertaald",
+   "bron": "informatiemodel.json: Onderwijseenheid specificatie naar Leeruitkomst (associatie); leerroute-1-regulier.md, r621",
    "relatie": {
     "soort": "Association",
     "van": "Onderwijseenheid specificatie",
@@ -626,22 +607,39 @@
    "verdieping": "van kerntaak naar eenheid en leeronderdelen",
    "wie": "onderwijsontwerper",
    "soort": "verandert",
+   "objecttype": "Leeruitkomst",
+   "instantie": "Voert baliegesprek en triage uit in de simulatieapotheek, onderbouwd met theorie (werkprocesniveau)",
+   "toestand": "onderwijskundig vertaald",
+   "bron": "informatiemodel.json: Leeruitkomst aggregeert Leeruitkomst, Leeronderdeel specificatie naar Leeruitkomst; leerroute-1-regulier.md, r620, r1021 en r1044",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Leeruitkomst",
+    "naar": "Leeruitkomst"
+   }
+  },
+  {
+   "beeld_id": "F1-05",
+   "beeld": "De eenheidspecificatie met haar leeronderdelen en de gelinkte leeruitkomsten",
+   "fase": 1,
+   "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
+   "verdieping": "van kerntaak naar eenheid en leeronderdelen",
+   "wie": "onderwijsontwerper",
+   "soort": "verandert",
    "objecttype": "Leeronderdeel specificatie",
    "instantie": "B1-K1-W1 Baliegesprek en triage",
    "toestand": "onderwijskundig vertaald",
-   "bron": "informatiemodel.json: Onderwijseenheid specificatie aggregeert Leeronderdeel specificatie; leerroute-1-regulier.md, r625, r1021 en r1044 (leeronderdeelspecificatie op de rij Werkproces)",
+   "bron": "informatiemodel.json: Leeruitkomst aggregeert Leeruitkomst, Leeronderdeel specificatie naar Leeruitkomst; leerroute-1-regulier.md, r620, r1021 en r1044",
    "relatie": {
-    "soort": "Aggregation",
-    "van": "Onderwijseenheid specificatie",
-    "naar": "Leeronderdeel specificatie",
-    "nesting": true
+    "soort": "Association",
+    "van": "Leeronderdeel specificatie",
+    "naar": "Leeruitkomst"
    },
    "relaties": [
     {
-     "soort": "Association",
-     "van": "Leeronderdeel specificatie",
-     "naar": "Leeruitkomst",
-     "instantie": "Voert baliegesprek en triage uit in de simulatieapotheek, onderbouwd met theorie (werkprocesniveau)"
+     "soort": "Aggregation",
+     "van": "Onderwijseenheid specificatie",
+     "naar": "Leeronderdeel specificatie",
+     "instantie": "Blok B1-K1 Biedt farmaceutische patiëntenzorg"
     }
    ]
   },
@@ -653,22 +651,39 @@
    "verdieping": "van kerntaak naar eenheid en leeronderdelen",
    "wie": "onderwijsontwerper",
    "soort": "verandert",
-   "objecttype": "Leeronderdeel specificatie",
-   "instantie": "B1-K1-W2 Voert medicatiebewaking uit",
+   "objecttype": "Leeruitkomst",
+   "instantie": "Voert medicatiebewaking uit onder begeleiding in de leerapotheek (werkprocesniveau)",
    "toestand": "onderwijskundig vertaald",
-   "bron": "informatiemodel.json: Onderwijseenheid specificatie aggregeert Leeronderdeel specificatie; leerroute-1-regulier.md, r1051 (leeronderdeel B1-K1-W2)",
+   "bron": "informatiemodel.json: Leeruitkomst aggregeert Leeruitkomst; leerroute-1-regulier.md, r1051 (werkproces B1-K1-W2)",
    "relatie": {
     "soort": "Aggregation",
-    "van": "Onderwijseenheid specificatie",
-    "naar": "Leeronderdeel specificatie",
-    "nesting": true
+    "van": "Leeruitkomst",
+    "naar": "Leeruitkomst"
+   }
+  },
+  {
+   "beeld_id": "F1-05",
+   "beeld": "De eenheidspecificatie met haar leeronderdelen en de gelinkte leeruitkomsten",
+   "fase": 1,
+   "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
+   "verdieping": "van kerntaak naar eenheid en leeronderdelen",
+   "wie": "onderwijsontwerper",
+   "soort": "verandert",
+   "objecttype": "Leeronderdeel specificatie",
+   "instantie": "B1-K1-W2 Medicatiebewaking",
+   "toestand": "onderwijskundig vertaald",
+   "bron": "informatiemodel.json: Onderwijseenheid specificatie aggregeert Leeronderdeel specificatie, Leeronderdeel specificatie naar Leeruitkomst; leerroute-1-regulier.md, r1051",
+   "relatie": {
+    "soort": "Association",
+    "van": "Leeronderdeel specificatie",
+    "naar": "Leeruitkomst"
    },
    "relaties": [
     {
-     "soort": "Association",
-     "van": "Leeronderdeel specificatie",
-     "naar": "Leeruitkomst",
-     "instantie": "Voert medicatiebewaking uit (werkprocesniveau)"
+     "soort": "Aggregation",
+     "van": "Onderwijseenheid specificatie",
+     "naar": "Leeronderdeel specificatie",
+     "instantie": "Blok B1-K1 Biedt farmaceutische patiëntenzorg"
     }
    ]
   },
@@ -912,14 +927,65 @@
   },
   {
    "beeld_id": "F1-07",
-   "beeld": "Het keuzedeel als eigen programmaspecificatie",
+   "beeld": "Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen",
    "fase": 1,
    "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
-   "soort": "ontstaat",
    "wie": "onderwijsontwerper",
+   "soort": "ontstaat",
+   "objecttype": "Leeruitkomst",
+   "instantie": "Draagt bij aan kwaliteitszorg en arbeidsomstandigheden op de eigen werkplek (kerntaakniveau, keuzedeel)",
+   "nieuwe_instantie": true,
+   "aanname": true,
+   "bron": "K0262-arbo-kwaliteitszorg-en-hulpverlening-niveau-3.md (keuzedeel mbo K0262, gevalideerd 10-11-2015); leerroute-1-regulier.md, r1072 tot 1080",
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Kerntaak",
+     "naar": "Leeruitkomst",
+     "label": "Wordt vertaald naar",
+     "instantie": "D1-K1 Draagt bij aan kwaliteitszorg en arbeidsomstandigheden"
+    }
+   ],
+   "zin": "Een keuzedeel is zelf een programmaspecificatie, gelijksoortig vormgegeven maar los van Jochems opleiding. Het kent dezelfde opbouw als een kwalificatie: kerntaken met werkprocessen eronder, die de instelling vertaalt naar leeruitkomsten en vormgeeft als onderwijseenheid- en leeronderdeelspecificaties. Welk keuzedeel de ruimte vult, bepaalt het studentkeuzesysteem later met de regelset."
+  },
+  {
+   "beeld_id": "F1-07",
+   "beeld": "Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen",
+   "fase": 1,
+   "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
+   "wie": "onderwijsontwerper",
+   "soort": "ontstaat",
+   "objecttype": "Leeruitkomst",
+   "instantie": "Levert een bijdrage aan de inrichting van het kwaliteitszorgsysteem (werkprocesniveau, keuzedeel)",
+   "nieuwe_instantie": true,
+   "aanname": true,
+   "bron": "K0262-arbo-kwaliteitszorg-en-hulpverlening-niveau-3.md (keuzedeel mbo K0262, gevalideerd 10-11-2015); leerroute-1-regulier.md, r1072 tot 1080",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Leeruitkomst",
+    "naar": "Leeruitkomst",
+    "nesting": true
+   },
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Werkproces",
+     "naar": "Leeruitkomst",
+     "label": "Wordt vertaald naar",
+     "instantie": "D1-K1-W1 Levert een bijdrage aan de inrichting van het kwaliteitszorgsysteem"
+    }
+   ]
+  },
+  {
+   "beeld_id": "F1-07",
+   "beeld": "Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen",
+   "fase": 1,
+   "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
+   "wie": "onderwijsontwerper",
+   "soort": "ontstaat",
    "objecttype": "Keuzedeel",
-   "instantie": "Ondernemerschap in de zorg",
-   "bron": "leerroute-1-regulier.md, r1072 tot 1080: keuzedelen als zelfstandig programma, een eigen opleidingsprogramma-specificatie, N:M gekoppeld aan de diplomaprogramma's",
+   "instantie": "K0262 ARBO, kwaliteitszorg en hulpverlening geschikt voor niveau 3 (240 SBU)",
+   "bron": "K0262-arbo-kwaliteitszorg-en-hulpverlening-niveau-3.md (keuzedeel mbo K0262, gevalideerd 10-11-2015); leerroute-1-regulier.md, r1072 tot 1080",
    "relatie": {
     "soort": "Specialization",
     "van": "Keuzedeel",
@@ -931,8 +997,138 @@
      "van": "Student keuze regelset",
      "naar": "Keuzedeel"
     }
+   ]
+  },
+  {
+   "beeld_id": "F1-07",
+   "beeld": "Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen",
+   "fase": 1,
+   "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
+   "wie": "onderwijsontwerper",
+   "soort": "ontstaat",
+   "objecttype": "Onderwijseenheid specificatie",
+   "instantie": "D1-K1 Draagt bij aan kwaliteitszorg en arbeidsomstandigheden",
+   "nieuwe_instantie": true,
+   "bron": "K0262-arbo-kwaliteitszorg-en-hulpverlening-niveau-3.md (keuzedeel mbo K0262, gevalideerd 10-11-2015); leerroute-1-regulier.md, r1072 tot 1080",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Opleidingsprogramma specificatie",
+    "naar": "Onderwijseenheid specificatie",
+    "nesting": true
+   },
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Onderwijseenheid specificatie",
+     "naar": "Leeruitkomst",
+     "instantie": "Draagt bij aan kwaliteitszorg en arbeidsomstandigheden (kerntaakniveau, keuzedeel)"
+    }
+   ]
+  },
+  {
+   "beeld_id": "F1-07",
+   "beeld": "Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen",
+   "fase": 1,
+   "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
+   "wie": "onderwijsontwerper",
+   "soort": "ontstaat",
+   "objecttype": "Leeronderdeel specificatie",
+   "instantie": "D1-K1-W1 Bijdrage aan de inrichting van het kwaliteitszorgsysteem",
+   "nieuwe_instantie": true,
+   "bron": "K0262-arbo-kwaliteitszorg-en-hulpverlening-niveau-3.md (keuzedeel mbo K0262, gevalideerd 10-11-2015); leerroute-1-regulier.md, r1072 tot 1080",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Onderwijseenheid specificatie",
+    "naar": "Leeronderdeel specificatie",
+    "nesting": true
+   },
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Leeronderdeel specificatie",
+     "naar": "Leeruitkomst",
+     "instantie": "Levert een bijdrage aan de inrichting van het kwaliteitszorgsysteem (werkprocesniveau)"
+    }
+   ]
+  },
+  {
+   "beeld_id": "F1-07",
+   "beeld": "Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen",
+   "fase": 1,
+   "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
+   "wie": "onderwijsontwerper",
+   "soort": "ontstaat",
+   "objecttype": "Leeronderdeel specificatie",
+   "instantie": "D1-K1-W2 Risico-inventarisatie en -evaluatie",
+   "nieuwe_instantie": true,
+   "bron": "K0262-arbo-kwaliteitszorg-en-hulpverlening-niveau-3.md (keuzedeel mbo K0262, gevalideerd 10-11-2015); leerroute-1-regulier.md, r1072 tot 1080",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Onderwijseenheid specificatie",
+    "naar": "Leeronderdeel specificatie",
+    "nesting": true
+   },
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Leeronderdeel specificatie",
+     "naar": "Leeruitkomst",
+     "instantie": "Voert een RI&E uit en realiseert verbeterpunten (werkprocesniveau)"
+    }
+   ]
+  },
+  {
+   "beeld_id": "F1-07",
+   "beeld": "Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen",
+   "fase": 1,
+   "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
+   "wie": "onderwijsontwerper",
+   "soort": "ontstaat",
+   "objecttype": "Onderwijseenheid specificatie",
+   "instantie": "D1-K2 Verleent EHBO en BHV",
+   "nieuwe_instantie": true,
+   "bron": "K0262-arbo-kwaliteitszorg-en-hulpverlening-niveau-3.md (keuzedeel mbo K0262, gevalideerd 10-11-2015); leerroute-1-regulier.md, r1072 tot 1080",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Opleidingsprogramma specificatie",
+    "naar": "Onderwijseenheid specificatie",
+    "nesting": true
+   },
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Onderwijseenheid specificatie",
+     "naar": "Leeruitkomst",
+     "instantie": "Verleent EHBO en BHV bij een calamiteit (kerntaakniveau, keuzedeel)"
+    }
+   ]
+  },
+  {
+   "beeld_id": "F1-07",
+   "beeld": "Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen",
+   "fase": 1,
+   "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
+   "wie": "onderwijsontwerper",
+   "soort": "ontstaat",
+   "objecttype": "Leeronderdeel specificatie",
+   "instantie": "D1-K2-W1 Hulp bij calamiteiten",
+   "nieuwe_instantie": true,
+   "bron": "K0262-arbo-kwaliteitszorg-en-hulpverlening-niveau-3.md (keuzedeel mbo K0262, gevalideerd 10-11-2015); leerroute-1-regulier.md, r1072 tot 1080",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Onderwijseenheid specificatie",
+    "naar": "Leeronderdeel specificatie",
+    "nesting": true
+   },
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Leeronderdeel specificatie",
+     "naar": "Leeruitkomst",
+     "instantie": "Verleent hulp bij calamiteiten (werkprocesniveau)"
+    }
    ],
-   "zin": "Een keuzedeel is zelf een programmaspecificatie, gelijksoortig vormgegeven maar los van Jochems opleiding; welk keuzedeel de ruimte vult, bepaalt het studentkeuzesysteem later met de regelset."
+   "vraag": "Een keuzedeel is een specialisatie van de opleidingsprogrammaspecificatie en kent dezelfde opbouw in kerntaken en werkprocessen. Erft het daarmee ook de aggregatie naar onderwijseenheid- en leeronderdeelspecificaties, of hoort die relatie expliciet op Keuzedeel te staan?"
   },
   {
    "beeld_id": "F1-08",

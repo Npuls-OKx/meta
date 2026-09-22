@@ -73,6 +73,29 @@ class TekenTests(unittest.TestCase):
         self.assertEqual(tv.bestandsnaam(blok), "f2-01-het-aanbod-gemaakt.svg")
         self.assertIn("F2-01 - Het aanbod gemaakt", teksten(tv.regel_ontstaat(blok, set())))
 
+    def test_given_specialization_when_nested_then_child_lands_in_the_specialization(self):
+        r = {"scope_uitzonderingen": [], "regels": [
+            {"beeld_id": "F1-01", "beeld": "Keuzedeel", "fase": 1, "stap": "Aanbod maken", "soort": "ontstaat", "wie": "planner",
+             "objecttype": "Keuzedeel", "instantie": "K0262", "bron": "b",
+             "relatie": {"soort": "Specialization", "van": "Keuzedeel", "naar": "Opleidingsprogramma specificatie"}},
+            {"beeld_id": "F1-01", "beeld": "Keuzedeel", "fase": 1, "stap": "Aanbod maken", "soort": "ontstaat", "wie": "planner",
+             "objecttype": "Onderwijseenheid specificatie", "instantie": "D1-K1", "bron": "b",
+             "relatie": {"soort": "Aggregation", "van": "Opleidingsprogramma specificatie", "naar": "Onderwijseenheid specificatie", "nesting": True}},
+            {"beeld_id": "F1-01", "beeld": "Keuzedeel", "fase": 1, "stap": "Aanbod maken", "soort": "ontstaat", "wie": "planner",
+             "objecttype": "Onderwijseenheid specificatie", "instantie": "D1-K2", "bron": "b",
+             "relatie": {"soort": "Aggregation", "van": "Opleidingsprogramma specificatie", "naar": "Onderwijseenheid specificatie", "nesting": True}},
+            {"beeld_id": "F1-01", "beeld": "Keuzedeel", "fase": 1, "stap": "Aanbod maken", "soort": "ontstaat", "wie": "planner",
+             "objecttype": "Leeronderdeel specificatie", "instantie": "D1-K2-W1", "bron": "b",
+             "relatie": {"soort": "Aggregation", "van": "Onderwijseenheid specificatie", "naar": "Leeronderdeel specificatie", "nesting": True}}]}
+        blok = self.blokken(r)[0]
+        keuzedeel = blok["objecten"][0]
+        self.assertEqual(keuzedeel["type"], "Keuzedeel")
+        eenheden = keuzedeel["kinderen"]
+        self.assertEqual([k["instantie"] for k in eenheden], ["D1-K1", "D1-K2"])
+        # het leeronderdeel hangt onder de laatst getoonde eenheid, niet onder de eerste
+        self.assertEqual([k["instantie"] for k in eenheden[1]["kinderen"]], ["D1-K2-W1"])
+        self.assertNotIn("kinderen", eenheden[0])
+
     def test_given_relation_to_non_adjacent_object_when_grouped_then_reference_not_line(self):
         r = regels()
         r["regels"].insert(3, {"fase": 2, "stap": "Aanbod maken", "soort": "ontstaat", "wie": "planner", "objecttype": "Student keuze regelset", "instantie": "Regels", "bron": "b",
