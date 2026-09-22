@@ -3051,7 +3051,7 @@
    "soort": "ontstaat",
    "wie": "SLB'er",
    "objecttype": "Verzoek tot Aanbod / Intekening op specificatie",
-   "instantie": "Voorlopige keuzedeelvoorkeur: Ondernemerschap in de zorg, top 3",
+   "instantie": "Voorlopige keuzedeelvoorkeur: K0037 Farmaceutische Patientenzorg, top 3",
    "bron": "leerroute-1-regulier.md, r128 (8e: aanmelding keuzedeel ver vooraf vastleggen, voorlopig); keuze van de sectorarchitect: bij de intake",
    "aanname": true,
    "nieuwe_instantie": true,
@@ -3060,7 +3060,7 @@
     "van": "Keuzedeel",
     "naar": "Verzoek tot Aanbod / Intekening op specificatie",
     "label": "Input voor",
-    "instantie": "Ondernemerschap in de zorg"
+    "instantie": "K0037 Farmaceutische Patientenzorg"
    },
    "relaties": [
     {
@@ -3073,6 +3073,22 @@
   },
   {
    "beeld_id": "F3-06",
+   "beeld": "De eerste keuzedeelvoorkeur naar het studentkeuzesysteem",
+   "fase": 3,
+   "stap": "Intake doorlopen en plaatsen",
+   "soort": "stroomt",
+   "van": "Intakesysteem",
+   "naar": "Student Keuze Systeem (SKS)",
+   "pijl": "geen pijl op de hoofdplaat",
+   "objecttype": "Verzoek tot Aanbod / Intekening op specificatie",
+   "instantie": "Voorlopige keuzedeelvoorkeur: K0037 Farmaceutische Patientenzorg, top 3",
+   "aanname": true,
+   "bron": "leerroute-1-regulier.md, r860 (het intakesysteem doet geen keuzedeelselectie, dat is het SKS), r850 (het SKS is bron voor de geprioriteerde voorkeurslijst) en r73 (de student stelt die lijst samen zodra de keuzedeelruimte dichterbij komt); dat de intake de eerste voorkeuren alvast meegeeft, is een keuze van het voorbeeld",
+   "zin": "De intake legt hooguit een voorlopige voorkeur vast; kiezen gebeurt in het studentkeuzesysteem. Die eerste voorkeur gaat daarom mee naar het SKS, dat haar vasthoudt tot de keuzedeelruimte nadert en de student zijn geprioriteerde lijst samenstelt.",
+   "vraag": "Het kaderscenario legt de keuzedeelselectie bij het studentkeuzesysteem en zwijgt over voorkeuren die bij de intake al bekend zijn. Gaat een voorlopige voorkeur uit de intake als intekening naar het SKS, en zo ja, blijft het verzoek tot aanbod daar hetzelfde object dat later de keuze draagt?"
+  },
+  {
+   "beeld_id": "F3-07",
    "beeld": "Inschrijving: van aangemeld naar ingeschreven",
    "fase": 3,
    "stap": "Persoon en verbintenissen vastleggen in de kernregistratie",
@@ -3091,7 +3107,7 @@
    "vraag": "Is de inschrijving een eigen object naast de verbintenis, of een toestand van de aanmelding (ontwerpkeuze 13)?"
   },
   {
-   "beeld_id": "F3-06",
+   "beeld_id": "F3-07",
    "beeld": "Inschrijving: van aangemeld naar ingeschreven",
    "fase": 3,
    "stap": "Persoon en verbintenissen vastleggen in de kernregistratie",
@@ -3103,7 +3119,7 @@
    "bron": "leerroute-1-regulier.md, Fase 3: inschrijving op opleiding en programma"
   },
   {
-   "beeld_id": "F3-06",
+   "beeld_id": "F3-07",
    "beeld": "Inschrijving: van aangemeld naar ingeschreven",
    "fase": 3,
    "stap": "Persoon en verbintenissen vastleggen in de kernregistratie",
@@ -3121,7 +3137,7 @@
    }
   },
   {
-   "beeld_id": "F3-07",
+   "beeld_id": "F3-08",
    "beeld": "De inschrijving van het intakesysteem naar de kernregistratie",
    "fase": 3,
    "stap": "Persoon en verbintenissen vastleggen in de kernregistratie",
@@ -3144,7 +3160,7 @@
    ]
   },
   {
-   "beeld_id": "F3-07",
+   "beeld_id": "F3-08",
    "beeld": "De inschrijving van het intakesysteem naar de kernregistratie",
    "fase": 3,
    "stap": "Persoon en verbintenissen vastleggen in de kernregistratie",
@@ -3165,7 +3181,7 @@
    ]
   },
   {
-   "beeld_id": "F3-07",
+   "beeld_id": "F3-08",
    "beeld": "De inschrijving van het intakesysteem naar de kernregistratie",
    "fase": 3,
    "stap": "Persoon en verbintenissen vastleggen in de kernregistratie",
@@ -3183,7 +3199,7 @@
    }
   },
   {
-   "beeld_id": "F3-07",
+   "beeld_id": "F3-08",
    "beeld": "De inschrijving van het intakesysteem naar de kernregistratie",
    "fase": 3,
    "stap": "Persoon en verbintenissen vastleggen in de kernregistratie",
@@ -3204,7 +3220,7 @@
    ]
   },
   {
-   "beeld_id": "F3-07",
+   "beeld_id": "F3-08",
    "beeld": "De inschrijving van het intakesysteem naar de kernregistratie",
    "fase": 3,
    "stap": "Persoon en verbintenissen vastleggen in de kernregistratie",
@@ -3223,7 +3239,7 @@
    }
   },
   {
-   "beeld_id": "F3-07",
+   "beeld_id": "F3-08",
    "beeld": "De inschrijving van het intakesysteem naar de kernregistratie",
    "fase": 3,
    "stap": "Persoon en verbintenissen vastleggen in de kernregistratie",
@@ -4030,7 +4046,7 @@
    "soort": "ontstaat",
    "wie": "planner",
    "objecttype": "Keuzedeelaanbod",
-   "instantie": "Ondernemerschap in de zorg, periode 7, locatie A",
+   "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A",
    "aanname": true,
    "bron": "leerroute-1-regulier.md, Fase 6: OC naar SKS (opleidingsprogramma-aanbod type keuzedeel + opleidingsprogramma-specificatie); wanneer het keuzedeelaanbod planbaar wordt, zegt het kaderscenario niet",
    "relatie": {
@@ -4051,7 +4067,7 @@
    "pijl": "id-5f2568d7b99a49eaa863f539ae362f4d",
    "koppeling": null,
    "objecttype": "Keuzedeelaanbod",
-   "instantie": "Ondernemerschap in de zorg, periode 7, locatie A",
+   "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A",
    "bron": "leerroute-1-regulier.md, Fase 6: OC naar SKS"
   },
   {
@@ -4065,7 +4081,7 @@
    "pijl": "id-5f2568d7b99a49eaa863f539ae362f4d",
    "koppeling": null,
    "objecttype": "Keuzedeel",
-   "instantie": "Ondernemerschap in de zorg",
+   "instantie": "K0037 Farmaceutische Patientenzorg",
    "bron": "leerroute-1-regulier.md, Fase 6: OC naar SKS, opleidingsprogramma-specificatie",
    "relatie": {
     "soort": "Association",
@@ -4108,14 +4124,14 @@
    "soort": "ontstaat",
    "wie": "student",
    "objecttype": "Keuzedeel aanbod verbintenis",
-   "instantie": "Jochem op Ondernemerschap in de zorg, periode 7 (voorkeur 1)",
+   "instantie": "Jochem op K0037 Farmaceutische Patientenzorg, periode 7 (voorkeur 1)",
    "bron": "leerroute-1-regulier.md, Fase 6: Jochem stelt zijn geprioriteerde voorkeurslijst samen in het SKS; SKS naar Planning geeft zijn keuzestelling door als opleidingsprogramma-verbintenis op het gekozen opleidingsprogramma-aanbod",
    "relatie": {
     "soort": "Association",
     "van": "Keuzedeelaanbod",
     "naar": "Keuzedeel aanbod verbintenis"
    },
-   "zin": "Jochem stelt zijn voorkeurslijst samen; zijn keuze is een verbintenis op het gekozen keuzedeelaanbod.",
+   "zin": "Zodra de keuzedeelruimte nadert, stelt Jochem in het studentkeuzesysteem zijn geprioriteerde voorkeurslijst samen, met de voorlopige voorkeur uit de intake als startpunt. Zijn keuze wordt een verbintenis op het keuzedeelaanbod: wanneer en waar.",
    "vraag": "Kiest een student zijn keuzedeel op de specificatie of op gepland aanbod, en levert het studentkeuzesysteem dus een specificatie-id of een aanbod-id (ontwerpkeuzes 6 en 13, geparkeerd op 15 september)?"
   },
   {
@@ -4129,7 +4145,7 @@
    "pijl": "id-726d0826868b4be1afc4145fbd9ad49c",
    "koppeling": null,
    "objecttype": "Keuzedeel aanbod verbintenis",
-   "instantie": "Jochem op Ondernemerschap in de zorg, periode 7 (voorkeur 1)",
+   "instantie": "Jochem op K0037 Farmaceutische Patientenzorg, periode 7 (voorkeur 1)",
    "bron": "leerroute-1-regulier.md, Fase 6: SKS naar Planning (opleidingsprogramma-verbintenis op gekozen aanbod)",
    "zin": "De keuzestelling gaat als intekening naar planning.",
    "relaties": [
@@ -4137,7 +4153,7 @@
      "soort": "Association",
      "van": "Keuzedeelaanbod",
      "naar": "Keuzedeel aanbod verbintenis",
-     "instantie": "Ondernemerschap in de zorg, periode 7, locatie A"
+     "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A"
     }
    ]
   },
@@ -4149,7 +4165,7 @@
    "soort": "verandert",
    "wie": "planner",
    "objecttype": "Keuzedeelaanbod",
-   "instantie": "Ondernemerschap in de zorg, periode 7, locatie A: 1 groep, 24 plaatsen",
+   "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A: 1 groep, 24 plaatsen",
    "toestand": "planbaar",
    "bron": "leerroute-1-regulier.md, Fase 6: de planner verwerkt definitieve keuzes periodiek naar groepen en capaciteit",
    "zin": "De planner verwerkt de definitieve keuzes periodiek naar groepen en capaciteit."
@@ -4165,7 +4181,7 @@
    "pijl": "id-020f091db6ea4763aad7527a98afaf99",
    "koppeling": "OC-P&R",
    "objecttype": "Keuzedeelaanbod",
-   "instantie": "Ondernemerschap in de zorg, periode 7, locatie A: 1 groep, 24 plaatsen",
+   "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A: 1 groep, 24 plaatsen",
    "bron": "leerroute-1-regulier.md, Fase 6: actualiseert het planbare aanbod in OC en het rooster volgt; Planning naar OC (geactualiseerd planbaar aanbod)",
    "zin": "Het geactualiseerde planbare aanbod gaat terug naar de catalogus; het rooster volgt.",
    "relaties": [
@@ -4173,7 +4189,7 @@
      "soort": "Association",
      "van": "Keuzedeel",
      "naar": "Keuzedeelaanbod",
-     "instantie": "Ondernemerschap in de zorg"
+     "instantie": "K0037 Farmaceutische Patientenzorg"
     }
    ]
   },
@@ -4185,7 +4201,7 @@
    "soort": "verandert",
    "wie": "planner",
    "objecttype": "Keuzedeel aanbod verbintenis",
-   "instantie": "Jochem op Ondernemerschap in de zorg, periode 7",
+   "instantie": "Jochem op K0037 Farmaceutische Patientenzorg, periode 7",
    "toestand": "ingeschreven",
    "bron": "leerroute-1-regulier.md, Fase 6: bij passend aanbod levert Planning naar KRS de formele inschrijving op het keuzedeel",
    "zin": "Past het aanbod, dan wordt de keuze een formele inschrijving op het keuzedeel; KRS, SVS, LMS en rooster volgen."
@@ -4201,7 +4217,7 @@
    "pijl": "id-642ea2bf4fcd4d58968ba4f952a7e990",
    "koppeling": null,
    "objecttype": "Keuzedeel aanbod verbintenis",
-   "instantie": "Jochem op Ondernemerschap in de zorg, periode 7",
+   "instantie": "Jochem op K0037 Farmaceutische Patientenzorg, periode 7",
    "bron": "leerroute-1-regulier.md, Fase 6: Planning naar KRS (formele inschrijving keuzedeel); hoofdplaat v1.7 kent alleen SKS naar KRS",
    "vraag": "Het kaderscenario laat de formele inschrijving op het keuzedeel van planning naar KRS lopen; hoofdplaat v1.7 kent alleen de pijl van het studentkeuzesysteem naar KRS. Welke component levert de verbintenis aan KRS?",
    "relaties": [
@@ -4209,7 +4225,7 @@
      "soort": "Association",
      "van": "Keuzedeelaanbod",
      "naar": "Keuzedeel aanbod verbintenis",
-     "instantie": "Ondernemerschap in de zorg, periode 7, locatie A"
+     "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A"
     },
     {
      "soort": "Specialization",
@@ -4465,7 +4481,7 @@
    "soort": "ontstaat",
    "wie": "examencommissie",
    "objecttype": "Keuzedeel resultaat",
-   "instantie": "Ondernemerschap in de zorg: voldoende",
+   "instantie": "K0037 Farmaceutische Patientenzorg: voldoende",
    "bron": "voorbeeldpayloads.md, resultaatstructuur: aggregatie allenVoldoende over kerntaken en keuzedelen; leerroute-1-regulier.md, Fase 8",
    "relatie": {
     "soort": "Specialization",
@@ -4530,7 +4546,7 @@
    "pijl": "geen pijl op de hoofdplaat",
    "koppeling": null,
    "objecttype": "Keuzedeel resultaat",
-   "instantie": "Ondernemerschap in de zorg: voldoende",
+   "instantie": "K0037 Farmaceutische Patientenzorg: voldoende",
    "bron": "leerroute-1-regulier.md, Fase 8: SVS en KRS (kwalificering en diplomering)",
    "relatie": {
     "soort": "Specialization",
