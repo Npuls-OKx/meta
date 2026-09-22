@@ -2921,33 +2921,33 @@
   },
   {
    "beeld_id": "F3-04",
-   "beeld": "Aanmelding met persoon en verbintenissen naar de kernregistratie",
+   "beeld": "De aanmelding van de voorziening naar het intakesysteem",
    "fase": 3,
    "stap": "Aanmelden via het intakesysteem",
    "soort": "stroomt",
    "van": "AII (centraal aanmelden)",
-   "naar": "Kernregistratie systeem studenten (KRS)",
+   "naar": "Intakesysteem",
    "pijl": "geen pijl op de hoofdplaat",
    "koppeling": null,
    "objecttype": "Persoon",
    "instantie": "Jochem, 17, na het vmbo",
-   "bron": "leerroute-1-regulier.md, Fase 3: naar KRS (opleidingsverbintenis, opleidingsprogramma-verbintenis en Persoon); v1.7 tekent deze pijl voor CAMBO",
+   "bron": "leerroute-1-regulier.md, Fase 3: naar KRS (opleidingsverbintenis, opleidingsprogramma-verbintenis en Persoon); v1.7 tekent deze pijl voor CAMBO; leerroute-1-regulier.md, r860 en r882 (het intakesysteem verwerkt aanmelding en intake en draagt de positieve uitkomst over aan KRS), r945 en r949",
    "aanname": true,
-   "zin": "De aanmelding komt via AII bij de kernregistratie binnen: Jochem als persoon met zijn aanmelding en verbintenissen; KRS wordt master voor persoon en plaatsing."
+   "zin": "Jochem meldt zich aan bij de centrale voorziening; zijn aanmelding met persoon en de twee verbintenissen komt binnen bij het intakesysteem van de instelling, dat het aanmeld- en intakeproces verwerkt."
   },
   {
    "beeld_id": "F3-04",
-   "beeld": "Aanmelding met persoon en verbintenissen naar de kernregistratie",
+   "beeld": "De aanmelding van de voorziening naar het intakesysteem",
    "fase": 3,
    "stap": "Aanmelden via het intakesysteem",
    "soort": "stroomt",
    "van": "AII (centraal aanmelden)",
-   "naar": "Kernregistratie systeem studenten (KRS)",
+   "naar": "Intakesysteem",
    "pijl": "geen pijl op de hoofdplaat",
    "koppeling": null,
    "objecttype": "Aanmelding",
    "instantie": "April 2026, Apothekersassistent BOL",
-   "bron": "leerroute-1-regulier.md, Fase 3",
+   "bron": "leerroute-1-regulier.md, Fase 3; leerroute-1-regulier.md, r860 en r882 (het intakesysteem verwerkt aanmelding en intake en draagt de positieve uitkomst over aan KRS), r945 en r949",
    "aanname": true,
    "relatie": {
     "soort": "Access",
@@ -2962,21 +2962,22 @@
      "label": "Op basis van",
      "instantie": "Apothekersassistent 2026"
     }
-   ]
+   ],
+   "vraag": "Het kaderscenario kent het intakesysteem als referentiecomponent met twee stromen (aanbod vanuit de catalogus, overdracht naar de kernregistratie) en de praktijk kent daarnaast vaak een apart aanmeldsysteem. Hoofdplaat v1.7 kent geen van beide. Hoort het intakesysteem als component op de plaat, of valt het samen met de kernregistratie?"
   },
   {
    "beeld_id": "F3-04",
-   "beeld": "Aanmelding met persoon en verbintenissen naar de kernregistratie",
+   "beeld": "De aanmelding van de voorziening naar het intakesysteem",
    "fase": 3,
    "stap": "Aanmelden via het intakesysteem",
    "soort": "stroomt",
    "van": "AII (centraal aanmelden)",
-   "naar": "Kernregistratie systeem studenten (KRS)",
+   "naar": "Intakesysteem",
    "pijl": "geen pijl op de hoofdplaat",
    "koppeling": null,
    "objecttype": "Opleiding aanbod verbintenis",
    "instantie": "Jochem op Apothekersassistent 2026, aangemeld",
-   "bron": "leerroute-1-regulier.md, Fase 3",
+   "bron": "leerroute-1-regulier.md, Fase 3; leerroute-1-regulier.md, r860 en r882 (het intakesysteem verwerkt aanmelding en intake en draagt de positieve uitkomst over aan KRS), r945 en r949",
    "aanname": true,
    "relatie": {
     "soort": "Association",
@@ -2987,17 +2988,17 @@
   },
   {
    "beeld_id": "F3-04",
-   "beeld": "Aanmelding met persoon en verbintenissen naar de kernregistratie",
+   "beeld": "De aanmelding van de voorziening naar het intakesysteem",
    "fase": 3,
    "stap": "Aanmelden via het intakesysteem",
    "soort": "stroomt",
    "van": "AII (centraal aanmelden)",
-   "naar": "Kernregistratie systeem studenten (KRS)",
+   "naar": "Intakesysteem",
    "pijl": "geen pijl op de hoofdplaat",
    "koppeling": null,
    "objecttype": "Opleidingsprogramma aanbod verbintenis",
    "instantie": "Jochem op Regulier BOL 2026, aangemeld",
-   "bron": "leerroute-1-regulier.md, Fase 3",
+   "bron": "leerroute-1-regulier.md, Fase 3; leerroute-1-regulier.md, r860 en r882 (het intakesysteem verwerkt aanmelding en intake en draagt de positieve uitkomst over aan KRS), r945 en r949",
    "aanname": true,
    "relatie": {
     "soort": "Association",
@@ -3118,6 +3119,129 @@
     "naar": "Opleidingsprogramma aanbod verbintenis",
     "label": "Minimaal 1"
    }
+  },
+  {
+   "beeld_id": "F3-07",
+   "beeld": "De inschrijving van het intakesysteem naar de kernregistratie",
+   "fase": 3,
+   "stap": "Persoon en verbintenissen vastleggen in de kernregistratie",
+   "soort": "stroomt",
+   "van": "Intakesysteem",
+   "naar": "Kernregistratie systeem studenten (KRS)",
+   "pijl": "geen pijl op de hoofdplaat",
+   "objecttype": "Inschrijving",
+   "instantie": "Juni 2026",
+   "bron": "leerroute-1-regulier.md, r860 en r882 (het intakesysteem verwerkt aanmelding en intake en draagt de positieve uitkomst over aan KRS), r945 en r949",
+   "zin": "Bij een positieve uitkomst zet het intakesysteem de aanmelding om in een inschrijving en draagt die over aan de kernregistratie, samen met de persoon en de verbintenissen die daarmee op ingeschreven staan. Vanaf dat moment is de kernregistratie de bron voor persoon en plaatsing.",
+   "relaties": [
+    {
+     "soort": "Specialization",
+     "van": "Aanmelding",
+     "naar": "Inschrijving",
+     "label": "wordt",
+     "instantie": "April 2026, Apothekersassistent BOL"
+    }
+   ]
+  },
+  {
+   "beeld_id": "F3-07",
+   "beeld": "De inschrijving van het intakesysteem naar de kernregistratie",
+   "fase": 3,
+   "stap": "Persoon en verbintenissen vastleggen in de kernregistratie",
+   "soort": "stroomt",
+   "van": "Intakesysteem",
+   "naar": "Kernregistratie systeem studenten (KRS)",
+   "pijl": "geen pijl op de hoofdplaat",
+   "objecttype": "Persoon",
+   "instantie": "Jochem, 17, na het vmbo",
+   "bron": "leerroute-1-regulier.md, r860 en r882 (het intakesysteem verwerkt aanmelding en intake en draagt de positieve uitkomst over aan KRS), r945 en r949",
+   "relaties": [
+    {
+     "soort": "Access",
+     "van": "Persoon",
+     "naar": "Aanmelding",
+     "instantie": "April 2026, Apothekersassistent BOL"
+    }
+   ]
+  },
+  {
+   "beeld_id": "F3-07",
+   "beeld": "De inschrijving van het intakesysteem naar de kernregistratie",
+   "fase": 3,
+   "stap": "Persoon en verbintenissen vastleggen in de kernregistratie",
+   "soort": "stroomt",
+   "van": "Intakesysteem",
+   "naar": "Kernregistratie systeem studenten (KRS)",
+   "pijl": "geen pijl op de hoofdplaat",
+   "objecttype": "Student",
+   "instantie": "Jochem, cohort 2026",
+   "bron": "leerroute-1-regulier.md, r860 en r882 (het intakesysteem verwerkt aanmelding en intake en draagt de positieve uitkomst over aan KRS), r945 en r949",
+   "relatie": {
+    "soort": "Specialization",
+    "van": "Student",
+    "naar": "Persoon"
+   }
+  },
+  {
+   "beeld_id": "F3-07",
+   "beeld": "De inschrijving van het intakesysteem naar de kernregistratie",
+   "fase": 3,
+   "stap": "Persoon en verbintenissen vastleggen in de kernregistratie",
+   "soort": "stroomt",
+   "van": "Intakesysteem",
+   "naar": "Kernregistratie systeem studenten (KRS)",
+   "pijl": "geen pijl op de hoofdplaat",
+   "objecttype": "Plaatsingsgroep",
+   "instantie": "APO26-1A",
+   "bron": "leerroute-1-regulier.md, r860 en r882 (het intakesysteem verwerkt aanmelding en intake en draagt de positieve uitkomst over aan KRS), r945 en r949",
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Persoon",
+     "naar": "Plaatsingsgroep",
+     "label": "Worden gegroepeerd via"
+    }
+   ]
+  },
+  {
+   "beeld_id": "F3-07",
+   "beeld": "De inschrijving van het intakesysteem naar de kernregistratie",
+   "fase": 3,
+   "stap": "Persoon en verbintenissen vastleggen in de kernregistratie",
+   "soort": "stroomt",
+   "van": "Intakesysteem",
+   "naar": "Kernregistratie systeem studenten (KRS)",
+   "pijl": "geen pijl op de hoofdplaat",
+   "objecttype": "Opleiding aanbod verbintenis",
+   "instantie": "Jochem op Apothekersassistent 2026",
+   "toestand": "ingeschreven",
+   "bron": "leerroute-1-regulier.md, r860 en r882 (het intakesysteem verwerkt aanmelding en intake en draagt de positieve uitkomst over aan KRS), r945 en r949",
+   "relatie": {
+    "soort": "Association",
+    "van": "Plaatsingsgroep",
+    "naar": "Opleiding aanbod  verbintenis"
+   }
+  },
+  {
+   "beeld_id": "F3-07",
+   "beeld": "De inschrijving van het intakesysteem naar de kernregistratie",
+   "fase": 3,
+   "stap": "Persoon en verbintenissen vastleggen in de kernregistratie",
+   "soort": "stroomt",
+   "van": "Intakesysteem",
+   "naar": "Kernregistratie systeem studenten (KRS)",
+   "pijl": "geen pijl op de hoofdplaat",
+   "objecttype": "Opleidingsprogramma aanbod verbintenis",
+   "instantie": "Jochem op Regulier BOL 2026",
+   "toestand": "ingeschreven",
+   "bron": "leerroute-1-regulier.md, r860 en r882 (het intakesysteem verwerkt aanmelding en intake en draagt de positieve uitkomst over aan KRS), r945 en r949",
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Plaatsingsgroep",
+     "naar": "Opleidingsprogramma aanbod verbintenis"
+    }
+   ]
   },
   {
    "beeld_id": "F4-01",

@@ -30,6 +30,8 @@ MODEL = pathlib.Path("architecture/model/informatiemodel/informatiemodel.json")
 BEGRIPPEN = pathlib.Path("architecture/docs/specificatie/begrippen/begrippen.json")
 UIT = pathlib.Path("architecture/model/informatiemodel/voorbeeld-leerroute-1-jochem.md")
 REGELMAP = "img/regels"
+HOOFDPLAAT = "<../informatiestromen hoofdplaat OKx/1.7/OKx hoofdplaat 1.7.jpg>"
+GEEN_PIJL = "geen pijl op de hoofdplaat"
 KOLOMVOLGORDE = ["Kwalificatiekader MBO", "Onderwijskundigkader instelling", "Onderwijsspecificatie", "Onderwijsaanbod",
                  "Onderwijsverbintenis", "Onderwijsresultaat", "Resultaatstructuur", None]
 KOLOMNAAM = {None: "Buiten de kolommen (persoon, groep, cohort, verzoek)", "Kwalificatiekader MBO": "Kwalificatiekader mbo",
@@ -75,7 +77,9 @@ def blokken_per_fase(regels):
     uit = collections.defaultdict(list)
     for n, blok in enumerate(teken.groepeer(regels), 1):
         uit[blok["fase"]].append({"naam": teken.bestandsnaam(blok, n), "stap": blok["stap"], "soort": blok["soort"], "verdieping": blok.get("verdieping"),
-                                  "beeld": blok.get("beeld"), "beeld_id": blok.get("beeld_id")})
+                                  "beeld": blok.get("beeld"), "beeld_id": blok.get("beeld_id"),
+                                  "van": blok.get("van"), "naar": blok.get("naar"),
+                                  "koppeling": blok.get("koppeling"), "pijl": blok.get("pijl")})
     return uit
 
 
@@ -141,6 +145,9 @@ def fase_sectie(f, blokken, regels_in_fase):
         if b.get("beeld"):
             uit += f"### {teken.beeldtitel(b)}\n\n"
         uit += f"![{alt}]({REGELMAP}/{b['naam']})\n\n"
+        if b["soort"] == "stroomt" and b.get("van"):
+            pijl = b.get("koppeling") or ("geen pijl op de hoofdplaat" if b.get("pijl") == GEEN_PIJL else "zonder koppelingspecificatie")
+            uit += f"Op de [hoofdplaat](#de-hoofdplaat-als-kaart): {b['van']} naar {b['naar']}, {pijl}.\n\n"
     return uit
 
 
@@ -216,9 +223,40 @@ def regelregister(regels, per_fase):
     return uit + "\n"
 
 
+def hoofdplaatsectie(regels, per_fase):
+    """De hoofdplaat als kaart bij het voorbeeld: welke stroom in welk beeld, en welke pijl daarbij hoort."""
+    beeld_van = {}
+    for blokken in per_fase.values():
+        for b in blokken:
+            if b.get("beeld"):
+                beeld_van[b["beeld"]] = b.get("beeld_id")
+    stromen = collections.OrderedDict()
+    for r in regels["regels"]:
+        if r["soort"] != "stroomt":
+            continue
+        sleutel = (norm(r["van"]), norm(r["naar"]))
+        rij = stromen.setdefault(sleutel, {"koppeling": r.get("koppeling"), "pijl": r.get("pijl"), "beelden": []})
+        bid = r.get("beeld_id")
+        if bid and bid not in rij["beelden"]:
+            rij["beelden"].append(bid)
+    uit = ("## De hoofdplaat als kaart\n\n"
+           "De beelden met een blauwe rand tonen een stroom tussen twee componenten. Die componenten en pijlen komen van "
+           "hoofdplaat v1.7; de plaat hieronder is de kaart waarop die lijnen te vinden zijn.\n\n"
+           f"![Hoofdplaat OKx informatiestromen v1.7]({HOOFDPLAAT})\n\n"
+           "Alle stromen die dit voorbeeld gebruikt, met de beelden waarin ze voorkomen:\n\n"
+           "| Van | Naar | Op de hoofdplaat | Beelden |\n|---|---|---|---|\n")
+    for (van, naar), rij in stromen.items():
+        pijl = rij["koppeling"] or ("geen pijl op de hoofdplaat" if rij["pijl"] == GEEN_PIJL else "zonder koppelingspecificatie")
+        uit += f"| {van} | {naar} | {pijl} | {', '.join(rij['beelden'])} |\n"
+    uit += ("\nEen stroom die het kaderscenario noemt en die de plaat nog niet kent, staat als \"geen pijl op de "
+            "hoofdplaat\": dat is een signalering voor de plaat, geen omweg in het voorbeeld.\n\n")
+    return uit
+
+
 def bouw(regels, model, begrippen):
     per_fase = blokken_per_fase(regels)
     uit = leeswijzer(regels, model)
+    uit += hoofdplaatsectie(regels, per_fase)
     for f in regels["fasen"]:
         regels_in_fase = [r for r in regels["regels"] if r["fase"] == f["nummer"]]
         uit += fase_sectie(f, per_fase.get(f["nummer"], []), regels_in_fase)

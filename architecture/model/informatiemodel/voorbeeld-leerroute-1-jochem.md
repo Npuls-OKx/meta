@@ -31,6 +31,38 @@ Koppeling-ID's op hoofdplaat v1.7: OC-P&R is Onderwijscatalogus naar Planningssy
 De fasenamen zijn de sectiekoppen "Fase 1" tot "Fase 8" van het kaderscenario. Het kaderscenario noemt fase 3 in de fasenlijst "Instroom, afstemming en plaatsing" en in de sectiekop "Instroom, intake en plaatsing"; hier geldt de sectiekop.
 
 Wat hier staat is feedback, geen commitment: het voorbeeld beslist niets over het model. Per objecttype staan in de bijlage twee lege kolommen, "heet bij u" en "hangt bij u onder", voor wie het naast het eigen model legt.
+## De hoofdplaat als kaart
+
+De beelden met een blauwe rand tonen een stroom tussen twee componenten. Die componenten en pijlen komen van hoofdplaat v1.7; de plaat hieronder is de kaart waarop die lijnen te vinden zijn.
+
+![Hoofdplaat OKx informatiestromen v1.7](<../informatiestromen hoofdplaat OKx/1.7/OKx hoofdplaat 1.7.jpg>)
+
+Alle stromen die dit voorbeeld gebruikt, met de beelden waarin ze voorkomen:
+
+| Van | Naar | Op de hoofdplaat | Beelden |
+|---|---|---|---|
+| Curriculum ontwerptool | Onderwijscatalogus | geen pijl op de hoofdplaat | F1-10 |
+| Onderwijscatalogus | Planningssysteem | OC-P&R | F2-03 |
+| Planningssysteem | Onderwijscatalogus | OC-P&R | F2-07, F6-06, F7-05 |
+| Onderwijscatalogus | Kernregistratie systeem studenten (KRS) | OC-SIS | F3-01, F4-04 |
+| Kernregistratie systeem studenten (KRS) | AII (centraal aanmelden) | geen pijl op de hoofdplaat | F3-02 |
+| AII (centraal aanmelden) | Intakesysteem | geen pijl op de hoofdplaat | F3-04 |
+| Intakesysteem | Kernregistratie systeem studenten (KRS) | geen pijl op de hoofdplaat | F3-07 |
+| Onderwijscatalogus | Leer management systeem (LMS) | OC-LMS | F4-02 |
+| Onderwijscatalogus | Student volg systeem (SVS) | OC-SIS | F4-03 |
+| Kernregistratie systeem studenten (KRS) | Planningssysteem | zonder koppelingspecificatie | F4-05, F7-03 |
+| Planningssysteem | Roostersysteem | zonder koppelingspecificatie | F4-06, F7-06 |
+| Roostersysteem | Kernregistratie systeem studenten (KRS) | zonder koppelingspecificatie | F4-08 |
+| Kernregistratie systeem studenten (KRS) | Leer management systeem (LMS) | zonder koppelingspecificatie | F4-10 |
+| Leer management systeem (LMS) | Student volg systeem (SVS) | zonder koppelingspecificatie | F5-04 |
+| Onderwijscatalogus | Student Keuze Systeem (SKS) | zonder koppelingspecificatie | F6-02 |
+| Student Keuze Systeem (SKS) | Planningssysteem | zonder koppelingspecificatie | F6-04 |
+| Student Keuze Systeem (SKS) | Kernregistratie systeem studenten (KRS) | zonder koppelingspecificatie | F6-08 |
+| Toets- en examen afname systeem | Student volg systeem (SVS) | geen pijl op de hoofdplaat | F8-04 |
+| Student volg systeem (SVS) | Kernregistratie systeem studenten (KRS) | geen pijl op de hoofdplaat | F8-06 |
+
+Een stroom die het kaderscenario noemt en die de plaat nog niet kent, staat als "geen pijl op de hoofdplaat": dat is een signalering voor de plaat, geen omweg in het voorbeeld.
+
 ## Fase 1: Kwalificatiekader analyseren en grofmazig ontwerpen
 
 De fase in detail: [kaderscenario leerroute 1, fase 1](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-1--kwalificatiekader-analyseren-en-grofmazig-ontwerpen).
@@ -77,6 +109,8 @@ De fase in detail: [kaderscenario leerroute 1, fase 1](https://github.com/Npuls-
 
 ![stroomt: Grofmazig resultaat publiceren naar de onderwijscatalogus](img/regels/f1-10-de-opleiding-zoals-ontworpen-naar-de-catalogus.svg)
 
+Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Curriculum ontwerptool naar Onderwijscatalogus, geen pijl op de hoofdplaat.
+
 ## Fase 2: Publiceren en planbaar maken
 
 De fase in detail: [kaderscenario leerroute 1, fase 2](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-2--publiceren-en-planbaar-maken).
@@ -95,6 +129,8 @@ De fase in detail: [kaderscenario leerroute 1, fase 2](https://github.com/Npuls-
 
 ![stroomt: Planningssysteem verzoeken om onderwijsaanbod](img/regels/f2-03-verzoek-met-specificatiestructuur-en-planbare-waarden-naar-planning.svg)
 
+Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Onderwijscatalogus naar Planningssysteem, OC-P&R.
+
 ### F2-04 - Het aanbod gepland: opleiding, programma, eenheid, gelegenheid
 
 ![ontstaat: Haalbaarheid bepalen en aanbod plannen](img/regels/f2-04-het-aanbod-gepland-opleiding-programma-eenheid-gelegenheid.svg)
@@ -111,27 +147,35 @@ De fase in detail: [kaderscenario leerroute 1, fase 2](https://github.com/Npuls-
 
 ![stroomt: Gepland aanbod terugleveren aan de onderwijscatalogus](img/regels/f2-07-het-geplande-aanbod-terug-naar-de-catalogus.svg)
 
+Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Planningssysteem naar Onderwijscatalogus, OC-P&R.
+
 ## Fase 3: Instroom, intake en plaatsing
 
 De fase in detail: [kaderscenario leerroute 1, fase 3](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-3--instroom-intake-en-plaatsing).
 
-**Ontstaat:** `Persoon`, `Aanmelding`, `Opleiding aanbod verbintenis`, `Opleidingsprogramma aanbod verbintenis`, `Student`, `Plaatsingsgroep`, `Verzoek tot Aanbod / Intekening op specificatie`, `Inschrijving`. **Stroomt:** Onderwijscatalogus naar Kernregistratie systeem studenten (KRS); Kernregistratie systeem studenten (KRS) naar AII (centraal aanmelden); AII (centraal aanmelden) naar Kernregistratie systeem studenten (KRS). **MORA-hoofdproces:** Informeren, aanmelden, intake en plaatsen.
+**Ontstaat:** `Persoon`, `Aanmelding`, `Opleiding aanbod verbintenis`, `Opleidingsprogramma aanbod verbintenis`, `Student`, `Plaatsingsgroep`, `Verzoek tot Aanbod / Intekening op specificatie`, `Inschrijving`. **Stroomt:** Onderwijscatalogus naar Kernregistratie systeem studenten (KRS); Kernregistratie systeem studenten (KRS) naar AII (centraal aanmelden); AII (centraal aanmelden) naar Intakesysteem; Intakesysteem naar Kernregistratie systeem studenten (KRS). **MORA-hoofdproces:** Informeren, aanmelden, intake en plaatsen.
 
 ### F3-01 - Aanmeldbaar aanbod naar de kernregistratie
 
 ![stroomt: Orienteren op het gepubliceerde aanbod](img/regels/f3-01-aanmeldbaar-aanbod-naar-de-kernregistratie.svg)
 
+Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Onderwijscatalogus naar Kernregistratie systeem studenten (KRS), OC-SIS.
+
 ### F3-02 - Aanmeldbaar aanbod van de kernregistratie naar AII
 
 ![stroomt: Orienteren op het gepubliceerde aanbod](img/regels/f3-02-aanmeldbaar-aanbod-van-de-kernregistratie-naar-aii.svg)
+
+Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Kernregistratie systeem studenten (KRS) naar AII (centraal aanmelden), geen pijl op de hoofdplaat.
 
 ### F3-03 - Jochem meldt zich aan: aanmelding en verbintenissen
 
 ![ontstaat: Aanmelden via het intakesysteem](img/regels/f3-03-jochem-meldt-zich-aan-aanmelding-en-verbintenissen.svg)
 
-### F3-04 - Aanmelding met persoon en verbintenissen naar de kernregistratie
+### F3-04 - De aanmelding van de voorziening naar het intakesysteem
 
-![stroomt: Aanmelden via het intakesysteem](img/regels/f3-04-aanmelding-met-persoon-en-verbintenissen-naar-de-kernregistratie.svg)
+![stroomt: Aanmelden via het intakesysteem](img/regels/f3-04-de-aanmelding-van-de-voorziening-naar-het-intakesysteem.svg)
+
+Op de [hoofdplaat](#de-hoofdplaat-als-kaart): AII (centraal aanmelden) naar Intakesysteem, geen pijl op de hoofdplaat.
 
 ### F3-05 - Intake: student, plaatsingsgroep en eerste keuzedeelvoorkeur
 
@@ -140,6 +184,12 @@ De fase in detail: [kaderscenario leerroute 1, fase 3](https://github.com/Npuls-
 ### F3-06 - Inschrijving: van aangemeld naar ingeschreven
 
 ![ontstaat: Persoon en verbintenissen vastleggen in de kernregistratie](img/regels/f3-06-inschrijving-van-aangemeld-naar-ingeschreven.svg)
+
+### F3-07 - De inschrijving van het intakesysteem naar de kernregistratie
+
+![stroomt: Persoon en verbintenissen vastleggen in de kernregistratie](img/regels/f3-07-de-inschrijving-van-het-intakesysteem-naar-de-kernregistratie.svg)
+
+Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Intakesysteem naar Kernregistratie systeem studenten (KRS), geen pijl op de hoofdplaat.
 
 ## Fase 4: Detailleren, roosteren en inschrijven
 
@@ -155,21 +205,31 @@ De fase in detail: [kaderscenario leerroute 1, fase 4](https://github.com/Npuls-
 
 ![stroomt: Detailspecificaties leveren aan het LMS](img/regels/f4-02-detailspecificaties-naar-het-lms.svg)
 
+Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Onderwijscatalogus naar Leer management systeem (LMS), OC-LMS.
+
 ### F4-03 - Resultaatstructuur naar het studentvolgsysteem
 
 ![stroomt: Detailspecificaties leveren aan het LMS](img/regels/f4-03-resultaatstructuur-naar-het-studentvolgsysteem.svg)
+
+Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Onderwijscatalogus naar Student volg systeem (SVS), OC-SIS.
 
 ### F4-04 - Resultaatstructuur naar de kernregistratie
 
 ![stroomt: Detailspecificaties leveren aan het LMS](img/regels/f4-04-resultaatstructuur-naar-de-kernregistratie.svg)
 
+Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Onderwijscatalogus naar Kernregistratie systeem studenten (KRS), OC-SIS.
+
 ### F4-05 - Plaatsingsgroepen naar planning
 
 ![stroomt: Plaatsings- en planninggroepen definieren en aan personen koppelen](img/regels/f4-05-plaatsingsgroepen-naar-planning.svg)
 
+Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Kernregistratie systeem studenten (KRS) naar Planningssysteem, zonder koppelingspecificatie.
+
 ### F4-06 - Te roosteren leergelegenheden naar het roostersysteem
 
 ![stroomt: Te roosteren specificaties aan het roostersysteem geven](img/regels/f4-06-te-roosteren-leergelegenheden-naar-het-roostersysteem.svg)
+
+Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Planningssysteem naar Roostersysteem, zonder koppelingspecificatie.
 
 ### F4-07 - Roosteren: lesgelegenheid, lokaal en docent
 
@@ -179,6 +239,8 @@ De fase in detail: [kaderscenario leerroute 1, fase 4](https://github.com/Npuls-
 
 ![stroomt: Leer-, les- en toetsgelegenheden roosteren](img/regels/f4-08-het-rooster-naar-de-kernregistratie.svg)
 
+Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Roostersysteem naar Kernregistratie systeem studenten (KRS), zonder koppelingspecificatie.
+
 ### F4-09 - Jochems verbintenissen op de geroosterde gelegenheden
 
 ![ontstaat: Verwachte deelnemers delen en toegang geven](img/regels/f4-09-jochems-verbintenissen-op-de-geroosterde-gelegenheden.svg)
@@ -186,6 +248,8 @@ De fase in detail: [kaderscenario leerroute 1, fase 4](https://github.com/Npuls-
 ### F4-10 - Student, verbintenissen en groep naar het LMS
 
 ![stroomt: Verwachte deelnemers delen en toegang geven](img/regels/f4-10-student-verbintenissen-en-groep-naar-het-lms.svg)
+
+Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Kernregistratie systeem studenten (KRS) naar Leer management systeem (LMS), zonder koppelingspecificatie.
 
 ## Fase 5: Onderwijs uitvoeren en voortgang begeleiden
 
@@ -209,6 +273,8 @@ De fase in detail: [kaderscenario leerroute 1, fase 5](https://github.com/Npuls-
 
 ![stroomt: Formatieve voortgang bijhouden](img/regels/f5-04-formatieve-resultaten-van-het-lms-naar-het-studentvolgsysteem.svg)
 
+Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Leer management systeem (LMS) naar Student volg systeem (SVS), zonder koppelingspecificatie.
+
 ### F5-05 - Studiebeeld: het resultaat per eenheid
 
 ![ontstaat: Studiebeeld volgen in het studentvolgsysteem](img/regels/f5-05-studiebeeld-het-resultaat-per-eenheid.svg)
@@ -227,6 +293,8 @@ De fase in detail: [kaderscenario leerroute 1, fase 6](https://github.com/Npuls-
 
 ![stroomt: Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem](img/regels/f6-02-keuzedeelaanbod-specificatie-en-regels-naar-het-studentkeuzesysteem.svg)
 
+Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Onderwijscatalogus naar Student Keuze Systeem (SKS), zonder koppelingspecificatie.
+
 ### F6-03 - Jochems voorkeur: verbintenis op het keuzedeelaanbod
 
 ![ontstaat: Voorkeurslijst samenstellen in het studentkeuzesysteem](img/regels/f6-03-jochems-voorkeur-verbintenis-op-het-keuzedeelaanbod.svg)
@@ -234,6 +302,8 @@ De fase in detail: [kaderscenario leerroute 1, fase 6](https://github.com/Npuls-
 ### F6-04 - Keuzestelling naar planning
 
 ![stroomt: Voorkeurslijst samenstellen in het studentkeuzesysteem](img/regels/f6-04-keuzestelling-naar-planning.svg)
+
+Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Student Keuze Systeem (SKS) naar Planningssysteem, zonder koppelingspecificatie.
 
 ### F6-05 - Definitieve keuzes verwerkt naar groepen en capaciteit
 
@@ -243,6 +313,8 @@ De fase in detail: [kaderscenario leerroute 1, fase 6](https://github.com/Npuls-
 
 ![stroomt: Planbaar aanbod actualiseren](img/regels/f6-06-geactualiseerd-keuzedeelaanbod-terug-naar-de-catalogus.svg)
 
+Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Planningssysteem naar Onderwijscatalogus, OC-P&R.
+
 ### F6-07 - Formele inschrijving op het keuzedeel
 
 ![ontstaat: Keuzedeel formeel inschrijven](img/regels/f6-07-formele-inschrijving-op-het-keuzedeel.svg)
@@ -250,6 +322,8 @@ De fase in detail: [kaderscenario leerroute 1, fase 6](https://github.com/Npuls-
 ### F6-08 - Keuzedeelverbintenis naar de kernregistratie
 
 ![stroomt: Keuzedeel formeel inschrijven](img/regels/f6-08-keuzedeelverbintenis-naar-de-kernregistratie.svg)
+
+Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Student Keuze Systeem (SKS) naar Kernregistratie systeem studenten (KRS), zonder koppelingspecificatie.
 
 ## Fase 7: Bijsturen planning en aanbod
 
@@ -269,6 +343,8 @@ De fase in detail: [kaderscenario leerroute 1, fase 7](https://github.com/Npuls-
 
 ![stroomt: Bestaande verbintenissen annuleren](img/regels/f7-03-planninggroep-van-de-kernregistratie-naar-planning.svg)
 
+Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Kernregistratie systeem studenten (KRS) naar Planningssysteem, zonder koppelingspecificatie.
+
 ### F7-04 - Nieuw aanbod voor de planninggroep
 
 ![ontstaat: Nieuw aanbod maken en publiceren](img/regels/f7-04-nieuw-aanbod-voor-de-planninggroep.svg)
@@ -277,9 +353,13 @@ De fase in detail: [kaderscenario leerroute 1, fase 7](https://github.com/Npuls-
 
 ![stroomt: Nieuw aanbod maken en publiceren](img/regels/f7-05-bijgestuurd-aanbod-naar-de-catalogus.svg)
 
+Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Planningssysteem naar Onderwijscatalogus, OC-P&R.
+
 ### F7-06 - Nieuwe leergelegenheden naar het roostersysteem
 
 ![stroomt: Nieuw aanbod maken en publiceren](img/regels/f7-06-nieuwe-leergelegenheden-naar-het-roostersysteem.svg)
+
+Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Planningssysteem naar Roostersysteem, zonder koppelingspecificatie.
 
 ## Fase 8: Examineren, vaststellen en diplomeren
 
@@ -303,6 +383,8 @@ De fase in detail: [kaderscenario leerroute 1, fase 8](https://github.com/Npuls-
 
 ![stroomt: Zitting uitvoeren en resultaten doorgeven](img/regels/f8-04-examenresultaat-naar-het-studentvolgsysteem.svg)
 
+Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Toets- en examen afname systeem naar Student volg systeem (SVS), geen pijl op de hoofdplaat.
+
 ### F8-05 - Summatief vastgesteld: resultaten en beoordeling
 
 ![ontstaat: Summatief vaststellen](img/regels/f8-05-summatief-vastgesteld-resultaten-en-beoordeling.svg)
@@ -310,6 +392,8 @@ De fase in detail: [kaderscenario leerroute 1, fase 8](https://github.com/Npuls-
 ### F8-06 - Vaststelling naar de kernregistratie
 
 ![stroomt: Summatief vaststellen](img/regels/f8-06-vaststelling-naar-de-kernregistratie.svg)
+
+Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Student volg systeem (SVS) naar Kernregistratie systeem studenten (KRS), geen pijl op de hoofdplaat.
 
 ### F8-07 - Gediplomeerd: opleidingsresultaat en diploma
 
@@ -774,14 +858,14 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 | ontstaat | Opleiding aanbod verbintenis | Jochem op Apothekersassistent 2026, aangemeld | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 3](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-3--instroom-intake-en-plaatsing): opleidingsverbintenis in KRS |
 | ontstaat | Opleidingsprogramma aanbod verbintenis | Jochem op Regulier BOL 2026, aangemeld | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 3](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-3--instroom-intake-en-plaatsing): opleidingsprogramma-verbintenis in KRS |
 
-**F3-04 - Aanmelding met persoon en verbintenissen naar de kernregistratie** (fase 3, Aanmelden via het intakesysteem; [f3-04-aanmelding-met-persoon-en-verbintenissen-naar-de-kernregistratie.svg](img/regels/f3-04-aanmelding-met-persoon-en-verbintenissen-naar-de-kernregistratie.svg))
+**F3-04 - De aanmelding van de voorziening naar het intakesysteem** (fase 3, Aanmelden via het intakesysteem; [f3-04-de-aanmelding-van-de-voorziening-naar-het-intakesysteem.svg](img/regels/f3-04-de-aanmelding-van-de-voorziening-naar-het-intakesysteem.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
-| stroomt | Persoon | Jochem, 17, na het vmbo | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 3](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-3--instroom-intake-en-plaatsing): naar KRS (opleidingsverbintenis, opleidingsprogramma-verbintenis en Persoon); v1.7 tekent deze pijl voor CAMBO |
-| stroomt | Aanmelding | April 2026, Apothekersassistent BOL | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 3](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-3--instroom-intake-en-plaatsing) |
-| stroomt | Opleiding aanbod verbintenis | Jochem op Apothekersassistent 2026, aangemeld | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 3](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-3--instroom-intake-en-plaatsing) |
-| stroomt | Opleidingsprogramma aanbod verbintenis | Jochem op Regulier BOL 2026, aangemeld | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 3](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-3--instroom-intake-en-plaatsing) |
+| stroomt | Persoon | Jochem, 17, na het vmbo | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 3](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-3--instroom-intake-en-plaatsing): naar KRS (opleidingsverbintenis, opleidingsprogramma-verbintenis en Persoon); v1.7 tekent deze pijl voor CAMBO; leerroute-1-regulier.md, [r860](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L860) en [r882](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L882) (het intakesysteem verwerkt aanmelding en intake en draagt de positieve uitkomst over aan KRS), [r945](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L945) en [r949](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L949) |
+| stroomt | Aanmelding | April 2026, Apothekersassistent BOL | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 3](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-3--instroom-intake-en-plaatsing); leerroute-1-regulier.md, [r860](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L860) en [r882](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L882) (het intakesysteem verwerkt aanmelding en intake en draagt de positieve uitkomst over aan KRS), [r945](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L945) en [r949](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L949) |
+| stroomt | Opleiding aanbod verbintenis | Jochem op Apothekersassistent 2026, aangemeld | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 3](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-3--instroom-intake-en-plaatsing); leerroute-1-regulier.md, [r860](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L860) en [r882](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L882) (het intakesysteem verwerkt aanmelding en intake en draagt de positieve uitkomst over aan KRS), [r945](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L945) en [r949](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L949) |
+| stroomt | Opleidingsprogramma aanbod verbintenis | Jochem op Regulier BOL 2026, aangemeld | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 3](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-3--instroom-intake-en-plaatsing); leerroute-1-regulier.md, [r860](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L860) en [r882](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L882) (het intakesysteem verwerkt aanmelding en intake en draagt de positieve uitkomst over aan KRS), [r945](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L945) en [r949](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L949) |
 
 **F3-05 - Intake: student, plaatsingsgroep en eerste keuzedeelvoorkeur** (fase 3, Intake doorlopen en plaatsen; [f3-05-intake-student-plaatsingsgroep-en-eerste-keuzedeelvoorkeur.svg](img/regels/f3-05-intake-student-plaatsingsgroep-en-eerste-keuzedeelvoorkeur.svg))
 
@@ -798,6 +882,17 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 | ontstaat | Inschrijving | Juni 2026 | [scenario-1.1-regulier-happyflow.md](../../docs/specificatie/leerroute-uitwerking/doc/scenario-uitwerkingen/scenario-1.1-regulier-happyflow.md), [r15](../../docs/specificatie/leerroute-uitwerking/doc/scenario-uitwerkingen/scenario-1.1-regulier-happyflow.md?plain=1#L15): inschrijving in juni 2026 |
 | verandert | Opleiding aanbod verbintenis | Jochem op Apothekersassistent 2026 | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 3](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-3--instroom-intake-en-plaatsing): inschrijving op opleiding en programma |
 | verandert | Opleidingsprogramma aanbod verbintenis | Jochem op Regulier BOL 2026 | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 3](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-3--instroom-intake-en-plaatsing) |
+
+**F3-07 - De inschrijving van het intakesysteem naar de kernregistratie** (fase 3, Persoon en verbintenissen vastleggen in de kernregistratie; [f3-07-de-inschrijving-van-het-intakesysteem-naar-de-kernregistratie.svg](img/regels/f3-07-de-inschrijving-van-het-intakesysteem-naar-de-kernregistratie.svg))
+
+| Soort | Objecttype | Instantie | Bron |
+|---|---|---|---|
+| stroomt | Inschrijving | Juni 2026 | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [r860](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L860) en [r882](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L882) (het intakesysteem verwerkt aanmelding en intake en draagt de positieve uitkomst over aan KRS), [r945](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L945) en [r949](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L949) |
+| stroomt | Persoon | Jochem, 17, na het vmbo | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [r860](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L860) en [r882](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L882) (het intakesysteem verwerkt aanmelding en intake en draagt de positieve uitkomst over aan KRS), [r945](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L945) en [r949](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L949) |
+| stroomt | Student | Jochem, cohort 2026 | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [r860](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L860) en [r882](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L882) (het intakesysteem verwerkt aanmelding en intake en draagt de positieve uitkomst over aan KRS), [r945](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L945) en [r949](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L949) |
+| stroomt | Plaatsingsgroep | APO26-1A | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [r860](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L860) en [r882](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L882) (het intakesysteem verwerkt aanmelding en intake en draagt de positieve uitkomst over aan KRS), [r945](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L945) en [r949](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L949) |
+| stroomt | Opleiding aanbod verbintenis | Jochem op Apothekersassistent 2026 | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [r860](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L860) en [r882](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L882) (het intakesysteem verwerkt aanmelding en intake en draagt de positieve uitkomst over aan KRS), [r945](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L945) en [r949](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L949) |
+| stroomt | Opleidingsprogramma aanbod verbintenis | Jochem op Regulier BOL 2026 | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [r860](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L860) en [r882](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L882) (het intakesysteem verwerkt aanmelding en intake en draagt de positieve uitkomst over aan KRS), [r945](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L945) en [r949](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L949) |
 
 **F4-01 - Het leeronderdeel fijnmazig: lessenreeks en les** (fase 4, Leeronderdeel- en toetsonderdeelspecificaties fijnmazig uitwerken; [f4-01-het-leeronderdeel-fijnmazig-lessenreeks-en-les.svg](img/regels/f4-01-het-leeronderdeel-fijnmazig-lessenreeks-en-les.svg))
 
