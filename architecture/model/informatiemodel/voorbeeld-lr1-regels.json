@@ -579,7 +579,7 @@
    "instantie": "Biedt farmaceutische patiëntenzorg in een levensechte apotheekomgeving (kerntaakniveau)",
    "toestand": "onderwijskundig vertaald",
    "bron": "informatiemodel.json: Onderwijseenheid specificatie naar Leeruitkomst (associatie); leerroute-1-regulier.md, r621 en r1021",
-   "zin": "Verdieping: de leeruitkomst zit niet in de eenheid, zij staat ernaast. De onderwijseenheidspecificatie verwijst ernaar, en zij deelt zich op in leeronderdeelspecificaties op werkprocesniveau die elk naar hun eigen leeruitkomst verwijzen. De conceptplaat legt daar het onderwijsontwerp omheen. De specificaties zelf komen in het volgende beeld in de opleidingsstructuur te staan."
+   "zin": "Verdieping: de leeruitkomst zit niet in de eenheid, zij staat ernaast. De onderwijseenheidspecificatie verwijst ernaar, en zij deelt zich op in leeronderdeelspecificaties op werkprocesniveau die elk naar hun eigen leeruitkomst verwijzen. Zo loopt de herkomst uit het kwalificatiedossier via de leeruitkomst, niet langs de specificatie zelf. Het onderwijsontwerp van de conceptplaat legt daar een eigen pad omheen dat binnen de instelling blijft: de kerntaak wordt onderwijskundig vertaald tot een leerdoel."
   },
   {
    "beeld_id": "F1-05",

@@ -103,6 +103,27 @@ class ControleTests(unittest.TestCase):
         self.assertTrue(any("loopt niet op" in x for x in bevindingen(r)[0]))
         self.assertEqual(bevindingen()[0], [])
 
+    def test_given_direct_link_to_kwalificatiekader_when_checked_then_warning_about_the_route(self):
+        r = regels()
+        r["regels"][0]["relaties"] = [{"soort": "Association", "van": "Kerntaak", "naar": "Opleidingaanbod"}]
+        m = model()
+        m["objecttypen"].append({"naam": "Kerntaak", "kolom": "Kwalificatiekader MBO", "scope": "buiten"})
+        m["relaties"].append({"soort": "Association", "van": "Kerntaak", "naar": "Opleidingaanbod"})
+        b, w, _ = cv.controleer(r, m, stromen())
+        self.assertEqual(b, [])
+        self.assertTrue(any("loopt via de leeruitkomst" in x for x in w))
+
+    def test_given_leeruitkomst_linked_to_kerntaak_when_checked_then_no_warning(self):
+        r = regels()
+        r["regels"][0]["objecttype"] = "Leeruitkomst"
+        r["regels"][0]["relaties"] = [{"soort": "Association", "van": "Kerntaak", "naar": "Leeruitkomst"}]
+        m = model()
+        m["objecttypen"] += [{"naam": "Kerntaak", "kolom": "Kwalificatiekader MBO", "scope": "buiten"},
+                             {"naam": "Leeruitkomst", "kolom": "Onderwijskundigkader instelling", "scope": "buiten"}]
+        m["relaties"].append({"soort": "Association", "van": "Kerntaak", "naar": "Leeruitkomst"})
+        _, w, _ = cv.controleer(r, m, stromen())
+        self.assertFalse(any("loopt via de leeruitkomst" in x for x in w))
+
     def test_given_unknown_objecttype_when_checked_then_finding_names_type(self):
         r = regels(); r["regels"][0]["objecttype"] = "Bestaat niet"
         b, _, _ = bevindingen(r)

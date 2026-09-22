@@ -48,6 +48,10 @@ PLATEN = {"informatiemodel", "onderwijsontwerp"}
 GEEN_PIJL = "geen pijl op de hoofdplaat"
 NESTING = {"Aggregation", "Composition"}
 SOORTEN = {"ontstaat", "verandert", "stroomt"}
+# het kwalificatiekader raakt de rest van de plaat via de leeruitkomst; het examenplan en de OER
+# zijn de twee uitzonderingen die de plaat zelf kent (documenten van de instelling, geen specificatie)
+KADERFAMILIE = "Kwalificatiekader MBO"
+RECHTSTREEKS = {"Leeruitkomst", "Examenplan", "OER"}
 
 
 def norm(naam):
@@ -141,6 +145,24 @@ def schema(regels):
     return uit
 
 
+def _route_via_leeruitkomst(r, plek, typen):
+    """De herkomst uit het kwalificatiekader loopt via de leeruitkomst. Een regel die een objecttype uit
+    die familie rechtstreeks aan iets anders knoopt, wijkt daarvan af; de plaat staat dat alleen toe voor
+    het examenplan en de OER."""
+    uit, naam = [], norm(r.get("objecttype", ""))
+    kader = {n for n, o in typen.items() if o.get("kolom") == KADERFAMILIE}
+    if not kader or naam in kader or naam in RECHTSTREEKS:
+        return uit
+    for x in ([r.get("relatie")] if isinstance(r.get("relatie"), dict) else []) + list(r.get("relaties") or []):
+        if not isinstance(x, dict) or not all(k in x for k in ("van", "naar")):
+            continue
+        ander = {norm(x["van"]), norm(x["naar"])} & kader
+        if ander:
+            uit.append(f"{plek}: verwijst rechtstreeks naar {sorted(ander)[0]!r}; de route van de specificatie "
+                       f"naar het kwalificatiedossier loopt via de leeruitkomst")
+    return uit
+
+
 def controleer(regels, model, stromen=None, fasen_filter=None, model_commit=None, conceptplaat=None):
     """Alle controles; geeft (bevindingen, waarschuwingen, ontbrekend per fase)."""
     bevindingen = schema(regels)
@@ -198,6 +220,8 @@ def controleer(regels, model, stromen=None, fasen_filter=None, model_commit=None
                 bevindingen.append(f"{plek}: pijl {r.get('pijl')!r} staat niet in stromen.json")
             if r.get("pijl") == GEEN_PIJL:
                 waarschuwingen.append(f"{plek}: geen pijl op de hoofdplaat ({r.get('van')} naar {r.get('naar')})")
+        if not concept:
+            waarschuwingen += _route_via_leeruitkomst(r, plek, typen)
         rel = r.get("relatie")
         if isinstance(rel, dict) and all(k in rel for k in ("soort", "van", "naar")):
             sleutel = (rel["soort"], norm(rel["van"]), norm(rel["naar"]))
