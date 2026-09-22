@@ -96,6 +96,13 @@ class TekenTests(unittest.TestCase):
         self.assertEqual([k["instantie"] for k in eenheden[1]["kinderen"]], ["D1-K2-W1"])
         self.assertNotIn("kinderen", eenheden[0])
 
+    def test_given_state_on_a_created_object_when_drawn_then_state_is_shown(self):
+        r = regels()
+        r["regels"][0]["toestand"] = "intentie"
+        blok = [b for b in self.blokken(r) if b["stap"] == "Aanbod maken"][0]
+        self.assertEqual(blok["objecten"][0]["toestand"], "intentie")
+        self.assertIn("toestand: intentie", teksten(tv.regel_ontstaat(blok, set())))
+
     def test_given_relation_to_non_adjacent_object_when_grouped_then_reference_not_line(self):
         r = regels()
         r["regels"].insert(3, {"fase": 2, "stap": "Aanbod maken", "soort": "ontstaat", "wie": "planner", "objecttype": "Student keuze regelset", "instantie": "Regels", "bron": "b",

@@ -61,7 +61,7 @@
           "pijl": {"type": "string", "description": "relatie-id uit stromen.json, of 'geen pijl op de hoofdplaat'; verplicht bij stroomt"},
           "objecttype": {"type": "string", "description": "plaatnaam letterlijk (witruimte genormaliseerd)"},
           "instantie": {"type": "string", "description": "de waarde voor Jochem, leesbare naam"},
-          "toestand": {"type": "string", "description": "uit de toestandenlijst; alleen bij verandert"},
+          "toestand": {"type": "string", "description": "uit de toestandenlijst; verplicht bij verandert, en toegestaan bij ontstaat als het object al in een bepaalde rijpheid ontstaat (een aanbod dat als intentie begint)"},
           "relatie": {
             "type": "object",
             "description": "de relatie van de plaat waarmee dit object aan een ander object in dezelfde stap hangt",

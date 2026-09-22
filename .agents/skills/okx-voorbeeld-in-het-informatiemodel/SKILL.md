@@ -57,6 +57,7 @@ Elke regel is een fragment van een plaat bij een processtap:
 | `verdieping` | zoomt in op een regel erboven binnen dezelfde stap; eigen blok en beeld |
 | `plaat` | `informatiemodel` (standaard) of `onderwijsontwerp`: de conceptplaat, alleen in een verdieping of in een stroomt-regel, hooguit een handvol objecten, geen attributen; paars in het beeld |
 | `aanname` | waar de bron zwijgt; gestippeld in het beeld |
+| `toestand` | uit de toestandenlijst; verplicht bij `verandert`, en toegestaan bij `ontstaat` als het object al in een bepaalde rijpheid ontstaat (een aanbod dat als intentie begint). Het beeld toont haar onder de instantie |
 | `nieuwe_instantie` | een verdere instantie van een objecttype dat al eerder ontstond, omdat het scenario die nodig heeft (de keuzedeelvoorkeur bij de intake als tweede intekening); telt niet als tweede ontstaan |
 | `bron` | bestand en regelnummer (`leerroute-1-regulier.md, r1046`), payload-id, ontologie met versie, of "geen bron, keuze van het voorbeeld"; het register maakt er links van |
 | `zin` | één zin, uit het kaderscenario waar die er is; laag houden |
@@ -69,6 +70,27 @@ Wat de controle weigert, hoort niet in het voorbeeld: een objecttype dat niet op
 De renderer tekent per beeld één SVG in ArchiMate-kleur, met het ID en de beeldtitel bovenaan: geel voor rol, processtap en object, blauw voor component, grijs voor een scope-uitzondering, gestippeld voor een aanname, paars voor een objecttype van de conceptplaat (een conceptverdieping heeft bovendien een gestippelde rand en een chip). Bovenaan staat wie en wat (rol en processtap) of de pijl van component naar component als horizontale stippellijn met koppeling-ID en stap; eronder hangen de objecten aan een stippellijn, onderling gerelateerd. Nesting is een container; een relatielijn loopt alleen naar het buurobject (ruit bij aggregatie, open pijlpunt bij specialisatie, gelabelde lijn bij associatie), elke andere relatie staat als verwijzing op het object. Leesbaarheid gaat voor breedte: een beeld is hooguit ongeveer 1000 px breed (letters 12 en 14 px), brede ketens gaan in een kolom of over meer rijen, brede kinderrijen worden een stapel en de zin loopt door over meer regels. GitHub schaalt een breder beeld terug tot onleesbaar.
 
 Bekijk het beeld zelf voordat je het meldt: `soffice --headless --convert-to png` in de scratchpad, en zet het beeld voor de gebruiker op een branch met een GitHub-link (bestanden sturen werkt niet in de container).
+
+## Rijpheid: hetzelfde object, verderop in de keten
+
+Een objecttype verschijnt in de reis meerdere keren, en wat het draagt groeit mee. Dat maakt het voorbeeld inzichtelijk waar een opsomming van objecten dat niet doet: een lezer ziet wanneer iets erbij komt, en wat er dan pas te weten valt.
+
+Drie regels houden dat leesbaar:
+
+1. **Benoem de trede als toestand, met een bron.** Elke trede staat in de toestandenlijst van de kop, met de regel uit het kaderscenario waar zij vandaan komt. Zonder bron geen trede: wat de bron openlaat, blijft een vraag.
+2. **Voeg per trede de informatieobjecten toe die dan pas bestaan.** De specificatie wordt planbaar en krijgt op leeronderdeelniveau studiebelasting, ruimtetype en expertiseprofiel. Het aanbod begint als intentie op instellingsniveau, wordt gepland met perioden en capaciteit, en fijnmazig gepland met groepen en tijdvensters. Het voorbeeld zet die objecten in het beeld van de stap waar ze ontstaan, niet eerder.
+3. **Toon de herkomst als verwijzing, geen kopie.** Een aanbodobject draagt de verwijzing naar de specificatie waarvan het is gemaakt en naar het verzoek dat ertoe leidde; de inhoud zelf blijft bij de specificatie.
+
+De tredes die de uitwerking van Jochem nu kent:
+
+| Wat rijpt | Tredes | Waar |
+|---|---|---|
+| Onderwijsspecificatie | grofmazig, planbaar (per niveau iets anders), fijnmazig | fase 1, 2 en 4 |
+| Onderwijsaanbod | intentie (meerjarenplanning), gepland (jaarplanning), fijnmazig gepland (periodeplanning), geroosterd | fase 2 en 4; roosteren valt buiten de uitwisseling |
+| Onderwijsverbintenis | aangemeld, ingeschreven | fase 3 |
+| Onderwijsresultaat | in uitvoering, afgerond, vastgesteld | fase 5 en 8 |
+
+Waar de bron de tredes openlaat, zoals bij de stadia van aanbod, hoort dat als vraag in het document en niet als stilzwijgende keuze.
 
 ## Inhoudelijke afspraken uit de uitwerking van Jochem
 

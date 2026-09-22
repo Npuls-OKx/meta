@@ -402,6 +402,8 @@ def groepeer(regels):
             laatste = blokken[-1] if blokken else None
             item = {"type": r["objecttype"], "instantie": r["instantie"], "aanname": r.get("aanname", False),
                     "plaat": r.get("plaat", "informatiemodel"), "verwijzingen": [_verwijzing(x, r["objecttype"]) for x in r.get("relaties", [])]}
+            if r.get("toestand"):
+                item["toestand"] = r["toestand"]
             rel = r.get("relatie")
             if laatste and laatste["soort"] == "stroomt" and (laatste["fase"], laatste["stap"], laatste["van"], laatste["naar"], laatste.get("beeld")) == (r["fase"], r["stap"], r["van"], r["naar"], r.get("beeld")):
                 buur_s = next((it for it in reversed(laatste["objecten"]) if "type" in it), None)
@@ -445,8 +447,9 @@ def groepeer(regels):
         _rel = r.get("relatie") or {}
         if _rel.get("soort") == "Specialization" and _rel.get("van") == r["objecttype"]:
             item["specialiseert"] = _rel["naar"]
-        if soort == "verandert":
-            item["toestand"] = r.get("toestand")
+        if r.get("toestand"):
+            # ook een object dat al in een bepaalde rijpheid ontstaat draagt zijn toestand
+            item["toestand"] = r["toestand"]
         rel = r.get("relatie")
         # een relatielijn loopt alleen naar het object ernaast (of een kind daarvan); een relatie naar een
         # object verder terug in het blok, of uit een eerdere stap, staat als verwijzing op het object

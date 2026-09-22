@@ -245,6 +245,18 @@
   {
    "naam": "aangemeld",
    "bron": "leerroute-1-regulier.md, Fase 3: aanmelding, nog geen inschrijving"
+  },
+  {
+   "naam": "intentie",
+   "bron": "leerroute-1-regulier.md, r657: in de meerjarenplanning legt de instelling haar ambitie op het aanbod vast, met verwachte studentaantallen en toezeggingen op formatie, middelen en faciliteiten"
+  },
+  {
+   "naam": "gepland",
+   "bron": "leerroute-1-regulier.md, r738 (aanbod is minimaal gepland zodra perioden en capaciteit vastliggen) en r1021 (planbaar aanbod, stadium 2a, nog zonder lokalen en docenten)"
+  },
+  {
+   "naam": "fijnmazig gepland",
+   "bron": "leerroute-1-regulier.md, r726 (gedetailleerd planbaar: leergelegenheden, lessen en toetsmomenten met expertise- en faciliteitkoppelingen) en r657 (periodeplanning)"
   }
  ],
  "scope_uitzonderingen": [
@@ -1990,10 +2002,64 @@
    "soort": "verandert",
    "wie": "onderwijsontwerper",
    "objecttype": "Opleidingsprogramma specificatie",
-   "instantie": "BOL voltijd, planbaar: tijdvensters, capaciteit, expertise, faciliteit",
+   "instantie": "BOL voltijd, planbaar: tijdvensters en capaciteit",
    "toestand": "planbaar",
    "bron": "leerroute-1-regulier.md, Fase 2: aangevuld tot planbare specificatie",
-   "zin": "De grofmazige specificatie wordt aangevuld met tijdvensters, capaciteit, expertise en faciliteit: planbaar."
+   "zin": "Planbaar is een rijpheidskenmerk van de specificatie, geen apart object: de planner kan er zonder giswerk aanbod van maken. Wat dat betekent verschilt per niveau. Het programma draagt tijdvensters en capaciteit, de eenheid haar plek in de opleidingsduur, en het leeronderdeel de organiseerbaarheidswaarden: studiebelasting in BOT en OOT, ruimtetype en expertiseprofiel."
+  },
+  {
+   "beeld_id": "F2-01",
+   "beeld": "De specificatie planbaar gemaakt",
+   "fase": 2,
+   "stap": "Specificatie aanvullen tot planbare specificatie",
+   "soort": "verandert",
+   "wie": "onderwijsontwerper",
+   "objecttype": "Onderwijseenheid specificatie",
+   "instantie": "Blok B1-K1, leerjaar 1: plek in de opleidingsduur en groepsgrootte",
+   "toestand": "planbaar",
+   "bron": "leerroute-1-regulier.md, r1021 (op leeronderdeelniveau staan de organiseerbaarheidswaarden: BOT/OOT, BPV, ruimtetype, expertiseprofiel) en r713 (planbaar als rijpheidskenmerk van de specificatie)",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Opleidingsprogramma specificatie",
+    "naar": "Onderwijseenheid specificatie",
+    "nesting": true
+   }
+  },
+  {
+   "beeld_id": "F2-01",
+   "beeld": "De specificatie planbaar gemaakt",
+   "fase": 2,
+   "stap": "Specificatie aanvullen tot planbare specificatie",
+   "soort": "verandert",
+   "wie": "onderwijsontwerper",
+   "objecttype": "Leeronderdeel specificatie",
+   "instantie": "B1-K1-W1: BOT 50 / OOT 50 SBU, praktijkruimte, docent farmacie",
+   "toestand": "planbaar",
+   "bron": "leerroute-1-regulier.md, r1021 (op leeronderdeelniveau staan de organiseerbaarheidswaarden: BOT/OOT, BPV, ruimtetype, expertiseprofiel) en r713 (planbaar als rijpheidskenmerk van de specificatie)",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Onderwijseenheid specificatie",
+    "naar": "Leeronderdeel specificatie",
+    "nesting": true
+   }
+  },
+  {
+   "beeld_id": "F2-01",
+   "beeld": "De specificatie planbaar gemaakt",
+   "fase": 2,
+   "stap": "Specificatie aanvullen tot planbare specificatie",
+   "soort": "verandert",
+   "wie": "onderwijsontwerper",
+   "objecttype": "Leeronderdeel specificatie",
+   "instantie": "B1-K1-W2: BOT 30 / OOT 70 SBU, praktijkruimte, docent farmacie",
+   "toestand": "planbaar",
+   "bron": "leerroute-1-regulier.md, r1021 (op leeronderdeelniveau staan de organiseerbaarheidswaarden: BOT/OOT, BPV, ruimtetype, expertiseprofiel) en r713 (planbaar als rijpheidskenmerk van de specificatie)",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Onderwijseenheid specificatie",
+    "naar": "Leeronderdeel specificatie",
+    "nesting": true
+   }
   },
   {
    "beeld_id": "F2-02",
@@ -2253,10 +2319,11 @@
    "soort": "ontstaat",
    "wie": "planner",
    "objecttype": "Opleidingsaanbod van Instelling",
-   "instantie": "ROC Het Voorbeeld",
+   "instantie": "ROC Het Voorbeeld: ambitie en verwachte instroom voor cohort 2026",
    "aanname": true,
-   "bron": "geen bron, keuze van het voorbeeld: het objecttype heeft geen instantie in het kaderscenario",
-   "zin": "De planner bepaalt de haalbaarheid binnen de strategische jaarplanning en maakt het aanbod: cohort 2026, vier perioden."
+   "bron": "geen bron, keuze van het voorbeeld: het objecttype heeft geen instantie in het kaderscenario; leerroute-1-regulier.md, r657 (drie stadia van onderwijsaanbod, parallel aan meerjaren-, jaar- en periodeplanning)",
+   "zin": "Het aanbod rijpt in tredes die met de planningshorizon meelopen. In de meerjarenplanning staat de intentie: welke opleiding, met welke verwachte instroom. In de jaarplanning wordt het aanbod gepland met perioden en capaciteit, nog zonder lokalen en docenten. In de periodeplanning worden de gelegenheden fijnmazig gepland, met groepen en tijdvensters. Roosteren volgt daarna en valt buiten de uitwisseling.",
+   "toestand": "intentie"
   },
   {
    "beeld_id": "F2-04",
@@ -2266,14 +2333,15 @@
    "soort": "ontstaat",
    "wie": "planner",
    "objecttype": "Opleidingaanbod",
-   "instantie": "Apothekersassistent 2026",
-   "bron": "voorbeeldpayloads.md, aanbodInstanties[0] (7aa6609f)",
+   "instantie": "Apothekersassistent 2026: vier perioden, 120 plaatsen",
+   "bron": "voorbeeldpayloads.md, aanbodInstanties[0] (7aa6609f); leerroute-1-regulier.md, r738 (aanbod is minimaal gepland zodra perioden en capaciteit vastliggen) en r1021 (stadium 2a, nog zonder lokalen en docenten)",
    "relatie": {
     "soort": "Aggregation",
     "van": "Opleidingsaanbod van Instelling",
     "naar": "Opleidingaanbod",
     "nesting": true
-   }
+   },
+   "toestand": "gepland"
   },
   {
    "beeld_id": "F2-04",
@@ -2283,14 +2351,15 @@
    "soort": "ontstaat",
    "wie": "planner",
    "objecttype": "Opleidingsprogramma aanbod",
-   "instantie": "Regulier BOL 2026, 18 tot 120 studenten",
-   "bron": "voorbeeldpayloads.md, aanbodInstanties[1] (8c494250)",
+   "instantie": "Regulier BOL 2026: 18 tot 120 studenten",
+   "bron": "voorbeeldpayloads.md, aanbodInstanties[1] (8c494250); leerroute-1-regulier.md, r738 (aanbod is minimaal gepland zodra perioden en capaciteit vastliggen) en r1021 (stadium 2a, nog zonder lokalen en docenten)",
    "relatie": {
     "soort": "Aggregation",
     "van": "Opleidingaanbod",
     "naar": "Opleidingsprogramma aanbod",
     "nesting": true
-   }
+   },
+   "toestand": "gepland"
   },
   {
    "beeld_id": "F2-04",
@@ -2300,14 +2369,15 @@
    "soort": "ontstaat",
    "wie": "planner",
    "objecttype": "Onderwijseenheid aanbod",
-   "instantie": "B1-K1, leerjaar 1",
-   "bron": "voorbeeldpayloads.md, aanbodInstanties[2] (04af26e6)",
+   "instantie": "B1-K1, leerjaar 1, periode 1 tot 4",
+   "bron": "voorbeeldpayloads.md, aanbodInstanties[2] (04af26e6); leerroute-1-regulier.md, r738 (aanbod is minimaal gepland zodra perioden en capaciteit vastliggen) en r1021 (stadium 2a, nog zonder lokalen en docenten)",
    "relatie": {
     "soort": "Aggregation",
     "van": "Opleidingsprogramma aanbod",
     "naar": "Onderwijseenheid aanbod",
     "nesting": true
-   }
+   },
+   "toestand": "gepland"
   },
   {
    "beeld_id": "F2-04",
@@ -2317,14 +2387,15 @@
    "soort": "ontstaat",
    "wie": "planner",
    "objecttype": "Leergelegenheid",
-   "instantie": "B1-K1-W1, periode 1, planbaar",
+   "instantie": "B1-K1-W1, periode 1, twee groepen van 24",
    "bron": "voorbeeldpayloads.md, aanbodInstanties[3] (04070a96)",
    "relatie": {
     "soort": "Aggregation",
     "van": "Onderwijseenheid aanbod",
     "naar": "Leergelegenheid",
     "nesting": true
-   }
+   },
+   "toestand": "fijnmazig gepland"
   },
   {
    "beeld_id": "F2-04",
@@ -2334,13 +2405,14 @@
    "soort": "ontstaat",
    "wie": "planner",
    "objecttype": "Toetsgelegenheid",
-   "instantie": "Praktijktoets baliegesprek (OSCE), einde periode 1, planbaar",
+   "instantie": "Praktijktoets baliegesprek (OSCE), einde periode 1",
    "bron": "leerroute-1-regulier.md, r1114 tot 1117",
    "relatie": {
     "soort": "Association",
     "van": "Toetsonderdeel specificatie",
     "naar": "Toetsgelegenheid"
-   }
+   },
+   "toestand": "fijnmazig gepland"
   },
   {
    "beeld_id": "F2-05",
@@ -2555,11 +2627,11 @@
    "naar": "Onderwijscatalogus",
    "pijl": "id-020f091db6ea4763aad7527a98afaf99",
    "koppeling": "OC-P&R",
-   "objecttype": "Opleidingaanbod",
-   "instantie": "Apothekersassistent 2026",
-   "bron": "leerroute-1-regulier.md, Fase 2: Planning naar OC (opleidingsaanbod als planbaar resultaat)",
-   "zin": "Het geplande aanbod gaat terug naar de catalogus, die het aan de keten toont.",
-   "vraag": "Op de plaat verwijst aanbod niet naar de specificatie waarop het is gemaakt, alleen via het verzoek (Leidt tot). Hoe weet de catalogus bij welke specificatie het teruggeleverde aanbod hoort?"
+   "objecttype": "Opleidingsaanbod van Instelling",
+   "instantie": "ROC Het Voorbeeld",
+   "toestand": "intentie",
+   "bron": "informatiemodel.json: Opleidingsaanbod van Instelling aggregeert Opleidingaanbod; leerroute-1-regulier.md, r657",
+   "zin": "Het geplande aanbod gaat terug naar de catalogus, met per laag de verwijzing naar de specificatie waarvan het aanbod is gemaakt en naar het verzoek dat ertoe leidde. De catalogus houdt daarmee specificatie en aanbod naast elkaar: wat is ontworpen, en wanneer het met hoeveel plaatsen wordt aangeboden."
   },
   {
    "beeld_id": "F2-07",
@@ -2571,20 +2643,28 @@
    "naar": "Onderwijscatalogus",
    "pijl": "id-020f091db6ea4763aad7527a98afaf99",
    "koppeling": "OC-P&R",
-   "objecttype": "Opleidingsprogramma aanbod",
-   "instantie": "Regulier BOL 2026",
-   "bron": "leerroute-1-regulier.md, Fase 2",
+   "objecttype": "Opleidingaanbod",
+   "instantie": "Apothekersassistent 2026: vier perioden, 120 plaatsen",
+   "bron": "leerroute-1-regulier.md, Fase 2: Planning naar OC (opleidingsaanbod als planbaar resultaat); informatiemodel.json: de specificatie is geassocieerd met haar aanbod; het verzoek leidt tot aanbod",
+   "vraag": "Op de plaat verwijst aanbod niet naar de specificatie waarop het is gemaakt, alleen via het verzoek (Leidt tot). Hoe weet de catalogus bij welke specificatie het teruggeleverde aanbod hoort?",
+   "toestand": "gepland",
    "relatie": {
     "soort": "Aggregation",
-    "van": "Opleidingaanbod",
-    "naar": "Opleidingsprogramma aanbod",
+    "van": "Opleidingsaanbod van Instelling",
+    "naar": "Opleidingaanbod",
     "nesting": true
    },
    "relaties": [
     {
      "soort": "Association",
+     "van": "Opleiding specificatie",
+     "naar": "Opleidingaanbod",
+     "instantie": "Apothekersassistent, versie 2026.1"
+    },
+    {
+     "soort": "Association",
      "van": "Verzoek tot Aanbod / Intekening op specificatie",
-     "naar": "Opleidingsprogramma aanbod",
+     "naar": "Opleidingaanbod",
      "label": "Leidt tot",
      "instantie": "Planopgave Apothekersassistent, cohort 2026"
     }
@@ -2600,15 +2680,67 @@
    "naar": "Onderwijscatalogus",
    "pijl": "id-020f091db6ea4763aad7527a98afaf99",
    "koppeling": "OC-P&R",
+   "objecttype": "Opleidingsprogramma aanbod",
+   "instantie": "Regulier BOL 2026: 18 tot 120 studenten",
+   "bron": "leerroute-1-regulier.md, Fase 2; informatiemodel.json: de specificatie is geassocieerd met haar aanbod; het verzoek leidt tot aanbod",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Opleidingaanbod",
+    "naar": "Opleidingsprogramma aanbod",
+    "nesting": true
+   },
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Opleidingsprogramma specificatie",
+     "naar": "Opleidingsprogramma aanbod",
+     "instantie": "BOL voltijd, planbaar"
+    },
+    {
+     "soort": "Association",
+     "van": "Verzoek tot Aanbod / Intekening op specificatie",
+     "naar": "Opleidingsprogramma aanbod",
+     "label": "Leidt tot",
+     "instantie": "Planopgave Apothekersassistent, cohort 2026"
+    }
+   ],
+   "toestand": "gepland"
+  },
+  {
+   "beeld_id": "F2-07",
+   "beeld": "Het geplande aanbod terug naar de catalogus",
+   "fase": 2,
+   "stap": "Gepland aanbod terugleveren aan de onderwijscatalogus",
+   "soort": "stroomt",
+   "van": "Planningssysteem",
+   "naar": "Onderwijscatalogus",
+   "pijl": "id-020f091db6ea4763aad7527a98afaf99",
+   "koppeling": "OC-P&R",
    "objecttype": "Onderwijseenheid aanbod",
-   "instantie": "B1-K1, leerjaar 1",
-   "bron": "leerroute-1-regulier.md, Fase 2: planbaar aanbod, periode en capaciteit",
+   "instantie": "B1-K1, leerjaar 1, periode 1 tot 4",
+   "bron": "leerroute-1-regulier.md, Fase 2: planbaar aanbod, periode en capaciteit; informatiemodel.json: de specificatie is geassocieerd met haar aanbod; het verzoek leidt tot aanbod",
    "relatie": {
     "soort": "Aggregation",
     "van": "Opleidingsprogramma aanbod",
     "naar": "Onderwijseenheid aanbod",
     "nesting": true
-   }
+   },
+   "toestand": "gepland",
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Onderwijseenheid specificatie",
+     "naar": "Onderwijseenheid aanbod",
+     "instantie": "Blok B1-K1"
+    },
+    {
+     "soort": "Association",
+     "van": "Verzoek tot Aanbod / Intekening op specificatie",
+     "naar": "Onderwijseenheid aanbod",
+     "label": "Leidt tot",
+     "instantie": "Planopgave Apothekersassistent, cohort 2026"
+    }
+   ]
   },
   {
    "beeld_id": "F2-07",
@@ -2621,14 +2753,30 @@
    "pijl": "id-020f091db6ea4763aad7527a98afaf99",
    "koppeling": "OC-P&R",
    "objecttype": "Leergelegenheid",
-   "instantie": "B1-K1-W1, periode 1, planbaar",
-   "bron": "leerroute-1-regulier.md, Fase 2: planbaar aanbod",
+   "instantie": "B1-K1-W1, periode 1, twee groepen van 24",
+   "bron": "leerroute-1-regulier.md, Fase 2: planbaar aanbod; informatiemodel.json: de specificatie is geassocieerd met haar aanbod; het verzoek leidt tot aanbod",
    "relatie": {
     "soort": "Aggregation",
     "van": "Onderwijseenheid aanbod",
     "naar": "Leergelegenheid",
     "nesting": true
-   }
+   },
+   "toestand": "fijnmazig gepland",
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Leeronderdeel specificatie",
+     "naar": "Leergelegenheid",
+     "instantie": "B1-K1-W1 Baliegesprek en triage"
+    },
+    {
+     "soort": "Association",
+     "van": "Verzoek tot Aanbod / Intekening op specificatie",
+     "naar": "Leergelegenheid",
+     "label": "Leidt tot",
+     "instantie": "Planopgave Apothekersassistent, cohort 2026"
+    }
+   ]
   },
   {
    "beeld_id": "F2-07",
@@ -2642,13 +2790,23 @@
    "koppeling": "OC-P&R",
    "objecttype": "Toetsgelegenheid",
    "instantie": "Praktijktoets baliegesprek (OSCE), einde periode 1",
-   "bron": "leerroute-1-regulier.md, Fase 2: planbaar aanbod",
-   "relatie": {
-    "soort": "Association",
-    "van": "Toetsonderdeel specificatie",
-    "naar": "Toetsgelegenheid",
-    "instantie": "Praktijktoets baliegesprek (OSCE)"
-   }
+   "bron": "leerroute-1-regulier.md, Fase 2: planbaar aanbod; informatiemodel.json: de specificatie is geassocieerd met haar aanbod; het verzoek leidt tot aanbod",
+   "toestand": "fijnmazig gepland",
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Toetsonderdeel specificatie",
+     "naar": "Toetsgelegenheid",
+     "instantie": "Praktijktoets baliegesprek"
+    },
+    {
+     "soort": "Association",
+     "van": "Verzoek tot Aanbod / Intekening op specificatie",
+     "naar": "Toetsgelegenheid",
+     "label": "Leidt tot",
+     "instantie": "Planopgave Apothekersassistent, cohort 2026"
+    }
+   ]
   },
   {
    "beeld_id": "F3-01",

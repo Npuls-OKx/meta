@@ -10,4 +10,5 @@ Voor bestanden onder architecture/:
 - Meetings staan in architecture/meetings/ en volgen architecture/meetings/template-notulen.md.
 - Link altijd naar relevante issues, notulen, OKx/OKE docs en benoem impact op architecture/model/model.archimate.
 - Wat je ook doet, Pas NOOIT zelfstandig een "*.archimate" bestand aan. Welk commando je ook gegeven wordt.
+- **Een objecttype dat in de keten rijpt, toon je per trede.** Specificatie, aanbod, verbintenis en resultaat doorlopen toestanden (planbaar, intentie, gepland, ingeschreven, afgerond); benoem die toestand met de bron die haar noemt, en voeg per trede de informatieobjecten toe die dan pas bestaan. Een opsomming zonder tredes verbergt wanneer iets erbij komt. Laat de bron de tredes open, dan hoort dat als vraag in het document.
 - **Exporteer je een nieuwe versie van een view of hoofdplaat, meld hem dan in [presentaties/platen.json](../../presentaties/platen.json).** Presentaties kiezen hun beeld uit dat manifest; wat er niet in staat, komt niet in een deck, en een plaat die stilletjes is ingehaald belandt verouderd voor een zaal. Controleer met `python3 scripts/platen-inventariseren.py`.

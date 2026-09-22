@@ -81,7 +81,7 @@ De fase in detail: [kaderscenario leerroute 1, fase 1](https://github.com/Npuls-
 
 De fase in detail: [kaderscenario leerroute 1, fase 2](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-2--publiceren-en-planbaar-maken).
 
-**Ontstaat:** `Opleidingsprogramma specificatie`, `Verzoek tot Aanbod / Intekening op specificatie`, `Opleidingsaanbod van Instelling`, `Opleidingaanbod`, `Opleidingsprogramma aanbod`, `Onderwijseenheid aanbod`, `Leergelegenheid`, `Toetsgelegenheid`. **Stroomt:** Onderwijscatalogus naar Planningssysteem; Planningssysteem naar Onderwijscatalogus. **MORA-hoofdproces:** Plannen en roosteren.
+**Ontstaat:** `Opleidingsprogramma specificatie`, `Onderwijseenheid specificatie`, `Leeronderdeel specificatie`, `Verzoek tot Aanbod / Intekening op specificatie`, `Opleidingsaanbod van Instelling`, `Opleidingaanbod`, `Opleidingsprogramma aanbod`, `Onderwijseenheid aanbod`, `Leergelegenheid`, `Toetsgelegenheid`. **Stroomt:** Onderwijscatalogus naar Planningssysteem; Planningssysteem naar Onderwijscatalogus. **MORA-hoofdproces:** Plannen en roosteren.
 
 ### F2-01 - De specificatie planbaar gemaakt
 
@@ -359,13 +359,13 @@ Per objecttype het beeld waarin hij verschijnt (het ID uit de kop), de instantie
 |---|---|---|---|---|---|---|---|---|
 | Examengelegenheid | F8-01 | Proeve van bekwaamheid B1-K1, periode 12 | 8 | ja | ja | TestComponentOffering | | |
 | Keuzedeelaanbod | F6-01 | Ondernemerschap in de zorg, periode 7, locatie A | 6 | ja | nog te definieren | ProgrammeOffering | | |
-| Leergelegenheid | F2-04 | B1-K1-W1, periode 1, planbaar | 2 |  | nog te definieren | LearningComponentOffering | | |
+| Leergelegenheid | F2-04 | B1-K1-W1, periode 1, twee groepen van 24 | 2 |  | nog te definieren | LearningComponentOffering | | |
 | Lesgelegenheid | F4-07 | Les 1, maandag 1 september 09:00, simulatieruimte 2.14 | 4 |  | nog te definieren | LearningComponentOffering | | |
-| Onderwijseenheid aanbod | F2-04 | B1-K1, leerjaar 1 | 2 |  | nog te definieren | CourseOffering | | |
-| Opleidingaanbod | F2-04 | Apothekersassistent 2026 | 2 |  | ja | ProgrammeOffering | | |
-| Opleidingsaanbod van Instelling | F2-04 | ROC Het Voorbeeld | 2 | ja | ja | geen equivalent | | |
-| Opleidingsprogramma aanbod | F2-04 | Regulier BOL 2026, 18 tot 120 studenten | 2 |  | nog te definieren | ProgrammeOffering | | |
-| Toetsgelegenheid | F2-04 | Praktijktoets baliegesprek (OSCE), einde periode 1, planbaar | 2 |  | ja | TestComponentOffering | | |
+| Onderwijseenheid aanbod | F2-04 | B1-K1, leerjaar 1, periode 1 tot 4 | 2 |  | nog te definieren | CourseOffering | | |
+| Opleidingaanbod | F2-04 | Apothekersassistent 2026: vier perioden, 120 plaatsen | 2 |  | ja | ProgrammeOffering | | |
+| Opleidingsaanbod van Instelling | F2-04 | ROC Het Voorbeeld: ambitie en verwachte instroom voor cohort 2026 | 2 | ja | ja | geen equivalent | | |
+| Opleidingsprogramma aanbod | F2-04 | Regulier BOL 2026: 18 tot 120 studenten | 2 |  | nog te definieren | ProgrammeOffering | | |
+| Toetsgelegenheid | F2-04 | Praktijktoets baliegesprek (OSCE), einde periode 1 | 2 |  | ja | TestComponentOffering | | |
 
 ### Onderwijsverbintenis
 
@@ -490,6 +490,9 @@ Per regel één van vier antwoorden: herken ik dit; heet bij ons anders (welke t
 | 1 | F1-09 | Examenonderdeel weging | | | | |
 | 1 | F1-09 | Summatief Afrondingscriterium | | | | |
 | 2 | F2-01 | Opleidingsprogramma specificatie | | | | |
+| 2 | F2-01 | Onderwijseenheid specificatie | | | | |
+| 2 | F2-01 | Leeronderdeel specificatie | | | | |
+| 2 | F2-01 | Leeronderdeel specificatie | | | | |
 | 2 | F2-02 | Verzoek tot Aanbod / Intekening op specificatie | | | | |
 | 2 | F2-04 | Opleidingsaanbod van Instelling | | | | |
 | 2 | F2-04 | Opleidingaanbod | | | | |
@@ -682,7 +685,10 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
-| verandert | Opleidingsprogramma specificatie | BOL voltijd, planbaar: tijdvensters, capaciteit, expertise, faciliteit | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 2](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-2--publiceren-en-planbaar-maken): aangevuld tot planbare specificatie |
+| verandert | Opleidingsprogramma specificatie | BOL voltijd, planbaar: tijdvensters en capaciteit | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 2](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-2--publiceren-en-planbaar-maken): aangevuld tot planbare specificatie |
+| verandert | Onderwijseenheid specificatie | Blok B1-K1, leerjaar 1: plek in de opleidingsduur en groepsgrootte | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [r1021](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L1021) (op leeronderdeelniveau staan de organiseerbaarheidswaarden: BOT/OOT, BPV, ruimtetype, expertiseprofiel) en [r713](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L713) (planbaar als rijpheidskenmerk van de specificatie) |
+| verandert | Leeronderdeel specificatie | B1-K1-W1: BOT 50 / OOT 50 SBU, praktijkruimte, docent farmacie | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [r1021](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L1021) (op leeronderdeelniveau staan de organiseerbaarheidswaarden: BOT/OOT, BPV, ruimtetype, expertiseprofiel) en [r713](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L713) (planbaar als rijpheidskenmerk van de specificatie) |
+| verandert | Leeronderdeel specificatie | B1-K1-W2: BOT 30 / OOT 70 SBU, praktijkruimte, docent farmacie | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [r1021](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L1021) (op leeronderdeelniveau staan de organiseerbaarheidswaarden: BOT/OOT, BPV, ruimtetype, expertiseprofiel) en [r713](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L713) (planbaar als rijpheidskenmerk van de specificatie) |
 
 **F2-02 - Het verzoek om onderwijsaanbod** (fase 2, Planningssysteem verzoeken om onderwijsaanbod; [f2-02-het-verzoek-om-onderwijsaanbod.svg](img/regels/f2-02-het-verzoek-om-onderwijsaanbod.svg))
 
@@ -709,12 +715,12 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
-| ontstaat | Opleidingsaanbod van Instelling | ROC Het Voorbeeld | geen bron, keuze van het voorbeeld: het objecttype heeft geen instantie in het kaderscenario |
-| ontstaat | Opleidingaanbod | Apothekersassistent 2026 | [voorbeeldpayloads.md](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Datamodelschema's/voorbeeldpayloads.md), aanbodInstanties[0] (7aa6609f) |
-| ontstaat | Opleidingsprogramma aanbod | Regulier BOL 2026, 18 tot 120 studenten | [voorbeeldpayloads.md](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Datamodelschema's/voorbeeldpayloads.md), aanbodInstanties[1] (8c494250) |
-| ontstaat | Onderwijseenheid aanbod | B1-K1, leerjaar 1 | [voorbeeldpayloads.md](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Datamodelschema's/voorbeeldpayloads.md), aanbodInstanties[2] (04af26e6) |
-| ontstaat | Leergelegenheid | B1-K1-W1, periode 1, planbaar | [voorbeeldpayloads.md](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Datamodelschema's/voorbeeldpayloads.md), aanbodInstanties[3] (04070a96) |
-| ontstaat | Toetsgelegenheid | Praktijktoets baliegesprek (OSCE), einde periode 1, planbaar | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [r1114](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L1114) tot [1117](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L1117) |
+| ontstaat | Opleidingsaanbod van Instelling | ROC Het Voorbeeld: ambitie en verwachte instroom voor cohort 2026 | geen bron, keuze van het voorbeeld: het objecttype heeft geen instantie in het kaderscenario; leerroute-1-regulier.md, r657 (drie stadia van onderwijsaanbod, parallel aan meerjaren-, jaar- en periodeplanning) |
+| ontstaat | Opleidingaanbod | Apothekersassistent 2026: vier perioden, 120 plaatsen | [voorbeeldpayloads.md](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Datamodelschema's/voorbeeldpayloads.md), aanbodInstanties[0] (7aa6609f); leerroute-1-regulier.md, [r738](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Datamodelschema's/voorbeeldpayloads.md?plain=1#L738) (aanbod is minimaal gepland zodra perioden en capaciteit vastliggen) en [r1021](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Datamodelschema's/voorbeeldpayloads.md?plain=1#L1021) (stadium 2a, nog zonder lokalen en docenten) |
+| ontstaat | Opleidingsprogramma aanbod | Regulier BOL 2026: 18 tot 120 studenten | [voorbeeldpayloads.md](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Datamodelschema's/voorbeeldpayloads.md), aanbodInstanties[1] (8c494250); leerroute-1-regulier.md, [r738](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Datamodelschema's/voorbeeldpayloads.md?plain=1#L738) (aanbod is minimaal gepland zodra perioden en capaciteit vastliggen) en [r1021](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Datamodelschema's/voorbeeldpayloads.md?plain=1#L1021) (stadium 2a, nog zonder lokalen en docenten) |
+| ontstaat | Onderwijseenheid aanbod | B1-K1, leerjaar 1, periode 1 tot 4 | [voorbeeldpayloads.md](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Datamodelschema's/voorbeeldpayloads.md), aanbodInstanties[2] (04af26e6); leerroute-1-regulier.md, [r738](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Datamodelschema's/voorbeeldpayloads.md?plain=1#L738) (aanbod is minimaal gepland zodra perioden en capaciteit vastliggen) en [r1021](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Datamodelschema's/voorbeeldpayloads.md?plain=1#L1021) (stadium 2a, nog zonder lokalen en docenten) |
+| ontstaat | Leergelegenheid | B1-K1-W1, periode 1, twee groepen van 24 | [voorbeeldpayloads.md](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Datamodelschema's/voorbeeldpayloads.md), aanbodInstanties[3] (04070a96) |
+| ontstaat | Toetsgelegenheid | Praktijktoets baliegesprek (OSCE), einde periode 1 | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [r1114](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L1114) tot [1117](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L1117) |
 
 **F2-05 - Ruimtes en mensen op de specificatie (conceptplaat)** (fase 2, Haalbaarheid bepalen en aanbod plannen; [f2-05-ruimtes-en-mensen-op-de-specificatie-conceptplaat.svg](img/regels/f2-05-ruimtes-en-mensen-op-de-specificatie-conceptplaat.svg))
 
@@ -740,11 +746,12 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
-| stroomt | Opleidingaanbod | Apothekersassistent 2026 | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 2](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-2--publiceren-en-planbaar-maken): Planning naar OC (opleidingsaanbod als planbaar resultaat) |
-| stroomt | Opleidingsprogramma aanbod | Regulier BOL 2026 | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 2](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-2--publiceren-en-planbaar-maken) |
-| stroomt | Onderwijseenheid aanbod | B1-K1, leerjaar 1 | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 2](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-2--publiceren-en-planbaar-maken): planbaar aanbod, periode en capaciteit |
-| stroomt | Leergelegenheid | B1-K1-W1, periode 1, planbaar | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 2](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-2--publiceren-en-planbaar-maken): planbaar aanbod |
-| stroomt | Toetsgelegenheid | Praktijktoets baliegesprek (OSCE), einde periode 1 | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 2](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-2--publiceren-en-planbaar-maken): planbaar aanbod |
+| stroomt | Opleidingsaanbod van Instelling | ROC Het Voorbeeld | informatiemodel.json: Opleidingsaanbod van Instelling aggregeert Opleidingaanbod; leerroute-1-regulier.md, r657 |
+| stroomt | Opleidingaanbod | Apothekersassistent 2026: vier perioden, 120 plaatsen | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 2](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-2--publiceren-en-planbaar-maken): Planning naar OC (opleidingsaanbod als planbaar resultaat); informatiemodel.json: de specificatie is geassocieerd met haar aanbod; het verzoek leidt tot aanbod |
+| stroomt | Opleidingsprogramma aanbod | Regulier BOL 2026: 18 tot 120 studenten | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 2](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-2--publiceren-en-planbaar-maken); informatiemodel.json: de specificatie is geassocieerd met haar aanbod; het verzoek leidt tot aanbod |
+| stroomt | Onderwijseenheid aanbod | B1-K1, leerjaar 1, periode 1 tot 4 | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 2](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-2--publiceren-en-planbaar-maken): planbaar aanbod, periode en capaciteit; informatiemodel.json: de specificatie is geassocieerd met haar aanbod; het verzoek leidt tot aanbod |
+| stroomt | Leergelegenheid | B1-K1-W1, periode 1, twee groepen van 24 | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 2](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-2--publiceren-en-planbaar-maken): planbaar aanbod; informatiemodel.json: de specificatie is geassocieerd met haar aanbod; het verzoek leidt tot aanbod |
+| stroomt | Toetsgelegenheid | Praktijktoets baliegesprek (OSCE), einde periode 1 | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 2](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-2--publiceren-en-planbaar-maken): planbaar aanbod; informatiemodel.json: de specificatie is geassocieerd met haar aanbod; het verzoek leidt tot aanbod |
 
 **F3-01 - Aanmeldbaar aanbod naar de kernregistratie** (fase 3, Orienteren op het gepubliceerde aanbod; [f3-01-aanmeldbaar-aanbod-naar-de-kernregistratie.svg](img/regels/f3-01-aanmeldbaar-aanbod-naar-de-kernregistratie.svg))
 

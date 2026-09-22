@@ -213,7 +213,7 @@ def controleer(regels, model, stromen=None, fasen_filter=None, model_commit=None
             bevindingen.append(f"{plek}: stap {r.get('stap')!r} staat niet in fase {r.get('fase')}")
         if r.get("soort") in ("ontstaat", "verandert") and r.get("wie") not in rollen:
             bevindingen.append(f"{plek}: rol {r.get('wie')!r} staat niet in de rollenlijst")
-        if r.get("soort") == "verandert" and r.get("toestand") not in toestanden:
+        if (r.get("soort") == "verandert" or r.get("toestand")) and r.get("toestand") not in toestanden:
             bevindingen.append(f"{plek}: toestand {r.get('toestand')!r} staat niet in de toestandenlijst")
         if r.get("soort") == "stroomt":
             if r.get("pijl") != GEEN_PIJL and stromen is not None and r.get("pijl") not in pijlen:
