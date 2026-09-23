@@ -4091,9 +4091,9 @@
    "naar": "Student volg systeem (SVS)",
    "pijl": "id-e2755a76b8244373bd7e8da4ccb7c3f6",
    "koppeling": "OC-SIS",
-   "objecttype": "Toetsonderdeel specificatie",
-   "instantie": "Praktijktoets baliegesprek (OSCE), summatief",
-   "bron": "leerroute-1-regulier.md, Fase 4: OC naar SVS, de structuur waarmee het SVS aggregeert",
+   "objecttype": "Examenonderdeelspecificatie",
+   "instantie": "Proeve van bekwaamheid B1-K1",
+   "bron": "informatiemodel.json: Summatieve resultaat structuur aggregeert Toetsonderdeel specificatie, Examenonderdeelspecificatie is een Toetsonderdeel specificatie, Examenonderdeel weging naar Examenonderdeelspecificatie",
    "relatie": {
     "soort": "Aggregation",
     "van": "Summatieve resultaat structuur",
@@ -4102,12 +4102,36 @@
    },
    "relaties": [
     {
+     "soort": "Specialization",
+     "van": "Examenonderdeelspecificatie",
+     "naar": "Toetsonderdeel specificatie"
+    },
+    {
      "soort": "Association",
-     "van": "Toetsonderdeel specificatie",
+     "van": "Examenonderdeelspecificatie",
      "naar": "Leeruitkomst",
-     "instantie": "Voert baliegesprek en triage uit (werkprocesniveau)"
+     "instantie": "Biedt farmaceutische patientenzorg (kerntaakniveau)"
     }
    ]
+  },
+  {
+   "beeld_id": "F4-04",
+   "beeld": "Resultaatstructuur naar het studentvolgsysteem",
+   "fase": 4,
+   "stap": "Detailspecificaties leveren aan het LMS",
+   "soort": "stroomt",
+   "van": "Onderwijscatalogus",
+   "naar": "Student volg systeem (SVS)",
+   "pijl": "id-e2755a76b8244373bd7e8da4ccb7c3f6",
+   "koppeling": "OC-SIS",
+   "objecttype": "Examenonderdeel weging",
+   "instantie": "Proeve van bekwaamheid B1-K1: weging 2",
+   "bron": "informatiemodel.json: Summatieve resultaat structuur aggregeert Toetsonderdeel specificatie, Examenonderdeelspecificatie is een Toetsonderdeel specificatie, Examenonderdeel weging naar Examenonderdeelspecificatie",
+   "relatie": {
+    "soort": "Association",
+    "van": "Examenonderdeel weging",
+    "naar": "Examenonderdeelspecificatie"
+   }
   },
   {
    "beeld_id": "F4-04",
@@ -4162,15 +4186,48 @@
    "naar": "Kernregistratie systeem studenten (KRS)",
    "pijl": "id-ec248a00b6234f1688ee3705d46a59f7",
    "koppeling": "OC-SIS",
-   "objecttype": "Toetsonderdeel specificatie",
-   "instantie": "Praktijktoets baliegesprek (OSCE), summatief",
-   "bron": "keuze van de sectorarchitect",
+   "objecttype": "Examenonderdeelspecificatie",
+   "instantie": "Proeve van bekwaamheid B1-K1",
+   "bron": "informatiemodel.json: Summatieve resultaat structuur aggregeert Toetsonderdeel specificatie, Examenonderdeelspecificatie is een Toetsonderdeel specificatie, Examenonderdeel weging naar Examenonderdeelspecificatie",
    "aanname": true,
    "relatie": {
     "soort": "Aggregation",
     "van": "Summatieve resultaat structuur",
     "naar": "Toetsonderdeel specificatie",
     "nesting": true
+   },
+   "relaties": [
+    {
+     "soort": "Specialization",
+     "van": "Examenonderdeelspecificatie",
+     "naar": "Toetsonderdeel specificatie"
+    },
+    {
+     "soort": "Association",
+     "van": "Examenonderdeelspecificatie",
+     "naar": "Leeruitkomst",
+     "instantie": "Biedt farmaceutische patientenzorg (kerntaakniveau)"
+    }
+   ]
+  },
+  {
+   "beeld_id": "F4-05",
+   "beeld": "Resultaatstructuur naar de kernregistratie",
+   "fase": 4,
+   "stap": "Detailspecificaties leveren aan het LMS",
+   "soort": "stroomt",
+   "van": "Onderwijscatalogus",
+   "naar": "Kernregistratie systeem studenten (KRS)",
+   "pijl": "id-ec248a00b6234f1688ee3705d46a59f7",
+   "koppeling": "OC-SIS",
+   "objecttype": "Examenonderdeel weging",
+   "instantie": "Proeve van bekwaamheid B1-K1: weging 2",
+   "bron": "informatiemodel.json: Summatieve resultaat structuur aggregeert Toetsonderdeel specificatie, Examenonderdeelspecificatie is een Toetsonderdeel specificatie, Examenonderdeel weging naar Examenonderdeelspecificatie",
+   "aanname": true,
+   "relatie": {
+    "soort": "Association",
+    "van": "Examenonderdeel weging",
+    "naar": "Examenonderdeelspecificatie"
    }
   },
   {
@@ -4204,9 +4261,58 @@
    "pijl": "id-97010c562d8841f9b908e72b1d2b3f9a",
    "koppeling": null,
    "objecttype": "Plaatsingsgroep",
-   "instantie": "APO26-1A, 30 studenten",
+   "instantie": "APO26-1A",
    "bron": "leerroute-1-regulier.md, Fase 4: Planning en KRS (groepen en persoon)",
-   "zin": "De plaatsingsgroepen met hun studenten gaan van de kernregistratie naar planning."
+   "zin": "De plaatsingsgroep gaat met haar studenten naar planning: die weet daarmee hoeveel mensen er voor welk onderdeel te plannen zijn.",
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Persoon",
+     "naar": "Plaatsingsgroep",
+     "label": "Worden gegroepeerd via",
+     "instantie": "Jochem en 29 andere studenten"
+    }
+   ]
+  },
+  {
+   "beeld_id": "F4-06",
+   "beeld": "Plaatsingsgroepen naar planning",
+   "fase": 4,
+   "stap": "Plaatsings- en planninggroepen definieren en aan personen koppelen",
+   "soort": "stroomt",
+   "van": "Kernregistratie systeem studenten (KRS)",
+   "naar": "Planningssysteem",
+   "pijl": "id-97010c562d8841f9b908e72b1d2b3f9a",
+   "koppeling": null,
+   "objecttype": "Student",
+   "instantie": "Jochem, cohort 2026",
+   "bron": "informatiemodel.json: Persoon naar Plaatsingsgroep (Worden gegroepeerd via), Student is een Persoon",
+   "relatie": {
+    "soort": "Specialization",
+    "van": "Student",
+    "naar": "Persoon"
+   }
+  },
+  {
+   "beeld_id": "F4-06",
+   "beeld": "Plaatsingsgroepen naar planning",
+   "fase": 4,
+   "stap": "Plaatsings- en planninggroepen definieren en aan personen koppelen",
+   "soort": "stroomt",
+   "van": "Kernregistratie systeem studenten (KRS)",
+   "naar": "Planningssysteem",
+   "pijl": "id-97010c562d8841f9b908e72b1d2b3f9a",
+   "koppeling": null,
+   "objecttype": "Student",
+   "instantie": "29 andere studenten in dezelfde groep",
+   "bron": "informatiemodel.json: Persoon naar Plaatsingsgroep (Worden gegroepeerd via), Student is een Persoon",
+   "nieuwe_instantie": true,
+   "aanname": true,
+   "relatie": {
+    "soort": "Specialization",
+    "van": "Student",
+    "naar": "Persoon"
+   }
   },
   {
    "beeld_id": "F4-07",
@@ -4279,30 +4385,6 @@
   },
   {
    "beeld_id": "F4-09",
-   "beeld": "Het rooster naar de kernregistratie",
-   "fase": 4,
-   "stap": "Leer-, les- en toetsgelegenheden roosteren",
-   "soort": "stroomt",
-   "van": "Roostersysteem",
-   "naar": "Kernregistratie systeem studenten (KRS)",
-   "pijl": "id-70bdd7dbcb234951ad2c1c719f19c543",
-   "koppeling": null,
-   "objecttype": "Lesgelegenheid",
-   "instantie": "Les 1, ma 09:00, lokaal 2.14",
-   "bron": "hoofdplaat v1.7: Roostersysteem naar KRS",
-   "zin": "Het rooster gaat naar de kernregistratie; op de plaat een pijl, in de koppelvlakspecificatie nog niets.",
-   "vraag": "De hoofdplaat wisselt lesgelegenheden uit, ontwerpkeuze 8 zet de leslaag buiten de uitwisseling. Herkent de kerngroep deze stroom?",
-   "relaties": [
-    {
-     "soort": "Aggregation",
-     "van": "Leergelegenheid",
-     "naar": "Lesgelegenheid",
-     "instantie": "B1-K1-W1, periode 1"
-    }
-   ]
-  },
-  {
-   "beeld_id": "F4-10",
    "beeld": "Jochems verbintenissen op de geroosterde gelegenheden",
    "fase": 4,
    "stap": "Verwachte deelnemers delen en toegang geven",
@@ -4319,7 +4401,7 @@
    "zin": "De SLB'er activeert Jochems verbintenissen op de geroosterde gelegenheden van periode 1."
   },
   {
-   "beeld_id": "F4-10",
+   "beeld_id": "F4-09",
    "beeld": "Jochems verbintenissen op de geroosterde gelegenheden",
    "fase": 4,
    "stap": "Verwachte deelnemers delen en toegang geven",
@@ -4335,7 +4417,7 @@
    }
   },
   {
-   "beeld_id": "F4-10",
+   "beeld_id": "F4-09",
    "beeld": "Jochems verbintenissen op de geroosterde gelegenheden",
    "fase": 4,
    "stap": "Verwachte deelnemers delen en toegang geven",
@@ -4351,7 +4433,7 @@
    }
   },
   {
-   "beeld_id": "F4-10",
+   "beeld_id": "F4-09",
    "beeld": "Jochems verbintenissen op de geroosterde gelegenheden",
    "fase": 4,
    "stap": "Verwachte deelnemers delen en toegang geven",
@@ -4366,7 +4448,7 @@
    "vraag": "Rijpt een verbintenis mee met het aanbod (planbaar naar geroosterd), of is de toestand van de verbintenis los van die van het aanbod (ontwerpkeuze 13)?"
   },
   {
-   "beeld_id": "F4-11",
+   "beeld_id": "F4-10",
    "beeld": "Student, verbintenissen en groep naar het LMS",
    "fase": 4,
    "stap": "Verwachte deelnemers delen en toegang geven",
@@ -4385,7 +4467,7 @@
    }
   },
   {
-   "beeld_id": "F4-11",
+   "beeld_id": "F4-10",
    "beeld": "Student, verbintenissen en groep naar het LMS",
    "fase": 4,
    "stap": "Verwachte deelnemers delen en toegang geven",
@@ -4408,7 +4490,7 @@
    ]
   },
   {
-   "beeld_id": "F4-11",
+   "beeld_id": "F4-10",
    "beeld": "Student, verbintenissen en groep naar het LMS",
    "fase": 4,
    "stap": "Verwachte deelnemers delen en toegang geven",
@@ -4427,7 +4509,7 @@
    }
   },
   {
-   "beeld_id": "F4-11",
+   "beeld_id": "F4-10",
    "beeld": "Student, verbintenissen en groep naar het LMS",
    "fase": 4,
    "stap": "Verwachte deelnemers delen en toegang geven",
@@ -4447,7 +4529,7 @@
    }
   },
   {
-   "beeld_id": "F4-11",
+   "beeld_id": "F4-10",
    "beeld": "Student, verbintenissen en groep naar het LMS",
    "fase": 4,
    "stap": "Verwachte deelnemers delen en toegang geven",
@@ -4464,6 +4546,98 @@
     "van": "Leergelegenheid",
     "naar": "Leergelegenheid verbintenis",
     "instantie": "B1-K1-W1, periode 1"
+   }
+  },
+  {
+   "beeld_id": "F4-11",
+   "beeld": "Verbintenissen op alle niveaus naar het studentvolgsysteem",
+   "fase": 4,
+   "stap": "Verwachte deelnemers delen en toegang geven",
+   "soort": "stroomt",
+   "van": "Kernregistratie systeem studenten (KRS)",
+   "naar": "Student volg systeem (SVS)",
+   "pijl": "geen pijl op de hoofdplaat",
+   "objecttype": "Student",
+   "instantie": "Jochem, cohort 2026",
+   "bron": "leerroute-1-regulier.md, r868 (het studentvolgsysteem legt onderwijsresultaten per onderwijsverbintenis vast en houdt de studiepadadministratie bij) en r870 (behaalde resultaten worden in SVS bijgehouden tegen de specificatie uit de catalogus)",
+   "relatie": {
+    "soort": "Specialization",
+    "van": "Student",
+    "naar": "Persoon"
+   },
+   "zin": "Het studentvolgsysteem houdt de voortgang bij per verbintenis, en moet daarvoor weten waarop Jochem is ingeschreven: op de opleiding, het programma, de eenheid en de leergelegenheid. Die verbintenissen komen uit de kernregistratie, die er master van is.",
+   "vraag": "Hoofdplaat v1.7 laat het studentvolgsysteem verbintenissen alleen van het studentkeuzesysteem ontvangen, terwijl de kernregistratie er master van is. Waar krijgt het studentvolgsysteem de verbintenissen op opleiding, programma, eenheid en leergelegenheid vandaan?"
+  },
+  {
+   "beeld_id": "F4-11",
+   "beeld": "Verbintenissen op alle niveaus naar het studentvolgsysteem",
+   "fase": 4,
+   "stap": "Verwachte deelnemers delen en toegang geven",
+   "soort": "stroomt",
+   "van": "Kernregistratie systeem studenten (KRS)",
+   "naar": "Student volg systeem (SVS)",
+   "pijl": "geen pijl op de hoofdplaat",
+   "objecttype": "Opleiding aanbod verbintenis",
+   "instantie": "Jochem op Apothekersassistent 2026, ingeschreven",
+   "bron": "leerroute-1-regulier.md, r868 (het studentvolgsysteem legt onderwijsresultaten per onderwijsverbintenis vast en houdt de studiepadadministratie bij) en r870 (behaalde resultaten worden in SVS bijgehouden tegen de specificatie uit de catalogus)",
+   "relatie": {
+    "soort": "Association",
+    "van": "Opleidingaanbod",
+    "naar": "Opleiding aanbod  verbintenis"
+   }
+  },
+  {
+   "beeld_id": "F4-11",
+   "beeld": "Verbintenissen op alle niveaus naar het studentvolgsysteem",
+   "fase": 4,
+   "stap": "Verwachte deelnemers delen en toegang geven",
+   "soort": "stroomt",
+   "van": "Kernregistratie systeem studenten (KRS)",
+   "naar": "Student volg systeem (SVS)",
+   "pijl": "geen pijl op de hoofdplaat",
+   "objecttype": "Opleidingsprogramma aanbod verbintenis",
+   "instantie": "Jochem op Regulier BOL 2026, ingeschreven",
+   "bron": "leerroute-1-regulier.md, r868 (het studentvolgsysteem legt onderwijsresultaten per onderwijsverbintenis vast en houdt de studiepadadministratie bij) en r870 (behaalde resultaten worden in SVS bijgehouden tegen de specificatie uit de catalogus)",
+   "relatie": {
+    "soort": "Association",
+    "van": "Opleidingsprogramma aanbod",
+    "naar": "Opleidingsprogramma aanbod verbintenis"
+   }
+  },
+  {
+   "beeld_id": "F4-11",
+   "beeld": "Verbintenissen op alle niveaus naar het studentvolgsysteem",
+   "fase": 4,
+   "stap": "Verwachte deelnemers delen en toegang geven",
+   "soort": "stroomt",
+   "van": "Kernregistratie systeem studenten (KRS)",
+   "naar": "Student volg systeem (SVS)",
+   "pijl": "geen pijl op de hoofdplaat",
+   "objecttype": "Onderwijseenheid aanbod verbintenis",
+   "instantie": "Jochem op B1-K1, leerjaar 1",
+   "bron": "leerroute-1-regulier.md, r868 (het studentvolgsysteem legt onderwijsresultaten per onderwijsverbintenis vast en houdt de studiepadadministratie bij) en r870 (behaalde resultaten worden in SVS bijgehouden tegen de specificatie uit de catalogus)",
+   "relatie": {
+    "soort": "Association",
+    "van": "Onderwijseenheid aanbod",
+    "naar": "Onderwijseenheid aanbod verbintenis"
+   }
+  },
+  {
+   "beeld_id": "F4-11",
+   "beeld": "Verbintenissen op alle niveaus naar het studentvolgsysteem",
+   "fase": 4,
+   "stap": "Verwachte deelnemers delen en toegang geven",
+   "soort": "stroomt",
+   "van": "Kernregistratie systeem studenten (KRS)",
+   "naar": "Student volg systeem (SVS)",
+   "pijl": "geen pijl op de hoofdplaat",
+   "objecttype": "Leergelegenheid verbintenis",
+   "instantie": "Jochem op B1-K1-W1, periode 1",
+   "bron": "leerroute-1-regulier.md, r868 (het studentvolgsysteem legt onderwijsresultaten per onderwijsverbintenis vast en houdt de studiepadadministratie bij) en r870 (behaalde resultaten worden in SVS bijgehouden tegen de specificatie uit de catalogus)",
+   "relatie": {
+    "soort": "Association",
+    "van": "Leergelegenheid",
+    "naar": "Leergelegenheid verbintenis"
    }
   },
   {
