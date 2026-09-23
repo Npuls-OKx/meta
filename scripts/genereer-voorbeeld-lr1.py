@@ -27,6 +27,7 @@ _spec.loader.exec_module(teken)
 
 REGELS = pathlib.Path("architecture/model/informatiemodel/voorbeeld-lr1-regels.json")
 MODEL = pathlib.Path("architecture/model/informatiemodel/informatiemodel.json")
+COMPONENTEN = pathlib.Path("architecture/model/informatiemodel/componenten.json")
 BEGRIPPEN = pathlib.Path("architecture/docs/specificatie/begrippen/begrippen.json")
 UIT = pathlib.Path("architecture/model/informatiemodel/voorbeeld-leerroute-1-jochem.md")
 REGELMAP = "img/regels"
@@ -253,10 +254,39 @@ def hoofdplaatsectie(regels, per_fase):
     return uit
 
 
-def bouw(regels, model, begrippen):
+def systemensectie(componenten, regels):
+    """Wat elk systeem doet, uit MORA via het ArchiMate-model, beperkt tot de systemen die het voorbeeld raakt."""
+    if not componenten:
+        return ""
+    gebruikt = collections.Counter()
+    for r in regels["regels"]:
+        if r["soort"] == "stroomt":
+            gebruikt[norm(r["van"])] += 1
+            gebruikt[norm(r["naar"])] += 1
+    rijen = [c for c in componenten["componenten"] if gebruikt.get(norm(c["naam"]))]
+    if not rijen:
+        return ""
+    uit = ("## De systemen en wat zij doen\n\n"
+           "De componenten in de stroombeelden komen uit het ArchiMate-model, dat de beschrijvingen van MORA draagt. "
+           "Per systeem staat hieronder wat het doet en welke applicatiediensten het levert; zo is te zien waarom een "
+           "stroom loopt zoals zij loopt.\n\n"
+           "| Systeem | Wat het doet | Applicatiediensten |\n|---|---|---|\n")
+    for c in sorted(rijen, key=lambda c: c["naam"]):
+        definitie = c["definitie"] or "nog geen beschrijving in het model"
+        diensten = ", ".join(d["naam"] for d in c["diensten"]) or "nog geen diensten in het model"
+        uit += f"| {c['naam']} | {definitie} | {diensten} |\n"
+    zonder = [c["naam"] for c in rijen if not c["definitie"]]
+    if zonder:
+        uit += ("\nZonder beschrijving in het model: " + ", ".join(sorted(zonder)) +
+                ". Dat is een signalering voor het model, geen keuze van dit voorbeeld.\n")
+    return uit + "\n"
+
+
+def bouw(regels, model, begrippen, componenten=None):
     per_fase = blokken_per_fase(regels)
     uit = leeswijzer(regels, model)
     uit += hoofdplaatsectie(regels, per_fase)
+    uit += systemensectie(componenten, regels)
     for f in regels["fasen"]:
         regels_in_fase = [r for r in regels["regels"] if r["fase"] == f["nummer"]]
         uit += fase_sectie(f, per_fase.get(f["nummer"], []), regels_in_fase)
@@ -281,7 +311,9 @@ def main(argv=None):
     if not regelmap.is_dir():
         print(f"regelmap ontbreekt: {regelmap}; draai eerst teken-voorbeeldregels.py", file=sys.stderr)
         return 2
-    tekst = bouw(lees(args.regels, "regeltabel"), lees(args.model, "informatiemodel"), lees(args.begrippen, "begrippen"))
+    componenten = json.loads(COMPONENTEN.read_text(encoding="utf-8")) if COMPONENTEN.exists() else None
+    tekst = bouw(lees(args.regels, "regeltabel"), lees(args.model, "informatiemodel"),
+                 lees(args.begrippen, "begrippen"), componenten)
     ontbrekend = [m.group(1) for m in re.finditer(r"\]\((img/regels/[^)]+)\)", tekst) if not (args.uit.parent / m.group(1)).exists()]
     if ontbrekend:
         print("regels zonder SVG: " + ", ".join(ontbrekend), file=sys.stderr)

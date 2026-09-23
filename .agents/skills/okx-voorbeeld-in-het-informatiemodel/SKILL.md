@@ -28,6 +28,8 @@ flowchart LR
 Volgorde bij elke wijziging, altijd volledig:
 
 ```
+python3 scripts/exporteer-componenten.py --extra "Intake systeem" "Aanmeld systeem" \
+    "Curriculum ontwerptool" "AII (centraal aanmelden)" "Toets- en examen afname systeem"
 python3 scripts/controleer-voorbeeldregels.py            # 0 bevindingen, anders eerst herstellen
 rm -f architecture/model/informatiemodel/img/regels/*.svg
 python3 scripts/teken-voorbeeldregels.py
@@ -36,7 +38,7 @@ python3 scripts/validate-docs.py architecture/model/informatiemodel/voorbeeld-le
 python3 -W error::ResourceWarning -m unittest discover -s tests
 ```
 
-De platen komen uit het ArchiMate-model en worden alleen gelezen: `genereer-informatiemodel-doc.py` (informatiemodelplaat), `exporteer-archimate-view.py --mapping` (pijlen van hoofdplaat v1.7), `exporteer-conceptplaat.py` (view "Informatiemodel Onderwijsontwerp"). Raak nooit een `.archimate`-bestand aan.
+De platen komen uit het ArchiMate-model en worden alleen gelezen: `genereer-informatiemodel-doc.py` (informatiemodelplaat), `exporteer-archimate-view.py --mapping` (pijlen van hoofdplaat v1.7), `exporteer-conceptplaat.py` (view "Informatiemodel Onderwijsontwerp"), `exporteer-componenten.py` (applicatiecomponenten met hun MORA-definitie en de applicatiediensten die zij realiseren). Raak nooit een `.archimate`-bestand aan.
 
 ## De regeltabel
 
@@ -70,6 +72,16 @@ Wat de controle weigert, hoort niet in het voorbeeld: een objecttype dat niet op
 De renderer tekent per beeld één SVG in ArchiMate-kleur, met het ID en de beeldtitel bovenaan: geel voor rol, processtap en object, blauw voor component, grijs voor een scope-uitzondering, gestippeld voor een aanname, paars voor een objecttype van de conceptplaat (een conceptverdieping heeft bovendien een gestippelde rand en een chip). Bovenaan staat wie en wat (rol en processtap) of de pijl van component naar component als horizontale stippellijn met koppeling-ID en stap; eronder hangen de objecten aan een stippellijn, onderling gerelateerd. Nesting is een container; een relatielijn loopt alleen naar het buurobject (ruit bij aggregatie, open pijlpunt bij specialisatie, gelabelde lijn bij associatie), elke andere relatie staat als verwijzing op het object. Leesbaarheid gaat voor breedte: een beeld is hooguit ongeveer 1000 px breed (letters 12 en 14 px), brede ketens gaan in een kolom of over meer rijen, brede kinderrijen worden een stapel en de zin loopt door over meer regels. GitHub schaalt een breder beeld terug tot onleesbaar.
 
 Bekijk het beeld zelf voordat je het meldt: `soffice --headless --convert-to png` in de scratchpad, en zet het beeld voor de gebruiker op een branch met een GitHub-link (bestanden sturen werkt niet in de container).
+
+## Systemen: wat een component doet, staat in MORA
+
+Een stroom loopt tussen twee applicatiecomponenten, en wat zo'n component doet bepaalt of de stroom klopt. MORA beschrijft dat, en die beschrijvingen staan in het ArchiMate-model bij de componenten en bij de applicatiediensten die zij realiseren. `exporteer-componenten.py` haalt ze eruit naar `componenten.json`; het document toont ze in de sectie "De systemen en wat zij doen".
+
+Wat dat oplevert, en wat de werkwijze daarom is:
+
+1. **Gebruik de naam die het model draagt.** De controle wijst een componentnaam af die niet in `componenten.json` staat. Zo heet het intakesysteem in het model "Intake systeem", en bestaat er daarnaast een "Aanmeld systeem"; het voorbeeld volgt die namen in plaats van eigen varianten.
+2. **Leg een stroom langs de diensten van beide kanten.** Het studentkeuzesysteem levert "Keuze op leergelegenheid" en "Accorderen van keuzes", het roostersysteem "Aanmelding rooster activiteit", de kernregistratie "Inschijving op opleidingsprogramma". Wie wat doet volgt daaruit, en waar twee diensten elkaar overlappen hoort een vraag.
+3. **Een component zonder beschrijving is een signalering.** Planningssysteem, Student Keuze Systeem (SKS) en AII dragen nog geen documentatie in het model; het document noemt dat onder de tabel, als punt voor het model en niet als keuze van het voorbeeld.
 
 ## Rijpheid: hetzelfde object, verderop in de keten
 

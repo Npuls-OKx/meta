@@ -46,9 +46,9 @@ Alle stromen die dit voorbeeld gebruikt, met de beelden waarin ze voorkomen:
 | Planningssysteem | Onderwijscatalogus | OC-P&R | F2-07, F6-06, F7-05 |
 | Onderwijscatalogus | Kernregistratie systeem studenten (KRS) | OC-SIS | F3-01, F4-05 |
 | Kernregistratie systeem studenten (KRS) | AII (centraal aanmelden) | geen pijl op de hoofdplaat | F3-02 |
-| AII (centraal aanmelden) | Intakesysteem | geen pijl op de hoofdplaat | F3-04 |
-| Intakesysteem | Student Keuze Systeem (SKS) | geen pijl op de hoofdplaat | F3-06 |
-| Intakesysteem | Kernregistratie systeem studenten (KRS) | geen pijl op de hoofdplaat | F3-08 |
+| AII (centraal aanmelden) | Intake systeem | geen pijl op de hoofdplaat | F3-04 |
+| Intake systeem | Student Keuze Systeem (SKS) | geen pijl op de hoofdplaat | F3-06 |
+| Intake systeem | Kernregistratie systeem studenten (KRS) | geen pijl op de hoofdplaat | F3-08 |
 | Onderwijscatalogus | Leer management systeem (LMS) | OC-LMS | F4-02, F4-03 |
 | Onderwijscatalogus | Student volg systeem (SVS) | OC-SIS | F4-04 |
 | Kernregistratie systeem studenten (KRS) | Planningssysteem | zonder koppelingspecificatie | F4-06, F7-03 |
@@ -63,6 +63,26 @@ Alle stromen die dit voorbeeld gebruikt, met de beelden waarin ze voorkomen:
 | Student volg systeem (SVS) | Kernregistratie systeem studenten (KRS) | geen pijl op de hoofdplaat | F8-06 |
 
 Een stroom die het kaderscenario noemt en die de plaat nog niet kent, staat als "geen pijl op de hoofdplaat": dat is een signalering voor de plaat, geen omweg in het voorbeeld.
+
+## De systemen en wat zij doen
+
+De componenten in de stroombeelden komen uit het ArchiMate-model, dat de beschrijvingen van MORA draagt. Per systeem staat hieronder wat het doet en welke applicatiediensten het levert; zo is te zien waarom een stroom loopt zoals zij loopt.
+
+| Systeem | Wat het doet | Applicatiediensten |
+|---|---|---|
+| AII (centraal aanmelden) | nog geen beschrijving in het model | nog geen diensten in het model |
+| Curriculum ontwerptool | Een systeem ter ondersteuning van het ontwerp- en planningsproces van het curriculum (de samenhangende structuur) van een opleiding. Dit omvat onder andere de opbouw in opleidingsonderdelen met hun onderlinge afhankelijkheden, logsche volgorde, relatie met leerdoelen, kerntaken en werkprocessen en de omvang in studiebelasting. Daarnaast omvat dit ook het in de tijd plannen van het curriculum. Dit is een tijdplanning, hoe de opleidingsonderdelen ten opzichte van elkaar in onderwijsperiodes gepland kunnen worden zodat het qua belasting een studeerbaar en organiseerbaar geheel is. | Curriculum ontwerp, Curriculum planning |
+| Intake systeem | Een systeem voor het plannen, inschrijven, afhandelen, verslagleggen en beoordelen van de intake van studenten. Dit zowel voor initiele aanmeldingen als voor tussentijdse loopbaanadviestrajecten | Intake dienst |
+| Kernregistratie systeem studenten (KRS) | Een systeem voor het beheren van gegevens van studenten zoals in- en uitschrijvingsgegevens, BPV-contractgegevens, bekostigingsgegevens, studieresultaten, diploma's, studentbegeleidingsgegevens, studievoortganggegevens Bijvoorbeeld: Eduarte Osiris Magister TP Ellucian (Sungard/SCT) Banner Student Oracle Peopelsoft Campus Solutions | BPV overeenkomst beheer, Doorstroomdossier beheer, Inschijving op opleidingsprogramma, Inschrijvingen beheer, Kwalificering, Onderwijskosten facturering, Student gegevens beheer, Studentgegevens uitwisseling, Uitschrijvingen beheer, Uitwisseling BRON |
+| Leer management systeem (LMS) | Systeem ten behoeve van het aanbieden en gebruiken van leermateriaal, de ondersteuning van het leerproces en de interactie tussen student en docent. | Communicatie en samenwerking, Leercontent gebruik, Onderwijs begeleiding ondersteuning, Overhandiging opdrachten, Studieroute beheer |
+| Onderwijscatalogus | Een systeem voor het beheren en publiceren van het onderwijsaanbod, zoals dat is opgebouwd uit de onderwijsprogramma's, opleidingsonderdelen en leeractiviteiten en alle metadata die daarbij relevant is. Deze metadata omvat bijvoorbeeld de leerdoelen, kerntaken, werkprocessen, studiebelastingsuren etc. Het onderwijsaanbod omvat ook per onderwijsprogramma de bijbehorende standaard leerroutes en eventuele keuzemogelijkheden. De publicatie van het onderwijsaanbod kan in verschillende vormen plaatsvinden, bijvoorbeeld in de vorm van een Onderwijs en Examenreglement (OER) of een studiegids. | Onderwijs aanbod publicatie, Onderwijs beheer |
+| Planningssysteem | nog geen beschrijving in het model | Jaar planning, Meerjaren planning |
+| Roostersysteem | Een systeem dat het maken van roosters ondersteunt op basis van beschikbaarheid van mensen en middelen en de leerroutes van de studenten. Bijvoorbeeld: GPUntis Xedule | Aanmelding rooster activiteit, Groepen beheer, Rooster constructie, Rooster wijziging |
+| Student Keuze Systeem (SKS) | nog geen beschrijving in het model | Accorderen van keuzes, Keuze op leergelegenheid |
+| Student volg systeem (SVS) | Een systeem voor het registreren en meten van de studievoortgang en resultaten van een student. | Formatief resultaten beheer, Persoonlijke leerroute beheer, Studie voortgang bepaling, Summatief resultaten beheer |
+| Toets- en examen afname systeem | Systeem voor het afnemen van toetsen en examens, denk aan een veilige afnameomgeving (BLDC - bootable lock down client) Bijvoorbeeld: * Safetyboot * Facet * QMP | Toets of examen afname |
+
+Zonder beschrijving in het model: AII (centraal aanmelden), Planningssysteem, Student Keuze Systeem (SKS). Dat is een signalering voor het model, geen keuze van dit voorbeeld.
 
 ## Fase 1: Kwalificatiekader analyseren en grofmazig ontwerpen
 
@@ -164,7 +184,7 @@ Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Planningssysteem naar Onderwijscat
 
 De fase in detail: [kaderscenario leerroute 1, fase 3](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-3--instroom-intake-en-plaatsing).
 
-**Ontstaat:** `Persoon`, `Aanmelding`, `Opleiding aanbod verbintenis`, `Opleidingsprogramma aanbod verbintenis`, `Student`, `Plaatsingsgroep`, `Verzoek tot Aanbod / Intekening op specificatie`, `Inschrijving`. **Stroomt:** Onderwijscatalogus naar Kernregistratie systeem studenten (KRS); Kernregistratie systeem studenten (KRS) naar AII (centraal aanmelden); AII (centraal aanmelden) naar Intakesysteem; Intakesysteem naar Student Keuze Systeem (SKS); Intakesysteem naar Kernregistratie systeem studenten (KRS). **MORA-hoofdproces:** Informeren, aanmelden, intake en plaatsen.
+**Ontstaat:** `Persoon`, `Aanmelding`, `Opleiding aanbod verbintenis`, `Opleidingsprogramma aanbod verbintenis`, `Student`, `Plaatsingsgroep`, `Verzoek tot Aanbod / Intekening op specificatie`, `Inschrijving`. **Stroomt:** Onderwijscatalogus naar Kernregistratie systeem studenten (KRS); Kernregistratie systeem studenten (KRS) naar AII (centraal aanmelden); AII (centraal aanmelden) naar Intake systeem; Intake systeem naar Student Keuze Systeem (SKS); Intake systeem naar Kernregistratie systeem studenten (KRS). **MORA-hoofdproces:** Informeren, aanmelden, intake en plaatsen.
 
 ### F3-01 - Aanmeldbaar aanbod naar de kernregistratie
 
@@ -186,7 +206,7 @@ Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Kernregistratie systeem studenten 
 
 ![stroomt: Aanmelden via het intakesysteem](img/regels/f3-04-de-aanmelding-van-de-voorziening-naar-het-intakesysteem.svg)
 
-Op de [hoofdplaat](#de-hoofdplaat-als-kaart): AII (centraal aanmelden) naar Intakesysteem, geen pijl op de hoofdplaat.
+Op de [hoofdplaat](#de-hoofdplaat-als-kaart): AII (centraal aanmelden) naar Intake systeem, geen pijl op de hoofdplaat.
 
 ### F3-05 - Intake: student, plaatsingsgroep en eerste keuzedeelvoorkeur
 
@@ -196,7 +216,7 @@ Op de [hoofdplaat](#de-hoofdplaat-als-kaart): AII (centraal aanmelden) naar Inta
 
 ![stroomt: Intake doorlopen en plaatsen](img/regels/f3-06-de-eerste-keuzedeelvoorkeur-naar-het-studentkeuzesysteem.svg)
 
-Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Intakesysteem naar Student Keuze Systeem (SKS), geen pijl op de hoofdplaat.
+Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Intake systeem naar Student Keuze Systeem (SKS), geen pijl op de hoofdplaat.
 
 ### F3-07 - Inschrijving: van aangemeld naar ingeschreven
 
@@ -206,7 +226,7 @@ Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Intakesysteem naar Student Keuze S
 
 ![stroomt: Persoon en verbintenissen vastleggen in de kernregistratie](img/regels/f3-08-de-inschrijving-van-het-intakesysteem-naar-de-kernregistratie.svg)
 
-Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Intakesysteem naar Kernregistratie systeem studenten (KRS), geen pijl op de hoofdplaat.
+Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Intake systeem naar Kernregistratie systeem studenten (KRS), geen pijl op de hoofdplaat.
 
 ## Fase 4: Detailleren, roosteren en inschrijven
 
@@ -284,9 +304,9 @@ De fase in detail: [kaderscenario leerroute 1, fase 5](https://github.com/Npuls-
 
 ![ontstaat: Onderwijs verzorgen](img/regels/f5-01-les-gevolgd-aanwezigheid-en-lesresultaat.svg)
 
-### F5-02 - Toetsmoment gepland: verbintenis op de toetsgelegenheid
+### F5-02 - De verbintenis op de toetsgelegenheid: geplaatst of zelf gekozen
 
-![ontstaat: Toetsmomenten plannen tijdens lessen](img/regels/f5-02-toetsmoment-gepland-verbintenis-op-de-toetsgelegenheid.svg)
+![ontstaat: Toetsmomenten plannen tijdens lessen](img/regels/f5-02-de-verbintenis-op-de-toetsgelegenheid-geplaatst-of-zelf-gekozen.svg)
 
 ### F5-03 - Formatieve voortgang: structuur, resultaten en beoordeling
 
@@ -486,7 +506,7 @@ Per objecttype het beeld waarin hij verschijnt (het ID uit de kop), de instantie
 | Onderwijseenheid aanbod verbintenis | F4-09 | Jochem op B1-K1, leerjaar 1 | 4 |  | nog te definieren | CourseOfferingAssociation | | |
 | Opleiding aanbod verbintenis | F3-03 | Jochem op Apothekersassistent 2026, aangemeld | 3 |  | nog te definieren | ProgrammeOfferingAssociation | | |
 | Opleidingsprogramma aanbod verbintenis | F3-03 | Jochem op Regulier BOL 2026, aangemeld | 3 |  | nog te definieren | ProgrammeOfferingAssociation | | |
-| Toetsgelegenheid verbintenis | F5-02 | Jochem op de OSCE, einde periode 1 | 5 |  | ja | TestComponentOfferingAssociation | | |
+| Toetsgelegenheid verbintenis | F5-02 | Jochem op de OSCE, einde periode 1, via zijn plaatsingsgroep | 5 |  | ja | TestComponentOfferingAssociation | | |
 
 ### Onderwijsresultaat
 
@@ -632,6 +652,7 @@ Per regel één van vier antwoorden: herken ik dit; heet bij ons anders (welke t
 | 5 | F5-01 | Lesgelegenheid verbintenis | | | | |
 | 5 | F5-01 | Aanwezigheid | | | | |
 | 5 | F5-01 | Lesgelegenheid resultaat | | | | |
+| 5 | F5-02 | Toetsgelegenheid verbintenis | | | | |
 | 5 | F5-02 | Toetsgelegenheid verbintenis | | | | |
 | 5 | F5-03 | Formatieve resultaat structuur | | | | |
 | 5 | F5-03 | Toetsonderdeel weging | | | | |
@@ -1064,11 +1085,12 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 | ontstaat | Aanwezigheid | Aanwezig, les 1 | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 5](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-5--onderwijs-uitvoeren-en-voortgang-begeleiden): aanwezigheid wordt geregistreerd |
 | ontstaat | Lesgelegenheid resultaat | Les 1 gevolgd | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 5](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-5--onderwijs-uitvoeren-en-voortgang-begeleiden) |
 
-**F5-02 - Toetsmoment gepland: verbintenis op de toetsgelegenheid** (fase 5, Toetsmomenten plannen tijdens lessen; [f5-02-toetsmoment-gepland-verbintenis-op-de-toetsgelegenheid.svg](img/regels/f5-02-toetsmoment-gepland-verbintenis-op-de-toetsgelegenheid.svg))
+**F5-02 - De verbintenis op de toetsgelegenheid: geplaatst of zelf gekozen** (fase 5, Toetsmomenten plannen tijdens lessen; [f5-02-de-verbintenis-op-de-toetsgelegenheid-geplaatst-of-zelf-gekozen.svg](img/regels/f5-02-de-verbintenis-op-de-toetsgelegenheid-geplaatst-of-zelf-gekozen.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
-| ontstaat | Toetsgelegenheid verbintenis | Jochem op de OSCE, einde periode 1 | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 5](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-5--onderwijs-uitvoeren-en-voortgang-begeleiden): docenten plannen toetsmomenten tijdens lessen |
+| ontstaat | Toetsgelegenheid verbintenis | Jochem op de OSCE, einde periode 1, via zijn plaatsingsgroep | informatiemodel.json: Toetsgelegenheid naar Toetsgelegenheid verbintenis, Plaatsingsgroep naar Toetsgelegenheid verbintenis; componenten.json: het studentkeuzesysteem levert de diensten Keuze op leergelegenheid en Accorderen van keuzes, het roostersysteem de dienst Aanmelding rooster activiteit |
+| ontstaat | Toetsgelegenheid verbintenis | Jochem op de herkansing OSCE, periode 2, zelf ingetekend | informatiemodel.json: Toetsgelegenheid naar Toetsgelegenheid verbintenis, Plaatsingsgroep naar Toetsgelegenheid verbintenis; componenten.json: het studentkeuzesysteem levert de diensten Keuze op leergelegenheid en Accorderen van keuzes, het roostersysteem de dienst Aanmelding rooster activiteit |
 
 **F5-03 - Formatieve voortgang: structuur, resultaten en beoordeling** (fase 5, Formatieve voortgang bijhouden; [f5-03-formatieve-voortgang-structuur-resultaten-en-beoordeling.svg](img/regels/f5-03-formatieve-voortgang-structuur-resultaten-en-beoordeling.svg))
 

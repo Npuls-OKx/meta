@@ -44,6 +44,7 @@ REGELS = pathlib.Path("architecture/model/informatiemodel/voorbeeld-lr1-regels.j
 MODEL = pathlib.Path("architecture/model/informatiemodel/informatiemodel.json")
 STROMEN = pathlib.Path("architecture/model/informatiemodel/stromen.json")
 CONCEPTPLAAT = pathlib.Path("architecture/model/informatiemodel/conceptplaat-onderwijsontwerp.json")
+COMPONENTEN = pathlib.Path("architecture/model/informatiemodel/componenten.json")
 PLATEN = {"informatiemodel", "onderwijsontwerp"}
 GEEN_PIJL = "geen pijl op de hoofdplaat"
 NESTING = {"Aggregation", "Composition"}
@@ -163,7 +164,8 @@ def _route_via_leeruitkomst(r, plek, typen):
     return uit
 
 
-def controleer(regels, model, stromen=None, fasen_filter=None, model_commit=None, conceptplaat=None):
+def controleer(regels, model, stromen=None, fasen_filter=None, model_commit=None, conceptplaat=None,
+               componenten=None):
     """Alle controles; geeft (bevindingen, waarschuwingen, ontbrekend per fase)."""
     bevindingen = schema(regels)
     waarschuwingen = []
@@ -180,6 +182,7 @@ def controleer(regels, model, stromen=None, fasen_filter=None, model_commit=None
     toestanden = {t["naam"] for t in regels["toestanden"]}
     fasen = {f["nummer"]: f for f in regels["fasen"]}
     pijlen = {s["id"] for s in (stromen or {}).get("stromen", [])}
+    bekend = {norm(c["naam"]) for c in (componenten or {}).get("componenten", [])}
 
     for u in uitzonderingen:
         if u not in typen:
@@ -220,6 +223,10 @@ def controleer(regels, model, stromen=None, fasen_filter=None, model_commit=None
                 bevindingen.append(f"{plek}: pijl {r.get('pijl')!r} staat niet in stromen.json")
             if r.get("pijl") == GEEN_PIJL:
                 waarschuwingen.append(f"{plek}: geen pijl op de hoofdplaat ({r.get('van')} naar {r.get('naar')})")
+            for kant in ("van", "naar"):
+                if bekend and norm(r.get(kant)) not in bekend:
+                    bevindingen.append(f"{plek}: component {r.get(kant)!r} staat niet in componenten.json; "
+                                       f"exporteer hem uit het model of gebruik de naam die het model draagt")
         if not concept:
             waarschuwingen += _route_via_leeruitkomst(r, plek, typen)
         rel = r.get("relatie")
@@ -280,6 +287,7 @@ def main(argv=None):
     parser.add_argument("--model", type=pathlib.Path, default=MODEL)
     parser.add_argument("--stromen", type=pathlib.Path, default=STROMEN)
     parser.add_argument("--conceptplaat", type=pathlib.Path, default=CONCEPTPLAAT, help="export van de view Informatiemodel Onderwijsontwerp")
+    parser.add_argument("--componenten", type=pathlib.Path, default=COMPONENTEN)
     parser.add_argument("--fasen", help="alleen de dekking van deze fasen melden, bijvoorbeeld 2,3,4")
     parser.add_argument("--model-commit", help="commit van informatiemodel.json om tegen de kop te toetsen")
     args = parser.parse_args(argv)
@@ -293,8 +301,12 @@ def main(argv=None):
     if stromen is None:
         print(f"waarschuwing: {args.stromen} ontbreekt; pijlen niet gecontroleerd", file=sys.stderr)
     conceptplaat = lees_json(args.conceptplaat, "conceptplaat") if pathlib.Path(args.conceptplaat).exists() else None
+    componenten = lees_json(args.componenten, "componenten") if pathlib.Path(args.componenten).exists() else None
+    if componenten is None:
+        print(f"waarschuwing: {args.componenten} ontbreekt; componentnamen niet gecontroleerd", file=sys.stderr)
     fasen_filter = {int(x) for x in args.fasen.split(",")} if args.fasen else None
-    bevindingen, waarschuwingen, _ = controleer(regels, model, stromen, fasen_filter, args.model_commit, conceptplaat)
+    bevindingen, waarschuwingen, _ = controleer(regels, model, stromen, fasen_filter, args.model_commit,
+                                               conceptplaat, componenten)
     for w in waarschuwingen:
         print(f"waarschuwing: {w}")
     for b in bevindingen:
