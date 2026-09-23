@@ -41,20 +41,20 @@ Alle stromen die dit voorbeeld gebruikt, met de beelden waarin ze voorkomen:
 
 | Van | Naar | Op de hoofdplaat | Beelden |
 |---|---|---|---|
-| Curriculum ontwerptool | Onderwijscatalogus | geen pijl op de hoofdplaat | F1-11 |
+| Curriculum ontwerptool | Onderwijscatalogus | geen pijl op de hoofdplaat | F1-11, F1-12 |
 | Onderwijscatalogus | Planningssysteem | OC-P&R | F2-03 |
 | Planningssysteem | Onderwijscatalogus | OC-P&R | F2-07, F6-06, F7-05 |
-| Onderwijscatalogus | Kernregistratie systeem studenten (KRS) | OC-SIS | F3-01, F4-04 |
+| Onderwijscatalogus | Kernregistratie systeem studenten (KRS) | OC-SIS | F3-01, F4-05 |
 | Kernregistratie systeem studenten (KRS) | AII (centraal aanmelden) | geen pijl op de hoofdplaat | F3-02 |
 | AII (centraal aanmelden) | Intakesysteem | geen pijl op de hoofdplaat | F3-04 |
 | Intakesysteem | Student Keuze Systeem (SKS) | geen pijl op de hoofdplaat | F3-06 |
 | Intakesysteem | Kernregistratie systeem studenten (KRS) | geen pijl op de hoofdplaat | F3-08 |
-| Onderwijscatalogus | Leer management systeem (LMS) | OC-LMS | F4-02 |
-| Onderwijscatalogus | Student volg systeem (SVS) | OC-SIS | F4-03 |
-| Kernregistratie systeem studenten (KRS) | Planningssysteem | zonder koppelingspecificatie | F4-05, F7-03 |
-| Planningssysteem | Roostersysteem | zonder koppelingspecificatie | F4-06, F7-06 |
-| Roostersysteem | Kernregistratie systeem studenten (KRS) | zonder koppelingspecificatie | F4-08 |
-| Kernregistratie systeem studenten (KRS) | Leer management systeem (LMS) | zonder koppelingspecificatie | F4-10 |
+| Onderwijscatalogus | Leer management systeem (LMS) | OC-LMS | F4-02, F4-03 |
+| Onderwijscatalogus | Student volg systeem (SVS) | OC-SIS | F4-04 |
+| Kernregistratie systeem studenten (KRS) | Planningssysteem | zonder koppelingspecificatie | F4-06, F7-03 |
+| Planningssysteem | Roostersysteem | zonder koppelingspecificatie | F4-07, F7-06 |
+| Roostersysteem | Kernregistratie systeem studenten (KRS) | zonder koppelingspecificatie | F4-09 |
+| Kernregistratie systeem studenten (KRS) | Leer management systeem (LMS) | zonder koppelingspecificatie | F4-11 |
 | Leer management systeem (LMS) | Student volg systeem (SVS) | zonder koppelingspecificatie | F5-04 |
 | Onderwijscatalogus | Student Keuze Systeem (SKS) | zonder koppelingspecificatie | F6-02 |
 | Student Keuze Systeem (SKS) | Planningssysteem | zonder koppelingspecificatie | F6-04 |
@@ -113,6 +113,12 @@ De fase in detail: [kaderscenario leerroute 1, fase 1](https://github.com/Npuls-
 ### F1-11 - De opleiding zoals ontworpen naar de catalogus
 
 ![stroomt: Grofmazig resultaat publiceren naar de onderwijscatalogus](img/regels/f1-11-de-opleiding-zoals-ontworpen-naar-de-catalogus.svg)
+
+Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Curriculum ontwerptool naar Onderwijscatalogus, geen pijl op de hoofdplaat.
+
+### F1-12 - Het onderwijs- en examenontwerp mee naar de catalogus (conceptplaat)
+
+![stroomt: Grofmazig resultaat publiceren naar de onderwijscatalogus](img/regels/f1-12-het-onderwijs-en-examenontwerp-mee-naar-de-catalogus-conceptplaat.svg)
 
 Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Curriculum ontwerptool naar Onderwijscatalogus, geen pijl op de hoofdplaat.
 
@@ -218,47 +224,53 @@ De fase in detail: [kaderscenario leerroute 1, fase 4](https://github.com/Npuls-
 
 Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Onderwijscatalogus naar Leer management systeem (LMS), OC-LMS.
 
-### F4-03 - Resultaatstructuur naar het studentvolgsysteem
+### F4-03 - De les van binnen: leervorm, planning, leerdoelen en toetsing (conceptplaat)
 
-![stroomt: Detailspecificaties leveren aan het LMS](img/regels/f4-03-resultaatstructuur-naar-het-studentvolgsysteem.svg)
+![stroomt: Detailspecificaties leveren aan het LMS](img/regels/f4-03-de-les-van-binnen-leervorm-planning-leerdoelen-en-toetsing-conceptplaat.svg)
+
+Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Onderwijscatalogus naar Leer management systeem (LMS), OC-LMS.
+
+### F4-04 - Resultaatstructuur naar het studentvolgsysteem
+
+![stroomt: Detailspecificaties leveren aan het LMS](img/regels/f4-04-resultaatstructuur-naar-het-studentvolgsysteem.svg)
 
 Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Onderwijscatalogus naar Student volg systeem (SVS), OC-SIS.
 
-### F4-04 - Resultaatstructuur naar de kernregistratie
+### F4-05 - Resultaatstructuur naar de kernregistratie
 
-![stroomt: Detailspecificaties leveren aan het LMS](img/regels/f4-04-resultaatstructuur-naar-de-kernregistratie.svg)
+![stroomt: Detailspecificaties leveren aan het LMS](img/regels/f4-05-resultaatstructuur-naar-de-kernregistratie.svg)
 
 Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Onderwijscatalogus naar Kernregistratie systeem studenten (KRS), OC-SIS.
 
-### F4-05 - Plaatsingsgroepen naar planning
+### F4-06 - Plaatsingsgroepen naar planning
 
-![stroomt: Plaatsings- en planninggroepen definieren en aan personen koppelen](img/regels/f4-05-plaatsingsgroepen-naar-planning.svg)
+![stroomt: Plaatsings- en planninggroepen definieren en aan personen koppelen](img/regels/f4-06-plaatsingsgroepen-naar-planning.svg)
 
 Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Kernregistratie systeem studenten (KRS) naar Planningssysteem, zonder koppelingspecificatie.
 
-### F4-06 - Te roosteren leergelegenheden naar het roostersysteem
+### F4-07 - Te roosteren leergelegenheden naar het roostersysteem
 
-![stroomt: Te roosteren specificaties aan het roostersysteem geven](img/regels/f4-06-te-roosteren-leergelegenheden-naar-het-roostersysteem.svg)
+![stroomt: Te roosteren specificaties aan het roostersysteem geven](img/regels/f4-07-te-roosteren-leergelegenheden-naar-het-roostersysteem.svg)
 
 Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Planningssysteem naar Roostersysteem, zonder koppelingspecificatie.
 
-### F4-07 - Roosteren: lesgelegenheid, lokaal en docent
+### F4-08 - Roosteren: lesgelegenheid, lokaal en docent
 
-![ontstaat: Leer-, les- en toetsgelegenheden roosteren](img/regels/f4-07-roosteren-lesgelegenheid-lokaal-en-docent.svg)
+![ontstaat: Leer-, les- en toetsgelegenheden roosteren](img/regels/f4-08-roosteren-lesgelegenheid-lokaal-en-docent.svg)
 
-### F4-08 - Het rooster naar de kernregistratie
+### F4-09 - Het rooster naar de kernregistratie
 
-![stroomt: Leer-, les- en toetsgelegenheden roosteren](img/regels/f4-08-het-rooster-naar-de-kernregistratie.svg)
+![stroomt: Leer-, les- en toetsgelegenheden roosteren](img/regels/f4-09-het-rooster-naar-de-kernregistratie.svg)
 
 Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Roostersysteem naar Kernregistratie systeem studenten (KRS), zonder koppelingspecificatie.
 
-### F4-09 - Jochems verbintenissen op de geroosterde gelegenheden
+### F4-10 - Jochems verbintenissen op de geroosterde gelegenheden
 
-![ontstaat: Verwachte deelnemers delen en toegang geven](img/regels/f4-09-jochems-verbintenissen-op-de-geroosterde-gelegenheden.svg)
+![ontstaat: Verwachte deelnemers delen en toegang geven](img/regels/f4-10-jochems-verbintenissen-op-de-geroosterde-gelegenheden.svg)
 
-### F4-10 - Student, verbintenissen en groep naar het LMS
+### F4-11 - Student, verbintenissen en groep naar het LMS
 
-![stroomt: Verwachte deelnemers delen en toegang geven](img/regels/f4-10-student-verbintenissen-en-groep-naar-het-lms.svg)
+![stroomt: Verwachte deelnemers delen en toegang geven](img/regels/f4-11-student-verbintenissen-en-groep-naar-het-lms.svg)
 
 Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Kernregistratie systeem studenten (KRS) naar Leer management systeem (LMS), zonder koppelingspecificatie.
 
@@ -455,7 +467,7 @@ Per objecttype het beeld waarin hij verschijnt (het ID uit de kop), de instantie
 | Examengelegenheid | F8-01 | Proeve van bekwaamheid B1-K1, periode 12 | 8 | ja | ja | TestComponentOffering | | |
 | Keuzedeelaanbod | F6-01 | K0037 Farmaceutische Patientenzorg, periode 7, locatie A | 6 | ja | nog te definieren | ProgrammeOffering | | |
 | Leergelegenheid | F2-04 | B1-K1-W1, periode 1, twee groepen van 24 | 2 |  | nog te definieren | LearningComponentOffering | | |
-| Lesgelegenheid | F4-07 | Les 1, maandag 1 september 09:00, simulatieruimte 2.14 | 4 |  | nog te definieren | LearningComponentOffering | | |
+| Lesgelegenheid | F4-08 | Les 1, maandag 1 september 09:00, simulatieruimte 2.14 | 4 |  | nog te definieren | LearningComponentOffering | | |
 | Onderwijseenheid aanbod | F2-04 | B1-K1, leerjaar 1, periode 1 tot 4 | 2 |  | nog te definieren | CourseOffering | | |
 | Opleidingaanbod | F2-04 | Apothekersassistent 2026: vier perioden, 120 plaatsen | 2 |  | ja | ProgrammeOffering | | |
 | Opleidingsaanbod van Instelling | F2-04 | ROC Het Voorbeeld: ambitie en verwachte instroom voor cohort 2026 | 2 | ja | ja | geen equivalent | | |
@@ -469,9 +481,9 @@ Per objecttype het beeld waarin hij verschijnt (het ID uit de kop), de instantie
 | Examengelegenheid verbintenis | F8-02 | Jochem op de proeve, periode 12 | 8 |  | ja | TestComponentOfferingAssociation | | |
 | Inschrijving | F3-07 | Juni 2026 | 3 |  | ja | geen equivalent | | |
 | Keuzedeel aanbod verbintenis | F6-03 | Jochem op K0037 Farmaceutische Patientenzorg, periode 7 (voorkeur 1) | 6 |  | nog te definieren | ProgrammeOfferingAssociation | | |
-| Leergelegenheid verbintenis | F4-09 | Jochem op B1-K1-W1, periode 1 | 4 |  | nog te definieren | LearningComponentOfferingAssociation | | |
-| Lesgelegenheid verbintenis | F4-09 | Jochem op les 1, 1 september 09:00 | 4 |  | nog te definieren | LearningComponentOfferingAssociation | | |
-| Onderwijseenheid aanbod verbintenis | F4-09 | Jochem op B1-K1, leerjaar 1 | 4 |  | nog te definieren | CourseOfferingAssociation | | |
+| Leergelegenheid verbintenis | F4-10 | Jochem op B1-K1-W1, periode 1 | 4 |  | nog te definieren | LearningComponentOfferingAssociation | | |
+| Lesgelegenheid verbintenis | F4-10 | Jochem op les 1, 1 september 09:00 | 4 |  | nog te definieren | LearningComponentOfferingAssociation | | |
+| Onderwijseenheid aanbod verbintenis | F4-10 | Jochem op B1-K1, leerjaar 1 | 4 |  | nog te definieren | CourseOfferingAssociation | | |
 | Opleiding aanbod verbintenis | F3-03 | Jochem op Apothekersassistent 2026, aangemeld | 3 |  | nog te definieren | ProgrammeOfferingAssociation | | |
 | Opleidingsprogramma aanbod verbintenis | F3-03 | Jochem op Regulier BOL 2026, aangemeld | 3 |  | nog te definieren | ProgrammeOfferingAssociation | | |
 | Toetsgelegenheid verbintenis | F5-02 | Jochem op de OSCE, einde periode 1 | 5 |  | ja | TestComponentOfferingAssociation | | |
@@ -512,7 +524,7 @@ Per objecttype het beeld waarin hij verschijnt (het ID uit de kop), de instantie
 | Aanmelding | F3-03 | April 2026, Apothekersassistent BOL | 3 |  | ja | geen equivalent | | |
 | Cohort / periode | F1-02 | Cohort 2026 | 1 |  | ja | geen equivalent | | |
 | Examenplan | F1-02 | Examenplan Apothekersassistent, cohort 2026 | 1 | ja | ja | geen equivalent | | |
-| Medewerker | F4-07 | Docent, personeelsnummer 4711 | 4 |  | ja | geen equivalent | | |
+| Medewerker | F4-08 | Docent, personeelsnummer 4711 | 4 |  | ja | geen equivalent | | |
 | Persoon | F3-03 | Jochem, 17, na het vmbo | 3 |  | nog te definieren | Person | | |
 | Plaatsingsgroep | F3-05 | APO26-1A | 3 | ja | nog te definieren | Group | | |
 | Student | F3-05 | Jochem, cohort 2026 | 3 |  | ja | geen equivalent | | |
@@ -609,13 +621,13 @@ Per regel één van vier antwoorden: herken ik dit; heet bij ons anders (welke t
 | 3 | F3-07 | Opleidingsprogramma aanbod verbintenis | | | | |
 | 4 | F4-01 | Leeronderdeel specificatie | | | | |
 | 4 | F4-01 | Les specificatie | | | | |
-| 4 | F4-07 | Leergelegenheid | | | | |
-| 4 | F4-07 | Lesgelegenheid | | | | |
-| 4 | F4-07 | Medewerker | | | | |
-| 4 | F4-09 | Onderwijseenheid aanbod verbintenis | | | | |
-| 4 | F4-09 | Leergelegenheid verbintenis | | | | |
-| 4 | F4-09 | Lesgelegenheid verbintenis | | | | |
-| 4 | F4-09 | Opleidingsprogramma aanbod verbintenis | | | | |
+| 4 | F4-08 | Leergelegenheid | | | | |
+| 4 | F4-08 | Lesgelegenheid | | | | |
+| 4 | F4-08 | Medewerker | | | | |
+| 4 | F4-10 | Onderwijseenheid aanbod verbintenis | | | | |
+| 4 | F4-10 | Leergelegenheid verbintenis | | | | |
+| 4 | F4-10 | Lesgelegenheid verbintenis | | | | |
+| 4 | F4-10 | Opleidingsprogramma aanbod verbintenis | | | | |
 | 5 | F5-01 | Lesgelegenheid verbintenis | | | | |
 | 5 | F5-01 | Aanwezigheid | | | | |
 | 5 | F5-01 | Lesgelegenheid resultaat | | | | |
@@ -787,15 +799,26 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 | stroomt | Leeronderdeel specificatie | B1-K1-W1, grofmazig | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 1](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-1--kwalificatiekader-analyseren-en-grofmazig-ontwerpen): Curriculum-ontwerptool naar OC, alles op grofmazig niveau |
 | stroomt | Keuzedeelruimte | 720 SBU, mbo-4 | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [r1059](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L1059) en [r1072](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L1072) |
 | stroomt | Student keuze regelset | Kiesbare keuzedelen voor Apothekersassistent | [voorbeeldpayloads.md](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Datamodelschema's/voorbeeldpayloads.md), regelsets[0] (e4037953) |
-| stroomt (conceptplaat) | Onderwijseenheid / Opleidingsonderdeel | Blok B1-K1 (onderwijsontwerp) | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Onderwijsplan bevat Onderwijseenheid / Opleidingsonderdeel |
-| stroomt (conceptplaat) | Onderwijsvorm specificatie | Simulatie in de leerapotheek, theorie ondersteunend | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat) |
-| stroomt (conceptplaat) | Gewenste Onderwijskundige Leeromgeving | Balie-simulatie in het skillslab | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat) |
-| stroomt (conceptplaat) | Gewenst medewerker competentieprofiel | Apothekersassistent-docent met baliepraktijk | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat) |
-| stroomt (conceptplaat) | Studiebelasting en begeleide onderwijstijd indicatie | BOT 50 / OOT 50 SBU | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat) |
 | stroomt | Summatieve resultaat structuur | Resultaatstructuur Apothekersassistent | keuze van het voorbeeld: de resultaatstructuur ontstaat in de ontwerptool en gaat met de specificatie mee |
 | stroomt | Toetsonderdeel specificatie | Praktijktoets baliegesprek (OSCE) | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 1](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-1--kwalificatiekader-analyseren-en-grofmazig-ontwerpen): toetsonderdeel-specificatie |
 | stroomt | Examenonderdeelspecificatie | Proeve van bekwaamheid B1-K1 | geen bron, keuze van het voorbeeld |
 | stroomt | Summatief Afrondingscriterium | Alle kerntaken en de keuzedelen voldoende | [voorbeeldpayloads.md](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Datamodelschema's/voorbeeldpayloads.md), resultaatstructuur: aggregatie allenVoldoende |
+
+**F1-12 - Het onderwijs- en examenontwerp mee naar de catalogus (conceptplaat)** (fase 1, Grofmazig resultaat publiceren naar de onderwijscatalogus; [f1-12-het-onderwijs-en-examenontwerp-mee-naar-de-catalogus-conceptplaat.svg](img/regels/f1-12-het-onderwijs-en-examenontwerp-mee-naar-de-catalogus-conceptplaat.svg))
+
+| Soort | Objecttype | Instantie | Bron |
+|---|---|---|---|
+| stroomt (conceptplaat) | Onderwijsvorm specificatie | Simulatie in de leerapotheek, theorie ondersteunend | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat) |
+| stroomt (conceptplaat) | Gewenste Onderwijskundige Leeromgeving | Balie-simulatie in het skillslab | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat) |
+| stroomt (conceptplaat) | Gewenst medewerker competentieprofiel | Apothekersassistent-docent met baliepraktijk | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat) |
+| stroomt (conceptplaat) | Studiebelasting en begeleide onderwijstijd indicatie | BOT 50 / OOT 50 SBU | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat) |
+| stroomt (conceptplaat) | Toetsvormspecificatie | Proeve van bekwaamheid in de simulatieapotheek | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Toetsvormspecificatie is een Onderwijsvorm specificatie |
+| stroomt (conceptplaat) | Toetsinstrument | Beoordelingsformulier met rubric | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Toetsvorm naar Toetsinstrument; Toetsinstrument is een Collectie van Leermiddelgroepen |
+| stroomt (conceptplaat) | Gewenst medewerker competentieprofiel | Examinator met baliepraktijk en toetsbekwaamheid | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Gewenst medewerker competentieprofiel naar Toetsvormspecificatie |
+| stroomt (conceptplaat) | Onderwijsvorm specificatie | Simulatie in de leerapotheek, theorie ondersteunend | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat) |
+| stroomt (conceptplaat) | Gewenste Onderwijskundige Leeromgeving | Balie-simulatie in het skillslab | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat) |
+| stroomt (conceptplaat) | Gewenst medewerker competentieprofiel | Apothekersassistent-docent met baliepraktijk | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat) |
+| stroomt (conceptplaat) | Studiebelasting en begeleide onderwijstijd indicatie | BOT 50 / OOT 50 SBU | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat) |
 
 **F2-01 - De specificatie planbaar gemaakt** (fase 2, Specificatie aanvullen tot planbare specificatie; [f2-01-de-specificatie-planbaar-gemaakt.svg](img/regels/f2-01-de-specificatie-planbaar-gemaakt.svg))
 
@@ -945,8 +968,23 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 |---|---|---|---|
 | stroomt | Leeronderdeel specificatie | B1-K1-W1, lessenreeks Baliegesprek en triage | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 4](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-4--detailleren-roosteren-en-inschrijven): OC naar LMS (leeronderdeel-specificaties ter detaillering) |
 | stroomt | Les specificatie | Les 1 Introductie WHAM-vragen en triage | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 4](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-4--detailleren-roosteren-en-inschrijven): detailspecificaties naar het LMS |
+| stroomt | Toetsonderdeel specificatie | Formatieve check baliegesprek, les 1 | informatiemodel.json: Toetsonderdeel specificatie naar Leeruitkomst; leerroute-1-regulier.md, r886 (het LMS detailleert de leeronderdeelspecificatie en eventueel de lesspecificaties) en r955 |
 
-**F4-03 - Resultaatstructuur naar het studentvolgsysteem** (fase 4, Detailspecificaties leveren aan het LMS; [f4-03-resultaatstructuur-naar-het-studentvolgsysteem.svg](img/regels/f4-03-resultaatstructuur-naar-het-studentvolgsysteem.svg))
+**F4-03 - De les van binnen: leervorm, planning, leerdoelen en toetsing (conceptplaat)** (fase 4, Detailspecificaties leveren aan het LMS; [f4-03-de-les-van-binnen-leervorm-planning-leerdoelen-en-toetsing-conceptplaat.svg](img/regels/f4-03-de-les-van-binnen-leervorm-planning-leerdoelen-en-toetsing-conceptplaat.svg))
+
+| Soort | Objecttype | Instantie | Bron |
+|---|---|---|---|
+| stroomt (conceptplaat) | Les specificatie / toets specificatie | Les 1 Introductie WHAM-vragen en triage | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Onderwijsplan aggregeert Les specificatie / toets specificatie; leerroute-1-regulier.md, r886 (het LMS detailleert de leeronderdeelspecificatie en eventueel de lesspecificaties) en r955 |
+| stroomt (conceptplaat) | (Didactische) Leervorm | Instructie met rollenspel in tweetallen | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Les specificatie / toets specificatie aggregeert (Didactische) Leervorm; leerroute-1-regulier.md, r886 (het LMS detailleert de leeronderdeelspecificatie en eventueel de lesspecificaties) en r955 |
+| stroomt (conceptplaat) | Lesplanning | 90 minuten, week 3, skillslab | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Les specificatie / toets specificatie aggregeert Lesplanning; leerroute-1-regulier.md, r886 (het LMS detailleert de leeronderdeelspecificatie en eventueel de lesspecificaties) en r955 |
+| stroomt (conceptplaat) | Lesleerdoel | De student stelt de WHAM-vragen in de juiste volgorde | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Les specificatie / toets specificatie aggregeert Lesleerdoel; leerroute-1-regulier.md, r886 (het LMS detailleert de leeronderdeelspecificatie en eventueel de lesspecificaties) en r955 |
+| stroomt (conceptplaat) | Werkinstructies | Rolkaarten balie, checklist triage | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Les specificatie / toets specificatie aggregeert Werkinstructies; leerroute-1-regulier.md, r886 (het LMS detailleert de leeronderdeelspecificatie en eventueel de lesspecificaties) en r955 |
+| stroomt (conceptplaat) | Toetsvorm | Formatieve check: observatie met rubric | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Les specificatie / toets specificatie aggregeert Toetsvorm; leerroute-1-regulier.md, r886 (het LMS detailleert de leeronderdeelspecificatie en eventueel de lesspecificaties) en r955 |
+| stroomt (conceptplaat) | Toetsinstrument | Observatieformulier WHAM-vragen | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Les specificatie / toets specificatie aggregeert Toetsinstrument; leerroute-1-regulier.md, r886 (het LMS detailleert de leeronderdeelspecificatie en eventueel de lesspecificaties) en r955 |
+| stroomt (conceptplaat) | Toetsmatrijs | Dekking van de lesleerdoelen over de observatiepunten | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Les specificatie / toets specificatie aggregeert Toetsmatrijs; leerroute-1-regulier.md, r886 (het LMS detailleert de leeronderdeelspecificatie en eventueel de lesspecificaties) en r955 |
+| stroomt (conceptplaat) | Lesuitkomst | Stelt de WHAM-vragen volledig en in volgorde | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Les specificatie / toets specificatie aggregeert Lesuitkomst; leerroute-1-regulier.md, r886 (het LMS detailleert de leeronderdeelspecificatie en eventueel de lesspecificaties) en r955 |
+
+**F4-04 - Resultaatstructuur naar het studentvolgsysteem** (fase 4, Detailspecificaties leveren aan het LMS; [f4-04-resultaatstructuur-naar-het-studentvolgsysteem.svg](img/regels/f4-04-resultaatstructuur-naar-het-studentvolgsysteem.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
@@ -954,7 +992,7 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 | stroomt | Toetsonderdeel specificatie | Praktijktoets baliegesprek (OSCE), summatief | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 4](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-4--detailleren-roosteren-en-inschrijven): OC naar SVS, de structuur waarmee het SVS aggregeert |
 | stroomt | Summatief Afrondingscriterium | Alle kerntaken en de keuzedelen voldoende | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 4](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-4--detailleren-roosteren-en-inschrijven): OC naar SVS |
 
-**F4-04 - Resultaatstructuur naar de kernregistratie** (fase 4, Detailspecificaties leveren aan het LMS; [f4-04-resultaatstructuur-naar-de-kernregistratie.svg](img/regels/f4-04-resultaatstructuur-naar-de-kernregistratie.svg))
+**F4-05 - Resultaatstructuur naar de kernregistratie** (fase 4, Detailspecificaties leveren aan het LMS; [f4-05-resultaatstructuur-naar-de-kernregistratie.svg](img/regels/f4-05-resultaatstructuur-naar-de-kernregistratie.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
@@ -962,19 +1000,19 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 | stroomt | Toetsonderdeel specificatie | Praktijktoets baliegesprek (OSCE), summatief | keuze van de sectorarchitect |
 | stroomt | Summatief Afrondingscriterium | Alle kerntaken en de keuzedelen voldoende | keuze van de sectorarchitect |
 
-**F4-05 - Plaatsingsgroepen naar planning** (fase 4, Plaatsings- en planninggroepen definieren en aan personen koppelen; [f4-05-plaatsingsgroepen-naar-planning.svg](img/regels/f4-05-plaatsingsgroepen-naar-planning.svg))
+**F4-06 - Plaatsingsgroepen naar planning** (fase 4, Plaatsings- en planninggroepen definieren en aan personen koppelen; [f4-06-plaatsingsgroepen-naar-planning.svg](img/regels/f4-06-plaatsingsgroepen-naar-planning.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
 | stroomt | Plaatsingsgroep | APO26-1A, 30 studenten | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 4](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-4--detailleren-roosteren-en-inschrijven): Planning en KRS (groepen en persoon) |
 
-**F4-06 - Te roosteren leergelegenheden naar het roostersysteem** (fase 4, Te roosteren specificaties aan het roostersysteem geven; [f4-06-te-roosteren-leergelegenheden-naar-het-roostersysteem.svg](img/regels/f4-06-te-roosteren-leergelegenheden-naar-het-roostersysteem.svg))
+**F4-07 - Te roosteren leergelegenheden naar het roostersysteem** (fase 4, Te roosteren specificaties aan het roostersysteem geven; [f4-07-te-roosteren-leergelegenheden-naar-het-roostersysteem.svg](img/regels/f4-07-te-roosteren-leergelegenheden-naar-het-roostersysteem.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
 | stroomt | Leergelegenheid | B1-K1-W1, periode 1 | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 4](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-4--detailleren-roosteren-en-inschrijven): Planning naar Rooster (te roosteren specificaties) |
 
-**F4-07 - Roosteren: lesgelegenheid, lokaal en docent** (fase 4, Leer-, les- en toetsgelegenheden roosteren; [f4-07-roosteren-lesgelegenheid-lokaal-en-docent.svg](img/regels/f4-07-roosteren-lesgelegenheid-lokaal-en-docent.svg))
+**F4-08 - Roosteren: lesgelegenheid, lokaal en docent** (fase 4, Leer-, les- en toetsgelegenheden roosteren; [f4-08-roosteren-lesgelegenheid-lokaal-en-docent.svg](img/regels/f4-08-roosteren-lesgelegenheid-lokaal-en-docent.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
@@ -982,13 +1020,13 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 | ontstaat | Lesgelegenheid | Les 1, maandag 1 september 09:00, simulatieruimte 2.14 | [scenario-1.1-regulier-happyflow.md](../../docs/specificatie/leerroute-uitwerking/doc/scenario-uitwerkingen/scenario-1.1-regulier-happyflow.md), [r80](../../docs/specificatie/leerroute-uitwerking/doc/scenario-uitwerkingen/scenario-1.1-regulier-happyflow.md?plain=1#L80) en [r86](../../docs/specificatie/leerroute-uitwerking/doc/scenario-uitwerkingen/scenario-1.1-regulier-happyflow.md?plain=1#L86): ma 09:00 tot [11](../../docs/specificatie/leerroute-uitwerking/doc/scenario-uitwerkingen/scenario-1.1-regulier-happyflow.md?plain=1#L11):00, lokaal 2.14 |
 | ontstaat | Medewerker | Docent, personeelsnummer 4711 | [scenario-1.1-regulier-happyflow.md](../../docs/specificatie/leerroute-uitwerking/doc/scenario-uitwerkingen/scenario-1.1-regulier-happyflow.md), [r80](../../docs/specificatie/leerroute-uitwerking/doc/scenario-uitwerkingen/scenario-1.1-regulier-happyflow.md?plain=1#L80): docent personeelsnr 4711 |
 
-**F4-08 - Het rooster naar de kernregistratie** (fase 4, Leer-, les- en toetsgelegenheden roosteren; [f4-08-het-rooster-naar-de-kernregistratie.svg](img/regels/f4-08-het-rooster-naar-de-kernregistratie.svg))
+**F4-09 - Het rooster naar de kernregistratie** (fase 4, Leer-, les- en toetsgelegenheden roosteren; [f4-09-het-rooster-naar-de-kernregistratie.svg](img/regels/f4-09-het-rooster-naar-de-kernregistratie.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
 | stroomt | Lesgelegenheid | Les 1, ma 09:00, lokaal 2.14 | hoofdplaat v1.7: Roostersysteem naar KRS |
 
-**F4-09 - Jochems verbintenissen op de geroosterde gelegenheden** (fase 4, Verwachte deelnemers delen en toegang geven; [f4-09-jochems-verbintenissen-op-de-geroosterde-gelegenheden.svg](img/regels/f4-09-jochems-verbintenissen-op-de-geroosterde-gelegenheden.svg))
+**F4-10 - Jochems verbintenissen op de geroosterde gelegenheden** (fase 4, Verwachte deelnemers delen en toegang geven; [f4-10-jochems-verbintenissen-op-de-geroosterde-gelegenheden.svg](img/regels/f4-10-jochems-verbintenissen-op-de-geroosterde-gelegenheden.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
@@ -997,7 +1035,7 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 | ontstaat | Lesgelegenheid verbintenis | Jochem op les 1, 1 september 09:00 | [scenario-1.1-regulier-happyflow.md](../../docs/specificatie/leerroute-uitwerking/doc/scenario-uitwerkingen/scenario-1.1-regulier-happyflow.md), [r98](../../docs/specificatie/leerroute-uitwerking/doc/scenario-uitwerkingen/scenario-1.1-regulier-happyflow.md?plain=1#L98): lesgelegenheden eerste week geroosterd |
 | verandert | Opleidingsprogramma aanbod verbintenis | Jochem op Regulier BOL 2026 | [scenario-1.1-regulier-happyflow.md](../../docs/specificatie/leerroute-uitwerking/doc/scenario-uitwerkingen/scenario-1.1-regulier-happyflow.md), [r95](../../docs/specificatie/leerroute-uitwerking/doc/scenario-uitwerkingen/scenario-1.1-regulier-happyflow.md?plain=1#L95): enrolled op nominaal traject |
 
-**F4-10 - Student, verbintenissen en groep naar het LMS** (fase 4, Verwachte deelnemers delen en toegang geven; [f4-10-student-verbintenissen-en-groep-naar-het-lms.svg](img/regels/f4-10-student-verbintenissen-en-groep-naar-het-lms.svg))
+**F4-11 - Student, verbintenissen en groep naar het LMS** (fase 4, Verwachte deelnemers delen en toegang geven; [f4-11-student-verbintenissen-en-groep-naar-het-lms.svg](img/regels/f4-11-student-verbintenissen-en-groep-naar-het-lms.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|

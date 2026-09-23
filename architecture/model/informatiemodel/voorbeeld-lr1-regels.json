@@ -2065,145 +2065,6 @@
    "naar": "Onderwijscatalogus",
    "pijl": "geen pijl op de hoofdplaat",
    "koppeling": null,
-   "plaat": "onderwijsontwerp",
-   "aanname": true,
-   "objecttype": "Onderwijseenheid / Opleidingsonderdeel",
-   "instantie": "Blok B1-K1 (onderwijsontwerp)",
-   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Onderwijsplan bevat Onderwijseenheid / Opleidingsonderdeel"
-  },
-  {
-   "beeld_id": "F1-11",
-   "beeld": "De opleiding zoals ontworpen naar de catalogus",
-   "fase": 1,
-   "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
-   "soort": "stroomt",
-   "van": "Curriculum ontwerptool",
-   "naar": "Onderwijscatalogus",
-   "pijl": "geen pijl op de hoofdplaat",
-   "koppeling": null,
-   "plaat": "onderwijsontwerp",
-   "aanname": true,
-   "objecttype": "Onderwijsvorm specificatie",
-   "instantie": "Simulatie in de leerapotheek, theorie ondersteunend",
-   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat)",
-   "relatie": {
-    "soort": "Aggregation",
-    "van": "Onderwijseenheid / Opleidingsonderdeel",
-    "naar": "Onderwijsvorm specificatie",
-    "nesting": true
-   },
-   "relaties": [
-    {
-     "soort": "Association",
-     "van": "Leerdoel",
-     "naar": "Onderwijsvorm specificatie",
-     "instantie": "Zelfstandig farmaceutische patiëntenzorg bieden in een levensechte setting"
-    },
-    {
-     "soort": "Association",
-     "van": "Leeruitkomst",
-     "naar": "Onderwijsvorm specificatie",
-     "instantie": "Voert baliegesprek en triage uit (werkprocesniveau)"
-    }
-   ]
-  },
-  {
-   "beeld_id": "F1-11",
-   "beeld": "De opleiding zoals ontworpen naar de catalogus",
-   "fase": 1,
-   "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
-   "soort": "stroomt",
-   "van": "Curriculum ontwerptool",
-   "naar": "Onderwijscatalogus",
-   "pijl": "geen pijl op de hoofdplaat",
-   "koppeling": null,
-   "plaat": "onderwijsontwerp",
-   "aanname": true,
-   "objecttype": "Gewenste Onderwijskundige Leeromgeving",
-   "instantie": "Balie-simulatie in het skillslab",
-   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat)",
-   "relatie": {
-    "soort": "Aggregation",
-    "van": "Onderwijseenheid / Opleidingsonderdeel",
-    "naar": "Gewenste Onderwijskundige Leeromgeving",
-    "nesting": true
-   },
-   "relaties": [
-    {
-     "soort": "Association",
-     "van": "Onderwijsvorm specificatie",
-     "naar": "Gewenste Onderwijskundige Leeromgeving"
-    }
-   ]
-  },
-  {
-   "beeld_id": "F1-11",
-   "beeld": "De opleiding zoals ontworpen naar de catalogus",
-   "fase": 1,
-   "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
-   "soort": "stroomt",
-   "van": "Curriculum ontwerptool",
-   "naar": "Onderwijscatalogus",
-   "pijl": "geen pijl op de hoofdplaat",
-   "koppeling": null,
-   "plaat": "onderwijsontwerp",
-   "aanname": true,
-   "objecttype": "Gewenst medewerker competentieprofiel",
-   "instantie": "Apothekersassistent-docent met baliepraktijk",
-   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat)",
-   "relatie": {
-    "soort": "Aggregation",
-    "van": "Onderwijseenheid / Opleidingsonderdeel",
-    "naar": "Gewenst medewerker competentieprofiel",
-    "nesting": true
-   },
-   "relaties": [
-    {
-     "soort": "Association",
-     "van": "Gewenst medewerker competentieprofiel",
-     "naar": "Onderwijsvorm specificatie"
-    }
-   ]
-  },
-  {
-   "beeld_id": "F1-11",
-   "beeld": "De opleiding zoals ontworpen naar de catalogus",
-   "fase": 1,
-   "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
-   "soort": "stroomt",
-   "van": "Curriculum ontwerptool",
-   "naar": "Onderwijscatalogus",
-   "pijl": "geen pijl op de hoofdplaat",
-   "koppeling": null,
-   "plaat": "onderwijsontwerp",
-   "aanname": true,
-   "objecttype": "Studiebelasting en begeleide onderwijstijd indicatie",
-   "instantie": "BOT 50 / OOT 50 SBU",
-   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat)",
-   "relatie": {
-    "soort": "Aggregation",
-    "van": "Onderwijseenheid / Opleidingsonderdeel",
-    "naar": "Studiebelasting en begeleide onderwijstijd indicatie",
-    "nesting": true
-   },
-   "relaties": [
-    {
-     "soort": "Association",
-     "van": "Studiebelasting en begeleide onderwijstijd indicatie",
-     "naar": "Onderwijsvorm specificatie"
-    }
-   ]
-  },
-  {
-   "beeld_id": "F1-11",
-   "beeld": "De opleiding zoals ontworpen naar de catalogus",
-   "fase": 1,
-   "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
-   "soort": "stroomt",
-   "van": "Curriculum ontwerptool",
-   "naar": "Onderwijscatalogus",
-   "pijl": "geen pijl op de hoofdplaat",
-   "koppeling": null,
    "objecttype": "Summatieve resultaat structuur",
    "instantie": "Resultaatstructuur Apothekersassistent",
    "bron": "keuze van het voorbeeld: de resultaatstructuur ontstaat in de ontwerptool en gaat met de specificatie mee",
@@ -2291,6 +2152,261 @@
     "van": "Summatieve resultaat structuur",
     "naar": "Summatief Afrondingscriterium"
    }
+  },
+  {
+   "beeld_id": "F1-12",
+   "beeld": "Het onderwijs- en examenontwerp mee naar de catalogus (conceptplaat)",
+   "fase": 1,
+   "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
+   "soort": "stroomt",
+   "van": "Curriculum ontwerptool",
+   "naar": "Onderwijscatalogus",
+   "pijl": "geen pijl op de hoofdplaat",
+   "koppeling": null,
+   "plaat": "onderwijsontwerp",
+   "aanname": true,
+   "objecttype": "Onderwijsvorm specificatie",
+   "instantie": "Simulatie in de leerapotheek, theorie ondersteunend",
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat)",
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Leeruitkomst",
+     "naar": "Onderwijsvorm specificatie",
+     "instantie": "Voert baliegesprek en triage uit (werkprocesniveau)"
+    }
+   ],
+   "zin": "Het onderwijs- en examenontwerp van de conceptplaat gaat in dit voorbeeld mee naar de catalogus: de vorm, de gewenste leeromgeving, het docent- en examinatorprofiel, de studiebelasting en de toetsvorm met haar instrument en materiaal. Of die onderdelen in de uitwisseling horen, is de vraag die bij de eenheid- en examenonderdeelspecificatie staat."
+  },
+  {
+   "beeld_id": "F1-12",
+   "beeld": "Het onderwijs- en examenontwerp mee naar de catalogus (conceptplaat)",
+   "fase": 1,
+   "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
+   "soort": "stroomt",
+   "van": "Curriculum ontwerptool",
+   "naar": "Onderwijscatalogus",
+   "pijl": "geen pijl op de hoofdplaat",
+   "koppeling": null,
+   "plaat": "onderwijsontwerp",
+   "aanname": true,
+   "objecttype": "Gewenste Onderwijskundige Leeromgeving",
+   "instantie": "Balie-simulatie in het skillslab",
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat)",
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Onderwijsvorm specificatie",
+     "naar": "Gewenste Onderwijskundige Leeromgeving"
+    }
+   ]
+  },
+  {
+   "beeld_id": "F1-12",
+   "beeld": "Het onderwijs- en examenontwerp mee naar de catalogus (conceptplaat)",
+   "fase": 1,
+   "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
+   "soort": "stroomt",
+   "van": "Curriculum ontwerptool",
+   "naar": "Onderwijscatalogus",
+   "pijl": "geen pijl op de hoofdplaat",
+   "koppeling": null,
+   "plaat": "onderwijsontwerp",
+   "aanname": true,
+   "objecttype": "Gewenst medewerker competentieprofiel",
+   "instantie": "Apothekersassistent-docent met baliepraktijk",
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat)",
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Gewenst medewerker competentieprofiel",
+     "naar": "Onderwijsvorm specificatie"
+    }
+   ]
+  },
+  {
+   "beeld_id": "F1-12",
+   "beeld": "Het onderwijs- en examenontwerp mee naar de catalogus (conceptplaat)",
+   "fase": 1,
+   "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
+   "soort": "stroomt",
+   "van": "Curriculum ontwerptool",
+   "naar": "Onderwijscatalogus",
+   "pijl": "geen pijl op de hoofdplaat",
+   "koppeling": null,
+   "plaat": "onderwijsontwerp",
+   "aanname": true,
+   "objecttype": "Studiebelasting en begeleide onderwijstijd indicatie",
+   "instantie": "BOT 50 / OOT 50 SBU",
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat)",
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Studiebelasting en begeleide onderwijstijd indicatie",
+     "naar": "Onderwijsvorm specificatie"
+    }
+   ]
+  },
+  {
+   "beeld_id": "F1-12",
+   "beeld": "Het onderwijs- en examenontwerp mee naar de catalogus (conceptplaat)",
+   "fase": 1,
+   "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
+   "plaat": "onderwijsontwerp",
+   "soort": "stroomt",
+   "van": "Curriculum ontwerptool",
+   "naar": "Onderwijscatalogus",
+   "pijl": "geen pijl op de hoofdplaat",
+   "aanname": true,
+   "objecttype": "Toetsvormspecificatie",
+   "instantie": "Proeve van bekwaamheid in de simulatieapotheek",
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Toetsvormspecificatie is een Onderwijsvorm specificatie",
+   "relaties": [
+    {
+     "soort": "Specialization",
+     "van": "Toetsvormspecificatie",
+     "naar": "Onderwijsvorm specificatie"
+    }
+   ]
+  },
+  {
+   "beeld_id": "F1-12",
+   "beeld": "Het onderwijs- en examenontwerp mee naar de catalogus (conceptplaat)",
+   "fase": 1,
+   "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
+   "plaat": "onderwijsontwerp",
+   "soort": "stroomt",
+   "van": "Curriculum ontwerptool",
+   "naar": "Onderwijscatalogus",
+   "pijl": "geen pijl op de hoofdplaat",
+   "aanname": true,
+   "objecttype": "Toetsinstrument",
+   "instantie": "Beoordelingsformulier met rubric",
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Toetsvorm naar Toetsinstrument; Toetsinstrument is een Collectie van Leermiddelgroepen",
+   "relaties": [
+    {
+     "soort": "Specialization",
+     "van": "Toetsinstrument",
+     "naar": "Collectie van Leermiddelgroepen"
+    }
+   ]
+  },
+  {
+   "beeld_id": "F1-12",
+   "beeld": "Het onderwijs- en examenontwerp mee naar de catalogus (conceptplaat)",
+   "fase": 1,
+   "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
+   "plaat": "onderwijsontwerp",
+   "soort": "stroomt",
+   "van": "Curriculum ontwerptool",
+   "naar": "Onderwijscatalogus",
+   "pijl": "geen pijl op de hoofdplaat",
+   "aanname": true,
+   "objecttype": "Gewenst medewerker competentieprofiel",
+   "instantie": "Examinator met baliepraktijk en toetsbekwaamheid",
+   "nieuwe_instantie": true,
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Gewenst medewerker competentieprofiel naar Toetsvormspecificatie",
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Gewenst medewerker competentieprofiel",
+     "naar": "Toetsvormspecificatie"
+    }
+   ]
+  },
+  {
+   "beeld_id": "F1-12",
+   "beeld": "Het onderwijs- en examenontwerp mee naar de catalogus (conceptplaat)",
+   "fase": 1,
+   "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
+   "soort": "stroomt",
+   "van": "Curriculum ontwerptool",
+   "naar": "Onderwijscatalogus",
+   "pijl": "geen pijl op de hoofdplaat",
+   "koppeling": null,
+   "plaat": "onderwijsontwerp",
+   "aanname": true,
+   "objecttype": "Onderwijsvorm specificatie",
+   "instantie": "Simulatie in de leerapotheek, theorie ondersteunend",
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat)",
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Leeruitkomst",
+     "naar": "Onderwijsvorm specificatie",
+     "instantie": "Voert baliegesprek en triage uit (werkprocesniveau)"
+    }
+   ],
+   "zin": "Het onderwijs- en examenontwerp van de conceptplaat gaat in dit voorbeeld mee naar de catalogus: de vorm, de gewenste leeromgeving, het docent- en examinatorprofiel, de studiebelasting en de toetsvorm met haar instrument en materiaal. Of die onderdelen in de uitwisseling horen, is de vraag die bij de eenheid- en examenonderdeelspecificatie staat."
+  },
+  {
+   "beeld_id": "F1-12",
+   "beeld": "Het onderwijs- en examenontwerp mee naar de catalogus (conceptplaat)",
+   "fase": 1,
+   "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
+   "soort": "stroomt",
+   "van": "Curriculum ontwerptool",
+   "naar": "Onderwijscatalogus",
+   "pijl": "geen pijl op de hoofdplaat",
+   "koppeling": null,
+   "plaat": "onderwijsontwerp",
+   "aanname": true,
+   "objecttype": "Gewenste Onderwijskundige Leeromgeving",
+   "instantie": "Balie-simulatie in het skillslab",
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat)",
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Onderwijsvorm specificatie",
+     "naar": "Gewenste Onderwijskundige Leeromgeving"
+    }
+   ]
+  },
+  {
+   "beeld_id": "F1-12",
+   "beeld": "Het onderwijs- en examenontwerp mee naar de catalogus (conceptplaat)",
+   "fase": 1,
+   "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
+   "soort": "stroomt",
+   "van": "Curriculum ontwerptool",
+   "naar": "Onderwijscatalogus",
+   "pijl": "geen pijl op de hoofdplaat",
+   "koppeling": null,
+   "plaat": "onderwijsontwerp",
+   "aanname": true,
+   "objecttype": "Gewenst medewerker competentieprofiel",
+   "instantie": "Apothekersassistent-docent met baliepraktijk",
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat)",
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Gewenst medewerker competentieprofiel",
+     "naar": "Onderwijsvorm specificatie"
+    }
+   ]
+  },
+  {
+   "beeld_id": "F1-12",
+   "beeld": "Het onderwijs- en examenontwerp mee naar de catalogus (conceptplaat)",
+   "fase": 1,
+   "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
+   "soort": "stroomt",
+   "van": "Curriculum ontwerptool",
+   "naar": "Onderwijscatalogus",
+   "pijl": "geen pijl op de hoofdplaat",
+   "koppeling": null,
+   "plaat": "onderwijsontwerp",
+   "aanname": true,
+   "objecttype": "Studiebelasting en begeleide onderwijstijd indicatie",
+   "instantie": "BOT 50 / OOT 50 SBU",
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat)",
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Studiebelasting en begeleide onderwijstijd indicatie",
+     "naar": "Onderwijsvorm specificatie"
+    }
+   ]
   },
   {
    "beeld_id": "F2-01",
@@ -3614,7 +3730,7 @@
    "objecttype": "Leeronderdeel specificatie",
    "instantie": "B1-K1-W1, lessenreeks Baliegesprek en triage",
    "bron": "leerroute-1-regulier.md, Fase 4: OC naar LMS (leeronderdeel-specificaties ter detaillering)",
-   "zin": "De detailspecificaties gaan naar het LMS ter inrichting van de leeromgeving.",
+   "zin": "De detailspecificaties gaan naar het LMS ter inrichting van de leeromgeving: de lessenreeks met haar lessen, en de toetsonderdeelspecificatie die zegt wat elke les moet afdichten. Wat er in een les zit, staat in de verdieping hieronder.",
    "relaties": [
     {
      "soort": "Association",
@@ -3653,7 +3769,236 @@
    ]
   },
   {
+   "beeld_id": "F4-02",
+   "beeld": "Detailspecificaties naar het LMS",
+   "fase": 4,
+   "stap": "Detailspecificaties leveren aan het LMS",
+   "soort": "stroomt",
+   "van": "Onderwijscatalogus",
+   "naar": "Leer management systeem (LMS)",
+   "pijl": "id-d23841b89bed4935b2aebdeb12ee2acf",
+   "objecttype": "Toetsonderdeel specificatie",
+   "instantie": "Formatieve check baliegesprek, les 1",
+   "koppeling": "OC-LMS",
+   "nieuwe_instantie": true,
+   "aanname": true,
+   "bron": "informatiemodel.json: Toetsonderdeel specificatie naar Leeruitkomst; leerroute-1-regulier.md, r886 (het LMS detailleert de leeronderdeelspecificatie en eventueel de lesspecificaties) en r955",
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Toetsonderdeel specificatie",
+     "naar": "Leeruitkomst",
+     "instantie": "Voert baliegesprek en triage uit (werkprocesniveau)"
+    }
+   ]
+  },
+  {
    "beeld_id": "F4-03",
+   "beeld": "De les van binnen: leervorm, planning, leerdoelen en toetsing (conceptplaat)",
+   "fase": 4,
+   "stap": "Detailspecificaties leveren aan het LMS",
+   "verdieping": "wat er in een les zit",
+   "plaat": "onderwijsontwerp",
+   "soort": "stroomt",
+   "van": "Onderwijscatalogus",
+   "naar": "Leer management systeem (LMS)",
+   "pijl": "id-d23841b89bed4935b2aebdeb12ee2acf",
+   "aanname": true,
+   "objecttype": "Les specificatie / toets specificatie",
+   "instantie": "Les 1 Introductie WHAM-vragen en triage",
+   "koppeling": "OC-LMS",
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Onderwijsplan aggregeert Les specificatie / toets specificatie; leerroute-1-regulier.md, r886 (het LMS detailleert de leeronderdeelspecificatie en eventueel de lesspecificaties) en r955",
+   "zin": "Verdieping: onder een les hangt hoe zij wordt gegeven en hoe zij wordt afgedicht. De didactische leervorm, de lesplanning, de lesleerdoelen en de werkinstructies zeggen hoe; de toetsvorm met haar instrument en de toetsmatrijs zeggen waarmee wordt gecontroleerd of de leerdoelen zijn gehaald. Het resultaat daarvan staat in lesuitkomsten: de fijnste laag onder de leeruitkomst.",
+   "vraag": "Het LMS detailleert de leeronderdeelspecificatie tot lessen en toetsen. Hoofdplaat v1.7 kent alleen de weg van de catalogus naar het LMS, geen teruglevering. Gaan fijnmazig uitgewerkte toetsonderdeel- en lesspecificaties terug naar de catalogus, zodat de instelling ze op een plek beheert?"
+  },
+  {
+   "beeld_id": "F4-03",
+   "beeld": "De les van binnen: leervorm, planning, leerdoelen en toetsing (conceptplaat)",
+   "fase": 4,
+   "stap": "Detailspecificaties leveren aan het LMS",
+   "verdieping": "wat er in een les zit",
+   "plaat": "onderwijsontwerp",
+   "soort": "stroomt",
+   "van": "Onderwijscatalogus",
+   "naar": "Leer management systeem (LMS)",
+   "pijl": "id-d23841b89bed4935b2aebdeb12ee2acf",
+   "aanname": true,
+   "objecttype": "(Didactische) Leervorm",
+   "instantie": "Instructie met rollenspel in tweetallen",
+   "koppeling": "OC-LMS",
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Les specificatie / toets specificatie aggregeert (Didactische) Leervorm; leerroute-1-regulier.md, r886 (het LMS detailleert de leeronderdeelspecificatie en eventueel de lesspecificaties) en r955",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Les specificatie / toets specificatie",
+    "naar": "(Didactische) Leervorm",
+    "nesting": true
+   }
+  },
+  {
+   "beeld_id": "F4-03",
+   "beeld": "De les van binnen: leervorm, planning, leerdoelen en toetsing (conceptplaat)",
+   "fase": 4,
+   "stap": "Detailspecificaties leveren aan het LMS",
+   "verdieping": "wat er in een les zit",
+   "plaat": "onderwijsontwerp",
+   "soort": "stroomt",
+   "van": "Onderwijscatalogus",
+   "naar": "Leer management systeem (LMS)",
+   "pijl": "id-d23841b89bed4935b2aebdeb12ee2acf",
+   "aanname": true,
+   "objecttype": "Lesplanning",
+   "instantie": "90 minuten, week 3, skillslab",
+   "koppeling": "OC-LMS",
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Les specificatie / toets specificatie aggregeert Lesplanning; leerroute-1-regulier.md, r886 (het LMS detailleert de leeronderdeelspecificatie en eventueel de lesspecificaties) en r955",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Les specificatie / toets specificatie",
+    "naar": "Lesplanning",
+    "nesting": true
+   }
+  },
+  {
+   "beeld_id": "F4-03",
+   "beeld": "De les van binnen: leervorm, planning, leerdoelen en toetsing (conceptplaat)",
+   "fase": 4,
+   "stap": "Detailspecificaties leveren aan het LMS",
+   "verdieping": "wat er in een les zit",
+   "plaat": "onderwijsontwerp",
+   "soort": "stroomt",
+   "van": "Onderwijscatalogus",
+   "naar": "Leer management systeem (LMS)",
+   "pijl": "id-d23841b89bed4935b2aebdeb12ee2acf",
+   "aanname": true,
+   "objecttype": "Lesleerdoel",
+   "instantie": "De student stelt de WHAM-vragen in de juiste volgorde",
+   "koppeling": "OC-LMS",
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Les specificatie / toets specificatie aggregeert Lesleerdoel; leerroute-1-regulier.md, r886 (het LMS detailleert de leeronderdeelspecificatie en eventueel de lesspecificaties) en r955",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Les specificatie / toets specificatie",
+    "naar": "Lesleerdoel",
+    "nesting": true
+   }
+  },
+  {
+   "beeld_id": "F4-03",
+   "beeld": "De les van binnen: leervorm, planning, leerdoelen en toetsing (conceptplaat)",
+   "fase": 4,
+   "stap": "Detailspecificaties leveren aan het LMS",
+   "verdieping": "wat er in een les zit",
+   "plaat": "onderwijsontwerp",
+   "soort": "stroomt",
+   "van": "Onderwijscatalogus",
+   "naar": "Leer management systeem (LMS)",
+   "pijl": "id-d23841b89bed4935b2aebdeb12ee2acf",
+   "aanname": true,
+   "objecttype": "Werkinstructies",
+   "instantie": "Rolkaarten balie, checklist triage",
+   "koppeling": "OC-LMS",
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Les specificatie / toets specificatie aggregeert Werkinstructies; leerroute-1-regulier.md, r886 (het LMS detailleert de leeronderdeelspecificatie en eventueel de lesspecificaties) en r955",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Les specificatie / toets specificatie",
+    "naar": "Werkinstructies",
+    "nesting": true
+   }
+  },
+  {
+   "beeld_id": "F4-03",
+   "beeld": "De les van binnen: leervorm, planning, leerdoelen en toetsing (conceptplaat)",
+   "fase": 4,
+   "stap": "Detailspecificaties leveren aan het LMS",
+   "verdieping": "wat er in een les zit",
+   "plaat": "onderwijsontwerp",
+   "soort": "stroomt",
+   "van": "Onderwijscatalogus",
+   "naar": "Leer management systeem (LMS)",
+   "pijl": "id-d23841b89bed4935b2aebdeb12ee2acf",
+   "aanname": true,
+   "objecttype": "Toetsvorm",
+   "instantie": "Formatieve check: observatie met rubric",
+   "koppeling": "OC-LMS",
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Les specificatie / toets specificatie aggregeert Toetsvorm; leerroute-1-regulier.md, r886 (het LMS detailleert de leeronderdeelspecificatie en eventueel de lesspecificaties) en r955",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Les specificatie / toets specificatie",
+    "naar": "Toetsvorm",
+    "nesting": true
+   },
+   "nieuwe_instantie": true
+  },
+  {
+   "beeld_id": "F4-03",
+   "beeld": "De les van binnen: leervorm, planning, leerdoelen en toetsing (conceptplaat)",
+   "fase": 4,
+   "stap": "Detailspecificaties leveren aan het LMS",
+   "verdieping": "wat er in een les zit",
+   "plaat": "onderwijsontwerp",
+   "soort": "stroomt",
+   "van": "Onderwijscatalogus",
+   "naar": "Leer management systeem (LMS)",
+   "pijl": "id-d23841b89bed4935b2aebdeb12ee2acf",
+   "aanname": true,
+   "objecttype": "Toetsinstrument",
+   "instantie": "Observatieformulier WHAM-vragen",
+   "koppeling": "OC-LMS",
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Les specificatie / toets specificatie aggregeert Toetsinstrument; leerroute-1-regulier.md, r886 (het LMS detailleert de leeronderdeelspecificatie en eventueel de lesspecificaties) en r955",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Les specificatie / toets specificatie",
+    "naar": "Toetsinstrument",
+    "nesting": true
+   },
+   "nieuwe_instantie": true
+  },
+  {
+   "beeld_id": "F4-03",
+   "beeld": "De les van binnen: leervorm, planning, leerdoelen en toetsing (conceptplaat)",
+   "fase": 4,
+   "stap": "Detailspecificaties leveren aan het LMS",
+   "verdieping": "wat er in een les zit",
+   "plaat": "onderwijsontwerp",
+   "soort": "stroomt",
+   "van": "Onderwijscatalogus",
+   "naar": "Leer management systeem (LMS)",
+   "pijl": "id-d23841b89bed4935b2aebdeb12ee2acf",
+   "aanname": true,
+   "objecttype": "Toetsmatrijs",
+   "instantie": "Dekking van de lesleerdoelen over de observatiepunten",
+   "koppeling": "OC-LMS",
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Les specificatie / toets specificatie aggregeert Toetsmatrijs; leerroute-1-regulier.md, r886 (het LMS detailleert de leeronderdeelspecificatie en eventueel de lesspecificaties) en r955",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Les specificatie / toets specificatie",
+    "naar": "Toetsmatrijs",
+    "nesting": true
+   }
+  },
+  {
+   "beeld_id": "F4-03",
+   "beeld": "De les van binnen: leervorm, planning, leerdoelen en toetsing (conceptplaat)",
+   "fase": 4,
+   "stap": "Detailspecificaties leveren aan het LMS",
+   "verdieping": "wat er in een les zit",
+   "plaat": "onderwijsontwerp",
+   "soort": "stroomt",
+   "van": "Onderwijscatalogus",
+   "naar": "Leer management systeem (LMS)",
+   "pijl": "id-d23841b89bed4935b2aebdeb12ee2acf",
+   "aanname": true,
+   "objecttype": "Lesuitkomst",
+   "instantie": "Stelt de WHAM-vragen volledig en in volgorde",
+   "koppeling": "OC-LMS",
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Les specificatie / toets specificatie aggregeert Lesuitkomst; leerroute-1-regulier.md, r886 (het LMS detailleert de leeronderdeelspecificatie en eventueel de lesspecificaties) en r955",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Les specificatie / toets specificatie",
+    "naar": "Lesuitkomst",
+    "nesting": true
+   }
+  },
+  {
+   "beeld_id": "F4-04",
    "beeld": "Resultaatstructuur naar het studentvolgsysteem",
    "fase": 4,
    "stap": "Detailspecificaties leveren aan het LMS",
@@ -3676,7 +4021,7 @@
    ]
   },
   {
-   "beeld_id": "F4-03",
+   "beeld_id": "F4-04",
    "beeld": "Resultaatstructuur naar het studentvolgsysteem",
    "fase": 4,
    "stap": "Detailspecificaties leveren aan het LMS",
@@ -3704,7 +4049,7 @@
    ]
   },
   {
-   "beeld_id": "F4-03",
+   "beeld_id": "F4-04",
    "beeld": "Resultaatstructuur naar het studentvolgsysteem",
    "fase": 4,
    "stap": "Detailspecificaties leveren aan het LMS",
@@ -3723,7 +4068,7 @@
    }
   },
   {
-   "beeld_id": "F4-04",
+   "beeld_id": "F4-05",
    "beeld": "Resultaatstructuur naar de kernregistratie",
    "fase": 4,
    "stap": "Detailspecificaties leveren aan het LMS",
@@ -3747,7 +4092,7 @@
    "zin": "De kernregistratie krijgt de resultaatstructuur ook, voor de verantwoording van de studievoortgang aan RIO."
   },
   {
-   "beeld_id": "F4-04",
+   "beeld_id": "F4-05",
    "beeld": "Resultaatstructuur naar de kernregistratie",
    "fase": 4,
    "stap": "Detailspecificaties leveren aan het LMS",
@@ -3768,7 +4113,7 @@
    }
   },
   {
-   "beeld_id": "F4-04",
+   "beeld_id": "F4-05",
    "beeld": "Resultaatstructuur naar de kernregistratie",
    "fase": 4,
    "stap": "Detailspecificaties leveren aan het LMS",
@@ -3788,7 +4133,7 @@
    }
   },
   {
-   "beeld_id": "F4-05",
+   "beeld_id": "F4-06",
    "beeld": "Plaatsingsgroepen naar planning",
    "fase": 4,
    "stap": "Plaatsings- en planninggroepen definieren en aan personen koppelen",
@@ -3803,7 +4148,7 @@
    "zin": "De plaatsingsgroepen met hun studenten gaan van de kernregistratie naar planning."
   },
   {
-   "beeld_id": "F4-06",
+   "beeld_id": "F4-07",
    "beeld": "Te roosteren leergelegenheden naar het roostersysteem",
    "fase": 4,
    "stap": "Te roosteren specificaties aan het roostersysteem geven",
@@ -3826,7 +4171,7 @@
    ]
   },
   {
-   "beeld_id": "F4-07",
+   "beeld_id": "F4-08",
    "beeld": "Roosteren: lesgelegenheid, lokaal en docent",
    "fase": 4,
    "stap": "Leer-, les- en toetsgelegenheden roosteren",
@@ -3839,7 +4184,7 @@
    "zin": "De roosteraar roostert alleen periode 1: tijdslot, lokaal en docent; latere perioden blijven planbaar."
   },
   {
-   "beeld_id": "F4-07",
+   "beeld_id": "F4-08",
    "beeld": "Roosteren: lesgelegenheid, lokaal en docent",
    "fase": 4,
    "stap": "Leer-, les- en toetsgelegenheden roosteren",
@@ -3856,7 +4201,7 @@
    }
   },
   {
-   "beeld_id": "F4-07",
+   "beeld_id": "F4-08",
    "beeld": "Roosteren: lesgelegenheid, lokaal en docent",
    "fase": 4,
    "stap": "Leer-, les- en toetsgelegenheden roosteren",
@@ -3872,7 +4217,7 @@
    }
   },
   {
-   "beeld_id": "F4-08",
+   "beeld_id": "F4-09",
    "beeld": "Het rooster naar de kernregistratie",
    "fase": 4,
    "stap": "Leer-, les- en toetsgelegenheden roosteren",
@@ -3896,7 +4241,7 @@
    ]
   },
   {
-   "beeld_id": "F4-09",
+   "beeld_id": "F4-10",
    "beeld": "Jochems verbintenissen op de geroosterde gelegenheden",
    "fase": 4,
    "stap": "Verwachte deelnemers delen en toegang geven",
@@ -3913,7 +4258,7 @@
    "zin": "De SLB'er activeert Jochems verbintenissen op de geroosterde gelegenheden van periode 1."
   },
   {
-   "beeld_id": "F4-09",
+   "beeld_id": "F4-10",
    "beeld": "Jochems verbintenissen op de geroosterde gelegenheden",
    "fase": 4,
    "stap": "Verwachte deelnemers delen en toegang geven",
@@ -3929,7 +4274,7 @@
    }
   },
   {
-   "beeld_id": "F4-09",
+   "beeld_id": "F4-10",
    "beeld": "Jochems verbintenissen op de geroosterde gelegenheden",
    "fase": 4,
    "stap": "Verwachte deelnemers delen en toegang geven",
@@ -3945,7 +4290,7 @@
    }
   },
   {
-   "beeld_id": "F4-09",
+   "beeld_id": "F4-10",
    "beeld": "Jochems verbintenissen op de geroosterde gelegenheden",
    "fase": 4,
    "stap": "Verwachte deelnemers delen en toegang geven",
@@ -3960,7 +4305,7 @@
    "vraag": "Rijpt een verbintenis mee met het aanbod (planbaar naar geroosterd), of is de toestand van de verbintenis los van die van het aanbod (ontwerpkeuze 13)?"
   },
   {
-   "beeld_id": "F4-10",
+   "beeld_id": "F4-11",
    "beeld": "Student, verbintenissen en groep naar het LMS",
    "fase": 4,
    "stap": "Verwachte deelnemers delen en toegang geven",
@@ -3979,7 +4324,7 @@
    }
   },
   {
-   "beeld_id": "F4-10",
+   "beeld_id": "F4-11",
    "beeld": "Student, verbintenissen en groep naar het LMS",
    "fase": 4,
    "stap": "Verwachte deelnemers delen en toegang geven",
@@ -4002,7 +4347,7 @@
    ]
   },
   {
-   "beeld_id": "F4-10",
+   "beeld_id": "F4-11",
    "beeld": "Student, verbintenissen en groep naar het LMS",
    "fase": 4,
    "stap": "Verwachte deelnemers delen en toegang geven",
@@ -4021,7 +4366,7 @@
    }
   },
   {
-   "beeld_id": "F4-10",
+   "beeld_id": "F4-11",
    "beeld": "Student, verbintenissen en groep naar het LMS",
    "fase": 4,
    "stap": "Verwachte deelnemers delen en toegang geven",
@@ -4041,7 +4386,7 @@
    }
   },
   {
-   "beeld_id": "F4-10",
+   "beeld_id": "F4-11",
    "beeld": "Student, verbintenissen en groep naar het LMS",
    "fase": 4,
    "stap": "Verwachte deelnemers delen en toegang geven",
