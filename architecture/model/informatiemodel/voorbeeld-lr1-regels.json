@@ -715,7 +715,30 @@
   },
   {
    "beeld_id": "F1-06",
-   "beeld": "Het onderwijsontwerp van de eenheid: vorm, ruimte, mensen en middelen (conceptplaat)",
+   "beeld": "De eenheidspecificatie met haar onderwijsontwerp: vorm, ruimte, mensen en middelen",
+   "fase": 1,
+   "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
+   "verdieping": "onderwijsontwerp met ruimte en middelen",
+   "wie": "onderwijsontwerper",
+   "soort": "verandert",
+   "objecttype": "Onderwijseenheid specificatie",
+   "instantie": "Blok B1-K1, met vorm, ruimte, mensen en middelen",
+   "toestand": "onderwijskundig vertaald",
+   "bron": "informatiemodel.json: Onderwijseenheid specificatie aggregeert Leeronderdeel specificatie en verwijst naar Leeruitkomst; leerroute-1-regulier.md, r1021 (op leeronderdeelniveau staan de organiseerbaarheidswaarden)",
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Onderwijseenheid specificatie",
+     "naar": "Leeruitkomst",
+     "instantie": "Biedt farmaceutische patientenzorg (kerntaakniveau)"
+    }
+   ],
+   "zin": "Rond de eenheid legt de instelling haar onderwijsontwerp vast; alles hieronder wordt onderdeel van de eenheid- en leeronderdeelspecificatie. De gewenste leeromgeving is een ruimteprofiel, geen lokaal: zij zegt welke ruimte past en sorteert voor op een onderwijslocatie met dat lokaaltype. Het docentprofiel werkt net zo en draagt de skills die de instelling erbij verwacht; de persoon zelf volgt bij plannen. De leermiddelen hangen aan het leeronderdeel.",
+   "vraag": "De conceptplaat kent leervormstrategie, leerdoel, onderwijsvorm, leeromgeving, docentprofiel, studiebelasting en leermiddelen, maar verbindt ze niet met de onderwijseenheid- of leeronderdeelspecificatie van het informatiemodel. Welke daarvan horen in de uitwisseling op de specificatie, en welke blijven binnen de instelling?"
+  },
+  {
+   "beeld_id": "F1-06",
+   "beeld": "De eenheidspecificatie met haar onderwijsontwerp: vorm, ruimte, mensen en middelen",
    "fase": 1,
    "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
    "verdieping": "onderwijsontwerp met ruimte en middelen",
@@ -725,12 +748,11 @@
    "soort": "ontstaat",
    "objecttype": "Leervormstrategie",
    "instantie": "Leren door te doen in een levensechte omgeving, theorie ondersteunend",
-   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Strategisch kader instelling, Leervormstrategie naar Onderwijsvorm specificatie",
-   "zin": "Verdieping: rond de eenheid legt de instelling haar onderwijsontwerp vast. De gewenste leeromgeving is een ruimteprofiel, geen lokaal: zij zegt welke ruimte past en sorteert voor op een onderwijslocatie met dat lokaaltype. Het docentprofiel werkt net zo: het beschrijft de gevraagde expertise, die de instelling als medewerkertype in haar organisatie herkent; de persoon zelf volgt bij plannen. De leermiddelen staan apart en hangen aan het leeronderdeel."
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Strategisch kader instelling, Leervormstrategie naar Onderwijsvorm specificatie"
   },
   {
    "beeld_id": "F1-06",
-   "beeld": "Het onderwijsontwerp van de eenheid: vorm, ruimte, mensen en middelen (conceptplaat)",
+   "beeld": "De eenheidspecificatie met haar onderwijsontwerp: vorm, ruimte, mensen en middelen",
    "fase": 1,
    "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
    "verdieping": "onderwijsontwerp met ruimte en middelen",
@@ -760,7 +782,7 @@
   },
   {
    "beeld_id": "F1-06",
-   "beeld": "Het onderwijsontwerp van de eenheid: vorm, ruimte, mensen en middelen (conceptplaat)",
+   "beeld": "De eenheidspecificatie met haar onderwijsontwerp: vorm, ruimte, mensen en middelen",
    "fase": 1,
    "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
    "verdieping": "onderwijsontwerp met ruimte en middelen",
@@ -777,12 +799,11 @@
      "van": "Leeruitkomst",
      "naar": "Onderwijsvorm specificatie"
     }
-   ],
-   "vraag": "Het kader waarmee de instelling de kerntaak vormgeeft staat op de conceptplaat (leervormstrategie, leerdoel, onderwijsvorm specificatie, leeromgeving, docentprofiel, studiebelasting), niet op de informatiemodelplaat. Welke daarvan horen in de uitwisseling, bijvoorbeeld op het leeronderdeel, en welke blijven binnen de instelling?"
+   ]
   },
   {
    "beeld_id": "F1-06",
-   "beeld": "Het onderwijsontwerp van de eenheid: vorm, ruimte, mensen en middelen (conceptplaat)",
+   "beeld": "De eenheidspecificatie met haar onderwijsontwerp: vorm, ruimte, mensen en middelen",
    "fase": 1,
    "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
    "verdieping": "onderwijsontwerp met ruimte en middelen",
@@ -801,7 +822,7 @@
   },
   {
    "beeld_id": "F1-06",
-   "beeld": "Het onderwijsontwerp van de eenheid: vorm, ruimte, mensen en middelen (conceptplaat)",
+   "beeld": "De eenheidspecificatie met haar onderwijsontwerp: vorm, ruimte, mensen en middelen",
    "fase": 1,
    "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
    "verdieping": "onderwijsontwerp met ruimte en middelen",
@@ -829,7 +850,7 @@
   },
   {
    "beeld_id": "F1-06",
-   "beeld": "Het onderwijsontwerp van de eenheid: vorm, ruimte, mensen en middelen (conceptplaat)",
+   "beeld": "De eenheidspecificatie met haar onderwijsontwerp: vorm, ruimte, mensen en middelen",
    "fase": 1,
    "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
    "verdieping": "onderwijsontwerp met ruimte en middelen",
@@ -843,7 +864,7 @@
   },
   {
    "beeld_id": "F1-06",
-   "beeld": "Het onderwijsontwerp van de eenheid: vorm, ruimte, mensen en middelen (conceptplaat)",
+   "beeld": "De eenheidspecificatie met haar onderwijsontwerp: vorm, ruimte, mensen en middelen",
    "fase": 1,
    "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
    "verdieping": "onderwijsontwerp met ruimte en middelen",
@@ -864,7 +885,7 @@
   },
   {
    "beeld_id": "F1-06",
-   "beeld": "Het onderwijsontwerp van de eenheid: vorm, ruimte, mensen en middelen (conceptplaat)",
+   "beeld": "De eenheidspecificatie met haar onderwijsontwerp: vorm, ruimte, mensen en middelen",
    "fase": 1,
    "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
    "verdieping": "onderwijsontwerp met ruimte en middelen",
@@ -886,7 +907,7 @@
   },
   {
    "beeld_id": "F1-06",
-   "beeld": "Het onderwijsontwerp van de eenheid: vorm, ruimte, mensen en middelen (conceptplaat)",
+   "beeld": "De eenheidspecificatie met haar onderwijsontwerp: vorm, ruimte, mensen en middelen",
    "fase": 1,
    "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
    "verdieping": "onderwijsontwerp met ruimte en middelen",
@@ -906,7 +927,7 @@
   },
   {
    "beeld_id": "F1-06",
-   "beeld": "Het onderwijsontwerp van de eenheid: vorm, ruimte, mensen en middelen (conceptplaat)",
+   "beeld": "De eenheidspecificatie met haar onderwijsontwerp: vorm, ruimte, mensen en middelen",
    "fase": 1,
    "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
    "verdieping": "onderwijsontwerp met ruimte en middelen",
@@ -921,7 +942,7 @@
   },
   {
    "beeld_id": "F1-06",
-   "beeld": "Het onderwijsontwerp van de eenheid: vorm, ruimte, mensen en middelen (conceptplaat)",
+   "beeld": "De eenheidspecificatie met haar onderwijsontwerp: vorm, ruimte, mensen en middelen",
    "fase": 1,
    "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
    "verdieping": "onderwijsontwerp met ruimte en middelen",
@@ -941,7 +962,7 @@
   },
   {
    "beeld_id": "F1-06",
-   "beeld": "Het onderwijsontwerp van de eenheid: vorm, ruimte, mensen en middelen (conceptplaat)",
+   "beeld": "De eenheidspecificatie met haar onderwijsontwerp: vorm, ruimte, mensen en middelen",
    "fase": 1,
    "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
    "verdieping": "onderwijsontwerp met ruimte en middelen",
@@ -961,7 +982,7 @@
   },
   {
    "beeld_id": "F1-06",
-   "beeld": "Het onderwijsontwerp van de eenheid: vorm, ruimte, mensen en middelen (conceptplaat)",
+   "beeld": "De eenheidspecificatie met haar onderwijsontwerp: vorm, ruimte, mensen en middelen",
    "fase": 1,
    "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
    "verdieping": "onderwijsontwerp met ruimte en middelen",
@@ -983,7 +1004,7 @@
   },
   {
    "beeld_id": "F1-06",
-   "beeld": "Het onderwijsontwerp van de eenheid: vorm, ruimte, mensen en middelen (conceptplaat)",
+   "beeld": "De eenheidspecificatie met haar onderwijsontwerp: vorm, ruimte, mensen en middelen",
    "fase": 1,
    "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
    "verdieping": "onderwijsontwerp met ruimte en middelen",
@@ -1004,7 +1025,7 @@
   },
   {
    "beeld_id": "F1-06",
-   "beeld": "Het onderwijsontwerp van de eenheid: vorm, ruimte, mensen en middelen (conceptplaat)",
+   "beeld": "De eenheidspecificatie met haar onderwijsontwerp: vorm, ruimte, mensen en middelen",
    "fase": 1,
    "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
    "verdieping": "onderwijsontwerp met ruimte en middelen",
@@ -1026,7 +1047,7 @@
   },
   {
    "beeld_id": "F1-06",
-   "beeld": "Het onderwijsontwerp van de eenheid: vorm, ruimte, mensen en middelen (conceptplaat)",
+   "beeld": "De eenheidspecificatie met haar onderwijsontwerp: vorm, ruimte, mensen en middelen",
    "fase": 1,
    "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
    "verdieping": "onderwijsontwerp met ruimte en middelen",
@@ -1570,7 +1591,35 @@
   },
   {
    "beeld_id": "F1-10",
-   "beeld": "De examenspecificatie: toetsvorm, instrument en beoordelaar (conceptplaat)",
+   "beeld": "De examenonderdeelspecificatie met haar toetsvorm, instrumenten, materiaal en ruimte",
+   "fase": 1,
+   "stap": "Exameninstrumenten bepalen, inkopen of construeren",
+   "verdieping": "examenvorm, instrument en beoordelaar",
+   "wie": "examencommissie",
+   "soort": "verandert",
+   "objecttype": "Examenonderdeelspecificatie",
+   "instantie": "Proeve van bekwaamheid B1-K1, met vorm, instrumenten en ruimte",
+   "toestand": "uitgewerkt",
+   "bron": "informatiemodel.json: Examenonderdeelspecificatie naar Leeruitkomst, Examenonderdeelspecificatie is een Toetsonderdeel specificatie; leerroute-1-regulier.md, r416 tot r426 (de examencommissie bepaalt de benodigde instrumenten en het materiaal, besluit inkopen of construeren en stelt specificatie, materiaal en instrumenten vast)",
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Examenonderdeelspecificatie",
+     "naar": "Leeruitkomst",
+     "instantie": "Biedt farmaceutische patientenzorg (kerntaakniveau)"
+    },
+    {
+     "soort": "Specialization",
+     "van": "Examenonderdeelspecificatie",
+     "naar": "Toetsonderdeel specificatie"
+    }
+   ],
+   "zin": "De examencommissie werkt de examenonderdeelspecificatie uit zoals de onderwijsontwerper de eenheid: alles hieronder wordt er onderdeel van. De toetsvorm zegt hoe er wordt geexamineerd, het instrument en het materiaal waarmee, het ruimtetype waar het goed af te nemen is, en het profiel wie mag beoordelen. De specificatie zelf verwijst naar de leeruitkomst die het examen aftikt.",
+   "vraag": "De conceptplaat kent toetsvorm, toetsinstrument, examenmateriaal en ruimtetype, maar verbindt ze niet met de examenonderdeelspecificatie van het informatiemodel. Welke van deze onderdelen horen in de uitwisseling op de examenonderdeelspecificatie, en welke blijven binnen de instelling?"
+  },
+  {
+   "beeld_id": "F1-10",
+   "beeld": "De examenonderdeelspecificatie met haar toetsvorm, instrumenten, materiaal en ruimte",
    "fase": 1,
    "stap": "Exameninstrumenten bepalen, inkopen of construeren",
    "plaat": "onderwijsontwerp",
@@ -1588,12 +1637,11 @@
      "instantie": "dezelfde vorm als het onderwijsontwerp, nu voor het examen"
     }
    ],
-   "zin": "De examencommissie legt het examen op dezelfde manier vast als de onderwijsontwerper de eenheid: de toetsvormspecificatie is op de conceptplaat een onderwijsvormspecificatie. Zij bepaalt de toetsvorm, het instrument en het materiaal, besluit inkopen of construeren, en legt vast welke beoordelaar nodig is. De toets verwijst naar de leeruitkomst die zij aftikt, het examen naar de collectie leeruitkomsten en naar de resultaatstructuur.",
    "verdieping": "examenvorm, instrument en beoordelaar"
   },
   {
    "beeld_id": "F1-10",
-   "beeld": "De examenspecificatie: toetsvorm, instrument en beoordelaar (conceptplaat)",
+   "beeld": "De examenonderdeelspecificatie met haar toetsvorm, instrumenten, materiaal en ruimte",
    "fase": 1,
    "stap": "Exameninstrumenten bepalen, inkopen of construeren",
    "plaat": "onderwijsontwerp",
@@ -1612,35 +1660,7 @@
   },
   {
    "beeld_id": "F1-10",
-   "beeld": "De examenspecificatie: toetsvorm, instrument en beoordelaar (conceptplaat)",
-   "fase": 1,
-   "stap": "Exameninstrumenten bepalen, inkopen of construeren",
-   "plaat": "onderwijsontwerp",
-   "wie": "examencommissie",
-   "aanname": true,
-   "soort": "ontstaat",
-   "objecttype": "Toets",
-   "instantie": "Baliegesprek met triage, beoordeeld op de leeruitkomst",
-   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Toetsvorm heeft een Toets; Toets naar Leeruitkomst",
-   "relatie": {
-    "soort": "Association",
-    "van": "Toetsvorm",
-    "naar": "Toets",
-    "label": "heeft een"
-   },
-   "relaties": [
-    {
-     "soort": "Association",
-     "van": "Toets",
-     "naar": "Leeruitkomst",
-     "instantie": "Voert baliegesprek en triage uit (werkprocesniveau)"
-    }
-   ],
-   "verdieping": "examenvorm, instrument en beoordelaar"
-  },
-  {
-   "beeld_id": "F1-10",
-   "beeld": "De examenspecificatie: toetsvorm, instrument en beoordelaar (conceptplaat)",
+   "beeld": "De examenonderdeelspecificatie met haar toetsvorm, instrumenten, materiaal en ruimte",
    "fase": 1,
    "stap": "Exameninstrumenten bepalen, inkopen of construeren",
    "plaat": "onderwijsontwerp",
@@ -1652,7 +1672,7 @@
    "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Toetsvorm naar Toetsinstrument; Toetsinstrument is een Collectie van Leermiddelgroepen; leerroute-1-regulier.md, r416 tot r426 (de examencommissie stelt examenplan en examenspecificaties op, bepaalt de benodigde instrumenten en het materiaal, besluit inkopen of construeren, en stelt specificatie, materiaal en instrumenten vast)",
    "relatie": {
     "soort": "Association",
-    "van": "Toets",
+    "van": "Toetsvorm",
     "naar": "Toetsinstrument"
    },
    "relaties": [
@@ -1667,7 +1687,50 @@
   },
   {
    "beeld_id": "F1-10",
-   "beeld": "De examenspecificatie: toetsvorm, instrument en beoordelaar (conceptplaat)",
+   "beeld": "De examenonderdeelspecificatie met haar toetsvorm, instrumenten, materiaal en ruimte",
+   "fase": 1,
+   "stap": "Exameninstrumenten bepalen, inkopen of construeren",
+   "verdieping": "examenvorm, instrument en beoordelaar",
+   "plaat": "onderwijsontwerp",
+   "wie": "examencommissie",
+   "aanname": true,
+   "soort": "ontstaat",
+   "objecttype": "Leermiddelgroep",
+   "instantie": "Examenmateriaal: oefenrecepten, casuskaarten, baliemateriaal",
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Collectie van Leermiddelgroepen aggregeert Leermiddelgroep; leerroute-1-regulier.md, r416 tot r426 (de examencommissie bepaalt de benodigde instrumenten en het materiaal, besluit inkopen of construeren en stelt specificatie, materiaal en instrumenten vast)",
+   "relaties": [
+    {
+     "soort": "Aggregation",
+     "van": "Collectie van Leermiddelgroepen",
+     "naar": "Leermiddelgroep",
+     "instantie": "het toetsinstrument is zo'n collectie: ingekocht of zelf geconstrueerd"
+    }
+   ]
+  },
+  {
+   "beeld_id": "F1-10",
+   "beeld": "De examenonderdeelspecificatie met haar toetsvorm, instrumenten, materiaal en ruimte",
+   "fase": 1,
+   "stap": "Exameninstrumenten bepalen, inkopen of construeren",
+   "verdieping": "examenvorm, instrument en beoordelaar",
+   "plaat": "onderwijsontwerp",
+   "wie": "examencommissie",
+   "aanname": true,
+   "soort": "ontstaat",
+   "objecttype": "Onderwijsruimte type",
+   "instantie": "Praktijkruimte met baliesimulatie, afsluitbaar voor examinering",
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Les specificatie / toets specificatie aggregeert Onderwijsruimte type",
+   "relaties": [
+    {
+     "soort": "Aggregation",
+     "van": "Les specificatie / toets specificatie",
+     "naar": "Onderwijsruimte type"
+    }
+   ]
+  },
+  {
+   "beeld_id": "F1-10",
+   "beeld": "De examenonderdeelspecificatie met haar toetsvorm, instrumenten, materiaal en ruimte",
    "fase": 1,
    "stap": "Exameninstrumenten bepalen, inkopen of construeren",
    "plaat": "onderwijsontwerp",
@@ -1702,7 +1765,7 @@
   },
   {
    "beeld_id": "F1-10",
-   "beeld": "De examenspecificatie: toetsvorm, instrument en beoordelaar (conceptplaat)",
+   "beeld": "De examenonderdeelspecificatie met haar toetsvorm, instrumenten, materiaal en ruimte",
    "fase": 1,
    "stap": "Exameninstrumenten bepalen, inkopen of construeren",
    "plaat": "onderwijsontwerp",
@@ -1722,7 +1785,7 @@
   },
   {
    "beeld_id": "F1-10",
-   "beeld": "De examenspecificatie: toetsvorm, instrument en beoordelaar (conceptplaat)",
+   "beeld": "De examenonderdeelspecificatie met haar toetsvorm, instrumenten, materiaal en ruimte",
    "fase": 1,
    "stap": "Exameninstrumenten bepalen, inkopen of construeren",
    "plaat": "onderwijsontwerp",

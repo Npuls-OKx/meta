@@ -90,9 +90,9 @@ De fase in detail: [kaderscenario leerroute 1, fase 1](https://github.com/Npuls-
 
 ![ontstaat: Kwalificatiedossier vertalen naar leeruitkomsten, verdieping: van kerntaak naar eenheid en leeronderdelen](img/regels/f1-05-de-eenheidspecificatie-met-haar-leeronderdelen-en-de-gelinkte-leeruitkomsten.svg)
 
-### F1-06 - Het onderwijsontwerp van de eenheid: vorm, ruimte, mensen en middelen (conceptplaat)
+### F1-06 - De eenheidspecificatie met haar onderwijsontwerp: vorm, ruimte, mensen en middelen
 
-![ontstaat: Kwalificatiedossier vertalen naar leeruitkomsten, verdieping: onderwijsontwerp met ruimte en middelen](img/regels/f1-06-het-onderwijsontwerp-van-de-eenheid-vorm-ruimte-mensen-en-middelen-conceptplaat.svg)
+![ontstaat: Kwalificatiedossier vertalen naar leeruitkomsten, verdieping: onderwijsontwerp met ruimte en middelen](img/regels/f1-06-de-eenheidspecificatie-met-haar-onderwijsontwerp-vorm-ruimte-mensen-en-middelen.svg)
 
 ### F1-07 - De opleidingsspecificatie met programma, eenheden en keuzedeelruimte
 
@@ -106,9 +106,9 @@ De fase in detail: [kaderscenario leerroute 1, fase 1](https://github.com/Npuls-
 
 ![ontstaat: Toetsonderdelen en resultaatstructuur uit het examenplan afleiden](img/regels/f1-09-toetsonderdelen-wegingen-en-afrondingscriterium.svg)
 
-### F1-10 - De examenspecificatie: toetsvorm, instrument en beoordelaar (conceptplaat)
+### F1-10 - De examenonderdeelspecificatie met haar toetsvorm, instrumenten, materiaal en ruimte
 
-![ontstaat: Exameninstrumenten bepalen, inkopen of construeren, verdieping: examenvorm, instrument en beoordelaar](img/regels/f1-10-de-examenspecificatie-toetsvorm-instrument-en-beoordelaar-conceptplaat.svg)
+![ontstaat: Exameninstrumenten bepalen, inkopen of construeren, verdieping: examenvorm, instrument en beoordelaar](img/regels/f1-10-de-examenonderdeelspecificatie-met-haar-toetsvorm-instrumenten-materiaal-en-ruimte.svg)
 
 ### F1-11 - De opleiding zoals ontworpen naar de catalogus
 
@@ -526,7 +526,7 @@ De vragen die de regels zelf oproepen, met de regel waar de vraag zichtbaar word
 1. Het kaderscenario zet het examenplan in fase 1 en de resultaatstructuur pas in fase 4 bij OC-SIS. Ontstaat de summatieve resultaatstructuur in de curriculum-ontwerptool uit het examenplan, en gaat zij met de specificatie mee naar de catalogus? (F1-02, `Examenplan`)
 2. Is het cohort een sleutel op aanbod en verbintenis, of een eigen object dat de toepasselijke resultaatstructuur draagt (ontwerpkeuze 17)? (F1-02, `Cohort / periode`)
 3. CompetentNL legt vaardigheden gelaagd vast (skos:broader, drie lagen) en de leeruitkomst is op de plaat gelaagd; Vaardigheid is dat niet. Krijgt Vaardigheid een eigen aggregatie, zodat laag 2 onder laag 1 hangt zoals de leeruitkomst onder de leeruitkomst? (F1-04, `Vaardigheid`)
-4. Het kader waarmee de instelling de kerntaak vormgeeft staat op de conceptplaat (leervormstrategie, leerdoel, onderwijsvorm specificatie, leeromgeving, docentprofiel, studiebelasting), niet op de informatiemodelplaat. Welke daarvan horen in de uitwisseling, bijvoorbeeld op het leeronderdeel, en welke blijven binnen de instelling? (F1-06, `Onderwijsvorm specificatie`)
+4. De conceptplaat kent leervormstrategie, leerdoel, onderwijsvorm, leeromgeving, docentprofiel, studiebelasting en leermiddelen, maar verbindt ze niet met de onderwijseenheid- of leeronderdeelspecificatie van het informatiemodel. Welke daarvan horen in de uitwisseling op de specificatie, en welke blijven binnen de instelling? (F1-06, `Onderwijseenheid specificatie`)
 5. De gewenste leeromgeving is op de conceptplaat een onderwijsruimtetype en daarmee indirect een lokaal, terwijl de onderwijslocatie lokaaltypes aggregeert. Hoort er een relatie tussen onderwijsruimtetype en lokaaltype, zodat de voorsortering op locatie in een stap te leggen is? (F1-06, `Onderwijsruimte type`)
 6. Onder een lokaaltype hoort welke faciliteiten en leermiddelen de ruimte biedt, zoals een servicebalie met een bepaalde capaciteit; MORA kent daarvoor faciliteiten. De conceptplaat koppelt leermiddelgroepen aan het leeronderdeel en aan de lesspecificatie, niet aan het lokaal of het lokaaltype. Hoort die koppeling er, zodat een ruimtevraag op faciliteiten te matchen is? (F1-06, `Lokaaltypes`)
 7. Het gewenste medewerkercompetentieprofiel staat op de conceptplaat los van competenties, vaardigheden en kennis, terwijl de leeruitkomst die structuur wel kent. Hoort onder het docentprofiel dezelfde skills-structuur, zodat de gevraagde expertise in dezelfde termen staat als wat de student leert? (F1-06, `Gewenst medewerker competentieprofiel`)
@@ -561,6 +561,7 @@ Per regel één van vier antwoorden: herken ik dit; heet bij ons anders (welke t
 | 1 | F1-05 | Leeronderdeel specificatie | | | | |
 | 1 | F1-05 | Leeruitkomst | | | | |
 | 1 | F1-05 | Leeronderdeel specificatie | | | | |
+| 1 | F1-06 | Onderwijseenheid specificatie | | | | |
 | 1 | F1-07 | Opleiding specificatie | | | | |
 | 1 | F1-07 | Opleidingsprogramma specificatie | | | | |
 | 1 | F1-07 | Onderwijseenheid specificatie | | | | |
@@ -584,6 +585,7 @@ Per regel één van vier antwoorden: herken ik dit; heet bij ons anders (welke t
 | 1 | F1-09 | Examenonderdeelspecificatie | | | | |
 | 1 | F1-09 | Examenonderdeel weging | | | | |
 | 1 | F1-09 | Summatief Afrondingscriterium | | | | |
+| 1 | F1-10 | Examenonderdeelspecificatie | | | | |
 | 2 | F2-01 | Opleidingsprogramma specificatie | | | | |
 | 2 | F2-01 | Onderwijseenheid specificatie | | | | |
 | 2 | F2-01 | Leeronderdeel specificatie | | | | |
@@ -694,10 +696,11 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 | verandert | Leeruitkomst | Voert medicatiebewaking uit onder begeleiding in de leerapotheek (werkprocesniveau) | informatiemodel.json: Leeruitkomst aggregeert Leeruitkomst; leerroute-1-regulier.md, r1051 (werkproces B1-K1-W2) |
 | verandert | Leeronderdeel specificatie | B1-K1-W2 Medicatiebewaking | informatiemodel.json: Onderwijseenheid specificatie aggregeert Leeronderdeel specificatie, Leeronderdeel specificatie naar Leeruitkomst; leerroute-1-regulier.md, r1051 |
 
-**F1-06 - Het onderwijsontwerp van de eenheid: vorm, ruimte, mensen en middelen (conceptplaat)** (fase 1, Kwalificatiedossier vertalen naar leeruitkomsten; [f1-06-het-onderwijsontwerp-van-de-eenheid-vorm-ruimte-mensen-en-middelen-conceptplaat.svg](img/regels/f1-06-het-onderwijsontwerp-van-de-eenheid-vorm-ruimte-mensen-en-middelen-conceptplaat.svg))
+**F1-06 - De eenheidspecificatie met haar onderwijsontwerp: vorm, ruimte, mensen en middelen** (fase 1, Kwalificatiedossier vertalen naar leeruitkomsten; [f1-06-de-eenheidspecificatie-met-haar-onderwijsontwerp-vorm-ruimte-mensen-en-middelen.svg](img/regels/f1-06-de-eenheidspecificatie-met-haar-onderwijsontwerp-vorm-ruimte-mensen-en-middelen.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
+| verandert | Onderwijseenheid specificatie | Blok B1-K1, met vorm, ruimte, mensen en middelen | informatiemodel.json: Onderwijseenheid specificatie aggregeert Leeronderdeel specificatie en verwijst naar Leeruitkomst; leerroute-1-regulier.md, r1021 (op leeronderdeelniveau staan de organiseerbaarheidswaarden) |
 | ontstaat (conceptplaat) | Leervormstrategie | Leren door te doen in een levensechte omgeving, theorie ondersteunend | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Strategisch kader instelling, Leervormstrategie naar Onderwijsvorm specificatie |
 | ontstaat (conceptplaat) | Leerdoel | Zelfstandig farmaceutische patiëntenzorg bieden in een levensechte setting | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Kerntaak 'Word onderwijskundig vertaald tot' Leerdoel; leerroute-1-regulier.md, r1046 en r1052 |
 | ontstaat (conceptplaat) | Onderwijsvorm specificatie | Simulatie in de leerapotheek, theorie ondersteunend | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Leeruitkomst naar Onderwijsvorm specificatie; leerroute-1-regulier.md, r1046 en r1052 |
@@ -753,14 +756,16 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 | ontstaat | Examenonderdeel weging | Proeve van bekwaamheid B1-K1: weging 2 | [voorbeeldpayloads.md](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Datamodelschema's/voorbeeldpayloads.md), toetsonderdelen (941f180d): weging 2 |
 | ontstaat | Summatief Afrondingscriterium | Alle kerntaken en de keuzedelen voldoende | [voorbeeldpayloads.md](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Datamodelschema's/voorbeeldpayloads.md), resultaatstructuur: aggregatie allenVoldoende |
 
-**F1-10 - De examenspecificatie: toetsvorm, instrument en beoordelaar (conceptplaat)** (fase 1, Exameninstrumenten bepalen, inkopen of construeren; [f1-10-de-examenspecificatie-toetsvorm-instrument-en-beoordelaar-conceptplaat.svg](img/regels/f1-10-de-examenspecificatie-toetsvorm-instrument-en-beoordelaar-conceptplaat.svg))
+**F1-10 - De examenonderdeelspecificatie met haar toetsvorm, instrumenten, materiaal en ruimte** (fase 1, Exameninstrumenten bepalen, inkopen of construeren; [f1-10-de-examenonderdeelspecificatie-met-haar-toetsvorm-instrumenten-materiaal-en-ruimte.svg](img/regels/f1-10-de-examenonderdeelspecificatie-met-haar-toetsvorm-instrumenten-materiaal-en-ruimte.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
+| verandert | Examenonderdeelspecificatie | Proeve van bekwaamheid B1-K1, met vorm, instrumenten en ruimte | informatiemodel.json: Examenonderdeelspecificatie naar Leeruitkomst, Examenonderdeelspecificatie is een Toetsonderdeel specificatie; leerroute-1-regulier.md, r416 tot r426 (de examencommissie bepaalt de benodigde instrumenten en het materiaal, besluit inkopen of construeren en stelt specificatie, materiaal en instrumenten vast) |
 | ontstaat (conceptplaat) | Toetsvormspecificatie | Proeve van bekwaamheid in de simulatieapotheek | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Toetsvormspecificatie is een Onderwijsvorm specificatie en een Toetsvorm; leerroute-1-regulier.md, r416 tot r426 (de examencommissie stelt examenplan en examenspecificaties op, bepaalt de benodigde instrumenten en het materiaal, besluit inkopen of construeren, en stelt specificatie, materiaal en instrumenten vast) |
 | ontstaat (conceptplaat) | Toetsvorm | Praktijkbeoordeling aan de balie, 45 minuten | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Toetsvormspecificatie is een Toetsvorm, Toetsvorm heeft een Toets en verwijst naar Toetsinstrument |
-| ontstaat (conceptplaat) | Toets | Baliegesprek met triage, beoordeeld op de leeruitkomst | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Toetsvorm heeft een Toets; Toets naar Leeruitkomst |
 | ontstaat (conceptplaat) | Toetsinstrument | Beoordelingsformulier met rubric, ingekocht bij de branche | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Toetsvorm naar Toetsinstrument; Toetsinstrument is een Collectie van Leermiddelgroepen; leerroute-1-regulier.md, r416 tot r426 (de examencommissie stelt examenplan en examenspecificaties op, bepaalt de benodigde instrumenten en het materiaal, besluit inkopen of construeren, en stelt specificatie, materiaal en instrumenten vast) |
+| ontstaat (conceptplaat) | Leermiddelgroep | Examenmateriaal: oefenrecepten, casuskaarten, baliemateriaal | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Collectie van Leermiddelgroepen aggregeert Leermiddelgroep; leerroute-1-regulier.md, r416 tot r426 (de examencommissie bepaalt de benodigde instrumenten en het materiaal, besluit inkopen of construeren en stelt specificatie, materiaal en instrumenten vast) |
+| ontstaat (conceptplaat) | Onderwijsruimte type | Praktijkruimte met baliesimulatie, afsluitbaar voor examinering | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Les specificatie / toets specificatie aggregeert Onderwijsruimte type |
 | ontstaat (conceptplaat) | Examen | Proeve van bekwaamheid B1-K1 | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Examenplan is uitgewekt in Examen; Examen naar Collectie van leeruitkomsten en naar Summatieve resultaat structuur |
 | ontstaat (conceptplaat) | Examen instrument | Beoordelingsformulier proeve B1-K1, vastgesteld | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Examen instrument Wordt afgenomen door middel van Examen; leerroute-1-regulier.md, r416 tot r426 (de examencommissie stelt examenplan en examenspecificaties op, bepaalt de benodigde instrumenten en het materiaal, besluit inkopen of construeren, en stelt specificatie, materiaal en instrumenten vast) |
 | ontstaat (conceptplaat) | Gewenst medewerker competentieprofiel | Examinator met baliepraktijk en toetsbekwaamheid | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Gewenst medewerker competentieprofiel naar Toetsvormspecificatie |
