@@ -1614,8 +1614,8 @@
      "naar": "Toetsonderdeel specificatie"
     }
    ],
-   "zin": "De examencommissie werkt de examenonderdeelspecificatie uit zoals de onderwijsontwerper de eenheid: alles hieronder wordt er onderdeel van. De toetsvorm zegt hoe er wordt geexamineerd, het instrument en het materiaal waarmee, het ruimtetype waar het goed af te nemen is, en het profiel wie mag beoordelen. De specificatie zelf verwijst naar de leeruitkomst die het examen aftikt.",
-   "vraag": "De conceptplaat kent toetsvorm, toetsinstrument, examenmateriaal en ruimtetype, maar verbindt ze niet met de examenonderdeelspecificatie van het informatiemodel. Welke van deze onderdelen horen in de uitwisseling op de examenonderdeelspecificatie, en welke blijven binnen de instelling?"
+   "zin": "De examencommissie werkt de examenonderdeelspecificatie uit zoals de onderwijsontwerper de eenheid: alles hieronder wordt er onderdeel van. De toetsvorm zegt hoe er wordt geexamineerd, het instrument en het materiaal waarmee, het ruimtetype waar het goed af te nemen is, en het profiel wie mag beoordelen, met de skills die daarbij horen. De specificatie zelf verwijst naar de leeruitkomst die het examen aftikt; de afname volgt in fase 2 als examenmoment met instrument.",
+   "vraag": "De conceptplaat kent Examen als uitwerking van het examenplan, gekoppeld aan de collectie leeruitkomsten en aan de summatieve resultaatstructuur; het informatiemodel kent daarvoor de examenonderdeelspecificatie. Dat lijkt hetzelfde object onder twee namen. Dezelfde vraag geldt voor het instrument: de conceptplaat kent zowel Toetsinstrument (bij de vorm en het materiaal) als Examen instrument (bij het examenmoment). Welke namen houdt het model over?"
   },
   {
    "beeld_id": "F1-10",
@@ -1737,61 +1737,6 @@
    "wie": "examencommissie",
    "aanname": true,
    "soort": "ontstaat",
-   "objecttype": "Examen",
-   "instantie": "Proeve van bekwaamheid B1-K1",
-   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Examenplan is uitgewekt in Examen; Examen naar Collectie van leeruitkomsten en naar Summatieve resultaat structuur",
-   "relaties": [
-    {
-     "soort": "Association",
-     "van": "Examenplan",
-     "naar": "Examen",
-     "label": "is uitgewekt in",
-     "instantie": "Examenplan Apothekersassistent, cohort 2026"
-    },
-    {
-     "soort": "Association",
-     "van": "Examen",
-     "naar": "Collectie van leeruitkomsten",
-     "instantie": "de leeruitkomsten van kerntaak B1-K1"
-    },
-    {
-     "soort": "Association",
-     "van": "Examen",
-     "naar": "Summatieve resultaat structuur",
-     "label": "Functionele koppeling aan"
-    }
-   ],
-   "verdieping": "examenvorm, instrument en beoordelaar"
-  },
-  {
-   "beeld_id": "F1-10",
-   "beeld": "De examenonderdeelspecificatie met haar toetsvorm, instrumenten, materiaal en ruimte",
-   "fase": 1,
-   "stap": "Exameninstrumenten bepalen, inkopen of construeren",
-   "plaat": "onderwijsontwerp",
-   "wie": "examencommissie",
-   "aanname": true,
-   "soort": "ontstaat",
-   "objecttype": "Examen instrument",
-   "instantie": "Beoordelingsformulier proeve B1-K1, vastgesteld",
-   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Examen instrument Wordt afgenomen door middel van Examen; leerroute-1-regulier.md, r416 tot r426 (de examencommissie stelt examenplan en examenspecificaties op, bepaalt de benodigde instrumenten en het materiaal, besluit inkopen of construeren, en stelt specificatie, materiaal en instrumenten vast)",
-   "relatie": {
-    "soort": "Association",
-    "van": "Examen instrument",
-    "naar": "Examen",
-    "label": "Wordt afgenomen door middel van"
-   },
-   "verdieping": "examenvorm, instrument en beoordelaar"
-  },
-  {
-   "beeld_id": "F1-10",
-   "beeld": "De examenonderdeelspecificatie met haar toetsvorm, instrumenten, materiaal en ruimte",
-   "fase": 1,
-   "stap": "Exameninstrumenten bepalen, inkopen of construeren",
-   "plaat": "onderwijsontwerp",
-   "wie": "examencommissie",
-   "aanname": true,
-   "soort": "ontstaat",
    "objecttype": "Gewenst medewerker competentieprofiel",
    "instantie": "Examinator met baliepraktijk en toetsbekwaamheid",
    "nieuwe_instantie": true,
@@ -1806,6 +1751,63 @@
    ],
    "vraag": "Het kaderscenario legt het examenspoor bij de examencommissie, met eigen stappen voor het bepalen, inkopen of construeren van instrumenten. Kent de instelling daarvoor een eigen rol, bijvoorbeeld een toets- of examendeskundige naast de commissie, en hoort die rol in de rollenlijst van dit voorbeeld?",
    "verdieping": "examenvorm, instrument en beoordelaar"
+  },
+  {
+   "beeld_id": "F1-10",
+   "beeld": "De examenonderdeelspecificatie met haar toetsvorm, instrumenten, materiaal en ruimte",
+   "fase": 1,
+   "stap": "Exameninstrumenten bepalen, inkopen of construeren",
+   "verdieping": "examenvorm, instrument en beoordelaar",
+   "plaat": "onderwijsontwerp",
+   "wie": "examencommissie",
+   "aanname": true,
+   "soort": "ontstaat",
+   "objecttype": "Competenties / skills",
+   "instantie": "Profiel examinator: de skills die de instelling bij dit type verwacht",
+   "nieuwe_instantie": true,
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Competenties / skills aggregeert Vaardigheid, Kennis en Inzicht; CompetentNL ontologie 2.1.0 (competentnl.nl, TTL, gewijzigd 14 juli 2026): cnlo:HumanCapability (Vaardigheid) gelaagd via skos:broader; cnlo:KnowledgeArea (Kennisgebied) op ISCED-F"
+  },
+  {
+   "beeld_id": "F1-10",
+   "beeld": "De examenonderdeelspecificatie met haar toetsvorm, instrumenten, materiaal en ruimte",
+   "fase": 1,
+   "stap": "Exameninstrumenten bepalen, inkopen of construeren",
+   "verdieping": "examenvorm, instrument en beoordelaar",
+   "plaat": "onderwijsontwerp",
+   "wie": "examencommissie",
+   "aanname": true,
+   "soort": "ontstaat",
+   "objecttype": "Vaardigheid",
+   "instantie": "Beoordelen en feedback geven (CompetentNL laag 2)",
+   "nieuwe_instantie": true,
+   "bron": "CompetentNL ontologie 2.1.0 (competentnl.nl, TTL, gewijzigd 14 juli 2026): cnlo:HumanCapability (Vaardigheid) gelaagd via skos:broader; cnlo:KnowledgeArea (Kennisgebied) op ISCED-F",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Competenties / skills",
+    "naar": "Vaardigheid",
+    "nesting": true
+   }
+  },
+  {
+   "beeld_id": "F1-10",
+   "beeld": "De examenonderdeelspecificatie met haar toetsvorm, instrumenten, materiaal en ruimte",
+   "fase": 1,
+   "stap": "Exameninstrumenten bepalen, inkopen of construeren",
+   "verdieping": "examenvorm, instrument en beoordelaar",
+   "plaat": "onderwijsontwerp",
+   "wie": "examencommissie",
+   "aanname": true,
+   "soort": "ontstaat",
+   "objecttype": "Kennis",
+   "instantie": "Farmacie en toetsing (ISCED-F 0916)",
+   "nieuwe_instantie": true,
+   "bron": "CompetentNL ontologie 2.1.0 (competentnl.nl, TTL, gewijzigd 14 juli 2026): cnlo:HumanCapability (Vaardigheid) gelaagd via skos:broader; cnlo:KnowledgeArea (Kennisgebied) op ISCED-F",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Competenties / skills",
+    "naar": "Kennis",
+    "nesting": true
+   }
   },
   {
    "beeld_id": "F1-11",
