@@ -16,6 +16,7 @@
     "Opleidingsspecificatie met programma en eenheden beschrijven",
     "Keuzedeelprogramma als eigen specificatie vormgeven",
     "Toetsonderdelen en resultaatstructuur uit het examenplan afleiden",
+    "Exameninstrumenten bepalen, inkopen of construeren",
     "Grofmazig resultaat publiceren naar de onderwijscatalogus"
    ],
    "verwacht": [
@@ -851,14 +852,15 @@
    "aanname": true,
    "soort": "ontstaat",
    "objecttype": "Lokaaltypes",
-   "instantie": "Praktijklokalen met baliesimulatie",
+   "instantie": "Praktijklokalen met servicebalie, 24 plaatsen",
    "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Onderwijs locatie aggregeert Lokaaltypes",
    "relatie": {
     "soort": "Aggregation",
     "van": "Onderwijs locatie",
     "naar": "Lokaaltypes",
     "nesting": true
-   }
+   },
+   "vraag": "Onder een lokaaltype hoort welke faciliteiten en leermiddelen de ruimte biedt, zoals een servicebalie met een bepaalde capaciteit; MORA kent daarvoor faciliteiten. De conceptplaat koppelt leermiddelgroepen aan het leeronderdeel en aan de lesspecificatie, niet aan het lokaal of het lokaaltype. Hoort die koppeling er, zodat een ruimtevraag op faciliteiten te matchen is?"
   },
   {
    "beeld_id": "F1-06",
@@ -900,6 +902,61 @@
     "van": "Medewerker Type / Expertise Profiel",
     "naar": "Gewenst medewerker competentieprofiel",
     "label": "Heeft meerdere"
+   }
+  },
+  {
+   "beeld_id": "F1-06",
+   "beeld": "Het onderwijsontwerp van de eenheid: vorm, ruimte, mensen en middelen (conceptplaat)",
+   "fase": 1,
+   "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
+   "verdieping": "onderwijsontwerp met ruimte en middelen",
+   "plaat": "onderwijsontwerp",
+   "wie": "onderwijsontwerper",
+   "aanname": true,
+   "soort": "ontstaat",
+   "objecttype": "Competenties / skills",
+   "instantie": "Profiel docent farmacie: de skills die de instelling bij dit type verwacht",
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Competenties / skills aggregeert Vaardigheid, Kennis en Inzicht; CompetentNL ontologie 2.1.0 (competentnl.nl, TTL, gewijzigd 14 juli 2026): cnlo:HumanCapability (Vaardigheid) gelaagd via skos:broader; cnlo:KnowledgeArea (Kennisgebied) op ISCED-F",
+   "vraag": "Een expertiseprofiel is voor de instelling een verzameling skills, maar de conceptplaat verbindt competenties en vaardigheden alleen met de student, niet met het medewerkertype of het gewenste medewerkerprofiel. Hoort die koppeling er, zodat docentexpertise in dezelfde termen staat als wat de student leert?"
+  },
+  {
+   "beeld_id": "F1-06",
+   "beeld": "Het onderwijsontwerp van de eenheid: vorm, ruimte, mensen en middelen (conceptplaat)",
+   "fase": 1,
+   "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
+   "verdieping": "onderwijsontwerp met ruimte en middelen",
+   "plaat": "onderwijsontwerp",
+   "wie": "onderwijsontwerper",
+   "aanname": true,
+   "soort": "ontstaat",
+   "objecttype": "Vaardigheid",
+   "instantie": "Didactische en communicatieve vaardigheden (CompetentNL laag 2)",
+   "bron": "CompetentNL ontologie 2.1.0 (competentnl.nl, TTL, gewijzigd 14 juli 2026): cnlo:HumanCapability (Vaardigheid) gelaagd via skos:broader; cnlo:KnowledgeArea (Kennisgebied) op ISCED-F",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Competenties / skills",
+    "naar": "Vaardigheid",
+    "nesting": true
+   }
+  },
+  {
+   "beeld_id": "F1-06",
+   "beeld": "Het onderwijsontwerp van de eenheid: vorm, ruimte, mensen en middelen (conceptplaat)",
+   "fase": 1,
+   "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
+   "verdieping": "onderwijsontwerp met ruimte en middelen",
+   "plaat": "onderwijsontwerp",
+   "wie": "onderwijsontwerper",
+   "aanname": true,
+   "soort": "ontstaat",
+   "objecttype": "Kennis",
+   "instantie": "Farmacie (ISCED-F 0916)",
+   "bron": "CompetentNL ontologie 2.1.0 (competentnl.nl, TTL, gewijzigd 14 juli 2026): cnlo:HumanCapability (Vaardigheid) gelaagd via skos:broader; cnlo:KnowledgeArea (Kennisgebied) op ISCED-F",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Competenties / skills",
+    "naar": "Kennis",
+    "nesting": true
    }
   },
   {
@@ -1411,11 +1468,11 @@
    "fase": 1,
    "stap": "Toetsonderdelen en resultaatstructuur uit het examenplan afleiden",
    "soort": "verandert",
-   "wie": "onderwijsontwerper",
+   "wie": "examencommissie",
    "objecttype": "Summatieve resultaat structuur",
    "instantie": "Resultaatstructuur Apothekersassistent, alle onderdelen voldoende",
    "bron": "voorbeeldpayloads.md, resultaatstructuur (08b4656d): aggregatie allenVoldoende",
-   "zin": "Uit de eerste opzet leidt de onderwijsontwerper af hoe de onderdelen summatief aan elkaar hangen: toetsonderdelen, wegingen en afrondingscriterium.",
+   "zin": "De examencommissie leidt uit het examenplan de toets- en examenonderdelen af en hangt ze aan de resultaatstructuur, met de weging en het afrondingscriterium. Elk onderdeel verwijst naar de leeruitkomst die het aftikt.",
    "toestand": "uitgewerkt",
    "relaties": [
     {
@@ -1432,7 +1489,7 @@
    "fase": 1,
    "stap": "Toetsonderdelen en resultaatstructuur uit het examenplan afleiden",
    "soort": "ontstaat",
-   "wie": "onderwijsontwerper",
+   "wie": "examencommissie",
    "objecttype": "Toetsonderdeel specificatie",
    "instantie": "Praktijktoets baliegesprek (OSCE), summatief",
    "bron": "leerroute-1-regulier.md, r1114 tot 1117",
@@ -1457,7 +1514,7 @@
    "fase": 1,
    "stap": "Toetsonderdelen en resultaatstructuur uit het examenplan afleiden",
    "soort": "ontstaat",
-   "wie": "onderwijsontwerper",
+   "wie": "examencommissie",
    "objecttype": "Examenonderdeelspecificatie",
    "instantie": "Proeve van bekwaamheid B1-K1",
    "bron": "geen bron, keuze van het voorbeeld: het kaderscenario noemt een examenplan zonder onderdelen",
@@ -1482,7 +1539,7 @@
    "fase": 1,
    "stap": "Toetsonderdelen en resultaatstructuur uit het examenplan afleiden",
    "soort": "ontstaat",
-   "wie": "onderwijsontwerper",
+   "wie": "examencommissie",
    "objecttype": "Examenonderdeel weging",
    "instantie": "Proeve van bekwaamheid B1-K1: weging 2",
    "bron": "voorbeeldpayloads.md, toetsonderdelen (941f180d): weging 2",
@@ -1501,7 +1558,7 @@
    "fase": 1,
    "stap": "Toetsonderdelen en resultaatstructuur uit het examenplan afleiden",
    "soort": "ontstaat",
-   "wie": "onderwijsontwerper",
+   "wie": "examencommissie",
    "objecttype": "Summatief Afrondingscriterium",
    "instantie": "Alle kerntaken en de keuzedelen voldoende",
    "bron": "voorbeeldpayloads.md, resultaatstructuur: aggregatie allenVoldoende",
@@ -1513,6 +1570,182 @@
   },
   {
    "beeld_id": "F1-10",
+   "beeld": "De examenspecificatie: toetsvorm, instrument en beoordelaar (conceptplaat)",
+   "fase": 1,
+   "stap": "Exameninstrumenten bepalen, inkopen of construeren",
+   "plaat": "onderwijsontwerp",
+   "wie": "examencommissie",
+   "aanname": true,
+   "soort": "ontstaat",
+   "objecttype": "Toetsvormspecificatie",
+   "instantie": "Proeve van bekwaamheid in de simulatieapotheek",
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Toetsvormspecificatie is een Onderwijsvorm specificatie en een Toetsvorm; leerroute-1-regulier.md, r416 tot r426 (de examencommissie stelt examenplan en examenspecificaties op, bepaalt de benodigde instrumenten en het materiaal, besluit inkopen of construeren, en stelt specificatie, materiaal en instrumenten vast)",
+   "relaties": [
+    {
+     "soort": "Specialization",
+     "van": "Toetsvormspecificatie",
+     "naar": "Onderwijsvorm specificatie",
+     "instantie": "dezelfde vorm als het onderwijsontwerp, nu voor het examen"
+    }
+   ],
+   "zin": "De examencommissie legt het examen op dezelfde manier vast als de onderwijsontwerper de eenheid: de toetsvormspecificatie is op de conceptplaat een onderwijsvormspecificatie. Zij bepaalt de toetsvorm, het instrument en het materiaal, besluit inkopen of construeren, en legt vast welke beoordelaar nodig is. De toets verwijst naar de leeruitkomst die zij aftikt, het examen naar de collectie leeruitkomsten en naar de resultaatstructuur.",
+   "verdieping": "examenvorm, instrument en beoordelaar"
+  },
+  {
+   "beeld_id": "F1-10",
+   "beeld": "De examenspecificatie: toetsvorm, instrument en beoordelaar (conceptplaat)",
+   "fase": 1,
+   "stap": "Exameninstrumenten bepalen, inkopen of construeren",
+   "plaat": "onderwijsontwerp",
+   "wie": "examencommissie",
+   "aanname": true,
+   "soort": "ontstaat",
+   "objecttype": "Toetsvorm",
+   "instantie": "Praktijkbeoordeling aan de balie, 45 minuten",
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Toetsvormspecificatie is een Toetsvorm, Toetsvorm heeft een Toets en verwijst naar Toetsinstrument",
+   "relatie": {
+    "soort": "Specialization",
+    "van": "Toetsvormspecificatie",
+    "naar": "Toetsvorm"
+   },
+   "verdieping": "examenvorm, instrument en beoordelaar"
+  },
+  {
+   "beeld_id": "F1-10",
+   "beeld": "De examenspecificatie: toetsvorm, instrument en beoordelaar (conceptplaat)",
+   "fase": 1,
+   "stap": "Exameninstrumenten bepalen, inkopen of construeren",
+   "plaat": "onderwijsontwerp",
+   "wie": "examencommissie",
+   "aanname": true,
+   "soort": "ontstaat",
+   "objecttype": "Toets",
+   "instantie": "Baliegesprek met triage, beoordeeld op de leeruitkomst",
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Toetsvorm heeft een Toets; Toets naar Leeruitkomst",
+   "relatie": {
+    "soort": "Association",
+    "van": "Toetsvorm",
+    "naar": "Toets",
+    "label": "heeft een"
+   },
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Toets",
+     "naar": "Leeruitkomst",
+     "instantie": "Voert baliegesprek en triage uit (werkprocesniveau)"
+    }
+   ],
+   "verdieping": "examenvorm, instrument en beoordelaar"
+  },
+  {
+   "beeld_id": "F1-10",
+   "beeld": "De examenspecificatie: toetsvorm, instrument en beoordelaar (conceptplaat)",
+   "fase": 1,
+   "stap": "Exameninstrumenten bepalen, inkopen of construeren",
+   "plaat": "onderwijsontwerp",
+   "wie": "examencommissie",
+   "aanname": true,
+   "soort": "ontstaat",
+   "objecttype": "Toetsinstrument",
+   "instantie": "Beoordelingsformulier met rubric, ingekocht bij de branche",
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Toetsvorm naar Toetsinstrument; Toetsinstrument is een Collectie van Leermiddelgroepen; leerroute-1-regulier.md, r416 tot r426 (de examencommissie stelt examenplan en examenspecificaties op, bepaalt de benodigde instrumenten en het materiaal, besluit inkopen of construeren, en stelt specificatie, materiaal en instrumenten vast)",
+   "relatie": {
+    "soort": "Association",
+    "van": "Toets",
+    "naar": "Toetsinstrument"
+   },
+   "relaties": [
+    {
+     "soort": "Specialization",
+     "van": "Toetsinstrument",
+     "naar": "Collectie van Leermiddelgroepen",
+     "instantie": "het materiaal bij de toets: ingekocht of zelf geconstrueerd"
+    }
+   ],
+   "verdieping": "examenvorm, instrument en beoordelaar"
+  },
+  {
+   "beeld_id": "F1-10",
+   "beeld": "De examenspecificatie: toetsvorm, instrument en beoordelaar (conceptplaat)",
+   "fase": 1,
+   "stap": "Exameninstrumenten bepalen, inkopen of construeren",
+   "plaat": "onderwijsontwerp",
+   "wie": "examencommissie",
+   "aanname": true,
+   "soort": "ontstaat",
+   "objecttype": "Examen",
+   "instantie": "Proeve van bekwaamheid B1-K1",
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Examenplan is uitgewekt in Examen; Examen naar Collectie van leeruitkomsten en naar Summatieve resultaat structuur",
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Examenplan",
+     "naar": "Examen",
+     "label": "is uitgewekt in",
+     "instantie": "Examenplan Apothekersassistent, cohort 2026"
+    },
+    {
+     "soort": "Association",
+     "van": "Examen",
+     "naar": "Collectie van leeruitkomsten",
+     "instantie": "de leeruitkomsten van kerntaak B1-K1"
+    },
+    {
+     "soort": "Association",
+     "van": "Examen",
+     "naar": "Summatieve resultaat structuur",
+     "label": "Functionele koppeling aan"
+    }
+   ],
+   "verdieping": "examenvorm, instrument en beoordelaar"
+  },
+  {
+   "beeld_id": "F1-10",
+   "beeld": "De examenspecificatie: toetsvorm, instrument en beoordelaar (conceptplaat)",
+   "fase": 1,
+   "stap": "Exameninstrumenten bepalen, inkopen of construeren",
+   "plaat": "onderwijsontwerp",
+   "wie": "examencommissie",
+   "aanname": true,
+   "soort": "ontstaat",
+   "objecttype": "Examen instrument",
+   "instantie": "Beoordelingsformulier proeve B1-K1, vastgesteld",
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Examen instrument Wordt afgenomen door middel van Examen; leerroute-1-regulier.md, r416 tot r426 (de examencommissie stelt examenplan en examenspecificaties op, bepaalt de benodigde instrumenten en het materiaal, besluit inkopen of construeren, en stelt specificatie, materiaal en instrumenten vast)",
+   "relatie": {
+    "soort": "Association",
+    "van": "Examen instrument",
+    "naar": "Examen",
+    "label": "Wordt afgenomen door middel van"
+   },
+   "verdieping": "examenvorm, instrument en beoordelaar"
+  },
+  {
+   "beeld_id": "F1-10",
+   "beeld": "De examenspecificatie: toetsvorm, instrument en beoordelaar (conceptplaat)",
+   "fase": 1,
+   "stap": "Exameninstrumenten bepalen, inkopen of construeren",
+   "plaat": "onderwijsontwerp",
+   "wie": "examencommissie",
+   "aanname": true,
+   "soort": "ontstaat",
+   "objecttype": "Gewenst medewerker competentieprofiel",
+   "instantie": "Examinator met baliepraktijk en toetsbekwaamheid",
+   "nieuwe_instantie": true,
+   "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Gewenst medewerker competentieprofiel naar Toetsvormspecificatie",
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Gewenst medewerker competentieprofiel",
+     "naar": "Toetsvormspecificatie",
+     "instantie": "Proeve van bekwaamheid in de simulatieapotheek"
+    }
+   ],
+   "vraag": "Het kaderscenario legt het examenspoor bij de examencommissie, met eigen stappen voor het bepalen, inkopen of construeren van instrumenten. Kent de instelling daarvoor een eigen rol, bijvoorbeeld een toets- of examendeskundige naast de commissie, en hoort die rol in de rollenlijst van dit voorbeeld?",
+   "verdieping": "examenvorm, instrument en beoordelaar"
+  },
+  {
+   "beeld_id": "F1-11",
    "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1527,7 +1760,7 @@
    "zin": "De opleiding zoals ontworpen gaat als gelinkt geheel naar de catalogus: leeruitkomsten met hun skills, de specificatiestructuur met het onderwijsontwerp (paars: conceptplaat) en de resultaatstructuur; alles verwijst naar de leeruitkomst. Op v1.7 zit de ontwerptool binnen de catalogus, dus geen aparte pijl."
   },
   {
-   "beeld_id": "F1-10",
+   "beeld_id": "F1-11",
    "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1547,7 +1780,7 @@
    }
   },
   {
-   "beeld_id": "F1-10",
+   "beeld_id": "F1-11",
    "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1567,7 +1800,7 @@
    }
   },
   {
-   "beeld_id": "F1-10",
+   "beeld_id": "F1-11",
    "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1588,7 +1821,7 @@
    }
   },
   {
-   "beeld_id": "F1-10",
+   "beeld_id": "F1-11",
    "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1609,7 +1842,7 @@
    }
   },
   {
-   "beeld_id": "F1-10",
+   "beeld_id": "F1-11",
    "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1630,7 +1863,7 @@
    }
   },
   {
-   "beeld_id": "F1-10",
+   "beeld_id": "F1-11",
    "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1644,7 +1877,7 @@
    "bron": "leerroute-1-regulier.md, Fase 1: Curriculum-ontwerptool naar OC, alles op grofmazig niveau"
   },
   {
-   "beeld_id": "F1-10",
+   "beeld_id": "F1-11",
    "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1664,7 +1897,7 @@
    }
   },
   {
-   "beeld_id": "F1-10",
+   "beeld_id": "F1-11",
    "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1692,7 +1925,7 @@
    ]
   },
   {
-   "beeld_id": "F1-10",
+   "beeld_id": "F1-11",
    "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1720,7 +1953,7 @@
    ]
   },
   {
-   "beeld_id": "F1-10",
+   "beeld_id": "F1-11",
    "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1739,7 +1972,7 @@
    }
   },
   {
-   "beeld_id": "F1-10",
+   "beeld_id": "F1-11",
    "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1758,7 +1991,7 @@
    }
   },
   {
-   "beeld_id": "F1-10",
+   "beeld_id": "F1-11",
    "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1774,7 +2007,7 @@
    "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Onderwijsplan bevat Onderwijseenheid / Opleidingsonderdeel"
   },
   {
-   "beeld_id": "F1-10",
+   "beeld_id": "F1-11",
    "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1810,7 +2043,7 @@
    ]
   },
   {
-   "beeld_id": "F1-10",
+   "beeld_id": "F1-11",
    "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1839,7 +2072,7 @@
    ]
   },
   {
-   "beeld_id": "F1-10",
+   "beeld_id": "F1-11",
    "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1868,7 +2101,7 @@
    ]
   },
   {
-   "beeld_id": "F1-10",
+   "beeld_id": "F1-11",
    "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1897,7 +2130,7 @@
    ]
   },
   {
-   "beeld_id": "F1-10",
+   "beeld_id": "F1-11",
    "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1920,7 +2153,7 @@
    "aanname": true
   },
   {
-   "beeld_id": "F1-10",
+   "beeld_id": "F1-11",
    "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1948,7 +2181,7 @@
    ]
   },
   {
-   "beeld_id": "F1-10",
+   "beeld_id": "F1-11",
    "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1976,7 +2209,7 @@
    "aanname": true
   },
   {
-   "beeld_id": "F1-10",
+   "beeld_id": "F1-11",
    "beeld": "De opleiding zoals ontworpen naar de catalogus",
    "fase": 1,
    "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",

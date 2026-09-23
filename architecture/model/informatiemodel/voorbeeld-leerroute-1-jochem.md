@@ -41,7 +41,7 @@ Alle stromen die dit voorbeeld gebruikt, met de beelden waarin ze voorkomen:
 
 | Van | Naar | Op de hoofdplaat | Beelden |
 |---|---|---|---|
-| Curriculum ontwerptool | Onderwijscatalogus | geen pijl op de hoofdplaat | F1-10 |
+| Curriculum ontwerptool | Onderwijscatalogus | geen pijl op de hoofdplaat | F1-11 |
 | Onderwijscatalogus | Planningssysteem | OC-P&R | F2-03 |
 | Planningssysteem | Onderwijscatalogus | OC-P&R | F2-07, F6-06, F7-05 |
 | Onderwijscatalogus | Kernregistratie systeem studenten (KRS) | OC-SIS | F3-01, F4-04 |
@@ -106,9 +106,13 @@ De fase in detail: [kaderscenario leerroute 1, fase 1](https://github.com/Npuls-
 
 ![ontstaat: Toetsonderdelen en resultaatstructuur uit het examenplan afleiden](img/regels/f1-09-toetsonderdelen-wegingen-en-afrondingscriterium.svg)
 
-### F1-10 - De opleiding zoals ontworpen naar de catalogus
+### F1-10 - De examenspecificatie: toetsvorm, instrument en beoordelaar (conceptplaat)
 
-![stroomt: Grofmazig resultaat publiceren naar de onderwijscatalogus](img/regels/f1-10-de-opleiding-zoals-ontworpen-naar-de-catalogus.svg)
+![ontstaat: Exameninstrumenten bepalen, inkopen of construeren, verdieping: examenvorm, instrument en beoordelaar](img/regels/f1-10-de-examenspecificatie-toetsvorm-instrument-en-beoordelaar-conceptplaat.svg)
+
+### F1-11 - De opleiding zoals ontworpen naar de catalogus
+
+![stroomt: Grofmazig resultaat publiceren naar de onderwijscatalogus](img/regels/f1-11-de-opleiding-zoals-ontworpen-naar-de-catalogus.svg)
 
 Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Curriculum ontwerptool naar Onderwijscatalogus, geen pijl op de hoofdplaat.
 
@@ -524,8 +528,8 @@ De vragen die de regels zelf oproepen, met de regel waar de vraag zichtbaar word
 3. CompetentNL legt vaardigheden gelaagd vast (skos:broader, drie lagen) en de leeruitkomst is op de plaat gelaagd; Vaardigheid is dat niet. Krijgt Vaardigheid een eigen aggregatie, zodat laag 2 onder laag 1 hangt zoals de leeruitkomst onder de leeruitkomst? (F1-04, `Vaardigheid`)
 4. Het kader waarmee de instelling de kerntaak vormgeeft staat op de conceptplaat (leervormstrategie, leerdoel, onderwijsvorm specificatie, leeromgeving, docentprofiel, studiebelasting), niet op de informatiemodelplaat. Welke daarvan horen in de uitwisseling, bijvoorbeeld op het leeronderdeel, en welke blijven binnen de instelling? (F1-06, `Onderwijsvorm specificatie`)
 5. De gewenste leeromgeving is op de conceptplaat een onderwijsruimtetype en daarmee indirect een lokaal, terwijl de onderwijslocatie lokaaltypes aggregeert. Hoort er een relatie tussen onderwijsruimtetype en lokaaltype, zodat de voorsortering op locatie in een stap te leggen is? (F1-06, `Onderwijsruimte type`)
-6. Het gewenste medewerkercompetentieprofiel staat op de conceptplaat los van competenties, vaardigheden en kennis, terwijl de leeruitkomst die structuur wel kent. Hoort onder het docentprofiel dezelfde skills-structuur, zodat de gevraagde expertise in dezelfde termen staat als wat de student leert? (F1-06, `Gewenst medewerker competentieprofiel`)
-7. Een keuzedeel is een specialisatie van de opleidingsprogrammaspecificatie en kent dezelfde opbouw in kerntaken en werkprocessen. Erft het daarmee ook de aggregatie naar onderwijseenheid- en leeronderdeelspecificaties, of hoort die relatie expliciet op Keuzedeel te staan? (F1-08, `Leeronderdeel specificatie`)
+6. Onder een lokaaltype hoort welke faciliteiten en leermiddelen de ruimte biedt, zoals een servicebalie met een bepaalde capaciteit; MORA kent daarvoor faciliteiten. De conceptplaat koppelt leermiddelgroepen aan het leeronderdeel en aan de lesspecificatie, niet aan het lokaal of het lokaaltype. Hoort die koppeling er, zodat een ruimtevraag op faciliteiten te matchen is? (F1-06, `Lokaaltypes`)
+7. Het gewenste medewerkercompetentieprofiel staat op de conceptplaat los van competenties, vaardigheden en kennis, terwijl de leeruitkomst die structuur wel kent. Hoort onder het docentprofiel dezelfde skills-structuur, zodat de gevraagde expertise in dezelfde termen staat als wat de student leert? (F1-06, `Gewenst medewerker competentieprofiel`)
 
 Vragen over patronen, schema's, de toetslijst en endpoints horen bij de koppelvlakspecificatie en staan hier niet.
 
@@ -700,9 +704,12 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 | ontstaat (conceptplaat) | Gewenste Onderwijskundige Leeromgeving | Simulatiegeschikte praktijkruimte voor 24 studenten, balie-opstelling mogelijk | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Onderwijsvorm specificatie naar Gewenste Onderwijskundige Leeromgeving, Gewenste Onderwijskundige Leeromgeving is een Onderwijsruimte type; leerroute-1-regulier.md, r1048 |
 | ontstaat (conceptplaat) | Onderwijsruimte type | Praktijkruimte met baliesimulatie | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Gewenste Onderwijskundige Leeromgeving is een Onderwijsruimte type, Onderwijsruimte type is een Lokaal |
 | ontstaat (conceptplaat) | Onderwijs locatie | Vestiging Zuid | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Onderwijs locatie aggregeert Lokaaltypes |
-| ontstaat (conceptplaat) | Lokaaltypes | Praktijklokalen met baliesimulatie | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Onderwijs locatie aggregeert Lokaaltypes |
+| ontstaat (conceptplaat) | Lokaaltypes | Praktijklokalen met servicebalie, 24 plaatsen | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Onderwijs locatie aggregeert Lokaaltypes |
 | ontstaat (conceptplaat) | Gewenst medewerker competentieprofiel | Apothekersassistent-docent: didactisch en communicatief (CompetentNL laag 2), farmacie (ISCED-F 0916) | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Gewenst medewerker competentieprofiel naar Onderwijsvorm specificatie; CompetentNL ontologie 2.1.0 (competentnl.nl, TTL, gewijzigd 14 juli 2026): cnlo:HumanCapability (Vaardigheid) gelaagd via skos:broader; cnlo:KnowledgeArea (Kennisgebied) op ISCED-F |
 | ontstaat (conceptplaat) | Medewerker Type / Expertise Profiel | Docent farmacie met baliepraktijk (expertiseprofiel) | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Medewerker Type / Expertise Profiel 'Heeft meerdere' Gewenst medewerker competentieprofiel |
+| ontstaat (conceptplaat) | Competenties / skills | Profiel docent farmacie: de skills die de instelling bij dit type verwacht | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Competenties / skills aggregeert Vaardigheid, Kennis en Inzicht; CompetentNL ontologie 2.1.0 (competentnl.nl, TTL, gewijzigd 14 juli 2026): cnlo:HumanCapability (Vaardigheid) gelaagd via skos:broader; cnlo:KnowledgeArea (Kennisgebied) op ISCED-F |
+| ontstaat (conceptplaat) | Vaardigheid | Didactische en communicatieve vaardigheden (CompetentNL laag 2) | CompetentNL ontologie 2.1.0 (competentnl.nl, TTL, gewijzigd 14 juli 2026): cnlo:HumanCapability (Vaardigheid) gelaagd via skos:broader; cnlo:KnowledgeArea (Kennisgebied) op ISCED-F |
+| ontstaat (conceptplaat) | Kennis | Farmacie (ISCED-F 0916) | CompetentNL ontologie 2.1.0 (competentnl.nl, TTL, gewijzigd 14 juli 2026): cnlo:HumanCapability (Vaardigheid) gelaagd via skos:broader; cnlo:KnowledgeArea (Kennisgebied) op ISCED-F |
 | ontstaat (conceptplaat) | Collectie van Medewerkertypes | Docent farmacie en praktijkbegeleider | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Leeronderdeel / Leeractiviteit specificatie aggregeert Collectie van Medewerkertypes |
 | ontstaat (conceptplaat) | Studiebelasting en begeleide onderwijstijd indicatie | BOT 50 / OOT 50 SBU | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Studiebelasting en begeleide onderwijstijd indicatie naar Onderwijsvorm specificatie; leerroute-1-regulier.md, r1052 |
 | ontstaat (conceptplaat) | Collectie van Leermiddelgroepen | Leermiddelen voor de baliesimulatie | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Leeronderdeel / Leeractiviteit specificatie aggregeert Collectie van Leermiddelgroepen |
@@ -746,7 +753,19 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 | ontstaat | Examenonderdeel weging | Proeve van bekwaamheid B1-K1: weging 2 | [voorbeeldpayloads.md](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Datamodelschema's/voorbeeldpayloads.md), toetsonderdelen (941f180d): weging 2 |
 | ontstaat | Summatief Afrondingscriterium | Alle kerntaken en de keuzedelen voldoende | [voorbeeldpayloads.md](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Datamodelschema's/voorbeeldpayloads.md), resultaatstructuur: aggregatie allenVoldoende |
 
-**F1-10 - De opleiding zoals ontworpen naar de catalogus** (fase 1, Grofmazig resultaat publiceren naar de onderwijscatalogus; [f1-10-de-opleiding-zoals-ontworpen-naar-de-catalogus.svg](img/regels/f1-10-de-opleiding-zoals-ontworpen-naar-de-catalogus.svg))
+**F1-10 - De examenspecificatie: toetsvorm, instrument en beoordelaar (conceptplaat)** (fase 1, Exameninstrumenten bepalen, inkopen of construeren; [f1-10-de-examenspecificatie-toetsvorm-instrument-en-beoordelaar-conceptplaat.svg](img/regels/f1-10-de-examenspecificatie-toetsvorm-instrument-en-beoordelaar-conceptplaat.svg))
+
+| Soort | Objecttype | Instantie | Bron |
+|---|---|---|---|
+| ontstaat (conceptplaat) | Toetsvormspecificatie | Proeve van bekwaamheid in de simulatieapotheek | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Toetsvormspecificatie is een Onderwijsvorm specificatie en een Toetsvorm; leerroute-1-regulier.md, r416 tot r426 (de examencommissie stelt examenplan en examenspecificaties op, bepaalt de benodigde instrumenten en het materiaal, besluit inkopen of construeren, en stelt specificatie, materiaal en instrumenten vast) |
+| ontstaat (conceptplaat) | Toetsvorm | Praktijkbeoordeling aan de balie, 45 minuten | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Toetsvormspecificatie is een Toetsvorm, Toetsvorm heeft een Toets en verwijst naar Toetsinstrument |
+| ontstaat (conceptplaat) | Toets | Baliegesprek met triage, beoordeeld op de leeruitkomst | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Toetsvorm heeft een Toets; Toets naar Leeruitkomst |
+| ontstaat (conceptplaat) | Toetsinstrument | Beoordelingsformulier met rubric, ingekocht bij de branche | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Toetsvorm naar Toetsinstrument; Toetsinstrument is een Collectie van Leermiddelgroepen; leerroute-1-regulier.md, r416 tot r426 (de examencommissie stelt examenplan en examenspecificaties op, bepaalt de benodigde instrumenten en het materiaal, besluit inkopen of construeren, en stelt specificatie, materiaal en instrumenten vast) |
+| ontstaat (conceptplaat) | Examen | Proeve van bekwaamheid B1-K1 | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Examenplan is uitgewekt in Examen; Examen naar Collectie van leeruitkomsten en naar Summatieve resultaat structuur |
+| ontstaat (conceptplaat) | Examen instrument | Beoordelingsformulier proeve B1-K1, vastgesteld | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Examen instrument Wordt afgenomen door middel van Examen; leerroute-1-regulier.md, r416 tot r426 (de examencommissie stelt examenplan en examenspecificaties op, bepaalt de benodigde instrumenten en het materiaal, besluit inkopen of construeren, en stelt specificatie, materiaal en instrumenten vast) |
+| ontstaat (conceptplaat) | Gewenst medewerker competentieprofiel | Examinator met baliepraktijk en toetsbekwaamheid | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Gewenst medewerker competentieprofiel naar Toetsvormspecificatie |
+
+**F1-11 - De opleiding zoals ontworpen naar de catalogus** (fase 1, Grofmazig resultaat publiceren naar de onderwijscatalogus; [f1-11-de-opleiding-zoals-ontworpen-naar-de-catalogus.svg](img/regels/f1-11-de-opleiding-zoals-ontworpen-naar-de-catalogus.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
