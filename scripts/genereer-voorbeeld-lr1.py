@@ -30,7 +30,9 @@ MODEL = pathlib.Path("architecture/model/informatiemodel/informatiemodel.json")
 COMPONENTEN = pathlib.Path("architecture/model/informatiemodel/componenten.json")
 BEGRIPPEN = pathlib.Path("architecture/docs/specificatie/begrippen/begrippen.json")
 UIT = pathlib.Path("architecture/model/informatiemodel/voorbeeld-leerroute-1-jochem.md")
+PLATEN = pathlib.Path("architecture/model/informatiemodel/img/hoofdplaat")
 REGELMAP = "img/regels"
+PLAATMAP = "img/hoofdplaat"
 HOOFDPLAAT = "<../informatiestromen hoofdplaat OKx/1.7/OKx hoofdplaat 1.7.jpg>"
 GEEN_PIJL = "geen pijl op de hoofdplaat"
 KOLOMVOLGORDE = ["Kwalificatiekader MBO", "Onderwijskundigkader instelling", "Onderwijsspecificatie", "Onderwijsaanbod",
@@ -139,6 +141,10 @@ def fase_sectie(f, blokken, regels_in_fase):
     if mora:
         regel += f". **MORA-hoofdproces:** {mora}"
     uit = kop + regel + ".\n\n"
+    if any(r["soort"] == "stroomt" for r in regels_in_fase) and (PLATEN / f"f{f['nummer']}.svg").exists():
+        uit += (f"![Hoofdplaat v1.7 met de stromen van fase {f['nummer']} gemarkeerd]({PLAATMAP}/f{f['nummer']}.svg)\n\n"
+                "De gemarkeerde lijnen zijn de stromen die deze fase raakt, met het beeld waarin ze staan; een "
+                "gestippelde lijn is een stroom die de plaat nog niet kent.\n\n")
     if not regels_in_fase:
         return uit + STUBZIN + "\n\n"
     for b in blokken:
@@ -148,7 +154,9 @@ def fase_sectie(f, blokken, regels_in_fase):
         uit += f"![{alt}]({REGELMAP}/{b['naam']})\n\n"
         if b["soort"] == "stroomt" and b.get("van"):
             pijl = b.get("koppeling") or ("geen pijl op de hoofdplaat" if b.get("pijl") == GEEN_PIJL else "zonder koppelingspecificatie")
-            uit += f"Op de [hoofdplaat](#de-hoofdplaat-als-kaart): {b['van']} naar {b['naar']}, {pijl}.\n\n"
+            uit += (f"**Interactie:** {b['van']} naar {b['naar']}, {pijl}. Op de "
+                    f"[hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd "
+                    f"met {b['beeld_id']}.\n\n")
     return uit
 
 

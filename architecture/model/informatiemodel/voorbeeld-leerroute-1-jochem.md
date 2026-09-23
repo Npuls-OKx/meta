@@ -90,6 +90,10 @@ De fase in detail: [kaderscenario leerroute 1, fase 1](https://github.com/Npuls-
 
 **Ontstaat:** `Kwalificatie dossier`, `Kwalificatie`, `Kerntaak`, `Werkproces`, `Examenplan`, `Summatieve resultaat structuur`, `Cohort / periode`, `Leeruitkomst`, `Competenties / Skills`, `Vaardigheid`, `Kennis`, `Inzicht`, `Onderwijseenheid specificatie`, `Leeronderdeel specificatie`, `Opleiding specificatie`, `Opleidingsprogramma specificatie`, `Keuzedeelruimte`, `Student keuze regelset`, `Keuzedeel`, `Toetsonderdeel specificatie`, `Examenonderdeelspecificatie`, `Examenonderdeel weging`, `Summatief Afrondingscriterium`. **Stroomt:** Curriculum ontwerptool naar Onderwijscatalogus. **MORA-hoofdproces:** Ontwikkelen.
 
+![Hoofdplaat v1.7 met de stromen van fase 1 gemarkeerd](img/hoofdplaat/f1.svg)
+
+De gemarkeerde lijnen zijn de stromen die deze fase raakt, met het beeld waarin ze staan; een gestippelde lijn is een stroom die de plaat nog niet kent.
+
 ### F1-01 - Het kwalificatiedossier ontleed
 
 ![ontstaat: Kwalificatiedossier analyseren](img/regels/f1-01-het-kwalificatiedossier-ontleed.svg)
@@ -134,19 +138,23 @@ De fase in detail: [kaderscenario leerroute 1, fase 1](https://github.com/Npuls-
 
 ![stroomt: Grofmazig resultaat publiceren naar de onderwijscatalogus](img/regels/f1-11-de-opleiding-zoals-ontworpen-naar-de-catalogus.svg)
 
-Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Curriculum ontwerptool naar Onderwijscatalogus, geen pijl op de hoofdplaat.
+**Interactie:** Curriculum ontwerptool naar Onderwijscatalogus, geen pijl op de hoofdplaat. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F1-11.
 
 ### F1-12 - Het onderwijs- en examenontwerp mee naar de catalogus (conceptplaat)
 
 ![stroomt: Grofmazig resultaat publiceren naar de onderwijscatalogus](img/regels/f1-12-het-onderwijs-en-examenontwerp-mee-naar-de-catalogus-conceptplaat.svg)
 
-Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Curriculum ontwerptool naar Onderwijscatalogus, geen pijl op de hoofdplaat.
+**Interactie:** Curriculum ontwerptool naar Onderwijscatalogus, geen pijl op de hoofdplaat. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F1-12.
 
 ## Fase 2: Publiceren en planbaar maken
 
 De fase in detail: [kaderscenario leerroute 1, fase 2](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-2--publiceren-en-planbaar-maken).
 
 **Ontstaat:** `Opleidingsprogramma specificatie`, `Onderwijseenheid specificatie`, `Leeronderdeel specificatie`, `Verzoek tot Aanbod / Intekening op specificatie`, `Opleidingsaanbod van Instelling`, `Opleidingaanbod`, `Opleidingsprogramma aanbod`, `Onderwijseenheid aanbod`, `Leergelegenheid`, `Toetsgelegenheid`. **Stroomt:** Onderwijscatalogus naar Planningssysteem; Planningssysteem naar Onderwijscatalogus. **MORA-hoofdproces:** Plannen en roosteren.
+
+![Hoofdplaat v1.7 met de stromen van fase 2 gemarkeerd](img/hoofdplaat/f2.svg)
+
+De gemarkeerde lijnen zijn de stromen die deze fase raakt, met het beeld waarin ze staan; een gestippelde lijn is een stroom die de plaat nog niet kent.
 
 ### F2-01 - De specificatie planbaar gemaakt
 
@@ -160,7 +168,7 @@ De fase in detail: [kaderscenario leerroute 1, fase 2](https://github.com/Npuls-
 
 ![stroomt: Planningssysteem verzoeken om onderwijsaanbod](img/regels/f2-03-verzoek-met-specificatiestructuur-en-planbare-waarden-naar-planning.svg)
 
-Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Onderwijscatalogus naar Planningssysteem, OC-P&R.
+**Interactie:** Onderwijscatalogus naar Planningssysteem, OC-P&R. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F2-03.
 
 ### F2-04 - Het aanbod gepland: opleiding, programma, eenheid, gelegenheid
 
@@ -178,7 +186,7 @@ Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Onderwijscatalogus naar Planningss
 
 ![stroomt: Gepland aanbod terugleveren aan de onderwijscatalogus](img/regels/f2-07-het-geplande-aanbod-terug-naar-de-catalogus.svg)
 
-Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Planningssysteem naar Onderwijscatalogus, OC-P&R.
+**Interactie:** Planningssysteem naar Onderwijscatalogus, OC-P&R. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F2-07.
 
 ## Fase 3: Instroom, intake en plaatsing
 
@@ -186,17 +194,21 @@ De fase in detail: [kaderscenario leerroute 1, fase 3](https://github.com/Npuls-
 
 **Ontstaat:** `Persoon`, `Aanmelding`, `Opleiding aanbod verbintenis`, `Opleidingsprogramma aanbod verbintenis`, `Student`, `Plaatsingsgroep`, `Verzoek tot Aanbod / Intekening op specificatie`, `Inschrijving`. **Stroomt:** Onderwijscatalogus naar Kernregistratie systeem studenten (KRS); Kernregistratie systeem studenten (KRS) naar AII (centraal aanmelden); AII (centraal aanmelden) naar Intake systeem; Intake systeem naar Student Keuze Systeem (SKS); Intake systeem naar Kernregistratie systeem studenten (KRS). **MORA-hoofdproces:** Informeren, aanmelden, intake en plaatsen.
 
+![Hoofdplaat v1.7 met de stromen van fase 3 gemarkeerd](img/hoofdplaat/f3.svg)
+
+De gemarkeerde lijnen zijn de stromen die deze fase raakt, met het beeld waarin ze staan; een gestippelde lijn is een stroom die de plaat nog niet kent.
+
 ### F3-01 - Aanmeldbaar aanbod naar de kernregistratie
 
 ![stroomt: Orienteren op het gepubliceerde aanbod](img/regels/f3-01-aanmeldbaar-aanbod-naar-de-kernregistratie.svg)
 
-Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Onderwijscatalogus naar Kernregistratie systeem studenten (KRS), OC-SIS.
+**Interactie:** Onderwijscatalogus naar Kernregistratie systeem studenten (KRS), OC-SIS. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F3-01.
 
 ### F3-02 - Aanmeldbaar aanbod van de kernregistratie naar AII
 
 ![stroomt: Orienteren op het gepubliceerde aanbod](img/regels/f3-02-aanmeldbaar-aanbod-van-de-kernregistratie-naar-aii.svg)
 
-Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Kernregistratie systeem studenten (KRS) naar AII (centraal aanmelden), geen pijl op de hoofdplaat.
+**Interactie:** Kernregistratie systeem studenten (KRS) naar AII (centraal aanmelden), geen pijl op de hoofdplaat. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F3-02.
 
 ### F3-03 - Jochem meldt zich aan: aanmelding en verbintenissen
 
@@ -206,7 +218,7 @@ Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Kernregistratie systeem studenten 
 
 ![stroomt: Aanmelden via het intakesysteem](img/regels/f3-04-de-aanmelding-van-de-voorziening-naar-het-intakesysteem.svg)
 
-Op de [hoofdplaat](#de-hoofdplaat-als-kaart): AII (centraal aanmelden) naar Intake systeem, geen pijl op de hoofdplaat.
+**Interactie:** AII (centraal aanmelden) naar Intake systeem, geen pijl op de hoofdplaat. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F3-04.
 
 ### F3-05 - Intake: student, plaatsingsgroep en eerste keuzedeelvoorkeur
 
@@ -216,7 +228,7 @@ Op de [hoofdplaat](#de-hoofdplaat-als-kaart): AII (centraal aanmelden) naar Inta
 
 ![stroomt: Intake doorlopen en plaatsen](img/regels/f3-06-de-eerste-keuzedeelvoorkeur-naar-het-studentkeuzesysteem.svg)
 
-Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Intake systeem naar Student Keuze Systeem (SKS), geen pijl op de hoofdplaat.
+**Interactie:** Intake systeem naar Student Keuze Systeem (SKS), geen pijl op de hoofdplaat. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F3-06.
 
 ### F3-07 - Inschrijving: van aangemeld naar ingeschreven
 
@@ -226,13 +238,17 @@ Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Intake systeem naar Student Keuze 
 
 ![stroomt: Persoon en verbintenissen vastleggen in de kernregistratie](img/regels/f3-08-de-inschrijving-van-het-intakesysteem-naar-de-kernregistratie.svg)
 
-Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Intake systeem naar Kernregistratie systeem studenten (KRS), geen pijl op de hoofdplaat.
+**Interactie:** Intake systeem naar Kernregistratie systeem studenten (KRS), geen pijl op de hoofdplaat. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F3-08.
 
 ## Fase 4: Detailleren, roosteren en inschrijven
 
 De fase in detail: [kaderscenario leerroute 1, fase 4](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-4--detailleren-roosteren-en-inschrijven).
 
 **Ontstaat:** `Leeronderdeel specificatie`, `Les specificatie`, `Leergelegenheid`, `Lesgelegenheid`, `Medewerker`, `Onderwijseenheid aanbod verbintenis`, `Leergelegenheid verbintenis`, `Lesgelegenheid verbintenis`, `Opleidingsprogramma aanbod verbintenis`. **Stroomt:** Onderwijscatalogus naar Leer management systeem (LMS); Onderwijscatalogus naar Student volg systeem (SVS); Onderwijscatalogus naar Kernregistratie systeem studenten (KRS); Kernregistratie systeem studenten (KRS) naar Planningssysteem; Planningssysteem naar Roostersysteem; Kernregistratie systeem studenten (KRS) naar Leer management systeem (LMS); Kernregistratie systeem studenten (KRS) naar Student volg systeem (SVS). **MORA-hoofdproces:** Plannen en roosteren.
+
+![Hoofdplaat v1.7 met de stromen van fase 4 gemarkeerd](img/hoofdplaat/f4.svg)
+
+De gemarkeerde lijnen zijn de stromen die deze fase raakt, met het beeld waarin ze staan; een gestippelde lijn is een stroom die de plaat nog niet kent.
 
 ### F4-01 - Het leeronderdeel fijnmazig: lessenreeks en les
 
@@ -242,37 +258,37 @@ De fase in detail: [kaderscenario leerroute 1, fase 4](https://github.com/Npuls-
 
 ![stroomt: Detailspecificaties leveren aan het LMS](img/regels/f4-02-detailspecificaties-naar-het-lms.svg)
 
-Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Onderwijscatalogus naar Leer management systeem (LMS), OC-LMS.
+**Interactie:** Onderwijscatalogus naar Leer management systeem (LMS), OC-LMS. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F4-02.
 
 ### F4-03 - De les en de toets van binnen, elk met hun eigen onderdelen (conceptplaat)
 
 ![stroomt: Detailspecificaties leveren aan het LMS](img/regels/f4-03-de-les-en-de-toets-van-binnen-elk-met-hun-eigen-onderdelen-conceptplaat.svg)
 
-Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Onderwijscatalogus naar Leer management systeem (LMS), OC-LMS.
+**Interactie:** Onderwijscatalogus naar Leer management systeem (LMS), OC-LMS. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F4-03.
 
 ### F4-04 - Resultaatstructuur naar het studentvolgsysteem
 
 ![stroomt: Detailspecificaties leveren aan het LMS](img/regels/f4-04-resultaatstructuur-naar-het-studentvolgsysteem.svg)
 
-Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Onderwijscatalogus naar Student volg systeem (SVS), OC-SIS.
+**Interactie:** Onderwijscatalogus naar Student volg systeem (SVS), OC-SIS. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F4-04.
 
 ### F4-05 - Resultaatstructuur naar de kernregistratie
 
 ![stroomt: Detailspecificaties leveren aan het LMS](img/regels/f4-05-resultaatstructuur-naar-de-kernregistratie.svg)
 
-Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Onderwijscatalogus naar Kernregistratie systeem studenten (KRS), OC-SIS.
+**Interactie:** Onderwijscatalogus naar Kernregistratie systeem studenten (KRS), OC-SIS. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F4-05.
 
 ### F4-06 - Plaatsingsgroepen naar planning
 
 ![stroomt: Plaatsings- en planninggroepen definieren en aan personen koppelen](img/regels/f4-06-plaatsingsgroepen-naar-planning.svg)
 
-Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Kernregistratie systeem studenten (KRS) naar Planningssysteem, zonder koppelingspecificatie.
+**Interactie:** Kernregistratie systeem studenten (KRS) naar Planningssysteem, zonder koppelingspecificatie. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F4-06.
 
 ### F4-07 - Te roosteren leergelegenheden naar het roostersysteem
 
 ![stroomt: Te roosteren specificaties aan het roostersysteem geven](img/regels/f4-07-te-roosteren-leergelegenheden-naar-het-roostersysteem.svg)
 
-Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Planningssysteem naar Roostersysteem, zonder koppelingspecificatie.
+**Interactie:** Planningssysteem naar Roostersysteem, zonder koppelingspecificatie. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F4-07.
 
 ### F4-08 - Roosteren: lesgelegenheid, lokaal en docent
 
@@ -286,19 +302,23 @@ Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Planningssysteem naar Roostersyste
 
 ![stroomt: Verwachte deelnemers delen en toegang geven](img/regels/f4-10-student-verbintenissen-en-groep-naar-het-lms.svg)
 
-Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Kernregistratie systeem studenten (KRS) naar Leer management systeem (LMS), zonder koppelingspecificatie.
+**Interactie:** Kernregistratie systeem studenten (KRS) naar Leer management systeem (LMS), zonder koppelingspecificatie. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F4-10.
 
 ### F4-11 - Verbintenissen op alle niveaus naar het studentvolgsysteem
 
 ![stroomt: Verwachte deelnemers delen en toegang geven](img/regels/f4-11-verbintenissen-op-alle-niveaus-naar-het-studentvolgsysteem.svg)
 
-Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Kernregistratie systeem studenten (KRS) naar Student volg systeem (SVS), geen pijl op de hoofdplaat.
+**Interactie:** Kernregistratie systeem studenten (KRS) naar Student volg systeem (SVS), geen pijl op de hoofdplaat. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F4-11.
 
 ## Fase 5: Onderwijs uitvoeren en voortgang begeleiden
 
 De fase in detail: [kaderscenario leerroute 1, fase 5](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-5--onderwijs-uitvoeren-en-voortgang-begeleiden).
 
-**Ontstaat:** `Lesgelegenheid verbintenis`, `Aanwezigheid`, `Lesgelegenheid resultaat`, `Toetsgelegenheid verbintenis`, `Formatieve resultaat structuur`, `Toetsonderdeel weging`, `Toetsgelegenheid resultaat`, `Formatief resultaat`, `Formatieve beoordeling`, `Persoonlijke ontwikkeling`, `Leergelegenheid resultaat`, `Onderwijseenheid resultaat`. **Stroomt:** Leer management systeem (LMS) naar Student volg systeem (SVS). **MORA-hoofdproces:** Verzorgen en begeleiden.
+**Ontstaat:** `Lesgelegenheid verbintenis`, `Aanwezigheid`, `Lesgelegenheid resultaat`, `Toetsgelegenheid verbintenis`, `Formatieve resultaat structuur`, `Toetsonderdeel weging`, `Toetsgelegenheid resultaat`, `Formatief resultaat`, `Formatieve beoordeling`, `Persoonlijke ontwikkeling`, `Leergelegenheid resultaat`, `Onderwijseenheid resultaat`, `Onderwijseenheid aanbod`, `Summatieve resultaat structuur`. **Stroomt:** Leer management systeem (LMS) naar Student volg systeem (SVS). **MORA-hoofdproces:** Verzorgen en begeleiden.
+
+![Hoofdplaat v1.7 met de stromen van fase 5 gemarkeerd](img/hoofdplaat/f5.svg)
+
+De gemarkeerde lijnen zijn de stromen die deze fase raakt, met het beeld waarin ze staan; een gestippelde lijn is een stroom die de plaat nog niet kent.
 
 ### F5-01 - Les gevolgd: aanwezigheid en lesresultaat
 
@@ -316,17 +336,21 @@ De fase in detail: [kaderscenario leerroute 1, fase 5](https://github.com/Npuls-
 
 ![stroomt: Formatieve voortgang bijhouden](img/regels/f5-04-formatieve-resultaten-van-het-lms-naar-het-studentvolgsysteem.svg)
 
-Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Leer management systeem (LMS) naar Student volg systeem (SVS), zonder koppelingspecificatie.
+**Interactie:** Leer management systeem (LMS) naar Student volg systeem (SVS), zonder koppelingspecificatie. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F5-04.
 
-### F5-05 - Studiebeeld: het resultaat per eenheid
+### F5-05 - Studiebeeld: de nominale route naast wat Jochem heeft behaald
 
-![ontstaat: Studiebeeld volgen in het studentvolgsysteem](img/regels/f5-05-studiebeeld-het-resultaat-per-eenheid.svg)
+![ontstaat: Studiebeeld volgen in het studentvolgsysteem](img/regels/f5-05-studiebeeld-de-nominale-route-naast-wat-jochem-heeft-behaald.svg)
 
 ## Fase 6: Organiseren van keuzemomenten
 
 De fase in detail: [kaderscenario leerroute 1, fase 6](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-6--organiseren-van-keuzemomenten).
 
 **Ontstaat:** `Keuzedeelaanbod`, `Keuzedeel aanbod verbintenis`. **Stroomt:** Onderwijscatalogus naar Student Keuze Systeem (SKS); Student Keuze Systeem (SKS) naar Planningssysteem; Planningssysteem naar Onderwijscatalogus; Student Keuze Systeem (SKS) naar Kernregistratie systeem studenten (KRS). **MORA-hoofdproces:** Plannen en roosteren.
+
+![Hoofdplaat v1.7 met de stromen van fase 6 gemarkeerd](img/hoofdplaat/f6.svg)
+
+De gemarkeerde lijnen zijn de stromen die deze fase raakt, met het beeld waarin ze staan; een gestippelde lijn is een stroom die de plaat nog niet kent.
 
 ### F6-01 - Keuzedeelaanbod ontsloten
 
@@ -336,7 +360,7 @@ De fase in detail: [kaderscenario leerroute 1, fase 6](https://github.com/Npuls-
 
 ![stroomt: Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem](img/regels/f6-02-keuzedeelaanbod-specificatie-en-regels-naar-het-studentkeuzesysteem.svg)
 
-Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Onderwijscatalogus naar Student Keuze Systeem (SKS), zonder koppelingspecificatie.
+**Interactie:** Onderwijscatalogus naar Student Keuze Systeem (SKS), zonder koppelingspecificatie. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F6-02.
 
 ### F6-03 - Jochems voorkeur: verbintenis op het keuzedeelaanbod
 
@@ -346,7 +370,7 @@ Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Onderwijscatalogus naar Student Ke
 
 ![stroomt: Voorkeurslijst samenstellen in het studentkeuzesysteem](img/regels/f6-04-keuzestelling-naar-planning.svg)
 
-Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Student Keuze Systeem (SKS) naar Planningssysteem, zonder koppelingspecificatie.
+**Interactie:** Student Keuze Systeem (SKS) naar Planningssysteem, zonder koppelingspecificatie. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F6-04.
 
 ### F6-05 - Definitieve keuzes verwerkt naar groepen en capaciteit
 
@@ -356,7 +380,7 @@ Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Student Keuze Systeem (SKS) naar P
 
 ![stroomt: Planbaar aanbod actualiseren](img/regels/f6-06-geactualiseerd-keuzedeelaanbod-terug-naar-de-catalogus.svg)
 
-Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Planningssysteem naar Onderwijscatalogus, OC-P&R.
+**Interactie:** Planningssysteem naar Onderwijscatalogus, OC-P&R. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F6-06.
 
 ### F6-07 - Formele inschrijving op het keuzedeel
 
@@ -366,13 +390,17 @@ Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Planningssysteem naar Onderwijscat
 
 ![stroomt: Keuzedeel formeel inschrijven](img/regels/f6-08-keuzedeelverbintenis-naar-de-kernregistratie.svg)
 
-Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Student Keuze Systeem (SKS) naar Kernregistratie systeem studenten (KRS), zonder koppelingspecificatie.
+**Interactie:** Student Keuze Systeem (SKS) naar Kernregistratie systeem studenten (KRS), zonder koppelingspecificatie. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F6-08.
 
 ## Fase 7: Bijsturen planning en aanbod
 
 De fase in detail: [kaderscenario leerroute 1, fase 7](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-7--bijsturen-planning-en-aanbod).
 
 **Ontstaat:** `Plaatsingsgroep`, `Onderwijseenheid aanbod verbintenis`, `Onderwijseenheid aanbod`. **Stroomt:** Kernregistratie systeem studenten (KRS) naar Planningssysteem; Planningssysteem naar Onderwijscatalogus; Planningssysteem naar Roostersysteem. **MORA-hoofdproces:** Plannen en roosteren.
+
+![Hoofdplaat v1.7 met de stromen van fase 7 gemarkeerd](img/hoofdplaat/f7.svg)
+
+De gemarkeerde lijnen zijn de stromen die deze fase raakt, met het beeld waarin ze staan; een gestippelde lijn is een stroom die de plaat nog niet kent.
 
 ### F7-01 - Afwijkingen verzameld in een planninggroep
 
@@ -386,7 +414,7 @@ De fase in detail: [kaderscenario leerroute 1, fase 7](https://github.com/Npuls-
 
 ![stroomt: Bestaande verbintenissen annuleren](img/regels/f7-03-planninggroep-van-de-kernregistratie-naar-planning.svg)
 
-Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Kernregistratie systeem studenten (KRS) naar Planningssysteem, zonder koppelingspecificatie.
+**Interactie:** Kernregistratie systeem studenten (KRS) naar Planningssysteem, zonder koppelingspecificatie. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F7-03.
 
 ### F7-04 - Nieuw aanbod voor de planninggroep
 
@@ -396,19 +424,23 @@ Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Kernregistratie systeem studenten 
 
 ![stroomt: Nieuw aanbod maken en publiceren](img/regels/f7-05-bijgestuurd-aanbod-naar-de-catalogus.svg)
 
-Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Planningssysteem naar Onderwijscatalogus, OC-P&R.
+**Interactie:** Planningssysteem naar Onderwijscatalogus, OC-P&R. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F7-05.
 
 ### F7-06 - Nieuwe leergelegenheden naar het roostersysteem
 
 ![stroomt: Nieuw aanbod maken en publiceren](img/regels/f7-06-nieuwe-leergelegenheden-naar-het-roostersysteem.svg)
 
-Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Planningssysteem naar Roostersysteem, zonder koppelingspecificatie.
+**Interactie:** Planningssysteem naar Roostersysteem, zonder koppelingspecificatie. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F7-06.
 
 ## Fase 8: Examineren, vaststellen en diplomeren
 
 De fase in detail: [kaderscenario leerroute 1, fase 8](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-8--examineren-vaststellen-en-diplomeren).
 
 **Ontstaat:** `Examengelegenheid`, `Examengelegenheid verbintenis`, `Examengelegenheid resultaat`, `Summatief resultaat`, `Summatieve beoordeling`, `Opleidingsprogramma resultaat`, `Keuzedeel resultaat`, `Opleiding aanbod resultaat`, `Waarde document (diploma / certificaat)`. **Stroomt:** Toets- en examen afname systeem naar Student volg systeem (SVS); Student volg systeem (SVS) naar Kernregistratie systeem studenten (KRS). **MORA-hoofdproces:** Examens uitvoeren en vaststellen; diplomeren.
+
+![Hoofdplaat v1.7 met de stromen van fase 8 gemarkeerd](img/hoofdplaat/f8.svg)
+
+De gemarkeerde lijnen zijn de stromen die deze fase raakt, met het beeld waarin ze staan; een gestippelde lijn is een stroom die de plaat nog niet kent.
 
 ### F8-01 - Examengelegenheid uit de examenspecificatie
 
@@ -426,7 +458,7 @@ De fase in detail: [kaderscenario leerroute 1, fase 8](https://github.com/Npuls-
 
 ![stroomt: Zitting uitvoeren en resultaten doorgeven](img/regels/f8-04-examenresultaat-naar-het-studentvolgsysteem.svg)
 
-Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Toets- en examen afname systeem naar Student volg systeem (SVS), geen pijl op de hoofdplaat.
+**Interactie:** Toets- en examen afname systeem naar Student volg systeem (SVS), geen pijl op de hoofdplaat. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F8-04.
 
 ### F8-05 - Summatief vastgesteld: resultaten en beoordeling
 
@@ -436,7 +468,7 @@ Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Toets- en examen afname systeem na
 
 ![stroomt: Summatief vaststellen](img/regels/f8-06-vaststelling-naar-de-kernregistratie.svg)
 
-Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Student volg systeem (SVS) naar Kernregistratie systeem studenten (KRS), geen pijl op de hoofdplaat.
+**Interactie:** Student volg systeem (SVS) naar Kernregistratie systeem studenten (KRS), geen pijl op de hoofdplaat. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F8-06.
 
 ### F8-07 - Gediplomeerd: opleidingsresultaat en diploma
 
@@ -519,7 +551,7 @@ Per objecttype het beeld waarin hij verschijnt (het ID uit de kop), de instantie
 | Keuzedeel resultaat | F8-05 | K0037 Farmaceutische Patientenzorg: voldoende | 8 |  | nog te definieren | Result | | |
 | Leergelegenheid resultaat | F5-03 | B1-K1-W1 afgerond, periode 1 | 5 |  | nog te definieren | Result | | |
 | Lesgelegenheid resultaat | F5-01 | Les 1 gevolgd | 5 |  | nog te definieren | Result | | |
-| Onderwijseenheid resultaat | F5-05 | B1-K1: in uitvoering | 5 |  | nog te definieren | Result | | |
+| Onderwijseenheid resultaat | F5-05 | B1-K1: in uitvoering, twee van vier leeronderdelen afgerond | 5 |  | nog te definieren | Result | | |
 | Opleiding aanbod resultaat | F8-07 | Apothekersassistent 2026: gediplomeerd | 8 |  | nog te definieren | Result | | |
 | Opleidingsprogramma resultaat | F8-05 | Regulier BOL 2026: alle kerntaken en keuzedelen voldoende | 8 |  | nog te definieren | Result | | |
 | Summatief resultaat | F8-05 | B1-K1: voldoende, vastgesteld | 8 |  | ja | geen equivalent | | |
@@ -662,6 +694,8 @@ Per regel één van vier antwoorden: herken ik dit; heet bij ons anders (welke t
 | 5 | F5-03 | Persoonlijke ontwikkeling | | | | |
 | 5 | F5-03 | Leergelegenheid resultaat | | | | |
 | 5 | F5-05 | Onderwijseenheid resultaat | | | | |
+| 5 | F5-05 | Onderwijseenheid aanbod | | | | |
+| 5 | F5-05 | Summatieve resultaat structuur | | | | |
 | 6 | F6-01 | Keuzedeelaanbod | | | | |
 | 6 | F6-03 | Keuzedeel aanbod verbintenis | | | | |
 | 6 | F6-05 | Keuzedeelaanbod | | | | |
@@ -1112,11 +1146,13 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 | stroomt | Formatief resultaat | Quiz WHAM-vragen: 8 van 10 | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 5](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-5--onderwijs-uitvoeren-en-voortgang-begeleiden): LMS naar SVS, formatief |
 | stroomt | Leergelegenheid resultaat | B1-K1-W1 afgerond, periode 1 | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 5](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-5--onderwijs-uitvoeren-en-voortgang-begeleiden): LMS naar SVS, leergelegenheid-verbintenis resultaten |
 
-**F5-05 - Studiebeeld: het resultaat per eenheid** (fase 5, Studiebeeld volgen in het studentvolgsysteem; [f5-05-studiebeeld-het-resultaat-per-eenheid.svg](img/regels/f5-05-studiebeeld-het-resultaat-per-eenheid.svg))
+**F5-05 - Studiebeeld: de nominale route naast wat Jochem heeft behaald** (fase 5, Studiebeeld volgen in het studentvolgsysteem; [f5-05-studiebeeld-de-nominale-route-naast-wat-jochem-heeft-behaald.svg](img/regels/f5-05-studiebeeld-de-nominale-route-naast-wat-jochem-heeft-behaald.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
-| ontstaat | Onderwijseenheid resultaat | B1-K1: in uitvoering | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 5](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-5--onderwijs-uitvoeren-en-voortgang-begeleiden) en 7: onderwijseenheid-verbintenis resultaten |
+| ontstaat | Onderwijseenheid resultaat | B1-K1: in uitvoering, twee van vier leeronderdelen afgerond | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 5](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-5--onderwijs-uitvoeren-en-voortgang-begeleiden) en 7: onderwijseenheid-verbintenis resultaten |
+| ontstaat | Onderwijseenheid aanbod | B1-K1, leerjaar 1, periode 1 tot 4: de nominale route | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [r868](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L868) (het studentvolgsysteem legt onderwijsresultaten per onderwijsverbintenis vast en houdt de studiepadadministratie bij tot kwalificering) en [r870](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L870) (resultaten worden bijgehouden tegen de specificatie uit de catalogus) |
+| ontstaat | Summatieve resultaat structuur | Resultaatstructuur Apothekersassistent, cohort 2026 | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [r868](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L868) (het studentvolgsysteem legt onderwijsresultaten per onderwijsverbintenis vast en houdt de studiepadadministratie bij tot kwalificering) en [r870](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L870) (resultaten worden bijgehouden tegen de specificatie uit de catalogus) |
 
 **F6-01 - Keuzedeelaanbod ontsloten** (fase 6, Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem; [f6-01-keuzedeelaanbod-ontsloten.svg](img/regels/f6-01-keuzedeelaanbod-ontsloten.svg))
 

@@ -33,6 +33,8 @@ python3 scripts/exporteer-componenten.py --extra "Intake systeem" "Aanmeld syste
 python3 scripts/controleer-voorbeeldregels.py            # 0 bevindingen, anders eerst herstellen
 rm -f architecture/model/informatiemodel/img/regels/*.svg
 python3 scripts/teken-voorbeeldregels.py
+python3 scripts/exporteer-archimate-platen.py --view "OKx hoofdplaat v1.7<concept>" --uit /tmp/hoofdplaat.png
+python3 scripts/teken-hoofdplaat-highlight.py --plaat /tmp/hoofdplaat.png   # alleen als de plaat wijzigt
 python3 scripts/genereer-voorbeeld-lr1.py                # waarschuwt voor vragen buiten de zeven
 python3 scripts/validate-docs.py architecture/model/informatiemodel/voorbeeld-leerroute-1-jochem.md
 python3 -W error::ResourceWarning -m unittest discover -s tests
@@ -72,6 +74,14 @@ Wat de controle weigert, hoort niet in het voorbeeld: een objecttype dat niet op
 De renderer tekent per beeld één SVG in ArchiMate-kleur, met het ID en de beeldtitel bovenaan: geel voor rol, processtap en object, blauw voor component, grijs voor een scope-uitzondering, gestippeld voor een aanname, paars voor een objecttype van de conceptplaat (een conceptverdieping heeft bovendien een gestippelde rand en een chip). Bovenaan staat wie en wat (rol en processtap) of de pijl van component naar component als horizontale stippellijn met koppeling-ID en stap; eronder hangen de objecten aan een stippellijn, onderling gerelateerd. Nesting is een container; een relatielijn loopt alleen naar het buurobject (ruit bij aggregatie, open pijlpunt bij specialisatie, gelabelde lijn bij associatie), elke andere relatie staat als verwijzing op het object. Leesbaarheid gaat voor breedte: een beeld is hooguit ongeveer 1000 px breed (letters 12 en 14 px), brede ketens gaan in een kolom of over meer rijen, brede kinderrijen worden een stapel en de zin loopt door over meer regels. GitHub schaalt een breder beeld terug tot onleesbaar.
 
 Bekijk het beeld zelf voordat je het meldt: `soffice --headless --convert-to png` in de scratchpad, en zet het beeld voor de gebruiker op een branch met een GitHub-link (bestanden sturen werkt niet in de container).
+
+## De hoofdplaat als context bij elke interactie
+
+Een stroombeeld toont twee componenten en wat er tussen hen beweegt, maar niet waar die lijn op de hoofdplaat loopt. Daarom staat onder elke fasekop een render van hoofdplaat v1.7 waarop de stromen van die fase zijn gemarkeerd, met het beeld-ID erbij; de rest van de plaat vervaagt, zodat de lijn eruit springt. Een stroom die de plaat nog niet kent, staat als gestippelde lijn tussen de twee componenten: zo is zichtbaar wat er ontbreekt in plaats van dat het wegvalt.
+
+`teken-hoofdplaat-highlight.py` maakt die platen uit de view-geometrie van het model en een render van de plaat (`exporteer-archimate-platen.py`, Archi headless). Het meldt welke stromen het niet kon plaatsen; dat zijn componenten die de plaat niet kent, en die horen in het document als vraag.
+
+Elk stroombeeld draagt daarnaast een regel **Interactie:** met de twee systemen, de koppeling of de aanduiding "geen pijl op de hoofdplaat", en het beeld-ID waarmee de lijn op de faseplaat is gemarkeerd.
 
 ## Systemen: wat een component doet, staat in MORA
 

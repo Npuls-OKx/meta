@@ -4936,20 +4936,61 @@
   },
   {
    "beeld_id": "F5-05",
-   "beeld": "Studiebeeld: het resultaat per eenheid",
+   "beeld": "Studiebeeld: de nominale route naast wat Jochem heeft behaald",
    "fase": 5,
    "stap": "Studiebeeld volgen in het studentvolgsysteem",
    "soort": "ontstaat",
    "wie": "SLB'er",
    "objecttype": "Onderwijseenheid resultaat",
-   "instantie": "B1-K1: in uitvoering",
+   "instantie": "B1-K1: in uitvoering, twee van vier leeronderdelen afgerond",
    "bron": "leerroute-1-regulier.md, Fase 5 en 7: onderwijseenheid-verbintenis resultaten",
    "relatie": {
     "soort": "Association",
     "van": "Onderwijseenheid aanbod verbintenis",
     "naar": "Onderwijseenheid resultaat"
    },
-   "zin": "De SLB'er volgt het studiebeeld: het studentvolgsysteem telt de resultaten per eenheid op de verbintenis bij elkaar."
+   "zin": "De SLB'er legt de nominale route naast wat Jochem tot nu toe heeft behaald: het geplande aanbod per periode tegenover de resultaten op zijn verbintenissen. Daaruit volgt of hij voor of achter loopt op de route die bij zijn cohort hoort, en of bijsturen nodig is."
+  },
+  {
+   "beeld_id": "F5-05",
+   "beeld": "Studiebeeld: de nominale route naast wat Jochem heeft behaald",
+   "fase": 5,
+   "stap": "Studiebeeld volgen in het studentvolgsysteem",
+   "wie": "SLB'er",
+   "soort": "ontstaat",
+   "objecttype": "Onderwijseenheid aanbod",
+   "instantie": "B1-K1, leerjaar 1, periode 1 tot 4: de nominale route",
+   "bron": "leerroute-1-regulier.md, r868 (het studentvolgsysteem legt onderwijsresultaten per onderwijsverbintenis vast en houdt de studiepadadministratie bij tot kwalificering) en r870 (resultaten worden bijgehouden tegen de specificatie uit de catalogus)",
+   "nieuwe_instantie": true,
+   "toestand": "gepland",
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Onderwijseenheid specificatie",
+     "naar": "Onderwijseenheid aanbod",
+     "instantie": "Blok B1-K1, zoals ontworpen"
+    }
+   ]
+  },
+  {
+   "beeld_id": "F5-05",
+   "beeld": "Studiebeeld: de nominale route naast wat Jochem heeft behaald",
+   "fase": 5,
+   "stap": "Studiebeeld volgen in het studentvolgsysteem",
+   "wie": "SLB'er",
+   "soort": "ontstaat",
+   "objecttype": "Summatieve resultaat structuur",
+   "instantie": "Resultaatstructuur Apothekersassistent, cohort 2026",
+   "bron": "leerroute-1-regulier.md, r868 (het studentvolgsysteem legt onderwijsresultaten per onderwijsverbintenis vast en houdt de studiepadadministratie bij tot kwalificering) en r870 (resultaten worden bijgehouden tegen de specificatie uit de catalogus)",
+   "nieuwe_instantie": true,
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Summatieve resultaat structuur",
+     "naar": "Leeruitkomst",
+     "instantie": "waartegen het resultaat wordt gelegd"
+    }
+   ]
   },
   {
    "beeld_id": "F6-01",
