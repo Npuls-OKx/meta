@@ -224,9 +224,9 @@ De fase in detail: [kaderscenario leerroute 1, fase 4](https://github.com/Npuls-
 
 Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Onderwijscatalogus naar Leer management systeem (LMS), OC-LMS.
 
-### F4-03 - De les van binnen: leervorm, planning, leerdoelen en toetsing (conceptplaat)
+### F4-03 - De les en de toets van binnen, elk met hun eigen onderdelen (conceptplaat)
 
-![stroomt: Detailspecificaties leveren aan het LMS](img/regels/f4-03-de-les-van-binnen-leervorm-planning-leerdoelen-en-toetsing-conceptplaat.svg)
+![stroomt: Detailspecificaties leveren aan het LMS](img/regels/f4-03-de-les-en-de-toets-van-binnen-elk-met-hun-eigen-onderdelen-conceptplaat.svg)
 
 Op de [hoofdplaat](#de-hoofdplaat-als-kaart): Onderwijscatalogus naar Leer management systeem (LMS), OC-LMS.
 
@@ -453,7 +453,7 @@ Per objecttype het beeld waarin hij verschijnt (het ID uit de kop), de instantie
 | Keuzedeel | F1-08 | K0262 ARBO, kwaliteitszorg en hulpverlening geschikt voor niveau 3 (240 SBU) | 1 |  | nog te definieren | Programme | | |
 | Keuzedeelruimte | F1-07 | 720 SBU, mbo-4: te vullen met 480 SBU verdiepend en 240 SBU generiek | 1 |  | ja | Programme | | |
 | Leeronderdeel specificatie | F1-05 | B1-K1-W1 Baliegesprek en triage | 1 |  | ja | LearningComponent | | |
-| Les specificatie | F4-01 | Les 1 Introductie WHAM-vragen en triage, werkcollege, 2 uur | 4 |  | ja | LearningComponent | | |
+| Les specificatie | F4-01 | Les 1 Introductie WHAM-vragen en triage | 4 |  | ja | LearningComponent | | |
 | Onderwijseenheid specificatie | F1-05 | Blok B1-K1 Biedt farmaceutische patiëntenzorg | 1 |  | ja | Course | | |
 | Opleiding specificatie | F1-07 | Apothekersassistent, versie 2026.1 | 1 |  | nog te definieren | Programme | | |
 | Opleidingsprogramma specificatie | F1-07 | BOL voltijd, diplomaprogramma | 1 |  | ja | Programme | | |
@@ -620,6 +620,7 @@ Per regel één van vier antwoorden: herken ik dit; heet bij ons anders (welke t
 | 3 | F3-07 | Opleiding aanbod verbintenis | | | | |
 | 3 | F3-07 | Opleidingsprogramma aanbod verbintenis | | | | |
 | 4 | F4-01 | Leeronderdeel specificatie | | | | |
+| 4 | F4-01 | Les specificatie | | | | |
 | 4 | F4-01 | Les specificatie | | | | |
 | 4 | F4-08 | Leergelegenheid | | | | |
 | 4 | F4-08 | Lesgelegenheid | | | | |
@@ -960,7 +961,8 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
 | verandert | Leeronderdeel specificatie | B1-K1-W1 Neemt de zorg-/adviesvraag in behandeling, lessenreeks Baliegesprek en triage | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [r1086](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L1086) tot [1110](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L1110): lessenreeks 6 weken x 1 dagdeel |
-| ontstaat | Les specificatie | Les 1 Introductie WHAM-vragen en triage, werkcollege, 2 uur | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [r1094](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L1094) tot [1100](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L1100): lesspecificatie les 1 |
+| ontstaat | Les specificatie | Les 1 Introductie WHAM-vragen en triage | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [r1094](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L1094) tot [1100](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L1100): lesspecificatie les 1 |
+| ontstaat | Les specificatie | Les 2 Baliegesprek oefenen met rollenspel | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [r626](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L626) (Leeronderdeel-specificatie 0..* Lesspecificatie) en [r604](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L604) (de lesspecificatie is het kleinste geplande leermoment binnen een leeronderdeel); de les blijft buiten de uitwisseling, ontwerpkeuze 8 |
 
 **F4-02 - Detailspecificaties naar het LMS** (fase 4, Detailspecificaties leveren aan het LMS; [f4-02-detailspecificaties-naar-het-lms.svg](img/regels/f4-02-detailspecificaties-naar-het-lms.svg))
 
@@ -968,13 +970,14 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 |---|---|---|---|
 | stroomt | Leeronderdeel specificatie | B1-K1-W1, lessenreeks Baliegesprek en triage | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 4](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-4--detailleren-roosteren-en-inschrijven): OC naar LMS (leeronderdeel-specificaties ter detaillering) |
 | stroomt | Les specificatie | Les 1 Introductie WHAM-vragen en triage | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 4](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-4--detailleren-roosteren-en-inschrijven): detailspecificaties naar het LMS |
+| stroomt | Les specificatie | Les 2 Baliegesprek oefenen met rollenspel | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [r626](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L626) (Leeronderdeel-specificatie 0..* Lesspecificatie) en [r604](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L604) (de lesspecificatie is het kleinste geplande leermoment binnen een leeronderdeel); de les blijft buiten de uitwisseling, ontwerpkeuze 8 |
 | stroomt | Toetsonderdeel specificatie | Formatieve check baliegesprek, les 1 | informatiemodel.json: Toetsonderdeel specificatie naar Leeruitkomst; leerroute-1-regulier.md, r886 (het LMS detailleert de leeronderdeelspecificatie en eventueel de lesspecificaties) en r955 |
 
-**F4-03 - De les van binnen: leervorm, planning, leerdoelen en toetsing (conceptplaat)** (fase 4, Detailspecificaties leveren aan het LMS; [f4-03-de-les-van-binnen-leervorm-planning-leerdoelen-en-toetsing-conceptplaat.svg](img/regels/f4-03-de-les-van-binnen-leervorm-planning-leerdoelen-en-toetsing-conceptplaat.svg))
+**F4-03 - De les en de toets van binnen, elk met hun eigen onderdelen (conceptplaat)** (fase 4, Detailspecificaties leveren aan het LMS; [f4-03-de-les-en-de-toets-van-binnen-elk-met-hun-eigen-onderdelen-conceptplaat.svg](img/regels/f4-03-de-les-en-de-toets-van-binnen-elk-met-hun-eigen-onderdelen-conceptplaat.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
-| stroomt (conceptplaat) | Les specificatie / toets specificatie | Les 1 Introductie WHAM-vragen en triage | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Onderwijsplan aggregeert Les specificatie / toets specificatie; leerroute-1-regulier.md, r886 (het LMS detailleert de leeronderdeelspecificatie en eventueel de lesspecificaties) en r955 |
+| stroomt (conceptplaat) | Les specificatie / toets specificatie | Les 1 Introductie WHAM-vragen en triage, en de formatieve check erbij | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Onderwijsplan aggregeert Les specificatie / toets specificatie; leerroute-1-regulier.md, r886 (het LMS detailleert de leeronderdeelspecificatie en eventueel de lesspecificaties) en r955 |
 | stroomt (conceptplaat) | (Didactische) Leervorm | Instructie met rollenspel in tweetallen | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Les specificatie / toets specificatie aggregeert (Didactische) Leervorm; leerroute-1-regulier.md, r886 (het LMS detailleert de leeronderdeelspecificatie en eventueel de lesspecificaties) en r955 |
 | stroomt (conceptplaat) | Lesplanning | 90 minuten, week 3, skillslab | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Les specificatie / toets specificatie aggregeert Lesplanning; leerroute-1-regulier.md, r886 (het LMS detailleert de leeronderdeelspecificatie en eventueel de lesspecificaties) en r955 |
 | stroomt (conceptplaat) | Lesleerdoel | De student stelt de WHAM-vragen in de juiste volgorde | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Les specificatie / toets specificatie aggregeert Lesleerdoel; leerroute-1-regulier.md, r886 (het LMS detailleert de leeronderdeelspecificatie en eventueel de lesspecificaties) en r955 |

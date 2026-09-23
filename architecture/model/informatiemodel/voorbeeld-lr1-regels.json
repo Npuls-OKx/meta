@@ -3689,7 +3689,7 @@
     "naar": "Leeruitkomst",
     "instantie": "Voert baliegesprek en triage uit (werkprocesniveau)"
    },
-   "zin": "De onderwijsontwikkelaar werkt het leeronderdeel fijnmazig uit tot een lessenreeks van zes weken.",
+   "zin": "De onderwijsontwikkelaar werkt het leeronderdeel fijnmazig uit tot een lessenreeks van zes weken. De lesspecificaties horen bij het leeronderdeel; twee lessen staan hier om te tonen wat een leeronderdeel draagt. Dieper dan het leeronderdeel gaat de uitwisseling niet, dus de les blijft grijs: binnen de instelling.",
    "toestand": "fijnmazig"
   },
   {
@@ -3700,7 +3700,7 @@
    "soort": "ontstaat",
    "wie": "onderwijsontwikkelaar",
    "objecttype": "Les specificatie",
-   "instantie": "Les 1 Introductie WHAM-vragen en triage, werkcollege, 2 uur",
+   "instantie": "Les 1 Introductie WHAM-vragen en triage",
    "bron": "leerroute-1-regulier.md, r1094 tot 1100: lesspecificatie les 1",
    "relatie": {
     "soort": "Aggregation",
@@ -3716,6 +3716,32 @@
      "instantie": "Voert baliegesprek en triage uit (werkprocesniveau)"
     }
    ]
+  },
+  {
+   "beeld_id": "F4-01",
+   "beeld": "Het leeronderdeel fijnmazig: lessenreeks en les",
+   "fase": 4,
+   "stap": "Leeronderdeel- en toetsonderdeelspecificaties fijnmazig uitwerken",
+   "soort": "ontstaat",
+   "wie": "onderwijsontwikkelaar",
+   "objecttype": "Les specificatie",
+   "instantie": "Les 2 Baliegesprek oefenen met rollenspel",
+   "bron": "leerroute-1-regulier.md, r626 (Leeronderdeel-specificatie 0..* Lesspecificatie) en r604 (de lesspecificatie is het kleinste geplande leermoment binnen een leeronderdeel); de les blijft buiten de uitwisseling, ontwerpkeuze 8",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Leeronderdeel specificatie",
+    "naar": "Les specificatie",
+    "nesting": true
+   },
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Les specificatie",
+     "naar": "Leeruitkomst",
+     "instantie": "Voert baliegesprek en triage uit (werkprocesniveau)"
+    }
+   ],
+   "nieuwe_instantie": true
   },
   {
    "beeld_id": "F4-02",
@@ -3777,6 +3803,35 @@
    "van": "Onderwijscatalogus",
    "naar": "Leer management systeem (LMS)",
    "pijl": "id-d23841b89bed4935b2aebdeb12ee2acf",
+   "koppeling": "OC-LMS",
+   "objecttype": "Les specificatie",
+   "instantie": "Les 2 Baliegesprek oefenen met rollenspel",
+   "bron": "leerroute-1-regulier.md, r626 (Leeronderdeel-specificatie 0..* Lesspecificatie) en r604 (de lesspecificatie is het kleinste geplande leermoment binnen een leeronderdeel); de les blijft buiten de uitwisseling, ontwerpkeuze 8",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Leeronderdeel specificatie",
+    "naar": "Les specificatie",
+    "nesting": true
+   },
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Les specificatie",
+     "naar": "Leeruitkomst",
+     "instantie": "Voert baliegesprek en triage uit (werkprocesniveau)"
+    }
+   ],
+   "nieuwe_instantie": true
+  },
+  {
+   "beeld_id": "F4-02",
+   "beeld": "Detailspecificaties naar het LMS",
+   "fase": 4,
+   "stap": "Detailspecificaties leveren aan het LMS",
+   "soort": "stroomt",
+   "van": "Onderwijscatalogus",
+   "naar": "Leer management systeem (LMS)",
+   "pijl": "id-d23841b89bed4935b2aebdeb12ee2acf",
    "objecttype": "Toetsonderdeel specificatie",
    "instantie": "Formatieve check baliegesprek, les 1",
    "koppeling": "OC-LMS",
@@ -3794,7 +3849,7 @@
   },
   {
    "beeld_id": "F4-03",
-   "beeld": "De les van binnen: leervorm, planning, leerdoelen en toetsing (conceptplaat)",
+   "beeld": "De les en de toets van binnen, elk met hun eigen onderdelen (conceptplaat)",
    "fase": 4,
    "stap": "Detailspecificaties leveren aan het LMS",
    "verdieping": "wat er in een les zit",
@@ -3805,15 +3860,15 @@
    "pijl": "id-d23841b89bed4935b2aebdeb12ee2acf",
    "aanname": true,
    "objecttype": "Les specificatie / toets specificatie",
-   "instantie": "Les 1 Introductie WHAM-vragen en triage",
+   "instantie": "Les 1 Introductie WHAM-vragen en triage, en de formatieve check erbij",
    "koppeling": "OC-LMS",
    "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Onderwijsplan aggregeert Les specificatie / toets specificatie; leerroute-1-regulier.md, r886 (het LMS detailleert de leeronderdeelspecificatie en eventueel de lesspecificaties) en r955",
-   "zin": "Verdieping: onder een les hangt hoe zij wordt gegeven en hoe zij wordt afgedicht. De didactische leervorm, de lesplanning, de lesleerdoelen en de werkinstructies zeggen hoe; de toetsvorm met haar instrument en de toetsmatrijs zeggen waarmee wordt gecontroleerd of de leerdoelen zijn gehaald. Het resultaat daarvan staat in lesuitkomsten: de fijnste laag onder de leeruitkomst.",
-   "vraag": "Het LMS detailleert de leeronderdeelspecificatie tot lessen en toetsen. Hoofdplaat v1.7 kent alleen de weg van de catalogus naar het LMS, geen teruglevering. Gaan fijnmazig uitgewerkte toetsonderdeel- en lesspecificaties terug naar de catalogus, zodat de instelling ze op een plek beheert?"
+   "zin": "Verdieping: onder een les hangt hoe zij wordt gegeven, onder een toets waarmee wordt gecontroleerd. De didactische leervorm, de lesplanning, de lesleerdoelen en de werkinstructies horen bij de les; de toetsvorm met haar instrument en de toetsmatrijs horen bij de toetsonderdeelspecificatie, die los van de les staat. Wat de student laat zien, staat in lesuitkomsten: de fijnste laag onder de leeruitkomst.",
+   "vraag": "De conceptplaat vat les en toets samen in een object (Les specificatie / toets specificatie), terwijl het informatiemodel ze scheidt in lesspecificatie en toetsonderdeelspecificatie. De les hoort bij het leeronderdeel, de toets bij de resultaatstructuur. Houdt het model die scheiding aan, en gaan fijnmazig uitgewerkte toetsonderdeel- en lesspecificaties terug naar de catalogus?"
   },
   {
    "beeld_id": "F4-03",
-   "beeld": "De les van binnen: leervorm, planning, leerdoelen en toetsing (conceptplaat)",
+   "beeld": "De les en de toets van binnen, elk met hun eigen onderdelen (conceptplaat)",
    "fase": 4,
    "stap": "Detailspecificaties leveren aan het LMS",
    "verdieping": "wat er in een les zit",
@@ -3836,7 +3891,7 @@
   },
   {
    "beeld_id": "F4-03",
-   "beeld": "De les van binnen: leervorm, planning, leerdoelen en toetsing (conceptplaat)",
+   "beeld": "De les en de toets van binnen, elk met hun eigen onderdelen (conceptplaat)",
    "fase": 4,
    "stap": "Detailspecificaties leveren aan het LMS",
    "verdieping": "wat er in een les zit",
@@ -3859,7 +3914,7 @@
   },
   {
    "beeld_id": "F4-03",
-   "beeld": "De les van binnen: leervorm, planning, leerdoelen en toetsing (conceptplaat)",
+   "beeld": "De les en de toets van binnen, elk met hun eigen onderdelen (conceptplaat)",
    "fase": 4,
    "stap": "Detailspecificaties leveren aan het LMS",
    "verdieping": "wat er in een les zit",
@@ -3882,7 +3937,7 @@
   },
   {
    "beeld_id": "F4-03",
-   "beeld": "De les van binnen: leervorm, planning, leerdoelen en toetsing (conceptplaat)",
+   "beeld": "De les en de toets van binnen, elk met hun eigen onderdelen (conceptplaat)",
    "fase": 4,
    "stap": "Detailspecificaties leveren aan het LMS",
    "verdieping": "wat er in een les zit",
@@ -3905,7 +3960,7 @@
   },
   {
    "beeld_id": "F4-03",
-   "beeld": "De les van binnen: leervorm, planning, leerdoelen en toetsing (conceptplaat)",
+   "beeld": "De les en de toets van binnen, elk met hun eigen onderdelen (conceptplaat)",
    "fase": 4,
    "stap": "Detailspecificaties leveren aan het LMS",
    "verdieping": "wat er in een les zit",
@@ -3919,17 +3974,19 @@
    "instantie": "Formatieve check: observatie met rubric",
    "koppeling": "OC-LMS",
    "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Les specificatie / toets specificatie aggregeert Toetsvorm; leerroute-1-regulier.md, r886 (het LMS detailleert de leeronderdeelspecificatie en eventueel de lesspecificaties) en r955",
-   "relatie": {
-    "soort": "Aggregation",
-    "van": "Les specificatie / toets specificatie",
-    "naar": "Toetsvorm",
-    "nesting": true
-   },
-   "nieuwe_instantie": true
+   "nieuwe_instantie": true,
+   "relaties": [
+    {
+     "soort": "Aggregation",
+     "van": "Les specificatie / toets specificatie",
+     "naar": "Toetsvorm",
+     "instantie": "hoort bij de toets, niet bij de les"
+    }
+   ]
   },
   {
    "beeld_id": "F4-03",
-   "beeld": "De les van binnen: leervorm, planning, leerdoelen en toetsing (conceptplaat)",
+   "beeld": "De les en de toets van binnen, elk met hun eigen onderdelen (conceptplaat)",
    "fase": 4,
    "stap": "Detailspecificaties leveren aan het LMS",
    "verdieping": "wat er in een les zit",
@@ -3943,17 +4000,19 @@
    "instantie": "Observatieformulier WHAM-vragen",
    "koppeling": "OC-LMS",
    "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Les specificatie / toets specificatie aggregeert Toetsinstrument; leerroute-1-regulier.md, r886 (het LMS detailleert de leeronderdeelspecificatie en eventueel de lesspecificaties) en r955",
-   "relatie": {
-    "soort": "Aggregation",
-    "van": "Les specificatie / toets specificatie",
-    "naar": "Toetsinstrument",
-    "nesting": true
-   },
-   "nieuwe_instantie": true
+   "nieuwe_instantie": true,
+   "relaties": [
+    {
+     "soort": "Aggregation",
+     "van": "Les specificatie / toets specificatie",
+     "naar": "Toetsinstrument",
+     "instantie": "hoort bij de toets, niet bij de les"
+    }
+   ]
   },
   {
    "beeld_id": "F4-03",
-   "beeld": "De les van binnen: leervorm, planning, leerdoelen en toetsing (conceptplaat)",
+   "beeld": "De les en de toets van binnen, elk met hun eigen onderdelen (conceptplaat)",
    "fase": 4,
    "stap": "Detailspecificaties leveren aan het LMS",
    "verdieping": "wat er in een les zit",
@@ -3967,16 +4026,18 @@
    "instantie": "Dekking van de lesleerdoelen over de observatiepunten",
    "koppeling": "OC-LMS",
    "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Les specificatie / toets specificatie aggregeert Toetsmatrijs; leerroute-1-regulier.md, r886 (het LMS detailleert de leeronderdeelspecificatie en eventueel de lesspecificaties) en r955",
-   "relatie": {
-    "soort": "Aggregation",
-    "van": "Les specificatie / toets specificatie",
-    "naar": "Toetsmatrijs",
-    "nesting": true
-   }
+   "relaties": [
+    {
+     "soort": "Aggregation",
+     "van": "Les specificatie / toets specificatie",
+     "naar": "Toetsmatrijs",
+     "instantie": "hoort bij de toets, niet bij de les"
+    }
+   ]
   },
   {
    "beeld_id": "F4-03",
-   "beeld": "De les van binnen: leervorm, planning, leerdoelen en toetsing (conceptplaat)",
+   "beeld": "De les en de toets van binnen, elk met hun eigen onderdelen (conceptplaat)",
    "fase": 4,
    "stap": "Detailspecificaties leveren aan het LMS",
    "verdieping": "wat er in een les zit",
