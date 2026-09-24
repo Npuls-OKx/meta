@@ -480,29 +480,24 @@ edustandaard.nl/amigo/aanpak, en paragraaf 2.4 van de leerroute-uitwerking.
 
 <div style="font-size: 0.85rem; color: var(--np-mid-gray); margin-top: 0.2rem;">Drie koppelingen, alle lagen beschreven</div>
 
-<div class="np-grid-2" style="margin-top: 0.6rem; gap: 1.1rem; align-items: center; grid-template-columns: 1.1fr 1fr;">
-
-<div style="min-width: 0;">
-  <img src="/platen/koppelingen-hoofdplaat.svg" style="max-height: 17rem; width: auto; max-width: 100%; display: block; margin: 0 auto; border-radius: 6px; border: 1px solid var(--np-light-gray); background: #fff;" />
-  <div style="font-size: 0.72rem; color: var(--np-mid-gray); margin-top: 0.3rem;">Catalogus met planning, studentadministratie en leeromgeving</div>
+<div style="margin-top: 0.5rem;">
+  <img src="/platen/koppelingen-hoofdplaat.svg" style="width: 100%; max-height: 15rem; object-fit: contain; border-radius: 6px; border: 1px solid var(--np-light-gray); background: #fff;" />
+  <div style="font-size: 0.72rem; color: var(--np-mid-gray); margin-top: 0.25rem; text-align: center;">Catalogus met planning, studentadministratie en leeromgeving</div>
 </div>
 
-<div style="min-width: 0;">
-  <div class="np-card accent-blue" style="padding: 0.7rem 0.9rem;">
-    <carbon-assembly-cluster style="font-size: 1.4rem; color: var(--np-blue);" />
-    <div style="font-weight: 700; font-size: 0.92rem;">Per koppeling alle lagen</div>
-    <small style="font-size: 0.8rem;">eisen &middot; systemen &middot; patronen &middot; endpoints &middot; schema's &middot; toegang</small>
+<div class="np-grid-3" style="margin-top: 0.6rem; gap: 0.7rem; align-items: start;">
+  <div class="np-card accent-blue" style="padding: 0.6rem 0.8rem;">
+    <div style="font-weight: 700; font-size: 0.88rem;">Per koppeling alle lagen</div>
+    <small style="font-size: 0.76rem;">eisen &middot; systemen &middot; patronen &middot; endpoints &middot; schema's &middot; toegang</small>
   </div>
-  <div class="np-card accent-orange" style="padding: 0.6rem 0.9rem; margin-top: 0.6rem;">
-    <div style="font-weight: 700; font-size: 0.9rem;">Najaar 2026</div>
-    <small style="font-size: 0.8rem;">aanscherpen met koplopers</small>
+  <div class="np-card accent-orange" style="padding: 0.6rem 0.8rem;">
+    <div style="font-weight: 700; font-size: 0.88rem;">Najaar 2026</div>
+    <small style="font-size: 0.76rem;">aanscherpen met koplopers</small>
   </div>
-  <div class="np-card accent-green" style="padding: 0.6rem 0.9rem; margin-top: 0.6rem;">
-    <div style="font-weight: 700; font-size: 0.9rem;">Daarna</div>
-    <small style="font-size: 0.8rem;">meer koppelingen, meer leerroutes, het ho</small>
+  <div class="np-card accent-green" style="padding: 0.6rem 0.8rem;">
+    <div style="font-weight: 700; font-size: 0.88rem;">Daarna</div>
+    <small style="font-size: 0.76rem;">meer koppelingen, meer leerroutes, het ho</small>
   </div>
-</div>
-
 </div>
 
 <div class="np-card accent-orange" style="margin-top: 0.7rem; font-size: 1.05rem; line-height: 1.4; text-align: center; padding: 0.6rem;">
