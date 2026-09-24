@@ -42,19 +42,19 @@ die dat concept oplevert.
   <div class="np-step orange" style="flex: 1;">
     <carbon-user-multiple style="font-size: 1.7rem; color: var(--np-orange);" />
     <strong style="font-size: 0.86rem;">Ophalen wat scholen willen</strong>
-    <small>koplopers per leerroute; leerroute 1 uitgewerkt, 2 en 3 in bewerking</small>
+    <small>leerroute 1 klaar, 2 en 3 lopen</small>
   </div>
   <div class="np-arrow">&#8594;</div>
   <div class="np-step blue" style="flex: 1;">
     <carbon-partnership style="font-size: 1.7rem; color: var(--np-blue);" />
     <strong style="font-size: 0.86rem;">Vertalen langs een vaste route</strong>
-    <small>begrippen, informatiemodel en informatiestromen liggen voor, afstemming loopt</small>
+    <small>begrippen, model, stromen: in afstemming</small>
   </div>
   <div class="np-arrow">&#8594;</div>
   <div class="np-step green" style="flex: 1;">
     <carbon-document style="font-size: 1.7rem; color: var(--np-green);" />
     <strong style="font-size: 0.86rem;">Uitwerken tot het eindproduct</strong>
-    <small>opbouw en eerste invulling liggen er, details volgen met leveranciers</small>
+    <small>opbouw klaar, details met leveranciers</small>
   </div>
 </div>
 
@@ -62,17 +62,17 @@ die dat concept oplevert.
   <div class="np-card accent-green" style="text-align: center; padding: 0.8rem 0.6rem;">
     <carbon-checkmark-outline style="font-size: 1.7rem; color: var(--np-green);" />
     <div style="font-weight: 700; font-size: 0.95rem; margin-top: 0.3rem;">Route staat scherp</div>
-    <small style="font-size: 0.8rem;">van wens naar eindproduct</small>
+    <small style="font-size: 0.8rem;">van wens tot eindproduct</small>
   </div>
   <div class="np-card accent-orange" style="text-align: center; padding: 0.8rem 0.6rem;">
     <carbon-user-multiple style="font-size: 1.7rem; color: var(--np-orange);" />
     <div style="font-weight: 700; font-size: 0.95rem; margin-top: 0.3rem;">Weer op pad</div>
-    <small style="font-size: 0.8rem;">wat moet er gebouwd worden?</small>
+    <small style="font-size: 0.8rem;">wat bouwen we?</small>
   </div>
   <div class="np-card accent-blue" style="text-align: center; padding: 0.8rem 0.6rem;">
     <carbon-industry style="font-size: 1.7rem; color: var(--np-blue);" />
     <div style="font-weight: 700; font-size: 0.95rem; margin-top: 0.3rem;">Leerroute 1 erdoorheen</div>
-    <small style="font-size: 0.8rem;">tot in het eindproduct</small>
+    <small style="font-size: 0.8rem;">volledig uitgewerkt</small>
   </div>
 </div>
 
@@ -103,21 +103,27 @@ slide. Alle drie de sporen lopen; niets is af.
 </div>
 
 <div>
-  <div class="np-card accent-blue" style="font-size: 0.87rem; line-height: 1.5; padding: 0.6rem 0.9rem; margin-bottom: 0.6rem;">
-    <strong>Vaste bouwblokken per koppeling:</strong> wat systemen van elkaar vragen, wanneer zij dat doen, welke gegevens meegaan en hoe toegang is geregeld. Elke eis komt uit de vraag van de sector.
+  <div class="np-card accent-blue" style="padding: 0.7rem 0.9rem; margin-bottom: 0.6rem;">
+    <carbon-assembly-cluster style="font-size: 1.5rem; color: var(--np-blue);" />
+    <div style="font-weight: 700; font-size: 0.95rem;">Vaste bouwblokken</div>
+    <small style="font-size: 0.82rem;">eisen &middot; systemen &middot; patronen &middot; endpoints &middot; schema's &middot; toegang</small>
   </div>
-  <div class="np-card accent-orange" style="font-size: 0.87rem; line-height: 1.5; padding: 0.6rem 0.9rem; margin-bottom: 0.6rem;">
-    <strong>Drie koppelingen in uitwerking:</strong> catalogus en planning voor nominaal en keuze-aanbod, catalogus en studentadministratie, catalogus en leeromgeving.
+  <div class="np-card accent-orange" style="padding: 0.7rem 0.9rem; margin-bottom: 0.6rem;">
+    <carbon-network-3 style="font-size: 1.5rem; color: var(--np-orange);" />
+    <div style="font-weight: 700; font-size: 0.95rem;">Drie koppelingen</div>
+    <small style="font-size: 0.82rem;">planning &middot; studentadministratie &middot; leeromgeving</small>
   </div>
-  <div class="np-card accent-green" style="font-size: 0.87rem; line-height: 1.5; padding: 0.6rem 0.9rem;">
-    <strong>Per onderdeel een eigen versie en ritme,</strong> openbaar en met de reden bij elke wijziging. Een school of leverancier weet welke versie hij leest en wat er veranderd is.
+  <div class="np-card accent-green" style="padding: 0.7rem 0.9rem;">
+    <carbon-version style="font-size: 1.5rem; color: var(--np-green);" />
+    <div style="font-weight: 700; font-size: 0.95rem;">Eigen versie per deel</div>
+    <small style="font-size: 0.82rem;">openbaar, met de reden erbij</small>
   </div>
 </div>
 
 </div>
 
 <div style="margin-top: 0.8rem; font-size: 0.85rem; color: var(--np-mid-gray); text-align: center;">
-  Status: concept. Richting en eerste invulling liggen er; de details scherpen wij aan met leveranciers.
+  Status: concept in afstemming
 </div>
 
 </div>
@@ -154,10 +160,10 @@ eigen ritme, zodat een wijziging in een schema niet het hele pakket ophoudt.
     </div>
   </div>
   <div class="np-card accent-green" style="font-size: 0.87rem; line-height: 1.5; padding: 0.6rem 0.9rem;">
-    Begrippenkader, informatiemodel en informatiestromen liggen als concept voor. Elk begrip ligt naast MORA en ROSA: waar de sector al een woord heeft, gebruiken wij dat.
+    Begrippen, model en stromen liggen als concept voor, naast MORA en ROSA.
   </div>
   <div class="np-card accent-orange" style="font-size: 0.87rem; line-height: 1.5; padding: 0.6rem 0.9rem; margin-top: 0.6rem;">
-    Open punten: de grens tussen koppeling en koppelvlak, en hoe fijnmazig de uitwisseling moet zijn.
+    Open: grens koppeling en koppelvlak, en hoe fijnmazig.
   </div>
 </div>
 
@@ -195,16 +201,16 @@ dit is voorgelegd, niet vastgesteld.
 
 <div>
   <div class="np-card accent-orange" style="font-size: 0.9rem; line-height: 1.5; margin-bottom: 0.7rem;">
-    <strong>Omvang en complexiteit vragen om voorbeelden</strong><br/>
-    abstracte modellen blijven anders te ver van de praktijk
+    <strong>Voorbeelden nodig</strong><br/>
+    <small>een model alleen blijft abstract</small>
   </div>
   <div class="np-card accent-blue" style="font-size: 0.9rem; line-height: 1.5; margin-bottom: 0.7rem;">
-    <strong>Een echte opleiding per leerroute</strong><br/>
-    apothekersassistent, van het ontwerp van de opleiding tot diplomering
+    <strong>Een echte opleiding</strong><br/>
+    <small>apothekersassistent, ontwerp tot diploma</small>
   </div>
   <div class="np-card accent-green" style="font-size: 0.9rem; line-height: 1.5;">
-    <strong>Robuustheid toetsen</strong><br/>
-    scholen en leveranciers leggen het naast hun praktijk: herkennen zij het, ontbreekt er iets
+    <strong>Toets bij scholen</strong><br/>
+    <small>herkennen zij het, ontbreekt er iets</small>
   </div>
 </div>
 
@@ -230,19 +236,19 @@ Dit is de manier waarop we de conceptuele laag op robuustheid toetsen voordat we
 <div class="np-grid-2" style="margin-top: 0.9rem; gap: 0.8rem; align-items: start;">
   <div class="np-card accent-orange" style="font-size: 0.88rem; line-height: 1.5;">
     <strong>Najaar 2026</strong><br/>
-    concept aanscherpen met koploperscholen en leveranciers
+    <small>concept aanscherpen met koplopers</small>
   </div>
   <div class="np-card accent-blue" style="font-size: 0.88rem; line-height: 1.5;">
     <strong>Doel Q1 2027</strong><br/>
-    eerste koppeling bouwbaar bij leveranciers
+    <small>eerste koppeling bouwbaar</small>
   </div>
   <div class="np-card accent-green" style="font-size: 0.88rem; line-height: 1.5;">
-    <strong>Daarna: verbreden</strong><br/>
-    meer koppelingen, meer detail per koppeling
+    <strong>Daarna</strong><br/>
+    <small>meer koppelingen, meer detail</small>
   </div>
   <div class="np-card accent-green" style="font-size: 0.88rem; line-height: 1.5;">
     <strong>En verder</strong><br/>
-    meer leerroutes, daarna het hoger onderwijs
+    <small>meer leerroutes, daarna het ho</small>
   </div>
 </div>
 

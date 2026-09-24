@@ -167,3 +167,7 @@ Pas de huisstijl alleen aan in `style.css`, nooit per presentatie. Bouw slides m
 Het designsysteem, de achtergronden en de componentbibliotheek komen uit [`cedanl/clidev-presentaties`](https://github.com/cedanl/clidev-presentaties). De werkwijze en de huisstijl uit de skills [`clidev`](https://github.com/cedanl/.github/tree/main/.claude/skills/clidev) en [`npuls-huisstijl`](https://github.com/cedanl/.github/tree/main/.claude/skills/npuls-huisstijl); die zijn gevendord onder [`.agents/skills/`](../.agents/skills/) en worden niet bewerkt.
 
 De Npuls huisstijl is eigendom van Npuls. OKx is een Npuls-programma, dus het gebruik valt binnen de voorwaarden.
+
+## Tekstbudget toetsen
+
+`python3 tel-woorden.py src/<deck>.md` telt de zichtbare woorden per slide: koppen, kaarten en bijschriften, zonder sprekersnotities. Rond de veertig woorden is het doel, boven de zestig faalt het script. Een slide die zakt, vraagt om steekwoorden met een drager: pictogram, kaart, pijplijn of plaat.
