@@ -31,43 +31,44 @@ die dat concept oplevert.
 
 ---
 
-<!-- 2. DE KERN: EEN WERKWIJZE DIE COMPLEXITEIT HANTEERBAAR MAAKT -->
+<!-- 2. WAAR WE AAN WERKEN, EN WAAR DAT STAAT -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
 
-# Een werkwijze die de complexiteit hanteerbaar maakt
+# Drie sporen, alle drie in uitvoering
 
-<div class="np-pipeline" style="margin-top: 1.4rem;">
+<div class="np-pipeline" style="margin-top: 1.2rem;">
   <div class="np-step orange" style="flex: 1;">
-    <carbon-user-multiple style="font-size: 1.9rem; color: var(--np-orange);" />
-    <strong style="font-size: 0.88rem;">Wat scholen willen</strong>
-    <small>opgehaald bij koplopers, per leerroute uitgewerkt</small>
+    <carbon-user-multiple style="font-size: 1.7rem; color: var(--np-orange);" />
+    <strong style="font-size: 0.86rem;">Ophalen wat scholen willen</strong>
+    <small>koplopers per leerroute; leerroute 1 uitgewerkt, 2 en 3 in bewerking</small>
   </div>
   <div class="np-arrow">&#8594;</div>
   <div class="np-step blue" style="flex: 1;">
-    <carbon-partnership style="font-size: 1.9rem; color: var(--np-blue);" />
-    <strong style="font-size: 0.88rem;">Beschreven vertaalslag</strong>
-    <small>scenario, begrippen, informatiemodel, informatiestromen</small>
+    <carbon-partnership style="font-size: 1.7rem; color: var(--np-blue);" />
+    <strong style="font-size: 0.86rem;">Vertalen langs een vaste route</strong>
+    <small>begrippen, informatiemodel en informatiestromen liggen voor, afstemming loopt</small>
   </div>
   <div class="np-arrow">&#8594;</div>
   <div class="np-step green" style="flex: 1;">
-    <carbon-document style="font-size: 1.9rem; color: var(--np-green);" />
-    <strong style="font-size: 0.88rem;">Eindproduct</strong>
-    <small>koppelvlakspecificatie, opgebouwd uit koppelingspecificaties</small>
+    <carbon-document style="font-size: 1.7rem; color: var(--np-green);" />
+    <strong style="font-size: 0.86rem;">Uitwerken tot het eindproduct</strong>
+    <small>opbouw en eerste invulling liggen er, details volgen met leveranciers</small>
   </div>
 </div>
 
-<div class="np-card accent-green" style="margin-top: 1.4rem; font-size: 0.98rem; line-height: 1.6;">
-  <strong>Dat is de winst van dit kwartaal:</strong> een vorm waarin business en techniek aan elkaar te knopen zijn, en waarin de vraag van een school herleidbaar terugkomt in wat een leverancier moet bouwen.
+<div class="np-card accent-green" style="margin-top: 1.3rem; font-size: 0.96rem; line-height: 1.6;">
+  <strong>Wat dit kwartaal opleverde:</strong> de drie sporen hangen nu aan elkaar. De vraag van een school is te volgen tot in wat een leverancier moet bouwen, en andersom. Die route is er; de inhoud gaat er stap voor stap doorheen.
 </div>
 
 </div>
 
 <!--
-Kernboodschap van dit blok. De inhoud is nog concept; de werkwijze is wat we hebben bereikt.
-Koppelingspecificatie is de afspraak tussen twee systemen; het koppelvlak is alles wat een
-systeem raakt. Die twee begrippen zijn zelf ook nog onderwerp van afstemming.
+Dit is de kern van het blok, en de toon is werk in uitvoering. Alle drie de sporen lopen: wij
+halen nog steeds op bij scholen, stemmen de conceptuele laag nog af, en werken het eindproduct
+nog uit. Wat af is, is de manier waarop die drie aan elkaar hangen. Dat is wat het mogelijk maakt
+om nu input te verwerken zonder dat het werk uit elkaar valt.
 -->
 
 ---
