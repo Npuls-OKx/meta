@@ -101,12 +101,41 @@ def lees_geometrie(model):
     return knopen, connecties, elems
 
 
+def pad(conn, knopen):
+    """Het pad zoals Archi het tekent: een knikpunt ligt op het midden van de bron plus zijn eigen offset.
+    De end-offsets zijn dezelfde punten gerekend vanaf het doel; het gemiddelde van beide nemen verschuift
+    de lijn, wat bij brede vakken zichtbaar naast de pijl uitkomt."""
+    a, b = knopen[conn["bron"]], knopen[conn["doel"]]
+    ca = (a["x"] + a["w"] / 2, a["y"] + a["h"] / 2)
+    cb = (b["x"] + b["w"] / 2, b["y"] + b["h"] / 2)
+    punten = [ca] + [(ca[0] + sx, ca[1] + sy) for sx, sy, _, _ in conn["knikpunten"]] + [cb]
+    punten[0] = platen.rand(ca, punten[1], a)
+    punten[-1] = platen.rand(cb, punten[-2], b)
+    return punten
+
+
 def tekst(x, y, s, kleur=ACCENT):
     breedte = 10 + 9 * len(s)
     return (f'<g><rect x="{x - breedte / 2:.0f}" y="{y - 15:.0f}" width="{breedte}" height="21" rx="4" '
             f'fill="#ffffff" stroke="{kleur}" stroke-width="2"/>'
             f'<text x="{x:.0f}" y="{y:.0f}" font-family="Segoe UI, Arial, sans-serif" font-size="15" '
             f'font-weight="bold" fill="{kleur}" text-anchor="middle">{html.escape(s)}</text></g>')
+
+
+def boog(a, b, gestippeld=False):
+    """Een eigen pijl tussen de randen van twee vakken, met een lichte boog zodat zij naast de plaat leest.
+    De routering van Archi is niet te reproduceren, dus markeert dit script de twee vakken en de richting
+    in plaats van de bestaande lijn over te tekenen."""
+    ca = (a["x"] + a["w"] / 2, a["y"] + a["h"] / 2)
+    cb = (b["x"] + b["w"] / 2, b["y"] + b["h"] / 2)
+    p1 = platen.rand(ca, cb, a)
+    p2 = platen.rand(cb, ca, b)
+    mx, my = (p1[0] + p2[0]) / 2, (p1[1] + p2[1]) / 2
+    dx, dy = p2[0] - p1[0], p2[1] - p1[1]
+    lengte = max((dx * dx + dy * dy) ** 0.5, 1)
+    # het controlepunt ligt loodrecht op het midden, zodat de boog los van de bestaande pijlen loopt
+    cx, cy = mx - dy / lengte * min(lengte * 0.12, 60), my + dx / lengte * min(lengte * 0.12, 60)
+    return p1, p2, (cx, cy)
 
 
 def bouw(knopen, connecties, elems, png, stromen, pijl_van):
@@ -117,49 +146,29 @@ def bouw(knopen, connecties, elems, png, stromen, pijl_van):
     b64 = base64.b64encode(png.read_bytes()).decode()
     soort = png.suffix.lstrip(".").replace("jpg", "jpeg")
     delen = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}">',
+             f'<defs><marker id="punt" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" '
+             f'orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="{ACCENT}"/></marker></defs>',
              f'<image href="data:image/{soort};base64,{b64}" x="0" y="0" width="{W}" height="{H}"/>',
-             # de plaat vervaagt, zodat de gemarkeerde stromen eruit springen
-             f'<rect x="0" y="0" width="{W}" height="{H}" fill="#ffffff" fill-opacity="0.62"/>']
-    conn_van_relatie = {c["relatie"]: c for c in connecties if c["relatie"]}
-    geraakt, ontbreekt = set(), []
+             # de plaat vervaagt, zodat de markeringen eruit springen
+             f'<rect x="0" y="0" width="{W}" height="{H}" fill="#ffffff" fill-opacity="0.6"/>']
+    geraakt, ontbreekt = [], []
     for (van, naar, pijl), beelden in stromen.items():
         label = ", ".join(beelden)
-        conn = conn_van_relatie.get(pijl) if pijl != GEEN_PIJL else None
-        if conn and conn["bron"] in knopen and conn["doel"] in knopen:
-            punten = platen.pad(conn, knopen)
-            d = " ".join(("M" if i == 0 else "L") + f"{x - minx:.0f},{y - miny:.0f}" for i, (x, y) in enumerate(punten))
-            # de halo is breed en zacht, zodat de markering de pijl ook dekt waar Archi anders routeert
-            delen.append(f'<path d="{d}" fill="none" stroke="{ACCENT}" stroke-width="22" stroke-opacity="0.22" '
-                         f'stroke-linecap="round" stroke-linejoin="round"/>')
-            delen.append(f'<path d="{d}" fill="none" stroke="{ACCENT}" stroke-width="5" stroke-opacity="0.75" '
-                         f'stroke-linecap="round" stroke-linejoin="round"/>')
-            for x, y in (punten[0], punten[-1]):
-                delen.append(f'<circle cx="{x - minx:.0f}" cy="{y - miny:.0f}" r="7" fill="{ACCENT}" '
-                             f'fill-opacity="0.85" stroke="#ffffff" stroke-width="2"/>')
-            mx, my = punten[len(punten) // 2]
-            delen.append(tekst(mx - minx, my - miny - 10, label))
-            geraakt |= {conn["bron"], conn["doel"]}
-        else:
-            a, b = dichtste_paar(knopen, elems, van, naar)
-            if not a or not b:
-                ontbreekt.append(f"{label}: {van} naar {naar}")
-                continue
-            ca = (a["x"] + a["w"] / 2, a["y"] + a["h"] / 2)
-            cb = (b["x"] + b["w"] / 2, b["y"] + b["h"] / 2)
-            p = platen.rand(ca, cb, a)
-            q = platen.rand(cb, ca, b)
-            delen.append(f'<line x1="{p[0]-minx:.0f}" y1="{p[1]-miny:.0f}" x2="{q[0]-minx:.0f}" y2="{q[1]-miny:.0f}" '
-                         f'stroke="{ACCENT}" stroke-width="6" stroke-dasharray="12 9"/>')
-            delen.append(tekst((p[0] + q[0]) / 2 - minx, (p[1] + q[1]) / 2 - miny - 10, label + " (geen pijl)"))
-            geraakt |= {id(a), id(b)}
-            for k in (a, b):
-                delen.append(f'<rect x="{k["x"]-minx-3:.0f}" y="{k["y"]-miny-3:.0f}" width="{k["w"]+6}" '
-                             f'height="{k["h"]+6}" fill="none" stroke="{RAND}" stroke-width="4" rx="4"/>')
-    for kid in geraakt:
-        k = knopen.get(kid)
-        if k:
-            delen.append(f'<rect x="{k["x"]-minx-3:.0f}" y="{k["y"]-miny-3:.0f}" width="{k["w"]+6}" '
-                         f'height="{k["h"]+6}" fill="none" stroke="{RAND}" stroke-width="4" rx="4"/>')
+        a, b = dichtste_paar(knopen, elems, van, naar)
+        if not a or not b:
+            ontbreekt.append(f"{label}: {van} naar {naar}")
+            continue
+        p1, p2, c = boog(a, b)
+        streep = ' stroke-dasharray="12 9"' if pijl == GEEN_PIJL else ""
+        d = f'M{p1[0]-minx:.0f},{p1[1]-miny:.0f} Q{c[0]-minx:.0f},{c[1]-miny:.0f} {p2[0]-minx:.0f},{p2[1]-miny:.0f}'
+        delen.append(f'<path d="{d}" fill="none" stroke="#ffffff" stroke-width="11" stroke-opacity="0.85"/>')
+        delen.append(f'<path d="{d}" fill="none" stroke="{ACCENT}" stroke-width="5"{streep} '
+                     f'marker-end="url(#punt)"/>')
+        delen.append(tekst(c[0] - minx, c[1] - miny - 6, label + (" (geen pijl)" if pijl == GEEN_PIJL else "")))
+        geraakt += [a, b]
+    for k in geraakt:
+        delen.append(f'<rect x="{k["x"]-minx-3:.0f}" y="{k["y"]-miny-3:.0f}" width="{k["w"]+6}" '
+                     f'height="{k["h"]+6}" fill="none" stroke="{RAND}" stroke-width="4" rx="4"/>')
     delen.append("</svg>")
     return "".join(delen), ontbreekt
 

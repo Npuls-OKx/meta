@@ -5140,21 +5140,49 @@
   },
   {
    "beeld_id": "F6-03",
-   "beeld": "Jochems voorkeur: verbintenis op het keuzedeelaanbod",
+   "beeld": "Jochems aanmelding op het keuzedeelaanbod, met zijn voorkeurslijst",
+   "fase": 6,
+   "stap": "Voorkeurslijst samenstellen in het studentkeuzesysteem",
+   "soort": "ontstaat",
+   "wie": "student",
+   "objecttype": "Aanmelding",
+   "instantie": "Voorkeurslijst: 1. K0037 Farmaceutische Patientenzorg, periode 7, locatie A; 2. alternatief",
+   "bron": "leerroute-1-regulier.md, r71 en r75 (de student stelt een geprioriteerde voorkeurslijst samen uit het gepubliceerde aanbod en meldt zich aan op een keuzedeel, met de voorkeur voor periode en locatie), r850 (het studentkeuzesysteem is bron voor de aanmelding keuzedeel; bij passend aanbod levert planning de formele inschrijving) en r87 (past het niet, dan orienteert de student zich opnieuw)",
+   "relatie": {
+    "soort": "Association",
+    "van": "Keuzedeelaanbod",
+    "naar": "Aanmelding",
+    "label": "Op basis van"
+   },
+   "zin": "Jochem geeft zijn keuze aan op het aanbod: hij stelt in het studentkeuzesysteem een geprioriteerde voorkeurslijst samen uit de gepubliceerde keuzedelen, met de periode en de locatie erbij. Dat is een aanmelding, nog geen inschrijving; de verbintenis die eruit volgt draagt zijn keuze naar planning.",
+   "vraag": "Kiest een student zijn keuzedeel op de specificatie of op gepland aanbod, en levert het studentkeuzesysteem dus een specificatie-id of een aanbod-id (ontwerpkeuzes 6 en 13, geparkeerd op 15 september)?",
+   "nieuwe_instantie": true
+  },
+  {
+   "beeld_id": "F6-03",
+   "beeld": "Jochems aanmelding op het keuzedeelaanbod, met zijn voorkeurslijst",
    "fase": 6,
    "stap": "Voorkeurslijst samenstellen in het studentkeuzesysteem",
    "soort": "ontstaat",
    "wie": "student",
    "objecttype": "Keuzedeel aanbod verbintenis",
    "instantie": "Jochem op K0037 Farmaceutische Patientenzorg, periode 7 (voorkeur 1)",
-   "bron": "leerroute-1-regulier.md, Fase 6: Jochem stelt zijn geprioriteerde voorkeurslijst samen in het SKS; SKS naar Planning geeft zijn keuzestelling door als opleidingsprogramma-verbintenis op het gekozen opleidingsprogramma-aanbod",
+   "bron": "leerroute-1-regulier.md, r71 en r75 (de student stelt een geprioriteerde voorkeurslijst samen uit het gepubliceerde aanbod en meldt zich aan op een keuzedeel, met de voorkeur voor periode en locatie), r850 (het studentkeuzesysteem is bron voor de aanmelding keuzedeel; bij passend aanbod levert planning de formele inschrijving) en r87 (past het niet, dan orienteert de student zich opnieuw)",
    "relatie": {
     "soort": "Association",
-    "van": "Keuzedeelaanbod",
-    "naar": "Keuzedeel aanbod verbintenis"
+    "van": "Aanmelding",
+    "naar": "Keuzedeel aanbod verbintenis",
+    "label": "middels"
    },
-   "zin": "Zodra de keuzedeelruimte nadert, stelt Jochem in het studentkeuzesysteem zijn geprioriteerde voorkeurslijst samen, met de voorlopige voorkeur uit de intake als startpunt. Zijn keuze wordt een verbintenis op het keuzedeelaanbod: wanneer en waar.",
-   "vraag": "Kiest een student zijn keuzedeel op de specificatie of op gepland aanbod, en levert het studentkeuzesysteem dus een specificatie-id of een aanbod-id (ontwerpkeuzes 6 en 13, geparkeerd op 15 september)?"
+   "vraag": "Kiest een student zijn keuzedeel op de specificatie of op gepland aanbod, en levert het studentkeuzesysteem dus een specificatie-id of een aanbod-id (ontwerpkeuzes 6 en 13, geparkeerd op 15 september)?",
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Keuzedeelaanbod",
+     "naar": "Keuzedeel aanbod verbintenis",
+     "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A"
+    }
+   ]
   },
   {
    "beeld_id": "F6-04",
@@ -5217,7 +5245,26 @@
   },
   {
    "beeld_id": "F6-07",
-   "beeld": "Formele inschrijving op het keuzedeel",
+   "beeld": "De aanmelding wordt een inschrijving op het keuzedeel",
+   "fase": 6,
+   "stap": "Keuzedeel formeel inschrijven",
+   "soort": "ontstaat",
+   "wie": "planner",
+   "objecttype": "Inschrijving",
+   "instantie": "Inschrijving op K0037 Farmaceutische Patientenzorg, periode 7",
+   "bron": "leerroute-1-regulier.md, r71 en r75 (de student stelt een geprioriteerde voorkeurslijst samen uit het gepubliceerde aanbod en meldt zich aan op een keuzedeel, met de voorkeur voor periode en locatie), r850 (het studentkeuzesysteem is bron voor de aanmelding keuzedeel; bij passend aanbod levert planning de formele inschrijving) en r87 (past het niet, dan orienteert de student zich opnieuw)",
+   "zin": "Past het gekozen aanbod, dan wordt Jochems aanmelding een inschrijving en staat zijn verbintenis op het keuzedeelaanbod op ingeschreven. Past het niet, dan orienteert hij zich opnieuw op een andere periode of locatie; dat is de variant die het kaderscenario beschrijft en die dit voorbeeld verder laat liggen.",
+   "nieuwe_instantie": true,
+   "relatie": {
+    "soort": "Specialization",
+    "van": "Aanmelding",
+    "naar": "Inschrijving",
+    "label": "wordt"
+   }
+  },
+  {
+   "beeld_id": "F6-07",
+   "beeld": "De aanmelding wordt een inschrijving op het keuzedeel",
    "fase": 6,
    "stap": "Keuzedeel formeel inschrijven",
    "soort": "verandert",
@@ -5225,8 +5272,7 @@
    "objecttype": "Keuzedeel aanbod verbintenis",
    "instantie": "Jochem op K0037 Farmaceutische Patientenzorg, periode 7",
    "toestand": "ingeschreven",
-   "bron": "leerroute-1-regulier.md, Fase 6: bij passend aanbod levert Planning naar KRS de formele inschrijving op het keuzedeel",
-   "zin": "Past het aanbod, dan wordt de keuze een formele inschrijving op het keuzedeel; KRS, SVS, LMS en rooster volgen."
+   "bron": "leerroute-1-regulier.md, Fase 6: bij passend aanbod levert Planning naar KRS de formele inschrijving op het keuzedeel"
   },
   {
    "beeld_id": "F6-08",
