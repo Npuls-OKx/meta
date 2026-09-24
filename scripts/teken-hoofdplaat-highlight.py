@@ -56,6 +56,22 @@ def stromen_per_fase(regels):
     return uit
 
 
+def stromen_per_koppeling(regels, namen):
+    """De stromen van de gevraagde koppelingen, elk gelabeld met de naam van die koppeling.
+
+    Waarvoor: laten zien wat een koppeling in de keten raakt. Niet de beelden van een fase,
+    maar per lijn welke koppeling erover loopt, zodat een plaat de koppelingen naast elkaar zet.
+    """
+    uit = collections.OrderedDict()
+    for r in regels["regels"]:
+        if r["soort"] != "stroomt" or r.get("koppeling") not in namen:
+            continue
+        rij = uit.setdefault((norm(r["van"]), norm(r["naar"]), r.get("pijl")), [])
+        if r["koppeling"] not in rij:
+            rij.append(r["koppeling"])
+    return uit
+
+
 def knopen_van_component(knopen, elems, naam):
     """Alle knopen op de view die dit applicatiecomponent tonen; een component staat er soms meer dan een keer."""
     return [k for k in knopen.values() if norm(elems.get(k.get("element", ""), ("", ""))[1]) == naam]
@@ -138,7 +154,7 @@ def boog(a, b, gestippeld=False):
     return p1, p2, (cx, cy)
 
 
-def bouw(knopen, connecties, elems, png, stromen, pijl_van):
+def bouw(knopen, connecties, elems, png, stromen, pijl_van, uitsnede=False):
     minx = min(k["x"] for k in knopen.values()) - MARGE
     miny = min(k["y"] for k in knopen.values()) - MARGE
     W = max(k["x"] + k["w"] for k in knopen.values()) + MARGE - minx
@@ -170,7 +186,35 @@ def bouw(knopen, connecties, elems, png, stromen, pijl_van):
         delen.append(f'<rect x="{k["x"]-minx-3:.0f}" y="{k["y"]-miny-3:.0f}" width="{k["w"]+6}" '
                      f'height="{k["h"]+6}" fill="none" stroke="{RAND}" stroke-width="4" rx="4"/>')
     delen.append("</svg>")
+    if uitsnede and geraakt:
+        # op een slide leest de hele plaat niet; snijd uit rond de gemarkeerde vakken, met lucht voor de bogen
+        bx, by, bw, bh = venster(geraakt, minx, miny, W, H, buren=knopen.values())
+        delen[0] = (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="{bx} {by} {bw} {bh}" '
+                    f'width="{bw}" height="{bh}">')
     return "".join(delen), ontbreekt
+
+
+def venster(geraakt, minx, miny, W, H, lucht=90, buren=()):
+    """Het deel van de plaat waar de markeringen liggen, met lucht eromheen, binnen de plaat.
+
+    Vakken die de rand van dat deel raken worden er helemaal in getrokken: een half
+    afgesneden vak met een half woord erin leest als een fout, niet als een uitsnede.
+    Grote vakken blijven buiten die verruiming, want dat zijn de groeperingen.
+    """
+    x1 = min(k["x"] for k in geraakt) - minx - lucht
+    y1 = min(k["y"] for k in geraakt) - miny - lucht
+    x2 = max(k["x"] + k["w"] for k in geraakt) - minx + lucht
+    y2 = max(k["y"] + k["h"] for k in geraakt) - miny + lucht
+    ox1, oy1, ox2, oy2 = x1, y1, x2, y2   # toetsen tegen het oorspronkelijke venster, anders groeit het door
+    for k in buren:
+        if k.get("groep") or k["w"] > W * 0.4 or k["h"] > H * 0.4:
+            continue
+        kx1, ky1 = k["x"] - minx, k["y"] - miny
+        kx2, ky2 = kx1 + k["w"], ky1 + k["h"]
+        if kx2 > ox1 and kx1 < ox2 and ky2 > oy1 and ky1 < oy2:
+            x1, y1, x2, y2 = min(x1, kx1 - 8), min(y1, ky1 - 8), max(x2, kx2 + 8), max(y2, ky2 + 8)
+    x1, y1 = max(0, round(x1)), max(0, round(y1))
+    return x1, y1, min(round(x2), W) - x1, min(round(y2), H) - y1
 
 
 def main(argv=None):
@@ -180,6 +224,9 @@ def main(argv=None):
     parser.add_argument("--stromen", type=pathlib.Path, default=STROMEN)
     parser.add_argument("--plaat", type=pathlib.Path, default=PLAAT, help="render van de hoofdplaat (png of jpg)")
     parser.add_argument("--uit", type=pathlib.Path, default=UITMAP)
+    parser.add_argument("--koppelingen", help="komma-gescheiden koppelingen; markeert die op een plaat "
+                                              "in plaats van een plaat per fase")
+    parser.add_argument("--uitsnede", action="store_true", help="snijd uit rond de gemarkeerde vakken")
     args = parser.parse_args(argv)
     if not args.plaat.exists():
         sys.exit(f"plaat niet gevonden: {args.plaat}; render hem met exporteer-archimate-platen.py")
@@ -188,6 +235,18 @@ def main(argv=None):
     pijl_van = {s["id"]: s for s in stromen_json.get("stromen", [])}
     knopen, connecties, elems = lees_geometrie(args.model)
     args.uit.mkdir(parents=True, exist_ok=True)
+    if args.koppelingen:
+        namen = [n.strip() for n in args.koppelingen.split(",") if n.strip()]
+        stromen = stromen_per_koppeling(regels, namen)
+        if not stromen:
+            sys.exit(f"geen stromen gevonden voor {', '.join(namen)}")
+        svg, ontbreekt = bouw(knopen, connecties, elems, args.plaat, stromen, pijl_van, args.uitsnede)
+        doel = args.uit / "koppelingen.svg"
+        doel.write_text(svg, encoding="utf-8")
+        for x in ontbreekt:
+            print(f"waarschuwing: niet op de plaat te plaatsen: {x}", file=sys.stderr)
+        print(f"koppelingenplaat geschreven naar {doel}")
+        return 0
     aantal = 0
     for fase, stromen in stromen_per_fase(regels).items():
         svg, ontbreekt = bouw(knopen, connecties, elems, args.plaat, stromen, pijl_van)
