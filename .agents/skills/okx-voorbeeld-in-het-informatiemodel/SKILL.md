@@ -33,8 +33,7 @@ python3 scripts/exporteer-componenten.py --extra "Intake systeem" "Aanmeld syste
 python3 scripts/controleer-voorbeeldregels.py            # 0 bevindingen, anders eerst herstellen
 rm -f architecture/model/informatiemodel/img/regels/*.svg
 python3 scripts/teken-voorbeeldregels.py
-python3 scripts/exporteer-archimate-platen.py --view "OKx hoofdplaat v1.7<concept>" --uit /tmp/hoofdplaat.png
-python3 scripts/teken-hoofdplaat-highlight.py --plaat /tmp/hoofdplaat.png   # alleen als de plaat wijzigt
+python3 scripts/teken-hoofdplaat-highlight.py            # alleen als de plaat of de stromen wijzigen
 python3 scripts/genereer-voorbeeld-lr1.py                # waarschuwt voor vragen buiten de zeven
 python3 scripts/validate-docs.py architecture/model/informatiemodel/voorbeeld-leerroute-1-jochem.md
 python3 -W error::ResourceWarning -m unittest discover -s tests
@@ -79,7 +78,7 @@ Bekijk het beeld zelf voordat je het meldt: `soffice --headless --convert-to png
 
 Een stroombeeld toont twee componenten en wat er tussen hen beweegt, maar niet waar die lijn op de hoofdplaat loopt. Daarom staat onder elke fasekop een render van hoofdplaat v1.7 waarop de stromen van die fase zijn gemarkeerd, met het beeld-ID erbij; de rest van de plaat vervaagt, zodat de lijn eruit springt. Een stroom die de plaat nog niet kent, staat als gestippelde lijn tussen de twee componenten: zo is zichtbaar wat er ontbreekt in plaats van dat het wegvalt.
 
-`teken-hoofdplaat-highlight.py` maakt die platen uit de view-geometrie van het model en een render van de plaat (`exporteer-archimate-platen.py`, Archi headless). Het meldt welke stromen het niet kon plaatsen; dat zijn componenten die de plaat niet kent, en die horen in het document als vraag.
+`teken-hoofdplaat-highlight.py` maakt die platen uit de view-geometrie van het model en de render `img/hoofdplaat/hoofdplaat-v1.7.jpg`. Die render komt uit `exporteer-archimate-platen.py` (Archi headless) en staat in de repository, zodat de platen zonder Archi te maken zijn; vernieuw hem zodra de hoofdplaat wijzigt. Archi rendert met tien pixels marge, en het script rekent met dezelfde marge: daardoor vallen de markeringen precies op de pijlen. Een component dat twee keer op de plaat staat, krijgt het paar knopen dat het dichtst bij elkaar ligt. Het meldt welke stromen het niet kon plaatsen; dat zijn componenten die de plaat niet kent, en die horen in het document als vraag.
 
 Elk stroombeeld draagt daarnaast een regel **Interactie:** met de twee systemen, de koppeling of de aanduiding "geen pijl op de hoofdplaat", en het beeld-ID waarmee de lijn op de faseplaat is gemarkeerd.
 

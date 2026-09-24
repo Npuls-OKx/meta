@@ -3487,22 +3487,6 @@
   },
   {
    "beeld_id": "F3-06",
-   "beeld": "De eerste keuzedeelvoorkeur naar het studentkeuzesysteem",
-   "fase": 3,
-   "stap": "Intake doorlopen en plaatsen",
-   "soort": "stroomt",
-   "van": "Intake systeem",
-   "naar": "Student Keuze Systeem (SKS)",
-   "pijl": "geen pijl op de hoofdplaat",
-   "objecttype": "Verzoek tot Aanbod / Intekening op specificatie",
-   "instantie": "Voorlopige keuzedeelvoorkeur: K0037 Farmaceutische Patientenzorg, top 3",
-   "aanname": true,
-   "bron": "leerroute-1-regulier.md, r860 (het intakesysteem doet geen keuzedeelselectie, dat is het SKS), r850 (het SKS is bron voor de geprioriteerde voorkeurslijst) en r73 (de student stelt die lijst samen zodra de keuzedeelruimte dichterbij komt); dat de intake de eerste voorkeuren alvast meegeeft, is een keuze van het voorbeeld",
-   "zin": "De intake legt hooguit een voorlopige voorkeur vast; kiezen gebeurt in het studentkeuzesysteem. Die eerste voorkeur gaat daarom mee naar het SKS, dat haar vasthoudt tot de keuzedeelruimte nadert en de student zijn geprioriteerde lijst samenstelt.",
-   "vraag": "Het kaderscenario legt de keuzedeelselectie bij het studentkeuzesysteem en zwijgt over voorkeuren die bij de intake al bekend zijn. Gaat een voorlopige voorkeur uit de intake als intekening naar het SKS, en zo ja, blijft het verzoek tot aanbod daar hetzelfde object dat later de keuze draagt?"
-  },
-  {
-   "beeld_id": "F3-07",
    "beeld": "Inschrijving: van aangemeld naar ingeschreven",
    "fase": 3,
    "stap": "Persoon en verbintenissen vastleggen in de kernregistratie",
@@ -3521,7 +3505,7 @@
    "vraag": "Is de inschrijving een eigen object naast de verbintenis, of een toestand van de aanmelding (ontwerpkeuze 13)?"
   },
   {
-   "beeld_id": "F3-07",
+   "beeld_id": "F3-06",
    "beeld": "Inschrijving: van aangemeld naar ingeschreven",
    "fase": 3,
    "stap": "Persoon en verbintenissen vastleggen in de kernregistratie",
@@ -3533,7 +3517,7 @@
    "bron": "leerroute-1-regulier.md, Fase 3: inschrijving op opleiding en programma"
   },
   {
-   "beeld_id": "F3-07",
+   "beeld_id": "F3-06",
    "beeld": "Inschrijving: van aangemeld naar ingeschreven",
    "fase": 3,
    "stap": "Persoon en verbintenissen vastleggen in de kernregistratie",
@@ -3551,8 +3535,8 @@
    }
   },
   {
-   "beeld_id": "F3-08",
-   "beeld": "De inschrijving van het intakesysteem naar de kernregistratie",
+   "beeld_id": "F3-07",
+   "beeld": "Inschrijving en eerste keuzedeelvoorkeur naar de kernregistratie",
    "fase": 3,
    "stap": "Persoon en verbintenissen vastleggen in de kernregistratie",
    "soort": "stroomt",
@@ -3574,8 +3558,8 @@
    ]
   },
   {
-   "beeld_id": "F3-08",
-   "beeld": "De inschrijving van het intakesysteem naar de kernregistratie",
+   "beeld_id": "F3-07",
+   "beeld": "Inschrijving en eerste keuzedeelvoorkeur naar de kernregistratie",
    "fase": 3,
    "stap": "Persoon en verbintenissen vastleggen in de kernregistratie",
    "soort": "stroomt",
@@ -3595,8 +3579,8 @@
    ]
   },
   {
-   "beeld_id": "F3-08",
-   "beeld": "De inschrijving van het intakesysteem naar de kernregistratie",
+   "beeld_id": "F3-07",
+   "beeld": "Inschrijving en eerste keuzedeelvoorkeur naar de kernregistratie",
    "fase": 3,
    "stap": "Persoon en verbintenissen vastleggen in de kernregistratie",
    "soort": "stroomt",
@@ -3613,8 +3597,8 @@
    }
   },
   {
-   "beeld_id": "F3-08",
-   "beeld": "De inschrijving van het intakesysteem naar de kernregistratie",
+   "beeld_id": "F3-07",
+   "beeld": "Inschrijving en eerste keuzedeelvoorkeur naar de kernregistratie",
    "fase": 3,
    "stap": "Persoon en verbintenissen vastleggen in de kernregistratie",
    "soort": "stroomt",
@@ -3634,8 +3618,8 @@
    ]
   },
   {
-   "beeld_id": "F3-08",
-   "beeld": "De inschrijving van het intakesysteem naar de kernregistratie",
+   "beeld_id": "F3-07",
+   "beeld": "Inschrijving en eerste keuzedeelvoorkeur naar de kernregistratie",
    "fase": 3,
    "stap": "Persoon en verbintenissen vastleggen in de kernregistratie",
    "soort": "stroomt",
@@ -3653,8 +3637,8 @@
    }
   },
   {
-   "beeld_id": "F3-08",
-   "beeld": "De inschrijving van het intakesysteem naar de kernregistratie",
+   "beeld_id": "F3-07",
+   "beeld": "Inschrijving en eerste keuzedeelvoorkeur naar de kernregistratie",
    "fase": 3,
    "stap": "Persoon en verbintenissen vastleggen in de kernregistratie",
    "soort": "stroomt",
@@ -3672,6 +3656,90 @@
      "naar": "Opleidingsprogramma aanbod verbintenis"
     }
    ]
+  },
+  {
+   "beeld_id": "F3-07",
+   "beeld": "Inschrijving en eerste keuzedeelvoorkeur naar de kernregistratie",
+   "fase": 3,
+   "stap": "Persoon en verbintenissen vastleggen in de kernregistratie",
+   "soort": "stroomt",
+   "van": "Intake systeem",
+   "naar": "Kernregistratie systeem studenten (KRS)",
+   "pijl": "geen pijl op de hoofdplaat",
+   "objecttype": "Verzoek tot Aanbod / Intekening op specificatie",
+   "instantie": "Voorlopige keuzedeelvoorkeur: K0037 Farmaceutische Patientenzorg, top 3",
+   "aanname": true,
+   "bron": "leerroute-1-regulier.md, r850 (het studentkeuzesysteem krijgt van de kernregistratie student, verbintenis en groepen) en r860 (het intakesysteem draagt de uitkomst over aan de kernregistratie)",
+   "vraag": "De voorlopige keuzedeelvoorkeur uit de intake gaat in dit voorbeeld met de inschrijving mee naar de kernregistratie, die haar doorgeeft aan het studentkeuzesysteem. Hoofdplaat v1.7 laat die pijl student, verbintenis en groepen dragen. Hoort de voorkeur daar ook op, of blijft zij in het intakesysteem tot de student in het keuzesysteem kiest?"
+  },
+  {
+   "beeld_id": "F3-08",
+   "beeld": "Student, verbintenis en keuzedeelvoorkeur van de kernregistratie naar het studentkeuzesysteem",
+   "fase": 3,
+   "stap": "Persoon en verbintenissen vastleggen in de kernregistratie",
+   "soort": "stroomt",
+   "van": "Kernregistratie systeem studenten (KRS)",
+   "naar": "Student Keuze Systeem (SKS)",
+   "pijl": "id-865f297e8c1f4371aa143aa225fe4b7f",
+   "objecttype": "Student",
+   "instantie": "Jochem, cohort 2026",
+   "bron": "leerroute-1-regulier.md, r850 (het studentkeuzesysteem krijgt van de kernregistratie student, verbintenis en groepen) en r860 (het intakesysteem draagt de uitkomst over aan de kernregistratie)",
+   "relatie": {
+    "soort": "Specialization",
+    "van": "Student",
+    "naar": "Persoon"
+   },
+   "zin": "De kernregistratie geeft door wie er in het keuzesysteem mag kiezen: de student met zijn programmaverbintenis en zijn groep, en de voorlopige voorkeur uit de intake als startpunt. Kiezen zelf gebeurt later, als de keuzedeelruimte nadert."
+  },
+  {
+   "beeld_id": "F3-08",
+   "beeld": "Student, verbintenis en keuzedeelvoorkeur van de kernregistratie naar het studentkeuzesysteem",
+   "fase": 3,
+   "stap": "Persoon en verbintenissen vastleggen in de kernregistratie",
+   "soort": "stroomt",
+   "van": "Kernregistratie systeem studenten (KRS)",
+   "naar": "Student Keuze Systeem (SKS)",
+   "pijl": "id-865f297e8c1f4371aa143aa225fe4b7f",
+   "objecttype": "Opleidingsprogramma aanbod verbintenis",
+   "instantie": "Jochem op Regulier BOL 2026, ingeschreven",
+   "bron": "leerroute-1-regulier.md, r850 (het studentkeuzesysteem krijgt van de kernregistratie student, verbintenis en groepen) en r860 (het intakesysteem draagt de uitkomst over aan de kernregistratie)",
+   "relatie": {
+    "soort": "Association",
+    "van": "Opleidingsprogramma aanbod",
+    "naar": "Opleidingsprogramma aanbod verbintenis"
+   }
+  },
+  {
+   "beeld_id": "F3-08",
+   "beeld": "Student, verbintenis en keuzedeelvoorkeur van de kernregistratie naar het studentkeuzesysteem",
+   "fase": 3,
+   "stap": "Persoon en verbintenissen vastleggen in de kernregistratie",
+   "soort": "stroomt",
+   "van": "Kernregistratie systeem studenten (KRS)",
+   "naar": "Student Keuze Systeem (SKS)",
+   "pijl": "id-865f297e8c1f4371aa143aa225fe4b7f",
+   "objecttype": "Plaatsingsgroep",
+   "instantie": "APO26-1A",
+   "bron": "leerroute-1-regulier.md, r850 (het studentkeuzesysteem krijgt van de kernregistratie student, verbintenis en groepen) en r860 (het intakesysteem draagt de uitkomst over aan de kernregistratie)",
+   "relatie": {
+    "soort": "Association",
+    "van": "Persoon",
+    "naar": "Plaatsingsgroep",
+    "label": "Worden gegroepeerd via"
+   }
+  },
+  {
+   "beeld_id": "F3-08",
+   "beeld": "Student, verbintenis en keuzedeelvoorkeur van de kernregistratie naar het studentkeuzesysteem",
+   "fase": 3,
+   "stap": "Persoon en verbintenissen vastleggen in de kernregistratie",
+   "soort": "stroomt",
+   "van": "Kernregistratie systeem studenten (KRS)",
+   "naar": "Student Keuze Systeem (SKS)",
+   "pijl": "id-865f297e8c1f4371aa143aa225fe4b7f",
+   "objecttype": "Verzoek tot Aanbod / Intekening op specificatie",
+   "instantie": "Voorlopige keuzedeelvoorkeur: K0037 Farmaceutische Patientenzorg, top 3",
+   "bron": "leerroute-1-regulier.md, r850 (het studentkeuzesysteem krijgt van de kernregistratie student, verbintenis en groepen) en r860 (het intakesysteem draagt de uitkomst over aan de kernregistratie)"
   },
   {
    "beeld_id": "F4-01",

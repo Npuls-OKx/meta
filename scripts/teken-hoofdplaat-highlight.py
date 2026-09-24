@@ -31,9 +31,10 @@ MODEL = pathlib.Path("architecture/model/model.archimate")
 REGELS = pathlib.Path("architecture/model/informatiemodel/voorbeeld-lr1-regels.json")
 STROMEN = pathlib.Path("architecture/model/informatiemodel/stromen.json")
 UITMAP = pathlib.Path("architecture/model/informatiemodel/img/hoofdplaat")
+PLAAT = UITMAP / "hoofdplaat-v1.7.jpg"
 VIEW = "OKx hoofdplaat v1.7<concept>"
 GEEN_PIJL = "geen pijl op de hoofdplaat"
-MARGE = 20
+MARGE = 10  # Archi rendert de view met tien pixels marge; met dezelfde marge vallen de markeringen op de pijlen
 ACCENT = "#d9531e"
 RAND = "#1f6feb"
 
@@ -55,12 +56,21 @@ def stromen_per_fase(regels):
     return uit
 
 
-def knoop_van_component(knopen, elems, naam):
-    """De knoop op de view die dit applicatiecomponent toont."""
-    for kid, k in knopen.items():
-        if norm(elems.get(k.get("element", ""), ("", ""))[1]) == naam:
-            return k
-    return None
+def knopen_van_component(knopen, elems, naam):
+    """Alle knopen op de view die dit applicatiecomponent tonen; een component staat er soms meer dan een keer."""
+    return [k for k in knopen.values() if norm(elems.get(k.get("element", ""), ("", ""))[1]) == naam]
+
+
+def dichtste_paar(knopen, elems, van, naar):
+    """Het paar knopen dat het dichtst bij elkaar ligt, zodat de lijn tussen de bedoelde twee vakken loopt."""
+    links, rechts = knopen_van_component(knopen, elems, van), knopen_van_component(knopen, elems, naar)
+    if not links or not rechts:
+        return None, None
+    def midden(k):
+        return (k["x"] + k["w"] / 2, k["y"] + k["h"] / 2)
+    beste = min(((a, b) for a in links for b in rechts),
+                key=lambda ab: (midden(ab[0])[0] - midden(ab[1])[0]) ** 2 + (midden(ab[0])[1] - midden(ab[1])[1]) ** 2)
+    return beste
 
 
 def lees_geometrie(model):
@@ -118,15 +128,19 @@ def bouw(knopen, connecties, elems, png, stromen, pijl_van):
         if conn and conn["bron"] in knopen and conn["doel"] in knopen:
             punten = platen.pad(conn, knopen)
             d = " ".join(("M" if i == 0 else "L") + f"{x - minx:.0f},{y - miny:.0f}" for i, (x, y) in enumerate(punten))
-            delen.append(f'<path d="{d}" fill="none" stroke="#ffffff" stroke-width="13" stroke-opacity="0.9" '
-                         f'stroke-linecap="round"/>')
-            delen.append(f'<path d="{d}" fill="none" stroke="{ACCENT}" stroke-width="7" stroke-linecap="round"/>')
+            # de halo is breed en zacht, zodat de markering de pijl ook dekt waar Archi anders routeert
+            delen.append(f'<path d="{d}" fill="none" stroke="{ACCENT}" stroke-width="22" stroke-opacity="0.22" '
+                         f'stroke-linecap="round" stroke-linejoin="round"/>')
+            delen.append(f'<path d="{d}" fill="none" stroke="{ACCENT}" stroke-width="5" stroke-opacity="0.75" '
+                         f'stroke-linecap="round" stroke-linejoin="round"/>')
+            for x, y in (punten[0], punten[-1]):
+                delen.append(f'<circle cx="{x - minx:.0f}" cy="{y - miny:.0f}" r="7" fill="{ACCENT}" '
+                             f'fill-opacity="0.85" stroke="#ffffff" stroke-width="2"/>')
             mx, my = punten[len(punten) // 2]
             delen.append(tekst(mx - minx, my - miny - 10, label))
             geraakt |= {conn["bron"], conn["doel"]}
         else:
-            a = knoop_van_component(knopen, elems, van)
-            b = knoop_van_component(knopen, elems, naar)
+            a, b = dichtste_paar(knopen, elems, van, naar)
             if not a or not b:
                 ontbreekt.append(f"{label}: {van} naar {naar}")
                 continue
@@ -155,7 +169,7 @@ def main(argv=None):
     parser.add_argument("--model", type=pathlib.Path, default=MODEL)
     parser.add_argument("--regels", type=pathlib.Path, default=REGELS)
     parser.add_argument("--stromen", type=pathlib.Path, default=STROMEN)
-    parser.add_argument("--plaat", type=pathlib.Path, required=True, help="render van de hoofdplaat (png of jpg)")
+    parser.add_argument("--plaat", type=pathlib.Path, default=PLAAT, help="render van de hoofdplaat (png of jpg)")
     parser.add_argument("--uit", type=pathlib.Path, default=UITMAP)
     args = parser.parse_args(argv)
     if not args.plaat.exists():
