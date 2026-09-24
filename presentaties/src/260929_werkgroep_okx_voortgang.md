@@ -481,7 +481,7 @@ edustandaard.nl/amigo/aanpak, en paragraaf 2.4 van de leerroute-uitwerking.
 <div style="font-size: 0.85rem; color: var(--np-mid-gray); margin-top: 0.2rem;">Drie koppelingen, alle lagen beschreven</div>
 
 <div style="margin-top: 0.5rem;">
-  <img src="/platen/koppelingen-hoofdplaat.svg" style="width: 100%; max-height: 17rem; object-fit: contain; border-radius: 6px; border: 1px solid var(--np-light-gray); background: #fff;" />
+  <img src="/platen/koppelingen-hoofdplaat.svg" style="width: 100%; max-height: 15.5rem; object-fit: contain; border-radius: 6px; border: 1px solid var(--np-light-gray); background: #fff;" />
   <div style="font-size: 0.72rem; color: var(--np-mid-gray); margin-top: 0.25rem; text-align: center;">Catalogus met planning, studentadministratie en leeromgeving</div>
 </div>
 
@@ -500,8 +500,21 @@ edustandaard.nl/amigo/aanpak, en paragraaf 2.4 van de leerroute-uitwerking.
   </div>
 </div>
 
-<div style="margin-top: 0.7rem; font-size: 0.8rem; color: var(--np-mid-gray); text-align: center;">
-  Status: concept in afstemming &middot; meedenken loopt via de kerngroep techniek
+<div style="display: flex; justify-content: center; align-items: center; gap: 0.6rem; margin-top: 0.7rem; flex-wrap: wrap;">
+  <span style="font-size: 0.8rem; color: var(--np-mid-gray);">Aanhaken kan</span>
+  <div style="display: flex; align-items: center; gap: 0.35rem; background: white; border: 1px solid var(--np-light-gray); border-radius: 999px; padding: 0.28rem 0.8rem; font-size: 0.78rem; color: var(--np-dark-blue);">
+    <carbon-tools style="font-size: 1rem; color: var(--np-blue);" /> <strong>Mee uitwerken</strong> &middot; kerngroep techniek
+  </div>
+  <div style="display: flex; align-items: center; gap: 0.35rem; background: white; border: 1px solid var(--np-light-gray); border-radius: 999px; padding: 0.28rem 0.8rem; font-size: 0.78rem; color: var(--np-dark-blue);">
+    <carbon-chat style="font-size: 1rem; color: var(--np-orange);" /> <strong>Meedenken</strong> &middot; PoC-sessies
+  </div>
+  <div style="display: flex; align-items: center; gap: 0.35rem; background: white; border: 1px solid var(--np-light-gray); border-radius: 999px; padding: 0.28rem 0.8rem; font-size: 0.78rem; color: var(--np-dark-blue);">
+    <carbon-compass style="font-size: 1rem; color: var(--np-green);" /> <strong>Richting geven</strong> &middot; adviesgroep OKx
+  </div>
+</div>
+
+<div style="margin-top: 0.5rem; font-size: 0.78rem; color: var(--np-mid-gray); text-align: center;">
+  Status: concept in afstemming
 </div>
 
 </div>
@@ -512,8 +525,8 @@ met studentadministratie en met de leeromgeving, liggen in het eerste kwartaal v
 lagen beschreven. De plaat markeert die drie lijnen op de informatiestromen-hoofdplaat; de
 bouwblokken eronder zijn dezelfde als op de eindproductslide, dus per lijn is te zien wat er
 nog moet gebeuren. Fasering als doel, niet als toezegging. Er staat geen vraag op de slide: de vraag aan de werkgroep
-komt van de projectleider. Wie er in de zaal iets wil betekenen, kan aanhaken bij de kerngroep
-techniek. Kennisbasis:
+komt van de projectleider. Wie er in de zaal iets wil betekenen, kan op drie plekken aanhaken: mee uitwerken in de kerngroep
+techniek, meedenken in de PoC-sessies met de scholen, of richting geven in de adviesgroep OKx. Kennisbasis:
 github.com/Npuls-OKx/Public. Bronnen: overleg met het SI-team van 13 juli, vier
 koploperleveranciers en zes tot acht koploperinstellingen.
 -->
