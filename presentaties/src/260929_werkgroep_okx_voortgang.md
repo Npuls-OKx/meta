@@ -31,59 +31,74 @@ die dat concept oplevert.
 
 ---
 
-<!-- 2. WAAR WE AAN WERKEN, EN WAAR DAT STAAT -->
+<!-- 2. DE ROUTE NAAR HET EINDPRODUCT -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
 
-# Drie sporen, alle drie in uitvoering
+# Route naar eindproduct scherp
 
-<div class="np-pipeline" style="margin-top: 1.2rem;">
-  <div class="np-step orange" style="flex: 1;">
-    <carbon-user-multiple style="font-size: 1.7rem; color: var(--np-orange);" />
-    <strong style="font-size: 0.86rem;">Ophalen wat scholen willen</strong>
-    <small>leerroute 1 klaar, 2 en 3 lopen</small>
+<div style="font-size: 0.85rem; color: var(--np-mid-gray); margin-top: 0.2rem;">Vertalen langs een vaste route</div>
+
+<div class="np-pipeline" style="margin-top: 0.6rem; align-items: stretch;">
+  <div class="np-step orange" style="flex: 1; padding: 0.7rem 0.4rem; align-items: center; justify-content: center;">
+    <carbon-user-multiple style="font-size: 1.5rem; color: var(--np-orange);" />
+    <strong style="font-size: 0.82rem;">Userstories</strong>
   </div>
-  <div class="np-arrow">&#8594;</div>
-  <div class="np-step blue" style="flex: 1;">
-    <carbon-partnership style="font-size: 1.7rem; color: var(--np-blue);" />
-    <strong style="font-size: 0.86rem;">Vertalen langs een vaste route</strong>
-    <small>begrippen, model, stromen: in afstemming</small>
+  <div class="np-arrow" style="align-self: center;">&#8594;</div>
+  <div class="np-step blue" style="flex: 1; padding: 0.7rem 0.4rem; align-items: center; justify-content: center;">
+    <carbon-assembly-cluster style="font-size: 1.5rem; color: var(--np-blue);" />
+    <strong style="font-size: 0.82rem;">Bouwblokken</strong>
   </div>
-  <div class="np-arrow">&#8594;</div>
-  <div class="np-step green" style="flex: 1;">
-    <carbon-document style="font-size: 1.7rem; color: var(--np-green);" />
-    <strong style="font-size: 0.86rem;">Uitwerken tot het eindproduct</strong>
-    <small>opbouw klaar, details met leveranciers</small>
+  <div class="np-arrow" style="align-self: center;">&#8594;</div>
+  <div class="np-step blue" style="flex: 1; padding: 0.7rem 0.4rem; align-items: center; justify-content: center;">
+    <carbon-book style="font-size: 1.5rem; color: var(--np-blue);" />
+    <strong style="font-size: 0.82rem;">Begrippen</strong>
+  </div>
+  <div class="np-arrow" style="align-self: center;">&#8594;</div>
+  <div class="np-step blue" style="flex: 1; padding: 0.7rem 0.4rem; align-items: center; justify-content: center;">
+    <carbon-machine-learning-model style="font-size: 1.5rem; color: var(--np-blue);" />
+    <strong style="font-size: 0.82rem;">Informatiemodel</strong>
+  </div>
+  <div class="np-arrow" style="align-self: center;">&#8594;</div>
+  <div class="np-step blue" style="flex: 1; padding: 0.7rem 0.4rem; align-items: center; justify-content: center;">
+    <carbon-network-3 style="font-size: 1.5rem; color: var(--np-blue);" />
+    <strong style="font-size: 0.82rem;">Informatiestromen</strong>
+    <small>tussen applicatiecomponenten</small>
   </div>
 </div>
 
-<div class="np-grid-2" style="margin-top: 1.3rem; gap: 0.8rem; grid-template-columns: repeat(3, 1fr);">
-  <div class="np-card accent-green" style="text-align: center; padding: 0.8rem 0.6rem;">
-    <carbon-checkmark-outline style="font-size: 1.7rem; color: var(--np-green);" />
-    <div style="font-weight: 700; font-size: 0.95rem; margin-top: 0.3rem;">Route staat scherp</div>
-    <small style="font-size: 0.8rem;">van wens tot eindproduct</small>
+<div style="text-align: center; color: var(--np-green); font-size: 1.3rem; font-weight: 700; line-height: 1; margin: 0.35rem 0;">&#8595;</div>
+
+<div class="np-card accent-green" style="padding: 0.6rem 1rem; text-align: center;">
+  <carbon-document style="font-size: 1.5rem; color: var(--np-green);" />
+  <div style="font-weight: 700; font-size: 0.95rem;">Eindproduct: koppelvlakspecificatie</div>
+  <small style="font-size: 0.82rem; color: var(--np-mid-gray);">koppelingspecificaties &middot; datamodelschema's &middot; interacties &middot; koppelvlakdiensten</small>
+</div>
+
+<div class="np-grid-2" style="margin-top: 0.6rem; gap: 0.8rem;">
+  <div class="np-card accent-orange" style="padding: 0.7rem 0.9rem;">
+    <carbon-partnership style="font-size: 1.5rem; color: var(--np-orange);" />
+    <div style="font-weight: 700; font-size: 0.92rem;">In gesprek met instellingen en leveranciers</div>
+    <small style="font-size: 0.82rem;">wat moet er gebouwd worden</small>
   </div>
-  <div class="np-card accent-orange" style="text-align: center; padding: 0.8rem 0.6rem;">
-    <carbon-user-multiple style="font-size: 1.7rem; color: var(--np-orange);" />
-    <div style="font-weight: 700; font-size: 0.95rem; margin-top: 0.3rem;">Weer op pad</div>
-    <small style="font-size: 0.8rem;">wat bouwen we?</small>
-  </div>
-  <div class="np-card accent-blue" style="text-align: center; padding: 0.8rem 0.6rem;">
-    <carbon-industry style="font-size: 1.7rem; color: var(--np-blue);" />
-    <div style="font-weight: 700; font-size: 0.95rem; margin-top: 0.3rem;">Leerroute 1 erdoorheen</div>
-    <small style="font-size: 0.8rem;">volledig uitgewerkt</small>
+  <div class="np-card accent-blue" style="padding: 0.7rem 0.9rem;">
+    <carbon-education style="font-size: 1.5rem; color: var(--np-blue);" />
+    <div style="font-weight: 700; font-size: 0.92rem;">Leerroute 1 in uitwerking</div>
+    <small style="font-size: 0.82rem;">volgt deze opbouw</small>
   </div>
 </div>
 
 </div>
 
 <!--
-De kern van het blok. Waar wij hard aan hebben gewerkt is de middelste stap: hoe je de wensen van
-scholen en leveranciers vertaalt en vastlegt in het eindproduct. Dat staat nu scherp, en daarom
-doen wij nu twee dingen tegelijk: opnieuw bij de PoC-scholen ophalen wat er speelt en wat er
-gebouwd moet worden, en leerroute 1 langs die route verwerken tot het eindproduct van de volgende
-slide. Alle drie de sporen lopen; niets is af.
+De kern van het blok: de route van wens naar eindproduct staat scherp. Een userstory van een school
+wordt een bouwblok, dat bouwblok krijgt begrippen met een definitie, die begrippen landen in het
+informatiemodel, en daaruit volgen de informatiestromen tussen applicatiecomponenten. Aan het eind
+staat de koppelvlakspecificatie: per koppeling een koppelingspecificatie volgens datamodelschema's,
+de interacties tussen de systemen en de koppelvlakdiensten. Die route werkt alleen in gesprek met
+instellingen en leveranciers, en dat gesprek loopt nu opnieuw: wat moet er gebouwd worden. Leerroute
+1 gaat als eerste volledig langs deze opbouw. Alles wat er ligt is concept in afstemming.
 -->
 
 ---
@@ -93,7 +108,7 @@ slide. Alle drie de sporen lopen; niets is af.
 
 <div class="fill">
 
-# Het eindproduct, scherper in beeld
+# Het eindproduct in bouwblokken
 
 <div class="np-grid-2" style="margin-top: 0.7rem; gap: 1.1rem; align-items: center;">
 

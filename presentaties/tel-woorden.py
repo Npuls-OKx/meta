@@ -26,7 +26,7 @@ def zichtbare_tekst(slide):
     tekst = re.sub(r"<!--.*?-->", " ", slide, flags=re.S)          # sprekersnotities
     tekst = re.sub(r"<(carbon|mdi)-[a-z0-9-]+[^>]*/?>", " ", tekst)  # pictogrammen
     tekst = re.sub(r"<[^>]+>", " ", tekst)                          # overige tags
-    tekst = re.sub(r"&[a-z]+;", " ", tekst)                         # entiteiten
+    tekst = re.sub(r"&#?[a-z0-9]+;", " ", tekst)                    # entiteiten, ook pijlen als &#8594;
     tekst = re.sub(r"[#*`|]", " ", tekst)                           # markdown-tekens
     return tekst
 

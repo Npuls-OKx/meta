@@ -35,7 +35,7 @@ in het budget van de slide zelf.
 
 # Tweede slide
 
-&middot; een twee drie
+&middot; een twee drie &#8594;
 """
 
 
@@ -49,7 +49,7 @@ class TelWoordenTests(unittest.TestCase):
     def test_given_slide_with_notes_and_html_when_counted_then_only_visible_words(self):
         uit = self.tel()
         self.assertEqual(uit[0], (1, 7))          # kop (4) plus de kaart (3), niets uit de notitie
-        self.assertEqual(uit[1], (2, 5))          # kop (2) plus drie woorden
+        self.assertEqual(uit[1], (2, 5))          # kop (2) plus drie woorden, entiteiten tellen niet
 
     def test_given_frontmatter_when_counted_then_it_is_not_a_slide(self):
         self.assertEqual(len(self.tel()), 2)
