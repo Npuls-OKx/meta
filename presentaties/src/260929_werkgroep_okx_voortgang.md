@@ -72,47 +72,47 @@ systeem raakt. Die twee begrippen zijn zelf ook nog onderwerp van afstemming.
 
 ---
 
-<!-- 3. KOPPELINGEN IN UITWERKING -->
+<!-- 3. HET EINDPRODUCT IN BOUWBLOKKEN -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
 
-# Koppelingen in uitwerking
+# Het eindproduct, scherper in beeld
 
-<div class="np-grid-2" style="margin-top: 1rem; gap: 1rem; align-items: start;">
-  <div class="np-card accent-blue" style="font-size: 0.9rem; line-height: 1.5;">
-    <carbon-catalog style="font-size: 1.45rem; color: var(--np-blue);" />
-    <strong>Onderwijscatalogus en planning</strong><br/>
-    het ontworpen aanbod, nominaal en keuze, planbaar maken in perioden en capaciteit
+<div class="np-grid-2" style="margin-top: 0.7rem; gap: 1.1rem; align-items: center;">
+
+<div>
+  <img src="/platen/koppelvlak-specificatie-breakdown.png" style="width: 100%; border-radius: 6px; border: 1px solid var(--np-light-gray); background: #fff;" />
+  <div style="font-size: 0.72rem; color: var(--np-mid-gray); margin-top: 0.3rem;">De koppelvlakspecificatie en haar bouwblokken</div>
+</div>
+
+<div>
+  <div class="np-card accent-blue" style="font-size: 0.87rem; line-height: 1.5; padding: 0.6rem 0.9rem; margin-bottom: 0.6rem;">
+    <strong>Vaste bouwblokken per koppeling:</strong> wat systemen van elkaar vragen, wanneer zij dat doen, welke gegevens meegaan en hoe toegang is geregeld. Elke eis komt uit de vraag van de sector.
   </div>
-  <div class="np-card accent-orange" style="font-size: 0.9rem; line-height: 1.5;">
-    <carbon-data-base style="font-size: 1.45rem; color: var(--np-orange);" />
-    <strong>Onderwijscatalogus en studentadministratie</strong><br/>
-    waarop een student zich inschrijft, en waartegen resultaten tellen
+  <div class="np-card accent-orange" style="font-size: 0.87rem; line-height: 1.5; padding: 0.6rem 0.9rem; margin-bottom: 0.6rem;">
+    <strong>Drie koppelingen in uitwerking:</strong> catalogus en planning voor nominaal en keuze-aanbod, catalogus en studentadministratie, catalogus en leeromgeving.
   </div>
-  <div class="np-card accent-green" style="font-size: 0.9rem; line-height: 1.5;">
-    <carbon-education style="font-size: 1.45rem; color: var(--np-green);" />
-    <strong>Onderwijscatalogus en leeromgeving</strong><br/>
-    de leeromgeving uitlijnen op het ontworpen onderwijs; de inhoud blijft van de school
-  </div>
-  <div class="np-card accent-blue" style="font-size: 0.9rem; line-height: 1.5;">
-    <carbon-pending style="font-size: 1.45rem; color: var(--np-blue);" />
-    <strong>Status: concept in afstemming</strong><br/>
-    richting en eerste invulling liggen er, de details worden met leveranciers aangescherpt
+  <div class="np-card accent-green" style="font-size: 0.87rem; line-height: 1.5; padding: 0.6rem 0.9rem;">
+    <strong>Per onderdeel een eigen versie en ritme,</strong> openbaar en met de reden bij elke wijziging. Een school of leverancier weet welke versie hij leest en wat er veranderd is.
   </div>
 </div>
 
-<div class="np-card accent-orange" style="margin-top: 1.1rem; font-size: 0.93rem; line-height: 1.55;">
-  Openbaar en versiebeheerd, zodat iedereen dezelfde versie leest en een wijziging zichtbaar is met de reden erbij.
+</div>
+
+<div style="margin-top: 0.8rem; font-size: 0.85rem; color: var(--np-mid-gray); text-align: center;">
+  Status: concept. Richting en eerste invulling liggen er; de details scherpen wij aan met leveranciers.
 </div>
 
 </div>
 
 <!--
-Drie koppelingen binnen de onderwijsontwikkeling en -uitvoering, alle drie vanuit de catalogus.
-Bij de leeromgeving expliciet zeggen wat we niet doen: OKx schrijft geen lesinhoud of didactiek
-voor. Het gaat erom dat de leeromgeving werkt met het onderwijs zoals het is ontworpen.
-Status: alfa, richtinggevend; de velden kunnen wijzigen tot de payload is vastgesteld.
+Dit is het antwoord op "wat leveren jullie nu eigenlijk op". De plaat komt uit de uitwerking van
+Garik: de koppelvlakspecificatie als pakket, opgebouwd uit functionele eisen, referentiesystemen,
+interactiepatronen, endpoints, datamodelschema's en de authenticatiestandaard, met de
+requirementsboom als vertrekpunt. Bij de leeromgeving: OKx lijnt uit op het ontworpen onderwijs,
+de inhoud blijft van de school. Over versionering: elk onderdeel heeft een eigen versie en een
+eigen ritme, zodat een wijziging in een schema niet het hele pakket ophoudt.
 -->
 
 ---
@@ -229,8 +229,8 @@ Dit is de manier waarop we de conceptuele laag op robuustheid toetsen voordat we
   </div>
 </div>
 
-<div class="np-card accent-orange" style="margin-top: 1.2rem; font-size: 1.05rem; line-height: 1.5; text-align: center;">
-  <strong>Vraag aan de werkgroep:</strong> herkennen de instellingen zich hierin?
+<div class="np-card accent-orange" style="margin-top: 1.2rem; font-size: 1.1rem; line-height: 1.5; text-align: center;">
+  <strong>Welke instellingen toetsen dit najaar mee?</strong>
 </div>
 
 <div style="margin-top: 0.7rem; font-size: 0.8rem; color: var(--np-mid-gray); text-align: center;">
