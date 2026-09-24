@@ -58,17 +58,32 @@ die dat concept oplevert.
   </div>
 </div>
 
-<div class="np-card accent-green" style="margin-top: 1.3rem; font-size: 0.96rem; line-height: 1.6;">
-  <strong>Wat dit kwartaal opleverde:</strong> de drie sporen hangen nu aan elkaar. De vraag van een school is te volgen tot in wat een leverancier moet bouwen, en andersom. Die route is er; de inhoud gaat er stap voor stap doorheen.
+<div class="np-grid-2" style="margin-top: 1.3rem; gap: 0.8rem; grid-template-columns: repeat(3, 1fr);">
+  <div class="np-card accent-green" style="text-align: center; padding: 0.8rem 0.6rem;">
+    <carbon-checkmark-outline style="font-size: 1.7rem; color: var(--np-green);" />
+    <div style="font-weight: 700; font-size: 0.95rem; margin-top: 0.3rem;">Route staat scherp</div>
+    <small style="font-size: 0.8rem;">van wens naar eindproduct</small>
+  </div>
+  <div class="np-card accent-orange" style="text-align: center; padding: 0.8rem 0.6rem;">
+    <carbon-user-multiple style="font-size: 1.7rem; color: var(--np-orange);" />
+    <div style="font-weight: 700; font-size: 0.95rem; margin-top: 0.3rem;">Weer op pad</div>
+    <small style="font-size: 0.8rem;">wat moet er gebouwd worden?</small>
+  </div>
+  <div class="np-card accent-blue" style="text-align: center; padding: 0.8rem 0.6rem;">
+    <carbon-industry style="font-size: 1.7rem; color: var(--np-blue);" />
+    <div style="font-weight: 700; font-size: 0.95rem; margin-top: 0.3rem;">Leerroute 1 erdoorheen</div>
+    <small style="font-size: 0.8rem;">tot in het eindproduct</small>
+  </div>
 </div>
 
 </div>
 
 <!--
-Dit is de kern van het blok, en de toon is werk in uitvoering. Alle drie de sporen lopen: wij
-halen nog steeds op bij scholen, stemmen de conceptuele laag nog af, en werken het eindproduct
-nog uit. Wat af is, is de manier waarop die drie aan elkaar hangen. Dat is wat het mogelijk maakt
-om nu input te verwerken zonder dat het werk uit elkaar valt.
+De kern van het blok. Waar wij hard aan hebben gewerkt is de middelste stap: hoe je de wensen van
+scholen en leveranciers vertaalt en vastlegt in het eindproduct. Dat staat nu scherp, en daarom
+doen wij nu twee dingen tegelijk: opnieuw bij de PoC-scholen ophalen wat er speelt en wat er
+gebouwd moet worden, en leerroute 1 langs die route verwerken tot het eindproduct van de volgende
+slide. Alle drie de sporen lopen; niets is af.
 -->
 
 ---
@@ -174,7 +189,8 @@ dit is voorgelegd, niet vastgesteld.
 <div class="np-grid-2" style="margin-top: 0.9rem; gap: 1.2rem; align-items: center;">
 
 <div>
-  <img src="/platen/jochem.png" style="width: 100%; border-radius: 6px; border: 1px solid var(--np-light-gray);" />
+  <img src="/platen/voorbeeld-f2-07-aanbod-naar-catalogus.png" style="width: 100%; border-radius: 6px; border: 1px solid var(--np-light-gray); background: #fff;" />
+  <div style="font-size: 0.7rem; color: var(--np-mid-gray); margin-top: 0.3rem;">Een stap uit de uitwerking: het geplande aanbod terug naar de catalogus</div>
 </div>
 
 <div>
