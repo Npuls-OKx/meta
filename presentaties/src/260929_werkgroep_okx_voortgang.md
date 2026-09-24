@@ -154,7 +154,75 @@ eigen ritme, zodat een wijziging in een schema niet het hele pakket ophoudt.
 
 ---
 
-<!-- 4. DE CONCEPTUELE LAAG -->
+<!-- 4. LEERROUTE 1 ALS PROCES -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# Leerroute 1 als proces
+
+<style scoped>
+.mermaid { display: flex; justify-content: center; margin: 0.2rem 0 0; }
+.mermaid svg { max-width: 100%; height: auto; }
+</style>
+
+<div style="font-size: 0.85rem; color: var(--np-mid-gray); margin-top: 0.2rem;">Fragment uit het procesmodel</div>
+
+<div style="margin-top: 0.5rem;">
+
+```mermaid {theme: 'base', scale: 0.52, themeVariables: {'fontFamily': 'General Sans, Inter, sans-serif', 'fontSize': '15px', 'primaryColor': '#FFFFFF', 'primaryBorderColor': '#3D68EC', 'primaryTextColor': '#1B2A6B', 'lineColor': '#DD784B', 'clusterBkg': '#F7F8FB', 'clusterBorder': '#3D68EC', 'edgeLabelBackground': '#FFFFFF'}}
+flowchart LR
+  subgraph OO["Onderwijsontwerper"]
+    OO1[Kwalificatiekader analyseren] --> OO2[Opleiding specificeren] --> OO3[Onderwijseenheden beschrijven] --> OO4[Specificaties publiceren]
+  end
+  subgraph OW["Onderwijsontwikkelaar"]
+    OW1[Leergelegenheid uitwerken] --> OW2[Leermiddelen inrichten]
+  end
+  subgraph PL["Planner"]
+    PL1[Strategische jaarplanning] --> PL2[Team-inzetplanning]
+  end
+  OO4 --> OW1
+  OO4 --> PL1
+```
+
+</div>
+
+<div style="display: flex; justify-content: center; gap: 0.7rem; margin-top: 0.6rem; flex-wrap: wrap;">
+  <div class="np-card accent-blue" style="flex: 1; text-align: center; padding: 0.6rem 0.5rem;">
+    <carbon-user-multiple style="font-size: 1.4rem; color: var(--np-blue);" />
+    <div style="font-weight: 700; font-size: 0.9rem;">Zeven rollen</div>
+    <small style="font-size: 0.78rem;">van ontwerper tot student</small>
+  </div>
+  <div class="np-card accent-orange" style="flex: 1; text-align: center; padding: 0.6rem 0.5rem;">
+    <carbon-flow-connection style="font-size: 1.4rem; color: var(--np-orange);" />
+    <div style="font-weight: 700; font-size: 0.9rem;">Acht fasen</div>
+    <small style="font-size: 0.78rem;">ontwerp tot diploma</small>
+  </div>
+  <div class="np-card accent-green" style="flex: 1; text-align: center; padding: 0.6rem 0.5rem;">
+    <carbon-task-complete style="font-size: 1.4rem; color: var(--np-green);" />
+    <div style="font-weight: 700; font-size: 0.9rem;">Per stap vastgelegd</div>
+    <small style="font-size: 0.78rem;">wie, wat en waarheen</small>
+  </div>
+</div>
+
+<div style="margin-top: 0.6rem; font-size: 0.85rem; color: var(--np-mid-gray); text-align: center;">
+  Status: concept in afstemming
+</div>
+
+</div>
+
+<!--
+Zo ziet een leerroute-uitwerking eruit: het proces per rol, met de overdrachten ertussen. Getoond
+is een fragment uit scenario 1.1 van leerroute 1; het volledige beeld heeft zeven rollen, van
+onderwijsontwerper tot student, en loopt in acht fasen van ontwerp tot diploma. Elke stap legt vast
+wie iets doet, welke informatie ontstaat of verandert, en naar welk systeem die informatie gaat.
+Dit procesmodel is het vertrekpunt: daaruit volgen de begrippen, het informatiemodel en de
+informatiestromen van de volgende slides.
+-->
+
+---
+
+<!-- 5. DE CONCEPTUELE LAAG -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
@@ -175,7 +243,7 @@ eigen ritme, zodat een wijziging in een schema niet het hele pakket ophoudt.
     </div>
   </div>
   <div class="np-card accent-green" style="font-size: 0.87rem; line-height: 1.5; padding: 0.6rem 0.9rem;">
-    Begrippen, model en stromen liggen als concept voor, naast MORA en ROSA.
+    Afgeleid uit leerroute 1, gelegd naast MORA en ROSA.
   </div>
   <div class="np-card accent-orange" style="font-size: 0.87rem; line-height: 1.5; padding: 0.6rem 0.9rem; margin-top: 0.6rem;">
     Open: grens koppeling en koppelvlak, en hoe fijnmazig.
@@ -200,7 +268,7 @@ dit is voorgelegd, niet vastgesteld.
 
 ---
 
-<!-- 5. TOETSEN MET VOORBEELDUITWERKINGEN -->
+<!-- 6. VERIFIEREN MET VOORBEELDUITWERKINGEN -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
@@ -245,7 +313,7 @@ Dit is de manier waarop we de conceptuele laag op robuustheid toetsen voordat we
 
 ---
 
-<!-- 6. VAN BEELD NAAR BERICHT -->
+<!-- 7. VAN BEELD NAAR BERICHT -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
@@ -341,45 +409,119 @@ in afstemming met de leveranciers.
 
 ---
 
-<!-- 7. FASERING EN DOELEN (CONCEPT) -->
+<!-- 8. AMIGO -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
 
-# Fasering en doelen
+# AMIGO van Edustandaard
 
-<div class="np-grid-2" style="margin-top: 0.9rem; gap: 0.8rem; align-items: start;">
-  <div class="np-card accent-orange" style="font-size: 0.88rem; line-height: 1.5;">
-    <strong>Najaar 2026</strong><br/>
-    <small>concept aanscherpen met koplopers</small>
-  </div>
-  <div class="np-card accent-blue" style="font-size: 0.88rem; line-height: 1.5;">
-    <strong>Doel Q1 2027</strong><br/>
-    <small>eerste koppeling bouwbaar</small>
-  </div>
-  <div class="np-card accent-green" style="font-size: 0.88rem; line-height: 1.5;">
-    <strong>Daarna</strong><br/>
-    <small>meer koppelingen, meer detail</small>
-  </div>
-  <div class="np-card accent-green" style="font-size: 0.88rem; line-height: 1.5;">
-    <strong>En verder</strong><br/>
-    <small>meer leerroutes, daarna het ho</small>
+<style scoped>
+.mermaid { display: flex; justify-content: center; margin: 0; }
+.mermaid svg { max-width: 100%; height: auto; }
+</style>
+
+<div style="font-size: 0.85rem; color: var(--np-mid-gray); margin-top: 0.2rem;">De landelijke route van scenario naar afsprakenset</div>
+
+<div class="np-grid-2" style="margin-top: 0.7rem; gap: 1.1rem; align-items: center; grid-template-columns: 1.1fr 1fr;">
+
+<div style="min-width: 0;">
+
+```mermaid {theme: 'base', scale: 0.58, themeVariables: {'fontFamily': 'General Sans, Inter, sans-serif', 'fontSize': '15px', 'primaryColor': '#FFFFFF', 'primaryBorderColor': '#3D68EC', 'primaryTextColor': '#1B2A6B', 'lineColor': '#DD784B', 'edgeLabelBackground': '#FFFFFF'}}
+flowchart TD
+  A[Scenario-analyse] --> B[Gegevensanalyse]
+  A --> C[Interactie-analyse]
+  B --> D[Technologiekeuze]
+  C --> D
+  D --> E[Berichtspecificatie]
+  D --> F[Interfacespecificatie]
+  E --> G[Afsprakenset]
+  F --> G
+```
+
+</div>
+
+<div class="np-card accent-blue" style="padding: 0.7rem 0.9rem; min-width: 0;">
+  <div style="font-weight: 700; font-size: 0.92rem; margin-bottom: 0.45rem;">Zo vullen wij die stappen</div>
+  <div style="display: flex; flex-direction: column; gap: 0.32rem; font-size: 0.82rem;">
+    <div><span style="color: var(--np-blue); font-weight: 600;">Scenario</span> &#8594; leerroute 1</div>
+    <div><span style="color: var(--np-blue); font-weight: 600;">Gegevens</span> &#8594; informatiemodel</div>
+    <div><span style="color: var(--np-blue); font-weight: 600;">Interactie</span> &#8594; interactiepatronen</div>
+    <div><span style="color: var(--np-blue); font-weight: 600;">Bericht</span> &#8594; datamodelschema's</div>
+    <div><span style="color: var(--np-blue); font-weight: 600;">Interface</span> &#8594; endpoints</div>
+    <div><span style="color: var(--np-blue); font-weight: 600;">Afsprakenset</span> &#8594; koppelvlakspecificatie</div>
   </div>
 </div>
 
-<div class="np-card accent-orange" style="margin-top: 1.2rem; font-size: 1.1rem; line-height: 1.5; text-align: center;">
-  <strong>Welke instellingen toetsen dit najaar mee?</strong>
 </div>
 
 <div style="margin-top: 0.7rem; font-size: 0.8rem; color: var(--np-mid-gray); text-align: center;">
-  Concept, af te stemmen met de projectleiding &middot; kennisbasis: github.com/Npuls-OKx/Public
+  Aanpak van Edustandaard, herkenbaar voor leveranciers
 </div>
 
 </div>
 
 <!--
-Fasering als doelen, niet als toezegging: Q1 2027 is het doel voor de eerste bouwbare koppeling.
-De vraag aan de werkgroep staat hier als concept; de definitieve vraag komt van de projectleider.
-Bronnen: overleg met het SI-team van 13 juli (specificaties rond de herfstvakantie, bouw in het
-eerste kwartaal van 2027), vier koploperleveranciers en zes tot acht koploperinstellingen.
+Waarom dit erbij hoort: de route van de tweede slide is geen eigen vinding. AMIGO is de aanpak van
+Edustandaard om van een scenario naar een bouwbare afsprakenset te komen, en leveranciers kennen
+hem uit andere onderwijsstandaarden. De stappen worden iteratief doorlopen: een keuze in het
+bericht kan aanleiding zijn om scenario, gegevens of interacties aan te scherpen. Bron:
+edustandaard.nl/amigo/aanpak, en paragraaf 2.4 van de leerroute-uitwerking.
+-->
+
+---
+
+<!-- 9. DOEL EN FASERING -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# Doel Q1 2027
+
+<div style="font-size: 0.85rem; color: var(--np-mid-gray); margin-top: 0.2rem;">Drie koppelingen, alle lagen beschreven</div>
+
+<div class="np-grid-2" style="margin-top: 0.6rem; gap: 1.1rem; align-items: center; grid-template-columns: 1.1fr 1fr;">
+
+<div style="min-width: 0;">
+  <img src="/platen/koppelingen-hoofdplaat.svg" style="max-height: 17rem; width: auto; max-width: 100%; display: block; margin: 0 auto; border-radius: 6px; border: 1px solid var(--np-light-gray); background: #fff;" />
+  <div style="font-size: 0.72rem; color: var(--np-mid-gray); margin-top: 0.3rem;">Catalogus met planning, studentadministratie en leeromgeving</div>
+</div>
+
+<div style="min-width: 0;">
+  <div class="np-card accent-blue" style="padding: 0.7rem 0.9rem;">
+    <carbon-assembly-cluster style="font-size: 1.4rem; color: var(--np-blue);" />
+    <div style="font-weight: 700; font-size: 0.92rem;">Per koppeling alle lagen</div>
+    <small style="font-size: 0.8rem;">eisen &middot; systemen &middot; patronen &middot; endpoints &middot; schema's &middot; toegang</small>
+  </div>
+  <div class="np-card accent-orange" style="padding: 0.6rem 0.9rem; margin-top: 0.6rem;">
+    <div style="font-weight: 700; font-size: 0.9rem;">Najaar 2026</div>
+    <small style="font-size: 0.8rem;">aanscherpen met koplopers</small>
+  </div>
+  <div class="np-card accent-green" style="padding: 0.6rem 0.9rem; margin-top: 0.6rem;">
+    <div style="font-weight: 700; font-size: 0.9rem;">Daarna</div>
+    <small style="font-size: 0.8rem;">meer koppelingen, meer leerroutes, het ho</small>
+  </div>
+</div>
+
+</div>
+
+<div class="np-card accent-orange" style="margin-top: 0.7rem; font-size: 1.05rem; line-height: 1.4; text-align: center; padding: 0.6rem;">
+  <strong>Welke instellingen toetsen dit najaar mee?</strong>
+</div>
+
+<div style="margin-top: 0.5rem; font-size: 0.78rem; color: var(--np-mid-gray); text-align: center;">
+  Status: concept in afstemming
+</div>
+
+</div>
+
+<!--
+Het doel in de taal van de rest van dit blok: voor drie koppelingen, catalogus met planning,
+met studentadministratie en met de leeromgeving, liggen in het eerste kwartaal van 2027 alle
+lagen beschreven. De plaat markeert die drie lijnen op de informatiestromen-hoofdplaat; de
+bouwblokken eronder zijn dezelfde als op de eindproductslide, dus per lijn is te zien wat er
+nog moet gebeuren. Fasering als doel, niet als toezegging; de vraag aan de werkgroep staat hier
+als concept, de definitieve vraag komt van de projectleider. Kennisbasis:
+github.com/Npuls-OKx/Public. Bronnen: overleg met het SI-team van 13 juli, vier
+koploperleveranciers en zes tot acht koploperinstellingen.
 -->
