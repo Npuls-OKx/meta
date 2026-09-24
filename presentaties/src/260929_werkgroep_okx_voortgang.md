@@ -481,7 +481,7 @@ edustandaard.nl/amigo/aanpak, en paragraaf 2.4 van de leerroute-uitwerking.
 <div style="font-size: 0.85rem; color: var(--np-mid-gray); margin-top: 0.2rem;">Drie koppelingen, alle lagen beschreven</div>
 
 <div style="margin-top: 0.5rem;">
-  <img src="/platen/koppelingen-hoofdplaat.svg" style="width: 100%; max-height: 15rem; object-fit: contain; border-radius: 6px; border: 1px solid var(--np-light-gray); background: #fff;" />
+  <img src="/platen/koppelingen-hoofdplaat.svg" style="width: 100%; max-height: 17rem; object-fit: contain; border-radius: 6px; border: 1px solid var(--np-light-gray); background: #fff;" />
   <div style="font-size: 0.72rem; color: var(--np-mid-gray); margin-top: 0.25rem; text-align: center;">Catalogus met planning, studentadministratie en leeromgeving</div>
 </div>
 
@@ -500,12 +500,8 @@ edustandaard.nl/amigo/aanpak, en paragraaf 2.4 van de leerroute-uitwerking.
   </div>
 </div>
 
-<div class="np-card accent-orange" style="margin-top: 0.7rem; font-size: 1.05rem; line-height: 1.4; text-align: center; padding: 0.6rem;">
-  <strong>Welke instellingen toetsen dit najaar mee?</strong>
-</div>
-
-<div style="margin-top: 0.5rem; font-size: 0.78rem; color: var(--np-mid-gray); text-align: center;">
-  Status: concept in afstemming
+<div style="margin-top: 0.7rem; font-size: 0.8rem; color: var(--np-mid-gray); text-align: center;">
+  Status: concept in afstemming &middot; meedenken loopt via de kerngroep techniek
 </div>
 
 </div>
@@ -515,8 +511,9 @@ Het doel in de taal van de rest van dit blok: voor drie koppelingen, catalogus m
 met studentadministratie en met de leeromgeving, liggen in het eerste kwartaal van 2027 alle
 lagen beschreven. De plaat markeert die drie lijnen op de informatiestromen-hoofdplaat; de
 bouwblokken eronder zijn dezelfde als op de eindproductslide, dus per lijn is te zien wat er
-nog moet gebeuren. Fasering als doel, niet als toezegging; de vraag aan de werkgroep staat hier
-als concept, de definitieve vraag komt van de projectleider. Kennisbasis:
+nog moet gebeuren. Fasering als doel, niet als toezegging. Er staat geen vraag op de slide: de vraag aan de werkgroep
+komt van de projectleider. Wie er in de zaal iets wil betekenen, kan aanhaken bij de kerngroep
+techniek. Kennisbasis:
 github.com/Npuls-OKx/Public. Bronnen: overleg met het SI-team van 13 juli, vier
 koploperleveranciers en zes tot acht koploperinstellingen.
 -->
