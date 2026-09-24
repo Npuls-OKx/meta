@@ -232,7 +232,10 @@ def bouw(knopen, connecties, elems, png, stromen, pijl_van, uitsnede=False):
         mx, my, vak = platen.plaats(punten, label, bezet)
         bezet.append(vak)
         labels.append(tekst(mx, my + 6, label))
-    delen += labels
+    for k in geraakt:
+        delen.append(f'<rect x="{k["x"]-minx-3:.0f}" y="{k["y"]-miny-3:.0f}" width="{k["w"]+6}" '
+                     f'height="{k["h"]+6}" fill="none" stroke="{RAND}" stroke-width="4" rx="4"/>')
+    delen += labels   # de namen van de stromen bovenop, zodat zij leesbaar blijven
     delen.append("</svg>")
     if uitsnede and geraakt:
         # op een slide leest de hele plaat niet; snijd uit rond de gemarkeerde vakken, met lucht voor de bogen
