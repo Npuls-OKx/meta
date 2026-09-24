@@ -37,14 +37,20 @@ def zonder_code(slide):
 
 
 def coderegels(slide):
-    """Het aantal regels code op de slide: de maat voor een fragment als beeld."""
-    blokken = re.findall(r"```.*?```", slide, flags=re.S) + re.findall(r"<pre[^>]*>.*?</pre>", slide, flags=re.S)
+    """Het aantal regels code op de slide: de maat voor een fragment als beeld.
+
+    Een mermaid-blok telt niet mee: dat rendert tot een diagram, en een diagram is
+    een plaat. De regels eronder ziet de zaal nooit.
+    """
+    blokken = [b for b in re.findall(r"```.*?```", slide, flags=re.S) if not b.startswith("```mermaid")]
+    blokken += re.findall(r"<pre[^>]*>.*?</pre>", slide, flags=re.S)
     return sum(len([r for r in blok.splitlines() if r.strip()]) for blok in blokken)
 
 
 def zichtbare_tekst(slide):
     """Wat de zaal leest: zonder sprekersnotitie, code, HTML-tags, attributen en iconen."""
     tekst = re.sub(r"<!--.*?-->", " ", zonder_code(slide), flags=re.S)  # sprekersnotities
+    tekst = re.sub(r"<(style|script)[^>]*>.*?</\1>", " ", tekst, flags=re.S)  # opmaak en gedrag
     tekst = re.sub(r"<(carbon|mdi)-[a-z0-9-]+[^>]*/?>", " ", tekst)  # pictogrammen
     tekst = re.sub(r"<[^>]+>", " ", tekst)                          # overige tags
     tekst = re.sub(r"&#?[a-z0-9]+;", " ", tekst)                    # entiteiten, ook pijlen als &#8594;

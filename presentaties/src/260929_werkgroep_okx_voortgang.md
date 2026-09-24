@@ -231,6 +231,10 @@ dit is voorgelegd, niet vastgesteld.
 
 </div>
 
+<div style="margin-top: 0.8rem; font-size: 0.85rem; color: var(--np-mid-gray); text-align: center;">
+  Status: concept in afstemming
+</div>
+
 </div>
 
 <!--
@@ -248,36 +252,42 @@ Dit is de manier waarop we de conceptuele laag op robuustheid toetsen voordat we
 
 # Van beeld naar bericht
 
+<style scoped>
+/* Een mermaid-svg heeft een eigen breedte en duwt anders de tweede kolom van de
+   slide af. Binnen de kaart blijven en meeschalen met de kolom. */
+.mermaid { display: flex; justify-content: center; margin: 0.2rem 0 0; }
+.mermaid svg { max-width: 100%; height: auto; }
+</style>
+
 <div style="font-size: 0.85rem; color: var(--np-mid-gray); margin-top: 0.2rem;">Dezelfde stap, als koppeling</div>
 
-<div class="np-grid-2" style="margin-top: 0.7rem; gap: 1.1rem; align-items: start;">
+<div class="np-grid-2" style="margin-top: 0.7rem; gap: 1.1rem; align-items: start; grid-template-columns: 1.05fr 1fr;">
 
-<div>
-  <div class="np-card accent-blue" style="padding: 0.7rem 0.9rem;">
-    <div style="font-weight: 700; font-size: 0.92rem; margin-bottom: 0.45rem;">Interactie</div>
-    <div style="display: flex; flex-direction: column; gap: 0.4rem; font-size: 0.82rem;">
-      <div style="display: flex; gap: 0.5rem; align-items: baseline;">
-        <span style="flex: 0 0 9.2rem; color: var(--np-blue); font-weight: 600;">Planning &#8594; Catalogus</span>
-        <span>melding: aanbod gepland</span>
-      </div>
-      <div style="display: flex; gap: 0.5rem; align-items: baseline;">
-        <span style="flex: 0 0 9.2rem; color: var(--np-orange); font-weight: 600;">Catalogus &#8594; Planning</span>
-        <span>haalt het aanbod op</span>
-      </div>
-      <div style="display: flex; gap: 0.5rem; align-items: baseline;">
-        <span style="flex: 0 0 9.2rem; color: var(--np-blue); font-weight: 600;">Planning &#8594; Catalogus</span>
-        <span>aanbod met verwijzing naar de specificatie</span>
-      </div>
-    </div>
-  </div>
-  <div class="np-card accent-orange" style="padding: 0.7rem 0.9rem; margin-top: 0.7rem;">
-    <div style="font-weight: 700; font-size: 0.92rem; margin-bottom: 0.35rem;">Endpoint</div>
-    <code style="font-size: 0.8rem;">GET /onderwijsaanbod/{id}</code>
-    <div><small style="font-size: 0.8rem; color: var(--np-mid-gray);">op het planningssysteem</small></div>
-  </div>
+<div style="min-width: 0;">
+
+<div class="np-card accent-blue" style="padding: 0.7rem 0.9rem 0.4rem;">
+  <div style="font-weight: 700; font-size: 0.92rem;">Interactie</div>
+
+```mermaid {theme: 'base', scale: 0.62, themeVariables: {'fontFamily': 'General Sans, Inter, sans-serif', 'fontSize': '15px', 'actorBkg': '#FFFFFF', 'actorBorder': '#3D68EC', 'actorTextColor': '#1B2A6B', 'actorLineColor': '#9CA3AF', 'signalColor': '#DD784B', 'signalTextColor': '#374151', 'primaryColor': '#FFFFFF', 'primaryTextColor': '#1B2A6B', 'lineColor': '#DD784B'}}
+sequenceDiagram
+    participant P as Planningssysteem
+    participant OC as Onderwijscatalogus
+    P->>OC: melding: aanbod gepland
+    OC->>P: vraagt het aanbod op
+    P-->>OC: aanbod met verwijzing naar de specificatie
+```
+
 </div>
 
-<div class="np-card accent-green" style="padding: 0.7rem 0.9rem;">
+<div class="np-card accent-orange" style="padding: 0.55rem 0.9rem; margin-top: 0.7rem; display: flex; align-items: baseline; gap: 0.55rem; flex-wrap: wrap;">
+  <span style="font-weight: 700; font-size: 0.88rem;">Endpoint</span>
+  <code style="font-size: 0.76rem;">GET /onderwijsaanbod/{id}</code>
+  <small style="font-size: 0.76rem; color: var(--np-mid-gray);">op het planningssysteem</small>
+</div>
+
+</div>
+
+<div class="np-card accent-green" style="padding: 0.7rem 0.9rem; min-width: 0;">
   <div style="font-weight: 700; font-size: 0.92rem; margin-bottom: 0.4rem;">Voorbeeldbericht</div>
 <pre style="margin: 0; padding: 0.6rem 0.7rem; background: #F8F9FA; border: 1px solid var(--np-light-gray); border-radius: 6px; font-size: 0.62rem; line-height: 1.5; color: var(--np-dark-blue); overflow: hidden;">{
   <span style="color: var(--np-blue);">"aanbodType"</span>: "opleidingsaanbod",
@@ -293,8 +303,27 @@ Dit is de manier waarop we de conceptuele laag op robuustheid toetsen voordat we
 
 </div>
 
-<div style="margin-top: 0.8rem; font-size: 0.85rem; color: var(--np-mid-gray); text-align: center;">
-  Endpoint, interactie en schema: bouwblokken van het eindproduct
+<div style="margin-top: 0.7rem; text-align: center; font-size: 0.85rem; color: var(--np-mid-gray);">
+  Techniekagnostisch: het bericht ligt vast, de techniek is een keuze
+</div>
+
+<div style="display: flex; justify-content: center; gap: 0.6rem; margin-top: 0.45rem; flex-wrap: wrap;">
+  <div style="display: flex; align-items: center; gap: 0.35rem; background: white; border: 1px solid var(--np-light-gray); border-radius: 999px; padding: 0.3rem 0.8rem; font-size: 0.8rem; font-weight: 600; color: var(--np-dark-blue);">
+    <logos-json style="font-size: 1.1rem;" /> REST en JSON, nu
+  </div>
+  <div style="display: flex; align-items: center; gap: 0.35rem; background: white; border: 1px solid var(--np-light-gray); border-radius: 999px; padding: 0.3rem 0.8rem; font-size: 0.8rem; font-weight: 600; color: var(--np-dark-blue);">
+    <logos-graphql style="font-size: 1.1rem;" /> GraphQL
+  </div>
+  <div style="display: flex; align-items: center; gap: 0.35rem; background: white; border: 1px solid var(--np-light-gray); border-radius: 999px; padding: 0.3rem 0.8rem; font-size: 0.8rem; font-weight: 600; color: var(--np-dark-blue);">
+    <carbon-flash style="font-size: 1.1rem; color: var(--np-orange);" /> Events
+  </div>
+  <div style="display: flex; align-items: center; gap: 0.35rem; background: white; border: 1px solid var(--np-light-gray); border-radius: 999px; padding: 0.3rem 0.8rem; font-size: 0.8rem; font-weight: 600; color: var(--np-dark-blue);">
+    <carbon-bot style="font-size: 1.1rem; color: var(--np-blue);" /> AI-agents via MCP
+  </div>
+</div>
+
+<div style="margin-top: 0.5rem; font-size: 0.8rem; color: var(--np-mid-gray); text-align: center;">
+  Status: concept in afstemming
 </div>
 
 </div>

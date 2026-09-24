@@ -172,4 +172,4 @@ De Npuls huisstijl is eigendom van Npuls. OKx is een Npuls-programma, dus het ge
 
 `python3 tel-woorden.py src/<deck>.md` telt de zichtbare woorden per slide: koppen, kaarten en bijschriften, zonder sprekersnotities. Rond de veertig woorden is het doel, boven de zestig faalt het script. Een slide die zakt, vraagt om steekwoorden met een drager: pictogram, kaart, pijplijn of plaat.
 
-Code telt apart. Een endpoint, een schemafragment of een voorbeeldbericht wordt herkend en niet gelezen, net als een plaat, en valt daarom buiten het woordbudget. Het script meldt per slide het aantal coderegels en faalt boven de twaalf; `--coderegels` verzet die maat.
+Code telt apart. Een endpoint, een schemafragment of een voorbeeldbericht wordt herkend en niet gelezen, net als een plaat, en valt daarom buiten het woordbudget. Het script meldt per slide het aantal coderegels en faalt boven de twaalf; `--coderegels` verzet die maat. Een mermaid-blok telt als plaat en niet als code: daar ziet de zaal een diagram, geen regels.
