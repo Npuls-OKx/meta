@@ -439,24 +439,28 @@ flowchart TD
   F --> G
 ```
 
+<div style="display: flex; justify-content: center; margin-top: 0.3rem;">
+  <img src="/logos/edustandaard.png" style="height: 1.5rem; width: auto;" />
+</div>
+
 </div>
 
 <div class="np-card accent-blue" style="padding: 0.7rem 0.9rem; min-width: 0;">
   <div style="font-weight: 700; font-size: 0.92rem; margin-bottom: 0.45rem;">Zo vullen wij die stappen</div>
   <div style="display: flex; flex-direction: column; gap: 0.32rem; font-size: 0.82rem;">
-    <div><span style="color: var(--np-blue); font-weight: 600;">Scenario</span> &#8594; leerroute 1</div>
+    <div><span style="color: var(--np-blue); font-weight: 600;">Scenario</span> &#8594; leerroutes</div>
     <div><span style="color: var(--np-blue); font-weight: 600;">Gegevens</span> &#8594; informatiemodel</div>
-    <div><span style="color: var(--np-blue); font-weight: 600;">Interactie</span> &#8594; interactiepatronen</div>
+    <div><span style="color: var(--np-blue); font-weight: 600;">Interactie</span> &#8594; interactiediagrammen</div>
     <div><span style="color: var(--np-blue); font-weight: 600;">Bericht</span> &#8594; datamodelschema's</div>
     <div><span style="color: var(--np-blue); font-weight: 600;">Interface</span> &#8594; endpoints</div>
-    <div><span style="color: var(--np-blue); font-weight: 600;">Afsprakenset</span> &#8594; koppelvlakspecificatie</div>
+    <div><span style="color: var(--np-blue); font-weight: 600;">Afsprakenset</span> &#8594; o.a. koppelvlakspecificatie, datamodelprofielen, authenticatie en identity provisioning</div>
   </div>
 </div>
 
 </div>
 
 <div style="margin-top: 0.7rem; font-size: 0.8rem; color: var(--np-mid-gray); text-align: center;">
-  Aanpak van Edustandaard, herkenbaar voor leveranciers
+  Een aanpak die leveranciers uit andere onderwijsstandaarden kennen
 </div>
 
 </div>
@@ -465,7 +469,11 @@ flowchart TD
 Waarom dit erbij hoort: de route van de tweede slide is geen eigen vinding. AMIGO is de aanpak van
 Edustandaard om van een scenario naar een bouwbare afsprakenset te komen, en leveranciers kennen
 hem uit andere onderwijsstandaarden. De stappen worden iteratief doorlopen: een keuze in het
-bericht kan aanleiding zijn om scenario, gegevens of interacties aan te scherpen. Bron:
+bericht kan aanleiding zijn om scenario, gegevens of interacties aan te scherpen. Twee nuances
+voor wie doorvraagt: de interactiestap levert interactiediagrammen op, en dat is iets anders dan de
+interactiepatronen (melden en ophalen, en de afhandeling bij een fout) die in de koppelingspecificatie
+staan. En de afsprakenset is breder dan de koppelvlakspecificatie alleen: daar horen ook de
+datamodelprofielen, de authenticatie en het inrichten van identiteiten bij. Bron:
 edustandaard.nl/amigo/aanpak, en paragraaf 2.4 van de leerroute-uitwerking.
 -->
 
