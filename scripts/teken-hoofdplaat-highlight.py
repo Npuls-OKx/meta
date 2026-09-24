@@ -117,17 +117,52 @@ def lees_geometrie(model):
     return knopen, connecties, elems
 
 
-def pad(conn, knopen):
-    """Het pad zoals Archi het tekent: een knikpunt ligt op het midden van de bron plus zijn eigen offset.
-    De end-offsets zijn dezelfde punten gerekend vanaf het doel; het gemiddelde van beide nemen verschuift
-    de lijn, wat bij brede vakken zichtbaar naast de pijl uitkomt."""
-    a, b = knopen[conn["bron"]], knopen[conn["doel"]]
-    ca = (a["x"] + a["w"] / 2, a["y"] + a["h"] / 2)
-    cb = (b["x"] + b["w"] / 2, b["y"] + b["h"] / 2)
-    punten = [ca] + [(ca[0] + sx, ca[1] + sy) for sx, sy, _, _ in conn["knikpunten"]] + [cb]
-    punten[0] = platen.rand(ca, punten[1], a)
-    punten[-1] = platen.rand(cb, punten[-2], b)
-    return punten
+def connectie_voor(connecties, knopen, elems, pijl, van, naar):
+    """De getekende lijn van deze relatie op de view.
+
+    Een relatie kan twee keer op de plaat staan, als een component er twee keer op staat.
+    Dan telt de lijn tussen de vakken die de stroom bedoelt.
+    """
+    def naam(knoop_id):
+        return norm(elems.get(knopen[knoop_id].get("element", ""), ("", ""))[1])
+
+    def afstand(c):
+        a, b = knopen[c["bron"]], knopen[c["doel"]]
+        return ((a["x"] + a["w"] / 2 - b["x"] - b["w"] / 2) ** 2 + (a["y"] + a["h"] / 2 - b["y"] - b["h"] / 2) ** 2)
+
+    lijnen = [c for c in connecties if c.get("relatie") == pijl]
+    passend = [c for c in lijnen if naam(c["bron"]) == van and naam(c["doel"]) == naar]
+    # staat de relatie meer dan een keer op de plaat, dan de kortste lijn: die houdt de markeringen bij elkaar
+    return min(passend or lijnen, key=afstand) if (passend or lijnen) else None
+
+
+def is_knooppunt(knoop, elems):
+    """Een junction op de plaat: een punt waar een relatie zich splitst of samenkomt."""
+    return elems.get(knoop.get("element", ""), ("", ""))[0].endswith("Junction")
+
+
+def vervolglijnen(connecties, knopen, elems, conn, naar, gezien=()):
+    """De lijnen voorbij een junction, tot het vak van de ontvanger.
+
+    Een relatie die over een junction loopt is op de plaat in stukken getekend. Zonder
+    dit vervolg stopt de markering op het punt en lijkt de lijn halverwege te eindigen.
+    """
+    if not is_knooppunt(knopen[conn["doel"]], elems):
+        return []
+    for c in connecties:
+        if c["bron"] != conn["doel"] or c["relatie"] in gezien:
+            continue
+        if norm(elems.get(knopen[c["doel"]].get("element", ""), ("", ""))[1]) == naar:
+            return [c]
+        verder = vervolglijnen(connecties, knopen, elems, c, naar, gezien + (c["relatie"],))
+        if verder:
+            return [c] + verder
+    return []
+
+
+def k_vak(k, minx, miny):
+    """Een element als bezet vlak, zodat een markeringslabel er niet bovenop landt."""
+    return (k["x"] - minx, k["y"] - miny, k["w"], k["h"])
 
 
 def tekst(x, y, s, kleur=ACCENT):
@@ -167,24 +202,37 @@ def bouw(knopen, connecties, elems, png, stromen, pijl_van, uitsnede=False):
              f'<image href="data:image/{soort};base64,{b64}" x="0" y="0" width="{W}" height="{H}"/>',
              # de plaat vervaagt, zodat de markeringen eruit springen
              f'<rect x="0" y="0" width="{W}" height="{H}" fill="#ffffff" fill-opacity="0.6"/>']
-    geraakt, ontbreekt = [], []
+    geraakt, ontbreekt, labels, bezet = [], [], [], [k_vak(k, minx, miny) for k in knopen.values() if not k.get("groep")]
     for (van, naar, pijl), beelden in stromen.items():
         label = ", ".join(beelden)
-        a, b = dichtste_paar(knopen, elems, van, naar)
-        if not a or not b:
-            ontbreekt.append(f"{label}: {van} naar {naar}")
-            continue
-        p1, p2, c = boog(a, b)
-        streep = ' stroke-dasharray="12 9"' if pijl == GEEN_PIJL else ""
-        d = f'M{p1[0]-minx:.0f},{p1[1]-miny:.0f} Q{c[0]-minx:.0f},{c[1]-miny:.0f} {p2[0]-minx:.0f},{p2[1]-miny:.0f}'
+        conn = connectie_voor(connecties, knopen, elems, pijl, van, naar) if pijl != GEEN_PIJL else None
+        if conn:
+            # over de bestaande pijl heen: hetzelfde pad dat Archi tekent, met een witte onderlaag eronder
+            lijnen = [conn] + vervolglijnen(connecties, knopen, elems, conn, naar)
+            punten = [(x - minx, y - miny) for c in lijnen for x, y in platen.pad(c, knopen)]
+            d = "M" + " L".join(f"{x:.0f},{y:.0f}" for x, y in punten)
+            streep = ""
+            geraakt += [knopen[conn["bron"]], knopen[lijnen[-1]["doel"]]]
+        else:
+            a, b = dichtste_paar(knopen, elems, van, naar)
+            if not a or not b:
+                ontbreekt.append(f"{label}: {van} naar {naar}")
+                continue
+            # geen lijn om over te trekken: een eigen boog die zichtbaar los van de plaat loopt
+            p1, p2, c = boog(a, b)
+            punten = [(p1[0] - minx, p1[1] - miny), (c[0] - minx, c[1] - miny), (p2[0] - minx, p2[1] - miny)]
+            d = (f'M{punten[0][0]:.0f},{punten[0][1]:.0f} Q{punten[1][0]:.0f},{punten[1][1]:.0f} '
+                 f'{punten[2][0]:.0f},{punten[2][1]:.0f}')
+            streep = ' stroke-dasharray="12 9"'
+            label += " (geen pijl)" if pijl == GEEN_PIJL else ""
+            geraakt += [a, b]
         delen.append(f'<path d="{d}" fill="none" stroke="#ffffff" stroke-width="11" stroke-opacity="0.85"/>')
         delen.append(f'<path d="{d}" fill="none" stroke="{ACCENT}" stroke-width="5"{streep} '
                      f'marker-end="url(#punt)"/>')
-        delen.append(tekst(c[0] - minx, c[1] - miny - 6, label + (" (geen pijl)" if pijl == GEEN_PIJL else "")))
-        geraakt += [a, b]
-    for k in geraakt:
-        delen.append(f'<rect x="{k["x"]-minx-3:.0f}" y="{k["y"]-miny-3:.0f}" width="{k["w"]+6}" '
-                     f'height="{k["h"]+6}" fill="none" stroke="{RAND}" stroke-width="4" rx="4"/>')
+        mx, my, vak = platen.plaats(punten, label, bezet)
+        bezet.append(vak)
+        labels.append(tekst(mx, my + 6, label))
+    delen += labels
     delen.append("</svg>")
     if uitsnede and geraakt:
         # op een slide leest de hele plaat niet; snijd uit rond de gemarkeerde vakken, met lucht voor de bogen

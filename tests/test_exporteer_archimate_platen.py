@@ -65,6 +65,17 @@ class GeometrieTests(unittest.TestCase):
         self.assertEqual((round(punten[1][0]), round(punten[1][1])), (200, 105))
         self.assertNotEqual((round(punten[1][0]), round(punten[1][1])), alleen_start)
 
+    def test_given_two_bendpoints_when_path_computed_then_weighted_per_bendpoint(self):
+        # Met twee knikpunten weegt GEF het eerste 1/3 en het tweede 2/3 tussen bron en doel.
+        # bp1: 2/3*(50+100, 25+80) + 1/3*(350-100, 25+60) = (183, 98)
+        # bp2: 1/3*(50+200, 25-40) + 2/3*(350+0, 25-40) = (317, -15)
+        bps = ('<bendpoint startX="100" startY="80" endX="-100" endY="60"/>'
+               '<bendpoint startX="200" startY="-40" endX="0" endY="-40"/>')
+        pad = self.schrijf(model_xml(obj("oA", "A", 0, 0, conns=conn("oB", "rAB", bps)) + obj("oB", "B", 300, 0)))
+        knopen, connecties, _ = ep.lees_view(pad, "Testview")
+        punten = ep.pad(connecties[0], knopen)
+        self.assertEqual([(round(x), round(y)) for x, y in punten[1:3]], [(183, 98), (317, -15)])
+
     def test_given_straight_connection_when_path_computed_then_endpoints_on_element_edges(self):
         pad = self.schrijf(model_xml(obj("oA", "A", 0, 0, conns=conn("oB", "rAB")) + obj("oB", "B", 300, 0)))
         knopen, connecties, _ = ep.lees_view(pad, "Testview")

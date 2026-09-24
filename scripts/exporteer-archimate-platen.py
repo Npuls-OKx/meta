@@ -249,11 +249,24 @@ def rand(p, q, r):
 
 
 def pad(conn, knopen):
-    """Het pad van een connectie zoals Archi het tekent: knikpunt is het gemiddelde van bron- en doeloffset."""
+    """Het pad van een connectie zoals Archi het tekent.
+
+    Archi geeft elk knikpunt mee als twee verschuivingen: een vanaf het midden van de
+    bron en een vanaf het midden van het doel. De tekenlaag eronder (GEF) legt het punt
+    op een gewogen gemiddelde van die twee, waarbij knikpunt i van n het gewicht
+    (i + 1) / (n + 1) krijgt. Met een vast gemiddelde klopt alleen een enkel knikpunt;
+    bij twee of meer schuift de lijn dan zichtbaar naast de pijl op de plaat.
+    """
     a, b = knopen[conn["bron"]], knopen[conn["doel"]]
     ca = (a["x"] + a["w"] / 2, a["y"] + a["h"] / 2)
     cb = (b["x"] + b["w"] / 2, b["y"] + b["h"] / 2)
-    punten = [ca] + [((ca[0] + sx + cb[0] + ex) / 2, (ca[1] + sy + cb[1] + ey) / 2) for sx, sy, ex, ey in conn["knikpunten"]] + [cb]
+    n = len(conn["knikpunten"])
+    punten = [ca]
+    for i, (sx, sy, ex, ey) in enumerate(conn["knikpunten"]):
+        gewicht = (i + 1) / (n + 1)
+        punten.append(((1 - gewicht) * (ca[0] + sx) + gewicht * (cb[0] + ex),
+                       (1 - gewicht) * (ca[1] + sy) + gewicht * (cb[1] + ey)))
+    punten.append(cb)
     punten[0] = rand(ca, punten[1], a)
     punten[-1] = rand(cb, punten[-2], b)
     return punten
