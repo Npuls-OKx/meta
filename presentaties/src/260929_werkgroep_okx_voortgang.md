@@ -18,110 +18,111 @@ fonts:
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide1.PNG);"></div>
 
 <div style="position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 2rem 4rem; z-index: 1;">
-  <h1 style="font-size: 3rem; line-height: 1.15; margin-bottom: 0.6rem; color: var(--np-ink);">Van verhaal naar afspraak</h1>
-  <div style="font-size: 1.15rem; color: var(--np-ink); margin-bottom: 0.9rem;">Wat de kerngroep techniek bouwde, juni tot september</div>
-  <div style="font-size: 0.95rem; color: var(--np-mid-gray);">OKx &middot; werkgroep OKx &middot; september 2026</div>
+  <h1 style="font-size: 2.9rem; line-height: 1.15; margin-bottom: 0.6rem; color: var(--np-ink);">Kerngroep techniek</h1>
+  <div style="font-size: 1.15rem; color: var(--np-ink); margin-bottom: 0.9rem;">Voortgang juni tot september 2026</div>
+  <div style="font-size: 0.95rem; color: var(--np-mid-gray);">OKx &middot; werkgroep OKx</div>
 </div>
 
 <!--
-Doel van dit blok: de werkgroep in vijf minuten laten zien dat het techniekspoor van praten naar
-afspraken is gegaan. Geen techniek uitleggen, wel wat er nu ligt en wat de sector eraan heeft.
+Dit blok is de techniekparagraaf in de bredere OKx-update. Toon: werk in uitvoering. Alles wat er
+ligt is concept in afstemming met leveranciers en scholen; de waarde zit in de manier van werken
+die dat concept oplevert.
 -->
 
 ---
 
-<!-- 2. VAN JUNI NAAR NU -->
+<!-- 2. DE KERN: EEN WERKWIJZE DIE COMPLEXITEIT HANTEERBAAR MAAKT -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
 
-# In juni een verhaal, nu een afspraak
+# Een werkwijze die de complexiteit hanteerbaar maakt
 
-<div class="np-pipeline" style="margin-top: 1.5rem;">
-  <div class="np-step blue" style="flex: 1;">
-    <carbon-map style="font-size: 2rem; color: var(--np-blue);" />
-    <strong style="font-size: 0.9rem;">Juni: de reis</strong>
-    <small>hoe onderwijs ontstaat, plant en uitvoert, verteld als scenario</small>
+<div class="np-pipeline" style="margin-top: 1.4rem;">
+  <div class="np-step orange" style="flex: 1;">
+    <carbon-user-multiple style="font-size: 1.9rem; color: var(--np-orange);" />
+    <strong style="font-size: 0.88rem;">Wat scholen willen</strong>
+    <small>opgehaald bij koplopers, per leerroute uitgewerkt</small>
   </div>
   <div class="np-arrow">&#8594;</div>
-  <div class="np-step orange" style="flex: 1;">
-    <carbon-partnership style="font-size: 2rem; color: var(--np-orange);" />
-    <strong style="font-size: 0.9rem;">Zomer: de taal</strong>
-    <small>begrippen en informatiemodel, getoetst bij leveranciers en scholen</small>
+  <div class="np-step blue" style="flex: 1;">
+    <carbon-partnership style="font-size: 1.9rem; color: var(--np-blue);" />
+    <strong style="font-size: 0.88rem;">Beschreven vertaalslag</strong>
+    <small>scenario, begrippen, informatiemodel, informatiestromen</small>
   </div>
   <div class="np-arrow">&#8594;</div>
   <div class="np-step green" style="flex: 1;">
-    <carbon-document style="font-size: 2rem; color: var(--np-green);" />
-    <strong style="font-size: 0.9rem;">September: de afspraak</strong>
-    <small>openbaar gepubliceerd, met versie en datum, klaar om op te bouwen</small>
+    <carbon-document style="font-size: 1.9rem; color: var(--np-green);" />
+    <strong style="font-size: 0.88rem;">Eindproduct</strong>
+    <small>koppelvlakspecificatie, opgebouwd uit koppelingspecificaties</small>
   </div>
 </div>
 
-<div class="np-card accent-green" style="margin-top: 1.5rem; font-size: 1rem; line-height: 1.6;">
-  <strong>Wat dat betekent:</strong> een leverancier kan nu lezen wat zijn systeem moet kunnen uitwisselen, en een school kan erop sturen. Waar het in juni nog gesprek was, staat het nu zwart op wit.
+<div class="np-card accent-green" style="margin-top: 1.4rem; font-size: 0.98rem; line-height: 1.6;">
+  <strong>Dat is de winst van dit kwartaal:</strong> een vorm waarin business en techniek aan elkaar te knopen zijn, en waarin de vraag van een school herleidbaar terugkomt in wat een leverancier moet bouwen.
 </div>
 
 </div>
 
 <!--
-Bronnen: releasepakket koppelvlakspecificatie v0.0.1 (18 augustus) en v0.0.2 (1 september) in
-Npuls-OKx/Public; informatiemodel v0.1 en begrippenlijst v0.2 gepubliceerd 18 september.
-Niet noemen tenzij gevraagd: de werkwijze met issues, branches en reviews.
+Kernboodschap van dit blok. De inhoud is nog concept; de werkwijze is wat we hebben bereikt.
+Koppelingspecificatie is de afspraak tussen twee systemen; het koppelvlak is alles wat een
+systeem raakt. Die twee begrippen zijn zelf ook nog onderwerp van afstemming.
 -->
 
 ---
 
-<!-- 3. DE AFSPRAKEN DIE ER LIGGEN -->
+<!-- 3. KOPPELINGEN IN UITWERKING -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
 
-# Drie koppelingen, tot op het veld uitgewerkt
+# Koppelingen in uitwerking
 
-<div class="np-grid-2" style="margin-top: 1.2rem; gap: 1rem; align-items: start;">
-  <div class="np-card accent-blue" style="font-size: 0.92rem; line-height: 1.5;">
-    <carbon-catalog style="font-size: 1.5rem; color: var(--np-blue);" />
-    <strong>Catalogus en planning</strong><br/>
-    wat er ontworpen is, wordt planbaar: perioden, groepen, capaciteit
+<div class="np-grid-2" style="margin-top: 1rem; gap: 1rem; align-items: start;">
+  <div class="np-card accent-blue" style="font-size: 0.9rem; line-height: 1.5;">
+    <carbon-catalog style="font-size: 1.45rem; color: var(--np-blue);" />
+    <strong>Onderwijscatalogus en planning</strong><br/>
+    het ontworpen aanbod, nominaal en keuze, planbaar maken in perioden en capaciteit
   </div>
-  <div class="np-card accent-orange" style="font-size: 0.92rem; line-height: 1.5;">
-    <carbon-data-base style="font-size: 1.5rem; color: var(--np-orange);" />
-    <strong>Catalogus en studentadministratie</strong><br/>
-    waarop een student zich kan inschrijven, en waartegen resultaten tellen
+  <div class="np-card accent-orange" style="font-size: 0.9rem; line-height: 1.5;">
+    <carbon-data-base style="font-size: 1.45rem; color: var(--np-orange);" />
+    <strong>Onderwijscatalogus en studentadministratie</strong><br/>
+    waarop een student zich inschrijft, en waartegen resultaten tellen
   </div>
-  <div class="np-card accent-green" style="font-size: 0.92rem; line-height: 1.5;">
-    <carbon-education style="font-size: 1.5rem; color: var(--np-green);" />
-    <strong>Catalogus en leeromgeving</strong><br/>
-    de lesstof en opdrachten waarmee de docent de les inricht
+  <div class="np-card accent-green" style="font-size: 0.9rem; line-height: 1.5;">
+    <carbon-education style="font-size: 1.45rem; color: var(--np-green);" />
+    <strong>Onderwijscatalogus en leeromgeving</strong><br/>
+    de leeromgeving uitlijnen op het ontworpen onderwijs; de inhoud blijft van de school
   </div>
-  <div class="np-card accent-blue" style="font-size: 0.92rem; line-height: 1.5;">
-    <carbon-task-complete style="font-size: 1.5rem; color: var(--np-blue);" />
-    <strong>Per koppeling vastgelegd</strong><br/>
-    wie wat stuurt, wanneer, en welke gegevens er precies in zitten
+  <div class="np-card accent-blue" style="font-size: 0.9rem; line-height: 1.5;">
+    <carbon-pending style="font-size: 1.45rem; color: var(--np-blue);" />
+    <strong>Status: concept in afstemming</strong><br/>
+    richting en eerste invulling liggen er, de details worden met leveranciers aangescherpt
   </div>
 </div>
 
-<div class="np-card accent-green" style="margin-top: 1.2rem; font-size: 0.95rem; line-height: 1.55;">
-  <strong>Openbaar en versiebeheerd.</strong> Iedereen leest dezelfde tekst, met dezelfde versie en datum. Wijzigingen zijn zichtbaar, met de reden erbij.
+<div class="np-card accent-orange" style="margin-top: 1.1rem; font-size: 0.93rem; line-height: 1.55;">
+  Openbaar en versiebeheerd, zodat iedereen dezelfde versie leest en een wijziging zichtbaar is met de reden erbij.
 </div>
 
 </div>
 
 <!--
-Bron: Npuls-OKx/Public, Koppelvlakspecificaties: drie interactiepatronen (onderwijscatalogus naar
-planning en rooster, naar kernregistratie, naar leeromgeving), negentien interacties, twaalf
-functionele eisen en vierentwintig datamodelschema's. Alfa-status: de vorm ligt vast, de velden
-kunnen nog wijzigen tot de payload is vastgesteld.
+Drie koppelingen binnen de onderwijsontwikkeling en -uitvoering, alle drie vanuit de catalogus.
+Bij de leeromgeving expliciet zeggen wat we niet doen: OKx schrijft geen lesinhoud of didactiek
+voor. Het gaat erom dat de leeromgeving werkt met het onderwijs zoals het is ontworpen.
+Status: alfa, richtinggevend; de velden kunnen wijzigen tot de payload is vastgesteld.
 -->
 
 ---
 
-<!-- 4. EEN GEZAMENLIJKE TAAL -->
+<!-- 4. DE CONCEPTUELE LAAG -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
 
-# Een gezamenlijke taal
+# De conceptuele laag, in afstemming
 
 <div class="np-grid-2" style="margin-top: 0.8rem; gap: 1.2rem; align-items: center;">
 
@@ -136,17 +137,17 @@ kunnen nog wijzigen tot de payload is vastgesteld.
       <small style="font-size: 0.8rem;">objecten in het informatiemodel</small>
     </div>
   </div>
-  <div class="np-card accent-green" style="font-size: 0.88rem; line-height: 1.5; padding: 0.6rem 0.9rem;">
-    Elk begrip ligt naast de sectorkaders MORA en ROSA. Waar de sector al een woord heeft, gebruiken wij dat woord.
+  <div class="np-card accent-green" style="font-size: 0.87rem; line-height: 1.5; padding: 0.6rem 0.9rem;">
+    Begrippenkader, informatiemodel en informatiestromen liggen als concept voor. Elk begrip ligt naast MORA en ROSA: waar de sector al een woord heeft, gebruiken wij dat.
   </div>
-  <div class="np-card accent-orange" style="font-size: 0.88rem; line-height: 1.5; padding: 0.6rem 0.9rem; margin-top: 0.6rem;">
-    <strong>De leeruitkomst is de sleutel:</strong> zij verbindt het ontwerp van het onderwijs met wat de student aantoont.
+  <div class="np-card accent-orange" style="font-size: 0.87rem; line-height: 1.5; padding: 0.6rem 0.9rem; margin-top: 0.6rem;">
+    Open punten: de grens tussen koppeling en koppelvlak, en hoe fijnmazig de uitwisseling moet zijn.
   </div>
 </div>
 
 <div>
   <img src="/platen/informatiemodel-v0.1.jpg" style="width: 100%; border-radius: 6px; border: 1px solid var(--np-light-gray);" />
-  <div style="font-size: 0.72rem; color: var(--np-mid-gray); margin-top: 0.3rem;">Informatiemodel OKx v0.1</div>
+  <div style="font-size: 0.72rem; color: var(--np-mid-gray); margin-top: 0.3rem;">Informatiemodel OKx v0.1, concept</div>
 </div>
 
 </div>
@@ -154,42 +155,39 @@ kunnen nog wijzigen tot de payload is vastgesteld.
 </div>
 
 <!--
-Bron: informatiemodel v0.1 (66 objecttypen, 156 relaties, zeven begrippenfamilies) en
-begrippenlijst v0.2 (73 begrippen, waarvan 22 met een definitie uit een referentiekader),
-gepubliceerd naar Public op 18 september. Zeg erbij dat systemen elkaar pas begrijpen als
-mensen dezelfde woorden gebruiken; dat is de reden dat dit er ligt.
+Bron: informatiemodel v0.1 (66 objecttypen, zeven begrippenfamilies) en begrippenlijst v0.2 (73
+begrippen), beide met status concept, ter bekrachtiging door de kerngroep techniek. De
+leeruitkomst is daarin de sleutel tussen ontwerp en resultaat. Noem dat de afstemming loopt:
+dit is voorgelegd, niet vastgesteld.
 -->
 
 ---
 
-<!-- 5. DE TOETS: DE REIS VAN EEN STUDENT -->
+<!-- 5. TOETSEN MET VOORBEELDUITWERKINGEN -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
 
-# De proef op de som: de reis van Jochem
+# Toetsen met voorbeelduitwerkingen
 
-<div class="np-grid-2" style="margin-top: 1rem; gap: 1.2rem; align-items: center;">
+<div class="np-grid-2" style="margin-top: 0.9rem; gap: 1.2rem; align-items: center;">
 
 <div>
   <img src="/platen/jochem.png" style="width: 100%; border-radius: 6px; border: 1px solid var(--np-light-gray);" />
 </div>
 
 <div>
-  <div class="np-card accent-blue" style="font-size: 0.92rem; line-height: 1.55; margin-bottom: 0.8rem;">
-    <carbon-user-favorite style="font-size: 1.4rem; color: var(--np-blue);" />
-    <strong>Een echte opleiding, stap voor stap</strong><br/>
-    apothekersassistent, van het ontwerp van de opleiding tot zijn diploma
+  <div class="np-card accent-orange" style="font-size: 0.9rem; line-height: 1.5; margin-bottom: 0.7rem;">
+    <strong>Omvang en complexiteit vragen om voorbeelden</strong><br/>
+    abstracte modellen blijven anders te ver van de praktijk
   </div>
-  <div class="np-card accent-orange" style="font-size: 0.92rem; line-height: 1.55; margin-bottom: 0.8rem;">
-    <carbon-search style="font-size: 1.4rem; color: var(--np-orange);" />
-    <strong>Elke stap naast het model gelegd</strong><br/>
-    klopt het, ontbreekt er iets, heet het bij uw school hetzelfde?
+  <div class="np-card accent-blue" style="font-size: 0.9rem; line-height: 1.5; margin-bottom: 0.7rem;">
+    <strong>Een echte opleiding per leerroute</strong><br/>
+    apothekersassistent, van het ontwerp van de opleiding tot diplomering
   </div>
-  <div class="np-card accent-green" style="font-size: 0.92rem; line-height: 1.55;">
-    <carbon-calendar style="font-size: 1.4rem; color: var(--np-green);" />
-    <strong>30 september bij de kerngroep techniek</strong><br/>
-    scholen en leveranciers leggen het naast hun eigen praktijk
+  <div class="np-card accent-green" style="font-size: 0.9rem; line-height: 1.5;">
+    <strong>Robuustheid toetsen</strong><br/>
+    scholen en leveranciers leggen het naast hun praktijk: herkennen zij het, ontbreekt er iets
   </div>
 </div>
 
@@ -198,53 +196,52 @@ mensen dezelfde woorden gebruiken; dat is de reden dat dit er ligt.
 </div>
 
 <!--
-Bron: voorbeelduitwerking leerroute 1 (persona Jochem, apothekersassistent, cohort 2026), acht
-fasen van kwalificatiedossier tot diplomering, met een beeld per processtap. Het document stelt
-zeven vragen aan de kerngroep en heeft een invulblad per objecttype: herkent u dit, heet het bij u
-anders, hangt het anders, ontbreekt het. Nog niet publiek; wordt 30 september voorgelegd.
+Voorbeelduitwerking leerroute 1 met persona Jochem, acht fasen, een beeld per processtap, met
+een invulblad per objecttype en zeven vragen. Ligt 30 september bij de kerngroep techniek.
+Dit is de manier waarop we de conceptuele laag op robuustheid toetsen voordat we detailleren.
 -->
 
 ---
 
-<!-- 6. WAT ER NU GEBEURT EN WAT WIJ VRAGEN -->
+<!-- 6. FASERING EN DOELEN (CONCEPT) -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
 
-# Wat er nu gebeurt, en wat wij vragen
+# Fasering en doelen
 
-<div class="np-pipeline" style="margin-top: 1.3rem;">
-  <div class="np-step orange" style="flex: 1;">
-    <carbon-user-multiple style="font-size: 1.9rem; color: var(--np-orange);" />
-    <strong style="font-size: 0.88rem;">Najaar 2026</strong>
-    <small>koploperscholen en vier leveranciers leggen de afspraken naast hun praktijk</small>
+<div class="np-grid-2" style="margin-top: 0.9rem; gap: 0.8rem; align-items: start;">
+  <div class="np-card accent-orange" style="font-size: 0.88rem; line-height: 1.5;">
+    <strong>Najaar 2026</strong><br/>
+    concept aanscherpen met koploperscholen en leveranciers
   </div>
-  <div class="np-arrow">&#8594;</div>
-  <div class="np-step blue" style="flex: 1;">
-    <carbon-tools style="font-size: 1.9rem; color: var(--np-blue);" />
-    <strong style="font-size: 0.88rem;">Q1 2027</strong>
-    <small>leveranciers bouwen de eerste koppeling op de gepubliceerde afspraken</small>
+  <div class="np-card accent-blue" style="font-size: 0.88rem; line-height: 1.5;">
+    <strong>Doel Q1 2027</strong><br/>
+    eerste koppeling bouwbaar bij leveranciers
   </div>
-  <div class="np-arrow">&#8594;</div>
-  <div class="np-step green" style="flex: 1;">
-    <carbon-growth style="font-size: 1.9rem; color: var(--np-green);" />
-    <strong style="font-size: 0.88rem;">Daarna</strong>
-    <small>meer leerroutes, en het hoger onderwijs erbij</small>
+  <div class="np-card accent-green" style="font-size: 0.88rem; line-height: 1.5;">
+    <strong>Daarna: verbreden</strong><br/>
+    meer koppelingen, meer detail per koppeling
+  </div>
+  <div class="np-card accent-green" style="font-size: 0.88rem; line-height: 1.5;">
+    <strong>En verder</strong><br/>
+    meer leerroutes, daarna het hoger onderwijs
   </div>
 </div>
 
-<div class="np-card accent-orange" style="margin-top: 1.4rem; font-size: 1rem; line-height: 1.6;">
-  <strong>Wat wij van de werkgroep vragen:</strong> houd de vraag bij de instellingen op tafel. Wat hier ligt is pas van waarde als scholen het herkennen als hun eigen praktijk en hun leverancier erop aanspreken.
+<div class="np-card accent-orange" style="margin-top: 1.2rem; font-size: 1.05rem; line-height: 1.5; text-align: center;">
+  <strong>Vraag aan de werkgroep:</strong> herkennen de instellingen zich hierin?
 </div>
 
-<div style="margin-top: 0.9rem; font-size: 0.9rem; color: var(--np-mid-gray);">
-  Alles openbaar te lezen in de kennisbasis: github.com/Npuls-OKx/Public
+<div style="margin-top: 0.7rem; font-size: 0.8rem; color: var(--np-mid-gray); text-align: center;">
+  Concept, af te stemmen met de projectleiding &middot; kennisbasis: github.com/Npuls-OKx/Public
 </div>
 
 </div>
 
 <!--
-Sluit af met de vraag, niet met een opsomming. Bronnen: planning uit het overleg met het SI-team
-van 13 juli (bouw bij leveranciers in het eerste kwartaal van 2027, specificaties af rond de
-herfstvakantie); vier koploperleveranciers en zes tot acht koploperinstellingen betrokken.
+Fasering als doelen, niet als toezegging: Q1 2027 is het doel voor de eerste bouwbare koppeling.
+De vraag aan de werkgroep staat hier als concept; de definitieve vraag komt van de projectleider.
+Bronnen: overleg met het SI-team van 13 juli (specificaties rond de herfstvakantie, bouw in het
+eerste kwartaal van 2027), vier koploperleveranciers en zes tot acht koploperinstellingen.
 -->
