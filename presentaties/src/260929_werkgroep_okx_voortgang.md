@@ -205,7 +205,7 @@ dit is voorgelegd, niet vastgesteld.
 
 <div class="fill">
 
-# Toetsen met voorbeelduitwerkingen
+# Verifiëren met voorbeelduitwerkingen
 
 <div class="np-grid-2" style="margin-top: 0.9rem; gap: 1.2rem; align-items: center;">
 
@@ -224,7 +224,7 @@ dit is voorgelegd, niet vastgesteld.
     <small>apothekersassistent, ontwerp tot diploma</small>
   </div>
   <div class="np-card accent-green" style="font-size: 0.9rem; line-height: 1.5;">
-    <strong>Toets bij scholen</strong><br/>
+    <strong>Verifi&euml;ren bij scholen</strong><br/>
     <small>herkennen zij het, ontbreekt er iets</small>
   </div>
 </div>
@@ -241,7 +241,78 @@ Dit is de manier waarop we de conceptuele laag op robuustheid toetsen voordat we
 
 ---
 
-<!-- 6. FASERING EN DOELEN (CONCEPT) -->
+<!-- 6. VAN BEELD NAAR BERICHT -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# Van beeld naar bericht
+
+<div style="font-size: 0.85rem; color: var(--np-mid-gray); margin-top: 0.2rem;">Dezelfde stap, als koppeling</div>
+
+<div class="np-grid-2" style="margin-top: 0.7rem; gap: 1.1rem; align-items: start;">
+
+<div>
+  <div class="np-card accent-blue" style="padding: 0.7rem 0.9rem;">
+    <div style="font-weight: 700; font-size: 0.92rem; margin-bottom: 0.45rem;">Interactie</div>
+    <div style="display: flex; flex-direction: column; gap: 0.4rem; font-size: 0.82rem;">
+      <div style="display: flex; gap: 0.5rem; align-items: baseline;">
+        <span style="flex: 0 0 9.2rem; color: var(--np-blue); font-weight: 600;">Planning &#8594; Catalogus</span>
+        <span>melding: aanbod gepland</span>
+      </div>
+      <div style="display: flex; gap: 0.5rem; align-items: baseline;">
+        <span style="flex: 0 0 9.2rem; color: var(--np-orange); font-weight: 600;">Catalogus &#8594; Planning</span>
+        <span>haalt het aanbod op</span>
+      </div>
+      <div style="display: flex; gap: 0.5rem; align-items: baseline;">
+        <span style="flex: 0 0 9.2rem; color: var(--np-blue); font-weight: 600;">Planning &#8594; Catalogus</span>
+        <span>aanbod met verwijzing naar de specificatie</span>
+      </div>
+    </div>
+  </div>
+  <div class="np-card accent-orange" style="padding: 0.7rem 0.9rem; margin-top: 0.7rem;">
+    <div style="font-weight: 700; font-size: 0.92rem; margin-bottom: 0.35rem;">Endpoint</div>
+    <code style="font-size: 0.8rem;">GET /onderwijsaanbod/{id}</code>
+    <div><small style="font-size: 0.8rem; color: var(--np-mid-gray);">op het planningssysteem</small></div>
+  </div>
+</div>
+
+<div class="np-card accent-green" style="padding: 0.7rem 0.9rem;">
+  <div style="font-weight: 700; font-size: 0.92rem; margin-bottom: 0.4rem;">Voorbeeldbericht</div>
+<pre style="margin: 0; padding: 0.6rem 0.7rem; background: #F8F9FA; border: 1px solid var(--np-light-gray); border-radius: 6px; font-size: 0.62rem; line-height: 1.5; color: var(--np-dark-blue); overflow: hidden;">{
+  <span style="color: var(--np-blue);">"aanbodType"</span>: "opleidingsaanbod",
+  <span style="color: var(--np-blue);">"naam"</span>: "Apothekersassistent, cohort 2026",
+  <span style="color: var(--np-blue);">"status"</span>: "gepland",
+  <span style="color: var(--np-blue);">"specificatieVerwijzing"</span>: {
+    "specificatieId": "79736830-1c5c-470f...",
+    "versie": "0.1.0"
+  },
+  <span style="color: var(--np-blue);">"periode"</span>: { "start": "2026-09-01", "eind": "2029-07-15" }
+}</pre>
+</div>
+
+</div>
+
+<div style="margin-top: 0.8rem; font-size: 0.85rem; color: var(--np-mid-gray); text-align: center;">
+  Endpoint, interactie en schema: bouwblokken van het eindproduct
+</div>
+
+</div>
+
+<!--
+Hier komt de lijn samen: de stap uit de voorbeelduitwerking van de vorige slide (F2-07, het
+geplande aanbod terug naar de catalogus) staat in de koppelvlakspecificatie als endpoint,
+interactiepatroon en datamodelschema. Het patroon heet notify-then-pull: planning meldt dat het
+aanbod er is, de catalogus haalt het op bij de eigenaar van de gegevens. Het bericht is ingekort
+voor de slide; het volledige voorbeeld staat in de datamodelschema's, met per laag van het aanbod
+een verwijzing naar de specificatie waarvan het is gemaakt. Bron: interactiepatroon
+onderwijscatalogus en planning (I3 en I5) en education-offering.json in Npuls-OKx/Public. Concept
+in afstemming met de leveranciers.
+-->
+
+---
+
+<!-- 7. FASERING EN DOELEN (CONCEPT) -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">

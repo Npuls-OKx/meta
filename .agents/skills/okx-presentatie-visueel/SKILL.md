@@ -19,7 +19,7 @@ Een slide is geen tekst die de zaal leest; het is een verhaalhaakje waar de spre
 1. **Verhaallijn eerst, in een werkbestand.** Schrijf het hele verhaal uit in de scratchpad (of een agent-artifact als het bewaard moet blijven): per slide de boodschap in een of twee zinnen, wat de spreker erbij vertelt, en welk beeld het draagt. Dit bestand is voor de maker en de spreker; het komt niet in de slide.
 2. **Kernzin en sleutelwoorden per slide.** Haal uit elke boodschap de kernzin (de conclusie, hooguit een regel) en drie tot vijf sleutelwoorden. Dat zijn de cornerstones: klein, begrijpelijk, in de woorden van het OKx-begrippenkader. Alles wat de spreker kan zeggen, gaat naar de sprekersnotitie.
 3. **Visual aid per cornerstone.** Elk sleutelwoord krijgt een drager: een pictogram met een woord eronder, een kaart met een pictogram en twee of drie steekwoorden, een pijplijn van stappen, een trap van niveaus, een diagram van relaties, of een bestaande plaat op een eigen slide. Kies de drager op wat het sleutelwoord is: een component krijgt zijn pictogram, een volgorde een pijplijn, een gelaagdheid een trap, een samenhang een diagram.
-4. **Tel en kijk.** Tel eerst de zichtbare woorden: `python3 presentaties/tel-woorden.py presentaties/src/<deck>.md`. Een slide boven de zestig woorden gaat terug naar de tekentafel, rond de veertig is het doel. Exporteer daarna de beelden (`./deck <naam> beelden`) en beoordeel elke slide in acht seconden: staat de kernzin, zijn de sleutelwoorden zichtbaar zonder lezen, is er een beeld om over te praten. Zo niet: tekst eruit, drager erin. Het oog vergeeft te veel tekst; de telling niet.
+4. **Tel en kijk.** Tel eerst de zichtbare woorden: `python3 presentaties/tel-woorden.py presentaties/src/<deck>.md`. Een slide boven de zestig woorden gaat terug naar de tekentafel, rond de veertig is het doel. Exporteer daarna de beelden (`./deck <naam> beelden`) en beoordeel elke slide in acht seconden: staat de kernzin, zijn de sleutelwoorden zichtbaar zonder lezen, is er een beeld om over te praten. Zo niet: tekst eruit, drager erin. Het oog vergeeft te veel tekst; de telling niet. Code valt buiten het woordbudget en heeft een eigen maat: de teller meldt de coderegels per slide en faalt boven de twaalf.
 
 ## Tekstbudget
 
@@ -30,6 +30,7 @@ Een slide is geen tekst die de zaal leest; het is een verhaalhaakje waar de spre
 | Kaart | pictogram, titel van twee tot vier woorden, hooguit drie steekwoorden van hooguit vijf woorden |
 | Pictogram met woord | een of twee woorden eronder, in de taal van de zaal |
 | Zichtbare tekst per slide | rond de veertig woorden; boven de zestig gaat de slide in tweeen of gaat tekst naar de notitie. `presentaties/tel-woorden.py` telt het en faalt boven de zestig |
+| Code of voorbeeldbericht | hooguit twaalf regels, ingekort tot de velden die het punt maken, met de bron in de notitie |
 | Sprekersnotitie | vrij; hier staan het verhaal, de bron en de nuance |
 
 Een zin die "de spreker zegt dit toch" oproept, hoort in de notitie. Een uitleg van wat een large language model kan uitleggen maar de zaal niet leest, hoort er ook.
@@ -42,6 +43,7 @@ Een zin die "de spreker zegt dit toch" oproept, hoort in de notitie. Een uitleg 
 | Een volgorde of proces | pijplijn | `np-pipeline` met `np-step` en `np-arrow`, per stap een pictogram, een titel en een regel klein |
 | Een gelaagdheid | trap | rijen met oplopende inspringing, genummerde `np-num`, de laag buiten scope grijs en gestippeld zonder tekst erachter |
 | Een raakvlak of thema | kaart met pictogram en steekwoorden | `np-card` met accentkleur, pictogram in de kop, hooguit drie bullets |
+| Een endpoint, bericht of schema | codefragment | `<code>` voor een endpoint in de lopende tekst, `<pre>` voor een bericht: lichtgrijze achtergrond, 0.62rem, sleutels in `--np-blue` |
 | Een samenhang tussen begrippen | klein diagram | inline SVG met vier tot zes vakken en lijnen, of een mermaid-diagram |
 | Een architectuurplaat | de plaat zelf, paginavullend | eigen slide, witte achtergrond, een bijschrift van een regel; de plaat krijgt nooit een tekstkolom ernaast |
 | Een afspraak of vraag | kaart met een kernzin en steekwoorden als pillen | `np-card accent-orange`, pillen in `border-radius:999px` |

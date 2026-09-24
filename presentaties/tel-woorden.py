@@ -21,9 +21,30 @@ BUDGET = 40
 GRENS = 60
 
 
+CODEREGELS = 12
+
+
+def zonder_code(slide):
+    """Code en payloads eruit: die zijn een beeld, geen leestekst.
+
+    Een endpoint of een voorbeeldbericht op een slide wordt herkend, niet gelezen,
+    net als een plaat of een pictogram. Daarom telt het niet mee in het woordbudget.
+    Wel geldt een eigen maat: coderegels() bewaakt dat het fragment kort blijft.
+    """
+    tekst = re.sub(r"```.*?```", " ", slide, flags=re.S)            # gemarkeerde codeblokken
+    tekst = re.sub(r"<pre[^>]*>.*?</pre>", " ", tekst, flags=re.S)  # voorbeeldberichten
+    return re.sub(r"<code[^>]*>.*?</code>", " ", tekst, flags=re.S)  # endpoints in de tekst
+
+
+def coderegels(slide):
+    """Het aantal regels code op de slide: de maat voor een fragment als beeld."""
+    blokken = re.findall(r"```.*?```", slide, flags=re.S) + re.findall(r"<pre[^>]*>.*?</pre>", slide, flags=re.S)
+    return sum(len([r for r in blok.splitlines() if r.strip()]) for blok in blokken)
+
+
 def zichtbare_tekst(slide):
-    """Wat de zaal leest: zonder sprekersnotitie, HTML-tags, attributen en iconen."""
-    tekst = re.sub(r"<!--.*?-->", " ", slide, flags=re.S)          # sprekersnotities
+    """Wat de zaal leest: zonder sprekersnotitie, code, HTML-tags, attributen en iconen."""
+    tekst = re.sub(r"<!--.*?-->", " ", zonder_code(slide), flags=re.S)  # sprekersnotities
     tekst = re.sub(r"<(carbon|mdi)-[a-z0-9-]+[^>]*/?>", " ", tekst)  # pictogrammen
     tekst = re.sub(r"<[^>]+>", " ", tekst)                          # overige tags
     tekst = re.sub(r"&#?[a-z0-9]+;", " ", tekst)                    # entiteiten, ook pijlen als &#8594;
@@ -42,11 +63,20 @@ def tel(pad):
     return uit
 
 
+def tel_code(pad):
+    """Per slide het aantal coderegels, in dezelfde volgorde als tel()."""
+    bron = pathlib.Path(pad).read_text(encoding="utf-8")
+    if bron.startswith("---"):
+        bron = bron.split("\n---\n", 1)[-1]
+    return [(nummer, coderegels(slide)) for nummer, slide in enumerate(bron.split("\n---\n"), 1)]
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     parser.add_argument("deck", nargs="+", type=pathlib.Path)
     parser.add_argument("--budget", type=int, default=BUDGET)
     parser.add_argument("--grens", type=int, default=GRENS, help="hierboven is het een bevinding")
+    parser.add_argument("--coderegels", type=int, default=CODEREGELS, help="maximaal aantal regels code per slide")
     args = parser.parse_args(argv)
     fout = False
     for pad in args.deck:
@@ -55,14 +85,21 @@ def main(argv=None):
             fout = True
             continue
         print(f"{pad}")
+        code = dict(tel_code(pad))
         for nummer, aantal in tel(pad):
             merk = "" if aantal <= args.budget else ("  let op" if aantal <= args.grens else "  te veel tekst")
-            print(f"  slide {nummer}: {aantal} woorden{merk}")
+            regels = code.get(nummer, 0)
+            erbij = f", {regels} coderegels" if regels else ""
+            if regels > args.coderegels:
+                erbij += "  te lang fragment"
+                fout = True
+            print(f"  slide {nummer}: {aantal} woorden{erbij}{merk}")
             if aantal > args.grens:
                 fout = True
     if fout:
-        print(f"\nEen slide boven {args.grens} woorden leest niemand. Maak er steekwoorden van met een "
-              f"drager: pictogram, kaart, pijplijn of plaat.", file=sys.stderr)
+        print(f"\nEen slide boven {args.grens} woorden leest niemand, en een fragment boven "
+              f"{args.coderegels} regels ook niet. Maak er steekwoorden van met een drager: "
+              f"pictogram, kaart, pijplijn, plaat of een kort voorbeeldbericht.", file=sys.stderr)
     return 1 if fout else 0
 
 

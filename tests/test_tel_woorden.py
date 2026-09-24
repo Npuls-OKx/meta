@@ -39,6 +39,21 @@ in het budget van de slide zelf.
 """
 
 
+CODEDECK = """---
+title: x
+---
+
+# Kop met code
+
+<code>GET /onderwijsaanbod/{id}</code>
+
+<pre>{
+  "naam": "Apothekersassistent",
+  "status": "gepland"
+}</pre>
+"""
+
+
 class TelWoordenTests(unittest.TestCase):
     def tel(self, bron=DECK):
         with tempfile.TemporaryDirectory() as tmp:
@@ -61,6 +76,28 @@ class TelWoordenTests(unittest.TestCase):
             pad.write_text(lang, encoding="utf-8")
             self.assertEqual(tw.main([str(pad)]), 1)
             self.assertEqual(tw.main([str(pad), "--grens", "100"]), 0)
+
+
+class CodeTests(unittest.TestCase):
+    """Code op een slide is een beeld: buiten het woordbudget, met een eigen maat."""
+
+    def schrijf(self, bron):
+        tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(tmp.cleanup)
+        pad = Path(tmp.name) / "deck.md"
+        pad.write_text(bron, encoding="utf-8")
+        return pad
+
+    def test_given_slide_with_code_when_counted_then_code_is_not_a_word(self):
+        self.assertEqual(tw.tel(self.schrijf(CODEDECK)), [(1, 3)])   # alleen de kop
+
+    def test_given_slide_with_code_when_counted_then_its_lines_are_reported(self):
+        self.assertEqual(tw.tel_code(self.schrijf(CODEDECK)), [(1, 4)])
+
+    def test_given_long_fragment_when_run_then_exit_code_one(self):
+        pad = self.schrijf(CODEDECK)
+        self.assertEqual(tw.main([str(pad)]), 0)
+        self.assertEqual(tw.main([str(pad), "--coderegels", "3"]), 1)
 
 
 if __name__ == "__main__":
