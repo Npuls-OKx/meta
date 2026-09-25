@@ -1,0 +1,217 @@
+{
+ "componenten": [
+  {
+   "naam": "AII (centraal aanmelden)",
+   "definitie": "",
+   "diensten": [],
+   "opmerking": "staat niet als applicatiecomponent in het model"
+  },
+  {
+   "naam": "Aanmeld systeem",
+   "definitie": "Een systeem waarmee individuen zich kunnen aanmelden voor een opleiding bij een onderwijsinstelling. Denk aan VVA, CA, PortalPlus enz..",
+   "diensten": [
+    {
+     "naam": "Opleiding aanmelding dienst",
+     "definitie": "Het ondersteunen van het initieel registreren van iemands aanmelding voor een opleiding"
+    }
+   ]
+  },
+  {
+   "naam": "Curriculum ontwerptool",
+   "definitie": "Een systeem ter ondersteuning van het ontwerp- en planningsproces van het curriculum (de samenhangende structuur) van een opleiding. Dit omvat onder andere de opbouw in opleidingsonderdelen met hun onderlinge afhankelijkheden, logsche volgorde, relatie met leerdoelen, kerntaken en werkprocessen en de omvang in studiebelasting. Daarnaast omvat dit ook het in de tijd plannen van het curriculum. Dit is een tijdplanning, hoe de opleidingsonderdelen ten opzichte van elkaar in onderwijsperiodes gepland kunnen worden zodat het qua belasting een studeerbaar en organiseerbaar geheel is.",
+   "diensten": [
+    {
+     "naam": "Curriculum ontwerp",
+     "definitie": "Het ondersteunen van het ontwerpproces van het curriculum (de samenhangende structuur) van een opleiding. Dit omvat onder andere de opbouw in opleidingsonderdelen met hun onderlinge afhankelijkheden, logsche volgorde, relatie met leerdoelen, kerntaken en werkprocessen en de omvang in studiebelasting."
+    },
+    {
+     "naam": "Curriculum planning",
+     "definitie": "Het in de tijd plannen van het curriculum. Dit is een tijdplanning, hoe de opleidingsonderdelen ten opzichte van elkaar in onderwijsperiodes gepland kunnen worden zodat het qua belasting een studeerbaar en organiseerbaar geheel is."
+    }
+   ]
+  },
+  {
+   "naam": "Intake systeem",
+   "definitie": "Een systeem voor het plannen, inschrijven, afhandelen, verslagleggen en beoordelen van de intake van studenten. Dit zowel voor initiele aanmeldingen als voor tussentijdse loopbaanadviestrajecten",
+   "diensten": [
+    {
+     "naam": "Intake dienst",
+     "definitie": "Het plannen, inschrijven, uitvoeren en beoordelen van intakegesprekken. Zowel voor nieuwe inschrijvingen van studenten als voor loopbaanadviestrajecten."
+    }
+   ]
+  },
+  {
+   "naam": "Kernregistratie systeem studenten (KRS)",
+   "definitie": "Een systeem voor het beheren van gegevens van studenten zoals in- en uitschrijvingsgegevens, BPV-contractgegevens, bekostigingsgegevens, studieresultaten, diploma's, studentbegeleidingsgegevens, studievoortganggegevens Bijvoorbeeld: Eduarte Osiris Magister TP Ellucian (Sungard/SCT) Banner Student Oracle Peopelsoft Campus Solutions",
+   "diensten": [
+    {
+     "naam": "BPV overeenkomst beheer",
+     "definitie": "Het beheren van contractgegevens tussen studenten en BPV-organisaties"
+    },
+    {
+     "naam": "Doorstroomdossier beheer",
+     "definitie": "Het beheren van alle informatie over een student met betrekking tot; - behaalde vooropleiding (VO) resultaten en bijzonderheden in relatie tot het verloop van de studieontwikkelingen van de student. - behaalde opleiding resultaten (MBO) en bijzonderheden in relatie tot het verloop van de studieontwikkelingen van de student die relevant zijn voor doorstroom naar het HBO."
+    },
+    {
+     "naam": "Inschijving op opleidingsprogramma",
+     "definitie": ""
+    },
+    {
+     "naam": "Inschrijvingen beheer",
+     "definitie": "Het administreren van inschrijvingen voor een opleiding, een keuzedeel, een examen, een herkansing. Focus ligt op de administratieve verwerking en niet op de interactie met de (potentiële) student"
+    },
+    {
+     "naam": "Kwalificering",
+     "definitie": "Het ondersteunen van de peiling op kwalificatierecht en het doen toekomen van een kwalificerend document zoals een diploma of certificaat"
+    },
+    {
+     "naam": "Onderwijskosten facturering",
+     "definitie": "Het administreren van en zorgdragen voor het (laten) factureren van onderwijskosten."
+    },
+    {
+     "naam": "Student gegevens beheer",
+     "definitie": "Het beheren van gegevens over deelnemers zoals NAW-gegevens (incl. adresmutaties), overdracht-, vrijstelling-, bekostigings- en diplomagegevens, formele correspondentie, gemaakte afspraken"
+    },
+    {
+     "naam": "Studentgegevens uitwisseling",
+     "definitie": "Het uitwisselen van studentgegevens zoals: - het importeren van studentgegevens van toeleverende systemen - het selecteren en exporteren van studentgegevens en deze ter beschikking stellen of versturen aan afnemende systemen"
+    },
+    {
+     "naam": "Uitschrijvingen beheer",
+     "definitie": "Het administreren van uitschrijvingen, zoals het construeren van het bewijs van uitschrijving"
+    },
+    {
+     "naam": "Uitwisseling BRON",
+     "definitie": "Het formeel uitwisselen van gegevens met de overheid zoals m.b.t. de bekostiging"
+    }
+   ]
+  },
+  {
+   "naam": "Leer management systeem (LMS)",
+   "definitie": "Systeem ten behoeve van het aanbieden en gebruiken van leermateriaal, de ondersteuning van het leerproces en de interactie tussen student en docent.",
+   "diensten": [
+    {
+     "naam": "Communicatie en samenwerking",
+     "definitie": "Ondersteuning van de communicatie en samenwerking in het kader van het leerproces, tussen docent en student, docenten en studenten onderling en met andere betrokkenen bij het leerproces zoals praktijkbegeleiders. Denk hierbij aan: * het uitzetten van opdrachten * feedback geven * (eenvoudige) poll of quiz uitvoeren * afspraken maken * werken in groepen * gezamenlijk werken aan projecten"
+    },
+    {
+     "naam": "Leercontent gebruik",
+     "definitie": "Het zoeken, raadplegen, downloaden van lesmateriaal door de student"
+    },
+    {
+     "naam": "Onderwijs begeleiding ondersteuning",
+     "definitie": "Tools die de docent ondersteunen bij het geven van inhoudelijke begeleiding, zoals feedback, reflectie, extra uitleg, bij de uitvoering van leertaken door de student."
+    },
+    {
+     "naam": "Overhandiging opdrachten",
+     "definitie": "Het ondersteunen van het aanleveren en inleveren van opdrachten tussen de docent en student"
+    },
+    {
+     "naam": "Studieroute beheer",
+     "definitie": "Het beheren van studieroutes (NB - focus ligt op de verzameling van content/lesstof en niet op een verzameling van onderwijseenheden zoals een leerarrangement of een complete opleiding of een vak)) Denk aan het samenstellen, arrangeren of aaneenrijgen van lesmateriaal/leercontent voor een opleiding(deel)"
+    }
+   ]
+  },
+  {
+   "naam": "Onderwijscatalogus",
+   "definitie": "Een systeem voor het beheren en publiceren van het onderwijsaanbod, zoals dat is opgebouwd uit de onderwijsprogramma's, opleidingsonderdelen en leeractiviteiten en alle metadata die daarbij relevant is. Deze metadata omvat bijvoorbeeld de leerdoelen, kerntaken, werkprocessen, studiebelastingsuren etc. Het onderwijsaanbod omvat ook per onderwijsprogramma de bijbehorende standaard leerroutes en eventuele keuzemogelijkheden. De publicatie van het onderwijsaanbod kan in verschillende vormen plaatsvinden, bijvoorbeeld in de vorm van een Onderwijs en Examenreglement (OER) of een studiegids.",
+   "diensten": [
+    {
+     "naam": "Onderwijs aanbod publicatie",
+     "definitie": "Dit omvat de publicatie van het onderwijsaanbod in verschillende vormen, bijvoorbeeld in de vorm van een Onderwijs en Examenreglement (OER) of een studiegids."
+    },
+    {
+     "naam": "Onderwijs beheer",
+     "definitie": "Het beheren van het onderwijsaanbod, zoals dat is opgebouwd uit de onderwijsprogramma's, opleidingsonderdelen en leeractiviteiten en alle metadata die daarbij relevant is. Deze metadat omvat bijvoorbeeld de leerdoelen, kerntaken, werkprocessen, studiebelastingsuren etc. Het onderwijsaanbod omvat ook per onderwijsprogramma de bijbehorende standaard leerroutes en eventuele keuzemogelijkheden."
+    }
+   ]
+  },
+  {
+   "naam": "Planningssysteem",
+   "definitie": "",
+   "diensten": [
+    {
+     "naam": "Jaar planning",
+     "definitie": "Het bepalen van de jaarplanning waarin per opleiding gedetailleerd de behoefte en inzet van mensen, content, ruimten, leercontent e.d. wordt vastgelegd."
+    },
+    {
+     "naam": "Meerjaren planning",
+     "definitie": "Ondersteunt het maken van tactische plannen over meerdere (>2) jaren."
+    }
+   ]
+  },
+  {
+   "naam": "Roostersysteem",
+   "definitie": "Een systeem dat het maken van roosters ondersteunt op basis van beschikbaarheid van mensen en middelen en de leerroutes van de studenten. Bijvoorbeeld: GPUntis Xedule",
+   "diensten": [
+    {
+     "naam": "Aanmelding rooster activiteit",
+     "definitie": "Het aanmelden/inschrijven door de student voor ingeroosterde eenheid zoals een les, toets of een evenement"
+    },
+    {
+     "naam": "Groepen beheer",
+     "definitie": "Het bepalen en vastleggen van groepen waarin studenten gezamenlijk onderwijs volgen. Denk aan: * klassen * werkgroepen * ..."
+    },
+    {
+     "naam": "Rooster constructie",
+     "definitie": "Het maken van een rooster"
+    },
+    {
+     "naam": "Rooster wijziging",
+     "definitie": "Het beheren en communiceren van roosterwijzigingen"
+    }
+   ]
+  },
+  {
+   "naam": "Student Keuze Systeem (SKS)",
+   "definitie": "",
+   "diensten": [
+    {
+     "naam": "Accorderen van keuzes",
+     "definitie": ""
+    },
+    {
+     "naam": "Keuze op leergelegenheid",
+     "definitie": ""
+    }
+   ]
+  },
+  {
+   "naam": "Student volg systeem (SVS)",
+   "definitie": "Een systeem voor het registreren en meten van de studievoortgang en resultaten van een student.",
+   "diensten": [
+    {
+     "naam": "Formatief resultaten beheer",
+     "definitie": "Het vastleggen van formatieve resultaten & structuren"
+    },
+    {
+     "naam": "Persoonlijke leerroute beheer",
+     "definitie": "Het samenstellen, vastleggen en beheren van persoonlijke leerroutes van studenten (voorheen individuele leerarrangementen)."
+    },
+    {
+     "naam": "Studie voortgang bepaling",
+     "definitie": "Het inzichtelijk maken van de voortgang van de student op basis van diens behaalde resultaten in het licht van het vastgestelde individuele leerarrangement. Ook wel de peilstokmeting genoemd."
+    },
+    {
+     "naam": "Summatief resultaten beheer",
+     "definitie": "Het vastleggen van summatieve resultaten & structuren"
+    }
+   ]
+  },
+  {
+   "naam": "Toets- en examen afname systeem",
+   "definitie": "Systeem voor het afnemen van toetsen en examens, denk aan een veilige afnameomgeving (BLDC - bootable lock down client) Bijvoorbeeld: * Safetyboot * Facet * QMP",
+   "diensten": [
+    {
+     "naam": "Toets of examen afname",
+     "definitie": "Het ondersteunen van het afnemen van toetsen of examens - Toewijzing van toetsen aan specifieke kandidaten. De toewijzing ondersteund ook het genereren van individuele vragensets per student voor een een zelfde toets ten behoeve van fraude kans beperking. - Het plaatsen van een toets per student in een voor hem afgeschermde omgeving en het doorsturen van de ingevulde toets en beoordeling naar betrokken medewerkers."
+    }
+   ]
+  },
+  {
+   "naam": "Voorziening Centraal Aanmelden (CAMBO)",
+   "definitie": "Een landelijk digitaal portaal voor het mbo waar een aspirant-student zich voor een opleiding kan aanmelden. Het is een generieke voorziening, dus niet instellingsspecifiek. Afkorting CAMBO",
+   "diensten": []
+  }
+ ]
+}
