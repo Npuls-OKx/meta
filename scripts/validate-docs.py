@@ -19,7 +19,9 @@ import os
 import re
 import sys
 
-FENCE = re.compile(r"^```(\w+)?\s*$")
+# Slidev geeft een mermaid-blok opties mee achter de taal: ```mermaid {theme: 'base'}.
+# Zonder die staart leest de controle de sluitende fence als een nieuwe opening.
+FENCE = re.compile(r"^```(\w+)?(?:\s.*)?$")
 MDLINK = re.compile(r"\]\((?!https?://|mailto:|#)([^)#\s]+?\.(?:md|json|py|png|jpg|jpeg))(?:#[^)]*)?\)")
 
 def check_file(path: str) -> list[str]:
@@ -36,10 +38,13 @@ def check_file(path: str) -> list[str]:
             continue
         if line.strip() == "```" and lang is not None:
             if lang == "json":
-                try:
-                    json.loads("\n".join(body))
-                except json.JSONDecodeError as e:
-                    problems.append(f"{path}:{nr}: json-blok niet parsebaar: {e}")
+                # Een fragment met een beletselteken is bewust ingekort en hoort niet te parsen.
+                ingekort = any(r.strip() in {"\u2026", "..."} or r.strip().endswith("\u2026") for r in body)
+                if not ingekort:
+                    try:
+                        json.loads("\n".join(body))
+                    except json.JSONDecodeError as e:
+                        problems.append(f"{path}:{nr}: json-blok niet parsebaar: {e}")
             lang = None
             continue
         if lang is not None:
