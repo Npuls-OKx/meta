@@ -130,8 +130,9 @@ instellingen en leveranciers, en dat gesprek loopt nu opnieuw: wat moet er gebou
   </div>
   <div class="np-card accent-green np-mini" style="margin-bottom: 0;">
     <carbon-version class="np-pic" style="color: var(--np-green);" />
-    <div class="np-kop">OKx implementeren en versies</div>
-    <small>kiezen per koppeling en berichtstroom &middot; een versie legt het ijkpunt vast &middot; een nieuwe eis komt ernaast</small>
+    <div class="np-kop">Waaraan een implementatie voldoet</div>
+    <small>per koppeling en berichtstroom een eigen versie &middot; een nieuwe eis komt ernaast</small>
+    <div class="np-voorbeeld">catalogus en planning &middot; aanbod melden &middot; v1.2</div>
   </div>
 </div>
 
@@ -142,6 +143,7 @@ instellingen en leveranciers, en dat gesprek loopt nu opnieuw: wat moet er gebou
 .np-mini small { font-size: 0.74rem; line-height: 1.4; display: block; }
 .np-pic { font-size: 1.1rem; color: var(--np-blue); }
 .np-kop { font-weight: 700; font-size: 0.84rem; line-height: 1.25; }
+.np-voorbeeld { margin-top: 0.35rem; display: inline-block; background: #F7F8FB; border: 1px solid var(--np-light-gray); border-radius: 999px; padding: 0.15rem 0.6rem; font-size: 0.72rem; color: var(--np-dark-blue); }
 </style>
 
 <div style="margin-top: 0.8rem; font-size: 0.85rem; color: var(--np-mid-gray); text-align: center;">
@@ -156,11 +158,13 @@ Garik: de koppelvlakspecificatie als pakket, opgebouwd uit functionele eisen, re
 berichtstromen, endpoints, datamodelschema's en de authenticatiestandaard, met de
 requirementsboom als vertrekpunt. De volgorde van de drie koppelingen is de prioritering: eerst
 de catalogus met planning, dan de catalogus met het studentvolgsysteem en de kernregistratie, en
-als laatste de leeromgeving. Het groene blok beantwoordt twee vragen die in de zaal leven: wat
-betekent het voor een leverancier om OKx te ondersteunen, en waarom is er uberhaupt versionering
-nodig. Antwoord: een partij kiest per koppeling en per berichtstroom wat zij implementeert, een
-versie legt vast hoe de afspraak er op dat moment uitzag, en een nieuwe eis krijgt een eigen
-berichtstroom naast de bestaande, zodat draaiende koppelingen blijven werken. Bij de leeromgeving: OKx lijnt uit op het ontworpen onderwijs,
+als laatste de leeromgeving. Het groene blok beantwoordt de vraag die een leverancier stelt: aan welke
+versie van welk deel van OKx voldoet mijn implementatie. Het antwoord is niet een stempel over het
+hele pakket, maar een lijstje: per koppeling en per berichtstroom de versie die een partij
+ondersteunt, zoals de koppeling catalogus en planning, berichtstroom aanbod melden, versie 1.2.
+Dat lijstje samen is wat OKx-ondersteuning betekent, en het is ook het antwoord op waarom er
+versionering nodig is: een versie legt vast hoe de afspraak er op dat moment uitzag, en een nieuwe
+eis krijgt een eigen berichtstroom naast de bestaande, zodat draaiende koppelingen blijven werken. Bij de leeromgeving: OKx lijnt uit op het ontworpen onderwijs,
 de inhoud blijft van de school. Over versionering: elk onderdeel heeft een eigen versie en een
 eigen ritme, zodat een wijziging in een schema niet het hele pakket ophoudt.
 -->
