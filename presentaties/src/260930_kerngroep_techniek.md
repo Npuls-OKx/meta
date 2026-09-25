@@ -223,59 +223,55 @@ acceptatietest, Public #109.
 
 <div class="fill">
 
-# Hoe lang dit duurt
+# Twee scenario's naar Q1 2027
 
 <style scoped>
-.mermaid { display: flex; justify-content: center; margin: 0.2rem 0 0; }
+.fill { padding: 1.4rem 2.2rem; }
+.mermaid { display: flex; justify-content: center; margin: 0.1rem 0 0; }
 .mermaid svg { max-width: 100%; height: auto; }
-.np-strip { display: flex; justify-content: center; gap: 0.5rem; margin-top: 0.7rem; flex-wrap: wrap; }
-.np-pil { display: flex; align-items: center; gap: 0.35rem; background: #fff; border: 1px solid var(--np-light-gray); border-radius: 999px; padding: 0.3rem 0.85rem; font-size: 0.8rem; color: var(--np-dark-blue); }
 </style>
 
-<div style="margin-top: 0.3rem;">
+<div style="margin-top: 0.2rem;">
 
-```mermaid {theme: 'base', scale: 0.92, themeVariables: {'fontFamily': 'General Sans, Inter, sans-serif', 'fontSize': '14px', 'sectionBkgColor': '#F7F8FB', 'altSectionBkgColor': '#FFFFFF', 'gridColor': '#E5E7EB', 'doneTaskBkgColor': '#D8ECDD', 'doneTaskBorderColor': '#00AF81', 'activeTaskBkgColor': '#FBE3D6', 'activeTaskBorderColor': '#DD784B', 'taskBkgColor': '#E8EDFC', 'taskBorderColor': '#3D68EC', 'taskTextColor': '#1B2A6B', 'taskTextDarkColor': '#1B2A6B', 'taskTextOutsideColor': '#374151', 'todayLineColor': '#DD784B'}}
+```mermaid {theme: 'base', scale: 1.15, themeVariables: {'fontFamily': 'General Sans, Inter, sans-serif', 'fontSize': '14px', 'sectionBkgColor': '#F7F8FB', 'altSectionBkgColor': '#FFFFFF', 'gridColor': '#E5E7EB', 'doneTaskBkgColor': '#D8ECDD', 'doneTaskBorderColor': '#00AF81', 'activeTaskBkgColor': '#FBE3D6', 'activeTaskBorderColor': '#DD784B', 'taskBkgColor': '#E8EDFC', 'taskBorderColor': '#3D68EC', 'taskTextColor': '#1B2A6B', 'taskTextDarkColor': '#1B2A6B', 'taskTextOutsideColor': '#374151', 'todayLineColor': '#DD784B'}}
 gantt
     dateFormat YYYY-MM-DD
     axisFormat %b
     todayMarker off
     section Gereed
-    Koppelvlakspecificatie v0.0.1      :done, 2026-07-30, 2026-08-18
-    Informatiemodel en begrippen v0.1  :done, 2026-08-18, 2026-09-18
-    Voorbeelduitwerking leerroute 1    :done, 2026-09-17, 2026-09-30
+    Specificatie v0.0.1      :done, 2026-07-30, 2026-08-18
+    Informatiemodel v0.1     :done, 2026-08-18, 2026-09-18
+    Voorbeelduitwerking LR1  :done, 2026-09-17, 2026-09-30
     section Loopt
-    OC-P&R afronden, v0.0.2            :active, 2026-08-31, 2026-10-31
-    section Doorgetrokken
-    OC-KRS en OC-SVS                   :2026-10-15, 2027-01-15
-    OC-LMS                             :2026-12-01, 2027-03-15
-    Alle lagen beschreven              :milestone, 2027-03-31, 0d
+    OC-P&R afronden          :active, 2026-08-31, 2026-10-31
+    section Een spoor
+    OC-KRS en OC-SVS         :2026-11-01, 2027-02-01
+    OC-LMS                   :2027-02-01, 2027-05-01
+    section Twee sporen
+    OC-KRS en OC-SVS         :2026-10-15, 2027-01-15
+    OC-LMS                   :2026-12-01, 2027-03-15
+    Alle lagen beschreven    :milestone, 2027-03-31, 0d
 ```
 
 </div>
 
-<div class="np-strip">
-  <div class="np-pil"><carbon-user-multiple style="font-size: 1rem; color: var(--np-blue);" /> <strong>3</strong> schrijvers</div>
-  <div class="np-pil"><carbon-time style="font-size: 1rem; color: var(--np-blue);" /> <strong>2 maanden</strong> per koppeling</div>
-  <div class="np-pil"><carbon-hourglass style="font-size: 1rem; color: var(--np-orange);" /> <strong>3 weken</strong> zonder merge</div>
-</div>
-
-<div class="np-card accent-orange" style="margin-top: 0.8rem; padding: 0.6rem 1rem;">
-<strong style="color: var(--np-ink);">Q1 2027 haalbaar bij twee koppelingen tegelijk en review binnen twee weken</strong>
+<div class="np-card accent-orange" style="margin-top: 0.7rem; padding: 0.6rem 1rem;">
+<carbon-idea style="font-size: 1.2rem; color: var(--np-orange); vertical-align: -0.2rem;" /> <strong style="color: var(--np-ink);">Het verschil zit in parallel werken en in hoe snel een review rond is</strong>
 </div>
 
 </div>
 
 <!--
-Doorgetrokken lijn op basis van de voortgang, geen toezegging. De bovenste drie balken zijn
+Geen voorspelling maar twee scenario's, en de vraag welke het wordt. De bovenste drie balken zijn
 gerealiseerd en dateerbaar: de koppelvlakspecificatie kwam op 30 juli naar Public, v0.0.1 stond er
-op 18 augustus, het informatiemodel en de begrippen op 18 september, en de voorbeelduitwerking
-loopt van 17 tot 30 september. De eerste koppeling, OC-P&R, loopt sinds eind juli en is na twee
-maanden nog niet vastgesteld: dat is de maat die onder de doorgetrokken balken ligt. Capaciteit,
-uit de commit-historie sinds 1 juli: drie mensen schrijven, met het zwaartepunt bij een. De derde
-pil is de rem: op Public dev landde sinds 4 september niets. Serieel doorgerekend komen vier
-koppelingen uit op ongeveer acht maanden en dus op Q2 2027; Q1 2027 vraagt dat twee koppelingen
-tegelijk lopen en dat een reviewronde binnen twee weken rond is. Dat is een keuze over capaciteit
-en over hoe snel de kerngroep leest, geen kwestie van harder schrijven.
+op 18 augustus, het informatiemodel op 18 september, en de voorbeelduitwerking loopt van 17 tot
+30 september. De eerste koppeling loopt sinds eind juli en is nog niet vastgesteld; dat is de maat
+onder beide scenario's. Een spoor betekent de koppelingen na elkaar met de doorlooptijd van
+vandaag, en dat komt uit in Q2 2027. Twee sporen betekent dat een tweede koppeling start voordat
+de eerste vastligt, met een reviewronde die binnen twee weken rond is. Capaciteit uit de
+commit-historie sinds 1 juli: drie mensen schrijven. Dit is een keuze over capaciteit en over hoe
+snel er gelezen wordt, niet over harder schrijven, en het kernteam heeft er zelf een aandeel in:
+grote pull requests zijn zwaarder om te reviewen dan kleine.
 -->
 
 ---
@@ -329,7 +325,7 @@ daar. Bron: voorbeeld-leerroute-1-jochem.md op branch 106, meta PR 252.
 <div class="np-grid-2" style="margin-top: 0.6rem; gap: 1.2rem; align-items: center;">
 
 <div>
-  <img src="/platen/voorbeeld-f2-07-aanbod-naar-catalogus.png" style="width: 100%; border-radius: 6px; border: 1px solid var(--np-light-gray); background: #fff;" />
+  <img src="/platen/voorbeeld-f2-07-aanbod-naar-catalogus.svg" style="width: 100%; border-radius: 6px; border: 1px solid var(--np-light-gray); background: #fff;" />
 </div>
 
 <div>
@@ -941,30 +937,209 @@ als kaart" in voorbeeld-leerroute-1-jochem.md.
 
 ---
 
-<!-- 9. BLOK GARIK: VERSIONERING -->
+<!-- 9a. VERSIONERING: DE VRAAG VAN DE LEVERANCIERS -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
 
-# Versionering met een voorbeeldflow
+<div class="np-eyebrow">Versionering &middot; blok van Garik</div>
 
-<div class="np-card accent-blue" style="margin-top: 0.9rem; padding: 1rem 1.2rem;">
-<strong>Blok van Garik</strong>
-<div style="margin-top:0.5rem;font-size:0.95rem;line-height:1.6;">
-Afgesproken op 15 september: een iteratie op de versionering met een voorbeeldflow, en een sessie vooraf om die samen door te nemen. Deze plek in het deck is voor die sheets.
-</div>
+# De vraag van de leveranciers
+
+<div class="np-card accent-orange" style="margin-top: 0.9rem; padding: 0.9rem 1.2rem;">
+<div style="font-size: 1.15rem; line-height: 1.45; color: var(--np-ink); font-weight: 600;">Hoe versioneren we op het niveau van een koppeling, zonder te breken wat al draait?</div>
 </div>
 
-<div style="margin-top: 1rem; font-size: 0.9rem; line-height: 1.6; color: var(--np-dark-gray);">
-Vertrekpunt: <a href="https://github.com/Npuls-OKx/Public/pull/100">Public PR 100</a>, applicatiediensten als laag tussen component en endpoint, en de datamodellen als eigen pakket. Staat op draft tot de iteratie er is.
+<div class="np-grid-3" style="margin-top: 1rem; gap: 0.9rem;">
+  <div class="np-tegel"><carbon-version class="np-pic" /><div>Eén koppeling, opeenvolgende versies</div></div>
+  <div class="np-tegel"><carbon-warning class="np-pic oranje" /><div>Een nieuwe versie voelt als verplicht meegaan</div></div>
+  <div class="np-tegel"><carbon-time class="np-pic" /><div>Wat betekent dat voor wat vandaag in productie staat</div></div>
+</div>
+
+<style scoped>
+.np-eyebrow { font-size: 0.75rem; color: var(--np-orange); letter-spacing: 1px; text-transform: uppercase; }
+.np-tegel { background: #fff; border: 1px solid var(--np-light-gray); border-top: 4px solid var(--np-blue); border-radius: 12px; padding: 0.8rem 0.7rem; text-align: center; font-size: 0.86rem; font-weight: 600; color: var(--np-dark-blue); line-height: 1.35; }
+.np-pic { font-size: 1.5rem; color: var(--np-blue); display: block; margin: 0 auto 0.35rem; }
+.np-pic.oranje { color: var(--np-orange); }
+</style>
+
+</div>
+
+<!--
+Opzet; Garik werkt dit blok uit. Bewust begint het bij hun vraag en niet bij onze oplossing: die
+vraag kwam op 19 augustus in Amersfoort en opnieuw op 15 september. De zorg eronder is dat een
+versie gelezen wordt als een naleefplicht op het hele pakket, terwijl OKx geen auditrol heeft. De
+term naleving of compliance staat er bewust niet op; die roept precies de weerstand op die deze
+slide wil wegnemen.
+-->
+
+---
+
+<!-- 9b. VERSIONERING: WAAR HET VANDAAG KNELT -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+<div class="np-eyebrow">Versionering &middot; blok van Garik</div>
+
+# Waar het vandaag knelt
+
+<style scoped>
+.np-eyebrow { font-size: 0.75rem; color: var(--np-orange); letter-spacing: 1px; text-transform: uppercase; }
+.mermaid { display: flex; justify-content: center; margin: 0.6rem 0 0; }
+.mermaid svg { max-width: 100%; height: auto; }
+</style>
+
+<div style="margin-top: 0.3rem;">
+
+```mermaid {theme: 'base', scale: 0.95, themeVariables: {'fontFamily': 'General Sans, Inter, sans-serif', 'fontSize': '15px', 'primaryColor': '#FFFFFF', 'primaryBorderColor': '#3D68EC', 'primaryTextColor': '#1B2A6B', 'lineColor': '#DD784B'}}
+flowchart LR
+  A[Een veld erbij in een datamodel] --> B[Endpoint verandert]
+  B --> C[Applicatiedienst verandert]
+  C --> D[Koppeling krijgt een nieuwe versie]
+  D --> E[Iedereen moet mee]
+```
+
+</div>
+
+<div class="np-card accent-orange" style="margin-top: 1rem; padding: 0.6rem 1rem;">
+<strong style="color: var(--np-ink);">Eén versie over het hele pakket maakt van elke wijziging een kettingreactie</strong>
 </div>
 
 </div>
 
 <!--
-Plaatshouder. Garik levert de sheets aan; dit blok blijft herkenbaar afgebakend zodat hij het kan
-vervangen zonder de rest te raken. De vraag uit de vorige sessie die hier terugkomt: hoe ver reikt
-een versieophoging van een datamodel door de keten van endpoints en diensten.
+Opzet; Garik werkt dit blok uit. Dit is het probleem dat op 19 augustus op tafel kwam en dat
+Public PR 100 aanpakt: zolang de hele specificatie een versie draagt, raakt een wijziging in een
+datamodel via endpoints en diensten alle koppelingen, en leest een leverancier dat als werk dat
+hij moet doen. De datamodellen zijn daarom al uit het pakket gehaald met een eigen versie.
+-->
+
+---
+
+<!-- 9c. VERSIONERING: HET VOORSTEL -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+<div class="np-eyebrow">Versionering &middot; blok van Garik</div>
+
+# Het voorstel
+
+<div class="np-grid-3" style="margin-top: 1rem; gap: 1rem; align-items: start;">
+  <div class="np-card accent-blue">
+    <carbon-bookmark style="font-size: 1.5rem; color: var(--np-blue);" />
+    <div style="font-weight: 700; font-size: 0.95rem; margin-top: 0.2rem;">Versie als ijkpunt</div>
+    <small style="font-size: 0.84rem;">een release legt vast hoe het er toen uitzag</small>
+  </div>
+  <div class="np-card accent-green">
+    <carbon-assembly-cluster style="font-size: 1.5rem; color: var(--np-green);" />
+    <div style="font-weight: 700; font-size: 0.95rem; margin-top: 0.2rem;">Kiezen per berichtstroom</div>
+    <small style="font-size: 0.84rem;">een partij implementeert wat zij nodig heeft</small>
+  </div>
+  <div class="np-card accent-orange">
+    <carbon-branch style="font-size: 1.5rem; color: var(--np-orange);" />
+    <div style="font-weight: 700; font-size: 0.95rem; margin-top: 0.2rem;">Nieuw naast bestaand</div>
+    <small style="font-size: 0.84rem;">een nieuwe stroom laat de oude staan</small>
+  </div>
+</div>
+
+<div style="margin-top: 1rem; font-size: 0.88rem; color: var(--np-dark-gray); text-align: center;">
+De endpoints en de applicatiediensten blijven gestandaardiseerd; de datamodellen dragen hun eigen versie.
+</div>
+
+</div>
+
+<!--
+Opzet; Garik werkt dit blok uit. Drie keuzes uit Public PR 100. Een specificatieversie is een
+historisch ijkpunt en geen naleefplicht: zij legt vast hoe de afspraak er op dat moment uitzag.
+Een organisatie implementeert de applicatiediensten en berichtstromen die zij nodig heeft, en
+nieuwe functionaliteit krijgt bij voorkeur een nieuwe berichtstroom naast de bestaande, zodat
+draaiende implementaties blijven werken. Een partij mag zelf een stroom definieren zolang zij de
+gestandaardiseerde diensten en endpoints gebruikt.
+-->
+
+---
+
+<!-- 9d. VERSIONERING: EEN VELD ERBIJ -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+<div class="np-eyebrow">Versionering &middot; blok van Garik</div>
+
+# Een veld erbij, en dan
+
+<style scoped>
+.np-eyebrow { font-size: 0.75rem; color: var(--np-orange); letter-spacing: 1px; text-transform: uppercase; }
+.mermaid { display: flex; justify-content: center; margin: 0.6rem 0 0; }
+.mermaid svg { max-width: 100%; height: auto; }
+</style>
+
+<div style="margin-top: 0.3rem;">
+
+```mermaid {theme: 'base', scale: 0.95, themeVariables: {'fontFamily': 'General Sans, Inter, sans-serif', 'fontSize': '15px', 'primaryColor': '#FFFFFF', 'primaryBorderColor': '#3D68EC', 'primaryTextColor': '#1B2A6B', 'lineColor': '#DD784B', 'clusterBkg': '#F7F8FB', 'clusterBorder': '#3D68EC'}}
+flowchart LR
+  subgraph N["Nu"]
+    S1[Aanbod melden, stroom 1]
+  end
+  subgraph S["Straks"]
+    S2[Aanbod melden, stroom 1]
+    S3[Aanbod melden met capaciteit, stroom 2]
+  end
+  N --> S
+```
+
+</div>
+
+<div class="np-grid-2" style="margin-top: 0.9rem; gap: 1rem;">
+  <div class="np-card accent-green" style="padding: 0.6rem 0.9rem;"><strong style="color: var(--np-ink);">Wie stroom 1 draait, blijft draaien</strong></div>
+  <div class="np-card accent-blue" style="padding: 0.6rem 0.9rem;"><strong style="color: var(--np-ink);">Wie het veld nodig heeft, pakt stroom 2</strong></div>
+</div>
+
+</div>
+
+<!--
+Opzet; Garik werkt dit blok uit met zijn eigen voorbeeld. De gedachte: een wijziging levert een
+tweede berichtstroom naast de eerste, die grotendeels hetzelfde doet met een veld erbij. De
+leverancier kiest het moment waarop hij meegaat, en de catalogus ondersteunt beide zolang dat
+nodig is. Hier hoort Gariks voorbeeldflow uit Public PR 100, met de plaat die hij dit weekend
+toevoegt.
+-->
+
+---
+
+<!-- 9e. VERSIONERING: WAT HET OPLEVERT EN WAT HET KOST -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+<div class="np-eyebrow">Versionering &middot; blok van Garik</div>
+
+# Wat het oplevert, en wat het kost
+
+<div class="np-grid-2" style="margin-top: 1rem; gap: 1.3rem; align-items: start;">
+<div class="np-card accent-green">
+<strong>Oplevert</strong>
+<div style="margin-top:0.4rem;font-size:0.88rem;line-height:1.55;">Draaiende koppelingen blijven werken; een leverancier kiest zijn moment en zijn scope.</div>
+</div>
+<div class="np-card accent-orange">
+<strong>Kost</strong>
+<div style="margin-top:0.4rem;font-size:0.88rem;line-height:1.55;">Meer stromen naast elkaar, en een afspraak over hoe lang een oude stroom blijft staan.</div>
+</div>
+</div>
+
+<div class="np-card accent-blue" style="margin-top: 1rem; padding: 0.6rem 1rem;">
+<carbon-chat style="font-size: 1.2rem; color: var(--np-blue); vertical-align: -0.2rem;" /> <strong style="color: var(--np-ink);">Gevraagd: past dit op de manier waarop jullie releasen?</strong>
+</div>
+
+</div>
+
+<!--
+Opzet; Garik werkt dit blok uit. De nadelen staan er bewust bij: meer stromen naast elkaar vraagt
+onderhoud, en zonder afspraak over de levensduur van een oude stroom groeit dat aan. De vraag aan
+de kerngroep is of dit past bij hun eigen releasecyclus. Vertrekpunt: Public PR 100, dat op draft
+staat tot deze iteratie erin zit.
 -->
 
 ---
