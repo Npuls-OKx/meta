@@ -166,30 +166,26 @@ eigen ritme, zodat een wijziging in een schema niet het hele pakket ophoudt.
 .mermaid svg { max-width: 100%; height: auto; }
 </style>
 
-<div style="font-size: 0.85rem; color: var(--np-mid-gray); margin-top: 0.2rem;">Ontwerp en planning: drie van de zeven rollen</div>
+<div style="font-size: 0.85rem; color: var(--np-mid-gray); margin-top: 0.2rem;">Ontwerp en planning: twee van de zeven rollen</div>
 
 <div style="margin-top: 0.4rem;">
 
 ```mermaid {theme: 'base', scale: 0.58, themeVariables: {'fontFamily': 'General Sans, Inter, sans-serif', 'fontSize': '15px', 'primaryColor': '#FFFFFF', 'primaryBorderColor': '#3D68EC', 'primaryTextColor': '#1B2A6B', 'lineColor': '#DD784B', 'clusterBkg': '#F7F8FB', 'clusterBorder': '#3D68EC', 'edgeLabelBackground': '#FFFFFF'}}
 flowchart LR
   subgraph OO["Onderwijsontwerper"]
-    OO1[Kwalificatiekader analyseren] --> OO2[Opleiding specificatie beschrijven] --> OO3[Opleidingsprogramma specificatie beschrijven] --> OO4[Onderwijseenheid specificaties beschrijven] --> OO5[Onderwijsspecificaties publiceren]
-  end
-  subgraph OW["Onderwijsontwikkelaar of docent"]
-    OW1[Leeronderdeel specificaties detailleren] --> OW2[Les specificaties opzetten en detailleren] --> OW3[Leermiddelen functioneel inrichten] --> OW4[Toegang LMS aan student en docent]
+    OO1[Kwalificatiekader analyseren] --> OO2[Opleiding specificatie beschrijven] --> OO3[Opleidingsprogramma specificatie beschrijven] --> OO4[Onderwijseenheid specificaties beschrijven] --> OO5[Leeronderdeel specificaties beschrijven] --> OO6[Onderwijsspecificaties publiceren]
   end
   subgraph PL["Planner"]
     PL1[Strategische jaarplanning] --> PL2[Team-inzetplanning]
   end
-  OO5 --> OW1
-  OO5 --> PL1
+  OO6 --> PL1
 ```
 
 </div>
 
 <div style="display: flex; justify-content: center; gap: 0.4rem; margin-top: 0.5rem; flex-wrap: wrap;">
   <div class="np-fase">1 Ontwerpen</div>
-  <div class="np-fase">2 Planbaar maken</div>
+  <div class="np-fase">2 Publiceren en planbaar maken</div>
   <div class="np-fase">3 Intake en plaatsing</div>
   <div class="np-fase">4 Detailleren en roosteren</div>
   <div class="np-fase">5 Uitvoeren en begeleiden</div>
@@ -228,10 +224,13 @@ flowchart LR
 <!--
 Zo ziet een leerroute-uitwerking eruit. Het diagram is het ontwerp- en planningsdeel van scenario
 1.1 uit leerroute 1, met de stappen letterlijk uit dat scenario; de namen van de specificaties
-volgen het informatiemodel (opleiding, opleidingsprogramma, onderwijseenheid, leeronderdeel, les).
-De onderwijsontwikkelaar detailleert de leeronderdeel specificaties en zet waar nodig de les
-specificaties op; docenten vullen die rol vaak zelf in. De vier rollen die hier niet staan zijn de
-roosteraar, de studieloopbaanbegeleider, de student en de docent; samen zeven rollen. De acht fasen eronder zijn de journey van het kaderscenario: fasen 1 tot en met 5
+volgen het informatiemodel (opleiding, opleidingsprogramma, onderwijseenheid, leeronderdeel). Het
+ontwerp loopt door tot en met de leeronderdeel specificaties en sluit af met publiceren; dat
+publiceren is de overdracht naar de planning. Daarna detailleert de onderwijsontwikkelaar, vaak
+een docent, die specificaties tot lesspecificaties; de les blijft binnen de instelling en valt
+buiten de uitwisseling (ontwerpkeuze 8), dus die baan staat hier niet. De vijf rollen die hier
+niet staan zijn de onderwijsontwikkelaar, de roosteraar, de studieloopbaanbegeleider, de student
+en de docent; samen zeven rollen. De acht fasen eronder zijn de journey van het kaderscenario: fasen 1 tot en met 5
 lopen lineair, fase 6 (keuzemomenten) en fase 7 (bijsturen) zijn lussen die het jaarplan en het
 rooster opnieuw raken, en fase 8 sluit af met examinering en diplomering. Per stap legt de
 uitwerking vast welke gegevens ontstaan of veranderen en welke daarvan tussen welke systemen gaan;
