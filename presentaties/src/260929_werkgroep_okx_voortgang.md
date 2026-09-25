@@ -41,51 +41,54 @@ die dat concept oplevert.
 <div style="font-size: 0.85rem; color: var(--np-mid-gray); margin-top: 0.2rem;">Vertalen langs een vaste route</div>
 
 <div class="np-pipeline" style="margin-top: 0.6rem; align-items: stretch;">
-  <div class="np-step orange" style="flex: 1; padding: 0.7rem 0.4rem; align-items: center; justify-content: center;">
-    <carbon-user-multiple style="font-size: 1.5rem; color: var(--np-orange);" />
-    <strong style="font-size: 0.82rem;">Userstories</strong>
+  <div class="np-step orange" style="flex: 1; padding: 0.5rem 0.35rem; align-items: center; justify-content: center;">
+    <carbon-user-multiple style="font-size: 1.25rem; color: var(--np-orange);" />
+    <strong style="font-size: 0.8rem;">Userstories</strong>
   </div>
   <div class="np-arrow" style="align-self: center;">&#8594;</div>
-  <div class="np-step blue" style="flex: 1; padding: 0.7rem 0.4rem; align-items: center; justify-content: center;">
-    <carbon-assembly-cluster style="font-size: 1.5rem; color: var(--np-blue);" />
-    <strong style="font-size: 0.82rem;">Bouwblokken</strong>
+  <div class="np-step blue" style="flex: 1; padding: 0.5rem 0.35rem; align-items: center; justify-content: center;">
+    <carbon-assembly-cluster style="font-size: 1.25rem; color: var(--np-blue);" />
+    <strong style="font-size: 0.8rem;">Bouwblokken</strong>
   </div>
   <div class="np-arrow" style="align-self: center;">&#8594;</div>
-  <div class="np-step blue" style="flex: 1; padding: 0.7rem 0.4rem; align-items: center; justify-content: center;">
-    <carbon-book style="font-size: 1.5rem; color: var(--np-blue);" />
-    <strong style="font-size: 0.82rem;">Begrippen</strong>
+  <div class="np-step blue" style="flex: 1; padding: 0.5rem 0.35rem; align-items: center; justify-content: center;">
+    <carbon-book style="font-size: 1.25rem; color: var(--np-blue);" />
+    <strong style="font-size: 0.8rem;">Begrippen</strong>
   </div>
   <div class="np-arrow" style="align-self: center;">&#8594;</div>
-  <div class="np-step blue" style="flex: 1; padding: 0.7rem 0.4rem; align-items: center; justify-content: center;">
-    <carbon-machine-learning-model style="font-size: 1.5rem; color: var(--np-blue);" />
-    <strong style="font-size: 0.82rem;">Informatiemodel</strong>
+  <div class="np-step blue" style="flex: 1; padding: 0.5rem 0.35rem; align-items: center; justify-content: center;">
+    <carbon-machine-learning-model style="font-size: 1.25rem; color: var(--np-blue);" />
+    <strong style="font-size: 0.8rem;">Informatiemodel</strong>
   </div>
   <div class="np-arrow" style="align-self: center;">&#8594;</div>
-  <div class="np-step blue" style="flex: 1; padding: 0.7rem 0.4rem; align-items: center; justify-content: center;">
-    <carbon-network-3 style="font-size: 1.5rem; color: var(--np-blue);" />
-    <strong style="font-size: 0.82rem;">Informatiestromen</strong>
+  <div class="np-step blue" style="flex: 1; padding: 0.5rem 0.35rem; align-items: center; justify-content: center;">
+    <carbon-network-3 style="font-size: 1.25rem; color: var(--np-blue);" />
+    <strong style="font-size: 0.8rem;">Informatiestromen</strong>
     <small>tussen applicatiecomponenten</small>
   </div>
 </div>
 
 <div style="text-align: center; color: var(--np-green); font-size: 1.3rem; font-weight: 700; line-height: 1; margin: 0.35rem 0;">&#8595;</div>
 
-<div class="np-card accent-green" style="padding: 0.6rem 1rem; text-align: center;">
-  <carbon-document style="font-size: 1.5rem; color: var(--np-green);" />
-  <div style="font-weight: 700; font-size: 0.95rem;">Eindproduct: koppelvlakspecificatie</div>
-  <small style="font-size: 0.82rem; color: var(--np-mid-gray);">koppelingspecificaties &middot; datamodelschema's &middot; interacties &middot; koppelvlakdiensten</small>
+<div class="np-card accent-green" style="padding: 0.45rem 1rem; text-align: center;">
+  <carbon-document style="font-size: 1.25rem; color: var(--np-green);" />
+  <div style="font-weight: 700; font-size: 0.9rem;">Eindproduct: koppelvlakspecificatie</div>
+  <small style="font-size: 0.78rem; color: var(--np-mid-gray);">koppelingspecificaties &middot; datamodelschema's &middot; berichtstromen &middot; koppelvlakdiensten</small>
 </div>
 
-<div class="np-grid-2" style="margin-top: 0.6rem; gap: 0.8rem;">
-  <div class="np-card accent-orange" style="padding: 0.7rem 0.9rem;">
-    <carbon-partnership style="font-size: 1.5rem; color: var(--np-orange);" />
-    <div style="font-weight: 700; font-size: 0.92rem;">In gesprek met instellingen en leveranciers</div>
-    <small style="font-size: 0.82rem;">wat moet er gebouwd worden</small>
+<div style="display: grid; grid-template-columns: 1fr 1.25fr; gap: 0.8rem; margin-top: 0.5rem;">
+  <div class="np-card accent-orange" style="padding: 0.55rem 0.9rem;">
+    <carbon-partnership style="font-size: 1.25rem; color: var(--np-orange);" />
+    <div style="font-weight: 700; font-size: 0.9rem;">In gesprek met instellingen en leveranciers</div>
+    <small style="font-size: 0.8rem;">wat moet er gebouwd worden</small>
   </div>
-  <div class="np-card accent-blue" style="padding: 0.7rem 0.9rem;">
-    <carbon-education style="font-size: 1.5rem; color: var(--np-blue);" />
-    <div style="font-weight: 700; font-size: 0.92rem;">Leerroute 1 in uitwerking</div>
-    <small style="font-size: 0.82rem;">volgt deze opbouw</small>
+  <div class="np-card accent-blue" style="padding: 0.55rem 0.9rem; display: flex; gap: 0.8rem; align-items: center;">
+    <div style="flex: 1;">
+      <carbon-education style="font-size: 1.25rem; color: var(--np-blue);" />
+      <div style="font-weight: 700; font-size: 0.9rem;">Leerroute 1 in uitwerking</div>
+      <small style="font-size: 0.8rem;">regulier, de standaardroute</small>
+    </div>
+    <img src="/platen/leerroutes.png" style="width: 44%; border-radius: 4px; border: 1px solid var(--np-light-gray); background: #fff;" />
   </div>
 </div>
 
@@ -96,7 +99,9 @@ De kern van het blok: de route van wens naar eindproduct staat scherp. Een users
 wordt een bouwblok, dat bouwblok krijgt begrippen met een definitie, die begrippen landen in het
 informatiemodel, en daaruit volgen de informatiestromen tussen applicatiecomponenten. Aan het eind
 staat de koppelvlakspecificatie: per koppeling een koppelingspecificatie volgens datamodelschema's,
-de interacties tussen de systemen en de koppelvlakdiensten. Die route werkt alleen in gesprek met
+de berichtstromen tussen de systemen en de koppelvlakdiensten. De plaat rechtsonder is het
+leerroutenoverzicht van Npuls: negen routes in drie groepen, en leerroute 1 is de reguliere route
+die Jochem loopt. Die route werkt alleen in gesprek met
 instellingen en leveranciers, en dat gesprek loopt nu opnieuw: wat moet er gebouwd worden. Leerroute
 1 gaat als eerste volledig langs deze opbouw. Alles wat er ligt is concept in afstemming.
 -->
@@ -279,7 +284,7 @@ dat is precies de brug naar het informatiemodel en de koppelingen.
     </div>
   </div>
   <div class="np-card accent-green" style="font-size: 0.87rem; line-height: 1.5; padding: 0.6rem 0.9rem;">
-    Afgeleid uit leerroute 1, gelegd naast MORA en ROSA.
+    Afgeleid uit leerroute 1, gelegd naast MORA, ROSA en HORA via klus 53 van MBO Digitaal.
   </div>
   <div class="np-card accent-orange" style="font-size: 0.87rem; line-height: 1.5; padding: 0.6rem 0.9rem; margin-top: 0.6rem;">
     Open: grens koppeling en koppelvlak, en hoe fijnmazig.
@@ -297,7 +302,10 @@ dat is precies de brug naar het informatiemodel en de koppelingen.
 
 <!--
 Bron: informatiemodel v0.1 (66 objecttypen, zeven begrippenfamilies) en begrippenlijst v0.2 (73
-begrippen), beide met status concept, ter bekrachtiging door de kerngroep techniek. De
+begrippen), beide met status concept, ter bekrachtiging door de kerngroep techniek. De begrippen
+liggen naast MORA en ROSA, en naast HORA via klus 53, de architectuurklus van MBO Digitaal waarin
+MORA en HORA op elkaar worden gelegd; twintig begrippen komen rechtstreeks uit MORA of het
+Kernmodel Onderwijsinformatie. De
 leeruitkomst is daarin de sleutel tussen ontwerp en resultaat. Noem dat de afstemming loopt:
 dit is voorgelegd, niet vastgesteld.
 -->
@@ -532,7 +540,7 @@ edustandaard.nl/amigo/aanpak, en paragraaf 2.4 van de leerroute-uitwerking.
 <div class="np-grid-3" style="margin-top: 0.6rem; gap: 0.7rem; align-items: start;">
   <div class="np-card accent-blue" style="padding: 0.6rem 0.8rem;">
     <div style="font-weight: 700; font-size: 0.88rem;">Per koppeling alle lagen</div>
-    <small style="font-size: 0.76rem;">eisen &middot; systemen &middot; patronen &middot; endpoints &middot; schema's &middot; toegang</small>
+    <small style="font-size: 0.76rem;">eisen &middot; systemen &middot; berichtstromen &middot; endpoints &middot; schema's &middot; afsprakenset</small>
   </div>
   <div class="np-card accent-orange" style="padding: 0.6rem 0.8rem;">
     <div style="font-weight: 700; font-size: 0.88rem;">Najaar 2026</div>
