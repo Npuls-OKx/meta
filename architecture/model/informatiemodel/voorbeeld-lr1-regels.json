@@ -2733,7 +2733,7 @@
    "soort": "ontstaat",
    "wie": "planner",
    "objecttype": "Opleidingsaanbod van Instelling",
-   "instantie": "ROC Het Voorbeeld: ambitie en verwachte instroom voor cohort 2026",
+   "instantie": "ROC Leren Zonder Drempels: ambitie en verwachte instroom voor cohort 2026",
    "aanname": true,
    "bron": "geen bron, keuze van het voorbeeld: het objecttype heeft geen instantie in het kaderscenario; leerroute-1-regulier.md, r657 (drie stadia van onderwijsaanbod, parallel aan meerjaren-, jaar- en periodeplanning)",
    "zin": "Het aanbod rijpt in tredes die met de planningshorizon meelopen. In de meerjarenplanning staat de intentie: welke opleiding, met welke verwachte instroom. In de jaarplanning wordt het aanbod gepland met perioden en capaciteit, nog zonder lokalen en docenten. In de periodeplanning worden de gelegenheden fijnmazig gepland, met groepen en tijdvensters. Roosteren volgt daarna en valt buiten de uitwisseling.",
@@ -3042,7 +3042,7 @@
    "pijl": "id-020f091db6ea4763aad7527a98afaf99",
    "koppeling": "OC-P&R",
    "objecttype": "Opleidingsaanbod van Instelling",
-   "instantie": "ROC Het Voorbeeld",
+   "instantie": "ROC Leren Zonder Drempels",
    "toestand": "intentie",
    "bron": "informatiemodel.json: Opleidingsaanbod van Instelling aggregeert Opleidingaanbod; leerroute-1-regulier.md, r657",
    "zin": "Het geplande aanbod gaat terug naar de catalogus, met per laag de verwijzing naar de specificatie waarvan het aanbod is gemaakt en naar het verzoek dat ertoe leidde. De catalogus houdt daarmee specificatie en aanbod naast elkaar: wat is ontworpen, en wanneer het met hoeveel plaatsen wordt aangeboden."
