@@ -1397,6 +1397,46 @@ scherp is. De vraag aan de zaal is of dit concept klopt en wat er nog mist.
 
 ---
 
+<!-- 11c. KOPPELING-ID: ALLE STROMEN GELABELD -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# Een eerste poging, alle stromen
+
+<div style="margin-top: 0.4rem;">
+  <img src="/platen/koppeling-ids-hoofdplaat.svg" style="width: 100%; max-height: 21rem; object-fit: contain; border-radius: 6px; border: 1px solid var(--np-light-gray); background: #fff;" />
+  <div style="font-size: 0.72rem; color: var(--np-mid-gray); margin-top: 0.25rem; text-align: center;">Hoofdplaat v1.7, elke stroom met een voorlopig ID</div>
+</div>
+
+<div style="display: flex; justify-content: center; gap: 0.5rem; margin-top: 0.7rem; flex-wrap: wrap;">
+  <div class="np-pil"><strong>24</strong> stromen</div>
+  <div class="np-pil"><strong>17</strong> voorlopige ID's</div>
+  <div class="np-pil"><strong>4</strong> met een specificatie</div>
+</div>
+
+<div style="margin-top: 0.6rem; font-size: 0.85rem; color: var(--np-dark-gray); text-align: center;">
+  Werkafspraak om op te schuiven, geen vastgestelde conventie
+</div>
+
+<style scoped>
+.np-pil { display: flex; align-items: center; gap: 0.35rem; background: #fff; border: 1px solid var(--np-light-gray); border-radius: 999px; padding: 0.3rem 0.9rem; font-size: 0.82rem; color: var(--np-dark-blue); }
+.np-pil strong { color: var(--np-orange); font-size: 1rem; }
+</style>
+
+</div>
+
+<!--
+De tweede aanpak, om het concreet te maken: elke stroom op hoofdplaat v1.7 krijgt alvast een ID,
+afgeleid van de twee applicatiecomponenten die hij verbindt, met de catalogus vooraan waar die
+meedoet. Dat levert 24 stromen onder 17 ID's, waarvan er vier vandaag een koppelingspecificatie
+hebben. Het is een werkafspraak en geen conventie: zodra de bouwstenen en endpoints per koppeling
+scherper zijn, schuift de indeling, en dan pas hoort zij in een ADR. Gegenereerd uit stromen.json
+met het highlightscript, dus deze plaat is opnieuw te maken zodra de hoofdplaat wijzigt.
+-->
+
+---
+
 <!-- 12. GEVRAAGD -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
@@ -1404,17 +1444,20 @@ scherp is. De vraag aan de zaal is of dit concept klopt en wat er nog mist.
 
 # Gevraagd
 
-<div style="display:flex;align-items:center;gap:0.9rem;margin-top:0.9rem;"><svg width="40" height="40" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#7A97F2"/><circle cx="19" cy="19" r="8" fill="none" stroke="#fff" stroke-width="3"/><line x1="25" y1="25" x2="33" y2="33" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg><dl class="np-besluit review" style="flex:1;"><dt>Feedback</dt><dd>de voorbeelduitwerking naast het eigen model: wat heet anders, wat hangt anders, wat ontbreekt</dd></dl></div>
-<div style="display:flex;align-items:center;gap:0.9rem;margin-top:0.7rem;"><svg width="40" height="40" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#7A97F2"/><circle cx="19" cy="19" r="8" fill="none" stroke="#fff" stroke-width="3"/><line x1="25" y1="25" x2="33" y2="33" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg><dl class="np-besluit review" style="flex:1;"><dt>Review</dt><dd><a href="https://github.com/Npuls-OKx/Public/pull/104">Public PR 104</a>: het informatiemodel en de begrippen, opmerkingen in de pull request</dd></dl></div>
-<div style="display:flex;align-items:center;gap:0.9rem;margin-top:0.7rem;"><svg width="40" height="40" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#E9A27F"/><polyline points="12,23 19,30 32,15" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg><dl class="np-besluit" style="flex:1;"><dt>Besluit</dt><dd>het koppeling-ID per applicatiecomponent, met beide richtingen in een specificatie</dd></dl></div>
-<div style="display:flex;align-items:center;gap:0.9rem;margin-top:0.7rem;"><svg width="40" height="40" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#7A97F2"/><path d="M11 13 h22 a3 3 0 0 1 3 3 v11 a3 3 0 0 1 -3 3 h-12 l-6 5 v-5 h-4 a3 3 0 0 1 -3 -3 v-11 a3 3 0 0 1 3 -3 z" fill="#fff"/></svg><dl class="np-besluit kennisname" style="flex:1;"><dt>Input</dt><dd>de acht pijlen zonder specificatie: welke daarvan komt als eerste aan de beurt</dd></dl></div>
+<div style="display:flex;align-items:center;gap:0.9rem;margin-top:0.9rem;"><svg width="40" height="40" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#7A97F2"/><circle cx="19" cy="19" r="8" fill="none" stroke="#fff" stroke-width="3"/><line x1="25" y1="25" x2="33" y2="33" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg><dl class="np-besluit review" style="flex:1;"><dt>Feedback</dt><dd>de voorbeelduitwerking: klopt de vorm, klopt de mate van detail, en is dit wat nodig is</dd></dl></div>
+<div style="display:flex;align-items:center;gap:0.9rem;margin-top:0.7rem;"><svg width="40" height="40" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#7A97F2"/><circle cx="19" cy="19" r="8" fill="none" stroke="#fff" stroke-width="3"/><line x1="25" y1="25" x2="33" y2="33" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg><dl class="np-besluit review" style="flex:1;"><dt>Review</dt><dd>de openstaande pull requests, te beginnen bij <a href="https://github.com/Npuls-OKx/Public/pull/104">Public PR 104</a>: het informatiemodel en de begrippen</dd></dl></div>
+<div style="display:flex;align-items:center;gap:0.9rem;margin-top:0.7rem;"><svg width="40" height="40" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#E9A27F"/><polyline points="12,23 19,30 32,15" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg><dl class="np-besluit" style="flex:1;"><dt>Besluit</dt><dd>het koppeling-ID: nu een eerste indeling vastleggen, of wachten tot de detaillering verder is</dd></dl></div>
+<div style="display:flex;align-items:center;gap:0.9rem;margin-top:0.7rem;"><svg width="40" height="40" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#7A97F2"/><path d="M11 13 h22 a3 3 0 0 1 3 3 v11 a3 3 0 0 1 -3 3 h-12 l-6 5 v-5 h-4 a3 3 0 0 1 -3 -3 v-11 a3 3 0 0 1 3 -3 z" fill="#fff"/></svg><dl class="np-besluit kennisname" style="flex:1;"><dt>Input</dt><dd>het versioneringsvoorstel: past dit op de manier waarop jullie releasen</dd></dl></div>
 
 </div>
 
 <!--
-Vier punten. De feedback op de voorbeelduitwerking is de kern van vandaag: per beeld-ID, tijdens
-de doorloop van fase 1 of daarna als issue. De review op PR 104 staat er opnieuw, want die stond ook op 15 september. Het besluit
-over het koppeling-ID kan vandaag vallen; de laatste vraag zet de agenda voor de volgende periode.
+Vier punten, een per deel van deze sessie. De feedback op de voorbeelduitwerking is de kern van
+vandaag en gaat over vorm, detaillering en scope; losse regels horen in de pull request. De review
+staat er opnieuw, want die stond ook op 15 september, en het gaat om alle openstaande pull
+requests, te beginnen bij PR 104. Het besluit over het koppeling-ID is een richtingkeuze: nu een
+eerste indeling vastleggen als werkafspraak, of wachten tot de bouwstenen en endpoints scherper
+zijn. De laatste vraag hoort bij het blok van Garik.
 -->
 
 ---
@@ -1427,9 +1470,9 @@ over het koppeling-ID kan vandaag vallen; de laatste vraag zet de agenda voor de
 # Vervolg
 
 <div style="margin-top: 0.8rem;">
-<div style="display:flex;align-items:center;gap:0.8rem;margin-top:0.7rem;font-size:0.98rem;line-height:1.4;"><svg width="36" height="36" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#7CCBA8"/><polyline points="12,23 19,30 32,15" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg><div>Reacties per beeld-ID: als issue op Public, of in de pull request</div></div>
+<div style="display:flex;align-items:center;gap:0.8rem;margin-top:0.7rem;font-size:0.98rem;line-height:1.4;"><svg width="36" height="36" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#7CCBA8"/><polyline points="12,23 19,30 32,15" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg><div>Reacties op de voorbeelduitwerking: in de pull request, of als issue op Public</div></div>
 <div style="display:flex;align-items:center;gap:0.8rem;margin-top:0.7rem;font-size:0.98rem;line-height:1.4;"><svg width="36" height="36" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#7A97F2"/><circle cx="19" cy="19" r="8" fill="none" stroke="#fff" stroke-width="3"/><line x1="25" y1="25" x2="33" y2="33" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg><div>Opmerkingen op <a href="https://github.com/Npuls-OKx/Public/pull/104">Public PR 104</a>, in de pull request</div></div>
-<div style="display:flex;align-items:center;gap:0.8rem;margin-top:0.7rem;font-size:0.98rem;line-height:1.4;"><svg width="36" height="36" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#E9A27F"/><rect x="11" y="14" width="22" height="19" rx="2" fill="#fff"/><rect x="15" y="10" width="3" height="6" rx="1" fill="#fff"/><rect x="26" y="10" width="3" height="6" rx="1" fill="#fff"/></svg><div>Volgende sessie: in overleg met Ruud, na de werkgroep OKx</div></div>
+<div style="display:flex;align-items:center;gap:0.8rem;margin-top:0.7rem;font-size:0.98rem;line-height:1.4;"><svg width="36" height="36" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#E9A27F"/><rect x="11" y="14" width="22" height="19" rx="2" fill="#fff"/><rect x="15" y="10" width="3" height="6" rx="1" fill="#fff"/><rect x="26" y="10" width="3" height="6" rx="1" fill="#fff"/></svg><div><strong>Volgende sessie: woensdag 14 oktober 2026, online</strong></div></div>
 </div>
 
 <div style="font-size: 0.85rem; color: var(--np-dark-gray); margin-top: 1rem;">
@@ -1439,9 +1482,10 @@ Commentaar op een lopende release: in de pull request. Nieuw punt: als issue op 
 </div>
 
 <!--
-Geen datum beloven die nog niet vaststaat: de volgende sessie gaat in overleg met Ruud, die na
-30 september weer aansluit. De voortgangsupdate voor de werkgroep OKx van 29 september komt hier
-kort terug, zodat de groep weet wat er over dit werk aan de business is verteld.
+De volgende sessie is twee weken later, op woensdag 14 oktober, en online. Wat er tussendoor
+nodig is: reacties op de voorbeelduitwerking en op de openstaande pull requests, zodat er iets
+kan sluiten. De voortgangsupdate voor de werkgroep OKx van 29 september komt hier kort terug,
+zodat de groep weet wat er over dit werk aan de business is verteld.
 -->
 
 ---
