@@ -181,46 +181,39 @@ op de agenda. Bron: de milestones van beide repositories, GitHub, 25 september.
 
 # Veel verzet, weinig afgerond
 
-<div class="np-grid-3" style="margin-top: 0.9rem; gap: 1.1rem; align-items: start;">
-
-<div class="np-card accent-orange">
-<strong>De stand</strong>
-<div style="margin-top:0.4rem;font-size:0.88rem;line-height:1.55;">
-Laatste merge op Public dev: 4 september. Zes open pull requests, vijf op draft. Nul gesloten issues sinds 15 september.
-</div>
-</div>
-
-<div class="np-card accent-blue">
-<strong>Wat dat zegt</strong>
-<div style="margin-top:0.4rem;font-size:0.88rem;line-height:1.55;">
-Het werk staat tussen branch en release. De voorraad groeit sneller dan er afrondt, en het knelpunt zit aan het eind van de keten.
-</div>
+<div class="np-pipeline" style="margin-top: 1.4rem;">
+  <div class="np-step blue"><carbon-branch class="np-pic" /><div class="np-getal">34</div><div>commits</div><small>op branches</small></div>
+  <div class="np-arrow">&#8594;</div>
+  <div class="np-step blue"><carbon-pull-request class="np-pic" /><div class="np-getal">6</div><div>pull requests</div><small>vijf op draft</small></div>
+  <div class="np-arrow">&#8594;</div>
+  <div class="np-step orange"><carbon-merge class="np-pic oranje" /><div class="np-getal oranje">0</div><div>gemerged</div><small>sinds 4 september</small></div>
+  <div class="np-arrow">&#8594;</div>
+  <div class="np-step orange"><carbon-task-complete class="np-pic oranje" /><div class="np-getal oranje">0</div><div>gesloten</div><small>sinds 15 september</small></div>
 </div>
 
-<div class="np-card accent-green">
-<strong>Wat helpt</strong>
-<div style="margin-top:0.4rem;font-size:0.88rem;line-height:1.55;">
-Elke cyclus een klein deel naar dev, per milestone afspreken wanneer iets af is, en vandaag een pull request uit draft halen.
-</div>
+<div class="np-card accent-green" style="margin-top: 1.3rem; padding: 0.7rem 1rem;">
+<carbon-play style="font-size: 1.3rem; color: var(--np-green); vertical-align: -0.2rem;" /> <strong style="color: var(--np-ink);">Vandaag een pull request uit draft, en de eerste milestone sluiten</strong>
 </div>
 
-</div>
-
-<div style="margin-top: 1rem; font-size: 0.9rem; color: var(--np-dark-gray);">
-De voorbeelduitwerking is de eerste milestone die vandaag kan sluiten: <a href="https://github.com/Npuls-OKx/Public/issues/109">Public #109</a> is de acceptatietest.
-</div>
+<style scoped>
+.np-pic { font-size: 1.5rem; color: var(--np-blue); margin: 0 auto; }
+.np-pic.oranje { color: var(--np-orange); }
+.np-getal { font-size: 2.1rem; line-height: 1.05; color: var(--np-dark-blue); }
+.np-getal.oranje { color: var(--np-orange); }
+.np-step { min-width: 8.2rem; }
+</style>
 
 </div>
 
 <!--
-Eerlijke conclusie van het voortgangsdeel, en tegelijk een vraag aan de groep. De cijfers zijn
-gecontroleerd: op Public dev landde sinds 4 september niets, en van de zes open pull requests
-staan er vijf op draft, dus formeel vraagt bijna niets om review. Dat draft-besluit is van
-15 september en werkt goed tegen ruis, met als keerzijde dat er ook niets kan sluiten. De
-hoeveelheid werk is niet het probleem: het gaat om stukken die klein genoeg zijn om te landen.
-Daarom het voorstel om per milestone af te spreken wanneer iets af is en om elke cyclus iets
-kleins naar dev te brengen. Vandaag is de eerste gelegenheid: de milestone van de
-voorbeelduitwerking sluit met de acceptatietest.
+Eerlijke conclusie van het voortgangsdeel, in vier getallen. Bron: GitHub, 25 september. Op
+Public dev landde sinds 4 september niets en van de zes open pull requests staan er vijf op
+draft, dus formeel vraagt bijna niets om review. Dat draft-besluit is van 15 september en houdt
+de ruis weg, met als keerzijde dat er ook niets sluit. De hoeveelheid werk is niet het probleem:
+het gaat om stukken die klein genoeg zijn om te landen. Voorstel: per milestone vooraf afspreken
+wanneer iets af is, elke cyclus iets kleins naar dev brengen, en vandaag kiezen welke pull
+request uit draft gaat. De milestone van de voorbeelduitwerking kan vandaag sluiten met de
+acceptatietest, Public #109.
 -->
 
 ---
@@ -230,38 +223,36 @@ voorbeelduitwerking sluit met de acceptatietest.
 
 <div class="fill">
 
-# De opleiding van Jochem in het informatiemodel
+# De opleiding van Jochem in het model
 
-<div style="font-size: 0.95rem; line-height: 1.55; margin-top: 0.2rem; color: var(--np-dark-gray);">
-De vraag van 15 september: druk een opleiding helemaal uit in het informatiemodel, zodat zichtbaar wordt of iedereen hetzelfde bedoelt.
-</div>
+<div style="font-size: 0.92rem; color: var(--np-mid-gray); margin-top: 0.1rem;">Een hele opleiding uitgedrukt in het informatiemodel, van dossier tot diploma</div>
 
-<div class="np-grid-3" style="margin-top: 1rem; gap: 1.1rem; align-items: start;">
-<div class="np-card accent-blue">
-<strong>Wat er ligt</strong>
-<div style="margin-top:0.4rem;font-size:0.88rem;line-height:1.5;">257 regels over acht fasen, in 64 beelden; 65 objecttypen in acht begrippenfamilies</div>
-</div>
-<div class="np-card accent-green">
-<strong>Hoe het leest</strong>
-<div style="margin-top:0.4rem;font-size:0.88rem;line-height:1.5;">Per stap: wat ontstaat, wat verandert, en wat tussen welke systemen stroomt</div>
-</div>
-<div class="np-card accent-orange">
-<strong>Wat gevraagd wordt</strong>
-<div style="margin-top:0.4rem;font-size:0.88rem;line-height:1.5;">Feedback, geen commitment: per beeld de eigen naam en de eigen plek in het model</div>
-</div>
+<div class="np-grid-4" style="margin-top: 1.2rem; gap: 0.9rem;">
+  <div class="np-tegel"><carbon-map class="np-pic" /><div class="np-getal">8</div><div>fasen</div></div>
+  <div class="np-tegel"><carbon-image class="np-pic" /><div class="np-getal">64</div><div>beelden</div></div>
+  <div class="np-tegel"><carbon-list-checked class="np-pic" /><div class="np-getal">257</div><div>regels</div></div>
+  <div class="np-tegel"><carbon-assembly-cluster class="np-pic" /><div class="np-getal">65</div><div>objecttypen</div></div>
 </div>
 
-<div style="margin-top: 1rem; font-size: 0.88rem; color: var(--np-dark-gray);">
-Conceptueel niveau (MIM 1 en 2): geen payloads, geen endpoints, geen diensten. Vandaag loopt fase 1 er helemaal doorheen.
+<div class="np-card accent-orange" style="margin-top: 1.2rem; padding: 0.7rem 1rem;">
+<carbon-chat style="font-size: 1.3rem; color: var(--np-orange); vertical-align: -0.2rem;" /> <strong style="color: var(--np-ink);">Gevraagd: feedback per beeld, geen commitment</strong>
 </div>
+
+<style scoped>
+.np-tegel { background: #fff; border: 1px solid var(--np-light-gray); border-top: 4px solid var(--np-blue); border-radius: 12px; padding: 0.8rem 0.6rem; text-align: center; font-weight: 600; color: var(--np-dark-blue); font-size: 0.86rem; }
+.np-pic { font-size: 1.5rem; color: var(--np-blue); display: block; margin: 0 auto 0.2rem; }
+.np-getal { font-size: 2.1rem; line-height: 1.05; color: var(--np-dark-blue); }
+</style>
 
 </div>
 
 <!--
 Dit blok beantwoordt de vraag van Kees van 15 september, met instemming van Huib Jan: een
-opleiding helemaal uitdrukken in het informatiemodel. Het is een leeshulp, geen besluit: de
-regels tonen wat het model zegt, en de vraag is of dat klopt met het eigen model van de
-leverancier. Bron: voorbeeld-leerroute-1-jochem.md op branch 106 (meta PR 252).
+opleiding helemaal uitdrukken in het informatiemodel. Het is een leeshulp op conceptueel niveau
+(MIM 1 en 2), zonder payloads, endpoints of diensten: per stap wat ontstaat, wat verandert en wat
+tussen welke systemen stroomt, met Jochems eigen waarden erin. Vandaag loopt fase 1 er helemaal
+doorheen, beeld voor beeld. De vraag per beeld: klopt dit met het eigen model, en hoe heet het
+daar. Bron: voorbeeld-leerroute-1-jochem.md op branch 106, meta PR 252.
 -->
 
 ---
