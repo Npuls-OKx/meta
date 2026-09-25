@@ -175,8 +175,8 @@ flowchart LR
   subgraph OO["Onderwijsontwerper"]
     OO1[Kwalificatiekader analyseren] --> OO2[Opleiding specificatie beschrijven] --> OO3[Opleidingsprogramma specificatie beschrijven] --> OO4[Onderwijseenheid specificaties beschrijven] --> OO5[Onderwijsspecificaties publiceren]
   end
-  subgraph OW["Onderwijsontwikkelaar"]
-    OW1[Leergelegenheid uitwerken] --> OW2[Leermiddelen functioneel inrichten] --> OW3[Toegang LMS aan student en docent]
+  subgraph OW["Onderwijsontwikkelaar of docent"]
+    OW1[Leeronderdeel specificaties detailleren] --> OW2[Les specificaties opzetten en detailleren] --> OW3[Leermiddelen functioneel inrichten] --> OW4[Toegang LMS aan student en docent]
   end
   subgraph PL["Planner"]
     PL1[Strategische jaarplanning] --> PL2[Team-inzetplanning]
@@ -228,9 +228,10 @@ flowchart LR
 <!--
 Zo ziet een leerroute-uitwerking eruit. Het diagram is het ontwerp- en planningsdeel van scenario
 1.1 uit leerroute 1, met de stappen letterlijk uit dat scenario; de namen van de specificaties
-volgen het informatiemodel (opleiding, opleidingsprogramma, onderwijseenheid). De vier rollen die
-hier niet staan zijn de roosteraar, de studieloopbaanbegeleider, de student en de docent; samen
-zeven rollen. De acht fasen eronder zijn de journey van het kaderscenario: fasen 1 tot en met 5
+volgen het informatiemodel (opleiding, opleidingsprogramma, onderwijseenheid, leeronderdeel, les).
+De onderwijsontwikkelaar detailleert de leeronderdeel specificaties en zet waar nodig de les
+specificaties op; docenten vullen die rol vaak zelf in. De vier rollen die hier niet staan zijn de
+roosteraar, de studieloopbaanbegeleider, de student en de docent; samen zeven rollen. De acht fasen eronder zijn de journey van het kaderscenario: fasen 1 tot en met 5
 lopen lineair, fase 6 (keuzemomenten) en fase 7 (bijsturen) zijn lussen die het jaarplan en het
 rooster opnieuw raken, en fase 8 sluit af met examinering en diplomering. Per stap legt de
 uitwerking vast welke gegevens ontstaan of veranderen en welke daarvan tussen welke systemen gaan;
