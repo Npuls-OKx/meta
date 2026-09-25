@@ -57,6 +57,21 @@ te reageren. De peiling is de vaste afsluiting uit #205.
 
 ---
 
+<!-- SECTIE: STAND VAN ZAKEN -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide2.PNG);"></div>
+
+<div style="position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; align-items: flex-end; text-align: right; padding: 3rem 4rem 3rem 45%; z-index: 1;">
+  <div style="font-size: 0.8rem; color: var(--np-orange); letter-spacing: 2px; text-transform: uppercase;">Deel 1 van 5</div>
+  <h1 style="font-size: 2.4rem; line-height: 1.15; margin: 0.4rem 0 0.5rem; color: var(--np-ink);">Stand van zaken</h1>
+  <div style="font-size: 1rem; color: var(--np-mid-gray);">Niek &middot; afspraken, voortgang en wat er blijft liggen</div>
+</div>
+
+<!--
+Sectiescheiding. Het eerste deel is de stand van zaken: wat er op 15 september is afgesproken, wat er sindsdien is verzet, en wat dat zegt over het tempo.
+-->
+
+---
+
 <!-- 3. AFSPRAKEN 15 SEPTEMBER -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
@@ -256,7 +271,7 @@ gantt
 </div>
 
 <div class="np-card accent-orange" style="margin-top: 0.7rem; padding: 0.6rem 1rem;">
-<carbon-idea style="font-size: 1.2rem; color: var(--np-orange); vertical-align: -0.2rem;" /> <strong style="color: var(--np-ink);">Het verschil zit in parallel werken en in hoe snel een review rond is</strong>
+<carbon-idea style="font-size: 1.2rem; color: var(--np-orange); vertical-align: -0.2rem;" /> <strong style="color: var(--np-ink);">Afronden vraagt input en aanhaking; het schrijfwerk ligt er</strong>
 </div>
 
 </div>
@@ -276,41 +291,75 @@ grote pull requests zijn zwaarder om te reviewen dan kleine.
 
 ---
 
+<!-- SECTIE: VOORBEELDUITWERKING -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide2.PNG);"></div>
+
+<div style="position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; align-items: flex-end; text-align: right; padding: 3rem 4rem 3rem 45%; z-index: 1;">
+  <div style="font-size: 0.8rem; color: var(--np-orange); letter-spacing: 2px; text-transform: uppercase;">Deel 2 van 5</div>
+  <h1 style="font-size: 2.4rem; line-height: 1.15; margin: 0.4rem 0 0.5rem; color: var(--np-ink);">Voorbeelduitwerking leerroute 1</h1>
+  <div style="font-size: 1rem; color: var(--np-mid-gray);">Niek &middot; de opleiding van Jochem, fase 1 stap voor stap</div>
+</div>
+
+<!--
+Sectiescheiding tussen het voortgangsdeel en de inhoud. Vanaf hier loopt de sessie door fase 1 van de voorbeelduitwerking.
+-->
+
+---
+
 <!-- 6. VOORBEELDUITWERKING: WAT HET IS -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
 
-# De opleiding van Jochem in het model
+# Twee bronnen, een voorbeeld
 
-<div style="font-size: 0.92rem; color: var(--np-mid-gray); margin-top: 0.1rem;">Een hele opleiding uitgedrukt in het informatiemodel, van dossier tot diploma</div>
+<div style="display: grid; grid-template-columns: 1fr 0.12fr 1.5fr; gap: 0.6rem; align-items: center; margin-top: 0.8rem;">
 
-<div class="np-grid-4" style="margin-top: 1.2rem; gap: 0.9rem;">
-  <div class="np-tegel"><carbon-map class="np-pic" /><div class="np-getal">8</div><div>fasen</div></div>
-  <div class="np-tegel"><carbon-image class="np-pic" /><div class="np-getal">64</div><div>beelden</div></div>
-  <div class="np-tegel"><carbon-list-checked class="np-pic" /><div class="np-getal">257</div><div>regels</div></div>
-  <div class="np-tegel"><carbon-assembly-cluster class="np-pic" /><div class="np-getal">65</div><div>objecttypen</div></div>
+<div>
+  <div class="np-bron">
+    <img src="/platen/informatiemodel-v0.1.jpg" />
+    <div>Informatiemodel v0.1</div>
+  </div>
+  <div class="np-bron" style="margin-top: 0.6rem;">
+    <img src="/platen/jochem.png" />
+    <div>Leerroute 1, acht fasen</div>
+  </div>
 </div>
 
-<div class="np-card accent-orange" style="margin-top: 1.2rem; padding: 0.7rem 1rem;">
-<carbon-chat style="font-size: 1.3rem; color: var(--np-orange); vertical-align: -0.2rem;" /> <strong style="color: var(--np-ink);">Gevraagd: feedback per beeld, geen commitment</strong>
+<div style="text-align: center; color: var(--np-orange); font-size: 1.8rem; font-weight: 700;">&#8594;</div>
+
+<div class="np-bron">
+  <img src="/regels/f1-01-het-kwalificatiedossier-ontleed.svg" style="max-height: 13rem;" />
+  <div>Per stap een beeld, met Jochems eigen waarden</div>
+</div>
+
+</div>
+
+<div style="display: flex; justify-content: center; gap: 0.5rem; margin-top: 0.9rem; flex-wrap: wrap;">
+  <div class="np-pil"><strong>1</strong> samen doorlopen</div>
+  <div class="np-pil"><strong>2</strong> opmerkingen noteren</div>
+  <div class="np-pil"><strong>3</strong> discussie over vorm, detail en scope</div>
 </div>
 
 <style scoped>
-.np-tegel { background: #fff; border: 1px solid var(--np-light-gray); border-top: 4px solid var(--np-blue); border-radius: 12px; padding: 0.8rem 0.6rem; text-align: center; font-weight: 600; color: var(--np-dark-blue); font-size: 0.86rem; }
-.np-pic { font-size: 1.5rem; color: var(--np-blue); display: block; margin: 0 auto 0.2rem; }
-.np-getal { font-size: 2.1rem; line-height: 1.05; color: var(--np-dark-blue); }
+.np-bron { background: #fff; border: 1px solid var(--np-light-gray); border-radius: 10px; padding: 0.5rem; text-align: center; }
+.np-bron img { width: 100%; max-height: 5.6rem; object-fit: contain; display: block; margin: 0 auto 0.3rem; }
+.np-bron div { font-size: 0.78rem; font-weight: 600; color: var(--np-dark-blue); line-height: 1.3; }
+.np-pil { display: flex; align-items: center; gap: 0.35rem; background: #fff; border: 1px solid var(--np-light-gray); border-radius: 999px; padding: 0.3rem 0.9rem; font-size: 0.82rem; color: var(--np-dark-blue); }
+.np-pil strong { color: var(--np-orange); }
 </style>
 
 </div>
 
 <!--
-Dit blok beantwoordt de vraag van Kees van 15 september, met instemming van Huib Jan: een
-opleiding helemaal uitdrukken in het informatiemodel. Het is een leeshulp op conceptueel niveau
-(MIM 1 en 2), zonder payloads, endpoints of diensten: per stap wat ontstaat, wat verandert en wat
-tussen welke systemen stroomt, met Jochems eigen waarden erin. Vandaag loopt fase 1 er helemaal
-doorheen, beeld voor beeld. De vraag per beeld: klopt dit met het eigen model, en hoe heet het
-daar. Bron: voorbeeld-leerroute-1-jochem.md op branch 106, meta PR 252.
+De opzet van het blok in een beeld: het informatiemodel en de leerroute-uitwerking komen samen in
+een voorbeeld, en dat voorbeeld levert per processtap een beeld met de waarden van Jochem erin.
+Zeg er vooraf bij hoe de doorloop gaat, want anders vult dit onderwerp de hele sessie: eerst lopen
+we fase 1 stap voor stap door, opmerkingen worden onderweg genoteerd, en daarna voeren we de
+discussie samen. Die discussie gaat over de vorm van de uitwerking, de mate van detaillering en de
+vraag of dit nodig is; de losse regels komen in de pull request. Noem ook waar dit naartoe loopt:
+dit is de opbouw die straks laat zien wat er tussen systemen wordt uitgewisseld, en dat komt aan
+het eind van dit blok terug. Feedback, geen commitment.
 -->
 
 ---
@@ -895,44 +944,91 @@ F1-12, deel 2 van 2. Het onderwijs- en examenontwerp mee naar de catalogus (conc
 
 ---
 
-<!-- 8. VOORBEELDUITWERKING: WAT DE STROMEN LATEN ZIEN -->
+<!-- 8. VAN BEELD NAAR BERICHT -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
 
-# Wat de stromen laten zien
+# Van beeld naar bericht
 
-<div class="np-grid-2" style="margin-top: 0.5rem; gap: 1.2rem; align-items: center;">
+<style scoped>
+.mermaid { display: flex; justify-content: center; margin: 0.2rem 0 0; }
+.mermaid svg { max-width: 100%; height: auto; }
+</style>
 
-<div>
-  <img src="/platen/koppelingen-hoofdplaat.svg" style="width: 100%; border-radius: 6px; border: 1px solid var(--np-light-gray); background: #fff;" />
-  <div style="font-size: 0.72rem; color: var(--np-mid-gray); margin-top: 0.3rem;">Hoofdplaat v1.7, met de drie koppelingen gemarkeerd</div>
+<div style="font-size: 0.85rem; color: var(--np-mid-gray); margin-top: 0.2rem;">Dezelfde stap, als koppeling</div>
+
+<div class="np-grid-2" style="margin-top: 0.7rem; gap: 1.1rem; align-items: start; grid-template-columns: 1.05fr 1fr;">
+
+<div style="min-width: 0;">
+
+<div class="np-card accent-blue" style="padding: 0.7rem 0.9rem 0.4rem;">
+  <div style="font-weight: 700; font-size: 0.92rem;">Interactie</div>
+
+```mermaid {theme: 'base', scale: 0.62, themeVariables: {'fontFamily': 'General Sans, Inter, sans-serif', 'fontSize': '15px', 'actorBkg': '#FFFFFF', 'actorBorder': '#3D68EC', 'actorTextColor': '#1B2A6B', 'actorLineColor': '#9CA3AF', 'signalColor': '#DD784B', 'signalTextColor': '#374151', 'primaryColor': '#FFFFFF', 'primaryTextColor': '#1B2A6B', 'lineColor': '#DD784B'}}
+sequenceDiagram
+    participant P as Planningssysteem
+    participant OC as Onderwijscatalogus
+    P->>OC: melding: aanbod gepland
+    OC->>P: vraagt het aanbod op
+    P-->>OC: aanbod met verwijzing naar de specificatie
+```
+
 </div>
 
-<div style="font-size: 0.9rem; line-height: 1.6;">
-
-| Twintig stromen in leerroute 1 | |
-|---|---|
-| Gedekt door OC-P&amp;R, OC-KRS, OC-SVS, OC-LMS | 5 |
-| Pijl op de hoofdplaat, nog zonder specificatie | 8 |
-| Stroom zonder pijl op de hoofdplaat | 7 |
-
-<div style="margin-top: 0.7rem; font-size: 0.86rem; color: var(--np-dark-gray);">
-De koppelingen van dit jaar dragen de kern van de reis. De rest is zichtbaar gemaakt, met de plek waar die vraag hoort.
+<div class="np-card accent-orange" style="padding: 0.55rem 0.9rem; margin-top: 0.7rem; display: flex; align-items: baseline; gap: 0.55rem; flex-wrap: wrap;">
+  <span style="font-weight: 700; font-size: 0.88rem;">Endpoint</span>
+  <code style="font-size: 0.76rem;">GET /onderwijsaanbod/{id}</code>
+  <small style="font-size: 0.76rem; color: var(--np-mid-gray);">op het planningssysteem</small>
 </div>
 
 </div>
 
+<div class="np-card accent-green" style="padding: 0.7rem 0.9rem; min-width: 0;">
+  <div style="font-weight: 700; font-size: 0.92rem; margin-bottom: 0.4rem;">Voorbeeldbericht</div>
+<pre style="margin: 0; padding: 0.6rem 0.7rem; background: #F8F9FA; border: 1px solid var(--np-light-gray); border-radius: 6px; font-size: 0.62rem; line-height: 1.5; color: var(--np-dark-blue); overflow: hidden;">{
+  <span style="color: var(--np-blue);">"aanbodType"</span>: "opleidingsaanbod",
+  <span style="color: var(--np-blue);">"naam"</span>: "Apothekersassistent, cohort 2026",
+  <span style="color: var(--np-blue);">"status"</span>: "gepland",
+  <span style="color: var(--np-blue);">"specificatieVerwijzing"</span>: {
+    "specificatieId": "79736830-1c5c-470f...",
+    "versie": "0.1.0"
+  },
+  <span style="color: var(--np-blue);">"periode"</span>: { "start": "2026-09-01", "eind": "2029-07-15" }
+}</pre>
+</div>
+
+</div>
+
+<div style="margin-top: 0.8rem; text-align: center; font-size: 0.88rem; color: var(--np-dark-gray);">
+  Zo loopt elke lijn op de hoofdplaat straks naar een bericht
 </div>
 
 </div>
 
 <!--
-Dit is de opbrengst die de kerngroep het meest raakt: de voorbeelduitwerking maakt zichtbaar
-welke stromen al een koppelingspecificatie hebben en welke nog niet. Acht pijlen op de hoofdplaat
-hebben nog geen specificatie; zeven stromen uit het kaderscenario staan nog niet op de hoofdplaat.
-Dat laatste is een vraag aan het model, geen fout in het scenario. Bron: de tabel "De hoofdplaat
-als kaart" in voorbeeld-leerroute-1-jochem.md.
+Het sluitstuk van dit blok, overgenomen uit de update voor de werkgroep omdat het de samenhang in
+een beeld laat zien: F2-07 uit de voorbeelduitwerking wordt een interactie, een endpoint en een
+bericht. Het patroon is notify-then-pull uit het interactiepatroon OC-P&R: planning meldt dat het
+aanbod gepland is, de catalogus haalt het op, en het bericht draagt een verwijzing naar de
+specificatie waarvan het aanbod is gemaakt. Bron: interactiepatroon onderwijscatalogus en planning
+en roostering, en het schema education-offering. Hiermee is de brug naar het blok van Garik gelegd:
+zodra berichtstromen bestaan, is de vraag hoe je ze versioneert.
+-->
+
+---
+
+<!-- SECTIE: VERSIONERING -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide2.PNG);"></div>
+
+<div style="position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; align-items: flex-end; text-align: right; padding: 3rem 4rem 3rem 45%; z-index: 1;">
+  <div style="font-size: 0.8rem; color: var(--np-orange); letter-spacing: 2px; text-transform: uppercase;">Deel 3 van 5</div>
+  <h1 style="font-size: 2.4rem; line-height: 1.15; margin: 0.4rem 0 0.5rem; color: var(--np-ink);">Versionering</h1>
+  <div style="font-size: 1rem; color: var(--np-mid-gray);">Garik &middot; van de leveranciersvraag naar een voorstel</div>
+</div>
+
+<!--
+Sectiescheiding. Vanaf hier is Garik aan het woord; zijn blok staat los van de rest en is zijn eigen verhaal.
 -->
 
 ---
@@ -1144,6 +1240,21 @@ staat tot deze iteratie erin zit.
 
 ---
 
+<!-- SECTIE: BUSINESS-ARCHITECTUUR -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide2.PNG);"></div>
+
+<div style="position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; align-items: flex-end; text-align: right; padding: 3rem 4rem 3rem 45%; z-index: 1;">
+  <div style="font-size: 0.8rem; color: var(--np-orange); letter-spacing: 2px; text-transform: uppercase;">Deel 4 van 5</div>
+  <h1 style="font-size: 2.4rem; line-height: 1.15; margin: 0.4rem 0 0.5rem; color: var(--np-ink);">Business-architectuur en stories</h1>
+  <div style="font-size: 1rem; color: var(--np-mid-gray);">Niels &middot; de lijn van story naar koppelvlakfunctionaliteit</div>
+</div>
+
+<!--
+Sectiescheiding. Vanaf hier is Niels aan het woord. Als hij er niet bij kan zijn, loopt dit blok mee in de toelichting.
+-->
+
+---
+
 <!-- 10. BLOK NIELS: BUSINESS-ARCHITECTUUR -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
@@ -1167,6 +1278,21 @@ Vertrekpunt: de milestone <a href="https://github.com/Npuls-OKx/Public/milestone
 <!--
 Plaatshouder. Niels levert de sheets aan. De koppeling met blok 2: de stories uit de PoC-scholen
 en de voorbeelduitwerking gaan over hetzelfde onderwijs, van twee kanten bekeken.
+-->
+
+---
+
+<!-- SECTIE: AFRONDING -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide2.PNG);"></div>
+
+<div style="position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; align-items: flex-end; text-align: right; padding: 3rem 4rem 3rem 45%; z-index: 1;">
+  <div style="font-size: 0.8rem; color: var(--np-orange); letter-spacing: 2px; text-transform: uppercase;">Deel 5 van 5</div>
+  <h1 style="font-size: 2.4rem; line-height: 1.15; margin: 0.4rem 0 0.5rem; color: var(--np-ink);">Open punten en afronding</h1>
+  <div style="font-size: 1rem; color: var(--np-mid-gray);">Koppeling-ID &middot; gevraagd &middot; vervolg &middot; peiling</div>
+</div>
+
+<!--
+Sectiescheiding. Het laatste deel: de open punten, wat er gevraagd wordt, het vervolg en de peiling.
 -->
 
 ---
@@ -1212,6 +1338,61 @@ kernregistratie en studentvolgsysteem, en dat is een leesbaarheidsgroepering, ge
 Dezelfde toets ligt bij OC-P&R: planning en roostering zijn twee componenten, dus die naam is nog
 een open punt in #107. Op de hoofdplaat hoort per lijn te staan welke ID erover loopt; dat is een
 modelronde na 30 september.
+-->
+
+---
+
+<!-- 11b. KOPPELING-ID: WAT VALT ERONDER -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# Wat valt er onder een ID
+
+<div style="display: grid; grid-template-columns: 1.45fr 1fr; gap: 1rem; align-items: center; margin-top: 0.5rem;">
+
+<div>
+  <img src="/platen/koppeling-id-oc-svs-krs.svg" style="width: 100%; max-height: 19rem; object-fit: contain; border-radius: 6px; border: 1px solid var(--np-light-gray); background: #fff;" />
+  <div style="font-size: 0.72rem; color: var(--np-mid-gray); margin-top: 0.25rem;">Catalogus met kernregistratie en studentvolgsysteem</div>
+</div>
+
+<div>
+  <div class="np-card accent-orange np-mini">
+    <div class="np-kop">Meerdere lijnen, een naam</div>
+    <small>links en rechts op de plaat; samen OC-SVS-KRS, of twee eigen ID's</small>
+  </div>
+  <div class="np-card accent-blue np-mini">
+    <div class="np-kop">De grens zit in de bouwstenen</div>
+    <small>diensten en endpoints bepalen waar een ID ophoudt</small>
+  </div>
+  <div class="np-card accent-green np-mini" style="margin-bottom: 0;">
+    <div class="np-kop">Het beeld scherpt nog aan</div>
+    <small>vastleggen in een ADR zodra de detaillering het draagt</small>
+  </div>
+</div>
+
+</div>
+
+<div class="np-card accent-orange" style="margin-top: 0.7rem; padding: 0.55rem 1rem;">
+<carbon-chat style="font-size: 1.2rem; color: var(--np-orange); vertical-align: -0.2rem;" /> <strong style="color: var(--np-ink);">Gevraagd: wat vinden jullie van dit concept?</strong>
+</div>
+
+<style scoped>
+.np-mini { padding: 0.5rem 0.75rem; margin-bottom: 0.5rem; }
+.np-mini small { font-size: 0.76rem; line-height: 1.45; display: block; }
+.np-kop { font-weight: 700; font-size: 0.86rem; line-height: 1.25; }
+</style>
+
+</div>
+
+<!--
+Concreet maken waarom het ID nog niet vastligt. Op de hoofdplaat lopen tussen de catalogus en de
+kernregistratie en het studentvolgsysteem meerdere lijnen, en de catalogus staat zowel links als
+rechts op de plaat; al die lijnen zouden onder een ID kunnen vallen, bijvoorbeeld OC-SVS-KRS, of
+juist onder twee eigen ID's per component. Wat er precies onder valt, hangt aan de bouwstenen: de
+applicatiediensten en de endpoints bepalen waar een koppeling ophoudt. Zolang die detaillering
+loopt, is een naam een werkafspraak; het definitieve antwoord hoort in een ADR zodra het beeld
+scherp is. De vraag aan de zaal is of dit concept klopt en wat er nog mist.
 -->
 
 ---
