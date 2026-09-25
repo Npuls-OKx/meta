@@ -196,12 +196,12 @@ De vraag van 15 september: druk een opleiding helemaal uit in het informatiemode
 </div>
 <div class="np-card accent-orange">
 <strong>Wat gevraagd wordt</strong>
-<div style="margin-top:0.4rem;font-size:0.88rem;line-height:1.5;">Feedback, geen commitment: per objecttype de eigen naam en de eigen plek in het model, op het invulblad</div>
+<div style="margin-top:0.4rem;font-size:0.88rem;line-height:1.5;">Feedback, geen commitment: per beeld de eigen naam en de eigen plek in het model</div>
 </div>
 </div>
 
 <div style="margin-top: 1rem; font-size: 0.88rem; color: var(--np-dark-gray);">
-Conceptueel niveau (MIM 1 en 2). De bijlage van zes pagina's en het invulblad liggen op tafel.
+Conceptueel niveau (MIM 1 en 2): geen payloads, geen endpoints, geen diensten. Vandaag loopt fase 1 er helemaal doorheen.
 </div>
 
 </div>
@@ -215,12 +215,12 @@ leverancier. Bron: voorbeeld-leerroute-1-jochem.md op branch 106 (meta PR 252).
 
 ---
 
-<!-- 7. VOORBEELDUITWERKING: EEN REGEL VAN DICHTBIJ -->
+<!-- 7. VOORBEELDUITWERKING: HOE EEN BEELD LEEST -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
 
-# Een regel van dichtbij
+# Hoe een beeld leest
 
 <div class="np-grid-2" style="margin-top: 0.6rem; gap: 1.2rem; align-items: center;">
 
@@ -239,7 +239,7 @@ leverancier. Bron: voorbeeld-leerroute-1-jochem.md op branch 106 (meta PR 252).
   </div>
   <div class="np-card accent-orange" style="padding: 0.7rem 0.9rem;">
     <div style="font-weight: 700; font-size: 0.95rem;">Elk beeld heeft een ID</div>
-    <small style="font-size: 0.84rem;">F2-07 is het zevende beeld van fase 2; het invulblad noemt hetzelfde ID</small>
+    <small style="font-size: 0.84rem;">F2-07 is het zevende beeld van fase 2; de bijlage en het register noemen hetzelfde ID</small>
   </div>
 </div>
 
@@ -255,6 +255,343 @@ Status: concept in afstemming
 Een voorbeeld van hoe een regel eruitziet, zodat de bijlage zichzelf uitlegt. F2-07 volgt op de
 planning: het geplande aanbod gaat terug naar de catalogus. Het beeld staat in de vormtaal van de
 informatiemodelplaat, zodat wie de plaat kent het beeld direct leest.
+-->
+
+---
+
+<!-- FASE 1: DE KAART -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+<div class="np-eyebrow">Fase 1 &middot; kwalificatiekader analyseren en grofmazig ontwerpen</div>
+
+# Twaalf beelden, een fase
+
+<img src="/regels/fase1-hoofdplaat.svg" class="np-beeld" />
+
+<div class="np-onder">De stromen die deze fase raakt, op de hoofdplaat; een gestippelde lijn kent de plaat nog niet</div>
+
+<style scoped>
+.np-eyebrow { font-size: 0.75rem; color: var(--np-orange); letter-spacing: 1px; text-transform: uppercase; }
+.np-beeld { display: block; margin: 0.5rem auto 0; max-width: 100%; max-height: 360px; object-fit: contain; }
+.np-onder { margin-top: 0.4rem; font-size: 0.78rem; color: var(--np-mid-gray); text-align: center; }
+h1 { font-size: 1.9rem !important; margin-top: 0.1rem; }
+</style>
+
+</div>
+
+<!--
+Deze plaat opent het blok: fase 1 loopt van het kwalificatiedossier tot het gepubliceerde
+ontwerp, en raakt een stroom die de hoofdplaat nog niet kent. Daarna twaalf beelden, een voor een.
+-->
+
+---
+
+<!-- FASE 1: F1-01 -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+<div class="np-eyebrow">F1-01 &middot; beeld 1 van 12 &middot; ontstaat</div>
+
+<img src="/regels/f1-01-het-kwalificatiedossier-ontleed.svg" class="np-beeld" />
+
+<div class="np-onder">Stap: Kwalificatiedossier analyseren</div>
+
+<style scoped>
+.np-eyebrow { font-size: 0.75rem; color: var(--np-orange); letter-spacing: 1px; text-transform: uppercase; }
+.np-beeld { display: block; margin: 0.6rem auto 0; max-width: 100%; max-height: 400px; object-fit: contain; }
+.np-onder { margin-top: 0.4rem; font-size: 0.78rem; color: var(--np-mid-gray); text-align: center; }
+h1 { font-size: 1.7rem !important; margin-top: 0.1rem; line-height: 1.2; }
+</style>
+
+</div>
+
+<!--
+F1-01. Vraag bij elk beeld: klopt dit beeld met het eigen model, en welke term hoort erbij.
+-->
+
+---
+
+<!-- FASE 1: F1-02 -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+<div class="np-eyebrow">F1-02 &middot; beeld 2 van 12 &middot; ontstaat</div>
+
+<img src="/regels/f1-02-examenplan-eerste-resultaatstructuur-en-cohort.svg" class="np-beeld" />
+
+<div class="np-onder">Stap: Examenplan vaststellen</div>
+
+<style scoped>
+.np-eyebrow { font-size: 0.75rem; color: var(--np-orange); letter-spacing: 1px; text-transform: uppercase; }
+.np-beeld { display: block; margin: 0.6rem auto 0; max-width: 100%; max-height: 400px; object-fit: contain; }
+.np-onder { margin-top: 0.4rem; font-size: 0.78rem; color: var(--np-mid-gray); text-align: center; }
+h1 { font-size: 1.7rem !important; margin-top: 0.1rem; line-height: 1.2; }
+</style>
+
+</div>
+
+<!--
+F1-02. Vraag bij elk beeld: klopt dit beeld met het eigen model, en welke term hoort erbij.
+-->
+
+---
+
+<!-- FASE 1: F1-03 -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+<div class="np-eyebrow">F1-03 &middot; beeld 3 van 12 &middot; ontstaat</div>
+
+<img src="/regels/f1-03-leeruitkomsten-uit-het-dossier-in-de-stem-van-de-instelling.svg" class="np-beeld" />
+
+<div class="np-onder">Stap: Kwalificatiedossier vertalen naar leeruitkomsten</div>
+
+<style scoped>
+.np-eyebrow { font-size: 0.75rem; color: var(--np-orange); letter-spacing: 1px; text-transform: uppercase; }
+.np-beeld { display: block; margin: 0.6rem auto 0; max-width: 100%; max-height: 400px; object-fit: contain; }
+.np-onder { margin-top: 0.4rem; font-size: 0.78rem; color: var(--np-mid-gray); text-align: center; }
+h1 { font-size: 1.7rem !important; margin-top: 0.1rem; line-height: 1.2; }
+</style>
+
+</div>
+
+<!--
+F1-03. Vraag bij elk beeld: klopt dit beeld met het eigen model, en welke term hoort erbij.
+-->
+
+---
+
+<!-- FASE 1: F1-04 -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+<div class="np-eyebrow">F1-04 &middot; beeld 4 van 12 &middot; ontstaat</div>
+
+<img src="/regels/f1-04-de-leeruitkomst-in-competentnl-skills.svg" class="np-beeld" />
+
+<div class="np-onder">Stap: Kwalificatiedossier vertalen naar leeruitkomsten &middot; verdieping: leeruitkomst naar skills</div>
+
+<style scoped>
+.np-eyebrow { font-size: 0.75rem; color: var(--np-orange); letter-spacing: 1px; text-transform: uppercase; }
+.np-beeld { display: block; margin: 0.6rem auto 0; max-width: 100%; max-height: 400px; object-fit: contain; }
+.np-onder { margin-top: 0.4rem; font-size: 0.78rem; color: var(--np-mid-gray); text-align: center; }
+h1 { font-size: 1.7rem !important; margin-top: 0.1rem; line-height: 1.2; }
+</style>
+
+</div>
+
+<!--
+F1-04. Vraag bij elk beeld: klopt dit beeld met het eigen model, en welke term hoort erbij.
+-->
+
+---
+
+<!-- FASE 1: F1-05 -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+<div class="np-eyebrow">F1-05 &middot; beeld 5 van 12 &middot; ontstaat</div>
+
+<img src="/regels/f1-05-de-eenheidspecificatie-met-haar-leeronderdelen-en-de-gelinkte-leeruitkomsten.svg" class="np-beeld" />
+
+<div class="np-onder">Stap: Kwalificatiedossier vertalen naar leeruitkomsten &middot; verdieping: van kerntaak naar eenheid en leeronderdelen</div>
+
+<style scoped>
+.np-eyebrow { font-size: 0.75rem; color: var(--np-orange); letter-spacing: 1px; text-transform: uppercase; }
+.np-beeld { display: block; margin: 0.6rem auto 0; max-width: 100%; max-height: 400px; object-fit: contain; }
+.np-onder { margin-top: 0.4rem; font-size: 0.78rem; color: var(--np-mid-gray); text-align: center; }
+h1 { font-size: 1.7rem !important; margin-top: 0.1rem; line-height: 1.2; }
+</style>
+
+</div>
+
+<!--
+F1-05. Vraag bij elk beeld: klopt dit beeld met het eigen model, en welke term hoort erbij.
+-->
+
+---
+
+<!-- FASE 1: F1-06 -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+<div class="np-eyebrow">F1-06 &middot; beeld 6 van 12 &middot; ontstaat</div>
+
+<img src="/regels/f1-06-de-eenheidspecificatie-met-haar-onderwijsontwerp-vorm-ruimte-mensen-en-middelen.svg" class="np-beeld" />
+
+<style scoped>
+.np-eyebrow { font-size: 0.75rem; color: var(--np-orange); letter-spacing: 1px; text-transform: uppercase; }
+.fill { padding: 1.2rem 2rem; }
+.np-beeld { display: block; margin: 0.5rem auto 0; max-width: 100%; max-height: 470px; object-fit: contain; }
+.np-onder { margin-top: 0.4rem; font-size: 0.78rem; color: var(--np-mid-gray); text-align: center; }
+h1 { font-size: 1.7rem !important; margin-top: 0.1rem; line-height: 1.2; }
+</style>
+
+</div>
+
+<!--
+F1-06. Stap: Kwalificatiedossier vertalen naar leeruitkomsten &middot; verdieping: onderwijsontwerp met ruimte en middelen. Vraag bij elk beeld: klopt dit beeld met het eigen model, en welke term hoort erbij.
+-->
+
+---
+
+<!-- FASE 1: F1-07 -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+<div class="np-eyebrow">F1-07 &middot; beeld 7 van 12 &middot; ontstaat</div>
+
+<img src="/regels/f1-07-de-opleidingsspecificatie-met-programma-eenheden-en-keuzedeelruimte.svg" class="np-beeld" />
+
+<div class="np-onder">Stap: Opleidingsspecificatie met programma en eenheden beschrijven</div>
+
+<style scoped>
+.np-eyebrow { font-size: 0.75rem; color: var(--np-orange); letter-spacing: 1px; text-transform: uppercase; }
+.np-beeld { display: block; margin: 0.6rem auto 0; max-width: 100%; max-height: 400px; object-fit: contain; }
+.np-onder { margin-top: 0.4rem; font-size: 0.78rem; color: var(--np-mid-gray); text-align: center; }
+h1 { font-size: 1.7rem !important; margin-top: 0.1rem; line-height: 1.2; }
+</style>
+
+</div>
+
+<!--
+F1-07. Vraag bij elk beeld: klopt dit beeld met het eigen model, en welke term hoort erbij.
+-->
+
+---
+
+<!-- FASE 1: F1-08 -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+<div class="np-eyebrow">F1-08 &middot; beeld 8 van 12 &middot; ontstaat</div>
+
+<img src="/regels/f1-08-het-keuzedeel-als-eigen-programmaspecificatie-met-kerntaken-en-werkprocessen.svg" class="np-beeld" />
+
+<style scoped>
+.np-eyebrow { font-size: 0.75rem; color: var(--np-orange); letter-spacing: 1px; text-transform: uppercase; }
+.fill { padding: 1.2rem 2rem; }
+.np-beeld { display: block; margin: 0.5rem auto 0; max-width: 100%; max-height: 470px; object-fit: contain; }
+.np-onder { margin-top: 0.4rem; font-size: 0.78rem; color: var(--np-mid-gray); text-align: center; }
+h1 { font-size: 1.7rem !important; margin-top: 0.1rem; line-height: 1.2; }
+</style>
+
+</div>
+
+<!--
+F1-08. Stap: Keuzedeelprogramma als eigen specificatie vormgeven. Vraag bij elk beeld: klopt dit beeld met het eigen model, en welke term hoort erbij.
+-->
+
+---
+
+<!-- FASE 1: F1-09 -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+<div class="np-eyebrow">F1-09 &middot; beeld 9 van 12 &middot; ontstaat</div>
+
+<img src="/regels/f1-09-toetsonderdelen-wegingen-en-afrondingscriterium.svg" class="np-beeld" />
+
+<div class="np-onder">Stap: Toetsonderdelen en resultaatstructuur uit het examenplan afleiden</div>
+
+<style scoped>
+.np-eyebrow { font-size: 0.75rem; color: var(--np-orange); letter-spacing: 1px; text-transform: uppercase; }
+.np-beeld { display: block; margin: 0.6rem auto 0; max-width: 100%; max-height: 400px; object-fit: contain; }
+.np-onder { margin-top: 0.4rem; font-size: 0.78rem; color: var(--np-mid-gray); text-align: center; }
+h1 { font-size: 1.7rem !important; margin-top: 0.1rem; line-height: 1.2; }
+</style>
+
+</div>
+
+<!--
+F1-09. Vraag bij elk beeld: klopt dit beeld met het eigen model, en welke term hoort erbij.
+-->
+
+---
+
+<!-- FASE 1: F1-10 -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+<div class="np-eyebrow">F1-10 &middot; beeld 10 van 12 &middot; ontstaat</div>
+
+<img src="/regels/f1-10-de-examenonderdeelspecificatie-met-haar-toetsvorm-instrumenten-materiaal-en-ruimte.svg" class="np-beeld" />
+
+<style scoped>
+.np-eyebrow { font-size: 0.75rem; color: var(--np-orange); letter-spacing: 1px; text-transform: uppercase; }
+.fill { padding: 1.2rem 2rem; }
+.np-beeld { display: block; margin: 0.5rem auto 0; max-width: 100%; max-height: 470px; object-fit: contain; }
+.np-onder { margin-top: 0.4rem; font-size: 0.78rem; color: var(--np-mid-gray); text-align: center; }
+h1 { font-size: 1.7rem !important; margin-top: 0.1rem; line-height: 1.2; }
+</style>
+
+</div>
+
+<!--
+F1-10. Stap: Exameninstrumenten bepalen, inkopen of construeren &middot; verdieping: examenvorm, instrument en beoordelaar. Vraag bij elk beeld: klopt dit beeld met het eigen model, en welke term hoort erbij.
+-->
+
+---
+
+<!-- FASE 1: F1-11 -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+<div class="np-eyebrow">F1-11 &middot; beeld 11 van 12 &middot; stroomt</div>
+
+<img src="/regels/f1-11-de-opleiding-zoals-ontworpen-naar-de-catalogus.svg" class="np-beeld" />
+
+<style scoped>
+.np-eyebrow { font-size: 0.75rem; color: var(--np-orange); letter-spacing: 1px; text-transform: uppercase; }
+.fill { padding: 1.2rem 2rem; }
+.np-beeld { display: block; margin: 0.5rem auto 0; max-width: 100%; max-height: 470px; object-fit: contain; }
+.np-onder { margin-top: 0.4rem; font-size: 0.78rem; color: var(--np-mid-gray); text-align: center; }
+h1 { font-size: 1.7rem !important; margin-top: 0.1rem; line-height: 1.2; }
+</style>
+
+</div>
+
+<!--
+F1-11. Stroom: Curriculum ontwerptool naar Onderwijscatalogus, geen pijl op de hoofdplaat. Vraag bij elk beeld: klopt dit beeld met het eigen model, en welke term hoort erbij.
+-->
+
+---
+
+<!-- FASE 1: F1-12 -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+<div class="np-eyebrow">F1-12 &middot; beeld 12 van 12 &middot; stroomt</div>
+
+<img src="/regels/f1-12-het-onderwijs-en-examenontwerp-mee-naar-de-catalogus-conceptplaat.svg" class="np-beeld" />
+
+<div class="np-onder">Stroom: Curriculum ontwerptool naar Onderwijscatalogus, geen pijl op de hoofdplaat</div>
+
+<style scoped>
+.np-eyebrow { font-size: 0.75rem; color: var(--np-orange); letter-spacing: 1px; text-transform: uppercase; }
+.np-beeld { display: block; margin: 0.6rem auto 0; max-width: 100%; max-height: 400px; object-fit: contain; }
+.np-onder { margin-top: 0.4rem; font-size: 0.78rem; color: var(--np-mid-gray); text-align: center; }
+h1 { font-size: 1.7rem !important; margin-top: 0.1rem; line-height: 1.2; }
+</style>
+
+</div>
+
+<!--
+F1-12. Vraag bij elk beeld: klopt dit beeld met het eigen model, en welke term hoort erbij.
 -->
 
 ---
@@ -419,8 +756,8 @@ meer dan twee componenten.
 </div>
 
 <!--
-Vier punten. De feedback op de voorbeelduitwerking is de kern van vandaag en gaat mee op het
-invulblad. De review op PR 104 staat er opnieuw, want die stond ook op 15 september. Het besluit
+Vier punten. De feedback op de voorbeelduitwerking is de kern van vandaag: per beeld-ID, tijdens
+de doorloop van fase 1 of daarna als issue. De review op PR 104 staat er opnieuw, want die stond ook op 15 september. Het besluit
 over het koppeling-ID kan vandaag vallen; de laatste vraag zet de agenda voor de volgende periode.
 -->
 
@@ -434,7 +771,7 @@ over het koppeling-ID kan vandaag vallen; de laatste vraag zet de agenda voor de
 # Vervolg
 
 <div style="margin-top: 0.8rem;">
-<div style="display:flex;align-items:center;gap:0.8rem;margin-top:0.7rem;font-size:0.98rem;line-height:1.4;"><svg width="36" height="36" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#7CCBA8"/><polyline points="12,23 19,30 32,15" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg><div>Invulblad terug: per objecttype de eigen naam en de eigen plek in het model</div></div>
+<div style="display:flex;align-items:center;gap:0.8rem;margin-top:0.7rem;font-size:0.98rem;line-height:1.4;"><svg width="36" height="36" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#7CCBA8"/><polyline points="12,23 19,30 32,15" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg><div>Reacties per beeld-ID: als issue op Public, of in de pull request</div></div>
 <div style="display:flex;align-items:center;gap:0.8rem;margin-top:0.7rem;font-size:0.98rem;line-height:1.4;"><svg width="36" height="36" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#7A97F2"/><circle cx="19" cy="19" r="8" fill="none" stroke="#fff" stroke-width="3"/><line x1="25" y1="25" x2="33" y2="33" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg><div>Opmerkingen op <a href="https://github.com/Npuls-OKx/Public/pull/104">Public PR 104</a>, in de pull request</div></div>
 <div style="display:flex;align-items:center;gap:0.8rem;margin-top:0.7rem;font-size:0.98rem;line-height:1.4;"><svg width="36" height="36" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#E9A27F"/><rect x="11" y="14" width="22" height="19" rx="2" fill="#fff"/><rect x="15" y="10" width="3" height="6" rx="1" fill="#fff"/><rect x="26" y="10" width="3" height="6" rx="1" fill="#fff"/></svg><div>Volgende sessie: in overleg met Ruud, na de werkgroep OKx</div></div>
 </div>
