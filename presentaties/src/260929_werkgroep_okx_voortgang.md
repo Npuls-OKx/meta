@@ -110,32 +110,39 @@ instellingen en leveranciers, en dat gesprek loopt nu opnieuw: wat moet er gebou
 
 # Het eindproduct in bouwblokken
 
-<div class="np-grid-2" style="margin-top: 0.7rem; gap: 1.1rem; align-items: center;">
+<div style="display: grid; grid-template-columns: 1.75fr 1fr; gap: 1rem; align-items: center; margin-top: 0.6rem;">
 
 <div>
-  <img src="/platen/koppelvlak-specificatie-breakdown.png" style="width: 100%; border-radius: 6px; border: 1px solid var(--np-light-gray); background: #fff;" />
+  <img src="/platen/koppelvlak-specificatie-breakdown.png" style="width: 100%; max-height: 19.5rem; object-fit: contain; border-radius: 6px; border: 1px solid var(--np-light-gray); background: #fff;" />
   <div style="font-size: 0.72rem; color: var(--np-mid-gray); margin-top: 0.3rem;">De koppelvlakspecificatie en haar bouwblokken</div>
 </div>
 
 <div>
-  <div class="np-card accent-blue" style="padding: 0.7rem 0.9rem; margin-bottom: 0.6rem;">
-    <carbon-assembly-cluster style="font-size: 1.5rem; color: var(--np-blue);" />
-    <div style="font-weight: 700; font-size: 0.95rem;">Vaste bouwblokken</div>
-    <small style="font-size: 0.82rem;">eisen &middot; systemen &middot; patronen &middot; endpoints &middot; schema's &middot; toegang</small>
+  <div class="np-card accent-blue np-mini">
+    <carbon-assembly-cluster class="np-pic" />
+    <div class="np-kop">Vaste bouwblokken</div>
+    <small>eisen &middot; systemen &middot; berichtstromen &middot; endpoints &middot; schema's &middot; toegang</small>
   </div>
-  <div class="np-card accent-orange" style="padding: 0.7rem 0.9rem; margin-bottom: 0.6rem;">
-    <carbon-network-3 style="font-size: 1.5rem; color: var(--np-orange);" />
-    <div style="font-weight: 700; font-size: 0.95rem;">Drie koppelingen</div>
-    <small style="font-size: 0.82rem;">planning &middot; studentadministratie &middot; leeromgeving</small>
+  <div class="np-card accent-orange np-mini">
+    <carbon-network-3 class="np-pic" style="color: var(--np-orange);" />
+    <div class="np-kop">Drie koppelingen, in volgorde</div>
+    <small>1 onderwijscatalogus en planningssysteem<br/>2 onderwijscatalogus met studentvolgsysteem en kernregistratie<br/>3 onderwijscatalogus en leeromgeving</small>
   </div>
-  <div class="np-card accent-green" style="padding: 0.7rem 0.9rem;">
-    <carbon-version style="font-size: 1.5rem; color: var(--np-green);" />
-    <div style="font-weight: 700; font-size: 0.95rem;">Eigen versie per deel</div>
-    <small style="font-size: 0.82rem;">openbaar, met de reden erbij</small>
+  <div class="np-card accent-green np-mini" style="margin-bottom: 0;">
+    <carbon-version class="np-pic" style="color: var(--np-green);" />
+    <div class="np-kop">OKx implementeren en versies</div>
+    <small>kiezen per koppeling en berichtstroom &middot; een versie legt het ijkpunt vast &middot; een nieuwe eis komt ernaast</small>
   </div>
 </div>
 
 </div>
+
+<style scoped>
+.np-mini { padding: 0.5rem 0.7rem; margin-bottom: 0.5rem; }
+.np-mini small { font-size: 0.74rem; line-height: 1.4; display: block; }
+.np-pic { font-size: 1.1rem; color: var(--np-blue); }
+.np-kop { font-weight: 700; font-size: 0.84rem; line-height: 1.25; }
+</style>
 
 <div style="margin-top: 0.8rem; font-size: 0.85rem; color: var(--np-mid-gray); text-align: center;">
   Status: concept in afstemming
@@ -146,8 +153,14 @@ instellingen en leveranciers, en dat gesprek loopt nu opnieuw: wat moet er gebou
 <!--
 Dit is het antwoord op "wat leveren jullie nu eigenlijk op". De plaat komt uit de uitwerking van
 Garik: de koppelvlakspecificatie als pakket, opgebouwd uit functionele eisen, referentiesystemen,
-interactiepatronen, endpoints, datamodelschema's en de authenticatiestandaard, met de
-requirementsboom als vertrekpunt. Bij de leeromgeving: OKx lijnt uit op het ontworpen onderwijs,
+berichtstromen, endpoints, datamodelschema's en de authenticatiestandaard, met de
+requirementsboom als vertrekpunt. De volgorde van de drie koppelingen is de prioritering: eerst
+de catalogus met planning, dan de catalogus met het studentvolgsysteem en de kernregistratie, en
+als laatste de leeromgeving. Het groene blok beantwoordt twee vragen die in de zaal leven: wat
+betekent het voor een leverancier om OKx te ondersteunen, en waarom is er uberhaupt versionering
+nodig. Antwoord: een partij kiest per koppeling en per berichtstroom wat zij implementeert, een
+versie legt vast hoe de afspraak er op dat moment uitzag, en een nieuwe eis krijgt een eigen
+berichtstroom naast de bestaande, zodat draaiende koppelingen blijven werken. Bij de leeromgeving: OKx lijnt uit op het ontworpen onderwijs,
 de inhoud blijft van de school. Over versionering: elk onderdeel heeft een eigen versie en een
 eigen ritme, zodat een wijziging in een schema niet het hele pakket ophoudt.
 -->
