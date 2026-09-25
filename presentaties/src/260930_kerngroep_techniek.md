@@ -218,6 +218,68 @@ acceptatietest, Public #109.
 
 ---
 
+<!-- 6b. DOORLOOPTIJD EN CAPACITEIT -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# Hoe lang dit duurt
+
+<style scoped>
+.mermaid { display: flex; justify-content: center; margin: 0.2rem 0 0; }
+.mermaid svg { max-width: 100%; height: auto; }
+.np-strip { display: flex; justify-content: center; gap: 0.5rem; margin-top: 0.7rem; flex-wrap: wrap; }
+.np-pil { display: flex; align-items: center; gap: 0.35rem; background: #fff; border: 1px solid var(--np-light-gray); border-radius: 999px; padding: 0.3rem 0.85rem; font-size: 0.8rem; color: var(--np-dark-blue); }
+</style>
+
+<div style="margin-top: 0.3rem;">
+
+```mermaid {theme: 'base', scale: 0.92, themeVariables: {'fontFamily': 'General Sans, Inter, sans-serif', 'fontSize': '14px', 'sectionBkgColor': '#F7F8FB', 'altSectionBkgColor': '#FFFFFF', 'gridColor': '#E5E7EB', 'doneTaskBkgColor': '#D8ECDD', 'doneTaskBorderColor': '#00AF81', 'activeTaskBkgColor': '#FBE3D6', 'activeTaskBorderColor': '#DD784B', 'taskBkgColor': '#E8EDFC', 'taskBorderColor': '#3D68EC', 'taskTextColor': '#1B2A6B', 'taskTextDarkColor': '#1B2A6B', 'taskTextOutsideColor': '#374151', 'todayLineColor': '#DD784B'}}
+gantt
+    dateFormat YYYY-MM-DD
+    axisFormat %b
+    todayMarker off
+    section Gereed
+    Koppelvlakspecificatie v0.0.1      :done, 2026-07-30, 2026-08-18
+    Informatiemodel en begrippen v0.1  :done, 2026-08-18, 2026-09-18
+    Voorbeelduitwerking leerroute 1    :done, 2026-09-17, 2026-09-30
+    section Loopt
+    OC-P&R afronden, v0.0.2            :active, 2026-08-31, 2026-10-31
+    section Doorgetrokken
+    OC-KRS en OC-SVS                   :2026-10-15, 2027-01-15
+    OC-LMS                             :2026-12-01, 2027-03-15
+    Alle lagen beschreven              :milestone, 2027-03-31, 0d
+```
+
+</div>
+
+<div class="np-strip">
+  <div class="np-pil"><carbon-user-multiple style="font-size: 1rem; color: var(--np-blue);" /> <strong>3</strong> schrijvers</div>
+  <div class="np-pil"><carbon-time style="font-size: 1rem; color: var(--np-blue);" /> <strong>2 maanden</strong> per koppeling</div>
+  <div class="np-pil"><carbon-hourglass style="font-size: 1rem; color: var(--np-orange);" /> <strong>3 weken</strong> zonder merge</div>
+</div>
+
+<div class="np-card accent-orange" style="margin-top: 0.8rem; padding: 0.6rem 1rem;">
+<strong style="color: var(--np-ink);">Q1 2027 haalbaar bij twee koppelingen tegelijk en review binnen twee weken</strong>
+</div>
+
+</div>
+
+<!--
+Doorgetrokken lijn op basis van de voortgang, geen toezegging. De bovenste drie balken zijn
+gerealiseerd en dateerbaar: de koppelvlakspecificatie kwam op 30 juli naar Public, v0.0.1 stond er
+op 18 augustus, het informatiemodel en de begrippen op 18 september, en de voorbeelduitwerking
+loopt van 17 tot 30 september. De eerste koppeling, OC-P&R, loopt sinds eind juli en is na twee
+maanden nog niet vastgesteld: dat is de maat die onder de doorgetrokken balken ligt. Capaciteit,
+uit de commit-historie sinds 1 juli: drie mensen schrijven, met het zwaartepunt bij een. De derde
+pil is de rem: op Public dev landde sinds 4 september niets. Serieel doorgerekend komen vier
+koppelingen uit op ongeveer acht maanden en dus op Q2 2027; Q1 2027 vraagt dat twee koppelingen
+tegelijk lopen en dat een reviewronde binnen twee weken rond is. Dat is een keuze over capaciteit
+en over hoe snel de kerngroep leest, geen kwestie van harder schrijven.
+-->
+
+---
+
 <!-- 6. VOORBEELDUITWERKING: WAT HET IS -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
