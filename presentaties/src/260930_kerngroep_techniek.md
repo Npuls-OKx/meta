@@ -174,6 +174,57 @@ op de agenda. Bron: de milestones van beide repositories, GitHub, 25 september.
 
 ---
 
+<!-- 5b. CONCLUSIE PO-DEEL -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# Veel verzet, weinig afgerond
+
+<div class="np-grid-3" style="margin-top: 0.9rem; gap: 1.1rem; align-items: start;">
+
+<div class="np-card accent-orange">
+<strong>De stand</strong>
+<div style="margin-top:0.4rem;font-size:0.88rem;line-height:1.55;">
+Laatste merge op Public dev: 4 september. Zes open pull requests, vijf op draft. Nul gesloten issues sinds 15 september.
+</div>
+</div>
+
+<div class="np-card accent-blue">
+<strong>Wat dat zegt</strong>
+<div style="margin-top:0.4rem;font-size:0.88rem;line-height:1.55;">
+Het werk staat tussen branch en release. De voorraad groeit sneller dan er afrondt, en het knelpunt zit aan het eind van de keten.
+</div>
+</div>
+
+<div class="np-card accent-green">
+<strong>Wat helpt</strong>
+<div style="margin-top:0.4rem;font-size:0.88rem;line-height:1.55;">
+Elke cyclus een klein deel naar dev, per milestone afspreken wanneer iets af is, en vandaag een pull request uit draft halen.
+</div>
+</div>
+
+</div>
+
+<div style="margin-top: 1rem; font-size: 0.9rem; color: var(--np-dark-gray);">
+De voorbeelduitwerking is de eerste milestone die vandaag kan sluiten: <a href="https://github.com/Npuls-OKx/Public/issues/109">Public #109</a> is de acceptatietest.
+</div>
+
+</div>
+
+<!--
+Eerlijke conclusie van het voortgangsdeel, en tegelijk een vraag aan de groep. De cijfers zijn
+gecontroleerd: op Public dev landde sinds 4 september niets, en van de zes open pull requests
+staan er vijf op draft, dus formeel vraagt bijna niets om review. Dat draft-besluit is van
+15 september en werkt goed tegen ruis, met als keerzijde dat er ook niets kan sluiten. De
+hoeveelheid werk is niet het probleem: het gaat om stukken die klein genoeg zijn om te landen.
+Daarom het voorstel om per milestone af te spreken wanneer iets af is en om elke cyclus iets
+kleins naar dev te brengen. Vandaag is de eerste gelegenheid: de milestone van de
+voorbeelduitwerking sluit met de acceptatietest.
+-->
+
+---
+
 <!-- 6. VOORBEELDUITWERKING: WAT HET IS -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
