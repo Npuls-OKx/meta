@@ -1,6 +1,6 @@
 ---
 theme: default
-title: "OKx kerngroep techniek: voortgang juni tot september 2026"
+title: "Werkgroep OKx: voortgang juni tot september 2026"
 info: "Voortgangsupdate van de kerngroep techniek voor de werkgroep OKx: wat er sinds juni is opgeleverd, in businesstaal."
 author: OKx - Onderwijskoppelingen (Npuls)
 highlighter: shiki
@@ -18,9 +18,9 @@ fonts:
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide1.PNG);"></div>
 
 <div style="position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 2rem 4rem; z-index: 1;">
-  <h1 style="font-size: 2.9rem; line-height: 1.15; margin-bottom: 0.6rem; color: var(--np-ink);">Kerngroep techniek</h1>
+  <h1 style="font-size: 2.9rem; line-height: 1.15; margin-bottom: 0.6rem; color: var(--np-ink);">Werkgroep OKx</h1>
   <div style="font-size: 1.15rem; color: var(--np-ink); margin-bottom: 0.9rem;">Voortgang juni tot september 2026</div>
-  <div style="font-size: 0.95rem; color: var(--np-mid-gray);">OKx &middot; werkgroep OKx</div>
+  <div style="font-size: 0.95rem; color: var(--np-mid-gray);">OKx &middot; kerngroep techniek &middot; 29 september 2026</div>
 </div>
 
 <!--
