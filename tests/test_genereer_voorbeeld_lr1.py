@@ -88,6 +88,16 @@ class GenereerTests(unittest.TestCase):
         self.assertEqual(beelden[0][1], "f2-01-het-aanbod-gemaakt.svg")
         self.assertEqual(beelden[1], ("ontstaat: Aanbod maken, verdieping: aanbod naar skills", "f2-02-aanbod-maken-verdieping.svg"))
 
+    def test_given_rules_when_generated_then_invulblad_is_own_document_without_reading_text(self):
+        r = regels()
+        blad = gv.invulblad(r)
+        self.assertTrue(blad.startswith("# Invulblad bij de voorbeelduitwerking van leerroute 1"))
+        self.assertIn("| 2 | F2-01 | Opleidingaanbod | | | | |", blad)
+        self.assertIn("(voorbeeld-leerroute-1-jochem.md)", blad)
+        doc = self.bouw(r)
+        self.assertNotIn("Invulblad", doc)
+        self.assertNotIn("invulblad", doc)
+
     def test_given_concept_rule_when_generated_then_image_shown_but_not_in_chips_nor_invulblad(self):
         r = regels()
         r["regels"].insert(1, {"fase": 2, "stap": "Aanbod maken", "verdieping": "kader", "plaat": "onderwijsontwerp", "soort": "ontstaat", "wie": "planner",
@@ -95,7 +105,7 @@ class GenereerTests(unittest.TestCase):
         doc = self.bouw(r)
         self.assertIn("f2-02-aanbod-maken-verdieping.svg", doc)
         self.assertNotIn("`Leervormstrategie`", doc)
-        self.assertNotIn("| 2 | Aanbod maken | Leervormstrategie |", doc)
+        self.assertNotIn("| 2 | F2-02 | Leervormstrategie |", gv.invulblad(r))
         self.assertIn("conceptplaat", doc)
 
     def test_given_beeld_titles_when_generated_then_heading_per_image_and_register_per_beeld(self):
@@ -105,7 +115,6 @@ class GenereerTests(unittest.TestCase):
         self.assertIn("**F2-01 - Het aanbod gemaakt** (fase 2, Aanbod maken; [f2-01-het-aanbod-gemaakt.svg](img/regels/f2-01-het-aanbod-gemaakt.svg))", reg)
         self.assertIn("| ontstaat | Opleidingaanbod | AA 2026 | [leerroute-1-regulier.md](", reg)
         self.assertIn("?plain=1#L1026)", reg)
-        self.assertIn("| 2 | F2-01 | Opleidingaanbod | | | | |", doc[doc.index("### Invulblad"):])
         self.assertIn("(F2-01, `Opleidingaanbod`)", doc)
 
     def test_given_source_with_fase_when_linked_then_fase_anchor_and_unknown_source_stays_text(self):

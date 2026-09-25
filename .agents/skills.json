@@ -99,7 +99,7 @@
     {
       "naam": "okx-voorbeeld-in-het-informatiemodel",
       "type": "okx-specifiek",
-      "doel": "Een persona stap voor stap in het informatiemodel uitdrukken (MIM 1 en 2): regeltabel per processtap, controle tegen de platen, beelden in ArchiMate-vormtaal en het gegenereerde leesdocument met bijlage, vragen en invulblad."
+      "doel": "Een persona stap voor stap in het informatiemodel uitdrukken (MIM 1 en 2): regeltabel per processtap, controle tegen de platen, beelden in ArchiMate-vormtaal en het gegenereerde leesdocument met bijlage en vragen, met het invulblad als eigen bestand."
     },
     {
       "naam": "requirements-engineering",

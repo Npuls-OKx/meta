@@ -4,7 +4,8 @@ description: >-
   Een persona stap voor stap in het OKx-informatiemodel uitdrukken (MIM 1 en 2):
   een regeltabel per processtap uit een kaderscenario, gecontroleerd tegen de
   informatiemodelplaat en de hoofdplaat, getekend in ArchiMate-vormtaal en
-  gegenereerd tot een leesdocument met bijlage, vragen en invulblad. Gebruik bij
+  gegenereerd tot een leesdocument met bijlage en vragen, met het invulblad als
+  eigen bestand ernaast. Gebruik bij
   de voorbeelduitwerking van Jochem (leerroute 1) en bij elke volgende persona
   of leerroute die op dezelfde manier naast het model wordt gelegd.
 ---
@@ -49,7 +50,7 @@ Elke regel is een fragment van een plaat bij een processtap:
 
 | Veld | Regel |
 |---|---|
-| `beeld_id` | het ID van het beeld: `F<fase>-<volgnummer>` (F1-02 is het tweede beeld van fase 1), een ID per beeld, oplopend binnen de fase en stabiel als er later een beeld bij komt. Het staat voor de titel in het beeld en in de kop, en in de kolom Beeld van de bijlage, het invulblad en de vragen |
+| `beeld_id` | het ID van het beeld: `F<fase>-<volgnummer>` (F1-02 is het tweede beeld van fase 1), een ID per beeld, oplopend binnen de fase en stabiel als er later een beeld bij komt. Het staat voor de titel in het beeld en in de kop, en in de kolom Beeld van de bijlage, de vragen en het invulblad |
 | `beeld` | de titel van het beeld waarin de regel staat: een beschrijvende zin van wat het beeld toont ("De opleiding zoals ontworpen naar de catalogus"), uniek, aaneengesloten, in een fase, stap en soort; ID en titel samen vormen de kop ("F1-09 - De opleiding zoals ontworpen naar de catalogus") en de bestandsnaam (`f1-09-de-opleiding-zoals-ontworpen-naar-de-catalogus.svg`). Verwijs naar een regel met beeld-ID en objecttype |
 | `stap` | letterlijk uit de stappenlijst van de fase; stappen komen uit het kaderscenario (instellingsreis en happy flow), niet uit scenario-uitwerkingen |
 | `soort` | `ontstaat` (rol, stap, objecttype met instantie), `verandert` (zelfde, met `toestand` uit de lijst), `stroomt` (`van`, `naar`, `pijl` als relatie-id uit stromen.json of "geen pijl op de hoofdplaat", `koppeling`) |

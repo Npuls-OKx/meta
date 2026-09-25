@@ -6,11 +6,13 @@ in het informatiemodel toont moet bij elke modelronde opnieuw te maken zijn, met
 weinig mogelijk tekst. Alles komt uit de regeltabel, informatiemodel.json en
 begrippen.json; de regels zelf zijn de SVG's van teken-voorbeeldregels.py.
 
-    python3 scripts/genereer-voorbeeld-lr1.py [--regels PAD] [--uit PAD]
+    python3 scripts/genereer-voorbeeld-lr1.py [--regels PAD] [--uit PAD] [--invulblad PAD]
 
 Opbouw: leeswijzer (vier termen, legenda, koppeling-ID's, aannames), per fase de
 chips en de regels, een stub voor fasen zonder regels, een tabel per begrippenfamilie
-met twee lege kolommen voor de lezer, en de vragenpagina.
+met twee lege kolommen voor de lezer, en de vragenpagina. Het invulblad, waarop een
+lezer per regel zijn eigen term invult, komt als eigen bestand naast het document:
+het hoort bij een mappingronde met leveranciers en niet in de leesroute zelf.
 """
 
 import argparse
@@ -30,6 +32,7 @@ MODEL = pathlib.Path("architecture/model/informatiemodel/informatiemodel.json")
 COMPONENTEN = pathlib.Path("architecture/model/informatiemodel/componenten.json")
 BEGRIPPEN = pathlib.Path("architecture/docs/specificatie/begrippen/begrippen.json")
 UIT = pathlib.Path("architecture/model/informatiemodel/voorbeeld-leerroute-1-jochem.md")
+INVULBLAD = pathlib.Path("architecture/model/informatiemodel/voorbeeld-leerroute-1-jochem-invulblad.md")
 PLATEN = pathlib.Path("architecture/model/informatiemodel/img/hoofdplaat")
 REGELMAP = "img/regels"
 PLAATMAP = "img/hoofdplaat"
@@ -97,7 +100,7 @@ Relateert aan: het [kaderscenario leerroute 1](https://github.com/Npuls-OKx/Publ
 
 Dit document loopt stap voor stap door de instellingsreis van het kaderscenario en toont per stap wat er in het informatiemodel ontstaat en wat er tussen systemen beweegt, met de waarde voor Jochem erin. Het is een leeshulp op conceptueel niveau (MIM 1 en 2): geen payloads, geen endpoints, geen diensten. Eén instantie per objecttype toont het type, niet het aantal.
 
-Elk beeld heeft een ID en een titel die zegt wat het toont: F1-02 is het tweede beeld van fase 1. Beide staan in het beeld zelf, als kop erboven (met een eigen anker in dit document) en in het regelregister achterin; de bijlage en het invulblad noemen het ID. Verwijs naar een beeld met zijn ID, en naar een regel met dat ID en het objecttype.
+Elk beeld heeft een ID en een titel die zegt wat het toont: F1-02 is het tweede beeld van fase 1. Beide staan in het beeld zelf, als kop erboven (met een eigen anker in dit document) en in het regelregister achterin; de bijlage noemt het ID. Verwijs naar een beeld met zijn ID, en naar een regel met dat ID en het objecttype.
 
 Vier termen, overal gelijk:
 
@@ -115,7 +118,7 @@ Twee soorten regels, in de vormtaal van de plaat:
 
 Waar de herkomst loopt: het kwalificatiedossier, de kwalificatie, de kerntaken en de werkprocessen staan in het eerste beeld van fase 1, en het derde beeld vertaalt ze naar leeruitkomsten. Daarna verwijzen specificaties, toets- en examenonderdelen, aanbod, verbintenissen en resultaten naar de leeruitkomst; de plaat kent buiten die route alleen een directe verwijzing vanuit het examenplan en de OER. Een dossiercode in een instantienaam (B1-K1, B1-K1-W1) is daarom een leeshulp die zegt over welk deel van het dossier het gaat, en geen relatie. Op de conceptplaat loopt daarnaast een eigen pad binnen de instelling: de kerntaak wordt daar onderwijskundig vertaald tot een leerdoel.
 
-Een **verdieping** (zelfde rol en stap, met "verdieping" op de processtap) zoomt in op een regel erboven. Een paars objecttype komt van de conceptplaat "Informatiemodel Onderwijsontwerp" in het ArchiMate-model (een verdieping daaruit heeft ook een gestippelde rand en een chip): het laat zien waar de informatiemodelplaat kan groeien en telt niet mee in de bijlage en het invulblad.
+Een **verdieping** (zelfde rol en stap, met "verdieping" op de processtap) zoomt in op een regel erboven. Een paars objecttype komt van de conceptplaat "Informatiemodel Onderwijsontwerp" in het ArchiMate-model (een verdieping daaruit heeft ook een gestippelde rand en een chip): het laat zien waar de informatiemodelplaat kan groeien en telt niet mee in de bijlage.
 
 Koppeling-ID's op hoofdplaat v1.7: {mapping}. Een pijl die op de hoofdplaat staat maar geen koppelingspecificatie heeft, staat als "zonder koppelingspecificatie"; een stroom uit het kaderscenario zonder pijl op de hoofdplaat staat als "geen pijl op de hoofdplaat".
 
@@ -205,12 +208,23 @@ def vragenpagina(regels):
         uit += f"{i}. {v} ({plek})\n"
     for v, plek in vragen[7:]:
         print(f"waarschuwing: vraag buiten de zeven, niet in het document: {plek}", file=sys.stderr)
-    uit += "\nVragen over patronen, schema's, de toetslijst en endpoints horen bij de koppelvlakspecificatie en staan hier niet.\n\n"
-    uit += "### Invulblad\n\nPer regel één van vier antwoorden: herken ik dit; heet bij ons anders (welke term); hangt bij ons anders (waaronder); ontbreekt. De kolom Beeld draagt het beeld-ID uit de kop erboven.\n\n| Fase | Beeld | Objecttype | Herken | Heet anders | Hangt anders | Ontbreekt |\n|---|---|---|---|---|---|---|\n"
+    uit += "\nVragen over patronen, schema's, de toetslijst en endpoints horen bij de koppelvlakspecificatie en staan hier niet.\n"
+    return uit + "\n"
+
+
+def invulblad(regels):
+    """Het invulblad als eigen bestand: een regel per objecttype dat ontstaat of verandert,
+    om naast het eigen model van een leverancier te leggen. Staat los van het leesdocument."""
+    uit = ("# Invulblad bij de voorbeelduitwerking van leerroute 1\n\n"
+           "Hoort bij [de opleiding van Jochem in het informatiemodel](voorbeeld-leerroute-1-jochem.md) en is bedoeld voor een mappingronde: "
+           "wie het voorbeeld naast het eigen model legt, noteert hier per regel de eigen term en de eigen plek. Per regel één van vier antwoorden: "
+           "herken ik dit; heet bij ons anders (welke term); hangt bij ons anders (waaronder); ontbreekt. "
+           "De kolom Beeld draagt het beeld-ID uit de kop in het document.\n\n"
+           "| Fase | Beeld | Objecttype | Herken | Heet anders | Hangt anders | Ontbreekt |\n|---|---|---|---|---|---|---|\n")
     for r in regels["regels"]:
         if r["soort"] in ("ontstaat", "verandert") and r.get("plaat", "informatiemodel") == "informatiemodel":
             uit += f"| {r['fase']} | {r.get('beeld_id', '')} | {norm(r['objecttype'])} | | | | |\n"
-    return uit + "\n"
+    return uit
 
 
 def regelregister(regels, per_fase):
@@ -310,6 +324,7 @@ def main(argv=None):
     parser.add_argument("--model", type=pathlib.Path, default=MODEL)
     parser.add_argument("--begrippen", type=pathlib.Path, default=BEGRIPPEN)
     parser.add_argument("--uit", type=pathlib.Path, default=UIT)
+    parser.add_argument("--invulblad", type=pathlib.Path, help=f"standaard {INVULBLAD.name} naast het document")
     args = parser.parse_args(argv)
     for pad, wat in ((args.regels, "regeltabel"), (args.model, "informatiemodel"), (args.begrippen, "begrippen")):
         if not pathlib.Path(pad).exists():
@@ -328,6 +343,9 @@ def main(argv=None):
         return 1
     args.uit.write_text(tekst, encoding="utf-8")
     print(f"document geschreven: {args.uit}")
+    blad = args.invulblad or args.uit.parent / INVULBLAD.name
+    blad.write_text(invulblad(lees(args.regels, "regeltabel")), encoding="utf-8")
+    print(f"invulblad geschreven: {blad}")
     return 0
 
 
