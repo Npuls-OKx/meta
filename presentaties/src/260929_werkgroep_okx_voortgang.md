@@ -170,12 +170,14 @@ eigen ritme, zodat een wijziging in een schema niet het hele pakket ophoudt.
 
 <div style="margin-top: 0.4rem;">
 
-```mermaid {theme: 'base', scale: 0.58, themeVariables: {'fontFamily': 'General Sans, Inter, sans-serif', 'fontSize': '15px', 'primaryColor': '#FFFFFF', 'primaryBorderColor': '#3D68EC', 'primaryTextColor': '#1B2A6B', 'lineColor': '#DD784B', 'clusterBkg': '#F7F8FB', 'clusterBorder': '#3D68EC', 'edgeLabelBackground': '#FFFFFF'}}
-flowchart LR
+```mermaid {theme: 'base', scale: 0.78, themeVariables: {'fontFamily': 'General Sans, Inter, sans-serif', 'fontSize': '15px', 'primaryColor': '#FFFFFF', 'primaryBorderColor': '#3D68EC', 'primaryTextColor': '#1B2A6B', 'lineColor': '#DD784B', 'clusterBkg': '#F7F8FB', 'clusterBorder': '#3D68EC', 'edgeLabelBackground': '#FFFFFF'}}
+flowchart TB
   subgraph OO["Onderwijsontwerper"]
+    direction LR
     OO1[Kwalificatiekader analyseren] --> OO2[Opleiding specificatie beschrijven] --> OO3[Opleidingsprogramma specificatie beschrijven] --> OO4[Onderwijseenheid specificaties beschrijven] --> OO5[Leeronderdeel specificaties beschrijven] --> OO6[Onderwijsspecificaties publiceren]
   end
   subgraph PL["Planner"]
+    direction LR
     PL1[Strategische jaarplanning] --> PL2[Team-inzetplanning]
   end
   OO6 --> PL1
@@ -183,7 +185,7 @@ flowchart LR
 
 </div>
 
-<div style="display: flex; justify-content: center; gap: 0.4rem; margin-top: 0.5rem; flex-wrap: wrap;">
+<div style="display: flex; justify-content: center; gap: 0.4rem; margin-top: 1.4rem; flex-wrap: wrap;">
   <div class="np-fase">1 Ontwerpen</div>
   <div class="np-fase">2 Publiceren en planbaar maken</div>
   <div class="np-fase">3 Intake en plaatsing</div>
@@ -295,7 +297,7 @@ dit is voorgelegd, niet vastgesteld.
 <div class="np-grid-2" style="margin-top: 0.9rem; gap: 1.2rem; align-items: center;">
 
 <div>
-  <img src="/platen/voorbeeld-f2-07-aanbod-naar-catalogus.png" style="width: 100%; border-radius: 6px; border: 1px solid var(--np-light-gray); background: #fff;" />
+  <img src="/platen/voorbeeld-f2-07-aanbod-naar-catalogus.svg" style="width: 100%; border-radius: 6px; border: 1px solid var(--np-light-gray); background: #fff;" />
   <div style="font-size: 0.7rem; color: var(--np-mid-gray); margin-top: 0.3rem;">Een stap uit de uitwerking: het geplande aanbod terug naar de catalogus</div>
 </div>
 
@@ -444,7 +446,7 @@ in afstemming met de leveranciers.
 
 <div style="min-width: 0;">
 
-```mermaid {theme: 'base', scale: 0.58, themeVariables: {'fontFamily': 'General Sans, Inter, sans-serif', 'fontSize': '15px', 'primaryColor': '#FFFFFF', 'primaryBorderColor': '#3D68EC', 'primaryTextColor': '#1B2A6B', 'lineColor': '#DD784B', 'edgeLabelBackground': '#FFFFFF'}}
+```mermaid {theme: 'base', scale: 0.78, themeVariables: {'fontFamily': 'General Sans, Inter, sans-serif', 'fontSize': '15px', 'primaryColor': '#FFFFFF', 'primaryBorderColor': '#3D68EC', 'primaryTextColor': '#1B2A6B', 'lineColor': '#DD784B', 'edgeLabelBackground': '#FFFFFF'}}
 flowchart TD
   A[Scenario-analyse] --> B[Gegevensanalyse]
   A --> C[Interactie-analyse]
