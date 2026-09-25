@@ -311,7 +311,7 @@ Sectiescheiding tussen het voortgangsdeel en de inhoud. Vanaf hier loopt de sess
 
 <div class="fill">
 
-# Twee bronnen, een voorbeeld
+# Drie bronnen, een voorbeeld
 
 <div style="display: grid; grid-template-columns: 1fr 0.12fr 1.5fr; gap: 0.6rem; align-items: center; margin-top: 0.8rem;">
 
@@ -320,16 +320,20 @@ Sectiescheiding tussen het voortgangsdeel en de inhoud. Vanaf hier loopt de sess
     <img src="/platen/informatiemodel-v0.1.jpg" />
     <div>Informatiemodel v0.1</div>
   </div>
-  <div class="np-bron" style="margin-top: 0.6rem;">
+  <div class="np-bron" style="margin-top: 0.45rem;">
     <img src="/platen/jochem.png" />
     <div>Leerroute 1, acht fasen</div>
+  </div>
+  <div class="np-bron" style="margin-top: 0.45rem;">
+    <img src="/platen/leerroute-1-procesbeeld.svg" />
+    <div>Procesbeeld: rollen en stappen per fase</div>
   </div>
 </div>
 
 <div style="text-align: center; color: var(--np-orange); font-size: 1.8rem; font-weight: 700;">&#8594;</div>
 
 <div class="np-bron">
-  <img src="/regels/f1-01-het-kwalificatiedossier-ontleed.svg" style="max-height: 13rem;" />
+  <img src="/regels/f1-01-het-kwalificatiedossier-ontleed.svg" style="max-height: 14rem;" />
   <div>Per stap een beeld, met Jochems eigen waarden</div>
 </div>
 
@@ -343,7 +347,7 @@ Sectiescheiding tussen het voortgangsdeel en de inhoud. Vanaf hier loopt de sess
 
 <style scoped>
 .np-bron { background: #fff; border: 1px solid var(--np-light-gray); border-radius: 10px; padding: 0.5rem; text-align: center; }
-.np-bron img { width: 100%; max-height: 5.6rem; object-fit: contain; display: block; margin: 0 auto 0.3rem; }
+.np-bron img { width: 100%; max-height: 3.9rem; object-fit: contain; display: block; margin: 0 auto 0.25rem; }
 .np-bron div { font-size: 0.78rem; font-weight: 600; color: var(--np-dark-blue); line-height: 1.3; }
 .np-pil { display: flex; align-items: center; gap: 0.35rem; background: #fff; border: 1px solid var(--np-light-gray); border-radius: 999px; padding: 0.3rem 0.9rem; font-size: 0.82rem; color: var(--np-dark-blue); }
 .np-pil strong { color: var(--np-orange); }
@@ -352,8 +356,10 @@ Sectiescheiding tussen het voortgangsdeel en de inhoud. Vanaf hier loopt de sess
 </div>
 
 <!--
-De opzet van het blok in een beeld: het informatiemodel en de leerroute-uitwerking komen samen in
-een voorbeeld, en dat voorbeeld levert per processtap een beeld met de waarden van Jochem erin.
+De opzet van het blok in een beeld: het informatiemodel, de leerroute en het procesbeeld uit de
+leerroute-uitwerking komen samen in een voorbeeld, en dat voorbeeld levert per processtap een
+beeld met de waarden van Jochem erin. Het procesbeeld is het BPMN-diagram van scenario 1.1, met
+de rollen als banen en de stappen per fase; daar komen de processtappen in de beelden vandaan.
 Zeg er vooraf bij hoe de doorloop gaat, want anders vult dit onderwerp de hele sessie: eerst lopen
 we fase 1 stap voor stap door, opmerkingen worden onderweg genoteerd, en daarna voeren we de
 discussie samen. Die discussie gaat over de vorm van de uitwerking, de mate van detaillering en de
@@ -1014,6 +1020,80 @@ aanbod gepland is, de catalogus haalt het op, en het bericht draagt een verwijzi
 specificatie waarvan het aanbod is gemaakt. Bron: interactiepatroon onderwijscatalogus en planning
 en roostering, en het schema education-offering. Hiermee is de brug naar het blok van Garik gelegd:
 zodra berichtstromen bestaan, is de vraag hoe je ze versioneert.
+-->
+
+---
+
+<!-- 8b. DE ROUTE VAN STORY NAAR SPECIFICATIE -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# Zo hangt het samen
+
+<div style="font-size: 0.85rem; color: var(--np-mid-gray); margin-top: 0.2rem;">Vertalen langs een vaste route, met wat er vandaag per stap ligt</div>
+
+<div class="np-pipeline" style="margin-top: 0.7rem; align-items: stretch;">
+  <div class="np-step orange" style="flex: 1; padding: 0.5rem 0.35rem; align-items: center; justify-content: center;">
+    <carbon-user-multiple style="font-size: 1.25rem; color: var(--np-orange);" />
+    <strong style="font-size: 0.8rem;">Userstories</strong>
+    <small>requirementsboom</small>
+  </div>
+  <div class="np-arrow" style="align-self: center;">&#8594;</div>
+  <div class="np-step blue" style="flex: 1; padding: 0.5rem 0.35rem; align-items: center; justify-content: center;">
+    <carbon-assembly-cluster style="font-size: 1.25rem; color: var(--np-blue);" />
+    <strong style="font-size: 0.8rem;">Bouwblokken</strong>
+    <small>koppelvlakdiensten</small>
+  </div>
+  <div class="np-arrow" style="align-self: center;">&#8594;</div>
+  <div class="np-step blue" style="flex: 1; padding: 0.5rem 0.35rem; align-items: center; justify-content: center;">
+    <carbon-book style="font-size: 1.25rem; color: var(--np-blue);" />
+    <strong style="font-size: 0.8rem;">Begrippen</strong>
+    <small>begrippenlijst v0.2</small>
+  </div>
+  <div class="np-arrow" style="align-self: center;">&#8594;</div>
+  <div class="np-step blue" style="flex: 1; padding: 0.5rem 0.35rem; align-items: center; justify-content: center;">
+    <carbon-machine-learning-model style="font-size: 1.25rem; color: var(--np-blue);" />
+    <strong style="font-size: 0.8rem;">Informatiemodel</strong>
+    <small>v0.1, 66 objecttypen</small>
+  </div>
+  <div class="np-arrow" style="align-self: center;">&#8594;</div>
+  <div class="np-step blue" style="flex: 1; padding: 0.5rem 0.35rem; align-items: center; justify-content: center;">
+    <carbon-network-3 style="font-size: 1.25rem; color: var(--np-blue);" />
+    <strong style="font-size: 0.8rem;">Informatiestromen</strong>
+    <small>hoofdplaat v1.7</small>
+  </div>
+</div>
+
+<div style="text-align: center; color: var(--np-green); font-size: 1.3rem; font-weight: 700; line-height: 1; margin: 0.3rem 0;">&#8595;</div>
+
+<div class="np-card accent-green" style="padding: 0.45rem 1rem; text-align: center;">
+  <carbon-document style="font-size: 1.25rem; color: var(--np-green);" />
+  <div style="font-weight: 700; font-size: 0.9rem;">Eindproduct: koppelvlakspecificatie</div>
+  <small style="font-size: 0.78rem; color: var(--np-mid-gray);">koppelingspecificaties &middot; datamodelschema's &middot; berichtstromen &middot; endpoints &middot; afsprakenset</small>
+</div>
+
+<div class="np-grid-2" style="margin-top: 0.55rem; gap: 0.8rem;">
+  <div class="np-card accent-blue" style="padding: 0.5rem 0.9rem;">
+    <div style="font-weight: 700; font-size: 0.88rem;">Vandaag: fase 1 helemaal door de route</div>
+    <small style="font-size: 0.78rem;">van kwalificatiedossier tot het eerste bericht</small>
+  </div>
+  <div class="np-card accent-orange" style="padding: 0.5rem 0.9rem;">
+    <div style="font-weight: 700; font-size: 0.88rem;">Daarna: fase 2 tot 8, en de volgende koppeling</div>
+    <small style="font-size: 0.78rem;">dezelfde route, per lijn op de hoofdplaat</small>
+  </div>
+</div>
+
+</div>
+
+<!--
+De samenhang in een slide, overgenomen uit de update voor de werkgroep en hier aangevuld met wat
+er per stap ligt: de requirementsboom, de koppelvlakdiensten als bouwblokken, begrippenlijst v0.2,
+informatiemodel v0.1 met 66 objecttypen en hoofdplaat v1.7. Onderaan de koppelvlakspecificatie als
+eindproduct. Dit is ook het antwoord op de vraag waarom de doorloop van fase 1 zo gedetailleerd
+is: die detaillering is nodig om de berichtstromen en endpoints eronder te kunnen beschrijven.
+Wat vandaag ligt is fase 1 van leerroute 1; fase 2 tot 8 en de volgende koppelingen volgen
+dezelfde route.
 -->
 
 ---
