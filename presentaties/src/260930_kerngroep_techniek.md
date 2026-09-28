@@ -1518,6 +1518,50 @@ aanmelden op de plaat verschijnt, en heet dan OC-AII.
 
 ---
 
+<!-- 11d. DE HOOFDPLAAT OPNIEUW GEROUTEERD -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# Dezelfde stromen, anders gerouteerd
+
+<img src="/platen/stromen-voorstel.svg" class="np-plaat" />
+
+<div class="np-voet">
+  <div class="np-pil"><strong>28</strong> componenten</div>
+  <div class="np-pil"><strong>30</strong> stromen</div>
+  <div class="np-pil"><strong>0</strong> lijnen over elkaar</div>
+  <span>Schets ter bespreking, geen vervanging van hoofdplaat v1.7</span>
+</div>
+
+<style scoped>
+.fill { padding: 0.8rem 1rem; }
+h1 { font-size: 1.7rem !important; line-height: 1.1; margin: 0 0 0.3rem; }
+.np-plaat { flex: 1; min-height: 0; width: 100%; object-fit: contain; }
+.np-voet { display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-top: 0.4rem; flex-wrap: wrap; font-size: 0.76rem; color: var(--np-mid-gray); }
+.np-pil { display: flex; align-items: center; gap: 0.35rem; background: #fff; border: 1px solid var(--np-light-gray); border-radius: 999px; padding: 0.25rem 0.8rem; font-size: 0.78rem; color: var(--np-dark-blue); }
+.np-pil strong { color: var(--np-orange); font-size: 0.95rem; }
+</style>
+
+</div>
+
+<!--
+Een schets, om te laten zien wat een leesbare plaat zou opleveren. Dezelfde 28 applicatiecomponenten
+en dezelfde 30 informatiestromen als op hoofdplaat v1.7, met de namen van de stromen erbij, alleen
+anders neergezet: de systemen op een rij in de volgorde van het verhaal, van specificatie via
+planning, roostering, keuze en verbintenis naar uitvoering en volgen. Elke stroom krijgt een eigen
+baan boven of onder die rij, met een kleur per bronsysteem. Daardoor loopt elke lijn recht, raakt
+hij haaks aan en valt hij nergens samen met een andere; een kruising is altijd een rechte hoek.
+Wat dit kost: een systeem staat er nog maar een keer. Op v1.7 staan de catalogus, de kernregistratie
+en het studentvolgsysteem twee keer omdat zij in beide processen meedoen; hier dragen de twee
+gekleurde zones dat verhaal. De groeperingen blijven staan: planning elementen, SIS, RIO/CAMBO/AII
+en toets- en examen. De plaat is gegenereerd uit het model, dus zij loopt mee met elke wijziging.
+Vraag aan de zaal: helpt deze ordening, en is dit de moeite waard als volgende versie van de
+hoofdplaat, of houden we de vertrouwde indeling aan?
+-->
+
+---
+
 <!-- 12. GEVRAAGD -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
