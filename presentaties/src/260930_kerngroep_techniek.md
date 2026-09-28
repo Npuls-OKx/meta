@@ -1518,20 +1518,20 @@ aanmelden op de plaat verschijnt, en heet dan OC-AII.
 
 ---
 
-<!-- 11d. DE HOOFDPLAAT OPNIEUW GEROUTEERD -->
+<!-- 11d. DE HOOFDPLAAT RUIMER EN NETJES GEROUTEERD -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
 
-# Dezelfde stromen, anders gerouteerd
+# Dezelfde plaat, meer lucht
 
-<img src="/platen/stromen-voorstel.svg" class="np-plaat" />
+<img src="/platen/hoofdplaat-ruim.svg" class="np-plaat" />
 
 <div class="np-voet">
-  <div class="np-pil"><strong>28</strong> componenten</div>
-  <div class="np-pil"><strong>30</strong> stromen</div>
-  <div class="np-pil"><strong>0</strong> lijnen over elkaar</div>
-  <span>Schets ter bespreking, geen vervanging van hoofdplaat v1.7</span>
+  <div class="np-pil"><strong>38</strong> componenten</div>
+  <div class="np-pil"><strong>33</strong> stromen</div>
+  <div class="np-pil"><strong>0</strong> schuine lijnen</div>
+  <span>Hoofdplaat v1.7, uit elkaar getrokken en opnieuw gerouteerd</span>
 </div>
 
 <style scoped>
@@ -1546,18 +1546,17 @@ h1 { font-size: 1.7rem !important; line-height: 1.1; margin: 0 0 0.3rem; }
 </div>
 
 <!--
-Een schets, om te laten zien wat een leesbare plaat zou opleveren. Dezelfde 28 applicatiecomponenten
-en dezelfde 30 informatiestromen als op hoofdplaat v1.7, met de namen van de stromen erbij, alleen
-anders neergezet: de systemen op een rij in de volgorde van het verhaal, van specificatie via
-planning, roostering, keuze en verbintenis naar uitvoering en volgen. Elke stroom krijgt een eigen
-baan boven of onder die rij, met een kleur per bronsysteem. Daardoor loopt elke lijn recht, raakt
-hij haaks aan en valt hij nergens samen met een andere; een kruising is altijd een rechte hoek.
-Wat dit kost: een systeem staat er nog maar een keer. Op v1.7 staan de catalogus, de kernregistratie
-en het studentvolgsysteem twee keer omdat zij in beide processen meedoen; hier dragen de twee
-gekleurde zones dat verhaal. De groeperingen blijven staan: planning elementen, SIS, RIO/CAMBO/AII
-en toets- en examen. De plaat is gegenereerd uit het model, dus zij loopt mee met elke wijziging.
-Vraag aan de zaal: helpt deze ordening, en is dit de moeite waard als volgende versie van de
-hoofdplaat, of houden we de vertrouwde indeling aan?
+Geen nieuwe plaat, dezelfde plaat. Hoofdplaat v1.7 vertelt haar verhaal in twee procesgebieden:
+links de onderwijsontwikkeling, rechts de onderwijsuitvoering, met de applicatiecomponenten die
+daarin met elkaar praten. Elke informatiestroom blijft binnen haar eigen gebied; daarom staat een
+component dat in beide processen meedoet er twee keer op. Dat is precies zo gebleven, net als de
+groeperingen, de diensten in de componenten, de kanttekeningen en de namen van de stromen zoals
+Niels ze schreef. Wat er wel is gebeurd: de ruimte tussen de vakken is opengetrokken, vakken die
+te klein waren voor hun eigen naam zijn meegegroeid, en elke lijn is opnieuw gelegd. Elke lijn
+loopt nu recht of met een hoek van 90 graden, raakt haaks aan en valt nergens samen met een
+andere. De tekst groeide mee met de ruimte, zodat de plaat ook op afstand leest. Gegenereerd uit
+de view, dus zij loopt mee met elke wijziging in het model. Vraag aan de zaal: helpt deze
+opmaak bij het uitleggen van de plaat, en wat moet er nog bij voordat zij als v1.8 kan staan?
 -->
 
 ---
