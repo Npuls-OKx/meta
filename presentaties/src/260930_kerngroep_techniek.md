@@ -1484,28 +1484,22 @@ scherp is. De vraag aan de zaal is of dit concept klopt en wat er nog mist.
 
 # Een eerste poging, alle stromen
 
-<div style="margin-top: 0.4rem;">
-  <img src="/platen/koppeling-ids-hoofdplaat.svg" style="width: 100%; max-height: 21rem; object-fit: contain; border-radius: 6px; border: 1px solid var(--np-light-gray); background: #fff;" />
-  <div style="font-size: 0.72rem; color: var(--np-mid-gray); margin-top: 0.25rem; text-align: center;">Hoofdplaat v1.7, elke stroom met een voorlopig ID</div>
-</div>
+<img src="/platen/koppeling-ids-hoofdplaat.svg" class="np-plaat" />
 
-<div style="display: flex; justify-content: center; gap: 0.5rem; margin-top: 0.7rem; flex-wrap: wrap;">
+<div class="np-voet">
   <div class="np-pil"><strong>24</strong> stromen</div>
   <div class="np-pil"><strong>17</strong> voorlopige ID's</div>
   <div class="np-pil"><strong>4</strong> met een specificatie</div>
-</div>
-
-<div style="margin-top: 0.6rem; font-size: 0.85rem; color: var(--np-dark-gray); text-align: center;">
-  Werkafspraak om op te schuiven, geen vastgestelde conventie
-</div>
-
-<div style="margin-top: 0.3rem; font-size: 0.75rem; color: var(--np-mid-gray); text-align: center;">
-  OC-CAMBO staat er al; OC-AII komt erbij zodra centraal aanmelden op de plaat staat
+  <span>Werkafspraak om op te schuiven &middot; OC-CAMBO staat er al, OC-AII komt erbij</span>
 </div>
 
 <style scoped>
-.np-pil { display: flex; align-items: center; gap: 0.35rem; background: #fff; border: 1px solid var(--np-light-gray); border-radius: 999px; padding: 0.3rem 0.9rem; font-size: 0.82rem; color: var(--np-dark-blue); }
-.np-pil strong { color: var(--np-orange); font-size: 1rem; }
+.fill { padding: 0.8rem 1rem; }
+h1 { font-size: 1.7rem !important; line-height: 1.1; margin: 0 0 0.3rem; }
+.np-plaat { flex: 1; min-height: 0; width: 100%; object-fit: contain; }
+.np-voet { display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-top: 0.4rem; flex-wrap: wrap; font-size: 0.76rem; color: var(--np-mid-gray); }
+.np-pil { display: flex; align-items: center; gap: 0.35rem; background: #fff; border: 1px solid var(--np-light-gray); border-radius: 999px; padding: 0.25rem 0.8rem; font-size: 0.78rem; color: var(--np-dark-blue); }
+.np-pil strong { color: var(--np-orange); font-size: 0.95rem; }
 </style>
 
 </div>
