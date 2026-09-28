@@ -18,6 +18,7 @@ import base64
 import collections
 import html
 import importlib.util
+import itertools
 import json
 import pathlib
 import sys
@@ -189,46 +190,267 @@ def boog(a, b, gestippeld=False):
     return p1, p2, (cx, cy)
 
 
-def haaks_pad(a, b, aanhecht=None, spreiding=16):
-    """Een orthogonaal pad tussen twee vakken: haaks het ene vak uit en haaks het andere in.
+def _rechthoek(v):
+    return (v["x"], v["y"], v["x"] + v["w"], v["y"] + v["h"])
 
-    Waarvoor: een plaat met tientallen markeringen leest alleen als de lijnen evenwijdig lopen en
-    loodrecht aankomen. Een schuine lijn die een vak in een hoek raakt maakt de plaat onleesbaar.
-    Liggen de vakken naast elkaar, dan is het een rechte lijn; liggen zij verspringend, dan een
-    Z met een knik halverwege. `aanhecht` telt hoeveel lijnen er al op een zijde aankomen, zodat
-    twee lijnen op dezelfde zijde niet over elkaar heen lopen.
+
+def _lengte(punten):
+    return sum(abs(b[0] - a[0]) + abs(b[1] - a[1]) for a, b in zip(punten, punten[1:]))
+
+
+def _knip(punten):
+    """Dubbele punten en rechte knikken eruit, zodat een baan van nul lang geen hoek achterlaat."""
+    uit = []
+    for p in punten:
+        if not uit or abs(p[0] - uit[-1][0]) > 0.5 or abs(p[1] - uit[-1][1]) > 0.5:
+            uit.append(p)
+    i = 1
+    while i < len(uit) - 1:
+        (x1, y1), (x2, y2), (x3, y3) = uit[i - 1], uit[i], uit[i + 1]
+        if (x1 == x2 == x3) or (y1 == y2 == y3):
+            uit.pop(i)
+        else:
+            i += 1
+    return uit
+
+
+class Haaks:
+    """Orthogonale routering van de markeringen: rechte lijnen, en waar een hoek moet een hoek van 90 graden.
+
+    Waarvoor: op een plaat met tientallen markeringen leest een schuine lijn niet, en twee lijnen die over
+    elkaar heen lopen lezen evenmin. Deze router kent de vakken op de plaat en de banen die al bezet zijn,
+    en kiest per stroom de route met de minste hoeken die in vrije baan past: eerst een rechte lijn, dan
+    een route met een enkele hoek, en pas daarna een route met twee hoeken door de ruimte tussen de vakken.
+    Een lijn naar een vak hogerop verlaat het vak bij voorkeur aan de bovenkant en loopt haar lange been
+    bovenlangs, weg van de drukte in het midden van de plaat.
     """
-    aanhecht = {} if aanhecht is None else aanhecht
 
-    def verschuif(vak, zijde, waarde, ruimte):
-        n = aanhecht.get((id(vak), zijde), 0)
-        aanhecht[(id(vak), zijde)] = n + 1
-        stap = ((n + 1) // 2) * spreiding * (1 if n % 2 else -1)
-        grens = max(ruimte / 2 - 8, 0)
-        return waarde + max(-grens, min(grens, stap))
+    STAP = 24      # afstand tussen twee banen; zo blijven twee lijnen naast elkaar leesbaar
+    MARGE = 12     # een baan blijft zo ver van een vak dat zij niet raakt
+    RAND = 14      # een lijn hecht niet in de hoek van een vak aan
+    SPLEET = 8     # zoveel ruimte is er minstens nodig voor een rechte lijn tussen twee vakken
+    GAT = 28       # en zoveel voor een baan die tussen twee vakken door loopt
+    KRAP = 10      # is er geen ruimte voor de volle afstand, dan mogen twee banen zo dicht naast elkaar
+    BOCHT = 1000   # een route met minder hoeken wint altijd
+    BOVENLANGS = 220  # voorkeur voor de route die bovenlangs loopt naar een vak hogerop
 
-    ay1, ay2, by1, by2 = a["y"], a["y"] + a["h"], b["y"], b["y"] + b["h"]
-    ax1, ax2, bx1, bx2 = a["x"], a["x"] + a["w"], b["x"], b["x"] + b["w"]
-    overlap_y = min(ay2, by2) - max(ay1, by1)
-    overlap_x = min(ax2, bx2) - max(ax1, bx1)
-    if overlap_y >= 24 and (ax2 <= bx1 or bx2 <= ax1):
-        y = verschuif(a, "h", (max(ay1, by1) + min(ay2, by2)) / 2, overlap_y)
-        return [(ax2 if ax2 <= bx1 else ax1, y), (bx1 if ax2 <= bx1 else bx2, y)]
-    if overlap_x >= 24 and (ay2 <= by1 or by2 <= ay1):
-        x = verschuif(a, "v", (max(ax1, bx1) + min(ax2, bx2)) / 2, overlap_x)
-        return [(x, ay2 if ay2 <= by1 else ay1), (x, by1 if ay2 <= by1 else by2)]
-    ya = verschuif(a, "h", (ay1 + ay2) / 2, a["h"])
-    yb = verschuif(b, "h", (by1 + by2) / 2, b["h"])
-    if ax2 <= bx1 or bx2 <= ax1:
-        xa, xb = (ax2, bx1) if ax2 <= bx1 else (ax1, bx2)
-        xm = (xa + xb) / 2
-        return [(xa, ya), (xm, ya), (xm, yb), (xb, yb)]
-    # de vakken staan boven elkaar met overlap: verticaal eruit en horizontaal erin
-    xa = verschuif(a, "v", (ax1 + ax2) / 2, a["w"])
-    ya2, yb2 = (ay2, by1) if ay2 <= by1 else (ay1, by2)
-    ym = (ya2 + yb2) / 2
-    xb = bx1 if xa <= (bx1 + bx2) / 2 else bx2
-    return [(xa, ya2), (xa, ym), (xb, ym), (xb, yb)]
+    def __init__(self, vakken=()):
+        self.vakken = [(_rechthoek(v), id(v)) for v in vakken]
+        self.banen = []
+
+    def pad(self, a, b):
+        """De route van vak a naar vak b; de gekozen banen blijven daarna bezet.
+
+        De vorm met de minste hoeken gaat voor, en per vorm de ruimste spreiding: liever een lijn
+        die een stuk naast de vorige loopt dan een lijn die er vlak langs of bovenop komt.
+        """
+        eigen = {id(a), id(b)}
+        for vorm in (self._recht, self._bocht, self._baan):
+            for afstand in (self.STAP, self.KRAP):
+                routes = [r for r in vorm(a, b, eigen, afstand) if r]
+                if routes:
+                    return self._bezet(min(routes)[1])
+        return self._bezet(self._nood(a, b))
+
+    # -- vormen ---------------------------------------------------------------
+
+    def _recht(self, a, b, eigen, afstand):
+        """Een rechte lijn: de vakken liggen naast of boven elkaar met genoeg overlap."""
+        ax1, ay1, ax2, ay2 = _rechthoek(a)
+        bx1, by1, bx2, by2 = _rechthoek(b)
+        uit = []
+        if bx1 - ax2 >= self.SPLEET or ax1 - bx2 >= self.SPLEET:
+            xa, xb = (ax2, bx1) if bx1 > ax2 else (ax1, bx2)
+            uit.append(self._zoek([self._band(ay1, ay2, by1, by2)],
+                                  lambda w: [(xa, w[0]), (xb, w[0])], eigen, afstand))
+        if by1 - ay2 >= self.SPLEET or ay1 - by2 >= self.SPLEET:
+            ya, yb = (ay2, by1) if by1 > ay2 else (ay1, by2)
+            uit.append(self._zoek([self._band(ax1, ax2, bx1, bx2)],
+                                  lambda w: [(w[0], ya), (w[0], yb)], eigen, afstand))
+        return uit
+
+    def _bocht(self, a, b, eigen, afstand):
+        """Een route met een enkele hoek: haaks het ene vak uit, haaks het andere in."""
+        ax1, ay1, ax2, ay2 = _rechthoek(a)
+        bx1, by1, bx2, by2 = _rechthoek(b)
+        uit = []
+        if by1 - ay2 >= self.GAT or ay1 - by2 >= self.GAT:
+            yb = by1 if by1 > ay2 else by2
+            zij = ((ax2, max(bx1 + self.RAND, ax2 + self.MARGE), bx2 - self.RAND),
+                   (ax1, bx1 + self.RAND, min(bx2 - self.RAND, ax1 - self.MARGE)))
+            for xa, laag, hoog in zij:
+                uit.append(self._zoek([(self._mid(ay1, ay2), ay1 + self.RAND, ay2 - self.RAND),
+                                       (self._mid(bx1, bx2), laag, hoog)],
+                                      lambda w, xa=xa, yb=yb: [(xa, w[0]), (w[1], w[0]), (w[1], yb)], eigen, afstand))
+        if bx1 - ax2 >= self.GAT or ax1 - bx2 >= self.GAT:
+            xb = bx1 if bx1 > ax2 else bx2
+            zij = ((ay2, max(by1 + self.RAND, ay2 + self.MARGE), by2 - self.RAND, 0),
+                   (ay1, by1 + self.RAND, min(by2 - self.RAND, ay1 - self.MARGE),
+                    self.BOVENLANGS if by2 <= ay1 else 0))
+            for ya, laag, hoog, korting in zij:
+                route = self._zoek([(self._mid(ax1, ax2), ax1 + self.RAND, ax2 - self.RAND),
+                                    (self._mid(by1, by2), laag, hoog)],
+                                   lambda w, ya=ya, xb=xb: [(w[0], ya), (w[0], w[1]), (xb, w[1])], eigen, afstand)
+                uit.append((route[0] - korting, route[1]) if route else None)
+        return uit
+
+    def _baan(self, a, b, eigen, afstand):
+        """Een route met twee hoeken: een lange baan door de ruimte tussen de twee vakken."""
+        ax1, ay1, ax2, ay2 = _rechthoek(a)
+        bx1, by1, bx2, by2 = _rechthoek(b)
+        uit = []
+        if bx1 - ax2 >= self.GAT or ax1 - bx2 >= self.GAT:
+            xa, xb = (ax2, bx1) if bx1 > ax2 else (ax1, bx2)
+            laag, hoog = sorted((xa, xb))
+            uit.append(self._zoek([(self._mid(ay1, ay2), ay1 + self.RAND, ay2 - self.RAND),
+                                   (self._mid(by1, by2), by1 + self.RAND, by2 - self.RAND),
+                                   (self._mid(laag, hoog), laag + self.MARGE, hoog - self.MARGE)],
+                                  lambda w: [(xa, w[0]), (w[2], w[0]), (w[2], w[1]), (xb, w[1])], eigen, afstand))
+        if by1 - ay2 >= self.GAT or ay1 - by2 >= self.GAT:
+            ya, yb = (ay2, by1) if by1 > ay2 else (ay1, by2)
+            laag, hoog = sorted((ya, yb))
+            korting = self.BOVENLANGS if by2 <= ay1 else 0
+            route = self._zoek([(self._mid(ax1, ax2), ax1 + self.RAND, ax2 - self.RAND),
+                                (self._mid(bx1, bx2), bx1 + self.RAND, bx2 - self.RAND),
+                                (self._mid(laag, hoog), laag + self.MARGE, hoog - self.MARGE)],
+                               lambda w: [(w[0], ya), (w[0], w[2]), (w[1], w[2]), (w[1], yb)], eigen, afstand)
+            uit.append((route[0] - korting, route[1]) if route else None)
+        return uit
+
+    def _nood(self, a, b):
+        """Geen vrije baan te vinden: de kortste orthogonale route, hoe druk het er ook is."""
+        ax1, ay1, ax2, ay2 = _rechthoek(a)
+        bx1, by1, bx2, by2 = _rechthoek(b)
+        ya, yb = self._mid(ay1, ay2), self._mid(by1, by2)
+        if bx1 > ax2 or ax1 > bx2:
+            xa, xb = (ax2, bx1) if bx1 > ax2 else (ax1, bx2)
+            xm = (xa + xb) / 2
+            return _knip([(xa, ya), (xm, ya), (xm, yb), (xb, yb)])
+        xa, xb = self._mid(ax1, ax2), self._mid(bx1, bx2)
+        ya, yb = (ay2, by1) if by1 > ay2 else (ay1, by2)
+        ym = (ya + yb) / 2
+        return _knip([(xa, ya), (xa, ym), (xb, ym), (xb, yb)])
+
+    # -- banen kiezen en vrijhouden -------------------------------------------
+
+    @staticmethod
+    def _mid(v1, v2):
+        return (v1 + v2) / 2
+
+    def _band(self, a1, a2, b1, b2):
+        """Het venster waarin een rechte lijn tussen twee vakken past; None als zij te weinig overlappen."""
+        laag, hoog = max(a1, b1) + self.RAND, min(a2, b2) - self.RAND
+        return None if hoog < laag else (self._mid(max(a1, b1), min(a2, b2)), laag, hoog)
+
+    def _banen(self, venster):
+        """De banen rond het midden op een raster, met de randen van het venster als laatste uitwijk."""
+        if venster is None:
+            return []
+        midden, laag, hoog = venster
+        if hoog < laag:
+            return []
+        midden = min(max(midden, laag), hoog)
+        uit = []
+        for n in range(8):
+            for richting in ((0,) if n == 0 else (1, -1)):
+                w = midden + richting * n * self.STAP
+                if laag <= w <= hoog and all(abs(w - q) > 1 for _, q in uit):
+                    uit.append((len(uit), w))
+        for w in (laag, hoog):
+            if all(abs(w - q) > 1 for _, q in uit):
+                uit.append((len(uit), w))
+        return uit
+
+    def _zoek(self, vensters, maak, eigen, afstand):
+        """De route met de kleinste afwijking van het midden waarvan elk segment in vrije baan ligt."""
+        lijsten = [self._banen(v) for v in vensters]
+        if not all(lijsten):
+            return None
+        for combi in sorted(itertools.product(*lijsten), key=lambda c: sum(i for i, _ in c)):
+            punten = _knip(maak([w for _, w in combi]))
+            if len(punten) > 1 and self._vrij(punten, eigen, afstand):
+                afwijking = sum(i for i, _ in combi)
+                return (len(punten) - 2) * self.BOCHT + afwijking * 30 + _lengte(punten) * 0.05, punten
+        return None
+
+    def _vrij(self, punten, eigen, afstand):
+        for (x1, y1), (x2, y2) in zip(punten, punten[1:]):
+            soort = "v" if abs(x1 - x2) < 0.5 else "h"
+            coord, van, tot = (x1, y1, y2) if soort == "v" else (y1, x1, x2)
+            if not self._vrije_baan(soort, coord, van, tot, eigen, afstand):
+                return False
+        return True
+
+    def _vrije_baan(self, soort, coord, van, tot, eigen, afstand):
+        laag, hoog = sorted((van, tot))
+        for (x1, y1, x2, y2), bron in self.vakken:
+            if bron in eigen:
+                continue
+            k1, k2, s1, s2 = (x1, x2, y1, y2) if soort == "v" else (y1, y2, x1, x2)
+            if k1 - self.MARGE < coord < k2 + self.MARGE and hoog > s1 + 1 and laag < s2 - 1:
+                return False
+        for baan, c, v, t in self.banen:
+            if baan != soort or abs(c - coord) >= afstand:
+                continue
+            if min(hoog, max(v, t)) - max(laag, min(v, t)) > 0:
+                return False
+        return True
+
+    def _bezet(self, punten):
+        """De route vastleggen, zodat een volgende lijn ernaast gaat lopen in plaats van eroverheen."""
+        for (x1, y1), (x2, y2) in zip(punten, punten[1:]):
+            if abs(x1 - x2) < 0.5:
+                self.banen.append(("v", x1, y1, y2))
+            else:
+                self.banen.append(("h", y1, x1, x2))
+        return punten
+
+
+def haaks_pad(a, b, aanhecht=None, spreiding=None):
+    """Een orthogonaal pad tussen twee vakken, zonder kennis van de rest van de plaat.
+
+    `bouw` gebruikt Haaks met alle vakken erbij; deze ingang is er voor een losse berekening en
+    houdt via `aanhecht` de al gekozen banen vast, zodat twee lijnen niet over elkaar heen lopen.
+    """
+    if aanhecht is None:
+        return Haaks().pad(a, b)
+    return aanhecht.setdefault("banen", Haaks()).pad(a, b)
+
+
+def label_plek(punten, naam, bezet, stap=18):
+    """De eerste vrije plek voor het naamvakje langs de route: het langste been eerst, vanuit het midden.
+
+    Waarom niet de kandidaten van `platen.plaats`: die kent per been alleen het midden, en met tientallen
+    markeringen naast elkaar landen twee namen dan op dezelfde plek. Dit schuift de naam over het been tot
+    zij vrij staat van de vakken, de eerdere namen en de eerder getekende lijnen, en zet haar zo nodig
+    net naast de lijn in plaats van erop.
+    """
+    w, h = 10 + 9 * len(naam), 23
+    benen = sorted(zip(punten, punten[1:]), key=lambda s: -(abs(s[1][0] - s[0][0]) + abs(s[1][1] - s[0][1])))
+    for a, b in benen:
+        staand = abs(b[0] - a[0]) < abs(b[1] - a[1])
+        n = max(int((abs(b[0] - a[0]) + abs(b[1] - a[1])) // stap), 1)
+        opzij = (w / 2 + 8) if staand else (h + 4)
+        plekken = [(opzij * kant, i) for kant in (0, 1, -1) for i in range(n + 1)]
+        for kant, i in sorted(plekken, key=lambda p: (abs(p[0]), abs(p[1] - n / 2))):
+            f = i / n
+            mx = a[0] + (b[0] - a[0]) * f + (kant if staand else 0)
+            my = a[1] + (b[1] - a[1]) * f + (0 if staand else kant)
+            vak = (mx - w / 2, my - h / 2, w, h)
+            if not platen.overlapt(vak, bezet):
+                return mx, my, vak
+    a, b = benen[0]
+    mx, my = (a[0] + b[0]) / 2, (a[1] + b[1]) / 2
+    return mx, my, (mx - w / 2, my - h / 2, w, h)
+
+
+def lijnvakken(punten, dikte=8):
+    """De getekende lijn als bezette vakjes, zodat een volgende naam er niet bovenop landt."""
+    uit = []
+    for (x1, y1), (x2, y2) in zip(punten, punten[1:]):
+        x, y = min(x1, x2), min(y1, y2)
+        uit.append((x - dikte / 2, y - dikte / 2, abs(x2 - x1) + dikte, abs(y2 - y1) + dikte))
+    return uit
 
 
 def bouw(knopen, connecties, elems, png, stromen, pijl_van, uitsnede=False, haaks=False):
@@ -245,7 +467,8 @@ def bouw(knopen, connecties, elems, png, stromen, pijl_van, uitsnede=False, haak
              # de plaat vervaagt, zodat de markeringen eruit springen
              f'<rect x="0" y="0" width="{W}" height="{H}" fill="#ffffff" fill-opacity="0.6"/>']
     geraakt, ontbreekt, labels, bezet = [], [], [], [k_vak(k, minx, miny) for k in knopen.values() if not k.get("groep")]
-    aanhecht = {}
+    # de router kent alle vakken, zodat een baan niet door een vak loopt en niet op een andere baan valt
+    router = Haaks([k for k in knopen.values() if not k.get("groep")])
     for (van, naar, pijl), beelden in stromen.items():
         label = ", ".join(beelden)
         conn = None if haaks else (connectie_voor(connecties, knopen, elems, pijl, van, naar) if pijl != GEEN_PIJL else None)
@@ -254,7 +477,7 @@ def bouw(knopen, connecties, elems, png, stromen, pijl_van, uitsnede=False, haak
             if not a or not b:
                 ontbreekt.append(f"{label}: {van} naar {naar}")
                 continue
-            punten = [(x - minx, y - miny) for x, y in haaks_pad(a, b, aanhecht)]
+            punten = [(x - minx, y - miny) for x, y in router.pad(a, b)]
             d = "M" + " L".join(f"{x:.0f},{y:.0f}" for x, y in punten)
             streep = ""
             geraakt += [a, b]
@@ -281,8 +504,10 @@ def bouw(knopen, connecties, elems, png, stromen, pijl_van, uitsnede=False, haak
         delen.append(f'<path d="{d}" fill="none" stroke="#ffffff" stroke-width="11" stroke-opacity="0.85"/>')
         delen.append(f'<path d="{d}" fill="none" stroke="{ACCENT}" stroke-width="5"{streep} '
                      f'marker-end="url(#punt)"/>')
-        mx, my, vak = platen.plaats(punten, label, bezet)
+        mx, my, vak = label_plek(punten, label, bezet) if haaks else platen.plaats(punten, label, bezet)
         bezet.append(vak)
+        if haaks:
+            bezet += lijnvakken(punten)
         labels.append(tekst(mx, my + 6, label))
     for k in geraakt:
         delen.append(f'<rect x="{k["x"]-minx-3:.0f}" y="{k["y"]-miny-3:.0f}" width="{k["w"]+6}" '

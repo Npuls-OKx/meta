@@ -58,6 +58,35 @@ class StromenPerKoppelingTests(unittest.TestCase):
         tweede = hp.haaks_pad(a, c, aanhecht)
         self.assertNotEqual(eerste[0][1], tweede[0][1])
 
+class HaaksRouterTests(unittest.TestCase):
+    """De router houdt de banen uit elkaar en uit de vakken; anders leest een volle plaat niet."""
+
+    @staticmethod
+    def _snijdt(punten, vak):
+        x1, y1, x2, y2 = vak["x"], vak["y"], vak["x"] + vak["w"], vak["y"] + vak["h"]
+        for (ax, ay), (bx, by) in zip(punten, punten[1:]):
+            if min(ax, bx) < x2 and x1 < max(ax, bx) and min(ay, by) < y2 and y1 < max(ay, by):
+                return True
+        return False
+
+    def test_given_two_flows_between_the_same_boxes_when_routed_then_they_run_beside_each_other(self):
+        a = {"x": 0, "y": 0, "w": 120, "h": 60}
+        b = {"x": 400, "y": 0, "w": 120, "h": 60}
+        router = hp.Haaks([a, b])
+        heen, terug = router.pad(a, b), router.pad(b, a)
+        self.assertNotEqual(heen[0][1], terug[0][1])
+        self.assertGreaterEqual(abs(heen[0][1] - terug[0][1]), hp.Haaks.KRAP)
+
+    def test_given_a_box_in_between_when_routed_then_the_line_keeps_clear_of_it(self):
+        a = {"x": 0, "y": 0, "w": 120, "h": 60}
+        b = {"x": 0, "y": 300, "w": 120, "h": 60}
+        dwars = {"x": 0, "y": 150, "w": 90, "h": 60}
+        punten = hp.Haaks([a, b, dwars]).pad(a, b)
+        self.assertFalse(self._snijdt(punten, dwars), f"lijn loopt door een vak: {punten}")
+        for (x1, y1), (x2, y2) in zip(punten, punten[1:]):
+            self.assertTrue(x1 == x2 or y1 == y2)
+
+
 if __name__ == "__main__":
     unittest.main()
 
