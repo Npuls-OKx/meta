@@ -46,7 +46,7 @@ Een zin die "de spreker zegt dit toch" oproept, hoort in de notitie. Een uitleg 
 | Een endpoint, bericht of schema | codefragment | `<code>` voor een endpoint in de lopende tekst, `<pre>` voor een bericht: lichtgrijze achtergrond, 0.62rem, sleutels in `--np-blue` |
 | Een samenhang tussen begrippen | klein diagram | inline SVG met vier tot zes vakken en lijnen, of een mermaid-diagram |
 | Een uitwisseling tussen twee systemen | sequentiediagram | mermaid `sequenceDiagram` met twee deelnemers en hooguit vier berichten, `theme: 'base'` met de huisstijlkleuren in `themeVariables`, `scale` rond 0.6 en een `<style scoped>` die de svg op `max-width: 100%` houdt |
-| Een architectuurplaat | de plaat zelf, paginavullend | eigen slide, witte achtergrond, een bijschrift van een regel; de plaat krijgt nooit een tekstkolom ernaast |
+| Een architectuurplaat of voorbeelduitwerking | de plaat zelf, paginavullend | eigen slide; de plaat vult de volle hoogte onder de titel en raakt bijna de randen van de slide. Een titel van een regel op 1,75rem, `.fill` op ongeveer 0,9rem padding, en de plaat als `height: 100%; width: auto; object-fit: contain`. Wat ernaast past is een smalle kolom met hooguit vier compacte kaarten van 0,68rem en een bijschrift; nooit een tekstkolom die de plaat kleiner maakt dan de helft van de slide |
 | Een afspraak of vraag | kaart met een kernzin en steekwoorden als pillen | `np-card accent-orange`, pillen in `border-radius:999px` |
 | Een verwijzing naar de kennisbasis | QR-code met de korte URL | `segno` genereert de PNG; naast de code twee of drie ingangen als kaarten |
 
@@ -93,7 +93,7 @@ Wat daaruit voor presentaties geldt: contrast van tekst op de achtergrond (donke
 ## De valkuilen die deze skill wegneemt
 
 - **Het verhaal op de slide vertellen.** Alinea's, volzinnen en uitleg in kaarten. Dat is voor de notitie.
-- **Een plaat met een tekstkolom ernaast.** De plaat wordt onleesbaar; de plaat krijgt een eigen slide.
+- **Een plaat die krimpt voor de tekst ernaast.** Een architectuurplaat en een voorbeelduitwerking zijn de kern van hun slide en horen bijna de hele slide te vullen; wat erbij hoort staat klein in een smalle kolom of eronder. Een plaat in een halve kolom met een kader eromheen is op een beamer onleesbaar.
 - **Termen van buiten het begrippenkader** omdat een opdrachtgever ze gebruikt. De cornerstones dragen de OKx-termen; de term van de ander mag in de notitie of als citaat.
 - **Interne planning en intern werk** als inhoud voor een externe zaal. Alleen wat de zaal ermee kan.
 - **Een grens formuleren als wat het niet is.** Zeg wie het wel doet (zie de schrijfstijlregel over positief formuleren).
@@ -103,6 +103,6 @@ Wat daaruit voor presentaties geldt: contrast van tekst op de achtergrond (donke
 
 - Verhaallijn in een werkbestand, sprekersnotitie per slide gevuld.
 - Elke slide binnen het tekstbudget, met minstens een drager uit de tabel.
-- Platen paginavullend op eigen slides.
+- Platen paginavullend op eigen slides: de plaat vult de hoogte onder de titel en laat hooguit een smalle kolom over.
 - `tel-woorden.py` groen (geen slide boven de zestig woorden), beelden geexporteerd en per slide in acht seconden beoordeeld; pdf en bewerkbare pptx in `presentaties/export/`.
 - Schrijfstijl en positief formuleren getoetst, huisstijl uit `npuls-huisstijl`.

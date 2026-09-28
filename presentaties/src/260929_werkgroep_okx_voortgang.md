@@ -115,18 +115,15 @@ instellingen en leveranciers, en dat gesprek loopt nu opnieuw: wat moet er gebou
 
 # Het eindproduct in bouwblokken
 
-<div style="display: grid; grid-template-columns: 1.75fr 1fr; gap: 1rem; align-items: center; margin-top: 0.6rem;">
+<div class="np-plaatrij">
 
-<div>
-  <img src="/platen/koppelvlak-specificatie-breakdown.png" style="width: 100%; max-height: 19.5rem; object-fit: contain; border-radius: 6px; border: 1px solid var(--np-light-gray); background: #fff;" />
-  <div style="font-size: 0.72rem; color: var(--np-mid-gray); margin-top: 0.3rem;">De koppelvlakspecificatie en haar bouwblokken</div>
-</div>
+<img src="/platen/koppelvlak-specificatie-breakdown.png" class="np-plaat" />
 
-<div>
+<div class="np-kolom">
   <div class="np-card accent-blue np-mini">
     <carbon-assembly-cluster class="np-pic" />
     <div class="np-kop">Vaste bouwblokken</div>
-    <small>eisen &middot; systemen &middot; berichtstromen &middot; endpoints &middot; schema's &middot; toegang</small>
+    <small>eisen &middot; systemen &middot; berichtstromen &middot; endpoints &middot; schema's &middot; afsprakenset</small>
   </div>
   <div class="np-card accent-orange np-mini">
     <carbon-network-3 class="np-pic" style="color: var(--np-orange);" />
@@ -139,11 +136,18 @@ instellingen en leveranciers, en dat gesprek loopt nu opnieuw: wat moet er gebou
     <small>per koppeling en berichtstroom een eigen versie &middot; een nieuwe eis komt ernaast</small>
     <div class="np-voorbeeld">catalogus en planning &middot; aanbod melden &middot; v1.2</div>
   </div>
+  <div class="np-bijschrift">De koppelvlakspecificatie en haar bouwblokken</div>
 </div>
 
 </div>
 
 <style scoped>
+.fill { padding: 0.9rem 1.1rem; }
+h1 { font-size: 1.75rem !important; line-height: 1.1; margin: 0 0 0.35rem; }
+.np-plaatrij { display: flex; gap: 0.8rem; align-items: center; height: calc(100% - 4.4rem); }
+.np-plaat { height: 100%; width: auto; max-width: 74%; object-fit: contain; flex: none; }
+.np-kolom { flex: 1; min-width: 0; }
+.np-bijschrift { font-size: 0.66rem; color: var(--np-mid-gray); margin-top: 0.5rem; }
 .np-mini { padding: 0.5rem 0.7rem; margin-bottom: 0.5rem; }
 .np-mini small { font-size: 0.74rem; line-height: 1.4; display: block; }
 .np-pic { font-size: 1.1rem; color: var(--np-blue); }
@@ -271,33 +275,41 @@ dat is precies de brug naar het informatiemodel en de koppelingen.
 
 # De conceptuele laag, in afstemming
 
-<div style="display: grid; grid-template-columns: 0.62fr 1.9fr; gap: 0.9rem; align-items: center; margin-top: 0.5rem;">
+<div class="np-plaatrij">
 
-<div>
-  <div style="display: flex; gap: 0.45rem; margin-bottom: 0.5rem;">
-    <div class="np-card accent-blue" style="flex: 1; text-align: center; padding: 0.4rem 0.3rem;">
-      <div style="font-size: 1.4rem; font-weight: 700; color: var(--np-blue); line-height: 1;">73</div>
-      <small style="font-size: 0.66rem; line-height: 1.3; display: block;">begrippen met definitie</small>
-    </div>
-    <div class="np-card accent-orange" style="flex: 1; text-align: center; padding: 0.4rem 0.3rem;">
-      <div style="font-size: 1.4rem; font-weight: 700; color: var(--np-orange); line-height: 1;">66</div>
-      <small style="font-size: 0.66rem; line-height: 1.3; display: block;">objecten in het model</small>
-    </div>
-  </div>
-  <div class="np-card accent-green" style="font-size: 0.7rem; line-height: 1.4; padding: 0.45rem 0.6rem;">
-    Afgeleid uit leerroute 1, naast MORA, ROSA en HORA via klus 53 van MBO Digitaal.
-  </div>
-  <div class="np-card accent-orange" style="font-size: 0.7rem; line-height: 1.4; padding: 0.45rem 0.6rem; margin-top: 0.45rem;">
-    Open: grens koppeling en koppelvlak, en hoe fijnmazig.
-  </div>
-</div>
+<img src="/platen/informatiemodel-v0.1.jpg" class="np-plaat" />
 
-<div>
-  <img src="/platen/informatiemodel-v0.1.jpg" style="width: 100%; max-height: 21rem; object-fit: contain; border-radius: 6px; border: 1px solid var(--np-light-gray);" />
-  <div style="font-size: 0.72rem; color: var(--np-mid-gray); margin-top: 0.25rem; text-align: center;">Informatiemodel OKx v0.1, concept</div>
+<div class="np-kolom">
+  <div class="np-card accent-blue np-mini" style="text-align: center;">
+    <div class="np-getal" style="color: var(--np-blue);">73</div>
+    <small>begrippen met definitie</small>
+  </div>
+  <div class="np-card accent-orange np-mini" style="text-align: center;">
+    <div class="np-getal" style="color: var(--np-orange);">66</div>
+    <small>objecten in het model</small>
+  </div>
+  <div class="np-card accent-green np-mini">
+    <small>Afgeleid uit leerroute 1, naast MORA, ROSA en HORA via klus 53 van MBO Digitaal</small>
+  </div>
+  <div class="np-card accent-orange np-mini" style="margin-bottom: 0;">
+    <small>Open: grens koppeling en koppelvlak, en hoe fijnmazig</small>
+  </div>
+  <div class="np-bijschrift">Informatiemodel OKx v0.1, concept</div>
 </div>
 
 </div>
+
+<style scoped>
+.fill { padding: 0.9rem 1.1rem; }
+h1 { font-size: 1.75rem !important; line-height: 1.1; margin: 0 0 0.35rem; }
+.np-plaatrij { display: flex; gap: 0.8rem; align-items: center; height: calc(100% - 3rem); }
+.np-plaat { height: 100%; width: auto; max-width: 76%; object-fit: contain; flex: none; }
+.np-kolom { flex: 1; min-width: 0; }
+.np-mini { padding: 0.4rem 0.6rem; margin-bottom: 0.4rem; }
+.np-mini small { font-size: 0.68rem; line-height: 1.35; display: block; }
+.np-getal { font-size: 1.5rem; font-weight: 700; line-height: 1; }
+.np-bijschrift { font-size: 0.66rem; color: var(--np-mid-gray); margin-top: 0.5rem; }
+</style>
 
 </div>
 
@@ -306,9 +318,9 @@ Bron: informatiemodel v0.1 (66 objecttypen, zeven begrippenfamilies) en begrippe
 begrippen), beide met status concept, ter bekrachtiging door de kerngroep techniek. De begrippen
 liggen naast MORA en ROSA, en naast HORA via klus 53, de architectuurklus van MBO Digitaal waarin
 MORA en HORA op elkaar worden gelegd; twintig begrippen komen rechtstreeks uit MORA of het
-Kernmodel Onderwijsinformatie. De
-leeruitkomst is daarin de sleutel tussen ontwerp en resultaat. Noem dat de afstemming loopt:
-dit is voorgelegd, niet vastgesteld.
+Kernmodel Onderwijsinformatie. De leeruitkomst is daarin de sleutel tussen ontwerp en resultaat.
+De plaat vult de slide: dit is een plaat om samen naar te kijken, niet om te lezen vanaf papier.
+Noem dat de afstemming loopt: dit is voorgelegd, niet vastgesteld.
 -->
 
 ---
@@ -320,40 +332,48 @@ dit is voorgelegd, niet vastgesteld.
 
 # Verifiëren met voorbeelduitwerkingen
 
-<div style="display: grid; grid-template-columns: 1.95fr 0.62fr; gap: 0.9rem; align-items: center; margin-top: 0.5rem;">
+<div class="np-plaatrij">
 
-<div>
-  <img src="/platen/voorbeeld-f2-07-aanbod-naar-catalogus.svg" style="width: 100%; max-height: 21rem; object-fit: contain; border-radius: 6px; border: 1px solid var(--np-light-gray); background: #fff;" />
-  <div style="font-size: 0.7rem; color: var(--np-mid-gray); margin-top: 0.25rem; text-align: center;">Een stap uit de uitwerking: het geplande aanbod terug naar de catalogus</div>
-</div>
+<img src="/platen/voorbeeld-f2-07-aanbod-naar-catalogus.svg" class="np-plaat" />
 
-<div>
-  <div class="np-card accent-orange" style="font-size: 0.74rem; line-height: 1.35; margin-bottom: 0.45rem; padding: 0.45rem 0.6rem;">
-    <strong>Voorbeelden nodig</strong><br/>
-    <small style="font-size: 0.68rem;">een model alleen blijft abstract</small>
+<div class="np-kolom">
+  <div class="np-card accent-orange np-mini">
+    <strong>Voorbeelden nodig</strong>
+    <small>een model alleen blijft abstract</small>
   </div>
-  <div class="np-card accent-blue" style="font-size: 0.74rem; line-height: 1.35; margin-bottom: 0.45rem; padding: 0.45rem 0.6rem;">
-    <strong>Een echte opleiding</strong><br/>
-    <small style="font-size: 0.68rem;">apothekersassistent, ontwerp tot diploma</small>
+  <div class="np-card accent-blue np-mini">
+    <strong>Een echte opleiding</strong>
+    <small>apothekersassistent, ontwerp tot diploma</small>
   </div>
-  <div class="np-card accent-green" style="font-size: 0.74rem; line-height: 1.35; padding: 0.45rem 0.6rem;">
-    <strong>Verifi&euml;ren bij scholen en leveranciers</strong><br/>
-    <small style="font-size: 0.68rem;">herkennen zij het, ontbreekt er iets</small>
+  <div class="np-card accent-green np-mini" style="margin-bottom: 0;">
+    <strong>Verifi&euml;ren bij scholen en leveranciers</strong>
+    <small>herkennen zij het, ontbreekt er iets</small>
   </div>
+  <div class="np-bijschrift">Een stap uit de uitwerking: het geplande aanbod terug naar de catalogus. Concept in afstemming.</div>
 </div>
 
 </div>
 
-<div style="margin-top: 0.8rem; font-size: 0.85rem; color: var(--np-mid-gray); text-align: center;">
-  Status: concept in afstemming
-</div>
+<style scoped>
+.fill { padding: 0.9rem 1.1rem; }
+h1 { font-size: 1.75rem !important; line-height: 1.1; margin: 0 0 0.35rem; }
+.np-plaatrij { display: flex; gap: 0.8rem; align-items: center; height: calc(100% - 3rem); }
+.np-plaat { height: 100%; width: auto; max-width: 76%; object-fit: contain; flex: none; }
+.np-kolom { flex: 1; min-width: 0; }
+.np-mini { padding: 0.45rem 0.6rem; margin-bottom: 0.45rem; }
+.np-mini strong { font-size: 0.78rem; display: block; line-height: 1.25; }
+.np-mini small { font-size: 0.68rem; line-height: 1.35; display: block; color: var(--np-mid-gray); }
+.np-bijschrift { font-size: 0.66rem; color: var(--np-mid-gray); margin-top: 0.5rem; line-height: 1.35; }
+</style>
 
 </div>
 
 <!--
-Voorbeelduitwerking leerroute 1 met persona Jochem, acht fasen, een beeld per processtap, met
-een invulblad per objecttype en zeven vragen. Ligt 30 september bij de kerngroep techniek.
-Dit is de manier waarop we de conceptuele laag op robuustheid toetsen voordat we detailleren.
+Voorbeelduitwerking leerroute 1 met persona Jochem, acht fasen, een beeld per processtap. Ligt
+30 september bij de kerngroep techniek. De plaat vult de slide, want hier gaat het om: dit is een
+stap uit de uitwerking, F2-07, het geplande aanbod terug naar de catalogus, met per laag de
+verwijzing naar de specificatie waarvan het aanbod is gemaakt. De vraag aan scholen en
+leveranciers: herkennen zij dit, en ontbreekt er iets.
 -->
 
 ---
@@ -531,27 +551,39 @@ edustandaard.nl/amigo/aanpak, en paragraaf 2.4 van de leerroute-uitwerking.
 
 # Doel Q1 2027
 
-<div style="font-size: 0.85rem; color: var(--np-mid-gray); margin-top: 0.2rem;">Drie koppelingen, alle lagen beschreven</div>
+<div class="np-plaatrij">
 
-<div style="margin-top: 0.5rem;">
-  <img src="/platen/koppelingen-hoofdplaat.svg" style="width: 100%; max-height: 15.5rem; object-fit: contain; border-radius: 6px; border: 1px solid var(--np-light-gray); background: #fff;" />
-  <div style="font-size: 0.72rem; color: var(--np-mid-gray); margin-top: 0.25rem; text-align: center;">Catalogus met planning, studentadministratie en leeromgeving</div>
+<img src="/platen/koppelingen-hoofdplaat.svg" class="np-plaat" />
+
+<div class="np-kolom">
+  <div class="np-card accent-blue np-mini">
+    <div class="np-kop">Per koppeling alle lagen</div>
+    <small>eisen &middot; systemen &middot; berichtstromen &middot; endpoints &middot; schema's &middot; afsprakenset</small>
+  </div>
+  <div class="np-card accent-orange np-mini">
+    <div class="np-kop">Najaar 2026</div>
+    <small>aanscherpen met koplopers</small>
+  </div>
+  <div class="np-card accent-green np-mini" style="margin-bottom: 0;">
+    <div class="np-kop">Daarna</div>
+    <small>meer koppelingen, meer leerroutes, het ho</small>
+  </div>
+  <div class="np-bijschrift">Catalogus met planning, studentadministratie en leeromgeving</div>
 </div>
 
-<div class="np-grid-3" style="margin-top: 0.6rem; gap: 0.7rem; align-items: start;">
-  <div class="np-card accent-blue" style="padding: 0.6rem 0.8rem;">
-    <div style="font-weight: 700; font-size: 0.88rem;">Per koppeling alle lagen</div>
-    <small style="font-size: 0.76rem;">eisen &middot; systemen &middot; berichtstromen &middot; endpoints &middot; schema's &middot; afsprakenset</small>
-  </div>
-  <div class="np-card accent-orange" style="padding: 0.6rem 0.8rem;">
-    <div style="font-weight: 700; font-size: 0.88rem;">Najaar 2026</div>
-    <small style="font-size: 0.76rem;">aanscherpen met koplopers</small>
-  </div>
-  <div class="np-card accent-green" style="padding: 0.6rem 0.8rem;">
-    <div style="font-weight: 700; font-size: 0.88rem;">Daarna</div>
-    <small style="font-size: 0.76rem;">meer koppelingen, meer leerroutes, het ho</small>
-  </div>
 </div>
+
+<style scoped>
+.fill { padding: 0.9rem 1.1rem; }
+h1 { font-size: 1.75rem !important; line-height: 1.1; margin: 0 0 0.2rem; }
+.np-plaatrij { display: flex; gap: 0.8rem; align-items: center; height: calc(100% - 6.6rem); }
+.np-plaat { height: 100%; width: auto; max-width: 74%; object-fit: contain; flex: none; }
+.np-kolom { flex: 1; min-width: 0; }
+.np-mini { padding: 0.45rem 0.6rem; margin-bottom: 0.45rem; }
+.np-mini .np-kop { font-weight: 700; font-size: 0.8rem; line-height: 1.2; }
+.np-mini small { font-size: 0.68rem; line-height: 1.35; display: block; }
+.np-bijschrift { font-size: 0.66rem; color: var(--np-mid-gray); margin-top: 0.5rem; line-height: 1.3; }
+</style>
 
 <div style="display: flex; justify-content: center; align-items: center; gap: 0.6rem; margin-top: 0.7rem; flex-wrap: wrap;">
   <span style="font-size: 0.8rem; color: var(--np-mid-gray);">Aanhaken kan</span>
