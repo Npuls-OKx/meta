@@ -184,6 +184,7 @@ eigen ritme, zodat een wijziging in een schema niet het hele pakket ophoudt.
 # Leerroute 1 als proces
 
 <style scoped>
+.fill { padding: 1.9rem 2rem; }
 .mermaid { display: flex; justify-content: center; margin: 0.2rem 0 0; }
 .mermaid svg { max-width: 100%; height: auto; }
 </style>
@@ -192,7 +193,7 @@ eigen ritme, zodat een wijziging in een schema niet het hele pakket ophoudt.
 
 <div style="margin-top: 0.4rem;">
 
-```mermaid {theme: 'base', scale: 0.78, themeVariables: {'fontFamily': 'General Sans, Inter, sans-serif', 'fontSize': '15px', 'primaryColor': '#FFFFFF', 'primaryBorderColor': '#3D68EC', 'primaryTextColor': '#1B2A6B', 'lineColor': '#DD784B', 'clusterBkg': '#F7F8FB', 'clusterBorder': '#3D68EC', 'edgeLabelBackground': '#FFFFFF'}}
+```mermaid {theme: 'base', scale: 0.88, themeVariables: {'fontFamily': 'General Sans, Inter, sans-serif', 'fontSize': '15px', 'primaryColor': '#FFFFFF', 'primaryBorderColor': '#3D68EC', 'primaryTextColor': '#1B2A6B', 'lineColor': '#DD784B', 'clusterBkg': '#F7F8FB', 'clusterBorder': '#3D68EC', 'edgeLabelBackground': '#FFFFFF'}}
 flowchart TB
   subgraph OO["Onderwijsontwerper"]
     direction LR
@@ -270,30 +271,30 @@ dat is precies de brug naar het informatiemodel en de koppelingen.
 
 # De conceptuele laag, in afstemming
 
-<div class="np-grid-2" style="margin-top: 0.8rem; gap: 1.2rem; align-items: center;">
+<div style="display: grid; grid-template-columns: 0.62fr 1.9fr; gap: 0.9rem; align-items: center; margin-top: 0.5rem;">
 
 <div>
-  <div style="display: flex; gap: 0.7rem; margin-bottom: 0.8rem;">
-    <div class="np-card accent-blue" style="flex: 1; text-align: center; padding: 0.7rem 0.5rem;">
-      <div style="font-size: 2.1rem; font-weight: 700; color: var(--np-blue); line-height: 1;">73</div>
-      <small style="font-size: 0.8rem;">begrippen met definitie en herkomst</small>
+  <div style="display: flex; gap: 0.45rem; margin-bottom: 0.5rem;">
+    <div class="np-card accent-blue" style="flex: 1; text-align: center; padding: 0.4rem 0.3rem;">
+      <div style="font-size: 1.4rem; font-weight: 700; color: var(--np-blue); line-height: 1;">73</div>
+      <small style="font-size: 0.66rem; line-height: 1.3; display: block;">begrippen met definitie</small>
     </div>
-    <div class="np-card accent-orange" style="flex: 1; text-align: center; padding: 0.7rem 0.5rem;">
-      <div style="font-size: 2.1rem; font-weight: 700; color: var(--np-orange); line-height: 1;">66</div>
-      <small style="font-size: 0.8rem;">objecten in het informatiemodel</small>
+    <div class="np-card accent-orange" style="flex: 1; text-align: center; padding: 0.4rem 0.3rem;">
+      <div style="font-size: 1.4rem; font-weight: 700; color: var(--np-orange); line-height: 1;">66</div>
+      <small style="font-size: 0.66rem; line-height: 1.3; display: block;">objecten in het model</small>
     </div>
   </div>
-  <div class="np-card accent-green" style="font-size: 0.87rem; line-height: 1.5; padding: 0.6rem 0.9rem;">
-    Afgeleid uit leerroute 1, gelegd naast MORA, ROSA en HORA via klus 53 van MBO Digitaal.
+  <div class="np-card accent-green" style="font-size: 0.7rem; line-height: 1.4; padding: 0.45rem 0.6rem;">
+    Afgeleid uit leerroute 1, naast MORA, ROSA en HORA via klus 53 van MBO Digitaal.
   </div>
-  <div class="np-card accent-orange" style="font-size: 0.87rem; line-height: 1.5; padding: 0.6rem 0.9rem; margin-top: 0.6rem;">
+  <div class="np-card accent-orange" style="font-size: 0.7rem; line-height: 1.4; padding: 0.45rem 0.6rem; margin-top: 0.45rem;">
     Open: grens koppeling en koppelvlak, en hoe fijnmazig.
   </div>
 </div>
 
 <div>
-  <img src="/platen/informatiemodel-v0.1.jpg" style="width: 100%; border-radius: 6px; border: 1px solid var(--np-light-gray);" />
-  <div style="font-size: 0.72rem; color: var(--np-mid-gray); margin-top: 0.3rem;">Informatiemodel OKx v0.1, concept</div>
+  <img src="/platen/informatiemodel-v0.1.jpg" style="width: 100%; max-height: 21rem; object-fit: contain; border-radius: 6px; border: 1px solid var(--np-light-gray);" />
+  <div style="font-size: 0.72rem; color: var(--np-mid-gray); margin-top: 0.25rem; text-align: center;">Informatiemodel OKx v0.1, concept</div>
 </div>
 
 </div>
@@ -319,25 +320,25 @@ dit is voorgelegd, niet vastgesteld.
 
 # Verifiëren met voorbeelduitwerkingen
 
-<div class="np-grid-2" style="margin-top: 0.9rem; gap: 1.2rem; align-items: center;">
+<div style="display: grid; grid-template-columns: 1.95fr 0.62fr; gap: 0.9rem; align-items: center; margin-top: 0.5rem;">
 
 <div>
-  <img src="/platen/voorbeeld-f2-07-aanbod-naar-catalogus.svg" style="width: 100%; border-radius: 6px; border: 1px solid var(--np-light-gray); background: #fff;" />
-  <div style="font-size: 0.7rem; color: var(--np-mid-gray); margin-top: 0.3rem;">Een stap uit de uitwerking: het geplande aanbod terug naar de catalogus</div>
+  <img src="/platen/voorbeeld-f2-07-aanbod-naar-catalogus.svg" style="width: 100%; max-height: 21rem; object-fit: contain; border-radius: 6px; border: 1px solid var(--np-light-gray); background: #fff;" />
+  <div style="font-size: 0.7rem; color: var(--np-mid-gray); margin-top: 0.25rem; text-align: center;">Een stap uit de uitwerking: het geplande aanbod terug naar de catalogus</div>
 </div>
 
 <div>
-  <div class="np-card accent-orange" style="font-size: 0.9rem; line-height: 1.5; margin-bottom: 0.7rem;">
+  <div class="np-card accent-orange" style="font-size: 0.74rem; line-height: 1.35; margin-bottom: 0.45rem; padding: 0.45rem 0.6rem;">
     <strong>Voorbeelden nodig</strong><br/>
-    <small>een model alleen blijft abstract</small>
+    <small style="font-size: 0.68rem;">een model alleen blijft abstract</small>
   </div>
-  <div class="np-card accent-blue" style="font-size: 0.9rem; line-height: 1.5; margin-bottom: 0.7rem;">
+  <div class="np-card accent-blue" style="font-size: 0.74rem; line-height: 1.35; margin-bottom: 0.45rem; padding: 0.45rem 0.6rem;">
     <strong>Een echte opleiding</strong><br/>
-    <small>apothekersassistent, ontwerp tot diploma</small>
+    <small style="font-size: 0.68rem;">apothekersassistent, ontwerp tot diploma</small>
   </div>
-  <div class="np-card accent-green" style="font-size: 0.9rem; line-height: 1.5;">
-    <strong>Verifi&euml;ren bij scholen</strong><br/>
-    <small>herkennen zij het, ontbreekt er iets</small>
+  <div class="np-card accent-green" style="font-size: 0.74rem; line-height: 1.35; padding: 0.45rem 0.6rem;">
+    <strong>Verifi&euml;ren bij scholen en leveranciers</strong><br/>
+    <small style="font-size: 0.68rem;">herkennen zij het, ontbreekt er iets</small>
   </div>
 </div>
 
