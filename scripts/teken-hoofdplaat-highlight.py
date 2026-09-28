@@ -276,19 +276,19 @@ class Haaks:
         uit = []
         if by1 - ay2 >= self.GAT or ay1 - by2 >= self.GAT:
             yb = by1 if by1 > ay2 else by2
-            zij = ((ax2, max(bx1 + self.RAND, ax2 + self.MARGE), bx2 - self.RAND),
-                   (ax1, bx1 + self.RAND, min(bx2 - self.RAND, ax1 - self.MARGE)))
+            zij = ((ax2, max(bx1 + self._rand(bx2 - bx1), ax2 + self.MARGE), bx2 - self._rand(bx2 - bx1)),
+                   (ax1, bx1 + self._rand(bx2 - bx1), min(bx2 - self._rand(bx2 - bx1), ax1 - self.MARGE)))
             for xa, laag, hoog in zij:
-                uit.append(self._zoek([(self._mid(ay1, ay2), ay1 + self.RAND, ay2 - self.RAND),
+                uit.append(self._zoek([(self._mid(ay1, ay2), ay1 + self._rand(ay2 - ay1), ay2 - self._rand(ay2 - ay1)),
                                        (self._mid(bx1, bx2), laag, hoog)],
                                       lambda w, xa=xa, yb=yb: [(xa, w[0]), (w[1], w[0]), (w[1], yb)], eigen, afstand))
         if bx1 - ax2 >= self.GAT or ax1 - bx2 >= self.GAT:
             xb = bx1 if bx1 > ax2 else bx2
-            zij = ((ay2, max(by1 + self.RAND, ay2 + self.MARGE), by2 - self.RAND, 0),
-                   (ay1, by1 + self.RAND, min(by2 - self.RAND, ay1 - self.MARGE),
+            zij = ((ay2, max(by1 + self._rand(by2 - by1), ay2 + self.MARGE), by2 - self._rand(by2 - by1), 0),
+                   (ay1, by1 + self._rand(by2 - by1), min(by2 - self._rand(by2 - by1), ay1 - self.MARGE),
                     self.BOVENLANGS if by2 <= ay1 else 0))
             for ya, laag, hoog, korting in zij:
-                route = self._zoek([(self._mid(ax1, ax2), ax1 + self.RAND, ax2 - self.RAND),
+                route = self._zoek([(self._mid(ax1, ax2), ax1 + self._rand(ax2 - ax1), ax2 - self._rand(ax2 - ax1)),
                                     (self._mid(by1, by2), laag, hoog)],
                                    lambda w, ya=ya, xb=xb: [(w[0], ya), (w[0], w[1]), (xb, w[1])], eigen, afstand)
                 uit.append((route[0] - korting, route[1]) if route else None)
@@ -302,16 +302,16 @@ class Haaks:
         if bx1 - ax2 >= self.GAT or ax1 - bx2 >= self.GAT:
             xa, xb = (ax2, bx1) if bx1 > ax2 else (ax1, bx2)
             laag, hoog = sorted((xa, xb))
-            uit.append(self._zoek([(self._mid(ay1, ay2), ay1 + self.RAND, ay2 - self.RAND),
-                                   (self._mid(by1, by2), by1 + self.RAND, by2 - self.RAND),
+            uit.append(self._zoek([(self._mid(ay1, ay2), ay1 + self._rand(ay2 - ay1), ay2 - self._rand(ay2 - ay1)),
+                                   (self._mid(by1, by2), by1 + self._rand(by2 - by1), by2 - self._rand(by2 - by1)),
                                    (self._mid(laag, hoog), laag + self.MARGE, hoog - self.MARGE)],
                                   lambda w: [(xa, w[0]), (w[2], w[0]), (w[2], w[1]), (xb, w[1])], eigen, afstand))
         if by1 - ay2 >= self.GAT or ay1 - by2 >= self.GAT:
             ya, yb = (ay2, by1) if by1 > ay2 else (ay1, by2)
             laag, hoog = sorted((ya, yb))
             korting = self.BOVENLANGS if by2 <= ay1 else 0
-            route = self._zoek([(self._mid(ax1, ax2), ax1 + self.RAND, ax2 - self.RAND),
-                                (self._mid(bx1, bx2), bx1 + self.RAND, bx2 - self.RAND),
+            route = self._zoek([(self._mid(ax1, ax2), ax1 + self._rand(ax2 - ax1), ax2 - self._rand(ax2 - ax1)),
+                                (self._mid(bx1, bx2), bx1 + self._rand(bx2 - bx1), bx2 - self._rand(bx2 - bx1)),
                                 (self._mid(laag, hoog), laag + self.MARGE, hoog - self.MARGE)],
                                lambda w: [(w[0], ya), (w[0], w[2]), (w[1], w[2]), (w[1], yb)], eigen, afstand)
             uit.append((route[0] - korting, route[1]) if route else None)
@@ -337,9 +337,14 @@ class Haaks:
     def _mid(v1, v2):
         return (v1 + v2) / 2
 
+    def _rand(self, *spannen):
+        """De marge tot de hoek van een vak; een klein vak zoals een junctie krijgt een kleinere."""
+        return min([self.RAND] + [max(s / 3, 1) for s in spannen])
+
     def _band(self, a1, a2, b1, b2):
         """Het venster waarin een rechte lijn tussen twee vakken past; None als zij te weinig overlappen."""
-        laag, hoog = max(a1, b1) + self.RAND, min(a2, b2) - self.RAND
+        rand = self._rand(a2 - a1, b2 - b1)
+        laag, hoog = max(a1, b1) + rand, min(a2, b2) - rand
         return None if hoog < laag else (self._mid(max(a1, b1), min(a2, b2)), laag, hoog)
 
     def _banen(self, venster):
