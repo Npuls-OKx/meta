@@ -1499,6 +1499,10 @@ scherp is. De vraag aan de zaal is of dit concept klopt en wat er nog mist.
   Werkafspraak om op te schuiven, geen vastgestelde conventie
 </div>
 
+<div style="margin-top: 0.3rem; font-size: 0.75rem; color: var(--np-mid-gray); text-align: center;">
+  OC-CAMBO staat er al; OC-AII komt erbij zodra centraal aanmelden op de plaat staat
+</div>
+
 <style scoped>
 .np-pil { display: flex; align-items: center; gap: 0.35rem; background: #fff; border: 1px solid var(--np-light-gray); border-radius: 999px; padding: 0.3rem 0.9rem; font-size: 0.82rem; color: var(--np-dark-blue); }
 .np-pil strong { color: var(--np-orange); font-size: 1rem; }
@@ -1512,7 +1516,10 @@ afgeleid van de twee applicatiecomponenten die hij verbindt, met de catalogus vo
 meedoet. Dat levert 24 stromen onder 17 ID's, waarvan er vier vandaag een koppelingspecificatie
 hebben. Het is een werkafspraak en geen conventie: zodra de bouwstenen en endpoints per koppeling
 scherper zijn, schuift de indeling, en dan pas hoort zij in een ADR. Gegenereerd uit stromen.json
-met het highlightscript, dus deze plaat is opnieuw te maken zodra de hoofdplaat wijzigt.
+met het highlightscript, dus deze plaat is opnieuw te maken zodra de hoofdplaat wijzigt. De
+markeringen lopen orthogonaal en raken de vakken haaks, zodat de lijnen naast elkaar leesbaar
+blijven. CAMBO staat als voorziening op de plaat en krijgt OC-CAMBO; AII komt er als centraal
+aanmelden op de plaat verschijnt, en heet dan OC-AII.
 -->
 
 ---
