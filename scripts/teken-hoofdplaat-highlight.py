@@ -189,7 +189,49 @@ def boog(a, b, gestippeld=False):
     return p1, p2, (cx, cy)
 
 
-def bouw(knopen, connecties, elems, png, stromen, pijl_van, uitsnede=False):
+def haaks_pad(a, b, aanhecht=None, spreiding=16):
+    """Een orthogonaal pad tussen twee vakken: haaks het ene vak uit en haaks het andere in.
+
+    Waarvoor: een plaat met tientallen markeringen leest alleen als de lijnen evenwijdig lopen en
+    loodrecht aankomen. Een schuine lijn die een vak in een hoek raakt maakt de plaat onleesbaar.
+    Liggen de vakken naast elkaar, dan is het een rechte lijn; liggen zij verspringend, dan een
+    Z met een knik halverwege. `aanhecht` telt hoeveel lijnen er al op een zijde aankomen, zodat
+    twee lijnen op dezelfde zijde niet over elkaar heen lopen.
+    """
+    aanhecht = {} if aanhecht is None else aanhecht
+
+    def verschuif(vak, zijde, waarde, ruimte):
+        n = aanhecht.get((id(vak), zijde), 0)
+        aanhecht[(id(vak), zijde)] = n + 1
+        stap = ((n + 1) // 2) * spreiding * (1 if n % 2 else -1)
+        grens = max(ruimte / 2 - 8, 0)
+        return waarde + max(-grens, min(grens, stap))
+
+    ay1, ay2, by1, by2 = a["y"], a["y"] + a["h"], b["y"], b["y"] + b["h"]
+    ax1, ax2, bx1, bx2 = a["x"], a["x"] + a["w"], b["x"], b["x"] + b["w"]
+    overlap_y = min(ay2, by2) - max(ay1, by1)
+    overlap_x = min(ax2, bx2) - max(ax1, bx1)
+    if overlap_y >= 24 and (ax2 <= bx1 or bx2 <= ax1):
+        y = verschuif(a, "h", (max(ay1, by1) + min(ay2, by2)) / 2, overlap_y)
+        return [(ax2 if ax2 <= bx1 else ax1, y), (bx1 if ax2 <= bx1 else bx2, y)]
+    if overlap_x >= 24 and (ay2 <= by1 or by2 <= ay1):
+        x = verschuif(a, "v", (max(ax1, bx1) + min(ax2, bx2)) / 2, overlap_x)
+        return [(x, ay2 if ay2 <= by1 else ay1), (x, by1 if ay2 <= by1 else by2)]
+    ya = verschuif(a, "h", (ay1 + ay2) / 2, a["h"])
+    yb = verschuif(b, "h", (by1 + by2) / 2, b["h"])
+    if ax2 <= bx1 or bx2 <= ax1:
+        xa, xb = (ax2, bx1) if ax2 <= bx1 else (ax1, bx2)
+        xm = (xa + xb) / 2
+        return [(xa, ya), (xm, ya), (xm, yb), (xb, yb)]
+    # de vakken staan boven elkaar met overlap: verticaal eruit en horizontaal erin
+    xa = verschuif(a, "v", (ax1 + ax2) / 2, a["w"])
+    ya2, yb2 = (ay2, by1) if ay2 <= by1 else (ay1, by2)
+    ym = (ya2 + yb2) / 2
+    xb = bx1 if xa <= (bx1 + bx2) / 2 else bx2
+    return [(xa, ya2), (xa, ym), (xb, ym), (xb, yb)]
+
+
+def bouw(knopen, connecties, elems, png, stromen, pijl_van, uitsnede=False, haaks=False):
     minx = min(k["x"] for k in knopen.values()) - MARGE
     miny = min(k["y"] for k in knopen.values()) - MARGE
     W = max(k["x"] + k["w"] for k in knopen.values()) + MARGE - minx
@@ -203,10 +245,20 @@ def bouw(knopen, connecties, elems, png, stromen, pijl_van, uitsnede=False):
              # de plaat vervaagt, zodat de markeringen eruit springen
              f'<rect x="0" y="0" width="{W}" height="{H}" fill="#ffffff" fill-opacity="0.6"/>']
     geraakt, ontbreekt, labels, bezet = [], [], [], [k_vak(k, minx, miny) for k in knopen.values() if not k.get("groep")]
+    aanhecht = {}
     for (van, naar, pijl), beelden in stromen.items():
         label = ", ".join(beelden)
-        conn = connectie_voor(connecties, knopen, elems, pijl, van, naar) if pijl != GEEN_PIJL else None
-        if conn:
+        conn = None if haaks else (connectie_voor(connecties, knopen, elems, pijl, van, naar) if pijl != GEEN_PIJL else None)
+        if haaks:
+            a, b = dichtste_paar(knopen, elems, van, naar)
+            if not a or not b:
+                ontbreekt.append(f"{label}: {van} naar {naar}")
+                continue
+            punten = [(x - minx, y - miny) for x, y in haaks_pad(a, b, aanhecht)]
+            d = "M" + " L".join(f"{x:.0f},{y:.0f}" for x, y in punten)
+            streep = ""
+            geraakt += [a, b]
+        elif conn:
             # over de bestaande pijl heen: hetzelfde pad dat Archi tekent, met een witte onderlaag eronder
             lijnen = [conn] + vervolglijnen(connecties, knopen, elems, conn, naar)
             punten = [(x - minx, y - miny) for c in lijnen for x, y in platen.pad(c, knopen)]
@@ -278,6 +330,7 @@ def main(argv=None):
     parser.add_argument("--koppelingen", help="komma-gescheiden koppelingen; markeert die op een plaat "
                                               "in plaats van een plaat per fase")
     parser.add_argument("--uitsnede", action="store_true", help="snijd uit rond de gemarkeerde vakken")
+    parser.add_argument("--haaks", action="store_true", help="teken de markeringen orthogonaal in plaats van over de bestaande pijlen")
     args = parser.parse_args(argv)
     if not args.plaat.exists():
         sys.exit(f"plaat niet gevonden: {args.plaat}; render hem met exporteer-archimate-platen.py")
@@ -291,7 +344,7 @@ def main(argv=None):
         stromen = stromen_per_koppeling(regels, namen)
         if not stromen:
             sys.exit(f"geen stromen gevonden voor {', '.join(namen)}")
-        svg, ontbreekt = bouw(knopen, connecties, elems, args.plaat, stromen, pijl_van, args.uitsnede)
+        svg, ontbreekt = bouw(knopen, connecties, elems, args.plaat, stromen, pijl_van, args.uitsnede, args.haaks)
         doel = args.uit / "koppelingen.svg"
         doel.write_text(svg, encoding="utf-8")
         for x in ontbreekt:

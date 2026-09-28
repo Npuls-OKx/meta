@@ -38,6 +38,25 @@ class StromenPerKoppelingTests(unittest.TestCase):
     def test_given_unknown_koppeling_when_grouped_then_empty(self):
         self.assertEqual(hp.stromen_per_koppeling(REGELS, ["OC-SIS"]), {})
 
+    def test_given_two_boxes_when_orthogonal_path_then_segments_are_axis_aligned(self):
+        a = {"x": 0, "y": 0, "w": 100, "h": 60}
+        rechts = {"x": 300, "y": 10, "w": 100, "h": 60}
+        onder = {"x": 0, "y": 300, "w": 100, "h": 60}
+        schuin = {"x": 400, "y": 400, "w": 100, "h": 60}
+        for b in (rechts, onder, schuin):
+            punten = hp.haaks_pad(a, b, {})
+            for (x1, y1), (x2, y2) in zip(punten, punten[1:]):
+                self.assertTrue(x1 == x2 or y1 == y2, f"segment niet haaks: {(x1, y1)} naar {(x2, y2)}")
+        self.assertEqual(hp.haaks_pad(a, rechts, {}), [(100, 35.0), (300, 35.0)])
+
+    def test_given_two_lines_on_the_same_side_when_drawn_then_they_do_not_overlap(self):
+        a = {"x": 0, "y": 0, "w": 100, "h": 60}
+        b = {"x": 300, "y": 0, "w": 100, "h": 60}
+        c = {"x": 300, "y": 0, "w": 100, "h": 60}
+        aanhecht = {}
+        eerste = hp.haaks_pad(a, b, aanhecht)
+        tweede = hp.haaks_pad(a, c, aanhecht)
+        self.assertNotEqual(eerste[0][1], tweede[0][1])
 
 if __name__ == "__main__":
     unittest.main()
