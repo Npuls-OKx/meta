@@ -66,6 +66,14 @@ NOTITIE_RAND = "#d8d4a8"
 # om ook over een vak van de applicatielaag heen te lezen
 PALET = ["#d9531e", "#1f5fd0", "#0d7070", "#6b4bb8", "#2e7d32", "#8a5a12", "#b1268b", "#3a4e63"]
 
+# en een ruimer palet voor de plaat met de koppeling-ID's, waar elk koppelvlak een eigen kleur
+# krijgt. De volgorde zet kleuren die op elkaar lijken uit elkaar, zodat twee buren in de
+# legenda uit elkaar te houden zijn.
+PALET_ID = ["#d9531e", "#1f5fd0", "#2e7d32", "#b1268b", "#a8700a", "#6b4bb8", "#0d7070",
+            "#c0392b", "#6e7b1c", "#2a2f8f", "#8a5a12", "#12855f", "#7a2f5e", "#00688c",
+            "#b5651d", "#7b3fb8", "#3f7d20", "#9a2b2b", "#4c6272", "#255f85"]
+ZONDER_ID = "#93a3ae"   # een lijn die nog geen koppeling-ID draagt
+
 ZONENAAM = {
     "links": "onderwijsontwikkeling · inrichting van nominale- en keuze aanbod",
     "rechts": "onderwijsuitvoering · student studeert en maakt keuzes",
@@ -466,6 +474,41 @@ def _plaatje(doos, mx, regels, maat, kleur, omlijnd):
                         dik=omlijnd, hoogte=maat + 2))
 
 
+def legenda_hoogte(aantal, kolommen=6, regel=38, kop=42, rand=18):
+    """Hoeveel ruimte de legenda onder de plaat nodig heeft."""
+    if not aantal:
+        return 0
+    return kop + regel * -(-aantal // kolommen) + rand
+
+
+def legenda_svg(rijen, x, y, breedte, kolommen=6, regel=38, kop=42):
+    """De koppeling-ID's onder de plaat: per ID haar kleur en het aantal informatiestromen.
+
+    Waarvoor: op de plaat staat per lijn welk ID erover loopt, maar niet hoeveel stromen er
+    onder een ID vallen. Die telling is de vraag die bij het voorstel hoort, dus zij hoort
+    naast de plaat te staan en niet in een apart bestand.
+    """
+    if not rijen:
+        return ""
+    totaal = sum(a for _, _, a in rijen)
+    delen = [f'<text x="{x:.0f}" y="{y + 23:.0f}" font-size="23" font-weight="700" fill="{INKT}">'
+             f'{len(rijen)} voorlopige koppeling-ID\u0027s, samen {totaal} informatiestromen</text>']
+    vak = breedte / kolommen
+    # de telling staat in een eigen kolom, zodat een lang ID er niet overheen loopt
+    naast = 54 + max(len(i) for i, _, _ in rijen) * 18 + 18
+    for i, (ident, kleur, aantal) in enumerate(rijen):
+        kx = x + (i % kolommen) * vak
+        ky = y + kop + (i // kolommen) * regel + regel / 2
+        delen.append(f'<path d="M{kx:.0f},{ky:.0f} L{kx + 42:.0f},{ky:.0f}" stroke="{kleur}" '
+                     f'stroke-width="4" fill="none"/>')
+        delen.append(f'<text x="{kx + 54:.0f}" y="{ky + 8:.0f}" font-size="22" font-weight="700" '
+                     f'fill="{kleur}">{esc(ident)}</text>')
+        delen.append(f'<text x="{kx + naast:.0f}" y="{ky + 8:.0f}" '
+                     f'font-size="18" fill="{STIL}">{aantal} '
+                     f'{"stroom" if aantal == 1 else "stromen"}</text>')
+    return "".join(delen)
+
+
 # -------------------------------------------------------------------- bouw --
 
 def bouw(ruimte_x=1.55, ruimte_y=1.85, tussen=70, marge=30, opschriften="namen"):
@@ -520,6 +563,7 @@ def bouw(ruimte_x=1.55, ruimte_y=1.85, tussen=70, marge=30, opschriften="namen")
             stromen.append(dict(v, label=v["opschrift"] or labels.get(v["relatie"], "")))
         elif soort == "AssociationRelationship":
             verbanden.append(v)
+    idents = zet_koppeling_ids(stromen, knopen) if opschriften == "ids" else []
 
     # per zone routeren: eerst de stromen, dan de verbanden, kort voor lang
     def afstand(v):
@@ -537,32 +581,42 @@ def bouw(ruimte_x=1.55, ruimte_y=1.85, tussen=70, marge=30, opschriften="namen")
         zone = per_zone.get(v["bron"], "los")
         v["punten"] = routers[zone].pad(vakken[v["bron"]], vakken[v["doel"]])
 
-    idents = zet_koppeling_ids(stromen, knopen) if opschriften == "ids" else []
+    if idents:
+        # elk koppelvlak zijn eigen kleur, zodat de lijnen van een ID bij elkaar horen
+        kleur_van_id = {i: PALET_ID[n % len(PALET_ID)] for n, i in enumerate(sorted(idents))}
+        for s in stromen:
+            s["kleur"] = kleur_van_id.get(s["label"], ZONDER_ID)
+        telling = collections.Counter(s["label"] for s in stromen if s["label"])
+        legenda = [(i, kleur_van_id[i], telling[i]) for i in sorted(telling)]
+    else:
+        # kleur per bronsysteem
+        legenda = []
+        bronnen = []
+        for s in stromen:
+            naam = knopen[s["bron"]]["naam"] or "junctie"
+            if naam not in bronnen:
+                bronnen.append(naam)
+        kleuren = {naam: PALET[i % len(PALET)] for i, naam in enumerate(bronnen)}
+        # een lijn uit een junctie krijgt de kleur van de lijn die erin komt
+        binnen = {s["doel"]: s for s in stromen if knopen[s["doel"]]["type"] == "Junction"}
+        for s in stromen:
+            if knopen[s["bron"]]["type"] == "Junction" and s["bron"] in binnen:
+                kleuren.setdefault(s["bron"], kleuren[knopen[binnen[s["bron"]]["bron"]]["naam"]])
+                s["kleur"] = kleuren[s["bron"]]
+            else:
+                s["kleur"] = kleuren[knopen[s["bron"]]["naam"] or "junctie"]
 
-    # kleur per bronsysteem
-    bronnen = []
-    for s in stromen:
-        naam = knopen[s["bron"]]["naam"] or "junctie"
-        if naam not in bronnen:
-            bronnen.append(naam)
-    kleuren = {naam: PALET[i % len(PALET)] for i, naam in enumerate(bronnen)}
-    # een lijn uit een junctie krijgt de kleur van de lijn die erin komt
-    binnen = {s["doel"]: s for s in stromen if knopen[s["doel"]]["type"] == "Junction"}
-    for s in stromen:
-        if knopen[s["bron"]]["type"] == "Junction" and s["bron"] in binnen:
-            kleuren.setdefault(s["bron"], kleuren[knopen[binnen[s["bron"]]["bron"]]["naam"]])
-            s["kleur"] = kleuren[s["bron"]]
-        else:
-            s["kleur"] = kleuren[knopen[s["bron"]]["naam"] or "junctie"]
-
-    delen = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {breedte:.0f} {hoogte:.0f}" '
-             f'width="{breedte:.0f}" height="{hoogte:.0f}" font-family="Segoe UI, Arial, sans-serif">',
+    onderkant = hoogte + legenda_hoogte(len(legenda))
+    gebruikt = list(dict.fromkeys(s["kleur"] for s in stromen))
+    merk = {kleur: f"pijl{i}" for i, kleur in enumerate(gebruikt)}
+    delen = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {breedte:.0f} {onderkant:.0f}" '
+             f'width="{breedte:.0f}" height="{onderkant:.0f}" font-family="Segoe UI, Arial, sans-serif">',
              "<defs>"]
-    for i, kleur in enumerate(PALET):
-        delen.append(f'<marker id="pijl{i}" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="5.5" '
+    for kleur, naam in merk.items():
+        delen.append(f'<marker id="{naam}" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="5.5" '
                      f'markerHeight="5.5" orient="auto-start-reverse">'
                      f'<path d="M0 0 L10 5 L0 10 z" fill="{kleur}"/></marker>')
-    delen += ["</defs>", f'<rect width="{breedte:.0f}" height="{hoogte:.0f}" fill="#ffffff"/>']
+    delen += ["</defs>", f'<rect width="{breedte:.0f}" height="{onderkant:.0f}" fill="#ffffff"/>']
 
     for i, z in enumerate(zones):
         delen.append(groep_svg(z, "links" if i == 0 else "rechts"))
@@ -573,7 +627,7 @@ def bouw(ruimte_x=1.55, ruimte_y=1.85, tussen=70, marge=30, opschriften="namen")
     for v in verbanden:
         delen.append(lijn_svg(v["punten"], None, None, stroom=False))
     for s in stromen:
-        delen.append(lijn_svg(s["punten"], s["kleur"], f"pijl{PALET.index(s['kleur'])}"))
+        delen.append(lijn_svg(s["punten"], s["kleur"], merk[s["kleur"]]))
     for k in alles:
         if is_groep(k):
             continue
@@ -595,9 +649,10 @@ def bouw(ruimte_x=1.55, ruimte_y=1.85, tussen=70, marge=30, opschriften="namen")
         delen.append(naam_svg(s["punten"], s["label"], s["kleur"], bezet, (breedte, hoogte),
                               maat=LETTER + 5 if opschriften == "ids" else LETTER,
                               omlijnd=opschriften == "ids"))
+    delen.append(legenda_svg(legenda, marge, hoogte - marge / 2, breedte - 2 * marge))
     delen.append("</svg>")
     return ("".join(delen), stromen, verbanden,
-            [k for k in alles if k["type"] == "ApplicationComponent"], idents)
+            [k for k in alles if k["type"] == "ApplicationComponent"], legenda)
 
 
 def kruisingen(lijnen):
@@ -621,14 +676,14 @@ def main():
     p.add_argument("--opschriften", choices=("namen", "ids"), default="namen",
                    help="namen: de stroomnamen van de plaat; ids: het voorlopige koppeling-ID per stroom")
     args = p.parse_args()
-    svg, stromen, verbanden, componenten, idents = bouw(args.ruimte_x, args.ruimte_y,
-                                                        opschriften=args.opschriften)
+    svg, stromen, verbanden, componenten, legenda = bouw(args.ruimte_x, args.ruimte_y,
+                                                         opschriften=args.opschriften)
     pathlib.Path(args.uit).write_text(svg, encoding="utf-8")
     haaks = sum(1 for s in stromen for a, b in zip(s["punten"], s["punten"][1:])
                 if abs(a[0] - b[0]) > 0.5 and abs(a[1] - b[1]) > 0.5)
     kruis = kruisingen([v["punten"] for v in stromen + verbanden])
-    gelabeld = sum(1 for s in stromen if s["label"])
-    erbij = f", {gelabeld} stromen onder {len(idents)} koppeling-ID's" if idents else ""
+    erbij = (f", {sum(a for _, _, a in legenda)} stromen onder {len(legenda)} koppeling-ID's"
+             if legenda else "")
     print(f"{len(componenten)} componenten, {len(stromen)} stromen, {len(verbanden)} verbanden; "
           f"{haaks} schuine segmenten, {kruis} kruisingen{erbij}")
     return 0

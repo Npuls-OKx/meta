@@ -121,5 +121,27 @@ class KoppelingIdTests(unittest.TestCase):
         self.assertEqual([s["label"] for s in stromen], ["", "OC-KRS"])
 
 
+class LegendaTests(unittest.TestCase):
+    """De legenda vertelt per koppeling-ID zijn kleur en hoeveel informatiestromen eronder vallen."""
+
+    RIJEN = [("OC-P", "#d9531e", 3), ("R-SKS", "#1f5fd0", 1)]
+
+    def test_given_no_ids_when_measured_then_the_legend_takes_no_room(self):
+        self.assertEqual(ruim.legenda_hoogte(0), 0)
+        self.assertEqual(ruim.legenda_svg([], 0, 0, 600), "")
+
+    def test_given_more_ids_than_columns_when_measured_then_a_row_is_added(self):
+        self.assertGreater(ruim.legenda_hoogte(7, kolommen=6), ruim.legenda_hoogte(6, kolommen=6))
+
+    def test_given_ids_when_drawn_then_each_shows_its_colour_and_its_count(self):
+        svg = ruim.legenda_svg(self.RIJEN, 0, 0, 600)
+        for stuk in ("OC-P", "R-SKS", "#d9531e", "#1f5fd0", "3 stromen", "1 stroom"):
+            self.assertIn(stuk, svg)
+
+    def test_given_ids_when_drawn_then_the_heading_counts_them_and_their_flows(self):
+        svg = ruim.legenda_svg(self.RIJEN, 0, 0, 600)
+        self.assertIn("2 voorlopige koppeling-ID's, samen 4 informatiestromen", svg)
+
+
 if __name__ == "__main__":
     unittest.main()
