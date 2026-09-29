@@ -83,10 +83,10 @@ Sectiescheiding. Het eerste deel is de stand van zaken: wat er op 15 september i
 
 | Afgesproken | Wie | Stand op 25 september |
 |---|---|---|
-| Voorbeelduitwerking van het informatiemodel langs leerroute 1 | Niek | [meta PR 252](https://github.com/Npuls-OKx/meta/pull/252): 35 opmerkingen van Niels, verwerkt |
+| Voorbeelduitwerking van het informatiemodel langs leerroute 1 | Niek | Ligt er: [meta PR 252](https://github.com/Npuls-OKx/meta/pull/252), vandaag op tafel |
 | Iteratie op de versionering met een voorbeeldflow, en een sessie vooraf | Garik | [Public PR 100](https://github.com/Npuls-OKx/Public/pull/100) staat op draft |
 | Business-architectuur doorontwikkelen en stories ophalen bij de PoC-scholen | Niels | Milestone [requirementsboom](https://github.com/Npuls-OKx/Public/milestone/3), negen open |
-| [Public PR 104](https://github.com/Npuls-OKx/Public/pull/104) bekijken en opmerkingen achterlaten | Kerngroep | Vier opmerkingen van Luke, verwerkt |
+| [Public PR 104](https://github.com/Npuls-OKx/Public/pull/104) bekijken en opmerkingen achterlaten | Kerngroep | Vier opmerkingen van Luke; het cohort loopt door als [meta #263](https://github.com/Npuls-OKx/meta/issues/263) |
 | Voorstel voor een kort koppeling-ID, beide richtingen in een specificatie | Kernteam | [Public #107](https://github.com/Npuls-OKx/Public/issues/107), voorstel vandaag |
 | Aanpak voor draagvlak bij leveranciers, plus de tijdsbesteding | Ruud en Hans | Follow-up na vandaag |
 
@@ -100,10 +100,10 @@ Ook afgesproken: <a href="https://github.com/Npuls-OKx/Public/pull/82">Public PR
 
 <!--
 Bron: het deck met afspraken van 15 september (meta, presentaties/src). Zes afspraken, elk met
-de stand van vandaag uit GitHub. Twee daarvan hebben deze week review opgeleverd: Niels liet 35
-opmerkingen achter op de voorbeelduitwerking en Luke vier op Public PR 104. Beide zijn verwerkt;
-wat de beelden daarvan laten zien komt in blok 2 aan bod. Benoem dat de reviewronde het voorbeeld
-op vijf punten heeft rechtgezet, en dat dit precies is wat een voorbeeld moet opleveren.
+de stand van vandaag uit GitHub. De review op PR 104 is op gang gekomen: Luke liet er vier
+opmerkingen achter. Drie daarvan licht ik hier mondeling toe; de vierde gaat over het cohort en
+is nog open, want die raakt de plaat. Die staat als meta #263. Nodig de rest uit hetzelfde te
+doen, want een tweede paar ogen levert precies dit op.
 -->
 
 ---
@@ -411,41 +411,6 @@ Status: concept in afstemming
 Een voorbeeld van hoe een regel eruitziet, zodat de bijlage zichzelf uitlegt. F2-07 volgt op de
 planning: het geplande aanbod gaat terug naar de catalogus. Het beeld staat in de vormtaal van de
 informatiemodelplaat, zodat wie de plaat kent het beeld direct leest.
--->
-
----
-
-<!-- 7b. WAT DE REVIEW HEEFT RECHTGEZET -->
-<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
-
-<div class="fill">
-
-# Wat de review heeft rechtgezet
-
-<div style="font-size: 0.82rem; line-height: 1.5; margin-top: 0.5rem; max-width: 86%;">
-
-| Wat er stond | Wat de review zegt | Van |
-|---|---|---|
-| Elk leeronderdeel droeg een werkprocescode als naam | Een werkproces is een summatieve verdieping van een kerntaak, een leeronderdeel een onderwijskundige. Die twee lopen niet gelijk op | Niels |
-| Toetsonderdelen zonder schaal of afnamevorm | Zonder schaal, afnamevorm, duur en pogingen kan een volgsysteem een resultaat niet lezen | Niels |
-| Afronding: alle kerntaken en keuzedelen voldoende | Het basisdeel ontbrak: Nederlands, rekenen, Engels en burgerschap, met een eigen zak-slaagregeling | Niels en Luke |
-| Het cohort hing aan de student | Een student heeft meerdere verbintenissen met elk een eigen start. Het cohort hoort op het aanbod | Luke |
-| De SLB'er legde verbintenissen op geroosterde gelegenheden | Dat doet de planner, via de plaatsingsgroep. De SLB'er komt pas bij vertraging in beeld | Niels |
-| Instroomcohort van 120 studenten | Twintig tot veertig is realistisch. Daar zit de logistieke uitdaging van het mbo | Niels |
-
-</div>
-
-<div style="font-size: 0.8rem; color: var(--np-mid-gray); margin-top: 0.6rem; max-width: 86%;">
-39 opmerkingen, alle verwerkt. Geen ervan botste met het informatiemodel; zes legden een gat in de plaat bloot. Het cohort staat als <a href="https://github.com/Npuls-OKx/meta/issues/263">meta #263</a>.
-</div>
-
-</div>
-
-<!--
-Dit is de opbrengst van de reviewronde: Niels liet 35 opmerkingen achter op meta PR 252, Luke vier
-op Public PR 104. Belangrijkste boodschap: geen enkele opmerking botste met het model, en zes ervan
-legden een gat in de plaat bloot in plaats van een denkfout bij de reviewer. Dat is precies waarvoor
-een voorbeeld bestaat. De beelden hierna tonen de bijgewerkte versie.
 -->
 
 ---
