@@ -62,7 +62,9 @@ Deze waarden komen uit de hoofdplaat en zijn een bruikbaar vertrekpunt:
 
 Het **ArchiMate-kleurenschema**, zoals Archi een view tekent: de kleur uit de view waar die er staat, en anders die van de laag waar het element toe hoort. Zo blijven de keuzes van de tekenaar overeind, zoals een wit vak voor een component dat buiten het verhaal valt. Vul- en randkleuren per laag staan in `scripts/teken-voorbeeldregels.py`; een randkleur zonder eigen opgave wordt van de vulkleur afgeleid door haar donkerder te maken.
 
-Lijnen zijn de uitzondering. In ArchiMate is een relatie zwart, en dertig zwarte lijnen door elkaar leest niet. Geef een lijn daarom een kleur per bronsysteem, donker genoeg om over een vak van de applicatielaag heen te lezen, met een witte onderlaag eronder zodat een kruising leesbaar blijft.
+Lijnen zijn de uitzondering. In ArchiMate is een relatie zwart, en dertig zwarte lijnen door elkaar leest niet. Geef een lijn daarom een kleur, donker genoeg om over een vak van de applicatielaag heen te lezen, met een witte onderlaag eronder zodat een kruising leesbaar blijft. Waarnaar die kleur verwijst volgt de vraag die de plaat beantwoordt: per bronsysteem als de vraag is waar informatie vandaan komt, per koppelvlak als de plaat over de koppelingen zelf gaat.
+
+**Een kleur die iets betekent vraagt om een legenda, en die legenda hoort in de SVG.** Zet haar onder de plaat, met per ingang het lijnstukje in haar kleur, de korte naam en het aantal lijnen dat eronder valt, en zet de totalen in de kop erboven. Zo blijft de plaat op zichzelf te lezen en ook buiten het deck bruikbaar, bijvoorbeeld onder een issue. Een legenda in de slide ernaast raakt los van de plaat zodra iemand het beeld doorstuurt.
 
 ## Tekst
 
