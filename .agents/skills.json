@@ -57,6 +57,11 @@
       "doel": "Kaderstellende scenario's per leerroute schrijven en aanscherpen binnen de leerroute-uitwerking."
     },
     {
+      "naam": "okx-plaat-uit-het-model",
+      "type": "okx-specifiek",
+      "doel": "Een architectuurplaat uit het ArchiMate-model tekenen: haakse routering, aanhechtingen op volgorde van hun overkant, het ArchiMate-kleurenschema, en keuring op leesbaarheid via scripts/keur-plaat.py."
+    },
+    {
       "naam": "okx-presentatie",
       "type": "okx-specifiek",
       "doel": "Adaptatie-wrapper: OKx-presentaties en update-decks, met de stakeholderprofielen en het ophalen van wijzigingen uit beide OKx-repositories."
