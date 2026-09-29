@@ -83,10 +83,10 @@ Sectiescheiding. Het eerste deel is de stand van zaken: wat er op 15 september i
 
 | Afgesproken | Wie | Stand op 25 september |
 |---|---|---|
-| Voorbeelduitwerking van het informatiemodel langs leerroute 1 | Niek | Ligt er: [meta PR 252](https://github.com/Npuls-OKx/meta/pull/252), vandaag op tafel |
+| Voorbeelduitwerking van het informatiemodel langs leerroute 1 | Niek | [meta PR 252](https://github.com/Npuls-OKx/meta/pull/252): 35 opmerkingen van Niels, verwerkt |
 | Iteratie op de versionering met een voorbeeldflow, en een sessie vooraf | Garik | [Public PR 100](https://github.com/Npuls-OKx/Public/pull/100) staat op draft |
 | Business-architectuur doorontwikkelen en stories ophalen bij de PoC-scholen | Niels | Milestone [requirementsboom](https://github.com/Npuls-OKx/Public/milestone/3), negen open |
-| [Public PR 104](https://github.com/Npuls-OKx/Public/pull/104) bekijken en opmerkingen achterlaten | Kerngroep | Open, nog zonder opmerkingen |
+| [Public PR 104](https://github.com/Npuls-OKx/Public/pull/104) bekijken en opmerkingen achterlaten | Kerngroep | Vier opmerkingen van Luke, verwerkt |
 | Voorstel voor een kort koppeling-ID, beide richtingen in een specificatie | Kernteam | [Public #107](https://github.com/Npuls-OKx/Public/issues/107), voorstel vandaag |
 | Aanpak voor draagvlak bij leveranciers, plus de tijdsbesteding | Ruud en Hans | Follow-up na vandaag |
 
@@ -100,9 +100,10 @@ Ook afgesproken: <a href="https://github.com/Npuls-OKx/Public/pull/82">Public PR
 
 <!--
 Bron: het deck met afspraken van 15 september (meta, presentaties/src). Zes afspraken, elk met
-de stand van vandaag uit GitHub. De enige die vandaag nog open staat richting de groep is de
-review op PR 104: daar liggen nog geen opmerkingen. Dat is geen verwijt; het is de reden om er
-vandaag samen een moment voor te nemen.
+de stand van vandaag uit GitHub. Twee daarvan hebben deze week review opgeleverd: Niels liet 35
+opmerkingen achter op de voorbeelduitwerking en Luke vier op Public PR 104. Beide zijn verwerkt;
+wat de beelden daarvan laten zien komt in blok 2 aan bod. Benoem dat de reviewronde het voorbeeld
+op vijf punten heeft rechtgezet, en dat dit precies is wat een voorbeeld moet opleveren.
 -->
 
 ---
@@ -414,6 +415,41 @@ informatiemodelplaat, zodat wie de plaat kent het beeld direct leest.
 
 ---
 
+<!-- 7b. WAT DE REVIEW HEEFT RECHTGEZET -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# Wat de review heeft rechtgezet
+
+<div style="font-size: 0.82rem; line-height: 1.5; margin-top: 0.5rem; max-width: 86%;">
+
+| Wat er stond | Wat de review zegt | Van |
+|---|---|---|
+| Elk leeronderdeel droeg een werkprocescode als naam | Een werkproces is een summatieve verdieping van een kerntaak, een leeronderdeel een onderwijskundige. Die twee lopen niet gelijk op | Niels |
+| Toetsonderdelen zonder schaal of afnamevorm | Zonder schaal, afnamevorm, duur en pogingen kan een volgsysteem een resultaat niet lezen | Niels |
+| Afronding: alle kerntaken en keuzedelen voldoende | Het basisdeel ontbrak: Nederlands, rekenen, Engels en burgerschap, met een eigen zak-slaagregeling | Niels en Luke |
+| Het cohort hing aan de student | Een student heeft meerdere verbintenissen met elk een eigen start. Het cohort hoort op het aanbod | Luke |
+| De SLB'er legde verbintenissen op geroosterde gelegenheden | Dat doet de planner, via de plaatsingsgroep. De SLB'er komt pas bij vertraging in beeld | Niels |
+| Instroomcohort van 120 studenten | Twintig tot veertig is realistisch. Daar zit de logistieke uitdaging van het mbo | Niels |
+
+</div>
+
+<div style="font-size: 0.8rem; color: var(--np-mid-gray); margin-top: 0.6rem; max-width: 86%;">
+39 opmerkingen, alle verwerkt. Geen ervan botste met het informatiemodel; zes legden een gat in de plaat bloot. Het cohort staat als <a href="https://github.com/Npuls-OKx/meta/issues/263">meta #263</a>.
+</div>
+
+</div>
+
+<!--
+Dit is de opbrengst van de reviewronde: Niels liet 35 opmerkingen achter op meta PR 252, Luke vier
+op Public PR 104. Belangrijkste boodschap: geen enkele opmerking botste met het model, en zes ervan
+legden een gat in de plaat bloot in plaats van een denkfout bij de reviewer. Dat is precies waarvoor
+een voorbeeld bestaat. De beelden hierna tonen de bijgewerkte versie.
+-->
+
+---
+
 <!-- FASE 1: DE KAART -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
@@ -468,27 +504,50 @@ F1-01. Het kwalificatiedossier ontleed. Vraag bij elk beeld: klopt dit met het e
 
 ---
 
-<!-- FASE 1: F1-02 -->
+<!-- FASE 1: F1-02 deel 1 -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
 
-<div class="np-eyebrow">F1-02 &middot; ontstaat &middot; Examenplan, eerste resultaatstructuur en cohort</div>
+<div class="np-eyebrow">F1-02 &middot; deel 1 van 2 &middot; Examenplan, eerste resultaatstructuur en cohort</div>
 
-<img src="/regels/f1-02-examenplan-eerste-resultaatstructuur-en-cohort.svg" class="np-beeld" />
-
-<div class="np-onder">Stap: Examenplan vaststellen</div>
+<img src="/regels/f1-02-examenplan-eerste-resultaatstructuur-en-cohort-deel1.svg" class="np-beeld" />
 
 <style scoped>
 .np-eyebrow { font-size: 0.75rem; color: var(--np-orange); letter-spacing: 1px; text-transform: uppercase; }
-.np-beeld { display: block; margin: 0.5rem auto 0; max-width: 100%; max-height: 420px; object-fit: contain; }
+.np-beeld { display: block; margin: 0.5rem auto 0; max-width: 100%; max-height: 430px; object-fit: contain; }
 .np-onder { margin-top: 0.4rem; font-size: 0.78rem; color: var(--np-mid-gray); text-align: center; }
 </style>
 
 </div>
 
 <!--
-F1-02. Examenplan, eerste resultaatstructuur en cohort. Vraag bij elk beeld: klopt dit met het eigen model, en hoe heet het daar.
+F1-02, deel 1 van 2. Examenplan, eerste resultaatstructuur en cohort. Het beeld staat in delen op de slides en in een geheel in het document.
+-->
+
+---
+
+<!-- FASE 1: F1-02 deel 2 -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+<div class="np-eyebrow">F1-02 &middot; deel 2 van 2 &middot; Examenplan, eerste resultaatstructuur en cohort</div>
+
+<img src="/regels/f1-02-examenplan-eerste-resultaatstructuur-en-cohort-deel2.svg" class="np-beeld" />
+
+<div class="np-onder">Stap: Examenplan vaststellen</div>
+
+<style scoped>
+.np-eyebrow { font-size: 0.75rem; color: var(--np-orange); letter-spacing: 1px; text-transform: uppercase; }
+.np-beeld { display: block; margin: 0.5rem auto 0; max-width: 100%; max-height: 430px; object-fit: contain; }
+.np-onder { margin-top: 0.4rem; font-size: 0.78rem; color: var(--np-mid-gray); text-align: center; }
+</style>
+
+</div>
+
+<!--
+F1-02, deel 2 van 2. Examenplan, eerste resultaatstructuur en cohort. Het beeld staat in delen op de slides en in een geheel in het document.
 -->
 
 ---
@@ -518,27 +577,50 @@ F1-03. Leeruitkomsten uit het dossier, in de stem van de instelling. Vraag bij e
 
 ---
 
-<!-- FASE 1: F1-04 -->
+<!-- FASE 1: F1-04 deel 1 -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
 
-<div class="np-eyebrow">F1-04 &middot; ontstaat &middot; De leeruitkomst in CompetentNL-skills</div>
+<div class="np-eyebrow">F1-04 &middot; deel 1 van 2 &middot; De leeruitkomst in CompetentNL-skills</div>
 
-<img src="/regels/f1-04-de-leeruitkomst-in-competentnl-skills.svg" class="np-beeld" />
-
-<div class="np-onder">Stap: Kwalificatiedossier vertalen naar leeruitkomsten &middot; verdieping: leeruitkomst naar skills</div>
+<img src="/regels/f1-04-de-leeruitkomst-in-competentnl-skills-deel1.svg" class="np-beeld" />
 
 <style scoped>
 .np-eyebrow { font-size: 0.75rem; color: var(--np-orange); letter-spacing: 1px; text-transform: uppercase; }
-.np-beeld { display: block; margin: 0.5rem auto 0; max-width: 100%; max-height: 420px; object-fit: contain; }
+.np-beeld { display: block; margin: 0.5rem auto 0; max-width: 100%; max-height: 430px; object-fit: contain; }
 .np-onder { margin-top: 0.4rem; font-size: 0.78rem; color: var(--np-mid-gray); text-align: center; }
 </style>
 
 </div>
 
 <!--
-F1-04. De leeruitkomst in CompetentNL-skills. Vraag bij elk beeld: klopt dit met het eigen model, en hoe heet het daar.
+F1-04, deel 1 van 2. De leeruitkomst in CompetentNL-skills. Het beeld staat in delen op de slides en in een geheel in het document.
+-->
+
+---
+
+<!-- FASE 1: F1-04 deel 2 -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+<div class="np-eyebrow">F1-04 &middot; deel 2 van 2 &middot; De leeruitkomst in CompetentNL-skills</div>
+
+<img src="/regels/f1-04-de-leeruitkomst-in-competentnl-skills-deel2.svg" class="np-beeld" />
+
+<div class="np-onder">Stap: Kwalificatiedossier vertalen naar leeruitkomsten</div>
+
+<style scoped>
+.np-eyebrow { font-size: 0.75rem; color: var(--np-orange); letter-spacing: 1px; text-transform: uppercase; }
+.np-beeld { display: block; margin: 0.5rem auto 0; max-width: 100%; max-height: 430px; object-fit: contain; }
+.np-onder { margin-top: 0.4rem; font-size: 0.78rem; color: var(--np-mid-gray); text-align: center; }
+</style>
+
+</div>
+
+<!--
+F1-04, deel 2 van 2. De leeruitkomst in CompetentNL-skills. Het beeld staat in delen op de slides en in een geheel in het document.
 -->
 
 ---
@@ -548,7 +630,7 @@ F1-04. De leeruitkomst in CompetentNL-skills. Vraag bij elk beeld: klopt dit met
 
 <div class="fill">
 
-<div class="np-eyebrow">F1-05 &middot; deel 1 van 2 &middot; De eenheidspecificatie met haar leeronderdelen en de gelinkte leeruitkomsten</div>
+<div class="np-eyebrow">F1-05 &middot; deel 1 van 3 &middot; De eenheidspecificatie met haar leeronderdelen en de gelinkte leeruitkomsten</div>
 
 <img src="/regels/f1-05-de-eenheidspecificatie-met-haar-leeronderdelen-en-de-gelinkte-leeruitkomsten-deel1.svg" class="np-beeld" />
 
@@ -561,7 +643,7 @@ F1-04. De leeruitkomst in CompetentNL-skills. Vraag bij elk beeld: klopt dit met
 </div>
 
 <!--
-F1-05, deel 1 van 2. De eenheidspecificatie met haar leeronderdelen en de gelinkte leeruitkomsten. Het beeld staat in delen op de slides en in een geheel in het document.
+F1-05, deel 1 van 3. De eenheidspecificatie met haar leeronderdelen en de gelinkte leeruitkomsten. Het beeld staat in delen op de slides en in een geheel in het document.
 -->
 
 ---
@@ -571,11 +653,9 @@ F1-05, deel 1 van 2. De eenheidspecificatie met haar leeronderdelen en de gelink
 
 <div class="fill">
 
-<div class="np-eyebrow">F1-05 &middot; deel 2 van 2 &middot; De eenheidspecificatie met haar leeronderdelen en de gelinkte leeruitkomsten</div>
+<div class="np-eyebrow">F1-05 &middot; deel 2 van 3 &middot; De eenheidspecificatie met haar leeronderdelen en de gelinkte leeruitkomsten</div>
 
 <img src="/regels/f1-05-de-eenheidspecificatie-met-haar-leeronderdelen-en-de-gelinkte-leeruitkomsten-deel2.svg" class="np-beeld" />
-
-<div class="np-onder">Stap: Kwalificatiedossier vertalen naar leeruitkomsten &middot; verdieping: van kerntaak naar eenheid en leeronderdelen</div>
 
 <style scoped>
 .np-eyebrow { font-size: 0.75rem; color: var(--np-orange); letter-spacing: 1px; text-transform: uppercase; }
@@ -586,7 +666,32 @@ F1-05, deel 1 van 2. De eenheidspecificatie met haar leeronderdelen en de gelink
 </div>
 
 <!--
-F1-05, deel 2 van 2. De eenheidspecificatie met haar leeronderdelen en de gelinkte leeruitkomsten. Het beeld staat in delen op de slides en in een geheel in het document.
+F1-05, deel 2 van 3. De eenheidspecificatie met haar leeronderdelen en de gelinkte leeruitkomsten. Het beeld staat in delen op de slides en in een geheel in het document.
+-->
+
+---
+
+<!-- FASE 1: F1-05 deel 3 -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+<div class="np-eyebrow">F1-05 &middot; deel 3 van 3 &middot; De eenheidspecificatie met haar leeronderdelen en de gelinkte leeruitkomsten</div>
+
+<img src="/regels/f1-05-de-eenheidspecificatie-met-haar-leeronderdelen-en-de-gelinkte-leeruitkomsten-deel3.svg" class="np-beeld" />
+
+<div class="np-onder">Stap: Kwalificatiedossier vertalen naar leeruitkomsten</div>
+
+<style scoped>
+.np-eyebrow { font-size: 0.75rem; color: var(--np-orange); letter-spacing: 1px; text-transform: uppercase; }
+.np-beeld { display: block; margin: 0.5rem auto 0; max-width: 100%; max-height: 430px; object-fit: contain; }
+.np-onder { margin-top: 0.4rem; font-size: 0.78rem; color: var(--np-mid-gray); text-align: center; }
+</style>
+
+</div>
+
+<!--
+F1-05, deel 3 van 3. De eenheidspecificatie met haar leeronderdelen en de gelinkte leeruitkomsten. Het beeld staat in delen op de slides en in een geheel in het document.
 -->
 
 ---
@@ -596,7 +701,7 @@ F1-05, deel 2 van 2. De eenheidspecificatie met haar leeronderdelen en de gelink
 
 <div class="fill">
 
-<div class="np-eyebrow">F1-06 &middot; deel 1 van 3 &middot; De eenheidspecificatie met haar onderwijsontwerp: vorm, ruimte, mensen en middelen</div>
+<div class="np-eyebrow">F1-06 &middot; deel 1 van 4 &middot; De eenheidspecificatie met haar onderwijsontwerp: vorm, ruimte, mensen en middelen</div>
 
 <img src="/regels/f1-06-de-eenheidspecificatie-met-haar-onderwijsontwerp-vorm-ruimte-mensen-en-middelen-deel1.svg" class="np-beeld" />
 
@@ -609,7 +714,7 @@ F1-05, deel 2 van 2. De eenheidspecificatie met haar leeronderdelen en de gelink
 </div>
 
 <!--
-F1-06, deel 1 van 3. De eenheidspecificatie met haar onderwijsontwerp: vorm, ruimte, mensen en middelen. Het beeld staat in delen op de slides en in een geheel in het document.
+F1-06, deel 1 van 4. De eenheidspecificatie met haar onderwijsontwerp: vorm, ruimte, mensen en middelen. Het beeld staat in delen op de slides en in een geheel in het document.
 -->
 
 ---
@@ -619,7 +724,7 @@ F1-06, deel 1 van 3. De eenheidspecificatie met haar onderwijsontwerp: vorm, rui
 
 <div class="fill">
 
-<div class="np-eyebrow">F1-06 &middot; deel 2 van 3 &middot; De eenheidspecificatie met haar onderwijsontwerp: vorm, ruimte, mensen en middelen</div>
+<div class="np-eyebrow">F1-06 &middot; deel 2 van 4 &middot; De eenheidspecificatie met haar onderwijsontwerp: vorm, ruimte, mensen en middelen</div>
 
 <img src="/regels/f1-06-de-eenheidspecificatie-met-haar-onderwijsontwerp-vorm-ruimte-mensen-en-middelen-deel2.svg" class="np-beeld" />
 
@@ -632,7 +737,7 @@ F1-06, deel 1 van 3. De eenheidspecificatie met haar onderwijsontwerp: vorm, rui
 </div>
 
 <!--
-F1-06, deel 2 van 3. De eenheidspecificatie met haar onderwijsontwerp: vorm, ruimte, mensen en middelen. Het beeld staat in delen op de slides en in een geheel in het document.
+F1-06, deel 2 van 4. De eenheidspecificatie met haar onderwijsontwerp: vorm, ruimte, mensen en middelen. Het beeld staat in delen op de slides en in een geheel in het document.
 -->
 
 ---
@@ -642,11 +747,9 @@ F1-06, deel 2 van 3. De eenheidspecificatie met haar onderwijsontwerp: vorm, rui
 
 <div class="fill">
 
-<div class="np-eyebrow">F1-06 &middot; deel 3 van 3 &middot; De eenheidspecificatie met haar onderwijsontwerp: vorm, ruimte, mensen en middelen</div>
+<div class="np-eyebrow">F1-06 &middot; deel 3 van 4 &middot; De eenheidspecificatie met haar onderwijsontwerp: vorm, ruimte, mensen en middelen</div>
 
 <img src="/regels/f1-06-de-eenheidspecificatie-met-haar-onderwijsontwerp-vorm-ruimte-mensen-en-middelen-deel3.svg" class="np-beeld" />
-
-<div class="np-onder">Stap: Kwalificatiedossier vertalen naar leeruitkomsten &middot; verdieping: onderwijsontwerp met ruimte en middelen</div>
 
 <style scoped>
 .np-eyebrow { font-size: 0.75rem; color: var(--np-orange); letter-spacing: 1px; text-transform: uppercase; }
@@ -657,7 +760,32 @@ F1-06, deel 2 van 3. De eenheidspecificatie met haar onderwijsontwerp: vorm, rui
 </div>
 
 <!--
-F1-06, deel 3 van 3. De eenheidspecificatie met haar onderwijsontwerp: vorm, ruimte, mensen en middelen. Het beeld staat in delen op de slides en in een geheel in het document.
+F1-06, deel 3 van 4. De eenheidspecificatie met haar onderwijsontwerp: vorm, ruimte, mensen en middelen. Het beeld staat in delen op de slides en in een geheel in het document.
+-->
+
+---
+
+<!-- FASE 1: F1-06 deel 4 -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+<div class="np-eyebrow">F1-06 &middot; deel 4 van 4 &middot; De eenheidspecificatie met haar onderwijsontwerp: vorm, ruimte, mensen en middelen</div>
+
+<img src="/regels/f1-06-de-eenheidspecificatie-met-haar-onderwijsontwerp-vorm-ruimte-mensen-en-middelen-deel4.svg" class="np-beeld" />
+
+<div class="np-onder">Stap: Kwalificatiedossier vertalen naar leeruitkomsten</div>
+
+<style scoped>
+.np-eyebrow { font-size: 0.75rem; color: var(--np-orange); letter-spacing: 1px; text-transform: uppercase; }
+.np-beeld { display: block; margin: 0.5rem auto 0; max-width: 100%; max-height: 430px; object-fit: contain; }
+.np-onder { margin-top: 0.4rem; font-size: 0.78rem; color: var(--np-mid-gray); text-align: center; }
+</style>
+
+</div>
+
+<!--
+F1-06, deel 4 van 4. De eenheidspecificatie met haar onderwijsontwerp: vorm, ruimte, mensen en middelen. Het beeld staat in delen op de slides en in een geheel in het document.
 -->
 
 ---
@@ -692,7 +820,7 @@ F1-07. De opleidingsspecificatie met programma, eenheden en keuzedeelruimte. Vra
 
 <div class="fill">
 
-<div class="np-eyebrow">F1-08 &middot; deel 1 van 3 &middot; Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen</div>
+<div class="np-eyebrow">F1-08 &middot; deel 1 van 2 &middot; Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen</div>
 
 <img src="/regels/f1-08-het-keuzedeel-als-eigen-programmaspecificatie-met-kerntaken-en-werkprocessen-deel1.svg" class="np-beeld" />
 
@@ -705,7 +833,7 @@ F1-07. De opleidingsspecificatie met programma, eenheden en keuzedeelruimte. Vra
 </div>
 
 <!--
-F1-08, deel 1 van 3. Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen. Het beeld staat in delen op de slides en in een geheel in het document.
+F1-08, deel 1 van 2. Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen. Het beeld staat in delen op de slides en in een geheel in het document.
 -->
 
 ---
@@ -715,32 +843,9 @@ F1-08, deel 1 van 3. Het keuzedeel als eigen programmaspecificatie, met kerntake
 
 <div class="fill">
 
-<div class="np-eyebrow">F1-08 &middot; deel 2 van 3 &middot; Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen</div>
+<div class="np-eyebrow">F1-08 &middot; deel 2 van 2 &middot; Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen</div>
 
 <img src="/regels/f1-08-het-keuzedeel-als-eigen-programmaspecificatie-met-kerntaken-en-werkprocessen-deel2.svg" class="np-beeld" />
-
-<style scoped>
-.np-eyebrow { font-size: 0.75rem; color: var(--np-orange); letter-spacing: 1px; text-transform: uppercase; }
-.np-beeld { display: block; margin: 0.5rem auto 0; max-width: 100%; max-height: 430px; object-fit: contain; }
-.np-onder { margin-top: 0.4rem; font-size: 0.78rem; color: var(--np-mid-gray); text-align: center; }
-</style>
-
-</div>
-
-<!--
-F1-08, deel 2 van 3. Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen. Het beeld staat in delen op de slides en in een geheel in het document.
--->
-
----
-
-<!-- FASE 1: F1-08 deel 3 -->
-<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
-
-<div class="fill">
-
-<div class="np-eyebrow">F1-08 &middot; deel 3 van 3 &middot; Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen</div>
-
-<img src="/regels/f1-08-het-keuzedeel-als-eigen-programmaspecificatie-met-kerntaken-en-werkprocessen-deel3.svg" class="np-beeld" />
 
 <div class="np-onder">Stap: Keuzedeelprogramma als eigen specificatie vormgeven</div>
 
@@ -753,7 +858,7 @@ F1-08, deel 2 van 3. Het keuzedeel als eigen programmaspecificatie, met kerntake
 </div>
 
 <!--
-F1-08, deel 3 van 3. Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen. Het beeld staat in delen op de slides en in een geheel in het document.
+F1-08, deel 2 van 2. Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen. Het beeld staat in delen op de slides en in een geheel in het document.
 -->
 
 ---
@@ -763,7 +868,7 @@ F1-08, deel 3 van 3. Het keuzedeel als eigen programmaspecificatie, met kerntake
 
 <div class="fill">
 
-<div class="np-eyebrow">F1-09 &middot; ontstaat &middot; Toetsonderdelen, wegingen en afrondingscriterium</div>
+<div class="np-eyebrow">F1-09 &middot; verandert &middot; Toetsonderdelen, wegingen en afrondingscriterium</div>
 
 <img src="/regels/f1-09-toetsonderdelen-wegingen-en-afrondingscriterium.svg" class="np-beeld" />
 
@@ -788,7 +893,7 @@ F1-09. Toetsonderdelen, wegingen en afrondingscriterium. Vraag bij elk beeld: kl
 
 <div class="fill">
 
-<div class="np-eyebrow">F1-10 &middot; deel 1 van 2 &middot; De examenonderdeelspecificatie met haar toetsvorm, instrumenten, materiaal en ruimte</div>
+<div class="np-eyebrow">F1-10 &middot; deel 1 van 3 &middot; De examenonderdeelspecificatie met haar toetsvorm, instrumenten, materiaal en ruimte</div>
 
 <img src="/regels/f1-10-de-examenonderdeelspecificatie-met-haar-toetsvorm-instrumenten-materiaal-en-ruimte-deel1.svg" class="np-beeld" />
 
@@ -801,7 +906,7 @@ F1-09. Toetsonderdelen, wegingen en afrondingscriterium. Vraag bij elk beeld: kl
 </div>
 
 <!--
-F1-10, deel 1 van 2. De examenonderdeelspecificatie met haar toetsvorm, instrumenten, materiaal en ruimte. Het beeld staat in delen op de slides en in een geheel in het document.
+F1-10, deel 1 van 3. De examenonderdeelspecificatie met haar toetsvorm, instrumenten, materiaal en ruimte. Het beeld staat in delen op de slides en in een geheel in het document.
 -->
 
 ---
@@ -811,11 +916,9 @@ F1-10, deel 1 van 2. De examenonderdeelspecificatie met haar toetsvorm, instrume
 
 <div class="fill">
 
-<div class="np-eyebrow">F1-10 &middot; deel 2 van 2 &middot; De examenonderdeelspecificatie met haar toetsvorm, instrumenten, materiaal en ruimte</div>
+<div class="np-eyebrow">F1-10 &middot; deel 2 van 3 &middot; De examenonderdeelspecificatie met haar toetsvorm, instrumenten, materiaal en ruimte</div>
 
 <img src="/regels/f1-10-de-examenonderdeelspecificatie-met-haar-toetsvorm-instrumenten-materiaal-en-ruimte-deel2.svg" class="np-beeld" />
-
-<div class="np-onder">Stap: Exameninstrumenten bepalen, inkopen of construeren &middot; verdieping: examenvorm, instrument en beoordelaar</div>
 
 <style scoped>
 .np-eyebrow { font-size: 0.75rem; color: var(--np-orange); letter-spacing: 1px; text-transform: uppercase; }
@@ -826,7 +929,32 @@ F1-10, deel 1 van 2. De examenonderdeelspecificatie met haar toetsvorm, instrume
 </div>
 
 <!--
-F1-10, deel 2 van 2. De examenonderdeelspecificatie met haar toetsvorm, instrumenten, materiaal en ruimte. Het beeld staat in delen op de slides en in een geheel in het document.
+F1-10, deel 2 van 3. De examenonderdeelspecificatie met haar toetsvorm, instrumenten, materiaal en ruimte. Het beeld staat in delen op de slides en in een geheel in het document.
+-->
+
+---
+
+<!-- FASE 1: F1-10 deel 3 -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+<div class="np-eyebrow">F1-10 &middot; deel 3 van 3 &middot; De examenonderdeelspecificatie met haar toetsvorm, instrumenten, materiaal en ruimte</div>
+
+<img src="/regels/f1-10-de-examenonderdeelspecificatie-met-haar-toetsvorm-instrumenten-materiaal-en-ruimte-deel3.svg" class="np-beeld" />
+
+<div class="np-onder">Stap: Exameninstrumenten bepalen, inkopen of construeren</div>
+
+<style scoped>
+.np-eyebrow { font-size: 0.75rem; color: var(--np-orange); letter-spacing: 1px; text-transform: uppercase; }
+.np-beeld { display: block; margin: 0.5rem auto 0; max-width: 100%; max-height: 430px; object-fit: contain; }
+.np-onder { margin-top: 0.4rem; font-size: 0.78rem; color: var(--np-mid-gray); text-align: center; }
+</style>
+
+</div>
+
+<!--
+F1-10, deel 3 van 3. De examenonderdeelspecificatie met haar toetsvorm, instrumenten, materiaal en ruimte. Het beeld staat in delen op de slides en in een geheel in het document.
 -->
 
 ---
@@ -836,7 +964,7 @@ F1-10, deel 2 van 2. De examenonderdeelspecificatie met haar toetsvorm, instrume
 
 <div class="fill">
 
-<div class="np-eyebrow">F1-11 &middot; deel 1 van 3 &middot; De opleiding zoals ontworpen naar de catalogus</div>
+<div class="np-eyebrow">F1-11 &middot; deel 1 van 2 &middot; De opleiding zoals ontworpen naar de catalogus</div>
 
 <img src="/regels/f1-11-de-opleiding-zoals-ontworpen-naar-de-catalogus-deel1.svg" class="np-beeld" />
 
@@ -849,7 +977,7 @@ F1-10, deel 2 van 2. De examenonderdeelspecificatie met haar toetsvorm, instrume
 </div>
 
 <!--
-F1-11, deel 1 van 3. De opleiding zoals ontworpen naar de catalogus. Het beeld staat in delen op de slides en in een geheel in het document.
+F1-11, deel 1 van 2. De opleiding zoals ontworpen naar de catalogus. Het beeld staat in delen op de slides en in een geheel in het document.
 -->
 
 ---
@@ -859,34 +987,11 @@ F1-11, deel 1 van 3. De opleiding zoals ontworpen naar de catalogus. Het beeld s
 
 <div class="fill">
 
-<div class="np-eyebrow">F1-11 &middot; deel 2 van 3 &middot; De opleiding zoals ontworpen naar de catalogus</div>
+<div class="np-eyebrow">F1-11 &middot; deel 2 van 2 &middot; De opleiding zoals ontworpen naar de catalogus</div>
 
 <img src="/regels/f1-11-de-opleiding-zoals-ontworpen-naar-de-catalogus-deel2.svg" class="np-beeld" />
 
-<style scoped>
-.np-eyebrow { font-size: 0.75rem; color: var(--np-orange); letter-spacing: 1px; text-transform: uppercase; }
-.np-beeld { display: block; margin: 0.5rem auto 0; max-width: 100%; max-height: 430px; object-fit: contain; }
-.np-onder { margin-top: 0.4rem; font-size: 0.78rem; color: var(--np-mid-gray); text-align: center; }
-</style>
-
-</div>
-
-<!--
-F1-11, deel 2 van 3. De opleiding zoals ontworpen naar de catalogus. Het beeld staat in delen op de slides en in een geheel in het document.
--->
-
----
-
-<!-- FASE 1: F1-11 deel 3 -->
-<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
-
-<div class="fill">
-
-<div class="np-eyebrow">F1-11 &middot; deel 3 van 3 &middot; De opleiding zoals ontworpen naar de catalogus</div>
-
-<img src="/regels/f1-11-de-opleiding-zoals-ontworpen-naar-de-catalogus-deel3.svg" class="np-beeld" />
-
-<div class="np-onder">Stroom: Curriculum ontwerptool naar Onderwijscatalogus, geen pijl op de hoofdplaat</div>
+<div class="np-onder">Stap: Grofmazig resultaat publiceren naar de onderwijscatalogus</div>
 
 <style scoped>
 .np-eyebrow { font-size: 0.75rem; color: var(--np-orange); letter-spacing: 1px; text-transform: uppercase; }
@@ -897,7 +1002,7 @@ F1-11, deel 2 van 3. De opleiding zoals ontworpen naar de catalogus. Het beeld s
 </div>
 
 <!--
-F1-11, deel 3 van 3. De opleiding zoals ontworpen naar de catalogus. Het beeld staat in delen op de slides en in een geheel in het document.
+F1-11, deel 2 van 2. De opleiding zoals ontworpen naar de catalogus. Het beeld staat in delen op de slides en in een geheel in het document.
 -->
 
 ---
@@ -934,7 +1039,7 @@ F1-12, deel 1 van 2. Het onderwijs- en examenontwerp mee naar de catalogus (conc
 
 <img src="/regels/f1-12-het-onderwijs-en-examenontwerp-mee-naar-de-catalogus-conceptplaat-deel2.svg" class="np-beeld" />
 
-<div class="np-onder">Stroom: Curriculum ontwerptool naar Onderwijscatalogus, geen pijl op de hoofdplaat</div>
+<div class="np-onder">Stap: Grofmazig resultaat publiceren naar de onderwijscatalogus</div>
 
 <style scoped>
 .np-eyebrow { font-size: 0.75rem; color: var(--np-orange); letter-spacing: 1px; text-transform: uppercase; }
