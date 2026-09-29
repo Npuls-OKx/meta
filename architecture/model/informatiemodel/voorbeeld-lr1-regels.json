@@ -3292,6 +3292,29 @@
       ]
     },
     {
+      "beeld_id": "F2-07",
+      "beeld": "Het geplande aanbod terug naar de catalogus",
+      "fase": 2,
+      "stap": "Gepland aanbod terugleveren aan de onderwijscatalogus",
+      "soort": "stroomt",
+      "van": "Planningssysteem",
+      "naar": "Onderwijscatalogus",
+      "pijl": "id-020f091db6ea4763aad7527a98afaf99",
+      "koppeling": "OC-P&R",
+      "objecttype": "Keuzedeelaanbod",
+      "instantie": "K0037 Farmaceutische Patientenzorg, periode 7: een groep van 24, los van het opleidingsaanbod",
+      "bron": "review Niels van Duin op PR 252: gelegenheden van keuzedelen tonen maakt scherp dat capaciteit los kan staan van de bovenliggende structuur",
+      "relatie": {
+        "soort": "Association",
+        "van": "Keuzedeel",
+        "naar": "Keuzedeelaanbod",
+        "instantie": "K0037 Farmaceutische Patientenzorg"
+      },
+      "toestand": "fijnmazig gepland",
+      "nieuwe_instantie": true,
+      "aanname": true
+    },
+    {
       "beeld_id": "F3-01",
       "beeld": "Aanmeldbaar aanbod naar de kernregistratie",
       "fase": 3,
@@ -3787,7 +3810,7 @@
         "naar": "Leeruitkomst",
         "instantie": "Voert baliegesprek en triage uit (werkprocesniveau)"
       },
-      "zin": "De onderwijsontwikkelaar werkt het leeronderdeel fijnmazig uit tot een lessenreeks van zes weken. De lesspecificaties horen bij het leeronderdeel; twee lessen staan hier om te tonen wat een leeronderdeel draagt. Dieper dan het leeronderdeel gaat de uitwisseling niet, dus de les blijft grijs: binnen de instelling.",
+      "zin": "De onderwijsontwikkelaar werkt het leeronderdeel fijnmazig uit tot een lessenreeks van zes weken. De lesspecificaties horen bij het leeronderdeel. Logistiek landen zij later in een leergelegenheid, en die draagt in de praktijk lesspecificaties uit meer dan een leeronderdeel: de leergelegenheid is de planningscontainer, het leeronderdeel de inhoudelijke eenheid. Dieper dan het leeronderdeel gaat de uitwisseling niet, dus de les blijft grijs.",
       "toestand": "fijnmazig"
     },
     {
@@ -4157,9 +4180,9 @@
       "pijl": "id-e2755a76b8244373bd7e8da4ccb7c3f6",
       "koppeling": "OC-SVS",
       "objecttype": "Summatieve resultaat structuur",
-      "instantie": "Resultaatstructuur Apothekersassistent",
+      "instantie": "Summatieve resultaatstructuur Apothekersassistent, cohort 2026",
       "bron": "leerroute-1-regulier.md, Fase 5: OC naar SVS (specificatie als referentiekader); koppelingspecificatie OC-SVS: resultaatstructuur",
-      "zin": "De resultaatstructuur gaat als nominaal template naar het studentvolgsysteem, dat er per student een individueel examenplan van maakt.",
+      "zin": "De summatieve resultaatstructuur gaat als nominaal template naar het studentvolgsysteem, dat er per student een individueel examenplan van maakt. Elk onderdeel draagt zijn schaal en afnamevorm, want zonder die twee kan het volgsysteem een resultaat niet lezen. Formatieve en summatieve onderdelen bestaan naast elkaar en een examen telt ook als toets, dus het volgsysteem herkent ze aan een unieke codering en ondersteunt equivalentie: een resultaat dat in meerdere structuren meetelt. Optioneel hangen er condities aan een onderdeel, zoals akkoord van de stagebegeleider of alle componenten van een eenheid behaald, die zeggen wanneer een student mag examineren.",
       "relaties": [
         {
           "soort": "Association",
@@ -4180,7 +4203,7 @@
       "pijl": "id-e2755a76b8244373bd7e8da4ccb7c3f6",
       "koppeling": "OC-SVS",
       "objecttype": "Examenonderdeelspecificatie",
-      "instantie": "Proeve van bekwaamheid B1-K1",
+      "instantie": "Proeve van bekwaamheid B1-K1: schaal onvoldoende, voldoende of goed, afname op de bpv-werkplek, 120 minuten, eigen protocollenmap toegestaan, twee pogingen",
       "bron": "informatiemodel.json: Summatieve resultaat structuur aggregeert Toetsonderdeel specificatie, Examenonderdeelspecificatie is een Toetsonderdeel specificatie, Examenonderdeel weging naar Examenonderdeelspecificatie",
       "relatie": {
         "soort": "Aggregation",
@@ -4232,7 +4255,7 @@
       "pijl": "id-e2755a76b8244373bd7e8da4ccb7c3f6",
       "koppeling": "OC-SVS",
       "objecttype": "Summatief Afrondingscriterium",
-      "instantie": "Alle kerntaken en de keuzedelen voldoende",
+      "instantie": "Alle kerntaken voldoende, de keuzedeelruimte gevuld en afgerond, en het basisdeel behaald: Nederlands en rekenen op 2F of 3F met een eigen regeling, Engels en loopbaan en burgerschap voldaan",
       "bron": "leerroute-1-regulier.md, Fase 4: OC naar SVS",
       "relatie": {
         "soort": "Association",
@@ -4251,7 +4274,7 @@
       "pijl": "id-ec248a00b6234f1688ee3705d46a59f7",
       "koppeling": "OC-KRS",
       "objecttype": "Summatieve resultaat structuur",
-      "instantie": "Resultaatstructuur Apothekersassistent",
+      "instantie": "Summatieve resultaatstructuur Apothekersassistent, cohort 2026",
       "bron": "keuze van de sectorarchitect: de kernregistratie verantwoordt de studievoortgang aan RIO en heeft daarvoor de resultaatstructuur nodig",
       "aanname": true,
       "relaties": [
@@ -4275,7 +4298,7 @@
       "pijl": "id-ec248a00b6234f1688ee3705d46a59f7",
       "koppeling": "OC-KRS",
       "objecttype": "Examenonderdeelspecificatie",
-      "instantie": "Proeve van bekwaamheid B1-K1",
+      "instantie": "Proeve van bekwaamheid B1-K1: schaal onvoldoende, voldoende of goed, afname op de bpv-werkplek, 120 minuten, eigen protocollenmap toegestaan, twee pogingen",
       "bron": "informatiemodel.json: Summatieve resultaat structuur aggregeert Toetsonderdeel specificatie, Examenonderdeelspecificatie is een Toetsonderdeel specificatie, Examenonderdeel weging naar Examenonderdeelspecificatie",
       "aanname": true,
       "relatie": {
@@ -4329,7 +4352,7 @@
       "pijl": "id-ec248a00b6234f1688ee3705d46a59f7",
       "koppeling": "OC-KRS",
       "objecttype": "Summatief Afrondingscriterium",
-      "instantie": "Alle kerntaken en de keuzedelen voldoende",
+      "instantie": "Alle kerntaken voldoende, de keuzedeelruimte gevuld en afgerond, en het basisdeel behaald: Nederlands en rekenen op 2F of 3F met een eigen regeling, Engels en loopbaan en burgerschap voldaan",
       "bron": "keuze van de sectorarchitect",
       "aanname": true,
       "relatie": {
