@@ -24,6 +24,7 @@ Hoort bij [de opleiding van Jochem in het informatiemodel](voorbeeld-leerroute-1
 | 1 | F1-05 | Leeruitkomst | | | | |
 | 1 | F1-05 | Leeruitkomst | | | | |
 | 1 | F1-05 | Leeronderdeel specificatie | | | | |
+| 1 | F1-05 | Leeronderdeel specificatie | | | | |
 | 1 | F1-05 | Leeruitkomst | | | | |
 | 1 | F1-05 | Leeronderdeel specificatie | | | | |
 | 1 | F1-06 | Onderwijseenheid specificatie | | | | |
@@ -48,6 +49,7 @@ Hoort bij [de opleiding van Jochem in het informatiemodel](voorbeeld-leerroute-1
 | 1 | F1-09 | Summatieve resultaat structuur | | | | |
 | 1 | F1-09 | Toetsonderdeel specificatie | | | | |
 | 1 | F1-09 | Examenonderdeelspecificatie | | | | |
+| 1 | F1-09 | Examenonderdeelspecificatie | | | | |
 | 1 | F1-09 | Examenonderdeel weging | | | | |
 | 1 | F1-09 | Summatief Afrondingscriterium | | | | |
 | 1 | F1-10 | Examenonderdeelspecificatie | | | | |
@@ -68,7 +70,6 @@ Hoort bij [de opleiding van Jochem in het informatiemodel](voorbeeld-leerroute-1
 | 3 | F3-03 | Opleidingsprogramma aanbod verbintenis | | | | |
 | 3 | F3-05 | Student | | | | |
 | 3 | F3-05 | Plaatsingsgroep | | | | |
-| 3 | F3-05 | Verzoek tot Aanbod / Intekening op specificatie | | | | |
 | 3 | F3-06 | Inschrijving | | | | |
 | 3 | F3-06 | Opleiding aanbod verbintenis | | | | |
 | 3 | F3-06 | Opleidingsprogramma aanbod verbintenis | | | | |
@@ -85,7 +86,6 @@ Hoort bij [de opleiding van Jochem in het informatiemodel](voorbeeld-leerroute-1
 | 5 | F5-01 | Lesgelegenheid verbintenis | | | | |
 | 5 | F5-01 | Aanwezigheid | | | | |
 | 5 | F5-01 | Lesgelegenheid resultaat | | | | |
-| 5 | F5-02 | Toetsgelegenheid verbintenis | | | | |
 | 5 | F5-02 | Toetsgelegenheid verbintenis | | | | |
 | 5 | F5-03 | Formatieve resultaat structuur | | | | |
 | 5 | F5-03 | Toetsonderdeel weging | | | | |
