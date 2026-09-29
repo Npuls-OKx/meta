@@ -14,9 +14,9 @@ ruim = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(ruim)
 
 
-def kind(x, y, w=100, h=50, naam="vak"):
+def kind(x, y, w=100, h=50, naam="vak", type_="ApplicationComponent", vul=None, letter=None):
     return dict(x=x, y=y, w=w, h=h, naam=naam, opschrift=[], tekst="", soort="DiagramObject",
-                type="ApplicationComponent", kinderen=[], ouder=None)
+                type=type_, kinderen=[], ouder=None, vul=vul, lijn=None, letter=letter)
 
 
 def groep(kinderen):
@@ -66,6 +66,34 @@ class PassendTests(unittest.TestCase):
         self.assertGreater(vak["w"], 60)
         regels = ruim.passend(vak["naam"], vak["w"] - 14, vak["h"] - 8, minimaal=11)[1]
         self.assertEqual(" ".join(regels), vak["naam"])
+
+
+class KleurTests(unittest.TestCase):
+    """De plaat kleurt zoals Archi kleurt: de view beslist, en anders de ArchiMate-laag."""
+
+    def test_given_a_component_without_a_colour_when_drawn_then_it_gets_its_layer_colour(self):
+        self.assertEqual(ruim.kleuren(kind(0, 0)), ruim.ARCHIMATE["Application"])
+
+    def test_given_an_actor_when_drawn_then_it_gets_the_colour_of_the_business_layer(self):
+        self.assertEqual(ruim.kleuren(kind(0, 0, type_="BusinessActor")), ruim.ARCHIMATE["Business"])
+
+    def test_given_a_colour_in_the_view_when_drawn_then_that_choice_stays(self):
+        vul, rand, tekst = ruim.kleuren(kind(0, 0, vul="#ffffff", letter="#408080"))
+        self.assertEqual((vul, tekst), ("#ffffff", "#408080"))
+        self.assertNotEqual(rand, "#ffffff")           # de rand blijft zichtbaar op wit
+
+    def test_given_a_fill_when_a_border_is_derived_then_it_is_darker(self):
+        self.assertEqual(ruim.donkerder("#ffffff", 0.5), "#808080")
+
+
+class KruisingTests(unittest.TestCase):
+    """De telling die de kwaliteit van de routering meet."""
+
+    def test_given_two_lines_over_each_other_when_counted_then_it_finds_one(self):
+        self.assertEqual(ruim.kruisingen([[(0, 10), (100, 10)], [(50, 0), (50, 100)]]), 1)
+
+    def test_given_two_lines_that_only_meet_when_counted_then_it_finds_none(self):
+        self.assertEqual(ruim.kruisingen([[(0, 10), (50, 10)], [(50, 10), (50, 100)]]), 0)
 
 
 if __name__ == "__main__":

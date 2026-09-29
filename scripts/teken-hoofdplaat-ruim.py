@@ -34,20 +34,37 @@ STROMEN = pathlib.Path("architecture/model/informatiemodel/stromen.json")
 VIEW = "OKx hoofdplaat v1.7<concept>"
 XSI = "{http://www.w3.org/2001/XMLSchema-instance}type"
 
-INKT = "#12314f"
-STIL = "#66798c"
-COMPONENT_VUL = "#e6f2fb"
-COMPONENT_RAND = "#2a6ebb"
-DIENST_VUL = "#f7fbfe"
-DIENST_RAND = "#9cc8e4"
-GROEP_RAND = "#aebecd"
-NOTITIE_VUL = "#fdfbe9"
-NOTITIE_RAND = "#d8d4a8"
+INKT = "#1c1c1c"
+STIL = "#5b6663"
+GROEP_RAND = "#9aa5ae"
 ZONE = ("#faf5ee", "#f0f5fa")
 ZONE_RAND = ("#e4d8c6", "#d3e0ec")
 
-# een gedempte kleur per bronsysteem, zodat te volgen is waar een lijn vandaan komt
-PALET = ["#d9531e", "#1f6feb", "#0f8a8a", "#6b4bb8", "#2e7d32", "#8a5a12", "#b1268b", "#44607a"]
+# Het ArchiMate-kleurenschema per laag: vulkleur, randkleur, tekstkleur, zoals Archi een view
+# tekent en zoals scripts/teken-voorbeeldregels.py de platen in deze repository kleurt. Wie in de
+# view zelf een kleur meegeeft, houdt die; de rest krijgt de kleur van haar laag.
+ARCHIMATE = {
+    "Strategy": ("#f5deaa", "#a89460", "#5a4a2a"),
+    "Business": ("#ffffb5", "#a8a85a", "#5a5a2a"),
+    "Application": ("#b5ffff", "#5aa8a8", "#2a5a5a"),
+    "Technology": ("#c9e7b7", "#7aa86a", "#33522a"),
+    "Motivation": ("#ccccff", "#7a7ab8", "#33336b"),
+    "Overig": ("#ffffff", "#8c9aa6", INKT),
+}
+LAGEN = (("Business", "Business"), ("Application", "Application"), ("Data", "Application"),
+         ("Technology", "Technology"), ("Node", "Technology"), ("Device", "Technology"),
+         ("SystemSoftware", "Technology"), ("Artifact", "Technology"), ("Path", "Technology"),
+         ("CommunicationNetwork", "Technology"), ("Resource", "Strategy"), ("Capability", "Strategy"),
+         ("CourseOfAction", "Strategy"), ("ValueStream", "Strategy"), ("Stakeholder", "Motivation"),
+         ("Driver", "Motivation"), ("Assessment", "Motivation"), ("Goal", "Motivation"),
+         ("Outcome", "Motivation"), ("Principle", "Motivation"), ("Requirement", "Motivation"),
+         ("Constraint", "Motivation"), ("Meaning", "Motivation"), ("Value", "Motivation"))
+NOTITIE_VUL = "#fdfbe9"
+NOTITIE_RAND = "#d8d4a8"
+
+# een kleur per bronsysteem, zodat te volgen is waar een lijn vandaan komt; donker genoeg
+# om ook over een vak van de applicatielaag heen te lezen
+PALET = ["#d9531e", "#1f5fd0", "#0d7070", "#6b4bb8", "#2e7d32", "#8a5a12", "#b1268b", "#3a4e63"]
 
 ZONENAAM = {
     "links": "onderwijsontwikkeling · inrichting van nominale- en keuze aanbod",
@@ -88,7 +105,8 @@ def lees(model, viewnaam):
                      w=int(b.get("width", 120)), h=int(b.get("height", 55)),
                      soort=soort, type=type_, naam=naam or norm(c.get("name")),
                      tekst=norm(inhoud.text if inhoud is not None else ""),
-                     opschrift=opschrift(c), ouder=ouder, kinderen=[])
+                     opschrift=opschrift(c), ouder=ouder, kinderen=[],
+                     vul=c.get("fillColor"), lijn=c.get("lineColor"), letter=c.get("fontColor"))
         knopen[knoop["id"]] = knoop
         for sc in c.findall("sourceConnection"):
             verbindingen.append(dict(bron=c.get("id"), doel=sc.get("target"),
@@ -210,6 +228,39 @@ def esc(s):
     return html.escape(str(s))
 
 
+def laag(type_):
+    """De ArchiMate-laag van een elementsoort; die bepaalt haar kleur."""
+    for kop, naam in LAGEN:
+        if type_.startswith(kop):
+            return naam
+    return "Overig"
+
+
+def donkerder(kleur, factor=0.62):
+    """De randkleur die Archi van een vulkleur afleidt: dezelfde kleur, een stuk donkerder."""
+    r, g, b = (int(kleur[i:i + 2], 16) for i in (1, 3, 5))
+    return "#%02x%02x%02x" % tuple(round(c * factor) for c in (r, g, b))
+
+
+def kleuren(knoop):
+    """Vul-, rand- en tekstkleur van een vak: die van de view, en anders die van haar ArchiMate-laag.
+
+    Zo houdt de plaat de keuzes die Niels zelf maakte, zoals een wit vak voor een component dat
+    buiten het verhaal staat, en krijgt al het andere de kleur die Archi eraan geeft.
+    """
+    vul_laag, rand_laag, tekst_laag = ARCHIMATE[laag(knoop["type"])]
+    vul = knoop["vul"] or vul_laag
+    rand = knoop["lijn"] or (rand_laag if vul == vul_laag else donkerder(vul))
+    return vul, rand, knoop["letter"] or tekst_laag
+
+
+def merk_svg(x, y, vul, rand):
+    """Het ArchiMate-merkteken van een applicatiecomponent, rechtsboven in het vak."""
+    return (f'<g transform="translate({x - 24:.0f},{y + 7:.0f})" fill="{vul}" stroke="{rand}" '
+            f'stroke-width="1.2"><rect x="4" y="1" width="11" height="13"/>'
+            f'<rect x="0" y="3.5" width="6" height="3"/><rect x="0" y="8.5" width="6" height="3"/></g>')
+
+
 def breek(tekst, breedte, teken=BREED, maximaal=3):
     """De tekst over hoogstens `maximaal` regels; wat niet past valt eraf."""
     if not tekst:
@@ -257,32 +308,34 @@ def tekstblok(x, y, regels, grootte, kleur, dik=False, midden=True, hoogte=None)
     return "".join(delen)
 
 
-def component_svg(knoop, stil):
-    vul, rand = ("#f6f8fa", "#c2ccd6") if stil else (COMPONENT_VUL, COMPONENT_RAND)
-    kleur = STIL if stil else INKT
+def component_svg(knoop):
+    vul, rand, kleur = kleuren(knoop)
     ruimte = max((k["y"] for k in knoop["kinderen"]), default=knoop["h"])
-    grootte, regels = passend(knoop["opschrift"] or knoop["naam"], knoop["w"] - 14, ruimte - 8,
-                              maximaal=20 if not stil else 17, minimaal=11)
+    grootte, regels = passend(knoop["opschrift"] or knoop["naam"], knoop["w"] - 34, ruimte - 8,
+                              maximaal=20, minimaal=11)
     y = knoop["ay"] + ruimte / 2 + grootte / 2 - (len(regels) - 1) * grootte * 0.6
     return (f'<rect x="{knoop["ax"]:.0f}" y="{knoop["ay"]:.0f}" width="{knoop["w"]}" height="{knoop["h"]}" '
-            f'rx="6" fill="{vul}" stroke="{rand}" stroke-width="{1.4 if stil else 2}"/>'
-            + tekstblok(knoop["ax"] + knoop["w"] / 2, y, regels, grootte, kleur, dik=not stil))
+            f'rx="4" fill="{vul}" stroke="{rand}" stroke-width="1.6"/>'
+            + merk_svg(knoop["ax"] + knoop["w"], knoop["ay"], vul, rand)
+            + tekstblok(knoop["ax"] + knoop["w"] / 2, y, regels, grootte, kleur, dik=True))
 
 
 def dienst_svg(knoop):
+    vul, rand, kleur = kleuren(knoop)
     grootte, regels = passend(knoop["opschrift"] or knoop["naam"], knoop["w"] - 10, knoop["h"] - 6,
                               maximaal=15, minimaal=10)
     y = knoop["ay"] + knoop["h"] / 2 + grootte / 2 - (len(regels) - 1) * grootte * 0.6
     return (f'<rect x="{knoop["ax"]:.0f}" y="{knoop["ay"]:.0f}" width="{knoop["w"]}" height="{knoop["h"]}" '
-            f'rx="{min(knoop["h"] / 2, 14):.0f}" fill="{DIENST_VUL}" stroke="{DIENST_RAND}"/>'
-            + tekstblok(knoop["ax"] + knoop["w"] / 2, y, regels, grootte, INKT, hoogte=grootte * 1.2))
+            f'rx="{min(knoop["h"] / 2, 14):.0f}" fill="{vul}" stroke="{rand}"/>'
+            + tekstblok(knoop["ax"] + knoop["w"] / 2, y, regels, grootte, kleur, hoogte=grootte * 1.2))
 
 
 def notitie_svg(knoop):
+    vul = knoop["vul"] if knoop["vul"] and knoop["vul"] != "#ffffff" else NOTITIE_VUL
     grootte, regels = passend(knoop["tekst"] or " ".join(knoop["opschrift"]), knoop["w"] - 16,
                               knoop["h"] - 14, maximaal=15, minimaal=9)
     return (f'<rect x="{knoop["ax"]:.0f}" y="{knoop["ay"]:.0f}" width="{knoop["w"]}" height="{knoop["h"]}" '
-            f'rx="4" fill="{NOTITIE_VUL}" stroke="{NOTITIE_RAND}"/>'
+            f'rx="4" fill="{vul}" stroke="{knoop["lijn"] or donkerder(vul, 0.78)}"/>'
             + tekstblok(knoop["ax"] + 8, knoop["ay"] + 8 + grootte, regels, grootte, STIL,
                         midden=False, hoogte=grootte * 1.25))
 
@@ -416,8 +469,14 @@ def bouw(ruimte_x=1.55, ruimte_y=1.85, tussen=70, marge=30):
         a, b = vakken[v["bron"]], vakken[v["doel"]]
         return abs(a["x"] - b["x"]) + abs(a["y"] - b["y"])
 
-    routers = {z: hoofdplaat.Haaks(hindernissen[z]) for z in hindernissen}
-    for v in sorted(stromen, key=afstand) + sorted(verbanden, key=afstand):
+    volgorde = sorted(stromen, key=afstand) + sorted(verbanden, key=afstand)
+    paren = collections.defaultdict(list)
+    for v in volgorde:
+        paren[per_zone.get(v["bron"], "los")].append((vakken[v["bron"]], vakken[v["doel"]]))
+    # de router kent alle lijnen voordat zij er een tekent, zodat de aanhechtingen per vak
+    # op volgorde van hun overkant staan en twee lijnen elkaar niet hoeven te passeren
+    routers = {z: hoofdplaat.Haaks(hindernissen[z], paren[z]) for z in hindernissen}
+    for v in volgorde:
         zone = per_zone.get(v["bron"], "los")
         v["punten"] = routers[zone].pad(vakken[v["bron"]], vakken[v["doel"]])
 
@@ -452,9 +511,6 @@ def bouw(ruimte_x=1.55, ruimte_y=1.85, tussen=70, marge=30):
         if is_groep(k) and k["ouder"] is not None:
             delen.append(groep_svg(k))
 
-    stil = {k["id"] for k in alles
-            if k["type"] == "ApplicationComponent"
-            and not any(v["bron"] == k["id"] or v["doel"] == k["id"] for v in stromen)}
     for v in verbanden:
         delen.append(lijn_svg(v["punten"], None, None, stroom=False))
     for s in stromen:
@@ -469,7 +525,7 @@ def bouw(ruimte_x=1.55, ruimte_y=1.85, tussen=70, marge=30):
         elif k["type"] == "ApplicationService":
             delen.append(dienst_svg(k))
         elif k["ouder"] is not None:
-            delen.append(component_svg(k, k["id"] in stil))
+            delen.append(component_svg(k))
 
     bezet = [(vk["x"] - 3, vk["y"] - 3, vk["w"] + 6, vk["h"] + 6) for vk in vakken.values()]
     for s in sorted(stromen, key=lambda s: -len(" ".join(s["label"]) if isinstance(s["label"], list)
@@ -477,6 +533,19 @@ def bouw(ruimte_x=1.55, ruimte_y=1.85, tussen=70, marge=30):
         delen.append(naam_svg(s["punten"], s["label"], s["kleur"], bezet, (breedte, hoogte)))
     delen.append("</svg>")
     return "".join(delen), stromen, verbanden, [k for k in alles if k["type"] == "ApplicationComponent"]
+
+
+def kruisingen(lijnen):
+    """Hoe vaak twee lijnen elkaar kruisen; de maat voor hoe goed de plaat leest."""
+    liggend, staand = [], []
+    for lijn in lijnen:
+        for (x1, y1), (x2, y2) in zip(lijn, lijn[1:]):
+            if abs(y1 - y2) < 0.5 and abs(x1 - x2) > 0.5:
+                liggend.append((y1, min(x1, x2), max(x1, x2), id(lijn)))
+            elif abs(x1 - x2) < 0.5 and abs(y1 - y2) > 0.5:
+                staand.append((x1, min(y1, y2), max(y1, y2), id(lijn)))
+    return sum(1 for y, van, tot, a in liggend for x, boven, onder, b in staand
+               if a != b and van + 0.5 < x < tot - 0.5 and boven + 0.5 < y < onder - 0.5)
 
 
 def main():
@@ -489,8 +558,9 @@ def main():
     pathlib.Path(args.uit).write_text(svg, encoding="utf-8")
     haaks = sum(1 for s in stromen for a, b in zip(s["punten"], s["punten"][1:])
                 if abs(a[0] - b[0]) > 0.5 and abs(a[1] - b[1]) > 0.5)
+    kruis = kruisingen([v["punten"] for v in stromen + verbanden])
     print(f"{len(componenten)} componenten, {len(stromen)} stromen, {len(verbanden)} verbanden; "
-          f"{haaks} schuine segmenten")
+          f"{haaks} schuine segmenten, {kruis} kruisingen")
     return 0
 
 

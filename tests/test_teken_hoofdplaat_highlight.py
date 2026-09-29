@@ -87,6 +87,40 @@ class HaaksRouterTests(unittest.TestCase):
             self.assertTrue(x1 == x2 or y1 == y2)
 
 
+class AanhechtingTests(unittest.TestCase):
+    """Twee lijnen uit hetzelfde vak hechten aan in de volgorde waarin hun overkanten liggen.
+
+    Staan zij in de verkeerde volgorde, dan moeten die lijnen elkaar wel passeren; dat patroon
+    leverde op de hoofdplaat het meeste kruiswerk op. En waar een route toch een lijn zou
+    kruisen, wijkt zij liever een baan opzij.
+    """
+
+    def test_given_two_targets_when_planned_then_the_attachments_follow_their_order(self):
+        vak = {"x": 0, "y": 0, "w": 200, "h": 60}
+        links = {"x": -400, "y": 400, "w": 120, "h": 60}
+        rechts = {"x": 500, "y": 400, "w": 120, "h": 60}
+        # het vak naar rechts wordt als eerste aangeboden; de ligging beslist, niet de volgorde
+        router = hp.Haaks([vak, links, rechts], [(vak, rechts), (vak, links)])
+        self.assertLess(router.wensen[(id(vak), "x", id(links))],
+                        router.wensen[(id(vak), "x", id(rechts))])
+        self.assertLess(router.wensen[(id(vak), "y", id(links))],
+                        router.wensen[(id(vak), "y", id(rechts))])
+
+    def test_given_a_line_that_is_already_there_when_counted_then_a_crossing_shows_up(self):
+        router = hp.Haaks()
+        router._bezet([(0, 50), (200, 50)])
+        self.assertEqual(router._kruisingen([(100, 0), (100, 100)]), 1)
+        self.assertEqual(router._kruisingen([(300, 0), (300, 100)]), 0)
+
+    def test_given_a_line_across_the_middle_when_routed_then_the_new_line_steps_aside(self):
+        a = {"x": 0, "y": 0, "w": 160, "h": 60}
+        b = {"x": 0, "y": 400, "w": 160, "h": 60}
+        router = hp.Haaks([a, b])
+        router._bezet([(-100, 200), (100, 200)])       # deze baan ligt dwars voor het midden
+        self.assertGreater(router.pad(a, b)[0][0], 100)
+        self.assertEqual(hp.Haaks([a, b]).pad(a, b)[0][0], 80)
+
+
 if __name__ == "__main__":
     unittest.main()
 
