@@ -1531,7 +1531,7 @@ aanmelden op de plaat verschijnt, en heet dan OC-AII.
   <div class="np-pil"><strong>38</strong> componenten</div>
   <div class="np-pil"><strong>33</strong> stromen</div>
   <div class="np-pil"><strong>0</strong> schuine lijnen</div>
-  <span>Hoofdplaat v1.7, uit elkaar getrokken en opnieuw gerouteerd</span>
+  <span>Hoofdplaat v1.7, uit elkaar getrokken, in ArchiMate-kleuren en opnieuw gerouteerd</span>
 </div>
 
 <style scoped>
@@ -1554,9 +1554,13 @@ groeperingen, de diensten in de componenten, de kanttekeningen en de namen van d
 Niels ze schreef. Wat er wel is gebeurd: de ruimte tussen de vakken is opengetrokken, vakken die
 te klein waren voor hun eigen naam zijn meegegroeid, en elke lijn is opnieuw gelegd. Elke lijn
 loopt nu recht of met een hoek van 90 graden, raakt haaks aan en valt nergens samen met een
-andere. De tekst groeide mee met de ruimte, zodat de plaat ook op afstand leest. Gegenereerd uit
-de view, dus zij loopt mee met elke wijziging in het model. Vraag aan de zaal: helpt deze
-opmaak bij het uitleggen van de plaat, en wat moet er nog bij voordat zij als v1.8 kan staan?
+andere. Waar twee lijnen hetzelfde vak verlaten, hechten zij aan in de volgorde waarin hun
+bestemmingen liggen, zodat zij naast elkaar lopen; dat halveert het aantal kruisingen. De vakken
+dragen het ArchiMate-kleurenschema: de kleur uit de view waar Niels er een koos, en anders die van
+de laag waar het element toe hoort. De tekst groeide mee met de ruimte, zodat de plaat ook op
+afstand leest. Gegenereerd uit de view, dus zij loopt mee met elke wijziging in het model. Vraag
+aan de zaal: helpt deze opmaak bij het uitleggen van de plaat, en wat moet er nog bij voordat zij
+als v1.8 kan staan?
 -->
 
 ---
