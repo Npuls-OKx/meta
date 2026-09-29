@@ -124,6 +124,56 @@ def labels_van_stromen():
     return {s["id"]: s.get("label", "") for s in json.loads(STROMEN.read_text(encoding="utf-8"))["stromen"]}
 
 
+# De afkorting per applicatiecomponent, waaruit het voorlopige koppeling-ID wordt opgebouwd.
+# Een component zonder afkorting krijgt geen ID; dat is zichtbaar op de plaat en dus bespreekbaar.
+AFKORTING = {
+    "Onderwijscatalogus": "OC", "Curriculum ontwerptool": "COT", "Planningssysteem": "P",
+    "Roostersysteem": "R", "Kernregistratie systeem studenten (KRS)": "KRS",
+    "Student volg systeem (SVS)": "SVS", "Leer management systeem (LMS)": "LMS",
+    "Student Keuze Systeem (SKS)": "SKS", "Aanmeld systeem": "AMS", "Intake systeem": "INT",
+    "Toets- en examen afname systeem": "TEA", "Voorziening Centraal Aanmelden (CAMBO)": "CAMBO",
+    "AII (centraal aanmelden)": "AII",
+}
+
+
+def koppeling_id(van, naar):
+    """Het voorlopige ID van de koppeling tussen twee componenten: twee afkortingen, catalogus voorop.
+
+    De regel komt uit Public #107: een ID noemt de twee applicatiecomponenten die de koppeling
+    verbindt, en beide richtingen vallen onder hetzelfde ID. Zolang de conventie niet vaststaat,
+    is dit een werkafspraak, zodat de plaat er alvast mee te lezen is.
+    """
+    a, b = AFKORTING.get(norm(van)), AFKORTING.get(norm(naar))
+    if not a or not b:
+        return ""
+    return f"{a}-{b}" if a == "OC" or (b != "OC" and a < b) else f"{b}-{a}"
+
+
+def zet_koppeling_ids(stromen, knopen):
+    """Elke getekende stroom haar koppeling-ID als opschrift geven; geeft de gevonden ID's terug.
+
+    Een junctie bundelt een stroom naar meer ontvangers. De lijnen die de junctie verlaten dragen
+    het ID van de afzender ervoor; het aanvoerlijntje ernaartoe blijft onbenoemd, want dat deel
+    hoort bij alle ontvangers tegelijk.
+    """
+    binnen = {s["doel"]: s for s in stromen if knopen[s["doel"]]["type"] == "Junction"}
+
+    def afzender(knoopid, diep=0):
+        if knopen[knoopid]["type"] != "Junction":
+            return knopen[knoopid]["naam"]
+        eerder = binnen.get(knoopid)
+        return afzender(eerder["bron"], diep + 1) if eerder and diep < 4 else ""
+
+    gevonden = []
+    for s in stromen:
+        ident = "" if knopen[s["doel"]]["type"] == "Junction" else koppeling_id(afzender(s["bron"]),
+                                                                               knopen[s["doel"]]["naam"])
+        s["label"] = ident
+        if ident and ident not in gevonden:
+            gevonden.append(ident)
+    return gevonden
+
+
 # ---------------------------------------------------------------- ruimte ----
 
 def is_groep(knoop):
@@ -371,16 +421,17 @@ def lijn_svg(punten, kleur, merk, stroom=True):
             f'stroke-linejoin="round"/>')
 
 
-def naam_svg(punten, tekst, kleur, bezet, doek=None):
+def naam_svg(punten, tekst, kleur, bezet, doek=None, maat=LETTER, omlijnd=False):
     """De naam van een stroom langs haar lijn, op de eerste plek die vrij is.
 
-    Staat de naam op de plaat van Niels al met eigen regelafbreking, dan blijft die staan.
+    Staat de naam op de plaat van Niels al met eigen regelafbreking, dan blijft die staan. Een
+    koppeling-ID is kort en krijgt een omlijnd plaatje, zodat het op de plaat te tellen is.
     """
-    regels = tekst if isinstance(tekst, list) else breek(tekst, 300, BREED, maximaal=3)
+    regels = tekst if isinstance(tekst, list) else breek(tekst, 300, maat * 0.55, maximaal=3)
     if not regels:
         return ""
-    breedte = max(len(r) for r in regels) * BREED + 14
-    hoog = len(regels) * (LETTER + 2) + 8
+    breedte = max(len(r) for r in regels) * maat * 0.55 + (20 if omlijnd else 14)
+    hoog = len(regels) * (maat + 2) + (10 if omlijnd else 8)
     benen = sorted(zip(punten, punten[1:]), key=lambda s: -(abs(s[1][0] - s[0][0]) + abs(s[1][1] - s[0][1])))
     for a, b in benen:
         staand = abs(b[0] - a[0]) < abs(b[1] - a[1])
@@ -398,20 +449,26 @@ def naam_svg(punten, tekst, kleur, bezet, doek=None):
             if not any(doos[0] < q[0] + q[2] and q[0] < doos[0] + doos[2]
                        and doos[1] < q[1] + q[3] and q[1] < doos[1] + doos[3] for q in bezet):
                 bezet.append(doos)
-                return (f'<rect x="{doos[0]:.0f}" y="{doos[1]:.0f}" width="{breedte:.0f}" height="{hoog:.0f}" '
-                        f'rx="3" fill="#ffffff" fill-opacity="0.93"/>'
-                        + tekstblok(mx, doos[1] + LETTER + 2, regels, LETTER, kleur, hoogte=LETTER + 2))
+                return _plaatje(doos, mx, regels, maat, kleur, omlijnd)
     a, b = benen[0]
     mx, my = (a[0] + b[0]) / 2, (a[1] + b[1]) / 2
-    bezet.append((mx - breedte / 2, my - hoog / 2, breedte, hoog))
-    return (f'<rect x="{mx - breedte / 2:.0f}" y="{my - hoog / 2:.0f}" width="{breedte:.0f}" '
-            f'height="{hoog:.0f}" rx="3" fill="#ffffff" fill-opacity="0.93"/>'
-            + tekstblok(mx, my - hoog / 2 + LETTER + 2, regels, LETTER, kleur, hoogte=LETTER + 2))
+    doos = (mx - breedte / 2, my - hoog / 2, breedte, hoog)
+    bezet.append(doos)
+    return _plaatje(doos, mx, regels, maat, kleur, omlijnd)
+
+
+def _plaatje(doos, mx, regels, maat, kleur, omlijnd):
+    """Het witte vakje met de naam of het ID erin, op de gekozen plek."""
+    rand = f' stroke="{kleur}" stroke-width="1.4"' if omlijnd else ""
+    return (f'<rect x="{doos[0]:.0f}" y="{doos[1]:.0f}" width="{doos[2]:.0f}" height="{doos[3]:.0f}" '
+            f'rx="{5 if omlijnd else 3}" fill="#ffffff" fill-opacity="{0.98 if omlijnd else 0.93}"{rand}/>'
+            + tekstblok(mx, doos[1] + maat + (5 if omlijnd else 2), regels, maat, kleur,
+                        dik=omlijnd, hoogte=maat + 2))
 
 
 # -------------------------------------------------------------------- bouw --
 
-def bouw(ruimte_x=1.55, ruimte_y=1.85, tussen=70, marge=30):
+def bouw(ruimte_x=1.55, ruimte_y=1.85, tussen=70, marge=30, opschriften="namen"):
     top, knopen, verbindingen, relaties = lees(MODEL, VIEW)
     labels = labels_van_stromen()
 
@@ -480,6 +537,8 @@ def bouw(ruimte_x=1.55, ruimte_y=1.85, tussen=70, marge=30):
         zone = per_zone.get(v["bron"], "los")
         v["punten"] = routers[zone].pad(vakken[v["bron"]], vakken[v["doel"]])
 
+    idents = zet_koppeling_ids(stromen, knopen) if opschriften == "ids" else []
+
     # kleur per bronsysteem
     bronnen = []
     for s in stromen:
@@ -528,11 +587,17 @@ def bouw(ruimte_x=1.55, ruimte_y=1.85, tussen=70, marge=30):
             delen.append(component_svg(k))
 
     bezet = [(vk["x"] - 3, vk["y"] - 3, vk["w"] + 6, vk["h"] + 6) for vk in vakken.values()]
+    # de titelstrook van een groepering blijft vrij, anders landt een opschrift op haar naam
+    bezet += [(k["ax"], k["ay"], k["w"], 46 if k["ouder"] is None else 26)
+              for k in alles if is_groep(k)]
     for s in sorted(stromen, key=lambda s: -len(" ".join(s["label"]) if isinstance(s["label"], list)
                                                  else s["label"])):
-        delen.append(naam_svg(s["punten"], s["label"], s["kleur"], bezet, (breedte, hoogte)))
+        delen.append(naam_svg(s["punten"], s["label"], s["kleur"], bezet, (breedte, hoogte),
+                              maat=LETTER + 5 if opschriften == "ids" else LETTER,
+                              omlijnd=opschriften == "ids"))
     delen.append("</svg>")
-    return "".join(delen), stromen, verbanden, [k for k in alles if k["type"] == "ApplicationComponent"]
+    return ("".join(delen), stromen, verbanden,
+            [k for k in alles if k["type"] == "ApplicationComponent"], idents)
 
 
 def kruisingen(lijnen):
@@ -553,14 +618,19 @@ def main():
     p.add_argument("--uit", required=True)
     p.add_argument("--ruimte-x", type=float, default=1.55)
     p.add_argument("--ruimte-y", type=float, default=1.85)
+    p.add_argument("--opschriften", choices=("namen", "ids"), default="namen",
+                   help="namen: de stroomnamen van de plaat; ids: het voorlopige koppeling-ID per stroom")
     args = p.parse_args()
-    svg, stromen, verbanden, componenten = bouw(args.ruimte_x, args.ruimte_y)
+    svg, stromen, verbanden, componenten, idents = bouw(args.ruimte_x, args.ruimte_y,
+                                                        opschriften=args.opschriften)
     pathlib.Path(args.uit).write_text(svg, encoding="utf-8")
     haaks = sum(1 for s in stromen for a, b in zip(s["punten"], s["punten"][1:])
                 if abs(a[0] - b[0]) > 0.5 and abs(a[1] - b[1]) > 0.5)
     kruis = kruisingen([v["punten"] for v in stromen + verbanden])
+    gelabeld = sum(1 for s in stromen if s["label"])
+    erbij = f", {gelabeld} stromen onder {len(idents)} koppeling-ID's" if idents else ""
     print(f"{len(componenten)} componenten, {len(stromen)} stromen, {len(verbanden)} verbanden; "
-          f"{haaks} schuine segmenten, {kruis} kruisingen")
+          f"{haaks} schuine segmenten, {kruis} kruisingen{erbij}")
     return 0
 
 

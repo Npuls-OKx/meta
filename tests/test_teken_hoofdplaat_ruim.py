@@ -96,5 +96,30 @@ class KruisingTests(unittest.TestCase):
         self.assertEqual(ruim.kruisingen([[(0, 10), (50, 10)], [(50, 10), (50, 100)]]), 0)
 
 
+class KoppelingIdTests(unittest.TestCase):
+    """Het voorlopige koppeling-ID volgt de regel uit Public #107: twee componenten, een naam."""
+
+    def test_given_two_components_when_named_then_the_catalogue_goes_first(self):
+        self.assertEqual(ruim.koppeling_id("Leer management systeem (LMS)", "Onderwijscatalogus"),
+                         "OC-LMS")
+
+    def test_given_both_directions_when_named_then_the_id_is_the_same(self):
+        heen = ruim.koppeling_id("Roostersysteem", "Student Keuze Systeem (SKS)")
+        terug = ruim.koppeling_id("Student Keuze Systeem (SKS)", "Roostersysteem")
+        self.assertEqual((heen, terug), ("R-SKS", "R-SKS"))
+
+    def test_given_a_component_without_an_abbreviation_when_named_then_there_is_no_id(self):
+        self.assertEqual(ruim.koppeling_id("Onderwijscatalogus", "Financieel systeem"), "")
+
+    def test_given_a_junction_when_labelled_then_the_leg_carries_the_sender(self):
+        knopen = {"oc": dict(type="ApplicationComponent", naam="Onderwijscatalogus"),
+                  "j": dict(type="Junction", naam=""),
+                  "krs": dict(type="ApplicationComponent",
+                              naam="Kernregistratie systeem studenten (KRS)")}
+        stromen = [dict(bron="oc", doel="j", label=""), dict(bron="j", doel="krs", label="")]
+        self.assertEqual(ruim.zet_koppeling_ids(stromen, knopen), ["OC-KRS"])
+        self.assertEqual([s["label"] for s in stromen], ["", "OC-KRS"])
+
+
 if __name__ == "__main__":
     unittest.main()
