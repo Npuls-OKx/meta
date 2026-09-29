@@ -1565,6 +1565,48 @@ als v1.8 kan staan?
 
 ---
 
+<!-- 11e. KOPPELING-ID: OP DE RUIME PLAAT -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# Dezelfde ID&#39;s, nu leesbaar
+
+<img src="/platen/hoofdplaat-ruim-ids.svg" class="np-plaat" />
+
+<div class="np-voet">
+  <div class="np-pil"><strong>24</strong> stromen</div>
+  <div class="np-pil"><strong>17</strong> voorlopige ID&#39;s</div>
+  <div class="np-pil"><strong>4</strong> met een specificatie</div>
+  <span>Werkafspraak uit <a href="https://github.com/Npuls-OKx/Public/issues/107">Public #107</a> &middot; beide richtingen onder een ID</span>
+</div>
+
+<style scoped>
+.fill { padding: 0.8rem 1rem; }
+h1 { font-size: 1.7rem !important; line-height: 1.1; margin: 0 0 0.3rem; }
+.np-plaat { flex: 1; min-height: 0; width: 100%; object-fit: contain; }
+.np-voet { display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-top: 0.4rem; flex-wrap: wrap; font-size: 0.76rem; color: var(--np-mid-gray); }
+.np-pil { display: flex; align-items: center; gap: 0.35rem; background: #fff; border: 1px solid var(--np-light-gray); border-radius: 999px; padding: 0.25rem 0.8rem; font-size: 0.78rem; color: var(--np-dark-blue); }
+.np-pil strong { color: var(--np-orange); font-size: 0.95rem; }
+</style>
+
+</div>
+
+<!--
+De proef van de pudding. Dezelfde ruimte, dezelfde routering, en nu draagt elke lijn het
+voorlopige koppeling-ID in plaats van de naam van de stroom. Daarmee is op de plaat te tellen
+waar het voorstel uit Public #107 landt: 24 stromen onder 17 ID&#39;s, waarvan OC-P, OC-KRS, OC-SVS
+en OC-LMS vandaag een koppelingspecificatie hebben. Een ID noemt de twee applicatiecomponenten
+die de koppeling verbindt, met de catalogus vooraan waar die meedoet, en beide richtingen vallen
+onder hetzelfde ID: daarom staat R-SKS er twee keer, een keer per richting. Een lijn zonder ID
+raakt een component waarvoor nog geen afkorting is afgesproken, en dat is precies de lijst die
+nog aandacht vraagt. De plaat komt uit dezelfde generator als de vorige, met een schakelaar voor
+het opschrift, dus beide lopen mee met elke wijziging in het model. Vraag aan de zaal: klopt deze
+verdeling, en welke ID vraagt als eerste om een specificatie?
+-->
+
+---
+
 <!-- 12. GEVRAAGD -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
