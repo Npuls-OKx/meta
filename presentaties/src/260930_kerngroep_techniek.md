@@ -1358,6 +1358,45 @@ het meebewegen dat een nieuwe versie lijkt af te dwingen.
 
 ---
 
+<!-- 9d-bis. VERSIONERING: STATUS VAN HET VOORSTEL -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+<div class="np-eyebrow">Versionering</div>
+
+# Voorstel
+
+<div class="np-card accent-orange" style="margin-top: 0.9rem; padding: 0.9rem 1.2rem;">
+<div style="font-size: 1.15rem; line-height: 1.45; color: var(--np-ink); font-weight: 600;">De aanpak hierna is een voorstel: een uitgewerkte richting, bedoeld om te toetsen aan de releasepraktijk.</div>
+</div>
+
+<div class="np-grid-3" style="margin-top: 1rem; gap: 0.9rem;">
+  <div class="np-tegel"><carbon-document class="np-pic" /><div>Status: voorstel</div></div>
+  <div class="np-tegel"><carbon-chat class="np-pic oranje" /><div>Gevraagd: input van de kerngroep techniek</div></div>
+  <div class="np-tegel"><carbon-help class="np-pic" /><div>Open punten: uitfaseren en zichtbaarheid</div></div>
+</div>
+
+<style scoped>
+.np-eyebrow { font-size: 0.75rem; color: var(--np-orange); letter-spacing: 1px; text-transform: uppercase; }
+.np-tegel { background: #fff; border: 1px solid var(--np-light-gray); border-top: 4px solid var(--np-blue); border-radius: 12px; padding: 0.8rem 0.7rem; text-align: center; font-size: 0.86rem; font-weight: 600; color: var(--np-dark-blue); line-height: 1.35; }
+.np-pic { font-size: 1.5rem; color: var(--np-blue); display: block; margin: 0 auto 0.35rem; }
+.np-pic.oranje { color: var(--np-orange); }
+</style>
+
+</div>
+
+<!--
+Statusmarkering voor het inhoudelijke deel van het blok. De eisen op de vorige slide staan los van de
+invulling; wat hierna komt is een van de mogelijke invullingen en ligt als zodanig voor. Dit expliciet
+maken hoort bij een extern gremium: de kerngroep neemt het materiaal mee naar de eigen organisatie, en
+een richting die daar als vastgesteld overkomt gaat een eigen leven leiden. De input die hier gevraagd
+wordt is hetzelfde punt dat op de slide Gevraagd terugkomt. De twee open punten zijn die van de slide
+Open uitdagingen, aan het eind van dit blok.
+-->
+
+---
+
 <!-- 9e. VERSIONERING: MODULAIRE OPBOUW -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
