@@ -1956,47 +1956,6 @@ scherp is. De vraag aan de zaal is of dit concept klopt en wat er nog mist.
 
 ---
 
-<!-- 11c. KOPPELING-ID: ALLE STROMEN GELABELD -->
-<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
-
-<div class="fill">
-
-# Een eerste poging, alle stromen
-
-<img src="/platen/koppeling-ids-hoofdplaat.svg" class="np-plaat" />
-
-<div class="np-voet">
-  <div class="np-pil"><strong>24</strong> stromen</div>
-  <div class="np-pil"><strong>17</strong> voorlopige ID's</div>
-  <div class="np-pil"><strong>4</strong> met een specificatie</div>
-  <span>Werkafspraak om op te schuiven &middot; OC-CAMBO staat er al, OC-AII komt erbij</span>
-</div>
-
-<style scoped>
-.fill { padding: 0.8rem 1rem; }
-h1 { font-size: 1.7rem !important; line-height: 1.1; margin: 0 0 0.3rem; }
-.np-plaat { flex: 1; min-height: 0; width: 100%; object-fit: contain; }
-.np-voet { display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-top: 0.4rem; flex-wrap: wrap; font-size: 0.76rem; color: var(--np-mid-gray); }
-.np-pil { display: flex; align-items: center; gap: 0.35rem; background: #fff; border: 1px solid var(--np-light-gray); border-radius: 999px; padding: 0.25rem 0.8rem; font-size: 0.78rem; color: var(--np-dark-blue); }
-.np-pil strong { color: var(--np-orange); font-size: 0.95rem; }
-</style>
-
-</div>
-
-<!--
-De tweede aanpak, om het concreet te maken: elke stroom op hoofdplaat v1.7 krijgt alvast een ID,
-afgeleid van de twee applicatiecomponenten die hij verbindt, met de catalogus vooraan waar die
-meedoet. Dat levert 24 stromen onder 17 ID's, waarvan er vier vandaag een koppelingspecificatie
-hebben. Het is een werkafspraak en geen conventie: zodra de bouwstenen en endpoints per koppeling
-scherper zijn, schuift de indeling, en dan pas hoort zij in een ADR. Gegenereerd uit stromen.json
-met het highlightscript, dus deze plaat is opnieuw te maken zodra de hoofdplaat wijzigt. De
-markeringen lopen orthogonaal en raken de vakken haaks, zodat de lijnen naast elkaar leesbaar
-blijven. CAMBO staat als voorziening op de plaat en krijgt OC-CAMBO; AII komt er als centraal
-aanmelden op de plaat verschijnt, en heet dan OC-AII.
--->
-
----
-
 <!-- 11d. DE HOOFDPLAAT RUIMER EN NETJES GEROUTEERD -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
