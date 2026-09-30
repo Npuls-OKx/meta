@@ -1245,24 +1245,24 @@ slide wil wegnemen.
 .np-eyebrow { font-size: 0.75rem; color: var(--np-orange); letter-spacing: 1px; text-transform: uppercase; }
 </style>
 
-<div class="np-grid-2" style="margin-top: 0.6rem; gap: 1.2rem; align-items: center;">
+<div class="np-grid-2" style="margin-top: 0.6rem; gap: 1rem; align-items: center; grid-template-columns: 1.7fr 1fr;">
 
 <div>
   <img src="/versionering/afhankelijkheden-bij-een-pakket.png" alt="Drie componenten die dezelfde uitgave van de koppelvlakspecificatie implementeren, en één gepinde afhankelijkheid op de gegevensmodellen" style="width: 100%; border-radius: 6px; border: 1px solid var(--np-light-gray); background: #fff;" />
 </div>
 
 <div>
-  <div class="np-card accent-orange" style="padding: 0.7rem 0.9rem; margin-bottom: 0.6rem;">
-    <div style="font-weight: 700; font-size: 0.95rem;">Het nummer beweegt voor iedereen</div>
-    <small style="font-size: 0.84rem;">een wijziging in één koppeling verhoogt het nummer van het hele pakket</small>
+  <div class="np-card accent-orange" style="padding: 0.5rem 0.7rem; margin-bottom: 0.45rem;">
+    <div style="font-weight: 700; font-size: 0.82rem;">Het nummer beweegt voor iedereen</div>
+    <small style="font-size: 0.74rem;">een wijziging in één koppeling verhoogt het nummer van het hele pakket</small>
   </div>
-  <div class="np-card accent-orange" style="padding: 0.7rem 0.9rem; margin-bottom: 0.6rem;">
-    <div style="font-weight: 700; font-size: 0.95rem;">Het nummer draagt geen reikwijdte</div>
-    <small style="font-size: 0.84rem;">eruit blijkt niet welke partij de uitgave raakt</small>
+  <div class="np-card accent-orange" style="padding: 0.5rem 0.7rem; margin-bottom: 0.45rem;">
+    <div style="font-weight: 700; font-size: 0.82rem;">Het nummer draagt geen reikwijdte</div>
+    <small style="font-size: 0.74rem;">eruit blijkt niet welke partij de uitgave raakt</small>
   </div>
-  <div class="np-card accent-orange" style="padding: 0.7rem 0.9rem; margin-bottom: 0.6rem;">
-    <div style="font-weight: 700; font-size: 0.95rem;">De zwaarste wijziging bepaalt de bump</div>
-    <small style="font-size: 0.84rem;">één brekende wijziging maakt de hele uitgave een major</small>
+  <div class="np-card accent-orange" style="padding: 0.5rem 0.7rem; margin-bottom: 0.45rem;">
+    <div style="font-weight: 700; font-size: 0.82rem;">De zwaarste wijziging bepaalt de bump</div>
+    <small style="font-size: 0.74rem;">één brekende wijziging maakt de hele uitgave een major</small>
   </div>
 </div>
 
@@ -1292,17 +1292,17 @@ telkens twee uitgaven vergelijken om te weten of er werk voor hem in zit.
 </style>
 
 <div class="np-grid-3" style="margin-top: 0.6rem; gap: 0.9rem; align-items: start;">
-  <div class="np-card accent-orange" style="padding: 0.6rem 0.8rem;">
-    <div style="font-weight: 700; font-size: 0.9rem;">Gedeelde bouwblokken horen nergens</div>
-    <small style="font-size: 0.8rem;">4 van de 12 applicatiediensten en 2 van de 5 patronen zitten in alle drie de koppelingen</small>
+  <div class="np-card accent-orange" style="padding: 0.45rem 0.65rem;">
+    <div style="font-weight: 700; font-size: 0.8rem;">Gedeelde bouwblokken horen nergens</div>
+    <small style="font-size: 0.72rem;">4 van de 12 applicatiediensten en 2 van de 5 patronen zitten in alle drie de koppelingen</small>
   </div>
-  <div class="np-card accent-orange" style="padding: 0.6rem 0.8rem;">
-    <div style="font-weight: 700; font-size: 0.9rem;">Meerdere nummers per component</div>
-    <small style="font-size: 0.8rem;">de onderwijscatalogus zit in alle drie de koppelingen</small>
+  <div class="np-card accent-orange" style="padding: 0.45rem 0.65rem;">
+    <div style="font-weight: 700; font-size: 0.8rem;">Meerdere nummers per component</div>
+    <small style="font-size: 0.72rem;">de onderwijscatalogus zit in alle drie de koppelingen</small>
   </div>
-  <div class="np-card accent-blue" style="padding: 0.6rem 0.8rem;">
-    <div style="font-weight: 700; font-size: 0.9rem;">De eenheid klopt nog steeds niet</div>
-    <small style="font-size: 0.8rem;">een partij implementeert stromen, geen hele koppeling</small>
+  <div class="np-card accent-blue" style="padding: 0.45rem 0.65rem;">
+    <div style="font-weight: 700; font-size: 0.8rem;">De eenheid klopt nog steeds niet</div>
+    <small style="font-size: 0.72rem;">een partij implementeert stromen, geen hele koppeling</small>
   </div>
 </div>
 
@@ -1420,24 +1420,24 @@ Open uitdagingen, aan het eind van dit blok.
 .np-eyebrow { font-size: 0.75rem; color: var(--np-orange); letter-spacing: 1px; text-transform: uppercase; }
 </style>
 
-<div class="np-grid-2" style="margin-top: 0.6rem; gap: 1.2rem; align-items: center;">
+<div class="np-grid-2" style="margin-top: 0.6rem; gap: 1rem; align-items: center; grid-template-columns: 1.7fr 1fr;">
 
 <div>
   <img src="/versionering/overzicht-van-de-specificatie.png" alt="Het releasepakket koppelvlakspecificatie met daarin een koppelingspecificatie met een berichtstroom, die een generieke applicatiedienst en een generiek interactiepatroon inzet; de dienst draagt een endpoint en functionaliteit zonder endpoint, die beide afhangen van het pakket informatie- en gegevensmodellen" style="width: 100%; border-radius: 6px; border: 1px solid var(--np-light-gray); background: #fff;" />
 </div>
 
 <div>
-  <div class="np-card accent-blue" style="padding: 0.7rem 0.9rem; margin-bottom: 0.6rem;">
-    <div style="font-weight: 700; font-size: 0.95rem;">Een koppelingspecificatie beschrijft berichtstromen</div>
-    <small style="font-size: 0.84rem;">welke stromen er tussen twee componenten mogelijk zijn</small>
+  <div class="np-card accent-blue" style="padding: 0.5rem 0.7rem; margin-bottom: 0.45rem;">
+    <div style="font-weight: 700; font-size: 0.82rem;">Een koppelingspecificatie beschrijft berichtstromen</div>
+    <small style="font-size: 0.74rem;">welke stromen er tussen twee componenten mogelijk zijn</small>
   </div>
-  <div class="np-card accent-green" style="padding: 0.7rem 0.9rem; margin-bottom: 0.6rem;">
-    <div style="font-weight: 700; font-size: 0.95rem;">Een stroom zet diensten en patronen in</div>
-    <small style="font-size: 0.84rem;">die zijn generiek en worden over koppelingen heen hergebruikt</small>
+  <div class="np-card accent-green" style="padding: 0.5rem 0.7rem; margin-bottom: 0.45rem;">
+    <div style="font-weight: 700; font-size: 0.82rem;">Een stroom zet diensten en patronen in</div>
+    <small style="font-size: 0.74rem;">die zijn generiek en worden over koppelingen heen hergebruikt</small>
   </div>
   <div class="np-card accent-orange" style="padding: 0.7rem 0.9rem;">
-    <div style="font-weight: 700; font-size: 0.95rem;">De payload volgt de datamodelschemas</div>
-    <small style="font-size: 0.84rem;">per endpoint vastgelegd, en een endpoint kan een reeks versies dragen</small>
+    <div style="font-weight: 700; font-size: 0.82rem;">De payload volgt de datamodelschemas</div>
+    <small style="font-size: 0.74rem;">per endpoint vastgelegd, en een endpoint kan een reeks versies dragen</small>
   </div>
 </div>
 
@@ -1554,24 +1554,24 @@ partijen op draaien, en is opruimen een besluit met aankondiging vooraf.
 .np-eyebrow { font-size: 0.75rem; color: var(--np-orange); letter-spacing: 1px; text-transform: uppercase; }
 </style>
 
-<div class="np-grid-2" style="margin-top: 0.6rem; gap: 1.2rem; align-items: center;">
+<div class="np-grid-2" style="margin-top: 0.6rem; gap: 1rem; align-items: center; grid-template-columns: 1.7fr 1fr;">
 
 <div>
   <img src="/versionering/structuurvoorbeeld-uit-de-specificatie.png" alt="De berichtstroom Opleidingsaanbod aanmaken met twee interactiepatronen en vier applicatiediensten, waarvan de endpoints op het pakket informatie- en gegevensmodellen staan" style="width: 100%; border-radius: 6px; border: 1px solid var(--np-light-gray); background: #fff;" />
 </div>
 
 <div>
-  <div class="np-card accent-blue" style="padding: 0.7rem 0.9rem; margin-bottom: 0.6rem;">
-    <div style="font-weight: 700; font-size: 0.95rem;">Opleidingsaanbod aanmaken</div>
-    <small style="font-size: 0.84rem;">uit de koppeling onderwijscatalogus naar planning en roostering</small>
+  <div class="np-card accent-blue" style="padding: 0.5rem 0.7rem; margin-bottom: 0.45rem;">
+    <div style="font-weight: 700; font-size: 0.82rem;">Opleidingsaanbod aanmaken</div>
+    <small style="font-size: 0.74rem;">uit de koppeling onderwijscatalogus naar planning en roostering</small>
   </div>
-  <div class="np-card accent-green" style="padding: 0.7rem 0.9rem; margin-bottom: 0.6rem;">
-    <div style="font-weight: 700; font-size: 0.95rem;">Twee patronen, vier diensten</div>
-    <small style="font-size: 0.84rem;">die patronen en diensten zijn generiek en worden hergebruikt</small>
+  <div class="np-card accent-green" style="padding: 0.5rem 0.7rem; margin-bottom: 0.45rem;">
+    <div style="font-weight: 700; font-size: 0.82rem;">Twee patronen, vier diensten</div>
+    <small style="font-size: 0.74rem;">die patronen en diensten zijn generiek en worden hergebruikt</small>
   </div>
-  <div class="np-card accent-orange" style="padding: 0.7rem 0.9rem; margin-bottom: 0.6rem;">
-    <div style="font-weight: 700; font-size: 0.95rem;">Endpoints op het modelpakket</div>
-    <small style="font-size: 0.84rem;">daar hangt de afhankelijkheid op de gegevensmodellen</small>
+  <div class="np-card accent-orange" style="padding: 0.5rem 0.7rem; margin-bottom: 0.45rem;">
+    <div style="font-weight: 700; font-size: 0.82rem;">Endpoints op het modelpakket</div>
+    <small style="font-size: 0.74rem;">daar hangt de afhankelijkheid op de gegevensmodellen</small>
   </div>
 </div>
 
@@ -1600,24 +1600,24 @@ over koppelingen heen worden hergebruikt; dat is precies waarom een pakket per k
 .np-eyebrow { font-size: 0.75rem; color: var(--np-orange); letter-spacing: 1px; text-transform: uppercase; }
 </style>
 
-<div class="np-grid-2" style="margin-top: 0.6rem; gap: 1.2rem; align-items: center;">
+<div class="np-grid-2" style="margin-top: 0.6rem; gap: 1rem; align-items: center; grid-template-columns: 1.7fr 1fr;">
 
 <div>
   <img src="/versionering/uitgave-1-0.png" alt="Berichtstroom Opleidingsaanbod aanmaken binnen de koppelingspecificatie, die Event Notification en de aanbiedende applicatiedienst inzet, waarbij die dienst op datamodelschemas 1.0 staat" style="width: 100%; border-radius: 6px; border: 1px solid var(--np-light-gray); background: #fff;" />
 </div>
 
 <div>
-  <div class="np-card accent-blue" style="padding: 0.7rem 0.9rem; margin-bottom: 0.6rem;">
-    <div style="font-weight: 700; font-size: 0.95rem;">De koppelingspecificatie</div>
-    <small style="font-size: 0.84rem;">onderwijscatalogus naar planning en roostering</small>
+  <div class="np-card accent-blue" style="padding: 0.5rem 0.7rem; margin-bottom: 0.45rem;">
+    <div style="font-weight: 700; font-size: 0.82rem;">De koppelingspecificatie</div>
+    <small style="font-size: 0.74rem;">onderwijscatalogus naar planning en roostering</small>
   </div>
-  <div class="np-card accent-blue" style="padding: 0.7rem 0.9rem; margin-bottom: 0.6rem;">
-    <div style="font-weight: 700; font-size: 0.95rem;">Daarin de berichtstroom</div>
-    <small style="font-size: 0.84rem;">Opleidingsaanbod aanmaken, met Event Notification</small>
+  <div class="np-card accent-blue" style="padding: 0.5rem 0.7rem; margin-bottom: 0.45rem;">
+    <div style="font-weight: 700; font-size: 0.82rem;">Daarin de berichtstroom</div>
+    <small style="font-size: 0.74rem;">Opleidingsaanbod aanmaken, met Event Notification</small>
   </div>
-  <div class="np-card accent-blue" style="padding: 0.7rem 0.9rem; margin-bottom: 0.6rem;">
-    <div style="font-weight: 700; font-size: 0.95rem;">En de aanbiedende dienst</div>
-    <small style="font-size: 0.84rem;">die staat op datamodelschemas 1.0</small>
+  <div class="np-card accent-blue" style="padding: 0.5rem 0.7rem; margin-bottom: 0.45rem;">
+    <div style="font-weight: 700; font-size: 0.82rem;">En de aanbiedende dienst</div>
+    <small style="font-size: 0.74rem;">die staat op datamodelschemas 1.0</small>
   </div>
 </div>
 
@@ -1645,24 +1645,24 @@ legt daar uitgave 1.1 naast.
 .np-eyebrow { font-size: 0.75rem; color: var(--np-orange); letter-spacing: 1px; text-transform: uppercase; }
 </style>
 
-<div class="np-grid-2" style="margin-top: 0.6rem; gap: 1.2rem; align-items: center;">
+<div class="np-grid-2" style="margin-top: 0.6rem; gap: 1rem; align-items: center; grid-template-columns: 1.7fr 1fr;">
 
 <div>
   <img src="/versionering/wat-1-1-toevoegt.png" alt="Uitgave 1.1 met alles uit 1.0 ongewijzigd, en daarnaast in groen de variant voor 2026, het interactiepatroon dat zij inzet en datamodelschemas 1.1" style="width: 100%; border-radius: 6px; border: 1px solid var(--np-light-gray); background: #fff;" />
 </div>
 
 <div>
-  <div class="np-card accent-blue" style="padding: 0.7rem 0.9rem; margin-bottom: 0.6rem;">
-    <div style="font-weight: 700; font-size: 0.95rem;">Blauw stond er al in 1.0</div>
-    <small style="font-size: 0.84rem;">de bestaande stroom, het patroon en de dienst wijzigen niet</small>
+  <div class="np-card accent-blue" style="padding: 0.5rem 0.7rem; margin-bottom: 0.45rem;">
+    <div style="font-weight: 700; font-size: 0.82rem;">Blauw stond er al in 1.0</div>
+    <small style="font-size: 0.74rem;">de bestaande stroom, het patroon en de dienst wijzigen niet</small>
   </div>
-  <div class="np-card accent-green" style="padding: 0.7rem 0.9rem; margin-bottom: 0.6rem;">
-    <div style="font-weight: 700; font-size: 0.95rem;">Groen komt erbij</div>
-    <small style="font-size: 0.84rem;">de variant voor 2026, met Event-Carried State Transfer</small>
+  <div class="np-card accent-green" style="padding: 0.5rem 0.7rem; margin-bottom: 0.45rem;">
+    <div style="font-weight: 700; font-size: 0.82rem;">Groen komt erbij</div>
+    <small style="font-size: 0.74rem;">de variant voor 2026, met Event-Carried State Transfer</small>
   </div>
-  <div class="np-card accent-green" style="padding: 0.7rem 0.9rem; margin-bottom: 0.6rem;">
-    <div style="font-weight: 700; font-size: 0.95rem;">Datamodelschemas 1.1</div>
-    <small style="font-size: 0.84rem;">met het nieuwe veld, als optioneel veld</small>
+  <div class="np-card accent-green" style="padding: 0.5rem 0.7rem; margin-bottom: 0.45rem;">
+    <div style="font-weight: 700; font-size: 0.82rem;">Datamodelschemas 1.1</div>
+    <small style="font-size: 0.74rem;">met het nieuwe veld, als optioneel veld</small>
   </div>
 </div>
 
@@ -1690,24 +1690,24 @@ bij. De variant komt in dezelfde koppelingspecificatie te staan als de bestaande
 .np-eyebrow { font-size: 0.75rem; color: var(--np-orange); letter-spacing: 1px; text-transform: uppercase; }
 </style>
 
-<div class="np-grid-2" style="margin-top: 0.6rem; gap: 1.2rem; align-items: center;">
+<div class="np-grid-2" style="margin-top: 0.6rem; gap: 1rem; align-items: center; grid-template-columns: 1.7fr 1fr;">
 
 <div>
   <img src="/versionering/de-afnemer-die-blijft.png" alt="Planningssysteem A hoort van uitgave 1.1, beoordeelt intern dat de variant niet nodig is, en blijft meldingen krijgen via de bestaande berichtstroom" style="width: 100%; border-radius: 6px; border: 1px solid var(--np-light-gray); background: #fff;" />
 </div>
 
 <div>
-  <div class="np-card accent-green" style="padding: 0.7rem 0.9rem; margin-bottom: 0.6rem;">
-    <div style="font-weight: 700; font-size: 0.95rem;">Geen actie</div>
-    <small style="font-size: 0.84rem;">planningssysteem A heeft de variant niet nodig</small>
+  <div class="np-card accent-green" style="padding: 0.5rem 0.7rem; margin-bottom: 0.45rem;">
+    <div style="font-weight: 700; font-size: 0.82rem;">Geen actie</div>
+    <small style="font-size: 0.74rem;">planningssysteem A heeft de variant niet nodig</small>
   </div>
-  <div class="np-card accent-green" style="padding: 0.7rem 0.9rem; margin-bottom: 0.6rem;">
-    <div style="font-weight: 700; font-size: 0.95rem;">De bestaande stroom loopt door</div>
-    <small style="font-size: 0.84rem;">de catalogus blijft melden zoals zij meldde</small>
+  <div class="np-card accent-green" style="padding: 0.5rem 0.7rem; margin-bottom: 0.45rem;">
+    <div style="font-weight: 700; font-size: 0.82rem;">De bestaande stroom loopt door</div>
+    <small style="font-size: 0.74rem;">de catalogus blijft melden zoals zij meldde</small>
   </div>
-  <div class="np-card accent-blue" style="padding: 0.7rem 0.9rem; margin-bottom: 0.6rem;">
-    <div style="font-weight: 700; font-size: 0.95rem;">Geen terugmelding aan OKx</div>
-    <small style="font-size: 0.84rem;">de afweging blijft bij de partij zelf</small>
+  <div class="np-card accent-blue" style="padding: 0.5rem 0.7rem; margin-bottom: 0.45rem;">
+    <div style="font-weight: 700; font-size: 0.82rem;">Geen terugmelding aan OKx</div>
+    <small style="font-size: 0.74rem;">de afweging blijft bij de partij zelf</small>
   </div>
 </div>
 
@@ -1735,24 +1735,24 @@ wie welke uitgave oppakt, en een partij meldt niet terug wat zij wel of niet nod
 .np-eyebrow { font-size: 0.75rem; color: var(--np-orange); letter-spacing: 1px; text-transform: uppercase; }
 </style>
 
-<div class="np-grid-2" style="margin-top: 0.6rem; gap: 1.2rem; align-items: center;">
+<div class="np-grid-2" style="margin-top: 0.6rem; gap: 1rem; align-items: center; grid-template-columns: 1.7fr 1fr;">
 
 <div>
   <img src="/versionering/de-afnemer-die-overstapt.png" alt="Planningssysteem B implementeert de variant erbij, registreert een afleveradres voor de nieuwe stroom, en krijgt voortaan meldingen met het nieuwe veld" style="width: 100%; border-radius: 6px; border: 1px solid var(--np-light-gray); background: #fff;" />
 </div>
 
 <div>
-  <div class="np-card accent-blue" style="padding: 0.7rem 0.9rem; margin-bottom: 0.6rem;">
-    <div style="font-weight: 700; font-size: 0.95rem;">De variant erbij</div>
-    <small style="font-size: 0.84rem;">planningssysteem B heeft het nieuwe veld nodig</small>
+  <div class="np-card accent-blue" style="padding: 0.5rem 0.7rem; margin-bottom: 0.45rem;">
+    <div style="font-weight: 700; font-size: 0.82rem;">De variant erbij</div>
+    <small style="font-size: 0.74rem;">planningssysteem B heeft het nieuwe veld nodig</small>
   </div>
-  <div class="np-card accent-blue" style="padding: 0.7rem 0.9rem; margin-bottom: 0.6rem;">
-    <div style="font-weight: 700; font-size: 0.95rem;">Afleveradres registreren</div>
-    <small style="font-size: 0.84rem;">voor de nieuwe stroom, bij de catalogus</small>
+  <div class="np-card accent-blue" style="padding: 0.5rem 0.7rem; margin-bottom: 0.45rem;">
+    <div style="font-weight: 700; font-size: 0.82rem;">Afleveradres registreren</div>
+    <small style="font-size: 0.74rem;">voor de nieuwe stroom, bij de catalogus</small>
   </div>
-  <div class="np-card accent-green" style="padding: 0.7rem 0.9rem; margin-bottom: 0.6rem;">
-    <div style="font-weight: 700; font-size: 0.95rem;">Het moment ligt bij de leverancier</div>
-    <small style="font-size: 0.84rem;">er staat geen termijn waarbinnen dit moet</small>
+  <div class="np-card accent-green" style="padding: 0.5rem 0.7rem; margin-bottom: 0.45rem;">
+    <div style="font-weight: 700; font-size: 0.82rem;">Het moment ligt bij de leverancier</div>
+    <small style="font-size: 0.74rem;">er staat geen termijn waarbinnen dit moet</small>
   </div>
 </div>
 
