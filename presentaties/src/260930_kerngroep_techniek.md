@@ -239,7 +239,7 @@ acceptatietest, Public #109.
 
 <div class="fill">
 
-# Twee scenario's: Q1 of Q2 2027
+# Doorkijk naar Q2 2027
 
 <style scoped>
 .fill { padding: 1.4rem 2.2rem; }
@@ -260,21 +260,17 @@ gantt
     Voorbeelduitwerking LR1  :done, 2026-09-17, 2026-09-30
     section Loopt
     OC-P&R afronden          :active, 2026-08-31, 2026-10-31
-    section Na elkaar
+    section Nog te doen
     OC-KRS en OC-SVS         :2026-11-01, 2027-02-01
     OC-LMS                   :2027-02-01, 2027-05-01
-    Klaar in Q2 2027         :milestone, 2027-05-15, 0d
-    section Overlappend
-    OC-KRS en OC-SVS         :2026-10-15, 2027-01-15
-    OC-LMS                   :2026-12-01, 2027-03-15
-    Klaar in Q1 2027         :milestone, 2027-03-31, 0d
+    Alle lagen beschreven    :milestone, 2027-05-15, 0d
 ```
 
 </div>
 
 <div style="font-size: 0.75rem; color: var(--np-mid-gray); line-height: 1.45; margin-top: 0.35rem; max-width: 88%;">
-De onderste twee rijen tonen dezelfde twee koppelingen, twee keer: het verschil zit in wanneer zij starten, niet in hoeveel werk erin zit.<br/>
-Elke balk duurt drie maanden, de doorlooptijd die OC-P&amp;R vandaag laat zien; na elkaar start een koppeling zodra de vorige vastligt, overlappend zodra de review erop loopt.
+De bovenste drie balken zijn gerealiseerd en dateerbaar. De onderste twee zijn een aanname van drie maanden per koppeling, elk startend als de vorige vastligt.<br/>
+Wat wel gemeten is: 23 open issues onder de twee koppelvlak-milestones, en een tempo dat zakte van 58 gesloten issues in augustus naar 16 in september.
 </div>
 
 <div class="np-card accent-orange" style="margin-top: 0.4rem; padding: 0.45rem 1rem;">
