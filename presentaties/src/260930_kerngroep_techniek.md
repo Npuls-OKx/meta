@@ -234,61 +234,61 @@ acceptatietest, Public #109.
 
 ---
 
-<!-- 6b. TEMPO EN REVIEW -->
+<!-- 6b. DRIE KOPPELINGEN NAAR BEGIN Q1 -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
 
-# Tempo zakte, review is de rem
+# Drie koppelingen, doel begin Q1
 
-<div class="np-grid-2" style="margin-top: 1.6rem; gap: 1.6rem; align-items: stretch;">
+<div style="margin-top: 0.3rem;">
 
-<div class="np-card accent-orange" style="padding: 1.2rem 1.4rem;">
-<div class="eyebrow">Gesloten issues per maand</div>
-<div style="display: flex; align-items: baseline; gap: 1.6rem; margin-top: 0.7rem;">
-<div><div class="np-big-number">58</div><div style="font-size: 0.85rem; color: var(--np-mid-gray); margin-top: 0.2rem;">augustus</div></div>
-<div style="font-size: 2.2rem; color: var(--np-mid-gray); line-height: 1;">&#8594;</div>
-<div><div class="np-big-number">16</div><div style="font-size: 0.85rem; color: var(--np-mid-gray); margin-top: 0.2rem;">september</div></div>
-</div>
-<div style="margin-top: 1.1rem;">
-<div style="height: 1.5rem; width: 100%; background: var(--np-orange); border-radius: 4px;"></div>
-<div style="height: 1.5rem; width: 27.6%; background: var(--np-orange); opacity: 0.45; border-radius: 4px; margin-top: 0.45rem;"></div>
-</div>
-<div style="font-size: 0.8rem; color: var(--np-mid-gray); margin-top: 0.55rem;">meta en Public samen</div>
-</div>
-
-<div class="np-card accent-blue" style="padding: 1.2rem 1.4rem;">
-<div class="eyebrow">Openstaande pull requests</div>
-<div style="display: grid; grid-template-columns: 3.2rem 1fr; gap: 0.35rem 0.8rem; margin-top: 0.75rem; align-items: baseline;">
-<div style="font-size: 1.9rem; font-weight: 700; color: var(--np-blue); text-align: right;">16</div><div style="font-size: 0.92rem;">open</div>
-<div style="font-size: 1.9rem; font-weight: 700; color: var(--np-blue); text-align: right;">11</div><div style="font-size: 0.92rem;">op draft</div>
-<div style="font-size: 1.9rem; font-weight: 700; color: var(--np-orange); text-align: right;">2</div><div style="font-size: 0.92rem;">review van buiten het kernteam</div>
-<div style="font-size: 1.9rem; font-weight: 700; color: var(--np-orange); text-align: right;">60</div><div style="font-size: 0.92rem;">dagen wacht de oudste</div>
-</div>
-</div>
+```mermaid {theme: 'base', scale: 0.68, themeVariables: {'fontFamily': 'General Sans, Inter, sans-serif', 'fontSize': '14px', 'sectionBkgColor': '#F7F8FB', 'altSectionBkgColor': '#FFFFFF', 'gridColor': '#E5E7EB', 'doneTaskBkgColor': '#D8ECDD', 'doneTaskBorderColor': '#00AF81', 'activeTaskBkgColor': '#FBE3D6', 'activeTaskBorderColor': '#DD784B', 'taskBkgColor': '#E8EDFC', 'taskBorderColor': '#3D68EC', 'taskTextColor': '#1B2A6B', 'taskTextDarkColor': '#1B2A6B', 'taskTextOutsideColor': '#374151', 'todayLineColor': '#DD784B'}}
+gantt
+    dateFormat YYYY-MM-DD
+    axisFormat %b
+    todayMarker off
+    section Gereed
+    Informatiemodel v0.1        :done, 2026-08-18, 2026-09-18
+    Voorbeelduitwerking LR1     :done, 2026-09-17, 2026-09-30
+    section OC-P&R
+    7 interactiepatronen        :done, 2026-08-12, 2026-08-31
+    Payload, endpoints, vaststellen :active, 2026-10-01, 2026-11-30
+    section OC-SIS
+    2 interactiepatronen        :done, 2026-08-12, 2026-08-31
+    Uitwerken en vaststellen    :2026-11-01, 2026-12-31
+    section OC-LMS
+    2 interactiepatronen        :done, 2026-08-12, 2026-08-31
+    Uitwerken en vaststellen    :2026-12-01, 2027-01-31
+    section Doel
+    Drie koppelingen uitgewerkt :milestone, 2027-01-31, 0d
+```
 
 </div>
 
-<div class="np-bottomline" style="margin-top: 1.4rem;">
-Binnen het kernteam gaat een pull request in <strong>0,7 dagen</strong> door. Wat op de groep wacht, wacht <strong>weken</strong>.
+<div class="np-bottomline" style="margin-top: 0.6rem;">
+Haalbaar bij het tempo van augustus: <strong>58</strong> gesloten issues per maand, tegen <strong>16</strong> in september.
 </div>
 
 </div>
 
 <!--
-Twee maatstaven, allebei uit de repositories en allebei geldig ook als de backlog onvolledig is:
-doorvoer (gesloten issues per maand) en wachttijd op review. Een einddatum staat er bewust niet:
-de backlog per koppelvlak is niet compleet, dus een burn-down zou een noemer gebruiken die we
-niet kennen.
+Het doel is drie uitgewerkte koppelingen aan het begin van Q1 2027. De plaat zet daar de stand
+naast, met de interactiepatronen als maat: die zijn geteld in de specificaties in Public.
+OC-P&R telt er zeven, OC-SIS en OC-LMS elk twee. Alle drie kregen ze hun patronen in augustus;
+sindsdien ging de aandacht naar het informatiemodel v0.1 en de voorbeelduitwerking, die allebei
+in september zijn afgerond. Het werk aan de koppelingen ligt dus niet stil door onvermogen maar
+door volgorde.
 
-Doorvoer: 58 gesloten issues in augustus over beide repositories, 16 in september. Wachttijd: van
-de zestien openstaande pull requests staan er elf op draft, dragen er twee een review van buiten
-het kernteam, en wacht de oudste zestig dagen. Binnen het kernteam is de mediaan 0,7 dagen, en de
-grootste pull request van 70.000 regels ging in vijf uur door. Schrijven is de rem niet.
+Wat per koppeling nog volgt is de payload met gebruiksprofiel, de endpointbeschrijvingen en de
+vaststelling. De drie balken daarvoor zijn een inschatting van de maker, te overrulen: twee
+maanden per koppeling, met overlap omdat OC-SIS en OC-LMS de patronen van OC-P&R hergebruiken.
+De backlog per koppelvlak is nog niet compleet, dus deze balken zijn een richtpunt en geen belofte.
 
-De vraag die hieruit volgt staat op de slide Gevraagd. Inschatting van de maker, te overrulen:
-draft eraf zodat er formeel om review wordt gevraagd, een vaste reviewer per pull request, of een
-afgesproken termijn waarbinnen een review terugkomt.
+De onderste regel is de conclusie: het doel haalt het bij het tempo van augustus, niet bij dat van
+september. Wat daarvoor nodig is staat als besluit op de slide Gevraagd, en gaat over de
+reviewdoorloop: van de zestien openstaande pull requests dragen er twee een review van buiten het
+kernteam.
 -->
 
 ---
