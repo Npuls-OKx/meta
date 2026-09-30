@@ -234,83 +234,61 @@ acceptatietest, Public #109.
 
 ---
 
-<!-- 6b. DOORLOOPTIJD EN CAPACITEIT -->
+<!-- 6b. TEMPO EN REVIEW -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
 
-# 23 issues te gaan, tempo bepaalt de datum
+# Tempo zakte, review is de rem
 
-<style scoped>
-.fill { padding: 1.4rem 2.2rem; }
-.mermaid { display: flex; justify-content: center; margin: 0.1rem 0 0; }
-.mermaid svg { max-width: 100%; height: auto; }
-</style>
+<div class="np-grid-2" style="margin-top: 1.6rem; gap: 1.6rem; align-items: stretch;">
 
-<div style="margin-top: 0.2rem;">
+<div class="np-card accent-orange" style="padding: 1.2rem 1.4rem;">
+<div class="eyebrow">Gesloten issues per maand</div>
+<div style="display: flex; align-items: baseline; gap: 1.6rem; margin-top: 0.7rem;">
+<div><div class="np-big-number">58</div><div style="font-size: 0.85rem; color: var(--np-mid-gray); margin-top: 0.2rem;">augustus</div></div>
+<div style="font-size: 2.2rem; color: var(--np-mid-gray); line-height: 1;">&#8594;</div>
+<div><div class="np-big-number">16</div><div style="font-size: 0.85rem; color: var(--np-mid-gray); margin-top: 0.2rem;">september</div></div>
+</div>
+<div style="margin-top: 1.1rem;">
+<div style="height: 1.5rem; width: 100%; background: var(--np-orange); border-radius: 4px;"></div>
+<div style="height: 1.5rem; width: 27.6%; background: var(--np-orange); opacity: 0.45; border-radius: 4px; margin-top: 0.45rem;"></div>
+</div>
+<div style="font-size: 0.8rem; color: var(--np-mid-gray); margin-top: 0.55rem;">meta en Public samen</div>
+</div>
 
-```mermaid {theme: 'base', scale: 0.92, themeVariables: {'fontFamily': 'General Sans, Inter, sans-serif', 'fontSize': '14px', 'sectionBkgColor': '#F7F8FB', 'altSectionBkgColor': '#FFFFFF', 'gridColor': '#E5E7EB', 'doneTaskBkgColor': '#D8ECDD', 'doneTaskBorderColor': '#00AF81', 'activeTaskBkgColor': '#FBE3D6', 'activeTaskBorderColor': '#DD784B', 'taskBkgColor': '#E8EDFC', 'taskBorderColor': '#3D68EC', 'taskTextColor': '#1B2A6B', 'taskTextDarkColor': '#1B2A6B', 'taskTextOutsideColor': '#374151', 'todayLineColor': '#DD784B'}}
-gantt
-    dateFormat YYYY-MM-DD
-    axisFormat %b
-    todayMarker off
-    section Gereed
-    Specificatie v0.0.1      :done, 2026-07-30, 2026-08-18
-    Informatiemodel v0.1     :done, 2026-08-18, 2026-09-18
-    Voorbeelduitwerking LR1  :done, 2026-09-17, 2026-09-30
-    section Loopt
-    OC-P&R afronden          :active, 2026-08-31, 2026-10-31
-    section Tempo augustus
-    23 issues, 14 per maand  :2026-10-01, 2026-11-19
-    Alle lagen beschreven    :milestone, 2026-11-19, 0d
-    section Tempo september
-    23 issues, 5 per maand   :2026-10-01, 2027-02-17
-    Alle lagen beschreven    :milestone, 2027-02-17, 0d
-```
+<div class="np-card accent-blue" style="padding: 1.2rem 1.4rem;">
+<div class="eyebrow">Openstaande pull requests</div>
+<div style="display: grid; grid-template-columns: 3.2rem 1fr; gap: 0.35rem 0.8rem; margin-top: 0.75rem; align-items: baseline;">
+<div style="font-size: 1.9rem; font-weight: 700; color: var(--np-blue); text-align: right;">16</div><div style="font-size: 0.92rem;">open</div>
+<div style="font-size: 1.9rem; font-weight: 700; color: var(--np-blue); text-align: right;">11</div><div style="font-size: 0.92rem;">op draft</div>
+<div style="font-size: 1.9rem; font-weight: 700; color: var(--np-orange); text-align: right;">2</div><div style="font-size: 0.92rem;">review van buiten het kernteam</div>
+<div style="font-size: 1.9rem; font-weight: 700; color: var(--np-orange); text-align: right;">60</div><div style="font-size: 0.92rem;">dagen wacht de oudste</div>
+</div>
+</div>
 
 </div>
 
-<div style="font-size: 0.75rem; color: var(--np-mid-gray); line-height: 1.45; margin-top: 0.35rem; max-width: 88%;">
-Onder de twee koppelvlak-milestones staan 23 open issues. De twee onderste balken zijn dezelfde 23 issues bij twee gemeten tempo's: 14 per maand in augustus, 5 per maand in september.<br/>
-De rem zit in het gezamenlijk reviewen: van de 16 openstaande pull requests dragen er 2 een review van buiten het kernteam, 11 staan op draft en de oudste wacht 60 dagen.
-</div>
-
-<div class="np-card accent-orange" style="margin-top: 0.4rem; padding: 0.45rem 1rem;">
-<carbon-idea style="font-size: 1.2rem; color: var(--np-orange); vertical-align: -0.2rem;" /> <strong style="color: var(--np-ink);">Het schrijfwerk ligt er. De vraag is hoe we het tempo vasthouden</strong>
+<div class="np-bottomline" style="margin-top: 1.4rem;">
+Binnen het kernteam gaat een pull request in <strong>0,7 dagen</strong> door. Wat op de groep wacht, wacht <strong>weken</strong>.
 </div>
 
 </div>
 
 <!--
-De drie bovenste balken zijn gerealiseerd en dateerbaar: de koppelvlakspecificatie kwam op 30 juli
-naar Public, v0.0.1 stond er op 18 augustus, het informatiemodel op 18 september, en de
-voorbeelduitwerking loopt van 17 tot 30 september. De twee onderste balken zijn geen voorspelling
-maar dezelfde 23 open issues bij twee tempo's die we zelf hebben gedraaid: 14 gesloten issues in
-augustus, 5 in september. Dat verschil van bijna drie maanden is de hele boodschap.
+Twee maatstaven, allebei uit de repositories en allebei geldig ook als de backlog onvolledig is:
+doorvoer (gesloten issues per maand) en wachttijd op review. Een einddatum staat er bewust niet:
+de backlog per koppelvlak is niet compleet, dus een burn-down zou een noemer gebruiken die we
+niet kennen.
 
-Waar het tempo op vastloopt is het gezamenlijk reviewen, niet het schrijven. Binnen het kernteam
-gaat een pull request in mediaan 0,7 dagen door, en de grootste PR van 70.000 regels ging in vijf
-uur. Maar van de 16 openstaande pull requests dragen er twee een review van buiten het kernteam,
-elf staan op draft en de oudste wacht zestig dagen. Wie op de groep wacht, wacht lang.
+Doorvoer: 58 gesloten issues in augustus over beide repositories, 16 in september. Wachttijd: van
+de zestien openstaande pull requests staan er elf op draft, dragen er twee een review van buiten
+het kernteam, en wacht de oudste zestig dagen. Binnen het kernteam is de mediaan 0,7 dagen, en de
+grootste pull request van 70.000 regels ging in vijf uur door. Schrijven is de rem niet.
 
-De vraag aan de tafel is daarmee concreet: hoe houden we het tempo van augustus vast. Opties om
-te noemen: draft eraf zodat er formeel om review wordt gevraagd, een vaste reviewer per pull
-request, of een afgesproken termijn waarbinnen een review terugkomt.
--->
-
----
-
-<!-- SECTIE: VOORBEELDUITWERKING -->
-<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide2.PNG);"></div>
-
-<div style="position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; align-items: flex-end; text-align: right; padding: 3rem 4rem 3rem 45%; z-index: 1;">
-  <div style="font-size: 0.8rem; color: var(--np-orange); letter-spacing: 2px; text-transform: uppercase;">Deel 2 van 5</div>
-  <h1 style="font-size: 2.4rem; line-height: 1.15; margin: 0.4rem 0 0.5rem; color: var(--np-ink);">Voorbeelduitwerking leerroute 1</h1>
-  <div style="font-size: 1rem; color: var(--np-mid-gray);">Niek &middot; de opleiding van Jochem, fase 1 stap voor stap</div>
-</div>
-
-<!--
-Sectiescheiding tussen het voortgangsdeel en de inhoud. Vanaf hier loopt de sessie door fase 1 van de voorbeelduitwerking.
+De vraag die hieruit volgt staat op de slide Gevraagd. Inschatting van de maker, te overrulen:
+draft eraf zodat er formeel om review wordt gevraagd, een vaste reviewer per pull request, of een
+afgesproken termijn waarbinnen een review terugkomt.
 -->
 
 ---
@@ -2130,12 +2108,19 @@ verdeling, en welke ID vraagt als eerste om een specificatie?
 <div style="display:flex;align-items:center;gap:0.9rem;margin-top:0.9rem;"><svg width="40" height="40" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#7A97F2"/><circle cx="19" cy="19" r="8" fill="none" stroke="#fff" stroke-width="3"/><line x1="25" y1="25" x2="33" y2="33" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg><dl class="np-besluit review" style="flex:1;"><dt>Feedback</dt><dd>de voorbeelduitwerking: klopt de vorm, klopt de mate van detail, en is dit wat nodig is</dd></dl></div>
 <div style="display:flex;align-items:center;gap:0.9rem;margin-top:0.7rem;"><svg width="40" height="40" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#7A97F2"/><circle cx="19" cy="19" r="8" fill="none" stroke="#fff" stroke-width="3"/><line x1="25" y1="25" x2="33" y2="33" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg><dl class="np-besluit review" style="flex:1;"><dt>Review</dt><dd>de openstaande pull requests, te beginnen bij <a href="https://github.com/Npuls-OKx/Public/pull/104">Public PR 104</a>: het informatiemodel en de begrippen</dd></dl></div>
 <div style="display:flex;align-items:center;gap:0.9rem;margin-top:0.7rem;"><svg width="40" height="40" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#E9A27F"/><polyline points="12,23 19,30 32,15" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg><dl class="np-besluit" style="flex:1;"><dt>Besluit</dt><dd>het koppeling-ID: nu een eerste indeling vastleggen, of wachten tot de detaillering verder is</dd></dl></div>
-<div style="display:flex;align-items:center;gap:0.9rem;margin-top:0.7rem;"><svg width="40" height="40" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#7A97F2"/><path d="M11 13 h22 a3 3 0 0 1 3 3 v11 a3 3 0 0 1 -3 3 h-12 l-6 5 v-5 h-4 a3 3 0 0 1 -3 -3 v-11 a3 3 0 0 1 3 -3 z" fill="#fff"/></svg><dl class="np-besluit kennisname" style="flex:1;"><dt>Input</dt><dd>het versioneringsvoorstel: past dit op de manier waarop jullie releasen</dd></dl></div>
+<div style="display:flex;align-items:center;gap:0.9rem;margin-top:0.7rem;"><svg width="40" height="40" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#E9A27F"/><polyline points="12,23 19,30 32,15" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg><dl class="np-besluit" style="flex:1;"><dt>Besluit</dt><dd>de reviewdoorloop: welke termijn geldt voor een review, en wie reviewt welke pull request</dd></dl></div>
+<div style="display:flex;align-items:center;gap:0.9rem;margin-top:0.7rem;"><svg width="40" height="40" viewBox="0 0 44 44" style="flex:none;"><circle cx="22" cy="22" r="21" fill="#7A97F2"/><path d="M11 13 h22 a3 3 0 0 1 3 3 v11 a3 3 0 0 1 -3 3 h-12 l-6 5 v-5 h-4 a3 3 0 0 1 -3 -3 v-11 a3 3 0 0 1 3 -3 z" fill="#fff"/></svg><dl class="np-besluit kennisname" style="flex:1;"><dt>Input</dt><dd>het versioneringsvoorstel: sluit dit aan op de eigen releasepraktijk</dd></dl></div>
 
 </div>
 
 <!--
-Vier punten, een per deel van deze sessie. De feedback op de voorbeelduitwerking is de kern van
+Vijf punten. Het besluit over de reviewdoorloop volgt uit de tempo-slide: doorvoer zakte van 58
+naar 16 gesloten issues per maand, en van de zestien openstaande pull requests dragen er twee een
+review van buiten het kernteam. Inschatting van de maker, te overrulen: draft eraf zodat er
+formeel om review wordt gevraagd, een vaste reviewer per pull request, of een termijn waarbinnen
+een review terugkomt.
+
+De overige vier punten, een per deel van deze sessie. De feedback op de voorbeelduitwerking is de kern van
 vandaag en gaat over vorm, detaillering en scope; losse regels horen in de pull request. De review
 staat er opnieuw, want die stond ook op 15 september, en het gaat om alle openstaande pull
 requests, te beginnen bij PR 104. Het besluit over het koppeling-ID is een richtingkeuze: nu een
