@@ -1194,40 +1194,58 @@ Sectiescheiding. Vanaf hier is Garik aan het woord; zijn blok staat los van de r
 
 ---
 
-<!-- 9a. VERSIONERING: DE VRAAG VAN DE LEVERANCIERS -->
+<!-- 9a. VERSIONERING: KERNPUNTEN -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
 
 <div class="np-eyebrow">Versionering</div>
 
-# De vraag van de leveranciers
+# Kernpunten
 
-<div class="np-card accent-orange" style="margin-top: 0.9rem; padding: 0.9rem 1.2rem;">
-<div style="font-size: 1.15rem; line-height: 1.45; color: var(--np-ink); font-weight: 600;">Hoe versioneren we op het niveau van een koppeling, zonder te breken wat al draait?</div>
+<div class="np-card accent-orange" style="margin-top: 0.7rem; margin-bottom: 0.7rem; padding: 0.7rem 1rem;">
+<div style="font-size: 1.05rem; line-height: 1.4; color: var(--np-ink); font-weight: 600;">Hoe versioneren we op het niveau van een koppeling, zonder te breken wat al draait?</div>
 </div>
 
-<div class="np-grid-3" style="margin-top: 1rem; gap: 0.9rem;">
-  <div class="np-tegel"><carbon-version class="np-pic" /><div>Eén koppeling, opeenvolgende versies</div></div>
-  <div class="np-tegel"><carbon-warning class="np-pic oranje" /><div>Een nieuwe versie voelt als verplicht meegaan</div></div>
-  <div class="np-tegel"><carbon-time class="np-pic" /><div>Wat betekent dat voor wat vandaag in productie staat</div></div>
+<div class="np-grid-2" style="gap: 0.7rem; align-items: start;">
+  <div class="np-card accent-blue" style="padding: 0.55rem 0.8rem;">
+    <carbon-list-checked style="font-size: 1.15rem; color: var(--np-blue);" />
+    <div style="font-weight: 700; font-size: 0.85rem; margin-top: 0.15rem;">Duidelijke implementatie-opties</div>
+    <small style="font-size: 0.75rem;">per koppeling zichtbaar wat er te implementeren valt</small>
+  </div>
+  <div class="np-card accent-green" style="padding: 0.55rem 0.8rem;">
+    <carbon-continuous-deployment style="font-size: 1.15rem; color: var(--np-green);" />
+    <div style="font-weight: 700; font-size: 0.85rem; margin-top: 0.15rem;">Vernieuwing zonder onderbreking</div>
+    <small style="font-size: 0.75rem;">wat erbij komt laat draaiende koppelingen met rust</small>
+  </div>
+  <div class="np-card accent-orange" style="padding: 0.55rem 0.8rem;">
+    <carbon-growth style="font-size: 1.15rem; color: var(--np-orange);" />
+    <div style="font-weight: 700; font-size: 0.85rem; margin-top: 0.15rem;">Ruimte om te groeien</div>
+    <small style="font-size: 0.75rem;">meer koppelingen, partijen en stromen zonder vastlopen</small>
+  </div>
+  <div class="np-card accent-yellow" style="padding: 0.55rem 0.8rem;">
+    <carbon-collaborate style="font-size: 1.15rem; color: var(--np-yellow);" />
+    <div style="font-weight: 700; font-size: 0.85rem; margin-top: 0.15rem;">Dezelfde woorden</div>
+    <small style="font-size: 0.75rem;">partijen stellen in één taal vast wat zij van elkaar nodig hebben</small>
+  </div>
 </div>
 
 <style scoped>
 .np-eyebrow { font-size: 0.75rem; color: var(--np-orange); letter-spacing: 1px; text-transform: uppercase; }
-.np-tegel { background: #fff; border: 1px solid var(--np-light-gray); border-top: 4px solid var(--np-blue); border-radius: 12px; padding: 0.8rem 0.7rem; text-align: center; font-size: 0.86rem; font-weight: 600; color: var(--np-dark-blue); line-height: 1.35; }
-.np-pic { font-size: 1.5rem; color: var(--np-blue); display: block; margin: 0 auto 0.35rem; }
-.np-pic.oranje { color: var(--np-orange); }
 </style>
 
 </div>
 
 <!--
 Opzet; Garik werkt dit blok uit. Bewust begint het bij hun vraag en niet bij onze oplossing: die
-vraag kwam op 19 augustus in Amersfoort en opnieuw op 15 september. De zorg eronder is dat een
-versie gelezen wordt als een naleefplicht op het hele pakket, terwijl OKx geen auditrol heeft. De
-term naleving of compliance staat er bewust niet op; die roept precies de weerstand op die deze
-slide wil wegnemen.
+vraag kwam op 19 augustus in Amersfoort en opnieuw op 15 september. Wat eronder zit: een koppeling
+met opeenvolgende versies, een nieuwe versie die voelt als verplicht meegaan, en de vraag wat dat
+betekent voor wat vandaag in productie staat. De zorg is dat een versie gelezen wordt als een
+naleefplicht op het hele pakket, terwijl OKx geen auditrol heeft. De term naleving of compliance
+staat er bewust niet op; die roept precies de weerstand op die deze slide wil wegnemen.
+
+De vier kernpunten zijn de eisen waaraan beide aanpakken hierna zijn getoetst en waaraan de
+richting is opgehangen.
 -->
 
 ---
@@ -1318,52 +1336,6 @@ afhankelijkheidsstructuur die snel onbeheersbaar wordt: van een relatie naar zev
 elke koppeling. De oranje lijn is de botsing: pinnen twee koppelingen het gedeelde pakket op een
 andere versie, dan bestaat er geen geldige combinatie meer. Zeven applicatiecomponenten betekent tot
 21 mogelijke koppelingen.
--->
-
----
-
-<!-- 9d. VERSIONERING: WAT DE AANPAK MOET OPLEVEREN -->
-<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
-
-<div class="fill">
-
-<div class="np-eyebrow">Versionering</div>
-
-# Wat de aanpak moet opleveren
-
-<style scoped>
-.np-eyebrow { font-size: 0.75rem; color: var(--np-orange); letter-spacing: 1px; text-transform: uppercase; }
-</style>
-
-<div class="np-grid-2" style="margin-top: 1rem; gap: 1rem; align-items: start;">
-  <div class="np-card accent-blue">
-    <carbon-list-checked style="font-size: 1.4rem; color: var(--np-blue);" />
-    <div style="font-weight: 700; font-size: 0.95rem; margin-top: 0.2rem;">Duidelijke implementatie-opties</div>
-    <small style="font-size: 0.84rem;">per koppeling zichtbaar wat er te implementeren valt</small>
-  </div>
-  <div class="np-card accent-green">
-    <carbon-continuous-deployment style="font-size: 1.4rem; color: var(--np-green);" />
-    <div style="font-weight: 700; font-size: 0.95rem; margin-top: 0.2rem;">Vernieuwing zonder onderbreking</div>
-    <small style="font-size: 0.84rem;">wat erbij komt laat draaiende koppelingen met rust</small>
-  </div>
-  <div class="np-card accent-orange">
-    <carbon-growth style="font-size: 1.4rem; color: var(--np-orange);" />
-    <div style="font-weight: 700; font-size: 0.95rem; margin-top: 0.2rem;">Ruimte om te groeien</div>
-    <small style="font-size: 0.84rem;">meer koppelingen, partijen en stromen zonder vastlopen</small>
-  </div>
-  <div class="np-card accent-yellow">
-    <carbon-collaborate style="font-size: 1.4rem; color: var(--np-yellow);" />
-    <div style="font-weight: 700; font-size: 0.95rem; margin-top: 0.2rem;">Dezelfde woorden</div>
-    <small style="font-size: 0.84rem;">partijen stellen in één taal vast wat zij van elkaar nodig hebben</small>
-  </div>
-</div>
-
-</div>
-
-<!--
-De vier eisen waaraan beide aanpakken zijn getoetst en waaraan de gekozen richting is opgehangen.
-Ze komen uit de leveranciersvraag van 19 augustus en 15 september: de zorg is niet de techniek maar
-het meebewegen dat een nieuwe versie lijkt af te dwingen.
 -->
 
 ---
