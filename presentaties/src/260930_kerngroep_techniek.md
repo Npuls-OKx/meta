@@ -1146,11 +1146,11 @@ zodra berichtstromen bestaan, is de vraag hoe je ze versioneert.
 <div class="np-grid-2" style="margin-top: 0.55rem; gap: 0.8rem;">
   <div class="np-card accent-blue" style="padding: 0.5rem 0.9rem;">
     <div style="font-weight: 700; font-size: 0.88rem;">Vandaag: fase 1 helemaal door de route</div>
-    <small style="font-size: 0.78rem;">van kwalificatiedossier tot het eerste bericht</small>
+    <small style="font-size: 0.78rem;">van kwalificatiedossier tot het eerste bericht: een van de twintig lijnen</small>
   </div>
   <div class="np-card accent-orange" style="padding: 0.5rem 0.9rem;">
-    <div style="font-weight: 700; font-size: 0.88rem;">Daarna: fase 2 tot 8, en de volgende koppeling</div>
-    <small style="font-size: 0.78rem;">dezelfde route, per lijn op de hoofdplaat</small>
+    <div style="font-weight: 700; font-size: 0.88rem;">Daarna: fase 2 tot 8, en de volgende leerroute</div>
+    <small style="font-size: 0.78rem;">de overige negentien lijnen, daarna leerroute 2 en 3 als delta</small>
   </div>
 </div>
 
@@ -1162,8 +1162,9 @@ er per stap ligt: de requirementsboom, de koppelvlakdiensten als bouwblokken, be
 informatiemodel v0.1 met 66 objecttypen en hoofdplaat v1.7. Onderaan de koppelvlakspecificatie als
 eindproduct. Dit is ook het antwoord op de vraag waarom de doorloop van fase 1 zo gedetailleerd
 is: die detaillering is nodig om de berichtstromen en endpoints eronder te kunnen beschrijven.
-Wat vandaag ligt is fase 1 van leerroute 1; fase 2 tot 8 en de volgende koppelingen volgen
-dezelfde route.
+Wat vandaag ligt is fase 1 van leerroute 1, en dat is een van de twintig lijnen op de hoofdplaat.
+Fase 2 tot 8 lopen de overige negentien af; daarmee is leerroute 1 rond. De as daarna is niet nog
+een koppeling maar de volgende leerroute: 2 en 3 als delta op deze basislijn.
 -->
 
 ---
