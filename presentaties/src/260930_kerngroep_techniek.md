@@ -43,7 +43,7 @@ stemmen met Garik en Niels.
 <div style="display:grid;grid-template-columns:2.2rem 1fr;gap:0.6rem;align-items:start;margin-top:0.55rem;"><div style="width:2rem;height:2rem;border-radius:50%;background:#B8BEC7;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.95rem;">1</div><div style="line-height:1.4;"><strong>Afspraken van 15 september</strong><br/><span style="font-size:0.9rem;color:var(--np-dark-gray);">Per afspraak de stand van vandaag</span></div></div>
 <div style="display:grid;grid-template-columns:2.2rem 1fr;gap:0.6rem;align-items:start;margin-top:0.55rem;"><div style="width:2rem;height:2rem;border-radius:50%;background:#7CCBA8;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.95rem;">2</div><div style="line-height:1.4;"><strong>Voorbeelduitwerking leerroute 1 (Niek)</strong><br/><span style="font-size:0.9rem;color:var(--np-dark-gray);">De opleiding van Jochem in het informatiemodel, met de vraag om feedback per regel</span></div></div>
 <div style="display:grid;grid-template-columns:2.2rem 1fr;gap:0.6rem;align-items:start;margin-top:0.55rem;"><div style="width:2rem;height:2rem;border-radius:50%;background:#7A97F2;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.95rem;">3</div><div style="line-height:1.4;"><strong>Versionering met een voorbeeldflow (Garik)</strong><br/><span style="font-size:0.9rem;color:var(--np-dark-gray);">De iteratie op Public PR 100, toegelicht aan een voorbeeld</span></div></div>
-<div style="display:grid;grid-template-columns:2.2rem 1fr;gap:0.6rem;align-items:start;margin-top:0.55rem;"><div style="width:2rem;height:2rem;border-radius:50%;background:#E9A27F;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.95rem;">4</div><div style="line-height:1.4;"><strong>Business-architectuur en stories (Niels)</strong><br/><span style="font-size:0.9rem;color:var(--np-dark-gray);">De stories uit de PoC-scholen</span></div></div>
+<div style="display:grid;grid-template-columns:2.2rem 1fr;gap:0.6rem;align-items:start;margin-top:0.55rem;"><div style="width:2rem;height:2rem;border-radius:50%;background:#B8BEC7;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.95rem;">4</div><div style="line-height:1.4;"><strong>Business-architectuur en stories (Niels)</strong><br/><span style="font-size:0.9rem;color:var(--np-dark-gray);">Niels is vandaag verhinderd; dit punt houden we tegoed voor 14 oktober</span></div></div>
 <div style="display:grid;grid-template-columns:2.2rem 1fr;gap:0.6rem;align-items:start;margin-top:0.55rem;"><div style="width:2rem;height:2rem;border-radius:50%;background:#00AF81;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.95rem;">5</div><div style="line-height:1.4;"><strong>Koppeling-ID, gevraagd, vervolg en peiling</strong><br/><span style="font-size:0.9rem;color:var(--np-dark-gray);">Public #107, de reviewvraag op PR 104 en de peiling</span></div></div>
 </div>
 
@@ -239,7 +239,7 @@ acceptatietest, Public #109.
 
 <div class="fill">
 
-# Twee scenario's naar Q1 2027
+# Twee scenario's: Q1 of Q2 2027
 
 <style scoped>
 .fill { padding: 1.4rem 2.2rem; }
@@ -249,7 +249,7 @@ acceptatietest, Public #109.
 
 <div style="margin-top: 0.2rem;">
 
-```mermaid {theme: 'base', scale: 1.15, themeVariables: {'fontFamily': 'General Sans, Inter, sans-serif', 'fontSize': '14px', 'sectionBkgColor': '#F7F8FB', 'altSectionBkgColor': '#FFFFFF', 'gridColor': '#E5E7EB', 'doneTaskBkgColor': '#D8ECDD', 'doneTaskBorderColor': '#00AF81', 'activeTaskBkgColor': '#FBE3D6', 'activeTaskBorderColor': '#DD784B', 'taskBkgColor': '#E8EDFC', 'taskBorderColor': '#3D68EC', 'taskTextColor': '#1B2A6B', 'taskTextDarkColor': '#1B2A6B', 'taskTextOutsideColor': '#374151', 'todayLineColor': '#DD784B'}}
+```mermaid {theme: 'base', scale: 0.92, themeVariables: {'fontFamily': 'General Sans, Inter, sans-serif', 'fontSize': '14px', 'sectionBkgColor': '#F7F8FB', 'altSectionBkgColor': '#FFFFFF', 'gridColor': '#E5E7EB', 'doneTaskBkgColor': '#D8ECDD', 'doneTaskBorderColor': '#00AF81', 'activeTaskBkgColor': '#FBE3D6', 'activeTaskBorderColor': '#DD784B', 'taskBkgColor': '#E8EDFC', 'taskBorderColor': '#3D68EC', 'taskTextColor': '#1B2A6B', 'taskTextDarkColor': '#1B2A6B', 'taskTextOutsideColor': '#374151', 'todayLineColor': '#DD784B'}}
 gantt
     dateFormat YYYY-MM-DD
     axisFormat %b
@@ -260,18 +260,24 @@ gantt
     Voorbeelduitwerking LR1  :done, 2026-09-17, 2026-09-30
     section Loopt
     OC-P&R afronden          :active, 2026-08-31, 2026-10-31
-    section Een spoor
+    section Na elkaar
     OC-KRS en OC-SVS         :2026-11-01, 2027-02-01
     OC-LMS                   :2027-02-01, 2027-05-01
-    section Twee sporen
+    Klaar in Q2 2027         :milestone, 2027-05-15, 0d
+    section Overlappend
     OC-KRS en OC-SVS         :2026-10-15, 2027-01-15
     OC-LMS                   :2026-12-01, 2027-03-15
-    Alle lagen beschreven    :milestone, 2027-03-31, 0d
+    Klaar in Q1 2027         :milestone, 2027-03-31, 0d
 ```
 
 </div>
 
-<div class="np-card accent-orange" style="margin-top: 0.7rem; padding: 0.6rem 1rem;">
+<div style="font-size: 0.75rem; color: var(--np-mid-gray); line-height: 1.45; margin-top: 0.35rem; max-width: 88%;">
+De onderste twee rijen tonen dezelfde twee koppelingen, twee keer: het verschil zit in wanneer zij starten, niet in hoeveel werk erin zit.<br/>
+Elke balk duurt drie maanden, de doorlooptijd die OC-P&amp;R vandaag laat zien; na elkaar start een koppeling zodra de vorige vastligt, overlappend zodra de review erop loopt.
+</div>
+
+<div class="np-card accent-orange" style="margin-top: 0.4rem; padding: 0.45rem 1rem;">
 <carbon-idea style="font-size: 1.2rem; color: var(--np-orange); vertical-align: -0.2rem;" /> <strong style="color: var(--np-ink);">Afronden vraagt input en aanhaking; het schrijfwerk ligt er</strong>
 </div>
 
@@ -501,7 +507,7 @@ F1-02, deel 1 van 2. Examenplan, eerste resultaatstructuur en cohort. Het beeld 
 
 <img src="/regels/f1-02-examenplan-eerste-resultaatstructuur-en-cohort-deel2.svg" class="np-beeld" />
 
-<div class="np-onder">Stap: Examenplan vaststellen</div>
+<div class="np-onder">Stap: Examenplan opstellen</div>
 
 <style scoped>
 .np-eyebrow { font-size: 0.75rem; color: var(--np-orange); letter-spacing: 1px; text-transform: uppercase; }
@@ -924,50 +930,27 @@ F1-10, deel 3 van 3. De examenonderdeelspecificatie met haar toetsvorm, instrume
 
 ---
 
-<!-- FASE 1: F1-11 deel 1 -->
+<!-- FASE 1: F1-11 -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
 
-<div class="np-eyebrow">F1-11 &middot; deel 1 van 2 &middot; De opleiding zoals ontworpen naar de catalogus</div>
+<div class="np-eyebrow">F1-11 &middot; verandert &middot; Het examenplan vastgesteld</div>
 
-<img src="/regels/f1-11-de-opleiding-zoals-ontworpen-naar-de-catalogus-deel1.svg" class="np-beeld" />
+<img src="/regels/f1-11-het-examenplan-vastgesteld.svg" class="np-beeld" />
+
+<div class="np-onder">Stap: Examenplan vaststellen</div>
 
 <style scoped>
 .np-eyebrow { font-size: 0.75rem; color: var(--np-orange); letter-spacing: 1px; text-transform: uppercase; }
-.np-beeld { display: block; margin: 0.5rem auto 0; max-width: 100%; max-height: 430px; object-fit: contain; }
+.np-beeld { display: block; margin: 0.5rem auto 0; max-width: 100%; max-height: 420px; object-fit: contain; }
 .np-onder { margin-top: 0.4rem; font-size: 0.78rem; color: var(--np-mid-gray); text-align: center; }
 </style>
 
 </div>
 
 <!--
-F1-11, deel 1 van 2. De opleiding zoals ontworpen naar de catalogus. Het beeld staat in delen op de slides en in een geheel in het document.
--->
-
----
-
-<!-- FASE 1: F1-11 deel 2 -->
-<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
-
-<div class="fill">
-
-<div class="np-eyebrow">F1-11 &middot; deel 2 van 2 &middot; De opleiding zoals ontworpen naar de catalogus</div>
-
-<img src="/regels/f1-11-de-opleiding-zoals-ontworpen-naar-de-catalogus-deel2.svg" class="np-beeld" />
-
-<div class="np-onder">Stap: Grofmazig resultaat publiceren naar de onderwijscatalogus</div>
-
-<style scoped>
-.np-eyebrow { font-size: 0.75rem; color: var(--np-orange); letter-spacing: 1px; text-transform: uppercase; }
-.np-beeld { display: block; margin: 0.5rem auto 0; max-width: 100%; max-height: 430px; object-fit: contain; }
-.np-onder { margin-top: 0.4rem; font-size: 0.78rem; color: var(--np-mid-gray); text-align: center; }
-</style>
-
-</div>
-
-<!--
-F1-11, deel 2 van 2. De opleiding zoals ontworpen naar de catalogus. Het beeld staat in delen op de slides en in een geheel in het document.
+F1-11. Het examenplan vastgesteld. Vraag bij elk beeld: klopt dit met het eigen model, en hoe heet het daar.
 -->
 
 ---
@@ -977,9 +960,9 @@ F1-11, deel 2 van 2. De opleiding zoals ontworpen naar de catalogus. Het beeld s
 
 <div class="fill">
 
-<div class="np-eyebrow">F1-12 &middot; deel 1 van 2 &middot; Het onderwijs- en examenontwerp mee naar de catalogus (conceptplaat)</div>
+<div class="np-eyebrow">F1-12 &middot; deel 1 van 2 &middot; De opleiding zoals ontworpen naar de catalogus</div>
 
-<img src="/regels/f1-12-het-onderwijs-en-examenontwerp-mee-naar-de-catalogus-conceptplaat-deel1.svg" class="np-beeld" />
+<img src="/regels/f1-12-de-opleiding-zoals-ontworpen-naar-de-catalogus-deel1.svg" class="np-beeld" />
 
 <style scoped>
 .np-eyebrow { font-size: 0.75rem; color: var(--np-orange); letter-spacing: 1px; text-transform: uppercase; }
@@ -990,7 +973,7 @@ F1-11, deel 2 van 2. De opleiding zoals ontworpen naar de catalogus. Het beeld s
 </div>
 
 <!--
-F1-12, deel 1 van 2. Het onderwijs- en examenontwerp mee naar de catalogus (conceptplaat). Het beeld staat in delen op de slides en in een geheel in het document.
+F1-12, deel 1 van 2. De opleiding zoals ontworpen naar de catalogus. Het beeld staat in delen op de slides en in een geheel in het document.
 -->
 
 ---
@@ -1000,9 +983,9 @@ F1-12, deel 1 van 2. Het onderwijs- en examenontwerp mee naar de catalogus (conc
 
 <div class="fill">
 
-<div class="np-eyebrow">F1-12 &middot; deel 2 van 2 &middot; Het onderwijs- en examenontwerp mee naar de catalogus (conceptplaat)</div>
+<div class="np-eyebrow">F1-12 &middot; deel 2 van 2 &middot; De opleiding zoals ontworpen naar de catalogus</div>
 
-<img src="/regels/f1-12-het-onderwijs-en-examenontwerp-mee-naar-de-catalogus-conceptplaat-deel2.svg" class="np-beeld" />
+<img src="/regels/f1-12-de-opleiding-zoals-ontworpen-naar-de-catalogus-deel2.svg" class="np-beeld" />
 
 <div class="np-onder">Stap: Grofmazig resultaat publiceren naar de onderwijscatalogus</div>
 
@@ -1015,7 +998,55 @@ F1-12, deel 1 van 2. Het onderwijs- en examenontwerp mee naar de catalogus (conc
 </div>
 
 <!--
-F1-12, deel 2 van 2. Het onderwijs- en examenontwerp mee naar de catalogus (conceptplaat). Het beeld staat in delen op de slides en in een geheel in het document.
+F1-12, deel 2 van 2. De opleiding zoals ontworpen naar de catalogus. Het beeld staat in delen op de slides en in een geheel in het document.
+-->
+
+---
+
+<!-- FASE 1: F1-13 deel 1 -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+<div class="np-eyebrow">F1-13 &middot; deel 1 van 2 &middot; Het onderwijs- en examenontwerp mee naar de catalogus (conceptplaat)</div>
+
+<img src="/regels/f1-13-het-onderwijs-en-examenontwerp-mee-naar-de-catalogus-conceptplaat-deel1.svg" class="np-beeld" />
+
+<style scoped>
+.np-eyebrow { font-size: 0.75rem; color: var(--np-orange); letter-spacing: 1px; text-transform: uppercase; }
+.np-beeld { display: block; margin: 0.5rem auto 0; max-width: 100%; max-height: 430px; object-fit: contain; }
+.np-onder { margin-top: 0.4rem; font-size: 0.78rem; color: var(--np-mid-gray); text-align: center; }
+</style>
+
+</div>
+
+<!--
+F1-13, deel 1 van 2. Het onderwijs- en examenontwerp mee naar de catalogus (conceptplaat). Het beeld staat in delen op de slides en in een geheel in het document.
+-->
+
+---
+
+<!-- FASE 1: F1-13 deel 2 -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+<div class="np-eyebrow">F1-13 &middot; deel 2 van 2 &middot; Het onderwijs- en examenontwerp mee naar de catalogus (conceptplaat)</div>
+
+<img src="/regels/f1-13-het-onderwijs-en-examenontwerp-mee-naar-de-catalogus-conceptplaat-deel2.svg" class="np-beeld" />
+
+<div class="np-onder">Stap: Grofmazig resultaat publiceren naar de onderwijscatalogus</div>
+
+<style scoped>
+.np-eyebrow { font-size: 0.75rem; color: var(--np-orange); letter-spacing: 1px; text-transform: uppercase; }
+.np-beeld { display: block; margin: 0.5rem auto 0; max-width: 100%; max-height: 430px; object-fit: contain; }
+.np-onder { margin-top: 0.4rem; font-size: 0.78rem; color: var(--np-mid-gray); text-align: center; }
+</style>
+
+</div>
+
+<!--
+F1-13, deel 2 van 2. Het onderwijs- en examenontwerp mee naar de catalogus (conceptplaat). Het beeld staat in delen op de slides en in een geheel in het document.
 -->
 
 ---
