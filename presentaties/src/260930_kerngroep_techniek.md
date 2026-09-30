@@ -239,7 +239,7 @@ acceptatietest, Public #109.
 
 <div class="fill">
 
-# Doorkijk naar Q2 2027
+# 23 issues te gaan, tempo bepaalt de datum
 
 <style scoped>
 .fill { padding: 1.4rem 2.2rem; }
@@ -260,36 +260,42 @@ gantt
     Voorbeelduitwerking LR1  :done, 2026-09-17, 2026-09-30
     section Loopt
     OC-P&R afronden          :active, 2026-08-31, 2026-10-31
-    section Nog te doen
-    OC-KRS en OC-SVS         :2026-11-01, 2027-02-01
-    OC-LMS                   :2027-02-01, 2027-05-01
-    Alle lagen beschreven    :milestone, 2027-05-15, 0d
+    section Tempo augustus
+    23 issues, 14 per maand  :2026-10-01, 2026-11-19
+    Alle lagen beschreven    :milestone, 2026-11-19, 0d
+    section Tempo september
+    23 issues, 5 per maand   :2026-10-01, 2027-02-17
+    Alle lagen beschreven    :milestone, 2027-02-17, 0d
 ```
 
 </div>
 
 <div style="font-size: 0.75rem; color: var(--np-mid-gray); line-height: 1.45; margin-top: 0.35rem; max-width: 88%;">
-De bovenste drie balken zijn gerealiseerd en dateerbaar. De onderste twee zijn een aanname van drie maanden per koppeling, elk startend als de vorige vastligt.<br/>
-Wat wel gemeten is: 23 open issues onder de twee koppelvlak-milestones, en een tempo dat zakte van 58 gesloten issues in augustus naar 16 in september.
+Onder de twee koppelvlak-milestones staan 23 open issues. De twee onderste balken zijn dezelfde 23 issues bij twee gemeten tempo's: 14 per maand in augustus, 5 per maand in september.<br/>
+De rem zit in het gezamenlijk reviewen: van de 16 openstaande pull requests dragen er 2 een review van buiten het kernteam, 11 staan op draft en de oudste wacht 60 dagen.
 </div>
 
 <div class="np-card accent-orange" style="margin-top: 0.4rem; padding: 0.45rem 1rem;">
-<carbon-idea style="font-size: 1.2rem; color: var(--np-orange); vertical-align: -0.2rem;" /> <strong style="color: var(--np-ink);">Afronden vraagt input en aanhaking; het schrijfwerk ligt er</strong>
+<carbon-idea style="font-size: 1.2rem; color: var(--np-orange); vertical-align: -0.2rem;" /> <strong style="color: var(--np-ink);">Het schrijfwerk ligt er. De vraag is hoe we het tempo vasthouden</strong>
 </div>
 
 </div>
 
 <!--
-Geen voorspelling maar twee scenario's, en de vraag welke het wordt. De bovenste drie balken zijn
-gerealiseerd en dateerbaar: de koppelvlakspecificatie kwam op 30 juli naar Public, v0.0.1 stond er
-op 18 augustus, het informatiemodel op 18 september, en de voorbeelduitwerking loopt van 17 tot
-30 september. De eerste koppeling loopt sinds eind juli en is nog niet vastgesteld; dat is de maat
-onder beide scenario's. Een spoor betekent de koppelingen na elkaar met de doorlooptijd van
-vandaag, en dat komt uit in Q2 2027. Twee sporen betekent dat een tweede koppeling start voordat
-de eerste vastligt, met een reviewronde die binnen twee weken rond is. Capaciteit uit de
-commit-historie sinds 1 juli: drie mensen schrijven. Dit is een keuze over capaciteit en over hoe
-snel er gelezen wordt, niet over harder schrijven, en het kernteam heeft er zelf een aandeel in:
-grote pull requests zijn zwaarder om te reviewen dan kleine.
+De drie bovenste balken zijn gerealiseerd en dateerbaar: de koppelvlakspecificatie kwam op 30 juli
+naar Public, v0.0.1 stond er op 18 augustus, het informatiemodel op 18 september, en de
+voorbeelduitwerking loopt van 17 tot 30 september. De twee onderste balken zijn geen voorspelling
+maar dezelfde 23 open issues bij twee tempo's die we zelf hebben gedraaid: 14 gesloten issues in
+augustus, 5 in september. Dat verschil van bijna drie maanden is de hele boodschap.
+
+Waar het tempo op vastloopt is het gezamenlijk reviewen, niet het schrijven. Binnen het kernteam
+gaat een pull request in mediaan 0,7 dagen door, en de grootste PR van 70.000 regels ging in vijf
+uur. Maar van de 16 openstaande pull requests dragen er twee een review van buiten het kernteam,
+elf staan op draft en de oudste wacht zestig dagen. Wie op de groep wacht, wacht lang.
+
+De vraag aan de tafel is daarmee concreet: hoe houden we het tempo van augustus vast. Opties om
+te noemen: draft eraf zodat er formeel om review wordt gevraagd, een vaste reviewer per pull
+request, of een afgesproken termijn waarbinnen een review terugkomt.
 -->
 
 ---
