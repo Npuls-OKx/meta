@@ -41,7 +41,7 @@ Alle stromen die dit voorbeeld gebruikt, met de beelden waarin ze voorkomen:
 
 | Van | Naar | Op de hoofdplaat | Beelden |
 |---|---|---|---|
-| Curriculum ontwerptool | Onderwijscatalogus | geen pijl op de hoofdplaat | F1-11, F1-12 |
+| Curriculum ontwerptool | Onderwijscatalogus | geen pijl op de hoofdplaat | F1-12, F1-13 |
 | Onderwijscatalogus | Planningssysteem | OC-P&R | F2-03 |
 | Planningssysteem | Onderwijscatalogus | OC-P&R | F2-07, F6-06, F7-05 |
 | Onderwijscatalogus | Kernregistratie systeem studenten (KRS) | OC-KRS | F3-01, F4-05 |
@@ -100,7 +100,7 @@ De gemarkeerde lijnen zijn de stromen die deze fase raakt, met het beeld waarin 
 
 ### F1-02 - Examenplan, eerste resultaatstructuur en cohort
 
-![ontstaat: Examenplan vaststellen](img/regels/f1-02-examenplan-eerste-resultaatstructuur-en-cohort.svg)
+![ontstaat: Examenplan opstellen](img/regels/f1-02-examenplan-eerste-resultaatstructuur-en-cohort.svg)
 
 ### F1-03 - Leeruitkomsten uit het dossier, in de stem van de instelling
 
@@ -134,17 +134,21 @@ De gemarkeerde lijnen zijn de stromen die deze fase raakt, met het beeld waarin 
 
 ![ontstaat: Exameninstrumenten bepalen, inkopen of construeren, verdieping: examenvorm, instrument en beoordelaar](img/regels/f1-10-de-examenonderdeelspecificatie-met-haar-toetsvorm-instrumenten-materiaal-en-ruimte.svg)
 
-### F1-11 - De opleiding zoals ontworpen naar de catalogus
+### F1-11 - Het examenplan vastgesteld
 
-![stroomt: Grofmazig resultaat publiceren naar de onderwijscatalogus](img/regels/f1-11-de-opleiding-zoals-ontworpen-naar-de-catalogus.svg)
+![ontstaat: Examenplan vaststellen](img/regels/f1-11-het-examenplan-vastgesteld.svg)
 
-**Interactie:** Curriculum ontwerptool naar Onderwijscatalogus, geen pijl op de hoofdplaat. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F1-11.
+### F1-12 - De opleiding zoals ontworpen naar de catalogus
 
-### F1-12 - Het onderwijs- en examenontwerp mee naar de catalogus (conceptplaat)
-
-![stroomt: Grofmazig resultaat publiceren naar de onderwijscatalogus](img/regels/f1-12-het-onderwijs-en-examenontwerp-mee-naar-de-catalogus-conceptplaat.svg)
+![stroomt: Grofmazig resultaat publiceren naar de onderwijscatalogus](img/regels/f1-12-de-opleiding-zoals-ontworpen-naar-de-catalogus.svg)
 
 **Interactie:** Curriculum ontwerptool naar Onderwijscatalogus, geen pijl op de hoofdplaat. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F1-12.
+
+### F1-13 - Het onderwijs- en examenontwerp mee naar de catalogus (conceptplaat)
+
+![stroomt: Grofmazig resultaat publiceren naar de onderwijscatalogus](img/regels/f1-13-het-onderwijs-en-examenontwerp-mee-naar-de-catalogus-conceptplaat.svg)
+
+**Interactie:** Curriculum ontwerptool naar Onderwijscatalogus, geen pijl op de hoofdplaat. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F1-13.
 
 ## Fase 2: Publiceren en planbaar maken
 
@@ -593,7 +597,7 @@ De vragen die de regels zelf oproepen, met de regel waar de vraag zichtbaar word
 
 1. Het cohort hangt op de plaat aan de student (Student heeft toegang tot Cohort / periode), terwijl een student meerdere verbintenissen kan hebben die elk op een eigen moment starten. Hoort het cohort op de verbintenis, zoals Luke voorstelt in Public PR 104? (F1-02, `Cohort / periode`)
 2. Het basisdeel (Nederlands, rekenen, Engels, loopbaan en burgerschap) is een generiek examenonderdeel uit het kwalificatiedossier met een eigen zak-slaagregeling. De plaat kent er geen objecttype voor en source.json geen waarde, dus is er geen manier om naar het landelijke onderdeel te verwijzen. Hoort dat erbij? (F1-09, `Examenonderdeelspecificatie`)
-3. Het logisch gegevensmodel laat een resultaateenheid een keuzedeelruimte beoordelen, de plaat kent die relatie niet. Hoort de keuzedeelruimte in de summatieve resultaatstructuur? (F1-11, `Keuzedeelruimte`)
+3. Het logisch gegevensmodel laat een resultaateenheid een keuzedeelruimte beoordelen, de plaat kent die relatie niet. Hoort de keuzedeelruimte in de summatieve resultaatstructuur? (F1-12, `Keuzedeelruimte`)
 4. De catalogus clustert leeronderdelen inhoudelijk tot leergelegenheden, en zo'n leergelegenheid draagt leeronderdelen van verschillende onderwijseenheden. Op de plaat is Leergelegenheid een aanbodobject onder Onderwijseenheid aanbod, en aan de specificatiekant ontbreekt een container voor dat cluster. Hoort er een gewenste leergelegenheid bij? (F2-01, `Leeronderdeel specificatie`)
 5. Het studentkeuzesysteem heeft de behaalde leeruitkomsten nodig om geen keuzes voor te leggen die de student al deed. Hoofdplaat v1.7 kent wel een stroom van de kernregistratie naar het keuzesysteem en geen van het studentvolgsysteem. Komt die kennis uit de kernregistratie, of mist de plaat een stroom? (F3-08, `Leeruitkomst`)
 6. Aanwezigheidsregistratie zelf valt buiten OKx. Wat de scope wel raakt is het afgeleide deelnameresultaat: bij een onderwijseenheid die niet wordt getoetst kan het aandeel bijgewoonde lesgelegenheden een studievoortgangsresultaat zijn dat in het keuzesysteem keuzes vrijgeeft of beperkt. Hoort dat afgeleide resultaat in de uitwisseling, en blijft de registratie erbuiten? (F5-01, `Aanwezigheid`)
@@ -614,7 +618,7 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 | ontstaat | Kerntaak | B1-K1 Biedt farmaceutische patiëntenzorg | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [r1038](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L1038) |
 | ontstaat | Werkproces | B1-K1-W1 Neemt de zorg-/adviesvraag in behandeling | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [r1045](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L1045) |
 
-**F1-02 - Examenplan, eerste resultaatstructuur en cohort** (fase 1, Examenplan vaststellen; [f1-02-examenplan-eerste-resultaatstructuur-en-cohort.svg](img/regels/f1-02-examenplan-eerste-resultaatstructuur-en-cohort.svg))
+**F1-02 - Examenplan, eerste resultaatstructuur en cohort** (fase 1, Examenplan opstellen; [f1-02-examenplan-eerste-resultaatstructuur-en-cohort.svg](img/regels/f1-02-examenplan-eerste-resultaatstructuur-en-cohort.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
@@ -729,7 +733,14 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 | ontstaat (conceptplaat) | Vaardigheid | Beoordelen en feedback geven (CompetentNL laag 2) | CompetentNL ontologie 2.1.0 (competentnl.nl, TTL, gewijzigd 14 juli 2026): cnlo:HumanCapability (Vaardigheid) gelaagd via skos:broader; cnlo:KnowledgeArea (Kennisgebied) op ISCED-F |
 | ontstaat (conceptplaat) | Kennis | Farmacie en toetsing (ISCED-F 0916) | CompetentNL ontologie 2.1.0 (competentnl.nl, TTL, gewijzigd 14 juli 2026): cnlo:HumanCapability (Vaardigheid) gelaagd via skos:broader; cnlo:KnowledgeArea (Kennisgebied) op ISCED-F |
 
-**F1-11 - De opleiding zoals ontworpen naar de catalogus** (fase 1, Grofmazig resultaat publiceren naar de onderwijscatalogus; [f1-11-de-opleiding-zoals-ontworpen-naar-de-catalogus.svg](img/regels/f1-11-de-opleiding-zoals-ontworpen-naar-de-catalogus.svg))
+**F1-11 - Het examenplan vastgesteld** (fase 1, Examenplan vaststellen; [f1-11-het-examenplan-vastgesteld.svg](img/regels/f1-11-het-examenplan-vastgesteld.svg))
+
+| Soort | Objecttype | Instantie | Bron |
+|---|---|---|---|
+| verandert | Examenplan | Examenplan Apothekersassistent, cohort 2026: vastgesteld | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), stelExamenspecificatieEnInstrumentenVast; review Niels van Duin op PR 252: de examencommissie stelt enkel vast, het ontwikkelen ligt bij de ontwerper |
+| verandert | Summatieve resultaat structuur | Resultaatstructuur Apothekersassistent: vastgesteld | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), stelExamenspecificatieEnInstrumentenVast; review Niels van Duin op PR 252: de examencommissie stelt enkel vast, het ontwikkelen ligt bij de ontwerper |
+
+**F1-12 - De opleiding zoals ontworpen naar de catalogus** (fase 1, Grofmazig resultaat publiceren naar de onderwijscatalogus; [f1-12-de-opleiding-zoals-ontworpen-naar-de-catalogus.svg](img/regels/f1-12-de-opleiding-zoals-ontworpen-naar-de-catalogus.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
@@ -752,7 +763,7 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 | stroomt | Formatieve resultaat structuur | Concept: de formatieve voortgang per onderwijseenheid, nog zonder wegingen | review Niels van Duin op PR 252: idealiter ligt er bij publicatie al een concept formatieve resultaatstructuur |
 | stroomt | Summatief Afrondingscriterium | Alle kerntaken voldoende, de keuzedeelruimte gevuld en afgerond, en het basisdeel behaald: Nederlands en rekenen op 2F of 3F met een eigen regeling, Engels en loopbaan en burgerschap voldaan | [voorbeeldpayloads.md](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Datamodelschema's/voorbeeldpayloads.md), resultaatstructuur: aggregatie allenVoldoende |
 
-**F1-12 - Het onderwijs- en examenontwerp mee naar de catalogus (conceptplaat)** (fase 1, Grofmazig resultaat publiceren naar de onderwijscatalogus; [f1-12-het-onderwijs-en-examenontwerp-mee-naar-de-catalogus-conceptplaat.svg](img/regels/f1-12-het-onderwijs-en-examenontwerp-mee-naar-de-catalogus-conceptplaat.svg))
+**F1-13 - Het onderwijs- en examenontwerp mee naar de catalogus (conceptplaat)** (fase 1, Grofmazig resultaat publiceren naar de onderwijscatalogus; [f1-13-het-onderwijs-en-examenontwerp-mee-naar-de-catalogus-conceptplaat.svg](img/regels/f1-13-het-onderwijs-en-examenontwerp-mee-naar-de-catalogus-conceptplaat.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|

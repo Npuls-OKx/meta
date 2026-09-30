@@ -11,12 +11,13 @@
       "bron": "leerroute-1-regulier.md, Fase 1: een onderwijsontwerper vertaalt het kwalificatiedossier naar een opleidingsspecificatie met onderliggende opleidingsprogramma- en onderwijseenheid-specificaties, eerste toetsvormen en een initieel examenplan; de Curriculum-ontwerptool publiceert dit naar de OC",
       "stappen": [
         "Kwalificatiedossier analyseren",
-        "Examenplan vaststellen",
+        "Examenplan opstellen",
         "Kwalificatiedossier vertalen naar leeruitkomsten",
         "Opleidingsspecificatie met programma en eenheden beschrijven",
         "Keuzedeelprogramma als eigen specificatie vormgeven",
         "Toetsonderdelen en resultaatstructuur uit het examenplan afleiden",
         "Exameninstrumenten bepalen, inkopen of construeren",
+        "Examenplan vaststellen",
         "Grofmazig resultaat publiceren naar de onderwijscatalogus"
       ],
       "verwacht": [
@@ -258,6 +259,10 @@
     {
       "naam": "fijnmazig gepland",
       "bron": "leerroute-1-regulier.md, r726 (gedetailleerd planbaar: leergelegenheden, lessen en toetsmomenten met expertise- en faciliteitkoppelingen) en r657 (periodeplanning)"
+    },
+    {
+      "naam": "vastgesteld",
+      "bron": "leerroute-1-regulier.md, stelExamenspecificatieEnInstrumentenVast: Vaststellen examen specificatie, examen materiaal en instrumenten"
     }
   ],
   "scope_uitzonderingen": [
@@ -376,7 +381,7 @@
       "beeld_id": "F1-02",
       "beeld": "Examenplan, eerste resultaatstructuur en cohort",
       "fase": 1,
-      "stap": "Examenplan vaststellen",
+      "stap": "Examenplan opstellen",
       "soort": "ontstaat",
       "wie": "onderwijsontwerper",
       "objecttype": "Examenplan",
@@ -389,7 +394,7 @@
       "beeld_id": "F1-02",
       "beeld": "Examenplan, eerste resultaatstructuur en cohort",
       "fase": 1,
-      "stap": "Examenplan vaststellen",
+      "stap": "Examenplan opstellen",
       "soort": "ontstaat",
       "wie": "onderwijsontwerper",
       "objecttype": "Summatieve resultaat structuur",
@@ -408,7 +413,7 @@
       "beeld_id": "F1-02",
       "beeld": "Examenplan, eerste resultaatstructuur en cohort",
       "fase": 1,
-      "stap": "Examenplan vaststellen",
+      "stap": "Examenplan opstellen",
       "soort": "ontstaat",
       "wie": "onderwijsontwerper",
       "objecttype": "Cohort / periode",
@@ -426,7 +431,7 @@
       "beeld_id": "F1-02",
       "beeld": "Examenplan, eerste resultaatstructuur en cohort",
       "fase": 1,
-      "stap": "Examenplan vaststellen",
+      "stap": "Examenplan opstellen",
       "soort": "ontstaat",
       "wie": "onderwijsontwerper",
       "objecttype": "Examenplan",
@@ -1845,6 +1850,39 @@
     },
     {
       "beeld_id": "F1-11",
+      "beeld": "Het examenplan vastgesteld",
+      "fase": 1,
+      "stap": "Examenplan vaststellen",
+      "soort": "verandert",
+      "wie": "examencommissie",
+      "objecttype": "Examenplan",
+      "instantie": "Examenplan Apothekersassistent, cohort 2026: vastgesteld",
+      "bron": "leerroute-1-regulier.md, stelExamenspecificatieEnInstrumentenVast; review Niels van Duin op PR 252: de examencommissie stelt enkel vast, het ontwikkelen ligt bij de ontwerper",
+      "aanname": true,
+      "zin": "De examencommissie stelt het examenplan vast, nu de toetsonderdelen, de wegingen en de exameninstrumenten erin staan. Vaststellen is een eigen stap met een eigen rol: ontwikkelen doet de ontwerper, vaststellen de commissie. Pas een vastgesteld plan gaat mee naar de catalogus.",
+      "toestand": "vastgesteld"
+    },
+    {
+      "beeld_id": "F1-11",
+      "beeld": "Het examenplan vastgesteld",
+      "fase": 1,
+      "stap": "Examenplan vaststellen",
+      "soort": "verandert",
+      "wie": "examencommissie",
+      "objecttype": "Summatieve resultaat structuur",
+      "instantie": "Resultaatstructuur Apothekersassistent: vastgesteld",
+      "bron": "leerroute-1-regulier.md, stelExamenspecificatieEnInstrumentenVast; review Niels van Duin op PR 252: de examencommissie stelt enkel vast, het ontwikkelen ligt bij de ontwerper",
+      "aanname": true,
+      "toestand": "vastgesteld",
+      "relatie": {
+        "soort": "Association",
+        "van": "Examenplan",
+        "naar": "Summatieve resultaat structuur",
+        "label": "kent"
+      }
+    },
+    {
+      "beeld_id": "F1-12",
       "beeld": "De opleiding zoals ontworpen naar de catalogus",
       "fase": 1,
       "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1859,7 +1897,7 @@
       "zin": "De opleiding zoals ontworpen gaat als gelinkt geheel naar de catalogus: leeruitkomsten met hun skills, de specificatiestructuur met het onderwijsontwerp (paars: conceptplaat) en de resultaatstructuur; alles verwijst naar de leeruitkomst. Op v1.7 zit de ontwerptool binnen de catalogus, dus geen aparte pijl."
     },
     {
-      "beeld_id": "F1-11",
+      "beeld_id": "F1-12",
       "beeld": "De opleiding zoals ontworpen naar de catalogus",
       "fase": 1,
       "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1879,7 +1917,7 @@
       }
     },
     {
-      "beeld_id": "F1-11",
+      "beeld_id": "F1-12",
       "beeld": "De opleiding zoals ontworpen naar de catalogus",
       "fase": 1,
       "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1899,7 +1937,7 @@
       }
     },
     {
-      "beeld_id": "F1-11",
+      "beeld_id": "F1-12",
       "beeld": "De opleiding zoals ontworpen naar de catalogus",
       "fase": 1,
       "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1920,7 +1958,7 @@
       }
     },
     {
-      "beeld_id": "F1-11",
+      "beeld_id": "F1-12",
       "beeld": "De opleiding zoals ontworpen naar de catalogus",
       "fase": 1,
       "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1941,7 +1979,7 @@
       }
     },
     {
-      "beeld_id": "F1-11",
+      "beeld_id": "F1-12",
       "beeld": "De opleiding zoals ontworpen naar de catalogus",
       "fase": 1,
       "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1962,7 +2000,7 @@
       }
     },
     {
-      "beeld_id": "F1-11",
+      "beeld_id": "F1-12",
       "beeld": "De opleiding zoals ontworpen naar de catalogus",
       "fase": 1,
       "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1976,7 +2014,7 @@
       "bron": "leerroute-1-regulier.md, Fase 1: Curriculum-ontwerptool naar OC, alles op grofmazig niveau"
     },
     {
-      "beeld_id": "F1-11",
+      "beeld_id": "F1-12",
       "beeld": "De opleiding zoals ontworpen naar de catalogus",
       "fase": 1,
       "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -1996,7 +2034,7 @@
       }
     },
     {
-      "beeld_id": "F1-11",
+      "beeld_id": "F1-12",
       "beeld": "De opleiding zoals ontworpen naar de catalogus",
       "fase": 1,
       "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -2024,7 +2062,7 @@
       ]
     },
     {
-      "beeld_id": "F1-11",
+      "beeld_id": "F1-12",
       "beeld": "De opleiding zoals ontworpen naar de catalogus",
       "fase": 1,
       "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -2052,7 +2090,7 @@
       ]
     },
     {
-      "beeld_id": "F1-11",
+      "beeld_id": "F1-12",
       "beeld": "De opleiding zoals ontworpen naar de catalogus",
       "fase": 1,
       "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -2071,7 +2109,7 @@
       }
     },
     {
-      "beeld_id": "F1-11",
+      "beeld_id": "F1-12",
       "beeld": "De opleiding zoals ontworpen naar de catalogus",
       "fase": 1,
       "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -2090,7 +2128,7 @@
       }
     },
     {
-      "beeld_id": "F1-11",
+      "beeld_id": "F1-12",
       "beeld": "De opleiding zoals ontworpen naar de catalogus",
       "fase": 1,
       "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -2113,7 +2151,7 @@
       "aanname": true
     },
     {
-      "beeld_id": "F1-11",
+      "beeld_id": "F1-12",
       "beeld": "De opleiding zoals ontworpen naar de catalogus",
       "fase": 1,
       "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -2141,7 +2179,7 @@
       ]
     },
     {
-      "beeld_id": "F1-11",
+      "beeld_id": "F1-12",
       "beeld": "De opleiding zoals ontworpen naar de catalogus",
       "fase": 1,
       "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -2169,7 +2207,7 @@
       "aanname": true
     },
     {
-      "beeld_id": "F1-11",
+      "beeld_id": "F1-12",
       "beeld": "De opleiding zoals ontworpen naar de catalogus",
       "fase": 1,
       "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -2191,7 +2229,7 @@
       }
     },
     {
-      "beeld_id": "F1-11",
+      "beeld_id": "F1-12",
       "beeld": "De opleiding zoals ontworpen naar de catalogus",
       "fase": 1,
       "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -2206,7 +2244,7 @@
       "aanname": true
     },
     {
-      "beeld_id": "F1-11",
+      "beeld_id": "F1-12",
       "beeld": "De opleiding zoals ontworpen naar de catalogus",
       "fase": 1,
       "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -2225,7 +2263,7 @@
       }
     },
     {
-      "beeld_id": "F1-12",
+      "beeld_id": "F1-13",
       "beeld": "Het onderwijs- en examenontwerp mee naar de catalogus (conceptplaat)",
       "fase": 1,
       "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -2250,7 +2288,7 @@
       "zin": "Het onderwijs- en examenontwerp van de conceptplaat gaat in dit voorbeeld mee naar de catalogus: de vorm, de gewenste leeromgeving, het docent- en examinatorprofiel, de studiebelasting en de toetsvorm met haar instrument en materiaal. Of die onderdelen in de uitwisseling horen, is de vraag die bij de eenheid- en examenonderdeelspecificatie staat."
     },
     {
-      "beeld_id": "F1-12",
+      "beeld_id": "F1-13",
       "beeld": "Het onderwijs- en examenontwerp mee naar de catalogus (conceptplaat)",
       "fase": 1,
       "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -2273,7 +2311,7 @@
       ]
     },
     {
-      "beeld_id": "F1-12",
+      "beeld_id": "F1-13",
       "beeld": "Het onderwijs- en examenontwerp mee naar de catalogus (conceptplaat)",
       "fase": 1,
       "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -2296,7 +2334,7 @@
       ]
     },
     {
-      "beeld_id": "F1-12",
+      "beeld_id": "F1-13",
       "beeld": "Het onderwijs- en examenontwerp mee naar de catalogus (conceptplaat)",
       "fase": 1,
       "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -2319,7 +2357,7 @@
       ]
     },
     {
-      "beeld_id": "F1-12",
+      "beeld_id": "F1-13",
       "beeld": "Het onderwijs- en examenontwerp mee naar de catalogus (conceptplaat)",
       "fase": 1,
       "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -2341,7 +2379,7 @@
       ]
     },
     {
-      "beeld_id": "F1-12",
+      "beeld_id": "F1-13",
       "beeld": "Het onderwijs- en examenontwerp mee naar de catalogus (conceptplaat)",
       "fase": 1,
       "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -2363,7 +2401,7 @@
       ]
     },
     {
-      "beeld_id": "F1-12",
+      "beeld_id": "F1-13",
       "beeld": "Het onderwijs- en examenontwerp mee naar de catalogus (conceptplaat)",
       "fase": 1,
       "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -2386,7 +2424,7 @@
       ]
     },
     {
-      "beeld_id": "F1-12",
+      "beeld_id": "F1-13",
       "beeld": "Het onderwijs- en examenontwerp mee naar de catalogus (conceptplaat)",
       "fase": 1,
       "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -2411,7 +2449,7 @@
       "zin": "Het onderwijs- en examenontwerp van de conceptplaat gaat in dit voorbeeld mee naar de catalogus: de vorm, de gewenste leeromgeving, het docent- en examinatorprofiel, de studiebelasting en de toetsvorm met haar instrument en materiaal. Of die onderdelen in de uitwisseling horen, is de vraag die bij de eenheid- en examenonderdeelspecificatie staat."
     },
     {
-      "beeld_id": "F1-12",
+      "beeld_id": "F1-13",
       "beeld": "Het onderwijs- en examenontwerp mee naar de catalogus (conceptplaat)",
       "fase": 1,
       "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -2434,7 +2472,7 @@
       ]
     },
     {
-      "beeld_id": "F1-12",
+      "beeld_id": "F1-13",
       "beeld": "Het onderwijs- en examenontwerp mee naar de catalogus (conceptplaat)",
       "fase": 1,
       "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
@@ -2457,7 +2495,7 @@
       ]
     },
     {
-      "beeld_id": "F1-12",
+      "beeld_id": "F1-13",
       "beeld": "Het onderwijs- en examenontwerp mee naar de catalogus (conceptplaat)",
       "fase": 1,
       "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",

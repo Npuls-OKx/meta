@@ -53,6 +53,8 @@ Hoort bij [de opleiding van Jochem in het informatiemodel](voorbeeld-leerroute-1
 | 1 | F1-09 | Examenonderdeel weging | | | | |
 | 1 | F1-09 | Summatief Afrondingscriterium | | | | |
 | 1 | F1-10 | Examenonderdeelspecificatie | | | | |
+| 1 | F1-11 | Examenplan | | | | |
+| 1 | F1-11 | Summatieve resultaat structuur | | | | |
 | 2 | F2-01 | Opleidingsprogramma specificatie | | | | |
 | 2 | F2-01 | Onderwijseenheid specificatie | | | | |
 | 2 | F2-01 | Leeronderdeel specificatie | | | | |
