@@ -239,56 +239,55 @@ acceptatietest, Public #109.
 
 <div class="fill">
 
-# Drie koppelingen, doel begin Q1
+# Doel begin Q1, op dit tempo alleen OC-P&amp;R
+
+<div style="display: flex; gap: 1.6rem; align-items: baseline; margin-top: 0.5rem; font-size: 0.86rem; color: var(--np-dark-gray);">
+<div><strong style="color: var(--np-orange); font-size: 1.15rem;">7</strong> berichtstromen OC-P&amp;R</div>
+<div><strong style="color: var(--np-orange); font-size: 1.15rem;">2</strong> OC-SIS</div>
+<div><strong style="color: var(--np-orange); font-size: 1.15rem;">2</strong> OC-LMS</div>
+<div style="color: var(--np-mid-gray);">alles in concept, niets vastgesteld</div>
+</div>
 
 <div style="margin-top: 0.3rem;">
 
-```mermaid {theme: 'base', scale: 0.68, themeVariables: {'fontFamily': 'General Sans, Inter, sans-serif', 'fontSize': '14px', 'sectionBkgColor': '#F7F8FB', 'altSectionBkgColor': '#FFFFFF', 'gridColor': '#E5E7EB', 'doneTaskBkgColor': '#D8ECDD', 'doneTaskBorderColor': '#00AF81', 'activeTaskBkgColor': '#FBE3D6', 'activeTaskBorderColor': '#DD784B', 'taskBkgColor': '#E8EDFC', 'taskBorderColor': '#3D68EC', 'taskTextColor': '#1B2A6B', 'taskTextDarkColor': '#1B2A6B', 'taskTextOutsideColor': '#374151', 'todayLineColor': '#DD784B'}}
+```mermaid {theme: 'base', scale: 0.76, themeVariables: {'fontFamily': 'General Sans, Inter, sans-serif', 'fontSize': '14px', 'sectionBkgColor': '#F7F8FB', 'altSectionBkgColor': '#FFFFFF', 'gridColor': '#E5E7EB', 'activeTaskBkgColor': '#FBE3D6', 'activeTaskBorderColor': '#DD784B', 'taskBkgColor': '#E8EDFC', 'taskBorderColor': '#3D68EC', 'taskTextColor': '#1B2A6B', 'taskTextDarkColor': '#1B2A6B', 'taskTextOutsideColor': '#374151', 'todayLineColor': '#DD784B'}}
 gantt
     dateFormat YYYY-MM-DD
     axisFormat %b
     todayMarker off
-    section Gereed
-    Informatiemodel v0.1        :done, 2026-08-18, 2026-09-18
-    Voorbeelduitwerking LR1     :done, 2026-09-17, 2026-09-30
     section OC-P&R
-    7 interactiepatronen        :done, 2026-08-12, 2026-08-31
-    Payload, endpoints, vaststellen :active, 2026-10-01, 2026-11-30
+    Payload, endpoints, vaststellen :active, 2026-10-01, 2026-12-31
     section OC-SIS
-    2 interactiepatronen        :done, 2026-08-12, 2026-08-31
-    Uitwerken en vaststellen    :2026-11-01, 2026-12-31
+    Uitwerken en vaststellen        :2027-01-01, 2027-03-31
     section OC-LMS
-    2 interactiepatronen        :done, 2026-08-12, 2026-08-31
-    Uitwerken en vaststellen    :2026-12-01, 2027-01-31
+    Uitwerken en vaststellen        :2027-04-01, 2027-06-30
     section Doel
-    Drie koppelingen uitgewerkt :milestone, 2027-01-31, 0d
+    Drie koppelingen vastgesteld    :milestone, 2027-01-31, 0d
 ```
 
 </div>
 
 <div class="np-bottomline" style="margin-top: 0.6rem;">
-Haalbaar bij het tempo van augustus: <strong>58</strong> gesloten issues per maand, tegen <strong>16</strong> in september.
+Drie koppelingen voor begin Q1 vraagt <strong>parallel werken</strong> of <strong>meer tempo</strong>.
 </div>
 
 </div>
 
 <!--
-Het doel is drie uitgewerkte koppelingen aan het begin van Q1 2027. De plaat zet daar de stand
-naast, met de interactiepatronen als maat: die zijn geteld in de specificaties in Public.
-OC-P&R telt er zeven, OC-SIS en OC-LMS elk twee. Alle drie kregen ze hun patronen in augustus;
-sindsdien ging de aandacht naar het informatiemodel v0.1 en de voorbeelduitwerking, die allebei
-in september zijn afgerond. Het werk aan de koppelingen ligt dus niet stil door onvermogen maar
-door volgorde.
+Het doel is drie vastgestelde koppelingen aan het begin van Q1 2027. Daarnaast de stand van
+vandaag, met de berichtstromen als maat: geteld in de koppelvlakspecificatie in Public. OC-P&R
+heeft er zeven in concept, OC-SIS en OC-LMS elk twee. Concept is het juiste woord: geen enkele
+koppeling is vastgesteld, en de berichtstromen zijn sinds 31 augustus niet meer geraakt omdat
+september naar het informatiemodel en de voorbeelduitwerking ging.
 
-Wat per koppeling nog volgt is de payload met gebruiksprofiel, de endpointbeschrijvingen en de
-vaststelling. De drie balken daarvoor zijn een inschatting van de maker, te overrulen: twee
-maanden per koppeling, met overlap omdat OC-SIS en OC-LMS de patronen van OC-P&R hergebruiken.
-De backlog per koppelvlak is nog niet compleet, dus deze balken zijn een richtpunt en geen belofte.
+De balken zijn een inschatting, te overrulen: OC-P&R nog tot eind december voor payload,
+endpoints en vaststelling, en daarna elke volgende koppeling in hetzelfde tempo. Sequentieel,
+want dat is hoe er nu gewerkt wordt. Zo staat het doel van begin Q1 naast een eerste koppeling die
+er eind december is; de twee andere vallen erbuiten.
 
-De onderste regel is de conclusie: het doel haalt het bij het tempo van augustus, niet bij dat van
-september. Wat daarvoor nodig is staat als besluit op de slide Gevraagd, en gaat over de
-reviewdoorloop: van de zestien openstaande pull requests dragen er twee een review van buiten het
-kernteam.
+Dat maakt de vraag scherp en zonder verwijt: bij gelijk tempo past een koppeling per kwartaal, en
+drie koppelingen voor begin Q1 vraagt dus parallel werken of meer tempo. Wat daarvoor nodig is
+staat als besluit op de slide Gevraagd, en gaat over de reviewdoorloop.
 -->
 
 ---
