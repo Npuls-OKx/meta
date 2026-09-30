@@ -1188,7 +1188,7 @@ Sectiescheiding. Vanaf hier is Garik aan het woord; zijn blok staat los van de r
 
 <div class="fill">
 
-<div class="np-eyebrow">Versionering &middot; blok van Garik</div>
+<div class="np-eyebrow">Versionering</div>
 
 # De vraag van de leveranciers
 
@@ -1221,171 +1221,580 @@ slide wil wegnemen.
 
 ---
 
-<!-- 9b. VERSIONERING: WAAR HET VANDAAG KNELT -->
+<!-- 9b. VERSIONERING: EEN VERSIE VOOR HET HELE PAKKET -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
 
-<div class="np-eyebrow">Versionering &middot; blok van Garik</div>
+<div class="np-eyebrow">Versionering</div>
 
-# Waar het vandaag knelt
+# Eén versie voor het hele pakket
 
 <style scoped>
 .np-eyebrow { font-size: 0.75rem; color: var(--np-orange); letter-spacing: 1px; text-transform: uppercase; }
-.mermaid { display: flex; justify-content: center; margin: 0.6rem 0 0; }
-.mermaid svg { max-width: 100%; height: auto; }
 </style>
 
-<div style="margin-top: 0.3rem;">
+<div class="np-grid-2" style="margin-top: 0.6rem; gap: 1.2rem; align-items: center;">
 
-```mermaid {theme: 'base', scale: 0.95, themeVariables: {'fontFamily': 'General Sans, Inter, sans-serif', 'fontSize': '15px', 'primaryColor': '#FFFFFF', 'primaryBorderColor': '#3D68EC', 'primaryTextColor': '#1B2A6B', 'lineColor': '#DD784B'}}
-flowchart LR
-  A[Een veld erbij in een datamodel] --> B[Endpoint verandert]
-  B --> C[Applicatiedienst verandert]
-  C --> D[Koppeling krijgt een nieuwe versie]
-  D --> E[Iedereen moet mee]
-```
-
+<div>
+  <img src="/versionering/afhankelijkheden-bij-een-pakket.png" alt="Drie componenten die dezelfde uitgave van de koppelvlakspecificatie implementeren, en één gepinde afhankelijkheid op de gegevensmodellen" style="width: 100%; border-radius: 6px; border: 1px solid var(--np-light-gray); background: #fff;" />
 </div>
 
-<div class="np-card accent-orange" style="margin-top: 1rem; padding: 0.6rem 1rem;">
-<strong style="color: var(--np-ink);">Eén versie over het hele pakket maakt van elke wijziging een kettingreactie</strong>
+<div>
+  <div class="np-card accent-orange" style="padding: 0.7rem 0.9rem; margin-bottom: 0.6rem;">
+    <div style="font-weight: 700; font-size: 0.95rem;">Het nummer beweegt voor iedereen</div>
+    <small style="font-size: 0.84rem;">een wijziging in één koppeling verhoogt het nummer van het hele pakket</small>
+  </div>
+  <div class="np-card accent-orange" style="padding: 0.7rem 0.9rem; margin-bottom: 0.6rem;">
+    <div style="font-weight: 700; font-size: 0.95rem;">Het nummer draagt geen reikwijdte</div>
+    <small style="font-size: 0.84rem;">eruit blijkt niet welke partij de uitgave raakt</small>
+  </div>
+  <div class="np-card accent-orange" style="padding: 0.7rem 0.9rem; margin-bottom: 0.6rem;">
+    <div style="font-weight: 700; font-size: 0.95rem;">De zwaarste wijziging bepaalt de bump</div>
+    <small style="font-size: 0.84rem;">één brekende wijziging maakt de hele uitgave een major</small>
+  </div>
+</div>
+
 </div>
 
 </div>
 
 <!--
-Opzet; Garik werkt dit blok uit. Dit is het probleem dat op 19 augustus op tafel kwam en dat
-Public PR 100 aanpakt: zolang de hele specificatie een versie draagt, raakt een wijziging in een
-datamodel via endpoints en diensten alle koppelingen, en leest een leverancier dat als werk dat
-hij moet doen. De datamodellen zijn daarom al uit het pakket gehaald met een eigen versie.
+De aanpak die vandaag geldt. De afhankelijkheidsstructuur blijft eenvoudig: twee pakketten, één
+gepinde relatie. Wat knelt is de korrel. Een afnemer implementeert een paar berichtstromen en moet
+telkens twee uitgaven vergelijken om te weten of er werk voor hem in zit.
 -->
 
 ---
 
-<!-- 9c. VERSIONERING: HET VOORSTEL -->
+<!-- 9c. VERSIONERING: EEN PAKKET PER KOPPELING -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
 
-<div class="np-eyebrow">Versionering &middot; blok van Garik</div>
+<div class="np-eyebrow">Versionering</div>
 
-# Het voorstel
+# Een pakket per koppeling
+
+<style scoped>
+.np-eyebrow { font-size: 0.75rem; color: var(--np-orange); letter-spacing: 1px; text-transform: uppercase; }
+</style>
+
+<div class="np-grid-3" style="margin-top: 0.6rem; gap: 0.9rem; align-items: start;">
+  <div class="np-card accent-orange" style="padding: 0.6rem 0.8rem;">
+    <div style="font-weight: 700; font-size: 0.9rem;">Gedeelde bouwblokken horen nergens</div>
+    <small style="font-size: 0.8rem;">4 van de 12 applicatiediensten en 2 van de 5 patronen zitten in alle drie de koppelingen</small>
+  </div>
+  <div class="np-card accent-orange" style="padding: 0.6rem 0.8rem;">
+    <div style="font-weight: 700; font-size: 0.9rem;">Meerdere nummers per component</div>
+    <small style="font-size: 0.8rem;">de onderwijscatalogus zit in alle drie de koppelingen</small>
+  </div>
+  <div class="np-card accent-blue" style="padding: 0.6rem 0.8rem;">
+    <div style="font-weight: 700; font-size: 0.9rem;">De eenheid klopt nog steeds niet</div>
+    <small style="font-size: 0.8rem;">een partij implementeert stromen, geen hele koppeling</small>
+  </div>
+</div>
+
+<div style="margin-top: 0.7rem;">
+  <img src="/versionering/afhankelijkheden-bij-een-pakket-per-koppeling.png" alt="Drie koppelingspakketten die elk het pakket met gedeelde bouwblokken en de gegevensmodellen pinnen, waarbij één koppeling een andere versie pint dan de andere twee" style="width: 100%; border-radius: 6px; border: 1px solid var(--np-light-gray); background: #fff;" />
+</div>
+
+</div>
+
+<!--
+De korrel wordt kleiner en het meeste van de vorige aanpak verdwijnt. Wat ervoor terugkomt is een
+afhankelijkheidsstructuur die snel onbeheersbaar wordt: van een relatie naar zeven, en dat groeit met
+elke koppeling. De oranje lijn is de botsing: pinnen twee koppelingen het gedeelde pakket op een
+andere versie, dan bestaat er geen geldige combinatie meer. Zeven applicatiecomponenten betekent tot
+21 mogelijke koppelingen.
+-->
+
+---
+
+<!-- 9d. VERSIONERING: WAT DE AANPAK MOET OPLEVEREN -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+<div class="np-eyebrow">Versionering</div>
+
+# Wat de aanpak moet opleveren
+
+<style scoped>
+.np-eyebrow { font-size: 0.75rem; color: var(--np-orange); letter-spacing: 1px; text-transform: uppercase; }
+</style>
+
+<div class="np-grid-2" style="margin-top: 1rem; gap: 1rem; align-items: start;">
+  <div class="np-card accent-blue">
+    <carbon-list-checked style="font-size: 1.4rem; color: var(--np-blue);" />
+    <div style="font-weight: 700; font-size: 0.95rem; margin-top: 0.2rem;">Duidelijke implementatie-opties</div>
+    <small style="font-size: 0.84rem;">per koppeling zichtbaar wat er te implementeren valt</small>
+  </div>
+  <div class="np-card accent-green">
+    <carbon-continuous-deployment style="font-size: 1.4rem; color: var(--np-green);" />
+    <div style="font-weight: 700; font-size: 0.95rem; margin-top: 0.2rem;">Vernieuwing zonder onderbreking</div>
+    <small style="font-size: 0.84rem;">wat erbij komt laat draaiende koppelingen met rust</small>
+  </div>
+  <div class="np-card accent-orange">
+    <carbon-growth style="font-size: 1.4rem; color: var(--np-orange);" />
+    <div style="font-weight: 700; font-size: 0.95rem; margin-top: 0.2rem;">Ruimte om te groeien</div>
+    <small style="font-size: 0.84rem;">meer koppelingen, partijen en stromen zonder vastlopen</small>
+  </div>
+  <div class="np-card accent-yellow">
+    <carbon-collaborate style="font-size: 1.4rem; color: var(--np-yellow);" />
+    <div style="font-weight: 700; font-size: 0.95rem; margin-top: 0.2rem;">Dezelfde woorden</div>
+    <small style="font-size: 0.84rem;">partijen stellen in één taal vast wat zij van elkaar nodig hebben</small>
+  </div>
+</div>
+
+</div>
+
+<!--
+De vier eisen waaraan beide aanpakken zijn getoetst en waaraan de gekozen richting is opgehangen.
+Ze komen uit de leveranciersvraag van 19 augustus en 15 september: de zorg is niet de techniek maar
+het meebewegen dat een nieuwe versie lijkt af te dwingen.
+-->
+
+---
+
+<!-- 9e. VERSIONERING: MODULAIRE OPBOUW -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+<div class="np-eyebrow">Versionering</div>
+
+# Modulaire opbouw
+
+<style scoped>
+.np-eyebrow { font-size: 0.75rem; color: var(--np-orange); letter-spacing: 1px; text-transform: uppercase; }
+</style>
+
+<div class="np-grid-2" style="margin-top: 0.6rem; gap: 1.2rem; align-items: center;">
+
+<div>
+  <img src="/versionering/overzicht-van-de-specificatie.png" alt="Het releasepakket koppelvlakspecificatie met daarin een koppelingspecificatie met een berichtstroom, die een generieke applicatiedienst en een generiek interactiepatroon inzet; de dienst draagt een endpoint en functionaliteit zonder endpoint, die beide afhangen van het pakket informatie- en gegevensmodellen" style="width: 100%; border-radius: 6px; border: 1px solid var(--np-light-gray); background: #fff;" />
+</div>
+
+<div>
+  <div class="np-card accent-blue" style="padding: 0.7rem 0.9rem; margin-bottom: 0.6rem;">
+    <div style="font-weight: 700; font-size: 0.95rem;">Een koppelingspecificatie beschrijft berichtstromen</div>
+    <small style="font-size: 0.84rem;">welke stromen er tussen twee componenten mogelijk zijn</small>
+  </div>
+  <div class="np-card accent-green" style="padding: 0.7rem 0.9rem; margin-bottom: 0.6rem;">
+    <div style="font-weight: 700; font-size: 0.95rem;">Een stroom zet diensten en patronen in</div>
+    <small style="font-size: 0.84rem;">die zijn generiek en worden over koppelingen heen hergebruikt</small>
+  </div>
+  <div class="np-card accent-orange" style="padding: 0.7rem 0.9rem;">
+    <div style="font-weight: 700; font-size: 0.95rem;">De payload volgt de datamodelschemas</div>
+    <small style="font-size: 0.84rem;">per endpoint vastgelegd, en een endpoint kan een reeks versies dragen</small>
+  </div>
+</div>
+
+</div>
+
+</div>
+
+<!--
+De structuur waarop de gekozen richting rust. De nesting is de boodschap: berichtstromen zitten in de
+koppelingspecificatie omdat ze daarvoor specifiek zijn, terwijl de diensten en patronen erbuiten
+staan omdat ze over koppelingen heen worden hergebruikt. Dat hergebruik is precies waarom een pakket
+per koppeling vastloopt, en het is tegelijk wat het toevoegen van een bouwblok goedkoop maakt.
+-->
+
+---
+
+<!-- 9f. VERSIONERING: WIJZIGEN ZONDER BREKEN -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+<div class="np-eyebrow">Versionering</div>
+
+# Wijzigen zonder breken
+
+<style scoped>
+.np-eyebrow { font-size: 0.75rem; color: var(--np-orange); letter-spacing: 1px; text-transform: uppercase; }
+</style>
 
 <div class="np-grid-3" style="margin-top: 1rem; gap: 1rem; align-items: start;">
   <div class="np-card accent-blue">
-    <carbon-bookmark style="font-size: 1.5rem; color: var(--np-blue);" />
-    <div style="font-weight: 700; font-size: 0.95rem; margin-top: 0.2rem;">Versie als ijkpunt</div>
-    <small style="font-size: 0.84rem;">een release legt vast hoe het er toen uitzag</small>
+    <div style="font-weight: 700; font-size: 0.95rem;">Een wijziging voegt een bouwblok toe</div>
+    <small style="font-size: 0.84rem;">een berichtstroom, applicatiedienst, endpoint of patroon komt erbij</small>
   </div>
   <div class="np-card accent-green">
-    <carbon-assembly-cluster style="font-size: 1.5rem; color: var(--np-green);" />
-    <div style="font-weight: 700; font-size: 0.95rem; margin-top: 0.2rem;">Kiezen per berichtstroom</div>
-    <small style="font-size: 0.84rem;">een partij implementeert wat zij nodig heeft</small>
+    <div style="font-weight: 700; font-size: 0.95rem;">Een bestaand blok wijzigt niet</div>
+    <small style="font-size: 0.84rem;">wat er staat blijft staan, dus draaiende implementaties merken niets</small>
   </div>
   <div class="np-card accent-orange">
-    <carbon-branch style="font-size: 1.5rem; color: var(--np-orange);" />
-    <div style="font-weight: 700; font-size: 0.95rem; margin-top: 0.2rem;">Nieuw naast bestaand</div>
-    <small style="font-size: 0.84rem;">een nieuwe stroom laat de oude staan</small>
+    <div style="font-weight: 700; font-size: 0.95rem;">Overstappen is een keuze</div>
+    <small style="font-size: 0.84rem;">wie het nieuwe blok nodig heeft, implementeert het wanneer het uitkomt</small>
   </div>
 </div>
 
 <div style="margin-top: 1rem; font-size: 0.88rem; color: var(--np-dark-gray); text-align: center;">
-De endpoints en de applicatiediensten blijven gestandaardiseerd; de datamodellen dragen hun eigen versie.
+Het modulaire bouwwerk maakt dat mogelijk: elk bouwblok staat op zichzelf.
 </div>
 
 </div>
 
 <!--
-Opzet; Garik werkt dit blok uit. Drie keuzes uit Public PR 100. Een specificatieversie is een
-historisch ijkpunt en geen naleefplicht: zij legt vast hoe de afspraak er op dat moment uitzag.
-Een organisatie implementeert de applicatiediensten en berichtstromen die zij nodig heeft, en
-nieuwe functionaliteit krijgt bij voorkeur een nieuwe berichtstroom naast de bestaande, zodat
-draaiende implementaties blijven werken. Een partij mag zelf een stroom definieren zolang zij de
-gestandaardiseerde diensten en endpoints gebruikt.
+De vertaling van het patroon naar de structuur van de koppelvlakspecificatie. De regel is absoluut:
+een uitgave voegt bouwblokken toe en past bestaande niet aan. Daardoor is er geen termijn en geen
+gecoordineerde migratie nodig; het moment ligt bij de implementerende partij. De twee uitzonderingen
+waarin een bouwblok wel in plaats wijzigt of vervalt, komen op de volgende slide terug als stap 3.
 -->
 
 ---
 
-<!-- 9d. VERSIONERING: EEN VELD ERBIJ -->
+<!-- 9g. VERSIONERING: EXPAND-CONTRACT -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
 
-<div class="np-eyebrow">Versionering &middot; blok van Garik</div>
+<div class="np-eyebrow">Versionering</div>
 
-# Een veld erbij, en dan
+# Expand&ndash;contract
 
 <style scoped>
 .np-eyebrow { font-size: 0.75rem; color: var(--np-orange); letter-spacing: 1px; text-transform: uppercase; }
-.mermaid { display: flex; justify-content: center; margin: 0.6rem 0 0; }
-.mermaid svg { max-width: 100%; height: auto; }
 </style>
 
-<div style="margin-top: 0.3rem;">
-
-```mermaid {theme: 'base', scale: 0.95, themeVariables: {'fontFamily': 'General Sans, Inter, sans-serif', 'fontSize': '15px', 'primaryColor': '#FFFFFF', 'primaryBorderColor': '#3D68EC', 'primaryTextColor': '#1B2A6B', 'lineColor': '#DD784B', 'clusterBkg': '#F7F8FB', 'clusterBorder': '#3D68EC'}}
-flowchart LR
-  subgraph N["Nu"]
-    S1[Aanbod melden, stroom 1]
-  end
-  subgraph S["Straks"]
-    S2[Aanbod melden, stroom 1]
-    S3[Aanbod melden met capaciteit, stroom 2]
-  end
-  N --> S
-```
-
+<div class="np-grid-3" style="margin-top: 1rem; gap: 1rem; align-items: start;">
+  <div class="np-card accent-blue">
+    <div style="font-weight: 700; font-size: 0.95rem;">1 &middot; Expand</div>
+    <small style="font-size: 0.84rem;">het nieuwe bouwblok komt naast het bestaande te staan</small>
+  </div>
+  <div class="np-card accent-green">
+    <div style="font-weight: 700; font-size: 0.95rem;">2 &middot; Migrate</div>
+    <small style="font-size: 0.84rem;">elke partij stapt over op haar eigen moment</small>
+  </div>
+  <div class="np-card accent-orange">
+    <div style="font-weight: 700; font-size: 0.95rem;">3 &middot; Contract</div>
+    <small style="font-size: 0.84rem;">het oude bouwblok vervalt, met aankondiging vooraf</small>
+  </div>
 </div>
 
-<div class="np-grid-2" style="margin-top: 0.9rem; gap: 1rem;">
-  <div class="np-card accent-green" style="padding: 0.6rem 0.9rem;"><strong style="color: var(--np-ink);">Wie stroom 1 draait, blijft draaien</strong></div>
-  <div class="np-card accent-blue" style="padding: 0.6rem 0.9rem;"><strong style="color: var(--np-ink);">Wie het veld nodig heeft, pakt stroom 2</strong></div>
+<div class="np-card accent-blue" style="margin-top: 1rem; padding: 0.6rem 1rem;">
+<strong style="color: var(--np-ink);">Het voorstel leent stap 1 en 2; stap 3 is de uitzondering en niet de afsluiting</strong>
 </div>
 
 </div>
 
 <!--
-Opzet; Garik werkt dit blok uit met zijn eigen voorbeeld. De gedachte: een wijziging levert een
-tweede berichtstroom naast de eerste, die grotendeels hetzelfde doet met een veld erbij. De
-leverancier kiest het moment waarop hij meegaat, en de catalogus ondersteunt beide zolang dat
-nodig is. Hier hoort Gariks voorbeeldflow uit Public PR 100, met de plaat die hij dit weekend
-toevoegt.
+Expand&ndash;contract, ook bekend als parallel change, is een bekend patroon voor het wijzigen van een
+gedeelde interface zonder onderbreking. Het voorstel is bewust geen volledige toepassing ervan.
+Expand&ndash;contract gaat ervan uit dat de afnemers bekend zijn en de migratie aangestuurd kan worden;
+een gepubliceerde specificatie weet dat niet. Daarom blijft het oude bouwblok staan zolang er
+partijen op draaien, en is opruimen een besluit met aankondiging vooraf.
 -->
 
 ---
 
-<!-- 9e. VERSIONERING: WAT HET OPLEVERT EN WAT HET KOST -->
+<!-- 9h. VERSIONERING: EEN STROOM UITGEPAKT -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
 
-<div class="np-eyebrow">Versionering &middot; blok van Garik</div>
+<div class="np-eyebrow">Versionering</div>
 
-# Wat het oplevert, en wat het kost
+# Een stroom uitgepakt
 
-<div class="np-grid-2" style="margin-top: 1rem; gap: 1.3rem; align-items: start;">
-<div class="np-card accent-green">
-<strong>Oplevert</strong>
-<div style="margin-top:0.4rem;font-size:0.88rem;line-height:1.55;">Draaiende koppelingen blijven werken; een leverancier kiest zijn moment en zijn scope.</div>
-</div>
-<div class="np-card accent-orange">
-<strong>Kost</strong>
-<div style="margin-top:0.4rem;font-size:0.88rem;line-height:1.55;">Meer stromen naast elkaar, en een afspraak over hoe lang een oude stroom blijft staan.</div>
-</div>
+<style scoped>
+.np-eyebrow { font-size: 0.75rem; color: var(--np-orange); letter-spacing: 1px; text-transform: uppercase; }
+</style>
+
+<div class="np-grid-2" style="margin-top: 0.6rem; gap: 1.2rem; align-items: center;">
+
+<div>
+  <img src="/versionering/structuurvoorbeeld-uit-de-specificatie.png" alt="De berichtstroom Opleidingsaanbod aanmaken met twee interactiepatronen en vier applicatiediensten, waarvan de endpoints op het pakket informatie- en gegevensmodellen staan" style="width: 100%; border-radius: 6px; border: 1px solid var(--np-light-gray); background: #fff;" />
 </div>
 
-<div class="np-card accent-blue" style="margin-top: 1rem; padding: 0.6rem 1rem;">
-<carbon-chat style="font-size: 1.2rem; color: var(--np-blue); vertical-align: -0.2rem;" /> <strong style="color: var(--np-ink);">Gevraagd: past dit op de manier waarop jullie releasen?</strong>
+<div>
+  <div class="np-card accent-blue" style="padding: 0.7rem 0.9rem; margin-bottom: 0.6rem;">
+    <div style="font-weight: 700; font-size: 0.95rem;">Opleidingsaanbod aanmaken</div>
+    <small style="font-size: 0.84rem;">uit de koppeling onderwijscatalogus naar planning en roostering</small>
+  </div>
+  <div class="np-card accent-green" style="padding: 0.7rem 0.9rem; margin-bottom: 0.6rem;">
+    <div style="font-weight: 700; font-size: 0.95rem;">Twee patronen, vier diensten</div>
+    <small style="font-size: 0.84rem;">die patronen en diensten zijn generiek en worden hergebruikt</small>
+  </div>
+  <div class="np-card accent-orange" style="padding: 0.7rem 0.9rem; margin-bottom: 0.6rem;">
+    <div style="font-weight: 700; font-size: 0.95rem;">Endpoints op het modelpakket</div>
+    <small style="font-size: 0.84rem;">daar hangt de afhankelijkheid op de gegevensmodellen</small>
+  </div>
+</div>
+
 </div>
 
 </div>
 
 <!--
-Opzet; Garik werkt dit blok uit. De nadelen staan er bewust bij: meer stromen naast elkaar vraagt
-onderhoud, en zonder afspraak over de levensduur van een oude stroom groeit dat aan. De vraag aan
-de kerngroep is of dit past bij hun eigen releasecyclus. Vertrekpunt: Public PR 100, dat op draft
-staat tot deze iteratie erin zit.
+Dit staat vandaag zo in de koppelingspecificatie. Dezelfde stroom loopt door de rest van dit blok,
+zodat het voorbeeld herkenbaar blijft. De diensten en patronen staan buiten de koppeling omdat ze
+over koppelingen heen worden hergebruikt; dat is precies waarom een pakket per koppeling vastloopt.
+-->
+
+---
+
+<!-- 9i. VERSIONERING: UITGAVE 1.0 -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+<div class="np-eyebrow">Versionering</div>
+
+# Uitgave 1.0
+
+<style scoped>
+.np-eyebrow { font-size: 0.75rem; color: var(--np-orange); letter-spacing: 1px; text-transform: uppercase; }
+</style>
+
+<div class="np-grid-2" style="margin-top: 0.6rem; gap: 1.2rem; align-items: center;">
+
+<div>
+  <img src="/versionering/uitgave-1-0.png" alt="Berichtstroom Opleidingsaanbod aanmaken binnen de koppelingspecificatie, die Event Notification en de aanbiedende applicatiedienst inzet, waarbij die dienst op datamodelschemas 1.0 staat" style="width: 100%; border-radius: 6px; border: 1px solid var(--np-light-gray); background: #fff;" />
+</div>
+
+<div>
+  <div class="np-card accent-blue" style="padding: 0.7rem 0.9rem; margin-bottom: 0.6rem;">
+    <div style="font-weight: 700; font-size: 0.95rem;">De koppelingspecificatie</div>
+    <small style="font-size: 0.84rem;">onderwijscatalogus naar planning en roostering</small>
+  </div>
+  <div class="np-card accent-blue" style="padding: 0.7rem 0.9rem; margin-bottom: 0.6rem;">
+    <div style="font-weight: 700; font-size: 0.95rem;">Daarin de berichtstroom</div>
+    <small style="font-size: 0.84rem;">Opleidingsaanbod aanmaken, met Event Notification</small>
+  </div>
+  <div class="np-card accent-blue" style="padding: 0.7rem 0.9rem; margin-bottom: 0.6rem;">
+    <div style="font-weight: 700; font-size: 0.95rem;">En de aanbiedende dienst</div>
+    <small style="font-size: 0.84rem;">die staat op datamodelschemas 1.0</small>
+  </div>
+</div>
+
+</div>
+
+</div>
+
+<!--
+Het vertrekpunt van het voorbeeld, teruggebracht tot de bouwblokken die meedoen. De volgende slide
+legt daar uitgave 1.1 naast.
+-->
+
+---
+
+<!-- 9j. VERSIONERING: WAT 1.1 TOEVOEGT -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+<div class="np-eyebrow">Versionering</div>
+
+# Wat 1.1 toevoegt
+
+<style scoped>
+.np-eyebrow { font-size: 0.75rem; color: var(--np-orange); letter-spacing: 1px; text-transform: uppercase; }
+</style>
+
+<div class="np-grid-2" style="margin-top: 0.6rem; gap: 1.2rem; align-items: center;">
+
+<div>
+  <img src="/versionering/wat-1-1-toevoegt.png" alt="Uitgave 1.1 met alles uit 1.0 ongewijzigd, en daarnaast in groen de variant voor 2026, het interactiepatroon dat zij inzet en datamodelschemas 1.1" style="width: 100%; border-radius: 6px; border: 1px solid var(--np-light-gray); background: #fff;" />
+</div>
+
+<div>
+  <div class="np-card accent-blue" style="padding: 0.7rem 0.9rem; margin-bottom: 0.6rem;">
+    <div style="font-weight: 700; font-size: 0.95rem;">Blauw stond er al in 1.0</div>
+    <small style="font-size: 0.84rem;">de bestaande stroom, het patroon en de dienst wijzigen niet</small>
+  </div>
+  <div class="np-card accent-green" style="padding: 0.7rem 0.9rem; margin-bottom: 0.6rem;">
+    <div style="font-weight: 700; font-size: 0.95rem;">Groen komt erbij</div>
+    <small style="font-size: 0.84rem;">de variant voor 2026, met Event-Carried State Transfer</small>
+  </div>
+  <div class="np-card accent-green" style="padding: 0.7rem 0.9rem; margin-bottom: 0.6rem;">
+    <div style="font-weight: 700; font-size: 0.95rem;">Datamodelschemas 1.1</div>
+    <small style="font-size: 0.84rem;">met het nieuwe veld, als optioneel veld</small>
+  </div>
+</div>
+
+</div>
+
+</div>
+
+<!--
+Naast de vorige slide gelegd: er is niets weggegaan en niets veranderd. Er staan twee groene blokken
+bij. De variant komt in dezelfde koppelingspecificatie te staan als de bestaande stroom.
+-->
+
+---
+
+<!-- 9k. VERSIONERING: DE AFNEMER DIE BLIJFT -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+<div class="np-eyebrow">Versionering</div>
+
+# De afnemer die blijft
+
+<style scoped>
+.np-eyebrow { font-size: 0.75rem; color: var(--np-orange); letter-spacing: 1px; text-transform: uppercase; }
+</style>
+
+<div class="np-grid-2" style="margin-top: 0.6rem; gap: 1.2rem; align-items: center;">
+
+<div>
+  <img src="/versionering/de-afnemer-die-blijft.png" alt="Planningssysteem A hoort van uitgave 1.1, beoordeelt intern dat de variant niet nodig is, en blijft meldingen krijgen via de bestaande berichtstroom" style="width: 100%; border-radius: 6px; border: 1px solid var(--np-light-gray); background: #fff;" />
+</div>
+
+<div>
+  <div class="np-card accent-green" style="padding: 0.7rem 0.9rem; margin-bottom: 0.6rem;">
+    <div style="font-weight: 700; font-size: 0.95rem;">Geen actie</div>
+    <small style="font-size: 0.84rem;">planningssysteem A heeft de variant niet nodig</small>
+  </div>
+  <div class="np-card accent-green" style="padding: 0.7rem 0.9rem; margin-bottom: 0.6rem;">
+    <div style="font-weight: 700; font-size: 0.95rem;">De bestaande stroom loopt door</div>
+    <small style="font-size: 0.84rem;">de catalogus blijft melden zoals zij meldde</small>
+  </div>
+  <div class="np-card accent-blue" style="padding: 0.7rem 0.9rem; margin-bottom: 0.6rem;">
+    <div style="font-weight: 700; font-size: 0.95rem;">Geen terugmelding aan OKx</div>
+    <small style="font-size: 0.84rem;">de afweging blijft bij de partij zelf</small>
+  </div>
+</div>
+
+</div>
+
+</div>
+
+<!--
+Het gewone geval: geen release, geen risico. Let op wat er niet gebeurt. Er is geen registratie van
+wie welke uitgave oppakt, en een partij meldt niet terug wat zij wel of niet nodig heeft.
+-->
+
+---
+
+<!-- 9l. VERSIONERING: DE AFNEMER DIE OVERSTAPT -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+<div class="np-eyebrow">Versionering</div>
+
+# De afnemer die overstapt
+
+<style scoped>
+.np-eyebrow { font-size: 0.75rem; color: var(--np-orange); letter-spacing: 1px; text-transform: uppercase; }
+</style>
+
+<div class="np-grid-2" style="margin-top: 0.6rem; gap: 1.2rem; align-items: center;">
+
+<div>
+  <img src="/versionering/de-afnemer-die-overstapt.png" alt="Planningssysteem B implementeert de variant erbij, registreert een afleveradres voor de nieuwe stroom, en krijgt voortaan meldingen met het nieuwe veld" style="width: 100%; border-radius: 6px; border: 1px solid var(--np-light-gray); background: #fff;" />
+</div>
+
+<div>
+  <div class="np-card accent-blue" style="padding: 0.7rem 0.9rem; margin-bottom: 0.6rem;">
+    <div style="font-weight: 700; font-size: 0.95rem;">De variant erbij</div>
+    <small style="font-size: 0.84rem;">planningssysteem B heeft het nieuwe veld nodig</small>
+  </div>
+  <div class="np-card accent-blue" style="padding: 0.7rem 0.9rem; margin-bottom: 0.6rem;">
+    <div style="font-weight: 700; font-size: 0.95rem;">Afleveradres registreren</div>
+    <small style="font-size: 0.84rem;">voor de nieuwe stroom, bij de catalogus</small>
+  </div>
+  <div class="np-card accent-green" style="padding: 0.7rem 0.9rem; margin-bottom: 0.6rem;">
+    <div style="font-weight: 700; font-size: 0.95rem;">Het moment ligt bij de leverancier</div>
+    <small style="font-size: 0.84rem;">er staat geen termijn waarbinnen dit moet</small>
+  </div>
+</div>
+
+</div>
+
+</div>
+
+<!--
+Tot het zover is loopt de bestaande stroom gewoon door. De overstap is een eigen release van de
+leverancier en niet een deadline uit de specificatie.
+-->
+
+---
+
+<!-- 9m. VERSIONERING: CONCLUSIE -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+<div class="np-eyebrow">Versionering</div>
+
+# Conclusie
+
+<style scoped>
+.np-eyebrow { font-size: 0.75rem; color: var(--np-orange); letter-spacing: 1px; text-transform: uppercase; }
+</style>
+
+<div class="np-card accent-green" style="margin-top: 1rem; padding: 1.1rem 1.4rem;">
+<div style="font-size: 1.25rem; line-height: 1.45; color: var(--np-ink); font-weight: 600;">De vraag is niet langer welke versie een koppeling draait, maar welke bouwblokken zij gebruikt.</div>
+</div>
+
+<div class="np-grid-3" style="margin-top: 1.1rem; gap: 1rem; align-items: start;">
+  <div class="np-card accent-blue">
+    <div style="font-weight: 700; font-size: 0.95rem;">Bouwblokken dragen de afspraak</div>
+    <small style="font-size: 0.84rem;">applicatiediensten, endpoints, patronen en de datamodelschemas</small>
+  </div>
+  <div class="np-card accent-green">
+    <div style="font-weight: 700; font-size: 0.95rem;">Een uitgave voegt toe</div>
+    <small style="font-size: 0.84rem;">wat er staat blijft staan, dus draaiende koppelingen lopen door</small>
+  </div>
+  <div class="np-card accent-orange">
+    <div style="font-weight: 700; font-size: 0.95rem;">Het versienummer is een vindmiddel</div>
+    <small style="font-size: 0.84rem;">het zegt welke uitgave gevolgd is en wat er sindsdien bij is gekomen</small>
+  </div>
+</div>
+
+</div>
+
+<!--
+De kern van het blok in een zin. Een versienummer beschrijft een uitgave van de documentatie; het
+beschrijft niet wat een partij heeft gebouwd. Een bouwblok staat bovendien in elke uitgave vanaf
+het moment dat het is toegevoegd, dus er is geen enkele uitgave waarnaar het nummer verwijst. Wat twee partijen van elkaar moeten weten is welke
+bouwblokken zij allebei gebruiken, en dat is een fijnmaziger en preciezer antwoord dan een nummer
+ooit kan geven. Daarmee vervalt ook de lezing dat een nieuwe uitgave meebewegen afdwingt.
+-->
+
+---
+
+<!-- 9n. VERSIONERING: OPEN UITDAGINGEN -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+<div class="np-eyebrow">Versionering</div>
+
+# Open uitdagingen
+
+<style scoped>
+.np-eyebrow { font-size: 0.75rem; color: var(--np-orange); letter-spacing: 1px; text-transform: uppercase; }
+</style>
+
+<div class="np-grid-2" style="margin-top: 1.1rem; gap: 1.3rem; align-items: start;">
+  <div class="np-card accent-orange">
+    <carbon-time style="font-size: 1.5rem; color: var(--np-orange);" />
+    <div style="font-weight: 700; font-size: 1.05rem; margin-top: 0.3rem;">Wanneer wordt een bouwblok uitgefaseerd?</div>
+    <div style="margin-top: 0.4rem; font-size: 0.88rem; line-height: 1.5;">Een bouwblok kan weg zodra niemand het meer gebruikt. Wanneer dat zo is, en wie dat vaststelt, ligt nog open.</div>
+  </div>
+  <div class="np-card accent-blue">
+    <carbon-search style="font-size: 1.5rem; color: var(--np-blue);" />
+    <div style="font-weight: 700; font-size: 1.05rem; margin-top: 0.3rem;">Hoe wordt zichtbaar wat een component ondersteunt?</div>
+    <div style="margin-top: 0.4rem; font-size: 0.88rem; line-height: 1.5;">Er ligt een voorstel voor een metadata-endpoint dat de specificatie voorschrijft, zodat componenten dat bij elkaar kunnen opvragen.</div>
+  </div>
+</div>
+
+</div>
+
+<!--
+De twee vragen hangen samen: uitfaseren kan pas als vaststaat dat niemand het bouwblok meer gebruikt,
+en dat is precies wat het metadata-endpoint zichtbaar zou maken. Zolang dat er niet is, blijft
+uitfaseren aankondigen zonder te kunnen controleren. Er hangt nog een derde punt onder: een
+berichtstroom heeft vandaag geen stabiele aanduiding los van zijn kop in het document, en zonder die
+aanduiding valt er in zo'n endpoint niets naar te verwijzen.
 -->
 
 ---
