@@ -130,7 +130,7 @@ volgende pass opgeschoond.*
 | Repository | Scope | Rol |
 |------------|-------|-----|
 | [**meta**](https://github.com/Npuls-OKx/meta) | **Kaderstelling** t/m **specificatiedocument** (businesslaag) | *Wat* de standaard betekent en *hoe* uitwisseling conceptueel is afgesproken |
-| [**spec**](https://github.com/Npuls-OKx/specification) | **OEAPI OpenAPI** | Technische implementatie van het profiel |
+| **OEAPI-profiel** | **OEAPI OpenAPI** | Overlay op een vastgezette OEAPI-versie, als submodule |
 
 Versiebeheer en releases: [OKx Release management en versionering](../../../../../doc/OKx_Release-management-en-versionering.md).
 
@@ -200,7 +200,7 @@ Onderstaande tabel koppelt deliverables uit de keten (§2) aan de plek waar ze n
 | Datamodel | payload-specificaties in Public, bottom-up en endpoint-gedreven |
 | Requirementsboom (opdracht, epics, features, stories) | [requirementsboom](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/requirementsboom/README.md); elk scenario benoemt in zijn veld Verantwoordt de stories die eruit volgen, en elke story wijst met zijn bron terug naar de passage hier |
 | Security | uitwerking volgt; oudere ontwerpkeuzes in het [archief](archief-conceptmodellen.md) |
-| OEAPI OpenAPI (spec-repo) | *Buiten dit document* — [Npuls-OKx/specification](https://github.com/Npuls-OKx/specification) |
+| OEAPI OpenAPI (profiel) | *Buiten dit document*: een overlay op de OEAPI-specificatie, als submodule |
 | Pilots · BOPSI · borging | [Projectoverzicht](../../../../../doc/OKx_Projectoverzicht.md), [release-doc §1](../../../../../doc/OKx_Release-management-en-versionering.md#1-doel-en-scope) |
 
 ### 3.3 OEAPI-broncode en signaleringen
