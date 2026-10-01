@@ -24,11 +24,10 @@ Die tweede verschuiving verklaart waarom de indeling hieronder vreemd aanvoelt. 
 
 ## Het bruikbaarste deel
 
-[**Student kiest op het OEAPI-datamodel**](doc/20260501_student-kiest-op-het-oeapi-datamodel.md) staat apart. Het is paragraaf 4 tot en met 6 van het specificatiedocument, losgetrokken omdat juist dat deel de verschuiving in aanpak overleeft:
+[**Student kiest op het OEAPI-datamodel**](doc/20260501_student-kiest-op-het-oeapi-datamodel.md) staat apart. Het is paragraaf 4 en 5 van het specificatiedocument, losgetrokken omdat juist dat deel de verschuiving in aanpak overleeft:
 
 - de keten van student kiest, met de onderwijscatalogus als centraal distributiepunt;
-- de leeruitkomsthierarchie op het recursieve datamodel van OEAPI, met bottom-up aggregatie, een uitgewerkt voorbeeld voor de apothekersassistent, de gerichte acyclische graaf met hergebruik over meerdere ouders, en CompetentNL-referenties als matchingsleutel;
-- het object `educationSpecification` met de naamgeving en de OKx-extensies per entiteit.
+- de leeruitkomsthierarchie op het recursieve datamodel van OEAPI, met bottom-up aggregatie, een uitgewerkt voorbeeld voor de apothekersassistent, de gerichte acyclische graaf met hergebruik over meerdere ouders, en CompetentNL-referenties als matchingsleutel.
 
 Daarnaast blijven twee dingen uit de featuredocumenten overeind. **Feature 6** draagt dezelfde leeruitkomstenstructuur in YAML-vorm, met validatie-invarianten en een toestandsdiagram voor `standardisationStatus`. **Feature 12** benoemt vier signaleringen richting OEAPI die nog openstaan: `studyLoad` op LearningComponent en TestComponent, uitbreiding van de extensible-enum `modesOfDelivery`, `prerequisiteIds` op Course en LearningComponent, en `credentialDocument` als kernattribuut.
 
@@ -40,7 +39,7 @@ De documenten schrijven paden als `source/consumers/OKx/V1/LearningOutcome.yaml`
 
 | Document | Wat het is |
 |---|---|
-| [`doc/20260501_student-kiest-op-het-oeapi-datamodel.md`](doc/20260501_student-kiest-op-het-oeapi-datamodel.md) | Paragraaf 4 tot en met 6, losgetrokken |
+| [`doc/20260501_student-kiest-op-het-oeapi-datamodel.md`](doc/20260501_student-kiest-op-het-oeapi-datamodel.md) | Paragraaf 4 en 5, losgetrokken |
 | [`doc/20260501_Specificatie_document_OKx_OEAPI_profiel.md`](doc/20260501_Specificatie_document_OKx_OEAPI_profiel.md) | Het volledige specificatiedocument van de ronde, twintig paragrafen |
 | [`20260414_1800_okx-oeapi-consumer-profiel.md`](20260414_1800_okx-oeapi-consumer-profiel.md) | Het featureplan dat de twaalf features belegt |
 | [`20260430_archimate_extract_businessobjects_processtappen.md`](20260430_archimate_extract_businessobjects_processtappen.md) | Extract van businessobjecten en processtappen uit het ArchiMate-model |

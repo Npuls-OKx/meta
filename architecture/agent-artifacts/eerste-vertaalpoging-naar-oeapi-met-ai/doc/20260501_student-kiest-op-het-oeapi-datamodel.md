@@ -1,6 +1,6 @@
 # Student kiest op het OEAPI-datamodel
 
-Paragraaf 4 tot en met 6 uit het specificatiedocument van 1 mei 2026, hier losgetrokken omdat dit het bruikbaarste deel van die ronde is.
+Paragraaf 4 en 5 uit het specificatiedocument van 1 mei 2026, hier losgetrokken omdat dit het bruikbaarste deel van die ronde is.
 
 Relateert aan: #265, #266.
 
@@ -8,7 +8,7 @@ Relateert aan: #265, #266.
 
 | | |
 |---|---|
-| Komt uit | [`20260501_Specificatie_document_OKx_OEAPI_profiel.md`](20260501_Specificatie_document_OKx_OEAPI_profiel.md), paragraaf 4 tot en met 6 |
+| Komt uit | [`20260501_Specificatie_document_OKx_OEAPI_profiel.md`](20260501_Specificatie_document_OKx_OEAPI_profiel.md), paragraaf 4 en 5 |
 | Datum | 1 mei 2026 |
 | Hoe het is gemaakt | Een eerste vertaalpoging van de OKx-specificatie naar OEAPI, met AI als hulpmiddel |
 | Status | Werkmateriaal, geen vastgesteld kader |
@@ -17,11 +17,10 @@ De bredere leeswijzer staat in de [README](../README.md) van deze map. Kort: dez
 
 ## Waarom juist dit deel
 
-Drie dingen overleven de verschuiving in aanpak, en ze staan alle drie hier.
+Twee dingen overleven de verschuiving in aanpak, en ze staan allebei hier.
 
 - **De keten van student kiest.** Paragraaf 4 zet de onderwijscatalogus neer als centraal distributiepunt en beschrijft de kernstroom van het kiezen.
 - **De leeruitkomsthierarchie.** Paragraaf 5 legt de OKx-structuur op het recursieve datamodel van OEAPI, met bottom-up aggregatie, een uitgewerkt voorbeeld voor de apothekersassistent, de gerichte acyclische graaf met hergebruik over meerdere ouders, en CompetentNL-referenties als matchingsleutel.
-- **Het specificatieobject.** Paragraaf 6 beschrijft `educationSpecification` met de naamgeving en de OKx-extensies per entiteit.
 
 Dat sluit aan op het werk van vandaag: de leeruitkomst als verbindende sleutel ([ADR 0026](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0026-leeruitkomst-als-verbindende-sleutel.md)), het informatiemodel en de keuze-requirements.
 
@@ -64,7 +63,6 @@ Het ArchiMate-model positioneert de **OC** als centraal distributiepunt. Alle in
 
 Het ArchiMate-model nummert de kernstroom expliciet:
 
-
 | Stap | Stroom                                                                          | Van → Naar   | OEAPI-entiteiten                                        |
 | ---- | ------------------------------------------------------------------------------- | ------------ | ------------------------------------------------------- |
 | 1    | Intake resultaat (studentidentiteit, leervraag in gewenste LO's, leercontext)   | Intake → SVS | `Person`, `LearningOutcome` (referenties)               |
@@ -72,7 +70,6 @@ Het ArchiMate-model nummert de kernstroom expliciet:
 | 3    | Aanbod passend op leervraag (uitgedrukt in LO's, domein, leervorm)              | SKS → **OC** | Query op `LearningOutcome`, `modesOfDelivery`, leervorm |
 | 4    | Passend aanbod: **programmes, courses, learning components <> test components** | **OC** → SKS | Volledige OEAPI-hiërarchie + OKx-extensies              |
 | 5    | Concept-leerroute als keuze → intekening                                        | SKS → SVS    | Genest `Programme` als track                            |
-
 
 Stap 4 noemt de OEAPI-entiteiten letterlijk. Het OKx-profiel verrijkt die entiteiten met alles wat de keten nodig heeft.
 
@@ -95,7 +92,6 @@ LearningOutcome ──parentIds/childIds──▶ LearningOutcome (DAG, meerdere
 
 ### 5.2 Mapping OKx → OEAPI
 
-
 | OKx concept                                | OEAPI entiteit                        | Hoe                                                                   | Credential bij afronding               |
 | ------------------------------------------ | ------------------------------------- | --------------------------------------------------------------------- | -------------------------------------- |
 | **Kwalificatie / opleiding**               | `Programme` (root)                    | `programmeType: "programme"`                                          | **Diploma**                            |
@@ -107,7 +103,6 @@ LearningOutcome ──parentIds/childIds──▶ LearningOutcome (DAG, meerdere
 | **Toets / examen**                         | `TestComponent`                       | Onder dezelfde `Course`. Gedeelde `learningOutcomeIds`                | (beoordeelt bovenliggende LO's)        |
 | **Leeruitkomst** (summatief)               | `LearningOutcome` (root)              | Gerefereerd vanuit Programme, Course, LearningComponent               | —                                      |
 | **Lesuitkomst** (formatief)                | `LearningOutcome` (kind)              | Genest via `parentIds`/`childIds`. DAG-structuur.                     | —                                      |
-
 
 ### 5.3 Bottom-up aggregatie: de som klopt
 
@@ -221,12 +216,10 @@ Programme "Apothekersassistent" (level: mbo-4, studyLoad: 4800 SBU)
 
 [CompetentNL](https://competentnl.nl/page/view/b1741ead-e4e8-4974-8aea-1399ae22284a/data-taxonomieen-van-competentnl) is de nationale standaard voor het beschrijven van skills, ontwikkeld door SBB, UWV, TNO en CBS. De taxonomie is beschikbaar als Linked Open Data (RDF/OWL/SKOS) via een SPARQL-endpoint en API. CompetentNL onderscheidt twee hiërarchieën:
 
-
 | Taxonomie                   | Lagen                                                                     | Omvang                                                   | Basis                                    |
 | --------------------------- | ------------------------------------------------------------------------- | -------------------------------------------------------- | ---------------------------------------- |
 | **Vaardighedentaxonomie**   | 3 lagen: 6 algemene → 19 generieke → 112 specifieke vaardigheidsconcepten | Hard skills (leerbaar) + soft skills (ontwikkelbaar)     | ESCO, ONet, wetenschappelijke literatuur |
 | **Kennisgebiedentaxonomie** | 4 lagen, gebaseerd op ISCED-F 2013                                        | Vakspecifieke feiten, principes, theorieën en praktijken | ISCED-F 2013, CBS-rubrieken              |
-
 
 CompetentNL koppelt skills aan **alle mbo-kwalificaties** (kwalificaties, keuzedelen, certificaten) en is bezig met uitbreiding naar hbo en non-formeel onderwijs. De relatie `cnl:requires` verbindt beroepen met skills.
 
@@ -241,7 +234,6 @@ CompetentNL koppelt skills aan **alle mbo-kwalificaties** (kwalificaties, keuzed
 
 Het bestaande `LearningOutcome`-schema biedt al aanknopingspunten:
 
-
 | OEAPI-veld                                             | CompetentNL-mapping                                                                 |
 | ------------------------------------------------------ | ----------------------------------------------------------------------------------- |
 | `fieldsOfStudy` (ISCED-F, 2-6 digits)                  | Direct bruikbaar voor CompetentNL kennisgebiedentaxonomie (laag 1-3 = ISCED-F 2013) |
@@ -249,17 +241,14 @@ Het bestaande `LearningOutcome`-schema biedt al aanknopingspunten:
 | `otherCodes` (array IdentifierEntry)                   | Ideaal voor CompetentNL skill-URI's als secundaire code                             |
 | `parentIds` / `childIds`                               | DAG-structuur voor leeruitkomst → lesuitkomst hiërarchie                            |
 
-
 #### OKx-extensie op LearningOutcome voor CompetentNL
 
 Naast de bestaande OKx-attributen (`hierarchyLevel`, `standardisationStatus`, `qualificationReference`, `sectorReference`) voegen we toe:
-
 
 | Attribuut                | Type                             | Beschrijving                                                                                                                                                                                                                                                                         |
 | ------------------------ | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `competentNlRefs`        | array of object                  | Referenties naar CompetentNL-concepten. Per referentie: `{ uri: string, type: enum, label: string }`. `type`: `vaardigheid_algemeen`, `vaardigheid_generiek`, `vaardigheid_specifiek`, `kennisgebied`. `uri`: de CompetentNL Linked Data URI. `label`: leesbare naam (voor display). |
 | `competentNlRelatieType` | enum: `primair`, `ondersteunend` | Geeft aan of deze LO primair of ondersteunend is voor het gekoppelde CompetentNL-concept. Volgt het CompetentNL-patroon van kernrelaties vs. contextuele relaties.                                                                                                                   |
-
 
 #### Uitgewerkt voorbeeld: Apothekersassistent (mbo-4)
 
@@ -557,125 +546,3 @@ Planner berekent:
   → CompetentNL expertiseProfiel "rollenspel_training" + "farmaceutisch"
     → match met beschikbare docenten
 ```
-
-## 6. Het educationSpecification-object (fase 1 — kern)
-
-Het informatiemodel Onderwijsontwerp in ArchiMate toont dat op elk niveau niet alleen *wat* maar ook *hoe*, *waarmee*, *door wie*, *waar* en *hoe lang* wordt vastgelegd. Dit vertaalt zich naar een gestructureerd consumer-extensie-object.
-
-### 6.0 Naamgeving (canonical)
-
-OEAPI is een UK-English standaard. In dit project request gebruiken we daarom **canonical UK-English veldnamen** voor OKx-extensies. Nederlandse termen kunnen in proza voorkomen, maar zijn **niet normatief**.
-
-
-| NL in eerdere drafts    | Canonical (OKx-extensie)    |
-| ----------------------- | --------------------------- |
-| `onderwijsSpecificatie` | `educationSpecification`    |
-| `leervorm`              | `deliveryForm`              |
-| `tijdsbesteding`        | `timeAllocation`            |
-| `ruimteType`            | `roomType`                  |
-| `ruimteEisen`           | `roomRequirements`          |
-| `expertiseProfiel(en)`  | `expertiseProfiles`         |
-| `leermiddelGroepen`     | `learningResourceGroups`    |
-| `waardeDocument`        | `credentialDocument`        |
-| `kwalificatieRef`       | `qualificationReference`    |
-| `leerrouteType`         | `learningRouteType`         |
-| `keuzeMogelijk`         | `choiceAvailable`           |
-| `deelnameVereisten`     | `participationRequirements` |
-| `hierarchieNiveau`      | `hierarchyLevel`            |
-| `toetsNiveau`           | `assessmentLevel`           |
-| `standaardisatieStatus` | `standardisationStatus`     |
-| `sectorReferentie`      | `sectorReference`           |
-
-
-### 6.1 Structuur `educationSpecification`
-
-Toepasbaar op `LearningComponent`, `Course` en `TestComponent`. Op hogere niveaus (Course, Programme) beschrijft het het overkoepelende kader; op lagere niveaus (LearningComponent) de concrete specificatie.
-
-```yaml
-educationSpecification:
-  deliveryForm:
-    type: string enum         # simulation, classroom, work_based_learning,
-                              # project_based_education, guided_self_study,
-                              # internship, research, co_teaching, blended
-    strategy: string          # optioneel: didactische strategie (bijv. "4CID")
-  timeAllocation:
-    bot: number               # begeleid onderwijs tijd (SBU/EC/uur)
-    oot: number               # onbegeleid onderwijs tijd
-    unit: string enum         # sbu, ects, hour
-    spreadPattern: string     # "2x per week, 8 weken" / "doorlopend"
-  roomType: string enum       # simulation_practice_room, lecture_hall, online,
-                              # external_workplace, exam_hall, hybrid
-  roomRequirements: string    # vrije specificatie: "balie, wachtruimte"
-  expertiseProfiles:
-    - profile: string         # bijv. "roleplay_training", "pharmaceutical"
-  learningResourceGroups:
-    - group: string           # "digital_workstation", "professional_literature",
-                              # "simulation_material", "tools"
-      specification: string   # "Chromebook + MS Word licentie"
-```
-
-### 6.2 Aanvullende OKx-extensies per entiteit
-
-**Programme** (`consumerKey: "okx"`)
-
-
-| Attribuut                 | Type                                                                                                                                                                 | Beschrijving                                                                                                                                                   |
-| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `curriculumType`          | enum: `nominaal`, `flexibel`, `hybride`                                                                                                                              | Structuurtype. Bepaalt of tracks vast zijn of student vrij combineert.                                                                                         |
-| `keuzegateType`           | enum: `nominaal`, `maatwerk`, `continu`                                                                                                                              | Keuzemoment. `continu` = reversibele overgang (ADR 0012).                                                                                                      |
-| `learningRouteType`       | enum: `regulier`, `versneld`, `temporiserend`, `personalisatie_intra`, `personalisatie_sector`, `personalisatie_cross_sector`, `vrije_keuze`, `bundelen`, `stapelen` | Npuls leerroute-classificatie (1-9).                                                                                                                           |
-| `credentialDocument`      | object: `{ type: enum, register: string }`                                                                                                                           | Credential bij afronding. `type`: `diploma`, `certificaat`, `mbo_certificaat`, `deelkwalificatie`, `microcredential`. `register`: bijv. "DUO", "edubadges.nl". |
-| `qualificationReference`  | object                                                                                                                                                               | Referentie naar kwalificatiekader (minimaal: scheme+dossier+qualification; optioneel: coreTask/workProcess).                                                   |
-| `learningOutcomeCoverage` | enum: `full`, `partial`, `missing`                                                                                                                                   | Mate waarin LO's gekoppeld zijn aan courses/components.                                                                                                        |
-| `educationSpecification`  | object (zie §6.1)                                                                                                                                                    | Overkoepelend specificatiekader op programmaniveau.                                                                                                            |
-
-
-**Course** (`consumerKey: "okx"`)
-
-
-| Attribuut                   | Type                                          | Beschrijving                                                                                                     |
-| --------------------------- | --------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| `educationSpecification`    | object (zie §6.1)                             | Specificatie op cursusniveau: deliveryForm, timeAllocation, roomType, expertiseProfiles, learningResourceGroups. |
-| `credentialDocument`        | object: `{ type, register }`                  | Credential: `microcredential`, `certificaat`, `mbo_certificaat`, `badge`.                                        |
-| `choiceAvailable`           | boolean                                       | Kan onderdeel zijn van een maatwerk-leerroute.                                                                   |
-| `participationRequirements` | array of `{ courseId: UUID, type: "completed" | "concurrent" }`                                                                                                  |
-| `qualificationReference`    | object                                        | Optioneel: mapping naar coreTask/workProcess.                                                                    |
-
-
-**LearningComponent** (`consumerKey: "okx"`)
-
-
-| Attribuut                   | Type                                                 | Beschrijving                                                                                                                     |
-| --------------------------- | ---------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| `hierarchyLevel`            | enum: `learning_activity`, `lesson_assignment`       | Positie in OKx-hiërarchie.                                                                                                       |
-| `educationSpecification`    | object (zie §6.1)                                    | Concrete specificatie: deliveryForm, BOT/OOT, roomType + requirements, expertiseProfiles, learningResourceGroups, spreadPattern. |
-| `credentialDocument`        | object: `{ type, register }`                         | `microcredential`, `badge`, of `null`.                                                                                           |
-| `componentStudyLoad`        | object: `{ bot: number, oot: number, unit: enum }`   | SBU/ECTS op componentniveau. Splitsing BOT/OOT.                                                                                  |
-| `participationRequirements` | array of `{ learningComponentId: UUID, type: enum }` | Prerequisites tussen componenten.                                                                                                |
-
-
-**TestComponent** (`consumerKey: "okx"`)
-
-
-| Attribuut                | Type                                                         | Beschrijving                                                                            |
-| ------------------------ | ------------------------------------------------------------ | --------------------------------------------------------------------------------------- |
-| `assessmentLevel`        | enum: `formative`, `summative`                               | Summatief = geldend voor diploma, gekoppeld aan werkproces/LO-set.                      |
-| `educationSpecification` | object (subset: roomType, expertiseProfiles, timeAllocation) | Wat nodig is om de toets af te nemen.                                                   |
-| `qualificationReference` | object                                                       | Mapping naar coreTask/workProcess die geëxamineerd wordt.                               |
-| `assessmentScope`        | object                                                       | Scope van toetsing: `learningOutcomeIds` en/of `workProcessCodes` (zie §12.0 toetsrij). |
-
-
-**LearningOutcome** (`consumerKey: "okx"`)
-
-
-| Attribuut                | Type                                                    | Beschrijving                                                                                                                                                                                                                               |
-| ------------------------ | ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `hierarchyLevel`         | enum: `learning_outcome`, `lesson_outcome`              | Positie in LO-hiërarchie.                                                                                                                                                                                                                  |
-| `standardisationStatus`  | enum: `concept`, `aligned`, `established`, `deprecated` | Status sectorale standaardisatie.                                                                                                                                                                                                          |
-| `qualificationReference` | object                                                  | Traceerbaarheid naar kwalificatiekader en (optioneel) coreTask/workProcess.                                                                                                                                                                |
-| `sectorReference`        | string                                                  | Referentie naar sectoraal register.                                                                                                                                                                                                        |
-| `competentNlRefs`        | array of `{ uri: string, type: enum, label: string }`   | Referenties naar [CompetentNL](https://competentnl.nl) vaardigheden en kennisgebieden. `type`: `vaardigheid_algemeen`, `vaardigheid_generiek`, `vaardigheid_specifiek`, `kennisgebied`. `uri`: Linked Data URI. Zie §5.4 voor voorbeelden. |
-| `competentNlRelatieType` | enum: `primair`, `ondersteunend`                        | Geeft aan of deze LO primair of ondersteunend is voor het gekoppelde CompetentNL-concept.                                                                                                                                                  |
-
-
----
