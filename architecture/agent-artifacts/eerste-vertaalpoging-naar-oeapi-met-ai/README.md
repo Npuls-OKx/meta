@@ -35,14 +35,12 @@ De documenten schrijven paden als `source/consumers/OKx/V1/LearningOutcome.yaml`
 
 ## Wat er in deze map staat
 
-**Aanpak en uitwerking**
+**De uitwerking**
 
 | Document | Wat het is |
 |---|---|
 | [`doc/20260501_student-kiest-op-het-oeapi-datamodel.md`](doc/20260501_student-kiest-op-het-oeapi-datamodel.md) | Paragraaf 4 en 5, losgetrokken |
 | [`doc/20260501_Specificatie_document_OKx_OEAPI_profiel.md`](doc/20260501_Specificatie_document_OKx_OEAPI_profiel.md) | Het volledige specificatiedocument van de ronde, twintig paragrafen |
-| [`20260414_1800_okx-oeapi-consumer-profiel.md`](20260414_1800_okx-oeapi-consumer-profiel.md) | Het featureplan dat de twaalf features belegt |
-| [`20260430_archimate_extract_businessobjects_processtappen.md`](20260430_archimate_extract_businessobjects_processtappen.md) | Extract van businessobjecten en processtappen uit het ArchiMate-model |
 
 **Ontwerpdocumenten per feature**
 
