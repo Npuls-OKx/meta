@@ -78,7 +78,7 @@ De mappenindeling die OEAPI aanraadt:
     └── generated/
 ```
 
-Dit vervangt de fork `Npuls-OKx/specification`, die op verzoek van de OEAPI-beheerder is opgeheven. Het werk dat daarin stond is bewaard in `architecture/agent-artifacts/oeapi-profiel/`, met een leeswijzer die de status erbij zegt.
+Dit vervangt de fork `Npuls-OKx/specification`, die op verzoek van de OEAPI-beheerder is opgeheven. Het werk dat daarin stond is bewaard in `architecture/agent-artifacts/eerste-vertaalpoging-naar-oeapi-met-ai/`, met een leeswijzer die de status erbij zegt.
 
 ## Waar vind ik wat
 
