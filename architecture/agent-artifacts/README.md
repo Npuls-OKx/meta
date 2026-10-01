@@ -10,8 +10,9 @@ Hier slaan we **onderzoeksverslagen**, **projectaanvragen**, **featureplannen** 
 | [`project-requests/`](project-requests/) | Iteratieve projectaanvragen (`/project-aanvraag`) |
 | [`feature-plans/`](feature-plans/) | Featureplannen uit een request (`/maak-plan`) |
 | [`design-docs/`](design-docs/) | Ontwerp per feature (`/ontwerp-document`) |
+| [`oeapi-profiel/`](oeapi-profiel/) | Afgesloten ronde: het OKx-profiel op OEAPI, bewaard uit de verwijderde fork |
 
-De volgorde is de volgorde van het werk: onderzoek onderbouwt een besluit, een projectaanvraag beschrijft wat we willen maken, een featureplan knipt dat op, en een ontwerpdocument werkt één onderdeel uit. Het besluit zelf hoort niet hier maar als ADR in [`Npuls-OKx/Public`](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr).
+De volgorde is de volgorde van het werk: onderzoek onderbouwt een besluit, een projectaanvraag beschrijft wat we willen maken, een featureplan knipt dat op, en een ontwerpdocument werkt één onderdeel uit. Een afgesloten lijn van werk mag een eigen map krijgen met een leeswijzer erin, zoals [`oeapi-profiel/`](oeapi-profiel/); die map bewaart wat anders zou verdwijnen en zegt erbij wat de status is. Het besluit zelf hoort niet hier maar als ADR in [`Npuls-OKx/Public`](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr).
 
 ## Bestandsnaam
 
