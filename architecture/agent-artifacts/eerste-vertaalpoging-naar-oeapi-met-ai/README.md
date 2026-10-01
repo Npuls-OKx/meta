@@ -20,7 +20,7 @@ Relateert aan: #265, #266.
 | De vertaling liep top-down: vanaf de OEAPI-objecten naar de OKx-behoefte | De vertaling loopt bottom-up: eisen komen vóór de techniekkeuze, en OEAPI volgt uit de koppelingspecificaties |
 | Het werk lag in een fork van de OEAPI-specificatie | Specificeren bovenop OEAPI gaat via een submodule op een vastgezet versielabel |
 
-Die tweede verschuiving verklaart waarom de indeling hieronder vreemd aanvoelt. De features zijn opgezet vanuit OEAPI-objecten (Programme, Course, Offering, LearningOutcome), terwijl het huidige werk vanuit leerroutes en scenario's vertrekt.
+Die tweede verschuiving verklaart waarom het specificatiedocument vreemd aanvoelt. Het is opgezet vanuit OEAPI-objecten (Programme, Course, Offering, LearningOutcome), terwijl het huidige werk vanuit leerroutes en scenario's vertrekt.
 
 ## Het bruikbaarste deel
 
@@ -29,9 +29,9 @@ Die tweede verschuiving verklaart waarom de indeling hieronder vreemd aanvoelt. 
 - de keten van student kiest, met de onderwijscatalogus als centraal distributiepunt;
 - de leeruitkomsthierarchie op het recursieve datamodel van OEAPI, met bottom-up aggregatie, een uitgewerkt voorbeeld voor de apothekersassistent, de gerichte acyclische graaf met hergebruik over meerdere ouders, en CompetentNL-referenties als matchingsleutel.
 
-Daarnaast blijven twee dingen uit de featuredocumenten overeind. **Feature 6** draagt dezelfde leeruitkomstenstructuur in YAML-vorm, met validatie-invarianten en een toestandsdiagram voor `standardisationStatus`. **Feature 12** benoemt vier signaleringen richting OEAPI die nog openstaan: `studyLoad` op LearningComponent en TestComponent, uitbreiding van de extensible-enum `modesOfDelivery`, `prerequisiteIds` op Course en LearningComponent, en `credentialDocument` als kernattribuut.
+De twaalf ontwerpdocumenten per feature zijn ingehaald en staan er niet meer. Twee stukken eruit zijn bewaard: de validatie-invarianten en het toestandsdiagram voor `standardisationStatus` staan als bijlage bij het uittreksel. De signaleringen richting OEAPI staan uitgebreider in paragraaf 9 van het volledige specificatiedocument, met zeven punten in plaats van vier.
 
-De documenten schrijven paden als `source/consumers/OKx/V1/LearningOutcome.yaml`, dezelfde opbouw die OEAPI aanraadt in [oeapi-profile-example](https://github.com/open-education-api/oeapi-profile-example). Het werk past dus op de submodule-werkwijze.
+Het specificatiedocument schrijft paden als `source/consumers/OKx/V1/LearningOutcome.yaml`, dezelfde opbouw die OEAPI aanraadt in [oeapi-profile-example](https://github.com/open-education-api/oeapi-profile-example). Het werk past dus op de submodule-werkwijze.
 
 ## Wat er in deze map staat
 
@@ -41,23 +41,6 @@ De documenten schrijven paden als `source/consumers/OKx/V1/LearningOutcome.yaml`
 |---|---|
 | [`doc/20260501_student-kiest-op-het-oeapi-datamodel.md`](doc/20260501_student-kiest-op-het-oeapi-datamodel.md) | Paragraaf 4 en 5, losgetrokken |
 | [`doc/20260501_Specificatie_document_OKx_OEAPI_profiel.md`](doc/20260501_Specificatie_document_OKx_OEAPI_profiel.md) | Het volledige specificatiedocument van de ronde, twintig paragrafen |
-
-**Ontwerpdocumenten per feature**
-
-| Document | Onderwerp |
-|---|---|
-| [Feature 1](20260414_1900_feature-1-enumeraties-en-gedeelde-typen.md) | Enumeraties en gedeelde typen |
-| [Feature 2](20260414_1930_feature-2-programme-extensie.md) | Programme-extensie: curriculum- en kwalificatielaag |
-| [Feature 3](20260414_1930_feature-3-course-extensie.md) | Course-extensie: opleidingsonderdeel en leertaak |
-| [Feature 4](20260414_1930_feature-4-lc-tc-extensie.md) | LearningComponent- en TestComponent-extensie |
-| [Feature 5](20260414_1930_feature-5-offering-extensies.md) | Offering-extensies: aanbod- en planningslaag |
-| [Feature 6](20260414_1930_feature-6-learningoutcome-extensie.md) | LearningOutcome-extensie: leeruitkomsten en CompetentNL |
-| [Feature 7](20260414_1930_feature-7-aggregatie-validatie.md) | Aggregatie-validatie en voorbeeldscenario's |
-| [Feature 8](20260414_1930_feature-8-programme-trechters.md) | Programme-extensies: trechters en instroomeisen |
-| [Feature 9](20260414_1930_feature-9-courseoffering-extensies.md) | CourseOffering-extensies: beschikbaarheid en budget |
-| [Feature 10](20260414_1930_feature-10-planningsattributen.md) | Planningsattributen op offerings |
-| [Feature 11](20260414_1930_feature-11-cross-instelling.md) | Cross-instelling interoperabiliteit |
-| [Feature 12](20260414_1930_feature-12-oeapi-signaleringen.md) | Signaleringen en wijzigingsverzoeken richting OEAPI |
 
 **Beeldmateriaal**
 

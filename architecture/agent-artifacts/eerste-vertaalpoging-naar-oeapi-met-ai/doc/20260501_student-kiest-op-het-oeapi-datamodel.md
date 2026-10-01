@@ -546,3 +546,29 @@ Planner berekent:
   → CompetentNL expertiseProfiel "rollenspel_training" + "farmaceutisch"
     → match met beschikbare docenten
 ```
+
+---
+
+## Bijlage: regels bij de leeruitkomsthierarchie
+
+De attributen hierboven staan in paragraaf 5 beschreven. Hun formele regels stonden in het ontwerpdocument `feature-6-learningoutcome-extensie`, dat verder is ingehaald; die twee stukken staan hier, zodat de structuur compleet blijft.
+
+### Validatie-invarianten
+
+1. `hierarchyLevel = learning_outcome` geeft `parentIds` null of leeg: de wortel in de hiërarchie.
+2. `hierarchyLevel = lesson_outcome` geeft `parentIds` met minstens één leeruitkomst-id.
+3. `standardisationStatus = established` vraagt een gevulde `qualificationReference`.
+4. `competentNlRefs[].uri` heeft `format: uri`.
+5. `competentNlRefs[].type` komt overeen met het niveau in de CompetentNL-taxonomie.
+
+### Toestanden van standardisationStatus
+
+```mermaid
+stateDiagram-v2
+    [*] --> concept : Initieel
+    concept --> agreed : Review kernteam
+    agreed --> established : Formele vaststelling
+    established --> deprecated : Nieuwe versie
+    agreed --> concept : Teruggetrokken
+    deprecated --> [*]
+```
