@@ -489,6 +489,8 @@ Michelle stapelt modules:
 
 ## 4. De "Student Kiest"-keten
 
+> Paragraaf 4 tot en met 6 staan ook los, in [`20260501_student-kiest-op-het-oeapi-datamodel.md`](20260501_student-kiest-op-het-oeapi-datamodel.md). Dit document blijft ongewijzigd als archief.
+
 ### 4.1 De Onderwijscatalogus als centraal distributiepunt
 
 In dit stuk schetsen we het proces nader. Dit breiden we later uit.

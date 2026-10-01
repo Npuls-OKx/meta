@@ -1,33 +1,38 @@
-# OKx-profiel op OEAPI, ronde april en mei 2026
+# Eerste vertaalpoging van de OKx-specificatie naar OEAPI, met AI
 
-Deze map bewaart een afgesloten uitwerkingsronde: het OKx-profiel als consumer-extensie op de Open Education API. De documenten stonden in de fork `Npuls-OKx/specification` en zijn daaruit gehaald voordat die fork werd verwijderd.
+Deze map bewaart een afgesloten ronde uit april en mei 2026: een eerste poging om de OKx-specificatie te gebruiken en te vertalen naar de Open Education API, met AI als hulpmiddel. De documenten stonden in de fork `Npuls-OKx/specification` en zijn daaruit gehaald voordat die fork werd verwijderd.
 
 Relateert aan: #265, #266.
 
-## Status
+## Wat dit wel en niet is
 
-**Afgesloten ronde, geen geldend kader.** De documenten dateren van 14 april tot 1 mei 2026 en zijn daarna niet meer bijgewerkt. Het geldende kader staat elders; zie [Waar het huidige werk staat](#waar-het-huidige-werk-staat).
+**Geen OEAPI-profiel.** De documenten dragen die naam wel, en dat is misleidend. Een profiel is een vastgestelde overlay op een vastgezette OEAPI-versie, opgebouwd volgens de werkwijze in [AGENTS.md](../../../AGENTS.md). Dit is een verkenning: een poging om te zien hoe de OKx-begrippen op OEAPI-objecten zouden kunnen landen.
 
-Wie hieruit citeert, noemt de datum erbij. Een aantal keuzes in deze documenten is sindsdien herzien.
+**Werkmateriaal, geen geldend kader.** De stukken dateren van 14 april tot 1 mei 2026 en zijn daarna niet bijgewerkt. Wie hieruit citeert, noemt de datum erbij.
+
+**Met AI gemaakt, en dat is te zien.** De uitwerking is breed en op punten gedetailleerder dan de onderbouwing draagt. Lees de inhoud als voorstel, niet als bevinding.
 
 ## Wat er sindsdien is veranderd
-
-Twee verschuivingen maken dat deze ronde anders leest dan het werk van vandaag.
 
 | Toen | Nu |
 |---|---|
 | De uitwerking heette het OKx OEAPI consumer-profiel | Zij heet de [leerroute-uitwerking](../../docs/specificatie/leerroute-uitwerking/README.md) en volgt de AMIGO-aanpak |
 | De vertaling liep top-down: vanaf de OEAPI-objecten naar de OKx-behoefte | De vertaling loopt bottom-up: eisen komen vóór de techniekkeuze, en OEAPI volgt uit de koppelingspecificaties |
+| Het werk lag in een fork van de OEAPI-specificatie | Specificeren bovenop OEAPI gaat via een submodule op een vastgezet versielabel |
 
-Die tweede verschuiving is de belangrijkste. Een eis sneuvelt niet omdat OEAPI hem niet toestaat; zo'n verschil is een signalering richting de standaard. De feature-indeling hieronder is dus opgezet vanuit OEAPI-objecten, terwijl het huidige werk vanuit leerroutes en scenario's vertrekt.
+Die tweede verschuiving verklaart waarom de indeling hieronder vreemd aanvoelt. De features zijn opgezet vanuit OEAPI-objecten (Programme, Course, Offering, LearningOutcome), terwijl het huidige werk vanuit leerroutes en scenario's vertrekt.
 
-## Wat hier bruikbaar blijft
+## Het bruikbaarste deel
 
-Drie dingen hebben de verschuiving overleefd en dienen als basis voor verdere uitwerking.
+[**Student kiest op het OEAPI-datamodel**](doc/20260501_student-kiest-op-het-oeapi-datamodel.md) staat apart. Het is paragraaf 4 tot en met 6 van het specificatiedocument, losgetrokken omdat juist dat deel de verschuiving in aanpak overleeft:
 
-- **De leeruitkomsten.** Feature 6 draagt de mapping van Nederlands naar Engels, de OEAPI-kernvelden met de OKx-extensieattributen ernaast, validatie-invarianten, een toestandsdiagram voor `standardisationStatus` en een voorbeeld met een root-leeruitkomst, een lesuitkomst en een gedeelde lesuitkomst in een gerichte acyclische graaf.
-- **De signaleringen richting OEAPI.** Feature 12 benoemt er vier: `studyLoad` op LearningComponent en TestComponent, uitbreiding van de extensible-enum `modesOfDelivery`, `prerequisiteIds` op Course en LearningComponent, en `credentialDocument` als kernattribuut.
-- **De overlay-structuur.** De documenten schrijven paden als `source/consumers/OKx/V1/LearningOutcome.yaml`, en dat is dezelfde opbouw die OEAPI aanraadt in [oeapi-profile-example](https://github.com/open-education-api/oeapi-profile-example). Het werk past dus op de submodule-werkwijze uit #268.
+- de keten van student kiest, met de onderwijscatalogus als centraal distributiepunt;
+- de leeruitkomsthierarchie op het recursieve datamodel van OEAPI, met bottom-up aggregatie, een uitgewerkt voorbeeld voor de apothekersassistent, de gerichte acyclische graaf met hergebruik over meerdere ouders, en CompetentNL-referenties als matchingsleutel;
+- het object `educationSpecification` met de naamgeving en de OKx-extensies per entiteit.
+
+Daarnaast blijven twee dingen uit de featuredocumenten overeind. **Feature 6** draagt dezelfde leeruitkomstenstructuur in YAML-vorm, met validatie-invarianten en een toestandsdiagram voor `standardisationStatus`. **Feature 12** benoemt vier signaleringen richting OEAPI die nog openstaan: `studyLoad` op LearningComponent en TestComponent, uitbreiding van de extensible-enum `modesOfDelivery`, `prerequisiteIds` op Course en LearningComponent, en `credentialDocument` als kernattribuut.
+
+De documenten schrijven paden als `source/consumers/OKx/V1/LearningOutcome.yaml`, dezelfde opbouw die OEAPI aanraadt in [oeapi-profile-example](https://github.com/open-education-api/oeapi-profile-example). Het werk past dus op de submodule-werkwijze.
 
 ## Wat er in deze map staat
 
@@ -35,8 +40,9 @@ Drie dingen hebben de verschuiving overleefd en dienen als basis voor verdere ui
 
 | Document | Wat het is |
 |---|---|
+| [`doc/20260501_student-kiest-op-het-oeapi-datamodel.md`](doc/20260501_student-kiest-op-het-oeapi-datamodel.md) | Paragraaf 4 tot en met 6, losgetrokken |
+| [`doc/20260501_Specificatie_document_OKx_OEAPI_profiel.md`](doc/20260501_Specificatie_document_OKx_OEAPI_profiel.md) | Het volledige specificatiedocument van de ronde, twintig paragrafen |
 | [`20260414_1800_okx-oeapi-consumer-profiel.md`](20260414_1800_okx-oeapi-consumer-profiel.md) | Het featureplan dat de twaalf features belegt |
-| [`doc/20260501_Specificatie_document_OKx_OEAPI_profiel.md`](doc/20260501_Specificatie_document_OKx_OEAPI_profiel.md) | Het specificatiedocument van de ronde, het grootste stuk |
 | [`20260430_archimate_extract_businessobjects_processtappen.md`](20260430_archimate_extract_businessobjects_processtappen.md) | Extract van businessobjecten en processtappen uit het ArchiMate-model |
 
 **Ontwerpdocumenten per feature**
