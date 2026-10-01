@@ -34,6 +34,51 @@ De werkafspraken zijn levend; wijzigen via PR.
 3. **1 issue = 1 branch = 1 PR**, feature-branches vanaf `dev`, alleen het OKx-team merget ([CONTRIBUTING.md](CONTRIBUTING.md)).
 4. **Deliverables volgen de product-flow** (requirements, uitwerking, onafhankelijke review; zie hieronder).
 5. Markdown-deliverables halen de voorcontrole: `python3 scripts/validate-docs.py <pad>`.
+6. **Specificeren bovenop OEAPI gaat via een submodule, nooit via een fork.** De OEAPI-specificatie komt binnen als git-submodule op een vastgezet versielabel; het OKx-werk ligt daar als overlay bovenop. Zie [Specificeren bovenop OEAPI](#specificeren-bovenop-oeapi).
+
+## Specificeren bovenop OEAPI
+
+OKx bouwt voort op de [Open Education API](https://github.com/open-education-api/specification). Dat gebeurt met een **git-submodule op een vastgezet versielabel**, en niet met een fork. Een fork kan de specificatie aanpassen en gaat daarmee uit de pas lopen met de standaard; dat is precies wat OKx wil voorkomen.
+
+De vorm staat in [oeapi-profile-example](https://github.com/open-education-api/oeapi-profile-example) van OEAPI zelf:
+
+```text
+OEAPI base specification
++ profile overlay
++ consumer overlay
+= gegenereerde OpenAPI-specificatie
+```
+
+De basis komt binnen als submodule, met een label in plaats van een branch:
+
+```text
+[submodule "base/oeapi"]
+	path = base/oeapi
+	url = https://github.com/open-education-api/specification.git
+```
+
+| | |
+|---|---|
+| Vastzetten | De submodule staat op een versielabel, bijvoorbeeld `v6.0-rc.3`, zodat de basis niet onder het werk verschuift |
+| Meebewegen | Overgaan naar een volgende OEAPI-versie betekent de submodule naar dat nieuwe label verzetten, waarna de overlay opnieuw wordt samengevoegd |
+| Samenvoegen | De overlay gaat over de basis heen met `overlay-merger.js`; het resultaat komt in `generated/` en wordt niet met de hand bijgewerkt |
+| Afwijken | Een verschil tussen een OKx-eis en wat OEAPI toestaat blijft een signalering richting de standaard, en wordt geen aanpassing in de basis |
+
+De mappenindeling die OEAPI aanraadt:
+
+```text
+<profiel-repository>/
+├── base/oeapi/source/        de submodule, alleen-lezen
+└── <profiel>/
+    ├── profile.yaml
+    ├── source/
+    │   ├── spec.yaml
+    │   ├── paths/ schemas/
+    │   └── consumers/<consumer>/
+    └── generated/
+```
+
+Dit vervangt de fork `Npuls-OKx/specification`, die op verzoek van de OEAPI-beheerder is opgeheven. Het werk dat daarin stond is bewaard in `architecture/agent-artifacts/eerste-vertaalpoging-naar-oeapi-met-ai/`, met een leeswijzer die de status erbij zegt.
 
 ## Waar vind ik wat
 
