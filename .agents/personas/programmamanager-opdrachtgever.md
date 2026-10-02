@@ -26,3 +26,9 @@ Waar moet ik uit kiezen, wat betekent elke optie voor de belofte aan de sector, 
 - Een besluit dat hij niet kan uitleggen aan een directie of een bestuurder.
 - Techniek als argument waar een belang of een risico hoort te staan.
 - Een stuk dat leest als verantwoording in plaats van als keuze.
+- Een antwoord dat zijn eigen vraag ontwijkt. Hij stelt een scherpe vraag, krijgt een goed onderbouwde beschouwing terug, en mist het antwoord.
+- Een claim die hij bij navraag niet hard kan maken. Hij moet het verhaal buiten de deur kunnen verdedigen; een omstreden cijfer of een betwistbaar historisch verband is daar een lek in.
+- Snelheid als bewijs van kwaliteit. Hoort hij dat er snel geleverd wordt, dan vraagt hij of het ook goed is.
+- Zijn naam of zijn vraag terug in een publiek toegankelijk document, zonder dat daar een keuze aan vooraf is gegaan.
+- Een antwoord dat alleen overeind blijft als de maker het presenteert. Hij stuurt stukken door en laat ze door anderen brengen; staat de onderbouwing alleen in de sprekersnotitie, dan is het antwoord weg zodra hij dat doet.
+- Een intern probleem op een slide die naar buiten gaat. Wat het team over zichzelf constateert hoort in een voortgangsgesprek, niet in een stuk dat een directie onder ogen krijgt.

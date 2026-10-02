@@ -70,7 +70,7 @@ flowchart TB
 | Repository | Scope in de keten | Rol |
 |------------|-------------------|-----|
 | [**meta**](https://github.com/Npuls-OKx/meta) (deze repo) | **Kaderstelling** — referentiekader / business architectuur en **specificatiedocument** (OEAPI-profiel op businesslaag) | Zegt *wat* de standaard betekent: begrippenkader, sectorarchitecturen (MOSA, HOSA, ROSA, MORA, HORA), scenario's en persona's, informatiemodellen, informatiestromen, interactieanalyse; plus endpointbeschrijvingen, interactiepatronen, sequentiediagrammen, datamodel en security op kaderniveau (zie [`architecture/docs/specificatie/leerroute-uitwerking/`](../architecture/docs/specificatie/leerroute-uitwerking/)). **Wijzigingsverzoeken** uit piloten en adoptie komen hier terug. |
-| [**spec**](https://github.com/Npuls-OKx/specification) | **Technische implementatie** van het OEAPI-profiel | OpenAPI-specificatie — bouwbaar en testbaar koppelvlak. |
+| **OEAPI-profiel** | **Technische implementatie** op de Open Education API | Overlay op de OEAPI-specificatie, binnengehaald als submodule op een vastgezet versielabel; zie harde regel 6 in [AGENTS.md](../AGENTS.md). |
 
 **Verdere projectdeliverables** (niet in deze repo's, wel afhankelijk van hun releases):
 
@@ -94,7 +94,7 @@ Omdat de **spec wordt gebouwd op basis van meta**, zijn er **twee versielijnen**
 | Artefact | Repository | Eigenaar / verantwoordelijk | Rol |
 |----------|------------|------------------------------|-----|
 | **meta** (kaderstelling) | [`Npuls-OKx/meta`](https://github.com/Npuls-OKx/meta) | **Kernteam OKx** ([GitHub-team `kernteam-okx`](https://github.com/orgs/Npuls-OKx/teams/kernteam-okx)) | Referentiekader, business architectuur en OEAPI-profiel op businesslaag; richting, samenhang en releases. |
-| **spec** (OEAPI profiel technisch) | [`Npuls-OKx/specification`](https://github.com/Npuls-OKx/specification) | **Kerngroep Techniek OKx** | Technische implementatie van het OEAPI-profiel (OpenAPI); spec-releases binnen het kader van meta. |
+| **OEAPI-profiel** (technisch) | Een eigen repository met de OEAPI-specificatie als submodule | **Kerngroep Techniek OKx** | Overlay op een vastgezette OEAPI-versie; de plek wordt bepaald bij het opzetten. |
 
 Uitgangspunt: **iedereen** mag issues en PR's indienen; **alleen het verantwoordelijke team merget** in de betreffende repo (zie [`CONTRIBUTING.md`](../CONTRIBUTING.md) en [`.cursor/rules/okx-governance.mdc`](../.cursor/rules/okx-governance.mdc)). Het kernteam bewaakt het kader; de technische werkgroep bewaakt de bouwbare standaard. Beide werken met dezelfde branchstrategie (§9): feature → `dev` → `main`, met **tags op `main`** als release-labels.
 

@@ -1,0 +1,81 @@
+name: Model
+
+# Bewaakt het ArchiMate-model, en draait alleen wanneer dat model verandert.
+#
+# Waarom deze controle bestaat: een regelgebaseerde merge kan elementen laten wegvallen
+# terwijl de views blijven staan. Archi laat die objecten bij de eerstvolgende save
+# stilzwijgend vallen, en dan is het verlies definitief. In juli 2026 gebeurde dat met
+# 276 elementdefinities. De bescherming in .gitattributes werkt alleen op branches die
+# hem zelf al dragen; een oudere branch merget het model gewoon regelgebaseerd. Deze
+# controle staat daar los van en vangt het geval dat de regel mist.
+#
+# Drie stappen, van grof naar fijn: conflictmarkeringen, interne samenhang, en verlies
+# ten opzichte van de versie waarop de pull request is gebaseerd.
+
+on:
+  pull_request:
+    paths:
+      - 'architecture/model/**.archimate'
+  push:
+    branches: [dev]
+    paths:
+      - 'architecture/model/**.archimate'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: model-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  integriteit:
+    name: Model heel en compleet
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # De vergelijking hieronder leest de vorige versie uit de historie.
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Conflictmarkeringen
+        # Een regelgebaseerde merge laat deze achter. Het model is dan nog steeds XML
+        # die opent, dus de volgende controle zou hier overheen kunnen kijken.
+        run: |
+          set -euo pipefail
+          if grep -rnE '^(<{7}|={7}|>{7})' architecture/model/ --include='*.archimate'; then
+            echo "::error::Het model draagt conflictmarkeringen. Nooit tekstueel mergen; zie harde regel 1 en ADR 0010."
+            exit 1
+          fi
+          echo "Geen conflictmarkeringen."
+
+      - name: Dode verwijzingen, dubbele id's, welgevormde XML
+        run: |
+          set -euo pipefail
+          for model in architecture/model/*.archimate; do
+            echo "::group::$model"
+            python3 scripts/validate-archimate.py "$model"
+            echo "::endgroup::"
+          done
+
+      - name: Verlies ten opzichte van de basis
+        # Een merge die alleen invoegt levert een geldig bestand op zonder dode
+        # verwijzingen, en glipt door de vorige stap heen. Deze stap kijkt daarom naar
+        # het verschil in plaats van naar de staat.
+        env:
+          BASIS: ${{ github.event_name == 'pull_request' && github.event.pull_request.base.sha || github.event.before }}
+        run: |
+          set -euo pipefail
+          for model in architecture/model/*.archimate; do
+            echo "::group::$model"
+            python3 scripts/controleer-modelverlies.py --git "$BASIS" "$model"
+            echo "::endgroup::"
+          done
+
+      - name: Testgevallen van de controlescripts
+        run: python3 -m unittest discover -s tests
