@@ -29,3 +29,8 @@ Klopt de werkafspraak, is de richting herleidbaar, en kan het team ermee werken.
 
 - Een afspraak die alleen voor één team werkt zonder dat dit is benoemd.
 - Een besluit dat in een vergadering leeft en niet in een artefact.
+- Een uitspraak over de eigen aanpak die met de eigen repositories te weerleggen is. Hij slaat na en vindt het uitgangspunt, het besluit of het schema dat het tegendeel zegt.
+- Status die wordt weggelaten. Een principe of een besluit met status Voorstel dat als vastgelegd wordt gepresenteerd.
+- Een verzonnen aantal. Wie schrijft hoeveel besluiten of schema's er zijn, heeft ze geteld of hij noemt het niet.
+- Een getal waarvan de herkomst niet klopt. Hij telt na met dezelfde bron en let erop wat de telling meeneemt.
+- Een uitspraak over een koppeling die het interactiepatroon tegenspreekt, bijvoorbeeld een object dat volgens U3 bij de andere partij hoort en er dus niet overheen gaat.
