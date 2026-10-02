@@ -1,0 +1,2060 @@
+{
+  "bron": {
+    "model": "architecture/model/model.archimate",
+    "view": "Informatiemodel Onderwijsontwerp"
+  },
+  "objecttypen": [
+    {
+      "naam": "(Didactische) Leervorm",
+      "soort": "BusinessObject",
+      "groep": "Onderwijskundig ontwerp / Onderwijsplan"
+    },
+    {
+      "naam": "Behaalde / Aangetoonde Leertuikomsten / Skills / Vaardigheden",
+      "soort": "BusinessObject",
+      "groep": "Student Ontwikkeling"
+    },
+    {
+      "naam": "Beoordeling",
+      "soort": "BusinessObject",
+      "groep": "Onderwijskundig ontwerp / Onderwijsplan"
+    },
+    {
+      "naam": "Collectie aan volgordelijke deelname vereisten",
+      "soort": "BusinessObject",
+      "groep": "Onderwijskundig ontwerp / Onderwijsplan"
+    },
+    {
+      "naam": "Collectie van Leerdoelen",
+      "soort": "BusinessObject",
+      "groep": "Kwalificatiekaders"
+    },
+    {
+      "naam": "Collectie van Leermiddelgroepen",
+      "soort": "BusinessObject",
+      "groep": "Onderwijskundig ontwerp / Onderwijsplan"
+    },
+    {
+      "naam": "Collectie van Leeropdrachten",
+      "soort": "BusinessObject",
+      "groep": "Onderwijskundig ontwerp / Onderwijsplan"
+    },
+    {
+      "naam": "Collectie van Leervormen",
+      "soort": "BusinessObject",
+      "groep": "Onderwijskundig ontwerp / Onderwijsplan"
+    },
+    {
+      "naam": "Collectie van Lesuitkomsten",
+      "soort": "BusinessObject",
+      "groep": "Onderwijskundig ontwerp / Onderwijsplan"
+    },
+    {
+      "naam": "Collectie van Medewerkertypes",
+      "soort": "BusinessObject",
+      "groep": "Onderwijskundig ontwerp / Onderwijsplan"
+    },
+    {
+      "naam": "Collectie van leeruitkomsten",
+      "soort": "BusinessObject",
+      "groep": "Kwalificatiekaders"
+    },
+    {
+      "naam": "Competenties / skills",
+      "soort": "BusinessObject",
+      "groep": "Student Ontwikkeling"
+    },
+    {
+      "naam": "Context",
+      "soort": "BusinessObject",
+      "groep": "Student Ontwikkeling"
+    },
+    {
+      "naam": "Course v6",
+      "soort": "DataObject",
+      "groep": null
+    },
+    {
+      "naam": "CourseOffering",
+      "soort": "DataObject",
+      "groep": null
+    },
+    {
+      "naam": "Cursusregelement",
+      "soort": "BusinessObject",
+      "groep": "Onderwijslogistieke eenheden"
+    },
+    {
+      "naam": "Deelname vereisten",
+      "soort": "BusinessObject",
+      "groep": "Onderwijskundig ontwerp / Onderwijsplan"
+    },
+    {
+      "naam": "Docent",
+      "soort": "BusinessObject",
+      "groep": "Onderwijskundig ontwerp / Onderwijsplan"
+    },
+    {
+      "naam": "Doelgroep opleiding",
+      "soort": "BusinessObject",
+      "groep": "Onderwijskundig ontwerp / Onderwijsplan"
+    },
+    {
+      "naam": "Door Student Gewenste Leervorm",
+      "soort": "BusinessObject",
+      "groep": "Student Ontwikkeling"
+    },
+    {
+      "naam": "Door Student gewenste verhouding BOT/OOT",
+      "soort": "BusinessObject",
+      "groep": "Student Ontwikkeling"
+    },
+    {
+      "naam": "Duur Leervorm",
+      "soort": "BusinessObject",
+      "groep": "Onderwijskundig ontwerp / Onderwijsplan"
+    },
+    {
+      "naam": "Eenheid met waardedocument",
+      "soort": "BusinessObject",
+      "groep": "Onderwijslogistieke eenheden"
+    },
+    {
+      "naam": "Examen",
+      "soort": "BusinessObject",
+      "groep": "Examinering"
+    },
+    {
+      "naam": "Examen instrument",
+      "soort": "BusinessObject",
+      "groep": "Examinering"
+    },
+    {
+      "naam": "Exameninstrumentkader",
+      "soort": "BusinessObject",
+      "groep": "Strategische kader Instelling"
+    },
+    {
+      "naam": "Examenmoment",
+      "soort": "BusinessObject",
+      "groep": "Onderwijslogistieke eenheden"
+    },
+    {
+      "naam": "Examenplan",
+      "soort": "BusinessObject",
+      "groep": "Examinering"
+    },
+    {
+      "naam": "Examenplankader",
+      "soort": "BusinessObject",
+      "groep": "Strategische kader Instelling"
+    },
+    {
+      "naam": "Examenregelement",
+      "soort": "BusinessObject",
+      "groep": "Strategische kader Instelling"
+    },
+    {
+      "naam": "Examenvormkader",
+      "soort": "BusinessObject",
+      "groep": "Strategische kader Instelling"
+    },
+    {
+      "naam": "Formatief resultaat",
+      "soort": "BusinessObject",
+      "groep": "Student Ontwikkeling"
+    },
+    {
+      "naam": "Formatieve beoordeling",
+      "soort": "BusinessObject",
+      "groep": "Student Ontwikkeling"
+    },
+    {
+      "naam": "Formatieve resultaat structuur",
+      "soort": "BusinessObject",
+      "groep": "Student Ontwikkeling"
+    },
+    {
+      "naam": "Gewenst medewerker competentieprofiel",
+      "soort": "BusinessObject",
+      "groep": "Onderwijskundig ontwerp / Onderwijsplan"
+    },
+    {
+      "naam": "Gewenste Onderwijskundige Leeromgeving",
+      "soort": "BusinessObject",
+      "groep": "Onderwijskundig ontwerp / Onderwijsplan"
+    },
+    {
+      "naam": "Group v6",
+      "soort": "DataObject",
+      "groep": null
+    },
+    {
+      "naam": "Inschrijving",
+      "soort": "BusinessObject",
+      "groep": "Student Ontwikkeling"
+    },
+    {
+      "naam": "Instroom moment opleiding",
+      "soort": "BusinessObject",
+      "groep": "Onderwijskundig ontwerp / Onderwijsplan"
+    },
+    {
+      "naam": "Instroomstrategie",
+      "soort": "BusinessObject",
+      "groep": "Strategische kader Instelling"
+    },
+    {
+      "naam": "Inzicht",
+      "soort": "BusinessObject",
+      "groep": "Student Ontwikkeling"
+    },
+    {
+      "naam": "Jaarplanning",
+      "soort": "BusinessObject",
+      "groep": "Planning"
+    },
+    {
+      "naam": "Jaarplanning examens",
+      "soort": "BusinessObject",
+      "groep": "Planning"
+    },
+    {
+      "naam": "Jaarplanningsbeperkingen",
+      "soort": "BusinessObject",
+      "groep": "Planning"
+    },
+    {
+      "naam": "Kennis",
+      "soort": "BusinessObject",
+      "groep": "Student Ontwikkeling"
+    },
+    {
+      "naam": "Kerntaak",
+      "soort": "BusinessObject",
+      "groep": "Kwalificatiekaders"
+    },
+    {
+      "naam": "Keuzedeel",
+      "soort": "BusinessObject",
+      "groep": "Kwalificatiekaders"
+    },
+    {
+      "naam": "Kwalificatie",
+      "soort": "BusinessObject",
+      "groep": "Kwalificatiekaders"
+    },
+    {
+      "naam": "Kwalificatie dossier",
+      "soort": "BusinessObject",
+      "groep": "Kwalificatiekaders"
+    },
+    {
+      "naam": "Learning Component v6",
+      "soort": "DataObject",
+      "groep": "Onderwijslogistieke eenheden"
+    },
+    {
+      "naam": "LearningComponentOffering",
+      "soort": "DataObject",
+      "groep": "Onderwijslogistieke eenheden"
+    },
+    {
+      "naam": "Leeractiviteit",
+      "soort": "BusinessObject",
+      "groep": "Onderwijslogistieke eenheden"
+    },
+    {
+      "naam": "Leeractiviteitregelement",
+      "soort": "BusinessObject",
+      "groep": "Onderwijslogistieke eenheden"
+    },
+    {
+      "naam": "Leerdoel",
+      "soort": "BusinessObject",
+      "groep": "Onderwijskundig ontwerp / Onderwijsplan"
+    },
+    {
+      "naam": "Leermiddelgroep",
+      "soort": "BusinessObject",
+      "groep": "Onderwijskundig ontwerp / Onderwijsplan"
+    },
+    {
+      "naam": "Leeromgeving",
+      "soort": "BusinessObject",
+      "groep": "Student Ontwikkeling"
+    },
+    {
+      "naam": "Leeronderdeel / Leeractiviteit specificatie",
+      "soort": "BusinessObject",
+      "groep": "Onderwijskundig ontwerp / Onderwijsplan"
+    },
+    {
+      "naam": "Leeropdracht",
+      "soort": "BusinessObject",
+      "groep": "Onderwijskundig ontwerp / Onderwijsplan"
+    },
+    {
+      "naam": "Leertaak",
+      "soort": "BusinessObject",
+      "groep": "Onderwijskundig ontwerp / Onderwijsplan"
+    },
+    {
+      "naam": "Leeruitkomst",
+      "soort": "BusinessObject",
+      "groep": "Onderwijskundig ontwerp / Onderwijsplan"
+    },
+    {
+      "naam": "Leervormstrategie",
+      "soort": "BusinessObject",
+      "groep": "Strategische kader Instelling"
+    },
+    {
+      "naam": "Leervraag",
+      "soort": "BusinessObject",
+      "groep": "Student Ontwikkeling"
+    },
+    {
+      "naam": "Les",
+      "soort": "BusinessObject",
+      "groep": "Onderwijslogistieke eenheden"
+    },
+    {
+      "naam": "Les specificatie / toets specificatie",
+      "soort": "BusinessObject",
+      "groep": "Onderwijskundig ontwerp / Onderwijsplan"
+    },
+    {
+      "naam": "Lesgroep",
+      "soort": "BusinessObject",
+      "groep": "Roostering"
+    },
+    {
+      "naam": "Lesleerdoel",
+      "soort": "BusinessObject",
+      "groep": "Onderwijskundig ontwerp / Onderwijsplan"
+    },
+    {
+      "naam": "Lesplanning",
+      "soort": "BusinessObject",
+      "groep": "Onderwijskundig ontwerp / Onderwijsplan"
+    },
+    {
+      "naam": "Lesuitkomst",
+      "soort": "BusinessObject",
+      "groep": "Onderwijskundig ontwerp / Onderwijsplan"
+    },
+    {
+      "naam": "Lokaal",
+      "soort": "BusinessObject",
+      "groep": "Roostering"
+    },
+    {
+      "naam": "Lokaaltypes",
+      "soort": "BusinessObject",
+      "groep": "Onderwijslogistieke eenheden"
+    },
+    {
+      "naam": "Lokalenvlek / cluster",
+      "soort": "BusinessObject",
+      "groep": "Planning"
+    },
+    {
+      "naam": "Medewerker",
+      "soort": "BusinessObject",
+      "groep": "Planning"
+    },
+    {
+      "naam": "Medewerker Type / Expertise Profiel",
+      "soort": "BusinessObject",
+      "groep": "Onderwijskundig ontwerp / Onderwijsplan"
+    },
+    {
+      "naam": "Meerjaren planning",
+      "soort": "BusinessObject",
+      "groep": "Strategische kader Instelling"
+    },
+    {
+      "naam": "Module",
+      "soort": "BusinessObject",
+      "groep": "Onderwijslogistieke eenheden"
+    },
+    {
+      "naam": "Nominale Leerroute",
+      "soort": "BusinessObject",
+      "groep": "Onderwijskundig ontwerp / Onderwijsplan"
+    },
+    {
+      "naam": "OER",
+      "soort": "BusinessObject",
+      "groep": "Strategische kader Instelling"
+    },
+    {
+      "naam": "OP Competentieprofiel",
+      "soort": "BusinessObject",
+      "groep": "Strategische kader Instelling"
+    },
+    {
+      "naam": "Onderwijs aanbieder",
+      "soort": "BusinessObject",
+      "groep": "Planning"
+    },
+    {
+      "naam": "Onderwijs locatie",
+      "soort": "BusinessObject",
+      "groep": "Onderwijslogistieke eenheden"
+    },
+    {
+      "naam": "Onderwijs programma",
+      "soort": "BusinessObject",
+      "groep": "Onderwijslogistieke eenheden"
+    },
+    {
+      "naam": "Onderwijsaanbod Model",
+      "soort": "BusinessObject",
+      "groep": "Planning"
+    },
+    {
+      "naam": "Onderwijseenheid / Opleidingsonderdeel",
+      "soort": "BusinessObject",
+      "groep": "Onderwijskundig ontwerp / Onderwijsplan"
+    },
+    {
+      "naam": "Onderwijsplan",
+      "soort": "BusinessObject",
+      "groep": "Onderwijskundig ontwerp / Onderwijsplan"
+    },
+    {
+      "naam": "Onderwijsruimte type",
+      "soort": "BusinessObject",
+      "groep": "Onderwijskundig ontwerp / Onderwijsplan"
+    },
+    {
+      "naam": "Onderwijsteam Vlekkenplan",
+      "soort": "BusinessObject",
+      "groep": "Planning"
+    },
+    {
+      "naam": "Onderwijsvorm specificatie",
+      "soort": "BusinessObject",
+      "groep": "Onderwijskundig ontwerp / Onderwijsplan"
+    },
+    {
+      "naam": "Onderwijsvormkader",
+      "soort": "BusinessObject",
+      "groep": "Strategische kader Instelling"
+    },
+    {
+      "naam": "Opleiding",
+      "soort": "BusinessObject",
+      "groep": "Kwalificatiekaders"
+    },
+    {
+      "naam": "Opleidings-onderdeel",
+      "soort": "BusinessObject",
+      "groep": "Onderwijslogistieke eenheden"
+    },
+    {
+      "naam": "Organization v6",
+      "soort": "DataObject",
+      "groep": null
+    },
+    {
+      "naam": "Persoonlijke leerroute",
+      "soort": "BusinessObject",
+      "groep": "Student Ontwikkeling"
+    },
+    {
+      "naam": "Persoonlijke ontwikkeling",
+      "soort": "BusinessObject",
+      "groep": "Student Ontwikkeling"
+    },
+    {
+      "naam": "Plangroepering / Concept Lesgroep",
+      "soort": "BusinessObject",
+      "groep": "Planning"
+    },
+    {
+      "naam": "Programma Aanbod",
+      "soort": "BusinessObject",
+      "groep": "Onderwijslogistieke eenheden"
+    },
+    {
+      "naam": "Programma Specificatie",
+      "soort": "BusinessObject",
+      "groep": "Kwalificatiekaders"
+    },
+    {
+      "naam": "Programmaregelement",
+      "soort": "BusinessObject",
+      "groep": "Onderwijslogistieke eenheden"
+    },
+    {
+      "naam": "Programme v6",
+      "soort": "DataObject",
+      "groep": null
+    },
+    {
+      "naam": "ProgrammeOffering",
+      "soort": "DataObject",
+      "groep": null
+    },
+    {
+      "naam": "ProgrammeOfferingAssociation",
+      "soort": "DataObject",
+      "groep": null
+    },
+    {
+      "naam": "Room",
+      "soort": "DataObject",
+      "groep": null
+    },
+    {
+      "naam": "Rooster",
+      "soort": "BusinessObject",
+      "groep": "Roostering"
+    },
+    {
+      "naam": "SBU en BOT van verzamelde leervormen",
+      "soort": "BusinessObject",
+      "groep": "Onderwijskundig ontwerp / Onderwijsplan"
+    },
+    {
+      "naam": "Schaarste van middelen",
+      "soort": "BusinessObject",
+      "groep": "Planning"
+    },
+    {
+      "naam": "Schaartste van mensen",
+      "soort": "BusinessObject",
+      "groep": "Planning"
+    },
+    {
+      "naam": "Sociaal-Pedagogosche achtergrond",
+      "soort": "BusinessObject",
+      "groep": "Student Identiteit"
+    },
+    {
+      "naam": "Stamgroep / Klas",
+      "soort": "BusinessObject",
+      "groep": "Student Ontwikkeling"
+    },
+    {
+      "naam": "Start- en eind datumtijd les",
+      "soort": "BusinessObject",
+      "groep": "Roostering"
+    },
+    {
+      "naam": "Strategisch kader start/stop opleidingsaanbod",
+      "soort": "BusinessObject",
+      "groep": "Strategische kader Instelling"
+    },
+    {
+      "naam": "Strategische Onderwijsomgeving kaders",
+      "soort": "BusinessObject",
+      "groep": null
+    },
+    {
+      "naam": "Student",
+      "soort": "BusinessObject",
+      "groep": "Student Ontwikkeling"
+    },
+    {
+      "naam": "Student Persoonlijke Ontwikkelingswallet",
+      "soort": "BusinessObject",
+      "groep": "Student Ontwikkeling"
+    },
+    {
+      "naam": "Student keuze",
+      "soort": "BusinessObject",
+      "groep": "Student keuze"
+    },
+    {
+      "naam": "Studiebelasting en begeleide onderwijstijd indicatie",
+      "soort": "BusinessObject",
+      "groep": "Onderwijskundig ontwerp / Onderwijsplan"
+    },
+    {
+      "naam": "Summatief resultaat",
+      "soort": "BusinessObject",
+      "groep": "Examinering"
+    },
+    {
+      "naam": "Summatieve beoordeling",
+      "soort": "BusinessObject",
+      "groep": "Examinering"
+    },
+    {
+      "naam": "Summatieve resultaat structuur",
+      "soort": "BusinessObject",
+      "groep": "Examinering"
+    },
+    {
+      "naam": "TestComponent v6",
+      "soort": "DataObject",
+      "groep": "Examinering"
+    },
+    {
+      "naam": "TestComponentOffering",
+      "soort": "DataObject",
+      "groep": "Onderwijslogistieke eenheden"
+    },
+    {
+      "naam": "Toets",
+      "soort": "BusinessObject",
+      "groep": "Student Ontwikkeling"
+    },
+    {
+      "naam": "Toetshulpmiddel",
+      "soort": "BusinessObject",
+      "groep": "Strategische kader Instelling"
+    },
+    {
+      "naam": "Toetsinstrument",
+      "soort": "BusinessObject",
+      "groep": "Onderwijskundig ontwerp / Onderwijsplan"
+    },
+    {
+      "naam": "Toetsmatrijs",
+      "soort": "BusinessObject",
+      "groep": "Onderwijskundig ontwerp / Onderwijsplan"
+    },
+    {
+      "naam": "Toetsmoment",
+      "soort": "BusinessObject",
+      "groep": "Onderwijslogistieke eenheden"
+    },
+    {
+      "naam": "Toetsplan",
+      "soort": "BusinessObject",
+      "groep": "Student Ontwikkeling"
+    },
+    {
+      "naam": "Toetsplankader",
+      "soort": "BusinessObject",
+      "groep": "Strategische kader Instelling"
+    },
+    {
+      "naam": "Toetsvorm",
+      "soort": "BusinessObject",
+      "groep": "Onderwijskundig ontwerp / Onderwijsplan"
+    },
+    {
+      "naam": "Toetsvormkader",
+      "soort": "BusinessObject",
+      "groep": "Strategische kader Instelling"
+    },
+    {
+      "naam": "Toetsvormspecificatie",
+      "soort": "BusinessObject",
+      "groep": "Onderwijskundig ontwerp / Onderwijsplan"
+    },
+    {
+      "naam": "Vaardigheid",
+      "soort": "BusinessObject",
+      "groep": "Student Ontwikkeling"
+    },
+    {
+      "naam": "Waarde document (diploma / certificaat)",
+      "soort": "BusinessObject",
+      "groep": "Examinering"
+    },
+    {
+      "naam": "Werkinstructies",
+      "soort": "BusinessObject",
+      "groep": "Onderwijskundig ontwerp / Onderwijsplan"
+    },
+    {
+      "naam": "Werkproces",
+      "soort": "BusinessObject",
+      "groep": "Kwalificatiekaders"
+    },
+    {
+      "naam": "vraag naar competenties / leeruitkomsten",
+      "soort": "BusinessObject",
+      "groep": "Student Ontwikkeling"
+    }
+  ],
+  "relaties": [
+    {
+      "soort": "Aggregation",
+      "van": "Collectie aan volgordelijke deelname vereisten",
+      "naar": "Deelname vereisten",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Collectie van Leerdoelen",
+      "naar": "Leerdoel",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Collectie van Leermiddelgroepen",
+      "naar": "Leermiddelgroep",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Collectie van Leeropdrachten",
+      "naar": "Leeropdracht",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Collectie van Leervormen",
+      "naar": "(Didactische) Leervorm",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Collectie van Lesuitkomsten",
+      "naar": "Lesuitkomst",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Collectie van leeruitkomsten",
+      "naar": "Leeruitkomst",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Competenties / skills",
+      "naar": "Inzicht",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Competenties / skills",
+      "naar": "Kennis",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Competenties / skills",
+      "naar": "Vaardigheid",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Cursusregelement",
+      "naar": "Leeractiviteitregelement",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Examenregelement",
+      "naar": "Exameninstrumentkader",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Examenregelement",
+      "naar": "Examenplankader",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Examenregelement",
+      "naar": "Examenvormkader",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Jaarplanning",
+      "naar": "Plangroepering / Concept Lesgroep",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Jaarplanning examens",
+      "naar": "Examenmoment",
+      "label": "bestaat uit"
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Kerntaak",
+      "naar": "Werkproces",
+      "label": "bestaat uit"
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Kwalificatie",
+      "naar": "Kerntaak",
+      "label": "bestaat uit"
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Kwalificatie dossier",
+      "naar": "Kwalificatie",
+      "label": "bevat"
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Leeractiviteit",
+      "naar": "Les",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Leeronderdeel / Leeractiviteit specificatie",
+      "naar": "Collectie aan volgordelijke deelname vereisten",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Leeronderdeel / Leeractiviteit specificatie",
+      "naar": "Collectie van Leermiddelgroepen",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Leeronderdeel / Leeractiviteit specificatie",
+      "naar": "Collectie van Leeropdrachten",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Leeronderdeel / Leeractiviteit specificatie",
+      "naar": "Collectie van Leervormen",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Leeronderdeel / Leeractiviteit specificatie",
+      "naar": "Collectie van Lesuitkomsten",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Leeronderdeel / Leeractiviteit specificatie",
+      "naar": "Collectie van Medewerkertypes",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Leeronderdeel / Leeractiviteit specificatie",
+      "naar": "SBU en BOT van verzamelde leervormen",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Leertaak",
+      "naar": "Collectie van Leeropdrachten",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Leeruitkomst",
+      "naar": "Collectie van Lesuitkomsten",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Les specificatie / toets specificatie",
+      "naar": "(Didactische) Leervorm",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Les specificatie / toets specificatie",
+      "naar": "Deelname vereisten",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Les specificatie / toets specificatie",
+      "naar": "Duur Leervorm",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Les specificatie / toets specificatie",
+      "naar": "Leermiddelgroep",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Les specificatie / toets specificatie",
+      "naar": "Leeropdracht",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Les specificatie / toets specificatie",
+      "naar": "Lesleerdoel",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Les specificatie / toets specificatie",
+      "naar": "Lesplanning",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Les specificatie / toets specificatie",
+      "naar": "Lesuitkomst",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Les specificatie / toets specificatie",
+      "naar": "Medewerker Type / Expertise Profiel",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Les specificatie / toets specificatie",
+      "naar": "Onderwijsruimte type",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Les specificatie / toets specificatie",
+      "naar": "Toetsinstrument",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Les specificatie / toets specificatie",
+      "naar": "Toetsmatrijs",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Les specificatie / toets specificatie",
+      "naar": "Toetsvorm",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Les specificatie / toets specificatie",
+      "naar": "Werkinstructies",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Lokalenvlek / cluster",
+      "naar": "Lokaal",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Meerjaren planning",
+      "naar": "Jaarplanning",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Onderwijs aanbieder",
+      "naar": "Medewerker",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Onderwijs locatie",
+      "naar": "Lokaaltypes",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Onderwijs programma",
+      "naar": "Nominale Leerroute",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Onderwijs programma",
+      "naar": "Opleidings-onderdeel",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Onderwijseenheid / Opleidingsonderdeel",
+      "naar": "Gewenst medewerker competentieprofiel",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Onderwijseenheid / Opleidingsonderdeel",
+      "naar": "Gewenste Onderwijskundige Leeromgeving",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Onderwijseenheid / Opleidingsonderdeel",
+      "naar": "Leerdoel",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Onderwijseenheid / Opleidingsonderdeel",
+      "naar": "Leertaak",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Onderwijseenheid / Opleidingsonderdeel",
+      "naar": "Leeruitkomst",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Onderwijseenheid / Opleidingsonderdeel",
+      "naar": "Onderwijsvorm specificatie",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Onderwijseenheid / Opleidingsonderdeel",
+      "naar": "Studiebelasting en begeleide onderwijstijd indicatie",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Onderwijseenheid / Opleidingsonderdeel",
+      "naar": "Toetsvormspecificatie",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Onderwijsplan",
+      "naar": "Beoordeling",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Onderwijsplan",
+      "naar": "Leeronderdeel / Leeractiviteit specificatie",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Onderwijsplan",
+      "naar": "Les specificatie / toets specificatie",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Onderwijsplan",
+      "naar": "Onderwijseenheid / Opleidingsonderdeel",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Onderwijsteam Vlekkenplan",
+      "naar": "Lokalenvlek / cluster",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Opleiding",
+      "naar": "Kwalificatie dossier",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Opleidings-onderdeel",
+      "naar": "Leeractiviteit",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Plangroepering / Concept Lesgroep",
+      "naar": "Jaarplanningsbeperkingen",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Plangroepering / Concept Lesgroep",
+      "naar": "Medewerker",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Programma Specificatie",
+      "naar": "Collectie van Leerdoelen",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Programma Specificatie",
+      "naar": "Collectie van leeruitkomsten",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Programma Specificatie",
+      "naar": "Kerntaak",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Programma Specificatie",
+      "naar": "Kwalificatie",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Programma Specificatie",
+      "naar": "Werkproces",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Programmaregelement",
+      "naar": "Cursusregelement",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Rooster",
+      "naar": "Les",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "SBU en BOT van verzamelde leervormen",
+      "naar": "Duur Leervorm",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Toetsplan",
+      "naar": "Toets",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "(Didactische) Leervorm",
+      "naar": "Duur Leervorm",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "(Didactische) Leervorm",
+      "naar": "Werkinstructies",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Collectie aan volgordelijke deelname vereisten",
+      "naar": "Collectie van Leeropdrachten",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Collectie aan volgordelijke deelname vereisten",
+      "naar": "Collectie van Lesuitkomsten",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Collectie van Leerdoelen",
+      "naar": "Kerntaak",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Collectie van Leermiddelgroepen",
+      "naar": "Leeractiviteit",
+      "label": "Gebruikt"
+    },
+    {
+      "soort": "Association",
+      "van": "Collectie van Leeropdrachten",
+      "naar": "Beoordeling",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Collectie van Leeropdrachten",
+      "naar": "Collectie van Leervormen",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Collectie van Leervormen",
+      "naar": "Collectie van Leermiddelgroepen",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Collectie van Leervormen",
+      "naar": "Leeractiviteit",
+      "label": "word uitgevoerd in"
+    },
+    {
+      "soort": "Association",
+      "van": "Collectie van Leervormen",
+      "naar": "Medewerker Type / Expertise Profiel",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Collectie van Lesuitkomsten",
+      "naar": "Collectie van Leeropdrachten",
+      "label": "Uitkomst van"
+    },
+    {
+      "soort": "Association",
+      "van": "Collectie van Medewerkertypes",
+      "naar": "Collectie van Leervormen",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Cursusregelement",
+      "naar": "Opleidings-onderdeel",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Doelgroep opleiding",
+      "naar": "Instroom moment opleiding",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Doelgroep opleiding",
+      "naar": "Onderwijs locatie",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Doelgroep opleiding",
+      "naar": "Onderwijsvorm specificatie",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Door Student gewenste verhouding BOT/OOT",
+      "naar": "Leervraag",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Duur Leervorm",
+      "naar": "Werkinstructies",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Eenheid met waardedocument",
+      "naar": "Waarde document (diploma / certificaat)",
+      "label": "Afronding leidt tot"
+    },
+    {
+      "soort": "Association",
+      "van": "Examen",
+      "naar": "Collectie van leeruitkomsten",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Examen",
+      "naar": "Summatieve resultaat structuur",
+      "label": "Functionele koppeling aan"
+    },
+    {
+      "soort": "Association",
+      "van": "Examen instrument",
+      "naar": "Examen",
+      "label": "Wordt afgenomen door middel van"
+    },
+    {
+      "soort": "Association",
+      "van": "Examenmoment",
+      "naar": "Examen instrument",
+      "label": "Afgenomen tijdens"
+    },
+    {
+      "soort": "Association",
+      "van": "Examenplan",
+      "naar": "Examen",
+      "label": "is uitgewekt in"
+    },
+    {
+      "soort": "Association",
+      "van": "Examenplan",
+      "naar": "Kerntaak",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Examenplan",
+      "naar": "Summatieve resultaat structuur",
+      "label": "kent"
+    },
+    {
+      "soort": "Association",
+      "van": "Examenplankader",
+      "naar": "Examenplan",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Formatief resultaat",
+      "naar": "Behaalde / Aangetoonde Leertuikomsten / Skills / Vaardigheden",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Formatieve beoordeling",
+      "naar": "Formatief resultaat",
+      "label": "kent"
+    },
+    {
+      "soort": "Association",
+      "van": "Formatieve beoordeling",
+      "naar": "Toets",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Formatieve resultaat structuur",
+      "naar": "Formatief resultaat",
+      "label": "conform"
+    },
+    {
+      "soort": "Association",
+      "van": "Formatieve resultaat structuur",
+      "naar": "Opleidings-onderdeel",
+      "label": "kent"
+    },
+    {
+      "soort": "Association",
+      "van": "Gewenst medewerker competentieprofiel",
+      "naar": "Onderwijsvorm specificatie",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Gewenst medewerker competentieprofiel",
+      "naar": "Toetsvormspecificatie",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Inschrijving",
+      "naar": "Stamgroep / Klas",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Instroom moment opleiding",
+      "naar": "Jaarplanning",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Instroom moment opleiding",
+      "naar": "Nominale Leerroute",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Instroomstrategie",
+      "naar": "Onderwijsplan",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Jaarplanning",
+      "naar": "Jaarplanning examens",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Kerntaak",
+      "naar": "Leerdoel",
+      "label": "Word onderwijskundig vertaald tot"
+    },
+    {
+      "soort": "Association",
+      "van": "Keuzedeel",
+      "naar": "Onderwijs programma",
+      "label": "Aanleiding voor"
+    },
+    {
+      "soort": "Association",
+      "van": "Kwalificatie",
+      "naar": "Onderwijs programma",
+      "label": "Aanleiding voor"
+    },
+    {
+      "soort": "Association",
+      "van": "Leeractiviteitregelement",
+      "naar": "Leeractiviteit",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Leerdoel",
+      "naar": "Leeruitkomst",
+      "label": "Heeft één of meer"
+    },
+    {
+      "soort": "Association",
+      "van": "Leerdoel",
+      "naar": "Onderwijsvorm specificatie",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Leermiddelgroep",
+      "naar": "(Didactische) Leervorm",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Leermiddelgroep",
+      "naar": "Werkinstructies",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Leeromgeving",
+      "naar": "Context",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Leeropdracht",
+      "naar": "(Didactische) Leervorm",
+      "label": "Leidt tot keuze in"
+    },
+    {
+      "soort": "Association",
+      "van": "Leeropdracht",
+      "naar": "Lesleerdoel",
+      "label": "wordt gerealiseerd door"
+    },
+    {
+      "soort": "Association",
+      "van": "Leeropdracht",
+      "naar": "Lesplanning",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Leeropdracht",
+      "naar": "Lesuitkomst",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Leertaak",
+      "naar": "Beoordeling",
+      "label": "resulteert in"
+    },
+    {
+      "soort": "Association",
+      "van": "Leertaak",
+      "naar": "Leeruitkomst",
+      "label": "Leidt tot"
+    },
+    {
+      "soort": "Association",
+      "van": "Leeruitkomst",
+      "naar": "Onderwijsvorm specificatie",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Leervormstrategie",
+      "naar": "Onderwijsvorm specificatie",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Leervraag",
+      "naar": "Doelgroep opleiding",
+      "label": "Prognoticeert"
+    },
+    {
+      "soort": "Association",
+      "van": "Leervraag",
+      "naar": "Door Student Gewenste Leervorm",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Leervraag",
+      "naar": "Persoonlijke leerroute",
+      "label": "leidt tot"
+    },
+    {
+      "soort": "Association",
+      "van": "Les",
+      "naar": "Onderwijsplan",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Les",
+      "naar": "Start- en eind datumtijd les",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Lesgroep",
+      "naar": "Rooster",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Lesleerdoel",
+      "naar": "Lesuitkomst",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Lesplanning",
+      "naar": "Werkinstructies",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Lesuitkomst",
+      "naar": "Beoordeling",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Lesuitkomst",
+      "naar": "Deelname vereisten",
+      "label": "Is soort gelijk aan"
+    },
+    {
+      "soort": "Association",
+      "van": "Lokaal",
+      "naar": "Les",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Lokaal",
+      "naar": "Start- en eind datumtijd les",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Lokaaltypes",
+      "naar": "Schaarste van middelen",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Medewerker",
+      "naar": "Schaartste van mensen",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Medewerker Type / Expertise Profiel",
+      "naar": "Gewenst medewerker competentieprofiel",
+      "label": "Heeft meerdere"
+    },
+    {
+      "soort": "Association",
+      "van": "OP Competentieprofiel",
+      "naar": "Onderwijsvorm specificatie",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "OP Competentieprofiel",
+      "naar": "Onderwijsvormkader",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Onderwijs aanbieder",
+      "naar": "Lokalenvlek / cluster",
+      "label": "Heeft"
+    },
+    {
+      "soort": "Association",
+      "van": "Onderwijs aanbieder",
+      "naar": "Meerjaren planning",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Onderwijs aanbieder",
+      "naar": "Onderwijs locatie",
+      "label": "heeft"
+    },
+    {
+      "soort": "Association",
+      "van": "Onderwijs aanbieder",
+      "naar": "Onderwijsaanbod Model",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Onderwijs aanbieder",
+      "naar": "Schaarste van middelen",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Onderwijs aanbieder",
+      "naar": "Schaartste van mensen",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Onderwijs programma",
+      "naar": "Persoonlijke leerroute",
+      "label": "staat model voor"
+    },
+    {
+      "soort": "Association",
+      "van": "Onderwijsaanbod Model",
+      "naar": "Jaarplanningsbeperkingen",
+      "label": "Leidt via planning en roostering proces tot"
+    },
+    {
+      "soort": "Association",
+      "van": "Onderwijsplan",
+      "naar": "Nominale Leerroute",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Onderwijsteam Vlekkenplan",
+      "naar": "Meerjaren planning",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Onderwijsteam Vlekkenplan",
+      "naar": "Onderwijs locatie",
+      "label": "Heeft"
+    },
+    {
+      "soort": "Association",
+      "van": "Onderwijsvorm specificatie",
+      "naar": "Gewenste Onderwijskundige Leeromgeving",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Opleidings-onderdeel",
+      "naar": "Leerdoel",
+      "label": "Heeft precies 1"
+    },
+    {
+      "soort": "Association",
+      "van": "Persoonlijke leerroute",
+      "naar": "Door Student Gewenste Leervorm",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Persoonlijke leerroute",
+      "naar": "Door Student gewenste verhouding BOT/OOT",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Persoonlijke leerroute",
+      "naar": "Opleidings-onderdeel",
+      "label": "bestaat uit"
+    },
+    {
+      "soort": "Association",
+      "van": "Persoonlijke leerroute",
+      "naar": "Persoonlijke ontwikkeling",
+      "label": "geeft richting aan"
+    },
+    {
+      "soort": "Association",
+      "van": "Persoonlijke leerroute",
+      "naar": "Stamgroep / Klas",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Persoonlijke ontwikkeling",
+      "naar": "Formatieve resultaat structuur",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Plangroepering / Concept Lesgroep",
+      "naar": "Leeractiviteit",
+      "label": "Word gekoppeld aan"
+    },
+    {
+      "soort": "Association",
+      "van": "Programmaregelement",
+      "naar": "Onderwijs programma",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "SBU en BOT van verzamelde leervormen",
+      "naar": "Collectie van Leervormen",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Schaarste van middelen",
+      "naar": "Onderwijsaanbod Model",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Schaartste van mensen",
+      "naar": "Onderwijsaanbod Model",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Sociaal-Pedagogosche achtergrond",
+      "naar": "Leervraag",
+      "label": "beinvloedt"
+    },
+    {
+      "soort": "Association",
+      "van": "Stamgroep / Klas",
+      "naar": "Onderwijs locatie",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Student",
+      "naar": "Inschrijving",
+      "label": "sluit"
+    },
+    {
+      "soort": "Association",
+      "van": "Student",
+      "naar": "Leeromgeving",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Student",
+      "naar": "Student Persoonlijke Ontwikkelingswallet",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Student Persoonlijke Ontwikkelingswallet",
+      "naar": "Door Student Gewenste Leervorm",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Student Persoonlijke Ontwikkelingswallet",
+      "naar": "Door Student gewenste verhouding BOT/OOT",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Student Persoonlijke Ontwikkelingswallet",
+      "naar": "vraag naar competenties / leeruitkomsten",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Studiebelasting en begeleide onderwijstijd indicatie",
+      "naar": "Onderwijsvorm specificatie",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Summatief resultaat",
+      "naar": "Behaalde / Aangetoonde Leertuikomsten / Skills / Vaardigheden",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Summatieve beoordeling",
+      "naar": "Summatief resultaat",
+      "label": "met"
+    },
+    {
+      "soort": "Association",
+      "van": "Summatieve resultaat structuur",
+      "naar": "Summatief resultaat",
+      "label": "conform"
+    },
+    {
+      "soort": "Association",
+      "van": "Summatieve resultaat structuur",
+      "naar": "Waarde document (diploma / certificaat)",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Toets",
+      "naar": "Formatieve resultaat structuur",
+      "label": "Functioneel gekoppeld"
+    },
+    {
+      "soort": "Association",
+      "van": "Toets",
+      "naar": "Leeruitkomst",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Toets",
+      "naar": "Toetsinstrument",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Toetsinstrument",
+      "naar": "Toetsmoment",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Toetsplan",
+      "naar": "Formatieve resultaat structuur",
+      "label": "Komt voort uit"
+    },
+    {
+      "soort": "Association",
+      "van": "Toetsplankader",
+      "naar": "Toetsplan",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Toetsvorm",
+      "naar": "Duur Leervorm",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Toetsvorm",
+      "naar": "Toets",
+      "label": "heeft een"
+    },
+    {
+      "soort": "Association",
+      "van": "Toetsvorm",
+      "naar": "Toetsinstrument",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Werkproces",
+      "naar": "Collectie van leeruitkomsten",
+      "label": "Heeft precies één"
+    },
+    {
+      "soort": "Association",
+      "van": "Werkproces",
+      "naar": "Leeruitkomst",
+      "label": "Collectie van"
+    },
+    {
+      "soort": "Association",
+      "van": "vraag naar competenties / leeruitkomsten",
+      "naar": "Collectie van Lesuitkomsten",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "vraag naar competenties / leeruitkomsten",
+      "naar": "Inzicht",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "vraag naar competenties / leeruitkomsten",
+      "naar": "Kennis",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "vraag naar competenties / leeruitkomsten",
+      "naar": "Leeruitkomst",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "vraag naar competenties / leeruitkomsten",
+      "naar": "Leervraag",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "vraag naar competenties / leeruitkomsten",
+      "naar": "Lesuitkomst",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "vraag naar competenties / leeruitkomsten",
+      "naar": "Stamgroep / Klas",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "vraag naar competenties / leeruitkomsten",
+      "naar": "Vaardigheid",
+      "label": null
+    },
+    {
+      "soort": "Specialization",
+      "van": "(Didactische) Leervorm",
+      "naar": "Toetsvorm",
+      "label": null
+    },
+    {
+      "soort": "Specialization",
+      "van": "Collectie van Leervormen",
+      "naar": "(Didactische) Leervorm",
+      "label": null
+    },
+    {
+      "soort": "Specialization",
+      "van": "Collectie van Lesuitkomsten",
+      "naar": "Lesuitkomst",
+      "label": null
+    },
+    {
+      "soort": "Specialization",
+      "van": "Competenties / skills",
+      "naar": "Leervraag",
+      "label": null
+    },
+    {
+      "soort": "Specialization",
+      "van": "Context",
+      "naar": "Leervraag",
+      "label": null
+    },
+    {
+      "soort": "Specialization",
+      "van": "Eenheid met waardedocument",
+      "naar": "Module",
+      "label": null
+    },
+    {
+      "soort": "Specialization",
+      "van": "Examen",
+      "naar": "Leertaak",
+      "label": null
+    },
+    {
+      "soort": "Specialization",
+      "van": "Formatieve beoordeling",
+      "naar": "Beoordeling",
+      "label": null
+    },
+    {
+      "soort": "Specialization",
+      "van": "Gewenste Onderwijskundige Leeromgeving",
+      "naar": "Onderwijsruimte type",
+      "label": null
+    },
+    {
+      "soort": "Specialization",
+      "van": "Leeruitkomst",
+      "naar": "Collectie van Lesuitkomsten",
+      "label": null
+    },
+    {
+      "soort": "Specialization",
+      "van": "OER",
+      "naar": "Programmaregelement",
+      "label": null
+    },
+    {
+      "soort": "Specialization",
+      "van": "Onderwijsruimte type",
+      "naar": "Lokaal",
+      "label": null
+    },
+    {
+      "soort": "Specialization",
+      "van": "Onderwijsvorm specificatie",
+      "naar": "Collectie van Leervormen",
+      "label": null
+    },
+    {
+      "soort": "Specialization",
+      "van": "Opleidings-onderdeel",
+      "naar": "Eenheid met waardedocument",
+      "label": null
+    },
+    {
+      "soort": "Specialization",
+      "van": "Persoonlijke ontwikkeling",
+      "naar": "Behaalde / Aangetoonde Leertuikomsten / Skills / Vaardigheden",
+      "label": null
+    },
+    {
+      "soort": "Specialization",
+      "van": "Plangroepering / Concept Lesgroep",
+      "naar": "Lesgroep",
+      "label": null
+    },
+    {
+      "soort": "Specialization",
+      "van": "Programma Specificatie",
+      "naar": "Keuzedeel",
+      "label": null
+    },
+    {
+      "soort": "Specialization",
+      "van": "SBU en BOT van verzamelde leervormen",
+      "naar": "Start- en eind datumtijd les",
+      "label": null
+    },
+    {
+      "soort": "Specialization",
+      "van": "Strategisch kader start/stop opleidingsaanbod",
+      "naar": "Instroom moment opleiding",
+      "label": null
+    },
+    {
+      "soort": "Specialization",
+      "van": "Studiebelasting en begeleide onderwijstijd indicatie",
+      "naar": "SBU en BOT van verzamelde leervormen",
+      "label": null
+    },
+    {
+      "soort": "Specialization",
+      "van": "Summatieve beoordeling",
+      "naar": "Beoordeling",
+      "label": null
+    },
+    {
+      "soort": "Specialization",
+      "van": "Toetsinstrument",
+      "naar": "Collectie van Leermiddelgroepen",
+      "label": null
+    },
+    {
+      "soort": "Specialization",
+      "van": "Toetsmoment",
+      "naar": "Les",
+      "label": null
+    },
+    {
+      "soort": "Specialization",
+      "van": "Toetsvormspecificatie",
+      "naar": "Onderwijsvorm specificatie",
+      "label": null
+    },
+    {
+      "soort": "Specialization",
+      "van": "Toetsvormspecificatie",
+      "naar": "Toetsvorm",
+      "label": null
+    }
+  ]
+}
