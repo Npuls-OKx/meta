@@ -20,6 +20,16 @@ python3 scripts/validate-archimate.py architecture/model/model.archimate
 
 Controleert dode verwijzingen, dubbele id's en XML-welgevormdheid; exitcode ≠ 0 bij problemen.
 
+En vergelijk met de versie waarop gewerkt wordt, want een merge die alleen invoegt levert een geldig bestand op dat toch minder draagt:
+
+```bash
+python3 scripts/controleer-modelverlies.py --git origin/dev architecture/model/model.archimate
+```
+
+Meldt per element wat verdween, met naam en id. Weghalen mag, zolang het met opzet gebeurt: draai dan met `--toegestaan <aantal>`.
+
+Beide controles draaien ook automatisch. De workflow [`model.yml`](../../.github/workflows/model.yml) start zodra een pull request of een push naar `dev` een `.archimate` raakt, en alleen dan. Zij kijkt eerst op conflictmarkeringen, dan op de interne samenhang, en dan op verlies ten opzichte van de basis.
+
 ## Nooit tekstueel mergen
 
 Een `.archimate` mag **nooit** regelgebaseerd worden samengevoegd — niet door git, niet met de hand. `.gitattributes` dwingt dit af (`-merge`): git weigert het bestand te mergen en vraagt om een expliciete keuze voor één kant. De andere kant breng je terug via **Archi → File → Import → Another model into the selected model** (Archi merget op ID-niveau).
