@@ -34,7 +34,7 @@ Uitgebreider en voor nieuwe bijdragers: sectie *Waar draait deze repository om?*
 
 1. Start met een issue (vraag, voorstel, meeting follow-up, ADR-voorstel).
 2. Werk het uit in een PR met concrete wijzigingen: 1 issue = 1 branch = 1 PR.
-3. Link in de PR naar het issue (Fixes #123 / See also #456).
+3. Link in de PR naar het issue. Lost de PR het issue op, zet dan `Closes #123` op een eigen regel; raakt hij het alleen, dan `See also #456`. Het sluitwoord blijft Engels, want GitHub leest het.
 4. Als het een architectuurbesluit is: voeg of wijzig een ADR in [Referentiemateriaal/adr in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr) en link naar notulen/issues.
 
 ### Branchingstrategie & Pull Requests

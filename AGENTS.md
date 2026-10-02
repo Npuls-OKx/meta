@@ -24,7 +24,7 @@ De werkafspraken zijn levend; wijzigen via PR.
 - **Scenario's**: leerroutes 1-3 met de persona's uit de [leerroute-uitwerking](architecture/docs/specificatie/leerroute-uitwerking/README.md); latere leerroutes als delta.
 - **Intra-instelling eerst**, federatie gefaseerd (ADR 0008).
 - **Taal**: Nederlands, IT-vaktermen tussen haakjes. Stijl: [.cursor/rules/schrijfstijl.mdc](.cursor/rules/schrijfstijl.mdc).
-- **Semantiek**: de zes begrippenfamilies uit de ankertabel in het [begrippenkader van de leerroute-uitwerking](architecture/docs/specificatie/leerroute-uitwerking/doc/begrippenkader.md) (kwalificatiekader, beoogde leeruitkomst, onderwijsspecificatie, onderwijsaanbod, onderwijsverbintenis, onderwijsresultaat); de leeruitkomst is de sleutel, onderwijsresultaten hangen aan leeruitkomsten. Subtypen voluit met backquotes; geen verzonnen termen. Een koppeling is de informatiestroom tussen twee componenten; een koppelvlak is de verzameling koppelingen van één component.
+- **Semantiek**: de zeven begrippenfamilies uit het [informatiemodel OKx](architecture/model/informatiemodel/informatiemodel.md) (kwalificatiekader, onderwijskundig kader instelling, onderwijsspecificatie, onderwijsaanbod, onderwijsverbintenis, onderwijsresultaat, resultaatstructuur), met de definities per begrip in de [begrippenlijst](architecture/docs/specificatie/begrippen/begrippenlijst.md); het [begrippenkader van de leerroute-uitwerking](architecture/docs/specificatie/leerroute-uitwerking/doc/begrippenkader.md) is de voorloper. De leeruitkomst is de sleutel: specificaties en de resultaatstructuur verwijzen ernaar; resultaten ontstaan op de verbintenis en vormen via de resultaatstructuur het bewijs voor een leeruitkomst. Subtypen voluit met backquotes; geen verzonnen termen. Een koppeling is de informatiestroom tussen twee componenten; een koppelvlak is de verzameling koppelingen van één component.
 - **Geen metadatakop (frontmatter)** in deliverables en agent-artifacten: GitHub (git-historie, issues, PR's) is de bron voor auteurschap, datums en traceerbaarheid; verwijs in de tekst ("Relateert aan: #12"). Uitzondering: `SKILL.md`-bestanden en `.mdc`-rules houden hun verplichte metadatakop (naam, beschrijving, `alwaysApply`).
 
 ## Harde regels
@@ -34,6 +34,51 @@ De werkafspraken zijn levend; wijzigen via PR.
 3. **1 issue = 1 branch = 1 PR**, feature-branches vanaf `dev`, alleen het OKx-team merget ([CONTRIBUTING.md](CONTRIBUTING.md)).
 4. **Deliverables volgen de product-flow** (requirements, uitwerking, onafhankelijke review; zie hieronder).
 5. Markdown-deliverables halen de voorcontrole: `python3 scripts/validate-docs.py <pad>`.
+6. **Specificeren bovenop OEAPI gaat via een submodule, nooit via een fork.** De OEAPI-specificatie komt binnen als git-submodule op een vastgezet versielabel; het OKx-werk ligt daar als overlay bovenop. Zie [Specificeren bovenop OEAPI](#specificeren-bovenop-oeapi).
+
+## Specificeren bovenop OEAPI
+
+OKx bouwt voort op de [Open Education API](https://github.com/open-education-api/specification). Dat gebeurt met een **git-submodule op een vastgezet versielabel**, en niet met een fork. Een fork kan de specificatie aanpassen en gaat daarmee uit de pas lopen met de standaard; dat is precies wat OKx wil voorkomen.
+
+De vorm staat in [oeapi-profile-example](https://github.com/open-education-api/oeapi-profile-example) van OEAPI zelf:
+
+```text
+OEAPI base specification
++ profile overlay
++ consumer overlay
+= gegenereerde OpenAPI-specificatie
+```
+
+De basis komt binnen als submodule, met een label in plaats van een branch:
+
+```text
+[submodule "base/oeapi"]
+	path = base/oeapi
+	url = https://github.com/open-education-api/specification.git
+```
+
+| | |
+|---|---|
+| Vastzetten | De submodule staat op een versielabel, bijvoorbeeld `v6.0-rc.3`, zodat de basis niet onder het werk verschuift |
+| Meebewegen | Overgaan naar een volgende OEAPI-versie betekent de submodule naar dat nieuwe label verzetten, waarna de overlay opnieuw wordt samengevoegd |
+| Samenvoegen | De overlay gaat over de basis heen met `overlay-merger.js`; het resultaat komt in `generated/` en wordt niet met de hand bijgewerkt |
+| Afwijken | Een verschil tussen een OKx-eis en wat OEAPI toestaat blijft een signalering richting de standaard, en wordt geen aanpassing in de basis |
+
+De mappenindeling die OEAPI aanraadt:
+
+```text
+<profiel-repository>/
+├── base/oeapi/source/        de submodule, alleen-lezen
+└── <profiel>/
+    ├── profile.yaml
+    ├── source/
+    │   ├── spec.yaml
+    │   ├── paths/ schemas/
+    │   └── consumers/<consumer>/
+    └── generated/
+```
+
+Dit vervangt de fork `Npuls-OKx/specification`, die op verzoek van de OEAPI-beheerder is opgeheven. Het werk dat daarin stond is bewaard in `architecture/agent-artifacts/eerste-vertaalpoging-naar-oeapi-met-ai/`, met een leeswijzer die de status erbij zegt.
 
 ## Waar vind ik wat
 
