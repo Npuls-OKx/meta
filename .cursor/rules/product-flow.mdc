@@ -1,14 +1,19 @@
 ---
-description: Product-flow verplicht voor deliverables (requirements, uitwerking, onafhankelijke review)
+description: Product-flow verplicht voor deliverables (story, acceptatiecriteria, plan met tegenlezing, uitwerking met onafhankelijke review, waardevalidatie)
 alwaysApply: true
 ---
 
-Elk nieuw of substantieel gewijzigd deliverable (requirements-document, payload-specificatie, koppelingspecificatie, ADR, scenario) volgt de product-flow uit `.agents/skills/okx-product-flow/SKILL.md`:
+Elk nieuw of substantieel gewijzigd deliverable (requirements-document, payload-specificatie, koppelingspecificatie, ADR, scenario, script) volgt de product-flow uit `.agents/skills/okx-product-flow/SKILL.md`. Elke iteratie begint bij waarde voor een benoemde gebruiker en eindigt met de controle of die waarde geleverd is. Het doel is een eerste iteratie die waarde levert, niet een volmaakt resultaat.
 
-- Eerst toetsbare requirements met acceptatiecriteria, vastgesteld met de gebruiker.
-- Dan de uitwerking met de passende specialist-skill.
-- Dan verplicht onafhankelijke review in verse subagent-contexten: tester (`okx-requirements-tester`) en specialist (`okx-semantiek-review`). De maker reviewt niet zijn eigen werk.
-- Itereren tot beide reviews slagen; afsluiten met het agent-rapport in de PR-beschrijving.
+- **Story eerst.** Elk issue opent met: als `<gebruiker>` wil ik `<X>` met als doel dat `<waarde>`. Zonder benoemde gebruiker en benoemde waarde begint het werk niet. Een werkwijze-issue krijgt wel een story en geen plek in de requirementsboom.
+- **Acceptatiecriteria in het issue**, niet in een los document, en tot stand gekomen in gesprek met de opdrachtgever: vragen met opties en een aanbeveling. Toetsbaar betekent dat twee mensen er los van elkaar hetzelfde oordeel over geven. Per criterium ten minste een testgeval in de drieslag gegeven, wanneer, dan. **Stopmoment: zonder akkoord op de criteria geen plan en geen uitwerking.**
+- **Implementatieplan** daarna, autonoom, met per stap de bestanden, de volgorde en hoe elk criterium wordt nagerekend.
+- **Tegenlezing van het plan** door een onafhankelijke agent in een verse context, op het sterkste beschikbare model met hoge inspanning, die alleen het issue en het plan krijgt. Afkeuren mag op vier gronden: een criterium dat niet toetsbaar is of geen waarde beschrijft, een plan dat de waarde niet levert, een richting die de waarde ondergraaft of de volgende iteratie blokkeert, en een increment dat te groot is. Afkeuren mag niet op volledigheid buiten de criteria, op smaak in de vorm, of op het ontbreken van volmaaktheid.
+- **Stopmoment: groen licht van de opdrachtgever** na een geslaagde tegenlezing. Zonder dat akkoord begint de uitvoering niet. Onomkeerbare stappen en stappen buiten de eigen repository worden daarbij apart benoemd.
+- **Uitwerking** met de passende specialist-skill, daarna verplicht onafhankelijke review in verse subagent-contexten: tester (`okx-requirements-tester`), specialist (`okx-semantiek-review`) en schrijfstijl (`okx-schrijfstijl-review`). De maker reviewt niet zijn eigen werk.
+- **Waardevalidatie na oplevering**: levert het geleverde de waarde uit de story, zoals begroot. De uitkomst is geleverd zoals begroot, of een lijst vervolgpunten die kleine iteraties worden.
+- **De lus is begrensd**: ten hoogste drie ronden met de tegenlezer en ten hoogste drie iteraties in de review van het resultaat, daarna escaleren met de openstaande bevindingen en per bevinding of die een eerste waardevolle iteratie blokkeert. Deugen de criteria niet, dan terug naar de criteria.
+- **Het verloop staat in het issue of de pull request**: akkoord op de criteria, planversies, oordelen van de tegenlezer, menselijk akkoord, en de uitkomst van de waardevalidatie. Het agent-rapport in de PR-beschrijving draagt die regels.
 - Testgevallen zijn expliciet en naloopbaar (afspraak 26 augustus, issue #172): een script of
   valideerbare definitie krijgt tests in de map `tests/` (`tests/test_<naam>.py`, stdlib
   `unittest`, draaibaar met `python3 -m unittest discover -s tests`). Elk testgeval volgt de
@@ -18,4 +23,4 @@ Elk nieuw of substantieel gewijzigd deliverable (requirements-document, payload-
   beweringen als "getest" zonder naloopbare gevallen tellen niet als verificatie. Testgevallen
   worden opgesteld en beoordeeld met de persona `.agents/skills/okx-test-persona/SKILL.md`.
 
-Sla de review niet over "omdat het klein is"; kleine wijzigingen aan bestaande documenten (typo's, losse verwijzingen) vallen buiten deze plicht.
+**Lichte vorm.** Een kleine taak volstaat met twee regels criteria zonder gespreksronde, zonder plan en zonder tegenlezing: geen deliverable, hoogstens een enkel bestand, geen keuze in de oplossingsrichting. Een typefout, een dode verwijzing, een losse naamswijziging. Alles daarbuiten volgt de zware vorm; sla die niet over "omdat het klein is".

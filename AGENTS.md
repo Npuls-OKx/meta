@@ -32,7 +32,7 @@ De werkafspraken zijn levend; wijzigen via PR.
 1. **Raak nooit een `*.archimate`-bestand aan.** Nooit tekstueel mergen; zie [architecture/model/README.md](architecture/model/README.md) en ADR 0010. Vóór elke model-commit: `python3 scripts/validate-archimate.py`.
 2. **Installaties alleen in de dev-container**, nooit op de host ([.cursor/rules/dev-omgeving.mdc](.cursor/rules/dev-omgeving.mdc); een controlescript (hook) bewaakt dit).
 3. **1 issue = 1 branch = 1 PR**, feature-branches vanaf `dev`, alleen het OKx-team merget ([CONTRIBUTING.md](CONTRIBUTING.md)).
-4. **Deliverables volgen de product-flow** (requirements, uitwerking, onafhankelijke review; zie hieronder).
+4. **Deliverables volgen de product-flow**: story met gebruiker en waarde, acceptatiecriteria in het issue, plan met tegenlezing, uitwerking met onafhankelijke review, waardevalidatie. Twee stopmomenten, beide bij de opdrachtgever: akkoord op de criteria, en groen licht op het plan. Zie [hieronder](#product-flow-samenvatting).
 5. Markdown-deliverables halen de voorcontrole: `python3 scripts/validate-docs.py <pad>`.
 6. **Specificeren bovenop OEAPI gaat via een submodule, nooit via een fork.** De OEAPI-specificatie komt binnen als git-submodule op een vastgezet versielabel; het OKx-werk ligt daar als overlay bovenop. Zie [Specificeren bovenop OEAPI](#specificeren-bovenop-oeapi).
 
@@ -106,7 +106,19 @@ De koppelingspecificaties per koppeling (OC-P&R, OC-SIS, OC-LMS) leven als inter
 
 ### Product-flow (samenvatting)
 
-Elk deliverable doorloopt de keten uit [.agents/skills/okx-product-flow/SKILL.md](.agents/skills/okx-product-flow/SKILL.md): **requirements** opstellen met de business-analyse-persona, **uitwerken** met de specialist-skill, **onafhankelijke review** door tester en specialist in verse subagent-contexten, **itereren** tot beide reviews slagen, en afsluiten met een kort **agent-rapport** in de PR-beschrijving. Start via het command `product-flow`.
+Elk deliverable doorloopt de keten uit [.agents/skills/okx-product-flow/SKILL.md](.agents/skills/okx-product-flow/SKILL.md). Elke iteratie begint bij waarde voor een benoemde gebruiker en eindigt met de controle of die waarde geleverd is; het doel is een eerste iteratie die waarde levert, niet een volmaakt resultaat.
+
+| Stap | Wat er gebeurt |
+|---|---|
+| 0 | **Story**: als `<gebruiker>` wil ik `<X>` met als doel dat `<waarde>`. Zonder benoemde gebruiker en waarde begint het werk niet |
+| 1 | **Acceptatiecriteria** in gesprek scherp gemaakt en vastgelegd in het issue, met per criterium een testgeval. *Stopmoment: akkoord van de opdrachtgever* |
+| 2 | **Implementatieplan**, autonoom |
+| 3 | **Tegenlezing van het plan** door een onafhankelijke agent in een verse context, die afkeurt op vier gronden en niet op volledigheid of smaak |
+| 4 | *Stopmoment: groen licht van de opdrachtgever* |
+| 5 | **Uitwerken** met de specialist-skill, daarna onafhankelijke review door tester, specialist en schrijfstijl in verse subagent-contexten |
+| 6 | **Waardevalidatie**: levert het geleverde de waarde uit de story. Vervolgpunten worden kleine iteraties |
+
+De lus is begrensd op drie ronden per poort; daarna escaleert de agent met de openstaande bevindingen. Het verloop staat in het issue of in het **agent-rapport** in de PR-beschrijving. Een werkwijze-issue draagt wel een story en krijgt geen plek in de requirementsboom. Start via het command `product-flow`.
 
 ## Skills toevoegen of bijwerken
 
