@@ -16,9 +16,14 @@ Governance:
 - Kerngroep OKx geeft periodiek prioriteiten en richting op basis van issues, milestones en PR's (milestones handmatig beheerd).
 
 Workflow regels:
-- Link PR's aan issues (Fixes #... / See also #...). Let op: "Fixes" sluit een issue
-  alleen automatisch bij een merge naar de default branch (main); na een merge naar
-  `dev` sluit je het issue handmatig, met een comment die naar de PR verwijst.
+- Link PR's aan issues. Een PR die een issue oplost opent met het sluitwoord op een
+  eigen regel: `Closes #123`. Dat woord is syntaxis die GitHub leest, dus het blijft
+  Engels; een Nederlandse formulering als "Lost #123 op" telt niet mee en laat het issue
+  openstaan. Raakt een PR een issue zonder het op te lossen, gebruik dan `See also #456`.
+- Een sluitwoord werkt pas bij een merge naar de default branch (`main`). Na een merge
+  naar `dev` blijft het issue dus staan tot `dev` op `main` landt; dat is zichtbaar en
+  klopt. Is het issue daarvoor al rond, sluit het dan met de hand, met een comment die
+  naar de PR verwijst.
 - Elk issue hangt onder een milestone; een grotere klus krijgt een eigen milestone.
   Milestones zijn herleidbaar naar de requirementsboom (Npuls-OKx/Public,
   Referentiemateriaal/requirementsboom: doel, epic of feature).
