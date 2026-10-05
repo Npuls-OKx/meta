@@ -1,0 +1,18 @@
+{
+  "toelichting": "Stromen die een nieuwere versie van de hoofdplaat kent en de gepubliceerde versie nog niet. Deze bestaan niet als relatie in het ArchiMate-model: dat wijzigt alleen de modelleur in Archi, en de gepubliceerde view is de bron van stromen.json. Een aanvulling hier laat een voorbeeld toch naar zo'n stroom verwijzen, met haar herkomst en status erbij, en exporteer-archimate-view.py voegt haar bij elke export opnieuw toe. Zodra de modelleur de stroom in het model opneemt vervalt de aanvulling en komt zij uit de view.",
+  "aanvullingen": [
+    {
+      "id": "aanvulling-svs-naar-sks-voltooide-verbintenissen",
+      "van": "Student volg systeem (SVS)",
+      "naar": "Student Keuze Systeem (SKS)",
+      "soort": "Flow",
+      "label": "Opleidingsprogramma- en onderwijseenheid aanbodverbintenis van de student voltooid, voor het vrijgeven van conditionele keuzes",
+      "koppeling": "zonder koppelingspecificatie",
+      "objecten": ["Opleidingsprogramma aanbod verbintenis", "Onderwijseenheid aanbod verbintenis"],
+      "aanleiding": "beide verbintenissen zijn voltooid",
+      "herkomst": "OKx hoofdplaat 1.7a",
+      "status": "nog niet gepubliceerd",
+      "bron": "https://github.com/Npuls-OKx/meta/pull/252#discussion_r4137854450"
+    }
+  ]
+}
