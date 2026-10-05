@@ -11,6 +11,7 @@ Hier slaan we **onderzoeksverslagen**, **projectaanvragen**, **featureplannen** 
 | [`feature-plans/`](feature-plans/) | Featureplannen uit een request (`/maak-plan`) |
 | [`design-docs/`](design-docs/) | Ontwerp per feature (`/ontwerp-document`) |
 | [`eerste-vertaalpoging-naar-oeapi-met-ai/`](eerste-vertaalpoging-naar-oeapi-met-ai/) | Afgesloten verkenning uit april en mei 2026, bewaard uit de verwijderde fork |
+| [`voorbeelduitwerking-leerroute-1/`](voorbeelduitwerking-leerroute-1/) | Het voorwerk van september 2026 onder de voorbeelduitwerking van Jochem: de analyse per laag, het plan en de vormtaal |
 
 De volgorde is de volgorde van het werk: onderzoek onderbouwt een besluit, een projectaanvraag beschrijft wat we willen maken, een featureplan knipt dat op, en een ontwerpdocument werkt één onderdeel uit. Een afgesloten lijn van werk mag een eigen map krijgen met een leeswijzer erin, zoals [`eerste-vertaalpoging-naar-oeapi-met-ai/`](eerste-vertaalpoging-naar-oeapi-met-ai/); die map bewaart wat anders zou verdwijnen en zegt erbij wat de status is. De mapnaam zegt wat het was, niet wat het had moeten worden. Het besluit zelf hoort niet hier maar als ADR in [`Npuls-OKx/Public`](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr).
 
