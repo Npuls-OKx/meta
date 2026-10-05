@@ -16,12 +16,25 @@ Governance:
 - Kerngroep OKx geeft periodiek prioriteiten en richting op basis van issues, milestones en PR's (milestones handmatig beheerd).
 
 Workflow regels:
-- Link PR's aan issues (Fixes #... / See also #...). Let op: "Fixes" sluit een issue
-  alleen automatisch bij een merge naar de default branch (main); na een merge naar
-  `dev` sluit je het issue handmatig, met een comment die naar de PR verwijst.
+- Link PR's aan issues. Een PR die een issue oplost opent met het sluitwoord op een
+  eigen regel: `Closes #123`. Dat woord is syntaxis die GitHub leest, dus het blijft
+  Engels; een Nederlandse formulering als "Lost #123 op" telt niet mee en laat het issue
+  openstaan. Raakt een PR een issue zonder het op te lossen, gebruik dan `See also #456`.
+- Een sluitwoord werkt pas bij een merge naar de default branch (`main`). Na een merge
+  naar `dev` blijft het issue dus staan tot `dev` op `main` landt; dat is zichtbaar en
+  klopt. Is het issue daarvoor al rond, sluit het dan met de hand, met een comment die
+  naar de PR verwijst.
+- Elk issue opent met een story: als `<gebruiker>` wil ik `<X>` met als doel dat
+  `<waarde>`. Zonder benoemde gebruiker en benoemde waarde begint het werk niet; de
+  volledige keten staat in `.cursor/rules/product-flow.mdc`.
 - Elk issue hangt onder een milestone; een grotere klus krijgt een eigen milestone.
   Milestones zijn herleidbaar naar de requirementsboom (Npuls-OKx/Public,
   Referentiemateriaal/requirementsboom: doel, epic of feature).
+- Een werkwijze-issue is de uitzondering op die herleiding: werk aan onze eigen werkplek,
+  gereedschap of harnas draagt wel een story en krijgt geen plek in de requirementsboom,
+  want de boom beschrijft de OKx-keten. De milestone is dan herleidbaar naar het
+  maakvermogen, en dat staat in de beschrijving van die milestone. Zulk werk is niet
+  minder waard en wordt niet onderschat.
 - Als iets een architectuurbesluit is, leg het vast als ADR in [Referentiemateriaal/adr in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr) en link naar issues en notulen.
 - Meetings: vastleggen -> (optioneel) transcriberen -> samenvatten in architecture/meetings/. Notulen voeden issues en PR's.
 
