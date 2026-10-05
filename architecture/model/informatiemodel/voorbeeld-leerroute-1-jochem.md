@@ -616,8 +616,9 @@ De vragen die de regels zelf oproepen, met de regel waar de vraag zichtbaar word
 ### Vragen, vervolg (2 van 2)
 
 8. Een toetsgelegenheid vindt plaats binnen een leergelegenheid, maar het resultaat telt op de onderwijseenheid. Hangt een toetsgelegenheidresultaat aan de leergelegenheidverbintenis of aan de onderwijseenheidverbintenis, formatief zowel als summatief? (F5-04, `Onderwijseenheid resultaat`)
+9. Hoort de keuzeregelset bij het keuzedeel of bij het keuzedeelaanbod? De plaat hangt Student keuze regelset aan het keuzedeel, terwijl periode en locatie eigenschappen van het aanbod zijn. Ligt de regelset bij het aanbod, dan liggen haar condities op het niveau van de verbintenis. (F6-02, `Student keuze regelset`)
 
-De eerste 7 vragen gaan als ronde mee naar de kerngroep; dat is wat een sessie kan wegen. De overige vraag staat hierboven en wacht op een volgende ronde.
+De eerste 7 vragen gaan als ronde mee naar de kerngroep; dat is wat een sessie kan wegen. De overige 2 staan hierboven en wachten op een volgende ronde.
 
 Vragen over patronen, schema's, de toetslijst en endpoints horen bij de koppelvlakspecificatie en staan hier niet.
 
