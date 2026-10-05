@@ -40,6 +40,21 @@
         "Summatief Afrondingscriterium",
         "Cohort / periode"
       ],
+      "uitwisselingen": [
+        {
+          "van": "Curriculum ontwerptool",
+          "naar": "Onderwijscatalogus",
+          "objecten": [
+            "opleidingsspecificatie",
+            "opleidingsprogramma-specificatie",
+            "onderwijseenheid-specificatie",
+            "toetsonderdeel-specificatie",
+            "examenonderdeel-specificatie"
+          ],
+          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 1: Wat licht op in de plaat"
+        }
+      ],
+      "dekking": "open",
       "link": "https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-1--kwalificatiekader-analyseren-en-grofmazig-ontwerpen"
     },
     {
@@ -62,6 +77,35 @@
         "Leergelegenheid",
         "Toetsgelegenheid"
       ],
+      "uitwisselingen": [
+        {
+          "van": "Onderwijscatalogus",
+          "naar": "Planningssysteem",
+          "objecten": [
+            "opleidingsspecificatie als planopgave"
+          ],
+          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 2: Wat licht op in de plaat"
+        },
+        {
+          "van": "Curriculum ontwerptool",
+          "naar": "Onderwijscatalogus",
+          "objecten": [
+            "specificatie-update",
+            "plan-assets"
+          ],
+          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 2: Wat licht op in de plaat"
+        },
+        {
+          "van": "Planningssysteem",
+          "naar": "Onderwijscatalogus",
+          "objecten": [
+            "opleidingsaanbod",
+            "opleidingsprogramma-aanbod"
+          ],
+          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 2: Wat licht op in de plaat"
+        }
+      ],
+      "dekking": "open",
       "link": "https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-2--publiceren-en-planbaar-maken"
     },
     {
@@ -84,6 +128,27 @@
         "Opleidingsprogramma aanbod verbintenis",
         "Plaatsingsgroep"
       ],
+      "uitwisselingen": [
+        {
+          "van": "Onderwijscatalogus",
+          "naar": "Intake systeem",
+          "objecten": [
+            "aanbod om op te orienteren"
+          ],
+          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 3: Wat licht op in de plaat"
+        },
+        {
+          "van": "Intake systeem",
+          "naar": "Kernregistratie systeem studenten (KRS)",
+          "objecten": [
+            "opleidingsverbintenis",
+            "opleidingsprogramma-verbintenis",
+            "Persoon"
+          ],
+          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 3: Wat licht op in de plaat"
+        }
+      ],
+      "dekking": "open",
       "link": "https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-3--instroom-intake-en-plaatsing"
     },
     {
@@ -107,6 +172,61 @@
         "Lesgelegenheid verbintenis",
         "Medewerker"
       ],
+      "uitwisselingen": [
+        {
+          "van": "Onderwijscatalogus",
+          "naar": "Leer management systeem (LMS)",
+          "objecten": [
+            "leeronderdeel-specificatie"
+          ],
+          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 4: Wat licht op in de plaat"
+        },
+        {
+          "van": "Planningssysteem",
+          "naar": "Kernregistratie systeem studenten (KRS)",
+          "objecten": [
+            "plaatsingsgroep",
+            "planninggroep"
+          ],
+          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 4: Wat licht op in de plaat"
+        },
+        {
+          "van": "Kernregistratie systeem studenten (KRS)",
+          "naar": "Planningssysteem",
+          "objecten": [
+            "Persoon",
+            "groepen in relatie tot de onderwijsspecificatie"
+          ],
+          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 4: Wat licht op in de plaat"
+        },
+        {
+          "van": "Planningssysteem",
+          "naar": "Roostersysteem",
+          "objecten": [
+            "te roosteren leeronderdeel-specificatie",
+            "te roosteren toetsonderdeel-specificatie"
+          ],
+          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 4: Wat licht op in de plaat"
+        },
+        {
+          "van": "Roostersysteem",
+          "naar": "Aanwezigheidsregistratie",
+          "objecten": [
+            "leergelegenheid-verbintenis als presentielijst"
+          ],
+          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 4: Wat licht op in de plaat"
+        },
+        {
+          "van": "Kernregistratie systeem studenten (KRS)",
+          "naar": "Leer management systeem (LMS)",
+          "objecten": [
+            "opleidingsprogramma-verbintenis",
+            "Persoon"
+          ],
+          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 4: Wat licht op in de plaat"
+        }
+      ],
+      "dekking": "open",
       "link": "https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-4--detailleren-roosteren-en-inschrijven"
     },
     {
@@ -133,6 +253,42 @@
         "Persoonlijke ontwikkeling",
         "Onderwijseenheid resultaat"
       ],
+      "uitwisselingen": [
+        {
+          "van": "Onderwijscatalogus",
+          "naar": "Leer management systeem (LMS)",
+          "objecten": [
+            "specificatie als referentiekader"
+          ],
+          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 5: Wat licht op in de plaat"
+        },
+        {
+          "van": "Onderwijscatalogus",
+          "naar": "Student volg systeem (SVS)",
+          "objecten": [
+            "specificatie als referentiekader"
+          ],
+          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 5: Wat licht op in de plaat"
+        },
+        {
+          "van": "Roostersysteem",
+          "naar": "Aanwezigheidsregistratie",
+          "objecten": [
+            "geroosterd aanbod tegenover aanwezigheidsfeiten"
+          ],
+          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 5: Wat licht op in de plaat"
+        },
+        {
+          "van": "Leer management systeem (LMS)",
+          "naar": "Student volg systeem (SVS)",
+          "objecten": [
+            "leergelegenheid-verbintenis resultaat",
+            "toetsgelegenheid-verbintenis resultaat"
+          ],
+          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 5: Wat licht op in de plaat"
+        }
+      ],
+      "dekking": "open",
       "link": "https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-5--onderwijs-uitvoeren-en-voortgang-begeleiden"
     },
     {
@@ -151,6 +307,66 @@
         "Keuzedeelaanbod",
         "Keuzedeel aanbod verbintenis"
       ],
+      "uitwisselingen": [
+        {
+          "van": "Onderwijscatalogus",
+          "naar": "Student Keuze Systeem (SKS)",
+          "objecten": [
+            "opleidingsprogramma-aanbod type keuzedeel",
+            "opleidingsprogramma-specificatie"
+          ],
+          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 6: Wat licht op in de plaat"
+        },
+        {
+          "van": "Student Keuze Systeem (SKS)",
+          "naar": "Planningssysteem",
+          "objecten": [
+            "opleidingsprogramma-verbintenis op gekozen aanbod"
+          ],
+          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 6: Wat licht op in de plaat"
+        },
+        {
+          "van": "Planningssysteem",
+          "naar": "Kernregistratie systeem studenten (KRS)",
+          "objecten": [
+            "inschrijving keuzedeel bij passend aanbod"
+          ],
+          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 6: Wat licht op in de plaat"
+        },
+        {
+          "van": "Planningssysteem",
+          "naar": "Onderwijscatalogus",
+          "objecten": [
+            "geactualiseerd planbaar aanbod"
+          ],
+          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 6: Wat licht op in de plaat"
+        },
+        {
+          "van": "Planningssysteem",
+          "naar": "Roostersysteem",
+          "objecten": [
+            "geactualiseerd geroosterd aanbod"
+          ],
+          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 6: Wat licht op in de plaat"
+        },
+        {
+          "van": "Kernregistratie systeem studenten (KRS)",
+          "naar": "Leer management systeem (LMS)",
+          "objecten": [
+            "deelnemerscontext"
+          ],
+          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 6: Wat licht op in de plaat"
+        },
+        {
+          "van": "Kernregistratie systeem studenten (KRS)",
+          "naar": "Student volg systeem (SVS)",
+          "objecten": [
+            "studiepad"
+          ],
+          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 6: Wat licht op in de plaat"
+        }
+      ],
+      "dekking": "open",
       "link": "https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-6--organiseren-van-keuzemomenten"
     },
     {
@@ -164,6 +380,34 @@
         "Nieuw aanbod maken en publiceren"
       ],
       "verwacht": [],
+      "uitwisselingen": [
+        {
+          "van": "Kernregistratie systeem studenten (KRS)",
+          "naar": "Planningssysteem",
+          "objecten": [
+            "gewijzigde populatie",
+            "plangroepen"
+          ],
+          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 7: Wat licht op in de plaat"
+        },
+        {
+          "van": "Planningssysteem",
+          "naar": "Onderwijscatalogus",
+          "objecten": [
+            "mutaties planbaar aanbod"
+          ],
+          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 7: Wat licht op in de plaat"
+        },
+        {
+          "van": "Planningssysteem",
+          "naar": "Roostersysteem",
+          "objecten": [
+            "nieuw rooster"
+          ],
+          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 7: Wat licht op in de plaat"
+        }
+      ],
+      "dekking": "open",
       "link": "https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-7--bijsturen-planning-en-aanbod"
     },
     {
@@ -189,6 +433,34 @@
         "Opleiding aanbod resultaat",
         "Waarde document (diploma / certificaat)"
       ],
+      "uitwisselingen": [
+        {
+          "van": "Toets- en examen planning",
+          "naar": "Toets- en examen afname systeem",
+          "objecten": [
+            "kandidatenlijst"
+          ],
+          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 8: Wat licht op in de plaat"
+        },
+        {
+          "van": "Toets- en examen afname systeem",
+          "naar": "Student volg systeem (SVS)",
+          "objecten": [
+            "examengelegenheid-verbintenis resultaat"
+          ],
+          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 8: Wat licht op in de plaat"
+        },
+        {
+          "van": "Student volg systeem (SVS)",
+          "naar": "Kernregistratie systeem studenten (KRS)",
+          "objecten": [
+            "kwalificering",
+            "diplomering"
+          ],
+          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 8: Wat licht op in de plaat"
+        }
+      ],
+      "dekking": "open",
       "link": "https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-8--examineren-vaststellen-en-diplomeren"
     }
   ],
