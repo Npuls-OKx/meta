@@ -3131,8 +3131,8 @@
       "soort": "ontstaat",
       "wie": "planner",
       "objecttype": "Opleidingaanbod",
-      "instantie": "Apothekersassistent 2026: vier perioden, 48 plaatsen",
-      "bron": "voorbeeldpayloads.md, aanbodInstanties[0] (7aa6609f); leerroute-1-regulier.md, r738 (aanbod is minimaal gepland zodra perioden en capaciteit vastliggen) en r1021 (stadium 2a, nog zonder lokalen en docenten)",
+      "instantie": "Apothekersassistent 2026: vier perioden, 36 plaatsen",
+      "bron": "voorbeeldpayloads.md, aanbodInstanties[0] (7aa6609f); leerroute-1-regulier.md, r738 (aanbod is minimaal gepland zodra perioden en capaciteit vastliggen) en r1021 (stadium 2a, nog zonder lokalen en docenten); scenario-1.1-regulier-happyflow.md, blok D (maatvoering uit de review van 29 september 2026)",
       "relatie": {
         "soort": "Aggregation",
         "van": "Opleidingsaanbod van Instelling",
@@ -3149,8 +3149,8 @@
       "soort": "ontstaat",
       "wie": "planner",
       "objecttype": "Opleidingsprogramma aanbod",
-      "instantie": "Regulier BOL 2026: 24 tot 48 studenten",
-      "bron": "voorbeeldpayloads.md, aanbodInstanties[1] (8c494250); leerroute-1-regulier.md, r738 (aanbod is minimaal gepland zodra perioden en capaciteit vastliggen) en r1021 (stadium 2a, nog zonder lokalen en docenten)",
+      "instantie": "Regulier BOL 2026: 18 tot 36 studenten",
+      "bron": "voorbeeldpayloads.md, aanbodInstanties[1] (8c494250); leerroute-1-regulier.md, r738 (aanbod is minimaal gepland zodra perioden en capaciteit vastliggen) en r1021 (stadium 2a, nog zonder lokalen en docenten); scenario-1.1-regulier-happyflow.md, blok D (maatvoering uit de review van 29 september 2026)",
       "relatie": {
         "soort": "Aggregation",
         "van": "Opleidingaanbod",
@@ -3185,8 +3185,8 @@
       "soort": "ontstaat",
       "wie": "planner",
       "objecttype": "Leergelegenheid",
-      "instantie": "Baliegesprekken 101, periode 1, twee groepen van 24",
-      "bron": "voorbeeldpayloads.md, aanbodInstanties[3] (04070a96)",
+      "instantie": "Baliegesprekken 101, periode 1, twee groepen van 18",
+      "bron": "voorbeeldpayloads.md, aanbodInstanties[3] (04070a96); scenario-1.1-regulier-happyflow.md, blok D (maatvoering uit de review van 29 september 2026)",
       "relatie": {
         "soort": "Aggregation",
         "van": "Onderwijseenheid aanbod",
@@ -3257,8 +3257,8 @@
       "wie": "planner",
       "aanname": true,
       "objecttype": "Onderwijsaanbod Model",
-      "instantie": "Jaarplan 2026-2027: prognose 48 instromers, twee groepen van 24, vier perioden van tien weken",
-      "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Planning bevat Onderwijsaanbod Model; leerroute-1-regulier.md, Fase 2: strategische jaarplanning",
+      "instantie": "Jaarplan 2026-2027: prognose 36 instromers, twee groepen van 18, vier perioden van tien weken",
+      "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Planning bevat Onderwijsaanbod Model; leerroute-1-regulier.md, Fase 2: strategische jaarplanning; scenario-1.1-regulier-happyflow.md, blok D (maatvoering uit de review van 29 september 2026)",
       "relatie": {
         "soort": "Association",
         "van": "Schaarste van middelen",
@@ -3441,8 +3441,8 @@
       "pijl": "id-020f091db6ea4763aad7527a98afaf99",
       "koppeling": "OC-P&R",
       "objecttype": "Opleidingaanbod",
-      "instantie": "Apothekersassistent 2026: vier perioden, 48 plaatsen",
-      "bron": "leerroute-1-regulier.md, Fase 2: Planning naar OC (opleidingsaanbod als planbaar resultaat); informatiemodel.json: de specificatie is geassocieerd met haar aanbod; het verzoek leidt tot aanbod",
+      "instantie": "Apothekersassistent 2026: vier perioden, 36 plaatsen",
+      "bron": "leerroute-1-regulier.md, Fase 2: Planning naar OC (opleidingsaanbod als planbaar resultaat); informatiemodel.json: de specificatie is geassocieerd met haar aanbod; het verzoek leidt tot aanbod; scenario-1.1-regulier-happyflow.md, blok D (maatvoering uit de review van 29 september 2026)",
       "toestand": "gepland",
       "relatie": {
         "soort": "Aggregation",
@@ -3477,8 +3477,8 @@
       "pijl": "id-020f091db6ea4763aad7527a98afaf99",
       "koppeling": "OC-P&R",
       "objecttype": "Opleidingsprogramma aanbod",
-      "instantie": "Regulier BOL 2026: 24 tot 48 studenten",
-      "bron": "leerroute-1-regulier.md, Fase 2; informatiemodel.json: de specificatie is geassocieerd met haar aanbod; het verzoek leidt tot aanbod",
+      "instantie": "Regulier BOL 2026: 18 tot 36 studenten",
+      "bron": "leerroute-1-regulier.md, Fase 2; informatiemodel.json: de specificatie is geassocieerd met haar aanbod; het verzoek leidt tot aanbod; scenario-1.1-regulier-happyflow.md, blok D (maatvoering uit de review van 29 september 2026)",
       "relatie": {
         "soort": "Aggregation",
         "van": "Opleidingaanbod",
@@ -3549,8 +3549,8 @@
       "pijl": "id-020f091db6ea4763aad7527a98afaf99",
       "koppeling": "OC-P&R",
       "objecttype": "Leergelegenheid",
-      "instantie": "Baliegesprekken 101, periode 1, twee groepen van 24",
-      "bron": "leerroute-1-regulier.md, Fase 2: planbaar aanbod; informatiemodel.json: de specificatie is geassocieerd met haar aanbod; het verzoek leidt tot aanbod",
+      "instantie": "Baliegesprekken 101, periode 1, twee groepen van 18",
+      "bron": "leerroute-1-regulier.md, Fase 2: planbaar aanbod; informatiemodel.json: de specificatie is geassocieerd met haar aanbod; het verzoek leidt tot aanbod; scenario-1.1-regulier-happyflow.md, blok D (maatvoering uit de review van 29 september 2026)",
       "relatie": {
         "soort": "Aggregation",
         "van": "Onderwijseenheid aanbod",
@@ -3615,8 +3615,8 @@
       "pijl": "id-020f091db6ea4763aad7527a98afaf99",
       "koppeling": "OC-P&R",
       "objecttype": "Keuzedeelaanbod",
-      "instantie": "K0037 Farmaceutische Patientenzorg, periode 7: een groep van 24, los van het opleidingsaanbod",
-      "bron": "review Niels van Duin op PR 252: gelegenheden van keuzedelen tonen maakt scherp dat capaciteit los kan staan van de bovenliggende structuur",
+      "instantie": "K0037 Farmaceutische Patientenzorg, periode 7: een groep van 18, los van het opleidingsaanbod",
+      "bron": "review Niels van Duin op PR 252: gelegenheden van keuzedelen tonen maakt scherp dat capaciteit los kan staan van de bovenliggende structuur; scenario-1.1-regulier-happyflow.md, blok D (maatvoering uit de review van 29 september 2026)",
       "relatie": {
         "soort": "Association",
         "van": "Keuzedeel",
@@ -3733,7 +3733,7 @@
           "soort": "Association",
           "van": "Opleidingsprogramma aanbod",
           "naar": "Opleidingsprogramma aanbod verbintenis",
-          "instantie": "Regulier BOL 2026: 24 tot 48 studenten"
+          "instantie": "Regulier BOL 2026: 18 tot 36 studenten"
         }
       ]
     },
@@ -4759,8 +4759,8 @@
       "pijl": "id-08467fe302794db6b935ff685e83efe0",
       "koppeling": null,
       "objecttype": "Leergelegenheid",
-      "instantie": "Baliegesprekken 101, periode 1: lokaaltype balie-simulatie, docentexpertise farmacie met baliepraktijk, twee groepen van 24",
-      "bron": "leerroute-1-regulier.md, Fase 4: Planning naar Rooster (te roosteren specificaties)",
+      "instantie": "Baliegesprekken 101, periode 1: lokaaltype balie-simulatie, docentexpertise farmacie met baliepraktijk, twee groepen van 18",
+      "bron": "leerroute-1-regulier.md, Fase 4: Planning naar Rooster (te roosteren specificaties); scenario-1.1-regulier-happyflow.md, blok D (maatvoering uit de review van 29 september 2026)",
       "zin": "Planning geeft de leergelegenheden van periode 1 aan het roostersysteem. Zonder de vaste kenmerken heeft roosteren niets aan die uitwisseling: het lokaaltype en de docentexpertise bepalen wat er past, en de groep bindt de studenten die hetzelfde aanbod afnemen en dus niet gelijktijdig geroosterd kunnen worden. De groep mag nog leeg zijn.",
       "relaties": [
         {
@@ -4918,7 +4918,7 @@
           "soort": "Association",
           "van": "Opleidingsprogramma aanbod",
           "naar": "Opleidingsprogramma aanbod verbintenis",
-          "instantie": "Regulier BOL 2026: 24 tot 48 studenten"
+          "instantie": "Regulier BOL 2026: 18 tot 36 studenten"
         }
       ]
     },
@@ -5577,9 +5577,9 @@
       "soort": "verandert",
       "wie": "planner",
       "objecttype": "Keuzedeelaanbod",
-      "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A: 1 groep, 24 plaatsen",
+      "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A: 1 groep, 18 plaatsen",
       "toestand": "planbaar",
-      "bron": "leerroute-1-regulier.md, Fase 6: de planner verwerkt definitieve keuzes periodiek naar groepen en capaciteit",
+      "bron": "leerroute-1-regulier.md, Fase 6: de planner verwerkt definitieve keuzes periodiek naar groepen en capaciteit; scenario-1.1-regulier-happyflow.md, blok D (maatvoering uit de review van 29 september 2026)",
       "zin": "De planner verwerkt de definitieve keuzes periodiek naar groepen en capaciteit."
     },
     {
@@ -5593,8 +5593,8 @@
       "pijl": "id-020f091db6ea4763aad7527a98afaf99",
       "koppeling": "OC-P&R",
       "objecttype": "Keuzedeelaanbod",
-      "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A: 1 groep, 24 plaatsen",
-      "bron": "leerroute-1-regulier.md, Fase 6: actualiseert het planbare aanbod in OC en het rooster volgt; Planning naar OC (geactualiseerd planbaar aanbod)",
+      "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A: 1 groep, 18 plaatsen",
+      "bron": "leerroute-1-regulier.md, Fase 6: actualiseert het planbare aanbod in OC en het rooster volgt; Planning naar OC (geactualiseerd planbaar aanbod); scenario-1.1-regulier-happyflow.md, blok D (maatvoering uit de review van 29 september 2026)",
       "zin": "Het geactualiseerde planbare aanbod gaat terug naar de catalogus; het rooster volgt.",
       "relaties": [
         {
@@ -5745,7 +5745,7 @@
           "soort": "Aggregation",
           "van": "Opleidingsprogramma aanbod",
           "naar": "Onderwijseenheid aanbod",
-          "instantie": "Regulier BOL 2026: 24 tot 48 studenten"
+          "instantie": "Regulier BOL 2026: 18 tot 36 studenten"
         }
       ],
       "zin": "Planning publiceert het bijgestuurde aanbod naar de catalogus en het rooster volgt."
