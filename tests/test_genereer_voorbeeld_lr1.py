@@ -185,6 +185,15 @@ class GenereerTests(unittest.TestCase):
         self.assertIn("De eerste 7 vragen gaan als ronde mee naar de kerngroep", staart)
         self.assertIn("overige 2", staart)
 
+    def test_given_exactly_one_question_too_many_when_generated_then_the_tail_is_singular(self):
+        r = regels()
+        for i in range(6):
+            r["regels"].append({"beeld": "De aanmelding", "fase": 3, "stap": "Aanmelden", "soort": "verandert",
+                                "wie": "student", "objecttype": "Aanmelding", "instantie": "x", "toestand": "t",
+                                "bron": "b", "vraag": f"Vraag {i}?"})
+        doc = self.bouw(nummer(r))
+        self.assertIn("De overige vraag staat hierboven en wacht op een volgende ronde.", doc)
+
     def test_given_the_page_size_when_read_then_it_is_an_explicit_setting(self):
         self.assertEqual(gv.VRAGEN_PER_PAGINA, 7)
 
