@@ -285,5 +285,107 @@ class TekenTests(unittest.TestCase):
             self.assertEqual(tv.main(["--regels", str(Path(map_) / "geen.json"), "--uit", map_]), 2)
 
 
+class BeeldIsBestandTests(unittest.TestCase):
+    """Een beeld is een bestand. Viel een beeld in twee blokken, dan overschreef het tweede het eerste
+    en toonde het beeld minder dan de tabel zegt."""
+
+    def beeld_regels(self):
+        r = regels()
+        for x in r["regels"][:3]:
+            x["beeld_id"], x["beeld"] = "F2-01", "Het aanbod gemaakt"
+        r["regels"][2]["wie"] = "onderwijsontwerper"
+        return r
+
+    def test_given_an_image_whose_rules_change_role_when_grouped_then_one_block_with_both_roles(self):
+        blokken = [b for b in tv.groepeer(self.beeld_regels()) if b.get("beeld")]
+        self.assertEqual(len(blokken), 1)
+        self.assertEqual(blokken[0]["rollen"], ["planner", "onderwijsontwerper"])
+        self.assertEqual(blokken[0]["wie"], "planner, onderwijsontwerper")
+        def tel(items):
+            return sum(1 + tel(o.get("kinderen", [])) for o in items if "type" in o)
+        self.assertEqual(tel(blokken[0]["objecten"]), 3)   # de genestte blijft meetellen
+
+    def test_given_an_image_with_two_roles_when_drawn_then_both_stand_in_the_header(self):
+        blok = [b for b in tv.groepeer(self.beeld_regels()) if b.get("beeld")][0]
+        self.assertIn("planner, onderwijsontwerper", teksten(tv.regel_ontstaat(blok, set())))
+
+    def test_given_rules_without_an_image_when_grouped_then_the_role_still_separates_blocks(self):
+        r = regels()
+        r["regels"][2]["wie"] = "onderwijsontwerper"
+        rollen = [b.get("wie") for b in tv.groepeer(r) if b["soort"] == "ontstaat" and b["stap"] == "Aanbod maken"]
+        self.assertEqual(rollen, ["planner", "onderwijsontwerper"])
+
+    def test_given_two_blocks_with_the_same_filename_when_drawn_then_it_stops_and_names_both(self):
+        r = regels()
+        for x in r["regels"][:3]:
+            x["beeld_id"], x["beeld"] = "F2-01", "Het aanbod gemaakt"
+        r["regels"][1]["stap"] = "Aanbod publiceren"   # eigen blok, zelfde beeld en dus zelfde naam
+        with tempfile.TemporaryDirectory() as map_:
+            with self.assertRaises(SystemExit) as fout:
+                tv.teken(r, Path(map_))
+        self.assertIn("f2-01-het-aanbod-gemaakt.svg", str(fout.exception))
+        self.assertIn("een beeld is een bestand", str(fout.exception))
+
+    def test_given_the_real_table_when_drawn_then_every_block_gets_its_own_file(self):
+        tabel = json.loads((WORTEL / "architecture/model/informatiemodel/voorbeeld-lr1-regels.json").read_text(encoding="utf-8"))
+        with tempfile.TemporaryDirectory() as map_:
+            uit = tv.teken(tabel, Path(map_))
+            self.assertEqual(len(uit), len({n for n, _ in uit}))
+            self.assertEqual(len(uit), len(list(Path(map_).glob("*.svg"))))
+
+
+class OpruimenTests(unittest.TestCase):
+    def test_given_a_renamed_image_when_drawn_then_the_old_file_is_gone(self):
+        with tempfile.TemporaryDirectory() as map_:
+            tv.teken(regels(), Path(map_))
+            (Path(map_) / "f9-99-oude-naam.svg").write_text("<svg/>", encoding="utf-8")
+            tv.teken(regels(), Path(map_), opruimen=True)
+            self.assertFalse((Path(map_) / "f9-99-oude-naam.svg").exists())
+
+    def test_given_the_keep_switch_when_drawn_then_the_orphan_stays(self):
+        with tempfile.TemporaryDirectory() as map_:
+            tv.teken(regels(), Path(map_))
+            (Path(map_) / "f9-99-oude-naam.svg").write_text("<svg/>", encoding="utf-8")
+            tv.teken(regels(), Path(map_), opruimen=False)
+            self.assertTrue((Path(map_) / "f9-99-oude-naam.svg").exists())
+
+
+class MatenTests(unittest.TestCase):
+    """De uitvoer noemt per beeld de hoogte en de banen, zodat een onleesbaar beeld opvalt."""
+
+    def test_given_a_run_when_it_reports_then_each_image_carries_its_size_and_bands(self):
+        import contextlib, io
+        with tempfile.TemporaryDirectory() as map_:
+            m = Path(map_)
+            (m / "r.json").write_text(json.dumps(regels()), encoding="utf-8")
+            uit = io.StringIO()
+            with contextlib.redirect_stdout(uit):
+                code = tv.main(["--regels", str(m / "r.json"), "--uit", str(m / "beelden")])
+            tekst = uit.getvalue()
+        self.assertEqual(code, 0)
+        self.assertRegex(tekst, r"\.svg: \d+ bij \d+, \d+ ba")
+        self.assertIn("beelden getekend naar", tekst.splitlines()[-1])
+
+    def test_given_no_band_when_measured_then_none_is_taller_than_the_slide_allows(self):
+        """Over alle beelden van de echte tabel: een baan blijft binnen de verhouding die een slide toelaat."""
+        snijd = tv._snijd()
+        map_ = WORTEL / "architecture/model/informatiemodel/img/regels"
+        for naam, breedte, _, hoogtes, reden in tv.maten(map_, sorted(p.name for p in map_.glob("*.svg"))):
+            if reden:
+                continue
+            for h in hoogtes:
+                self.assertLessEqual(h, breedte * snijd.VERHOUDING + 1, naam)
+
+    def test_given_an_image_that_cannot_be_cut_when_measured_then_the_reason_comes_along(self):
+        map_ = WORTEL / "architecture/model/informatiemodel/img/regels"
+        redenen = {naam: reden for naam, _, _, _, reden in
+                   tv.maten(map_, sorted(p.name for p in map_.glob("*.svg"))) if reden}
+        self.assertEqual(sorted(redenen), [
+            "f1-08-het-keuzedeel-als-eigen-programmaspecificatie-met-kerntaken-en-werkprocessen.svg",
+            "f2-07-het-geplande-aanbod-terug-naar-de-catalogus.svg"])
+        for reden in redenen.values():
+            self.assertIn("geen witregel", reden)
+
+
 if __name__ == "__main__":
     unittest.main()

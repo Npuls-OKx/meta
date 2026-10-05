@@ -19,6 +19,7 @@ Drie soorten regels, in de kleuren en iconen van ArchiMate:
 """
 
 import argparse
+import importlib.util
 import html
 import json
 import pathlib
@@ -437,11 +438,26 @@ def groepeer(regels):
                             "koppeling": r.get("koppeling"), "pijl": r.get("pijl"), "objecten": [item], "zin": r.get("zin", "")})
             continue
         laatste = blokken[-1] if blokken else None
-        if not laatste or laatste["soort"] != "ontstaat" or (laatste["fase"], laatste["stap"], laatste["wie"], laatste.get("verdieping"), laatste.get("beeld")) != (r["fase"], r["stap"], r.get("wie"), r.get("verdieping"), r.get("beeld")):
-            laatste = {"soort": "ontstaat", "fase": r["fase"], "stap": r["stap"], "wie": r.get("wie"), "verdieping": r.get("verdieping"),
+        # een beeld is een blok en dus een bestand. Draagt een regel een beeld, dan telt de rol niet mee
+        # in de sleutel: anders vallen de regels van hetzelfde beeld in twee blokken met dezelfde
+        # bestandsnaam, en overschrijft het tweede het eerste. Zonder beeld blijft de rol de grens.
+        if r.get("beeld"):
+            zelfde = (laatste and laatste["soort"] == "ontstaat"
+                      and (laatste["fase"], laatste["stap"], laatste.get("verdieping"), laatste.get("beeld"))
+                      == (r["fase"], r["stap"], r.get("verdieping"), r["beeld"]))
+        else:
+            zelfde = (laatste and laatste["soort"] == "ontstaat" and not laatste.get("beeld")
+                      and (laatste["fase"], laatste["stap"], laatste.get("rollen"), laatste.get("verdieping"))
+                      == (r["fase"], r["stap"], [r.get("wie")], r.get("verdieping")))
+        if not zelfde:
+            laatste = {"soort": "ontstaat", "fase": r["fase"], "stap": r["stap"], "wie": r.get("wie"),
+                       "rollen": [], "verdieping": r.get("verdieping"),
                        "beeld": r.get("beeld"), "beeld_id": r.get("beeld_id"),
                        "plaat": r.get("plaat", "informatiemodel"), "objecten": [], "zin": r.get("zin", "")}
             blokken.append(laatste)
+        if r.get("wie") and r["wie"] not in laatste["rollen"]:
+            laatste["rollen"].append(r["wie"])
+            laatste["wie"] = ", ".join(laatste["rollen"])
         item = {"type": r["objecttype"], "instantie": r["instantie"], "aanname": r.get("aanname", False),
                 "plaat": r.get("plaat", "informatiemodel"), "verwijzingen": [_verwijzing(x, r["objecttype"]) for x in r.get("relaties", [])]}
         _rel = r.get("relatie") or {}
@@ -504,20 +520,61 @@ def bestandsnaam(blok, volgnummer=None):
     return f"f{blok['fase']}-{volgnummer or 0:02d}-{s}.svg"
 
 
-def teken(regels, uitmap):
-    """Schrijft per blok een SVG; geeft de lijst (bestandsnaam, blok)."""
+def _snijd():
+    """scripts/snijd-beeld.py als module, zodat de renderer de banen per beeld kan noemen."""
+    pad = pathlib.Path(__file__).resolve().parent / "snijd-beeld.py"
+    spec = importlib.util.spec_from_file_location("snijd_beeld", pad)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+def teken(regels, uitmap, opruimen=False):
+    """Schrijft per blok een SVG; geeft de lijst (bestandsnaam, blok).
+
+    Een beeld is een bestand. Leveren twee blokken dezelfde naam, dan stopt dit met de namen erbij in
+    plaats van het eerste bestand te overschrijven: dan verdwijnt een deel van het beeld zonder dat
+    iemand het ziet. Met opruimen verdwijnt een SVG die geen blok meer draagt, zodat een beeld dat van
+    naam verandert geen tweeling achterlaat.
+    """
     uitzonderingen = {u["objecttype"] for u in regels.get("scope_uitzonderingen", [])}
     uitmap = pathlib.Path(uitmap)
     uitmap.mkdir(parents=True, exist_ok=True)
-    uit = []
+    uit, gezien = [], {}
     for n, blok in enumerate(groepeer(regels), 1):
         if blok["soort"] == "stroomt":
             svg = regel_stroomt(blok, uitzonderingen)
         else:
             svg = regel_ontstaat(blok, uitzonderingen)
         naam = bestandsnaam(blok, n)
+        if naam in gezien:
+            sys.exit(f"twee blokken leveren hetzelfde bestand {naam}: "
+                     f"{gezien[naam]} en {beeldtitel(blok) or blok['stap']}; een beeld is een bestand")
+        gezien[naam] = beeldtitel(blok) or blok["stap"]
         (uitmap / naam).write_text(svg, encoding="utf-8")
         uit.append((naam, blok))
+    if opruimen:
+        for pad in sorted(uitmap.glob("*.svg")):
+            if pad.name not in gezien:
+                pad.unlink()
+                print(f"opgeruimd: {pad.name} draagt geen regel meer")
+    return uit
+
+
+def maten(uitmap, namen):
+    """Per beeld de breedte, de hoogte, de hoogte van elke baan en de reden als het niet te snijden is.
+
+    De baanhoogtes staan erbij omdat ze niet gelijk kunnen uitvallen: een snede ligt altijd in
+    witruimte, dus waar een beeld dicht getekend staat liggen de grenzen vast. Ongelijke banen zijn
+    daarmee een teken dat het beeld zelf te dicht is, en dat is werk aan het beeld.
+    """
+    snijd = _snijd()
+    uit = []
+    for naam in namen:
+        svg = (pathlib.Path(uitmap) / naam).read_text(encoding="utf-8")
+        _, _, breedte, hoogte = snijd.doek(svg)
+        hoogtes = [snijd.doek(deel)[3] for deel in snijd.banen(svg, marge=0)]
+        uit.append((naam, breedte, hoogte, hoogtes, snijd.knelpunt(svg)))
     return uit
 
 
@@ -537,14 +594,33 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     parser.add_argument("--regels", type=pathlib.Path, default=REGELS)
     parser.add_argument("--uit", type=pathlib.Path, default=UIT)
+    parser.add_argument("--houd-verweesde-beelden", action="store_true",
+                        help="een SVG die geen regel meer draagt laten staan; standaard verdwijnt hij")
+    parser.add_argument("--stil", action="store_true", help="alleen de slotregel, zonder de maat per beeld")
+    parser.add_argument("--streng", action="store_true",
+                        help="eindigen met een foutcode zodra een beeld niet te snijden is; standaard is "
+                             "het een melding, zodat een bestaande plaat de keten niet stillegt")
     args = parser.parse_args(argv)
     if not args.regels.exists():
         print(f"regeltabel niet gevonden: {args.regels}", file=sys.stderr)
         return 2
     regels = json.loads(args.regels.read_text(encoding="utf-8"))
     valideer(regels)
-    uit = teken(regels, args.uit)
-    print(f"{len(uit)} regels getekend naar {args.uit}")
+    uit = teken(regels, args.uit, opruimen=not args.houd_verweesde_beelden)
+    knel = []
+    for naam, breedte, hoogte, hoogtes, reden in maten(args.uit, [n for n, _ in uit]):
+        if not args.stil:
+            banen = f"{len(hoogtes)} {'baan' if len(hoogtes) == 1 else 'banen'}"
+            verdeling = f" ({', '.join(f'{h:g}' for h in hoogtes)})" if len(hoogtes) > 1 else ""
+            print(f"  {naam}: {breedte:g} bij {hoogte:g}, {banen}{verdeling}"
+                  + (f", niet te snijden: {reden}" if reden else ""))
+        if reden:
+            knel.append(naam)
+    print(f"{len(uit)} beelden getekend naar {args.uit}")
+    if knel:
+        print(f"{len(knel)} beelden zijn niet in banen te snijden en worden op een slide te klein: "
+              f"{', '.join(knel)}", file=sys.stderr)
+        return 1 if args.streng else 0
     return 0
 
 
