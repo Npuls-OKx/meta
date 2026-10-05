@@ -288,10 +288,10 @@
       "bron": "Npuls-OKx/meta",
       "pad": "img/OKx_sectorketen_v20261005.png",
       "versie": "v20261005",
-      "toont": "Zeven lagen van overheidsbreed kader tot koppelingimplementatie, met per laag de partijen en hun producten. De vulkleur is het detailniveau, de rand de aard (voorschrift of herbruikbaar product). Rechts de gereedschapsband met IT-fundamenten en sectorprofielen.",
+      "toont": "Zeven lagen van overheidsbreed kader tot koppelingimplementatie, met per laag de partijen en hun producten. De vulkleur is de ArchiMate-laag, de rand de aard (voorschrift of herbruikbaar product), en onderin het MIM-niveau met het AMIGO-inhoudsgebied. Rechts de gereedschapsband met IT-fundamenten en sectorprofielen.",
       "gebruik_bij": "De vraag wie wat maakt in de keten, en op welk niveau een product bruikbaar is. Architectuursync, programma- en projectleiding, kerngroep techniek.",
-      "let_op": "De plaat beschrijft en oordeelt niet; wat voor een bepaald doel ontbreekt vult de lezer zelf in. Getekend uit doc/sectorketen-producten.json met scripts/teken-sectorketen.py; werk de bron bij in plaats van het beeld.",
-      "hash": "fe93d5842e1156ee"
+      "let_op": "De plaat beschrijft en oordeelt niet; wat voor een bepaald doel ontbreekt vult de lezer zelf in. De solutionlaag is algemeen, met de OKx-invulling als tweede regel per blok. Getekend uit doc/sectorketen-producten.json met scripts/teken-sectorketen.py; werk de bron bij in plaats van het beeld.",
+      "hash": "7f0b5ddb28c5ebb8"
     }
   ],
   "overslaan": [
