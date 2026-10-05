@@ -1,0 +1,198 @@
+{
+  "view": "OKx hoofdplaat v1.7<concept> (zonder context applicaties)",
+  "model": "architecture/model/model.archimate",
+  "stromen": [
+    {
+      "id": "id-865f297e8c1f4371aa143aa225fe4b7f",
+      "van": "Kernregistratie systeem studenten (KRS)",
+      "naar": "Leer management systeem (LMS)",
+      "soort": "Flow",
+      "label": "Student, opleidingprogramma verbintenis, relevante groepen",
+      "koppeling": "zonder koppelingspecificatie"
+    },
+    {
+      "id": "id-97010c562d8841f9b908e72b1d2b3f9a",
+      "van": "Kernregistratie systeem studenten (KRS)",
+      "naar": "Planningssysteem",
+      "soort": "Flow",
+      "label": "Ontsluiten plaatsingsgroepen met studenten",
+      "koppeling": "zonder koppelingspecificatie"
+    },
+    {
+      "id": "id-865f297e8c1f4371aa143aa225fe4b7f",
+      "van": "Kernregistratie systeem studenten (KRS)",
+      "naar": "Student Keuze Systeem (SKS)",
+      "soort": "Flow",
+      "label": "Student, opleidingprogramma verbintenis, relevante groepen",
+      "koppeling": "zonder koppelingspecificatie"
+    },
+    {
+      "id": "id-979d8078315c47139a73942028c0300d",
+      "van": "Leer management systeem (LMS)",
+      "naar": "Student volg systeem (SVS)",
+      "soort": "Flow",
+      "label": "Student toetsgelegenheidverbintenis resultaat",
+      "koppeling": "zonder koppelingspecificatie"
+    },
+    {
+      "id": "id-ec248a00b6234f1688ee3705d46a59f7",
+      "van": "Onderwijscatalogus",
+      "naar": "Kernregistratie systeem studenten (KRS)",
+      "soort": "Flow",
+      "label": "Ontsluiten aanmeld-/inschrijfbaar opleidingsprogramma aanbod",
+      "koppeling": "OC-SIS"
+    },
+    {
+      "id": "id-e2755a76b8244373bd7e8da4ccb7c3f6",
+      "van": "Onderwijscatalogus",
+      "naar": "Leer management systeem (LMS)",
+      "soort": "Flow",
+      "label": "Onderwijs specificatie",
+      "koppeling": "OC-LMS"
+    },
+    {
+      "id": "id-d23841b89bed4935b2aebdeb12ee2acf",
+      "van": "Onderwijscatalogus",
+      "naar": "Leer management systeem (LMS)",
+      "soort": "Flow",
+      "label": "Verzoek tot fijnmazige uitwerking onderwijs specificatie",
+      "koppeling": "OC-LMS"
+    },
+    {
+      "id": "id-1d27ecfa2c0d4fb7b4f7337e93eed033",
+      "van": "Onderwijscatalogus",
+      "naar": "Planningssysteem",
+      "soort": "Flow",
+      "label": "Verzoek tot maken onderwijsaanbod obv opleidingsprogramma- en onderwijseenheid specificaties",
+      "koppeling": "OC-P&R"
+    },
+    {
+      "id": "id-5f2568d7b99a49eaa863f539ae362f4d",
+      "van": "Onderwijscatalogus",
+      "naar": "Student Keuze Systeem (SKS)",
+      "soort": "Flow",
+      "label": "Onderwijsprogramma aanbod",
+      "koppeling": "zonder koppelingspecificatie"
+    },
+    {
+      "id": "id-e2755a76b8244373bd7e8da4ccb7c3f6",
+      "van": "Onderwijscatalogus",
+      "naar": "Student volg systeem (SVS)",
+      "soort": "Flow",
+      "label": "Onderwijs specificatie",
+      "koppeling": "OC-SIS"
+    },
+    {
+      "id": "id-ec248a00b6234f1688ee3705d46a59f7",
+      "van": "Onderwijscatalogus",
+      "naar": "Voorziening Centraal Aanmelden (CAMBO)",
+      "soort": "Flow",
+      "label": "Ontsluiten aanmeld-/inschrijfbaar opleidingsprogramma aanbod",
+      "koppeling": "zonder koppelingspecificatie"
+    },
+    {
+      "id": "id-020f091db6ea4763aad7527a98afaf99",
+      "van": "Planningssysteem",
+      "naar": "Onderwijscatalogus",
+      "soort": "Flow",
+      "label": "Bevestiging creatie opleidingprogramma aanbod",
+      "koppeling": "OC-P&R"
+    },
+    {
+      "id": "id-6ece22a4621443bfa17e7cb36c0ba113",
+      "van": "Planningssysteem",
+      "naar": "Onderwijscatalogus",
+      "soort": "Flow",
+      "label": "Verzoek tot bijwerken onderwijspecificaties Planning elementen",
+      "koppeling": "OC-P&R"
+    },
+    {
+      "id": "id-08467fe302794db6b935ff685e83efe0",
+      "van": "Planningssysteem",
+      "naar": "Roostersysteem",
+      "soort": "Flow",
+      "label": "Verzoek tot roosteren leergelegenheid Ontsluiten van planninggroepen",
+      "koppeling": "zonder koppelingspecificatie"
+    },
+    {
+      "id": "id-6268df4c8b1e4a1ca02d4bd6732b8b34",
+      "van": "Planningssysteem",
+      "naar": "Student Keuze Systeem (SKS)",
+      "soort": "Flow",
+      "label": "Onsluiten geplande leergelegenheden (capaciteit)",
+      "koppeling": "zonder koppelingspecificatie"
+    },
+    {
+      "id": "id-70bdd7dbcb234951ad2c1c719f19c543",
+      "van": "Roostersysteem",
+      "naar": "Kernregistratie systeem studenten (KRS)",
+      "soort": "Flow",
+      "label": "Ontsluiten planninggroepen met studenten",
+      "koppeling": "zonder koppelingspecificatie"
+    },
+    {
+      "id": "id-7aaf2959ba45489296a1c1d89dae786c",
+      "van": "Roostersysteem",
+      "naar": "Student Keuze Systeem (SKS)",
+      "soort": "Flow",
+      "label": "Ontsluiten van geroosterde leergelegenheden (detail en capaciteit)",
+      "koppeling": "zonder koppelingspecificatie"
+    },
+    {
+      "id": "id-7a7e0a17557f487a86fd347ad8569f24",
+      "van": "Roostersysteem",
+      "naar": "Student Keuze Systeem (SKS)",
+      "soort": "Flow",
+      "label": "Student Opleidingprogramma- en onderwijseenheid verbintenis (+ planninggroep)",
+      "koppeling": "zonder koppelingspecificatie"
+    },
+    {
+      "id": "id-642ea2bf4fcd4d58968ba4f952a7e990",
+      "van": "Student Keuze Systeem (SKS)",
+      "naar": "Kernregistratie systeem studenten (KRS)",
+      "soort": "Flow",
+      "label": "Student Opleidingprogramma verbintenis (type: keuzedeel/credential)",
+      "koppeling": "zonder koppelingspecificatie"
+    },
+    {
+      "id": "id-926ba88e5d2d41788005699e8eedf6bb",
+      "van": "Student Keuze Systeem (SKS)",
+      "naar": "Leer management systeem (LMS)",
+      "soort": "Flow",
+      "label": "Opleidingprogramma-, opleidingseenheid verbintenis, planninggroep",
+      "koppeling": "zonder koppelingspecificatie"
+    },
+    {
+      "id": "id-726d0826868b4be1afc4145fbd9ad49c",
+      "van": "Student Keuze Systeem (SKS)",
+      "naar": "Planningssysteem",
+      "soort": "Flow",
+      "label": "Intekening student op (nog) ongepland opleidingprogramma-, opleidingseenheid (animo)",
+      "koppeling": "zonder koppelingspecificatie"
+    },
+    {
+      "id": "id-e38169b2a08a47d2ab3722ea29bfc8ba",
+      "van": "Student Keuze Systeem (SKS)",
+      "naar": "Roostersysteem",
+      "soort": "Flow",
+      "label": "Verzoek tot Opleidingprogramma- en onderwijseenheid verbintenis",
+      "koppeling": "zonder koppelingspecificatie"
+    },
+    {
+      "id": "id-3aefce69b5454d4eb5f2d28e6e6ec13e",
+      "van": "Student Keuze Systeem (SKS)",
+      "naar": "Student volg systeem (SVS)",
+      "soort": "Flow",
+      "label": "Student Opleidingprogramma- en onderwijseenheid verbintenis",
+      "koppeling": "zonder koppelingspecificatie"
+    },
+    {
+      "id": "id-eaed86afaeee476d885121adbf18f0b1",
+      "van": "Voorziening Centraal Aanmelden (CAMBO)",
+      "naar": "Kernregistratie systeem studenten (KRS)",
+      "soort": "Flow",
+      "label": "Persoon(Student) Opleidingprogramma verbintenis",
+      "koppeling": "zonder koppelingspecificatie"
+    }
+  ]
+}
