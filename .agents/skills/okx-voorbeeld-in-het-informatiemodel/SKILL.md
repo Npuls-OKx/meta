@@ -35,7 +35,7 @@ python3 scripts/controleer-voorbeeldregels.py            # 0 bevindingen, anders
 rm -f architecture/model/informatiemodel/img/regels/*.svg
 python3 scripts/teken-voorbeeldregels.py
 python3 scripts/teken-hoofdplaat-highlight.py            # alleen als de plaat of de stromen wijzigen
-python3 scripts/genereer-voorbeeld-lr1.py                # waarschuwt voor vragen buiten de zeven
+python3 scripts/genereer-voorbeeld-lr1.py                # slotregel: beelden, regels en vragen
 python3 scripts/validate-docs.py architecture/model/informatiemodel/voorbeeld-leerroute-1-jochem.md
 python3 -W error::ResourceWarning -m unittest discover -s tests
 ```
@@ -67,7 +67,7 @@ Elke regel is een fragment van een plaat bij een processtap:
 | `nieuwe_instantie` | een verdere instantie van een objecttype dat al eerder ontstond, omdat het scenario die nodig heeft (de keuzedeelvoorkeur bij de intake als tweede intekening); telt niet als tweede ontstaan |
 | `bron` | bestand en regelnummer (`leerroute-1-regulier.md, r1046`), payload-id, ontologie met versie, of "geen bron, keuze van het voorbeeld"; het register maakt er links van |
 | `zin` | één zin, uit het kaderscenario waar die er is; laag houden |
-| `vraag` | alleen waar plaat en bron elkaar tegenspreken of de plaat iets mist; het document toont er zeven |
+| `vraag` | alleen waar plaat en bron elkaar tegenspreken of de plaat iets mist; het document toont ze alle, in pagina's van zeven, en een geparkeerde bevinding uit het register levert er ook een |
 
 ### Uitwisselingen per fase, en het aftekenen
 

@@ -147,14 +147,69 @@ class GenereerTests(unittest.TestCase):
         self.assertIn("**Stroomt:** Planningssysteem naar Onderwijscatalogus", sectie)
         self.assertIn("**MORA-hoofdproces:** Plannen", sectie)
 
-    def test_given_questions_when_generated_then_each_refers_to_rule_and_max_seven(self):
+    def vragen_in(self, doc):
+        """De vragen zoals het document ze nummert, met hun plek erachter."""
+        return re.findall(r"^\d+\. (.+?) \(", doc[doc.index("## Vragen"):], re.M)
+
+    def test_given_questions_when_generated_then_each_refers_to_a_rule(self):
+        doc = self.bouw()
+        vragen = self.vragen_in(doc)
+        self.assertEqual(vragen, ["Is cohort een object?", "Is inschrijving een toestand?"])
+        self.assertRegex(doc[doc.index("## Vragen"):], r"Is cohort een object\? \(F2-01, `Opleidingaanbod`\)")
+
+    def test_given_nine_questions_when_generated_then_all_nine_stand_in_the_document(self):
+        """Eerder stopte de pagina na zeven en ging de rest alleen naar stderr; dan verdwijnt een vraag
+        die iemand bewust heeft opgeschreven uit het product."""
         r = regels()
-        for i in range(10):
-            r["regels"].append({"beeld": "De aanmelding", "fase": 3, "stap": "Aanmelden", "soort": "verandert", "wie": "student", "objecttype": "Aanmelding", "instantie": "x", "toestand": "t", "bron": "b", "vraag": f"Vraag {i}?"})
+        for i in range(7):
+            r["regels"].append({"beeld": "De aanmelding", "fase": 3, "stap": "Aanmelden", "soort": "verandert",
+                                "wie": "student", "objecttype": "Aanmelding", "instantie": "x", "toestand": "t",
+                                "bron": "b", "vraag": f"Vraag {i}?"})
         doc = self.bouw(nummer(r))
-        vragen = re.findall(r"^\d+\. (.+?) \([^,]+, `", doc[doc.index("## Vragen"):], re.M)
-        self.assertEqual(len(vragen), 7)
-        self.assertIn("Is cohort een object?", vragen)
+        vragen = self.vragen_in(doc)
+        self.assertEqual(len(vragen), 9)
+        for i in range(7):
+            self.assertIn(f"Vraag {i}?", vragen)
+
+    def test_given_more_questions_than_fit_when_generated_then_a_next_page_with_continuous_numbering(self):
+        r = regels()
+        for i in range(7):
+            r["regels"].append({"beeld": "De aanmelding", "fase": 3, "stap": "Aanmelden", "soort": "verandert",
+                                "wie": "student", "objecttype": "Aanmelding", "instantie": "x", "toestand": "t",
+                                "bron": "b", "vraag": f"Vraag {i}?"})
+        doc = self.bouw(nummer(r))
+        staart = doc[doc.index("## Vragen"):]
+        self.assertIn("### Vragen, vervolg (2 van 2)", staart)
+        self.assertIn("8. Vraag 5?", staart)
+        self.assertIn("9. Vraag 6?", staart)
+        self.assertIn("De eerste 7 vragen gaan als ronde mee naar de kerngroep", staart)
+        self.assertIn("overige 2", staart)
+
+    def test_given_the_page_size_when_read_then_it_is_an_explicit_setting(self):
+        self.assertEqual(gv.VRAGEN_PER_PAGINA, 7)
+
+    def test_given_seven_questions_or_fewer_when_generated_then_no_overflow_text(self):
+        doc = self.bouw()
+        self.assertNotIn("Vragen, vervolg", doc)
+        self.assertNotIn("wachten op een volgende ronde", doc)
+
+    def test_given_a_parked_finding_with_a_question_when_generated_then_it_stands_in_the_document(self):
+        """Een bevinding die blijft liggen levert een vraag op, en die hoort in het product te komen."""
+        r = regels()
+        r["bevindingen"] = [{"nummer": "B01", "beeld_id": "F2-01", "lezer": "NvDuin", "datum": "2026-09-28",
+                             "bron": "https://github.com/x/y/pull/252#discussion_r1", "tekst": "te rechtlijnig",
+                             "themas": ["clustering"], "issue": 283, "status": "geparkeerd",
+                             "reden": "wacht op de modelronde",
+                             "vraag": "Heeft de specificatiekant een container nodig?"}]
+        doc = self.bouw(r)
+        self.assertIn("Heeft de specificatiekant een container nodig? (F2-01, bevinding B01)", doc)
+
+    def test_given_no_questions_when_generated_then_the_page_says_so(self):
+        r = regels()
+        for x in r["regels"]:
+            x.pop("vraag", None)
+        doc = self.bouw(r)
+        self.assertIn("Er staan nu geen vragen in de regeltabel.", doc)
 
     def test_given_document_when_generated_then_no_dash_and_no_frontmatter(self):
         doc = self.bouw()
@@ -186,6 +241,40 @@ class GenereerTests(unittest.TestCase):
             (m / "img" / "regels").mkdir(parents=True)
             code = gv.main(["--regels", str(m / "r.json"), "--model", str(m / "m.json"), "--begrippen", str(m / "b.json"), "--uit", str(m / "doc.md")])
         self.assertEqual(code, 1)
+
+    def test_given_a_run_when_it_ends_then_the_last_line_names_the_counts(self):
+        """De aantallen aan het eind, zodat verlies opvalt zonder het bestand te vergelijken."""
+        import contextlib, io
+        with tempfile.TemporaryDirectory() as map_:
+            m = Path(map_)
+            for naam, inhoud in (("r.json", regels()), ("m.json", model()), ("b.json", begrippen())):
+                (m / naam).write_text(json.dumps(inhoud), encoding="utf-8")
+            tv.teken(regels(), m / "img" / "regels")
+            (m / "informatiemodel.md").write_text("# Informatiemodel\n", encoding="utf-8")
+            uit = io.StringIO()
+            with contextlib.redirect_stdout(uit):
+                code = gv.main(["--regels", str(m / "r.json"), "--model", str(m / "m.json"),
+                                "--begrippen", str(m / "b.json"), "--uit", str(m / "doc.md")])
+        self.assertEqual(code, 0)
+        self.assertEqual(uit.getvalue().splitlines()[-1], "verwerkt: 3 beelden, 3 regels, 2 vragen")
+
+    def test_given_unchanged_input_when_run_twice_then_the_file_does_not_differ(self):
+        with tempfile.TemporaryDirectory() as map_:
+            m = Path(map_)
+            for naam, inhoud in (("r.json", regels()), ("m.json", model()), ("b.json", begrippen())):
+                (m / naam).write_text(json.dumps(inhoud), encoding="utf-8")
+            tv.teken(regels(), m / "img" / "regels")
+            (m / "informatiemodel.md").write_text("# Informatiemodel\n", encoding="utf-8")
+            argv = ["--regels", str(m / "r.json"), "--model", str(m / "m.json"),
+                    "--begrippen", str(m / "b.json"), "--uit", str(m / "doc.md")]
+            import contextlib, io
+            with contextlib.redirect_stdout(io.StringIO()):
+                gv.main(argv)
+                eerst = (m / "doc.md").read_text(encoding="utf-8")
+                blad_eerst = (m / "voorbeeld-leerroute-1-jochem-invulblad.md").read_text(encoding="utf-8")
+                gv.main(argv)
+            self.assertEqual(eerst, (m / "doc.md").read_text(encoding="utf-8"))
+            self.assertEqual(blad_eerst, (m / "voorbeeld-leerroute-1-jochem-invulblad.md").read_text(encoding="utf-8"))
 
     def test_given_all_svgs_present_when_run_then_document_written_and_validate_docs_zero(self):
         with tempfile.TemporaryDirectory() as map_:

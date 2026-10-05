@@ -43,6 +43,10 @@ KOLOMVOLGORDE = ["Kwalificatiekader MBO", "Onderwijskundigkader instelling", "On
 KOLOMNAAM = {None: "Buiten de kolommen (persoon, groep, cohort, verzoek)", "Kwalificatiekader MBO": "Kwalificatiekader mbo",
              "Onderwijskundigkader instelling": "Onderwijskundig kader instelling"}
 STUBZIN = "Regels volgen na 30 september."
+# Zeven vragen is wat een kerngroepsessie in een ronde kan wegen; dat getal komt uit de agenda van
+# 30 september 2026. Wat daarna komt staat op een volgende pagina, want een vraag die iemand bewust
+# heeft opgeschreven mag niet uit het product verdwijnen (#294).
+VRAGEN_PER_PAGINA = 7
 PUBLIC = "https://github.com/Npuls-OKx/Public/blob/dev/"
 BRONNEN = {
     "leerroute-1-regulier.md": PUBLIC + "Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md",
@@ -198,16 +202,47 @@ def familietabellen(regels, model, begrippen):
     return uit
 
 
-def vragenpagina(regels):
-    vragen = []
+def alle_vragen(regels):
+    """Elke vraag uit de regeltabel, in de volgorde van de tabel: eerst de vragen die een regel oproept,
+    daarna die van een geparkeerde bevinding uit het register. Een vraag die twee keer staat telt een keer,
+    en houdt de plek van haar eerste verschijning."""
+    vragen, gezien = [], set()
     for r in regels["regels"]:
-        if r.get("vraag") and r["vraag"] not in [v for v, _ in vragen]:
-            vragen.append((r["vraag"], f"{r.get('beeld_id', '')}, `{norm(r['objecttype'])}`"))
+        v = r.get("vraag")
+        if v and v not in gezien:
+            gezien.add(v)
+            vragen.append((v, f"{r.get('beeld_id', '')}, `{norm(r['objecttype'])}`"))
+    for b in regels.get("bevindingen") or []:
+        v = b.get("vraag")
+        if v and v not in gezien:
+            gezien.add(v)
+            vragen.append((v, f"{b.get('beeld_id', '')}, bevinding {b.get('nummer', '')}"))
+    return vragen
+
+
+def vragenpagina(regels):
+    """Alle vragen in het document, in pagina's van VRAGEN_PER_PAGINA.
+
+    Eerder stopte deze pagina na zeven en ging de rest als waarschuwing naar stderr. Wie de generator in
+    een pijplijn draait ziet die waarschuwing niet, en dan is een vraag die iemand bewust heeft
+    opgeschreven weg uit het product. De nummering loopt door over de pagina's, zodat een verwijzing naar
+    "vraag 9" blijft kloppen.
+    """
+    vragen = alle_vragen(regels)
     uit = "## Vragen aan de kerngroep\n\nDe vragen die de regels zelf oproepen, met de regel waar de vraag zichtbaar wordt. Feedback, geen commitment.\n\n"
-    for i, (v, plek) in enumerate(vragen[:7], 1):
-        uit += f"{i}. {v} ({plek})\n"
-    for v, plek in vragen[7:]:
-        print(f"waarschuwing: vraag buiten de zeven, niet in het document: {plek}", file=sys.stderr)
+    if not vragen:
+        return uit + "Er staan nu geen vragen in de regeltabel.\n\n"
+    pagina = 0
+    for begin in range(0, len(vragen), VRAGEN_PER_PAGINA):
+        pagina += 1
+        if pagina > 1:
+            uit += f"\n### Vragen, vervolg ({pagina} van {(len(vragen) - 1) // VRAGEN_PER_PAGINA + 1})\n\n"
+        for i, (v, plek) in enumerate(vragen[begin:begin + VRAGEN_PER_PAGINA], begin + 1):
+            uit += f"{i}. {v} ({plek})\n"
+    if len(vragen) > VRAGEN_PER_PAGINA:
+        uit += (f"\nDe eerste {VRAGEN_PER_PAGINA} vragen gaan als ronde mee naar de kerngroep; dat is wat een "
+                f"sessie kan wegen. De overige {len(vragen) - VRAGEN_PER_PAGINA} staan hierboven en wachten op "
+                f"een volgende ronde.\n")
     uit += "\nVragen over patronen, schema's, de toetslijst en endpoints horen bij de koppelvlakspecificatie en staan hier niet.\n"
     return uit + "\n"
 
@@ -344,8 +379,13 @@ def main(argv=None):
     args.uit.write_text(tekst, encoding="utf-8")
     print(f"document geschreven: {args.uit}")
     blad = args.invulblad or args.uit.parent / INVULBLAD.name
-    blad.write_text(invulblad(lees(args.regels, "regeltabel")), encoding="utf-8")
+    bron = lees(args.regels, "regeltabel")
+    blad.write_text(invulblad(bron), encoding="utf-8")
     print(f"invulblad geschreven: {blad}")
+    # de aantallen aan het eind, zodat verlies opvalt zonder dat iemand het bestand hoeft te vergelijken
+    beelden = len({r.get("beeld_id") for r in bron.get("regels", []) if r.get("beeld_id")})
+    vragen = len(alle_vragen(bron))
+    print(f"verwerkt: {beelden} beelden, {len(bron.get('regels', []))} regels, {vragen} vragen")
     return 0
 
 
