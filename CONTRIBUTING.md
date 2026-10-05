@@ -43,6 +43,7 @@ Uitgebreider en voor nieuwe bijdragers: sectie *Waar draait deze repository om?*
 - **Feature branches** (`feature/…`): vertrek vanaf **`dev`**; PR richting **`dev`**.
 - **Release**: de release van OKx leeft in [Npuls-OKx/Public](https://github.com/Npuls-OKx/Public), met het releasepakket, de release notes en het versielabel. Deze repository draagt de kennisbank en levert daaraan: een wijziging is klaar zodra zij op `dev` staat.
 - **Een correctie met haast** volgt dezelfde weg als al het andere werk: een eigen branch vanaf `dev` met een pull request terug.
+- **De oude branch `main`** is op 5 oktober 2026 verwijderd en bewaard als de tag `archief/main`. De herstelroute staat in [`doc/OKx_Release-management-en-versionering.md`](doc/OKx_Release-management-en-versionering.md#de-verwijderde-branch-main-en-hoe-die-terugkomt) (§4) en in het bericht van die tag.
 
 **Bijdragen via branch (in deze repo)**:
 

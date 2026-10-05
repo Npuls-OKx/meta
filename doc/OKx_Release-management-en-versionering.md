@@ -203,6 +203,34 @@ Aansluitend op §9 van de beginnershandleiding:
 
 Een **release candidate** en een **hotfix** horen bij diezelfde releaselijn in Public en volgen de werkwijze die daar is vastgelegd.
 
+### De verwijderde branch `main`, en hoe die terugkomt
+
+De branch `main` is op 5 oktober 2026 verwijderd. Hij was de releaselijn uit de tijd dat meta zelf opleverde, en droeg zeven commits die nergens anders stonden. De tag **`archief/main`** bewaart die stand, op commit `cf9d62a`.
+
+De inhoud is gedekt. Van de 27 bestanden die alleen op `main` stonden zijn 17 naar `dev` gehaald (het MOSA- en MOKA-materiaal, PR #281). De overige tien hebben een tegenhanger in [Npuls-OKx/Public](https://github.com/Npuls-OKx/Public): de ADR's 0001 tot 0005 en 0024 met hun README en template, en `principes.md` plus `uitgangspunten.md` in een nieuwere versie. Herstellen is dus vrijwel nooit nodig; de tag is het vangnet.
+
+**De branch terugzetten gaat via de API en niet met `git push`.** Een push van deze commits wordt geweigerd met `push declined due to email privacy restrictions`, omdat tussen de zeven commits een adres zit dat die accountinstelling blokkeert. Dat is een foutmelding die niets met de herstelpoging te maken lijkt te hebben, dus hier staat de werkende weg:
+
+```bash
+# de tag ophalen, ook als hij lokaal nog niet bestaat
+git fetch origin 'refs/tags/archief/main:refs/tags/archief/main'
+
+# de branch terugzetten op de gearchiveerde stand
+gh api repos/Npuls-OKx/meta/git/refs \
+  -f ref=refs/heads/main \
+  -f sha=cf9d62a84d06dca0f6818cce01250e70d319f549
+```
+
+Deze route is op 5 oktober 2026 uitgeprobeerd onder de naam `proef-herstelroute`, voordat `main` werd verwijderd: de branch werd aangemaakt op de juiste commit en daarna weer weggehaald met `gh api -X DELETE repos/Npuls-OKx/meta/git/refs/heads/<naam>`.
+
+Een los bestand uit het archief halen kan zonder de branch terug te zetten:
+
+```bash
+git show archief/main:architecture/dr/README.md
+```
+
+Het bericht van de tag draagt dezelfde route, dus `git show archief/main` levert hem ook op. Wie `main` ook weer default wil maken en beschermen, zet dat terug in de repository-instellingen; de ruleset `default-protection` mikt op de default branch en schuift automatisch mee.
+
 ---
 
 ## 5. Verhouding tussen meta en spec (compatibiliteit)
