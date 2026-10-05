@@ -32,8 +32,7 @@ Volgorde bij elke wijziging, altijd volledig:
 python3 scripts/exporteer-componenten.py --extra "Intake systeem" "Aanmeld systeem" \
     "Curriculum ontwerptool" "AII (centraal aanmelden)" "Toets- en examen afname systeem"
 python3 scripts/controleer-voorbeeldregels.py            # 0 bevindingen, anders eerst herstellen
-rm -f architecture/model/informatiemodel/img/regels/*.svg
-python3 scripts/teken-voorbeeldregels.py
+python3 scripts/teken-voorbeeldregels.py                 # per beeld de maat en de banen; ruimt verweesde SVG's op
 python3 scripts/teken-hoofdplaat-highlight.py            # alleen als de plaat of de stromen wijzigen
 python3 scripts/genereer-voorbeeld-lr1.py                # slotregel: beelden, regels en vragen
 python3 scripts/validate-docs.py architecture/model/informatiemodel/voorbeeld-leerroute-1-jochem.md
@@ -94,6 +93,10 @@ Wat de controle weigert, hoort niet in het voorbeeld: een objecttype dat niet op
 ## Beelden
 
 De renderer tekent per beeld één SVG in ArchiMate-kleur, met het ID en de beeldtitel bovenaan: geel voor rol, processtap en object, blauw voor component, grijs voor een scope-uitzondering, gestippeld voor een aanname, paars voor een objecttype van de conceptplaat (een conceptverdieping heeft bovendien een gestippelde rand en een chip). Bovenaan staat wie en wat (rol en processtap) of de pijl van component naar component als horizontale stippellijn met koppeling-ID en stap; eronder hangen de objecten aan een stippellijn, onderling gerelateerd. Nesting is een container; een relatielijn loopt alleen naar het buurobject (ruit bij aggregatie, open pijlpunt bij specialisatie, gelabelde lijn bij associatie), elke andere relatie staat als verwijzing op het object. Leesbaarheid gaat voor breedte: een beeld is hooguit ongeveer 1000 px breed (letters 12 en 14 px), brede ketens gaan in een kolom of over meer rijen, brede kinderrijen worden een stapel en de zin loopt door over meer regels. GitHub schaalt een breder beeld terug tot onleesbaar.
+
+Een beeld is een bestand. De renderer groepeert de regels van een beeld tot een blok, ook als zij van rol wisselen: de rollen staan dan samen in de kop ("planner, SLB'er"). Leveren twee blokken toch dezelfde bestandsnaam, dan stopt de renderer met beide namen erbij, want een overschreven bestand toont minder dan de tabel zegt.
+
+De renderer noemt per beeld de breedte, de hoogte, het aantal banen en de hoogte van elke baan. Een snede ligt altijd in witruimte, dus banen vallen alleen even uit waar het beeld dat toelaat; ongelijke banen zijn daarmee een teken dat het beeld te dicht getekend staat. Een beeld dat helemaal niet te snijden is levert de reden en het y-bereik waar de witregel ontbreekt. Met `--streng` eindigt dat in een foutcode.
 
 Bekijk het beeld zelf voordat je het meldt: `soffice --headless --convert-to png` in de scratchpad, en zet het beeld voor de gebruiker op een branch met een GitHub-link (bestanden sturen werkt niet in de container).
 

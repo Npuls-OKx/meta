@@ -19,6 +19,7 @@ levert niets op en meldt dat.
 """
 
 import argparse
+import math
 import re
 import sys
 from pathlib import Path
@@ -70,22 +71,59 @@ def gaten(intervallen, hoogte):
     return uit
 
 
-def snedes(svg, baan):
-    """De y-waarden waarop het beeld wordt gesneden, altijd in een witregel."""
+def _verdeel(wit, hoogte, baan, n):
+    """n banen proberen: per grens de witregel die het dichtst bij de gelijke verdeling ligt.
+
+    Geeft (snedes, knelpunt). Een knelpunt is het bereik waar geen witregel ligt; is er geen knelpunt
+    en toch geen uitkomst, dan zijn er meer banen nodig.
+    """
+    uit, start = [], 0.0
+    for i in range(1, n):
+        doel = hoogte * i / n
+        grens = min(start + baan, hoogte)
+        kandidaten = [g for g in wit if start < (g[0] + g[1]) / 2 <= grens]
+        if not kandidaten:
+            return None, (start, grens)
+        a, b = min(kandidaten, key=lambda g: abs((g[0] + g[1]) / 2 - doel))
+        uit.append((a + b) / 2)
+        start = uit[-1]
+    if hoogte - start > baan:
+        return None, None
+    return uit, None
+
+
+def _snedes(svg, baan):
+    """De y-waarden waarop het beeld wordt gesneden, en de reden als het niet lukt.
+
+    De banen worden verdeeld in plaats van volgemaakt: eerst het aantal banen dat nodig is, dan per
+    grens de witregel die het dichtst bij de gelijke verdeling ligt. Past de laatste baan niet, dan
+    gaat er een baan bij; zo lijken de banen in hoogte op elkaar en blijft elke snede in witruimte.
+    """
     _, _, _, hoogte = doek(svg)
     if hoogte <= baan:
-        return []
+        return [], None
     wit = gaten(bezet(svg, hoogte), hoogte)
-    uit, start = [], 0.0
-    while hoogte - start > baan:
-        kandidaten = [g for g in wit if start + baan * 0.45 < (g[0] + g[1]) / 2 <= start + baan]
-        if not kandidaten:
+    knel = None
+    for n in range(math.ceil(hoogte / baan), math.ceil(hoogte / GAT) + 1):
+        snedes_, knel = _verdeel(wit, hoogte, baan, n)
+        if snedes_ is not None:
+            return snedes_, None
+        if knel:
             break
-        a, b = max(kandidaten, key=lambda g: ((g[0] + g[1]) / 2, g[1] - g[0]))
-        snede = (a + b) / 2
-        uit.append(snede)
-        start = snede
-    return uit
+    van, tot = knel if knel else (0.0, hoogte)
+    return [], (f"geen witregel van {GAT:g} punten tussen y={van:g} en y={tot:g}; "
+                f"het beeld staat daar vol en past niet in een baan van {baan:g}")
+
+
+def snedes(svg, baan):
+    """De y-waarden waarop het beeld wordt gesneden, altijd in een witregel."""
+    return _snedes(svg, baan)[0]
+
+
+def knelpunt(svg, baan=None):
+    """De reden waarom een beeld niet te snijden is, of None als het wel lukt."""
+    _, _, breedte, _ = doek(svg)
+    return _snedes(svg, baan or breedte * VERHOUDING)[1]
 
 
 def banen(svg, baan=None, marge=MARGE):
@@ -115,7 +153,11 @@ def main():
     a = p.parse_args()
     bron = Path(a.beeld)
     svg = bron.read_text(encoding="utf-8")
+    reden = knelpunt(svg, a.baan)
     delen = banen(svg, a.baan, a.marge)
+    if reden:
+        print(f"{bron.name}: niet te snijden, {reden}", file=sys.stderr)
+        return 1
     if len(delen) == 1:
         print(f"{bron.name}: past in een baan, niets gesneden")
         return 0
