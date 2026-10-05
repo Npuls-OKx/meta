@@ -554,13 +554,19 @@ class DekkingTests(unittest.TestCase):
         _, w, _ = bevindingen(r, componenten={"componenten": [{"naam": "Planningssysteem"}, {"naam": "Onderwijscatalogus"}]})
         self.assertTrue(any("componenten.json niet kent" in x for x in w), w)
 
-    def test_given_the_real_table_when_measured_then_twelve_exchanges_wait_for_an_answer(self):
-        """De werklijst van de acht fase-issues: elk gat krijgt daar beeld_in_fase, afwijking of
-        buiten_scope, en de fase gaat op dekking volledig."""
+    def test_given_the_real_table_when_measured_then_every_gap_sits_in_a_phase_still_open(self):
+        """De werklijst van de fase-issues: elk gat krijgt daar beeld_in_fase, afwijking of buiten_scope,
+        en de fase gaat op dekking volledig. Een fase die volledig heet draagt dus geen gat meer, en de
+        controle levert geen bevinding zolang de rest nog loopt."""
         tabel = json.loads((WORTEL / "architecture/model/informatiemodel/voorbeeld-lr1-regels.json").read_text(encoding="utf-8"))
         b, w = cv.dekking_uitwisselingen(tabel)
         self.assertEqual(b, [])
-        self.assertEqual(len([x for x in w if "draagt geen beeld" in x]), 12)
+        gaten = [x for x in w if "draagt geen beeld" in x]
+        volledig = {f["nummer"] for f in tabel["fasen"] if f.get("dekking") == "volledig"}
+        self.assertTrue(volledig, "geen enkele fase staat op volledig")
+        for gat in gaten:
+            nummer = int(gat.split()[1].rstrip(":"))
+            self.assertNotIn(nummer, volledig, gat)
 
 
 class AanvullendeStroomTests(unittest.TestCase):
@@ -676,6 +682,36 @@ class UitvoerTests(unittest.TestCase):
             with contextlib.redirect_stdout(io.StringIO()):
                 code = cv.main(["--regels", str(rp), "--model", str(mp), "--stromen", str(sp), "--schema", str(SCHEMA)])
         self.assertEqual(code, 0)
+
+
+class StijlTests(unittest.TestCase):
+    """De zinnen van de regeltabel zijn de tekst van het document, dus de schrijfstijl van het project
+    geldt er onverkort: positief formuleren, en geen em-dash."""
+
+    def tabel(self):
+        return json.loads((WORTEL / "architecture/model/informatiemodel/voorbeeld-lr1-regels.json").read_text(encoding="utf-8"))
+
+    def teksten(self):
+        d = self.tabel()
+        for r in d["regels"]:
+            for veld in ("zin", "instantie"):
+                if r.get(veld):
+                    yield f"{r['beeld_id']} {veld}", r[veld]
+        for b in d["bevindingen"]:
+            for veld in ("verwerking", "reden"):
+                if b.get(veld):
+                    yield f"bevinding {b['nummer']} {veld}", b[veld]
+
+    def test_given_a_sentence_when_read_then_it_says_what_is_instead_of_what_is_not(self):
+        """Geen "niet X maar Y": zeg wat het is en waar het hoort."""
+        import re
+        patroon = re.compile(r"\bniet\b[^.]{0,80}?\bmaar\b", re.I)
+        fout = [(plek, patroon.search(tekst).group(0)) for plek, tekst in self.teksten() if patroon.search(tekst)]
+        self.assertEqual(fout, [])
+
+    def test_given_a_sentence_when_read_then_it_carries_no_em_dash(self):
+        fout = [plek for plek, tekst in self.teksten() if "\u2014" in tekst or "\u2013" in tekst]
+        self.assertEqual(fout, [])
 
 
 class MainTests(unittest.TestCase):

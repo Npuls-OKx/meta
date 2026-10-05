@@ -93,7 +93,8 @@
             "specificatie-update",
             "plan-assets"
           ],
-          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 2: Wat licht op in de plaat"
+          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 2: Wat licht op in de plaat",
+          "beeld_in_fase": 1
         },
         {
           "van": "Planningssysteem",
@@ -105,7 +106,7 @@
           "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 2: Wat licht op in de plaat"
         }
       ],
-      "dekking": "open",
+      "dekking": "volledig",
       "link": "https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-2--publiceren-en-planbaar-maken"
     },
     {
@@ -2803,7 +2804,7 @@
       "instantie": "BOL voltijd, planbaar: tijdvensters en capaciteit",
       "toestand": "planbaar",
       "bron": "leerroute-1-regulier.md, Fase 2: aangevuld tot planbare specificatie",
-      "zin": "Planbaar is een rijpheidskenmerk van de specificatie, geen apart object. Het programma draagt tijdvensters en capaciteit, de eenheid haar plek in de opleidingsduur. Op het niveau eronder ligt planbaar niet op het losse leeronderdeel maar op de gewenste leergelegenheid: de catalogus clustert leeronderdelen inhoudelijk tot logistieke eenheden met dezelfde vorm en opbouwende fase, en draagt daarbij de organiseerbaarheidswaarden. Planning clusteert daarna logistiek: kleine lesgroepen bundelen, of leergelegenheden met verschillende inhoud en verschillende studenten gelijktijdig laten plaatsvinden bij dezelfde docent in hetzelfde lokaaltype."
+      "zin": "Planbaar is een rijpheidskenmerk van de specificatie, geen apart object. Het programma draagt tijdvensters en capaciteit, de eenheid haar plek in de opleidingsduur. Op het niveau eronder draagt de gewenste leergelegenheid dat kenmerk, en het losse leeronderdeel niet: de catalogus clustert leeronderdelen inhoudelijk tot logistieke eenheden met dezelfde vorm en opbouwende fase, en draagt daarbij de organiseerbaarheidswaarden. Planning clusteert daarna logistiek: kleine lesgroepen bundelen, of leergelegenheden met verschillende inhoud en verschillende studenten gelijktijdig laten plaatsvinden bij dezelfde docent in hetzelfde lokaaltype."
     },
     {
       "beeld_id": "F2-01",
@@ -6140,7 +6141,8 @@
         "W1"
       ],
       "issue": 284,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F2-01: de zin zegt dat de gewenste leergelegenheid het kenmerk planbaar draagt en het losse leeronderdeel niet, dat de catalogus leeronderdelen inhoudelijk clustert tot logistieke eenheden met dezelfde vorm en opbouwende fase, en dat planning daarna logistiek clustert door kleine lesgroepen te bundelen of leergelegenheden met verschillende inhoud gelijktijdig te laten plaatsvinden. De leeronderdelen dragen didactische namen."
     },
     {
       "nummer": "B07",
@@ -6159,7 +6161,8 @@
       ],
       "verwijst_naar": "F2-01",
       "issue": 284,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F2-03: het beeld draagt de volledige specificatiestructuur met de planbare waarden uit het onderwijsontwerp, en de leeronderdelen heten Baliegesprekken 101 en Medicatiebewaking in de leerapotheek in plaats van een werkprocescode."
     },
     {
       "nummer": "B08",
@@ -6178,7 +6181,8 @@
       ],
       "verwijst_naar": "F2-01",
       "issue": 284,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F2-04: dezelfde namen als in F2-01 en F2-03, en de zin zet het aanbod in tredes die met de planningshorizon meelopen: intentie in de meerjarenplanning, perioden en capaciteit in de jaarplanning, gelegenheden met groepen en tijdvensters in de periodeplanning."
     },
     {
       "nummer": "B09",
@@ -6196,7 +6200,8 @@
         "W3"
       ],
       "issue": 284,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F2-05: het cohort staat niet meer in het schaarstebeeld. De zin zegt dat haalbaarheid uit de specificatie samen met de prognose op studentaantallen en de toegewezen capaciteit volgt, als functie binnen planning, en draagt de doorrekening van prognose naar groepen, van groep naar standaard jaarplan, en van de som per organisatie-eenheid naar de vraag per lokaaltype en docentexpertise tegenover de beschikbare uren."
     },
     {
       "nummer": "B10",
@@ -6217,7 +6222,8 @@
         "W3"
       ],
       "issue": 284,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F2-07: de zin zegt dat capaciteit met exacte getallen vrijgeven een hoge organisatorische volwassenheid vraagt omdat het een toezegging is, en voor een aantal logistieke scenario's wel voorwaarde. De leergelegenheid heet Baliegesprekken 101 zonder werkprocesverwijzing, de aantallen volgen het cohort van 36 in twee groepen van 18 (#296), en het keuzedeelaanbod staat als eigen gelegenheid los van het opleidingsaanbod, omdat capaciteit op de bovenliggende laag haar waarde verliest naarmate keuzes fijnmaziger worden."
     },
     {
       "nummer": "B11",
