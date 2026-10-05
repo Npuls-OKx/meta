@@ -17,6 +17,20 @@ Vier termen, overal gelijk:
 | Applicatiedienst | De ArchiMate-applicatiedienst op de hoofdplaat en in MORA; alleen context |
 | Koppeling | Een pijl op hoofdplaat v1.7 tussen twee componenten; met de koppeling-ID uit Public waar die er is |
 
+Vier lagen waarin hetzelfde onderwijs steeds concreter wordt. Dit onderscheid draagt het hele document, en
+elk beeld staat in een van deze lagen:
+
+| Laag | Wat het is | In dit voorbeeld |
+|---|---|---|
+| Specificatie | Wat de instelling aanbiedt, los van tijd, plaats en student: de opleiding zoals ontworpen | `Apothekersassistent, versie 2026.1` |
+| Aanbod | Diezelfde specificatie in de tijd gezet, met een plaats en een capaciteit | `Apothekersassistent 2026` met perioden en plaatsen |
+| Verbintenis | De band tussen een student en een aanbod: waarop hij staat ingeschreven | `Jochem op Regulier BOL 2026` |
+| Resultaat | Wat de student op die verbintenis heeft laten zien | het cijfer op de praktijktoets baliegesprek |
+
+Een specificatie bestaat dus zonder dat er iemand voor kiest, een aanbod zonder dat er iemand op zit, en een
+verbintenis zonder dat er al een resultaat is. Dezelfde naam komt in meer lagen voor: `Opleidingaanbod` is het
+aanbod, `Opleiding aanbod verbintenis` de inschrijving daarop.
+
 Twee soorten regels, in de vormtaal van de plaat:
 
 - **Ontstaat**: een rol (geel, rolicoon) voert een processtap uit (geel, procesicoon) en daaruit ontstaan objecttypen (geel, objecticoon) met Jochems waarde. "Bestaat uit" is nesting; een relatielabel van de plaat staat tussen twee objecten of als verwijzing op een object dat aan een eerdere stap hangt. Een gestippelde rand is een aanname; grijs is een objecttype dat de plaat buiten de uitwisseling zet en dit voorbeeld toch meeneemt.
@@ -696,8 +710,6 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 | ontstaat | Onderwijseenheid specificatie | D1-K1 Draagt bij aan kwaliteitszorg en arbeidsomstandigheden | K0262-arbo-kwaliteitszorg-en-hulpverlening-niveau-3.md (keuzedeel mbo K0262, gevalideerd 10-11-2015); leerroute-1-regulier.md, r1072 tot 1080 |
 | ontstaat | Leeronderdeel specificatie | Kwaliteitszorg in de eigen praktijk | K0262-arbo-kwaliteitszorg-en-hulpverlening-niveau-3.md (keuzedeel mbo K0262, gevalideerd 10-11-2015); leerroute-1-regulier.md, r1072 tot 1080 |
 | ontstaat | Leeronderdeel specificatie | RI&E van begin tot eind | K0262-arbo-kwaliteitszorg-en-hulpverlening-niveau-3.md (keuzedeel mbo K0262, gevalideerd 10-11-2015); leerroute-1-regulier.md, r1072 tot 1080 |
-| ontstaat | Onderwijseenheid specificatie | D1-K2 Verleent EHBO en BHV | K0262-arbo-kwaliteitszorg-en-hulpverlening-niveau-3.md (keuzedeel mbo K0262, gevalideerd 10-11-2015); leerroute-1-regulier.md, r1072 tot 1080 |
-| ontstaat | Leeronderdeel specificatie | Handelen bij calamiteiten | K0262-arbo-kwaliteitszorg-en-hulpverlening-niveau-3.md (keuzedeel mbo K0262, gevalideerd 10-11-2015); leerroute-1-regulier.md, r1072 tot 1080 |
 | ontstaat | Keuzedeel | K0037 Farmaceutische Patientenzorg (480 SBU, verdiepend) | K0037-farmaceutische-patientenzorg.md (keuzedeel mbo K0037, 480 SBU, aard verdiepend, gevalideerd 26-11-2015) |
 | ontstaat | Onderwijseenheid specificatie | D1-K1 Voert farmaceutische patientenzorg uit | K0037-farmaceutische-patientenzorg.md (keuzedeel mbo K0037, 480 SBU, aard verdiepend, gevalideerd 26-11-2015) |
 | ontstaat | Leeronderdeel specificatie | Het medicatieoverzicht opstellen | K0037-farmaceutische-patientenzorg.md (keuzedeel mbo K0037, 480 SBU, aard verdiepend, gevalideerd 26-11-2015) |

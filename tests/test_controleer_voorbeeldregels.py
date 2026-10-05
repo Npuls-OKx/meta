@@ -440,6 +440,24 @@ class RegisterTests(unittest.TestCase):
         b, _, _ = bevindingen(register_regels(status="geparkeerd", reden="wacht op de modelronde"))
         self.assertEqual(b, [])
 
+    def test_given_a_processed_finding_without_an_account_when_checked_then_finding(self):
+        """Criterium 5 van een fase vraagt per bevinding wat er is gewijzigd; doorgevoerd zonder dat
+        verhaal laat de lezer met een vinkje achter."""
+        b, _, _ = bevindingen(register_regels(status="doorgevoerd"))
+        self.assertTrue(any("doorgevoerd zonder te zeggen wat er is gewijzigd" in x for x in b), b)
+
+    def test_given_a_processed_finding_with_an_account_when_checked_then_accepted(self):
+        b, _, _ = bevindingen(register_regels(status="doorgevoerd", verwerking="F2-01: de zin herschreven"))
+        self.assertEqual(b, [])
+
+    def test_given_the_register_when_read_then_phase_one_is_fully_processed(self):
+        tabel = json.loads((WORTEL / "architecture/model/informatiemodel/voorbeeld-lr1-regels.json").read_text(encoding="utf-8"))
+        fase1 = [b for b in tabel["bevindingen"] if b["issue"] == 283]
+        self.assertEqual(len(fase1), 5)
+        for b in fase1:
+            self.assertEqual(b["status"], "doorgevoerd", b["nummer"])
+            self.assertTrue(b["verwerking"].startswith(b["beeld_id"]), b["nummer"])
+
     def test_given_status_outside_the_list_when_checked_then_finding(self):
         b, _, _ = bevindingen(register_regels(status="afgehandeld"))
         self.assertTrue(any("staat niet in de lijst" in x for x in b), b)

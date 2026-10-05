@@ -183,6 +183,8 @@ def register(regels):
                 uit.append(f"{plek}: thema {thema!r} staat niet in thema_toelichting")
         if b.get("status") == "geparkeerd" and not b.get("reden"):
             uit.append(f"{plek}: geparkeerd zonder reden")
+        if b.get("status") == "doorgevoerd" and not b.get("verwerking"):
+            uit.append(f"{plek}: doorgevoerd zonder te zeggen wat er is gewijzigd")
     return uit
 
 

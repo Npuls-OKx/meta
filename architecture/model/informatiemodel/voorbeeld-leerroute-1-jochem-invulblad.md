@@ -40,8 +40,6 @@ Hoort bij [de opleiding van Jochem in het informatiemodel](voorbeeld-leerroute-1
 | 1 | F1-08 | Onderwijseenheid specificatie | | | | |
 | 1 | F1-08 | Leeronderdeel specificatie | | | | |
 | 1 | F1-08 | Leeronderdeel specificatie | | | | |
-| 1 | F1-08 | Onderwijseenheid specificatie | | | | |
-| 1 | F1-08 | Leeronderdeel specificatie | | | | |
 | 1 | F1-08 | Keuzedeel | | | | |
 | 1 | F1-08 | Onderwijseenheid specificatie | | | | |
 | 1 | F1-08 | Leeronderdeel specificatie | | | | |

@@ -380,9 +380,8 @@ class MatenTests(unittest.TestCase):
         map_ = WORTEL / "architecture/model/informatiemodel/img/regels"
         redenen = {naam: reden for naam, _, _, _, reden in
                    tv.maten(map_, sorted(p.name for p in map_.glob("*.svg"))) if reden}
-        self.assertEqual(sorted(redenen), [
-            "f1-08-het-keuzedeel-als-eigen-programmaspecificatie-met-kerntaken-en-werkprocessen.svg",
-            "f2-07-het-geplande-aanbod-terug-naar-de-catalogus.svg"])
+        # F1-08 is in #283 ingekort en past nu in drie banen; F2-07 wacht op #284
+        self.assertEqual(sorted(redenen), ["f2-07-het-geplande-aanbod-terug-naar-de-catalogus.svg"])
         for reden in redenen.values():
             self.assertIn("geen witregel", reden)
 
