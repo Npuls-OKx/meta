@@ -13,6 +13,7 @@ import unittest
 from pathlib import Path
 
 WORTEL = Path(__file__).resolve().parent.parent
+SCHEMA = WORTEL / "architecture/model/informatiemodel/voorbeeld-lr1-regels.schema.json"
 spec = importlib.util.spec_from_file_location("controleer_voorbeeldregels", WORTEL / "scripts/controleer-voorbeeldregels.py")
 cv = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(cv)
@@ -64,7 +65,7 @@ def regels():
                 {"beeld": "Aanbod gemaakt", "fase": 2, "stap": "Aanbod maken", "soort": "ontstaat", "wie": "planner", "objecttype": "Opleidingaanbod", "instantie": "Apothekersassistent 2026", "bron": "ks r1"},
                 {"beeld": "Aanbod gemaakt", "fase": 2, "stap": "Aanbod maken", "soort": "ontstaat", "wie": "planner", "objecttype": "Opleidingsprogramma aanbod", "instantie": "Regulier BOL 2026", "bron": "ks r2",
                  "relatie": {"soort": "Aggregation", "van": "Opleidingaanbod", "naar": "Opleidingsprogramma aanbod", "nesting": True}},
-                {"beeld": "Aanbod naar de catalogus", "fase": 2, "stap": "Aanbod publiceren", "soort": "stroomt", "van": "Planningssysteem", "naar": "Onderwijscatalogus", "pijl": "rel-1", "objecttype": "Opleidingaanbod", "instantie": "Apothekersassistent 2026", "bron": "v1.7"},
+                {"beeld": "Aanbod naar de catalogus", "fase": 2, "stap": "Aanbod publiceren", "soort": "stroomt", "van": "Planningssysteem", "naar": "Onderwijscatalogus", "pijl": "rel-1", "koppeling": "OC-P&R", "objecttype": "Opleidingaanbod", "instantie": "Apothekersassistent 2026", "bron": "v1.7"},
                 {"beeld": "Aanmelding", "fase": 3, "stap": "Aanmelden", "soort": "ontstaat", "wie": "student", "objecttype": "Aanmelding", "instantie": "April 2026", "bron": "ks r3",
                  "relatie": {"soort": "Association", "van": "Opleidingaanbod", "naar": "Aanmelding", "label": "Op basis van"}},
                 {"beeld": "Aanmelding", "fase": 3, "stap": "Aanmelden", "soort": "ontstaat", "wie": "student", "objecttype": "Opleiding aanbod verbintenis", "instantie": "Jochem 2026", "bron": "ks r4"},
@@ -73,8 +74,22 @@ def regels():
 
 
 def bevindingen(r=None, m=None, s="standaard", **kw):
+    kw.setdefault("schema_pad", SCHEMA)
     b, w, o = cv.controleer(r or regels(), m or model(), stromen() if s == "standaard" else s, **kw)
     return b, w, o
+
+
+def register_regels(**velden):
+    """De fixture met een register van een bevinding erin, zodat de controles op het register iets hebben."""
+    r = regels()
+    r["thema_toelichting"] = {"clustering": "leeronderdelen clusteren tot leergelegenheden"}
+    bevinding = {"nummer": "B01", "beeld_id": r["regels"][0]["beeld_id"], "lezer": "NvDuin",
+                 "datum": "2026-09-28", "bron": "https://github.com/x/y/pull/252#discussion_r1",
+                 "tekst": "deze stap lijkt te rechtlijnig", "themas": ["clustering"],
+                 "issue": 283, "status": "open"}
+    bevinding.update(velden)
+    r["bevindingen"] = [bevinding]
+    return r
 
 
 class ControleTests(unittest.TestCase):
@@ -263,11 +278,13 @@ def conceptplaat():
 
 
 def conceptregel(**extra):
+    """Een regel tegen de conceptplaat. Een veld op None laten betekent het veld weglaten: null is in de
+    regeltabel geen waarde, behalve bij koppeling, waar het voor een stroom zonder specificatie staat."""
     r = {"beeld_id": "F2-09", "beeld": "Kader (concept)", "fase": 2, "stap": "Aanbod maken", "verdieping": "kader", "plaat": "onderwijsontwerp", "soort": "ontstaat", "wie": "planner",
          "objecttype": "Leerdoel", "instantie": "Leren door te doen", "bron": "conceptplaat",
          "relatie": {"soort": "Association", "van": "Leervormstrategie", "naar": "Leerdoel"}}
     r.update(extra)
-    return r
+    return {k: v for k, v in r.items() if v is not None or k == "koppeling"}
 
 
 class ConceptplaatTests(unittest.TestCase):
@@ -281,7 +298,7 @@ class ConceptplaatTests(unittest.TestCase):
         r = regels(); r["regels"].append(conceptregel(verdieping=None))
         b, _, _ = bevindingen(r, conceptplaat=conceptplaat())
         self.assertTrue(any("alleen in een verdieping" in x for x in b))
-        r = regels(); r["regels"].append(conceptregel(verdieping=None, beeld="Leerdoel naar de catalogus", soort="stroomt", van="Planningssysteem", naar="Onderwijscatalogus", pijl="rel-1", stap="Aanbod publiceren", relatie=None))
+        r = regels(); r["regels"].append(conceptregel(verdieping=None, beeld="Leerdoel naar de catalogus", soort="stroomt", van="Planningssysteem", naar="Onderwijscatalogus", pijl="rel-1", koppeling="OC-P&R", stap="Aanbod publiceren", relatie=None))
         b, _, _ = bevindingen(r, conceptplaat=conceptplaat())
         self.assertEqual(b, [])
 
@@ -335,6 +352,106 @@ class BeeldEnRelatiesTests(unittest.TestCase):
         self.assertTrue(any("(relaties) wijkt af" in x for x in b))
         self.assertTrue(any("raakt het objecttype" in x for x in b))
         self.assertTrue(any("nesting hoort in relatie" in x for x in b))
+
+
+class SchemaContractTests(unittest.TestCase):
+    """Het schema naast de tabel is de woordenlijst van de velden; wat het niet kent hoort op te vallen."""
+
+    def test_given_the_real_table_when_validated_then_it_passes_and_the_schema_knows_every_field(self):
+        tabel = json.loads((WORTEL / "architecture/model/informatiemodel/voorbeeld-lr1-regels.json").read_text(encoding="utf-8"))
+        fouten, waarschuwingen = cv.schemavalidatie(tabel, SCHEMA)
+        self.assertEqual(fouten, [])
+        self.assertEqual(waarschuwingen, [])
+        velden = {k for r in tabel["regels"] for k in r}
+        beschreven = set(json.loads(SCHEMA.read_text(encoding="utf-8"))["properties"]["regels"]["items"]["properties"])
+        self.assertEqual(velden - beschreven, set())
+
+    def test_given_rule_with_unknown_field_when_checked_then_finding_names_that_field(self):
+        r = regels(); r["regels"][0]["objecttyp"] = "Opleidingaanbod"
+        b, _, _ = bevindingen(r)
+        self.assertTrue(any("'objecttyp' kent het schema niet" in x for x in b), b)
+
+    def test_given_unknown_field_inside_a_relation_when_checked_then_finding_names_that_field(self):
+        r = regels(); r["regels"][1]["relatie"]["nestng"] = True
+        b, _, _ = bevindingen(r)
+        self.assertTrue(any("'nestng' kent het schema niet" in x for x in b), b)
+
+    def test_given_missing_required_field_when_checked_then_finding_names_beeld_id_and_field(self):
+        r = regels(); del r["regels"][0]["objecttype"]
+        b, _, _ = bevindingen(r)
+        self.assertTrue(any("F2-01" in x and "objecttype" in x for x in b), b)
+
+    def test_given_unknown_top_level_field_when_checked_then_finding_on_the_head(self):
+        r = regels(); r["regles"] = []
+        b, _, _ = bevindingen(r)
+        self.assertTrue(any(x.startswith("kop:") and "'regles'" in x for x in b), b)
+
+    def test_given_koppeling_outside_the_list_when_checked_then_finding(self):
+        r = regels(); r["regels"][2]["koppeling"] = "OC-XYZ"
+        b, _, _ = bevindingen(r)
+        self.assertTrue(any("koppeling 'OC-XYZ' staat niet in de koppelingenlijst" in x for x in b), b)
+
+    def test_given_koppeling_null_on_a_stroomt_rule_when_checked_then_accepted(self):
+        r = regels(); r["regels"][2]["koppeling"] = None
+        b, _, _ = bevindingen(r)
+        self.assertEqual(b, [])
+
+    def test_given_stroomt_rule_without_koppeling_when_checked_then_finding(self):
+        r = regels(); del r["regels"][2]["koppeling"]
+        b, _, _ = bevindingen(r)
+        self.assertTrue(any("veld koppeling ontbreekt bij stroomt" in x for x in b), b)
+
+    def test_given_koppeling_on_an_ontstaat_rule_when_checked_then_finding(self):
+        r = regels(); r["regels"][0]["koppeling"] = "OC-P&R"
+        b, _, _ = bevindingen(r)
+        self.assertTrue(any("hoort bij een stroomt-regel" in x for x in b), b)
+
+    def test_given_missing_schema_file_when_checked_then_warning_and_no_finding(self):
+        r = regels()
+        fouten, waarschuwingen = cv.schemavalidatie(r, Path("geen-schema.json"))
+        self.assertEqual(fouten, [])
+        self.assertTrue(any("schema ontbreekt" in w for w in waarschuwingen))
+
+
+class RegisterTests(unittest.TestCase):
+    """Het register houdt bij wat er met een reviewbevinding is gedaan, dus het moet naar iets bestaands wijzen."""
+
+    def test_given_a_sound_register_when_checked_then_no_findings(self):
+        b, _, _ = bevindingen(register_regels())
+        self.assertEqual(b, [])
+
+    def test_given_finding_on_unknown_beeld_when_checked_then_finding(self):
+        b, _, _ = bevindingen(register_regels(beeld_id="F9-99"))
+        self.assertTrue(any("bestaat niet in de regeltabel" in x or "niet de vorm" in x for x in b), b)
+
+    def test_given_finding_with_unknown_thema_when_checked_then_finding(self):
+        b, _, _ = bevindingen(register_regels(themas=["verzonnen"]))
+        self.assertTrue(any("staat niet in thema_toelichting" in x for x in b), b)
+
+    def test_given_parked_finding_without_reason_when_checked_then_finding(self):
+        b, _, _ = bevindingen(register_regels(status="geparkeerd"))
+        self.assertTrue(any("geparkeerd zonder reden" in x for x in b), b)
+
+    def test_given_parked_finding_with_reason_when_checked_then_accepted(self):
+        b, _, _ = bevindingen(register_regels(status="geparkeerd", reden="wacht op de modelronde"))
+        self.assertEqual(b, [])
+
+    def test_given_status_outside_the_list_when_checked_then_finding(self):
+        b, _, _ = bevindingen(register_regels(status="afgehandeld"))
+        self.assertTrue(any("staat niet in de lijst" in x for x in b), b)
+
+    def test_given_reference_to_unknown_beeld_when_checked_then_finding(self):
+        b, _, _ = bevindingen(register_regels(verwijst_naar="F8-07"))
+        self.assertTrue(any("verwijst naar beeld" in x for x in b), b)
+
+    def test_given_every_finding_of_the_round_when_counted_then_the_register_holds_all_of_them(self):
+        tabel = json.loads((WORTEL / "architecture/model/informatiemodel/voorbeeld-lr1-regels.json").read_text(encoding="utf-8"))
+        self.assertEqual(len(tabel["bevindingen"]), 38)
+        beelden = {r["beeld_id"] for r in tabel["regels"]}
+        for b in tabel["bevindingen"]:
+            self.assertIn(b["beeld_id"], beelden)
+            self.assertTrue(b["bron"].startswith("https://github.com/Npuls-OKx/meta/pull/252#discussion_r"))
+            self.assertTrue(set(b["themas"]) <= set(tabel["thema_toelichting"]))
 
 
 class MainTests(unittest.TestCase):

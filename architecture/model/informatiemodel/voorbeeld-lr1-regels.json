@@ -2366,6 +2366,7 @@
       "van": "Curriculum ontwerptool",
       "naar": "Onderwijscatalogus",
       "pijl": "geen pijl op de hoofdplaat",
+      "koppeling": null,
       "aanname": true,
       "objecttype": "Toetsvormspecificatie",
       "instantie": "Proeve van bekwaamheid in de simulatieapotheek",
@@ -2388,6 +2389,7 @@
       "van": "Curriculum ontwerptool",
       "naar": "Onderwijscatalogus",
       "pijl": "geen pijl op de hoofdplaat",
+      "koppeling": null,
       "aanname": true,
       "objecttype": "Toetsinstrument",
       "instantie": "Beoordelingsformulier met rubric",
@@ -2410,6 +2412,7 @@
       "van": "Curriculum ontwerptool",
       "naar": "Onderwijscatalogus",
       "pijl": "geen pijl op de hoofdplaat",
+      "koppeling": null,
       "aanname": true,
       "objecttype": "Gewenst medewerker competentieprofiel",
       "instantie": "Examinator met baliepraktijk en toetsbekwaamheid",
@@ -3641,6 +3644,7 @@
       "van": "Intake systeem",
       "naar": "Kernregistratie systeem studenten (KRS)",
       "pijl": "geen pijl op de hoofdplaat",
+      "koppeling": null,
       "objecttype": "Inschrijving",
       "instantie": "Juni 2026",
       "bron": "leerroute-1-regulier.md, r860 en r882 (het intakesysteem verwerkt aanmelding en intake en draagt de positieve uitkomst over aan KRS), r945 en r949",
@@ -3664,6 +3668,7 @@
       "van": "Intake systeem",
       "naar": "Kernregistratie systeem studenten (KRS)",
       "pijl": "geen pijl op de hoofdplaat",
+      "koppeling": null,
       "objecttype": "Persoon",
       "instantie": "Jochem, 17, na het vmbo",
       "bron": "leerroute-1-regulier.md, r860 en r882 (het intakesysteem verwerkt aanmelding en intake en draagt de positieve uitkomst over aan KRS), r945 en r949",
@@ -3685,6 +3690,7 @@
       "van": "Intake systeem",
       "naar": "Kernregistratie systeem studenten (KRS)",
       "pijl": "geen pijl op de hoofdplaat",
+      "koppeling": null,
       "objecttype": "Student",
       "instantie": "Jochem, cohort 2026",
       "bron": "leerroute-1-regulier.md, r860 en r882 (het intakesysteem verwerkt aanmelding en intake en draagt de positieve uitkomst over aan KRS), r945 en r949",
@@ -3703,6 +3709,7 @@
       "van": "Intake systeem",
       "naar": "Kernregistratie systeem studenten (KRS)",
       "pijl": "geen pijl op de hoofdplaat",
+      "koppeling": null,
       "objecttype": "Plaatsingsgroep",
       "instantie": "APO26-1A",
       "bron": "leerroute-1-regulier.md, r860 en r882 (het intakesysteem verwerkt aanmelding en intake en draagt de positieve uitkomst over aan KRS), r945 en r949",
@@ -3724,6 +3731,7 @@
       "van": "Intake systeem",
       "naar": "Kernregistratie systeem studenten (KRS)",
       "pijl": "geen pijl op de hoofdplaat",
+      "koppeling": null,
       "objecttype": "Opleiding aanbod verbintenis",
       "instantie": "Jochem op Apothekersassistent 2026",
       "toestand": "ingeschreven",
@@ -3743,6 +3751,7 @@
       "van": "Intake systeem",
       "naar": "Kernregistratie systeem studenten (KRS)",
       "pijl": "geen pijl op de hoofdplaat",
+      "koppeling": null,
       "objecttype": "Opleidingsprogramma aanbod verbintenis",
       "instantie": "Jochem op Regulier BOL 2026",
       "toestand": "ingeschreven",
@@ -3764,6 +3773,7 @@
       "van": "Kernregistratie systeem studenten (KRS)",
       "naar": "Student Keuze Systeem (SKS)",
       "pijl": "id-865f297e8c1f4371aa143aa225fe4b7f",
+      "koppeling": null,
       "objecttype": "Student",
       "instantie": "Jochem, cohort 2026",
       "bron": "leerroute-1-regulier.md, r850 (het studentkeuzesysteem krijgt van de kernregistratie student, verbintenis en groepen) en r860 (het intakesysteem draagt de uitkomst over aan de kernregistratie)",
@@ -3783,6 +3793,7 @@
       "van": "Kernregistratie systeem studenten (KRS)",
       "naar": "Student Keuze Systeem (SKS)",
       "pijl": "id-865f297e8c1f4371aa143aa225fe4b7f",
+      "koppeling": null,
       "objecttype": "Opleidingsprogramma aanbod verbintenis",
       "instantie": "Jochem op Regulier BOL 2026, ingeschreven",
       "bron": "leerroute-1-regulier.md, r850 (het studentkeuzesysteem krijgt van de kernregistratie student, verbintenis en groepen) en r860 (het intakesysteem draagt de uitkomst over aan de kernregistratie)",
@@ -3801,6 +3812,7 @@
       "van": "Kernregistratie systeem studenten (KRS)",
       "naar": "Student Keuze Systeem (SKS)",
       "pijl": "id-865f297e8c1f4371aa143aa225fe4b7f",
+      "koppeling": null,
       "objecttype": "Plaatsingsgroep",
       "instantie": "APO26-1A",
       "bron": "leerroute-1-regulier.md, r850 (het studentkeuzesysteem krijgt van de kernregistratie student, verbintenis en groepen) en r860 (het intakesysteem draagt de uitkomst over aan de kernregistratie)",
@@ -3820,6 +3832,7 @@
       "van": "Kernregistratie systeem studenten (KRS)",
       "naar": "Student Keuze Systeem (SKS)",
       "pijl": "id-865f297e8c1f4371aa143aa225fe4b7f",
+      "koppeling": null,
       "objecttype": "Leeruitkomst",
       "instantie": "Al behaald door Jochem: geen, hij start zonder vrijstellingen",
       "bron": "review Niels van Duin op PR 252: de kernregistratie weet welke keuzedelen de student al heeft afgenomen; ontwerpkeuze 6, een voorwaarde vooraf wordt uitgedrukt in behaalde leeruitkomsten",
@@ -4705,6 +4718,7 @@
       "van": "Kernregistratie systeem studenten (KRS)",
       "naar": "Student volg systeem (SVS)",
       "pijl": "geen pijl op de hoofdplaat",
+      "koppeling": null,
       "objecttype": "Student",
       "instantie": "Jochem, cohort 2026",
       "bron": "leerroute-1-regulier.md, r868 (het studentvolgsysteem legt onderwijsresultaten per onderwijsverbintenis vast en houdt de studiepadadministratie bij) en r870 (behaalde resultaten worden in SVS bijgehouden tegen de specificatie uit de catalogus)",
@@ -4724,6 +4738,7 @@
       "van": "Kernregistratie systeem studenten (KRS)",
       "naar": "Student volg systeem (SVS)",
       "pijl": "geen pijl op de hoofdplaat",
+      "koppeling": null,
       "objecttype": "Opleiding aanbod verbintenis",
       "instantie": "Jochem op Apothekersassistent 2026, ingeschreven",
       "bron": "leerroute-1-regulier.md, r868 (het studentvolgsysteem legt onderwijsresultaten per onderwijsverbintenis vast en houdt de studiepadadministratie bij) en r870 (behaalde resultaten worden in SVS bijgehouden tegen de specificatie uit de catalogus)",
@@ -4742,6 +4757,7 @@
       "van": "Kernregistratie systeem studenten (KRS)",
       "naar": "Student volg systeem (SVS)",
       "pijl": "geen pijl op de hoofdplaat",
+      "koppeling": null,
       "objecttype": "Opleidingsprogramma aanbod verbintenis",
       "instantie": "Jochem op Regulier BOL 2026, ingeschreven",
       "bron": "leerroute-1-regulier.md, r868 (het studentvolgsysteem legt onderwijsresultaten per onderwijsverbintenis vast en houdt de studiepadadministratie bij) en r870 (behaalde resultaten worden in SVS bijgehouden tegen de specificatie uit de catalogus)",
@@ -4760,6 +4776,7 @@
       "van": "Kernregistratie systeem studenten (KRS)",
       "naar": "Student volg systeem (SVS)",
       "pijl": "geen pijl op de hoofdplaat",
+      "koppeling": null,
       "objecttype": "Onderwijseenheid aanbod verbintenis",
       "instantie": "Jochem op B1-K1, leerjaar 1",
       "bron": "leerroute-1-regulier.md, r868 (het studentvolgsysteem legt onderwijsresultaten per onderwijsverbintenis vast en houdt de studiepadadministratie bij) en r870 (behaalde resultaten worden in SVS bijgehouden tegen de specificatie uit de catalogus)",
@@ -4778,6 +4795,7 @@
       "van": "Kernregistratie systeem studenten (KRS)",
       "naar": "Student volg systeem (SVS)",
       "pijl": "geen pijl op de hoofdplaat",
+      "koppeling": null,
       "objecttype": "Leergelegenheid verbintenis",
       "instantie": "Jochem op Baliegesprekken 101, periode 1",
       "bron": "leerroute-1-regulier.md, r868 (het studentvolgsysteem legt onderwijsresultaten per onderwijsverbintenis vast en houdt de studiepadadministratie bij) en r870 (behaalde resultaten worden in SVS bijgehouden tegen de specificatie uit de catalogus)",
@@ -5726,6 +5744,576 @@
         "van": "Summatief Afrondingscriterium",
         "naar": "Waarde document (diploma / certificaat)"
       }
+    }
+  ],
+  "thema_toelichting": {
+    "clustering": "De onderwijscatalogus clustert leeronderdelen inhoudelijk tot leergelegenheden en planning clustert die logistiek; de verhouding is zelden een-op-een.",
+    "titels": "Een beeldtitel noemt het object op zijn eigen niveau, zonder werkprocesverwijzing bij een leeronderdeel of leergelegenheid, en met het verbintenisniveau waar dat de betekenis bepaalt.",
+    "toetskenmerken": "Een toets- of examenonderdeel draagt een schaal, een afnamevorm, een duur, hulpmiddelen en een aantal pogingen.",
+    "resultaatstructuur": "Summatief en formatief staan naast elkaar, met equivalentie tussen structuren en condities voor toelating tot examinering.",
+    "keuze-rijpt-in-sks": "Het studentkeuzesysteem draagt het rijpen van een keuze; de kernregistratie legt de definitieve keuze vast en kent de deadlines niet.",
+    "rollen": "Wie wat doet: de examencommissie stelt vast, de ontwerper of het opleidingsteam ontwikkelt, een examenbureaumedewerker of de SLB'er stelt een kandidatenlijst samen, een surveillant draagt het zittingsverslag.",
+    "capaciteit": "Wat roosteren en haalbaarheidsbepaling nodig hebben: lokaaltype, docentexpertise, groep, prognose en beschikbare capaciteit.",
+    "groepen": "Een plaatsingsgroep ontstaat in de kernregistratie, een planninggroep in planning; beide hebben een eigen aanleiding en een eigen levensduur.",
+    "realisme": "De aantallen en de beperkingen van een gemiddeld mbo, zodat een instelling zich in het voorbeeld herkent.",
+    "scope": "Wat buiten OKx valt: aanwezigheidsregistratie, en de toets- en examenlogistiek die bij OKE ligt.",
+    "maatwerkaanbod": "Aanbod dat van het nominale pad afwijkt: waar de planner het ophaalt, en of het terug naar de catalogus gaat."
+  },
+  "bevindingen": [
+    {
+      "nummer": "B01",
+      "beeld_id": "F1-02",
+      "bestand": "f1-02-examenplan-eerste-resultaatstructuur-en-cohort.svg",
+      "lezer": "NvDuin",
+      "datum": "2026-09-28",
+      "bron": "https://github.com/Npuls-OKx/meta/pull/252#discussion_r4123033949",
+      "tekst": "De examencommissie stelt enkel vast, het ontwikkelen van het examenplan en resultaatstructuur ligt bij de ontwerper (of opleidingsteam).\nIn de weerbarstige praktijk kan een vastgesteld examenplan alsnog gewijzigd worden (voordat het schooljaar start) omdat beheer van het SVS de aangeboden structuur en zak/slaag regeling niet kan verwerken. Idealiter wordt dit vanuit applicatie functionaliteit van de onderwijscatalogus geborgd voordat structuren (of referenties daarnaar) worden verzonden naar het SVS.",
+      "themas": [
+        "rollen"
+      ],
+      "issue": 283,
+      "status": "open"
+    },
+    {
+      "nummer": "B02",
+      "beeld_id": "F1-06",
+      "bestand": "f1-06-de-eenheidspecificatie-met-haar-onderwijsontwerp-vorm-ruimte-mensen-en-middelen.svg",
+      "lezer": "NvDuin",
+      "datum": "2026-09-28",
+      "bron": "https://github.com/Npuls-OKx/meta/pull/252#discussion_r4123325730",
+      "tekst": "Deze stap lijkt te rechtlijnig. De onderwijseenheden zijn enkel toetsbare uitkomsten. Verschillende leeronderdelen worden logisch geclustert tot meerdere leergelegenheden met dezelfde vorm/context/opbouwende fase. In de praktijk wordt er in een theorie-leergelegenheid meerdere leeronderdelen tbv verschillende onderwijseenheden behandeld en idem voor praktijk-leergelegenheden. Het is vrijwel nooit een 1 op 1 of 1 op n relatie.\nOmwille van dezelfde reden staan toetsonderdelen en examenonderdelen ook los van elkaar",
+      "themas": [
+        "clustering"
+      ],
+      "issue": 283,
+      "status": "open"
+    },
+    {
+      "nummer": "B03",
+      "beeld_id": "F1-08",
+      "bestand": "f1-08-het-keuzedeel-als-eigen-programmaspecificatie-met-kerntaken-en-werkprocessen.svg",
+      "lezer": "NvDuin",
+      "datum": "2026-09-28",
+      "bron": "https://github.com/Npuls-OKx/meta/pull/252#discussion_r4124013113",
+      "tekst": "Voorbeeld wekt het beeld dat werkprocessen en leeronderdelen 1 op 1 verbonden zijn. Een werkproces is een verdieping van een kerntaak (summatief) terwijl een leeronderdeel al een ontwikkelingsgerichte beantwoording is hoe deze te bereiken. De verdieping van kerntaak naar werkproces is dus anders dan de verdieping van onderwijseenheid naar leeronderdeel. Vervolgens worden kleine leeronderdelen ook nog geclusterd voordat ze logistiek als leergelegenheden gepland en aangeboden kunnen worden.",
+      "themas": [
+        "clustering",
+        "titels"
+      ],
+      "issue": 283,
+      "status": "open"
+    },
+    {
+      "nummer": "B04",
+      "beeld_id": "F1-09",
+      "bestand": "f1-09-toetsonderdelen-wegingen-en-afrondingscriterium.svg",
+      "lezer": "NvDuin",
+      "datum": "2026-09-28",
+      "bron": "https://github.com/Npuls-OKx/meta/pull/252#discussion_r4124180834",
+      "tekst": "Opmerking geldt voor zowel toets- als examenonderdelen:\nToetsen en examens hebben:\n- een schaal zoals: Cijfer (min,max, aantal decimalen) of OVG (onvoldoende, voldoende, goed)\n- een afnamevorm, toetsduur, hulpmiddelen\n- aantal pogingen (bij voorkeur beleidsmatig gestandariseerd)",
+      "themas": [
+        "toetskenmerken"
+      ],
+      "issue": 283,
+      "status": "open"
+    },
+    {
+      "nummer": "B05",
+      "beeld_id": "F1-12",
+      "bestand": "f1-12-de-opleiding-zoals-ontworpen-naar-de-catalogus.svg",
+      "lezer": "NvDuin",
+      "datum": "2026-09-28",
+      "bron": "https://github.com/Npuls-OKx/meta/pull/252#discussion_r4124218572",
+      "tekst": "Ook keuzedeelruimte in summatieve resultaatstructuur\nIdealiter is er hier ook al een (concept) formatieve resultaatstructuur",
+      "themas": [
+        "resultaatstructuur"
+      ],
+      "issue": 283,
+      "status": "open"
+    },
+    {
+      "nummer": "B06",
+      "beeld_id": "F2-01",
+      "bestand": "f2-01-de-specificatie-planbaar-gemaakt.svg",
+      "lezer": "NvDuin",
+      "datum": "2026-09-28",
+      "bron": "https://github.com/Npuls-OKx/meta/pull/252#discussion_r4124357071",
+      "tekst": "Eerder al benoemd werkprocessen niet als leeronderdeel specificatie in te zetten.\n\nIk denk dat het rijpheidskenmerk planbaar niet op leeronderdeel ligt, maar op gewenste leergelegenheid. Meestal zal een leeronderdeel 1 op 1 leiden tot een gewenste leergelegenheid, maar de OC dient het inhoudelijk clusteren van leeronderdelen tot logistieke eenheden te faciliteren. Na deze stap zijn het al leergelegenheden.\n\nn.b. Clusteren vindt dus binnen 2 applicatie componenten plaats:\"\n- OC, inhoudelijk clusteren tot leergelegenheden\n- Planning, logistiek clusteren van leergelegenheden, enerzijds kleine lesgroepen bundelen voor eenzelfde leergelegenheid of leergelegenheden met verschillende inhoud en verschillende studenten gelijktijdig laten plaatsvinden met dezelfde docent/lokaal specificatie",
+      "themas": [
+        "clustering",
+        "titels"
+      ],
+      "issue": 284,
+      "status": "open"
+    },
+    {
+      "nummer": "B07",
+      "beeld_id": "F2-03",
+      "bestand": "f2-03-verzoek-met-specificatiestructuur-en-planbare-waarden-naar-planning.svg",
+      "lezer": "NvDuin",
+      "datum": "2026-09-28",
+      "bron": "https://github.com/Npuls-OKx/meta/pull/252#discussion_r4124364937",
+      "tekst": "eerdere opmerkingen ook in deze plaat verwerken",
+      "themas": [
+        "clustering",
+        "titels"
+      ],
+      "verwijst_naar": "F2-01",
+      "issue": 284,
+      "status": "open"
+    },
+    {
+      "nummer": "B08",
+      "beeld_id": "F2-04",
+      "bestand": "f2-04-het-aanbod-gepland-opleiding-programma-eenheid-gelegenheid.svg",
+      "lezer": "NvDuin",
+      "datum": "2026-09-28",
+      "bron": "https://github.com/Npuls-OKx/meta/pull/252#discussion_r4124370664",
+      "tekst": "eerdere opmerkingen",
+      "themas": [
+        "clustering",
+        "titels"
+      ],
+      "verwijst_naar": "F2-01",
+      "issue": 284,
+      "status": "open"
+    },
+    {
+      "nummer": "B09",
+      "beeld_id": "F2-05",
+      "bestand": "f2-05-ruimtes-en-mensen-op-de-specificatie-conceptplaat.svg",
+      "lezer": "NvDuin",
+      "datum": "2026-09-28",
+      "bron": "https://github.com/Npuls-OKx/meta/pull/252#discussion_r4126698562",
+      "tekst": "Gebruik van cohort in de context van schaarste van middelen is niet relevant.\nJa, cohort kent een relatie met de specificatie, en bepaald welke set aan leergelegenheden aan welk leerjaar gekoppeld worden. Maar zodra het bij planning landt, zijn het leergelegenheden die wel of niet geclusterd kunnen worden.\n\nGetoonde perspectief is ook niet juist. De processtap \"haalbaarheid bepalen en aanbod plannen\" op de conceptplaat. toont rechts dataobjecten die niet direct afgeleid worden uit de specificatie alleen. Het is slechts input voor een applicatiefunctionaliteit binnen het component plannen, waar het wordt verrijkt met eigen en/of andere externe data.\nEen specificatie zegt op zichzelf weinig over de gevraagde capaciteit en haalbaarheid. De insteek is om zo vroeg mogelijk inzicht krijgen in piekbelasting op benodigde lokaaltypen en docent-expertiseuren in elke periode. Dit kan enkel inzichtelijk gemaakt worden door de specificatie te combineren met de prognose op studentaantallen en de beschikbare/toegewezen capaciteit aan mensen en middelen.\nHet doorrekenen gaat als volgt:\nOp basis van prognose getallen bepaald men het aantal benodigde groepen voor de nieuwe instroom. Zijn er dit 40 start je de opleiding dus met 2 nieuwe '1e jaars'-groepen. (ideale groepsgrote is afhankelijk van o.a. standaard lokaal capaciteit). 2e, 3e en eventuele 4e jaars groepen (doorstroom) zijn bekende aantal studenten met wat mogelijke mutaties op groepen. Laadt voor elke groep het standaard jaarplan in (dus aantal te roosteren lesuren per leergelegenheid per periode per lokaaltype/docentexpertice)\nDoe dit voor alle opleidingen in dezelfde organisatie-eenheid(docentpool en vlekkenplan) Dit maakt de totale vraag per periode naar lokaal- en docentexpetise uren inzichtelijk. Naarmate de flexibiliseringgraad toeneemt(npuls leerroutes), wordt het complexer te voorspellen.\n\nMaximum beschikbare capaciteit kan daar tegenover gezet worden.\nEen periode van 10 weken met 10 lesuren per dag biedt 500u aan lokaaluren. Beschikt men in de organisatie- eenheid over bv 10 theorie-lokalen zijn dat 5000 theorie-lokaaluren in totaal.\nBeleidsmatig zou kunnen zijn bepaald dat een docent 80% ingezet wordt op onderwijsuitvoering. Dat betekent dat één periode maximaal 400u aan docentexperise uren per FTE kent. Met 4 docenten ingezet in een periode met bv de expertise \"integraal beroepspecifiek\", biedt dit 1600u aan capaciteit voor dit soort docentexperise.",
+      "themas": [
+        "capaciteit",
+        "realisme"
+      ],
+      "issue": 284,
+      "status": "open"
+    },
+    {
+      "nummer": "B10",
+      "beeld_id": "F2-07",
+      "bestand": "f2-07-het-geplande-aanbod-terug-naar-de-catalogus.svg",
+      "lezer": "NvDuin",
+      "datum": "2026-09-28",
+      "bron": "https://github.com/Npuls-OKx/meta/pull/252#discussion_r4126981947",
+      "tekst": "- Geplande capaciteit met deze exacte getallen vrijgeven vergt zeer hoge volwassenheid van de organisatie om dergelijke commitments af te durven geven. Wel conditioneel voor een aantal logistieke scenario's.\n- Leergelegenheid titel zonder werkprocesreferentie (zie eerdere comment) noem het \"Baliegesprekken 101\"\n- Voorbeeld getallen zijn hoog ingeschat. Vooral ook de minimum en maximum bij het opleidingsprogramma aanbod. Als we dat al willen tonen, dient de delta tussen beide eigenlijk niet groter te zijn dan 1 standaard groepsgrootte(18-30 studenten) om realistisch over te komen.\n- Naarmate de fijnmazigheid van keuzes toeneemt verliest de capaciteit in context van bovenliggende structuur zijn waarde. Leergelegheden die vanuit meerdere onderwijsprogramma's worden aangeboden, of bijvoorbeeld de keuzedelen die nu al in leerroute 1 al aanwezig zijn, geldt dat de totale capaciteit los kan staan van het opleidingsaanbod. Gelegenheden van keuzedelen in deze modelering tonen maakt het scherper.",
+      "themas": [
+        "capaciteit",
+        "realisme",
+        "titels"
+      ],
+      "issue": 284,
+      "status": "open"
+    },
+    {
+      "nummer": "B11",
+      "beeld_id": "F3-05",
+      "bestand": "f3-05-intake-student-plaatsingsgroep-en-eerste-keuzedeelvoorkeur.svg",
+      "lezer": "NvDuin",
+      "datum": "2026-09-28",
+      "bron": "https://github.com/Npuls-OKx/meta/pull/252#discussion_r4127071654",
+      "tekst": "Keuzedeelvoorkeur uitgeven direct bij intake is (nog) niet gebruikelijk. Definitieve vastlegging is nu minimaal 1 periode voor de keuzedeelruimte in het onderwijsprogramma. Animo uitvraag hooguit op voorkeur in het huidige schooljaar.",
+      "themas": [
+        "keuze-rijpt-in-sks"
+      ],
+      "issue": 285,
+      "status": "open"
+    },
+    {
+      "nummer": "B12",
+      "beeld_id": "F3-07",
+      "bestand": "f3-07-inschrijving-en-eerste-keuzedeelvoorkeur-naar-de-kernregistratie.svg",
+      "lezer": "NvDuin",
+      "datum": "2026-09-28",
+      "bron": "https://github.com/Npuls-OKx/meta/pull/252#discussion_r4127113197",
+      "tekst": "Intake als bron in dit proces in eerdere comment al getwist. Ook KRS heeft geen doelfunctie, KRS wil enkel de definitieve keuze registreren. SKS is het applicatiecomponent waar alles rondom het rijpen van keuze plaatsvindt.",
+      "themas": [
+        "keuze-rijpt-in-sks"
+      ],
+      "issue": 285,
+      "status": "open"
+    },
+    {
+      "nummer": "B13",
+      "beeld_id": "F3-08",
+      "bestand": "f3-08-student-verbintenis-en-keuzedeelvoorkeur-van-de-kernregistratie-naar-het-studentkeuzesysteem.svg",
+      "lezer": "NvDuin",
+      "datum": "2026-09-29",
+      "bron": "https://github.com/Npuls-OKx/meta/pull/252#discussion_r4132316949",
+      "tekst": "- betwist KRS als keuzedeelvoorkeur bron\n- KRS bron van opleidingverbintenis, (plaatsings)groep misschien minder relevant. KRS(/SVS) weet ook welke keuzedelen de student al eerder heeft afgenomen. Lijkt me zeer relevant om een student niet dezelfde keuzes voor te leggen.\n- KRS weet niet wanneer de keuzedeelruimte in planning van student/groep plaatvindt. KRS kan dus enkel bepalen of een student nog keuzedelen moet kiezen, maar niet welke deadlines van toepassing zijn.",
+      "themas": [
+        "keuze-rijpt-in-sks"
+      ],
+      "issue": 285,
+      "status": "open"
+    },
+    {
+      "nummer": "B14",
+      "beeld_id": "F4-01",
+      "bestand": "f4-01-het-leeronderdeel-fijnmazig-lessenreeks-en-les.svg",
+      "lezer": "NvDuin",
+      "datum": "2026-09-29",
+      "bron": "https://github.com/Npuls-OKx/meta/pull/252#discussion_r4132366524",
+      "tekst": "- verwijder werkproces relatie in titel\n- Meerdere leeronderdelen kunnen al inhoudelijk geclusterd zijn in een leergelegenheid. Modellering zou leergelegenheid als planningscontainer moeten tonen waarin lesspecificaties gevuld worden met leeronderdeel componenten van 1 of meerdere leeronderdelen.",
+      "themas": [
+        "clustering",
+        "titels"
+      ],
+      "issue": 286,
+      "status": "open"
+    },
+    {
+      "nummer": "B15",
+      "beeld_id": "F4-02",
+      "bestand": "f4-02-detailspecificaties-naar-het-lms.svg",
+      "lezer": "NvDuin",
+      "datum": "2026-09-29",
+      "bron": "https://github.com/Npuls-OKx/meta/pull/252#discussion_r4132430633",
+      "tekst": "LMS heeft vermoedelijk baat bij de volledige opleidingsspecificatie-boom en de formatieve structuur",
+      "themas": [
+        "resultaatstructuur"
+      ],
+      "issue": 286,
+      "status": "open"
+    },
+    {
+      "nummer": "B16",
+      "beeld_id": "F4-03",
+      "bestand": "f4-03-de-les-en-de-toets-van-binnen-elk-met-hun-eigen-onderdelen-conceptplaat.svg",
+      "lezer": "NvDuin",
+      "datum": "2026-09-29",
+      "bron": "https://github.com/Npuls-OKx/meta/pull/252#discussion_r4132524374",
+      "tekst": "- De toetsmatrijs hoort bij het toetsinstrument (zelf ontwikkeld of ingekocht) ik verwacht niet deze in zijn geheel in de OC wordt opgeslagen/gemaakt\n- Ook hier verwacht ik dat de leergelegenheid als reeks gedefineerd is en welke leerspecificaties daarin verwerkt moeten worden. De specificatie van losse lessen wordt pas in het LMS invulling aan gegeven. De OC dicteert niet de lesspecificatie zelf.",
+      "themas": [
+        "clustering",
+        "toetskenmerken"
+      ],
+      "issue": 286,
+      "status": "open"
+    },
+    {
+      "nummer": "B17",
+      "beeld_id": "F4-04",
+      "bestand": "f4-04-resultaatstructuur-naar-het-studentvolgsysteem.svg",
+      "lezer": "NvDuin",
+      "datum": "2026-09-29",
+      "bron": "https://github.com/Npuls-OKx/meta/pull/252#discussion_r4132618678",
+      "tekst": "- Al eerder benoemd, schaal ontbreekt, evenals afnamevorm\n- Optioneel de mogelijkheid om condities (akkoord stagebegeleider, alle componenten van een opleidingsonderdeel behaald, ect) toe te voegen voor betere aansluiting op OKE. Wanneer mag een student examineren.\n- Specifiek benoemen dat het om de summatieve structuur betreft (titel)\n- Er kan een mix bestaan tussen formatieve en summatieve onderdelen. Een examen telt ook als toets. Obv unieke codering dient het SVS deze te kunnen identificeren en equivalentie codes (één resultaat in meerdere structuren) te ondersteunen.",
+      "themas": [
+        "resultaatstructuur",
+        "toetskenmerken"
+      ],
+      "issue": 286,
+      "status": "open"
+    },
+    {
+      "nummer": "B18",
+      "beeld_id": "F4-05",
+      "bestand": "f4-05-resultaatstructuur-naar-de-kernregistratie.svg",
+      "lezer": "NvDuin",
+      "datum": "2026-09-29",
+      "bron": "https://github.com/Npuls-OKx/meta/pull/252#discussion_r4133587743",
+      "tekst": "idem aan opmerkingen bij f4-04\n\nIn de huidige situatie is het lastig om KRS en SVS geheel los van elkaar te zien.\nIdealiter worden alle resultaten in het SVS bijgehouden in dynamische structuren die modulair worden verrijkt o.b.v. keuzes en examen eindresultaten aangeboden aan het KRS (of examendossier) ter verantwoording van de diplomering (of certificering op kleinere onderdelen)\nHuidige SIS producten (container van KRS,SVS,+) vereisen nu mimimaal een vaste summatieve structuur ter basis inrichting van een inschrijfbare opleiding.",
+      "themas": [
+        "resultaatstructuur",
+        "toetskenmerken"
+      ],
+      "issue": 286,
+      "status": "open"
+    },
+    {
+      "nummer": "B19",
+      "beeld_id": "F4-07",
+      "bestand": "f4-07-te-roosteren-leergelegenheden-naar-het-roostersysteem.svg",
+      "lezer": "NvDuin",
+      "datum": "2026-09-29",
+      "bron": "https://github.com/Npuls-OKx/meta/pull/252#discussion_r4133697818",
+      "tekst": "- geen werkproces titel\n- roosteren heeft geen baat bij deze uitwisseling zoals het nu is gemodelleerd; vaste kenmerken lokaaltype, docentexpertise zijn essentieel; groep(kan nog leeg zijn) als container voor studenten die hetzelfde aanbod afnemen (en dus niet gelijktijdig geroosterd kunnen worden) is relevant",
+      "themas": [
+        "capaciteit",
+        "groepen",
+        "titels"
+      ],
+      "issue": 286,
+      "status": "open"
+    },
+    {
+      "nummer": "B20",
+      "beeld_id": "F4-08",
+      "bestand": "f4-08-roosteren-lesgelegenheid-lokaal-en-docent.svg",
+      "lezer": "NvDuin",
+      "datum": "2026-09-29",
+      "bron": "https://github.com/Npuls-OKx/meta/pull/252#discussion_r4133733225",
+      "tekst": "- Geen werkproces in titel\n- (plannings) groep is relevant voor roosteren\n- Eindproduct van roosteren is tijdstip (lesuur) vastgesteld, lokaaltype vertaald naar een lokaal nummer. Docent kan zowel vooraf als tijdens het roosteren worden bepaald (obv expertise)",
+      "themas": [
+        "capaciteit",
+        "groepen",
+        "titels"
+      ],
+      "issue": 286,
+      "status": "open"
+    },
+    {
+      "nummer": "B21",
+      "beeld_id": "F4-09",
+      "bestand": "f4-09-jochems-verbintenissen-op-de-geroosterde-gelegenheden.svg",
+      "lezer": "NvDuin",
+      "datum": "2026-09-29",
+      "bron": "https://github.com/Npuls-OKx/meta/pull/252#discussion_r4135092754",
+      "tekst": "De tekst insinueert dat de SLB-er een actieve rol heeft in het leggen van verbintenissen op geroosterde gelegenheden. Dat is nu zeker niet het geval. De SLB-er (als dit degene is die de intake/plaatsing doet) koppelt Jochem enkel aan het opleidinsprogramma aanbod verbintenis en aan een van de daarbij behorende plaatsingsgroepen.('stamgroep')\n\nIn de standaard leerroutes 1/2/3 wordt Jochem in een plaatsinggroep geregistreerd in het KRD en als groep met ontsloten naar plannen. Daar worden alle leergelegenheden genest in het opleidingsprogramma aanbod gepland voor de groep van Jochem, zonder tussenkomst van de SLB'er. De planner kan omwille van logistieke redenen (clustering/splitsing) een nieuwe groep defineren met een (tijdelijke) leergelegenheid verbintenis omdat deze planninggroep ('lesgroep') in deelnemers afwijkt van de originele plaatsingsgroep.\n\nOp het moment dat Jochem vertraging heeft opgelopen en afwijkt van het nominale pad, en ook werkelijk niet meer kan/mag deelnemen aan reeds geroosterde gelegenheden, zou de a SLB'er wel in actie kunnen komen en Jochem uitschrijven van specifieke gelegenheden/groepen",
+      "themas": [
+        "groepen",
+        "rollen"
+      ],
+      "issue": 286,
+      "status": "open"
+    },
+    {
+      "nummer": "B22",
+      "beeld_id": "F5-01",
+      "bestand": "f5-01-les-gevolgd-aanwezigheid-en-lesresultaat.svg",
+      "lezer": "NvDuin",
+      "datum": "2026-09-29",
+      "bron": "https://github.com/Npuls-OKx/meta/pull/252#discussion_r4135220654",
+      "tekst": "Aanwezigheidregistratie zelf ligt buiten de OKx scope.\n\nWat wel de scope kan raken is wanneer deelname aan een leergelegenheid (% van lesgelegenheden aanwezig) en de onderwijseenheid wordt niet getoetst, het een vorm van studievoortgangresultaat kan zijn en zo nieuwe keuzes in het SKS vrijgeeft, of beperkt wanneer niet voldaan.",
+      "themas": [
+        "scope"
+      ],
+      "issue": 287,
+      "status": "open"
+    },
+    {
+      "nummer": "B23",
+      "beeld_id": "F5-02",
+      "bestand": "f5-02-de-verbintenis-op-de-toetsgelegenheid-geplaatst-of-zelf-gekozen.svg",
+      "lezer": "NvDuin",
+      "datum": "2026-09-29",
+      "bron": "https://github.com/Npuls-OKx/meta/pull/252#discussion_r4135336554",
+      "tekst": "Ik denk niet dat inschrijven op toetsgelegenheden via het SKS zal verlopen. Vanuit OKE implementaties is hier al functionaliteit voor ontwikkelt, toets- en examenlogistiek valt daarmee buiten scope voor OKx.",
+      "themas": [
+        "keuze-rijpt-in-sks",
+        "scope"
+      ],
+      "issue": 287,
+      "status": "open"
+    },
+    {
+      "nummer": "B24",
+      "beeld_id": "F5-03",
+      "bestand": "f5-03-formatieve-voortgang-structuur-resultaten-en-beoordeling.svg",
+      "lezer": "NvDuin",
+      "datum": "2026-09-29",
+      "bron": "https://github.com/Npuls-OKx/meta/pull/252#discussion_r4135374336",
+      "tekst": "Schaal toevoegen aan toetsonderdeel. Het resultaat is in de praktijk een 8 (niet 8 van 10) Het toetsonderdeel dient vooraf te weten welk resultaat er verwacht kan worden en hoe deze te interpreteren.",
+      "themas": [
+        "toetskenmerken"
+      ],
+      "issue": 287,
+      "status": "open"
+    },
+    {
+      "nummer": "B25",
+      "beeld_id": "F5-04",
+      "bestand": "f5-04-formatieve-resultaten-van-het-lms-naar-het-studentvolgsysteem.svg",
+      "lezer": "NvDuin",
+      "datum": "2026-09-29",
+      "bron": "https://github.com/Npuls-OKx/meta/pull/252#discussion_r4135436228",
+      "tekst": "Uitgangspunt/Aanname is dat toetsgelegenheden in leergelegenheden plaatsvinden.\nOf een toetsgelegenheid verbintenis resultaat ook direct relateert aan een leergelegenheid verbinternis resultaat betwijfel ik. Summatief is het zeker een onderwijseenheid verbintenis resultaat, formatief denk ik eigenlijk ook...",
+      "themas": [
+        "resultaatstructuur"
+      ],
+      "issue": 287,
+      "status": "open"
+    },
+    {
+      "nummer": "B26",
+      "beeld_id": "F6-01",
+      "bestand": "f6-01-keuzedeelaanbod-ontsloten.svg",
+      "lezer": "NvDuin",
+      "datum": "2026-09-29",
+      "bron": "https://github.com/Npuls-OKx/meta/pull/252#discussion_r4135477493",
+      "tekst": "van plannen naar SKS of van plannen naar OC naar sks?",
+      "themas": [
+        "keuze-rijpt-in-sks"
+      ],
+      "issue": 288,
+      "status": "open"
+    },
+    {
+      "nummer": "B27",
+      "beeld_id": "F6-02",
+      "bestand": "f6-02-keuzedeelaanbod-specificatie-en-regels-naar-het-studentkeuzesysteem.svg",
+      "lezer": "NvDuin",
+      "datum": "2026-09-29",
+      "bron": "https://github.com/Npuls-OKx/meta/pull/252#discussion_r4135513429",
+      "tekst": "Heeft het keuzedeel of het keuzedeelaanbod een keuze regelset?\nWanneer dit voor het keuzedeelaanbod geldt (dus periode/locatie) zou ik de regelset condities op verbintenis niveau verwachten",
+      "themas": [
+        "keuze-rijpt-in-sks"
+      ],
+      "issue": 288,
+      "status": "open"
+    },
+    {
+      "nummer": "B28",
+      "beeld_id": "F7-01",
+      "bestand": "f7-01-afwijkingen-verzameld-in-een-planninggroep.svg",
+      "lezer": "NvDuin",
+      "datum": "2026-09-29",
+      "bron": "https://github.com/Npuls-OKx/meta/pull/252#discussion_r4135583766",
+      "tekst": "Jochem mist BPV-weken is een slecht voorbeeld. Jochem heeft een groot deel van periode 4 niet kunnen bijwonen en de bijbehorende toetsen niet met een voldoende afgerond, is beter",
+      "themas": [
+        "realisme"
+      ],
+      "issue": 289,
+      "status": "open"
+    },
+    {
+      "nummer": "B29",
+      "beeld_id": "F7-02",
+      "bestand": "f7-02-bestaande-verbintenis-geannuleerd.svg",
+      "lezer": "NvDuin",
+      "datum": "2026-09-29",
+      "bron": "https://github.com/Npuls-OKx/meta/pull/252#discussion_r4136024899",
+      "tekst": "Het betreft hier een annulering van een onderwijseenheid aanbod verbintenis. Dat zou ik ook in de titel opnemen. annulering heeft per niveau een andere impact.",
+      "themas": [
+        "titels"
+      ],
+      "issue": 289,
+      "status": "open"
+    },
+    {
+      "nummer": "B30",
+      "beeld_id": "F7-03",
+      "bestand": "f7-03-planninggroep-van-de-kernregistratie-naar-planning.svg",
+      "lezer": "NvDuin",
+      "datum": "2026-09-29",
+      "bron": "https://github.com/Npuls-OKx/meta/pull/252#discussion_r4136069131",
+      "tekst": "Groepen die in KRS onstaan zijn per definitie plaatsingsgroepen.\n\nIk verwacht dat hier nu in de praktijk op meerdere manieren mee omgegaan wordt; de meest logische keuzes is wel om de studenten in een nieuwe plaatsingsgroep te plaatsen.",
+      "themas": [
+        "groepen"
+      ],
+      "issue": 289,
+      "status": "open"
+    },
+    {
+      "nummer": "B31",
+      "beeld_id": "F7-04",
+      "bestand": "f7-04-nieuw-aanbod-voor-de-planninggroep.svg",
+      "lezer": "NvDuin",
+      "datum": "2026-09-29",
+      "bron": "https://github.com/Npuls-OKx/meta/pull/252#discussion_r4136135243",
+      "tekst": "De vraag is of het nieuwe aanbod exact het nominale pad aanbod van periode 5 bevat en als zodanig opgevraagd kan worden bij de OC, of dat de planner een maatwerk programma dient te maken met bv gelegenheden nominaal beoogd periode 4,5 en 6. In beide scenario's verwacht ik wel dat de planner deze bij de bron ophaalt (dus de OC)",
+      "themas": [
+        "maatwerkaanbod"
+      ],
+      "issue": 289,
+      "status": "open"
+    },
+    {
+      "nummer": "B32",
+      "beeld_id": "F7-05",
+      "bestand": "f7-05-bijgestuurd-aanbod-naar-de-catalogus.svg",
+      "lezer": "NvDuin",
+      "datum": "2026-09-29",
+      "bron": "https://github.com/Npuls-OKx/meta/pull/252#discussion_r4136165350",
+      "tekst": "in relatie tot vorige comment. Wanneer het maatwerk aanbod betreft voor een specifieke groep achterblijvers, willen we dat dan ook naar de OC ontsluiten?",
+      "themas": [
+        "maatwerkaanbod"
+      ],
+      "issue": 289,
+      "status": "open"
+    },
+    {
+      "nummer": "B33",
+      "beeld_id": "F7-06",
+      "bestand": "f7-06-nieuwe-leergelegenheden-naar-het-roostersysteem.svg",
+      "lezer": "NvDuin",
+      "datum": "2026-09-29",
+      "bron": "https://github.com/Npuls-OKx/meta/pull/252#discussion_r4137588209",
+      "tekst": "idem comments bij f4-07",
+      "themas": [
+        "capaciteit",
+        "groepen",
+        "titels"
+      ],
+      "verwijst_naar": "F4-07",
+      "issue": 289,
+      "status": "open"
+    },
+    {
+      "nummer": "B34",
+      "beeld_id": "F8-02",
+      "bestand": "f8-02-kandidatenlijst-verbintenis-op-de-examengelegenheid.svg",
+      "lezer": "NvDuin",
+      "datum": "2026-09-29",
+      "bron": "https://github.com/Npuls-OKx/meta/pull/252#discussion_r4137619123",
+      "tekst": "examinator is niet verantwoordelijk voor de processta kandidatenlijsten samenstellen. Dit doet een examenbureau medewerker voor generieke examens en de SLB'er voor individuele examens (zoals een proeve in dit voorbeeld)",
+      "themas": [
+        "rollen"
+      ],
+      "issue": 290,
+      "status": "open"
+    },
+    {
+      "nummer": "B35",
+      "beeld_id": "F8-03",
+      "bestand": "f8-03-zitting-het-examenresultaat.svg",
+      "lezer": "NvDuin",
+      "datum": "2026-09-29",
+      "bron": "https://github.com/Npuls-OKx/meta/pull/252#discussion_r4137697678",
+      "tekst": "kort door de bocht.\n- Zitting alleen relevant door centraal georganiseerde examens, daarbij is geen rol van examinator. De surveillant is verantwoordlijk voor het zittingsrapport (wie is aanwezig en zijn er onregelmatigheden en het resultaat komt vanuit de beoordelaar of direct uit het toetsafnamesysteem wanneer het gesloten vragen betreft.\n- Individuele / praktijkexamens is er geen zitting maar een individuele afname die direct wordt beoordeeld",
+      "themas": [
+        "rollen"
+      ],
+      "issue": 290,
+      "status": "open"
+    },
+    {
+      "nummer": "B36",
+      "beeld_id": "F8-04",
+      "bestand": "f8-04-examenresultaat-naar-het-studentvolgsysteem.svg",
+      "lezer": "NvDuin",
+      "datum": "2026-09-29",
+      "bron": "https://github.com/Npuls-OKx/meta/pull/252#discussion_r4137710643",
+      "tekst": "\"voldoende\" is een mogelijk resultaat indien er een OVG schaal aan gekoppeld is.",
+      "themas": [
+        "toetskenmerken"
+      ],
+      "issue": 290,
+      "status": "open"
+    },
+    {
+      "nummer": "B37",
+      "beeld_id": "F8-05",
+      "bestand": "f8-05-summatief-vastgesteld-resultaten-en-beoordeling.svg",
+      "lezer": "NvDuin",
+      "datum": "2026-09-29",
+      "bron": "https://github.com/Npuls-OKx/meta/pull/252#discussion_r4137746179",
+      "tekst": "Examencommisie stelt inderdaad het resultaat vast, dit gebeurd niet op basis van het resultaat zelf maar het zittingsverslag en examendossier. Het resultaat zegt niets over of een student heeft afgekeken of dat het brandalarm afging.",
+      "themas": [
+        "rollen"
+      ],
+      "issue": 290,
+      "status": "open"
+    },
+    {
+      "nummer": "B38",
+      "beeld_id": "F8-06",
+      "bestand": "f8-06-vaststelling-naar-de-kernregistratie.svg",
+      "lezer": "NvDuin",
+      "datum": "2026-09-29",
+      "bron": "https://github.com/Npuls-OKx/meta/pull/252#discussion_r4137797775",
+      "tekst": "Het is niet voorgeschreven in welk applicatie component de vaststelling plaatsvindt, dit kan in het afnamesysteem, examenlogistiek, SVS of KRS plaatsvinden. Resultaten worden met een status verzonden.\nPersoonlijk vind ik het wel logisch dat KRS alleen vastgestelde resultaten verwerkt, maar daar zal niet iedereen het mee eens zijn en dat staat nog los van de functiedifferentiatie van SVS en KRS binnen een studentinformatiesysteem",
+      "themas": [
+        "resultaatstructuur",
+        "rollen"
+      ],
+      "issue": 290,
+      "status": "open"
     }
   ]
 }
