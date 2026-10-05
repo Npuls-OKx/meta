@@ -545,6 +545,39 @@ class DekkingTests(unittest.TestCase):
         self.assertEqual(len([x for x in w if "draagt geen beeld" in x]), 12)
 
 
+class AanvullendeStroomTests(unittest.TestCase):
+    """Een stroom die hoofdplaat 1.7a kent en 1.7 nog niet, komt via stromen-aanvullingen.json in
+    stromen.json terecht. Een regel moet daarnaar kunnen wijzen, anders kan fase 6 de conditionele
+    keuze niet tonen."""
+
+    def echte_stromen(self):
+        """De echte export naast de fixture-stroom, zodat de bestaande regels van de fixture blijven kloppen."""
+        echt = json.loads((WORTEL / "architecture/model/informatiemodel/stromen.json").read_text(encoding="utf-8"))
+        return {"stromen": stromen()["stromen"] + echt["stromen"]}
+
+    def test_given_a_rule_pointing_at_an_addition_when_checked_then_the_arrow_is_accepted(self):
+        r = regels()
+        r["regels"].append({"beeld_id": "F3-02", "beeld": "Voltooide verbintenissen naar het keuzesysteem",
+                            "fase": 3, "stap": "Aanmelden", "soort": "stroomt",
+                            "van": "Student volg systeem (SVS)", "naar": "Student Keuze Systeem (SKS)",
+                            "pijl": "aanvulling-svs-naar-sks-voltooide-verbintenissen", "koppeling": None,
+                            "objecttype": "Opleidingaanbod", "instantie": "Apothekersassistent 2026",
+                            "bron": "stromen-aanvullingen.json"})
+        b, w, _ = bevindingen(r, s=self.echte_stromen())
+        self.assertEqual([x for x in b if "pijl" in x], [])
+        self.assertEqual([x for x in w if "geen pijl op de hoofdplaat" in x], [])
+
+    def test_given_a_rule_pointing_at_an_unknown_addition_when_checked_then_finding(self):
+        r = regels()
+        r["regels"].append({"beeld_id": "F3-02", "beeld": "Verzonnen aanvulling", "fase": 3, "stap": "Aanmelden",
+                            "soort": "stroomt", "van": "Student volg systeem (SVS)",
+                            "naar": "Student Keuze Systeem (SKS)", "pijl": "aanvulling-bestaat-niet",
+                            "koppeling": None, "objecttype": "Opleidingaanbod", "instantie": "x",
+                            "bron": "b"})
+        b, _, _ = bevindingen(r, s=self.echte_stromen())
+        self.assertTrue(any("aanvulling-bestaat-niet" in x for x in b), b)
+
+
 class KoppelingoverzichtTests(unittest.TestCase):
     def test_given_rules_per_koppeling_when_counted_then_each_koppeling_is_listed(self):
         overzicht = cv.koppelingoverzicht(regels())

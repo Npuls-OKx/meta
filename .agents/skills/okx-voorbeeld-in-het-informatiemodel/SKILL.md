@@ -100,6 +100,19 @@ De renderer noemt per beeld de breedte, de hoogte, het aantal banen en de hoogte
 
 Bekijk het beeld zelf voordat je het meldt: `soffice --headless --convert-to png` in de scratchpad, en zet het beeld voor de gebruiker op een branch met een GitHub-link (bestanden sturen werkt niet in de container).
 
+## Een stroom die de hoofdplaat nog niet kent
+
+`stromen.json` is de export van de gepubliceerde view door `exporteer-archimate-view.py`; het model
+wijzigt alleen de modelleur in Archi. Een stroom die een nieuwere versie van de plaat kent, kan daarom
+niet met de hand in de export. Die staat in `stromen-aanvullingen.json`, met haar herkomst, haar status
+en de bron waaruit zij komt, en de export voegt haar bij elke ronde opnieuw toe. Haar id begint met
+`aanvulling-`, zodat zij zich onderscheidt van een relatie-id uit Archi, en de kop van `stromen.json`
+zegt wat dat betekent voor wie de plaat gebruikt.
+
+De export weigert een aanvulling die al als stroom in de view staat: zodra de modelleur haar opneemt
+vervalt de aanvulling. Staat een stroom in geen van beide, dan draagt een regel de markering "geen pijl
+op de hoofdplaat" en komt dat als signalering uit de controle.
+
 ## De hoofdplaat als context bij elke interactie
 
 Een stroombeeld toont twee componenten en wat er tussen hen beweegt, maar niet waar die lijn op de hoofdplaat loopt. Daarom staat onder elke fasekop een render van hoofdplaat v1.7 waarop de stromen van die fase zijn gemarkeerd, met het beeld-ID erbij; de rest van de plaat vervaagt, zodat de lijn eruit springt. Een stroom die de plaat nog niet kent, staat als gestippelde lijn tussen de twee componenten: zo is zichtbaar wat er ontbreekt in plaats van dat het wegvalt.
