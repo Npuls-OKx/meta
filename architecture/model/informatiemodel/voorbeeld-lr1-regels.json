@@ -264,7 +264,8 @@
           "objecten": [
             "specificatie als referentiekader"
           ],
-          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 5: Wat licht op in de plaat"
+          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 5: Wat licht op in de plaat",
+          "beeld_in_fase": 4
         },
         {
           "van": "Onderwijscatalogus",
@@ -272,7 +273,8 @@
           "objecten": [
             "specificatie als referentiekader"
           ],
-          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 5: Wat licht op in de plaat"
+          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 5: Wat licht op in de plaat",
+          "beeld_in_fase": 4
         },
         {
           "van": "Roostersysteem",
@@ -280,7 +282,8 @@
           "objecten": [
             "geroosterd aanbod tegenover aanwezigheidsfeiten"
           ],
-          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 5: Wat licht op in de plaat"
+          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 5: Wat licht op in de plaat",
+          "buiten_scope": "aanwezigheidsregistratie valt buiten OKx; wat de scope wel raakt is het afgeleide deelnameresultaat, en dat staat in F5-01"
         },
         {
           "van": "Leer management systeem (LMS)",
@@ -292,7 +295,7 @@
           "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 5: Wat licht op in de plaat"
         }
       ],
-      "dekking": "open",
+      "dekking": "volledig",
       "link": "https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-5--onderwijs-uitvoeren-en-voortgang-begeleiden"
     },
     {
@@ -5318,7 +5321,7 @@
       "pijl": "id-979d8078315c47139a73942028c0300d",
       "koppeling": null,
       "objecttype": "Formatief resultaat",
-      "instantie": "Quiz WHAM-vragen: 8 van 10",
+      "instantie": "Quiz WHAM-vragen: 8",
       "bron": "leerroute-1-regulier.md, Fase 5: LMS naar SVS, formatief",
       "relatie": {
         "soort": "Specialization",
@@ -6454,7 +6457,8 @@
         "W7"
       ],
       "issue": 287,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F5-01: de zin zegt dat de registratie van aanwezigheid zelf buiten OKx ligt, en dat wat telt is wat eruit volgt: bij een onderwijseenheid die niet wordt getoetst kan het aandeel bijgewoonde lesgelegenheden een voortgangsresultaat zijn en daarmee een voorwaarde voor een volgende keuze. De scope van Aanwezigheid staat als vraag bij F5-01."
     },
     {
       "nummer": "B23",
@@ -6472,7 +6476,8 @@
         "W7"
       ],
       "issue": 287,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F5-02: de variant waarin de student zelf intekent is vervallen. De instelling plaatst de hele plaatsingsgroep op het toetsmoment, en de zin zegt dat intekenen op een toetsgelegenheid niet via het studentkeuzesysteem loopt omdat OKE daar al functionaliteit voor heeft en toets- en examenlogistiek buiten de scope van OKx valt."
     },
     {
       "nummer": "B24",
@@ -6489,7 +6494,8 @@
         "W4"
       ],
       "issue": 287,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F5-03: het toetsonderdeel draagt vooraf zijn schaal, zodat vaststaat welk resultaat verwacht mag worden en hoe het te lezen is, en het resultaat staat als Quiz WHAM-vragen: 8. Diezelfde instantie stond in F5-04 nog als 8 van 10 en is nu gelijkgetrokken."
     },
     {
       "nummer": "B25",
@@ -6506,7 +6512,8 @@
         "W7"
       ],
       "issue": 287,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F5-04: het resultaat van een toetsgelegenheid hangt aan de onderwijseenheidverbintenis, want daar toont de student aan wat hij kan. De zin zegt dat een toetsgelegenheid binnen een leergelegenheid plaatsvindt en dat het resultaat op de onderwijseenheid telt. Het resterende punt, of dat formatief net zo loopt als summatief, staat als vraag bij F5-04."
     },
     {
       "nummer": "B26",
