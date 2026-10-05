@@ -4,7 +4,7 @@
 |--------|-------|--------|
 | Voorstel | 2026-07-13 | Niek Derksen (Kernteam OKx) |
 
-Dit document wordt pas afspraak na review en merge door de eigenaren (zie [§2 Eigenaarschap](#2-eigenaarschap-en-governance)). Leg een geaccepteerd besluit vast als ADR in [[Referentiemateriaal/adr in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr)](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr). Het bouwt voort op de **branchstrategie** uit de beginnershandleiding, paragraaf 9 ([`doc/Bijdragen-voor-beginners.md` (§9)](Bijdragen-voor-beginners.md#9-branchstrategie-main-dev-feature-branches-tags)).
+Dit document wordt pas afspraak na review en merge door de eigenaren (zie [§2 Eigenaarschap](#2-eigenaarschap-en-governance)). Leg een geaccepteerd besluit vast als ADR in [[Referentiemateriaal/adr in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr)](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr). Het bouwt voort op de **branchstrategie** uit de beginnershandleiding, paragraaf 9 ([`doc/Bijdragen-voor-beginners.md` (§9)](Bijdragen-voor-beginners.md#9-branchstrategie-dev-feature-branches)).
 
 ---
 
@@ -96,7 +96,7 @@ Omdat de **spec wordt gebouwd op basis van meta**, zijn er **twee versielijnen**
 | **meta** (kaderstelling) | [`Npuls-OKx/meta`](https://github.com/Npuls-OKx/meta) | **Kernteam OKx** ([GitHub-team `kernteam-okx`](https://github.com/orgs/Npuls-OKx/teams/kernteam-okx)) | Referentiekader, business architectuur en OEAPI-profiel op businesslaag; richting, samenhang en releases. |
 | **OEAPI-profiel** (technisch) | Een eigen repository met de OEAPI-specificatie als submodule | **Kerngroep Techniek OKx** | Overlay op een vastgezette OEAPI-versie; de plek wordt bepaald bij het opzetten. |
 
-Uitgangspunt: **iedereen** mag issues en PR's indienen; **alleen het verantwoordelijke team merget** in de betreffende repo (zie [`CONTRIBUTING.md`](../CONTRIBUTING.md) en [`.cursor/rules/okx-governance.mdc`](../.cursor/rules/okx-governance.mdc)). Het kernteam bewaakt het kader; de technische werkgroep bewaakt de bouwbare standaard. Beide werken met dezelfde branchstrategie (§9): feature → `dev` → `main`, met **tags op `main`** als release-labels.
+Uitgangspunt: **iedereen** mag issues en PR's indienen; **alleen het verantwoordelijke team merget** in de betreffende repo (zie [`CONTRIBUTING.md`](../CONTRIBUTING.md) en [`.cursor/rules/okx-governance.mdc`](../.cursor/rules/okx-governance.mdc)). Het kernteam bewaakt het kader; de technische werkgroep bewaakt de bouwbare standaard. Beide werken met dezelfde branchstrategie (§9): feature → `dev`. Het release-label hangt aan de release in Npuls-OKx/Public (§4).
 
 ```mermaid
 flowchart LR
@@ -114,7 +114,7 @@ We gebruiken in **beide** repositories **Semantic Versioning** (SemVer, [semver.
 
 De kernuitgangspunten:
 
-- **U1 — SemVer overal.** Beide repo's gebruiken `MAJOR.MINOR.PATCH`. Het label staat als **git tag op `main`** (§9), bijvoorbeeld `v1.4.2`.
+- **U1 — SemVer overal.** Beide repo's gebruiken `MAJOR.MINOR.PATCH`. Het label hangt aan de release in [Npuls-OKx/Public](https://github.com/Npuls-OKx/Public), bijvoorbeeld `v1.4.2`; meta draagt zelf geen releaselijn (§4).
 - **U2 — MAJOR = breaking.** Een major-verhoging betekent een **niet-backward-compatibele** wijziging: bestaande implementaties of clients die functionaliteit missen of negatieve effecten ervaren van de breaking feature wordt geadviseerd om te migreren naar de volgende MAJOR versie.
 - **U3 — MINOR = additief, niet-breaking.** Een minor voegt **functionaliteit** toe (nieuw concept, nieuw optioneel veld, nieuwe enum-waarde, nieuw scenario, nieuw optioneel koppelvlak) **zonder** bestaande afnemers te breken.
 - **U4 — PATCH = correctie zonder semantische wijziging.** Tekstcorrecties, verduidelijkingen, voorbeeldfixes en bugfixes die **het contract en de betekenis niet veranderen**.
@@ -122,7 +122,7 @@ De kernuitgangspunten:
 - **U6 — `0.x`-fase (nu).** Zolang een repo nog **in aanbouw** is (`0.y.z`), mag een **minor breaking** zijn; we proberen dat te vermijden en kondigen het expliciet aan. Pas vanaf `1.0.0` gelden de garanties van U2–U4 onverkort. Beide repo's starten in `0.x`.
 - **U7 — Deprecaten vóór verwijderen.** Iets dat verdwijnt, wordt eerst **als deprecated** gemarkeerd in een minor (met alternatief en termijn) en pas in een **volgende major** verwijderd.
 - **U8 — Eén release = één bumptype.** De zwaarste wijziging in een release bepaalt de bump (één breaking change maakt de hele release major).
-- **U9 — Bump wordt voorgesteld in de PR, bevestigd bij release.** De indiener labelt de PR (`semver:major` / `semver:minor` / `semver:patch`); het verantwoordelijke team bevestigt het bij het samenstellen van de release vanuit `dev` → `main`.
+- **U9 — Bump wordt voorgesteld in de PR, bevestigd bij release.** De indiener labelt de PR (`semver:major` / `semver:minor` / `semver:patch`); het verantwoordelijke team bevestigt het bij het samenstellen van de release in Public.
 - **U10 — Twee major-versies ondersteund (spec).** OKx ondersteunt tegelijk hooguit **twee major-versies** van de **spec** (OpenAPI): de **actuele major** (*latest*) en de **voorafgaande major** (*latest-1*). Oudere majors vallen buiten het ondersteuningsvenster. Instellingen en leveranciers die op *latest-1* draaien en nieuwe functionaliteit willen, worden **actief aangeraden** zo spoedig mogelijk te upgraden naar *latest*.
 
 ### Ondersteunde major-versies (spec)
@@ -144,8 +144,8 @@ De meta-repo doorloopt een vaste **opbouw- en stabilisatiefase**. Dit is logisch
 | Fase | Versie | Betekenis |
 |------|--------|-----------|
 | **Opbouw op `dev`** | geen tag | Patches verzamelen via issues/PR's naar `dev`; geen communicatie naar kerngroep techniek. |
-| **Vroege `0.0.x`** | `v0.0.1`, `v0.0.2`, … | Eerste tags op `main`: kaderfundament (ankertabel, begrippenkader, AMIGO, branchbeleid). Nog **niet** reviewbaar voor spec-start. |
-| **Eerste minor** | **`v0.1.0`** | Eerste **reviewbare** kaderrelease (milestone 3: OC P, LR1–LR3). **Release-PR** `dev` → `main`; **kerngroep techniek** beoordeelt of de kaderstelling voldoende is om de **spec** te starten. |
+| **Vroege `0.0.x`** | `v0.0.1` | Kaderfundament (ankertabel, begrippenkader, AMIGO, branchbeleid), getagd in de tijd dat meta nog een eigen releaselijn droeg. Nog **niet** reviewbaar voor spec-start. |
+| **Eerste minor** | **`v0.1.0`** | Eerste **reviewbare** kaderrelease (milestone 3: OC P, LR1–LR3). **Release in Public**; **kerngroep techniek** beoordeelt of de kaderstelling voldoende is om de **spec** te starten. |
 | **Feedback na `0.1.0`** | `v0.1.1`, `v0.1.2`, … (**patch**) | Kerngroep vraagt **meer detail** of verduidelijking; geen fundamenteel bredere scope. |
 | **Breder kader in `0.x`** | `v0.2.0`, `v0.3.0`, … (**minor**) | Kaderstelling wordt **fundamenteel breder** (meer informatiestromen/koppelingen, additief). Spec kan optioneel meebumpen (C2). |
 | **Ecosysteem compleet** | **`v1.0.0`** (**major**) | Alle informatiestromen, **gestandaardiseerde koppelingen** en bijbehorende **koppelvlakken** zijn beschreven; kader **stabiel** en klaar voor volledige implementatie. |
@@ -189,18 +189,19 @@ Op hoofdlijnen:
 
 ---
 
-## 4. Wat staat op `main`, wat is een release?
+## 4. Wat staat op `dev`, en waar leeft de release?
 
 Aansluitend op §9 van de beginnershandleiding:
 
 | Branch / ref | Rol |
 |--------------|-----|
-| `main` | Stabiele **release**-lijn; elke release is hier getagd. |
-| `dev` | Integratie van de **volgende release**. |
+| `dev` | De enige langlevende branch van meta; hier komt alles samen en hier staat de actuele stand. |
 | `feature/...` | Vanaf `dev`, PR terug naar `dev`. |
-| **tag** op `main` | Release-label (`vMAJOR.MINOR.PATCH`). |
+| tag `v0.0.1` | Historisch merkteken uit de tijd dat meta een eigen releaselijn droeg. |
 
-Een **release** = `dev` → `main` mergen, taggen, en (voor minor/major) **release notes** publiceren. Optioneel een **release candidate** vanaf `dev`: `v1.5.0-rc.1`. Een **hotfix** takt vanaf `main`, gaat als PR naar `main` (patch-tag) én terug naar `dev`.
+**De release van OKx leeft in [Npuls-OKx/Public](https://github.com/Npuls-OKx/Public).** Daar staat het releasepakket met zijn manifest `release.json`, de workflow die het bouwt, en de release notes; daar hangt ook het versielabel. Meta draagt de kennisbank en levert daaraan: gedeelde kennis, afspraken en conceptuitwerkingen. Een wijziging in meta is daarmee klaar zodra zij op `dev` staat, en wordt niet apart getagd.
+
+Een **release candidate** en een **hotfix** horen bij diezelfde releaselijn in Public en volgen de werkwijze die daar is vastgelegd.
 
 ---
 
@@ -253,7 +254,7 @@ flowchart TD
 - **Minor** → **wel** communiceren. Release notes met de nieuwe (optionele) mogelijkheden; expliciet dat er **niets breekt**.
 - **Patch** → **niet** actief communiceren naar belanghebbenden. Wel zichtbaar in de git-historie, tags en (optioneel) een changelog-regel, maar geen aankondiging.
 
-**Uitzondering meta — kerngroep techniek.** Patches op `dev` en `v0.0.x`-releases worden **niet** actief gecommuniceerd naar de kerngroep techniek. De **eerste minor** (`v0.1.0`) en elke volgende **minor/major** op `main` wel — via **release-PR** `dev` → `main` en release notes. Bij `v0.1.0` beoordeelt de kerngroep techniek expliciet of de kaderstelling voldoende is om de spec te starten; eventuele wijzigingsverzoeken leiden tot `v0.1.x` (patch) of `v0.2.0` (minor).
+**Uitzondering meta — kerngroep techniek.** Patches op `dev` en `v0.0.x`-releases worden **niet** actief gecommuniceerd naar de kerngroep techniek. De **eerste minor** (`v0.1.0`) en elke volgende **minor/major** wel, via de release in Public en haar release notes. Bij `v0.1.0` beoordeelt de kerngroep techniek expliciet of de kaderstelling voldoende is om de spec te starten; eventuele wijzigingsverzoeken leiden tot `v0.1.x` (patch) of `v0.2.0` (minor).
 
 Praktisch: gebruik **GitHub Releases** per repo voor minor/major (de tekst van de release notes), en houd desgewenst een `CHANGELOG.md` bij waarin patches als regel meelopen maar niet worden uitgelicht. Bij een **meta-major** stuurt het kernteam de boodschap; bij een **spec-release** de technische werkgroep. Cross-repo gevolgen (meta-major → spec-major in voorbereiding) benoemen we in beide kanalen.
 
@@ -288,10 +289,9 @@ gitGraph BT:
    checkout develop
    merge feature/AI-procesketen
 
-   %% release vanaf develop
-   checkout main
-   merge develop
-   commit id: 'v2.6'
+   %% de release volgt in Public, meta blijft op develop
+   checkout develop
+   commit id: "stand voor de release in Public"
 ```
 
 ### Stroom van wijzigingen (via PR’s)
@@ -303,14 +303,12 @@ flowchart TD
     fb2[feature_vanaf_dev_2]
   end
 
-  dev[dev_volgende_release]
-  main[main_stabiele_release]
-  tag[git_tag_bijv_v1_0_0]
+  dev[dev_actuele_stand]
+  release[release_in_Public_met_tag]
 
   fb1 -->|PR_review_merge| dev
   fb2 -->|PR_review_merge| dev
-  dev -->|PR_release_review| main
-  main --> tag
+  dev -->|levert_aan| release
 
   subgraph fork [Optioneel_fork]
     forkRepo[fork_op_GitHub]
@@ -322,8 +320,8 @@ flowchart TD
 
 
 3. Bepaal de bump (zwaarste wijziging wint, U8); voor spec: controleer/actualiseer de **meta-baseline** (C1).
-4. PR `dev` → `main`; review door het verantwoordelijke team.
-5. Merge, **tag** op `main` (`vX.Y.Z`).
+4. PR naar `dev`; review door het verantwoordelijke team.
+5. Merge. Het samenstellen van de release en haar tag (`vX.Y.Z`) gebeurt in Public.
 6. Voor **minor/major**: publiceer release notes (§6). Voor **patch**: geen aankondiging.
 
 Cross-repo: bij een **meta-major** opent de technische werkgroep een issue/milestone voor de bijbehorende **spec-major** (C3) en plant het migratievenster.
@@ -351,13 +349,13 @@ flowchart LR
 
 **Milestone 3-scope** (augustus 2026): begrippenkader, scenario's en informatiemodellen voor LR1–LR3; informatiestromen en **koppelingen** voor OC P (o.a. CO→OC, OC↔planning, planning↔rooster); vorm en bruikbaarheid vergelijkbaar met de [OKE MBO Toetsafname-specificatie](https://www.edustandaard.nl/app/uploads/2024/09/OKE-MBO-toetsafname-specs-v1.0_20240909conceptversie.pdf). **Nog buiten scope van milestone 3:** volledige koppelvlakken in de spec-repo en informatiestromen buiten OC P (bijv. SKS, examenketen, cross-instelling).
 
-**Werkwijze `dev` → `main` (meta).** Het kaderstellend fundament groeit eerst als **verzameling van patches** op `dev` (losse issues en PR's). Die iteraties worden **niet** gecommuniceerd naar de **kerngroep techniek**. Pas bij **`v0.1.0`** (eerste minor, milestone 3) volgt een **release-PR** `dev` → `main`: de kerngroep techniek beoordeelt of de kaderstelling voldoende is om de spec te starten. Wijzigingsverzoeken daarna: **patch** (`v0.1.1`, …) bij meer detail; **minor** (`v0.2.0`, …) als het kader fundamenteel breder moet.
+**Werkwijze op `dev` (meta).** Het kaderstellend fundament groeit als **verzameling van patches** op `dev` (losse issues en PR's). Die iteraties worden **niet** gecommuniceerd naar de **kerngroep techniek**. Pas bij **`v0.1.0`** (eerste minor, milestone 3) volgt een **release in Public**: de kerngroep techniek beoordeelt of de kaderstelling voldoende is om de spec te starten. Wijzigingsverzoeken daarna: **patch** (`v0.1.1`, …) bij meer detail; **minor** (`v0.2.0`, …) als het kader fundamenteel breder moet.
 
 | # | Wijziging (concreet) | Type | meta | spec (baseline) | Communiceren? |
 |---|----------------------|------|------|-----------------|----------------|
-| *prep* | **Iteratieve kaderopbouw op `dev`:** kleinere taken en verbeteringen (issues/PR's naar `dev`: ankertabel-toelichting, scenario's, concept-informatiemodellen, informatiestromenplaat, release-documentatie). Elke merge is een **patch** in de verzameling op `dev`; nog **geen** tag op `main`. | patch (verzameling) | — (alleen op `dev`) | — | Nee — niet naar kerngroep techniek |
+| *prep* | **Iteratieve kaderopbouw op `dev`:** kleinere taken en verbeteringen (issues/PR's naar `dev`: ankertabel-toelichting, scenario's, concept-informatiemodellen, informatiestromenplaat, release-documentatie). Elke merge is een **patch** in de verzameling op `dev`; nog **geen** release. | patch (verzameling) | — (alleen op `dev`) | — | Nee — niet naar kerngroep techniek |
 | 0 | **Kaderstellend fundament** in `0.0.x`: ankertabel (6×6), begrippenkader, AMIGO-aanpak, branch-/releasebeleid (dit document), scenario's LR1–LR3 in uitwerking. Nog geen reviewbare OC P-specificatie. | `0.0.x`-basis | - | — | Nee |
-| 1 | **Milestone 3 — eerste minor (`v0.1.0`):** consumer-profieldeel *OC P afgerond* voor LR1–LR3: informatiestromen OC↔planning↔rooster, concept-informatiemodellen (o.a. Apothekersassistent LR1, delta LR2/LR3), interactiepatronen en **gestandaardiseerde koppelingen** CO→OC en OC↔P&R; keuzedelen als zelfstandig programma; sequentiediagrammen en gegevensanalyse op kaderniveau. Voldoende concreet voor validatie (vergelijkbaar met OKE Toetsafname). **Release-PR `dev` → `main`:** kerngroep techniek beoordeelt of spec-implementatie kan starten. | minor (eerste) | `v0.1.0` | `v0.1.0` (meta 0.1): eerste koppelingen als OpenAPI-paden **optioneel** | **Ja** — PR `dev` → `main`, review **kerngroep techniek** |
+| 1 | **Milestone 3 — eerste minor (`v0.1.0`):** consumer-profieldeel *OC P afgerond* voor LR1–LR3: informatiestromen OC↔planning↔rooster, concept-informatiemodellen (o.a. Apothekersassistent LR1, delta LR2/LR3), interactiepatronen en **gestandaardiseerde koppelingen** CO→OC en OC↔P&R; keuzedelen als zelfstandig programma; sequentiediagrammen en gegevensanalyse op kaderniveau. Voldoende concreet voor validatie (vergelijkbaar met OKE Toetsafname). **Release in Public:** kerngroep techniek beoordeelt of spec-implementatie kan starten. | minor (eerste) | `v0.1.0` | `v0.1.0` (meta 0.1): eerste koppelingen als OpenAPI-paden **optioneel** | **Ja** — release in Public, review **kerngroep techniek** |
 | 2 | **Wijzigingsverzoek kerngroep:** meer detail of verduidelijking (ankertabel-toelichting, concept-attribuutnamen, voorbeelden); geen bredere scope. | patch | `v0.1.1` | `v0.1.1` (meta 0.1) | Nee (patch) |
 | 3 | **Kader breder in `0.x`:** aanvullende informatiestromen/koppelingen binnen OC P of extra LR3-uitwerking; fundamenteel meer scope, additief. | minor | `v0.2.0` | `v0.2.0` (meta 0.2): optionele uitbreiding koppeling OC↔P&R | **Ja (minor)** |
 | 4 | Spec repareert voorbeeld-`$ref` of typering in een koppelingsbeschrijving; contract ongewijzigd. | spec-bugfix | — | `v0.2.1` (meta 0.2) | Nee (patch) |
@@ -369,7 +367,7 @@ flowchart LR
 Toelichting op de regels:
 
 - ***prep*** en **#0** (`v0.0.x`): kaderopbouw zonder review door kerngroep techniek; geen startsein voor spec.
-- **#1 (`v0.1.0`)** is het **startsein**: milestone 3, eerste minor, PR `dev` → `main` ter review door **kerngroep techniek**. Bij goedkeuring kan de technische werkgroep de spec starten tegen baseline `0.1`.
+- **#1 (`v0.1.0`)** is het **startsein**: milestone 3, eerste minor, release in Public ter review door **kerngroep techniek**. Bij goedkeuring kan de technische werkgroep de spec starten tegen baseline `0.1`.
 - **#2** (`v0.1.x`): typisch antwoord op wijzigingsverzoeken na #1 — **meer detail**, geen bredere scope; patches, niet gecommuniceerd (§6).
 - **#3 en #5** (`v0.2.0` … `v0.n.0`): **breder kader** in de `0.x`-fase; minors, wel communiceren.
 - **#4** is een spec-patch; meta ongewijzigd.
@@ -383,7 +381,7 @@ Toelichting op de regels:
 
 | Aspect | Afspraak |
 |--------|----------|
-| Schema | SemVer `MAJOR.MINOR.PATCH`, tag op `main` (U1, §9) |
+| Schema | SemVer `MAJOR.MINOR.PATCH`, tag op de release in Public (U1, §4) |
 | MAJOR | Breaking; afnemers wordt geadviseerd om te migreren (U2) |
 | MINOR | Additief, niet-breaking; nieuwe optionele mogelijkheden (U3) |
 | PATCH | Correctie zonder semantische/contractwijziging (U4) |

@@ -36,7 +36,7 @@ Er is al inhoud voor een deel van de stromen; **veel andere stromen** uit de hoo
 | **Repository (repo)** | De map met alle bestanden + de geschiedenis van wijzigingen. |
 | **Git** | Programma dat wijzigingen bijhoudt (lokaal op je computer). |
 | **GitHub** | Website waar de repo staat: issues, pull requests, review, projectborden. |
-| **Branch** | Een “tak” van de code/docs om veilig te experimenteren zonder `main` direct te wijzigen. |
+| **Branch** | Een “tak” van de code/docs om veilig te experimenteren zonder `dev` direct te wijzigen. |
 | **Commit** | Een opgeslagen bundel wijzigingen met een korte boodschap. |
 | **Pull request (PR)** | Verzoek om jouw branch te laten samenvoegen; anderen kunnen reviewen. |
 | **Issue** | Een ticket: vraag, bug, voorstel of taak — met nummer (`#12`) om te linken. |
@@ -89,7 +89,7 @@ We hanteren **geen strikt Scrum-handboek**, maar de **beelden** helpen om te zie
 | **Prioriteren / plannen** | **Kernteam OKx** en **kerngroep techniek** kiezen waar focus ligt; issues kunnen aan epics/milestones gekoppeld worden. |
 | **Sprint / werkrithme** | **Sprintachtige periodes** met **variabele duur** (zie §4): focus op een set issues, zonder starre Scrum-verplichting. |
 | **Werk uitvoeren** | **Branches** + **pull requests** met review — concrete wijzigingen in docs en specificaties. |
-| **Opleveren / vastleggen** | **Merge** naar `dev` / `main`, **tags** bij releases, **ADR’s** voor belangrijke architectuurkeuzes ([Referentiemateriaal/adr in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr)). |
+| **Opleveren / vastleggen** | **Merge** naar `dev`, de release met haar tag in Npuls-OKx/Public, **ADR’s** voor belangrijke architectuurkeuzes ([Referentiemateriaal/adr in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr)). |
 
 **Iedereen kan bijdragen** door **problemen en vragen** (en oplossingsrichtingen) in GitHub te zetten. Zo komen ze in **onze projectaanpak** en planning terecht. De **realisatie** — uitwerken, scherpstellen, reviewen — gebeurt in samenwerking met **kernteam OKx** en **kerngroep techniek**, zodat de kennisbasis **betrouwbaar** en **samenhangend** blijft.
 
@@ -291,7 +291,7 @@ Handige commando’s: `git status` · `git diff` · `git log --oneline -10`.
 
 ## 8. Branches: wat is dat, en hoe maak je er een?
 
-Een **branch** is een **naam** voor een lijn van commits naast andere lijnen. Zo kun je experimenteren terwijl **`main`** (of **`dev`**) rustig blijft staan. Later voeg je lijnen samen via een **merge** (vaak via een **PR**).
+Een **branch** is een **naam** voor een lijn van commits naast andere lijnen. Zo kun je experimenteren terwijl **`dev`** rustig blijft staan. Later voeg je lijnen samen via een **merge** (vaak via een **PR**).
 
 ### Op de command line (na §7)
 
@@ -309,7 +309,7 @@ Gebruik een **duidelijke branche naam** (`feature/…`, `fix/…`) — sluit aan
 
 ### In de GitHub-webinterface
 
-1. Bovenin de bestandsweergave: dropdown met **branch** (vaak `main` of `dev`).
+1. Bovenin de bestandsweergave: dropdown met **branch** (hier `dev`).
 2. Tik een **nieuwe naam** (bijvoorbeeld `feature/doc-readme-typos`) en bevestig **Create branch** — of gebruik het branch-menu vanuit een bestand.
 3. Open een bestand → **Edit** (potlood) → onderaan: kies **Create a new branch for this commit** → commit.
 4. GitHub biedt daarna vaak **Compare & pull request** aan (**§10**).
@@ -318,18 +318,16 @@ Zo kun je **spelen en aanpassen in de browser** zonder Git op je pc — wél alt
 
 ---
 
-## 9. Branchstrategie: `main`, `dev`, feature branches, tags
+## 9. Branchstrategie: `dev`, feature branches
 
 Dit is de **teamsafspraak** over **welke branch waarvoor** dient. **§8** legde uit **hoe** je praktisch een branch maakt; hieronder **waar** je op wilt bouwen en **waarheen** pull requests gaan.
 
 | Branch / ref | Rol |
 |--------------|-----|
-| **`main`** | Stabiele **release**-lijn. |
-| **`dev`** | Integratie **volgende release**. |
+| **`dev`** | De enige langlevende branch; hier staat de actuele stand. |
 | **`feature/…`** | Vanaf **`dev`**, PR terug naar **`dev`**. |
-| **Tags** (op `main`) | Release-labels (bijv. `v1.0.0`). |
 
-**Hotfix**: branch vanaf `main` → PR naar `main` én terug naar `dev`.
+**De release leeft in [Npuls-OKx/Public](https://github.com/Npuls-OKx/Public)**, met het releasepakket, de release notes en het versielabel. Deze repository draagt de kennisbank en levert daaraan: een wijziging is klaar zodra zij op `dev` staat. Een **correctie met haast** volgt dezelfde weg als al het andere werk, een eigen branch vanaf `dev` met een pull request terug.
 
 ```mermaid
 gitGraph BT:
@@ -353,10 +351,9 @@ gitGraph BT:
    checkout develop
    merge feature/AI-procesketen
 
-   %% release vanaf develop
-   checkout main
-   merge develop
-   commit id: 'v2.6'
+   %% de release volgt in Public, het werk blijft op develop
+   checkout develop
+   commit id: "stand voor de release in Public"
 ```
 
 ### Stroom van werk (PR’s)
@@ -368,14 +365,12 @@ flowchart TD
     fb2[feature_vanaf_dev_2]
   end
 
-  dev[dev_volgende_release]
-  main[main_stabiele_release]
-  tag[git_tag_bijv_v1_0_0]
+  dev[dev_actuele_stand]
+  release[release_in_Public_met_tag]
 
   fb1 -->|PR_review_merge| dev
   fb2 -->|PR_review_merge| dev
-  dev -->|PR_release_review| main
-  main --> tag
+  dev -->|levert_aan| release
 
   subgraph fork [Optioneel_fork]
     forkRepo[fork_op_GitHub]
@@ -385,13 +380,13 @@ flowchart TD
   end
 ```
 
-**Let op**: bestaat `dev` nog niet? Overleg met team of branch tijdelijk vanaf `main`. Geen ongecoördineerde directe commits op `main`.
+**Let op**: branch altijd vanaf de actuele `dev`, en haal hem op met `git pull` voordat je begint. Geen ongecoördineerde directe commits op `dev`.
 
 ---
 
 ## 10. Pull requests (GitHub): jouw wijzigingen terug naar het OKx-team
 
-**In Jip- en Jannetaal:** een **pull request** (PR) is een **verzoek** aan het OKx-team: “Willen jullie **mijn branch** bekijken en — als het goed is — **samenvoegen** met de officiële lijn?” Jouw werk staat dan **apart** tot iemand het **reviewt** en **merget**. Pas daarna hoort het bij de **echte** versie van de kennisrepo (via **`dev`** en uiteindelijk releases op **`main`**, zie **§9**).
+**In Jip- en Jannetaal:** een **pull request** (PR) is een **verzoek** aan het OKx-team: “Willen jullie **mijn branch** bekijken en — als het goed is — **samenvoegen** met de officiële lijn?” Jouw werk staat dan **apart** tot iemand het **reviewt** en **merget**. Pas daarna hoort het bij de **echte** versie van de kennisrepo (via **`dev`**, en de release volgt in Public, zie **§9**).
 
 **Waarom doen we dit zo?** Zo kan iedereen **voorstellen** doen, terwijl de **kwaliteit en samenhang** bewaakt blijven. Je “breekt” niets: zonder merge blijft jouw idee een **voorstel** op een branch.
 
@@ -406,9 +401,9 @@ flowchart TD
 
 ### Checklist (kort)
 
-1. Wijzigingen op een **branch** (niet rechtstreeks op `main`).
+1. Wijzigingen op een **branch**, met `dev` als vertrekpunt.
 2. **Push** naar GitHub (of commit in de browser op een nieuwe branch — zie **§6** en **§8**).
-3. **Pull request** openen → base **`dev`** (tenzij **hotfix** → `main`, zie **§9**).
+3. **Pull request** openen → base **`dev`** (zie **§9**).
 4. Beschrijving + **issues** linken.
 5. **Review** + feedback verwerken.
 6. Na **merge**: branch opruimen (optioneel maar netjes).
@@ -419,7 +414,7 @@ flowchart TD
 
 ## 11. Fork (geen schrijfrecht op upstream)
 
-Als je **geen direct push-recht** hebt op de canonieke repo, **fork** je die op GitHub naar **jouw eigen kopie**. Dan is **`origin`** in Git meestal **jouw fork**; je voegt **`upstream`** toe voor de officiële repo. Je PR gaat van **jouw fork** naar **upstream `dev`** (of `main` bij hotfix).
+Als je **geen direct push-recht** hebt op de canonieke repo, **fork** je die op GitHub naar **jouw eigen kopie**. Dan is **`origin`** in Git meestal **jouw fork**; je voegt **`upstream`** toe voor de officiële repo. Je PR gaat van **jouw fork** naar **upstream `dev`**.
 
 ```mermaid
 flowchart TD
@@ -443,8 +438,8 @@ flowchart TD
    git fetch upstream
    ```
 
-3. Branch vanaf bijgewerkte `dev` (of `main` na overleg), commit, **push naar `origin`** (jouw fork).
-4. Op GitHub: **Pull request** van jouw fork-branch naar **upstream `dev`** (of `main` bij hotfix).
+3. Branch vanaf bijgewerkte `dev`, commit, **push naar `origin`** (jouw fork).
+4. Op GitHub: **Pull request** van jouw fork-branch naar **upstream `dev`**.
 
 [GitHub — Working with forks](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks)
 

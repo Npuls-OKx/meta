@@ -39,11 +39,10 @@ Uitgebreider en voor nieuwe bijdragers: sectie *Waar draait deze repository om?*
 
 ### Branchingstrategie & Pull Requests
 
-- **`main`**: stabiele **release**-lijn — officiële stand; **tags** (bijv. `v1.0.0`) markeren release-momenten.
-- **`dev`**: integratie van werk voor de **volgende release**; hier komen feature-PR’s op.
+- **`dev`**: de enige langlevende branch en de default; hier staat de actuele stand en hier komen feature-PR’s op.
 - **Feature branches** (`feature/…`): vertrek vanaf **`dev`**; PR richting **`dev`**.
-- **Release**: wanneer `dev` klaar is voor een oplevering, gaat een PR **`dev` → `main`**, daarna eventueel een **git tag** op `main`.
-- **Hotfixes** (klein, direct op release): branch vanaf **`main`**, PR naar **`main`**, en wijzigingen ook terug naar **`dev`** zodat die gelijk blijft.
+- **Release**: de release van OKx leeft in [Npuls-OKx/Public](https://github.com/Npuls-OKx/Public), met het releasepakket, de release notes en het versielabel. Deze repository draagt de kennisbank en levert daaraan: een wijziging is klaar zodra zij op `dev` staat.
+- **Een correctie met haast** volgt dezelfde weg als al het andere werk: een eigen branch vanaf `dev` met een pull request terug.
 
 **Bijdragen via branch (in deze repo)**:
 
@@ -52,13 +51,13 @@ Uitgebreider en voor nieuwe bijdragers: sectie *Waar draait deze repository om?*
 
 **Bijdragen via fork**:
 
-- Zelfde flow, maar PR naar **upstream `dev`** (of **`main`** alleen bij afgesproken hotfix).
+- Zelfde flow, met een PR naar **upstream `dev`**.
 
 **Grote impact** (richtlijn): architectuurwijzigingen, grote scope-/richtingwijzigingen, of wijzigingen die (templates/specificaties) “breaking” maken.
 
 - **Bij grote impact**: PR’s gaan altijd gepaard met een review met het **SI-team** in een fysieke/digitale **Teams meeting** (naast de normale GitHub review).
 
-#### Flow (branch of fork, met `dev` en `main`)
+#### Flow (branch of fork, met `dev`)
 
 ```mermaid
 flowchart TD
@@ -72,7 +71,7 @@ flowchart TD
   impact -->|Ja| siReview[SI_team_review_meeting_Teams]
   siReview --> review
   review --> mergeDev[Merge_naar_dev_door_OKx_team]
-  mergeDev --> endDev[Verder_op_dev_tot_release]
+  mergeDev --> endDev[Actuele_stand_op_dev]
 
   choose -->|Fork_repo| fork[Maak_fork_van_repo]
   fork --> forkBranch[Branch_vanaf_dev_in_fork]

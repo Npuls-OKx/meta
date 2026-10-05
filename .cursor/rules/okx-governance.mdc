@@ -20,10 +20,10 @@ Workflow regels:
   eigen regel: `Closes #123`. Dat woord is syntaxis die GitHub leest, dus het blijft
   Engels; een Nederlandse formulering als "Lost #123 op" telt niet mee en laat het issue
   openstaan. Raakt een PR een issue zonder het op te lossen, gebruik dan `See also #456`.
-- Een sluitwoord werkt pas bij een merge naar de default branch (`main`). Na een merge
-  naar `dev` blijft het issue dus staan tot `dev` op `main` landt; dat is zichtbaar en
-  klopt. Is het issue daarvoor al rond, sluit het dan met de hand, met een comment die
-  naar de PR verwijst.
+- Een sluitwoord werkt bij een merge naar de default branch, en dat is `dev`. Het issue
+  sluit daarmee bij de merge van de pull request die hem oplost, zonder handwerk. Blijft
+  een issue toch open terwijl het werk is geland, dan ontbrak het sluitwoord of stond het
+  in het Nederlands.
 - Elk issue opent met een story: als `<gebruiker>` wil ik `<X>` met als doel dat
   `<waarde>`. Zonder benoemde gebruiker en benoemde waarde begint het werk niet; de
   volledige keten staat in `.cursor/rules/product-flow.mdc`.
