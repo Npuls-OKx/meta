@@ -1,0 +1,634 @@
+{
+  "toelichting": "De keten van kaderstelling tot implementatie, met per laag de partijen en de producten die zij maken. Deze bron beschrijft wat er is; een oordeel over wat ontbreekt staat er bewust niet in. Het invulblad laat dat aan de lezer, zodat dezelfde bron een gatanalyse, een voortgangsanalyse en een aansluitvraag kan dragen. Relateert aan: #262.",
+  "peildatum": "2026-10-05",
+  "waarden": {
+    "aard": {
+      "voorschrift": "Zegt hoe iets gedaan moet worden en draagt geen inhoud die een volgende laag overneemt. Voorbeeld: de AMIGO-methodiek.",
+      "herbruikbaar product": "Draagt inhoud die een volgende laag kan overnemen zonder die opnieuw te maken. Voorbeeld: het KOI met zijn 13 kernobjecten.",
+      "beslisregel": "Waar beide waarden passen telt wat een volgende laag ervan overneemt. De inhoud zelf maakt het een herbruikbaar product; de werkwijze die het voorschrijft maakt het een voorschrift. Het MOSA-principehuis valt daarmee aan de productkant, want OKx neemt de principes zelf over in zijn eigen architectuurprincipes."
+    },
+    "detailniveau": {
+      "conceptueel": "Begrippen, objecten en relaties, zonder attributen. Voorbeeld: het MORA-informatiemodel met ruim 100 informatieobjecten.",
+      "logisch": "Objecten met attributen; de structuur van de uitwisseling. Voorbeeld: het OKx-informatiemodel.",
+      "technisch": "Syntax, endpoints en berichten. Voorbeeld: een datamodelschema in JSON Schema.",
+      "niet van toepassing": "Het product is geen model. Voorbeeld: een roadmap."
+    }
+  },
+  "lagen": [
+    {
+      "nummer": 1,
+      "naam": "Overheidsbreed",
+      "soort": "referentiearchitectuur",
+      "partijen": ["EIRA", "NORA"],
+      "rol": "Legt vast hoe de overheid haar informatiehuishouding inricht, en vormt de brug waar het onderwijs op aansluit.",
+      "producten": [
+        {
+          "naam": "Verbindende architectuurafspraken",
+          "partij": "NORA",
+          "beheerder": "ICTU",
+          "aard": "voorschrift",
+          "detailniveau": "niet van toepassing",
+          "omvang": "De kern van NORA, naast het vijflaagsmodel",
+          "vindplaats": "https://www.noraonline.nl/wiki/NORA_online",
+          "herkomst": ["nora"],
+          "op_plaat": true,
+          "deelproducten": ["Beleidskaders", "Begrippen", "Standaarden", "Bouwstenen", "Generieke functies", "Sectorregistraties"]
+        },
+        {
+          "naam": "Vijflaagsmodel",
+          "partij": "NORA",
+          "beheerder": "ICTU",
+          "aard": "voorschrift",
+          "detailniveau": "conceptueel",
+          "omvang": "5 lagen: grondslagen, organisatorisch, informatie, applicatie, IT-infrastructuur",
+          "vindplaats": "https://www.noraonline.nl/wiki/NORA_online",
+          "herkomst": ["nora"],
+          "op_plaat": true,
+          "deelproducten": [],
+          "opmerking": "Het Edustandaard Lagenmodel is ditzelfde model toegepast op het onderwijs."
+        },
+        {
+          "naam": "Europese interoperabiliteitsreferentie",
+          "partij": "EIRA",
+          "beheerder": "Europese Commissie",
+          "aard": "voorschrift",
+          "detailniveau": "conceptueel",
+          "omvang": "",
+          "vindplaats": "architecture/docs/specificatie/leerroute-uitwerking/img/rosa-knooppunt.png",
+          "herkomst": ["rosa-knooppunt"],
+          "op_plaat": false,
+          "deelproducten": []
+        }
+      ]
+    },
+    {
+      "nummer": 2,
+      "naam": "Programma en sectorvisie",
+      "soort": "visie en opdracht",
+      "partijen": ["OCW groeifonds", "Npuls"],
+      "rol": "Zegt wat de sector wil bereiken met flexibilisering en leven lang ontwikkelen, en geeft de opdracht.",
+      "producten": [
+        {
+          "naam": "De negen leerroutes",
+          "partij": "Npuls",
+          "beheerder": "Npuls, pijler Leren zonder Drempels",
+          "aard": "herbruikbaar product",
+          "detailniveau": "conceptueel",
+          "omvang": "9 leerroutes in drie groepen: standaard (1 tot 3), personaliseren (4 tot 6), modulair studeren (7 tot 9)",
+          "vindplaats": "architecture/docs/specificatie/leerroute-uitwerking/img/npuls-leerroutes.png",
+          "herkomst": ["bijlage1", "leerroute-uitwerking"],
+          "op_plaat": true,
+          "deelproducten": [],
+          "opmerking": "Beschreven vanuit het studentperspectief. De onderwijskundige, toetsende en onderwijslogistieke kant komt in het kaderscenario op laag 6."
+        },
+        {
+          "naam": "Benefitcase voor stakeholders",
+          "partij": "OCW groeifonds, Npuls",
+          "beheerder": "Npuls",
+          "aard": "herbruikbaar product",
+          "detailniveau": "niet van toepassing",
+          "omvang": "",
+          "vindplaats": null,
+          "herkomst": ["bijlage1"],
+          "op_plaat": true,
+          "deelproducten": []
+        },
+        {
+          "naam": "User experience per stakeholder in fasering",
+          "partij": "OCW groeifonds, Npuls",
+          "beheerder": "Npuls",
+          "aard": "herbruikbaar product",
+          "detailniveau": "niet van toepassing",
+          "omvang": "",
+          "vindplaats": null,
+          "herkomst": ["bijlage1"],
+          "op_plaat": false,
+          "deelproducten": []
+        },
+        {
+          "naam": "Roadmap transitiepad",
+          "partij": "OCW groeifonds, Npuls",
+          "beheerder": "Npuls",
+          "aard": "herbruikbaar product",
+          "detailniveau": "niet van toepassing",
+          "omvang": "",
+          "vindplaats": null,
+          "herkomst": ["bijlage1"],
+          "op_plaat": true,
+          "deelproducten": []
+        },
+        {
+          "naam": "Pijler Leren zonder Drempels",
+          "partij": "Npuls",
+          "beheerder": "Npuls",
+          "aard": "voorschrift",
+          "detailniveau": "niet van toepassing",
+          "omvang": "5 programmaonderdelen: identiteit, ontsluiten onderwijsaanbod, aanmelden en inschrijven, credentials, verrekeningen",
+          "vindplaats": "https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/requirementsboom/opdracht.md",
+          "herkomst": ["requirementsboom"],
+          "op_plaat": false,
+          "deelproducten": []
+        }
+      ]
+    },
+    {
+      "nummer": 3,
+      "naam": "Onderwijsketen",
+      "soort": "ketenreferentiearchitectuur",
+      "partijen": ["ROSA"],
+      "rol": "Richt de informatie-uitwisseling tussen organisaties in het hele onderwijs in, en draagt de methodiek waarmee een uitwisselafspraak tot stand komt.",
+      "producten": [
+        {
+          "naam": "Kernmodel Onderwijsinformatie (KOI)",
+          "partij": "ROSA",
+          "beheerder": "Bureau Edustandaard, ROSA-beheerteam",
+          "aard": "herbruikbaar product",
+          "detailniveau": "conceptueel",
+          "omvang": "13 kernobjecten in 6 ketendomeinen",
+          "versie": "",
+          "bron_datum": "2026-04-14",
+          "peildatum": "2026-10-05",
+          "vindplaats": "https://rosa.wikixl.nl/index.php/Kernmodel_Onderwijsinformatie",
+          "herkomst": ["rosa"],
+          "op_plaat": true,
+          "deelproducten": []
+        },
+        {
+          "naam": "Logische gegevensmodellen",
+          "partij": "ROSA",
+          "beheerder": "Architectuurraad Edustandaard",
+          "aard": "herbruikbaar product",
+          "detailniveau": "logisch",
+          "omvang": "3 modellen",
+          "bron_datum": "2025-10-16",
+          "peildatum": "2026-10-05",
+          "vindplaats": "https://rosa.wikixl.nl/index.php/ROSA_Logische_gegevensmodellen",
+          "herkomst": ["rosa", "amigo-stap2"],
+          "op_plaat": true,
+          "deelproducten": ["Gegevensmodel Deelnemers en Medewerkers", "Gegevensmodel Toetsdefinitie", "Gegevensmodel Scores en Resultaten"],
+          "opmerking": "AMIGO stap 2 wijst deze modellen aan als de bron waaruit een uitwisselingsgegevensmodel wordt geselecteerd."
+        },
+        {
+          "naam": "AMIGO-methodiek",
+          "partij": "ROSA",
+          "beheerder": "Bureau Edustandaard, ROSA-beheerteam",
+          "aard": "voorschrift",
+          "detailniveau": "niet van toepassing",
+          "omvang": "6 stappen, 5 onderdelen van een specificatie",
+          "versie": "1.1.0",
+          "bron_datum": "2025-10-16",
+          "peildatum": "2026-10-05",
+          "vindplaats": "https://www.edustandaard.nl/amigo/aanpak/",
+          "herkomst": ["amigo"],
+          "op_plaat": true,
+          "deelproducten": ["Scenario-analyse", "Gegevensanalyse", "Interactie-analyse", "Technologie- en paradigmakeuze", "Berichtspecificatie", "Interfacespecificatie"],
+          "opmerking": "In ROSA geregistreerd als requirement met gebruiksadvies verplicht. Bindt OKx rechtstreeks via OKx-AP03."
+        },
+        {
+          "naam": "Referentiecomponenten en informatieobjecten",
+          "partij": "ROSA",
+          "beheerder": "Bureau Edustandaard, ROSA-beheerteam",
+          "aard": "herbruikbaar product",
+          "detailniveau": "conceptueel",
+          "omvang": "",
+          "peildatum": "2026-10-05",
+          "vindplaats": "https://rosa.wikixl.nl/index.php/Hoofdpagina",
+          "herkomst": ["rosa"],
+          "op_plaat": false,
+          "deelproducten": ["Referentiecomponenten", "Informatieobjecten", "Ketenvoorzieningen"]
+        },
+        {
+          "naam": "Edustandaard Lagenmodel",
+          "partij": "ROSA",
+          "beheerder": "Bureau Edustandaard",
+          "aard": "voorschrift",
+          "detailniveau": "conceptueel",
+          "omvang": "5 interoperabiliteitslagen, met de standaarden erop geplot",
+          "peildatum": "2026-10-05",
+          "vindplaats": "https://rosa.wikixl.nl/index.php/Standaarden_geplot_op_het_Edustandaard_Lagenmodel",
+          "herkomst": ["lagenmodel"],
+          "op_plaat": true,
+          "deelproducten": []
+        },
+        {
+          "naam": "ROSA-metamodel, katernen en ontwerpkaders",
+          "partij": "ROSA",
+          "beheerder": "Bureau Edustandaard, ROSA-beheerteam",
+          "aard": "voorschrift",
+          "detailniveau": "conceptueel",
+          "omvang": "",
+          "peildatum": "2026-10-05",
+          "vindplaats": "https://rosa.wikixl.nl/index.php/ROSA_metamodel",
+          "herkomst": ["rosa"],
+          "op_plaat": false,
+          "deelproducten": []
+        },
+        {
+          "naam": "Afsprakenstelsel authenticatie, autorisatie en provisioning",
+          "partij": "Edustandaard en de afsprakenstelsels",
+          "beheerder": "geen enkel stelsel dekt onderwijslogistiek in het mbo",
+          "aard": "voorschrift",
+          "detailniveau": "niet van toepassing",
+          "omvang": "Bestaande stelsels per toepassingsgebied",
+          "peildatum": "2026-10-05",
+          "vindplaats": "https://www.edustandaard.nl/app/uploads/2025/10/AMIGO-methodiek-1.1.0-1.pdf",
+          "herkomst": ["amigo-h7"],
+          "op_plaat": true,
+          "deelproducten": ["Edu-V, voor leermiddelen", "OKE, voor examinering", "Edukoppeling, voor transactie en routering", "eduID en ECK iD, voor identiteit"],
+          "opmerking": "AMIGO hoofdstuk 7 wijst identificatie, autorisatie, mandatering en routering aan als randvoorwaardelijk, met Edu-V en OKE als decentrale voorbeelden."
+        }
+      ]
+    },
+    {
+      "nummer": 4,
+      "naam": "Sector",
+      "soort": "doelarchitectuur naast referentiearchitectuur",
+      "partijen": ["MOSA", "HOSA", "MORA", "HORA"],
+      "rol": "Zegt waar de sector heen wil (doel) en hoe de bedrijfsvoering binnen een instelling eruitziet (referentie).",
+      "producten": [
+        {
+          "naam": "MOSA-doelenstructuur",
+          "partij": "MOSA",
+          "beheerder": "MBO Digitaal, CIO Raad",
+          "aard": "voorschrift",
+          "detailniveau": "niet van toepassing",
+          "omvang": "Wat de sector wil bereiken",
+          "bron_datum": "2025-01",
+          "peildatum": "2026-10-05",
+          "vindplaats": "architecture/docs/externe-kaders/mosa/img/bijlage3_MOSA_architectuur_producten.jpg",
+          "herkomst": ["mosa"],
+          "op_plaat": true,
+          "deelproducten": []
+        },
+        {
+          "naam": "MOSA-principehuis",
+          "partij": "MOSA",
+          "beheerder": "MBO Digitaal, CIO Raad",
+          "aard": "herbruikbaar product",
+          "detailniveau": "niet van toepassing",
+          "omvang": "De uitgangspunten van de sector",
+          "bron_datum": "2025-01",
+          "peildatum": "2026-10-05",
+          "vindplaats": "architecture/docs/externe-kaders/mosa/doc/MOSA_vs_OKx_analyse.md",
+          "herkomst": ["mosa"],
+          "op_plaat": true,
+          "deelproducten": [],
+          "opmerking": "OKx neemt de principes over in zijn eigen architectuurprincipes; daarmee valt dit product aan de productkant van de beslisregel."
+        },
+        {
+          "naam": "MOSA-platformstrategie",
+          "partij": "MOSA",
+          "beheerder": "MBO Digitaal, CIO Raad",
+          "aard": "voorschrift",
+          "detailniveau": "niet van toepassing",
+          "omvang": "De technologierichting van de sector",
+          "bron_datum": "2025-01",
+          "peildatum": "2026-10-05",
+          "vindplaats": "architecture/docs/externe-kaders/mosa/img/bijlage3_MOSA_architectuur_producten.jpg",
+          "herkomst": ["mosa"],
+          "op_plaat": false,
+          "deelproducten": []
+        },
+        {
+          "naam": "MOSA-domeinarchitecturen",
+          "partij": "MOSA",
+          "beheerder": "MBO Digitaal, CIO Raad",
+          "aard": "voorschrift",
+          "detailniveau": "conceptueel",
+          "omvang": "2 domeinen: Onderwijs en Flexibilisering, Identiteit en Toegang",
+          "bron_datum": "2025-01",
+          "peildatum": "2026-10-05",
+          "vindplaats": "architecture/docs/externe-kaders/mosa/doc/MOSA-Visiedocument.md",
+          "herkomst": ["mosa"],
+          "op_plaat": true,
+          "deelproducten": ["Onderwijs en Flexibilisering: vier ketenfasen met vier platformen", "Identiteit en Toegang: drie generaties tot en met SSI"]
+        },
+        {
+          "naam": "HOSA generiek deel en domeinarchitecturen",
+          "partij": "HOSA",
+          "beheerder": "SURF",
+          "aard": "voorschrift",
+          "detailniveau": "conceptueel",
+          "omvang": "Generiek deel met doelen en principes, plus 3 domeinarchitecturen",
+          "versie": "flexibilisering onderwijs 1.0",
+          "bron_datum": "2022-02",
+          "peildatum": "2026-10-05",
+          "vindplaats": "https://www.surf.nl/files/2022-02/hosa-domeinarchitectuur-flexibilisering-onderwijs-v1.0.pdf",
+          "herkomst": ["hosa"],
+          "op_plaat": true,
+          "deelproducten": ["Onderwijs en flexibilisering", "Onderzoeksdata", "Identiteit en toegang"]
+        },
+        {
+          "naam": "MORA-hoofdprocesmodel",
+          "partij": "MORA",
+          "beheerder": "MBO Digitaal",
+          "aard": "herbruikbaar product",
+          "detailniveau": "conceptueel",
+          "omvang": "7 hoofdprocessen",
+          "versie": "2.6",
+          "bron_datum": "2026-05-04",
+          "peildatum": "2026-10-05",
+          "vindplaats": "https://mora.mbodigitaal.nl/index.php/Hoofdpagina",
+          "herkomst": ["bijlage1", "mora"],
+          "op_plaat": true,
+          "deelproducten": []
+        },
+        {
+          "naam": "MORA-informatiemodel",
+          "partij": "MORA",
+          "beheerder": "MBO Digitaal",
+          "aard": "herbruikbaar product",
+          "detailniveau": "conceptueel",
+          "omvang": "Ruim 100 informatieobjecten, zonder attributen",
+          "bron_datum": "2022-10-13",
+          "peildatum": "2026-10-05",
+          "vindplaats": "https://mora.mbodigitaal.nl/index.php/Informatiemodel",
+          "herkomst": ["bijlage1", "mora"],
+          "op_plaat": true,
+          "deelproducten": []
+        },
+        {
+          "naam": "MORA-applicatiecomponenten",
+          "partij": "MORA",
+          "beheerder": "MBO Digitaal",
+          "aard": "herbruikbaar product",
+          "detailniveau": "conceptueel",
+          "omvang": "87 applicatiecomponenten met hun applicatieservices",
+          "bron_datum": "2023-03-29",
+          "peildatum": "2026-10-05",
+          "vindplaats": "https://mora.mbodigitaal.nl/index.php/Applicaties_en_applicatieservices",
+          "herkomst": ["mora"],
+          "op_plaat": true,
+          "deelproducten": []
+        },
+        {
+          "naam": "MORA-koppelvlakken",
+          "partij": "MORA",
+          "beheerder": "MBO Digitaal",
+          "aard": "herbruikbaar product",
+          "detailniveau": "conceptueel",
+          "omvang": "3 koppelvlakken",
+          "peildatum": "2026-10-05",
+          "vindplaats": "https://mora.mbodigitaal.nl/index.php/Koppelvlak_Perspectief_MOKA",
+          "herkomst": ["mora"],
+          "op_plaat": true,
+          "deelproducten": ["Koppelvlak CAMBO", "Koppelvlak RIO", "Koppelvlak Examinering"]
+        },
+        {
+          "naam": "MORA-koppelvlakperspectief en metamodel",
+          "partij": "MORA",
+          "beheerder": "MBO Digitaal",
+          "aard": "voorschrift",
+          "detailniveau": "conceptueel",
+          "omvang": "Viewpoint op detailniveau 3, contextueel",
+          "bron_datum": "2025-11-20",
+          "peildatum": "2026-10-05",
+          "vindplaats": "https://mora.mbodigitaal.nl/index.php/Koppelvlak_Perspectief_MOKA",
+          "herkomst": ["bijlage1", "mora"],
+          "op_plaat": true,
+          "deelproducten": ["Datamodelperspectief", "Informatiemodelperspectief", "Interactieperspectief", "Beheerspelregels voor koppelvlakmodellen", "Koppelvlakmetamodel"]
+        },
+        {
+          "naam": "HORA-modellen en principes",
+          "partij": "HORA",
+          "beheerder": "Architecten Beraad Hoger Onderwijs",
+          "aard": "herbruikbaar product",
+          "detailniveau": "conceptueel",
+          "omvang": "7 modellen plus principes; versie 3.0 in voorbereiding",
+          "versie": "2.0",
+          "bron_datum": "2026-05-05",
+          "peildatum": "2026-10-05",
+          "vindplaats": "https://hora.surf.nl/index.php/Hoofdpagina",
+          "herkomst": ["bijlage1", "hora"],
+          "op_plaat": true,
+          "deelproducten": ["Bedrijfsfunctiemodel", "Bedrijfsprocesmodel", "Applicatiefunctiemodel", "Applicatiecomponentmodel", "Applicatieplatformmodel", "Informatiemodel", "Metamodel"]
+        }
+      ]
+    },
+    {
+      "nummer": 5,
+      "naam": "Koppelvlakontwerp",
+      "soort": "ontwerpsjabloon",
+      "partijen": ["MOKA"],
+      "rol": "Brengt een koppelvlak van behoefte naar ontwerp, met een sjabloon dat per koppelvlak wordt ingevuld.",
+      "producten": [
+        {"naam": "Beheerketen en plaatsing", "op_plaat": false},
+        {"naam": "AMIGO-aanpak en modeltalen", "op_plaat": false},
+        {"naam": "MORA-procesplaatsing", "op_plaat": true},
+        {"naam": "Viewpointbeschrijving", "op_plaat": false},
+        {"naam": "Metamodel", "op_plaat": false},
+        {"naam": "Koppelvlak specificatie view", "op_plaat": true},
+        {"naam": "Koppelvlak informatiemodel view", "op_plaat": true},
+        {"naam": "Referentie klassendiagram", "op_plaat": true},
+        {"naam": "Referentie interactiepatroon", "op_plaat": true},
+        {"naam": "Interactiepatronen en messaginggedrag", "op_plaat": false},
+        {"naam": "Gerelateerde implementaties en specificaties", "op_plaat": false}
+      ],
+      "gemeenschappelijk": {
+        "partij": "MOKA Werkgroep",
+        "beheerder": "geen; MOKA heeft sinds eind voorjaar 2026 kennisdeling als functie",
+        "aard": "voorschrift",
+        "detailniveau": "conceptueel",
+        "omvang": "Sjabloon, per koppelvlak in te vullen",
+        "peildatum": "2026-10-05",
+        "vindplaats": "moka-koppelvlakspecificaties/Template/doc/KoppelvlakSpecificatieTemplate.md",
+        "herkomst": ["moka-template", "voorbeelduitwerking"],
+        "deelproducten": [],
+        "opmerking": "De gesloten lijst van elf komt uit de hoofdstukindeling van het template en van de voorbeelduitwerking Examen uitvoering en beoordeling."
+      }
+    },
+    {
+      "nummer": 6,
+      "naam": "Solutionarchitectuur",
+      "soort": "koppelvlakspecificatie",
+      "partijen": ["OKx"],
+      "rol": "Specificeert per koppeling wat er wordt uitgewisseld en hoe, zo dat een leverancier het kan bouwen.",
+      "producten": [
+        {
+          "naam": "Koppelvlakspecificatie per koppeling",
+          "partij": "OKx",
+          "beheerder": "OKx-team",
+          "aard": "herbruikbaar product",
+          "detailniveau": "technisch",
+          "omvang": "Per koppeling een pakket",
+          "peildatum": "2026-10-05",
+          "vindplaats": "https://github.com/Npuls-OKx/Public/tree/dev/Koppelvlakspecificaties",
+          "herkomst": ["okx"],
+          "op_plaat": true,
+          "deelproducten": ["Interactiepatroon", "Berichtspecificatie", "Datamodelschema", "Endpointbeschrijving"],
+          "landt_bij": "Profielen van de Open Education API"
+        },
+        {
+          "naam": "OKx-informatiemodel",
+          "partij": "OKx",
+          "beheerder": "OKx-team",
+          "aard": "herbruikbaar product",
+          "detailniveau": "logisch",
+          "omvang": "62 objecttypen in 7 begrippenfamilies",
+          "peildatum": "2026-10-05",
+          "vindplaats": "architecture/model/informatiemodel/informatiemodel.md",
+          "herkomst": ["okx"],
+          "op_plaat": true,
+          "deelproducten": [],
+          "landt_bij": "ROSA logische gegevensmodellen, governance bij de Architectuurraad",
+          "opmerking": "De naam zegt informatiemodel en het detailniveau is logisch. Dat verschil is bewust zichtbaar gelaten."
+        },
+        {
+          "naam": "Begrippenkader en begrippenlijst",
+          "partij": "OKx",
+          "beheerder": "OKx-team",
+          "aard": "herbruikbaar product",
+          "detailniveau": "conceptueel",
+          "omvang": "7 begrippenfamilies",
+          "peildatum": "2026-10-05",
+          "vindplaats": "architecture/docs/specificatie/begrippen/begrippenlijst.md",
+          "herkomst": ["okx"],
+          "op_plaat": true,
+          "deelproducten": [],
+          "landt_bij": "ROSA KOI"
+        },
+        {
+          "naam": "Kaderscenario per leerroute",
+          "partij": "OKx",
+          "beheerder": "OKx-team",
+          "aard": "herbruikbaar product",
+          "detailniveau": "conceptueel",
+          "omvang": "Leerroute 1 uitgewerkt; 2 en 3 als delta",
+          "peildatum": "2026-10-05",
+          "vindplaats": "https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md",
+          "herkomst": ["okx", "amigo-stap1"],
+          "op_plaat": true,
+          "deelproducten": ["Persona's", "Informatiestromen hoofdplaat", "Procesfasen"],
+          "landt_bij": "Npuls, als onderwijskundige en onderwijslogistieke verdieping van de leerroutes"
+        },
+        {
+          "naam": "Requirementsboom",
+          "partij": "OKx",
+          "beheerder": "OKx-team",
+          "aard": "herbruikbaar product",
+          "detailniveau": "niet van toepassing",
+          "omvang": "Opdracht, doelen, epics, features, stories",
+          "peildatum": "2026-10-05",
+          "vindplaats": "https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/requirementsboom/README.md",
+          "herkomst": ["okx"],
+          "op_plaat": true,
+          "deelproducten": [],
+          "landt_bij": null
+        },
+        {
+          "naam": "Architectuurbesluiten en uitgangspunten",
+          "partij": "OKx",
+          "beheerder": "OKx-team",
+          "aard": "herbruikbaar product",
+          "detailniveau": "niet van toepassing",
+          "omvang": "26 ADR's, 13 principes, 10 uitgangspunten",
+          "peildatum": "2026-10-05",
+          "vindplaats": "https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr",
+          "herkomst": ["okx"],
+          "op_plaat": false,
+          "deelproducten": [],
+          "landt_bij": "Werkgroep OEAPI, voor de signaleringen"
+        },
+        {
+          "naam": "Testplatform",
+          "partij": "OKx",
+          "beheerder": "OKx-team",
+          "aard": "herbruikbaar product",
+          "detailniveau": "technisch",
+          "omvang": "Voorgenomen",
+          "peildatum": "2026-10-05",
+          "vindplaats": null,
+          "herkomst": ["okx"],
+          "op_plaat": true,
+          "deelproducten": [],
+          "landt_bij": null,
+          "opmerking": "Doel: toetsen of een implementatie conform de koppelvlakspecificatie is."
+        }
+      ]
+    },
+    {
+      "nummer": 7,
+      "naam": "Implementatie",
+      "soort": "koppelingimplementatie",
+      "partijen": ["leveranciers", "instellingen"],
+      "rol": "Bouwt de koppeling op een of meer standaarden, conform de koppelvlakspecificatie.",
+      "producten": [
+        {
+          "naam": "Koppelingimplementatie",
+          "partij": "leveranciers",
+          "beheerder": "de leverancier",
+          "aard": "herbruikbaar product",
+          "detailniveau": "technisch",
+          "omvang": "Per koppeling en per systeem",
+          "peildatum": "2026-10-05",
+          "vindplaats": null,
+          "herkomst": ["okx"],
+          "op_plaat": true,
+          "deelproducten": [],
+          "landt_bij": "OKx, als wijzigingsverzoek op de specificatie"
+        },
+        {
+          "naam": "Conformiteitsbewijs",
+          "partij": "leveranciers",
+          "beheerder": "de leverancier",
+          "aard": "herbruikbaar product",
+          "detailniveau": "technisch",
+          "omvang": "Hangt aan het testplatform op laag 6",
+          "peildatum": "2026-10-05",
+          "vindplaats": null,
+          "herkomst": ["okx"],
+          "op_plaat": true,
+          "deelproducten": []
+        },
+        {
+          "naam": "IST-landschap en haalbaarheidstoets",
+          "partij": "leveranciers, instellingen",
+          "beheerder": "de instelling",
+          "aard": "herbruikbaar product",
+          "detailniveau": "conceptueel",
+          "omvang": "Per instelling en per leverancier",
+          "peildatum": "2026-10-05",
+          "vindplaats": "https://github.com/Npuls-OKx/meta/milestone/9",
+          "herkomst": ["okx"],
+          "op_plaat": true,
+          "deelproducten": [],
+          "landt_bij": "OKx, als invoer voor de scenario's"
+        }
+      ]
+    }
+  ],
+  "gereedschap": {
+    "voorkeursregel": "Het sectorprofiel gaat voor het IT-fundament. Waar het profiel aantoonbaar niet past volgt de terugval op het fundament, met de onderbouwing erbij. Het uitgangspunt OEAPI, tenzij is daarvan het voorbeeld.",
+    "raakt_lagen": [6, 7],
+    "soorten": [
+      {
+        "soort": "IT-fundament",
+        "toelichting": "Algemene techniek, buiten het onderwijs ontstaan.",
+        "items": [
+          {"naam": "OpenAPI", "lagenmodel": "niet geplot", "partij": "OpenAPI Initiative"},
+          {"naam": "REST", "lagenmodel": "niet geplot", "partij": "algemeen"},
+          {"naam": "GraphQL", "lagenmodel": "niet geplot", "partij": "GraphQL Foundation"},
+          {"naam": "JSON Schema", "lagenmodel": "niet geplot", "partij": "JSON Schema"},
+          {"naam": "OAuth 2.0 en OpenID Connect", "lagenmodel": "niet geplot", "partij": "IETF, OpenID Foundation"},
+          {"naam": "TLS", "lagenmodel": "IT-infrastructuurlaag", "partij": "IETF"}
+        ]
+      },
+      {
+        "soort": "domein- en sectorprofiel",
+        "toelichting": "Een profiel op een fundament, toegesneden op het onderwijs.",
+        "items": [
+          {"naam": "OEAPI", "fundament": "OpenAPI en REST", "lagenmodel": "informatielaag", "partij": "Werkgroep OEAPI met SURF", "opmerking": "Geplot als standaard voor uitwisseling tussen ho-instellingen; OKx past hem toe in het mbo."},
+          {"naam": "Edukoppeling", "fundament": "WUS en REST", "lagenmodel": "applicatielaag en IT-infrastructuurlaag", "partij": "Edustandaard"},
+          {"naam": "ECK iD", "fundament": "", "lagenmodel": "applicatielaag", "partij": "Edustandaard"},
+          {"naam": "OKE, NED-OOAPI", "fundament": "OEAPI", "lagenmodel": "niet geplot", "partij": "Netwerk Examinering en Digitalisering"}
+        ]
+      }
+    ]
+  },
+  "lijnen": [
+    {"van": 3, "naar": 6, "label": "AMIGO bindt via AP03", "soort": "overslaand"},
+    {"van": 3, "naar": 4, "label": "uitwisseling in twee richtingen", "soort": "tweezijdig"},
+    {"van": 6, "naar": 3, "label": "informatiemodel en begrippen terug", "soort": "terug"},
+    {"van": 7, "naar": 6, "label": "wijzigingsverzoek", "soort": "terug"}
+  ]
+}
