@@ -444,6 +444,13 @@ class RegisterTests(unittest.TestCase):
         b, _, _ = bevindingen(register_regels(verwijst_naar="F8-07"))
         self.assertTrue(any("verwijst naar beeld" in x for x in b), b)
 
+    def test_given_the_register_when_read_then_six_findings_have_no_decision_in_the_feature_plan(self):
+        """Het featureplan is van 29 september 17:23; zes bevindingen kwamen daarna binnen en wachten
+        dus nog op een besluit. Dit geval houdt dat getal zichtbaar in plaats van in een commitbericht."""
+        tabel = json.loads((WORTEL / "architecture/model/informatiemodel/voorbeeld-lr1-regels.json").read_text(encoding="utf-8"))
+        zonder = [b["nummer"] for b in tabel["bevindingen"] if not b.get("werkpakketten")]
+        self.assertEqual(zonder, ["B33", "B34", "B35", "B36", "B37", "B38"])
+
     def test_given_every_finding_of_the_round_when_counted_then_the_register_holds_all_of_them(self):
         tabel = json.loads((WORTEL / "architecture/model/informatiemodel/voorbeeld-lr1-regels.json").read_text(encoding="utf-8"))
         self.assertEqual(len(tabel["bevindingen"]), 38)

@@ -5771,6 +5771,10 @@
       "themas": [
         "rollen"
       ],
+      "werkpakketten": [
+        "W4",
+        "W5"
+      ],
       "issue": 283,
       "status": "open"
     },
@@ -5784,6 +5788,9 @@
       "tekst": "Deze stap lijkt te rechtlijnig. De onderwijseenheden zijn enkel toetsbare uitkomsten. Verschillende leeronderdelen worden logisch geclustert tot meerdere leergelegenheden met dezelfde vorm/context/opbouwende fase. In de praktijk wordt er in een theorie-leergelegenheid meerdere leeronderdelen tbv verschillende onderwijseenheden behandeld en idem voor praktijk-leergelegenheden. Het is vrijwel nooit een 1 op 1 of 1 op n relatie.\nOmwille van dezelfde reden staan toetsonderdelen en examenonderdelen ook los van elkaar",
       "themas": [
         "clustering"
+      ],
+      "werkpakketten": [
+        "W1"
       ],
       "issue": 283,
       "status": "open"
@@ -5800,6 +5807,9 @@
         "clustering",
         "titels"
       ],
+      "werkpakketten": [
+        "W1"
+      ],
       "issue": 283,
       "status": "open"
     },
@@ -5814,6 +5824,9 @@
       "themas": [
         "toetskenmerken"
       ],
+      "werkpakketten": [
+        "W4"
+      ],
       "issue": 283,
       "status": "open"
     },
@@ -5827,6 +5840,9 @@
       "tekst": "Ook keuzedeelruimte in summatieve resultaatstructuur\nIdealiter is er hier ook al een (concept) formatieve resultaatstructuur",
       "themas": [
         "resultaatstructuur"
+      ],
+      "werkpakketten": [
+        "W4"
       ],
       "issue": 283,
       "status": "open"
@@ -5843,6 +5859,9 @@
         "clustering",
         "titels"
       ],
+      "werkpakketten": [
+        "W1"
+      ],
       "issue": 284,
       "status": "open"
     },
@@ -5857,6 +5876,9 @@
       "themas": [
         "clustering",
         "titels"
+      ],
+      "werkpakketten": [
+        "W1"
       ],
       "verwijst_naar": "F2-01",
       "issue": 284,
@@ -5874,6 +5896,9 @@
         "clustering",
         "titels"
       ],
+      "werkpakketten": [
+        "W1"
+      ],
       "verwijst_naar": "F2-01",
       "issue": 284,
       "status": "open"
@@ -5889,6 +5914,9 @@
       "themas": [
         "capaciteit",
         "realisme"
+      ],
+      "werkpakketten": [
+        "W3"
       ],
       "issue": 284,
       "status": "open"
@@ -5906,6 +5934,11 @@
         "realisme",
         "titels"
       ],
+      "werkpakketten": [
+        "W1",
+        "W2",
+        "W3"
+      ],
       "issue": 284,
       "status": "open"
     },
@@ -5919,6 +5952,9 @@
       "tekst": "Keuzedeelvoorkeur uitgeven direct bij intake is (nog) niet gebruikelijk. Definitieve vastlegging is nu minimaal 1 periode voor de keuzedeelruimte in het onderwijsprogramma. Animo uitvraag hooguit op voorkeur in het huidige schooljaar.",
       "themas": [
         "keuze-rijpt-in-sks"
+      ],
+      "werkpakketten": [
+        "W6"
       ],
       "issue": 285,
       "status": "open"
@@ -5934,6 +5970,9 @@
       "themas": [
         "keuze-rijpt-in-sks"
       ],
+      "werkpakketten": [
+        "W6"
+      ],
       "issue": 285,
       "status": "open"
     },
@@ -5947,6 +5986,9 @@
       "tekst": "- betwist KRS als keuzedeelvoorkeur bron\n- KRS bron van opleidingverbintenis, (plaatsings)groep misschien minder relevant. KRS(/SVS) weet ook welke keuzedelen de student al eerder heeft afgenomen. Lijkt me zeer relevant om een student niet dezelfde keuzes voor te leggen.\n- KRS weet niet wanneer de keuzedeelruimte in planning van student/groep plaatvindt. KRS kan dus enkel bepalen of een student nog keuzedelen moet kiezen, maar niet welke deadlines van toepassing zijn.",
       "themas": [
         "keuze-rijpt-in-sks"
+      ],
+      "werkpakketten": [
+        "W6"
       ],
       "issue": 285,
       "status": "open"
@@ -5963,6 +6005,9 @@
         "clustering",
         "titels"
       ],
+      "werkpakketten": [
+        "W1"
+      ],
       "issue": 286,
       "status": "open"
     },
@@ -5976,6 +6021,9 @@
       "tekst": "LMS heeft vermoedelijk baat bij de volledige opleidingsspecificatie-boom en de formatieve structuur",
       "themas": [
         "resultaatstructuur"
+      ],
+      "werkpakketten": [
+        "W7"
       ],
       "issue": 286,
       "status": "open"
@@ -5992,6 +6040,9 @@
         "clustering",
         "toetskenmerken"
       ],
+      "werkpakketten": [
+        "W7"
+      ],
       "issue": 286,
       "status": "open"
     },
@@ -6007,6 +6058,9 @@
         "resultaatstructuur",
         "toetskenmerken"
       ],
+      "werkpakketten": [
+        "W4"
+      ],
       "issue": 286,
       "status": "open"
     },
@@ -6021,6 +6075,10 @@
       "themas": [
         "resultaatstructuur",
         "toetskenmerken"
+      ],
+      "werkpakketten": [
+        "W4",
+        "W7"
       ],
       "issue": 286,
       "status": "open"
@@ -6038,6 +6096,10 @@
         "groepen",
         "titels"
       ],
+      "werkpakketten": [
+        "W1",
+        "W3"
+      ],
       "issue": 286,
       "status": "open"
     },
@@ -6054,6 +6116,10 @@
         "groepen",
         "titels"
       ],
+      "werkpakketten": [
+        "W1",
+        "W5"
+      ],
       "issue": 286,
       "status": "open"
     },
@@ -6069,6 +6135,9 @@
         "groepen",
         "rollen"
       ],
+      "werkpakketten": [
+        "W5"
+      ],
       "issue": 286,
       "status": "open"
     },
@@ -6082,6 +6151,9 @@
       "tekst": "Aanwezigheidregistratie zelf ligt buiten de OKx scope.\n\nWat wel de scope kan raken is wanneer deelname aan een leergelegenheid (% van lesgelegenheden aanwezig) en de onderwijseenheid wordt niet getoetst, het een vorm van studievoortgangresultaat kan zijn en zo nieuwe keuzes in het SKS vrijgeeft, of beperkt wanneer niet voldaan.",
       "themas": [
         "scope"
+      ],
+      "werkpakketten": [
+        "W7"
       ],
       "issue": 287,
       "status": "open"
@@ -6098,6 +6170,9 @@
         "keuze-rijpt-in-sks",
         "scope"
       ],
+      "werkpakketten": [
+        "W7"
+      ],
       "issue": 287,
       "status": "open"
     },
@@ -6111,6 +6186,9 @@
       "tekst": "Schaal toevoegen aan toetsonderdeel. Het resultaat is in de praktijk een 8 (niet 8 van 10) Het toetsonderdeel dient vooraf te weten welk resultaat er verwacht kan worden en hoe deze te interpreteren.",
       "themas": [
         "toetskenmerken"
+      ],
+      "werkpakketten": [
+        "W4"
       ],
       "issue": 287,
       "status": "open"
@@ -6126,6 +6204,9 @@
       "themas": [
         "resultaatstructuur"
       ],
+      "werkpakketten": [
+        "W7"
+      ],
       "issue": 287,
       "status": "open"
     },
@@ -6139,6 +6220,9 @@
       "tekst": "van plannen naar SKS of van plannen naar OC naar sks?",
       "themas": [
         "keuze-rijpt-in-sks"
+      ],
+      "werkpakketten": [
+        "W6"
       ],
       "issue": 288,
       "status": "open"
@@ -6154,6 +6238,9 @@
       "themas": [
         "keuze-rijpt-in-sks"
       ],
+      "werkpakketten": [
+        "W6"
+      ],
       "issue": 288,
       "status": "open"
     },
@@ -6167,6 +6254,9 @@
       "tekst": "Jochem mist BPV-weken is een slecht voorbeeld. Jochem heeft een groot deel van periode 4 niet kunnen bijwonen en de bijbehorende toetsen niet met een voldoende afgerond, is beter",
       "themas": [
         "realisme"
+      ],
+      "werkpakketten": [
+        "W8"
       ],
       "issue": 289,
       "status": "open"
@@ -6182,6 +6272,9 @@
       "themas": [
         "titels"
       ],
+      "werkpakketten": [
+        "W8"
+      ],
       "issue": 289,
       "status": "open"
     },
@@ -6195,6 +6288,9 @@
       "tekst": "Groepen die in KRS onstaan zijn per definitie plaatsingsgroepen.\n\nIk verwacht dat hier nu in de praktijk op meerdere manieren mee omgegaan wordt; de meest logische keuzes is wel om de studenten in een nieuwe plaatsingsgroep te plaatsen.",
       "themas": [
         "groepen"
+      ],
+      "werkpakketten": [
+        "W8"
       ],
       "issue": 289,
       "status": "open"
@@ -6210,6 +6306,9 @@
       "themas": [
         "maatwerkaanbod"
       ],
+      "werkpakketten": [
+        "W8"
+      ],
       "issue": 289,
       "status": "open"
     },
@@ -6223,6 +6322,9 @@
       "tekst": "in relatie tot vorige comment. Wanneer het maatwerk aanbod betreft voor een specifieke groep achterblijvers, willen we dat dan ook naar de OC ontsluiten?",
       "themas": [
         "maatwerkaanbod"
+      ],
+      "werkpakketten": [
+        "W8"
       ],
       "issue": 289,
       "status": "open"
@@ -6240,6 +6342,7 @@
         "groepen",
         "titels"
       ],
+      "werkpakketten": [],
       "verwijst_naar": "F4-07",
       "issue": 289,
       "status": "open"
@@ -6255,6 +6358,7 @@
       "themas": [
         "rollen"
       ],
+      "werkpakketten": [],
       "issue": 290,
       "status": "open"
     },
@@ -6269,6 +6373,7 @@
       "themas": [
         "rollen"
       ],
+      "werkpakketten": [],
       "issue": 290,
       "status": "open"
     },
@@ -6283,6 +6388,7 @@
       "themas": [
         "toetskenmerken"
       ],
+      "werkpakketten": [],
       "issue": 290,
       "status": "open"
     },
@@ -6297,6 +6403,7 @@
       "themas": [
         "rollen"
       ],
+      "werkpakketten": [],
       "issue": 290,
       "status": "open"
     },
@@ -6312,6 +6419,7 @@
         "resultaatstructuur",
         "rollen"
       ],
+      "werkpakketten": [],
       "issue": 290,
       "status": "open"
     }
