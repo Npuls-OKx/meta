@@ -451,7 +451,8 @@
           "objecten": [
             "kandidatenlijst"
           ],
-          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 8: Wat licht op in de plaat"
+          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 8: Wat licht op in de plaat",
+          "buiten_scope": "toets- en examenlogistiek valt buiten OKx; OKE heeft daar functionaliteit voor, zoals bij F5-02 benoemd. Het voorbeeld toont wat er uit de afname naar het volgsysteem komt"
         },
         {
           "van": "Toets- en examen afname systeem",
@@ -471,7 +472,7 @@
           "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 8: Wat licht op in de plaat"
         }
       ],
-      "dekking": "open",
+      "dekking": "volledig",
       "link": "https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-8--examineren-vaststellen-en-diplomeren"
     }
   ],
@@ -5812,7 +5813,7 @@
       "fase": 8,
       "stap": "Kandidatenlijsten samenstellen",
       "soort": "ontstaat",
-      "wie": "examinator",
+      "wie": "SLB'er",
       "objecttype": "Examengelegenheid verbintenis",
       "instantie": "Jochem op de proeve, periode 12",
       "bron": "leerroute-1-regulier.md, Fase 8: toets- en examenplanning stelt kandidatenlijsten samen",
@@ -5821,11 +5822,11 @@
         "van": "Examengelegenheid",
         "naar": "Examengelegenheid verbintenis"
       },
-      "zin": "De kandidatenlijst: Jochems verbintenis op de examengelegenheid."
+      "zin": "De kandidatenlijst: Jochems verbintenis op de examengelegenheid. Bij een individueel examen zoals een proeve stelt de SLB'er die lijst samen; bij een generiek examen doet een medewerker van het examenbureau dat. De examinator heeft in deze stap geen rol."
     },
     {
       "beeld_id": "F8-03",
-      "beeld": "Zitting: het examenresultaat",
+      "beeld": "Individuele afname: de proeve beoordeeld",
       "fase": 8,
       "stap": "Zitting uitvoeren en resultaten doorgeven",
       "soort": "ontstaat",
@@ -5838,7 +5839,7 @@
         "van": "Examengelegenheid verbintenis",
         "naar": "Examengelegenheid resultaat"
       },
-      "zin": "De examinator voert de zitting uit; het resultaat gaat naar het studentvolgsysteem."
+      "zin": "Een proeve is een individuele afname die direct wordt beoordeeld, dus zonder zitting. Het resultaat is voldoende omdat het examenonderdeel een schaal van onvoldoende, voldoende of goed draagt. Bij een centraal georganiseerd examen loopt het anders: daar is een zitting, draagt een surveillant het zittingsrapport en komt het resultaat van een beoordelaar of rechtstreeks uit het afnamesysteem bij gesloten vragen. Zitting, zittingsrapport en beoordelaar staan niet op de plaat."
     },
     {
       "beeld_id": "F8-04",
@@ -5883,7 +5884,7 @@
         "van": "Summatief resultaat",
         "naar": "Examengelegenheid resultaat"
       },
-      "zin": "De examencommissie stelt het summatieve resultaat vast, conform de resultaatstructuur uit fase 1."
+      "zin": "De examencommissie stelt het summatieve resultaat vast, conform de resultaatstructuur uit fase 1. Zij doet dat op het zittingsverslag en het examendossier, want het resultaat zelf zegt niets over onregelmatigheden tijdens de afname. Het examendossier staat niet op de plaat."
     },
     {
       "beeld_id": "F8-05",
@@ -5901,7 +5902,9 @@
         "van": "Summatieve beoordeling",
         "naar": "Summatief resultaat",
         "label": "met"
-      }
+      },
+      "zin": "De examencommissie stelt het summatieve resultaat vast, conform de resultaatstructuur uit fase 1. Zij doet dat op het zittingsverslag en het examendossier, want het resultaat zelf zegt niets over onregelmatigheden tijdens de afname. Het examendossier staat niet op de plaat.",
+      "vraag": "Examinering kent objecten en rollen die de plaat niet draagt: zitting, zittingsrapport en examendossier, en de rollen surveillant, beoordelaar en examenbureaumedewerker. De examencommissie stelt vast op het zittingsverslag en het examendossier, dus zonder die objecten kan het voorbeeld dat alleen in woorden zeggen. Horen zij op de plaat, of vallen zij onder de examenlogistiek die bij OKE ligt en daarmee buiten OKx?"
     },
     {
       "beeld_id": "F8-05",
@@ -5917,7 +5920,8 @@
         "soort": "Association",
         "van": "Opleidingsprogramma aanbod verbintenis",
         "naar": "Opleidingsprogramma resultaat"
-      }
+      },
+      "zin": "De examencommissie stelt het summatieve resultaat vast, conform de resultaatstructuur uit fase 1. Zij doet dat op het zittingsverslag en het examendossier, want het resultaat zelf zegt niets over onregelmatigheden tijdens de afname. Het examendossier staat niet op de plaat."
     },
     {
       "beeld_id": "F8-05",
@@ -5933,7 +5937,8 @@
         "soort": "Specialization",
         "van": "Keuzedeel resultaat",
         "naar": "Opleidingsprogramma resultaat"
-      }
+      },
+      "zin": "De examencommissie stelt het summatieve resultaat vast, conform de resultaatstructuur uit fase 1. Zij doet dat op het zittingsverslag en het examendossier, want het resultaat zelf zegt niets over onregelmatigheden tijdens de afname. Het examendossier staat niet op de plaat."
     },
     {
       "beeld_id": "F8-06",
@@ -5956,7 +5961,8 @@
           "label": "conform",
           "instantie": "Resultaatstructuur Apothekersassistent"
         }
-      ]
+      ],
+      "zin": "De vastgestelde resultaten gaan naar de kernregistratie. Welk applicatiecomponent de vaststelling doet is niet voorgeschreven: het kan in het afnamesysteem, de examenlogistiek, het volgsysteem of de kernregistratie gebeuren. Een resultaat reist daarom met een status, zodat de ontvanger weet of het is vastgesteld. Dit voorbeeld stelt vast in het volgsysteem en laat de kernregistratie alleen vastgestelde resultaten verwerken. Hoofdplaat v1.7 heeft deze pijl nog niet; versie 1.7a volgt."
     },
     {
       "beeld_id": "F8-06",
@@ -5971,7 +5977,7 @@
       "objecttype": "Opleidingsprogramma resultaat",
       "instantie": "Regulier BOL 2026: alle kerntaken en keuzedelen voldoende",
       "bron": "leerroute-1-regulier.md, Fase 8: SVS en KRS (kwalificering en diplomering)",
-      "zin": "De vaststelling gaat van het studentvolgsysteem naar de kernregistratie; hoofdplaat v1.7 heeft die pijl nog niet (versie 1.7a volgt).",
+      "zin": "De vastgestelde resultaten gaan naar de kernregistratie. Welk applicatiecomponent de vaststelling doet is niet voorgeschreven: het kan in het afnamesysteem, de examenlogistiek, het volgsysteem of de kernregistratie gebeuren. Een resultaat reist daarom met een status, zodat de ontvanger weet of het is vastgesteld. Dit voorbeeld stelt vast in het volgsysteem en laat de kernregistratie alleen vastgestelde resultaten verwerken. Hoofdplaat v1.7 heeft deze pijl nog niet; versie 1.7a volgt.",
       "relaties": [
         {
           "soort": "Association",
@@ -5998,7 +6004,8 @@
         "soort": "Specialization",
         "van": "Keuzedeel resultaat",
         "naar": "Opleidingsprogramma resultaat"
-      }
+      },
+      "zin": "De vastgestelde resultaten gaan naar de kernregistratie. Welk applicatiecomponent de vaststelling doet is niet voorgeschreven: het kan in het afnamesysteem, de examenlogistiek, het volgsysteem of de kernregistratie gebeuren. Een resultaat reist daarom met een status, zodat de ontvanger weet of het is vastgesteld. Dit voorbeeld stelt vast in het volgsysteem en laat de kernregistratie alleen vastgestelde resultaten verwerken. Hoofdplaat v1.7 heeft deze pijl nog niet; versie 1.7a volgt."
     },
     {
       "beeld_id": "F8-07",
@@ -6681,7 +6688,8 @@
       ],
       "werkpakketten": [],
       "issue": 290,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F8-02: de rol is nu de SLB'er, want Jochems examen is een proeve en dus individueel. De zin zegt dat bij een generiek examen een medewerker van het examenbureau de kandidatenlijst samenstelt en dat de examinator in deze stap geen rol heeft. De rol examenbureaumedewerker staat in de zin en niet in de rollenlijst, want die lijst is gesloten en het voorbeeld toont een proeve."
     },
     {
       "nummer": "B35",
@@ -6696,7 +6704,8 @@
       ],
       "werkpakketten": [],
       "issue": 290,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F8-03: de titel heet nu Individuele afname: de proeve beoordeeld. De zin zegt dat een proeve direct wordt beoordeeld zonder zitting, en dat een centraal georganiseerd examen wel een zitting kent met een surveillant voor het zittingsrapport en een resultaat van een beoordelaar of rechtstreeks uit het afnamesysteem bij gesloten vragen. Zitting, zittingsrapport en beoordelaar staan niet op de plaat; dat is een signalering bij dit issue en een vraag in het document."
     },
     {
       "nummer": "B36",
@@ -6711,7 +6720,8 @@
       ],
       "werkpakketten": [],
       "issue": 290,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F8-03 en F8-04: de zin zegt dat het resultaat voldoende is omdat het examenonderdeel een schaal van onvoldoende, voldoende of goed draagt. Die schaal staat sinds de verwerking van B04 en B17 op de examenonderdeelspecificatie in F1-09 en F4-04."
     },
     {
       "nummer": "B37",
@@ -6726,7 +6736,8 @@
       ],
       "werkpakketten": [],
       "issue": 290,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F8-05: de zin zegt dat de examencommissie vaststelt op het zittingsverslag en het examendossier, want het resultaat zelf zegt niets over onregelmatigheden tijdens de afname. Het examendossier staat niet op de plaat en dat is een signalering bij dit issue."
     },
     {
       "nummer": "B38",
@@ -6742,7 +6753,8 @@
       ],
       "werkpakketten": [],
       "issue": 290,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F8-06: de zin zegt dat niet is voorgeschreven welk applicatiecomponent de vaststelling doet, dat het in het afnamesysteem, de examenlogistiek, het volgsysteem of de kernregistratie kan gebeuren, en dat een resultaat daarom met een status reist. Het voorbeeld stelt vast in het volgsysteem en laat de kernregistratie alleen vastgestelde resultaten verwerken, met die keuze zichtbaar in plaats van stil."
     }
   ]
 }

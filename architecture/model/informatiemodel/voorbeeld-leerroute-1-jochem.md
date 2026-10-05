@@ -468,9 +468,9 @@ De gemarkeerde lijnen zijn de stromen die deze fase raakt, met het beeld waarin 
 
 ![ontstaat: Kandidatenlijsten samenstellen](img/regels/f8-02-kandidatenlijst-verbintenis-op-de-examengelegenheid.svg)
 
-### F8-03 - Zitting: het examenresultaat
+### F8-03 - Individuele afname: de proeve beoordeeld
 
-![ontstaat: Zitting uitvoeren en resultaten doorgeven](img/regels/f8-03-zitting-het-examenresultaat.svg)
+![ontstaat: Zitting uitvoeren en resultaten doorgeven](img/regels/f8-03-individuele-afname-de-proeve-beoordeeld.svg)
 
 ### F8-04 - Examenresultaat naar het studentvolgsysteem
 
@@ -618,8 +618,9 @@ De vragen die de regels zelf oproepen, met de regel waar de vraag zichtbaar word
 8. Een toetsgelegenheid vindt plaats binnen een leergelegenheid, maar het resultaat telt op de onderwijseenheid. Hangt een toetsgelegenheidresultaat aan de leergelegenheidverbintenis of aan de onderwijseenheidverbintenis, formatief zowel als summatief? (F5-04, `Onderwijseenheid resultaat`)
 9. Hoort de keuzeregelset bij het keuzedeel of bij het keuzedeelaanbod? De plaat hangt Student keuze regelset aan het keuzedeel, terwijl periode en locatie eigenschappen van het aanbod zijn. Ligt de regelset bij het aanbod, dan liggen haar condities op het niveau van de verbintenis. (F6-02, `Student keuze regelset`)
 10. Gaat maatwerkaanbod voor een specifieke groep achterblijvers terug naar de catalogus? Het voorbeeld publiceert het bijgestuurde aanbod, zodat de catalogus de bron blijft, en bij een maatwerkprogramma voor een handvol studenten is de waarde daarvan de vraag. (F7-05, `Onderwijseenheid aanbod`)
+11. Examinering kent objecten en rollen die de plaat niet draagt: zitting, zittingsrapport en examendossier, en de rollen surveillant, beoordelaar en examenbureaumedewerker. De examencommissie stelt vast op het zittingsverslag en het examendossier, dus zonder die objecten kan het voorbeeld dat alleen in woorden zeggen. Horen zij op de plaat, of vallen zij onder de examenlogistiek die bij OKE ligt en daarmee buiten OKx? (F8-05, `Summatieve beoordeling`)
 
-De eerste 7 vragen gaan als ronde mee naar de kerngroep; dat is wat een sessie kan wegen. De overige 3 staan hierboven en wachten op een volgende ronde.
+De eerste 7 vragen gaan als ronde mee naar de kerngroep; dat is wat een sessie kan wegen. De overige 4 staan hierboven en wachten op een volgende ronde.
 
 Vragen over patronen, schema's, de toetslijst en endpoints horen bij de koppelvlakspecificatie en staan hier niet.
 
@@ -1178,7 +1179,7 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 |---|---|---|---|
 | ontstaat | Examengelegenheid verbintenis | Jochem op de proeve, periode 12 | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 8](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-8--examineren-vaststellen-en-diplomeren): toets- en examenplanning stelt kandidatenlijsten samen |
 
-**F8-03 - Zitting: het examenresultaat** (fase 8, Zitting uitvoeren en resultaten doorgeven; [f8-03-zitting-het-examenresultaat.svg](img/regels/f8-03-zitting-het-examenresultaat.svg))
+**F8-03 - Individuele afname: de proeve beoordeeld** (fase 8, Zitting uitvoeren en resultaten doorgeven; [f8-03-individuele-afname-de-proeve-beoordeeld.svg](img/regels/f8-03-individuele-afname-de-proeve-beoordeeld.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
