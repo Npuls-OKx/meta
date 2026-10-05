@@ -618,8 +618,8 @@ def main(argv=None):
             knel.append(naam)
     print(f"{len(uit)} beelden getekend naar {args.uit}")
     if knel:
-        print(f"{len(knel)} beelden zijn niet in banen te snijden en worden op een slide te klein: "
-              f"{', '.join(knel)}", file=sys.stderr)
+        print(f"{len(knel)} beelden passen niet in banen en worden op een slide te klein; voor het "
+              f"document is dat geen gebrek: {', '.join(knel)}", file=sys.stderr)
         return 1 if args.streng else 0
     return 0
 

@@ -1494,7 +1494,7 @@
           "instantie": "D1-K1 Draagt bij aan kwaliteitszorg en arbeidsomstandigheden"
         }
       ],
-      "zin": "Een keuzedeel is zelf een programmaspecificatie, gelijksoortig vormgegeven maar los van Jochems opleiding. Het landelijke keuzedeel komt van SBB en levert kerntaken en werkprocessen; de instelling vertaalt die naar leeruitkomsten en geeft ze vorm als onderwijseenheid- en leeronderdeelspecificaties. Ook hier lopen beide verdiepingen niet gelijk op: een werkproces zegt wat summatief moet blijken, een leeronderdeel hoe de student daar komt. Twee keuzedelen vullen samen de ruimte van 720 SBU. Elk keuzedeel kent meer kerntaken dan het beeld toont; hier staat per keuzedeel een eenheid uitgewerkt, zodat de opbouw te volgen blijft."
+      "zin": "Een keuzedeel is zelf een programmaspecificatie, gelijksoortig vormgegeven maar los van Jochems opleiding. Het landelijke keuzedeel komt van SBB en levert kerntaken en werkprocessen; de instelling vertaalt die naar leeruitkomsten en geeft ze vorm als onderwijseenheid- en leeronderdeelspecificaties. Ook hier lopen beide verdiepingen niet gelijk op: een werkproces zegt wat summatief moet blijken, een leeronderdeel hoe de student daar komt. Twee keuzedelen vullen samen de ruimte van 720 SBU."
     },
     {
       "beeld_id": "F1-08",
@@ -1622,6 +1622,58 @@
           "van": "Leeronderdeel specificatie",
           "naar": "Leeruitkomst",
           "instantie": "Voert een RI&E uit en realiseert verbeterpunten (werkprocesniveau)"
+        }
+      ]
+    },
+    {
+      "beeld_id": "F1-08",
+      "beeld": "Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen",
+      "fase": 1,
+      "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
+      "wie": "onderwijsontwerper",
+      "soort": "ontstaat",
+      "objecttype": "Onderwijseenheid specificatie",
+      "instantie": "D1-K2 Verleent EHBO en BHV",
+      "nieuwe_instantie": true,
+      "bron": "K0262-arbo-kwaliteitszorg-en-hulpverlening-niveau-3.md (keuzedeel mbo K0262, gevalideerd 10-11-2015); leerroute-1-regulier.md, r1072 tot 1080",
+      "relatie": {
+        "soort": "Aggregation",
+        "van": "Opleidingsprogramma specificatie",
+        "naar": "Onderwijseenheid specificatie",
+        "nesting": true
+      },
+      "relaties": [
+        {
+          "soort": "Association",
+          "van": "Onderwijseenheid specificatie",
+          "naar": "Leeruitkomst",
+          "instantie": "Verleent EHBO en BHV bij een calamiteit (kerntaakniveau, keuzedeel)"
+        }
+      ]
+    },
+    {
+      "beeld_id": "F1-08",
+      "beeld": "Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen",
+      "fase": 1,
+      "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
+      "wie": "onderwijsontwerper",
+      "soort": "ontstaat",
+      "objecttype": "Leeronderdeel specificatie",
+      "instantie": "Handelen bij calamiteiten",
+      "nieuwe_instantie": true,
+      "bron": "K0262-arbo-kwaliteitszorg-en-hulpverlening-niveau-3.md (keuzedeel mbo K0262, gevalideerd 10-11-2015); leerroute-1-regulier.md, r1072 tot 1080",
+      "relatie": {
+        "soort": "Aggregation",
+        "van": "Onderwijseenheid specificatie",
+        "naar": "Leeronderdeel specificatie",
+        "nesting": true
+      },
+      "relaties": [
+        {
+          "soort": "Association",
+          "van": "Leeronderdeel specificatie",
+          "naar": "Leeruitkomst",
+          "instantie": "Verleent hulp bij calamiteiten (werkprocesniveau)"
         }
       ]
     },
@@ -6034,7 +6086,7 @@
       ],
       "issue": 283,
       "status": "doorgevoerd",
-      "verwerking": "F1-08: de zin zegt dat de twee verdiepingen niet gelijk oplopen, een werkproces zegt wat summatief moet blijken en een leeronderdeel is het ontwikkelingsgerichte antwoord. De leeronderdelen dragen didactische namen (Kwaliteitszorg in de eigen praktijk, RI&E van begin tot eind, Handelen bij calamiteiten, Het medicatieoverzicht opstellen, Zorg aan specifieke doelgroepen) in plaats van werkprocescodes. Het beeld is ingekort tot een uitgewerkte eenheid per keuzedeel, omdat het met twee eenheden onder K0262 1140 punten hoog was en daarmee niet in banen te snijden; de zin zegt dat elk keuzedeel meer kerntaken kent dan het beeld toont."
+      "verwerking": "F1-08: de zin zegt dat de twee verdiepingen niet gelijk oplopen, een werkproces zegt wat summatief moet blijken en een leeronderdeel is het ontwikkelingsgerichte antwoord. De leeronderdelen dragen didactische namen (Kwaliteitszorg in de eigen praktijk, RI&E van begin tot eind, Handelen bij calamiteiten, Het medicatieoverzicht opstellen, Zorg aan specifieke doelgroepen) in plaats van werkprocescodes."
     },
     {
       "nummer": "B04",

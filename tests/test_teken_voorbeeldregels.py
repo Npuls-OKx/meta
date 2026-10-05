@@ -377,11 +377,15 @@ class MatenTests(unittest.TestCase):
                 self.assertLessEqual(h, breedte * snijd.VERHOUDING + 1, naam)
 
     def test_given_an_image_that_cannot_be_cut_when_measured_then_the_reason_comes_along(self):
+        """De voorbeelduitwerking is een document, dus een beeld dat niet in banen past is geen gebrek:
+        het snijden telt pas als zo'n beeld op een slide moet. De reden hoort er wel bij te staan, zodat
+        wie later een presentatie maakt weet welk beeld eerst korter moet."""
         map_ = WORTEL / "architecture/model/informatiemodel/img/regels"
         redenen = {naam: reden for naam, _, _, _, reden in
                    tv.maten(map_, sorted(p.name for p in map_.glob("*.svg"))) if reden}
-        # F1-08 is in #283 ingekort en past nu in drie banen; F2-07 wacht op #284
-        self.assertEqual(sorted(redenen), ["f2-07-het-geplande-aanbod-terug-naar-de-catalogus.svg"])
+        self.assertEqual(sorted(redenen), [
+            "f1-08-het-keuzedeel-als-eigen-programmaspecificatie-met-kerntaken-en-werkprocessen.svg",
+            "f2-07-het-geplande-aanbod-terug-naar-de-catalogus.svg"])
         for reden in redenen.values():
             self.assertIn("geen witregel", reden)
 
