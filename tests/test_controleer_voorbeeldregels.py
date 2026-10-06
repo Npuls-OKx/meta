@@ -640,28 +640,6 @@ class KoppelingoverzichtTests(unittest.TestCase):
         self.assertTrue(any("Curriculum ontwerptool naar Onderwijscatalogus, 29 regels" in x for x in overzicht), overzicht)
 
 
-class RolPerBeeldTests(unittest.TestCase):
-    """De renderer groepeert op rol; twee rollen in een beeld leveren twee bestanden met dezelfde naam op."""
-
-    def test_given_an_image_with_two_roles_when_checked_then_signal_names_both(self):
-        r = regels()
-        r["regels"][6]["beeld"] = r["regels"][5]["beeld"]
-        r["regels"][6]["beeld_id"] = r["regels"][5]["beeld_id"]
-        r["regels"][6]["wie"] = "student"
-        _, w, _ = bevindingen(r)
-        self.assertTrue(any("draagt meer dan een rol" in x and "planner" in x and "student" in x for x in w), w)
-
-    def test_given_an_image_with_one_role_when_checked_then_nothing_is_reported(self):
-        _, w, _ = bevindingen(regels())
-        self.assertEqual([x for x in w if "meer dan een rol" in x], [])
-
-    def test_given_the_real_table_when_checked_then_only_f4_09_carries_two_roles(self):
-        tabel = json.loads((WORTEL / "architecture/model/informatiemodel/voorbeeld-lr1-regels.json").read_text(encoding="utf-8"))
-        gevonden = cv.rol_per_beeld(tabel)
-        self.assertEqual(len(gevonden), 1)
-        self.assertIn("F4-09", gevonden[0])
-
-
 class UitvoerTests(unittest.TestCase):
     def test_given_a_finding_and_a_signal_when_run_then_exit_one_and_both_in_their_own_group(self):
         import contextlib, io

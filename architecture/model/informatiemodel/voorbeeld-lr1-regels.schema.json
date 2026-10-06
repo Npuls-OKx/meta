@@ -49,7 +49,7 @@
         }
       }
     },
-    "rollen": {"type": "array", "items": {"type": "string"}, "description": "gesloten lijst, uit het kaderscenario"},
+    "rollen": {"type": "array", "items": {"type": "string"}, "description": "gesloten lijst, uit het kaderscenario en uit een reviewronde die een rol aanwijst die de praktijk kent (examenbureaumedewerker, surveillant en beoordelaar komen uit de review van 29 september 2026)"},
     "toestanden": {"type": "array", "items": {"type": "object", "required": ["naam", "bron"], "properties": {"naam": {"type": "string"}, "bron": {"type": "string"}}}},
     "scope_uitzonderingen": {
       "type": "array",

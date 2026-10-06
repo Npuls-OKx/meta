@@ -111,6 +111,10 @@ Hoort bij [de opleiding van Jochem in het informatiemodel](voorbeeld-leerroute-1
 | 8 | F8-01 | Examengelegenheid | | | | |
 | 8 | F8-02 | Examengelegenheid verbintenis | | | | |
 | 8 | F8-03 | Examengelegenheid resultaat | | | | |
+| 8 | F8-03 | Zitting | | | | |
+| 8 | F8-03 | Zittingsrapport | | | | |
+| 8 | F8-03 | Examengelegenheid resultaat | | | | |
+| 8 | F8-05 | Examendossier | | | | |
 | 8 | F8-05 | Summatief resultaat | | | | |
 | 8 | F8-05 | Summatieve beoordeling | | | | |
 | 8 | F8-05 | Opleidingsprogramma resultaat | | | | |

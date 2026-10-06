@@ -452,7 +452,7 @@
             "kandidatenlijst"
           ],
           "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 8: Wat licht op in de plaat",
-          "buiten_scope": "toets- en examenlogistiek valt buiten OKx; OKE heeft daar functionaliteit voor, zoals bij F5-02 benoemd. Het voorbeeld toont wat er uit de afname naar het volgsysteem komt"
+          "buiten_scope": "de logistiek van het samenstellen en afnemen zelf ligt bij OKE. Wat OKx toont is wat eruit komt: het resultaat naar het volgsysteem en de verantwoording naar de kernregistratie, en die laatste stap behandelt OKE niet"
         },
         {
           "van": "Toets- en examen afname systeem",
@@ -485,7 +485,10 @@
     "SLB'er",
     "docent",
     "examinator",
-    "student"
+    "student",
+    "examenbureaumedewerker",
+    "surveillant",
+    "beoordelaar"
   ],
   "toestanden": [
     {
@@ -5826,7 +5829,7 @@
     },
     {
       "beeld_id": "F8-03",
-      "beeld": "Individuele afname: de proeve beoordeeld",
+      "beeld": "Afname en beoordeling: de proeve individueel, een centraal examen in een zitting",
       "fase": 8,
       "stap": "Zitting uitvoeren en resultaten doorgeven",
       "soort": "ontstaat",
@@ -5839,7 +5842,47 @@
         "van": "Examengelegenheid verbintenis",
         "naar": "Examengelegenheid resultaat"
       },
-      "zin": "Een proeve is een individuele afname die direct wordt beoordeeld, dus zonder zitting. Het resultaat is voldoende omdat het examenonderdeel een schaal van onvoldoende, voldoende of goed draagt. Bij een centraal georganiseerd examen loopt het anders: daar is een zitting, draagt een surveillant het zittingsrapport en komt het resultaat van een beoordelaar of rechtstreeks uit het afnamesysteem bij gesloten vragen. Zitting, zittingsrapport en beoordelaar staan niet op de plaat."
+      "zin": "Jochems proeve is een individuele afname die de examinator direct beoordeelt, dus zonder zitting. Een centraal georganiseerd examen loopt anders: daar is een zitting, draagt de surveillant het zittingsrapport met aanwezigheid en onregelmatigheden, en komt het resultaat van een beoordelaar of rechtstreeks uit het afnamesysteem bij gesloten vragen. Zitting en zittingsrapport staan nog niet op de informatiemodelplaat; zij staan hier gestippeld, omdat OKx ze nodig heeft voor de verantwoording richting de kernregistratie."
+    },
+    {
+      "beeld_id": "F8-03",
+      "beeld": "Afname en beoordeling: de proeve individueel, een centraal examen in een zitting",
+      "fase": 8,
+      "stap": "Zitting uitvoeren en resultaten doorgeven",
+      "soort": "ontstaat",
+      "wie": "surveillant",
+      "objecttype": "Zitting",
+      "instantie": "Centraal examen Nederlands 3F, zitting januari 2029",
+      "aanname": true,
+      "bron": "review 29 september 2026 (bevindingen B34, B35 en B37); het objecttype staat niet op de informatiemodelplaat en is hier getoond om de uitbreiding bespreekbaar te maken",
+      "zin": "Jochems proeve is een individuele afname die de examinator direct beoordeelt, dus zonder zitting. Een centraal georganiseerd examen loopt anders: daar is een zitting, draagt de surveillant het zittingsrapport met aanwezigheid en onregelmatigheden, en komt het resultaat van een beoordelaar of rechtstreeks uit het afnamesysteem bij gesloten vragen. Zitting en zittingsrapport staan nog niet op de informatiemodelplaat; zij staan hier gestippeld, omdat OKx ze nodig heeft voor de verantwoording richting de kernregistratie."
+    },
+    {
+      "beeld_id": "F8-03",
+      "beeld": "Afname en beoordeling: de proeve individueel, een centraal examen in een zitting",
+      "fase": 8,
+      "stap": "Zitting uitvoeren en resultaten doorgeven",
+      "soort": "ontstaat",
+      "wie": "surveillant",
+      "objecttype": "Zittingsrapport",
+      "instantie": "Aanwezigheid en onregelmatigheden bij de zitting",
+      "aanname": true,
+      "bron": "review 29 september 2026 (bevindingen B34, B35 en B37); het objecttype staat niet op de informatiemodelplaat en is hier getoond om de uitbreiding bespreekbaar te maken",
+      "zin": "Jochems proeve is een individuele afname die de examinator direct beoordeelt, dus zonder zitting. Een centraal georganiseerd examen loopt anders: daar is een zitting, draagt de surveillant het zittingsrapport met aanwezigheid en onregelmatigheden, en komt het resultaat van een beoordelaar of rechtstreeks uit het afnamesysteem bij gesloten vragen. Zitting en zittingsrapport staan nog niet op de informatiemodelplaat; zij staan hier gestippeld, omdat OKx ze nodig heeft voor de verantwoording richting de kernregistratie."
+    },
+    {
+      "beeld_id": "F8-03",
+      "beeld": "Afname en beoordeling: de proeve individueel, een centraal examen in een zitting",
+      "fase": 8,
+      "stap": "Zitting uitvoeren en resultaten doorgeven",
+      "soort": "ontstaat",
+      "wie": "beoordelaar",
+      "objecttype": "Examengelegenheid resultaat",
+      "instantie": "Centraal examen Nederlands 3F: 7,2",
+      "nieuwe_instantie": true,
+      "aanname": true,
+      "bron": "review 29 september 2026 (bevindingen B34, B35 en B37); het objecttype staat niet op de informatiemodelplaat en is hier getoond om de uitbreiding bespreekbaar te maken",
+      "zin": "Jochems proeve is een individuele afname die de examinator direct beoordeelt, dus zonder zitting. Een centraal georganiseerd examen loopt anders: daar is een zitting, draagt de surveillant het zittingsrapport met aanwezigheid en onregelmatigheden, en komt het resultaat van een beoordelaar of rechtstreeks uit het afnamesysteem bij gesloten vragen. Zitting en zittingsrapport staan nog niet op de informatiemodelplaat; zij staan hier gestippeld, omdat OKx ze nodig heeft voor de verantwoording richting de kernregistratie."
     },
     {
       "beeld_id": "F8-04",
@@ -5876,6 +5919,20 @@
       "stap": "Summatief vaststellen",
       "soort": "ontstaat",
       "wie": "examencommissie",
+      "objecttype": "Examendossier",
+      "instantie": "Jochem, Apothekersassistent 2026: afnames, zittingsrapporten en beoordelingen",
+      "aanname": true,
+      "bron": "review 29 september 2026 (bevindingen B34, B35 en B37); het objecttype staat niet op de informatiemodelplaat en is hier getoond om de uitbreiding bespreekbaar te maken",
+      "zin": "De examencommissie stelt het summatieve resultaat vast, conform de resultaatstructuur uit fase 1. Zij doet dat op het zittingsverslag en het examendossier, want het resultaat zelf zegt niets over onregelmatigheden tijdens de afname. Het examendossier staat nog niet op de plaat en is hier gestippeld getoond: het draagt de verantwoording die met de vaststelling naar de kernregistratie gaat, en die stap behandelt OKE niet.",
+      "vraag": "Examinering kent objecten en rollen die de informatiemodelplaat niet draagt: zitting, zittingsrapport en examendossier, en de rollen surveillant, beoordelaar en examenbureaumedewerker. Dit voorbeeld toont ze gestippeld, want OKx heeft ze nodig voor de verantwoording en uitwisseling naar de kernregistratie, en juist die stap behandelt OKE niet. Horen zij als uitbreiding op de plaat?"
+    },
+    {
+      "beeld_id": "F8-05",
+      "beeld": "Summatief vastgesteld: resultaten en beoordeling",
+      "fase": 8,
+      "stap": "Summatief vaststellen",
+      "soort": "ontstaat",
+      "wie": "examencommissie",
       "objecttype": "Summatief resultaat",
       "instantie": "B1-K1: voldoende, vastgesteld",
       "bron": "leerroute-1-regulier.md, Fase 8: de examencommissie stelt summatief vast",
@@ -5884,7 +5941,7 @@
         "van": "Summatief resultaat",
         "naar": "Examengelegenheid resultaat"
       },
-      "zin": "De examencommissie stelt het summatieve resultaat vast, conform de resultaatstructuur uit fase 1. Zij doet dat op het zittingsverslag en het examendossier, want het resultaat zelf zegt niets over onregelmatigheden tijdens de afname. Het examendossier staat niet op de plaat."
+      "zin": "De examencommissie stelt het summatieve resultaat vast, conform de resultaatstructuur uit fase 1. Zij doet dat op het zittingsverslag en het examendossier, want het resultaat zelf zegt niets over onregelmatigheden tijdens de afname. Het examendossier staat nog niet op de plaat en is hier gestippeld getoond: het draagt de verantwoording die met de vaststelling naar de kernregistratie gaat, en die stap behandelt OKE niet."
     },
     {
       "beeld_id": "F8-05",
@@ -5903,8 +5960,7 @@
         "naar": "Summatief resultaat",
         "label": "met"
       },
-      "zin": "De examencommissie stelt het summatieve resultaat vast, conform de resultaatstructuur uit fase 1. Zij doet dat op het zittingsverslag en het examendossier, want het resultaat zelf zegt niets over onregelmatigheden tijdens de afname. Het examendossier staat niet op de plaat.",
-      "vraag": "Examinering kent objecten en rollen die de plaat niet draagt: zitting, zittingsrapport en examendossier, en de rollen surveillant, beoordelaar en examenbureaumedewerker. De examencommissie stelt vast op het zittingsverslag en het examendossier, dus zonder die objecten kan het voorbeeld dat alleen in woorden zeggen. Horen zij op de plaat, of vallen zij onder de examenlogistiek die bij OKE ligt en daarmee buiten OKx?"
+      "zin": "De examencommissie stelt het summatieve resultaat vast, conform de resultaatstructuur uit fase 1. Zij doet dat op het zittingsverslag en het examendossier, want het resultaat zelf zegt niets over onregelmatigheden tijdens de afname. Het examendossier staat nog niet op de plaat en is hier gestippeld getoond: het draagt de verantwoording die met de vaststelling naar de kernregistratie gaat, en die stap behandelt OKE niet."
     },
     {
       "beeld_id": "F8-05",
@@ -5921,7 +5977,7 @@
         "van": "Opleidingsprogramma aanbod verbintenis",
         "naar": "Opleidingsprogramma resultaat"
       },
-      "zin": "De examencommissie stelt het summatieve resultaat vast, conform de resultaatstructuur uit fase 1. Zij doet dat op het zittingsverslag en het examendossier, want het resultaat zelf zegt niets over onregelmatigheden tijdens de afname. Het examendossier staat niet op de plaat."
+      "zin": "De examencommissie stelt het summatieve resultaat vast, conform de resultaatstructuur uit fase 1. Zij doet dat op het zittingsverslag en het examendossier, want het resultaat zelf zegt niets over onregelmatigheden tijdens de afname. Het examendossier staat nog niet op de plaat en is hier gestippeld getoond: het draagt de verantwoording die met de vaststelling naar de kernregistratie gaat, en die stap behandelt OKE niet."
     },
     {
       "beeld_id": "F8-05",
@@ -5938,7 +5994,7 @@
         "van": "Keuzedeel resultaat",
         "naar": "Opleidingsprogramma resultaat"
       },
-      "zin": "De examencommissie stelt het summatieve resultaat vast, conform de resultaatstructuur uit fase 1. Zij doet dat op het zittingsverslag en het examendossier, want het resultaat zelf zegt niets over onregelmatigheden tijdens de afname. Het examendossier staat niet op de plaat."
+      "zin": "De examencommissie stelt het summatieve resultaat vast, conform de resultaatstructuur uit fase 1. Zij doet dat op het zittingsverslag en het examendossier, want het resultaat zelf zegt niets over onregelmatigheden tijdens de afname. Het examendossier staat nog niet op de plaat en is hier gestippeld getoond: het draagt de verantwoording die met de vaststelling naar de kernregistratie gaat, en die stap behandelt OKE niet."
     },
     {
       "beeld_id": "F8-06",
@@ -5962,7 +6018,7 @@
           "instantie": "Resultaatstructuur Apothekersassistent"
         }
       ],
-      "zin": "De vastgestelde resultaten gaan naar de kernregistratie. Welk applicatiecomponent de vaststelling doet is niet voorgeschreven: het kan in het afnamesysteem, de examenlogistiek, het volgsysteem of de kernregistratie gebeuren. Een resultaat reist daarom met een status, zodat de ontvanger weet of het is vastgesteld. Dit voorbeeld stelt vast in het volgsysteem en laat de kernregistratie alleen vastgestelde resultaten verwerken. Hoofdplaat v1.7 heeft deze pijl nog niet; versie 1.7a volgt."
+      "zin": "De vastgestelde resultaten gaan naar de kernregistratie. Welk applicatiecomponent de vaststelling doet is niet voorgeschreven: het kan in het afnamesysteem, de examenlogistiek, het volgsysteem of de kernregistratie gebeuren. Een resultaat reist daarom met een status, zodat de ontvanger weet of het is vastgesteld. Dit voorbeeld stelt vast in het volgsysteem en laat de kernregistratie alleen vastgestelde resultaten verwerken. Deze stap, de verantwoording en uitwisseling naar de kernregistratie, behandelt OKE niet; daarin gaat OKx verder. Hoofdplaat v1.7 heeft deze pijl nog niet; versie 1.7a volgt."
     },
     {
       "beeld_id": "F8-06",
@@ -5977,7 +6033,7 @@
       "objecttype": "Opleidingsprogramma resultaat",
       "instantie": "Regulier BOL 2026: alle kerntaken en keuzedelen voldoende",
       "bron": "leerroute-1-regulier.md, Fase 8: SVS en KRS (kwalificering en diplomering)",
-      "zin": "De vastgestelde resultaten gaan naar de kernregistratie. Welk applicatiecomponent de vaststelling doet is niet voorgeschreven: het kan in het afnamesysteem, de examenlogistiek, het volgsysteem of de kernregistratie gebeuren. Een resultaat reist daarom met een status, zodat de ontvanger weet of het is vastgesteld. Dit voorbeeld stelt vast in het volgsysteem en laat de kernregistratie alleen vastgestelde resultaten verwerken. Hoofdplaat v1.7 heeft deze pijl nog niet; versie 1.7a volgt.",
+      "zin": "De vastgestelde resultaten gaan naar de kernregistratie. Welk applicatiecomponent de vaststelling doet is niet voorgeschreven: het kan in het afnamesysteem, de examenlogistiek, het volgsysteem of de kernregistratie gebeuren. Een resultaat reist daarom met een status, zodat de ontvanger weet of het is vastgesteld. Dit voorbeeld stelt vast in het volgsysteem en laat de kernregistratie alleen vastgestelde resultaten verwerken. Deze stap, de verantwoording en uitwisseling naar de kernregistratie, behandelt OKE niet; daarin gaat OKx verder. Hoofdplaat v1.7 heeft deze pijl nog niet; versie 1.7a volgt.",
       "relaties": [
         {
           "soort": "Association",
@@ -6005,7 +6061,7 @@
         "van": "Keuzedeel resultaat",
         "naar": "Opleidingsprogramma resultaat"
       },
-      "zin": "De vastgestelde resultaten gaan naar de kernregistratie. Welk applicatiecomponent de vaststelling doet is niet voorgeschreven: het kan in het afnamesysteem, de examenlogistiek, het volgsysteem of de kernregistratie gebeuren. Een resultaat reist daarom met een status, zodat de ontvanger weet of het is vastgesteld. Dit voorbeeld stelt vast in het volgsysteem en laat de kernregistratie alleen vastgestelde resultaten verwerken. Hoofdplaat v1.7 heeft deze pijl nog niet; versie 1.7a volgt."
+      "zin": "De vastgestelde resultaten gaan naar de kernregistratie. Welk applicatiecomponent de vaststelling doet is niet voorgeschreven: het kan in het afnamesysteem, de examenlogistiek, het volgsysteem of de kernregistratie gebeuren. Een resultaat reist daarom met een status, zodat de ontvanger weet of het is vastgesteld. Dit voorbeeld stelt vast in het volgsysteem en laat de kernregistratie alleen vastgestelde resultaten verwerken. Deze stap, de verantwoording en uitwisseling naar de kernregistratie, behandelt OKE niet; daarin gaat OKx verder. Hoofdplaat v1.7 heeft deze pijl nog niet; versie 1.7a volgt."
     },
     {
       "beeld_id": "F8-07",
@@ -6689,7 +6745,7 @@
       "werkpakketten": [],
       "issue": 290,
       "status": "doorgevoerd",
-      "verwerking": "F8-02: de rol is nu de SLB'er, want Jochems examen is een proeve en dus individueel. De zin zegt dat bij een generiek examen een medewerker van het examenbureau de kandidatenlijst samenstelt en dat de examinator in deze stap geen rol heeft. De rol examenbureaumedewerker staat in de zin en niet in de rollenlijst, want die lijst is gesloten en het voorbeeld toont een proeve."
+      "verwerking": "F8-02: de rol is nu de SLB'er, want Jochems examen is een proeve en dus individueel. De zin zegt dat bij een generiek examen een medewerker van het examenbureau de kandidatenlijst samenstelt en dat de examinator in deze stap geen rol heeft. Die rol staat nu in de rollenlijst, met de review als bron."
     },
     {
       "nummer": "B35",
@@ -6705,7 +6761,7 @@
       "werkpakketten": [],
       "issue": 290,
       "status": "doorgevoerd",
-      "verwerking": "F8-03: de titel heet nu Individuele afname: de proeve beoordeeld. De zin zegt dat een proeve direct wordt beoordeeld zonder zitting, en dat een centraal georganiseerd examen wel een zitting kent met een surveillant voor het zittingsrapport en een resultaat van een beoordelaar of rechtstreeks uit het afnamesysteem bij gesloten vragen. Zitting, zittingsrapport en beoordelaar staan niet op de plaat; dat is een signalering bij dit issue en een vraag in het document."
+      "verwerking": "F8-03: het beeld heet nu Afname en beoordeling: de proeve individueel, een centraal examen in een zitting, en toont beide vormen. Jochems proeve wordt direct door de examinator beoordeeld, en naast hem staan Zitting en Zittingsrapport bij de surveillant en een examengelegenheidresultaat bij de beoordelaar. Die drie objecttypen staan niet op de informatiemodelplaat en zijn daarom gestippeld getoond, zodat de uitbreiding bespreekbaar wordt in plaats van weggelaten. De rollen surveillant en beoordelaar staan nu in de rollenlijst, met de review als bron."
     },
     {
       "nummer": "B36",
@@ -6737,7 +6793,7 @@
       "werkpakketten": [],
       "issue": 290,
       "status": "doorgevoerd",
-      "verwerking": "F8-05: de zin zegt dat de examencommissie vaststelt op het zittingsverslag en het examendossier, want het resultaat zelf zegt niets over onregelmatigheden tijdens de afname. Het examendossier staat niet op de plaat en dat is een signalering bij dit issue."
+      "verwerking": "F8-05: het examendossier staat als objecttype in het beeld, gestippeld omdat de plaat het niet kent, en de zin zegt dat de examencommissie vaststelt op het zittingsverslag en het examendossier omdat het resultaat zelf niets zegt over onregelmatigheden. Het dossier draagt de verantwoording die met de vaststelling naar de kernregistratie gaat, en die stap behandelt OKE niet."
     },
     {
       "nummer": "B38",
@@ -6754,7 +6810,7 @@
       "werkpakketten": [],
       "issue": 290,
       "status": "doorgevoerd",
-      "verwerking": "F8-06: de zin zegt dat niet is voorgeschreven welk applicatiecomponent de vaststelling doet, dat het in het afnamesysteem, de examenlogistiek, het volgsysteem of de kernregistratie kan gebeuren, en dat een resultaat daarom met een status reist. Het voorbeeld stelt vast in het volgsysteem en laat de kernregistratie alleen vastgestelde resultaten verwerken, met die keuze zichtbaar in plaats van stil."
+      "verwerking": "F8-06: de zin zegt dat niet is voorgeschreven welk applicatiecomponent de vaststelling doet, dat een resultaat daarom met een status reist, en dat dit voorbeeld vaststelt in het volgsysteem en de kernregistratie alleen vastgestelde resultaten laat verwerken. Daarbij staat nu expliciet dat de verantwoording en uitwisseling naar de kernregistratie buiten OKE valt en dat OKx daarin verder gaat."
     }
   ]
 }
