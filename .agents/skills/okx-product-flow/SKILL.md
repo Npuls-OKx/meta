@@ -107,6 +107,51 @@ Een review die niet gelezen wordt telt niet. Twee regels, allebei uit de praktij
 
 **Een reviewvraag benoemt waar de twijfel zit.** "Willen jullie meelezen" levert instemming op. Stel drie tot vijf genummerde vragen die elk een concreet punt raken, en zeg welke vraag de belangrijkste is. Zet er bij dat er al eerder onjuistheden uit een reviewronde kwamen, met hoeveel: dat nodigt uit om te zoeken in plaats van goed te keuren.
 
+## De pull request-beschrijving (vorm)
+
+Elke pull request opent met een samenvatting van **hoogstens vijftien zinnen**, leesbaar voor iemand die het werk niet heeft gevolgd. Daarin staan drie dingen:
+
+| | |
+|---|---|
+| Context | De link naar het issue |
+| Deliverable | Wat er is opgeleverd, in gewone woorden |
+| Review-instructie | Welk bestand de reviewer opent, en wat bronmateriaal is |
+
+Die laatste is de regel die het vaakst wordt vergeten. Bij een gegenereerd deliverable zijn de bron en het product twee verschillende dingen: een regeltabel, een JSON-bron en de scripts eromheen zijn het materiaal waarmee het eindproduct is gemaakt, en de reviewer hoort het eindproduct te lezen. Noem dus het document, de plaat of de PDF, en zeg erbij welke bestanden hij kan overslaan.
+
+Daaronder, buiten de vijftien zinnen:
+
+```markdown
+## Samenvatting
+<max 15 zinnen: context met issue-link, deliverable, review-instructie>
+
+## Acceptatiecriteria
+| Criterium | Stand | Testgeval |
+|---|---|---|
+| 1 <kort> | Gehaald | `test_given_X_when_Y_then_Z` |
+
+## Openstaande punten
+<vragen, gevonden fouten, impediments; per punt of er een issue van is gemaakt>
+
+## Nieuwe issues
+<wat hiervan een eigen issue is geworden, met nummer>
+
+### Agent-rapport
+<zie hieronder>
+```
+
+De acceptatiecriteria met hun testuitkomst staan er altijd, maar tellen niet mee in de vijftien zinnen; anders verdringt de verantwoording de samenvatting.
+
+## Een issue dat de agent zelf aanmaakt
+
+Een agent mag een issue aanmaken voor wat hij onderweg vindt: een openstaande vraag, een fout, een belemmering. Drie regels daarbij.
+
+1. **Alleen in `Npuls-OKx/meta`.** Public draagt releaseartefacten en krijgt geen issues uit een agentloop.
+2. **Altijd het label `gevondenDoorAI`.** Daarmee is in een oogopslag te zien wat uit het werk zelf komt en wat een mens heeft ingebracht.
+3. **Dezelfde leesbare vorm als elk ander issue**: een user story met gebruiker en waarde, context met de vindplaats (welk bestand, welke pull request, welke regel), een kort en waar mogelijk visueel doel, en acceptatiecriteria met testgevallen.
+
+De vindplaats is wat zo'n issue bruikbaar maakt. "Gevonden bij het herschrijven van de leeruitkomsten in fase 1, beeld F1-08" laat een lezer het nalopen; "kwam ik tegen" niet.
+
 ## Agent-rapport (format)
 
 Kort, in de PR-beschrijving. GitHub is de bron; geen extra bestanden.
