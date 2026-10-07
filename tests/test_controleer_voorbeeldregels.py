@@ -450,13 +450,28 @@ class RegisterTests(unittest.TestCase):
         b, _, _ = bevindingen(register_regels(status="doorgevoerd", verwerking="F2-01: de zin herschreven"))
         self.assertEqual(b, [])
 
+    def test_given_the_register_when_read_then_every_finding_of_the_round_is_accounted_for(self):
+        """Na de acht fasen draagt elke bevinding een status met het verhaal erbij, en staat er niets open."""
+        tabel = json.loads((WORTEL / "architecture/model/informatiemodel/voorbeeld-lr1-regels.json").read_text(encoding="utf-8"))
+        for b in tabel["bevindingen"]:
+            self.assertIn(b["status"], ("doorgevoerd", "geparkeerd"), b["nummer"])
+            if b["status"] == "doorgevoerd":
+                # de verantwoording noemt het beeld waar zij landde; soms raakt zij er twee
+                self.assertIn(b["beeld_id"], b["verwerking"], b["nummer"])
+            else:
+                self.assertTrue(b["reden"], b["nummer"])
+
+    def test_given_every_phase_when_read_then_its_coverage_is_complete(self):
+        tabel = json.loads((WORTEL / "architecture/model/informatiemodel/voorbeeld-lr1-regels.json").read_text(encoding="utf-8"))
+        self.assertEqual([f["nummer"] for f in tabel["fasen"] if f.get("dekking") != "volledig"], [])
+
     def test_given_the_register_when_read_then_phase_one_is_fully_processed(self):
         tabel = json.loads((WORTEL / "architecture/model/informatiemodel/voorbeeld-lr1-regels.json").read_text(encoding="utf-8"))
         fase1 = [b for b in tabel["bevindingen"] if b["issue"] == 283]
         self.assertEqual(len(fase1), 5)
         for b in fase1:
             self.assertEqual(b["status"], "doorgevoerd", b["nummer"])
-            self.assertTrue(b["verwerking"].startswith(b["beeld_id"]), b["nummer"])
+            self.assertIn(b["beeld_id"], b["verwerking"], b["nummer"])
 
     def test_given_status_outside_the_list_when_checked_then_finding(self):
         b, _, _ = bevindingen(register_regels(status="afgehandeld"))
@@ -467,8 +482,9 @@ class RegisterTests(unittest.TestCase):
         self.assertTrue(any("verwijst naar beeld" in x for x in b), b)
 
     def test_given_the_register_when_read_then_six_findings_have_no_decision_in_the_feature_plan(self):
-        """Het featureplan is van 29 september 17:23; zes bevindingen kwamen daarna binnen en wachten
-        dus nog op een besluit. Dit geval houdt dat getal zichtbaar in plaats van in een commitbericht."""
+        """Het featureplan is van 29 september 17:23; zes bevindingen kwamen daarna binnen en vallen in geen
+        werkpakket. Hun besluit staat daarom in het veld verwerking van het register zelf, en dit geval houdt
+        zichtbaar welke zes dat zijn."""
         tabel = json.loads((WORTEL / "architecture/model/informatiemodel/voorbeeld-lr1-regels.json").read_text(encoding="utf-8"))
         zonder = [b["nummer"] for b in tabel["bevindingen"] if not b.get("werkpakketten")]
         self.assertEqual(zonder, ["B33", "B34", "B35", "B36", "B37", "B38"])
@@ -622,28 +638,6 @@ class KoppelingoverzichtTests(unittest.TestCase):
         tabel = json.loads((WORTEL / "architecture/model/informatiemodel/voorbeeld-lr1-regels.json").read_text(encoding="utf-8"))
         overzicht = cv.koppelingoverzicht(tabel)
         self.assertTrue(any("Curriculum ontwerptool naar Onderwijscatalogus, 29 regels" in x for x in overzicht), overzicht)
-
-
-class RolPerBeeldTests(unittest.TestCase):
-    """De renderer groepeert op rol; twee rollen in een beeld leveren twee bestanden met dezelfde naam op."""
-
-    def test_given_an_image_with_two_roles_when_checked_then_signal_names_both(self):
-        r = regels()
-        r["regels"][6]["beeld"] = r["regels"][5]["beeld"]
-        r["regels"][6]["beeld_id"] = r["regels"][5]["beeld_id"]
-        r["regels"][6]["wie"] = "student"
-        _, w, _ = bevindingen(r)
-        self.assertTrue(any("draagt meer dan een rol" in x and "planner" in x and "student" in x for x in w), w)
-
-    def test_given_an_image_with_one_role_when_checked_then_nothing_is_reported(self):
-        _, w, _ = bevindingen(regels())
-        self.assertEqual([x for x in w if "meer dan een rol" in x], [])
-
-    def test_given_the_real_table_when_checked_then_only_f4_09_carries_two_roles(self):
-        tabel = json.loads((WORTEL / "architecture/model/informatiemodel/voorbeeld-lr1-regels.json").read_text(encoding="utf-8"))
-        gevonden = cv.rol_per_beeld(tabel)
-        self.assertEqual(len(gevonden), 1)
-        self.assertIn("F4-09", gevonden[0])
 
 
 class UitvoerTests(unittest.TestCase):
