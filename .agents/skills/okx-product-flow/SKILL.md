@@ -114,24 +114,36 @@ Elke pull request opent met een samenvatting van **hoogstens vijftien zinnen**, 
 | | |
 |---|---|
 | Context | Het sluitwoord met het issuenummer: `Closes #123` op een eigen regel, of `See also #456` als de pull request het issue alleen raakt. Dat woord is syntaxis die GitHub leest, dus zonder faalt de controle en blijft het issue openstaan |
-| Deliverable | Wat er is opgeleverd, in gewone woorden, **met een link naar het document of de plaat zelf** |
+| Opgeleverd | Een **genummerde lijst of bullets**, kort, met per regel een link naar het document of de plaat zelf. Geen proza |
 | Tegenlezing | Of de product-flow is doorlopen, en waar hij is afgeweken |
 
-Daaronder een eigen kopje **Review-instructie**, genummerd, zoals de leeswijzer voor leveranciers in [Npuls-OKx/Public#104](https://github.com/Npuls-OKx/Public/pull/104). Elke regel is een link naar iets dat de reviewer opent, met een zin over wat hij daar beoordeelt, in de volgorde waarin hij het leest. Sluit af met wat hij kan overslaan.
+**Wat is opgeleverd, is een lijst en geen verhaal.** Een reviewer telt af wat er ligt; daar helpt een alinea niet bij. Heeft de oplevering structuur, bijvoorbeeld meer dan een handvol onderdelen, lagen die op elkaar steunen of onderdelen die naar elkaar verwijzen, dan **hoort er een visuele uitsplitsing bij**: een mermaid-diagram, een ascii-boom of een tabel. Dat is werkafspraak 3 uit `AGENTS.md`, show don't tell, en voor de vorm van zo'n beeld gelden de UX-skills (`ui-ux-pro-max`, en `okx-presentatie-visueel` als adaptatie daarvan). GitHub rendert mermaid rechtstreeks in een pull request.
 
-Dat laatste is de regel die het vaakst wordt vergeten. Bij een gegenereerd deliverable zijn de bron en het product twee verschillende dingen: een regeltabel, een JSON-bron en de scripts eromheen zijn het materiaal waarmee het eindproduct is gemaakt, en de reviewer hoort het eindproduct te lezen.
+Daaronder een eigen kopje **Review-instructie**, genummerd, zoals de leeswijzer voor leveranciers in [Npuls-OKx/Public#104](https://github.com/Npuls-OKx/Public/pull/104). Die vertelt **wat van het opgeleverde werk een mens moet beoordelen**: per regel een link naar wat hij opent, met een zin over wat hij daar weegt, in de volgorde waarin hij het leest. Sluit af met wat hij kan overslaan.
+
+Dat laatste is de regel die het vaakst wordt vergeten. Bij een gegenereerd deliverable zijn de bron en het product twee verschillende dingen: een regeltabel, een JSON-bron en de scripts eromheen zijn het materiaal waarmee het eindproduct is gemaakt, en de reviewer hoort het eindproduct te beoordelen.
 
 ```markdown
 ## Samenvatting
 
 Closes #123
 
-<max 15 zinnen: wat er is opgeleverd met een link naar het document of de plaat,
- en of de product-flow is doorlopen>
+<een of twee zinnen: waarom dit er is>
+
+**Opgeleverd**
+
+1. [<het product>](link) <een halve regel>
+2. [<het tweede stuk>](link) <idem>
+
+<bij een oplevering met structuur: een mermaid-diagram of ascii-boom>
+
+Product-flow: <doorlopen, of waar afgeweken en waarom>.
 
 ## Review-instructie
 
-1. [<het eindproduct>](link) <wat de reviewer daar beoordeelt>
+Wat hiervan een mens moet beoordelen, in leesvolgorde:
+
+1. [<het eindproduct>](link) <wat de reviewer daar weegt>
 2. [<het tweede stuk>](link) <idem>
 
 Bronmateriaal dat geen review vraagt: <de bestanden waarmee het product is gemaakt>.
