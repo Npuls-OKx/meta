@@ -227,6 +227,22 @@ class GenereerTests(unittest.TestCase):
         for voorbeeld in ("Apothekersassistent, versie 2026.1", "Apothekersassistent 2026", "Jochem op Regulier BOL 2026"):
             self.assertIn(voorbeeld, alles)
 
+    def test_given_the_specialisation_table_when_read_then_the_plate_carries_every_pair(self):
+        """De leeswijzer legt de specialisatieregel uit met het keuzedeel als voorbeeld. Klopt een paar niet
+        meer met de plaat, dan legt de uitleg iets uit dat er niet staat."""
+        wortel = Path(__file__).resolve().parent.parent
+        model = json.loads((wortel / "architecture/model/informatiemodel/informatiemodel.json").read_text(encoding="utf-8"))
+        paren = {(r["van"], r["naar"]) for r in model["relaties"] if r["soort"] == "Specialization"}
+        for bijzonder, algemeen in (
+                ("Keuzedeel", "Opleidingsprogramma specificatie"),
+                ("Keuzedeelruimte", "Opleidingsprogramma specificatie"),
+                ("Keuzedeelaanbod", "Opleidingsprogramma aanbod"),
+                ("Keuzedeel aanbod verbintenis", "Opleidingsprogramma aanbod verbintenis"),
+                ("Keuzedeel resultaat", "Opleidingsprogramma resultaat")):
+            self.assertIn((bijzonder, algemeen), paren, f"{bijzonder} is geen specialisatie van {algemeen}")
+        doc = self.bouw()
+        self.assertIn("| Aanbod | `Opleidingsprogramma aanbod` | `Keuzedeelaanbod` |", doc)
+
     def test_given_document_when_generated_then_no_dash_and_no_frontmatter(self):
         doc = self.bouw()
         self.assertFalse(doc.startswith("---"))
