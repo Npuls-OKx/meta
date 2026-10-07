@@ -113,30 +113,45 @@ Elke pull request opent met een samenvatting van **hoogstens vijftien zinnen**, 
 
 | | |
 |---|---|
-| Context | De link naar het issue |
-| Deliverable | Wat er is opgeleverd, in gewone woorden |
-| Review-instructie | Welk bestand de reviewer opent, en wat bronmateriaal is |
+| Context | Het sluitwoord met het issuenummer: `Closes #123` op een eigen regel, of `See also #456` als de pull request het issue alleen raakt. Dat woord is syntaxis die GitHub leest, dus zonder faalt de controle en blijft het issue openstaan |
+| Deliverable | Wat er is opgeleverd, in gewone woorden, **met een link naar het document of de plaat zelf** |
+| Tegenlezing | Of de product-flow is doorlopen, en waar hij is afgeweken |
 
-Die laatste is de regel die het vaakst wordt vergeten. Bij een gegenereerd deliverable zijn de bron en het product twee verschillende dingen: een regeltabel, een JSON-bron en de scripts eromheen zijn het materiaal waarmee het eindproduct is gemaakt, en de reviewer hoort het eindproduct te lezen. Noem dus het document, de plaat of de PDF, en zeg erbij welke bestanden hij kan overslaan.
+Daaronder een eigen kopje **Review-instructie**, genummerd, zoals de leeswijzer voor leveranciers in [Npuls-OKx/Public#104](https://github.com/Npuls-OKx/Public/pull/104). Elke regel is een link naar iets dat de reviewer opent, met een zin over wat hij daar beoordeelt, in de volgorde waarin hij het leest. Sluit af met wat hij kan overslaan.
 
-Daaronder, buiten de vijftien zinnen:
+Dat laatste is de regel die het vaakst wordt vergeten. Bij een gegenereerd deliverable zijn de bron en het product twee verschillende dingen: een regeltabel, een JSON-bron en de scripts eromheen zijn het materiaal waarmee het eindproduct is gemaakt, en de reviewer hoort het eindproduct te lezen.
 
 ```markdown
 ## Samenvatting
-<max 15 zinnen: context met issue-link, deliverable, review-instructie>
+
+Closes #123
+
+<max 15 zinnen: wat er is opgeleverd met een link naar het document of de plaat,
+ en of de product-flow is doorlopen>
+
+## Review-instructie
+
+1. [<het eindproduct>](link) <wat de reviewer daar beoordeelt>
+2. [<het tweede stuk>](link) <idem>
+
+Bronmateriaal dat geen review vraagt: <de bestanden waarmee het product is gemaakt>.
 
 ## Acceptatiecriteria
-| Criterium | Stand | Testgeval |
+
+| Criterium | Stand | Hoe te zien |
 |---|---|---|
 | 1 <kort> | Gehaald | `test_given_X_when_Y_then_Z` |
 
 ## Openstaande punten
+
 <vragen, gevonden fouten, impediments; per punt of er een issue van is gemaakt>
 
 ## Nieuwe issues
+
 <wat hiervan een eigen issue is geworden, met nummer>
 
 ### Agent-rapport
+
 <zie hieronder>
 ```
 
