@@ -338,7 +338,8 @@
           "objecten": [
             "inschrijving keuzedeel bij passend aanbod"
           ],
-          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 6: Wat licht op in de plaat"
+          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 6: Wat licht op in de plaat",
+          "afwijking": "hoofdplaat v1.7 kent geen lijn van planning naar de kernregistratie. De inschrijving op het keuzedeel loopt in het voorbeeld van het studentkeuzesysteem naar de kernregistratie (F6-08), de stroom die de plaat wel kent"
         },
         {
           "van": "Planningssysteem",
@@ -354,7 +355,8 @@
           "objecten": [
             "geactualiseerd geroosterd aanbod"
           ],
-          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 6: Wat licht op in de plaat"
+          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 6: Wat licht op in de plaat",
+          "beeld_in_fase": 7
         },
         {
           "van": "Kernregistratie systeem studenten (KRS)",
@@ -362,7 +364,8 @@
           "objecten": [
             "deelnemerscontext"
           ],
-          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 6: Wat licht op in de plaat"
+          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 6: Wat licht op in de plaat",
+          "beeld_in_fase": 4
         },
         {
           "van": "Kernregistratie systeem studenten (KRS)",
@@ -370,10 +373,11 @@
           "objecten": [
             "studiepad"
           ],
-          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 6: Wat licht op in de plaat"
+          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 6: Wat licht op in de plaat",
+          "beeld_in_fase": 4
         }
       ],
-      "dekking": "open",
+      "dekking": "volledig",
       "link": "https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-6--organiseren-van-keuzemomenten"
     },
     {
@@ -5594,7 +5598,8 @@
           "naar": "Student keuze regelset",
           "instantie": "720 SBU, mbo-4"
         }
-      ]
+      ],
+      "vraag": "Hoort de keuzeregelset bij het keuzedeel of bij het keuzedeelaanbod? De plaat hangt Student keuze regelset aan het keuzedeel, terwijl periode en locatie eigenschappen van het aanbod zijn. Ligt de regelset bij het aanbod, dan liggen haar condities op het niveau van de verbintenis."
     },
     {
       "beeld_id": "F6-03",
@@ -6616,7 +6621,8 @@
         "W6"
       ],
       "issue": 288,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F6-01: de zin kiest de route en zegt waarom. Het keuzedeelaanbod ontstaat bij planning en gaat via de catalogus naar het studentkeuzesysteem, omdat de catalogus de bron is die specificatie en aanbod naast elkaar houdt; hoofdplaat v1.7 kent beide stromen."
     },
     {
       "nummer": "B27",
@@ -6633,7 +6639,8 @@
         "W6"
       ],
       "issue": 288,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F6-02: de vraag staat in de tabel en komt in het document terecht. De plaat hangt de keuzeregelset aan het keuzedeel, terwijl periode en locatie eigenschappen van het aanbod zijn; ligt de regelset bij het aanbod, dan liggen haar condities op verbintenisniveau. Het voorbeeld volgt de plaat en verzint geen relatie."
     },
     {
       "nummer": "B28",
