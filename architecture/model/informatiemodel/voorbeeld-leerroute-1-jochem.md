@@ -136,9 +136,9 @@ De gemarkeerde lijnen zijn de stromen die deze fase raakt, met het beeld waarin 
 
 ![ontstaat: Opleidingsspecificatie met programma en eenheden beschrijven](img/regels/f1-07-de-opleidingsspecificatie-met-programma-eenheden-en-keuzedeelruimte.svg)
 
-### F1-08 - Het keuzedeel als eigen programmaspecificatie met kerntaken en werkprocessen
+### F1-08 - Kiesbaar onderwijsprogrammaonderdeel: keuzedelen en minor
 
-![ontstaat: Keuzedeelprogramma als eigen specificatie vormgeven](img/regels/f1-08-het-keuzedeel-als-eigen-programmaspecificatie-met-kerntaken-en-werkprocessen.svg)
+![ontstaat: Keuzedeelprogramma als eigen specificatie vormgeven](img/regels/f1-08-kiesbaar-onderwijsprogrammaonderdeel-keuzedelen-en-minor.svg)
 
 ### F1-09 - Toetsonderdelen, wegingen en afrondingscriterium
 
@@ -708,7 +708,7 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 | ontstaat | Keuzedeelruimte | 720 SBU, mbo-4: te vullen met 480 SBU verdiepend en 240 SBU generiek | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [r1059](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L1059) en [r1072](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L1072) |
 | ontstaat | Student keuze regelset | Kiesbare keuzedelen: K0037 Farmaceutische Patientenzorg (480 SBU, verdiepend) of K0262 ARBO, kwaliteitszorg en hulpverlening (240 SBU, generiek) | K0037-farmaceutische-patientenzorg.md (keuzedeel mbo K0037, 480 SBU, aard verdiepend, gevalideerd 26-11-2015); leerroute-1-regulier.md, r52 (720 SBU keuzedelen verplicht voor niveau 4); de eis komt uit het examenplan (F1-02) |
 
-**F1-08 - Het keuzedeel als eigen programmaspecificatie met kerntaken en werkprocessen** (fase 1, Keuzedeelprogramma als eigen specificatie vormgeven; [f1-08-het-keuzedeel-als-eigen-programmaspecificatie-met-kerntaken-en-werkprocessen.svg](img/regels/f1-08-het-keuzedeel-als-eigen-programmaspecificatie-met-kerntaken-en-werkprocessen.svg))
+**F1-08 - Kiesbaar onderwijsprogrammaonderdeel: keuzedelen en minor** (fase 1, Keuzedeelprogramma als eigen specificatie vormgeven; [f1-08-kiesbaar-onderwijsprogrammaonderdeel-keuzedelen-en-minor.svg](img/regels/f1-08-kiesbaar-onderwijsprogrammaonderdeel-keuzedelen-en-minor.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
