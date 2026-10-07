@@ -378,16 +378,45 @@ class MatenTests(unittest.TestCase):
 
     def test_given_an_image_that_cannot_be_cut_when_measured_then_the_reason_comes_along(self):
         """De voorbeelduitwerking is een document, dus een beeld dat niet in banen past is geen gebrek:
-        het snijden telt pas als zo'n beeld op een slide moet. De reden hoort er wel bij te staan, zodat
-        wie later een presentatie maakt weet welk beeld eerst korter moet."""
+        het snijden telt pas als zo'n beeld op een slide moet. Welke beelden dat zijn beweegt mee met de
+        inhoud, dus dit geval legt de regel vast en geen lijst: is een beeld niet te snijden, dan noemt de
+        melding het bereik waar de witregel ontbreekt."""
         map_ = WORTEL / "architecture/model/informatiemodel/img/regels"
         redenen = {naam: reden for naam, _, _, _, reden in
                    tv.maten(map_, sorted(p.name for p in map_.glob("*.svg"))) if reden}
-        self.assertEqual(sorted(redenen), [
-            "f1-08-het-keuzedeel-als-eigen-programmaspecificatie-met-kerntaken-en-werkprocessen.svg",
-            "f2-07-het-geplande-aanbod-terug-naar-de-catalogus.svg"])
-        for reden in redenen.values():
-            self.assertIn("geen witregel", reden)
+        for naam, reden in redenen.items():
+            self.assertIn("geen witregel", reden, naam)
+            self.assertRegex(reden, r"tussen y=[\d.]+ en y=[\d.]+", naam)
+
+
+class AfbrekenTests(unittest.TestCase):
+    """Een instantie breekt af in plaats van het vak op te rekken. Zonder die regel maakt een
+    leeruitkomst die volgens het tuning model is geformuleerd, en dus een hele zin is, een beeld bijna
+    twee keer zo breed als een document aankan."""
+
+    def test_given_a_long_instance_when_broken_then_every_line_fits_the_maximum(self):
+        zin = ("Verleent farmaceutische patientenzorg, volgens de vigerende protocollen en met navolgbare "
+               "vastlegging, in een levensechte apotheekomgeving (apothekersassistent NLQF 4, kerntaak B1-K1)")
+        regels = tv.afbreken(zin, tv.INSTANTIE_MAX_BREEDTE)
+        self.assertGreater(len(regels), 1)
+        for r in regels:
+            self.assertLessEqual(tv.tw(r, 14, True), tv.INSTANTIE_MAX_BREEDTE, r)
+        self.assertEqual(" ".join(regels), zin)
+
+    def test_given_a_long_instance_when_drawn_then_the_box_stays_within_the_maximum(self):
+        zin = "x " * 60
+        _, w, h = tv.element(0, 0, "object", "Leeruitkomst", zin.strip())
+        self.assertLessEqual(w, tv.INSTANTIE_MAX_BREEDTE + 42)
+        self.assertGreater(h, 48)
+
+    def test_given_the_real_images_when_read_then_no_instance_line_exceeds_the_maximum(self):
+        """Over alle beelden: geen enkele instantieregel is breder dan de maat die de renderer stelt."""
+        map_ = WORTEL / "architecture/model/informatiemodel/img/regels"
+        for pad in sorted(map_.glob("*.svg")):
+            for el in ET.fromstring(pad.read_text(encoding="utf-8")).iter(f"{SVG}text"):
+                if el.get("font-size") == "14" and el.get("font-weight") == "bold" and el.text:
+                    self.assertLessEqual(tv.tw(el.text, 14, True), tv.INSTANTIE_MAX_BREEDTE + 1,
+                                         f"{pad.name}: {el.text[:60]}")
 
 
 if __name__ == "__main__":
