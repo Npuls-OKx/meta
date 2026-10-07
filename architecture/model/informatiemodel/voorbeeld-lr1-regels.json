@@ -136,7 +136,8 @@
           "objecten": [
             "aanbod om op te orienteren"
           ],
-          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 3: Wat licht op in de plaat"
+          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 3: Wat licht op in de plaat",
+          "afwijking": "het voorbeeld volgt de route van hoofdplaat v1.7: de catalogus ontsluit het aanmeldbare aanbod aan de kernregistratie (F3-01), die het doorgeeft aan AII voor centraal aanmelden (F3-02), en de aanmelding komt van AII bij het intakesysteem (F3-04). Een rechtstreekse lijn van de catalogus naar het intakesysteem staat niet op de plaat; CAMBO blijft buiten scope"
         },
         {
           "van": "Intake systeem",
@@ -149,7 +150,7 @@
           "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 3: Wat licht op in de plaat"
         }
       ],
-      "dekking": "open",
+      "dekking": "volledig",
       "link": "https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-3--instroom-intake-en-plaatsing"
     },
     {
@@ -6326,7 +6327,8 @@
         "W6"
       ],
       "issue": 285,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F3-05: de keuzedeelvoorkeur is uit de intake gehaald. De SLB'er voert de intake uit en plaatst Jochem in een plaatsingsgroep; de zin zegt dat een keuzedeelvoorkeur hier nog niet wordt vastgelegd omdat dat bij de intake niet gebruikelijk is, en dat de definitieve keuze pas minimaal een periode voor de keuzedeelruimte valt."
     },
     {
       "nummer": "B12",
@@ -6343,7 +6345,8 @@
         "W6"
       ],
       "issue": 285,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F3-07: de keuzedeelvoorkeur gaat niet meer mee naar de kernregistratie. Het beeld draagt de inschrijving, de persoon, de student, de plaatsingsgroep en de twee verbintenissen, en de zin zegt dat de kernregistratie later de definitieve keuze registreert terwijl het rijpen van die keuze in het studentkeuzesysteem gebeurt."
     },
     {
       "nummer": "B13",
@@ -6360,7 +6363,8 @@
         "W6"
       ],
       "issue": 285,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F3-08: de kernregistratie levert de student, zijn programmaverbintenis, zijn groep en de leeruitkomsten die hij al heeft behaald, zodat het keuzesysteem geen keuzes voorlegt die hij al deed. De zin zegt dat de deadline hier niet vandaan komt, omdat de kernregistratie niet weet wanneer de keuzedeelruimte in de planning van deze student valt."
     },
     {
       "nummer": "B14",
