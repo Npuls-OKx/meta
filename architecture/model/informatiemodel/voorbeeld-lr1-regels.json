@@ -1512,7 +1512,7 @@
     },
     {
       "beeld_id": "F1-08",
-      "beeld": "Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen",
+      "beeld": "Het kiesbare programmaonderdeel: keuzedeel en minor",
       "fase": 1,
       "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
       "wie": "onderwijsontwerper",
@@ -1531,11 +1531,11 @@
           "instantie": "D1-K1 Draagt bij aan kwaliteitszorg en arbeidsomstandigheden"
         }
       ],
-      "zin": "Een keuzedeel is zelf een programmaspecificatie, gelijksoortig vormgegeven maar los van Jochems opleiding. Het landelijke keuzedeel komt van SBB en levert kerntaken en werkprocessen; de instelling vertaalt die naar leeruitkomsten en geeft ze vorm als onderwijseenheid- en leeronderdeelspecificaties. Ook hier lopen beide verdiepingen niet gelijk op: een werkproces zegt wat summatief moet blijken, een leeronderdeel hoe de student daar komt. Twee keuzedelen vullen samen de ruimte van 720 SBU."
+      "zin": "Een keuzedeel is zelf een programmaspecificatie, gelijksoortig vormgegeven maar los van Jochems opleiding. Het landelijke keuzedeel komt van SBB en levert kerntaken en werkprocessen; de instelling vertaalt die naar leeruitkomsten en geeft ze vorm als onderwijseenheid- en leeronderdeelspecificaties. Ook hier lopen beide verdiepingen niet gelijk op: een werkproces zegt wat summatief moet blijken, een leeronderdeel hoe de student daar komt. Twee keuzedelen vullen samen de ruimte van 720 SBU. In het hoger onderwijs vult een minor dezelfde ruimte op dezelfde manier, met eigen leeruitkomsten op haar eigen niveau. De plaat draagt het objecttype minor nog niet; het staat hier gestippeld."
     },
     {
       "beeld_id": "F1-08",
-      "beeld": "Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen",
+      "beeld": "Het kiesbare programmaonderdeel: keuzedeel en minor",
       "fase": 1,
       "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
       "wie": "onderwijsontwerper",
@@ -1563,7 +1563,7 @@
     },
     {
       "beeld_id": "F1-08",
-      "beeld": "Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen",
+      "beeld": "Het kiesbare programmaonderdeel: keuzedeel en minor",
       "fase": 1,
       "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
       "wie": "onderwijsontwerper",
@@ -1586,7 +1586,7 @@
     },
     {
       "beeld_id": "F1-08",
-      "beeld": "Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen",
+      "beeld": "Het kiesbare programmaonderdeel: keuzedeel en minor",
       "fase": 1,
       "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
       "wie": "onderwijsontwerper",
@@ -1612,7 +1612,7 @@
     },
     {
       "beeld_id": "F1-08",
-      "beeld": "Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen",
+      "beeld": "Het kiesbare programmaonderdeel: keuzedeel en minor",
       "fase": 1,
       "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
       "wie": "onderwijsontwerper",
@@ -1638,7 +1638,7 @@
     },
     {
       "beeld_id": "F1-08",
-      "beeld": "Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen",
+      "beeld": "Het kiesbare programmaonderdeel: keuzedeel en minor",
       "fase": 1,
       "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
       "wie": "onderwijsontwerper",
@@ -1664,7 +1664,7 @@
     },
     {
       "beeld_id": "F1-08",
-      "beeld": "Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen",
+      "beeld": "Het kiesbare programmaonderdeel: keuzedeel en minor",
       "fase": 1,
       "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
       "wie": "onderwijsontwerper",
@@ -1690,7 +1690,7 @@
     },
     {
       "beeld_id": "F1-08",
-      "beeld": "Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen",
+      "beeld": "Het kiesbare programmaonderdeel: keuzedeel en minor",
       "fase": 1,
       "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
       "wie": "onderwijsontwerper",
@@ -1716,7 +1716,39 @@
     },
     {
       "beeld_id": "F1-08",
-      "beeld": "Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen",
+      "beeld": "Het kiesbare programmaonderdeel: keuzedeel en minor",
+      "fase": 1,
+      "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
+      "soort": "ontstaat",
+      "wie": "onderwijsontwerper",
+      "objecttype": "Leeruitkomst",
+      "nieuwe_instantie": true,
+      "aanname": true,
+      "bron": "K0037-farmaceutische-patientenzorg.md (keuzedeel mbo K0037, 480 SBU, aard verdiepend, gevalideerd 26-11-2015); geformuleerd met de vijfdeling uit de presentatie 'Komen tot leeruitkomsten' (conventie leeruitkomsten, 6 oktober 2026): actief werkwoord, type, onderwerp, standaard en context",
+      "instantie": "Voert verdiepende farmaceutische patiëntenzorg uit, volgens de richtlijn farmaceutische patiëntenzorg en met een onderbouwd advies, bij patiënten met meervoudig geneesmiddelgebruik (keuzedeel K0037 NLQF 4, kerntaakniveau)"
+    },
+    {
+      "beeld_id": "F1-08",
+      "beeld": "Het kiesbare programmaonderdeel: keuzedeel en minor",
+      "fase": 1,
+      "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
+      "soort": "ontstaat",
+      "wie": "onderwijsontwerper",
+      "objecttype": "Leeruitkomst",
+      "nieuwe_instantie": true,
+      "aanname": true,
+      "bron": "K0037-farmaceutische-patientenzorg.md (keuzedeel mbo K0037, 480 SBU, aard verdiepend, gevalideerd 26-11-2015); geformuleerd met de vijfdeling uit de presentatie 'Komen tot leeruitkomsten' (conventie leeruitkomsten, 6 oktober 2026): actief werkwoord, type, onderwerp, standaard en context",
+      "relatie": {
+        "soort": "Aggregation",
+        "van": "Leeruitkomst",
+        "naar": "Leeruitkomst",
+        "nesting": true
+      },
+      "instantie": "Stelt een medicatieoverzicht op, volgens de richtlijn medicatieoverzicht en geverifieerd bij patiënt en voorschrijver, in de leerapotheek (keuzedeel K0037 NLQF 4, werkprocesniveau)"
+    },
+    {
+      "beeld_id": "F1-08",
+      "beeld": "Het kiesbare programmaonderdeel: keuzedeel en minor",
       "fase": 1,
       "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
       "wie": "onderwijsontwerper",
@@ -1740,7 +1772,7 @@
     },
     {
       "beeld_id": "F1-08",
-      "beeld": "Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen",
+      "beeld": "Het kiesbare programmaonderdeel: keuzedeel en minor",
       "fase": 1,
       "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
       "wie": "onderwijsontwerper",
@@ -1766,7 +1798,7 @@
     },
     {
       "beeld_id": "F1-08",
-      "beeld": "Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen",
+      "beeld": "Het kiesbare programmaonderdeel: keuzedeel en minor",
       "fase": 1,
       "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
       "wie": "onderwijsontwerper",
@@ -1792,7 +1824,7 @@
     },
     {
       "beeld_id": "F1-08",
-      "beeld": "Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen",
+      "beeld": "Het kiesbare programmaonderdeel: keuzedeel en minor",
       "fase": 1,
       "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
       "wie": "onderwijsontwerper",
@@ -1815,6 +1847,36 @@
           "instantie": "Biedt farmaceutische patientenzorg aan specifieke doelgroepen (werkprocesniveau)"
         }
       ]
+    },
+    {
+      "beeld_id": "F1-08",
+      "beeld": "Het kiesbare programmaonderdeel: keuzedeel en minor",
+      "fase": 1,
+      "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
+      "soort": "ontstaat",
+      "wie": "onderwijsontwerper",
+      "objecttype": "Minor",
+      "aanname": true,
+      "bron": "Npuls-OKx/Public#104, review van Huib Jan Wielemaker op 6 oktober 2026: het keuzedeel staat op de plaat als vast gegeven terwijl het hoger onderwijs het niet kent. De minor staat hier als pendant; de plaat draagt het objecttype nog niet",
+      "relatie": {
+        "soort": "Specialization",
+        "van": "Minor",
+        "naar": "Opleidingsprogramma specificatie"
+      },
+      "instantie": "Farmacotherapie en patiëntveiligheid, 30 EC (hbo-bachelor NLQF 6)"
+    },
+    {
+      "beeld_id": "F1-08",
+      "beeld": "Het kiesbare programmaonderdeel: keuzedeel en minor",
+      "fase": 1,
+      "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
+      "soort": "ontstaat",
+      "wie": "onderwijsontwerper",
+      "objecttype": "Leeruitkomst",
+      "nieuwe_instantie": true,
+      "aanname": true,
+      "bron": "Npuls-OKx/Public#104, review van Huib Jan Wielemaker op 6 oktober 2026: het keuzedeel staat op de plaat als vast gegeven terwijl het hoger onderwijs het niet kent. De minor staat hier als pendant; de plaat draagt het objecttype nog niet; geformuleerd met de vijfdeling uit de presentatie 'Komen tot leeruitkomsten' (conventie leeruitkomsten, 6 oktober 2026): actief werkwoord, type, onderwerp, standaard en context",
+      "instantie": "Beoordeelt farmacotherapie op patiëntveiligheid, volgens de vigerende richtlijnen en onderbouwd met literatuur, in een multidisciplinair overleg (minor NLQF 6)"
     },
     {
       "beeld_id": "F1-09",
@@ -6189,7 +6251,7 @@
       ],
       "issue": 283,
       "status": "doorgevoerd",
-      "verwerking": "F1-08: de zin zegt dat de twee verdiepingen niet gelijk oplopen, een werkproces zegt wat summatief moet blijken en een leeronderdeel is het ontwikkelingsgerichte antwoord. De leeronderdelen dragen didactische namen (Kwaliteitszorg in de eigen praktijk, RI&E van begin tot eind, Handelen bij calamiteiten, Het medicatieoverzicht opstellen, Zorg aan specifieke doelgroepen) in plaats van werkprocescodes."
+      "verwerking": "F1-08: de zin zegt dat de twee verdiepingen niet gelijk oplopen, een werkproces zegt wat summatief moet blijken en een leeronderdeel is het ontwikkelingsgerichte antwoord. De leeronderdelen dragen didactische namen (Kwaliteitszorg in de eigen praktijk, RI&E van begin tot eind, Handelen bij calamiteiten, Het medicatieoverzicht opstellen, Zorg aan specifieke doelgroepen) in plaats van werkprocescodes. Het beeld heet nu Het kiesbare programmaonderdeel: keuzedeel en minor, en draagt ook de leeruitkomsten van K0037, die er niet stonden. De minor staat erbij als pendant uit het hoger onderwijs, gestippeld omdat de plaat het objecttype niet kent; dat volgt uit de review van Huib Jan Wielemaker op Npuls-OKx/Public#104 en staat als deelissue #319."
     },
     {
       "nummer": "B04",
