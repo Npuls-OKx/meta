@@ -418,7 +418,7 @@
           "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 7: Wat licht op in de plaat"
         }
       ],
-      "dekking": "open",
+      "dekking": "volledig",
       "link": "https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-7--bijsturen-planning-en-aanbod"
     },
     {
@@ -5764,13 +5764,13 @@
     },
     {
       "beeld_id": "F7-01",
-      "beeld": "Afwijkingen verzameld in een planninggroep",
+      "beeld": "Afwijkingen verzameld in een plaatsingsgroep",
       "fase": 7,
       "stap": "Afwijkingen verzamelen in een planninggroep",
       "soort": "verandert",
       "wie": "planner",
       "objecttype": "Plaatsingsgroep",
-      "instantie": "Planninggroep temporiseren B1-K2, periode 5",
+      "instantie": "Plaatsingsgroep temporiseren B1-K2, periode 5",
       "toestand": "bijgestuurd",
       "bron": "review Niels van Duin op PR 252: periode 4 gemist en toetsen niet gehaald; groepen uit de kernregistratie zijn plaatsingsgroepen",
       "aanname": true,
@@ -5791,7 +5791,7 @@
     },
     {
       "beeld_id": "F7-03",
-      "beeld": "Planninggroep van de kernregistratie naar planning",
+      "beeld": "Plaatsingsgroep van de kernregistratie naar planning",
       "fase": 7,
       "stap": "Bestaande verbintenissen annuleren",
       "soort": "stroomt",
@@ -5800,7 +5800,7 @@
       "pijl": "id-97010c562d8841f9b908e72b1d2b3f9a",
       "koppeling": null,
       "objecttype": "Plaatsingsgroep",
-      "instantie": "Planninggroep temporiseren B1-K2, periode 5",
+      "instantie": "Plaatsingsgroep temporiseren B1-K2, periode 5",
       "bron": "leerroute-1-regulier.md, Fase 7: KRS naar Planning (gewijzigde populatie en plangroepen)",
       "relaties": [
         {
@@ -5815,13 +5815,13 @@
     },
     {
       "beeld_id": "F7-04",
-      "beeld": "Nieuw aanbod voor de planninggroep",
+      "beeld": "Nieuw aanbod voor de plaatsingsgroep",
       "fase": 7,
       "stap": "Nieuw aanbod maken en publiceren",
       "soort": "verandert",
       "wie": "planner",
       "objecttype": "Onderwijseenheid aanbod",
-      "instantie": "B1-K2, periode 5, planninggroep temporiseren",
+      "instantie": "B1-K2, periode 5, plaatsingsgroep temporiseren",
       "toestand": "bijgestuurd",
       "bron": "leerroute-1-regulier.md, Fase 7: nieuw onderwijsaanbod op basis van dezelfde opleidingsprogramma-specificatie",
       "zin": "Nieuw aanbod voor de planninggroep op dezelfde specificatie. De planner haalt dat bij de catalogus op, of het nu precies het nominale pad van periode 5 is of een maatwerkprogramma met gelegenheden uit periode 4, 5 en 6. In beide gevallen is de catalogus de bron."
@@ -5847,7 +5847,8 @@
           "instantie": "Regulier BOL 2026: 18 tot 36 studenten"
         }
       ],
-      "zin": "Planning publiceert het bijgestuurde aanbod naar de catalogus en het rooster volgt."
+      "zin": "Planning publiceert het bijgestuurde aanbod naar de catalogus en het rooster volgt.",
+      "vraag": "Gaat maatwerkaanbod voor een specifieke groep achterblijvers terug naar de catalogus? Het voorbeeld publiceert het bijgestuurde aanbod, zodat de catalogus de bron blijft, en bij een maatwerkprogramma voor een handvol studenten is de waarde daarvan de vraag."
     },
     {
       "beeld_id": "F7-06",
@@ -5860,8 +5861,8 @@
       "pijl": "id-08467fe302794db6b935ff685e83efe0",
       "koppeling": null,
       "objecttype": "Leergelegenheid",
-      "instantie": "Receptverwerking in de praktijk, periode 5",
-      "bron": "leerroute-1-regulier.md, Fase 7: Planning naar Rooster (nieuw rooster)",
+      "instantie": "Receptverwerking in de praktijk, periode 5: lokaaltype leerapotheek, docentexpertise farmacie met baliepraktijk, een groep van 18",
+      "bron": "leerroute-1-regulier.md, Fase 7: Planning naar Rooster (nieuw rooster); de vaste kenmerken naar analogie van F4-07, want roosteren heeft ze hier net zo nodig (review 29 september 2026)",
       "relaties": [
         {
           "soort": "Aggregation",
@@ -5869,7 +5870,9 @@
           "naar": "Leergelegenheid",
           "instantie": "B1-K2, periode 5, bijgestuurd"
         }
-      ]
+      ],
+      "aanname": true,
+      "zin": "Het nieuwe rooster volgt. Ook hier dragen de leergelegenheden hun vaste kenmerken mee, want zonder lokaaltype, docentexpertise en groep heeft roosteren niets aan de uitwisseling. De groep is de nieuwe plaatsingsgroep van de achterlopers."
     },
     {
       "beeld_id": "F8-01",
@@ -6657,7 +6660,8 @@
         "W8"
       ],
       "issue": 289,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F7-01: de aanleiding is nu dat Jochem een groot deel van periode 4 niet heeft kunnen bijwonen en de bijbehorende toetsen niet voldoende heeft afgerond. De gemiste bpv-weken zijn vervallen."
     },
     {
       "nummer": "B29",
@@ -6674,7 +6678,8 @@
         "W8"
       ],
       "issue": 289,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F7-02: de titel noemt het niveau, Onderwijseenheid-aanbodverbintenis geannuleerd, en de zin zegt dat annuleren per niveau een andere impact heeft: een programmaverbintenis raakt de hele opleiding en een leergelegenheidverbintenis alleen dat ene onderdeel."
     },
     {
       "nummer": "B30",
@@ -6691,7 +6696,8 @@
         "W8"
       ],
       "issue": 289,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F7-03: de zin zegt dat groepen die in de kernregistratie ontstaan per definitie plaatsingsgroepen zijn, en de achterlopers komen in een nieuwe plaatsingsgroep. De naam volgt dat nu ook: de instantie en de titels van F7-01, F7-03 en F7-04 spreken van een plaatsingsgroep in plaats van een planninggroep."
     },
     {
       "nummer": "B31",
@@ -6708,7 +6714,8 @@
         "W8"
       ],
       "issue": 289,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F7-04: de zin zegt dat de planner het nieuwe aanbod bij de catalogus ophaalt, of het nu precies het nominale pad van periode 5 is of een maatwerkprogramma met gelegenheden uit periode 4, 5 en 6, en dat de catalogus in beide gevallen de bron is."
     },
     {
       "nummer": "B32",
@@ -6725,7 +6732,8 @@
         "W8"
       ],
       "issue": 289,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F7-05: de vraag of maatwerkaanbod voor een groep achterblijvers naar de catalogus terug hoort staat nu als vraag in de tabel, dus hij komt in het document. Het voorbeeld publiceert het bijgestuurde aanbod, zodat de catalogus de bron blijft."
     },
     {
       "nummer": "B33",
@@ -6743,7 +6751,8 @@
       "werkpakketten": [],
       "verwijst_naar": "F4-07",
       "issue": 289,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F7-06: dezelfde behandeling als F4-07. De leergelegenheid draagt lokaaltype, docentexpertise en groep, en de zin zegt dat roosteren zonder die kenmerken niets aan de uitwisseling heeft. De kenmerken zijn een aanname naar analogie van F4-07; de groep is de nieuwe plaatsingsgroep van de achterlopers."
     },
     {
       "nummer": "B34",
