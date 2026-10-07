@@ -107,6 +107,78 @@ Een review die niet gelezen wordt telt niet. Twee regels, allebei uit de praktij
 
 **Een reviewvraag benoemt waar de twijfel zit.** "Willen jullie meelezen" levert instemming op. Stel drie tot vijf genummerde vragen die elk een concreet punt raken, en zeg welke vraag de belangrijkste is. Zet er bij dat er al eerder onjuistheden uit een reviewronde kwamen, met hoeveel: dat nodigt uit om te zoeken in plaats van goed te keuren.
 
+## De pull request-beschrijving (vorm)
+
+Elke pull request opent met een samenvatting van **hoogstens vijftien zinnen**, leesbaar voor iemand die het werk niet heeft gevolgd. Daarin staan drie dingen:
+
+| | |
+|---|---|
+| Context | Het sluitwoord met het issuenummer: `Closes #123` op een eigen regel, of `See also #456` als de pull request het issue alleen raakt. Dat woord is syntaxis die GitHub leest, dus zonder faalt de controle en blijft het issue openstaan |
+| Opgeleverd | Een **genummerde lijst of bullets**, kort, met per regel een link naar het document of de plaat zelf. Geen proza |
+| Tegenlezing | Of de product-flow is doorlopen, en waar hij is afgeweken |
+
+**Wat is opgeleverd, is een lijst en geen verhaal.** Een reviewer telt af wat er ligt; daar helpt een alinea niet bij. Heeft de oplevering structuur, bijvoorbeeld meer dan een handvol onderdelen, lagen die op elkaar steunen of onderdelen die naar elkaar verwijzen, dan **hoort er een visuele uitsplitsing bij**: een mermaid-diagram, een ascii-boom of een tabel. Dat is werkafspraak 3 uit `AGENTS.md`, show don't tell, en voor de vorm van zo'n beeld gelden de UX-skills (`ui-ux-pro-max`, en `okx-presentatie-visueel` als adaptatie daarvan). GitHub rendert mermaid rechtstreeks in een pull request.
+
+Daaronder een eigen kopje **Review-instructie**, genummerd, zoals de leeswijzer voor leveranciers in [Npuls-OKx/Public#104](https://github.com/Npuls-OKx/Public/pull/104). Die vertelt **wat van het opgeleverde werk een mens moet beoordelen**: per regel een link naar wat hij opent, met een zin over wat hij daar weegt, in de volgorde waarin hij het leest. Sluit af met wat hij kan overslaan.
+
+Dat laatste is de regel die het vaakst wordt vergeten. Bij een gegenereerd deliverable zijn de bron en het product twee verschillende dingen: een regeltabel, een JSON-bron en de scripts eromheen zijn het materiaal waarmee het eindproduct is gemaakt, en de reviewer hoort het eindproduct te beoordelen.
+
+```markdown
+## Samenvatting
+
+Closes #123
+
+<een of twee zinnen: waarom dit er is>
+
+**Opgeleverd**
+
+1. [<het product>](link) <een halve regel>
+2. [<het tweede stuk>](link) <idem>
+
+<bij een oplevering met structuur: een mermaid-diagram of ascii-boom>
+
+Product-flow: <doorlopen, of waar afgeweken en waarom>.
+
+## Review-instructie
+
+Wat hiervan een mens moet beoordelen, in leesvolgorde:
+
+1. [<het eindproduct>](link) <wat de reviewer daar weegt>
+2. [<het tweede stuk>](link) <idem>
+
+Bronmateriaal dat geen review vraagt: <de bestanden waarmee het product is gemaakt>.
+
+## Acceptatiecriteria
+
+| Criterium | Stand | Hoe te zien |
+|---|---|---|
+| 1 <kort> | Gehaald | `test_given_X_when_Y_then_Z` |
+
+## Openstaande punten
+
+<vragen, gevonden fouten, impediments; per punt of er een issue van is gemaakt>
+
+## Nieuwe issues
+
+<wat hiervan een eigen issue is geworden, met nummer>
+
+### Agent-rapport
+
+<zie hieronder>
+```
+
+De acceptatiecriteria met hun testuitkomst staan er altijd, maar tellen niet mee in de vijftien zinnen; anders verdringt de verantwoording de samenvatting.
+
+## Een issue dat de agent zelf aanmaakt
+
+Een agent mag een issue aanmaken voor wat hij onderweg vindt: een openstaande vraag, een fout, een belemmering. Drie regels daarbij.
+
+1. **Alleen in `Npuls-OKx/meta`.** Public draagt releaseartefacten en krijgt geen issues uit een agentloop.
+2. **Altijd het label `gevondenDoorAI`.** Daarmee is in een oogopslag te zien wat uit het werk zelf komt en wat een mens heeft ingebracht.
+3. **Dezelfde leesbare vorm als elk ander issue**: een user story met gebruiker en waarde, context met de vindplaats (welk bestand, welke pull request, welke regel), een kort en waar mogelijk visueel doel, en acceptatiecriteria met testgevallen.
+
+De vindplaats is wat zo'n issue bruikbaar maakt. "Gevonden bij het herschrijven van de leeruitkomsten in fase 1, beeld F1-08" laat een lezer het nalopen; "kwam ik tegen" niet.
+
 ## Agent-rapport (format)
 
 Kort, in de PR-beschrijving. GitHub is de bron; geen extra bestanden.

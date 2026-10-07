@@ -118,7 +118,9 @@ Elk deliverable doorloopt de keten uit [.agents/skills/okx-product-flow/SKILL.md
 | 5 | **Uitwerken** met de specialist-skill, daarna onafhankelijke review door tester, specialist en schrijfstijl in verse subagent-contexten |
 | 6 | **Waardevalidatie**: levert het geleverde de waarde uit de story. Vervolgpunten worden kleine iteraties |
 
-De lus is begrensd op drie ronden per poort; daarna escaleert de agent met de openstaande bevindingen. Het verloop staat in het issue of in het **agent-rapport** in de PR-beschrijving. Een werkwijze-issue draagt wel een story en krijgt geen plek in de requirementsboom. Start via het command `product-flow`.
+De lus is begrensd op drie ronden per poort; daarna escaleert de agent met de openstaande bevindingen. Het verloop staat in het issue of in het **agent-rapport** in de PR-beschrijving.
+
+Elke PR-beschrijving opent met een samenvatting van hoogstens vijftien zinnen: het sluitwoord `Closes #123` als context, een genummerde lijst van wat er is opgeleverd met per regel een link naar het document of de plaat zelf, en of de product-flow is doorlopen. Heeft de oplevering structuur, dan hoort daar een visuele uitsplitsing bij (mermaid of ascii), volgens werkafspraak 3. Daaronder een genummerde **review-instructie** die zegt wat van dat werk een mens moet beoordelen, in welke volgorde, en welk bronmateriaal hij kan overslaan. Daaronder de acceptatiecriteria met hun testuitkomst, de openstaande vragen en gevonden fouten, en de issues die daaruit zijn aangemaakt. Een agent mag zelf een issue aanmaken voor wat hij vindt, uitsluitend in `Npuls-OKx/meta` en altijd met het label `gevondenDoorAI`. De vorm staat in [.agents/skills/okx-product-flow/SKILL.md](.agents/skills/okx-product-flow/SKILL.md). Een werkwijze-issue draagt wel een story en krijgt geen plek in de requirementsboom. Start via het command `product-flow`.
 
 ## Skills toevoegen of bijwerken
 
