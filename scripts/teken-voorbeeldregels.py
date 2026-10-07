@@ -63,17 +63,44 @@ def text(x, y, s, size=13, bold=False, fill=INK, anchor="start"):
     return f'<text x="{x:.0f}" y="{y:.0f}" font-family="{FONT}" font-size="{size}"{fw} fill="{fill}" text-anchor="{anchor}">{html.escape(s)}</text>'
 
 
+INSTANTIE_MAX_BREEDTE = 430  # een instantie breekt af in plaats van het vak op te rekken; twee vakken van
+                             # deze maat passen naast elkaar binnen MAX_BREEDTE, dus de rij blijft leesbaar
+
+
+def afbreken(tekst, maxw, size=14, bold=True):
+    """Een tekst in regels die binnen maxw passen. Een woord dat zelf te breed is krijgt een eigen regel."""
+    woorden, regels, huidige = str(tekst).split(), [], ""
+    for w in woorden:
+        proef = (huidige + " " + w).strip()
+        if huidige and tw(proef, size, bold) > maxw:
+            regels.append(huidige)
+            huidige = w
+        else:
+            huidige = proef
+    if huidige:
+        regels.append(huidige)
+    return regels or [""]
+
+
 def element(x, y, kind, label, inst, fill=BUS, line=BUS_L, labelkleur=BUS_T, rx=0, dashed=False, toestand=None, verwijzing=None, verwijzingen=()):
-    """Eén element: typelabel klein, instantie vet, en eronder de toestand en de verwijzingen naar
-    objecten buiten het blok. Geeft (svg, w, h)."""
+    """Eén element: typelabel klein, instantie vet over zo veel regels als nodig, en eronder de toestand
+    en de verwijzingen naar objecten buiten het blok. Geeft (svg, w, h).
+
+    De instantie breekt af op INSTANTIE_MAX_BREEDTE. Zonder dat afbreken rekt een zin het vak op tot
+    ver voorbij de breedte die een document aankan: een leeruitkomst die volgens het tuning model is
+    geformuleerd is een volledige zin, en die maakte een beeld bijna twee keer zo breed.
+    """
     extra = _extra(toestand, verwijzing, verwijzingen)
-    w = max(120, max([tw(label, 12), tw(inst, 14, True)] + [tw(e, 12) for e in extra]) + 42)
-    h = 48 + 17 * len(extra)
+    regels = afbreken(inst, INSTANTIE_MAX_BREEDTE)
+    w = max(120, max([tw(label, 12)] + [tw(r, 14, True) for r in regels] + [tw(e, 12) for e in extra]) + 42)
+    h = 48 + 18 * (len(regels) - 1) + 17 * len(extra)
     s = box(x, y, w, h, fill, line, rx, dashed) + icon(kind, x + w - 22, y + 5)
     s += text(x + 10, y + 18, label, 12, fill=labelkleur)
-    s += text(x + 10, y + 36, inst, 14, True)
+    for i, r in enumerate(regels):
+        s += text(x + 10, y + 36 + 18 * i, r, 14, True)
+    voet = y + 36 + 18 * (len(regels) - 1)
     for i, e in enumerate(extra):
-        s += text(x + 10, y + 53 + 17 * i, e, 12, fill=MUTED)
+        s += text(x + 10, voet + 17 + 17 * i, e, 12, fill=MUTED)
     return s, w, h
 
 
@@ -212,13 +239,19 @@ def _objecten_rij(x, y, items, uitzonderingen, verbind=False):
             # een container toont, net als een los element, de toestand en verwijzingen onder de instantie
             extra = _extra(it.get("toestand"), it.get("verwijzing"), it.get("verwijzingen", ()))
             kop = 42 + 17 * len(extra)
+            inst_regels = afbreken(it["instantie"], INSTANTIE_MAX_BREEDTE)
+            kop = 42 + 18 * (len(inst_regels) - 1) + 17 * len(extra)
             ksvg, kw, kh = _kinderen(cx + 14, y + kop, it["kinderen"], uitzonderingen)
-            w = max([kw + 24, tw(it["type"], 12) + 42, tw(it["instantie"], 14, True) + 42] + [tw(e, 12) + 42 for e in extra])
+            w = max([kw + 24, tw(it["type"], 12) + 42] + [tw(r, 14, True) + 42 for r in inst_regels]
+                    + [tw(e, 12) + 42 for e in extra])
             h = kop + kh + 10
             out += box(cx, y, w, h, fill, line, 0, dashed) + icon("object", cx + w - 22, y + 5)
-            out += text(cx + 10, y + 18, it["type"], 12, fill=lk) + text(cx + 10, y + 36, it["instantie"], 14, True) + ksvg
+            out += text(cx + 10, y + 18, it["type"], 12, fill=lk) + ksvg
+            for i, r in enumerate(inst_regels):
+                out += text(cx + 10, y + 36 + 18 * i, r, 14, True)
+            voet = y + 36 + 18 * (len(inst_regels) - 1)
             for i, e in enumerate(extra):
-                out += text(cx + 10, y + 53 + 17 * i, e, 12, fill=MUTED)
+                out += text(cx + 10, voet + 17 + 17 * i, e, 12, fill=MUTED)
         else:
             s, w, h = element(cx, y, "object", it["type"], it["instantie"], fill, line, lk, 0, dashed, it.get("toestand"), it.get("verwijzing"), it.get("verwijzingen", ()))
             out += s
@@ -336,7 +369,7 @@ def regel_ontstaat(blok, uitzonderingen):
         cw = tw(tekst, 12) + 16
         chip = box(12, zin_y - 14, cw, 19, "#ffffff", "#c8ccc9", 9, True, "2 2") + text(20, zin_y, tekst, 12, fill=MUTED)
         zin_x = 12 + cw + 10
-    zin, zw, zh = alinea(zin_x, zin_y, blok.get("zin", ""), 14, max(ZIN_MAX_BREEDTE - (zin_x - 12), ox + ow - zin_x))
+    zin, zw, zh = alinea(zin_x, zin_y, blok.get("zin", ""), 14, min(ZIN_MAX_BREEDTE, max(360, ox + ow - zin_x)))
     W = max(x + sw + 12, ox + ow + 12, zin_x + zw + 12)
     H = zin_y + zh + 12
     return wrap(W, H, wie + stap + haak + objs + chip + zin, dashed=concept, titel=beeldtitel(blok))
@@ -374,7 +407,7 @@ def regel_stroomt(blok, uitzonderingen):
         s += f'<path d="M{ox + 24} {oy}V{ry - 4}" stroke="{APP_T}" stroke-width="1.5" stroke-dasharray="3 3"/>'
     s += osvg
     zin_y = oy + oh + 22
-    zin, zw, zh = alinea(12, zin_y, blok.get("zin", ""), 14, max(ZIN_MAX_BREEDTE, ox + ow - 12))
+    zin, zw, zh = alinea(12, zin_y, blok.get("zin", ""), 14, min(ZIN_MAX_BREEDTE, max(360, ox + ow - 12)))
     W = max(x_naar + nw + 12, ox + ow + 12, zw + 24)
     H = zin_y + zh + 12
     body = f'<rect x="0" y="0" width="4" height="{H:.0f}" fill="{APP_L}"/>' + s + zin
@@ -618,8 +651,8 @@ def main(argv=None):
             knel.append(naam)
     print(f"{len(uit)} beelden getekend naar {args.uit}")
     if knel:
-        print(f"{len(knel)} beelden zijn niet in banen te snijden en worden op een slide te klein: "
-              f"{', '.join(knel)}", file=sys.stderr)
+        print(f"{len(knel)} beelden passen niet in banen en worden op een slide te klein; voor het "
+              f"document is dat geen gebrek: {', '.join(knel)}", file=sys.stderr)
         return 1 if args.streng else 0
     return 0
 

@@ -54,7 +54,7 @@
           "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 1: Wat licht op in de plaat"
         }
       ],
-      "dekking": "open",
+      "dekking": "volledig",
       "link": "https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-1--kwalificatiekader-analyseren-en-grofmazig-ontwerpen"
     },
     {
@@ -720,8 +720,8 @@
       "soort": "ontstaat",
       "wie": "onderwijsontwerper",
       "objecttype": "Leeruitkomst",
-      "instantie": "Biedt farmaceutische patiëntenzorg in een levensechte apotheekomgeving (kerntaakniveau)",
-      "bron": "informatiemodel.md, familie Onderwijskundig kader instelling: de invulling door de instelling van de beoogde leeruitkomsten; leerroute-1-regulier.md, r1046 en r1052 (leervorm simulatie, theorie) en r1092",
+      "instantie": "Verleent farmaceutische patiëntenzorg, volgens de vigerende protocollen en met navolgbare vastlegging, in een levensechte apotheekomgeving (apothekersassistent NLQF 4, kerntaak B1-K1)",
+      "bron": "informatiemodel.md, familie Onderwijskundig kader instelling: de invulling door de instelling van de beoogde leeruitkomsten; leerroute-1-regulier.md, r1046 en r1052 (leervorm simulatie, theorie) en r1092; geformuleerd met de vijfdeling uit de presentatie 'Komen tot leeruitkomsten' (conventie leeruitkomsten, 6 oktober 2026): actief werkwoord, type, onderwerp, standaard en context",
       "aanname": true,
       "relatie": {
         "soort": "Association",
@@ -729,7 +729,7 @@
         "naar": "Leeruitkomst",
         "label": "Wordt vertaald naar"
       },
-      "zin": "Het dossier zegt wat de beroepsbeoefenaar kan; de leeruitkomst is de invulling van de instelling: waar en hoe de student dat laat zien. De kerntaak levert de leeruitkomst op kerntaakniveau, elk werkproces een leeruitkomst eronder: een gelaagde structuur. Hier: leren door te simuleren in een levensechte omgeving, met een klein deel theorie."
+      "zin": "Het dossier zegt wat de beroepsbeoefenaar kan; de leeruitkomst is de invulling van de instelling: waar en hoe de student dat laat zien. De kerntaak levert de leeruitkomst op kerntaakniveau, elk werkproces een leeruitkomst eronder: een gelaagde structuur. De instelling formuleert elke leeruitkomst met vijf vaste onderdelen: een actief werkwoord, het type waarvoor zij geldt, het onderwerp, de standaard waaraan het moet voldoen en de context waarin de student het laat zien. De standaard draagt wat de instelling zelf belangrijk vindt en maakt de leeruitkomst toetsbaar. Daarna plaatst de instelling haar in een onderwijskundige taxonomie, zodat het niveau van het handelen vastligt naast het NLQF-niveau van de kwalificatie. De plaat kent die taxonomie nog niet; zij staat hier gestippeld."
     },
     {
       "beeld_id": "F1-03",
@@ -739,8 +739,8 @@
       "soort": "ontstaat",
       "wie": "onderwijsontwerper",
       "objecttype": "Leeruitkomst",
-      "instantie": "Voert baliegesprek en triage uit in de simulatieapotheek, onderbouwd met theorie (werkprocesniveau)",
-      "bron": "leerroute-1-regulier.md, r620 (Werkproces 1..* Leeruitkomst) en r1092; r1021 (onderwijseenheden corresponderen met kerntaken, leeronderdelen met werkprocessen)",
+      "instantie": "Voert een baliegesprek met triage uit, volgens het triageprotocol en met een onderbouwd advies of doorverwijzing, in de simulatieapotheek (apothekersassistent NLQF 4, werkproces B1-K1-W1)",
+      "bron": "leerroute-1-regulier.md, r620 (Werkproces 1..* Leeruitkomst) en r1092; r1021 (onderwijseenheden corresponderen met kerntaken, leeronderdelen met werkprocessen); geformuleerd met de vijfdeling uit de presentatie 'Komen tot leeruitkomsten' (conventie leeruitkomsten, 6 oktober 2026): actief werkwoord, type, onderwerp, standaard en context",
       "aanname": true,
       "relatie": {
         "soort": "Aggregation",
@@ -756,7 +756,26 @@
           "label": "Wordt vertaald naar",
           "instantie": "B1-K1-W1 Voert baliegesprek en triage uit"
         }
-      ]
+      ],
+      "zin": "Het dossier zegt wat de beroepsbeoefenaar kan; de leeruitkomst is de invulling van de instelling: waar en hoe de student dat laat zien. De kerntaak levert de leeruitkomst op kerntaakniveau, elk werkproces een leeruitkomst eronder: een gelaagde structuur. De instelling formuleert elke leeruitkomst met vijf vaste onderdelen: een actief werkwoord, het type waarvoor zij geldt, het onderwerp, de standaard waaraan het moet voldoen en de context waarin de student het laat zien. De standaard draagt wat de instelling zelf belangrijk vindt en maakt de leeruitkomst toetsbaar. Daarna plaatst de instelling haar in een onderwijskundige taxonomie, zodat het niveau van het handelen vastligt naast het NLQF-niveau van de kwalificatie. De plaat kent die taxonomie nog niet; zij staat hier gestippeld."
+    },
+    {
+      "beeld_id": "F1-03",
+      "beeld": "Leeruitkomsten uit het dossier, in de stem van de instelling",
+      "fase": 1,
+      "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
+      "soort": "ontstaat",
+      "wie": "onderwijsontwerper",
+      "objecttype": "Onderwijskundige taxonomie",
+      "instantie": "Romiszowski: de kerntaakuitkomst is cognitief en productief, de werkprocesuitkomsten volgen een protocol en zijn reproductief",
+      "aanname": true,
+      "relatie": {
+        "soort": "Association",
+        "van": "Leeruitkomst",
+        "naar": "Onderwijskundige taxonomie"
+      },
+      "bron": "presentatie 'Komen tot leeruitkomsten' (conventie leeruitkomsten, 6 oktober 2026); het objecttype staat niet op de informatiemodelplaat en is hier getoond om de uitbreiding bespreekbaar te maken",
+      "zin": "Het dossier zegt wat de beroepsbeoefenaar kan; de leeruitkomst is de invulling van de instelling: waar en hoe de student dat laat zien. De kerntaak levert de leeruitkomst op kerntaakniveau, elk werkproces een leeruitkomst eronder: een gelaagde structuur. De instelling formuleert elke leeruitkomst met vijf vaste onderdelen: een actief werkwoord, het type waarvoor zij geldt, het onderwerp, de standaard waaraan het moet voldoen en de context waarin de student het laat zien. De standaard draagt wat de instelling zelf belangrijk vindt en maakt de leeruitkomst toetsbaar. Daarna plaatst de instelling haar in een onderwijskundige taxonomie, zodat het niveau van het handelen vastligt naast het NLQF-niveau van de kwalificatie. De plaat kent die taxonomie nog niet; zij staat hier gestippeld."
     },
     {
       "beeld_id": "F1-04",
@@ -767,9 +786,9 @@
       "soort": "verandert",
       "wie": "onderwijsontwerper",
       "objecttype": "Leeruitkomst",
-      "instantie": "Biedt farmaceutische patiëntenzorg in een levensechte apotheekomgeving (kerntaakniveau)",
+      "instantie": "Verleent farmaceutische patiëntenzorg, volgens de vigerende protocollen en met navolgbare vastlegging, in een levensechte apotheekomgeving (apothekersassistent NLQF 4, kerntaak B1-K1)",
       "toestand": "vertaald naar skills",
-      "bron": "CompetentNL ontologie 2.1.0 (competentnl.nl, TTL, gewijzigd 14 juli 2026): cnlo:HumanCapability (Vaardigheid) gelaagd via skos:broader, drie lagen (6 verzamelconcepten, 24 generieke, 128 specifieke vaardigheden); cnlo:EducationalNorm (Opleidingsnorm) schrijft vaardigheden voor (cnlo:prescribes); leerroute-1-regulier.md, r1092",
+      "bron": "CompetentNL ontologie 2.1.0 (competentnl.nl, TTL, gewijzigd 14 juli 2026): cnlo:HumanCapability (Vaardigheid) gelaagd via skos:broader, drie lagen (6 verzamelconcepten, 24 generieke, 128 specifieke vaardigheden); cnlo:EducationalNorm (Opleidingsnorm) schrijft vaardigheden voor (cnlo:prescribes); leerroute-1-regulier.md, r1092; geformuleerd met de vijfdeling uit de presentatie 'Komen tot leeruitkomsten' (conventie leeruitkomsten, 6 oktober 2026): actief werkwoord, type, onderwerp, standaard en context",
       "aanname": true,
       "zin": "Verdieping: dezelfde leeruitkomst in CompetentNL-termen: vaardigheden in drie lagen (hier laag 2), kennisgebieden op ISCED-F, en het inzicht dat de plaat apart benoemt. Hoe fijnmaziger, hoe scherper wat Jochem moet leren."
     },
@@ -782,9 +801,9 @@
       "soort": "verandert",
       "wie": "onderwijsontwerper",
       "objecttype": "Leeruitkomst",
-      "instantie": "Voert baliegesprek en triage uit in de simulatieapotheek, onderbouwd met theorie (werkprocesniveau)",
+      "instantie": "Voert een baliegesprek met triage uit, volgens het triageprotocol en met een onderbouwd advies of doorverwijzing, in de simulatieapotheek (apothekersassistent NLQF 4, werkproces B1-K1-W1)",
       "toestand": "vertaald naar skills",
-      "bron": "CompetentNL ontologie 2.1.0 (competentnl.nl, TTL, gewijzigd 14 juli 2026): cnlo:HumanCapability (Vaardigheid) gelaagd via skos:broader, drie lagen (6 verzamelconcepten, 24 generieke, 128 specifieke vaardigheden); cnlo:EducationalNorm (Opleidingsnorm) schrijft vaardigheden voor (cnlo:prescribes); leerroute-1-regulier.md, r1092",
+      "bron": "CompetentNL ontologie 2.1.0 (competentnl.nl, TTL, gewijzigd 14 juli 2026): cnlo:HumanCapability (Vaardigheid) gelaagd via skos:broader, drie lagen (6 verzamelconcepten, 24 generieke, 128 specifieke vaardigheden); cnlo:EducationalNorm (Opleidingsnorm) schrijft vaardigheden voor (cnlo:prescribes); leerroute-1-regulier.md, r1092; geformuleerd met de vijfdeling uit de presentatie 'Komen tot leeruitkomsten' (conventie leeruitkomsten, 6 oktober 2026): actief werkwoord, type, onderwerp, standaard en context",
       "aanname": true,
       "relatie": {
         "soort": "Aggregation",
@@ -891,14 +910,15 @@
       "wie": "onderwijsontwerper",
       "soort": "verandert",
       "objecttype": "Leeruitkomst",
-      "instantie": "Biedt farmaceutische patiëntenzorg in een levensechte apotheekomgeving (kerntaakniveau)",
+      "instantie": "Verleent farmaceutische patiëntenzorg, volgens de vigerende protocollen en met navolgbare vastlegging, in een levensechte apotheekomgeving (apothekersassistent NLQF 4, kerntaak B1-K1)",
       "toestand": "onderwijskundig vertaald",
-      "bron": "informatiemodel.json: Onderwijseenheid specificatie naar Leeruitkomst (associatie); leerroute-1-regulier.md, r621",
+      "bron": "informatiemodel.json: Onderwijseenheid specificatie naar Leeruitkomst (associatie); leerroute-1-regulier.md, r621; geformuleerd met de vijfdeling uit de presentatie 'Komen tot leeruitkomsten' (conventie leeruitkomsten, 6 oktober 2026): actief werkwoord, type, onderwerp, standaard en context",
       "relatie": {
         "soort": "Association",
         "van": "Onderwijseenheid specificatie",
         "naar": "Leeruitkomst"
-      }
+      },
+      "aanname": true
     },
     {
       "beeld_id": "F1-05",
@@ -909,14 +929,15 @@
       "wie": "onderwijsontwerper",
       "soort": "verandert",
       "objecttype": "Leeruitkomst",
-      "instantie": "Voert baliegesprek en triage uit in de simulatieapotheek, onderbouwd met theorie (werkprocesniveau)",
+      "instantie": "Voert een baliegesprek met triage uit, volgens het triageprotocol en met een onderbouwd advies of doorverwijzing, in de simulatieapotheek (apothekersassistent NLQF 4, werkproces B1-K1-W1)",
       "toestand": "onderwijskundig vertaald",
-      "bron": "informatiemodel.json: Leeruitkomst aggregeert Leeruitkomst, Leeronderdeel specificatie naar Leeruitkomst; leerroute-1-regulier.md, r620, r1021 en r1044",
+      "bron": "informatiemodel.json: Leeruitkomst aggregeert Leeruitkomst, Leeronderdeel specificatie naar Leeruitkomst; leerroute-1-regulier.md, r620, r1021 en r1044; geformuleerd met de vijfdeling uit de presentatie 'Komen tot leeruitkomsten' (conventie leeruitkomsten, 6 oktober 2026): actief werkwoord, type, onderwerp, standaard en context",
       "relatie": {
         "soort": "Aggregation",
         "van": "Leeruitkomst",
         "naar": "Leeruitkomst"
-      }
+      },
+      "aanname": true
     },
     {
       "beeld_id": "F1-05",
@@ -980,14 +1001,15 @@
       "wie": "onderwijsontwerper",
       "soort": "verandert",
       "objecttype": "Leeruitkomst",
-      "instantie": "Voert medicatiebewaking uit onder begeleiding in de leerapotheek (werkprocesniveau)",
+      "instantie": "Voert medicatiebewaking uit op signalen uit het apotheeksysteem, volgens het bewakingsprotocol en met overleg bij twijfel, in de leerapotheek onder begeleiding (apothekersassistent NLQF 4, werkprocesniveau)",
       "toestand": "onderwijskundig vertaald",
-      "bron": "informatiemodel.json: Leeruitkomst aggregeert Leeruitkomst; leerroute-1-regulier.md, r1051 (werkproces B1-K1-W2)",
+      "bron": "informatiemodel.json: Leeruitkomst aggregeert Leeruitkomst; leerroute-1-regulier.md, r1051 (werkproces B1-K1-W2); geformuleerd met de vijfdeling uit de presentatie 'Komen tot leeruitkomsten' (conventie leeruitkomsten, 6 oktober 2026): actief werkwoord, type, onderwerp, standaard en context",
       "relatie": {
         "soort": "Aggregation",
         "van": "Leeruitkomst",
         "naar": "Leeruitkomst"
-      }
+      },
+      "aanname": true
     },
     {
       "beeld_id": "F1-05",
@@ -1077,7 +1099,7 @@
           "van": "Leerdoel",
           "naar": "Leeruitkomst",
           "label": "Heeft één of meer",
-          "instantie": "Biedt farmaceutische patiëntenzorg in een levensechte apotheekomgeving (kerntaakniveau)"
+          "instantie": "Verleent farmaceutische patiëntenzorg, volgens de vigerende protocollen en met navolgbare vastlegging, in een levensechte apotheekomgeving (apothekersassistent NLQF 4, kerntaak B1-K1)"
         }
       ]
     },
@@ -1475,16 +1497,16 @@
     },
     {
       "beeld_id": "F1-08",
-      "beeld": "Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen",
+      "beeld": "Kiesbaar onderwijsprogrammaonderdeel: keuzedelen en minor",
       "fase": 1,
       "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
       "wie": "onderwijsontwerper",
       "soort": "ontstaat",
       "objecttype": "Leeruitkomst",
-      "instantie": "Draagt bij aan kwaliteitszorg en arbeidsomstandigheden op de eigen werkplek (kerntaakniveau, keuzedeel)",
+      "instantie": "Draagt bij aan kwaliteitszorg en arbeidsomstandigheden, volgens de RI&E-systematiek en het kwaliteitshandboek van de apotheek, op de eigen werkplek (keuzedeel K0262 NLQF 3, kerntaakniveau)",
       "nieuwe_instantie": true,
       "aanname": true,
-      "bron": "K0262-arbo-kwaliteitszorg-en-hulpverlening-niveau-3.md (keuzedeel mbo K0262, gevalideerd 10-11-2015); leerroute-1-regulier.md, r1072 tot 1080",
+      "bron": "K0262-arbo-kwaliteitszorg-en-hulpverlening-niveau-3.md (keuzedeel mbo K0262, gevalideerd 10-11-2015); leerroute-1-regulier.md, r1072 tot 1080; geformuleerd met de vijfdeling uit de presentatie 'Komen tot leeruitkomsten' (conventie leeruitkomsten, 6 oktober 2026): actief werkwoord, type, onderwerp, standaard en context",
       "relaties": [
         {
           "soort": "Association",
@@ -1494,20 +1516,20 @@
           "instantie": "D1-K1 Draagt bij aan kwaliteitszorg en arbeidsomstandigheden"
         }
       ],
-      "zin": "Een keuzedeel is zelf een programmaspecificatie, gelijksoortig vormgegeven maar los van Jochems opleiding. Het landelijke keuzedeel komt van SBB en levert kerntaken en werkprocessen; de instelling vertaalt die naar leeruitkomsten en geeft ze vorm als onderwijseenheid- en leeronderdeelspecificaties. Ook hier lopen beide verdiepingen niet gelijk op: een werkproces zegt wat summatief moet blijken, een leeronderdeel hoe de student daar komt. Twee keuzedelen vullen samen de ruimte van 720 SBU."
+      "zin": "Een keuzedeel is zelf een programmaspecificatie, gelijksoortig vormgegeven maar los van Jochems opleiding. Het landelijke keuzedeel komt van SBB, met de K-code als verwijzing naar het erkende keuzedeel, en levert kerntaken en werkprocessen; de instelling vertaalt die naar leeruitkomsten en geeft ze vorm als onderwijseenheid- en leeronderdeelspecificaties. Ook hier lopen beide verdiepingen niet gelijk op: een werkproces zegt wat summatief moet blijken, een leeronderdeel hoe de student daar komt. Twee keuzedelen vullen samen de ruimte van 720 SBU. In het hoger onderwijs vult een minor dezelfde ruimte op dezelfde manier, met eigen leeruitkomsten op haar eigen niveau. De plaat draagt het objecttype minor nog niet; het staat hier gestippeld."
     },
     {
       "beeld_id": "F1-08",
-      "beeld": "Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen",
+      "beeld": "Kiesbaar onderwijsprogrammaonderdeel: keuzedelen en minor",
       "fase": 1,
       "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
       "wie": "onderwijsontwerper",
       "soort": "ontstaat",
       "objecttype": "Leeruitkomst",
-      "instantie": "Levert een bijdrage aan de inrichting van het kwaliteitszorgsysteem (werkprocesniveau, keuzedeel)",
+      "instantie": "Levert een bijdrage aan de inrichting van het kwaliteitszorgsysteem, toetsbaar aan de normen uit het kwaliteitshandboek, in de eigen apotheek (keuzedeel K0262 NLQF 3, werkprocesniveau)",
       "nieuwe_instantie": true,
       "aanname": true,
-      "bron": "K0262-arbo-kwaliteitszorg-en-hulpverlening-niveau-3.md (keuzedeel mbo K0262, gevalideerd 10-11-2015); leerroute-1-regulier.md, r1072 tot 1080",
+      "bron": "K0262-arbo-kwaliteitszorg-en-hulpverlening-niveau-3.md (keuzedeel mbo K0262, gevalideerd 10-11-2015); leerroute-1-regulier.md, r1072 tot 1080; geformuleerd met de vijfdeling uit de presentatie 'Komen tot leeruitkomsten' (conventie leeruitkomsten, 6 oktober 2026): actief werkwoord, type, onderwerp, standaard en context",
       "relatie": {
         "soort": "Aggregation",
         "van": "Leeruitkomst",
@@ -1526,7 +1548,7 @@
     },
     {
       "beeld_id": "F1-08",
-      "beeld": "Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen",
+      "beeld": "Kiesbaar onderwijsprogrammaonderdeel: keuzedelen en minor",
       "fase": 1,
       "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
       "wie": "onderwijsontwerper",
@@ -1549,7 +1571,7 @@
     },
     {
       "beeld_id": "F1-08",
-      "beeld": "Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen",
+      "beeld": "Kiesbaar onderwijsprogrammaonderdeel: keuzedelen en minor",
       "fase": 1,
       "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
       "wie": "onderwijsontwerper",
@@ -1575,7 +1597,7 @@
     },
     {
       "beeld_id": "F1-08",
-      "beeld": "Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen",
+      "beeld": "Kiesbaar onderwijsprogrammaonderdeel: keuzedelen en minor",
       "fase": 1,
       "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
       "wie": "onderwijsontwerper",
@@ -1601,7 +1623,7 @@
     },
     {
       "beeld_id": "F1-08",
-      "beeld": "Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen",
+      "beeld": "Kiesbaar onderwijsprogrammaonderdeel: keuzedelen en minor",
       "fase": 1,
       "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
       "wie": "onderwijsontwerper",
@@ -1627,7 +1649,7 @@
     },
     {
       "beeld_id": "F1-08",
-      "beeld": "Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen",
+      "beeld": "Kiesbaar onderwijsprogrammaonderdeel: keuzedelen en minor",
       "fase": 1,
       "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
       "wie": "onderwijsontwerper",
@@ -1653,7 +1675,7 @@
     },
     {
       "beeld_id": "F1-08",
-      "beeld": "Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen",
+      "beeld": "Kiesbaar onderwijsprogrammaonderdeel: keuzedelen en minor",
       "fase": 1,
       "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
       "wie": "onderwijsontwerper",
@@ -1679,7 +1701,39 @@
     },
     {
       "beeld_id": "F1-08",
-      "beeld": "Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen",
+      "beeld": "Kiesbaar onderwijsprogrammaonderdeel: keuzedelen en minor",
+      "fase": 1,
+      "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
+      "soort": "ontstaat",
+      "wie": "onderwijsontwerper",
+      "objecttype": "Leeruitkomst",
+      "nieuwe_instantie": true,
+      "aanname": true,
+      "bron": "K0037-farmaceutische-patientenzorg.md (keuzedeel mbo K0037, 480 SBU, aard verdiepend, gevalideerd 26-11-2015); geformuleerd met de vijfdeling uit de presentatie 'Komen tot leeruitkomsten' (conventie leeruitkomsten, 6 oktober 2026): actief werkwoord, type, onderwerp, standaard en context",
+      "instantie": "Voert verdiepende farmaceutische patiëntenzorg uit, volgens de richtlijn farmaceutische patiëntenzorg en met een onderbouwd advies, bij patiënten met meervoudig geneesmiddelgebruik (keuzedeel K0037 NLQF 4, kerntaakniveau)"
+    },
+    {
+      "beeld_id": "F1-08",
+      "beeld": "Kiesbaar onderwijsprogrammaonderdeel: keuzedelen en minor",
+      "fase": 1,
+      "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
+      "soort": "ontstaat",
+      "wie": "onderwijsontwerper",
+      "objecttype": "Leeruitkomst",
+      "nieuwe_instantie": true,
+      "aanname": true,
+      "bron": "K0037-farmaceutische-patientenzorg.md (keuzedeel mbo K0037, 480 SBU, aard verdiepend, gevalideerd 26-11-2015); geformuleerd met de vijfdeling uit de presentatie 'Komen tot leeruitkomsten' (conventie leeruitkomsten, 6 oktober 2026): actief werkwoord, type, onderwerp, standaard en context",
+      "relatie": {
+        "soort": "Aggregation",
+        "van": "Leeruitkomst",
+        "naar": "Leeruitkomst",
+        "nesting": true
+      },
+      "instantie": "Stelt een medicatieoverzicht op, volgens de richtlijn medicatieoverzicht en geverifieerd bij patiënt en voorschrijver, in de leerapotheek (keuzedeel K0037 NLQF 4, werkprocesniveau)"
+    },
+    {
+      "beeld_id": "F1-08",
+      "beeld": "Kiesbaar onderwijsprogrammaonderdeel: keuzedelen en minor",
       "fase": 1,
       "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
       "wie": "onderwijsontwerper",
@@ -1703,7 +1757,7 @@
     },
     {
       "beeld_id": "F1-08",
-      "beeld": "Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen",
+      "beeld": "Kiesbaar onderwijsprogrammaonderdeel: keuzedelen en minor",
       "fase": 1,
       "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
       "wie": "onderwijsontwerper",
@@ -1729,7 +1783,7 @@
     },
     {
       "beeld_id": "F1-08",
-      "beeld": "Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen",
+      "beeld": "Kiesbaar onderwijsprogrammaonderdeel: keuzedelen en minor",
       "fase": 1,
       "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
       "wie": "onderwijsontwerper",
@@ -1755,7 +1809,7 @@
     },
     {
       "beeld_id": "F1-08",
-      "beeld": "Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen",
+      "beeld": "Kiesbaar onderwijsprogrammaonderdeel: keuzedelen en minor",
       "fase": 1,
       "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
       "wie": "onderwijsontwerper",
@@ -1778,6 +1832,36 @@
           "instantie": "Biedt farmaceutische patientenzorg aan specifieke doelgroepen (werkprocesniveau)"
         }
       ]
+    },
+    {
+      "beeld_id": "F1-08",
+      "beeld": "Kiesbaar onderwijsprogrammaonderdeel: keuzedelen en minor",
+      "fase": 1,
+      "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
+      "soort": "ontstaat",
+      "wie": "onderwijsontwerper",
+      "objecttype": "Minor",
+      "aanname": true,
+      "bron": "Npuls-OKx/Public#104, review van Huib Jan Wielemaker op 6 oktober 2026: het keuzedeel staat op de plaat als vast gegeven terwijl het hoger onderwijs het niet kent. De minor staat hier als pendant; de plaat draagt het objecttype nog niet",
+      "relatie": {
+        "soort": "Specialization",
+        "van": "Minor",
+        "naar": "Opleidingsprogramma specificatie"
+      },
+      "instantie": "Farmacotherapie en patiëntveiligheid, 30 EC (hbo-bachelor NLQF 6)"
+    },
+    {
+      "beeld_id": "F1-08",
+      "beeld": "Kiesbaar onderwijsprogrammaonderdeel: keuzedelen en minor",
+      "fase": 1,
+      "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
+      "soort": "ontstaat",
+      "wie": "onderwijsontwerper",
+      "objecttype": "Leeruitkomst",
+      "nieuwe_instantie": true,
+      "aanname": true,
+      "bron": "Npuls-OKx/Public#104, review van Huib Jan Wielemaker op 6 oktober 2026: het keuzedeel staat op de plaat als vast gegeven terwijl het hoger onderwijs het niet kent. De minor staat hier als pendant; de plaat draagt het objecttype nog niet; geformuleerd met de vijfdeling uit de presentatie 'Komen tot leeruitkomsten' (conventie leeruitkomsten, 6 oktober 2026): actief werkwoord, type, onderwerp, standaard en context",
+      "instantie": "Beoordeelt farmacotherapie op patiëntveiligheid, volgens de vigerende richtlijnen en onderbouwd met literatuur, in een multidisciplinair overleg (minor NLQF 6)"
     },
     {
       "beeld_id": "F1-09",
@@ -2164,9 +2248,10 @@
       "pijl": "geen pijl op de hoofdplaat",
       "koppeling": null,
       "objecttype": "Leeruitkomst",
-      "instantie": "Biedt farmaceutische patiëntenzorg in een levensechte apotheekomgeving (kerntaakniveau)",
-      "bron": "leerroute-1-regulier.md, Fase 1: Curriculum-ontwerptool naar OC, alles op grofmazig niveau; AGENTS.md: de leeruitkomst is de sleutel, specificaties en de resultaatstructuur verwijzen ernaar",
-      "zin": "De opleiding zoals ontworpen gaat als gelinkt geheel naar de catalogus: leeruitkomsten met hun skills, de specificatiestructuur met het onderwijsontwerp (paars: conceptplaat) en de resultaatstructuur; alles verwijst naar de leeruitkomst. Op v1.7 zit de ontwerptool binnen de catalogus, dus geen aparte pijl."
+      "instantie": "Verleent farmaceutische patiëntenzorg, volgens de vigerende protocollen en met navolgbare vastlegging, in een levensechte apotheekomgeving (apothekersassistent NLQF 4, kerntaak B1-K1)",
+      "bron": "leerroute-1-regulier.md, Fase 1: Curriculum-ontwerptool naar OC, alles op grofmazig niveau; AGENTS.md: de leeruitkomst is de sleutel, specificaties en de resultaatstructuur verwijzen ernaar; geformuleerd met de vijfdeling uit de presentatie 'Komen tot leeruitkomsten' (conventie leeruitkomsten, 6 oktober 2026): actief werkwoord, type, onderwerp, standaard en context",
+      "zin": "De opleiding zoals ontworpen gaat als gelinkt geheel naar de catalogus: leeruitkomsten met hun skills, de specificatiestructuur met het onderwijsontwerp (paars: conceptplaat) en de resultaatstructuur; alles verwijst naar de leeruitkomst. Op v1.7 zit de ontwerptool binnen de catalogus, dus geen aparte pijl.",
+      "aanname": true
     },
     {
       "beeld_id": "F1-12",
@@ -2179,14 +2264,15 @@
       "pijl": "geen pijl op de hoofdplaat",
       "koppeling": null,
       "objecttype": "Leeruitkomst",
-      "instantie": "Voert baliegesprek en triage uit in de simulatieapotheek (werkprocesniveau)",
-      "bron": "leerroute-1-regulier.md, Fase 1: Curriculum-ontwerptool naar OC, alles op grofmazig niveau",
+      "instantie": "Voert een baliegesprek met triage uit, volgens het triageprotocol en met een onderbouwd advies of doorverwijzing, in de simulatieapotheek (apothekersassistent NLQF 4, werkproces B1-K1-W1)",
+      "bron": "leerroute-1-regulier.md, Fase 1: Curriculum-ontwerptool naar OC, alles op grofmazig niveau; geformuleerd met de vijfdeling uit de presentatie 'Komen tot leeruitkomsten' (conventie leeruitkomsten, 6 oktober 2026): actief werkwoord, type, onderwerp, standaard en context",
       "relatie": {
         "soort": "Aggregation",
         "van": "Leeruitkomst",
         "naar": "Leeruitkomst",
         "nesting": true
-      }
+      },
+      "aanname": true
     },
     {
       "beeld_id": "F1-12",
@@ -3014,7 +3100,7 @@
           "soort": "Association",
           "van": "Leeronderdeel specificatie",
           "naar": "Leeruitkomst",
-          "instantie": "Voert medicatiebewaking uit onder begeleiding in de leerapotheek (werkprocesniveau)"
+          "instantie": "Voert medicatiebewaking uit op signalen uit het apotheeksysteem, volgens het bewakingsprotocol en met overleg bij twijfel, in de leerapotheek onder begeleiding (apothekersassistent NLQF 4, werkprocesniveau)"
         }
       ]
     },
@@ -6048,7 +6134,8 @@
         "W5"
       ],
       "issue": 283,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F1-02: de zin noemt de ontwerper als ontwikkelaar van het examenplan en de eerste resultaatstructuur en de examencommissie als vaststeller, en draagt de praktijk dat een vastgesteld examenplan nog wijzigt wanneer het beheer van het studentvolgsysteem de structuur of de zak-slaagregeling niet kan verwerken, met de catalogus als bewaker vooraf. De rol op de regels is onderwijsontwerper."
     },
     {
       "nummer": "B02",
@@ -6065,7 +6152,8 @@
         "W1"
       ],
       "issue": 283,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F1-06: de zin zegt dat de eenheid alleen toetsbare uitkomsten draagt, dat het ontwerp aan de leeronderdelen hangt, en dat leeronderdelen later inhoudelijk tot leergelegenheden worden geclusterd met dezelfde vorm en opbouwende fase, waarbij een leergelegenheid leeronderdelen van verschillende onderwijseenheden behandelt."
     },
     {
       "nummer": "B03",
@@ -6083,7 +6171,8 @@
         "W1"
       ],
       "issue": 283,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F1-08: de zin zegt dat de twee verdiepingen niet gelijk oplopen, een werkproces zegt wat summatief moet blijken en een leeronderdeel is het ontwikkelingsgerichte antwoord. De leeronderdelen dragen didactische namen (Kwaliteitszorg in de eigen praktijk, RI&E van begin tot eind, Handelen bij calamiteiten, Het medicatieoverzicht opstellen, Zorg aan specifieke doelgroepen) in plaats van werkprocescodes. Het beeld heet nu Kiesbaar onderwijsprogrammaonderdeel: keuzedelen en minor en draagt ook de leeruitkomsten van K0037, die er niet stonden, en de minor als pendant uit het hoger onderwijs, gestippeld omdat de plaat het objecttype niet kent. De modelvraag daarachter staat in #319 en wordt daar gewogen, niet hier."
     },
     {
       "nummer": "B04",
@@ -6100,7 +6189,8 @@
         "W4"
       ],
       "issue": 283,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F1-09: elk toets- en examenonderdeel draagt schaal, afnamevorm, duur, toegestane hulpmiddelen en aantal pogingen in de instantie, en de zin zegt waarom: zonder die kenmerken kan een studentvolgsysteem een resultaat niet interpreteren. Zowel een cijferschaal met decimalen als onvoldoende, voldoende of goed komt voor."
     },
     {
       "nummer": "B05",
@@ -6117,7 +6207,8 @@
         "W4"
       ],
       "issue": 283,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F1-12: de keuzedeelruimte gaat mee in de summatieve resultaatstructuur (instantie: weegt mee in de summatieve resultaatstructuur) en de formatieve resultaatstructuur staat erbij als concept, nog zonder weging."
     },
     {
       "nummer": "B06",

@@ -211,6 +211,38 @@ class GenereerTests(unittest.TestCase):
         doc = self.bouw(r)
         self.assertIn("Er staan nu geen vragen in de regeltabel.", doc)
 
+    def test_given_the_reading_guide_when_read_then_it_explains_specification_offer_and_association(self):
+        """Criterium 9 van elke fase: de primaire lezer kent die termen niet van huis uit, dus het
+        onderscheid hoort uit de tekst zelf te blijken."""
+        doc = self.bouw()
+        guide = doc[doc.index("## Leeswijzer"):doc.index("## ", doc.index("## Leeswijzer") + 5)]
+        for term in ("Specificatie", "Aanbod", "Verbintenis", "Resultaat"):
+            self.assertIn(f"| {term} |", guide)
+        self.assertIn("zonder dat er iemand voor kiest", guide)
+
+    def test_given_the_examples_in_the_reading_guide_when_checked_then_the_table_still_carries_them(self):
+        """De leeswijzer noemt instanties uit de regeltabel; verdwijnt er een, dan liegt de uitleg."""
+        tabel = json.loads((Path(__file__).resolve().parent.parent / "architecture/model/informatiemodel/voorbeeld-lr1-regels.json").read_text(encoding="utf-8"))
+        alles = " | ".join(r.get("instantie", "") for r in tabel["regels"])
+        for voorbeeld in ("Apothekersassistent, versie 2026.1", "Apothekersassistent 2026", "Jochem op Regulier BOL 2026"):
+            self.assertIn(voorbeeld, alles)
+
+    def test_given_the_specialisation_table_when_read_then_the_plate_carries_every_pair(self):
+        """De leeswijzer legt de specialisatieregel uit met het keuzedeel als voorbeeld. Klopt een paar niet
+        meer met de plaat, dan legt de uitleg iets uit dat er niet staat."""
+        wortel = Path(__file__).resolve().parent.parent
+        model = json.loads((wortel / "architecture/model/informatiemodel/informatiemodel.json").read_text(encoding="utf-8"))
+        paren = {(r["van"], r["naar"]) for r in model["relaties"] if r["soort"] == "Specialization"}
+        for bijzonder, algemeen in (
+                ("Keuzedeel", "Opleidingsprogramma specificatie"),
+                ("Keuzedeelruimte", "Opleidingsprogramma specificatie"),
+                ("Keuzedeelaanbod", "Opleidingsprogramma aanbod"),
+                ("Keuzedeel aanbod verbintenis", "Opleidingsprogramma aanbod verbintenis"),
+                ("Keuzedeel resultaat", "Opleidingsprogramma resultaat")):
+            self.assertIn((bijzonder, algemeen), paren, f"{bijzonder} is geen specialisatie van {algemeen}")
+        doc = self.bouw()
+        self.assertIn("| Aanbod | `Opleidingsprogramma aanbod` | `Keuzedeelaanbod` |", doc)
+
     def test_given_document_when_generated_then_no_dash_and_no_frontmatter(self):
         doc = self.bouw()
         self.assertFalse(doc.startswith("---"))

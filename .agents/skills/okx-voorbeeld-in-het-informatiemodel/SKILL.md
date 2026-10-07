@@ -96,7 +96,7 @@ De renderer tekent per beeld één SVG in ArchiMate-kleur, met het ID en de beel
 
 Een beeld is een bestand. De renderer groepeert de regels van een beeld tot een blok, ook als zij van rol wisselen: de rollen staan dan samen in de kop ("planner, SLB'er"). Leveren twee blokken toch dezelfde bestandsnaam, dan stopt de renderer met beide namen erbij, want een overschreven bestand toont minder dan de tabel zegt.
 
-De renderer noemt per beeld de breedte, de hoogte, het aantal banen en de hoogte van elke baan. Een snede ligt altijd in witruimte, dus banen vallen alleen even uit waar het beeld dat toelaat; ongelijke banen zijn daarmee een teken dat het beeld te dicht getekend staat. Een beeld dat helemaal niet te snijden is levert de reden en het y-bereik waar de witregel ontbreekt. Met `--streng` eindigt dat in een foutcode.
+De renderer noemt per beeld de breedte, de hoogte, het aantal banen en de hoogte van elke baan. Een snede ligt altijd in witruimte, dus banen vallen alleen even uit waar het beeld dat toelaat; ongelijke banen zijn daarmee een teken dat het beeld te dicht getekend staat. Een beeld dat helemaal niet te snijden is levert de reden en het y-bereik waar de witregel ontbreekt. De voorbeelduitwerking is een document, dus dat is daar geen gebrek: het snijden telt pas wanneer een beeld op een slide moet, en de melding zegt dan welk beeld eerst korter hoort. Met `--streng` eindigt het in een foutcode, voor wie een deck bouwt.
 
 Bekijk het beeld zelf voordat je het meldt: `soffice --headless --convert-to png` in de scratchpad, en zet het beeld voor de gebruiker op een branch met een GitHub-link (bestanden sturen werkt niet in de container).
 

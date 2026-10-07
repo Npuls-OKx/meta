@@ -115,6 +115,35 @@ Vier termen, overal gelijk:
 | Applicatiedienst | De ArchiMate-applicatiedienst op de hoofdplaat en in MORA; alleen context |
 | Koppeling | Een pijl op hoofdplaat v1.7 tussen twee componenten; met de koppeling-ID uit Public waar die er is |
 
+Vier lagen waarin hetzelfde onderwijs steeds concreter wordt. Dit onderscheid draagt het hele document, en
+elk beeld staat in een van deze lagen:
+
+| Laag | Wat het is | In dit voorbeeld |
+|---|---|---|
+| Specificatie | Wat de instelling aanbiedt, los van tijd, plaats en student: de opleiding zoals ontworpen | `Apothekersassistent, versie 2026.1` |
+| Aanbod | Diezelfde specificatie in de tijd gezet, met een plaats en een capaciteit | `Apothekersassistent 2026` met perioden en plaatsen |
+| Verbintenis | De band tussen een student en een aanbod: waarop hij staat ingeschreven | `Jochem op Regulier BOL 2026` |
+| Resultaat | Wat de student op die verbintenis heeft laten zien | het cijfer op de praktijktoets baliegesprek |
+
+Een specificatie bestaat dus zonder dat er iemand voor kiest, een aanbod zonder dat er iemand op zit, en een
+verbintenis zonder dat er al een resultaat is. Dezelfde naam komt in meer lagen voor: `Opleidingaanbod` is het
+aanbod, `Opleiding aanbod verbintenis` de inschrijving daarop.
+
+Een specialisatie op de plaat (open pijlpunt) zegt dat het ene objecttype de structuur van het andere overneemt
+en er eigen eigenschappen bij krijgt. Het keuzedeel is daarvan het duidelijkste voorbeeld, en het loopt door
+alle vier de lagen heen:
+
+| Laag | Algemeen | Specialisatie |
+|---|---|---|
+| Specificatie | `Opleidingsprogramma specificatie` | `Keuzedeel`, `Keuzedeelruimte` |
+| Aanbod | `Opleidingsprogramma aanbod` | `Keuzedeelaanbod` |
+| Verbintenis | `Opleidingsprogramma aanbod verbintenis` | `Keuzedeel aanbod verbintenis` |
+| Resultaat | `Opleidingsprogramma resultaat` | `Keuzedeel resultaat` |
+
+Een keuzedeel is daarmee in opbouw bijna hetzelfde als een programma: het erft die opbouw en vult hem aan. Wat
+het eigen heeft komt in het logisch gegevensmodel erbij. Het algemene begrip staat dus al op de plaat, en het
+keuzedeel is de invulling die het mbo eraan geeft.
+
 Twee soorten regels, in de vormtaal van de plaat:
 
 - **Ontstaat**: een rol (geel, rolicoon) voert een processtap uit (geel, procesicoon) en daaruit ontstaan objecttypen (geel, objecticoon) met Jochems waarde. "Bestaat uit" is nesting; een relatielabel van de plaat staat tussen twee objecten of als verwijzing op een object dat aan een eerdere stap hangt. Een gestippelde rand is een aanname; grijs is een objecttype dat de plaat buiten de uitwisseling zet en dit voorbeeld toch meeneemt.
