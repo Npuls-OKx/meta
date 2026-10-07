@@ -14,6 +14,7 @@ Hoort bij [de opleiding van Jochem in het informatiemodel](voorbeeld-leerroute-1
 | 1 | F1-02 | Examenplan | | | | |
 | 1 | F1-03 | Leeruitkomst | | | | |
 | 1 | F1-03 | Leeruitkomst | | | | |
+| 1 | F1-03 | Onderwijskundige taxonomie | | | | |
 | 1 | F1-04 | Leeruitkomst | | | | |
 | 1 | F1-04 | Leeruitkomst | | | | |
 | 1 | F1-04 | Competenties / Skills | | | | |
