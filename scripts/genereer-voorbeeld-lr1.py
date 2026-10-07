@@ -268,10 +268,12 @@ def vragenpagina(regels):
             uit += f"\n### Vragen, vervolg ({pagina} van {(len(vragen) - 1) // VRAGEN_PER_PAGINA + 1})\n\n"
         for i, (v, plek) in enumerate(vragen[begin:begin + VRAGEN_PER_PAGINA], begin + 1):
             uit += f"{i}. {v} ({plek})\n"
-    if len(vragen) > VRAGEN_PER_PAGINA:
+    rest = len(vragen) - VRAGEN_PER_PAGINA
+    if rest > 0:
+        staart = ("De overige vraag staat hierboven en wacht op een volgende ronde."
+                  if rest == 1 else f"De overige {rest} staan hierboven en wachten op een volgende ronde.")
         uit += (f"\nDe eerste {VRAGEN_PER_PAGINA} vragen gaan als ronde mee naar de kerngroep; dat is wat een "
-                f"sessie kan wegen. De overige {len(vragen) - VRAGEN_PER_PAGINA} staan hierboven en wachten op "
-                f"een volgende ronde.\n")
+                f"sessie kan wegen. {staart}\n")
     uit += "\nVragen over patronen, schema's, de toetslijst en endpoints horen bij de koppelvlakspecificatie en staan hier niet.\n"
     return uit + "\n"
 

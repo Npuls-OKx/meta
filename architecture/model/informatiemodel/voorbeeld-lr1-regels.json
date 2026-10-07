@@ -190,7 +190,8 @@
             "plaatsingsgroep",
             "planninggroep"
           ],
-          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 4: Wat licht op in de plaat"
+          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 4: Wat licht op in de plaat",
+          "afwijking": "hoofdplaat v1.7 kent alleen de lijn van de kernregistratie naar planning (Ontsluiten plaatsingsgroepen met studenten), en het voorbeeld volgt de plaat: de plaatsingsgroep gaat in F4-06 van de kernregistratie naar planning. Of een groep die de planner zelf vormt terug hoort naar de kernregistratie staat als vraag bij F4-06"
         },
         {
           "van": "Kernregistratie systeem studenten (KRS)",
@@ -216,7 +217,8 @@
           "objecten": [
             "leergelegenheid-verbintenis als presentielijst"
           ],
-          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 4: Wat licht op in de plaat"
+          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 4: Wat licht op in de plaat",
+          "buiten_scope": "aanwezigheidsregistratie valt buiten OKx. Wat de scope wel raakt is het afgeleide deelnameresultaat, en dat staat bij F5-01"
         },
         {
           "van": "Kernregistratie systeem studenten (KRS)",
@@ -228,7 +230,7 @@
           "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 4: Wat licht op in de plaat"
         }
       ],
-      "dekking": "open",
+      "dekking": "volledig",
       "link": "https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-4--detailleren-roosteren-en-inschrijven"
     },
     {
@@ -4794,7 +4796,8 @@
           "label": "Worden gegroepeerd via",
           "instantie": "Jochem en 29 andere studenten"
         }
-      ]
+      ],
+      "vraag": "Het kaderscenario zet groepen in twee richtingen tussen planning en de kernregistratie, en hoofdplaat v1.7 kent alleen de lijn van de kernregistratie naar planning. Een planninggroep die de planner om logistieke redenen vormt, hoort die terug naar de kernregistratie als nieuwe plaatsingsgroep, en mist de plaat dan een stroom?"
     },
     {
       "beeld_id": "F4-06",
@@ -6382,7 +6385,8 @@
         "W1"
       ],
       "issue": 286,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F4-01: de titel noemt de lessenreeks zonder werkprocesverwijzing, en de zin zegt dat de lesspecificaties bij het leeronderdeel horen, dat zij logistiek in een leergelegenheid landen, en dat die leergelegenheid in de praktijk lesspecificaties uit meer dan een leeronderdeel draagt: de leergelegenheid is de planningscontainer, het leeronderdeel de inhoudelijke eenheid."
     },
     {
       "nummer": "B15",
@@ -6399,7 +6403,8 @@
         "W7"
       ],
       "issue": 286,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F4-02: het beeld draagt de leeronderdeelspecificatie met haar lessen, het formatieve toetsonderdeel en de formatieve resultaatstructuur, en de zin zegt dat het LMS de volledige opleidingsspecificatie-boom plus de formatieve structuur nodig heeft, dat de leergelegenheid als reeks komt met de te verwerken leerspecificaties, en dat de catalogus de lesspecificatie niet dicteert."
     },
     {
       "nummer": "B16",
@@ -6417,7 +6422,8 @@
         "W7"
       ],
       "issue": 286,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F4-03: de toetsmatrijs is uit de stroom gehaald; de zin zegt dat zij bij het toetsinstrument hoort, zelf ontwikkeld of ingekocht, en niet in de catalogus woont. De verdieping scheidt wat bij de les hoort (leervorm, lesplanning, lesleerdoel, werkinstructies) van wat bij de toetsonderdeelspecificatie hoort (toetsvorm, toetsinstrument)."
     },
     {
       "nummer": "B17",
@@ -6435,7 +6441,8 @@
         "W4"
       ],
       "issue": 286,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F4-04: de titel noemt de summatieve resultaatstructuur. Elk onderdeel draagt schaal en afnamevorm, de zin zegt dat formatieve en summatieve onderdelen naast elkaar bestaan en dat een examen ook als toets telt, dat het volgsysteem ze aan een unieke codering herkent en equivalentie ondersteunt (een resultaat dat in meerdere structuren meetelt), en dat er optioneel condities aan een onderdeel hangen die zeggen wanneer een student mag examineren."
     },
     {
       "nummer": "B18",
@@ -6454,7 +6461,8 @@
         "W7"
       ],
       "issue": 286,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F4-05: de titel noemt de summatieve resultaatstructuur en de zin zegt dat kernregistratie en studentvolgsysteem in de praktijk lastig los te zien zijn, dat alle resultaten idealiter in dynamische structuren in het volgsysteem staan die met de keuzes van de student meegroeien, en dat alleen de eindresultaten naar de kernregistratie gaan ter verantwoording van diplomering."
     },
     {
       "nummer": "B19",
@@ -6474,7 +6482,8 @@
         "W3"
       ],
       "issue": 286,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F4-07: de titel noemt geen werkproces, en de leergelegenheid draagt lokaaltype, docentexpertise en groep in haar instantie. De zin zegt dat roosteren zonder die vaste kenmerken niets aan de uitwisseling heeft, dat de groep de studenten bindt die hetzelfde aanbod afnemen en dus niet gelijktijdig geroosterd kunnen worden, en dat die groep nog leeg mag zijn."
     },
     {
       "nummer": "B20",
@@ -6494,7 +6503,8 @@
         "W5"
       ],
       "issue": 286,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F4-08: de titel noemt geen werkproces. De zin zegt dat het eindproduct van roosteren een vastgesteld tijdstip in lesuren van de instelling is en een lokaaltype dat een lokaalnummer is geworden, en dat de docent vooraf bepaald kan zijn of tijdens het roosteren op expertise gekozen."
     },
     {
       "nummer": "B21",
@@ -6512,7 +6522,8 @@
         "W5"
       ],
       "issue": 286,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F4-09: de SLB'er koppelt Jochem alleen aan het opleidingsprogramma-aanbod en aan een plaatsingsgroep. De drie verbintenissen op de geroosterde gelegenheden ontstaan bij de planner, en de zin zegt dat de groep vanuit de kernregistratie naar planning gaat en dat daar alle leergelegenheden onder het programma-aanbod voor de groep worden gepland zonder tussenkomst van de SLB'er, met de mogelijkheid dat de planner om logistieke redenen een eigen lesgroep vormt. Dit beeld toonde eerder alleen de regel van de SLB'er doordat de renderer twee blokken naar hetzelfde bestand schreef; dat is opgelost in #304."
     },
     {
       "nummer": "B22",

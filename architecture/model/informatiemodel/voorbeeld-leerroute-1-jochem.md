@@ -625,8 +625,14 @@ De vragen die de regels zelf oproepen, met de regel waar de vraag zichtbaar word
 3. Het logisch gegevensmodel laat een resultaateenheid een keuzedeelruimte beoordelen, de plaat kent die relatie niet. Hoort de keuzedeelruimte in de summatieve resultaatstructuur? (F1-12, `Keuzedeelruimte`)
 4. De catalogus clustert leeronderdelen inhoudelijk tot leergelegenheden, en zo'n leergelegenheid draagt leeronderdelen van verschillende onderwijseenheden. Op de plaat is Leergelegenheid een aanbodobject onder Onderwijseenheid aanbod, en aan de specificatiekant ontbreekt een container voor dat cluster. Hoort er een gewenste leergelegenheid bij? (F2-01, `Leeronderdeel specificatie`)
 5. Het studentkeuzesysteem heeft de behaalde leeruitkomsten nodig om geen keuzes voor te leggen die de student al deed. Hoofdplaat v1.7 kent wel een stroom van de kernregistratie naar het keuzesysteem en geen van het studentvolgsysteem. Komt die kennis uit de kernregistratie, of mist de plaat een stroom? (F3-08, `Leeruitkomst`)
-6. Aanwezigheidsregistratie zelf valt buiten OKx. Wat de scope wel raakt is het afgeleide deelnameresultaat: bij een onderwijseenheid die niet wordt getoetst kan het aandeel bijgewoonde lesgelegenheden een studievoortgangsresultaat zijn dat in het keuzesysteem keuzes vrijgeeft of beperkt. Hoort dat afgeleide resultaat in de uitwisseling, en blijft de registratie erbuiten? (F5-01, `Aanwezigheid`)
-7. Een toetsgelegenheid vindt plaats binnen een leergelegenheid, maar het resultaat telt op de onderwijseenheid. Hangt een toetsgelegenheidresultaat aan de leergelegenheidverbintenis of aan de onderwijseenheidverbintenis, formatief zowel als summatief? (F5-04, `Onderwijseenheid resultaat`)
+6. Het kaderscenario zet groepen in twee richtingen tussen planning en de kernregistratie, en hoofdplaat v1.7 kent alleen de lijn van de kernregistratie naar planning. Een planninggroep die de planner om logistieke redenen vormt, hoort die terug naar de kernregistratie als nieuwe plaatsingsgroep, en mist de plaat dan een stroom? (F4-06, `Plaatsingsgroep`)
+7. Aanwezigheidsregistratie zelf valt buiten OKx. Wat de scope wel raakt is het afgeleide deelnameresultaat: bij een onderwijseenheid die niet wordt getoetst kan het aandeel bijgewoonde lesgelegenheden een studievoortgangsresultaat zijn dat in het keuzesysteem keuzes vrijgeeft of beperkt. Hoort dat afgeleide resultaat in de uitwisseling, en blijft de registratie erbuiten? (F5-01, `Aanwezigheid`)
+
+### Vragen, vervolg (2 van 2)
+
+8. Een toetsgelegenheid vindt plaats binnen een leergelegenheid, maar het resultaat telt op de onderwijseenheid. Hangt een toetsgelegenheidresultaat aan de leergelegenheidverbintenis of aan de onderwijseenheidverbintenis, formatief zowel als summatief? (F5-04, `Onderwijseenheid resultaat`)
+
+De eerste 7 vragen gaan als ronde mee naar de kerngroep; dat is wat een sessie kan wegen. De overige vraag staat hierboven en wacht op een volgende ronde.
 
 Vragen over patronen, schema's, de toetslijst en endpoints horen bij de koppelvlakspecificatie en staan hier niet.
 
