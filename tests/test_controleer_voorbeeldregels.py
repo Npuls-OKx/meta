@@ -139,10 +139,13 @@ class ControleTests(unittest.TestCase):
         _, w, _ = cv.controleer(r, m, stromen())
         self.assertFalse(any("loopt via de leeruitkomst" in x for x in w))
 
-    def test_given_unknown_objecttype_when_checked_then_finding_names_type(self):
+    def test_given_unknown_objecttype_when_checked_then_signal_with_the_place_in_the_line(self):
+        """Een objecttype dat de plaat nog niet draagt hoort een fase niet te blokkeren, dus het is een
+        signalering met de fase en de stap erbij en de exitcode gaat eraan voorbij."""
         r = regels(); r["regels"][0]["objecttype"] = "Bestaat niet"
-        b, _, _ = bevindingen(r)
-        self.assertTrue(any("Bestaat niet" in x and "bestaat niet in het informatiemodel" in x for x in b))
+        b, w, _ = bevindingen(r)
+        self.assertEqual([x for x in b if "Bestaat niet" in x], [])
+        self.assertTrue(any("Bestaat niet" in x and "fase 2" in x and "Aanbod maken" in x for x in w), w)
 
     def test_given_name_differing_only_in_whitespace_when_checked_then_accepted(self):
         # de fixture kent "Opleiding aanbod  verbintenis" met dubbele spatie; de regel gebruikt een spatie
@@ -154,10 +157,11 @@ class ControleTests(unittest.TestCase):
         b, _, _ = bevindingen(r)
         self.assertEqual(b, [])
 
-    def test_given_assumed_objecttype_not_on_plate_when_checked_then_finding(self):
+    def test_given_assumed_objecttype_not_on_plate_when_checked_then_signal(self):
         r = regels(); r["regels"][0]["objecttype"] = "Verzonnen"; r["regels"][0]["aanname"] = True
-        b, _, _ = bevindingen(r)
-        self.assertTrue(any("Verzonnen" in x for x in b))
+        b, w, _ = bevindingen(r)
+        self.assertEqual([x for x in b if "Verzonnen" in x], [])
+        self.assertTrue(any("Verzonnen" in x for x in w))
 
     def test_given_relation_triple_on_plate_when_checked_then_accepted(self):
         b, _, _ = bevindingen()
@@ -307,10 +311,10 @@ class ConceptplaatTests(unittest.TestCase):
         b, _, _ = bevindingen(r)
         self.assertTrue(any("conceptplaat is niet geladen" in x for x in b))
 
-    def test_given_concept_rule_with_unknown_type_or_relation_when_checked_then_finding_names_conceptplaat(self):
+    def test_given_concept_rule_with_unknown_type_or_relation_when_checked_then_named_against_the_conceptplaat(self):
         r = regels(); r["regels"].append(conceptregel(objecttype="Onderwijsvorm specificatie"))
-        b, _, _ = bevindingen(r, conceptplaat=conceptplaat())
-        self.assertTrue(any("bestaat niet op de conceptplaat" in x for x in b))
+        b, w, _ = bevindingen(r, conceptplaat=conceptplaat())
+        self.assertTrue(any("bestaat niet op de conceptplaat" in x for x in w), w)
         r = regels(); r["regels"].append(conceptregel(relatie={"soort": "Aggregation", "van": "Leervormstrategie", "naar": "Leerdoel"}))
         b, _, _ = bevindingen(r, conceptplaat=conceptplaat())
         self.assertTrue(any("staat niet op de conceptplaat" in x for x in b))
@@ -459,6 +463,168 @@ class RegisterTests(unittest.TestCase):
             self.assertIn(b["beeld_id"], beelden)
             self.assertTrue(b["bron"].startswith("https://github.com/Npuls-OKx/meta/pull/252#discussion_r"))
             self.assertTrue(set(b["themas"]) <= set(tabel["thema_toelichting"]))
+
+
+class DekkingTests(unittest.TestCase):
+    """De uitwisselingen die het kaderscenario per fase noemt, afgezet tegen de beelden die er zijn.
+    Zo is criterium 1 van een fase-issue een machinale controle in plaats van een oordeel."""
+
+    def fase(self, nummer, **velden):
+        r = regels()
+        for f in r["fasen"]:
+            if f["nummer"] == nummer:
+                f.update(velden)
+        return r
+
+    def uitwisseling(self, **extra):
+        u = {"van": "Planningssysteem", "naar": "Onderwijscatalogus", "objecten": ["opleidingsaanbod"],
+             "bron": "leerroute-1-regulier.md, Fase 2"}
+        u.update(extra)
+        return u
+
+    def test_given_phase_with_exchange_without_image_when_checked_then_that_phase_and_exchange_are_named(self):
+        r = self.fase(2, uitwisselingen=[self.uitwisseling(van="Onderwijscatalogus", naar="Leer management systeem (LMS)")])
+        _, w, _ = bevindingen(r)
+        self.assertTrue(any("fase 2" in x and "Onderwijscatalogus naar Leer management systeem (LMS)" in x
+                            and "draagt geen beeld" in x for x in w), w)
+
+    def test_given_exchange_with_an_image_when_checked_then_nothing_is_reported(self):
+        r = self.fase(2, uitwisselingen=[self.uitwisseling()])
+        b, w, _ = bevindingen(r)
+        self.assertEqual(b, [])
+        self.assertEqual([x for x in w if "draagt geen beeld" in x], [])
+
+    def test_given_full_coverage_when_an_exchange_lacks_an_image_then_finding_not_signal(self):
+        r = self.fase(2, dekking="volledig",
+                      uitwisselingen=[self.uitwisseling(van="Onderwijscatalogus", naar="Leer management systeem (LMS)")])
+        b, w, _ = bevindingen(r)
+        self.assertTrue(any("draagt geen beeld" in x for x in b), b)
+        self.assertEqual([x for x in w if "draagt geen beeld" in x], [])
+
+    def test_given_exchange_shown_in_another_phase_when_that_phase_carries_it_then_accepted(self):
+        r = self.fase(3, uitwisselingen=[self.uitwisseling(beeld_in_fase=2)])
+        b, w, _ = bevindingen(r)
+        self.assertEqual(b, [])
+        self.assertEqual([x for x in w if "draagt geen beeld" in x], [])
+
+    def test_given_exchange_pointing_at_a_phase_without_that_flow_when_checked_then_finding(self):
+        r = self.fase(3, uitwisselingen=[self.uitwisseling(beeld_in_fase=4)])
+        b, _, _ = bevindingen(r)
+        self.assertTrue(any("verwijst naar fase 4" in x for x in b), b)
+
+    def test_given_exchange_outside_okx_when_checked_then_signal_with_the_reason(self):
+        r = self.fase(2, uitwisselingen=[self.uitwisseling(naar="Aanwezigheidsregistratie",
+                                                          buiten_scope="aanwezigheidsregistratie valt buiten OKx")])
+        b, w, _ = bevindingen(r)
+        self.assertEqual(b, [])
+        self.assertTrue(any("valt buiten OKx" in x for x in w), w)
+
+    def test_given_exchange_the_example_routes_differently_when_checked_then_signal_with_the_reason(self):
+        r = self.fase(2, uitwisselingen=[self.uitwisseling(van="Onderwijscatalogus", naar="Intake systeem",
+                                                          afwijking="het voorbeeld loopt via de kernregistratie")])
+        b, w, _ = bevindingen(r)
+        self.assertEqual(b, [])
+        self.assertTrue(any("loopt in het voorbeeld anders" in x for x in w), w)
+
+    def test_given_a_phase_filter_when_checked_then_only_those_phases_are_measured(self):
+        r = self.fase(2, uitwisselingen=[self.uitwisseling(van="Onderwijscatalogus", naar="Leer management systeem (LMS)")])
+        _, w, _ = bevindingen(r, fasen_filter={3})
+        self.assertEqual([x for x in w if "draagt geen beeld" in x], [])
+
+    def test_given_an_exchange_naming_an_unknown_component_when_checked_then_signal(self):
+        r = self.fase(2, uitwisselingen=[self.uitwisseling(naar="Verzonnen systeem")])
+        _, w, _ = bevindingen(r, componenten={"componenten": [{"naam": "Planningssysteem"}, {"naam": "Onderwijscatalogus"}]})
+        self.assertTrue(any("componenten.json niet kent" in x for x in w), w)
+
+    def test_given_the_real_table_when_measured_then_twelve_exchanges_wait_for_an_answer(self):
+        """De werklijst van de acht fase-issues: elk gat krijgt daar beeld_in_fase, afwijking of
+        buiten_scope, en de fase gaat op dekking volledig."""
+        tabel = json.loads((WORTEL / "architecture/model/informatiemodel/voorbeeld-lr1-regels.json").read_text(encoding="utf-8"))
+        b, w = cv.dekking_uitwisselingen(tabel)
+        self.assertEqual(b, [])
+        self.assertEqual(len([x for x in w if "draagt geen beeld" in x]), 12)
+
+
+class KoppelingoverzichtTests(unittest.TestCase):
+    def test_given_rules_per_koppeling_when_counted_then_each_koppeling_is_listed(self):
+        overzicht = cv.koppelingoverzicht(regels())
+        self.assertTrue(any(x == "koppeling OC-P&R: 1 regels" for x in overzicht), overzicht)
+
+    def test_given_a_koppeling_without_rules_when_counted_then_it_is_listed_as_empty(self):
+        r = regels(); r["koppelingen"]["Onderwijscatalogus > Leer management systeem (LMS)"] = "OC-LMS"
+        overzicht = cv.koppelingoverzicht(r)
+        self.assertTrue(any("OC-LMS: 0 regels" in x and "geen enkele regel" in x for x in overzicht), overzicht)
+
+    def test_given_a_flow_without_a_koppelingspecificatie_when_counted_then_the_pair_is_listed(self):
+        r = regels(); r["regels"][2]["koppeling"] = None
+        overzicht = cv.koppelingoverzicht(r)
+        self.assertTrue(any("zonder koppelingspecificatie: Planningssysteem naar Onderwijscatalogus, 1 regels" in x
+                            for x in overzicht), overzicht)
+
+    def test_given_the_real_table_when_counted_then_the_curriculum_tool_has_no_specification(self):
+        tabel = json.loads((WORTEL / "architecture/model/informatiemodel/voorbeeld-lr1-regels.json").read_text(encoding="utf-8"))
+        overzicht = cv.koppelingoverzicht(tabel)
+        self.assertTrue(any("Curriculum ontwerptool naar Onderwijscatalogus, 29 regels" in x for x in overzicht), overzicht)
+
+
+class RolPerBeeldTests(unittest.TestCase):
+    """De renderer groepeert op rol; twee rollen in een beeld leveren twee bestanden met dezelfde naam op."""
+
+    def test_given_an_image_with_two_roles_when_checked_then_signal_names_both(self):
+        r = regels()
+        r["regels"][6]["beeld"] = r["regels"][5]["beeld"]
+        r["regels"][6]["beeld_id"] = r["regels"][5]["beeld_id"]
+        r["regels"][6]["wie"] = "student"
+        _, w, _ = bevindingen(r)
+        self.assertTrue(any("draagt meer dan een rol" in x and "planner" in x and "student" in x for x in w), w)
+
+    def test_given_an_image_with_one_role_when_checked_then_nothing_is_reported(self):
+        _, w, _ = bevindingen(regels())
+        self.assertEqual([x for x in w if "meer dan een rol" in x], [])
+
+    def test_given_the_real_table_when_checked_then_only_f4_09_carries_two_roles(self):
+        tabel = json.loads((WORTEL / "architecture/model/informatiemodel/voorbeeld-lr1-regels.json").read_text(encoding="utf-8"))
+        gevonden = cv.rol_per_beeld(tabel)
+        self.assertEqual(len(gevonden), 1)
+        self.assertIn("F4-09", gevonden[0])
+
+
+class UitvoerTests(unittest.TestCase):
+    def test_given_a_finding_and_a_signal_when_run_then_exit_one_and_both_in_their_own_group(self):
+        import contextlib, io
+        with tempfile.TemporaryDirectory() as map_:
+            r = regels()
+            r["regels"][0]["objecttype"] = "Bestaat niet"          # signalering
+            r["regels"].append({"beeld_id": "F2-09", "beeld": "Zonder soort", "fase": 2, "stap": "Aanbod maken",
+                                "soort": "ontstaat", "objecttype": "Opleidingaanbod", "instantie": "x", "bron": "b"})
+            rp = Path(map_) / "r.json"; rp.write_text(json.dumps(r), encoding="utf-8")
+            mp = Path(map_) / "m.json"; mp.write_text(json.dumps(model()), encoding="utf-8")
+            sp = Path(map_) / "s.json"; sp.write_text(json.dumps(stromen()), encoding="utf-8")
+            uit = io.StringIO()
+            with contextlib.redirect_stdout(uit):
+                code = cv.main(["--regels", str(rp), "--model", str(mp), "--stromen", str(sp), "--schema", str(SCHEMA)])
+            tekst = uit.getvalue()
+        self.assertEqual(code, 1)
+        self.assertIn("Signaleringen", tekst)
+        self.assertIn("Bevindingen", tekst)
+        self.assertLess(tekst.index("Signaleringen"), tekst.index("Bevindingen"))
+        self.assertIn("signaleringen", tekst.splitlines()[-1])
+
+    def test_given_only_a_signal_when_run_then_exit_zero(self):
+        import contextlib, io
+        with tempfile.TemporaryDirectory() as map_:
+            # een extra regel op een onbekend objecttype: dat is een signalering, en de dekking van de
+            # bestaande objecttypen blijft heel, zodat er geen bevinding naast staat
+            r = regels()
+            r["regels"].append({"beeld_id": "F4-02", "beeld": "Onbekend object", "fase": 4, "stap": "Roosteren",
+                                "soort": "ontstaat", "wie": "planner", "objecttype": "Bestaat niet",
+                                "instantie": "x", "bron": "b"})
+            rp = Path(map_) / "r.json"; rp.write_text(json.dumps(r), encoding="utf-8")
+            mp = Path(map_) / "m.json"; mp.write_text(json.dumps(model()), encoding="utf-8")
+            sp = Path(map_) / "s.json"; sp.write_text(json.dumps(stromen()), encoding="utf-8")
+            with contextlib.redirect_stdout(io.StringIO()):
+                code = cv.main(["--regels", str(rp), "--model", str(mp), "--stromen", str(sp), "--schema", str(SCHEMA)])
+        self.assertEqual(code, 0)
 
 
 class MainTests(unittest.TestCase):
