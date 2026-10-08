@@ -107,6 +107,22 @@ Een review die niet gelezen wordt telt niet. Twee regels, allebei uit de praktij
 
 **Een reviewvraag benoemt waar de twijfel zit.** "Willen jullie meelezen" levert instemming op. Stel drie tot vijf genummerde vragen die elk een concreet punt raken, en zeg welke vraag de belangrijkste is. Zet er bij dat er al eerder onjuistheden uit een reviewronde kwamen, met hoeveel: dat nodigt uit om te zoeken in plaats van goed te keuren.
 
+## De titel opent met het gebied
+
+Een titel wordt gelezen in een lijst van tientallen, naast werk van anderen en naast werk van maanden terug. Dus staat het gebied vooraan, dan het onderdeel, dan wat er verandert:
+
+```text
+<gebied>[, <onderdeel>]: <wat er verandert>
+
+Informatiemodel voorbeeld, fase 3: de keuze rijpt, en de aanmeldroute benoemd
+^^^^^^^^^^^^^^^^^^^^^^^^  ^^^^^^^  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+waar het over gaat        welk deel  wat een lezer merkt
+```
+
+Het gebied is een naam die een lezer in de repository terugvindt: `Informatiemodel voorbeeld`, `Sectorketen`, `Begrippenlijst`, `Agent-harnas`, `Presentaties`. Het is geen afkorting en geen scriptnaam. Een titel als "Generator: elke vraag komt in het document" noemt wel het onderdeel maar niet het gebied, en wie het werk niet volgt kent die generator niet.
+
+Zelfde vorm voor een issue en voor een pull request, zodat de twee naast elkaar te lezen zijn. Houd de titel onder de tachtig tekens, want GitHub kapt een lijst daar af.
+
 ## De pull request-beschrijving (vorm)
 
 Elke pull request opent met een samenvatting van **hoogstens vijftien zinnen**, leesbaar voor iemand die het werk niet heeft gevolgd. Daarin staan drie dingen:
