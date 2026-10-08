@@ -255,7 +255,8 @@
       "toont": "Hoe een snapshot van dev via een pull request een release wordt, en dat de huidige en de vorige majorversie allebei als branch en als pakket blijven bestaan.",
       "gebruik_bij": "Release management uitleggen aan wie wil weten hoe iets naar buiten komt en hoelang een vorige versie beschikbaar blijft. Kerngroep techniek, leveranciers.",
       "let_op": "Komt uit Public PR 81 en is nog niet gemerged op dev. In de plaat staan tester en reviewer nog als een blok; afgesproken is dat het twee rollen worden. Benoem dat erbij.",
-      "kopie": "release-branching.png"
+      "kopie": "release-branching.png",
+      "hash": "c22b7378c3d5d7ed"
     },
     {
       "naam": "informatiemodel",
@@ -267,7 +268,7 @@
       "gebruik_bij": "De vraag hoe alles op conceptueel niveau aan elkaar hangt, voordat de payloads aan bod komen. Kerngroep techniek, leveranciers, technische werkgroep OEAPI.",
       "let_op": "Status concept, ter review in meta PR 225. De plaat is dicht bezet; op een slide alleen op volle breedte tonen en de leeswijzer erbij: kolommen zijn begrippen, de leeruitkomst is de sleutel. De legenda draagt de tikfout 'alligned'. Bron staat op branch 89-informatiemodel-en-begrippenkader tot de PR is gemerged.",
       "kopie": "informatiemodel-v0.1.jpg",
-      "hash": "b88e96ee94aace72"
+      "hash": "eaf11141dcb2fb02"
     },
     {
       "naam": "informatiemodel-oeapi-mapping",
@@ -279,7 +280,18 @@
       "gebruik_bij": "De vraag waar OEAPI het model dekt en waar niet. Technische werkgroep OEAPI, kerngroep techniek.",
       "let_op": "Status concept, ter review in meta PR 225. Nog drukker dan de basisplaat; werkt alleen op volle breedte met de conclusie ernaast in tekst.",
       "kopie": "informatiemodel-oeapi-mapping-v0.1.jpg",
-      "hash": "4a0cd7f482e8e55e"
+      "hash": "73793ed4e331d974"
+    },
+    {
+      "naam": "sectorketen",
+      "titel": "De sectorketen en haar producten",
+      "bron": "Npuls-OKx/meta",
+      "pad": "img/OKx_sectorketen_v20261005.png",
+      "versie": "v20261005",
+      "toont": "Zeven lagen van overheidsbreed kader tot koppelingimplementatie, met per laag de partijen en hun producten. De vulkleur is de ArchiMate-laag, de rand de aard (voorschrift of herbruikbaar product), en onderin het MIM-niveau met het AMIGO-inhoudsgebied. Rechts de gereedschapsband met IT-fundamenten en sectorprofielen.",
+      "gebruik_bij": "De vraag wie wat maakt in de keten, en op welk niveau een product bruikbaar is. Architectuursync, programma- en projectleiding, kerngroep techniek.",
+      "let_op": "De plaat beschrijft en oordeelt niet; wat voor een bepaald doel ontbreekt vult de lezer zelf in. De solutionlaag is algemeen, met de OKx-invulling als tweede regel per blok. Getekend uit doc/sectorketen-producten.json met scripts/teken-sectorketen.py; werk de bron bij in plaats van het beeld.",
+      "hash": "7f0b5ddb28c5ebb8"
     }
   ],
   "overslaan": [
