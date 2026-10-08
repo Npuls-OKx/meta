@@ -59,6 +59,7 @@
           "van": {"type": "string", "description": "componentnaam letterlijk uit v1.7; verplicht bij stroomt"},
           "naar": {"type": "string", "description": "componentnaam letterlijk uit v1.7; verplicht bij stroomt"},
           "pijl": {"type": "string", "description": "relatie-id uit stromen.json, of 'geen pijl op de hoofdplaat'; verplicht bij stroomt"},
+          "koppeling": {"type": ["string", "null"], "description": "koppeling-ID van de uitwisseling die deze regel raakt, een waarde uit de koppelingen-lijst op topniveau, of null voor een stroom zonder koppelingspecificatie (dezelfde betekenis als in stromen.json). Verplicht bij stroomt en alleen daar, zodat per uitwisseling vaststaat of een specificatie haar dekt; de controle toetst de waarde tegen de lijst, omdat JSON Schema niet naar een zusterveld kan verwijzen"},
           "objecttype": {"type": "string", "description": "plaatnaam letterlijk (witruimte genormaliseerd)"},
           "instantie": {"type": "string", "description": "de waarde voor Jochem, leesbare naam"},
           "toestand": {"type": "string", "description": "uit de toestandenlijst; verplicht bij verandert, en toegestaan bij ontstaat als het object al in een bepaalde rijpheid ontstaat (een aanbod dat als intentie begint)"},
@@ -71,8 +72,10 @@
               "van": {"type": "string"},
               "naar": {"type": "string"},
               "label": {"type": "string"},
-              "instantie": {"type": "string", "description": "de instantie aan het andere eind, getoond in de verwijzing als het andere eind buiten het blok staat"}
-            }
+              "instantie": {"type": "string", "description": "de instantie aan het andere eind, getoond in de verwijzing als het andere eind buiten het blok staat"},
+              "nesting": {"type": "boolean", "default": false, "description": "het object staat in het beeld binnen het andere eind getekend; alleen op een aggregatie of compositie, en nooit in relaties"}
+            },
+            "additionalProperties": false
           },
           "relaties": {
             "type": "array",
@@ -86,7 +89,8 @@
                 "naar": {"type": "string"},
                 "label": {"type": "string"},
                 "instantie": {"type": "string"}
-              }
+              },
+              "additionalProperties": false
             }
           },
           "aanname": {"type": "boolean", "default": false},
@@ -94,8 +98,40 @@
           "bron": {"type": "string", "description": "bestand en regel of id; bij een aanname de bron van de aanname of 'geen bron, keuze van het voorbeeld'"},
           "zin": {"type": "string", "description": "een zin, uit het kaderscenario waar die er is"},
           "vraag": {"type": "string", "description": "als de plaat en de bronnen elkaar tegenspreken: de vraag voor de vragenpagina"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "thema_toelichting": {
+      "type": "object",
+      "description": "de thema's waarin de bevindingen van een reviewronde zijn geordend, elk met een regel die zegt wat het thema inhoudt; de ordening is van OKx, de bevinding blijft de tekst van de lezer",
+      "additionalProperties": {"type": "string"}
+    },
+    "bevindingen": {
+      "type": "array",
+      "description": "het register van een reviewronde: elke bevinding op een beeld, met haar bron, de thema's waarin zij valt en wat ermee is gedaan. Een geparkeerde bevinding draagt een reden; levert zij een vraag op, dan draagt zij die vraag zodat het document hem toont.",
+      "items": {
+        "type": "object",
+        "required": ["nummer", "beeld_id", "lezer", "datum", "bron", "tekst", "themas", "issue", "status"],
+        "additionalProperties": false,
+        "properties": {
+          "nummer": {"type": "string", "pattern": "^B[0-9]{2}$", "description": "volgnummer binnen de ronde, stabiel zodat een verwijzing blijft kloppen"},
+          "beeld_id": {"type": "string", "pattern": "^F[1-8]-[0-9]{2}$", "description": "het beeld waarop de bevinding staat; moet in regels voorkomen"},
+          "bestand": {"type": "string", "description": "het SVG-bestand waarop de lezer zijn comment plaatste"},
+          "lezer": {"type": "string", "description": "wie de bevinding schreef, GitHub-naam"},
+          "datum": {"type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"},
+          "bron": {"type": "string", "description": "de URL van de review-comment"},
+          "tekst": {"type": "string", "description": "de bevinding letterlijk zoals de lezer die schreef"},
+          "themas": {"type": "array", "items": {"type": "string"}, "minItems": 1, "description": "sleutels uit thema_toelichting"},
+          "werkpakketten": {"type": "array", "items": {"type": "string", "pattern": "^W[1-8]$"}, "description": "de werkpakketten uit het featureplan 20260929_1723_niels-review-jochem-verwerken.md die het besluit over deze bevinding dragen; leeg betekent dat het besluit nog ontbreekt"},
+          "verwijst_naar": {"type": "string", "pattern": "^F[1-8]-[0-9]{2}$", "description": "het beeld waarnaar de bevinding verwijst als zij een eerdere opmerking herhaalt"},
+          "issue": {"type": "integer", "description": "het fase-issue waarin de bevinding wordt opgelost"},
+          "status": {"type": "string", "enum": ["open", "doorgevoerd", "geparkeerd"]},
+          "reden": {"type": "string", "description": "waarom de bevinding is geparkeerd; verplicht bij geparkeerd"},
+          "vraag": {"type": "string", "description": "de vraag die de bevinding oplevert, voor de vragenpagina"}
         }
       }
     }
-  }
+  },
+  "additionalProperties": false
 }
