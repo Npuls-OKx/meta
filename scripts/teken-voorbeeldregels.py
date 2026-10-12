@@ -159,14 +159,34 @@ def relatielijn_v(x, y1, y2, soort, label, omlaag=True):
 
 
 OMWEG_MARGE = 22  # ruimte rechts van het breedste vak waar een omweglijn omhoog loopt
+OMWEG_BAAN = 14   # afstand tussen twee omwegbanen, zodat verticale stukken niet samenvallen
+OMWEG_REGEL = 14  # hoogte van een labelregel, voor twee omwegen die bij hetzelfde doel uitkomen
 
 
-def relatielijn_omweg(x_bron, y_bron, x_doel, y_doel, goot, soort, label, naar_bron=True):
+def _horizontaal_met_bruggen(x1, x2, y, banen, eigen):
+    """Een horizontaal stuk dat met een boogje over elke andere baan heen gaat die het kruist.
+
+    Het stuk stopt vlak voor de baan, maakt een boogje eroverheen en loopt verder. Daardoor raken de
+    twee lijnen elkaar niet: wat overblijft is een brug, en geen kruising."""
+    heen = x2 > x1
+    kruist = sorted((bx for bx, y0, y1 in banen
+                     if bx != eigen and min(x1, x2) < bx < max(x1, x2) and y0 <= y <= y1),
+                    reverse=not heen)
+    d = ""
+    for bx in kruist:
+        voor, na = (bx - 4, bx + 4) if heen else (bx + 4, bx - 4)
+        d += f"H{voor:.0f}A4 4 0 0 {1 if heen else 0} {na:.0f} {y:.0f}"
+    return d + f"H{x2:.0f}"
+
+
+def relatielijn_omweg(x_bron, y_bron, x_doel, y_doel, baan, soort, label, naar_bron=True, banen=()):
     """Een relatie naar een object dat niet de buur is: haaks om de blokken heen, langs een goot rechts
-    ervan. De goot ligt voorbij de rechterrand van alles ertussen, dus de lijn kruist geen vak.
+    ervan. De baan ligt voorbij de rechterrand van alles ertussen, dus de lijn kruist geen vak.
     naar_bron: de relatie wijst naar het object dat hier wordt getekend (de bron van de lijn); anders
     wijst zij naar het object verder terug (het doel)."""
-    s = (f'<path d="M{x_bron:.0f} {y_bron:.0f}H{goot:.0f}V{y_doel:.0f}H{x_doel:.0f}" '
+    heen = _horizontaal_met_bruggen(x_bron, baan, y_bron, banen, baan)
+    terug = _horizontaal_met_bruggen(baan, x_doel, y_doel, banen, baan)
+    s = (f'<path d="M{x_bron:.0f} {y_bron:.0f}{heen}V{y_doel:.0f}{terug}" '
          f'stroke="#444" stroke-width="1.3" fill="none"/>')
     # het geheel draagt de ruit, het doel van de relatie draagt de punt
     punt_x, punt_y = (x_bron, y_bron) if naar_bron else (x_doel, y_doel)
@@ -179,8 +199,6 @@ def relatielijn_omweg(x_bron, y_bron, x_doel, y_doel, goot, soort, label, naar_b
         s += f'<path d="M{punt_x:.0f} {punt_y:.0f}l10 -6v12z" fill="#ffffff" stroke="#444" stroke-width="1.3"/>'
     elif label:
         s += f'<path d="M{punt_x:.0f} {punt_y:.0f}l8 -4v8z" fill="#444"/>'
-    if label:
-        s += text(goot + 6, (y_bron + y_doel) / 2 + 4, label, 10, fill=MUTED)
     return s
 
 
@@ -247,13 +265,29 @@ def _objecten_kolom(x, y, items, uitzonderingen, alles_onder=False):
         ky += h_it + 28
         maxw = max(maxw, w_it if alles_onder else w1 + RELATIE_AFSTAND + w_it)
     if omwegen:
-        goot = x + maxw + OMWEG_MARGE
-        for bron_x, bron_y, doel, soort, label, naar_rechts in omwegen:
+        # elke omweg krijgt een eigen baan, de langste buitenom, zodat geen twee verticale stukken
+        # samenvallen en elke lijn van begin tot eind te volgen is
+        op_lengte = sorted(omwegen, key=lambda o: abs(plekken[o[2]][1] - o[1]))
+        buitenste = x + maxw + OMWEG_MARGE + (len(op_lengte) - 1) * OMWEG_BAAN
+        # elke baan met haar verticale bereik, zodat een lijn die eroverheen moet een brug krijgt
+        banen = [(x + maxw + OMWEG_MARGE + i * OMWEG_BAAN,
+                  min(o[1], plekken[o[2]][1]), max(o[1], plekken[o[2]][1]))
+                 for i, o in enumerate(op_lengte)]
+        bezet = {}
+        for i, (bron_x, bron_y, doel, soort, label, naar_rechts) in enumerate(op_lengte):
             doel_x, doel_y = plekken[doel]
-            lijnen += relatielijn_omweg(bron_x, bron_y, doel_x, doel_y, goot, soort, label, naar_rechts)
-        # het label staat rechts van de goot en telt mee in de breedte, anders valt het buiten het doek
+            # komen er twee omwegen bij hetzelfde doel uit, dan schuift de tweede aankomst een regel op;
+            # anders vallen twee pijlpunten samen en is niet te zien welk label bij welke lijn hoort
+            rij = bezet.get(doel, 0)
+            bezet[doel] = rij + 1
+            doel_y += rij * OMWEG_REGEL
+            baan = banen[i][0]
+            lijnen += relatielijn_omweg(bron_x, bron_y, doel_x, doel_y, baan, soort, label, naar_rechts, banen)
+            if label:
+                # het label staat op de hoogte van de pijlpunt, voorbij alle banen
+                lijnen += text(buitenste + 8, doel_y + 4, label, 10, fill=MUTED)
         breedste = max((tw(lab, 10) for *_, lab, _ in omwegen), default=0)
-        maxw += OMWEG_MARGE + 8 + (breedste + 10 if breedste else 0)
+        maxw = buitenste - x + 8 + (breedste + 10 if breedste else 0)
     return out + lijnen, maxw, max(h1, ky - 28 - y)
 
 

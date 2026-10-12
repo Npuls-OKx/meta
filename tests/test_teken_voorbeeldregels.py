@@ -469,8 +469,10 @@ class VoorbeeldOmweg(unittest.TestCase):
         return tv.regel_ontstaat(blokken[0], set())
 
     def test_given_the_example_when_drawn_then_three_lines_route_around_the_boxes(self):
-        # een omweg heeft precies de vorm: horizontaal, verticaal, horizontaal
-        paden = re.findall(r'd="M[\d.]+ [\d.]+H[\d.]+V[\d.]+H[\d.]+"', self.beeld())
+        # een omweg loopt haaks: alleen H, V en de boogjes van een brug, en nooit schuin.
+        # de pictogrammen vallen af, want die tekenen met kleine letters
+        paden = [m for m in re.findall(r'd="(M[^"]+)"', self.beeld())
+                 if "H" in m and "V" in m and not re.search(r"[a-z]", m)]
         self.assertEqual(len(paden), 3)
 
     def test_given_the_example_when_drawn_then_every_label_fits_on_the_canvas(self):
