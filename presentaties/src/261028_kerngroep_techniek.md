@@ -44,10 +44,11 @@ ligt om op te besluiten.
 
 <div style="margin-top:0.6rem;max-width:92%;">
 <div style="display:grid;grid-template-columns:2.2rem 1fr;gap:0.6rem;align-items:start;margin-top:0.55rem;"><div style="width:2rem;height:2rem;border-radius:50%;background:#B8BEC7;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.95rem;">1</div><div style="line-height:1.4;"><strong>Afspraken van 30 september</strong><br/><span style="font-size:0.9rem;color:var(--np-dark-gray);">Wat OKx zou leveren, wat is gevraagd, en de stand</span></div></div>
-<div style="display:grid;grid-template-columns:2.2rem 1fr;gap:0.6rem;align-items:start;margin-top:0.55rem;"><div style="width:2rem;height:2rem;border-radius:50%;background:#7CCBA8;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.95rem;">2</div><div style="line-height:1.4;"><strong>Voorbeelduitwerking: van een pull request naar veertien (Niek)</strong><br/><span style="font-size:0.9rem;color:var(--np-dark-gray);">Veertien afgebakende pull requests, en de leeruitkomst herschreven</span></div></div>
-<div style="display:grid;grid-template-columns:2.2rem 1fr;gap:0.6rem;align-items:start;margin-top:0.55rem;"><div style="width:2rem;height:2rem;border-radius:50%;background:#7A97F2;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.95rem;">3</div><div style="line-height:1.4;"><strong>Sectoroverstijgend: wat is mbo, wat is generiek (Niek)</strong><br/><span style="font-size:0.9rem;color:var(--np-dark-gray);">De taak van 30 september: wat is mbo, wat geldt breder</span></div></div>
-<div style="display:grid;grid-template-columns:2.2rem 1fr;gap:0.6rem;align-items:start;margin-top:0.55rem;"><div style="width:2rem;height:2rem;border-radius:50%;background:#E9A27F;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.95rem;">4</div><div style="line-height:1.4;"><strong>Versionering: de scenario's van de leveranciers (Garik)</strong><br/><span style="font-size:0.9rem;color:var(--np-dark-gray);">Drie richtingen, en wat de scenario's zeggen</span></div></div>
-<div style="display:grid;grid-template-columns:2.2rem 1fr;gap:0.6rem;align-items:start;margin-top:0.55rem;"><div style="width:2rem;height:2rem;border-radius:50%;background:#00AF81;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.95rem;">5</div><div style="line-height:1.4;"><strong>Capaciteit, gevraagd en peiling</strong><br/><span style="font-size:0.9rem;color:var(--np-dark-gray);">De inschatting van 30 september, en de bouwfase in Q1</span></div></div>
+<div style="display:grid;grid-template-columns:2.2rem 1fr;gap:0.6rem;align-items:start;margin-top:0.55rem;"><div style="width:2rem;height:2rem;border-radius:50%;background:#E9A27F;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.95rem;">2</div><div style="line-height:1.4;"><strong>De reviewronde: veertien issues, en twaalf op tafel</strong><br/><span style="font-size:0.9rem;color:var(--np-dark-gray);">Pull request 104 is gesloten; wat er met elke opmerking is gebeurd, en wat vandaag een keuze vraagt</span></div></div>
+<div style="display:grid;grid-template-columns:2.2rem 1fr;gap:0.6rem;align-items:start;margin-top:0.55rem;"><div style="width:2rem;height:2rem;border-radius:50%;background:#7CCBA8;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.95rem;">3</div><div style="line-height:1.4;"><strong>Voorbeelduitwerking: van een pull request naar veertien (Niek)</strong><br/><span style="font-size:0.9rem;color:var(--np-dark-gray);">Veertien afgebakende pull requests, en de leeruitkomst herschreven</span></div></div>
+<div style="display:grid;grid-template-columns:2.2rem 1fr;gap:0.6rem;align-items:start;margin-top:0.55rem;"><div style="width:2rem;height:2rem;border-radius:50%;background:#7A97F2;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.95rem;">4</div><div style="line-height:1.4;"><strong>Sectoroverstijgend: wat is mbo, wat is generiek (Niek)</strong><br/><span style="font-size:0.9rem;color:var(--np-dark-gray);">De taak van 30 september: wat is mbo, wat geldt breder</span></div></div>
+<div style="display:grid;grid-template-columns:2.2rem 1fr;gap:0.6rem;align-items:start;margin-top:0.55rem;"><div style="width:2rem;height:2rem;border-radius:50%;background:#E9A27F;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.95rem;">5</div><div style="line-height:1.4;"><strong>Versionering: de scenario's van de leveranciers (Garik)</strong><br/><span style="font-size:0.9rem;color:var(--np-dark-gray);">Drie richtingen, en wat de scenario's zeggen</span></div></div>
+<div style="display:grid;grid-template-columns:2.2rem 1fr;gap:0.6rem;align-items:start;margin-top:0.55rem;"><div style="width:2rem;height:2rem;border-radius:50%;background:#00AF81;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.95rem;">6</div><div style="line-height:1.4;"><strong>Capaciteit, gevraagd en peiling</strong><br/><span style="font-size:0.9rem;color:var(--np-dark-gray);">De inschatting van 30 september, en de bouwfase in Q1</span></div></div>
 </div>
 
 </div>
@@ -64,7 +65,7 @@ afsluiting uit meta #205.
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide2.PNG);"></div>
 
 <div style="position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; align-items: flex-end; text-align: right; padding: 3rem 4rem 3rem 45%; z-index: 1;">
-  <div style="font-size: 0.8rem; color: var(--np-orange); letter-spacing: 2px; text-transform: uppercase;">Deel 1 van 5</div>
+  <div style="font-size: 0.8rem; color: var(--np-orange); letter-spacing: 2px; text-transform: uppercase;">Deel 1 van 6</div>
   <h1 style="font-size: 2.4rem; line-height: 1.15; margin: 0.4rem 0 0.5rem; color: var(--np-ink);">Stand van zaken</h1>
   <div style="font-size: 1rem; color: var(--np-mid-gray);">Niek &middot; afspraken, voortgang en wat er blijft liggen</div>
 </div>
@@ -262,7 +263,147 @@ voort uit het idee dat een akkoord een bouwverplichting is, en dat is het niet.
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide2.PNG);"></div>
 
 <div style="position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; align-items: flex-end; text-align: right; padding: 3rem 4rem 3rem 45%; z-index: 1;">
-  <div style="font-size: 0.8rem; color: var(--np-orange); letter-spacing: 2px; text-transform: uppercase;">Deel 2 van 5</div>
+  <div style="font-size: 0.8rem; color: var(--np-orange); letter-spacing: 2px; text-transform: uppercase;">Deel 2 van 6</div>
+  <h1 style="font-size: 2.4rem; line-height: 1.15; margin: 0.4rem 0 0.5rem; color: var(--np-ink);">De reviewronde</h1>
+  <div style="font-size: 1rem; color: var(--np-mid-gray);">Niek &middot; wat er met elke opmerking is gebeurd</div>
+</div>
+
+<!--
+Sectiescheiding. Pull request 104 is gesloten en elke opmerking draagt nu een eigen issue. Dit
+deel legt die werkwijze uit en laat zien wat er vandaag een keuze vraagt.
+-->
+
+---
+
+<!-- 9a. PR 104 GESLOTEN -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# Pull request 104 is gesloten
+
+<div class="np-grid-2" style="margin-top: 1rem; gap: 2rem; align-items: start;">
+<div>
+
+<div style="font-size:0.95rem;line-height:1.6;">
+
+Dertien opmerkingen van drie leveranciers, sommige met vijf punten in een comment.
+
+Het informatiemodel komt daarmee beschikbaar als laag 1 en 2. Geen enkele opmerking vervalt: elke opmerking draagt nu een eigen issue.
+
+</div>
+
+<div style="display:flex;gap:1.4rem;margin-top:1.4rem;">
+<div><div style="font-size:2rem;font-weight:700;color:#00AF81;line-height:1;">14</div><div style="font-size:0.84rem;color:var(--np-dark-gray);margin-top:0.2rem;">issues</div></div>
+<div><div style="font-size:2rem;font-weight:700;color:#7A97F2;line-height:1;">3</div><div style="font-size:0.84rem;color:var(--np-dark-gray);margin-top:0.2rem;">leveranciers</div></div>
+<div><div style="font-size:2rem;font-weight:700;color:#E9A27F;line-height:1;">12</div><div style="font-size:0.84rem;color:var(--np-dark-gray);margin-top:0.2rem;">vandaag op tafel</div></div>
+</div>
+
+</div>
+<div>
+
+<div style="background:#fff;border:1px solid var(--np-light-gray);border-radius:10px;padding:1rem 1.1rem;font-size:0.88rem;line-height:1.65;">
+<div style="font-weight:600;color:var(--np-ink);margin-bottom:0.4rem;">Wat in elk issue staat</div>
+<div>De opmerking letterlijk, met auteur en datum</div>
+<div>Wat OKx erin leest</div>
+<div>De vraag of het issue de opmerking dekt</div>
+</div>
+
+<div style="font-size:0.84rem;color:var(--np-mid-gray);margin-top:0.9rem;line-height:1.5;">
+Elk issue staat op naam van de inbrenger. Niet als werkopdracht, maar zodat hij bepaalt of het antwoord volstaat.
+</div>
+
+</div>
+</div>
+
+</div>
+
+<!--
+De pull request stond open op een discussie die nooit kon sluiten: inhoudelijk antwoorden houdt
+hem open, mergen zonder antwoord laat de inbrenger in het ongewisse. Vandaar deze knip. Noem dat
+het citaat letterlijk in het issue staat, want dat is wat het bruikbaar houdt als niemand de
+pull request er meer bij pakt.
+-->
+
+---
+
+<!-- 9b. DE WERKWIJZE -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# Elke opmerking kent drie uitgangen
+
+<div style="margin-top:1rem;max-width:94%;">
+
+<div style="display:grid;grid-template-columns:auto 1fr;gap:0.75rem 1.1rem;align-items:start;font-size:0.95rem;line-height:1.5;">
+
+<div style="background:#DDF3E8;color:#2b6b4a;border-radius:8px;padding:0.5rem 0.9rem;font-weight:600;white-space:nowrap;">Jij sluit</div>
+<div>Het antwoord beantwoordt de vraag. Het staat onder het issue, en de inbrenger sluit hem of zegt wat er nog mist.<br/><span style="font-size:0.86rem;color:var(--np-dark-gray);">Vandaag twee: het keuzedeel als specialisatie, en het examen als bijzondere toets</span></div>
+
+<div style="background:#FFF4CC;color:#7a6320;border-radius:8px;padding:0.5rem 0.9rem;font-weight:600;white-space:nowrap;">Op de agenda</div>
+<div>Het vraagt een keuze, of het raakt meer partijen dan de inbrenger. Dan komt het hier op tafel.<br/><span style="font-size:0.86rem;color:var(--np-dark-gray);">Vandaag twaalf</span></div>
+
+<div style="background:#F3E4DC;color:#8a4a38;border-radius:8px;padding:0.5rem 0.9rem;font-weight:600;white-space:nowrap;">Wij sluiten</div>
+<div>OKx ziet het anders. De reden staat in het issue, met de bron erbij, zodat die te weerspreken is.<br/><span style="font-size:0.86rem;color:var(--np-dark-gray);">Vandaag geen</span></div>
+
+</div>
+
+<div style="font-size:0.88rem;color:var(--np-dark-gray);margin-top:1.3rem;">
+Oppakken betekent een onderbouwd antwoord, en geen toezegging om te bouwen. Een wijziging volgt pas als wij daar samen aanleiding voor zien, en dan als pull request.
+</div>
+
+</div>
+
+</div>
+
+<!--
+Dit is de kern van de nieuwe werkwijze en het verdient een minuut. De derde uitgang staat er
+bewust bij: OKx mag een punt ook niet overnemen, mits de reden erbij staat en te weerspreken is.
+Zonder die uitgang wordt elke opmerking stilzwijgend een belofte. Vandaag valt geen enkel punt
+in die categorie.
+-->
+
+---
+
+<!-- 9c. TWAALF PUNTEN IN VIER THEMAS -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# Twaalf punten, vier keuzes
+
+<div style="font-size: 0.84rem; line-height: 1.5; margin-top: 0.4rem;">
+
+| Thema | De keuze die voorligt | Issues |
+|---|---|---|
+| **Scope van de uitwisseling** | Valt de lesgelegenheid erbinnen, en wat mag een koppeling veronderstellen over de opbouw in het bronsysteem | [#115](https://github.com/Npuls-OKx/Public/issues/115), [#119](https://github.com/Npuls-OKx/Public/issues/119), [#121](https://github.com/Npuls-OKx/Public/issues/121) |
+| **Kiezen** | Hangt de keuzeregelset aan de specificatie of aan het aanbod, en telt locatie mee als keuzebepalende factor | [#113](https://github.com/Npuls-OKx/Public/issues/113), [#114](https://github.com/Npuls-OKx/Public/issues/114) |
+| **De resultaatlijn** | Op welke niveaus ontstaat een resultaat, loopt een verbintenis altijd via een groep, en waar hangt het cohort | [#117](https://github.com/Npuls-OKx/Public/issues/117), [#120](https://github.com/Npuls-OKx/Public/issues/120), [#122](https://github.com/Npuls-OKx/Public/issues/122) |
+| **Begrippen** | Intekenen naast AII, de leeruitkomst met een niveau, het kwalificatiekader en de term Examenonderdeel | [#112](https://github.com/Npuls-OKx/Public/issues/112), [#118](https://github.com/Npuls-OKx/Public/issues/118), [#124](https://github.com/Npuls-OKx/Public/issues/124), [#125](https://github.com/Npuls-OKx/Public/issues/125) |
+
+</div>
+
+<div style="font-size: 0.84rem; color: var(--np-mid-gray); margin-top: 0.9rem;">
+Alle twaalf dragen het label <code>agenda kerngroep techniek</code> en staan op naam van de inbrenger. Aanvullen vooraf maakt de bespreking korter.
+</div>
+
+</div>
+
+<!--
+Twaalf losse punten passen niet in een sessie, dus zij staan hier gegroepeerd naar de keuze die
+eronder ligt. Per thema een keuze in plaats van twaalf toelichtingen. De scope en de keuze
+raken de koppeling het hardst; de begrippen kunnen schriftelijk als de tijd ontbreekt.
+Inschatting van de maker, te overrulen.
+-->
+
+---
+
+<!-- SECTIE 3 -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide2.PNG);"></div>
+
+<div style="position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; align-items: flex-end; text-align: right; padding: 3rem 4rem 3rem 45%; z-index: 1;">
+  <div style="font-size: 0.8rem; color: var(--np-orange); letter-spacing: 2px; text-transform: uppercase;">Deel 3 van 6</div>
   <h1 style="font-size: 2.4rem; line-height: 1.15; margin: 0.4rem 0 0.5rem; color: var(--np-ink);">Voorbeelduitwerking</h1>
   <div style="font-size: 1rem; color: var(--np-mid-gray);">Niek &middot; van een pull request naar veertien</div>
 </div>
@@ -407,11 +548,11 @@ het onderdeel dat uitwisseling tussen instellingen mogelijk maakt.
 
 ---
 
-<!-- SECTIE 3 -->
+<!-- SECTIE 4 -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide2.PNG);"></div>
 
 <div style="position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; align-items: flex-end; text-align: right; padding: 3rem 4rem 3rem 45%; z-index: 1;">
-  <div style="font-size: 0.8rem; color: var(--np-orange); letter-spacing: 2px; text-transform: uppercase;">Deel 3 van 5</div>
+  <div style="font-size: 0.8rem; color: var(--np-orange); letter-spacing: 2px; text-transform: uppercase;">Deel 4 van 6</div>
   <h1 style="font-size: 2.4rem; line-height: 1.15; margin: 0.4rem 0 0.5rem; color: var(--np-ink);">Sectoroverstijgend</h1>
   <div style="font-size: 1rem; color: var(--np-mid-gray);">Niek &middot; wat is mbo, en wat geldt breder</div>
 </div>
@@ -505,11 +646,11 @@ onderaan: dit is een ontwerpopgave bij de instelling, geen koppelvlakprobleem.
 
 ---
 
-<!-- SECTIE 4 -->
+<!-- SECTIE 5 -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide2.PNG);"></div>
 
 <div style="position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; align-items: flex-end; text-align: right; padding: 3rem 4rem 3rem 45%; z-index: 1;">
-  <div style="font-size: 0.8rem; color: var(--np-orange); letter-spacing: 2px; text-transform: uppercase;">Deel 4 van 5</div>
+  <div style="font-size: 0.8rem; color: var(--np-orange); letter-spacing: 2px; text-transform: uppercase;">Deel 5 van 6</div>
   <h1 style="font-size: 2.4rem; line-height: 1.15; margin: 0.4rem 0 0.5rem; color: var(--np-ink);">Versionering</h1>
   <div style="font-size: 1rem; color: var(--np-mid-gray);">Garik &middot; de scenario's van de leveranciers</div>
 </div>
@@ -592,11 +733,11 @@ de moeite waard om hardop te zeggen.
 
 ---
 
-<!-- SECTIE 5 -->
+<!-- SECTIE 6 -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide2.PNG);"></div>
 
 <div style="position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; align-items: flex-end; text-align: right; padding: 3rem 4rem 3rem 45%; z-index: 1;">
-  <div style="font-size: 0.8rem; color: var(--np-orange); letter-spacing: 2px; text-transform: uppercase;">Deel 5 van 5</div>
+  <div style="font-size: 0.8rem; color: var(--np-orange); letter-spacing: 2px; text-transform: uppercase;">Deel 6 van 6</div>
   <h1 style="font-size: 2.4rem; line-height: 1.15; margin: 0.4rem 0 0.5rem; color: var(--np-ink);">Capaciteit en vervolg</h1>
   <div style="font-size: 1rem; color: var(--np-mid-gray);">Ruud &middot; de bouwfase in Q1</div>
 </div>
@@ -710,6 +851,9 @@ aanpak". De lijn van Ruud: deelstappen en een mogelijk mvp in plaats van alles t
 <div style="background:#7A97F2;color:#fff;border-radius:6px;padding:0.2rem 0;text-align:center;font-size:0.78rem;font-weight:600;">Review</div>
 <div><strong>De acht fase-pull requests</strong>, elk afgebakend tot een fase van de leerroute. Dit is de afspraak van 30 september, uitgevoerd</div>
 
+<div style="background:#7CCBA8;color:#fff;border-radius:6px;padding:0.2rem 0;text-align:center;font-size:0.78rem;font-weight:600;">Bevestigen</div>
+<div><strong>Dekt het issue bij jouw opmerking wat je bedoelde?</strong> Veertien issues staan op naam van hun inbrenger; bijsturen daar is waardevoller dan een akkoord</div>
+
 <div style="background:#B8BEC7;color:#fff;border-radius:6px;padding:0.2rem 0;text-align:center;font-size:0.78rem;font-weight:600;">Kennis</div>
 <div>De fork van de OEAPI-specificatie is opgeheven; OKx specificeert erbovenop via een submodule met een overlay</div>
 </div>
@@ -717,7 +861,7 @@ aanpak". De lijn van Ruud: deelstappen en een mogelijk mvp in plaats van alles t
 </div>
 
 <div style="font-size: 0.82rem; color: var(--np-mid-gray); margin-top: 1rem;">
-Twee besluiten, en beide stonden ook op 30 september op de lijst.
+Twee besluiten, en beide stonden ook op 30 september op de lijst. De vier thema's uit deel 2 komen daar in de bespreking bij.
 </div>
 
 </div>
@@ -741,6 +885,8 @@ vorm, want de pull requests zijn nu klein genoeg om per fase te beoordelen.
 # Vervolg
 
 <div style="margin-top:0.9rem;max-width:92%;font-size:0.92rem;line-height:1.8;">
+
+Reacties op een opmerking uit de reviewronde: in het issue dat op jouw naam staat
 
 Reacties op de voorbeelduitwerking: in de pull request van de fase waar het over gaat
 
