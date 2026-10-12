@@ -169,6 +169,25 @@ Bronmateriaal dat geen review vraagt: <de bestanden waarmee het product is gemaa
 
 De acceptatiecriteria met hun testuitkomst staan er altijd, maar tellen niet mee in de vijftien zinnen; anders verdringt de verantwoording de samenvatting.
 
+## Een reviewronde afhandelen: elke opmerking wordt een issue
+
+Een reviewronde met leveranciers of instellingen levert opmerkingen die niet in de pull request thuishoren. Inhoudelijk antwoorden houdt de pull request open, en mergen zonder antwoord laat de inbrenger in het ongewisse. Dus: **elke opmerking wordt een issue, en daarna kan de pull request sluiten.**
+
+Elke opmerking krijgt er twee, in twee repositories:
+
+| | Waar | Wat erin staat |
+|---|---|---|
+| **De interactie** | Het repository waar de reviewer meeleest | De opmerking letterlijk, met auteur, datum en permalink; wat OKx erin leest; en de inbrenger getagd met de vraag of het issue zijn opmerking dekt |
+| **De werkbrief** | `Npuls-OKx/meta` | Story, context met de vindplaats, wat er moet gebeuren, en acceptatiecriteria |
+
+De opmerking staat **letterlijk** in het interactie-issue, als blokcitaat. Een verwijzing naar een comment is over twee weken niet meer te lezen zonder doorklikken, en de inbrenger moet kunnen zien dat hij goed begrepen is.
+
+**Oppakken betekent een antwoord, geen toezegging om te bouwen.** Dat hoort er met zoveel woorden te staan: er komt een onderbouwd antwoord, met het voorstel erbij of met de reden om het niet door te voeren. Leidt het tot een wijziging en zien beide partijen daar aanleiding voor, dan volgt die als pull request. Zonder die zin leest een issue als een belofte.
+
+De reactie in de pull request zelf blijft kort: wat de opmerking was, dat zij is overgenomen, het issuenummer, en dat de inhoud daar landt. Drie tot vijf regels, en de inhoudelijke discussie verhuist mee naar het issue. Een opmerking die vijf punten draagt wordt vijf issues, en de reactie noemt ze alle vijf.
+
+Sluit af met een vraag aan de inbrenger, niet met een bevestiging: dekt dit issue de opmerking zoals zij bedoeld was. Dat levert meer op dan een akkoord.
+
 ## Een issue dat de agent zelf aanmaakt
 
 Een agent mag een issue aanmaken voor wat hij onderweg vindt: een openstaande vraag, een fout, een belemmering. Drie regels daarbij.
