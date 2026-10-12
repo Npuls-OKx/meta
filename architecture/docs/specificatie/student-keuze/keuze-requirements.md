@@ -58,8 +58,6 @@ De twee soorten zijn huidige voorbeelden, geen vaste indeling (zie R10 en R12).
 | Volgorde | Verplichte volgorde tussen specificaties (sequencing) |
 | Algemeen/verbredend keuzedeel | Breed, universeel kiesbaar |
 | Beroepsspecifiek/verdiepend keuzedeel | Kiesbaar onder voorwaarden |
-| Organisatie-eenheid | Het deel van de instelling waaronder onderwijs valt: domein, sector, team of opleidingsafdeling |
-| Locatie | De plek waar aanbod plaatsvindt; hard zodra een ruimte is toegewezen, daarvoor een voornemen |
 | Groep of lesgroep | Studenten met dezelfde keuze op dezelfde locatie en periode |
 | Individuele opleiding | Per student samengesteld programma (personalisering) |
 | Specificatie versus aanbod | Ontwerp (catalogus) versus planbaar en geroosterd resultaat |
@@ -73,8 +71,6 @@ Elke eis met een concreet voorbeeld uit [LR1-3](../leerroute-uitwerking/doc/leer
 - **R1 Kiesbaarheid bepalen (eligibility).** Bepaalbaar welke onderwijsspecificaties een student mag kiezen, op elk niveau. Voorbeeld: gegeven Jochem in Apothekersassistent, lever de lijst kiesbare keuzedelen. Figuur 7.4.1.
 - **R2 Regels los van items.** Een regel staat los van de items waarop hij werkt. Voorbeeld: de lijst kiesbare keuzedelen kan wijzigen zonder dat de regel "Ruimtelijk inzicht vereist Wiskunde 1" verandert. Figuur 7.1.
 - **R3 Locatie en periode.** Kiesbaarheid en beschikbaarheid kunnen afhangen van locatie en periode. Voorbeeld: Ruimtelijk inzicht wordt alleen in Utrecht in periode 3 aangeboden. Figuur 7.4.3.
-- **R18 Organisatie-eenheid als keuzebepalende factor** (bron: [Public #114](https://github.com/Npuls-OKx/Public/issues/114)). Een regel kan de keuze beperken tot wat onder een organisatie-eenheid valt. Voorbeeld: een student in het domein Zorg en Welzijn krijgt de keuzedelen van dat domein voorgelegd en niet die van Techniek. De eenheid staat vast bij de specificatie, dus deze regel is te evalueren voordat er aanbod is. Figuur 7.4.8.
-- **R19 Een regel zegt wanneer haar waarde hard is** (bron: [Public #114](https://github.com/Npuls-OKx/Public/issues/114)). Per factor is vastgelegd op welk moment in de keten de waarde bekend is, en wat er gebeurt zolang zij dat niet is. Voorbeeld: de organisatie-eenheid ligt vast bij de specificatie; de locatie wordt pas hard bij het toewijzen van een ruimte, dus daarvoor filtert een locatieregel op een voorgenomen locatie of filtert zij niet. Figuur 7.4.8.
 - **R4 Herkenbare groep** (bron: #84, vraag 3). Een groep is herkenbaar te koppelen aan de combinatie keuzedeel, locatie en periode. Voorbeeld: Jochem en 24 anderen kiezen Ruimtelijk inzicht in Utrecht in periode 3; samen zijn zij de groep die hoort bij (Ruimtelijk inzicht, Utrecht, P3). Groepslidmaatschap (group membership) is de stabielste manier om deze keuzes tussen systemen uit te wisselen. Figuur 7.4.3.
 - **R5 Ruimte voor vrijere keuzevormen later.** De regels sluiten vrijere vormen niet uit. Voorbeeld: later moet "kies 2 van 5 keuzedelen" mogelijk zijn zonder de [LR1-3](../leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md "leerroutes en persona's in het OEAPI-profiel")-afspraken te breken. Figuur 7.4.1.
 - **R6 Zelfde uitkomst bij elk systeem.** Een regel is zo eenduidig dat elk systeem dezelfde uitkomst berekent (voorwaarde voor toetsing, conformance). Voorbeeld: systeem A en B bepalen beide dat Jochem Ruimtelijk inzicht nog niet mag kiezen zolang Wiskunde 1 niet af is. Figuur 7.4.5.
@@ -296,33 +292,6 @@ flowchart LR
     C26 -. "nieuwe instroom volgt nieuwe versie" .-> C27
 ```
 
-#### 7.4.8 Twee factoren, twee momenten (R18, R19)
-
-De organisatie-eenheid ligt vast zodra de specificatie er is. De locatie wordt pas hard bij het roosteren, wanneer een ruimte is toegewezen. Een regel die op locatie filtert werkt dus later in de keten dan een regel die op organisatie-eenheid filtert.
-
-```mermaid
-flowchart LR
-    subgraph S["Specificatie"]
-        OE["Organisatie-eenheid<br/>domein Zorg en Welzijn"]
-        KD["Keuzedeel<br/>Ruimtelijk inzicht"]
-        OE -- "valt onder" --> KD
-    end
-    subgraph A["Aanbod"]
-        LOC["Locatie, voorgenomen<br/>Utrecht"]
-    end
-    subgraph R["Rooster"]
-        RU["Ruimte toegewezen<br/>locatie is hard"]
-    end
-    KD --> LOC --> RU
-    REGEL["Student keuze regelset"]
-    OE -. "voorwaarde op, evalueerbaar vanaf de specificatie" .-> REGEL
-    LOC -. "voorwaarde op, pas betrouwbaar vanaf het rooster" .-> REGEL
-```
-
-Zolang de locatie een voornemen is, kan een locatieregel twee kanten op: filteren op het voornemen en de uitkomst als voorlopig tonen, of pas filteren zodra de ruimte vaststaat. Welke van de twee geldt, hoort bij de regel te staan.
-
-De tekenopdracht voor het informatiemodel en het voorbeeld bij Vista staan in [organisatie-eenheid-en-locatie](organisatie-eenheid-en-locatie.md).
-
 ### 7.5 Dekking: requirement naar figuur
 
 | Requirement | Figuur |
@@ -344,8 +313,6 @@ De tekenopdracht voor het informatiemodel en het voorbeeld bij Vista staan in [o
 | R15 alleen sleutel en status | 7.4.2 en 7.4.5 |
 | R16 regels op elk niveau | 7.4.4 |
 | R17 herleidbare regelversie | 7.4.7 |
-| R18 organisatie-eenheid | 7.4.8 |
-| R19 wanneer een waarde hard is | 7.4.8 |
 
 ## 8. Verhouding tot OEAPI
 
@@ -366,13 +333,13 @@ Aanbod-attributen (suggestief, nog vast te stellen). Relatie: Specificatie 1..n 
 Open vragen:
 
 - OC naar planning: welke studentgegevens (eerder afgerond of ingeschreven) heeft planning nodig, en van welk systeem? Raakt ADR 0009.
-- Landelijke locatietabel (zoals BRIN in het VO) nodig of niet? (#84, vraag 2.) Raakt R18 en R19; de tekenopdracht staat in [organisatie-eenheid-en-locatie](organisatie-eenheid-en-locatie.md).
-- Plek van de regels (bij de specificatie, het aanbod of het programma): loopt als [Public #113](https://github.com/Npuls-OKx/Public/issues/113), met het voorstel van Jan Hendrik van Schaik om de specificatie als vertrekpunt te nemen en de regels per aanbodsperiode te kunnen muteren.
+- Landelijke locatietabel (zoals BRIN in het VO) nodig of niet? (#84, vraag 2.)
+- Plek van de regels (bij de specificatie, het aanbod of het programma): later in de gegevensanalyse.
 - Afstemming met de koppelingen-lijn (#98/#119): daar zijn R7, R14 en R15 inmiddels vastgelegd als ADR 0022 (resultaatbegrippen conform ROSA KOI) en ADR 0023 (leeruitkomst-ids als opaque sleutels binnen OC-P&R). Na merge verwijzen beide lijnen naar elkaar.
 
 ## 10. Vervolg
 
-1. R1-R19 vaststellen en laten accorderen na review op #84.
+1. R1-R17 vaststellen en laten accorderen na review op #84.
 2. Regelset-payload-voorstel (zie [regelset-payload](regelset-payload.md)) als eerste concretisering.
 3. Gegevensanalyse (AMIGO-stap 2): entiteiten en attributen afleiden, met OEAPI-mapping.
 4. Berichtspecificatie en OEAPI-profiel (AMIGO-stap 5 en 6): het toetsbare contract.

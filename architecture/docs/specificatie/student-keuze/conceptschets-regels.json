@@ -1,0 +1,195 @@
+{
+ "model": {
+  "naam": "Conceptschets: organisatie-eenheid, ruimte en locatie",
+  "bron": "Overleg 12 oktober 2026, naar aanleiding van de reviewopmerking van Jan Hendrik van Schaik op Public PR 104"
+ },
+ "fasen": [],
+ "rollen": [],
+ "toestanden": [],
+ "scope_uitzonderingen": [],
+ "koppelingen": [],
+ "thema_toelichting": {},
+ "bevindingen": [],
+ "regels": [
+  {
+   "beeld_id": "C-01",
+   "beeld": "Van expertise naar vlekkenplan",
+   "fase": 0,
+   "stap": "Ruimte beleggen bij een domein",
+   "soort": "ontstaat",
+   "wie": "planner",
+   "objecttype": "Persoon",
+   "instantie": "docent Zorg",
+   "bron": "Overleg 12 oktober 2026, naar aanleiding van de reviewopmerking van Jan Hendrik van Schaik op Public PR 104",
+   "zin": "Een persoon draagt een expertise; die expertise bepaalt onder welk domein hij valt. Het domein is verantwoordelijk voor de onderwijsuitvoering van specificaties, die een onderwijsvorm gebruiken. Die vorm vraagt een lokaaltype, en daarmee ligt vast welke ruimtes het domein nodig heeft. De planner koppelt die behoefte aan de ruimtes die op locaties beschikbaar zijn: het vlekkenplan."
+  },
+  {
+   "beeld_id": "C-01",
+   "beeld": "Van expertise naar vlekkenplan",
+   "fase": 0,
+   "stap": "Ruimte beleggen bij een domein",
+   "soort": "ontstaat",
+   "wie": "planner",
+   "objecttype": "Expertise",
+   "instantie": "verpleegkundige zorg",
+   "bron": "Overleg 12 oktober 2026, naar aanleiding van de reviewopmerking van Jan Hendrik van Schaik op Public PR 104",
+   "zin": "",
+   "relatie": {
+    "soort": "Association",
+    "van": "Persoon",
+    "naar": "Expertise",
+    "label": "heeft",
+    "nesting": true
+   },
+   "aanname": true
+  },
+  {
+   "beeld_id": "C-01",
+   "beeld": "Van expertise naar vlekkenplan",
+   "fase": 0,
+   "stap": "Ruimte beleggen bij een domein",
+   "soort": "ontstaat",
+   "wie": "planner",
+   "objecttype": "Organisatie-eenheid",
+   "instantie": "domein Gezondheid en Verzorging",
+   "bron": "Overleg 12 oktober 2026, naar aanleiding van de reviewopmerking van Jan Hendrik van Schaik op Public PR 104",
+   "zin": "",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Organisatie-eenheid",
+    "naar": "Persoon",
+    "label": "groepeert",
+    "nesting": false
+   },
+   "aanname": true
+  },
+  {
+   "beeld_id": "C-01",
+   "beeld": "Van expertise naar vlekkenplan",
+   "fase": 0,
+   "stap": "Ruimte beleggen bij een domein",
+   "soort": "ontstaat",
+   "wie": "planner",
+   "objecttype": "Onderwijseenheid specificatie",
+   "instantie": "Farmaceutische patientenzorg",
+   "bron": "Overleg 12 oktober 2026, naar aanleiding van de reviewopmerking van Jan Hendrik van Schaik op Public PR 104",
+   "zin": "",
+   "relatie": {
+    "soort": "Association",
+    "van": "Organisatie-eenheid",
+    "naar": "Onderwijseenheid specificatie",
+    "label": "voert uit",
+    "nesting": false
+   }
+  },
+  {
+   "beeld_id": "C-01",
+   "beeld": "Van expertise naar vlekkenplan",
+   "fase": 0,
+   "stap": "Ruimte beleggen bij een domein",
+   "soort": "ontstaat",
+   "wie": "planner",
+   "objecttype": "Onderwijsvorm",
+   "instantie": "simulatieonderwijs",
+   "bron": "Overleg 12 oktober 2026, naar aanleiding van de reviewopmerking van Jan Hendrik van Schaik op Public PR 104",
+   "zin": "",
+   "relatie": {
+    "soort": "Association",
+    "van": "Onderwijseenheid specificatie",
+    "naar": "Onderwijsvorm",
+    "label": "gebruikt",
+    "nesting": false
+   },
+   "aanname": true
+  },
+  {
+   "beeld_id": "C-01",
+   "beeld": "Van expertise naar vlekkenplan",
+   "fase": 0,
+   "stap": "Ruimte beleggen bij een domein",
+   "soort": "ontstaat",
+   "wie": "planner",
+   "objecttype": "Lokaaltype",
+   "instantie": "simulatielokaal apotheek",
+   "bron": "Overleg 12 oktober 2026, naar aanleiding van de reviewopmerking van Jan Hendrik van Schaik op Public PR 104",
+   "zin": "",
+   "relatie": {
+    "soort": "Association",
+    "van": "Onderwijsvorm",
+    "naar": "Lokaaltype",
+    "label": "vraagt",
+    "nesting": false
+   },
+   "aanname": true
+  },
+  {
+   "beeld_id": "C-01",
+   "beeld": "Van expertise naar vlekkenplan",
+   "fase": 0,
+   "stap": "Ruimte beleggen bij een domein",
+   "soort": "ontstaat",
+   "wie": "planner",
+   "objecttype": "Ruimte",
+   "instantie": "lokaal B-214",
+   "bron": "Overleg 12 oktober 2026, naar aanleiding van de reviewopmerking van Jan Hendrik van Schaik op Public PR 104",
+   "zin": "",
+   "relatie": {
+    "soort": "Realization",
+    "van": "Ruimte",
+    "naar": "Lokaaltype",
+    "label": "is van het type",
+    "nesting": false
+   },
+   "aanname": true
+  },
+  {
+   "beeld_id": "C-01",
+   "beeld": "Van expertise naar vlekkenplan",
+   "fase": 0,
+   "stap": "Ruimte beleggen bij een domein",
+   "soort": "ontstaat",
+   "wie": "planner",
+   "objecttype": "Locatie",
+   "instantie": "vestiging Heerlen",
+   "bron": "Overleg 12 oktober 2026, naar aanleiding van de reviewopmerking van Jan Hendrik van Schaik op Public PR 104",
+   "zin": "",
+   "relatie": {
+    "soort": "Association",
+    "van": "Ruimte",
+    "naar": "Locatie",
+    "label": "bevindt zich op",
+    "nesting": false
+   },
+   "aanname": true
+  },
+  {
+   "beeld_id": "C-01",
+   "beeld": "Van expertise naar vlekkenplan",
+   "fase": 0,
+   "stap": "Ruimte beleggen bij een domein",
+   "soort": "ontstaat",
+   "wie": "planner",
+   "objecttype": "Vlekkenplan",
+   "instantie": "vlek Zorg, Heerlen B-vleugel",
+   "bron": "Overleg 12 oktober 2026, naar aanleiding van de reviewopmerking van Jan Hendrik van Schaik op Public PR 104",
+   "zin": "",
+   "relaties": [
+    {
+     "soort": "Aggregation",
+     "van": "Vlekkenplan",
+     "naar": "Ruimte",
+     "label": "groepeert",
+     "nesting": false
+    },
+    {
+     "soort": "Assignment",
+     "van": "Vlekkenplan",
+     "naar": "Organisatie-eenheid",
+     "label": "toegewezen aan",
+     "nesting": false
+    }
+   ],
+   "aanname": true
+  }
+ ]
+}
