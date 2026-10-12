@@ -1,6 +1,6 @@
 # Scenario-uitwerkingen
 
-**Doel.** Elk scenario beschrijft in begrijpelijke taal wat er in de keten gebeurt om één concrete studentroute mogelijk te maken: één persona, één casus, van kwalificatiekader tot eerste lesdag en verder. De scenario's dienen als opstapje naar testgedreven ontwikkeling (test driven development): de vaste Given/When/Then-opbouw van het sjabloon is direct vertaalbaar naar acceptatietests op de koppelingen. Relateert aan: #137.
+**Doel.** Elk scenario beschrijft in begrijpelijke taal wat er in de keten gebeurt om één concrete studentroute mogelijk te maken: één persona, één casus, van kwalificatiekader tot eerste lesdag en verder. De scenario's dienen als opstapje naar testgedreven ontwikkeling (test driven development): de vaste Given/When/Then-opbouw van het sjabloon is direct vertaalbaar naar acceptatietests op de koppelingen.
 
 **Scope.** De scenario's voor leerroute 1 (regulier), 2 (temporiseren by design) en 3 (versnellen by design), elk met de incidentele varianten vertraging, versnelling en hybride. Eén scenario per document; scenario 1.1 is de uitgewerkte basislijn, de overige beschrijven hun delta en zijn nog uit te werken. De kaderstelling per leerroute staat in de [leerroute-uitwerking](../leerroute-uitwerking-lr1.md), de begrippen in het [begrippenkader](../begrippenkader.md).
 
@@ -33,6 +33,8 @@ flowchart LR
 
 ## Sjabloon en leeswijzer
 
+Elk scenariodocument opent met vier vaste velden: **Doel**, **Scope**, **Persona** (link naar het persona-bestand; in deze reeks steeds Jochem, per scenario op een andere levensloop) en **Verantwoordt** (de story-id's uit de requirementsboom die uit het scenario volgen, als ankerlinks op het story-id; zo is de relatie in beide richtingen naloopbaar: het scenario wijst de stories aan, de bronkolom van de story wijst terug; ingevoerd per leerroute, te beginnen bij leerroute 1).
+
 We gebruiken voor elk scenario hetzelfde sjabloon. Lees het als een verhaal in zeven blokken (A–G), met steeds één persona (**Jochem**) en één doorlopende casus (**Apothekersassistent**, Crebo dossier 23450, kwalificatie 27141). De BPMN-uitwerking in `../bpmn/leerroute-1-scenario-1-regulier-geenkeuze-happyflow.bpmn2` (zie [SVG](../img/leerroute-1-scenario-1-regulier-geenkeuze-happyflow.svg)) is de **basis-procesplaat** voor scenario 1.1; voor de andere scenario's beschrijven we waar het proces afwijkt.
 
 | Blok | Naam                              | Wat staat erin                                                                                                                                  |
@@ -55,7 +57,7 @@ We gebruiken voor elk scenario hetzelfde sjabloon. Lees het als een verhaal in z
 
 Deze drie werkprocessen samen tonen verschillende eisen aan ruimte, expertise en leermiddelen — en daarmee aan planning en roostering.
 
-**Persona.** *Jochem (15). Heeft VMBO-tl afgerond. Heeft via een open dag interesse in farmacie ontwikkeld. Meld zich aan voor de voltijd mbo-4-opleiding Apothekersassistent (3 jaar) bij ROC Het Voorbeeld. Geen relevante voorkennis, geen vrijstellingen, geen verwachte verstoring.* In scenario 2.1 tot en met 3.4 verschijnt dezelfde Jochem op een andere levensloop — om de scenario's herkenbaar te houden voor lezers, en om expliciet te maken dat **dezelfde persoon** in verschillende cohorten of jaren een ander tempo of een andere route nodig kan hebben.
+**Persona.** *Jochem (15). Heeft VMBO-tl afgerond. Heeft via een open dag interesse in farmacie ontwikkeld. Meld zich aan voor de voltijd mbo-4-opleiding Apothekersassistent (3 jaar) bij ROC Leren Zonder Drempels. Geen relevante voorkennis, geen vrijstellingen, geen verwachte verstoring.* In scenario 2.1 tot en met 3.4 verschijnt dezelfde Jochem op een andere levensloop — om de scenario's herkenbaar te houden voor lezers, en om expliciet te maken dat **dezelfde persoon** in verschillende cohorten of jaren een ander tempo of een andere route nodig kan hebben.
 
 ## Buiten scope
 

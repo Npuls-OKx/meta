@@ -1,8 +1,12 @@
 # Scenario 2.1: temporiseren by design (anker leerroute 2)
 
-**Doel.** De baseline voor leerroute 2 vastleggen: dezelfde opleiding bewust op lager tempo, als track op de programma-specificatie, met alternatief planbaar aanbod naast het reguliere. Relateert aan: #137.
+**Doel.** De baseline voor leerroute 2 vastleggen: dezelfde opleiding bewust op lager tempo, als track op de programma-specificatie, met alternatief planbaar aanbod naast het reguliere.
 
 **Scope.** Leerroute 2 (temporiseren by design), zonder incidenten; delta ten opzichte van [scenario 1.1](scenario-1.1-regulier-happyflow.md). Status: pitch, nog uit te werken. Het sjabloon, de casus en de samenhang staan in de [README](README.md).
+
+**Persona.** [Jochem](../persona_jochem.md), in de levensloopvariant van dit scenario (zie het sjabloon in de [README](README.md)).
+
+**Verantwoordt.** De bijbehorende story-id's volgen bij de scenario-story-verantwoording, na de hernummering van de requirementsboom.
 
 > **Status.** *By design, baseline voor leerroute 2.* **Pitch.** *Jochem is dit jaar 24, werkt 24 uur per week in een drogisterij en heeft een gezin. Hij wil dezelfde Apothekersassistent-opleiding doen, maar op **lager tempo by design**: 4 jaar in plaats van 3, met 60% van de nominale studiebelasting per periode. Geen vrijstellingen — alleen meer tijd.*
 >

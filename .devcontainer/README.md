@@ -30,6 +30,7 @@ cat /.dockerenv # bestaat -> je zit in een container
 - **GitHub CLI (`gh`)** (via devcontainer-feature) - zie hieronder.
 - **Claude Code** (`Anthropic.claude-code`) - VS Code/Cursor-extensie; zie hieronder.
 - `imagemagick`, `graphviz`, `pandoc`, `chromium`.
+- **Archi 5.10** headless (`/opt/Archi`, commando `archi`): exporteert platen en stromen uit `model.archimate` via `scripts/exporteer-archimate-platen.py`; geen display nodig.
 
 ## GitHub vanuit de container (eenmalig inloggen)
 

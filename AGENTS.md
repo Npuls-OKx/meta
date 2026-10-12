@@ -6,22 +6,25 @@ Basisdocument voor AI-agents (Cursor, Claude Code, Codex en vergelijkbaar) die i
 
 OKx-meta is de **publieke kennisbank** van OKx (Npuls, pijler Leren Zonder Drempels): gedeelde kennis, afspraken en conceptuitwerkingen rond **gestandaardiseerde koppelvlakken voor onderwijslogistiek**. Dit is een documentatierepository, geen codebase. Scope start bij mbo (leerroutes 1-3 eerst), hoger onderwijs volgt. Volledige introductie: [README.md](README.md) en [doc/OKx_Projectoverzicht.md](doc/OKx_Projectoverzicht.md).
 
-## Kernprincipes
+## Principes en werkafspraken
 
-Vastgelegd in [architecture/docs/principes.md](architecture/docs/principes.md):
+De architectuurprincipes van OKx staan in [Referentiemateriaal/principes in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/principes/principes.md) (OKx-AP01 tot en met AP13; AMIGO als standaardiseringsroute is AP03), naast de [uitgangspunten](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md). Eisen komen vóór de techniekkeuze: een eis sneuvelt nooit omdat OEAPI of een andere technische standaard hem niet toestaat; zo'n mismatch is een signalering richting de standaard (uitgangspunt-voorstel voor Public in voorbereiding, relateert aan #139).
+
+Voor het werk in deze repository gelden vier werkafspraken:
 
 1. **Design first**: ontwerpen en reviewen vóór "af"; iteratief via issues en PR's.
-2. **OEAPI als voorkeur, tenzij**: afwijkingen bewust en vastgelegd (ADR).
-3. **Machine-interpreteerbaar**: gestructureerde markdown, JSON, valideerbare definities.
-4. **Show don't tell**: diagrammen (mermaid), tabellen en voorbeelden boven lange tekst.
-5. **Uitbreidbaar**: de principes zijn levend; wijzigen via PR en zo nodig ADR.
+2. **Machine-interpreteerbaar**: gestructureerde markdown, JSON, valideerbare definities.
+3. **Show don't tell**: diagrammen (mermaid), tabellen en voorbeelden boven lange tekst.
+4. **Milestone-gedreven**: een grotere klus krijgt een GitHub-milestone die herleidbaar is naar de [requirementsboom](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/requirementsboom/README.md) (doel, epic of feature); elk issue hangt onder een milestone. Bij een los idee zonder milestone-context vraagt de agent de indiener door tot het grotere plaatje duidelijk is, en stelt dan een bestaande of nieuwe milestone voor (issue #179).
+
+De werkafspraken zijn levend; wijzigen via PR.
 
 ## Aannames en kaders
 
 - **Scenario's**: leerroutes 1-3 met de persona's uit de [leerroute-uitwerking](architecture/docs/specificatie/leerroute-uitwerking/README.md); latere leerroutes als delta.
 - **Intra-instelling eerst**, federatie gefaseerd (ADR 0008).
 - **Taal**: Nederlands, IT-vaktermen tussen haakjes. Stijl: [.cursor/rules/schrijfstijl.mdc](.cursor/rules/schrijfstijl.mdc).
-- **Semantiek**: de zes begrippenfamilies uit de ankertabel in het [begrippenkader van de leerroute-uitwerking](architecture/docs/specificatie/leerroute-uitwerking/doc/begrippenkader.md) (kwalificatiekader, beoogde leeruitkomst, onderwijsspecificatie, onderwijsaanbod, onderwijsverbintenis, onderwijsresultaat); de leeruitkomst is de sleutel, onderwijsresultaten hangen aan leeruitkomsten. Subtypen voluit met backquotes; geen verzonnen termen. Een koppeling is de informatiestroom tussen twee componenten; een koppelvlak is de verzameling koppelingen van één component.
+- **Semantiek**: de zeven begrippenfamilies uit het [informatiemodel OKx](architecture/model/informatiemodel/informatiemodel.md) (kwalificatiekader, onderwijskundig kader instelling, onderwijsspecificatie, onderwijsaanbod, onderwijsverbintenis, onderwijsresultaat, resultaatstructuur), met de definities per begrip in de [begrippenlijst](architecture/docs/specificatie/begrippen/begrippenlijst.md); het [begrippenkader van de leerroute-uitwerking](architecture/docs/specificatie/leerroute-uitwerking/doc/begrippenkader.md) is de voorloper. De leeruitkomst is de sleutel: specificaties en de resultaatstructuur verwijzen ernaar; resultaten ontstaan op de verbintenis en vormen via de resultaatstructuur het bewijs voor een leeruitkomst. Subtypen voluit met backquotes; geen verzonnen termen. Een koppeling is de informatiestroom tussen twee componenten; een koppelvlak is de verzameling koppelingen van één component.
 - **Geen metadatakop (frontmatter)** in deliverables en agent-artifacten: GitHub (git-historie, issues, PR's) is de bron voor auteurschap, datums en traceerbaarheid; verwijs in de tekst ("Relateert aan: #12"). Uitzondering: `SKILL.md`-bestanden en `.mdc`-rules houden hun verplichte metadatakop (naam, beschrijving, `alwaysApply`).
 
 ## Harde regels
@@ -29,15 +32,60 @@ Vastgelegd in [architecture/docs/principes.md](architecture/docs/principes.md):
 1. **Raak nooit een `*.archimate`-bestand aan.** Nooit tekstueel mergen; zie [architecture/model/README.md](architecture/model/README.md) en ADR 0010. Vóór elke model-commit: `python3 scripts/validate-archimate.py`.
 2. **Installaties alleen in de dev-container**, nooit op de host ([.cursor/rules/dev-omgeving.mdc](.cursor/rules/dev-omgeving.mdc); een controlescript (hook) bewaakt dit).
 3. **1 issue = 1 branch = 1 PR**, feature-branches vanaf `dev`, alleen het OKx-team merget ([CONTRIBUTING.md](CONTRIBUTING.md)).
-4. **Deliverables volgen de product-flow** (requirements, uitwerking, onafhankelijke review; zie hieronder).
+4. **Deliverables volgen de product-flow**: story met gebruiker en waarde, acceptatiecriteria in het issue, plan met tegenlezing, uitwerking met onafhankelijke review, waardevalidatie. Twee stopmomenten, beide bij de opdrachtgever: akkoord op de criteria, en groen licht op het plan. Zie [hieronder](#product-flow-samenvatting).
 5. Markdown-deliverables halen de voorcontrole: `python3 scripts/validate-docs.py <pad>`.
+6. **Specificeren bovenop OEAPI gaat via een submodule, nooit via een fork.** De OEAPI-specificatie komt binnen als git-submodule op een vastgezet versielabel; het OKx-werk ligt daar als overlay bovenop. Zie [Specificeren bovenop OEAPI](#specificeren-bovenop-oeapi).
+
+## Specificeren bovenop OEAPI
+
+OKx bouwt voort op de [Open Education API](https://github.com/open-education-api/specification). Dat gebeurt met een **git-submodule op een vastgezet versielabel**, en niet met een fork. Een fork kan de specificatie aanpassen en gaat daarmee uit de pas lopen met de standaard; dat is precies wat OKx wil voorkomen.
+
+De vorm staat in [oeapi-profile-example](https://github.com/open-education-api/oeapi-profile-example) van OEAPI zelf:
+
+```text
+OEAPI base specification
++ profile overlay
++ consumer overlay
+= gegenereerde OpenAPI-specificatie
+```
+
+De basis komt binnen als submodule, met een label in plaats van een branch:
+
+```text
+[submodule "base/oeapi"]
+	path = base/oeapi
+	url = https://github.com/open-education-api/specification.git
+```
+
+| | |
+|---|---|
+| Vastzetten | De submodule staat op een versielabel, bijvoorbeeld `v6.0-rc.3`, zodat de basis niet onder het werk verschuift |
+| Meebewegen | Overgaan naar een volgende OEAPI-versie betekent de submodule naar dat nieuwe label verzetten, waarna de overlay opnieuw wordt samengevoegd |
+| Samenvoegen | De overlay gaat over de basis heen met `overlay-merger.js`; het resultaat komt in `generated/` en wordt niet met de hand bijgewerkt |
+| Afwijken | Een verschil tussen een OKx-eis en wat OEAPI toestaat blijft een signalering richting de standaard, en wordt geen aanpassing in de basis |
+
+De mappenindeling die OEAPI aanraadt:
+
+```text
+<profiel-repository>/
+├── base/oeapi/source/        de submodule, alleen-lezen
+└── <profiel>/
+    ├── profile.yaml
+    ├── source/
+    │   ├── spec.yaml
+    │   ├── paths/ schemas/
+    │   └── consumers/<consumer>/
+    └── generated/
+```
+
+Dit vervangt de fork `Npuls-OKx/specification`, die op verzoek van de OEAPI-beheerder is opgeheven. Het werk dat daarin stond is bewaard in `architecture/agent-artifacts/eerste-vertaalpoging-naar-oeapi-met-ai/`, met een leeswijzer die de status erbij zegt.
 
 ## Waar vind ik wat
 
 | Wat | Waar |
 |---|---|
 | Projectcontext, hoofdplaat informatiestromen | [doc/](doc/) |
-| Requirementsboom (opdracht, epics, features, stories) | [architecture/docs/requirements/](architecture/docs/requirements/README.md) |
+| Requirementsboom (opdracht, epics, features, stories) | [Referentiemateriaal/requirementsboom in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/requirementsboom/README.md) |
 | Architectuurbesluiten (ADR's) | [Referentiemateriaal/adr in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr) |
 | ArchiMate-model (niet aanraken) | [architecture/model/](architecture/model/) |
 | Meetingverslagen | [architecture/meetings/](architecture/meetings/) |
@@ -47,7 +95,7 @@ Vastgelegd in [architecture/docs/principes.md](architecture/docs/principes.md):
 | Presentaties (Slidev, Npuls huisstijl) | [presentaties/](presentaties/) |
 | Validatiescripts | [scripts/](scripts/) |
 
-In behandeling op andere branches (na merge hier linken): koppelingspecificaties per koppeling (OC-P&R, OC-SIS, OC-LMS) met payload-specificaties, en de keuze-requirements met regelset-payload onder `architecture/docs/specificatie/student-keuze/`.
+De koppelingspecificaties per koppeling (OC-P&R, OC-SIS, OC-LMS) leven als interactiepatronen met datamodelschema's in [Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Koppelvlakspecificaties); de [keuze-requirements met regelset-payload](architecture/docs/specificatie/student-keuze/keuze-requirements.md) staan onder `architecture/docs/specificatie/student-keuze/`.
 
 ## Agent-omgeving
 
@@ -58,7 +106,21 @@ In behandeling op andere branches (na merge hier linken): koppelingspecificaties
 
 ### Product-flow (samenvatting)
 
-Elk deliverable doorloopt de keten uit [.agents/skills/okx-product-flow/SKILL.md](.agents/skills/okx-product-flow/SKILL.md): **requirements** opstellen met de business-analyse-persona, **uitwerken** met de specialist-skill, **onafhankelijke review** door tester en specialist in verse subagent-contexten, **itereren** tot beide reviews slagen, en afsluiten met een kort **agent-rapport** in de PR-beschrijving. Start via het command `product-flow`.
+Elk deliverable doorloopt de keten uit [.agents/skills/okx-product-flow/SKILL.md](.agents/skills/okx-product-flow/SKILL.md). Elke iteratie begint bij waarde voor een benoemde gebruiker en eindigt met de controle of die waarde geleverd is; het doel is een eerste iteratie die waarde levert, niet een volmaakt resultaat.
+
+| Stap | Wat er gebeurt |
+|---|---|
+| 0 | **Story**: als `<gebruiker>` wil ik `<X>` met als doel dat `<waarde>`. Zonder benoemde gebruiker en waarde begint het werk niet |
+| 1 | **Acceptatiecriteria** in gesprek scherp gemaakt en vastgelegd in het issue, met per criterium een testgeval. *Stopmoment: akkoord van de opdrachtgever* |
+| 2 | **Implementatieplan**, autonoom |
+| 3 | **Tegenlezing van het plan** door een onafhankelijke agent in een verse context, die afkeurt op vier gronden en niet op volledigheid of smaak |
+| 4 | *Stopmoment: groen licht van de opdrachtgever* |
+| 5 | **Uitwerken** met de specialist-skill, daarna onafhankelijke review door tester, specialist en schrijfstijl in verse subagent-contexten |
+| 6 | **Waardevalidatie**: levert het geleverde de waarde uit de story. Vervolgpunten worden kleine iteraties |
+
+De lus is begrensd op drie ronden per poort; daarna escaleert de agent met de openstaande bevindingen. Het verloop staat in het issue of in het **agent-rapport** in de PR-beschrijving.
+
+Elke PR-beschrijving opent met een samenvatting van hoogstens vijftien zinnen: het sluitwoord `Closes #123` als context, een genummerde lijst van wat er is opgeleverd met per regel een link naar het document of de plaat zelf, en of de product-flow is doorlopen. Heeft de oplevering structuur, dan hoort daar een visuele uitsplitsing bij (mermaid of ascii), volgens werkafspraak 3. Daaronder een genummerde **review-instructie** die zegt wat van dat werk een mens moet beoordelen, in welke volgorde, en welk bronmateriaal hij kan overslaan. Daaronder de acceptatiecriteria met hun testuitkomst, de openstaande vragen en gevonden fouten, en de issues die daaruit zijn aangemaakt. Een agent mag zelf een issue aanmaken voor wat hij vindt, uitsluitend in `Npuls-OKx/meta` en altijd met het label `gevondenDoorAI`. Een opmerking uit een reviewronde wordt daarentegen altijd twee issues: de interactie in het repository waar de reviewer meeleest, met de opmerking letterlijk erin en de inbrenger getagd, en de werkbrief in meta. Daarna kan de pull request sluiten. Zo'n issue kent drie uitgangen: de inbrenger sluit hem omdat het antwoord volstaat, hij gaat met het label `agenda kerngroep techniek` naar een sessie, of OKx sluit hem met de reden erbij. Het antwoord komt altijd onder het issue te staan, ook als het al in de pull request stond, en het issue gaat op naam van de inbrenger. Een label per sessie komt er niet: dat label is stabiel en de datum staat in de comment. De vorm staat in [.agents/skills/okx-product-flow/SKILL.md](.agents/skills/okx-product-flow/SKILL.md). Een werkwijze-issue draagt wel een story en krijgt geen plek in de requirementsboom. Start via het command `product-flow`.
 
 ## Skills toevoegen of bijwerken
 

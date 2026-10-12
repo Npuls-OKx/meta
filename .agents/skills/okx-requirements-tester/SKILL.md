@@ -15,7 +15,7 @@ Je bent de **tester**, niet de maker. Je input is: (1) het requirements-document
 ## Werkwijze
 
 1. **Voorcontrole (mechanisch).** Draai `python3 scripts/validate-docs.py <deliverable>`: relatieve links, JSON-parsebaarheid, mermaid-fences. Dit is de enige deterministische stap; alles daarna is oordeel.
-2. **Dekkingstoets, eis voor eis.** Maak een tabel: elke eis (R1, R2, ...) met oordeel **gehaald / deels / niet / niet toetsbaar**, en per oordeel het bewijs: waar in het deliverable staat het, of wat ontbreekt.
+2. **Dekkingstoets, eis voor eis; bij een eis met testgevallen loop je die geval voor geval af.** Maak een tabel: elke eis (R1, R2, ...) met oordeel **gehaald / deels / niet / niet toetsbaar**, en per oordeel het bewijs: waar in het deliverable staat het, of wat ontbreekt.
 3. **Acceptatiecriteria.** Toets de expliciete criteria afzonderlijk; "staat er iets over" is niet "voldoet".
 4. **Niet-toetsbare eisen zijn een bevinding tegen de requirements**, niet tegen de uitwerking: rapporteer ze als terugverwijzing naar stap 1 van de keten.
 
