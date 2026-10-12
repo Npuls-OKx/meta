@@ -17,9 +17,10 @@ cd presentaties
 ./deck adviesgroep programma statisch   # allebei tegelijk, op 3030 en 3031
 ./deck adviesgroep beelden              # een PNG per slide, om te controleren
 ./deck adviesgroep pdf                  # een PDF om rond te sturen
+./deck adviesgroep pptx                 # een PowerPoint, tekst bewerkbaar
 ```
 
-De naam mag een fragment zijn: `adviesgroep` vindt `260803_adviesgroep.md`. Passen er meerdere, dan vraagt het script om een specifiekere naam.
+De bronnen staan in `src/`; de naam mag een fragment zijn, `adviesgroep` vindt `src/260803_adviesgroep.md`. Passen er meerdere, dan vraagt het script om een specifiekere naam.
 
 ### Gewoon of statisch?
 
@@ -45,11 +46,11 @@ Die vraagt voor welk gremium en over welke periode, verzamelt de wijzigingen uit
 Met de hand:
 
 ```bash
-cp _template.md 260803_onderwerp.md
+cp src/_template.md src/260803_onderwerp.md
 ./deck onderwerp
 ```
 
-Naamgeving: `JJMMDD_onderwerp.md`. Het template bevat een werkend voorbeeld van elk slidetype.
+Naamgeving: `src/JJMMDD_onderwerp.md`. Het template bevat een werkend voorbeeld van elk slidetype.
 
 ## Waar je op let bij het schrijven
 
@@ -57,7 +58,15 @@ Dit zijn de dingen die in de praktijk misgingen. Uitgebreider in de skill [`okx-
 
 **Kies je onderwerpen op wat er op tafel moet, niet op wat het meeste werk was.** Een herindeling kan honderden bestanden raken en toch een voetnoot zijn.
 
+**Kernpunt eerst.** Het publiek hoort binnen de eerste minuut wat de sprekers komen brengen: wat er bereikt is, in één concrete zin, vóór het programma. Een subtitel op de titelslide draagt die essentie of vervalt — sfeerzinnen zijn vulling.
+
 **Schrijf over de zaak, niet tegen de zaal.** Geen "u", "je" of "jullie", ook niet in een kop. Een deck informeert over een onderwerp, dus dat onderwerp staat vooraan — dezelfde norm als bij een adviesrapport. "Waar we jullie voor nodig hebben" wordt **Besluit nodig op**, met daaronder *Door* (welke partijen), *Voor* (wanneer) en *Opties*. Zo staat na afloop vast wat er gevraagd is.
+
+**Meta-taal blijft buiten de slide.** "Houd het kort" is een instructie voor de maker, geen slidetekst: een titel als "De aanleiding, kort" vertelt hoe het deck gemaakt is in plaats van wat er staat. Als de slide kort is, ziet de zaal dat vanzelf; de aanwijzing zelf hoort in de sprekersnotitie.
+
+**De opdracht is regie, geen slidetekst.** De briefing van de opdrachtgever ("het idee is dat ze meteen zien wat we komen brengen") is nooit zelf de titel of tekst van de slide. Vertaal de aanwijzing: wat is de essentie voor het publiek, en hoe zou je die zelf willen lezen als je in de zaal zat? Wie de briefing letterlijk terugleest heeft genotuleerd, niet gemaakt.
+
+**Liever leegte dan vulling.** Elke zichtbare zin heeft een bron of sneuvelt. Geen subtitels onder de slidetitel, platte titels, echte beelden boven nagebouwde ASCII-structuren, en wat de spreker kan zeggen staat in de sprekersnotitie — niet geforceerd in een diagram. De volledige anti-bloatregels staan in de skill.
 
 **Stem het register af op intern of extern.** Intern zijn het SI-team, de adviesgroep en de programma- en projectleiding: relatief informeel binnen zakelijke normen, korte zinnen, gewone woorden. Extern zijn de kerngroep techniek OKx, de technische werkgroep OEAPI, leveranciers en instellingen: formeler en preciezer, met bij elke uitspraak de status erbij — vastgesteld, concept of voorstel. Die gremia nemen het materiaal mee naar hun eigen organisatie. Het verschil tussen adviesgroep en leiding zit in de diepgang, niet in het register.
 
@@ -68,6 +77,28 @@ Dit zijn de dingen die in de praktijk misgingen. Uitgebreider in de skill [`okx-
 **Show, don't tell.** Gebruik de bestaande architectuurplaten in plaats van een eigen diagram: die zijn al besproken en goedgekeurd. Zet er wel een regel bij die zegt waar de kijker naar moet kijken; een plaat zonder leeswijzer is decoratie. Welke platen er zijn, staat hieronder.
 
 **Scheid feit van mening.** Wat uit de repositories komt is feit; wat jij ervan vindt is een inschatting. Zet dat er als zodanig bij, zodat je het in de vergadering niet als vaststaand presenteert.
+
+## Waar de exports landen
+
+Elk deck krijgt een eigen map onder `export/`:
+
+```
+export/260901_kerngroep_techniek/
+  260901_kerngroep_techniek.pdf     om rond te sturen
+  260901_kerngroep_techniek.pptx    om te bewerken
+  img/                              een PNG per slide
+  statisch/                         de gebouwde site voor het presenteren
+```
+
+De pdf en de pptx staan in de repository, zodat wie een deck wil doorsturen niet eerst Slidev hoeft te draaien. `img/` en `statisch/` blijven erbuiten; die lopen per deck in de tientallen MB's.
+
+## De PowerPoint-export
+
+`./deck <naam> pptx` levert een bestand waarin de tekst aan te passen is en de slides eruitzien als het deck. De route loopt via de pdf: LibreOffice leest die in Impress en schrijft hem weg als PowerPoint. Elk element houdt zijn plek, de diagrammen komen als vectorvormen mee.
+
+Wat je merkt: bij een opsomming die over twee regels loopt, staat de tweede regel strak onder de eerste. Dat is een gevolg van de pdf-import en met de regelafstand in PowerPoint zo bijgesteld.
+
+De pptx-export van Slidev zelf zet elke slide als afbeelding in het bestand; die route is daarom niet gebruikt. Wil je een slide als plaatje overnemen, gebruik dan `beelden`.
 
 **Kijk naar je slides voordat je ze deelt.** `./deck <naam> beelden` geeft een PNG per slide. Overflow en te brede tabellen zie je alleen zo.
 
@@ -136,3 +167,9 @@ Pas de huisstijl alleen aan in `style.css`, nooit per presentatie. Bouw slides m
 Het designsysteem, de achtergronden en de componentbibliotheek komen uit [`cedanl/clidev-presentaties`](https://github.com/cedanl/clidev-presentaties). De werkwijze en de huisstijl uit de skills [`clidev`](https://github.com/cedanl/.github/tree/main/.claude/skills/clidev) en [`npuls-huisstijl`](https://github.com/cedanl/.github/tree/main/.claude/skills/npuls-huisstijl); die zijn gevendord onder [`.agents/skills/`](../.agents/skills/) en worden niet bewerkt.
 
 De Npuls huisstijl is eigendom van Npuls. OKx is een Npuls-programma, dus het gebruik valt binnen de voorwaarden.
+
+## Tekstbudget toetsen
+
+`python3 tel-woorden.py src/<deck>.md` telt de zichtbare woorden per slide: koppen, kaarten en bijschriften, zonder sprekersnotities. Rond de veertig woorden is het doel, boven de zestig faalt het script. Een slide die zakt, vraagt om steekwoorden met een drager: pictogram, kaart, pijplijn of plaat.
+
+Code telt apart. Een endpoint, een schemafragment of een voorbeeldbericht wordt herkend en niet gelezen, net als een plaat, en valt daarom buiten het woordbudget. Het script meldt per slide het aantal coderegels en faalt boven de twaalf; `--coderegels` verzet die maat. Een mermaid-blok telt als plaat en niet als code: daar ziet de zaal een diagram, geen regels.

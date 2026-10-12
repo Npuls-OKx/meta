@@ -1,0 +1,51 @@
+name: Pull request
+
+# Controleert de beschrijving van een pull request, niet de inhoud van de wijziging.
+#
+# Waarom deze controle bestaat: een pull request die een issue oplost hoort het sluitwoord
+# te dragen dat GitHub leest (`Closes #123`). Een Nederlandse formulering als "Lost #123 op"
+# telt niet mee, en dan blijft het issue openstaan nadat de wijziging is gemerged. Dat is
+# in deze repository negen keer gebeurd; zie issue #271.
+#
+# De controle laat ruimte: een pull request die een issue alleen raakt zonder het op te
+# lossen, schrijft `See also #456` en komt daarmee door.
+
+on:
+  pull_request:
+    types: [opened, edited, reopened, synchronize]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pull-request-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  issuekoppeling:
+    name: Beschrijving verwijst naar een issue
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sluitwoord of verwijzing aanwezig
+        env:
+          TEKST: ${{ github.event.pull_request.body }}
+        run: |
+          set -euo pipefail
+          if printf '%s' "$TEKST" | grep -qiE '\b(closes?|closed|fix|fixes|fixed|resolves?|resolved)[[:space:]]+#[0-9]+'; then
+            echo "Sluitwoord gevonden; het issue sluit zodra dev op main landt."
+            exit 0
+          fi
+          if printf '%s' "$TEKST" | grep -qiE 'see also[[:space:]]+#[0-9]+'; then
+            echo "Verwijzing gevonden; deze pull request lost geen issue op."
+            exit 0
+          fi
+          echo "::error::De beschrijving draagt geen 'Closes #123' en geen 'See also #456'."
+          echo ""
+          echo "Een pull request die een issue oplost opent met het sluitwoord op een eigen regel:"
+          echo "    Closes #123"
+          echo ""
+          echo "Dat woord is syntaxis die GitHub leest, dus het blijft Engels. Een Nederlandse"
+          echo "formulering als 'Lost #123 op' telt niet mee en laat het issue openstaan."
+          echo "Raakt deze pull request een issue zonder het op te lossen, schrijf dan:"
+          echo "    See also #456"
+          exit 1

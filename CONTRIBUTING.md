@@ -34,16 +34,16 @@ Uitgebreider en voor nieuwe bijdragers: sectie *Waar draait deze repository om?*
 
 1. Start met een issue (vraag, voorstel, meeting follow-up, ADR-voorstel).
 2. Werk het uit in een PR met concrete wijzigingen: 1 issue = 1 branch = 1 PR.
-3. Link in de PR naar het issue (Fixes #123 / See also #456).
+3. Link in de PR naar het issue. Lost de PR het issue op, zet dan `Closes #123` op een eigen regel; raakt hij het alleen, dan `See also #456`. Het sluitwoord blijft Engels, want GitHub leest het.
 4. Als het een architectuurbesluit is: voeg of wijzig een ADR in [Referentiemateriaal/adr in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr) en link naar notulen/issues.
 
 ### Branchingstrategie & Pull Requests
 
-- **`main`**: stabiele **release**-lijn — officiële stand; **tags** (bijv. `v1.0.0`) markeren release-momenten.
-- **`dev`**: integratie van werk voor de **volgende release**; hier komen feature-PR’s op.
+- **`dev`**: de enige langlevende branch en de default; hier staat de actuele stand en hier komen feature-PR’s op.
 - **Feature branches** (`feature/…`): vertrek vanaf **`dev`**; PR richting **`dev`**.
-- **Release**: wanneer `dev` klaar is voor een oplevering, gaat een PR **`dev` → `main`**, daarna eventueel een **git tag** op `main`.
-- **Hotfixes** (klein, direct op release): branch vanaf **`main`**, PR naar **`main`**, en wijzigingen ook terug naar **`dev`** zodat die gelijk blijft.
+- **Release**: de release van OKx leeft in [Npuls-OKx/Public](https://github.com/Npuls-OKx/Public), met het releasepakket, de release notes en het versielabel. Deze repository draagt de kennisbank en levert daaraan: een wijziging is klaar zodra zij op `dev` staat.
+- **Een correctie met haast** volgt dezelfde weg als al het andere werk: een eigen branch vanaf `dev` met een pull request terug.
+- **De oude branch `main`** is op 5 oktober 2026 verwijderd en bewaard als de tag `archief/main`. De herstelroute staat in [`doc/OKx_Release-management-en-versionering.md`](doc/OKx_Release-management-en-versionering.md#de-verwijderde-branch-main-en-hoe-die-terugkomt) (§4) en in het bericht van die tag.
 
 **Bijdragen via branch (in deze repo)**:
 
@@ -52,13 +52,13 @@ Uitgebreider en voor nieuwe bijdragers: sectie *Waar draait deze repository om?*
 
 **Bijdragen via fork**:
 
-- Zelfde flow, maar PR naar **upstream `dev`** (of **`main`** alleen bij afgesproken hotfix).
+- Zelfde flow, met een PR naar **upstream `dev`**.
 
 **Grote impact** (richtlijn): architectuurwijzigingen, grote scope-/richtingwijzigingen, of wijzigingen die (templates/specificaties) “breaking” maken.
 
 - **Bij grote impact**: PR’s gaan altijd gepaard met een review met het **SI-team** in een fysieke/digitale **Teams meeting** (naast de normale GitHub review).
 
-#### Flow (branch of fork, met `dev` en `main`)
+#### Flow (branch of fork, met `dev`)
 
 ```mermaid
 flowchart TD
@@ -72,7 +72,7 @@ flowchart TD
   impact -->|Ja| siReview[SI_team_review_meeting_Teams]
   siReview --> review
   review --> mergeDev[Merge_naar_dev_door_OKx_team]
-  mergeDev --> endDev[Verder_op_dev_tot_release]
+  mergeDev --> endDev[Actuele_stand_op_dev]
 
   choose -->|Fork_repo| fork[Maak_fork_van_repo]
   fork --> forkBranch[Branch_vanaf_dev_in_fork]
@@ -97,7 +97,7 @@ Werk je met een AI-agent (Cursor, Claude Code) in deze repo, dan is [`AGENTS.md`
 
 ### Ontwerpprincipes
 
-Zie [`architecture/docs/principes.md`](architecture/docs/principes.md) (design first, OEAPI als voorkeur tenzij strategisch anders).
+De architectuurprincipes (OKx-AP01 tot en met AP13) staan in [Referentiemateriaal/principes in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/principes/principes.md); de werkafspraken voor deze repository (design first, machine-interpreteerbaar, show don't tell) staan in [`AGENTS.md`](AGENTS.md).
 
 ### Meetings vastleggen
 

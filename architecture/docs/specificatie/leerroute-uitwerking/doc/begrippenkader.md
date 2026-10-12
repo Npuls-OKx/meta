@@ -1,5 +1,7 @@
 # Begrippenkader en ankertabel
 
+**Opvolging.** Het [informatiemodel OKx](../../../../model/informatiemodel/informatiemodel.md) volgt dit kader op voor de begrippenfamilies en de objecttypen, en de [begrippenlijst](../../begrippen/begrippenlijst.md) voor de definities per begrip. Het informatiemodel wijzigt het kader op twee punten: de familie *beoogde leeruitkomst* heet daar `Onderwijskundig kader instelling`, en `Resultaatstructuur` is een zevende familie. De ankertabel en het vlakkenmodel hieronder blijven staan als de voorloper; bij verschil geldt het informatiemodel.
+
 **Doel.** Het semantisch kader van OKx vastleggen: de zes begrippenfamilies (kwalificatiekader, beoogde leeruitkomst, onderwijsspecificatie, onderwijsaanbod, onderwijsverbintenis, onderwijsresultaat), de zes niveaus, de stadia van aanbod en verbintenis, en de ankertabel die niveaus en families kruist. Dit kader is vastgesteld en is de toetssteen voor naamgeving in de requirementsboom, de koppelingspecificaties en de reviews.
 
 **Scope.** Alleen de begrippen, zonder techniekkeuze. Dit bestand is bij de herstructurering van augustus 2026 losgemaakt uit de [leerroute-uitwerking](leerroute-uitwerking-lr1.md); de eerdere OEAPI-vertaling staat als bronmateriaal in het [archief](archief-conceptmodellen.md), en de definitieve vertaling volgt bottom-up uit de endpoint-gedreven datamodellen in [Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Koppelvlakspecificaties).

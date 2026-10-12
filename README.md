@@ -5,7 +5,7 @@ De werkomgeving en kennisbank van **OKx** (Npuls, pijler Leren zonder Drempels):
 ## Begin hier
 
 1. **[Context](doc/OKx_Projectoverzicht.md)**: waar OKx vandaan komt, de projectaanpak en de hoofdplaat met informatiestromen.
-2. **[De opdracht](architecture/docs/requirements/opdracht.md)**: de doelen waaruit al het werk volgt.
+2. **[De opdracht](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/requirementsboom/README.md)**: de doelen waaruit al het werk volgt, in de requirementsboom in Npuls-OKx/Public.
 3. **[De requirementsboom](architecture/docs/requirements/README.md)**: van opdracht via epics, features en stories naar de koppelingen.
 4. **[De leerroute-uitwerking](architecture/docs/specificatie/leerroute-uitwerking/README.md)**: begrippenkader, leerroutes en scenario's; de bron van de stories.
 5. **[Koppelvlakspecificaties](https://github.com/Npuls-OKx/Public/tree/dev/Koppelvlakspecificaties)** en **[architectuurbesluiten (ADR's)](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr)**: de koppelingspecificaties, payload-specificaties en uitgangspunten, en de besluiten, in Npuls-OKx/Public.
