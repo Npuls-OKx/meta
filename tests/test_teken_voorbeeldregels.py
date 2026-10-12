@@ -480,3 +480,42 @@ class VoorbeeldOmweg(unittest.TestCase):
         breedte = float(re.search(r'viewBox="0 0 ([\d.]+)', svg).group(1))
         for x in re.findall(r'<text x="([\d.]+)"', svg):
             self.assertLess(float(x), breedte, "tekst valt buiten het doek")
+
+    def test_given_several_detours_when_drawn_then_each_line_has_its_own_colour(self):
+        svg = self.beeld()
+        kleuren = {k for k in re.findall(r'stroke="(#[0-9a-f]{6})"', svg) if k in tv.OMWEG_KLEUREN}
+        self.assertEqual(len(kleuren), 3, "drie omwegen horen drie kleuren te krijgen")
+
+    def test_given_several_detours_when_drawn_then_each_label_matches_its_line(self):
+        svg = self.beeld()
+        labels = re.findall(r'fill="(#[0-9a-f]{6})"[^>]*>wordt ook vertaald naar deze<', svg)
+        self.assertEqual(len(set(labels)), 2, "twee gelijke labels horen bij twee lijnen van eigen kleur")
+
+    def test_given_one_detour_when_drawn_then_the_line_stays_in_the_plain_colour(self):
+        r = regels()
+        r["regels"].insert(3, {"fase": 2, "stap": "Aanbod maken", "soort": "ontstaat", "wie": "planner",
+                               "objecttype": "Student keuze regelset", "instantie": "Regels", "bron": "b",
+                               "relatie": {"soort": "Association", "van": "Opleidingaanbod",
+                                           "naar": "Student keuze regelset", "label": "stuurt"}})
+        svg = tv.regel_ontstaat([b for b in tv.groepeer(r) if b["stap"] == "Aanbod maken"][0], set())
+        self.assertFalse([k for k in re.findall(r'stroke="(#[0-9a-f]{6})"', svg) if k in tv.OMWEG_KLEUREN])
+
+
+class OmwegDeMoeite(unittest.TestCase):
+    """Wanneer een relatie over afstand een lijn wordt en wanneer zij een verwijzing blijft."""
+
+    def objecten(self, *typen):
+        return [{"type": t} for t in typen]
+
+    def test_given_target_within_reach_when_weighed_then_a_line(self):
+        self.assertTrue(tv._de_moeite(self.objecten("A", "B", "C"), "A", None))
+
+    def test_given_target_beyond_reach_and_no_label_when_weighed_then_a_reference(self):
+        self.assertFalse(tv._de_moeite(self.objecten("A", "B", "C", "D"), "A", None))
+
+    def test_given_target_beyond_reach_but_labelled_when_weighed_then_a_line(self):
+        self.assertTrue(tv._de_moeite(self.objecten("A", "B", "C", "D", "E"), "A", "hangt aan"))
+
+    def test_given_the_block_already_holds_three_detours_when_weighed_then_a_reference(self):
+        vol = self.objecten("A", "B") + [{"over_afstand": True} for _ in range(tv.OMWEG_MAX)]
+        self.assertFalse(tv._de_moeite(vol, "A", "hangt aan"))

@@ -161,6 +161,26 @@ def relatielijn_v(x, y1, y2, soort, label, omlaag=True):
 OMWEG_MARGE = 22  # ruimte rechts van het breedste vak waar een omweglijn omhoog loopt
 OMWEG_BAAN = 14   # afstand tussen twee omwegbanen, zodat verticale stukken niet samenvallen
 OMWEG_REGEL = 14  # hoogte van een labelregel, voor twee omwegen die bij hetzelfde doel uitkomen
+# een omweg loopt ver van zijn label af, dus kleur bindt de twee aan elkaar. De uitlijning op de hoogte
+# van de pijlpunt blijft ernaast staan, zodat kleur niet het enige onderscheid is. De tinten zijn donker
+# en onderling verschillend in helderheid, zodat ze ook op het gele vlak en in grijstint uit elkaar vallen
+OMWEG_KLEUREN = ["#1f6fb2", "#b5651d", "#11776b", "#7a3b9e", "#a33a3a", "#4a4a4a"]
+# boven de drie omwegen wordt een blok een rangeerterrein: de banen lopen om het hele beeld heen en
+# winnen het niet meer van de verwijzing die er anders staat. Daarboven valt de tekenaar dus terug
+OMWEG_MAX = 3
+# verder terug dan drie objecten is een lijn niet meer te volgen; dan zegt de verwijzing onder het
+# object meer, want die noemt de instantie. Draagt de relatie een label, dan is de lijn het wel waard
+OMWEG_BEREIK = 3
+
+
+def _de_moeite(objecten_in_blok, ander, label):
+    """Of een relatie over afstand als lijn te tekenen is in plaats van als verwijzing."""
+    if _omwegen_in_blok(objecten_in_blok) >= OMWEG_MAX:
+        return False
+    types = [it["type"] for it in objecten_in_blok if "type" in it]
+    if ander not in types:
+        return bool(label)
+    return bool(label) or len(types) - types.index(ander) <= OMWEG_BEREIK
 
 
 def _horizontaal_met_bruggen(x1, x2, y, banen, eigen):
@@ -179,7 +199,7 @@ def _horizontaal_met_bruggen(x1, x2, y, banen, eigen):
     return d + f"H{x2:.0f}"
 
 
-def relatielijn_omweg(x_bron, y_bron, x_doel, y_doel, baan, soort, label, naar_bron=True, banen=()):
+def relatielijn_omweg(x_bron, y_bron, x_doel, y_doel, baan, soort, label, naar_bron=True, banen=(), kleur="#444"):
     """Een relatie naar een object dat niet de buur is: haaks om de blokken heen, langs een goot rechts
     ervan. De baan ligt voorbij de rechterrand van alles ertussen, dus de lijn kruist geen vak.
     naar_bron: de relatie wijst naar het object dat hier wordt getekend (de bron van de lijn); anders
@@ -187,18 +207,18 @@ def relatielijn_omweg(x_bron, y_bron, x_doel, y_doel, baan, soort, label, naar_b
     heen = _horizontaal_met_bruggen(x_bron, baan, y_bron, banen, baan)
     terug = _horizontaal_met_bruggen(baan, x_doel, y_doel, banen, baan)
     s = (f'<path d="M{x_bron:.0f} {y_bron:.0f}{heen}V{y_doel:.0f}{terug}" '
-         f'stroke="#444" stroke-width="1.3" fill="none"/>')
+         f'stroke="{kleur}" stroke-width="1.3" fill="none"/>')
     # het geheel draagt de ruit, het doel van de relatie draagt de punt
     punt_x, punt_y = (x_bron, y_bron) if naar_bron else (x_doel, y_doel)
     heel_x, heel_y = (x_doel, y_doel) if naar_bron else (x_bron, y_bron)
     if soort in ("Aggregation", "Composition"):
-        vulling = "#444" if soort == "Composition" else "#ffffff"
+        vulling = kleur if soort == "Composition" else "#ffffff"
         s += (f'<path d="M{heel_x:.0f} {heel_y:.0f}l7 -5l7 5l-7 5z" '
-              f'fill="{vulling}" stroke="#444" stroke-width="1.3"/>')
+              f'fill="{vulling}" stroke="{kleur}" stroke-width="1.3"/>')
     elif soort == "Specialization":
-        s += f'<path d="M{punt_x:.0f} {punt_y:.0f}l10 -6v12z" fill="#ffffff" stroke="#444" stroke-width="1.3"/>'
+        s += f'<path d="M{punt_x:.0f} {punt_y:.0f}l10 -6v12z" fill="#ffffff" stroke="{kleur}" stroke-width="1.3"/>'
     elif label:
-        s += f'<path d="M{punt_x:.0f} {punt_y:.0f}l8 -4v8z" fill="#444"/>'
+        s += f'<path d="M{punt_x:.0f} {punt_y:.0f}l8 -4v8z" fill="{kleur}"/>'
     return s
 
 
@@ -282,10 +302,13 @@ def _objecten_kolom(x, y, items, uitzonderingen, alles_onder=False):
             bezet[doel] = rij + 1
             doel_y += rij * OMWEG_REGEL
             baan = banen[i][0]
-            lijnen += relatielijn_omweg(bron_x, bron_y, doel_x, doel_y, baan, soort, label, naar_rechts, banen)
+            # kleur verschijnt waar zij iets onderscheidt; bij een enkele omweg valt er niets te
+            # onderscheiden en blijft het beeld in de gewone lijnkleur
+            kleur = OMWEG_KLEUREN[i % len(OMWEG_KLEUREN)] if len(op_lengte) > 1 else "#444"
+            lijnen += relatielijn_omweg(bron_x, bron_y, doel_x, doel_y, baan, soort, label, naar_rechts, banen, kleur)
             if label:
-                # het label staat op de hoogte van de pijlpunt, voorbij alle banen
-                lijnen += text(buitenste + 8, doel_y + 4, label, 10, fill=MUTED)
+                # het label staat op de hoogte van de pijlpunt, voorbij alle banen, in de kleur van de lijn
+                lijnen += text(buitenste + 8, doel_y + 4, label, 10, fill=kleur)
         breedste = max((tw(lab, 10) for *_, lab, _ in omwegen), default=0)
         maxw = buitenste - x + 8 + (breedste + 10 if breedste else 0)
     return out + lijnen, maxw, max(h1, ky - 28 - y)
@@ -510,6 +533,11 @@ def _verwijzing(rel, objecttype):
     return f"{tekst}: {rel['instantie']}" if rel.get("instantie") else tekst
 
 
+def _omwegen_in_blok(objecten_in_blok):
+    """Hoeveel relaties over afstand dit blok al draagt."""
+    return sum(1 for it in objecten_in_blok if it.get("over_afstand"))
+
+
 def _types_in_blok(objecten_in_blok):
     """Alle objecttypen die al in dit blok staan, kinderen meegerekend. Een relatie naar zo'n type is
     met een omweg te tekenen; een relatie naar iets daarbuiten blijft een verwijzing."""
@@ -592,7 +620,7 @@ def groepeer(regels):
         _ver, _omweg = [], []
         for x in r.get("relaties", []):
             _ander = x["naar"] if x["van"] == r["objecttype"] else x["van"]
-            if _ander in _reeds:
+            if _ander in _reeds and _de_moeite(laatste["objecten"] + _omweg, _ander, x.get("label")):
                 _omweg.append({"relatie": x.get("label") or "", "soort": x["soort"],
                                "naar_rechts": x["naar"] == r["objecttype"], "ander": _ander, "over_afstand": True})
             else:
@@ -632,7 +660,7 @@ def groepeer(regels):
             if ander in in_blok:
                 # het andere eind staat ernaast in dit blok: relatielijn ertussen; naar_rechts als dit object het doel is
                 laatste["objecten"].append({"relatie": rel.get("label") or "", "soort": rel["soort"], "naar_rechts": rel["naar"] == r["objecttype"], "ander": ander})
-            elif ander in _types_in_blok(laatste["objecten"]):
+            elif ander in _types_in_blok(laatste["objecten"]) and _de_moeite(laatste["objecten"], ander, rel.get("label")):
                 # het andere eind staat verder terug in dit blok: een lijn met een omweg in plaats van een verwijzing
                 laatste["objecten"].append({"relatie": rel.get("label") or "", "soort": rel["soort"], "naar_rechts": rel["naar"] == r["objecttype"], "ander": ander, "over_afstand": True})
             else:
