@@ -26,7 +26,26 @@
           "mora_hoofdproces": {"type": "string"},
           "bron": {"type": "string", "description": "bestand en regel of sectiekop"},
           "stappen": {"type": "array", "items": {"type": "string"}, "minItems": 1},
-          "verwacht": {"type": "array", "items": {"type": "string"}, "description": "objecttypen (plaatnaam) die in deze fase voor het eerst verschijnen"}
+          "verwacht": {"type": "array", "items": {"type": "string"}, "description": "objecttypen (plaatnaam) die in deze fase voor het eerst verschijnen"},
+          "uitwisselingen": {
+            "type": "array",
+            "description": "de uitwisselingen die het kaderscenario onder 'Wat licht op in de plaat' voor deze fase noemt, letterlijk overgenomen. De controle toetst of elke uitwisseling een beeld draagt; een uitwisseling die in het voorbeeld elders of niet verschijnt draagt beeld_in_fase, afwijking of buiten_scope met de reden erbij.",
+            "items": {
+              "type": "object",
+              "required": ["van", "naar", "objecten", "bron"],
+              "additionalProperties": false,
+              "properties": {
+                "van": {"type": "string", "description": "componentnaam zoals componenten.json die draagt; bij buiten_scope de naam uit het kaderscenario"},
+                "naar": {"type": "string"},
+                "objecten": {"type": "array", "items": {"type": "string"}, "description": "de woorden van het kaderscenario, ter lezing; de controle vergelijkt ze niet met het informatiemodel omdat de twee een eigen schrijfwijze hebben"},
+                "bron": {"type": "string"},
+                "beeld_in_fase": {"type": "integer", "minimum": 1, "maximum": 8, "description": "het voorbeeld toont deze uitwisseling in die andere fase, omdat zij daar voor het eerst optreedt"},
+                "afwijking": {"type": "string", "description": "het voorbeeld laat deze uitwisseling anders lopen, met de route en de reden"},
+                "buiten_scope": {"type": "string", "description": "waarom deze uitwisseling buiten OKx valt"}
+              }
+            }
+          },
+          "dekking": {"type": "string", "enum": ["open", "volledig"], "description": "volledig betekent dat elke uitwisseling van deze fase een beeld draagt of een reden; de controle maakt een gat dan een bevinding in plaats van een signalering. Een fase-issue zet dit op volledig bij het aftekenen."}
         }
       }
     },
