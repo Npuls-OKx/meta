@@ -210,7 +210,24 @@ Een label per sessie, zoals `bespreken kg techniek 28 oktober`, woekert uit: lab
 - **De datum staat in de comment** die het punt op de agenda zet, en in het deck van die sessie.
 - **Na de sessie gaat het label eraf**, als onderdeel van het afronden van het deck. Een punt dat opnieuw terug moet, krijgt het label opnieuw met een nieuwe comment.
 
-Wie de agenda per sessie wil zien, filtert op het label en leest de laatste comment. Is meer nodig, dan is een projectbord met een weergave per sessie de volgende stap, en nog steeds zonder nieuwe labels.
+Wie de agenda per sessie wil zien, filtert op het label, over beide repositories heen:
+
+```bash
+gh issue list --repo Npuls-OKx/Public --label "agenda kerngroep techniek" --state open
+gh issue list --repo Npuls-OKx/meta   --label "agenda kerngroep techniek" --state open
+```
+
+### Milestone, label en bord beantwoorden drie verschillende vragen
+
+| Vraag | Draagt het | Eigenschappen |
+|---|---|---|
+| Bij welk werk hoort dit? | **Milestone** | Een per issue, per repository, sluit als het werk af is |
+| Moet dit besproken worden? | **Label** | Meerdere per issue, werkt over repositories heen, komt eraf na de sessie |
+| Wanneer gebeurt het? | **Projectbord** | Over repositories heen, met een weergave per sessie |
+
+Daaruit volgt de regel die het vaakst wordt overtreden: **een milestone is een werkstroom en geen moment.** De verleiding is groot om een milestone per sessie te maken en alles eronder te hangen wat daar besproken moet worden. Dat loopt op drie dingen vast: een issue draagt maar een milestone en zit meestal al in een werkstroom, een milestone kan geen issues uit het andere repository bevatten, en een sessiemilestone sluit nooit omdat de sessie voorbij is terwijl het werk doorloopt.
+
+Een milestone met een datum in de naam mag dus alleen gaan over wat op die datum af is, zoals het deck zelf.
 
 ## Een issue dat de agent zelf aanmaakt
 
