@@ -79,13 +79,15 @@ Leerdoelen bij onderwijseenheden
 
 ### Waarom dit profiel hier staat
 
-Dit is het hbo-voorbeeld naast het mbo-kwalificatiedossier [Apothekersassistent](../kwalificatiedossier/Apothekersassistent-2.md). De twee laten zien hoe de sectoren hun kader anders opbouwen, en dat is nodig om het kwalificatiekader in het informatiemodel neutraal te maken ([#320](https://github.com/Npuls-OKx/meta/issues/320), met de mapping in [#345](https://github.com/Npuls-OKx/meta/issues/345)).
+Dit is het hbo-voorbeeld naast het mbo-kwalificatiedossier [Apothekersassistent](../kwalificatiedossier/Apothekersassistent-2.md). Beide staan hier om te laten zien hoe een sector zijn kader opbouwt, elk op zijn eigen manier. Dat is nodig om het kwalificatiekader in het informatiemodel ruimte te geven voor beide ([#320](https://github.com/Npuls-OKx/meta/issues/320), met het onderzoek in [#345](https://github.com/Npuls-OKx/meta/issues/345)).
+
+De twee structuren worden niet op elkaar gelegd. Wat hieronder staat zijn eigenschappen van dit profiel, niet verschillen ten opzichte van een kwalificatiedossier.
 
 Drie verschillen vallen op.
 
-**De instelling kiest.** Het profiel zegt het zelf: "De opleidingen maken hieruit een selectie en komen hiermee tot een opleiding specifiek opleidingsprofiel." Een kwalificatiedossier laat die vrijheid niet; daar zijn alle kerntaken verplicht.
+**De instelling kiest.** Het profiel zegt het zelf: "De opleidingen maken hieruit een selectie en komen hiermee tot een opleiding specifiek opleidingsprofiel." Een opleiding draagt dus een deelverzameling van het landelijke profiel.
 
-**Het niveau zit per competentie.** In het mbo draagt de kwalificatie een NLQF-niveau. Hier draagt elke competentie een eigen minimumniveau van I tot IV, en de som is een getal: 18. Dat kent het mbo niet.
+**Het niveau zit per competentie.** Elke competentie draagt een eigen minimumniveau van I tot IV, en de som daarvan is een getal: 18. Daarnaast draagt de opleiding als geheel het NLQF-niveau 6.
 
 **Er is geen code.** De competenties zijn genummerd 1 tot en met 9 binnen dit document en de indicatoren a tot en met i binnen een competentie. Een landelijke identificatie zoals een crebo of een K-code ontbreekt, dus een verwijzing is alleen betekenisvol met documenttitel en jaartal erbij.
 
@@ -224,16 +226,24 @@ Elke competentie draagt een zin die begint met wat de bachelor doet, en daaronde
 > g. modelberekeningen en simulaties uit te voeren;
 > h. resultaten van modelberekeningen en simulaties te interpreteren en te vergelijken met experimentele resultaten.
 
-## 3. Naast het mbo gelegd
+## 3. De brug naar de leeruitkomst
 
-| Mbo, in de OKx-plaat | Hier | Verschil |
+De structuur van dit profiel wordt **niet** naast die van een mbo-kwalificatiedossier gelegd. De twee kaders zijn anders opgebouwd en anders vastgesteld, en een tabel die een kerntaak naast een competentie zet suggereert een gelijkwaardigheid die er niet is. Dat levert een discussie op over de begrippen zelf, en die brengt de uitwisseling niet verder.
+
+Wat de twee wel delen is de uitgang: **beide vertalen naar leeruitkomsten.**
+
+In het mbo draagt de OKx-plaat die vertaling al. Het kwalificatiedossier, de kwalificatie en de kerntaak hebben elk een relatie `Wordt vertaald naar` richting `Leeruitkomst`, en leeruitkomsten nesten in elkaar.
+
+Dit profiel kent twee plekken waar die vertaling kan aangrijpen:
+
+| Vanuit | Wat het is | Wie stelt vast |
 |---|---|---|
-| `Kwalificatie dossier` | Het opleidingsprofiel zelf | Wet tegenover sectorafspraak |
-| `Kwalificatie` | De opleiding, geregistreerd in RIO | Crebo tegenover RIO-code |
-| `Kerntaak` | Competentie met minimumniveau | Vergelijkbare vorm, maar met een niveau erbij |
-| `Werkproces` | Indicator a tot en met i | Vergelijkbare vorm, geen eigen code |
-| NLQF op de kwalificatie | NLQF 6 op de opleiding, plus een eigen niveau per competentie | Twee niveauschalen naast elkaar |
-| Alle kerntaken verplicht | De opleiding kiest een selectie | Vrijheidsgraad die het mbo niet kent |
+| `Competentie` | Een van de negen, met haar minimumniveau en indicatoren | Landelijk, in dit profiel |
+| `Leerdoel` | De inhoudelijke leerdoelen bij een onderwijseenheid | De instelling |
+
+Het profiel benoemt die tweede zelf, in doel 2 van de competentielijst: leerdoelen van onderwijseenheden worden aan competenties gekoppeld, en de verdeling daarvan vormt de vingerafdruk van de opleiding.
+
+Welke van de twee de sleutel draagt is een open vraag, en zij bepaalt of twee instellingen dezelfde leeruitkomst herkennen. Vertaalt alleen het landelijke profiel, dan is de leeruitkomst over instellingen heen vergelijkbaar maar grof. Vertaalt het leerdoel van de instelling, dan is zij fijn maar instellingsgebonden. Dat is de vraag die in [#345](https://github.com/Npuls-OKx/meta/issues/345) openstaat.
 
 ## Bron
 
