@@ -188,6 +188,30 @@ De reactie in de pull request zelf blijft kort: wat de opmerking was, dat zij is
 
 Sluit af met een vraag aan de inbrenger, niet met een bevestiging: dekt dit issue de opmerking zoals zij bedoeld was. Dat levert meer op dan een akkoord.
 
+### Drie uitgangen per issue
+
+Een issue uit een reviewronde eindigt op een van drie manieren, en de inbrenger hoort te weten welke.
+
+| Uitgang | Wanneer | Wat er gebeurt |
+|---|---|---|
+| **De inbrenger sluit** | Het antwoord beantwoordt de vraag | Het antwoord komt onder het issue te staan, het issue gaat op naam van de inbrenger, en hij wordt gevraagd het te sluiten of te zeggen wat er nog mist |
+| **Op de agenda** | Het vraagt een keuze, of het raakt meer partijen dan de inbrenger | Het issue krijgt het label `agenda kerngroep techniek` en gaat op naam van de inbrenger, en komt terug in het deck van de eerstvolgende sessie |
+| **OKx sluit met een reden** | OKx ziet het anders | De reden staat in het issue, met de bron erbij, en het issue sluit |
+
+**Het antwoord komt altijd onder het issue.** Is een punt al in de pull request beantwoord, dan wordt dat antwoord naar het issue gekopieerd met de datum en een verwijzing naar de plek waar het stond. Anders staat het antwoord in een pull request die straks gemerged en vergeten is, en het issue leeg.
+
+**Zet het issue op naam van de inbrenger.** Dat is geen werkopdracht maar eigenaarschap over de afhandeling: hij bepaalt of het antwoord volstaat, en hij kan het volgen.
+
+### Een agenda bijhouden zonder labels te laten woekeren
+
+Een label per sessie, zoals `bespreken kg techniek 28 oktober`, woekert uit: labels kennen geen levenscyclus, dus na twee jaar staan er vijftig dode in de keuzelijst. Daarom:
+
+- **Een label, stabiel**: `agenda kerngroep techniek` zegt alleen dat het punt een bespreking vraagt.
+- **De datum staat in de comment** die het punt op de agenda zet, en in het deck van die sessie.
+- **Na de sessie gaat het label eraf**, als onderdeel van het afronden van het deck. Een punt dat opnieuw terug moet, krijgt het label opnieuw met een nieuwe comment.
+
+Wie de agenda per sessie wil zien, filtert op het label en leest de laatste comment. Is meer nodig, dan is een projectbord met een weergave per sessie de volgende stap, en nog steeds zonder nieuwe labels.
+
 ## Een issue dat de agent zelf aanmaakt
 
 Een agent mag een issue aanmaken voor wat hij onderweg vindt: een openstaande vraag, een fout, een belemmering. Drie regels daarbij.
