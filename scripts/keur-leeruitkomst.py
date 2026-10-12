@@ -84,11 +84,15 @@ def keur(zin, taxonomie=None):
 
 
 def leeruitkomsten_uit(pad):
-    """De leeruitkomsten uit een regeltabel, als paren van zin en taxonomiecode."""
+    """De geformuleerde leeruitkomsten uit een regeltabel, als paren van zin en taxonomiecode.
+
+    Alleen regels waarin een leeruitkomst ontstaat tellen mee. In een regel die stroomt is de
+    leeruitkomst lading: daar staat welke waarde er over de koppeling gaat, en dat is geen
+    formulering. "Al behaald door Jochem: geen" hoort dus niet gekeurd te worden."""
     model = json.loads(pathlib.Path(pad).read_text(encoding="utf-8"))
     uit, gezien = [], set()
     for regel in model.get("regels", []):
-        if regel.get("objecttype") != "Leeruitkomst":
+        if regel.get("objecttype") != "Leeruitkomst" or regel.get("soort") != "ontstaat":
             continue
         zin = regel.get("instantie", "")
         if zin and zin not in gezien:

@@ -94,11 +94,11 @@ class UitEenRegeltabel(unittest.TestCase):
 
     def test_given_a_rule_table_when_read_then_only_outcomes_once_each(self):
         model = {"regels": [
-            {"objecttype": "Leeruitkomst", "instantie": GOED},
-            {"objecttype": "Leeruitkomst", "instantie": GOED},
-            {"objecttype": "Competentie", "instantie": "iets anders"},
-            {"objecttype": "Leeruitkomst", "instantie": "Voert uit volgens protocol, in de apotheek",
-             "taxonomie": "Rc"},
+            {"objecttype": "Leeruitkomst", "soort": "ontstaat", "instantie": GOED},
+            {"objecttype": "Leeruitkomst", "soort": "ontstaat", "instantie": GOED},
+            {"objecttype": "Competentie", "soort": "ontstaat", "instantie": "iets anders"},
+            {"objecttype": "Leeruitkomst", "soort": "ontstaat", "taxonomie": "Rc",
+             "instantie": "Voert uit volgens protocol, in de apotheek"},
         ]}
         with tempfile.NamedTemporaryFile("w", suffix=".json", delete=False, encoding="utf-8") as f:
             json.dump(model, f)
@@ -110,3 +110,21 @@ class UitEenRegeltabel(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class AlleenWatOntstaat(unittest.TestCase):
+    """Een leeruitkomst die stroomt is lading, geen formulering."""
+
+    def tabel(self, *regels):
+        with tempfile.NamedTemporaryFile("w", suffix=".json", delete=False, encoding="utf-8") as f:
+            json.dump({"regels": list(regels)}, f)
+            return f.name
+
+    def test_given_an_outcome_that_flows_when_read_then_it_is_not_checked(self):
+        pad = self.tabel({"objecttype": "Leeruitkomst", "soort": "stroomt",
+                          "instantie": "Al behaald door Jochem: geen, hij start zonder vrijstellingen"})
+        self.assertEqual(kl.leeruitkomsten_uit(pad), [])
+
+    def test_given_an_outcome_that_is_formulated_when_read_then_it_is_checked(self):
+        pad = self.tabel({"objecttype": "Leeruitkomst", "soort": "ontstaat", "instantie": GOED})
+        self.assertEqual(len(kl.leeruitkomsten_uit(pad)), 1)
