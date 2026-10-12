@@ -1,7 +1,7 @@
 ---
 theme: default
-title: "Kerngroep techniek, 14 oktober 2026"
-info: "Kerngroep techniek 14 oktober 2026, online: de stand van de vijf punten van 30 september, de voorbeelduitwerking per fase, de scope van het informatiemodel en twee besluiten die blijven liggen."
+title: "Kerngroep techniek, 28 oktober 2026"
+info: "Kerngroep techniek 28 oktober 2026, online: de stand van de vijf punten van 30 september, de voorbeelduitwerking per fase, de scope van het informatiemodel en twee besluiten die blijven liggen."
 author: OKx - Onderwijskoppelingen (Npuls)
 highlighter: shiki
 colorSchema: light
@@ -22,11 +22,12 @@ fonts:
 <div style="position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 2rem 4rem; z-index: 1;">
   <h1 style="font-size: 3.2rem; line-height: 1.15; margin-bottom: 0.8rem; color: var(--np-ink);">Kerngroep techniek</h1>
   <div style="font-size: 1.1rem; line-height: 1.5; color: var(--np-ink); margin-bottom: 0.8rem; max-width: 36rem;">Voorbeelduitwerking per fase &middot; Scope van het informatiemodel &middot; Versionering &middot; Twee besluiten</div>
-  <div style="font-size: 0.95rem; color: var(--np-mid-gray);">OKx &middot; Npuls &middot; 14 oktober 2026 &middot; online</div>
+  <div style="font-size: 0.95rem; color: var(--np-mid-gray);">OKx &middot; Npuls &middot; 28 oktober 2026 &middot; online</div>
 </div>
 
 <!--
-Online sessie, twee weken na Amersfoort. Opzet nog af te stemmen. Twee van de vijf punten van
+Online sessie. De sessie van 14 oktober is vervallen, dus er zit vier weken tussen deze en
+Amersfoort. Datum onder voorbehoud. Opzet nog af te stemmen. Twee van de vijf punten van
 30 september zijn niet beslecht, en op de versionering kwam weerstand uit de werkgroep techniek.
 Die twee besluiten zijn het doel van vandaag; de voorbeelduitwerking is het bewijs dat er iets
 ligt om op te besluiten.
@@ -115,7 +116,7 @@ vlottrekken. De keuzeregels en de modulaire koppeling van onderwijseenheden schu
 
 <div style="font-size: 0.84rem; line-height: 1.5; margin-top: 0.4rem;">
 
-| Gevraagd op 30 september, binnen twee weken | Zichtbaar op 12 oktober |
+| Gevraagd op 30 september, termijn 14 oktober | Zichtbaar op 12 oktober |
 |---|---|
 | **Versioneringsscenario's**: wanneer is volgens jullie een nieuwe versie, service of berichtenstroom nodig | Nog niet in GitHub |
 | **Capaciteitsinschatting**: hoeveel tijd voor review, modellering, voorbeelden en uitwerking. Acht uur per week is als minimum genoemd | Nog niet in GitHub |
@@ -133,7 +134,7 @@ Zichtbaar in GitHub is niet hetzelfde als niet geleverd: wat per mail of in een 
 
 <!--
 Bron: de notulen van 30 september. Vijf vragen, alle vijf met een termijn van twee weken, die
-vandaag afloopt. Drie ervan zijn in GitHub niet terug te zien. Dat is bewust voorzichtig
+op 14 oktober afliep. Drie ervan zijn in GitHub niet terug te zien. Dat is bewust voorzichtig
 geformuleerd: er lopen een-op-eensessies met Topicus, Kaski, Schedule en Educator, en wat daar
 is gezegd staat niet in een repository. De vraag aan de zaal is dus eerst: is dit beeld juist?
 -->
@@ -704,7 +705,7 @@ aanpak". De lijn van Ruud: deelstappen en een mogelijk mvp in plaats van alles t
 <div><strong>Het koppeling-ID</strong>: nu een eerste indeling vastleggen als werkafspraak, of wachten tot de bouwstenen scherper zijn (<a href="https://github.com/Npuls-OKx/Public/issues/107">Public #107</a>)</div>
 
 <div style="background:#E9A27F;color:#fff;border-radius:6px;padding:0.2rem 0;text-align:center;font-size:0.78rem;font-weight:600;">Aanleveren</div>
-<div><strong>De capaciteitsinschatting en de koppelingen voor Q1</strong>. De termijn van twee weken loopt vandaag af; zonder die cijfers is de bouwfase niet te plannen</div>
+<div><strong>De capaciteitsinschatting en de koppelingen voor Q1</strong>. De termijn liep op 14 oktober af; zonder die cijfers is de bouwfase niet te plannen</div>
 
 <div style="background:#7A97F2;color:#fff;border-radius:6px;padding:0.2rem 0;text-align:center;font-size:0.78rem;font-weight:600;">Review</div>
 <div><strong>De acht fase-pull requests</strong>, elk afgebakend tot een fase van de leerroute. Dit is de afspraak van 30 september, uitgevoerd</div>
@@ -725,7 +726,8 @@ Twee besluiten, en beide stonden ook op 30 september op de lijst.
 Vijf punten. De twee besluiten staan voorop omdat zij blijven liggen: de versionering sinds
 15 september, het koppeling-ID sinds 30 september. Dat is geen verwijt, want beide vroegen
 input die er nog niet was. Maar de bouwfase in Q1 kan niet wachten op een versioneringsrichting.
-De aanlevervraag is de capaciteit: de termijn loopt vandaag af. De reviewvraag is nieuw in deze
+De aanlevervraag is de capaciteit: de termijn liep op 14 oktober af, dus die staat nu twee
+weken over tijd. De reviewvraag is nieuw in deze
 vorm, want de pull requests zijn nu klein genoeg om per fase te beoordelen.
 -->
 
