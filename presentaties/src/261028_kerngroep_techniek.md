@@ -417,12 +417,12 @@ als pull request.
 
 <div class="np-grid-2" style="margin-top:1.2rem;gap:1rem;">
 <div class="np-card accent-orange"><carbon-crop style="font-size:1.4rem;color:var(--np-orange);" /><div style="font-weight:600;margin-top:0.25rem;">Scope van de uitwisseling</div><small>Valt de les erbinnen<br/>Wat mag een koppeling aannemen</small><div class="nrs">#115 #119 #121</div></div>
-<div class="np-card accent-green"><carbon-user-favorite style="font-size:1.4rem;color:var(--np-green);" /><div style="font-weight:600;margin-top:0.25rem;">Kiezen</div><small>Regelset op specificatie of aanbod<br/>Telt locatie mee</small><div class="nrs">#113 #114</div></div>
+<div class="np-card accent-green"><carbon-user-favorite style="font-size:1.4rem;color:var(--np-green);" /><div style="font-weight:600;margin-top:0.25rem;">Kiezen</div><small>Regelset: specificatie of aanbod<br/>Telt locatie mee</small><div class="nrs">#113 #114</div></div>
 <div class="np-card"><carbon-chart-line style="font-size:1.4rem;color:var(--np-blue);" /><div style="font-weight:600;margin-top:0.25rem;">De resultaatlijn</div><small>Waar ontstaat een resultaat<br/>Altijd via een groep</small><div class="nrs">#117 #120 #122</div></div>
-<div class="np-card"><carbon-book style="font-size:1.4rem;color:var(--np-blue);" /><div style="font-weight:600;margin-top:0.25rem;">Begrippen</div><small>Intekenen, leeruitkomst,<br/>kwalificatiekader, examenonderdeel</small><div class="nrs">#112 #118 #124 #125</div></div>
+<div class="np-card"><carbon-book style="font-size:1.4rem;color:var(--np-blue);" /><div style="font-weight:600;margin-top:0.25rem;">Begrippen</div><small>Intekenen, leeruitkomst,<br/>kader, examenonderdeel</small><div class="nrs">#112 #118 #124 #125</div></div>
 </div>
 
-<div class="np-bottomline" style="margin-top:1.3rem;">Aanvullen vooraf maakt de bespreking korter.</div>
+<div class="np-bottomline" style="margin-top:1.3rem;">Alle twaalf op het bord, sessie 28 oktober.</div>
 
 <style scoped>
 .nrs { font-family: ui-monospace, monospace; font-size: 0.72rem; color: var(--np-mid-gray); margin-top: 0.45rem; }
@@ -450,7 +450,11 @@ Begrippen: vier terminologiepunten die schriftelijk kunnen als de tijd ontbreekt
 Inschatting van de maker, te overrulen: scope en kiezen raken de koppeling het hardst en gaan
 dus voor.
 
-Alle twaalf dragen het label agenda kerngroep techniek en staan op naam van de inbrenger.
+Alle twaalf dragen het label agenda kerngroep techniek en staan op naam van de inbrenger. Zij
+staan ook op het projectbord Kerngroep Techniek OKx, met het veld Sessie op 28 oktober 2026:
+github.com/orgs/Npuls-OKx/projects/3. Let op: dat bord staat op dit moment prive, dus controleer
+of de zaal erbij kan voordat je de link toont. De route die voor iedereen werkt is filteren op
+het label in Npuls-OKx/Public.
 -->
 
 ---
@@ -916,6 +920,7 @@ De vier thema's uit deel 2 komen in de bespreking hierbij.
 <carbon-time style="font-size:1.4rem;color:var(--np-blue);" /><div>Een review staat <strong>twee weken</strong> open</div>
 <carbon-partnership style="font-size:1.4rem;color:var(--np-green);" /><div>Vrijdagsessies en <strong>een-op-eensessies</strong></div>
 <carbon-logo-github style="font-size:1.4rem;color:var(--np-blue);" /><div>Nieuw punt: <strong>issue op Npuls-OKx/Public</strong></div>
+<carbon-list-checked style="font-size:1.4rem;color:var(--np-green);" /><div>De agenda staat op het <strong>projectbord</strong>, per sessie</div>
 </div>
 
 <div class="np-bottomline" style="margin-top:1.6rem;">Volgende sessie: nader te bepalen.</div>
@@ -929,6 +934,9 @@ het tempo van de kerngroep. Dat hoort hardop gezegd, anders lijkt het ritme vanz
 verwateren.
 
 De sessie van 14 oktober is om die reden vervallen; deze is daarvan de verzette versie.
+
+Het projectbord is de plek waar de agenda per sessie samenkomt, over beide repositories heen:
+het label zegt dat een punt besproken moet worden, het veld Sessie zegt wanneer.
 
 De een-op-eensessies lopen met Topicus, Kaski, Schedule en Educator. Daar kunnen ook
 vertrouwelijke onderwerpen op tafel; wat daaruit komt wordt geabstraheerd tot een uniform model.
