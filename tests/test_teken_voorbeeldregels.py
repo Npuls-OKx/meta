@@ -7,6 +7,7 @@ geparst en op inhoud en geometrie getoetst, niet op een momentopname.
 import importlib.util
 import json
 import tempfile
+import re
 import unittest
 import xml.etree.ElementTree as ET
 from pathlib import Path
@@ -103,15 +104,43 @@ class TekenTests(unittest.TestCase):
         self.assertEqual(blok["objecten"][0]["toestand"], "intentie")
         self.assertIn("toestand: intentie", teksten(tv.regel_ontstaat(blok, set())))
 
-    def test_given_relation_to_non_adjacent_object_when_grouped_then_reference_not_line(self):
+    def test_given_relation_to_object_earlier_in_the_block_when_grouped_then_line_over_distance(self):
         r = regels()
         r["regels"].insert(3, {"fase": 2, "stap": "Aanbod maken", "soort": "ontstaat", "wie": "planner", "objecttype": "Student keuze regelset", "instantie": "Regels", "bron": "b",
                                "relatie": {"soort": "Association", "van": "Opleidingaanbod", "naar": "Student keuze regelset"}})
         blok = [b for b in self.blokken(r) if b["stap"] == "Aanbod maken"][0]
+        self.assertEqual(blok["objecten"][-1]["type"], "Student keuze regelset")
+        # het andere eind staat verder terug in het blok: een relatie met een omweg, geen verwijzing
+        rel = blok["objecten"][-2]
+        self.assertTrue(rel.get("over_afstand"))
+        self.assertEqual(rel["ander"], "Opleidingaanbod")
+        self.assertNotIn("verwijzing", blok["objecten"][-1])
+
+    def test_given_relation_to_object_outside_the_block_when_grouped_then_reference(self):
+        r = regels()
+        r["regels"].insert(3, {"fase": 2, "stap": "Aanbod maken", "soort": "ontstaat", "wie": "planner", "objecttype": "Student keuze regelset", "instantie": "Regels", "bron": "b",
+                               "relatie": {"soort": "Association", "van": "Kerntaak", "naar": "Student keuze regelset"}})
+        blok = [b for b in self.blokken(r) if b["stap"] == "Aanbod maken"][0]
         laatste = blok["objecten"][-1]
         self.assertEqual(laatste["type"], "Student keuze regelset")
-        self.assertEqual(laatste["verwijzing"], "Opleidingaanbod hangt aan")
-        self.assertNotIn("relatie", blok["objecten"][-2])
+        self.assertEqual(laatste["verwijzing"], "Kerntaak hangt aan")
+
+    def test_given_a_line_over_distance_when_drawn_then_it_routes_around_the_boxes(self):
+        r = regels()
+        r["regels"].insert(3, {"fase": 2, "stap": "Aanbod maken", "soort": "ontstaat", "wie": "planner", "objecttype": "Student keuze regelset", "instantie": "Regels", "bron": "b",
+                               "relatie": {"soort": "Association", "van": "Opleidingaanbod", "naar": "Student keuze regelset", "label": "hangt aan"}})
+        blok = [b for b in self.blokken(r) if b["stap"] == "Aanbod maken"][0]
+        svg = tv.regel_ontstaat(blok, set())
+        # een omweg is een pad met twee knikken: horizontaal, verticaal, horizontaal
+        paden = [m for m in re.findall(r'd="(M[^"]+)"', svg) if "H" in m and "V" in m]
+        self.assertTrue(paden, "verwacht een haaks pad voor de relatie over afstand")
+
+    def test_given_a_line_over_distance_when_drawn_then_the_label_is_shown(self):
+        r = regels()
+        r["regels"].insert(3, {"fase": 2, "stap": "Aanbod maken", "soort": "ontstaat", "wie": "planner", "objecttype": "Student keuze regelset", "instantie": "Regels", "bron": "b",
+                               "relatie": {"soort": "Association", "van": "Opleidingaanbod", "naar": "Student keuze regelset", "label": "stuurt"}})
+        blok = [b for b in self.blokken(r) if b["stap"] == "Aanbod maken"][0]
+        self.assertIn("stuurt", teksten(tv.regel_ontstaat(blok, set())))
 
     def test_given_concept_block_when_drawn_then_chip_and_dashed_frame(self):
         extra = [{"fase": 2, "stap": "Aanbod maken", "verdieping": "kader", "plaat": "onderwijsontwerp", "soort": "ontstaat", "wie": "planner",

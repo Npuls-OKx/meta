@@ -158,10 +158,39 @@ def relatielijn_v(x, y1, y2, soort, label, omlaag=True):
     return s
 
 
+OMWEG_MARGE = 22  # ruimte rechts van het breedste vak waar een omweglijn omhoog loopt
+
+
+def relatielijn_omweg(x_bron, y_bron, x_doel, y_doel, goot, soort, label, naar_bron=True):
+    """Een relatie naar een object dat niet de buur is: haaks om de blokken heen, langs een goot rechts
+    ervan. De goot ligt voorbij de rechterrand van alles ertussen, dus de lijn kruist geen vak.
+    naar_bron: de relatie wijst naar het object dat hier wordt getekend (de bron van de lijn); anders
+    wijst zij naar het object verder terug (het doel)."""
+    s = (f'<path d="M{x_bron:.0f} {y_bron:.0f}H{goot:.0f}V{y_doel:.0f}H{x_doel:.0f}" '
+         f'stroke="#444" stroke-width="1.3" fill="none"/>')
+    # het geheel draagt de ruit, het doel van de relatie draagt de punt
+    punt_x, punt_y = (x_bron, y_bron) if naar_bron else (x_doel, y_doel)
+    heel_x, heel_y = (x_doel, y_doel) if naar_bron else (x_bron, y_bron)
+    if soort in ("Aggregation", "Composition"):
+        vulling = "#444" if soort == "Composition" else "#ffffff"
+        s += (f'<path d="M{heel_x:.0f} {heel_y:.0f}l7 -5l7 5l-7 5z" '
+              f'fill="{vulling}" stroke="#444" stroke-width="1.3"/>')
+    elif soort == "Specialization":
+        s += f'<path d="M{punt_x:.0f} {punt_y:.0f}l10 -6v12z" fill="#ffffff" stroke="#444" stroke-width="1.3"/>'
+    elif label:
+        s += f'<path d="M{punt_x:.0f} {punt_y:.0f}l8 -4v8z" fill="#444"/>'
+    if label:
+        s += text(goot + 6, (y_bron + y_doel) / 2 + 4, label, 10, fill=MUTED)
+    return s
+
+
 def objecten(x, y, items, uitzonderingen):
     """Rij van objecten met de relaties van de plaat als lijnen ertussen; nesting bij kinderen.
     Wordt de rij breder dan MAX_BREEDTE, dan gaat de keten na het eerste object onder elkaar.
     Geeft (svg, w, h)."""
+    if any(it.get("over_afstand") for it in items):
+        # een omweg vraagt verticale ruimte: dit blok gaat altijd als kolom
+        return _objecten_kolom(x, y, items, uitzonderingen, alles_onder=True)
     svg, w, h = _objecten_rij(x, y, items, uitzonderingen)
     objs = [it for it in items if "type" in it]
     if w <= MAX_BREEDTE or len(objs) < 2:
@@ -184,26 +213,45 @@ def _objecten_kolom(x, y, items, uitzonderingen, alles_onder=False):
     lijnen = ""
     vorige_onder = None
     vorige_mid_x = None
-    wachtende_relatie = None
+    wachtende_relaties = []
     maxw = w1 if alles_onder else w1 + RELATIE_AFSTAND
     if alles_onder:
         vorige_onder = y + h1
+    # waar elk getekend objecttype staat: (rechterrand, middenhoogte); voor een relatie over afstand
+    plekken = {eerste["type"]: (x + w1, y + 24)}
+    omwegen = []  # (bron_rechts, bron_mid, doel_type, soort, label) om na te tekenen als de goot bekend is
     for it in items[1:]:
         if "relatie" in it and "type" not in it:
-            wachtende_relatie = it
+            wachtende_relaties.append(it)
             continue
         svg_it, w_it, h_it = _objecten_rij(kx, ky, [it], uitzonderingen)
         out += svg_it
-        if wachtende_relatie is not None:
-            if vorige_onder is None:
+        # meerdere relaties op een object: een naar de buur als lijn, de rest met een omweg
+        for i, wacht in enumerate(wachtende_relaties):
+            soort = wacht.get("soort", "Association")
+            label = wacht["relatie"]
+            doel = wacht.get("ander")
+            if wacht.get("over_afstand"):
+                # het andere eind staat verder terug: haaks eromheen, langs een goot rechts van de blokken
+                if doel in plekken:
+                    omwegen.append((kx + w_it, ky + 24 + 14 * i, doel, soort, label, wacht.get("naar_rechts", True)))
+            elif vorige_onder is None:
                 # relatie tussen het eerste object (links) en dit object: horizontaal, op de hoogte van dit object
-                lijnen += relatielijn(x + w1, ky + 24, kx, wachtende_relatie.get("soort", "Association"), wachtende_relatie["relatie"], wachtende_relatie.get("naar_rechts", True))
+                lijnen += relatielijn(x + w1, ky + 24, kx, soort, label, wacht.get("naar_rechts", True))
             else:
-                lijnen += relatielijn_v(kx + min(w_it, 120) / 2, vorige_onder, ky, wachtende_relatie.get("soort", "Association"), wachtende_relatie["relatie"], wachtende_relatie.get("naar_rechts", True))
-            wachtende_relatie = None
+                lijnen += relatielijn_v(kx + min(w_it, 120) / 2, vorige_onder, ky, soort, label, wacht.get("naar_rechts", True))
+        wachtende_relaties = []
+        plekken.setdefault(it["type"], (kx + w_it, ky + 24))
+        plekken[it["type"]] = (kx + w_it, ky + 24)
         vorige_onder = ky + h_it
         ky += h_it + 28
         maxw = max(maxw, w_it if alles_onder else w1 + RELATIE_AFSTAND + w_it)
+    if omwegen:
+        goot = x + maxw + OMWEG_MARGE
+        for bron_x, bron_y, doel, soort, label, naar_rechts in omwegen:
+            doel_x, doel_y = plekken[doel]
+            lijnen += relatielijn_omweg(bron_x, bron_y, doel_x, doel_y, goot, soort, label, naar_rechts)
+        maxw += OMWEG_MARGE + 8
     return out + lijnen, maxw, max(h1, ky - 28 - y)
 
 
@@ -426,6 +474,17 @@ def _verwijzing(rel, objecttype):
     return f"{tekst}: {rel['instantie']}" if rel.get("instantie") else tekst
 
 
+def _types_in_blok(objecten_in_blok):
+    """Alle objecttypen die al in dit blok staan, kinderen meegerekend. Een relatie naar zo'n type is
+    met een omweg te tekenen; een relatie naar iets daarbuiten blijft een verwijzing."""
+    uit = set()
+    for it in objecten_in_blok:
+        if "type" in it:
+            uit.add(it["type"])
+            uit |= _types_in_blok(it.get("kinderen", []))
+    return uit
+
+
 def groepeer(regels):
     """Regels met dezelfde fase, stap en soort worden één blok; ontstaat en verandert samen. Een regel met
     het veld verdieping vormt met zijn gelijken een eigen blok onder dezelfde stap."""
@@ -491,8 +550,20 @@ def groepeer(regels):
         if r.get("wie") and r["wie"] not in laatste["rollen"]:
             laatste["rollen"].append(r["wie"])
             laatste["wie"] = ", ".join(laatste["rollen"])
+        # een extra relatie waarvan het andere eind al in dit blok staat wordt een lijn met een omweg;
+        # de rest blijft een verwijzing onder het object
+        _reeds = _types_in_blok(laatste["objecten"])
+        _ver, _omweg = [], []
+        for x in r.get("relaties", []):
+            _ander = x["naar"] if x["van"] == r["objecttype"] else x["van"]
+            if _ander in _reeds:
+                _omweg.append({"relatie": x.get("label") or "", "soort": x["soort"],
+                               "naar_rechts": x["naar"] == r["objecttype"], "ander": _ander, "over_afstand": True})
+            else:
+                _ver.append(_verwijzing(x, r["objecttype"]))
+        laatste["objecten"] += _omweg
         item = {"type": r["objecttype"], "instantie": r["instantie"], "aanname": r.get("aanname", False),
-                "plaat": r.get("plaat", "informatiemodel"), "verwijzingen": [_verwijzing(x, r["objecttype"]) for x in r.get("relaties", [])]}
+                "plaat": r.get("plaat", "informatiemodel"), "verwijzingen": _ver}
         _rel = r.get("relatie") or {}
         if _rel.get("soort") == "Specialization" and _rel.get("van") == r["objecttype"]:
             item["specialiseert"] = _rel["naar"]
@@ -525,6 +596,9 @@ def groepeer(regels):
             if ander in in_blok:
                 # het andere eind staat ernaast in dit blok: relatielijn ertussen; naar_rechts als dit object het doel is
                 laatste["objecten"].append({"relatie": rel.get("label") or "", "soort": rel["soort"], "naar_rechts": rel["naar"] == r["objecttype"], "ander": ander})
+            elif ander in _types_in_blok(laatste["objecten"]):
+                # het andere eind staat verder terug in dit blok: een lijn met een omweg in plaats van een verwijzing
+                laatste["objecten"].append({"relatie": rel.get("label") or "", "soort": rel["soort"], "naar_rechts": rel["naar"] == r["objecttype"], "ander": ander, "over_afstand": True})
             else:
                 item["verwijzing"] = _verwijzing(rel, r["objecttype"])
         laatste["objecten"].append(item)
