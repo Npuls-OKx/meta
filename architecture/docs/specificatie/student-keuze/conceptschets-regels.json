@@ -18,10 +18,10 @@
    "stap": "Ruimte beleggen bij een domein",
    "soort": "ontstaat",
    "wie": "planner",
-   "objecttype": "Persoon",
-   "instantie": "Nienke, docent",
+   "objecttype": "Onderwijseenheid specificatie",
+   "instantie": "Farmaceutische patientenzorg",
    "bron": "Overleg 12 oktober 2026, naar aanleiding van de reviewopmerking van Jan Hendrik van Schaik op Public PR 104",
-   "zin": "Een persoon draagt een expertise; die bepaalt onder welk domein zij valt. Het domein voert de onderwijsuitvoering van specificaties uit, die een onderwijsvorm gebruiken. Die vorm vraagt een lokaaltype, en daarmee ligt vast welke ruimtes het domein nodig heeft. Die ruimtes staan op meerdere locaties; de verzameling die aan het domein wordt toegewezen is het vlekkenplan."
+   "zin": "Een specificatie vraagt een competentieprofiel: de expertise die een docent ervoor moet hebben. Een domein groepeert juist de mensen met die expertise, en voert de specificatie daarom uit. De specificatie gebruikt ook een onderwijsvorm, die een lokaaltype vraagt; daarmee ligt vast welke ruimtes het domein nodig heeft. Die ruimtes staan verspreid over locaties, en de verzameling die aan het domein wordt toegewezen is het vlekkenplan."
   },
   {
    "beeld_id": "C-01",
@@ -31,17 +31,36 @@
    "soort": "ontstaat",
    "wie": "planner",
    "objecttype": "Expertise",
-   "instantie": "verpleegkundige zorg",
+   "instantie": "verpleegkundige zorg, gevraagd profiel",
    "bron": "Overleg 12 oktober 2026, naar aanleiding van de reviewopmerking van Jan Hendrik van Schaik op Public PR 104",
    "zin": "",
    "relatie": {
-    "soort": "Aggregation",
+    "soort": "Association",
+    "van": "Onderwijseenheid specificatie",
+    "naar": "Expertise",
+    "label": "vraagt",
+    "nesting": false
+   },
+   "aanname": true
+  },
+  {
+   "beeld_id": "C-01",
+   "beeld": "Van expertise naar vlekkenplan",
+   "fase": 0,
+   "stap": "Ruimte beleggen bij een domein",
+   "soort": "ontstaat",
+   "wie": "planner",
+   "objecttype": "Persoon",
+   "instantie": "Nienke, docent",
+   "bron": "Overleg 12 oktober 2026, naar aanleiding van de reviewopmerking van Jan Hendrik van Schaik op Public PR 104",
+   "zin": "",
+   "relatie": {
+    "soort": "Association",
     "van": "Persoon",
     "naar": "Expertise",
     "label": "heeft",
-    "nesting": true
-   },
-   "aanname": true
+    "nesting": false
+   }
   },
   {
    "beeld_id": "C-01",
@@ -61,26 +80,16 @@
     "label": "bestaat uit",
     "nesting": false
    },
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Organisatie-eenheid",
+     "naar": "Onderwijseenheid specificatie",
+     "label": "voert daarom uit",
+     "nesting": false
+    }
+   ],
    "aanname": true
-  },
-  {
-   "beeld_id": "C-01",
-   "beeld": "Van expertise naar vlekkenplan",
-   "fase": 0,
-   "stap": "Ruimte beleggen bij een domein",
-   "soort": "ontstaat",
-   "wie": "planner",
-   "objecttype": "Onderwijseenheid specificatie",
-   "instantie": "Farmaceutische patientenzorg",
-   "bron": "Overleg 12 oktober 2026, naar aanleiding van de reviewopmerking van Jan Hendrik van Schaik op Public PR 104",
-   "zin": "",
-   "relatie": {
-    "soort": "Association",
-    "van": "Organisatie-eenheid",
-    "naar": "Onderwijseenheid specificatie",
-    "label": "voert uit",
-    "nesting": false
-   }
   },
   {
    "beeld_id": "C-01",
@@ -93,13 +102,15 @@
    "instantie": "simulatieonderwijs",
    "bron": "Overleg 12 oktober 2026, naar aanleiding van de reviewopmerking van Jan Hendrik van Schaik op Public PR 104",
    "zin": "",
-   "relatie": {
-    "soort": "Association",
-    "van": "Onderwijseenheid specificatie",
-    "naar": "Onderwijsvorm",
-    "label": "gebruikt",
-    "nesting": false
-   },
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Onderwijseenheid specificatie",
+     "naar": "Onderwijsvorm",
+     "label": "gebruikt deze",
+     "nesting": false
+    }
+   ],
    "aanname": true
   },
   {
