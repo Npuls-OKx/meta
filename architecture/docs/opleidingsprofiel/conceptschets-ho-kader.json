@@ -1,0 +1,130 @@
+{
+ "model": {
+  "naam": "Het hbo-kwalificatiekader naar leeruitkomsten",
+  "bron": "Landelijk Opleidingsprofiel Hbo-bachelor Technische Natuurkunde, december 2016; HORA; WHW artikel 7.13"
+ },
+ "fasen": [],
+ "rollen": [],
+ "toestanden": [],
+ "scope_uitzonderingen": [],
+ "koppelingen": [],
+ "thema_toelichting": {},
+ "bevindingen": [],
+ "regels": [
+  {
+   "beeld_id": "C-03",
+   "beeld": "Het hbo-kwalificatiekader vertaalt naar leeruitkomsten",
+   "fase": 0,
+   "stap": "Kwalificatiekader vertalen naar leeruitkomsten",
+   "soort": "ontstaat",
+   "wie": "onderwijsontwerper",
+   "objecttype": "Beroepsprofiel",
+   "instantie": "beroepenveld Technische Natuurkunde",
+   "bron": "Landelijk Opleidingsprofiel Hbo-bachelor Technische Natuurkunde, december 2016; HORA; WHW artikel 7.13",
+   "zin": "Het hbo komt langs zijn eigen weg tot competenties: een beroepsprofiel voedt het landelijk opleidingsprofiel, dat bestaat uit competenties, waaruit de instelling haar eindkwalificaties verwezenlijkt. Hoe die weg loopt is aan de sector. Wat OKx vastlegt is dat elk van die objecten vertaalt naar een leeruitkomst, in dezelfde vorm als in het mbo. Voluit luidt de leeruitkomst hieronder: voert experimenten uit volgens een zelf opgestelde opzet, met aantoonbaar betrouwbare en reproduceerbare resultaten, in een laboratoriumomgeving waarin methode en apparatuur zelfstandig worden gekozen (hbo-bachelor Technische Natuurkunde, NLQF 6, competentie Experimenteren niveau III).",
+   "aanname": true
+  },
+  {
+   "beeld_id": "C-03",
+   "beeld": "Het hbo-kwalificatiekader vertaalt naar leeruitkomsten",
+   "fase": 0,
+   "stap": "Kwalificatiekader vertalen naar leeruitkomsten",
+   "soort": "ontstaat",
+   "wie": "onderwijsontwerper",
+   "objecttype": "Landelijk opleidingsprofiel",
+   "instantie": "Hbo-bachelor Technische Natuurkunde, 2016",
+   "bron": "Landelijk Opleidingsprofiel Hbo-bachelor Technische Natuurkunde, december 2016; HORA; WHW artikel 7.13",
+   "zin": "",
+   "relatie": {
+    "soort": "Influence",
+    "van": "Beroepsprofiel",
+    "naar": "Landelijk opleidingsprofiel",
+    "label": "voedt",
+    "nesting": false
+   },
+   "aanname": true
+  },
+  {
+   "beeld_id": "C-03",
+   "beeld": "Het hbo-kwalificatiekader vertaalt naar leeruitkomsten",
+   "fase": 0,
+   "stap": "Kwalificatiekader vertalen naar leeruitkomsten",
+   "soort": "ontstaat",
+   "wie": "onderwijsontwerper",
+   "objecttype": "Competentie",
+   "instantie": "Experimenteren, niveau III",
+   "bron": "Landelijk Opleidingsprofiel Hbo-bachelor Technische Natuurkunde, december 2016; HORA; WHW artikel 7.13",
+   "zin": "",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Landelijk opleidingsprofiel",
+    "naar": "Competentie",
+    "label": "bestaat uit",
+    "nesting": false
+   },
+   "aanname": true
+  },
+  {
+   "beeld_id": "C-03",
+   "beeld": "Het hbo-kwalificatiekader vertaalt naar leeruitkomsten",
+   "fase": 0,
+   "stap": "Kwalificatiekader vertalen naar leeruitkomsten",
+   "soort": "ontstaat",
+   "wie": "onderwijsontwerper",
+   "objecttype": "Eindkwalificatie",
+   "instantie": "in de OER van de opleiding",
+   "bron": "Landelijk Opleidingsprofiel Hbo-bachelor Technische Natuurkunde, december 2016; HORA; WHW artikel 7.13",
+   "zin": "",
+   "relatie": {
+    "soort": "Realization",
+    "van": "Eindkwalificatie",
+    "naar": "Competentie",
+    "label": "verwezenlijkt een selectie uit",
+    "nesting": false
+   },
+   "aanname": true
+  },
+  {
+   "beeld_id": "C-03",
+   "beeld": "Het hbo-kwalificatiekader vertaalt naar leeruitkomsten",
+   "fase": 0,
+   "stap": "Kwalificatiekader vertalen naar leeruitkomsten",
+   "soort": "ontstaat",
+   "wie": "onderwijsontwerper",
+   "objecttype": "Leeruitkomst",
+   "instantie": "Voert experimenten uit volgens een zelf opgestelde opzet (NLQF 6)",
+   "bron": "Landelijk Opleidingsprofiel Hbo-bachelor Technische Natuurkunde, december 2016; HORA; WHW artikel 7.13",
+   "zin": "",
+   "relatie": {
+    "soort": "Association",
+    "van": "Eindkwalificatie",
+    "naar": "Leeruitkomst",
+    "label": "Wordt vertaald naar",
+    "nesting": false
+   },
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Beroepsprofiel",
+     "naar": "Leeruitkomst",
+     "label": "wordt ook vertaald naar deze",
+     "nesting": false
+    },
+    {
+     "soort": "Association",
+     "van": "Landelijk opleidingsprofiel",
+     "naar": "Leeruitkomst",
+     "label": "wordt ook vertaald naar deze",
+     "nesting": false
+    },
+    {
+     "soort": "Association",
+     "van": "Competentie",
+     "naar": "Leeruitkomst",
+     "label": "wordt ook vertaald naar deze",
+     "nesting": false
+    }
+   ]
+  }
+ ]
+}
