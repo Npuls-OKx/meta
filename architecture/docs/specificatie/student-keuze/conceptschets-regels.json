@@ -201,7 +201,7 @@
    "objecttype": "Expertise",
    "instantie": "verpleegkundige zorg",
    "bron": "Overleg 12 oktober 2026, naar aanleiding van de reviewopmerking van Jan Hendrik van Schaik op Public PR 104",
-   "zin": "Een expertise bundelt vaardigheden en skills die het model al kent. Nienke draagt er een en hoort bij een eenheid. Youssef draagt rekenen en techniek, en hoort daarmee bij twee eenheden; met zijn rekenexpertise geeft hij les binnen het domein Zorg, waar hij zelf niet onder valt. Een eenheid kan eenheden bevatten, en bestaat op elk niveau uit personen.",
+   "zin": "Een expertise bundelt vaardigheden en skills die het model al kent. Nienke draagt er twee: verpleegkundige zorg en Nederlands. Via de eerste hoort zij bij team Verpleegkunde, via de tweede bij team Generieke vakken, en omdat die teams onder verschillende domeinen vallen hoort zij bij twee domeinen. Een eenheid bevat eenheden en bestaat op elk niveau uit personen.",
    "aanname": true
   },
   {
@@ -269,7 +269,7 @@
    "soort": "ontstaat",
    "wie": "onderwijsontwerper",
    "objecttype": "Organisatie-eenheid",
-   "instantie": "domein Gezondheid en Verzorging",
+   "instantie": "team Verpleegkunde",
    "bron": "Overleg 12 oktober 2026, naar aanleiding van de reviewopmerking van Jan Hendrik van Schaik op Public PR 104",
    "zin": "",
    "relatie": {
@@ -279,12 +279,45 @@
     "label": "bestaat uit",
     "nesting": false
    },
+   "aanname": true
+  },
+  {
+   "beeld_id": "C-02",
+   "beeld": "Expertise, persoon en eenheid",
+   "fase": 0,
+   "stap": "Personen groeperen tot een eenheid",
+   "soort": "ontstaat",
+   "wie": "onderwijsontwerper",
+   "objecttype": "Organisatie-eenheid",
+   "instantie": "domein Gezondheid en Verzorging",
+   "bron": "Overleg 12 oktober 2026, naar aanleiding van de reviewopmerking van Jan Hendrik van Schaik op Public PR 104",
+   "zin": "",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Organisatie-eenheid",
+    "naar": "Organisatie-eenheid",
+    "label": "bevat",
+    "nesting": false
+   },
+   "aanname": true
+  },
+  {
+   "beeld_id": "C-02",
+   "beeld": "Expertise, persoon en eenheid",
+   "fase": 0,
+   "stap": "Personen groeperen tot een eenheid",
+   "soort": "ontstaat",
+   "wie": "onderwijsontwerper",
+   "objecttype": "Expertise",
+   "instantie": "Nederlands",
+   "bron": "Overleg 12 oktober 2026, naar aanleiding van de reviewopmerking van Jan Hendrik van Schaik op Public PR 104",
+   "zin": "",
    "relaties": [
     {
-     "soort": "Aggregation",
-     "van": "Organisatie-eenheid",
-     "naar": "Organisatie-eenheid",
-     "label": "bevat ook een",
+     "soort": "Association",
+     "van": "Persoon",
+     "naar": "Expertise",
+     "label": "Nienke heeft daarnaast deze",
      "nesting": false
     }
    ],
@@ -297,21 +330,8 @@
    "stap": "Personen groeperen tot een eenheid",
    "soort": "ontstaat",
    "wie": "onderwijsontwerper",
-   "objecttype": "Expertise",
-   "instantie": "rekenen",
-   "bron": "Overleg 12 oktober 2026, naar aanleiding van de reviewopmerking van Jan Hendrik van Schaik op Public PR 104",
-   "zin": "",
-   "aanname": true
-  },
-  {
-   "beeld_id": "C-02",
-   "beeld": "Expertise, persoon en eenheid",
-   "fase": 0,
-   "stap": "Personen groeperen tot een eenheid",
-   "soort": "ontstaat",
-   "wie": "onderwijsontwerper",
    "objecttype": "Vaardigheid",
-   "instantie": "rekendidactiek",
+   "instantie": "taaldidactiek",
    "bron": "Overleg 12 oktober 2026, naar aanleiding van de reviewopmerking van Jan Hendrik van Schaik op Public PR 104",
    "zin": "",
    "relatie": {
@@ -329,64 +349,23 @@
    "stap": "Personen groeperen tot een eenheid",
    "soort": "ontstaat",
    "wie": "onderwijsontwerper",
-   "objecttype": "Expertise",
-   "instantie": "techniek",
-   "bron": "Overleg 12 oktober 2026, naar aanleiding van de reviewopmerking van Jan Hendrik van Schaik op Public PR 104",
-   "zin": "",
-   "aanname": true
-  },
-  {
-   "beeld_id": "C-02",
-   "beeld": "Expertise, persoon en eenheid",
-   "fase": 0,
-   "stap": "Personen groeperen tot een eenheid",
-   "soort": "ontstaat",
-   "wie": "onderwijsontwerper",
-   "objecttype": "Persoon",
-   "instantie": "Youssef, docent",
-   "bron": "Overleg 12 oktober 2026, naar aanleiding van de reviewopmerking van Jan Hendrik van Schaik op Public PR 104",
-   "zin": "",
-   "relatie": {
-    "soort": "Association",
-    "van": "Persoon",
-    "naar": "Expertise",
-    "label": "heeft",
-    "nesting": false
-   },
-   "relaties": [
-    {
-     "soort": "Association",
-     "van": "Persoon",
-     "naar": "Expertise",
-     "label": "heeft daarnaast rekenen als",
-     "nesting": false
-    }
-   ]
-  },
-  {
-   "beeld_id": "C-02",
-   "beeld": "Expertise, persoon en eenheid",
-   "fase": 0,
-   "stap": "Personen groeperen tot een eenheid",
-   "soort": "ontstaat",
-   "wie": "onderwijsontwerper",
    "objecttype": "Organisatie-eenheid",
    "instantie": "team Generieke vakken",
    "bron": "Overleg 12 oktober 2026, naar aanleiding van de reviewopmerking van Jan Hendrik van Schaik op Public PR 104",
    "zin": "",
    "relatie": {
-    "soort": "Aggregation",
+    "soort": "Association",
     "van": "Organisatie-eenheid",
-    "naar": "Persoon",
-    "label": "bestaat uit",
+    "naar": "Expertise",
+    "label": "groepeert op",
     "nesting": false
    },
    "relaties": [
     {
-     "soort": "Association",
+     "soort": "Aggregation",
      "van": "Organisatie-eenheid",
-     "naar": "Expertise",
-     "label": "groepeert op rekenen als",
+     "naar": "Persoon",
+     "label": "bestaat ook uit Nienke als",
      "nesting": false
     }
    ],
@@ -400,54 +379,17 @@
    "soort": "ontstaat",
    "wie": "onderwijsontwerper",
    "objecttype": "Organisatie-eenheid",
-   "instantie": "domein Techniek",
+   "instantie": "domein Taal en Burgerschap",
    "bron": "Overleg 12 oktober 2026, naar aanleiding van de reviewopmerking van Jan Hendrik van Schaik op Public PR 104",
    "zin": "",
-   "relaties": [
-    {
-     "soort": "Aggregation",
-     "van": "Organisatie-eenheid",
-     "naar": "Persoon",
-     "label": "bestaat ook uit Youssef als",
-     "nesting": false
-    },
-    {
-     "soort": "Association",
-     "van": "Organisatie-eenheid",
-     "naar": "Expertise",
-     "label": "groepeert op techniek als",
-     "nesting": false
-    }
-   ],
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Organisatie-eenheid",
+    "naar": "Organisatie-eenheid",
+    "label": "bevat",
+    "nesting": false
+   },
    "aanname": true
-  },
-  {
-   "beeld_id": "C-02",
-   "beeld": "Expertise, persoon en eenheid",
-   "fase": 0,
-   "stap": "Personen groeperen tot een eenheid",
-   "soort": "ontstaat",
-   "wie": "onderwijsontwerper",
-   "objecttype": "Onderwijseenheid specificatie",
-   "instantie": "Rekenen voor verpleegkundigen",
-   "bron": "Overleg 12 oktober 2026, naar aanleiding van de reviewopmerking van Jan Hendrik van Schaik op Public PR 104",
-   "zin": "",
-   "relaties": [
-    {
-     "soort": "Association",
-     "van": "Organisatie-eenheid",
-     "naar": "Onderwijseenheid specificatie",
-     "label": "domein Gezondheid en Verzorging voert uit",
-     "nesting": false
-    },
-    {
-     "soort": "Assignment",
-     "van": "Persoon",
-     "naar": "Onderwijseenheid specificatie",
-     "label": "Youssef geeft deze, zonder bij dat domein te horen",
-     "nesting": false
-    }
-   ]
   }
  ]
 }
