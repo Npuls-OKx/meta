@@ -19,9 +19,9 @@
    "soort": "ontstaat",
    "wie": "planner",
    "objecttype": "Persoon",
-   "instantie": "docent Zorg",
+   "instantie": "Nienke, docent",
    "bron": "Overleg 12 oktober 2026, naar aanleiding van de reviewopmerking van Jan Hendrik van Schaik op Public PR 104",
-   "zin": "Een persoon draagt een expertise; die expertise bepaalt onder welk domein hij valt. Het domein voert de onderwijsuitvoering van specificaties uit, die een onderwijsvorm gebruiken. Die vorm vraagt een lokaaltype, en daarmee ligt vast welke ruimtes het domein nodig heeft. De planner koppelt die behoefte aan de ruimtes die op locaties beschikbaar zijn: het vlekkenplan."
+   "zin": "Een persoon draagt een expertise; die bepaalt onder welk domein zij valt. Het domein voert de onderwijsuitvoering van specificaties uit, die een onderwijsvorm gebruiken. Die vorm vraagt een lokaaltype, en daarmee ligt vast welke ruimtes het domein nodig heeft. Die ruimtes staan op meerdere locaties; de verzameling die aan het domein wordt toegewezen is het vlekkenplan."
   },
   {
    "beeld_id": "C-01",
@@ -35,7 +35,7 @@
    "bron": "Overleg 12 oktober 2026, naar aanleiding van de reviewopmerking van Jan Hendrik van Schaik op Public PR 104",
    "zin": "",
    "relatie": {
-    "soort": "Association",
+    "soort": "Aggregation",
     "van": "Persoon",
     "naar": "Expertise",
     "label": "heeft",
@@ -169,8 +169,50 @@
    "stap": "Ruimte beleggen bij een domein",
    "soort": "ontstaat",
    "wie": "planner",
+   "objecttype": "Ruimte",
+   "instantie": "lokaal B-215",
+   "bron": "Overleg 12 oktober 2026, naar aanleiding van de reviewopmerking van Jan Hendrik van Schaik op Public PR 104",
+   "zin": "",
+   "relaties": [
+    {
+     "soort": "Realization",
+     "van": "Ruimte",
+     "naar": "Lokaaltype",
+     "label": "is ook van het type",
+     "nesting": false
+    }
+   ],
+   "aanname": true
+  },
+  {
+   "beeld_id": "C-01",
+   "beeld": "Van expertise naar vlekkenplan",
+   "fase": 0,
+   "stap": "Ruimte beleggen bij een domein",
+   "soort": "ontstaat",
+   "wie": "planner",
+   "objecttype": "Locatie",
+   "instantie": "vestiging Veghel",
+   "bron": "Overleg 12 oktober 2026, naar aanleiding van de reviewopmerking van Jan Hendrik van Schaik op Public PR 104",
+   "zin": "",
+   "relatie": {
+    "soort": "Association",
+    "van": "Ruimte",
+    "naar": "Locatie",
+    "label": "bevindt zich op",
+    "nesting": false
+   },
+   "aanname": true
+  },
+  {
+   "beeld_id": "C-01",
+   "beeld": "Van expertise naar vlekkenplan",
+   "fase": 0,
+   "stap": "Ruimte beleggen bij een domein",
+   "soort": "ontstaat",
+   "wie": "planner",
    "objecttype": "Vlekkenplan",
-   "instantie": "vlek Zorg, Heerlen B-vleugel",
+   "instantie": "vlek Zorg: B-214 Heerlen en B-215 Veghel",
    "bron": "Overleg 12 oktober 2026, naar aanleiding van de reviewopmerking van Jan Hendrik van Schaik op Public PR 104",
    "zin": "",
    "relaties": [
@@ -178,14 +220,14 @@
      "soort": "Aggregation",
      "van": "Vlekkenplan",
      "naar": "Ruimte",
-     "label": "groepeert",
+     "label": "is de verzameling van beide als",
      "nesting": false
     },
     {
      "soort": "Assignment",
      "van": "Vlekkenplan",
      "naar": "Organisatie-eenheid",
-     "label": "toegewezen aan",
+     "label": "toegewezen aan het domein als",
      "nesting": false
     }
    ],
@@ -198,10 +240,29 @@
    "stap": "Personen groeperen tot een eenheid",
    "soort": "ontstaat",
    "wie": "onderwijsontwerper",
+   "objecttype": "Persoon",
+   "instantie": "Nienke, docent",
+   "bron": "Overleg 12 oktober 2026, naar aanleiding van de reviewopmerking van Jan Hendrik van Schaik op Public PR 104",
+   "zin": "Een expertise bundelt vaardigheden en skills die het model al kent. Nienke draagt er twee. Via verpleegkundige zorg hoort zij bij team Verpleegkunde, dat onder het domein Gezondheid en Verzorging valt. Via Nederlands hoort zij bij team Generieke vakken, dat onder het domein Taal en Burgerschap valt. Daarmee hoort zij bij twee domeinen en mag zij in beide lesgeven."
+  },
+  {
+   "beeld_id": "C-02",
+   "beeld": "Expertise, persoon en eenheid",
+   "fase": 0,
+   "stap": "Personen groeperen tot een eenheid",
+   "soort": "ontstaat",
+   "wie": "onderwijsontwerper",
    "objecttype": "Expertise",
    "instantie": "verpleegkundige zorg",
    "bron": "Overleg 12 oktober 2026, naar aanleiding van de reviewopmerking van Jan Hendrik van Schaik op Public PR 104",
-   "zin": "Een expertise bundelt vaardigheden en skills die het model al kent. Nienke draagt er twee: verpleegkundige zorg en Nederlands. Via de eerste hoort zij bij team Verpleegkunde, via de tweede bij team Generieke vakken, en omdat die teams onder verschillende domeinen vallen hoort zij bij twee domeinen. Een eenheid bevat eenheden en bestaat op elk niveau uit personen.",
+   "zin": "",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Persoon",
+    "naar": "Expertise",
+    "label": "heeft",
+    "nesting": true
+   },
    "aanname": true
   },
   {
@@ -249,78 +310,17 @@
    "stap": "Personen groeperen tot een eenheid",
    "soort": "ontstaat",
    "wie": "onderwijsontwerper",
-   "objecttype": "Persoon",
-   "instantie": "Nienke, docent",
-   "bron": "Overleg 12 oktober 2026, naar aanleiding van de reviewopmerking van Jan Hendrik van Schaik op Public PR 104",
-   "zin": "",
-   "relatie": {
-    "soort": "Association",
-    "van": "Persoon",
-    "naar": "Expertise",
-    "label": "heeft",
-    "nesting": false
-   }
-  },
-  {
-   "beeld_id": "C-02",
-   "beeld": "Expertise, persoon en eenheid",
-   "fase": 0,
-   "stap": "Personen groeperen tot een eenheid",
-   "soort": "ontstaat",
-   "wie": "onderwijsontwerper",
-   "objecttype": "Organisatie-eenheid",
-   "instantie": "team Verpleegkunde",
-   "bron": "Overleg 12 oktober 2026, naar aanleiding van de reviewopmerking van Jan Hendrik van Schaik op Public PR 104",
-   "zin": "",
-   "relatie": {
-    "soort": "Aggregation",
-    "van": "Organisatie-eenheid",
-    "naar": "Persoon",
-    "label": "bestaat uit",
-    "nesting": false
-   },
-   "aanname": true
-  },
-  {
-   "beeld_id": "C-02",
-   "beeld": "Expertise, persoon en eenheid",
-   "fase": 0,
-   "stap": "Personen groeperen tot een eenheid",
-   "soort": "ontstaat",
-   "wie": "onderwijsontwerper",
-   "objecttype": "Organisatie-eenheid",
-   "instantie": "domein Gezondheid en Verzorging",
-   "bron": "Overleg 12 oktober 2026, naar aanleiding van de reviewopmerking van Jan Hendrik van Schaik op Public PR 104",
-   "zin": "",
-   "relatie": {
-    "soort": "Aggregation",
-    "van": "Organisatie-eenheid",
-    "naar": "Organisatie-eenheid",
-    "label": "bevat",
-    "nesting": false
-   },
-   "aanname": true
-  },
-  {
-   "beeld_id": "C-02",
-   "beeld": "Expertise, persoon en eenheid",
-   "fase": 0,
-   "stap": "Personen groeperen tot een eenheid",
-   "soort": "ontstaat",
-   "wie": "onderwijsontwerper",
    "objecttype": "Expertise",
    "instantie": "Nederlands",
    "bron": "Overleg 12 oktober 2026, naar aanleiding van de reviewopmerking van Jan Hendrik van Schaik op Public PR 104",
    "zin": "",
-   "relaties": [
-    {
-     "soort": "Association",
-     "van": "Persoon",
-     "naar": "Expertise",
-     "label": "Nienke heeft daarnaast deze",
-     "nesting": false
-    }
-   ],
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Persoon",
+    "naar": "Expertise",
+    "label": "heeft ook",
+    "nesting": true
+   },
    "aanname": true
   },
   {
@@ -350,22 +350,71 @@
    "soort": "ontstaat",
    "wie": "onderwijsontwerper",
    "objecttype": "Organisatie-eenheid",
-   "instantie": "team Generieke vakken",
+   "instantie": "team Verpleegkunde",
    "bron": "Overleg 12 oktober 2026, naar aanleiding van de reviewopmerking van Jan Hendrik van Schaik op Public PR 104",
    "zin": "",
    "relatie": {
-    "soort": "Association",
+    "soort": "Aggregation",
     "van": "Organisatie-eenheid",
-    "naar": "Expertise",
-    "label": "groepeert op",
+    "naar": "Persoon",
+    "label": "bestaat uit",
     "nesting": false
    },
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Organisatie-eenheid",
+     "naar": "Expertise",
+     "label": "op grond van verpleegkundige zorg als",
+     "nesting": false
+    }
+   ],
+   "aanname": true
+  },
+  {
+   "beeld_id": "C-02",
+   "beeld": "Expertise, persoon en eenheid",
+   "fase": 0,
+   "stap": "Personen groeperen tot een eenheid",
+   "soort": "ontstaat",
+   "wie": "onderwijsontwerper",
+   "objecttype": "Organisatie-eenheid",
+   "instantie": "domein Gezondheid en Verzorging",
+   "bron": "Overleg 12 oktober 2026, naar aanleiding van de reviewopmerking van Jan Hendrik van Schaik op Public PR 104",
+   "zin": "",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Organisatie-eenheid",
+    "naar": "Organisatie-eenheid",
+    "label": "bevat",
+    "nesting": false
+   },
+   "aanname": true
+  },
+  {
+   "beeld_id": "C-02",
+   "beeld": "Expertise, persoon en eenheid",
+   "fase": 0,
+   "stap": "Personen groeperen tot een eenheid",
+   "soort": "ontstaat",
+   "wie": "onderwijsontwerper",
+   "objecttype": "Organisatie-eenheid",
+   "instantie": "team Generieke vakken",
+   "bron": "Overleg 12 oktober 2026, naar aanleiding van de reviewopmerking van Jan Hendrik van Schaik op Public PR 104",
+   "zin": "",
    "relaties": [
     {
      "soort": "Aggregation",
      "van": "Organisatie-eenheid",
      "naar": "Persoon",
      "label": "bestaat ook uit Nienke als",
+     "nesting": false
+    },
+    {
+     "soort": "Association",
+     "van": "Organisatie-eenheid",
+     "naar": "Expertise",
+     "label": "op grond van Nederlands als",
      "nesting": false
     }
    ],
