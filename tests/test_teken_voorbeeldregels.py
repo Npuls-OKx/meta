@@ -7,6 +7,7 @@ geparst en op inhoud en geometrie getoetst, niet op een momentopname.
 import importlib.util
 import json
 import tempfile
+import pathlib
 import re
 import unittest
 import xml.etree.ElementTree as ET
@@ -450,3 +451,30 @@ class AfbrekenTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class VoorbeeldOmweg(unittest.TestCase):
+    """Het voorbeeld in tests/voorbeelden draagt drie relaties over afstand in een beeld.
+
+    Het dient als zichtbare controle bij de pull request en als terugvaltest: gaat de routering
+    stuk, dan verandert het aantal haakse paden of valt een label buiten het doek.
+    """
+
+    def setUp(self):
+        pad = pathlib.Path(__file__).parent / "voorbeelden" / "omweg-regels.json"
+        self.regels = json.loads(pad.read_text(encoding="utf-8"))
+
+    def beeld(self):
+        blokken = tv.groepeer(self.regels)
+        return tv.regel_ontstaat(blokken[0], set())
+
+    def test_given_the_example_when_drawn_then_three_lines_route_around_the_boxes(self):
+        # een omweg heeft precies de vorm: horizontaal, verticaal, horizontaal
+        paden = re.findall(r'd="M[\d.]+ [\d.]+H[\d.]+V[\d.]+H[\d.]+"', self.beeld())
+        self.assertEqual(len(paden), 3)
+
+    def test_given_the_example_when_drawn_then_every_label_fits_on_the_canvas(self):
+        svg = self.beeld()
+        breedte = float(re.search(r'viewBox="0 0 ([\d.]+)', svg).group(1))
+        for x in re.findall(r'<text x="([\d.]+)"', svg):
+            self.assertLess(float(x), breedte, "tekst valt buiten het doek")

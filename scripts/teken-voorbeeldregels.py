@@ -251,7 +251,9 @@ def _objecten_kolom(x, y, items, uitzonderingen, alles_onder=False):
         for bron_x, bron_y, doel, soort, label, naar_rechts in omwegen:
             doel_x, doel_y = plekken[doel]
             lijnen += relatielijn_omweg(bron_x, bron_y, doel_x, doel_y, goot, soort, label, naar_rechts)
-        maxw += OMWEG_MARGE + 8
+        # het label staat rechts van de goot en telt mee in de breedte, anders valt het buiten het doek
+        breedste = max((tw(lab, 10) for *_, lab, _ in omwegen), default=0)
+        maxw += OMWEG_MARGE + 8 + (breedste + 10 if breedste else 0)
     return out + lijnen, maxw, max(h1, ky - 28 - y)
 
 
