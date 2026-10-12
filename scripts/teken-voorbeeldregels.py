@@ -307,8 +307,10 @@ def _objecten_kolom(x, y, items, uitzonderingen, alles_onder=False):
             kleur = OMWEG_KLEUREN[i % len(OMWEG_KLEUREN)] if len(op_lengte) > 1 else "#444"
             lijnen += relatielijn_omweg(bron_x, bron_y, doel_x, doel_y, baan, soort, label, naar_rechts, banen, kleur)
             if label:
-                # het label staat op de hoogte van de pijlpunt, voorbij alle banen, in de kleur van de lijn
-                lijnen += text(buitenste + 8, doel_y + 4, label, 10, fill=kleur)
+                # het label staat op de hoogte van de pijlpunt, voorbij alle banen, in de kleur van de lijn.
+                # welk eind de punt draagt hangt af van de richting van de relatie
+                punt_y = bron_y if naar_rechts else doel_y
+                lijnen += text(buitenste + 8, punt_y + 4, label, 10, fill=kleur)
         breedste = max((tw(lab, 10) for *_, lab, _ in omwegen), default=0)
         maxw = buitenste - x + 8 + (breedste + 10 if breedste else 0)
     return out + lijnen, maxw, max(h1, ky - 28 - y)

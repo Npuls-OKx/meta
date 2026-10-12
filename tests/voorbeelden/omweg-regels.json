@@ -21,7 +21,7 @@
    "objecttype": "Werkveld",
    "instantie": "beroepen en functies van de hbo-bachelor TN",
    "bron": "Landelijk Opleidingsprofiel Hbo-bachelor Technische Natuurkunde 2016, hoofdstuk 2 Gebruikte begrippen",
-   "zin": "Het werkveld stelt kwalificaties aan de ervaren beroepsbeoefenaar; dat is het landelijk opleidingsprofiel. Het opleidingsprofiel van de opleiding vertaalt die naar wat een pas afgestudeerde moet kunnen. Beide bestaan uit competenties, met het niveau als attribuut. Elk van de drie vertaalt naar een leeruitkomst, in dezelfde vorm als in het mbo.",
+   "zin": "Het werkveld stelt kwalificaties aan de ervaren beroepsbeoefenaar; dat is het landelijk opleidingsprofiel. Een opleiding leidt daar haar eigen profiel uit af, met de kwalificaties voor de pas afgestudeerde. Beide bestaan uit competenties, met het niveau als attribuut. Elk van de drie wordt vertaald naar een leeruitkomst, in dezelfde vorm als in het mbo.",
    "aanname": true
   },
   {
@@ -84,10 +84,10 @@
    },
    "relaties": [
     {
-     "soort": "Realization",
-     "van": "Opleidingsprofiel van de opleiding",
-     "naar": "Landelijk opleidingsprofiel",
-     "label": "vertaalt naar het moment van afstuderen",
+     "soort": "Association",
+     "van": "Landelijk opleidingsprofiel",
+     "naar": "Opleidingsprofiel van de opleiding",
+     "label": "is ijkpunt voor",
      "nesting": false
     }
    ],
@@ -116,14 +116,14 @@
      "soort": "Association",
      "van": "Landelijk opleidingsprofiel",
      "naar": "Leeruitkomst",
-     "label": "wordt ook vertaald naar deze",
+     "label": "Wordt vertaald naar",
      "nesting": false
     },
     {
      "soort": "Association",
      "van": "Competentie",
      "naar": "Leeruitkomst",
-     "label": "wordt ook vertaald naar deze",
+     "label": "Wordt vertaald naar",
      "nesting": false
     }
    ]

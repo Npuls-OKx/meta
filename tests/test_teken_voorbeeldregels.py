@@ -488,8 +488,9 @@ class VoorbeeldOmweg(unittest.TestCase):
 
     def test_given_several_detours_when_drawn_then_each_label_matches_its_line(self):
         svg = self.beeld()
-        labels = re.findall(r'fill="(#[0-9a-f]{6})"[^>]*>wordt ook vertaald naar deze<', svg)
-        self.assertEqual(len(set(labels)), 2, "twee gelijke labels horen bij twee lijnen van eigen kleur")
+        labels = re.findall(r'fill="(#[0-9a-f]{6})"[^>]*>Wordt vertaald naar<', svg)
+        gekleurd = [k for k in labels if k in tv.OMWEG_KLEUREN]
+        self.assertEqual(len(set(gekleurd)), 2, "twee gelijke labels horen bij twee lijnen van eigen kleur")
 
     def test_given_one_detour_when_drawn_then_the_line_stays_in_the_plain_colour(self):
         r = regels()
