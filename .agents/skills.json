@@ -52,6 +52,11 @@
       "doel": "Vaste opbouw en conventies voor koppelingspecificaties en payload-specificaties: verplichte inleiding, kern naar voren, veldnaamgeving, schema- en boomconventies, indienchecklist."
     },
     {
+      "naam": "okx-leeruitkomst-formuleren",
+      "type": "okx-specifiek",
+      "doel": "Schrijft en keurt een leeruitkomst volgens het tuning model uit de NLQF-handleiding, met Romiszowski voor NLQF 1 tot 4 en SOLO voor 5 tot 8. Hoort bij scripts/keur-leeruitkomst.py."
+    },
+    {
       "naam": "okx-oeapi-scenario-uitwerking",
       "type": "okx-specifiek",
       "doel": "Kaderstellende scenario's per leerroute schrijven en aanscherpen binnen de leerroute-uitwerking."
