@@ -35,7 +35,19 @@ Controles (R1 en R2 uit het featureplan):
     invoeren. Zonder het pakket jsonschema slaat die stap over en meldt dat; de controles hierboven
     blijven dan het net;
 11. elke koppeling die een regel noemt staat in de koppelingen-lijst op topniveau, en elke bevinding in
-    het register hangt aan een bestaand beeld, draagt een bekend thema en bij parkeren een reden.
+    het register hangt aan een bestaand beeld, draagt een bekend thema en bij parkeren een reden;
+12. dekking van de uitwisselingen: elke uitwisseling die het kaderscenario voor een fase noemt draagt in
+    die fase een beeld, of een reden waarom niet (beeld_in_fase, afwijking of buiten_scope). Staat de
+    dekking van een fase op volledig, dan is een gat een bevinding; anders een signalering, zodat een
+    fase die nog loopt zijn werklijst ziet zonder de poort rood te zetten;
+13. een beeld dat geen stroom is draagt een rol: de renderer groepeert op fase, stap, rol, verdieping en
+    beeld, en twee rollen in een beeld leveren twee blokken met dezelfde bestandsnaam op, waarvan het
+    tweede het eerste overschrijft.
+
+Bevindingen en signaleringen staan apart in de uitvoer; de exitcode volgt alleen de bevindingen. Een
+signalering wijst op iets dat aandacht vraagt zonder de uitkomst af te keuren: een objecttype dat de plaat
+nog niet draagt, een stroom zonder pijl op de hoofdplaat, een uitwisseling zonder beeld in een fase die
+nog loopt.
 
 Exitcode 0: geen bevindingen; 1: bevindingen; 2: invoer niet leesbaar.
 """
@@ -174,6 +186,90 @@ def register(regels):
     return uit
 
 
+def dekking_uitwisselingen(regels, fasen_filter=None):
+    """Elke uitwisseling die het kaderscenario voor een fase noemt hoort in die fase een beeld te hebben.
+
+    Een uitwisseling die het voorbeeld elders toont draagt beeld_in_fase, een die het anders laat lopen
+    draagt afwijking, en een die buiten OKx valt draagt buiten_scope. Wat geen van die drie draagt en
+    geen beeld heeft is een gat. Bij dekking "volledig" is dat een bevinding, anders een signalering:
+    zo ziet een fase die nog loopt zijn werklijst zonder de poort rood te zetten.
+    """
+    bevindingen, signaleringen = [], []
+    stromen_per_fase = {}
+    for r in regels.get("regels", []):
+        if r.get("soort") == "stroomt" and r.get("beeld_id"):
+            stromen_per_fase.setdefault(r.get("fase"), set()).add((norm(r.get("van")), norm(r.get("naar"))))
+    for f in regels.get("fasen", []):
+        nummer = f.get("nummer")
+        if fasen_filter and nummer not in fasen_filter:
+            continue
+        volledig = f.get("dekking") == "volledig"
+        for u in f.get("uitwisselingen") or []:
+            paar = (norm(u.get("van")), norm(u.get("naar")))
+            wat = f"fase {nummer}: uitwisseling {u.get('van')} naar {u.get('naar')}"
+            if u.get("buiten_scope"):
+                signaleringen.append(f"{wat} valt buiten OKx: {u['buiten_scope']}")
+                continue
+            if u.get("afwijking"):
+                signaleringen.append(f"{wat} loopt in het voorbeeld anders: {u['afwijking']}")
+                continue
+            elders = u.get("beeld_in_fase")
+            if elders:
+                if paar not in stromen_per_fase.get(elders, set()):
+                    bevindingen.append(f"{wat} verwijst naar fase {elders}, en daar draagt geen beeld die stroom")
+                continue
+            if paar not in stromen_per_fase.get(nummer, set()):
+                melding = f"{wat} draagt geen beeld in deze fase"
+                (bevindingen if volledig else signaleringen).append(melding)
+    return bevindingen, signaleringen
+
+
+def koppelingoverzicht(regels):
+    """Per koppeling het aantal regels, en welke koppeling uit de lijst er geen draagt.
+
+    Zo is een lege lijn zichtbaar in plaats van afwezig. Stromen zonder koppelingspecificatie komen er
+    per componentpaar bij, want juist daar is nog niets afgesproken.
+    """
+    uit, per, zonder = [], {}, {}
+    for id_ in (regels.get("koppelingen") or {}).values():
+        per.setdefault(id_, 0)
+    for r in regels.get("regels", []):
+        if r.get("soort") != "stroomt":
+            continue
+        if r.get("koppeling"):
+            per[r["koppeling"]] = per.get(r["koppeling"], 0) + 1
+        else:
+            sleutel = f"{r.get('van')} naar {r.get('naar')}"
+            zonder[sleutel] = zonder.get(sleutel, 0) + 1
+    for id_ in sorted(per):
+        uit.append(f"koppeling {id_}: {per[id_]} regels" + (" (geen enkele regel)" if not per[id_] else ""))
+    for sleutel in sorted(zonder):
+        uit.append(f"zonder koppelingspecificatie: {sleutel}, {zonder[sleutel]} regels")
+    return uit
+
+
+def rol_per_beeld(regels):
+    """Een beeld dat geen stroom is hoort een rol te dragen.
+
+    De renderer groepeert zo'n blok op fase, stap, rol, verdieping en beeld, en leidt de bestandsnaam af
+    van de beeldtitel. Twee rollen in een beeld leveren dus twee blokken met dezelfde bestandsnaam op,
+    waarvan het tweede het eerste overschrijft; het beeld toont dan minder dan de tabel zegt.
+    """
+    rollen = {}
+    for r in regels.get("regels", []):
+        if r.get("soort") == "stroomt" or not r.get("beeld_id"):
+            continue
+        rollen.setdefault(r["beeld_id"], {}).setdefault(r.get("wie"), 0)
+        rollen[r["beeld_id"]][r.get("wie")] += 1
+    uit = []
+    for bid in sorted(rollen):
+        if len(rollen[bid]) > 1:
+            namen = ", ".join(f"{w} ({n} regels)" for w, n in rollen[bid].items())
+            uit.append(f"beeld {bid} draagt meer dan een rol: {namen}; de renderer maakt daar twee "
+                       f"bestanden van met dezelfde naam")
+    return uit
+
+
 def schema(regels):
     """Verplichte velden en typen per soort regel, en de regels die over meer dan een veld gaan;
     het JSON Schema dekt de woordenlijst, deze controle de voorwaarden. Geeft bevindingen."""
@@ -253,6 +349,7 @@ def controleer(regels, model, stromen=None, fasen_filter=None, model_commit=None
     """Alle controles; geeft (bevindingen, waarschuwingen, ontbrekend per fase)."""
     schemafouten, waarschuwingen = schemavalidatie(regels, schema_pad)
     bevindingen = schemafouten + schema(regels) + register(regels)
+    waarschuwingen += rol_per_beeld(regels)
     if bevindingen and any(b.startswith("kop:") for b in bevindingen):
         return bevindingen, waarschuwingen, {}
 
@@ -290,7 +387,13 @@ def controleer(regels, model, stromen=None, fasen_filter=None, model_commit=None
         plaat_typen, plaat_relaties = (concept_typen, concept_relaties) if concept else (typen, relaties)
         plaatnaam = "de conceptplaat" if concept else "de plaat"
         if naam not in plaat_typen:
-            bevindingen.append(f"{plek}: objecttype {r.get('objecttype')!r} bestaat niet " + ("op de conceptplaat" if concept else "in het informatiemodel"))
+            # een objecttype dat de plaat nog niet draagt is een signalering met de plek in de lijn: het
+            # voorbeeld loopt dan langs iets wat het model nog moet opnemen, en dat hoort een fase niet
+            # te blokkeren. De rest van de regel blijft ongecontroleerd, want zonder het type is er niets
+            # om haar relaties tegen te houden.
+            waarschuwingen.append(f"{plek}: objecttype {r.get('objecttype')!r} bestaat niet " +
+                                  ("op de conceptplaat" if concept else "in het informatiemodel") +
+                                  f"; nodig in fase {r.get('fase')}, stap {r.get('stap')!r}")
             continue
         if not concept and naam not in binnen:
             bevindingen.append(f"{plek}: objecttype {naam!r} staat buiten scope en heeft geen scope-uitzondering")
@@ -365,6 +468,17 @@ def controleer(regels, model, stromen=None, fasen_filter=None, model_commit=None
         ontbrekend.setdefault(fase, []).append(naam)
     for fase in sorted(ontbrekend):
         bevindingen.append(f"fase {fase}: geen ontstaat-regel voor {', '.join(ontbrekend[fase])}")
+    bevonden, gesignaleerd = dekking_uitwisselingen(regels, fasen_filter)
+    bevindingen += bevonden
+    waarschuwingen += gesignaleerd
+    for u in regels.get("fasen", []):
+        for x in u.get("uitwisselingen") or []:
+            if x.get("buiten_scope"):
+                continue
+            for kant in ("van", "naar"):
+                if bekend and norm(x.get(kant)) not in bekend:
+                    waarschuwingen.append(f"fase {u['nummer']}: uitwisseling noemt component {x.get(kant)!r} "
+                                          f"die componenten.json niet kent")
     return bevindingen, waarschuwingen, ontbrekend
 
 
@@ -395,14 +509,23 @@ def main(argv=None):
     fasen_filter = {int(x) for x in args.fasen.split(",")} if args.fasen else None
     bevindingen, waarschuwingen, _ = controleer(regels, model, stromen, fasen_filter, args.model_commit,
                                                conceptplaat, componenten, args.schema)
-    for w in waarschuwingen:
-        print(f"waarschuwing: {w}")
-    for b in bevindingen:
-        print(f"bevinding: {b}")
+    overzicht = koppelingoverzicht(regels)
+    if overzicht:
+        print("Koppelingen")
+        for regel in overzicht:
+            print(f"  {regel}")
+    if waarschuwingen:
+        print("Signaleringen (de exitcode volgt ze niet)")
+        for w in waarschuwingen:
+            print(f"  signalering: {w}")
+    if bevindingen:
+        print("Bevindingen")
+        for b in bevindingen:
+            print(f"  bevinding: {b}")
     n = len(regels.get("regels", []))
     register_open = sum(1 for b in regels.get("bevindingen") or [] if b.get("status") == "open")
     staart = f", {register_open} openstaande bevindingen in het register" if register_open else ""
-    print(f"{n} regels gecontroleerd, {len(bevindingen)} bevindingen, {len(waarschuwingen)} waarschuwingen{staart}")
+    print(f"{n} regels gecontroleerd, {len(bevindingen)} bevindingen, {len(waarschuwingen)} signaleringen{staart}")
     return 1 if bevindingen else 0
 
 

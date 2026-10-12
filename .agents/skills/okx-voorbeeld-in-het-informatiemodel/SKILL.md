@@ -44,7 +44,9 @@ De platen komen uit het ArchiMate-model en worden alleen gelezen: `genereer-info
 
 ## De regeltabel
 
-Kop: `model` (commits waartegen is gecontroleerd), `fasen` (nummer, naam, MORA-hoofdproces, bron, stappen, verwacht, link naar de fasekop in het kaderscenario), `rollen` (gesloten lijst), `toestanden` (elk met bron), `scope_uitzonderingen` (objecttype buiten scope dat het voorbeeld toch toont, met motivering), `koppelingen` ("Van > Naar" naar koppeling-ID).
+Kop: `model` (commits waartegen is gecontroleerd), `fasen` (nummer, naam, MORA-hoofdproces, bron, stappen, verwacht, `uitwisselingen` en `dekking`, link naar de fasekop in het kaderscenario), `rollen` (gesloten lijst), `toestanden` (elk met bron), `scope_uitzonderingen` (objecttype buiten scope dat het voorbeeld toch toont, met motivering), `koppelingen` ("Van > Naar" naar koppeling-ID), `thema_toelichting` en `bevindingen` (het register van een reviewronde).
+
+Het schema `voorbeeld-lr1-regels.schema.json` is de woordenlijst: het staat op `additionalProperties: false` op de tabel, op een regel en op beide relatievormen, en de controle valideert de tabel ertegen. Een veld dat het schema niet kent is dus een bevinding, niet een stille toevoeging. Komt er een veld bij, dan komt het eerst in het schema.
 
 Elke regel is een fragment van een plaat bij een processtap:
 
@@ -66,6 +68,26 @@ Elke regel is een fragment van een plaat bij een processtap:
 | `bron` | bestand en regelnummer (`leerroute-1-regulier.md, r1046`), payload-id, ontologie met versie, of "geen bron, keuze van het voorbeeld"; het register maakt er links van |
 | `zin` | één zin, uit het kaderscenario waar die er is; laag houden |
 | `vraag` | alleen waar plaat en bron elkaar tegenspreken of de plaat iets mist; het document toont er zeven |
+
+### Uitwisselingen per fase, en het aftekenen
+
+Elke fase draagt de uitwisselingen die het kaderscenario onder *Wat licht op in de plaat* noemt, letterlijk overgenomen, met `van`, `naar`, de objecten in de woorden van het scenario en de bron. De controle toetst of elke uitwisseling in die fase een beeld heeft. Drie velden geven een antwoord waar dat niet zo is:
+
+| Veld | Betekenis |
+|---|---|
+| `beeld_in_fase` | het voorbeeld toont de uitwisseling in die andere fase, omdat zij daar voor het eerst optreedt |
+| `afwijking` | het voorbeeld laat haar anders lopen, met de route en de reden erbij |
+| `buiten_scope` | zij valt buiten OKx, met de reden erbij |
+
+`dekking` staat op `open` zolang een fase loopt: een gat is dan een signalering, zodat de fase zijn werklijst ziet zonder de poort rood te zetten. Bij het aftekenen gaat de fase op `volledig`, en vanaf dat moment is een gat een bevinding. Zo blijft een fase die eenmaal klaar is ook klaar.
+
+### Het register van een reviewronde
+
+`bevindingen` draagt per bevinding het beeld, de lezer, de datum, de URL van de comment, de tekst zoals de lezer die schreef, de thema's uit `thema_toelichting`, de werkpakketten uit het featureplan die het besluit dragen, het fase-issue en de status (`open`, `doorgevoerd` of `geparkeerd`, en bij parkeren met een reden). Haal de tekst uit de review-comments zelf en typ hem niet over. Een bevinding die blijft liggen hoort als `vraag` in het document, niet in een commitbericht.
+
+### Bevinding of signalering
+
+De controle scheidt de twee en de exitcode volgt alleen de bevindingen. Een signalering wijst op iets dat aandacht vraagt zonder de uitkomst af te keuren: een objecttype dat de plaat nog niet draagt (met de fase en de stap waar het nodig is), een stroom zonder pijl op de hoofdplaat, een uitwisseling zonder beeld in een fase die nog loopt, een beeld dat meer dan een rol draagt.
 
 Wat de controle weigert, hoort niet in het voorbeeld: een objecttype dat niet op de plaat staat, een relatie die er niet als drietal (soort, van, naar) staat, een label dat afwijkt, nesting op een associatie, een rol of stap buiten de lijst, een pijl die niet op de hoofdplaat staat, een tweede ontstaat-regel voor hetzelfde objecttype, een objecttype in een andere fase dan verwacht, een beeld-ID dat niet de vorm F<fase>-<volgnummer> heeft, bij twee beelden hoort of niet oploopt binnen de fase. Mist de plaat iets dat de bron wel kent, dan is dat een `vraag` voor de modelronde, geen verzonnen label.
 
