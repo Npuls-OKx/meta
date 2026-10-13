@@ -29957,7 +29957,7 @@ Doel: Mag ik studenten Mixen ja of nee? Of zitten er andere vereisten aan vast?<
             <child xsi:type="archimate:DiagramObject" id="id-85fb2694fafb44e2ad682edd572d43a2" targetConnections="id-b7b6fb2b947a40be93452bf0a93072cf id-8e05f03d7d2a43538b292f396648eef7 id-5aef15bc5c844efaa140b358cd657c71 id-5c21661c12374bf899f02da7fb1b4848" archimateElement="id-a12ca568aff249c99372c14f9a7405cf">
               <bounds x="58" y="1764" width="172" height="55"/>
               <sourceConnection xsi:type="archimate:Connection" id="id-942c987233d34c1ba1cfdcbb0ce5bfb6" source="id-85fb2694fafb44e2ad682edd572d43a2" target="id-7bc8630f4fcd43cb9e55db2d7505074f" archimateRelationship="id-beb18c53540f4f07bc891708e89006b1">
-                <bendpoint startX="251" startY="9" endX="-251" endY="9"/>
+                <bendpoint startX="240" startY="12" endX="-288" endY="10"/>
               </sourceConnection>
             </child>
             <child xsi:type="archimate:DiagramObject" id="id-88b1a5719dc14c90b8dc8848efc78224" targetConnections="id-365deac636d540fab478d1777a2ae1f6 id-473386018ad546289b1d6508246ef374 id-ea4ef0d339714a2c971b73dadafa1d38 id-a99288876a1741949cf14c3bb4d5ab69" archimateElement="id-311fbfab3ce84b57aa91f64894e18785">
@@ -30011,8 +30011,8 @@ Doel: Mag ik studenten Mixen ja of nee? Of zitten er andere vereisten aan vast?<
             <child xsi:type="archimate:DiagramObject" id="id-1a901cfe6720418b9bbfa8b2e0f5a228" targetConnections="id-e84e205fc7094723be23a0e78b620b34" archimateElement="16fddf6a-7e29-47d1-b520-d836d1f7b42b">
               <bounds x="300" y="96" width="120" height="55"/>
               <sourceConnection xsi:type="archimate:Connection" id="id-41005a369844492c8c49f07d8dbab0bb" source="id-1a901cfe6720418b9bbfa8b2e0f5a228" target="id-5b464ab818f14cae88d5ccd33ffafc3a" archimateRelationship="id-18be3dcef8e94db78a315493aecd38e6">
-                <bendpoint startX="95" startY="-1" endX="497" endY="-1740"/>
-                <bendpoint startX="96" startY="48" endX="498" endY="-1692"/>
+                <bendpoint startX="96" endX="498" endY="-1740"/>
+                <bendpoint startX="96" startY="35" endX="497" endY="-1704"/>
                 <bendpoint startX="95" startY="1739" endX="497"/>
               </sourceConnection>
             </child>
@@ -30396,7 +30396,8 @@ Uitgangspunt: we gaan niet beschrijven wat er in een les &quot;moet&quot; gebeur
             </sourceConnection>
             <sourceConnection xsi:type="archimate:Connection" id="id-9fdcdd9fb7244fd7a6a95a0d0d46c52e" targetConnections="id-3c3e4d36aa094bb7aa9e66ed51d38df1" source="id-5b464ab818f14cae88d5ccd33ffafc3a" target="id-245b03f4a5454898aa46b3c854e9ab6e" archimateRelationship="id-f726fc7812814fe381bbcace786d3870">
               <bendpoint startX="5" startY="156" endX="1495" endY="57"/>
-              <bendpoint startX="-1447" startY="165" endX="43" endY="57"/>
+              <bendpoint startX="-450" startY="156" endX="1040" endY="58"/>
+              <bendpoint startX="-1434" startY="156" endX="56" endY="58"/>
             </sourceConnection>
           </child>
         </element>
