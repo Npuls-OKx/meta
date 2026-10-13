@@ -95,6 +95,31 @@ Daarna de **onafhankelijke review, eigen sporen, verse contexten**. Geef elke re
 
 Na de uitwerking volgt de toets of het geleverde de waarde uit de story werkelijk levert, zoals begroot. In een verse context, met de story en de criteria als maat. De uitkomst is waarneembaar: geleverd zoals begroot, of een lijst vervolgpunten. Die vervolgpunten worden kleine iteraties, elk opnieuw met een story en criteria; dat is geen terugval maar de normale gang.
 
+## Een workflow is uitwerking, geen verkenning
+
+Een ultracode-sessie of een workflow zet tientallen agents aan het werk. Dat is de uitwerking uit stap 5, en
+daarvoor geldt **stopmoment 1 onverkort**: eerst sparren over de stories en de acceptatiecriteria, en pas
+beginnen na akkoord. Een fan-out voelt als verkennen omdat er nog niets ligt, maar hij verbruikt wel de inzet van
+een volle uitwerking.
+
+Vier regels, elk uit een misser van 13 oktober 2026:
+
+**Leg ook de vraag van een verkennende workflow voor.** Een workflow die alleen onderzoekt vraagt geen
+acceptatiecriteria, maar wel instemming met de vraag. Een sweep die doorliep op een onderwerp dat de
+opdrachtgever net had afgeschaald, kostte zes agents en leverde niets dat nog gewenst was.
+
+**Start geen tweede workflow op hetzelfde onderwerp voordat de eerste binnen en gelezen is.** Advies bestellen en
+handelen voordat het gelezen is, is geen volgorde die uit te leggen valt. Wat wel mag: een fan-out die alleen
+bronmateriaal leest, want dat materiaal is hetzelfde bij elke uitkomst. Zeg dan vooraf waarom dat zo is.
+
+**Stel voor de fan-out vast welke branch of structuur normatief is.** Vijf agents lazen de mappenindeling op
+`dev`, terwijl de laag die de opdrachtgever als ontbrekend bouwblok aanwees al bestond op een goedgekeurde
+pull request die een maand als concept openstond. Het werk landde op paden die in zijn eigen pull request
+verdwijnen. Een enkele vraag vooraf, welke pull requests open staan op dit gebied, had dat voorkomen.
+
+**Kies een schaal die bij de vraag past.** Vijfentwintig agents op een plan dat in een gesprek van tien minuten
+was te maken, is geen grondigheid maar uitstel van het gesprek.
+
 ## De lus is begrensd
 
 Ten hoogste **drie ronden** tussen agent en tegenlezer, en ten hoogste drie iteraties in de review van het resultaat. Daarna escaleren naar de opdrachtgever met de openstaande bevindingen, met per bevinding of het een blokkade is voor een eerste iteratie die waarde levert, of een punt voor de volgende. Deugen de criteria zelf niet, dan terug naar stap 1 in plaats van door te bouwen op een slecht criterium.
