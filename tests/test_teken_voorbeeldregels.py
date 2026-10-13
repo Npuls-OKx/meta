@@ -7,6 +7,8 @@ geparst en op inhoud en geometrie getoetst, niet op een momentopname.
 import importlib.util
 import json
 import tempfile
+import pathlib
+import re
 import unittest
 import xml.etree.ElementTree as ET
 from pathlib import Path
@@ -103,15 +105,43 @@ class TekenTests(unittest.TestCase):
         self.assertEqual(blok["objecten"][0]["toestand"], "intentie")
         self.assertIn("toestand: intentie", teksten(tv.regel_ontstaat(blok, set())))
 
-    def test_given_relation_to_non_adjacent_object_when_grouped_then_reference_not_line(self):
+    def test_given_relation_to_object_earlier_in_the_block_when_grouped_then_line_over_distance(self):
         r = regels()
         r["regels"].insert(3, {"fase": 2, "stap": "Aanbod maken", "soort": "ontstaat", "wie": "planner", "objecttype": "Student keuze regelset", "instantie": "Regels", "bron": "b",
                                "relatie": {"soort": "Association", "van": "Opleidingaanbod", "naar": "Student keuze regelset"}})
         blok = [b for b in self.blokken(r) if b["stap"] == "Aanbod maken"][0]
+        self.assertEqual(blok["objecten"][-1]["type"], "Student keuze regelset")
+        # het andere eind staat verder terug in het blok: een relatie met een omweg, geen verwijzing
+        rel = blok["objecten"][-2]
+        self.assertTrue(rel.get("over_afstand"))
+        self.assertEqual(rel["ander"], "Opleidingaanbod")
+        self.assertNotIn("verwijzing", blok["objecten"][-1])
+
+    def test_given_relation_to_object_outside_the_block_when_grouped_then_reference(self):
+        r = regels()
+        r["regels"].insert(3, {"fase": 2, "stap": "Aanbod maken", "soort": "ontstaat", "wie": "planner", "objecttype": "Student keuze regelset", "instantie": "Regels", "bron": "b",
+                               "relatie": {"soort": "Association", "van": "Kerntaak", "naar": "Student keuze regelset"}})
+        blok = [b for b in self.blokken(r) if b["stap"] == "Aanbod maken"][0]
         laatste = blok["objecten"][-1]
         self.assertEqual(laatste["type"], "Student keuze regelset")
-        self.assertEqual(laatste["verwijzing"], "Opleidingaanbod hangt aan")
-        self.assertNotIn("relatie", blok["objecten"][-2])
+        self.assertEqual(laatste["verwijzing"], "Kerntaak hangt aan")
+
+    def test_given_a_line_over_distance_when_drawn_then_it_routes_around_the_boxes(self):
+        r = regels()
+        r["regels"].insert(3, {"fase": 2, "stap": "Aanbod maken", "soort": "ontstaat", "wie": "planner", "objecttype": "Student keuze regelset", "instantie": "Regels", "bron": "b",
+                               "relatie": {"soort": "Association", "van": "Opleidingaanbod", "naar": "Student keuze regelset", "label": "hangt aan"}})
+        blok = [b for b in self.blokken(r) if b["stap"] == "Aanbod maken"][0]
+        svg = tv.regel_ontstaat(blok, set())
+        # een omweg is een pad met twee knikken: horizontaal, verticaal, horizontaal
+        paden = [m for m in re.findall(r'd="(M[^"]+)"', svg) if "H" in m and "V" in m]
+        self.assertTrue(paden, "verwacht een haaks pad voor de relatie over afstand")
+
+    def test_given_a_line_over_distance_when_drawn_then_the_label_is_shown(self):
+        r = regels()
+        r["regels"].insert(3, {"fase": 2, "stap": "Aanbod maken", "soort": "ontstaat", "wie": "planner", "objecttype": "Student keuze regelset", "instantie": "Regels", "bron": "b",
+                               "relatie": {"soort": "Association", "van": "Opleidingaanbod", "naar": "Student keuze regelset", "label": "stuurt"}})
+        blok = [b for b in self.blokken(r) if b["stap"] == "Aanbod maken"][0]
+        self.assertIn("stuurt", teksten(tv.regel_ontstaat(blok, set())))
 
     def test_given_concept_block_when_drawn_then_chip_and_dashed_frame(self):
         extra = [{"fase": 2, "stap": "Aanbod maken", "verdieping": "kader", "plaat": "onderwijsontwerp", "soort": "ontstaat", "wie": "planner",
@@ -285,5 +315,208 @@ class TekenTests(unittest.TestCase):
             self.assertEqual(tv.main(["--regels", str(Path(map_) / "geen.json"), "--uit", map_]), 2)
 
 
+class BeeldIsBestandTests(unittest.TestCase):
+    """Een beeld is een bestand. Viel een beeld in twee blokken, dan overschreef het tweede het eerste
+    en toonde het beeld minder dan de tabel zegt."""
+
+    def beeld_regels(self):
+        r = regels()
+        for x in r["regels"][:3]:
+            x["beeld_id"], x["beeld"] = "F2-01", "Het aanbod gemaakt"
+        r["regels"][2]["wie"] = "onderwijsontwerper"
+        return r
+
+    def test_given_an_image_whose_rules_change_role_when_grouped_then_one_block_with_both_roles(self):
+        blokken = [b for b in tv.groepeer(self.beeld_regels()) if b.get("beeld")]
+        self.assertEqual(len(blokken), 1)
+        self.assertEqual(blokken[0]["rollen"], ["planner", "onderwijsontwerper"])
+        self.assertEqual(blokken[0]["wie"], "planner, onderwijsontwerper")
+        def tel(items):
+            return sum(1 + tel(o.get("kinderen", [])) for o in items if "type" in o)
+        self.assertEqual(tel(blokken[0]["objecten"]), 3)   # de genestte blijft meetellen
+
+    def test_given_an_image_with_two_roles_when_drawn_then_both_stand_in_the_header(self):
+        blok = [b for b in tv.groepeer(self.beeld_regels()) if b.get("beeld")][0]
+        self.assertIn("planner, onderwijsontwerper", teksten(tv.regel_ontstaat(blok, set())))
+
+    def test_given_rules_without_an_image_when_grouped_then_the_role_still_separates_blocks(self):
+        r = regels()
+        r["regels"][2]["wie"] = "onderwijsontwerper"
+        rollen = [b.get("wie") for b in tv.groepeer(r) if b["soort"] == "ontstaat" and b["stap"] == "Aanbod maken"]
+        self.assertEqual(rollen, ["planner", "onderwijsontwerper"])
+
+    def test_given_two_blocks_with_the_same_filename_when_drawn_then_it_stops_and_names_both(self):
+        r = regels()
+        for x in r["regels"][:3]:
+            x["beeld_id"], x["beeld"] = "F2-01", "Het aanbod gemaakt"
+        r["regels"][1]["stap"] = "Aanbod publiceren"   # eigen blok, zelfde beeld en dus zelfde naam
+        with tempfile.TemporaryDirectory() as map_:
+            with self.assertRaises(SystemExit) as fout:
+                tv.teken(r, Path(map_))
+        self.assertIn("f2-01-het-aanbod-gemaakt.svg", str(fout.exception))
+        self.assertIn("een beeld is een bestand", str(fout.exception))
+
+    def test_given_the_real_table_when_drawn_then_every_block_gets_its_own_file(self):
+        tabel = json.loads((WORTEL / "architecture/model/informatiemodel/voorbeeld-lr1-regels.json").read_text(encoding="utf-8"))
+        with tempfile.TemporaryDirectory() as map_:
+            uit = tv.teken(tabel, Path(map_))
+            self.assertEqual(len(uit), len({n for n, _ in uit}))
+            self.assertEqual(len(uit), len(list(Path(map_).glob("*.svg"))))
+
+
+class OpruimenTests(unittest.TestCase):
+    def test_given_a_renamed_image_when_drawn_then_the_old_file_is_gone(self):
+        with tempfile.TemporaryDirectory() as map_:
+            tv.teken(regels(), Path(map_))
+            (Path(map_) / "f9-99-oude-naam.svg").write_text("<svg/>", encoding="utf-8")
+            tv.teken(regels(), Path(map_), opruimen=True)
+            self.assertFalse((Path(map_) / "f9-99-oude-naam.svg").exists())
+
+    def test_given_the_keep_switch_when_drawn_then_the_orphan_stays(self):
+        with tempfile.TemporaryDirectory() as map_:
+            tv.teken(regels(), Path(map_))
+            (Path(map_) / "f9-99-oude-naam.svg").write_text("<svg/>", encoding="utf-8")
+            tv.teken(regels(), Path(map_), opruimen=False)
+            self.assertTrue((Path(map_) / "f9-99-oude-naam.svg").exists())
+
+
+class MatenTests(unittest.TestCase):
+    """De uitvoer noemt per beeld de hoogte en de banen, zodat een onleesbaar beeld opvalt."""
+
+    def test_given_a_run_when_it_reports_then_each_image_carries_its_size_and_bands(self):
+        import contextlib, io
+        with tempfile.TemporaryDirectory() as map_:
+            m = Path(map_)
+            (m / "r.json").write_text(json.dumps(regels()), encoding="utf-8")
+            uit = io.StringIO()
+            with contextlib.redirect_stdout(uit):
+                code = tv.main(["--regels", str(m / "r.json"), "--uit", str(m / "beelden")])
+            tekst = uit.getvalue()
+        self.assertEqual(code, 0)
+        self.assertRegex(tekst, r"\.svg: \d+ bij \d+, \d+ ba")
+        self.assertIn("beelden getekend naar", tekst.splitlines()[-1])
+
+    def test_given_no_band_when_measured_then_none_is_taller_than_the_slide_allows(self):
+        """Over alle beelden van de echte tabel: een baan blijft binnen de verhouding die een slide toelaat."""
+        snijd = tv._snijd()
+        map_ = WORTEL / "architecture/model/informatiemodel/img/regels"
+        for naam, breedte, _, hoogtes, reden in tv.maten(map_, sorted(p.name for p in map_.glob("*.svg"))):
+            if reden:
+                continue
+            for h in hoogtes:
+                self.assertLessEqual(h, breedte * snijd.VERHOUDING + 1, naam)
+
+    def test_given_an_image_that_cannot_be_cut_when_measured_then_the_reason_comes_along(self):
+        """De voorbeelduitwerking is een document, dus een beeld dat niet in banen past is geen gebrek:
+        het snijden telt pas als zo'n beeld op een slide moet. Welke beelden dat zijn beweegt mee met de
+        inhoud, dus dit geval legt de regel vast en geen lijst: is een beeld niet te snijden, dan noemt de
+        melding het bereik waar de witregel ontbreekt."""
+        map_ = WORTEL / "architecture/model/informatiemodel/img/regels"
+        redenen = {naam: reden for naam, _, _, _, reden in
+                   tv.maten(map_, sorted(p.name for p in map_.glob("*.svg"))) if reden}
+        for naam, reden in redenen.items():
+            self.assertIn("geen witregel", reden, naam)
+            self.assertRegex(reden, r"tussen y=[\d.]+ en y=[\d.]+", naam)
+
+
+class AfbrekenTests(unittest.TestCase):
+    """Een instantie breekt af in plaats van het vak op te rekken. Zonder die regel maakt een
+    leeruitkomst die volgens het tuning model is geformuleerd, en dus een hele zin is, een beeld bijna
+    twee keer zo breed als een document aankan."""
+
+    def test_given_a_long_instance_when_broken_then_every_line_fits_the_maximum(self):
+        zin = ("Verleent farmaceutische patientenzorg, volgens de vigerende protocollen en met navolgbare "
+               "vastlegging, in een levensechte apotheekomgeving (apothekersassistent NLQF 4, kerntaak B1-K1)")
+        regels = tv.afbreken(zin, tv.INSTANTIE_MAX_BREEDTE)
+        self.assertGreater(len(regels), 1)
+        for r in regels:
+            self.assertLessEqual(tv.tw(r, 14, True), tv.INSTANTIE_MAX_BREEDTE, r)
+        self.assertEqual(" ".join(regels), zin)
+
+    def test_given_a_long_instance_when_drawn_then_the_box_stays_within_the_maximum(self):
+        zin = "x " * 60
+        _, w, h = tv.element(0, 0, "object", "Leeruitkomst", zin.strip())
+        self.assertLessEqual(w, tv.INSTANTIE_MAX_BREEDTE + 42)
+        self.assertGreater(h, 48)
+
+    def test_given_the_real_images_when_read_then_no_instance_line_exceeds_the_maximum(self):
+        """Over alle beelden: geen enkele instantieregel is breder dan de maat die de renderer stelt."""
+        map_ = WORTEL / "architecture/model/informatiemodel/img/regels"
+        for pad in sorted(map_.glob("*.svg")):
+            for el in ET.fromstring(pad.read_text(encoding="utf-8")).iter(f"{SVG}text"):
+                if el.get("font-size") == "14" and el.get("font-weight") == "bold" and el.text:
+                    self.assertLessEqual(tv.tw(el.text, 14, True), tv.INSTANTIE_MAX_BREEDTE + 1,
+                                         f"{pad.name}: {el.text[:60]}")
+
+
 if __name__ == "__main__":
     unittest.main()
+
+
+class VoorbeeldOmweg(unittest.TestCase):
+    """Het voorbeeld in tests/voorbeelden draagt drie relaties over afstand in een beeld.
+
+    Het dient als zichtbare controle bij de pull request en als terugvaltest: gaat de routering
+    stuk, dan verandert het aantal haakse paden of valt een label buiten het doek.
+    """
+
+    def setUp(self):
+        pad = pathlib.Path(__file__).parent / "voorbeelden" / "omweg-regels.json"
+        self.regels = json.loads(pad.read_text(encoding="utf-8"))
+
+    def beeld(self):
+        blokken = tv.groepeer(self.regels)
+        return tv.regel_ontstaat(blokken[0], set())
+
+    def test_given_the_example_when_drawn_then_three_lines_route_around_the_boxes(self):
+        # een omweg loopt haaks: alleen H, V en de boogjes van een brug, en nooit schuin.
+        # de pictogrammen vallen af, want die tekenen met kleine letters
+        paden = [m for m in re.findall(r'd="(M[^"]+)"', self.beeld())
+                 if "H" in m and "V" in m and not re.search(r"[a-z]", m)]
+        self.assertEqual(len(paden), 3)
+
+    def test_given_the_example_when_drawn_then_every_label_fits_on_the_canvas(self):
+        svg = self.beeld()
+        breedte = float(re.search(r'viewBox="0 0 ([\d.]+)', svg).group(1))
+        for x in re.findall(r'<text x="([\d.]+)"', svg):
+            self.assertLess(float(x), breedte, "tekst valt buiten het doek")
+
+    def test_given_several_detours_when_drawn_then_each_line_has_its_own_colour(self):
+        svg = self.beeld()
+        kleuren = {k for k in re.findall(r'stroke="(#[0-9a-f]{6})"', svg) if k in tv.OMWEG_KLEUREN}
+        self.assertEqual(len(kleuren), 3, "drie omwegen horen drie kleuren te krijgen")
+
+    def test_given_several_detours_when_drawn_then_each_label_matches_its_line(self):
+        svg = self.beeld()
+        labels = re.findall(r'fill="(#[0-9a-f]{6})"[^>]*>Wordt vertaald naar<', svg)
+        gekleurd = [k for k in labels if k in tv.OMWEG_KLEUREN]
+        self.assertEqual(len(set(gekleurd)), 2, "twee gelijke labels horen bij twee lijnen van eigen kleur")
+
+    def test_given_one_detour_when_drawn_then_the_line_stays_in_the_plain_colour(self):
+        r = regels()
+        r["regels"].insert(3, {"fase": 2, "stap": "Aanbod maken", "soort": "ontstaat", "wie": "planner",
+                               "objecttype": "Student keuze regelset", "instantie": "Regels", "bron": "b",
+                               "relatie": {"soort": "Association", "van": "Opleidingaanbod",
+                                           "naar": "Student keuze regelset", "label": "stuurt"}})
+        svg = tv.regel_ontstaat([b for b in tv.groepeer(r) if b["stap"] == "Aanbod maken"][0], set())
+        self.assertFalse([k for k in re.findall(r'stroke="(#[0-9a-f]{6})"', svg) if k in tv.OMWEG_KLEUREN])
+
+
+class OmwegDeMoeite(unittest.TestCase):
+    """Wanneer een relatie over afstand een lijn wordt en wanneer zij een verwijzing blijft."""
+
+    def objecten(self, *typen):
+        return [{"type": t} for t in typen]
+
+    def test_given_target_within_reach_when_weighed_then_a_line(self):
+        self.assertTrue(tv._de_moeite(self.objecten("A", "B", "C"), "A", None))
+
+    def test_given_target_beyond_reach_and_no_label_when_weighed_then_a_reference(self):
+        self.assertFalse(tv._de_moeite(self.objecten("A", "B", "C", "D"), "A", None))
+
+    def test_given_target_beyond_reach_but_labelled_when_weighed_then_a_line(self):
+        self.assertTrue(tv._de_moeite(self.objecten("A", "B", "C", "D", "E"), "A", "hangt aan"))
+
+    def test_given_the_block_already_holds_three_detours_when_weighed_then_a_reference(self):
+        vol = self.objecten("A", "B") + [{"over_afstand": True} for _ in range(tv.OMWEG_MAX)]
+        self.assertFalse(tv._de_moeite(vol, "A", "hangt aan"))
