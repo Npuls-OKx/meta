@@ -16,9 +16,14 @@ alleen gelezen; raak nooit een .archimate-bestand aan.
 
 Met `--markeer` komt daar een markering over: de plaat vervaagt, de stromen van een casus
 worden uitgelicht met wat er overheen gaat, de componenten die meedoen krijgen een omlijning,
-en een stroom die de plaat nog niet kent staat als gestippelde lijn. De markeringen lopen
-haaks, langs dezelfde router als de plaat zelf, en nemen de vormtaal over van
-scripts/teken-hoofdplaat-highlight.py, dat hetzelfde doet over een rasterrender.
+en een stroom die de plaat nog niet kent staat als gestippelde lijn.
+
+Een stroom die de plaat wel kent krijgt haar accent in de eerste tekenronde: de stroomlijn zelf
+wordt in de accentkleur en dikker getekend, zodat de markering op de pijl van de plaat valt. Een
+tweede pad erover komt er niet; dat liep naast de pijl zodra het aanhechtpunt van Archi niet te
+herleiden was. Een stroom die de plaat nog niet kent blijft gestippeld, want die heeft geen eerste
+lijn om te kleuren; haar baan loopt haaks langs dezelfde router als de plaat zelf. De vormtaal komt
+van scripts/teken-hoofdplaat-highlight.py, dat hetzelfde doet over een rasterrender.
 
     python3 scripts/teken-hoofdplaat-ruim.py --uit <pad>.svg --markeer <casus>.json
 """
@@ -95,6 +100,7 @@ BREED = LETTER * 0.55   # geschatte breedte van een teken
 # component dat meedoet, en dezelfde witte sluier over de plaat zodat de markering eruit springt.
 MARKEER = hoofdplaat.ACCENT
 MARKEER_RAND = hoofdplaat.RAND
+MARKEER_DIK = 5        # de dikte van een uitgelichte stroomlijn; de gewone stroomlijn is 2,6
 SLUIER = 0.62
 MARKEER_STROOK = 120   # de ruimte onder de plaat voor de titel en de legenda van een markering
 
@@ -173,6 +179,20 @@ def koppeling_id(van, naar):
     return f"{a}-{b}" if a == "OC" or (b != "OC" and a < b) else f"{b}-{a}"
 
 
+def aanvoer(stromen, knopen):
+    """Per junctie de stroom die erin komt; een junctie bundelt een stroom naar meer ontvangers."""
+    return {s["doel"]: s for s in stromen if knopen[s["doel"]]["type"] == "Junction"}
+
+
+def aanvoerbenen(knoopid, knopen, binnen, diepst=4):
+    """De benen die naar een junctie toe voeren, van de junctie terug naar haar afzender."""
+    uit = []
+    while knopen[knoopid]["type"] == "Junction" and knoopid in binnen and len(uit) < diepst:
+        uit.append(binnen[knoopid])
+        knoopid = binnen[knoopid]["bron"]
+    return uit
+
+
 def zet_koppeling_ids(stromen, knopen):
     """Elke getekende stroom haar koppeling-ID als opschrift geven; geeft de gevonden ID's terug.
 
@@ -180,13 +200,12 @@ def zet_koppeling_ids(stromen, knopen):
     het ID van de afzender ervoor; het aanvoerlijntje ernaartoe blijft onbenoemd, want dat deel
     hoort bij alle ontvangers tegelijk.
     """
-    binnen = {s["doel"]: s for s in stromen if knopen[s["doel"]]["type"] == "Junction"}
+    binnen = aanvoer(stromen, knopen)
 
-    def afzender(knoopid, diep=0):
-        if knopen[knoopid]["type"] != "Junction":
-            return knopen[knoopid]["naam"]
-        eerder = binnen.get(knoopid)
-        return afzender(eerder["bron"], diep + 1) if eerder and diep < 4 else ""
+    def afzender(knoopid):
+        benen = aanvoerbenen(knoopid, knopen, binnen)
+        eind = benen[-1]["bron"] if benen else knoopid
+        return "" if knopen[eind]["type"] == "Junction" else knopen[eind]["naam"]
 
     gevonden = []
     for s in stromen:
@@ -434,12 +453,18 @@ def groep_svg(knoop, zone=None):
                f'fill="{STIL}">{esc(naam)}</text>' if naam else ""))
 
 
-def lijn_svg(punten, kleur, merk, stroom=True):
+def lijn_svg(punten, kleur, merk, stroom=True, dik=False):
+    """De lijn van een stroom of een verband: een pad, met een witte onderlaag zodat zij overal leest.
+
+    Met `dik` krijgt de lijn de dikte van een markering. Zo staat een uitgelichte stroom er in deze
+    ene tekenronde al in haar accentkleur, en komt er geen tweede pad overheen.
+    """
     d = "M" + " L".join(f"{x:.1f},{y:.1f}" for x, y in punten)
     if stroom:
-        return (f'<path d="{d}" fill="none" stroke="#ffffff" stroke-width="7" stroke-opacity="0.9" '
-                f'stroke-linejoin="round"/>'
-                f'<path d="{d}" fill="none" stroke="{kleur}" stroke-width="2.6" stroke-linejoin="round" '
+        breed, onder = (MARKEER_DIK, 11) if dik else (2.6, 7)
+        return (f'<path d="{d}" fill="none" stroke="#ffffff" stroke-width="{onder}" '
+                f'stroke-opacity="0.9" stroke-linejoin="round"/>'
+                f'<path d="{d}" fill="none" stroke="{kleur}" stroke-width="{breed}" stroke-linejoin="round" '
                 f'marker-end="url(#{merk})"/>')
     return (f'<path d="{d}" fill="none" stroke="#b6c2cd" stroke-width="1.4" stroke-dasharray="5 4" '
             f'stroke-linejoin="round"/>')
@@ -532,12 +557,14 @@ def lees_markering(pad):
 
     Waarvoor: welke lijnen een casus raakt en wat er overheen gaat, staat niet in het model.
     Dat hoort bij de casus en blijft daarom een eigen bestand naast de specificatie. Per stroom:
-    `van` en `naar` met de componentnaam van de view, `label` met wat er overheen gaat, en
-    `op_de_plaat` dat zegt of de hoofdplaat de lijn al kent.
+    `van` en `naar` met de componentnaam van de view, `label` met wat er overheen gaat,
+    `op_de_plaat` dat zegt of de hoofdplaat de lijn al kent, en `stroom` met het ID van de
+    stroomrelatie in het model. Dat ID wijst de lijn aan waar een paar componenten meer stromen
+    deelt; zonder dat ID telt het paar vakken.
     """
     gegeven = json.loads(pathlib.Path(pad).read_text(encoding="utf-8"))
     uit = [dict(van=norm(s["van"]), naar=norm(s["naar"]), label=norm(s.get("label", "")),
-                op_de_plaat=bool(s.get("op_de_plaat", True)))
+                op_de_plaat=bool(s.get("op_de_plaat", True)), stroom=norm(s.get("stroom", "")))
            for s in gegeven.get("stromen", [])]
     return norm(gegeven.get("naam", "")), uit
 
@@ -557,17 +584,82 @@ def dichtste_vakken(componenten, van, naar):
                + (midden(ab[0])[1] - midden(ab[1])[1]) ** 2)
 
 
-def markeerlijn_svg(punten, gestippeld=False):
-    """Een uitgelichte stroom: een dikke accentlijn met een witte onderlaag, zodat zij overal leest.
+def benen_naar(knoopid, stromen, knopen, doel, diep=0):
+    """De benen die een junctie verlaten tot bij de ontvanger; niets als de stroom daar niet uitkomt."""
+    if knoopid == doel:
+        return []
+    if knopen[knoopid]["type"] != "Junction" or diep >= 4:
+        return None
+    for s in stromen:
+        if s["bron"] != knoopid:
+            continue
+        verder = benen_naar(s["doel"], stromen, knopen, doel, diep + 1)
+        if verder is not None:
+            return [s] + verder
+    return None
 
-    Een lijn die de plaat nog niet kent staat gestippeld: zichtbaar wat er ontbreekt.
+
+def markeerpad(stromen, knopen, a, b, relatie=""):
+    """De benen van de plaat die samen de stroom van vak a naar vak b vormen, de afzender eerst.
+
+    Waarvoor: een markering hoort op de lijn te liggen die de plaat al tekent. Daarvoor moet zij
+    weten welke benen dat zijn. Een junctie bundelt een stroom naar meer ontvangers, en dan bestaat
+    het pad uit de aanvoer naar de junctie plus het been dat bij de ontvanger uitkomt. Noemt de
+    casus het ID van de stroomrelatie, dan wijst dat ID de lijn aan; anders telt het paar vakken.
+    Geeft een lege lijst als de plaat deze stroom niet kent.
+    """
+    binnen = aanvoer(stromen, knopen)
+    anker = next((s for s in stromen if s["relatie"] == relatie), None) if relatie else None
+    if anker:
+        verder = benen_naar(anker["doel"], stromen, knopen, b["id"])
+        if verder is not None:
+            return aanvoerbenen(anker["bron"], knopen, binnen)[::-1] + [anker] + verder
+    for s in stromen:
+        if s["doel"] != b["id"]:
+            continue
+        heen = aanvoerbenen(s["bron"], knopen, binnen)
+        if (heen[-1]["bron"] if heen else s["bron"]) == a["id"]:
+            return heen[::-1] + [s]
+    return []
+
+
+def markeer_stromen(markeringen, stromen, knopen, componenten):
+    """Elke markering naast de plaat leggen; geeft terug wat uitgelicht wordt en wat ontbreekt.
+
+    Drie uitkomsten: de markeringen met hun vakkenpaar en de benen die zij uitlichten, de
+    markeringen waarvoor de plaat geen lijn heeft, en de meldingen voor wie meeleest. Zegt het
+    bestand dat de plaat de lijn kent terwijl zij die niet heeft, dan staat dat in de meldingen
+    en wordt de stroom gestippeld getekend: de plaat laat zien wat zij werkelijk heeft.
+    """
+    raakt, zonder, ontbreekt = [], [], []
+    for m in markeringen:
+        a, b = dichtste_vakken(componenten, m["van"], m["naar"])
+        if a is None or b is None:
+            ontbreekt.append(f"{m['label'] or 'stroom'}: {m['van']} naar {m['naar']} is niet op de "
+                             f"plaat te plaatsen")
+            continue
+        benen = markeerpad(stromen, knopen, a, b, m.get("stroom", "")) if m["op_de_plaat"] else []
+        if benen:
+            raakt.append((m, a, b, benen))
+            continue
+        zonder.append((m, a, b))
+        if m["op_de_plaat"]:
+            ontbreekt.append(f"{m['label'] or 'stroom'}: {m['van']} naar {m['naar']} staat in het "
+                             f"bestand als lijn die de plaat kent, de plaat heeft deze stroom niet")
+    return raakt, zonder, ontbreekt
+
+
+def markeerlijn_svg(punten):
+    """Een stroom die de plaat nog niet kent: een gestippelde accentlijn met een witte onderlaag.
+
+    Zichtbaar wat er ontbreekt. Een stroom die de plaat wel kent krijgt haar accent in de eerste
+    tekenronde, van `lijn_svg` met `dik`, en heeft dit tweede pad dus niet nodig.
     """
     d = "M" + " L".join(f"{x:.1f},{y:.1f}" for x, y in punten)
-    streep = ' stroke-dasharray="16 11"' if gestippeld else ""
     return (f'<path d="{d}" fill="none" stroke="#ffffff" stroke-width="11" stroke-opacity="0.9" '
             f'stroke-linejoin="round"/>'
-            f'<path d="{d}" fill="none" stroke="{MARKEER}" stroke-width="5"{streep} '
-            f'stroke-linejoin="round" marker-end="url(#markeerpunt)"/>')
+            f'<path d="{d}" fill="none" stroke="{MARKEER}" stroke-width="{MARKEER_DIK}" '
+            f'stroke-dasharray="16 11" stroke-linejoin="round" marker-end="url(#markeerpunt)"/>')
 
 
 def markeer_legenda_svg(naam, x, y, breedte):
@@ -590,45 +682,45 @@ def markeer_legenda_svg(naam, x, y, breedte):
         else:
             streep = ' stroke-dasharray="16 11"' if soort == "stippel" else ""
             delen.append(f'<path d="M{kx:.0f},{ky:.0f} L{kx + 52:.0f},{ky:.0f}" stroke="{MARKEER}" '
-                         f'stroke-width="5" fill="none"{streep}/>')
+                         f'stroke-width="{MARKEER_DIK}" fill="none"{streep}/>')
         delen.append(f'<text x="{kx + 68:.0f}" y="{ky + 9:.0f}" font-size="22" '
                      f'fill="{STIL}">{esc(wat)}</text>')
     return "".join(delen)
 
 
-def markeer_svg(markeringen, alles, per_zone, routers, vakken, bezet, doek):
-    """De stromen van een casus over de plaat markeren, haaks gerouteerd.
+def markeer_svg(raakt, zonder, per_zone, routers, vakken, bezet, doek):
+    """Wat er over de vervaagde plaat heen komt: de ontbrekende stromen, de omlijning en de namen.
 
-    De markering trekt een eigen baan tussen de twee vakken in plaats van de bestaande pijl over
-    te tekenen: de router kent de vakken en de banen die de plaat al bezet houdt, dus de markering
-    loopt er netjes naast en blijft recht of haaks. Een stroom die de plaat niet kent krijgt op
-    dezelfde manier een baan, gestippeld. Geeft de delen terug plus wat niet te plaatsen was.
+    De stromen die de plaat kent staan hier al in de accentkleur: die kregen hun kleur en dikte in
+    de eerste tekenronde, op de lijn van de plaat zelf. Wat de plaat nog niet kent krijgt hier een
+    eigen baan, gestippeld en haaks: de router kent de vakken en de banen die de plaat al bezet
+    houdt, dus die baan loopt er netjes naast. Daarna de omlijning om elk component dat meedoet, en
+    bovenop de namen, zodat zij over de lijnen heen leesbaar blijven.
     """
-    componenten = [k for k in alles if k["type"] == "ApplicationComponent"]
-    gekozen, omlijnd, ontbreekt = [], [], []
-    for m in markeringen:
-        a, b = dichtste_vakken(componenten, m["van"], m["naar"])
-        if a is None or b is None:
-            ontbreekt.append(f"{m['label'] or 'stroom'}: {m['van']} naar {m['naar']}")
-            continue
+    uitgelicht = [(m, [p for been in benen for p in been["punten"]], True)
+                  for m, a, b, benen in raakt]
+    delen, omlijnd = [], {}
+    for m, a, b in zonder:
         router = routers.get(per_zone.get(a["id"], "los")) or next(iter(routers.values()), None)
         va, vb = vakken[a["id"]], vakken[b["id"]]
         punten = router.pad(va, vb) if router else hoofdplaat.haaks_pad(va, vb)
-        gekozen.append((m, punten))
-        for k in (a, b):
-            if k["id"] not in [q["id"] for q in omlijnd]:
-                omlijnd.append(k)
-    delen = [markeerlijn_svg(p, not m["op_de_plaat"]) for m, p in gekozen]
-    for k in omlijnd:
+        delen.append(markeerlijn_svg(punten))
+        uitgelicht.append((m, punten, False))
+    for rij in list(raakt) + list(zonder):
+        for k in (rij[1], rij[2]):
+            omlijnd.setdefault(k["id"], k)
+    for k in omlijnd.values():
         delen.append(f'<rect x="{k["ax"] - 4:.0f}" y="{k["ay"] - 4:.0f}" width="{k["w"] + 8}" '
                      f'height="{k["h"] + 8}" fill="none" stroke="{MARKEER_RAND}" stroke-width="4" rx="5"/>')
-    for m, punten in gekozen:
+    for _, punten, _ in uitgelicht:
         bezet += hoofdplaat.lijnvakken(punten, dikte=10)
     # de namen bovenop, zodat zij over de markeringen heen leesbaar blijven
-    for m, punten in gekozen:
-        label = m["label"] + ("" if m["op_de_plaat"] else " (nog geen lijn op deze plaat)")
+    for m, punten, bekend in uitgelicht:
+        # De onderbroken lijn en de legenda zeggen al dat de plaat deze stroom niet kent;
+        # datzelfde in het etiket herhalen maakt het etiket breder dan de ruimte ernaast.
+        label = m["label"]
         delen.append(naam_svg(punten, label, MARKEER, bezet, doek, maat=LETTER + 3, omlijnd=True))
-    return delen, ontbreekt
+    return delen
 
 
 # -------------------------------------------------------------------- bouw --
@@ -721,13 +813,23 @@ def bouw(ruimte_x=1.55, ruimte_y=1.85, tussen=70, marge=30, opschriften="namen",
                 bronnen.append(naam)
         kleuren = {naam: PALET[i % len(PALET)] for i, naam in enumerate(bronnen)}
         # een lijn uit een junctie krijgt de kleur van de lijn die erin komt
-        binnen = {s["doel"]: s for s in stromen if knopen[s["doel"]]["type"] == "Junction"}
+        binnen = aanvoer(stromen, knopen)
         for s in stromen:
             if knopen[s["bron"]]["type"] == "Junction" and s["bron"] in binnen:
                 kleuren.setdefault(s["bron"], kleuren[knopen[binnen[s["bron"]]["bron"]]["naam"]])
                 s["kleur"] = kleuren[s["bron"]]
             else:
                 s["kleur"] = kleuren[knopen[s["bron"]]["naam"] or "junctie"]
+
+    # de markeringen bij de lijnen van de plaat zoeken: een stroom die zij raakt krijgt hieronder
+    # haar accentkleur mee in dezelfde tekenronde als alle andere stromen
+    raakt, zonder, ontbreekt = [], [], []
+    if markeer:
+        raakt, zonder, ontbreekt = markeer_stromen(
+            markeer, stromen, knopen, [k for k in alles if k["type"] == "ApplicationComponent"])
+        for _, _, _, benen in raakt:
+            for been in benen:
+                been["markeer"], been["kleur"] = True, MARKEER
 
     onderkant = hoogte + legenda_hoogte(len(legenda)) + (MARKEER_STROOK if markeer else 0)
     gebruikt = list(dict.fromkeys(s["kleur"] for s in stromen))
@@ -753,8 +855,12 @@ def bouw(ruimte_x=1.55, ruimte_y=1.85, tussen=70, marge=30, opschriften="namen",
 
     for v in verbanden:
         delen.append(lijn_svg(v["punten"], None, None, stroom=False))
+    # een gemarkeerde stroom wordt hier in de accentkleur en dikker getekend, en gaat straks over de
+    # sluier heen; zo valt de markering op de lijn van de plaat zelf
+    accentlijnen = []
     for s in stromen:
-        delen.append(lijn_svg(s["punten"], s["kleur"], merk[s["kleur"]]))
+        lijn = lijn_svg(s["punten"], s["kleur"], merk[s["kleur"]], dik=s.get("markeer", False))
+        (accentlijnen if s.get("markeer") else delen).append(lijn)
     for k in alles:
         if is_groep(k):
             continue
@@ -773,22 +879,24 @@ def bouw(ruimte_x=1.55, ruimte_y=1.85, tussen=70, marge=30, opschriften="namen",
               for k in alles if is_groep(k)]
     for s in sorted(stromen, key=lambda s: -len(" ".join(s["label"]) if isinstance(s["label"], list)
                                                  else s["label"])):
+        # een gemarkeerde stroom draagt de naam van haar markering, die verderop wordt gezet
+        if s.get("markeer"):
+            continue
         delen.append(naam_svg(s["punten"], s["label"], s["kleur"], bezet, (breedte, hoogte),
                               maat=LETTER + 5 if opschriften == "ids" else LETTER,
                               omlijnd=opschriften == "ids"))
-    ontbreekt = []
     if markeer:
         # de plaat vervaagt, zodat de markering eruit springt; daarna de uitgelichte stromen erover
         delen.append(f'<rect x="0" y="0" width="{breedte:.0f}" height="{hoogte:.0f}" fill="#ffffff" '
                      f'fill-opacity="{SLUIER}"/>')
-        gemarkeerd, ontbreekt = markeer_svg(markeer, alles, per_zone, routers, vakken, bezet,
-                                            (breedte, hoogte))
-        delen += gemarkeerd
+        delen += accentlijnen
+        delen += markeer_svg(raakt, zonder, per_zone, routers, vakken, bezet, (breedte, hoogte))
         delen.append(markeer_legenda_svg(markeer_naam, marge, hoogte - marge / 2, breedte - 2 * marge))
     delen.append(legenda_svg(legenda, marge, hoogte - marge / 2, breedte - 2 * marge))
     delen.append("</svg>")
     return ("".join(delen), stromen, verbanden,
-            [k for k in alles if k["type"] == "ApplicationComponent"], legenda, ontbreekt)
+            [k for k in alles if k["type"] == "ApplicationComponent"], legenda, ontbreekt,
+            dict(gekleurd=len(raakt), gestippeld=len(zonder)))
 
 
 def kruisingen(lijnen):
@@ -815,21 +923,20 @@ def main():
                    help="bestand met de stromen van een casus; markeert die op de plaat")
     args = p.parse_args()
     naam, markeringen = lees_markering(args.markeer) if args.markeer else ("", ())
-    svg, stromen, verbanden, componenten, legenda, ontbreekt = bouw(
+    svg, stromen, verbanden, componenten, legenda, ontbreekt, gemarkeerd = bouw(
         args.ruimte_x, args.ruimte_y, opschriften=args.opschriften,
         markeer=markeringen, markeer_naam=naam)
     pathlib.Path(args.uit).write_text(svg, encoding="utf-8")
     for x in ontbreekt:
-        print(f"waarschuwing: niet op de plaat te plaatsen: {x}", file=sys.stderr)
+        print(f"waarschuwing: {x}", file=sys.stderr)
     haaks = sum(1 for s in stromen for a, b in zip(s["punten"], s["punten"][1:])
                 if abs(a[0] - b[0]) > 0.5 and abs(a[1] - b[1]) > 0.5)
     kruis = kruisingen([v["punten"] for v in stromen + verbanden])
     erbij = (f", {sum(a for _, _, a in legenda)} stromen onder {len(legenda)} koppeling-ID's"
              if legenda else "")
     if markeringen:
-        gestippeld = sum(1 for m in markeringen if not m["op_de_plaat"])
-        erbij += (f", {len(markeringen) - len(ontbreekt)} gemarkeerde stromen "
-                  f"waarvan {gestippeld} gestippeld")
+        erbij += (f", {gemarkeerd['gekleurd'] + gemarkeerd['gestippeld']} gemarkeerde stromen "
+                  f"waarvan {gemarkeerd['gestippeld']} gestippeld")
     print(f"{len(componenten)} componenten, {len(stromen)} stromen, {len(verbanden)} verbanden; "
           f"{haaks} schuine segmenten, {kruis} kruisingen{erbij}")
     return 0

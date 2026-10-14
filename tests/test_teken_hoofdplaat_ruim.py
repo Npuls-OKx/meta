@@ -145,7 +145,7 @@ class LegendaTests(unittest.TestCase):
 
 
 class MarkeringTests(unittest.TestCase):
-    """De markering van een casus: welke lijnen worden uitgelicht en wat de plaat nog niet kent."""
+    """De markering van een casus: welke stromen zij uitlicht en wat de plaat nog niet kent."""
 
     @staticmethod
     def component(ident, x, y, naam):
@@ -153,19 +153,22 @@ class MarkeringTests(unittest.TestCase):
                     type="ApplicationComponent", opschrift=[], tekst="", soort="DiagramObject",
                     kinderen=[], ouder=None, vul=None, lijn=None, letter=None)
 
-    def plaat(self, *componenten):
-        vakken = {k["id"]: dict(x=k["ax"], y=k["ay"], w=k["w"], h=k["h"]) for k in componenten}
-        routers = {"rechts": ruim.hoofdplaat.Haaks(list(vakken.values()), [])}
-        per_zone = {k["id"]: "rechts" for k in componenten}
-        return list(componenten), per_zone, routers, vakken
+    def bestand(self, inhoud):
+        pad = Path(self.enterContext(tempfile.TemporaryDirectory())) / "casus.json"
+        pad.write_text(inhoud, encoding="utf-8")
+        return pad
 
     def test_given_a_file_without_op_de_plaat_when_read_then_the_flow_counts_as_known(self):
-        pad = Path(self.enterContext(tempfile.TemporaryDirectory())) / "casus.json"
-        pad.write_text('{"naam": "Een casus", "stromen": [{"van": "A", "naar": "B", '
-                       '"label": "wat"}]}', encoding="utf-8")
+        pad = self.bestand('{"naam": "Een casus", "stromen": [{"van": "A", "naar": "B", '
+                           '"label": "wat"}]}')
         naam, stromen = ruim.lees_markering(pad)
         self.assertEqual(naam, "Een casus")
-        self.assertEqual(stromen, [dict(van="A", naar="B", label="wat", op_de_plaat=True)])
+        self.assertEqual(stromen, [dict(van="A", naar="B", label="wat", op_de_plaat=True,
+                                        stroom="")])
+
+    def test_given_a_file_with_a_flow_id_when_read_then_that_id_comes_along(self):
+        pad = self.bestand('{"stromen": [{"van": "A", "naar": "B", "stroom": "id-7"}]}')
+        self.assertEqual(ruim.lees_markering(pad)[1][0]["stroom"], "id-7")
 
     def test_given_a_component_twice_on_the_plate_when_paired_then_the_nearest_one_wins(self):
         ver = self.component("oc-ver", 0, 0, "Onderwijscatalogus")
@@ -180,44 +183,210 @@ class MarkeringTests(unittest.TestCase):
         self.assertEqual(ruim.dichtste_vakken([sks], "Keuzeportaal", "Student Keuze Systeem (SKS)"),
                          (None, None))
 
+
+class MarkeerpadTests(unittest.TestCase):
+    """Welke benen van de plaat een markering uitlicht; een stroom door een junctie hoort er heel bij."""
+
+    @staticmethod
+    def stroom(relatie, bron, doel):
+        return dict(relatie=relatie, bron=bron, doel=doel, label="", punten=[(0, 0), (10, 0)])
+
+    def setUp(self):
+        self.knopen = {"oc": dict(id="oc", naam="Onderwijscatalogus", type="ApplicationComponent"),
+                       "sks": dict(id="sks", naam="Student Keuze Systeem (SKS)",
+                                   type="ApplicationComponent"),
+                       "krs": dict(id="krs", naam="Kernregistratie systeem studenten (KRS)",
+                                   type="ApplicationComponent"),
+                       "j": dict(id="j", naam="", type="Junction")}
+
+    def pad(self, stromen, van, naar, relatie=""):
+        return ruim.markeerpad(stromen, self.knopen, self.knopen[van], self.knopen[naar], relatie)
+
+    def test_given_a_flow_between_two_components_when_sought_then_its_leg_is_found(self):
+        s = self.stroom("r1", "oc", "sks")
+        self.assertEqual(self.pad([s], "oc", "sks"), [s])
+
+    def test_given_a_junction_in_between_when_sought_then_the_sender_leg_comes_first(self):
+        aanvoer, been = self.stroom("r1", "krs", "j"), self.stroom("r2", "j", "sks")
+        self.assertEqual(self.pad([aanvoer, been], "krs", "sks"), [aanvoer, been])
+
+    def test_given_a_junction_with_more_receivers_when_sought_then_one_leg_joins(self):
+        aanvoer = self.stroom("r1", "krs", "j")
+        naar_sks, naar_oc = self.stroom("r2", "j", "sks"), self.stroom("r3", "j", "oc")
+        self.assertEqual(self.pad([aanvoer, naar_oc, naar_sks], "krs", "sks"), [aanvoer, naar_sks])
+
+    def test_given_two_flows_between_one_pair_when_an_id_is_given_then_that_flow_wins(self):
+        een, twee = self.stroom("r1", "oc", "sks"), self.stroom("r2", "oc", "sks")
+        self.assertEqual(self.pad([een, twee], "oc", "sks", "r2"), [twee])
+
+    def test_given_an_id_the_plate_does_not_carry_when_sought_then_the_pair_decides(self):
+        s = self.stroom("r1", "oc", "sks")
+        self.assertEqual(self.pad([s], "oc", "sks", "r9"), [s])
+
+    def test_given_an_id_that_ends_elsewhere_when_sought_then_the_path_stays_empty(self):
+        s = self.stroom("r1", "oc", "sks")
+        self.assertEqual(self.pad([s], "oc", "krs", "r1"), [])
+
+    def test_given_a_flow_the_plate_lacks_when_sought_then_the_path_stays_empty(self):
+        s = self.stroom("r1", "oc", "sks")
+        self.assertEqual(self.pad([s], "sks", "oc"), [])
+
+
+class MarkeerStromenTests(unittest.TestCase):
+    """Elke markering naast de plaat gelegd: wat zij uitlicht, en wat er voor wie meeleest ontbreekt."""
+
+    def setUp(self):
+        self.oc = MarkeringTests.component("oc", 0, 0, "Onderwijscatalogus")
+        self.sks = MarkeringTests.component("sks", 600, 0, "Student Keuze Systeem (SKS)")
+        self.knopen = {"oc": dict(self.oc), "sks": dict(self.sks)}
+        self.stroom = MarkeerpadTests.stroom("r1", "oc", "sks")
+
+    def markering(self, **erbij):
+        return dict(dict(van="Onderwijscatalogus", naar="Student Keuze Systeem (SKS)",
+                         label="kiesbaar aanbod", op_de_plaat=True, stroom=""), **erbij)
+
+    def leg_naast(self, markeringen, stromen):
+        return ruim.markeer_stromen(markeringen, stromen, self.knopen, [self.oc, self.sks])
+
+    def test_given_a_flow_the_file_calls_known_when_matched_then_its_leg_is_found(self):
+        raakt, zonder, ontbreekt = self.leg_naast([self.markering()], [self.stroom])
+        self.assertEqual((len(raakt), zonder, ontbreekt), (1, [], []))
+        m, a, b, benen = raakt[0]
+        self.assertEqual((a["id"], b["id"], benen), ("oc", "sks", [self.stroom]))
+
+    def test_given_a_flow_the_file_calls_unknown_when_matched_then_no_leg_is_sought(self):
+        raakt, zonder, ontbreekt = self.leg_naast([self.markering(op_de_plaat=False)],
+                                                  [self.stroom])
+        self.assertEqual((raakt, len(zonder), ontbreekt), ([], 1, []))
+
+    def test_given_a_known_flow_without_a_line_when_matched_then_it_is_reported(self):
+        raakt, zonder, ontbreekt = self.leg_naast([self.markering()], [])
+        self.assertEqual((raakt, len(zonder)), ([], 1))
+        self.assertEqual(ontbreekt, ["kiesbaar aanbod: Onderwijscatalogus naar Student Keuze "
+                                     "Systeem (SKS) staat in het bestand als lijn die de plaat "
+                                     "kent, de plaat heeft deze stroom niet"])
+
+    def test_given_a_flow_the_plate_has_no_component_for_when_matched_then_it_is_reported(self):
+        raakt, zonder, ontbreekt = self.leg_naast([self.markering(van="Keuzeportaal")],
+                                                  [self.stroom])
+        self.assertEqual((raakt, zonder), ([], []))
+        self.assertEqual(ontbreekt, ["kiesbaar aanbod: Keuzeportaal naar Student Keuze "
+                                     "Systeem (SKS) is niet op de plaat te plaatsen"])
+
+
+class MarkeerTekenTests(unittest.TestCase):
+    """Hoe een markering op de plaat terechtkomt: de lijn zelf, de omlijning, de legenda."""
+
+    def plaat(self, *componenten):
+        vakken = {k["id"]: dict(x=k["ax"], y=k["ay"], w=k["w"], h=k["h"]) for k in componenten}
+        routers = {"rechts": ruim.hoofdplaat.Haaks(list(vakken.values()), [])}
+        per_zone = {k["id"]: "rechts" for k in componenten}
+        return per_zone, routers, vakken
+
+    def test_given_a_marked_flow_when_its_line_is_drawn_then_one_path_carries_the_accent(self):
+        svg = ruim.lijn_svg([(0, 0), (100, 0)], ruim.MARKEER, "pijl0", dik=True)
+        self.assertEqual(svg.count("<path"), 2)        # de witte onderlaag en de lijn zelf
+        self.assertEqual(svg.count(f'stroke="{ruim.MARKEER}"'), 1)
+        self.assertIn(f'stroke-width="{ruim.MARKEER_DIK}"', svg)
+
+    def test_given_an_ordinary_flow_when_its_line_is_drawn_then_it_keeps_its_thin_line(self):
+        svg = ruim.lijn_svg([(0, 0), (100, 0)], "#1f5fd0", "pijl1")
+        self.assertIn('stroke-width="2.6"', svg)
+        self.assertNotIn(f'stroke-width="{ruim.MARKEER_DIK}"', svg)
+
     def test_given_a_flow_the_plate_does_not_know_when_drawn_then_the_line_is_dashed(self):
-        punten = [(0, 0), (100, 0)]
-        self.assertIn("stroke-dasharray", ruim.markeerlijn_svg(punten, gestippeld=True))
-        self.assertNotIn("stroke-dasharray", ruim.markeerlijn_svg(punten, gestippeld=False))
+        svg = ruim.markeerlijn_svg([(0, 0), (100, 0)])
+        self.assertIn('stroke-dasharray="16 11"', svg)
+        self.assertIn('marker-end="url(#markeerpunt)"', svg)
+
+    def test_given_a_known_flow_when_marked_then_no_second_path_comes_over_it(self):
+        oc = MarkeringTests.component("oc", 0, 0, "Onderwijscatalogus")
+        sks = MarkeringTests.component("sks", 600, 0, "Student Keuze Systeem (SKS)")
+        been = MarkeerpadTests.stroom("r1", "oc", "sks")
+        markering = dict(van="Onderwijscatalogus", naar="Student Keuze Systeem (SKS)",
+                         label="kiesbaar aanbod", op_de_plaat=True, stroom="")
+        per_zone, routers, vakken = self.plaat(oc, sks)
+        svg = "".join(ruim.markeer_svg([(markering, oc, sks, [been])], [], per_zone, routers,
+                                       vakken, [], (800, 600)))
+        self.assertNotIn("<path", svg)                 # de lijn staat al in de eerste tekenronde
+        self.assertIn("kiesbaar aanbod", svg)
+
+    def test_given_a_flow_without_a_line_when_marked_then_it_gets_a_dashed_lane(self):
+        svs = MarkeringTests.component("svs", 0, 0, "Student volg systeem (SVS)")
+        sks = MarkeringTests.component("sks", 600, 0, "Student Keuze Systeem (SKS)")
+        markering = dict(van="Student volg systeem (SVS)", naar="Student Keuze Systeem (SKS)",
+                         label="behaalde leeruitkomsten", op_de_plaat=False, stroom="")
+        per_zone, routers, vakken = self.plaat(svs, sks)
+        svg = "".join(ruim.markeer_svg([], [(markering, svs, sks)], per_zone, routers, vakken, [],
+                                       (800, 600)))
+        self.assertEqual(svg.count("<path"), 2)        # de witte onderlaag en de gestippelde lijn
+        self.assertIn('stroke-dasharray="16 11"', svg)
+        # het etiket draagt alleen de naam van de stroom: dat de plaat haar niet kent zegt de
+        # onderbroken lijn, en herhalen in het etiket maakt het breder dan de ruimte ernaast
+        self.assertIn(">behaalde leeruitkomsten</text>", svg)
+        self.assertNotIn("geen lijn op deze plaat", svg)
 
     def test_given_two_flows_on_one_component_when_marked_then_it_is_outlined_once(self):
-        oc = self.component("oc", 0, 0, "Onderwijscatalogus")
-        sks = self.component("sks", 600, 0, "Student Keuze Systeem (SKS)")
-        krs = self.component("krs", 0, 400, "Kernregistratie systeem studenten (KRS)")
-        alles, per_zone, routers, vakken = self.plaat(oc, sks, krs)
-        markeringen = [dict(van="Onderwijscatalogus", naar="Student Keuze Systeem (SKS)",
-                            label="kiesbaar aanbod", op_de_plaat=True),
-                       dict(van="Kernregistratie systeem studenten (KRS)",
-                            naar="Student Keuze Systeem (SKS)", label="student",
-                            op_de_plaat=True)]
-        delen, ontbreekt = ruim.markeer_svg(markeringen, alles, per_zone, routers, vakken, [],
-                                            (800, 600))
-        svg = "".join(delen)
-        self.assertEqual(ontbreekt, [])
+        oc = MarkeringTests.component("oc", 0, 0, "Onderwijscatalogus")
+        sks = MarkeringTests.component("sks", 600, 0, "Student Keuze Systeem (SKS)")
+        krs = MarkeringTests.component("krs", 0, 400, "Kernregistratie systeem studenten (KRS)")
+        per_zone, routers, vakken = self.plaat(oc, sks, krs)
+        raakt = [(dict(label="kiesbaar aanbod"), oc, sks, [MarkeerpadTests.stroom("r1", "oc", "sks")]),
+                 (dict(label="student"), krs, sks, [MarkeerpadTests.stroom("r2", "krs", "sks")])]
+        svg = "".join(ruim.markeer_svg(raakt, [], per_zone, routers, vakken, [], (800, 600)))
         self.assertEqual(svg.count(f'stroke="{ruim.MARKEER_RAND}"'), 3)
         for stuk in ("kiesbaar aanbod", "student"):
             self.assertIn(stuk, svg)
-
-    def test_given_a_flow_the_plate_has_no_component_for_when_marked_then_it_is_reported(self):
-        sks = self.component("sks", 0, 0, "Student Keuze Systeem (SKS)")
-        alles, per_zone, routers, vakken = self.plaat(sks)
-        markeringen = [dict(van="Keuzeportaal", naar="Student Keuze Systeem (SKS)",
-                            label="kiesbaar aanbod", op_de_plaat=True)]
-        delen, ontbreekt = ruim.markeer_svg(markeringen, alles, per_zone, routers, vakken, [],
-                                            (800, 600))
-        self.assertEqual(delen, [])
-        self.assertEqual(ontbreekt, ["kiesbaar aanbod: Keuzeportaal naar Student Keuze Systeem (SKS)"])
 
     def test_given_a_marking_when_the_legend_is_drawn_then_it_explains_all_three_signs(self):
         svg = ruim.markeer_legenda_svg("Keuzedeel kiesbaar maken", 0, 0, 900)
         for stuk in ("Keuzedeel kiesbaar maken", "stroom van deze casus",
                      "nog niet kent", "component dat meedoet", ruim.MARKEER_RAND):
             self.assertIn(stuk, svg)
+
+
+class PlaatMetMarkeringTests(unittest.TestCase):
+    """De hele plaat met een markering erover, uit het model zelf."""
+
+    CASUS = WORTEL / "architecture/docs/specificatie/koppelvlak-keuzedeel-kiesbaar/stromen-kiesbaar.json"
+
+    @classmethod
+    def setUpClass(cls):
+        # het model en de stroomnamen met hun volledige pad, zodat de werkmap er niet toe doet
+        ruim.MODEL = WORTEL / "architecture/model/model.archimate"
+        ruim.STROMEN = WORTEL / "architecture/model/informatiemodel/stromen.json"
+        cls.naam, cls.markeringen = ruim.lees_markering(cls.CASUS)
+        cls.kaal = ruim.bouw()[0]
+        cls.svg, cls.stromen, *cls.rest = ruim.bouw(markeer=cls.markeringen,
+                                                    markeer_naam=cls.naam)
+
+    def test_given_a_marked_plate_when_built_then_the_number_of_plate_arrows_stays(self):
+        self.assertEqual(self.svg.count('marker-end="url(#pijl'),
+                         self.kaal.count('marker-end="url(#pijl'))
+
+    def test_given_a_known_flow_when_marked_then_its_own_line_carries_the_accent(self):
+        gemarkeerd = [s for s in self.stromen if s.get("markeer")]
+        self.assertTrue(gemarkeerd)
+        for s in gemarkeerd:
+            self.assertEqual(s["kleur"], ruim.MARKEER)
+        self.assertEqual(self.svg.count(f'stroke="{ruim.MARKEER}" '
+                                        f'stroke-width="{ruim.MARKEER_DIK}" stroke-linejoin'),
+                         len(gemarkeerd))
+
+    def test_given_a_marked_flow_when_the_plate_is_built_then_its_line_lies_over_the_veil(self):
+        sluier = self.svg.index(f'fill-opacity="{ruim.SLUIER}"')
+        lijn = self.svg.index(f'stroke="{ruim.MARKEER}" stroke-width="{ruim.MARKEER_DIK}" '
+                              f'stroke-linejoin')
+        self.assertLess(sluier, lijn)
+
+    def test_given_a_marked_flow_when_the_plate_is_built_then_the_casus_name_takes_over(self):
+        self.assertIn("keuzeregelset", self.svg)
+        self.assertIn(">Onderwijsprogramma<", self.kaal)      # de naam van de plaat zelf
+        self.assertNotIn(">Onderwijsprogramma<", self.svg)
+
+    def test_given_a_flow_the_plate_lacks_when_the_plate_is_built_then_it_stays_dashed(self):
+        self.assertEqual(self.svg.count('marker-end="url(#markeerpunt)"'),
+                         sum(1 for m in self.markeringen if not m["op_de_plaat"]))
 
 
 if __name__ == "__main__":
