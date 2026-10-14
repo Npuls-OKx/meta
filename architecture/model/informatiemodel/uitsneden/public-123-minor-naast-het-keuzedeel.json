@@ -7,7 +7,8 @@
   "objecten": [
     {"naam": "Keuzedeelruimte", "rij": 0},
     {"naam": "Keuzedeel", "rij": 0},
-    {"naam": "Keuzedeel aanbod", "rij": 0, "noot": "heette Keuzedeelaanbod"},
+    {"naam": "Keuzedeel aanbod", "rij": 0, "merk": "hernoemd", "nummer": 1,
+     "waarom": "heette Keuzedeelaanbod, nu los geschreven net als opleidingsprogramma aanbod"},
     {"naam": "Keuzedeel aanbod verbintenis", "rij": 0},
     {"naam": "Keuzedeel resultaat", "rij": 0},
 
@@ -17,24 +18,21 @@
     {"naam": "Opleidingsprogramma aanbod verbintenis", "rij": 1},
     {"naam": "Opleidingsprogramma resultaat", "rij": 1},
 
-    {"naam": "Minor ruimte", "rij": 2, "merk": "nieuw", "nummer": 1,
+    {"naam": "Minor ruimte", "rij": 2, "merk": "toegevoegd", "nummer": 2,
      "noot": "associatie loopt andersom dan bij het keuzedeel",
      "waarom": "wijst aan welke minors kiesbaar zijn"},
-    {"naam": "Minor", "rij": 2, "merk": "nieuw", "nummer": 2,
+    {"naam": "Minor", "rij": 2, "merk": "toegevoegd", "nummer": 3,
      "waarom": "is net als het keuzedeel een opleidingsprogramma specificatie"},
-    {"naam": "Minor aanbod", "rij": 2, "merk": "nieuw", "nummer": 3,
+    {"naam": "Minor aanbod", "rij": 2, "merk": "toegevoegd", "nummer": 4,
      "waarom": "het concrete aanbod van een minor"},
-    {"naam": "Minor aanbod verbintenis", "rij": 2, "merk": "nieuw", "nummer": 4,
+    {"naam": "Minor aanbod verbintenis", "rij": 2, "merk": "toegevoegd", "nummer": 5,
      "waarom": "de deelname van een student aan dat aanbod"},
-    {"naam": "Minor resultaat", "rij": 2, "merk": "nieuw", "nummer": 5,
+    {"naam": "Minor resultaat", "rij": 2, "merk": "toegevoegd", "nummer": 6,
      "waarom": "het resultaat op die deelname"}
   ],
   "ontbreekt": [
     {"van": "Minor aanbod verbintenis", "naar": "Opleidingsprogramma aanbod verbintenis",
      "soort": "Specialization", "label": "ontbreekt: is een",
-     "waarom": "op de specificatie, de ruimte en het aanbod draagt de minor de specialisatie wel; op de verbintenis staat zij nog niet in het model, terwijl het keuzedeel haar daar heeft"},
-    {"van": "Minor resultaat", "naar": "Opleidingsprogramma resultaat",
-     "soort": "Specialization", "label": "ontbreekt: is een",
-     "waarom": "ook op het resultaat staat de specialisatie nog niet in het model; zolang zij ontbreekt loopt het patroon door drie van de vier lagen en niet door alle vier"}
+     "waarom": "op de specificatie, de ruimte, het aanbod en het resultaat draagt de minor de specialisatie wel; op de verbintenis staat zij nog niet in het model, terwijl het keuzedeel haar daar heeft"}
   ]
 }

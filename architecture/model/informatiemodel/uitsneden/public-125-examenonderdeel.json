@@ -3,33 +3,31 @@
   "titel": "Botst de term Examenonderdeel met het gebruik in het hoger onderwijs?",
   "herkomst": "Reviewvraag Npuls-OKx/Public#125 van @hjwielemaker, werkbrief Npuls-OKx/meta#334",
   "oeapi": true,
-  "rij_labels": ["kader van het hoger onderwijs", "kader van het mbo",
-                 "het algemene type in OKx", "het summatieve geval"],
+  "rij_labels": ["het kader van het stelsel",
+                 "waar beide stelsels op uitkomen",
+                 "het summatieve geval"],
   "objecten": [
-    {"naam": "Landelijk Opleidingsprofiel", "rij": 0, "merk": "nieuw", "nummer": 1,
-     "waarom": "draagt het kwalificatiekader van het hoger onderwijs"},
-    {"naam": "Eindkwalificatie", "rij": 0, "merk": "nieuw", "nummer": 2,
-     "waarom": "vertaalt naar dezelfde leeruitkomst als de mbo-kwalificatie"},
+    {"naam": "Kwalificatie dossier", "rij": 0, "noot": "mbo"},
+    {"naam": "Landelijk Opleidingsprofiel", "rij": 0, "merk": "toegevoegd", "nummer": 1,
+     "noot": "hoger onderwijs",
+     "waarom": "het kwalificatiekader van het hoger onderwijs, deze ronde toegevoegd"},
 
-    {"naam": "Kwalificatie dossier", "rij": 1, "noot": "de kolom heette Kwalificatiekader MBO"},
-    {"naam": "Kwalificatie", "rij": 1},
+    {"naam": "Kwalificatie", "rij": 1, "noot": "mbo"},
+    {"naam": "Eindkwalificatie", "rij": 1, "merk": "toegevoegd", "nummer": 2,
+     "noot": "hoger onderwijs",
+     "waarom": "elk stelsel zijn eigen woord, een gedeeld begrip eronder"},
 
-    {"naam": "Leeruitkomst", "rij": 2},
-    {"naam": "Toetsonderdeel specificatie", "rij": 2, "noot": "OEAPI: TestComponent"},
-    {"naam": "Toetsgelegenheid", "rij": 2, "noot": "OEAPI: TestComponentOffering"},
+    {"naam": "Leeruitkomst", "rij": 1, "noot": "OEAPI: LearningOutcome"},
+    {"naam": "Toetsonderdeel specificatie", "rij": 1, "noot": "OEAPI: TestComponent"},
+    {"naam": "Toetsgelegenheid", "rij": 1, "noot": "OEAPI: TestComponentOffering"},
 
-    {"naam": "Examenonderdeelspecificatie", "rij": 3, "noot": "OEAPI: TestComponent"},
-    {"naam": "Examengelegenheid", "rij": 3, "noot": "OEAPI: TestComponentOffering"}
+    {"naam": "Examenonderdeelspecificatie", "rij": 2, "noot": "OEAPI: TestComponent"},
+    {"naam": "Examengelegenheid", "rij": 2, "noot": "OEAPI: TestComponentOffering"}
   ],
   "verberg": [
     {"van": "Kwalificatie dossier", "naar": "Leeruitkomst",
-     "reden": "de kwalificatie ernaast draagt dezelfde vertaling; twee regels in een vak maken het vak een alinea"},
+     "reden": "de kwalificatie eronder draagt dezelfde vertaling; twee regels in een vak maken het vak een alinea"},
     {"van": "Examenonderdeelspecificatie", "naar": "Leeruitkomst",
      "reden": "het algemene type draagt de verwijzing naar de leeruitkomst; de specialisatie laat zien dat zij ook hier geldt"}
-  ],
-  "ontbreekt": [
-    {"van": "Examengelegenheid", "naar": "Toetsgelegenheid",
-     "soort": "Specialization", "label": "ontbreekt: is een",
-     "waarom": "op de specificatie draagt het model de specialisatie, op het aanbod niet; de examengelegenheid en de toetsgelegenheid staan daar los van elkaar, terwijl OEAPI voor beide TestComponentOffering kent"}
   ]
 }

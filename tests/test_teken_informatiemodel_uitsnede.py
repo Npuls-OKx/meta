@@ -29,8 +29,13 @@ SVG = "{http://www.w3.org/2000/svg}"
 
 
 def model():
-    """Een klein informatiemodel in de vorm van informatiemodel.json: twee kolommen, een
-    objecttype zonder kolom, twee objecttypen buiten scope en zeven relaties."""
+    """Een klein informatiemodel in de vorm van informatiemodel.json: drie kolommen, drie
+    objecttypen zonder kolom, twee objecttypen buiten scope en elf relaties.
+
+    De drie objecttypen zonder kolom staan er met hun verbindende rol in: `Plaatsingsgroep`
+    raakt de specificatie en het aanbod, `Aanmelding` het aanbod en de verbintenis, en
+    `Persoon` raakt geen enkele kolom.
+    """
     return {
         "objecttypen": [
             {"naam": "Opleidingsprogramma specificatie", "kolom": "Onderwijsspecificatie",
@@ -48,7 +53,13 @@ def model():
             # buiten scope met de expliciete standaardgeel: op de grote plaat geel, in de JSON buiten
             {"naam": "Lesgelegenheid", "kolom": "Onderwijsaanbod",
              "scope": "buiten", "vulkleur": "#ffffb5", "oeapi": None},
+            {"naam": "Keuzedeel aanbod verbintenis", "kolom": "Onderwijsverbintenis",
+             "scope": "binnen", "vulkleur": None, "oeapi": None},
             {"naam": "Plaatsingsgroep", "kolom": None,
+             "scope": "binnen", "vulkleur": None, "oeapi": None},
+            {"naam": "Aanmelding", "kolom": None,
+             "scope": "binnen", "vulkleur": None, "oeapi": None},
+            {"naam": "Persoon", "kolom": None,
              "scope": "binnen", "vulkleur": None, "oeapi": None},
         ],
         "relaties": [
@@ -63,6 +74,12 @@ def model():
             {"soort": "Aggregation", "van": "Opleidingsprogramma specificatie",
              "naar": "Les specificatie", "label": None},
             {"soort": "Access", "van": "Plaatsingsgroep", "naar": "Lesgelegenheid", "label": None},
+            {"soort": "Association", "van": "Keuzedeel aanbod", "naar": "Aanmelding",
+             "label": None},
+            {"soort": "Association", "van": "Aanmelding",
+             "naar": "Keuzedeel aanbod verbintenis", "label": None},
+            {"soort": "Access", "van": "Persoon", "naar": "Aanmelding", "label": None},
+            {"soort": "Association", "van": "Persoon", "naar": "Plaatsingsgroep", "label": None},
         ],
     }
 
@@ -83,11 +100,29 @@ def selectie(**anders):
         "rij_labels": ["generiek", "bijzonder"],
         "objecten": [
             {"naam": "Opleidingsprogramma specificatie", "rij": 0},
-            {"naam": "Minor", "rij": 1, "merk": "nieuw", "waarom": "staat naast het keuzedeel"},
+            {"naam": "Minor", "rij": 1, "merk": "toegevoegd", "waarom": "staat naast het keuzedeel"},
             {"naam": "Keuzedeel", "rij": 1},
             {"naam": "Keuzedeel aanbod", "rij": 1},
-            {"naam": "Minor aanbod", "rij": 1, "merk": "nieuw", "waarom": "de uitvoering ervan"},
+            {"naam": "Minor aanbod", "rij": 1, "merk": "toegevoegd",
+             "waarom": "de uitvoering ervan"},
         ],
+    }
+    basis.update(anders)
+    return basis
+
+
+def voorbeeld(**anders):
+    """Een voorbeeldblok bij de minor: een ingevuld geval met zijn vindplaats erbij."""
+    basis = {
+        "bij": "Minor",
+        "zin": "Ontwerpt een minor naast het keuzedeel",
+        "delen": [
+            {"deel": "actief werkwoord", "waarde": "ontwerpt"},
+            {"deel": "onderwerp", "waarde": "een minor"},
+        ],
+        "niveau": "programmaniveau",
+        "gradatie": "Een niveau lager hangt het leeronderdeel.",
+        "vindplaats": "proef-regels.json, beeld P-01",
     }
     basis.update(anders)
     return basis
@@ -181,6 +216,82 @@ class UitsnedeTests(unittest.TestCase):
         with self.assertRaises(tu.Fout) as fout:
             plaat(sel)
         self.assertIn("verbouwd", str(fout.exception))
+        self.assertIn("toegevoegd", str(fout.exception))
+
+    # --------------------------------------------- de aard van de wijziging --
+
+    def test_given_een_vervallen_merk_when_getekend_then_wijst_de_melding_naar_een_soort_wijziging(self):
+        for vervallen, vervanger in (("nieuw", "toegevoegd"), ("anders", "herplaatst")):
+            sel = selectie(objecten=[{"naam": "Minor", "merk": vervallen}])
+            with self.assertRaises(tu.Fout) as fout:
+                plaat(sel)
+            self.assertIn(vervallen, str(fout.exception))
+            self.assertIn(vervanger, str(fout.exception))
+
+    def test_given_elke_soort_wijziging_when_getekend_then_staat_de_korte_naam_achter_het_nummer(self):
+        for merk, (kort, _) in tu.MERKEN.items():
+            if merk == "verwijderd":
+                continue
+            sel = selectie(objecten=[{"naam": "Minor", "rij": 0, "merk": merk}], rij_labels=[])
+            svg, _ = plaat(sel)
+            inhoud = [(t.text or "") for t in vak_van(svg, "Minor").iter(f"{SVG}text")]
+            self.assertIn(f"1 {kort}", inhoud)
+
+    def test_given_elke_soort_wijziging_when_gelegend_then_opent_de_uitleg_met_dat_woord(self):
+        # alle soorttegels dragen dezelfde oranje rand; het woord in het vak is wat een lezer
+        # van het vak naar de juiste tegel brengt, dus staat het vooraan in de uitleg
+        for kort, uitleg in tu.MERKEN.values():
+            self.assertTrue(uitleg.startswith(f"{kort}:"), uitleg)
+
+    def test_given_twee_soorten_wijziging_when_getekend_then_draagt_elk_vak_zijn_eigen_soort(self):
+        sel = selectie(objecten=[{"naam": "Minor", "rij": 0, "merk": "toegevoegd"},
+                                 {"naam": "Les specificatie", "rij": 0, "merk": "buiten scope"}],
+                       rij_labels=[])
+        svg, _ = plaat(sel)
+        self.assertIn("1 toegevoegd",
+                      [(t.text or "") for t in vak_van(svg, "Minor").iter(f"{SVG}text")])
+        self.assertIn("2 buiten scope",
+                      [(t.text or "") for t in vak_van(svg, "Les specificatie").iter(f"{SVG}text")])
+
+    def test_given_een_soort_wijziging_when_getekend_then_legt_de_legenda_juist_die_soort_uit(self):
+        sel = selectie(objecten=[{"naam": "Minor", "rij": 0, "merk": "herplaatst"}], rij_labels=[])
+        regels = teksten(plaat(sel)[0])
+        self.assertIn(tu.MERKEN["herplaatst"][1], regels)
+        self.assertNotIn(tu.MERKEN["toegevoegd"][1], regels)
+        self.assertNotIn("gewijzigd in deze modelronde", regels)
+
+    def test_given_een_verwijderd_objecttype_when_getekend_then_staat_het_grijs_in_de_opgegeven_kolom(self):
+        sel = selectie(objecten=[{"naam": "Keuzedeel", "rij": 0},
+                                 {"naam": "Keuzedeelruimte", "rij": 0, "merk": "verwijderd",
+                                  "kolom": "Onderwijsspecificatie"}], rij_labels=[])
+        svg, _ = plaat(sel)
+        self.assertEqual(doos(vak_van(svg, "Keuzedeelruimte"))["fill"], tu.GRIJS)
+        self.assertIn("1 verwijderd",
+                      [(t.text or "") for t in vak_van(svg, "Keuzedeelruimte").iter(f"{SVG}text")])
+        # grijs betekent hier verwijderd en niet buiten scope; de legenda belooft dat laatste niet
+        self.assertIn(tu.MERKEN["verwijderd"][1], teksten(svg))
+        self.assertNotIn("Buiten scope binnen OKx", teksten(svg))
+
+    def test_given_een_verwijderd_objecttype_dat_nog_in_het_model_staat_when_getekend_then_weigert_het_script(self):
+        sel = selectie(objecten=[{"naam": "Minor", "rij": 0, "merk": "verwijderd",
+                                  "kolom": "Onderwijsspecificatie"}], rij_labels=[])
+        with self.assertRaises(tu.Fout) as fout:
+            plaat(sel)
+        self.assertIn("nog in het model staat", str(fout.exception))
+
+    def test_given_een_verwijderd_objecttype_zonder_kolom_when_getekend_then_vraagt_het_script_erom(self):
+        sel = selectie(objecten=[{"naam": "Keuzedeelruimte", "rij": 0, "merk": "verwijderd"}],
+                       rij_labels=[])
+        with self.assertRaises(tu.Fout) as fout:
+            plaat(sel)
+        self.assertIn("kolom", str(fout.exception))
+
+    def test_given_een_naam_die_het_model_niet_kent_zonder_merk_when_getekend_then_blijft_het_een_fout(self):
+        # alleen een verwijderd objecttype mag ontbreken; een typefout valt nog steeds op
+        sel = selectie(objecten=[{"naam": "Keuzedeelruimte", "rij": 0}], rij_labels=[])
+        with self.assertRaises(tu.Fout) as fout:
+            plaat(sel)
+        self.assertIn("staan niet in het model", str(fout.exception))
 
     # ------------------------------------------------------------ groepering --
 
@@ -206,10 +317,133 @@ class UitsnedeTests(unittest.TestCase):
             self.assertGreaterEqual(v["y"], k["y"])
             self.assertLessEqual(v["y"] + v["height"], k["y"] + k["height"])
 
-    def test_given_een_objecttype_zonder_kolom_when_getekend_then_krijgt_het_een_eigen_groepering(self):
-        sel = selectie(objecten=[{"naam": "Keuzedeel", "rij": 0}, {"naam": "Plaatsingsgroep", "rij": 0}])
+    def test_given_een_objecttype_zonder_kolom_when_getekend_then_staat_het_in_de_band_boven_de_kolommen(self):
+        sel = selectie(objecten=[{"naam": "Keuzedeel", "rij": 0}, {"naam": "Plaatsingsgroep"}])
         svg, _ = plaat(sel)
-        self.assertIn(tu.GEEN_KOLOM, titels(svg, "groepering"))
+        self.assertEqual(titels(svg, "groepering"), [tu.BAND_NAAM, "Onderwijsspecificatie"])
+        band = [doos(g) for t, g in groepen(svg, "groepering") if t == tu.BAND_NAAM][0]
+        kolom = [doos(g) for t, g in groepen(svg, "groepering") if t == "Onderwijsspecificatie"][0]
+        self.assertLessEqual(band["y"] + band["height"], kolom["y"])
+        vak = doos(vak_van(svg, "Plaatsingsgroep"))
+        self.assertGreaterEqual(vak["y"], band["y"])
+        self.assertLessEqual(vak["y"] + vak["height"], band["y"] + band["height"])
+
+    def test_given_een_objecttype_zonder_kolom_when_getekend_then_kost_het_geen_kolombreedte(self):
+        # de band was eerder een gewone kolom in de rij; dat koste breedte en verborg de rol
+        zonder = plaat(selectie(objecten=[{"naam": "Keuzedeel", "rij": 0}], rij_labels=[]))[1]
+        met = plaat(selectie(objecten=[{"naam": "Keuzedeel", "rij": 0},
+                                       {"naam": "Plaatsingsgroep"}], rij_labels=[]))[1]
+        self.assertEqual(met["kolommen"], zonder["kolommen"])
+        self.assertEqual(met["breed"], zonder["breed"])
+
+    def test_given_een_bandvak_dat_twee_kolommen_raakt_when_getekend_then_staat_het_boven_hun_grens(self):
+        # Aanmelding verbindt aanbod en verbintenis; zij komt boven de grens tussen die twee
+        sel = selectie(objecten=[{"naam": "Keuzedeel", "rij": 0},
+                                 {"naam": "Keuzedeel aanbod", "rij": 0},
+                                 {"naam": "Keuzedeel aanbod verbintenis", "rij": 0},
+                                 {"naam": "Aanmelding"}], rij_labels=[])
+        svg, melding = plaat(sel)
+        self.assertEqual(melding["band"],
+                         ["Aanmelding: boven de grens tussen Onderwijsaanbod en "
+                          "Onderwijsverbintenis"])
+        kolom = {t: doos(g) for t, g in groepen(svg, "groepering")}
+        vak = doos(vak_van(svg, "Aanmelding"))
+        midden = vak["x"] + vak["width"] / 2
+        aanbod, verbintenis = kolom["Onderwijsaanbod"], kolom["Onderwijsverbintenis"]
+        self.assertGreater(midden, aanbod["x"])
+        self.assertLess(midden, verbintenis["x"] + verbintenis["width"])
+
+    def test_given_twee_bandvakken_when_getekend_then_staan_zij_in_de_volgorde_van_hun_grens(self):
+        sel = selectie(objecten=[{"naam": "Keuzedeel", "rij": 0},
+                                 {"naam": "Keuzedeel aanbod", "rij": 0},
+                                 {"naam": "Keuzedeel aanbod verbintenis", "rij": 0},
+                                 {"naam": "Aanmelding"}, {"naam": "Plaatsingsgroep"}],
+                       rij_labels=[])
+        svg, melding = plaat(sel)
+        # Plaatsingsgroep raakt in deze uitsnede alleen de specificatie en komt boven die kolom;
+        # Aanmelding raakt het aanbod en de verbintenis en komt boven de grens ertussen
+        self.assertEqual(melding["band"],
+                         ["Plaatsingsgroep: boven de kolom Onderwijsspecificatie",
+                          "Aanmelding: boven de grens tussen Onderwijsaanbod en "
+                          "Onderwijsverbintenis"])
+        self.assertLess(doos(vak_van(svg, "Plaatsingsgroep"))["x"],
+                        doos(vak_van(svg, "Aanmelding"))["x"])
+
+    def test_given_een_bandvak_zonder_af_te_leiden_grens_when_getekend_then_zegt_de_melding_dat(self):
+        sel = selectie(objecten=[{"naam": "Keuzedeel", "rij": 0}, {"naam": "Persoon"}],
+                       rij_labels=[])
+        _, melding = plaat(sel)
+        self.assertEqual(melding["band"],
+                         ["Persoon: midden boven het raster, geen grens af te leiden uit "
+                          "zijn relaties"])
+
+    def test_given_twee_vakken_in_de_band_when_getekend_then_loopt_hun_relatie_als_lijn(self):
+        sel = selectie(objecten=[{"naam": "Keuzedeel", "rij": 0}, {"naam": "Persoon"},
+                                 {"naam": "Plaatsingsgroep"}], rij_labels=[])
+        svg, melding = plaat(sel)
+        self.assertIn("Association: Persoon naar Plaatsingsgroep", titels(svg, "relatie"))
+        self.assertEqual(melding["kruisingen"], 0)
+
+    def test_given_een_relatie_tussen_de_band_en_een_kolom_when_getekend_then_wordt_zij_een_verwijzing(self):
+        # de band trekt geen lijn naar een kolom; de relatie verdwijnt niet maar wordt een
+        # regel in het vak, en de melding zegt het
+        sel = selectie(objecten=[{"naam": "Keuzedeel", "rij": 0}, {"naam": "Plaatsingsgroep"}],
+                       rij_labels=[])
+        svg, melding = plaat(sel)
+        self.assertEqual(titels(svg, "relatie"), [])
+        self.assertIn("hangt aan Plaatsingsgroep",
+                      [(t.text or "") for t in vak_van(svg, "Keuzedeel").iter(f"{SVG}text")])
+        self.assertTrue(any("Plaatsingsgroep" in r for r in melding["weggelaten"]))
+
+    def test_given_een_expliciete_kolom_in_de_selectie_when_getekend_then_staat_het_vak_in_die_kolom(self):
+        # de uitweg voor wie de lijn wel wil: het objecttype in een kolom zetten
+        sel = selectie(objecten=[{"naam": "Keuzedeel", "rij": 0},
+                                 {"naam": "Plaatsingsgroep", "rij": 0,
+                                  "kolom": "Onderwijsspecificatie"}], rij_labels=[])
+        svg, _ = plaat(sel)
+        self.assertNotIn(tu.BAND_NAAM, titels(svg, "groepering"))
+        self.assertIn("Association: Keuzedeel naar Plaatsingsgroep", titels(svg, "relatie"))
+
+    def test_given_een_bandvak_boven_een_grens_when_getekend_then_belooft_de_legenda_een_brug(self):
+        uitleg = "band boven de kolommen: verbindt twee kolommen"
+        sel = selectie(objecten=[{"naam": "Keuzedeel aanbod", "rij": 0},
+                                 {"naam": "Keuzedeel aanbod verbintenis", "rij": 0},
+                                 {"naam": "Aanmelding"}], rij_labels=[])
+        self.assertIn(uitleg, teksten(plaat(sel)[0]))
+        self.assertNotIn(uitleg, teksten(plaat()[0]))
+
+    def test_given_een_bandvak_zonder_grens_when_getekend_then_belooft_de_legenda_geen_brug(self):
+        # een belofte die het beeld niet waarmaakt laat een lezer zoeken naar een lijn die er
+        # niet is; Plaatsingsgroep raakt hier alleen de specificatie
+        sel = selectie(objecten=[{"naam": "Keuzedeel", "rij": 0}, {"naam": "Plaatsingsgroep"}],
+                       rij_labels=[])
+        teksten_op_de_plaat = teksten(plaat(sel)[0])
+        self.assertIn("band boven de kolommen: hangt in het model aan geen kolom",
+                      teksten_op_de_plaat)
+        self.assertNotIn("band boven de kolommen: verbindt twee kolommen", teksten_op_de_plaat)
+
+    def test_given_een_uitsnede_met_een_band_when_gekeurd_then_blijft_zij_zonder_bevindingen(self):
+        sel = selectie(objecten=[{"naam": "Keuzedeel", "rij": 0},
+                                 {"naam": "Keuzedeel aanbod", "rij": 0},
+                                 {"naam": "Keuzedeel aanbod verbintenis", "rij": 0},
+                                 {"naam": "Aanmelding"}, {"naam": "Persoon"},
+                                 {"naam": "Plaatsingsgroep"}], rij_labels=[])
+        svg, melding = plaat(sel)
+        self.assertEqual(len(melding["band"]), 3)
+        self.assertEqual(melding["kruisingen"], 0)
+        with tempfile.TemporaryDirectory() as map:
+            pad = Path(map) / "band.svg"
+            pad.write_text(svg, encoding="utf-8")
+            bevindingen, maat = kp.keur(pad, max_kruisingen=0)
+        self.assertEqual([str(b) for b in bevindingen], [])
+        self.assertEqual(maat["kruisingen"], 0)
+
+    def test_given_alleen_vakken_zonder_kolom_when_getekend_then_draagt_de_plaat_alleen_de_band(self):
+        sel = selectie(objecten=[{"naam": "Persoon"}, {"naam": "Plaatsingsgroep"}], rij_labels=[])
+        svg, melding = plaat(sel)
+        self.assertEqual(melding["kolommen"], 0)
+        self.assertEqual(titels(svg, "groepering"), [tu.BAND_NAAM])
+        self.assertEqual(sorted(titels(svg, "vak")), ["Persoon", "Plaatsingsgroep"])
 
     # ----------------------------------------------------------------- accent --
 
@@ -228,8 +462,8 @@ class UitsnedeTests(unittest.TestCase):
     def test_given_een_gewijzigd_object_when_getekend_then_staat_het_nummer_met_het_merk_in_het_vak(self):
         svg, _ = plaat()
         inhoud = [(t.text or "") for t in vak_van(svg, "Minor").iter(f"{SVG}text")]
-        self.assertIn("1 nieuw", inhoud)
-        self.assertNotIn("1 nieuw", [(t.text or "") for t in vak_van(svg, "Keuzedeel").iter(f"{SVG}text")])
+        self.assertIn("1 toegevoegd", inhoud)
+        self.assertNotIn("1 toegevoegd", [(t.text or "") for t in vak_van(svg, "Keuzedeel").iter(f"{SVG}text")])
 
     def test_given_een_gewijzigd_object_when_getekend_then_staat_zijn_naam_vet_en_die_van_de_context_niet(self):
         svg, _ = plaat()
@@ -273,7 +507,7 @@ class UitsnedeTests(unittest.TestCase):
 
     def test_given_een_waarom_langer_dan_het_woordbudget_when_getekend_then_weigert_het_script(self):
         lang = " ".join(f"woord{i}" for i in range(tu.MAX_LEESWOORDEN))
-        sel = selectie(objecten=[{"naam": "Minor", "rij": 0, "merk": "nieuw", "waarom": lang}],
+        sel = selectie(objecten=[{"naam": "Minor", "rij": 0, "merk": "toegevoegd", "waarom": lang}],
                        rij_labels=[])
         with self.assertRaises(tu.Fout) as fout:
             plaat(sel)
@@ -282,7 +516,7 @@ class UitsnedeTests(unittest.TestCase):
 
     def test_given_een_waarom_op_het_woordbudget_when_getekend_then_staat_hij_er_gewoon_op(self):
         kort = " ".join(f"woord{i}" for i in range(tu.MAX_LEESWOORDEN - 1))
-        sel = selectie(objecten=[{"naam": "Minor", "rij": 0, "merk": "nieuw", "waarom": kort}],
+        sel = selectie(objecten=[{"naam": "Minor", "rij": 0, "merk": "toegevoegd", "waarom": kort}],
                        rij_labels=[])
         self.assertIn(kort, teksten(plaat(sel)[0]))
 
@@ -305,7 +539,7 @@ class UitsnedeTests(unittest.TestCase):
         mod["objecttypen"] += [{"naam": f"Proef {i}", "kolom": "Onderwijsaanbod", "scope": "binnen",
                                 "vulkleur": None, "oeapi": None}
                                for i in range(tu.MAX_ONDERREGELS + 1)]
-        sel = selectie(objecten=[{"naam": f"Proef {i}", "rij": 0, "merk": "nieuw",
+        sel = selectie(objecten=[{"naam": f"Proef {i}", "rij": 0, "merk": "toegevoegd",
                                   "waarom": "een reden"} for i in range(tu.MAX_ONDERREGELS + 1)],
                        rij_labels=[])
         with self.assertRaises(tu.Fout) as fout:
@@ -376,16 +610,15 @@ class UitsnedeTests(unittest.TestCase):
     def test_given_een_associatie_zonder_label_when_liggend_getekend_then_draagt_zij_dezelfde_kop_als_staand(self):
         # een liggende associatie zonder label liet haar kop eerder weg; dan las dezelfde soort
         # relatie liggend anders dan staand en beloofde de legenda een pijlpunt die ontbrak
-        sel = selectie(objecten=[{"naam": "Keuzedeel", "rij": 0},
-                                 {"naam": "Plaatsingsgroep", "rij": 0}], rij_labels=[])
+        sel = selectie(objecten=[{"naam": "Minor", "rij": 0},
+                                 {"naam": "Minor aanbod", "rij": 0}], rij_labels=[])
         svg, _ = plaat(sel)
         g = [x for t, x in groepen(svg, "relatie")
-             if t == "Association: Keuzedeel naar Plaatsingsgroep"][0]
+             if t == "Association: Minor naar Minor aanbod"][0]
         koppen = [p for p in paden(g) if p.get("fill") == tu.RELATIE]
         self.assertEqual(len(koppen), 1)
-        doel = doos(vak_van(svg, "Plaatsingsgroep"))
-        self.assertAlmostEqual(float(koppen[0]["d"][1:].split()[0]), doel["x"] + doel["width"],
-                               delta=0.5)
+        doel = doos(vak_van(svg, "Minor aanbod"))
+        self.assertAlmostEqual(float(koppen[0]["d"][1:].split()[0]), doel["x"], delta=0.5)
 
     def test_given_een_specialisatie_when_getekend_then_staat_de_holle_driehoek_bij_het_algemene_type(self):
         svg, _ = plaat()
@@ -410,8 +643,7 @@ class UitsnedeTests(unittest.TestCase):
                                delta=0.5)
 
     def test_given_een_toegangsrelatie_when_getekend_then_loopt_het_been_gestippeld(self):
-        sel = selectie(objecten=[{"naam": "Plaatsingsgroep", "rij": 0},
-                                 {"naam": "Lesgelegenheid", "rij": 0}])
+        sel = selectie(objecten=[{"naam": "Persoon"}, {"naam": "Aanmelding"}], rij_labels=[])
         svg, _ = plaat(sel)
         g = [x for t, x in groepen(svg, "relatie") if t.startswith("Access")][0]
         self.assertTrue(any(p.get("stroke-dasharray") == tu.GESTIPPELD["Access"] for p in paden(g)))
@@ -658,6 +890,82 @@ class UitsnedeTests(unittest.TestCase):
         regels = teksten(svg)
         self.assertEqual(regels[0], "Staat de minor naast het keuzedeel?")
         self.assertEqual(regels[1], "Reviewvraag Npuls-OKx/Public#123")
+
+    # -------------------------------------------------------------- voorbeeld --
+
+    def test_given_geen_voorbeeld_in_de_selectie_when_getekend_then_staat_er_geen_blok(self):
+        svg, melding = plaat()
+        self.assertEqual(titels(svg, "voorbeeld"), [])
+        self.assertIsNone(melding["voorbeeld"])
+
+    def test_given_een_voorbeeld_when_getekend_then_staat_het_blok_rechts_van_de_kolommen(self):
+        svg, _ = plaat(selectie(voorbeeld=voorbeeld()))
+        blok = doos(groepen(svg, "voorbeeld")[0][1])
+        rechterrand = max(doos(g)["x"] + doos(g)["width"] for _, g in groepen(svg, "groepering"))
+        self.assertGreaterEqual(blok["x"], rechterrand)
+
+    def test_given_een_voorbeeld_when_getekend_then_draagt_het_blok_zin_delen_niveau_en_vindplaats(self):
+        svg, _ = plaat(selectie(voorbeeld=voorbeeld()))
+        _, blok = groepen(svg, "voorbeeld")[0]
+        # de zin en de vindplaats breken over meer regels af, dus geplakt getoetst
+        geheel = " ".join((t.text or "") for t in blok.iter(f"{SVG}text"))
+        for verwacht in ("Ontwerpt een minor naast het keuzedeel", "actief werkwoord", "ontwerpt",
+                         "onderwerp", "een minor", "niveau", "programmaniveau",
+                         "Een niveau lager hangt het leeronderdeel.",
+                         "proef-regels.json, beeld P-01"):
+            self.assertIn(verwacht, geheel)
+
+    def test_given_een_voorbeeld_when_getekend_then_staat_het_niveau_in_de_accentkleur(self):
+        svg, _ = plaat(selectie(voorbeeld=voorbeeld()))
+        _, blok = groepen(svg, "voorbeeld")[0]
+        accent = [t.text for t in blok.iter(f"{SVG}text") if t.get("fill") == tu.ACCENT]
+        self.assertIn("programmaniveau", accent)
+        self.assertNotIn("ontwerpt", accent)
+
+    def test_given_een_voorbeeld_bij_een_genummerd_object_when_getekend_then_noemt_de_kop_dat_nummer(self):
+        svg, melding = plaat(selectie(voorbeeld=voorbeeld()))
+        self.assertEqual(titels(svg, "voorbeeld"), ["Voorbeeld bij 1 Minor"])
+        self.assertTrue(melding["voorbeeld"].startswith("Voorbeeld bij 1 Minor"))
+
+    def test_given_een_voorbeeld_bij_een_objecttype_buiten_de_selectie_when_getekend_then_weigert_het_script(self):
+        with self.assertRaises(tu.Fout) as fout:
+            plaat(selectie(voorbeeld=voorbeeld(bij="Les specificatie")))
+        self.assertIn("niet in de selectie", str(fout.exception))
+
+    def test_given_een_voorbeeld_zonder_vindplaats_when_getekend_then_weigert_het_script(self):
+        zonder = voorbeeld()
+        del zonder["vindplaats"]
+        with self.assertRaises(tu.Fout) as fout:
+            plaat(selectie(voorbeeld=zonder))
+        self.assertIn("verzinsel", str(fout.exception))
+
+    def test_given_een_deel_met_te_veel_woorden_when_getekend_then_weigert_het_script(self):
+        lang = voorbeeld(delen=[{"deel": "onderwerp",
+                                 "waarde": " ".join(["woord"] * (tu.MAX_VB_WOORDEN + 1))}])
+        with self.assertRaises(tu.Fout) as fout:
+            plaat(selectie(voorbeeld=lang))
+        self.assertIn("hoogstens", str(fout.exception))
+
+    def test_given_meer_delen_dan_het_plafond_when_getekend_then_weigert_het_script(self):
+        veel = voorbeeld(delen=[{"deel": f"deel {i}", "waarde": "waarde"}
+                                for i in range(tu.MAX_VB_DELEN + 1)])
+        with self.assertRaises(tu.Fout) as fout:
+            plaat(selectie(voorbeeld=veel))
+        self.assertIn("geen voorbeeld", str(fout.exception))
+
+    def test_given_een_uitsnede_met_een_voorbeeld_when_gekeurd_then_blijft_zij_zonder_bevindingen(self):
+        svg, _ = plaat(selectie(voorbeeld=voorbeeld()))
+        with tempfile.TemporaryDirectory() as map:
+            pad = Path(map) / "proef.svg"
+            pad.write_text(svg, encoding="utf-8")
+            bevindingen, _ = kp.keur(pad, max_kruisingen=0)
+        self.assertEqual([str(b) for b in bevindingen], [])
+
+    def test_given_een_voorbeeld_when_getekend_then_blijft_het_blok_binnen_het_doek(self):
+        svg, _ = plaat(selectie(voorbeeld=voorbeeld()))
+        breed = float(ET.fromstring(svg).get("width"))
+        blok = doos(groepen(svg, "voorbeeld")[0][1])
+        self.assertLessEqual(blok["x"] + blok["width"], breed)
 
     def test_given_de_plaat_when_getekend_then_draagt_zij_geen_externe_fonts_of_scripts(self):
         svg, _ = plaat()

@@ -1,5 +1,5 @@
 {
-  "id": "117-resultaten",
+  "id": "public-117-resultaten",
   "titel": "Op welke niveaus ontstaat een resultaat, en wat is daar beoordeling en wat deelname?",
   "herkomst": "Reviewvraag Npuls-OKx/Public#117 van @hjwielemaker, werkbrief Npuls-OKx/meta#335",
   "oeapi": true,
@@ -7,16 +7,21 @@
                  "toetsgelegenheid: formatief beoordeeld", "examengelegenheid: summatief beoordeeld",
                  "onderwijseenheid: afgerond", "opleidingsprogramma: gediplomeerd"],
   "objecten": [
-    {"naam": "Lesgelegenheid", "rij": 0},
-    {"naam": "Lesgelegenheid verbintenis", "rij": 0},
-    {"naam": "Lesgelegenheid resultaat", "rij": 0, "noot": "leslaag: scope-uitzondering"},
+    {"naam": "Lesgelegenheid", "rij": 0, "merk": "binnen scope", "nummer": 1,
+     "waarom": "de leslaag telt weer mee in het aanbod"},
+    {"naam": "Lesgelegenheid verbintenis", "rij": 0, "merk": "binnen scope", "nummer": 2,
+     "waarom": "de deelname aan een les wordt vastgelegd"},
+    {"naam": "Lesgelegenheid resultaat", "rij": 0, "merk": "binnen scope", "nummer": 3,
+     "noot": "Les specificatie blijft buiten scope",
+     "waarom": "op dit niveau ontstaat weer een resultaat"},
+    {"naam": "Aanwezigheid", "rij": 0, "merk": "buiten scope", "nummer": 4,
+     "waarom": "draagt de deelname onder toets en examen"},
 
     {"naam": "Leergelegenheid", "rij": 1},
     {"naam": "Leergelegenheid verbintenis", "rij": 1},
-    {"naam": "Leergelegenheid resultaat", "rij": 1, "merk": "anders", "nummer": 1,
-     "waarom": "buiten scope geplaatst; de verbintenis blijft erbinnen"},
-    {"naam": "Aanwezigheid", "rij": 1, "merk": "anders", "nummer": 2,
-     "waarom": "buiten scope geplaatst; draagt de deelname onder toets en examen"},
+    {"naam": "Leergelegenheid resultaat", "rij": 1, "merk": "buiten scope", "nummer": 5,
+     "waarom": "de verbintenis eronder blijft binnen scope"},
+    {"naam": "Formatief resultaat", "rij": 1},
 
     {"naam": "Toetsgelegenheid", "rij": 2},
     {"naam": "Toetsgelegenheid verbintenis", "rij": 2},
@@ -31,15 +36,11 @@
     {"naam": "Onderwijseenheid aanbod", "rij": 4},
     {"naam": "Onderwijseenheid aanbod verbintenis", "rij": 4},
     {"naam": "Onderwijseenheid resultaat", "rij": 4},
+    {"naam": "Summatief resultaat", "rij": 4},
     {"naam": "Summatieve resultaat structuur", "rij": 4},
 
     {"naam": "Opleidingsprogramma aanbod", "rij": 5},
     {"naam": "Opleidingsprogramma aanbod verbintenis", "rij": 5},
     {"naam": "Opleidingsprogramma resultaat", "rij": 5}
-  ],
-  "ontbreekt": [
-    {"van": "Onderwijseenheid resultaat", "naar": "Summatieve resultaat structuur",
-     "soort": "Association", "label": "ontbreekt: conform",
-     "waarom": "van de resultaten raakt de summatieve resultaatstructuur alleen het summatief resultaat, met het opschrift conform; het resultaat op een onderwijseenheid heeft in het model geen relatie met een resultaatstructuur en met geen enkel ander resultaat, zodat het model niet zegt hoe de beoordelingen op toets en examen tot de afronding van de eenheid leiden"}
   ]
 }

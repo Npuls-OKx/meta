@@ -1,42 +1,40 @@
 {
- "id": "118-leeruitkomst-als-competentieniveau",
+ "id": "public-118-leeruitkomst-als-competentieniveau",
  "titel": "Kan een leeruitkomst het niveau van een competentie uitdrukken?",
  "herkomst": "Reviewvraag Npuls-OKx/Public#118 van @JanHendrikvanSchaik, werkbrief Npuls-OKx/meta#336",
  "oeapi": true,
  "rij_labels": [
   "waar de competentie vandaan komt",
-  "wat naar een leeruitkomst vertaalt",
+  "de leeruitkomst, en wat erin vertaalt",
+  "het algemene type: de competentie",
   "waaruit een competentie bestaat"
  ],
  "objecten": [
   {
    "naam": "Werkveld of beroepenveld of deelnemer competentie",
    "rij": 0,
-   "merk": "nieuw",
+   "merk": "toegevoegd",
    "nummer": 1,
    "waarom": "stelt de eisen aan de beroepsbeoefenaar"
   },
   {
    "naam": "Landelijk Opleidingsprofiel",
    "rij": 0,
-   "merk": "nieuw",
+   "merk": "toegevoegd",
    "nummer": 2,
    "waarom": "bundelt competenties en eindkwalificaties van een opleiding"
   },
   {
    "naam": "Eindkwalificatie",
    "rij": 1,
-   "merk": "nieuw",
+   "merk": "toegevoegd",
    "nummer": 3,
    "waarom": "realiseert competenties, en vertaalt naar leeruitkomsten"
   },
   {
    "naam": "Leeruitkomst",
    "rij": 1,
-   "merk": "nieuw",
-   "nummer": 4,
-   "noot": "bevat subleeruitkomsten",
-   "waarom": "is een bijzonder geval van een competentie"
+   "noot": "OEAPI: LearningOutcome"
   },
   {
    "naam": "Competenties / Skills",
@@ -44,15 +42,44 @@
   },
   {
    "naam": "Kennis",
-   "rij": 2
+   "rij": 3
   },
   {
    "naam": "Inzicht",
-   "rij": 2
+   "rij": 3
   },
   {
    "naam": "Vaardigheid",
-   "rij": 2
+   "rij": 3
   }
- ]
+ ],
+ "voorbeeld": {
+  "bij": "Leeruitkomst",
+  "zin": "Voert medicatiebewaking uit onder begeleiding in de leerapotheek",
+  "delen": [
+   {
+    "deel": "actief werkwoord",
+    "waarde": "voert uit"
+   },
+   {
+    "deel": "type",
+    "waarde": "kerntaak B1-K1 farmaceutische patientenzorg"
+   },
+   {
+    "deel": "onderwerp",
+    "waarde": "medicatiebewaking"
+   },
+   {
+    "deel": "standaard",
+    "waarde": "onder begeleiding"
+   },
+   {
+    "deel": "context",
+    "waarde": "in de leerapotheek"
+   }
+  ],
+  "niveau": "werkprocesniveau, B1-K1-W2",
+  "gradatie": "Dezelfde competentie een niveau hoger, met een andere standaard: Biedt farmaceutische patientenzorg in een levensechte apotheekomgeving (kerntaakniveau).",
+  "vindplaats": "zin en gradatie letterlijk uit voorbeeld-lr1-regels.json; de vijf plekken zijn het Tuning-model uit begrippen/leeruitkomst-vorm/README.md"
+ }
 }

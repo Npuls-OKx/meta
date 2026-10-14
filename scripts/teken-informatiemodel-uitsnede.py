@@ -28,10 +28,31 @@ De ordening van het beeld, in twee assen:
   wat de vraag vraagt: zij staan naast elkaar en niet onder elkaar.
 
 Op de grote plaat is `Resultaatstructuur` een band onder de kolommen en zweeft een handvol
-objecttypen zonder kolom erboven. Een uitsnede draagt daar te weinig vakken voor: beide
-krijgen hier een eigen groepering in de rij van kolommen, `Resultaatstructuur` rechts en de
-objecttypen zonder kolom links onder de naam `Buiten de kolommen`. De groepering blijft zo
-zichtbaar en elke lijn blijft haaks.
+objecttypen zonder kolom erboven. `Resultaatstructuur` krijgt hier een eigen groepering
+rechts in de rij van kolommen; de objecttypen zonder kolom krijgen een band boven de
+kolommen, met `Boven de kolommen` op de tab.
+
+Die band is geen restbak maar een ontwerpregel: een objecttype zonder kolom is vaak de
+verbindende factor tussen de ene en de andere kolom. `Aanmelding` verbindt aanbod en
+verbintenis, want zij is de intentie om deel te nemen; de inschrijving formaliseert die
+intentie en staat daarom wel binnen de verbintenis. Zo ook `Verzoek tot Aanbod /
+Intekening op specificatie`: de brug tussen de specificatie en het aanbod. Elk vak in de
+band komt daarom boven de kolomgrens te staan die het overbrugt, afgeleid uit zijn
+relaties: de kolommen van zijn buren in de uitsnede, en zonder zulke buur de kolommen van
+zijn buren in het hele model die in de uitsnede voorkomen. Een vak zonder af te leiden
+grens komt midden boven het raster.
+
+Wat de band bewust niet doet: zij trekt geen lijn naar een vak in een kolom. Zo'n lijn zou
+door de tab van die kolom heen zakken en een eigen stelsel banen in de goot vragen; een
+relatie tussen de band en een kolom wordt daarom een verwijzing in het vak en staat in de
+melding. Wie die lijn wel wil, geeft het objecttype in de selectie een expliciete `kolom`;
+dan staat het in die kolom en loopt de relatie als gewone lijn.
+
+Een gewijzigd objecttype draagt niet dat het gewijzigd is maar wat er met hem gebeurde: het
+veld `merk` is een opsomming van soorten wijziging (`toegevoegd`, `verwijderd`, `hernoemd`,
+`binnen scope`, `buiten scope`, `herplaatst`). De korte naam staat achter het nummer in het
+vak, de hele uitleg in de legenda. De oude waarden `nieuw` en `anders` zijn vervallen; het
+script weigert ze met de soorten erbij, want zij zeggen dat er iets veranderde en niet wat.
 
 Twee keuzes die een lezer anders op het verkeerde been zetten:
 
@@ -54,6 +75,15 @@ geen esthetische keuze maar een meetbare: tussen de vakken lopen de horizontale 
 door de rijgoot de verticale, en geen van beide komt ooit binnen een vak. Een lus die
 binnen zijn eigen vak blijft, levert daarmee per constructie geen kruising op, ook niet
 wanneer drie vakken naast elkaar er een dragen.
+
+Een vraag als "kan een leeruitkomst het niveau van een competentie uitdrukken?" is met
+structuur alleen niet beantwoord. Een selectie mag daarom een `voorbeeld` meegeven: een
+ingevuld geval, letterlijk overgenomen uit een bestaand bestand en met zijn vindplaats erbij,
+dat als eigen blok rechts naast de kolommen komt te staan. Het blok draagt de zin, de delen
+van de vorm onder elkaar, het niveau in de accentkleur als metagegeven ernaast, en onderaan
+de vindplaats. Het staat naast het raster en niet eronder, want het is het antwoord en geen
+uitleg bij de plaat; zonder vindplaats weigert het script, want een voorbeeld zonder herkomst
+is een verzinsel.
 
 De tekst onder het beeld is begrensd, want een uitsnede die zichzelf in proza uitlegt is
 geen plaat meer. Per genummerd objecttype staat er een regel van hoogstens twaalf woorden
@@ -90,11 +120,12 @@ ACCENT = "#d9531e"            # dezelfde accentkleur als scripts/teken-hoofdplaa
 RELATIE = "#444"
 KOL_VUL, KOL_RAND, KOL_TAB = "#f4f4f4", "#d8ddda", "#e4e4dc"
 
-GEEN_KOLOM = "Buiten de kolommen"
+BAND_NAAM = "Boven de kolommen"   # de tab van de band met de objecttypen zonder kolom
+BAND_RIJ = -1                     # hun rij-index: boven rij 0, buiten de rijen van het raster
 # De kolomvolgorde van de grote plaat. Het kwalificatiekader staat er onder beide namen in:
 # in het model is `Kwalificatiekader MBO` hernoemd naar `Kwalificatiekader` met MBO en HO als
 # subgroepen, en een uitsnede moet op een oudere en een verse informatiemodel.json werken.
-KOLOMVOLGORDE = [GEEN_KOLOM, "Kwalificatiekader", "Kwalificatiekader MBO",
+KOLOMVOLGORDE = ["Kwalificatiekader", "Kwalificatiekader MBO",
                  "Onderwijskundigkader instelling", "Onderwijsspecificatie", "Onderwijsaanbod",
                  "Onderwijsverbintenis", "Onderwijsresultaat", "Resultaatstructuur"]
 
@@ -109,17 +140,40 @@ LUS_MARGE = 12                       # de onderste poot ligt zoveel boven de ond
 LUS_VAK_H = 60                       # een vak met een lus draagt haar onder het pictogram
 CEL_GAT = 24                         # twee vakken naast elkaar in dezelfde cel
 KOL_MARGE, KOL_GOOT, KOL_TAB_H = 14, 56, 24
+BAND_GOOT = 28                       # tussen de onderrand van de band en de tabs van de kolommen
 RIJ_GOOT, BAAN, OMWEG_BAAN = 56, 18, 14
 DOEK_MARGE = 16
 TITEL_MAAT, HERKOMST_MAAT, LEES_MAAT, LEGENDA_MAAT = 17, 12, 13, 11
 LEES_GOOT = 14                       # de goot tussen de naamkolom en de redenkolom eronder
 MAX_VERWIJZINGEN = 2                 # meer verwijzingen op een vak maken het vak een alinea
+VB_MARGE, VB_REGEL = 14, 17          # het voorbeeldblok naast het raster
+VB_MAAT, VB_ZIN_MAAT, VB_BRON_MAAT = 12, 13, 10
+VB_B = 300                           # de breedte waarop de zin en de slotregel afbreken
+VB_LABEL_GOOT = 14                   # tussen de naam van een deel en zijn waarde
+MAX_VB_DELEN = 7                     # meer delen maken van de ontleding een tabel
+MAX_VB_WOORDEN = 8                   # woorden in de waarde van een deel
+MAX_VB_ZINWOORDEN = 20               # woorden in de voorbeeldzin zelf
 
 MAX_VAKKEN, MAX_KOLOMMEN, MAX_RIJEN = 24, 8, 6
 MAX_LEESWOORDEN = 12                 # woorden in de regel onder het beeld, de naam meegerekend
 MAX_ONDERREGELS = 8                  # regels tekst onder het beeld, de legenda meegerekend
 
-MERKEN = {"nieuw", "anders", "hernoemd"}
+# De soorten wijziging die een modelronde oplevert, elk met de korte naam in het vak en de
+# uitleg in de legenda. De opsomming volgt de ronde zelf: het kwalificatiekader van het hoger
+# onderwijs en de minor zijn toegevoegd, het cohort is van de student naar de inschrijving
+# verhuisd, de leslaag is op de specificatie buiten scope geplaatst en op het aanbod en de
+# verbintenis juist erbinnen gehaald, en twee objecttypen zijn hernoemd. `verwijderd` hoort
+# erbij omdat een ronde ook objecttypen opruimt.
+# De legenda-uitleg opent met het woord dat in het vak staat: de tegels dragen alle dezelfde
+# oranje rand, dus het woord is wat een lezer van het vak naar de tegel brengt.
+MERKEN = {"toegevoegd": ("toegevoegd", "toegevoegd: nieuw in het model"),
+          "verwijderd": ("verwijderd", "verwijderd: uit het model gehaald"),
+          "hernoemd": ("hernoemd", "hernoemd: dezelfde plek, een andere naam"),
+          "binnen scope": ("binnen scope", "binnen scope: binnen scope van OKx geplaatst"),
+          "buiten scope": ("buiten scope", "buiten scope: buiten scope van OKx geplaatst"),
+          "herplaatst": ("herplaatst", "herplaatst: aan een ander objecttype gehangen")}
+# De oude merken zeiden dat er iets veranderde en niet wat; zij wijzen nu naar een soort.
+VERVALLEN_MERKEN = {"nieuw": "toegevoegd", "anders": "herplaatst, binnen scope of buiten scope"}
 GESTIPPELD = {"Access": "4 3", "Realization": "4 3", "Influence": "6 4"}
 VORMNAAM = {"Specialization": "specialisatie: een bijzonder geval van het algemenere type",
             "Aggregation": "aggregatie: het geheel bestaat uit deze delen",
@@ -367,6 +421,31 @@ def _controleer_toelichting(selectie):
                    f"{MAX_LEESWOORDEN} woorden, en de vormtaal staat in de legenda")
 
 
+def _controleer_merk(e, objecten):
+    """Het merk als soort wijziging. Een vervallen merk wijst naar de soort die het vervangt.
+
+    `verwijderd` is de enige soort waarbij de naam juist niet in het model hoort te staan; zij
+    kan daarom geen kolom en geen scope uit het model halen en krijgt die van de auteur.
+    """
+    merk = e.get("merk")
+    if merk is None:
+        return
+    if merk in VERVALLEN_MERKEN:
+        raise Fout(f"{e['naam']!r}: merk {merk!r} is vervallen, want het zegt dat er iets "
+                   f"veranderde en niet wat. Kies {VERVALLEN_MERKEN[merk]} of een andere soort "
+                   f"uit {sorted(MERKEN)}")
+    if merk not in MERKEN:
+        raise Fout(f"{e['naam']!r}: merk {merk!r} is niet een van {sorted(MERKEN)}")
+    if merk != "verwijderd":
+        return
+    if norm(e["naam"]) in objecten:
+        raise Fout(f"{e['naam']!r}: merk 'verwijderd' terwijl het objecttype nog in het model "
+                   "staat; kies de soort die bij de wijziging hoort")
+    if not e.get("kolom"):
+        raise Fout(f"{e['naam']!r}: een verwijderd objecttype staat niet meer in het model en "
+                   "haalt zijn kolom daar dus niet uit; geef de kolom in de selectie mee")
+
+
 def entries(selectie, objecten):
     """De gekozen objecttypen als werklijst, met hun merk, nummer en toelichting."""
     ruwe = selectie.get("objecten")
@@ -377,12 +456,10 @@ def entries(selectie, objecten):
         e = {"naam": ruw} if isinstance(ruw, str) else dict(ruw)
         if not e.get("naam"):
             raise Fout(f"een item in objecten heeft geen naam: {ruw!r}")
-        merk = e.get("merk")
-        if merk is not None and merk not in MERKEN:
-            raise Fout(f"{e['naam']!r}: merk {merk!r} is niet een van {sorted(MERKEN)}")
-        e["gewijzigd"] = merk is not None
+        _controleer_merk(e, objecten)
+        e["gewijzigd"] = e.get("merk") is not None
         uit.append(e)
-    _controleer_namen([e["naam"] for e in uit], objecten)
+    _controleer_namen([e["naam"] for e in uit if e.get("merk") != "verwijderd"], objecten)
     dubbel = [n for n in {norm(e["naam"]) for e in uit}
               if sum(1 for e in uit if norm(e["naam"]) == n) > 1]
     if dubbel:
@@ -391,45 +468,60 @@ def entries(selectie, objecten):
         raise Fout(f"{len(uit)} objecttypen is te veel voor een uitsnede (hoogstens {MAX_VAKKEN}); "
                    "splits de vraag in twee uitsneden")
     nummer = 0
-    for e in uit:
+    for volgorde, e in enumerate(uit):
+        e["volgorde"] = volgorde
         if e["gewijzigd"]:
             nummer += 1
             e["nummer"] = e.get("nummer") or nummer
         _controleer_waarom(e)
-        obj = objecten[norm(e["naam"])]
+        obj = objecten.get(norm(e["naam"])) or dict(naam=e["naam"], kolom=e.get("kolom"),
+                                                    scope="buiten", vulkleur="#e8e8e8", oeapi=None)
         e["obj"] = obj
-        e["kolom"] = e.get("kolom") or obj.get("kolom") or GEEN_KOLOM
+        e["kolom"] = e.get("kolom") or obj.get("kolom") or BAND_NAAM
+        e["band"] = norm(e["kolom"]) == norm(BAND_NAAM)
     return uit
 
 
 def rijen_toekennen(lijst, relaties_model, selectie):
     """De rij-index per objecttype. De auteur kiest de rijen; zonder keuze komt het algemene
-    type dat in de selectie gespecialiseerd wordt bovenaan en de rest eronder."""
-    met_rij = [e for e in lijst if e.get("rij") is not None]
-    if met_rij and len(met_rij) != len(lijst):
-        zonder = [e["naam"] for e in lijst if e.get("rij") is None]
+    type dat in de selectie gespecialiseerd wordt bovenaan en de rest eronder.
+
+    De band boven de kolommen doet niet aan rijen mee: zij ligt boven het hele raster en
+    draagt een eigen rij-index.
+    """
+    in_kolom = [e for e in lijst if not e["band"]]
+    for e in lijst:
+        if e["band"]:
+            e["rij_index"] = BAND_RIJ
+    met_rij = [e for e in in_kolom if e.get("rij") is not None]
+    if met_rij and len(met_rij) != len(in_kolom):
+        zonder = [e["naam"] for e in in_kolom if e.get("rij") is None]
         raise Fout("geef een rij voor alle objecttypen of voor geen; deze missen er een: "
                    + "; ".join(zonder))
     if not met_rij:
-        gekozen = {norm(e["naam"]) for e in lijst}
+        gekozen = {norm(e["naam"]) for e in in_kolom}
         algemeen = {norm(r["naar"]) for r in relaties_model
                     if r["soort"] == "Specialization"
                     and norm(r["van"]) in gekozen and norm(r["naar"]) in gekozen}
-        for e in lijst:
+        for e in in_kolom:
             e["rij"] = 0 if norm(e["naam"]) in algemeen or not algemeen else 1
-    waarden = sorted({e["rij"] for e in lijst})
+    waarden = sorted({e["rij"] for e in in_kolom})
     if len(waarden) > MAX_RIJEN:
         raise Fout(f"{len(waarden)} rijen is te veel voor een uitsnede (hoogstens {MAX_RIJEN})")
     index = {w: i for i, w in enumerate(waarden)}
-    for e in lijst:
+    for e in in_kolom:
         e["rij_index"] = index[e["rij"]]
     labels = selectie.get("rij_labels") or []
     return len(waarden), [labels[i] if i < len(labels) else "" for i in range(len(waarden))]
 
 
 def kolommen_van(lijst, selectie):
-    """De kolommen die in de uitsnede voorkomen, in de volgorde van de grote plaat."""
-    aanwezig = {e["kolom"] for e in lijst}
+    """De kolommen die in de uitsnede voorkomen, in de volgorde van de grote plaat.
+
+    De band boven de kolommen is geen kolom en kost dus geen kolombreedte; dat was de reden om
+    haar uit de rij van kolommen te halen.
+    """
+    aanwezig = {e["kolom"] for e in lijst if not e["band"]}
     opgegeven = selectie.get("kolommen")
     if opgegeven:
         ontbreekt = aanwezig - set(opgegeven)
@@ -443,6 +535,59 @@ def kolommen_van(lijst, selectie):
     if len(uit) > MAX_KOLOMMEN:
         raise Fout(f"{len(uit)} kolommen is te veel voor een uitsnede (hoogstens {MAX_KOLOMMEN})")
     return uit
+
+
+# ----------------------------------------------------------------------- band --
+
+def band_bruggen(lijst, relaties_model, objecten, kolommen):
+    """Per objecttype in de band de kolomgrens die het overbrugt, als (linkerkolom, rechterkolom).
+
+    De grens volgt uit de relaties en niet uit een lijstje in het script: eerst de kolommen van
+    de buren die zelf in de uitsnede staan, en zonder zulke buur de kolommen van de buren in het
+    hele model die in de uitsnede voorkomen. Zo komt `Aanmelding` boven de grens tussen aanbod en
+    verbintenis te staan, en `Verzoek tot Aanbod / Intekening op specificatie` boven de grens
+    tussen specificatie en aanbod. Valt er niets af te leiden, dan is de uitkomst None en komt
+    het vak midden boven het raster.
+    """
+    index = {k: i for i, k in enumerate(kolommen)}
+    in_kolom = {norm(e["naam"]): e["kolom"] for e in lijst if not e["band"]}
+    uit = {}
+    for e in (x for x in lijst if x["band"]):
+        naam = norm(e["naam"])
+        dichtbij, verder = set(), set()
+        for r in relaties_model:
+            for hier, daar in ((r["van"], r["naar"]), (r["naar"], r["van"])):
+                if norm(hier) != naam:
+                    continue
+                ander = norm(daar)
+                if ander in in_kolom:
+                    dichtbij.add(in_kolom[ander])
+                else:
+                    kolom = norm((objecten.get(ander) or {}).get("kolom"))
+                    if kolom in index:
+                        verder.add(kolom)
+        gevonden = sorted(dichtbij or verder, key=lambda k: index[k])
+        uit[id(e)] = (gevonden[0], gevonden[-1]) if gevonden else None
+    return uit
+
+
+def band_ordenen(lijst, bruggen, kolommen):
+    """De band van links naar rechts, in de volgorde van de grens die elk vak overbrugt.
+
+    De volgorde valt hier en niet bij het plaatsen, want de relaties binnen de band lopen tussen
+    buren in de band; wie later nog zou schuiven, zou een lijn over een vak heen leggen. Een vak
+    zonder af te leiden grens komt in het midden, op de plek waar het ook getekend wordt.
+    """
+    midden = (len(kolommen) - 1) / 2 if kolommen else 0
+    index = {k: i for i, k in enumerate(kolommen)}
+
+    def sleutel(e):
+        brug = bruggen[id(e)]
+        plek = midden if not brug else (index[brug[0]] + index[brug[1]]) / 2
+        return (plek, e["volgorde"])
+
+    band = sorted((e for e in lijst if e["band"]), key=sleutel)
+    return [e for e in lijst if not e["band"]] + band
 
 
 # ------------------------------------------------------------------ relaties --
@@ -520,8 +665,9 @@ def relaties_kiezen(model, selectie, lijst, kolommen):
             verticaal.append(rij)
         else:
             raise Fout(f"ontbreekt {o['van']!r} naar {o['naar']!r} is niet haaks te lopen; "
-                       "zet de twee objecttypen in dezelfde rij of in aangrenzende rijen "
-                       "van dezelfde kolom")
+                       "zet de twee objecttypen in dezelfde rij of in aangrenzende rijen van "
+                       "dezelfde kolom, en haal er zo nodig een uit de band boven de kolommen "
+                       "door het een expliciete kolom te geven")
     for h in horizontaal + verticaal:
         if h.get("ontbreekt"):
             continue
@@ -571,7 +717,7 @@ def maat_vakken(lijst, verwijzingen, lussen, oeapi):
         e["naamregels"] = afbreken(e["naam"], TEKST_B, NAAM_MAAT, True)
         extra = []
         if e["gewijzigd"]:
-            extra.append((f"{e['nummer']} {e['merk']}", ACCENT, True))
+            extra.append((f"{e['nummer']} {MERKEN[e['merk']][0]}", ACCENT, True))
         if oeapi and e["gewijzigd"] and e["obj"].get("oeapi"):
             extra.append(("OEAPI: " + ", ".join(e["obj"]["oeapi"]), MUTED, False))
         if e.get("noot"):
@@ -627,12 +773,21 @@ def label_rechterrand(rel):
     return rand + max(tw(r, LABEL_MAAT) for r in regels)
 
 
-def plaatsen(lijst, kolommen, rijen, horizontaal, verticaal, cel):
+def plaatsen(lijst, kolommen, rijen, horizontaal, verticaal, cel, bruggen=None):
     """De plek van elk vak, elke rijbaan en elke rijgoot; alles in pixels op het doek.
 
     De maatvoering is optelwerk en geen zoekproces: de kolom volgt uit het veld kolom, de rij
-    uit de selectie, en de plek in de cel uit de volgorde in de selectie.
+    uit de selectie, en de plek in de cel uit de volgorde in de selectie. De band boven de
+    kolommen komt er als laatste bij, want haar ankers hangen aan de kolombreedtes.
+
+    De y van een vak is hier nog de hoogte binnen het raster; `bouw` schuift alles naar beneden.
+    De band ligt boven het raster en krijgt daarom een negatieve y.
     """
+    lijst, band = [e for e in lijst if not e["band"]], [e for e in lijst if e["band"]]
+    cel = {sleutel: leden for sleutel, leden in cel.items() if sleutel[0] != BAND_RIJ}
+    horizontaal, band_h = ([h for h in horizontaal if h["bron"]["rij_index"] != BAND_RIJ],
+                           [h for h in horizontaal if h["bron"]["rij_index"] == BAND_RIJ])
+
     # 1. gaten binnen een cel: breder waar een relatie met een label tussen twee vakken loopt
     gat = {}
     for h in horizontaal:
@@ -752,8 +907,77 @@ def plaatsen(lijst, kolommen, rijen, horizontaal, verticaal, cel):
         onder = rij_y[g + 1]
         for i, v in enumerate(groep):
             v["baan_y"] = onder - 14 - i * OMWEG_BAAN
+
+    # 9. de band boven de kolommen: elk vak boven de grens die het overbrugt
+    band_hoog, band_rand = plaats_band(band, band_h, bruggen or {}, kol_x, kol_breedte,
+                                       raster_breed)
     return dict(kol_x=kol_x, kol_breedte=kol_breedte, rij_y=rij_y, rij_h=rij_h,
-                breed=raster_breed, hoog=raster_hoog)
+                breed=raster_breed, hoog=raster_hoog, band_hoog=band_hoog, band_rand=band_rand)
+
+
+def band_anker(brug, kol_x, kol_breedte, raster_breed):
+    """De x waar het midden van een bandvak hoort te liggen: boven de grens die het overbrugt.
+
+    Bij twee kolommen is dat het midden tussen de rechterrand van de linkerkolom en de
+    linkerrand van de rechterkolom, en dus de goot ertussen wanneer zij naast elkaar staan. Bij
+    een kolom is het het midden van die kolom, en zonder grens het midden van het raster.
+    """
+    if not brug:
+        return DOEK_MARGE + raster_breed / 2
+    links, rechts = brug
+    if links == rechts:
+        return kol_x[links] + kol_breedte[links] / 2
+    return ((kol_x[links] + kol_breedte[links]) + kol_x[rechts]) / 2
+
+
+def plaats_band(band, band_h, bruggen, kol_x, kol_breedte, raster_breed):
+    """De plek van elk vak in de band en van elke lijn erbinnen. Geeft (hoogte, rechterrand).
+
+    De band is een rij boven het raster: elk vak komt met zijn midden op zijn anker, en schuift
+    naar rechts zodra het anker het tegen zijn linkerbuur zou aanleggen. De vakken staan al in
+    de volgorde van hun anker, dus dat schuiven gaat een kant op en legt geen lijn over een vak.
+    """
+    if not band:
+        return 0, DOEK_MARGE
+    for e in band:
+        e["brug"] = bruggen.get(id(e))
+        e["anker"] = band_anker(e["brug"], kol_x, kol_breedte, raster_breed)
+    # het gat tussen twee buren is breed genoeg voor het opschrift van de lijn ertussen
+    plek = {id(e): i for i, e in enumerate(band)}
+    gat = {}
+    for h in band_h:
+        i = min(plek[id(h["bron"])], plek[id(h["doel"])])
+        nodig = max([tw(r, LABEL_MAAT) for r in labelregels(h)] or [0]) + 24
+        gat[i] = max(gat.get(i, CEL_GAT), nodig)
+
+    links_grens = DOEK_MARGE + KOL_MARGE
+    x, laatste = links_grens, CEL_GAT
+    for i, e in enumerate(band):
+        e["x"] = max(e["anker"] - e["w"] / 2, x)
+        laatste = gat.get(i, CEL_GAT)
+        x = e["x"] + e["w"] + laatste
+    # een vak dat zijn buurman wegduwt, duwt de band aan de rechterkant buiten het raster; de
+    # hele band schuift dan terug tot zij er weer binnen past of tot zij links aanloopt
+    overloop = max(0, x - laatste + KOL_MARGE - (DOEK_MARGE + raster_breed))
+    terug = min(overloop, band[0]["x"] - links_grens)
+    for e in band:
+        e["x"] -= terug
+    banen = {}
+    for h in band_h:
+        links, rechts = sorted((h["bron"], h["doel"]), key=lambda e: e["x"])
+        banen.setdefault((round(links["x"] + links["w"]), round(rechts["x"])), []).append(h)
+    for groep in banen.values():
+        for n, h in enumerate(groep):
+            h["baan"] = n
+    hoog = max([e["h"] for e in band]
+               + [20 + (max([len(g) for g in banen.values()] or [1]) - 1) * BAAN + 10])
+    for e in band:
+        e["vak_h"] = hoog
+        e["y"] = -(KOL_TAB_H + BAND_GOOT + hoog)
+    for h in band_h:
+        h["y"] = -(KOL_TAB_H + BAND_GOOT + hoog) + 20 + h["baan"] * BAAN
+    rand = max(e["x"] + e["w"] for e in band) + KOL_MARGE
+    return hoog, rand
 
 
 # ------------------------------------------------------------------ tekenen --
@@ -803,10 +1027,23 @@ def legenda_regels(lijst, horizontaal, verticaal, lussen=(), verwijzingen=()):
     uit = []
     if any(kleuren(e["obj"])[0] == BUS for e in lijst):
         uit.append(("vak", BUS, BUS_L, "OKx referentiekader"))
-    if any(kleuren(e["obj"])[0] == GRIJS for e in lijst):
+    if any(kleuren(e["obj"])[0] == GRIJS and e.get("merk") != "verwijderd" for e in lijst):
         uit.append(("vak", GRIJS, GRIJS_L, "Buiten scope binnen OKx"))
-    if any(e["gewijzigd"] for e in lijst):
-        uit.append(("rand", None, ACCENT, "gewijzigd in deze modelronde"))
+    # per soort wijziging een eigen tegel: een lezer ziet zo niet dat er iets veranderde maar wat.
+    # De vulling van de tegel is die van het vak zelf, zodat de twee scopetegels uit elkaar
+    # te houden zijn aan de kleur die zij op het beeld opleveren.
+    vulling = {"binnen scope": BUS, "buiten scope": GRIJS, "verwijderd": GRIJS}
+    for merk, (_, uitleg) in MERKEN.items():
+        if any(e.get("merk") == merk for e in lijst):
+            uit.append(("rand", vulling.get(merk, "#ffffff"), ACCENT, uitleg))
+    if any(e["band"] for e in lijst):
+        # de tegel belooft alleen een brug zodra er een vak boven een grens staat; een band
+        # zonder brug draagt een objecttype dat in het model aan geen kolom hangt, en een
+        # belofte die het beeld niet waarmaakt laat een lezer zoeken naar een lijn die er is.
+        brug = any(e["band"] and e.get("brug") and e["brug"][0] != e["brug"][1] for e in lijst)
+        uit.append(("band", None, KOL_RAND,
+                    "band boven de kolommen: verbindt twee kolommen" if brug
+                    else "band boven de kolommen: hangt in het model aan geen kolom"))
     if any(r.get("ontbreekt") for r in horizontaal + verticaal):
         uit.append(("ontbreekt", None, ACCENT, "ontbreekt nog in het model"))
     for soort in ("Specialization", "Aggregation", "Composition", "Association", "Access",
@@ -831,9 +1068,13 @@ def legenda(x, y, regels, maxw):
         if soort == "vak":
             uit += box(cx, cy - 10, 18, 12, a, b)
         elif soort == "rand":
-            uit += box(cx, cy - 10, 18, 12, "#ffffff", b, 2) + \
+            uit += box(cx, cy - 10, 18, 12, a or "#ffffff", b, 2) + \
                 f'<rect x="{cx - 2:.0f}" y="{cy - 12:.0f}" width="22" height="16" rx="3" ' \
                 f'fill="none" stroke="{b}" stroke-width="2"/>'
+        elif soort == "band":
+            # de tegel toont wat op de plaat staat: een band over twee kolommen heen
+            uit += box(cx, cy - 16, 32, 8, KOL_TAB, b)
+            uit += box(cx, cy - 5, 14, 9, KOL_VUL, b) + box(cx + 18, cy - 5, 14, 9, KOL_VUL, b)
         elif soort == "ontbreekt":
             uit += (f'<path d="M{cx:.0f} {cy - 4:.0f}H{cx + 30:.0f}" fill="none" stroke="{b}" '
                     f'stroke-width="2.6" stroke-dasharray="6 5"/>')
@@ -858,6 +1099,118 @@ def legenda(x, y, regels, maxw):
         uit += text(cx + 44, cy, tekst, LEGENDA_MAAT, fill=MUTED)
         cx += breed
     return uit, hoogte
+
+
+# --------------------------------------------------------------- voorbeeld --
+
+def voorbeeld_lezen(selectie, lijst):
+    """Het voorbeeldblok uit de selectie, gecontroleerd en gemeten. Geeft None zonder blok.
+
+    Een uitsnede toont de structuur; een vraag als "kan een leeruitkomst het niveau van een
+    competentie uitdrukken?" is pas beantwoord zodra er een ingevuld geval naast staat. Dat
+    geval krijgt een eigen blok naast het raster, en geen alinea onder het beeld: het is geen
+    uitleg bij de plaat maar het antwoord zelf, ontleed in de delen van de vorm.
+
+    Vier eisen houden het blok een voorbeeld en maken er geen betoog van: het hangt aan een
+    objecttype dat op de plaat staat (`bij`), het draagt zijn vindplaats, elk deel blijft
+    binnen MAX_VB_WOORDEN woorden en er zijn er hoogstens MAX_VB_DELEN. Zonder vindplaats
+    weigert het script, want een voorbeeld zonder herkomst is een verzinsel.
+    """
+    vb = selectie.get("voorbeeld")
+    if not vb:
+        return None
+    per_naam = {norm(e["naam"]): e for e in lijst}
+    bij = norm(vb.get("bij"))
+    if not bij:
+        raise Fout("het voorbeeld noemt geen bij; zeg bij welk objecttype op de plaat het hoort")
+    if bij not in per_naam:
+        raise Fout(f"het voorbeeld hoort bij {vb['bij']!r}, dat niet in de selectie staat")
+    zin = norm(vb.get("zin"))
+    if not zin:
+        raise Fout("het voorbeeld draagt geen zin; neem het voorbeeld letterlijk over")
+    if len(zin.split()) > MAX_VB_ZINWOORDEN:
+        raise Fout(f"de voorbeeldzin telt {len(zin.split())} woorden (hoogstens "
+                   f"{MAX_VB_ZINWOORDEN}); neem een voorbeeld dat op het blok past")
+    if not norm(vb.get("vindplaats")):
+        raise Fout("het voorbeeld draagt geen vindplaats; een voorbeeld zonder herkomst is een "
+                   "verzinsel, neem er een over uit een bestaand bestand en noem dat erbij")
+    delen = list(vb.get("delen") or [])
+    if not delen:
+        raise Fout("het voorbeeld draagt geen delen; ontleed de zin in de delen van de vorm")
+    if len(delen) > MAX_VB_DELEN:
+        raise Fout(f"het voorbeeld telt {len(delen)} delen (hoogstens {MAX_VB_DELEN}); een "
+                   "langere ontleding is een tabel en geen voorbeeld")
+    rijen = []
+    for d in delen:
+        naam, waarde = norm(d.get("deel")), norm(d.get("waarde"))
+        if not naam or not waarde:
+            raise Fout(f"een deel van het voorbeeld mist deel of waarde: {d!r}")
+        if len(waarde.split()) > MAX_VB_WOORDEN:
+            raise Fout(f"het deel {naam!r} telt {len(waarde.split())} woorden (hoogstens "
+                       f"{MAX_VB_WOORDEN}); houd de waarde bij wat in de zin staat")
+        rijen.append((naam, waarde, False))
+    niveau = norm(vb.get("niveau"))
+    if niveau:
+        if len(niveau.split()) > MAX_VB_WOORDEN:
+            raise Fout(f"het niveau telt {len(niveau.split())} woorden (hoogstens "
+                       f"{MAX_VB_WOORDEN})")
+        rijen.append(("niveau", niveau, True))
+    doel = per_naam[bij]
+    kop = f"Voorbeeld bij {doel['nummer']} {doel['naam']}" if doel.get("nummer") \
+        else f"Voorbeeld bij {doel['naam']}"
+    return dict(kop=kop, bij=doel["naam"], zin=zin, rijen=rijen,
+                zinregels=afbreken(zin, VB_B, VB_ZIN_MAAT, True),
+                gradatie=afbreken(vb["gradatie"], VB_B, VB_MAAT) if norm(vb.get("gradatie")) else [],
+                vindplaats=afbreken(vb["vindplaats"], VB_B, VB_BRON_MAAT))
+
+
+def voorbeeld_maat(vb):
+    """De breedte en de hoogte van het voorbeeldblok, in pixels."""
+    label_b = max(tw(naam, VB_MAAT) for naam, _, _ in vb["rijen"]) + VB_LABEL_GOOT
+    vb["label_b"] = label_b
+    breed = max([tw(r, VB_ZIN_MAAT, True) for r in vb["zinregels"]]
+                + [label_b + tw(waarde, VB_MAAT, vet) for _, waarde, vet in vb["rijen"]]
+                + [tw(r, VB_MAAT) for r in vb["gradatie"]]
+                + [tw(r, VB_BRON_MAAT) for r in vb["vindplaats"]]
+                + [tw(vb["kop"], 12, True)])
+    hoog = (VB_MARGE + VB_REGEL * len(vb["zinregels"]) + 8
+            + VB_REGEL * len(vb["rijen"]) + (8 if vb["gradatie"] else 0)
+            + VB_REGEL * len(vb["gradatie"]) + 8
+            + (VB_BRON_MAAT + 4) * len(vb["vindplaats"]) + VB_MARGE)
+    return breed + 2 * VB_MARGE, hoog
+
+
+def voorbeeld_blok(vb, x, y, breed, hoog):
+    """Het voorbeeldblok als ArchiMate-groepering naast de kolommen: de zin bovenaan, eronder
+    de delen van de vorm in twee kolommen, en onderaan de vindplaats.
+
+    Het niveau staat in de accentkleur onder de delen: het is geen deel van de zin maar het
+    metagegeven ernaast, en dat is precies wat de vraag van de reviewronde raakt.
+    """
+    tab_b = tw(vb["kop"], 12, True) + 20
+    uit = (box(x, y, breed, hoog, KOL_VUL, KOL_RAND)
+           + box(x, y - KOL_TAB_H, min(tab_b, breed), KOL_TAB_H, KOL_TAB, KOL_RAND)
+           + text(x + 10, y - 8, vb["kop"], 12, True, ACCENT))
+    cy = y + VB_MARGE + VB_ZIN_MAAT
+    for r in vb["zinregels"]:
+        uit += text(x + VB_MARGE, cy, r, VB_ZIN_MAAT, True, INK)
+        cy += VB_REGEL
+    cy += 8
+    for naam, waarde, vet in vb["rijen"]:
+        uit += text(x + VB_MARGE, cy, naam, VB_MAAT, False, MUTED)
+        uit += text(x + VB_MARGE + vb["label_b"], cy, waarde, VB_MAAT, vet,
+                    ACCENT if vet else INK)
+        cy += VB_REGEL
+    if vb["gradatie"]:
+        cy += 8
+        for r in vb["gradatie"]:
+            uit += text(x + VB_MARGE, cy, r, VB_MAAT, False, MUTED)
+            cy += VB_REGEL
+    cy += 8
+    for r in vb["vindplaats"]:
+        uit += text(x + VB_MARGE, cy, r, VB_BRON_MAAT, False, MUTED)
+        cy += VB_BRON_MAAT + 4
+    return groep("voorbeeld", vb["kop"], uit)
 
 
 def _leesregels(lijst):
@@ -888,17 +1241,23 @@ def bouw(model, selectie):
     lijst = entries(selectie, objecten)
     rijen, rij_labels = rijen_toekennen(lijst, model.get("relaties", []), selectie)
     kolommen = kolommen_van(lijst, selectie)
+    bruggen = band_bruggen(lijst, model.get("relaties", []), objecten, kolommen)
+    lijst = band_ordenen(lijst, bruggen, kolommen)
     horizontaal, verticaal, verwijzingen, weggelaten, lussen, cel = relaties_kiezen(
         model, selectie, lijst, kolommen)
     maat_vakken(lijst, verwijzingen, lussen, selectie.get("oeapi", False))
-    opmaak = plaatsen(lijst, kolommen, rijen, horizontaal, verticaal, cel)
+    opmaak = plaatsen(lijst, kolommen, rijen, horizontaal, verticaal, cel, bruggen)
+    vb = voorbeeld_lezen(selectie, lijst)
+    vb_breed, vb_inhoud = voorbeeld_maat(vb) if vb else (0, 0)
 
     titel = selectie.get("titel") or selectie.get("vraag") or "Uitsnede uit het informatiemodel"
     herkomst = selectie.get("herkomst") or ""
     label_b = max([tw(t, 12) for t in rij_labels if t] or [0])
     verschuif = (label_b + 16) if label_b else 0
     kop_h = 22 + (HERKOMST_MAAT + 8 if herkomst else 0) + 16
-    raster_y = DOEK_MARGE + kop_h + KOL_TAB_H + KOL_MARGE
+    band_hoog = opmaak["band_hoog"]
+    band_totaal = (KOL_TAB_H + band_hoog + BAND_GOOT) if band_hoog else 0
+    raster_y = DOEK_MARGE + kop_h + KOL_TAB_H + KOL_MARGE + band_totaal
 
     for e in lijst:
         e["x"] += verschuif
@@ -914,9 +1273,20 @@ def bouw(model, selectie):
             v["baan_y"] += raster_y
 
     body = ""
+    if band_hoog:
+        # de band spant over de kolommen die zij verbindt, en minstens over het hele raster
+        band_breed = max(opmaak["breed"], opmaak["band_rand"] - DOEK_MARGE)
+        body += groepering(BAND_NAAM, DOEK_MARGE + verschuif, band_breed,
+                           raster_y - KOL_TAB_H - BAND_GOOT - band_hoog, band_hoog + KOL_MARGE)
     for kolom in kolommen:
         body += groepering(kolom, opmaak["kol_x"][kolom] + verschuif, opmaak["kol_breedte"][kolom],
                            raster_y, opmaak["hoog"] + KOL_MARGE)
+    # het voorbeeldblok staat rechts van de kolommen, met zijn tab op dezelfde hoogte als de
+    # hunne, en reikt minstens zo ver omlaag als het raster
+    vb_hoog = max(vb_inhoud, opmaak["hoog"] + KOL_MARGE) if vb else 0
+    vb_x = DOEK_MARGE + verschuif + opmaak["breed"] + KOL_GOOT
+    if vb:
+        body += voorbeeld_blok(vb, vb_x, raster_y, vb_breed, vb_hoog)
     for r, label in enumerate(rij_labels):
         if label:
             body += text(DOEK_MARGE, raster_y + opmaak["rij_y"][r] + 22, label, 12, fill=MUTED)
@@ -965,11 +1335,13 @@ def bouw(model, selectie):
     # de verticale relaties, die naast hun lijn staan en in de rechtste kolom voorbij het raster
     # schuiven, en de regels van de leeswijzer, die elk op een regel blijven.
     breed = max(DOEK_MARGE + verschuif + opmaak["breed"] + DOEK_MARGE,
+                DOEK_MARGE + verschuif + (opmaak["band_rand"] - DOEK_MARGE) + DOEK_MARGE,
                 DOEK_MARGE + tw(titel, TITEL_MAAT, True) + DOEK_MARGE,
                 DOEK_MARGE + tw(herkomst, HERKOMST_MAAT) + DOEK_MARGE,
                 max([label_rechterrand(v) for v in verticaal] or [0]) + DOEK_MARGE,
-                DOEK_MARGE + max([r["breed"] for r in leesregels] or [0]) + DOEK_MARGE)
-    y = raster_y + opmaak["hoog"] + KOL_MARGE + 28
+                DOEK_MARGE + max([r["breed"] for r in leesregels] or [0]) + DOEK_MARGE,
+                (vb_x + vb_breed + DOEK_MARGE) if vb else 0)
+    y = raster_y + max(opmaak["hoog"] + KOL_MARGE, vb_hoog) + 28
 
     onder = ""
     for r in leesregels:
@@ -998,7 +1370,20 @@ def bouw(model, selectie):
            f'width="{breed:.0f}" height="{hoog_doek:.0f}">'
            f'<rect x="0.5" y="0.5" width="{breed - 1:.0f}" height="{hoog_doek - 1:.0f}" rx="10" '
            f'fill="#ffffff" stroke="{LIJN}"/>{kop}{body}</svg>')
-    melding = dict(vakken=len(lijst), kolommen=len(kolommen), rijen=rijen,
+    band_melding = []
+    for e in lijst:
+        if not e["band"]:
+            continue
+        brug = bruggen.get(id(e))
+        if not brug:
+            plek = "midden boven het raster, geen grens af te leiden uit zijn relaties"
+        elif brug[0] == brug[1]:
+            plek = f"boven de kolom {brug[0]}"
+        else:
+            plek = f"boven de grens tussen {brug[0]} en {brug[1]}"
+        band_melding.append(f"{e['naam']}: {plek}")
+    melding = dict(vakken=len(lijst), kolommen=len(kolommen), rijen=rijen, band=band_melding,
+                   voorbeeld=(f"{vb['kop']}: {vb['zin']}" if vb else None),
                    horizontaal=len(horizontaal), verticaal=len(verticaal), lussen=len(lussen),
                    weggelaten=weggelaten, onderregels=onderregels,
                    zelf=[f"{lus['vak']['naam']}: {lus['soort']} op zichzelf" for lus in lussen],
@@ -1048,6 +1433,10 @@ def main(argv=None):
         print(f"  als verwijzing in het vak: {regel}")
     for regel in melding["zelf"]:
         print(f"  als lus in het vak: {regel}")
+    for regel in melding["band"]:
+        print(f"  in de band boven de kolommen: {regel}")
+    if melding["voorbeeld"]:
+        print(f"  als blok naast het raster: {melding['voorbeeld']}")
     if args.streng and (melding["kruisingen"] or melding["weggelaten"]):
         return 1
     return 0
