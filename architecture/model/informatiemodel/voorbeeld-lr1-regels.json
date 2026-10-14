@@ -148,7 +148,7 @@
         "Keuzedeel formeel inschrijven"
       ],
       "verwacht": [
-        "Keuzedeelaanbod",
+        "Keuzedeel aanbod",
         "Keuzedeel aanbod verbintenis"
       ],
       "link": "https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-6--organiseren-van-keuzemomenten"
@@ -1197,8 +1197,8 @@
       "bron": "K0037-farmaceutische-patientenzorg.md (keuzedeel mbo K0037, 480 SBU, aard verdiepend, gevalideerd 26-11-2015); leerroute-1-regulier.md, r52 (720 SBU keuzedelen verplicht voor niveau 4); de eis komt uit het examenplan (F1-02)",
       "relatie": {
         "soort": "Association",
-        "van": "Keuzedeelruimte",
-        "naar": "Student keuze regelset"
+        "van": "Student keuze regelset",
+        "naar": "Keuzedeelruimte"
       }
     },
     {
@@ -2123,8 +2123,8 @@
       "bron": "voorbeeldpayloads.md, regelsets[0] (e4037953)",
       "relatie": {
         "soort": "Association",
-        "van": "Keuzedeelruimte",
-        "naar": "Student keuze regelset"
+        "van": "Student keuze regelset",
+        "naar": "Keuzedeelruimte"
       }
     },
     {
@@ -3342,13 +3342,13 @@
       "naar": "Onderwijscatalogus",
       "pijl": "id-020f091db6ea4763aad7527a98afaf99",
       "koppeling": "OC-P&R",
-      "objecttype": "Keuzedeelaanbod",
+      "objecttype": "Keuzedeel aanbod",
       "instantie": "K0037 Farmaceutische Patientenzorg, periode 7: een groep van 24, los van het opleidingsaanbod",
       "bron": "review Niels van Duin op PR 252: gelegenheden van keuzedelen tonen maakt scherp dat capaciteit los kan staan van de bovenliggende structuur",
       "relatie": {
         "soort": "Association",
         "van": "Keuzedeel",
-        "naar": "Keuzedeelaanbod",
+        "naar": "Keuzedeel aanbod",
         "instantie": "K0037 Farmaceutische Patientenzorg"
       },
       "toestand": "fijnmazig gepland",
@@ -3598,10 +3598,10 @@
       "instantie": "Juni 2026",
       "bron": "scenario-1.1-regulier-happyflow.md, r15: inschrijving in juni 2026",
       "relatie": {
-        "soort": "Specialization",
+        "soort": "Association",
         "van": "Aanmelding",
         "naar": "Inschrijving",
-        "label": "wordt"
+        "label": "Wordt na formalisatie"
       },
       "zin": "In juni is de inschrijving rond: de aanmelding wordt een inschrijving en de verbintenissen gaan van aangemeld naar ingeschreven."
     },
@@ -3651,10 +3651,10 @@
       "zin": "Bij een positieve uitkomst zet het intakesysteem de aanmelding om in een inschrijving en draagt die over aan de kernregistratie, samen met de persoon en de verbintenissen die daarmee op ingeschreven staan. Vanaf dat moment is de kernregistratie de bron voor persoon en plaatsing, en registreert zij later de definitieve keuze. Het rijpen van die keuze gebeurt in het studentkeuzesysteem.",
       "relaties": [
         {
-          "soort": "Specialization",
+          "soort": "Association",
           "van": "Aanmelding",
           "naar": "Inschrijving",
-          "label": "wordt",
+          "label": "Wordt na formalisatie",
           "instantie": "April 2026, Apothekersassistent BOL"
         }
       ]
@@ -5159,14 +5159,14 @@
       "stap": "Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem",
       "soort": "ontstaat",
       "wie": "planner",
-      "objecttype": "Keuzedeelaanbod",
+      "objecttype": "Keuzedeel aanbod",
       "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A",
       "aanname": true,
       "bron": "leerroute-1-regulier.md, Fase 6: OC naar SKS (opleidingsprogramma-aanbod type keuzedeel + opleidingsprogramma-specificatie); wanneer het keuzedeelaanbod planbaar wordt, zegt het kaderscenario niet",
       "relatie": {
         "soort": "Association",
         "van": "Keuzedeel",
-        "naar": "Keuzedeelaanbod"
+        "naar": "Keuzedeel aanbod"
       },
       "zin": "De keuzedeelruimte nadert. Het keuzedeelaanbod ontstaat bij planning en gaat via de catalogus naar het studentkeuzesysteem, en niet rechtstreeks: de catalogus is de bron die specificatie en aanbod naast elkaar houdt. Hoofdplaat v1.7 kent beide stromen."
     },
@@ -5180,7 +5180,7 @@
       "naar": "Student Keuze Systeem (SKS)",
       "pijl": "id-5f2568d7b99a49eaa863f539ae362f4d",
       "koppeling": null,
-      "objecttype": "Keuzedeelaanbod",
+      "objecttype": "Keuzedeel aanbod",
       "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A",
       "bron": "leerroute-1-regulier.md, Fase 6: OC naar SKS"
     },
@@ -5200,7 +5200,7 @@
       "relatie": {
         "soort": "Association",
         "van": "Keuzedeel",
-        "naar": "Keuzedeelaanbod"
+        "naar": "Keuzedeel aanbod"
       }
     },
     {
@@ -5224,8 +5224,8 @@
       "relaties": [
         {
           "soort": "Association",
-          "van": "Keuzedeelruimte",
-          "naar": "Student keuze regelset",
+          "van": "Student keuze regelset",
+          "naar": "Keuzedeelruimte",
           "instantie": "720 SBU, mbo-4"
         }
       ]
@@ -5242,7 +5242,7 @@
       "bron": "leerroute-1-regulier.md, r71 en r75 (de student stelt een geprioriteerde voorkeurslijst samen uit het gepubliceerde aanbod en meldt zich aan op een keuzedeel, met de voorkeur voor periode en locatie), r850 (het studentkeuzesysteem is bron voor de aanmelding keuzedeel; bij passend aanbod levert planning de formele inschrijving) en r87 (past het niet, dan orienteert de student zich opnieuw)",
       "relatie": {
         "soort": "Association",
-        "van": "Keuzedeelaanbod",
+        "van": "Keuzedeel aanbod",
         "naar": "Aanmelding",
         "label": "Op basis van"
       },
@@ -5268,7 +5268,7 @@
       "relaties": [
         {
           "soort": "Association",
-          "van": "Keuzedeelaanbod",
+          "van": "Keuzedeel aanbod",
           "naar": "Keuzedeel aanbod verbintenis",
           "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A"
         }
@@ -5291,7 +5291,7 @@
       "relaties": [
         {
           "soort": "Association",
-          "van": "Keuzedeelaanbod",
+          "van": "Keuzedeel aanbod",
           "naar": "Keuzedeel aanbod verbintenis",
           "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A"
         }
@@ -5304,7 +5304,7 @@
       "stap": "Definitieve keuzes verwerken naar groepen en capaciteit",
       "soort": "verandert",
       "wie": "planner",
-      "objecttype": "Keuzedeelaanbod",
+      "objecttype": "Keuzedeel aanbod",
       "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A: 1 groep, 24 plaatsen",
       "toestand": "planbaar",
       "bron": "leerroute-1-regulier.md, Fase 6: de planner verwerkt definitieve keuzes periodiek naar groepen en capaciteit",
@@ -5320,7 +5320,7 @@
       "naar": "Onderwijscatalogus",
       "pijl": "id-020f091db6ea4763aad7527a98afaf99",
       "koppeling": "OC-P&R",
-      "objecttype": "Keuzedeelaanbod",
+      "objecttype": "Keuzedeel aanbod",
       "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A: 1 groep, 24 plaatsen",
       "bron": "leerroute-1-regulier.md, Fase 6: actualiseert het planbare aanbod in OC en het rooster volgt; Planning naar OC (geactualiseerd planbaar aanbod)",
       "zin": "Het geactualiseerde planbare aanbod gaat terug naar de catalogus; het rooster volgt.",
@@ -5328,7 +5328,7 @@
         {
           "soort": "Association",
           "van": "Keuzedeel",
-          "naar": "Keuzedeelaanbod",
+          "naar": "Keuzedeel aanbod",
           "instantie": "K0037 Farmaceutische Patientenzorg"
         }
       ]
@@ -5346,10 +5346,10 @@
       "zin": "Past het gekozen aanbod, dan wordt Jochems aanmelding een inschrijving en staat zijn verbintenis op het keuzedeelaanbod op ingeschreven. Past het niet, dan orienteert hij zich opnieuw op een andere periode of locatie; dat is de variant die het kaderscenario beschrijft en die dit voorbeeld verder laat liggen.",
       "nieuwe_instantie": true,
       "relatie": {
-        "soort": "Specialization",
+        "soort": "Association",
         "van": "Aanmelding",
         "naar": "Inschrijving",
-        "label": "wordt"
+        "label": "Wordt na formalisatie"
       }
     },
     {
@@ -5380,7 +5380,7 @@
       "relaties": [
         {
           "soort": "Association",
-          "van": "Keuzedeelaanbod",
+          "van": "Keuzedeel aanbod",
           "naar": "Keuzedeel aanbod verbintenis",
           "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A"
         },
