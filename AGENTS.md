@@ -85,6 +85,7 @@ Dit vervangt de fork `Npuls-OKx/specification`, die op verzoek van de OEAPI-behe
 | Wat | Waar |
 |---|---|
 | Projectcontext, hoofdplaat informatiestromen | [doc/](doc/) |
+| Sectorketen: wie maakt wat, van kader tot implementatie | [doc/OKx_Sectorketen-viewpoint.md](doc/OKx_Sectorketen-viewpoint.md) |
 | Requirementsboom (opdracht, epics, features, stories) | [Referentiemateriaal/requirementsboom in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/requirementsboom/README.md) |
 | Architectuurbesluiten (ADR's) | [Referentiemateriaal/adr in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr) |
 | ArchiMate-model (niet aanraken) | [architecture/model/](architecture/model/) |
