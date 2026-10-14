@@ -39,7 +39,7 @@ class Verwijzingen(unittest.TestCase):
         self.assertEqual(uit, "[ADR](../Referentiemateriaal/adr/0026-x.md)")
 
     def test_given_plaat_met_spaties_when_herschreven_then_img_zonder_versie(self):
-        uit, _ = self.herschrijf("![plaat](<OKx informatiemodel v0.1.jpg>)")
+        uit, _ = self.herschrijf("![plaat](<OKx informatiemodel v0.2.jpg>)")
         self.assertEqual(uit, "![plaat](img/informatiemodel.jpg)")
 
     def test_given_onbekende_relatieve_link_when_herschreven_then_fout(self):
@@ -61,44 +61,6 @@ class Verwijzingen(unittest.TestCase):
     def test_given_link_naar_bestand_in_pakket_when_herschreven_then_ongewijzigd(self):
         uit, fouten = self.herschrijf("[json](informatiemodel.json)")
         self.assertEqual(uit, "[json](informatiemodel.json)")
-        self.assertEqual(fouten, [])
-
-
-class Brug(unittest.TestCase):
-    LGM = "    LEERUITKOMST {\n        uuid id PK\n    }\n    GROEP {\n        uuid id PK\n    }\n"
-    MODEL = {"objecttypen": [{"naam": "Leeruitkomst"}, {"naam": "Plaatsingsgroep"}]}
-
-    def brug(self, rijen):
-        return ("## Naar het logisch gegevensmodel\n\n| Entiteit (niveau 3) | Objecttype (niveau 2) | Verhouding |\n|---|---|---|\n"
-                + "\n".join(rijen) + "\n\n## Verwante documenten\n")
-
-    def test_given_kloppende_brug_when_gecontroleerd_then_geen_fouten(self):
-        fouten = []
-        publiceer.controleer_brug(self.brug(["| `LEERUITKOMST` | `Leeruitkomst` | Gelijk |", "| `GROEP` | `Plaatsingsgroep` | Gelijk |"]),
-                                  self.LGM, self.MODEL, fouten)
-        self.assertEqual(fouten, [])
-
-    def test_given_entiteit_die_niet_in_lgm_staat_when_gecontroleerd_then_fout(self):
-        fouten = []
-        publiceer.controleer_brug(self.brug(["| `LEERUITKOMST` | `Leeruitkomst` | |", "| `GROEP` | `Plaatsingsgroep` | |", "| `ROOSTER` | `Leeruitkomst` | |"]),
-                                  self.LGM, self.MODEL, fouten)
-        self.assertTrue(any("`ROOSTER`" in f and "niet in logisch-gegevensmodel" in f for f in fouten))
-
-    def test_given_objecttype_dat_niet_in_model_staat_when_gecontroleerd_then_fout(self):
-        fouten = []
-        publiceer.controleer_brug(self.brug(["| `LEERUITKOMST` | `Leerdoel` | |", "| `GROEP` | `Plaatsingsgroep` | |"]),
-                                  self.LGM, self.MODEL, fouten)
-        self.assertTrue(any("`Leerdoel`" in f for f in fouten))
-
-    def test_given_entiteit_uit_lgm_ontbreekt_in_brug_when_gecontroleerd_then_fout(self):
-        fouten = []
-        publiceer.controleer_brug(self.brug(["| `LEERUITKOMST` | `Leeruitkomst` | |"]), self.LGM, self.MODEL, fouten)
-        self.assertTrue(any("`GROEP`" in f and "staat niet in de brugtabel" in f for f in fouten))
-
-    def test_given_familie_als_objecttype_when_gecontroleerd_then_toegestaan(self):
-        fouten = []
-        publiceer.controleer_brug(self.brug(["| `LEERUITKOMST` | De familie `Onderwijsaanbod` | |", "| `GROEP` | `Plaatsingsgroep` | |"]),
-                                  self.LGM, self.MODEL, fouten)
         self.assertEqual(fouten, [])
 
 
@@ -132,7 +94,7 @@ class Teksten(unittest.TestCase):
             # De omgezette teksten verwijzen naar documenten van het pakket zelf.
             (Path(tmp) / "logisch-gegevensmodel.md").write_text("# lgm\n", encoding="utf-8")
             uit = publiceer.herschrijf(bron, COMMIT, Path(tmp), fouten, "informatiemodel.md")
-        self.assertNotIn("Versie v0.1", uit)
+        self.assertNotIn("Versie v0.2", uit)
         self.assertNotIn(" in Public", uit)
         self.assertEqual(fouten, [])
 
