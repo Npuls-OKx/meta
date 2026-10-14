@@ -113,7 +113,7 @@ flowchart LR
   class U1,U2,U3,U4,U5 uit
 ```
 
-De afgeronde knopen zijn de momenten waarop informatie een component verlaat; de fasetabellen dragen alle veertien stappen. IS-OA-03, IS-OA-04 en IS-OA-05 lopen over een pijl die v1.7 al tekent; [hoofdstuk 5](#5-de-diensten-per-component) zet per eenheid de diensten en de eisen neer.
+De afgeronde knopen zijn de momenten waarop informatie een component verlaat. Fase 3 staat als twee rijen in de tabel, omdat ontsluiten en doorgeven elk hun eigen stroom dragen. IS-OA-03, IS-OA-04 en IS-OA-05 lopen over een pijl die v1.7 al tekent; [hoofdstuk 5](#5-de-diensten-per-component) zet per eenheid de diensten en de eisen neer.
 
 ### Fase 1, kwalificatiekader analyseren en grofmazig ontwerpen
 
@@ -176,7 +176,7 @@ Deze interactie draagt 33 objecttypen uit het [informatiemodel OKx](../../../mod
 | `Kennis` | Farmacie (ISCED-F 0916) | F1-04, F1-12 |
 | `Inzicht` | Risico van een geneesmiddel | F1-04, F1-12 |
 
-De laatste vier en `Examenplan` dragen scope `buiten`: zij reizen mee als verdieping.
+`Competenties / Skills`, `Kennis`, `Inzicht`, `Vaardigheid` en `Examenplan` dragen scope `buiten`: zij reizen mee als verdieping.
 
 ### Onderwijsspecificatie
 
@@ -221,7 +221,7 @@ De laatste vier en `Examenplan` dragen scope `buiten`: zij reizen mee als verdie
 
 ### De ontwerpkeuzes die hier gelden
 
-Nummering van de zeventien [ontwerpkeuzes](../../../model/informatiemodel/informatiemodel.md#ontwerpkeuzes).
+De nummering volgt de [ontwerpkeuzes](../../../model/informatiemodel/informatiemodel.md#ontwerpkeuzes) van het informatiemodel.
 
 | Keuze | Waar zij in deze snede valt |
 |---|---|
@@ -311,8 +311,8 @@ Elke signalering noemt wat een besluit vraagt voor de uitvraag.
 | S2 | IS-OA-05 heet OC-KRS in de beeldregels en OC-SIS op v1.7, waar het [interactiepatroon](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Interactiepatronen/onderwijscatalogus-studentinformatiesysteem.md) KRS en studentvolgsysteem samenvoegt; hetzelfde pijl-id draagt ook de stroom naar CAMBO | een naam en een pijl per koppeling |
 | S3 | IS-OA-06 loopt via de kernregistratie naar AII op gezag van de sectorarchitect, v1.7 ontsluit rechtstreeks aan CAMBO | richting, component en naam |
 | S4 | IS-OA-05 ontsluit aanbod uit de catalogus, U3 legt het aanbod bij planning, en de bestaande koppeling richt template en resultaatstructuur in | waar de dienst hoort |
-| S5 | IS-OA-01 en IS-OA-02 dragen 29 van de 38 stroomregels en wachten op een koppeling-ID: op v1.7 valt het ontwerpen binnen de catalogus | een eigen lijn op de plaat |
-| S6 | 79 van de 145 regels dragen een aanname, bij F1-13 alle 11; 25 objecttypen komen van de conceptplaat, 13 van de 33 missen een definitie, waaronder `Opleidingsprogramma aanbod` | de grond per eenheid zichtbaar maken |
+| S5 | IS-OA-01 en IS-OA-02 dragen 29 van de 48 stroomregels en wachten op een koppeling-ID: op v1.7 valt het ontwerpen binnen de catalogus | een eigen lijn op de plaat |
+| S6 | 79 van de 145 regels dragen een aanname, bij F1-13 alle 11; 26 objecttypen komen van de conceptplaat, 13 van de 33 missen een definitie, waaronder `Opleidingsprogramma aanbod` | de grond per eenheid zichtbaar maken |
 | S7 | B01 tot en met B10 staan open (issues 283 en 284); B05, B07 en B10 raken de clustering, de keuzedeelruimte in de resultaatstructuur en exacte geplande capaciteit | de bevindingen wegen voor een eenheid vastligt |
 | S8 | Fase 1 en 2 dragen procesketen 6 en 4; informeren, aanmelden, intake en plaatsen valt onder keten 5 | de ketentoewijzing van fase 3 |
 | S9 | [U5](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u5-bericht-versus-kanaal) laat het afleveringsmechanisme bij de partijen, en `subscription.json` dekt de 4 OC-P&R-events | het afleveradres per koppeling |
@@ -320,8 +320,23 @@ Elke signalering noemt wat een besluit vraagt voor de uitvraag.
 | S11 | 7 van de 24 stromen op v1.7 dragen een koppelingspecificatie, de aangehaalde [ADR's](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr) staan op Voorstel, elk schema op alfa, acht ontwerpkeuzes op voorstel | waarop een leverancier zich vastlegt |
 | S12 | Het [interactiepatroon OC-P&R](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Interactiepatronen/onderwijscatalogus-planning-en-roostering.md) dekt IS-OA-03 en IS-OA-04 met zeven functionele eisen | hoofdstuk 5 en 6 nemen dat als vertrekpunt |
 
-Open beeldvragen: het cohort op de verbintenis (F1-02, [Public PR 104](https://github.com/Npuls-OKx/Public/pull/104)), het generieke basisdeel (F1-09), de keuzedeelruimte in de summatieve resultaatstructuur (F1-12), de container voor geclusterde leeronderdelen (F2-01).
+Open beeldvragen:
 
-Verder open: de uitsnedeplaat `img/uitsnede-onderwijsaanbod.svg` met de objecttypen per familie volgt, de fase-2 update van de ontwerptool wacht op een beeld, de route naar het intakesysteem begint bij F3-04, roosteraar en student krijgen hun story in fase 4 en 6, en `Competenties / skills` naast `Competenties / Skills` plus `Schaartste van mensen` (F2-05) blokkeren een kruiscontrole op naam.
+| Vraag | Beeld |
+|---|---|
+| Het cohort op de verbintenis | F1-02, beantwoord in ontwerpkeuze 17 |
+| Het generieke basisdeel | F1-09 |
+| De keuzedeelruimte in de summatieve resultaatstructuur | F1-12 |
+| De container voor geclusterde leeronderdelen | F2-01 |
 
-Deze snede is vastgesteld tegen informatiemodel-commit 0cf6e29 en begrippenlijst-commit 8ebfaca.
+Verder open:
+
+| Punt | Stand |
+|---|---|
+| De uitsnedeplaat `img/uitsnede-onderwijsaanbod.svg` | volgt, met de objecttypen per familie |
+| De fase-2 update van de ontwerptool | wacht op een beeld |
+| De route naar het intakesysteem | begint bij F3-04, buiten deze snede |
+| De stories van roosteraar en student | volgen in fase 4 en 6 |
+| `Competenties / skills` naast `Competenties / Skills`, en `Schaartste van mensen` (F2-05) | blokkeren een kruiscontrole op naam |
+
+De modelronde van oktober 2026 sluit een deel van de conceptplaat-kloof: `Onderwijsvorm`, `Onderwijslocatie type`, `Onderwijslocatie` en `Organisatie-eenheid` dragen nu een eigen objecttype, waar F1-06 ze nog als `Onderwijs locatie`, `Onderwijsruimte type` en `Lokaaltypes` van de conceptplaat haalt. Het gelijktrekken van die namen in de voorbeelduitwerking staat open.
