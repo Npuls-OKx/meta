@@ -104,7 +104,28 @@
    ],
    "niveau": "NLQF 4, taxonomie Romiszowski",
    "gradatie": "Dezelfde competentie een niveau hoger: Biedt farmaceutische patientenzorg in een levensechte apotheekomgeving.",
-   "vindplaats": "zin en gradatie uit voorbeeld-lr1-regels.json, kwalificatiedossier Apothekersassistent van S-BB; de vijf plekken uit begrippen/leeruitkomst-vorm/README.md"
+   "vindplaats": "zin en gradatie uit voorbeeld-lr1-regels.json, kwalificatiedossier Apothekersassistent van S-BB; de vijf plekken uit begrippen/leeruitkomst-vorm/README.md",
+   "laag": {
+    "objecttype": "Competenties / Skills",
+    "voorlopig": "voorlopig ingevuld, de vaardigheidscodes zijn niet geverifieerd (meta#366)",
+    "regels": [
+     {
+      "kader": "CompetentNL laag 2",
+      "code": "CNL-V-2-031",
+      "omschrijving": "Communiceren met clienten en patienten"
+     },
+     {
+      "kader": "CompetentNL laag 3",
+      "code": "CNL-V-3-114",
+      "omschrijving": "Medicatiebewaking uitvoeren"
+     },
+     {
+      "kader": "ISCED-F kennisgebied",
+      "code": "0916",
+      "omschrijving": "Farmacie"
+     }
+    ]
+   }
   },
   {
    "kop": "Uit een opleidingsprofiel, hoger onderwijs",
@@ -134,7 +155,28 @@
    ],
    "niveau": "NLQF 6 en EQF 6, taxonomie SOLO",
    "gradatie": "Dezelfde competentie een niveau lager, met een andere standaard: kiest onder begeleiding een onderzoeksstrategie.",
-   "vindplaats": "Landelijk Opleidingsprofiel hbo-bachelor Technische Natuurkunde, december 2016, paragraaf 5.2 en bijlage IV; het document noemt EQF niveau 6 bij de bachelor"
+   "vindplaats": "Landelijk Opleidingsprofiel hbo-bachelor Technische Natuurkunde, december 2016, paragraaf 5.2 en bijlage IV; het document noemt EQF niveau 6 bij de bachelor",
+   "laag": {
+    "objecttype": "Competenties / Skills",
+    "voorlopig": "voorlopig ingevuld; CompetentNL metadateert eerst de mbo-opleidingsnormen",
+    "regels": [
+     {
+      "kader": "CompetentNL laag 2",
+      "code": "CNL-V-2-007",
+      "omschrijving": "Onderzoek opzetten en uitvoeren"
+     },
+     {
+      "kader": "CompetentNL laag 3",
+      "code": "CNL-V-3-022",
+      "omschrijving": "Onderzoeksstrategie bepalen"
+     },
+     {
+      "kader": "ISCED-F kennisgebied",
+      "code": "0533",
+      "omschrijving": "Natuurkunde"
+     }
+    ]
+   }
   }
  ]
 }

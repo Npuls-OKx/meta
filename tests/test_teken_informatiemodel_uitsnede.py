@@ -111,6 +111,20 @@ def selectie(**anders):
     return basis
 
 
+def laag(**anders):
+    """De laag onder een voorbeeld: hetzelfde geval een trap dieper, in een eigen kader."""
+    basis = {
+        "objecttype": "Competenties / Skills",
+        "regels": [
+            {"kader": "CompetentNL", "code": "CNL-V-0042",
+             "omschrijving": "Communicatieve vaardigheden"},
+        ],
+        "vindplaats": "proef-skills.json",
+    }
+    basis.update(anders)
+    return basis
+
+
 def voorbeeld(**anders):
     """Een voorbeeldblok bij de minor: een ingevuld geval met zijn vindplaats erbij."""
     basis = {
@@ -944,10 +958,54 @@ class UitsnedeTests(unittest.TestCase):
         self.assertIn("programmaniveau", accent)
         self.assertNotIn("ontwerpt", accent)
 
-    def test_given_een_voorbeeld_bij_een_genummerd_object_when_getekend_then_noemt_de_kop_dat_nummer(self):
+    def test_given_een_voorbeeld_when_getekend_then_draagt_het_de_vormtaal_van_de_plaat(self):
+        # een voorbeeld is een ingevuld geval van een objecttype en geen eigen begrippenfamilie;
+        # het draagt daarom de vulling, het pictogram en de naam van een vak op het raster
         svg, melding = plaat(selectie(voorbeeld=voorbeeld()))
-        self.assertEqual(titels(svg, "voorbeeld"), ["Voorbeeld bij 1 Minor"])
-        self.assertTrue(melding["voorbeeld"][0].startswith("Voorbeeld bij 1 Minor"))
+        _, blok = groepen(svg, "voorbeeld")[0]
+        self.assertEqual(titels(svg, "voorbeeld"), ["Voorbeeld bij Minor"])
+        self.assertTrue(melding["voorbeeld"][0].startswith("Voorbeeld bij Minor"))
+        self.assertIn("Minor", [(t.text or "") for t in blok.iter(f"{SVG}text")])
+        vullingen = {r.get("fill") for r in blok.iter(f"{SVG}rect")}
+        self.assertIn(tu.BUS, vullingen)
+        self.assertNotIn("Voorbeeld bij Minor", titels(svg, "groepering"))
+
+    def test_given_een_voorbeeld_when_getekend_then_hangt_het_aan_zijn_objecttype(self):
+        svg, _ = plaat(selectie(voorbeeld=voorbeeld()))
+        self.assertEqual(titels(svg, "aanhechting"), ["voorbeeld uitwerking bij Minor"])
+        self.assertIn("voorbeeld uitwerking", teksten(svg))
+
+    def test_given_een_voorbeeld_met_een_laag_when_getekend_then_staat_die_eronder(self):
+        sel = selectie(voorbeeld=voorbeeld(laag=laag()))
+        svg, _ = plaat(sel)
+        self.assertEqual(titels(svg, "voorbeeld-laag"), ["Competenties / Skills bij Minor"])
+        boven = doos(groepen(svg, "voorbeeld")[0][1])
+        onder = doos(groepen(svg, "voorbeeld-laag")[0][1])
+        self.assertGreater(onder["y"], boven["y"])
+        self.assertIn("CompetentNL", teksten(svg))
+        self.assertIn("CNL-V-0042", teksten(svg))
+
+    def test_given_een_laagregel_zonder_code_when_getekend_then_weigert_het_script(self):
+        regels = [{"kader": "CompetentNL", "omschrijving": "Communicatieve vaardigheden"}]
+        with self.assertRaises(tu.Fout) as fout:
+            plaat(selectie(voorbeeld=voorbeeld(laag=laag(regels=regels))))
+        self.assertIn("mist kader, code of omschrijving", str(fout.exception))
+
+    def test_given_een_laag_zonder_vindplaats_en_zonder_merk_when_getekend_then_weigert_het_script(self):
+        krap = laag()
+        krap.pop("vindplaats")
+        with self.assertRaises(tu.Fout) as fout:
+            plaat(selectie(voorbeeld=voorbeeld(laag=krap)))
+        self.assertIn("draagt geen vindplaats", str(fout.exception))
+
+    def test_given_een_voorlopige_laag_when_getekend_then_staat_dat_in_de_accentkleur(self):
+        krap = laag()
+        krap.pop("vindplaats")
+        krap["voorlopig"] = "voorlopig ingevuld, de sleutel is aangevraagd"
+        svg, _ = plaat(selectie(voorbeeld=voorbeeld(laag=krap)))
+        _, blok = groepen(svg, "voorbeeld-laag")[0]
+        accent = [(t.text or "") for t in blok.iter(f"{SVG}text") if t.get("fill") == tu.ACCENT]
+        self.assertIn("voorlopig ingevuld, de sleutel is aangevraagd", accent)
 
     def test_given_twee_voorbeelden_when_getekend_then_staan_zij_naast_elkaar_op_dezelfde_hoogte(self):
         # een vraag die een vergelijking is, is pas beantwoord met twee ingevulde gevallen naast

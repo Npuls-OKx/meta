@@ -154,6 +154,9 @@ MAX_VB_DELEN = 7                     # meer delen maken van de ontleding een tab
 MAX_VB_WOORDEN = 8                   # woorden in de waarde van een deel
 MAX_VB_ZINWOORDEN = 20               # woorden in de voorbeeldzin zelf
 MAX_VB_BLOKKEN = 2                   # voorbeeldblokken naast het raster
+MAX_VB_LAAGREGELS = 6                # regels in de laag onder een voorbeeld
+VB_LAAG_GOOT = 34                    # tussen een voorbeeld en de laag eronder
+VB_CEL_GOOT = 12                     # tussen kader, code en omschrijving in een laagregel
 
 MAX_VAKKEN, MAX_KOLOMMEN, MAX_RIJEN = 24, 8, 6
 MAX_LEESWOORDEN = 12                 # woorden in de regel onder het beeld, de naam meegerekend
@@ -1190,63 +1193,183 @@ def _voorbeeld_lezen(vb, lijst):
                        f"{MAX_VB_WOORDEN})")
         rijen.append(("niveau", niveau, True))
     doel = per_naam[bij]
-    # twee blokken bij hetzelfde objecttype dragen dezelfde kop; een eigen kop zegt dan welk
-    # van de twee stelsels het blok toont
-    kop = norm(vb.get("kop")) or (f"Voorbeeld bij {doel['nummer']} {doel['naam']}"
-                                  if doel.get("nummer") else f"Voorbeeld bij {doel['naam']}")
-    return dict(kop=kop, bij=doel["naam"], zin=zin, rijen=rijen,
+    # twee blokken bij hetzelfde objecttype dragen dezelfde naam; een eigen kop zegt dan uit
+    # welk stelsel het blok komt, en staat klein onder de naam van het objecttype
+    kop = norm(vb.get("kop"))
+    laag = _laag_lezen(vb.get("laag"))
+    return dict(kop=kop, bij=doel["naam"], doel=doel, laag=laag, zin=zin, rijen=rijen,
                 zinregels=afbreken(zin, VB_B, VB_ZIN_MAAT, True),
                 gradatie=afbreken(vb["gradatie"], VB_B, VB_MAAT) if norm(vb.get("gradatie")) else [],
                 vindplaats=afbreken(vb["vindplaats"], VB_B, VB_BRON_MAAT))
 
 
+def _laag_lezen(laag):
+    """De laag onder een voorbeeld: hetzelfde geval een trap dieper, in een eigen kader.
+
+    Een leeruitkomst heeft een niveau, een vaardigheid eronder heeft dat niet; het kader dat
+    de vaardigheid benoemt is een ander dan het kader dat het niveau geeft. Die twee lagen
+    horen daarom als twee vakken onder elkaar te staan, met een specialisatielijn ertussen.
+
+    Elke regel draagt het kader, de code binnen dat kader en de omschrijving. Zonder code
+    weigert het script, net als het een voorbeeld zonder vindplaats weigert: een vaardigheid
+    zonder identificatie is een omschrijving en geen verwijzing.
+    """
+    if not laag:
+        return None
+    naam = norm(laag.get("objecttype"))
+    if not naam:
+        raise Fout("de laag onder een voorbeeld noemt geen objecttype")
+    regels = list(laag.get("regels") or [])
+    if not regels:
+        raise Fout(f"de laag {naam!r} draagt geen regels")
+    if len(regels) > MAX_VB_LAAGREGELS:
+        raise Fout(f"de laag {naam!r} telt {len(regels)} regels (hoogstens "
+                   f"{MAX_VB_LAAGREGELS}); zet de rest in de tekst onder het beeld")
+    uit = []
+    for r in regels:
+        kader, code, omschrijving = (norm(r.get("kader")), norm(r.get("code")),
+                                     norm(r.get("omschrijving")))
+        if not (kader and code and omschrijving):
+            raise Fout(f"een regel in de laag {naam!r} mist kader, code of omschrijving: {r!r}")
+        uit.append((kader, code, omschrijving))
+    voorlopig = norm(laag.get("voorlopig"))
+    if not voorlopig and not norm(laag.get("vindplaats")):
+        raise Fout(f"de laag {naam!r} draagt geen vindplaats; zeg waar de codes vandaan komen, "
+                   "of merk de laag als voorlopig met de reden erbij")
+    # de melding dat een laag voorlopig is staat in de accentkleur onder de naam; haar
+    # daaronder herhalen als vindplaats maakt van de waarschuwing een bronvermelding
+    bron = norm(laag.get("vindplaats"))
+    return dict(naam=naam, regels=uit, voorlopig=voorlopig,
+                vindplaats=afbreken(bron, VB_B + 120, VB_BRON_MAAT) if bron else [])
+
+
 def voorbeeld_maat(vb):
-    """De breedte en de hoogte van het voorbeeldblok, in pixels."""
+    """De breedte en de hoogte van een voorbeeld, inclusief de laag eronder."""
     label_b = max(tw(naam, VB_MAAT) for naam, _, _ in vb["rijen"]) + VB_LABEL_GOOT
     vb["label_b"] = label_b
     breed = max([tw(r, VB_ZIN_MAAT, True) for r in vb["zinregels"]]
                 + [label_b + tw(waarde, VB_MAAT, vet) for _, waarde, vet in vb["rijen"]]
                 + [tw(r, VB_MAAT) for r in vb["gradatie"]]
                 + [tw(r, VB_BRON_MAAT) for r in vb["vindplaats"]]
-                + [tw(vb["kop"], 12, True)])
-    hoog = (VB_MARGE + VB_REGEL * len(vb["zinregels"]) + 8
+                + [tw(vb["bij"], NAAM_MAAT, True) + VAK_PICTOGRAM]
+                + [tw(vb["kop"], NOOT_MAAT) if vb["kop"] else 0])
+    hoog = (VB_MARGE + NAAM_REGEL + (NOOT_REGEL if vb["kop"] else 0) + 6
+            + VB_REGEL * len(vb["zinregels"]) + 8
             + VB_REGEL * len(vb["rijen"]) + (8 if vb["gradatie"] else 0)
             + VB_REGEL * len(vb["gradatie"]) + 8
             + (VB_BRON_MAAT + 4) * len(vb["vindplaats"]) + VB_MARGE)
+    vb["vak_h"] = hoog
+    laag = vb["laag"]
+    if laag:
+        kader_b = max(tw(k, VB_MAAT) for k, _, _ in laag["regels"]) + VB_CEL_GOOT
+        code_b = max(tw(c, VB_MAAT, True) for _, c, _ in laag["regels"]) + VB_CEL_GOOT
+        laag["kader_b"], laag["code_b"] = kader_b, code_b
+        laag_breed = max([kader_b + code_b + tw(o, VB_MAAT) for _, _, o in laag["regels"]]
+                         + [tw(laag["naam"], NAAM_MAAT, True) + VAK_PICTOGRAM]
+                         + [tw(r, VB_BRON_MAAT) for r in laag["vindplaats"]]
+                         + [tw(laag["voorlopig"], NOOT_MAAT) if laag["voorlopig"] else 0])
+        laag["vak_h"] = (VB_MARGE + NAAM_REGEL + (NOOT_REGEL if laag["voorlopig"] else 0) + 6
+                         + VB_REGEL * len(laag["regels"]) + 8
+                         + (VB_BRON_MAAT + 4) * len(laag["vindplaats"]) + VB_MARGE)
+        breed = max(breed, laag_breed)
+        hoog += VB_LAAG_GOOT + laag["vak_h"]
     return breed + 2 * VB_MARGE, hoog
 
 
-def voorbeeld_blok(vb, x, y, breed, hoog):
-    """Het voorbeeldblok als ArchiMate-groepering naast de kolommen: de zin bovenaan, eronder
-    de delen van de vorm in twee kolommen, en onderaan de vindplaats.
+def _vb_vak(x, y, breed, hoog, naam, onderschrift, onderschrift_kleur, inhoud):
+    """Een vak in de vormtaal van de plaat: dezelfde vulling, hetzelfde pictogram en dezelfde
+    naam bovenaan als een objecttype in het raster.
 
-    Het niveau staat in de accentkleur onder de delen: het is geen deel van de zin maar het
-    metagegeven ernaast, en dat is precies wat de vraag van de reviewronde raakt.
+    Zonder deze vormtaal leest een voorbeeld als een eigen groepering en daarmee als een extra
+    begrippenfamilie, terwijl het een ingevuld geval van een objecttype is.
     """
-    tab_b = tw(vb["kop"], 12, True) + 20
-    uit = (box(x, y, breed, hoog, KOL_VUL, KOL_RAND)
-           + box(x, y - KOL_TAB_H, min(tab_b, breed), KOL_TAB_H, KOL_TAB, KOL_RAND)
-           + text(x + 10, y - 8, vb["kop"], 12, True, ACCENT))
-    cy = y + VB_MARGE + VB_ZIN_MAAT
+    uit = (box(x, y, breed, hoog, BUS, BUS_L) + icon("object", x + breed - 22, y + 5)
+           + text(x + VB_MARGE, y + VB_MARGE + NAAM_MAAT - 2, naam, NAAM_MAAT, True, INK))
+    cy = y + VB_MARGE + NAAM_REGEL
+    if onderschrift:
+        uit += text(x + VB_MARGE, cy + NOOT_MAAT - 2, onderschrift, NOOT_MAAT, False,
+                    onderschrift_kleur)
+        cy += NOOT_REGEL
+    return uit, cy + 6
+
+
+def voorbeeld_blok(vb, x, y, breed, hoog):
+    """Een ingevuld geval naast het raster, in de vormtaal van de plaat.
+
+    Bovenaan het objecttype met zijn instantie, eronder de laag met het kader dat een trap
+    dieper gaat, verbonden met een specialisatielijn. De hoogte van het bovenste vak staat
+    vast, zodat twee voorbeelden naast elkaar hun rijen op dezelfde lijn houden.
+    """
+    laag = vb["laag"]
+    boven_h = vb.get("boven_h") or (hoog - (VB_LAAG_GOOT + laag["vak_h"])
+                                    if laag else hoog)
+    uit, cy = _vb_vak(x, y, breed, boven_h, vb["bij"], vb["kop"], MUTED, "")
     for r in vb["zinregels"]:
-        uit += text(x + VB_MARGE, cy, r, VB_ZIN_MAAT, True, INK)
+        uit += text(x + VB_MARGE, cy + VB_ZIN_MAAT - 2, r, VB_ZIN_MAAT, True, INK)
         cy += VB_REGEL
     cy += 8
     for naam, waarde, vet in vb["rijen"]:
-        uit += text(x + VB_MARGE, cy, naam, VB_MAAT, False, MUTED)
-        uit += text(x + VB_MARGE + vb["label_b"], cy, waarde, VB_MAAT, vet,
+        uit += text(x + VB_MARGE, cy + VB_MAAT - 2, naam, VB_MAAT, False, MUTED)
+        uit += text(x + VB_MARGE + vb["label_b"], cy + VB_MAAT - 2, waarde, VB_MAAT, vet,
                     ACCENT if vet else INK)
         cy += VB_REGEL
     if vb["gradatie"]:
         cy += 8
         for r in vb["gradatie"]:
-            uit += text(x + VB_MARGE, cy, r, VB_MAAT, False, MUTED)
+            uit += text(x + VB_MARGE, cy + VB_MAAT - 2, r, VB_MAAT, False, MUTED)
             cy += VB_REGEL
     cy += 8
     for r in vb["vindplaats"]:
-        uit += text(x + VB_MARGE, cy, r, VB_BRON_MAAT, False, MUTED)
+        uit += text(x + VB_MARGE, cy + VB_BRON_MAAT - 2, r, VB_BRON_MAAT, False, MUTED)
         cy += VB_BRON_MAAT + 4
-    return groep("voorbeeld", vb["kop"], uit)
+    if laag:
+        ly = y + boven_h + VB_LAAG_GOOT
+        # de specialisatielijn wijst omhoog naar het geval waarvan deze laag de uitwerking is
+        mx = x + breed / 2
+        uit += (f'<path d="M{mx:.0f} {ly:.0f} L{mx:.0f} {y + boven_h + 11:.0f}" '
+                f'fill="none" stroke="{RELATIE}"/>'
+                + _kop_v(mx, y + boven_h, "Specialization", -1, RELATIE))
+        laag_uit, lcy = _vb_vak(x, ly, breed, laag["vak_h"], laag["naam"],
+                                laag["voorlopig"], ACCENT, "")
+        for kader, code, omschrijving in laag["regels"]:
+            laag_uit += text(x + VB_MARGE, lcy + VB_MAAT - 2, kader, VB_MAAT, False, MUTED)
+            laag_uit += text(x + VB_MARGE + laag["kader_b"], lcy + VB_MAAT - 2, code,
+                             VB_MAAT, True, INK)
+            laag_uit += text(x + VB_MARGE + laag["kader_b"] + laag["code_b"],
+                             lcy + VB_MAAT - 2, omschrijving, VB_MAAT, False, INK)
+            lcy += VB_REGEL
+        lcy += 8
+        for r in laag["vindplaats"]:
+            laag_uit += text(x + VB_MARGE, lcy + VB_BRON_MAAT - 2, r, VB_BRON_MAAT, False, MUTED)
+            lcy += VB_BRON_MAAT + 4
+        uit += groep("voorbeeld-laag", f"{laag['naam']} bij {vb['bij']}", laag_uit)
+    naam = f"Voorbeeld bij {vb['bij']}" + (f": {vb['kop']}" if vb["kop"] else "")
+    return groep("voorbeeld", naam, uit)
+
+
+def voorbeeld_aanhechting(vbs, doel, spine_y, raster_rand):
+    """De grijze lijn van het objecttype op het raster naar de voorbeelden ernaast.
+
+    Zonder die lijn zweeft een voorbeeld naast de plaat en zegt het niet waarvan het een
+    invulling is. De lijn loopt uit de rechterrand van het vak, stijgt naar een eigen baan
+    boven de voorbeelden en laat per voorbeeld een stomp zakken, zodat twee voorbeelden
+    dezelfde herkomst delen zonder dat de ene lijn over de andere valt.
+    """
+    if not vbs or doel is None:
+        return ""
+    x0, y0 = doel["x"] + doel["w"], doel["y"] + doel["vak_h"] / 2
+    knik = raster_rand + KOL_GOOT / 2
+    d = [f"M{x0:.0f} {y0:.0f} L{knik:.0f} {y0:.0f} L{knik:.0f} {spine_y:.0f}"]
+    rechts = max(vb["x"] + vb["breed"] / 2 for vb in vbs)
+    d.append(f"L{rechts:.0f} {spine_y:.0f}")
+    uit = (f'<path d="{" ".join(d)}" fill="none" stroke="{GRIJS_L}" '
+           f'stroke-width="1.5" stroke-dasharray="5 4"/>')
+    for vb in vbs:
+        mx = vb["x"] + vb["breed"] / 2
+        uit += (f'<path d="M{mx:.0f} {spine_y:.0f} L{mx:.0f} {vb["y"] - 1:.0f}" fill="none" '
+                f'stroke="{GRIJS_L}" stroke-width="1.5" stroke-dasharray="5 4"/>')
+    uit += text(x0 + 10, y0 - 6, "voorbeeld uitwerking", LABEL_MAAT, False, MUTED)
+    return groep("aanhechting", f"voorbeeld uitwerking bij {doel['naam']}", uit)
 
 
 def _leesregels(lijst):
@@ -1322,13 +1445,24 @@ def bouw(model, selectie):
     # hunne, en reikt minstens zo ver omlaag als het raster
     vb_hoog = max(vb_inhoud, opmaak["hoog"] + KOL_MARGE) if vbs else 0
     vb_x = DOEK_MARGE + verschuif + opmaak["breed"] + KOL_GOOT
-    # twee blokken staan naast elkaar en krijgen dezelfde hoogte, zodat hun rijen op dezelfde
-    # lijn liggen en het verschil tussen de twee stelsels per rij af te lezen is
+    # twee blokken staan naast elkaar en krijgen dezelfde hoogte, en hun bovenste vak dezelfde
+    # hoogte, zodat de rijen op dezelfde lijn liggen en het verschil per rij af te lezen is
+    laag_h = max([vb["laag"]["vak_h"] for vb in vbs if vb["laag"]] or [0])
+    boven_h = vb_hoog - (VB_LAAG_GOOT + laag_h) if laag_h else vb_hoog
     x = vb_x
     for vb, (breed_vb, _) in zip(vbs, vb_maten):
+        vb["x"], vb["y"], vb["breed"], vb["boven_h"] = x, raster_y, breed_vb, boven_h
+        if vb["laag"]:
+            vb["laag"]["vak_h"] = laag_h
         body += voorbeeld_blok(vb, x, raster_y, breed_vb, vb_hoog)
         x += breed_vb + KOL_GOOT
     vb_rand = (x - KOL_GOOT) if vbs else 0
+    if vbs:
+        # de grijze lijn hangt de voorbeelden aan het objecttype waarvan zij een invulling zijn
+        doelen = {vb["bij"] for vb in vbs}
+        doel = next((e for e in lijst if e["naam"] in doelen), None)
+        body += voorbeeld_aanhechting(vbs, doel, raster_y - KOL_TAB_H / 2,
+                                      DOEK_MARGE + verschuif + opmaak["breed"])
     for r, label in enumerate(rij_labels):
         if label:
             body += text(DOEK_MARGE, raster_y + opmaak["rij_y"][r] + 22, label, 12, fill=MUTED)
@@ -1425,7 +1559,9 @@ def bouw(model, selectie):
             plek = f"boven de grens tussen {brug[0]} en {brug[1]}"
         band_melding.append(f"{e['naam']}: {plek}")
     melding = dict(vakken=len(lijst), kolommen=len(kolommen), rijen=rijen, band=band_melding,
-                   voorbeeld=[f"{vb['kop']}: {vb['zin']}" for vb in vbs],
+                   voorbeeld=[f"Voorbeeld bij {vb['bij']}"
+                              + (f", {vb['kop']}" if vb["kop"] else "") + f": {vb['zin']}"
+                              for vb in vbs],
                    horizontaal=len(horizontaal), verticaal=len(verticaal), lussen=len(lussen),
                    weggelaten=weggelaten, onderregels=onderregels,
                    zelf=[f"{lus['vak']['naam']}: {lus['soort']} op zichzelf" for lus in lussen],
