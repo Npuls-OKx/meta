@@ -230,12 +230,34 @@ class UitsnedeTests(unittest.TestCase):
 
     def test_given_elke_soort_wijziging_when_getekend_then_staat_de_korte_naam_achter_het_nummer(self):
         for merk, (kort, _) in tu.MERKEN.items():
-            if merk == "verwijderd":
+            if merk in tu.BUITEN_HET_MODEL:
                 continue
             sel = selectie(objecten=[{"naam": "Minor", "rij": 0, "merk": merk}], rij_labels=[])
             svg, _ = plaat(sel)
             inhoud = [(t.text or "") for t in vak_van(svg, "Minor").iter(f"{SVG}text")]
             self.assertIn(f"1 {kort}", inhoud)
+
+    def test_given_een_voorstel_voor_een_objecttype_when_getekend_then_staat_het_onderbroken(self):
+        # een reviewvraag eindigt vaak in een objecttype dat ontbreekt; dat voorstel hoort op de
+        # plaat te staan als voorstel, met dezelfde onderbroken lijn als een ontbrekende relatie
+        sel = selectie(objecten=[{"naam": "Keuzedeel", "rij": 0},
+                                 {"naam": "Kwalificatieniveau", "rij": 0, "merk": "voorstel",
+                                  "nummer": 1, "kolom": "Onderwijsspecificatie"}],
+                       rij_labels=[])
+        svg, _ = plaat(sel)
+        vak = vak_van(svg, "Kwalificatieniveau")
+        randen = [r for r in vak.iter(f"{SVG}rect") if r.get("stroke-dasharray")]
+        self.assertEqual(len(randen), 1)
+        self.assertIn("1 voorstel", [(t.text or "") for t in vak.iter(f"{SVG}text")])
+        self.assertIn("voorstel: bestaat nog niet in het model", teksten(svg))
+
+    def test_given_een_voorstel_zonder_kolom_when_getekend_then_weigert_het_script(self):
+        sel = selectie(objecten=[{"naam": "Keuzedeel", "rij": 0},
+                                 {"naam": "Kwalificatieniveau", "rij": 0, "merk": "voorstel"}],
+                       rij_labels=[])
+        with self.assertRaises(tu.Fout) as fout:
+            plaat(sel)
+        self.assertIn("geef de kolom in de selectie mee", str(fout.exception))
 
     def test_given_elke_soort_wijziging_when_gelegend_then_opent_de_uitleg_met_dat_woord(self):
         # alle soorttegels dragen dezelfde oranje rand; het woord in het vak is wat een lezer
@@ -277,7 +299,7 @@ class UitsnedeTests(unittest.TestCase):
                                   "kolom": "Onderwijsspecificatie"}], rij_labels=[])
         with self.assertRaises(tu.Fout) as fout:
             plaat(sel)
-        self.assertIn("nog in het model staat", str(fout.exception))
+        self.assertIn("in het model staat", str(fout.exception))
 
     def test_given_een_verwijderd_objecttype_zonder_kolom_when_getekend_then_vraagt_het_script_erom(self):
         sel = selectie(objecten=[{"naam": "Keuzedeelruimte", "rij": 0, "merk": "verwijderd"}],
@@ -896,7 +918,7 @@ class UitsnedeTests(unittest.TestCase):
     def test_given_geen_voorbeeld_in_de_selectie_when_getekend_then_staat_er_geen_blok(self):
         svg, melding = plaat()
         self.assertEqual(titels(svg, "voorbeeld"), [])
-        self.assertIsNone(melding["voorbeeld"])
+        self.assertEqual(melding["voorbeeld"], [])
 
     def test_given_een_voorbeeld_when_getekend_then_staat_het_blok_rechts_van_de_kolommen(self):
         svg, _ = plaat(selectie(voorbeeld=voorbeeld()))
@@ -925,7 +947,32 @@ class UitsnedeTests(unittest.TestCase):
     def test_given_een_voorbeeld_bij_een_genummerd_object_when_getekend_then_noemt_de_kop_dat_nummer(self):
         svg, melding = plaat(selectie(voorbeeld=voorbeeld()))
         self.assertEqual(titels(svg, "voorbeeld"), ["Voorbeeld bij 1 Minor"])
-        self.assertTrue(melding["voorbeeld"].startswith("Voorbeeld bij 1 Minor"))
+        self.assertTrue(melding["voorbeeld"][0].startswith("Voorbeeld bij 1 Minor"))
+
+    def test_given_twee_voorbeelden_when_getekend_then_staan_zij_naast_elkaar_op_dezelfde_hoogte(self):
+        # een vraag die een vergelijking is, is pas beantwoord met twee ingevulde gevallen naast
+        # elkaar; gelijke hoogte laat het verschil per rij aflezen
+        sel = selectie(voorbeeld=[voorbeeld(), voorbeeld(zin="Tweede voorbeeldzin hier")])
+        svg, melding = plaat(sel)
+        blokken = [doos(g) for _, g in groepen(svg, "voorbeeld")]
+        self.assertEqual(len(blokken), 2)
+        self.assertLess(blokken[0]["x"] + blokken[0]["width"], blokken[1]["x"])
+        self.assertEqual(blokken[0]["y"], blokken[1]["y"])
+        self.assertEqual(blokken[0]["height"], blokken[1]["height"])
+        self.assertEqual(len(melding["voorbeeld"]), 2)
+
+    def test_given_twee_voorbeelden_when_getekend_then_past_het_doek_om_beide(self):
+        sel = selectie(voorbeeld=[voorbeeld(), voorbeeld(zin="Tweede voorbeeldzin hier")])
+        svg, _ = plaat(sel)
+        breed = float(ET.fromstring(svg).get("width"))
+        rechts = max(doos(g)["x"] + doos(g)["width"] for _, g in groepen(svg, "voorbeeld"))
+        self.assertGreaterEqual(breed, rechts)
+
+    def test_given_drie_voorbeelden_when_getekend_then_weigert_het_script(self):
+        sel = selectie(voorbeeld=[voorbeeld(), voorbeeld(), voorbeeld()])
+        with self.assertRaises(tu.Fout) as fout:
+            plaat(sel)
+        self.assertIn("hoogstens 2", str(fout.exception))
 
     def test_given_een_voorbeeld_bij_een_objecttype_buiten_de_selectie_when_getekend_then_weigert_het_script(self):
         with self.assertRaises(tu.Fout) as fout:

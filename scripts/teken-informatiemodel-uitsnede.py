@@ -153,6 +153,7 @@ VB_LABEL_GOOT = 14                   # tussen de naam van een deel en zijn waard
 MAX_VB_DELEN = 7                     # meer delen maken van de ontleding een tabel
 MAX_VB_WOORDEN = 8                   # woorden in de waarde van een deel
 MAX_VB_ZINWOORDEN = 20               # woorden in de voorbeeldzin zelf
+MAX_VB_BLOKKEN = 2                   # voorbeeldblokken naast het raster
 
 MAX_VAKKEN, MAX_KOLOMMEN, MAX_RIJEN = 24, 8, 6
 MAX_LEESWOORDEN = 12                 # woorden in de regel onder het beeld, de naam meegerekend
@@ -171,7 +172,11 @@ MERKEN = {"toegevoegd": ("toegevoegd", "toegevoegd: nieuw in het model"),
           "hernoemd": ("hernoemd", "hernoemd: dezelfde plek, een andere naam"),
           "binnen scope": ("binnen scope", "binnen scope: binnen scope van OKx geplaatst"),
           "buiten scope": ("buiten scope", "buiten scope: buiten scope van OKx geplaatst"),
-          "herplaatst": ("herplaatst", "herplaatst: aan een ander objecttype gehangen")}
+          "herplaatst": ("herplaatst", "herplaatst: aan een ander objecttype gehangen"),
+          "voorstel": ("voorstel", "voorstel: bestaat nog niet in het model")}
+# `verwijderd` en `voorstel` zijn de twee soorten waarbij de naam juist niet in het model
+# staat: de een is eruit gehaald, de ander is wat deze uitsnede voorstelt om toe te voegen.
+BUITEN_HET_MODEL = ("verwijderd", "voorstel")
 # De oude merken zeiden dat er iets veranderde en niet wat; zij wijzen nu naar een soort.
 VERVALLEN_MERKEN = {"nieuw": "toegevoegd", "anders": "herplaatst, binnen scope of buiten scope"}
 GESTIPPELD = {"Access": "4 3", "Realization": "4 3", "Influence": "6 4"}
@@ -380,6 +385,8 @@ def kleuren(obj):
     met een vulkleur als buiten scope aan, terwijl die drie vakken op de releasebare plaat
     geel zijn. De vulkleur van het model gaat daar dus voor op het afgeleide veld.
     """
+    if norm(obj.get("vulkleur")) == "#ffffff":
+        return "#ffffff", GRIJS_L, GRIJS_T
     if obj.get("scope") == "buiten" and norm(obj.get("vulkleur")) != BUS:
         return GRIJS, GRIJS_L, GRIJS_T
     return BUS, BUS_L, BUS_T
@@ -424,8 +431,10 @@ def _controleer_toelichting(selectie):
 def _controleer_merk(e, objecten):
     """Het merk als soort wijziging. Een vervallen merk wijst naar de soort die het vervangt.
 
-    `verwijderd` is de enige soort waarbij de naam juist niet in het model hoort te staan; zij
-    kan daarom geen kolom en geen scope uit het model halen en krijgt die van de auteur.
+    `verwijderd` en `voorstel` zijn de soorten waarbij de naam juist niet in het model hoort te
+    staan; zij kunnen daarom geen kolom en geen scope uit het model halen en krijgen die van de
+    auteur. Een reviewvraag eindigt vaak in een objecttype dat ontbreekt, en dat voorstel hoort
+    op de plaat te staan als voorstel, herkenbaar anders dan wat er wel is.
     """
     merk = e.get("merk")
     if merk is None:
@@ -436,13 +445,13 @@ def _controleer_merk(e, objecten):
                    f"uit {sorted(MERKEN)}")
     if merk not in MERKEN:
         raise Fout(f"{e['naam']!r}: merk {merk!r} is niet een van {sorted(MERKEN)}")
-    if merk != "verwijderd":
+    if merk not in BUITEN_HET_MODEL:
         return
     if norm(e["naam"]) in objecten:
-        raise Fout(f"{e['naam']!r}: merk 'verwijderd' terwijl het objecttype nog in het model "
-                   "staat; kies de soort die bij de wijziging hoort")
+        raise Fout(f"{e['naam']!r}: merk {merk!r} terwijl het objecttype in het model staat; "
+                   "kies de soort die bij de wijziging hoort")
     if not e.get("kolom"):
-        raise Fout(f"{e['naam']!r}: een verwijderd objecttype staat niet meer in het model en "
+        raise Fout(f"{e['naam']!r}: een objecttype met merk {merk!r} staat niet in het model en "
                    "haalt zijn kolom daar dus niet uit; geef de kolom in de selectie mee")
 
 
@@ -459,7 +468,8 @@ def entries(selectie, objecten):
         _controleer_merk(e, objecten)
         e["gewijzigd"] = e.get("merk") is not None
         uit.append(e)
-    _controleer_namen([e["naam"] for e in uit if e.get("merk") != "verwijderd"], objecten)
+    _controleer_namen([e["naam"] for e in uit
+                       if e.get("merk") not in BUITEN_HET_MODEL], objecten)
     dubbel = [n for n in {norm(e["naam"]) for e in uit}
               if sum(1 for e in uit if norm(e["naam"]) == n) > 1]
     if dubbel:
@@ -474,8 +484,12 @@ def entries(selectie, objecten):
             nummer += 1
             e["nummer"] = e.get("nummer") or nummer
         _controleer_waarom(e)
+        # een objecttype dat niet in het model staat krijgt zijn vulling van zijn soort: een
+        # verwijderd type was buiten scope geraakt en wordt grijs, een voorstel is wit, want
+        # wit staat nergens anders op de plaat en zegt daarmee: dit bestaat nog niet
+        vulling = "#ffffff" if e.get("merk") == "voorstel" else "#e8e8e8"
         obj = objecten.get(norm(e["naam"])) or dict(naam=e["naam"], kolom=e.get("kolom"),
-                                                    scope="buiten", vulkleur="#e8e8e8", oeapi=None)
+                                                    scope="buiten", vulkleur=vulling, oeapi=None)
         e["obj"] = obj
         e["kolom"] = e.get("kolom") or obj.get("kolom") or BAND_NAAM
         e["band"] = norm(e["kolom"]) == norm(BAND_NAAM)
@@ -1003,8 +1017,11 @@ def vak(e):
     for i, (t, kleur, vet) in enumerate(e["extra"]):
         uit += text(x + VAK_MARGE_L, basis + NOOT_REGEL * (i + 1), t, NOOT_MAAT, vet, kleur)
     if e["gewijzigd"]:
+        # een voorstel staat nog niet in het model, en draagt daarom dezelfde onderbroken lijn
+        # als een relatie die ontbreekt
+        streep = ' stroke-dasharray="6 4"' if e.get("merk") == "voorstel" else ""
         uit += (f'<rect x="{x - 3:.0f}" y="{y - 3:.0f}" width="{w + 6:.0f}" height="{h + 6:.0f}" '
-                f'rx="4" fill="none" stroke="{ACCENT}" stroke-width="3"/>')
+                f'rx="4" fill="none" stroke="{ACCENT}" stroke-width="3"{streep}/>')
     return groep("vak", e["naam"], uit)
 
 
@@ -1027,12 +1044,14 @@ def legenda_regels(lijst, horizontaal, verticaal, lussen=(), verwijzingen=()):
     uit = []
     if any(kleuren(e["obj"])[0] == BUS for e in lijst):
         uit.append(("vak", BUS, BUS_L, "OKx referentiekader"))
-    if any(kleuren(e["obj"])[0] == GRIJS and e.get("merk") != "verwijderd" for e in lijst):
+    if any(kleuren(e["obj"])[0] == GRIJS and e.get("merk") not in BUITEN_HET_MODEL
+           for e in lijst):
         uit.append(("vak", GRIJS, GRIJS_L, "Buiten scope binnen OKx"))
     # per soort wijziging een eigen tegel: een lezer ziet zo niet dat er iets veranderde maar wat.
     # De vulling van de tegel is die van het vak zelf, zodat de twee scopetegels uit elkaar
     # te houden zijn aan de kleur die zij op het beeld opleveren.
-    vulling = {"binnen scope": BUS, "buiten scope": GRIJS, "verwijderd": GRIJS}
+    vulling = {"binnen scope": BUS, "buiten scope": GRIJS, "verwijderd": GRIJS,
+               "voorstel": "#ffffff"}
     for merk, (_, uitleg) in MERKEN.items():
         if any(e.get("merk") == merk for e in lijst):
             uit.append(("rand", vulling.get(merk, "#ffffff"), ACCENT, uitleg))
@@ -1103,8 +1122,26 @@ def legenda(x, y, regels, maxw):
 
 # --------------------------------------------------------------- voorbeeld --
 
-def voorbeeld_lezen(selectie, lijst):
-    """Het voorbeeldblok uit de selectie, gecontroleerd en gemeten. Geeft None zonder blok.
+def voorbeelden_lezen(selectie, lijst):
+    """De voorbeeldblokken uit de selectie, gecontroleerd en gemeten. Geeft een lege lijst
+    zonder blok.
+
+    `voorbeeld` draagt een blok of een lijst blokken. Twee blokken naast elkaar beantwoorden
+    een vraag die een vergelijking is: hetzelfde begrip in twee stelsels, met dezelfde vorm en
+    een andere lat. Meer dan MAX_VB_BLOKKEN zijn het geen voorbeelden meer maar een tabel.
+    """
+    rauw = selectie.get("voorbeeld")
+    if not rauw:
+        return []
+    blokken = rauw if isinstance(rauw, list) else [rauw]
+    if len(blokken) > MAX_VB_BLOKKEN:
+        raise Fout(f"de selectie draagt {len(blokken)} voorbeelden (hoogstens "
+                   f"{MAX_VB_BLOKKEN}); zet de rest in de tekst onder het beeld")
+    return [_voorbeeld_lezen(vb, lijst) for vb in blokken]
+
+
+def _voorbeeld_lezen(vb, lijst):
+    """Een voorbeeldblok, gecontroleerd en gemeten.
 
     Een uitsnede toont de structuur; een vraag als "kan een leeruitkomst het niveau van een
     competentie uitdrukken?" is pas beantwoord zodra er een ingevuld geval naast staat. Dat
@@ -1116,9 +1153,6 @@ def voorbeeld_lezen(selectie, lijst):
     binnen MAX_VB_WOORDEN woorden en er zijn er hoogstens MAX_VB_DELEN. Zonder vindplaats
     weigert het script, want een voorbeeld zonder herkomst is een verzinsel.
     """
-    vb = selectie.get("voorbeeld")
-    if not vb:
-        return None
     per_naam = {norm(e["naam"]): e for e in lijst}
     bij = norm(vb.get("bij"))
     if not bij:
@@ -1156,8 +1190,10 @@ def voorbeeld_lezen(selectie, lijst):
                        f"{MAX_VB_WOORDEN})")
         rijen.append(("niveau", niveau, True))
     doel = per_naam[bij]
-    kop = f"Voorbeeld bij {doel['nummer']} {doel['naam']}" if doel.get("nummer") \
-        else f"Voorbeeld bij {doel['naam']}"
+    # twee blokken bij hetzelfde objecttype dragen dezelfde kop; een eigen kop zegt dan welk
+    # van de twee stelsels het blok toont
+    kop = norm(vb.get("kop")) or (f"Voorbeeld bij {doel['nummer']} {doel['naam']}"
+                                  if doel.get("nummer") else f"Voorbeeld bij {doel['naam']}")
     return dict(kop=kop, bij=doel["naam"], zin=zin, rijen=rijen,
                 zinregels=afbreken(zin, VB_B, VB_ZIN_MAAT, True),
                 gradatie=afbreken(vb["gradatie"], VB_B, VB_MAAT) if norm(vb.get("gradatie")) else [],
@@ -1247,8 +1283,9 @@ def bouw(model, selectie):
         model, selectie, lijst, kolommen)
     maat_vakken(lijst, verwijzingen, lussen, selectie.get("oeapi", False))
     opmaak = plaatsen(lijst, kolommen, rijen, horizontaal, verticaal, cel, bruggen)
-    vb = voorbeeld_lezen(selectie, lijst)
-    vb_breed, vb_inhoud = voorbeeld_maat(vb) if vb else (0, 0)
+    vbs = voorbeelden_lezen(selectie, lijst)
+    vb_maten = [voorbeeld_maat(vb) for vb in vbs]
+    vb_inhoud = max([h for _, h in vb_maten] or [0])
 
     titel = selectie.get("titel") or selectie.get("vraag") or "Uitsnede uit het informatiemodel"
     herkomst = selectie.get("herkomst") or ""
@@ -1283,10 +1320,15 @@ def bouw(model, selectie):
                            raster_y, opmaak["hoog"] + KOL_MARGE)
     # het voorbeeldblok staat rechts van de kolommen, met zijn tab op dezelfde hoogte als de
     # hunne, en reikt minstens zo ver omlaag als het raster
-    vb_hoog = max(vb_inhoud, opmaak["hoog"] + KOL_MARGE) if vb else 0
+    vb_hoog = max(vb_inhoud, opmaak["hoog"] + KOL_MARGE) if vbs else 0
     vb_x = DOEK_MARGE + verschuif + opmaak["breed"] + KOL_GOOT
-    if vb:
-        body += voorbeeld_blok(vb, vb_x, raster_y, vb_breed, vb_hoog)
+    # twee blokken staan naast elkaar en krijgen dezelfde hoogte, zodat hun rijen op dezelfde
+    # lijn liggen en het verschil tussen de twee stelsels per rij af te lezen is
+    x = vb_x
+    for vb, (breed_vb, _) in zip(vbs, vb_maten):
+        body += voorbeeld_blok(vb, x, raster_y, breed_vb, vb_hoog)
+        x += breed_vb + KOL_GOOT
+    vb_rand = (x - KOL_GOOT) if vbs else 0
     for r, label in enumerate(rij_labels):
         if label:
             body += text(DOEK_MARGE, raster_y + opmaak["rij_y"][r] + 22, label, 12, fill=MUTED)
@@ -1340,7 +1382,7 @@ def bouw(model, selectie):
                 DOEK_MARGE + tw(herkomst, HERKOMST_MAAT) + DOEK_MARGE,
                 max([label_rechterrand(v) for v in verticaal] or [0]) + DOEK_MARGE,
                 DOEK_MARGE + max([r["breed"] for r in leesregels] or [0]) + DOEK_MARGE,
-                (vb_x + vb_breed + DOEK_MARGE) if vb else 0)
+                (vb_rand + DOEK_MARGE) if vbs else 0)
     y = raster_y + max(opmaak["hoog"] + KOL_MARGE, vb_hoog) + 28
 
     onder = ""
@@ -1383,7 +1425,7 @@ def bouw(model, selectie):
             plek = f"boven de grens tussen {brug[0]} en {brug[1]}"
         band_melding.append(f"{e['naam']}: {plek}")
     melding = dict(vakken=len(lijst), kolommen=len(kolommen), rijen=rijen, band=band_melding,
-                   voorbeeld=(f"{vb['kop']}: {vb['zin']}" if vb else None),
+                   voorbeeld=[f"{vb['kop']}: {vb['zin']}" for vb in vbs],
                    horizontaal=len(horizontaal), verticaal=len(verticaal), lussen=len(lussen),
                    weggelaten=weggelaten, onderregels=onderregels,
                    zelf=[f"{lus['vak']['naam']}: {lus['soort']} op zichzelf" for lus in lussen],
@@ -1435,8 +1477,8 @@ def main(argv=None):
         print(f"  als lus in het vak: {regel}")
     for regel in melding["band"]:
         print(f"  in de band boven de kolommen: {regel}")
-    if melding["voorbeeld"]:
-        print(f"  als blok naast het raster: {melding['voorbeeld']}")
+    for regel in melding["voorbeeld"]:
+        print(f"  als blok naast het raster: {regel}")
     if args.streng and (melding["kruisingen"] or melding["weggelaten"]):
         return 1
     return 0

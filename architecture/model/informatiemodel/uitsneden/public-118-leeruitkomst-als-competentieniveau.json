@@ -4,32 +4,42 @@
  "herkomst": "Reviewvraag Npuls-OKx/Public#118 van @JanHendrikvanSchaik, werkbrief Npuls-OKx/meta#336",
  "oeapi": true,
  "rij_labels": [
-  "waar de competentie vandaan komt",
-  "de leeruitkomst, en wat erin vertaalt",
-  "het algemene type: de competentie",
-  "waaruit een competentie bestaat"
+  "waar de eis vandaan komt, en de eis van het hoger onderwijs",
+  "de mbo-eis, de lat, en wat hem draagt",
+  "het algemene type: de competentie"
  ],
  "objecten": [
   {
-   "naam": "Werkveld of beroepenveld of deelnemer competentie",
+   "naam": "Kwalificatie dossier",
    "rij": 0,
-   "merk": "toegevoegd",
-   "nummer": 1,
-   "waarom": "stelt de eisen aan de beroepsbeoefenaar"
+   "noot": "mbo, vastgesteld door S-BB"
   },
   {
    "naam": "Landelijk Opleidingsprofiel",
    "rij": 0,
    "merk": "toegevoegd",
-   "nummer": 2,
-   "waarom": "bundelt competenties en eindkwalificaties van een opleiding"
+   "nummer": 1,
+   "waarom": "het kwalificatiekader van het hoger onderwijs"
+  },
+  {
+   "naam": "Kwalificatie",
+   "rij": 1,
+   "noot": "mbo"
   },
   {
    "naam": "Eindkwalificatie",
-   "rij": 1,
+   "rij": 0,
    "merk": "toegevoegd",
+   "nummer": 2,
+   "waarom": "het woord van het hoger onderwijs voor dezelfde eis"
+  },
+  {
+   "naam": "Kwalificatieniveau",
+   "rij": 1,
+   "kolom": "Kwalificatiekader",
+   "merk": "voorstel",
    "nummer": 3,
-   "waarom": "realiseert competenties, en vertaalt naar leeruitkomsten"
+   "waarom": "NLQF 1 tot 8, met EQF als Europese equivalent"
   },
   {
    "naam": "Leeruitkomst",
@@ -38,48 +48,93 @@
   },
   {
    "naam": "Competenties / Skills",
-   "rij": 2
-  },
-  {
-   "naam": "Kennis",
-   "rij": 3
-  },
-  {
-   "naam": "Inzicht",
-   "rij": 3
-  },
-  {
-   "naam": "Vaardigheid",
-   "rij": 3
+   "rij": 2,
+   "noot": "CompetentNL is het kader hierachter"
   }
  ],
- "voorbeeld": {
-  "bij": "Leeruitkomst",
-  "zin": "Voert medicatiebewaking uit onder begeleiding in de leerapotheek",
-  "delen": [
-   {
-    "deel": "actief werkwoord",
-    "waarde": "voert uit"
-   },
-   {
-    "deel": "type",
-    "waarde": "kerntaak B1-K1 farmaceutische patientenzorg"
-   },
-   {
-    "deel": "onderwerp",
-    "waarde": "medicatiebewaking"
-   },
-   {
-    "deel": "standaard",
-    "waarde": "onder begeleiding"
-   },
-   {
-    "deel": "context",
-    "waarde": "in de leerapotheek"
-   }
-  ],
-  "niveau": "werkprocesniveau, B1-K1-W2",
-  "gradatie": "Dezelfde competentie een niveau hoger, met een andere standaard: Biedt farmaceutische patientenzorg in een levensechte apotheekomgeving (kerntaakniveau).",
-  "vindplaats": "zin en gradatie letterlijk uit voorbeeld-lr1-regels.json; de vijf plekken zijn het Tuning-model uit begrippen/leeruitkomst-vorm/README.md"
- }
+ "ontbreekt": [
+  {
+   "van": "Kwalificatie",
+   "naar": "Kwalificatieniveau",
+   "soort": "Association",
+   "label": "op niveau",
+   "waarom": "het mbo-dossier landt op NLQF 1 tot 4; de plaat kent die lat nog niet"
+  },
+  {
+   "van": "Eindkwalificatie",
+   "naar": "Kwalificatieniveau",
+   "soort": "Association",
+   "label": "op niveau",
+   "waarom": "het hoger onderwijs landt op NLQF 5 tot 8, op diezelfde lat"
+  },
+  {
+   "van": "Kwalificatieniveau",
+   "naar": "Leeruitkomst",
+   "soort": "Association",
+   "label": "drukt dat niveau uit",
+   "waarom": "hiermee drukt dezelfde formulering een mbo- en een ho-niveau uit"
+  }
+ ],
+ "voorbeeld": [
+  {
+   "kop": "Uit een kwalificatiedossier, mbo",
+   "bij": "Leeruitkomst",
+   "zin": "Voert medicatiebewaking uit onder begeleiding in de leerapotheek",
+   "delen": [
+    {
+     "deel": "actief werkwoord",
+     "waarde": "voert uit"
+    },
+    {
+     "deel": "type",
+     "waarde": "kerntaak B1-K1 farmaceutische patientenzorg"
+    },
+    {
+     "deel": "onderwerp",
+     "waarde": "medicatiebewaking"
+    },
+    {
+     "deel": "standaard",
+     "waarde": "onder begeleiding"
+    },
+    {
+     "deel": "context",
+     "waarde": "in de leerapotheek"
+    }
+   ],
+   "niveau": "NLQF 4, taxonomie Romiszowski",
+   "gradatie": "Dezelfde competentie een niveau hoger: Biedt farmaceutische patientenzorg in een levensechte apotheekomgeving.",
+   "vindplaats": "zin en gradatie uit voorbeeld-lr1-regels.json, kwalificatiedossier Apothekersassistent van S-BB; de vijf plekken uit begrippen/leeruitkomst-vorm/README.md"
+  },
+  {
+   "kop": "Uit een opleidingsprofiel, hoger onderwijs",
+   "bij": "Leeruitkomst",
+   "zin": "Vertaalt een probleem naar een onderzoekstrategie en voert het onderzoek uit",
+   "delen": [
+    {
+     "deel": "actief werkwoord",
+     "waarde": "vertaalt, voert uit"
+    },
+    {
+     "deel": "type",
+     "waarde": "domeincompetentie 1 Onderzoeken, Bachelor of Applied Science"
+    },
+    {
+     "deel": "onderwerp",
+     "waarde": "een probleem naar een onderzoekstrategie"
+    },
+    {
+     "deel": "standaard",
+     "waarde": "competentieniveau III van vier"
+    },
+    {
+     "deel": "context",
+     "waarde": "binnen de eigen werkomgeving"
+    }
+   ],
+   "niveau": "NLQF 6 en EQF 6, taxonomie SOLO",
+   "gradatie": "Dezelfde competentie een niveau lager, met een andere standaard: kiest onder begeleiding een onderzoeksstrategie.",
+   "vindplaats": "Landelijk Opleidingsprofiel hbo-bachelor Technische Natuurkunde, december 2016, paragraaf 5.2 en bijlage IV; het document noemt EQF niveau 6 bij de bachelor"
+  }
+ ]
 }
