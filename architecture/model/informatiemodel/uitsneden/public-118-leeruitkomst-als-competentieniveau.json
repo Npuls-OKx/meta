@@ -1,0 +1,58 @@
+{
+ "id": "118-leeruitkomst-als-competentieniveau",
+ "titel": "Kan een leeruitkomst het niveau van een competentie uitdrukken?",
+ "herkomst": "Reviewvraag Npuls-OKx/Public#118 van @JanHendrikvanSchaik, werkbrief Npuls-OKx/meta#336",
+ "oeapi": true,
+ "rij_labels": [
+  "waar de competentie vandaan komt",
+  "wat naar een leeruitkomst vertaalt",
+  "waaruit een competentie bestaat"
+ ],
+ "objecten": [
+  {
+   "naam": "Werkveld of beroepenveld of deelnemer competentie",
+   "rij": 0,
+   "merk": "nieuw",
+   "nummer": 1,
+   "waarom": "stelt de eisen aan de beroepsbeoefenaar"
+  },
+  {
+   "naam": "Landelijk Opleidingsprofiel",
+   "rij": 0,
+   "merk": "nieuw",
+   "nummer": 2,
+   "waarom": "bundelt competenties en eindkwalificaties van een opleiding"
+  },
+  {
+   "naam": "Eindkwalificatie",
+   "rij": 1,
+   "merk": "nieuw",
+   "nummer": 3,
+   "waarom": "realiseert competenties, en vertaalt naar leeruitkomsten"
+  },
+  {
+   "naam": "Leeruitkomst",
+   "rij": 1,
+   "merk": "nieuw",
+   "nummer": 4,
+   "noot": "bevat subleeruitkomsten",
+   "waarom": "is een bijzonder geval van een competentie"
+  },
+  {
+   "naam": "Competenties / Skills",
+   "rij": 2
+  },
+  {
+   "naam": "Kennis",
+   "rij": 2
+  },
+  {
+   "naam": "Inzicht",
+   "rij": 2
+  },
+  {
+   "naam": "Vaardigheid",
+   "rij": 2
+  }
+ ]
+}

@@ -1,0 +1,41 @@
+{
+  "id": "public-116-formatief-en-summatief",
+  "titel": "Kunnen formatief en summatief een kenmerk van de toets zijn, in plaats van twee takken?",
+  "herkomst": "Reviewvraag Npuls-OKx/Public#116 van @hjwielemaker en @JanHendrikvanSchaik, werkbrief Npuls-OKx/meta#334",
+  "oeapi": true,
+  "rij_labels": ["algemeen type: toets", "bijzonder geval: examen"],
+  "objecten": [
+    {"naam": "Toetsonderdeel specificatie", "rij": 0,
+     "noot": "definitie: formatief of summatief"},
+    {"naam": "Toetsgelegenheid", "rij": 0,
+     "noot": "OEAPI: TestComponentOffering"},
+    {"naam": "Toetsgelegenheid verbintenis", "rij": 0,
+     "noot": "OEAPI: TestComponentOfferingAssociation"},
+    {"naam": "Toetsgelegenheid resultaat", "rij": 0,
+     "noot": "OEAPI: Result"},
+    {"naam": "Formatief resultaat", "rij": 0,
+     "noot": "OEAPI kent dit onderscheid niet"},
+
+    {"naam": "Examenonderdeelspecificatie", "rij": 1,
+     "noot": "definitie: summatief examen"},
+    {"naam": "Examengelegenheid", "rij": 1,
+     "noot": "OEAPI: TestComponentOffering"},
+    {"naam": "Examengelegenheid verbintenis", "rij": 1,
+     "noot": "OEAPI: TestComponentOfferingAssociation"},
+    {"naam": "Examengelegenheid resultaat", "rij": 1,
+     "noot": "OEAPI: Result"},
+    {"naam": "Summatief resultaat", "rij": 1,
+     "noot": "OEAPI kent dit onderscheid niet"}
+  ],
+  "ontbreekt": [
+    {"van": "Examengelegenheid", "naar": "Toetsgelegenheid",
+     "soort": "Specialization", "label": "ontbreekt: is een",
+     "waarom": "op de specificatie draagt het examenonderdeel de specialisatie wel; op het aanbod staan de twee namen los naast elkaar in het model"},
+    {"van": "Examengelegenheid verbintenis", "naar": "Toetsgelegenheid verbintenis",
+     "soort": "Specialization", "label": "ontbreekt: is een",
+     "waarom": "de begrippenlijst noemt bij de examengelegenheid verbintenis dezelfde informatiestructuur als bij de toetsgelegenheid verbintenis; een specialisatie tussen de twee staat niet in het model"},
+    {"van": "Examengelegenheid resultaat", "naar": "Toetsgelegenheid resultaat",
+     "soort": "Specialization", "label": "ontbreekt: is een",
+     "waarom": "beide resultaten dragen hun eigen formatieve of summatieve verbijzondering; onderling staat er geen specialisatie in het model"}
+  ]
+}

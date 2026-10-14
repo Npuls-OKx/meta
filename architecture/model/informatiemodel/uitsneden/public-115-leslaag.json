@@ -1,0 +1,27 @@
+{
+  "id": "public-115-leslaag",
+  "titel": "Wat valt er precies buiten de uitwisseling: de inhoud van een les, of de reeks lessen in het rooster?",
+  "herkomst": "Reviewvraag Npuls-OKx/Public#115 van Jan Hendrik van Schaik, werkbrief Npuls-OKx/meta#333",
+  "oeapi": true,
+  "rij_labels": ["de reeks lessen samen", "een losse les"],
+  "objecten": [
+    {"naam": "Leeronderdeel specificatie", "rij": 0},
+    {"naam": "Leergelegenheid", "rij": 0, "noot": "de reeks lessen in het rooster"},
+    {"naam": "Leergelegenheid verbintenis", "rij": 0},
+    {"naam": "Leergelegenheid resultaat", "rij": 0, "merk": "anders", "nummer": 4,
+     "waarom": "nu grijs: het resultaat per leeronderdeel valt buiten scope"},
+
+    {"naam": "Les specificatie", "rij": 1, "noot": "de inhoud van een les"},
+    {"naam": "Lesgelegenheid", "rij": 1, "merk": "anders", "nummer": 1,
+     "waarom": "de les in het rooster, geel in plaats van grijs"},
+    {"naam": "Lesgelegenheid verbintenis", "rij": 1, "merk": "anders", "nummer": 2,
+     "waarom": "de deelname van een student aan die ene les"},
+    {"naam": "Lesgelegenheid resultaat", "rij": 1, "merk": "anders", "nummer": 3,
+     "waarom": "het resultaat op die deelname, nu ook geel"}
+  ],
+  "ontbreekt": [
+    {"van": "Leergelegenheid verbintenis", "naar": "Lesgelegenheid verbintenis",
+     "soort": "Aggregation", "label": "ontbreekt: bestaat uit",
+     "waarom": "Public #115 noemt studenten die per les van de standaardreeks afwijken; op het aanbod draagt het model die opdeling wel, op de verbintenis staat de deelname per les nog los van de deelname aan het leeronderdeel"}
+  ]
+}

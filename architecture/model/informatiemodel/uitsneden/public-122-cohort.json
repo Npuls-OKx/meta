@@ -1,0 +1,27 @@
+{
+  "id": "122-cohort",
+  "titel": "Hangt het cohort aan de student of aan de verbintenis?",
+  "herkomst": "Reviewvraag Npuls-OKx/Public#122 van @niesink, werkbrief Npuls-OKx/meta#332",
+  "oeapi": true,
+  "rij_labels": ["wie zich aanmeldt, en waarop", "waar het cohort aan hangt", "wat per cohort verschilt"],
+  "objecten": [
+    {"naam": "Student", "rij": 0},
+    {"naam": "Persoon", "rij": 0},
+    {"naam": "Aanmelding", "rij": 0, "merk": "anders", "nummer": 1,
+     "waarom": "wordt na formalisatie een inschrijving"},
+    {"naam": "Opleiding aanbod  verbintenis", "rij": 0},
+
+    {"naam": "Cohort / periode", "rij": 1, "merk": "anders", "nummer": 3,
+     "noot": "hing eerder aan Student",
+     "waarom": "hangt aan de inschrijving binnen de onderwijsverbintenis"},
+    {"naam": "Inschrijving", "rij": 1, "merk": "anders", "nummer": 2,
+     "waarom": "draagt sinds deze ronde de deelname aan een cohort"},
+
+    {"naam": "OER", "rij": 2}
+  ],
+  "ontbreekt": [
+    {"van": "Inschrijving", "naar": "Opleiding aanbod  verbintenis",
+     "soort": "Association", "label": "ontbreekt: per verbintenis",
+     "waarom": "Public #122 vraagt het cohort per verbintenis; het model hangt de deelname aan een cohort aan de inschrijving en laat open welke verbintenis die inschrijving dekt, zodat een student met twee gelijktijdige verbintenissen in het model nog niet twee cohorten draagt"}
+  ]
+}

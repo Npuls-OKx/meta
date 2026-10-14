@@ -1,0 +1,29 @@
+{
+  "id": "public-114-locatie-en-organisatie-eenheid",
+  "titel": "Zijn locatie en organisatie-eenheid te gebruiken als keuzebepalende factor?",
+  "herkomst": "Reviewvraag Npuls-OKx/Public#114 van Jan Hendrik van Schaik, werkbrief Npuls-OKx/meta#332",
+  "oeapi": true,
+  "rij_labels": ["wie voert uit", "wat kiest de student", "waar vindt het plaats"],
+  "objecten": [
+    {"naam": "Organisatie-eenheid", "rij": 0, "merk": "nieuw", "nummer": 1,
+     "waarom": "voert de onderwijsspecificaties uit, en daarmee elk keuzedeel"},
+    {"naam": "Opleidingsprogramma specificatie", "rij": 0},
+
+    {"naam": "Student keuze regelset", "rij": 1},
+    {"naam": "Keuzedeel", "rij": 1},
+    {"naam": "Keuzedeel aanbod", "rij": 1, "noot": "heette Keuzedeelaanbod"},
+
+    {"naam": "Leeronderdeel specificatie", "rij": 2},
+    {"naam": "Onderwijsvorm", "rij": 2, "merk": "nieuw", "nummer": 2,
+     "waarom": "legt per leeronderdeel vast hoe het onderwijs gegeven wordt"},
+    {"naam": "Onderwijslocatie type", "rij": 2, "merk": "nieuw", "nummer": 3,
+     "waarom": "het soort ruimte dat die onderwijsvorm vraagt"},
+    {"naam": "Onderwijslocatie", "rij": 2, "merk": "nieuw", "nummer": 4,
+     "waarom": "het gebouw of de ruimte zelf"}
+  ],
+  "ontbreekt": [
+    {"van": "Keuzedeel aanbod", "naar": "Onderwijslocatie",
+     "soort": "Association", "label": "ontbreekt: vindt plaats op",
+     "waarom": "een keuzeregel filtert pas op reisafstand wanneer het aanbod zijn locatie draagt; Public #114 houdt juist de vraag open op welk moment in het planproces die locatie vaststaat, want de ruimte komt vaak pas bij het roosteren"}
+  ]
+}
