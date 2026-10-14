@@ -24,10 +24,10 @@ Versie v0.2, concept. De kaders zijn geraadpleegd op 2026-09-14.
 
 | | |
 |---|---|
-| Begrippen en objecttypen | 73 |
+| Begrippen en objecttypen | 87 |
 | Met een definitie uit een referentiekader | 22 |
 | Met een definitie uit een OKx-document | 18 |
-| Zonder definitie | 33 |
+| Zonder definitie | 47 |
 
 ## Begrippenfamilies
 
@@ -35,7 +35,7 @@ De begrippenfamilies delen de keten in; het zijn de kolommen op de plaat van het
 
 | Begrip | Definitie | Herkomst | Bron |
 |---|---|---|---|
-| `Kwalificatiekader mbo` | Het geheel van landelijk vastgestelde eisen waaraan een opleiding moet voldoen. Vastgesteld en beheerd buiten OKx | nieuw voor OKx | [informatiemodel.md](../../../model/informatiemodel/informatiemodel.md#begrippenfamilies) |
+| `Kwalificatiekader` | Het geheel van landelijk vastgestelde eisen waaraan een opleiding moet voldoen. Vastgesteld en beheerd buiten OKx | nieuw voor OKx | [informatiemodel.md](../../../model/informatiemodel/informatiemodel.md#begrippenfamilies) |
 | `Onderwijsaanbod` | Een specificatie die is ingepland: een periode, een capaciteit en waar van toepassing concrete plek, docent en tijd | verbijzondering van `onderwijsaanbod (koi)` (ROSA-KOI) | [informatiemodel.md](../../../model/informatiemodel/informatiemodel.md#begrippenfamilies) |
 | `Onderwijskundig kader instelling` | De invulling door de instelling van de beoogde leeruitkomsten uit het kwalificatiekader | nieuw voor OKx | [informatiemodel.md](../../../model/informatiemodel/informatiemodel.md#begrippenfamilies) |
 | `Onderwijsresultaat` | Vastgelegde en geformaliseerde beoordeling op basis van een of meer leerresultaten. | overgenomen uit ROSA-KOI | [onderwijsresultaat (koi)](https://rosa.wikixl.nl/index.php/Id-e5d21e5384c0482ba4a501571e69927a) |
@@ -57,12 +57,12 @@ Bij een verbijzondering gaat OKx verder dan het kader; de reden staat in de laat
 | `Student` | Buiten de kolommen | Een persoon die aan onderwijsactiviteiten deelneemt of dat wil gaan doen. Dit omvat ingeschreven studenten, potentiële studenten en alumni | overgenomen uit MORA | [Student](https://mora.mbodigitaal.nl/index.php/Id-c7c163ee-2fa5-5b58-bc08-f401d0350c3a) |  |
 | `Verzoek tot Aanbod / Intekening op specificatie` | Buiten de kolommen | Het `Verzoek tot Aanbod / Intekening op specificatie` is een verzoek om aanbod te maken voor een specificatie. Het heeft specificaties als input en leidt tot aanbod; aanmelden gebeurt daarna op dat aanbod en inschrijven is de verbintenis. | verbijzondering van `Leervraag` (MORA) | [informatiemodel.md](../../../model/informatiemodel/informatiemodel.md#ontwerpkeuzes) | MORA kent de leervraag als de vraag van de student wat hij wil leren. OKx verbijzondert die tot een uitwisselbaar verzoek op de specificatie dat leidt tot aanbod. De aanmelding op dat aanbod is op de plaat een eigen objecttype, overgenomen uit MORA. |
 | `Waarde document (diploma / certificaat)` | Buiten de kolommen | Het bewijsstuk van een eindoordeel over het voltooien van een opleiding, keuzedeel, deelkwalificatie of module door een onderwijsaanbieder. | overgenomen uit MORA | [Waarde document (diploma / certificaat)](https://mora.mbodigitaal.nl/index.php/Id-8647eba0-e31d-5bcf-c12a-4d477069943c) |  |
-| `Kerntaak` | Kwalificatiekader mbo | Een kerntaak is een substantieel deel van de beroepsuitoefening naar belang omvang (tijdsbeslag of frequentie) of beide. Een kerntaak bestaat uit een geheel van inhoudelijk met elkaar samenhangende werkprocessen kenmerkend voor de beroepsuitoefening. Een kwalificatiedossier heeft een beperkt aantal kerntaken. Alle kerntaken samen beschrijven de essentie van de beroepsuitoefening van de betreffende beroepengroep. | overgenomen uit MORA | [Kerntaak](https://mora.mbodigitaal.nl/index.php/Id-99ef9489-49b3-4a3b-7a89-08ae36a3255e) |  |
-| `Kwalificatie` | Kwalificatiekader mbo | De kwalificatie is de combinatie van het basis- en profieldeel uit het kwalificatiedossier. De kwalificatie omvat wat de beginnend beroepsbeoefenaar moet kennen en kunnen als hij gediplomeerd is en start op de arbeidsmarkt | overgenomen uit MORA | [Kwalificatie](https://mora.mbodigitaal.nl/index.php/Id-f54b73a9-9562-2b28-deca-724e992bbcdb) |  |
-| `Kwalificatie dossier` | Kwalificatiekader mbo | Het kwalificatiedossier beschrijft de eisen waaraan een student moet voldoen om zijn diploma te behalen. Elk dossier bevat een of meer kwalificaties en iedere kwalificatie leidt tot een diploma. Alle kwalificatiedossiers samen, aangevuld met de keuzedelen, vormen de kwalificatiestructuur. Een kwalificatiedossier bestaat uit een basisdeel en een of meer profieldelen. Het basisdeel bevat de generieke onderdelen Nederlandse taal, rekenen, loopbaan en burgerschap en Engels (uitsluitend voor niveau 4). Verder bevat het gemeenschappelijke elementen, die gelden voor alle kwalificaties in het dossier: kerntaken, werkprocessen, vakkennis, vaardigheden en houdingsaspecten. Het profieldeel beschrijft de specifieke onderdelen. Keuzedelen zijn een plus op de kwalificatie en maken de opleiding compleet. | overgenomen uit MORA | [Kwalificatie dossier](https://mora.mbodigitaal.nl/index.php/Id-3389d485-20a7-6e53-21df-d09eb49d4762) |  |
-| `Werkproces` | Kwalificatiekader mbo | Een werkproces is een afgebakend geheel van beroepshandelingen binnen een kerntaak. Het werkproces kent een begin en een eind heeft een resultaat en wordt als kenmerkend herkend in de beroepspraktijk. Een werkproces bestaat dus nooit uit één handeling of gedraging. Meerdere werkprocessen kunnen gelijktijdig lopen. Dat ze een begin en eind hebben wil niet per se zeggen dat ze na elkaar komen maar dat ze duidelijk te onderscheiden zijn van andere werkprocessen. | overgenomen uit MORA | [Werkproces](https://mora.mbodigitaal.nl/index.php/Id-9cf4d404-b06c-473f-57d9-3945af33cfa8) |  |
+| `Kerntaak` | Kwalificatiekader | Een kerntaak is een substantieel deel van de beroepsuitoefening naar belang omvang (tijdsbeslag of frequentie) of beide. Een kerntaak bestaat uit een geheel van inhoudelijk met elkaar samenhangende werkprocessen kenmerkend voor de beroepsuitoefening. Een kwalificatiedossier heeft een beperkt aantal kerntaken. Alle kerntaken samen beschrijven de essentie van de beroepsuitoefening van de betreffende beroepengroep. | overgenomen uit MORA | [Kerntaak](https://mora.mbodigitaal.nl/index.php/Id-99ef9489-49b3-4a3b-7a89-08ae36a3255e) |  |
+| `Kwalificatie` | Kwalificatiekader | De kwalificatie is de combinatie van het basis- en profieldeel uit het kwalificatiedossier. De kwalificatie omvat wat de beginnend beroepsbeoefenaar moet kennen en kunnen als hij gediplomeerd is en start op de arbeidsmarkt | overgenomen uit MORA | [Kwalificatie](https://mora.mbodigitaal.nl/index.php/Id-f54b73a9-9562-2b28-deca-724e992bbcdb) |  |
+| `Kwalificatie dossier` | Kwalificatiekader | Het kwalificatiedossier beschrijft de eisen waaraan een student moet voldoen om zijn diploma te behalen. Elk dossier bevat een of meer kwalificaties en iedere kwalificatie leidt tot een diploma. Alle kwalificatiedossiers samen, aangevuld met de keuzedelen, vormen de kwalificatiestructuur. Een kwalificatiedossier bestaat uit een basisdeel en een of meer profieldelen. Het basisdeel bevat de generieke onderdelen Nederlandse taal, rekenen, loopbaan en burgerschap en Engels (uitsluitend voor niveau 4). Verder bevat het gemeenschappelijke elementen, die gelden voor alle kwalificaties in het dossier: kerntaken, werkprocessen, vakkennis, vaardigheden en houdingsaspecten. Het profieldeel beschrijft de specifieke onderdelen. Keuzedelen zijn een plus op de kwalificatie en maken de opleiding compleet. | overgenomen uit MORA | [Kwalificatie dossier](https://mora.mbodigitaal.nl/index.php/Id-3389d485-20a7-6e53-21df-d09eb49d4762) |  |
+| `Werkproces` | Kwalificatiekader | Een werkproces is een afgebakend geheel van beroepshandelingen binnen een kerntaak. Het werkproces kent een begin en een eind heeft een resultaat en wordt als kenmerkend herkend in de beroepspraktijk. Een werkproces bestaat dus nooit uit één handeling of gedraging. Meerdere werkprocessen kunnen gelijktijdig lopen. Dat ze een begin en eind hebben wil niet per se zeggen dat ze na elkaar komen maar dat ze duidelijk te onderscheiden zijn van andere werkprocessen. | overgenomen uit MORA | [Werkproces](https://mora.mbodigitaal.nl/index.php/Id-9cf4d404-b06c-473f-57d9-3945af33cfa8) |  |
 | `Examengelegenheid` | Onderwijsaanbod | Het georganiseerde aanbod van een examenmoment: planning, locatie, surveillant-capaciteit en kandidaten, gekoppeld aan precies één `Examenspecificatie`. | afgeleid uit het vlakkenmodel, afgestemd op klus 53 | [leerroute-uitwerking-lr1.md](../leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#betrokken-informatie-bij-proces) | Het citaat noemt `Examenspecificatie`; in het informatiemodel heet dat objecttype `Examenonderdeelspecificatie`. |
-| `Opleidingaanbod` | Onderwijsaanbod | Een opleidingseenheid die door een onderwijsaanbieder aangeboden wordt in een bepaalde vorm, al dan niet op een bepaalde onderwijslocatie, waarop een onderwijsvolger zich kan inschrijven | overgenomen uit MORA | [Aangeboden opleiding](https://mora.mbodigitaal.nl/index.php/Id-e723f9e6-adfc-40a1-0527-ee1b75b380dc) |  |
+| `Opleiding aanbod` | Onderwijsaanbod | Een opleidingseenheid die door een onderwijsaanbieder aangeboden wordt in een bepaalde vorm, al dan niet op een bepaalde onderwijslocatie, waarop een onderwijsvolger zich kan inschrijven | overgenomen uit MORA | [Aangeboden opleiding](https://mora.mbodigitaal.nl/index.php/Id-e723f9e6-adfc-40a1-0527-ee1b75b380dc) |  |
 | `Opleidingsaanbod van Instelling` | Onderwijsaanbod | Het geheel van opleiding dat door de instelling wordt aangeboden | overgenomen uit MORA | [Opleidingen overzicht](https://mora.mbodigitaal.nl/index.php/Id-9a23241c-a60e-6623-e13a-d945a761ab17) |  |
 | `Toetsgelegenheid` | Onderwijsaanbod | Het georganiseerde aanbod van een toetsmoment: wanneer, waar en onder welke condities een toetsonderdeel wordt afgenomen, gekoppeld aan precies één `Toetsonderdeel-specificatie`. | afgeleid uit het vlakkenmodel, afgestemd op klus 53 | [leerroute-uitwerking-lr1.md](../leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#betrokken-informatie-bij-proces) | Het citaat schrijft `Toetsonderdeel-specificatie` met koppelteken, de oudere schrijfwijze van `Toetsonderdeel specificatie`. |
 | `Leeruitkomst` | Onderwijskundig kader instelling | Een leeruitkomst is de invulling door de instelling van wat het kwalificatiekader beoogt: wat een student moet kennen en kunnen, zo geformuleerd dat specificaties ernaar kunnen verwijzen en dat behaalde toets- en examenresultaten er het bewijs voor leveren. | afgeleid uit het vlakkenmodel, afgestemd op klus 53 | [informatiemodel.md](../../../model/informatiemodel/informatiemodel.md#ontwerpkeuzes) |  |
@@ -89,12 +89,13 @@ Deze objecttypen staan op de plaat maar hebben nog geen definitie. Waar een kade
 
 | Begrip | Objecttypen |
 |---|---|
-| Buiten de kolommen | `Persoon`, `Plaatsingsgroep` |
-| Onderwijsaanbod | `Keuzedeelaanbod`, `Leergelegenheid`, `Lesgelegenheid`, `Onderwijseenheid aanbod`, `Opleidingsprogramma aanbod` |
+| Buiten de kolommen | `Expertise of functieprofiel`, `Onderwijslocatie vlekkenplan`, `Organisatie-eenheid`, `Persoon`, `Plaatsingsgroep` |
+| Kwalificatiekader | `Eindkwalificatie`, `Landelijk Opleidingsprofiel`, `Werkveld of beroepenveld of deelnemer competentie` |
+| Onderwijsaanbod | `Keuzedeel aanbod`, `Leergelegenheid`, `Lesgelegenheid`, `Minor aanbod`, `Onderwijseenheid aanbod`, `Onderwijslocatie`, `Opleidingsprogramma aanbod` |
 | Onderwijskundig kader instelling | `Competenties / Skills`, `Inzicht`, `Kennis`, `Vaardigheid` |
-| Onderwijsresultaat | `Aanwezigheid`, `Examengelegenheid resultaat`, `Keuzedeel resultaat`, `Leergelegenheid resultaat`, `Lesgelegenheid resultaat`, `Onderwijseenheid resultaat`, `Opleiding aanbod resultaat`, `Opleidingsprogramma resultaat`, `Toetsgelegenheid resultaat` |
-| Onderwijsspecificatie | `Keuzedeel`, `Opleiding specificatie`, `Student keuze regelset` |
-| Onderwijsverbintenis | `Keuzedeel aanbod verbintenis`, `Leergelegenheid verbintenis`, `Lesgelegenheid verbintenis`, `Onderwijseenheid aanbod verbintenis`, `Opleiding aanbod  verbintenis`, `Opleidingsprogramma aanbod verbintenis` |
+| Onderwijsresultaat | `Aanwezigheid`, `Examengelegenheid resultaat`, `Keuzedeel resultaat`, `Leergelegenheid resultaat`, `Lesgelegenheid resultaat`, `Minor resultaat`, `Onderwijseenheid resultaat`, `Opleiding resultaat`, `Opleidingsprogramma resultaat`, `Toetsgelegenheid resultaat` |
+| Onderwijsspecificatie | `Keuzedeel`, `Minor`, `Minor ruimte`, `Onderwijslocatie type`, `Onderwijsvorm`, `Opleiding specificatie`, `Student keuze regelset` |
+| Onderwijsverbintenis | `Keuzedeel aanbod verbintenis`, `Leergelegenheid verbintenis`, `Lesgelegenheid verbintenis`, `Minor aanbod verbintenis`, `Onderwijseenheid aanbod verbintenis`, `Opleiding aanbod verbintenis`, `Opleidingsprogramma aanbod verbintenis` |
 | Resultaatstructuur | `Examenonderdeel weging`, `Persoonlijke ontwikkeling`, `Summatief Afrondingscriterium`, `Toetsonderdeel weging` |
 
 ## Mapping naar de referentiekaders
@@ -103,7 +104,7 @@ Per kader een van drie uitkomsten: een tegenhanger met link, `geen tegenhanger g
 
 | Begrip of objecttype | ROSA-KOI | MORA | HORA | Reden bij verbijzondering |
 |---|---|---|---|---|
-| `Kwalificatiekader mbo` | geen tegenhanger gevonden | geen tegenhanger gevonden | nog niet onderzocht |  |
+| `Kwalificatiekader` | geen tegenhanger gevonden | geen tegenhanger gevonden | nog niet onderzocht |  |
 | `Onderwijsaanbod` | [`onderwijsaanbod (koi)`](https://rosa.wikixl.nl/index.php/Id-6d1ed39571de4ee5b1aefcf051991478) (verbijzondering) | geen tegenhanger gevonden | nog niet onderzocht | KOI vat ontwerp en uitvoering samen in een begrip. OKx splitst dat in de onderwijsspecificatie, het herbruikbare ontwerp, en het onderwijsaanbod, de ingeplande uitvoering. |
 | `Onderwijskundig kader instelling` | geen tegenhanger gevonden | geen tegenhanger gevonden | nog niet onderzocht |  |
 | `Onderwijsresultaat` | [`onderwijsresultaat (koi)`](https://rosa.wikixl.nl/index.php/Id-e5d21e5384c0482ba4a501571e69927a) | [`Summatief resultaat`](https://mora.mbodigitaal.nl/index.php/Id-beaf106a-f329-b3ed-e513-6814b1fd65fa) (verbijzondering) | nog niet onderzocht | MORA scheidt het summatieve en het formatieve resultaat. OKx gebruikt onderwijsresultaat als de overkoepelende term van KOI en houdt het onderscheid in de resultaatstructuur. |
@@ -113,23 +114,31 @@ Per kader een van drie uitkomsten: een tegenhanger met link, `geen tegenhanger g
 | `Aanmelding` | geen tegenhanger gevonden | [`Aanmelding`](https://mora.mbodigitaal.nl/index.php/Id-666a838e-d9bd-c5fd-ad85-545ec69f1566) | nog niet onderzocht |  |
 | `Cohort / periode` | geen tegenhanger gevonden | [`Cohort / periode`](https://mora.mbodigitaal.nl/index.php/Id-67cf6837-c59e-52aa-47e6-006c572259e1) | nog niet onderzocht |  |
 | `Examenplan` | geen tegenhanger gevonden | [`Examenplan`](https://mora.mbodigitaal.nl/index.php/Id-913bf380-1288-8a49-0bca-906d8b112e8f) | nog niet onderzocht |  |
+| `Expertise of functieprofiel` | nog niet onderzocht | nog niet onderzocht | nog niet onderzocht |  |
 | `Medewerker` | [`onderwijsmedewerker (koi)`](https://rosa.wikixl.nl/index.php/Id-5ea4d7d18cbc4f8eb3aea997a4d9b35d) | geen tegenhanger gevonden | nog niet onderzocht |  |
 | `OER` | geen tegenhanger gevonden | [`OER`](https://mora.mbodigitaal.nl/index.php/Id-9841b314-8781-36c9-8033-ce304c022d72) | nog niet onderzocht |  |
+| `Onderwijslocatie vlekkenplan` | nog niet onderzocht | nog niet onderzocht | nog niet onderzocht |  |
+| `Organisatie-eenheid` | nog niet onderzocht | nog niet onderzocht | nog niet onderzocht |  |
 | `Persoon` | geen tegenhanger gevonden | geen tegenhanger gevonden | nog niet onderzocht |  |
 | `Plaatsingsgroep` | geen tegenhanger gevonden | geen tegenhanger gevonden | nog niet onderzocht |  |
 | `Student` | [`onderwijsdeelnemer (koi)`](https://rosa.wikixl.nl/index.php/Id-ca1e8048bd094f02a348cf843fa07ae7) | [`Student`](https://mora.mbodigitaal.nl/index.php/Id-c7c163ee-2fa5-5b58-bc08-f401d0350c3a) | nog niet onderzocht |  |
 | `Verzoek tot Aanbod / Intekening op specificatie` | geen tegenhanger gevonden | [`Leervraag`](https://mora.mbodigitaal.nl/index.php/Id-306e945a-d2ff-000e-f950-f1acaa91a0bc) (verbijzondering) | nog niet onderzocht | MORA kent de leervraag als de vraag van de student wat hij wil leren. OKx verbijzondert die tot een uitwisselbaar verzoek op de specificatie dat leidt tot aanbod. De aanmelding op dat aanbod is op de plaat een eigen objecttype, overgenomen uit MORA. |
 | `Waarde document (diploma / certificaat)` | geen tegenhanger gevonden | [`Waarde document (diploma / certificaat)`](https://mora.mbodigitaal.nl/index.php/Id-8647eba0-e31d-5bcf-c12a-4d477069943c) | nog niet onderzocht |  |
+| `Eindkwalificatie` | nog niet onderzocht | nog niet onderzocht | nog niet onderzocht |  |
 | `Kerntaak` | geen tegenhanger gevonden | [`Kerntaak`](https://mora.mbodigitaal.nl/index.php/Id-99ef9489-49b3-4a3b-7a89-08ae36a3255e) | nog niet onderzocht |  |
 | `Kwalificatie` | geen tegenhanger gevonden | [`Kwalificatie`](https://mora.mbodigitaal.nl/index.php/Id-f54b73a9-9562-2b28-deca-724e992bbcdb) | nog niet onderzocht |  |
 | `Kwalificatie dossier` | geen tegenhanger gevonden | [`Kwalificatie dossier`](https://mora.mbodigitaal.nl/index.php/Id-3389d485-20a7-6e53-21df-d09eb49d4762) | nog niet onderzocht |  |
+| `Landelijk Opleidingsprofiel` | nog niet onderzocht | nog niet onderzocht | nog niet onderzocht |  |
 | `Werkproces` | geen tegenhanger gevonden | [`Werkproces`](https://mora.mbodigitaal.nl/index.php/Id-9cf4d404-b06c-473f-57d9-3945af33cfa8) | nog niet onderzocht |  |
+| `Werkveld of beroepenveld of deelnemer competentie` | nog niet onderzocht | nog niet onderzocht | nog niet onderzocht |  |
 | `Examengelegenheid` | geen tegenhanger gevonden | geen tegenhanger gevonden | nog niet onderzocht |  |
-| `Keuzedeelaanbod` | geen tegenhanger gevonden | geen tegenhanger gevonden | nog niet onderzocht |  |
+| `Keuzedeel aanbod` | geen tegenhanger gevonden | geen tegenhanger gevonden | nog niet onderzocht |  |
 | `Leergelegenheid` | geen tegenhanger gevonden | [`Leeractiviteit`](https://mora.mbodigitaal.nl/index.php/Id-b25709e2-388a-d36b-696b-b82fd908f076) (verbijzondering) | nog niet onderzocht | De ingeplande kant van de MORA-leeractiviteit, op het niveau van een groep lessen. |
 | `Lesgelegenheid` | geen tegenhanger gevonden | [`Leeractiviteit`](https://mora.mbodigitaal.nl/index.php/Id-b25709e2-388a-d36b-696b-b82fd908f076) (verbijzondering) | nog niet onderzocht | De ingeplande kant van de MORA-leeractiviteit, op het niveau van een enkele les. |
+| `Minor aanbod` | nog niet onderzocht | nog niet onderzocht | nog niet onderzocht |  |
 | `Onderwijseenheid aanbod` | geen tegenhanger gevonden | geen tegenhanger gevonden | nog niet onderzocht |  |
-| `Opleidingaanbod` | geen tegenhanger gevonden | [`Aangeboden opleiding`](https://mora.mbodigitaal.nl/index.php/Id-e723f9e6-adfc-40a1-0527-ee1b75b380dc) | nog niet onderzocht |  |
+| `Onderwijslocatie` | nog niet onderzocht | nog niet onderzocht | nog niet onderzocht |  |
+| `Opleiding aanbod` | geen tegenhanger gevonden | [`Aangeboden opleiding`](https://mora.mbodigitaal.nl/index.php/Id-e723f9e6-adfc-40a1-0527-ee1b75b380dc) | nog niet onderzocht |  |
 | `Opleidingsaanbod van Instelling` | geen tegenhanger gevonden | [`Opleidingen overzicht`](https://mora.mbodigitaal.nl/index.php/Id-9a23241c-a60e-6623-e13a-d945a761ab17) | nog niet onderzocht |  |
 | `Opleidingsprogramma aanbod` | geen tegenhanger gevonden | geen tegenhanger gevonden | nog niet onderzocht |  |
 | `Toetsgelegenheid` | geen tegenhanger gevonden | geen tegenhanger gevonden | nog niet onderzocht |  |
@@ -145,8 +154,9 @@ Per kader een van drie uitkomsten: een tegenhanger met link, `geen tegenhanger g
 | `Keuzedeel resultaat` | geen tegenhanger gevonden | geen tegenhanger gevonden | nog niet onderzocht |  |
 | `Leergelegenheid resultaat` | geen tegenhanger gevonden | geen tegenhanger gevonden | nog niet onderzocht |  |
 | `Lesgelegenheid resultaat` | geen tegenhanger gevonden | geen tegenhanger gevonden | nog niet onderzocht |  |
+| `Minor resultaat` | nog niet onderzocht | nog niet onderzocht | nog niet onderzocht |  |
 | `Onderwijseenheid resultaat` | geen tegenhanger gevonden | geen tegenhanger gevonden | nog niet onderzocht |  |
-| `Opleiding aanbod resultaat` | geen tegenhanger gevonden | geen tegenhanger gevonden | nog niet onderzocht |  |
+| `Opleiding resultaat` | geen tegenhanger gevonden | geen tegenhanger gevonden | nog niet onderzocht |  |
 | `Opleidingsprogramma resultaat` | geen tegenhanger gevonden | geen tegenhanger gevonden | nog niet onderzocht |  |
 | `Summatief resultaat` | geen tegenhanger gevonden | [`Summatief resultaat`](https://mora.mbodigitaal.nl/index.php/Id-beaf106a-f329-b3ed-e513-6814b1fd65fa) | nog niet onderzocht |  |
 | `Summatieve beoordeling` | geen tegenhanger gevonden | [`Summatieve beoordeling`](https://mora.mbodigitaal.nl/index.php/Id-0a14e5af-bf2e-2584-3320-095341367128) | nog niet onderzocht |  |
@@ -156,7 +166,11 @@ Per kader een van drie uitkomsten: een tegenhanger met link, `geen tegenhanger g
 | `Keuzedeelruimte` | geen tegenhanger gevonden | geen tegenhanger gevonden | nog niet onderzocht |  |
 | `Leeronderdeel specificatie` | geen tegenhanger gevonden | [`Leertaak`](https://mora.mbodigitaal.nl/index.php/Id-be2dc6b8-cf25-4bd4-2950-2a4c2e4f2ffa) (verbijzondering) | nog niet onderzocht | MORA beschrijft de leertaak als lesstof en opdrachten. OKx maakt daar een herbruikbare specificatie van, binnen de onderwijseenheid. |
 | `Les specificatie` | geen tegenhanger gevonden | geen tegenhanger gevonden | nog niet onderzocht |  |
+| `Minor` | nog niet onderzocht | nog niet onderzocht | nog niet onderzocht |  |
+| `Minor ruimte` | nog niet onderzocht | nog niet onderzocht | nog niet onderzocht |  |
 | `Onderwijseenheid specificatie` | [`onderwijseenheid (koi)`](https://rosa.wikixl.nl/index.php/Id-c74c161c6f1f4690933a31ce4d11f3b8) (verbijzondering) | [`Opleidings-onderdeel`](https://mora.mbodigitaal.nl/index.php/Id-17db36ca-368f-450e-cbfe-604b2fafee6e) (verbijzondering) | nog niet onderzocht | KOI beschrijft de onderwijseenheid als samenhangend geheel met een leerdoel. OKx specificeert die eenheid met leeruitkomsten, leeronderdelen en toetsonderdelen, los van de inplanning. |
+| `Onderwijslocatie type` | nog niet onderzocht | nog niet onderzocht | nog niet onderzocht |  |
+| `Onderwijsvorm` | nog niet onderzocht | nog niet onderzocht | nog niet onderzocht |  |
 | `Opleiding specificatie` | geen tegenhanger gevonden | [`Opleidings eenheid`](https://mora.mbodigitaal.nl/index.php/Id-422e89b9-f9e3-a3ae-56f7-25855f01d433) (verbijzondering) | nog niet onderzocht | MORA beschrijft de opleidingseenheid naar het waardedocument dat volgt. OKx gebruikt de specificatie als de instellingseigen beschrijving van die eenheid. |
 | `Opleidingsprogramma specificatie` | geen tegenhanger gevonden | [`Onderwijs programma`](https://mora.mbodigitaal.nl/index.php/Id-3a7bb8e1-5748-3381-24f6-43c98479fe35) (verbijzondering) | nog niet onderzocht | De specificatiekant van het MORA-begrip onderwijs programma. MORA beschrijft het programma inclusief de planbaarheid; OKx scheidt de specificatie van het aanbod. |
 | `Student keuze regelset` | geen tegenhanger gevonden | geen tegenhanger gevonden | nog niet onderzocht |  |
@@ -166,8 +180,9 @@ Per kader een van drie uitkomsten: een tegenhanger met link, `geen tegenhanger g
 | `Keuzedeel aanbod verbintenis` | geen tegenhanger gevonden | geen tegenhanger gevonden | nog niet onderzocht |  |
 | `Leergelegenheid verbintenis` | geen tegenhanger gevonden | geen tegenhanger gevonden | nog niet onderzocht |  |
 | `Lesgelegenheid verbintenis` | geen tegenhanger gevonden | geen tegenhanger gevonden | nog niet onderzocht |  |
+| `Minor aanbod verbintenis` | nog niet onderzocht | nog niet onderzocht | nog niet onderzocht |  |
 | `Onderwijseenheid aanbod verbintenis` | geen tegenhanger gevonden | geen tegenhanger gevonden | nog niet onderzocht |  |
-| `Opleiding aanbod  verbintenis` | geen tegenhanger gevonden | [`Plaatsing`](https://mora.mbodigitaal.nl/index.php/Id-871a4ac0-e5e2-242d-7204-976fdc5cd613) (verbijzondering) | nog niet onderzocht | MORA kent de plaatsing als de deelname van een student aan een opleiding, en de inschrijving als de overeenkomst met rechten en plichten. OKx legt de verbintenis vast op een concreet opleidingaanbod; de overeenkomst blijft bij het studentinformatiesysteem. |
+| `Opleiding aanbod verbintenis` | geen tegenhanger gevonden | [`Plaatsing`](https://mora.mbodigitaal.nl/index.php/Id-871a4ac0-e5e2-242d-7204-976fdc5cd613) (verbijzondering) | nog niet onderzocht | MORA kent de plaatsing als de deelname van een student aan een opleiding, en de inschrijving als de overeenkomst met rechten en plichten. OKx legt de verbintenis vast op een concreet opleidingaanbod; de overeenkomst blijft bij het studentinformatiesysteem. |
 | `Opleidingsprogramma aanbod verbintenis` | geen tegenhanger gevonden | geen tegenhanger gevonden | nog niet onderzocht |  |
 | `Toetsgelegenheid verbintenis` | geen tegenhanger gevonden | geen tegenhanger gevonden | nog niet onderzocht |  |
 | `Examenonderdeel weging` | geen tegenhanger gevonden | geen tegenhanger gevonden | nog niet onderzocht |  |

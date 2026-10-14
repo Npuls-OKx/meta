@@ -42,7 +42,7 @@ Dit model volgt het begrippenkader op en wijzigt het op twee punten. De familie 
 
 | Begrip | Wat het is | Beantwoordt de vraag |
 |---|---|---|
-| Kwalificatiekader mbo | Het geheel van landelijk vastgestelde eisen waaraan een opleiding moet voldoen. Vastgesteld en beheerd buiten OKx | Wat is normatief geldig |
+| Kwalificatiekader | Het geheel van landelijk vastgestelde eisen waaraan een opleiding moet voldoen, voor het middelbaar en het hoger onderwijs. Vastgesteld en beheerd buiten OKx | Wat is normatief geldig |
 | Onderwijskundig kader instelling | De invulling door de instelling van de beoogde leeruitkomsten uit het kwalificatiekader | Wat moet de student kennen en kunnen |
 | Onderwijsspecificatie | Het herbruikbare ontwerp van een onderwijsonderdeel, los van wanneer het draait en wie eraan meedoet | Wat wordt georganiseerd |
 | Onderwijsaanbod | Een specificatie die is ingepland: een periode, een capaciteit en waar van toepassing concrete plek, docent en tijd | Wanneer, met hoeveel plekken, met wie |
@@ -50,7 +50,9 @@ Dit model volgt het begrippenkader op en wijzigt het op twee punten. De familie 
 | Onderwijsresultaat | Vastgelegde en geformaliseerde beoordeling op basis van een of meer leerresultaten | Wat is er behaald op een verbintenis |
 | Resultaatstructuur | De samenstelling en weging waarmee losse resultaten optellen tot een uitspraak over de beoogde leeruitkomsten, en daarmee over een kwalificatie of certificaat | Hoe telt dat op tot bewijs voor een leeruitkomst |
 
-Objecttypen buiten de kolommen raken de hele keten: `Persoon` met de rollen `Student` en `Medewerker`, `Plaatsingsgroep` en `Cohort / periode`, het `Verzoek tot Aanbod / Intekening op specificatie` als brug van specificatie naar aanbod (`Input voor`, `Leidt tot`), de `Aanmelding` op dat aanbod, en `Waarde document (diploma / certificaat)`. `Examenplan` en `OER` staan buiten scope.
+Objecttypen buiten de kolommen raken de hele keten, en staan er vaak omdat zij twee families verbinden: `Persoon` met de rollen `Student` en `Medewerker`, `Plaatsingsgroep` en `Cohort / periode`, het `Verzoek tot Aanbod / Intekening op specificatie` als brug van specificatie naar aanbod (`Input voor`, `Leidt tot`), de `Aanmelding` op dat aanbod, `Waarde document (diploma / certificaat)`, en aan de uitvoerende kant `Organisatie-eenheid`, `Expertise of functieprofiel` en `Onderwijslocatie vlekkenplan`. `Examenplan` en `OER` staan buiten scope.
+
+**Wat de ronde van oktober 2026 toevoegde.** Het kwalificatiekader draagt nu ook de hoger-onderwijskant, met `Landelijk Opleidingsprofiel`, `Eindkwalificatie` en `Werkveld of beroepenveld of deelnemer competentie`; daarom heet de familie `Kwalificatiekader` en niet langer `Kwalificatiekader mbo`. De minor staat naast het keuzedeel, over alle vier de lagen (`Minor ruimte`, `Minor`, `Minor aanbod`, `Minor aanbod verbintenis`, `Minor resultaat`), beide als bijzonder geval van `Opleidingsprogramma`. En de plek waar onderwijs plaatsvindt is uitgewerkt met `Onderwijsvorm`, `Onderwijslocatie type` en `Onderwijslocatie`, naar aanleiding van de reviewvraag over locatie en organisatie-eenheid als keuzebepalende factor.
 
 ## Notatie
 
@@ -112,7 +114,7 @@ Het [logisch gegevensmodel](https://github.com/Npuls-OKx/Public/blob/dev/Informa
 | `LOCATIE` | Geen objecttype | Op de plaat een kenmerk van het aanbod (plek), geen eigen objecttype. Nog niet besproken |
 | `ORGANISATIE_EENHEID` | Geen objecttype | Nog niet aan bod gekomen in de analyses |
 
-De families `Onderwijsverbintenis` en `Onderwijsresultaat`, de `Formatieve resultaat structuur` en de objecttypen buiten de kolommen hebben nog geen entiteit met velden (`Cohort / periode` is in het logisch model het veld `cohort` op de doelgroepspecificatie en de aanbodinstantie, `Aanmelding` en `Inschrijving` komen er niet in voor); het logisch model beschrijft ze alleen in de koppelingsbeelden (`ONDERWIJSRESULTAAT`, `TOETSONDERDEELRESULTAAT`, `ROOSTER`, `ONDERWIJSTEAM`). Ze volgen zodra de koppelingen die ze dragen worden uitgewerkt. Het `Kwalificatiekader mbo` is in het logisch model geen entiteit maar de bron van een leeruitkomst (`leeruitkomst.bron`); dat is een ontwerpbeslissing van laag 3, geen leemte.
+De families `Onderwijsverbintenis` en `Onderwijsresultaat`, de `Formatieve resultaat structuur` en de objecttypen buiten de kolommen hebben nog geen entiteit met velden (`Cohort / periode` is in het logisch model het veld `cohort` op de doelgroepspecificatie en de aanbodinstantie, `Aanmelding` en `Inschrijving` komen er niet in voor); het logisch model beschrijft ze alleen in de koppelingsbeelden (`ONDERWIJSRESULTAAT`, `TOETSONDERDEELRESULTAAT`, `ROOSTER`, `ONDERWIJSTEAM`). Ze volgen zodra de koppelingen die ze dragen worden uitgewerkt. Het `Kwalificatiekader` is in het logisch model geen entiteit maar de bron van een leeruitkomst (`leeruitkomst.bron`); dat is een ontwerpbeslissing van laag 3, geen leemte.
 
 ## Verwante documenten
 
