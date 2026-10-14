@@ -445,7 +445,16 @@
       "oeapi": null
     },
     {
-      "naam": "Opleiding aanbod  verbintenis",
+      "naam": "Opleiding aanbod",
+      "kolom": "Onderwijsaanbod",
+      "scope": "binnen",
+      "vulkleur": null,
+      "oeapi": [
+        "ProgrammeOffering"
+      ]
+    },
+    {
+      "naam": "Opleiding aanbod verbintenis",
       "kolom": "Onderwijsverbintenis",
       "scope": "binnen",
       "vulkleur": null,
@@ -454,7 +463,7 @@
       ]
     },
     {
-      "naam": "Opleiding aanbod resultaat",
+      "naam": "Opleiding resultaat",
       "kolom": "Onderwijsresultaat",
       "scope": "binnen",
       "vulkleur": null,
@@ -469,15 +478,6 @@
       "vulkleur": null,
       "oeapi": [
         "Programme"
-      ]
-    },
-    {
-      "naam": "Opleidingaanbod",
-      "kolom": "Onderwijsaanbod",
-      "scope": "binnen",
-      "vulkleur": null,
-      "oeapi": [
-        "ProgrammeOffering"
       ]
     },
     {
@@ -728,7 +728,7 @@
     {
       "soort": "Access",
       "van": "Persoon",
-      "naar": "Opleiding aanbod resultaat",
+      "naar": "Opleiding resultaat",
       "label": null
     },
     {
@@ -823,6 +823,18 @@
     },
     {
       "soort": "Aggregation",
+      "van": "Leergelegenheid resultaat",
+      "naar": "Lesgelegenheid resultaat",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Leergelegenheid verbintenis",
+      "naar": "Lesgelegenheid verbintenis",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
       "van": "Leeronderdeel specificatie",
       "naar": "Les specificatie",
       "label": null
@@ -847,6 +859,12 @@
     },
     {
       "soort": "Aggregation",
+      "van": "Onderwijseenheid aanbod verbintenis",
+      "naar": "Leergelegenheid verbintenis",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
       "van": "Onderwijseenheid specificatie",
       "naar": "Leeronderdeel specificatie",
       "label": null
@@ -865,26 +883,14 @@
     },
     {
       "soort": "Aggregation",
-      "van": "Opleiding specificatie",
-      "naar": "Opleidingsprogramma specificatie",
-      "label": null
-    },
-    {
-      "soort": "Aggregation",
-      "van": "Opleidingaanbod",
-      "naar": "Opleidingsprogramma aanbod",
-      "label": null
-    },
-    {
-      "soort": "Aggregation",
-      "van": "Opleidingsaanbod van Instelling",
-      "naar": "Opleidingaanbod",
-      "label": null
-    },
-    {
-      "soort": "Aggregation",
       "van": "Opleidingsprogramma aanbod",
       "naar": "Onderwijseenheid aanbod",
+      "label": null
+    },
+    {
+      "soort": "Aggregation",
+      "van": "Opleidingsprogramma aanbod verbintenis",
+      "naar": "Onderwijseenheid aanbod verbintenis",
       "label": null
     },
     {
@@ -968,7 +974,7 @@
     {
       "soort": "Association",
       "van": "Aanmelding",
-      "naar": "Opleiding aanbod  verbintenis",
+      "naar": "Opleiding aanbod verbintenis",
       "label": "middels"
     },
     {
@@ -982,6 +988,12 @@
       "van": "Aanmelding",
       "naar": "Toetsgelegenheid verbintenis",
       "label": "middels"
+    },
+    {
+      "soort": "Association",
+      "van": "Aanwezigheid",
+      "naar": "Formatief resultaat",
+      "label": "dient als"
     },
     {
       "soort": "Association",
@@ -1081,6 +1093,18 @@
     },
     {
       "soort": "Association",
+      "van": "Formatief resultaat",
+      "naar": "Leergelegenheid resultaat",
+      "label": "middels"
+    },
+    {
+      "soort": "Association",
+      "van": "Formatief resultaat",
+      "naar": "Lesgelegenheid resultaat",
+      "label": "middels"
+    },
+    {
+      "soort": "Association",
       "van": "Formatieve beoordeling",
       "naar": "Formatief resultaat",
       "label": "kent"
@@ -1096,6 +1120,60 @@
       "van": "Inschrijving",
       "naar": "Cohort / periode",
       "label": "Leidt tot deelname aan"
+    },
+    {
+      "soort": "Association",
+      "van": "Inschrijving",
+      "naar": "Examengelegenheid verbintenis",
+      "label": "middels"
+    },
+    {
+      "soort": "Association",
+      "van": "Inschrijving",
+      "naar": "Keuzedeel aanbod verbintenis",
+      "label": "middels"
+    },
+    {
+      "soort": "Association",
+      "van": "Inschrijving",
+      "naar": "Leergelegenheid verbintenis",
+      "label": "middels"
+    },
+    {
+      "soort": "Association",
+      "van": "Inschrijving",
+      "naar": "Lesgelegenheid verbintenis",
+      "label": "middels"
+    },
+    {
+      "soort": "Association",
+      "van": "Inschrijving",
+      "naar": "Minor aanbod verbintenis",
+      "label": "middels"
+    },
+    {
+      "soort": "Association",
+      "van": "Inschrijving",
+      "naar": "Onderwijseenheid aanbod verbintenis",
+      "label": "middels"
+    },
+    {
+      "soort": "Association",
+      "van": "Inschrijving",
+      "naar": "Opleiding aanbod verbintenis",
+      "label": "middels"
+    },
+    {
+      "soort": "Association",
+      "van": "Inschrijving",
+      "naar": "Opleidingsprogramma aanbod verbintenis",
+      "label": "middels"
+    },
+    {
+      "soort": "Association",
+      "van": "Inschrijving",
+      "naar": "Toetsgelegenheid verbintenis",
+      "label": "middels"
     },
     {
       "soort": "Association",
@@ -1165,6 +1243,12 @@
     },
     {
       "soort": "Association",
+      "van": "Leergelegenheid",
+      "naar": "Onderwijslocatie",
+      "label": "wordt gegeven op"
+    },
+    {
+      "soort": "Association",
       "van": "Leergelegenheid verbintenis",
       "naar": "Leergelegenheid resultaat",
       "label": null
@@ -1228,6 +1312,12 @@
       "van": "Lesgelegenheid",
       "naar": "Lesgelegenheid verbintenis",
       "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Lesgelegenheid",
+      "naar": "Onderwijslocatie",
+      "label": "wordt gegeven op"
     },
     {
       "soort": "Association",
@@ -1297,6 +1387,12 @@
     },
     {
       "soort": "Association",
+      "van": "Onderwijseenheid aanbod",
+      "naar": "Onderwijslocatie",
+      "label": "wordt gegeven op"
+    },
+    {
+      "soort": "Association",
       "van": "Onderwijseenheid aanbod verbintenis",
       "naar": "Onderwijseenheid resultaat",
       "label": null
@@ -1339,15 +1435,27 @@
     },
     {
       "soort": "Association",
-      "van": "Opleiding aanbod  verbintenis",
-      "naar": "Opleiding aanbod resultaat",
+      "van": "Opleiding aanbod",
+      "naar": "Aanmelding",
+      "label": "Op basis van"
+    },
+    {
+      "soort": "Association",
+      "van": "Opleiding aanbod",
+      "naar": "Onderwijslocatie",
+      "label": "Wordt gegeven op"
+    },
+    {
+      "soort": "Association",
+      "van": "Opleiding aanbod",
+      "naar": "Opleiding aanbod verbintenis",
       "label": null
     },
     {
       "soort": "Association",
-      "van": "Opleiding aanbod  verbintenis",
-      "naar": "Opleidingsprogramma aanbod verbintenis",
-      "label": "Minimaal 1"
+      "van": "Opleiding aanbod verbintenis",
+      "naar": "Opleiding resultaat",
+      "label": null
     },
     {
       "soort": "Association",
@@ -1358,7 +1466,7 @@
     {
       "soort": "Association",
       "van": "Opleiding specificatie",
-      "naar": "Opleidingaanbod",
+      "naar": "Opleiding aanbod",
       "label": null
     },
     {
@@ -1369,21 +1477,15 @@
     },
     {
       "soort": "Association",
-      "van": "Opleidingaanbod",
+      "van": "Opleidingsprogramma aanbod",
       "naar": "Aanmelding",
       "label": "Op basis van"
-    },
-    {
-      "soort": "Association",
-      "van": "Opleidingaanbod",
-      "naar": "Opleiding aanbod  verbintenis",
-      "label": null
     },
     {
       "soort": "Association",
       "van": "Opleidingsprogramma aanbod",
-      "naar": "Aanmelding",
-      "label": "Op basis van"
+      "naar": "Onderwijslocatie",
+      "label": "wordt gegeven op"
     },
     {
       "soort": "Association",
@@ -1538,7 +1640,7 @@
     {
       "soort": "Association",
       "van": "Plaatsingsgroep",
-      "naar": "Opleiding aanbod  verbintenis",
+      "naar": "Opleiding aanbod verbintenis",
       "label": null
     },
     {
@@ -1615,6 +1717,24 @@
     },
     {
       "soort": "Association",
+      "van": "Summatief resultaat",
+      "naar": "Onderwijseenheid resultaat",
+      "label": "middels"
+    },
+    {
+      "soort": "Association",
+      "van": "Summatief resultaat",
+      "naar": "Opleiding resultaat",
+      "label": "middels"
+    },
+    {
+      "soort": "Association",
+      "van": "Summatief resultaat",
+      "naar": "Opleidingsprogramma resultaat",
+      "label": "middels"
+    },
+    {
+      "soort": "Association",
       "van": "Summatieve beoordeling",
       "naar": "Summatief resultaat",
       "label": "met"
@@ -1648,6 +1768,12 @@
       "van": "Toetsgelegenheid",
       "naar": "Aanmelding",
       "label": "Op basis van"
+    },
+    {
+      "soort": "Association",
+      "van": "Toetsgelegenheid",
+      "naar": "Onderwijslocatie",
+      "label": "wordt gegeven op"
     },
     {
       "soort": "Association",
@@ -1730,7 +1856,7 @@
     {
       "soort": "Association",
       "van": "Verzoek tot Aanbod / Intekening op specificatie",
-      "naar": "Opleidingaanbod",
+      "naar": "Opleiding aanbod",
       "label": "Leidt tot"
     },
     {
@@ -1758,10 +1884,52 @@
       "label": "beïnvloed"
     },
     {
+      "soort": "Composition",
+      "van": "Opleiding aanbod",
+      "naar": "Opleidingsprogramma aanbod",
+      "label": "Minimaal 1"
+    },
+    {
+      "soort": "Composition",
+      "van": "Opleiding aanbod verbintenis",
+      "naar": "Opleidingsprogramma aanbod verbintenis",
+      "label": "bestaat uit minimaal 1"
+    },
+    {
+      "soort": "Composition",
+      "van": "Opleiding specificatie",
+      "naar": "Opleidingsprogramma specificatie",
+      "label": "minimaal 1"
+    },
+    {
+      "soort": "Composition",
+      "van": "Opleidingsaanbod van Instelling",
+      "naar": "Opleiding aanbod",
+      "label": "Minimaal 1"
+    },
+    {
+      "soort": "Specialization",
+      "van": "Examengelegenheid",
+      "naar": "Toetsgelegenheid",
+      "label": "is van het soort"
+    },
+    {
+      "soort": "Specialization",
+      "van": "Examengelegenheid resultaat",
+      "naar": "Toetsgelegenheid resultaat",
+      "label": "is van het soort"
+    },
+    {
+      "soort": "Specialization",
+      "van": "Examengelegenheid verbintenis",
+      "naar": "Toetsgelegenheid verbintenis",
+      "label": "is van het soort"
+    },
+    {
       "soort": "Specialization",
       "van": "Examenonderdeelspecificatie",
       "naar": "Toetsonderdeel specificatie",
-      "label": null
+      "label": "is van het soort"
     },
     {
       "soort": "Specialization",
@@ -1827,6 +1995,18 @@
       "soort": "Specialization",
       "van": "Minor aanbod",
       "naar": "Opleidingsprogramma aanbod",
+      "label": null
+    },
+    {
+      "soort": "Specialization",
+      "van": "Minor aanbod verbintenis",
+      "naar": "Opleidingsprogramma aanbod verbintenis",
+      "label": null
+    },
+    {
+      "soort": "Specialization",
+      "van": "Minor resultaat",
+      "naar": "Opleidingsprogramma resultaat",
       "label": null
     },
     {
@@ -2006,23 +2186,23 @@
       "relatie": "Realization"
     },
     {
-      "okx": "Opleiding aanbod  verbintenis",
+      "okx": "Opleiding aanbod",
+      "oeapi": "ProgrammeOffering",
+      "relatie": "Realization"
+    },
+    {
+      "okx": "Opleiding aanbod verbintenis",
       "oeapi": "ProgrammeOfferingAssociation",
       "relatie": "Realization"
     },
     {
-      "okx": "Opleiding aanbod resultaat",
+      "okx": "Opleiding resultaat",
       "oeapi": "Result",
       "relatie": "Realization"
     },
     {
       "okx": "Opleiding specificatie",
       "oeapi": "Programme",
-      "relatie": "Realization"
-    },
-    {
-      "okx": "Opleidingaanbod",
-      "oeapi": "ProgrammeOffering",
       "relatie": "Realization"
     },
     {

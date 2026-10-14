@@ -66,10 +66,10 @@ Uit `informatiemodel.json`: de 35 realisaties en de associatie van `Persoon` naa
 | `Onderwijslocatie` | Onderwijsaanbod | `Building` | volstaat |
 | `Onderwijslocatie` | Onderwijsaanbod | `Room` | volstaat |
 | `Onderwijslocatie type` | Onderwijsspecificatie | `roomType` | volstaat |
-| `Opleiding aanbod  verbintenis` | Onderwijsverbintenis | `ProgrammeOfferingAssociation` | te grof: draagt 4 OKx-objecttypen binnen scope, het onderscheid ligt buiten de standaard |
-| `Opleiding aanbod resultaat` | Onderwijsresultaat | `Result` | te grof: draagt 7 OKx-objecttypen binnen scope, het onderscheid ligt buiten de standaard |
+| `Opleiding aanbod` | Onderwijsaanbod | `ProgrammeOffering` | te grof: draagt 4 OKx-objecttypen binnen scope, het onderscheid ligt buiten de standaard |
+| `Opleiding aanbod verbintenis` | Onderwijsverbintenis | `ProgrammeOfferingAssociation` | te grof: draagt 4 OKx-objecttypen binnen scope, het onderscheid ligt buiten de standaard |
+| `Opleiding resultaat` | Onderwijsresultaat | `Result` | te grof: draagt 7 OKx-objecttypen binnen scope, het onderscheid ligt buiten de standaard |
 | `Opleiding specificatie` | Onderwijsspecificatie | `Programme` | te grof: draagt 6 OKx-objecttypen binnen scope, het onderscheid ligt buiten de standaard |
-| `Opleidingaanbod` | Onderwijsaanbod | `ProgrammeOffering` | te grof: draagt 4 OKx-objecttypen binnen scope, het onderscheid ligt buiten de standaard |
 | `Opleidingsprogramma aanbod` | Onderwijsaanbod | `ProgrammeOffering` | te grof: draagt 4 OKx-objecttypen binnen scope, het onderscheid ligt buiten de standaard |
 | `Opleidingsprogramma aanbod verbintenis` | Onderwijsverbintenis | `ProgrammeOfferingAssociation` | te grof: draagt 4 OKx-objecttypen binnen scope, het onderscheid ligt buiten de standaard |
 | `Opleidingsprogramma resultaat` | Onderwijsresultaat | `Result` | te grof: draagt 7 OKx-objecttypen binnen scope, het onderscheid ligt buiten de standaard |
