@@ -12,6 +12,11 @@ Doel:
 Governance:
 - Iedereen mag issues openen en PR's indienen.
 - Alleen OKx-teamleden mergen PR's.
+- Een agent merget nooit uit zichzelf, en op `Npuls-OKx/Public` merget een agent nooit,
+  ook niet op verzoek en ook niet met alle controles groen. Een beveiligingsregel die
+  een goedkeuring eist wordt nooit omzeild, niet met een adminsleutel, niet met een
+  geforceerde push en niet door de regel te versoepelen. Blokkeert zij de merge, dan
+  meldt de agent wat er blokkeert en wie het kan oplossen.
 - Team OKx begeleidt de uitbouw en bewaakt samenhang en richting.
 - Kerngroep OKx geeft periodiek prioriteiten en richting op basis van issues, milestones en PR's (milestones handmatig beheerd).
 
