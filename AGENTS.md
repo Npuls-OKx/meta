@@ -32,9 +32,23 @@ De werkafspraken zijn levend; wijzigen via PR.
 1. **Raak nooit een `*.archimate`-bestand aan.** Nooit tekstueel mergen; zie [architecture/model/README.md](architecture/model/README.md) en ADR 0010. Vóór elke model-commit: `python3 scripts/validate-archimate.py`.
 2. **Installaties alleen in de dev-container**, nooit op de host ([.cursor/rules/dev-omgeving.mdc](.cursor/rules/dev-omgeving.mdc); een controlescript (hook) bewaakt dit).
 3. **1 issue = 1 branch = 1 PR**, feature-branches vanaf `dev`, alleen het OKx-team merget ([CONTRIBUTING.md](CONTRIBUTING.md)).
-4. **Deliverables volgen de product-flow**: story met gebruiker en waarde, acceptatiecriteria in het issue, plan met tegenlezing, uitwerking met onafhankelijke review, waardevalidatie. Twee stopmomenten, beide bij de opdrachtgever: akkoord op de criteria, en groen licht op het plan. Zie [hieronder](#product-flow-samenvatting).
-5. Markdown-deliverables halen de voorcontrole: `python3 scripts/validate-docs.py <pad>`.
-6. **Specificeren bovenop OEAPI gaat via een submodule, nooit via een fork.** De OEAPI-specificatie komt binnen als git-submodule op een vastgezet versielabel; het OKx-werk ligt daar als overlay bovenop. Zie [Specificeren bovenop OEAPI](#specificeren-bovenop-oeapi).
+4. **Een agent merget nooit zelfstandig, en op `Npuls-OKx/Public` merget een agent nooit.** Zie [Mergen](#mergen).
+5. **Deliverables volgen de product-flow**: story met gebruiker en waarde, acceptatiecriteria in het issue, plan met tegenlezing, uitwerking met onafhankelijke review, waardevalidatie. Twee stopmomenten, beide bij de opdrachtgever: akkoord op de criteria, en groen licht op het plan. Zie [hieronder](#product-flow-samenvatting).
+6. Markdown-deliverables halen de voorcontrole: `python3 scripts/validate-docs.py <pad>`.
+7. **Specificeren bovenop OEAPI gaat via een submodule, nooit via een fork.** De OEAPI-specificatie komt binnen als git-submodule op een vastgezet versielabel; het OKx-werk ligt daar als overlay bovenop. Zie [Specificeren bovenop OEAPI](#specificeren-bovenop-oeapi).
+
+## Mergen
+
+Een merge is het moment waarop werk van een voorstel een feit wordt. Vanaf dat moment bouwt een afnemer ertegen, en een fout erin is niet meer terug te nemen zonder dat iemand anders het al heeft gezien.
+
+| Repository | Wat een agent doet |
+|---|---|
+| `Npuls-OKx/Public` | **Nooit mergen.** Ook niet op verzoek, ook niet met groen licht in een gesprek, ook niet wanneer alle controles slagen. Een agent opent de pull request, zet de review-instructie erin en meldt dat zij klaarstaat |
+| `Npuls-OKx/meta` | Alleen mergen wanneer het OKx-team daar in de pull request zelf om vraagt. Uit zichzelf nooit |
+
+Dit geldt ongeacht de rechten die de agent toevallig heeft. Een beveiligingsregel op een branch die een goedkeuring eist, wordt nooit omzeild met een adminsleutel, een geforceerde push of het tijdelijk versoepelen van de regel. Blokkeert zo'n regel de merge, dan is dat de uitkomst: de agent meldt wat er blokkeert en wie het kan oplossen.
+
+Public draagt het releasepakket. Wat daar op `dev` staat is gepubliceerd en leidend, en dat is precies waarom het laatste oordeel bij een mens ligt.
 
 ## Specificeren bovenop OEAPI
 

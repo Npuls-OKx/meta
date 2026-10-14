@@ -297,6 +297,7 @@ De issue-templates in `.github/ISSUE_TEMPLATE/` volgen deze keten:
 
 ## Kaders
 
-- Governance: `.cursor/rules/okx-governance.mdc` (issues, PR's, alleen OKx-team merget).
+- Governance: `.cursor/rules/okx-governance.mdc` (issues, PR's, alleen OKx-team merget;
+  een agent merget nooit uit zichzelf en op Public nooit).
 - Stijl: `.cursor/rules/schrijfstijl.mdc`.
 - Reviews niet door de maker: de reviewende subagent krijgt een schone opdracht zonder de maak-context.

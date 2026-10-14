@@ -43,6 +43,12 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Pakketten
+        # Dezelfde set als de dev-container, zodat de testgevallen hier hetzelfde doen
+        # als lokaal. Zonder jsonschema slaat de schemacontrole stil een stap over en
+        # falen de testgevallen die juist op die stap toezien.
+        run: python3 -m pip install --quiet -r .devcontainer/requirements.txt
+
       - name: Conflictmarkeringen
         # Een regelgebaseerde merge laat deze achter. Het model is dan nog steeds XML
         # die opent, dus de volgende controle zou hier overheen kunnen kijken.
