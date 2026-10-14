@@ -1,28 +1,60 @@
 {
-  "id": "public-115-leslaag",
-  "titel": "Wat valt er precies buiten de uitwisseling: de inhoud van een les, of de reeks lessen in het rooster?",
-  "herkomst": "Reviewvraag Npuls-OKx/Public#115 van Jan Hendrik van Schaik, werkbrief Npuls-OKx/meta#333",
-  "oeapi": true,
-  "rij_labels": ["de reeks lessen samen", "een losse les"],
-  "objecten": [
-    {"naam": "Leeronderdeel specificatie", "rij": 0},
-    {"naam": "Leergelegenheid", "rij": 0, "noot": "de reeks lessen in het rooster"},
-    {"naam": "Leergelegenheid verbintenis", "rij": 0},
-    {"naam": "Leergelegenheid resultaat", "rij": 0, "merk": "buiten scope", "nummer": 5,
-     "waarom": "het resultaat over de reeks lessen samen"},
-
-    {"naam": "Les specificatie", "rij": 1, "merk": "buiten scope", "nummer": 1,
-     "waarom": "de inhoud van een les blijft buiten de uitwisseling"},
-    {"naam": "Lesgelegenheid", "rij": 1, "merk": "binnen scope", "nummer": 2,
-     "waarom": "de les in het rooster, nu binnen de uitwisseling"},
-    {"naam": "Lesgelegenheid verbintenis", "rij": 1, "merk": "binnen scope", "nummer": 3,
-     "waarom": "de deelname van een student aan die ene les"},
-    {"naam": "Lesgelegenheid resultaat", "rij": 1, "merk": "binnen scope", "nummer": 4,
-     "waarom": "het resultaat op die deelname"}
-  ],
-  "ontbreekt": [
-    {"van": "Leergelegenheid resultaat", "naar": "Lesgelegenheid resultaat",
-     "soort": "Aggregation", "label": "ontbreekt: delen per les",
-     "waarom": "op de specificatie, het aanbod en de verbintenis draagt de reeks de opdeling per les wel; op het resultaat staat die aggregatie nog niet in het model"}
-  ]
+ "id": "public-115-leslaag",
+ "titel": "Wat valt er precies buiten de uitwisseling: de inhoud van een les, of de reeks lessen in het rooster?",
+ "herkomst": "Reviewvraag Npuls-OKx/Public#115 van Jan Hendrik van Schaik, werkbrief Npuls-OKx/meta#333",
+ "oeapi": true,
+ "rij_labels": [
+  "de reeks lessen samen",
+  "een losse les"
+ ],
+ "objecten": [
+  {
+   "naam": "Leeronderdeel specificatie",
+   "rij": 0
+  },
+  {
+   "naam": "Leergelegenheid",
+   "rij": 0,
+   "noot": "de reeks lessen in het rooster"
+  },
+  {
+   "naam": "Leergelegenheid verbintenis",
+   "rij": 0
+  },
+  {
+   "naam": "Leergelegenheid resultaat",
+   "rij": 0,
+   "merk": "buiten scope",
+   "nummer": 5,
+   "waarom": "het resultaat over de reeks lessen samen"
+  },
+  {
+   "naam": "Les specificatie",
+   "rij": 1,
+   "merk": "buiten scope",
+   "nummer": 1,
+   "waarom": "de inhoud van een les blijft buiten de uitwisseling"
+  },
+  {
+   "naam": "Lesgelegenheid",
+   "rij": 1,
+   "merk": "binnen scope",
+   "nummer": 2,
+   "waarom": "de les in het rooster, nu binnen de uitwisseling"
+  },
+  {
+   "naam": "Lesgelegenheid verbintenis",
+   "rij": 1,
+   "merk": "binnen scope",
+   "nummer": 3,
+   "waarom": "de deelname van een student aan die ene les"
+  },
+  {
+   "naam": "Lesgelegenheid resultaat",
+   "rij": 1,
+   "merk": "binnen scope",
+   "nummer": 4,
+   "waarom": "het resultaat op die deelname"
+  }
+ ]
 }
