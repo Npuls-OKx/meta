@@ -292,7 +292,7 @@
     {
       "naam": "Lesgelegenheid",
       "kolom": "Onderwijsaanbod",
-      "scope": "buiten",
+      "scope": "binnen",
       "vulkleur": "#ffffb5",
       "oeapi": [
         "LearningComponentOffering"
@@ -301,7 +301,7 @@
     {
       "naam": "Lesgelegenheid resultaat",
       "kolom": "Onderwijsresultaat",
-      "scope": "buiten",
+      "scope": "binnen",
       "vulkleur": "#ffffb5",
       "oeapi": [
         "Result"
@@ -310,7 +310,7 @@
     {
       "naam": "Lesgelegenheid verbintenis",
       "kolom": "Onderwijsverbintenis",
-      "scope": "buiten",
+      "scope": "binnen",
       "vulkleur": "#ffffb5",
       "oeapi": [
         "LearningComponentOfferingAssociation"
