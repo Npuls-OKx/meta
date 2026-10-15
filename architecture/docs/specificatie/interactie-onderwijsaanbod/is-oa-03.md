@@ -1,8 +1,8 @@
-# IS-OA-03, het verzoek tot aanbod naar het planningssysteem
+# IS-OA-03 Verzoek om aanbod naar planning
 
 Deze eenheid levert het planningssysteem de planbare specificatiestructuur van een opleiding met haar planbare waarden, als verzoek om daarvan onderwijsaanbod te maken.
 
-De uuid's, de versies en de namen in de voorbeeldpayloads hieronder komen uit [casus.md](casus.md), de vaste identificaties van deze interactiespecificatie. De specificatie die deze eenheid planbaar meldt is dezelfde als die waarop [IS-OA-04](stroom-is-oa-04.md) het aanbod terugmeldt, op dezelfde uuid en dezelfde versie.
+De uuid's, de versies en de namen in de voorbeeldpayloads hieronder komen uit [casus.md](casus.md), de vaste identificaties van deze interactiespecificatie. De specificatie die deze eenheid planbaar meldt is dezelfde als die waarop [IS-OA-04](is-oa-04.md) het aanbod terugmeldt, op dezelfde uuid en dezelfde versie.
 
 De status staat in het artefact zelf. Een operatie, een endpoint en een schema dragen `vastgelegd` zodra Public ze draagt, en `voorstel` zolang deze specificatie ze voorstelt. Een voorgesteld schema draagt een `$id` die op `/voorstel` eindigt, zodat de status meereist met het bestand.
 
@@ -48,7 +48,7 @@ sequenceDiagram
     end
 ```
 
-Het planproces loopt daarna los van deze aanroep. De uitkomst, met de verwijzing naar het `Opleiding aanbod`, komt terug in [IS-OA-04](README.md#1-zes-eenheden-tussen-vijf-componenten), op dezelfde `specificationId` en `version` als deze melding.
+Het planproces loopt daarna los van deze aanroep. De uitkomst, met de verwijzing naar het `Opleiding aanbod`, komt terug in [IS-OA-04](README.md#1-de-informatiestromen), op dezelfde `specificationId` en `version` als deze melding.
 
 ## Functionele eisen
 
@@ -189,7 +189,7 @@ Schema [specification-reference.json](https://github.com/Npuls-OKx/Public/blob/d
 | `specificationId` | `specificatieId` | uuid | 1 | ja | `Opleiding specificatie`, de wortel van de opgenomen structuur | vastgelegd |
 | `version` | `versie` | string | 1 | ja | `Opleiding specificatie` | vastgelegd |
 
-W14 vraagt paginering op deze opvraag, en die landt op een omhullend object: MAJOR voor wie op de array van vandaag valideert. [W3 van IS-OA-01](stroom-is-oa-01.md#7-de-werkbrieven) vraagt `name` en `studyLoad` erbij voor het zoeken naar hergebruik, wat additief blijft.
+W14 vraagt paginering op deze opvraag, en die landt op een omhullend object: MAJOR voor wie op de array van vandaag valideert. [W3 van IS-OA-01](is-oa-01.md#7-de-werkbrieven) vraagt `name` en `studyLoad` erbij voor het zoeken naar hergebruik, wat additief blijft.
 
 ## Voorbeeldpayload
 
@@ -202,7 +202,7 @@ Casus Apothekersassistent, kwalificatiedossier crebo 23450, met de instantiewaar
 }
 ```
 
-Dezelfde melding in de vorm die werkbrief W1 voorstelt, met de planopgave eromheen. Het verzoek-id staat in [casus.md](casus.md#het-verzoek-tot-aanbod), het aanvraagmoment ligt voor het aanmeldvenster dat [IS-OA-05](stroom-is-oa-05.md) op dit aanbod opent:
+Dezelfde melding in de vorm die werkbrief W1 voorstelt, met de planopgave eromheen. Het verzoek-id staat in [casus.md](casus.md#het-verzoek-tot-aanbod), het aanvraagmoment ligt voor het aanmeldvenster dat [IS-OA-05](is-oa-05.md) op dit aanbod opent:
 
 ```json schema=offering-request
 {
@@ -350,7 +350,7 @@ Het antwoord van O2, met de opleiding, de programmalaag leerweg en de programmal
 }
 ```
 
-De tweede regel geeft de volgordebepaling waarop het planningssysteem plant: keuzedeel K0037 is kiesbaar zodra de leeruitkomst op kerntaakniveau behaald is, waarbij de sleutel volstaat en de inhoud bij de catalogus blijft. [IS-OA-01](stroom-is-oa-01.md) levert dezelfde regelset op dezelfde versie aan de catalogus.
+De tweede regel geeft de volgordebepaling waarop het planningssysteem plant: keuzedeel K0037 is kiesbaar zodra de leeruitkomst op kerntaakniveau behaald is, waarbij de sleutel volstaat en de inhoud bij de catalogus blijft. [IS-OA-01](is-oa-01.md) levert dezelfde regelset op dezelfde versie aan de catalogus.
 
 De sleutels binnen `rules` staan als voorstel, omdat rule-set.json daar een vrij object toestaat. Hun vorm staat in [student-choice-rule.json](schemas/student-choice-rule.json), de overlay die IS-OA-01 bij werkbrief W9 voorstelt. Dezelfde namen gelden in IS-OA-01 en staan bij elkaar in [casus.md](casus.md#de-regelsets):
 
@@ -373,7 +373,7 @@ Elke werkbrief belegt een veld of schema dat de beelden F2-01 en F2-03 vragen, e
 | Nr | Wat erbij moet | Waar | Versie-impact |
 |---|---|---|---|
 | W1 | Een eigen bericht voor het verzoek: een `requestId` (verzoekId), een `name` (naam), het aangevraagde cohort, het aanvraagmoment en de verwachte instroom. Het objecttype `Verzoek tot Aanbod / Intekening op specificatie` reist nu mee als de specificatie-referentie van bericht 1 | [offering-request.json](schemas/offering-request.json), het schema waarnaar O1 en [bericht 1](#bericht-1-specificatie-planbaar) verwijzen, in Public opnemen naast specification-reference.json | Minor: een nieuw schema naast specification-reference.json, dat in I7 en processing-status.json ongewijzigd blijft |
-| W2 | De onderwijsvorm per leeronderdeel, in F2-03 "Simulatie in de leerapotheek, theorie ondersteunend". Het objecttype `Onderwijsvorm` staat in het informatiemodel | education-specification.json, veld `educationForm` (onderwijsvorm) op de leeronderdeelspecificatie, de sleutel die [education-design.json](schemas/education-design.json) draagt bij werkbrief WB-01 van [IS-OA-02](stroom-is-oa-02.md) | Minor: optioneel veld, bestaande implementaties blijven geldig |
+| W2 | De onderwijsvorm per leeronderdeel, in F2-03 "Simulatie in de leerapotheek, theorie ondersteunend". Het objecttype `Onderwijsvorm` staat in het informatiemodel | education-specification.json, veld `educationForm` (onderwijsvorm) op de leeronderdeelspecificatie, de sleutel die [education-design.json](schemas/education-design.json) draagt bij werkbrief WB-01 van [IS-OA-02](is-oa-02.md) | Minor: optioneel veld, bestaande implementaties blijven geldig |
 | W3 | Het gevraagde type leeromgeving, in F2-03 "Balie-simulatie in het skillslab". Het objecttype `Onderwijslocatie type` bestaat, en location.json noemt alleen de concrete locatie aan de aanbodkant | education-specification.json, veld `roomType` (onderwijslocatieType) op de leeronderdeelspecificatie, de naam die het informatiemodel bij `Onderwijslocatie type` annoteert | Minor: optioneel veld |
 | W4 | Het gevraagde docentprofiel, in F2-03 "Apothekersassistent-docent met baliepraktijk". Het objecttype `Expertise of functieprofiel` bestaat zonder schema | nieuw schema `expertise-profile.json`, plus veld `expertiseProfileIds` (expertiseprofielIds) in education-specification.json | Minor: een nieuw schema en een optioneel veld |
 | W5 | De verdeling van begeleide en overige onderwijstijd in uren, in F2-01 "BOT 50 / OOT 50 SBU". `timeDistribution` (tijdsverdeling) draagt nu een enkele waarde uit een open lijst | education-specification.json, een array `timeDistributions` (tijdsverdelingen) met per soort een [volume.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/volume.json) | Minor zolang `timeDistribution` blijft staan. Vervangen van dat veld wordt major |
