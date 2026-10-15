@@ -177,7 +177,10 @@ class InDezeRepository(unittest.TestCase):
             self.skipTest("schema-binding.json ontbreekt")
         binding_ = json.loads(BINDING.read_text(encoding="utf-8"))
         objecttypen = {o["naam"] for o in json.loads(MODEL.read_text(encoding="utf-8"))["objecttypen"]}
-        schemas = cb.schemabestanden([WORTEL / m for m in cb.SCHEMAMAPPEN])
+        mappen = [WORTEL / m for m in cb.SCHEMAMAPPEN]
+        if not all(m.is_dir() for m in mappen):
+            self.skipTest("Npuls-OKx/Public staat niet naast deze repository")
+        schemas = cb.schemabestanden(mappen)
         self.assertEqual([str(b) for b in cb.controleer(binding_, objecttypen, schemas)], [])
 
     def test_given_de_binding_when_lezen_then_verklaart_zij_elke_bronsoort_die_zij_gebruikt(self):

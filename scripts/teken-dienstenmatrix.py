@@ -84,6 +84,8 @@ def breedte(tekst, grootte=12, vet=False):
 
 def dienstenlijst():
     """De dienstonderwerpen die Npuls-OKx/Public vastlegt, van het vastgezette commit."""
+    if not PUBLIC.is_dir():
+        return set()
     uit = subprocess.run(["git", "show", f"{COMMIT}:{DIENSTENLIJST}"],
                          capture_output=True, text=True, cwd=PUBLIC)
     if uit.returncode != 0:
