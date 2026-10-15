@@ -6,20 +6,18 @@
 | Voor wie | De informatiemanager of architect van een instelling die uitvraagt, en de software-architect van de leverancier die bouwt. De onderwijskundige onderbouwing staat in de [leerroute-uitwerking](../leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md) |
 | Wat een leverancier ermee bouwt | Per eenheid de koppeling tussen 2 componenten: welke objecttypen erover gaan, welke diensten in [Public](https://github.com/Npuls-OKx/Public/tree/dev/Koppelvlakspecificaties) ze dragen, welke dienst volgt |
 | Hoe een instelling dit gebruikt | Zij wijst in de [kiesbare eenheden](#de-kiesbare-eenheden) aan welke zij uitvraagt, als eis aan een leverancier |
-| Status | Concept, eerste deel van een catalogus van interactiespecificaties. De objecttypen komen uit het [informatiemodel](../../../model/informatiemodel/informatiemodel.md); 79 van de 145 modelregels dragen een aanname |
+| Grond | De objecttypen komen uit het [informatiemodel](../../../model/informatiemodel/informatiemodel.md); 79 van de 145 modelregels dragen een aanname. Hier begint de catalogus van interactiespecificaties |
 | Scope | Binnen 1 instelling ([ADR 0008](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0008-scope-planning-eerst-intra-instelling.md)), leerroute 1 met [persona Jochem](../leerroute-uitwerking/doc/persona_jochem.md). Fase 4 en later, en elke andere leerroute, volgen als eigen snede |
 
 ## Leeswijzer
 
-Vijf minuten tot het besluit, twintig tot de werking.
-
 | Deel | Wat erin staat | Tijd |
 |---|---|---|
 | [1 Wat dit bereikt](#1-wat-dit-bereikt) | Het scenario, de actoren met hun story, de zes eenheden | 4 min |
-| [2 Het proces](#2-het-proces) | Drie fasen, veertien stappen, en waar informatie een component verlaat | 3 min |
-| [3 Het informatiemodel](#3-het-informatiemodel) | De 33 objecttypen per familie met een instantie, en de geldende ontwerpkeuzes | 4 min |
+| [2 Het proces](#2-het-proces) | De fasen, de stappen, en waar informatie een component verlaat | 3 min |
+| [3 Het informatiemodel](#3-het-informatiemodel) | De objecttypen per familie met een instantie, en de geldende ontwerpkeuzes | 4 min |
 | [4 Het ecosysteem](#4-het-ecosysteem) | De zes stromen op hoofdplaat v1.7, en wie wat bezit | 2 min |
-| [5 De diensten](#5-de-diensten-per-component) | Per component de diensten, en wat het vandaag serveert | 2 min |
+| [5 De diensten](#5-de-diensten-per-component) | Per component de diensten, en de eigenaar per endpoint | 2 min |
 | [6 De zes stromen](#6-de-zes-stromen) | De keten in operaties, de eenheden, de werkbrieven | 3 min |
 | [Verdieping per stroom](#de-eenheden) | Per eenheid de operaties, de berichtvelden, een voorbeeldpayload | 10 min elk |
 | [Signaleringen](#signaleringen-en-openstaande-punten) | Wat een besluit vraagt voor de uitvraag | 1 min |
@@ -50,7 +48,7 @@ Deze snede voltooit zich voordat Jochem zich orienteert: wat hij ziet is het res
 | Examencommissie | Het examenplan met zijn resultaatstructuur vaststellen, zodat alleen een vastgesteld plan de catalogus bereikt | IS-OA-01, IS-OA-02 |
 | Planner | Het verzoek met de planbare waarden ontvangen, zodat haalbaarheid blijkt uit prognose en capaciteit samen | IS-OA-03, IS-OA-04 |
 | Onderwijscatalogus | Het geplande aanbod terugnemen en aanmeldbaar aanbod ontsluiten, zodat elk afnemend systeem bij de bezitter ophaalt | IS-OA-04, IS-OA-05 |
-| Kernregistratie | Het aanbod ontsluiten aan AII, zodat de aspirant-student zijn startmoment centraal kiest | IS-OA-06 |
+| Kernregistratie | Het aanbod ontsluiten aan AII (centraal aanmelden), zodat de aspirant-student zijn startmoment centraal kiest | IS-OA-06 |
 
 ### De kiesbare eenheden
 
@@ -86,7 +84,7 @@ Stippellijn: stand voorstel.
 
 ## 2. Het proces
 
-Van kwalificatiedossier tot aanmeldbaar aanbod: drie fasen, veertien stappen, 22 beelden en 145 regels uit de [voorbeelduitwerking](../../../model/informatiemodel/voorbeeld-lr1-regels.json).
+Van kwalificatiedossier tot aanmeldbaar aanbod, in drie fasen, met de regels per beeld in de [voorbeelduitwerking](../../../model/informatiemodel/voorbeeld-lr1-regels.json).
 
 ### De keten in beeld
 
@@ -115,7 +113,7 @@ flowchart LR
   class U1,U2,U3,U4,U5 uit
 ```
 
-De afgeronde knopen zijn de momenten waarop informatie een component verlaat. Fase 3 staat als twee rijen in de tabel, omdat ontsluiten en doorgeven elk hun eigen stroom dragen. IS-OA-03, IS-OA-04 en IS-OA-05 lopen over een pijl die v1.7 al tekent; [hoofdstuk 6](#6-de-zes-stromen) zet de zes in operaties.
+De afgeronde knopen zijn de momenten waarop informatie een component verlaat. Ontsluiten en doorgeven dragen elk hun eigen stroom. IS-OA-03, IS-OA-04 en IS-OA-05 lopen over een pijl die v1.7 al tekent; [hoofdstuk 6](#6-de-zes-stromen) zet de zes in operaties.
 
 ### Fase 1, kwalificatiekader analyseren en grofmazig ontwerpen
 
@@ -144,7 +142,7 @@ MORA-hoofdproces Plannen en roosteren, procesketen 4 Onderwijslogistiek. Uitsned
 | Haalbaarheid bepalen en aanbod plannen | planner | F2-04 tot en met F2-06 |
 | Gepland aanbod terugleveren | IS-OA-04 | F2-07 |
 
-### Fase 3, instroom, intake en plaatsing: de eerste stap
+### Fase 3, instroom, intake en plaatsing
 
 MORA-hoofdproces Informeren, aanmelden, intake en plaatsen. Uitsnede: [fase 3](../../../model/informatiemodel/img/hoofdplaat/f3.svg).
 
@@ -153,11 +151,11 @@ MORA-hoofdproces Informeren, aanmelden, intake en plaatsen. Uitsnede: [fase 3](.
 | Orienteren op het gepubliceerde aanbod: ontsluiten | IS-OA-05 | F3-01 |
 | Orienteren op het gepubliceerde aanbod: doorgeven | IS-OA-06, voorstel | F3-02 |
 
-Van fase 3 draagt deze snede het ontsluiten van aanbod; aanmelden, intake, plaatsen en inschrijven beginnen bij F3-03, met de SLB'er als nieuwe rol.
+Van fase 3 draagt deze snede het ontsluiten van aanbod; aanmelden, intake, plaatsen en inschrijven beginnen bij F3-03, met de studieloopbaanbegeleider (SLB'er) als nieuwe rol.
 
 ## 3. Het informatiemodel
 
-Deze interactie draagt 33 objecttypen uit het [informatiemodel OKx](../../../model/informatiemodel/informatiemodel.md), uit vijf van de zeven begrippenfamilies, elk met een instantie uit de casus Apothekersassistent (crebo 23450) als bewijs.
+Deze interactie draagt de objecttypen uit het [informatiemodel OKx](../../../model/informatiemodel/informatiemodel.md), elk met een instantie uit de casus Apothekersassistent (crebo 23450) als bewijs.
 
 ![Uitsnede van het informatiemodel: per laag het kwalificatiekader, de leeruitkomst, de onderwijsspecificatie, het verzoek tot aanbod en het onderwijsaanbod](img/uitsnede-onderwijsaanbod.svg)
 
@@ -203,12 +201,12 @@ Elke laag van de opleiding keert drie keer terug: in het kwalificatiekader, in d
 | Objecttype | Instantie | Beeld |
 |---|---|---|
 | `Opleidingsaanbod van Instelling` | ROC Leren Zonder Drempels | F2-04, F2-07 |
-| `Opleidingaanbod` | Apothekersassistent 2026, 48 plaatsen | F2-04, F2-07 |
+| `Opleiding aanbod` | Apothekersassistent 2026, 48 plaatsen | F2-04, F2-07 |
 | `Opleidingsprogramma aanbod` | Regulier BOL 2026 | F2-04, F2-07, F3-01, F3-02 |
 | `Onderwijseenheid aanbod` | B1-K1, periode 1 tot 4 | F2-04, F2-07 |
 | `Leergelegenheid` | Baliegesprekken 101, twee groepen | F2-04, F2-07 |
 | `Toetsgelegenheid` | Praktijktoets baliegesprek, periode 1 | F2-04, F2-07 |
-| `Keuzedeelaanbod` | K0037, periode 7 | F2-07 |
+| `Keuzedeel aanbod` | K0037, periode 7 | F2-07 |
 
 ### Resultaatstructuur en buiten de kolommen
 
@@ -252,13 +250,7 @@ De plaat licht de zes stromen uit op hoofdplaat v1.7: de componenten die meedoen
 
 ![De zes stromen uitgelicht op de informatiestromen-hoofdplaat v1.7](img/hoofdplaat-onderwijsaanbod.svg)
 
-De zes staan met hun lading in [stromen-onderwijsaanbod.json](stromen-onderwijsaanbod.json). De plaat komt uit het model met deze aanroep.
-
-```text
-python3 scripts/teken-hoofdplaat-ruim.py \
-  --uit architecture/docs/specificatie/interactie-onderwijsaanbod/img/hoofdplaat-onderwijsaanbod.svg \
-  --markeer architecture/docs/specificatie/interactie-onderwijsaanbod/stromen-onderwijsaanbod.json
-```
+De zes staan met hun lading in [stromen-onderwijsaanbod.json](stromen-onderwijsaanbod.json), het markeerbestand achter deze plaat.
 
 ### De zes stromen op de hoofdplaat
 
@@ -284,17 +276,19 @@ Grond: [uitgangspunt U3, resource-eigenaarschap](https://github.com/Npuls-OKx/Pu
 
 ## 5. De diensten per component
 
-Een applicatiedienst zegt wat er over een koppeling moet kunnen; wie hem vervult volgt uit [resource-eigenaarschap](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u3-resource-eigenaarschap). De namen komen uit de [dienstenlijst](https://github.com/Npuls-OKx/Public/blob/d0c20d99b110b29ccf6b0e50109f7d54ffd88d7a/Koppelvlakspecificaties/Applicatiediensten/README.md).
+Een applicatiedienst zegt wat er over een koppeling moet kunnen; wie hem vervult volgt uit [resource-eigenaarschap](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u3-resource-eigenaarschap). De dienstnamen komen uit de [dienstenlijst](https://github.com/Npuls-OKx/Public/blob/d0c20d99b110b29ccf6b0e50109f7d54ffd88d7a/Koppelvlakspecificaties/Applicatiediensten/README.md), vastgezet op commit d0c20d99, want die map staat nog niet op `dev`.
 
-| Component | Diensten die deze snede vraagt | Wat het vandaag serveert | Eenheden |
+Elk endpoint staat hieronder bij de component die het bezit; de [componentpagina](https://github.com/Npuls-OKx/Public/tree/dev/Koppelvlakspecificaties/Applicatiecomponenten) draagt er de parameters en de statuscodes bij.
+
+| Component | Diensten die deze snede vraagt | Endpoints die het vandaag bezit | Eenheden |
 |---|---|---|---|
-| Curriculum ontwerptool | onderwijsspecificatie-inname-afnemer, verwerkingsuitkomst-afnemer, afleverabonnement-afnemer | De [dienstpagina](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Applicatiecomponenten/curriculum-ontwerptool.md) laat deze koppeling aan een volgend pakket | IS-OA-01, IS-OA-02 |
-| Onderwijscatalogus | onderwijsspecificatie-inname-aanbieder, onderwijsspecificatiestructuur-aanbieder, planbaar-onderwijsaanbod-afnemer, verwerkingsuitkomst-afnemer, afleverabonnement-aanbieder en -afnemer | `/onderwijsspecificaties` met `/{id}` en `/{id}/delta`, `/abonnementen`, `verwerkingsstatus` | IS-OA-01 tot en met IS-OA-05 |
-| Planningssysteem | onderwijsspecificatiestructuur-afnemer, planbaar-onderwijsaanbod-aanbieder, verwerkingsuitkomst-aanbieder, afleverabonnement-aanbieder en -afnemer | `/onderwijsaanbod` met `/{id}`, `/abonnementen`, en drie meldingen over de specificatie | IS-OA-03, IS-OA-04 |
-| Kernregistratie (KRS) | aanmeldbaar-onderwijsaanbod-afnemer en -aanbieder, beide voorstel | Meldpatronen (webhooks) voor specificatie en resultaatstructuur | IS-OA-05, IS-OA-06 |
-| AII (centraal aanmelden) | aanmeldbaar-onderwijsaanbod-afnemer, voorstel | Het model kent het vak `Voorziening Centraal Aanmelden (CAMBO)` zonder applicatiedienst | IS-OA-06 |
+| Curriculum ontwerptool | onderwijsspecificatie-inname-afnemer, verwerkingsuitkomst-afnemer, afleverabonnement-afnemer | een werkbrief per pad | IS-OA-01, IS-OA-02 |
+| Onderwijscatalogus | onderwijsspecificatie-inname-aanbieder, onderwijsspecificatiestructuur-aanbieder, planbaar-onderwijsaanbod-afnemer, verwerkingsuitkomst-afnemer, afleverabonnement-aanbieder en -afnemer | `/onderwijsspecificaties` met `/{id}` en `/{id}/delta`, `/examenplanspecificaties/{id}`, `/abonnementen`, `verwerkingsstatus`, `inrichtingsstatus` | IS-OA-01 tot en met IS-OA-05 |
+| Planningssysteem | onderwijsspecificatiestructuur-afnemer, planbaar-onderwijsaanbod-aanbieder, verwerkingsuitkomst-aanbieder, afleverabonnement-aanbieder en -afnemer | `/onderwijsaanbod` met `/{id}`, `/abonnementen`, `specificatie-planbaar`, `-gewijzigd` en `-status-gewijzigd` | IS-OA-03, IS-OA-04 |
+| Kernregistratie (KRS) | aanmeldbaar-onderwijsaanbod-afnemer en -aanbieder, beide voorstel | een werkbrief per operatie | IS-OA-05, IS-OA-06 |
+| AII (centraal aanmelden) | aanmeldbaar-onderwijsaanbod-afnemer, voorstel | een werkbrief per operatie | IS-OA-06 |
 
-De verplichting staat op de dienstpagina, de parameters en statuscodes op de [componentpagina](https://github.com/Npuls-OKx/Public/tree/dev/Koppelvlakspecificaties/Applicatiecomponenten); de [werkbrieven](#de-werkbrieven) noemen wat ontbreekt.
+Een eenheid die een pad bij een ander component belegt, draagt daarvoor een werkbrief: IS-OA-05 haalt het aanbod bij de catalogus (S4), IS-OA-01 levert het ontwerp daar aan (S13).
 
 ## 6. De zes stromen
 
@@ -308,11 +302,11 @@ sequenceDiagram
     participant PL as Planningssysteem
     participant KRS as Kernregistratie
     participant CA as Centraal aanmelden
-    CO->>OC: IS-OA-01 POST /onderwijsspecificaties
-    CO->>OC: POST /examenplanspecificaties
-    OC--)CO: verwerkingsuitkomst gelukt, identiteit en versie
-    CO-)OC: IS-OA-02 ontwerp-gereed
-    OC->>CO: GET /onderwijsspecificaties/{id}
+    CO->>OC: IS-OA-01 POST /onderwijsspecificaties*
+    CO->>OC: POST /examenplanspecificaties*
+    OC--)CO: verwerkingsstatus gelukt, identiteit en versie
+    CO-)OC: IS-OA-02 ontwerp-gereed*
+    OC->>CO: GET /onderwijsspecificaties/{id}*
     CO-->>OC: 200 vorm, ruimte, expertise, toetsvorm
     OC-)PL: IS-OA-03 specificatie-planbaar
     PL->>OC: GET /onderwijsspecificaties/{id}
@@ -320,26 +314,28 @@ sequenceDiagram
     PL-)OC: IS-OA-04 verwerkingsstatus gelukt
     OC->>PL: GET /onderwijsaanbod/{id}
     PL-->>OC: 200 aanbod in vier lagen
-    OC-)KRS: IS-OA-05 aanbod-aanmeldbaar
-    KRS->>OC: GET /onderwijsaanbod/{id}
+    OC-)KRS: IS-OA-05 aanbod-aanmeldbaar*
+    KRS->>OC: GET /onderwijsaanbod/{id}*
     OC-->>KRS: 200 Regulier BOL 2026
-    KRS-)CA: IS-OA-06 aanmeldbaar-aanbod-beschikbaar
-    CA->>KRS: GET /aanmeldbaar-aanbod
+    KRS-)CA: IS-OA-06 aanmeldbaar-aanbod-beschikbaar*
+    CA->>KRS: GET /aanmeldbaar-aanbod*
     KRS-->>CA: 200 aanbod met aanmeldvenster
 ```
 
-Elk paar legt eerst zijn afleveradres vast met `POST /abonnementen`.
+Elk paar legt eerst zijn afleveradres vast met `POST /abonnementen`. Een `*` markeert wat een werkbrief toevoegt.
 
 ### De eenheden
 
-| Eenheid | Van | Naar | Wat erover gaat | Stand | Verdieping |
-|---|---|---|---|---|---|
-| IS-OA-01 | Curriculum ontwerptool | Onderwijscatalogus | Leeruitkomsten, specificatiestructuur tot leeronderdeel, summatieve resultaatstructuur | Voorstel, innamecontract open | [stroom-is-oa-01.md](stroom-is-oa-01.md) |
-| IS-OA-02 | Curriculum ontwerptool | Onderwijscatalogus | Onderwijsvorm, ruimtetype, expertiseprofielen, studiebelasting, toetsvorm, toetsinstrument | Voorstel, uit de conceptplaat | [stroom-is-oa-02.md](stroom-is-oa-02.md) |
-| IS-OA-03 | Onderwijscatalogus | Planningssysteem | Het verzoek tot aanbod met de planbare specificatiestructuur | Gespecificeerd, planbare waarden open | [stroom-is-oa-03.md](stroom-is-oa-03.md) |
-| IS-OA-04 | Planningssysteem | Onderwijscatalogus | Het geplande aanbod in vier lagen, verwijzend naar specificatie en verzoek | Gespecificeerd, schema's op alfa | [stroom-is-oa-04.md](stroom-is-oa-04.md) |
-| IS-OA-05 | Onderwijscatalogus | Kernregistratie (KRS) | Het aanmeldbare `Opleidingsprogramma aanbod`, instantie `Regulier BOL 2026` | Koppeling staat, operaties open | [stroom-is-oa-05.md](stroom-is-oa-05.md) |
-| IS-OA-06 | Kernregistratie (KRS) | AII | Hetzelfde aanbod per startmoment, met aanmeldvenster | Voorstel, richting open | [stroom-is-oa-06.md](stroom-is-oa-06.md) |
+De lading en de stand per eenheid staan in [de kiesbare eenheden](#de-kiesbare-eenheden).
+
+| Eenheid | Interactie in deze keten | Verdieping |
+|---|---|---|
+| IS-OA-01 | De inname van het ontwerp, met de verwerkingsstatus terug | [stroom-is-oa-01.md](stroom-is-oa-01.md) |
+| IS-OA-02 | De melding `ontwerp-gereed`, waarna de catalogus ophaalt | [stroom-is-oa-02.md](stroom-is-oa-02.md) |
+| IS-OA-03 | I1 en I2, plus I3 op `ontvangen`, `gestart` en `afgekeurd` | [stroom-is-oa-03.md](stroom-is-oa-03.md) |
+| IS-OA-04 | I5, plus I3 op `gelukt` en `nietGelukt` | [stroom-is-oa-04.md](stroom-is-oa-04.md) |
+| IS-OA-05 | De melding `aanbod-aanmeldbaar` en de opvraag erna | [stroom-is-oa-05.md](stroom-is-oa-05.md) |
+| IS-OA-06 | Dezelfde melding en opvraag naar centraal aanmelden | [stroom-is-oa-06.md](stroom-is-oa-06.md) |
 
 ### De werkbrieven
 
@@ -351,13 +347,11 @@ Elk paar legt eerst zijn afleveradres vast met `POST /abonnementen`.
 | Toetskenmerken, toetsinstrument, formatieve resultaatstructuur als eigen wortel | `result-structure.json` | MINOR, enumwaarde en optionele velden | IS-OA-01, IS-OA-02 |
 | Competenties met vaardigheid, kennis en inzicht eronder; getypeerde regels met bereiken | `learning-outcome.json`, `rule-set.json` | MINOR naast de vrije vorm, MAJOR bij dichtzetten | IS-OA-01, IS-OA-03 |
 | Foutmodel, melding-id, meldingssoorten voor aanbod en inrichting, stabiel `eventId` | `processing-status.json`, `subscription.json` | MINOR optioneel, MAJOR op de gesloten lijst | IS-OA-03 tot en met IS-OA-06 |
-| Zes nieuwe schema's: verzoek, expertiseprofiel, aanbod-aanmeldbaar, inrichtingsstatus, aanbodstatus, aanbod-delta | `schemas/` | MINOR, additief per schema | IS-OA-02 tot en met IS-OA-06 |
+| Nieuwe schema's: verzoek, expertiseprofiel, aanbod-aanmeldbaar, inrichtingsstatus, aanbodstatus, aanbod-delta | `schemas/` | MINOR, additief per schema | IS-OA-02 tot en met IS-OA-06 |
 | Innamecontract, endpointtabel van de ontwerptool, operaties voor aanmeldbaar aanbod, gebruiksprofiel | dienstpagina's, `gebruiksprofielen.md` | Nieuwe endpoints, geen schemawijziging | IS-OA-01, IS-OA-02, IS-OA-06 |
-| Objecttype of definitie: resultaateenheidspecificatie, plaatsingsgroep, de vier aanbodlagen | informatiemodel, begrippenlijst | Geen schemawijziging | IS-OA-01 tot en met IS-OA-04 |
+| Objecttype of definitie: resultaateenheidspecificatie, plaatsingsgroep, de aanbodlagen | informatiemodel, begrippenlijst | Geen schemawijziging | IS-OA-01 tot en met IS-OA-04 |
 
 ## Signaleringen en openstaande punten
-
-Elke signalering noemt wat een besluit vraagt.
 
 | Nr | Signalering | Besluit |
 |---|---|---|
@@ -372,10 +366,11 @@ Elke signalering noemt wat een besluit vraagt.
 | S9 | [U5](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u5-bericht-versus-kanaal) laat het afleveringsmechanisme bij de partijen, en `subscription.json` dekt de 4 OC-P&R-events | het afleveradres per koppeling |
 | S10 | Story-0007, story-0022 en story-0023 staan op de onderwijsontwikkelaar, het voorbeeld noemt de planner | de actor per story |
 | S11 | 7 van de 24 stromen op v1.7 dragen een koppelingspecificatie, de aangehaalde [ADR's](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr) staan op Voorstel, elk schema op alfa | waarop een leverancier zich vastlegt |
-| S12 | De [dienstenlijst](https://github.com/Npuls-OKx/Public/blob/d0c20d99b110b29ccf6b0e50109f7d54ffd88d7a/Koppelvlakspecificaties/Applicatiediensten/README.md) staat op een vastgezet commit van `feature/restructure-and-versioning` | welke branch normatief is |
+| S12 | De dienstenlijst staat op commit d0c20d99 van `feature/restructure-and-versioning`, de enige plek waar `Applicatiediensten/` vandaag leeft | welke branch normatief is |
 | S13 | IS-OA-01 levert het ontwerp met POST, IS-OA-02 meldt gereed en laat de catalogus ophalen | een aanleverpatroon van ontwerptool naar catalogus |
 | S14 | De dienstenlijst schrijft `specificatie-beschikbaar` en `verwerkingsuitkomst`, de componentpagina's `specificatie-planbaar` en `verwerkingsstatus` | een naam per bericht |
 | S15 | Interactie I3 valt uiteen: ontvangen, gestart en afgekeurd bij IS-OA-03, gelukt en nietGelukt bij IS-OA-04 | de knip bevestigen |
+| S16 | De schema's dragen Engelse veldnamen en [mapping.md](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/mapping.md) legt die vertaling vast als de vorm; [voorbeeldpayloads.md](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/voorbeeldpayloads.md) draagt Nederlandse sleutels, dus wie zo'n voorbeeld tegen zijn schema valideert krijgt een fout. Deze snede volgt de schema's, met de Nederlandse naam ernaast | een sleuteltaal voor de payload |
 
 Open beeldvragen:
 
@@ -389,7 +384,7 @@ Verder open:
 
 | Punt | Stand |
 |---|---|
-| De fase-2 update van de ontwerptool | wacht op een beeld |
+| De fase-2 update van de ontwerptool | volgt met een eigen beeld |
 | De route naar het intakesysteem | begint bij F3-04, buiten deze snede |
 | De stories van roosteraar en student | volgen in fase 4 en 6 |
 | `Onderwijsvorm`, `Onderwijslocatie type`, `Onderwijslocatie` en `Organisatie-eenheid` staan in F1-06 nog onder hun conceptplaat-naam | de namen gelijktrekken in de voorbeelduitwerking |
