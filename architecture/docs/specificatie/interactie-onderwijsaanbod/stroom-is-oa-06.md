@@ -20,10 +20,14 @@ De uuid's, de versies en de namen in de voorbeeldpayloads komen uit [casus.md](c
 | Bronsysteem | `Kernregistratie systeem studenten (KRS)` |
 | Doelsysteem | `Voorziening Centraal Aanmelden (CAMBO)`, de component die hoofdplaat v1.7 kent. Beeld F3-02 noemt AII als opvolger |
 | Koppeling | Voorstel: KRS-CAMBO. De beeldregel draagt nog geen koppeling-ID en v1.7 tekent in deze richting geen pijl |
-| Beeld | [F3-02](../../../model/informatiemodel/img/regels/f3-02-aanmeldbaar-aanbod-van-de-kernregistratie-naar-aii.svg), met instantie `Regulier BOL 2026` |
+| Beeld | F3-02, met instantie `Regulier BOL 2026` |
 | Stand | Voorstel, in beide soorten onzekerheid hierboven |
 | Applicatiedienst | Voorstel: ontsluiten van aanmeldbaar aanbod, op het koppelvlak van de kernregistratie. Het model belegt bij KRS `Inschrijvingen beheer` en bij het aanmeldsysteem `Opleiding aanmelding dienst`; W7 vraagt de dienst die aanbod ontsluit |
 | Schema's | [offering-status-changed.json](schemas/offering-status-changed.json) voor de melding, [offering-open-for-application.json](schemas/offering-open-for-application.json) voor het aanbod, [offering-processing-status.json](schemas/offering-processing-status.json) voor de verwerking terug, elk met de stand voorstel |
+
+![Beeld F3-02: hetzelfde aanmeldbare aanbod van de kernregistratie naar AII, de voorziening voor centraal aanmelden](../../../model/informatiemodel/img/regels/f3-02-aanmeldbaar-aanbod-van-de-kernregistratie-naar-aii.svg)
+
+De vorm is die van IS-OA-05, met de kernregistratie nu als bezitter en instantie `Regulier BOL 2026` als lading. Welke velden AII vraagt staat open.
 
 De aannames waarop dit voorstel rust, met de partij die erover beslist:
 
@@ -38,7 +42,7 @@ De aannames waarop dit voorstel rust, met de partij die erover beslist:
 | A7 | Het aanmeldvenster hangt aan de laag `Opleidingsprogramma aanbod`, want daar kiest de aspirant-student zijn startmoment | model: `Opleidingsprogramma aanbod` `Op basis van` `Aanmelding`; [persona Jochem](../leerroute-uitwerking/doc/persona_jochem.md) kiest in het aanmeldsysteem zijn startmoment en voltooit daar de aanmelding | OKx en AII, [Public#112](https://github.com/Npuls-OKx/Public/issues/112) |
 | A8 | De voorziening dient meer instellingen, dus het aanbod draagt zijn aanbieder | [begrippenlijst](../begrippen/begrippenlijst.md): `Opleiding aanbod` is aanbod dat "door een onderwijsaanbieder aangeboden wordt"; model: `Opleidingsaanbod van Instelling` staat boven `Opleiding aanbod` | AII |
 
-Op hoofdplaat v1.7 bereikt de catalogus zowel de kernregistratie als CAMBO langs een knooppunt (junction) achter de pijl van IS-OA-05. Welke route en welke naam gelden staat open als signalering S2 en S3 in de [interactiespecificatie](README.md#signaleringen-en-openstaande-punten).
+Op hoofdplaat v1.7 bereikt de catalogus zowel de kernregistratie als CAMBO langs een knooppunt (junction) achter de pijl van IS-OA-05. Welke route en welke naam gelden staat open als signalering S2 en S3 in de [interactiespecificatie](signaleringen.md).
 
 ## De stroom
 

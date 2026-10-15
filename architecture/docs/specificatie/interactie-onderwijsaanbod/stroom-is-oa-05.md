@@ -13,12 +13,16 @@ Elke operatie, elk pad en elk schema draagt hieronder zijn stand. `vastgelegd` s
 | Bronsysteem | Onderwijscatalogus |
 | Doelsysteem | Kernregistratie systeem studenten (KRS) |
 | Koppeling | OC-KRS volgens de beeldregels, OC-SIS volgens hoofdplaat v1.7 ([S-A](#signaleringen)) |
-| Beeld | [F3-01, aanmeldbaar aanbod naar de kernregistratie](../../../model/informatiemodel/img/regels/f3-01-aanmeldbaar-aanbod-naar-de-kernregistratie.svg) |
+| Beeld | F3-01, aanmeldbaar aanbod naar de kernregistratie |
 | Lading | `Opleidingsprogramma aanbod`, instantie `Regulier BOL 2026`, met zijn `Opleiding aanbod` erboven |
 | Snede | [de aanmeldbare snede](#de-snede): de twee aanbodlagen waarop bij de aanmelding een verbintenis ontstaat, met het aanmeldvenster erbij |
 | Contract | De operaties met hun paden staan onder [de operaties](#de-operaties), de berichten onder [de berichtspecificatie](#de-berichtspecificatie), de schema's onder [de schema's](#de-schemas) |
 | Status | De pijl en de koppeling staan op v1.7. Het [interactiepatroon OC-SIS](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Interactiepatronen/onderwijscatalogus-studentinformatiesysteem.md) dekt specificatie en resultaatstructuur en draagt het meldpatroon `inrichtingsstatus`; het aanbod komt met deze eenheid erbij |
 | Applicatiedienst | [planbaar-onderwijsaanbod-aanbieder](https://github.com/Npuls-OKx/Public/blob/d0c20d99b110b29ccf6b0e50109f7d54ffd88d7a/Koppelvlakspecificaties/Applicatiediensten/planbaar-onderwijsaanbod-aanbieder.md) bij de catalogus, [planbaar-onderwijsaanbod-afnemer](https://github.com/Npuls-OKx/Public/blob/d0c20d99b110b29ccf6b0e50109f7d54ffd88d7a/Koppelvlakspecificaties/Applicatiediensten/planbaar-onderwijsaanbod-afnemer.md) bij de kernregistratie, gepind op commit d0c20d99; die map staat nog niet op `dev` ([S-B](#signaleringen)). Werkbrief W9 belegt de dienst voor aanmeldbaar aanbod |
+
+![Beeld F3-01: het aanmeldbare opleidingsprogramma-aanbod van de onderwijscatalogus naar de kernregistratie](../../../model/informatiemodel/img/regels/f3-01-aanmeldbaar-aanbod-naar-de-kernregistratie.svg)
+
+Alleen het `Opleidingsprogramma aanbod` gaat mee, met zijn `Opleiding aanbod` erboven, en niet de lagen eronder. Die snede staat bij de catalogus op `/aanmeldbaar-aanbod`.
 
 Grond per regel: [voorbeeld-lr1-regels.json](../../../model/informatiemodel/voorbeeld-lr1-regels.json), beeld F3-01. Objecttypen: [informatiemodel OKx](../../../model/informatiemodel/informatiemodel.md). Definities: [begrippenlijst](../begrippen/begrippenlijst.md). De eenheid in haar keten: [de interactiespecificatie](README.md).
 
