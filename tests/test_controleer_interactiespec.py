@@ -239,10 +239,13 @@ class InDezeRepository(unittest.TestCase):
     """De controle op de interactiespecificatie onderwijsaanbod zelf."""
 
     def test_given_the_specification_in_this_repository_when_checked_then_no_findings(self):
-        mappen = [SPECIFICATIE / "schemas"]
         public = WORTEL / ci.PUBLIC_STANDAARD
-        if public.is_dir():
-            mappen.append(public)
+        if not public.is_dir():
+            # De schema's van deze snede verwijzen naar de vastgelegde schema's in
+            # Npuls-OKx/Public. Zonder die werkmap valt er niets te valideren, en een
+            # bevinding zou dan loos alarm zijn.
+            self.skipTest(f"{ci.PUBLIC_STANDAARD} ontbreekt; zet Npuls-OKx/Public ernaast")
+        mappen = [SPECIFICATIE / "schemas", public]
         uitkomsten, gaten, bevindingen = ci.controleer(SPECIFICATIE, mappen)
         self.assertEqual(bevindingen, [])
         self.assertEqual([p.plek for p in gaten], [])

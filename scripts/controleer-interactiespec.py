@@ -184,7 +184,17 @@ def valideer(lading, schema, register):
         schema, registry=register, format_checker=jsonschema.FormatChecker()
     )
     fouten = []
-    for fout in sorted(validator.iter_errors(lading), key=lambda f: list(f.absolute_path)):
+    try:
+        gevonden = sorted(validator.iter_errors(lading), key=lambda f: list(f.absolute_path))
+    except Exception as e:
+        # Een verwijzing die nergens uitkomt is een bevinding en geen reden om te stoppen.
+        # Dat gebeurt wanneer een schema naar Npuls-OKx/Public verwijst en die werkmap
+        # ontbreekt, bijvoorbeeld op een bouwmachine die alleen meta uitcheckt.
+        uri = getattr(getattr(e, "_cause", None), "ref", None) or getattr(e, "ref", None)
+        waar = f": {uri}" if uri else ""
+        return [f"/: verwijzing niet te herleiden{waar}; staat de werkmap "
+                f"{PUBLIC_STANDAARD} ernaast?"]
+    for fout in gevonden:
         plek = "/" + "/".join(str(p) for p in fout.absolute_path) if fout.absolute_path else "/"
         fouten.append(f"{plek}: {fout.message}")
     return fouten
