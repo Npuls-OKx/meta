@@ -5,6 +5,7 @@ het verhaal van hoofdplaat v1.7. En een naam die niet past hoort niet stilletjes
 """
 
 import importlib.util
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -141,6 +142,82 @@ class LegendaTests(unittest.TestCase):
     def test_given_ids_when_drawn_then_the_heading_counts_them_and_their_flows(self):
         svg = ruim.legenda_svg(self.RIJEN, 0, 0, 600)
         self.assertIn("2 voorlopige koppeling-ID's, samen 4 informatiestromen", svg)
+
+
+class MarkeringTests(unittest.TestCase):
+    """De markering van een casus: welke lijnen worden uitgelicht en wat de plaat nog niet kent."""
+
+    @staticmethod
+    def component(ident, x, y, naam):
+        return dict(id=ident, x=x, y=y, ax=x, ay=y, w=120, h=60, naam=naam,
+                    type="ApplicationComponent", opschrift=[], tekst="", soort="DiagramObject",
+                    kinderen=[], ouder=None, vul=None, lijn=None, letter=None)
+
+    def plaat(self, *componenten):
+        vakken = {k["id"]: dict(x=k["ax"], y=k["ay"], w=k["w"], h=k["h"]) for k in componenten}
+        routers = {"rechts": ruim.hoofdplaat.Haaks(list(vakken.values()), [])}
+        per_zone = {k["id"]: "rechts" for k in componenten}
+        return list(componenten), per_zone, routers, vakken
+
+    def test_given_a_file_without_op_de_plaat_when_read_then_the_flow_counts_as_known(self):
+        pad = Path(self.enterContext(tempfile.TemporaryDirectory())) / "casus.json"
+        pad.write_text('{"naam": "Een casus", "stromen": [{"van": "A", "naar": "B", '
+                       '"label": "wat"}]}', encoding="utf-8")
+        naam, stromen = ruim.lees_markering(pad)
+        self.assertEqual(naam, "Een casus")
+        self.assertEqual(stromen, [dict(van="A", naar="B", label="wat", op_de_plaat=True)])
+
+    def test_given_a_component_twice_on_the_plate_when_paired_then_the_nearest_one_wins(self):
+        ver = self.component("oc-ver", 0, 0, "Onderwijscatalogus")
+        dichtbij = self.component("oc-bij", 900, 0, "Onderwijscatalogus")
+        sks = self.component("sks", 1100, 0, "Student Keuze Systeem (SKS)")
+        a, b = ruim.dichtste_vakken([ver, dichtbij, sks], "Onderwijscatalogus",
+                                    "Student Keuze Systeem (SKS)")
+        self.assertEqual((a["id"], b["id"]), ("oc-bij", "sks"))
+
+    def test_given_a_name_that_is_not_on_the_plate_when_paired_then_nothing_is_found(self):
+        sks = self.component("sks", 0, 0, "Student Keuze Systeem (SKS)")
+        self.assertEqual(ruim.dichtste_vakken([sks], "Keuzeportaal", "Student Keuze Systeem (SKS)"),
+                         (None, None))
+
+    def test_given_a_flow_the_plate_does_not_know_when_drawn_then_the_line_is_dashed(self):
+        punten = [(0, 0), (100, 0)]
+        self.assertIn("stroke-dasharray", ruim.markeerlijn_svg(punten, gestippeld=True))
+        self.assertNotIn("stroke-dasharray", ruim.markeerlijn_svg(punten, gestippeld=False))
+
+    def test_given_two_flows_on_one_component_when_marked_then_it_is_outlined_once(self):
+        oc = self.component("oc", 0, 0, "Onderwijscatalogus")
+        sks = self.component("sks", 600, 0, "Student Keuze Systeem (SKS)")
+        krs = self.component("krs", 0, 400, "Kernregistratie systeem studenten (KRS)")
+        alles, per_zone, routers, vakken = self.plaat(oc, sks, krs)
+        markeringen = [dict(van="Onderwijscatalogus", naar="Student Keuze Systeem (SKS)",
+                            label="kiesbaar aanbod", op_de_plaat=True),
+                       dict(van="Kernregistratie systeem studenten (KRS)",
+                            naar="Student Keuze Systeem (SKS)", label="student",
+                            op_de_plaat=True)]
+        delen, ontbreekt = ruim.markeer_svg(markeringen, alles, per_zone, routers, vakken, [],
+                                            (800, 600))
+        svg = "".join(delen)
+        self.assertEqual(ontbreekt, [])
+        self.assertEqual(svg.count(f'stroke="{ruim.MARKEER_RAND}"'), 3)
+        for stuk in ("kiesbaar aanbod", "student"):
+            self.assertIn(stuk, svg)
+
+    def test_given_a_flow_the_plate_has_no_component_for_when_marked_then_it_is_reported(self):
+        sks = self.component("sks", 0, 0, "Student Keuze Systeem (SKS)")
+        alles, per_zone, routers, vakken = self.plaat(sks)
+        markeringen = [dict(van="Keuzeportaal", naar="Student Keuze Systeem (SKS)",
+                            label="kiesbaar aanbod", op_de_plaat=True)]
+        delen, ontbreekt = ruim.markeer_svg(markeringen, alles, per_zone, routers, vakken, [],
+                                            (800, 600))
+        self.assertEqual(delen, [])
+        self.assertEqual(ontbreekt, ["kiesbaar aanbod: Keuzeportaal naar Student Keuze Systeem (SKS)"])
+
+    def test_given_a_marking_when_the_legend_is_drawn_then_it_explains_all_three_signs(self):
+        svg = ruim.markeer_legenda_svg("Keuzedeel kiesbaar maken", 0, 0, 900)
+        for stuk in ("Keuzedeel kiesbaar maken", "stroom van deze casus",
+                     "nog niet kent", "component dat meedoet", ruim.MARKEER_RAND):
+            self.assertIn(stuk, svg)
 
 
 if __name__ == "__main__":
