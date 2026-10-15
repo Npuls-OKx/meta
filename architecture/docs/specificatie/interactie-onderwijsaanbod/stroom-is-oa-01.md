@@ -8,7 +8,11 @@ De uuid's, de versies en de namen in de voorbeeldpayloads hieronder komen uit [c
 
 | Bronsysteem | Doelsysteem | Koppeling | Beeld | Status | Applicatiedienst |
 |---|---|---|---|---|---|
-| Curriculum ontwerptool | Onderwijscatalogus | volgt, [S5](README.md#signaleringen-en-openstaande-punten) | [F1-12](../../../model/informatiemodel/img/regels/f1-12-de-opleiding-zoals-ontworpen-naar-de-catalogus.svg) | Voorstel: hoofdplaat v1.7 laat het ontwerpen binnen de catalogus vallen, en een interactiepatroon voor deze lijn volgt | [onderwijsspecificatie-inname](https://github.com/Npuls-OKx/Public/blob/d0c20d99b110b29ccf6b0e50109f7d54ffd88d7a/Koppelvlakspecificaties/Applicatiediensten/onderwijsspecificatie-inname-aanbieder.md): de ontwerptool levert, de catalogus neemt in |
+| Curriculum ontwerptool | Onderwijscatalogus | volgt, [S5](signaleringen.md) | F1-12 | Voorstel: hoofdplaat v1.7 laat het ontwerpen binnen de catalogus vallen, en een interactiepatroon voor deze lijn volgt | [onderwijsspecificatie-inname](https://github.com/Npuls-OKx/Public/blob/d0c20d99b110b29ccf6b0e50109f7d54ffd88d7a/Koppelvlakspecificaties/Applicatiediensten/onderwijsspecificatie-inname-aanbieder.md): de ontwerptool levert, de catalogus neemt in |
+
+![Beeld F1-12: de opleidingsspecificatie met haar programma's, eenheden, leeronderdelen, keuzedeelruimte en summatieve resultaatstructuur naar de onderwijscatalogus](../../../model/informatiemodel/img/regels/f1-12-de-opleiding-zoals-ontworpen-naar-de-catalogus.svg)
+
+Links staat wat de ontwerper bouwde, rechts de catalogus die het opneemt. Elk type verwijst naar een leeruitkomst, en die sleutel maakt de levering een geheel.
 
 De dienst legt de rolverdeling vast.
 
@@ -67,7 +71,7 @@ Afkeuring is een geldige uitkomst van de inname. Bij de poort komt zij synchroon
 
 ## 3. De operaties
 
-`CO` is de curriculum ontwerptool, `OC` de onderwijscatalogus. De dienstpagina's staan in [Applicatiediensten](https://github.com/Npuls-OKx/Public/tree/d0c20d99b110b29ccf6b0e50109f7d54ffd88d7a/Koppelvlakspecificaties/Applicatiediensten) op het vastgezette commit `d0c20d9` van de branch `feature/restructure-and-versioning`; die map staat nog niet op `dev`, en signalering [S12](README.md#signaleringen-en-openstaande-punten) belegt welke branch normatief is.
+`CO` is de curriculum ontwerptool, `OC` de onderwijscatalogus. De dienstpagina's staan in [Applicatiediensten](https://github.com/Npuls-OKx/Public/tree/d0c20d99b110b29ccf6b0e50109f7d54ffd88d7a/Koppelvlakspecificaties/Applicatiediensten) op het vastgezette commit `d0c20d9` van de branch `feature/restructure-and-versioning`; die map staat nog niet op `dev`, en signalering [S12](signaleringen.md) belegt welke branch normatief is.
 
 ### 3.1 Het contract per operatie
 
@@ -151,7 +155,7 @@ Elke aangenomen levering draagt een `leveringId` dat de catalogus toekent en sta
 
 Na `gelukt` beslist de catalogus op haar eigen regels over publicatie, en meldt die stap op O7 als `vastgesteld` naar `gepubliceerd` (ADR 0020). Een nieuwe ontwerpversie van dezelfde specificatie loopt opnieuw over O3, met hetzelfde `id` en een hogere `version`; daarmee blijft het aantal paden gelijk.
 
-De ontwerptool abonneert zich op de meldingen die zij ontvangt: `verwerkingsstatus` en `specificatie-status-gewijzigd`, de waarden die [subscription.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/subscription.json) kent. De dienstenlijst op het vastgezette commit draagt de eerste als [verwerkingsuitkomst-aanbieder](https://github.com/Npuls-OKx/Public/blob/d0c20d99b110b29ccf6b0e50109f7d54ffd88d7a/Koppelvlakspecificaties/Applicatiediensten/verwerkingsuitkomst-aanbieder.md); signalering [S14](README.md#signaleringen-en-openstaande-punten) belegt een naam per bericht. De volgorde per `specificationId` blijft behouden, en het kanaal is vrij binnen de eigenschappen van [U5](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u5-bericht-versus-kanaal):
+De ontwerptool abonneert zich op de meldingen die zij ontvangt: `verwerkingsstatus` en `specificatie-status-gewijzigd`, de waarden die [subscription.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/subscription.json) kent. De dienstenlijst op het vastgezette commit draagt de eerste als [verwerkingsuitkomst-aanbieder](https://github.com/Npuls-OKx/Public/blob/d0c20d99b110b29ccf6b0e50109f7d54ffd88d7a/Koppelvlakspecificaties/Applicatiediensten/verwerkingsuitkomst-aanbieder.md); signalering [S14](signaleringen.md) belegt een naam per bericht. De volgorde per `specificationId` blijft behouden, en het kanaal is vrij binnen de eigenschappen van [U5](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u5-bericht-versus-kanaal):
 
 - gegarandeerde aflevering
 - herhaalbare verwerking zonder extra effect (idempotent)
@@ -173,7 +177,7 @@ Het antwoord op O1 draagt een verwijzing per specificatie, waarna O2 de structuu
 | `name` | `naam` | string | 0..1 | nee, voorgestelde sleutel bij W3 | `Opleiding specificatie` | W3 vraagt kopmetadata, zodat de keuze voor hergebruik op de belofte van de specificatie rust |
 | `studyLoad` | `studielast` | object: `value`, `unit` | 0..1 | nee, voorgestelde sleutel bij W3 | `Opleiding specificatie` | W3, dezelfde grond; de vorm volgt [volume.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/volume.json) |
 
-Een array zonder omhulling draagt geen plek voor een vervolgverwijzing of een totaal. Paginering, die W14 van [IS-OA-03](stroom-is-oa-03.md#werkbrieven) vraagt op dezelfde opvraag, komt daarmee op een omhullend object uit: MAJOR voor wie op de array van vandaag valideert. Signalering [S21](README.md#signaleringen-en-openstaande-punten) draagt dat punt.
+Een array zonder omhulling draagt geen plek voor een vervolgverwijzing of een totaal. Paginering, die W14 van [IS-OA-03](stroom-is-oa-03.md#werkbrieven) vraagt op dezelfde opvraag, komt daarmee op een omhullend object uit: MAJOR voor wie op de array van vandaag valideert. Signalering [S21](signaleringen.md) draagt dat punt.
 
 ### 4.2 De uitkomst van de inname (O6)
 
@@ -710,7 +714,7 @@ De proeve weegt twee keer zo zwaar als de praktijktoets, de formatieve toets wee
 | W16 | [intake-rejection.json](schemas/intake-rejection.json) als antwoordlichaam bij 400 en 409 op O3 en O4 | de schemamap in Public, en de statuscodekolom op de dienstpagina | Nieuw schema, additief: MINOR. De statuscode 409 komt erbij naast de set die de componentpagina's dragen |
 | W17 | Het begrip levering en haar bewaartermijn: hoelang O5 de uitkomst van een afgehandelde levering teruggeeft, en of een lijstopvraag op `/leveringen` daarbij hoort | [begrippenlijst.md](../begrippen/begrippenlijst.md) en de dienstpagina van de inname | Geen schemawijziging: begrip en dienstafspraak |
 
-Wat deze eenheid verder raakt staat in de [signaleringen](README.md#signaleringen-en-openstaande-punten) van de interactiespecificatie: S5 vraagt een koppeling-ID en een eigen lijn op de hoofdplaat, S6 de grond per objecttype. Het aanleverpatroon dat S13 openlaat, staat voor deze eenheid in paragraaf 3: de ontwerptool levert met POST, en de catalogus meldt de uitkomst terug.
+Wat deze eenheid verder raakt staat in de [signaleringen](signaleringen.md) van de interactiespecificatie: S5 vraagt een koppeling-ID en een eigen lijn op de hoofdplaat, S6 de grond per objecttype. Het aanleverpatroon dat S13 openlaat, staat voor deze eenheid in paragraaf 3: de ontwerptool levert met POST, en de catalogus meldt de uitkomst terug.
 
 De voorgestelde schema's staan in [schemas/](schemas/) en dragen een `$id` die eindigt op `/voorstel`.
 

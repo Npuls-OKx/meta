@@ -1,6 +1,6 @@
 # IS-OA-02: het onderwijs- en examenontwerp naar de onderwijscatalogus
 
-Deze eenheid levert de uitvoeringskenmerken van het ontwerp aan de onderwijscatalogus: de onderwijsvorm, het gevraagde ruimtetype, de expertiseprofielen van docent en examinator, de leermiddelen, de verdeling van de studiebelasting, de toetsvorm en het toetsinstrument, elk als veld op de specificatie die [IS-OA-01](README.md#de-kiesbare-eenheden) al draagt.
+Deze eenheid levert de uitvoeringskenmerken van het ontwerp aan de onderwijscatalogus: de onderwijsvorm, het gevraagde ruimtetype, de expertiseprofielen van docent en examinator, de leermiddelen, de verdeling van de studiebelasting, de toetsvorm en het toetsinstrument, elk als veld op de specificatie die [IS-OA-01](README.md#1-zes-eenheden-tussen-vijf-componenten) al draagt.
 
 De uuid's, de versies en de namen in de voorbeeldpayloads hieronder komen uit [casus.md](casus.md), de vaste identificaties van deze interactiespecificatie. Deze eenheid is de enige die een versieverhoging beschrijft.
 
@@ -13,7 +13,7 @@ De status staat in het artefact zelf. Een operatie, een endpoint en een schema d
 | Bronsysteem | Curriculum ontwerptool, applicatiedienst `Curriculum ontwerp` |
 | Doelsysteem | Onderwijscatalogus |
 | Koppeling | Curriculum ontwerptool naar onderwijscatalogus. De [dienstpagina van de ontwerptool](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Applicatiecomponenten/curriculum-ontwerptool.md) laat de endpoints aan een volgend pakket, [ADR 0020](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0020-curriculumontwerp-onderwijscatalogus-happy-flow-synchronisatie-en-federatie-adopt-klonen.md) legt de richting vast |
-| Beeld | [F1-13, het onderwijs- en examenontwerp mee naar de catalogus](../../../model/informatiemodel/img/regels/f1-13-het-onderwijs-en-examenontwerp-mee-naar-de-catalogus-conceptplaat.svg), van de conceptplaat Onderwijsontwerp |
+| Beeld | F1-13, het onderwijs- en examenontwerp mee naar de catalogus, van de conceptplaat Onderwijsontwerp |
 | Status | Voorstel. Elke operatie hieronder staat op voorstel, en elk schema dat deze eenheid toevoegt draagt een `$id` op `/voorstel`. De dragende schema's in Public staan op alfa, en de objecttypen achter de lading komen van de conceptplaat ([voorbeeld-lr1-regels.json](../../../model/informatiemodel/voorbeeld-lr1-regels.json)) |
 | Applicatiedienst | `Onderwijs beheer` van de onderwijscatalogus neemt de lading aan, gevoed door `Curriculum ontwerp` van de ontwerptool ([componenten.json](../../../model/informatiemodel/componenten.json)) |
 | Schemas | [education-design.json](schemas/education-design.json), [room-type.json](schemas/room-type.json), [expertise-profile.json](schemas/expertise-profile.json) en [learning-resource-group.json](schemas/learning-resource-group.json), elk op voorstel. [De schemas](#de-schemas) zegt wat elk draagt |
@@ -22,7 +22,7 @@ De status staat in het artefact zelf. Een operatie, een endpoint en een schema d
 
 ![Beeld F1-13: het onderwijs- en examenontwerp mee naar de catalogus](../../../model/informatiemodel/img/regels/f1-13-het-onderwijs-en-examenontwerp-mee-naar-de-catalogus-conceptplaat.svg)
 
-Dezelfde waarden gaan in [F2-03](../../../model/informatiemodel/img/regels/f2-03-verzoek-met-specificatiestructuur-en-planbare-waarden-naar-planning.svg) door naar planning, en de knelpuntcodes `expertiseTekort` en `ruimteTekort` uit [bottleneck.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/bottleneck.json) rusten erop. Daarom landen zij hier als veld op de specificatie.
+Dezelfde waarden gaan in [F2-03 van IS-OA-03](stroom-is-oa-03.md#de-eenheid) door naar planning, en de knelpuntcodes `expertiseTekort` en `ruimteTekort` uit [bottleneck.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/bottleneck.json) rusten erop. Daarom landen zij hier als veld op de specificatie.
 
 ## De stroom
 
@@ -53,7 +53,7 @@ sequenceDiagram
 
 ## De operaties
 
-Deze lading rijdt mee op de koppeling die [IS-OA-01](README.md#de-kiesbare-eenheden) voluit beschrijft: de ontwerptool houdt het ontwerp in bewerking vast en meldt dat het gereed is, waarna de catalogus het ophaalt ([U3](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u3-resource-eigenaarschap) en [U4](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u4-notify-then-pull)). Authenticatie per operatie volgt de [auth-standaard](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/auth-standaard.md).
+Deze lading rijdt mee op de koppeling die [IS-OA-01](README.md#1-zes-eenheden-tussen-vijf-componenten) voluit beschrijft: de ontwerptool houdt het ontwerp in bewerking vast en meldt dat het gereed is, waarna de catalogus het ophaalt ([U3](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u3-resource-eigenaarschap) en [U4](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u4-notify-then-pull)). Authenticatie per operatie volgt de [auth-standaard](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/auth-standaard.md).
 
 | Nr | Pad of meldpatroon (webhook) | Methode | Parameters | Statuscodes | Foutgedrag | Status |
 |---|---|---|---|---|---|---|
@@ -82,7 +82,7 @@ Het ontwerp reist mee op de resource van IS-OA-01 en krijgt geen eigen resource.
 | Grond | Wat zij zegt |
 |---|---|
 | [bottleneck.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/bottleneck.json) | De knelpuntcodes `ruimteTekort` en `expertiseTekort` dragen `involvedSpecificationIds`: planning meldt het knelpunt op de specificatie, dus hoort het ruimtetype en het profiel bij die specificatie te staan |
-| F1-13 en [F2-03](../../../model/informatiemodel/img/regels/f2-03-verzoek-met-specificatiestructuur-en-planbare-waarden-naar-planning.svg) | Het ontwerp stroomt met dezelfde pijl van de ontwerptool naar de catalogus als de specificatie, en dezelfde waarden gaan daarna naar planning |
+| F1-13 en [F2-03 van IS-OA-03](stroom-is-oa-03.md#de-eenheid) | Het ontwerp stroomt met dezelfde pijl van de ontwerptool naar de catalogus als de specificatie, en dezelfde waarden gaan daarna naar planning |
 | [gebruiksprofielen.md](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/gebruiksprofielen.md) | Het verschil per koppeling staat in het gebruiksprofiel: het schema legt de vorm vast, het profiel wat een koppeling ervan gebruikt. Een afnemer die het ontwerp laat staan, laat het staan in zijn profiel |
 | [regels.md](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/regels.md) | De versie loopt op de specificatie: het ontwerp erbij is MINOR binnen dezelfde identiteit, met `changeClass` (wijzigingsklasse) `niet-brekend`. Een eigen resource zou een tweede versielijn openen |
 
@@ -391,4 +391,4 @@ Per werkbrief:
 | WB-10 | De waarde `ontwerp-gereed` in de lijst waarop een partij zich abonneert | [subscription.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/subscription.json), eigenschap `events` | Waarden toevoegen aan een gesloten lijst: additief voor de abonnee en brekend voor wie erop valideert, MAJOR | De enum draagt vandaag `verwerkingsstatus` voor de terugmelding op O4, en O1 vraagt een eigen waarde om in te richten |
 | WB-11 | Het delta-endpoint bij het examenplan, naast dat van de onderwijsspecificatie, met `van` en `naar` als verplichte versies | onderwijscatalogus.md en curriculum-ontwerptool.md | Nieuw endpoint, MINOR op het koppelvlakpakket | [U11](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u11-toekomstvaste-endpoints-volledige-structuur-en-delta) zet naast de volledige structuur een delta op dezelfde resource; Public draagt die vandaag bij de onderwijsspecificatie |
 
-Alle overige lading van fase 1, van de leeruitkomst tot de resultaatstructuur, draagt [IS-OA-01](README.md#de-kiesbare-eenheden).
+Alle overige lading van fase 1, van de leeruitkomst tot de resultaatstructuur, draagt [IS-OA-01](README.md#1-zes-eenheden-tussen-vijf-componenten).
