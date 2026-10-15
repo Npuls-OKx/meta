@@ -1,5 +1,5 @@
 {
-  "naam": "Voorbeeldpayloads bij de interactiespecificaties",
+  "naam": "Voorbeeldpayloads bij is-oa-01.md",
   "bron": {
     "wie_is_de_bron": "Elke payload gebruikt de vaste identificaties uit casus.md. Het veld schemas zegt tegen welke schema's zij valideert; controleer-interactiespec.py draait daarop.",
     "waarom_los": "Een payload van honderden regels in het document duwt de berichtspecificatie uit beeld, en los is zij op te halen en te valideren zonder markdown eromheen. Relateert aan: #384"
@@ -8,40 +8,34 @@
     "is-oa-01-verwerkingsstatus-gestart.json": {
       "schemas": [
         "intake-outcome"
-      ],
-      "interactiespecificatie": "is-oa-01.md"
+      ]
     },
     "is-oa-01-verwerkingsstatus-gelukt.json": {
       "schemas": [
         "intake-outcome"
-      ],
-      "interactiespecificatie": "is-oa-01.md"
+      ]
     },
     "is-oa-01-verwerkingsstatus-afgekeurd.json": {
       "schemas": [
         "intake-outcome"
-      ],
-      "interactiespecificatie": "is-oa-01.md"
+      ]
     },
     "is-oa-01-afkeuring-bij-de-poort.json": {
       "schemas": [
         "intake-rejection"
-      ],
-      "interactiespecificatie": "is-oa-01.md"
+      ]
     },
     "is-oa-01-onderwijsspecificatiestructuur.json": {
       "schemas": [
         "education-specification",
         "student-choice-rule"
-      ],
-      "interactiespecificatie": "is-oa-01.md"
+      ]
     },
     "is-oa-01-resultaatstructuur.json": {
       "schemas": [
         "result-structure",
         "student-choice-rule"
-      ],
-      "interactiespecificatie": "is-oa-01.md"
+      ]
     }
   }
 }
