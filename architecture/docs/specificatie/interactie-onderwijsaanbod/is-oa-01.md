@@ -150,7 +150,7 @@ Het antwoord op O1 draagt een verwijzing per specificatie, waarna O2 de structuu
 | `name` | `naam` | string | 0..1 | nee, voorgestelde sleutel bij W3 | `Opleiding specificatie` | W3 vraagt kopmetadata, zodat de keuze voor hergebruik op de belofte van de specificatie rust |
 | `studyLoad` | `studielast` | object: `value`, `unit` | 0..1 | nee, voorgestelde sleutel bij W3 | `Opleiding specificatie` | W3, dezelfde grond; de vorm volgt [volume.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/volume.json) |
 
-Een array zonder omhulling draagt geen plek voor een vervolgverwijzing of een totaal. Paginering, die W14 van [IS-OA-03](is-oa-03.md#werkbrieven) vraagt op dezelfde opvraag, komt daarmee op een omhullend object uit: MAJOR voor wie op de array van vandaag valideert. Signalering [S21](signaleringen.md) draagt dat punt.
+Een array zonder omhulling draagt geen plek voor een vervolgverwijzing of een totaal. Paginering, die W14 van [IS-OA-03](is-oa-03.md#5-werkbrieven-de-issueset-die-hieruit-volgt) vraagt op dezelfde opvraag, komt daarmee op een omhullend object uit: MAJOR voor wie op de array van vandaag valideert. Signalering [S21](signaleringen.md) draagt dat punt.
 
 ##### O2 · `GET /onderwijsspecificaties/{id}` · ophalen
 
@@ -264,6 +264,9 @@ erDiagram
     "Leeronderdeel specificatie" ||--o{ "Les specificatie" : "bestaat uit"
     "Onderwijseenheid specificatie" ||--o{ "Leeronderdeel specificatie" : "bestaat uit"
     "Opleidingsprogramma specificatie" ||--o{ "Onderwijseenheid specificatie" : "bestaat uit"
+    "Summatieve resultaat structuur" ||--o{ "Examenonderdeel weging" : "bestaat uit"
+    "Summatieve resultaat structuur" ||--o{ "Toetsonderdeel specificatie" : "bestaat uit"
+    "Cohort / periode" }o--o{ "Summatieve resultaat structuur" : "Groepeert Studenten op toepasbare"
     "Keuzedeel" }o--o{ "Keuzedeelruimte" : "hangt samen met"
     "Leeronderdeel specificatie" }o--o{ "Leeruitkomst" : "hangt samen met"
     "Leeruitkomst" }o--o{ "Student keuze regelset" : "voorwaarde op"
@@ -271,6 +274,12 @@ erDiagram
     "Onderwijseenheid specificatie" }o--o{ "Leeruitkomst" : "hangt samen met"
     "Opleiding specificatie" }o--o{ "Leeruitkomst" : "hangt samen met"
     "Opleidingsprogramma specificatie" }o--o{ "Leeruitkomst" : "hangt samen met"
+    "Organisatie-eenheid" }o--o{ "Leeronderdeel specificatie" : "Voert uit"
+    "Organisatie-eenheid" }o--o{ "Les specificatie" : "Voert uit"
+    "Organisatie-eenheid" }o--o{ "Onderwijseenheid specificatie" : "Voert uit"
+    "Organisatie-eenheid" }o--o{ "Opleiding specificatie" : "Voert uit"
+    "Organisatie-eenheid" }o--o{ "Opleidingsprogramma specificatie" : "Voert uit"
+    "Organisatie-eenheid" }o--o{ "Toetsonderdeel specificatie" : "Voert uit"
     "Student keuze regelset" }o--o{ "Keuzedeel" : "hangt samen met"
     "Student keuze regelset" }o--o{ "Keuzedeelruimte" : "hangt samen met"
     "Student keuze regelset" }o--o{ "Leeronderdeel specificatie" : "hangt samen met"
@@ -278,11 +287,29 @@ erDiagram
     "Student keuze regelset" }o--o{ "Onderwijseenheid specificatie" : "hangt samen met"
     "Student keuze regelset" }o--o{ "Opleiding specificatie" : "hangt samen met"
     "Student keuze regelset" }o--o{ "Opleidingsprogramma specificatie" : "hangt samen met"
+    "Summatieve resultaat structuur" }o--o{ "Leeruitkomst" : "hangt samen met"
+    "Toetsonderdeel specificatie" }o--o{ "Leeruitkomst" : "hangt samen met"
     "Opleiding specificatie" ||--o{ "Opleidingsprogramma specificatie" : "minimaal 1"
     "Keuzedeel" ||--|| "Opleidingsprogramma specificatie" : "is een"
     "Keuzedeelruimte" ||--|| "Opleidingsprogramma specificatie" : "is een"
     "Opleiding specificatie" {
         enum curriculumType "0..1"
+        string description "0..1"
+        uuid id PK "1..1"
+        uuid learningOutcomeId FK "0..1"
+        array manifest FK "0..n"
+        uuid manifest[].specificationId FK "0..n"
+        string manifest[].version "0..n"
+        string name "1..1"
+        uuid parentSpecificationId FK "1..1"
+        array ruleSetReferences FK "0..n"
+        enum specificationType "1..1"
+        enum status "0..1"
+        object studyLoad "1..1"
+        number studyLoad.value "1..1"
+        date validFrom "0..1"
+        date validUntil "0..1"
+        string version "1..1"
     }
     "Opleidingsprogramma specificatie" {
         enum curriculumType "0..1"
@@ -290,26 +317,96 @@ erDiagram
         enum programmeLayer "0..1, verplicht"
         enum learningPathway "0..1, verplicht"
         string targetGroup "0..1, verplicht"
+        string cohort FK "0..1"
+        string description "0..1"
+        uuid id PK "1..1"
+        uuid learningOutcomeId FK "0..1"
+        array manifest FK "0..n"
+        uuid manifest[].specificationId FK "0..n"
+        string manifest[].version "0..n"
+        string name "1..1"
+        object organisation FK "0..1"
+        uuid parentSpecificationId FK "1..1"
+        array ruleSetReferences FK "0..n"
+        enum specificationType "1..1"
+        date startDate "0..1"
+        enum status "0..1"
+        object studyLoad "1..1"
+        number studyLoad.value "1..1"
+        date validFrom "0..1"
+        date validUntil "0..1"
+        string version "1..1"
     }
     "Keuzedeel" {
         string programmeType "0..1, verplicht"
         string electiveUnitClass "0..1, verplicht"
+        string description "0..1"
+        uuid id PK "1..1"
+        uuid learningOutcomeId FK "0..1"
+        string name "1..1"
+        enum specificationType "1..1"
+        enum status "0..1"
+        object studyLoad "1..1"
+        number studyLoad.value "1..1"
+        string version "1..1"
     }
-    "Onderwijseenheid specificatie" { }
+    "Onderwijseenheid specificatie" {
+        string description "0..1"
+        string explanation "0..1"
+        uuid id PK "1..1"
+        uuid learningOutcomeId FK "0..1"
+        uuid manifest[].specificationId FK "0..n"
+        string manifest[].version "0..n"
+        string name "1..1"
+        uuid parentSpecificationId FK "1..1"
+        enum specificationType "1..1"
+        enum status "0..1"
+        object studyLoad "1..1"
+        number studyLoad.value "1..1"
+        string version "1..1"
+    }
     "Leeronderdeel specificatie" {
         string timeDistribution "0..1"
+        string description "0..1"
+        string explanation "0..1"
+        uuid id PK "1..1"
+        uuid learningOutcomeId FK "0..1"
+        string name "1..1"
+        uuid parentSpecificationId FK "1..1"
+        enum specificationType "1..1"
+        enum status "0..1"
+        object studyLoad "1..1"
+        number studyLoad.value "1..1"
+        string version "1..1"
     }
-    "Keuzedeelruimte" { }
+    "Keuzedeelruimte" {
+        string description "0..1"
+        uuid id PK "1..1"
+        string name "1..1"
+        uuid parentSpecificationId FK "1..1"
+        array ruleSetReferences FK "0..n"
+        enum specificationType "1..1"
+        enum status "0..1"
+        object studyLoad "1..1"
+        number studyLoad.value "1..1"
+        string version "1..1"
+    }
     "Leeruitkomst" {
         uuid learningOutcomeId FK "0..1, verplicht"
+        array learningOutcomes "0..n"
     }
     "Student keuze regelset" {
         array ruleSetReferences "0..n, verplicht"
+        array ruleSets "0..n"
     }
     "Cohort / periode" {
         string cohort "0..1, verplicht"
     }
+    "Toetsonderdeel specificatie" { }
+    "Summatieve resultaat structuur" { }
+    "Organisatie-eenheid" { }
     "Les specificatie" { }
+    "Examenonderdeel weging" { }
 ```
 
 | Lijn | Betekenis |
@@ -385,6 +482,11 @@ erDiagram
         array indicativeVolume "1..n, verplicht"
         integer nlqfLevel "0..1"
         string description "0..1, 0..1, 0..n"
+        array behaviour "0..n"
+        number indicativeVolume[].value "1..n"
+        string result "0..1"
+        object source FK "1..1"
+        string taxonomyCode "0..1"
     }
     "Kwalificatie dossier" {
         object source "1, verplicht"
@@ -453,6 +555,12 @@ erDiagram
         string name "1, verplicht"
         array rules "1..n, verplicht"
         string description "0..1"
+        string requirement "0..1"
+        string scope "0..1"
+        uuid sourceSpecificationId FK "0..1"
+        enum type "1..1"
+        enum unit "0..1"
+        number value "0..1"
     }
     "Keuzedeelruimte" {
         uuid appliesTo "1, verplicht"
@@ -509,7 +617,7 @@ sequenceDiagram
 Dit bericht draagt geen objecttype uit het informatiemodel: de velden zijn eigenschappen van het contract.
 <!-- /erd -->
 
-Een bevinding zegt op welke grond de catalogus een aanlevering afkeurt. Bij de poort staat zij in het antwoordlichaam van O3 en O4, de vorm in [intake-rejection.json](schemas/intake-rejection.json); na aanname staat zij in `findings` op O6. Het item volgt [intake-finding.json](schemas/intake-finding.json).
+Een bevinding zegt op welke grond de catalogus een aanlevering afkeurt. Bij de poort staat zij in het response body van O3 en O4, de vorm in [intake-rejection.json](schemas/intake-rejection.json); na aanname staat zij in `findings` op O6. Het item volgt [intake-finding.json](schemas/intake-finding.json).
 
 | Veld | Nederlands | Type | Kardinaliteit | Verplicht | Objecttype | Grond |
 |---|---|---|---|---|---|---|
@@ -590,6 +698,23 @@ erDiagram
     "Summatieve resultaat structuur" {
         object resultModel "1, verplicht"
         enum nature "0..1, verplicht"
+        uuid appliesTo FK "0..1, verplicht op het examenplan"
+        uuid assesses FK "0..1, verplicht op een resultaateenheid"
+        string description "0..1"
+        uuid id PK "1..1"
+        object learningOutcome FK "0..1"
+        uuid learningOutcomeId FK "0..1, verplicht buiten de keuzedeel-resultaateenheid om"
+        array manifest FK "0..n, verplicht zodra er onderdelen zijn"
+        uuid manifest[].specificationId FK "0..n"
+        string manifest[].version "0..n"
+        string name "1..1"
+        uuid parentSpecificationId FK "1..1"
+        array ruleSetReferences FK "0..n, verplicht op de keuzedeel-resultaateenheid"
+        enum specificationType "1..1"
+        string status "1..1"
+        date validFrom "0..1, verplicht op het examenplan"
+        date validUntil "0..1, verplicht op het examenplan"
+        string version "1..1"
     }
     "Examenplan" { }
     "Examenonderdeel weging" {
@@ -600,9 +725,21 @@ erDiagram
     }
     "Toetsonderdeel specificatie" {
         string assessmentForm "0..1, verplicht"
+        string description "0..1"
+        uuid id PK "1..1"
+        object learningOutcome FK "0..1"
+        uuid learningOutcomeId FK "0..1, verplicht op een toetsonderdeel"
+        string name "1..1"
+        enum nature "0..1, verplicht op een toetsonderdeel"
+        uuid parentSpecificationId FK "1..1"
+        object resultModel "1..1"
+        enum specificationType "1..1"
+        string status "1..1"
+        string version "1..1"
     }
     "Examenonderdeelspecificatie" {
         string assessmentForm "0..1, verplicht"
+        string establishedBy "0..1"
     }
     "Opleidingsprogramma specificatie" {
         uuid appliesTo "0..1, verplicht"
@@ -627,10 +764,15 @@ erDiagram
     }
     "Formatieve resultaat structuur" {
         enum nature "0..1, verplicht"
+        integer decimalPlaces "0..1"
+        number passMark "0..1"
+        object resultModel "1..1"
+        string scale "0..1"
     }
     "Summatief Afrondingscriterium" {
         enum aggregation "0..1, verplicht"
         boolean mandatory "0..1, verplicht"
+        array ruleSetReferences FK "0..n"
     }
     "Student keuze regelset" {
         array ruleSetReferences "0..n, verplicht"
@@ -875,8 +1017,8 @@ Deze regels horen niet in de koppelvlakspecificatie zelf. Elk van hen wordt een 
 | W12 | Een stabiel `eventId` op O6 en O7, waarop de ontvanger een herhaald bericht herkent, zoals [U5](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u5-bericht-versus-kanaal) voor herhaalbare verwerking vraagt | [processing-status.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/processing-status.json) en [specification-status-changed.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/specification-status-changed.json), gelijk aan W6 van IS-OA-05 en W8 van IS-OA-06 | Optioneel: MINOR. Verplicht: MAJOR |
 | W13 | De Engelse sleuteltaal van de payload vastleggen in de uitgangspunten, zodat [U7](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u7-payload-plat-met-verwijzingen-en-de-sleutelconventie) en de voorbeeldpayloads dezelfde sleutels dragen als de schema's | [uitgangspunten.md](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md), [voorbeeldpayloads.md](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/voorbeeldpayloads.md) | Geen schemawijziging: de schema's dragen de Engelse sleutels al, documentatie volgt |
 | W14 | De sleutels `deliveryId` en `findings` op de verwerkingsstatus, met [intake-outcome.json](schemas/intake-outcome.json) als vorm. Twee landingen: beide sleutels in processing-status.json, of dit schema ernaast voor de inname. Het voorstel vraagt `specificationReference` op `gelukt` en laat hem vrij op een afkeuring, waar processing-status.json hem altijd verplicht | [processing-status.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/processing-status.json) | Twee optionele sleutels erbij: MINOR. De voorwaardelijke `specificationReference` in processing-status.json zelf: MAJOR, omdat een ontvanger die op zijn aanwezigheid rekent dan bijstelt. Een eigen schema voor de inname houdt het additief: MINOR. Dat schema draagt daarnaast het `eventId` uit W12 |
-| W15 | [intake-finding.json](schemas/intake-finding.json) als schema voor de bevinding, met de codes uit 3.3 naast de knelpuntcodes van bottleneck.json. [W15 van IS-OA-03](is-oa-03.md#werkbrieven) vraagt voor het lichaam bij 400 en 404 op de opvragingen een eigen foutschema naar het model van bottleneck.json: de acht codes hier dragen de gronden van een inname en laten een onbekend id of een onbekende versie buiten de lijst. De meldingen van de andere eenheden houden hun leesbare `reason` | de [schemamap](https://github.com/Npuls-OKx/Public/tree/dev/Informatie-en-gegevensmodellen/schemas) in Public, naast bottleneck.json, plus de codelijst in regels.md | Nieuw schema, additief: MINOR |
-| W16 | [intake-rejection.json](schemas/intake-rejection.json) als antwoordlichaam bij 400 en 409 op O3 en O4 | de schemamap in Public, en de statuscodekolom op de dienstpagina | Nieuw schema, additief: MINOR. De statuscode 409 komt erbij naast de set die de componentpagina's dragen |
+| W15 | [intake-finding.json](schemas/intake-finding.json) als schema voor de bevinding, met de codes uit 3.3 naast de knelpuntcodes van bottleneck.json. [W15 van IS-OA-03](is-oa-03.md#5-werkbrieven-de-issueset-die-hieruit-volgt) vraagt voor het lichaam bij 400 en 404 op de opvragingen een eigen foutschema naar het model van bottleneck.json: de acht codes hier dragen de gronden van een inname en laten een onbekend id of een onbekende versie buiten de lijst. De meldingen van de andere eenheden houden hun leesbare `reason` | de [schemamap](https://github.com/Npuls-OKx/Public/tree/dev/Informatie-en-gegevensmodellen/schemas) in Public, naast bottleneck.json, plus de codelijst in regels.md | Nieuw schema, additief: MINOR |
+| W16 | [intake-rejection.json](schemas/intake-rejection.json) als response body bij 400 en 409 op O3 en O4 | de schemamap in Public, en de statuscodekolom op de dienstpagina | Nieuw schema, additief: MINOR. De statuscode 409 komt erbij naast de set die de componentpagina's dragen |
 | W17 | Het begrip levering en haar bewaartermijn: hoelang O5 de uitkomst van een afgehandelde levering teruggeeft, en of een lijstopvraag op `/leveringen` daarbij hoort | [begrippenlijst.md](../begrippen/begrippenlijst.md) en de dienstpagina van de inname | Geen schemawijziging: begrip en dienstafspraak |
 | W18 | Paginering op O1: de componentpagina's in Public kennen vandaag geen pagineringsparameters, terwijl een catalogus met duizenden specificaties erom vraagt | de componentpagina van de onderwijscatalogus in Public |
 | W19 | `GET /examenplanspecificaties/{id}/delta` met `van` en `naar`, zodat de resultaatstructuur dezelfde twee vormen draagt als de onderwijsspecificatie. [U11](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u11-toekomstvaste-endpoints-volledige-structuur-en-delta) eist beide vormen op een structuurresource | de componentpagina van de onderwijscatalogus in Public |
@@ -889,4 +1031,4 @@ De voorgestelde schema's staan in [schemas/](schemas/) en dragen een `$id` die e
 |---|---|---|
 | [intake-outcome.json](schemas/intake-outcome.json) | de toestand van een levering, op O3, O4, O5 en O6 | W14 |
 | [intake-finding.json](schemas/intake-finding.json) | een bevinding met haar code, plek en waarden | W15 |
-| [intake-rejection.json](schemas/intake-rejection.json) | het antwoordlichaam bij een afkeuring aan de poort | W16 |
+| [intake-rejection.json](schemas/intake-rejection.json) | het response body bij een afkeuring aan de poort | W16 |

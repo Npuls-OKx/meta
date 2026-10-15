@@ -1,0 +1,181 @@
+{
+  "educationSpecifications": [
+    {
+      "id": "79736830-1c5c-470f-b2c2-005029c96733",
+      "specificationType": "opleidingsspecificatie",
+      "version": "0.1.0",
+      "parentSpecificationId": null,
+      "learningOutcomeId": "c5b64fe5-f7bf-490c-acaf-7af1bd24f980",
+      "name": "Apothekersassistent",
+      "description": "Opleiding tot apothekersassistent, kwalificatiedossier 23450, kwalificatie 27141.",
+      "curriculumType": "nominaal",
+      "status": "gepubliceerd",
+      "validFrom": "2026-08-01",
+      "validUntil": null,
+      "studyLoad": {
+        "value": 4800,
+        "unit": "SBU"
+      },
+      "manifest": [
+        {
+          "specificationId": "5ef37812-ae0f-4232-904f-451b9928e45e",
+          "version": "0.1.0",
+          "relation": "variant"
+        }
+      ]
+    },
+    {
+      "id": "5ef37812-ae0f-4232-904f-451b9928e45e",
+      "specificationType": "opleidingsprogrammaspecificatie",
+      "version": "0.1.0",
+      "parentSpecificationId": "79736830-1c5c-470f-b2c2-005029c96733",
+      "learningOutcomeId": "b84dc98b-6c5f-4ee8-bdfb-40b2639ca5a4",
+      "name": "BOL voltijd",
+      "programmeType": "diplomaprogramma",
+      "programmeLayer": "leerweg",
+      "learningPathway": "BOL",
+      "status": "gepubliceerd",
+      "studyLoad": {
+        "value": 4800,
+        "unit": "SBU"
+      },
+      "manifest": [
+        {
+          "specificationId": "7ae25c1e-ee27-43a2-a001-761ee39ea5c7",
+          "version": "0.1.0",
+          "relation": "variant"
+        }
+      ]
+    },
+    {
+      "id": "7ae25c1e-ee27-43a2-a001-761ee39ea5c7",
+      "specificationType": "opleidingsprogrammaspecificatie",
+      "version": "0.1.0",
+      "parentSpecificationId": "5ef37812-ae0f-4232-904f-451b9928e45e",
+      "learningOutcomeId": "b84dc98b-6c5f-4ee8-bdfb-40b2639ca5a4",
+      "name": "Regulier BOL 2026",
+      "programmeType": "diplomaprogramma",
+      "programmeLayer": "doelgroep",
+      "targetGroup": "regulier",
+      "learningPathway": "BOL",
+      "curriculumType": "nominaal",
+      "cohort": "2026",
+      "startDate": "2026-09-01",
+      "status": "gepubliceerd",
+      "studyLoad": {
+        "value": 4800,
+        "unit": "SBU"
+      },
+      "manifest": [
+        {
+          "specificationId": "402c2342-d897-4df4-a667-7fc5bd930944",
+          "version": "0.1.0",
+          "relation": "onderdeel"
+        },
+        {
+          "specificationId": "fb5be5ae-faa0-4b4b-8085-474fce9aae08",
+          "version": "0.1.0",
+          "relation": "onderdeel"
+        }
+      ]
+    },
+    {
+      "id": "402c2342-d897-4df4-a667-7fc5bd930944",
+      "specificationType": "onderwijseenheidspecificatie",
+      "version": "0.1.0",
+      "parentSpecificationId": "7ae25c1e-ee27-43a2-a001-761ee39ea5c7",
+      "learningOutcomeId": "12301838-92d4-4040-aea2-050bb131ceb7",
+      "name": "Blok B1-K1",
+      "description": "Biedt farmaceutische patiëntenzorg, op kerntaakniveau.",
+      "status": "gepubliceerd",
+      "studyLoad": {
+        "value": 2000,
+        "unit": "SBU"
+      },
+      "manifest": [
+        {
+          "specificationId": "327c8263-3516-4b5a-8d57-c16241ec008d",
+          "version": "0.1.0",
+          "relation": "onderdeel"
+        },
+        {
+          "specificationId": "29522e42-fb32-46d2-a504-0869831f941f",
+          "version": "0.1.0",
+          "relation": "onderdeel"
+        }
+      ]
+    },
+    {
+      "id": "327c8263-3516-4b5a-8d57-c16241ec008d",
+      "specificationType": "leeronderdeelspecificatie",
+      "version": "0.1.0",
+      "parentSpecificationId": "402c2342-d897-4df4-a667-7fc5bd930944",
+      "learningOutcomeId": "78f25d62-9fd4-45c4-aa04-3d22f59213f5",
+      "name": "Baliegesprekken 101",
+      "status": "gepubliceerd",
+      "timeDistribution": "BOT",
+      "studyLoad": {
+        "value": 600,
+        "unit": "SBU"
+      }
+    },
+    {
+      "id": "29522e42-fb32-46d2-a504-0869831f941f",
+      "specificationType": "leeronderdeelspecificatie",
+      "version": "0.1.0",
+      "parentSpecificationId": "402c2342-d897-4df4-a667-7fc5bd930944",
+      "learningOutcomeId": "0ffa279f-c595-49d7-b033-c91f66d18bb1",
+      "name": "Medicatiebewaking in de leerapotheek",
+      "status": "gepubliceerd",
+      "timeDistribution": "BOT",
+      "studyLoad": {
+        "value": 500,
+        "unit": "SBU"
+      }
+    },
+    {
+      "id": "fb5be5ae-faa0-4b4b-8085-474fce9aae08",
+      "specificationType": "keuzedeelruimtespecificatie",
+      "version": "0.1.0",
+      "parentSpecificationId": "7ae25c1e-ee27-43a2-a001-761ee39ea5c7",
+      "name": "Keuzedeelruimte",
+      "status": "gepubliceerd",
+      "studyLoad": {
+        "value": 720,
+        "unit": "SBU"
+      },
+      "ruleSetReferences": [
+        "e4037953-17d6-40a4-9e59-92ec1f9c19a8"
+      ]
+    }
+  ],
+  "ruleSets": [
+    {
+      "id": "e4037953-17d6-40a4-9e59-92ec1f9c19a8",
+      "version": "0.1.0",
+      "name": "Kiesbare keuzedelen voor Apothekersassistent",
+      "appliesTo": "fb5be5ae-faa0-4b4b-8085-474fce9aae08",
+      "rules": [
+        {
+          "type": "kiesbaar",
+          "scope": "alle keuzedelen met electiveUnitClass algemeen-verbredend"
+        },
+        {
+          "type": "kiesbaar",
+          "electiveUnit": "beaaaf4c-b267-41f7-9b8d-ac9a19a7dfe1",
+          "precondition": [
+            {
+              "requiredLearningOutcomeId": "12301838-92d4-4040-aea2-050bb131ceb7",
+              "status": "behaald"
+            }
+          ]
+        },
+        {
+          "type": "minimaleStudielast",
+          "value": 720,
+          "unit": "SBU"
+        }
+      ]
+    }
+  ]
+}

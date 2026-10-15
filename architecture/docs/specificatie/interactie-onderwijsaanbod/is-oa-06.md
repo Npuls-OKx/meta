@@ -9,7 +9,7 @@
 | **Inhoud** | Vijf operaties met hun statuscodes, drie berichten met hun velden, acht aannames met de partij die erover beslist, tien punten voor de afstemming met AII, en drie voorbeeldpayloads die valideren |
 | **Status** | Voorstel, in twee soorten. De vorm van het koppelvlak staat hier uitgewerkt met de stand per regel; de inhoud die centraal aanmelden vraagt staat open in de afstemming met AII, [Public#112](https://github.com/Npuls-OKx/Public/issues/112), waarvoor [de lijst voor AII](#de-lijst-voor-aii) een regel per punt geeft |
 
-De lading: het `Opleidingsprogramma aanbod` per startmoment, met het aanmeldvenster, de leerweg, de doelgroep en de locaties erop, onder het `Opleiding aanbod` dat de startmomenten van een opleiding groepeert. De uuid's, de versies en de namen in de voorbeeldpayloads komen uit [casus.md](casus.md), en het aanbod is hetzelfde dat [IS-OA-05](is-oa-05.md) aan de kernregistratie ontsluit.
+De lading: het `Opleidingsprogramma aanbod` per startmoment, met het aanmeldvenster, de leerweg, de doelgroep en de locaties erop, onder het `Opleiding aanbod` dat de startmomenten van een opleiding groepeert. De casus is Apothekersassistent, crebo-dossier 23450 met kwalificatie 27141, cohort 2026, en het aanbod is hetzelfde dat [IS-OA-05](is-oa-05.md) aan de kernregistratie ontsluit. Elke uuid staat in [casus.md](casus.md) en volgt daar de [voorbeeldpayloads in Public](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/voorbeeldpayloads.md) voor dezelfde casus; de sleutels komen uit de `properties` van de schema's. De voorbeeldpayloads staan als eigen bestand in [voorbeeldpayloads/](voorbeeldpayloads/) en valideren elk tegen het schema dat bij hun bericht staat.
 
 ## 1. Interactie
 
@@ -32,7 +32,7 @@ De taak van deze interactie in het proces: het aanbod staat gepland en aanmeldba
 
 De stand per regel hieronder zegt waar een artefact staat.
 
-| Stand | Waar het artefact staat |
+| Voorbehoud | Waar het artefact staat |
 |---|---|
 | `vastgelegd` | [Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Koppelvlakspecificaties) draagt hem, op het alfa-label dat daar geldt: een pad op een componentpagina, een enumwaarde in een melding of een schema in [Informatie-en-gegevensmodellen](https://github.com/Npuls-OKx/Public/tree/dev/Informatie-en-gegevensmodellen/schemas) |
 | `voorstel` | Deze specificatie stelt hem voor, onderbouwd uit [de casus](casus.md) en het [informatiemodel](../../../model/informatiemodel/informatiemodel.md). Een voorgesteld schema staat in [schemas/](schemas/) en draagt een `$id` die eindigt op `/voorstel` |
@@ -83,53 +83,48 @@ sequenceDiagram
 
 Het patroon is melden en dan ophalen (notify-then-pull, [U4](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u4-notify-then-pull)): C1 draagt de aanleiding, C2 haalt de inhoud. Een intrekking rijdt mee op de statusovergang naar `geannuleerd` uit [education-offering.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/education-offering.json), zodat centraal aanmelden het aanbod uit de etalage haalt en C3 die stand ook na een gemist bericht teruggeeft.
 
-## 3. Operaties
+## 3. Operaties en berichtspecificatie
 
-`KRS` is de kernregistratie, `CA` de voorziening voor centraal aanmelden. Het koppelvlak van de kernregistratie in Public draagt vandaag de meldpatronen (webhooks) voor specificatie en resultaatstructuur, dus staat elke operatie hieronder op voorstel; de kolom Stand noemt de vastgelegde operatie waarvan zij de vorm overneemt en de werkbrief die haar in Public laat landen.
+Een operatie is een pad met een methode erop: `GET /aanmeldbaar-aanbod` is er een, `GET /aanmeldbaar-aanbod/{id}` een andere. Zij draagt een nummer dat terugkomt in het sequentiediagram hierboven en in het bericht eronder. `KRS` is de kernregistratie, `CA` de voorziening voor centraal aanmelden.
 
-### 3.1 Het contract per operatie
+Een leverancier claimt een dienst, geen operatietabel. Hier staat per dienst wat die claim kost: welke operaties erbij horen, met hun parameters, hun request body en hun responses. De voorziening voor centraal aanmelden implementeert C1, de kernregistratie C2, C3 en C4, en beide partijen C5.
 
-| Id | Operatie | Richting | Pad of melding | Methode | Stand |
-|---|---|---|---|---|---|
-| C1 | Aanmeldbaar aanbod melden | KRS meldt CA | `aanmeldbaar-aanbod-beschikbaar` | POST | Voorstel. Vorm van `specificatie-status-gewijzigd` bij het [planningssysteem](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Applicatiecomponenten/planningssysteem.md), W5 |
-| C2 | De aanmeldbare instanties ophalen | CA vraagt KRS | `/aanmeldbaar-aanbod` | GET | Voorstel. Vorm van `GET /onderwijsaanbod` bij het [planningssysteem](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Applicatiecomponenten/planningssysteem.md), W4 |
-| C3 | Een enkele instantie ophalen | CA vraagt KRS | `/aanmeldbaar-aanbod/{id}` | GET | Voorstel. Vorm van `GET /onderwijsaanbod/{id}` bij het planningssysteem, W4 |
-| C4 | De verwerking terugmelden | CA meldt KRS | `verwerkingsstatus` | POST | Voorstel. Vorm van `verwerkingsstatus` bij de [onderwijscatalogus](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Applicatiecomponenten/onderwijscatalogus.md), interactie I3, W6 |
-| C5 | Het afleveradres vastleggen | over en weer | `/abonnementen` | POST | Voorstel op deze koppeling. `POST /abonnementen` met [subscription.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/subscription.json) staat vastgelegd bij de catalogus en het planningssysteem, met `verwerkingsstatus` in de enum `events`. De meldingssoort `aanmeldbaar-aanbod-beschikbaar` komt erbij, W5 |
+Het koppelvlak van de kernregistratie in Public draagt vandaag de meldpatronen (webhooks) voor specificatie en resultaatstructuur, dus staat elke operatie hieronder op voorstel; de regel Stand noemt de vastgelegde operatie waarvan zij de vorm overneemt en de werkbrief die haar in Public laat landen.
 
-Parameters, statuscodes en foutgedrag per operatie.
+Wie het endpoint bouwt verschilt per patroon, en bij een melding is dat omgekeerd aan wat de naam suggereert.
 
-| Id | Parameters | Statuscodes | Foutgedrag |
+| Patroon | Wie levert het gegeven | Wie bouwt het endpoint | Wie roept aan |
 |---|---|---|---|
-| C1 | geen | 200 | Zonder 200 volgt herhaling met uitstel (backoff) en daarna de wachtrij voor onbestelbare berichten (dead letter channel). Het bericht is herhaalbaar op `offeringId` plus `newStatus` |
-| C2 | `cohort` (verplicht), `gewijzigdSinds` (optioneel, tijdstempel) | 200, 400 | 400 bij een cohort dat de kernregistratie niet kent. Alleen-lezen, dus herhalen geeft hetzelfde antwoord |
-| C3 | `versie` (optioneel, standaard de laatste) | 200, 400, 404 | 404 bij een onbekend aanbod-id. Een ingetrokken aanbod komt terug met status `geannuleerd` |
-| C4 | geen | 200 | Zonder 200 volgt herhaling met uitstel en daarna de wachtrij voor onbestelbare berichten. Het bericht is herhaalbaar op `offeringReference` plus `status` |
-| C5 | geen | 201, 400 | Herhaalbaar op `callbackUrl` plus meldingssoort: herregistratie overschrijft |
+| Ophalen | de aanbieder | de aanbieder | de afnemer |
+| Aanleveren | de afnemer | de aanbieder | de afnemer |
+| Melden | de aanbieder | de afnemer, op haar `callbackUrl` | de aanbieder |
 
-De voorziening voor centraal aanmelden implementeert C1, de kernregistratie C2, C3 en C4, en beide partijen C5.
+Een query parameter verandert het endpoint niet: het pad blijft gelijk en de parameters komen in de query string. Het contract staat bij de dienst die het endpoint bouwt; de tegenhanger wijst ernaar. De afspraken die voor elke dienst in deze keten gelden, staan in de [interactieketenspecificatie](README.md#5-afspraken-die-elke-dienst-nakomt).
 
-### 3.2 Statusafhandeling
+De sleutel in de veldtabel bij een bericht is de Engelse `properties`-naam uit het schema; de kolom Nederlands geeft de naam uit [mapping.md](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/mapping.md), waarmee wie de modellen kent de weg terugvindt. De kolom Objecttype noemt het objecttype uit het [informatiemodel OKx](../../../model/informatiemodel/informatiemodel.md) waarop het veld terugslaat, en daarmee de aanbodlaag die het veld draagt. De kolom Grond noemt het schema of het document waaruit het veld bestaat.
 
-De melding op C1 volgt de statusovergang van het aanbod; centraal aanmelden meldt op C4 wat zij ermee deed (A5).
+De kolom Stand in die veldtabel zegt waarop een leverancier vandaag kan bouwen. De stand `vastgelegd` geldt voor een sleutel waarvan Public de naam en de waarden draagt; de stand `voorstel` geldt zodra deze specificatie de sleutel of een waarde ervan voorstelt.
 
-| Verwerkingsstatus | Wat centraal aanmelden meldt | Wat de kernregistratie daarop doet |
-|---|---|---|
-| `ontvangen` | de terugmelding is aangenomen | de uitkomst afwachten |
-| `gestart` | de verwerking loopt | de uitkomst afwachten |
-| `gelukt` | de publicatie bij centraal aanmelden staat in `publicationReference` | die verwijzing bewaren bij het aanbod |
-| `afgekeurd` | de reden staat in `reason` | het aanbod herstellen, waarna C1 opnieuw volgt |
-| `nietGelukt` | de verwerking liep vast, met de reden erbij | de melding opnieuw laten volgen |
+#### aanmeldbaar-onderwijsaanbod-aanbieder, bij de kernregistratie
 
-Of centraal aanmelden de verwerking terugmeldt en of zij haar publicatie daarin noemt, staat open als V9 in [de lijst voor AII](#de-lijst-voor-aii). Het bericht ligt hier vast en het kanaal blijft een inrichtingskeuze van instelling en leverancier, binnen de eigenschappen die [U5](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u5-bericht-versus-kanaal) opsomt.
+![De dienst aanmeldbaar-onderwijsaanbod-aanbieder bij de kernregistratie](img/dienst-kernregistratie-krs-aanmeldbaar-onderwijsaanbod-aanbieder.svg)
 
-## 4. Berichtspecificatie
+Deze dienst ontsluit het aanmeldbare onderwijsaanbod per startmoment en meldt de statuswijziging die eraan voorafgaat. Zij draagt daarmee twee patronen.
 
-De sleutel in de payload is de Engelse `properties`-naam uit het schema; de kolom Nederlands geeft de naam uit [mapping.md](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/mapping.md), waarmee wie de modellen kent de weg terugvindt. De kolom Objecttype noemt het objecttype uit het [informatiemodel OKx](../../../model/informatiemodel/informatiemodel.md) waarop het veld terugslaat, en daarmee de aanbodlaag die het veld draagt. De kolom Grond noemt het schema of het document waaruit het veld bestaat.
+##### C1 · webhook `aanmeldbaar-aanbod-beschikbaar` · melden
 
-De kolom Stand zegt waarop een leverancier vandaag kan bouwen. De stand `vastgelegd` geldt voor een sleutel waarvan Public de naam en de waarden draagt; de stand `voorstel` geldt zodra deze specificatie de sleutel of een waarde ervan voorstelt.
+| | |
+|---|---|
+| Transport | HTTP POST naar de `callbackUrl` die de afnemer met C5 registreerde |
+| Request body | [offering-status-changed.json](schemas/offering-status-changed.json) ([het bericht](#c1-webhook-aanmeldbaar-aanbod-beschikbaar-melden)) |
+| `200 OK` | geen response body; bevestigt de ontvangst, niet het oordeel |
+| Bij uitblijven | retry met exponential backoff, daarna dead letter queue |
+| Idempotentie | op `offeringId` plus `newStatus`: een herhaalde delivery heeft geen extra effect |
+| Voorbehoud | Voorstel. Vorm van `specificatie-status-gewijzigd` bij het [planningssysteem](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Applicatiecomponenten/planningssysteem.md), W5 |
 
-### 4.1 Melden statuswijziging van een onderwijsaanbod
+**Bericht: de statuswijziging van het aanbod**
+
+Schema [`offering-status-changed.json`](schemas/offering-status-changed.json) en [`specification-status-changed.json`](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Datamodelschema's/specification-status-changed.json) · voorbeeldpayload [`is-oa-06-statuswijziging-aanmeldbaar.json`](voorbeeldpayloads/is-oa-06-statuswijziging-aanmeldbaar.json)
 
 ```mermaid
 sequenceDiagram
@@ -199,7 +194,24 @@ Een dun bericht met de aanleiding, in de vorm van [specification-status-changed.
 | `cohort` | cohort | string | 0..1 | `Cohort / periode` | vastgelegd | `cohort` in education-offering.json; de afnemer filtert zijn opvraag erop |
 | `eventId` | eventId | uuid | 0..1 | verwerkingsinformatie, geen objecttype | voorstel | [U5](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u5-bericht-versus-kanaal) vraagt een stabiel event-id voor herhaalbare verwerking (W8) |
 
-### 4.2 Opvragen aanmeldbaar aanbod
+De melding waarmee `Regulier BOL 2026` van `gepland` naar `aanmeldbaar` gaat. Het melding-id blijft bij het kanaal, dus buiten de identificaties van casus.md:
+
+Voorbeeldpayload: [`is-oa-06-statuswijziging-aanmeldbaar.json`](voorbeeldpayloads/is-oa-06-statuswijziging-aanmeldbaar.json)
+
+##### C2 · `GET /aanmeldbaar-aanbod` · ophalen
+
+| | |
+|---|---|
+| Query parameters | `cohort` (verplicht), `gewijzigdSinds` (optioneel, tijdstempel) |
+| `200 OK` | `application/json`, de aanmeldbare instanties ([het bericht](#c2-get-aanmeldbaar-aanbod-ophalen)) |
+| `400 Bad Request` | een cohort dat de kernregistratie niet kent |
+| Idempotentie | alleen-lezen: herhalen geeft hetzelfde antwoord |
+| Voorbeeld | `GET /aanmeldbaar-aanbod?cohort=2026` |
+| Voorbehoud | Voorstel. Vorm van `GET /onderwijsaanbod` bij het [planningssysteem](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Applicatiecomponenten/planningssysteem.md), W4 |
+
+**Bericht: de aanmeldbare aanbodinstanties**
+
+Schema [`offering-open-for-application.json`](schemas/offering-open-for-application.json) en [`education-offering.json`](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Datamodelschema's/education-offering.json) · voorbeeldpayload [`is-oa-06-aanmeldbaar-aanbod.json`](voorbeeldpayloads/is-oa-06-aanmeldbaar-aanbod.json)
 
 ```mermaid
 sequenceDiagram
@@ -405,7 +417,11 @@ De respons draagt de twee bovenste aanbodlagen uit [education-offering.json](htt
 
 De groepen, de knelpunten en de aanbodlagen onder het programma blijven binnen de instelling, waar het planningssysteem en de kernregistratie ze dragen. Werkbrief W9 legt die snede vast in [gebruiksprofielen.md](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/gebruiksprofielen.md), en het schema drukt haar uit met gesloten objecten (`additionalProperties: false`).
 
-#### De lijst voor AII
+De respons op `GET /aanmeldbaar-aanbod?cohort=2026`. Aanmelden staat open van 1 oktober 2025 tot 1 augustus 2026, de uiterste inschrijfdatum die het conceptueel gegevensoverzicht van leerroute 1 voor deze casus noemt, en het onderwijs start op 1 september 2026:
+
+Voorbeeldpayload: [`is-oa-06-aanmeldbaar-aanbod.json`](voorbeeldpayloads/is-oa-06-aanmeldbaar-aanbod.json)
+
+##### De lijst voor AII
 
 Per regel het punt waarop de afstemming met AII een antwoord geeft, met het voorstel van OKx ernaast. De velden die hier ontbreken dragen de stand `vastgelegd`: Public draagt ze al.
 
@@ -422,7 +438,39 @@ Per regel het punt waarop de afstemming met AII een antwoord geeft, met het voor
 | V9 | Of de voorziening de verwerking terugmeldt, en of zij haar publicatie daarin noemt | C4 met `offeringReference`, en `publicationReference` bij de waarde `gelukt` (A5) |
 | V10 | Op welk niveau de locatie meereist | `locationId` wijst de vestiging aan, `locations` draagt de boom daaronder, met de vestigingscode in `codes` |
 
-### 4.3 Terugmelden verwerkingsstatus van een onderwijsaanbod
+##### C3 · `GET /aanmeldbaar-aanbod/{id}` · ophalen
+
+| | |
+|---|---|
+| Query parameters | `versie` (optioneel, standaard de laatste) |
+| `200 OK` | `application/json`, een enkele instantie ([het bericht](#c2-get-aanmeldbaar-aanbod-ophalen)) |
+| `400 Bad Request` | onbekende versie |
+| `404 Not Found` | een onbekend aanbod-id |
+| Intrekking | een ingetrokken aanbod komt terug met status `geannuleerd`, ook na een gemist bericht |
+| Voorbehoud | Voorstel. Vorm van `GET /onderwijsaanbod/{id}` bij het planningssysteem, W4 |
+
+De response draagt hetzelfde bericht als C2, met een enkele instantie erin: [de aanmeldbare aanbodinstanties](#c2-get-aanmeldbaar-aanbod-ophalen).
+
+#### aanmeldbaar-onderwijsaanbod-afnemer, bij de voorziening voor centraal aanmelden
+
+![De dienst aanmeldbaar-onderwijsaanbod-afnemer bij de voorziening voor centraal aanmelden](img/dienst-voorziening-centraal-aanmelden-cambo-aanmeldbaar-onderwijsaanbod-afnemer.svg)
+
+Deze dienst host de `callbackUrl` voor C1, roept C2 en C3 aan bij de aanbieder hierboven, en meldt met C4 terug wat zij met het aanbod deed. De parameters en de responses van C2 en C3 staan daar.
+
+##### C4 · webhook `verwerkingsstatus` · melden
+
+| | |
+|---|---|
+| Transport | HTTP POST naar de `callbackUrl` die de kernregistratie met C5 registreerde. Op deze melding verstuurt centraal aanmelden en bouwt de kernregistratie het endpoint |
+| Request body | [offering-processing-status.json](schemas/offering-processing-status.json) ([het bericht](#c4-webhook-verwerkingsstatus-melden)) |
+| `200 OK` | geen response body; bevestigt de ontvangst, niet het oordeel |
+| Bij uitblijven | retry met exponential backoff, daarna dead letter queue |
+| Idempotentie | op `offeringReference` plus `status`: een herhaalde delivery heeft geen extra effect |
+| Voorbehoud | Voorstel. Vorm van `verwerkingsstatus` bij de [onderwijscatalogus](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Applicatiecomponenten/onderwijscatalogus.md), interactie I3, W6 |
+
+**Bericht: de verwerkingsstatus**
+
+Schema [`offering-processing-status.json`](schemas/offering-processing-status.json) en [`processing-status.json`](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Datamodelschema's/processing-status.json) · voorbeeldpayload [`is-oa-06-verwerkingsstatus-afgekeurd.json`](voorbeeldpayloads/is-oa-06-verwerkingsstatus-afgekeurd.json)
 
 ```mermaid
 sequenceDiagram
@@ -464,103 +512,50 @@ De vorm van [processing-status.json](https://github.com/Npuls-OKx/Public/blob/de
 | `reason` | reden | string | 0..1 | verwerkingsinformatie, geen objecttype | voorstel | hoort bij `afgekeurd` en `nietGelukt`, zoals de reden op `inrichtingsstatus` bij de catalogus (W6) |
 | `eventId` | eventId | uuid | 0..1 | verwerkingsinformatie, geen objecttype | voorstel | U5 vraagt een stabiel event-id (W8) |
 
-## 5. Voorbeeldpayloads
+De terugmelding op een afkeuring. De publicatieverwijzing bij de waarde `gelukt` kent de voorziening zelf toe en staat daarmee buiten de identificaties van casus.md:
 
-De casus is Apothekersassistent, crebo-dossier 23450 met kwalificatie 27141, cohort 2026. Elke uuid staat in [casus.md](casus.md) en volgt daar de [voorbeeldpayloads in Public](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/voorbeeldpayloads.md) voor dezelfde casus; de sleutels komen uit de `properties` van de schema's. Elke payload hieronder valideert tegen het schema dat erbij staat.
+Voorbeeldpayload: [`is-oa-06-verwerkingsstatus-afgekeurd.json`](voorbeeldpayloads/is-oa-06-verwerkingsstatus-afgekeurd.json)
 
-De melding van C1, waarmee `Regulier BOL 2026` van `gepland` naar `aanmeldbaar` gaat. Het melding-id blijft bij het kanaal, dus buiten de identificaties van casus.md.
+**Statusafhandeling**
 
-```json schema=offering-status-changed
-{
-  "offeringId": "8c494250-b67a-4666-a762-6f9ec1e70aff",
-  "version": "0.1.0",
-  "offeringType": "opleidingsprogramma-aanbod",
-  "specificationReference": { "specificationId": "7ae25c1e-ee27-43a2-a001-761ee39ea5c7", "version": "0.1.0" },
-  "oldStatus": "gepland",
-  "newStatus": "aanmeldbaar",
-  "cohort": "2026"
-}
-```
+De melding op C1 volgt de statusovergang van het aanbod; centraal aanmelden meldt op C4 wat zij ermee deed (A5).
 
-De respons op `GET /aanmeldbaar-aanbod?cohort=2026`. Aanmelden staat open van 1 oktober 2025 tot 1 augustus 2026, de uiterste inschrijfdatum die het conceptueel gegevensoverzicht van leerroute 1 voor deze casus noemt, en het onderwijs start op 1 september 2026.
+| Verwerkingsstatus | Wat centraal aanmelden meldt | Wat de kernregistratie daarop doet |
+|---|---|---|
+| `ontvangen` | de terugmelding is aangenomen | de uitkomst afwachten |
+| `gestart` | de verwerking loopt | de uitkomst afwachten |
+| `gelukt` | de publicatie bij centraal aanmelden staat in `publicationReference` | die verwijzing bewaren bij het aanbod |
+| `afgekeurd` | de reden staat in `reason` | het aanbod herstellen, waarna C1 opnieuw volgt |
+| `nietGelukt` | de verwerking liep vast, met de reden erbij | de melding opnieuw laten volgen |
 
-```json schema=offering-open-for-application
-{
-  "offeringInstances": [
-    {
-      "id": "7aa6609f-1d1b-471a-a0f8-beae490d31b5",
-      "offeringType": "opleidingsaanbod",
-      "version": "0.1.0",
-      "parentOfferingId": null,
-      "specificationReference": { "specificationId": "79736830-1c5c-470f-b2c2-005029c96733", "version": "0.1.0" },
-      "name": "Apothekersassistent 2026",
-      "status": "aanmeldbaar",
-      "cohort": "2026",
-      "period": { "start": "2026-09-01", "end": "2029-07-15" },
-      "enrolmentDeadline": "2026-08-01",
-      "maxStudentCount": 48,
-      "providerId": "6132ece6-d75e-4e80-81ce-91ab7448794d",
-      "source": [
-        { "standard": "sbb-kwalificatiekader", "type": "kwalificatiedossier", "code": "23450" },
-        { "standard": "sbb-kwalificatiekader", "type": "kwalificatie", "code": "27141" }
-      ]
-    },
-    {
-      "id": "8c494250-b67a-4666-a762-6f9ec1e70aff",
-      "offeringType": "opleidingsprogramma-aanbod",
-      "version": "0.1.0",
-      "parentOfferingId": "7aa6609f-1d1b-471a-a0f8-beae490d31b5",
-      "specificationReference": { "specificationId": "7ae25c1e-ee27-43a2-a001-761ee39ea5c7", "version": "0.1.0" },
-      "name": "Regulier BOL 2026",
-      "status": "aanmeldbaar",
-      "cohort": "2026",
-      "period": { "start": "2026-09-01", "end": "2029-07-15" },
-      "applicationWindow": { "start": "2025-10-01", "end": "2026-08-01" },
-      "learningPathway": "BOL",
-      "targetGroup": "regulier",
-      "minStudentCount": 24,
-      "maxStudentCount": 48,
-      "locationId": "59807057-a6f1-473b-9084-114644557a68",
-      "executingTeamId": "d9561371-5ece-482d-a675-a076e63f980f"
-    }
-  ],
-  "locations": [
-    {
-      "id": "59807057-a6f1-473b-9084-114644557a68",
-      "locationType": "vestiging",
-      "name": "Hoofdlocatie Utrecht",
-      "partOfLocationId": null,
-      "codes": [ { "codeType": "vestigingscode", "code": "UTR-01" } ]
-    }
-  ],
-  "organisationUnits": [
-    {
-      "id": "6132ece6-d75e-4e80-81ce-91ab7448794d",
-      "unitType": "instelling",
-      "name": "ROC Leren Zonder Drempels",
-      "parentUnitId": null
-    },
-    {
-      "id": "d9561371-5ece-482d-a675-a076e63f980f",
-      "unitType": "onderwijsteam",
-      "name": "Onderwijsteam Farmacie",
-      "parentUnitId": "6132ece6-d75e-4e80-81ce-91ab7448794d"
-    }
-  ]
-}
-```
+Of centraal aanmelden de verwerking terugmeldt en of zij haar publicatie daarin noemt, staat open als V9 in [de lijst voor AII](#de-lijst-voor-aii). Het bericht ligt hier vast en het kanaal blijft een inrichtingskeuze van instelling en leverancier, binnen de eigenschappen die [U5](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u5-bericht-versus-kanaal) opsomt.
 
-De terugmelding van C4 op een afkeuring. De publicatieverwijzing bij de waarde `gelukt` kent de voorziening zelf toe en staat daarmee buiten de identificaties van casus.md.
+#### afleverabonnement-aanbieder, bij de kernregistratie
 
-```json schema=offering-processing-status
-{
-  "status": "afgekeurd",
-  "offeringReference": { "offeringId": "8c494250-b67a-4666-a762-6f9ec1e70aff", "version": "0.1.0" },
-  "reason": "De vestigingscode UTR-01 staat niet bij deze instelling in het Register Instellingen en Opleidingen"
-}
-```
+![De dienst afleverabonnement-aanbieder bij de kernregistratie](img/dienst-kernregistratie-krs-afleverabonnement-aanbieder.svg)
 
-## 6. Werkbrieven: de issueset die hieruit volgt
+Deze dienst neemt de abonnementen aan op de meldingen die de kernregistratie zelf verstuurt, en levert daarna af op de geregistreerde `callbackUrl`.
+
+##### C5 · `POST /abonnementen` · aanleveren
+
+| | |
+|---|---|
+| Request body | [subscription.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/subscription.json): `callbackUrl` en de `events` waarop de afnemer zich abonneert |
+| `201 Created` | het abonnement met zijn `id` |
+| `400 Bad Request` | onbekend event of een onbruikbare `callbackUrl` |
+| Idempotentie | op `callbackUrl` plus meldingssoort: een herhaalde registratie overschrijft de vorige |
+| Richting | over en weer: beide partijen leggen hun afleveradres bij de ander vast, zodat C1 en C4 elk een adres hebben |
+| Voorbehoud | Voorstel op deze koppeling. `POST /abonnementen` met [subscription.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/subscription.json) staat vastgelegd bij de catalogus en het planningssysteem, met `verwerkingsstatus` in de enum `events`. De meldingssoort `aanmeldbaar-aanbod-beschikbaar` komt erbij, W5 |
+
+De request body is [subscription.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/subscription.json) in Npuls-OKx/Public; deze eenheid stelt er geen veld bij voor, alleen de meldingssoort `aanmeldbaar-aanbod-beschikbaar` in de enum `events` (W5).
+
+#### afleverabonnement-afnemer, bij de voorziening voor centraal aanmelden
+
+![De dienst afleverabonnement-afnemer bij de voorziening voor centraal aanmelden](img/dienst-voorziening-centraal-aanmelden-cambo-afleverabonnement-afnemer.svg)
+
+Deze dienst registreert haar `callbackUrl` met C5 bij de aanbieder hierboven, en ontvangt daarna C1. De request body en de statuscodes staan daar.
+
+## 4. Werkbrieven: de issueset die hieruit volgt
 
 Deze regels horen niet in de koppelvlakspecificatie zelf. Elk van hen wordt een issue in Npuls-OKx/Public of in meta, en blijft hier staan tot dat issue er is.
 

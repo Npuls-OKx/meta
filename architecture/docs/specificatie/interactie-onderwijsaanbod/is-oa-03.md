@@ -9,13 +9,13 @@
 | **Inhoud** | Zes operaties met hun statuscodes, vier functionele eisen met hun toetsgeval, vijf berichten met hun velden, en drie voorbeeldpayloads die valideren |
 | **Status** | Elke operatie ligt vast in het interactiepatroon OC-P&R. Wat deze eenheid erbij voorstelt draagt per regel de stand `voorstel`, met de werkbrief erbij |
 
-De lading: het verzoek tot aanbod voor cohort 2026, met de opleiding, haar programma, de eenheden en hun leeronderdelen, en per specificatie de leeruitkomst waarnaar zij verwijst. De planbare waarden uit het onderwijsontwerp staan in [werkbrief](#7-werkbrieven) W2 tot en met W7. De uuid's, de versies en de namen in de voorbeeldpayloads komen uit [casus.md](casus.md); [IS-OA-04](is-oa-04.md) meldt het aanbod terug op dezelfde uuid en dezelfde versie.
+De lading: het verzoek tot aanbod voor cohort 2026, met de opleiding, haar programma, de eenheden en hun leeronderdelen, en per specificatie de leeruitkomst waarnaar zij verwijst. De planbare waarden uit het onderwijsontwerp staan in [werkbrief](#5-werkbrieven-de-issueset-die-hieruit-volgt) W2 tot en met W7. De uuid's, de versies en de namen in de voorbeeldpayloads komen uit [casus.md](casus.md); [IS-OA-04](is-oa-04.md) meldt het aanbod terug op dezelfde uuid en dezelfde versie.
 
 ## 1. Interactie
 
 | Bronsysteem | Doelsysteem | Koppeling | Beeld | Status | Applicatiedienst |
 |---|---|---|---|---|---|
-| Onderwijscatalogus, bezitter van de onderwijsspecificaties ([U3](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u3-resource-eigenaarschap)) | Planningssysteem, bezitter van het onderwijsaanbod | OC-P&R, interactie I1, I2, I3, I7 en I8 van het [interactiepatroon onderwijscatalogus naar planning en roostering](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Interactiepatronen/onderwijscatalogus-planning-en-roostering.md) | F2-03, met de regels in [voorbeeld-lr1-regels.json](../../../model/informatiemodel/voorbeeld-lr1-regels.json) | Vastgelegd: het interactiepatroon OC-P&R draagt elke operatie hieronder, en de schema's achter [de berichten](#4-berichtspecificatie) staan in Public op alfa | `Onderwijsspecificatie uitwerking` op de onderwijscatalogus ontsluit de structuur, `(meer) jaar capaciteit planning` en `Periode planning` op het planningssysteem nemen haar aan (hoofdplaat v1.7) |
+| Onderwijscatalogus, bezitter van de onderwijsspecificaties ([U3](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u3-resource-eigenaarschap)) | Planningssysteem, bezitter van het onderwijsaanbod | OC-P&R, interactie I1, I2, I3, I7 en I8 van het [interactiepatroon onderwijscatalogus naar planning en roostering](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Interactiepatronen/onderwijscatalogus-planning-en-roostering.md) | F2-03, met de regels in [voorbeeld-lr1-regels.json](../../../model/informatiemodel/voorbeeld-lr1-regels.json) | Vastgelegd: het interactiepatroon OC-P&R draagt elke operatie hieronder, en de schema's achter [de berichten](#3-operaties-en-berichtspecificatie) staan in Public op alfa | `Onderwijsspecificatie uitwerking` op de onderwijscatalogus ontsluit de structuur, `(meer) jaar capaciteit planning` en `Periode planning` op het planningssysteem nemen haar aan (hoofdplaat v1.7) |
 
 ![Beeld F2-03: het verzoek tot aanbod met de specificatiestructuur en de planbare waarden per eenheid, van de onderwijscatalogus naar het planningssysteem](../../../model/informatiemodel/img/regels/f2-03-verzoek-met-specificatiestructuur-en-planbare-waarden-naar-planning.svg)
 
@@ -60,7 +60,7 @@ sequenceDiagram
     else structuur afgekeurd
         PL-)OC: O4 [verwerkingsstatus] afgekeurd, met de validatiefout
     end
-    opt melding beland in de wachtrij voor onbestelbare berichten
+    opt melding beland in de dead letter queue
         PL->>OC: O5 [GET /onderwijsspecificaties] gewijzigdSinds en status
         OC-->>PL: 200 specificatie-ids met hun laatste versie
     end
@@ -68,66 +68,48 @@ sequenceDiagram
 
 Het planproces loopt daarna los van deze aanroep. De uitkomst, met de verwijzing naar het `Opleiding aanbod`, komt terug in [IS-OA-04](README.md#1-de-informatiestromen), op dezelfde `specificationId` en `version` als deze melding.
 
-## 3. Operaties
+## 3. Operaties en berichtspecificatie
 
-`OC` is de onderwijscatalogus, `PL` het planningssysteem. Authenticatie op elk endpoint volgt de [auth-standaard](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/auth-standaard.md). Elke GET is alleen-lezen en geeft bij herhaling hetzelfde resultaat.
+Een operatie is een pad met een methode erop: `GET /onderwijsspecificaties/{id}` is er een, `GET /onderwijsspecificaties` een andere. Zij draagt een nummer dat terugkomt in het sequentiediagram hierboven en bij het bericht dat zij draagt. `OC` is de onderwijscatalogus, `PL` het planningssysteem.
 
-### 3.1 Het contract per operatie
+Een leverancier claimt een dienst, geen operatietabel. Hier staat per dienst wat die claim kost: welke operaties erbij horen, met hun parameters, hun request body en hun responses.
 
-| Nr | Operatie | Richting | Pad of event, en wie het implementeert | Methode | Status |
-|---|---|---|---|---|---|
-| O1 | Melden dat de specificatie planbaar is (I1) | OC meldt PL | `specificatie-planbaar`, meldpatroon op het planningssysteem | POST | `vastgelegd`, met het [verzoek tot aanbod](#41-melden-planbare-specificatie) erbij op `voorstel` (W1) en het `eventId` op `voorstel` (W13) |
-| O2 | De volledige structuur ophalen (I2) | PL vraagt OC | `/onderwijsspecificaties/{id}`, op de onderwijscatalogus | GET | `vastgelegd`, met het antwoordlichaam bij 400 en 404 op `voorstel` (W15) |
-| O3 | De wijziging ophalen (I2) | PL vraagt OC | `/onderwijsspecificaties/{id}/delta`, op de onderwijscatalogus | GET | `vastgelegd`, met het antwoordlichaam bij 400 en 404 op `voorstel` (W15) |
-| O4 | De ontvangst en de afkeur terugmelden (I3) | PL meldt OC | `verwerkingsstatus`, meldpatroon op de onderwijscatalogus | POST | `vastgelegd`, met het veld voor de validatiefout op `voorstel` (W8) |
-| O5 | Herstellen na een gemiste melding (I7) | PL vraagt OC | `/onderwijsspecificaties`, op de onderwijscatalogus | GET | `vastgelegd`, met paginering op `voorstel` (W14) |
-| O6 | Het afleveradres vastleggen (I8) | PL registreert bij OC | `/abonnementen`, op de onderwijscatalogus, die de abonnementen op haar eigen meldingen aanneemt | POST | `vastgelegd` |
+Wie het endpoint bouwt verschilt per patroon, en bij een melding is dat omgekeerd aan wat de naam suggereert.
 
-Parameters en statuscodes per operatie.
+| Patroon | Wie levert het gegeven | Wie bouwt het endpoint | Wie roept aan |
+|---|---|---|---|
+| Ophalen | de aanbieder | de aanbieder | de afnemer |
+| Aanleveren | de afnemer | de aanbieder | de afnemer |
+| Melden | de aanbieder | de afnemer, op haar `callbackUrl` | de aanbieder |
 
-| Nr | Parameters | Statuscodes |
-|---|---|---|
-| O1 | de lading is de [specificatie-referentie](#41-melden-planbare-specificatie) | 200 |
-| O2 | `versie`, optioneel, standaard de laatst gepubliceerde | 200, 400, 404 |
-| O3 | `van` en `naar`, beide een versie en beide verplicht | 200, 400, 404 |
-| O4 | de lading is de [verwerkingsstatus](#43-terugmelden-verwerkingsstatus-van-het-verzoek) met status `ontvangen`, `gestart` of `afgekeurd` | 200 |
-| O5 | `status`, optioneel, standaard `gepubliceerd`. `gewijzigdSinds`, optioneel, een tijdstempel. Het antwoord is de [lijst met verwijzingen](#45-opvragen-lijst-met-specificatieverwijzingen) | 200, 400 |
-| O6 | de lading is het [abonnement](#44-vastleggen-afleveradres) | 201, 400 |
-
-Elke operatie staat op een componentpagina in Public: de [dienstpagina van het planningssysteem](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Applicatiecomponenten/planningssysteem.md) draagt `specificatie-planbaar`, de [dienstpagina van de onderwijscatalogus](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Applicatiecomponenten/onderwijscatalogus.md) draagt de specificatiepaden, `verwerkingsstatus` en `/abonnementen`, elk met zijn payloadschema erbij. [De werkbrieven](#7-werkbrieven) dragen wat deze eenheid daar bovenop vraagt, met het nummer in de kolom Status hierboven.
-
-### 3.2 Foutafhandeling
-
-De implementator van beide componenten gaat met deze fouten om. Een opvraag antwoordt met een HTTP-foutcode, en een melding valt terug op herhalen.
-
-| Nr | Foutgedrag |
-|---|---|
-| O1 | Blijft de bevestiging uit, dan opnieuw aanbieden met oplopende wachttijd (backoff) en daarna de wachtrij voor onbestelbare berichten (dead letter channel). Een tweede aflevering van dezelfde `specificationId` en `version` wijst hetzelfde verzoek aan, waarop het planningssysteem die aflevering herkent (herhaalbaar zonder extra effect, idempotent); werkbrief W13 belegt een eigen `eventId` |
-| O2 | HTTP-foutcode, de aanroeper bepaalt het herhalen |
-| O3 | HTTP-foutcode. Het antwoord volgt JSON Patch (RFC 6902) |
-| O4 | Zoals O1. Een afgekeurde structuur komt langs deze weg terug, waarbij O2 beschikbaar blijft voor een nieuwe poging |
-| O5 | HTTP-foutcode. Bedoeld voor herstel, waarbij de reguliere stroom meldinggedreven blijft |
-| O6 | HTTP-foutcode. Herhaalbaar zonder extra effect (idempotent) op `callbackUrl` plus event-type: herregistratie overschrijft de vorige |
-
-Het lichaam bij de foutcode staat als voorstel: W8 belegt de validatiefout binnen de melding `verwerkingsstatus`, W15 het lichaam bij 400 en 404 op O2, O3 en O5.
-
-### 3.3 Statusafhandeling
-
-De melding `verwerkingsstatus` draagt binnen deze eenheid de waarden `ontvangen`, `gestart` en `afgekeurd`.
-
-| Status | Wat het planningssysteem meldt | Wat daarop volgt |
-|---|---|---|
-| `ontvangen` | de opgehaalde structuur is aangenomen | het planproces start |
-| `gestart` | het planproces loopt | de uitkomst komt terug in [IS-OA-04](is-oa-04.md), op dezelfde `specificationId` en `version` |
-| `afgekeurd` | de structuur is afgekeurd, met de validatiefout erbij (W8) | O2 blijft beschikbaar voor een nieuwe poging |
-
-Het veld `programmeOfferingId` blijft in deze stroom leeg en raakt gevuld bij `gelukt`, de overgang naar IS-OA-04.
-
-## 4. Berichtspecificatie
+Een query parameter verandert het endpoint niet: het pad blijft gelijk en de parameters komen in de query string. Het contract staat bij de dienst die het endpoint bouwt; de tegenhanger wijst ernaar. De afspraken die voor elke dienst in deze keten gelden, staan in de [interactieketenspecificatie](README.md#5-afspraken-die-elke-dienst-nakomt), en authenticatie op elk endpoint volgt de [auth-standaard](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/auth-standaard.md). Elke GET is alleen-lezen en geeft bij herhaling hetzelfde resultaat.
 
 Elk veld komt uit een schema in [Informatie-en-gegevensmodellen/schemas](https://github.com/Npuls-OKx/Public/tree/dev/Informatie-en-gegevensmodellen/schemas). De sleutel in de payload draagt de Engelse naam uit het schema, met de Nederlandse naam uit [mapping.md](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/mapping.md) in de kolom ernaast; enumwaarden blijven Nederlands. De objecttypen komen uit het [informatiemodel OKx](../../../model/informatiemodel/informatiemodel.md), met de definities in de [begrippenlijst](../begrippen/begrippenlijst.md).
 
-### 4.1 Melden planbare specificatie
+Elke operatie staat op een componentpagina in Public: de [dienstpagina van het planningssysteem](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Applicatiecomponenten/planningssysteem.md) draagt `specificatie-planbaar`, de [dienstpagina van de onderwijscatalogus](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Applicatiecomponenten/onderwijscatalogus.md) draagt de specificatiepaden, `verwerkingsstatus` en `/abonnementen`, elk met zijn payloadschema erbij. [De werkbrieven](#5-werkbrieven-de-issueset-die-hieruit-volgt) dragen wat deze eenheid daar bovenop vraagt, met het nummer in de regel Stand per operatie.
+
+#### onderwijsspecificatiestructuur-aanbieder, bij de onderwijscatalogus
+
+![De dienst onderwijsspecificatiestructuur-aanbieder bij de onderwijscatalogus](img/dienst-onderwijscatalogus-onderwijsspecificatiestructuur-aanbieder.svg)
+
+Deze dienst meldt dat een specificatie planbaar is en ontsluit haar structuur, als geheel en als wijziging tussen twee versies. Zij draagt daarmee twee patronen.
+
+##### O1 · webhook `specificatie-planbaar` · melden
+
+| | |
+|---|---|
+| Interactie | I1 van het [interactiepatroon OC-P&R](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Interactiepatronen/onderwijscatalogus-planning-en-roostering.md): melden dat de specificatie planbaar is |
+| Transport | HTTP POST naar de `callbackUrl` die het planningssysteem met O6 registreerde |
+| Request body | [specification-reference.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/specification-reference.json) ([het bericht](#o1-webhook-specificatie-planbaar-melden)) |
+| `200 OK` | geen response body; bevestigt de ontvangst, niet het oordeel |
+| Bij uitblijven | retry met exponential backoff, daarna dead letter queue |
+| Idempotentie | op `specificationId` plus `version`: een tweede delivery wijst hetzelfde verzoek aan, waarop het planningssysteem haar herkent. W13 belegt een eigen `eventId` |
+| Voorbehoud | Met het [verzoek tot aanbod](#o1-webhook-specificatie-planbaar-melden) erbij op `voorstel` (W1) en het `eventId` op `voorstel` (W13) |
+
+
+**Bericht: het verzoek tot aanbod**
+
+Schema [`specification-reference.json`](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/specification-reference.json) · voorbeeldpayload [`is-oa-03-specificatieverwijzing.json`](voorbeeldpayloads/is-oa-03-specificatieverwijzing.json)
 
 ```mermaid
 sequenceDiagram
@@ -179,12 +161,16 @@ erDiagram
 
 <!-- /erd -->
 
-Schema [specification-reference.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/specification-reference.json). Dit bericht draagt het `Verzoek tot Aanbod / Intekening op specificatie`, met de referentie als enige inhoud ([U4](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u4-notify-then-pull)).
+Dit bericht draagt het `Verzoek tot Aanbod / Intekening op specificatie`, met de referentie als enige inhoud ([U4](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u4-notify-then-pull)).
 
 | Veld | Nederlandse naam | Type | Kardinaliteit | Verplicht | Objecttype | Status |
 |---|---|---|---|---|---|---|
 | `specificationId` | `specificatieId` | string, uuid | 1 | ja | `Opleiding specificatie` of `Opleidingsprogramma specificatie`, de specificatie die planbaar is | vastgelegd |
 | `version` | `versie` | string | 1 | ja | idem | vastgelegd |
+
+Casus Apothekersassistent, kwalificatiedossier crebo 23450, met de instantiewaarden uit beeld F2-03. De melding van O1:
+
+Voorbeeldpayload: [`is-oa-03-specificatieverwijzing.json`](voorbeeldpayloads/is-oa-03-specificatieverwijzing.json)
 
 Werkbrief W1 geeft de planopgave een eigen identiteit in [offering-request.json](schemas/offering-request.json), dat de referentie hierboven omhult. Beeld F2-02 en F2-03 dragen de instantie, `Planopgave Apothekersassistent, cohort 2026`.
 
@@ -197,7 +183,25 @@ Werkbrief W1 geeft de planopgave een eigen identiteit in [offering-request.json]
 | `requestedAt` | `aanvraagmoment` | string, datum | 0..1 | nee | `Verzoek tot Aanbod / Intekening op specificatie` | voorstel, W1 |
 | `expectedIntake` | `verwachteInstroom` | integer | 0..1 | nee | idem, de instroom waartegen planning haar capaciteit zet | voorstel, W1 |
 
-### 4.2 Opvragen onderwijsspecificatiestructuur
+Dezelfde melding in de vorm die werkbrief W1 voorstelt, met de planopgave eromheen. Het verzoek-id staat in [casus.md](casus.md#het-verzoek-tot-aanbod), het aanvraagmoment ligt voor het aanmeldvenster dat [IS-OA-05](is-oa-05.md) op dit aanbod opent:
+
+Voorbeeldpayload: [`is-oa-03-verzoek-tot-aanbod.json`](voorbeeldpayloads/is-oa-03-verzoek-tot-aanbod.json)
+
+##### O2 · `GET /onderwijsspecificaties/{id}` · ophalen
+
+| | |
+|---|---|
+| Interactie | I2 van het [interactiepatroon OC-P&R](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Interactiepatronen/onderwijscatalogus-planning-en-roostering.md): de volledige structuur ophalen |
+| Query parameters | `versie` (optioneel, default de laatst gepubliceerde) |
+| `200 OK` | `application/json`, de volledige structuur ([het bericht](#o2-get-onderwijsspecificatiesid-ophalen)) |
+| `400 Bad Request` | onbekende versie; geen response body, de aanroeper bepaalt de retry |
+| `404 Not Found` | onbekend `id` |
+| Voorbehoud | Met het response body bij 400 en 404 op `voorstel` (W15) |
+
+
+**Bericht: de onderwijsspecificatiestructuur**
+
+Schema [`education-specification.json`](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/education-specification.json) · voorbeeldpayload [`is-oa-03-onderwijsspecificatiestructuur.json`](voorbeeldpayloads/is-oa-03-onderwijsspecificatiestructuur.json)
 
 ```mermaid
 sequenceDiagram
@@ -375,7 +379,7 @@ erDiagram
 
 <!-- /erd -->
 
-Schema [education-specification.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/education-specification.json), met het [gebruiksprofiel](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/gebruiksprofielen.md) voor deze koppeling.
+Volgt [education-specification.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/education-specification.json), met het [gebruiksprofiel](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/gebruiksprofielen.md) voor deze koppeling.
 
 | Veld | Nederlandse naam | Type | Kardinaliteit | Verplicht | Objecttype | Status |
 |---|---|---|---|---|---|---|
@@ -431,7 +435,123 @@ Per element van `ruleSets`, schema [rule-set.json](https://github.com/Npuls-OKx/
 | `appliesTo` | `vanToepassingOp` | string, uuid | 1 | ja | `Keuzedeelruimte`, de specificatie waarop de regelset geldt | vastgelegd |
 | `rules` | `regels` | array van object | 1..n | ja | `Student keuze regelset`. Werkbrief W9 belegt de regelvorm | vastgelegd als sleutel, de regelvorm erin voorstel, W9 |
 
-### 4.3 Terugmelden verwerkingsstatus van het verzoek
+Het antwoord van O2, met de opleiding, de programmalaag leerweg en de programmalaag doelgroep, de eenheid Blok B1-K1 met haar leeronderdelen, en de keuzedeelruimte uit F1-07 met de regelset waarnaar zij verwijst. De identificaties en versies staan in [casus.md](casus.md) en volgen daar de [voorbeeldpayloads](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/voorbeeldpayloads.md) in Public, zodat elke uuid naar hetzelfde object wijst en IS-OA-04 op dezelfde waarden terugmeldt.
+
+Voorbeeldpayload: [`is-oa-03-onderwijsspecificatiestructuur.json`](voorbeeldpayloads/is-oa-03-onderwijsspecificatiestructuur.json)
+
+De tweede regel geeft de volgordebepaling waarop het planningssysteem plant: keuzedeel K0037 is kiesbaar zodra de leeruitkomst op kerntaakniveau behaald is, waarbij de sleutel volstaat en de inhoud bij de catalogus blijft. [IS-OA-01](is-oa-01.md) levert dezelfde regelset op dezelfde versie aan de catalogus.
+
+De sleutels binnen `rules` staan als voorstel, omdat rule-set.json daar een vrij object toestaat. Hun vorm staat in [student-choice-rule.json](schemas/student-choice-rule.json), de overlay die IS-OA-01 bij werkbrief W9 voorstelt. Dezelfde namen gelden in IS-OA-01 en staan bij elkaar in [casus.md](casus.md#de-regelsets):
+
+| Voorstel | Nederlandse naam |
+|---|---|
+| `type` | `type` |
+| `scope` | `bereik` |
+| `electiveUnit` | `keuzedeel` |
+| `precondition` | `voorwaardeVooraf` |
+| `requiredLearningOutcomeId` | `vereisteLeeruitkomstId` |
+| `status` | `status` |
+| `value` plus `unit` | `waarde` plus `eenheid` |
+| `requirement` | `eis` |
+| `sourceSpecificationId` | `bronSpecificatieId` |
+
+##### O3 · `GET /onderwijsspecificaties/{id}/delta` · ophalen
+
+| | |
+|---|---|
+| Interactie | I2 van het [interactiepatroon OC-P&R](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Interactiepatronen/onderwijscatalogus-planning-en-roostering.md): de wijziging ophalen |
+| Query parameters | `van` en `naar`, beide een versie en beide verplicht |
+| `200 OK` | `application/json-patch+json` (RFC 6902), de wijziging tussen beide versies |
+| `400 Bad Request` | onbekende versie; geen response body, de aanroeper bepaalt de retry |
+| `404 Not Found` | onbekend `id` |
+| Voorbehoud | Met het response body bij 400 en 404 op `voorstel` (W15) |
+
+
+De response draagt de wijziging op dezelfde structuur als O2: [de onderwijsspecificatiestructuur](#o2-get-onderwijsspecificatiesid-ophalen).
+
+##### O5 · `GET /onderwijsspecificaties` · ophalen
+
+| | |
+|---|---|
+| Interactie | I7 van het [interactiepatroon OC-P&R](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Interactiepatronen/onderwijscatalogus-planning-en-roostering.md): herstellen na een gemiste melding |
+| Query parameters | `status` (optioneel, default `gepubliceerd`), `gewijzigdSinds` (optioneel, een tijdstempel), paginering (voorstel, W14) |
+| `200 OK` | `application/json`, de [lijst met verwijzingen](#o5-get-onderwijsspecificaties-ophalen) |
+| `400 Bad Request` | geen response body; de aanroeper corrigeert de parameter en bepaalt de retry |
+| Bedoeld voor | herstel na een gemiste melding, waarbij de reguliere stroom meldinggedreven blijft |
+| Voorbehoud | Met paginering op `voorstel` (W14) |
+
+
+**Bericht: de lijst met verwijzingen**
+
+Schema [`specification-reference.json`](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/specification-reference.json)
+
+```mermaid
+sequenceDiagram
+    participant OC as Onderwijscatalogus
+    participant PL as Planningssysteem
+    PL->>OC: O5 GET /onderwijsspecificaties
+    OC-->>PL: 200 dit bericht
+```
+
+<!-- erd -->
+```mermaid
+erDiagram
+    "Leeronderdeel specificatie" ||--o{ "Les specificatie" : "bestaat uit"
+    "Onderwijseenheid specificatie" ||--o{ "Leeronderdeel specificatie" : "bestaat uit"
+    "Opleidingsprogramma specificatie" ||--o{ "Onderwijseenheid specificatie" : "bestaat uit"
+    "Opleiding specificatie" ||--o{ "Opleidingsprogramma specificatie" : "minimaal 1"
+    "Opleiding specificatie" {
+        uuid specificationId FK "1, verplicht"
+        string version "1, verplicht"
+    }
+    "Opleidingsprogramma specificatie" { }
+    "Onderwijseenheid specificatie" { }
+    "Leeronderdeel specificatie" { }
+    "Les specificatie" { }
+```
+
+| Lijn | Betekenis |
+|---|---|
+| `\|\|--o{` | het eerste bestaat uit nul of meer van het tweede |
+| `PK` en `FK` | de sleutel van het object, en een verwijzing naar een ander object |
+| tekst achter een attribuut | de multipliciteit in dit bericht, en of het veld verplicht is |
+
+<!-- /erd -->
+
+Volgt [specification-reference.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/specification-reference.json), als array zonder omhullend object: per specificatie het id en de laatste versie binnen de gevraagde status, waarna O2 de structuur levert. De [componentpagina van de onderwijscatalogus](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Applicatiecomponenten/onderwijscatalogus.md) legt die vorm vast.
+
+| Veld | Nederlandse naam | Type | Kardinaliteit | Verplicht | Objecttype | Status |
+|---|---|---|---|---|---|---|
+| `specificationId` | `specificatieId` | uuid | 1 | ja | `Opleiding specificatie`, de wortel van de opgenomen structuur | vastgelegd |
+| `version` | `versie` | string | 1 | ja | `Opleiding specificatie` | vastgelegd |
+
+W14 vraagt paginering op deze opvraag, en die landt op een omhullend object: MAJOR voor wie op de array van vandaag valideert. [W3 van IS-OA-01](is-oa-01.md#4-werkbrieven-de-issueset-die-hieruit-volgt) vraagt `name` en `studyLoad` erbij voor het zoeken naar hergebruik, wat additief blijft.
+
+Een opvraag antwoordt met een HTTP-foutcode en een melding valt terug op herhalen; de implementator van beide componenten gaat met die fouten om. Het lichaam bij de foutcode staat als voorstel: W15 belegt het lichaam bij 400 en 404 op O2, O3 en O5, en W8 de validatiefout binnen de melding `verwerkingsstatus` van O4.
+
+#### onderwijsspecificatiestructuur-afnemer, bij het planningssysteem
+
+![De dienst onderwijsspecificatiestructuur-afnemer bij het planningssysteem](img/dienst-planningssysteem-onderwijsspecificatiestructuur-afnemer.svg)
+
+Deze dienst host de `callbackUrl` voor O1 en haalt daarna de structuur op met O2, O3 en O5; de parameters en de responses staan bij de aanbieder hierboven. Zij meldt met O4 terug wat zij met die structuur deed, een melding die de dienstenlijst op `verwerkingsuitkomst-aanbieder` belegt en die [de keten](README.md#4-koppelvlakdiensten) daar voor IS-OA-04 claimt.
+
+##### O4 · webhook `verwerkingsstatus` · melden
+
+| | |
+|---|---|
+| Interactie | I3 van het [interactiepatroon OC-P&R](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Interactiepatronen/onderwijscatalogus-planning-en-roostering.md): de ontvangst en de afkeur terugmelden |
+| Transport | HTTP POST naar de `callbackUrl` van de onderwijscatalogus, die het meldpatroon `verwerkingsstatus` draagt |
+| Request body | [processing-status.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/processing-status.json) met status `ontvangen`, `gestart` of `afgekeurd` ([het bericht](#o4-webhook-verwerkingsstatus-melden)) |
+| `200 OK` | geen response body; bevestigt de ontvangst, niet het oordeel |
+| Bij uitblijven | als O1: retry met exponential backoff, daarna dead letter queue |
+| Idempotentie | als O1 |
+| Bij afkeuring | een afgekeurde structuur komt langs deze weg terug, waarbij O2 beschikbaar blijft voor een nieuwe poging |
+| Voorbehoud | Met het veld voor de validatiefout op `voorstel` (W8) |
+
+
+**Bericht: de verwerkingsstatus**
+
+Schema [`processing-status.json`](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/processing-status.json)
 
 ```mermaid
 sequenceDiagram
@@ -497,7 +617,7 @@ erDiagram
 
 <!-- /erd -->
 
-Schema [processing-status.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/processing-status.json). Binnen deze eenheid draagt het de waarden `ontvangen`, `gestart` en `afgekeurd`.
+Volgt [processing-status.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/processing-status.json), met de drie waarden die de toestandentabel hieronder uitschrijft.
 
 | Veld | Nederlandse naam | Type | Kardinaliteit | Verplicht | Objecttype | Status |
 |---|---|---|---|---|---|---|
@@ -505,7 +625,38 @@ Schema [processing-status.json](https://github.com/Npuls-OKx/Public/blob/dev/Inf
 | `specificationReference` | `specificatieVerwijzing` | specification-reference.json | 1 | ja | `Opleiding specificatie` of `Opleidingsprogramma specificatie` | vastgelegd |
 | `programmeOfferingId` | `opleidingsaanbodId` | string, uuid of null | 0..1 | nee | `Opleiding aanbod`, gevuld bij `gelukt` en daarmee de overgang naar IS-OA-04 | vastgelegd |
 
-### 4.4 Vastleggen afleveradres
+**De toestanden van het verzoek**
+
+De melding `verwerkingsstatus` draagt binnen deze eenheid de waarden `ontvangen`, `gestart` en `afgekeurd`.
+
+| Status | Wat het planningssysteem meldt | Wat daarop volgt |
+|---|---|---|
+| `ontvangen` | de opgehaalde structuur is aangenomen | het planproces start |
+| `gestart` | het planproces loopt | de uitkomst komt terug in [IS-OA-04](is-oa-04.md), op dezelfde `specificationId` en `version` |
+| `afgekeurd` | de structuur is afgekeurd, met de validatiefout erbij (W8) | O2 blijft beschikbaar voor een nieuwe poging |
+
+Het veld `programmeOfferingId` blijft in deze stroom leeg en raakt gevuld bij `gelukt`, de overgang naar IS-OA-04.
+
+#### afleverabonnement-aanbieder, bij de onderwijscatalogus
+
+![De dienst afleverabonnement-aanbieder bij de onderwijscatalogus](img/dienst-onderwijscatalogus-afleverabonnement-aanbieder.svg)
+
+Deze dienst neemt de abonnementen aan op de meldingen die de catalogus zelf publiceert, en levert daarna af op de geregistreerde `callbackUrl`.
+
+##### O6 · `POST /abonnementen` · aanleveren
+
+| | |
+|---|---|
+| Interactie | I8 van het [interactiepatroon OC-P&R](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Interactiepatronen/onderwijscatalogus-planning-en-roostering.md): het afleveradres vastleggen |
+| Request body | [subscription.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/subscription.json): de `callbackUrl` en de `events` waarop het planningssysteem zich abonneert ([het bericht](#o6-post-abonnementen-aanleveren)) |
+| `201 Created` | het abonnement met zijn `id` |
+| `400 Bad Request` | onbekend event of een onbruikbare `callbackUrl`; de aanroeper bepaalt de retry |
+| Idempotentie | op `callbackUrl` plus event-type: een herhaalde registratie overschrijft de vorige |
+
+
+**Bericht: het abonnement**
+
+Schema [`subscription.json`](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/subscription.json)
 
 ```mermaid
 sequenceDiagram
@@ -519,7 +670,7 @@ sequenceDiagram
 Dit bericht draagt geen objecttype uit het informatiemodel: de velden zijn eigenschappen van het contract.
 <!-- /erd -->
 
-Schema [subscription.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/subscription.json). Dit bericht richt het kanaal in en vervalt zodra de aflevering over een bus of broker loopt ([U5](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u5-bericht-versus-kanaal)).
+Dit bericht richt het kanaal in en vervalt zodra de aflevering over een bus of broker loopt ([U5](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u5-bericht-versus-kanaal)).
 
 | Veld | Nederlandse naam | Type | Kardinaliteit | Verplicht | Objecttype | Status |
 |---|---|---|---|---|---|---|
@@ -527,226 +678,13 @@ Schema [subscription.json](https://github.com/Npuls-OKx/Public/blob/dev/Informat
 | `events` | `events` | array, enum: specificatie-planbaar, specificatie-gewijzigd, specificatie-status-gewijzigd, verwerkingsstatus | 1..n | ja | inrichting van de koppeling | vastgelegd |
 | `id` | `id` | string, uuid | 0..1 | toegekend in de respons | inrichting van de koppeling | vastgelegd |
 
-### 4.5 Opvragen lijst met specificatieverwijzingen
+#### afleverabonnement-afnemer, bij het planningssysteem
 
-```mermaid
-sequenceDiagram
-    participant OC as Onderwijscatalogus
-    participant PL as Planningssysteem
-    PL->>OC: O5 GET /onderwijsspecificaties
-    OC-->>PL: 200 dit bericht
-```
+![De dienst afleverabonnement-afnemer bij het planningssysteem](img/dienst-planningssysteem-afleverabonnement-afnemer.svg)
 
-<!-- erd -->
-```mermaid
-erDiagram
-    "Leeronderdeel specificatie" ||--o{ "Les specificatie" : "bestaat uit"
-    "Onderwijseenheid specificatie" ||--o{ "Leeronderdeel specificatie" : "bestaat uit"
-    "Opleidingsprogramma specificatie" ||--o{ "Onderwijseenheid specificatie" : "bestaat uit"
-    "Opleiding specificatie" ||--o{ "Opleidingsprogramma specificatie" : "minimaal 1"
-    "Opleiding specificatie" {
-        uuid specificationId FK "1, verplicht"
-        string version "1, verplicht"
-    }
-    "Opleidingsprogramma specificatie" { }
-    "Onderwijseenheid specificatie" { }
-    "Leeronderdeel specificatie" { }
-    "Les specificatie" { }
-```
+Deze dienst registreert haar `callbackUrl` bij de aanbieder met O6, en ontvangt daarna de melding van O1.
 
-| Lijn | Betekenis |
-|---|---|
-| `\|\|--o{` | het eerste bestaat uit nul of meer van het tweede |
-| `PK` en `FK` | de sleutel van het object, en een verwijzing naar een ander object |
-| tekst achter een attribuut | de multipliciteit in dit bericht, en of het veld verplicht is |
-
-<!-- /erd -->
-
-Schema [specification-reference.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/specification-reference.json), als array zonder omhullend object: per specificatie het id en de laatste versie binnen de gevraagde status, waarna O2 de structuur levert. De [componentpagina van de onderwijscatalogus](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Applicatiecomponenten/onderwijscatalogus.md) legt die vorm vast.
-
-| Veld | Nederlandse naam | Type | Kardinaliteit | Verplicht | Objecttype | Status |
-|---|---|---|---|---|---|---|
-| `specificationId` | `specificatieId` | uuid | 1 | ja | `Opleiding specificatie`, de wortel van de opgenomen structuur | vastgelegd |
-| `version` | `versie` | string | 1 | ja | `Opleiding specificatie` | vastgelegd |
-
-W14 vraagt paginering op deze opvraag, en die landt op een omhullend object: MAJOR voor wie op de array van vandaag valideert. [W3 van IS-OA-01](is-oa-01.md#7-wat-dit-in-public-toevoegt-of-wijzigt) vraagt `name` en `studyLoad` erbij voor het zoeken naar hergebruik, wat additief blijft.
-
-## 5. Voorbeeldpayload
-
-Casus Apothekersassistent, kwalificatiedossier crebo 23450, met de instantiewaarden uit beeld F2-03. De melding van O1:
-
-```json schema=specification-reference
-{
-  "specificationId": "79736830-1c5c-470f-b2c2-005029c96733",
-  "version": "0.1.0"
-}
-```
-
-Dezelfde melding in de vorm die werkbrief W1 voorstelt, met de planopgave eromheen. Het verzoek-id staat in [casus.md](casus.md#het-verzoek-tot-aanbod), het aanvraagmoment ligt voor het aanmeldvenster dat [IS-OA-05](is-oa-05.md) op dit aanbod opent:
-
-```json schema=offering-request
-{
-  "requestId": "7ec74caa-0b5a-4de7-bf69-04415a02f214",
-  "specificationReference": {
-    "specificationId": "79736830-1c5c-470f-b2c2-005029c96733",
-    "version": "0.1.0"
-  },
-  "name": "Planopgave Apothekersassistent, cohort 2026",
-  "cohort": "2026",
-  "requestedAt": "2025-04-01",
-  "expectedIntake": 48
-}
-```
-
-Het antwoord van O2, met de opleiding, de programmalaag leerweg en de programmalaag doelgroep, de eenheid Blok B1-K1 met haar leeronderdelen, en de keuzedeelruimte uit F1-07 met de regelset waarnaar zij verwijst. De identificaties en versies staan in [casus.md](casus.md) en volgen daar de [voorbeeldpayloads](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/voorbeeldpayloads.md) in Public, zodat elke uuid naar hetzelfde object wijst en IS-OA-04 op dezelfde waarden terugmeldt.
-
-```json schema=education-specification,student-choice-rule
-{
-  "educationSpecifications": [
-    {
-      "id": "79736830-1c5c-470f-b2c2-005029c96733",
-      "specificationType": "opleidingsspecificatie",
-      "version": "0.1.0",
-      "parentSpecificationId": null,
-      "learningOutcomeId": "c5b64fe5-f7bf-490c-acaf-7af1bd24f980",
-      "name": "Apothekersassistent",
-      "description": "Opleiding tot apothekersassistent, kwalificatiedossier 23450, kwalificatie 27141.",
-      "curriculumType": "nominaal",
-      "status": "gepubliceerd",
-      "validFrom": "2026-08-01",
-      "validUntil": null,
-      "studyLoad": { "value": 4800, "unit": "SBU" },
-      "manifest": [
-        { "specificationId": "5ef37812-ae0f-4232-904f-451b9928e45e", "version": "0.1.0", "relation": "variant" }
-      ]
-    },
-    {
-      "id": "5ef37812-ae0f-4232-904f-451b9928e45e",
-      "specificationType": "opleidingsprogrammaspecificatie",
-      "version": "0.1.0",
-      "parentSpecificationId": "79736830-1c5c-470f-b2c2-005029c96733",
-      "learningOutcomeId": "b84dc98b-6c5f-4ee8-bdfb-40b2639ca5a4",
-      "name": "BOL voltijd",
-      "programmeType": "diplomaprogramma",
-      "programmeLayer": "leerweg",
-      "learningPathway": "BOL",
-      "status": "gepubliceerd",
-      "studyLoad": { "value": 4800, "unit": "SBU" },
-      "manifest": [
-        { "specificationId": "7ae25c1e-ee27-43a2-a001-761ee39ea5c7", "version": "0.1.0", "relation": "variant" }
-      ]
-    },
-    {
-      "id": "7ae25c1e-ee27-43a2-a001-761ee39ea5c7",
-      "specificationType": "opleidingsprogrammaspecificatie",
-      "version": "0.1.0",
-      "parentSpecificationId": "5ef37812-ae0f-4232-904f-451b9928e45e",
-      "learningOutcomeId": "b84dc98b-6c5f-4ee8-bdfb-40b2639ca5a4",
-      "name": "Regulier BOL 2026",
-      "programmeType": "diplomaprogramma",
-      "programmeLayer": "doelgroep",
-      "targetGroup": "regulier",
-      "learningPathway": "BOL",
-      "curriculumType": "nominaal",
-      "cohort": "2026",
-      "startDate": "2026-09-01",
-      "status": "gepubliceerd",
-      "studyLoad": { "value": 4800, "unit": "SBU" },
-      "manifest": [
-        { "specificationId": "402c2342-d897-4df4-a667-7fc5bd930944", "version": "0.1.0", "relation": "onderdeel" },
-        { "specificationId": "fb5be5ae-faa0-4b4b-8085-474fce9aae08", "version": "0.1.0", "relation": "onderdeel" }
-      ]
-    },
-    {
-      "id": "402c2342-d897-4df4-a667-7fc5bd930944",
-      "specificationType": "onderwijseenheidspecificatie",
-      "version": "0.1.0",
-      "parentSpecificationId": "7ae25c1e-ee27-43a2-a001-761ee39ea5c7",
-      "learningOutcomeId": "12301838-92d4-4040-aea2-050bb131ceb7",
-      "name": "Blok B1-K1",
-      "description": "Biedt farmaceutische patiëntenzorg, op kerntaakniveau.",
-      "status": "gepubliceerd",
-      "studyLoad": { "value": 2000, "unit": "SBU" },
-      "manifest": [
-        { "specificationId": "327c8263-3516-4b5a-8d57-c16241ec008d", "version": "0.1.0", "relation": "onderdeel" },
-        { "specificationId": "29522e42-fb32-46d2-a504-0869831f941f", "version": "0.1.0", "relation": "onderdeel" }
-      ]
-    },
-    {
-      "id": "327c8263-3516-4b5a-8d57-c16241ec008d",
-      "specificationType": "leeronderdeelspecificatie",
-      "version": "0.1.0",
-      "parentSpecificationId": "402c2342-d897-4df4-a667-7fc5bd930944",
-      "learningOutcomeId": "78f25d62-9fd4-45c4-aa04-3d22f59213f5",
-      "name": "Baliegesprekken 101",
-      "status": "gepubliceerd",
-      "timeDistribution": "BOT",
-      "studyLoad": { "value": 600, "unit": "SBU" }
-    },
-    {
-      "id": "29522e42-fb32-46d2-a504-0869831f941f",
-      "specificationType": "leeronderdeelspecificatie",
-      "version": "0.1.0",
-      "parentSpecificationId": "402c2342-d897-4df4-a667-7fc5bd930944",
-      "learningOutcomeId": "0ffa279f-c595-49d7-b033-c91f66d18bb1",
-      "name": "Medicatiebewaking in de leerapotheek",
-      "status": "gepubliceerd",
-      "timeDistribution": "BOT",
-      "studyLoad": { "value": 500, "unit": "SBU" }
-    },
-    {
-      "id": "fb5be5ae-faa0-4b4b-8085-474fce9aae08",
-      "specificationType": "keuzedeelruimtespecificatie",
-      "version": "0.1.0",
-      "parentSpecificationId": "7ae25c1e-ee27-43a2-a001-761ee39ea5c7",
-      "name": "Keuzedeelruimte",
-      "status": "gepubliceerd",
-      "studyLoad": { "value": 720, "unit": "SBU" },
-      "ruleSetReferences": ["e4037953-17d6-40a4-9e59-92ec1f9c19a8"]
-    }
-  ],
-  "ruleSets": [
-    {
-      "id": "e4037953-17d6-40a4-9e59-92ec1f9c19a8",
-      "version": "0.1.0",
-      "name": "Kiesbare keuzedelen voor Apothekersassistent",
-      "appliesTo": "fb5be5ae-faa0-4b4b-8085-474fce9aae08",
-      "rules": [
-        {
-          "type": "kiesbaar",
-          "scope": "alle keuzedelen met electiveUnitClass algemeen-verbredend"
-        },
-        {
-          "type": "kiesbaar",
-          "electiveUnit": "beaaaf4c-b267-41f7-9b8d-ac9a19a7dfe1",
-          "precondition": [
-            { "requiredLearningOutcomeId": "12301838-92d4-4040-aea2-050bb131ceb7", "status": "behaald" }
-          ]
-        },
-        { "type": "minimaleStudielast", "value": 720, "unit": "SBU" }
-      ]
-    }
-  ]
-}
-```
-
-De tweede regel geeft de volgordebepaling waarop het planningssysteem plant: keuzedeel K0037 is kiesbaar zodra de leeruitkomst op kerntaakniveau behaald is, waarbij de sleutel volstaat en de inhoud bij de catalogus blijft. [IS-OA-01](is-oa-01.md) levert dezelfde regelset op dezelfde versie aan de catalogus.
-
-De sleutels binnen `rules` staan als voorstel, omdat rule-set.json daar een vrij object toestaat. Hun vorm staat in [student-choice-rule.json](schemas/student-choice-rule.json), de overlay die IS-OA-01 bij werkbrief W9 voorstelt. Dezelfde namen gelden in IS-OA-01 en staan bij elkaar in [casus.md](casus.md#de-regelsets):
-
-| Voorstel | Nederlandse naam |
-|---|---|
-| `type` | `type` |
-| `scope` | `bereik` |
-| `electiveUnit` | `keuzedeel` |
-| `precondition` | `voorwaardeVooraf` |
-| `requiredLearningOutcomeId` | `vereisteLeeruitkomstId` |
-| `status` | `status` |
-| `value` plus `unit` | `waarde` plus `eenheid` |
-| `requirement` | `eis` |
-| `sourceSpecificationId` | `bronSpecificatieId` |
-
-## 6. Functionele eisen
+## 4. Functionele eisen
 
 De eisen komen uit het interactiepatroon OC-P&R. Een instelling citeert het eis-id en toetst op de genoemde operaties.
 
@@ -759,7 +697,7 @@ De eisen komen uit het interactiepatroon OC-P&R. Een instelling citeert het eis-
 
 Eis 0003 en 0004 landen op IS-OA-04, eis 0005 op de statusmelding die naast deze eenheid loopt.
 
-## 7. Werkbrieven: de issueset die hieruit volgt
+## 5. Werkbrieven: de issueset die hieruit volgt
 
 Deze regels horen niet in de koppelvlakspecificatie zelf. Elk van hen wordt een issue in Npuls-OKx/Public of in meta, en blijft hier staan tot dat issue er is.
 
@@ -767,7 +705,7 @@ Elke werkbrief belegt een veld of schema dat de beelden F2-01 en F2-03 vragen, e
 
 | Nr | Wat erbij moet | Waar | Versie-impact |
 |---|---|---|---|
-| W1 | Een eigen bericht voor het verzoek: een `requestId` (verzoekId), een `name` (naam), het aangevraagde cohort, het aanvraagmoment en de verwachte instroom. Het objecttype `Verzoek tot Aanbod / Intekening op specificatie` reist nu mee als de specificatie-referentie van bericht 1 | [offering-request.json](schemas/offering-request.json), het schema waarnaar O1 en [bericht 1](#41-melden-planbare-specificatie) verwijzen, in Public opnemen naast specification-reference.json | Minor: een nieuw schema naast specification-reference.json, dat in I7 en processing-status.json ongewijzigd blijft |
+| W1 | Een eigen bericht voor het verzoek: een `requestId` (verzoekId), een `name` (naam), het aangevraagde cohort, het aanvraagmoment en de verwachte instroom. Het objecttype `Verzoek tot Aanbod / Intekening op specificatie` reist nu mee als de specificatie-referentie van bericht 1 | [offering-request.json](schemas/offering-request.json), het schema waarnaar O1 en [het bericht](#o1-webhook-specificatie-planbaar-melden) verwijzen, in Public opnemen naast specification-reference.json | Minor: een nieuw schema naast specification-reference.json, dat in I7 en processing-status.json ongewijzigd blijft |
 | W2 | De onderwijsvorm per leeronderdeel, in F2-03 "Simulatie in de leerapotheek, theorie ondersteunend". Het objecttype `Onderwijsvorm` staat in het informatiemodel | education-specification.json, veld `educationForm` (onderwijsvorm) op de leeronderdeelspecificatie, de sleutel die [education-design.json](schemas/education-design.json) draagt bij werkbrief WB-01 van [IS-OA-02](is-oa-02.md) | Minor: optioneel veld, bestaande implementaties blijven geldig |
 | W3 | Het gevraagde type leeromgeving, in F2-03 "Balie-simulatie in het skillslab". Het objecttype `Onderwijslocatie type` bestaat, en location.json noemt alleen de concrete locatie aan de aanbodkant | education-specification.json, veld `roomType` (onderwijslocatieType) op de leeronderdeelspecificatie, de naam die het informatiemodel bij `Onderwijslocatie type` annoteert | Minor: optioneel veld |
 | W4 | Het gevraagde docentprofiel, in F2-03 "Apothekersassistent-docent met baliepraktijk". Het objecttype `Expertise of functieprofiel` bestaat zonder schema | nieuw schema `expertise-profile.json`, plus veld `expertiseProfileIds` (expertiseprofielIds) in education-specification.json | Minor: een nieuw schema en een optioneel veld |

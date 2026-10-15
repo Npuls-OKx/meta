@@ -177,6 +177,29 @@ def enum_bevindingen(bestand):
     return uit
 
 
+def anker_bevindingen(bestand):
+    """Of elke interne verwijzing op een bestaande kop landt.
+
+    Een hernoemde kop breekt elke link ernaartoe, en markdown meldt dat niet: de lezer klikt en
+    komt bovenaan de pagina uit. Deze toets loopt de verwijzingen binnen dit bestand na en die
+    naar een ander markdown-bestand in dezelfde map.
+    """
+    def slug(kop):
+        return re.sub(r"\s+", "-", re.sub(r"[^a-z0-9 -]", "", kop.lower()).strip())
+
+    koppen = {}
+    for ander in bestand.parent.glob("*.md"):
+        koppen[ander.name] = {slug(m.group(1)) for m in
+                              re.finditer(r"^#{1,6} (.+)$", ander.read_text(encoding="utf-8"), re.M)}
+    uit = []
+    tekst = bestand.read_text(encoding="utf-8")
+    for doel, anker in re.findall(r"\]\(([a-zA-Z0-9._/-]*)#([a-z0-9-]+)\)", tekst):
+        doc = doel or bestand.name
+        if doc in koppen and anker not in koppen[doc]:
+            uit.append(f"de verwijzing naar {doc}#{anker} landt op geen enkele kop")
+    return uit
+
+
 def toets_bestand(bestand, hoofddocument):
     """Een markdown-bestand langs de maten, met de bevindingen en de tellingen terug."""
     # Buiten de maten om: een diagram dat niet parseert laat GitHub leeg.
@@ -255,6 +278,9 @@ def toets_bestand(bestand, hoofddocument):
                 f"{buiten} woorden buiten de tabellen, en de maat is "
                 f"{MAX_WOORDEN_BUITEN_TABELLEN}",
             ))
+
+    for melding in anker_bevindingen(bestand):
+        bevindingen.append(Bevinding(bestand.name, melding))
 
     for melding in enum_bevindingen(bestand):
         bevindingen.append(Bevinding(bestand.name, melding))

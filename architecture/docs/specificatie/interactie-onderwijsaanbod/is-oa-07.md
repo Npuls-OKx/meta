@@ -49,83 +49,74 @@ sequenceDiagram
     participant OC as Onderwijscatalogus
     participant LMS as Leermanagementsysteem
 
-    OC-)LMS: L1 [specificatie-beschikbaar] specificatieId en versie
+    OC-)LMS: O1 [specificatie-beschikbaar] specificatieId en versie
     LMS-->>OC: 200 bevestigd
-    LMS->>OC: L2 [GET /onderwijsspecificaties/{id}] versie
+    LMS->>OC: O2 [GET /onderwijsspecificaties/{id}] versie
     OC-->>LMS: 200 structuur tot leeronderdeel, met leeruitkomsten
     Note over LMS: De leeromgeving wordt ingericht
     alt Inrichting gelukt
-        LMS-)OC: L3 [inrichtingsstatus] ingericht, met referentie
+        LMS-)OC: O3 [inrichtingsstatus] ingericht, met referentie
     else Inrichting niet gelukt
-        LMS-)OC: L3 [inrichtingsstatus] nietIngericht, met reden
+        LMS-)OC: O3 [inrichtingsstatus] nietIngericht, met reden
     end
     opt Leermiddelen gekoppeld
-        LMS-)OC: L4 [leermiddelkoppeling-beschikbaar] referentie
-        OC->>LMS: L5 [GET /leermiddelkoppelingen/{id}]
+        LMS-)OC: O4 [leermiddelkoppeling-beschikbaar] referentie
+        OC->>LMS: O5 [GET /leermiddelkoppelingen/{id}]
         LMS-->>OC: 200 leermiddelgroepen per specificatie
     end
     opt Specificatie gewijzigd
-        OC-)LMS: L6 [specificatie-status-gewijzigd] oude en nieuwe versie
-        LMS->>OC: L2 [GET /onderwijsspecificaties/{id}/delta] van, naar
+        OC-)LMS: O6 [specificatie-status-gewijzigd] oude en nieuwe versie
+        LMS->>OC: O2 [GET /onderwijsspecificaties/{id}/delta] van, naar
         OC-->>LMS: 200 JSON Patch
     end
 ```
 
 De catalogus meldt dun en de leeromgeving haalt de inhoud op ([U4](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u4-notify-then-pull)). De specificatie blijft bij de catalogus staan.
 
-## 3. Operaties
+## 3. Operaties en berichtspecificatie
 
-`OC` is de onderwijscatalogus, `LMS` het leermanagementsysteem. De [componentpagina's](https://github.com/Npuls-OKx/Public/tree/dev/Koppelvlakspecificaties/Applicatiecomponenten) in Public dragen elk pad en elke melding hieronder.
+Een operatie is een pad met een methode erop, of een melding: `GET /onderwijsspecificaties/{id}` is er een, `specificatie-beschikbaar` een andere. Zij draagt een nummer dat terugkomt in het sequentiediagram hierboven en in de berichten hieronder. `OC` is de onderwijscatalogus, `LMS` het leermanagementsysteem. O1 tot en met O6 lopen gelijk op met L1 tot en met L6 van het [interactiepatroon](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Interactiepatronen/onderwijscatalogus-leermanagementsysteem.md), en de [componentpagina's](https://github.com/Npuls-OKx/Public/tree/dev/Koppelvlakspecificaties/Applicatiecomponenten) in Public dragen elk pad en elke melding hieronder.
 
-### 3.1 Het contract per operatie
+Een leverancier claimt een dienst, geen operatietabel. Hier staat per dienst wat die claim kost: welke operaties erbij horen, met hun parameters, hun request body en hun responses.
 
-| Nr | Operatie | Implementeert | Richting | Pad of melding | Methode | Status |
-|---|---|---|---|---|---|---|
-| L1 | Melden dat een specificatie beschikbaar is | leermanagementsysteem | OC meldt LMS | `specificatie-beschikbaar` | POST | `vastgelegd` |
-| L2 | De structuur of de wijziging ophalen | onderwijscatalogus | LMS vraagt OC | `/onderwijsspecificaties/{id}` en `/{id}/delta` | GET | `vastgelegd`, met het antwoordlichaam bij 400 en 404 nog open |
-| L3 | De inrichtingsstatus terugmelden | onderwijscatalogus | LMS meldt OC | `inrichtingsstatus` | POST | `vastgelegd` als meldpatroon; het payloadschema staat als voorstel in [arrangement-status.json](schemas/arrangement-status.json), hetzelfde dat [IS-OA-05](is-oa-05.md) voorstelt |
-| L4 | Melden dat een leermiddelkoppeling beschikbaar is | onderwijscatalogus | LMS meldt OC | `leermiddelkoppeling-beschikbaar` | POST | `vastgelegd` als meldpatroon; de payload staat op de componentpagina als nog uit te werken |
-| L5 | De leermiddelkoppeling ophalen | leermanagementsysteem | OC vraagt LMS | `/leermiddelkoppelingen/{id}` | GET | `vastgelegd` als pad; de payload staat als voorstel in [learning-resource-group.json](schemas/learning-resource-group.json), hetzelfde dat [IS-OA-02](is-oa-02.md) voorstelt |
-| L6 | Een wijziging van de specificatie melden | leermanagementsysteem | OC meldt LMS | `specificatie-status-gewijzigd` | POST | `vastgelegd` als melding en schema; het endpoint op het LMS staat op de componentpagina |
+Wie het endpoint bouwt verschilt per patroon, en bij een melding is dat omgekeerd aan wat de naam suggereert.
 
-Parameters, statuscodes en foutgedrag. De GET-operaties zijn alleen-lezen: herhaald aanroepen levert hetzelfde resultaat.
-
-| Nr | Parameters | Statuscodes | Foutgedrag |
+| Patroon | Wie levert het gegeven | Wie bouwt het endpoint | Wie roept aan |
 |---|---|---|---|
-| L1 | geen | 200 | Blijft de bevestiging uit, dan opnieuw aanbieden met oplopende wachttijd (backoff) en daarna de wachtrij voor onbestelbare berichten (dead letter channel). Een tweede aflevering van dezelfde `specificationId` en `version` wijst hetzelfde bericht aan |
-| L2 | `versie` optioneel op de structuur; `van` en `naar` beide verplicht op de delta | 200, 400, 404 | Alleen-lezen, dus herhalen geeft hetzelfde antwoord. De delta volgt JSON Patch (RFC 6902) |
-| L3 | geen | 200 | Als L1 |
-| L4 | geen | 200 | Als L1 |
-| L5 | geen | 200, 400, 404 | Alleen-lezen, dus herhalen geeft hetzelfde antwoord |
-| L6 | geen | 200 | Als L1 |
+| Ophalen | de aanbieder | de aanbieder | de afnemer |
+| Aanleveren | de afnemer | de aanbieder | de afnemer |
+| Melden | de aanbieder | de afnemer, op haar `callbackUrl` | de aanbieder |
+
+Een query parameter verandert het endpoint niet: het pad blijft gelijk en de parameters komen in de query string. Het contract staat bij de dienst die het endpoint bouwt; de tegenhanger wijst ernaar. De afspraken die voor elke dienst in deze keten gelden, staan in de [interactieketenspecificatie](README.md#5-afspraken-die-elke-dienst-nakomt).
 
 Het afleveradres van een melding ligt bij instelling en leverancier, binnen de eigenschappen die [ADR 0018](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0018-enterprise-messaging-patronen-voor-betrouwbare-koppelvlakken.md) eist ([U5](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u5-bericht-versus-kanaal)). Het interactiepatroon merkt op dat deze koppeling nog geen eigen `POST /abonnementen` kent; zolang die er niet is, is het afleveradres een inrichtingskeuze tussen catalogus en leeromgeving.
 
-### 3.2 Statusafhandeling
+#### onderwijsspecificatiestructuur-aanbieder, bij de onderwijscatalogus
 
-De inrichtingsstatus op L3 draagt de uitkomst van het inrichten, en die uitkomst bepaalt welk veld meekomt.
+![De dienst onderwijsspecificatiestructuur-aanbieder bij de onderwijscatalogus](img/dienst-onderwijscatalogus-onderwijsspecificatiestructuur-aanbieder.svg)
 
-| Status | Wat de melding draagt | Grond |
-|---|---|---|
-| `ingericht` | de referentie naar de inrichting bij de leeromgeving | arrangement-status.json vraagt `arrangementReference` op deze uitkomst |
-| `nietIngericht` | de reden, in leesbare tekst voor de beheerder van de catalogus | arrangement-status.json vraagt `reason` op deze uitkomst |
+Deze dienst meldt dat een specificatie beschikbaar is, ontsluit de structuur en de wijziging erop, en meldt een statuswijziging. Zij draagt daarmee twee patronen.
 
-## 4. Berichtspecificatie
+##### O1 · webhook `specificatie-beschikbaar` · melden
 
-Het [gebruiksprofiel](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/gebruiksprofielen.md) voor deze koppeling zet twee dingen vast ten opzichte van wat planning krijgt.
-
-| Wat dit profiel vraagt | Grond |
+| | |
 |---|---|
-| De leeruitkomsten komen met hun inhoudsvelden mee | Dat is wat de leeromgeving uitwerkt en aan de student toont |
-| De regelsets blijven bij het studentkeuzesysteem en het studentinformatiesysteem | Kiesbaarheid hoort in het domein van die twee |
+| Transport | HTTP POST naar het afleveradres dat het leermanagementsysteem als ontvanger implementeert |
+| Request body | [specification-reference.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/specification-reference.json), het `specificationId` met zijn `version` ([het bericht](#o1-webhook-specificatie-beschikbaar-melden)) |
+| `200 OK` | geen response body; bevestigt de ontvangst, niet het oordeel |
+| Bij uitblijven | retry met exponential backoff, daarna dead letter queue |
+| Idempotentie | een tweede aflevering van dezelfde `specificationId` en `version` wijst hetzelfde bericht aan |
 
-### 4.1 Melden beschikbaarheid van een specificatie
+
+**Bericht: de specificatieverwijzing**
+
+Schema [`specification-reference.json`](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/specification-reference.json) · voorbeeldpayload [`is-oa-07-specificatieverwijzing.json`](voorbeeldpayloads/is-oa-07-specificatieverwijzing.json)
 
 ```mermaid
 sequenceDiagram
     participant OC as Onderwijscatalogus
     participant LMS as Leermanagementsysteem
-    OC-)LMS: L1 specificatie-beschikbaar, dit bericht
+    OC-)LMS: O1 specificatie-beschikbaar, dit bericht
     LMS-->>OC: 200 bevestigd
 ```
 
@@ -133,15 +124,36 @@ sequenceDiagram
 Dit bericht draagt geen objecttype uit het informatiemodel: de velden zijn eigenschappen van het contract.
 <!-- /erd -->
 
-Volgt [specification-reference.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/specification-reference.json), `vastgelegd`: de melding draagt het `specificationId` met zijn `version`, waarna L2 de structuur levert.
+Volgt [specification-reference.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/specification-reference.json), `vastgelegd`: de melding draagt het `specificationId` met zijn `version`, waarna O2 de structuur levert.
 
-### 4.2 Ophalen onderwijsspecificatiestructuur
+De melding dat de specificatie beschikbaar is, met de opleidingsspecificatie uit [casus.md](casus.md):
+
+Voorbeeldpayload: [`is-oa-07-specificatieverwijzing.json`](voorbeeldpayloads/is-oa-07-specificatieverwijzing.json)
+
+##### O2 · `GET /onderwijsspecificaties/{id}` · ophalen
+
+| | |
+|---|---|
+| Query parameters | `versie` (optioneel, zonder die parameter de laatst gepubliceerde) |
+| `200 OK` | `application/json`, de structuur tot leeronderdeel met de leeruitkomsten ([het bericht](#o2-get-onderwijsspecificatiesid-ophalen)) |
+| `400 Bad Request` | het response body staat nog open ([S21](signaleringen.md)) |
+| `404 Not Found` | onbekend `id`; het response body staat nog open ([S21](signaleringen.md)) |
+| Delta | `GET /onderwijsspecificaties/{id}/delta` met `van` en `naar`, beide verplicht; response `application/json-patch+json` (RFC 6902) |
+| Idempotentie | alleen-lezen: herhaald aanroepen levert hetzelfde resultaat |
+| Voorbehoud | Met het response body bij 400 en 404 nog open |
+
+
+**Bericht: de onderwijsspecificatiestructuur**
+
+Schema [`education-specification.json`](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/education-specification.json) · voorbeeldpayload bij [IS-OA-03](is-oa-03.md#o2-get-onderwijsspecificatiesid-ophalen)
+
+Volgt [education-specification.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/education-specification.json), `vastgelegd`, met het gebruiksprofiel hieronder erop. De velden staan veld voor veld in [IS-OA-03](is-oa-03.md#o2-get-onderwijsspecificatiesid-ophalen), dat dezelfde structuur op dezelfde resource ontsluit.
 
 ```mermaid
 sequenceDiagram
     participant OC as Onderwijscatalogus
     participant LMS as Leermanagementsysteem
-    LMS->>OC: L2 GET /onderwijsspecificaties/{id}, versie
+    LMS->>OC: O2 GET /onderwijsspecificaties/{id}, versie
     OC-->>LMS: 200 dit bericht
 ```
 
@@ -302,15 +314,22 @@ erDiagram
 
 <!-- /erd -->
 
-Volgt [education-specification.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/education-specification.json), `vastgelegd`, met het gebruiksprofiel hierboven erop. De velden staan veld voor veld in [IS-OA-03](is-oa-03.md#bericht-2-de-onderwijsspecificatiestructuur), dat dezelfde structuur op dezelfde resource ontsluit.
+Het [gebruiksprofiel](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/gebruiksprofielen.md) voor deze koppeling zet twee dingen vast ten opzichte van wat planning krijgt.
 
-### 4.3 Ophalen wijziging van een specificatie
+| Wat dit profiel vraagt | Grond |
+|---|---|
+| De leeruitkomsten komen met hun inhoudsvelden mee | Dat is wat de leeromgeving uitwerkt en aan de student toont |
+| De regelsets blijven bij het studentkeuzesysteem en het studentinformatiesysteem | Kiesbaarheid hoort in het domein van die twee |
+
+**Bericht: de wijziging van de specificatie**
+
+Schema [`education-specification-delta.json`](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/education-specification-delta.json)
 
 ```mermaid
 sequenceDiagram
     participant OC as Onderwijscatalogus
     participant LMS as Leermanagementsysteem
-    LMS->>OC: L2 GET /onderwijsspecificaties/{id}/delta, van en naar
+    LMS->>OC: O2 GET /onderwijsspecificaties/{id}/delta, van en naar
     OC-->>LMS: 200 dit bericht
 ```
 
@@ -320,29 +339,27 @@ Dit bericht draagt geen objecttype uit het informatiemodel: de velden zijn eigen
 
 Volgt [education-specification-delta.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/education-specification-delta.json), `vastgelegd`: de wijziging komt als JSON Patch (RFC 6902) tussen de versie in `van` en die in `naar`.
 
-### 4.4 Terugmelden inrichtingsstatus
+##### O6 · webhook `specificatie-status-gewijzigd` · melden
+
+| | |
+|---|---|
+| Transport | HTTP POST naar het afleveradres dat het leermanagementsysteem als ontvanger implementeert |
+| Request body | [specification-status-changed.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/specification-status-changed.json), de oude en de nieuwe versie ([het bericht](#o6-webhook-specificatie-status-gewijzigd-melden)) |
+| `200 OK` | geen response body |
+| Bij uitblijven | als O1 |
+| Idempotentie | als O1 |
+| Voorbehoud | Het endpoint op het LMS staat op de componentpagina |
+
+
+**Bericht: de statuswijziging**
+
+Schema [`specification-status-changed.json`](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/specification-status-changed.json)
 
 ```mermaid
 sequenceDiagram
     participant OC as Onderwijscatalogus
     participant LMS as Leermanagementsysteem
-    LMS-)OC: L3 inrichtingsstatus, dit bericht
-    OC-->>LMS: 200 bevestigd
-```
-
-<!-- erd -->
-Dit bericht draagt geen objecttype uit het informatiemodel: de velden zijn eigenschappen van het contract.
-<!-- /erd -->
-
-Volgt [arrangement-status.json](schemas/arrangement-status.json), `voorstel`: de status uit paragraaf 3.2 met de specificatieverwijzing waarop zij slaat. [IS-OA-05](is-oa-05.md) stelt hetzelfde schema voor.
-
-### 4.5 Melden statuswijziging van een onderwijsspecificatie
-
-```mermaid
-sequenceDiagram
-    participant OC as Onderwijscatalogus
-    participant LMS as Leermanagementsysteem
-    OC-)LMS: L6 specificatie-status-gewijzigd, dit bericht
+    OC-)LMS: O6 specificatie-status-gewijzigd, dit bericht
     LMS-->>OC: 200 bevestigd
 ```
 
@@ -350,15 +367,110 @@ sequenceDiagram
 Dit bericht draagt geen objecttype uit het informatiemodel: de velden zijn eigenschappen van het contract.
 <!-- /erd -->
 
-Volgt [specification-status-changed.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/specification-status-changed.json), `vastgelegd`: de oude en de nieuwe versie van de specificatie, waarna de leeromgeving de delta op L2 ophaalt.
+Volgt [specification-status-changed.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/specification-status-changed.json), `vastgelegd`: de oude en de nieuwe versie van de specificatie, waarna de leeromgeving de delta op O2 ophaalt.
 
-### 4.6 Ophalen leermiddelkoppeling
+#### onderwijsspecificatiestructuur-afnemer, bij het leermanagementsysteem
+
+![De dienst onderwijsspecificatiestructuur-afnemer bij het leermanagementsysteem](img/dienst-leermanagementsysteem-lms-onderwijsspecificatiestructuur-afnemer.svg)
+
+Deze dienst host het afleveradres voor O1 en O6, en roept O2 aan bij de aanbieder hierboven. De parameters en de responses staan daar.
+
+#### verwerkingsuitkomst-aanbieder, bij het leermanagementsysteem
+
+![De dienst verwerkingsuitkomst-aanbieder bij het leermanagementsysteem](img/dienst-leermanagementsysteem-lms-verwerkingsuitkomst-aanbieder.svg)
+
+Deze dienst meldt wat het inrichten van de leeromgeving opleverde. Zij verstuurt; het afleveradres staat bij de afnemer.
+
+##### O3 · webhook `inrichtingsstatus` · melden
+
+| | |
+|---|---|
+| Transport | HTTP POST naar het afleveradres dat de onderwijscatalogus als ontvanger implementeert |
+| Request body | [arrangement-status.json](schemas/arrangement-status.json), de uitkomst van het inrichten ([het bericht](#o3-webhook-inrichtingsstatus-melden)) |
+| `200 OK` | geen response body |
+| Bij uitblijven | als O1 |
+| Idempotentie | als O1 |
+| Voorbehoud | Het payloadschema staat als voorstel in [arrangement-status.json](schemas/arrangement-status.json), hetzelfde dat [IS-OA-05](is-oa-05.md) voorstelt |
+
+
+**Bericht: de inrichtingsstatus**
+
+Schema [`arrangement-status.json`](schemas/arrangement-status.json) · voorbeeldpayload [`is-oa-07-inrichtingsstatus.json`](voorbeeldpayloads/is-oa-07-inrichtingsstatus.json)
 
 ```mermaid
 sequenceDiagram
     participant OC as Onderwijscatalogus
     participant LMS as Leermanagementsysteem
-    OC->>LMS: L5 GET /leermiddelkoppelingen/{id}
+    LMS-)OC: O3 inrichtingsstatus, dit bericht
+    OC-->>LMS: 200 bevestigd
+```
+
+<!-- erd -->
+Dit bericht draagt geen objecttype uit het informatiemodel: de velden zijn eigenschappen van het contract.
+<!-- /erd -->
+
+Volgt [arrangement-status.json](schemas/arrangement-status.json), `voorstel`: de status hieronder met de specificatieverwijzing waarop zij slaat. [IS-OA-05](is-oa-05.md) stelt hetzelfde schema voor.
+
+**Statusafhandeling**
+
+De inrichtingsstatus op O3 draagt de uitkomst van het inrichten, en die uitkomst bepaalt welk veld meekomt.
+
+| Status | Wat de melding draagt | Grond |
+|---|---|---|
+| `ingericht` | de referentie naar de inrichting bij de leeromgeving | arrangement-status.json vraagt `arrangementReference` op deze uitkomst |
+| `nietIngericht` | de reden, in leesbare tekst voor de beheerder van de catalogus | arrangement-status.json vraagt `reason` op deze uitkomst |
+
+De inrichtingsstatus terug, op dezelfde specificatie:
+
+Voorbeeldpayload: [`is-oa-07-inrichtingsstatus.json`](voorbeeldpayloads/is-oa-07-inrichtingsstatus.json)
+
+#### verwerkingsuitkomst-afnemer, bij de onderwijscatalogus
+
+![De dienst verwerkingsuitkomst-afnemer bij de onderwijscatalogus](img/dienst-onderwijscatalogus-verwerkingsuitkomst-afnemer.svg)
+
+Deze dienst host het afleveradres voor O3 en O4 en antwoordt met `200 OK`. Zij bevestigt de ontvangst en niet het oordeel: wat de catalogus met een `nietIngericht` doet valt buiten dit koppelvlak.
+
+#### leermiddelkoppeling-aanbieder, bij het leermanagementsysteem
+
+![De dienst leermiddelkoppeling-aanbieder bij het leermanagementsysteem](img/dienst-leermanagementsysteem-lms-leermiddelkoppeling-aanbieder.svg)
+
+Deze dienst meldt dat een leermiddelkoppeling beschikbaar is en ontsluit haar daarna op opvraag. Zij draagt daarmee twee patronen.
+
+##### O4 · webhook `leermiddelkoppeling-beschikbaar` · melden
+
+| | |
+|---|---|
+| Transport | HTTP POST naar het afleveradres dat de onderwijscatalogus als ontvanger implementeert |
+| Request body | de referentie naar de leermiddelkoppeling |
+| `200 OK` | geen response body |
+| Bij uitblijven | als O1 |
+| Idempotentie | als O1 |
+| Voorbehoud | De payload staat op de componentpagina als nog uit te werken |
+
+
+De melding draagt een verwijzing en geen structuur; de leermiddelgroepen zelf komen op O5 ([het bericht](#o5-get-leermiddelkoppelingenid-ophalen)).
+
+##### O5 · `GET /leermiddelkoppelingen/{id}` · ophalen
+
+| | |
+|---|---|
+| Query parameters | geen |
+| `200 OK` | `application/json`, de leermiddelgroepen per specificatie ([het bericht](#o5-get-leermiddelkoppelingenid-ophalen)) |
+| `400 Bad Request` | het response body staat nog open ([S21](signaleringen.md)) |
+| `404 Not Found` | onbekend `id`; het response body staat nog open ([S21](signaleringen.md)) |
+| Idempotentie | alleen-lezen: herhaald aanroepen levert hetzelfde resultaat |
+| Voorbehoud | De payload staat als voorstel in [learning-resource-group.json](schemas/learning-resource-group.json), hetzelfde dat [IS-OA-02](is-oa-02.md) voorstelt |
+
+
+**Bericht: de leermiddelkoppeling**
+
+Schema [`learning-resource-group.json`](schemas/learning-resource-group.json)
+
+```mermaid
+sequenceDiagram
+    participant OC as Onderwijscatalogus
+    participant LMS as Leermanagementsysteem
+    OC->>LMS: O5 GET /leermiddelkoppelingen/{id}
     LMS-->>OC: 200 dit bericht
 ```
 
@@ -368,37 +480,17 @@ Dit bericht draagt geen objecttype uit het informatiemodel: de velden zijn eigen
 
 Volgt [learning-resource-group.json](schemas/learning-resource-group.json), `voorstel`: de leermiddelgroepen per specificatie. [IS-OA-02](is-oa-02.md) stelt hetzelfde schema voor, en de componentpagina kondigt de payload aan.
 
-## 5. Voorbeeldpayloads
+#### leermiddelkoppeling-afnemer, bij de onderwijscatalogus
 
-De melding dat de specificatie beschikbaar is, met de opleidingsspecificatie uit [casus.md](casus.md):
+![De dienst leermiddelkoppeling-afnemer bij de onderwijscatalogus](img/dienst-onderwijscatalogus-leermiddelkoppeling-afnemer.svg)
 
-```json schema=specification-reference
-{
-  "specificationId": "79736830-1c5c-470f-b2c2-005029c96733",
-  "version": "0.1.0"
-}
-```
+Deze dienst roept O5 aan bij de aanbieder hierboven. De parameters en de responses staan daar.
 
-De structuur die de leeromgeving daarop ophaalt is dezelfde die [IS-OA-03](is-oa-03.md#berichtspecificatie) veld voor veld beschrijft, met het gebruiksprofiel uit paragraaf 4 erop; die payload staat daar.
-
-De inrichtingsstatus terug, op dezelfde specificatie:
-
-```json schema=arrangement-status
-{
-  "arrangementReference": "6f3c7a21-0e5b-4a37-9d14-2c8be40f71aa",
-  "status": "ingericht",
-  "specificationReference": {
-    "specificationId": "79736830-1c5c-470f-b2c2-005029c96733",
-    "version": "0.1.0"
-  }
-}
-```
-
-## 6. Openstaande punten
+## 4. Openstaande punten
 
 | Punt | Stand |
 |---|---|
-| Het antwoordlichaam bij 400 en 404 op de opvragingen | Dezelfde vraag als bij de andere opvragingen; signalering [S21](signaleringen.md) draagt haar |
+| Het response body bij 400 en 404 op de opvragingen | Dezelfde vraag als bij de andere opvragingen; signalering [S21](signaleringen.md) draagt haar |
 | De payload van de leermiddelkoppeling | De componentpagina kondigt hem aan zonder schema. [learning-resource-group.json](schemas/learning-resource-group.json) is het voorstel dat IS-OA-02 al doet |
 | Een eigen afleverabonnement op deze koppeling | Het interactiepatroon kent nog geen `POST /abonnementen`, waar de koppeling met planning die wel heeft |
 | Het lesniveau onder het leeronderdeel | De lesspecificatie blijft bij de leeromgeving. Beeld F4-03 toont dat niveau op de conceptplaat, buiten deze specificatie |

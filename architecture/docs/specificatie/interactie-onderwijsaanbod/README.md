@@ -17,8 +17,9 @@
 | [2 Wat deze keten oplevert](#2-wat-deze-keten-oplevert) | Waarvoor deze keten dient, per partij, en wat erop bouwt |
 | [3 Gegevensoorsprong en bronsysteem](#3-gegevensoorsprong-en-bronsysteem) | Per applicatiecomponent de gegevens die daar ontstaan |
 | [4 Koppelvlakdiensten](#4-koppelvlakdiensten) | Per component de diensten met hun endpoints en meldingen |
-| [5 De interactieketen](#5-de-interactieketen) | De volgorde over alle zeven de interactiespecificaties |
-| [6 De interactiespecificaties](#6-de-interactiespecificaties) | Per stroom het contract: operaties, berichten, voorbeeldpayload |
+| [5 Afspraken die elke dienst nakomt](#5-afspraken-die-elke-dienst-nakomt) | Wat voor elke dienst in deze keten geldt, waar elke interactiespecificatie naar wijst |
+| [6 De interactieketen](#6-de-interactieketen) | De volgorde over alle zeven de interactiespecificaties |
+| [7 De interactiespecificaties](#7-de-interactiespecificaties) | Per stroom het contract: operaties, berichten, voorbeeldpayload |
 | [schemas/](schemas/README.md) | De twintig schema's van deze keten, met hun stand |
 | [signaleringen.md](signaleringen.md) | Achtentwintig punten die een besluit vragen |
 

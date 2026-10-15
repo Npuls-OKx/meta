@@ -114,7 +114,10 @@ def schemas_in(blok):
             continue
         aanhef.append(gestript)
     uit, gezien = [], set()
-    for naam in re.findall(r"\[([a-z0-9][a-z0-9-]*\.json)\]", "\n".join(aanhef)):
+    for naam, doel in re.findall(
+            r"\[`?([a-z0-9][a-z0-9-]*\.json)`?\]\(([^)]*)\)", "\n".join(aanhef)):
+        if "voorbeeldpayloads/" in doel:
+            continue
         if naam not in gezien:
             gezien.add(naam)
             uit.append(naam)

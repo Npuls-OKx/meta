@@ -1,0 +1,34 @@
+{
+  "naam": "Voorbeeldpayloads bij is-oa-05.md",
+  "bron": {
+    "wie_is_de_bron": "Elke payload gebruikt de vaste identificaties uit casus.md. Het veld schemas zegt tegen welke schema's zij valideert; controleer-interactiespec.py draait daarop.",
+    "waarom_los": "Een payload van honderden regels in het document duwt de berichtspecificatie uit beeld, en los is zij op te halen en te valideren zonder markdown eromheen. Relateert aan: #384"
+  },
+  "payloads": {
+    "is-oa-05-statuswijziging.json": {
+      "schemas": [
+        "offering-status-changed"
+      ]
+    },
+    "is-oa-05-aanmeldbare-snede.json": {
+      "schemas": [
+        "offering-open-for-application"
+      ]
+    },
+    "is-oa-05-inrichtingsstatus-gestart.json": {
+      "schemas": [
+        "arrangement-status"
+      ]
+    },
+    "is-oa-05-inrichtingsstatus-niet-ingericht.json": {
+      "schemas": [
+        "arrangement-status"
+      ]
+    },
+    "is-oa-05-delta-aanmeldvenster.json": {
+      "schemas": [
+        "education-offering-delta"
+      ]
+    }
+  }
+}
