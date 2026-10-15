@@ -587,12 +587,22 @@ def vakken_van_relatie(stromen, knopen, relatie):
     """
     if not relatie:
         return None, None
-    for s in stromen:
-        if s.get("relatie") != relatie:
-            continue
-        a, b = knopen.get(s["bron"]), knopen.get(s["doel"])
-        if a and b and a["type"] == "ApplicationComponent" and b["type"] == "ApplicationComponent":
-            return a, b
+    been = next((s for s in stromen if s.get("relatie") == relatie), None)
+    if been is None:
+        return None, None
+    b = knopen.get(been["doel"])
+    if not b or b["type"] != "ApplicationComponent":
+        return None, None
+    # Een junctie bundelt een stroom naar meer ontvangers; de afzender ligt dan een been terug.
+    bron = been["bron"]
+    for _ in range(4):
+        knoop = knopen.get(bron)
+        if knoop and knoop["type"] == "ApplicationComponent":
+            return knoop, b
+        vorige = next((s for s in stromen if s["doel"] == bron), None)
+        if vorige is None:
+            return None, None
+        bron = vorige["bron"]
     return None, None
 
 
@@ -650,8 +660,14 @@ def markeerpad(stromen, knopen, a, b, relatie=""):
     return []
 
 
-def vakken_in_groep(knopen, naam):
-    """Elk componentvak binnen een groep met deze naam, waar die groep ook op de plaat staat."""
+def vakken_in_groep(knopen, naam, binnen=None):
+    """Elk componentvak binnen de groep met deze naam waarin het ontvangende vak ligt.
+
+    Een groep staat twee keer op de plaat, links in de ontwerpzone en rechts in de
+    uitvoeringszone. Zonder `binnen` zouden beide exemplaren een omlijning krijgen, en dan
+    markeert een casus een zone waar zij niet over gaat. Met `binnen` telt de groep waarin het
+    ontvangende vak werkelijk ligt.
+    """
     uit, gezien = [], set()
 
     def verzamel(knoop):
@@ -661,6 +677,15 @@ def vakken_in_groep(knopen, naam):
             elif kind.get("naam") and kind["id"] not in gezien:
                 gezien.add(kind["id"])
                 uit.append(kind)
+
+    if binnen is not None:
+        knoop = knopen.get(binnen)
+        while knoop is not None:
+            if knoop["soort"] == "Group" and norm(knoop.get("naam", "")) == norm(naam):
+                verzamel(knoop)
+                return uit
+            knoop = knoop.get("ouder")
+        return []
 
     for knoop in knopen.values():
         if knoop["soort"] == "Group" and norm(knoop.get("naam", "")) == norm(naam):
@@ -686,7 +711,7 @@ def markeer_stromen(markeringen, stromen, knopen, componenten):
                              f"plaat te plaatsen")
             continue
         if m.get("ontvangergroep"):
-            leden = vakken_in_groep(knopen, m["ontvangergroep"])
+            leden = vakken_in_groep(knopen, m["ontvangergroep"], b["id"])
             if leden:
                 mee.extend(leden)
             else:

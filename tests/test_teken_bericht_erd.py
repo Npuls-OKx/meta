@@ -105,46 +105,124 @@ class DeRelatiesErtussen(unittest.TestCase):
         self.assertEqual(erd.kardinaliteit(RELATIES[1])[2], "verwijst naar")
 
 
-class DeRijen(unittest.TestCase):
-    """Een geheel staat boven zijn delen."""
+class DeAttributen(unittest.TestCase):
+    """De velden van het bericht landen bij het objecttype dat hun rij noemt."""
 
-    def test_given_een_geheel_en_zijn_deel_when_rijen_maken_then_staat_het_geheel_boven(self):
-        rijen = erd.rijen_van(["Onderwijseenheid specificatie", "Opleiding specificatie"], RELATIES)
-        self.assertEqual(rijen[0], ["Opleiding specificatie"])
-        self.assertEqual(rijen[1], ["Onderwijseenheid specificatie"])
+    def tabel(self, rijen, kop="| Veld | Type | Kardinaliteit | Verplicht | Objecttype |"):
+        regels = ["# S", "", "## De berichten", "", "### Een bericht", "", kop,
+                  "|" + "---|" * (kop.count("|") - 1)] + rijen + [""]
+        _, blok = erd.berichten("\n".join(regels))[0]
+        return erd.attributen_in(blok, BEKEND)
 
-    def test_given_alleen_associaties_when_rijen_maken_then_staat_alles_in_een_rij(self):
-        rijen = erd.rijen_van(["Onderwijseenheid specificatie", "Leeruitkomst"], [RELATIES[1]])
-        self.assertEqual(len(rijen), 1)
+    def test_given_een_veld_met_een_objecttype_when_lezen_then_hangt_het_eraan(self):
+        uit = self.tabel(["| `id` | uuid | 1 | ja | `Leeruitkomst` |"])
+        self.assertEqual(uit["Leeruitkomst"][0]["naam"], "id")
+        self.assertEqual(uit["Leeruitkomst"][0]["type"], "uuid")
+
+    def test_given_het_veld_id_when_lezen_then_is_het_de_sleutel(self):
+        uit = self.tabel(["| `id` | uuid | 1 | ja | `Leeruitkomst` |"])
+        self.assertEqual(uit["Leeruitkomst"][0]["sleutel"], "PK")
+
+    def test_given_een_veld_dat_op_id_eindigt_when_lezen_then_is_het_een_verwijzing(self):
+        uit = self.tabel(["| `parentId` | uuid | 1 | ja | `Leeruitkomst` |"])
+        self.assertEqual(uit["Leeruitkomst"][0]["sleutel"], "FK")
+
+    def test_given_kardinaliteit_en_verplicht_when_lezen_then_staan_zij_in_de_opmerking(self):
+        uit = self.tabel(["| `naam` | string | 0..1 | nee | `Leeruitkomst` |"])
+        self.assertEqual(uit["Leeruitkomst"][0]["opmerking"], "0..1")
+
+    def test_given_een_samengesteld_type_when_lezen_then_blijft_een_woord_over(self):
+        """Mermaid neemt geen spatie in een type; de eerste term is het type."""
+        uit = self.tabel(["| `vorm` | object: `waarde`, `eenheid` | 1 | ja | `Leeruitkomst` |"])
+        self.assertEqual(uit["Leeruitkomst"][0]["type"], "object")
+
+    def test_given_een_tabel_zonder_kolom_veld_when_lezen_then_komen_er_geen_attributen(self):
+        uit = self.tabel(["| `x` | `Leeruitkomst` |"], kop="| Soort | Objecttype |")
+        self.assertEqual(dict(uit), {})
 
 
-class DePlaat(unittest.TestCase):
+class HetMermaidBlok(unittest.TestCase):
+    """Wat er tussen de merktekens komt."""
 
-    def test_given_een_bericht_met_objecttypen_when_tekenen_then_komt_er_een_svg(self):
-        map_ = maak(document([("Een bericht", ["`Opleiding specificatie`",
-                                               "`Onderwijseenheid specificatie`"])]))
-        uit = map_ / "erd"
-        verslag = erd.verwerk(map_ / "is-oa-01.md", BEKEND, RELATIES, uit)
-        self.assertEqual(len(verslag), 1)
-        self.assertIsNotNone(verslag[0][1])
-        self.assertTrue((uit / verslag[0][1]).read_text(encoding="utf-8").startswith("<svg"))
+    def test_given_een_geheel_deelrelatie_when_bouwen_then_is_zij_een_op_veel(self):
+        blok = erd.mermaid(["Opleiding specificatie", "Onderwijseenheid specificatie"],
+                           [RELATIES[0]], {})
+        self.assertIn('"Opleiding specificatie" ||--o{ "Onderwijseenheid specificatie"', blok)
 
-    def test_given_een_bericht_zonder_objecttype_when_tekenen_then_komt_er_geen_svg(self):
-        """Een lege plaat leest als een gat in het model."""
-        map_ = maak(document([("Een bericht", ["contracteigenschap"])]))
-        verslag = erd.verwerk(map_ / "is-oa-01.md", BEKEND, RELATIES, map_ / "erd")
-        self.assertIsNone(verslag[0][1])
-        self.assertIn("draagt geen objecttype", verslag[0][2])
+    def test_given_een_associatie_met_label_when_bouwen_then_draagt_de_lijn_dat_label(self):
+        blok = erd.mermaid(["Onderwijseenheid specificatie", "Leeruitkomst"], [RELATIES[1]], {})
+        self.assertIn(': "verwijst naar"', blok)
 
-    def test_given_een_titel_breder_dan_de_vakken_when_tekenen_then_past_zij_op_het_doek(self):
-        svg = erd.teken(["Leeruitkomst"], [], "Een heel lange titel die breder is dan het vak eronder")
-        breedte = float(svg.split('width="')[1].split('"')[0])
-        self.assertGreater(breedte, erd.breedte("Een heel lange titel die breder is dan het vak eronder", 15, True))
+    def test_given_een_specialisatie_when_bouwen_then_staat_er_is_een(self):
+        rel = {"soort": "Specialization", "van": "Leeruitkomst", "naar": "Leeruitkomst", "label": None}
+        self.assertIn(': "is een"', erd.mermaid(["Leeruitkomst"], [rel], {}))
 
-    def test_given_een_relatie_binnen_de_bovenste_rij_when_tekenen_then_blijft_de_lijn_op_het_doek(self):
-        svg = erd.teken(["Onderwijseenheid specificatie", "Leeruitkomst"], [RELATIES[1]], "Titel")
-        self.assertNotIn("-", svg.split('viewBox="')[1].split('"')[0])
-        self.assertNotIn('y="-', svg)
+    def test_given_de_naam_uit_het_model_when_bouwen_then_staat_zij_er_letterlijk(self):
+        """De entiteit draagt de naam van het objecttype, zodat beide documenten hetzelfde zeggen."""
+        self.assertIn('"Opleiding specificatie"', erd.mermaid(["Opleiding specificatie"], [], {}))
+
+    def test_given_attributen_when_bouwen_then_dragen_zij_type_sleutel_en_opmerking(self):
+        attributen = {"Leeruitkomst": [{"naam": "id", "type": "uuid", "sleutel": "PK",
+                                        "opmerking": "1, verplicht"}]}
+        blok = erd.mermaid(["Leeruitkomst"], [], attributen)
+        self.assertIn('uuid id PK "1, verplicht"', blok)
+
+    def test_given_geen_objecttype_when_bouwen_then_komt_de_reden_in_plaats_van_een_diagram(self):
+        """Een leeg diagram leest als een gat in het model."""
+        self.assertIn("eigenschappen van het contract", erd.blok_voor([], [], {}))
+
+
+class DeMerktekens(unittest.TestCase):
+    """Het blok wordt tussen de merktekens geschreven, en alleen daar."""
+
+    def document(self, secties):
+        regels = ["# S", "", "## De berichten", ""]
+        for kop, rijen in secties:
+            regels += [f"### {kop}", "", "<!-- erd -->", "<!-- /erd -->", "",
+                       "| Veld | Type | Objecttype |", "|---|---|---|"]
+            regels += rijen + [""]
+        return "\n".join(regels)
+
+    def schrijf(self, tekst):
+        map_ = Path(tempfile.mkdtemp())
+        bestand = map_ / "is-oa-01.md"
+        bestand.write_text(tekst, encoding="utf-8")
+        return bestand
+
+    def test_given_lege_merktekens_when_bijwerken_then_komt_het_diagram_erin(self):
+        bestand = self.schrijf(self.document([("Een bericht", ["| `id` | uuid | `Leeruitkomst` |"])]))
+        erd.verwerk(bestand, BEKEND, RELATIES)
+        self.assertIn("erDiagram", bestand.read_text(encoding="utf-8"))
+
+    def test_given_twee_lege_blokken_when_bijwerken_then_krijgt_elk_zijn_eigen_diagram(self):
+        """Twee lege blokken zijn letterlijk gelijk; vervangen gaat daarom op plek."""
+        bestand = self.schrijf(self.document([
+            ("Eerste", ["| `id` | uuid | `Leeruitkomst` |"]),
+            ("Tweede", ["| `x` | string | contracteigenschap |"]),
+        ]))
+        erd.verwerk(bestand, BEKEND, RELATIES)
+        tekst = bestand.read_text(encoding="utf-8")
+        self.assertIn("erDiagram", tekst.split("### Tweede")[0])
+        self.assertIn("eigenschappen van het contract", tekst.split("### Tweede")[1])
+
+    def test_given_een_bericht_zonder_merktekens_when_bijwerken_then_staat_het_in_de_uitvoer(self):
+        tekst = "# S\n\n## De berichten\n\n### Een bericht\n\n| Veld | Objecttype |\n|---|---|\n| `id` | `Leeruitkomst` |\n"
+        verslag, veranderd = erd.verwerk(self.schrijf(tekst), BEKEND, RELATIES)
+        self.assertEqual(verslag[0][1], "geen merktekens")
+        self.assertFalse(veranderd)
+
+    def test_given_een_tweede_ronde_when_bijwerken_then_wijzigt_er_niets(self):
+        bestand = self.schrijf(self.document([("Een bericht", ["| `id` | uuid | `Leeruitkomst` |"])]))
+        erd.verwerk(bestand, BEKEND, RELATIES)
+        verslag, veranderd = erd.verwerk(bestand, BEKEND, RELATIES)
+        self.assertFalse(veranderd)
+        self.assertEqual(verslag[0][1], "ongewijzigd")
+
+    def test_given_controleer_when_bijwerken_then_blijft_het_bestand_ongemoeid(self):
+        bestand = self.schrijf(self.document([("Een bericht", ["| `id` | uuid | `Leeruitkomst` |"])]))
+        voor = bestand.read_text(encoding="utf-8")
+        erd.verwerk(bestand, BEKEND, RELATIES, controleer=True)
+        self.assertEqual(bestand.read_text(encoding="utf-8"), voor)
 
 
 class Exitcode(unittest.TestCase):
@@ -156,8 +234,15 @@ class Exitcode(unittest.TestCase):
     def test_given_een_document_when_draaien_then_exitcode_nul(self):
         map_ = maak(document([("Een bericht", ["`Leeruitkomst`"])]))
         self.assertEqual(self.draai(["--bestand", str(map_ / "is-oa-01.md"),
-                                     "--model", str(map_ / "model.json"),
-                                     "--uit", str(map_ / "erd")]), 0)
+                                     "--model", str(map_ / "model.json")]), 0)
+
+    def test_given_een_erd_die_achterloopt_when_controleren_then_exitcode_een(self):
+        """De poort voor een bouwmachine: het document moet het model volgen."""
+        tekst = ("# S\n\n## De berichten\n\n### Een bericht\n\n<!-- erd -->\n<!-- /erd -->\n\n"
+                 "| Veld | Objecttype |\n|---|---|\n| `id` | `Leeruitkomst` |\n")
+        map_ = maak(tekst)
+        self.assertEqual(self.draai(["--bestand", str(map_ / "is-oa-01.md"),
+                                     "--model", str(map_ / "model.json"), "--controleer"]), 1)
 
     def test_given_een_model_dat_ontbreekt_when_draaien_then_exitcode_twee(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -170,22 +255,19 @@ class Exitcode(unittest.TestCase):
 
 class InDezeRepository(unittest.TestCase):
 
-    def test_given_is_oa_01_when_tekenen_then_draagt_elk_bericht_met_objecttypen_een_plaat(self):
+    def test_given_is_oa_01_when_controleren_then_lopen_de_erds_niet_achter(self):
+        """De ERDs komen uit het model; lopen zij achter, dan klopt het document niet meer."""
         bekend, relaties = erd.lees_model(MODEL)
-        bestand = SPECIFICATIE / "is-oa-01.md"
-        zonder = [kop for kop, blok in erd.berichten(bestand.read_text(encoding="utf-8"))
-                  if not erd.objecttypen_in(blok, bekend)]
-        # Alleen de afkeuring draagt contracteigenschappen in plaats van objecttypen.
-        self.assertEqual(len(zonder), 1, zonder)
-        self.assertIn("Afkeuring", zonder[0])
+        _, veranderd = erd.verwerk(SPECIFICATIE / "is-oa-01.md", bekend, relaties, controleer=True)
+        self.assertFalse(veranderd, "draai scripts/teken-bericht-erd.py")
 
-    def test_given_de_getekende_platen_when_lezen_then_staan_zij_naast_de_specificatie(self):
-        platen = sorted((SPECIFICATIE / "img/erd").glob("is-oa-01-*.svg"))
-        if not platen:
-            self.skipTest("de platen ontbreken; draai eerst het script")
-        self.assertGreaterEqual(len(platen), 7)
-        for plaat in platen:
-            self.assertTrue(plaat.read_text(encoding="utf-8").startswith("<svg"))
+    def test_given_is_oa_01_when_lezen_then_draagt_elk_bericht_een_blok(self):
+        bekend, _ = erd.lees_model(MODEL)
+        tekst = (SPECIFICATIE / "is-oa-01.md").read_text(encoding="utf-8")
+        secties = erd.berichten(tekst)
+        self.assertGreaterEqual(len(secties), 8)
+        zonder = [kop for kop, blok in secties if not erd.MERKTEKEN.search(blok)]
+        self.assertEqual(zonder, [])
 
 
 if __name__ == "__main__":

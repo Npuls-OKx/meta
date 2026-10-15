@@ -286,9 +286,13 @@ class OntvangerGroepTests(unittest.TestCase):
     """
 
     def knoop(self, id_, naam, soort="DiagramObject", kinderen=None):
-        return {"id": id_, "naam": naam, "soort": soort, "kinderen": kinderen or [],
-                "type": "ApplicationComponent" if soort == "DiagramObject" else "",
-                "ax": 0, "ay": 0, "w": 10, "h": 10}
+        """Een knoop met de ouderketen gelegd, want die wijst de groep aan waarin een vak ligt."""
+        k = {"id": id_, "naam": naam, "soort": soort, "kinderen": kinderen or [],
+             "type": "ApplicationComponent" if soort == "DiagramObject" else "",
+             "ax": 0, "ay": 0, "w": 10, "h": 10, "ouder": None}
+        for kind in k["kinderen"]:
+            kind["ouder"] = k
+        return k
 
     def plaat(self):
         krs = self.knoop("krs", "Kernregistratie systeem studenten (KRS)")
@@ -299,6 +303,17 @@ class OntvangerGroepTests(unittest.TestCase):
     def test_given_een_groep_when_de_vakken_zoeken_then_komen_haar_leden_terug(self):
         leden = ruim.vakken_in_groep(self.plaat(), "Student Informatie Systeem")
         self.assertEqual(sorted(k["id"] for k in leden), ["krs", "svs"])
+
+    def test_given_de_groep_tweemaal_op_de_plaat_when_zoeken_vanaf_een_vak_then_telt_die_zone(self):
+        """Een groep staat links en rechts op de plaat; alleen de zone van de ontvanger telt."""
+        links = self.knoop("sis-links", "Student Informatie Systeem", "Group",
+                           [self.knoop("krs-links", "KRS"), self.knoop("svs-links", "SVS")])
+        rechts = self.knoop("sis-rechts", "Student Informatie Systeem", "Group",
+                            [self.knoop("krs-rechts", "KRS"), self.knoop("svs-rechts", "SVS")])
+        knopen = {k["id"]: k for groep in (links, rechts)
+                  for k in [groep] + groep["kinderen"]}
+        leden = ruim.vakken_in_groep(knopen, "Student Informatie Systeem", "krs-links")
+        self.assertEqual(sorted(k["id"] for k in leden), ["krs-links", "svs-links"])
 
     def test_given_een_geneste_groep_when_de_vakken_zoeken_then_komen_de_leden_eruit(self):
         binnen = self.knoop("binnen", "Binnen", "Group", [self.knoop("a", "A")])

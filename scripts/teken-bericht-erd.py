@@ -1,35 +1,43 @@
 #!/usr/bin/env python3
-"""Per bericht in een interactiespecificatie een ERD van de objecttypen die het draagt.
+"""Per bericht in een interactiespecificatie een ERD in mermaid, uit het informatiemodel.
 
 Waarom dit script bestaat: een berichtspecificatie zegt veld voor veld wat er over de lijn
 gaat, en laat de lezer zelf uitzoeken hoe die velden zich tot elkaar verhouden. Wie de
 koppeling bouwt of verifieert wil dat verband zien: welke objecttypen zitten in dit bericht,
-en hoe hangen zij samen in het informatiemodel. Relateert aan: Npuls-OKx/meta#372.
+welke sleutels en verwijzingen dragen zij, en met welke multipliciteit hangen zij samen.
+Relateert aan: Npuls-OKx/meta#372.
 
-    python3 scripts/teken-bericht-erd.py [--map PAD] [--bestand PAD] [--uit MAP]
+    python3 scripts/teken-bericht-erd.py [--map PAD] [--bestand PAD] [--controleer]
 
-Zonder argumenten leest het script de interactiespecificaties in
-architecture/docs/specificatie/interactie-onderwijsaanbod en schrijft het de platen naar
-`img/erd/` daarnaast.
+Zonder argumenten werkt het script de ERDs bij in de interactiespecificaties in
+architecture/docs/specificatie/interactie-onderwijsaanbod. Met `--controleer` schrijft het
+niets en meldt het alleen welk blok zou wijzigen; dat is de poort voor een bouwmachine.
 
-De inhoud is afgeleid, niet ingevoerd
--------------------------------------
-Per berichtsectie leest het script de kolom `Objecttype` van elke tabel, pakt daaruit de
-namen tussen backquotes, en houdt de namen over die het [informatiemodel](
-architecture/model/informatiemodel/informatiemodel.json) kent. De relaties ertussen komen uit
-datzelfde bestand. Wijzigt het model, dan wijzigen de platen mee.
+De namen komen uit het model, de attributen uit het bericht
+-----------------------------------------------------------
+Een entiteit draagt de naam van het objecttype zoals het [informatiemodel](
+architecture/model/informatiemodel/informatiemodel.json) hem schrijft, letterlijk, zodat
+beide documenten over hetzelfde praten. De relaties ertussen komen uit datzelfde bestand, met
+de multipliciteit uit de soort: een geheel-deelrelatie wordt een-op-veel, een specialisatie
+een-op-een met het opschrift `is een`, en een associatie veel-op-veel met haar eigen label.
 
-Een bericht waarvan de velden contracteigenschappen zijn, zoals een afkeuring met haar code
-en haar plek in de lading, draagt geen objecttype. Daar komt geen plaat: het script meldt dat,
-want een lege plaat leest als een gat in het model.
+De attributen komen uit de veldtabel van het bericht zelf, want daar staat wat er werkelijk
+over de lijn gaat: de sleutel, het type, de multipliciteit en of het veld verplicht is. Een
+veld landt bij het objecttype dat zijn rij in de kolom `Objecttype` noemt. `id` is de sleutel
+(PK), en een veld dat op `Id` of `Ids` eindigt is een verwijzing (FK).
 
-De vorm
--------
-Een objecttype is een vak; een relatie is een lijn met haar kardinaliteit aan beide kanten.
-De soort uit het model bepaalt die kardinaliteit: een geheel-deelrelatie draagt `1` bij het
-geheel en `n` bij het deel, een specialisatie draagt `is een`, en een associatie draagt haar
-label uit het model. De rijen volgen de geheel-deelrichting, zodat een boom van boven naar
-beneden leest.
+Het blok staat tussen twee merktekens in de markdown:
+
+    <!-- erd -->
+    ```mermaid
+    ...
+    ```
+    <!-- /erd -->
+
+Alles ertussen wordt overschreven; de rest van het document blijft. Een bericht met
+merktekens en zonder objecttype krijgt geen diagram maar de reden, want een leeg diagram
+leest als een gat in het model. Een bericht met objecttypen en zonder merktekens staat in de
+uitvoer, zodat het niet stil overgeslagen wordt.
 """
 
 import argparse
@@ -161,136 +169,124 @@ def rijen_van(namen, relaties):
     return [per_rij[d] for d in sorted(per_rij)]
 
 
-def knip(tekst, ruimte, grootte=12, regels=2):
-    woorden, uit, huidig = tekst.split(), [], ""
-    for woord in woorden:
-        kandidaat = f"{huidig} {woord}".strip()
-        if huidig and breedte(kandidaat, grootte) > ruimte:
-            uit.append(huidig)
-            huidig = woord
-            if len(uit) == regels:
-                break
-        else:
-            huidig = kandidaat
-    if huidig and len(uit) < regels:
-        uit.append(huidig)
+TYPEWOORD = re.compile(r"[a-zA-Z][a-zA-Z0-9_]*")
+MERKTEKEN = re.compile(r"<!-- erd -->.*?<!-- /erd -->", re.S)
+
+
+def attributen_in(blok, bekend):
+    """Per objecttype de velden die het bericht erover draagt, in leesvolgorde.
+
+    De veldtabel van een bericht draagt de sleutel, het type, de multipliciteit en of het veld
+    verplicht is. Dat is wat er werkelijk over de lijn gaat, en daarmee wat een bouwer nodig
+    heeft. Een tabel zonder kolom `Veld` levert alleen entiteiten op.
+    """
+    uit = collections.defaultdict(list)
+    kolommen = None
+    for regel in blok.splitlines():
+        gestript = regel.strip()
+        if not gestript.startswith("|"):
+            kolommen = None
+            continue
+        cellen = [c.strip() for c in gestript.split("|")[1:-1]]
+        if kolommen is None:
+            kolommen = {c.lower(): i for i, c in enumerate(cellen)}
+            continue
+        if set(gestript) <= set("|- :") or "objecttype" not in kolommen:
+            continue
+
+        def cel(naam):
+            i = kolommen.get(naam)
+            return cellen[i] if i is not None and i < len(cellen) else ""
+
+        typen = [n for n in re.findall(r"`([^`]+)`", cel("objecttype")) if n in bekend]
+        velden = re.findall(r"`([^`]+)`", cel("veld"))
+        if not typen or not velden:
+            continue
+        soort = TYPEWOORD.search(re.sub(r"`[^`]*`", "", cel("type")) or cel("type"))
+        opmerking = ", ".join(x for x in (cel("kardinaliteit"),
+                                          "verplicht" if cel("verplicht").startswith("ja") else "")
+                              if x)
+        naam = velden[0]
+        attribuut = {
+            "naam": re.sub(r"[^A-Za-z0-9_]", "", naam) or "veld",
+            "type": (soort.group(0) if soort else "string").lower(),
+            "sleutel": "PK" if naam == "id" else ("FK" if re.search(r"Ids?$", naam) else ""),
+            "opmerking": opmerking,
+        }
+        for objecttype in typen:
+            if attribuut["naam"] not in [a["naam"] for a in uit[objecttype]]:
+                uit[objecttype].append(attribuut)
     return uit
 
 
-def tekst_svg(x, y, s, grootte=12, kleur=INK, vet=False, anker="middle"):
-    gewicht = ' font-weight="600"' if vet else ""
-    return (f'<text x="{x:.0f}" y="{y:.0f}" font-family="{FONT}" font-size="{grootte}" '
-            f'fill="{kleur}" text-anchor="{anker}"{gewicht}>{html.escape(s)}</text>')
+def verbinding(relatie):
+    """De mermaid-notatie en het opschrift bij een relatiesoort uit het model."""
+    soort = relatie["soort"]
+    if soort in OMLAAG:
+        return "||--o{", relatie.get("label") or "bestaat uit"
+    if soort == "Specialization":
+        return "||--||", relatie.get("label") or "is een"
+    return "}o--o{", relatie.get("label") or "hangt samen met"
 
 
-def teken(namen, relaties, titel):
-    """De ERD als SVG, met de vakken in rijen en de lijnen haaks ertussen."""
-    rijen = rijen_van(namen, relaties)
-    maten = {}
-    for naam in namen:
-        regels = knip(naam, 190)
-        maten[naam] = (max(breedte(r, 12) for r in regels) + 46,
-                       VAKHOOGTE + (REGELHOOGTE if len(regels) > 1 else 0), regels)
-
-    # Een relatie binnen de bovenste rij loopt erboven langs, dus daar moet ruimte voor zijn.
-    boven = sum(1 for r in relaties if r["van"] in rijen[0] and r["naar"] in rijen[0])
-    kop = TITELHOOGTE + (boven * 15 + 20 if boven else 0)
-    plek, y = {}, kop
-    # Het doek is minstens zo breed als de titel, anders valt die erbuiten.
-    breed = MARGE * 2 + breedte(titel, 15, True)
-    for rij in rijen:
-        rijbreedte = sum(maten[n][0] for n in rij) + GOOT * (len(rij) - 1)
-        breed = max(breed, rijbreedte + MARGE * 2)
-        hoog = max(maten[n][1] for n in rij)
-        y += hoog + RIJGOOT
-    hoogte = y - RIJGOOT + MARGE
-
-    y = kop
-    for rij in rijen:
-        rijbreedte = sum(maten[n][0] for n in rij) + GOOT * (len(rij) - 1)
-        x = (breed - rijbreedte) / 2
-        hoog = max(maten[n][1] for n in rij)
-        for naam in rij:
-            b, h, regels = maten[naam]
-            plek[naam] = (x, y, b, h, regels)
-            x += b + GOOT
-        y += hoog + RIJGOOT
-
-    delen = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{breed:.0f}" '
-             f'height="{hoogte:.0f}" viewBox="0 0 {breed:.0f} {hoogte:.0f}" role="img">',
-             f'<rect width="{breed:.0f}" height="{hoogte:.0f}" fill="#ffffff"/>',
-             tekst_svg(MARGE, 28, titel, 15, INK, True, "start")]
-
-    # Elke relatie tussen hetzelfde rijenpaar krijgt haar eigen baanhoogte, anders vallen de
-    # etiketten op elkaar en loopt elke lijn over dezelfde horizontale baan.
-    banen = collections.defaultdict(int)
+def mermaid(namen, relaties, attributen):
+    """Het erDiagram-blok: de entiteiten met hun attributen, en de relaties ertussen."""
+    regels = ["```mermaid", "erDiagram"]
     for r in relaties:
-        ax, ay, ab, ah, _ = plek[r["van"]]
-        bx, by, bb, bh, _ = plek[r["naar"]]
-        van_mid, naar_mid = ax + ab / 2, bx + bb / 2
-        sleutel = (min(ay, by), max(ay, by))
-        trap = banen[sleutel] * 15
-        banen[sleutel] += 1
-        if abs(ay - by) < 1:
-            y0 = ay - 16 - trap
-            punten = [(van_mid, ay), (van_mid, y0), (naar_mid, y0), (naar_mid, by)]
-        elif ay < by:
-            tussen = ay + ah + 20 + trap
-            punten = [(van_mid, ay + ah), (van_mid, tussen), (naar_mid, tussen), (naar_mid, by)]
-        else:
-            tussen = by + bh + 20 + trap
-            punten = [(van_mid, ay), (van_mid, tussen), (naar_mid, tussen), (naar_mid, by + bh)]
-        pad = " ".join(f"{'M' if i == 0 else 'L'}{px:.0f} {py:.0f}" for i, (px, py) in enumerate(punten))
-        delen.append(f'<path d="{pad}" fill="none" stroke="{LIJN}" stroke-width="1.4"/>')
-        bij_van, bij_naar, label = kardinaliteit(r)
-        if bij_van:
-            delen.append(tekst_svg(van_mid + 12, punten[0][1] + (14 if ay < by else -6), bij_van, 11, MUTED))
-        if bij_naar:
-            delen.append(tekst_svg(naar_mid + 12, punten[-1][1] - (6 if ay < by else -14), bij_naar, 11, MUTED))
-        if label:
-            mx = (punten[1][0] + punten[2][0]) / 2
-            my = punten[1][1]
-            delen.append(f'<rect x="{mx - breedte(label, 11) / 2 - 4:.0f}" y="{my - 9:.0f}" '
-                         f'width="{breedte(label, 11) + 8:.0f}" height="14" fill="#ffffff"/>')
-            delen.append(tekst_svg(mx, my + 2, label, 11, MUTED))
-
+        notatie, opschrift = verbinding(r)
+        regels.append(f'    "{r["van"]}" {notatie} "{r["naar"]}" : "{opschrift}"')
     for naam in namen:
-        x, y, b, h, regels = plek[naam]
-        delen.append(f'<rect x="{x:.0f}" y="{y:.0f}" width="{b:.0f}" height="{h:.0f}" rx="3" '
-                     f'fill="{BUS}" stroke="{BUS_L}" stroke-width="1"/>')
-        delen.append(f'<g transform="translate({x + 10:.0f},{y + (h - 14) / 2:.0f})" fill="none" '
-                     f'stroke="{BUS_T}" stroke-width="1.2">{ICOON}</g>')
-        basis = y + (19 if len(regels) > 1 else 20)
-        for i, regel in enumerate(regels):
-            delen.append(tekst_svg(x + b / 2 + 14, basis + i * REGELHOOGTE, regel, 12, BUS_T))
-
-    delen.append("</svg>")
-    return "\n".join(delen)
-
-
-def anker(kop):
-    """Een bestandsnaam uit een kop, zonder de operatieverwijzing ertussen haakjes."""
-    schoon = re.sub(r"\([^)]*\)", "", kop).lower()
-    schoon = re.sub(r"[`\"']", "", schoon)
-    schoon = re.sub(r"[^a-z0-9]+", "-", schoon)
-    return schoon.strip("-")
+        velden = attributen.get(naam) or []
+        if not velden:
+            regels.append(f'    "{naam}" {{ }}' if not relaties else f'    "{naam}" {{ }}')
+            continue
+        regels.append(f'    "{naam}" {{')
+        for a in velden:
+            staart = f' {a["sleutel"]}' if a["sleutel"] else ""
+            opmerking = f' "{a["opmerking"]}"' if a["opmerking"] else ""
+            regels.append(f'        {a["type"]} {a["naam"]}{staart}{opmerking}')
+        regels.append("    }")
+    regels.append("```")
+    return "\n".join(regels)
 
 
-def verwerk(bestand, bekend, relaties, uit):
-    """De platen van een document, met per bericht wat er gebeurde."""
+def blok_voor(namen, relaties, attributen):
+    """Wat er tussen de merktekens komt: een diagram, of de reden dat er geen is."""
+    if not namen:
+        return ("Dit bericht draagt geen objecttype uit het informatiemodel: de velden zijn "
+                "eigenschappen van het contract.")
+    return mermaid(namen, relaties, attributen)
+
+
+def verwerk(bestand, bekend, relaties, controleer=False):
+    """De ERDs van een document bijwerken; geeft per bericht terug wat er gebeurde."""
     tekst = bestand.read_text(encoding="utf-8")
-    verslag = []
+    verslag, gewenste = [], []
     for kop, blok in berichten(tekst):
         namen = objecttypen_in(blok, bekend)
-        if not namen:
-            verslag.append((kop, None, "draagt geen objecttype; de velden zijn contracteigenschappen"))
-            continue
         eigen = relaties_tussen(namen, relaties)
-        naam = f"{bestand.stem}-{anker(kop)}.svg"
-        uit.mkdir(parents=True, exist_ok=True)
-        (uit / naam).write_text(teken(namen, eigen, kop) + "\n", encoding="utf-8")
-        verslag.append((kop, naam, f"{len(namen)} objecttypen, {len(eigen)} relaties"))
-    return verslag
+        merk = MERKTEKEN.search(blok)
+        if merk is None:
+            verslag.append((kop, "geen merktekens",
+                            f"{len(namen)} objecttypen; zet <!-- erd --> en <!-- /erd --> in de sectie"))
+            continue
+        nieuw_blok = f"<!-- erd -->\n{blok_voor(namen, eigen, attributen_in(blok, bekend))}\n<!-- /erd -->"
+        gewenste.append(nieuw_blok)
+        verslag.append((kop, "ongewijzigd" if merk.group(0) == nieuw_blok
+                        else ("zou wijzigen" if controleer else "bijgewerkt"),
+                        f"{len(namen)} objecttypen, {len(eigen)} relaties"))
+
+    # Op plek vervangen en niet op inhoud: twee lege blokken zijn letterlijk gelijk, en dan
+    # raakt een vervanging op inhoud steeds hetzelfde blok.
+    rest = list(gewenste)
+    if len(MERKTEKEN.findall(tekst)) != len(gewenste):
+        print(f"  {bestand.name}: er staan merktekens buiten een berichtsectie; niets geschreven",
+              file=sys.stderr)
+        return verslag, False
+    nieuw = MERKTEKEN.sub(lambda _: rest.pop(0).replace("\\", "\\\\"), tekst)
+    if not controleer and nieuw != tekst:
+        bestand.write_text(nieuw, encoding="utf-8")
+    return verslag, nieuw != tekst
 
 
 def main(argv=None):
@@ -298,7 +294,8 @@ def main(argv=None):
     parser.add_argument("--map", default=None, help="de map met de interactiespecificaties")
     parser.add_argument("--bestand", default=None, help="alleen dit document")
     parser.add_argument("--model", default=None, help="het informatiemodel")
-    parser.add_argument("--uit", default=None, help="de map voor de platen")
+    parser.add_argument("--controleer", action="store_true",
+                        help="schrijf niets en meld alleen wat zou wijzigen")
     args = parser.parse_args(argv)
 
     map_ = pathlib.Path(args.map) if args.map else WORTEL / MAP
@@ -311,16 +308,21 @@ def main(argv=None):
     if not bestanden or not all(b.is_file() for b in bestanden):
         print(f"Geen interactiespecificatie gevonden in {map_}.", file=sys.stderr)
         return 2
-    uit = pathlib.Path(args.uit) if args.uit else bestanden[0].parent / UIT
 
     bekend, relaties = lees_model(model)
-    geschreven = 0
+    gewijzigd, zonder = False, 0
     for bestand in bestanden:
         print(f"\n{bestand.name}")
-        for kop, naam, wat in verwerk(bestand, bekend, relaties, uit):
-            print(f"  {kop[:54]:56} {naam or 'geen plaat':46} {wat}")
-            geschreven += 1 if naam else 0
-    print(f"\n{geschreven} platen geschreven in {uit}.")
+        verslag, veranderd = verwerk(bestand, bekend, relaties, args.controleer)
+        gewijzigd = gewijzigd or veranderd
+        for kop, stand, wat in verslag:
+            print(f"  {kop[:58]:60} {stand:14} {wat}")
+            zonder += 1 if stand == "geen merktekens" else 0
+    if zonder:
+        print(f"\n{zonder} berichten zonder merktekens; daar staat geen ERD.")
+    if args.controleer and gewijzigd:
+        print("\nDe ERDs lopen achter op het informatiemodel.", file=sys.stderr)
+        return 1
     return 0
 
 

@@ -2,12 +2,12 @@
 
 | | |
 |---|---|
-| **Doel** | Vastleggen welke informatie tussen welke systemen gaat wanneer een instelling onderwijsaanbod ontwerpt en ontsluit, zo precies dat een leverancier het bouwt |
+| **Document doel** | Zet uiteen welke informatie tussen welke systemen gaat wanneer een instelling onderwijsaanbod ontwerpt en ontsluit, ten behoeve van de bouw of de verificatie van een implementatie volgens deze specificatie |
 | **Doelgroep** | De informatiemanager en architect van een instelling die uitvraagt, en de software-architect en implementatiespecialist van een leverancier die bouwt |
 | **Dient als input voor** | Een eis in een aanbesteding, een bouwopdracht aan een leverancier, en de koppelvlakspecificaties in [Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Koppelvlakspecificaties) |
 | **Kaderstelling** | [Kaderscenario leerroute 1](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md) met [persona Jochem](../leerroute-uitwerking/doc/persona_jochem.md), het [informatiemodel OKx](../../../model/informatiemodel/informatiemodel.md), en de [voorbeelduitwerking](../../../model/informatiemodel/voorbeeld-leerroute-1-jochem.md) die per stap toont wat er ontstaat |
 | **Inhoud** | Zeven interactiespecificaties tussen zes applicatiecomponenten, elk met haar operaties, berichten en een voorbeeldpayload die valideert |
-| **Stand** | IS-OA-03, IS-OA-04 en IS-OA-07 liggen vast in Public. IS-OA-02 en IS-OA-06 zijn voorstel. IS-OA-01 en IS-OA-05 zijn deels vastgelegd, met de wijziging per regel erbij |
+| **Status** | IS-OA-03, IS-OA-04 en IS-OA-07 liggen vast in Public. IS-OA-02 en IS-OA-06 zijn voorstel. IS-OA-01 en IS-OA-05 zijn deels vastgelegd, met de wijziging per regel erbij |
 
 ## Leeswijzer
 
