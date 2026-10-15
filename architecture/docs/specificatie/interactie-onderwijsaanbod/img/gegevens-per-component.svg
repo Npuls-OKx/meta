@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1308" height="842" viewBox="0 0 1308 842" role="img">
-<rect width="1308" height="842" fill="#ffffff"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1562" height="842" viewBox="0 0 1562 842" role="img">
+<rect width="1562" height="842" fill="#ffffff"/>
 <text x="28" y="30" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#1c1c1c" text-anchor="start" font-weight="600">Wie bezit welk gegeven in deze keten</text>
 <rect x="28" y="56" width="236" height="46" rx="3" fill="#b5ffff" stroke="#5aa8a8" stroke-width="1"/>
 <g transform="translate(38,65)" fill="none" stroke="#2a5a5a" stroke-width="1.2"><rect x="4" y="2" width="10" height="12"/><rect x="2" y="4" width="4" height="2.5"/><rect x="2" y="8.5" width="4" height="2.5"/></g>
@@ -116,6 +116,19 @@
 <rect x="282" y="468" width="236" height="22" rx="3" fill="#ffffb5" stroke="#a8a85a" stroke-width="1"/>
 <g transform="translate(290,472.0)" fill="none" stroke="#5a5a2a" stroke-width="1.2"><rect x="2" y="3" width="12" height="10"/><path d="M2 6.5h12"/></g>
 <text x="310" y="483" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">Opleidingsprogramma aanbod</text>
+<text x="286" y="515" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#5b6663" text-anchor="start" font-weight="600">IS-OA-07 specificaties naar het LMS</text>
+<rect x="282" y="523" width="236" height="22" rx="3" fill="#ffffb5" stroke="#a8a85a" stroke-width="1"/>
+<g transform="translate(290,527.0)" fill="none" stroke="#5a5a2a" stroke-width="1.2"><rect x="2" y="3" width="12" height="10"/><path d="M2 6.5h12"/></g>
+<text x="310" y="538" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">Formatieve resultaat structuur</text>
+<rect x="282" y="550" width="236" height="22" rx="3" fill="#ffffb5" stroke="#a8a85a" stroke-width="1"/>
+<g transform="translate(290,554.0)" fill="none" stroke="#5a5a2a" stroke-width="1.2"><rect x="2" y="3" width="12" height="10"/><path d="M2 6.5h12"/></g>
+<text x="310" y="565" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">Leeronderdeel specificatie</text>
+<rect x="282" y="577" width="236" height="22" rx="3" fill="#ffffb5" stroke="#a8a85a" stroke-width="1"/>
+<g transform="translate(290,581.0)" fill="none" stroke="#5a5a2a" stroke-width="1.2"><rect x="2" y="3" width="12" height="10"/><path d="M2 6.5h12"/></g>
+<text x="310" y="592" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">Les specificatie</text>
+<rect x="282" y="604" width="236" height="22" rx="3" fill="#ffffb5" stroke="#a8a85a" stroke-width="1"/>
+<g transform="translate(290,608.0)" fill="none" stroke="#5a5a2a" stroke-width="1.2"><rect x="2" y="3" width="12" height="10"/><path d="M2 6.5h12"/></g>
+<text x="310" y="619" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">Toetsonderdeel specificatie</text>
 <rect x="536" y="56" width="236" height="46" rx="3" fill="#b5ffff" stroke="#5aa8a8" stroke-width="1"/>
 <g transform="translate(546,65)" fill="none" stroke="#2a5a5a" stroke-width="1.2"><rect x="4" y="2" width="10" height="12"/><rect x="2" y="4" width="4" height="2.5"/><rect x="2" y="8.5" width="4" height="2.5"/></g>
 <text x="568" y="76" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#2a5a5a" text-anchor="start" font-weight="600">Planningssysteem</text>
@@ -155,5 +168,10 @@
 <text x="1076" y="76" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#2a5a5a" text-anchor="start" font-weight="600">Voorziening Centraal</text>
 <text x="1076" y="91" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#2a5a5a" text-anchor="start" font-weight="600">Aanmelden (CAMBO)</text>
 <text x="1048" y="124" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#5b6663" text-anchor="start">ontvangt, bezit hier niets</text>
+<rect x="1298" y="56" width="236" height="46" rx="3" fill="#b5ffff" stroke="#5aa8a8" stroke-width="1"/>
+<g transform="translate(1308,65)" fill="none" stroke="#2a5a5a" stroke-width="1.2"><rect x="4" y="2" width="10" height="12"/><rect x="2" y="4" width="4" height="2.5"/><rect x="2" y="8.5" width="4" height="2.5"/></g>
+<text x="1330" y="76" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#2a5a5a" text-anchor="start" font-weight="600">Leer management systeem</text>
+<text x="1330" y="91" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#2a5a5a" text-anchor="start" font-weight="600">(LMS)</text>
+<text x="1302" y="124" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#5b6663" text-anchor="start">ontvangt, bezit hier niets</text>
 <text x="28" y="832" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#5b6663" text-anchor="start">Afgeleid uit voorbeeld-lr1-regels.json: een component bezit het objecttype waarvan hij het bronsysteem is.</text>
 </svg>

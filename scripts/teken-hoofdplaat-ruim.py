@@ -561,12 +561,39 @@ def lees_markering(pad):
     `op_de_plaat` dat zegt of de hoofdplaat de lijn al kent, en `stroom` met het ID van de
     stroomrelatie in het model. Dat ID wijst de lijn aan waar een paar componenten meer stromen
     deelt; zonder dat ID telt het paar vakken.
+
+    Met `ontvangergroep` ligt de ontvangst bij een groep op de plaat in plaats van bij een vak.
+    De lijn loopt dan nog steeds naar het vak dat `naar` noemt, en de omlijning komt om elk vak
+    in die groep: het Student Informatie Systeem is de kernregistratie en het studentvolgsysteem
+    samen, en RIO/CAMBO/AII draagt vier vakken. Wie een van die vakken aansluit, krijgt dezelfde
+    informatie, dus hoort de markering ze alle te laten zien.
     """
     gegeven = json.loads(pathlib.Path(pad).read_text(encoding="utf-8"))
     uit = [dict(van=norm(s["van"]), naar=norm(s["naar"]), label=norm(s.get("label", "")),
-                op_de_plaat=bool(s.get("op_de_plaat", True)), stroom=norm(s.get("stroom", "")))
+                op_de_plaat=bool(s.get("op_de_plaat", True)), stroom=norm(s.get("stroom", "")),
+                ontvangergroep=norm(s.get("ontvangergroep", "")))
            for s in gegeven.get("stromen", [])]
     return norm(gegeven.get("naam", "")), uit
+
+
+def vakken_van_relatie(stromen, knopen, relatie):
+    """Het vakkenpaar dat de genoemde stroomrelatie verbindt, of niets.
+
+    Waarvoor: een component staat soms twee keer op de plaat, links in de ontwerpzone en rechts
+    in de uitvoeringszone, en dan bestaat dezelfde koppeling er twee keer. Het dichtstbijzijnde
+    paar is dan niet het goede paar: de catalogus en de leeromgeving liggen rechts dicht bij
+    elkaar, terwijl de lijn die een casus bedoelt links onder het ontwerpblok loopt. Noemt de
+    casus het ID van de stroomrelatie, dan wijst dat ID de vakken aan.
+    """
+    if not relatie:
+        return None, None
+    for s in stromen:
+        if s.get("relatie") != relatie:
+            continue
+        a, b = knopen.get(s["bron"]), knopen.get(s["doel"])
+        if a and b and a["type"] == "ApplicationComponent" and b["type"] == "ApplicationComponent":
+            return a, b
+    return None, None
 
 
 def dichtste_vakken(componenten, van, naar):
@@ -623,6 +650,24 @@ def markeerpad(stromen, knopen, a, b, relatie=""):
     return []
 
 
+def vakken_in_groep(knopen, naam):
+    """Elk componentvak binnen een groep met deze naam, waar die groep ook op de plaat staat."""
+    uit, gezien = [], set()
+
+    def verzamel(knoop):
+        for kind in knoop["kinderen"]:
+            if kind["soort"] == "Group":
+                verzamel(kind)
+            elif kind.get("naam") and kind["id"] not in gezien:
+                gezien.add(kind["id"])
+                uit.append(kind)
+
+    for knoop in knopen.values():
+        if knoop["soort"] == "Group" and norm(knoop.get("naam", "")) == norm(naam):
+            verzamel(knoop)
+    return uit
+
+
 def markeer_stromen(markeringen, stromen, knopen, componenten):
     """Elke markering naast de plaat leggen; geeft terug wat uitgelicht wordt en wat ontbreekt.
 
@@ -631,13 +676,22 @@ def markeer_stromen(markeringen, stromen, knopen, componenten):
     bestand dat de plaat de lijn kent terwijl zij die niet heeft, dan staat dat in de meldingen
     en wordt de stroom gestippeld getekend: de plaat laat zien wat zij werkelijk heeft.
     """
-    raakt, zonder, ontbreekt = [], [], []
+    raakt, zonder, ontbreekt, mee = [], [], [], []
     for m in markeringen:
-        a, b = dichtste_vakken(componenten, m["van"], m["naar"])
+        a, b = vakken_van_relatie(stromen, knopen, m.get("stroom", ""))
+        if a is None or b is None:
+            a, b = dichtste_vakken(componenten, m["van"], m["naar"])
         if a is None or b is None:
             ontbreekt.append(f"{m['label'] or 'stroom'}: {m['van']} naar {m['naar']} is niet op de "
                              f"plaat te plaatsen")
             continue
+        if m.get("ontvangergroep"):
+            leden = vakken_in_groep(knopen, m["ontvangergroep"])
+            if leden:
+                mee.extend(leden)
+            else:
+                ontbreekt.append(f"{m['label'] or 'stroom'}: de groep {m['ontvangergroep']} staat "
+                                 f"niet op de plaat")
         benen = markeerpad(stromen, knopen, a, b, m.get("stroom", "")) if m["op_de_plaat"] else []
         if benen:
             raakt.append((m, a, b, benen))
@@ -646,7 +700,7 @@ def markeer_stromen(markeringen, stromen, knopen, componenten):
         if m["op_de_plaat"]:
             ontbreekt.append(f"{m['label'] or 'stroom'}: {m['van']} naar {m['naar']} staat in het "
                              f"bestand als lijn die de plaat kent, de plaat heeft deze stroom niet")
-    return raakt, zonder, ontbreekt
+    return raakt, zonder, ontbreekt, mee
 
 
 def markeerlijn_svg(punten):
@@ -688,7 +742,7 @@ def markeer_legenda_svg(naam, x, y, breedte):
     return "".join(delen)
 
 
-def markeer_svg(raakt, zonder, per_zone, routers, vakken, bezet, doek):
+def markeer_svg(raakt, zonder, per_zone, routers, vakken, bezet, doek, mee=()):
     """Wat er over de vervaagde plaat heen komt: de ontbrekende stromen, de omlijning en de namen.
 
     De stromen die de plaat kent staan hier al in de accentkleur: die kregen hun kleur en dikte in
@@ -696,6 +750,10 @@ def markeer_svg(raakt, zonder, per_zone, routers, vakken, bezet, doek):
     eigen baan, gestippeld en haaks: de router kent de vakken en de banen die de plaat al bezet
     houdt, dus die baan loopt er netjes naast. Daarna de omlijning om elk component dat meedoet, en
     bovenop de namen, zodat zij over de lijnen heen leesbaar blijven.
+
+    `mee` draagt de overige vakken van een ontvangende groep. Die krijgen dezelfde omlijning als
+    de afzender en de ontvanger, want zij nemen dezelfde informatie af; de lijn blijft lopen naar
+    het vak dat de markering noemt.
     """
     uitgelicht = [(m, [p for been in benen for p in been["punten"]], True)
                   for m, a, b, benen in raakt]
@@ -709,6 +767,9 @@ def markeer_svg(raakt, zonder, per_zone, routers, vakken, bezet, doek):
     for rij in list(raakt) + list(zonder):
         for k in (rij[1], rij[2]):
             omlijnd.setdefault(k["id"], k)
+    # De overige vakken van een ontvangende groep: wie daarop aansluit krijgt dezelfde informatie.
+    for k in mee:
+        omlijnd.setdefault(k["id"], k)
     for k in omlijnd.values():
         delen.append(f'<rect x="{k["ax"] - 4:.0f}" y="{k["ay"] - 4:.0f}" width="{k["w"] + 8}" '
                      f'height="{k["h"] + 8}" fill="none" stroke="{MARKEER_RAND}" stroke-width="4" rx="5"/>')
@@ -823,9 +884,9 @@ def bouw(ruimte_x=1.55, ruimte_y=1.85, tussen=70, marge=30, opschriften="namen",
 
     # de markeringen bij de lijnen van de plaat zoeken: een stroom die zij raakt krijgt hieronder
     # haar accentkleur mee in dezelfde tekenronde als alle andere stromen
-    raakt, zonder, ontbreekt = [], [], []
+    raakt, zonder, ontbreekt, meegemarkeerd = [], [], [], []
     if markeer:
-        raakt, zonder, ontbreekt = markeer_stromen(
+        raakt, zonder, ontbreekt, meegemarkeerd = markeer_stromen(
             markeer, stromen, knopen, [k for k in alles if k["type"] == "ApplicationComponent"])
         for _, _, _, benen in raakt:
             for been in benen:
@@ -890,7 +951,8 @@ def bouw(ruimte_x=1.55, ruimte_y=1.85, tussen=70, marge=30, opschriften="namen",
         delen.append(f'<rect x="0" y="0" width="{breedte:.0f}" height="{hoogte:.0f}" fill="#ffffff" '
                      f'fill-opacity="{SLUIER}"/>')
         delen += accentlijnen
-        delen += markeer_svg(raakt, zonder, per_zone, routers, vakken, bezet, (breedte, hoogte))
+        delen += markeer_svg(raakt, zonder, per_zone, routers, vakken, bezet,
+                             (breedte, hoogte), meegemarkeerd)
         delen.append(markeer_legenda_svg(markeer_naam, marge, hoogte - marge / 2, breedte - 2 * marge))
     delen.append(legenda_svg(legenda, marge, hoogte - marge / 2, breedte - 2 * marge))
     delen.append("</svg>")

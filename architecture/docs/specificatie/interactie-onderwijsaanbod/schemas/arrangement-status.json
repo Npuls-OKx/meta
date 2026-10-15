@@ -3,9 +3,12 @@
   "$id": "https://okx.npuls.nl/schema/arrangement-status/voorstel",
   "title": "Arrangement status",
   "DutchName": "Inrichtingsstatus",
-  "$comment": "Voorstel. Het label voorstel in de $id houdt dit schema apart van de alfa-schema's die Npuls-OKx/Public draagt; werkbrief W4 van IS-OA-05 laat het daar landen. De dienstpagina van de onderwijscatalogus draagt het meldpatroon inrichtingsstatus en kondigt dit payloadschema aan. De statuswaarden komen uit interactie S4 van het interactiepatroon onderwijscatalogus naar studentinformatiesysteem. De vorm volgt processing-status/alfa, met het aanbod als onderwerp. Een eigenschap met een eigen $comment voorstel staat in geen schema van Public.",
+  "$comment": "Voorstel. Het label voorstel in de $id houdt dit schema apart van de alfa-schema's die Npuls-OKx/Public draagt; IS-OA-05 laat het in Public landen. De dienstpagina van de onderwijscatalogus draagt het meldpatroon inrichtingsstatus en kondigt dit payloadschema aan. De statuswaarden komen uit interactie S4 van het interactiepatroon onderwijscatalogus naar studentinformatiesysteem. De vorm volgt processing-status/alfa, met het aanbod als onderwerp. Een eigenschap met een eigen $comment voorstel staat in geen schema van Public. Interactie S4 meldt de inrichting op een aanbod en L3 op een specificatie, dus draagt dit schema beide: de specificatieverwijzing is verplicht en de aanbodverwijzing komt erbij waar de inrichting een aanbod betreft.",
   "type": "object",
-  "required": ["status", "offeringReference", "specificationReference"],
+  "required": [
+    "status",
+    "specificationReference"
+  ],
   "properties": {
     "eventId": {
       "type": "string",
@@ -14,13 +17,21 @@
       "DutchName": "eventId"
     },
     "status": {
-      "enum": ["ontvangen", "gestart", "afgekeurd", "ingericht", "nietIngericht", "verwerkt", "nietVerwerkt"],
+      "enum": [
+        "ontvangen",
+        "gestart",
+        "afgekeurd",
+        "ingericht",
+        "nietIngericht",
+        "verwerkt",
+        "nietVerwerkt"
+      ],
       "$comment": "ontvangen en gestart melden de aanname, afgekeurd een validatiefout op het bericht, ingericht en nietIngericht de uitkomst van het inrichten. Interactie S4 noemt deze vijf; de acceptatietoets bij een nieuwe versie voegt verwerkt en nietVerwerkt toe",
       "DutchName": "status"
     },
     "offeringReference": {
       "$ref": "https://okx.npuls.nl/schema/offering-reference/voorstel",
-      "$comment": "voorstel: het aanbod waarover de melding gaat. processing-status/alfa draagt programmeOfferingId (opleidingsaanbodId) als losse sleutel en sleutelt op de specificatie",
+      "$comment": "voorstel: het aanbod waarover de melding gaat, wanneer de inrichting op een aanbod slaat. Verplicht stellen zou interactie L3 uitsluiten, waar het leermanagementsysteem zijn inrichting op de specificatie meldt; de componentpagina van de onderwijscatalogus vraagt op dit meldpatroon de specificatie-id en versie, en noemt geen aanbod. processing-status/alfa draagt programmeOfferingId (opleidingsaanbodId) als losse sleutel en sleutelt op de specificatie",
       "DutchName": "aanbodVerwijzing"
     },
     "specificationReference": {
@@ -44,13 +55,46 @@
   "allOf": [
     {
       "$comment": "een uitkomst die inrichting meldt, draagt de referentie naar die inrichting",
-      "if": { "properties": { "status": { "enum": ["ingericht", "verwerkt"] } }, "required": ["status"] },
-      "then": { "required": ["arrangementReference"] }
+      "if": {
+        "properties": {
+          "status": {
+            "enum": [
+              "ingericht",
+              "verwerkt"
+            ]
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "required": [
+          "arrangementReference"
+        ]
+      }
     },
     {
       "$comment": "een uitkomst die afwijzing meldt, draagt de reden",
-      "if": { "properties": { "status": { "enum": ["afgekeurd", "nietIngericht", "nietVerwerkt"] } }, "required": ["status"] },
-      "then": { "required": ["reason"] }
+      "if": {
+        "properties": {
+          "status": {
+            "enum": [
+              "afgekeurd",
+              "nietIngericht",
+              "nietVerwerkt"
+            ]
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "required": [
+          "reason"
+        ]
+      }
     }
   ]
 }
