@@ -160,22 +160,56 @@ erDiagram
     "Leeronderdeel specificatie" ||--o{ "Les specificatie" : "bestaat uit"
     "Onderwijseenheid specificatie" ||--o{ "Leeronderdeel specificatie" : "bestaat uit"
     "Opleidingsprogramma specificatie" ||--o{ "Onderwijseenheid specificatie" : "bestaat uit"
+    "Keuzedeel" }o--o{ "Keuzedeelruimte" : "hangt samen met"
+    "Leeronderdeel specificatie" }o--o{ "Leeruitkomst" : "hangt samen met"
+    "Les specificatie" }o--o{ "Leeruitkomst" : "hangt samen met"
+    "Onderwijseenheid specificatie" }o--o{ "Leeruitkomst" : "hangt samen met"
+    "Opleiding specificatie" }o--o{ "Leeruitkomst" : "hangt samen met"
+    "Opleidingsprogramma specificatie" }o--o{ "Leeruitkomst" : "hangt samen met"
     "Opleiding specificatie" ||--o{ "Opleidingsprogramma specificatie" : "minimaal 1"
+    "Keuzedeel" ||--|| "Opleidingsprogramma specificatie" : "is een"
+    "Keuzedeelruimte" ||--|| "Opleidingsprogramma specificatie" : "is een"
     "Opleiding specificatie" {
         uuid specificationId FK "1, verplicht"
         string version "1, verplicht"
         string name "0..1"
         object studyLoad "0..1"
+        enum studyLoad.unit "1..1"
+        number studyLoad.value "1..1"
     }
-    "Opleidingsprogramma specificatie" { }
-    "Onderwijseenheid specificatie" { }
-    "Leeronderdeel specificatie" { }
+    "Leeruitkomst" {
+        array indicativeVolume "1..n"
+        enum indicativeVolume[].unit "1..n"
+        number indicativeVolume[].value "1..n"
+    }
+    "Opleidingsprogramma specificatie" {
+        enum studyLoad.unit "1..1"
+        number studyLoad.value "1..1"
+    }
+    "Keuzedeel" {
+        enum studyLoad.unit "1..1"
+        number studyLoad.value "1..1"
+    }
+    "Onderwijseenheid specificatie" {
+        enum studyLoad.unit "1..1"
+        number studyLoad.value "1..1"
+    }
+    "Leeronderdeel specificatie" {
+        enum studyLoad.unit "1..1"
+        number studyLoad.value "1..1"
+    }
+    "Keuzedeelruimte" {
+        enum studyLoad.unit "1..1"
+        number studyLoad.value "1..1"
+    }
     "Les specificatie" { }
 ```
 
 | Lijn | Betekenis |
 |---|---|
 | `\|\|--o{` | het eerste bestaat uit nul of meer van het tweede |
+| `\|\|--\|\|` | het tweede is een soort van het eerste |
+| `}o--o{` | de twee hangen samen, met het opschrift erbij |
 | `PK` en `FK` | de sleutel van het object, en een verwijzing naar een ander object |
 | tekst achter een attribuut | de multipliciteit in dit bericht, en of het veld verplicht is |
 
@@ -418,10 +452,22 @@ erDiagram
     "Kerntaak" ||--o{ "Werkproces" : "bestaat uit"
     "Kwalificatie" ||--o{ "Kerntaak" : "bestaat uit"
     "Kwalificatie dossier" ||--o{ "Kwalificatie" : "bevat"
+    "Leeronderdeel specificatie" ||--o{ "Les specificatie" : "bestaat uit"
+    "Onderwijseenheid specificatie" ||--o{ "Leeronderdeel specificatie" : "bestaat uit"
+    "Opleidingsprogramma specificatie" ||--o{ "Onderwijseenheid specificatie" : "bestaat uit"
     "Kerntaak" }o--o{ "Leeruitkomst" : "Wordt vertaald naar"
+    "Keuzedeel" }o--o{ "Keuzedeelruimte" : "hangt samen met"
     "Kwalificatie" }o--o{ "Leeruitkomst" : "Wordt vertaald naar"
     "Kwalificatie dossier" }o--o{ "Leeruitkomst" : "Wordt vertaald naar"
+    "Leeronderdeel specificatie" }o--o{ "Leeruitkomst" : "hangt samen met"
+    "Les specificatie" }o--o{ "Leeruitkomst" : "hangt samen met"
+    "Onderwijseenheid specificatie" }o--o{ "Leeruitkomst" : "hangt samen met"
+    "Opleiding specificatie" }o--o{ "Leeruitkomst" : "hangt samen met"
+    "Opleidingsprogramma specificatie" }o--o{ "Leeruitkomst" : "hangt samen met"
     "Werkproces" }o--o{ "Leeruitkomst" : "Wordt vertaald naar"
+    "Opleiding specificatie" ||--o{ "Opleidingsprogramma specificatie" : "minimaal 1"
+    "Keuzedeel" ||--|| "Opleidingsprogramma specificatie" : "is een"
+    "Keuzedeelruimte" ||--|| "Opleidingsprogramma specificatie" : "is een"
     "Leeruitkomst" {
         uuid id PK "1, verplicht"
         string version "1, verplicht"
@@ -430,30 +476,81 @@ erDiagram
         array indicativeVolume "1..n, verplicht"
         integer nlqfLevel "0..1"
         string description "0..1, 0..1, 0..n"
+        array behaviour "0..n"
+        enum indicativeVolume[].unit "1..n"
+        number indicativeVolume[].value "1..n"
+        string result "0..1"
+        object source FK "1..1"
+        string, taxonomyCode "0..1"
     }
     "Kwalificatie dossier" {
         object source "1, verplicht"
+        string offeringInstances[].source[].code PK "0..n"
+        string offeringInstances[].source[].standard "0..n"
+        enum offeringInstances[].source[].type "0..n"
+        string source.code PK "1..1"
+        string source.standard "1..1"
+        enum source.type "1..1"
     }
     "Kwalificatie" {
         object source "1, verplicht"
+        string offeringInstances[].source[].code PK "0..n"
+        string offeringInstances[].source[].standard "0..n"
+        enum offeringInstances[].source[].type "0..n"
+        string source.code PK "1..1"
+        string source.standard "1..1"
+        enum source.type "1..1"
     }
     "Kerntaak" {
         object source "1, verplicht"
+        string source.code PK "1..1"
+        string source.standard "1..1"
+        enum source.type "1..1"
     }
     "Werkproces" {
         object source "1, verplicht"
+        string source.code PK "1..1"
+        string source.standard "1..1"
+        enum source.type "1..1"
     }
     "Keuzedeel" {
         object source "1, verplicht"
+        string source.code PK "1..1"
+        string source.standard "1..1"
+        enum source.type "1..1"
+        enum studyLoad.unit "1..1"
+        number studyLoad.value "1..1"
     }
     "Waarde document (diploma / certificaat)" {
         string credentialDocument "0..1"
     }
+    "Opleiding specificatie" {
+        enum studyLoad.unit "1..1"
+        number studyLoad.value "1..1"
+    }
+    "Opleidingsprogramma specificatie" {
+        enum studyLoad.unit "1..1"
+        number studyLoad.value "1..1"
+    }
+    "Onderwijseenheid specificatie" {
+        enum studyLoad.unit "1..1"
+        number studyLoad.value "1..1"
+    }
+    "Leeronderdeel specificatie" {
+        enum studyLoad.unit "1..1"
+        number studyLoad.value "1..1"
+    }
+    "Keuzedeelruimte" {
+        enum studyLoad.unit "1..1"
+        number studyLoad.value "1..1"
+    }
+    "Les specificatie" { }
 ```
 
 | Lijn | Betekenis |
 |---|---|
 | `\|\|--o{` | het eerste bestaat uit nul of meer van het tweede |
+| `\|\|--\|\|` | het tweede is een soort van het eerste |
 | `}o--o{` | de twee hangen samen, met het opschrift erbij |
 | `PK` en `FK` | de sleutel van het object, en een verwijzing naar een ander object |
 | tekst achter een attribuut | de multipliciteit in dit bericht, en of het veld verplicht is |
@@ -492,6 +589,9 @@ erDiagram
     "Leeronderdeel specificatie" ||--o{ "Les specificatie" : "bestaat uit"
     "Onderwijseenheid specificatie" ||--o{ "Leeronderdeel specificatie" : "bestaat uit"
     "Opleidingsprogramma specificatie" ||--o{ "Onderwijseenheid specificatie" : "bestaat uit"
+    "Summatieve resultaat structuur" ||--o{ "Examenonderdeel weging" : "bestaat uit"
+    "Summatieve resultaat structuur" ||--o{ "Toetsonderdeel specificatie" : "bestaat uit"
+    "Cohort / periode" }o--o{ "Summatieve resultaat structuur" : "Groepeert Studenten op toepasbare"
     "Keuzedeel" }o--o{ "Keuzedeelruimte" : "hangt samen met"
     "Leeronderdeel specificatie" }o--o{ "Leeruitkomst" : "hangt samen met"
     "Leeruitkomst" }o--o{ "Student keuze regelset" : "voorwaarde op"
@@ -499,6 +599,12 @@ erDiagram
     "Onderwijseenheid specificatie" }o--o{ "Leeruitkomst" : "hangt samen met"
     "Opleiding specificatie" }o--o{ "Leeruitkomst" : "hangt samen met"
     "Opleidingsprogramma specificatie" }o--o{ "Leeruitkomst" : "hangt samen met"
+    "Organisatie-eenheid" }o--o{ "Leeronderdeel specificatie" : "Voert uit"
+    "Organisatie-eenheid" }o--o{ "Les specificatie" : "Voert uit"
+    "Organisatie-eenheid" }o--o{ "Onderwijseenheid specificatie" : "Voert uit"
+    "Organisatie-eenheid" }o--o{ "Opleiding specificatie" : "Voert uit"
+    "Organisatie-eenheid" }o--o{ "Opleidingsprogramma specificatie" : "Voert uit"
+    "Organisatie-eenheid" }o--o{ "Toetsonderdeel specificatie" : "Voert uit"
     "Student keuze regelset" }o--o{ "Keuzedeel" : "hangt samen met"
     "Student keuze regelset" }o--o{ "Keuzedeelruimte" : "hangt samen met"
     "Student keuze regelset" }o--o{ "Leeronderdeel specificatie" : "hangt samen met"
@@ -506,11 +612,30 @@ erDiagram
     "Student keuze regelset" }o--o{ "Onderwijseenheid specificatie" : "hangt samen met"
     "Student keuze regelset" }o--o{ "Opleiding specificatie" : "hangt samen met"
     "Student keuze regelset" }o--o{ "Opleidingsprogramma specificatie" : "hangt samen met"
+    "Summatieve resultaat structuur" }o--o{ "Leeruitkomst" : "hangt samen met"
+    "Toetsonderdeel specificatie" }o--o{ "Leeruitkomst" : "hangt samen met"
     "Opleiding specificatie" ||--o{ "Opleidingsprogramma specificatie" : "minimaal 1"
     "Keuzedeel" ||--|| "Opleidingsprogramma specificatie" : "is een"
     "Keuzedeelruimte" ||--|| "Opleidingsprogramma specificatie" : "is een"
     "Opleiding specificatie" {
         enum curriculumType "0..1"
+        string description "0..1"
+        uuid id PK "1..1"
+        uuid learningOutcomeId FK "0..1"
+        array manifest FK "0..n"
+        enum manifest[].relation "0..n"
+        uuid manifest[].specificationId FK "0..n"
+        string manifest[].version "0..n"
+        string name "1..1"
+        uuid parentSpecificationId FK "1..1"
+        array ruleSetReferences FK "0..n"
+        enum specificationType "1..1"
+        enum status "0..1"
+        object, studyLoad "1..1"
+        number studyLoad.value "1..1"
+        date validFrom "0..1"
+        date validUntil "0..1"
+        string, version "1..1"
     }
     "Opleidingsprogramma specificatie" {
         enum curriculumType "0..1"
@@ -518,26 +643,103 @@ erDiagram
         enum programmeLayer "0..1, verplicht"
         enum learningPathway "0..1, verplicht"
         string targetGroup "0..1, verplicht"
+        string cohort FK "0..1"
+        string description "0..1"
+        uuid id PK "1..1"
+        uuid learningOutcomeId FK "0..1"
+        array manifest FK "0..n"
+        enum manifest[].relation "0..n"
+        uuid manifest[].specificationId FK "0..n"
+        string manifest[].version "0..n"
+        string name "1..1"
+        object, organisation FK "0..1"
+        uuid parentSpecificationId FK "1..1"
+        array ruleSetReferences FK "0..n"
+        enum specificationType "1..1"
+        date startDate "0..1"
+        enum status "0..1"
+        object, studyLoad "1..1"
+        number studyLoad.value "1..1"
+        date validFrom "0..1"
+        date validUntil "0..1"
+        string, version "1..1"
     }
     "Keuzedeel" {
         string programmeType "0..1, verplicht"
         string electiveUnitClass "0..1, verplicht"
+        string description "0..1"
+        uuid id PK "1..1"
+        uuid learningOutcomeId FK "0..1"
+        string name "1..1"
+        enum specificationType "1..1"
+        enum status "0..1"
+        object, studyLoad "1..1"
+        number studyLoad.value "1..1"
+        string, version "1..1"
     }
-    "Onderwijseenheid specificatie" { }
+    "Onderwijseenheid specificatie" {
+        string description "0..1"
+        string explanation "0..1"
+        uuid id PK "1..1"
+        uuid learningOutcomeId FK "0..1"
+        enum manifest[].relation "0..n"
+        uuid manifest[].specificationId FK "0..n"
+        string manifest[].version "0..n"
+        string name "1..1"
+        uuid parentSpecificationId FK "1..1"
+        enum specificationType "1..1"
+        enum status "0..1"
+        object, studyLoad "1..1"
+        number studyLoad.value "1..1"
+        string, version "1..1"
+    }
     "Leeronderdeel specificatie" {
         string timeDistribution "0..1"
+        string description "0..1"
+        string explanation "0..1"
+        uuid id PK "1..1"
+        uuid learningOutcomeId FK "0..1"
+        string name "1..1"
+        uuid parentSpecificationId FK "1..1"
+        enum specificationType "1..1"
+        enum status "0..1"
+        object, studyLoad "1..1"
+        number studyLoad.value "1..1"
+        string, version "1..1"
     }
-    "Keuzedeelruimte" { }
+    "Keuzedeelruimte" {
+        string description "0..1"
+        uuid id PK "1..1"
+        string name "1..1"
+        uuid parentSpecificationId FK "1..1"
+        array ruleSetReferences FK "0..n"
+        enum specificationType "1..1"
+        enum status "0..1"
+        object, studyLoad "1..1"
+        number studyLoad.value "1..1"
+        string, version "1..1"
+    }
     "Leeruitkomst" {
         uuid learningOutcomeId FK "0..1, verplicht"
+        array learningOutcomes "0..n"
     }
     "Student keuze regelset" {
         array ruleSetReferences "0..n, verplicht"
+        array ruleSets "0..n"
     }
     "Cohort / periode" {
         string cohort "0..1, verplicht"
     }
+    "Toetsonderdeel specificatie" { }
+    "Summatieve resultaat structuur" {
+        array manifest FK "0..n, verplicht zodra er onderdelen zijn"
+        enum manifest[].relation "0..n"
+        uuid manifest[].specificationId FK "0..n"
+        string manifest[].version "0..n"
+    }
+    "Organisatie-eenheid" { }
     "Les specificatie" { }
+    "Examenonderdeel weging" { }
 ```
 
 | Lijn | Betekenis |
@@ -596,21 +798,82 @@ sequenceDiagram
 <!-- erd -->
 ```mermaid
 erDiagram
+    "Formatieve resultaat structuur" ||--o{ "Toetsonderdeel specificatie" : "bestaat uit"
+    "Formatieve resultaat structuur" ||--o{ "Toetsonderdeel weging" : "bestaat uit"
+    "Kerntaak" ||--o{ "Werkproces" : "bestaat uit"
+    "Kwalificatie" ||--o{ "Kerntaak" : "bestaat uit"
+    "Kwalificatie dossier" ||--o{ "Kwalificatie" : "bevat"
+    "Summatieve resultaat structuur" ||--o{ "Examenonderdeel weging" : "bestaat uit"
+    "Summatieve resultaat structuur" ||--o{ "Toetsonderdeel specificatie" : "bestaat uit"
+    "Keuzedeel" }o--o{ "Keuzedeelruimte" : "hangt samen met"
+    "Student keuze regelset" }o--o{ "Keuzedeel" : "hangt samen met"
     "Student keuze regelset" }o--o{ "Keuzedeelruimte" : "hangt samen met"
+    "Toetsonderdeel weging" }o--o{ "Toetsonderdeel specificatie" : "hangt samen met"
     "Student keuze regelset" {
         uuid id PK "1, verplicht"
         string version "1, verplicht"
         string name "1, verplicht"
         array rules "1..n, verplicht"
         string description "0..1"
+        string requirement "0..1"
+        string scope "0..1"
+        uuid sourceSpecificationId FK "0..1"
+        enum type "1..1"
+        enum unit "0..1"
+        number value "0..1"
     }
     "Keuzedeelruimte" {
         uuid appliesTo "1, verplicht"
     }
+    "Summatieve resultaat structuur" {
+        integer decimalPlaces "0..1"
+        number passMark "0..1"
+        string, scale "0..1"
+    }
+    "Formatieve resultaat structuur" {
+        integer decimalPlaces "0..1"
+        number passMark "0..1"
+        string, scale "0..1"
+    }
+    "Kwalificatie dossier" {
+        string offeringInstances[].source[].code PK "0..n"
+        string offeringInstances[].source[].standard "0..n"
+        enum offeringInstances[].source[].type "0..n"
+        string source.code PK "1..1"
+        string source.standard "1..1"
+        enum source.type "1..1"
+    }
+    "Kwalificatie" {
+        string offeringInstances[].source[].code PK "0..n"
+        string offeringInstances[].source[].standard "0..n"
+        enum offeringInstances[].source[].type "0..n"
+        string source.code PK "1..1"
+        string source.standard "1..1"
+        enum source.type "1..1"
+    }
+    "Kerntaak" {
+        string source.code PK "1..1"
+        string source.standard "1..1"
+        enum source.type "1..1"
+    }
+    "Werkproces" {
+        string source.code PK "1..1"
+        string source.standard "1..1"
+        enum source.type "1..1"
+    }
+    "Keuzedeel" {
+        string source.code PK "1..1"
+        string source.standard "1..1"
+        enum source.type "1..1"
+    }
+    "Examenonderdeel weging" { }
+    "Toetsonderdeel specificatie" { }
+    "Toetsonderdeel weging" { }
 ```
 
 | Lijn | Betekenis |
 |---|---|
+| `\|\|--o{` | het eerste bestaat uit nul of meer van het tweede |
 | `}o--o{` | de twee hangen samen, met het opschrift erbij |
 | `PK` en `FK` | de sleutel van het object, en een verwijzing naar een ander object |
 | tekst achter een attribuut | de multipliciteit in dit bericht, en of het veld verplicht is |
@@ -690,6 +953,23 @@ erDiagram
     "Summatieve resultaat structuur" {
         object resultModel "1, verplicht"
         enum nature "0..1, verplicht"
+        uuid appliesTo FK "0..1, verplicht op het examenplan"
+        uuid assesses FK "0..1, verplicht op een resultaateenheid"
+        string description "0..1"
+        uuid id PK "1..1"
+        object learningOutcome FK "0..1"
+        uuid learningOutcomeId FK "0..1, verplicht buiten de keuzedeel-resultaateenheid om"
+        array manifest FK "0..n, verplicht zodra er onderdelen zijn"
+        uuid manifest[].specificationId FK "0..n"
+        string manifest[].version "0..n"
+        string name "1..1"
+        uuid parentSpecificationId FK "1..1"
+        array ruleSetReferences FK "0..n, verplicht op de keuzedeel-resultaateenheid"
+        enum: specificationType "1..1"
+        string, status "1..1"
+        date validFrom "0..1, verplicht op het examenplan"
+        date validUntil "0..1, verplicht op het examenplan"
+        string, version "1..1"
     }
     "Examenplan" { }
     "Examenonderdeel weging" {
@@ -700,9 +980,21 @@ erDiagram
     }
     "Toetsonderdeel specificatie" {
         string assessmentForm "0..1, verplicht"
+        string description "0..1"
+        uuid id PK "1..1"
+        object learningOutcome FK "0..1"
+        uuid learningOutcomeId FK "0..1, verplicht op een toetsonderdeel"
+        string name "1..1"
+        enum: nature "0..1, verplicht op een toetsonderdeel"
+        uuid parentSpecificationId FK "1..1"
+        object resultModel "1..1"
+        enum, specificationType "1..1"
+        string, status "1..1"
+        string, version "1..1"
     }
     "Examenonderdeelspecificatie" {
         string assessmentForm "0..1, verplicht"
+        string, establishedBy "0..1"
     }
     "Opleidingsprogramma specificatie" {
         uuid appliesTo "0..1, verplicht"
@@ -718,19 +1010,30 @@ erDiagram
     }
     "Kerntaak" {
         object learningOutcome "0..1"
+        string code PK "1..1"
+        string, type "1..1"
     }
     "Werkproces" {
         object learningOutcome "0..1"
+        string code PK "1..1"
+        string, type "1..1"
     }
     "Kwalificatie" {
         object learningOutcome "0..1"
+        string code PK "1..1"
+        string, type "1..1"
     }
     "Formatieve resultaat structuur" {
         enum nature "0..1, verplicht"
+        integer decimalPlaces "0..1"
+        number passMark "0..1"
+        object resultModel "1..1"
+        string, scale "0..1"
     }
     "Summatief Afrondingscriterium" {
         enum aggregation "0..1, verplicht"
         boolean mandatory "0..1, verplicht"
+        array ruleSetReferences FK "0..n"
     }
     "Student keuze regelset" {
         array ruleSetReferences "0..n, verplicht"

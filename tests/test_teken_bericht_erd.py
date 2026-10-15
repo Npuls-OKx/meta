@@ -225,6 +225,71 @@ class DeMerktekens(unittest.TestCase):
         self.assertEqual(bestand.read_text(encoding="utf-8"), voor)
 
 
+class DeBinding(unittest.TestCase):
+    """De objecttypen komen uit de binding wanneer die het schema van dit bericht kent."""
+
+    BINDING = {
+        "schemas": {
+            "education-specification.json": {
+                "soort": "begrip",
+                "draagt": ["Opleiding specificatie", "Onderwijseenheid specificatie"],
+            },
+            "subscription.json": {"soort": "vervoer", "reden": "richt het kanaal in"},
+        },
+        "objecttypen": {
+            "Opleiding specificatie": {"attributen": [
+                {"naam": "id", "datatype": "identificatie", "kardinaliteit": "1..1",
+                 "rol": "sleutel", "bron": "schema education-specification.json"},
+                {"naam": "elders", "datatype": "string", "kardinaliteit": "0..1",
+                 "rol": "", "bron": "schema ander-schema.json"},
+            ]},
+        },
+    }
+
+    def sectie(self, regels):
+        return "\n".join(["# S", "", "## De berichten", "", "### Een bericht", "", *regels, ""])
+
+    def test_given_een_bericht_dat_een_begripsschema_noemt_when_lezen_then_komen_zijn_objecttypen(self):
+        _, blok = erd.berichten(self.sectie(["Volgt [education-specification.json](x)."]))[0]
+        self.assertEqual(erd.objecttypen_uit_binding(blok, self.BINDING),
+                         ["Opleiding specificatie", "Onderwijseenheid specificatie"])
+
+    def test_given_een_bericht_dat_een_vervoersschema_noemt_when_lezen_then_komt_er_geen_objecttype(self):
+        _, blok = erd.berichten(self.sectie(["Volgt [subscription.json](x)."]))[0]
+        self.assertEqual(erd.objecttypen_uit_binding(blok, self.BINDING), [])
+
+    def test_given_een_schema_dat_de_binding_niet_kent_when_lezen_then_komt_er_geen_objecttype(self):
+        _, blok = erd.berichten(self.sectie(["Volgt [onbekend.json](x)."]))[0]
+        self.assertEqual(erd.objecttypen_uit_binding(blok, self.BINDING), [])
+
+    def test_given_de_binding_when_attributen_zoeken_then_telt_alleen_de_bron_van_dit_bericht(self):
+        """Een attribuutsoort uit een ander schema hoort niet in dit diagram."""
+        _, blok = erd.berichten(self.sectie(["Volgt [education-specification.json](x)."]))[0]
+        uit = erd.attributen_uit_binding(blok, self.BINDING)
+        self.assertEqual([a["naam"] for a in uit["Opleiding specificatie"]], ["id"])
+
+    def test_given_de_rol_sleutel_when_attributen_zoeken_then_wordt_het_pk(self):
+        _, blok = erd.berichten(self.sectie(["Volgt [education-specification.json](x)."]))[0]
+        uit = erd.attributen_uit_binding(blok, self.BINDING)
+        self.assertEqual(uit["Opleiding specificatie"][0]["sleutel"], "PK")
+
+    def test_given_een_tabel_en_de_binding_when_bijwerken_then_vult_de_binding_de_tabel_aan(self):
+        """De tabel gaat voor, want zij draagt de kardinaliteit van dit bericht."""
+        map_ = Path(tempfile.mkdtemp())
+        bestand = map_ / "is-oa-01.md"
+        bestand.write_text(self.sectie([
+            "Volgt [education-specification.json](x).", "",
+            "<!-- erd -->", "<!-- /erd -->", "",
+            "| Veld | Type | Kardinaliteit | Objecttype |", "|---|---|---|---|",
+            "| `id` | uuid | 9..9 | `Opleiding specificatie` |",
+        ]), encoding="utf-8")
+        erd.verwerk(bestand, {"Opleiding specificatie", "Onderwijseenheid specificatie"}, [],
+                    binding=self.BINDING)
+        tekst = bestand.read_text(encoding="utf-8")
+        self.assertIn('uuid id PK "9..9"', tekst)
+        self.assertIn('"Onderwijseenheid specificatie"', tekst)
+
+
 class Exitcode(unittest.TestCase):
 
     def draai(self, argv):
@@ -256,9 +321,11 @@ class Exitcode(unittest.TestCase):
 class InDezeRepository(unittest.TestCase):
 
     def test_given_is_oa_01_when_controleren_then_lopen_de_erds_niet_achter(self):
-        """De ERDs komen uit het model; lopen zij achter, dan klopt het document niet meer."""
+        """De ERDs komen uit het model en de binding; lopen zij achter, dan klopt het document niet."""
         bekend, relaties = erd.lees_model(MODEL)
-        _, veranderd = erd.verwerk(SPECIFICATIE / "is-oa-01.md", bekend, relaties, controleer=True)
+        binding = erd.lees_binding(WORTEL / erd.BINDING)
+        _, veranderd = erd.verwerk(SPECIFICATIE / "is-oa-01.md", bekend, relaties,
+                                   controleer=True, binding=binding)
         self.assertFalse(veranderd, "draai scripts/teken-bericht-erd.py")
 
     def test_given_is_oa_01_when_lezen_then_draagt_elk_bericht_een_blok(self):

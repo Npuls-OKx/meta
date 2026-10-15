@@ -51,6 +51,7 @@ import sys
 WORTEL = pathlib.Path(__file__).resolve().parent.parent
 MAP = "architecture/docs/specificatie/interactie-onderwijsaanbod"
 MODEL = "architecture/model/informatiemodel/informatiemodel.json"
+BINDING = "architecture/model/informatiemodel/schema-binding.json"
 UIT = "img/erd"
 
 BUS, BUS_L, BUS_T = "#ffffb5", "#a8a85a", "#5a5a2a"
@@ -71,6 +72,59 @@ def lees_model(pad):
     """De objecttypen en de relaties uit het informatiemodel."""
     d = json.loads(pad.read_text(encoding="utf-8"))
     return {o["naam"] for o in d["objecttypen"]}, d["relaties"]
+
+
+def lees_binding(pad):
+    """De binding tussen de schema's en het model, als die er is.
+
+    Waarvoor: een berichtsectie noemt de schema's waartegen haar payload valideert, en de
+    binding zegt per schema welke objecttypen het draagt. Daarmee komt de inhoud van een
+    diagram uit het model en niet uit de kolom Objecttype van de tabel eronder. Die kolom
+    droeg bij 69 van de 276 rijen proza, en dan bleef het objecttype uit het diagram.
+    """
+    if not pad or not pad.is_file():
+        return {"schemas": {}, "objecttypen": {}}
+    return json.loads(pad.read_text(encoding="utf-8"))
+
+
+def schemas_in(blok):
+    """De schemabestanden die een berichtsectie aanhaalt, in leesvolgorde."""
+    uit, gezien = [], set()
+    for naam in re.findall(r"\[([a-z0-9][a-z0-9-]*\.json)\]", blok):
+        if naam not in gezien:
+            gezien.add(naam)
+            uit.append(naam)
+    return uit
+
+
+def objecttypen_uit_binding(blok, binding):
+    """De objecttypen die de schema's van dit bericht dragen, volgens de binding."""
+    uit, gezien = [], set()
+    for naam in schemas_in(blok):
+        gegeven = (binding.get("schemas") or {}).get(naam)
+        if not gegeven:
+            continue
+        for objecttype in (gegeven.get("draagt") or []) + (gegeven.get("landt_op") or []):
+            if objecttype not in gezien:
+                gezien.add(objecttype)
+                uit.append(objecttype)
+    return uit
+
+
+def attributen_uit_binding(blok, binding):
+    """Per objecttype de attribuutsoorten waarvan de bron een schema van dit bericht noemt."""
+    namen = set(schemas_in(blok))
+    uit = collections.defaultdict(list)
+    for objecttype, gegeven in (binding.get("objecttypen") or {}).items():
+        for a in gegeven.get("attributen") or []:
+            if any(n in a.get("bron", "") for n in namen):
+                uit[objecttype].append({
+                    "naam": a["naam"],
+                    "type": (a.get("datatype") or "string").split()[0].lower(),
+                    "sleutel": {"sleutel": "PK", "verwijzing": "FK"}.get(a.get("rol"), a.get("rol") or ""),
+                    "opmerking": a.get("kardinaliteit") or "",
+                })
+    return uit
 
 
 def berichten(tekst, kopniveau=3):
@@ -161,9 +215,9 @@ def legenda(relaties):
     soorten = {r["soort"] for r in relaties}
     rijen = []
     if soorten & set(OMLAAG):
-        rijen.append("| `\|\|--o{` | het eerste bestaat uit nul of meer van het tweede |")
+        rijen.append(r"| `\|\|--o{` | het eerste bestaat uit nul of meer van het tweede |")
     if "Specialization" in soorten:
-        rijen.append("| `\|\|--\|\|` | het tweede is een soort van het eerste |")
+        rijen.append(r"| `\|\|--\|\|` | het tweede is een soort van het eerste |")
     if soorten - set(OMLAAG) - {"Specialization"}:
         rijen.append("| `}o--o{` | de twee hangen samen, met het opschrift erbij |")
     if not rijen:
@@ -303,19 +357,37 @@ def blok_voor(namen, relaties, attributen):
     return mermaid(namen, relaties, attributen) + "\n" + legenda(relaties)
 
 
-def verwerk(bestand, bekend, relaties, controleer=False):
-    """De ERDs van een document bijwerken; geeft per bericht terug wat er gebeurde."""
+def verwerk(bestand, bekend, relaties, controleer=False, binding=None):
+    """De ERDs van een document bijwerken; geeft per bericht terug wat er gebeurde.
+
+    De objecttypen komen uit de binding wanneer die het schema van dit bericht kent, en
+    anders uit de kolom Objecttype van de tabel. De attribuutsoorten komen uit beide: de
+    veldtabel draagt de kardinaliteit van dit bericht, de binding vult aan wat zij niet noemt.
+    """
+    binding = binding or {"schemas": {}, "objecttypen": {}}
     tekst = bestand.read_text(encoding="utf-8")
     verslag, gewenste = [], []
     for kop, blok in berichten(tekst):
-        namen = uitklappen(objecttypen_in(blok, bekend), relaties)
+        uit_tabel = objecttypen_in(blok, bekend)
+        gezien, samen = set(), []
+        for naam in uit_tabel + objecttypen_uit_binding(blok, binding):
+            if naam not in gezien:
+                gezien.add(naam)
+                samen.append(naam)
+        namen = uitklappen(samen, relaties)
         eigen = relaties_tussen(namen, relaties)
         merk = MERKTEKEN.search(blok)
         if merk is None:
             verslag.append((kop, "geen merktekens",
                             f"{len(namen)} objecttypen; zet <!-- erd --> en <!-- /erd --> in de sectie"))
             continue
-        nieuw_blok = f"<!-- erd -->\n{blok_voor(namen, eigen, attributen_in(blok, bekend))}\n<!-- /erd -->"
+        attributen = dict(attributen_uit_binding(blok, binding))
+        for objecttype, velden in attributen_in(blok, bekend).items():
+            # De veldtabel gaat voor: zij draagt de kardinaliteit van dit bericht.
+            uit_tabel = {a["naam"]: a for a in velden}
+            overig = [a for a in attributen.get(objecttype, []) if a["naam"] not in uit_tabel]
+            attributen[objecttype] = velden + overig
+        nieuw_blok = f"<!-- erd -->\n{blok_voor(namen, eigen, attributen)}\n<!-- /erd -->"
         gewenste.append(nieuw_blok)
         verslag.append((kop, "ongewijzigd" if merk.group(0) == nieuw_blok
                         else ("zou wijzigen" if controleer else "bijgewerkt"),
@@ -339,6 +411,7 @@ def main(argv=None):
     parser.add_argument("--map", default=None, help="de map met de interactiespecificaties")
     parser.add_argument("--bestand", default=None, help="alleen dit document")
     parser.add_argument("--model", default=None, help="het informatiemodel")
+    parser.add_argument("--binding", default=None, help="de binding tussen schema's en model")
     parser.add_argument("--controleer", action="store_true",
                         help="schrijf niets en meld alleen wat zou wijzigen")
     args = parser.parse_args(argv)
@@ -355,10 +428,11 @@ def main(argv=None):
         return 2
 
     bekend, relaties = lees_model(model)
+    binding = lees_binding(pathlib.Path(args.binding) if args.binding else WORTEL / BINDING)
     gewijzigd, zonder = False, 0
     for bestand in bestanden:
         print(f"\n{bestand.name}")
-        verslag, veranderd = verwerk(bestand, bekend, relaties, args.controleer)
+        verslag, veranderd = verwerk(bestand, bekend, relaties, args.controleer, binding)
         gewijzigd = gewijzigd or veranderd
         for kop, stand, wat in verslag:
             print(f"  {kop[:58]:60} {stand:14} {wat}")
