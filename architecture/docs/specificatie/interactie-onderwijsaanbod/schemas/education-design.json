@@ -1,0 +1,113 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://okx.npuls.nl/schema/education-design/voorstel",
+  "title": "Education design",
+  "DutchName": "Onderwijsontwerp",
+  "$comment": "Voorstel van de interactiespecificatie onderwijsaanbod, eenheid IS-OA-02 (werkbrief WB-01 tot en met WB-06). Dit is een overlay op education-specification.json en result-structure.json: het voegt de uitvoeringskenmerken toe aan de specificatieobjecten die die twee schema's al dragen, en laat hun overige velden onaangeroerd. Beide dragen hun specificaties in dezelfde array educationSpecifications, dus dekt een overlay de specificatiekant en de toetskant. Een payload valideert tegen het dragende schema en tegen deze overlay. Verwijzingen naar andere schema's gaan via hun $id, omdat deze overlay in Npuls-OKx/meta staat en de dragende schema's in Npuls-OKx/Public. Zolang dit schema voorstel is eindigt de $id op /voorstel.",
+  "type": "object",
+  "properties": {
+    "educationSpecifications": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/designedSpecification" },
+      "$comment": "dezelfde array die education-specification.json en result-structure.json dragen",
+      "DutchName": "onderwijsspecificaties"
+    },
+    "roomTypes": {
+      "type": "array",
+      "items": { "$ref": "https://okx.npuls.nl/schema/room-type/voorstel" },
+      "$comment": "de ruimteprofielen die de specificaties in hun veld roomType aanwijzen",
+      "DutchName": "onderwijslocatieTypen"
+    },
+    "expertiseProfiles": {
+      "type": "array",
+      "items": { "$ref": "https://okx.npuls.nl/schema/expertise-profile/voorstel" },
+      "$comment": "naast ruleSets en learningOutcomes een eigen platte array, volgens uitgangspunt U7",
+      "DutchName": "expertiseprofielen"
+    },
+    "learningResourceGroups": {
+      "type": "array",
+      "items": { "$ref": "https://okx.npuls.nl/schema/learning-resource-group/voorstel" },
+      "$comment": "de leermiddelen bij een leeronderdeel en het toetsinstrument bij een examenonderdeel",
+      "DutchName": "leermiddelgroepen"
+    }
+  },
+  "$defs": {
+    "designedSpecification": {
+      "title": "Designed specification",
+      "DutchName": "Specificatie met onderwijsontwerp",
+      "$comment": "De ontwerpvelden op een onderwijseenheidspecificatie, een leeronderdeelspecificatie of een toetsonderdeelspecificatie. Het dragende schema houdt de overige velden, dus is hier alleen id verplicht. Elk ontwerpveld is optioneel: een specificatie zonder ontwerp blijft geldig, en dat is wat IS-OA-01 aanlevert.",
+      "type": "object",
+      "required": ["id"],
+      "properties": {
+        "id": { "type": "string", "format": "uuid", "DutchName": "id" },
+        "educationForm": {
+          "type": "string",
+          "$comment": "open lijst: simulatie, theorie, praktijk, beroepspraktijkvorming, zelfstudie. Objecttype Onderwijsvorm, dat de leeronderdeelspecificatie beschrijft",
+          "DutchName": "onderwijsvorm"
+        },
+        "roomType": {
+          "type": "string",
+          "$comment": "de code van een profiel in roomTypes; OEAPI draagt deze sleutel op Course, en het informatiemodel voert Onderwijslocatie type onder dezelfde naam",
+          "DutchName": "onderwijslocatieType"
+        },
+        "expertiseProfileIds": {
+          "type": "array",
+          "items": { "type": "string", "format": "uuid" },
+          "$comment": "verwijst naar expertiseProfiles",
+          "DutchName": "expertiseprofielIds"
+        },
+        "learningResourceGroupIds": {
+          "type": "array",
+          "items": { "type": "string", "format": "uuid" },
+          "$comment": "verwijst naar learningResourceGroups met doel onderwijs",
+          "DutchName": "leermiddelgroepIds"
+        },
+        "timeDistributions": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/timeDistributionShare" },
+          "$comment": "de verdeling van de studielast over de tijdsoorten, naast het enkelvoudige timeDistribution in education-specification.json. De som sluit op studyLoad van dezelfde specificatie",
+          "DutchName": "tijdsverdelingen"
+        },
+        "assessmentInstrumentId": {
+          "type": "string",
+          "format": "uuid",
+          "$comment": "verwijst naar een groep in learningResourceGroups met doel toetsing; op de conceptplaat is Toetsinstrument een Collectie van Leermiddelgroepen",
+          "DutchName": "toetsinstrumentId"
+        },
+        "assessmentDuration": {
+          "$ref": "#/$defs/duration",
+          "$comment": "de afnameduur bij een toetsonderdeelspecificatie, beeld F1-10: praktijkbeoordeling aan de balie, 45 minuten",
+          "DutchName": "toetsduur"
+        }
+      }
+    },
+    "timeDistributionShare": {
+      "title": "Time distribution share",
+      "DutchName": "Aandeel per tijdsoort",
+      "$comment": "Objecttype Studiebelasting en begeleide onderwijstijd indicatie van de conceptplaat Onderwijsontwerp, beeld F1-06 en F1-13: BOT 50 / OOT 50 SBU.",
+      "type": "object",
+      "required": ["timeDistribution", "volume"],
+      "properties": {
+        "timeDistribution": {
+          "type": "string",
+          "$comment": "dezelfde open lijst als timeDistribution in education-specification.json: BOT (begeleide onderwijstijd), OOT (overige onderwijstijd), BPV",
+          "DutchName": "tijdsverdeling"
+        },
+        "volume": {
+          "$ref": "https://okx.npuls.nl/schema/volume/alfa",
+          "DutchName": "omvang"
+        }
+      }
+    },
+    "duration": {
+      "title": "Duration",
+      "DutchName": "Duur",
+      "type": "object",
+      "required": ["value", "unit"],
+      "properties": {
+        "value": { "type": "number", "DutchName": "waarde" },
+        "unit": { "enum": ["minuten", "uren"], "DutchName": "eenheid" }
+      }
+    }
+  }
+}

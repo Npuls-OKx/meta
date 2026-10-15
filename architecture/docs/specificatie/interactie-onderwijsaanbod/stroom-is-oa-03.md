@@ -167,7 +167,7 @@ Schema [subscription.json](https://github.com/Npuls-OKx/Public/blob/dev/Informat
 
 Casus Apothekersassistent, kwalificatiedossier crebo 23450, met de instantiewaarden uit beeld F2-03. De melding van O1:
 
-```json
+```json schema=specification-reference
 {
   "specificationId": "79736830-1c5c-470f-b2c2-005029c96733",
   "version": "0.1.0"
@@ -176,7 +176,7 @@ Casus Apothekersassistent, kwalificatiedossier crebo 23450, met de instantiewaar
 
 Het antwoord van O2, met de opleiding, de programmalaag leerweg en de programmalaag doelgroep, de eenheid Blok B1-K1 met haar leeronderdelen, en de keuzedeelruimte uit F1-07 met de regelset waarnaar zij verwijst. De identificaties en versies staan in [casus.md](casus.md) en volgen daar de [voorbeeldpayloads](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/voorbeeldpayloads.md) in Public, zodat elke uuid naar hetzelfde object wijst en IS-OA-04 op dezelfde waarden terugmeldt.
 
-```json
+```json schema=education-specification,student-choice-rule
 {
   "educationSpecifications": [
     {
@@ -308,7 +308,7 @@ Het antwoord van O2, met de opleiding, de programmalaag leerweg en de programmal
 
 De tweede regel geeft de volgordebepaling waarop het planningssysteem plant: keuzedeel K0037 is kiesbaar zodra de leeruitkomst op kerntaakniveau behaald is, waarbij de sleutel volstaat en de inhoud bij de catalogus blijft. [IS-OA-01](stroom-is-oa-01.md) levert dezelfde regelset op dezelfde versie aan de catalogus.
 
-De sleutels binnen `rules` staan als voorstel, omdat rule-set.json daar een vrij object toestaat en de vorm uit de voorbeeldpayloads in Public komt (werkbrief W9). Dezelfde namen gelden in IS-OA-01 en staan bij elkaar in [casus.md](casus.md#de-regelsets):
+De sleutels binnen `rules` staan als voorstel, omdat rule-set.json daar een vrij object toestaat. Hun vorm staat in [student-choice-rule.json](schemas/student-choice-rule.json), de overlay die IS-OA-01 bij werkbrief W9 voorstelt. Dezelfde namen gelden in IS-OA-01 en staan bij elkaar in [casus.md](casus.md#de-regelsets):
 
 | Voorstel | Nederlandse naam |
 |---|---|
@@ -336,7 +336,7 @@ Elke werkbrief belegt een veld of schema dat de beelden F2-01 en F2-03 vragen, e
 | W6 | De gevraagde capaciteit en de gewenste groepsgrootte, in F2-01 op het programma en op de eenheid. `minStudentCount`, `maxStudentCount` en `groups` liggen in education-offering.json, dat planning bezit | education-specification.json, velden `requestedCapacity` (gevraagdeCapaciteit) en `preferredGroupSize` (gewensteGroepsgrootte) | Minor: optionele velden |
 | W7 | Het tijdvenster per eenheid, de plek in de opleidingsduur uit F2-01. De specificatie draagt nu `startDate`, `validFrom` en `validUntil`, die de geldigheid vastleggen | education-specification.json, veld `timeWindow` (tijdvenster) met een verwijzing naar het bestaande [period.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/period.json) | Minor: optioneel veld op een bestaand schema |
 | W8 | Het foutmodel bij status `afgekeurd`, dat het interactieoverzicht belooft. processing-status.json draagt `status`, `programmeOfferingId` en `specificationReference` | processing-status.json, veld `errors` (fouten) met een `code` en een `description`, naar het model van [bottleneck.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/bottleneck.json) | Minor: optioneel veld, met een eigen codelijst voor validatiefouten |
-| W9 | De regelvorm, met een vastgelegde naam per sleutel. `rules` is een array van vrije objecten, en de sleutels die de volgordebepaling van eis 0001 dragen (`type`, `scope`, `electiveUnit`, `precondition` met daarin `requiredLearningOutcomeId` en `status`) staan als voorstel bij de voorbeeldpayload hierboven | rule-set.json, de regelvormen als benoemde varianten in `$defs` | Minor als de varianten naast de vrije vorm komen. Dichtzetten van `rules` wordt major |
+| W9 | De regelvorm, met een vastgelegde naam per sleutel. `rules` is een array van vrije objecten, en de sleutels die de volgordebepaling van eis 0001 dragen (`type`, `scope`, `electiveUnit`, `precondition` met daarin `requiredLearningOutcomeId` en `status`) staan getypeerd in [student-choice-rule.json](schemas/student-choice-rule.json) | rule-set.json, de regelvormen als benoemde varianten in `$defs` | Minor als de varianten naast de vrije vorm komen. Dichtzetten van `rules` wordt major |
 | W10 | De container voor inhoudelijk geclusterde leeronderdelen, de gewenste leergelegenheid uit bevinding B06 en B07. `leergelegenheid` bestaat nu als waarde van `offeringType` (aanbodType) in education-offering.json | education-specification.json, een waarde in de enum `specificationType` | Minor voor de verzender. Een ontvanger die de enum streng valideert ziet een brekende wijziging, dus met een conformiteitstoets (conformance test) erbij |
 | W11 | Een objecttype of een definitie bij de enumwaarde `resultaateenheidspecificatie`; de overige waarden van de enum slaan terug op een objecttype in de tabel hierboven | informatiemodel OKx, of de waarde uit education-specification.json | Major zodra de waarde vervalt, omdat een bestaande payload dan afkeurt |
 | W12 | Een afspraak over het versieformaat. education-specification.json eist het patroon `n.n.n`, beeld F2-03 noteert "versie 2026.1", specification-reference.json laat `version` een vrije tekenreeks en de voorbeeldpayload hierboven volgt de pin `0.1.0` uit Public | beide schema's, met een patroon dat de instellingspraktijk dekt | Minor bij het verruimen van het patroon. Dichtzetten van specification-reference.json wordt major |

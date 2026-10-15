@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://okx.npuls.nl/schema/arrangement-status/voorstel",
+  "title": "Arrangement status",
+  "DutchName": "Inrichtingsstatus",
+  "$comment": "Voorstel. Het label voorstel in de $id houdt dit schema apart van de alfa-schema's die Npuls-OKx/Public draagt; werkbrief W4 van IS-OA-05 laat het daar landen. De dienstpagina van de onderwijscatalogus draagt het meldpatroon inrichtingsstatus en kondigt dit payloadschema aan. De statuswaarden komen uit interactie S4 van het interactiepatroon onderwijscatalogus naar studentinformatiesysteem. De vorm volgt processing-status/alfa, met het aanbod als onderwerp. Een eigenschap met een eigen $comment voorstel staat in geen schema van Public.",
+  "type": "object",
+  "required": ["status", "offeringReference", "specificationReference"],
+  "properties": {
+    "eventId": {
+      "type": "string",
+      "format": "uuid",
+      "$comment": "voorstel: U5 vraagt een stabiel id waarop de ontvanger een herhaalde aflevering herkent",
+      "DutchName": "eventId"
+    },
+    "status": {
+      "enum": ["ontvangen", "gestart", "afgekeurd", "ingericht", "nietIngericht", "verwerkt", "nietVerwerkt"],
+      "$comment": "ontvangen en gestart melden de aanname, afgekeurd een validatiefout op het bericht, ingericht en nietIngericht de uitkomst van het inrichten. Interactie S4 noemt deze vijf; de acceptatietoets bij een nieuwe versie voegt verwerkt en nietVerwerkt toe",
+      "DutchName": "status"
+    },
+    "offeringReference": {
+      "$ref": "https://okx.npuls.nl/schema/offering-reference/voorstel",
+      "$comment": "voorstel: het aanbod waarover de melding gaat. processing-status/alfa draagt programmeOfferingId (opleidingsaanbodId) als losse sleutel en sleutelt op de specificatie",
+      "DutchName": "aanbodVerwijzing"
+    },
+    "specificationReference": {
+      "$ref": "https://okx.npuls.nl/schema/specification-reference/alfa",
+      "$comment": "de specificatie-id en versie die de dienstpagina van de onderwijscatalogus in deze payload vraagt, en die processing-status/alfa verplicht",
+      "DutchName": "specificatieVerwijzing"
+    },
+    "arrangementReference": {
+      "type": "string",
+      "format": "uuid",
+      "$comment": "voorstel: de referentie naar de inrichting bij de afnemer, die de dienstpagina van de onderwijscatalogus op dit meldpatroon vraagt. De kernregistratie kent haar toe bij het inrichten",
+      "DutchName": "inrichtingReferentie"
+    },
+    "reason": {
+      "type": "string",
+      "$comment": "voorstel: de reden achter afgekeurd, nietIngericht en nietVerwerkt, in leesbare tekst voor de beheerder van de catalogus",
+      "DutchName": "reden"
+    }
+  },
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "$comment": "een uitkomst die inrichting meldt, draagt de referentie naar die inrichting",
+      "if": { "properties": { "status": { "enum": ["ingericht", "verwerkt"] } }, "required": ["status"] },
+      "then": { "required": ["arrangementReference"] }
+    },
+    {
+      "$comment": "een uitkomst die afwijzing meldt, draagt de reden",
+      "if": { "properties": { "status": { "enum": ["afgekeurd", "nietIngericht", "nietVerwerkt"] } }, "required": ["status"] },
+      "then": { "required": ["reason"] }
+    }
+  ]
+}

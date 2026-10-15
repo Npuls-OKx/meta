@@ -114,7 +114,7 @@ Apothekersassistent, crebo 23450, cohort 2026, met de instanties uit F2-07. De u
 
 De melding die de catalogus ophaalt:
 
-```json
+```json schema=processing-status
 {
   "status": "gelukt",
   "programmeOfferingId": "7aa6609f-1d1b-471a-a0f8-beae490d31b5",
@@ -127,7 +127,7 @@ De melding die de catalogus ophaalt:
 
 Het aanbod dat `GET /onderwijsaanbod/{id}` daarna teruggeeft:
 
-```json
+```json schema=education-offering
 {
   "offeringInstances": [
     {

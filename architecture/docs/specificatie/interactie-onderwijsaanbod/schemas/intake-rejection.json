@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://okx.npuls.nl/schema/intake-rejection/voorstel",
+  "title": "Intake rejection",
+  "DutchName": "Innameafkeuring",
+  "$comment": "Voorstel vanuit de interactiespecificatie onderwijsaanbod, eenheid IS-OA-01. Het antwoordlichaam waarmee de onderwijscatalogus een aanlevering bij de poort houdt (HTTP 400, 404 of 409): er komt geen levering en de aanleverende partij herstelt de lading. Een afkeuring na aanname komt als innameuitkomst met status afgekeurd. Verwijzingen naar andere schema's gaan via hun $id.",
+  "type": "object",
+  "required": ["findings"],
+  "properties": {
+    "findings": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "https://okx.npuls.nl/schema/intake-finding/voorstel" },
+      "DutchName": "bevindingen"
+    },
+    "specificationReference": {
+      "$ref": "https://okx.npuls.nl/schema/specification-reference/alfa",
+      "$comment": "de wortel van de aangeleverde lading, zodra die te lezen is",
+      "DutchName": "specificatieVerwijzing"
+    }
+  }
+}

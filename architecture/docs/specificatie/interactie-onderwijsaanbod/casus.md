@@ -66,7 +66,7 @@ De studielast per laag: de opleiding en beide programmalagen 4800 SBU, Blok B1-K
 | Regelset op de keuzedeelruimte | `Student keuze regelset` | `e4037953-17d6-40a4-9e59-92ec1f9c19a8` | `0.1.0` | Kiesbare keuzedelen voor Apothekersassistent | Public |
 | Regelset op de resultaateenheid keuzedelen | `Student keuze regelset` | `132f165a-973c-41c2-98df-e58d4ca6d7eb` | `0.1.0` | Meetellende keuzedeelresultaten Apothekersassistent | Public |
 
-De eerste regelset geldt met `appliesTo` op de keuzedeelruimte en maakt K0037 kiesbaar zodra de leeruitkomst op kerntaakniveau behaald is. De tweede geldt op de resultaateenheid keuzedelen en legt vast welke keuzedeelresultaten meetellen. De sleutels binnen `rules` dragen in beide gevallen dezelfde namen, omdat [rule-set.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/rule-set.json) het regelobject vrij laat en de voorbeeldpayloads in Public de vorm aanhouden:
+De eerste regelset geldt met `appliesTo` op de keuzedeelruimte en maakt K0037 kiesbaar zodra de leeruitkomst op kerntaakniveau behaald is. De tweede geldt op de resultaateenheid keuzedelen en legt vast welke keuzedeelresultaten meetellen. De sleutels binnen `rules` dragen in beide gevallen dezelfde namen, omdat [rule-set.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/rule-set.json) het regelobject vrij laat en de voorbeeldpayloads in Public de vorm aanhouden. Hun getypeerde vorm staat in [student-choice-rule.json](schemas/student-choice-rule.json):
 
 | Sleutel | Nederlands | Wat zij draagt |
 |---|---|---|
@@ -137,15 +137,31 @@ De instelling van deze casus is ROC Leren Zonder Drempels en draagt daarom een u
 
 ## Het onderwijs- en examenontwerp
 
-De objecten die IS-OA-02 op de specificatie en op het toetsonderdeel zet. Zij dragen een naam en een uuid, en geen eigen versie in de payload.
+De objecten die IS-OA-02 op de specificatie en op het toetsonderdeel zet. Het ruimtetype draagt een code, omdat het een type aanwijst dat meerdere specificaties delen; de overige objecten dragen een uuid. De leermiddelgroep draagt daarnaast een eigen versie, zoals de leermiddelkoppeling-payload die verwacht.
 
 | Wat het is | Objecttype | Identificatie | Naam in de payload | Bron |
 |---|---|---|---|---|
 | Docentprofiel bij de eenheid en het leeronderdeel | `Expertise of functieprofiel` | `8e1dcda7-ef4e-45d0-931a-e47c3c77ddef` | Apothekersassistent-docent met baliepraktijk | Deze snede |
 | Examinatorprofiel bij de proeve | `Expertise of functieprofiel` | `4037f1a2-c182-4f2d-ae00-bfb06b076337` | Examinator met baliepraktijk en toetsbekwaamheid | Deze snede |
 | Toetsinstrument bij de proeve | zonder objecttype, van de conceptplaat Onderwijsontwerp | `da138f60-ebb1-4853-870f-7e7d642873f2` | Beoordelingsformulier met rubric | Deze snede |
+| Gevraagd ruimtetype bij de eenheid en het leeronderdeel | `Onderwijslocatie type` | `skillslab` | Skillslab met baliesimulatie | Deze snede |
+| Gevraagd ruimtetype bij de proeve | `Onderwijslocatie type` | `skillslab-examen` | Skillslab met baliesimulatie, afsluitbaar | Deze snede |
+| Leermiddelgroep bij het leeronderdeel | zonder objecttype, van de conceptplaat Onderwijsontwerp | `7f220267-c1ec-4052-bfc0-fe6517f6f820` | Leermiddelen voor de baliesimulatie | Deze snede |
+| Examenmateriaal onder het toetsinstrument | zonder objecttype, van de conceptplaat Onderwijsontwerp | `36e392b0-a153-4b61-8e09-17b612adea91` | Examenmateriaal baliesimulatie | Deze snede |
 
-Werkbrief WB-03 en WB-06 van IS-OA-02 beleggen het schema voor het expertiseprofiel en voor het toetsinstrument.
+Werkbrief WB-02, WB-03 en WB-06 van IS-OA-02 beleggen het schema voor het ruimtetype, het expertiseprofiel en de leermiddelgroep, die ook het toetsinstrument draagt.
+
+## Het innamecontract
+
+De identificaties die het contract van [IS-OA-01](stroom-is-oa-01.md) zelf toekent. Zij dragen geen objecttype uit het informatiemodel: een levering is de eenheid waarin de curriculumontwerptool aanlevert, en de onderwijscatalogus kent haar een id toe bij aanname.
+
+| Wat het is | Rol in het contract | Identificatie | Bron |
+|---|---|---|---|
+| Levering van het ontwerp, op O3 | `leveringId` in de innameuitkomst | `d6d15731-fb31-4627-b51f-090a1e01be7b` | Deze snede |
+| Levering van de resultaatstructuur, op O4 | idem | `1743e345-3e08-41e2-9e75-f5c4bed8fccb` | Deze snede |
+| Melding van de uitkomst, op O6 | `eventId` | `e432bfdb-b64f-4f0c-b56c-4b1a87ba2a7d` | Deze snede |
+
+Werkbrief W14 en W17 van IS-OA-01 beleggen de twee sleutels en het begrip levering in Public.
 
 ## Wat deze casus openlaat
 

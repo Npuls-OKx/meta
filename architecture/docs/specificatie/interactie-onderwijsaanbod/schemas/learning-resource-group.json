@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://okx.npuls.nl/schema/learning-resource-group/voorstel",
+  "title": "Learning resource group",
+  "DutchName": "Leermiddelgroep",
+  "$comment": "Voorstel van de interactiespecificatie onderwijsaanbod, eenheid IS-OA-02 (werkbrief WB-06). Dit schema draagt zowel de leermiddelen bij een leeronderdeel als het toetsinstrument bij een examenonderdeel: op de conceptplaat Onderwijsontwerp is Toetsinstrument een Collectie van Leermiddelgroepen, en een collectie aggregeert groepen via partOfLearningResourceGroupId. De kern volgt wat gebruiksprofielen.md voor de leermiddelkoppeling-payload verwacht: id, versie en per specificatie een specificatieVerwijzing. Zolang dit schema voorstel is eindigt de $id op /voorstel.",
+  "type": "object",
+  "required": ["id", "name"],
+  "properties": {
+    "id": { "type": "string", "format": "uuid", "DutchName": "id" },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "$comment": "eigen versie van de groep, zoals gebruiksprofielen.md die voor de leermiddelkoppeling-payload verwacht",
+      "DutchName": "versie"
+    },
+    "name": { "type": "string", "DutchName": "naam" },
+    "description": { "type": "string", "DutchName": "omschrijving" },
+    "purpose": {
+      "enum": ["onderwijs", "toetsing"],
+      "$comment": "onderwijs bij een leeronderdeel (beeld F1-06), toetsing bij een examenonderdeel (beeld F1-10)",
+      "DutchName": "doel"
+    },
+    "sourcing": {
+      "enum": ["ingekocht", "geconstrueerd"],
+      "$comment": "beeld F1-10: de examencommissie besluit inkopen of construeren",
+      "DutchName": "herkomst"
+    },
+    "resources": {
+      "type": "array",
+      "items": { "type": "string" },
+      "$comment": "de leermiddelen in deze groep, bijvoorbeeld apotheekbalie-opstelling, receptenlijnsysteem en oefenmedicatie",
+      "DutchName": "leermiddelen"
+    },
+    "partOfLearningResourceGroupId": {
+      "type": ["string", "null"],
+      "format": "uuid",
+      "$comment": "de collectie waarvan deze groep onderdeel is; dezelfde vorm als partOfLocationId in location.json",
+      "DutchName": "valtBinnenLeermiddelgroepId"
+    },
+    "specificationReference": {
+      "$ref": "https://okx.npuls.nl/schema/specification-reference/alfa",
+      "$comment": "de specificatie waarvoor deze groep geldt, voor het geval de groep apart reist over de leermiddelkoppeling; binnen de onderwijsspecificatie-payload wijst de specificatie de groep aan met learningResourceGroupIds",
+      "DutchName": "specificatieVerwijzing"
+    }
+  }
+}
