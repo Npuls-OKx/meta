@@ -37,6 +37,10 @@ De status per regel hieronder zegt waar een artefact staat.
 
 ## 2. Interactiespecificatie
 
+![De koppelvlakdiensten over deze koppeling, met de aanbieder links en de afnemer rechts](img/diensten-is-oa-01.svg)
+
+De bal staat bij het component dat de dienst aanbiedt, de kom bij het component dat haar afneemt. Het sequentiediagram eronder zet dezelfde operaties in de tijd.
+
 ```mermaid
 sequenceDiagram
     autonumber

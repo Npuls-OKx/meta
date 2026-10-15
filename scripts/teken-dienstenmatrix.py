@@ -46,9 +46,34 @@ DIENSTENLIJST = "Koppelvlakspecificaties/Applicatiediensten/README.md"
 COMMIT = "d0c20d99"
 
 APP, APP_L, APP_T = "#b5ffff", "#5aa8a8", "#2a5a5a"
-BIEDT, NEEMT = "#cfe8d4", "#e8dfc8"
+DIENST = "#d6f7f7"
 INK, MUTED, LIJN = "#1c1c1c", "#5b6663", "#d8ddda"
 FONT = "Arial, Helvetica, sans-serif"
+
+# De iconen van ArchiMate, in de notatie die de standaard aanhoudt.
+ICOON_COMPONENT = ('<rect x="4" y="2" width="10" height="12"/>'
+                   '<rect x="2" y="4" width="4" height="2.5"/>'
+                   '<rect x="2" y="8.5" width="4" height="2.5"/>')
+ICOON_DIENST = '<rect x="1.5" y="4.5" width="13" height="7" rx="3.5"/>'
+ICOON_INTERFACE = '<path d="M1.5 8h5"/><circle cx="10" cy="8" r="3.5"/>'
+
+
+def icoon_svg(x, y, pad, kleur, dikte=1.2, vul="none"):
+    return (f'<g transform="translate({x:.0f},{y:.0f})" fill="{vul}" stroke="{kleur}" '
+            f'stroke-width="{dikte}">{pad}</g>')
+
+
+def biedt_svg(x, y, kleur):
+    """Een geleverde interface: de bal aan een steel, zoals ArchiMate haar tekent."""
+    return (f'<g stroke="{kleur}" stroke-width="1.6" fill="none">'
+            f'<path d="M{x} {y}h9"/><circle cx="{x + 13}" cy="{y}" r="4.5" fill="{kleur}"/></g>')
+
+
+def neemt_svg(x, y, kleur):
+    """Een gevraagde interface: de kom aan een steel, die om de bal van de aanbieder valt."""
+    return (f'<g stroke="{kleur}" stroke-width="1.6" fill="none">'
+            f'<path d="M{x} {y}h9"/>'
+            f'<path d="M{x + 9} {y - 5.5}A5.5 5.5 0 0 1 {x + 9} {y + 5.5}"/></g>')
 
 RIJ, KOLOM, NAAMBREEDTE, KOP = 30, 152, 300, 92
 
@@ -96,8 +121,11 @@ def claims(pad):
         rol = ("aanbieder" if dienst.endswith("-aanbieder")
                else "afnemer" if dienst.endswith("-afnemer") else "")
         onderwerp = re.sub(r"-(aanbieder|afnemer)$", "", dienst)
+        eenheid = cellen[3] if len(cellen) > 4 else ""
         uit.append({"component": component, "onderwerp": onderwerp, "rol": rol,
-                    "dienst": dienst, "endpoints": endpoints, "stand": stand,
+                    "dienst": dienst, "endpoints": endpoints, "stand": cellen[-1],
+                    "eenheid": re.sub(r"IS-OA-", "", eenheid).replace(", ", "."),
+                    "eenheid_vol": eenheid,
                     "toevoeging": toevoeging})
     return uit
 
@@ -167,14 +195,17 @@ def teken(rijen, bekend, titel):
 
     for i, component in enumerate(componenten):
         x = NAAMBREEDTE + i * KOLOM
-        delen.append(f'<rect x="{x}" y="{KOP - 44}" width="{KOLOM - 8}" height="38" rx="3" '
+        delen.append(f'<rect x="{x}" y="{KOP - 48}" width="{KOLOM - 8}" height="44" rx="3" '
                      f'fill="{APP}" stroke="{APP_L}"/>')
-        langste = max((breedte(w, 11, True) for w in component.split()), default=0)
-        letter = 11 if langste <= KOLOM - 20 else 9
-        regels = _knip(component, KOLOM - 20, letter)
+        delen.append(icoon_svg(x + KOLOM - 28, KOP - 43, ICOON_COMPONENT, APP_T))
+        ruimte = KOLOM - 20
+        langste = max((breedte(w, 10, True) for w in component.split()), default=0)
+        letter = 10 if langste <= ruimte else 9
+        regels = _knip(component, ruimte, letter)
+        basis = KOP - 24 if len(regels) > 1 else KOP - 18
         for j, regel in enumerate(regels):
-            delen.append(tekst_svg(x + (KOLOM - 8) / 2, KOP - 30 + j * (letter + 2) + 6, regel,
-                                   letter, APP_T, True, "middle"))
+            delen.append(tekst_svg(x + 8, basis + j * (letter + 2), regel,
+                                   letter, APP_T, True, "start"))
 
     for r, onderwerp in enumerate(onderwerpen):
         y = KOP + r * RIJ
@@ -182,35 +213,126 @@ def teken(rijen, bekend, titel):
             delen.append(f'<rect x="12" y="{y}" width="{breed - 24}" height="{RIJ}" '
                          f'fill="#fafbfa"/>')
         voorstel = bekend and onderwerp not in bekend
-        delen.append(tekst_svg(20, y + 20, onderwerp, 12, MUTED if voorstel else INK))
+        delen.append(f'<rect x="16" y="{y + 4}" width="{NAAMBREEDTE - 30}" height="{RIJ - 9}" '
+                     f'rx="3" fill="{DIENST}" stroke="{APP_L}" stroke-width="0.8"'
+                     + (' stroke-dasharray="4 3"' if voorstel else "") + '/>')
+        delen.append(icoon_svg(22, y + 7, ICOON_INTERFACE, APP_T))
+        delen.append(icoon_svg(40, y + 7, ICOON_DIENST, APP_T))
+        delen.append(tekst_svg(60, y + 20, onderwerp, 11, APP_T))
         if voorstel:
-            delen.append(tekst_svg(NAAMBREEDTE - 14, y + 20, "voorstel", 10, MUTED, False, "end"))
+            delen.append(tekst_svg(NAAMBREEDTE - 20, y + 20, "voorstel", 9, MUTED, False, "end"))
         for i, component in enumerate(componenten):
             gevonden = per.get((onderwerp, component)) or []
             if not gevonden:
                 continue
             x = NAAMBREEDTE + i * KOLOM
+            w = (KOLOM - 14) / max(1, len(gevonden))
             for k, g in enumerate(sorted(gevonden, key=lambda g: g["rol"])):
-                vul = BIEDT if g["rol"] == "aanbieder" else NEEMT
-                w = (KOLOM - 14) / max(1, len(gevonden))
-                delen.append(f'<rect x="{x + k * w}" y="{y + 5}" width="{w - 4}" height="{RIJ - 11}" '
-                             f'rx="3" fill="{vul}" stroke="{LIJN}"/>')
-                merk = "biedt" if g["rol"] == "aanbieder" else "neemt af"
-                delen.append(tekst_svg(x + k * w + (w - 4) / 2, y + 20, merk, 10, INK, False,
-                                       "middle"))
+                mx = x + k * w + 4
+                delen.append(biedt_svg(mx, y + 15, APP_T) if g["rol"] == "aanbieder"
+                             else neemt_svg(mx, y + 15, APP_T))
+                eenheden = g.get("eenheid", "")
+                if eenheden:
+                    delen.append(tekst_svg(mx + 26, y + 19, eenheden, 9, MUTED))
         delen.append(f'<line x1="12" y1="{y + RIJ}" x2="{breed - 12}" y2="{y + RIJ}" '
                      f'stroke="{LIJN}" stroke-width="0.6"/>')
 
     y = KOP + len(onderwerpen) * RIJ + 26
-    for i, (vul, wat) in enumerate(((BIEDT, "biedt de dienst aan"), (NEEMT, "neemt de dienst af"))):
-        delen.append(f'<rect x="{20 + i * 220}" y="{y - 11}" width="26" height="14" rx="3" '
-                     f'fill="{vul}" stroke="{LIJN}"/>')
-        delen.append(tekst_svg(52 + i * 220, y, wat, 11, MUTED))
+    delen.append(biedt_svg(20, y - 4, APP_T))
+    delen.append(tekst_svg(44, y, "biedt de dienst aan, een geleverde interface", 11, MUTED))
+    delen.append(neemt_svg(300, y - 4, APP_T))
+    delen.append(tekst_svg(324, y, "neemt de dienst af, een gevraagde interface", 11, MUTED))
+    delen.append(icoon_svg(584, y - 11, ICOON_INTERFACE, APP_T))
+    delen.append(icoon_svg(602, y - 11, ICOON_DIENST, APP_T))
+    delen.append(tekst_svg(624, y, "de dienst met de interface waarop zij wordt aangeboden",
+                           11, MUTED))
+    delen.append(icoon_svg(948, y - 11, ICOON_COMPONENT, APP_T))
+    delen.append(tekst_svg(970, y, "applicatiecomponent", 11, MUTED))
     delen.append(tekst_svg(20, y + 24,
                            "Een dienst zegt wat er moet kunnen, niet welk systeem het doet; elk "
                            "component kan hem claimen.", 11, MUTED))
     delen.append("</svg>")
     return "\n".join(delen)
+
+
+def teken_interactie(rijen, aanduiding):
+    """Een plaat voor een interactiespecificatie: twee componenten met de diensten ertussen.
+
+    Waarvoor: per interactie wil een bouwer zien welke diensten er over de lijn gaan en wie
+    welke kant op staat. De aanbieder draagt de geleverde interface, de afnemer de gevraagde,
+    en samen vallen zij in elkaar zoals ArchiMate ze tekent.
+    """
+    eigen = [r for r in rijen if aanduiding in r.get("eenheid_vol", "")]
+    if not eigen:
+        return None, []
+    per = collections.defaultdict(dict)
+    for r in eigen:
+        per[r["onderwerp"]][r["rol"]] = r
+    onderwerpen = [o for o in dict.fromkeys(r["onderwerp"] for r in eigen)]
+
+    links, rechts = [], []
+    for onderwerp in onderwerpen:
+        for rol, kant in (("aanbieder", links), ("afnemer", rechts)):
+            r = per[onderwerp].get(rol)
+            if r and r["component"] not in kant:
+                kant.append(r["component"])
+    if not links or not rechts:
+        return None, [f"{aanduiding}: de diensten dragen geen aanbieder en afnemer samen"]
+    # Binnen een interactie hoort elke dienst beide rollen te dragen. Deze toets vond dat de
+    # ontwerptool in IS-OA-01 de structuur ophaalt zonder dat haar afnemersrol was belegd.
+    meldingen = [f"{aanduiding}: de dienst {o!r} draagt hier geen "
+                 f"{'afnemer' if 'aanbieder' in per[o] else 'aanbieder'}"
+                 for o in onderwerpen if len(per[o]) < 2]
+
+    VAK, MIDDEN, RIJHOOGTE = 190, 330, 54
+    breed = VAK * 2 + MIDDEN + 60
+    hoog = 70 + max(1, len(onderwerpen)) * RIJHOOGTE + 60
+    delen = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{breed}" height="{hoog}" '
+             f'viewBox="0 0 {breed} {hoog}" role="img">',
+             f'<rect width="{breed}" height="{hoog}" fill="#ffffff"/>',
+             tekst_svg(20, 28, f"{aanduiding}: de diensten over deze koppeling", 15, INK, True)]
+
+    def vak(x, naam, y0, hoogte):
+        uit = [f'<rect x="{x}" y="{y0}" width="{VAK}" height="{hoogte}" rx="4" fill="{APP}" '
+               f'stroke="{APP_L}"/>', icoon_svg(x + VAK - 26, y0 + 10, ICOON_COMPONENT, APP_T)]
+        for j, regel in enumerate(_knip(naam, VAK - 24, 12, regels=3)):
+            uit.append(tekst_svg(x + 12, y0 + 42 + j * 15, regel, 12, APP_T, True))
+        return uit
+
+    y0, hoogte = 56, len(onderwerpen) * RIJHOOGTE
+    delen += vak(20, " en ".join(links), y0, hoogte)
+    delen += vak(20 + VAK + MIDDEN + 20, " en ".join(rechts), y0, hoogte)
+
+    for i, onderwerp in enumerate(onderwerpen):
+        y = y0 + i * RIJHOOGTE + RIJHOOGTE / 2
+        a, b = per[onderwerp].get("aanbieder"), per[onderwerp].get("afnemer")
+        x1, x2 = 20 + VAK, 20 + VAK + MIDDEN + 20
+        delen.append(f'<rect x="{x1 + 46}" y="{y - 13}" width="{MIDDEN - 92}" height="26" rx="3" '
+                     f'fill="{DIENST}" stroke="{APP_L}" stroke-width="0.8"/>')
+        delen.append(icoon_svg(x1 + 52, y - 8, ICOON_DIENST, APP_T))
+        delen.append(tekst_svg(x1 + MIDDEN / 2, y + 4, onderwerp, 10, APP_T, False, "middle"))
+        if a:
+            delen.append(biedt_svg(x1 + 6, y, APP_T))
+        if b:
+            delen.append(neemt_svg(x2 - 26, y, APP_T))
+        delen_endpoint = [d.strip() for d in (a or b).get("endpoints", "").replace("`", "")
+                          .split(",") if d.strip()]
+        endpoint = delen_endpoint[0] if delen_endpoint else ""
+        if len(endpoint) > 52:
+            endpoint = endpoint[:52].rsplit(" ", 1)[0] + " ..."
+        if len(delen_endpoint) > 1:
+            endpoint += f"  (+{len(delen_endpoint) - 1})"
+        delen.append(tekst_svg(x1 + MIDDEN / 2, y + 22, endpoint, 9, MUTED, False, "middle"))
+
+    y = y0 + hoogte + 34
+    delen.append(biedt_svg(20, y - 4, APP_T))
+    delen.append(tekst_svg(44, y, "biedt aan", 11, MUTED))
+    delen.append(neemt_svg(130, y - 4, APP_T))
+    delen.append(tekst_svg(154, y, "neemt af", 11, MUTED))
+    delen.append(tekst_svg(240, y, "de dienst staat in het midden, met haar endpoint eronder",
+                           11, MUTED))
+    delen.append("</svg>")
+    return "\n".join(delen), meldingen
 
 
 def _knip(tekst, ruimte, grootte=11, regels=2):
@@ -233,6 +355,8 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--keten", default=None, help="de interactieketenspecificatie")
     parser.add_argument("--uit", default=None, help="de svg die geschreven wordt")
+    parser.add_argument("--per-interactie", action="store_true",
+                        help="schrijf daarnaast een plaat per interactiespecificatie")
     parser.add_argument("--kort", action="store_true", help="alleen de bevindingen")
     args = parser.parse_args(argv)
 
@@ -251,6 +375,17 @@ def main(argv=None):
                    encoding="utf-8")
 
     bevindingen = bevindingen_van(rijen, bekend)
+    if args.per_interactie:
+        aanduidingen = sorted({a for r in rijen
+                               for a in re.findall(r"IS-OA-\d+", r.get("eenheid_vol", ""))})
+        for aanduiding in aanduidingen:
+            svg, meldingen = teken_interactie(rijen, aanduiding)
+            bevindingen += meldingen
+            if svg:
+                doel = uit.parent / f"diensten-{aanduiding.lower()}.svg"
+                doel.write_text(svg + "\n", encoding="utf-8")
+                if not args.kort:
+                    print(f"  {doel.name}")
     if not args.kort:
         onderwerpen = {r["onderwerp"] for r in rijen}
         print(str(uit).replace(str(WORTEL) + "/", ""))

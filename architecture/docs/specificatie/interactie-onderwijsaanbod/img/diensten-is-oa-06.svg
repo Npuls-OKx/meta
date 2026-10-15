@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="770" height="238" viewBox="0 0 770 238" role="img">
+<rect width="770" height="238" fill="#ffffff"/>
+<text x="20" y="28" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#1c1c1c" text-anchor="start" font-weight="600">IS-OA-06: de diensten over deze koppeling</text>
+<rect x="20" y="56" width="190" height="108" rx="4" fill="#b5ffff" stroke="#5aa8a8"/>
+<g transform="translate(184,66)" fill="none" stroke="#2a5a5a" stroke-width="1.2"><rect x="4" y="2" width="10" height="12"/><rect x="2" y="4" width="4" height="2.5"/><rect x="2" y="8.5" width="4" height="2.5"/></g>
+<text x="32" y="98" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#2a5a5a" text-anchor="start" font-weight="600">Kernregistratie (KRS)</text>
+<rect x="560" y="56" width="190" height="108" rx="4" fill="#b5ffff" stroke="#5aa8a8"/>
+<g transform="translate(724,66)" fill="none" stroke="#2a5a5a" stroke-width="1.2"><rect x="4" y="2" width="10" height="12"/><rect x="2" y="4" width="4" height="2.5"/><rect x="2" y="8.5" width="4" height="2.5"/></g>
+<text x="572" y="98" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#2a5a5a" text-anchor="start" font-weight="600">Voorziening Centraal</text>
+<text x="572" y="113" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#2a5a5a" text-anchor="start" font-weight="600">Aanmelden (CAMBO)</text>
+<rect x="256" y="70.0" width="238" height="26" rx="3" fill="#d6f7f7" stroke="#5aa8a8" stroke-width="0.8"/>
+<g transform="translate(262,75)" fill="none" stroke="#2a5a5a" stroke-width="1.2"><rect x="1.5" y="4.5" width="13" height="7" rx="3.5"/></g>
+<text x="375" y="87" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#2a5a5a" text-anchor="middle">afleverabonnement</text>
+<g stroke="#2a5a5a" stroke-width="1.6" fill="none"><path d="M216 83.0h9"/><circle cx="229" cy="83.0" r="4.5" fill="#2a5a5a"/></g>
+<g stroke="#2a5a5a" stroke-width="1.6" fill="none"><path d="M534 83.0h9"/><path d="M543 77.5A5.5 5.5 0 0 1 543 88.5"/></g>
+<text x="375" y="105" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#5b6663" text-anchor="middle">/abonnementen</text>
+<rect x="256" y="124.0" width="238" height="26" rx="3" fill="#d6f7f7" stroke="#5aa8a8" stroke-width="0.8"/>
+<g transform="translate(262,129)" fill="none" stroke="#2a5a5a" stroke-width="1.2"><rect x="1.5" y="4.5" width="13" height="7" rx="3.5"/></g>
+<text x="375" y="141" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#2a5a5a" text-anchor="middle">aanmeldbaar-onderwijsaanbod</text>
+<g stroke="#2a5a5a" stroke-width="1.6" fill="none"><path d="M216 137.0h9"/><circle cx="229" cy="137.0" r="4.5" fill="#2a5a5a"/></g>
+<g stroke="#2a5a5a" stroke-width="1.6" fill="none"><path d="M534 137.0h9"/><path d="M543 131.5A5.5 5.5 0 0 1 543 142.5"/></g>
+<text x="375" y="159" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#5b6663" text-anchor="middle">/aanmeldbaar-aanbod met /{id}  (+2)</text>
+<g stroke="#2a5a5a" stroke-width="1.6" fill="none"><path d="M20 194h9"/><circle cx="33" cy="194" r="4.5" fill="#2a5a5a"/></g>
+<text x="44" y="198" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#5b6663" text-anchor="start">biedt aan</text>
+<g stroke="#2a5a5a" stroke-width="1.6" fill="none"><path d="M130 194h9"/><path d="M139 188.5A5.5 5.5 0 0 1 139 199.5"/></g>
+<text x="154" y="198" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#5b6663" text-anchor="start">neemt af</text>
+<text x="240" y="198" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#5b6663" text-anchor="start">de dienst staat in het midden, met haar endpoint eronder</text>
+</svg>

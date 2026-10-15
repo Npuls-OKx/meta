@@ -110,8 +110,13 @@ class DePlaat(unittest.TestCase):
             ("Catalogus", "onderwijsspecificatiestructuur-aanbieder", "/x", "Vastgelegd"),
             ("Planning", "onderwijsspecificatiestructuur-afnemer", "/x", "Vastgelegd")]))
         svg = dm.teken(rijen, BEKEND, "Titel")
-        self.assertEqual(svg.count(">biedt<"), 1)
-        self.assertEqual(svg.count(">neemt af<"), 1)
+        self.assertEqual(svg.count('r="4.5"'), 2)
+        self.assertEqual(svg.count("A5.5 5.5"), 2)
+
+    def test_given_de_rollen_when_tekenen_then_dragen_zij_de_notatie_van_archimate(self):
+        """De bal is de geleverde interface, de kom de gevraagde; samen vallen zij in elkaar."""
+        self.assertIn('circle', dm.biedt_svg(0, 0, "#000"))
+        self.assertIn('A5.5 5.5', dm.neemt_svg(0, 0, "#000"))
 
     def test_given_een_voorgestelde_dienst_when_tekenen_then_draagt_de_rij_dat_merk(self):
         rijen = dm.claims(keten([("Catalogus", "nieuw-aanbieder", "/x", "Voorstel")]))
@@ -120,6 +125,42 @@ class DePlaat(unittest.TestCase):
     def test_given_een_lange_componentnaam_when_tekenen_then_krijgt_de_kop_een_kleinere_letter(self):
         rijen = dm.claims(keten([("Toetsenexamenafnamesysteemvoorinstellingen", "x-aanbieder", "/x", "x")]))
         self.assertIn('font-size="9"', dm.teken(rijen, BEKEND, "Titel"))
+
+
+class DePlaatPerInteractie(unittest.TestCase):
+    """Een plaat per interactiespecificatie, met de aanbieder links en de afnemer rechts."""
+
+    def rijen(self, rijen):
+        return dm.claims(keten(rijen))
+
+    def test_given_een_dienstpaar_in_een_eenheid_when_tekenen_then_komt_de_plaat_eruit(self):
+        svg, meldingen = dm.teken_interactie(self.rijen([
+            ("Catalogus", "onderwijsspecificatiestructuur-aanbieder", "/x", "Vastgelegd"),
+            ("Planning", "onderwijsspecificatiestructuur-afnemer", "/x", "Vastgelegd")]), "IS-OA-01")
+        self.assertEqual(meldingen, [])
+        self.assertIn("IS-OA-01", svg)
+        self.assertIn("Catalogus", svg)
+        self.assertIn("Planning", svg)
+
+    def test_given_een_dienst_zonder_afnemer_in_de_eenheid_when_tekenen_then_een_melding(self):
+        """Dit gat zat in IS-OA-01: de ontwerptool haalde de structuur op zonder die rol te dragen."""
+        _, meldingen = dm.teken_interactie(self.rijen([
+            ("Catalogus", "onderwijsspecificatiestructuur-aanbieder", "/x", "Vastgelegd"),
+            ("Catalogus", "verwerkingsuitkomst-aanbieder", "/x", "Vastgelegd"),
+            ("Planning", "onderwijsspecificatiestructuur-afnemer", "/x", "Vastgelegd")]), "IS-OA-01")
+        self.assertEqual(meldingen, ["IS-OA-01: de dienst 'verwerkingsuitkomst' draagt hier geen afnemer"])
+
+    def test_given_een_eenheid_die_niet_voorkomt_when_tekenen_then_geen_plaat(self):
+        svg, meldingen = dm.teken_interactie(self.rijen([
+            ("Catalogus", "x-aanbieder", "/x", "x")]), "IS-OA-99")
+        self.assertIsNone(svg)
+        self.assertEqual(meldingen, [])
+
+    def test_given_meer_endpoints_when_tekenen_then_staat_het_aantal_erachter(self):
+        svg, _ = dm.teken_interactie(dm.claims(keten([
+            ("Catalogus", "x-aanbieder", "/een, /twee, /drie", "x"),
+            ("Planning", "x-afnemer", "/een", "x")])), "IS-OA-01")
+        self.assertIn("(+2)", svg)
 
 
 class Exitcode(unittest.TestCase):
@@ -147,6 +188,13 @@ class InDezeRepository(unittest.TestCase):
     def test_given_de_keten_in_deze_repository_when_toetsen_then_heeft_elke_dienst_beide_rollen(self):
         rijen = dm.claims(KETEN)
         self.assertEqual(dm.bevindingen_van(rijen, dm.dienstenlijst()), [])
+
+    def test_given_elke_interactie_in_deze_repository_when_toetsen_then_draagt_elke_dienst_beide_rollen(self):
+        rijen = dm.claims(KETEN)
+        for n in range(1, 8):
+            svg, meldingen = dm.teken_interactie(rijen, f"IS-OA-0{n}")
+            self.assertIsNotNone(svg, f"IS-OA-0{n} levert geen plaat")
+            self.assertEqual(meldingen, [], f"IS-OA-0{n}")
 
     def test_given_de_keten_when_lezen_then_claimt_zij_diensten_op_zes_componenten(self):
         rijen = dm.claims(KETEN)

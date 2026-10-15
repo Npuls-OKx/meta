@@ -133,8 +133,10 @@ Een dienst zegt wat er over een koppeling moet kunnen, en elk component kan hem 
 |---|---|---|---|---|
 | Curriculum ontwerptool | onderwijsspecificatie-inname-afnemer | `POST /onderwijsspecificaties`, `POST /examenplanspecificaties`, `/leveringen/{leveringId}` | IS-OA-01 | Voorstel: dit component draagt vandaag geen koppelvlak |
 | Curriculum ontwerptool | verwerkingsuitkomst-afnemer | `verwerkingsstatus`, `specificatie-status-gewijzigd` | IS-OA-01 | Voorstel, als boven |
+| Curriculum ontwerptool | onderwijsspecificatiestructuur-afnemer | `GET /onderwijsspecificaties` met `/{id}`, en de melding `specificatie-status-gewijzigd` | IS-OA-01 | Vastgelegd |
 | Curriculum ontwerptool | onderwijsspecificatiestructuur-aanbieder | `/onderwijsspecificaties/{id}` en `/examenplanspecificaties/{id}`, elk met `/delta`, en de melding `ontwerp-gereed` | IS-OA-02 | Voorstel: de catalogus haalt het ontwerp op na de melding |
-| Curriculum ontwerptool | afleverabonnement-afnemer | `/abonnementen` | IS-OA-01, IS-OA-02 | Voorstel, als boven |
+| Curriculum ontwerptool | afleverabonnement-afnemer | `POST /abonnementen` bij de catalogus | IS-OA-01 | Voorstel, als boven |
+| Curriculum ontwerptool | afleverabonnement-aanbieder | `/abonnementen` | IS-OA-02 | Voorstel, als boven |
 | Onderwijscatalogus | onderwijsspecificatiestructuur-aanbieder | `GET /onderwijsspecificaties` met `/{id}` en `/{id}/delta`, `/examenplanspecificaties/{id}`, en de meldingen `specificatie-planbaar`, `specificatie-beschikbaar` en `specificatie-status-gewijzigd` | IS-OA-01, IS-OA-03, IS-OA-07 | Vastgelegd |
 | Onderwijscatalogus | onderwijsspecificatiestructuur-afnemer | `/onderwijsspecificaties/{id}` bij de ontwerptool, na de melding `ontwerp-gereed` | IS-OA-02 | Voorstel |
 | Onderwijscatalogus | onderwijsspecificatie-inname-aanbieder | `POST /onderwijsspecificaties`, `POST /examenplanspecificaties`, `/leveringen/{leveringId}` | IS-OA-01 | Voorstel: drie paden erbij, additief |
@@ -143,19 +145,23 @@ Een dienst zegt wat er over een koppeling moet kunnen, en elk component kan hem 
 | Onderwijscatalogus | planbaar-onderwijsaanbod-afnemer | `GET /onderwijsaanbod` met `/{id}` bij het planningssysteem | IS-OA-04 | Vastgelegd |
 | Onderwijscatalogus | aanmeldbaar-onderwijsaanbod-aanbieder | `/aanmeldbaar-aanbod` met `/{id}` en `/{id}/delta`, en de melding `aanbod-aanmeldbaar` | IS-OA-05 | Voorstel: een eigen resource naast `/onderwijsaanbod`, en een dienst die de dienstenlijst nog niet kent |
 | Onderwijscatalogus | leermiddelkoppeling-afnemer | `/leermiddelkoppelingen/{id}` bij het leermanagementsysteem | IS-OA-07 | Vastgelegd |
-| Onderwijscatalogus | afleverabonnement-aanbieder | `/abonnementen` | IS-OA-01, IS-OA-03, IS-OA-05 | Vastgelegd; de meldingssoorten `ontwerp-gereed` en `aanbod-aanmeldbaar` komen erbij |
+| Onderwijscatalogus | afleverabonnement-aanbieder | `/abonnementen`, die de abonnementen op haar eigen meldingen aanneemt | IS-OA-01, IS-OA-03, IS-OA-05 | Vastgelegd; de meldingssoort `aanbod-aanmeldbaar` komt erbij |
+| Onderwijscatalogus | afleverabonnement-afnemer | `POST /abonnementen` bij de ontwerptool en bij het planningssysteem | IS-OA-02, IS-OA-04 | Vastgelegd op het planningssysteem, voorstel op de ontwerptool |
 | Planningssysteem | onderwijsspecificatiestructuur-afnemer | `specificatie-planbaar`, `specificatie-gewijzigd`, `specificatie-status-gewijzigd` | IS-OA-03 | Vastgelegd |
 | Planningssysteem | planbaar-onderwijsaanbod-aanbieder | `/onderwijsaanbod` met `/{id}` | IS-OA-04 | Vastgelegd |
 | Planningssysteem | verwerkingsuitkomst-aanbieder | `verwerkingsstatus` naar de catalogus | IS-OA-04 | Vastgelegd |
-| Planningssysteem | afleverabonnement-aanbieder | `/abonnementen` | IS-OA-03, IS-OA-04 | Vastgelegd |
+| Planningssysteem | afleverabonnement-afnemer | `POST /abonnementen` bij de catalogus, op haar meldingen | IS-OA-03 | Vastgelegd |
+| Planningssysteem | afleverabonnement-aanbieder | `/abonnementen` | IS-OA-04 | Vastgelegd |
 | Leermanagementsysteem (LMS) | onderwijsspecificatiestructuur-afnemer | `specificatie-beschikbaar`, `specificatie-status-gewijzigd` | IS-OA-07 | Vastgelegd |
 | Leermanagementsysteem (LMS) | leermiddelkoppeling-aanbieder | `/leermiddelkoppelingen/{id}` en de melding `leermiddelkoppeling-beschikbaar` | IS-OA-07 | Vastgelegd; de payload staat op de componentpagina als nog uit te werken |
 | Leermanagementsysteem (LMS) | verwerkingsuitkomst-aanbieder | `inrichtingsstatus` naar de catalogus | IS-OA-07 | Vastgelegd als melding; het payloadschema is voorstel |
 | Kernregistratie (KRS) | aanmeldbaar-onderwijsaanbod-afnemer | de melding `aanbod-aanmeldbaar`, en `GET /aanmeldbaar-aanbod/{id}` bij de catalogus | IS-OA-05 | Voorstel |
+| Kernregistratie (KRS) | afleverabonnement-afnemer | `POST /abonnementen` bij de catalogus | IS-OA-05 | Vastgelegd als pad, de meldingssoorten voorstel (W5) |
+| Kernregistratie (KRS) | afleverabonnement-aanbieder | `/abonnementen` | IS-OA-06 | Voorstel op deze koppeling |
 | Kernregistratie (KRS) | aanmeldbaar-onderwijsaanbod-aanbieder | `/aanmeldbaar-aanbod` met `/{id}`, `/abonnementen`, en de melding `aanmeldbaar-aanbod-beschikbaar` | IS-OA-06 | Voorstel: dezelfde resourcenaam als bij de catalogus, per bezitter gebouwd |
 | Kernregistratie (KRS) | verwerkingsuitkomst-aanbieder | `inrichtingsstatus` naar de catalogus | IS-OA-05 | Vastgelegd als melding; het payloadschema is voorstel |
-| AII (centraal aanmelden) | aanmeldbaar-onderwijsaanbod-afnemer | de melding `aanmeldbaar-aanbod-beschikbaar`, `/abonnementen` | IS-OA-06 | Voorstel, met de inhoudelijke keuzes bij de afstemming met AII |
-| AII (centraal aanmelden) | verwerkingsuitkomst-aanbieder | de melding `verwerkingsstatus` naar de kernregistratie | IS-OA-06 | Voorstel |
+| Voorziening Centraal Aanmelden (CAMBO) | aanmeldbaar-onderwijsaanbod-afnemer | de melding `aanmeldbaar-aanbod-beschikbaar`, en `GET /aanmeldbaar-aanbod` bij de kernregistratie | IS-OA-06 | Voorstel, met de inhoudelijke keuzes bij de afstemming met AII |
+| Voorziening Centraal Aanmelden (CAMBO) | afleverabonnement-afnemer | `POST /abonnementen` bij de kernregistratie | IS-OA-06 | Voorstel op deze koppeling |
 
 De dienstnamen komen uit de [dienstenlijst](https://github.com/Npuls-OKx/Public/blob/d0c20d99b110b29ccf6b0e50109f7d54ffd88d7a/Koppelvlakspecificaties/Applicatiediensten/README.md) op commit d0c20d99; `aanmeldbaar-onderwijsaanbod` staat daar nog niet in en wordt hier voorgesteld. De [componentpagina](https://github.com/Npuls-OKx/Public/tree/dev/Koppelvlakspecificaties/Applicatiecomponenten) draagt de parameters en de statuscodes.
 

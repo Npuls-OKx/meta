@@ -54,6 +54,10 @@ Op hoofdplaat v1.7 bereikt de catalogus zowel de kernregistratie als CAMBO langs
 
 ## 2. Interactiespecificatie
 
+![De koppelvlakdiensten over deze koppeling, met de aanbieder links en de afnemer rechts](img/diensten-is-oa-06.svg)
+
+De bal staat bij het component dat de dienst aanbiedt, de kom bij het component dat haar afneemt. Het sequentiediagram eronder zet dezelfde operaties in de tijd.
+
 ```mermaid
 sequenceDiagram
     autonumber

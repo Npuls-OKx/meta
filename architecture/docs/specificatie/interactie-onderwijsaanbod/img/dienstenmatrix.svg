@@ -1,91 +1,135 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1252" height="378" viewBox="0 0 1252 378" role="img">
 <rect width="1252" height="378" fill="#ffffff"/>
 <text x="20" y="30" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#1c1c1c" text-anchor="start" font-weight="600">Wie biedt en wie neemt welke koppelvlakdienst af</text>
-<rect x="300" y="48" width="144" height="38" rx="3" fill="#b5ffff" stroke="#5aa8a8"/>
-<text x="372" y="68" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#2a5a5a" text-anchor="middle" font-weight="600">Curriculum ontwerptool</text>
-<rect x="452" y="48" width="144" height="38" rx="3" fill="#b5ffff" stroke="#5aa8a8"/>
-<text x="524" y="68" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#2a5a5a" text-anchor="middle" font-weight="600">Onderwijscatalogus</text>
-<rect x="604" y="48" width="144" height="38" rx="3" fill="#b5ffff" stroke="#5aa8a8"/>
-<text x="676" y="68" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#2a5a5a" text-anchor="middle" font-weight="600">Planningssysteem</text>
-<rect x="756" y="48" width="144" height="38" rx="3" fill="#b5ffff" stroke="#5aa8a8"/>
-<text x="828" y="68" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#2a5a5a" text-anchor="middle" font-weight="600">Leermanagementsysteem</text>
-<text x="828" y="81" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#2a5a5a" text-anchor="middle" font-weight="600">(LMS)</text>
-<rect x="908" y="48" width="144" height="38" rx="3" fill="#b5ffff" stroke="#5aa8a8"/>
-<text x="980" y="68" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#2a5a5a" text-anchor="middle" font-weight="600">Kernregistratie (KRS)</text>
-<rect x="1060" y="48" width="144" height="38" rx="3" fill="#b5ffff" stroke="#5aa8a8"/>
-<text x="1132" y="68" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#2a5a5a" text-anchor="middle" font-weight="600">AII (centraal</text>
-<text x="1132" y="81" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#2a5a5a" text-anchor="middle" font-weight="600">aanmelden)</text>
-<text x="20" y="112" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#1c1c1c" text-anchor="start">onderwijsspecificatie-inname</text>
-<rect x="300.0" y="97" width="134.0" height="19" rx="3" fill="#e8dfc8" stroke="#d8ddda"/>
-<text x="367" y="112" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#1c1c1c" text-anchor="middle">neemt af</text>
-<rect x="452.0" y="97" width="134.0" height="19" rx="3" fill="#cfe8d4" stroke="#d8ddda"/>
-<text x="519" y="112" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#1c1c1c" text-anchor="middle">biedt</text>
+<rect x="300" y="44" width="144" height="44" rx="3" fill="#b5ffff" stroke="#5aa8a8"/>
+<g transform="translate(424,49)" fill="none" stroke="#2a5a5a" stroke-width="1.2"><rect x="4" y="2" width="10" height="12"/><rect x="2" y="4" width="4" height="2.5"/><rect x="2" y="8.5" width="4" height="2.5"/></g>
+<text x="308" y="74" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#2a5a5a" text-anchor="start" font-weight="600">Curriculum ontwerptool</text>
+<rect x="452" y="44" width="144" height="44" rx="3" fill="#b5ffff" stroke="#5aa8a8"/>
+<g transform="translate(576,49)" fill="none" stroke="#2a5a5a" stroke-width="1.2"><rect x="4" y="2" width="10" height="12"/><rect x="2" y="4" width="4" height="2.5"/><rect x="2" y="8.5" width="4" height="2.5"/></g>
+<text x="460" y="74" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#2a5a5a" text-anchor="start" font-weight="600">Onderwijscatalogus</text>
+<rect x="604" y="44" width="144" height="44" rx="3" fill="#b5ffff" stroke="#5aa8a8"/>
+<g transform="translate(728,49)" fill="none" stroke="#2a5a5a" stroke-width="1.2"><rect x="4" y="2" width="10" height="12"/><rect x="2" y="4" width="4" height="2.5"/><rect x="2" y="8.5" width="4" height="2.5"/></g>
+<text x="612" y="74" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#2a5a5a" text-anchor="start" font-weight="600">Planningssysteem</text>
+<rect x="756" y="44" width="144" height="44" rx="3" fill="#b5ffff" stroke="#5aa8a8"/>
+<g transform="translate(880,49)" fill="none" stroke="#2a5a5a" stroke-width="1.2"><rect x="4" y="2" width="10" height="12"/><rect x="2" y="4" width="4" height="2.5"/><rect x="2" y="8.5" width="4" height="2.5"/></g>
+<text x="764" y="68" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#2a5a5a" text-anchor="start" font-weight="600">Leermanagementsysteem</text>
+<text x="764" y="80" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#2a5a5a" text-anchor="start" font-weight="600">(LMS)</text>
+<rect x="908" y="44" width="144" height="44" rx="3" fill="#b5ffff" stroke="#5aa8a8"/>
+<g transform="translate(1032,49)" fill="none" stroke="#2a5a5a" stroke-width="1.2"><rect x="4" y="2" width="10" height="12"/><rect x="2" y="4" width="4" height="2.5"/><rect x="2" y="8.5" width="4" height="2.5"/></g>
+<text x="916" y="74" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#2a5a5a" text-anchor="start" font-weight="600">Kernregistratie (KRS)</text>
+<rect x="1060" y="44" width="144" height="44" rx="3" fill="#b5ffff" stroke="#5aa8a8"/>
+<g transform="translate(1184,49)" fill="none" stroke="#2a5a5a" stroke-width="1.2"><rect x="4" y="2" width="10" height="12"/><rect x="2" y="4" width="4" height="2.5"/><rect x="2" y="8.5" width="4" height="2.5"/></g>
+<text x="1068" y="68" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#2a5a5a" text-anchor="start" font-weight="600">Voorziening Centraal</text>
+<text x="1068" y="80" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#2a5a5a" text-anchor="start" font-weight="600">Aanmelden (CAMBO)</text>
+<rect x="16" y="96" width="270" height="21" rx="3" fill="#d6f7f7" stroke="#5aa8a8" stroke-width="0.8"/>
+<g transform="translate(22,99)" fill="none" stroke="#2a5a5a" stroke-width="1.2"><path d="M1.5 8h5"/><circle cx="10" cy="8" r="3.5"/></g>
+<g transform="translate(40,99)" fill="none" stroke="#2a5a5a" stroke-width="1.2"><rect x="1.5" y="4.5" width="13" height="7" rx="3.5"/></g>
+<text x="60" y="112" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#2a5a5a" text-anchor="start">onderwijsspecificatie-inname</text>
+<g stroke="#2a5a5a" stroke-width="1.6" fill="none"><path d="M304.0 107h9"/><path d="M313.0 101.5A5.5 5.5 0 0 1 313.0 112.5"/></g>
+<text x="330" y="111" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#5b6663" text-anchor="start">01</text>
+<g stroke="#2a5a5a" stroke-width="1.6" fill="none"><path d="M456.0 107h9"/><circle cx="469.0" cy="107" r="4.5" fill="#2a5a5a"/></g>
+<text x="482" y="111" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#5b6663" text-anchor="start">01</text>
 <line x1="12" y1="122" x2="1240" y2="122" stroke="#d8ddda" stroke-width="0.6"/>
 <rect x="12" y="122" width="1228" height="30" fill="#fafbfa"/>
-<text x="20" y="142" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#1c1c1c" text-anchor="start">verwerkingsuitkomst</text>
-<rect x="300.0" y="127" width="134.0" height="19" rx="3" fill="#e8dfc8" stroke="#d8ddda"/>
-<text x="367" y="142" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#1c1c1c" text-anchor="middle">neemt af</text>
-<rect x="452.0" y="127" width="65.0" height="19" rx="3" fill="#cfe8d4" stroke="#d8ddda"/>
-<text x="484" y="142" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#1c1c1c" text-anchor="middle">biedt</text>
-<rect x="521.0" y="127" width="65.0" height="19" rx="3" fill="#e8dfc8" stroke="#d8ddda"/>
-<text x="554" y="142" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#1c1c1c" text-anchor="middle">neemt af</text>
-<rect x="604.0" y="127" width="134.0" height="19" rx="3" fill="#cfe8d4" stroke="#d8ddda"/>
-<text x="671" y="142" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#1c1c1c" text-anchor="middle">biedt</text>
-<rect x="756.0" y="127" width="134.0" height="19" rx="3" fill="#cfe8d4" stroke="#d8ddda"/>
-<text x="823" y="142" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#1c1c1c" text-anchor="middle">biedt</text>
-<rect x="908.0" y="127" width="134.0" height="19" rx="3" fill="#cfe8d4" stroke="#d8ddda"/>
-<text x="975" y="142" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#1c1c1c" text-anchor="middle">biedt</text>
-<rect x="1060.0" y="127" width="134.0" height="19" rx="3" fill="#cfe8d4" stroke="#d8ddda"/>
-<text x="1127" y="142" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#1c1c1c" text-anchor="middle">biedt</text>
+<rect x="16" y="126" width="270" height="21" rx="3" fill="#d6f7f7" stroke="#5aa8a8" stroke-width="0.8"/>
+<g transform="translate(22,129)" fill="none" stroke="#2a5a5a" stroke-width="1.2"><path d="M1.5 8h5"/><circle cx="10" cy="8" r="3.5"/></g>
+<g transform="translate(40,129)" fill="none" stroke="#2a5a5a" stroke-width="1.2"><rect x="1.5" y="4.5" width="13" height="7" rx="3.5"/></g>
+<text x="60" y="142" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#2a5a5a" text-anchor="start">verwerkingsuitkomst</text>
+<g stroke="#2a5a5a" stroke-width="1.6" fill="none"><path d="M304.0 137h9"/><path d="M313.0 131.5A5.5 5.5 0 0 1 313.0 142.5"/></g>
+<text x="330" y="141" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#5b6663" text-anchor="start">01</text>
+<g stroke="#2a5a5a" stroke-width="1.6" fill="none"><path d="M456.0 137h9"/><circle cx="469.0" cy="137" r="4.5" fill="#2a5a5a"/></g>
+<text x="482" y="141" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#5b6663" text-anchor="start">01</text>
+<g stroke="#2a5a5a" stroke-width="1.6" fill="none"><path d="M525.0 137h9"/><path d="M534.0 131.5A5.5 5.5 0 0 1 534.0 142.5"/></g>
+<text x="551" y="141" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#5b6663" text-anchor="start">04.05.07</text>
+<g stroke="#2a5a5a" stroke-width="1.6" fill="none"><path d="M608.0 137h9"/><circle cx="621.0" cy="137" r="4.5" fill="#2a5a5a"/></g>
+<text x="634" y="141" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#5b6663" text-anchor="start">04</text>
+<g stroke="#2a5a5a" stroke-width="1.6" fill="none"><path d="M760.0 137h9"/><circle cx="773.0" cy="137" r="4.5" fill="#2a5a5a"/></g>
+<text x="786" y="141" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#5b6663" text-anchor="start">07</text>
+<g stroke="#2a5a5a" stroke-width="1.6" fill="none"><path d="M912.0 137h9"/><circle cx="925.0" cy="137" r="4.5" fill="#2a5a5a"/></g>
+<text x="938" y="141" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#5b6663" text-anchor="start">05</text>
 <line x1="12" y1="152" x2="1240" y2="152" stroke="#d8ddda" stroke-width="0.6"/>
-<text x="20" y="172" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#1c1c1c" text-anchor="start">onderwijsspecificatiestructuur</text>
-<rect x="300.0" y="157" width="134.0" height="19" rx="3" fill="#cfe8d4" stroke="#d8ddda"/>
-<text x="367" y="172" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#1c1c1c" text-anchor="middle">biedt</text>
-<rect x="452.0" y="157" width="65.0" height="19" rx="3" fill="#cfe8d4" stroke="#d8ddda"/>
-<text x="484" y="172" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#1c1c1c" text-anchor="middle">biedt</text>
-<rect x="521.0" y="157" width="65.0" height="19" rx="3" fill="#e8dfc8" stroke="#d8ddda"/>
-<text x="554" y="172" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#1c1c1c" text-anchor="middle">neemt af</text>
-<rect x="604.0" y="157" width="134.0" height="19" rx="3" fill="#e8dfc8" stroke="#d8ddda"/>
-<text x="671" y="172" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#1c1c1c" text-anchor="middle">neemt af</text>
-<rect x="756.0" y="157" width="134.0" height="19" rx="3" fill="#e8dfc8" stroke="#d8ddda"/>
-<text x="823" y="172" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#1c1c1c" text-anchor="middle">neemt af</text>
+<rect x="16" y="156" width="270" height="21" rx="3" fill="#d6f7f7" stroke="#5aa8a8" stroke-width="0.8"/>
+<g transform="translate(22,159)" fill="none" stroke="#2a5a5a" stroke-width="1.2"><path d="M1.5 8h5"/><circle cx="10" cy="8" r="3.5"/></g>
+<g transform="translate(40,159)" fill="none" stroke="#2a5a5a" stroke-width="1.2"><rect x="1.5" y="4.5" width="13" height="7" rx="3.5"/></g>
+<text x="60" y="172" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#2a5a5a" text-anchor="start">onderwijsspecificatiestructuur</text>
+<g stroke="#2a5a5a" stroke-width="1.6" fill="none"><path d="M304.0 167h9"/><circle cx="317.0" cy="167" r="4.5" fill="#2a5a5a"/></g>
+<text x="330" y="171" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#5b6663" text-anchor="start">02</text>
+<g stroke="#2a5a5a" stroke-width="1.6" fill="none"><path d="M373.0 167h9"/><path d="M382.0 161.5A5.5 5.5 0 0 1 382.0 172.5"/></g>
+<text x="399" y="171" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#5b6663" text-anchor="start">01</text>
+<g stroke="#2a5a5a" stroke-width="1.6" fill="none"><path d="M456.0 167h9"/><circle cx="469.0" cy="167" r="4.5" fill="#2a5a5a"/></g>
+<text x="482" y="171" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#5b6663" text-anchor="start">01.03.07</text>
+<g stroke="#2a5a5a" stroke-width="1.6" fill="none"><path d="M525.0 167h9"/><path d="M534.0 161.5A5.5 5.5 0 0 1 534.0 172.5"/></g>
+<text x="551" y="171" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#5b6663" text-anchor="start">02</text>
+<g stroke="#2a5a5a" stroke-width="1.6" fill="none"><path d="M608.0 167h9"/><path d="M617.0 161.5A5.5 5.5 0 0 1 617.0 172.5"/></g>
+<text x="634" y="171" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#5b6663" text-anchor="start">03</text>
+<g stroke="#2a5a5a" stroke-width="1.6" fill="none"><path d="M760.0 167h9"/><path d="M769.0 161.5A5.5 5.5 0 0 1 769.0 172.5"/></g>
+<text x="786" y="171" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#5b6663" text-anchor="start">07</text>
 <line x1="12" y1="182" x2="1240" y2="182" stroke="#d8ddda" stroke-width="0.6"/>
 <rect x="12" y="182" width="1228" height="30" fill="#fafbfa"/>
-<text x="20" y="202" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#1c1c1c" text-anchor="start">afleverabonnement</text>
-<rect x="300.0" y="187" width="134.0" height="19" rx="3" fill="#e8dfc8" stroke="#d8ddda"/>
-<text x="367" y="202" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#1c1c1c" text-anchor="middle">neemt af</text>
-<rect x="452.0" y="187" width="134.0" height="19" rx="3" fill="#cfe8d4" stroke="#d8ddda"/>
-<text x="519" y="202" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#1c1c1c" text-anchor="middle">biedt</text>
-<rect x="604.0" y="187" width="134.0" height="19" rx="3" fill="#cfe8d4" stroke="#d8ddda"/>
-<text x="671" y="202" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#1c1c1c" text-anchor="middle">biedt</text>
+<rect x="16" y="186" width="270" height="21" rx="3" fill="#d6f7f7" stroke="#5aa8a8" stroke-width="0.8"/>
+<g transform="translate(22,189)" fill="none" stroke="#2a5a5a" stroke-width="1.2"><path d="M1.5 8h5"/><circle cx="10" cy="8" r="3.5"/></g>
+<g transform="translate(40,189)" fill="none" stroke="#2a5a5a" stroke-width="1.2"><rect x="1.5" y="4.5" width="13" height="7" rx="3.5"/></g>
+<text x="60" y="202" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#2a5a5a" text-anchor="start">afleverabonnement</text>
+<g stroke="#2a5a5a" stroke-width="1.6" fill="none"><path d="M304.0 197h9"/><circle cx="317.0" cy="197" r="4.5" fill="#2a5a5a"/></g>
+<text x="330" y="201" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#5b6663" text-anchor="start">02</text>
+<g stroke="#2a5a5a" stroke-width="1.6" fill="none"><path d="M373.0 197h9"/><path d="M382.0 191.5A5.5 5.5 0 0 1 382.0 202.5"/></g>
+<text x="399" y="201" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#5b6663" text-anchor="start">01</text>
+<g stroke="#2a5a5a" stroke-width="1.6" fill="none"><path d="M456.0 197h9"/><circle cx="469.0" cy="197" r="4.5" fill="#2a5a5a"/></g>
+<text x="482" y="201" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#5b6663" text-anchor="start">01.03.05</text>
+<g stroke="#2a5a5a" stroke-width="1.6" fill="none"><path d="M525.0 197h9"/><path d="M534.0 191.5A5.5 5.5 0 0 1 534.0 202.5"/></g>
+<text x="551" y="201" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#5b6663" text-anchor="start">02.04</text>
+<g stroke="#2a5a5a" stroke-width="1.6" fill="none"><path d="M608.0 197h9"/><circle cx="621.0" cy="197" r="4.5" fill="#2a5a5a"/></g>
+<text x="634" y="201" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#5b6663" text-anchor="start">04</text>
+<g stroke="#2a5a5a" stroke-width="1.6" fill="none"><path d="M677.0 197h9"/><path d="M686.0 191.5A5.5 5.5 0 0 1 686.0 202.5"/></g>
+<text x="703" y="201" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#5b6663" text-anchor="start">03</text>
+<g stroke="#2a5a5a" stroke-width="1.6" fill="none"><path d="M912.0 197h9"/><circle cx="925.0" cy="197" r="4.5" fill="#2a5a5a"/></g>
+<text x="938" y="201" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#5b6663" text-anchor="start">06</text>
+<g stroke="#2a5a5a" stroke-width="1.6" fill="none"><path d="M981.0 197h9"/><path d="M990.0 191.5A5.5 5.5 0 0 1 990.0 202.5"/></g>
+<text x="1007" y="201" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#5b6663" text-anchor="start">05</text>
+<g stroke="#2a5a5a" stroke-width="1.6" fill="none"><path d="M1064.0 197h9"/><path d="M1073.0 191.5A5.5 5.5 0 0 1 1073.0 202.5"/></g>
+<text x="1090" y="201" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#5b6663" text-anchor="start">06</text>
 <line x1="12" y1="212" x2="1240" y2="212" stroke="#d8ddda" stroke-width="0.6"/>
-<text x="20" y="232" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#1c1c1c" text-anchor="start">planbaar-onderwijsaanbod</text>
-<rect x="452.0" y="217" width="134.0" height="19" rx="3" fill="#e8dfc8" stroke="#d8ddda"/>
-<text x="519" y="232" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#1c1c1c" text-anchor="middle">neemt af</text>
-<rect x="604.0" y="217" width="134.0" height="19" rx="3" fill="#cfe8d4" stroke="#d8ddda"/>
-<text x="671" y="232" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#1c1c1c" text-anchor="middle">biedt</text>
+<rect x="16" y="216" width="270" height="21" rx="3" fill="#d6f7f7" stroke="#5aa8a8" stroke-width="0.8"/>
+<g transform="translate(22,219)" fill="none" stroke="#2a5a5a" stroke-width="1.2"><path d="M1.5 8h5"/><circle cx="10" cy="8" r="3.5"/></g>
+<g transform="translate(40,219)" fill="none" stroke="#2a5a5a" stroke-width="1.2"><rect x="1.5" y="4.5" width="13" height="7" rx="3.5"/></g>
+<text x="60" y="232" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#2a5a5a" text-anchor="start">planbaar-onderwijsaanbod</text>
+<g stroke="#2a5a5a" stroke-width="1.6" fill="none"><path d="M456.0 227h9"/><path d="M465.0 221.5A5.5 5.5 0 0 1 465.0 232.5"/></g>
+<text x="482" y="231" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#5b6663" text-anchor="start">04</text>
+<g stroke="#2a5a5a" stroke-width="1.6" fill="none"><path d="M608.0 227h9"/><circle cx="621.0" cy="227" r="4.5" fill="#2a5a5a"/></g>
+<text x="634" y="231" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#5b6663" text-anchor="start">04</text>
 <line x1="12" y1="242" x2="1240" y2="242" stroke="#d8ddda" stroke-width="0.6"/>
 <rect x="12" y="242" width="1228" height="30" fill="#fafbfa"/>
-<text x="20" y="262" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5b6663" text-anchor="start">aanmeldbaar-onderwijsaanbod</text>
-<text x="286" y="262" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#5b6663" text-anchor="end">voorstel</text>
-<rect x="452.0" y="247" width="134.0" height="19" rx="3" fill="#cfe8d4" stroke="#d8ddda"/>
-<text x="519" y="262" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#1c1c1c" text-anchor="middle">biedt</text>
-<rect x="908.0" y="247" width="65.0" height="19" rx="3" fill="#cfe8d4" stroke="#d8ddda"/>
-<text x="940" y="262" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#1c1c1c" text-anchor="middle">biedt</text>
-<rect x="977.0" y="247" width="65.0" height="19" rx="3" fill="#e8dfc8" stroke="#d8ddda"/>
-<text x="1010" y="262" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#1c1c1c" text-anchor="middle">neemt af</text>
-<rect x="1060.0" y="247" width="134.0" height="19" rx="3" fill="#e8dfc8" stroke="#d8ddda"/>
-<text x="1127" y="262" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#1c1c1c" text-anchor="middle">neemt af</text>
+<rect x="16" y="246" width="270" height="21" rx="3" fill="#d6f7f7" stroke="#5aa8a8" stroke-width="0.8" stroke-dasharray="4 3"/>
+<g transform="translate(22,249)" fill="none" stroke="#2a5a5a" stroke-width="1.2"><path d="M1.5 8h5"/><circle cx="10" cy="8" r="3.5"/></g>
+<g transform="translate(40,249)" fill="none" stroke="#2a5a5a" stroke-width="1.2"><rect x="1.5" y="4.5" width="13" height="7" rx="3.5"/></g>
+<text x="60" y="262" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#2a5a5a" text-anchor="start">aanmeldbaar-onderwijsaanbod</text>
+<text x="280" y="262" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#5b6663" text-anchor="end">voorstel</text>
+<g stroke="#2a5a5a" stroke-width="1.6" fill="none"><path d="M456.0 257h9"/><circle cx="469.0" cy="257" r="4.5" fill="#2a5a5a"/></g>
+<text x="482" y="261" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#5b6663" text-anchor="start">05</text>
+<g stroke="#2a5a5a" stroke-width="1.6" fill="none"><path d="M912.0 257h9"/><circle cx="925.0" cy="257" r="4.5" fill="#2a5a5a"/></g>
+<text x="938" y="261" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#5b6663" text-anchor="start">06</text>
+<g stroke="#2a5a5a" stroke-width="1.6" fill="none"><path d="M981.0 257h9"/><path d="M990.0 251.5A5.5 5.5 0 0 1 990.0 262.5"/></g>
+<text x="1007" y="261" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#5b6663" text-anchor="start">05</text>
+<g stroke="#2a5a5a" stroke-width="1.6" fill="none"><path d="M1064.0 257h9"/><path d="M1073.0 251.5A5.5 5.5 0 0 1 1073.0 262.5"/></g>
+<text x="1090" y="261" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#5b6663" text-anchor="start">06</text>
 <line x1="12" y1="272" x2="1240" y2="272" stroke="#d8ddda" stroke-width="0.6"/>
-<text x="20" y="292" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#1c1c1c" text-anchor="start">leermiddelkoppeling</text>
-<rect x="452.0" y="277" width="134.0" height="19" rx="3" fill="#e8dfc8" stroke="#d8ddda"/>
-<text x="519" y="292" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#1c1c1c" text-anchor="middle">neemt af</text>
-<rect x="756.0" y="277" width="134.0" height="19" rx="3" fill="#cfe8d4" stroke="#d8ddda"/>
-<text x="823" y="292" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#1c1c1c" text-anchor="middle">biedt</text>
+<rect x="16" y="276" width="270" height="21" rx="3" fill="#d6f7f7" stroke="#5aa8a8" stroke-width="0.8"/>
+<g transform="translate(22,279)" fill="none" stroke="#2a5a5a" stroke-width="1.2"><path d="M1.5 8h5"/><circle cx="10" cy="8" r="3.5"/></g>
+<g transform="translate(40,279)" fill="none" stroke="#2a5a5a" stroke-width="1.2"><rect x="1.5" y="4.5" width="13" height="7" rx="3.5"/></g>
+<text x="60" y="292" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#2a5a5a" text-anchor="start">leermiddelkoppeling</text>
+<g stroke="#2a5a5a" stroke-width="1.6" fill="none"><path d="M456.0 287h9"/><path d="M465.0 281.5A5.5 5.5 0 0 1 465.0 292.5"/></g>
+<text x="482" y="291" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#5b6663" text-anchor="start">07</text>
+<g stroke="#2a5a5a" stroke-width="1.6" fill="none"><path d="M760.0 287h9"/><circle cx="773.0" cy="287" r="4.5" fill="#2a5a5a"/></g>
+<text x="786" y="291" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#5b6663" text-anchor="start">07</text>
 <line x1="12" y1="302" x2="1240" y2="302" stroke="#d8ddda" stroke-width="0.6"/>
-<rect x="20" y="317" width="26" height="14" rx="3" fill="#cfe8d4" stroke="#d8ddda"/>
-<text x="52" y="328" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#5b6663" text-anchor="start">biedt de dienst aan</text>
-<rect x="240" y="317" width="26" height="14" rx="3" fill="#e8dfc8" stroke="#d8ddda"/>
-<text x="272" y="328" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#5b6663" text-anchor="start">neemt de dienst af</text>
+<g stroke="#2a5a5a" stroke-width="1.6" fill="none"><path d="M20 324h9"/><circle cx="33" cy="324" r="4.5" fill="#2a5a5a"/></g>
+<text x="44" y="328" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#5b6663" text-anchor="start">biedt de dienst aan, een geleverde interface</text>
+<g stroke="#2a5a5a" stroke-width="1.6" fill="none"><path d="M300 324h9"/><path d="M309 318.5A5.5 5.5 0 0 1 309 329.5"/></g>
+<text x="324" y="328" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#5b6663" text-anchor="start">neemt de dienst af, een gevraagde interface</text>
+<g transform="translate(584,317)" fill="none" stroke="#2a5a5a" stroke-width="1.2"><path d="M1.5 8h5"/><circle cx="10" cy="8" r="3.5"/></g>
+<g transform="translate(602,317)" fill="none" stroke="#2a5a5a" stroke-width="1.2"><rect x="1.5" y="4.5" width="13" height="7" rx="3.5"/></g>
+<text x="624" y="328" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#5b6663" text-anchor="start">de dienst met de interface waarop zij wordt aangeboden</text>
+<g transform="translate(948,317)" fill="none" stroke="#2a5a5a" stroke-width="1.2"><rect x="4" y="2" width="10" height="12"/><rect x="2" y="4" width="4" height="2.5"/><rect x="2" y="8.5" width="4" height="2.5"/></g>
+<text x="970" y="328" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#5b6663" text-anchor="start">applicatiecomponent</text>
 <text x="20" y="352" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#5b6663" text-anchor="start">Een dienst zegt wat er moet kunnen, niet welk systeem het doet; elk component kan hem claimen.</text>
 </svg>
