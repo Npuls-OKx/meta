@@ -138,7 +138,7 @@
                 },
                 "examples": {
                   "voorbeeld-1": {
-                    "summary": "Uit stroom-is-oa-05.md:212",
+                    "summary": "Uit stroom-is-oa-05.md:216",
                     "value": {
                       "offeringInstances": [
                         {
@@ -294,7 +294,7 @@
                 },
                 "examples": {
                   "voorbeeld-1": {
-                    "summary": "Uit stroom-is-oa-05.md:300",
+                    "summary": "Uit stroom-is-oa-05.md:304",
                     "value": [
                       {
                         "op": "replace",
@@ -399,7 +399,7 @@
               },
               "examples": {
                 "voorbeeld-1": {
-                  "summary": "Uit stroom-is-oa-01.md:569",
+                  "summary": "Uit stroom-is-oa-01.md:573",
                   "value": {
                     "educationSpecifications": [
                       {
@@ -595,7 +595,7 @@
                 },
                 "examples": {
                   "voorbeeld-1": {
-                    "summary": "Uit stroom-is-oa-01.md:193",
+                    "summary": "Uit stroom-is-oa-01.md:197",
                     "value": {
                       "deliveryId": "1743e345-3e08-41e2-9e75-f5c4bed8fccb",
                       "status": "ontvangen",
@@ -782,7 +782,7 @@
               },
               "examples": {
                 "voorbeeld-1": {
-                  "summary": "Uit stroom-is-oa-01.md:411",
+                  "summary": "Uit stroom-is-oa-01.md:415",
                   "value": {
                     "learningOutcomes": [
                       {
@@ -1045,7 +1045,7 @@
                 },
                 "examples": {
                   "voorbeeld-1": {
-                    "summary": "Uit stroom-is-oa-01.md:274",
+                    "summary": "Uit stroom-is-oa-01.md:278",
                     "value": {
                       "specificationReference": {
                         "specificationId": "79736830-1c5c-470f-b2c2-005029c96733",
@@ -1130,7 +1130,7 @@
                 },
                 "examples": {
                   "voorbeeld-1": {
-                    "summary": "Uit stroom-is-oa-03.md:219",
+                    "summary": "Uit stroom-is-oa-03.md:223",
                     "value": {
                       "educationSpecifications": [
                         {
@@ -1430,7 +1430,7 @@
               },
               "examples": {
                 "voorbeeld-1": {
-                  "summary": "Uit stroom-is-oa-05.md:198",
+                  "summary": "Uit stroom-is-oa-05.md:202",
                   "value": {
                     "offeringId": "8c494250-b67a-4666-a762-6f9ec1e70aff",
                     "version": "0.1.0",
@@ -1486,7 +1486,7 @@
               },
               "examples": {
                 "voorbeeld-1": {
-                  "summary": "Uit stroom-is-oa-03.md:194",
+                  "summary": "Uit stroom-is-oa-03.md:198",
                   "value": {
                     "specificationId": "79736830-1c5c-470f-b2c2-005029c96733",
                     "version": "0.1.0"
@@ -1504,7 +1504,7 @@
                 },
                 "examples": {
                   "voorbeeld-1": {
-                    "summary": "Uit stroom-is-oa-03.md:203",
+                    "summary": "Uit stroom-is-oa-03.md:207",
                     "value": {
                       "requestId": "7ec74caa-0b5a-4de7-bf69-04415a02f214",
                       "specificationReference": {
@@ -1604,7 +1604,7 @@
               },
               "examples": {
                 "voorbeeld-1": {
-                  "summary": "Uit stroom-is-oa-01.md:206",
+                  "summary": "Uit stroom-is-oa-01.md:210",
                   "value": {
                     "deliveryId": "d6d15731-fb31-4627-b51f-090a1e01be7b",
                     "status": "gelukt",
@@ -1616,7 +1616,7 @@
                   }
                 },
                 "voorbeeld-2": {
-                  "summary": "Uit stroom-is-oa-01.md:245",
+                  "summary": "Uit stroom-is-oa-01.md:249",
                   "value": {
                     "deliveryId": "d6d15731-fb31-4627-b51f-090a1e01be7b",
                     "status": "afgekeurd",
@@ -3409,7 +3409,7 @@
           },
           "examples": {
             "voorbeeld-1": {
-              "summary": "Uit stroom-is-oa-05.md:279",
+              "summary": "Uit stroom-is-oa-05.md:283",
               "value": {
                 "status": "gestart",
                 "offeringReference": {
@@ -3423,7 +3423,7 @@
               }
             },
             "voorbeeld-2": {
-              "summary": "Uit stroom-is-oa-05.md:289",
+              "summary": "Uit stroom-is-oa-05.md:293",
               "value": {
                 "status": "nietIngericht",
                 "offeringReference": {
