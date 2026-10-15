@@ -57,9 +57,9 @@ De fijnmazige lagen blijven bij hun bezitter: het planningssysteem bezit het aan
 
 ## 2. Interactiespecificatie
 
-![De koppelvlakdiensten over deze koppeling, met de aanbieder links en de afnemer rechts](img/diensten-is-oa-05.svg)
+![De koppelvlakdiensten over deze koppeling, de aanbiedersdiensten links en de afnemersdiensten rechts](img/diensten-is-oa-05.svg)
 
-De bal staat bij het component dat de dienst aanbiedt, de kom bij het component dat haar afneemt. Het sequentiediagram eronder zet dezelfde operaties in de tijd.
+De aanbiedersdienst en de afnemersdienst staan als twee eigen blokken tegenover elkaar, met de bal die in de kom valt. Het sequentiediagram eronder zet dezelfde operaties in de tijd.
 
 ```mermaid
 sequenceDiagram

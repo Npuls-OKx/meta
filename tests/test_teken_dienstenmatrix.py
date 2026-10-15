@@ -118,6 +118,15 @@ class DePlaat(unittest.TestCase):
         self.assertIn('circle', dm.biedt_svg(0, 0, "#000"))
         self.assertIn('A5.5 5.5', dm.neemt_svg(0, 0, "#000"))
 
+    def test_given_een_dienstpaar_when_tekenen_then_krijgt_elke_dienst_een_eigen_rij(self):
+        """De aanbieder en de afnemer zijn twee zelfstandige diensten, geen rollen van een."""
+        rijen = dm.claims(keten([
+            ("Catalogus", "onderwijsspecificatiestructuur-aanbieder", "/x", "Vastgelegd"),
+            ("Planning", "onderwijsspecificatiestructuur-afnemer", "/x", "Vastgelegd")]))
+        svg = dm.teken(rijen, BEKEND, "Titel")
+        self.assertIn(">onderwijsspecificatiestructuur-aanbieder<", svg)
+        self.assertIn(">onderwijsspecificatiestructuur-afnemer<", svg)
+
     def test_given_een_voorgestelde_dienst_when_tekenen_then_draagt_de_rij_dat_merk(self):
         rijen = dm.claims(keten([("Catalogus", "nieuw-aanbieder", "/x", "Voorstel")]))
         self.assertIn(">voorstel<", dm.teken(rijen, BEKEND, "Titel"))
@@ -195,6 +204,19 @@ class InDezeRepository(unittest.TestCase):
             svg, meldingen = dm.teken_interactie(rijen, f"IS-OA-0{n}")
             self.assertIsNotNone(svg, f"IS-OA-0{n} levert geen plaat")
             self.assertEqual(meldingen, [], f"IS-OA-0{n}")
+
+    def test_given_de_keten_in_deze_repository_when_tekenen_then_draagt_de_plaat_elke_dienst(self):
+        rijen = dm.claims(KETEN)
+        diensten = {r["dienst"] for r in rijen}
+        svg = dm.teken(rijen, dm.dienstenlijst(), "Titel")
+        self.assertEqual(len(diensten), 14)
+        for dienst in diensten:
+            self.assertIn(f">{dienst}<", svg, dienst)
+
+    def test_given_een_interactieplaat_when_tekenen_then_staan_beide_diensten_erin(self):
+        svg, _ = dm.teken_interactie(dm.claims(KETEN), "IS-OA-01")
+        self.assertIn(">onderwijsspecificatie-inname-aanbieder<", svg)
+        self.assertIn(">onderwijsspecificatie-inname-afnemer<", svg)
 
     def test_given_de_keten_when_lezen_then_claimt_zij_diensten_op_zes_componenten(self):
         rijen = dm.claims(KETEN)

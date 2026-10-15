@@ -1,37 +1,46 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="770" height="292" viewBox="0 0 770 292" role="img">
-<rect width="770" height="292" fill="#ffffff"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="922" height="306" viewBox="0 0 922 306" role="img">
+<rect width="922" height="306" fill="#ffffff"/>
 <text x="20" y="28" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#1c1c1c" text-anchor="start" font-weight="600">IS-OA-07: de diensten over deze koppeling</text>
-<rect x="20" y="56" width="190" height="162" rx="4" fill="#b5ffff" stroke="#5aa8a8"/>
-<g transform="translate(184,66)" fill="none" stroke="#2a5a5a" stroke-width="1.2"><rect x="4" y="2" width="10" height="12"/><rect x="2" y="4" width="4" height="2.5"/><rect x="2" y="8.5" width="4" height="2.5"/></g>
+<rect x="20" y="56" width="168" height="174" rx="4" fill="#b5ffff" stroke="#5aa8a8"/>
+<g transform="translate(162,66)" fill="none" stroke="#2a5a5a" stroke-width="1.2"><rect x="4" y="2" width="10" height="12"/><rect x="2" y="4" width="4" height="2.5"/><rect x="2" y="8.5" width="4" height="2.5"/></g>
 <text x="32" y="98" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#2a5a5a" text-anchor="start" font-weight="600">Onderwijscatalogus en</text>
 <text x="32" y="113" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#2a5a5a" text-anchor="start" font-weight="600">Leermanagementsysteem</text>
 <text x="32" y="128" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#2a5a5a" text-anchor="start" font-weight="600">(LMS)</text>
-<rect x="560" y="56" width="190" height="162" rx="4" fill="#b5ffff" stroke="#5aa8a8"/>
-<g transform="translate(724,66)" fill="none" stroke="#2a5a5a" stroke-width="1.2"><rect x="4" y="2" width="10" height="12"/><rect x="2" y="4" width="4" height="2.5"/><rect x="2" y="8.5" width="4" height="2.5"/></g>
-<text x="572" y="98" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#2a5a5a" text-anchor="start" font-weight="600">Leermanagementsysteem</text>
-<text x="572" y="113" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#2a5a5a" text-anchor="start" font-weight="600">(LMS) en</text>
-<text x="572" y="128" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#2a5a5a" text-anchor="start" font-weight="600">Onderwijscatalogus</text>
-<rect x="256" y="70.0" width="238" height="26" rx="3" fill="#d6f7f7" stroke="#5aa8a8" stroke-width="0.8"/>
-<g transform="translate(262,75)" fill="none" stroke="#2a5a5a" stroke-width="1.2"><rect x="1.5" y="4.5" width="13" height="7" rx="3.5"/></g>
-<text x="375" y="87" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#2a5a5a" text-anchor="middle">onderwijsspecificatiestructuur</text>
-<g stroke="#2a5a5a" stroke-width="1.6" fill="none"><path d="M216 83.0h9"/><circle cx="229" cy="83.0" r="4.5" fill="#2a5a5a"/></g>
-<g stroke="#2a5a5a" stroke-width="1.6" fill="none"><path d="M534 83.0h9"/><path d="M543 77.5A5.5 5.5 0 0 1 543 88.5"/></g>
-<text x="375" y="105" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#5b6663" text-anchor="middle">GET /onderwijsspecificaties met /{id} en /{id}/delta  (+3)</text>
-<rect x="256" y="124.0" width="238" height="26" rx="3" fill="#d6f7f7" stroke="#5aa8a8" stroke-width="0.8"/>
-<g transform="translate(262,129)" fill="none" stroke="#2a5a5a" stroke-width="1.2"><rect x="1.5" y="4.5" width="13" height="7" rx="3.5"/></g>
-<text x="375" y="141" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#2a5a5a" text-anchor="middle">verwerkingsuitkomst</text>
-<g stroke="#2a5a5a" stroke-width="1.6" fill="none"><path d="M216 137.0h9"/><circle cx="229" cy="137.0" r="4.5" fill="#2a5a5a"/></g>
-<g stroke="#2a5a5a" stroke-width="1.6" fill="none"><path d="M534 137.0h9"/><path d="M543 131.5A5.5 5.5 0 0 1 543 142.5"/></g>
-<text x="375" y="159" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#5b6663" text-anchor="middle">inrichtingsstatus naar de catalogus</text>
-<rect x="256" y="178.0" width="238" height="26" rx="3" fill="#d6f7f7" stroke="#5aa8a8" stroke-width="0.8"/>
-<g transform="translate(262,183)" fill="none" stroke="#2a5a5a" stroke-width="1.2"><rect x="1.5" y="4.5" width="13" height="7" rx="3.5"/></g>
-<text x="375" y="195" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#2a5a5a" text-anchor="middle">leermiddelkoppeling</text>
-<g stroke="#2a5a5a" stroke-width="1.6" fill="none"><path d="M216 191.0h9"/><circle cx="229" cy="191.0" r="4.5" fill="#2a5a5a"/></g>
-<g stroke="#2a5a5a" stroke-width="1.6" fill="none"><path d="M534 191.0h9"/><path d="M543 185.5A5.5 5.5 0 0 1 543 196.5"/></g>
-<text x="375" y="213" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#5b6663" text-anchor="middle">/leermiddelkoppelingen/{id} en de melding ...</text>
-<g stroke="#2a5a5a" stroke-width="1.6" fill="none"><path d="M20 248h9"/><circle cx="33" cy="248" r="4.5" fill="#2a5a5a"/></g>
-<text x="44" y="252" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#5b6663" text-anchor="start">biedt aan</text>
-<g stroke="#2a5a5a" stroke-width="1.6" fill="none"><path d="M130 248h9"/><path d="M139 242.5A5.5 5.5 0 0 1 139 253.5"/></g>
-<text x="154" y="252" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#5b6663" text-anchor="start">neemt af</text>
-<text x="240" y="252" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#5b6663" text-anchor="start">de dienst staat in het midden, met haar endpoint eronder</text>
+<rect x="734" y="56" width="168" height="174" rx="4" fill="#b5ffff" stroke="#5aa8a8"/>
+<g transform="translate(876,66)" fill="none" stroke="#2a5a5a" stroke-width="1.2"><rect x="4" y="2" width="10" height="12"/><rect x="2" y="4" width="4" height="2.5"/><rect x="2" y="8.5" width="4" height="2.5"/></g>
+<text x="746" y="98" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#2a5a5a" text-anchor="start" font-weight="600">Leermanagementsysteem</text>
+<text x="746" y="113" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#2a5a5a" text-anchor="start" font-weight="600">(LMS) en</text>
+<text x="746" y="128" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#2a5a5a" text-anchor="start" font-weight="600">Onderwijscatalogus</text>
+<rect x="204" y="71.0" width="234" height="28" rx="3" fill="#d6f7f7" stroke="#5aa8a8" stroke-width="0.8"/>
+<g transform="translate(210,76)" fill="none" stroke="#2a5a5a" stroke-width="1.2"><rect x="1.5" y="4.5" width="13" height="7" rx="3.5"/></g>
+<text x="230" y="89" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#2a5a5a" text-anchor="start">onderwijsspecificatiestructuur-aanbieder</text>
+<rect x="484" y="71.0" width="234" height="28" rx="3" fill="#d6f7f7" stroke="#5aa8a8" stroke-width="0.8"/>
+<g transform="translate(490,76)" fill="none" stroke="#2a5a5a" stroke-width="1.2"><rect x="1.5" y="4.5" width="13" height="7" rx="3.5"/></g>
+<text x="510" y="89" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#2a5a5a" text-anchor="start">onderwijsspecificatiestructuur-afnemer</text>
+<g stroke="#2a5a5a" stroke-width="1.6" fill="none"><path d="M442 85.0h9"/><circle cx="455" cy="85.0" r="4.5" fill="#2a5a5a"/></g>
+<g stroke="#2a5a5a" stroke-width="1.6" fill="none"><path d="M458 85.0h9"/><path d="M467 79.5A5.5 5.5 0 0 1 467 90.5"/></g>
+<text x="461" y="109" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#5b6663" text-anchor="middle">GET /onderwijsspecificaties met /{id} en /{id}/delta  (+3)</text>
+<rect x="204" y="129.0" width="234" height="28" rx="3" fill="#d6f7f7" stroke="#5aa8a8" stroke-width="0.8"/>
+<g transform="translate(210,134)" fill="none" stroke="#2a5a5a" stroke-width="1.2"><rect x="1.5" y="4.5" width="13" height="7" rx="3.5"/></g>
+<text x="230" y="147" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#2a5a5a" text-anchor="start">verwerkingsuitkomst-aanbieder</text>
+<rect x="484" y="129.0" width="234" height="28" rx="3" fill="#d6f7f7" stroke="#5aa8a8" stroke-width="0.8"/>
+<g transform="translate(490,134)" fill="none" stroke="#2a5a5a" stroke-width="1.2"><rect x="1.5" y="4.5" width="13" height="7" rx="3.5"/></g>
+<text x="510" y="147" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#2a5a5a" text-anchor="start">verwerkingsuitkomst-afnemer</text>
+<g stroke="#2a5a5a" stroke-width="1.6" fill="none"><path d="M442 143.0h9"/><circle cx="455" cy="143.0" r="4.5" fill="#2a5a5a"/></g>
+<g stroke="#2a5a5a" stroke-width="1.6" fill="none"><path d="M458 143.0h9"/><path d="M467 137.5A5.5 5.5 0 0 1 467 148.5"/></g>
+<text x="461" y="167" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#5b6663" text-anchor="middle">inrichtingsstatus naar de catalogus</text>
+<rect x="204" y="187.0" width="234" height="28" rx="3" fill="#d6f7f7" stroke="#5aa8a8" stroke-width="0.8"/>
+<g transform="translate(210,192)" fill="none" stroke="#2a5a5a" stroke-width="1.2"><rect x="1.5" y="4.5" width="13" height="7" rx="3.5"/></g>
+<text x="230" y="205" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#2a5a5a" text-anchor="start">leermiddelkoppeling-aanbieder</text>
+<rect x="484" y="187.0" width="234" height="28" rx="3" fill="#d6f7f7" stroke="#5aa8a8" stroke-width="0.8"/>
+<g transform="translate(490,192)" fill="none" stroke="#2a5a5a" stroke-width="1.2"><rect x="1.5" y="4.5" width="13" height="7" rx="3.5"/></g>
+<text x="510" y="205" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#2a5a5a" text-anchor="start">leermiddelkoppeling-afnemer</text>
+<g stroke="#2a5a5a" stroke-width="1.6" fill="none"><path d="M442 201.0h9"/><circle cx="455" cy="201.0" r="4.5" fill="#2a5a5a"/></g>
+<g stroke="#2a5a5a" stroke-width="1.6" fill="none"><path d="M458 201.0h9"/><path d="M467 195.5A5.5 5.5 0 0 1 467 206.5"/></g>
+<text x="461" y="225" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#5b6663" text-anchor="middle">/leermiddelkoppelingen/{id} en de melding ...</text>
+<g stroke="#2a5a5a" stroke-width="1.6" fill="none"><path d="M20 260h9"/><circle cx="33" cy="260" r="4.5" fill="#2a5a5a"/></g>
+<text x="44" y="264" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#5b6663" text-anchor="start">aanbiedersdienst</text>
+<g stroke="#2a5a5a" stroke-width="1.6" fill="none"><path d="M170 260h9"/><path d="M179 254.5A5.5 5.5 0 0 1 179 265.5"/></g>
+<text x="194" y="264" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#5b6663" text-anchor="start">afnemersdienst</text>
+<text x="300" y="264" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#5b6663" text-anchor="start">twee zelfstandige diensten die in elkaar vallen, met het endpoint eronder</text>
 </svg>
