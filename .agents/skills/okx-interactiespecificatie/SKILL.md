@@ -89,6 +89,74 @@ Hetzelfde geldt voor het proces en de actoren. De voorbeelduitwerking loopt de i
 
 Het hoofddocument van de aanbodsnede droeg de schema-landing en de signaleringen eerst zelf: samen dertienhonderd woorden tabel, een derde van het document, en allebei detail. Zij verhuisden naar een eigen bestand, met in het hoofddocument een rij per bestand.
 
+## Een kop is een werkwoord met zijn onderwerp
+
+Dit ging vier rondes achter elkaar mis, elke keer op dezelfde manier: de kop vertelde iets in
+plaats van te benoemen.
+
+| Wat er stond | Wat de opdrachtgever vroeg | Wat het werd |
+|---|---|---|
+| De afkeuring (O3, O4 en O6) | "wat zeg je nou?" | Afkeuren aangeleverde structuur |
+| Leeruitkomsten in de aanlevering | "VAN WAT?" | Aanleveren leeruitkomsten uit het kwalificatiekader |
+| Onderwijsspecificatiestructuur in de aanlevering | "titel weer te proza" | Aanleveren onderwijsspecificatiestructuur |
+| Elke laag keert driemaal terug | "het is geen roman" | Gegevensoorsprong en bronsysteem |
+
+De regel: **een werkwoord en zijn onderwerp**, en verder niets. Geen voorzetselbepaling, geen
+operatieverwijzing (die staat in de uitsnede eronder), geen zin die een punt maakt.
+`Aanleveren onderwijsspecificatiestructuur` zegt wat er gebeurt en waarmee;
+`Onderwijsspecificatiestructuur in de aanlevering, verzoek O3` zegt hetzelfde als verhaal.
+
+Dezelfde toets geldt voor een hoofdstuktitel. `Foutafhandeling` en `Statusafhandeling` zeggen
+wat er staat; `Wat de catalogus toetst` en `Hoe de uitkomst terugkomt` vertellen het.
+
+## Gebruik de term van het vakgebied
+
+Een interactiespecificatie is voor een implementatiespecialist en een tester. Daar heet een
+controle op een binnenkomend bericht validatie en geen toets, en wat er daarna gebeurt heet
+foutafhandeling. "Wat de catalogus toetst" las als een onderwijstoets, en dat is in deze
+sector een ander ding.
+
+Hetzelfde geldt voor een zelfbedachte term. Een eigen woord voor "wat er in Public bij moet"
+kreeg een eigen nummering erbij, botste met een bestaande betekenis in AGENTS.md, en leverde
+twee documenten op die elkaars nummer 15 aanhaalden met verschillende inhoud.
+
+## Wat er in de documenten staat
+
+| Deel | Inhoud |
+|---|---|
+| De openingstabel | Document doel (actief: "zet uiteen hoe ..., ten behoeve van de bouw of de verificatie van een implementatie"), Doelgroep, Dient als input voor, Kaderstelling, Inhoud, Status |
+| 1 Interactie | Het bron- en doelsysteem, de koppeling, het beeld, en per applicatiecomponent zijn functie in deze interactie, plus de taak van deze interactie in het proces met de fase in de voorbeelduitwerking |
+| 2 Interactiespecificatie | De volgorde tussen de twee componenten als sequentiediagram |
+| 3 Operaties | Het contract per operatie, de atomiciteit van een levering, de foutafhandeling met code en moment, en de statusafhandeling |
+| 4 Berichtspecificatie | Per bericht: een uitsnede van de interactie met alleen zijn eigen operaties, een ERD, een leesregel, en de veldtabel |
+| 5 en verder | De voorbeeldpayloads |
+
+Verantwoording hoort er niet in. Een tabel met de ADR's en uitgangspunten waarop een eenheid
+rust leest als een verdediging; wie bouwt heeft de regel nodig en niet de onderbouwing. De
+grond staat per veldrij in de kolom Grond, en dat is genoeg.
+
+## De ERD per bericht
+
+`scripts/teken-bericht-erd.py` schrijft per berichtsectie een mermaid-diagram tussen de
+merktekens `<!-- erd -->` en `<!-- /erd -->`.
+
+| Wat | Waar het vandaan komt |
+|---|---|
+| De entiteit | De naam van het objecttype zoals het informatiemodel hem schrijft, letterlijk |
+| De relatie en haar multipliciteit | De relatiesoort uit het model: geheel-deel wordt een-op-veel, specialisatie wordt `is een` |
+| De attributen | De veldtabel van het bericht zelf: de sleutel, het type, de multipliciteit en of het veld verplicht is |
+| De diepte | De geheel-deelketen wordt uitgeklapt, want een bericht dat een structuur draagt, draagt haar hele boom |
+| De legenda | Alleen de lijnsoorten die op dit diagram voorkomen |
+
+Twee dingen om te weten. Een pijp in een markdown-tabelcel breekt de kolom, ook binnen
+backquotes, dus draagt de legenda een ontsnapping. En het blok wordt op plek vervangen en niet
+op inhoud: twee lege merkblokken zijn letterlijk gelijk, en een vervanging op inhoud raakt dan
+steeds hetzelfde blok.
+
+De ERD is zo volledig als de veldtabel eronder. Staat er proza in de kolom Objecttype, dan
+komt dat objecttype niet in het diagram. Dat is een signalering over de aansluiting tussen de
+schema's en het model, en geen fout van het diagram.
+
 ## De maten, en waarom zij er zijn
 
 `scripts/controleer-interactiespec-vorm.py` draagt deze maten, en is de bron: een maat die hier en daar uiteenloopt is geen maat.
