@@ -17,10 +17,21 @@ Wat het bestand draagt
 | `schemas` | Per schema of het een begrip draagt of vervoer is, en welke objecttypen het draagt |
 | `objecttypen` | Per objecttype zijn attribuutsoorten, elk met datatype, kardinaliteit, rol en bron |
 
-Een **begripsschema** draagt objecttypen uit het informatiemodel. Een **vervoersschema** richt
-het kanaal in of draagt een verwijzing: een abonnement, een verwerkingsstatus, een knelpunt.
-Dat onderscheid is geen gat in het model maar een eigenschap van het bericht, en daarom staat
-het hier met de reden erbij.
+Drie soorten schema, met de toets erbij waarmee zij uit elkaar te houden zijn.
+
+| Soort | Wat het is | De toets |
+|---|---|---|
+| `begrip` | Het draagt objecttypen uit het informatiemodel | Het heeft een eigen identiteit: een `id`, of een `code` met een `name` |
+| `waardeobject` | Een genest object zonder eigen identiteit, waarvan de velden attribuutsoort worden van het objecttype dat het houdt | Geen eigen identiteit, en het wordt door een ander schema aangehaald |
+| `vervoer` | Het richt het kanaal in, of draagt een verwijzing, een delta of een gebeurtenis | Geen eigen onderwerp: de velden wijzen naar iets anders |
+
+Die grens werd eerst per schema beslist in plaats van met een regel, en liep daardoor uiteen:
+`manifest-item.json` stond als vervoer terwijl zes gelijkvormige waardeobjecten als begrip
+stonden, en `learning-resource-group.json` stond als vervoer terwijl het een eigen identiteit
+draagt. De toets hierboven trekt die grens wel.
+
+Een begripsschema waarvan het model het objecttype mist, draagt dat gat in `mist_objecttype`.
+Dat is een uitkomst en geen fout: het benoemt wat het model nog niet kent.
 
 De bron per attribuutsoort
 --------------------------
@@ -49,7 +60,7 @@ SCHEMAMAPPEN = [
     "../Public/Informatie-en-gegevensmodellen/schemas",
     "architecture/docs/specificatie/interactie-onderwijsaanbod/schemas",
 ]
-SOORTEN = ("begrip", "vervoer")
+SOORTEN = ("begrip", "waardeobject", "vervoer")
 VELDEN = ("naam", "datatype", "kardinaliteit", "bron")
 
 
@@ -86,13 +97,23 @@ def controleer(binding, objecttypen, schemas):
         if soort not in SOORTEN:
             bevindingen.append(Bevinding(waar, f"soort is {soort!r} en niet een van {SOORTEN}"))
         draagt = gegeven.get("draagt") or []
-        if soort == "vervoer" and draagt:
+        landt_op = gegeven.get("landt_op") or []
+        mist = gegeven.get("mist_objecttype") or []
+        if soort == "vervoer" and (draagt or landt_op):
             bevindingen.append(Bevinding(waar, "een vervoersschema draagt geen objecttype"))
-        if soort == "vervoer" and not gegeven.get("reden"):
-            bevindingen.append(Bevinding(waar, "een vervoersschema zegt waarom het er een is"))
-        if soort == "begrip" and not draagt:
-            bevindingen.append(Bevinding(waar, "een begripsschema noemt de objecttypen die het draagt"))
-        for objecttype in draagt:
+        if soort in ("vervoer", "waardeobject") and not gegeven.get("reden"):
+            bevindingen.append(Bevinding(waar, f"een {soort}schema zegt waarom het er een is"))
+        if soort == "waardeobject" and draagt:
+            bevindingen.append(Bevinding(
+                waar, "een waardeobject draagt geen objecttype maar landt erop; gebruik landt_op"))
+        if soort == "waardeobject" and not landt_op:
+            bevindingen.append(Bevinding(waar, "een waardeobject noemt de objecttypen waarop het landt"))
+        if soort == "begrip" and not draagt and not mist:
+            bevindingen.append(Bevinding(
+                waar, "een begripsschema noemt de objecttypen die het draagt, of het gat in mist_objecttype"))
+        if mist and not gegeven.get("reden"):
+            bevindingen.append(Bevinding(waar, "een ontbrekend objecttype gaat met de reden erbij"))
+        for objecttype in list(draagt) + list(landt_op):
             if objecttype not in objecttypen:
                 bevindingen.append(Bevinding(waar, f"{objecttype!r} is geen objecttype in het model"))
         for sleutel, waarde in (gegeven.get("discriminator") or {}).get("waarden", {}).items():
@@ -132,10 +153,9 @@ def tellingen(binding):
         per_bron[soort] = per_bron.get(soort, 0) + 1
     return {
         "schemas": len(schemas),
-        "begrip": sum(1 for g in schemas.values() if g.get("soort") == "begrip"),
-        "vervoer": sum(1 for g in schemas.values() if g.get("soort") == "vervoer"),
+        "per_soort": {s: sum(1 for g in schemas.values() if g.get("soort") == s) for s in SOORTEN},
         "objecttypen": len(objecttypen),
-        "attributen": len(attributen),
+        "attribuutsoorten": len(attributen),
         "per_bron": per_bron,
     }
 
@@ -164,8 +184,9 @@ def main(argv=None):
     bevindingen = controleer(binding, objecttypen, schemas)
 
     t = tellingen(binding)
-    print(f"{t['schemas']} schema's ({t['begrip']} begrip, {t['vervoer']} vervoer), "
-          f"{t['objecttypen']} objecttypen, {t['attributen']} attribuutsoorten")
+    soorten = ", ".join(f"{n} {s}" for s, n in t["per_soort"].items() if n)
+    print(f"{t['schemas']} schema's ({soorten}), "
+          f"{t['objecttypen']} objecttypen, {t['attribuutsoorten']} attribuutsoorten")
     if not args.kort and t["per_bron"]:
         for soort, n in sorted(t["per_bron"].items(), key=lambda p: -p[1]):
             print(f"  {soort:18} {n}")

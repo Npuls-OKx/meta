@@ -132,7 +132,7 @@ class DeTellingen(unittest.TestCase):
                      "b.json": {"soort": "vervoer", "reden": "x"}},
             objecttypen={"Leeruitkomst": {"attributen": [attribuut(), attribuut(naam="naam", bron="ingevuld, want de specificatie vraagt hem")]}})
         t = cb.tellingen(b)
-        self.assertEqual((t["schemas"], t["begrip"], t["vervoer"]), (2, 1, 1))
+        self.assertEqual((t["schemas"], t["per_soort"]["begrip"], t["per_soort"]["vervoer"]), (2, 1, 1))
         self.assertEqual(t["per_bron"], {"schema": 1, "ingevuld": 1})
 
 
