@@ -1,10 +1,17 @@
 # IS-OA-01 Ontwerp naar de catalogus
 
-De curriculum ontwerptool levert de onderwijscatalogus het vastgestelde ontwerp van een opleiding: de leeruitkomsten, de specificatiestructuur tot leeronderdeel met de keuzedeelruimte en haar keuzeregels, en de resultaatstructuur met de toets- en examenonderdelen, alles verankerd op de leeruitkomst.
+| | |
+|---|---|
+| **Doel** | De koppeling bouwen of verifieren waarmee de curriculum ontwerptool het vastgestelde ontwerp van een opleiding aan de onderwijscatalogus levert |
+| **Doelgroep** | De implementatiespecialist en de tester bij een instelling of een leverancier, en wie een profiel of consumer bouwt |
+| **Dient als input voor** | De bouw van het koppelvlak, de testgevallen erbij, en de acceptatie van een opgeleverde koppeling |
+| **Kaderstelling** | De [interactieketen](README.md) waarin deze specificatie valt, het [informatiemodel OKx](../../../model/informatiemodel/informatiemodel.md), en beeld F1-12 van de [voorbeelduitwerking](../../../model/informatiemodel/voorbeeld-leerroute-1-jochem.md) |
+| **Inhoud** | Acht operaties met hun statuscodes, acht toetsen met hun moment, acht berichten met hun velden, en twee voorbeeldpayloads die valideren |
+| **Stand** | Het opvragen ligt vast in Public. Het innemen met bevindingen is voorstel, met per regel wat dat in Public toevoegt |
 
-De uuid's, de versies en de namen in de voorbeeldpayloads hieronder komen uit [casus.md](casus.md), de vaste identificaties van deze interactiespecificatie.
+De lading: de leeruitkomsten, de specificatiestructuur tot leeronderdeel met de keuzedeelruimte en haar keuzeregels, en de resultaatstructuur met de toets- en examenonderdelen, alles verankerd op de leeruitkomst. De uuid's, de versies en de namen in de voorbeeldpayloads komen uit [casus.md](casus.md).
 
-## 1. De eenheid
+## 1. De koppeling
 
 | Bronsysteem | Doelsysteem | Koppeling | Beeld | Status | Applicatiedienst |
 |---|---|---|---|---|---|
@@ -38,7 +45,7 @@ Elke operatie, elk pad en elk schema hieronder draagt zijn status, zodat een lez
 | `vastgelegd` | [Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Koppelvlakspecificaties) draagt hem: een pad op een componentpagina, een enumwaarde in een melding of een schema in [Informatie-en-gegevensmodellen](https://github.com/Npuls-OKx/Public/tree/dev/Informatie-en-gegevensmodellen/schemas) |
 | `voorstel` | Deze eenheid stelt hem voor, onderbouwd uit [de casus](casus.md) en het [informatiemodel](../../../model/informatiemodel/informatiemodel.md), met een [werkbrief](#7-de-werkbrieven) die hem in Public laat landen. Een voorgesteld schema staat in [schemas/](schemas/) en draagt een `$id` die eindigt op `/voorstel` |
 
-## 2. De stroom in beeld
+## 2. Interactiespecificatie
 
 ```mermaid
 sequenceDiagram
@@ -69,7 +76,7 @@ sequenceDiagram
 
 Afkeuring is een geldige uitkomst van de inname. Bij de poort komt zij synchroon terug als 400 met de bevindingen; na aanname komt zij op O6 als `afgekeurd` met dezelfde bevindingen. Het kanaal blijft in beide gevallen staan, en de ontwerptool stelt haar eigen beeld bij op een terminale uitkomst: gelukt, niet gelukt of afgekeurd.
 
-## 3. De operaties
+## 3. Operaties
 
 `CO` is de curriculum ontwerptool, `OC` de onderwijscatalogus. De dienstpagina's staan in [Applicatiediensten](https://github.com/Npuls-OKx/Public/tree/d0c20d99b110b29ccf6b0e50109f7d54ffd88d7a/Koppelvlakspecificaties/Applicatiediensten) op het vastgezette commit `d0c20d9` van de branch `feature/restructure-and-versioning`; die map staat nog niet op `dev`, en signalering [S12](signaleringen.md) belegt welke branch normatief is.
 
@@ -101,30 +108,20 @@ Parameters, statuscodes en foutgedrag. De GET-operaties zijn alleen-lezen: herha
 
 De statuscodes blijven binnen de set die de [componentpagina's](https://github.com/Npuls-OKx/Public/tree/dev/Koppelvlakspecificaties/Applicatiecomponenten) in Public aanhouden, met 409 erbij voor een herhaalde aanlevering. Welke grond een afkeuring draagt staat in de code van de bevinding, en daarmee blijft de statuscodeset klein.
 
-### 3.2 Een levering per besluit
+### 3.2 Een levering is atomair
 
-De inname gaat per samenhangende levering: de catalogus neemt een levering in haar geheel aan, of houdt haar in haar geheel bij de poort. De eigenschappen van de lading vragen die hele boom in een keer, dus staat de inname per objecttype buiten dit contract.
+De catalogus neemt een levering in haar geheel aan of houdt haar in haar geheel bij de poort. Een opleidingsspecificatie die aankomt zonder haar leeruitkomsten blijft daarmee bij de poort, met code `leeruitkomstOnbekend` en de plek in de lading erbij.
 
-| Eigenschap | Wat zij vraagt | Grond |
-|---|---|---|
-| Referentiële geslotenheid | Elke `learningOutcomeId`, `parentSpecificationId` en `ruleSetReferences` wijst naar een object in dezelfde levering of naar een object dat de catalogus al draagt | [ontwerpkeuze 1](../../../model/informatiemodel/informatiemodel.md#ontwerpkeuzes), [ADR 0026](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0026-leeruitkomst-als-verbindende-sleutel.md) |
-| De optelling | `studyLoad` telt bottom-up op binnen onderdeel-van, en dat is te toetsen met alle onderdelen in handen | [regels.md](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/regels.md), aggregatie-invariant |
-| De pin | Het `manifest` pint een versie per onderdeel, en die pin is te controleren zodra het onderdeel er is | regels.md, momentopname en manifest |
-| Het besluit | De catalogus beslist over publicatie van het geheel en neemt een vastgestelde wortel aan | [ADR 0020](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0020-curriculumontwerp-onderwijscatalogus-happy-flow-synchronisatie-en-federatie-adopt-klonen.md) |
-| De vorm van de lading | [education-specification.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/education-specification.json) draagt leeruitkomsten, specificaties en regelsets als drie arrays in een document | het schema in Public |
-
-Een opleidingsspecificatie die aankomt zonder haar leeruitkomsten blijft daarmee bij de poort, met code `leeruitkomstOnbekend` en de plek in de lading erbij.
-
-De tweede knip loopt tussen het ontwerp (O3) en de resultaatstructuur (O4): twee leveringen over dezelfde koppeling.
-
-| Waarom twee | Wat dat zegt |
+| Wat de lading waarmaakt | Grond |
 |---|---|
-| Twee wortels | education-specification.json en [result-structure.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/result-structure.json) dragen elk hun eigen wortel en hun eigen set `specificationType` |
-| Twee vaststellers | de onderwijsontwerper stelt de specificatiestructuur vast, de examencommissie het examenplan met zijn resultaatstructuur (F1-09 en F1-11) |
-| Twee wijzigingsregimes | `changeClass` `examenplan` draagt de strengste regels, omdat het examenplan een afspraak met de student is (regels.md) |
-| Een volgorde | `appliesTo` op het examenplan wijst naar een opgenomen opleidingsprogrammaspecificatie, dus O3 gaat voor O4 |
+| Elke `learningOutcomeId`, `parentSpecificationId` en `ruleSetReferences` wijst naar een object in dezelfde levering of naar een object dat de catalogus al draagt | [ontwerpkeuze 1](../../../model/informatiemodel/informatiemodel.md#ontwerpkeuzes), [ADR 0026](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0026-leeruitkomst-als-verbindende-sleutel.md) |
+| `studyLoad` telt bottom-up op binnen onderdeel-van | [regels.md](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/regels.md), aggregatie-invariant |
+| Het `manifest` pint een versie per onderdeel, en elke pin wijst naar een geleverd of opgenomen onderdeel | regels.md, momentopname en manifest |
+| De wortel draagt `vastgesteld`; de catalogus beslist daarna zelf over publicatie | [ADR 0020](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0020-curriculumontwerp-onderwijscatalogus-happy-flow-synchronisatie-en-federatie-adopt-klonen.md) |
 
-### 3.3 Wat de catalogus toetst
+Het ontwerp (O3) en de resultaatstructuur (O4) zijn twee leveringen over dezelfde koppeling, elk met een eigen wortelschema en een eigen vaststeller. **O3 gaat voor O4**: `appliesTo` op het examenplan wijst naar een opleidingsprogrammaspecificatie die de catalogus al draagt.
+
+### 3.3 Toetsen bij inname: code, moment en statuscode
 
 De toets kent een moment bij de poort en een moment na aanname. Bij de poort leest de catalogus de vorm en de verwijzingen, en antwoordt synchroon. Na aanname rekent zij de inhoud na en meldt de uitkomst op O6: dat fijnmazige narekenen is haar eigen logica (ADR 0020).
 
@@ -141,32 +138,39 @@ De toets kent een moment bij de poort en een moment na aanname. Bij de poort lee
 
 Een bevinding draagt de code, een leesbare omschrijving en de plek in de lading als JSON Pointer (RFC 6901), met de verwachte en de aangetroffen waarde erbij waar een maat in het spel is. De vorm staat in [intake-finding.json](schemas/intake-finding.json), de codelijst naast die van [bottleneck.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/bottleneck.json) voor de planningskant.
 
-### 3.4 Hoe de uitkomst terugkomt
+### 3.4 Wat de aanroeper doet per status
 
-Elke aangenomen levering draagt een `leveringId` dat de catalogus toekent en stabiel houdt over elke uitkomst van die levering. Daarop komt de uitkomst langs twee wegen terug: als melding op O6, en als opvraag op O5. [U4](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u4-notify-then-pull) legt die tweede weg vast, zodat een gemiste melding alsnog te halen is.
+Elke aangenomen levering draagt een `leveringId` dat de catalogus toekent en stabiel houdt. Daarop komt de uitkomst langs twee wegen terug: als melding op O6 en als opvraag op O5, zodat een gemiste melding alsnog te halen is ([U4](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u4-notify-then-pull)).
 
-| Toestand | Wat de catalogus meldt | Wat de ontwerptool daarop doet |
+| Status | Wat de catalogus meldt | Wat de ontwerptool daarop doet |
 |---|---|---|
 | `ontvangen` | de levering is aangenomen, als antwoord op O3 of O4 | het `leveringId` bewaren en de uitkomst afwachten |
 | `gestart` | het narekenen loopt | de uitkomst afwachten |
-| `gelukt` | de toegekende identiteit en versie staan in `specificationReference` | die verwijzing voortaan als sleutel gebruiken (W4) |
+| `gelukt` | de toegekende identiteit en versie staan in `specificationReference` | die verwijzing voortaan als sleutel gebruiken |
 | `afgekeurd` | de bevindingen staan in `findings` | de lading herstellen en opnieuw aanleveren |
 | `nietGelukt` | de verwerking liep vast, met de bevinding erbij | opnieuw aanleveren |
 
-Na `gelukt` beslist de catalogus op haar eigen regels over publicatie, en meldt die stap op O7 als `vastgesteld` naar `gepubliceerd` (ADR 0020). Een nieuwe ontwerpversie van dezelfde specificatie loopt opnieuw over O3, met hetzelfde `id` en een hogere `version`; daarmee blijft het aantal paden gelijk.
+Na `gelukt` meldt de catalogus de publicatiestap op O7 als `vastgesteld` naar `gepubliceerd`. Een nieuwe ontwerpversie loopt opnieuw over O3, met hetzelfde `id` en een hogere `version`.
 
-De ontwerptool abonneert zich op de meldingen die zij ontvangt: `verwerkingsstatus` en `specificatie-status-gewijzigd`, de waarden die [subscription.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/subscription.json) kent. De dienstenlijst op het vastgezette commit draagt de eerste als [verwerkingsuitkomst-aanbieder](https://github.com/Npuls-OKx/Public/blob/d0c20d99b110b29ccf6b0e50109f7d54ffd88d7a/Koppelvlakspecificaties/Applicatiediensten/verwerkingsuitkomst-aanbieder.md); signalering [S14](signaleringen.md) belegt een naam per bericht. De volgorde per `specificationId` blijft behouden, en het kanaal is vrij binnen de eigenschappen van [U5](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u5-bericht-versus-kanaal):
+Het afleveradres ligt bij instelling en leverancier, binnen de vier eigenschappen die [U5](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u5-bericht-versus-kanaal) eist: gegarandeerde aflevering, herhaalbare verwerking zonder extra effect, een wachtrij voor onbestelbare berichten, en volgorde per sleutel. De ontwerptool abonneert zich op `verwerkingsstatus` en `specificatie-status-gewijzigd`.
 
-- gegarandeerde aflevering
-- herhaalbare verwerking zonder extra effect (idempotent)
-- een wachtrij voor onbestelbare berichten (dead letter channel)
-- volgorde per sleutel
-
-## 4. De berichten
+## 4. Berichtspecificatie
 
 De kolom Veld draagt de Engelse sleutel uit het schema, de kolom Nederlands de naam waaronder [mapping.md](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/mapping.md) hem vastlegt; enumwaarden blijven Nederlands. Kardinaliteit en verplichting gelden voor deze stroom. Een afwijking van het schema staat in de kolom Verplicht met de werkbrief erbij. De kolom Grond zegt waarop het veld bestaat: een schema in Public, een regel uit [regels.md](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/regels.md), een objecttype uit het [informatiemodel](../../../model/informatiemodel/informatiemodel.md) of een instantie uit [beeldregel F1-12](../../../model/informatiemodel/voorbeeld-lr1-regels.json).
 
-### 4.1 De lijst met verwijzingen (O1)
+### 4.1 Lijst van specificatieverwijzingen, antwoord op O1
+
+```mermaid
+sequenceDiagram
+    participant CO as Curriculum ontwerptool
+    participant OC as Onderwijscatalogus
+    CO->>OC: O1 GET /onderwijsspecificaties
+    OC-->>CO: 200 dit bericht
+```
+
+![ERD van de objecttypen in dit bericht](img/erd/is-oa-01-4-1-lijst-van-specificatieverwijzingen-antwoord-op-o1.svg)
+
+De specificatie waarnaar elke verwijzing wijst; de structuur eronder komt via O2.
 
 Het antwoord op O1 draagt een verwijzing per specificatie, waarna O2 de structuur per id levert. De [componentpagina van de onderwijscatalogus](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Applicatiecomponenten/onderwijscatalogus.md) legt die vorm vast als een lijst van [specification-reference.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/specification-reference.json): een array, zonder omhullend object.
 
@@ -179,7 +183,19 @@ Het antwoord op O1 draagt een verwijzing per specificatie, waarna O2 de structuu
 
 Een array zonder omhulling draagt geen plek voor een vervolgverwijzing of een totaal. Paginering, die W14 van [IS-OA-03](is-oa-03.md#werkbrieven) vraagt op dezelfde opvraag, komt daarmee op een omhullend object uit: MAJOR voor wie op de array van vandaag valideert. Signalering [S21](signaleringen.md) draagt dat punt.
 
-### 4.2 De uitkomst van de inname (O6)
+### 4.2 Verwerkingsstatus van een levering, melding O6
+
+```mermaid
+sequenceDiagram
+    participant CO as Curriculum ontwerptool
+    participant OC as Onderwijscatalogus
+    OC-)CO: O6 verwerkingsstatus, dit bericht
+    CO-->>OC: 200 bevestigd
+```
+
+![ERD van de objecttypen in dit bericht](img/erd/is-oa-01-4-2-verwerkingsstatus-van-een-levering-melding-o6.svg)
+
+De specificatie waarover de uitkomst gaat, met de leeruitkomst waaraan zij hangt.
 
 Volgt [processing-status.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/processing-status.json), met de sleutels die deze eenheid voorstelt in [intake-outcome.json](schemas/intake-outcome.json).
 
@@ -221,7 +237,19 @@ De uitkomst op O6, zodra de catalogus Apothekersassistent opneemt:
 
 De leveringId's en het eventId staan met de overige identificaties in [casus.md](casus.md#het-innamecontract).
 
-### 4.3 De statusmelding (O7)
+### 4.3 Statuswijziging van een onderwijsspecificatie, melding O7
+
+```mermaid
+sequenceDiagram
+    participant CO as Curriculum ontwerptool
+    participant OC as Onderwijscatalogus
+    OC-)CO: O7 specificatie-status-gewijzigd, dit bericht
+    CO-->>OC: 200 bevestigd
+```
+
+![ERD van de objecttypen in dit bericht](img/erd/is-oa-01-4-3-statuswijziging-van-een-onderwijsspecificatie-melding-o7.svg)
+
+Het objecttype waarvan de status wijzigt: de wortel van de opgenomen structuur.
 
 Volgt [specification-status-changed.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/specification-status-changed.json).
 
@@ -232,7 +260,18 @@ Volgt [specification-status-changed.json](https://github.com/Npuls-OKx/Public/bl
 | `newStatus` | `nieuweStatus` | enum | 1 | ja | `Opleiding specificatie`, `gepubliceerd` zodra de catalogus publiceert | specification-status-changed.json, verplicht; ADR 0020 legt het publicatiebesluit bij de catalogus |
 | `eventId` | `eventId` | uuid | 0..1 | nee, voorgestelde sleutel bij W12 | kanaaleigenschap, geen objecttype | U5, herhaalbare verwerking |
 
-### 4.4 De afkeuring (O3, O4 en O6)
+### 4.4 Afkeuring van een aangeleverde structuur, antwoord op O3 en O4 en melding O6
+
+```mermaid
+sequenceDiagram
+    participant CO as Curriculum ontwerptool
+    participant OC as Onderwijscatalogus
+    CO->>OC: O3 of O4 POST, een lading die niet voldoet
+    OC-->>CO: 400 of 409 met dit bericht
+    OC-)CO: O6 verwerkingsstatus afgekeurd, met dit bericht in findings
+```
+
+Dit bericht draagt geen objecttype uit het informatiemodel: de velden zeggen wat er mis is en waar, en zijn eigenschappen van het contract.
 
 Een bevinding zegt op welke grond de catalogus een aanlevering afkeurt. Bij de poort staat zij in het antwoordlichaam van O3 en O4, de vorm in [intake-rejection.json](schemas/intake-rejection.json); na aanname staat zij in `findings` op O6. Het item volgt [intake-finding.json](schemas/intake-finding.json).
 
@@ -293,7 +332,19 @@ Bij de poort staat de afkeuring zonder levering, hier op een ontbrekende leeruit
 }
 ```
 
-### 4.5 Het ontwerp (O3), leeruitkomsten
+### 4.5 Leeruitkomsten in de aanlevering, verzoek O3
+
+```mermaid
+sequenceDiagram
+    participant CO as Curriculum ontwerptool
+    participant OC as Onderwijscatalogus
+    CO->>OC: O3 POST /onderwijsspecificaties, dit bericht
+    OC-->>CO: 202 levering aangenomen
+```
+
+![ERD van de objecttypen in dit bericht](img/erd/is-oa-01-4-5-leeruitkomsten-in-de-aanlevering-verzoek-o3.svg)
+
+De leeruitkomst met de competentie, vaardigheid, kennis en inzicht eronder, en het kader waaruit zij vertaald is.
 
 Volgt [learning-outcome.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/learning-outcome.json).
 
@@ -311,7 +362,19 @@ Volgt [learning-outcome.json](https://github.com/Npuls-OKx/Public/blob/dev/Infor
 
 `Competenties / Skills` met `Vaardigheid`, `Kennis` en `Inzicht` eronder zijn de verdieping die F1-12 meestuurt en krijgen hun veld via [W6](#7-de-werkbrieven).
 
-### 4.6 Het ontwerp (O3), onderwijsspecificaties
+### 4.6 Onderwijsspecificatiestructuur in de aanlevering, verzoek O3
+
+```mermaid
+sequenceDiagram
+    participant CO as Curriculum ontwerptool
+    participant OC as Onderwijscatalogus
+    CO->>OC: O3 POST /onderwijsspecificaties, dit bericht
+    OC-->>CO: 202 levering aangenomen
+```
+
+![ERD van de objecttypen in dit bericht](img/erd/is-oa-01-4-6-onderwijsspecificatiestructuur-in-de-aanlevering-verzoek-o3.svg)
+
+De specificatielagen van opleiding tot leeronderdeel, met de keuzedeelruimte en de regelset ernaast.
 
 Volgt [education-specification.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/education-specification.json). Het `specificationType` bepaalt het objecttype.
 
@@ -346,7 +409,19 @@ Volgt [education-specification.json](https://github.com/Npuls-OKx/Public/blob/de
 | `startDate`, `validFrom`, `validUntil` | `startdatum`, `geldigVanaf`, `geldigTot` | date | 0..1 elk | ja op de doelgroeplaag | geldigheid per ontwerpkeuze 16 | education-specification.json optioneel; regels.md laat temporele geldigheid via deze velden lopen |
 | `timeDistribution` | `tijdsverdeling` | string, open lijst BOT, OOT, BPV | 0..1 | nee | `Leeronderdeel specificatie` | education-specification.json, optioneel |
 
-### 4.7 Het ontwerp (O3), regelsets
+### 4.7 Studentkeuzeregelsets in de aanlevering, verzoek O3
+
+```mermaid
+sequenceDiagram
+    participant CO as Curriculum ontwerptool
+    participant OC as Onderwijscatalogus
+    CO->>OC: O3 POST /onderwijsspecificaties, dit bericht
+    OC-->>CO: 202 levering aangenomen
+```
+
+![ERD van de objecttypen in dit bericht](img/erd/is-oa-01-4-7-studentkeuzeregelsets-in-de-aanlevering-verzoek-o3.svg)
+
+De regelset en het objecttype waarop zij aangrijpt.
 
 Volgt [rule-set.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/rule-set.json).
 
@@ -373,7 +448,19 @@ rule-set.json laat het regelobject vrij: elke sleutel binnen een regel staat daa
 
 De sleutel `source` (`bron`) blijft daarmee de vorm van [source.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/source.json) op de leeruitkomst: een object met `standard`, `type` en `code`.
 
-### 4.8 De resultaatstructuur (O4)
+### 4.8 Resultaatstructuur en examenplan in de aanlevering, verzoek O4
+
+```mermaid
+sequenceDiagram
+    participant CO as Curriculum ontwerptool
+    participant OC as Onderwijscatalogus
+    CO->>OC: O4 POST /examenplanspecificaties, dit bericht
+    OC-->>CO: 202 levering aangenomen
+```
+
+![ERD van de objecttypen in dit bericht](img/erd/is-oa-01-4-8-resultaatstructuur-en-examenplan-in-de-aanlevering-verzoek-o4.svg)
+
+De resultaatstructuur met haar toets- en examenonderdelen, wegingen en afrondingscriterium.
 
 Volgt [result-structure.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/result-structure.json).
 
@@ -692,7 +779,7 @@ De payload volgt de lijn van F1-12: kerntaak B1-K1 met een leeronderdeel. De opt
 De proeve weegt twee keer zo zwaar als de praktijktoets, de formatieve toets weegt 0 en komt als concept mee. Het id `6061f30c` is de instantie die deze snede toevoegt aan de id-reeks uit voorbeeldpayloads.md.
 
 
-## 7. De werkbrieven
+## 7. Wat dit in Public toevoegt of wijzigt
 
 | Nr | Wat erbij moet | Waar | Versie-impact |
 |---|---|---|---|
