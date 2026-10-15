@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1252" height="378" viewBox="0 0 1252 378" role="img">
+<rect width="1252" height="378" fill="#ffffff"/>
+<text x="20" y="30" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#1c1c1c" text-anchor="start" font-weight="600">Wie biedt en wie neemt welke koppelvlakdienst af</text>
+<rect x="300" y="48" width="144" height="38" rx="3" fill="#b5ffff" stroke="#5aa8a8"/>
+<text x="372" y="68" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#2a5a5a" text-anchor="middle" font-weight="600">Curriculum ontwerptool</text>
+<rect x="452" y="48" width="144" height="38" rx="3" fill="#b5ffff" stroke="#5aa8a8"/>
+<text x="524" y="68" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#2a5a5a" text-anchor="middle" font-weight="600">Onderwijscatalogus</text>
+<rect x="604" y="48" width="144" height="38" rx="3" fill="#b5ffff" stroke="#5aa8a8"/>
+<text x="676" y="68" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#2a5a5a" text-anchor="middle" font-weight="600">Planningssysteem</text>
+<rect x="756" y="48" width="144" height="38" rx="3" fill="#b5ffff" stroke="#5aa8a8"/>
+<text x="828" y="68" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#2a5a5a" text-anchor="middle" font-weight="600">Leermanagementsysteem</text>
+<text x="828" y="81" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#2a5a5a" text-anchor="middle" font-weight="600">(LMS)</text>
+<rect x="908" y="48" width="144" height="38" rx="3" fill="#b5ffff" stroke="#5aa8a8"/>
+<text x="980" y="68" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#2a5a5a" text-anchor="middle" font-weight="600">Kernregistratie (KRS)</text>
+<rect x="1060" y="48" width="144" height="38" rx="3" fill="#b5ffff" stroke="#5aa8a8"/>
+<text x="1132" y="68" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#2a5a5a" text-anchor="middle" font-weight="600">AII (centraal</text>
+<text x="1132" y="81" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#2a5a5a" text-anchor="middle" font-weight="600">aanmelden)</text>
+<text x="20" y="112" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#1c1c1c" text-anchor="start">onderwijsspecificatie-inname</text>
+<rect x="300.0" y="97" width="134.0" height="19" rx="3" fill="#e8dfc8" stroke="#d8ddda"/>
+<text x="367" y="112" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#1c1c1c" text-anchor="middle">neemt af</text>
+<rect x="452.0" y="97" width="134.0" height="19" rx="3" fill="#cfe8d4" stroke="#d8ddda"/>
+<text x="519" y="112" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#1c1c1c" text-anchor="middle">biedt</text>
+<line x1="12" y1="122" x2="1240" y2="122" stroke="#d8ddda" stroke-width="0.6"/>
+<rect x="12" y="122" width="1228" height="30" fill="#fafbfa"/>
+<text x="20" y="142" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#1c1c1c" text-anchor="start">verwerkingsuitkomst</text>
+<rect x="300.0" y="127" width="134.0" height="19" rx="3" fill="#e8dfc8" stroke="#d8ddda"/>
+<text x="367" y="142" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#1c1c1c" text-anchor="middle">neemt af</text>
+<rect x="452.0" y="127" width="65.0" height="19" rx="3" fill="#cfe8d4" stroke="#d8ddda"/>
+<text x="484" y="142" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#1c1c1c" text-anchor="middle">biedt</text>
+<rect x="521.0" y="127" width="65.0" height="19" rx="3" fill="#e8dfc8" stroke="#d8ddda"/>
+<text x="554" y="142" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#1c1c1c" text-anchor="middle">neemt af</text>
+<rect x="604.0" y="127" width="134.0" height="19" rx="3" fill="#cfe8d4" stroke="#d8ddda"/>
+<text x="671" y="142" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#1c1c1c" text-anchor="middle">biedt</text>
+<rect x="756.0" y="127" width="134.0" height="19" rx="3" fill="#cfe8d4" stroke="#d8ddda"/>
+<text x="823" y="142" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#1c1c1c" text-anchor="middle">biedt</text>
+<rect x="908.0" y="127" width="134.0" height="19" rx="3" fill="#cfe8d4" stroke="#d8ddda"/>
+<text x="975" y="142" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#1c1c1c" text-anchor="middle">biedt</text>
+<rect x="1060.0" y="127" width="134.0" height="19" rx="3" fill="#cfe8d4" stroke="#d8ddda"/>
+<text x="1127" y="142" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#1c1c1c" text-anchor="middle">biedt</text>
+<line x1="12" y1="152" x2="1240" y2="152" stroke="#d8ddda" stroke-width="0.6"/>
+<text x="20" y="172" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#1c1c1c" text-anchor="start">onderwijsspecificatiestructuur</text>
+<rect x="300.0" y="157" width="134.0" height="19" rx="3" fill="#cfe8d4" stroke="#d8ddda"/>
+<text x="367" y="172" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#1c1c1c" text-anchor="middle">biedt</text>
+<rect x="452.0" y="157" width="65.0" height="19" rx="3" fill="#cfe8d4" stroke="#d8ddda"/>
+<text x="484" y="172" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#1c1c1c" text-anchor="middle">biedt</text>
+<rect x="521.0" y="157" width="65.0" height="19" rx="3" fill="#e8dfc8" stroke="#d8ddda"/>
+<text x="554" y="172" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#1c1c1c" text-anchor="middle">neemt af</text>
+<rect x="604.0" y="157" width="134.0" height="19" rx="3" fill="#e8dfc8" stroke="#d8ddda"/>
+<text x="671" y="172" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#1c1c1c" text-anchor="middle">neemt af</text>
+<rect x="756.0" y="157" width="134.0" height="19" rx="3" fill="#e8dfc8" stroke="#d8ddda"/>
+<text x="823" y="172" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#1c1c1c" text-anchor="middle">neemt af</text>
+<line x1="12" y1="182" x2="1240" y2="182" stroke="#d8ddda" stroke-width="0.6"/>
+<rect x="12" y="182" width="1228" height="30" fill="#fafbfa"/>
+<text x="20" y="202" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#1c1c1c" text-anchor="start">afleverabonnement</text>
+<rect x="300.0" y="187" width="134.0" height="19" rx="3" fill="#e8dfc8" stroke="#d8ddda"/>
+<text x="367" y="202" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#1c1c1c" text-anchor="middle">neemt af</text>
+<rect x="452.0" y="187" width="134.0" height="19" rx="3" fill="#cfe8d4" stroke="#d8ddda"/>
+<text x="519" y="202" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#1c1c1c" text-anchor="middle">biedt</text>
+<rect x="604.0" y="187" width="134.0" height="19" rx="3" fill="#cfe8d4" stroke="#d8ddda"/>
+<text x="671" y="202" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#1c1c1c" text-anchor="middle">biedt</text>
+<line x1="12" y1="212" x2="1240" y2="212" stroke="#d8ddda" stroke-width="0.6"/>
+<text x="20" y="232" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#1c1c1c" text-anchor="start">planbaar-onderwijsaanbod</text>
+<rect x="452.0" y="217" width="134.0" height="19" rx="3" fill="#e8dfc8" stroke="#d8ddda"/>
+<text x="519" y="232" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#1c1c1c" text-anchor="middle">neemt af</text>
+<rect x="604.0" y="217" width="134.0" height="19" rx="3" fill="#cfe8d4" stroke="#d8ddda"/>
+<text x="671" y="232" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#1c1c1c" text-anchor="middle">biedt</text>
+<line x1="12" y1="242" x2="1240" y2="242" stroke="#d8ddda" stroke-width="0.6"/>
+<rect x="12" y="242" width="1228" height="30" fill="#fafbfa"/>
+<text x="20" y="262" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5b6663" text-anchor="start">aanmeldbaar-onderwijsaanbod</text>
+<text x="286" y="262" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#5b6663" text-anchor="end">voorstel</text>
+<rect x="452.0" y="247" width="134.0" height="19" rx="3" fill="#cfe8d4" stroke="#d8ddda"/>
+<text x="519" y="262" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#1c1c1c" text-anchor="middle">biedt</text>
+<rect x="908.0" y="247" width="65.0" height="19" rx="3" fill="#cfe8d4" stroke="#d8ddda"/>
+<text x="940" y="262" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#1c1c1c" text-anchor="middle">biedt</text>
+<rect x="977.0" y="247" width="65.0" height="19" rx="3" fill="#e8dfc8" stroke="#d8ddda"/>
+<text x="1010" y="262" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#1c1c1c" text-anchor="middle">neemt af</text>
+<rect x="1060.0" y="247" width="134.0" height="19" rx="3" fill="#e8dfc8" stroke="#d8ddda"/>
+<text x="1127" y="262" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#1c1c1c" text-anchor="middle">neemt af</text>
+<line x1="12" y1="272" x2="1240" y2="272" stroke="#d8ddda" stroke-width="0.6"/>
+<text x="20" y="292" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#1c1c1c" text-anchor="start">leermiddelkoppeling</text>
+<rect x="452.0" y="277" width="134.0" height="19" rx="3" fill="#e8dfc8" stroke="#d8ddda"/>
+<text x="519" y="292" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#1c1c1c" text-anchor="middle">neemt af</text>
+<rect x="756.0" y="277" width="134.0" height="19" rx="3" fill="#cfe8d4" stroke="#d8ddda"/>
+<text x="823" y="292" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#1c1c1c" text-anchor="middle">biedt</text>
+<line x1="12" y1="302" x2="1240" y2="302" stroke="#d8ddda" stroke-width="0.6"/>
+<rect x="20" y="317" width="26" height="14" rx="3" fill="#cfe8d4" stroke="#d8ddda"/>
+<text x="52" y="328" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#5b6663" text-anchor="start">biedt de dienst aan</text>
+<rect x="240" y="317" width="26" height="14" rx="3" fill="#e8dfc8" stroke="#d8ddda"/>
+<text x="272" y="328" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#5b6663" text-anchor="start">neemt de dienst af</text>
+<text x="20" y="352" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#5b6663" text-anchor="start">Een dienst zegt wat er moet kunnen, niet welk systeem het doet; elk component kan hem claimen.</text>
+</svg>

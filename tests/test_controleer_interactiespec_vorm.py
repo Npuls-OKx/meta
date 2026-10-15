@@ -205,7 +205,7 @@ class InDezeRepository(unittest.TestCase):
 
     def test_given_het_hoofddocument_when_toetsen_then_draagt_het_acht_beelden(self):
         hoofd = [v for v in cv.controleer(SPECIFICATIE) if v["hoofddocument"]][0]
-        self.assertGreaterEqual(hoofd["beelden"], 8)
+        self.assertGreaterEqual(hoofd["beelden"], 9)
         self.assertLessEqual(hoofd["buiten_tabellen"], cv.MAX_WOORDEN_BUITEN_TABELLEN)
 
 
