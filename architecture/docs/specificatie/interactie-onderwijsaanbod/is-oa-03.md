@@ -265,11 +265,11 @@ erDiagram
         array ruleSetReferences FK "0..n"
         enum specificationType "1..1"
         enum status "0..1"
-        object, studyLoad "1..1"
+        object studyLoad "1..1"
         number studyLoad.value "1..1"
         date validFrom "0..1"
         date validUntil "0..1"
-        string, version "1..1"
+        string version "1..1"
     }
     "Opleidingsprogramma specificatie" {
         enum curriculumType "0..1"
@@ -283,19 +283,19 @@ erDiagram
         uuid manifest[].specificationId FK "0..n"
         string manifest[].version "0..n"
         string name "1..1"
-        object, organisation FK "0..1"
+        object organisation FK "0..1"
         uuid parentSpecificationId FK "1..1"
         enum programmeLayer "0..1"
         array ruleSetReferences FK "0..n"
         enum specificationType "1..1"
         date startDate "0..1"
         enum status "0..1"
-        object, studyLoad "1..1"
+        object studyLoad "1..1"
         number studyLoad.value "1..1"
-        string, targetGroup "0..1"
+        string targetGroup "0..1"
         date validFrom "0..1"
         date validUntil "0..1"
-        string, version "1..1"
+        string version "1..1"
     }
     "Keuzedeel" {
         string electiveUnitClass "0..1"
@@ -303,12 +303,12 @@ erDiagram
         uuid id PK "1..1"
         uuid learningOutcomeId FK "0..1"
         string name "1..1"
-        string, programmeType "0..1"
+        string programmeType "0..1"
         enum specificationType "1..1"
         enum status "0..1"
-        object, studyLoad "1..1"
+        object studyLoad "1..1"
         number studyLoad.value "1..1"
-        string, version "1..1"
+        string version "1..1"
     }
     "Cohort / periode" {
         string cohort "0..1"
@@ -323,9 +323,9 @@ erDiagram
         uuid parentSpecificationId FK "1..1"
         enum specificationType "1..1"
         enum status "0..1"
-        object, studyLoad "1..1"
+        object studyLoad "1..1"
         number studyLoad.value "1..1"
-        string, version "1..1"
+        string version "1..1"
     }
     "Organisatie-eenheid" {
         organisation organisation "0..1"
@@ -341,9 +341,9 @@ erDiagram
         uuid parentSpecificationId FK "1..1"
         enum specificationType "1..1"
         enum status "0..1"
-        object, studyLoad "1..1"
+        object studyLoad "1..1"
         number studyLoad.value "1..1"
-        string, version "1..1"
+        string version "1..1"
     }
     "Keuzedeelruimte" {
         string appliesTo "1, verplicht"
@@ -354,9 +354,9 @@ erDiagram
         array ruleSetReferences FK "0..n"
         enum specificationType "1..1"
         enum status "0..1"
-        object, studyLoad "1..1"
+        object studyLoad "1..1"
         number studyLoad.value "1..1"
-        string, version "1..1"
+        string version "1..1"
     }
     "Toetsonderdeel specificatie" { }
     "Examenplan" { }
@@ -759,7 +759,9 @@ De eisen komen uit het interactiepatroon OC-P&R. Een instelling citeert het eis-
 
 Eis 0003 en 0004 landen op IS-OA-04, eis 0005 op de statusmelding die naast deze eenheid loopt.
 
-## 7. Werkbrieven
+## 7. Werkbrieven: de issueset die hieruit volgt
+
+Deze regels horen niet in de koppelvlakspecificatie zelf. Elk van hen wordt een issue in Npuls-OKx/Public of in meta, en blijft hier staan tot dat issue er is.
 
 Elke werkbrief belegt een veld of schema dat de beelden F2-01 en F2-03 vragen, en noemt wat elk schema in Public ervoor opneemt. Een veld buiten de schema's draagt zijn Engelse naam als voorstel, met de Nederlandse naam erachter.
 

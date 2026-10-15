@@ -205,11 +205,11 @@ erDiagram
         array ruleSetReferences FK "0..n"
         enum specificationType "1..1"
         enum status "0..1"
-        object, studyLoad "1..1"
+        object studyLoad "1..1"
         number studyLoad.value "1..1"
         date validFrom "0..1"
         date validUntil "0..1"
-        string, version "1..1"
+        string version "1..1"
     }
     "Opleidingsprogramma specificatie" {
         string cohort FK "0..1"
@@ -222,33 +222,33 @@ erDiagram
         uuid manifest[].specificationId FK "0..n"
         string manifest[].version "0..n"
         string name "1..1"
-        object, organisation FK "0..1"
+        object organisation FK "0..1"
         uuid parentSpecificationId FK "1..1"
         enum programmeLayer "0..1"
-        string, programmeType "0..1"
+        string programmeType "0..1"
         array ruleSetReferences FK "0..n"
         enum specificationType "1..1"
         date startDate "0..1"
         enum status "0..1"
-        object, studyLoad "1..1"
+        object studyLoad "1..1"
         number studyLoad.value "1..1"
-        string, targetGroup "0..1"
+        string targetGroup "0..1"
         date validFrom "0..1"
         date validUntil "0..1"
-        string, version "1..1"
+        string version "1..1"
     }
     "Keuzedeel" {
         string description "0..1"
-        string, electiveUnitClass "0..1"
+        string electiveUnitClass "0..1"
         uuid id PK "1..1"
         uuid learningOutcomeId FK "0..1"
         string name "1..1"
-        string, programmeType "0..1"
+        string programmeType "0..1"
         enum specificationType "1..1"
         enum status "0..1"
-        object, studyLoad "1..1"
+        object studyLoad "1..1"
         number studyLoad.value "1..1"
-        string, version "1..1"
+        string version "1..1"
     }
     "Onderwijseenheid specificatie" {
         string description "0..1"
@@ -261,9 +261,9 @@ erDiagram
         uuid parentSpecificationId FK "1..1"
         enum specificationType "1..1"
         enum status "0..1"
-        object, studyLoad "1..1"
+        object studyLoad "1..1"
         number studyLoad.value "1..1"
-        string, version "1..1"
+        string version "1..1"
     }
     "Leeronderdeel specificatie" {
         string description "0..1"
@@ -274,10 +274,10 @@ erDiagram
         uuid parentSpecificationId FK "1..1"
         enum specificationType "1..1"
         enum status "0..1"
-        object, studyLoad "1..1"
+        object studyLoad "1..1"
         number studyLoad.value "1..1"
-        string, timeDistribution "0..1"
-        string, version "1..1"
+        string timeDistribution "0..1"
+        string version "1..1"
     }
     "Keuzedeelruimte" {
         string description "0..1"
@@ -287,9 +287,9 @@ erDiagram
         array ruleSetReferences FK "0..n"
         enum specificationType "1..1"
         enum status "0..1"
-        object, studyLoad "1..1"
+        object studyLoad "1..1"
         number studyLoad.value "1..1"
-        string, version "1..1"
+        string version "1..1"
     }
     "Toetsonderdeel specificatie" { }
     "Summatieve resultaat structuur" { }
@@ -366,12 +366,12 @@ erDiagram
         object learningOutcome FK "0..1"
         uuid learningOutcomeId FK "0..1, verplicht op een toetsonderdeel"
         string name "1..1"
-        enum: nature "0..1, verplicht op een toetsonderdeel"
+        enum nature "0..1, verplicht op een toetsonderdeel"
         uuid parentSpecificationId FK "1..1"
         object resultModel "1..1"
-        enum, specificationType "1..1"
-        string, status "1..1"
-        string, version "1..1"
+        enum specificationType "1..1"
+        string status "1..1"
+        string version "1..1"
     }
     "Onderwijslocatie type" {
         string roomType "0..1"
@@ -393,20 +393,20 @@ erDiagram
         uuid parentSpecificationId FK "1..1"
         object resultModel "1..1"
         array ruleSetReferences FK "0..n, verplicht op de keuzedeel-resultaateenheid"
-        enum: specificationType "1..1"
-        string, status "1..1"
+        enum specificationType "1..1"
+        string status "1..1"
         date validFrom "0..1, verplicht op het examenplan"
         date validUntil "0..1, verplicht op het examenplan"
-        string, version "1..1"
+        string version "1..1"
     }
     "Formatieve resultaat structuur" {
         integer decimalPlaces "0..1"
         number passMark "0..1"
         object resultModel "1..1"
-        string, scale "0..1"
+        string scale "0..1"
     }
     "Examenonderdeelspecificatie" {
-        string, establishedBy "0..1"
+        string establishedBy "0..1"
     }
     "Examenonderdeel weging" { }
     "Toetsonderdeel weging" { }
@@ -464,7 +464,7 @@ erDiagram
         string expertiseProfiles_description "0..1"
         uuid id PK "1..1"
         string name "1..1"
-        string, version "0..1"
+        string version "0..1"
     }
     "Organisatie-eenheid" {
         uuid expertiseProfiles_organisationUnitId FK "0..1"
@@ -750,9 +750,9 @@ De toetskant, het antwoord op O3. Deze payload valideert tegen result-structure.
 
 Elk schema draagt zijn status in zijn `$id`. De schema's die deze eenheid voorstelt staan in [schemas/](schemas/) en eindigen op `/voorstel`; de dragende schema's staan in Public en eindigen op `/alfa`.
 
-## 7. Werkbrieven
+## 7. Werkbrieven: de issueset die hieruit volgt
 
-Wat er in Public gebeurt om dit voorstel daar te laten landen. De versie-impact volgt de versionering uit de [regels bij de schema's](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/regels.md): een additief veld is MINOR, en een wijziging van de uitvoeringsvorm draagt `changeClass` (wijzigingsklasse) `niet-brekend`.
+Deze regels horen niet in de koppelvlakspecificatie zelf. Elk van hen wordt een issue in Npuls-OKx/Public of in meta, en blijft hier staan tot dat issue er is. Wat er in Public gebeurt om dit voorstel daar te laten landen. De versie-impact volgt de versionering uit de [regels bij de schema's](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/regels.md): een additief veld is MINOR, en een wijziging van de uitvoeringsvorm draagt `changeClass` (wijzigingsklasse) `niet-brekend`.
 
 Per schema:
 

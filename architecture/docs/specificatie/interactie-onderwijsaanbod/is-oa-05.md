@@ -248,17 +248,17 @@ erDiagram
         enum status "1"
         integer minStudentCount "0..1"
         integer maxStudentCount "0..1"
-        object, applicationWindow "0..1"
+        object applicationWindow "0..1"
         date applicationWindow.end "0..1"
         date applicationWindow.start "0..1"
         enum learningPathway "0..1"
-        string, targetGroup "0..1"
+        string targetGroup "0..1"
     }
     "Opleiding aanbod" {
         enum offeringType "1"
         uuid parentOfferingId FK "1"
         string enrolmentDeadline "0..1"
-        string, providerId FK "0..1"
+        string providerId FK "0..1"
         array source FK "0..n"
         enum status "1..1"
     }
@@ -552,7 +552,9 @@ Waarom de snede een eigen schema draagt:
 | Waar de snede daarom staat | Als [offering-open-for-application.json](schemas/offering-open-for-application.json) naast education-offering.json |
 | De bouwstenen eronder | Dezelfde als onder education-offering.json: [specification-reference.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/specification-reference.json), [period.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/period.json), [source.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/source.json), [location.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/location.json) en [organisation-unit.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/organisation-unit.json) |
 
-## 8. Werkbrieven
+## 8. Werkbrieven: de issueset die hieruit volgt
+
+Deze regels horen niet in de koppelvlakspecificatie zelf. Elk van hen wordt een issue in Npuls-OKx/Public of in meta, en blijft hier staan tot dat issue er is.
 
 Wat er in Public gebeurt om dit voorstel daar te laten landen, met de versie-impact per schema.
 

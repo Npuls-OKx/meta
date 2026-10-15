@@ -220,67 +220,67 @@ erDiagram
         enum offeringType "1, verplicht"
         array bottlenecks "0..n"
         string cohort FK "0..1"
-        string, executingTeamId FK "0..1"
+        string executingTeamId FK "0..1"
         array groups FK "0..n"
-        string, id PK "1..1"
-        string, locationId FK "0..1"
+        string id PK "1..1"
+        string locationId FK "0..1"
         integer maxStudentCount "0..1"
         integer minStudentCount "0..1"
         string name "1..1"
-        string, parentOfferingId FK "1..1"
-        object, period "0..1"
+        string parentOfferingId FK "1..1"
+        object period "0..1"
         enum status "1..1"
-        string, version "1..1"
+        string version "1..1"
     }
     "Opleidingsprogramma aanbod" {
         enum offeringType "1, verplicht"
         array bottlenecks "0..n"
         string cohort FK "0..1"
-        string, executingTeamId FK "0..1"
+        string executingTeamId FK "0..1"
         array groups FK "0..n"
-        string, id PK "1..1"
-        string, locationId FK "0..1"
+        string id PK "1..1"
+        string locationId FK "0..1"
         integer maxStudentCount "0..1"
         integer minStudentCount "0..1"
         string name "1..1"
-        string, parentOfferingId FK "1..1"
-        object, period "0..1"
+        string parentOfferingId FK "1..1"
+        object period "0..1"
         date period.start "0..1"
         enum status "1..1"
-        string, version "1..1"
+        string version "1..1"
     }
     "Onderwijseenheid aanbod" {
         enum offeringType "1, verplicht"
         array bottlenecks "0..n"
         string cohort FK "0..1"
-        string, executingTeamId FK "0..1"
+        string executingTeamId FK "0..1"
         array groups FK "0..n"
-        string, id PK "1..1"
-        string, locationId FK "0..1"
+        string id PK "1..1"
+        string locationId FK "0..1"
         integer maxStudentCount "0..1"
         integer minStudentCount "0..1"
         string name "1..1"
-        string, parentOfferingId FK "1..1"
-        object, period "0..1"
+        string parentOfferingId FK "1..1"
+        object period "0..1"
         enum status "1..1"
-        string, version "1..1"
+        string version "1..1"
     }
     "Leergelegenheid" {
         enum offeringType "1, verplicht"
         array bottlenecks "0..n"
         string cohort FK "0..1"
-        string, executingTeamId FK "0..1"
+        string executingTeamId FK "0..1"
         array groups FK "0..n"
-        string, id PK "1..1"
-        string, locationId FK "0..1"
+        string id PK "1..1"
+        string locationId FK "0..1"
         integer maxStudentCount "0..1"
         integer minStudentCount "0..1"
         string name "1..1"
-        string, parentOfferingId FK "1..1"
-        object, period "0..1"
+        string parentOfferingId FK "1..1"
+        object period "0..1"
         date period.start "0..1"
         enum status "1..1"
-        string, version "1..1"
+        string version "1..1"
     }
     "Opleiding specificatie" {
         object specificationReference "1, verplicht"
@@ -485,7 +485,9 @@ Het aanbod dat `GET /onderwijsaanbod/{id}` daarna teruggeeft:
 
 `Keuzedeel aanbod` staat als root, los van het opleidingsaanbod, met een eigen groep: een keuzedeel is herbruikbaar over opleidingen heen en de catalogus bereikt het via de regelset op de keuzedeelruimte ([regels.md](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/regels.md)). Loopt de planning vast, dan draagt de instantie `status` `nietRealiseerbaar` met `bottlenecks`, en blijft de rest van de payload gelijk.
 
-## 6. De werkbrieven
+## 6. Werkbrieven: de issueset die hieruit volgt
+
+Deze regels horen niet in de koppelvlakspecificatie zelf. Elk van hen wordt een issue in Npuls-OKx/Public of in meta, en blijft hier staan tot dat issue er is.
 
 Wat het beeld toont en de schema's nog vragen. De schema's dragen alfa ([U1](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u1-indicatief-en-onderbouwend-niet-voorschrijvend)); een wijziging hier verzet de versie van het pakket informatie- en gegevensmodellen, en daarmee de pin die de koppelvlakspecificatie eronder noemt.
 

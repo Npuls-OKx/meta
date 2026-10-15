@@ -170,6 +170,44 @@ def bevindingen_van(rijen, bekend):
     return uit
 
 
+def strookslug(component, dienst):
+    """De bestandsnaam van de strook bij een paar component en dienst."""
+    kort = re.sub(r"[^a-z0-9]+", "-", component.lower()).strip("-")
+    return f"dienst-{kort}-{dienst}.svg"
+
+
+def teken_strook(component, dienst, rol):
+    """Een smalle plaat bij de kop van een dienst in hoofdstuk 3.1.
+
+    Waarvoor: wie in hoofdstuk 3.1 rechtstreeks naar een dienst springt, ziet daar een naam en
+    verder niets. Deze strook zegt in beeld welk applicatiecomponent het betreft en of de dienst
+    levert of afneemt, zonder dat de lezer terug moet naar de plaat bij hoofdstuk 2.
+    """
+    VAK, BLOK, breed, hoog = 186, 214, 448, 46
+    xd = breed - BLOK
+    delen = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{breed}" height="{hoog}" '
+             f'viewBox="0 0 {breed} {hoog}" role="img">',
+             f'<rect width="{breed}" height="{hoog}" fill="#ffffff"/>',
+             f'<rect x="1" y="5" width="{VAK}" height="36" rx="4" fill="{APP}" stroke="{APP_L}"/>',
+             icoon_svg(VAK - 23, 10, ICOON_COMPONENT, APP_T)]
+    regels = _knip(component, VAK - 44, 11, regels=2)
+    basis = 21 if len(regels) > 1 else 27
+    for j, regel in enumerate(regels):
+        delen.append(tekst_svg(10, basis + j * 13, regel, 11, APP_T, True))
+    delen.append(f'<rect x="{xd}" y="5" width="{BLOK - 1}" height="36" rx="4" fill="{DIENST}" '
+                 f'stroke="{APP_L}"/>')
+    delen.append(icoon_svg(xd + 7, 15, ICOON_DIENST, APP_T))
+    regels_d = _knip_streepje(dienst, BLOK - 36, 10)
+    basis_d = 21 if len(regels_d) > 1 else 27
+    for j, regel in enumerate(regels_d):
+        delen.append(tekst_svg(xd + 27, basis_d + j * 12, regel, 10, APP_T))
+    midden = (VAK + xd) / 2
+    delen.append(biedt_svg(midden - 9, 23, APP_T) if rol == "aanbieder"
+                 else neemt_svg(midden - 9, 23, APP_T))
+    delen.append("</svg>")
+    return "\n".join(delen)
+
+
 def contract_per_dienst(map_, rijen, aanduiding):
     """Of hoofdstuk 3.1 van een interactiespecificatie per dienst is ingedeeld.
 
@@ -377,6 +415,27 @@ def teken_interactie(rijen, aanduiding):
     return "\n".join(delen), meldingen
 
 
+def _knip_streepje(tekst, ruimte, grootte=10, regels=2):
+    """Een naam zonder spaties afbreken na een koppelteken, dat blijft op de eerste regel."""
+    if breedte(tekst, grootte) <= ruimte:
+        return [tekst]
+    stukken = tekst.split("-")
+    uit, huidig = [], ""
+    for i, stuk in enumerate(stukken):
+        kandidaat = huidig + stuk + ("-" if i < len(stukken) - 1 else "")
+        if huidig and breedte(kandidaat, grootte) > ruimte:
+            uit.append(huidig)
+            huidig = stuk + ("-" if i < len(stukken) - 1 else "")
+            if len(uit) == regels - 1:
+                huidig = "-".join(stukken[i:])
+                break
+        else:
+            huidig = kandidaat
+    if huidig:
+        uit.append(huidig)
+    return uit[:regels]
+
+
 def _knip(tekst, ruimte, grootte=11, regels=2):
     woorden, uit, huidig = tekst.split(), [], ""
     for woord in woorden:
@@ -420,6 +479,15 @@ def main(argv=None):
     if args.per_interactie:
         aanduidingen = sorted({a for r in rijen
                                for a in re.findall(r"IS-OA-\d+", r.get("eenheid_vol", ""))})
+        stroken = 0
+        for r in rijen:
+            doel = uit.parent / strookslug(r["component"], r["dienst"])
+            if not doel.exists():
+                doel.write_text(teken_strook(r["component"], r["dienst"], r["rol"]) + "\n",
+                                encoding="utf-8")
+                stroken += 1
+        if stroken and not args.kort:
+            print(f"  {stroken} stroken bij de dienstkoppen")
         omgezet = []
         for aanduiding in aanduidingen:
             klaar, contractmeldingen = contract_per_dienst(uit.parent.parent, rijen, aanduiding)

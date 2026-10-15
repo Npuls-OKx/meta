@@ -76,77 +76,110 @@ Afkeuring is een geldige uitkomst van de inname. Bij de poort komt zij synchroon
 
 ### 3.1 Het contract per dienst
 
-Een leverancier claimt een dienst, geen operatietabel. Dit hoofdstuk zegt per dienst wat die claim kost: welke endpoints het component zelf bouwt, en welke het aanroept bij de tegenpartij.
+Een leverancier claimt een dienst, geen operatietabel. Dit hoofdstuk zegt per dienst wat die claim kost: welke endpoints erbij horen en welke operaties daarop staan.
 
-Wie het endpoint bouwt verschilt per patroon, en dat is bij een melding omgekeerd aan wat de naam suggereert.
+Wie het endpoint bouwt verschilt per patroon, en bij een melding is dat omgekeerd aan wat de naam suggereert.
 
-| Patroon | Wie levert het gegeven | Wie bouwt het endpoint |
-|---|---|---|
-| Ophalen | de aanbieder | de aanbieder |
-| Aanleveren | de afnemer | de aanbieder |
-| Melden | de aanbieder | de afnemer, als ontvangstpunt |
+| Patroon | Wie levert het gegeven | Wie bouwt het endpoint | Wie roept aan |
+|---|---|---|---|
+| Ophalen | de aanbieder | de aanbieder | de afnemer |
+| Aanleveren | de afnemer | de aanbieder | de afnemer |
+| Melden | de aanbieder | de afnemer, als ontvangstpunt | de aanbieder |
+
+Een parameter verandert het endpoint niet. Het pad blijft `/onderwijsspecificaties`; de parameters komen erachter in de zoekreeks (query string), gescheiden door `&`. Een voorbeeld staat bij de dienst die ze voert.
 
 #### onderwijsspecificatiestructuur-aanbieder, bij de onderwijscatalogus
 
-Draagt twee patronen: de ontwerptool haalt op, en de catalogus meldt een statuswijziging.
+![De dienst onderwijsspecificatiestructuur-aanbieder bij de onderwijscatalogus](img/dienst-onderwijscatalogus-onderwijsspecificatiestructuur-aanbieder.svg)
 
-| Nr | Endpoint | Methode | Dit component | Parameters | Statuscodes | Stand |
+Deze dienst ontsluit de vastgestelde specificatiestructuur en meldt een statuswijziging. Zij draagt daarmee twee patronen: de structuur wordt opgehaald, de statuswijziging wordt gemeld.
+
+| Nr | Endpoint | Methode | Patroon | Parameters | Statuscodes | Stand |
 |---|---|---|---|---|---|---|
-| O1 | `/onderwijsspecificaties` | GET | bouwt | `status`, `gewijzigdSinds`, `leeruitkomstId` | 200, 400 | `vastgelegd`, `leeruitkomstId` is `voorstel` (W3) |
-| O2 | `/onderwijsspecificaties/{id}` | GET | bouwt | `versie` | 200, 400, 404 | `vastgelegd` |
-| O7 | `specificatie-status-gewijzigd` | POST | verstuurt | geen | 200 | melding, schema en eventwaarde `vastgelegd` |
+| O1 | `/onderwijsspecificaties` | GET | ophalen | `status`, `gewijzigdSinds`, `leeruitkomstId` | 200, 400 | `vastgelegd`, `leeruitkomstId` is `voorstel` (W3) |
+| O2 | `/onderwijsspecificaties/{id}` | GET | ophalen | `versie` | 200, 400, 404 | `vastgelegd` |
+| O7 | `specificatie-status-gewijzigd` | POST | melden | geen | 200 | melding, schema en eventwaarde `vastgelegd` |
+
+```http
+GET /onderwijsspecificaties?status=gepubliceerd&gewijzigdSinds=2026-09-01T00:00:00Z
+GET /onderwijsspecificaties/4f2c8a1e-...?versie=2
+```
 
 #### onderwijsspecificatiestructuur-afnemer, bij de curriculum ontwerptool
 
-| Nr | Endpoint | Methode | Dit component | Parameters | Statuscodes | Stand |
+![De dienst onderwijsspecificatiestructuur-afnemer bij de curriculum ontwerptool](img/dienst-curriculum-ontwerptool-onderwijsspecificatiestructuur-afnemer.svg)
+
+Deze dienst haalt de structuur op bij de aanbieder en neemt daarvan de statuswijziging aan. Het ontvangstpunt voor die melding bouwt zij zelf.
+
+| Nr | Endpoint | Methode | Patroon | Parameters | Statuscodes | Stand |
 |---|---|---|---|---|---|---|
-| O1 | `/onderwijsspecificaties` | GET | roept aan | `status`, `gewijzigdSinds`, `leeruitkomstId` | 200, 400 | als O1 hierboven |
-| O2 | `/onderwijsspecificaties/{id}` | GET | roept aan | `versie` | 200, 400, 404 | als O2 hierboven |
-| O7 | `specificatie-status-gewijzigd` | POST | bouwt het ontvangstpunt | geen | 200 | het endpoint op de ontwerptool is `voorstel` (W2) |
+| O1 | `/onderwijsspecificaties` | GET | ophalen | `status`, `gewijzigdSinds`, `leeruitkomstId` | 200, 400 | als O1 hierboven |
+| O2 | `/onderwijsspecificaties/{id}` | GET | ophalen | `versie` | 200, 400, 404 | als O2 hierboven |
+| O7 | `specificatie-status-gewijzigd` | POST | melden | geen | 200 | het ontvangstpunt op de ontwerptool is `voorstel` (W2) |
 
 #### onderwijsspecificatie-inname-aanbieder, bij de onderwijscatalogus
 
-Het gegeven stroomt hier naar de aanbieder toe: de catalogus bouwt de endpoints en neemt aan.
+![De dienst onderwijsspecificatie-inname-aanbieder bij de onderwijscatalogus](img/dienst-onderwijscatalogus-onderwijsspecificatie-inname-aanbieder.svg)
 
-| Nr | Endpoint | Methode | Dit component | Parameters | Statuscodes | Stand |
+Deze dienst neemt een elders ontworpen specificatie aan, stelt haar vast en houdt de uitkomst van de levering opvraagbaar. Het gegeven stroomt hier naar de aanbieder toe, en zij bouwt de endpoints.
+
+| Nr | Endpoint | Methode | Patroon | Parameters | Statuscodes | Stand |
 |---|---|---|---|---|---|---|
-| O3 | `/onderwijsspecificaties` | POST | bouwt | geen | 202, 400, 409 | `voorstel` (W1) |
-| O4 | `/examenplanspecificaties` | POST | bouwt | geen | 202, 400, 409 | `voorstel` (W1) |
-| O5 | `/leveringen/{leveringId}` | GET | bouwt | geen | 200, 404 | `voorstel` (W1) |
+| O3 | `/onderwijsspecificaties` | POST | aanleveren | geen | 202, 400, 409 | `voorstel` (W1) |
+| O4 | `/examenplanspecificaties` | POST | aanleveren | geen | 202, 400, 409 | `voorstel` (W1) |
+| O5 | `/leveringen/{leveringId}` | GET | ophalen | geen | 200, 404 | `voorstel` (W1) |
 
 #### onderwijsspecificatie-inname-afnemer, bij de curriculum ontwerptool
 
-| Nr | Endpoint | Methode | Dit component | Parameters | Statuscodes | Stand |
+![De dienst onderwijsspecificatie-inname-afnemer bij de curriculum ontwerptool](img/dienst-curriculum-ontwerptool-onderwijsspecificatie-inname-afnemer.svg)
+
+Deze dienst levert het ontwerp aan bij de aanbieder en vraagt de uitkomst van haar levering op.
+
+| Nr | Endpoint | Methode | Patroon | Parameters | Statuscodes | Stand |
 |---|---|---|---|---|---|---|
-| O3 | `/onderwijsspecificaties` | POST | roept aan | geen | 202, 400, 409 | als O3 hierboven |
-| O4 | `/examenplanspecificaties` | POST | roept aan | geen | 202, 400, 409 | als O4 hierboven |
-| O5 | `/leveringen/{leveringId}` | GET | roept aan | geen | 200, 404 | als O5 hierboven |
+| O3 | `/onderwijsspecificaties` | POST | aanleveren | geen | 202, 400, 409 | als O3 hierboven |
+| O4 | `/examenplanspecificaties` | POST | aanleveren | geen | 202, 400, 409 | als O4 hierboven |
+| O5 | `/leveringen/{leveringId}` | GET | ophalen | geen | 200, 404 | als O5 hierboven |
 
 #### verwerkingsuitkomst-aanbieder, bij de onderwijscatalogus
 
-| Nr | Endpoint | Methode | Dit component | Parameters | Statuscodes | Stand |
+![De dienst verwerkingsuitkomst-aanbieder bij de onderwijscatalogus](img/dienst-onderwijscatalogus-verwerkingsuitkomst-aanbieder.svg)
+
+Deze dienst meldt wat een verwerking opleverde. Zij verstuurt de melding; het ontvangstpunt staat bij de afnemer.
+
+| Nr | Endpoint | Methode | Patroon | Parameters | Statuscodes | Stand |
 |---|---|---|---|---|---|---|
-| O6 | `verwerkingsstatus` | POST | verstuurt | geen | 200 | melding en schema `vastgelegd`, de sleutels erbij `voorstel` (W14) |
+| O6 | `verwerkingsstatus` | POST | melden | geen | 200 | melding en schema `vastgelegd`, de sleutels erbij `voorstel` (W14) |
 
 #### verwerkingsuitkomst-afnemer, bij de curriculum ontwerptool
 
-| Nr | Endpoint | Methode | Dit component | Parameters | Statuscodes | Stand |
+![De dienst verwerkingsuitkomst-afnemer bij de curriculum ontwerptool](img/dienst-curriculum-ontwerptool-verwerkingsuitkomst-afnemer.svg)
+
+Deze dienst neemt die melding aan en bouwt daarvoor het ontvangstpunt.
+
+| Nr | Endpoint | Methode | Patroon | Parameters | Statuscodes | Stand |
 |---|---|---|---|---|---|---|
-| O6 | `verwerkingsstatus` | POST | bouwt het ontvangstpunt | geen | 200 | het endpoint op de ontwerptool is `voorstel` (W2) |
+| O6 | `verwerkingsstatus` | POST | melden | geen | 200 | het ontvangstpunt op de ontwerptool is `voorstel` (W2) |
 
 #### afleverabonnement-aanbieder, bij de onderwijscatalogus
 
-| Nr | Endpoint | Methode | Dit component | Parameters | Statuscodes | Stand |
+![De dienst afleverabonnement-aanbieder bij de onderwijscatalogus](img/dienst-onderwijscatalogus-afleverabonnement-aanbieder.svg)
+
+Deze dienst neemt de abonnementen aan op de meldingen die de catalogus zelf verstuurt, en levert daarna aan de adressen die daarin staan.
+
+| Nr | Endpoint | Methode | Patroon | Parameters | Statuscodes | Stand |
 |---|---|---|---|---|---|---|
-| O8 | `/abonnementen` | POST | bouwt | geen | 201, 400 | `vastgelegd` |
+| O8 | `/abonnementen` | POST | aanleveren | geen | 201, 400 | `vastgelegd` |
 
 #### afleverabonnement-afnemer, bij de curriculum ontwerptool
 
-De ontwerptool legt haar afleveradres vast bij de catalogus, en ontvangt daarna O6 en O7.
+![De dienst afleverabonnement-afnemer bij de curriculum ontwerptool](img/dienst-curriculum-ontwerptool-afleverabonnement-afnemer.svg)
 
-| Nr | Endpoint | Methode | Dit component | Parameters | Statuscodes | Stand |
+Deze dienst legt haar afleveradres vast bij de aanbieder, en ontvangt daarna O6 en O7.
+
+| Nr | Endpoint | Methode | Patroon | Parameters | Statuscodes | Stand |
 |---|---|---|---|---|---|---|
-| O8 | `/abonnementen` | POST | roept aan | geen | 201, 400 | `voorstel` op de ontwerptool (W2) |
+| O8 | `/abonnementen` | POST | aanleveren | geen | 201, 400 | `voorstel` op de ontwerptool (W2) |
 
 ### 3.2 Algemene vermogens
 
@@ -513,7 +546,7 @@ erDiagram
         number indicativeVolume[].value "1..n"
         string result "0..1"
         object source FK "1..1"
-        string, taxonomyCode "0..1"
+        string taxonomyCode "0..1"
     }
     "Kwalificatie dossier" {
         object source "1, verplicht"
@@ -617,11 +650,11 @@ erDiagram
         array ruleSetReferences FK "0..n"
         enum specificationType "1..1"
         enum status "0..1"
-        object, studyLoad "1..1"
+        object studyLoad "1..1"
         number studyLoad.value "1..1"
         date validFrom "0..1"
         date validUntil "0..1"
-        string, version "1..1"
+        string version "1..1"
     }
     "Opleidingsprogramma specificatie" {
         enum curriculumType "0..1"
@@ -637,17 +670,17 @@ erDiagram
         uuid manifest[].specificationId FK "0..n"
         string manifest[].version "0..n"
         string name "1..1"
-        object, organisation FK "0..1"
+        object organisation FK "0..1"
         uuid parentSpecificationId FK "1..1"
         array ruleSetReferences FK "0..n"
         enum specificationType "1..1"
         date startDate "0..1"
         enum status "0..1"
-        object, studyLoad "1..1"
+        object studyLoad "1..1"
         number studyLoad.value "1..1"
         date validFrom "0..1"
         date validUntil "0..1"
-        string, version "1..1"
+        string version "1..1"
     }
     "Keuzedeel" {
         string programmeType "0..1, verplicht"
@@ -658,9 +691,9 @@ erDiagram
         string name "1..1"
         enum specificationType "1..1"
         enum status "0..1"
-        object, studyLoad "1..1"
+        object studyLoad "1..1"
         number studyLoad.value "1..1"
-        string, version "1..1"
+        string version "1..1"
     }
     "Onderwijseenheid specificatie" {
         string description "0..1"
@@ -673,9 +706,9 @@ erDiagram
         uuid parentSpecificationId FK "1..1"
         enum specificationType "1..1"
         enum status "0..1"
-        object, studyLoad "1..1"
+        object studyLoad "1..1"
         number studyLoad.value "1..1"
-        string, version "1..1"
+        string version "1..1"
     }
     "Leeronderdeel specificatie" {
         string timeDistribution "0..1"
@@ -687,9 +720,9 @@ erDiagram
         uuid parentSpecificationId FK "1..1"
         enum specificationType "1..1"
         enum status "0..1"
-        object, studyLoad "1..1"
+        object studyLoad "1..1"
         number studyLoad.value "1..1"
-        string, version "1..1"
+        string version "1..1"
     }
     "Keuzedeelruimte" {
         string description "0..1"
@@ -699,9 +732,9 @@ erDiagram
         array ruleSetReferences FK "0..n"
         enum specificationType "1..1"
         enum status "0..1"
-        object, studyLoad "1..1"
+        object studyLoad "1..1"
         number studyLoad.value "1..1"
-        string, version "1..1"
+        string version "1..1"
     }
     "Leeruitkomst" {
         uuid learningOutcomeId FK "0..1, verplicht"
@@ -883,11 +916,11 @@ erDiagram
         string name "1..1"
         uuid parentSpecificationId FK "1..1"
         array ruleSetReferences FK "0..n, verplicht op de keuzedeel-resultaateenheid"
-        enum: specificationType "1..1"
-        string, status "1..1"
+        enum specificationType "1..1"
+        string status "1..1"
         date validFrom "0..1, verplicht op het examenplan"
         date validUntil "0..1, verplicht op het examenplan"
-        string, version "1..1"
+        string version "1..1"
     }
     "Examenplan" { }
     "Examenonderdeel weging" {
@@ -903,16 +936,16 @@ erDiagram
         object learningOutcome FK "0..1"
         uuid learningOutcomeId FK "0..1, verplicht op een toetsonderdeel"
         string name "1..1"
-        enum: nature "0..1, verplicht op een toetsonderdeel"
+        enum nature "0..1, verplicht op een toetsonderdeel"
         uuid parentSpecificationId FK "1..1"
         object resultModel "1..1"
-        enum, specificationType "1..1"
-        string, status "1..1"
-        string, version "1..1"
+        enum specificationType "1..1"
+        string status "1..1"
+        string version "1..1"
     }
     "Examenonderdeelspecificatie" {
         string assessmentForm "0..1, verplicht"
-        string, establishedBy "0..1"
+        string establishedBy "0..1"
     }
     "Opleidingsprogramma specificatie" {
         uuid appliesTo "0..1, verplicht"
@@ -940,7 +973,7 @@ erDiagram
         integer decimalPlaces "0..1"
         number passMark "0..1"
         object resultModel "1..1"
-        string, scale "0..1"
+        string scale "0..1"
     }
     "Summatief Afrondingscriterium" {
         enum aggregation "0..1, verplicht"
@@ -1281,7 +1314,9 @@ De payload volgt de lijn van F1-12: kerntaak B1-K1 met een leeronderdeel. De opt
 De proeve weegt twee keer zo zwaar als de praktijktoets, de formatieve toets weegt 0 en komt als concept mee. Het id `6061f30c` is de instantie die deze snede toevoegt aan de id-reeks uit voorbeeldpayloads.md.
 
 
-## 7. Wat dit in Public toevoegt of wijzigt
+## 7. Werkbrieven: de issueset die hieruit volgt
+
+Deze regels horen niet in de koppelvlakspecificatie zelf. Elk van hen wordt een issue in Npuls-OKx/Public of in meta, en blijft hier staan tot dat issue er is.
 
 | Nr | Wat erbij moet | Waar | Versie-impact |
 |---|---|---|---|

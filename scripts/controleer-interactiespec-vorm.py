@@ -120,8 +120,37 @@ def woorden_buiten_tabellen(tekst):
     )
 
 
+def mermaid_bevindingen(tekst):
+    """Of elk attribuut in een erDiagram een datatype draagt dat mermaid aanneemt.
+
+    De veldtabel schrijft een datatype uit: `enum: ontwerp, vastgesteld` of `string, 36 tekens`.
+    Blijft die dubbele punt of komma staan, dan breekt de parser af met "Expecting
+    ATTRIBUTE_WORD" en toont GitHub alleen "Unable to render rich display". Dat is goedkoper hier
+    te vangen dan met een browser.
+    """
+    uit = []
+    for blok in re.findall(r"```mermaid\n(erDiagram\n.*?)\n```", tekst, re.S):
+        binnen = False
+        for nr, regel in enumerate(blok.splitlines(), 1):
+            gestript = regel.strip()
+            if gestript.endswith("{"):
+                binnen = True
+                continue
+            if gestript == "}":
+                binnen = False
+                continue
+            if not binnen or not gestript:
+                continue
+            woord = gestript.split()[0]
+            if not re.fullmatch(r"[A-Za-z0-9_\[\]]+", woord):
+                uit.append(f"het datatype {woord!r} in een erDiagram draagt een leesteken dat "
+                           f"mermaid niet aanneemt (regel {nr} van het diagram)")
+    return uit
+
+
 def toets_bestand(bestand, hoofddocument):
     """Een markdown-bestand langs de maten, met de bevindingen en de tellingen terug."""
+    # Buiten de maten om: een diagram dat niet parseert laat GitHub leeg.
     tekst = bestand.read_text(encoding="utf-8")
     bevindingen = []
     delen = blokken(tekst)
@@ -197,6 +226,9 @@ def toets_bestand(bestand, hoofddocument):
                 f"{buiten} woorden buiten de tabellen, en de maat is "
                 f"{MAX_WOORDEN_BUITEN_TABELLEN}",
             ))
+
+    for melding in mermaid_bevindingen(tekst):
+        bevindingen.append(Bevinding(bestand.name, melding))
 
     return bevindingen, {
         "beelden": len(BEELD.findall(tekst)),

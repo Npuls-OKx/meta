@@ -144,11 +144,23 @@ def attributen_uit_binding(blok, binding):
             if any(n in a.get("bron", "") for n in namen):
                 uit[objecttype].append({
                     "naam": a["naam"],
-                    "type": (a.get("datatype") or "string").split()[0].lower(),
+                    "type": mermaid_type(a.get("datatype")),
                     "sleutel": {"sleutel": "PK", "verwijzing": "FK"}.get(a.get("rol"), a.get("rol") or ""),
                     "opmerking": a.get("kardinaliteit") or "",
                 })
     return uit
+
+
+def mermaid_type(datatype):
+    """Het datatype teruggebracht tot wat mermaid in een attribuutblok aanneemt.
+
+    De veldtabel schrijft een datatype uit: `enum: ontwerp, vastgesteld` of `string, 36 tekens`.
+    Het eerste woord daarvan draagt nog de dubbele punt of de komma, en daarop breekt de parser
+    af met "Expecting ATTRIBUTE_WORD". Hier blijft alleen het woord over.
+    """
+    eerste = (datatype or "string").split()[0] if (datatype or "").strip() else "string"
+    schoon = re.sub(r"[^A-Za-z0-9_\[\]]", "", eerste).lower()
+    return schoon or "string"
 
 
 def berichten(tekst, kopniveau=3):
