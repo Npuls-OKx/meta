@@ -31,7 +31,7 @@ def maak(map_, hoofd, verdieping=None):
     map_ = Path(map_)
     (map_ / "README.md").write_text(hoofd, encoding="utf-8")
     if verdieping is not None:
-        (map_ / "stroom-is-oa-01.md").write_text(verdieping, encoding="utf-8")
+        (map_ / "is-oa-01.md").write_text(verdieping, encoding="utf-8")
     return map_
 
 

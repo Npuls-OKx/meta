@@ -2,7 +2,7 @@
 
 De vaste identificaties onder de interactiespecificatie [ontwerpen en ontsluiten van onderwijsaanbod](README.md). Per laag staat hier wat het object is, welk objecttype uit het [informatiemodel OKx](../../../model/informatiemodel/informatiemodel.md) het draagt, welke uuid en versie het houdt, en onder welke naam het in een payload verschijnt. Casus Apothekersassistent, crebo 23450, kwalificatie 27141, cohort 2026, leerroute 1 met [persona Jochem](../leerroute-uitwerking/doc/persona_jochem.md). Relateert aan: #372.
 
-De zes verdiepingsbestanden [stroom-is-oa-01.md](stroom-is-oa-01.md) tot en met [stroom-is-oa-06.md](stroom-is-oa-06.md) halen hun voorbeeldwaarden hier. Wie de keten van verzoek naar aanbod volgt, leest in elke volgende payload dezelfde sleutel terug.
+De zes verdiepingsbestanden [is-oa-01.md](is-oa-01.md) tot en met [is-oa-06.md](is-oa-06.md) halen hun voorbeeldwaarden hier. Wie de keten van verzoek naar aanbod volgt, leest in elke volgende payload dezelfde sleutel terug.
 
 De kolom Bron zegt waar de identificatie vandaan komt. De waarde Public staat bij een object waarvoor [voorbeeldpayloads.md](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/voorbeeldpayloads.md) al een uuid voor dezelfde casus draagt; die uuid staat hier onveranderd. De waarde Deze snede staat bij een object waarvoor die voorbeeldpayloads nog een uuid krijgen.
 
@@ -97,7 +97,7 @@ Het examenplan geldt met `appliesTo` voor de doelgroeplaag `Regulier BOL 2026`. 
 
 ## Het verzoek tot aanbod
 
-De planopgave waarmee [IS-OA-03](stroom-is-oa-03.md) het planningssysteem om aanbod vraagt, in beeld F2-02 en F2-03 van [voorbeeld-lr1-regels.json](../../../model/informatiemodel/voorbeeld-lr1-regels.json). Het verzoek draagt geen eigen versie: het wijst met `specificationReference` naar de specificatie en haar versie uit de tabel hierboven, en werkbrief W1 van IS-OA-03 geeft het een eigen identificatie in [offering-request.json](schemas/offering-request.json).
+De planopgave waarmee [IS-OA-03](is-oa-03.md) het planningssysteem om aanbod vraagt, in beeld F2-02 en F2-03 van [voorbeeld-lr1-regels.json](../../../model/informatiemodel/voorbeeld-lr1-regels.json). Het verzoek draagt geen eigen versie: het wijst met `specificationReference` naar de specificatie en haar versie uit de tabel hierboven, en werkbrief W1 van IS-OA-03 geeft het een eigen identificatie in [offering-request.json](schemas/offering-request.json).
 
 | Wat het is | Objecttype | Identificatie | Naam in de payload | Bron |
 |---|---|---|---|---|
@@ -163,7 +163,7 @@ Werkbrief WB-02, WB-03 en WB-06 van IS-OA-02 beleggen het schema voor het ruimte
 
 ## Het innamecontract
 
-De identificaties die het contract van [IS-OA-01](stroom-is-oa-01.md) zelf toekent. Zij dragen geen objecttype uit het informatiemodel: een levering is de eenheid waarin de curriculumontwerptool aanlevert, en de onderwijscatalogus kent haar een id toe bij aanname.
+De identificaties die het contract van [IS-OA-01](is-oa-01.md) zelf toekent. Zij dragen geen objecttype uit het informatiemodel: een levering is de eenheid waarin de curriculumontwerptool aanlevert, en de onderwijscatalogus kent haar een id toe bij aanname.
 
 | Wat het is | Rol in het contract | Identificatie | Bron |
 |---|---|---|---|
