@@ -220,10 +220,14 @@ def contract_per_dienst(map_, rijen, aanduiding):
     if not pad.is_file():
         return False, [f"{aanduiding}: {pad.name} ontbreekt"]
     tekst = pad.read_text(encoding="utf-8")
-    if "### 3.1 Het contract per dienst" not in tekst:
+    kop = re.search(r"^#{2,3} (?:\d+\.\d*\s*)?Het contract per (?:koppelvlak)?dienst\s*$",
+                    tekst, re.M)
+    if not kop:
         return False, []
-    begin = tekst.index("### 3.1 Het contract per dienst")
-    eind = tekst.index("\n### ", begin + 10)
+    begin = kop.start()
+    niveau = len(kop.group(0)) - len(kop.group(0).lstrip("#"))
+    volgende = re.search(r"^#{1,%d} " % niveau, tekst[begin + len(kop.group(0)):], re.M)
+    eind = begin + len(kop.group(0)) + volgende.start() if volgende else len(tekst)
     blok = tekst[begin:eind]
     koppen = {k.split(",")[0].strip() for k in re.findall(r"^#### (.+)$", blok, re.M)}
     verwacht = {r["dienst"] for r in rijen if aanduiding in r.get("eenheid_vol", "")}
@@ -510,7 +514,7 @@ def main(argv=None):
         print(f"  de dienstenlijst van Public kent {len(bekend) * 2} diensten; "
               f"{len(onderwerpen - bekend) * 2} stelt deze keten voor")
     if args.per_interactie and not args.kort:
-        print(f"  hoofdstuk 3.1 per dienst: {len(omgezet)} van {len(aanduidingen)} omgezet"
+        print(f"  het contract per koppelvlakdienst: {len(omgezet)} van {len(aanduidingen)} omgezet"
               + (f", nog te doen {', '.join(a for a in aanduidingen if a not in omgezet)}"
                  if len(omgezet) < len(aanduidingen) else ""))
     for v in voorstellen_van(rijen, bekend):

@@ -167,7 +167,21 @@ De dienstnamen komen uit de [dienstenlijst](https://github.com/Npuls-OKx/Public/
 
 `/aanmeldbaar-aanbod` komt tweemaal voor, bij de catalogus en bij de kernregistratie, met dezelfde parameters en statuscodes. Een leverancier bouwt hem per bezitter (W13).
 
-## 5. De interactieketen
+## 5. Afspraken die elke dienst nakomt
+
+Deze afspraken komen uit Npuls-OKx/Public en gelden voor elke interactie. Een interactiespecificatie noemt alleen waar zij afwijkt.
+
+| Afspraak | Wat zij de implementator oplegt | Waar zij staat | Stand in deze keten |
+|---|---|---|---|
+| Volledige structuur en delta | Wie een structuurresource bezit, ontsluit haar in beide vormen: de hele structuur en het verschil als JSON Patch (RFC 6902). De afnemer kiest | [U11](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u11-toekomstvaste-endpoints-volledige-structuur-en-delta) | Nagekomen op `/onderwijsspecificaties/{id}`, niet op `/examenplanspecificaties/{id}` (W19 van IS-OA-01) |
+| Een vorige versie opvraagbaar | Elk `{id}`-endpoint neemt de query parameter `versie` aan en levert zonder die parameter de laatst gepubliceerde | de componentpagina's | Nagekomen |
+| Idempotentie | Een GET levert bij herhaling hetzelfde. Een webhook delivery is idempotent op `eventId`. Een subscription is idempotent op `callbackUrl` plus event | de componentpagina's | Nagekomen |
+| Dunne melding, daarna ophalen | Een event draagt een verwijzing en geen structuur; de afnemer haalt daarna op | [U4](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md) | Nagekomen in IS-OA-02, IS-OA-03 en IS-OA-07 |
+| Begrensd ophalen van een collectie | Een collectie-endpoint laat de afnemer in brokken ophalen | nergens | Niet belegd (W18 van IS-OA-01) |
+
+Een enum leeft in het schema dat het veld draagt. De interactiespecificatie zegt per waarde wat zij de ontvanger oplegt.
+
+## 6. De interactieketen
 
 ```mermaid
 sequenceDiagram
@@ -226,7 +240,7 @@ sequenceDiagram
 
 Elk gekleurd kader is een interactiespecificatie, met haar aanduiding erboven. Een `*` markeert wat op die koppeling nog een voorstel is, een pad of een melding; elk paar legt eerst zijn afleveradres vast met `POST /abonnementen`.
 
-## 6. De interactiespecificaties
+## 7. De interactiespecificaties
 
 | Nr | Naam | Wat erover gaat | Operaties |
 |---|---|---|---|
@@ -238,6 +252,6 @@ Elk gekleurd kader is een interactiespecificatie, met haar aanduiding erboven. E
 | IS-OA-06 | [Aanmeldbaar aanbod naar centraal aanmelden](is-oa-06.md) | Dezelfde snede met de kernregistratie als bezitter, richting AII | 5 |
 | IS-OA-07 | [Specificaties naar het leermanagementsysteem](is-oa-07.md) | De catalogus meldt dat een specificatie beschikbaar is, de leeromgeving haalt haar op en meldt haar inrichting terug | 6 |
 
-Elke interactiespecificatie draagt hetzelfde: de volgorde tussen de twee componenten als sequentiediagram, de operaties met hun parameters, statuscodes en foutgedrag, per bericht de velden met de grond waarop zij bestaan, een voorbeeldpayload die tegen haar schema valideert, en wat dit in Public toevoegt of wijzigt.
+Elke interactiespecificatie draagt hetzelfde: het contract per koppelvlakdienst, de volgorde als sequentiediagram, de berichten veld voor veld met hun ERD, en een voorbeeldpayload die valideert.
 
 De voorbeeldpayloads gebruiken de vaste identificaties uit [casus.md](casus.md), zodat dezelfde opleiding door de hele keten dezelfde uuid draagt. De controle `python3 scripts/controleer-interactiespec.py` haalt elke payload langs haar schema en meldt elke sleutel die geen schema verklaart.

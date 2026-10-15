@@ -70,11 +70,9 @@ sequenceDiagram
 
 Afkeuring is een geldige uitkomst van de inname. Bij de poort komt zij synchroon terug als 400 met de bevindingen; na aanname komt zij op O6 als `afgekeurd` met dezelfde bevindingen. Het kanaal blijft in beide gevallen staan, en de ontwerptool stelt haar eigen beeld bij op een terminale uitkomst: gelukt, niet gelukt of afgekeurd.
 
-## 3. Operaties
+## 3. Het contract per koppelvlakdienst
 
 Een operatie is een pad met een methode erop: `GET /onderwijsspecificaties` is er een, `POST /onderwijsspecificaties` een andere. Zij draagt een nummer dat terugkomt in het sequentiediagram hierboven en in de berichtspecificatie hieronder. `CO` is de curriculum ontwerptool, `OC` de onderwijscatalogus.
-
-### 3.1 Het contract per dienst
 
 Een leverancier claimt een dienst, geen operatietabel. Hier staat per dienst wat die claim kost: welke operaties erbij horen, met hun parameters, hun request body en hun responses.
 
@@ -86,7 +84,7 @@ Wie het endpoint bouwt verschilt per patroon, en bij een melding is dat omgekeer
 | Aanleveren | de afnemer | de aanbieder | de afnemer |
 | Melden | de aanbieder | de afnemer, op haar `callbackUrl` | de aanbieder |
 
-Een query parameter verandert het endpoint niet: het pad blijft gelijk en de parameters komen in de query string. Het contract staat bij de dienst die het endpoint bouwt; de tegenhanger wijst ernaar.
+Een query parameter verandert het endpoint niet: het pad blijft gelijk en de parameters komen in de query string. Het contract staat bij de dienst die het endpoint bouwt; de tegenhanger wijst ernaar. De afspraken die voor elke dienst in deze keten gelden, staan in de [interactieketenspecificatie](README.md#5-afspraken-die-elke-dienst-nakomt).
 
 #### onderwijsspecificatiestructuur-aanbieder, bij de onderwijscatalogus
 
@@ -163,6 +161,25 @@ Deze dienst neemt een elders ontworpen specificatie aan, stelt haar vast en houd
 | `200 OK` | `application/json`, de huidige toestand van de levering |
 | `404 Not Found` | onbekend `leveringId`, of de bewaartermijn is verstreken (W17) |
 
+**Validatie en foutcodes**
+
+De implementator van beide componenten gaat met deze fouten om. De validatie kent twee momenten: bij de poort antwoordt de catalogus synchroon met een statuscode, en na aanname rekent zij de inhoud na en meldt de uitkomst asynchroon op O6.
+
+| Code | Wat moet kloppen | Moment | Grond |
+|---|---|---|---|
+| `vormFout` | De lading valideert tegen education-specification.json of result-structure.json | poort, 400 | het schema in Public |
+| `ouderOnbekend` | `parentSpecificationId` wijst naar de levering of naar de catalogus | poort, 400 | regels.md, twee soorten ouder-verwijzing |
+| `leeruitkomstOnbekend` | Elke `learningOutcomeId` staat in `learningOutcomes` of bij de catalogus | poort, 400 | ontwerpkeuze 1, ADR 0026 |
+| `verwijzingOnbekend` | `ruleSetReferences`, `appliesTo` en `assesses` lossen op | poort, 400 | regels.md, regels staan buiten de specificatie |
+| `statusNietVastgesteld` | De wortel draagt `vastgesteld` | poort, 400 | ADR 0020, beeldregel F1-11 |
+| `versieConflict` | De versie van de wortel is nieuw voor de catalogus en volgt het patroon `n.n.n` | poort, 409 | regels.md, versionering |
+| `studielastTeltNietOp` | De studielast van de onderdelen telt op naar de ouder binnen onderdeel-van | na aanname, O6 `afgekeurd` | regels.md, aggregatie-invariant |
+| `manifestMismatch` | Elke pin in het `manifest` wijst naar een geleverde of opgenomen versie | na aanname, O6 `afgekeurd` | regels.md, momentopname en manifest |
+
+Een bevinding draagt de code, een leesbare omschrijving en de plek in de lading als JSON Pointer (RFC 6901), met de verwachte en de aangetroffen waarde waar een maat in het spel is. De vorm staat in [intake-finding.json](schemas/intake-finding.json).
+
+De acht codes zijn de enum `properties.code` van [intake-finding.json](schemas/intake-finding.json); die lijst is leidend en deze tabel zegt per code wat er moet kloppen.
+
 #### onderwijsspecificatie-inname-afnemer, bij de curriculum ontwerptool
 
 ![De dienst onderwijsspecificatie-inname-afnemer bij de curriculum ontwerptool](img/dienst-curriculum-ontwerptool-onderwijsspecificatie-inname-afnemer.svg)
@@ -184,6 +201,22 @@ Deze dienst meldt wat een verwerking opleverde. Zij verstuurt; de `callbackUrl` 
 | `200 OK` | geen response body |
 | Bij uitblijven | retry met exponential backoff, daarna dead letter queue |
 | Idempotentie | op `eventId` (W12) |
+
+**De toestanden van een levering**
+
+Elke aangenomen levering draagt een `leveringId` dat de catalogus toekent en stabiel houdt. De uitkomst komt langs twee wegen terug: als melding op O6 en als opvraag op O5, zodat een gemiste melding alsnog te halen is ([U4](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u4-notify-then-pull)).
+
+| Status | Wat de catalogus meldt | Wat de ontwerptool daarop doet |
+|---|---|---|
+| `ontvangen` | de levering is aangenomen, als antwoord op O3 of O4 | het `leveringId` bewaren en de uitkomst afwachten |
+| `gestart` | het narekenen loopt | de uitkomst afwachten |
+| `gelukt` | de toegekende identiteit en versie staan in `specificationReference` | die verwijzing voortaan als sleutel gebruiken |
+| `afgekeurd` | de bevindingen staan in `findings` | de lading herstellen en opnieuw aanleveren |
+| `nietGelukt` | de verwerking liep vast, met de bevinding erbij | opnieuw aanleveren |
+
+Na `gelukt` meldt de catalogus de publicatiestap op O7 als `vastgesteld` naar `gepubliceerd`. Het afleveradres van een melding ligt bij instelling en leverancier, binnen de vier eigenschappen die [U5](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u5-bericht-versus-kanaal) eist.
+
+De vijf waarden zijn de enum `properties.status` van [intake-outcome.json](schemas/intake-outcome.json).
 
 #### verwerkingsuitkomst-afnemer, bij de curriculum ontwerptool
 
@@ -211,55 +244,6 @@ Deze dienst neemt de subscriptions aan op de events die de catalogus zelf public
 ![De dienst afleverabonnement-afnemer bij de curriculum ontwerptool](img/dienst-curriculum-ontwerptool-afleverabonnement-afnemer.svg)
 
 Deze dienst registreert haar `callbackUrl` bij de aanbieder met O8, en ontvangt daarna O6 en O7 (W2).
-
-### 3.2 Afspraken die over de diensten heen gelden
-
-Hoofdstuk 3.1 zegt per dienst welke operaties erbij horen. Hier staan de afspraken die niet aan een operatie hangen maar aan het koppelvlak als geheel: wat een implementator moet bouwen ook waar 3.1 het niet per regel herhaalt, met de grond ervoor en de stand in deze keten.
-
-| Afspraak | Wat zij de implementator oplegt | Waar zij staat | Stand hier |
-|---|---|---|---|
-| Volledige structuur en delta | Wie een structuurresource bezit, ontsluit haar in beide vormen: de hele structuur en het verschil. De afnemer kiest | [U11](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u11-toekomstvaste-endpoints-volledige-structuur-en-delta) | Nagekomen op `/onderwijsspecificaties/{id}`, **niet** op `/examenplanspecificaties/{id}` (W19) |
-| Een vorige versie opvraagbaar | Elk `{id}`-endpoint neemt `versie` aan en levert zonder die parameter de laatst gepubliceerde | de componentpagina van de catalogus | Nagekomen op beide `{id}`-endpoints |
-| Herhaalbaar zonder extra effect | Een GET levert bij herhaling hetzelfde. `POST /abonnementen` overschrijft op afleveradres plus soort melding in plaats van te stapelen | de componentpagina | Nagekomen op O1, O2, O5 en O8 |
-| Een lijst is begrensd opvraagbaar | Een collectie-endpoint laat de afnemer in brokken ophalen | nergens | **Niet belegd** (W18) |
-
-De delta staat op een eigen pad en niet achter een parameter: `/onderwijsspecificaties/{id}/delta` met `van` en `naar`, en het antwoord is JSON Patch (RFC 6902). Een implementator die alleen de volledige structuur verwerkt, laat dat pad links liggen; de afspraak eist dat de bezitter het aanbiedt, niet dat de afnemer het gebruikt.
-
-`gewijzigdSinds` staat vandaag op een enkel collectie-endpoint, `GET /onderwijsspecificaties`. Een afspraak over alle collecties is het daarmee niet, en dit hoofdstuk doet die ook niet alsof.
-
-### 3.3 Foutafhandeling
-
-De statuscodes blijven binnen de set die de [componentpagina's](https://github.com/Npuls-OKx/Public/tree/dev/Koppelvlakspecificaties/Applicatiecomponenten) in Public aanhouden, met 409 erbij voor een herhaalde aanlevering. Welke grond een afkeuring draagt staat in de code van de bevinding, en daarmee blijft de statuscodeset klein.
-
-
-De implementator van beide componenten gaat met deze fouten om. De validatie kent twee momenten: bij de poort antwoordt de catalogus synchroon met een statuscode, en na aanname rekent zij de inhoud na en meldt de uitkomst asynchroon op O6.
-
-| Code | Wat moet kloppen | Moment | Grond |
-|---|---|---|---|
-| `vormFout` | De lading valideert tegen education-specification.json of result-structure.json | poort, 400 | het schema in Public |
-| `ouderOnbekend` | `parentSpecificationId` wijst naar de levering of naar de catalogus | poort, 400 | regels.md, twee soorten ouder-verwijzing |
-| `leeruitkomstOnbekend` | Elke `learningOutcomeId` staat in `learningOutcomes` of bij de catalogus | poort, 400 | ontwerpkeuze 1, ADR 0026 |
-| `verwijzingOnbekend` | `ruleSetReferences`, `appliesTo` en `assesses` lossen op | poort, 400 | regels.md, regels staan buiten de specificatie |
-| `statusNietVastgesteld` | De wortel draagt `vastgesteld` | poort, 400 | ADR 0020, beeldregel F1-11 |
-| `versieConflict` | De versie van de wortel is nieuw voor de catalogus en volgt het patroon `n.n.n` | poort, 409 | regels.md, versionering |
-| `studielastTeltNietOp` | De studielast van de onderdelen telt op naar de ouder binnen onderdeel-van | na aanname, O6 `afgekeurd` | regels.md, aggregatie-invariant |
-| `manifestMismatch` | Elke pin in het `manifest` wijst naar een geleverde of opgenomen versie | na aanname, O6 `afgekeurd` | regels.md, momentopname en manifest |
-
-Een bevinding draagt de code, een leesbare omschrijving en de plek in de lading als JSON Pointer (RFC 6901), met de verwachte en de aangetroffen waarde waar een maat in het spel is. De vorm staat in [intake-finding.json](schemas/intake-finding.json).
-
-### 3.4 Statusafhandeling
-
-Elke aangenomen levering draagt een `leveringId` dat de catalogus toekent en stabiel houdt. De uitkomst komt langs twee wegen terug: als melding op O6 en als opvraag op O5, zodat een gemiste melding alsnog te halen is ([U4](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u4-notify-then-pull)).
-
-| Status | Wat de catalogus meldt | Wat de ontwerptool daarop doet |
-|---|---|---|
-| `ontvangen` | de levering is aangenomen, als antwoord op O3 of O4 | het `leveringId` bewaren en de uitkomst afwachten |
-| `gestart` | het narekenen loopt | de uitkomst afwachten |
-| `gelukt` | de toegekende identiteit en versie staan in `specificationReference` | die verwijzing voortaan als sleutel gebruiken |
-| `afgekeurd` | de bevindingen staan in `findings` | de lading herstellen en opnieuw aanleveren |
-| `nietGelukt` | de verwerking liep vast, met de bevinding erbij | opnieuw aanleveren |
-
-Na `gelukt` meldt de catalogus de publicatiestap op O7 als `vastgesteld` naar `gepubliceerd`. Het afleveradres van een melding ligt bij instelling en leverancier, binnen de vier eigenschappen die [U5](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u5-bericht-versus-kanaal) eist.
 
 ## 4. Berichtspecificatie
 
@@ -1329,7 +1313,7 @@ Deze regels horen niet in de koppelvlakspecificatie zelf. Elk van hen wordt een 
 
 | Nr | Wat erbij moet | Waar | Versie-impact |
 |---|---|---|---|
-| W1 | Het innamecontract uit [hoofdstuk 3](#3-operaties) overnemen: de paden `POST /onderwijsspecificaties`, `POST /examenplanspecificaties` en `GET /leveringen/{leveringId}`, met hun statuscodes, de levering als eenheid van aanname en de bevinding als grond bij afkeuring | [onderwijsspecificatie-inname-aanbieder.md](https://github.com/Npuls-OKx/Public/blob/d0c20d99b110b29ccf6b0e50109f7d54ffd88d7a/Koppelvlakspecificaties/Applicatiediensten/onderwijsspecificatie-inname-aanbieder.md), paragraaf Endpoints, en [onderwijscatalogus.md](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Applicatiecomponenten/onderwijscatalogus.md) | Additief: drie paden komen erbij op de catalogus, de bestaande opvragingen en payloadschema's blijven gelijk |
+| W1 | Het innamecontract uit [hoofdstuk 3](#3-het-contract-per-koppelvlakdienst) overnemen: de paden `POST /onderwijsspecificaties`, `POST /examenplanspecificaties` en `GET /leveringen/{leveringId}`, met hun statuscodes, de levering als eenheid van aanname en de bevinding als grond bij afkeuring | [onderwijsspecificatie-inname-aanbieder.md](https://github.com/Npuls-OKx/Public/blob/d0c20d99b110b29ccf6b0e50109f7d54ffd88d7a/Koppelvlakspecificaties/Applicatiediensten/onderwijsspecificatie-inname-aanbieder.md), paragraaf Endpoints, en [onderwijscatalogus.md](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Applicatiecomponenten/onderwijscatalogus.md) | Additief: drie paden komen erbij op de catalogus, de bestaande opvragingen en payloadschema's blijven gelijk |
 | W2 | Endpointtabel voor de curriculum ontwerptool met `verwerkingsstatus` POST en `POST /abonnementen`, de diensten die zij als ontvanger implementeert | [curriculum-ontwerptool.md](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Applicatiecomponenten/curriculum-ontwerptool.md) | Additief: bestaande paden en schema's, nieuw koppelvlak op een component zonder endpoints |
 | W3 | Parameter `leeruitkomstId` op het zoeken naar hergebruik, en kopmetadata (`name`, `studyLoad`) in de respons, zodat de ontwerper kan kiezen op wat de specificatie belooft | [onderwijscatalogus.md](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Applicatiecomponenten/onderwijscatalogus.md) en [specification-reference.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/specification-reference.json) | MINOR: additieve parameter en additieve optionele velden |
 | W4 | Regel hoe de toegekende identiteit zich verhoudt tot de id's waarmee de ontwerptool aanlevert, met `specificationReference` als terugweg | [regels.md](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/regels.md), naast de regel dat de catalogus versienummers uitgeeft | Geen schemawijziging |

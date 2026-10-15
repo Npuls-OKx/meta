@@ -195,6 +195,42 @@ class Exitcode(unittest.TestCase):
             self.assertEqual(self.draai([tmp, "--kort"]), 2)
 
 
+class DeEnumToets(unittest.TestCase):
+    """Een codelijst leeft in het schema; de tabel die hem beschrijft blijft compleet."""
+
+    def doc(self, markdown, enum=("a", "b", "c")):
+        import json
+        map_ = Path(tempfile.mkdtemp())
+        (map_ / "schemas").mkdir()
+        (map_ / "schemas" / "proef.json").write_text(
+            json.dumps({"properties": {"code": {"enum": list(enum)}}}), encoding="utf-8")
+        pad = map_ / "doc.md"
+        pad.write_text(markdown, encoding="utf-8")
+        return pad
+
+    AANHEF = "\n\nDe codes zijn de enum `properties.code` van [proef.json](schemas/proef.json)."
+
+    def test_given_een_volledige_tabel_when_toetsen_then_geen_bevinding(self):
+        pad = self.doc("| `a` | x |\n| `b` | y |\n| `c` | z |" + self.AANHEF)
+        self.assertEqual(cv.enum_bevindingen(pad), [])
+
+    def test_given_een_ontbrekende_waarde_when_toetsen_then_een_bevinding(self):
+        pad = self.doc("| `a` | x |\n| `b` | y |" + self.AANHEF)
+        self.assertIn("'c'", " | ".join(cv.enum_bevindingen(pad)))
+
+    def test_given_een_schema_dat_ontbreekt_when_toetsen_then_een_bevinding(self):
+        map_ = Path(tempfile.mkdtemp())
+        pad = map_ / "doc.md"
+        pad.write_text("De codes zijn de enum `properties.code` van [weg.json](schemas/weg.json).",
+                       encoding="utf-8")
+        self.assertIn("staat niet in schemas/", " | ".join(cv.enum_bevindingen(pad)))
+
+    def test_given_een_document_zonder_aanhef_when_toetsen_then_geen_bevinding(self):
+        """Zonder de zin die de enum aanwijst, valt er niets te vergelijken."""
+        pad = self.doc("| `a` | x |")
+        self.assertEqual(cv.enum_bevindingen(pad), [])
+
+
 class InDezeRepository(unittest.TestCase):
 
     def test_given_de_interactiespecificatie_in_deze_repository_when_toetsen_then_elke_maat_gehaald(self):

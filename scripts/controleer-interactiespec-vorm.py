@@ -38,6 +38,7 @@ Exitcodes
 
 import argparse
 import pathlib
+import json
 import re
 import sys
 
@@ -148,6 +149,34 @@ def mermaid_bevindingen(tekst):
     return uit
 
 
+def enum_bevindingen(bestand):
+    """Of elke enumwaarde uit een aangehaald schema ook in de tekst staat.
+
+    Een codelijst die zowel in een schema als in een tabel leeft, loopt uiteen. Het schema is
+    leidend; deze toets kijkt of de tabel compleet is gebleven. Zij draait alleen op de schema's
+    waarvan het document zegt dat het hun enum beschrijft, herkenbaar aan de zin die de enum
+    aanwijst.
+    """
+    tekst = bestand.read_text(encoding="utf-8")
+    uit = []
+    genoemd = set(re.findall(r"^\| `([A-Za-z]+)` \|", tekst, re.M))
+    for veld, schema in re.findall(r"enum `properties\.([a-zA-Z]+)` van\s+\[([a-z-]+\.json)\]", tekst):
+        pad = bestand.parent / "schemas" / schema
+        if not pad.is_file():
+            uit.append(f"{schema} wordt aangehaald als bron van een enum maar staat niet in "
+                       f"schemas/")
+            continue
+        try:
+            waarden = set(json.loads(pad.read_text(encoding="utf-8"))["properties"][veld]["enum"])
+        except (KeyError, ValueError):
+            uit.append(f"{schema} draagt geen enum op `properties.{veld}`")
+            continue
+        for ontbreekt in sorted(waarden - genoemd):
+            uit.append(f"de waarde {ontbreekt!r} staat in de enum van {schema} en niet in de "
+                       f"tabel die hem beschrijft")
+    return uit
+
+
 def toets_bestand(bestand, hoofddocument):
     """Een markdown-bestand langs de maten, met de bevindingen en de tellingen terug."""
     # Buiten de maten om: een diagram dat niet parseert laat GitHub leeg.
@@ -226,6 +255,9 @@ def toets_bestand(bestand, hoofddocument):
                 f"{buiten} woorden buiten de tabellen, en de maat is "
                 f"{MAX_WOORDEN_BUITEN_TABELLEN}",
             ))
+
+    for melding in enum_bevindingen(bestand):
+        bevindingen.append(Bevinding(bestand.name, melding))
 
     for melding in mermaid_bevindingen(tekst):
         bevindingen.append(Bevinding(bestand.name, melding))
