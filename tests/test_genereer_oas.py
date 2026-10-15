@@ -483,6 +483,49 @@ class DeMeldingen(unittest.TestCase):
             self.assertEqual(code, 0, uitvoer)
 
 
+class TweeVormen(unittest.TestCase):
+    """Het document als JSON en als YAML, uit een generatorronde."""
+
+    def test_given_een_document_when_genereren_then_staat_het_er_in_beide_vormen(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            bestand = maak_spec(tmp, [operatie_aanroep()])
+            code, uitvoer, document = draai(bestand)
+            in_yaml = Path(tmp) / "oas" / "onderwijscatalogus.openapi.yaml"
+            self.assertTrue(in_yaml.is_file(), uitvoer)
+            self.assertIn("en als YAML:", uitvoer)
+
+    def test_given_de_yaml_vorm_when_terugladen_then_is_zij_hetzelfde_document(self):
+        """De twee vormen kunnen niet uiteenlopen, en dat moet aantoonbaar zijn."""
+        with tempfile.TemporaryDirectory() as tmp:
+            bestand = maak_spec(tmp, [operatie_aanroep(), operatie_melding()])
+            _, uitvoer, document = draai(bestand)
+            in_yaml = Path(tmp) / "oas" / "onderwijscatalogus.openapi.yaml"
+            self.assertEqual(gos.yaml.safe_load(in_yaml.read_text(encoding="utf-8")), document)
+
+    def test_given_de_yaml_vorm_when_lezen_then_draagt_zij_geen_python_merken(self):
+        """Een veilige dump zonder tags en zonder ankers, want een vreemd werktuig leest mee."""
+        with tempfile.TemporaryDirectory() as tmp:
+            bestand = maak_spec(tmp, [operatie_aanroep()])
+            draai(bestand)
+            tekst = (Path(tmp) / "oas" / "onderwijscatalogus.openapi.yaml").read_text(encoding="utf-8")
+            self.assertNotIn("!!python", tekst)
+            self.assertNotIn("&id00", tekst)
+            self.assertTrue(tekst.startswith("openapi:"), tekst[:40])
+
+    def test_given_pyyaml_dat_ontbreekt_when_genereren_then_blijft_alleen_de_json_met_een_gat(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            bestand = maak_spec(tmp, [operatie_aanroep()])
+            bewaard = gos.yaml
+            gos.yaml = None
+            try:
+                code, uitvoer, document = draai(bestand)
+            finally:
+                gos.yaml = bewaard
+            self.assertFalse((Path(tmp) / "oas" / "onderwijscatalogus.openapi.yaml").exists())
+            self.assertIn("PyYAML ontbreekt", " ".join(document["x-okx-openstaand"]))
+            self.assertEqual(code, 2, uitvoer)
+
+
 class DeWerkbrieven(unittest.TestCase):
     """De legenda bij de werkbriefcodes, zodat een code in het document ergens heen wijst."""
 

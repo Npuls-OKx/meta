@@ -3834,7 +3834,8 @@
       "stroom-is-oa-01.md",
       "stroom-is-oa-03.md",
       "stroom-is-oa-05.md"
-    ]
+    ],
+    "welke_vorm_is_normatief": "Elk component levert twee bestanden met dezelfde inhoud, uit een generatorronde, dus zij kunnen niet uiteenlopen. De YAML-vorm is normatief: dat is de vorm die de OpenAPI-specificatie gangbaar maakt en die de overlay-structuur van OEAPI aanhoudt (profile.yaml, source/spec.yaml). De JSON-vorm staat ernaast voor de keuring en de testgevallen, en voor een werktuig dat geen YAML leest."
   },
   "x-okx-samengevoegd": [
     {

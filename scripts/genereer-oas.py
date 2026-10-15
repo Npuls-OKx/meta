@@ -14,7 +14,21 @@ zoals de platen uit het model komen. Relateert aan: Npuls-OKx/meta#374.
 
 Zonder argumenten leest het script
 architecture/docs/specificatie/interactie-onderwijsaanbod/operaties.json en schrijft het de
-documenten naar de map `oas/` daarnaast.
+documenten naar de map `oas/` daarnaast, elk component in twee vormen.
+
+Twee vormen, een waarheid
+-------------------------
+De OpenAPI-specificatie laat JSON en YAML beide toe. Het script schrijft ze beide uit dezelfde
+generatorronde, dus zij kunnen niet uiteenlopen, en laadt de YAML terug om dat aan te tonen:
+leest zij niet terug als hetzelfde document, dan is dat een bevinding.
+
+De **YAML-vorm is normatief**. Dat is de vorm die gangbaar is voor een OpenAPI-document, die
+een mens leest en die de overlay-structuur van OEAPI aanhoudt (`profile.yaml`,
+`source/spec.yaml`). De JSON-vorm staat ernaast voor de keuring, de testgevallen en een
+werktuig dat geen YAML leest.
+
+Bekijken doet `scripts/bekijk-oas.py`: GitHub rendert een OpenAPI-document niet, en in de
+bestandsweergave is een koppelvlak van negen paden met dertig schema's niet te overzien.
 
 Waar de operaties vandaan komen
 -------------------------------
@@ -125,6 +139,11 @@ import json
 import pathlib
 import re
 import sys
+
+try:
+    import yaml
+except ImportError:  # pragma: no cover
+    yaml = None
 
 WORTEL = pathlib.Path(__file__).resolve().parent.parent
 SPECIFICATIE_STANDAARD = pathlib.Path(
@@ -1122,6 +1141,35 @@ def controleer_openapi(document, waar, gaten):
 # ------------------------------------------------------------------------------- de uitvoering
 
 
+def schrijf_yaml(document, bestand, waar, gaten):
+    """Hetzelfde document als YAML ernaast, want dat is de vorm die OEAPI aanhoudt.
+
+    De OpenAPI-specificatie laat JSON en YAML beide toe, en de twee zijn hier geen twee
+    waarheden: zij komen uit dezelfde generatorronde en kunnen daarmee niet uiteenlopen. De
+    JSON is wat de keuring en de testgevallen lezen, de YAML is wat een mens leest en wat de
+    overlay-structuur van OEAPI draagt (`profile.yaml`, `source/spec.yaml`).
+
+    Het script laadt de weggeschreven YAML terug en vergelijkt haar met het document. Een
+    verschil is een bevinding: dan draagt een van de twee vormen iets anders dan de ander, en
+    dat is precies wat deze opzet moet voorkomen.
+
+    Ontbreekt PyYAML, dan blijft het bij de JSON-vorm. Die melding staat al in de openstaande
+    punten van het document, want zij hoort erin te staan voordat het wordt weggeschreven.
+    """
+    if yaml is None:
+        return None
+    tekst = yaml.safe_dump(
+        document, sort_keys=False, allow_unicode=True, default_flow_style=False, width=100
+    )
+    bestand.write_text(tekst, encoding="utf-8")
+    terug = yaml.safe_load(tekst)
+    if terug != document:
+        gaten.append(Bevinding(
+            waar, "de YAML-vorm leest niet terug als hetzelfde document als de JSON-vorm"
+        ))
+    return bestand
+
+
 def genereer(data, map_, uit, mappen, gevraagd, alles):
     """Per gevraagd component een document bouwen, controleren en wegschrijven."""
     fences = lees_fences(map_)
@@ -1144,13 +1192,21 @@ def genereer(data, map_, uit, mappen, gevraagd, alles):
         controleer_verwijzingen(document, sleutel, gaten)
         aantal_voorbeelden = controleer_voorbeelden(document, sleutel, gaten)
         geldig = controleer_openapi(document, sleutel, gaten)
+        if yaml is None:
+            gaten.append(Gat(
+                sleutel,
+                "het pakket PyYAML ontbreekt, dus blijft het bij de JSON-vorm; zet het in "
+                ".devcontainer/requirements.txt en bouw de container opnieuw",
+            ))
         document["x-okx-openstaand"] = [str(g) for g in gaten]
         uit.mkdir(parents=True, exist_ok=True)
         bestand = uit / f"{sleutel}.openapi.json"
         bestand.write_text(json.dumps(document, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+        in_yaml = schrijf_yaml(document, uit / f"{sleutel}.openapi.yaml", sleutel, gaten)
         verslagen.append({
             "component": sleutel,
             "geschreven": bestand,
+            "yaml": in_yaml,
             "paden": len(document.get("paths", {})),
             "operaties": sum(len(v) for v in document.get("paths", {}).values()),
             "meldingen": len(document.get("webhooks", {})),
@@ -1177,6 +1233,9 @@ def rapporteer(verslagen, kort):
             continue
         pad = str(verslag["geschreven"]).replace(str(WORTEL) + "/", "")
         print(f"\n{verslag['component']}: {pad}")
+        if verslag.get("yaml"):
+            vorm = str(verslag["yaml"]).replace(str(WORTEL) + "/", "")
+            print(f"  en als YAML: {vorm}")
         print(
             f"  {verslag['paden']} paden met {verslag['operaties']} operaties, "
             f"{verslag['meldingen']} meldingen onder webhooks, "

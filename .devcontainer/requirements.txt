@@ -11,3 +11,7 @@ jsonschema>=4.0
 # Keuring van de gegenereerde OpenAPI-documenten (scripts/genereer-oas.py).
 # Ontbreekt het pakket, dan meldt het script dat het document ongetoetst bleef.
 openapi-spec-validator>=0.7
+
+# De YAML-vorm van de gegenereerde OpenAPI-documenten (scripts/genereer-oas.py).
+# Ontbreekt het pakket, dan schrijft het script alleen de JSON-vorm en meldt dat.
+PyYAML>=6.0
