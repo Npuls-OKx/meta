@@ -26,7 +26,7 @@ Elk objecttype en elke instantie hier komt uit het [informatiemodel OKx](../../.
 
 ## 1. De informatiestromen
 
-![De zes informatiestromen van deze keten, uitgelicht op de informatiestromen-hoofdplaat v1.7](img/hoofdplaat-onderwijsaanbod.svg)
+![De zeven informatiestromen van deze keten, uitgelicht op de informatiestromen-hoofdplaat v1.7](img/hoofdplaat-onderwijsaanbod.svg)
 
 De componenten die meedoen zijn omlijnd en bij elke stroom staat wat er overheen gaat. IS-OA-01, IS-OA-02 en IS-OA-06 staan gestippeld: zij krijgen hun lijn op een volgende plaatversie.
 

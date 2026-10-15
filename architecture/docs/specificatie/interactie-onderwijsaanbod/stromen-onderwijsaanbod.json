@@ -1,5 +1,5 @@
 {
-  "naam": "Ontwerpen en ontsluiten van onderwijsaanbod: de zes stromen",
+  "naam": "Ontwerpen en ontsluiten van onderwijsaanbod: de zeven informatiestromen",
   "plaat": "OKx hoofdplaat v1.7<concept>",
   "toelichting": "De informatiestromen van fase 1 tot en met 3 van leerroute 1, met persona Jochem binnen een instelling: van het ontwerp in de curriculum-ontwerptool tot het aanbod waarop een aspirant-student zich aanmeldt. Per stroom staat erbij wat er overheen gaat, uit welk beeld van de voorbeelduitwerking zij komt, en of hoofdplaat v1.7 de lijn al kent; een lijn die zij niet kent wordt gestippeld getekend. De componentnamen zijn die van de view, zodat de tekenaar ze terugvindt. Beeld F3-02 noemt als ontvanger AII, de opvolger van CAMBO; de view kent het vak Voorziening Centraal Aanmelden (CAMBO) en dat vak draagt hier de stroom. De aanduiding IS-OA-01 tot en met IS-OA-06 is die van de interactiespecificaties, elk met de naam die zegt wat erover gaat; de aanduiding blijft staan, want een instelling citeert haar in een eis. IS-OA-05 en IS-OA-06 dragen een ontvangergroep: de lijn loopt naar het vak dat de stroom noemt, en de omlijning komt om elk vak in die groep, want wie daarop aansluit krijgt dezelfde informatie.",
   "stromen": [
