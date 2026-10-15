@@ -76,7 +76,7 @@ Een operatie is een pad met een methode erop: `GET /onderwijsspecificaties` is e
 
 ### 3.1 Het contract per dienst
 
-Een leverancier claimt een dienst, geen operatietabel. Hier staat per dienst wat die claim kost: welke operaties erbij horen, met hun parameters en hun antwoord.
+Een leverancier claimt een dienst, geen operatietabel. Hier staat per dienst wat die claim kost: welke operaties erbij horen, met hun parameters, hun request body en hun responses.
 
 Wie het endpoint bouwt verschilt per patroon, en bij een melding is dat omgekeerd aan wat de naam suggereert.
 
@@ -84,9 +84,9 @@ Wie het endpoint bouwt verschilt per patroon, en bij een melding is dat omgekeer
 |---|---|---|---|
 | Ophalen | de aanbieder | de aanbieder | de afnemer |
 | Aanleveren | de afnemer | de aanbieder | de afnemer |
-| Melden | de aanbieder | de afnemer, als ontvangstpunt | de aanbieder |
+| Melden | de aanbieder | de afnemer, op haar `callbackUrl` | de aanbieder |
 
-Een parameter verandert het endpoint niet. Het pad blijft `/onderwijsspecificaties`; de parameters komen erachter in de zoekreeks (query string), gescheiden door `&`. Het contract staat bij de dienst die het endpoint bouwt; de tegenhanger wijst ernaar.
+Een query parameter verandert het endpoint niet: het pad blijft gelijk en de parameters komen in de query string. Het contract staat bij de dienst die het endpoint bouwt; de tegenhanger wijst ernaar.
 
 #### onderwijsspecificatiestructuur-aanbieder, bij de onderwijscatalogus
 
@@ -94,25 +94,40 @@ Een parameter verandert het endpoint niet. Het pad blijft `/onderwijsspecificati
 
 Deze dienst ontsluit de vastgestelde specificatiestructuur en meldt een statuswijziging. Zij draagt daarmee twee patronen.
 
-**O1 `GET /onderwijsspecificaties`** · ophalen
-Parameters: `status` (standaard `gepubliceerd`), `gewijzigdSinds` (tijdstempel), `leeruitkomstId` (W3)
-`200` de [lijst met verwijzingen](#41-de-lijst-met-verwijzingen-o1) · `400` geen lichaam, de aanroeper corrigeert de parameter en bepaalt de herhaling
-Voorbeeld: `GET /onderwijsspecificaties?status=gepubliceerd&gewijzigdSinds=2026-09-01T00:00:00Z`
+**O1 · `GET /onderwijsspecificaties`** · ophalen
 
-**O2 `GET /onderwijsspecificaties/{id}`** · ophalen
-Parameters: `versie` (standaard de laatst gepubliceerde)
-`200` de volledige structuur · `400` bij een onbekende versie · `404` bij een onbekend id
-Het verschil staat op `/onderwijsspecificaties/{id}/delta` met `van` en `naar`, beide verplicht, als JSON Patch
+| | |
+|---|---|
+| Query parameters | `status` (optioneel, default `gepubliceerd`), `gewijzigdSinds` (optioneel, RFC 3339), `leeruitkomstId` (voorstel, W3) |
+| `200 OK` | `application/json`, de [lijst met verwijzingen](#41-opvragen-herbruikbare-specificatiestructuren) |
+| `400 Bad Request` | geen response body; de client corrigeert de parameter en bepaalt de retry |
+| Voorbeeld | `GET /onderwijsspecificaties?status=gepubliceerd&gewijzigdSinds=2026-09-01T00:00:00Z` |
 
-**O7 `POST specificatie-status-gewijzigd`** · melden
-De catalogus verstuurt; het ontvangstpunt staat bij de afnemer
-`200` de ontvanger bevestigt. Zonder bevestiging herhaalt de catalogus met oplopende wachttijd (backoff) en daarna via de wachtrij voor onbestelbare berichten (dead letter channel). Een herhaald bericht heeft geen extra effect: de ontvanger herkent het `eventId` (W12)
+**O2 · `GET /onderwijsspecificaties/{id}`** · ophalen
+
+| | |
+|---|---|
+| Query parameters | `versie` (optioneel, default de laatst gepubliceerde) |
+| `200 OK` | `application/json`, de volledige structuur ([4.6](#46-aanleveren-onderwijsspecificatiestructuur)) |
+| `400 Bad Request` | onbekende versie |
+| `404 Not Found` | onbekend `id` |
+| Delta | `GET /onderwijsspecificaties/{id}/delta` met `van` en `naar`, beide verplicht; response `application/json-patch+json` (RFC 6902) |
+
+**O7 · webhook `specificatie-status-gewijzigd`** · melden
+
+| | |
+|---|---|
+| Transport | HTTP POST naar de `callbackUrl` die de afnemer met O8 registreerde |
+| Request body | [offering-status-changed.json](schemas/offering-status-changed.json) ([4.3](#43-melden-statuswijziging-van-een-onderwijsspecificatie)) |
+| `200 OK` | geen response body; bevestigt de ontvangst, niet het oordeel |
+| Bij uitblijven | retry met exponential backoff, daarna dead letter queue |
+| Idempotentie | op `eventId`: een herhaalde delivery heeft geen extra effect (W12) |
 
 #### onderwijsspecificatiestructuur-afnemer, bij de curriculum ontwerptool
 
 ![De dienst onderwijsspecificatiestructuur-afnemer bij de curriculum ontwerptool](img/dienst-curriculum-ontwerptool-onderwijsspecificatiestructuur-afnemer.svg)
 
-Deze dienst roept O1 en O2 aan bij de aanbieder hierboven, en bouwt het ontvangstpunt voor O7 (W2). De parameters en de antwoorden staan daar.
+Deze dienst roept O1 en O2 aan bij de aanbieder hierboven, en host de `callbackUrl` voor O7 (W2). De parameters en de responses staan daar.
 
 #### onderwijsspecificatie-inname-aanbieder, bij de onderwijscatalogus
 
@@ -120,57 +135,82 @@ Deze dienst roept O1 en O2 aan bij de aanbieder hierboven, en bouwt het ontvangs
 
 Deze dienst neemt een elders ontworpen specificatie aan, stelt haar vast en houdt de uitkomst van de levering opvraagbaar. Het gegeven stroomt hier naar de aanbieder toe, en zij bouwt de endpoints (W1).
 
-**O3 `POST /onderwijsspecificaties`** · aanleveren
-Parameters: geen
-`202` de levering met haar `leveringId`; het oordeel over de inhoud volgt op O6 · `400` [intake-rejection.json](schemas/intake-rejection.json) met de bevindingen, zodra de vorm of een verwijzing herstel vraagt · `409` zodra de catalogus de wortel op dezelfde versie al draagt
+**O3 · `POST /onderwijsspecificaties`** · aanleveren
 
-**O4 `POST /examenplanspecificaties`** · aanleveren
-Parameters: geen
-`202`, `400` en `409` als O3. Een `appliesTo` naar een opleidingsprogrammaspecificatie buiten de catalogus geeft `400` met code `verwijzingOnbekend`: O3 gaat voor
-De resource heet naar het examenplan en draagt een resultaatstructuur ([S28](signaleringen.md))
+| | |
+|---|---|
+| Request body | `application/json`, de specificatiestructuur ([4.6](#46-aanleveren-onderwijsspecificatiestructuur)) |
+| `202 Accepted` | de levering met haar `leveringId`; het inhoudelijke oordeel volgt asynchroon op O6 |
+| `400 Bad Request` | [intake-rejection.json](schemas/intake-rejection.json) met de bevindingen, zodra de vorm of een verwijzing herstel vraagt ([4.4](#44-afkeuren-aangeleverde-structuur)) |
+| `409 Conflict` | de catalogus draagt de wortel al op dezelfde versie |
+| Atomiciteit | de levering wordt in haar geheel aangenomen of afgewezen; bij afwijzing blijft de catalogus in de toestand van ervoor |
 
-**O5 `GET /leveringen/{leveringId}`** · ophalen
-Parameters: geen
-`200` de huidige toestand van de levering · `404` bij een onbekend `leveringId`. De uitkomst blijft opvraagbaar zolang de catalogus de levering bewaart (W17)
+**O4 · `POST /examenplanspecificaties`** · aanleveren
+
+| | |
+|---|---|
+| Request body | `application/json`, de resultaatstructuur ([4.8](#48-aanleveren-resultaatstructuur-en-examenplan)) |
+| `202 Accepted` | als O3 |
+| `400 Bad Request` | als O3. Een `appliesTo` naar een opleidingsprogrammaspecificatie buiten de catalogus geeft code `verwijzingOnbekend`: O3 gaat voor |
+| `409 Conflict` | als O3 |
+| Naamgeving | de resource heet naar het examenplan en draagt een resultaatstructuur ([S28](signaleringen.md)) |
+
+**O5 · `GET /leveringen/{leveringId}`** · ophalen
+
+| | |
+|---|---|
+| Query parameters | geen |
+| `200 OK` | `application/json`, de huidige toestand van de levering |
+| `404 Not Found` | onbekend `leveringId`, of de bewaartermijn is verstreken (W17) |
 
 #### onderwijsspecificatie-inname-afnemer, bij de curriculum ontwerptool
 
 ![De dienst onderwijsspecificatie-inname-afnemer bij de curriculum ontwerptool](img/dienst-curriculum-ontwerptool-onderwijsspecificatie-inname-afnemer.svg)
 
-Deze dienst roept O3, O4 en O5 aan bij de aanbieder hierboven. De antwoorden staan daar.
+Deze dienst roept O3, O4 en O5 aan bij de aanbieder hierboven. De request bodies en de responses staan daar.
 
 #### verwerkingsuitkomst-aanbieder, bij de onderwijscatalogus
 
 ![De dienst verwerkingsuitkomst-aanbieder bij de onderwijscatalogus](img/dienst-onderwijscatalogus-verwerkingsuitkomst-aanbieder.svg)
 
-Deze dienst meldt wat een verwerking opleverde. Zij verstuurt; het ontvangstpunt staat bij de afnemer.
+Deze dienst meldt wat een verwerking opleverde. Zij verstuurt; de `callbackUrl` staat bij de afnemer.
 
-**O6 `POST verwerkingsstatus`** · melden
-Parameters: geen
-`200` de ontvanger bevestigt. `afgekeurd` en `nietGelukt` dragen hun bevindingen. Herhaling als bij O7 (W14)
+**O6 · webhook `verwerkingsstatus`** · melden
+
+| | |
+|---|---|
+| Transport | HTTP POST naar de `callbackUrl` die de afnemer met O8 registreerde |
+| Request body | [processing-status.json](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Datamodelschema's/processing-status.json); `afgekeurd` en `nietGelukt` dragen hun bevindingen ([4.2](#42-terugmelden-verwerkingsstatus-van-een-levering)), de sleutels erbij zijn voorstel (W14) |
+| `200 OK` | geen response body |
+| Bij uitblijven | retry met exponential backoff, daarna dead letter queue |
+| Idempotentie | op `eventId` (W12) |
 
 #### verwerkingsuitkomst-afnemer, bij de curriculum ontwerptool
 
 ![De dienst verwerkingsuitkomst-afnemer bij de curriculum ontwerptool](img/dienst-curriculum-ontwerptool-verwerkingsuitkomst-afnemer.svg)
 
-Deze dienst bouwt het ontvangstpunt voor O6 (W2) en antwoordt met `200`. Zij bevestigt de ontvangst en niet het oordeel: wat zij met de bevindingen doet valt buiten dit koppelvlak.
+Deze dienst host de `callbackUrl` voor O6 (W2) en antwoordt met `200 OK`. Zij bevestigt de ontvangst en niet het oordeel: wat zij met de bevindingen doet valt buiten dit koppelvlak.
 
 #### afleverabonnement-aanbieder, bij de onderwijscatalogus
 
 ![De dienst afleverabonnement-aanbieder bij de onderwijscatalogus](img/dienst-onderwijscatalogus-afleverabonnement-aanbieder.svg)
 
-Deze dienst neemt de abonnementen aan op de meldingen die de catalogus zelf verstuurt, en levert daarna aan de adressen die daarin staan.
+Deze dienst neemt de subscriptions aan op de events die de catalogus zelf publiceert, en levert daarna af op de geregistreerde `callbackUrl`.
 
-**O8 `POST /abonnementen`** · aanleveren
-Parameters: geen
-`201` het abonnement is vastgelegd · `400` bij een onbekende soort melding of een onbruikbaar adres
-Herhaalbaar zonder extra effect (idempotent) op afleveradres plus soort melding: een herhaalde registratie overschrijft de vorige
+**O8 · `POST /abonnementen`** · aanleveren
+
+| | |
+|---|---|
+| Request body | [subscription.json](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Datamodelschema's/subscription.json): `callbackUrl` en de `events` waarop de afnemer zich abonneert |
+| `201 Created` | de subscription met haar `id` |
+| `400 Bad Request` | onbekend event of een onbruikbare `callbackUrl` |
+| Idempotentie | op `callbackUrl` plus event: een herhaalde registratie overschrijft de vorige |
 
 #### afleverabonnement-afnemer, bij de curriculum ontwerptool
 
 ![De dienst afleverabonnement-afnemer bij de curriculum ontwerptool](img/dienst-curriculum-ontwerptool-afleverabonnement-afnemer.svg)
 
-Deze dienst legt haar afleveradres vast bij de aanbieder met O8, en ontvangt daarna O6 en O7 (W2).
+Deze dienst registreert haar `callbackUrl` bij de aanbieder met O8, en ontvangt daarna O6 en O7 (W2).
 
 ### 3.2 Afspraken die over de diensten heen gelden
 
@@ -191,18 +231,6 @@ De delta staat op een eigen pad en niet achter een parameter: `/onderwijsspecifi
 
 De statuscodes blijven binnen de set die de [componentpagina's](https://github.com/Npuls-OKx/Public/tree/dev/Koppelvlakspecificaties/Applicatiecomponenten) in Public aanhouden, met 409 erbij voor een herhaalde aanlevering. Welke grond een afkeuring draagt staat in de code van de bevinding, en daarmee blijft de statuscodeset klein.
 
-#### De levering is atomair
-
-Een levering is atomair: de catalogus neemt haar in haar geheel aan of wijst haar in haar geheel af. Een gedeeltelijke opname bestaat niet.
-
-| | |
-|---|---|
-| Eenheid van aanname | De levering, niet het objecttype |
-| Bij afwijzing | Niets opgenomen; de catalogus blijft in de toestand van voor de aanlevering |
-| Volgorde | O3 voor O4: `appliesTo` op het examenplan wijst naar een opleidingsprogrammaspecificatie die de catalogus al draagt |
-| Herhaling | Een nieuwe ontwerpversie loopt opnieuw over O3, met hetzelfde `id` en een hogere `version` |
-
-#### De fouten en hun grond
 
 De implementator van beide componenten gaat met deze fouten om. De validatie kent twee momenten: bij de poort antwoordt de catalogus synchroon met een statuscode, en na aanname rekent zij de inhoud na en meldt de uitkomst asynchroon op O6.
 
@@ -572,7 +600,7 @@ Volgt [learning-outcome.json](https://github.com/Npuls-OKx/Public/blob/dev/Infor
 | `credentialDocument` | `waardedocument` | string | 0..1 | nee | `Waarde document (diploma / certificaat)` | learning-outcome.json optioneel; het informatiemodel verbindt het waardedocument aan het `Summatief Afrondingscriterium` |
 | `description`, `result`, `behaviour` | `omschrijving`, `resultaat`, `gedrag` | string, string, array string | 0..1, 0..1, 0..n | nee | `Leeruitkomst` | learning-outcome.json optioneel; [gebruiksprofielen.md](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/gebruiksprofielen.md) vraagt deze velden voor het leermanagementsysteem |
 
-`Competenties / Skills` met `Vaardigheid`, `Kennis` en `Inzicht` eronder zijn de verdieping die F1-12 meestuurt en krijgen hun veld via [W6](#7-de-werkbrieven).
+`Competenties / Skills` met `Vaardigheid`, `Kennis` en `Inzicht` eronder zijn de verdieping die F1-12 meestuurt en krijgen hun veld via [W6](#7-werkbrieven-de-issueset-die-hieruit-volgt).
 
 ### 4.6 Aanleveren onderwijsspecificatiestructuur
 
@@ -1301,7 +1329,7 @@ Deze regels horen niet in de koppelvlakspecificatie zelf. Elk van hen wordt een 
 
 | Nr | Wat erbij moet | Waar | Versie-impact |
 |---|---|---|---|
-| W1 | Het innamecontract uit [paragraaf 3](#3-de-operaties) overnemen: de paden `POST /onderwijsspecificaties`, `POST /examenplanspecificaties` en `GET /leveringen/{leveringId}`, met hun statuscodes, de levering als eenheid van aanname en de bevinding als grond bij afkeuring | [onderwijsspecificatie-inname-aanbieder.md](https://github.com/Npuls-OKx/Public/blob/d0c20d99b110b29ccf6b0e50109f7d54ffd88d7a/Koppelvlakspecificaties/Applicatiediensten/onderwijsspecificatie-inname-aanbieder.md), paragraaf Endpoints, en [onderwijscatalogus.md](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Applicatiecomponenten/onderwijscatalogus.md) | Additief: drie paden komen erbij op de catalogus, de bestaande opvragingen en payloadschema's blijven gelijk |
+| W1 | Het innamecontract uit [hoofdstuk 3](#3-operaties) overnemen: de paden `POST /onderwijsspecificaties`, `POST /examenplanspecificaties` en `GET /leveringen/{leveringId}`, met hun statuscodes, de levering als eenheid van aanname en de bevinding als grond bij afkeuring | [onderwijsspecificatie-inname-aanbieder.md](https://github.com/Npuls-OKx/Public/blob/d0c20d99b110b29ccf6b0e50109f7d54ffd88d7a/Koppelvlakspecificaties/Applicatiediensten/onderwijsspecificatie-inname-aanbieder.md), paragraaf Endpoints, en [onderwijscatalogus.md](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Applicatiecomponenten/onderwijscatalogus.md) | Additief: drie paden komen erbij op de catalogus, de bestaande opvragingen en payloadschema's blijven gelijk |
 | W2 | Endpointtabel voor de curriculum ontwerptool met `verwerkingsstatus` POST en `POST /abonnementen`, de diensten die zij als ontvanger implementeert | [curriculum-ontwerptool.md](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Applicatiecomponenten/curriculum-ontwerptool.md) | Additief: bestaande paden en schema's, nieuw koppelvlak op een component zonder endpoints |
 | W3 | Parameter `leeruitkomstId` op het zoeken naar hergebruik, en kopmetadata (`name`, `studyLoad`) in de respons, zodat de ontwerper kan kiezen op wat de specificatie belooft | [onderwijscatalogus.md](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Applicatiecomponenten/onderwijscatalogus.md) en [specification-reference.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/specification-reference.json) | MINOR: additieve parameter en additieve optionele velden |
 | W4 | Regel hoe de toegekende identiteit zich verhoudt tot de id's waarmee de ontwerptool aanlevert, met `specificationReference` als terugweg | [regels.md](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/regels.md), naast de regel dat de catalogus versienummers uitgeeft | Geen schemawijziging |
@@ -1309,7 +1337,7 @@ Deze regels horen niet in de koppelvlakspecificatie zelf. Elk van hen wordt een 
 | W6 | Veld voor `Competenties / Skills` met `Vaardigheid`, `Kennis` en `Inzicht` eronder, elk met standaard en code | [learning-outcome.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/learning-outcome.json) | MINOR: optionele array, met een eigen schema voor het competentie-item |
 | W7 | Type voor de `Formatieve resultaat structuur` als eigen wortel naast het examenplan | [result-structure.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/result-structure.json), enum `specificationType` | MINOR: additieve enumwaarde. Strikt validerende ontvangers krijgen de waarde vooraf |
 | W8 | Drager voor het generieke basisdeel in het `Summatief Afrondingscriterium`: Nederlands en rekenen, Engels, loopbaan en burgerschap | result-structure.json via `ruleSetReferences` op het examenplan, plus een resultaateenheid in de instantie | Geen schemawijziging, wel een uitwerking van de regels en de instantie |
-| W9 | Het getypeerde regelobject uit [student-choice-rule.json](schemas/student-choice-rule.json) overnemen in `rules`, met de Engelse sleutels uit [4.7](#47-het-ontwerp-o3-regelsets), en het gelijktrekken met de vier Nederlandse regeltypen en de bereiken van [regelset-payload.md](../student-keuze/regelset-payload.md) | [rule-set.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/rule-set.json) | MINOR voor het getypeerde regelobject naast de vrije vorm, MAJOR bij dichtzetten en bij overname van `ruleSetId` als sleutelnaam |
+| W9 | Het getypeerde regelobject uit [student-choice-rule.json](schemas/student-choice-rule.json) overnemen in `rules`, met de Engelse sleutels uit [4.7](#47-aanleveren-studentkeuzeregelsets), en het gelijktrekken met de vier Nederlandse regeltypen en de bereiken van [regelset-payload.md](../student-keuze/regelset-payload.md) | [rule-set.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/rule-set.json) | MINOR voor het getypeerde regelobject naast de vrije vorm, MAJOR bij dichtzetten en bij overname van `ruleSetId` als sleutelnaam |
 | W10 | Releaseaanduiding naast `version` voor de vorm 2026.1 uit de voorbeelduitwerking, die buiten het semver-patroon valt | [education-specification.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/education-specification.json), of semver in de [voorbeelduitwerking](../../../model/informatiemodel/voorbeeld-lr1-regels.json) | MINOR voor een additief veld, of geen schemawijziging bij semver in het voorbeeld |
 | W11 | Objecttype voor de `resultaateenheidspecificatie`, de laag tussen examenplan en toetsonderdeel | [informatiemodel.md](../../../model/informatiemodel/informatiemodel.md) en [begrippenlijst.md](../begrippen/begrippenlijst.md) | Geen schemawijziging: informatiemodel en begrippenlijst |
 | W12 | Een stabiel `eventId` op O6 en O7, waarop de ontvanger een herhaald bericht herkent, zoals [U5](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u5-bericht-versus-kanaal) voor herhaalbare verwerking vraagt | [processing-status.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/processing-status.json) en [specification-status-changed.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/specification-status-changed.json), gelijk aan W6 van IS-OA-05 en W8 van IS-OA-06 | Optioneel: MINOR. Verplicht: MAJOR |
