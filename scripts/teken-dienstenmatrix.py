@@ -220,8 +220,8 @@ def contract_per_dienst(map_, rijen, aanduiding):
     if not pad.is_file():
         return False, [f"{aanduiding}: {pad.name} ontbreekt"]
     tekst = pad.read_text(encoding="utf-8")
-    kop = re.search(r"^#{2,3} (?:\d+\.\d*\s*)?Het contract per (?:koppelvlak)?dienst\s*$",
-                    tekst, re.M)
+    kop = re.search(r"^#{2,3} (?:\d+\.\d*\s*)?(?:Het contract per (?:koppelvlak)?dienst|"
+                    r"Operaties en berichtspecificatie)\s*$", tekst, re.M)
     if not kop:
         return False, []
     begin = kop.start()

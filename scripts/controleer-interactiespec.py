@@ -137,6 +137,27 @@ def lees_payloads(pad):
     return payloads
 
 
+def lees_payloadbestanden(pad):
+    """Elke voorbeeldpayload die als eigen bestand naast de specificatie staat.
+
+    Een payload van honderden regels duwt de berichtspecificatie uit beeld. Los staat zij in
+    voorbeeldpayloads/ en noemt het manifest daar tegen welke schema's zij valideert, zodat een
+    bouwer haar kan ophalen en deze controle haar blijft nalopen. Relateert aan: #384.
+    """
+    manifest = pad / "voorbeeldpayloads" / "payloads.json"
+    if not manifest.is_file():
+        return []
+    gegeven = json.loads(manifest.read_text(encoding="utf-8"))
+    uit = []
+    for naam, regel in sorted((gegeven.get("payloads") or {}).items()):
+        bestand = manifest.parent / naam
+        if not bestand.is_file():
+            continue
+        uit.append(Payload(bestand, 1, "json", list(regel.get("schemas") or []),
+                           bestand.read_text(encoding="utf-8")))
+    return uit
+
+
 def schemabestand(naam, mappen):
     """Het schemabestand bij een naam, gezocht in de meegegeven mappen op volgorde."""
     kaal = naam[:-5] if naam.endswith(".json") else naam
@@ -295,7 +316,7 @@ def controleer(pad, mappen):
     """
     uitkomsten, gaten, bevindingen = [], [], []
     register = maak_register(mappen)
-    for payload in lees_payloads(pad):
+    for payload in lees_payloads(pad) + lees_payloadbestanden(pad):
         if not payload.namen:
             gaten.append(payload)
             continue

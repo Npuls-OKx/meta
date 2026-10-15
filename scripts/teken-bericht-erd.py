@@ -182,6 +182,15 @@ def berichten(tekst, kopniveau=3):
             naam = gestript[3:].strip().lower()
             binnen = "bericht" in naam
             continue
+        if gestript.startswith("##### ") and kop:
+            uit.append((kop, "\n".join(inhoud)))
+            kop, inhoud = None, []
+            continue
+        if gestript.startswith("**Bericht: ") and gestript.endswith("**"):
+            if kop:
+                uit.append((kop, "\n".join(inhoud)))
+            kop, inhoud, binnen = gestript[2:-2], [], True
+            continue
         if binnen and gestript.startswith(hek):
             if kop:
                 uit.append((kop, "\n".join(inhoud)))

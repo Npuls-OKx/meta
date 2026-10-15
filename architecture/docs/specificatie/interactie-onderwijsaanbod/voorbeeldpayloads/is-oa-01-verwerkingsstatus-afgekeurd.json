@@ -1,0 +1,22 @@
+{
+  "deliveryId": "d6d15731-fb31-4627-b51f-090a1e01be7b",
+  "status": "afgekeurd",
+  "specificationReference": {
+    "specificationId": "79736830-1c5c-470f-b2c2-005029c96733",
+    "version": "0.1.0"
+  },
+  "findings": [
+    {
+      "code": "studielastTeltNietOp",
+      "description": "De onderdelen van Blok B1-K1 tellen op naar 600 SBU, terwijl de eenheid 2000 SBU draagt.",
+      "location": "/educationSpecifications/3/studyLoad",
+      "involvedSpecificationIds": [
+        "402c2342-d897-4df4-a667-7fc5bd930944",
+        "327c8263-3516-4b5a-8d57-c16241ec008d"
+      ],
+      "expectedValue": "2000 SBU",
+      "foundValue": "600 SBU"
+    }
+  ],
+  "eventId": "e432bfdb-b64f-4f0c-b56c-4b1a87ba2a7d"
+}
