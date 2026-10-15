@@ -43,7 +43,7 @@
           "applicationWindow": {
             "$ref": "https://okx.npuls.nl/schema/period/alfa",
             "DutchName": "aanmeldvenster",
-            "$comment": "Voorstel: de termijn waarin aanmelden op dit startmoment openstaat, in de vorm van period/alfa. Dezelfde sleutel draagt het venster in enrollable-offering/voorstel."
+            "$comment": "Voorstel: de termijn waarin aanmelden op dit startmoment openstaat, in de vorm van period/alfa. W2 van IS-OA-05 en W10 van IS-OA-06 vragen dezelfde sleutel op education-offering/alfa, zodat een vorm beide koppelingen dekt."
           },
           "enrolmentDeadline": {
             "type": "string",
@@ -65,7 +65,7 @@
             "type": "array",
             "items": { "$ref": "https://okx.npuls.nl/schema/source/alfa" },
             "DutchName": "bron",
-            "$comment": "Voorstel: de herkomst in het kwalificatiekader, zodat het crebo-dossier en de kwalificatie meekomen zonder de leeruitkomstboom. source/alfa staat vandaag als enkel object op learning-outcome/alfa. enrollable-offering/voorstel draagt dezelfde inhoud in codes; werkbrief W13 vraagt om een sleutel."
+            "$comment": "Voorstel: de herkomst in het kwalificatiekader, zodat het crebo-dossier en de kwalificatie meekomen zonder de leeruitkomstboom. source/alfa staat vandaag als enkel object op learning-outcome/alfa; W2 van IS-OA-06 maakt er een array van op de aanbodinstantie."
           },
           "providerId": {
             "type": "string",

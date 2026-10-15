@@ -95,6 +95,16 @@ De laag die IS-OA-01 met de resultaatstructuur aanlevert en die IS-OA-02 aan de 
 
 Het examenplan geldt met `appliesTo` voor de doelgroeplaag `Regulier BOL 2026`. De resultaateenheid op de kerntaak beoordeelt met `assesses` de onderwijseenheidspecificatie, die op de keuzedelen de keuzedeelruimte. Werkbrief W11 van IS-OA-01 belegt het objecttype achter de enumwaarde `resultaateenheidspecificatie`.
 
+## Het verzoek tot aanbod
+
+De planopgave waarmee [IS-OA-03](stroom-is-oa-03.md) het planningssysteem om aanbod vraagt, in beeld F2-02 en F2-03 van [voorbeeld-lr1-regels.json](../../../model/informatiemodel/voorbeeld-lr1-regels.json). Het verzoek draagt geen eigen versie: het wijst met `specificationReference` naar de specificatie en haar versie uit de tabel hierboven, en werkbrief W1 van IS-OA-03 geeft het een eigen identificatie in [offering-request.json](schemas/offering-request.json).
+
+| Wat het is | Objecttype | Identificatie | Naam in de payload | Bron |
+|---|---|---|---|---|
+| Verzoek om aanbod van cohort 2026, op de opleidingsspecificatie | `Verzoek tot Aanbod / Intekening op specificatie` | `7ec74caa-0b5a-4de7-bf69-04415a02f214` | Planopgave Apothekersassistent, cohort 2026 | Deze snede |
+
+Het aanvraagmoment is `2025-04-01` en de verwachte instroom 48, gelijk aan de `maxStudentCount` die IS-OA-04 op het opleidingsaanbod terugmeldt. Dat moment ligt voor het aanmeldvenster dat op `2025-10-01` opent, zodat het verzoek, de planning en de aanmelding in deze casus op volgorde staan.
+
 ## Het geplande aanbod
 
 De lagen die IS-OA-04 terugmeldt en die IS-OA-05 en IS-OA-06 verder ontsluiten. Het veld `offeringType` wijst de laag aan, en `specificationReference` draagt per laag de uuid en de versie uit de tabellen hierboven.
@@ -170,6 +180,7 @@ Werkbrief W14 en W17 van IS-OA-01 beleggen de twee sleutels en het begrip leveri
 | Het versieformaat: de voorbeelduitwerking schrijft `2026.1` op de opleidingsspecificatie, de schema's eisen het patroon `n.n.n` | W12 van IS-OA-03, W10 van IS-OA-01. Deze casus pint `0.1.0` |
 | De capaciteit van `Regulier BOL 2026`: de voorbeelduitwerking geeft 24 tot 48 plaatsen, de voorbeeldpayload in Public 18 tot 120 | Signalering S-D van IS-OA-05. Deze casus draagt 24 tot 48 |
 | Een uuid voor keuzedeel K0037 in de voorbeeldpayloads van Public | Zolang die ontbreekt draagt K0037 de uuid van deze snede |
+| Het verzoek tot aanbod draagt nog geen schema in Public, dus ook geen voorbeeldwaarde | W1 van IS-OA-03. Deze casus pint de uuid, het aanvraagmoment en de verwachte instroom |
 | Een objecttype voor `Plaatsingsgroep` op de aanbodlaag en voor het toetsinstrument | W5 van IS-OA-04, WB-06 van IS-OA-02, signalering S-F van IS-OA-05 |
 
 ## Verwijzingen
