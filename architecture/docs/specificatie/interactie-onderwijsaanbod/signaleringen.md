@@ -1,6 +1,6 @@
 # Signaleringen en openstaande punten
 
-Zevenentwintig signaleringen vragen een besluit voordat een eenheid vastligt. Elke rij zegt wat er is aangetroffen en welk besluit dat vraagt; de eenheid waar zij valt staat in de [interactiespecificatie](README.md).
+Achtentwintig signaleringen vragen een besluit voordat een eenheid vastligt. Elke rij zegt wat er is aangetroffen en welk besluit dat vraagt; de eenheid waar zij valt staat in de [interactiespecificatie](README.md).
 
 | Nr | Signalering | Besluit |
 |---|---|---|
@@ -30,6 +30,7 @@ Zevenentwintig signaleringen vragen een besluit voordat een eenheid vastligt. El
 | S25 | De resultaatstructuur naar het studentvolgsysteem (F4-04, koppeling OC-SVS, interactie S3) is dezelfde publicatiehandeling als IS-OA-03, IS-OA-05 en IS-OA-07, en staat nog niet als eigen interactiespecificatie in deze keten | of die stroom erbij komt als IS-OA-08 |
 | S26 | De dienst [onderwijsspecificatie-inname](https://github.com/Npuls-OKx/Public/blob/d0c20d99b110b29ccf6b0e50109f7d54ffd88d7a/Koppelvlakspecificaties/Applicatiediensten/onderwijsspecificatie-inname-aanbieder.md) heet naar de handeling, de dertien andere diensten naar het gegeven dat beweegt. Zij is bovendien de enige inkomende dienst, waardoor de aanbieder hier ontvangt in plaats van levert; de dienstenlijst zegt dat zelf. Wie het endpoint implementeert verschilt per patroon: bij ophalen de aanbieder, bij melden de afnemer, bij aanleveren de aanbieder terwijl het gegeven de andere kant op gaat | een naamregel voor een inkomende dienst, en of `onderwijsspecificatielevering` haar beter dekt, met `/leveringen/{leveringId}` als de resource die de catalogus bezit |
 | S27 | De diensten `aanmeldbaar-onderwijsaanbod-aanbieder` en `-afnemer` staan niet in de dienstenlijst; IS-OA-05 en IS-OA-06 claimen ze wel, en werkbrief W9 belegt ze. De twaalf andere diensten van deze keten staan er wel | of dit paar erbij komt, of dat het aanmeldbare aanbod onder `planbaar-onderwijsaanbod` valt |
+| S28 | De resource `/examenplanspecificaties` draagt [result-structure.json](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Datamodelschema's/result-structure.json), dus een resultaatstructuur. De [begrippenlijst](../begrippen/begrippenlijst.md) rekent `Resultaatstructuur` tot de zeven families en zet `Examenplan` daarbuiten; het informatiemodel kent beide als eigen objecttype, waarbij het examenplan een summatieve resultaatstructuur kent | of de resource `/resultaatstructuren` gaat heten, en wat er dan met het examenplan als eigen objecttype gebeurt |
 
 S4, waar de dienst voor aanmeldbaar aanbod hoort, is beslecht: de catalogus krijgt de eigen resource `/aanmeldbaar-aanbod`, en `/onderwijsaanbod` blijft bij het planningssysteem.
 

@@ -20,7 +20,7 @@
 | [5 De interactieketen](#5-de-interactieketen) | De volgorde over alle zeven de interactiespecificaties |
 | [6 De interactiespecificaties](#6-de-interactiespecificaties) | Per stroom het contract: operaties, berichten, voorbeeldpayload |
 | [schemas/](schemas/README.md) | De twintig schema's van deze keten, met hun stand |
-| [signaleringen.md](signaleringen.md) | Zevenentwintig punten die een besluit vragen |
+| [signaleringen.md](signaleringen.md) | Achtentwintig punten die een besluit vragen |
 
 Elk objecttype en elke instantie hier komt uit het [informatiemodel OKx](../../../model/informatiemodel/informatiemodel.md) en de [voorbeelduitwerking van leerroute 1](../../../model/informatiemodel/voorbeeld-leerroute-1-jochem.md). Dit document herhaalt die niet, het verwijst erheen waar een stroom valt.
 
