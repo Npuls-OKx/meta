@@ -69,7 +69,7 @@ Authenticatie op elk endpoint volgt de [auth-standaard](https://github.com/Npuls
 | O2 | De volledige structuur ophalen (I2) | `/onderwijsspecificaties/{id}`, op de onderwijscatalogus | GET | `versie`, optioneel, standaard de laatst gepubliceerde | 200, 400, 404 | HTTP-foutcode, de aanroeper bepaalt het herhalen | `vastgelegd`, met het antwoordlichaam bij 400 en 404 op `voorstel` (W15) |
 | O3 | De wijziging ophalen (I2) | `/onderwijsspecificaties/{id}/delta`, op de onderwijscatalogus | GET | `van` en `naar`, beide een versie en beide verplicht | 200, 400, 404 | HTTP-foutcode. Het antwoord volgt JSON Patch (RFC 6902) | `vastgelegd`, met het antwoordlichaam bij 400 en 404 op `voorstel` (W15) |
 | O4 | De ontvangst en de afkeur terugmelden (I3) | `verwerkingsstatus`, meldpatroon op de onderwijscatalogus | POST | de lading is de [verwerkingsstatus](#bericht-3-verwerkingsstatus) met status `ontvangen`, `gestart` of `afgekeurd` | 200 | Zoals O1. Een afgekeurde structuur komt langs deze weg terug, waarbij O2 beschikbaar blijft voor een nieuwe poging | `vastgelegd`, met het veld voor de validatiefout op `voorstel` (W8) |
-| O5 | Herstellen na een gemiste melding (I7) | `/onderwijsspecificaties`, op de onderwijscatalogus | GET | `status`, optioneel, standaard `gepubliceerd`. `gewijzigdSinds`, optioneel, een tijdstempel | 200, 400 | HTTP-foutcode. Bedoeld voor herstel, waarbij de reguliere stroom meldinggedreven blijft | `vastgelegd`, met paginering op `voorstel` (W14) |
+| O5 | Herstellen na een gemiste melding (I7) | `/onderwijsspecificaties`, op de onderwijscatalogus | GET | `status`, optioneel, standaard `gepubliceerd`. `gewijzigdSinds`, optioneel, een tijdstempel. Het antwoord is de [lijst met verwijzingen](#bericht-5-de-lijst-met-verwijzingen-o5) | 200, 400 | HTTP-foutcode. Bedoeld voor herstel, waarbij de reguliere stroom meldinggedreven blijft | `vastgelegd`, met paginering op `voorstel` (W14) |
 | O6 | Het afleveradres vastleggen (I8) | `/abonnementen`, op de onderwijscatalogus, die de abonnementen op haar eigen meldingen aanneemt | POST | de lading is het [abonnement](#bericht-4-abonnement) | 201, 400 | HTTP-foutcode. Herhaalbaar zonder extra effect (idempotent) op `callbackUrl` plus event-type: herregistratie overschrijft de vorige | `vastgelegd` |
 
 Elke operatie staat op een componentpagina in Public: de [dienstpagina van het planningssysteem](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Applicatiecomponenten/planningssysteem.md) draagt `specificatie-planbaar`, de [dienstpagina van de onderwijscatalogus](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Applicatiecomponenten/onderwijscatalogus.md) draagt de specificatiepaden, `verwerkingsstatus` en `/abonnementen`, elk met zijn payloadschema erbij. [De werkbrieven](#werkbrieven) dragen wat deze eenheid daar bovenop vraagt, met het nummer in de kolom Status hierboven.
@@ -175,6 +175,17 @@ Schema [subscription.json](https://github.com/Npuls-OKx/Public/blob/dev/Informat
 | `callbackUrl` | `callbackUrl` | string, uri | 1 | ja | inrichting van de koppeling | vastgelegd |
 | `events` | `events` | array, enum: specificatie-planbaar, specificatie-gewijzigd, specificatie-status-gewijzigd, verwerkingsstatus | 1..n | ja | inrichting van de koppeling | vastgelegd |
 | `id` | `id` | string, uuid | 0..1 | toegekend in de respons | inrichting van de koppeling | vastgelegd |
+
+### Bericht 5, de lijst met verwijzingen (O5)
+
+Schema [specification-reference.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/specification-reference.json), als array zonder omhullend object: per specificatie het id en de laatste versie binnen de gevraagde status, waarna O2 de structuur levert. De [componentpagina van de onderwijscatalogus](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Applicatiecomponenten/onderwijscatalogus.md) legt die vorm vast.
+
+| Veld | Nederlandse naam | Type | Kardinaliteit | Verplicht | Objecttype | Status |
+|---|---|---|---|---|---|---|
+| `specificationId` | `specificatieId` | uuid | 1 | ja | `Opleiding specificatie`, de wortel van de opgenomen structuur | vastgelegd |
+| `version` | `versie` | string | 1 | ja | `Opleiding specificatie` | vastgelegd |
+
+W14 vraagt paginering op deze opvraag, en die landt op een omhullend object: MAJOR voor wie op de array van vandaag valideert. [W3 van IS-OA-01](stroom-is-oa-01.md#7-de-werkbrieven) vraagt `name` en `studyLoad` erbij voor het zoeken naar hergebruik, wat additief blijft.
 
 ## Voorbeeldpayload
 

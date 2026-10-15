@@ -332,6 +332,8 @@ Wat er naast de schema's landt:
 | S18 | Twee gesloten lijsten vragen een waarde erbij: `events` in `subscription.json` voor de nieuwe meldingssoorten, en `status` in `education-offering.json` voor `aanmeldbaar` | of die lijsten open gaan; elke waarde erbij is MAJOR voor wie erop valideert |
 | S19 | Verwijzingen zonder onderwerp in het informatiemodel: de inrichting achter `arrangementReference`, `Plaatsingsgroep` op de aanbodlaag, het toetsinstrument, de leermiddelgroep, de resultaateenheidspecificatie en de publicatie bij centraal aanmelden | het objecttype per verwijzing |
 | S20 | De inhoud van IS-OA-06 staat als V1 tot en met V10 in [Public#112](https://github.com/Npuls-OKx/Public/issues/112), van de aanbodlagen en het aanmeldvenster tot de terugmelding en het locatieniveau | per regel een antwoord van AII |
+| S21 | Het lichaam bij een foutcode draagt drie vormen: op de inname [intake-rejection.json](schemas/intake-rejection.json), op de opvragingen een eigen foutschema dat W15 van [IS-OA-03](stroom-is-oa-03.md#werkbrieven) vraagt, en op `/aanmeldbaar-aanbod` en `/abonnementen` de HTTP-code zonder lichaam. De codelijst van de innamebevinding dekt de gronden van een opvraag niet | een foutvorm over de opvragingen, of de HTTP-code als enige grond |
+| S22 | De lijstopvraag `/onderwijsspecificaties` antwoordt met een array zonder omhulling, waarin een vervolgverwijzing en een totaal geen plek hebben; paginering uit W14 van [IS-OA-03](stroom-is-oa-03.md#werkbrieven) komt daarmee op een omhullend object uit | de omhulling nu, of bij de paginering en dan MAJOR |
 
 S4, waar de dienst voor aanmeldbaar aanbod hoort, is beslecht: de catalogus krijgt de eigen resource `/aanmeldbaar-aanbod`, en `/onderwijsaanbod` blijft bij het planningssysteem.
 
