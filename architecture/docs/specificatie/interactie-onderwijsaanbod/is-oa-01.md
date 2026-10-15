@@ -144,7 +144,7 @@ Na `gelukt` meldt de catalogus de publicatiestap op O7 als `vastgesteld` naar `g
 
 De kolom Veld draagt de Engelse sleutel uit het schema, de kolom Nederlands de naam waaronder [mapping.md](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/mapping.md) hem vastlegt; enumwaarden blijven Nederlands. Kardinaliteit en verplichting gelden voor deze stroom. Een afwijking van het schema staat in de kolom Verplicht met de werkbrief erbij. De kolom Grond zegt waarop het veld bestaat: een schema in Public, een regel uit [regels.md](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/regels.md), een objecttype uit het [informatiemodel](../../../model/informatiemodel/informatiemodel.md) of een instantie uit [beeldregel F1-12](../../../model/informatiemodel/voorbeeld-lr1-regels.json).
 
-### 4.1 Lijst van specificatieverwijzingen, antwoord op O1
+### 4.1 Opvragen herbruikbare specificatiestructuren
 
 ```mermaid
 sequenceDiagram
@@ -157,13 +157,28 @@ sequenceDiagram
 <!-- erd -->
 ```mermaid
 erDiagram
+    "Leeronderdeel specificatie" ||--o{ "Les specificatie" : "bestaat uit"
+    "Onderwijseenheid specificatie" ||--o{ "Leeronderdeel specificatie" : "bestaat uit"
+    "Opleidingsprogramma specificatie" ||--o{ "Onderwijseenheid specificatie" : "bestaat uit"
+    "Opleiding specificatie" ||--o{ "Opleidingsprogramma specificatie" : "minimaal 1"
     "Opleiding specificatie" {
         uuid specificationId FK "1, verplicht"
         string version "1, verplicht"
         string name "0..1"
         object studyLoad "0..1"
     }
+    "Opleidingsprogramma specificatie" { }
+    "Onderwijseenheid specificatie" { }
+    "Leeronderdeel specificatie" { }
+    "Les specificatie" { }
 ```
+
+| Lijn | Betekenis |
+|---|---|
+| `\|\|--o{` | het eerste bestaat uit nul of meer van het tweede |
+| `PK` en `FK` | de sleutel van het object, en een verwijzing naar een ander object |
+| tekst achter een attribuut | de multipliciteit in dit bericht, en of het veld verplicht is |
+
 <!-- /erd -->
 
 Het antwoord op O1 draagt een verwijzing per specificatie, waarna O2 de structuur per id levert. De [componentpagina van de onderwijscatalogus](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Applicatiecomponenten/onderwijscatalogus.md) legt die vorm vast als een lijst van [specification-reference.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/specification-reference.json): een array, zonder omhullend object.
@@ -177,7 +192,7 @@ Het antwoord op O1 draagt een verwijzing per specificatie, waarna O2 de structuu
 
 Een array zonder omhulling draagt geen plek voor een vervolgverwijzing of een totaal. Paginering, die W14 van [IS-OA-03](is-oa-03.md#werkbrieven) vraagt op dezelfde opvraag, komt daarmee op een omhullend object uit: MAJOR voor wie op de array van vandaag valideert. Signalering [S21](signaleringen.md) draagt dat punt.
 
-### 4.2 Verwerkingsstatus van een levering, melding O6
+### 4.2 Terugmelden verwerkingsstatus van een levering
 
 ```mermaid
 sequenceDiagram
@@ -190,14 +205,42 @@ sequenceDiagram
 <!-- erd -->
 ```mermaid
 erDiagram
+    "Leergelegenheid" ||--o{ "Lesgelegenheid" : "bestaat uit"
+    "Leeronderdeel specificatie" ||--o{ "Les specificatie" : "bestaat uit"
+    "Onderwijseenheid aanbod" ||--o{ "Leergelegenheid" : "bestaat uit"
+    "Onderwijseenheid specificatie" ||--o{ "Leeronderdeel specificatie" : "bestaat uit"
+    "Opleidingsprogramma aanbod" ||--o{ "Onderwijseenheid aanbod" : "bestaat uit"
+    "Opleidingsprogramma specificatie" ||--o{ "Onderwijseenheid specificatie" : "bestaat uit"
+    "Leeronderdeel specificatie" }o--o{ "Leergelegenheid" : "hangt samen met"
+    "Les specificatie" }o--o{ "Lesgelegenheid" : "hangt samen met"
+    "Onderwijseenheid specificatie" }o--o{ "Onderwijseenheid aanbod" : "hangt samen met"
     "Opleiding specificatie" }o--o{ "Opleiding aanbod" : "hangt samen met"
+    "Opleidingsprogramma specificatie" }o--o{ "Opleidingsprogramma aanbod" : "hangt samen met"
+    "Opleiding aanbod" ||--o{ "Opleidingsprogramma aanbod" : "Minimaal 1"
+    "Opleiding specificatie" ||--o{ "Opleidingsprogramma specificatie" : "minimaal 1"
     "Opleiding specificatie" {
         object specificationReference "0..1, verplicht"
     }
     "Opleiding aanbod" {
         uuid programmeOfferingId FK "0..1"
     }
+    "Opleidingsprogramma specificatie" { }
+    "Opleidingsprogramma aanbod" { }
+    "Onderwijseenheid specificatie" { }
+    "Onderwijseenheid aanbod" { }
+    "Leeronderdeel specificatie" { }
+    "Leergelegenheid" { }
+    "Les specificatie" { }
+    "Lesgelegenheid" { }
 ```
+
+| Lijn | Betekenis |
+|---|---|
+| `\|\|--o{` | het eerste bestaat uit nul of meer van het tweede |
+| `}o--o{` | de twee hangen samen, met het opschrift erbij |
+| `PK` en `FK` | de sleutel van het object, en een verwijzing naar een ander object |
+| tekst achter een attribuut | de multipliciteit in dit bericht, en of het veld verplicht is |
+
 <!-- /erd -->
 
 Volgt [processing-status.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/processing-status.json), met de sleutels die deze eenheid voorstelt in [intake-outcome.json](schemas/intake-outcome.json).
@@ -240,7 +283,7 @@ De uitkomst op O6, zodra de catalogus Apothekersassistent opneemt:
 
 De leveringId's en het eventId staan met de overige identificaties in [casus.md](casus.md#het-innamecontract).
 
-### 4.3 Statuswijziging van een onderwijsspecificatie, melding O7
+### 4.3 Melden statuswijziging van een onderwijsspecificatie
 
 ```mermaid
 sequenceDiagram
@@ -253,12 +296,27 @@ sequenceDiagram
 <!-- erd -->
 ```mermaid
 erDiagram
+    "Leeronderdeel specificatie" ||--o{ "Les specificatie" : "bestaat uit"
+    "Onderwijseenheid specificatie" ||--o{ "Leeronderdeel specificatie" : "bestaat uit"
+    "Opleidingsprogramma specificatie" ||--o{ "Onderwijseenheid specificatie" : "bestaat uit"
+    "Opleiding specificatie" ||--o{ "Opleidingsprogramma specificatie" : "minimaal 1"
     "Opleiding specificatie" {
         uuid objectId FK "1, verplicht"
         enum oldStatus "1, verplicht"
         enum newStatus "1, verplicht"
     }
+    "Opleidingsprogramma specificatie" { }
+    "Onderwijseenheid specificatie" { }
+    "Leeronderdeel specificatie" { }
+    "Les specificatie" { }
 ```
+
+| Lijn | Betekenis |
+|---|---|
+| `\|\|--o{` | het eerste bestaat uit nul of meer van het tweede |
+| `PK` en `FK` | de sleutel van het object, en een verwijzing naar een ander object |
+| tekst achter een attribuut | de multipliciteit in dit bericht, en of het veld verplicht is |
+
 <!-- /erd -->
 
 Volgt [specification-status-changed.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/specification-status-changed.json).
@@ -270,7 +328,7 @@ Volgt [specification-status-changed.json](https://github.com/Npuls-OKx/Public/bl
 | `newStatus` | `nieuweStatus` | enum | 1 | ja | `Opleiding specificatie`, `gepubliceerd` zodra de catalogus publiceert | specification-status-changed.json, verplicht; ADR 0020 legt het publicatiebesluit bij de catalogus |
 | `eventId` | `eventId` | uuid | 0..1 | nee, voorgestelde sleutel bij W12 | kanaaleigenschap, geen objecttype | U5, herhaalbare verwerking |
 
-### 4.4 Afkeuring van een aangeleverde structuur, antwoord op O3 en O4 en melding O6
+### 4.4 Afkeuren aangeleverde structuur
 
 ```mermaid
 sequenceDiagram
@@ -344,7 +402,7 @@ Bij de poort staat de afkeuring zonder levering, hier op een ontbrekende leeruit
 }
 ```
 
-### 4.5 Leeruitkomsten in de aanlevering, verzoek O3
+### 4.5 Aanleveren leeruitkomsten uit het kwalificatiekader
 
 ```mermaid
 sequenceDiagram
@@ -392,6 +450,14 @@ erDiagram
         string credentialDocument "0..1"
     }
 ```
+
+| Lijn | Betekenis |
+|---|---|
+| `\|\|--o{` | het eerste bestaat uit nul of meer van het tweede |
+| `}o--o{` | de twee hangen samen, met het opschrift erbij |
+| `PK` en `FK` | de sleutel van het object, en een verwijzing naar een ander object |
+| tekst achter een attribuut | de multipliciteit in dit bericht, en of het veld verplicht is |
+
 <!-- /erd -->
 
 Volgt [learning-outcome.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/learning-outcome.json).
@@ -410,7 +476,7 @@ Volgt [learning-outcome.json](https://github.com/Npuls-OKx/Public/blob/dev/Infor
 
 `Competenties / Skills` met `Vaardigheid`, `Kennis` en `Inzicht` eronder zijn de verdieping die F1-12 meestuurt en krijgen hun veld via [W6](#7-de-werkbrieven).
 
-### 4.6 Onderwijsspecificatiestructuur in de aanlevering, verzoek O3
+### 4.6 Aanleveren onderwijsspecificatiestructuur
 
 ```mermaid
 sequenceDiagram
@@ -423,17 +489,20 @@ sequenceDiagram
 <!-- erd -->
 ```mermaid
 erDiagram
+    "Leeronderdeel specificatie" ||--o{ "Les specificatie" : "bestaat uit"
     "Onderwijseenheid specificatie" ||--o{ "Leeronderdeel specificatie" : "bestaat uit"
     "Opleidingsprogramma specificatie" ||--o{ "Onderwijseenheid specificatie" : "bestaat uit"
     "Keuzedeel" }o--o{ "Keuzedeelruimte" : "hangt samen met"
     "Leeronderdeel specificatie" }o--o{ "Leeruitkomst" : "hangt samen met"
     "Leeruitkomst" }o--o{ "Student keuze regelset" : "voorwaarde op"
+    "Les specificatie" }o--o{ "Leeruitkomst" : "hangt samen met"
     "Onderwijseenheid specificatie" }o--o{ "Leeruitkomst" : "hangt samen met"
     "Opleiding specificatie" }o--o{ "Leeruitkomst" : "hangt samen met"
     "Opleidingsprogramma specificatie" }o--o{ "Leeruitkomst" : "hangt samen met"
     "Student keuze regelset" }o--o{ "Keuzedeel" : "hangt samen met"
     "Student keuze regelset" }o--o{ "Keuzedeelruimte" : "hangt samen met"
     "Student keuze regelset" }o--o{ "Leeronderdeel specificatie" : "hangt samen met"
+    "Student keuze regelset" }o--o{ "Les specificatie" : "hangt samen met"
     "Student keuze regelset" }o--o{ "Onderwijseenheid specificatie" : "hangt samen met"
     "Student keuze regelset" }o--o{ "Opleiding specificatie" : "hangt samen met"
     "Student keuze regelset" }o--o{ "Opleidingsprogramma specificatie" : "hangt samen met"
@@ -468,7 +537,17 @@ erDiagram
     "Cohort / periode" {
         string cohort "0..1, verplicht"
     }
+    "Les specificatie" { }
 ```
+
+| Lijn | Betekenis |
+|---|---|
+| `\|\|--o{` | het eerste bestaat uit nul of meer van het tweede |
+| `\|\|--\|\|` | het tweede is een soort van het eerste |
+| `}o--o{` | de twee hangen samen, met het opschrift erbij |
+| `PK` en `FK` | de sleutel van het object, en een verwijzing naar een ander object |
+| tekst achter een attribuut | de multipliciteit in dit bericht, en of het veld verplicht is |
+
 <!-- /erd -->
 
 Volgt [education-specification.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/education-specification.json). Het `specificationType` bepaalt het objecttype.
@@ -504,7 +583,7 @@ Volgt [education-specification.json](https://github.com/Npuls-OKx/Public/blob/de
 | `startDate`, `validFrom`, `validUntil` | `startdatum`, `geldigVanaf`, `geldigTot` | date | 0..1 elk | ja op de doelgroeplaag | geldigheid per ontwerpkeuze 16 | education-specification.json optioneel; regels.md laat temporele geldigheid via deze velden lopen |
 | `timeDistribution` | `tijdsverdeling` | string, open lijst BOT, OOT, BPV | 0..1 | nee | `Leeronderdeel specificatie` | education-specification.json, optioneel |
 
-### 4.7 Studentkeuzeregelsets in de aanlevering, verzoek O3
+### 4.7 Aanleveren studentkeuzeregelsets
 
 ```mermaid
 sequenceDiagram
@@ -529,6 +608,13 @@ erDiagram
         uuid appliesTo "1, verplicht"
     }
 ```
+
+| Lijn | Betekenis |
+|---|---|
+| `}o--o{` | de twee hangen samen, met het opschrift erbij |
+| `PK` en `FK` | de sleutel van het object, en een verwijzing naar een ander object |
+| tekst achter een attribuut | de multipliciteit in dit bericht, en of het veld verplicht is |
+
 <!-- /erd -->
 
 Volgt [rule-set.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/rule-set.json).
@@ -556,7 +642,7 @@ rule-set.json laat het regelobject vrij: elke sleutel binnen een regel staat daa
 
 De sleutel `source` (`bron`) blijft daarmee de vorm van [source.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/source.json) op de leeruitkomst: een object met `standard`, `type` en `code`.
 
-### 4.8 Resultaatstructuur en examenplan in de aanlevering, verzoek O4
+### 4.8 Aanleveren resultaatstructuur en examenplan
 
 ```mermaid
 sequenceDiagram
@@ -573,6 +659,8 @@ erDiagram
     "Formatieve resultaat structuur" ||--o{ "Toetsonderdeel weging" : "bestaat uit"
     "Kerntaak" ||--o{ "Werkproces" : "bestaat uit"
     "Kwalificatie" ||--o{ "Kerntaak" : "bestaat uit"
+    "Leeronderdeel specificatie" ||--o{ "Les specificatie" : "bestaat uit"
+    "Onderwijseenheid specificatie" ||--o{ "Leeronderdeel specificatie" : "bestaat uit"
     "Opleidingsprogramma specificatie" ||--o{ "Onderwijseenheid specificatie" : "bestaat uit"
     "Summatieve resultaat structuur" ||--o{ "Examenonderdeel weging" : "bestaat uit"
     "Summatieve resultaat structuur" ||--o{ "Toetsonderdeel specificatie" : "bestaat uit"
@@ -582,10 +670,14 @@ erDiagram
     "Examenplan" }o--o{ "Summatieve resultaat structuur" : "kent"
     "Kerntaak" }o--o{ "Leeruitkomst" : "Wordt vertaald naar"
     "Kwalificatie" }o--o{ "Leeruitkomst" : "Wordt vertaald naar"
+    "Leeronderdeel specificatie" }o--o{ "Leeruitkomst" : "hangt samen met"
     "Leeruitkomst" }o--o{ "Student keuze regelset" : "voorwaarde op"
+    "Les specificatie" }o--o{ "Leeruitkomst" : "hangt samen met"
     "Onderwijseenheid specificatie" }o--o{ "Leeruitkomst" : "hangt samen met"
     "Opleidingsprogramma specificatie" }o--o{ "Leeruitkomst" : "hangt samen met"
     "Student keuze regelset" }o--o{ "Keuzedeelruimte" : "hangt samen met"
+    "Student keuze regelset" }o--o{ "Leeronderdeel specificatie" : "hangt samen met"
+    "Student keuze regelset" }o--o{ "Les specificatie" : "hangt samen met"
     "Student keuze regelset" }o--o{ "Onderwijseenheid specificatie" : "hangt samen met"
     "Student keuze regelset" }o--o{ "Opleidingsprogramma specificatie" : "hangt samen met"
     "Summatieve resultaat structuur" }o--o{ "Leeruitkomst" : "hangt samen met"
@@ -643,7 +735,18 @@ erDiagram
     "Student keuze regelset" {
         array ruleSetReferences "0..n, verplicht"
     }
+    "Leeronderdeel specificatie" { }
+    "Les specificatie" { }
 ```
+
+| Lijn | Betekenis |
+|---|---|
+| `\|\|--o{` | het eerste bestaat uit nul of meer van het tweede |
+| `\|\|--\|\|` | het tweede is een soort van het eerste |
+| `}o--o{` | de twee hangen samen, met het opschrift erbij |
+| `PK` en `FK` | de sleutel van het object, en een verwijzing naar een ander object |
+| tekst achter een attribuut | de multipliciteit in dit bericht, en of het veld verplicht is |
+
 <!-- /erd -->
 
 Volgt [result-structure.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/result-structure.json).
@@ -679,7 +782,7 @@ Volgt [result-structure.json](https://github.com/Npuls-OKx/Public/blob/dev/Infor
 
 De keuzedeelruimte in de summatieve resultaatstructuur loopt via `assesses` op de resultaateenheid, met de meetellende keuzedeelresultaten in de regelset. Dat beantwoordt de open beeldvraag bij F1-12.
 
-## 5. Voorbeeldpayload: het ontwerp (O3)
+## 5. Voorbeeldpayload onderwijsspecificatiestructuur
 
 Casus Apothekersassistent, crebo 23450, met de instantiewaarden uit F1-12. De id's en de versies staan in [casus.md](casus.md) en volgen daar [voorbeeldpayloads.md](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/voorbeeldpayloads.md) in Public, zodat dezelfde instantie over de hele keten dezelfde identiteit draagt.
 
@@ -839,7 +942,7 @@ Casus Apothekersassistent, crebo 23450, met de instantiewaarden uit F1-12. De id
 
 De payload volgt de lijn van F1-12: kerntaak B1-K1 met een leeronderdeel. De optelling van `studyLoad` sluit over de volledige boom in voorbeeldpayloads.md. De tweede regel in de regelset draagt de volgordebepaling: keuzedeel K0037 is kiesbaar zodra de leeruitkomst op kerntaakniveau behaald is. [IS-OA-03](is-oa-03.md) levert dezelfde regelset op dezelfde versie door aan planning.
 
-## 6. Voorbeeldpayload: de resultaatstructuur (O4)
+## 6. Voorbeeldpayload resultaatstructuur
 
 ```json schema=result-structure,student-choice-rule
 {

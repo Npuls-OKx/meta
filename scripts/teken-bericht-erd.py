@@ -128,6 +128,51 @@ def objecttypen_in(blok, bekend):
     return uit
 
 
+def uitklappen(namen, relaties, diepte=6):
+    """De namen aangevuld met wat eronder hangt in de geheel-deelketen van het model.
+
+    Waarom: een bericht dat een specificatiestructuur draagt, draagt haar hele boom. De
+    veldtabel noemt daarvan de wortel, want de velden staan per rij op dat niveau; de lezer
+    moet zien hoe diep die boom gaat. Van `Opleiding specificatie` loopt hij in het model door
+    via opleidingsprogramma, onderwijseenheid en leeronderdeel tot `Les specificatie`.
+    """
+    kinderen = collections.defaultdict(list)
+    for r in relaties:
+        if r["soort"] in OMLAAG:
+            kinderen[r["van"]].append(r["naar"])
+    uit, gezien = list(namen), set(namen)
+    rand = list(namen)
+    for _ in range(diepte):
+        volgende = []
+        for naam in rand:
+            for kind in kinderen.get(naam, []):
+                if kind not in gezien:
+                    gezien.add(kind)
+                    uit.append(kind)
+                    volgende.append(kind)
+        if not volgende:
+            break
+        rand = volgende
+    return uit
+
+
+def legenda(relaties):
+    """De betekenis van de lijnen die op dit diagram voorkomen, en alleen die."""
+    soorten = {r["soort"] for r in relaties}
+    rijen = []
+    if soorten & set(OMLAAG):
+        rijen.append("| `\|\|--o{` | het eerste bestaat uit nul of meer van het tweede |")
+    if "Specialization" in soorten:
+        rijen.append("| `\|\|--\|\|` | het tweede is een soort van het eerste |")
+    if soorten - set(OMLAAG) - {"Specialization"}:
+        rijen.append("| `}o--o{` | de twee hangen samen, met het opschrift erbij |")
+    if not rijen:
+        return ""
+    return ("\n| Lijn | Betekenis |\n|---|---|\n" + "\n".join(rijen)
+            + "\n| `PK` en `FK` | de sleutel van het object, en een verwijzing naar een ander object |"
+            + "\n| tekst achter een attribuut | de multipliciteit in dit bericht, en of het veld verplicht is |\n")
+
+
 def relaties_tussen(namen, relaties):
     """De relaties van het model waarvan beide kanten in deze selectie staan."""
     binnen = set(namen)
@@ -255,7 +300,7 @@ def blok_voor(namen, relaties, attributen):
     if not namen:
         return ("Dit bericht draagt geen objecttype uit het informatiemodel: de velden zijn "
                 "eigenschappen van het contract.")
-    return mermaid(namen, relaties, attributen)
+    return mermaid(namen, relaties, attributen) + "\n" + legenda(relaties)
 
 
 def verwerk(bestand, bekend, relaties, controleer=False):
@@ -263,7 +308,7 @@ def verwerk(bestand, bekend, relaties, controleer=False):
     tekst = bestand.read_text(encoding="utf-8")
     verslag, gewenste = [], []
     for kop, blok in berichten(tekst):
-        namen = objecttypen_in(blok, bekend)
+        namen = uitklappen(objecttypen_in(blok, bekend), relaties)
         eigen = relaties_tussen(namen, relaties)
         merk = MERKTEKEN.search(blok)
         if merk is None:
@@ -283,7 +328,7 @@ def verwerk(bestand, bekend, relaties, controleer=False):
         print(f"  {bestand.name}: er staan merktekens buiten een berichtsectie; niets geschreven",
               file=sys.stderr)
         return verslag, False
-    nieuw = MERKTEKEN.sub(lambda _: rest.pop(0).replace("\\", "\\\\"), tekst)
+    nieuw = MERKTEKEN.sub(lambda _: rest.pop(0), tekst)
     if not controleer and nieuw != tekst:
         bestand.write_text(nieuw, encoding="utf-8")
     return verslag, nieuw != tekst
