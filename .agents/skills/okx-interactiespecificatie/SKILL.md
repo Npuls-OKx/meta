@@ -1,6 +1,6 @@
 ---
 name: okx-interactiespecificatie
-description: Schrijf een interactiespecificatie voor de OKx-catalogus: per kiesbare eenheid het contract tussen twee componenten, als document om te bekijken in plaats van te lezen. Gebruik wanneer een snede uit de leerroute-uitwerking een koppelvlakspecificatie moet worden, wanneer een instelling een interactie als eis in een aanbesteding wil citeren, of wanneer een bestaande interactiespecificatie een vormronde vraagt.
+description: Schrijf een interactieketenspecificatie voor de OKx-catalogus: per interactiespecificatie het contract tussen twee componenten, als document om te bekijken in plaats van te lezen. Gebruik wanneer een snede uit de leerroute-uitwerking een koppelvlakspecificatie moet worden, wanneer een instelling een interactie als eis in een aanbesteding wil citeren, of wanneer een bestaande interactiespecificatie een vormronde vraagt.
 ---
 
 # Een interactiespecificatie schrijven
@@ -13,16 +13,16 @@ Dat vraagt een document om te bekijken, met de tekst voor de details die exact m
 
 - **Show, don't tell.** Elke paragraaf opent met het beeld of de tabel die haar punt draagt. Een alinea vooraan zet de tekst voorop, en dan draagt het beeld het verhaal niet.
 - **De beelden bestaan al.** De voorbeelduitwerking van een leerroute draagt per stap een getekend beeld onder `architecture/model/informatiemodel/img/regels/`. Die verslaan elk diagram dat erbij wordt bedacht, en zij horen in het verhaal in plaats van ernaast.
-- **Public is in aanbouw.** Wat op `Npuls-OKx/Public` ligt is werk in aanbouw en geen waarheid. Een eenheid zonder endpoint is onaf werk: zet het endpoint, het datamodel of de berichtspecificatie erbij als voorstel, met een werkbrief die het daar laat landen.
+- **Public is in aanbouw.** Wat op `Npuls-OKx/Public` ligt is werk in aanbouw en geen waarheid. Een interactiespecificatie zonder endpoint is onaf werk: zet het endpoint, het datamodel of de berichtspecificatie erbij als voorstel, met de wijziging die Public erbij krijgt en wat die kost.
 - **Een stand per regel.** Elke operatie, elk pad en elk schema draagt `vastgelegd` zodra Public het draagt, en `voorstel` zodra deze specificatie het voorstelt. Bij een schema staat die stand ook in het `$id`, dat op `/voorstel` eindigt.
 - **De payload valideert.** Een voorbeeldpayload die niet tegen haar schema valideert is een belofte die bij de eerste bouwpoging sneuvelt.
 
 ## De volgorde van de stappen
 
-1. **Bepaal de snede en de eenheden.** Welke informatiestromen horen bij elkaar, en welke daarvan kan een instelling los uitvragen. Elke kiesbare eenheid krijgt een stabiele aanduiding, want dit is aanbestedingsmateriaal: `IS-<domein>-<nr>`.
+1. **Bepaal de keten en haar interactiespecificaties.** Welke informatiestromen horen bij elkaar, en welke daarvan kan een instelling los uitvragen. Elke interactiespecificatie krijgt een stabiele aanduiding plus een naam die zegt wat erover gaat: `IS-<domein>-<nr> <naam>`. De aanduiding blijft staan ook als de naam verandert, want een instelling citeert haar in een eis.
 2. **Schrijf `casus.md` eerst.** De vaste identificaties van de snede: per objecttype de instantie met haar uuid en haar versie. Zie [hieronder](#zonder-casusmd-lopen-de-payloads-uiteen) waarom dit vooraf gaat.
-3. **Leg de vorm van de operatietabel vast.** Een koprij, voor alle eenheden dezelfde. Zie [hieronder](#een-koprij-voor-alle-eenheden).
-4. **Schrijf het hoofddocument en de verdiepingen.** Het hoofddocument draagt het verhaal met de beelden, een eigen bestand per eenheid draagt de lading veld voor veld.
+3. **Leg de vorm van de operatietabel vast.** Een koprij, voor alle interactiespecificaties dezelfde. Zie [hieronder](#een-koprij-voor-alle-interactiespecificaties).
+4. **Schrijf de keten en de specificaties eronder.** De interactieketenspecificatie draagt het verhaal met de beelden, een eigen bestand per interactiespecificatie draagt de lading veld voor veld.
 5. **Toets de vorm en de payloads.**
 
    ```bash
@@ -37,7 +37,7 @@ Dat vraagt een document om te bekijken, met de tekst voor de details die exact m
 
 De eerste poging leverde 2766 regels voordat iemand naar de vorm kon kijken. De tweede werd in twee fasen gemaakt, met een stopmoment ertussen, en dat werkte: eerst de stories en de acceptatiecriteria met de opdrachtgever, daarna de uitwerking.
 
-Begin dus nooit met schrijven. De story en de criteria zijn het gesprek, en zij bepalen welke eenheden in de snede horen; dat gesprek is in een uur gevoerd en een misgelopen snede kost een week.
+Begin dus nooit met schrijven. De story en de criteria zijn het gesprek, en zij bepalen welke interactiespecificaties in de keten horen; dat gesprek is in een uur gevoerd en een misgelopen snede kost een week.
 
 ## Zonder `casus.md` lopen de payloads uiteen
 
@@ -45,41 +45,47 @@ Zes agenten die elk hun eigen stroombestand schrijven kiezen elk hun eigen ident
 
 De oorzaak is structureel en niet slordigheid: wie een payload schrijft heeft een identificatie nodig, en zonder gedeelde bron verzint hij er een. `casus.md` is die bron, en zij gaat vooraf. Neem de uuids over uit de voorbeeldpayloads van Public waar die bestaan, zodat de twee documenten dezelfde casus dragen.
 
-## Een koprij voor alle eenheden
+## Een koprij voor alle interactiespecificaties
 
 De zes verdiepingen van de aanbodsnede droegen zes verschillende koprijen voor hun operatietabel. Geen enkele kolom stond in alle zes op dezelfde plek, het component stond in vijf verschillende vormen, en een kolom met het verzoek- of antwoordschema bestond nergens.
 
 Een lezer mist dat niet, want de tekst eronder vult het aan. Een generator die er een OpenAPI-document uit leidt vraagt zes parsers, en elke redactieronde op een tabel kan er een zevende van maken ([#374](https://github.com/Npuls-OKx/meta/issues/374)). Juist het component en het schema bepalen in welk document een operatie landt en met welk contract, en dat zijn de velden die het minst regelmatig stonden.
 
-Leg daarom een koprij vast voordat de eenheden uiteengaan, met deze zeven kolommen:
+Leg daarom een koprij vast voordat de interactiespecificaties uiteengaan, met deze zeven kolommen:
 
 | Kolom | Wat erin staat |
 |---|---|
-| Id | De aanduiding binnen de eenheid, `O1`, `O2` |
+| Id | De aanduiding binnen de specificatie, `O1`, `O2` |
 | Operatie | Wat er gebeurt, als handeling |
 | Pad of melding | Het pad, of de naam van de melding |
 | Implementeert | Het component dat de operatie serveert, of de melding ontvangt |
 | Methode | GET, POST |
 | Parameters | Per parameter de naam, of hij verplicht is, en de standaardwaarde |
 | Statuscodes en foutgedrag | De set, en wat er bij elke code gebeurt |
-| Stand | `vastgelegd` of `voorstel`, met de kwalificatie en de werkbrief |
+| Stand | `vastgelegd` of `voorstel`, met erbij wat er dan in Public verandert en wat dat kost |
 
 En bind per operatie het verzoekschema en het antwoordschema, met de voorbeeldpayload erbij. De aanbodsnede bond die binding in vier verschillende conventies naast elkaar, en liet bij twee operaties het antwoord van een lijstopvraag helemaal zonder vorm: een contract waarop niemand kan bouwen.
 
-## Een werkbriefcode draagt haar eenheid
+## Geen eigen nummering voor wat Public erbij krijgt
 
-Elke verdieping nummert haar eigen reeks werkbrieven, dus staat W15 van IS-OA-01 naast een andere W15 van IS-OA-03. Dat ging mis: W15 van de ene eenheid haalde W15 van de andere aan en zei iets anders dan daar stond, waarmee een antwoordlichaam werd belegd dat de server vormgeldig niet kon produceren.
+De eerste opzet zette per specificatie een eigen genummerde lijst van wat Public moest opnemen, onder een eigen term. Twee dingen gingen daar mis.
 
-Noem bij een verwijzing over een eenheidsgrens daarom altijd de eenheid: `W15 van IS-OA-03`. En haal de tekst over, in plaats van hem te parafraseren.
+De term had in deze repository al een betekenis, en een lezer die haar kende las de tweede verkeerd. En elke specificatie nummerde haar eigen reeks, dus stond nummer 15 van de ene naast een ander nummer 15 van de andere. Die twee haalden elkaar aan en zeiden iets verschillends, waarmee een antwoordlichaam werd belegd dat de server vormgeldig niet kon produceren.
+
+Zet daarom bij de operatie of bij het schema zelf wat er in Public verandert en wat dat kost. Geen eigen term, geen eigen nummering, en een verwijzing die de tekst overneemt in plaats van hem te parafraseren.
 
 ## Wat in het hoofddocument hoort, en wat in een verdieping
 
 | Waar | Wat erin staat |
 |---|---|
-| Hoofddocument | Het scenario in zijn stappen, de eenheden elk met hun beeld, het informatiemodel als uitsnede, de stromen op de hoofdplaat, de endpoints per bezitter, en de keten in operaties |
-| Een bestand per eenheid | De operaties met hun statuscodes, de berichtvelden met hun grond, de voorbeeldpayloads en de werkbrieven. Hier mag de tekst volledig zijn |
+| De interactieketenspecificatie | De informatiestromen elk met hun beeld, wat de partijen ermee bereiken, wie welk gegeven bezit, de koppelvlakdiensten per component, en de keten in operaties |
+| Een bestand per interactiespecificatie | De operaties met hun statuscodes, de berichtvelden met hun grond en de voorbeeldpayloads. Hier mag de tekst volledig zijn |
 | Een bestand voor de landing | Per schema wat er in Public moet landen en wat dat kost, met de versie-impact |
 | Een bestand voor de signaleringen | Wat een besluit vraagt, met per regel het besluit dat erbij hoort |
+
+Wat er juist niet in hoort: een samenvatting van het informatiemodel. De eerste opzet droeg een hoofdstuk met de begrippenfamilies en de ontwerpkeuzes die in deze snede vielen. Dat hoort bij het model: zodra er een tweede en een derde keten zijn, staat dezelfde samenvatting drie keer en lopen die drie uiteen zodra het model wijzigt. Een regel in de leeswijzer die zegt waarop alles rust, met de verwijzing erheen, volstaat.
+
+Hetzelfde geldt voor het proces en de actoren. De voorbeelduitwerking loopt de instellingsreis al per fase door, met rol en processtap in elk beeld; een eigen stappentabel is dezelfde dubbeling.
 
 Het hoofddocument van de aanbodsnede droeg de schema-landing en de signaleringen eerst zelf: samen dertienhonderd woorden tabel, een derde van het document, en allebei detail. Zij verhuisden naar een eigen bestand, met in het hoofddocument een rij per bestand.
 
@@ -95,7 +101,9 @@ Het hoofddocument van de aanbodsnede droeg de schema-landing en de signaleringen
 | Geen alinea langer dan vijfenzeventig woorden | Ongeveer vijf gerenderde regels, de hoogte waarop een alinea nog in een oogopslag te overzien is |
 | Het hoofddocument draagt hoogstens zevenhonderd woorden buiten de tabellen | De vijftienminutenmaat |
 
-Twee maten die een leesoordeel blijven. Een kop zegt het punt en niet de categorie: "Elke laag keert driemaal terug" in plaats van "Het informatiemodel". En hoofdstuk 1 draagt het vijfminutenbesluit, dus hoort daar een beeld per kiesbare eenheid.
+Twee maten die een leesoordeel blijven. Hoofdstuk 1 draagt het vijfminutenbesluit, dus hoort daar een beeld per interactiespecificatie. En een kop is plat en concreet: hij noemt wat er staat.
+
+Die laatste ging een ronde mis in de andere richting. Op de regel "een kop zegt het punt" werden het zinnen als "Elke laag keert driemaal terug" en "Van kwalificatiedossier tot aanmeldbaar aanbod", en de opdrachtgever las die als een roman. "Koppelvlakdiensten" zegt wat er staat; een bedachte constructie zegt hoe de maker erover dacht.
 
 ## Het bewijs dat het bouwbaar is
 
@@ -109,6 +117,6 @@ Draai het script met de schemamap van Public ernaast. Ontbreekt die werkmap, dan
 |---|---|
 | [okx-koppelingspecificatie](../okx-koppelingspecificatie/SKILL.md) | de koppeling als gestandaardiseerde stroom; deze skill schrijft het contract eromheen |
 | [okx-oeapi-scenario-uitwerking](../okx-oeapi-scenario-uitwerking/SKILL.md) | de scenario's en de leerroutes waaruit een snede volgt |
-| [okx-uitsnede-bij-een-reviewvraag](../okx-uitsnede-bij-een-reviewvraag/SKILL.md) | de uitsnede van het informatiemodel die bij een eenheid hoort |
+| [okx-uitsnede-bij-een-reviewvraag](../okx-uitsnede-bij-een-reviewvraag/SKILL.md) | de uitsnede van het informatiemodel die bij een interactiespecificatie hoort |
 | [okx-presentatie](../okx-presentatie/SKILL.md) | waar de vormregels vandaan komen: bron of sneuvelt, echte beelden boven nagebouwde, een onderwerp per slide |
 | [okx-product-flow](../okx-product-flow/SKILL.md) | de twee stopmomenten en de vorm van de pull request |
