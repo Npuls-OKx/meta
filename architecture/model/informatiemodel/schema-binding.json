@@ -1,0 +1,1033 @@
+{
+  "bron": {
+    "waarvoor": "De binding tussen de schema's en het informatiemodel OKx. Zij zegt per schema of het objecttypen draagt of vervoer is, en per objecttype welke attribuutsoorten het kent, met de herkomst van elk.",
+    "status": "voorstel",
+    "route": "Dit bestand is geen model. Issue #369 legt de route vast waarlangs attribuutsoorten als properties in Archi landen, waarna genereer-informatiemodel-doc.py ze meeneemt; tot die tijd staat hier wat de interactiespecificaties nodig hebben. Raak nooit een .archimate-bestand aan.",
+    "aanleiding": "Npuls-OKx/meta#385",
+    "poort": "python3 scripts/controleer-schema-binding.py"
+  },
+  "bronsoorten": {
+    "schema": "het veld staat in een schema in Npuls-OKx/Public of in de schemamap van een interactiespecificatie",
+    "veldtabel": "een berichtspecificatie van een interactiespecificatie bindt dit veld aan dit objecttype",
+    "informatiemodel": "het model draagt deze eigenschap als relatie of als naam op de plaat",
+    "begrippenlijst": "de definitie van het begrip noemt deze eigenschap",
+    "regels": "regels.md in Public legt deze eigenschap vast als invariant of als sleutel",
+    "kwalificatiedossier": "het dossier van de casus draagt deze eigenschap",
+    "ingevuld": "deze ronde voorgesteld met de reden erbij; er is geen bron in Public of in het model",
+    "ontbreekt": "geen bron gevonden en niet in te vullen; dit is een gat dat benoemd staat"
+  },
+  "schemas": {},
+  "objecttypen": {
+    "Aanmelding": {
+      "attributen": [
+        {
+          "naam": "applicationWindow",
+          "datatype": "object",
+          "kardinaliteit": "0..1, bij status `aanmeldbaar` gevuld",
+          "rol": "",
+          "bron": "veldtabel is-oa-05, M2, respons van `GET /aanmeldbaar-aanbod"
+        }
+      ]
+    },
+    "Cohort / periode": {
+      "attributen": [
+        {
+          "naam": "cohort",
+          "datatype": "string",
+          "kardinaliteit": "0..1, verplicht",
+          "rol": "",
+          "bron": "veldtabel is-oa-01, 4.6 Aanleveren onderwijsspecificatiestru"
+        },
+        {
+          "naam": "offeringInstancescohort",
+          "datatype": "string",
+          "kardinaliteit": "0..1",
+          "rol": "",
+          "bron": "veldtabel is-oa-06, C2 en C3, het aanmeldbare aanbod"
+        },
+        {
+          "naam": "period",
+          "datatype": "object",
+          "kardinaliteit": "0..1",
+          "rol": "",
+          "bron": "veldtabel is-oa-05, M2, respons van `GET /aanmeldbaar-aanbod"
+        }
+      ]
+    },
+    "Examenonderdeel weging": {
+      "attributen": [
+        {
+          "naam": "weighting",
+          "datatype": "number",
+          "kardinaliteit": "0..1, verplicht",
+          "rol": "",
+          "bron": "veldtabel is-oa-01, 4.8 Aanleveren resultaatstructuur en exa"
+        }
+      ]
+    },
+    "Examenonderdeelspecificatie": {
+      "attributen": [
+        {
+          "naam": "assessmentForm",
+          "datatype": "string",
+          "kardinaliteit": "0..1, verplicht",
+          "rol": "",
+          "bron": "veldtabel is-oa-01, 4.8 Aanleveren resultaatstructuur en exa"
+        }
+      ]
+    },
+    "Expertise of functieprofiel": {
+      "attributen": [
+        {
+          "naam": "expertiseProfileIds",
+          "datatype": "array",
+          "kardinaliteit": "0..n",
+          "rol": "FK",
+          "bron": "veldtabel is-oa-02, Bericht 1: de ontwerpvelden op de onderw"
+        },
+        {
+          "naam": "expertiseProfilesdescription",
+          "datatype": "string",
+          "kardinaliteit": "0..1",
+          "rol": "",
+          "bron": "veldtabel is-oa-02, Bericht 3: het expertiseprofiel"
+        },
+        {
+          "naam": "expertiseProfilesid",
+          "datatype": "uuid",
+          "kardinaliteit": "1..1, verplicht",
+          "rol": "",
+          "bron": "veldtabel is-oa-02, Bericht 3: het expertiseprofiel"
+        },
+        {
+          "naam": "expertiseProfilesname",
+          "datatype": "string",
+          "kardinaliteit": "1..1, verplicht",
+          "rol": "",
+          "bron": "veldtabel is-oa-02, Bericht 3: het expertiseprofiel"
+        },
+        {
+          "naam": "expertiseProfilesrole",
+          "datatype": "string",
+          "kardinaliteit": "0..1",
+          "rol": "",
+          "bron": "veldtabel is-oa-02, Bericht 3: het expertiseprofiel"
+        }
+      ]
+    },
+    "Formatieve resultaat structuur": {
+      "attributen": [
+        {
+          "naam": "nature",
+          "datatype": "enum",
+          "kardinaliteit": "0..1, verplicht",
+          "rol": "",
+          "bron": "veldtabel is-oa-01, 4.8 Aanleveren resultaatstructuur en exa"
+        }
+      ]
+    },
+    "Inzicht": {
+      "attributen": [
+        {
+          "naam": "expertiseProfilescompetencestype",
+          "datatype": "enum",
+          "kardinaliteit": "1..1, verplicht",
+          "rol": "",
+          "bron": "veldtabel is-oa-02, Bericht 3: het expertiseprofiel"
+        }
+      ]
+    },
+    "Kennis": {
+      "attributen": [
+        {
+          "naam": "expertiseProfilescompetencestype",
+          "datatype": "enum",
+          "kardinaliteit": "1..1, verplicht",
+          "rol": "",
+          "bron": "veldtabel is-oa-02, Bericht 3: het expertiseprofiel"
+        }
+      ]
+    },
+    "Kerntaak": {
+      "attributen": [
+        {
+          "naam": "learningOutcome",
+          "datatype": "object",
+          "kardinaliteit": "0..1",
+          "rol": "",
+          "bron": "veldtabel is-oa-01, 4.8 Aanleveren resultaatstructuur en exa"
+        },
+        {
+          "naam": "source",
+          "datatype": "object",
+          "kardinaliteit": "1, verplicht",
+          "rol": "",
+          "bron": "veldtabel is-oa-01, 4.5 Aanleveren leeruitkomsten uit het kw"
+        }
+      ]
+    },
+    "Keuzedeel": {
+      "attributen": [
+        {
+          "naam": "electiveUnitClass",
+          "datatype": "string",
+          "kardinaliteit": "0..1, verplicht",
+          "rol": "",
+          "bron": "veldtabel is-oa-01, 4.6 Aanleveren onderwijsspecificatiestru"
+        },
+        {
+          "naam": "programmeType",
+          "datatype": "string",
+          "kardinaliteit": "0..1, verplicht",
+          "rol": "",
+          "bron": "veldtabel is-oa-01, 4.6 Aanleveren onderwijsspecificatiestru"
+        },
+        {
+          "naam": "source",
+          "datatype": "object",
+          "kardinaliteit": "1, verplicht",
+          "rol": "",
+          "bron": "veldtabel is-oa-01, 4.5 Aanleveren leeruitkomsten uit het kw"
+        }
+      ]
+    },
+    "Keuzedeelruimte": {
+      "attributen": [
+        {
+          "naam": "appliesTo",
+          "datatype": "uuid",
+          "kardinaliteit": "1, verplicht",
+          "rol": "",
+          "bron": "veldtabel is-oa-01, 4.7 Aanleveren studentkeuzeregelsets"
+        },
+        {
+          "naam": "assesses",
+          "datatype": "uuid",
+          "kardinaliteit": "0..1, verplicht",
+          "rol": "",
+          "bron": "veldtabel is-oa-01, 4.8 Aanleveren resultaatstructuur en exa"
+        }
+      ]
+    },
+    "Kwalificatie": {
+      "attributen": [
+        {
+          "naam": "learningOutcome",
+          "datatype": "object",
+          "kardinaliteit": "0..1",
+          "rol": "",
+          "bron": "veldtabel is-oa-01, 4.8 Aanleveren resultaatstructuur en exa"
+        },
+        {
+          "naam": "offeringInstancessource",
+          "datatype": "array",
+          "kardinaliteit": "0..n",
+          "rol": "",
+          "bron": "veldtabel is-oa-06, C2 en C3, het aanmeldbare aanbod"
+        },
+        {
+          "naam": "source",
+          "datatype": "object",
+          "kardinaliteit": "1, verplicht",
+          "rol": "",
+          "bron": "veldtabel is-oa-01, 4.5 Aanleveren leeruitkomsten uit het kw"
+        }
+      ]
+    },
+    "Kwalificatie dossier": {
+      "attributen": [
+        {
+          "naam": "offeringInstancessource",
+          "datatype": "array",
+          "kardinaliteit": "0..n",
+          "rol": "",
+          "bron": "veldtabel is-oa-06, C2 en C3, het aanmeldbare aanbod"
+        },
+        {
+          "naam": "source",
+          "datatype": "object",
+          "kardinaliteit": "1, verplicht",
+          "rol": "",
+          "bron": "veldtabel is-oa-01, 4.5 Aanleveren leeruitkomsten uit het kw"
+        }
+      ]
+    },
+    "Leeronderdeel specificatie": {
+      "attributen": [
+        {
+          "naam": "timeDistribution",
+          "datatype": "string",
+          "kardinaliteit": "0..1",
+          "rol": "",
+          "bron": "veldtabel is-oa-01, 4.6 Aanleveren onderwijsspecificatiestru"
+        }
+      ]
+    },
+    "Leeruitkomst": {
+      "attributen": [
+        {
+          "naam": "description",
+          "datatype": "string",
+          "kardinaliteit": "0..1, 0..1, 0..n",
+          "rol": "",
+          "bron": "veldtabel is-oa-01, 4.5 Aanleveren leeruitkomsten uit het kw"
+        },
+        {
+          "naam": "id",
+          "datatype": "uuid",
+          "kardinaliteit": "1, verplicht",
+          "rol": "PK",
+          "bron": "veldtabel is-oa-01, 4.5 Aanleveren leeruitkomsten uit het kw"
+        },
+        {
+          "naam": "indicativeVolume",
+          "datatype": "array",
+          "kardinaliteit": "1..n, verplicht",
+          "rol": "",
+          "bron": "veldtabel is-oa-01, 4.5 Aanleveren leeruitkomsten uit het kw"
+        },
+        {
+          "naam": "learningOutcomeId",
+          "datatype": "uuid",
+          "kardinaliteit": "0..1, verplicht",
+          "rol": "FK",
+          "bron": "veldtabel is-oa-01, 4.6 Aanleveren onderwijsspecificatiestru"
+        },
+        {
+          "naam": "learningOutcomes",
+          "datatype": "array",
+          "kardinaliteit": "0",
+          "rol": "",
+          "bron": "veldtabel is-oa-03, Bericht 2, de onderwijsspecificatiestruc"
+        },
+        {
+          "naam": "name",
+          "datatype": "string",
+          "kardinaliteit": "1, verplicht",
+          "rol": "",
+          "bron": "veldtabel is-oa-01, 4.5 Aanleveren leeruitkomsten uit het kw"
+        },
+        {
+          "naam": "nlqfLevel",
+          "datatype": "integer",
+          "kardinaliteit": "0..1",
+          "rol": "",
+          "bron": "veldtabel is-oa-01, 4.5 Aanleveren leeruitkomsten uit het kw"
+        },
+        {
+          "naam": "parentLearningOutcomeId",
+          "datatype": "uuid",
+          "kardinaliteit": "1, verplicht",
+          "rol": "FK",
+          "bron": "veldtabel is-oa-01, 4.5 Aanleveren leeruitkomsten uit het kw"
+        },
+        {
+          "naam": "version",
+          "datatype": "string",
+          "kardinaliteit": "1, verplicht",
+          "rol": "",
+          "bron": "veldtabel is-oa-01, 4.5 Aanleveren leeruitkomsten uit het kw"
+        }
+      ]
+    },
+    "Onderwijseenheid specificatie": {
+      "attributen": [
+        {
+          "naam": "assesses",
+          "datatype": "uuid",
+          "kardinaliteit": "0..1, verplicht",
+          "rol": "",
+          "bron": "veldtabel is-oa-01, 4.8 Aanleveren resultaatstructuur en exa"
+        }
+      ]
+    },
+    "Onderwijslocatie": {
+      "attributen": [
+        {
+          "naam": "locationId",
+          "datatype": "uuid",
+          "kardinaliteit": "0..1",
+          "rol": "FK",
+          "bron": "veldtabel is-oa-05, M2, respons van `GET /aanmeldbaar-aanbod"
+        },
+        {
+          "naam": "locations",
+          "datatype": "array",
+          "kardinaliteit": "0..n",
+          "rol": "",
+          "bron": "veldtabel is-oa-05, M2, respons van `GET /aanmeldbaar-aanbod"
+        },
+        {
+          "naam": "offeringInstanceslocationId",
+          "datatype": "uuid",
+          "kardinaliteit": "0..1",
+          "rol": "FK",
+          "bron": "veldtabel is-oa-06, C2 en C3, het aanmeldbare aanbod"
+        },
+        {
+          "naam": "roomTypeslocationIds",
+          "datatype": "array",
+          "kardinaliteit": "0..n",
+          "rol": "FK",
+          "bron": "veldtabel is-oa-02, Bericht 4: het ruimtetype"
+        }
+      ]
+    },
+    "Onderwijslocatie type": {
+      "attributen": [
+        {
+          "naam": "roomType",
+          "datatype": "string",
+          "kardinaliteit": "0..1",
+          "rol": "",
+          "bron": "veldtabel is-oa-02, Bericht 1: de ontwerpvelden op de onderw"
+        },
+        {
+          "naam": "roomTypescapacity",
+          "datatype": "integer",
+          "kardinaliteit": "0..1",
+          "rol": "",
+          "bron": "veldtabel is-oa-02, Bericht 4: het ruimtetype"
+        },
+        {
+          "naam": "roomTypescode",
+          "datatype": "string",
+          "kardinaliteit": "1..1, verplicht",
+          "rol": "",
+          "bron": "veldtabel is-oa-02, Bericht 4: het ruimtetype"
+        },
+        {
+          "naam": "roomTypesdescription",
+          "datatype": "string",
+          "kardinaliteit": "0..1",
+          "rol": "",
+          "bron": "veldtabel is-oa-02, Bericht 4: het ruimtetype"
+        },
+        {
+          "naam": "roomTypesfeatures",
+          "datatype": "array",
+          "kardinaliteit": "0..n",
+          "rol": "",
+          "bron": "veldtabel is-oa-02, Bericht 4: het ruimtetype"
+        },
+        {
+          "naam": "roomTypesname",
+          "datatype": "string",
+          "kardinaliteit": "1..1, verplicht",
+          "rol": "",
+          "bron": "veldtabel is-oa-02, Bericht 4: het ruimtetype"
+        }
+      ]
+    },
+    "Onderwijsvorm": {
+      "attributen": [
+        {
+          "naam": "educationForm",
+          "datatype": "string",
+          "kardinaliteit": "0..1",
+          "rol": "",
+          "bron": "veldtabel is-oa-02, Bericht 1: de ontwerpvelden op de onderw"
+        }
+      ]
+    },
+    "Opleiding aanbod": {
+      "attributen": [
+        {
+          "naam": "enrolmentDeadline",
+          "datatype": "string",
+          "kardinaliteit": "0..1",
+          "rol": "",
+          "bron": "veldtabel is-oa-05, M2, respons van `GET /aanmeldbaar-aanbod"
+        },
+        {
+          "naam": "offeringInstancesenrolmentDeadline",
+          "datatype": "string",
+          "kardinaliteit": "0..1",
+          "rol": "",
+          "bron": "veldtabel is-oa-06, C2 en C3, het aanmeldbare aanbod"
+        },
+        {
+          "naam": "offeringInstancesid",
+          "datatype": "uuid",
+          "kardinaliteit": "1",
+          "rol": "",
+          "bron": "veldtabel is-oa-06, C2 en C3, het aanmeldbare aanbod"
+        },
+        {
+          "naam": "offeringInstancesmaxStudentCount",
+          "datatype": "integer",
+          "kardinaliteit": "0..1",
+          "rol": "",
+          "bron": "veldtabel is-oa-06, C2 en C3, het aanmeldbare aanbod"
+        },
+        {
+          "naam": "offeringInstancesofferingType",
+          "datatype": "enum",
+          "kardinaliteit": "1",
+          "rol": "",
+          "bron": "veldtabel is-oa-06, C2 en C3, het aanmeldbare aanbod"
+        },
+        {
+          "naam": "offeringInstancesparentOfferingId",
+          "datatype": "uuid",
+          "kardinaliteit": "1",
+          "rol": "FK",
+          "bron": "veldtabel is-oa-06, C2 en C3, het aanmeldbare aanbod"
+        },
+        {
+          "naam": "offeringType",
+          "datatype": "enum",
+          "kardinaliteit": "1",
+          "rol": "",
+          "bron": "veldtabel is-oa-05, M1, melding `aanbod-aanmeldbaar`"
+        },
+        {
+          "naam": "parentOfferingId",
+          "datatype": "uuid",
+          "kardinaliteit": "1",
+          "rol": "FK",
+          "bron": "veldtabel is-oa-05, M2, respons van `GET /aanmeldbaar-aanbod"
+        },
+        {
+          "naam": "programmeOfferingId",
+          "datatype": "uuid",
+          "kardinaliteit": "0..1",
+          "rol": "FK",
+          "bron": "veldtabel is-oa-01, 4.2 Terugmelden verwerkingsstatus van ee"
+        }
+      ]
+    },
+    "Opleiding specificatie": {
+      "attributen": [
+        {
+          "naam": "curriculumType",
+          "datatype": "enum",
+          "kardinaliteit": "0..1",
+          "rol": "",
+          "bron": "veldtabel is-oa-01, 4.6 Aanleveren onderwijsspecificatiestru"
+        },
+        {
+          "naam": "name",
+          "datatype": "string",
+          "kardinaliteit": "0..1",
+          "rol": "",
+          "bron": "veldtabel is-oa-01, 4.1 Opvragen herbruikbare specificatiest"
+        },
+        {
+          "naam": "newStatus",
+          "datatype": "enum",
+          "kardinaliteit": "1, verplicht",
+          "rol": "",
+          "bron": "veldtabel is-oa-01, 4.3 Melden statuswijziging van een onder"
+        },
+        {
+          "naam": "objectId",
+          "datatype": "uuid",
+          "kardinaliteit": "1, verplicht",
+          "rol": "FK",
+          "bron": "veldtabel is-oa-01, 4.3 Melden statuswijziging van een onder"
+        },
+        {
+          "naam": "oldStatus",
+          "datatype": "enum",
+          "kardinaliteit": "1, verplicht",
+          "rol": "",
+          "bron": "veldtabel is-oa-01, 4.3 Melden statuswijziging van een onder"
+        },
+        {
+          "naam": "specificationId",
+          "datatype": "uuid",
+          "kardinaliteit": "1, verplicht",
+          "rol": "FK",
+          "bron": "veldtabel is-oa-01, 4.1 Opvragen herbruikbare specificatiest"
+        },
+        {
+          "naam": "specificationReference",
+          "datatype": "object",
+          "kardinaliteit": "0..1, verplicht",
+          "rol": "",
+          "bron": "veldtabel is-oa-01, 4.2 Terugmelden verwerkingsstatus van ee"
+        },
+        {
+          "naam": "studyLoad",
+          "datatype": "object",
+          "kardinaliteit": "0..1",
+          "rol": "",
+          "bron": "veldtabel is-oa-01, 4.1 Opvragen herbruikbare specificatiest"
+        },
+        {
+          "naam": "version",
+          "datatype": "string",
+          "kardinaliteit": "1, verplicht",
+          "rol": "",
+          "bron": "veldtabel is-oa-01, 4.1 Opvragen herbruikbare specificatiest"
+        }
+      ]
+    },
+    "Opleidingsaanbod van Instelling": {
+      "attributen": [
+        {
+          "naam": "offeringInstancesproviderId",
+          "datatype": "uuid",
+          "kardinaliteit": "0..1",
+          "rol": "FK",
+          "bron": "veldtabel is-oa-06, C2 en C3, het aanmeldbare aanbod"
+        }
+      ]
+    },
+    "Opleidingsprogramma aanbod": {
+      "attributen": [
+        {
+          "naam": "id",
+          "datatype": "uuid",
+          "kardinaliteit": "1",
+          "rol": "PK",
+          "bron": "veldtabel is-oa-05, M2, respons van `GET /aanmeldbaar-aanbod"
+        },
+        {
+          "naam": "maxStudentCount",
+          "datatype": "integer",
+          "kardinaliteit": "0..1",
+          "rol": "",
+          "bron": "veldtabel is-oa-05, M2, respons van `GET /aanmeldbaar-aanbod"
+        },
+        {
+          "naam": "minStudentCount",
+          "datatype": "integer",
+          "kardinaliteit": "0..1",
+          "rol": "",
+          "bron": "veldtabel is-oa-05, M2, respons van `GET /aanmeldbaar-aanbod"
+        },
+        {
+          "naam": "name",
+          "datatype": "string",
+          "kardinaliteit": "1",
+          "rol": "",
+          "bron": "veldtabel is-oa-05, M2, respons van `GET /aanmeldbaar-aanbod"
+        },
+        {
+          "naam": "newStatus",
+          "datatype": "enum",
+          "kardinaliteit": "1",
+          "rol": "",
+          "bron": "veldtabel is-oa-05, M1, melding `aanbod-aanmeldbaar`"
+        },
+        {
+          "naam": "offeringId",
+          "datatype": "uuid",
+          "kardinaliteit": "1",
+          "rol": "FK",
+          "bron": "veldtabel is-oa-05, M1, melding `aanbod-aanmeldbaar`"
+        },
+        {
+          "naam": "offeringInstancesapplicationWindow",
+          "datatype": "object",
+          "kardinaliteit": "0..1",
+          "rol": "",
+          "bron": "veldtabel is-oa-06, C2 en C3, het aanmeldbare aanbod"
+        },
+        {
+          "naam": "offeringInstancesid",
+          "datatype": "uuid",
+          "kardinaliteit": "1",
+          "rol": "",
+          "bron": "veldtabel is-oa-06, C2 en C3, het aanmeldbare aanbod"
+        },
+        {
+          "naam": "offeringInstanceslearningPathway",
+          "datatype": "enum",
+          "kardinaliteit": "0..1",
+          "rol": "",
+          "bron": "veldtabel is-oa-06, C2 en C3, het aanmeldbare aanbod"
+        },
+        {
+          "naam": "offeringInstancesmaxStudentCount",
+          "datatype": "integer",
+          "kardinaliteit": "0..1",
+          "rol": "",
+          "bron": "veldtabel is-oa-06, C2 en C3, het aanmeldbare aanbod"
+        },
+        {
+          "naam": "offeringInstancesminStudentCount",
+          "datatype": "integer",
+          "kardinaliteit": "0..1",
+          "rol": "",
+          "bron": "veldtabel is-oa-06, C2 en C3, het aanmeldbare aanbod"
+        },
+        {
+          "naam": "offeringInstancesname",
+          "datatype": "string",
+          "kardinaliteit": "1",
+          "rol": "",
+          "bron": "veldtabel is-oa-06, C2 en C3, het aanmeldbare aanbod"
+        },
+        {
+          "naam": "offeringInstancesofferingType",
+          "datatype": "enum",
+          "kardinaliteit": "1",
+          "rol": "",
+          "bron": "veldtabel is-oa-06, C2 en C3, het aanmeldbare aanbod"
+        },
+        {
+          "naam": "offeringInstancesperiod",
+          "datatype": "object",
+          "kardinaliteit": "0..1",
+          "rol": "",
+          "bron": "veldtabel is-oa-06, C2 en C3, het aanmeldbare aanbod"
+        },
+        {
+          "naam": "offeringInstancesstatus",
+          "datatype": "enum",
+          "kardinaliteit": "1",
+          "rol": "",
+          "bron": "veldtabel is-oa-06, C2 en C3, het aanmeldbare aanbod"
+        },
+        {
+          "naam": "offeringInstancestargetGroup",
+          "datatype": "string",
+          "kardinaliteit": "0..1",
+          "rol": "",
+          "bron": "veldtabel is-oa-06, C2 en C3, het aanmeldbare aanbod"
+        },
+        {
+          "naam": "offeringInstancesversion",
+          "datatype": "string",
+          "kardinaliteit": "1",
+          "rol": "",
+          "bron": "veldtabel is-oa-06, C2 en C3, het aanmeldbare aanbod"
+        },
+        {
+          "naam": "offeringReference",
+          "datatype": "object",
+          "kardinaliteit": "1",
+          "rol": "",
+          "bron": "veldtabel is-oa-05, M3, melding `inrichtingsstatus`"
+        },
+        {
+          "naam": "offeringType",
+          "datatype": "enum",
+          "kardinaliteit": "1",
+          "rol": "",
+          "bron": "veldtabel is-oa-05, M1, melding `aanbod-aanmeldbaar`"
+        },
+        {
+          "naam": "oldStatus",
+          "datatype": "enum",
+          "kardinaliteit": "1",
+          "rol": "",
+          "bron": "veldtabel is-oa-05, M1, melding `aanbod-aanmeldbaar`"
+        },
+        {
+          "naam": "status",
+          "datatype": "enum",
+          "kardinaliteit": "1",
+          "rol": "",
+          "bron": "veldtabel is-oa-05, M2, respons van `GET /aanmeldbaar-aanbod"
+        },
+        {
+          "naam": "version",
+          "datatype": "string",
+          "kardinaliteit": "1",
+          "rol": "",
+          "bron": "veldtabel is-oa-05, M1, melding `aanbod-aanmeldbaar`"
+        }
+      ]
+    },
+    "Opleidingsprogramma specificatie": {
+      "attributen": [
+        {
+          "naam": "appliesTo",
+          "datatype": "uuid",
+          "kardinaliteit": "0..1, verplicht",
+          "rol": "",
+          "bron": "veldtabel is-oa-01, 4.8 Aanleveren resultaatstructuur en exa"
+        },
+        {
+          "naam": "curriculumType",
+          "datatype": "enum",
+          "kardinaliteit": "0..1",
+          "rol": "",
+          "bron": "veldtabel is-oa-01, 4.6 Aanleveren onderwijsspecificatiestru"
+        },
+        {
+          "naam": "learningPathway",
+          "datatype": "enum",
+          "kardinaliteit": "0..1, verplicht",
+          "rol": "",
+          "bron": "veldtabel is-oa-01, 4.6 Aanleveren onderwijsspecificatiestru"
+        },
+        {
+          "naam": "offeringInstancesspecificationReference",
+          "datatype": "object",
+          "kardinaliteit": "1",
+          "rol": "",
+          "bron": "veldtabel is-oa-06, C2 en C3, het aanmeldbare aanbod"
+        },
+        {
+          "naam": "programmeLayer",
+          "datatype": "enum",
+          "kardinaliteit": "0..1, verplicht",
+          "rol": "",
+          "bron": "veldtabel is-oa-01, 4.6 Aanleveren onderwijsspecificatiestru"
+        },
+        {
+          "naam": "programmeType",
+          "datatype": "string",
+          "kardinaliteit": "0..1, verplicht",
+          "rol": "",
+          "bron": "veldtabel is-oa-01, 4.6 Aanleveren onderwijsspecificatiestru"
+        },
+        {
+          "naam": "specificationId",
+          "datatype": "string",
+          "kardinaliteit": "1, verplicht",
+          "rol": "FK",
+          "bron": "veldtabel is-oa-03, Bericht 1, specificatie-planbaar"
+        },
+        {
+          "naam": "specificationReference",
+          "datatype": "specification",
+          "kardinaliteit": "1, verplicht",
+          "rol": "",
+          "bron": "veldtabel is-oa-03, Bericht 1, specificatie-planbaar"
+        },
+        {
+          "naam": "targetGroup",
+          "datatype": "string",
+          "kardinaliteit": "0..1, verplicht",
+          "rol": "",
+          "bron": "veldtabel is-oa-01, 4.6 Aanleveren onderwijsspecificatiestru"
+        }
+      ]
+    },
+    "Organisatie-eenheid": {
+      "attributen": [
+        {
+          "naam": "executingTeamId",
+          "datatype": "uuid",
+          "kardinaliteit": "0..1",
+          "rol": "FK",
+          "bron": "veldtabel is-oa-05, M2, respons van `GET /aanmeldbaar-aanbod"
+        },
+        {
+          "naam": "expertiseProfilesorganisationUnitId",
+          "datatype": "uuid",
+          "kardinaliteit": "0..1",
+          "rol": "FK",
+          "bron": "veldtabel is-oa-02, Bericht 3: het expertiseprofiel"
+        },
+        {
+          "naam": "offeringInstancesexecutingTeamId",
+          "datatype": "uuid",
+          "kardinaliteit": "0..1",
+          "rol": "FK",
+          "bron": "veldtabel is-oa-06, C2 en C3, het aanmeldbare aanbod"
+        },
+        {
+          "naam": "offeringInstancesproviderId",
+          "datatype": "uuid",
+          "kardinaliteit": "0..1",
+          "rol": "FK",
+          "bron": "veldtabel is-oa-06, C2 en C3, het aanmeldbare aanbod"
+        },
+        {
+          "naam": "organisation",
+          "datatype": "organisation",
+          "kardinaliteit": "0..1",
+          "rol": "",
+          "bron": "veldtabel is-oa-03, Bericht 2, de onderwijsspecificatiestruc"
+        },
+        {
+          "naam": "organisationUnits",
+          "datatype": "array",
+          "kardinaliteit": "0..n",
+          "rol": "",
+          "bron": "veldtabel is-oa-05, M2, respons van `GET /aanmeldbaar-aanbod"
+        }
+      ]
+    },
+    "Student keuze regelset": {
+      "attributen": [
+        {
+          "naam": "description",
+          "datatype": "string",
+          "kardinaliteit": "0..1",
+          "rol": "",
+          "bron": "veldtabel is-oa-01, 4.7 Aanleveren studentkeuzeregelsets"
+        },
+        {
+          "naam": "id",
+          "datatype": "uuid",
+          "kardinaliteit": "1, verplicht",
+          "rol": "PK",
+          "bron": "veldtabel is-oa-01, 4.7 Aanleveren studentkeuzeregelsets"
+        },
+        {
+          "naam": "name",
+          "datatype": "string",
+          "kardinaliteit": "1, verplicht",
+          "rol": "",
+          "bron": "veldtabel is-oa-01, 4.7 Aanleveren studentkeuzeregelsets"
+        },
+        {
+          "naam": "ruleSetReferences",
+          "datatype": "array",
+          "kardinaliteit": "0..n, verplicht",
+          "rol": "",
+          "bron": "veldtabel is-oa-01, 4.6 Aanleveren onderwijsspecificatiestru"
+        },
+        {
+          "naam": "ruleSets",
+          "datatype": "array",
+          "kardinaliteit": "0..n",
+          "rol": "",
+          "bron": "veldtabel is-oa-03, Bericht 2, de onderwijsspecificatiestruc"
+        },
+        {
+          "naam": "rules",
+          "datatype": "array",
+          "kardinaliteit": "1..n, verplicht",
+          "rol": "",
+          "bron": "veldtabel is-oa-01, 4.7 Aanleveren studentkeuzeregelsets"
+        },
+        {
+          "naam": "version",
+          "datatype": "string",
+          "kardinaliteit": "1, verplicht",
+          "rol": "",
+          "bron": "veldtabel is-oa-01, 4.7 Aanleveren studentkeuzeregelsets"
+        }
+      ]
+    },
+    "Summatief Afrondingscriterium": {
+      "attributen": [
+        {
+          "naam": "aggregation",
+          "datatype": "enum",
+          "kardinaliteit": "0..1, verplicht",
+          "rol": "",
+          "bron": "veldtabel is-oa-01, 4.8 Aanleveren resultaatstructuur en exa"
+        },
+        {
+          "naam": "mandatory",
+          "datatype": "boolean",
+          "kardinaliteit": "0..1, verplicht",
+          "rol": "",
+          "bron": "veldtabel is-oa-01, 4.8 Aanleveren resultaatstructuur en exa"
+        }
+      ]
+    },
+    "Summatieve resultaat structuur": {
+      "attributen": [
+        {
+          "naam": "nature",
+          "datatype": "enum",
+          "kardinaliteit": "0..1, verplicht",
+          "rol": "",
+          "bron": "veldtabel is-oa-01, 4.8 Aanleveren resultaatstructuur en exa"
+        },
+        {
+          "naam": "resultModel",
+          "datatype": "object",
+          "kardinaliteit": "1, verplicht",
+          "rol": "",
+          "bron": "veldtabel is-oa-01, 4.8 Aanleveren resultaatstructuur en exa"
+        }
+      ]
+    },
+    "Toetsonderdeel specificatie": {
+      "attributen": [
+        {
+          "naam": "assessmentForm",
+          "datatype": "string",
+          "kardinaliteit": "0..1, verplicht",
+          "rol": "",
+          "bron": "veldtabel is-oa-01, 4.8 Aanleveren resultaatstructuur en exa"
+        }
+      ]
+    },
+    "Toetsonderdeel weging": {
+      "attributen": [
+        {
+          "naam": "weighting",
+          "datatype": "number",
+          "kardinaliteit": "0..1, verplicht",
+          "rol": "",
+          "bron": "veldtabel is-oa-01, 4.8 Aanleveren resultaatstructuur en exa"
+        }
+      ]
+    },
+    "Vaardigheid": {
+      "attributen": [
+        {
+          "naam": "expertiseProfilescompetencestype",
+          "datatype": "enum",
+          "kardinaliteit": "1..1, verplicht",
+          "rol": "",
+          "bron": "veldtabel is-oa-02, Bericht 3: het expertiseprofiel"
+        }
+      ]
+    },
+    "Verzoek tot Aanbod / Intekening op specificatie": {
+      "attributen": [
+        {
+          "naam": "name",
+          "datatype": "string",
+          "kardinaliteit": "0..1",
+          "rol": "",
+          "bron": "veldtabel is-oa-03, Bericht 1, specificatie-planbaar"
+        },
+        {
+          "naam": "requestId",
+          "datatype": "string",
+          "kardinaliteit": "1, verplicht",
+          "rol": "FK",
+          "bron": "veldtabel is-oa-03, Bericht 1, specificatie-planbaar"
+        },
+        {
+          "naam": "requestedAt",
+          "datatype": "string",
+          "kardinaliteit": "0..1",
+          "rol": "",
+          "bron": "veldtabel is-oa-03, Bericht 1, specificatie-planbaar"
+        },
+        {
+          "naam": "status",
+          "datatype": "enum",
+          "kardinaliteit": "1, verplicht",
+          "rol": "",
+          "bron": "veldtabel is-oa-03, Bericht 3, verwerkingsstatus"
+        }
+      ]
+    },
+    "Waarde document (diploma / certificaat)": {
+      "attributen": [
+        {
+          "naam": "credentialDocument",
+          "datatype": "string",
+          "kardinaliteit": "0..1",
+          "rol": "",
+          "bron": "veldtabel is-oa-01, 4.5 Aanleveren leeruitkomsten uit het kw"
+        }
+      ]
+    },
+    "Werkproces": {
+      "attributen": [
+        {
+          "naam": "learningOutcome",
+          "datatype": "object",
+          "kardinaliteit": "0..1",
+          "rol": "",
+          "bron": "veldtabel is-oa-01, 4.8 Aanleveren resultaatstructuur en exa"
+        },
+        {
+          "naam": "source",
+          "datatype": "object",
+          "kardinaliteit": "1, verplicht",
+          "rol": "",
+          "bron": "veldtabel is-oa-01, 4.5 Aanleveren leeruitkomsten uit het kw"
+        }
+      ]
+    }
+  }
+}
