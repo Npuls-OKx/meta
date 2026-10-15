@@ -6,9 +6,9 @@
     "wat_nog_openstaat": "Zolang beide bestanden met de hand gelijk blijven, dragen twee bestanden dezelfde waarheid. De vervolgstap laat de operatietabel uit dit bestand komen, zoals het OpenAPI-document er nu uit komt. Relateert aan: #374",
     "dekking": "De stromen IS-OA-01, IS-OA-03 en IS-OA-05 staan er volledig in: samen vormen zij het koppelvlak van de onderwijscatalogus. IS-OA-02, IS-OA-04 en IS-OA-06 staan er nog niet in, en daarmee zijn de drie andere componenten onvolledig.",
     "verdiepingsbestanden": [
-      "stroom-is-oa-01.md",
-      "stroom-is-oa-03.md",
-      "stroom-is-oa-05.md"
+      "is-oa-01.md",
+      "is-oa-03.md",
+      "is-oa-05.md"
     ],
     "welke_vorm_is_normatief": "Elk component levert twee bestanden met dezelfde inhoud, uit een generatorronde, dus zij kunnen niet uiteenlopen. De YAML-vorm is normatief: dat is de vorm die de OpenAPI-specificatie gangbaar maakt en die de overlay-structuur van OEAPI aanhoudt (profile.yaml, source/spec.yaml). De JSON-vorm staat ernaast voor de keuring en de testgevallen, en voor een werktuig dat geen YAML leest."
   },
@@ -46,19 +46,19 @@
   },
   "stromen": {
     "IS-OA-01": {
-      "bestand": "stroom-is-oa-01.md",
+      "bestand": "is-oa-01.md",
       "van": "curriculum-ontwerptool",
       "naar": "onderwijscatalogus",
       "wat": "Leeruitkomsten, de specificatiestructuur tot leeronderdeel, en de summatieve resultaatstructuur"
     },
     "IS-OA-03": {
-      "bestand": "stroom-is-oa-03.md",
+      "bestand": "is-oa-03.md",
       "van": "onderwijscatalogus",
       "naar": "planningssysteem",
       "wat": "Het verzoek tot aanbod, met de planbare waarden per eenheid"
     },
     "IS-OA-05": {
-      "bestand": "stroom-is-oa-05.md",
+      "bestand": "is-oa-05.md",
       "van": "onderwijscatalogus",
       "naar": "kernregistratie",
       "wat": "Het aanmeld- en inschrijfbare Opleidingsprogramma aanbod"
@@ -84,7 +84,7 @@
       "dienst": "onderwijsspecificatiestructuur-aanbieder",
       "pad": "/onderwijsspecificaties",
       "methode": "get",
-      "herkomst": "stroom-is-oa-01.md, paragraaf 3.1 rij O1, met de velden in 4.1",
+      "herkomst": "is-oa-01.md, paragraaf 3.1 rij O1, met de velden in 4.1",
       "parameters": [
         {
           "naam": "status",
@@ -164,7 +164,7 @@
       "dienst": "onderwijsspecificatiestructuur-aanbieder",
       "pad": "/onderwijsspecificaties/{id}",
       "methode": "get",
-      "herkomst": "stroom-is-oa-01.md, paragraaf 3.1, rij O2",
+      "herkomst": "is-oa-01.md, paragraaf 3.1, rij O2",
       "parameters": [
         {
           "naam": "id",
@@ -218,7 +218,7 @@
       "dienst": "onderwijsspecificatie-inname",
       "pad": "/onderwijsspecificaties",
       "methode": "post",
-      "herkomst": "stroom-is-oa-01.md, paragraaf 3.1, rij O3",
+      "herkomst": "is-oa-01.md, paragraaf 3.1, rij O3",
       "verzoek": {
         "schema": "education-specification",
         "overlay": [
@@ -226,7 +226,7 @@
         ],
         "omschrijving": "De levering als samenhangend geheel: leeruitkomsten, onderwijsspecificaties en regelsets als drie arrays in een document. De catalogus neemt haar in haar geheel aan, of houdt haar in haar geheel bij de poort.",
         "voorbeeld": {
-          "bestand": "stroom-is-oa-01.md",
+          "bestand": "is-oa-01.md",
           "schema": "education-specification",
           "nummer": 1
         }
@@ -243,7 +243,7 @@
           "omschrijving": "De vorm of een verwijzing vraagt herstel; de bevindingen staan in het lichaam. Een aanlevering die bij de poort blijft laat de catalogus in de toestand van ervoor.",
           "schema": "intake-rejection",
           "voorbeeld": {
-            "bestand": "stroom-is-oa-01.md",
+            "bestand": "is-oa-01.md",
             "schema": "intake-rejection",
             "nummer": 1
           }
@@ -273,7 +273,7 @@
       "dienst": "onderwijsspecificatie-inname",
       "pad": "/examenplanspecificaties",
       "methode": "post",
-      "herkomst": "stroom-is-oa-01.md, paragraaf 3.1, rij O4",
+      "herkomst": "is-oa-01.md, paragraaf 3.1, rij O4",
       "verzoek": {
         "schema": "result-structure",
         "overlay": [
@@ -281,7 +281,7 @@
         ],
         "omschrijving": "Het examenplan met zijn resultaatstructuur, als eigen levering met een eigen wortel. appliesTo wijst naar een opgenomen opleidingsprogrammaspecificatie, dus gaat de aanlevering van het ontwerp voor.",
         "voorbeeld": {
-          "bestand": "stroom-is-oa-01.md",
+          "bestand": "is-oa-01.md",
           "schema": "result-structure",
           "nummer": 1
         }
@@ -292,7 +292,7 @@
           "omschrijving": "De levering is aangenomen, met haar leveringId.",
           "schema": "intake-outcome",
           "voorbeeld": {
-            "bestand": "stroom-is-oa-01.md",
+            "bestand": "is-oa-01.md",
             "schema": "intake-outcome",
             "nummer": 1
           }
@@ -327,7 +327,7 @@
       "dienst": "verwerkingsstatus",
       "pad": "/leveringen/{leveringId}",
       "methode": "get",
-      "herkomst": "stroom-is-oa-01.md, paragraaf 3.1, rij O5",
+      "herkomst": "is-oa-01.md, paragraaf 3.1, rij O5",
       "parameters": [
         {
           "naam": "leveringId",
@@ -373,17 +373,17 @@
       "ontvanger": "curriculum-ontwerptool",
       "dienst": "verwerkingsuitkomst-aanbieder",
       "methode": "post",
-      "herkomst": "stroom-is-oa-01.md, paragraaf 3.1, rij O6",
+      "herkomst": "is-oa-01.md, paragraaf 3.1, rij O6",
       "verzoek": {
         "schema": "intake-outcome",
         "omschrijving": "De toestand van de levering: ontvangen, gestart, afgekeurd, gelukt of nietGelukt. Bij gelukt staan de toegekende identiteit en versie in specificationReference, bij een afkeuring staan de bevindingen in findings.",
         "voorbeeld": {
-          "bestand": "stroom-is-oa-01.md",
+          "bestand": "is-oa-01.md",
           "schema": "intake-outcome",
           "nummer": 2
         },
         "tweede_voorbeeld": {
-          "bestand": "stroom-is-oa-01.md",
+          "bestand": "is-oa-01.md",
           "schema": "intake-outcome",
           "nummer": 3
         }
@@ -417,7 +417,7 @@
       "ontvanger": "curriculum-ontwerptool",
       "dienst": "onderwijsspecificatiestructuur-aanbieder",
       "methode": "post",
-      "herkomst": "stroom-is-oa-01.md, paragraaf 3.1, rij O7",
+      "herkomst": "is-oa-01.md, paragraaf 3.1, rij O7",
       "verzoek": {
         "schema": "specification-status-changed",
         "omschrijving": "De overgang van vastgesteld naar gepubliceerd op de wortel van de opgenomen structuur. Het publicatiebesluit ligt bij de catalogus (ADR 0020).",
@@ -452,7 +452,7 @@
       "dienst": "afleverabonnement-aanbieder",
       "pad": "/abonnementen",
       "methode": "post",
-      "herkomst": "stroom-is-oa-01.md, paragraaf 3.1, rij O8",
+      "herkomst": "is-oa-01.md, paragraaf 3.1, rij O8",
       "verzoek": {
         "schema": "subscription",
         "omschrijving": "Het afleveradres met de meldingssoorten waarop de partij zich abonneert. Dit bericht richt het kanaal in en vervalt zodra de aflevering over een bus of broker loopt (U5).",
@@ -492,12 +492,12 @@
       "melder": "onderwijscatalogus",
       "ontvanger": "planningssysteem",
       "methode": "post",
-      "herkomst": "stroom-is-oa-03.md, Operaties, rij O1",
+      "herkomst": "is-oa-03.md, Operaties, rij O1",
       "verzoek": {
         "schema": "specification-reference",
         "omschrijving": "Dun, conform notify then pull (U4): de referentie naar de specificatie die planbaar is, met de inhoud op opvraag.",
         "voorbeeld": {
-          "bestand": "stroom-is-oa-03.md",
+          "bestand": "is-oa-03.md",
           "schema": "specification-reference",
           "nummer": 1
         },
@@ -505,7 +505,7 @@
           "schema": "offering-request",
           "omschrijving": "De vorm die werkbrief W1 voorstelt: dezelfde referentie met de planopgave eromheen, zodat het verzoek een eigen identiteit draagt. Twee verzoeken op dezelfde specificatieversie zien er in de vastgelegde vorm gelijk uit.",
           "voorbeeld": {
-            "bestand": "stroom-is-oa-03.md",
+            "bestand": "is-oa-03.md",
             "schema": "offering-request",
             "nummer": 1
           },
@@ -544,7 +544,7 @@
       "aanroeper": "planningssysteem",
       "pad": "/onderwijsspecificaties/{id}",
       "methode": "get",
-      "herkomst": "stroom-is-oa-03.md, Operaties, rij O2",
+      "herkomst": "is-oa-03.md, Operaties, rij O2",
       "parameters": [
         {
           "naam": "id",
@@ -575,7 +575,7 @@
             "student-choice-rule"
           ],
           "voorbeeld": {
-            "bestand": "stroom-is-oa-03.md",
+            "bestand": "is-oa-03.md",
             "schema": "education-specification",
             "nummer": 1
           }
@@ -623,7 +623,7 @@
       "aanroeper": "planningssysteem",
       "pad": "/onderwijsspecificaties/{id}/delta",
       "methode": "get",
-      "herkomst": "stroom-is-oa-03.md, Operaties, rij O3",
+      "herkomst": "is-oa-03.md, Operaties, rij O3",
       "parameters": [
         {
           "naam": "id",
@@ -704,7 +704,7 @@
       "melder": "planningssysteem",
       "ontvanger": "onderwijscatalogus",
       "methode": "post",
-      "herkomst": "stroom-is-oa-03.md, Operaties, rij O4",
+      "herkomst": "is-oa-03.md, Operaties, rij O4",
       "verzoek": {
         "schema": "processing-status",
         "omschrijving": "De verwerkingsstatus met de waarden ontvangen, gestart of afgekeurd. Bij gelukt draagt programmeOfferingId het opleidingsaanbod, en daarmee de overgang naar IS-OA-04.",
@@ -736,7 +736,7 @@
       "aanroeper": "planningssysteem",
       "pad": "/onderwijsspecificaties",
       "methode": "get",
-      "herkomst": "stroom-is-oa-03.md, de operatietabel rij O5, met de velden in bericht 5",
+      "herkomst": "is-oa-03.md, de operatietabel rij O5, met de velden in bericht 5",
       "parameters": [
         {
           "naam": "status",
@@ -798,7 +798,7 @@
       "aanroeper": "planningssysteem",
       "pad": "/abonnementen",
       "methode": "post",
-      "herkomst": "stroom-is-oa-03.md, Operaties, rij O6",
+      "herkomst": "is-oa-03.md, Operaties, rij O6",
       "verzoek": {
         "schema": "subscription",
         "omschrijving": "Het afleveradres met de meldingssoorten waarop het planningssysteem zich abonneert."
@@ -829,12 +829,12 @@
       "melder": "onderwijscatalogus",
       "ontvanger": "kernregistratie",
       "methode": "post",
-      "herkomst": "stroom-is-oa-05.md, De operaties, rij O1",
+      "herkomst": "is-oa-05.md, De operaties, rij O1",
       "verzoek": {
         "schema": "offering-status-changed",
         "omschrijving": "Dun, conform notify then pull (U4): de statusovergang van een aanbodinstantie met een verwijzing. Een intrekking rijdt mee op de statuswaarde geannuleerd.",
         "voorbeeld": {
-          "bestand": "stroom-is-oa-05.md",
+          "bestand": "is-oa-05.md",
           "schema": "offering-status-changed",
           "nummer": 1
         }
@@ -867,7 +867,7 @@
       "aanroeper": "kernregistratie",
       "pad": "/aanmeldbaar-aanbod/{id}",
       "methode": "get",
-      "herkomst": "stroom-is-oa-05.md, De operaties, rij O2",
+      "herkomst": "is-oa-05.md, De operaties, rij O2",
       "parameters": [
         {
           "naam": "id",
@@ -895,7 +895,7 @@
           "omschrijving": "De aanmeldbare snede, met de instanties in offeringInstances naast locations en organisationUnits.",
           "schema": "offering-open-for-application",
           "voorbeeld": {
-            "bestand": "stroom-is-oa-05.md",
+            "bestand": "is-oa-05.md",
             "schema": "offering-open-for-application",
             "nummer": 1
           }
@@ -929,7 +929,7 @@
       "aanroeper": "kernregistratie",
       "pad": "/aanmeldbaar-aanbod/{id}/delta",
       "methode": "get",
-      "herkomst": "stroom-is-oa-05.md, De operaties, rij O3",
+      "herkomst": "is-oa-05.md, De operaties, rij O3",
       "parameters": [
         {
           "naam": "id",
@@ -966,7 +966,7 @@
           "omschrijving": "De wijziging tussen de twee versies, als JSON Patch (RFC 6902).",
           "schema": "education-offering-delta",
           "voorbeeld": {
-            "bestand": "stroom-is-oa-05.md",
+            "bestand": "is-oa-05.md",
             "schema": "education-offering-delta",
             "nummer": 1
           }
@@ -999,17 +999,17 @@
       "melder": "kernregistratie",
       "ontvanger": "onderwijscatalogus",
       "methode": "post",
-      "herkomst": "stroom-is-oa-05.md, De operaties, rij O4",
+      "herkomst": "is-oa-05.md, De operaties, rij O4",
       "verzoek": {
         "schema": "arrangement-status",
         "omschrijving": "De uitkomst van het inrichten: bij ingericht en verwerkt staat arrangementReference gevuld, bij afgekeurd, nietIngericht en nietVerwerkt staat reason gevuld.",
         "voorbeeld": {
-          "bestand": "stroom-is-oa-05.md",
+          "bestand": "is-oa-05.md",
           "schema": "arrangement-status",
           "nummer": 1
         },
         "tweede_voorbeeld": {
-          "bestand": "stroom-is-oa-05.md",
+          "bestand": "is-oa-05.md",
           "schema": "arrangement-status",
           "nummer": 2
         }
@@ -1041,7 +1041,7 @@
       "aanroeper": "kernregistratie",
       "pad": "/abonnementen",
       "methode": "post",
-      "herkomst": "stroom-is-oa-05.md, De operaties, rij O5",
+      "herkomst": "is-oa-05.md, De operaties, rij O5",
       "verzoek": {
         "schema": "subscription",
         "omschrijving": "Het afleveradres met de meldingssoorten waarop de kernregistratie zich abonneert."
@@ -1076,7 +1076,7 @@
       "aanroeper": "kernregistratie",
       "pad": "/aanmeldbaar-aanbod",
       "methode": "get",
-      "herkomst": "stroom-is-oa-05.md, De operaties, rij O6",
+      "herkomst": "is-oa-05.md, De operaties, rij O6",
       "parameters": [
         {
           "naam": "cohort",

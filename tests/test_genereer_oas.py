@@ -162,7 +162,7 @@ def maak_spec(map_, operaties, componenten=None, schemas=None, markdown=None):
             json.dumps(inhoud, indent=2, ensure_ascii=False), encoding="utf-8"
         )
     if markdown:
-        (map_ / "stroom-is-oa-01.md").write_text(markdown, encoding="utf-8")
+        (map_ / "is-oa-01.md").write_text(markdown, encoding="utf-8")
     data = {
         "naam": "Een fixture",
         "versie": "0.0.1",
@@ -170,7 +170,7 @@ def maak_spec(map_, operaties, componenten=None, schemas=None, markdown=None):
         "componenten": componenten or {
             "onderwijscatalogus": {"naam": "Onderwijscatalogus", "afgerond": True, "toelichting": "volledig"}
         },
-        "stromen": {"IS-OA-01": {"bestand": "stroom-is-oa-01.md"}},
+        "stromen": {"IS-OA-01": {"bestand": "is-oa-01.md"}},
         "servers": {"openstaand": "De keuze staat open.", "plaatshouder": "https://component.invalid/okx"},
         "beveiliging": {
             "grond": "OAuth 2.0 Client Credentials.",
@@ -341,7 +341,7 @@ class DeVoorbeelden(unittest.TestCase):
                 tmp,
                 [operatie_aanroep(antwoorden=[{
                     "code": "200", "omschrijving": "De melding.", "schema": "melding",
-                    "voorbeeld": {"bestand": "stroom-is-oa-01.md", "schema": "melding", "nummer": 1},
+                    "voorbeeld": {"bestand": "is-oa-01.md", "schema": "melding", "nummer": 1},
                 }])],
                 markdown=fence("melding", {"status": "gelukt"}),
             )
@@ -357,7 +357,7 @@ class DeVoorbeelden(unittest.TestCase):
                 tmp,
                 [operatie_aanroep(antwoorden=[{
                     "code": "200", "omschrijving": "De melding.", "schema": "melding",
-                    "voorbeeld": {"bestand": "stroom-is-oa-01.md", "schema": "melding", "nummer": 1},
+                    "voorbeeld": {"bestand": "is-oa-01.md", "schema": "melding", "nummer": 1},
                 }])],
                 markdown=fence("melding", {"status": "verzonnen"}),
             )
@@ -372,12 +372,12 @@ class DeVoorbeelden(unittest.TestCase):
                 tmp,
                 [operatie_aanroep(antwoorden=[{
                     "code": "200", "omschrijving": "De melding.", "schema": "melding",
-                    "voorbeeld": {"bestand": "stroom-is-oa-01.md", "schema": "melding", "nummer": 2},
+                    "voorbeeld": {"bestand": "is-oa-01.md", "schema": "melding", "nummer": 2},
                 }])],
                 markdown=fence("melding", {"status": "gelukt"}),
             )
             code, uitvoer, _ = draai(bestand)
-            self.assertIn("voorbeeld 2 met schema melding staat niet in stroom-is-oa-01.md", uitvoer)
+            self.assertIn("voorbeeld 2 met schema melding staat niet in is-oa-01.md", uitvoer)
             self.assertEqual(code, 2, uitvoer)
 
     def test_given_een_overlay_bij_een_bericht_when_genereren_then_gaat_het_voorbeeld_tegen_beide_schemas(self):
@@ -387,7 +387,7 @@ class DeVoorbeelden(unittest.TestCase):
                 [operatie_aanroep(antwoorden=[{
                     "code": "200", "omschrijving": "Het bericht met zijn overlay.",
                     "schema": "melding", "overlay": ["overlay"],
-                    "voorbeeld": {"bestand": "stroom-is-oa-01.md", "schema": "melding", "nummer": 1},
+                    "voorbeeld": {"bestand": "is-oa-01.md", "schema": "melding", "nummer": 1},
                 }])],
                 schemas={"melding": schema_melding(), "overlay": schema_overlay()},
                 markdown=fence("melding,overlay", {"status": "gelukt", "extra": "drie"}),
@@ -569,11 +569,11 @@ class DeWerkbrieven(unittest.TestCase):
                 ),
             ], markdown=self.tabel)
             map_ = Path(bestand).parent
-            (map_ / "stroom-is-oa-03.md").write_text(
+            (map_ / "is-oa-03.md").write_text(
                 self.tabel.replace("De parameter erbij", "Een ander verzoek"), encoding="utf-8"
             )
             data = json.loads(bestand.read_text(encoding="utf-8"))
-            data["stromen"]["IS-OA-03"] = {"bestand": "stroom-is-oa-03.md"}
+            data["stromen"]["IS-OA-03"] = {"bestand": "is-oa-03.md"}
             bestand.write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
             _, uitvoer, document = draai(bestand)
             legenda = document["x-okx-werkbrieven"]
@@ -685,11 +685,11 @@ class TweeStromenOpEenPad(unittest.TestCase):
                 ))
             # W15 komt uit IS-OA-03, dus staat haar tekst in het bestand van die stroom.
             map_ = Path(bestand).parent
-            (map_ / "stroom-is-oa-03.md").write_text(
-                (map_ / "stroom-is-oa-01.md").read_text(encoding="utf-8"), encoding="utf-8"
+            (map_ / "is-oa-03.md").write_text(
+                (map_ / "is-oa-01.md").read_text(encoding="utf-8"), encoding="utf-8"
             )
             data = json.loads(bestand.read_text(encoding="utf-8"))
-            data["stromen"]["IS-OA-03"] = {"bestand": "stroom-is-oa-03.md"}
+            data["stromen"]["IS-OA-03"] = {"bestand": "is-oa-03.md"}
             bestand.write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
             code, uitvoer, document = draai(bestand)
             antwoord = document["paths"]["/specificaties/{id}"]["get"]["responses"]["404"]

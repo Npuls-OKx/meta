@@ -128,7 +128,7 @@ paths:
                 $ref: '#/components/schemas/offering-open-for-application'
               examples:
                 voorbeeld-1:
-                  summary: Uit stroom-is-oa-05.md:216
+                  summary: Uit is-oa-05.md:216
                   value:
                     offeringInstances:
                     - id: 7aa6609f-1d1b-471a-a0f8-beae490d31b5
@@ -245,7 +245,7 @@ paths:
                 $ref: '#/components/schemas/education-offering-delta'
               examples:
                 voorbeeld-1:
-                  summary: Uit stroom-is-oa-05.md:304
+                  summary: Uit is-oa-05.md:304
                   value:
                   - op: replace
                     path: /offeringInstances/1/applicationWindow/end
@@ -355,7 +355,7 @@ paths:
               - $ref: '#/components/schemas/student-choice-rule'
             examples:
               voorbeeld-1:
-                summary: Uit stroom-is-oa-01.md:573
+                summary: Uit is-oa-01.md:573
                 value:
                   educationSpecifications:
                   - id: 08b4656d-27ec-4175-8c1b-1f1d51780785
@@ -500,7 +500,7 @@ paths:
                 $ref: '#/components/schemas/intake-outcome'
               examples:
                 voorbeeld-1:
-                  summary: Uit stroom-is-oa-01.md:197
+                  summary: Uit is-oa-01.md:197
                   value:
                     deliveryId: 1743e345-3e08-41e2-9e75-f5c4bed8fccb
                     status: ontvangen
@@ -702,7 +702,7 @@ paths:
               - $ref: '#/components/schemas/student-choice-rule'
             examples:
               voorbeeld-1:
-                summary: Uit stroom-is-oa-01.md:415
+                summary: Uit is-oa-01.md:415
                 value:
                   learningOutcomes:
                   - id: c5b64fe5-f7bf-490c-acaf-7af1bd24f980
@@ -888,7 +888,7 @@ paths:
                 $ref: '#/components/schemas/intake-rejection'
               examples:
                 voorbeeld-1:
-                  summary: Uit stroom-is-oa-01.md:278
+                  summary: Uit is-oa-01.md:278
                   value:
                     specificationReference:
                       specificationId: 79736830-1c5c-470f-b2c2-005029c96733
@@ -956,7 +956,7 @@ paths:
                 - $ref: '#/components/schemas/student-choice-rule'
               examples:
                 voorbeeld-1:
-                  summary: Uit stroom-is-oa-03.md:223
+                  summary: Uit is-oa-03.md:223
                   value:
                     educationSpecifications:
                     - id: 79736830-1c5c-470f-b2c2-005029c96733
@@ -1213,7 +1213,7 @@ webhooks:
               $ref: '#/components/schemas/offering-status-changed'
             examples:
               voorbeeld-1:
-                summary: Uit stroom-is-oa-05.md:202
+                summary: Uit is-oa-05.md:202
                 value:
                   offeringId: 8c494250-b67a-4666-a762-6f9ec1e70aff
                   version: 0.1.0
@@ -1267,7 +1267,7 @@ webhooks:
               $ref: '#/components/schemas/specification-reference'
             examples:
               voorbeeld-1:
-                summary: Uit stroom-is-oa-03.md:198
+                summary: Uit is-oa-03.md:198
                 value:
                   specificationId: 79736830-1c5c-470f-b2c2-005029c96733
                   version: 0.1.0
@@ -1284,7 +1284,7 @@ webhooks:
                 $ref: '#/components/schemas/offering-request'
               examples:
                 voorbeeld-1:
-                  summary: Uit stroom-is-oa-03.md:207
+                  summary: Uit is-oa-03.md:207
                   value:
                     requestId: 7ec74caa-0b5a-4de7-bf69-04415a02f214
                     specificationReference:
@@ -1392,7 +1392,7 @@ webhooks:
               $ref: '#/components/schemas/intake-outcome'
             examples:
               voorbeeld-1:
-                summary: Uit stroom-is-oa-01.md:210
+                summary: Uit is-oa-01.md:210
                 value:
                   deliveryId: d6d15731-fb31-4627-b51f-090a1e01be7b
                   status: gelukt
@@ -1401,7 +1401,7 @@ webhooks:
                     version: 0.1.0
                   eventId: e432bfdb-b64f-4f0c-b56c-4b1a87ba2a7d
               voorbeeld-2:
-                summary: Uit stroom-is-oa-01.md:249
+                summary: Uit is-oa-01.md:249
                 value:
                   deliveryId: d6d15731-fb31-4627-b51f-090a1e01be7b
                   status: afgekeurd
@@ -2937,7 +2937,7 @@ x-okx-ontvangen-meldingen:
         $ref: '#/components/schemas/arrangement-status'
       examples:
         voorbeeld-1:
-          summary: Uit stroom-is-oa-05.md:283
+          summary: Uit is-oa-05.md:283
           value:
             status: gestart
             offeringReference:
@@ -2947,7 +2947,7 @@ x-okx-ontvangen-meldingen:
               specificationId: 7ae25c1e-ee27-43a2-a001-761ee39ea5c7
               version: 0.1.0
         voorbeeld-2:
-          summary: Uit stroom-is-oa-05.md:293
+          summary: Uit is-oa-05.md:293
           value:
             status: nietIngericht
             offeringReference:
@@ -3284,9 +3284,9 @@ x-okx-bron:
     van de onderwijscatalogus. IS-OA-02, IS-OA-04 en IS-OA-06 staan er nog niet in, en daarmee zijn de
     drie andere componenten onvolledig.'
   verdiepingsbestanden:
-  - stroom-is-oa-01.md
-  - stroom-is-oa-03.md
-  - stroom-is-oa-05.md
+  - is-oa-01.md
+  - is-oa-03.md
+  - is-oa-05.md
   welke_vorm_is_normatief: 'Elk component levert twee bestanden met dezelfde inhoud, uit een generatorronde,
     dus zij kunnen niet uiteenlopen. De YAML-vorm is normatief: dat is de vorm die de OpenAPI-specificatie
     gangbaar maakt en die de overlay-structuur van OEAPI aanhoudt (profile.yaml, source/spec.yaml). De
