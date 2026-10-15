@@ -181,20 +181,20 @@ Deze dienst legt haar afleveradres vast bij de aanbieder, en ontvangt daarna O6 
 |---|---|---|---|---|---|---|
 | O8 | `/abonnementen` | POST | aanleveren | geen | 201, 400 | `voorstel` op de ontwerptool (W2) |
 
-### 3.2 Algemene vermogens
+### 3.2 Afspraken die over de diensten heen gelden
 
-Deze gelden over de diensten heen; per dienst staat hierboven welke zij voert.
+Hoofdstuk 3.1 zegt per dienst welke operaties erbij horen. Hier staan de afspraken die niet aan een operatie hangen maar aan het koppelvlak als geheel: wat een implementator moet bouwen ook waar 3.1 het niet per regel herhaalt, met de grond ervoor en de stand in deze keten.
 
-| Vermogen | Parameter | Waar zij geldt | Gedrag |
+| Afspraak | Wat zij de implementator oplegt | Waar zij staat | Stand hier |
 |---|---|---|---|
-| Filteren op toestand | `status` | O1 | Standaard `gepubliceerd`; een andere waarde levert de specificaties in dat stadium |
-| Alleen het nieuwe | `gewijzigdSinds` | O1 | Tijdstempel; de lijst draagt alleen wat daarna is gewijzigd |
-| Filteren op leeruitkomst | `leeruitkomstId` | O1 | `voorstel` (W3): zoeken op wat een specificatie aantoont in plaats van op haar naam |
-| Een vorige versie | `versie` | O2 | Standaard de laatst gepubliceerde |
-| Het verschil | pad `/delta` | O2 | `/onderwijsspecificaties/{id}/delta` met `van` en `tot`; levert wat er tussen twee versies wijzigde |
-| Paginering | nog niet belegd | geen | De componentpagina's in Public kennen vandaag geen pagineringsparameters; bij een catalogus met duizenden specificaties gaat O1 dat vragen (W18) |
+| Volledige structuur en delta | Wie een structuurresource bezit, ontsluit haar in beide vormen: de hele structuur en het verschil. De afnemer kiest | [U11](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u11-toekomstvaste-endpoints-volledige-structuur-en-delta) | Nagekomen op `/onderwijsspecificaties/{id}`, **niet** op `/examenplanspecificaties/{id}` (W19) |
+| Een vorige versie opvraagbaar | Elk `{id}`-endpoint neemt `versie` aan en levert zonder die parameter de laatst gepubliceerde | de componentpagina van de catalogus | Nagekomen op beide `{id}`-endpoints |
+| Herhaalbaar zonder extra effect | Een GET levert bij herhaling hetzelfde. `POST /abonnementen` overschrijft op afleveradres plus soort melding in plaats van te stapelen | de componentpagina | Nagekomen op O1, O2, O5 en O8 |
+| Een lijst is begrensd opvraagbaar | Een collectie-endpoint laat de afnemer in brokken ophalen | nergens | **Niet belegd** (W18) |
 
-Alleen-lezen: O1, O2 en O5 leveren bij herhaling hetzelfde resultaat. O8 is herhaalbaar zonder extra effect (idempotent) op afleveradres plus soort melding.
+De delta staat op een eigen pad en niet achter een parameter: `/onderwijsspecificaties/{id}/delta` met `van` en `naar`, en het antwoord is JSON Patch (RFC 6902). Een implementator die alleen de volledige structuur verwerkt, laat dat pad links liggen; de afspraak eist dat de bezitter het aanbiedt, niet dat de afnemer het gebruikt.
+
+`gewijzigdSinds` staat vandaag op een enkel collectie-endpoint, `GET /onderwijsspecificaties`. Een afspraak over alle collecties is het daarmee niet, en dit hoofdstuk doet die ook niet alsof.
 
 ### 3.3 Statuscodes en foutgedrag
 
@@ -1338,6 +1338,7 @@ Deze regels horen niet in de koppelvlakspecificatie zelf. Elk van hen wordt een 
 | W16 | [intake-rejection.json](schemas/intake-rejection.json) als antwoordlichaam bij 400 en 409 op O3 en O4 | de schemamap in Public, en de statuscodekolom op de dienstpagina | Nieuw schema, additief: MINOR. De statuscode 409 komt erbij naast de set die de componentpagina's dragen |
 | W17 | Het begrip levering en haar bewaartermijn: hoelang O5 de uitkomst van een afgehandelde levering teruggeeft, en of een lijstopvraag op `/leveringen` daarbij hoort | [begrippenlijst.md](../begrippen/begrippenlijst.md) en de dienstpagina van de inname | Geen schemawijziging: begrip en dienstafspraak |
 | W18 | Paginering op O1: de componentpagina's in Public kennen vandaag geen pagineringsparameters, terwijl een catalogus met duizenden specificaties erom vraagt | de componentpagina van de onderwijscatalogus in Public |
+| W19 | `GET /examenplanspecificaties/{id}/delta` met `van` en `naar`, zodat de resultaatstructuur dezelfde twee vormen draagt als de onderwijsspecificatie. [U11](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u11-toekomstvaste-endpoints-volledige-structuur-en-delta) eist beide vormen op een structuurresource | de componentpagina van de onderwijscatalogus in Public |
 
 Wat deze eenheid verder raakt staat in de [signaleringen](signaleringen.md) van de interactiespecificatie: S5 vraagt een koppeling-ID en een eigen lijn op de hoofdplaat, S6 de grond per objecttype. Het aanleverpatroon dat S13 openlaat, staat voor deze eenheid in paragraaf 3: de ontwerptool levert met POST, en de catalogus meldt de uitkomst terug.
 
