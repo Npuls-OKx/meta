@@ -410,6 +410,15 @@ def main(argv=None):
         return 3
 
     uitkomsten, gaten, bevindingen = controleer(pad, mappen)
+    # Een verwijzing die nergens uitkomt zegt niets over de payload: zij zegt dat de
+    # vastgelegde schema's ontbreken. Zo n uitkomst is geen oordeel, en daarom eindigt de
+    # controle dan met de code voor niet uitvoerbaar in plaats van met die voor afgekeurd.
+    onherleidbaar = [b for b in bevindingen if "verwijzing niet te herleiden" in str(b)]
+    if onherleidbaar and not public.is_dir():
+        print(f"\n{len(onherleidbaar)} van de {len(bevindingen)} bevindingen komen voort uit "
+              f"een verwijzing die zonder {public} nergens uitkomt. Deze controle geeft daarmee "
+              f"geen oordeel; zet Npuls-OKx/Public ernaast en draai opnieuw.", file=sys.stderr)
+        return 3
     rapporteer(uitkomsten, gaten, bevindingen, args.kort)
     if bevindingen:
         return 1
