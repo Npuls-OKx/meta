@@ -1,7 +1,7 @@
 {
-  "naam": "Ontwerpen en ontsluiten van onderwijsaanbod: de zes stromen",
+  "naam": "Ontwerpen en ontsluiten van onderwijsaanbod: de zeven informatiestromen",
   "plaat": "OKx hoofdplaat v1.7<concept>",
-  "toelichting": "De informatiestromen van fase 1 tot en met 3 van leerroute 1, met persona Jochem binnen een instelling: van het ontwerp in de curriculum-ontwerptool tot het aanbod waarop een aspirant-student zich aanmeldt. Per stroom staat erbij wat er overheen gaat, uit welk beeld van de voorbeelduitwerking zij komt, en of hoofdplaat v1.7 de lijn al kent; een lijn die zij niet kent wordt gestippeld getekend. De componentnamen zijn die van de view, zodat de tekenaar ze terugvindt. Beeld F3-02 noemt als ontvanger AII, de opvolger van CAMBO; de view kent het vak Voorziening Centraal Aanmelden (CAMBO) en dat vak draagt hier de stroom. De aanduiding IS-OA-01 tot en met IS-OA-06 is die van de interactiespecificaties, elk met de naam die zegt wat erover gaat; de aanduiding blijft staan, want een instelling citeert haar in een eis.",
+  "toelichting": "De informatiestromen van fase 1 tot en met 3 van leerroute 1, met persona Jochem binnen een instelling: van het ontwerp in de curriculum-ontwerptool tot het aanbod waarop een aspirant-student zich aanmeldt. Per stroom staat erbij wat er overheen gaat, uit welk beeld van de voorbeelduitwerking zij komt, en of hoofdplaat v1.7 de lijn al kent; een lijn die zij niet kent wordt gestippeld getekend. De componentnamen zijn die van de view, zodat de tekenaar ze terugvindt. Beeld F3-02 noemt als ontvanger AII, de opvolger van CAMBO. Hoofdplaat v1.7 tekent een been van de catalogus rechtstreeks naar CAMBO, en dat been draagt hier IS-OA-06; de route via de kernregistratie die deze specificatie voorstelt staat als signalering S3. De aanduiding IS-OA-01 tot en met IS-OA-06 is die van de interactiespecificaties, elk met de naam die zegt wat erover gaat; de aanduiding blijft staan, want een instelling citeert haar in een eis. IS-OA-05 en IS-OA-06 dragen een ontvangergroep: de lijn loopt naar het vak dat de stroom noemt, en de omlijning komt om elk vak in die groep, want wie daarop aansluit krijgt dezelfde informatie.",
   "stromen": [
     {
       "van": "Curriculum ontwerptool",
@@ -93,24 +93,45 @@
       "beeld": "F3-01",
       "status": "dienst nog open",
       "naam": "Aanmeldbaar aanbod naar de kernregistratie",
-      "naam_kort": "aanmeldbaar aanbod"
+      "naam_kort": "aanmeldbaar aanbod",
+      "ontvangergroep": "Student Informatie Systeem"
     },
     {
-      "van": "Kernregistratie systeem studenten (KRS)",
+      "van": "Onderwijscatalogus",
       "naar": "Voorziening Centraal Aanmelden (CAMBO)",
       "label": "IS-OA-06",
-      "op_de_plaat": false,
-      "stroom": "",
-      "plaatlabel": "",
+      "op_de_plaat": true,
+      "stroom": "id-95a93363df2d4a4a86e86513535e1b01",
+      "plaatlabel": "Ontsluiten aanmeld-/inschrijfbaar opleidingsprogramma aanbod",
       "wat": [
         "het opleidingsprogramma-aanbod waarop een aspirant-student zijn gewenste startmoment kiest"
       ],
-      "bron": "../../../model/informatiemodel/voorbeeld-lr1-regels.json, F3-02; ../leerroute-uitwerking/doc/persona_jochem.md, r74",
+      "bron": "../../../model/informatiemodel/voorbeeld-lr1-regels.json, F3-02; op v1.7 ontsluit de catalogus rechtstreeks aan CAMBO, waar deze specificatie de route via de kernregistratie voorstelt (S3)",
       "aanduiding": "IS-OA-06",
       "beeld": "F3-02",
       "status": "voorstel",
       "naam": "Aanmeldbaar aanbod naar centraal aanmelden",
-      "naam_kort": "aanmeldbaar aanbod"
+      "naam_kort": "aanmeldbaar aanbod",
+      "ontvangergroep": "RIO/CAMBO/AII"
+    },
+    {
+      "van": "Onderwijscatalogus",
+      "naar": "Leer management systeem (LMS)",
+      "label": "IS-OA-07",
+      "op_de_plaat": true,
+      "stroom": "id-d23841b89bed4935b2aebdeb12ee2acf",
+      "plaatlabel": "Verzoek tot fijnmazige uitwerking onderwijs specificatie",
+      "wat": [
+        "de opleidingsspecificatie-boom tot leeronderdeel, waarmee het LMS de leeromgeving inricht",
+        "de formatieve resultaatstructuur met haar toetsonderdelen",
+        "de leergelegenheid als reeks, waarbinnen het LMS de losse lessen zelf invult"
+      ],
+      "bron": "../../../model/informatiemodel/voorbeeld-lr1-regels.json, F4-02; onderwijscatalogus-leermanagementsysteem.md, L1 tot en met L6",
+      "aanduiding": "IS-OA-07",
+      "beeld": "F4-02",
+      "status": "gespecificeerd",
+      "naam": "Specificaties naar het leermanagementsysteem",
+      "naam_kort": "specificaties naar het LMS"
     }
   ]
 }

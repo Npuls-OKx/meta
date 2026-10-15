@@ -70,6 +70,31 @@ class DeKopOpent(unittest.TestCase):
             self.assertEqual(verdieping["bevindingen"], [])
 
 
+class DeBegripsregel(unittest.TestCase):
+    """Een korte regel die een vakterm uitlegt mag voor de tabel staan die hem gebruikt."""
+
+    def test_given_een_korte_regel_voor_een_tabel_when_toetsen_then_blijft_het_zonder_bevinding(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            map_ = maak(tmp, f"# Een snede\n\n{TABEL}\n\n## Diensten\n\n"
+                             f"Een dienst is wat een component levert.\n\n{TABEL}\n")
+            self.assertEqual(cv.controleer(map_)[0]["bevindingen"], [])
+
+    def test_given_een_regel_boven_de_maat_when_toetsen_then_een_bevinding(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            map_ = maak(tmp, f"# Een snede\n\n{TABEL}\n\n## Diensten\n\n"
+                             f"{'woord ' * 60}\n\n{TABEL}\n")
+            uit = waarover(cv.controleer(map_)[0]["bevindingen"])
+            self.assertIn("een begripsregel mag er", uit)
+
+    def test_given_een_korte_regel_zonder_tabel_erna_when_toetsen_then_een_bevinding(self):
+        """Zonder beeld of tabel erna is het gewoon een document dat met tekst opent."""
+        with tempfile.TemporaryDirectory() as tmp:
+            map_ = maak(tmp, f"# Een snede\n\n{TABEL}\n\n## Diensten\n\n"
+                             f"Een dienst is wat een component levert.\n\nEn nog een alinea.\n")
+            uit = waarover(cv.controleer(map_)[0]["bevindingen"])
+            self.assertIn("er volgt geen beeld, tabel of diagram op", uit)
+
+
 class HetBeeldInHetVerhaal(unittest.TestCase):
     """Een beeldregel uit de voorbeelduitwerking staat als beeld, ook in een verdieping."""
 

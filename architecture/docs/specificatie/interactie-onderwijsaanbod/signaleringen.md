@@ -1,6 +1,6 @@
 # Signaleringen en openstaande punten
 
-Tweeentwintig signaleringen vragen een besluit voordat een eenheid vastligt. Elke rij zegt wat er is aangetroffen en welk besluit dat vraagt; de eenheid waar zij valt staat in de [interactiespecificatie](README.md).
+Vijfentwintig signaleringen vragen een besluit voordat een eenheid vastligt. Elke rij zegt wat er is aangetroffen en welk besluit dat vraagt; de eenheid waar zij valt staat in de [interactiespecificatie](README.md).
 
 | Nr | Signalering | Besluit |
 |---|---|---|
@@ -25,6 +25,9 @@ Tweeentwintig signaleringen vragen een besluit voordat een eenheid vastligt. Elk
 | S20 | De inhoud van IS-OA-06 staat als V1 tot en met V10 in [Public#112](https://github.com/Npuls-OKx/Public/issues/112), van de aanbodlagen en het aanmeldvenster tot de terugmelding en het locatieniveau | per regel een antwoord van AII |
 | S21 | Het lichaam bij een foutcode draagt drie vormen: op de inname [intake-rejection.json](schemas/intake-rejection.json), op de opvragingen een eigen foutschema dat W15 van [IS-OA-03](is-oa-03.md#werkbrieven) vraagt, en op `/aanmeldbaar-aanbod` en `/abonnementen` de HTTP-code zonder lichaam. De codelijst van de innamebevinding dekt de gronden van een opvraag niet | een foutvorm over de opvragingen, of de HTTP-code als enige grond |
 | S22 | De lijstopvraag `/onderwijsspecificaties` antwoordt met een array zonder omhulling, waarin een vervolgverwijzing en een totaal geen plek hebben; paginering uit W14 van [IS-OA-03](is-oa-03.md#werkbrieven) komt daarmee op een omhullend object uit | de omhulling nu, of bij de paginering en dan MAJOR |
+| S23 | De groep RIO/CAMBO/AII op hoofdplaat v1.7 draagt vier vakken: het aanmeldsysteem, RIO, de voorziening voor centraal aanmelden (CAMBO) en een commerciele of LLO-oplossing. AII heeft er geen eigen vak, en CAMBO draagt de stroom van IS-OA-06 | een eigen vak voor AII in die groep, naast S3 over de richting en de naam |
+| S24 | De groep Student Informatie Systeem draagt naast de kernregistratie en het studentvolgsysteem ook het studentbegeleidingsysteem; de markering omlijnt alle drie, want zij staan in dezelfde groep | of elk vak in die groep het aanmeldbare aanbod afneemt |
+| S25 | De resultaatstructuur naar het studentvolgsysteem (F4-04, koppeling OC-SVS, interactie S3) is dezelfde publicatiehandeling als IS-OA-03, IS-OA-05 en IS-OA-07, en staat nog niet als eigen interactiespecificatie in deze keten | of die stroom erbij komt als IS-OA-08 |
 
 S4, waar de dienst voor aanmeldbaar aanbod hoort, is beslecht: de catalogus krijgt de eigen resource `/aanmeldbaar-aanbod`, en `/onderwijsaanbod` blijft bij het planningssysteem.
 

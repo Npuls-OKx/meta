@@ -2,31 +2,31 @@
 
 | | |
 |---|---|
-| **Doel** | Vastleggen welke informatie tussen welke systemen gaat wanneer een instelling onderwijsaanbod ontwerpt en ontsluit, zo precies dat een leverancier het bouwt |
+| **Document doel** | Zet uiteen welke informatie tussen welke systemen gaat wanneer een instelling onderwijsaanbod ontwerpt en ontsluit, ten behoeve van de bouw of de verificatie van een implementatie volgens deze specificatie |
 | **Doelgroep** | De informatiemanager en architect van een instelling die uitvraagt, en de software-architect en implementatiespecialist van een leverancier die bouwt |
 | **Dient als input voor** | Een eis in een aanbesteding, een bouwopdracht aan een leverancier, en de koppelvlakspecificaties in [Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Koppelvlakspecificaties) |
 | **Kaderstelling** | [Kaderscenario leerroute 1](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md) met [persona Jochem](../leerroute-uitwerking/doc/persona_jochem.md), het [informatiemodel OKx](../../../model/informatiemodel/informatiemodel.md), en de [voorbeelduitwerking](../../../model/informatiemodel/voorbeeld-leerroute-1-jochem.md) die per stap toont wat er ontstaat |
-| **Inhoud** | Zes interactiespecificaties tussen vijf applicatiecomponenten, elk met haar operaties, berichten en een voorbeeldpayload die valideert |
-| **Stand** | IS-OA-03 en IS-OA-04 liggen vast in Public. IS-OA-02 en IS-OA-06 zijn voorstel. IS-OA-01 en IS-OA-05 zijn deels vastgelegd, met de wijziging per regel erbij |
+| **Inhoud** | Zeven interactiespecificaties tussen zes applicatiecomponenten, elk met haar operaties, berichten en een voorbeeldpayload die valideert |
+| **Status** | IS-OA-03, IS-OA-04 en IS-OA-07 liggen vast in Public. IS-OA-02 en IS-OA-06 zijn voorstel. IS-OA-01 en IS-OA-05 zijn deels vastgelegd, met de wijziging per regel erbij |
 
 ## Leeswijzer
 
 | Deel | Inhoud |
 |---|---|
 | [1 De informatiestromen](#1-de-informatiestromen) | Welke informatie waarheen gaat, met per stroom het beeld van wat erover gaat |
-| [2 Wat de partijen hiermee bereiken](#2-wat-de-partijen-hiermee-bereiken) | De student, de instelling en de leverancier |
-| [3 Wie bezit welk gegeven](#3-wie-bezit-welk-gegeven) | Per applicatiecomponent de gegevens die daar ontstaan |
+| [2 Wat deze keten oplevert](#2-wat-deze-keten-oplevert) | Waarvoor deze keten dient, per partij, en wat erop bouwt |
+| [3 Gegevensoorsprong en bronsysteem](#3-gegevensoorsprong-en-bronsysteem) | Per applicatiecomponent de gegevens die daar ontstaan |
 | [4 Koppelvlakdiensten](#4-koppelvlakdiensten) | Per component de diensten met hun endpoints en meldingen |
-| [5 De keten in operaties](#5-de-keten-in-operaties) | De volgorde over alle zes de interactiespecificaties |
+| [5 De interactieketen](#5-de-interactieketen) | De volgorde over alle zeven de interactiespecificaties |
 | [6 De interactiespecificaties](#6-de-interactiespecificaties) | Per stroom het contract: operaties, berichten, voorbeeldpayload |
 | [schemas/](schemas/README.md) | De twintig schema's van deze keten, met hun stand |
 | [signaleringen.md](signaleringen.md) | Tweeentwintig punten die een besluit vragen |
 
-Elk objecttype, elke relatie en elke instantie in dit document komt uit het [informatiemodel OKx](../../../model/informatiemodel/informatiemodel.md) en uit de [voorbeelduitwerking van leerroute 1](../../../model/informatiemodel/voorbeeld-leerroute-1-jochem.md). Dit document herhaalt die niet: het verwijst erheen op de plek waar een stroom valt.
+Elk objecttype en elke instantie hier komt uit het [informatiemodel OKx](../../../model/informatiemodel/informatiemodel.md) en de [voorbeelduitwerking van leerroute 1](../../../model/informatiemodel/voorbeeld-leerroute-1-jochem.md). Dit document herhaalt die niet, het verwijst erheen waar een stroom valt.
 
 ## 1. De informatiestromen
 
-![De zes informatiestromen van deze keten, uitgelicht op de informatiestromen-hoofdplaat v1.7](img/hoofdplaat-onderwijsaanbod.svg)
+![De zeven informatiestromen van deze keten, uitgelicht op de informatiestromen-hoofdplaat v1.7](img/hoofdplaat-onderwijsaanbod.svg)
 
 De componenten die meedoen zijn omlijnd en bij elke stroom staat wat er overheen gaat. IS-OA-01, IS-OA-02 en IS-OA-06 staan gestippeld: zij krijgen hun lijn op een volgende plaatversie.
 
@@ -36,10 +36,11 @@ De componenten die meedoen zijn omlijnd en bij elke stroom staat wat er overheen
 | IS-OA-02 | Onderwijsontwerp naar de catalogus | Curriculum ontwerptool | Onderwijscatalogus | Vorm, leeromgeving, docent- en examinatorprofiel, studiebelasting, toetsvorm | Voorstel: een overlay op de dragende schema's, meereizend op de resource van IS-OA-01 |
 | IS-OA-03 | Verzoek om aanbod naar planning | Onderwijscatalogus | Planningssysteem | Het verzoek tot aanbod, met de planbare waarden per eenheid | Vastgelegd: [interactiepatroon OC-P&R](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Interactiepatronen/onderwijscatalogus-planning-en-roostering.md), interactie I1 en I2 |
 | IS-OA-04 | Gepland aanbod naar de catalogus | Planningssysteem | Onderwijscatalogus | Het geplande aanbod in zijn lagen, elk verwijzend naar specificatie en verzoek | Vastgelegd: dezelfde koppeling, interactie I3 en I5 |
-| IS-OA-05 | Aanmeldbaar aanbod naar de kernregistratie | Onderwijscatalogus | Kernregistratie (KRS) | Het aanmeld- en inschrijfbare `Opleidingsprogramma aanbod` | De melding `inrichtingsstatus` vastgelegd, de aanmeldbare snede voorstel op een eigen resource |
-| IS-OA-06 | Aanmeldbaar aanbod naar centraal aanmelden | Kernregistratie (KRS) | AII (centraal aanmelden) | Hetzelfde aanbod, voor het systeem waarin Jochem zich aanmeldt | Voorstel, met de inhoudelijke keuzes bij de afstemming met AII |
+| IS-OA-05 | Aanmeldbaar aanbod naar de kernregistratie | Onderwijscatalogus | Student Informatie Systeem: kernregistratie (KRS) en studentvolgsysteem (SVS) | Het aanmeld- en inschrijfbare `Opleidingsprogramma aanbod` | De melding `inrichtingsstatus` vastgelegd, de aanmeldbare snede voorstel op een eigen resource |
+| IS-OA-06 | Aanmeldbaar aanbod naar centraal aanmelden | Kernregistratie (KRS) | RIO/CAMBO/AII: de voorziening voor centraal aanmelden, het aanmeldsysteem, RIO en een commerciele of LLO-oplossing | Hetzelfde aanbod, voor het systeem waarin Jochem zich aanmeldt | Voorstel, met de inhoudelijke keuzes bij de afstemming met AII |
+| IS-OA-07 | Specificaties naar het leermanagementsysteem | Onderwijscatalogus | Leermanagementsysteem (LMS) | De specificatiestructuur tot leeronderdeel plus de formatieve resultaatstructuur, waarmee de leeromgeving wordt ingericht | Vastgelegd: [interactiepatroon OC-LMS](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Interactiepatronen/onderwijscatalogus-leermanagementsysteem.md), interactie L1 tot en met L6 |
 
-Een instelling wijst hier aan welke interactiespecificatie zij uitvraagt. De aanduiding blijft staan ook als de naam verandert, zodat een eis in een aanbesteding ernaar kan verwijzen.
+Een instelling wijst hier aan welke interactiespecificatie zij uitvraagt; de aanduiding blijft staan ook als de naam verandert. Twee stromen landen op een groep in plaats van op een vak, en wie op een systeem in die groep aansluit krijgt dezelfde informatie.
 
 ### IS-OA-01 Ontwerp naar de catalogus
 
@@ -47,7 +48,7 @@ Een instelling wijst hier aan welke interactiespecificatie zij uitvraagt. De aan
 
 Links staat wat de ontwerper bouwde, rechts de catalogus die het opneemt. De pijlen naar de leeruitkomsten lopen door de hele structuur: die sleutel maakt het een geheel in plaats van losse documenten.
 
-Hoe deze objecten ontstaan: [F1-02 tot en met F1-11](../../../model/informatiemodel/voorbeeld-leerroute-1-jochem.md#fase-1-kwalificatiekader-analyseren-en-grofmazig-ontwerpen) in de voorbeelduitwerking, van het ontleden van het kwalificatiedossier tot het vaststellen van het examenplan.
+Ontstaan in [F1-02 tot en met F1-11](../../../model/informatiemodel/voorbeeld-leerroute-1-jochem.md#fase-1-kwalificatiekader-analyseren-en-grofmazig-ontwerpen), van het ontleden van het dossier tot het vaststellen van het examenplan.
 
 ### IS-OA-02 Onderwijsontwerp naar de catalogus
 
@@ -55,7 +56,7 @@ Hoe deze objecten ontstaan: [F1-02 tot en met F1-11](../../../model/informatiemo
 
 De blokken hangen onder de typen van IS-OA-01 en vormen geen eigen resource. Elk blok komt van de conceptplaat Onderwijsontwerp, en elke regel in dit beeld draagt een aanname.
 
-Hoe deze objecten ontstaan: [F1-06](../../../model/informatiemodel/voorbeeld-leerroute-1-jochem.md#f1-06---de-eenheidspecificatie-met-haar-onderwijsontwerp-vorm-ruimte-mensen-en-middelen) voor de eenheid en [F1-10](../../../model/informatiemodel/voorbeeld-leerroute-1-jochem.md#f1-10---de-examenonderdeelspecificatie-met-haar-toetsvorm-instrumenten-materiaal-en-ruimte) voor het examenonderdeel.
+Ontstaan in [F1-06](../../../model/informatiemodel/voorbeeld-leerroute-1-jochem.md#f1-06---de-eenheidspecificatie-met-haar-onderwijsontwerp-vorm-ruimte-mensen-en-middelen) en [F1-10](../../../model/informatiemodel/voorbeeld-leerroute-1-jochem.md#f1-10---de-examenonderdeelspecificatie-met-haar-toetsvorm-instrumenten-materiaal-en-ruimte).
 
 ### IS-OA-03 Verzoek om aanbod naar planning
 
@@ -63,7 +64,7 @@ Hoe deze objecten ontstaan: [F1-06](../../../model/informatiemodel/voorbeeld-lee
 
 Het `Verzoek tot Aanbod` staat op de grens tussen specificatie en aanbod: links wat vastligt, rechts wat de planner ermee gaat doen. De planbare waarden hangen per eenheid, want haalbaarheid blijkt per eenheid.
 
-Hoe deze objecten ontstaan: [F1-05 tot en met F1-10](../../../model/informatiemodel/voorbeeld-leerroute-1-jochem.md#fase-1-kwalificatiekader-analyseren-en-grofmazig-ontwerpen) voor de specificatiestructuur, [F2-01 en F2-02](../../../model/informatiemodel/voorbeeld-leerroute-1-jochem.md#fase-2-publiceren-en-planbaar-maken) voor het planbaar maken en het verzoek.
+Ontstaan in [F1-05 tot en met F1-10](../../../model/informatiemodel/voorbeeld-leerroute-1-jochem.md#fase-1-kwalificatiekader-analyseren-en-grofmazig-ontwerpen) en [F2-01 en F2-02](../../../model/informatiemodel/voorbeeld-leerroute-1-jochem.md#fase-2-publiceren-en-planbaar-maken).
 
 ### IS-OA-04 Gepland aanbod naar de catalogus
 
@@ -71,7 +72,7 @@ Hoe deze objecten ontstaan: [F1-05 tot en met F1-10](../../../model/informatiemo
 
 Elke aanbodlaag draagt twee verwijzingen: naar de specificatie waaruit zij volgt en naar het verzoek waarop zij antwoordt. Daarmee leest elke schakel terug waarom dit aanbod bestaat.
 
-Hoe deze objecten ontstaan: [F2-04](../../../model/informatiemodel/voorbeeld-leerroute-1-jochem.md#f2-04---het-aanbod-gepland-opleiding-programma-eenheid-gelegenheid), waar de planner het aanbod in zijn vier lagen plant.
+Ontstaan in [F2-04](../../../model/informatiemodel/voorbeeld-leerroute-1-jochem.md#f2-04---het-aanbod-gepland-opleiding-programma-eenheid-gelegenheid), waar de planner het aanbod in zijn vier lagen plant.
 
 ### IS-OA-05 Aanmeldbaar aanbod naar de kernregistratie
 
@@ -79,7 +80,7 @@ Hoe deze objecten ontstaan: [F2-04](../../../model/informatiemodel/voorbeeld-lee
 
 Alleen het `Opleidingsprogramma aanbod` gaat mee, met zijn `Opleiding aanbod` erboven, en niet de lagen eronder. Die snede staat bij de catalogus op een eigen resource, los van het aanbod bij het planningssysteem.
 
-Hoe deze objecten ontstaan: [F2-04](../../../model/informatiemodel/voorbeeld-leerroute-1-jochem.md#f2-04---het-aanbod-gepland-opleiding-programma-eenheid-gelegenheid), dezelfde planning die IS-OA-04 terugleverde.
+Ontstaan in [F2-04](../../../model/informatiemodel/voorbeeld-leerroute-1-jochem.md#f2-04---het-aanbod-gepland-opleiding-programma-eenheid-gelegenheid), dezelfde planning die IS-OA-04 terugleverde.
 
 ### IS-OA-06 Aanmeldbaar aanbod naar centraal aanmelden
 
@@ -87,26 +88,44 @@ Hoe deze objecten ontstaan: [F2-04](../../../model/informatiemodel/voorbeeld-lee
 
 De vorm is die van IS-OA-05, met de kernregistratie nu als bezitter. Welke velden AII vraagt staat open: [Public#112](https://github.com/Npuls-OKx/Public/issues/112) draagt die vraag als V1 tot en met V10.
 
-Hoe deze objecten ontstaan: [F2-04](../../../model/informatiemodel/voorbeeld-leerroute-1-jochem.md#f2-04---het-aanbod-gepland-opleiding-programma-eenheid-gelegenheid), via IS-OA-05 een schakel eerder.
+Ontstaan in [F2-04](../../../model/informatiemodel/voorbeeld-leerroute-1-jochem.md#f2-04---het-aanbod-gepland-opleiding-programma-eenheid-gelegenheid), via IS-OA-05 een schakel eerder.
 
-## 2. Wat de partijen hiermee bereiken
+### IS-OA-07 Specificaties naar het leermanagementsysteem
 
-| Partij | Wat deze keten mogelijk maakt |
+![Beeld F4-02: de detailspecificaties van de onderwijscatalogus naar het leermanagementsysteem, ter inrichting van de leeromgeving](../../../model/informatiemodel/img/regels/f4-02-detailspecificaties-naar-het-lms.svg)
+
+De leeromgeving krijgt de volledige specificatieboom plus de formatieve resultaatstructuur, en richt zich in tot op leeronderdeelniveau. Daaronder vult zij haar eigen lesniveau in, waar de catalogus buiten staat.
+
+Ontstaan in [F1-05 tot en met F1-09](../../../model/informatiemodel/voorbeeld-leerroute-1-jochem.md#fase-1-kwalificatiekader-analyseren-en-grofmazig-ontwerpen) en [F2-04](../../../model/informatiemodel/voorbeeld-leerroute-1-jochem.md#f2-04---het-aanbod-gepland-opleiding-programma-eenheid-gelegenheid).
+
+## 2. Wat deze keten oplevert
+
+| Partij | Waarvoor deze keten dient |
 |---|---|
-| **De student** | Ziet bij centraal aanmelden het aanbod waarop hij zich kan aanmelden, met het startmoment, de leerweg en de locatie erbij, en met de keuzedeelruimte die hij later invult. Wat hij ziet is het ontwerp van zijn opleiding, een keten verderop |
-| **De instelling** | Ontwerpt een opleiding een keer en levert haar aan elk volgend systeem zonder overtypen. De ontwerper hangt de structuur aan de leeruitkomst, de planner krijgt de planbare waarden mee in het verzoek, de examencommissie stelt het examenplan vast voordat het de catalogus bereikt, en elke schakel leest terug waarom een aanbod bestaat |
+| **De sector** | Een eenduidige beschrijving en publicatie van het onderwijsaanbod, waarop elke volgende interactieketen bouwt. Zonder die ene beschrijving spreekt elk systeem zijn eigen taal en wordt elke koppeling maatwerk |
+| **De instelling** | Een opleiding een keer ontwerpen en aan elk volgend systeem leveren zonder overtypen. De planner krijgt de planbare waarden mee in het verzoek, de examencommissie stelt het examenplan vast voordat het de catalogus bereikt, de leeromgeving richt zich in op dezelfde specificatie, en elke schakel leest terug waarom een aanbod bestaat |
+| **De student** | Ziet bij centraal aanmelden het aanbod waarop hij zich kan aanmelden, met startmoment, leerweg en locatie erbij. Wat hij ziet is het ontwerp van zijn opleiding, een keten verderop |
 | **De leverancier** | Weet wat hij bouwt voordat hij offreert: per interactiespecificatie de endpoints, de volgorde en de berichten, met per regel of die vastligt of een voorstel is. Hij bouwt tegen een contract dat elke andere leverancier in de sector ook bouwt |
-| **De sector** | Legt de grootste gemene deler vast in plaats van per instelling een eigen koppeling. Wat hier als voorstel staat, landt in [Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Koppelvlakspecificaties) en geldt daarna voor iedereen |
 
-## 3. Wie bezit welk gegeven
+De catalogus publiceert een keer, en een groep systemen neemt af: planning, het studentinformatiesysteem, centraal aanmelden en de leeromgeving. Daarom zijn de ontvangers op de plaat als groep omlijnd.
+
+| Wat hierop bouwt | Wat die keten eraan heeft |
+|---|---|
+| Keuzedelen kiesbaar maken ([#363](https://github.com/Npuls-OKx/meta/issues/363)) | De keuzedeelruimte met haar regelset staat al beschreven en gepubliceerd; die keten laat Jochem erin kiezen |
+| Aanmelden, intake en inschrijven (vanaf F3-03) | Het aanmeldbare aanbod bestaat, met zijn aanmeldvenster, dus kan er een verbintenis op ontstaan |
+| Roosteren en uitvoeren (fase 4 en later) | De specificatie en het geplande aanbod liggen vast, en de leeromgeving is erop ingericht |
+
+## 3. Gegevensoorsprong en bronsysteem
 
 ![Per applicatiecomponent de objecttypen die daar ontstaan, gegroepeerd naar de interactiespecificatie die ze ontsluit](img/gegevens-per-component.svg)
 
 Een component bezit hier het objecttype waarvan hij in de voorbeelduitwerking het bronsysteem is, en dat is de enige bron ervan ([U3](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u3-resource-eigenaarschap)). Over een koppeling gaat daarom een verwijzing, met de inhoud op opvraag.
 
-De plaat is afgeleid uit [voorbeeld-lr1-regels.json](../../../model/informatiemodel/voorbeeld-lr1-regels.json) en wordt getekend met `python3 scripts/teken-gegevens-per-component.py`. Verschuift een objecttype daar naar een ander systeem, dan verschuift het hier mee.
+De plaat komt uit [voorbeeld-lr1-regels.json](../../../model/informatiemodel/voorbeeld-lr1-regels.json), getekend met `python3 scripts/teken-gegevens-per-component.py`. Verschuift een objecttype daar naar een ander systeem, dan verschuift het hier mee.
 
 ## 4. Koppelvlakdiensten
+
+Een applicatiedienst is wat een component over een koppeling levert of afneemt, los van het product dat het invult. De dienst zegt wat er moet kunnen, de endpoints en meldingen eronder zeggen hoe. Wie een dienst levert volgt uit het bezit van de resource: de bezitter ontsluit, de ander neemt af.
 
 | Component | Dienst | Endpoints en meldingen | Stand |
 |---|---|---|---|
@@ -117,8 +136,10 @@ De plaat is afgeleid uit [voorbeeld-lr1-regels.json](../../../model/informatiemo
 | Onderwijscatalogus | onderwijsspecificatiestructuur-aanbieder | `GET /onderwijsspecificaties` met `/{id}` en `/{id}/delta`, en `/examenplanspecificaties/{id}` | Vastgelegd |
 | Onderwijscatalogus | onderwijsspecificatie-inname-aanbieder | `POST /onderwijsspecificaties`, `POST /examenplanspecificaties`, `/leveringen/{leveringId}` | Voorstel: drie paden erbij, additief |
 | Onderwijscatalogus | aanmeldbaar-onderwijsaanbod-aanbieder | `/aanmeldbaar-aanbod` met `/{id}` en `/{id}/delta` | Voorstel: een eigen resource naast `/onderwijsaanbod` |
-| Onderwijscatalogus | verwerkingsuitkomst-afnemer | `verwerkingsstatus`, `inrichtingsstatus` | Vastgelegd; het payloadschema van `inrichtingsstatus` is voorstel |
+| Onderwijscatalogus | verwerkingsuitkomst-afnemer | `verwerkingsstatus`, `inrichtingsstatus`, `leermiddelkoppeling-beschikbaar` | Vastgelegd; de payloadschema's van `inrichtingsstatus` en van de leermiddelkoppeling zijn voorstel |
 | Onderwijscatalogus | afleverabonnement-aanbieder | `/abonnementen` | Vastgelegd; de meldingssoorten `ontwerp-gereed` en `aanbod-aanmeldbaar` komen erbij |
+| Onderwijscatalogus | onderwijsspecificatiestructuur-aanbieder, voor de leeromgeving | dezelfde paden als hierboven, plus de meldingen `specificatie-beschikbaar` en `specificatie-status-gewijzigd` naar het LMS | Vastgelegd: interactie L1, L2 en L6 |
+| Leermanagementsysteem (LMS) | onderwijsspecificatiestructuur-afnemer | `specificatie-beschikbaar`, `specificatie-status-gewijzigd`, en `/leermiddelkoppelingen/{id}` | Vastgelegd; de payload van de leermiddelkoppeling staat op de componentpagina als nog uit te werken |
 | Planningssysteem | planbaar-onderwijsaanbod-aanbieder | `/onderwijsaanbod` met `/{id}` | Vastgelegd |
 | Planningssysteem | onderwijsspecificatiestructuur-afnemer | `specificatie-planbaar`, `specificatie-gewijzigd`, `specificatie-status-gewijzigd` | Vastgelegd |
 | Planningssysteem | afleverabonnement-aanbieder | `/abonnementen` | Vastgelegd |
@@ -128,7 +149,7 @@ De plaat is afgeleid uit [voorbeeld-lr1-regels.json](../../../model/informatiemo
 
 Een applicatiedienst zegt wat er over een koppeling moet kunnen, en de bezitter van de resource vervult hem. De dienstnamen staan op commit d0c20d99 van de [dienstenlijst](https://github.com/Npuls-OKx/Public/blob/d0c20d99b110b29ccf6b0e50109f7d54ffd88d7a/Koppelvlakspecificaties/Applicatiediensten/README.md), want die map staat nog niet op `dev`. De [componentpagina](https://github.com/Npuls-OKx/Public/tree/dev/Koppelvlakspecificaties/Applicatiecomponenten) draagt de parameters en de statuscodes.
 
-## 5. De keten in operaties
+## 5. De interactieketen
 
 ```mermaid
 sequenceDiagram
@@ -136,29 +157,56 @@ sequenceDiagram
     participant CO as Curriculum ontwerptool
     participant OC as Onderwijscatalogus
     participant PL as Planningssysteem
+    participant LMS as Leermanagementsysteem
     participant KRS as Kernregistratie
     participant CA as Centraal aanmelden
-    CO->>OC: IS-OA-01 POST /onderwijsspecificaties*
-    CO->>OC: POST /examenplanspecificaties*
-    OC--)CO: verwerkingsstatus* gelukt, identiteit en versie
-    CO-)OC: IS-OA-02 ontwerp-gereed*
-    OC->>CO: GET /onderwijsspecificaties/{id}*
-    CO-->>OC: 200 vorm, ruimte, expertise, toetsvorm
-    OC-)PL: IS-OA-03 specificatie-planbaar
-    PL->>OC: GET /onderwijsspecificaties/{id}
-    OC-->>PL: 200 structuur met planbare waarden
-    PL-)OC: IS-OA-04 verwerkingsstatus gelukt
-    OC->>PL: GET /onderwijsaanbod/{id}
-    PL-->>OC: 200 aanbod in zijn lagen
-    OC-)KRS: IS-OA-05 aanbod-aanmeldbaar*
-    KRS->>OC: GET /aanmeldbaar-aanbod/{id}*
-    OC-->>KRS: 200 Regulier BOL 2026
-    KRS-)CA: IS-OA-06 aanmeldbaar-aanbod-beschikbaar*
-    CA->>KRS: GET /aanmeldbaar-aanbod*
-    KRS-->>CA: 200 aanbod met aanmeldvenster
+
+    rect rgb(255, 232, 214)
+        Note over CO,OC: IS-OA-01 Ontwerp naar de catalogus
+        CO->>OC: POST /onderwijsspecificaties*
+        CO->>OC: POST /examenplanspecificaties*
+        OC--)CO: verwerkingsstatus* gelukt, identiteit en versie
+    end
+    rect rgb(255, 245, 214)
+        Note over CO,OC: IS-OA-02 Onderwijsontwerp naar de catalogus
+        CO-)OC: ontwerp-gereed*
+        OC->>CO: GET /onderwijsspecificaties/{id}*
+        CO-->>OC: 200 vorm, ruimte, expertise, toetsvorm
+    end
+    rect rgb(226, 245, 222)
+        Note over OC,PL: IS-OA-03 Verzoek om aanbod naar planning
+        OC-)PL: specificatie-planbaar
+        PL->>OC: GET /onderwijsspecificaties/{id}
+        OC-->>PL: 200 structuur met planbare waarden
+    end
+    rect rgb(214, 238, 245)
+        Note over OC,PL: IS-OA-04 Gepland aanbod naar de catalogus
+        PL-)OC: verwerkingsstatus gelukt
+        OC->>PL: GET /onderwijsaanbod/{id}
+        PL-->>OC: 200 aanbod in zijn lagen
+    end
+    rect rgb(226, 226, 245)
+        Note over OC,LMS: IS-OA-07 Specificaties naar het leermanagementsysteem
+        OC-)LMS: specificatie-beschikbaar
+        LMS->>OC: GET /onderwijsspecificaties/{id}
+        OC-->>LMS: 200 structuur met leeruitkomsten
+        LMS-)OC: inrichtingsstatus ingericht
+    end
+    rect rgb(245, 226, 240)
+        Note over OC,KRS: IS-OA-05 Aanmeldbaar aanbod naar de kernregistratie
+        OC-)KRS: aanbod-aanmeldbaar*
+        KRS->>OC: GET /aanmeldbaar-aanbod/{id}*
+        OC-->>KRS: 200 Regulier BOL 2026
+    end
+    rect rgb(238, 238, 238)
+        Note over KRS,CA: IS-OA-06 Aanmeldbaar aanbod naar centraal aanmelden
+        KRS-)CA: aanmeldbaar-aanbod-beschikbaar*
+        CA->>KRS: GET /aanmeldbaar-aanbod*
+        KRS-->>CA: 200 aanbod met aanmeldvenster
+    end
 ```
 
-Een `*` markeert wat op deze koppeling nog een voorstel is, een pad of een melding. Elk paar legt eerst zijn afleveradres vast met `POST /abonnementen`.
+Elk gekleurd kader is een interactiespecificatie, met haar aanduiding erboven. Een `*` markeert wat op die koppeling nog een voorstel is, een pad of een melding; elk paar legt eerst zijn afleveradres vast met `POST /abonnementen`.
 
 ## 6. De interactiespecificaties
 
@@ -170,6 +218,7 @@ Een `*` markeert wat op deze koppeling nog een voorstel is, een pad of een meldi
 | IS-OA-04 | [Gepland aanbod naar de catalogus](is-oa-04.md) | De planner meldt dat het aanbod er is, de catalogus haalt het op | 4 |
 | IS-OA-05 | [Aanmeldbaar aanbod naar de kernregistratie](is-oa-05.md) | De aanmeldbare snede als eigen resource, met de inrichtingsstatus terug | 6 |
 | IS-OA-06 | [Aanmeldbaar aanbod naar centraal aanmelden](is-oa-06.md) | Dezelfde snede met de kernregistratie als bezitter, richting AII | 5 |
+| IS-OA-07 | [Specificaties naar het leermanagementsysteem](is-oa-07.md) | De catalogus meldt dat een specificatie beschikbaar is, de leeromgeving haalt haar op en meldt haar inrichting terug | 6 |
 
 Elke interactiespecificatie draagt hetzelfde: de volgorde tussen de twee componenten als sequentiediagram, de operaties met hun parameters, statuscodes en foutgedrag, per bericht de velden met de grond waarop zij bestaan, een voorbeeldpayload die tegen haar schema valideert, en wat dit in Public toevoegt of wijzigt.
 

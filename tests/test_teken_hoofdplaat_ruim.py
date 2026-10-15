@@ -164,7 +164,7 @@ class MarkeringTests(unittest.TestCase):
         naam, stromen = ruim.lees_markering(pad)
         self.assertEqual(naam, "Een casus")
         self.assertEqual(stromen, [dict(van="A", naar="B", label="wat", op_de_plaat=True,
-                                        stroom="")])
+                                        stroom="", ontvangergroep="")])
 
     def test_given_a_file_with_a_flow_id_when_read_then_that_id_comes_along(self):
         pad = self.bestand('{"stromen": [{"van": "A", "naar": "B", "stroom": "id-7"}]}')
@@ -232,6 +232,126 @@ class MarkeerpadTests(unittest.TestCase):
         self.assertEqual(self.pad([s], "sks", "oc"), [])
 
 
+class VakkenVanRelatieTests(unittest.TestCase):
+    """Een component staat soms twee keer op de plaat; het relatie-ID wijst het goede paar aan."""
+
+    def vak(self, id_, naam, x):
+        return {"id": id_, "naam": naam, "soort": "DiagramObject", "type": "ApplicationComponent",
+                "ax": x, "ay": 0, "w": 10, "h": 10, "kinderen": []}
+
+    def plaat(self):
+        """Twee catalogusvakken en twee LMS-vakken: links ver uit elkaar, rechts dicht bijeen."""
+        return {k["id"]: k for k in [
+            self.vak("oc-links", "Onderwijscatalogus", 0),
+            self.vak("lms-links", "LMS", 500),
+            self.vak("oc-rechts", "Onderwijscatalogus", 1000),
+            self.vak("lms-rechts", "LMS", 1010),
+        ]}
+
+    def test_given_een_relatie_id_when_de_vakken_zoeken_then_komt_het_paar_van_die_relatie(self):
+        knopen = self.plaat()
+        stromen = [{"bron": "oc-links", "doel": "lms-links", "relatie": "id-links"},
+                   {"bron": "oc-rechts", "doel": "lms-rechts", "relatie": "id-rechts"}]
+        a, b = ruim.vakken_van_relatie(stromen, knopen, "id-links")
+        self.assertEqual((a["id"], b["id"]), ("oc-links", "lms-links"))
+
+    def test_given_geen_relatie_id_when_de_vakken_zoeken_then_komt_er_niets(self):
+        self.assertEqual(ruim.vakken_van_relatie([], self.plaat(), ""), (None, None))
+
+    def test_given_een_relatie_op_een_junctie_when_de_vakken_zoeken_then_komt_er_niets(self):
+        """Een been dat op een junctie eindigt wijst geen ontvangend vak aan."""
+        knopen = self.plaat()
+        knopen["j"] = {"id": "j", "naam": "", "soort": "DiagramObject", "type": "Junction",
+                       "ax": 0, "ay": 0, "w": 4, "h": 4, "kinderen": []}
+        stromen = [{"bron": "oc-rechts", "doel": "j", "relatie": "id-bundel"}]
+        self.assertEqual(ruim.vakken_van_relatie(stromen, knopen, "id-bundel"), (None, None))
+
+    def test_given_een_markering_met_relatie_id_when_naast_de_plaat_then_wint_het_id_van_de_afstand(self):
+        """Het dichtste paar ligt rechts; de casus bedoelt de lijn links."""
+        knopen = self.plaat()
+        componenten = list(knopen.values())
+        stromen = [{"bron": "oc-links", "doel": "lms-links", "relatie": "id-links", "punten": []}]
+        markering = dict(van="Onderwijscatalogus", naar="LMS", label="x", op_de_plaat=False,
+                         stroom="id-links", ontvangergroep="")
+        _, zonder, _, _ = ruim.markeer_stromen([markering], stromen, knopen, componenten)
+        self.assertEqual([(a["id"], b["id"]) for _, a, b in zonder], [("oc-links", "lms-links")])
+
+
+class OntvangerGroepTests(unittest.TestCase):
+    """Een ontvanger kan een groep op de plaat zijn in plaats van een enkel vak.
+
+    Waarom: het Student Informatie Systeem is de kernregistratie en het studentvolgsysteem
+    samen, en RIO/CAMBO/AII draagt vier vakken. Wie op een van die vakken aansluit krijgt
+    dezelfde informatie, dus hoort de markering ze alle te laten zien.
+    """
+
+    def knoop(self, id_, naam, soort="DiagramObject", kinderen=None):
+        """Een knoop met de ouderketen gelegd, want die wijst de groep aan waarin een vak ligt."""
+        k = {"id": id_, "naam": naam, "soort": soort, "kinderen": kinderen or [],
+             "type": "ApplicationComponent" if soort == "DiagramObject" else "",
+             "ax": 0, "ay": 0, "w": 10, "h": 10, "ouder": None}
+        for kind in k["kinderen"]:
+            kind["ouder"] = k
+        return k
+
+    def plaat(self):
+        krs = self.knoop("krs", "Kernregistratie systeem studenten (KRS)")
+        svs = self.knoop("svs", "Student volg systeem (SVS)")
+        groep = self.knoop("sis", "Student Informatie Systeem", "Group", [krs, svs])
+        return {k["id"]: k for k in (krs, svs, groep)}
+
+    def test_given_een_groep_when_de_vakken_zoeken_then_komen_haar_leden_terug(self):
+        leden = ruim.vakken_in_groep(self.plaat(), "Student Informatie Systeem")
+        self.assertEqual(sorted(k["id"] for k in leden), ["krs", "svs"])
+
+    def test_given_de_groep_tweemaal_op_de_plaat_when_zoeken_vanaf_een_vak_then_telt_die_zone(self):
+        """Een groep staat links en rechts op de plaat; alleen de zone van de ontvanger telt."""
+        links = self.knoop("sis-links", "Student Informatie Systeem", "Group",
+                           [self.knoop("krs-links", "KRS"), self.knoop("svs-links", "SVS")])
+        rechts = self.knoop("sis-rechts", "Student Informatie Systeem", "Group",
+                            [self.knoop("krs-rechts", "KRS"), self.knoop("svs-rechts", "SVS")])
+        knopen = {k["id"]: k for groep in (links, rechts)
+                  for k in [groep] + groep["kinderen"]}
+        leden = ruim.vakken_in_groep(knopen, "Student Informatie Systeem", "krs-links")
+        self.assertEqual(sorted(k["id"] for k in leden), ["krs-links", "svs-links"])
+
+    def test_given_een_geneste_groep_when_de_vakken_zoeken_then_komen_de_leden_eruit(self):
+        binnen = self.knoop("binnen", "Binnen", "Group", [self.knoop("a", "A")])
+        buiten = self.knoop("buiten", "Buiten", "Group", [binnen, self.knoop("b", "B")])
+        knopen = {k["id"]: k for k in (buiten, binnen)}
+        self.assertEqual(sorted(k["id"] for k in ruim.vakken_in_groep(knopen, "Buiten")),
+                         ["a", "b"])
+
+    def test_given_een_groep_die_niet_bestaat_when_de_vakken_zoeken_then_komt_er_niets(self):
+        self.assertEqual(ruim.vakken_in_groep(self.plaat(), "Bestaat niet"), [])
+
+    def test_given_een_markering_met_een_ontvangergroep_when_naast_de_plaat_then_komen_de_leden_mee(self):
+        knopen = self.plaat()
+        componenten = [k for k in knopen.values() if k["soort"] == "DiagramObject"]
+        markering = dict(van="Kernregistratie systeem studenten (KRS)",
+                         naar="Student volg systeem (SVS)", label="x", op_de_plaat=False,
+                         stroom="", ontvangergroep="Student Informatie Systeem")
+        _, _, _, mee = ruim.markeer_stromen([markering], [], knopen, componenten)
+        self.assertEqual(sorted(k["id"] for k in mee), ["krs", "svs"])
+
+    def test_given_een_ontvangergroep_die_niet_op_de_plaat_staat_when_naast_de_plaat_then_een_melding(self):
+        knopen = self.plaat()
+        componenten = [k for k in knopen.values() if k["soort"] == "DiagramObject"]
+        markering = dict(van="Kernregistratie systeem studenten (KRS)",
+                         naar="Student volg systeem (SVS)", label="x", op_de_plaat=False,
+                         stroom="", ontvangergroep="Bestaat niet")
+        _, _, ontbreekt, mee = ruim.markeer_stromen([markering], [], knopen, componenten)
+        self.assertEqual(mee, [])
+        self.assertIn("Bestaat niet", " ".join(ontbreekt))
+
+    def test_given_leden_van_een_groep_when_tekenen_then_krijgen_zij_dezelfde_omlijning(self):
+        knopen = self.plaat()
+        vakken = {k["id"]: (0, 0, 10, 10) for k in knopen.values()}
+        delen = ruim.markeer_svg([], [], {}, {}, vakken, [], (100, 100),
+                                 [knopen["krs"], knopen["svs"]])
+        self.assertEqual(" ".join(delen).count(f'stroke="{ruim.MARKEER_RAND}"'), 2)
+
+
 class MarkeerStromenTests(unittest.TestCase):
     """Elke markering naast de plaat gelegd: wat zij uitlicht, en wat er voor wie meeleest ontbreekt."""
 
@@ -249,25 +369,25 @@ class MarkeerStromenTests(unittest.TestCase):
         return ruim.markeer_stromen(markeringen, stromen, self.knopen, [self.oc, self.sks])
 
     def test_given_a_flow_the_file_calls_known_when_matched_then_its_leg_is_found(self):
-        raakt, zonder, ontbreekt = self.leg_naast([self.markering()], [self.stroom])
+        raakt, zonder, ontbreekt, _ = self.leg_naast([self.markering()], [self.stroom])
         self.assertEqual((len(raakt), zonder, ontbreekt), (1, [], []))
         m, a, b, benen = raakt[0]
         self.assertEqual((a["id"], b["id"], benen), ("oc", "sks", [self.stroom]))
 
     def test_given_a_flow_the_file_calls_unknown_when_matched_then_no_leg_is_sought(self):
-        raakt, zonder, ontbreekt = self.leg_naast([self.markering(op_de_plaat=False)],
+        raakt, zonder, ontbreekt, _ = self.leg_naast([self.markering(op_de_plaat=False)],
                                                   [self.stroom])
         self.assertEqual((raakt, len(zonder), ontbreekt), ([], 1, []))
 
     def test_given_a_known_flow_without_a_line_when_matched_then_it_is_reported(self):
-        raakt, zonder, ontbreekt = self.leg_naast([self.markering()], [])
+        raakt, zonder, ontbreekt, _ = self.leg_naast([self.markering()], [])
         self.assertEqual((raakt, len(zonder)), ([], 1))
         self.assertEqual(ontbreekt, ["kiesbaar aanbod: Onderwijscatalogus naar Student Keuze "
                                      "Systeem (SKS) staat in het bestand als lijn die de plaat "
                                      "kent, de plaat heeft deze stroom niet"])
 
     def test_given_a_flow_the_plate_has_no_component_for_when_matched_then_it_is_reported(self):
-        raakt, zonder, ontbreekt = self.leg_naast([self.markering(van="Keuzeportaal")],
+        raakt, zonder, ontbreekt, _ = self.leg_naast([self.markering(van="Keuzeportaal")],
                                                   [self.stroom])
         self.assertEqual((raakt, zonder), ([], []))
         self.assertEqual(ontbreekt, ["kiesbaar aanbod: Keuzeportaal naar Student Keuze "

@@ -17,7 +17,7 @@ De vijf maten
 
 | Maat | Waarom zij er is |
 |---|---|
-| Elke kop opent met een beeld, een tabel of een diagram | Een kop die met een alinea opent zet de tekst voorop, en dan draagt het beeld het verhaal niet |
+| Elke kop opent met een beeld, een tabel of een diagram | Een kop die met een alinea opent zet de tekst voorop, en dan draagt het beeld het verhaal niet. Een begripsregel mag ervoor: hoogstens vijfenvijftig woorden, ongeveer drie gerenderde regels, en er moet meteen een beeld, tabel of diagram op volgen. Zonder die uitzondering leest een tabel met een vakterm erin als een lijst zonder sleutel |
 | Een beeldregel uit de voorbeelduitwerking staat als beeld | Zes verwijzingen naar `img/regels` stonden als link: zij stonden naast het verhaal in plaats van erin. Een uitsnede van de hoofdplaat blijft een link, want die wijst naar een grotere plaat en toont niet wat deze stap oplevert |
 | Een leesregel bij een beeld draagt hoogstens twee zinnen | Een leesregel wijst aan waar de lezer naar kijkt; wie meer nodig heeft, legt het beeld uit in plaats van het te laten werken |
 | Geen alinea langer dan vijfenzeventig woorden | Dat is ongeveer vijf gerenderde regels, de hoogte waarop een alinea nog in een oogopslag te overzien is |
@@ -49,6 +49,7 @@ HOOFDDOCUMENT = "README.md"
 MAX_ZINNEN_LEESREGEL = 2
 MAX_WOORDEN_ALINEA = 75
 MAX_WOORDEN_BUITEN_TABELLEN = 700
+MAX_WOORDEN_BEGRIPSREGEL = 55
 
 BEELDMAPPEN = re.compile(r"img/")
 BEELD = re.compile(r"!\[[^\]]*\]\(([^)]+)\)")
@@ -132,11 +133,22 @@ def toets_bestand(bestand, hoofddocument):
         if volgende is None:
             continue
         if volgende["soort"] == "alinea":
+            daarna = delen[index + 2] if index + 2 < len(delen) else None
+            woorden = len(volgende["tekst"].split())
+            begrip = (woorden <= MAX_WOORDEN_BEGRIPSREGEL
+                      and daarna is not None
+                      and daarna["soort"] in ("tabel", "beeld", "code"))
+            if begrip:
+                continue
             kop = blok["tekst"].lstrip("# ").strip()
+            reden = (f"deze alinea draagt {woorden} woorden, en een begripsregel mag er "
+                     f"{MAX_WOORDEN_BEGRIPSREGEL}"
+                     if daarna is not None and daarna["soort"] in ("tabel", "beeld", "code")
+                     else "er volgt geen beeld, tabel of diagram op")
             bevindingen.append(Bevinding(
                 f"{bestand.name}:{volgende['regel']}",
                 f"de kop {kop} opent met een alinea in plaats van een beeld, een tabel of een "
-                f"diagram",
+                f"diagram: {reden}",
             ))
 
     for treffer in LINK_NAAR_BEELD.finditer(tekst):
