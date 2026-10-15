@@ -1,0 +1,1139 @@
+{
+  "naam": "De operaties van de interactiespecificatie ontwerpen en ontsluiten van onderwijsaanbod",
+  "versie": "0.0.1",
+  "bron": {
+    "wie_is_de_bron": "Dit bestand is de bron voor de gegenereerde OpenAPI-documenten in oas/. De operatietabellen in de verdiepingsbestanden blijven de bron voor de lezer; de inhoud hier is daaruit met de hand overgenomen, met de herkomst per operatie in het veld herkomst.",
+    "wat_nog_openstaat": "Zolang beide bestanden met de hand gelijk blijven, dragen twee bestanden dezelfde waarheid. De vervolgstap laat de operatietabel uit dit bestand komen, zoals het OpenAPI-document er nu uit komt. Relateert aan: #374",
+    "dekking": "De stromen IS-OA-01, IS-OA-03 en IS-OA-05 staan er volledig in: samen vormen zij het koppelvlak van de onderwijscatalogus. IS-OA-02, IS-OA-04 en IS-OA-06 staan er nog niet in, en daarmee zijn de drie andere componenten onvolledig.",
+    "verdiepingsbestanden": [
+      "stroom-is-oa-01.md",
+      "stroom-is-oa-03.md",
+      "stroom-is-oa-05.md"
+    ]
+  },
+  "componenten": {
+    "onderwijscatalogus": {
+      "naam": "Onderwijscatalogus",
+      "naam_in_zin": "de onderwijscatalogus",
+      "afgerond": true,
+      "toelichting": "Elke stroom waarin de onderwijscatalogus voorkomt staat in dit bestand: IS-OA-01 met de curriculum ontwerptool, IS-OA-03 en IS-OA-04 met het planningssysteem, IS-OA-05 met de kernregistratie. IS-OA-04 draagt alleen operaties op het planningssysteem plus een melding die de catalogus ontvangt."
+    },
+    "curriculum-ontwerptool": {
+      "naam": "Curriculum ontwerptool",
+      "naam_in_zin": "de curriculum ontwerptool",
+      "afgerond": false,
+      "toelichting": "IS-OA-02 legt vier paden op dit component en staat nog niet in dit bestand. Daarmee wordt het document onvolledig, en de generator schrijft het niet."
+    },
+    "planningssysteem": {
+      "naam": "Planningssysteem",
+      "naam_in_zin": "het planningssysteem",
+      "afgerond": false,
+      "toelichting": "IS-OA-04 legt drie paden op dit component en staat nog niet in dit bestand."
+    },
+    "kernregistratie": {
+      "naam": "Kernregistratie",
+      "naam_in_zin": "de kernregistratie",
+      "afgerond": false,
+      "toelichting": "IS-OA-06 legt drie paden op dit component en staat nog niet in dit bestand."
+    },
+    "centraal-aanmelden": {
+      "naam": "Voorziening Centraal Aanmelden",
+      "naam_in_zin": "de voorziening voor centraal aanmelden",
+      "afgerond": false,
+      "toelichting": "IS-OA-06 draagt de enige operatie van dit component en staat nog niet in dit bestand."
+    }
+  },
+  "stromen": {
+    "IS-OA-01": {
+      "bestand": "stroom-is-oa-01.md",
+      "van": "curriculum-ontwerptool",
+      "naar": "onderwijscatalogus",
+      "wat": "Leeruitkomsten, de specificatiestructuur tot leeronderdeel, en de summatieve resultaatstructuur"
+    },
+    "IS-OA-03": {
+      "bestand": "stroom-is-oa-03.md",
+      "van": "onderwijscatalogus",
+      "naar": "planningssysteem",
+      "wat": "Het verzoek tot aanbod, met de planbare waarden per eenheid"
+    },
+    "IS-OA-05": {
+      "bestand": "stroom-is-oa-05.md",
+      "van": "onderwijscatalogus",
+      "naar": "kernregistratie",
+      "wat": "Het aanmeld- en inschrijfbare Opleidingsprogramma aanbod"
+    }
+  },
+  "beveiliging": {
+    "grond": "auth-standaard.md in Npuls-OKx/Public legt OAuth 2.0 Client Credentials repo-breed vast, met een token-endpoint per serverend component en zonder centrale autorisatieserver, en past diezelfde regel omgekeerd toe op de aflevering van een melding.",
+    "verwijzing": "https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/auth-standaard.md",
+    "openstaand": "De tokenUrl per component staat open: de auth-standaard legt het mechanisme vast en laat het adres aan de inrichting van instelling en leverancier."
+  },
+  "servers": {
+    "openstaand": "De interactiespecificatie legt geen basis-URL vast. De plaatshouder hieronder zegt dat de keuze openstaat; hij wijst naar het gereserveerde topniveaudomein .invalid (RFC 2606), zodat niemand hem voor een werkend adres houdt.",
+    "plaatshouder": "https://component.invalid/okx"
+  },
+  "operaties": [
+    {
+      "id": "IS-OA-01-O1",
+      "stroom": "IS-OA-01",
+      "soort": "aanroep",
+      "samenvatting": "Herbruikbare specificaties zoeken",
+      "component": "onderwijscatalogus",
+      "aanroeper": "curriculum-ontwerptool",
+      "dienst": "onderwijsspecificatiestructuur-aanbieder",
+      "pad": "/onderwijsspecificaties",
+      "methode": "get",
+      "herkomst": "stroom-is-oa-01.md, paragraaf 3.1 rij O1, met de velden in 4.1",
+      "parameters": [
+        {
+          "naam": "status",
+          "plaats": "query",
+          "verplicht": false,
+          "type": {
+            "type": "string",
+            "default": "gepubliceerd"
+          },
+          "omschrijving": "De status waarop de lijst filtert; zonder deze parameter geldt gepubliceerd.",
+          "gat": "De operatietabel noemt de standaardwaarde en niet de volledige waardenlijst, dus blijft de parameter een vrije string."
+        },
+        {
+          "naam": "gewijzigdSinds",
+          "plaats": "query",
+          "verplicht": false,
+          "type": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "omschrijving": "Een tijdstempel; de lijst draagt wat sindsdien wijzigde. Bedoeld voor herstel na een gemiste melding."
+        },
+        {
+          "naam": "leeruitkomstId",
+          "plaats": "query",
+          "verplicht": false,
+          "type": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "omschrijving": "De leeruitkomst waarop de lijst filtert.",
+          "stand": {
+            "kern": "voorstel",
+            "werkbrieven": [
+              "W3"
+            ]
+          }
+        }
+      ],
+      "antwoorden": [
+        {
+          "code": "200",
+          "omschrijving": "De herbruikbare specificaties, elk als referentie met haar laatste versie binnen de gevraagde status; O2 levert de structuur per id.",
+          "lijst_van": "specification-reference",
+          "gat": "Een array zonder omhulling draagt geen vervolgverwijzing en geen totaal, waarmee de paginering uit W14 van IS-OA-03 op een omhullend object uitkomt; signalering S22 van de leeswijzer draagt dat punt.",
+          "stand": {
+            "kern": "vastgelegd",
+            "kwalificatie": "de componentpagina van de onderwijscatalogus legt de lijst van specification-reference vast; de kopmetadata name en studyLoad staan op voorstel",
+            "werkbrieven": [
+              "W3"
+            ]
+          }
+        },
+        {
+          "code": "400",
+          "omschrijving": "Een onbruikbare parameterwaarde.",
+          "schema": null,
+          "gat": "Een eigen foutschema naar het model van bottleneck.json, dat W15 van IS-OA-03 vraagt voor het lichaam bij een foutcode op de opvragingen; signalering S21 draagt de vraag of die vorm over de opvragingen gaat."
+        }
+      ],
+      "foutgedrag": "HTTP-foutcode, de aanroeper bepaalt de herhaling. Alleen-lezen, dus herhalen geeft hetzelfde antwoord.",
+      "stand": {
+        "kern": "vastgelegd",
+        "kwalificatie": "de parameter leeruitkomstId staat op voorstel",
+        "werkbrieven": [
+          "W3"
+        ]
+      }
+    },
+    {
+      "id": "IS-OA-01-O2",
+      "stroom": "IS-OA-01",
+      "soort": "aanroep",
+      "samenvatting": "Een herbruikbare structuur ophalen",
+      "component": "onderwijscatalogus",
+      "aanroeper": "curriculum-ontwerptool",
+      "dienst": "onderwijsspecificatiestructuur-aanbieder",
+      "pad": "/onderwijsspecificaties/{id}",
+      "methode": "get",
+      "herkomst": "stroom-is-oa-01.md, paragraaf 3.1, rij O2",
+      "parameters": [
+        {
+          "naam": "id",
+          "plaats": "path",
+          "verplicht": true,
+          "type": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "omschrijving": "De wortel van de specificatiestructuur."
+        },
+        {
+          "naam": "versie",
+          "plaats": "query",
+          "verplicht": false,
+          "type": {
+            "type": "string"
+          },
+          "omschrijving": "De versie die de respons draagt; zonder deze parameter de laatst gepubliceerde."
+        }
+      ],
+      "antwoorden": [
+        {
+          "code": "200",
+          "omschrijving": "De volledige specificatiestructuur op die versie.",
+          "schema": "education-specification"
+        },
+        {
+          "code": "400",
+          "omschrijving": "Een onbekende versie.",
+          "schema": null
+        },
+        {
+          "code": "404",
+          "omschrijving": "Een onbekend id.",
+          "schema": null
+        }
+      ],
+      "foutgedrag": "404 bij een onbekend id, 400 bij een onbekende versie. De delta staat op /onderwijsspecificaties/{id}/delta met van en naar, beide verplicht.",
+      "stand": {
+        "kern": "vastgelegd"
+      }
+    },
+    {
+      "id": "IS-OA-01-O3",
+      "stroom": "IS-OA-01",
+      "soort": "aanroep",
+      "samenvatting": "Het ontwerp aanleveren",
+      "component": "onderwijscatalogus",
+      "aanroeper": "curriculum-ontwerptool",
+      "dienst": "onderwijsspecificatie-inname",
+      "pad": "/onderwijsspecificaties",
+      "methode": "post",
+      "herkomst": "stroom-is-oa-01.md, paragraaf 3.1, rij O3",
+      "verzoek": {
+        "schema": "education-specification",
+        "overlay": [
+          "student-choice-rule"
+        ],
+        "omschrijving": "De levering als samenhangend geheel: leeruitkomsten, onderwijsspecificaties en regelsets als drie arrays in een document. De catalogus neemt haar in haar geheel aan, of houdt haar in haar geheel bij de poort.",
+        "voorbeeld": {
+          "bestand": "stroom-is-oa-01.md",
+          "schema": "education-specification",
+          "nummer": 1
+        }
+      },
+      "antwoorden": [
+        {
+          "code": "202",
+          "omschrijving": "De levering is aangenomen, met haar leveringId. Het oordeel over de inhoud volgt op de melding verwerkingsstatus.",
+          "schema": "intake-outcome",
+          "gat": "Geen voorbeeldpayload bij het 202-antwoord van deze operatie; de specificatie toont de vorm op O4."
+        },
+        {
+          "code": "400",
+          "omschrijving": "De vorm of een verwijzing vraagt herstel; de bevindingen staan in het lichaam. Een aanlevering die bij de poort blijft laat de catalogus in de toestand van ervoor.",
+          "schema": "intake-rejection",
+          "voorbeeld": {
+            "bestand": "stroom-is-oa-01.md",
+            "schema": "intake-rejection",
+            "nummer": 1
+          }
+        },
+        {
+          "code": "409",
+          "omschrijving": "De catalogus draagt de wortel op dezelfde versie al.",
+          "schema": "intake-rejection"
+        }
+      ],
+      "foutgedrag": "202 draagt de levering met haar leveringId, en het oordeel over de inhoud volgt op de melding verwerkingsstatus. 400 draagt de bevindingen zodra de vorm of een verwijzing herstel vraagt, 409 zodra de catalogus de wortel op dezelfde versie al draagt.",
+      "stand": {
+        "kern": "voorstel",
+        "werkbrieven": [
+          "W1",
+          "W16"
+        ]
+      }
+    },
+    {
+      "id": "IS-OA-01-O4",
+      "stroom": "IS-OA-01",
+      "soort": "aanroep",
+      "samenvatting": "De resultaatstructuur aanleveren",
+      "component": "onderwijscatalogus",
+      "aanroeper": "curriculum-ontwerptool",
+      "dienst": "onderwijsspecificatie-inname",
+      "pad": "/examenplanspecificaties",
+      "methode": "post",
+      "herkomst": "stroom-is-oa-01.md, paragraaf 3.1, rij O4",
+      "verzoek": {
+        "schema": "result-structure",
+        "overlay": [
+          "student-choice-rule"
+        ],
+        "omschrijving": "Het examenplan met zijn resultaatstructuur, als eigen levering met een eigen wortel. appliesTo wijst naar een opgenomen opleidingsprogrammaspecificatie, dus gaat de aanlevering van het ontwerp voor.",
+        "voorbeeld": {
+          "bestand": "stroom-is-oa-01.md",
+          "schema": "result-structure",
+          "nummer": 1
+        }
+      },
+      "antwoorden": [
+        {
+          "code": "202",
+          "omschrijving": "De levering is aangenomen, met haar leveringId.",
+          "schema": "intake-outcome",
+          "voorbeeld": {
+            "bestand": "stroom-is-oa-01.md",
+            "schema": "intake-outcome",
+            "nummer": 1
+          }
+        },
+        {
+          "code": "400",
+          "omschrijving": "De vorm of een verwijzing vraagt herstel. Een appliesTo naar een opleidingsprogrammaspecificatie buiten de catalogus geeft code verwijzingOnbekend.",
+          "schema": "intake-rejection"
+        },
+        {
+          "code": "409",
+          "omschrijving": "De catalogus draagt de wortel op dezelfde versie al.",
+          "schema": "intake-rejection"
+        }
+      ],
+      "foutgedrag": "Als de aanlevering van het ontwerp. Een appliesTo naar een opleidingsprogrammaspecificatie buiten de catalogus geeft 400 met code verwijzingOnbekend.",
+      "stand": {
+        "kern": "voorstel",
+        "werkbrieven": [
+          "W1",
+          "W16"
+        ]
+      }
+    },
+    {
+      "id": "IS-OA-01-O5",
+      "stroom": "IS-OA-01",
+      "soort": "aanroep",
+      "samenvatting": "De uitkomst van een levering opvragen",
+      "component": "onderwijscatalogus",
+      "aanroeper": "curriculum-ontwerptool",
+      "dienst": "verwerkingsstatus",
+      "pad": "/leveringen/{leveringId}",
+      "methode": "get",
+      "herkomst": "stroom-is-oa-01.md, paragraaf 3.1, rij O5",
+      "parameters": [
+        {
+          "naam": "leveringId",
+          "plaats": "path",
+          "verplicht": true,
+          "type": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "omschrijving": "Het leveringId dat de catalogus bij de aanname toekende en stabiel houdt over elke uitkomst van die levering."
+        }
+      ],
+      "antwoorden": [
+        {
+          "code": "200",
+          "omschrijving": "De huidige toestand van de levering. De uitkomst blijft opvraagbaar zolang de catalogus de levering bewaart.",
+          "schema": "intake-outcome",
+          "gat": "Geen voorbeeldpayload bij deze operatie; de specificatie toont dezelfde vorm op de melding verwerkingsstatus."
+        },
+        {
+          "code": "404",
+          "omschrijving": "Een onbekend leveringId.",
+          "schema": null
+        }
+      ],
+      "foutgedrag": "200 draagt de huidige toestand van de levering, 404 volgt bij een onbekend leveringId. Notify then pull (U4) legt deze weg vast, zodat een gemiste melding alsnog te halen is.",
+      "stand": {
+        "kern": "voorstel",
+        "kwalificatie": "de bewaartermijn van een afgehandelde levering staat open",
+        "werkbrieven": [
+          "W1",
+          "W17"
+        ]
+      }
+    },
+    {
+      "id": "IS-OA-01-O6",
+      "stroom": "IS-OA-01",
+      "soort": "melding",
+      "samenvatting": "De uitkomst van de inname melden",
+      "melding": "verwerkingsstatus",
+      "melder": "onderwijscatalogus",
+      "ontvanger": "curriculum-ontwerptool",
+      "dienst": "verwerkingsuitkomst-aanbieder",
+      "methode": "post",
+      "herkomst": "stroom-is-oa-01.md, paragraaf 3.1, rij O6",
+      "verzoek": {
+        "schema": "intake-outcome",
+        "omschrijving": "De toestand van de levering: ontvangen, gestart, afgekeurd, gelukt of nietGelukt. Bij gelukt staan de toegekende identiteit en versie in specificationReference, bij een afkeuring staan de bevindingen in findings.",
+        "voorbeeld": {
+          "bestand": "stroom-is-oa-01.md",
+          "schema": "intake-outcome",
+          "nummer": 2
+        },
+        "tweede_voorbeeld": {
+          "bestand": "stroom-is-oa-01.md",
+          "schema": "intake-outcome",
+          "nummer": 3
+        }
+      },
+      "antwoorden": [
+        {
+          "code": "200",
+          "omschrijving": "De ontvanger bevestigt de aflevering.",
+          "zonder_lichaam": "De bevestiging draagt geen lichaam: de specificatie vraagt op deze melding alleen de statuscode.",
+          "schema": null
+        }
+      ],
+      "foutgedrag": "Zonder bevestiging herhaalt de melder met oplopende wachttijd (backoff) en daarna via de wachtrij voor onbestelbare berichten (dead letter channel). Een herhaald bericht heeft geen extra effect: de ontvanger herkent het eventId.",
+      "stand": {
+        "kern": "vastgelegd",
+        "kwalificatie": "de melding en haar schema staan vastgelegd, de sleutels deliveryId en findings erbij staan op voorstel, en het endpoint bij de curriculum ontwerptool staat op voorstel",
+        "werkbrieven": [
+          "W2",
+          "W12",
+          "W14"
+        ]
+      }
+    },
+    {
+      "id": "IS-OA-01-O7",
+      "stroom": "IS-OA-01",
+      "soort": "melding",
+      "samenvatting": "Een statuswijziging melden",
+      "melding": "specificatie-status-gewijzigd",
+      "melder": "onderwijscatalogus",
+      "ontvanger": "curriculum-ontwerptool",
+      "dienst": "onderwijsspecificatiestructuur-aanbieder",
+      "methode": "post",
+      "herkomst": "stroom-is-oa-01.md, paragraaf 3.1, rij O7",
+      "verzoek": {
+        "schema": "specification-status-changed",
+        "omschrijving": "De overgang van vastgesteld naar gepubliceerd op de wortel van de opgenomen structuur. Het publicatiebesluit ligt bij de catalogus (ADR 0020).",
+        "gat": "Geen voorbeeldpayload bij deze melding."
+      },
+      "antwoorden": [
+        {
+          "code": "200",
+          "omschrijving": "De ontvanger bevestigt de aflevering.",
+          "zonder_lichaam": "De bevestiging draagt geen lichaam: de specificatie vraagt op deze melding alleen de statuscode.",
+          "schema": null
+        }
+      ],
+      "foutgedrag": "Als de melding verwerkingsstatus: herhalen met oplopende wachttijd en daarna de wachtrij voor onbestelbare berichten, en herhaalbaar zonder extra effect op het eventId.",
+      "stand": {
+        "kern": "vastgelegd",
+        "kwalificatie": "de melding, haar schema en haar eventwaarde staan vastgelegd, het endpoint bij de curriculum ontwerptool staat op voorstel",
+        "werkbrieven": [
+          "W2",
+          "W12"
+        ]
+      }
+    },
+    {
+      "id": "IS-OA-01-O8",
+      "stroom": "IS-OA-01",
+      "soort": "aanroep",
+      "samenvatting": "Het afleveradres vastleggen",
+      "component": "onderwijscatalogus",
+      "aanroeper": "curriculum-ontwerptool",
+      "tevens_op": "curriculum-ontwerptool",
+      "dienst": "afleverabonnement-aanbieder",
+      "pad": "/abonnementen",
+      "methode": "post",
+      "herkomst": "stroom-is-oa-01.md, paragraaf 3.1, rij O8",
+      "verzoek": {
+        "schema": "subscription",
+        "omschrijving": "Het afleveradres met de meldingssoorten waarop de partij zich abonneert. Dit bericht richt het kanaal in en vervalt zodra de aflevering over een bus of broker loopt (U5).",
+        "gat": "Geen voorbeeldpayload bij deze operatie, in geen van de drie stromen die haar dragen."
+      },
+      "antwoorden": [
+        {
+          "code": "201",
+          "omschrijving": "Het abonnement is vastgelegd, met het toegekende id.",
+          "schema": "subscription",
+          "stand": {
+            "kern": "vastgelegd",
+            "kwalificatie": "de operatietabel noemt geen antwoordlichaam; bericht 4 van IS-OA-03 zegt dat het id in de respons wordt toegekend, en daaruit volgt dit lichaam"
+          }
+        },
+        {
+          "code": "400",
+          "omschrijving": "Een onbruikbaar afleveradres of een onbekende meldingssoort.",
+          "schema": null
+        }
+      ],
+      "foutgedrag": "Herhaalbaar zonder extra effect (idempotent) op afleveradres plus soort melding: een herhaalde registratie overschrijft de vorige.",
+      "stand": {
+        "kern": "vastgelegd",
+        "kwalificatie": "vastgelegd bij de onderwijscatalogus, op voorstel bij de curriculum ontwerptool",
+        "werkbrieven": [
+          "W2"
+        ]
+      }
+    },
+    {
+      "id": "IS-OA-03-O1",
+      "stroom": "IS-OA-03",
+      "soort": "melding",
+      "samenvatting": "Melden dat de specificatie planbaar is (I1)",
+      "melding": "specificatie-planbaar",
+      "melder": "onderwijscatalogus",
+      "ontvanger": "planningssysteem",
+      "methode": "post",
+      "herkomst": "stroom-is-oa-03.md, Operaties, rij O1",
+      "verzoek": {
+        "schema": "specification-reference",
+        "omschrijving": "Dun, conform notify then pull (U4): de referentie naar de specificatie die planbaar is, met de inhoud op opvraag.",
+        "voorbeeld": {
+          "bestand": "stroom-is-oa-03.md",
+          "schema": "specification-reference",
+          "nummer": 1
+        },
+        "voorstel_vorm": {
+          "schema": "offering-request",
+          "omschrijving": "De vorm die werkbrief W1 voorstelt: dezelfde referentie met de planopgave eromheen, zodat het verzoek een eigen identiteit draagt. Twee verzoeken op dezelfde specificatieversie zien er in de vastgelegde vorm gelijk uit.",
+          "voorbeeld": {
+            "bestand": "stroom-is-oa-03.md",
+            "schema": "offering-request",
+            "nummer": 1
+          },
+          "stand": {
+            "kern": "voorstel",
+            "werkbrieven": [
+              "W1"
+            ]
+          }
+        }
+      },
+      "antwoorden": [
+        {
+          "code": "200",
+          "omschrijving": "Het planningssysteem bevestigt de aflevering.",
+          "zonder_lichaam": "De bevestiging draagt geen lichaam: de specificatie vraagt op deze melding alleen de statuscode.",
+          "schema": null
+        }
+      ],
+      "foutgedrag": "Blijft de bevestiging uit, dan opnieuw aanbieden met oplopende wachttijd (backoff) en daarna de wachtrij voor onbestelbare berichten (dead letter channel). Een tweede aflevering van dezelfde specificationId en version wijst hetzelfde verzoek aan.",
+      "stand": {
+        "kern": "vastgelegd",
+        "kwalificatie": "het verzoek tot aanbod eromheen staat op voorstel, en het eventId ook",
+        "werkbrieven": [
+          "W1",
+          "W13"
+        ]
+      }
+    },
+    {
+      "id": "IS-OA-03-O2",
+      "stroom": "IS-OA-03",
+      "soort": "aanroep",
+      "samenvatting": "De volledige structuur ophalen (I2)",
+      "component": "onderwijscatalogus",
+      "aanroeper": "planningssysteem",
+      "pad": "/onderwijsspecificaties/{id}",
+      "methode": "get",
+      "herkomst": "stroom-is-oa-03.md, Operaties, rij O2",
+      "parameters": [
+        {
+          "naam": "id",
+          "plaats": "path",
+          "verplicht": true,
+          "type": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "omschrijving": "De wortel van de specificatiestructuur."
+        },
+        {
+          "naam": "versie",
+          "plaats": "query",
+          "verplicht": false,
+          "type": {
+            "type": "string"
+          },
+          "omschrijving": "De versie die de respons draagt; zonder deze parameter de laatst gepubliceerde."
+        }
+      ],
+      "antwoorden": [
+        {
+          "code": "200",
+          "omschrijving": "De volledige structuur, met het gebruiksprofiel voor deze koppeling: de leeruitkomsten blijven leeg en reizen als sleutel mee (ADR 0026).",
+          "schema": "education-specification",
+          "overlay": [
+            "student-choice-rule"
+          ],
+          "voorbeeld": {
+            "bestand": "stroom-is-oa-03.md",
+            "schema": "education-specification",
+            "nummer": 1
+          }
+        },
+        {
+          "code": "400",
+          "omschrijving": "Een onbruikbare parameterwaarde.",
+          "stand": {
+            "kern": "voorstel",
+            "werkbrieven": [
+              "W15"
+            ]
+          },
+          "schema": null,
+          "gat": "Een eigen foutschema naar het model van bottleneck.json, dat W15 van IS-OA-03 vraagt voor het lichaam bij een foutcode op de opvragingen; de codelijst van intake-finding dekt de gronden van een inname en laat een onbekend id of een onbekende versie erbuiten. Signalering S21 draagt de vraag of die vorm over de opvragingen gaat."
+        },
+        {
+          "code": "404",
+          "omschrijving": "Een onbekend id.",
+          "stand": {
+            "kern": "voorstel",
+            "werkbrieven": [
+              "W15"
+            ]
+          },
+          "schema": null,
+          "gat": "Een eigen foutschema naar het model van bottleneck.json, dat W15 van IS-OA-03 vraagt voor het lichaam bij een foutcode op de opvragingen; de codelijst van intake-finding dekt de gronden van een inname en laat een onbekend id of een onbekende versie erbuiten. Signalering S21 draagt de vraag of die vorm over de opvragingen gaat."
+        }
+      ],
+      "foutgedrag": "HTTP-foutcode, de aanroeper bepaalt het herhalen.",
+      "stand": {
+        "kern": "vastgelegd",
+        "kwalificatie": "het antwoordlichaam bij 400 en 404 staat op voorstel",
+        "werkbrieven": [
+          "W15"
+        ]
+      }
+    },
+    {
+      "id": "IS-OA-03-O3",
+      "stroom": "IS-OA-03",
+      "soort": "aanroep",
+      "samenvatting": "De wijziging ophalen (I2)",
+      "component": "onderwijscatalogus",
+      "aanroeper": "planningssysteem",
+      "pad": "/onderwijsspecificaties/{id}/delta",
+      "methode": "get",
+      "herkomst": "stroom-is-oa-03.md, Operaties, rij O3",
+      "parameters": [
+        {
+          "naam": "id",
+          "plaats": "path",
+          "verplicht": true,
+          "type": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "omschrijving": "De wortel van de specificatiestructuur."
+        },
+        {
+          "naam": "van",
+          "plaats": "query",
+          "verplicht": true,
+          "type": {
+            "type": "string"
+          },
+          "omschrijving": "De versie waarvan de wijziging vertrekt."
+        },
+        {
+          "naam": "naar",
+          "plaats": "query",
+          "verplicht": true,
+          "type": {
+            "type": "string"
+          },
+          "omschrijving": "De versie waarop de wijziging uitkomt."
+        }
+      ],
+      "antwoorden": [
+        {
+          "code": "200",
+          "omschrijving": "De wijziging tussen de twee versies, als JSON Patch (RFC 6902).",
+          "schema": "education-specification-delta",
+          "gat": "Geen voorbeeldpayload bij deze operatie; IS-OA-05 toont dezelfde vorm op haar aanbod-delta."
+        },
+        {
+          "code": "400",
+          "omschrijving": "Een versiebereik dat de catalogus niet kan samenstellen.",
+          "stand": {
+            "kern": "voorstel",
+            "werkbrieven": [
+              "W15"
+            ]
+          },
+          "schema": null,
+          "gat": "Een eigen foutschema naar het model van bottleneck.json, dat W15 van IS-OA-03 vraagt voor het lichaam bij een foutcode op de opvragingen; de codelijst van intake-finding dekt de gronden van een inname en laat een onbekend id of een onbekende versie erbuiten. Signalering S21 draagt de vraag of die vorm over de opvragingen gaat."
+        },
+        {
+          "code": "404",
+          "omschrijving": "Een onbekend id.",
+          "stand": {
+            "kern": "voorstel",
+            "werkbrieven": [
+              "W15"
+            ]
+          },
+          "schema": null,
+          "gat": "Een eigen foutschema naar het model van bottleneck.json, dat W15 van IS-OA-03 vraagt voor het lichaam bij een foutcode op de opvragingen; de codelijst van intake-finding dekt de gronden van een inname en laat een onbekend id of een onbekende versie erbuiten. Signalering S21 draagt de vraag of die vorm over de opvragingen gaat."
+        }
+      ],
+      "foutgedrag": "HTTP-foutcode. Het antwoord volgt JSON Patch (RFC 6902). U11 vraagt de volledige structuur en de wijziging op dezelfde resource.",
+      "stand": {
+        "kern": "vastgelegd",
+        "kwalificatie": "het antwoordlichaam bij 400 en 404 staat op voorstel",
+        "werkbrieven": [
+          "W15"
+        ]
+      }
+    },
+    {
+      "id": "IS-OA-03-O4",
+      "stroom": "IS-OA-03",
+      "soort": "melding",
+      "samenvatting": "De ontvangst en de afkeur terugmelden (I3)",
+      "melding": "verwerkingsstatus",
+      "melder": "planningssysteem",
+      "ontvanger": "onderwijscatalogus",
+      "methode": "post",
+      "herkomst": "stroom-is-oa-03.md, Operaties, rij O4",
+      "verzoek": {
+        "schema": "processing-status",
+        "omschrijving": "De verwerkingsstatus met de waarden ontvangen, gestart of afgekeurd. Bij gelukt draagt programmeOfferingId het opleidingsaanbod, en daarmee de overgang naar IS-OA-04.",
+        "gat": "Geen voorbeeldpayload bij deze melding."
+      },
+      "antwoorden": [
+        {
+          "code": "200",
+          "omschrijving": "De catalogus bevestigt de aflevering.",
+          "zonder_lichaam": "De bevestiging draagt geen lichaam: de specificatie vraagt op deze melding alleen de statuscode.",
+          "schema": null
+        }
+      ],
+      "foutgedrag": "Zoals de melding specificatie-planbaar. Een afgekeurde structuur komt langs deze weg terug, waarbij de opvraag beschikbaar blijft voor een nieuwe poging.",
+      "stand": {
+        "kern": "vastgelegd",
+        "kwalificatie": "het veld voor de validatiefout staat op voorstel",
+        "werkbrieven": [
+          "W8"
+        ]
+      }
+    },
+    {
+      "id": "IS-OA-03-O5",
+      "stroom": "IS-OA-03",
+      "soort": "aanroep",
+      "samenvatting": "Herstellen na een gemiste melding (I7)",
+      "component": "onderwijscatalogus",
+      "aanroeper": "planningssysteem",
+      "pad": "/onderwijsspecificaties",
+      "methode": "get",
+      "herkomst": "stroom-is-oa-03.md, de operatietabel rij O5, met de velden in bericht 5",
+      "parameters": [
+        {
+          "naam": "status",
+          "plaats": "query",
+          "verplicht": false,
+          "type": {
+            "type": "string",
+            "default": "gepubliceerd"
+          },
+          "omschrijving": "De status waarop de lijst filtert; zonder deze parameter geldt gepubliceerd."
+        },
+        {
+          "naam": "gewijzigdSinds",
+          "plaats": "query",
+          "verplicht": false,
+          "type": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "omschrijving": "Een tijdstempel; een opvraag met een tijdstip voor de gemiste melding geeft de betrokken specificatie terug."
+        }
+      ],
+      "antwoorden": [
+        {
+          "code": "200",
+          "omschrijving": "De specificaties met hun laatste versie, elk als referentie.",
+          "lijst_van": "specification-reference",
+          "gat": "Een array zonder omhulling draagt geen vervolgverwijzing en geen totaal, waarmee de paginering uit W14 van IS-OA-03 op een omhullend object uitkomt; signalering S22 van de leeswijzer draagt dat punt.",
+          "stand": {
+            "kern": "vastgelegd",
+            "kwalificatie": "de paginering staat op voorstel",
+            "werkbrieven": [
+              "W14"
+            ]
+          }
+        },
+        {
+          "code": "400",
+          "omschrijving": "Een onbruikbare parameterwaarde.",
+          "schema": null,
+          "gat": "Een eigen foutschema naar het model van bottleneck.json, dat W15 van IS-OA-03 vraagt voor het lichaam bij een foutcode op de opvragingen; signalering S21 draagt de vraag of die vorm over de opvragingen gaat."
+        }
+      ],
+      "foutgedrag": "HTTP-foutcode. Bedoeld voor herstel, waarbij de reguliere stroom meldinggedreven blijft.",
+      "stand": {
+        "kern": "vastgelegd",
+        "kwalificatie": "de paginering staat op voorstel",
+        "werkbrieven": [
+          "W14"
+        ]
+      }
+    },
+    {
+      "id": "IS-OA-03-O6",
+      "stroom": "IS-OA-03",
+      "soort": "aanroep",
+      "samenvatting": "Het afleveradres vastleggen (I8)",
+      "component": "onderwijscatalogus",
+      "aanroeper": "planningssysteem",
+      "pad": "/abonnementen",
+      "methode": "post",
+      "herkomst": "stroom-is-oa-03.md, Operaties, rij O6",
+      "verzoek": {
+        "schema": "subscription",
+        "omschrijving": "Het afleveradres met de meldingssoorten waarop het planningssysteem zich abonneert."
+      },
+      "antwoorden": [
+        {
+          "code": "201",
+          "omschrijving": "Het abonnement is vastgelegd, met het toegekende id.",
+          "schema": "subscription"
+        },
+        {
+          "code": "400",
+          "omschrijving": "Een onbruikbaar afleveradres of een onbekende meldingssoort.",
+          "schema": null
+        }
+      ],
+      "foutgedrag": "HTTP-foutcode. Herhaalbaar zonder extra effect (idempotent) op callbackUrl plus event-type: herregistratie overschrijft de vorige.",
+      "stand": {
+        "kern": "vastgelegd"
+      }
+    },
+    {
+      "id": "IS-OA-05-O1",
+      "stroom": "IS-OA-05",
+      "soort": "melding",
+      "samenvatting": "Melden dat een aanbod aanmeldbaar is",
+      "melding": "aanbod-aanmeldbaar",
+      "melder": "onderwijscatalogus",
+      "ontvanger": "kernregistratie",
+      "methode": "post",
+      "herkomst": "stroom-is-oa-05.md, De operaties, rij O1",
+      "verzoek": {
+        "schema": "offering-status-changed",
+        "omschrijving": "Dun, conform notify then pull (U4): de statusovergang van een aanbodinstantie met een verwijzing. Een intrekking rijdt mee op de statuswaarde geannuleerd.",
+        "voorbeeld": {
+          "bestand": "stroom-is-oa-05.md",
+          "schema": "offering-status-changed",
+          "nummer": 1
+        }
+      },
+      "antwoorden": [
+        {
+          "code": "200",
+          "omschrijving": "De kernregistratie bevestigt de aflevering.",
+          "zonder_lichaam": "De bevestiging draagt geen lichaam: de specificatie vraagt op deze melding alleen de statuscode.",
+          "schema": null
+        }
+      ],
+      "foutgedrag": "Zonder 200 volgt herhaling met uitstel (backoff) en daarna de wachtrij voor onbestelbare berichten (dead letter channel). Herhaalde aflevering blijft zonder effect op het eventId.",
+      "stand": {
+        "kern": "voorstel",
+        "kwalificatie": "IS-OA-06 draagt dezelfde melding op hetzelfde moment en hetzelfde schema onder de naam aanmeldbaar-aanbod-beschikbaar; de keuze tussen de twee namen staat open",
+        "werkbrieven": [
+          "W1",
+          "W5",
+          "W6"
+        ]
+      }
+    },
+    {
+      "id": "IS-OA-05-O2",
+      "stroom": "IS-OA-05",
+      "soort": "aanroep",
+      "samenvatting": "Een aanmeldbaar aanbod ophalen",
+      "component": "onderwijscatalogus",
+      "aanroeper": "kernregistratie",
+      "pad": "/aanmeldbaar-aanbod/{id}",
+      "methode": "get",
+      "herkomst": "stroom-is-oa-05.md, De operaties, rij O2",
+      "parameters": [
+        {
+          "naam": "id",
+          "plaats": "path",
+          "verplicht": true,
+          "type": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "omschrijving": "Het Opleidingsprogramma aanbod."
+        },
+        {
+          "naam": "versie",
+          "plaats": "query",
+          "verplicht": false,
+          "type": {
+            "type": "string"
+          },
+          "omschrijving": "De versie die de respons draagt; zonder deze parameter de laatst gepubliceerde."
+        }
+      ],
+      "antwoorden": [
+        {
+          "code": "200",
+          "omschrijving": "De aanmeldbare snede, met de instanties in offeringInstances naast locations en organisationUnits.",
+          "schema": "offering-open-for-application",
+          "voorbeeld": {
+            "bestand": "stroom-is-oa-05.md",
+            "schema": "offering-open-for-application",
+            "nummer": 1
+          }
+        },
+        {
+          "code": "400",
+          "omschrijving": "Een onbruikbare parameterwaarde.",
+          "schema": null
+        },
+        {
+          "code": "404",
+          "omschrijving": "Een onbekend aanbod-id of een onbekende versie.",
+          "schema": null
+        }
+      ],
+      "foutgedrag": "404 bij een onbekend aanbod-id of een onbekende versie. Alleen-lezen, dus herhalen geeft hetzelfde antwoord.",
+      "stand": {
+        "kern": "voorstel",
+        "werkbrieven": [
+          "W2",
+          "W3"
+        ]
+      }
+    },
+    {
+      "id": "IS-OA-05-O3",
+      "stroom": "IS-OA-05",
+      "soort": "aanroep",
+      "samenvatting": "De wijziging op een aanmeldbaar aanbod ophalen",
+      "component": "onderwijscatalogus",
+      "aanroeper": "kernregistratie",
+      "pad": "/aanmeldbaar-aanbod/{id}/delta",
+      "methode": "get",
+      "herkomst": "stroom-is-oa-05.md, De operaties, rij O3",
+      "parameters": [
+        {
+          "naam": "id",
+          "plaats": "path",
+          "verplicht": true,
+          "type": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "omschrijving": "Het Opleidingsprogramma aanbod."
+        },
+        {
+          "naam": "van",
+          "plaats": "query",
+          "verplicht": true,
+          "type": {
+            "type": "string"
+          },
+          "omschrijving": "De versie waarvan de wijziging vertrekt; de kernregistratie kent de versie waarop zij staat."
+        },
+        {
+          "naam": "naar",
+          "plaats": "query",
+          "verplicht": true,
+          "type": {
+            "type": "string"
+          },
+          "omschrijving": "De versie waarop de wijziging uitkomt."
+        }
+      ],
+      "antwoorden": [
+        {
+          "code": "200",
+          "omschrijving": "De wijziging tussen de twee versies, als JSON Patch (RFC 6902).",
+          "schema": "education-offering-delta",
+          "voorbeeld": {
+            "bestand": "stroom-is-oa-05.md",
+            "schema": "education-offering-delta",
+            "nummer": 1
+          }
+        },
+        {
+          "code": "400",
+          "omschrijving": "Een versiebereik dat de catalogus niet kan samenstellen.",
+          "schema": null
+        },
+        {
+          "code": "404",
+          "omschrijving": "Een onbekend aanbod-id.",
+          "schema": null
+        }
+      ],
+      "foutgedrag": "400 bij een versiebereik dat de catalogus niet kan samenstellen, 404 bij een onbekend aanbod-id.",
+      "stand": {
+        "kern": "voorstel",
+        "werkbrieven": [
+          "W7"
+        ]
+      }
+    },
+    {
+      "id": "IS-OA-05-O4",
+      "stroom": "IS-OA-05",
+      "soort": "melding",
+      "samenvatting": "De inrichtingsstatus terugmelden",
+      "melding": "inrichtingsstatus",
+      "melder": "kernregistratie",
+      "ontvanger": "onderwijscatalogus",
+      "methode": "post",
+      "herkomst": "stroom-is-oa-05.md, De operaties, rij O4",
+      "verzoek": {
+        "schema": "arrangement-status",
+        "omschrijving": "De uitkomst van het inrichten: bij ingericht en verwerkt staat arrangementReference gevuld, bij afgekeurd, nietIngericht en nietVerwerkt staat reason gevuld.",
+        "voorbeeld": {
+          "bestand": "stroom-is-oa-05.md",
+          "schema": "arrangement-status",
+          "nummer": 1
+        },
+        "tweede_voorbeeld": {
+          "bestand": "stroom-is-oa-05.md",
+          "schema": "arrangement-status",
+          "nummer": 2
+        }
+      },
+      "antwoorden": [
+        {
+          "code": "200",
+          "omschrijving": "De catalogus bevestigt de aflevering.",
+          "zonder_lichaam": "De bevestiging draagt geen lichaam: de specificatie vraagt op deze melding alleen de statuscode.",
+          "schema": null
+        }
+      ],
+      "foutgedrag": "Zonder 200 volgt herhaling met uitstel en daarna de wachtrij voor onbestelbare berichten. Herhaalde aflevering blijft zonder effect op het eventId.",
+      "stand": {
+        "kern": "vastgelegd",
+        "kwalificatie": "vastgelegd als meldpatroon, het payloadschema staat op voorstel",
+        "werkbrieven": [
+          "W4",
+          "W6"
+        ]
+      }
+    },
+    {
+      "id": "IS-OA-05-O5",
+      "stroom": "IS-OA-05",
+      "soort": "aanroep",
+      "samenvatting": "Het afleveradres vastleggen",
+      "component": "onderwijscatalogus",
+      "aanroeper": "kernregistratie",
+      "pad": "/abonnementen",
+      "methode": "post",
+      "herkomst": "stroom-is-oa-05.md, De operaties, rij O5",
+      "verzoek": {
+        "schema": "subscription",
+        "omschrijving": "Het afleveradres met de meldingssoorten waarop de kernregistratie zich abonneert."
+      },
+      "antwoorden": [
+        {
+          "code": "201",
+          "omschrijving": "Het abonnement is vastgelegd, met het toegekende id.",
+          "schema": "subscription"
+        },
+        {
+          "code": "400",
+          "omschrijving": "Een onbruikbaar afleveradres of een onbekende meldingssoort.",
+          "schema": null
+        }
+      ],
+      "foutgedrag": "HTTP-foutcodes. Herregistratie overschrijft op de combinatie afleveradres plus meldingssoort.",
+      "stand": {
+        "kern": "vastgelegd",
+        "kwalificatie": "vastgelegd als pad, de meldingssoorten aanbod-aanmeldbaar en inrichtingsstatus staan op voorstel",
+        "werkbrieven": [
+          "W5"
+        ]
+      }
+    },
+    {
+      "id": "IS-OA-05-O6",
+      "stroom": "IS-OA-05",
+      "soort": "aanroep",
+      "samenvatting": "Het aanmeldbare aanbod opsommen",
+      "component": "onderwijscatalogus",
+      "aanroeper": "kernregistratie",
+      "pad": "/aanmeldbaar-aanbod",
+      "methode": "get",
+      "herkomst": "stroom-is-oa-05.md, De operaties, rij O6",
+      "parameters": [
+        {
+          "naam": "cohort",
+          "plaats": "query",
+          "verplicht": false,
+          "type": {
+            "type": "string"
+          },
+          "omschrijving": "Het cohort waarop de lijst filtert."
+        },
+        {
+          "naam": "status",
+          "plaats": "query",
+          "verplicht": false,
+          "type": {
+            "type": "string",
+            "default": "aanmeldbaar"
+          },
+          "omschrijving": "De status waarop de lijst filtert; zonder deze parameter geldt aanmeldbaar."
+        },
+        {
+          "naam": "gewijzigdSinds",
+          "plaats": "query",
+          "verplicht": false,
+          "type": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "omschrijving": "Een tijdstempel; bedoeld voor herstel na een gemist bericht."
+        }
+      ],
+      "antwoorden": [
+        {
+          "code": "200",
+          "omschrijving": "De aanmeldbare instanties met hun laatste versie, elk als referentie.",
+          "lijst_van": "offering-reference",
+          "gat": "De specificatie noemt de referentie per aanbod en geen schema voor de lijst eromheen; de array is hier afgeleid uit de zin die de respons beschrijft.",
+          "stand": {
+            "kern": "voorstel",
+            "werkbrieven": [
+              "W8"
+            ]
+          }
+        },
+        {
+          "code": "400",
+          "omschrijving": "Een onbekende parameterwaarde.",
+          "schema": null
+        }
+      ],
+      "foutgedrag": "400 bij een onbekende parameterwaarde. Alleen-lezen.",
+      "stand": {
+        "kern": "voorstel",
+        "werkbrieven": [
+          "W3",
+          "W8"
+        ]
+      }
+    }
+  ]
+}

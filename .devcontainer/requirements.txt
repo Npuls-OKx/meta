@@ -7,3 +7,7 @@ Pillow>=10.0
 # Validatie van de voorbeeld-payloads tegen hun JSON Schema (scripts/json-tree.py).
 # Ontbreekt het pakket, dan slaat het script alleen de validatiestap over.
 jsonschema>=4.0
+
+# Keuring van de gegenereerde OpenAPI-documenten (scripts/genereer-oas.py).
+# Ontbreekt het pakket, dan meldt het script dat het document ongetoetst bleef.
+openapi-spec-validator>=0.7
