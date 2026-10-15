@@ -172,6 +172,58 @@ class DePlaatPerInteractie(unittest.TestCase):
         self.assertIn("(+2)", svg)
 
 
+class HetContractPerDienst(unittest.TestCase):
+    """Criterium 18 en 19 van #372: het contract staat per dienst, de operatienummers blijven."""
+
+    def doc(self, inhoud):
+        map_ = Path(tempfile.mkdtemp())
+        (map_ / "is-oa-01.md").write_text(inhoud, encoding="utf-8")
+        return map_
+
+    def rijen(self):
+        return dm.claims(keten([
+            ("Catalogus", "onderwijsspecificatiestructuur-aanbieder", "/x", "Vastgelegd"),
+            ("Planning", "onderwijsspecificatiestructuur-afnemer", "/x", "Vastgelegd")]))
+
+    def test_given_een_document_zonder_de_kop_when_toetsen_then_nog_niet_omgezet(self):
+        klaar, meldingen = dm.contract_per_dienst(
+            self.doc("### 3.1 Het contract per operatie\n\n| O1 | x |\n\n### 3.2 Verder\n"),
+            self.rijen(), "IS-OA-01")
+        self.assertFalse(klaar)
+        self.assertEqual(meldingen, [])
+
+    def test_given_een_omgezet_document_when_toetsen_then_geen_melding(self):
+        klaar, meldingen = dm.contract_per_dienst(self.doc(
+            "### 3.1 Het contract per dienst\n\n"
+            "#### onderwijsspecificatiestructuur-aanbieder, bij de catalogus\n\n| O1 | x |\n\n"
+            "#### onderwijsspecificatiestructuur-afnemer, bij planning\n\n| O1 | x |\n\n"
+            "### 3.2 Verder\n"), self.rijen(), "IS-OA-01")
+        self.assertTrue(klaar)
+        self.assertEqual(meldingen, [])
+
+    def test_given_een_dienst_zonder_kop_when_toetsen_then_een_melding(self):
+        _, meldingen = dm.contract_per_dienst(self.doc(
+            "### 3.1 Het contract per dienst\n\n"
+            "#### onderwijsspecificatiestructuur-aanbieder, bij de catalogus\n\n| O1 | x |\n\n"
+            "### 3.2 Verder\n"), self.rijen(), "IS-OA-01")
+        self.assertIn("draagt geen kop voor de dienst 'onderwijsspecificatiestructuur-afnemer'",
+                      " | ".join(meldingen))
+
+    def test_given_een_operatie_buiten_31_when_toetsen_then_een_melding(self):
+        """Criterium 19: het sequentiediagram ankert op de O-nummers, dus die mogen niet wegvallen."""
+        _, meldingen = dm.contract_per_dienst(self.doc(
+            "### 3.1 Het contract per dienst\n\n"
+            "#### onderwijsspecificatiestructuur-aanbieder, bij de catalogus\n\n| O1 | x |\n\n"
+            "#### onderwijsspecificatiestructuur-afnemer, bij planning\n\n| O1 | x |\n\n"
+            "### 3.3 Foutgedrag\n\n| O2 | 200 |\n"), self.rijen(), "IS-OA-01")
+        self.assertIn("operatie O2 staat niet in hoofdstuk 3.1", " | ".join(meldingen))
+
+    def test_given_een_document_dat_ontbreekt_when_toetsen_then_een_melding(self):
+        klaar, meldingen = dm.contract_per_dienst(Path(tempfile.mkdtemp()), self.rijen(), "IS-OA-01")
+        self.assertFalse(klaar)
+        self.assertIn("ontbreekt", " | ".join(meldingen))
+
+
 class Exitcode(unittest.TestCase):
 
     def draai(self, argv):
@@ -217,6 +269,11 @@ class InDezeRepository(unittest.TestCase):
         svg, _ = dm.teken_interactie(dm.claims(KETEN), "IS-OA-01")
         self.assertIn(">onderwijsspecificatie-inname-aanbieder<", svg)
         self.assertIn(">onderwijsspecificatie-inname-afnemer<", svg)
+
+    def test_given_is_oa_01_in_deze_repository_when_toetsen_then_staat_het_contract_per_dienst(self):
+        klaar, meldingen = dm.contract_per_dienst(KETEN.parent, dm.claims(KETEN), "IS-OA-01")
+        self.assertTrue(klaar, "IS-OA-01 draagt hoofdstuk 3.1 niet per dienst")
+        self.assertEqual(meldingen, [])
 
     def test_given_de_keten_when_lezen_then_claimt_zij_diensten_op_zes_componenten(self):
         rijen = dm.claims(KETEN)

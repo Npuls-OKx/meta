@@ -170,6 +170,40 @@ def bevindingen_van(rijen, bekend):
     return uit
 
 
+def contract_per_dienst(map_, rijen, aanduiding):
+    """Of hoofdstuk 3.1 van een interactiespecificatie per dienst is ingedeeld.
+
+    Criterium 18 van #372 zegt dat het contract per dienst staat, criterium 19 dat de
+    operatienummers blijven. Deze toets leest beide terug: elke dienst die de keten voor deze
+    interactie claimt draagt een eigen kop in 3.1, en elke operatie uit de tabellen komt daar
+    terug. Levert een lijst meldingen op, en een vlag of het document al is omgezet.
+    """
+    pad = map_ / f"{aanduiding.lower()}.md"
+    if not pad.is_file():
+        return False, [f"{aanduiding}: {pad.name} ontbreekt"]
+    tekst = pad.read_text(encoding="utf-8")
+    if "### 3.1 Het contract per dienst" not in tekst:
+        return False, []
+    begin = tekst.index("### 3.1 Het contract per dienst")
+    eind = tekst.index("\n### ", begin + 10)
+    blok = tekst[begin:eind]
+    koppen = {k.split(",")[0].strip() for k in re.findall(r"^#### (.+)$", blok, re.M)}
+    verwacht = {r["dienst"] for r in rijen if aanduiding in r.get("eenheid_vol", "")}
+    meldingen = []
+    for dienst in sorted(verwacht - koppen):
+        meldingen.append(f"{aanduiding}: hoofdstuk 3.1 draagt geen kop voor de dienst {dienst!r}, "
+                         f"terwijl de keten hem hier claimt")
+    for kop in sorted(koppen - verwacht):
+        meldingen.append(f"{aanduiding}: hoofdstuk 3.1 draagt een kop voor {kop!r}, "
+                         f"terwijl de keten die dienst hier niet claimt")
+    # Criterium 19: elke operatie uit het document komt terug in 3.1.
+    alle = set(re.findall(r"^\| (O\d+) \|", tekst, re.M))
+    in_31 = set(re.findall(r"^\| (O\d+) \|", blok, re.M))
+    for nr in sorted(alle - in_31, key=lambda n: int(n[1:])):
+        meldingen.append(f"{aanduiding}: operatie {nr} staat niet in hoofdstuk 3.1")
+    return True, meldingen
+
+
 def tekst_svg(x, y, s, grootte=12, kleur=INK, vet=False, anker="start"):
     gewicht = ' font-weight="600"' if vet else ""
     return (f'<text x="{x:.0f}" y="{y:.0f}" font-family="{FONT}" font-size="{grootte}" '
@@ -386,7 +420,12 @@ def main(argv=None):
     if args.per_interactie:
         aanduidingen = sorted({a for r in rijen
                                for a in re.findall(r"IS-OA-\d+", r.get("eenheid_vol", ""))})
+        omgezet = []
         for aanduiding in aanduidingen:
+            klaar, contractmeldingen = contract_per_dienst(uit.parent.parent, rijen, aanduiding)
+            if klaar:
+                omgezet.append(aanduiding)
+                bevindingen += contractmeldingen
             svg, meldingen = teken_interactie(rijen, aanduiding)
             bevindingen += meldingen
             if svg:
@@ -397,10 +436,15 @@ def main(argv=None):
     if not args.kort:
         onderwerpen = {r["onderwerp"] for r in rijen}
         print(str(uit).replace(str(WORTEL) + "/", ""))
-        print(f"  {len(rijen)} claims over {len(onderwerpen)} diensten en "
+        print(f"  {len(rijen)} claims over {len({r['dienst'] for r in rijen})} diensten "
+              f"({len(onderwerpen)} onderwerpen) en "
               f"{len({r['component'] for r in rijen})} componenten")
-        print(f"  de dienstenlijst van Public kent er {len(bekend)}; "
-              f"{len(onderwerpen - bekend)} daarvan stelt deze keten voor")
+        print(f"  de dienstenlijst van Public kent {len(bekend) * 2} diensten; "
+              f"{len(onderwerpen - bekend) * 2} stelt deze keten voor")
+    if args.per_interactie and not args.kort:
+        print(f"  hoofdstuk 3.1 per dienst: {len(omgezet)} van {len(aanduidingen)} omgezet"
+              + (f", nog te doen {', '.join(a for a in aanduidingen if a not in omgezet)}"
+                 if len(omgezet) < len(aanduidingen) else ""))
     for v in voorstellen_van(rijen, bekend):
         print(f"  voorstel: de dienst {v!r} staat nog niet in de dienstenlijst van Public")
     for b in bevindingen:
