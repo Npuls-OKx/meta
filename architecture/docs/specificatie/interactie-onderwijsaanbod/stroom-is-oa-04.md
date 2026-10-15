@@ -2,6 +2,8 @@
 
 Deze eenheid levert het geplande onderwijsaanbod in zijn lagen aan de onderwijscatalogus, met per laag een verwijzing naar de specificatie waarvan het is gemaakt.
 
+De uuid's, de versies en de namen in de voorbeeldpayload hieronder komen uit [casus.md](casus.md), de vaste identificaties van deze interactiespecificatie. De specificatie waarnaar `specificationReference` wijst is dezelfde als die waarop [IS-OA-03](stroom-is-oa-03.md) het verzoek aanbiedt, op dezelfde uuid en dezelfde versie.
+
 | | |
 |---|---|
 | Bronsysteem | Planningssysteem (bezitter van het onderwijsaanbod, [U3](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u3-resource-eigenaarschap)) |
@@ -108,14 +110,14 @@ Schema: [subscription.json](https://github.com/Npuls-OKx/Public/blob/dev/Informa
 
 ## De voorbeeldpayload
 
-Apothekersassistent, crebo 23450, cohort 2026, met de instanties uit F2-07. De uuid's en de versies in `specificationReference` komen uit de [voorbeeld onderwijsspecificatie](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/voorbeeldpayloads.md#voorbeeld-onderwijsspecificatie) en zijn dezelfde als die waarop [IS-OA-03](stroom-is-oa-03.md) het verzoek aanbiedt, zodat de keten van verzoek naar aanbod op dezelfde sleutel loopt. De keuzedeelspecificatie K0037 draagt een eigen uuid, omdat dat voorbeeld haar nog niet kent.
+Apothekersassistent, crebo 23450, cohort 2026, met de instanties uit F2-07. De uuid's en de versies staan in [casus.md](casus.md) en volgen daar het [voorbeeld onderwijsaanbod](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/voorbeeldpayloads.md#voorbeeld-onderwijsaanbod) en de [voorbeeld onderwijsspecificatie](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/voorbeeldpayloads.md#voorbeeld-onderwijsspecificatie) in Public, zodat de keten van verzoek naar aanbod op dezelfde sleutel loopt en [IS-OA-05](stroom-is-oa-05.md) hetzelfde aanbod verder ontsluit. De keuzedeelspecificatie K0037 en de instelling dragen een uuid van deze snede, omdat dat voorbeeld hen nog niet kent.
 
 De melding die de catalogus ophaalt:
 
 ```json
 {
   "status": "gelukt",
-  "programmeOfferingId": "ee04f3c1-a43c-486a-a8bc-ab995fe4c640",
+  "programmeOfferingId": "7aa6609f-1d1b-471a-a0f8-beae490d31b5",
   "specificationReference": {
     "specificationId": "79736830-1c5c-470f-b2c2-005029c96733",
     "version": "0.1.0"
@@ -129,7 +131,7 @@ Het aanbod dat `GET /onderwijsaanbod/{id}` daarna teruggeeft:
 {
   "offeringInstances": [
     {
-      "id": "ee04f3c1-a43c-486a-a8bc-ab995fe4c640",
+      "id": "7aa6609f-1d1b-471a-a0f8-beae490d31b5",
       "offeringType": "opleidingsaanbod",
       "version": "0.1.0",
       "parentOfferingId": null,
@@ -140,13 +142,13 @@ Het aanbod dat `GET /onderwijsaanbod/{id}` daarna teruggeeft:
       "cohort": "2026",
       "period": { "start": "2026-09-01", "end": "2029-07-15" },
       "maxStudentCount": 48,
-      "executingTeamId": "83633eab-32da-4775-a976-556b8d9319d6"
+      "executingTeamId": "d9561371-5ece-482d-a675-a076e63f980f"
     },
     {
-      "id": "40f79ead-eb9a-4fbc-b82a-281f2f2fe308",
+      "id": "8c494250-b67a-4666-a762-6f9ec1e70aff",
       "offeringType": "opleidingsprogramma-aanbod",
       "version": "0.1.0",
-      "parentOfferingId": "ee04f3c1-a43c-486a-a8bc-ab995fe4c640",
+      "parentOfferingId": "7aa6609f-1d1b-471a-a0f8-beae490d31b5",
       "specificationReference": { "specificationId": "7ae25c1e-ee27-43a2-a001-761ee39ea5c7", "version": "0.1.0" },
       "name": "Regulier BOL 2026",
       "status": "gepland",
@@ -154,33 +156,33 @@ Het aanbod dat `GET /onderwijsaanbod/{id}` daarna teruggeeft:
       "period": { "start": "2026-09-01", "end": "2029-07-15" },
       "minStudentCount": 24,
       "maxStudentCount": 48,
-      "executingTeamId": "83633eab-32da-4775-a976-556b8d9319d6"
+      "executingTeamId": "d9561371-5ece-482d-a675-a076e63f980f"
     },
     {
-      "id": "5e7afba1-ad00-469e-9508-2c82c707d6d0",
+      "id": "04af26e6-96be-480a-8413-87a128164681",
       "offeringType": "onderwijseenheid-aanbod",
       "version": "0.1.0",
-      "parentOfferingId": "40f79ead-eb9a-4fbc-b82a-281f2f2fe308",
+      "parentOfferingId": "8c494250-b67a-4666-a762-6f9ec1e70aff",
       "specificationReference": { "specificationId": "402c2342-d897-4df4-a667-7fc5bd930944", "version": "0.1.0" },
       "name": "B1-K1, leerjaar 1, periode 1 tot 4",
       "status": "gepland",
       "period": { "start": "2026-09-01", "end": "2027-07-15" },
-      "locationId": "aca23849-a0fa-461c-a5d5-fcf526b43947"
+      "locationId": "59807057-a6f1-473b-9084-114644557a68"
     },
     {
-      "id": "93e27e86-29a3-4c65-b716-0294560bfad6",
+      "id": "04070a96-01e0-4958-9f7e-69b429c72eec",
       "offeringType": "leergelegenheid",
       "version": "0.1.0",
-      "parentOfferingId": "5e7afba1-ad00-469e-9508-2c82c707d6d0",
+      "parentOfferingId": "04af26e6-96be-480a-8413-87a128164681",
       "specificationReference": { "specificationId": "327c8263-3516-4b5a-8d57-c16241ec008d", "version": "0.1.0" },
       "name": "Baliegesprekken 101, periode 1",
       "status": "gepland",
       "period": { "start": "2026-09-01", "end": "2026-11-13" },
-      "locationId": "0204ef82-54a9-4cdc-a075-53d55ab70a22",
-      "executingTeamId": "83633eab-32da-4775-a976-556b8d9319d6",
+      "locationId": "cfe4ae31-d8d1-40f8-9d62-eda917fefbd3",
+      "executingTeamId": "d9561371-5ece-482d-a675-a076e63f980f",
       "groups": [
-        { "id": "3b424d23-e2d5-4b51-847d-2c18dd878b1a", "name": "APO26-1A", "capacity": 24 },
-        { "id": "97507c2a-1c51-4b78-9865-cb5fffc64026", "name": "APO26-1B", "capacity": 24 }
+        { "id": "13cc9125-6f0d-4faf-b483-9f0e4102790e", "name": "APO26-1A", "capacity": 24 },
+        { "id": "93937bfe-4e4a-4f6a-9d5b-2754613aa2df", "name": "APO26-1B", "capacity": 24 }
       ]
     },
     {
@@ -192,7 +194,7 @@ Het aanbod dat `GET /onderwijsaanbod/{id}` daarna teruggeeft:
       "name": "K0037 Farmaceutische Patientenzorg, periode 7",
       "status": "gepland",
       "period": { "start": "2028-02-07", "end": "2028-04-14" },
-      "executingTeamId": "83633eab-32da-4775-a976-556b8d9319d6",
+      "executingTeamId": "d9561371-5ece-482d-a675-a076e63f980f",
       "groups": [
         { "id": "55169145-f993-4bfe-8b89-888807820d8d", "name": "KD-K0037-28-P7", "capacity": 24 }
       ]
@@ -200,17 +202,17 @@ Het aanbod dat `GET /onderwijsaanbod/{id}` daarna teruggeeft:
   ],
   "locations": [
     {
-      "id": "aca23849-a0fa-461c-a5d5-fcf526b43947",
+      "id": "59807057-a6f1-473b-9084-114644557a68",
       "locationType": "vestiging",
       "name": "Hoofdlocatie Utrecht",
       "partOfLocationId": null,
       "codes": [ { "codeType": "vestigingscode", "code": "UTR-01" } ]
     },
     {
-      "id": "0204ef82-54a9-4cdc-a075-53d55ab70a22",
+      "id": "cfe4ae31-d8d1-40f8-9d62-eda917fefbd3",
       "locationType": "ruimte",
       "name": "Praktijklokaal farmacie 2.14",
-      "partOfLocationId": "aca23849-a0fa-461c-a5d5-fcf526b43947",
+      "partOfLocationId": "59807057-a6f1-473b-9084-114644557a68",
       "floor": "2",
       "wing": "B"
     }
@@ -223,7 +225,7 @@ Het aanbod dat `GET /onderwijsaanbod/{id}` daarna teruggeeft:
       "parentUnitId": null
     },
     {
-      "id": "83633eab-32da-4775-a976-556b8d9319d6",
+      "id": "d9561371-5ece-482d-a675-a076e63f980f",
       "unitType": "onderwijsteam",
       "name": "Onderwijsteam Farmacie",
       "parentUnitId": "6132ece6-d75e-4e80-81ce-91ab7448794d"

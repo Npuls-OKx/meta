@@ -2,6 +2,8 @@
 
 Deze eenheid levert het planningssysteem de planbare specificatiestructuur van een opleiding met haar planbare waarden, als verzoek om daarvan onderwijsaanbod te maken.
 
+De uuid's, de versies en de namen in de voorbeeldpayloads hieronder komen uit [casus.md](casus.md), de vaste identificaties van deze interactiespecificatie. De specificatie die deze eenheid planbaar meldt is dezelfde als die waarop [IS-OA-04](stroom-is-oa-04.md) het aanbod terugmeldt, op dezelfde uuid en dezelfde versie.
+
 ## De eenheid
 
 | | |
@@ -66,7 +68,7 @@ Authenticatie op elk endpoint volgt de [auth-standaard](https://github.com/Npuls
 | O3 | De wijziging ophalen (I2) | `/onderwijsspecificaties/{id}/delta`, op de onderwijscatalogus | GET | `van` en `naar`, beide een versie en beide verplicht | 200, 400, 404 | HTTP-foutcode. Het antwoord volgt JSON Patch (RFC 6902) |
 | O4 | De ontvangst en de afkeur terugmelden (I3) | `verwerkingsstatus`, meldpatroon op de onderwijscatalogus | POST | de lading is de [verwerkingsstatus](#bericht-3-verwerkingsstatus) met status `ontvangen`, `gestart` of `afgekeurd` | 200 | Zoals O1. Een afgekeurde structuur komt langs deze weg terug, waarbij O2 beschikbaar blijft voor een nieuwe poging |
 | O5 | Herstellen na een gemiste melding (I7) | `/onderwijsspecificaties`, op de onderwijscatalogus | GET | `status`, optioneel, standaard `gepubliceerd`. `gewijzigdSinds`, optioneel, een tijdstempel | 200, 400 | HTTP-foutcode. Bedoeld voor herstel, waarbij de reguliere stroom meldinggedreven blijft |
-| O6 | Het afleveradres vastleggen (I8) | `/abonnementen`, op het planningssysteem | POST | de lading is het [abonnement](#bericht-4-abonnement) | 201, 400 | HTTP-foutcode. Herhaalbaar zonder extra effect (idempotent) op `callbackUrl` plus event-type: herregistratie overschrijft de vorige |
+| O6 | Het afleveradres vastleggen (I8) | `/abonnementen`, op de onderwijscatalogus, die de abonnementen op haar eigen meldingen aanneemt | POST | de lading is het [abonnement](#bericht-4-abonnement) | 201, 400 | HTTP-foutcode. Herhaalbaar zonder extra effect (idempotent) op `callbackUrl` plus event-type: herregistratie overschrijft de vorige |
 
 Werkbrief W8 belegt het veld voor de validatiefout bij `afgekeurd` in processing-status.json.
 
@@ -172,7 +174,7 @@ Casus Apothekersassistent, kwalificatiedossier crebo 23450, met de instantiewaar
 }
 ```
 
-Het antwoord van O2, met de opleiding, de programmalaag leerweg en de programmalaag doelgroep, de eenheid Blok B1-K1 met haar leeronderdelen, en de keuzedeelruimte uit F1-07 met de regelset waarnaar zij verwijst. De identificaties en versies komen uit de [voorbeeldpayloads](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/voorbeeldpayloads.md) in Public, zodat elke uuid naar hetzelfde object wijst en IS-OA-04 op dezelfde waarden terugmeldt.
+Het antwoord van O2, met de opleiding, de programmalaag leerweg en de programmalaag doelgroep, de eenheid Blok B1-K1 met haar leeronderdelen, en de keuzedeelruimte uit F1-07 met de regelset waarnaar zij verwijst. De identificaties en versies staan in [casus.md](casus.md) en volgen daar de [voorbeeldpayloads](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/voorbeeldpayloads.md) in Public, zodat elke uuid naar hetzelfde object wijst en IS-OA-04 op dezelfde waarden terugmeldt.
 
 ```json
 {
@@ -292,20 +294,21 @@ Het antwoord van O2, met de opleiding, de programmalaag leerweg en de programmal
         },
         {
           "type": "kiesbaar",
-          "electiveUnit": "ecf4a1ce-8fe4-4ed2-82d4-6c743862094e",
+          "electiveUnit": "beaaaf4c-b267-41f7-9b8d-ac9a19a7dfe1",
           "precondition": [
-            { "requiredLearningOutcomeId": "0d83e73a-e0d8-47de-8b83-983d2b8226e8", "status": "behaald" }
+            { "requiredLearningOutcomeId": "12301838-92d4-4040-aea2-050bb131ceb7", "status": "behaald" }
           ]
-        }
+        },
+        { "type": "minimaleStudielast", "value": 720, "unit": "SBU" }
       ]
     }
   ]
 }
 ```
 
-De tweede regel geeft de volgordebepaling waarop het planningssysteem plant: het keuzedeel is kiesbaar zodra de vereiste leeruitkomst behaald is, waarbij de sleutel volstaat en de inhoud bij de catalogus blijft.
+De tweede regel geeft de volgordebepaling waarop het planningssysteem plant: keuzedeel K0037 is kiesbaar zodra de leeruitkomst op kerntaakniveau behaald is, waarbij de sleutel volstaat en de inhoud bij de catalogus blijft. [IS-OA-01](stroom-is-oa-01.md) levert dezelfde regelset op dezelfde versie aan de catalogus.
 
-De sleutels binnen `rules` staan als voorstel, omdat rule-set.json daar een vrij object toestaat en de vorm uit de voorbeeldpayloads in Public komt (werkbrief W9):
+De sleutels binnen `rules` staan als voorstel, omdat rule-set.json daar een vrij object toestaat en de vorm uit de voorbeeldpayloads in Public komt (werkbrief W9). Dezelfde namen gelden in IS-OA-01 en staan bij elkaar in [casus.md](casus.md#de-regelsets):
 
 | Voorstel | Nederlandse naam |
 |---|---|
@@ -315,6 +318,9 @@ De sleutels binnen `rules` staan als voorstel, omdat rule-set.json daar een vrij
 | `precondition` | `voorwaardeVooraf` |
 | `requiredLearningOutcomeId` | `vereisteLeeruitkomstId` |
 | `status` | `status` |
+| `value` plus `unit` | `waarde` plus `eenheid` |
+| `requirement` | `eis` |
+| `sourceSpecificationId` | `bronSpecificatieId` |
 
 ## Werkbrieven
 

@@ -19,7 +19,7 @@
 | [4 Het ecosysteem](#4-het-ecosysteem) | De zes stromen op hoofdplaat v1.7, en wie wat bezit | 2 min |
 | [5 De diensten](#5-de-diensten-per-component) | Per component de diensten, en de eigenaar per endpoint | 2 min |
 | [6 De zes stromen](#6-de-zes-stromen) | De keten in operaties, de eenheden, de werkbrieven | 3 min |
-| [Verdieping per stroom](#de-eenheden) | Per eenheid de operaties, de berichtvelden, een voorbeeldpayload | 10 min elk |
+| [Verdieping per stroom](#de-eenheden) | Per eenheid de operaties, de berichtvelden, een voorbeeldpayload op de identificaties uit [casus.md](casus.md) | 10 min elk |
 | [Signaleringen](#signaleringen-en-openstaande-punten) | Wat een besluit vraagt voor de uitvraag | 1 min |
 
 ## 1. Wat dit bereikt
@@ -57,7 +57,7 @@ Deze snede voltooit zich voordat Jochem zich orienteert: wat hij ziet is het res
 | IS-OA-01 | Curriculum ontwerptool | Onderwijscatalogus | Leeruitkomsten, de specificatiestructuur tot leeronderdeel, en de summatieve resultaatstructuur | [F1-12](../../../model/informatiemodel/img/regels/f1-12-de-opleiding-zoals-ontworpen-naar-de-catalogus.svg). Dienst volgt, [ADR 0020](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0020-curriculumontwerp-onderwijscatalogus-happy-flow-synchronisatie-en-federatie-adopt-klonen.md) noemt welke |
 | IS-OA-02 | Curriculum ontwerptool | Onderwijscatalogus | Het onderwijs- en examenontwerp: vorm, leeromgeving, docent- en examinatorprofiel, studiebelasting, toetsvorm | [F1-13](../../../model/informatiemodel/img/regels/f1-13-het-onderwijs-en-examenontwerp-mee-naar-de-catalogus-conceptplaat.svg). Voorstel, van de conceptplaat Onderwijsontwerp |
 | IS-OA-03 | Onderwijscatalogus | Planningssysteem | Het verzoek tot aanbod, met de planbare waarden per eenheid | [F2-03](../../../model/informatiemodel/img/regels/f2-03-verzoek-met-specificatiestructuur-en-planbare-waarden-naar-planning.svg). Koppeling OC-P&R, [interactie I1 en I2](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Interactiepatronen/onderwijscatalogus-planning-en-roostering.md) |
-| IS-OA-04 | Planningssysteem | Onderwijscatalogus | Het geplande aanbod in 4 lagen, elk verwijzend naar specificatie en verzoek | [F2-07](../../../model/informatiemodel/img/regels/f2-07-het-geplande-aanbod-terug-naar-de-catalogus.svg). Koppeling OC-P&R, interactie I3 en I5 |
+| IS-OA-04 | Planningssysteem | Onderwijscatalogus | Het geplande aanbod in zijn lagen, elk verwijzend naar specificatie en verzoek | [F2-07](../../../model/informatiemodel/img/regels/f2-07-het-geplande-aanbod-terug-naar-de-catalogus.svg). Koppeling OC-P&R, interactie I3 en I5 |
 | IS-OA-05 | Onderwijscatalogus | Kernregistratie (KRS) | Het aanmeld- en inschrijfbare `Opleidingsprogramma aanbod` | [F3-01](../../../model/informatiemodel/img/regels/f3-01-aanmeldbaar-aanbod-naar-de-kernregistratie.svg). Koppeling OC-KRS, dienst volgt |
 | IS-OA-06 | Kernregistratie (KRS) | AII (centraal aanmelden) | Hetzelfde aanbod, voor het systeem waarin Jochem zich aanmeldt | [F3-02](../../../model/informatiemodel/img/regels/f3-02-aanmeldbaar-aanbod-van-de-kernregistratie-naar-aii.svg). Voorstel, afstemming volgt |
 
@@ -84,7 +84,7 @@ Stippellijn: stand voorstel.
 
 ## 2. Het proces
 
-Van kwalificatiedossier tot aanmeldbaar aanbod, in drie fasen, met de regels per beeld in de [voorbeelduitwerking](../../../model/informatiemodel/voorbeeld-lr1-regels.json).
+Van kwalificatiedossier tot aanmeldbaar aanbod, in fasen, met de regels per beeld in de [voorbeelduitwerking](../../../model/informatiemodel/voorbeeld-lr1-regels.json).
 
 ### De keten in beeld
 
@@ -113,7 +113,7 @@ flowchart LR
   class U1,U2,U3,U4,U5 uit
 ```
 
-De afgeronde knopen zijn de momenten waarop informatie een component verlaat. Ontsluiten en doorgeven dragen elk hun eigen stroom. IS-OA-03, IS-OA-04 en IS-OA-05 lopen over een pijl die v1.7 al tekent; [hoofdstuk 6](#6-de-zes-stromen) zet de zes in operaties.
+De afgeronde knopen zijn de momenten waarop informatie een component verlaat. Ontsluiten en doorgeven dragen elk hun eigen stroom. IS-OA-03, IS-OA-04 en IS-OA-05 lopen over een pijl die v1.7 al tekent.
 
 ### Fase 1, kwalificatiekader analyseren en grofmazig ontwerpen
 
@@ -155,11 +155,11 @@ Van fase 3 draagt deze snede het ontsluiten van aanbod; aanmelden, intake, plaat
 
 ## 3. Het informatiemodel
 
-Deze interactie draagt de objecttypen uit het [informatiemodel OKx](../../../model/informatiemodel/informatiemodel.md), elk met een instantie uit de casus Apothekersassistent (crebo 23450) als bewijs.
+Deze interactie draagt de objecttypen uit het [informatiemodel OKx](../../../model/informatiemodel/informatiemodel.md), elk met een instantie uit de casus Apothekersassistent (crebo 23450) als bewijs. De uuid en de versie per instantie staan in [casus.md](casus.md).
 
 ![Uitsnede van het informatiemodel: per laag het kwalificatiekader, de leeruitkomst, de onderwijsspecificatie, het verzoek tot aanbod en het onderwijsaanbod](img/uitsnede-onderwijsaanbod.svg)
 
-Elke laag van de opleiding keert drie keer terug: in het kwalificatiekader, in de specificatie en in het aanbod, met de leeruitkomst als sleutel ertussen en het verzoek tot aanbod op de grens. De keuzedeelruimte, de toetsen en de examens staan in de rijen eronder. De [selectie](uitsnede-onderwijsaanbod.json) draagt de keuze van deze uitsnede.
+Elke laag van de opleiding keert terug in het kwalificatiekader, in de specificatie en in het aanbod, met de leeruitkomst als sleutel ertussen en het verzoek tot aanbod op de grens. De keuzedeelruimte, de toetsen en de examens staan in de rijen eronder. De [selectie](uitsnede-onderwijsaanbod.json) draagt de keuze van deze uitsnede.
 
 ### Kwalificatiekader mbo
 
@@ -186,13 +186,13 @@ Elke laag van de opleiding keert drie keer terug: in het kwalificatiekader, in d
 
 | Objecttype | Instantie | Beeld |
 |---|---|---|
-| `Opleiding specificatie` | Apothekersassistent, versie 2026.1 | F1-07, F1-12, F2-03 |
+| `Opleiding specificatie` | Apothekersassistent, versie 0.1.0 | F1-07, F1-12, F2-03 |
 | `Opleidingsprogramma specificatie` | BOL voltijd | F1-07, F1-12, F2-03 |
 | `Onderwijseenheid specificatie` | Blok B1-K1 | F1-05, F1-12, F2-03 |
 | `Leeronderdeel specificatie` | Baliegesprekken 101 | F1-05, F1-12, F2-03 |
 | `Keuzedeelruimte` | 720 SBU, mbo-4 | F1-07, F1-12 |
 | `Keuzedeel` | K0037 Farmaceutische Patientenzorg | F1-08 |
-| `Student keuze regelset` | Kiesbaar: K0037 of K0262 | F1-07, F1-12 |
+| `Student keuze regelset` | Kiesbare keuzedelen voor Apothekersassistent | F1-07, F1-12 |
 | `Toetsonderdeel specificatie` | Praktijktoets baliegesprek (OSCE) | F1-09, F1-12 |
 | `Examenonderdeelspecificatie` | Proeve van bekwaamheid B1-K1 | F1-09, F1-12 |
 
@@ -239,7 +239,7 @@ De nummering volgt de [ontwerpkeuzes](../../../model/informatiemodel/informatiem
 | 11 Competentie | F1-04, vaardigheid, kennis, inzicht eronder |
 | 12 Keuzedeelruimte | F1-07, F1-08, F2-07, dezelfde vorm |
 | 13 Intekenen | F2-02 verzoek, F2-07 aanbod |
-| 16 Geldigheid | `versie 2026.1` op de specificatie, periode op aanbod |
+| 16 Geldigheid | de versie op de specificatie, de periode op het aanbod |
 | 17 Cohort | F1-02 bindt cohort 2026 aan de structuur |
 
 Keuze 3, 7 en 8 raken de rand, bij een tweede instelling of vanaf F3-03.
@@ -313,7 +313,7 @@ sequenceDiagram
     OC-->>PL: 200 structuur met planbare waarden
     PL-)OC: IS-OA-04 verwerkingsstatus gelukt
     OC->>PL: GET /onderwijsaanbod/{id}
-    PL-->>OC: 200 aanbod in vier lagen
+    PL-->>OC: 200 aanbod in zijn lagen
     OC-)KRS: IS-OA-05 aanbod-aanmeldbaar*
     KRS->>OC: GET /onderwijsaanbod/{id}*
     OC-->>KRS: 200 Regulier BOL 2026
@@ -341,9 +341,9 @@ De lading en de stand per eenheid staan in [de kiesbare eenheden](#de-kiesbare-e
 
 | Wat de beelden vragen | Schema of document | Versie-impact | Eenheid |
 |---|---|---|---|
-| Onderwijsvorm, ruimtetype, expertiseprofiel, uren per tijdsoort, capaciteit, groepsgrootte, tijdvenster, geclusterde leergelegenheid | `education-specification.json` | MINOR per veld; de enum `specificatieType` brekend voor een strenge afnemer | IS-OA-02, IS-OA-03 |
-| Verwijzing naar het verzoek per laag, waarden voor toetsgelegenheid, keuzedeelaanbod, instelling | `education-offering.json`, enum `aanbodType` | MINOR optioneel, MAJOR verplicht | IS-OA-04 |
-| Aanmeldbaarheid: `aanmeldvenster`, `codes`, `bron`, `uitersteInschrijfdatum`, status aanmeldbaar | `education-offering.json` | MINOR per veld, MAJOR voor de statuswaarde | IS-OA-05, IS-OA-06 |
+| Onderwijsvorm, ruimtetype, expertiseprofiel, uren per tijdsoort, capaciteit, groepsgrootte, tijdvenster, geclusterde leergelegenheid | `education-specification.json` | MINOR per veld; de enum `specificationType` brekend voor een strenge afnemer | IS-OA-02, IS-OA-03 |
+| Verwijzing naar het verzoek per laag, waarden voor toetsgelegenheid, keuzedeelaanbod, instelling | `education-offering.json`, enum `offeringType` | MINOR optioneel, MAJOR verplicht | IS-OA-04 |
+| Aanmeldbaarheid: `applicationWindow`, `codes`, `source`, `enrolmentDeadline`, status aanmeldbaar | `education-offering.json` | MINOR per veld, MAJOR voor de statuswaarde | IS-OA-05, IS-OA-06 |
 | Toetskenmerken, toetsinstrument, formatieve resultaatstructuur als eigen wortel | `result-structure.json` | MINOR, enumwaarde en optionele velden | IS-OA-01, IS-OA-02 |
 | Competenties met vaardigheid, kennis en inzicht eronder; getypeerde regels met bereiken | `learning-outcome.json`, `rule-set.json` | MINOR naast de vrije vorm, MAJOR bij dichtzetten | IS-OA-01, IS-OA-03 |
 | Foutmodel, melding-id, meldingssoorten voor aanbod en inrichting, stabiel `eventId` | `processing-status.json`, `subscription.json` | MINOR optioneel, MAJOR op de gesloten lijst | IS-OA-03 tot en met IS-OA-06 |
@@ -363,7 +363,7 @@ De lading en de stand per eenheid staan in [de kiesbare eenheden](#de-kiesbare-e
 | S6 | 79 van de 145 regels dragen een aanname, bij F1-13 alle 11; 26 objecttypen komen van de conceptplaat en 13 van de 33 missen een definitie, waaronder `Leergelegenheid` | de grond per eenheid zichtbaar maken |
 | S7 | B01 tot en met B10 staan open (issues 283 en 284): de clustering, de keuzedeelruimte in de resultaatstructuur, exacte geplande capaciteit | de bevindingen wegen voor een eenheid vastligt |
 | S8 | Fase 1 en 2 dragen procesketen 6 en 4; informeren, aanmelden, intake en plaatsen valt onder keten 5 | de ketentoewijzing van fase 3 |
-| S9 | [U5](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u5-bericht-versus-kanaal) laat het afleveringsmechanisme bij de partijen, en `subscription.json` dekt de 4 OC-P&R-events | het afleveradres per koppeling |
+| S9 | [U5](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u5-bericht-versus-kanaal) laat het afleveringsmechanisme bij de partijen, en `subscription.json` dekt de OC-P&R-events | het afleveradres per koppeling |
 | S10 | Story-0007, story-0022 en story-0023 staan op de onderwijsontwikkelaar, het voorbeeld noemt de planner | de actor per story |
 | S11 | 7 van de 24 stromen op v1.7 dragen een koppelingspecificatie, de aangehaalde [ADR's](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr) staan op Voorstel, elk schema op alfa | waarop een leverancier zich vastlegt |
 | S12 | De dienstenlijst staat op commit d0c20d99 van `feature/restructure-and-versioning`, de enige plek waar `Applicatiediensten/` vandaag leeft | welke branch normatief is |

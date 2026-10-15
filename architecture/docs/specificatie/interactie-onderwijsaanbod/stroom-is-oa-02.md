@@ -2,6 +2,8 @@
 
 Deze eenheid levert de uitvoeringskenmerken van het ontwerp aan de onderwijscatalogus: de onderwijsvorm, het ruimtetype, de expertiseprofielen van docent en examinator, de verdeling van de studiebelasting, de toetsvorm en het toetsinstrument, elk als veld op de specificatie die [IS-OA-01](README.md#de-kiesbare-eenheden) al draagt.
 
+De uuid's, de versies en de namen in de voorbeeldpayloads hieronder komen uit [casus.md](casus.md), de vaste identificaties van deze interactiespecificatie. Deze eenheid is de enige die een versieverhoging beschrijft.
+
 ## De eenheid
 
 | | |
@@ -109,7 +111,7 @@ Beide staan als eigen array naast `educationSpecifications`, net als `ruleSets` 
 
 ## Voorbeeldpayload
 
-Casus Apothekersassistent, kwalificatiedossier 23450, met de instantiewaarden uit F1-13. De uuid's van de specificaties komen uit de [voorbeeldpayloads](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/voorbeeldpayloads.md), de namen uit het beeld, en de profielen en het instrument dragen een voorbeeld-uuid. De ontwerpvelden komen additief bovenop de grofmazige specificatie van IS-OA-01, dus loopt de versie van `0.1.0` naar `0.2.0`.
+Casus Apothekersassistent, kwalificatiedossier 23450, met de instantiewaarden uit F1-13. De uuid's, de versies en de namen staan in [casus.md](casus.md); de specificaties volgen daar de [voorbeeldpayloads](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/voorbeeldpayloads.md) in Public, en de profielen en het instrument dragen een uuid van deze snede. De ontwerpvelden komen additief bovenop de grofmazige specificatie van IS-OA-01, dus loopt de versie van `0.1.0` naar `0.2.0`.
 
 De specificatiekant, het antwoord op O2:
 
@@ -122,7 +124,7 @@ De specificatiekant, het antwoord op O2:
       "version": "0.2.0",
       "parentSpecificationId": "7ae25c1e-ee27-43a2-a001-761ee39ea5c7",
       "learningOutcomeId": "12301838-92d4-4040-aea2-050bb131ceb7",
-      "name": "Blok B1-K1, biedt farmaceutische patientenzorg",
+      "name": "Blok B1-K1",
       "studyLoad": { "value": 2000, "unit": "SBU" },
       "educationForm": "simulatie",
       "roomType": "skillslab",
@@ -173,7 +175,7 @@ De toetskant, het antwoord op O3:
       "parentSpecificationId": "0512c773-9c1b-42c4-ae0d-9af8554f2462",
       "learningOutcomeId": "12301838-92d4-4040-aea2-050bb131ceb7",
       "learningOutcome": { "type": "kerntaak", "code": "B1-K1" },
-      "name": "Proeve van bekwaamheid farmaceutische patientenzorg",
+      "name": "Proeve van bekwaamheid B1-K1",
       "nature": "summatief",
       "assessmentForm": "proeveVanBekwaamheid",
       "weighting": 2,
@@ -214,7 +216,7 @@ De versie-impact volgt de versionering uit de [regels bij de schema's](https://g
 | WB-03 | Schema voor het expertiseprofiel met `id`, `name`, `role` en `competences`, plus de array `expertiseProfiles` naast `ruleSets` in beide payloads; de Engelse namen zijn in deze werkbrief voorgesteld | nieuw bestand in [schemas/](https://github.com/Npuls-OKx/Public/tree/dev/Informatie-en-gegevensmodellen/schemas) | Nieuw schema met een additieve array, MINOR | Knelpuntcode `expertiseTekort` veronderstelt het profiel, `Expertise of functieprofiel` aggregeert `Competenties / Skills` en staat zonder definitie |
 | WB-04 | Veld `expertiseProfileIds` (expertiseprofielIds), naam voorgesteld in deze werkbrief, array van uuid | education-specification.json en result-structure.json | Additief optioneel veld, MINOR | F1-13 hangt `Gewenst medewerker competentieprofiel` aan de onderwijsvorm en aan de toetsvorm |
 | WB-05 | Veld `timeDistributions` (tijdsverdelingen), naam voorgesteld in deze werkbrief, array van `timeDistribution` met `volume` uit volume.json, naast het bestaande enkelvoudige `timeDistribution` | education-specification.json | Additief optioneel veld, MINOR. Het enkelvoudige veld blijft geldig zolang de koppeling open staat | F1-13 en F2-01 noemen BOT 50 en OOT 50 SBU, een verdeling over delen, waar het schema vandaag een waarde draagt |
-| WB-06 | Veld `assessmentInstrumentId` (toetsinstrumentId) plus de plek van het instrument zelf: een eigen schema met de array `assessmentInstruments`, of de leermiddelkoppeling-payload; de Engelse namen zijn in deze werkbrief voorgesteld | result-structure.json, en het besluit over de leermiddelkoppeling-payload | Nieuw schema met een additief veld, MINOR. De route via de leermiddelkoppeling raakt het meldpatroon `leermiddelkoppeling-beschikbaar` op de catalogus | F1-13 draagt `Toetsinstrument` als `Collectie van Leermiddelgroepen`, het informatiemodel kent dat objecttype als voorstel van de conceptplaat en de leermiddelkoppeling-payload staat open |
+| WB-06 | Veld `assessmentInstrumentId` (toetsinstrumentId) plus de plek van het instrument zelf: een eigen schema met de array `assessmentInstruments`, of de leermiddelkoppeling-payload; de Engelse namen zijn in deze werkbrief voorgesteld. Daarbij hoort het objecttype voor `Toetsinstrument` in het informatiemodel en de begrippenlijst | result-structure.json, en het besluit over de leermiddelkoppeling-payload | Nieuw schema met een additief veld, MINOR. De route via de leermiddelkoppeling raakt het meldpatroon `leermiddelkoppeling-beschikbaar` op de catalogus | F1-13 draagt `Toetsinstrument` als `Collectie van Leermiddelgroepen`, van de conceptplaat Onderwijsontwerp. [informatiemodel.json](../../../model/informatiemodel/informatiemodel.json) kent dat objecttype nog niet, zoals de tabel hierboven aanhoudt, en de leermiddelkoppeling-payload staat open |
 | WB-07 | De meldpatronen O1 en O4, de paden van O2 en O3 op de ontwerptool met een voorvoegsel per bezitter naast het gelijknamige pad van de catalogus, en het gebruiksprofiel van deze koppeling: welk deel van de payload over O2 en O3 meekomt | [curriculum-ontwerptool.md](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Applicatiecomponenten/curriculum-ontwerptool.md) en [onderwijscatalogus.md](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Applicatiecomponenten/onderwijscatalogus.md), plus [gebruiksprofielen.md](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/gebruiksprofielen.md) | Nieuwe endpoints en een nieuw profiel, MINOR op het koppelvlakpakket | ADR 0020 vraagt operaties voor aanleggen, uitwerken, publiceren en wijzigen met statusfeedback naar de ontwerptool |
 | WB-08 | Toetskenmerken naast de toetsvorm: `assessmentMode` (afnamevorm), `assessmentDuration` (toetsduur), `permittedResources` (hulpmiddelen) en `attemptCount` (aantal pogingen), alle namen voorgesteld in deze werkbrief | result-structure.json | Additieve optionele velden, MINOR | Bevinding B04 bij F1-09 van de leverancierslezing, issue 283 |
 | WB-09 | Het besluit op welk niveau `educationForm` landt: de leeronderdeelspecificatie, of de gewenste leergelegenheid die de catalogus uit geclusterde leeronderdelen vormt | education-specification.json, samen met WB-01 | Zolang WB-01 open staat kost het verschuiven van het niveau niets; na vaststelling is het MAJOR voor de afnemer | Bevinding B06 bij F2-01 legt het rijpheidskenmerk planbaar op de gewenste leergelegenheid en het inhoudelijk clusteren bij de catalogus, issue 284 |

@@ -2,6 +2,8 @@
 
 De curriculum ontwerptool levert de onderwijscatalogus het vastgestelde ontwerp van een opleiding: de leeruitkomsten, de specificatiestructuur tot leeronderdeel met de keuzedeelruimte en haar keuzeregels, en de resultaatstructuur met de toets- en examenonderdelen, alles verankerd op de leeruitkomst.
 
+De uuid's, de versies en de namen in de voorbeeldpayloads hieronder komen uit [casus.md](casus.md), de vaste identificaties van deze interactiespecificatie.
+
 ## 1. De eenheid
 
 | Bronsysteem | Doelsysteem | Koppeling | Beeld | Status | Applicatiedienst |
@@ -178,15 +180,19 @@ Volgt [rule-set.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en
 | `rules` | `regels` | array object | 1..n | ja | `Student keuze regelset`, getypeerde vorm via W9 |
 | `description` | `omschrijving` | string | 0..1 | nee | `Student keuze regelset` |
 
-rule-set.json laat het regelobject vrij. De sleutels waarmee de voorbeeldpayload hem vult zijn een voorstel bij W9, dat de getypeerde vorm belegt.
+rule-set.json laat het regelobject vrij. De sleutels waarmee de voorbeeldpayload hem vult zijn een voorstel bij W9, dat de getypeerde vorm belegt. Dezelfde namen gelden in [IS-OA-03](stroom-is-oa-03.md) en staan bij elkaar in [casus.md](casus.md#de-regelsets); de Nederlandse namen volgen de voorbeeldpayloads in Public.
 
 | Veld | Nederlands | Wat zij draagt |
 |---|---|---|
-| `ruleType` | `type` | het regeltype uit de gesloten set |
+| `type` | `type` | het regeltype uit de gesloten set |
 | `scope` | `bereik` | waar de regel over gaat |
+| `electiveUnit` | `keuzedeel` | het keuzedeel waarop de regel slaat |
+| `precondition` | `voorwaardeVooraf` | de deelnamevoorwaarde, met `requiredLearningOutcomeId` en `status` eronder |
 | `value` plus `unit` | `waarde` plus `eenheid` | de maat bij een omvangregel |
 | `requirement` | `eis` | het resultaat dat de regel verlangt |
-| `source` | `bron` | de specificatie waaruit de maat komt |
+| `sourceSpecificationId` | `bronSpecificatieId` | de specificatie waaruit de maat komt |
+
+De sleutel `source` (`bron`) blijft daarmee de vorm van [source.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/source.json) op de leeruitkomst: een object met `standard`, `type` en `code`.
 
 ### 4.6 De resultaatstructuur (O4)
 
@@ -225,14 +231,14 @@ De keuzedeelruimte in de summatieve resultaatstructuur loopt via `assesses` op d
 
 ## 5. Voorbeeldpayload: het ontwerp (O3)
 
-Casus Apothekersassistent, crebo 23450, met de instantiewaarden uit F1-12. De id's volgen [voorbeeldpayloads.md](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/voorbeeldpayloads.md) in Public, zodat dezelfde instantie over de hele keten dezelfde identiteit draagt.
+Casus Apothekersassistent, crebo 23450, met de instantiewaarden uit F1-12. De id's en de versies staan in [casus.md](casus.md) en volgen daar [voorbeeldpayloads.md](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/voorbeeldpayloads.md) in Public, zodat dezelfde instantie over de hele keten dezelfde identiteit draagt.
 
 ```json
 {
   "learningOutcomes": [
     {
       "id": "c5b64fe5-f7bf-490c-acaf-7af1bd24f980",
-      "version": "1.0.0",
+      "version": "0.1.0",
       "name": "Apothekersassistent (kwalificatiedossier 23450)",
       "source": { "standard": "sbb-kwalificatiekader", "type": "kwalificatiedossier", "code": "23450" },
       "parentLearningOutcomeId": null,
@@ -242,7 +248,7 @@ Casus Apothekersassistent, crebo 23450, met de instantiewaarden uit F1-12. De id
     },
     {
       "id": "b84dc98b-6c5f-4ee8-bdfb-40b2639ca5a4",
-      "version": "1.0.0",
+      "version": "0.1.0",
       "name": "Apothekersassistent (kwalificatie 27141)",
       "source": { "standard": "sbb-kwalificatiekader", "type": "kwalificatie", "code": "27141" },
       "parentLearningOutcomeId": "c5b64fe5-f7bf-490c-acaf-7af1bd24f980",
@@ -250,7 +256,7 @@ Casus Apothekersassistent, crebo 23450, met de instantiewaarden uit F1-12. De id
     },
     {
       "id": "12301838-92d4-4040-aea2-050bb131ceb7",
-      "version": "1.0.0",
+      "version": "0.1.0",
       "name": "Biedt farmaceutische patiëntenzorg in een levensechte apotheekomgeving",
       "source": { "standard": "sbb-kwalificatiekader", "type": "kerntaak", "code": "B1-K1" },
       "parentLearningOutcomeId": "b84dc98b-6c5f-4ee8-bdfb-40b2639ca5a4",
@@ -258,7 +264,7 @@ Casus Apothekersassistent, crebo 23450, met de instantiewaarden uit F1-12. De id
     },
     {
       "id": "78f25d62-9fd4-45c4-aa04-3d22f59213f5",
-      "version": "1.0.0",
+      "version": "0.1.0",
       "name": "Voert baliegesprek en triage uit in de simulatieapotheek",
       "source": { "standard": "sbb-kwalificatiekader", "type": "werkproces", "code": "B1-K1-W1" },
       "parentLearningOutcomeId": "12301838-92d4-4040-aea2-050bb131ceb7",
@@ -269,7 +275,7 @@ Casus Apothekersassistent, crebo 23450, met de instantiewaarden uit F1-12. De id
     {
       "id": "79736830-1c5c-470f-b2c2-005029c96733",
       "specificationType": "opleidingsspecificatie",
-      "version": "1.0.0",
+      "version": "0.1.0",
       "parentSpecificationId": null,
       "learningOutcomeId": "c5b64fe5-f7bf-490c-acaf-7af1bd24f980",
       "name": "Apothekersassistent",
@@ -280,13 +286,13 @@ Casus Apothekersassistent, crebo 23450, met de instantiewaarden uit F1-12. De id
       "validUntil": null,
       "studyLoad": { "value": 4800, "unit": "SBU" },
       "manifest": [
-        { "specificationId": "5ef37812-ae0f-4232-904f-451b9928e45e", "version": "1.0.0", "relation": "variant" }
+        { "specificationId": "5ef37812-ae0f-4232-904f-451b9928e45e", "version": "0.1.0", "relation": "variant" }
       ]
     },
     {
       "id": "5ef37812-ae0f-4232-904f-451b9928e45e",
       "specificationType": "opleidingsprogrammaspecificatie",
-      "version": "1.0.0",
+      "version": "0.1.0",
       "parentSpecificationId": "79736830-1c5c-470f-b2c2-005029c96733",
       "learningOutcomeId": "b84dc98b-6c5f-4ee8-bdfb-40b2639ca5a4",
       "name": "BOL voltijd",
@@ -296,13 +302,13 @@ Casus Apothekersassistent, crebo 23450, met de instantiewaarden uit F1-12. De id
       "status": "vastgesteld",
       "studyLoad": { "value": 4800, "unit": "SBU" },
       "manifest": [
-        { "specificationId": "7ae25c1e-ee27-43a2-a001-761ee39ea5c7", "version": "1.0.0", "relation": "variant" }
+        { "specificationId": "7ae25c1e-ee27-43a2-a001-761ee39ea5c7", "version": "0.1.0", "relation": "variant" }
       ]
     },
     {
       "id": "7ae25c1e-ee27-43a2-a001-761ee39ea5c7",
       "specificationType": "opleidingsprogrammaspecificatie",
-      "version": "1.0.0",
+      "version": "0.1.0",
       "parentSpecificationId": "5ef37812-ae0f-4232-904f-451b9928e45e",
       "learningOutcomeId": "b84dc98b-6c5f-4ee8-bdfb-40b2639ca5a4",
       "name": "Regulier BOL 2026",
@@ -318,27 +324,27 @@ Casus Apothekersassistent, crebo 23450, met de instantiewaarden uit F1-12. De id
       "status": "vastgesteld",
       "studyLoad": { "value": 4800, "unit": "SBU" },
       "manifest": [
-        { "specificationId": "402c2342-d897-4df4-a667-7fc5bd930944", "version": "1.0.0", "relation": "onderdeel" },
-        { "specificationId": "fb5be5ae-faa0-4b4b-8085-474fce9aae08", "version": "1.0.0", "relation": "onderdeel" }
+        { "specificationId": "402c2342-d897-4df4-a667-7fc5bd930944", "version": "0.1.0", "relation": "onderdeel" },
+        { "specificationId": "fb5be5ae-faa0-4b4b-8085-474fce9aae08", "version": "0.1.0", "relation": "onderdeel" }
       ]
     },
     {
       "id": "402c2342-d897-4df4-a667-7fc5bd930944",
       "specificationType": "onderwijseenheidspecificatie",
-      "version": "1.0.0",
+      "version": "0.1.0",
       "parentSpecificationId": "7ae25c1e-ee27-43a2-a001-761ee39ea5c7",
       "learningOutcomeId": "12301838-92d4-4040-aea2-050bb131ceb7",
       "name": "Blok B1-K1",
       "status": "vastgesteld",
       "studyLoad": { "value": 2000, "unit": "SBU" },
       "manifest": [
-        { "specificationId": "327c8263-3516-4b5a-8d57-c16241ec008d", "version": "1.0.0", "relation": "onderdeel" }
+        { "specificationId": "327c8263-3516-4b5a-8d57-c16241ec008d", "version": "0.1.0", "relation": "onderdeel" }
       ]
     },
     {
       "id": "327c8263-3516-4b5a-8d57-c16241ec008d",
       "specificationType": "leeronderdeelspecificatie",
-      "version": "1.0.0",
+      "version": "0.1.0",
       "parentSpecificationId": "402c2342-d897-4df4-a667-7fc5bd930944",
       "learningOutcomeId": "78f25d62-9fd4-45c4-aa04-3d22f59213f5",
       "name": "Baliegesprekken 101",
@@ -349,7 +355,7 @@ Casus Apothekersassistent, crebo 23450, met de instantiewaarden uit F1-12. De id
     {
       "id": "fb5be5ae-faa0-4b4b-8085-474fce9aae08",
       "specificationType": "keuzedeelruimtespecificatie",
-      "version": "1.0.0",
+      "version": "0.1.0",
       "parentSpecificationId": "7ae25c1e-ee27-43a2-a001-761ee39ea5c7",
       "name": "Keuzedeelruimte",
       "description": "Ruimte binnen de kwalificatie die met keuzedelen wordt ingevuld.",
@@ -361,21 +367,27 @@ Casus Apothekersassistent, crebo 23450, met de instantiewaarden uit F1-12. De id
   "ruleSets": [
     {
       "id": "e4037953-17d6-40a4-9e59-92ec1f9c19a8",
-      "version": "1.0.0",
+      "version": "0.1.0",
       "name": "Kiesbare keuzedelen voor Apothekersassistent",
       "description": "Bepaalt welke keuzedelen in de keuzedeelruimte kiesbaar zijn.",
       "appliesTo": "fb5be5ae-faa0-4b4b-8085-474fce9aae08",
       "rules": [
-        { "ruleType": "kiesbaar", "scope": "keuzedeel K0037 Farmaceutische patiëntenzorg" },
-        { "ruleType": "kiesbaar", "scope": "keuzedeel K0262 Doorstroom hbo" },
-        { "ruleType": "minimaleStudielast", "value": 720, "unit": "SBU" }
+        { "type": "kiesbaar", "scope": "alle keuzedelen met electiveUnitClass algemeen-verbredend" },
+        {
+          "type": "kiesbaar",
+          "electiveUnit": "beaaaf4c-b267-41f7-9b8d-ac9a19a7dfe1",
+          "precondition": [
+            { "requiredLearningOutcomeId": "12301838-92d4-4040-aea2-050bb131ceb7", "status": "behaald" }
+          ]
+        },
+        { "type": "minimaleStudielast", "value": 720, "unit": "SBU" }
       ]
     }
   ]
 }
 ```
 
-De payload volgt de lijn van F1-12: kerntaak B1-K1 met een leeronderdeel. De optelling van `studyLoad` sluit over de volledige boom in voorbeeldpayloads.md.
+De payload volgt de lijn van F1-12: kerntaak B1-K1 met een leeronderdeel. De optelling van `studyLoad` sluit over de volledige boom in voorbeeldpayloads.md. De tweede regel in de regelset draagt de volgordebepaling: keuzedeel K0037 is kiesbaar zodra de leeruitkomst op kerntaakniveau behaald is. [IS-OA-03](stroom-is-oa-03.md) levert dezelfde regelset op dezelfde versie door aan planning.
 
 ## 6. Voorbeeldpayload: de resultaatstructuur (O4)
 
@@ -385,7 +397,7 @@ De payload volgt de lijn van F1-12: kerntaak B1-K1 met een leeronderdeel. De opt
     {
       "id": "08b4656d-27ec-4175-8c1b-1f1d51780785",
       "specificationType": "examenplanspecificatie",
-      "version": "1.0.0",
+      "version": "0.1.0",
       "parentSpecificationId": null,
       "appliesTo": "7ae25c1e-ee27-43a2-a001-761ee39ea5c7",
       "learningOutcomeId": "b84dc98b-6c5f-4ee8-bdfb-40b2639ca5a4",
@@ -398,14 +410,14 @@ De payload volgt de lijn van F1-12: kerntaak B1-K1 met een leeronderdeel. De opt
       "validFrom": "2026-09-01",
       "validUntil": null,
       "manifest": [
-        { "specificationId": "0512c773-9c1b-42c4-ae0d-9af8554f2462", "version": "1.0.0", "relation": "onderdeel" },
-        { "specificationId": "df0d3e50-c7c3-416e-b694-12fe5791eb7c", "version": "1.0.0", "relation": "onderdeel" }
+        { "specificationId": "0512c773-9c1b-42c4-ae0d-9af8554f2462", "version": "0.1.0", "relation": "onderdeel" },
+        { "specificationId": "df0d3e50-c7c3-416e-b694-12fe5791eb7c", "version": "0.1.0", "relation": "onderdeel" }
       ]
     },
     {
       "id": "0512c773-9c1b-42c4-ae0d-9af8554f2462",
       "specificationType": "resultaateenheidspecificatie",
-      "version": "1.0.0",
+      "version": "0.1.0",
       "parentSpecificationId": "08b4656d-27ec-4175-8c1b-1f1d51780785",
       "learningOutcomeId": "12301838-92d4-4040-aea2-050bb131ceb7",
       "learningOutcome": { "type": "kerntaak", "code": "B1-K1" },
@@ -417,15 +429,15 @@ De payload volgt de lijn van F1-12: kerntaak B1-K1 met een leeronderdeel. De opt
       "mandatory": true,
       "status": "vastgesteld",
       "manifest": [
-        { "specificationId": "941f180d-b0af-4933-a580-6ab654dfadda", "version": "1.0.0", "relation": "onderdeel" },
-        { "specificationId": "6061f30c-e8fd-44b8-a553-e3078c07dc75", "version": "1.0.0", "relation": "onderdeel" },
-        { "specificationId": "f004ba43-1e0b-4b8f-a677-0644ce29f4ea", "version": "1.0.0", "relation": "onderdeel" }
+        { "specificationId": "941f180d-b0af-4933-a580-6ab654dfadda", "version": "0.1.0", "relation": "onderdeel" },
+        { "specificationId": "6061f30c-e8fd-44b8-a553-e3078c07dc75", "version": "0.1.0", "relation": "onderdeel" },
+        { "specificationId": "f004ba43-1e0b-4b8f-a677-0644ce29f4ea", "version": "0.1.0", "relation": "onderdeel" }
       ]
     },
     {
       "id": "941f180d-b0af-4933-a580-6ab654dfadda",
       "specificationType": "toetsonderdeelspecificatie",
-      "version": "1.0.0",
+      "version": "0.1.0",
       "parentSpecificationId": "0512c773-9c1b-42c4-ae0d-9af8554f2462",
       "learningOutcomeId": "12301838-92d4-4040-aea2-050bb131ceb7",
       "learningOutcome": { "type": "kerntaak", "code": "B1-K1" },
@@ -440,7 +452,7 @@ De payload volgt de lijn van F1-12: kerntaak B1-K1 met een leeronderdeel. De opt
     {
       "id": "6061f30c-e8fd-44b8-a553-e3078c07dc75",
       "specificationType": "toetsonderdeelspecificatie",
-      "version": "1.0.0",
+      "version": "0.1.0",
       "parentSpecificationId": "0512c773-9c1b-42c4-ae0d-9af8554f2462",
       "learningOutcomeId": "78f25d62-9fd4-45c4-aa04-3d22f59213f5",
       "learningOutcome": { "type": "werkproces", "code": "B1-K1-W1" },
@@ -455,7 +467,7 @@ De payload volgt de lijn van F1-12: kerntaak B1-K1 met een leeronderdeel. De opt
     {
       "id": "f004ba43-1e0b-4b8f-a677-0644ce29f4ea",
       "specificationType": "toetsonderdeelspecificatie",
-      "version": "1.0.0",
+      "version": "0.1.0",
       "parentSpecificationId": "0512c773-9c1b-42c4-ae0d-9af8554f2462",
       "learningOutcomeId": "78f25d62-9fd4-45c4-aa04-3d22f59213f5",
       "learningOutcome": { "type": "werkproces", "code": "B1-K1-W1" },
@@ -470,7 +482,7 @@ De payload volgt de lijn van F1-12: kerntaak B1-K1 met een leeronderdeel. De opt
     {
       "id": "df0d3e50-c7c3-416e-b694-12fe5791eb7c",
       "specificationType": "resultaateenheidspecificatie",
-      "version": "1.0.0",
+      "version": "0.1.0",
       "parentSpecificationId": "08b4656d-27ec-4175-8c1b-1f1d51780785",
       "assesses": "fb5be5ae-faa0-4b4b-8085-474fce9aae08",
       "name": "Resultaat keuzedelen",
@@ -486,12 +498,12 @@ De payload volgt de lijn van F1-12: kerntaak B1-K1 met een leeronderdeel. De opt
   "ruleSets": [
     {
       "id": "132f165a-973c-41c2-98df-e58d4ca6d7eb",
-      "version": "1.0.0",
+      "version": "0.1.0",
       "name": "Meetellende keuzedeelresultaten Apothekersassistent",
       "appliesTo": "df0d3e50-c7c3-416e-b694-12fe5791eb7c",
       "rules": [
-        { "ruleType": "minimaleStudielast", "value": 720, "unit": "SBU", "source": "fb5be5ae-faa0-4b4b-8085-474fce9aae08" },
-        { "ruleType": "resultaatEis", "scope": "elk gekozen keuzedeel", "requirement": "voldoende" }
+        { "type": "minimaleStudielast", "value": 720, "unit": "SBU", "sourceSpecificationId": "fb5be5ae-faa0-4b4b-8085-474fce9aae08" },
+        { "type": "resultaatEis", "scope": "elk gekozen keuzedeel", "requirement": "voldoende" }
       ]
     }
   ]

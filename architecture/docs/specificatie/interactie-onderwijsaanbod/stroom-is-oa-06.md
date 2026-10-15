@@ -2,6 +2,8 @@
 
 Deze eenheid ontsluit het `Opleidingsprogramma aanbod` van de kernregistratie aan de voorziening voor centraal aanmelden, zodat een aspirant-student daar het startmoment van een opleiding kiest.
 
+De uuid's, de versies en de namen in de voorbeeldpayload hieronder komen uit [casus.md](casus.md), de vaste identificaties van deze interactiespecificatie. Het aanbod is hetzelfde dat [IS-OA-05](stroom-is-oa-05.md) aan de kernregistratie ontsluit.
+
 ## De eenheid
 
 | | |
@@ -117,7 +119,7 @@ Welk deel van education-offering.json over deze koppeling reist hoort in [gebrui
 
 ## De voorbeeldpayload
 
-De respons op `GET /aanmeldbaar-aanbod?cohort=2026` voor Apothekersassistent, crebo-dossier 23450 met kwalificatie 27141. De uuid's komen uit de [voorbeeldpayload in Public](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/voorbeeldpayloads.md) voor dezelfde casus, de sleutels uit de `properties` van de schema's. De waarde `aanmeldbaar` in `status`, het veld `source` en het veld `enrolmentDeadline` rusten op een werkbrief.
+De respons op `GET /aanmeldbaar-aanbod?cohort=2026` voor Apothekersassistent, crebo-dossier 23450 met kwalificatie 27141. De uuid's staan in [casus.md](casus.md) en volgen daar de [voorbeeldpayload in Public](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/voorbeeldpayloads.md) voor dezelfde casus, de sleutels komen uit de `properties` van de schema's. De waarde `aanmeldbaar` in `status`, het veld `source` en het veld `enrolmentDeadline` rusten op een werkbrief.
 
 ```json
 {
