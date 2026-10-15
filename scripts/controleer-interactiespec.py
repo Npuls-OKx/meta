@@ -415,9 +415,11 @@ def main(argv=None):
     # controle dan met de code voor niet uitvoerbaar in plaats van met die voor afgekeurd.
     onherleidbaar = [b for b in bevindingen if "verwijzing niet te herleiden" in str(b)]
     if onherleidbaar and not public.is_dir():
-        print(f"\n{len(onherleidbaar)} van de {len(bevindingen)} bevindingen komen voort uit "
-              f"een verwijzing die zonder {public} nergens uitkomt. Deze controle geeft daarmee "
-              f"geen oordeel; zet Npuls-OKx/Public ernaast en draai opnieuw.", file=sys.stderr)
+        print(f"\nDeze controle geeft geen oordeel. Zonder {public} ontbreken de vastgelegde "
+              f"schema's: {len(onherleidbaar)} verwijzingen komen nergens uit, en de overige "
+              f"{len(bevindingen) - len(onherleidbaar)} bevindingen lopen tegen een schema dat "
+              f"daardoor onvolledig is. Zet Npuls-OKx/Public ernaast en draai opnieuw.",
+              file=sys.stderr)
         return 3
     rapporteer(uitkomsten, gaten, bevindingen, args.kort)
     if bevindingen:
