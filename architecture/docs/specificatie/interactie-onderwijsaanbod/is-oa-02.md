@@ -1,30 +1,43 @@
 # IS-OA-02 Onderwijsontwerp naar de catalogus
 
-Deze eenheid levert de uitvoeringskenmerken van het ontwerp aan de onderwijscatalogus: de onderwijsvorm, het gevraagde ruimtetype, de expertiseprofielen van docent en examinator, de leermiddelen, de verdeling van de studiebelasting, de toetsvorm en het toetsinstrument, elk als veld op de specificatie die [IS-OA-01](README.md#1-de-informatiestromen) al draagt.
-
-De uuid's, de versies en de namen in de voorbeeldpayloads hieronder komen uit [casus.md](casus.md), de vaste identificaties van deze interactiespecificatie. Deze eenheid is de enige die een versieverhoging beschrijft.
-
-De status staat in het artefact zelf. Een operatie, een endpoint en een schema dragen `vastgelegd` zodra Public ze draagt, en `voorstel` zolang deze specificatie ze voorstelt. Een voorgesteld schema draagt een `$id` die op `/voorstel` eindigt, zodat de status meereist met het bestand.
-
-## De eenheid
-
 | | |
 |---|---|
-| Bronsysteem | Curriculum ontwerptool, applicatiedienst `Curriculum ontwerp` |
-| Doelsysteem | Onderwijscatalogus |
-| Koppeling | Curriculum ontwerptool naar onderwijscatalogus. De [dienstpagina van de ontwerptool](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Applicatiecomponenten/curriculum-ontwerptool.md) laat de endpoints aan een volgend pakket, [ADR 0020](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0020-curriculumontwerp-onderwijscatalogus-happy-flow-synchronisatie-en-federatie-adopt-klonen.md) legt de richting vast |
-| Beeld | F1-13, het onderwijs- en examenontwerp mee naar de catalogus, van de conceptplaat Onderwijsontwerp |
-| Status | Voorstel. Elke operatie hieronder staat op voorstel, en elk schema dat deze eenheid toevoegt draagt een `$id` op `/voorstel`. De dragende schema's in Public staan op alfa, en de objecttypen achter de lading komen van de conceptplaat ([voorbeeld-lr1-regels.json](../../../model/informatiemodel/voorbeeld-lr1-regels.json)) |
-| Applicatiedienst | `Onderwijs beheer` van de onderwijscatalogus neemt de lading aan, gevoed door `Curriculum ontwerp` van de ontwerptool ([componenten.json](../../../model/informatiemodel/componenten.json)) |
-| Schemas | [education-design.json](schemas/education-design.json), [room-type.json](schemas/room-type.json), [expertise-profile.json](schemas/expertise-profile.json) en [learning-resource-group.json](schemas/learning-resource-group.json), elk op voorstel. [De schemas](#de-schemas) zegt wat elk draagt |
-| Sleuteltaal | De sleutels in de payload zijn Engels, zoals de schema's in Public ze dragen; [mapping.md](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/mapping.md) legt per schema de Nederlandse naam ernaast. Enumwaarden blijven Nederlands, en elk schema draagt de Nederlandse naam per veld in `DutchName` |
-| Toetsbare eis | De ontwerptool levert per onderwijseenheid-, leeronderdeel- en toetsonderdeelspecificatie de sleutels uit [de berichtspecificatie](#de-berichtspecificatie) over [de operaties](#de-operaties), en de catalogus neemt ze onveranderd over met O2 en O3. De eis is vandaag af te dwingen: een payload valideert tegen het dragende schema in Public en tegen [education-design.json](schemas/education-design.json), die de waardelijsten beoordeelt |
+| **Document doel** | Zet uiteen hoe de curriculum ontwerptool de uitvoeringskenmerken van het ontwerp aan de onderwijscatalogus levert, ten behoeve van de bouw of de verificatie van een implementatie volgens deze specificatie |
+| **Doelgroep** | De implementatiespecialist en de tester bij een instelling of een leverancier, en wie een profiel of consumer bouwt |
+| **Dient als input voor** | De bouw van het koppelvlak, de testgevallen erbij, en de acceptatie van een opgeleverde koppeling |
+| **Kaderstelling** | De [interactieketen](README.md) waarin deze specificatie valt, het [informatiemodel OKx](../../../model/informatiemodel/informatiemodel.md), en beeld F1-13 van de [voorbeelduitwerking](../../../model/informatiemodel/voorbeeld-leerroute-1-jochem.md) |
+| **Inhoud** | Zes operaties met hun statuscodes, vijf berichten met hun velden, vier voorgestelde schema's, en twee voorbeeldpayloads die valideren |
+| **Status** | Voorstel. Elke operatie staat op voorstel, en elk schema dat deze eenheid toevoegt draagt een `$id` die op `/voorstel` eindigt; de dragende schema's in Public staan op alfa |
+
+De lading: de onderwijsvorm, het gevraagde ruimtetype, de expertiseprofielen van docent en examinator, de leermiddelen, de verdeling van de studiebelasting, de toetsvorm en het toetsinstrument, elk als veld op de specificatie die [IS-OA-01](is-oa-01.md) al draagt. De uuid's, de versies en de namen in de voorbeeldpayloads komen uit [casus.md](casus.md).
+
+## 1. Interactie
+
+| Bronsysteem | Doelsysteem | Koppeling | Beeld | Status | Applicatiedienst |
+|---|---|---|---|---|---|
+| Curriculum ontwerptool | Onderwijscatalogus | volgt, [S5](signaleringen.md). De [dienstpagina van de ontwerptool](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Applicatiecomponenten/curriculum-ontwerptool.md) laat de endpoints aan een volgend pakket, [ADR 0020](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0020-curriculumontwerp-onderwijscatalogus-happy-flow-synchronisatie-en-federatie-adopt-klonen.md) legt de richting vast | F1-13, van de conceptplaat Onderwijsontwerp | Voorstel: op hoofdplaat v1.7 valt het ontwerpen binnen de catalogus, en de objecttypen achter de lading komen van de conceptplaat ([S6](signaleringen.md)) | `Onderwijs beheer` van de onderwijscatalogus neemt de lading aan, gevoed door `Curriculum ontwerp` van de ontwerptool ([componenten.json](../../../model/informatiemodel/componenten.json)) |
 
 ![Beeld F1-13: het onderwijs- en examenontwerp mee naar de catalogus](../../../model/informatiemodel/img/regels/f1-13-het-onderwijs-en-examenontwerp-mee-naar-de-catalogus-conceptplaat.svg)
 
-Dezelfde waarden gaan in [F2-03 van IS-OA-03](is-oa-03.md#de-eenheid) door naar planning, en de knelpuntcodes `expertiseTekort` en `ruimteTekort` uit [bottleneck.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/bottleneck.json) rusten erop. Daarom landen zij hier als veld op de specificatie.
+De blokken hangen onder de typen van IS-OA-01 en vormen geen eigen resource. Elk blok komt van de conceptplaat Onderwijsontwerp, en elke regel in dit beeld draagt een aanname.
 
-## De stroom
+De uitvoeringskenmerken ontstaan in [F1-06](../../../model/informatiemodel/voorbeeld-leerroute-1-jochem.md#f1-06---de-eenheidspecificatie-met-haar-onderwijsontwerp-vorm-ruimte-mensen-en-middelen) bij de eenheid en in [F1-10](../../../model/informatiemodel/voorbeeld-leerroute-1-jochem.md#f1-10---de-examenonderdeelspecificatie-met-haar-toetsvorm-instrumenten-materiaal-en-ruimte) bij de toets, beide binnen [fase 1](../../../model/informatiemodel/voorbeeld-leerroute-1-jochem.md#fase-1-kwalificatiekader-analyseren-en-grofmazig-ontwerpen).
+
+De taak van deze interactie in het proces: de ontwerper heeft vorm, ruimte, mensen en middelen bij de eenheid en bij de toets vastgelegd, en dat geheel moet de catalogus in voordat planning het tegen de beschikbare ruimtes en mensen legt. Dezelfde waarden gaan in [F2-03 van IS-OA-03](is-oa-03.md#de-eenheid) door naar planning, en de knelpuntcodes `expertiseTekort` en `ruimteTekort` uit [bottleneck.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/bottleneck.json) rusten erop. Daarom landen zij hier als veld op de specificatie.
+
+| Applicatiecomponent | Functie in deze interactie |
+|---|---|
+| Curriculum ontwerptool | Houdt het ontwerp in bewerking, meldt dat het gereed is, en levert de uitvoeringskenmerken op de opvraag van de catalogus |
+| Onderwijscatalogus | Legt haar afleveradres vast, haalt de specificatiekant en de toetskant op, beoordeelt de waarden tegen de waardelijst, en meldt de uitkomst terug |
+
+De status per regel hieronder zegt waar een artefact staat.
+
+| Status | Waar het artefact staat |
+|---|---|
+| `vastgelegd` | [Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Koppelvlakspecificaties) draagt hem: een pad op een componentpagina, een enumwaarde in een melding of een schema in [Informatie-en-gegevensmodellen](https://github.com/Npuls-OKx/Public/tree/dev/Informatie-en-gegevensmodellen/schemas), daar op alfa |
+| `voorstel` | Deze specificatie stelt hem voor, onderbouwd uit [de casus](casus.md) en het [informatiemodel](../../../model/informatiemodel/informatiemodel.md). Een voorgesteld schema staat in [schemas/](schemas/) en draagt een `$id` die eindigt op `/voorstel`, zodat de status meereist met het bestand |
+
+## 2. Interactiespecificatie
 
 ```mermaid
 sequenceDiagram
@@ -51,9 +64,13 @@ sequenceDiagram
     CO-->>OC: 200 JSON Patch op de ontwerpvelden
 ```
 
-## De operaties
+De lading rijdt mee op de koppeling die [IS-OA-01](is-oa-01.md) voluit beschrijft: de ontwerptool houdt het ontwerp in bewerking vast en meldt dat het gereed is, waarna de catalogus het ophaalt ([U3](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u3-resource-eigenaarschap) en [U4](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u4-notify-then-pull)). Een volgende ontwerpversie loopt over dezelfde melding, en O5 geeft de delta tussen twee versies.
 
-Deze lading rijdt mee op de koppeling die [IS-OA-01](README.md#1-de-informatiestromen) voluit beschrijft: de ontwerptool houdt het ontwerp in bewerking vast en meldt dat het gereed is, waarna de catalogus het ophaalt ([U3](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u3-resource-eigenaarschap) en [U4](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u4-notify-then-pull)). Authenticatie per operatie volgt de [auth-standaard](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/auth-standaard.md).
+## 3. Operaties
+
+`CO` is de curriculum ontwerptool, `OC` de onderwijscatalogus. De paden bestaan in Public op de onderwijscatalogus, die de opgenomen specificatie bezit; deze eenheid draait de richting om en legt hetzelfde pad op de ontwerptool, die het ontwerp in bewerking bezit, met een voorvoegsel per bezitter (WB-07). Authenticatie per operatie volgt de [auth-standaard](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/auth-standaard.md).
+
+### 3.1 Het contract per operatie
 
 | Nr | Pad of meldpatroon (webhook) | Methode | Parameters | Statuscodes | Foutgedrag | Status |
 |---|---|---|---|---|---|---|
@@ -64,60 +81,30 @@ Deze lading rijdt mee op de koppeling die [IS-OA-01](README.md#1-de-informatiest
 | O5 | `/onderwijsspecificaties/{id}/delta` en `/examenplanspecificaties/{id}/delta` op CO | GET | `van` en `naar`, beide verplicht en beide een versie | 200, 400, 404 | JSON Patch volgens RFC 6902, vorm in [education-specification-delta.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/education-specification-delta.json). 400 bij een versiepaar dat de bezitter mist ([U11](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u11-toekomstvaste-endpoints-volledige-structuur-en-delta)) | voorstel |
 | O6 | `/abonnementen` op CO, payload [subscription.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/subscription.json) met `events` op `ontwerp-gereed` | POST | geen | 201, 400 | Herhaalbaar zonder extra effect (idempotent) op afleveradres plus soort melding: een herhaalde registratie overschrijft de vorige | voorstel |
 
-Waarop elke operatie rust. De paden bestaan in Public op de onderwijscatalogus, die de opgenomen specificatie bezit; deze eenheid draait de richting om en legt hetzelfde pad op de ontwerptool, die het ontwerp in bewerking bezit.
+### 3.2 Foutafhandeling
 
-| Nr | Wat Public vandaag draagt | Wat deze eenheid toevoegt |
+De controle kent twee lagen: het dragende schema in Public laat de vorm door, en de overlay [education-design.json](schemas/education-design.json) beoordeelt de waarde. Op O4 draagt `afgekeurd` de geschonden regel met het veld en de waarde die de controle raakte, waarna de vorige versie blijft staan.
+
+| Waarde in de payload | Wat result-structure.json ermee doet | Wat education-design.json ermee doet |
 |---|---|---|
-| O1 | De vorm van een dunne melding met een verwijzing (U4), en de lijst `events` in subscription.json | Het meldpatroon `ontwerp-gereed` op de catalogus (WB-07) en de waarde in die lijst (WB-10) |
-| O2 | `GET /onderwijsspecificaties/{id}` op de [onderwijscatalogus](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Applicatiecomponenten/onderwijscatalogus.md), met [education-specification.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/education-specification.json) als payload | Hetzelfde pad op de ontwerptool met een voorvoegsel per bezitter (WB-07), en de ontwerpvelden in de payload (WB-01 tot en met WB-06) |
-| O3 | `GET /examenplanspecificaties/{id}` op de onderwijscatalogus, met [result-structure.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/result-structure.json) als payload | Als O2, met de toetsvelden (WB-02, WB-04, WB-06, WB-08) |
-| O4 | Het schema processing-status.json en de eventwaarde `verwerkingsstatus` | Het meldpatroon op de ontwerptool (WB-07) |
-| O5 | `GET /onderwijsspecificaties/{id}/delta` op de onderwijscatalogus | Hetzelfde pad op de ontwerptool, en dezelfde delta bij het examenplan (WB-11) |
-| O6 | `POST /abonnementen` op de onderwijscatalogus | Hetzelfde pad op de ontwerptool, zodat de catalogus zich op `ontwerp-gereed` abonneert (WB-07) |
+| een toetsduur in `min` | laat hem door | keurt hem af: `assessmentDuration` draagt minuten of uren |
+| een competentie van het type `skill` | laat hem door | keurt hem af: `type` draagt vaardigheid, kennis of inzicht |
+| een leermiddelgroep met doel `examen` | laat hem door | keurt hem af: `purpose` draagt onderwijs of toetsing |
 
-### Meereizen met de specificatie
+### 3.3 Statusafhandeling
 
-Het ontwerp reist mee op de resource van IS-OA-01 en krijgt geen eigen resource. Wat daarvoor pleit:
+Deze eenheid verhoogt de versie van de specificatie die IS-OA-01 draagt, en is de enige in deze keten die een versieverhoging beschrijft: de identiteit blijft, de versie loopt op, en de melding zegt welke klasse de wijziging heeft.
 
-| Grond | Wat zij zegt |
-|---|---|
-| [bottleneck.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/bottleneck.json) | De knelpuntcodes `ruimteTekort` en `expertiseTekort` dragen `involvedSpecificationIds`: planning meldt het knelpunt op de specificatie, dus hoort het ruimtetype en het profiel bij die specificatie te staan |
-| F1-13 en [F2-03 van IS-OA-03](is-oa-03.md#de-eenheid) | Het ontwerp stroomt met dezelfde pijl van de ontwerptool naar de catalogus als de specificatie, en dezelfde waarden gaan daarna naar planning |
-| [gebruiksprofielen.md](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/gebruiksprofielen.md) | Het verschil per koppeling staat in het gebruiksprofiel: het schema legt de vorm vast, het profiel wat een koppeling ervan gebruikt. Een afnemer die het ontwerp laat staan, laat het staan in zijn profiel |
-| [regels.md](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/regels.md) | De versie loopt op de specificatie: het ontwerp erbij is MINOR binnen dezelfde identiteit, met `changeClass` (wijzigingsklasse) `niet-brekend`. Een eigen resource zou een tweede versielijn openen |
+| Wat er gebeurt | Wat de versie doet | Wat de melding draagt |
+|---|---|---|
+| Het ontwerp komt additief bovenop de grofmazige specificatie van IS-OA-01 | `0.1.0` naar `0.2.0`, MINOR binnen dezelfde identiteit | O1 `ontwerp-gereed` met `changeClass` (wijzigingsklasse) `niet-brekend` |
+| De catalogus neemt de waarden over | de opgenomen versie staat in `specificationReference` | O4 `verwerkingsstatus` met status `gelukt` |
+| Een waarde valt buiten de waardelijst | de vorige versie blijft staan | O4 `verwerkingsstatus` met status `afgekeurd` en de geschonden regel |
+| De vorm of het instrument wijzigt | `0.2.0` naar `0.3.0` | O1 opnieuw, waarna O5 de JSON Patch tussen die twee versies geeft |
 
-De leermiddelgroepen gaan daarnaast ook los: gebruiksprofielen.md parkeert een leermiddelkoppeling-payload met per specificatie een `specificatieVerwijzing`, en [learning-resource-group.json](schemas/learning-resource-group.json) draagt dat veld. Binnen deze payload wijst de specificatie de groep aan, en op die route draagt de groep de verwijzing zelf.
+`programmeOfferingId` (opleidingsaanbodId) blijft leeg op O4: deze eenheid meldt op een specificatie en niet op aanbod.
 
-## De schemas
-
-Elk schema draagt zijn status in zijn `$id`. De schema's die deze eenheid voorstelt staan in [schemas/](schemas/) en eindigen op `/voorstel`; de dragende schema's staan in Public en eindigen op `/alfa`.
-
-| Schema | Wat het draagt | Objecttype | Status |
-|---|---|---|---|
-| [education-design.json](schemas/education-design.json) | De ontwerpvelden op een specificatie, plus de arrays met de objecten waarnaar zij wijzen | `Onderwijsvorm`, en de attributen van de specificatie | voorstel |
-| [room-type.json](schemas/room-type.json) | Het ruimteprofiel dat het ontwerp vraagt, met capaciteit, kenmerken en de locaties waar het bestaat | `Onderwijslocatie type`, `Onderwijslocatie` | voorstel |
-| [expertise-profile.json](schemas/expertise-profile.json) | Het gevraagde medewerkerprofiel met zijn competenties, en de organisatie-eenheid met die behoefte | `Expertise of functieprofiel`, `Competenties / Skills`, `Organisatie-eenheid` | voorstel |
-| [learning-resource-group.json](schemas/learning-resource-group.json) | De leermiddelen bij een leeronderdeel en het toetsinstrument bij een examenonderdeel | `Leermiddelgroep` en `Collectie van Leermiddelgroepen`, van de conceptplaat | voorstel |
-| [education-specification.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/education-specification.json) | De specificatie zelf, met `studyLoad`, `timeDistribution` en `explanation` | `Onderwijseenheid specificatie`, `Leeronderdeel specificatie` | vastgelegd, alfa |
-| [result-structure.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/result-structure.json) | Het toetsonderdeel, met `assessmentForm`, `weighting` en `resultModel` | `Toetsonderdeel specificatie`, `Examenonderdeelspecificatie` | vastgelegd, alfa |
-| [volume.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/volume.json) | De omvang per tijdsoort in `timeDistributions` | attribuut van de specificatie | vastgelegd, alfa |
-| [specification-reference.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/specification-reference.json) | De verwijzing op de leermiddelgroep en in de verwerkingsstatus | `Onderwijseenheid specificatie` | vastgelegd, alfa |
-| [processing-status.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/processing-status.json) | De uitkomst op O4 | de toestand van de inname | vastgelegd, alfa |
-| [subscription.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/subscription.json) | Het afleveradres op O6 | kanaaleigenschap | vastgelegd, alfa |
-
-### Waarom deze knip
-
-| De knip | Waarom zij daar valt |
-|---|---|
-| De ontwerpvelden staan als overlay op de dragende schema's, op de specificatie die IS-OA-01 al draagt | education-specification.json en result-structure.json dragen hun specificaties in dezelfde array `educationSpecifications`, dus dekt een enkele overlay de specificatiekant en de toetskant. De payload blijft plat, met een verwijzing per object ([U7](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u7-payload-plat-met-verwijzingen-en-de-sleutelconventie)) |
-| De toetsvelden staan in dezelfde overlay als de onderwijsvelden | Op de conceptplaat is `Toetsvormspecificatie` een `Onderwijsvorm specificatie`: dezelfde vorm, nu voor het examen. Een eigen schema zou de gedeelde velden verdubbelen |
-| Het ruimtetype staat apart, en de specificatie wijst het aan met een code | Meerdere specificaties wijzen hetzelfde profiel aan, en planning legt het tegen de beschikbare ruimtes voor `ruimteTekort`. De code is de sleutel die bij een type hoort, zoals `source.code` het kwalificatiekader aanwijst; daarmee draagt het profiel geen uuid die de instelling moet uitgeven |
-| Het expertiseprofiel staat apart, met de competenties erin | `Vaardigheid`, `Kennis` en `Inzicht` dragen scope buiten in het informatiemodel: CompetentNL en ISCED-F houden hun betekenis, en het profiel draagt de verwijzing daarheen. Een eigen schema per laag zou een kader nabouwen dat buiten OKx leeft |
-| De leermiddelen en het toetsinstrument delen een schema | Op de conceptplaat is `Toetsinstrument` een `Collectie van Leermiddelgroepen`, die `Leermiddelgroep` aggregeert. `partOfLearningResourceGroupId` draagt die aggregatie, zoals `partOfLocationId` dat in location.json doet. Dit beslecht de open keuze in WB-06 |
-
-De overlay beoordeelt wat het dragende schema doorlaat. Een toetsduur in `min`, een competentie van het type `skill` en een leermiddelgroep met doel `examen` passeren result-structure.json en vallen af op education-design.json.
-
-## De berichtspecificatie
+## 4. Berichtspecificatie
 
 Waar de lading van F1-13 landt, van de conceptplaat naar het [informatiemodel](../../../model/informatiemodel/informatiemodel.md) en het schema:
 
@@ -133,9 +120,200 @@ Waar de lading van F1-13 landt, van de conceptplaat naar het [informatiemodel](.
 | `Toetsvormspecificatie`, `Toetsvorm` | `Toetsonderdeel specificatie` | `assessmentForm` plus `assessmentDuration` | toetsvorm, toetsduur | result-structure.json, alfa; de duur education-design.json, voorstel |
 | `Toetsinstrument` | zonder objecttype | `assessmentInstrumentId` | toetsinstrumentId | learning-resource-group.json, voorstel |
 
+De ontwerptool levert per onderwijseenheid-, leeronderdeel- en toetsonderdeelspecificatie de sleutels hieronder over [de operaties](#3-operaties), en de catalogus neemt ze onveranderd over met O2 en O3.
+
+De sleutels in de payload zijn Engels, zoals de schema's in Public ze dragen; [mapping.md](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/mapping.md) legt per schema de Nederlandse naam ernaast. Enumwaarden blijven Nederlands, en elk schema draagt de Nederlandse naam per veld in `DutchName`.
+
 De kolom Grond hieronder opent met de status van het veld en noemt daarna waarop het veld bestaat: een objecttype of relatie uit het informatiemodel, een instantie uit de beelden F1-06, F1-10 en F1-13, of een schema in Public.
 
-### Bericht 1: de ontwerpvelden op de onderwijsspecificatie
+### 4.1 Opvragen ontwerpvelden op de onderwijsspecificatie
+
+```mermaid
+sequenceDiagram
+    participant CO as Curriculum ontwerptool
+    participant OC as Onderwijscatalogus
+    OC->>CO: O2 GET /onderwijsspecificaties/{id}
+    CO-->>OC: 200 dit bericht
+```
+
+<!-- erd -->
+```mermaid
+erDiagram
+    "Competenties / Skills" ||--o{ "Inzicht" : "bestaat uit"
+    "Competenties / Skills" ||--o{ "Kennis" : "bestaat uit"
+    "Competenties / Skills" ||--o{ "Vaardigheid" : "bestaat uit"
+    "Expertise of functieprofiel" ||--o{ "Competenties / Skills" : "bestaat uit"
+    "Leeronderdeel specificatie" ||--o{ "Les specificatie" : "bestaat uit"
+    "Onderwijseenheid specificatie" ||--o{ "Leeronderdeel specificatie" : "bestaat uit"
+    "Opleidingsprogramma specificatie" ||--o{ "Onderwijseenheid specificatie" : "bestaat uit"
+    "Summatieve resultaat structuur" ||--o{ "Examenonderdeel weging" : "bestaat uit"
+    "Summatieve resultaat structuur" ||--o{ "Toetsonderdeel specificatie" : "bestaat uit"
+    "Cohort / periode" }o--o{ "Summatieve resultaat structuur" : "Groepeert Studenten op toepasbare"
+    "Expertise of functieprofiel" }o--o{ "Opleiding specificatie" : "Benodigd voor uitvoering van"
+    "Keuzedeel" }o--o{ "Keuzedeelruimte" : "hangt samen met"
+    "Leeronderdeel specificatie" }o--o{ "Leeruitkomst" : "hangt samen met"
+    "Leeronderdeel specificatie" }o--o{ "Onderwijsvorm" : "beschrijft"
+    "Leeruitkomst" }o--o{ "Student keuze regelset" : "voorwaarde op"
+    "Les specificatie" }o--o{ "Leeruitkomst" : "hangt samen met"
+    "Onderwijseenheid specificatie" }o--o{ "Leeruitkomst" : "hangt samen met"
+    "Onderwijsvorm" }o--o{ "Onderwijslocatie type" : "Indicatie voor gebruik van"
+    "Opleiding specificatie" }o--o{ "Leeruitkomst" : "hangt samen met"
+    "Opleidingsprogramma specificatie" }o--o{ "Leeruitkomst" : "hangt samen met"
+    "Organisatie-eenheid" }o--o{ "Expertise of functieprofiel" : "Heeft behoefte aan"
+    "Organisatie-eenheid" }o--o{ "Leeronderdeel specificatie" : "Voert uit"
+    "Organisatie-eenheid" }o--o{ "Les specificatie" : "Voert uit"
+    "Organisatie-eenheid" }o--o{ "Onderwijseenheid specificatie" : "Voert uit"
+    "Organisatie-eenheid" }o--o{ "Opleiding specificatie" : "Voert uit"
+    "Organisatie-eenheid" }o--o{ "Opleidingsprogramma specificatie" : "Voert uit"
+    "Organisatie-eenheid" }o--o{ "Toetsonderdeel specificatie" : "Voert uit"
+    "Student keuze regelset" }o--o{ "Keuzedeel" : "hangt samen met"
+    "Student keuze regelset" }o--o{ "Keuzedeelruimte" : "hangt samen met"
+    "Student keuze regelset" }o--o{ "Leeronderdeel specificatie" : "hangt samen met"
+    "Student keuze regelset" }o--o{ "Les specificatie" : "hangt samen met"
+    "Student keuze regelset" }o--o{ "Onderwijseenheid specificatie" : "hangt samen met"
+    "Student keuze regelset" }o--o{ "Opleiding specificatie" : "hangt samen met"
+    "Student keuze regelset" }o--o{ "Opleidingsprogramma specificatie" : "hangt samen met"
+    "Summatieve resultaat structuur" }o--o{ "Leeruitkomst" : "hangt samen met"
+    "Toetsonderdeel specificatie" }o--o{ "Leeruitkomst" : "hangt samen met"
+    "Opleiding specificatie" ||--o{ "Opleidingsprogramma specificatie" : "minimaal 1"
+    "Keuzedeel" ||--|| "Opleidingsprogramma specificatie" : "is een"
+    "Keuzedeelruimte" ||--|| "Opleidingsprogramma specificatie" : "is een"
+    "Leeruitkomst" ||--|| "Competenties / Skills" : "is een"
+    "Onderwijsvorm" {
+        string educationForm "0..1"
+    }
+    "Onderwijslocatie type" {
+        string roomType "0..1"
+    }
+    "Expertise of functieprofiel" {
+        array expertiseProfileIds FK "0..n"
+    }
+    "Opleiding specificatie" {
+        enum curriculumType "0..1"
+        string description "0..1"
+        uuid id PK "1..1"
+        uuid learningOutcomeId FK "0..1"
+        array manifest FK "0..n"
+        uuid manifest[].specificationId FK "0..n"
+        string manifest[].version "0..n"
+        string name "1..1"
+        uuid parentSpecificationId FK "1..1"
+        array ruleSetReferences FK "0..n"
+        enum specificationType "1..1"
+        enum status "0..1"
+        object, studyLoad "1..1"
+        number studyLoad.value "1..1"
+        date validFrom "0..1"
+        date validUntil "0..1"
+        string, version "1..1"
+    }
+    "Opleidingsprogramma specificatie" {
+        string cohort FK "0..1"
+        enum curriculumType "0..1"
+        string description "0..1"
+        uuid id PK "1..1"
+        uuid learningOutcomeId FK "0..1"
+        enum learningPathway "0..1"
+        array manifest FK "0..n"
+        uuid manifest[].specificationId FK "0..n"
+        string manifest[].version "0..n"
+        string name "1..1"
+        object, organisation FK "0..1"
+        uuid parentSpecificationId FK "1..1"
+        enum programmeLayer "0..1"
+        string, programmeType "0..1"
+        array ruleSetReferences FK "0..n"
+        enum specificationType "1..1"
+        date startDate "0..1"
+        enum status "0..1"
+        object, studyLoad "1..1"
+        number studyLoad.value "1..1"
+        string, targetGroup "0..1"
+        date validFrom "0..1"
+        date validUntil "0..1"
+        string, version "1..1"
+    }
+    "Keuzedeel" {
+        string description "0..1"
+        string, electiveUnitClass "0..1"
+        uuid id PK "1..1"
+        uuid learningOutcomeId FK "0..1"
+        string name "1..1"
+        string, programmeType "0..1"
+        enum specificationType "1..1"
+        enum status "0..1"
+        object, studyLoad "1..1"
+        number studyLoad.value "1..1"
+        string, version "1..1"
+    }
+    "Onderwijseenheid specificatie" {
+        string description "0..1"
+        string explanation "0..1"
+        uuid id PK "1..1"
+        uuid learningOutcomeId FK "0..1"
+        uuid manifest[].specificationId FK "0..n"
+        string manifest[].version "0..n"
+        string name "1..1"
+        uuid parentSpecificationId FK "1..1"
+        enum specificationType "1..1"
+        enum status "0..1"
+        object, studyLoad "1..1"
+        number studyLoad.value "1..1"
+        string, version "1..1"
+    }
+    "Leeronderdeel specificatie" {
+        string description "0..1"
+        string explanation "0..1"
+        uuid id PK "1..1"
+        uuid learningOutcomeId FK "0..1"
+        string name "1..1"
+        uuid parentSpecificationId FK "1..1"
+        enum specificationType "1..1"
+        enum status "0..1"
+        object, studyLoad "1..1"
+        number studyLoad.value "1..1"
+        string, timeDistribution "0..1"
+        string, version "1..1"
+    }
+    "Keuzedeelruimte" {
+        string description "0..1"
+        uuid id PK "1..1"
+        string name "1..1"
+        uuid parentSpecificationId FK "1..1"
+        array ruleSetReferences FK "0..n"
+        enum specificationType "1..1"
+        enum status "0..1"
+        object, studyLoad "1..1"
+        number studyLoad.value "1..1"
+        string, version "1..1"
+    }
+    "Toetsonderdeel specificatie" { }
+    "Summatieve resultaat structuur" { }
+    "Leeruitkomst" {
+        array learningOutcomes "0..n"
+    }
+    "Student keuze regelset" {
+        array ruleSets "0..n"
+    }
+    "Cohort / periode" { }
+    "Organisatie-eenheid" { }
+    "Competenties / Skills" { }
+    "Les specificatie" { }
+    "Examenonderdeel weging" { }
+    "Inzicht" { }
+    "Kennis" { }
+    "Vaardigheid" { }
+```
+
+| Lijn | Betekenis |
+|---|---|
+| `\|\|--o{` | het eerste bestaat uit nul of meer van het tweede |
+| `\|\|--\|\|` | het tweede is een soort van het eerste |
+| `}o--o{` | de twee hangen samen, met het opschrift erbij |
+| `PK` en `FK` | de sleutel van het object, en een verwijzing naar een ander object |
+| tekst achter een attribuut | de multipliciteit in dit bericht, en of het veld verplicht is |
+
+<!-- /erd -->
 
 Per onderwijseenheid- of leeronderdeelspecificatie in de array `educationSpecifications` van [education-specification.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/education-specification.json).
 
@@ -152,7 +330,100 @@ Per onderwijseenheid- of leeronderdeelspecificatie in de array `educationSpecifi
 
 De som van `timeDistributions` sluit op `studyLoad` van dezelfde specificatie: Baliegesprekken 101 draagt 600 SBU, verdeeld over BOT 300 en OOT 300.
 
-### Bericht 2: de ontwerpvelden op het toetsonderdeel
+### 4.2 Opvragen ontwerpvelden op het toetsonderdeel
+
+```mermaid
+sequenceDiagram
+    participant CO as Curriculum ontwerptool
+    participant OC as Onderwijscatalogus
+    OC->>CO: O3 GET /examenplanspecificaties/{id}
+    CO-->>OC: 200 dit bericht
+```
+
+<!-- erd -->
+```mermaid
+erDiagram
+    "Competenties / Skills" ||--o{ "Inzicht" : "bestaat uit"
+    "Competenties / Skills" ||--o{ "Kennis" : "bestaat uit"
+    "Competenties / Skills" ||--o{ "Vaardigheid" : "bestaat uit"
+    "Expertise of functieprofiel" ||--o{ "Competenties / Skills" : "bestaat uit"
+    "Formatieve resultaat structuur" ||--o{ "Toetsonderdeel specificatie" : "bestaat uit"
+    "Formatieve resultaat structuur" ||--o{ "Toetsonderdeel weging" : "bestaat uit"
+    "Summatieve resultaat structuur" ||--o{ "Examenonderdeel weging" : "bestaat uit"
+    "Summatieve resultaat structuur" ||--o{ "Toetsonderdeel specificatie" : "bestaat uit"
+    "Examenonderdeel weging" }o--o{ "Examenonderdeelspecificatie" : "hangt samen met"
+    "Summatieve resultaat structuur" }o--o{ "Summatief Afrondingscriterium" : "hangt samen met"
+    "Toetsonderdeel weging" }o--o{ "Toetsonderdeel specificatie" : "hangt samen met"
+    "Examenonderdeelspecificatie" ||--|| "Toetsonderdeel specificatie" : "is van het soort"
+    "Toetsonderdeel specificatie" {
+        string assessmentForm "0..1"
+        string description "0..1"
+        uuid id PK "1..1"
+        object learningOutcome FK "0..1"
+        uuid learningOutcomeId FK "0..1, verplicht op een toetsonderdeel"
+        string name "1..1"
+        enum: nature "0..1, verplicht op een toetsonderdeel"
+        uuid parentSpecificationId FK "1..1"
+        object resultModel "1..1"
+        enum, specificationType "1..1"
+        string, status "1..1"
+        string, version "1..1"
+    }
+    "Onderwijslocatie type" {
+        string roomType "0..1"
+    }
+    "Expertise of functieprofiel" {
+        array expertiseProfileIds FK "0..n"
+    }
+    "Summatieve resultaat structuur" {
+        uuid appliesTo FK "0..1, verplicht op het examenplan"
+        uuid assesses FK "0..1, verplicht op een resultaateenheid"
+        string description "0..1"
+        uuid id PK "1..1"
+        object learningOutcome FK "0..1"
+        uuid learningOutcomeId FK "0..1, verplicht buiten de keuzedeel-resultaateenheid om"
+        array manifest FK "0..n, verplicht zodra er onderdelen zijn"
+        uuid manifest[].specificationId FK "0..n"
+        string manifest[].version "0..n"
+        string name "1..1"
+        uuid parentSpecificationId FK "1..1"
+        object resultModel "1..1"
+        array ruleSetReferences FK "0..n, verplicht op de keuzedeel-resultaateenheid"
+        enum: specificationType "1..1"
+        string, status "1..1"
+        date validFrom "0..1, verplicht op het examenplan"
+        date validUntil "0..1, verplicht op het examenplan"
+        string, version "1..1"
+    }
+    "Formatieve resultaat structuur" {
+        integer decimalPlaces "0..1"
+        number passMark "0..1"
+        object resultModel "1..1"
+        string, scale "0..1"
+    }
+    "Examenonderdeelspecificatie" {
+        string, establishedBy "0..1"
+    }
+    "Examenonderdeel weging" { }
+    "Toetsonderdeel weging" { }
+    "Summatief Afrondingscriterium" {
+        array ruleSetReferences FK "0..n"
+    }
+    "Competenties / Skills" { }
+    "Inzicht" { }
+    "Kennis" { }
+    "Vaardigheid" { }
+```
+
+| Lijn | Betekenis |
+|---|---|
+| `\|\|--o{` | het eerste bestaat uit nul of meer van het tweede |
+| `\|\|--\|\|` | het tweede is een soort van het eerste |
+| `}o--o{` | de twee hangen samen, met het opschrift erbij |
+| `PK` en `FK` | de sleutel van het object, en een verwijzing naar een ander object |
+| tekst achter een attribuut | de multipliciteit in dit bericht, en of het veld verplicht is |
+
+<!-- /erd -->
 
 Per toetsonderdeelspecificatie in de array `educationSpecifications` van [result-structure.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/result-structure.json).
 
@@ -164,7 +435,59 @@ Per toetsonderdeelspecificatie in de array `educationSpecifications` van [result
 | `assessmentInstrumentId` | toetsinstrumentId | uuid | 0..1 | nee | `Toetsinstrument`, conceptplaat | voorstel, WB-06. F1-10 en F1-13 dragen "Beoordelingsformulier met rubric" |
 | `expertiseProfileIds` | expertiseprofielIds | array van uuid | 0..n | nee | `Expertise of functieprofiel` | voorstel, WB-04. F1-10 hangt "Examinator met baliepraktijk en toetsbekwaamheid" aan de toetsvormspecificatie |
 
-### Bericht 3: het expertiseprofiel
+### 4.3 Opvragen expertiseprofielen
+
+```mermaid
+sequenceDiagram
+    participant CO as Curriculum ontwerptool
+    participant OC as Onderwijscatalogus
+    OC->>CO: O2 of O3 GET, de specificatiekant of de toetskant
+    CO-->>OC: 200 met dit bericht in de array expertiseProfiles
+```
+
+<!-- erd -->
+```mermaid
+erDiagram
+    "Competenties / Skills" ||--o{ "Inzicht" : "bestaat uit"
+    "Competenties / Skills" ||--o{ "Kennis" : "bestaat uit"
+    "Competenties / Skills" ||--o{ "Vaardigheid" : "bestaat uit"
+    "Expertise of functieprofiel" ||--o{ "Competenties / Skills" : "bestaat uit"
+    "Organisatie-eenheid" }o--o{ "Expertise of functieprofiel" : "Heeft behoefte aan"
+    "Expertise of functieprofiel" {
+        uuid expertiseProfiles_id PK "1..1, verplicht"
+        string expertiseProfiles_name "1..1, verplicht"
+        string expertiseProfiles_role "0..1"
+        string expertiseProfiles_description "0..1"
+        uuid id PK "1..1"
+        string name "1..1"
+        string, version "0..1"
+    }
+    "Organisatie-eenheid" {
+        uuid expertiseProfiles_organisationUnitId FK "0..1"
+    }
+    "Vaardigheid" {
+        enum expertiseProfilescompetences_type "1..1, verplicht"
+        enum competences[].type "1..1"
+    }
+    "Kennis" {
+        enum expertiseProfilescompetences_type "1..1, verplicht"
+        enum competences[].type "1..1"
+    }
+    "Inzicht" {
+        enum expertiseProfilescompetences_type "1..1, verplicht"
+        enum competences[].type "1..1"
+    }
+    "Competenties / Skills" { }
+```
+
+| Lijn | Betekenis |
+|---|---|
+| `\|\|--o{` | het eerste bestaat uit nul of meer van het tweede |
+| `}o--o{` | de twee hangen samen, met het opschrift erbij |
+| `PK` en `FK` | de sleutel van het object, en een verwijzing naar een ander object |
+| tekst achter een attribuut | de multipliciteit in dit bericht, en of het veld verplicht is |
+
+<!-- /erd -->
 
 De array `expertiseProfiles` staat naast `educationSpecifications`, net als `ruleSets` in beide dragende schema's. Vorm in [expertise-profile.json](schemas/expertise-profile.json).
 
@@ -183,7 +506,44 @@ De array `expertiseProfiles` staat naast `educationSpecifications`, net als `rul
 
 De sleutel `source` blijft voorbehouden aan de vorm van source.json op de leeruitkomst en op de aanbodinstantie, zoals [casus.md](casus.md) vastlegt. Daarom draagt de competentie haar kader onder `framework`.
 
-### Bericht 4: het ruimtetype
+### 4.4 Opvragen ruimtetypen
+
+```mermaid
+sequenceDiagram
+    participant CO as Curriculum ontwerptool
+    participant OC as Onderwijscatalogus
+    OC->>CO: O2 of O3 GET, de specificatiekant of de toetskant
+    CO-->>OC: 200 met dit bericht in de array roomTypes
+```
+
+<!-- erd -->
+```mermaid
+erDiagram
+    "Onderwijslocatie type" }o--o{ "Onderwijslocatie" : "hangt samen met"
+    "Onderwijslocatie type" {
+        string roomTypes_code "1..1, verplicht"
+        string roomTypes_name "1..1, verplicht"
+        string roomTypes_description "0..1"
+        integer roomTypes_capacity "0..1"
+        array roomTypes_features "0..n"
+        integer capacity "0..1"
+        string code PK "1..1"
+        string description "0..1"
+        array features "0..n"
+        string name "1..1"
+    }
+    "Onderwijslocatie" {
+        array roomTypes_locationIds FK "0..n"
+    }
+```
+
+| Lijn | Betekenis |
+|---|---|
+| `}o--o{` | de twee hangen samen, met het opschrift erbij |
+| `PK` en `FK` | de sleutel van het object, en een verwijzing naar een ander object |
+| tekst achter een attribuut | de multipliciteit in dit bericht, en of het veld verplicht is |
+
+<!-- /erd -->
 
 De array `roomTypes` staat naast `educationSpecifications`. Vorm in [room-type.json](schemas/room-type.json).
 
@@ -198,7 +558,19 @@ De array `roomTypes` staat naast `educationSpecifications`. Vorm in [room-type.j
 
 Het profiel zegt welke ruimte het ontwerp vraagt. Het lokaal zelf volgt bij roosteren, zoals F1-06 vastlegt: de gewenste leeromgeving is een ruimteprofiel.
 
-### Bericht 5: de leermiddelgroep
+### 4.5 Opvragen leermiddelgroepen
+
+```mermaid
+sequenceDiagram
+    participant CO as Curriculum ontwerptool
+    participant OC as Onderwijscatalogus
+    OC->>CO: O2 of O3 GET, de specificatiekant of de toetskant
+    CO-->>OC: 200 met dit bericht in de array learningResourceGroups
+```
+
+<!-- erd -->
+Dit bericht draagt geen objecttype uit het informatiemodel: de velden zijn eigenschappen van het contract.
+<!-- /erd -->
 
 De array `learningResourceGroups` staat naast `educationSpecifications` en draagt zowel de leermiddelen als het toetsinstrument. Vorm in [learning-resource-group.json](schemas/learning-resource-group.json).
 
@@ -214,7 +586,7 @@ De array `learningResourceGroups` staat naast `educationSpecifications` en draag
 | `learningResourceGroups[].partOfLearningResourceGroupId` | valtBinnenLeermiddelgroepId | uuid of null | 0..1 | nee | `Collectie van Leermiddelgroepen`, conceptplaat | voorstel, WB-06. F1-10: `Toetsinstrument` is een `Collectie van Leermiddelgroepen` die `Leermiddelgroep` aggregeert; [location.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/location.json) draagt dezelfde vorm als `partOfLocationId` |
 | `learningResourceGroups[].specificationReference` | specificatieVerwijzing | object, [specification-reference.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/specification-reference.json) | 0..1 | nee | idem | voorstel, WB-06. gebruiksprofielen.md verwacht per specificatie een `specificatieVerwijzing` voor de route over de leermiddelkoppeling |
 
-## Voorbeeldpayload
+## 5. Voorbeeldpayload
 
 Casus Apothekersassistent, kwalificatiedossier 23450, met de instantiewaarden uit F1-06, F1-10 en F1-13. De uuid's, de codes, de versies en de namen staan in [casus.md](casus.md); de specificaties volgen daar de [voorbeeldpayloads](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/voorbeeldpayloads.md) in Public, en de profielen, de ruimtetypen en de leermiddelgroepen dragen een identificatie van deze snede. De ontwerpvelden komen additief bovenop de grofmazige specificatie van IS-OA-01, dus loopt de versie van `0.1.0` naar `0.2.0`.
 
@@ -357,7 +729,24 @@ De toetskant, het antwoord op O3. Deze payload valideert tegen result-structure.
 }
 ```
 
-## De werkbrieven
+## 6. Schemas
+
+| Schema | Wat het draagt | Objecttype | Status |
+|---|---|---|---|
+| [education-design.json](schemas/education-design.json) | De ontwerpvelden op een specificatie, plus de arrays met de objecten waarnaar zij wijzen | `Onderwijsvorm`, en de attributen van de specificatie | voorstel |
+| [room-type.json](schemas/room-type.json) | Het ruimteprofiel dat het ontwerp vraagt, met capaciteit, kenmerken en de locaties waar het bestaat | `Onderwijslocatie type`, `Onderwijslocatie` | voorstel |
+| [expertise-profile.json](schemas/expertise-profile.json) | Het gevraagde medewerkerprofiel met zijn competenties, en de organisatie-eenheid met die behoefte | `Expertise of functieprofiel`, `Competenties / Skills`, `Organisatie-eenheid` | voorstel |
+| [learning-resource-group.json](schemas/learning-resource-group.json) | De leermiddelen bij een leeronderdeel en het toetsinstrument bij een examenonderdeel | `Leermiddelgroep` en `Collectie van Leermiddelgroepen`, van de conceptplaat | voorstel |
+| [education-specification.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/education-specification.json) | De specificatie zelf, met `studyLoad`, `timeDistribution` en `explanation` | `Onderwijseenheid specificatie`, `Leeronderdeel specificatie` | vastgelegd, alfa |
+| [result-structure.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/result-structure.json) | Het toetsonderdeel, met `assessmentForm`, `weighting` en `resultModel` | `Toetsonderdeel specificatie`, `Examenonderdeelspecificatie` | vastgelegd, alfa |
+| [volume.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/volume.json) | De omvang per tijdsoort in `timeDistributions` | attribuut van de specificatie | vastgelegd, alfa |
+| [specification-reference.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/specification-reference.json) | De verwijzing op de leermiddelgroep en in de verwerkingsstatus | `Onderwijseenheid specificatie` | vastgelegd, alfa |
+| [processing-status.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/processing-status.json) | De uitkomst op O4 | de toestand van de inname | vastgelegd, alfa |
+| [subscription.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/subscription.json) | Het afleveradres op O6 | kanaaleigenschap | vastgelegd, alfa |
+
+Elk schema draagt zijn status in zijn `$id`. De schema's die deze eenheid voorstelt staan in [schemas/](schemas/) en eindigen op `/voorstel`; de dragende schema's staan in Public en eindigen op `/alfa`.
+
+## 7. Werkbrieven
 
 Wat er in Public gebeurt om dit voorstel daar te laten landen. De versie-impact volgt de versionering uit de [regels bij de schema's](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/regels.md): een additief veld is MINOR, en een wijziging van de uitvoeringsvorm draagt `changeClass` (wijzigingsklasse) `niet-brekend`.
 

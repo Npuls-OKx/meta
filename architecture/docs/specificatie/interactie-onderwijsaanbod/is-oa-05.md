@@ -1,34 +1,45 @@
 # IS-OA-05 Aanmeldbaar aanbod naar de kernregistratie
 
-De onderwijscatalogus ontsluit het aanmeld- en inschrijfbare `Opleidingsprogramma aanbod` aan de kernregistratie, waar de `Aanmelding` en de `Opleidingsprogramma aanbod verbintenis` van een aspirant-student erop ontstaan.
-
-De uuid's, de versies en de namen in de voorbeeldpayload hieronder komen uit [casus.md](casus.md), de vaste identificaties van deze interactiespecificatie. Het aanbod is hetzelfde dat [IS-OA-04](is-oa-04.md) terugmeldt.
-
-Elke operatie, elk pad en elk schema draagt hieronder zijn stand. `vastgelegd` staat bij wat [Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Koppelvlakspecificaties) vandaag draagt, `voorstel` bij wat deze eenheid voorstelt. Een voorgesteld schema draagt het label `voorstel` in zijn `$id`, zodat de stand aan het artefact zelf te lezen is.
-
-## De eenheid
-
-| Kenmerk | Waarde |
+| | |
 |---|---|
-| Bronsysteem | Onderwijscatalogus |
-| Doelsysteem | Kernregistratie systeem studenten (KRS) |
-| Koppeling | OC-KRS volgens de beeldregels, OC-SIS volgens hoofdplaat v1.7 ([S-A](#signaleringen)) |
-| Beeld | F3-01, aanmeldbaar aanbod naar de kernregistratie |
-| Lading | `Opleidingsprogramma aanbod`, instantie `Regulier BOL 2026`, met zijn `Opleiding aanbod` erboven |
-| Snede | [de aanmeldbare snede](#de-snede): de twee aanbodlagen waarop bij de aanmelding een verbintenis ontstaat, met het aanmeldvenster erbij |
-| Contract | De operaties met hun paden staan onder [de operaties](#de-operaties), de berichten onder [de berichtspecificatie](#de-berichtspecificatie), de schema's onder [de schema's](#de-schemas) |
-| Status | De pijl en de koppeling staan op v1.7. Het [interactiepatroon OC-SIS](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Interactiepatronen/onderwijscatalogus-studentinformatiesysteem.md) dekt specificatie en resultaatstructuur en draagt het meldpatroon `inrichtingsstatus`; het aanbod komt met deze eenheid erbij |
-| Applicatiedienst | [planbaar-onderwijsaanbod-aanbieder](https://github.com/Npuls-OKx/Public/blob/d0c20d99b110b29ccf6b0e50109f7d54ffd88d7a/Koppelvlakspecificaties/Applicatiediensten/planbaar-onderwijsaanbod-aanbieder.md) bij de catalogus, [planbaar-onderwijsaanbod-afnemer](https://github.com/Npuls-OKx/Public/blob/d0c20d99b110b29ccf6b0e50109f7d54ffd88d7a/Koppelvlakspecificaties/Applicatiediensten/planbaar-onderwijsaanbod-afnemer.md) bij de kernregistratie, gepind op commit d0c20d99; die map staat nog niet op `dev` ([S-B](#signaleringen)). Werkbrief W9 belegt de dienst voor aanmeldbaar aanbod |
+| **Document doel** | Zet uiteen hoe de onderwijscatalogus het aanmeldbare onderwijsaanbod aan de kernregistratie levert, ten behoeve van de bouw of de verificatie van een implementatie volgens deze specificatie |
+| **Doelgroep** | De implementatiespecialist en de tester bij een instelling of een leverancier, en wie een profiel of consumer bouwt |
+| **Dient als input voor** | De bouw van het koppelvlak, de testgevallen erbij, en de acceptatie van een opgeleverde koppeling |
+| **Kaderstelling** | De [interactieketen](README.md) waarin deze specificatie valt, het [informatiemodel OKx](../../../model/informatiemodel/informatiemodel.md), en beeld F3-01 van de [voorbeelduitwerking](../../../model/informatiemodel/voorbeeld-leerroute-1-jochem.md), met de grond per regel in [voorbeeld-lr1-regels.json](../../../model/informatiemodel/voorbeeld-lr1-regels.json) |
+| **Inhoud** | Zes operaties met hun statuscodes, drie berichten met hun velden, tien eisen met hun toetsgeval, en vijf voorbeeldpayloads die valideren |
+| **Status** | De melding `inrichtingsstatus` ligt vast in Public. De aanmeldbare snede op een eigen resource is voorstel, met per regel wat dat in Public toevoegt |
+
+De lading: het aanmeld- en inschrijfbare `Opleidingsprogramma aanbod`, instantie `Regulier BOL 2026`, met zijn `Opleiding aanbod` erboven, het aanmeldvenster, de instroomcapaciteit en de herkomst in het kwalificatiekader. De uuid's, de versies en de namen in de voorbeeldpayloads komen uit [casus.md](casus.md).
+
+## 1. Interactie
+
+| Bronsysteem | Doelsysteem | Koppeling | Beeld | Status | Applicatiedienst |
+|---|---|---|---|---|---|
+| Onderwijscatalogus | Kernregistratie systeem studenten (KRS) | OC-KRS volgens de beeldregels, OC-SIS volgens hoofdplaat v1.7 ([S-A](#9-signaleringen)) | F3-01 | De pijl en de koppeling staan op v1.7. Het [interactiepatroon OC-SIS](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Interactiepatronen/onderwijscatalogus-studentinformatiesysteem.md) dekt specificatie en resultaatstructuur en draagt het meldpatroon `inrichtingsstatus`; het aanbod komt met deze eenheid erbij | [planbaar-onderwijsaanbod-aanbieder](https://github.com/Npuls-OKx/Public/blob/d0c20d99b110b29ccf6b0e50109f7d54ffd88d7a/Koppelvlakspecificaties/Applicatiediensten/planbaar-onderwijsaanbod-aanbieder.md) bij de catalogus, [planbaar-onderwijsaanbod-afnemer](https://github.com/Npuls-OKx/Public/blob/d0c20d99b110b29ccf6b0e50109f7d54ffd88d7a/Koppelvlakspecificaties/Applicatiediensten/planbaar-onderwijsaanbod-afnemer.md) bij de kernregistratie: de catalogus ontsluit, de kernregistratie neemt af. Werkbrief W9 belegt de dienst voor aanmeldbaar aanbod |
 
 ![Beeld F3-01: het aanmeldbare opleidingsprogramma-aanbod van de onderwijscatalogus naar de kernregistratie](../../../model/informatiemodel/img/regels/f3-01-aanmeldbaar-aanbod-naar-de-kernregistratie.svg)
 
-Alleen het `Opleidingsprogramma aanbod` gaat mee, met zijn `Opleiding aanbod` erboven, en niet de lagen eronder. Die snede staat bij de catalogus op `/aanmeldbaar-aanbod`.
+Het `Opleidingsprogramma aanbod` gaat mee met zijn `Opleiding aanbod` erboven, en de lagen eronder blijven bij hun bezitter. Die snede staat bij de catalogus op `/aanmeldbaar-aanbod`.
 
-Grond per regel: [voorbeeld-lr1-regels.json](../../../model/informatiemodel/voorbeeld-lr1-regels.json), beeld F3-01. Objecttypen: [informatiemodel OKx](../../../model/informatiemodel/informatiemodel.md). Definities: [begrippenlijst](../begrippen/begrippenlijst.md). De eenheid in haar keten: [de interactiespecificatie](README.md).
+De objecten ontstaan in [F2-04](../../../model/informatiemodel/voorbeeld-leerroute-1-jochem.md#f2-04---het-aanbod-gepland-opleiding-programma-eenheid-gelegenheid), waar de planner het aanbod in zijn lagen plant en [IS-OA-04](is-oa-04.md) het aan de catalogus terugmeldt.
 
-## De snede
+De taak van deze interactie in het proces: de catalogus zet het geplande aanbod op aanmeldbaar, en de kernregistratie richt daarop de `Aanmelding` en de `Opleidingsprogramma aanbod verbintenis` in, voordat een aspirant-student zich aanmeldt. Zij opent [fase 3](../../../model/informatiemodel/voorbeeld-leerroute-1-jochem.md#fase-3-instroom-intake-en-plaatsing), na de planning in [fase 2](../../../model/informatiemodel/voorbeeld-leerroute-1-jochem.md#fase-2-publiceren-en-planbaar-maken).
 
-De kernregistratie richt op dit aanbod de `Aanmelding` en de verbintenis in. Beeld F3-03 laat zien waarop die verbintenis ontstaat zodra Jochem zich aanmeldt: op het `Opleiding aanbod` en op het `Opleidingsprogramma aanbod`. De snede draagt die twee lagen.
+| Applicatiecomponent | Functie in deze interactie |
+|---|---|
+| Onderwijscatalogus | Meldt dat een aanbodinstantie aanmeldbaar is, levert op opvraag de aanmeldbare snede en de wijziging tussen twee versies, en neemt de inrichtingsstatus in |
+| Kernregistratie systeem studenten | Legt haar afleveradres vast, haalt de snede op na een melding, richt de aanmelding en de verbintenis op dat aanbod in, en meldt de uitkomst terug |
+
+De status per regel hieronder zegt waar een artefact staat.
+
+| Status | Waar het artefact staat |
+|---|---|
+| `vastgelegd` | [Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Koppelvlakspecificaties) draagt hem: een pad op een componentpagina, een meldingssoort in een interactiepatroon of een schema in [Informatie-en-gegevensmodellen](https://github.com/Npuls-OKx/Public/tree/dev/Informatie-en-gegevensmodellen/schemas) |
+| `voorstel` | Deze eenheid stelt hem voor, onderbouwd uit [de casus](casus.md) en het [informatiemodel](../../../model/informatiemodel/informatiemodel.md). Een voorgesteld schema staat in [schemas/](schemas/) en draagt het label `voorstel` in zijn `$id`, zodat de stand aan het artefact zelf te lezen is |
+
+### 1.1 Wat de snede draagt
+
+De kernregistratie richt op dit aanbod de `Aanmelding` en de verbintenis in. Beeld F3-03 laat zien waarop die verbintenis ontstaat zodra Jochem zich aanmeldt: op het `Opleiding aanbod` en op het `Opleidingsprogramma aanbod`.
 
 | Wat de snede draagt | Waarom de kernregistratie dat nodig heeft |
 |---|---|
@@ -41,19 +52,10 @@ De kernregistratie richt op dit aanbod de `Aanmelding` en de verbintenis in. Bee
 
 De fijnmazige lagen blijven bij hun bezitter: het planningssysteem bezit het aanbod en de catalogus ontsluit het aan wie het nodig heeft ([U3](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u3-resource-eigenaarschap)). De onderwijseenheid en de leergelegenheid bereiken de kernregistratie langs het nominale template dat zij uit de specificatie inricht.
 
-Waarom de snede een eigen schema draagt:
 
-| De afweging | Wat er geldt |
-|---|---|
-| Het dragende schema | [education-offering.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/education-offering.json) draagt de aanbodlagen tot en met de leergelegenheid, met de planningsvelden `bottlenecks` (knelpunten) en `groups` (groepen), en een gesloten `status`-lijst waarin het plannen de waarden bepaalt |
-| Wat de snede vraagt | Twee aanbodlagen, een aanmeldvenster, de herkomst en de statuswaarde `aanmeldbaar` |
-| Wat die statuswaarde kost | Haar aan de gesloten lijst toevoegen raakt elke afnemer die erop valideert; een eigen gebruiksprofiel ernaast is additief |
-| Waar de snede daarom staat | Als [offering-open-for-application.json](schemas/offering-open-for-application.json) naast education-offering.json |
-| De bouwstenen eronder | Dezelfde als onder education-offering.json: [specification-reference.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/specification-reference.json), [period.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/period.json), [source.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/source.json), [location.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/location.json) en [organisation-unit.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/organisation-unit.json) |
+[IS-OA-06](is-oa-06.md) draagt dezelfde snede een schakel verder, naar centraal aanmelden, en voegt daar de velden toe die een sectorale partij aangaan: de leerweg, de doelgroep en de aanbieder.
 
-[IS-OA-06](is-oa-06.md) draagt dezelfde snede een schakel verder, naar centraal aanmelden, en voegt daar de velden toe die een sectorale partij aangaan: de leerweg, de doelgroep en de aanbieder. Eenheid en sector lezen zo hetzelfde profiel, met per koppeling een eigen uitsnede eruit.
-
-## De stroom
+## 2. Interactiespecificatie
 
 ```mermaid
 sequenceDiagram
@@ -87,54 +89,96 @@ sequenceDiagram
 
 De catalogus meldt dun en de kernregistratie haalt op ([U4](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u4-notify-then-pull)). Over de koppeling gaat een verwijzing, met de inhoud op opvraag ([U3](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u3-resource-eigenaarschap)). Een intrekking rijdt mee op de statuswaarde `geannuleerd`, zodat de kernregistratie de aanmelding op dat aanbod sluit.
 
-## De operaties
+## 3. Operaties
 
-| Id | Pad of melding | Implementeert | Methode | Parameters | Statuscodes | Foutgedrag | Status |
-|---|---|---|---|---|---|---|---|
-| O1 | `aanbod-aanmeldbaar` | Kernregistratie | POST | geen | 200 | Zonder 200 volgt herhaling met uitstel (backoff) en daarna de wachtrij voor onbestelbare berichten (dead letter channel). Herhaalde aflevering blijft zonder effect op het `eventId` | voorstel |
-| O2 | `/aanmeldbaar-aanbod/{id}` | Onderwijscatalogus | GET | `versie` (optioneel, standaard de laatst gepubliceerde) | 200, 400, 404 | 404 bij een onbekend aanbod-id of een onbekende versie. Alleen-lezen, dus herhalen geeft hetzelfde antwoord | voorstel |
-| O3 | `/aanmeldbaar-aanbod/{id}/delta` | Onderwijscatalogus | GET | `van` (versie, verplicht), `naar` (versie, verplicht) | 200, 400, 404 | 400 bij een versiebereik dat de catalogus niet kan samenstellen, 404 bij een onbekend aanbod-id | voorstel |
-| O4 | `inrichtingsstatus` | Onderwijscatalogus | POST | geen | 200 | Zonder 200 volgt herhaling met uitstel en daarna de wachtrij voor onbestelbare berichten. Herhaalde aflevering blijft zonder effect op het `eventId` | vastgelegd als meldpatroon, payloadschema voorstel |
-| O5 | `/abonnementen` | Onderwijscatalogus | POST | geen | 201, 400 | HTTP-foutcodes. Herregistratie overschrijft op de combinatie afleveradres plus meldingssoort | vastgelegd als pad, de meldingssoorten voorstel |
-| O6 | `/aanmeldbaar-aanbod` | Onderwijscatalogus | GET | `cohort` (optioneel), `status` (optioneel, standaard `aanmeldbaar`), `gewijzigdSinds` (optioneel, tijdstempel) | 200, 400 | 400 bij een onbekende parameterwaarde. Alleen-lezen | voorstel |
+`OC` is de onderwijscatalogus, `KRS` de kernregistratie. De dienstpagina's staan in [Applicatiediensten](https://github.com/Npuls-OKx/Public/tree/d0c20d99b110b29ccf6b0e50109f7d54ffd88d7a/Koppelvlakspecificaties/Applicatiediensten) op het vastgezette commit `d0c20d99` van de branch `feature/restructure-and-versioning`; die map staat nog niet op `dev` ([S-B](#9-signaleringen)).
 
-De grond per operatie:
+### 3.1 Het contract per operatie
 
-| Id | Grond |
-|---|---|
-| O1 | Interactie S1 van het [interactiepatroon OC-SIS](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Interactiepatronen/onderwijscatalogus-studentinformatiesysteem.md) meldt op dezelfde manier dat een specificatie beschikbaar is. W1 belegt het meldpatroon op de [dienstpagina van het studentinformatiesysteem](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Applicatiecomponenten/studentinformatiesysteem.md) |
-| O2 | De vorm van `GET /onderwijsspecificaties/{id}` op de [dienstpagina van de onderwijscatalogus](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Applicatiecomponenten/onderwijscatalogus.md). Een eigen resource houdt `/onderwijsaanbod` bij het planningssysteem ([S-B](#signaleringen)); W3 belegt het pad |
-| O3 | [U11](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u11-toekomstvaste-endpoints-volledige-structuur-en-delta) vraagt de volledige structuur en de delta op dezelfde resource, zoals `GET /onderwijsspecificaties/{id}/delta`. W7 belegt het pad en het schema |
-| O4 | De dienstpagina van de onderwijscatalogus draagt `inrichtingsstatus` op interactie S4 en L3 en kondigt het payloadschema aan. W4 levert dat schema |
-| O5 | Dezelfde dienstpagina draagt `/abonnementen` op interactie I8. W5 voegt de meldingssoorten toe |
-| O6 | De vorm van `GET /onderwijsspecificaties` op dezelfde dienstpagina, dat een lijst referenties met hun laatste versie teruggeeft. W3 belegt het pad |
+| Id | Operatie | Implementeert | Pad of melding | Methode | Status |
+|---|---|---|---|---|---|
+| O1 | Aanmeldbaar aanbod melden | Kernregistratie | `aanbod-aanmeldbaar` | POST | `voorstel` (W1) |
+| O2 | Het aanmeldbare aanbod ophalen | Onderwijscatalogus | `/aanmeldbaar-aanbod/{id}` | GET | `voorstel` (W3) |
+| O3 | De wijziging tussen twee versies ophalen | Onderwijscatalogus | `/aanmeldbaar-aanbod/{id}/delta` | GET | `voorstel` (W7) |
+| O4 | De inrichtingsstatus melden | Onderwijscatalogus | `inrichtingsstatus` | POST | `vastgelegd` als meldpatroon, payloadschema `voorstel` (W4) |
+| O5 | Het afleveradres vastleggen | Onderwijscatalogus | `/abonnementen` | POST | `vastgelegd` als pad, de meldingssoorten `voorstel` (W5) |
+| O6 | De aanmeldbare instanties opvragen | Onderwijscatalogus | `/aanmeldbaar-aanbod` | GET | `voorstel` (W3) |
+
+Parameters, statuscodes en foutgedrag. De GET-operaties zijn alleen-lezen: herhaald aanroepen levert hetzelfde resultaat.
+
+| Id | Parameters | Statuscodes | Foutgedrag |
+|---|---|---|---|
+| O1 | geen | 200 | Zonder 200 volgt herhaling met uitstel (backoff) en daarna de wachtrij voor onbestelbare berichten (dead letter channel). Herhaalde aflevering blijft zonder effect op het `eventId` |
+| O2 | `versie` (optioneel, standaard de laatst gepubliceerde) | 200, 400, 404 | 404 bij een onbekend aanbod-id of een onbekende versie. Alleen-lezen, dus herhalen geeft hetzelfde antwoord |
+| O3 | `van` (versie, verplicht), `naar` (versie, verplicht) | 200, 400, 404 | 400 bij een versiebereik dat de catalogus niet kan samenstellen, 404 bij een onbekend aanbod-id |
+| O4 | geen | 200 | Zonder 200 volgt herhaling met uitstel en daarna de wachtrij voor onbestelbare berichten. Herhaalde aflevering blijft zonder effect op het `eventId` |
+| O5 | geen | 201, 400 | HTTP-foutcodes. Herregistratie overschrijft op de combinatie afleveradres plus meldingssoort |
+| O6 | `cohort` (optioneel), `status` (optioneel, standaard `aanmeldbaar`), `gewijzigdSinds` (optioneel, tijdstempel) | 200, 400 | 400 bij een onbekende parameterwaarde. Alleen-lezen |
 
 Het bericht ligt hier vast, het kanaal blijft een inrichtingskeuze van instelling en leverancier binnen de eigenschappen die [U5](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u5-bericht-versus-kanaal) opsomt.
 
-## De eisen
-
-Deze eisen zijn de uitvraagbare kern van IS-OA-05.
-
-| Id | Eis | Toetsgeval |
-|---|---|---|
-| E1 | De onderwijscatalogus meldt de kernregistratie dat een `Opleidingsprogramma aanbod` aanmeldbaar is, met id, versie en de verwijzing naar de specificatie | O1 op `Regulier BOL 2026`: de melding draagt aanbod-id, versie, de statusovergang en de specificatieverwijzing, en laat de aanbodinhoud bij de bezitter |
-| E2 | De onderwijscatalogus levert dat aanbod op id, als de aanmeldbare snede | O2 op `8c494250-b67a-4666-a762-6f9ec1e70aff`: statuscode 200 met het aanbod en zijn `Opleiding aanbod`, valideerbaar tegen [offering-open-for-application.json](schemas/offering-open-for-application.json) |
-| E3 | Een tweede aflevering van dezelfde melding heeft geen aanvullend effect | O1 tweemaal afleveren met hetzelfde `eventId`: de kernregistratie richt het aanbod eenmaal in en meldt eenmaal `ingericht` |
-| E4 | De kernregistratie meldt de uitkomst terug, met een referentie bij opname en een reden bij afkeuring | O4 na opname: status `ingericht` met `arrangementReference`; na een validatiefout: status `nietIngericht` met `reason` |
-| E5 | Een onbekend aanbod of een onbekende versie levert een verwerkbaar antwoord | O2 op een onbekend id: statuscode 404, waarna de kernregistratie herhaalt met uitstel en daarna neerlegt in de wachtrij voor onbestelbare berichten |
-| E6 | De snede draagt de aanbodlagen waarop bij de aanmelding een verbintenis ontstaat | O2 op het programma-aanbod: de respons draagt `opleidingsaanbod` en `opleidingsprogramma-aanbod`, en een instantie met `offeringType` `leergelegenheid` valideert niet tegen het profiel |
-| E7 | Een nieuwe versie van het aanbod bereikt de kernregistratie als melding, waarna de wijziging op te vragen is | O1 met `version` `0.2.0` op hetzelfde aanbod-id, daarna O3 met `van=0.1.0` en `naar=0.2.0`: statuscode 200 met de JSON Patch op `applicationWindow` |
-| E8 | Aanmeldbaar aanbod draagt het venster waarin aanmelden openstaat | O2 op een instantie met status `aanmeldbaar`: `applicationWindow` draagt `start` en `end` |
-| E9 | De waarden van de inrichtingsstatus staan in een schema | O4 met status `ingericht` zonder `arrangementReference`: de payload valideert niet tegen [arrangement-status.json](schemas/arrangement-status.json) |
-| E10 | De kernregistratie haalt na een gemist bericht zelf bij | O6 met `cohort=2026`: statuscode 200 met de aanmeldbare instanties en hun laatste versie |
-
-## De berichtspecificatie
+## 4. Berichtspecificatie
 
 Elk veld slaat terug op een objecttype uit het [informatiemodel OKx](../../../model/informatiemodel/informatiemodel.md). De kolom Grond noemt het veld of het schema waaruit het bestaat.
 
-De kolom Veld draagt de Engelse sleutel die over de koppeling gaat, de kolom Nederlands de naam uit [mapping.md](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/mapping.md) en uit `DutchName` in het schema. Enumwaarden blijven Nederlands. Kardinaliteit `1` betekent verplicht. De sleuteltaal staat als [S-G](#signaleringen) open.
+De kolom Veld draagt de Engelse sleutel die over de koppeling gaat, de kolom Nederlands de naam uit [mapping.md](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/mapping.md) en uit `DutchName` in het schema. Enumwaarden blijven Nederlands. Kardinaliteit `1` betekent verplicht. De sleuteltaal staat als [S-G](#9-signaleringen) open.
 
-### M1, melding `aanbod-aanmeldbaar`
+### 4.1 Melden statuswijziging van een aanbodinstantie
+
+```mermaid
+sequenceDiagram
+    participant OC as Onderwijscatalogus
+    participant KRS as Kernregistratie
+    OC-)KRS: O1 aanbod-aanmeldbaar, dit bericht
+    KRS-->>OC: 200 bevestigd
+```
+
+<!-- erd -->
+```mermaid
+erDiagram
+    "Leergelegenheid" ||--o{ "Lesgelegenheid" : "bestaat uit"
+    "Leeronderdeel specificatie" ||--o{ "Les specificatie" : "bestaat uit"
+    "Onderwijseenheid aanbod" ||--o{ "Leergelegenheid" : "bestaat uit"
+    "Onderwijseenheid specificatie" ||--o{ "Leeronderdeel specificatie" : "bestaat uit"
+    "Opleidingsprogramma aanbod" ||--o{ "Onderwijseenheid aanbod" : "bestaat uit"
+    "Opleidingsprogramma specificatie" ||--o{ "Onderwijseenheid specificatie" : "bestaat uit"
+    "Leeronderdeel specificatie" }o--o{ "Leergelegenheid" : "hangt samen met"
+    "Les specificatie" }o--o{ "Lesgelegenheid" : "hangt samen met"
+    "Onderwijseenheid specificatie" }o--o{ "Onderwijseenheid aanbod" : "hangt samen met"
+    "Opleidingsprogramma specificatie" }o--o{ "Opleidingsprogramma aanbod" : "hangt samen met"
+    "Opleiding aanbod" ||--o{ "Opleidingsprogramma aanbod" : "Minimaal 1"
+    "Opleidingsprogramma aanbod" {
+        uuid offeringId FK "1"
+        string version "1"
+        enum offeringType "1"
+        enum oldStatus "1"
+        enum newStatus "1"
+    }
+    "Opleiding aanbod" {
+        enum offeringType "1"
+    }
+    "Opleidingsprogramma specificatie" {
+        object specificationReference "1"
+    }
+    "Cohort / periode" {
+        string cohort "0..1"
+    }
+    "Onderwijseenheid aanbod" { }
+    "Onderwijseenheid specificatie" { }
+    "Leergelegenheid" { }
+    "Leeronderdeel specificatie" { }
+    "Lesgelegenheid" { }
+    "Les specificatie" { }
+```
+
+| Lijn | Betekenis |
+|---|---|
+| `\|\|--o{` | het eerste bestaat uit nul of meer van het tweede |
+| `}o--o{` | de twee hangen samen, met het opschrift erbij |
+| `PK` en `FK` | de sleutel van het object, en een verwijzing naar een ander object |
+| tekst achter een attribuut | de multipliciteit in dit bericht, en of het veld verplicht is |
+
+<!-- /erd -->
 
 Dun, conform U4: de statusovergang met een verwijzing. Het payloadschema is [offering-status-changed.json](schemas/offering-status-changed.json), dat deze eenheid met IS-OA-06 deelt en dat als geheel op voorstel staat.
 
@@ -151,7 +195,117 @@ Dun, conform U4: de statusovergang met een verwijzing. Het payloadschema is [off
 
 De melding draagt de vorige versie zelf niet mee: de kernregistratie kent de versie waarop zij staat en geeft die aan O3 mee als `van`.
 
-### M2, respons van `GET /aanmeldbaar-aanbod/{id}`
+### 4.2 Opvragen aanmeldbaar aanbod
+
+```mermaid
+sequenceDiagram
+    participant OC as Onderwijscatalogus
+    participant KRS as Kernregistratie
+    KRS->>OC: O2 GET /aanmeldbaar-aanbod/{id}
+    OC-->>KRS: 200 dit bericht
+```
+
+<!-- erd -->
+```mermaid
+erDiagram
+    "Kerntaak" ||--o{ "Werkproces" : "bestaat uit"
+    "Kwalificatie" ||--o{ "Kerntaak" : "bestaat uit"
+    "Kwalificatie dossier" ||--o{ "Kwalificatie" : "bevat"
+    "Leergelegenheid" ||--o{ "Lesgelegenheid" : "bestaat uit"
+    "Leeronderdeel specificatie" ||--o{ "Les specificatie" : "bestaat uit"
+    "Onderwijseenheid aanbod" ||--o{ "Leergelegenheid" : "bestaat uit"
+    "Onderwijseenheid specificatie" ||--o{ "Leeronderdeel specificatie" : "bestaat uit"
+    "Opleidingsprogramma aanbod" ||--o{ "Onderwijseenheid aanbod" : "bestaat uit"
+    "Opleidingsprogramma specificatie" ||--o{ "Onderwijseenheid specificatie" : "bestaat uit"
+    "Leergelegenheid" }o--o{ "Aanmelding" : "Op basis van"
+    "Leergelegenheid" }o--o{ "Onderwijslocatie" : "wordt gegeven op"
+    "Leeronderdeel specificatie" }o--o{ "Leergelegenheid" : "hangt samen met"
+    "Les specificatie" }o--o{ "Lesgelegenheid" : "hangt samen met"
+    "Lesgelegenheid" }o--o{ "Aanmelding" : "Op basis van"
+    "Lesgelegenheid" }o--o{ "Onderwijslocatie" : "wordt gegeven op"
+    "Onderwijseenheid aanbod" }o--o{ "Aanmelding" : "Op basis van"
+    "Onderwijseenheid aanbod" }o--o{ "Onderwijslocatie" : "wordt gegeven op"
+    "Onderwijseenheid specificatie" }o--o{ "Onderwijseenheid aanbod" : "hangt samen met"
+    "Opleiding aanbod" }o--o{ "Aanmelding" : "Op basis van"
+    "Opleiding aanbod" }o--o{ "Onderwijslocatie" : "Wordt gegeven op"
+    "Opleidingsprogramma aanbod" }o--o{ "Aanmelding" : "Op basis van"
+    "Opleidingsprogramma aanbod" }o--o{ "Onderwijslocatie" : "wordt gegeven op"
+    "Opleidingsprogramma specificatie" }o--o{ "Opleidingsprogramma aanbod" : "hangt samen met"
+    "Organisatie-eenheid" }o--o{ "Leeronderdeel specificatie" : "Voert uit"
+    "Organisatie-eenheid" }o--o{ "Les specificatie" : "Voert uit"
+    "Organisatie-eenheid" }o--o{ "Onderwijseenheid specificatie" : "Voert uit"
+    "Organisatie-eenheid" }o--o{ "Opleidingsprogramma specificatie" : "Voert uit"
+    "Opleiding aanbod" ||--o{ "Opleidingsprogramma aanbod" : "Minimaal 1"
+    "Opleidingsprogramma aanbod" {
+        uuid id PK "1"
+        enum offeringType "1"
+        string version "1"
+        string name "1"
+        enum status "1"
+        integer minStudentCount "0..1"
+        integer maxStudentCount "0..1"
+        object, applicationWindow "0..1"
+        date applicationWindow.end "0..1"
+        date applicationWindow.start "0..1"
+        enum learningPathway "0..1"
+        string, targetGroup "0..1"
+    }
+    "Opleiding aanbod" {
+        enum offeringType "1"
+        uuid parentOfferingId FK "1"
+        string enrolmentDeadline "0..1"
+        string, providerId FK "0..1"
+        array source FK "0..n"
+        enum status "1..1"
+    }
+    "Opleidingsprogramma specificatie" {
+        object specificationReference "1"
+    }
+    "Cohort / periode" {
+        string cohort "0..1"
+        object period "0..1"
+    }
+    "Aanmelding" {
+        object applicationWindow "0..1, bij status `aanmeldbaar` gevuld"
+    }
+    "Kwalificatie dossier" {
+        array source "0..n"
+        string offeringInstances[].source[].code PK "0..n"
+        string offeringInstances[].source[].standard "0..n"
+        enum offeringInstances[].source[].type "0..n"
+    }
+    "Kwalificatie" {
+        array source "0..n"
+        string offeringInstances[].source[].code PK "0..n"
+        string offeringInstances[].source[].standard "0..n"
+        enum offeringInstances[].source[].type "0..n"
+    }
+    "Onderwijslocatie" {
+        uuid locationId FK "0..1"
+        array locations "0..n"
+    }
+    "Organisatie-eenheid" {
+        uuid executingTeamId FK "0..1"
+        array organisationUnits "0..n"
+    }
+    "Onderwijseenheid aanbod" { }
+    "Onderwijseenheid specificatie" { }
+    "Kerntaak" { }
+    "Leergelegenheid" { }
+    "Leeronderdeel specificatie" { }
+    "Werkproces" { }
+    "Lesgelegenheid" { }
+    "Les specificatie" { }
+```
+
+| Lijn | Betekenis |
+|---|---|
+| `\|\|--o{` | het eerste bestaat uit nul of meer van het tweede |
+| `}o--o{` | de twee hangen samen, met het opschrift erbij |
+| `PK` en `FK` | de sleutel van het object, en een verwijzing naar een ander object |
+| tekst achter een attribuut | de multipliciteit in dit bericht, en of het veld verplicht is |
+
+<!-- /erd -->
 
 De aanmeldbare snede uit [offering-open-for-application.json](schemas/offering-open-for-application.json), met de instanties in `offeringInstances` (aanbodInstanties), naast `locations` (locaties) en `organisationUnits` (organisatieEenheden).
 
@@ -160,7 +314,7 @@ De aanmeldbare snede uit [offering-open-for-application.json](schemas/offering-o
 | `id` | `id` | uuid | 1 | `Opleidingsprogramma aanbod` | education-offering.json | vastgelegd |
 | `offeringType` | `aanbodType` | enum | 1 | `Opleiding aanbod`, `Opleidingsprogramma aanbod` | `offeringType` uit education-offering.json, in dit profiel beperkt tot de lagen van beeld F3-03 | voorstel |
 | `version` | `versie` | string, semver | 1 | `Opleidingsprogramma aanbod` | education-offering.json | vastgelegd |
-| `parentOfferingId` | `bovenliggendAanbodId` | uuid of null | 1 | `Opleiding aanbod` | education-offering.json, [S-C](#signaleringen) | vastgelegd |
+| `parentOfferingId` | `bovenliggendAanbodId` | uuid of null | 1 | `Opleiding aanbod` | education-offering.json, [S-C](#9-signaleringen) | vastgelegd |
 | `specificationReference` | `specificatieVerwijzing` | object | 1 | `Opleidingsprogramma specificatie` | [specification-reference.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/specification-reference.json) | vastgelegd |
 | `name` | `naam` | string | 1 | `Opleidingsprogramma aanbod` | education-offering.json | vastgelegd |
 | `status` | `status` | enum: `aanmeldbaar`, `geannuleerd` | 1 | `Opleidingsprogramma aanbod` | `status` uit education-offering.json; de waarde `aanmeldbaar` komt uit W2 | voorstel |
@@ -176,11 +330,57 @@ De aanmeldbare snede uit [offering-open-for-application.json](schemas/offering-o
 | `locations[]` | `locaties` | array van object | 0..n | `Onderwijslocatie` | [location.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/location.json); `codes` draagt de vestigingscode | vastgelegd |
 | `organisationUnits[]` | `organisatieEenheden` | array van object | 0..n | `Organisatie-eenheid` | [organisation-unit.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/organisation-unit.json) | vastgelegd |
 
-De planningsvelden `bottlenecks` (knelpunten) en `groups` (groepen) blijven bij het planningssysteem en de catalogus; de capaciteit per groep hoort bij de plaatsing, die op de verbintenis volgt ([S-F](#signaleringen)).
+De planningsvelden `bottlenecks` (knelpunten) en `groups` (groepen) blijven bij het planningssysteem en de catalogus; de capaciteit per groep hoort bij de plaatsing, die op de verbintenis volgt ([S-F](#9-signaleringen)).
+
+De onderwijseenheid en de leergelegenheid blijven bij hun bezitter ([U3](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u3-resource-eigenaarschap)) en bereiken de kernregistratie langs het nominale template dat zij uit de specificatie inricht.
 
 De respons van O6 draagt per aanmeldbaar aanbod een referentie uit [offering-reference.json](schemas/offering-reference.json): `offeringId` (aanbodId) met `version` (versie), naar het model van de lijst die `GET /onderwijsspecificaties` teruggeeft.
 
-### M3, melding `inrichtingsstatus`
+### 4.3 Terugmelden inrichtingsstatus van een aanbod
+
+```mermaid
+sequenceDiagram
+    participant OC as Onderwijscatalogus
+    participant KRS as Kernregistratie
+    KRS-)OC: O4 inrichtingsstatus, dit bericht
+    OC-->>KRS: 200 bevestigd
+```
+
+<!-- erd -->
+```mermaid
+erDiagram
+    "Leergelegenheid" ||--o{ "Lesgelegenheid" : "bestaat uit"
+    "Leeronderdeel specificatie" ||--o{ "Les specificatie" : "bestaat uit"
+    "Onderwijseenheid aanbod" ||--o{ "Leergelegenheid" : "bestaat uit"
+    "Onderwijseenheid specificatie" ||--o{ "Leeronderdeel specificatie" : "bestaat uit"
+    "Opleidingsprogramma aanbod" ||--o{ "Onderwijseenheid aanbod" : "bestaat uit"
+    "Opleidingsprogramma specificatie" ||--o{ "Onderwijseenheid specificatie" : "bestaat uit"
+    "Leeronderdeel specificatie" }o--o{ "Leergelegenheid" : "hangt samen met"
+    "Les specificatie" }o--o{ "Lesgelegenheid" : "hangt samen met"
+    "Onderwijseenheid specificatie" }o--o{ "Onderwijseenheid aanbod" : "hangt samen met"
+    "Opleidingsprogramma specificatie" }o--o{ "Opleidingsprogramma aanbod" : "hangt samen met"
+    "Opleidingsprogramma aanbod" {
+        object offeringReference "1"
+    }
+    "Opleidingsprogramma specificatie" {
+        object specificationReference "1"
+    }
+    "Onderwijseenheid aanbod" { }
+    "Onderwijseenheid specificatie" { }
+    "Leergelegenheid" { }
+    "Leeronderdeel specificatie" { }
+    "Lesgelegenheid" { }
+    "Les specificatie" { }
+```
+
+| Lijn | Betekenis |
+|---|---|
+| `\|\|--o{` | het eerste bestaat uit nul of meer van het tweede |
+| `}o--o{` | de twee hangen samen, met het opschrift erbij |
+| `PK` en `FK` | de sleutel van het object, en een verwijzing naar een ander object |
+| tekst achter een attribuut | de multipliciteit in dit bericht, en of het veld verplicht is |
+
+<!-- /erd -->
 
 De dienstpagina van de onderwijscatalogus kent `inrichtingsstatus` als eigen melding naast `verwerkingsstatus`, elk met haar eigen interactie: `inrichtingsstatus` op S4 en L3, `verwerkingsstatus` op I3. Deze eenheid houdt die naam aan en vult het payloadschema dat de dienstpagina aankondigt, als [arrangement-status.json](schemas/arrangement-status.json) op voorstel.
 
@@ -193,7 +393,7 @@ De dienstpagina van de onderwijscatalogus kent `inrichtingsstatus` als eigen mel
 | `reason` | `reden` | string | 0..1, bij `afgekeurd`, `nietIngericht` en `nietVerwerkt` gevuld | verwerkingsinformatie, geen objecttype | de acceptatietoets in het interactiepatroon OC-SIS vraagt de reden achter een afwijzing; W4 |
 | `eventId` | `eventId` | uuid | 0..1 | kanaaleigenschap, geen objecttype | U5; W6 |
 
-## De voorbeeldpayload
+## 5. Voorbeeldpayload
 
 De uuid's staan in [casus.md](casus.md) en volgen daar de [voorbeeldpayloads](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/voorbeeldpayloads.md) in Public, de naam en de aantallen uit beeld F3-01 en F2-07. Elke payload hieronder valideert tegen het schema dat erbij staat.
 
@@ -308,19 +508,47 @@ De respons van O3 tussen versie `0.1.0` en `0.2.0`, tegen [education-offering-de
 ]
 ```
 
-## De schema's
+## 6. Eisen
+
+Deze eisen zijn de uitvraagbare kern van IS-OA-05.
+
+| Id | Eis | Toetsgeval |
+|---|---|---|
+| E1 | De onderwijscatalogus meldt de kernregistratie dat een `Opleidingsprogramma aanbod` aanmeldbaar is, met id, versie en de verwijzing naar de specificatie | O1 op `Regulier BOL 2026`: de melding draagt aanbod-id, versie, de statusovergang en de specificatieverwijzing, en laat de aanbodinhoud bij de bezitter |
+| E2 | De onderwijscatalogus levert dat aanbod op id, als de aanmeldbare snede | O2 op `8c494250-b67a-4666-a762-6f9ec1e70aff`: statuscode 200 met het aanbod en zijn `Opleiding aanbod`, valideerbaar tegen [offering-open-for-application.json](schemas/offering-open-for-application.json) |
+| E3 | Een tweede aflevering van dezelfde melding heeft geen aanvullend effect | O1 tweemaal afleveren met hetzelfde `eventId`: de kernregistratie richt het aanbod eenmaal in en meldt eenmaal `ingericht` |
+| E4 | De kernregistratie meldt de uitkomst terug, met een referentie bij opname en een reden bij afkeuring | O4 na opname: status `ingericht` met `arrangementReference`; na een validatiefout: status `nietIngericht` met `reason` |
+| E5 | Een onbekend aanbod of een onbekende versie levert een verwerkbaar antwoord | O2 op een onbekend id: statuscode 404, waarna de kernregistratie herhaalt met uitstel en daarna neerlegt in de wachtrij voor onbestelbare berichten |
+| E6 | De snede draagt de aanbodlagen waarop bij de aanmelding een verbintenis ontstaat | O2 op het programma-aanbod: de respons draagt `opleidingsaanbod` en `opleidingsprogramma-aanbod`, en een instantie met `offeringType` `leergelegenheid` valideert niet tegen het profiel |
+| E7 | Een nieuwe versie van het aanbod bereikt de kernregistratie als melding, waarna de wijziging op te vragen is | O1 met `version` `0.2.0` op hetzelfde aanbod-id, daarna O3 met `van=0.1.0` en `naar=0.2.0`: statuscode 200 met de JSON Patch op `applicationWindow` |
+| E8 | Aanmeldbaar aanbod draagt het venster waarin aanmelden openstaat | O2 op een instantie met status `aanmeldbaar`: `applicationWindow` draagt `start` en `end` |
+| E9 | De waarden van de inrichtingsstatus staan in een schema | O4 met status `ingericht` zonder `arrangementReference`: de payload valideert niet tegen [arrangement-status.json](schemas/arrangement-status.json) |
+| E10 | De kernregistratie haalt na een gemist bericht zelf bij | O6 met `cohort=2026`: statuscode 200 met de aanmeldbare instanties en hun laatste versie |
+
+## 7. Schema's
 
 De schema's van deze eenheid staan in [schemas/](schemas/), want meta is waar gemaakt wordt en [Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Informatie-en-gegevensmodellen/schemas) is waar zij landen. Elk draagt het label `voorstel` in zijn `$id`, Engelse veldnamen met `DutchName` erbij, en Nederlandse enumwaarden. Verwijzingen naar andere schema's gaan via hun `$id`.
 
 | Schema | Wat het vastlegt | Herkomst | Werkbrief |
 |---|---|---|---|
-| [offering-status-changed.json](schemas/offering-status-changed.json) | De melding O1: de statusovergang van een aanbodinstantie | de vorm van specification-status-changed.json; gedeeld met IS-OA-06 | W1 |
+| [offering-status-changed.json](schemas/offering-status-changed.json) | De melding O1: de statusovergang van een aanbodinstantie | de vorm van specification-status-changed.json; gedeeld met [IS-OA-06](is-oa-06.md) | W1 |
 | [offering-open-for-application.json](schemas/offering-open-for-application.json) | De aanmeldbare snede die O2 en O6 leveren | het gebruiksprofiel van education-offering.json; gedeeld met IS-OA-06 | W2 |
 | [arrangement-status.json](schemas/arrangement-status.json) | De melding O4 met haar statuswaarden | de vorm van processing-status.json, met het aanbod als onderwerp | W4 |
 | [offering-reference.json](schemas/offering-reference.json) | De verwijzing naar een aanbod op id en versie, in O4 en O6 | de vorm van specification-reference.json | W8 |
 | [education-offering-delta.json](schemas/education-offering-delta.json) | De respons van O3 als JSON Patch (RFC 6902) | de vorm van education-specification-delta.json | W7 |
 
-## De werkbrieven
+
+Waarom de snede een eigen schema draagt:
+
+| De afweging | Wat er geldt |
+|---|---|
+| Het dragende schema | [education-offering.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/education-offering.json) draagt de aanbodlagen tot en met de leergelegenheid, met de planningsvelden `bottlenecks` (knelpunten) en `groups` (groepen), en een gesloten `status`-lijst waarin het plannen de waarden bepaalt |
+| Wat de snede vraagt | Twee aanbodlagen, een aanmeldvenster, de herkomst en de statuswaarde `aanmeldbaar` |
+| Wat die statuswaarde kost | Haar aan de gesloten lijst toevoegen raakt elke afnemer die erop valideert; een eigen gebruiksprofiel ernaast is additief |
+| Waar de snede daarom staat | Als [offering-open-for-application.json](schemas/offering-open-for-application.json) naast education-offering.json |
+| De bouwstenen eronder | Dezelfde als onder education-offering.json: [specification-reference.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/specification-reference.json), [period.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/period.json), [source.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/source.json), [location.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/location.json) en [organisation-unit.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/organisation-unit.json) |
+
+## 8. Werkbrieven
 
 Wat er in Public gebeurt om dit voorstel daar te laten landen, met de versie-impact per schema.
 
@@ -337,7 +565,7 @@ Wat er in Public gebeurt om dit voorstel daar te laten landen, met de versie-imp
 | W9 | De diensten `aanmeldbaar-onderwijsaanbod-aanbieder` bij de onderwijscatalogus en `-afnemer` bij de kernregistratie, met het gebruiksprofiel uit W2 eronder | de [dienstenlijst](https://github.com/Npuls-OKx/Public/blob/d0c20d99b110b29ccf6b0e50109f7d54ffd88d7a/Koppelvlakspecificaties/Applicatiediensten/README.md) op commit d0c20d99 en gebruiksprofielen.md | Nieuwe dienstpagina's, geen schemawijziging |
 | W10 | Een objecttype voor de inrichting waarnaar `arrangementReference` wijst, en voor `Plaatsingsgroep` op de aanbodlaag | [informatiemodel OKx](../../../model/informatiemodel/informatiemodel.md) en de [begrippenlijst](../begrippen/begrippenlijst.md) | Modelwijziging, geen schemagevolg |
 
-## Signaleringen
+## 9. Signaleringen
 
 | Id | Signalering | Besluit |
 |---|---|---|

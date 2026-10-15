@@ -381,7 +381,7 @@
           "datatype": "object",
           "kardinaliteit": "0..1, bij status `aanmeldbaar` gevuld",
           "rol": "",
-          "bron": "veldtabel is-oa-05, M2, respons van `GET /aanmeldbaar-aanbod"
+          "bron": "veldtabel is-oa-05"
         }
       ]
     },
@@ -392,35 +392,35 @@
           "datatype": "string",
           "kardinaliteit": "0..1, verplicht",
           "rol": "",
-          "bron": "veldtabel is-oa-01, 4.6 Aanleveren onderwijsspecificatiestru"
+          "bron": "veldtabel is-oa-01"
         },
         {
           "naam": "offeringInstancescohort",
           "datatype": "string",
           "kardinaliteit": "0..1",
           "rol": "",
-          "bron": "veldtabel is-oa-06, C2 en C3, het aanmeldbare aanbod"
+          "bron": "veldtabel is-oa-06"
         },
         {
           "naam": "period",
           "datatype": "object",
           "kardinaliteit": "0..1",
           "rol": "",
-          "bron": "veldtabel is-oa-05, M2, respons van `GET /aanmeldbaar-aanbod"
+          "bron": "veldtabel is-oa-05"
         },
         {
           "naam": "period.end",
           "datatype": "date",
           "kardinaliteit": "0..1",
           "rol": "",
-          "bron": "veldtabel is-oa-05, M2, rij `period`: objecttype `Cohort / periode`; begrippenlijst, definitie van `Cohort / periode`: binnen hetzelfde tijdvak, van het eerste tot en met het laatste jaar van de opleiding; vorm in schema period.json, /end"
+          "bron": "veldtabel is-oa-05; begrippenlijst, definitie van `Cohort / periode`: binnen hetzelfde tijdvak, van het eerste tot en met het laatste jaar van de opleiding; vorm in schema period.json, /end"
         },
         {
           "naam": "period.start",
           "datatype": "date",
           "kardinaliteit": "0..1",
           "rol": "",
-          "bron": "veldtabel is-oa-05, M2 respons van GET /aanmeldbaar-aanbod, rij `period`: objecttype `Cohort / periode`, `start` draagt het startmoment; begrippenlijst noemt het tijdvak in de definitie van `Cohort / periode`; vorm in schema period.json, /start",
+          "bron": "veldtabel is-oa-05; begrippenlijst noemt het tijdvak in de definitie van `Cohort / periode`; vorm in schema period.json, /start",
           "toelichting": "Dit is de betwiste binding: is-oa-06 bindt dezelfde sleutel op dezelfde plek aan `Opleidingsprogramma aanbod` en is-oa-04 aan de geldigheid van de aanbodlaag. Zie gaten."
         }
       ]
@@ -432,7 +432,7 @@
           "datatype": "number",
           "kardinaliteit": "0..1, verplicht",
           "rol": "",
-          "bron": "veldtabel is-oa-01, 4.8 Aanleveren resultaatstructuur en exa"
+          "bron": "veldtabel is-oa-01"
         }
       ]
     },
@@ -443,7 +443,7 @@
           "datatype": "object met value en unit",
           "kardinaliteit": "0..1",
           "rol": "",
-          "bron": "veldtabel is-oa-02, Bericht 2, grond F1-10 met de praktijkbeoordeling aan de balie van 45 minuten",
+          "bron": "veldtabel is-oa-02",
           "toelichting": "Erft via de Specialization op Toetsonderdeel specificatie; de geneste sleutels value en unit volgen $defs/duration van education-design.json en staan daar op Toetsonderdeel specificatie."
         },
         {
@@ -451,7 +451,7 @@
           "datatype": "string",
           "kardinaliteit": "0..1, verplicht",
           "rol": "",
-          "bron": "veldtabel is-oa-01, 4.8 Aanleveren resultaatstructuur en exa"
+          "bron": "veldtabel is-oa-01"
         },
         {
           "naam": "assessmentInstrumentId",
@@ -474,7 +474,7 @@
           "datatype": "array van uuid",
           "kardinaliteit": "0..n",
           "rol": "verwijzing",
-          "bron": "veldtabel is-oa-02, Bericht 2, grond F1-10 met de examinator bij de proeve van bekwaamheid",
+          "bron": "veldtabel is-oa-02",
           "toelichting": "Erft via de Specialization op Toetsonderdeel specificatie. Het model draagt Organisatie-eenheid voert Examenonderdeelspecificatie uit en heeft behoefte aan Expertise of functieprofiel."
         },
         {
@@ -502,7 +502,7 @@
           "datatype": "string",
           "kardinaliteit": "0..1",
           "rol": "",
-          "bron": "veldtabel is-oa-02, Bericht 3, veld description",
+          "bron": "veldtabel is-oa-02",
           "toelichting": "Geen waarde in de beelden; het veld staat in het schema en in WB-03."
         },
         {
@@ -510,35 +510,35 @@
           "datatype": "array",
           "kardinaliteit": "0..n",
           "rol": "FK",
-          "bron": "veldtabel is-oa-02, Bericht 1: de ontwerpvelden op de onderw"
+          "bron": "veldtabel is-oa-02"
         },
         {
           "naam": "expertiseProfilesdescription",
           "datatype": "string",
           "kardinaliteit": "0..1",
           "rol": "",
-          "bron": "veldtabel is-oa-02, Bericht 3: het expertiseprofiel"
+          "bron": "veldtabel is-oa-02"
         },
         {
           "naam": "expertiseProfilesid",
           "datatype": "uuid",
           "kardinaliteit": "1..1, verplicht",
           "rol": "",
-          "bron": "veldtabel is-oa-02, Bericht 3: het expertiseprofiel"
+          "bron": "veldtabel is-oa-02"
         },
         {
           "naam": "expertiseProfilesname",
           "datatype": "string",
           "kardinaliteit": "1..1, verplicht",
           "rol": "",
-          "bron": "veldtabel is-oa-02, Bericht 3: het expertiseprofiel"
+          "bron": "veldtabel is-oa-02"
         },
         {
           "naam": "expertiseProfilesrole",
           "datatype": "string",
           "kardinaliteit": "0..1",
           "rol": "",
-          "bron": "veldtabel is-oa-02, Bericht 3: het expertiseprofiel"
+          "bron": "veldtabel is-oa-02"
         },
         {
           "naam": "id",
@@ -569,7 +569,7 @@
           "datatype": "string, open lijst docent, examinator, praktijkbegeleider",
           "kardinaliteit": "0..1",
           "rol": "",
-          "bron": "veldtabel is-oa-02, Bericht 3, veld role",
+          "bron": "veldtabel is-oa-02",
           "toelichting": "F1-06 draagt de docent, F1-10 de examinator. Het model draagt Persoon heeft Expertise of functieprofiel en Medewerker als verbijzondering van Persoon; de persoon zelf volgt bij plannen en staat niet in dit schema."
         },
         {
@@ -596,7 +596,7 @@
           "datatype": "enum",
           "kardinaliteit": "0..1, verplicht",
           "rol": "",
-          "bron": "veldtabel is-oa-01, 4.8 Aanleveren resultaatstructuur en exa"
+          "bron": "veldtabel is-oa-01"
         },
         {
           "naam": "passMark",
@@ -637,7 +637,7 @@
           "datatype": "string",
           "kardinaliteit": "0..1",
           "rol": "",
-          "bron": "veldtabel is-oa-02, Bericht 3, veld competences[].code, waar de tabel scope buiten het informatiemodel schrijft",
+          "bron": "veldtabel is-oa-02",
           "toelichting": "De code binnen het kader."
         },
         {
@@ -645,7 +645,7 @@
           "datatype": "string, open lijst competentnl, isced-f",
           "kardinaliteit": "0..1",
           "rol": "verwijzing",
-          "bron": "veldtabel is-oa-02, Bericht 3, veld competences[].framework, waar de tabel scope buiten het informatiemodel schrijft",
+          "bron": "veldtabel is-oa-02",
           "toelichting": "Ik bind het veld aan dit objecttype, dat het model met scope buiten draagt; de betekenis blijft bij CompetentNL en ISCED-F."
         },
         {
@@ -653,7 +653,7 @@
           "datatype": "string",
           "kardinaliteit": "0..1",
           "rol": "",
-          "bron": "veldtabel is-oa-02, Bericht 3, veld competences[].level, waar de tabel scope buiten het informatiemodel schrijft",
+          "bron": "veldtabel is-oa-02",
           "toelichting": "De laag binnen het kader."
         },
         {
@@ -661,7 +661,7 @@
           "datatype": "string",
           "kardinaliteit": "1..1",
           "rol": "",
-          "bron": "veldtabel is-oa-02, Bericht 3, veld competences[].name",
+          "bron": "veldtabel is-oa-02",
           "toelichting": "Scope buiten in het model: de betekenis blijft bij het kader buiten OKx. De beelden dragen geen instantie van het type inzicht."
         },
         {
@@ -677,7 +677,7 @@
           "datatype": "enum",
           "kardinaliteit": "1..1, verplicht",
           "rol": "",
-          "bron": "veldtabel is-oa-02, Bericht 3: het expertiseprofiel"
+          "bron": "veldtabel is-oa-02"
         }
       ]
     },
@@ -688,7 +688,7 @@
           "datatype": "string",
           "kardinaliteit": "0..1",
           "rol": "",
-          "bron": "veldtabel is-oa-02, Bericht 3, veld competences[].code, waar de tabel scope buiten het informatiemodel schrijft",
+          "bron": "veldtabel is-oa-02",
           "toelichting": "De code binnen het kader; F1-06 draagt Farmacie met ISCED-F 0916."
         },
         {
@@ -696,7 +696,7 @@
           "datatype": "string, open lijst competentnl, isced-f",
           "kardinaliteit": "0..1",
           "rol": "verwijzing",
-          "bron": "veldtabel is-oa-02, Bericht 3, veld competences[].framework, waar de tabel scope buiten het informatiemodel schrijft",
+          "bron": "veldtabel is-oa-02",
           "toelichting": "Ik bind het veld aan dit objecttype, dat het model met scope buiten draagt; de betekenis blijft bij CompetentNL en ISCED-F."
         },
         {
@@ -704,7 +704,7 @@
           "datatype": "string",
           "kardinaliteit": "0..1",
           "rol": "",
-          "bron": "veldtabel is-oa-02, Bericht 3, veld competences[].level, waar de tabel scope buiten het informatiemodel schrijft",
+          "bron": "veldtabel is-oa-02",
           "toelichting": "De laag binnen het kader; F1-06 draagt CompetentNL laag 2."
         },
         {
@@ -712,7 +712,7 @@
           "datatype": "string",
           "kardinaliteit": "1..1",
           "rol": "",
-          "bron": "veldtabel is-oa-02, Bericht 3, veld competences[].name",
+          "bron": "veldtabel is-oa-02",
           "toelichting": "Scope buiten in het model: de betekenis blijft bij het kader buiten OKx."
         },
         {
@@ -728,7 +728,7 @@
           "datatype": "enum",
           "kardinaliteit": "1..1, verplicht",
           "rol": "",
-          "bron": "veldtabel is-oa-02, Bericht 3: het expertiseprofiel"
+          "bron": "veldtabel is-oa-02"
         }
       ]
     },
@@ -747,14 +747,14 @@
           "datatype": "object",
           "kardinaliteit": "0..1",
           "rol": "",
-          "bron": "veldtabel is-oa-01, 4.8 Aanleveren resultaatstructuur en exa"
+          "bron": "veldtabel is-oa-01"
         },
         {
           "naam": "source",
           "datatype": "object",
           "kardinaliteit": "1, verplicht",
           "rol": "",
-          "bron": "veldtabel is-oa-01, 4.5 Aanleveren leeruitkomsten uit het kw"
+          "bron": "veldtabel is-oa-01"
         },
         {
           "naam": "source.code",
@@ -768,14 +768,14 @@
           "datatype": "string",
           "kardinaliteit": "1..1",
           "rol": "",
-          "bron": "veldtabel is-oa-01, 4.5, rij `source`: object met `standard`, `type` en `code`, objecttype via het `type`; vorm in schema source.json, /standard (verplicht)"
+          "bron": "veldtabel is-oa-01; vorm in schema source.json, /standard (verplicht)"
         },
         {
           "naam": "source.type",
           "datatype": "enum",
           "kardinaliteit": "1..1",
           "rol": "",
-          "bron": "veldtabel is-oa-01, 4.5, rij `source`: het objecttype volgt uit dit veld; vorm in schema source.json, /type (verplicht)",
+          "bron": "veldtabel is-oa-01; vorm in schema source.json, /type (verplicht)",
           "toelichting": "Discriminator: de waarde `kerntaak` wijst dit objecttype aan."
         },
         {
@@ -849,7 +849,7 @@
           "datatype": "object",
           "kardinaliteit": "1, verplicht",
           "rol": "",
-          "bron": "veldtabel is-oa-01, 4.5 Aanleveren leeruitkomsten uit het kw"
+          "bron": "veldtabel is-oa-01"
         },
         {
           "naam": "source.code",
@@ -864,14 +864,14 @@
           "datatype": "string",
           "kardinaliteit": "1..1",
           "rol": "",
-          "bron": "veldtabel is-oa-01, 4.5, rij `source`: object met `standard`, `type` en `code`, objecttype via het `type`; vorm in schema source.json, /standard (verplicht)"
+          "bron": "veldtabel is-oa-01; vorm in schema source.json, /standard (verplicht)"
         },
         {
           "naam": "source.type",
           "datatype": "enum",
           "kardinaliteit": "1..1",
           "rol": "",
-          "bron": "veldtabel is-oa-01, 4.5, rij `source`: het objecttype volgt uit dit veld; vorm in schema source.json, /type (verplicht)",
+          "bron": "veldtabel is-oa-01; vorm in schema source.json, /type (verplicht)",
           "toelichting": "Discriminator: de waarde `keuzedeel` wijst dit objecttype aan. Let op de laagwissel in het gat hierover: `Keuzedeel` staat in het model in de kolom Onderwijsspecificatie."
         },
         {
@@ -901,14 +901,14 @@
           "datatype": "enum",
           "kardinaliteit": "1..1",
           "rol": "",
-          "bron": "veldtabel is-oa-01, 4.6, rij `studyLoad`; vorm in schema volume.json, /unit (verplicht, SBU of EC)"
+          "bron": "veldtabel is-oa-01; vorm in schema volume.json, /unit (verplicht, SBU of EC)"
         },
         {
           "naam": "studyLoad.value",
           "datatype": "number",
           "kardinaliteit": "1..1",
           "rol": "",
-          "bron": "veldtabel is-oa-01, 4.6, rij `studyLoad`: objecttype volgens de `specificationType`-tabel, die `Keuzedeel` noemt bij `programmeType` `keuzedeelprogramma`; vorm in schema volume.json, /value via education-specification.json",
+          "bron": "veldtabel is-oa-01; vorm in schema volume.json, /value via education-specification.json",
           "toelichting": "Het kwalificatiedossier K0037-farmaceutische-patientenzorg.md draagt `studyLoad` 480; met K0262 van 240 vult dat de keuzedeelruimte van 720 SBU."
         },
         {
@@ -927,14 +927,14 @@
           "datatype": "uuid",
           "kardinaliteit": "1, verplicht",
           "rol": "",
-          "bron": "veldtabel is-oa-01, 4.7 Aanleveren studentkeuzeregelsets"
+          "bron": "veldtabel is-oa-01"
         },
         {
           "naam": "assesses",
           "datatype": "uuid",
           "kardinaliteit": "0..1, verplicht",
           "rol": "",
-          "bron": "veldtabel is-oa-01, 4.8 Aanleveren resultaatstructuur en exa"
+          "bron": "veldtabel is-oa-01"
         },
         {
           "naam": "description",
@@ -1003,14 +1003,14 @@
           "datatype": "enum",
           "kardinaliteit": "1..1",
           "rol": "",
-          "bron": "veldtabel is-oa-01, 4.6, rij `studyLoad`; veldtabel is-oa-03 idem; vorm in schema volume.json, /unit (verplicht, SBU of EC)"
+          "bron": "veldtabel is-oa-01; veldtabel is-oa-03 idem; vorm in schema volume.json, /unit (verplicht, SBU of EC)"
         },
         {
           "naam": "studyLoad.value",
           "datatype": "number",
           "kardinaliteit": "1..1",
           "rol": "",
-          "bron": "veldtabel is-oa-01, 4.6, rij `studyLoad`: objecttype volgens de `specificationType`-tabel (`keuzedeelruimtespecificatie`); veldtabel is-oa-03 idem; vorm in schema volume.json, /value via education-specification.json",
+          "bron": "veldtabel is-oa-01; veldtabel is-oa-03 idem; vorm in schema volume.json, /value via education-specification.json",
           "toelichting": "casus: 720 SBU op mbo-4. Dezelfde maat staat als omvangregel in de regelset, waar student-choice-rule.json `value` plus `unit` inline herhaalt met `sourceSpecificationId` naar deze specificatie."
         },
         {
@@ -1037,28 +1037,28 @@
           "datatype": "object",
           "kardinaliteit": "0..1",
           "rol": "",
-          "bron": "veldtabel is-oa-01, 4.8 Aanleveren resultaatstructuur en exa"
+          "bron": "veldtabel is-oa-01"
         },
         {
           "naam": "offeringInstances[].source[].code",
           "datatype": "string",
           "kardinaliteit": "0..n",
           "rol": "sleutel",
-          "bron": "veldtabel is-oa-06, C2 en C3 (voorstel, W2), en veldtabel is-oa-05, M2; de code zelf in kwalificatiedossier Apothekersassistent-2.md (`crebo` 27141); vorm in schema offering-open-for-application.json naar source.json, /code"
+          "bron": "veldtabel is-oa-06; de code zelf in kwalificatiedossier Apothekersassistent-2.md (`crebo` 27141); vorm in schema offering-open-for-application.json naar source.json, /code"
         },
         {
           "naam": "offeringInstances[].source[].standard",
           "datatype": "string",
           "kardinaliteit": "0..n",
           "rol": "",
-          "bron": "veldtabel is-oa-06, C2 en C3 (voorstel, W2), en veldtabel is-oa-05, M2: objecttypen `Kwalificatie dossier` en `Kwalificatie`; vorm in schema offering-open-for-application.json naar source.json, /standard"
+          "bron": "veldtabel is-oa-06; vorm in schema offering-open-for-application.json naar source.json, /standard"
         },
         {
           "naam": "offeringInstances[].source[].type",
           "datatype": "enum",
           "kardinaliteit": "0..n",
           "rol": "",
-          "bron": "veldtabel is-oa-06, C2 en C3 (voorstel, W2), en veldtabel is-oa-05, M2: het objecttype volgt uit dit veld; vorm in schema offering-open-for-application.json naar source.json, /type",
+          "bron": "veldtabel is-oa-06; vorm in schema offering-open-for-application.json naar source.json, /type",
           "toelichting": "Discriminator: de waarde `kwalificatie` wijst dit objecttype aan."
         },
         {
@@ -1066,14 +1066,14 @@
           "datatype": "array",
           "kardinaliteit": "0..n",
           "rol": "",
-          "bron": "veldtabel is-oa-06, C2 en C3, het aanmeldbare aanbod"
+          "bron": "veldtabel is-oa-06"
         },
         {
           "naam": "source",
           "datatype": "object",
           "kardinaliteit": "1, verplicht",
           "rol": "",
-          "bron": "veldtabel is-oa-01, 4.5 Aanleveren leeruitkomsten uit het kw"
+          "bron": "veldtabel is-oa-01"
         },
         {
           "naam": "source.code",
@@ -1088,14 +1088,14 @@
           "datatype": "string",
           "kardinaliteit": "1..1",
           "rol": "",
-          "bron": "veldtabel is-oa-01, 4.5, rij `source`: object met `standard`, `type` en `code`, objecttype via het `type`; vorm in schema source.json, /standard (verplicht)"
+          "bron": "veldtabel is-oa-01; vorm in schema source.json, /standard (verplicht)"
         },
         {
           "naam": "source.type",
           "datatype": "enum",
           "kardinaliteit": "1..1",
           "rol": "",
-          "bron": "veldtabel is-oa-01, 4.5, rij `source`: het objecttype volgt uit dit veld; vorm in schema source.json, /type (verplicht)",
+          "bron": "veldtabel is-oa-01; vorm in schema source.json, /type (verplicht)",
           "toelichting": "Discriminator: de waarde `kwalificatie` wijst dit objecttype aan."
         },
         {
@@ -1115,7 +1115,7 @@
           "datatype": "string",
           "kardinaliteit": "0..n",
           "rol": "sleutel",
-          "bron": "veldtabel is-oa-06, C2 en C3 (voorstel, W2), en veldtabel is-oa-05, M2; de code zelf in kwalificatiedossier Apothekersassistent-2.md (`creboDossier` 23450); vorm in schema offering-open-for-application.json naar source.json, /code",
+          "bron": "veldtabel is-oa-06; de code zelf in kwalificatiedossier Apothekersassistent-2.md (`creboDossier` 23450); vorm in schema offering-open-for-application.json naar source.json, /code",
           "toelichting": "Het crebo waarop een sectorale partij het aanbod terugvindt."
         },
         {
@@ -1123,7 +1123,7 @@
           "datatype": "string",
           "kardinaliteit": "0..n",
           "rol": "",
-          "bron": "veldtabel is-oa-06, C2 en C3 het aanmeldbare aanbod, rij `offeringInstances[].source` (voorstel, W2), en veldtabel is-oa-05, M2 respons van GET /aanmeldbaar-aanbod, rij `source`: objecttypen `Kwalificatie dossier` en `Kwalificatie`; vorm in schema offering-open-for-application.json, /offeringInstances/items/properties/source/items naar source.json, /standard",
+          "bron": "veldtabel is-oa-06; vorm in schema offering-open-for-application.json, /offeringInstances/items/properties/source/items naar source.json, /standard",
           "toelichting": "De array is 0..n op de aanbodinstantie; binnen een item is het veld verplicht. source.json staat vandaag als enkel object op learning-outcome.json, W2 maakt er een array van op het aanbod."
         },
         {
@@ -1131,7 +1131,7 @@
           "datatype": "enum",
           "kardinaliteit": "0..n",
           "rol": "",
-          "bron": "veldtabel is-oa-06, C2 en C3 (voorstel, W2), en veldtabel is-oa-05, M2: het objecttype volgt uit dit veld; vorm in schema offering-open-for-application.json naar source.json, /type",
+          "bron": "veldtabel is-oa-06; vorm in schema offering-open-for-application.json naar source.json, /type",
           "toelichting": "Discriminator, in dit profiel beperkt tot `kwalificatiedossier` en `kwalificatie`: zonder de leeruitkomstboom reist alleen de herkomst mee."
         },
         {
@@ -1139,14 +1139,14 @@
           "datatype": "array",
           "kardinaliteit": "0..n",
           "rol": "",
-          "bron": "veldtabel is-oa-06, C2 en C3, het aanmeldbare aanbod"
+          "bron": "veldtabel is-oa-06"
         },
         {
           "naam": "source",
           "datatype": "object",
           "kardinaliteit": "1, verplicht",
           "rol": "",
-          "bron": "veldtabel is-oa-01, 4.5 Aanleveren leeruitkomsten uit het kw"
+          "bron": "veldtabel is-oa-01"
         },
         {
           "naam": "source.code",
@@ -1161,7 +1161,7 @@
           "datatype": "string",
           "kardinaliteit": "1..1",
           "rol": "",
-          "bron": "veldtabel is-oa-01, 4.5 Aanleveren leeruitkomsten uit het kwalificatiekader, rij `source`: object met `standard`, `type` en `code`, objecttype via het `type`; vorm in schema source.json, /standard (verplicht)",
+          "bron": "veldtabel is-oa-01; vorm in schema source.json, /standard (verplicht)",
           "toelichting": "Naamgeving: de attribuutsoort draagt hier het pad, want de bare sleutel `code` komt in source.json, code.json, bottleneck.json en room-type.json voor. De standaard is de naamruimte waarbinnen `code` geldt; casus en voorbeeldpayloads dragen overal `sbb-kwalificatiekader`, het schema noemt `competentnl` als vervolgwaarde."
         },
         {
@@ -1169,7 +1169,7 @@
           "datatype": "enum",
           "kardinaliteit": "1..1",
           "rol": "",
-          "bron": "veldtabel is-oa-01, 4.5, rij `source`: het objecttype volgt uit dit veld; vorm in schema source.json, /type (verplicht)",
+          "bron": "veldtabel is-oa-01; vorm in schema source.json, /type (verplicht)",
           "toelichting": "Discriminator: de waarde `kwalificatiedossier` wijst dit objecttype aan."
         }
       ]
@@ -1273,14 +1273,14 @@
           "datatype": "date",
           "kardinaliteit": "0..1",
           "rol": "",
-          "bron": "veldtabel is-oa-04, tabel Waar planning eindigt en roosteren begint, rij `Leergelegenheid`; vorm in schema period.json, /end"
+          "bron": "veldtabel is-oa-04; vorm in schema period.json, /end"
         },
         {
           "naam": "period.start",
           "datatype": "date",
           "kardinaliteit": "0..1",
           "rol": "",
-          "bron": "veldtabel is-oa-04, tabel Waar planning eindigt en roosteren begint: de `Leergelegenheid` legt het venster vast met `period`, de voor dat venster gereserveerde `locationId` en de capaciteit per groep; vorm in schema period.json, /start via education-offering.json",
+          "bron": "veldtabel is-oa-04; vorm in schema period.json, /start via education-offering.json",
           "toelichting": "Het venster, niet het lesmoment: dag, tijdstip en ruimte horen bij `Lesgelegenheid` in het roostersysteem."
         },
         {
@@ -1322,7 +1322,7 @@
           "datatype": "array van uuid",
           "kardinaliteit": "0..n",
           "rol": "verwijzing",
-          "bron": "veldtabel is-oa-02, Bericht 1, veld expertiseProfileIds, objecttype Expertise of functieprofiel",
+          "bron": "veldtabel is-oa-02",
           "toelichting": "Het model draagt het profiel alleen als benodigd voor uitvoering van Opleiding specificatie; een relatie naar het leeronderdeel mist. Organisatie-eenheid voert de leeronderdeelspecificatie uit en heeft behoefte aan het profiel, dus loopt de behoefte vandaag via de eenheid."
         },
         {
@@ -1354,7 +1354,7 @@
           "datatype": "array van uuid",
           "kardinaliteit": "0..n",
           "rol": "verwijzing",
-          "bron": "veldtabel is-oa-02, Bericht 1, veld learningResourceGroupIds, objecttype Leermiddelgroep van de conceptplaat",
+          "bron": "veldtabel is-oa-02",
           "toelichting": "De begrippenlijst omschrijft de leeronderdeelspecificatie als het deel met onder meer lesstof en opdrachten, wat de leermiddelen bij dit objecttype legt. Het doelobject mist een objecttype in informatiemodel.json."
         },
         {
@@ -1377,7 +1377,7 @@
           "datatype": "string, de code van een profiel in roomTypes",
           "kardinaliteit": "0..1",
           "rol": "verwijzing",
-          "bron": "veldtabel is-oa-02, Bericht 1, veld roomType, objecttype Onderwijslocatie type",
+          "bron": "veldtabel is-oa-02",
           "toelichting": "Het model draagt geen directe relatie van de specificatie naar Onderwijslocatie type; hij loopt via Onderwijsvorm, indicatie voor gebruik van Onderwijslocatie type. regels.md veronderstelt het ruimtetype met de knelpuntcode ruimteTekort."
         },
         {
@@ -1407,14 +1407,14 @@
           "datatype": "enum",
           "kardinaliteit": "1..1",
           "rol": "",
-          "bron": "veldtabel is-oa-01, 4.6, rij `studyLoad`; veldtabel is-oa-03 idem; vorm in schema volume.json, /unit (verplicht, SBU of EC)"
+          "bron": "veldtabel is-oa-01; veldtabel is-oa-03 idem; vorm in schema volume.json, /unit (verplicht, SBU of EC)"
         },
         {
           "naam": "studyLoad.value",
           "datatype": "number",
           "kardinaliteit": "1..1",
           "rol": "",
-          "bron": "veldtabel is-oa-01, 4.6, rij `studyLoad`: objecttype volgens de `specificationType`-tabel (`leeronderdeelspecificatie`); veldtabel is-oa-03 idem; vorm in schema volume.json, /value via education-specification.json; regels.md, aggregatie-invariant",
+          "bron": "veldtabel is-oa-01; veldtabel is-oa-03 idem; vorm in schema volume.json, /value via education-specification.json; regels.md, aggregatie-invariant",
           "toelichting": "casus: Baliegesprekken 101 600 SBU, Medicatiebewaking in de leerapotheek 500 SBU."
         },
         {
@@ -1430,7 +1430,7 @@
           "datatype": "array van object",
           "kardinaliteit": "0..n",
           "rol": "",
-          "bron": "veldtabel is-oa-02, Bericht 1, veld timeDistributions, attribuut van de specificatie, op de conceptplaat Studiebelasting en begeleide onderwijstijd indicatie",
+          "bron": "veldtabel is-oa-02",
           "toelichting": "F1-06 en F1-13 dragen BOT 50 en OOT 50 SBU. De som sluit op studyLoad van dezelfde specificatie: Baliegesprekken 101 draagt 600 SBU, verdeeld over BOT 300 en OOT 300."
         },
         {
@@ -1497,7 +1497,7 @@
           "datatype": "enum",
           "kardinaliteit": "1..n",
           "rol": "",
-          "bron": "veldtabel is-oa-01, 4.5, rij `indicativeVolume`: `unit` SBU of EC, objecttype `Leeruitkomst`; vorm in schema volume.json, /unit (verplicht); ADR 0004 belegt SBU en EC als logistieke containergrootte",
+          "bron": "veldtabel is-oa-01; vorm in schema volume.json, /unit (verplicht); ADR 0004 belegt SBU en EC als logistieke containergrootte",
           "toelichting": "Gesloten lijst SBU of EC. Het mbo-deel van de casus draagt uitsluitend SBU."
         },
         {
@@ -1505,7 +1505,7 @@
           "datatype": "number",
           "kardinaliteit": "1..n",
           "rol": "",
-          "bron": "veldtabel is-oa-01, 4.5, rij `indicativeVolume`: array van `value` plus `unit` SBU of EC, objecttype `Leeruitkomst`; vorm in schema volume.json, /value (verplicht) via learning-outcome.json, /indicativeVolume/items; ADR 0004",
+          "bron": "veldtabel is-oa-01; vorm in schema volume.json, /value (verplicht) via learning-outcome.json, /indicativeVolume/items; ADR 0004",
           "toelichting": "De array is 1..n en verplicht. casus: 4800 SBU op dossier- en kwalificatieniveau, 2000 op kerntaakniveau, 600 op werkprocesniveau."
         },
         {
@@ -1513,7 +1513,7 @@
           "datatype": "uuid",
           "kardinaliteit": "0..1, verplicht",
           "rol": "FK",
-          "bron": "veldtabel is-oa-01, 4.6 Aanleveren onderwijsspecificatiestru"
+          "bron": "veldtabel is-oa-01"
         },
         {
           "naam": "learningOutcomes",
@@ -1712,7 +1712,7 @@
           "datatype": "uuid",
           "kardinaliteit": "0..1, verplicht",
           "rol": "",
-          "bron": "veldtabel is-oa-01, 4.8 Aanleveren resultaatstructuur en exa"
+          "bron": "veldtabel is-oa-01"
         },
         {
           "naam": "description",
@@ -1726,7 +1726,7 @@
           "datatype": "string, open lijst simulatie, theorie, praktijk, beroepspraktijkvorming, zelfstudie",
           "kardinaliteit": "0..1",
           "rol": "verwijzing",
-          "bron": "veldtabel is-oa-02, Bericht 1, veld educationForm, objecttype Onderwijsvorm",
+          "bron": "veldtabel is-oa-02",
           "toelichting": "Het model legt de relatie naar Onderwijsvorm alleen bij Leeronderdeel specificatie, die Onderwijsvorm beschrijft. Voor de onderwijseenheid draagt alleen de veldtabel hem. WB-09 houdt open op welk niveau het veld landt: het leeronderdeel of de gewenste leergelegenheid die de catalogus uit geclusterde leeronderdelen vormt."
         },
         {
@@ -1734,7 +1734,7 @@
           "datatype": "array van uuid",
           "kardinaliteit": "0..n",
           "rol": "verwijzing",
-          "bron": "veldtabel is-oa-02, Bericht 1, veld expertiseProfileIds, objecttype Expertise of functieprofiel",
+          "bron": "veldtabel is-oa-02",
           "toelichting": "Het model draagt Expertise of functieprofiel benodigd voor uitvoering van Opleiding specificatie, en Organisatie-eenheid heeft behoefte aan het profiel. Een relatie naar de onderwijseenheid- of leeronderdeelspecificatie mist. regels.md veronderstelt het profiel met de knelpuntcode expertiseTekort, die involvedSpecificationIds op de specificatie meldt."
         },
         {
@@ -1766,7 +1766,7 @@
           "datatype": "array van uuid",
           "kardinaliteit": "0..n",
           "rol": "verwijzing",
-          "bron": "veldtabel is-oa-02, Bericht 1, veld learningResourceGroupIds, objecttype Leermiddelgroep van de conceptplaat",
+          "bron": "veldtabel is-oa-02",
           "toelichting": "Het doelobject mist een objecttype in informatiemodel.json. Het $comment beperkt de verwijzing tot een groep met purpose onderwijs, wat json-schema niet afdwingt."
         },
         {
@@ -1811,7 +1811,7 @@
           "datatype": "string, de code van een profiel in roomTypes",
           "kardinaliteit": "0..1",
           "rol": "verwijzing",
-          "bron": "veldtabel is-oa-02, Bericht 1, veld roomType, objecttype Onderwijslocatie type",
+          "bron": "veldtabel is-oa-02",
           "toelichting": "De waarde is een code en geen uuid, zodat de instelling geen identificatie hoeft uit te geven. Het model draagt geen directe relatie van een specificatie naar Onderwijslocatie type: hij loopt via Onderwijsvorm, indicatie voor gebruik van Onderwijslocatie type. regels.md veronderstelt het ruimtetype met de knelpuntcode ruimteTekort."
         },
         {
@@ -1842,14 +1842,14 @@
           "datatype": "enum",
           "kardinaliteit": "1..1",
           "rol": "",
-          "bron": "veldtabel is-oa-01, 4.6, rij `studyLoad`; veldtabel is-oa-03 idem; vorm in schema volume.json, /unit (verplicht, SBU of EC)"
+          "bron": "veldtabel is-oa-01; veldtabel is-oa-03 idem; vorm in schema volume.json, /unit (verplicht, SBU of EC)"
         },
         {
           "naam": "studyLoad.value",
           "datatype": "number",
           "kardinaliteit": "1..1",
           "rol": "",
-          "bron": "veldtabel is-oa-01, 4.6, rij `studyLoad`: objecttype volgens de `specificationType`-tabel (`onderwijseenheidspecificatie`); veldtabel is-oa-03 idem; vorm in schema volume.json, /value via education-specification.json; regels.md, aggregatie-invariant",
+          "bron": "veldtabel is-oa-01; veldtabel is-oa-03 idem; vorm in schema volume.json, /value via education-specification.json; regels.md, aggregatie-invariant",
           "toelichting": "casus: Blok B1-K1 2000 SBU."
         },
         {
@@ -1857,7 +1857,7 @@
           "datatype": "array van object",
           "kardinaliteit": "0..n",
           "rol": "",
-          "bron": "veldtabel is-oa-02, Bericht 1, veld timeDistributions, attribuut van de specificatie, op de conceptplaat Studiebelasting en begeleide onderwijstijd indicatie",
+          "bron": "veldtabel is-oa-02",
           "toelichting": "De som sluit op studyLoad van dezelfde specificatie; regels.md legt daarnaast de bottom-up optelling van studielast binnen onderdeel-van vast. Het conceptplaat-objecttype staat niet in informatiemodel.json, dus landt de verdeling als attribuutsoort van de specificatie."
         },
         {
@@ -1957,7 +1957,7 @@
           "datatype": "string",
           "kardinaliteit": "0..n",
           "rol": "sleutel",
-          "bron": "veldtabel is-oa-05, M2, en veldtabel is-oa-06, C2 en C3, rij `locations[]`: `codes` draagt de vestigingscode, de sleutel waarop een sectorale partij de locatie terugvindt; vorm in schema code.json, /code via location.json, /codes",
+          "bron": "veldtabel is-oa-05; vorm in schema code.json, /code via location.json, /codes",
           "toelichting": "Externe sleutel naast de uuid in `id`. casus: UTR-01 op de vestiging Hoofdlocatie Utrecht."
         },
         {
@@ -1965,7 +1965,7 @@
           "datatype": "string",
           "kardinaliteit": "0..n",
           "rol": "",
-          "bron": "veldtabel is-oa-05, M2, en veldtabel is-oa-06, C2 en C3, rij `locations[]`: objecttype `Onderwijslocatie`, `codes` draagt de vestigingscode; vorm in schema code.json, /codeType via location.json, /codes",
+          "bron": "veldtabel is-oa-05; vorm in schema code.json, /codeType via location.json, /codes",
           "toelichting": "Open lijst; casus: `vestigingscode`. code.json heeft vandaag alleen location.json als houder."
         },
         {
@@ -2013,7 +2013,7 @@
           "datatype": "uuid",
           "kardinaliteit": "0..1",
           "rol": "FK",
-          "bron": "veldtabel is-oa-05, M2, respons van `GET /aanmeldbaar-aanbod"
+          "bron": "veldtabel is-oa-05"
         },
         {
           "naam": "locationType",
@@ -2028,7 +2028,7 @@
           "datatype": "array",
           "kardinaliteit": "0..n",
           "rol": "",
-          "bron": "veldtabel is-oa-05, M2, respons van `GET /aanmeldbaar-aanbod"
+          "bron": "veldtabel is-oa-05"
         },
         {
           "naam": "name",
@@ -2043,7 +2043,7 @@
           "datatype": "uuid",
           "kardinaliteit": "0..1",
           "rol": "FK",
-          "bron": "veldtabel is-oa-06, C2 en C3, het aanmeldbare aanbod"
+          "bron": "veldtabel is-oa-06"
         },
         {
           "naam": "partOfLocationId",
@@ -2058,7 +2058,7 @@
           "datatype": "array",
           "kardinaliteit": "0..n",
           "rol": "FK",
-          "bron": "veldtabel is-oa-02, Bericht 4: het ruimtetype"
+          "bron": "veldtabel is-oa-02"
         },
         {
           "naam": "url",
@@ -2085,7 +2085,7 @@
           "datatype": "integer",
           "kardinaliteit": "0..1",
           "rol": "",
-          "bron": "veldtabel is-oa-02, Bericht 4: het ruimtetype, rij roomTypes[].capacity; schema room-type.json, properties.capacity",
+          "bron": "veldtabel is-oa-02; schema room-type.json, properties.capacity",
           "toelichting": "het aantal studenten dat het ontwerp in deze ruimte kwijt moet (F1-06: voor 24 studenten). Dezelfde sleutel als capacity in group.json, maar hier een vraag van het ontwerp en geen groep"
         },
         {
@@ -2093,7 +2093,7 @@
           "datatype": "string",
           "kardinaliteit": "1..1",
           "rol": "sleutel",
-          "bron": "veldtabel is-oa-02, Bericht 4: het ruimtetype, rij roomTypes[].code; schema room-type.json, properties.code (in required)",
+          "bron": "veldtabel is-oa-02; schema room-type.json, properties.code (in required)",
           "toelichting": "de specificatie wijst het profiel aan met deze code in haar veld roomType; informatiemodel.json realiseert dit objecttype op de OEAPI-sleutel roomType. casus.md draagt skillslab en skillslab-examen. Dit objecttype draagt geen uuid, anders dan de overige objecten in de aanbodpayload"
         },
         {
@@ -2101,14 +2101,14 @@
           "datatype": "string",
           "kardinaliteit": "0..1",
           "rol": "",
-          "bron": "veldtabel is-oa-02, Bericht 4: het ruimtetype, rij roomTypes[].description; schema room-type.json, properties.description"
+          "bron": "veldtabel is-oa-02; schema room-type.json, properties.description"
         },
         {
           "naam": "features",
           "datatype": "array van string, open lijst",
           "kardinaliteit": "0..n",
           "rol": "",
-          "bron": "veldtabel is-oa-02, Bericht 4: het ruimtetype, rij roomTypes[].features; schema room-type.json, properties.features",
+          "bron": "veldtabel is-oa-02; schema room-type.json, properties.features",
           "toelichting": "F1-06 draagt balie-opstelling mogelijk, F1-10 afsluitbaar voor examinering"
         },
         {
@@ -2116,7 +2116,7 @@
           "datatype": "array van uuid",
           "kardinaliteit": "0..n",
           "rol": "verwijzing",
-          "bron": "veldtabel is-oa-02, Bericht 4: het ruimtetype, rij roomTypes[].locationIds; informatiemodel.json draagt Association van Onderwijslocatie type naar Onderwijslocatie",
+          "bron": "veldtabel is-oa-02; informatiemodel.json draagt Association van Onderwijslocatie type naar Onderwijslocatie",
           "toelichting": "de onderwijslocaties waar dit profiel bestaat, bijvoorbeeld de vestiging uit casus.md. Deze attribuutsoort hoort bij Onderwijslocatie type; schema-binding.json zet hem nu als roomTypeslocationIds onder Onderwijslocatie"
         },
         {
@@ -2124,7 +2124,7 @@
           "datatype": "string",
           "kardinaliteit": "1..1",
           "rol": "",
-          "bron": "veldtabel is-oa-02, Bericht 4: het ruimtetype, rij roomTypes[].name; schema room-type.json, properties.name (in required)",
+          "bron": "veldtabel is-oa-02; schema room-type.json, properties.name (in required)",
           "toelichting": "beeldregel F1-06 draagt Praktijkruimte met baliesimulatie"
         },
         {
@@ -2132,42 +2132,42 @@
           "datatype": "string",
           "kardinaliteit": "0..1",
           "rol": "",
-          "bron": "veldtabel is-oa-02, Bericht 1: de ontwerpvelden op de onderw"
+          "bron": "veldtabel is-oa-02"
         },
         {
           "naam": "roomTypescapacity",
           "datatype": "integer",
           "kardinaliteit": "0..1",
           "rol": "",
-          "bron": "veldtabel is-oa-02, Bericht 4: het ruimtetype"
+          "bron": "veldtabel is-oa-02"
         },
         {
           "naam": "roomTypescode",
           "datatype": "string",
           "kardinaliteit": "1..1, verplicht",
           "rol": "",
-          "bron": "veldtabel is-oa-02, Bericht 4: het ruimtetype"
+          "bron": "veldtabel is-oa-02"
         },
         {
           "naam": "roomTypesdescription",
           "datatype": "string",
           "kardinaliteit": "0..1",
           "rol": "",
-          "bron": "veldtabel is-oa-02, Bericht 4: het ruimtetype"
+          "bron": "veldtabel is-oa-02"
         },
         {
           "naam": "roomTypesfeatures",
           "datatype": "array",
           "kardinaliteit": "0..n",
           "rol": "",
-          "bron": "veldtabel is-oa-02, Bericht 4: het ruimtetype"
+          "bron": "veldtabel is-oa-02"
         },
         {
           "naam": "roomTypesname",
           "datatype": "string",
           "kardinaliteit": "1..1, verplicht",
           "rol": "",
-          "bron": "veldtabel is-oa-02, Bericht 4: het ruimtetype"
+          "bron": "veldtabel is-oa-02"
         }
       ]
     },
@@ -2178,7 +2178,7 @@
           "datatype": "string",
           "kardinaliteit": "0..1",
           "rol": "",
-          "bron": "veldtabel is-oa-02, Bericht 1: de ontwerpvelden op de onderw"
+          "bron": "veldtabel is-oa-02"
         }
       ]
     },
@@ -2197,7 +2197,7 @@
           "datatype": "string",
           "kardinaliteit": "0..1",
           "rol": "verwijzing",
-          "bron": "veldtabel is-oa-04, is-oa-05 M2 en is-oa-06 C2 en C3 binden cohort aan Cohort / periode; schema education-offering.json, offeringInstances[].cohort",
+          "bron": "veldtabel is-oa-04; schema education-offering.json, offeringInstances[].cohort",
           "toelichting": "Wijst naar Cohort / periode met een tekstsleutel (2026 in de casus) en niet met een uuid. Het model draagt geen relatie van een aanbodlaag naar Cohort / periode."
         },
         {
@@ -2205,7 +2205,7 @@
           "datatype": "string",
           "kardinaliteit": "0..1",
           "rol": "",
-          "bron": "veldtabel is-oa-05, M2, respons van `GET /aanmeldbaar-aanbod"
+          "bron": "veldtabel is-oa-05"
         },
         {
           "naam": "executingTeamId",
@@ -2267,35 +2267,35 @@
           "datatype": "string",
           "kardinaliteit": "0..1",
           "rol": "",
-          "bron": "veldtabel is-oa-06, C2 en C3, het aanmeldbare aanbod"
+          "bron": "veldtabel is-oa-06"
         },
         {
           "naam": "offeringInstancesid",
           "datatype": "uuid",
           "kardinaliteit": "1",
           "rol": "",
-          "bron": "veldtabel is-oa-06, C2 en C3, het aanmeldbare aanbod"
+          "bron": "veldtabel is-oa-06"
         },
         {
           "naam": "offeringInstancesmaxStudentCount",
           "datatype": "integer",
           "kardinaliteit": "0..1",
           "rol": "",
-          "bron": "veldtabel is-oa-06, C2 en C3, het aanmeldbare aanbod"
+          "bron": "veldtabel is-oa-06"
         },
         {
           "naam": "offeringInstancesofferingType",
           "datatype": "enum",
           "kardinaliteit": "1",
           "rol": "",
-          "bron": "veldtabel is-oa-06, C2 en C3, het aanmeldbare aanbod"
+          "bron": "veldtabel is-oa-06"
         },
         {
           "naam": "offeringInstancesparentOfferingId",
           "datatype": "uuid",
           "kardinaliteit": "1",
           "rol": "FK",
-          "bron": "veldtabel is-oa-06, C2 en C3, het aanmeldbare aanbod"
+          "bron": "veldtabel is-oa-06"
         },
         {
           "naam": "offeringType",
@@ -2448,21 +2448,21 @@
           "datatype": "enum",
           "kardinaliteit": "1, verplicht",
           "rol": "",
-          "bron": "veldtabel is-oa-01, 4.3 Melden statuswijziging van een onder"
+          "bron": "veldtabel is-oa-01"
         },
         {
           "naam": "objectId",
           "datatype": "uuid",
           "kardinaliteit": "1, verplicht",
           "rol": "FK",
-          "bron": "veldtabel is-oa-01, 4.3 Melden statuswijziging van een onder"
+          "bron": "veldtabel is-oa-01"
         },
         {
           "naam": "oldStatus",
           "datatype": "enum",
           "kardinaliteit": "1, verplicht",
           "rol": "",
-          "bron": "veldtabel is-oa-01, 4.3 Melden statuswijziging van een onder"
+          "bron": "veldtabel is-oa-01"
         },
         {
           "naam": "parentSpecificationId",
@@ -2485,7 +2485,7 @@
           "datatype": "uuid",
           "kardinaliteit": "1, verplicht",
           "rol": "FK",
-          "bron": "veldtabel is-oa-01, 4.1 Opvragen herbruikbare specificatiest"
+          "bron": "veldtabel is-oa-01"
         },
         {
           "naam": "specificationType",
@@ -2516,14 +2516,14 @@
           "datatype": "enum",
           "kardinaliteit": "1..1",
           "rol": "",
-          "bron": "veldtabel is-oa-01, 4.6, rij `studyLoad`; veldtabel is-oa-03 idem; vorm in schema volume.json, /unit (verplicht, SBU of EC)"
+          "bron": "veldtabel is-oa-01; veldtabel is-oa-03 idem; vorm in schema volume.json, /unit (verplicht, SBU of EC)"
         },
         {
           "naam": "studyLoad.value",
           "datatype": "number",
           "kardinaliteit": "1..1",
           "rol": "",
-          "bron": "veldtabel is-oa-01, 4.6 Aanleveren onderwijsspecificatiestructuur, rij `studyLoad`: object met `value` plus `unit`, objecttype volgens de `specificationType`-tabel (`opleidingsspecificatie`); veldtabel is-oa-03 rij `studyLoad` idem; vorm in schema volume.json, /value via education-specification.json, /educationSpecifications/items/properties/studyLoad; regels.md, aggregatie-invariant",
+          "bron": "veldtabel is-oa-01; veldtabel is-oa-03 rij `studyLoad` idem; vorm in schema volume.json, /value via education-specification.json, /educationSpecifications/items/properties/studyLoad; regels.md, aggregatie-invariant",
           "toelichting": "casus: 4800 SBU. regels.md: de som van de onderdelen is gelijk aan de ouder binnen onderdeel-van, en telt niet op over varianten."
         },
         {
@@ -2559,7 +2559,7 @@
           "datatype": "uuid",
           "kardinaliteit": "0..1",
           "rol": "FK",
-          "bron": "veldtabel is-oa-06, C2 en C3, het aanmeldbare aanbod"
+          "bron": "veldtabel is-oa-06"
         }
       ]
     },
@@ -2578,7 +2578,7 @@
           "datatype": "date",
           "kardinaliteit": "0..1",
           "rol": "",
-          "bron": "veldtabel is-oa-06, C2 en C3, rij `offeringInstances[].applicationWindow` (voorstel, W10): objecttype `Opleidingsprogramma aanbod`; schema offering-open-for-application.json naar period.json, /end",
+          "bron": "veldtabel is-oa-06; schema offering-open-for-application.json naar period.json, /end",
           "toelichting": "Naast `enrolmentDeadline`, die het conceptueel gegevensoverzicht van leerroute 1 op `Opleiding aanbod` legt."
         },
         {
@@ -2586,7 +2586,7 @@
           "datatype": "date",
           "kardinaliteit": "0..1",
           "rol": "",
-          "bron": "veldtabel is-oa-06, C2 en C3, rij `offeringInstances[].applicationWindow` (voorstel, W10): objecttype `Opleidingsprogramma aanbod`, vorm van period.json; schema offering-open-for-application.json, /offeringInstances/items/properties/applicationWindow",
+          "bron": "veldtabel is-oa-06; schema offering-open-for-application.json, /offeringInstances/items/properties/applicationWindow",
           "toelichting": "Verplicht bij status `aanmeldbaar` op de programmalaag. casus-waarden staan nog niet in casus.md (signalering in signaleringen.md). is-oa-05 M2 bindt dezelfde sleutel aan `Aanmelding`, zie gaten."
         },
         {
@@ -2602,7 +2602,7 @@
           "datatype": "string",
           "kardinaliteit": "0..1",
           "rol": "verwijzing",
-          "bron": "veldtabel is-oa-04, is-oa-05 M1 en M2 en is-oa-06 C1 tot C3 binden cohort aan Cohort / periode; schema education-offering.json",
+          "bron": "veldtabel is-oa-04; schema education-offering.json",
           "toelichting": "Wijst naar Cohort / periode met een tekstsleutel. De parameter waarop de afnemer zijn opvraag filtert (GET /aanmeldbaar-aanbod?cohort=2026)."
         },
         {
@@ -2674,91 +2674,91 @@
           "datatype": "enum",
           "kardinaliteit": "1",
           "rol": "",
-          "bron": "veldtabel is-oa-05, M1, melding `aanbod-aanmeldbaar`"
+          "bron": "veldtabel is-oa-05"
         },
         {
           "naam": "offeringId",
           "datatype": "uuid",
           "kardinaliteit": "1",
           "rol": "FK",
-          "bron": "veldtabel is-oa-05, M1, melding `aanbod-aanmeldbaar`"
+          "bron": "veldtabel is-oa-05"
         },
         {
           "naam": "offeringInstancesapplicationWindow",
           "datatype": "object",
           "kardinaliteit": "0..1",
           "rol": "",
-          "bron": "veldtabel is-oa-06, C2 en C3, het aanmeldbare aanbod"
+          "bron": "veldtabel is-oa-06"
         },
         {
           "naam": "offeringInstancesid",
           "datatype": "uuid",
           "kardinaliteit": "1",
           "rol": "",
-          "bron": "veldtabel is-oa-06, C2 en C3, het aanmeldbare aanbod"
+          "bron": "veldtabel is-oa-06"
         },
         {
           "naam": "offeringInstanceslearningPathway",
           "datatype": "enum",
           "kardinaliteit": "0..1",
           "rol": "",
-          "bron": "veldtabel is-oa-06, C2 en C3, het aanmeldbare aanbod"
+          "bron": "veldtabel is-oa-06"
         },
         {
           "naam": "offeringInstancesmaxStudentCount",
           "datatype": "integer",
           "kardinaliteit": "0..1",
           "rol": "",
-          "bron": "veldtabel is-oa-06, C2 en C3, het aanmeldbare aanbod"
+          "bron": "veldtabel is-oa-06"
         },
         {
           "naam": "offeringInstancesminStudentCount",
           "datatype": "integer",
           "kardinaliteit": "0..1",
           "rol": "",
-          "bron": "veldtabel is-oa-06, C2 en C3, het aanmeldbare aanbod"
+          "bron": "veldtabel is-oa-06"
         },
         {
           "naam": "offeringInstancesname",
           "datatype": "string",
           "kardinaliteit": "1",
           "rol": "",
-          "bron": "veldtabel is-oa-06, C2 en C3, het aanmeldbare aanbod"
+          "bron": "veldtabel is-oa-06"
         },
         {
           "naam": "offeringInstancesofferingType",
           "datatype": "enum",
           "kardinaliteit": "1",
           "rol": "",
-          "bron": "veldtabel is-oa-06, C2 en C3, het aanmeldbare aanbod"
+          "bron": "veldtabel is-oa-06"
         },
         {
           "naam": "offeringInstancesperiod",
           "datatype": "object",
           "kardinaliteit": "0..1",
           "rol": "",
-          "bron": "veldtabel is-oa-06, C2 en C3, het aanmeldbare aanbod"
+          "bron": "veldtabel is-oa-06"
         },
         {
           "naam": "offeringInstancesstatus",
           "datatype": "enum",
           "kardinaliteit": "1",
           "rol": "",
-          "bron": "veldtabel is-oa-06, C2 en C3, het aanmeldbare aanbod"
+          "bron": "veldtabel is-oa-06"
         },
         {
           "naam": "offeringInstancestargetGroup",
           "datatype": "string",
           "kardinaliteit": "0..1",
           "rol": "",
-          "bron": "veldtabel is-oa-06, C2 en C3, het aanmeldbare aanbod"
+          "bron": "veldtabel is-oa-06"
         },
         {
           "naam": "offeringInstancesversion",
           "datatype": "string",
           "kardinaliteit": "1",
           "rol": "",
-          "bron": "veldtabel is-oa-06, C2 en C3, het aanmeldbare aanbod"
+          "bron": "veldtabel is-oa-06"
         },
         {
           "naam": "offeringType",
@@ -2773,7 +2773,7 @@
           "datatype": "enum",
           "kardinaliteit": "1",
           "rol": "",
-          "bron": "veldtabel is-oa-05, M1, melding `aanbod-aanmeldbaar`"
+          "bron": "veldtabel is-oa-05"
         },
         {
           "naam": "parentOfferingId",
@@ -2796,7 +2796,7 @@
           "datatype": "date",
           "kardinaliteit": "0..1",
           "rol": "",
-          "bron": "veldtabel is-oa-06, C2 en C3, rij `offeringInstances[].period`: objecttype `Opleidingsprogramma aanbod`; vorm in schema period.json, /end",
+          "bron": "veldtabel is-oa-06; vorm in schema period.json, /end",
           "toelichting": "De verwachte einddatum van het startmoment."
         },
         {
@@ -2804,7 +2804,7 @@
           "datatype": "date",
           "kardinaliteit": "0..1",
           "rol": "",
-          "bron": "veldtabel is-oa-06, C2 en C3, rij `offeringInstances[].period`: objecttype `Opleidingsprogramma aanbod`, `start` draagt het startmoment (A3); vorm in schema period.json, /start via education-offering.json, /offeringInstances/items/properties/period",
+          "bron": "veldtabel is-oa-06; vorm in schema period.json, /start via education-offering.json, /offeringInstances/items/properties/period",
           "toelichting": "Verplicht zodra de instantie `aanmeldbaar` is: de allOf in offering-open-for-application.json eist dan `period` en `applicationWindow`. is-oa-05 M2 bindt dezelfde sleutel aan `Cohort / periode`, zie gaten."
         },
         {
@@ -2840,7 +2840,7 @@
           "datatype": "uuid",
           "kardinaliteit": "0..1, verplicht",
           "rol": "",
-          "bron": "veldtabel is-oa-01, 4.8 Aanleveren resultaatstructuur en exa"
+          "bron": "veldtabel is-oa-01"
         },
         {
           "naam": "cohort",
@@ -2933,7 +2933,7 @@
           "datatype": "object",
           "kardinaliteit": "1",
           "rol": "",
-          "bron": "veldtabel is-oa-06, C2 en C3, het aanmeldbare aanbod"
+          "bron": "veldtabel is-oa-06"
         },
         {
           "naam": "organisation",
@@ -2980,7 +2980,7 @@
           "datatype": "string",
           "kardinaliteit": "1, verplicht",
           "rol": "FK",
-          "bron": "veldtabel is-oa-03, Bericht 1, specificatie-planbaar"
+          "bron": "veldtabel is-oa-03"
         },
         {
           "naam": "specificationType",
@@ -3018,14 +3018,14 @@
           "datatype": "enum",
           "kardinaliteit": "1..1",
           "rol": "",
-          "bron": "veldtabel is-oa-01, 4.6, rij `studyLoad`; veldtabel is-oa-03 idem; vorm in schema volume.json, /unit (verplicht, SBU of EC)"
+          "bron": "veldtabel is-oa-01; veldtabel is-oa-03 idem; vorm in schema volume.json, /unit (verplicht, SBU of EC)"
         },
         {
           "naam": "studyLoad.value",
           "datatype": "number",
           "kardinaliteit": "1..1",
           "rol": "",
-          "bron": "veldtabel is-oa-01, 4.6, rij `studyLoad`: objecttype volgens de `specificationType`-tabel (`opleidingsprogrammaspecificatie`); veldtabel is-oa-03 idem; vorm in schema volume.json, /value via education-specification.json; regels.md, aggregatie-invariant",
+          "bron": "veldtabel is-oa-01; veldtabel is-oa-03 idem; vorm in schema volume.json, /value via education-specification.json; regels.md, aggregatie-invariant",
           "toelichting": "casus: beide programmalagen 4800 SBU, want de leerweglaag en de doelgroeplaag zijn varianten en tellen niet op."
         },
         {
@@ -3075,14 +3075,14 @@
           "datatype": "uuid",
           "kardinaliteit": "0..1",
           "rol": "FK",
-          "bron": "veldtabel is-oa-05, M2, respons van `GET /aanmeldbaar-aanbod"
+          "bron": "veldtabel is-oa-05"
         },
         {
           "naam": "expertiseProfilesorganisationUnitId",
           "datatype": "uuid",
           "kardinaliteit": "0..1",
           "rol": "FK",
-          "bron": "veldtabel is-oa-02, Bericht 3: het expertiseprofiel"
+          "bron": "veldtabel is-oa-02"
         },
         {
           "naam": "id",
@@ -3105,28 +3105,28 @@
           "datatype": "uuid",
           "kardinaliteit": "0..1",
           "rol": "FK",
-          "bron": "veldtabel is-oa-06, C2 en C3, het aanmeldbare aanbod"
+          "bron": "veldtabel is-oa-06"
         },
         {
           "naam": "offeringInstancesproviderId",
           "datatype": "uuid",
           "kardinaliteit": "0..1",
           "rol": "FK",
-          "bron": "veldtabel is-oa-06, C2 en C3, het aanmeldbare aanbod"
+          "bron": "veldtabel is-oa-06"
         },
         {
           "naam": "organisation",
           "datatype": "organisation",
           "kardinaliteit": "0..1",
           "rol": "",
-          "bron": "veldtabel is-oa-03, Bericht 2, de onderwijsspecificatiestruc"
+          "bron": "veldtabel is-oa-03"
         },
         {
           "naam": "organisationUnits",
           "datatype": "array",
           "kardinaliteit": "0..n",
           "rol": "",
-          "bron": "veldtabel is-oa-05, M2, respons van `GET /aanmeldbaar-aanbod"
+          "bron": "veldtabel is-oa-05"
         },
         {
           "naam": "parentUnitId",
@@ -3161,7 +3161,7 @@
           "datatype": "integer",
           "kardinaliteit": "0..n",
           "rol": "",
-          "bron": "veldtabel is-oa-04, rij `groups`, objecttype `Plaatsingsgroep` (werkbrief W5); informatiemodel typeert de familie Onderwijsaanbod als een ingeplande specificatie met een periode en een capaciteit; vorm in schema group.json, /capacity (optioneel)",
+          "bron": "veldtabel is-oa-04; informatiemodel typeert de familie Onderwijsaanbod als een ingeplande specificatie met een periode en een capaciteit; vorm in schema group.json, /capacity (optioneel)",
           "toelichting": "casus: 24 per groep. Het model hangt `Plaatsingsgroep` aan `Persoon` en aan de negen verbintenislagen, niet aan een aanbodlaag, terwijl group.json de capaciteit op het aanbod zet: signalering S-F van is-oa-05 en S19. room-type.json draagt dezelfde sleutel `capacity` op `Onderwijslocatie type`."
         },
         {
@@ -3169,7 +3169,7 @@
           "datatype": "uuid",
           "kardinaliteit": "0..n",
           "rol": "sleutel",
-          "bron": "veldtabel is-oa-04, rij `groups`: array van `id`, `name`, `capacity`, objecttype `Plaatsingsgroep` (werkbrief W5); vorm in schema group.json, /id (verplicht) via education-offering.json, /offeringInstances/items/properties/groups",
+          "bron": "veldtabel is-oa-04; vorm in schema group.json, /id (verplicht) via education-offering.json, /offeringInstances/items/properties/groups",
           "toelichting": "De array is 0..n; binnen een item is `id` verplicht. De groep draagt geen eigen versie in de payload (casus.md)."
         },
         {
@@ -3177,7 +3177,7 @@
           "datatype": "string",
           "kardinaliteit": "0..n",
           "rol": "",
-          "bron": "veldtabel is-oa-04, rij `groups`: array van `id`, `name`, `capacity`, objecttype `Plaatsingsgroep` (werkbrief W5); vorm in schema group.json, /name (verplicht)",
+          "bron": "veldtabel is-oa-04; vorm in schema group.json, /name (verplicht)",
           "toelichting": "casus: APO26-1A en APO26-1B bij de `Leergelegenheid`, KD-K0037-28-P7 bij het `Keuzedeel aanbod`."
         }
       ]
@@ -3189,7 +3189,7 @@
           "datatype": "uuid",
           "kardinaliteit": "1..1",
           "rol": "verwijzing",
-          "bron": "veldtabel is-oa-01, 4.7 Aanleveren studentkeuzeregelsets, die `Keuzedeelruimte` als onderwerp van de verwijzing noemt",
+          "bron": "veldtabel is-oa-01",
           "toelichting": "De regelset draagt dit veld zelf (rule-set.json, properties/appliesTo, verplicht). Ik bind hem daarom op de drager `Student keuze regelset` en niet op het doel: de veldtabel noemt in de kolom objecttype het doel, en de zaaiing in schema-binding.json zette hem daarop als `Keuzedeelruimte.appliesTo` met rol FK. Het doel is breder dan de keuzedeelruimte: het informatiemodel verbindt `Student keuze regelset` met negen specificatietypen (`Keuzedeel`, `Keuzedeelruimte`, `Leeronderdeel specificatie`, `Les specificatie`, `Minor`, `Minor ruimte`, `Onderwijseenheid specificatie`, `Opleiding specificatie`, `Opleidingsprogramma specificatie`) en regels.md laat een regelset op elke specificatie staan. Zie gat 1 en 2."
         },
         {
@@ -3197,7 +3197,7 @@
           "datatype": "string",
           "kardinaliteit": "0..1",
           "rol": "",
-          "bron": "veldtabel is-oa-01, 4.7 Aanleveren studentkeuzeregelsets"
+          "bron": "veldtabel is-oa-01"
         },
         {
           "naam": "electiveUnit",
@@ -3212,14 +3212,14 @@
           "datatype": "uuid",
           "kardinaliteit": "1, verplicht",
           "rol": "PK",
-          "bron": "veldtabel is-oa-01, 4.7 Aanleveren studentkeuzeregelsets"
+          "bron": "veldtabel is-oa-01"
         },
         {
           "naam": "name",
           "datatype": "string",
           "kardinaliteit": "1, verplicht",
           "rol": "",
-          "bron": "veldtabel is-oa-01, 4.7 Aanleveren studentkeuzeregelsets"
+          "bron": "veldtabel is-oa-01"
         },
         {
           "naam": "precondition",
@@ -3250,7 +3250,7 @@
           "datatype": "array",
           "kardinaliteit": "0..n, verplicht",
           "rol": "",
-          "bron": "veldtabel is-oa-01, 4.6 Aanleveren onderwijsspecificatiestru"
+          "bron": "veldtabel is-oa-01"
         },
         {
           "naam": "ruleSets",
@@ -3265,7 +3265,7 @@
           "datatype": "array",
           "kardinaliteit": "1..n, verplicht",
           "rol": "",
-          "bron": "veldtabel is-oa-01, 4.7 Aanleveren studentkeuzeregelsets"
+          "bron": "veldtabel is-oa-01"
         },
         {
           "naam": "scope",
@@ -3320,7 +3320,7 @@
           "datatype": "string",
           "kardinaliteit": "1, verplicht",
           "rol": "",
-          "bron": "veldtabel is-oa-01, 4.7 Aanleveren studentkeuzeregelsets"
+          "bron": "veldtabel is-oa-01"
         }
       ]
     },
@@ -3331,14 +3331,14 @@
           "datatype": "enum",
           "kardinaliteit": "0..1, verplicht",
           "rol": "",
-          "bron": "veldtabel is-oa-01, 4.8 Aanleveren resultaatstructuur en exa"
+          "bron": "veldtabel is-oa-01"
         },
         {
           "naam": "mandatory",
           "datatype": "boolean",
           "kardinaliteit": "0..1, verplicht",
           "rol": "",
-          "bron": "veldtabel is-oa-01, 4.8 Aanleveren resultaatstructuur en exa"
+          "bron": "veldtabel is-oa-01"
         },
         {
           "naam": "ruleSetReferences",
@@ -3449,7 +3449,7 @@
           "datatype": "enum",
           "kardinaliteit": "0..1, verplicht",
           "rol": "",
-          "bron": "veldtabel is-oa-01, 4.8 Aanleveren resultaatstructuur en exa"
+          "bron": "veldtabel is-oa-01"
         },
         {
           "naam": "parentSpecificationId",
@@ -3539,7 +3539,7 @@
           "datatype": "object met value en unit",
           "kardinaliteit": "0..1",
           "rol": "",
-          "bron": "veldtabel is-oa-02, Bericht 2, veld assessmentDuration, WB-08",
+          "bron": "veldtabel is-oa-02",
           "toelichting": "De veldtabel bindt dit veld aan Toetsvorm van de conceptplaat, dat informatiemodel.json niet kent. Ik bind de duur aan Toetsonderdeel specificatie, waar is-oa-01 assessmentForm al legt. Grond: bevinding B04 van de leverancierslezing vraagt afnameduur, en F1-10 draagt 45 minuten."
         },
         {
@@ -3563,14 +3563,14 @@
           "datatype": "string",
           "kardinaliteit": "0..1, verplicht",
           "rol": "",
-          "bron": "veldtabel is-oa-01, 4.8 Aanleveren resultaatstructuur en exa"
+          "bron": "veldtabel is-oa-01"
         },
         {
           "naam": "assessmentInstrumentId",
           "datatype": "uuid",
           "kardinaliteit": "0..1",
           "rol": "verwijzing",
-          "bron": "veldtabel is-oa-02, Bericht 2, veld assessmentInstrumentId, objecttype Toetsinstrument van de conceptplaat",
+          "bron": "veldtabel is-oa-02",
           "toelichting": "Het doelobject mist een objecttype in informatiemodel.json; op de conceptplaat is Toetsinstrument een Collectie van Leermiddelgroepen. Het $comment beperkt de verwijzing tot een groep met purpose toetsing, wat json-schema niet afdwingt."
         },
         {
@@ -3585,7 +3585,7 @@
           "datatype": "array van uuid",
           "kardinaliteit": "0..n",
           "rol": "verwijzing",
-          "bron": "veldtabel is-oa-02, Bericht 2, veld expertiseProfileIds, objecttype Expertise of functieprofiel",
+          "bron": "veldtabel is-oa-02",
           "toelichting": "F1-10 hangt de examinator met baliepraktijk en toetsbekwaamheid aan de toetsvormspecificatie. Organisatie-eenheid voert de toetsonderdeelspecificatie uit en heeft behoefte aan het profiel; een directe relatie van de specificatie naar het profiel mist in het model."
         },
         {
@@ -3645,7 +3645,7 @@
           "datatype": "string, de code van een profiel in roomTypes",
           "kardinaliteit": "0..1",
           "rol": "verwijzing",
-          "bron": "veldtabel is-oa-02, Bericht 2, veld roomType, objecttype Onderwijslocatie type",
+          "bron": "veldtabel is-oa-02",
           "toelichting": "Het examen draagt een eigen code naast die van het onderwijs: F1-10 draagt een praktijkruimte met baliesimulatie, afsluitbaar voor examinering. Het model draagt geen directe relatie van de specificatie naar Onderwijslocatie type."
         },
         {
@@ -3678,7 +3678,7 @@
           "datatype": "number",
           "kardinaliteit": "0..1, verplicht",
           "rol": "",
-          "bron": "veldtabel is-oa-01, 4.8 Aanleveren resultaatstructuur en exa"
+          "bron": "veldtabel is-oa-01"
         }
       ]
     },
@@ -3689,7 +3689,7 @@
           "datatype": "string",
           "kardinaliteit": "0..1",
           "rol": "",
-          "bron": "veldtabel is-oa-02, Bericht 3, veld competences[].code, waar de tabel scope buiten het informatiemodel schrijft",
+          "bron": "veldtabel is-oa-02",
           "toelichting": "De code binnen het kader; F1-06 draagt Farmacie met ISCED-F 0916."
         },
         {
@@ -3697,7 +3697,7 @@
           "datatype": "string, open lijst competentnl, isced-f",
           "kardinaliteit": "0..1",
           "rol": "verwijzing",
-          "bron": "veldtabel is-oa-02, Bericht 3, veld competences[].framework, waar de tabel scope buiten het informatiemodel schrijft",
+          "bron": "veldtabel is-oa-02",
           "toelichting": "Ik bind het veld aan dit objecttype, dat het model met scope buiten draagt; de betekenis blijft bij CompetentNL en ISCED-F. Het veld heet framework en niet source, omdat source.json is voorbehouden aan de leeruitkomst en de aanbodinstantie."
         },
         {
@@ -3705,7 +3705,7 @@
           "datatype": "string",
           "kardinaliteit": "0..1",
           "rol": "",
-          "bron": "veldtabel is-oa-02, Bericht 3, veld competences[].level, waar de tabel scope buiten het informatiemodel schrijft",
+          "bron": "veldtabel is-oa-02",
           "toelichting": "De laag binnen het kader; F1-06 draagt CompetentNL laag 2."
         },
         {
@@ -3713,7 +3713,7 @@
           "datatype": "string",
           "kardinaliteit": "1..1",
           "rol": "",
-          "bron": "veldtabel is-oa-02, Bericht 3, veld competences[].name",
+          "bron": "veldtabel is-oa-02",
           "toelichting": "F1-06 draagt didactische en communicatieve vaardigheden. Scope buiten in het model: de betekenis blijft bij het kader buiten OKx."
         },
         {
@@ -3729,7 +3729,7 @@
           "datatype": "enum",
           "kardinaliteit": "1..1, verplicht",
           "rol": "",
-          "bron": "veldtabel is-oa-02, Bericht 3: het expertiseprofiel"
+          "bron": "veldtabel is-oa-02"
         }
       ]
     },
@@ -3780,7 +3780,7 @@
           "datatype": "enum",
           "kardinaliteit": "1, verplicht",
           "rol": "",
-          "bron": "veldtabel is-oa-03, Bericht 3, verwerkingsstatus"
+          "bron": "veldtabel is-oa-03"
         }
       ]
     },
@@ -3791,7 +3791,7 @@
           "datatype": "string",
           "kardinaliteit": "0..1",
           "rol": "",
-          "bron": "veldtabel is-oa-01, 4.5 Aanleveren leeruitkomsten uit het kw"
+          "bron": "veldtabel is-oa-01"
         }
       ]
     },
@@ -3809,14 +3809,14 @@
           "datatype": "object",
           "kardinaliteit": "0..1",
           "rol": "",
-          "bron": "veldtabel is-oa-01, 4.8 Aanleveren resultaatstructuur en exa"
+          "bron": "veldtabel is-oa-01"
         },
         {
           "naam": "source",
           "datatype": "object",
           "kardinaliteit": "1, verplicht",
           "rol": "",
-          "bron": "veldtabel is-oa-01, 4.5 Aanleveren leeruitkomsten uit het kw"
+          "bron": "veldtabel is-oa-01"
         },
         {
           "naam": "source.code",
@@ -3830,14 +3830,14 @@
           "datatype": "string",
           "kardinaliteit": "1..1",
           "rol": "",
-          "bron": "veldtabel is-oa-01, 4.5, rij `source`: object met `standard`, `type` en `code`, objecttype via het `type`; vorm in schema source.json, /standard (verplicht)"
+          "bron": "veldtabel is-oa-01; vorm in schema source.json, /standard (verplicht)"
         },
         {
           "naam": "source.type",
           "datatype": "enum",
           "kardinaliteit": "1..1",
           "rol": "",
-          "bron": "veldtabel is-oa-01, 4.5, rij `source`: het objecttype volgt uit dit veld; vorm in schema source.json, /type (verplicht)",
+          "bron": "veldtabel is-oa-01; vorm in schema source.json, /type (verplicht)",
           "toelichting": "Discriminator: de waarde `werkproces` wijst dit objecttype aan."
         },
         {

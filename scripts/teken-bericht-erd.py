@@ -88,9 +88,33 @@ def lees_binding(pad):
 
 
 def schemas_in(blok):
-    """De schemabestanden die een berichtsectie aanhaalt, in leesvolgorde."""
+    """De schemabestanden waartegen de payload van dit bericht valideert, in leesvolgorde.
+
+    Alleen de aanhef telt: de regels tussen de kop en de eerste tabel of het eerste codeblok,
+    waar een bericht zijn schema aanwijst met "Volgt x.json" of "Schema x.json". Verderop in
+    een sectie staat een schemanaam vaak als vergelijking ("dezelfde vorm als location.json"),
+    en die hoort niet in het diagram: hij bracht het vak Onderwijslocatie in een bericht over
+    leermiddelgroepen.
+    """
+    aanhef, in_code = [], False
+    for regel in blok.splitlines():
+        gestript = regel.strip()
+        if gestript.startswith("```"):
+            in_code = not in_code
+            if not aanhef:
+                continue
+            break
+        if in_code:
+            continue
+        if gestript.startswith("|") or gestript.startswith("#"):
+            if aanhef:
+                break
+            continue
+        if gestript.startswith("<!--") or not gestript:
+            continue
+        aanhef.append(gestript)
     uit, gezien = [], set()
-    for naam in re.findall(r"\[([a-z0-9][a-z0-9-]*\.json)\]", blok):
+    for naam in re.findall(r"\[([a-z0-9][a-z0-9-]*\.json)\]", "\n".join(aanhef)):
         if naam not in gezien:
             gezien.add(naam)
             uit.append(naam)
@@ -306,10 +330,12 @@ def attributen_in(blok, bekend):
                                           "verplicht" if cel("verplicht").startswith("ja") else "")
                               if x)
         naam = velden[0]
+        kort = naam.split(".")[-1] if "." in naam else naam
+        voorvoegsel = naam[: naam.rindex(".")].replace("[]", "") + "_" if "." in naam else ""
         attribuut = {
-            "naam": re.sub(r"[^A-Za-z0-9_]", "", naam) or "veld",
+            "naam": re.sub(r"[^A-Za-z0-9_]", "", voorvoegsel + kort) or "veld",
             "type": (soort.group(0) if soort else "string").lower(),
-            "sleutel": "PK" if naam == "id" else ("FK" if re.search(r"Ids?$", naam) else ""),
+            "sleutel": "PK" if kort == "id" else ("FK" if re.search(r"Ids?$", kort) else ""),
             "opmerking": opmerking,
         }
         for objecttype in typen:
