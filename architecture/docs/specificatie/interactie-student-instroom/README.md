@@ -18,6 +18,10 @@
 
 ## 1. De informatiestromen
 
+![De zes informatiestromen van deze keten, uitgelicht op de informatiestromen-hoofdplaat v1.7](img/hoofdplaat-student-instroom.svg)
+
+De keten begint waar de aanmelding de instelling binnenkomt en eindigt bij een student die geroosterd en ingericht staat. Alle zes stromen staan op hoofdplaat v1.7; geen van hen draagt daar een koppelingspecificatie.
+
 | Eenheid | Beelden | Van | Naar | Stroom op hoofdplaat v1.7 |
 |---|---|---|---|---|
 | IS-SI-01 | F3-04 | Voorziening Centraal Aanmelden (CAMBO) | Kernregistratie (KRS) | `Persoon(Student) Opleidingprogramma verbintenis` |
@@ -27,11 +31,57 @@
 | IS-SI-05 | F4-09 | Roostersysteem | Studentkeuzesysteem (SKS) | `Student Opleidingprogramma- en onderwijseenheid verbintenis` ([S1](signaleringen.md)) |
 | IS-SI-06 | F4-10 | Kernregistratie (KRS) | Leermanagementsysteem (LMS) | Hetzelfde been van de junctie als IS-SI-02 |
 
-De eenheden volgen de beeldnummers van de voorbeelduitwerking, en dat is ook de volgorde waarin een instelling ze doorloopt. IS-SI-02 en IS-SI-06 delen hun lading: de kernregistratie bedient de leeromgeving en het studentkeuzesysteem langs dezelfde junctie. Het zijn twee eenheden, want een koppeling verbindt twee componenten en de afnemers verschillen; IS-SI-06 wijst voor de lading naar IS-SI-02.
+Een instelling wijst hier aan welke interactiespecificatie zij uitvraagt; de aanduiding blijft staan ook als de naam verandert. De eenheden volgen de beeldnummers van de voorbeelduitwerking, en dat is ook de volgorde waarin een instelling ze doorloopt. IS-SI-02 en IS-SI-06 delen hun lading: de kernregistratie bedient het studentkeuzesysteem en de leeromgeving langs dezelfde junctie. Het zijn twee eenheden, want een koppeling verbindt twee componenten en de afnemers verschillen; IS-SI-06 wijst voor de lading naar IS-SI-02.
 
-Zeven beelden uit de voorbeelduitwerking van leerroute 1 dragen deze keten. Zij begint waar de aanmelding de instelling binnenkomt. Wat daarvoor en daaromheen valt, staat in [signaleringen.md](signaleringen.md) onder wat buiten deze keten valt. De knip met de keten [onderwijsaanbod ontsluiten](../interactie-onderwijsaanbod/README.md) ligt op de informatiestroom en niet op de procesfase: wat de specificatie fijnmaziger maakt hoort daar, wat de student plaatst en roostert hoort hier.
+Wat voor, naast en na deze keten valt, staat in [signaleringen.md](signaleringen.md).
 
-Veertien objecttypen bewegen door deze keten: `Aanmelding`, `Inschrijving`, `Persoon`, `Student`, `Plaatsingsgroep`, `Leergelegenheid`, `Lesgelegenheid`, `Medewerker`, `Leeruitkomst` en de vijf verbintenissoorten op opleiding, opleidingsprogramma, onderwijseenheid, leergelegenheid en lesgelegenheid.
+### IS-SI-01 De aanmelding de instelling in
+
+![Beeld F3-04: Jochem als persoon, zijn aanmelding, en de verbintenissen die daaruit ontstaan op de opleiding en op het opleidingsprogramma](../../../model/informatiemodel/img/regels/f3-04-de-aanmelding-van-de-voorziening-naar-het-intakesysteem.svg)
+
+Links de voorziening die de aanmelding aanlevert, rechts de instelling die haar aanneemt. De twee verbintenissen staan in de toestand `aangemeld`; wat de instelling ermee doet komt terug op de melding.
+
+Het beeld noemt het intakesysteem als ontvanger. Deze keten legt de aanmelding bij de kernregistratie, want het intakesysteem valt buiten scope.
+
+### IS-SI-02 De verbintenis naar het studentkeuzesysteem
+
+![Beeld F3-08: de student met zijn verbintenissen op opleiding, programma en eenheid, zijn plaatsingsgroep en de leeruitkomsten die hij al behaalde](../../../model/informatiemodel/img/regels/f3-08-student-verbintenis-groep-en-behaalde-leeruitkomsten-naar-het-studentkeuzesysteem.svg)
+
+De kernregistratie levert wat zij over de student weet. Het studentkeuzesysteem kan die verbintenis pas plaatsen als het het aanbod kent; die inrichting hoort bij de keuzedeelketen.
+
+Voorafgegaan door [F3-07](../../../model/informatiemodel/voorbeeld-leerroute-1-jochem.md), waar de inschrijving en de verbintenissen bij de kernregistratie ontstaan.
+
+### IS-SI-03 Plaatsingsgroepen naar planning
+
+![Beeld F4-06: de plaatsingsgroepen met de studenten erin, zodat planning de aantallen kent](../../../model/informatiemodel/img/regels/f4-06-plaatsingsgroepen-naar-planning.svg)
+
+Planning heeft de aantallen nodig voordat zij leergelegenheden kan beleggen. De groep is de eenheid, niet de student.
+
+De plaatsingsgroep ontstaat bij de intake, die buiten deze keten valt.
+
+### IS-SI-04 Roosteren van de leergelegenheden
+
+![Beeld F4-07: de te roosteren leergelegenheden met hun groepen en hun omvang](../../../model/informatiemodel/img/regels/f4-07-te-roosteren-leergelegenheden-naar-het-roostersysteem.svg)
+
+Planning geeft door wat geroosterd moet worden; het roostersysteem bepaalt wanneer en waar. Beeld F4-08 laat zien wat daaruit komt: lesgelegenheid, lokaal en docent.
+
+De leergelegenheid komt uit het geplande aanbod van de keten [onderwijsaanbod ontsluiten](../interactie-onderwijsaanbod/README.md).
+
+### IS-SI-05 Het rooster naar het studentkeuzesysteem
+
+![Beeld F4-09: Jochems verbintenissen op de geroosterde gelegenheden, met lokaal en docent erbij](../../../model/informatiemodel/img/regels/f4-09-jochems-verbintenissen-op-de-geroosterde-gelegenheden.svg)
+
+De verbintenis op een gelegenheid ontstaat pas als die gelegenheid een plaats en een tijd heeft. Het beeld laat haar in de kernregistratie landen; deze keten legt haar in het studentkeuzesysteem ([S1](signaleringen.md)).
+
+Volgt op F4-08, waar het roosteren zelf gebeurt.
+
+### IS-SI-06 De verbintenis naar de leeromgeving
+
+![Beeld F4-10: de student met zijn verbintenissen en zijn groep naar het leermanagementsysteem](../../../model/informatiemodel/img/regels/f4-10-student-verbintenissen-en-groep-naar-het-lms.svg)
+
+Dezelfde lading als IS-SI-02, langs het andere been van dezelfde junctie. De leeromgeving richt hiermee de deelnemers op haar onderdelen in.
+
+De specificatie waarop die onderdelen staan, komt uit IS-OA-07 van de keten onderwijsaanbod.
 
 ## 2. Wat deze keten oplevert
 
@@ -41,7 +91,17 @@ Veertien objecttypen bewegen door deze keten: `Aanmelding`, `Inschrijving`, `Per
 | Leverancier | Het contract per koppelvlakdienst: welke endpoints zij bouwt en welke zij aanroept |
 | Tester | De operaties met hun statuscodes en voorbeeldpayloads |
 
-## 3. Koppelvlakdiensten
+## 3. Gegevensoorsprong en bronsysteem
+
+![Per applicatiecomponent de objecttypen die daar ontstaan, gegroepeerd naar de interacties die ze verderop dragen](img/gegevens-per-component.svg)
+
+Deze keten maakt weinig en verplaatst veel: van de dertig regels in de voorbeelduitwerking die haar beelden dragen, zegt er vijf `ontstaat` en drieentwintig `stroomt`. Wat hier beweegt is elders gemaakt, in de keten [onderwijsaanbod ontsluiten](../interactie-onderwijsaanbod/README.md) en bij de intake die buiten scope valt. Alleen de kernregistratie en het planningssysteem dragen hier een eigen bron.
+
+Dat is ook waarom de vraag wie de bron is in deze keten minder bijt dan de vraag wie een dienst claimt: er valt weinig te bezitten en veel te leveren.
+
+## 4. Koppelvlakdiensten
+
+![Wie biedt en wie neemt welke koppelvlakdienst af, per applicatiecomponent](img/dienstenmatrix.svg)
 
 Een dienst zegt wat er over een koppeling moet kunnen, en elk component kan hem claimen; de aanbieder en de afnemer zijn twee losse diensten. Een leverancier die meer dan een component in een product draagt, legt dat product daarom op deze laag.
 
@@ -84,7 +144,75 @@ Een dienst zegt wat er over een koppeling moet kunnen, en elk component kan hem 
 
 De dienstnamen volgen de [dienstenlijst](https://github.com/Npuls-OKx/Public/blob/d0c20d99b110b29ccf6b0e50109f7d54ffd88d7a/Koppelvlakspecificaties/Applicatiediensten/README.md) van Npuls-OKx/Public. `aanmelding-inname`, `plaatsingsgroep` en `roosteropdracht-inname` staan daar nog niet en worden hier voorgesteld.
 
-## 4. Deze keten stelt voor waar de vorige beschreef
+## 5. Afspraken die elke dienst nakomt
+
+Deze afspraken komen uit Npuls-OKx/Public en gelden voor elke interactie. Een interactiespecificatie noemt alleen waar zij afwijkt.
+
+| Afspraak | Wat zij de implementator oplegt | Waar zij staat | Stand in deze keten |
+|---|---|---|---|
+| Volledige structuur en delta | Wie een structuurresource bezit, ontsluit haar in beide vormen: de hele structuur en het verschil als JSON Patch (RFC 6902). De afnemer kiest | [U11](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u11-toekomstvaste-endpoints-volledige-structuur-en-delta) | Niet nagekomen: geen van de resources hier draagt een `/delta` |
+| Idempotentie | Een GET levert bij herhaling hetzelfde. Een webhook delivery is idempotent op `eventId`. Een subscription is idempotent op `callbackUrl` plus event | de componentpagina's | Nagekomen |
+| Dunne melding, daarna ophalen | Een event draagt een verwijzing en geen structuur; de afnemer haalt daarna op | [U4](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md) | Nagekomen in IS-SI-02, IS-SI-03 en IS-SI-05 |
+| Begrensd ophalen van een collectie | Een collectie-endpoint laat de afnemer in brokken ophalen | nergens | Niet belegd, zoals in de keten onderwijsaanbod |
+
+Een enum leeft in het schema dat het veld draagt. De interactiespecificatie zegt per waarde wat zij de ontvanger oplegt.
+
+## 6. De interactieketen
+
+```mermaid
+sequenceDiagram
+    autonumber
+    participant CA as Centraal aanmelden
+    participant KRS as Kernregistratie
+    participant SKS as Studentkeuzesysteem
+    participant P as Planning
+    participant R as Rooster
+    participant LMS as Leeromgeving
+
+    rect rgb(232, 244, 253)
+        Note over CA,KRS: IS-SI-01 de aanmelding de instelling in
+        CA->>KRS: de aanmelding met de persoon en het aanbod
+        KRS-->>CA: de uitkomst, met de verbintenissen of een reden
+    end
+    rect rgb(232, 253, 240)
+        Note over KRS,SKS: IS-SI-02 de verbintenis naar het studentkeuzesysteem
+        KRS->>SKS: de student met zijn verbintenissen en zijn groepen
+    end
+    rect rgb(253, 248, 232)
+        Note over KRS,P: IS-SI-03 plaatsingsgroepen naar planning
+        KRS->>P: de plaatsingsgroepen met de studenten erin
+    end
+    rect rgb(248, 232, 253)
+        Note over P,R: IS-SI-04 roosteren van de leergelegenheden
+        P->>R: de te roosteren leergelegenheden met hun omvang
+        R-->>P: het rooster met lokaal en docent
+    end
+    rect rgb(253, 236, 232)
+        Note over R,SKS: IS-SI-05 het rooster naar het studentkeuzesysteem
+        R->>SKS: de geroosterde gelegenheden met de verbintenissen erop
+    end
+    rect rgb(236, 236, 253)
+        Note over KRS,LMS: IS-SI-06 de verbintenis naar de leeromgeving
+        KRS->>LMS: dezelfde lading als IS-SI-02, ander been van de junctie
+    end
+```
+
+Elk gekleurd kader is een interactiespecificatie, met haar aanduiding erboven. Jochem is aan het eind van deze keten ingeschreven, geplaatst, geroosterd en bekend in de leeromgeving.
+
+## 7. De interactiespecificaties
+
+| Eenheid | Document | Wat erin staat |
+|---|---|---|
+| IS-SI-01 | [is-si-01.md](is-si-01.md) | De aanmelding de instelling in |
+| IS-SI-02 | [is-si-02.md](is-si-02.md) | De verbintenis naar het studentkeuzesysteem |
+| IS-SI-03 | [is-si-03.md](is-si-03.md) | Plaatsingsgroepen naar planning |
+| IS-SI-04 | [is-si-04.md](is-si-04.md) | Roosteren van de leergelegenheden |
+| IS-SI-05 | [is-si-05.md](is-si-05.md) | Het rooster naar het studentkeuzesysteem |
+| IS-SI-06 | [is-si-06.md](is-si-06.md) | De verbintenis naar de leeromgeving |
+
+Elke interactiespecificatie draagt hetzelfde: het contract per koppelvlakdienst, de volgorde als sequentiediagram, de berichten veld voor veld met hun ERD, en een voorbeeldpayload die valideert. De voorbeeldpayloads gebruiken de vaste identificaties uit [casus.md](casus.md).
+
+## 8. Deze keten stelt voor waar de vorige beschreef
 
 | | De keten onderwijsaanbod | Deze keten |
 |---|---|---|
