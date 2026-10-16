@@ -1,0 +1,11 @@
+{
+  "naam": "Voorbeeldpayloads bij is-si-02.md",
+  "bron": {
+    "wie_is_de_bron": "Elke payload gebruikt de vaste identificaties uit casus.md. Het veld schemas zegt tegen welke schema's zij valideert; controleer-interactiespec.py draait daarop. De plaatsingsgroep gaat over dezelfde dienst als in IS-SI-03 en houdt daar haar voorbeeldpayload.",
+    "waarom_los": "Een payload in het document duwt de berichtspecificatie uit beeld, en los is zij op te halen en te valideren zonder markdown eromheen. Relateert aan: #384"
+  },
+  "payloads": {
+    "is-si-02-verbintenis.json": { "schemas": ["offering-association"] },
+    "is-si-02-toestandswijziging.json": { "schemas": ["offering-association-changed"] }
+  }
+}

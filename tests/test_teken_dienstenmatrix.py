@@ -8,6 +8,7 @@ repository.
 import contextlib
 import importlib.util
 import io
+import re
 import tempfile
 import unittest
 from pathlib import Path
@@ -134,6 +135,20 @@ class DePlaat(unittest.TestCase):
     def test_given_een_lange_componentnaam_when_tekenen_then_krijgt_de_kop_een_kleinere_letter(self):
         rijen = dm.claims(keten([("Toetsenexamenafnamesysteemvoorinstellingen", "x-aanbieder", "/x", "x")]))
         self.assertIn('font-size="9"', dm.teken(rijen, BEKEND, "Titel"))
+
+    def test_given_een_keten_met_een_component_when_tekenen_then_valt_de_legenda_binnen_het_doek(self):
+        """De legenda staat op vaste plekken; een smal doek sneed haar laatste regel eraf."""
+        rijen = dm.claims(keten([("Catalogus", "x-aanbieder", "/x", "x")]))
+        svg = dm.teken(rijen, BEKEND, "Titel")
+        breed = int(re.search(r'width="(\d+)"', svg).group(1))
+        self.assertGreaterEqual(breed, dm.legendabreedte())
+
+    def test_given_een_keten_met_veel_componenten_when_tekenen_then_bepalen_de_kolommen_de_breedte(self):
+        """De ondergrens van de legenda verbreedt een doek dat de kolommen al breed maken niet."""
+        rijen = dm.claims(keten([(f"Component {i}", "x-aanbieder", "/x", "x") for i in range(9)]))
+        svg = dm.teken(rijen, BEKEND, "Titel")
+        breed = int(re.search(r'width="(\d+)"', svg).group(1))
+        self.assertEqual(breed, dm.NAAMBREEDTE + 9 * dm.KOLOM + 40)
 
 
 class DePlaatPerInteractie(unittest.TestCase):

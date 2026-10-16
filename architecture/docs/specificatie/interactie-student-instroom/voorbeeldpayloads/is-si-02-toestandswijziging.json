@@ -1,0 +1,10 @@
+{
+  "eventId": "9f3c2e81-4d7a-4b56-8e30-1c6f5b29d407",
+  "associationId": "f9b4d1a8-6e27-4c35-9d80-5a2e7f84c139",
+  "associationType": "opleidingsprogramma-aanbod-verbintenis",
+  "studentId": "c4a2e918-7b36-4d50-8e29-1f6b3a97d824",
+  "programmeOfferingId": "8c494250-b67a-4666-a762-6f9ec1e70aff",
+  "oldState": "aangemeld",
+  "newState": "ingeschreven",
+  "occurredAt": "2026-06-08T14:02:00Z"
+}

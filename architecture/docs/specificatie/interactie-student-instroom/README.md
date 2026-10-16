@@ -53,8 +53,36 @@ Een dienst zegt wat er over een koppeling moet kunnen, en elk component kan hem 
 | Voorziening Centraal Aanmelden (CAMBO) | aanmelding-inname-afnemer | `POST /aanmeldingen`, `GET /aanmeldingen/{id}` bij de kernregistratie | IS-SI-01 | Voorstel |
 | Voorziening Centraal Aanmelden (CAMBO) | verwerkingsuitkomst-afnemer | de melding `aanmelding-verwerkt` | IS-SI-01 | Voorstel |
 | Voorziening Centraal Aanmelden (CAMBO) | afleverabonnement-afnemer | `POST /abonnementen` bij de kernregistratie | IS-SI-01 | Voorstel |
+| Kernregistratie (KRS) | verbintenistoestand-aanbieder | `GET /verbintenissen`, de melding `verbintenistoestand-gewijzigd` | IS-SI-06 | Voorstel (W1) |
+| Kernregistratie (KRS) | plaatsingsgroep-aanbieder | `GET /plaatsingsgroepen`, de melding `plaatsingsgroep-gewijzigd` | IS-SI-06 | Voorstel (W2) |
+| Kernregistratie (KRS) | afleverabonnement-aanbieder | `POST /abonnementen` | IS-SI-06 | Voorstel (W3) |
+| Leermanagementsysteem (LMS) | verbintenistoestand-afnemer | `GET /verbintenissen` bij de kernregistratie, de melding `verbintenistoestand-gewijzigd` | IS-SI-06 | Voorstel |
+| Leermanagementsysteem (LMS) | plaatsingsgroep-afnemer | `GET /plaatsingsgroepen` bij de kernregistratie, de melding `plaatsingsgroep-gewijzigd` | IS-SI-06 | Voorstel |
+| Leermanagementsysteem (LMS) | afleverabonnement-afnemer | `POST /abonnementen` bij de kernregistratie | IS-SI-06 | Voorstel |
+| Roostersysteem | geroosterd-onderwijsaanbod-aanbieder | `GET /geroosterd-aanbod` met `/{id}`, en de melding `rooster-vastgesteld` | IS-SI-05 | Voorstel (W1) |
+| Roostersysteem | verbintenistoestand-aanbieder | `GET /verbintenissen`, en de melding `verbintenis-geroosterd` | IS-SI-05 | Voorstel (W1) |
+| Roostersysteem | afleverabonnement-aanbieder | `POST /abonnementen` | IS-SI-05 | Voorstel (W4) |
+| Studentkeuzesysteem (SKS) | geroosterd-onderwijsaanbod-afnemer | `GET /geroosterd-aanbod` met `/{id}` bij het roostersysteem, en de melding `rooster-vastgesteld` | IS-SI-05 | Voorstel |
+| Studentkeuzesysteem (SKS) | verbintenistoestand-afnemer | `GET /verbintenissen` bij het roostersysteem, en de melding `verbintenis-geroosterd` | IS-SI-05 | Voorstel |
+| Studentkeuzesysteem (SKS) | afleverabonnement-afnemer | `POST /abonnementen` bij het roostersysteem | IS-SI-05 | Voorstel |
+| Kernregistratie (KRS) | plaatsingsgroep-aanbieder | `GET /plaatsingsgroepen`, de melding `plaatsingsgroep-gewijzigd` | IS-SI-03 | Voorstel (W1) |
+| Kernregistratie (KRS) | afleverabonnement-aanbieder | `POST /abonnementen` | IS-SI-03 | Voorstel (W4) |
+| Planningssysteem | plaatsingsgroep-afnemer | `GET /plaatsingsgroepen` bij de kernregistratie, de melding `plaatsingsgroep-gewijzigd` | IS-SI-03 | Voorstel |
+| Planningssysteem | afleverabonnement-afnemer | `POST /abonnementen` bij de kernregistratie | IS-SI-03 | Voorstel |
+| Kernregistratie (KRS) | verbintenistoestand-aanbieder | `GET /verbintenissen`, de melding `verbintenistoestand-gewijzigd` | IS-SI-02 | Voorstel (W1) |
+| Kernregistratie (KRS) | plaatsingsgroep-aanbieder | `GET /plaatsingsgroepen`, de melding `plaatsingsgroep-gewijzigd` | IS-SI-02 | Voorstel (W2) |
+| Kernregistratie (KRS) | afleverabonnement-aanbieder | `POST /abonnementen` | IS-SI-02 | Voorstel (W5) |
+| Studentkeuzesysteem (SKS) | verbintenistoestand-afnemer | `GET /verbintenissen` bij de kernregistratie, de melding `verbintenistoestand-gewijzigd` | IS-SI-02 | Voorstel |
+| Studentkeuzesysteem (SKS) | plaatsingsgroep-afnemer | `GET /plaatsingsgroepen` bij de kernregistratie, de melding `plaatsingsgroep-gewijzigd` | IS-SI-02 | Voorstel |
+| Studentkeuzesysteem (SKS) | afleverabonnement-afnemer | `POST /abonnementen` bij de kernregistratie | IS-SI-02 | Voorstel |
+| Roostersysteem | roosteropdracht-inname-aanbieder | `POST /roosteropdrachten`, `GET /roosteropdrachten/{id}` | IS-SI-04 | Voorstel (W2) |
+| Roostersysteem | verwerkingsuitkomst-aanbieder | de melding `roosteropdracht-verwerkt` | IS-SI-04 | Voorstel (W2) |
+| Roostersysteem | afleverabonnement-aanbieder | `POST /abonnementen` | IS-SI-04 | Voorstel op deze koppeling |
+| Planningssysteem | roosteropdracht-inname-afnemer | `POST /roosteropdrachten`, `GET /roosteropdrachten/{id}` bij het roostersysteem | IS-SI-04 | Voorstel |
+| Planningssysteem | verwerkingsuitkomst-afnemer | de melding `roosteropdracht-verwerkt` | IS-SI-04 | Voorstel |
+| Planningssysteem | afleverabonnement-afnemer | `POST /abonnementen` bij het roostersysteem | IS-SI-04 | Voorstel |
 
-De dienstnamen volgen de [dienstenlijst](https://github.com/Npuls-OKx/Public/blob/d0c20d99b110b29ccf6b0e50109f7d54ffd88d7a/Koppelvlakspecificaties/Applicatiediensten/README.md) van Npuls-OKx/Public. `aanmelding-inname` staat daar nog niet en wordt hier voorgesteld.
+De dienstnamen volgen de [dienstenlijst](https://github.com/Npuls-OKx/Public/blob/d0c20d99b110b29ccf6b0e50109f7d54ffd88d7a/Koppelvlakspecificaties/Applicatiediensten/README.md) van Npuls-OKx/Public. `aanmelding-inname`, `plaatsingsgroep` en `roosteropdracht-inname` staan daar nog niet en worden hier voorgesteld.
 
 ## 4. Deze keten stelt voor waar de vorige beschreef
 

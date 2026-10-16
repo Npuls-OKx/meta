@@ -393,15 +393,15 @@ erDiagram
         uuid expertiseProfiles_organisationUnitId FK "0..1"
     }
     "Vaardigheid" {
-        enum expertiseProfilescompetences_type "1..1, verplicht"
+        enum expertiseProfiles_competences_type "1..1, verplicht"
         enum competences[].type "1..1"
     }
     "Kennis" {
-        enum expertiseProfilescompetences_type "1..1, verplicht"
+        enum expertiseProfiles_competences_type "1..1, verplicht"
         enum competences[].type "1..1"
     }
     "Inzicht" {
-        enum expertiseProfilescompetences_type "1..1, verplicht"
+        enum expertiseProfiles_competences_type "1..1, verplicht"
         enum competences[].type "1..1"
     }
     "Competenties / Skills" { }

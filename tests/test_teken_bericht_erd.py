@@ -127,6 +127,16 @@ class DeAttributen(unittest.TestCase):
         uit = self.tabel(["| `parentId` | uuid | 1 | ja | `Leeruitkomst` |"])
         self.assertEqual(uit["Leeruitkomst"][0]["sleutel"], "FK")
 
+    def test_given_een_veld_in_een_array_when_lezen_then_draagt_het_zijn_niveau(self):
+        uit = self.tabel(["| `members[].studentId` | uuid | 1 | ja | `Leeruitkomst` |"])
+        self.assertEqual(uit["Leeruitkomst"][0]["naam"], "members_studentId")
+
+    def test_given_twee_array_niveaus_when_lezen_then_blijft_elk_niveau_gescheiden(self):
+        """Zonder scheiding plakken de niveaus aan elkaar: placementGroupsmembers_studentId."""
+        uit = self.tabel(
+            ["| `placementGroups[].members[].studentId` | uuid | 1 | ja | `Leeruitkomst` |"])
+        self.assertEqual(uit["Leeruitkomst"][0]["naam"], "placementGroups_members_studentId")
+
     def test_given_kardinaliteit_en_verplicht_when_lezen_then_staan_zij_in_de_opmerking(self):
         uit = self.tabel(["| `naam` | string | 0..1 | nee | `Leeruitkomst` |"])
         self.assertEqual(uit["Leeruitkomst"][0]["opmerking"], "0..1")

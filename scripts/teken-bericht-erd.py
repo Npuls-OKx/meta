@@ -355,7 +355,11 @@ def attributen_in(blok, bekend):
                               if x)
         naam = velden[0]
         kort = naam.split(".")[-1] if "." in naam else naam
-        voorvoegsel = naam[: naam.rindex(".")].replace("[]", "") + "_" if "." in naam else ""
+        # Een pad met twee array-niveaus, zoals `placementGroups[].members[].studentId`, draagt
+        # binnen het voorvoegsel nog een punt. Die punt wordt een liggend streepje; zonder die
+        # stap haalde de opruiming hieronder haar weg en plakten de twee niveaus aan elkaar.
+        voorvoegsel = (naam[: naam.rindex(".")].replace("[]", "").replace(".", "_") + "_"
+                       if "." in naam else "")
         attribuut = {
             "naam": re.sub(r"[^A-Za-z0-9_]", "", voorvoegsel + kort) or "veld",
             "type": (soort.group(0) if soort else "string").lower(),
