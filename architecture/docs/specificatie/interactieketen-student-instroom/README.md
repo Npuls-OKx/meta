@@ -5,7 +5,7 @@
 | **Document doel** | Legt vast welke koppelingen een instelling nodig heeft om een student van aanmelding naar een geroosterde verbintenis te brengen, en wat een leverancier daarvoor bouwt |
 | **Doelgroep** | De implementatiespecialist en de tester bij een instelling of een leverancier, en wie een profiel of consumer bouwt |
 | **Dient als input voor** | De bouw van de koppelvlakken, de testgevallen erbij, en de acceptatie van een opgeleverde koppeling |
-| **Kaderstelling** | Het [informatiemodel OKx](../../../model/informatiemodel/informatiemodel.md), de [uitgangspunten](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md) en hoofdplaat v1.7, en de keten [onderwijsaanbod ontsluiten](../interactie-onderwijsaanbod/README.md) waarop zij voortbouwt |
+| **Kaderstelling** | Het [informatiemodel OKx](../../../model/informatiemodel/informatiemodel.md), de [uitgangspunten](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md) en hoofdplaat v1.7, en de keten [onderwijsaanbod ontsluiten](../interactieketen-onderwijsaanbod/README.md) waarop zij voortbouwt |
 | **Inhoud** | Zeven interactiespecificaties met hun operaties en berichten, twee signaleringen, en de koppelvlakdiensten per applicatiecomponent |
 | **Status** | Voorstel. Vijf van de zes stromen die deze keten draagt, staan op v1.7 zonder koppelingspecificatie |
 
@@ -20,7 +20,7 @@
 
 ![De zes informatiestromen van deze keten, uitgelicht op de informatiestromen-hoofdplaat v1.7](img/hoofdplaat-student-instroom.svg)
 
-Deze keten bouwt voort op [onderwijsaanbod ontsluiten](../interactie-onderwijsaanbod/README.md): daar staat het aanbod aanmeldbaar, hier meldt een student zich erop aan. Zij begint waar de aanmelding de instelling binnenkomt en eindigt bij alles wat klaar moet staan voordat Jochem begint: hij is geroosterd, de leeromgeving is ingericht en het volgsysteem kan zijn resultaten lezen.
+Deze keten bouwt voort op [onderwijsaanbod ontsluiten](../interactieketen-onderwijsaanbod/README.md): daar staat het aanbod aanmeldbaar, hier meldt een student zich erop aan. Zij begint waar de aanmelding de instelling binnenkomt en eindigt bij alles wat klaar moet staan voordat Jochem begint: hij is geroosterd, de leeromgeving is ingericht en het volgsysteem kan zijn resultaten lezen.
 
 | Eenheid | Beelden | Van | Naar | Stroom op hoofdplaat v1.7 |
 |---|---|---|---|---|
@@ -72,7 +72,7 @@ De plaatsingsgroep ontstaat bij de intake, die buiten deze keten valt.
 
 Planning geeft door wat geroosterd moet worden; het roostersysteem bepaalt wanneer en waar. Beeld F4-08 laat zien wat daaruit komt: lesgelegenheid, lokaal en docent.
 
-De leergelegenheid komt uit het geplande aanbod van de keten [onderwijsaanbod ontsluiten](../interactie-onderwijsaanbod/README.md).
+De leergelegenheid komt uit het geplande aanbod van de keten [onderwijsaanbod ontsluiten](../interactieketen-onderwijsaanbod/README.md).
 
 ### IS-SI-05 Het rooster naar het studentkeuzesysteem
 
@@ -102,7 +102,7 @@ De specificatie waarop die onderdelen staan, komt uit IS-OA-07 van de keten onde
 
 ![Per applicatiecomponent de objecttypen die daar ontstaan, gegroepeerd naar de interacties die ze verderop dragen](img/gegevens-per-component.svg)
 
-Deze keten maakt weinig en verplaatst veel: van de dertig regels in de voorbeelduitwerking die haar beelden dragen, zegt er vijf `ontstaat` en drieentwintig `stroomt`. Wat hier beweegt is elders gemaakt, in de keten [onderwijsaanbod ontsluiten](../interactie-onderwijsaanbod/README.md) en bij de intake die buiten scope valt. Alleen de kernregistratie en het planningssysteem dragen hier een eigen bron.
+Deze keten maakt weinig en verplaatst veel: van de dertig regels in de voorbeelduitwerking die haar beelden dragen, zegt er vijf `ontstaat` en drieentwintig `stroomt`. Wat hier beweegt is elders gemaakt, in de keten [onderwijsaanbod ontsluiten](../interactieketen-onderwijsaanbod/README.md) en bij de intake die buiten scope valt. Alleen de kernregistratie en het planningssysteem dragen hier een eigen bron.
 
 Dat is ook waarom de vraag wie de bron is in deze keten minder bijt dan de vraag wie een dienst claimt: er valt weinig te bezitten en veel te leveren.
 

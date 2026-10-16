@@ -107,8 +107,8 @@ De kolom Veld draagt de Engelse sleutel die over de koppeling gaat, de kolom Ned
 | `learningOpportunities[].sessionCount` | aantalLesgelegenheden | integer | 1 | `Leergelegenheid` | voorstel, W3 |
 | `learningOpportunities[].sessionDuration` | lesduur | integer | 1 | `Leergelegenheid` | voorstel in minuten, W3 |
 | `learningOpportunities[].unitOfferingId` | onderwijseenheidAanbodId | uuid | 1 | `Onderwijseenheid aanbod` | F4-07: B1-K1, leerjaar 1 |
-| `learningOpportunities[].roomType` | onderwijslocatieTypeCode | string | 1 | `Onderwijslocatie type` | de code uit [room-type.json](../interactie-onderwijsaanbod/schemas/room-type.json) van IS-OA-02; het model legt geen lijn van de leergelegenheid hierheen (W5) |
-| `learningOpportunities[].expertiseProfileId` | expertiseOfFunctieprofielId | uuid | 0..1 | `Expertise of functieprofiel` | [expertise-profile.json](../interactie-onderwijsaanbod/schemas/expertise-profile.json) van IS-OA-02; zelfde ontbrekende lijn (W5) |
+| `learningOpportunities[].roomType` | onderwijslocatieTypeCode | string | 1 | `Onderwijslocatie type` | de code uit [room-type.json](../interactieketen-onderwijsaanbod/schemas/room-type.json) van IS-OA-02; het model legt geen lijn van de leergelegenheid hierheen (W5) |
+| `learningOpportunities[].expertiseProfileId` | expertiseOfFunctieprofielId | uuid | 0..1 | `Expertise of functieprofiel` | [expertise-profile.json](../interactieketen-onderwijsaanbod/schemas/expertise-profile.json) van IS-OA-02; zelfde ontbrekende lijn (W5) |
 | `learningOpportunities[].groupIds` | plaatsingsgroepIds | array uuid | 1..n | `Plaatsingsgroep` | F4-07: twee groepen van 24, zelfde ontbrekende lijn (W5) |
 | `groups` | plaatsingsgroepen | array | 1..n | `Plaatsingsgroep` | de vorm van [group.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/group.json) |
 | `groups[].id` | plaatsingsgroepId | uuid | 1 | `Plaatsingsgroep` | [casus.md](casus.md), komt uit IS-SI-03 |

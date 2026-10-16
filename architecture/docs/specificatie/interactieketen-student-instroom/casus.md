@@ -1,6 +1,6 @@
 # De casus: Jochem meldt zich aan
 
-De vaste identificaties van deze keten. Elke voorbeeldpayload gebruikt ze, zodat dezelfde student en hetzelfde aanbod door de hele keten dezelfde uuid dragen. Wat uit de keten [onderwijsaanbod ontsluiten](../interactie-onderwijsaanbod/casus.md) komt, houdt daar zijn identificatie.
+De vaste identificaties van deze keten. Elke voorbeeldpayload gebruikt ze, zodat dezelfde student en hetzelfde aanbod door de hele keten dezelfde uuid dragen. Wat uit de keten [onderwijsaanbod ontsluiten](../interactieketen-onderwijsaanbod/casus.md) komt, houdt daar zijn identificatie.
 
 ## Wat deze keten overneemt
 
