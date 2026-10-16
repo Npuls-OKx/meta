@@ -14,10 +14,7 @@ Wat het script doet:
    een zichtbare fout dan een dode link in een gereleased document.
 2. Platen hernoemen naar de Public-conventie (img/ naast het document, geen versie in de
    bestandsnaam).
-3. Controleren dat de brug naar het logisch gegevensmodel klopt: elke entiteit in de
-   brugtabel bestaat in logisch-gegevensmodel.md van Public, elk objecttype in
-   informatiemodel.json.
-4. Controleren dat elke definitie die naar het kaderscenario leerroute 1 verwijst daar
+3. Controleren dat elke definitie die naar het kaderscenario leerroute 1 verwijst daar
    letterlijk in staat, zodat de vindplaatsgarantie van de begrippenlijst de verhuizing
    overleeft.
 
@@ -55,8 +52,8 @@ DOCUMENTEN = {
     BEGRIPPENMAP / "begrippenlijst.md": "begrippen.md",
 }
 BESTANDEN = {
-    MODELMAP / "OKx informatiemodel v0.1.jpg": "img/informatiemodel.jpg",
-    MODELMAP / "OKx informatiemodel en mapping OEAPI v0.1.jpg": "img/informatiemodel-oeapi-mapping.jpg",
+    MODELMAP / "OKx informatiemodel v0.2.jpg": "img/informatiemodel.jpg",
+    MODELMAP / "OKx informatiemodel en mapping OEAPI v0.2.jpg": "img/informatiemodel-oeapi-mapping.jpg",
     BEGRIPPENMAP / "referentiekaders.json": "referentiekaders.json",
 }
 # informatiemodel.json en begrippen.json worden niet gekopieerd maar herschreven: de
@@ -72,12 +69,10 @@ VERWIJZINGEN = {
     "../../docs/specificatie/leerroute-uitwerking/doc/begrippenkader.md": ANKERTABEL,
     "../../docs/specificatie/student-keuze/keuze-requirements.md":
         META_BLOB + "architecture/docs/specificatie/student-keuze/keuze-requirements.md",
-    "OKx informatiemodel v0.1.jpg": "img/informatiemodel.jpg",
-    "OKx informatiemodel en mapping OEAPI v0.1.jpg": "img/informatiemodel-oeapi-mapping.jpg",
-    PUBLIC_DEV + "Informatie-en-gegevensmodellen/logisch-gegevensmodel.md": "logisch-gegevensmodel.md",
+    "OKx informatiemodel v0.2.jpg": "img/informatiemodel.jpg",
+    "OKx informatiemodel en mapping OEAPI v0.2.jpg": "img/informatiemodel-oeapi-mapping.jpg",
     PUBLIC_DEV + "Informatie-en-gegevensmodellen/schemas/result-structure.json": "schemas/result-structure.json",
     PUBLIC_DEV_TREE + "Informatie-en-gegevensmodellen/schemas": "schemas/",
-    PUBLIC_DEV_TREE + "Informatie-en-gegevensmodellen": "logisch-gegevensmodel.md",
     PUBLIC_DEV + "Koppelvlakspecificaties/uitgangspunten.md": "../Koppelvlakspecificaties/uitgangspunten.md",
     PUBLIC_DEV_TREE + "Koppelvlakspecificaties": "../Koppelvlakspecificaties/README.md",
     # begrippenlijst.md
@@ -103,14 +98,11 @@ LINKTEKSTEN = {"leerroute-uitwerking-lr1.md": "leerroute-1-regulier.md",
 # in de inhoud toe; de status staat in de pull request en de git-historie.
 TEKSTEN = {
     "informatiemodel.md": [
-        (" Versie v0.1, concept; ter bekrachtiging door de kerngroep techniek.", ""),
-        (" in Public (MIM-niveau 3) zet", " (MIM-niveau 3) zet"),
-        ("het [logisch gegevensmodel](logisch-gegevensmodel.md) in Public; de", "het [logisch gegevensmodel](logisch-gegevensmodel.md) in dit pakket; de"),
+        (" Versie v0.2, concept; ter bekrachtiging door de kerngroep techniek.", ""),
         ("gegenereerd uit `model.archimate`", "gegenereerd uit het ArchiMate-model in de meta-repository"),
     ],
     "informatiemodel-oeapi-mapping.md": [
-        (" Versie v0.1, concept; de oordelen per objecttype zijn voorlopig tot de kerngroep techniek ze bekrachtigt.", ""),
-        ("](logisch-gegevensmodel.md) in Public.", "](logisch-gegevensmodel.md) in dit pakket."),
+        (" Versie v0.2, concept; de oordelen per objecttype zijn voorlopig tot de kerngroep techniek ze bekrachtigt.", ""),
         ("ligt bij de kerngroep techniek", "ligt bij de kerngroep techniek van OKx, het technisch overleg met instellingen en leveranciers"),
         ("gegenereerd uit `model.archimate`", "gegenereerd uit het ArchiMate-model in de meta-repository"),
     ],
@@ -198,33 +190,6 @@ def begrippen_voor_public(begrippen: dict, fouten: list) -> dict:
     return uit
 
 
-def controleer_brug(informatiemodel_md: str, lgm: str, model: dict, fouten: list) -> None:
-    """Elke entiteit in de brugtabel bestaat in het logisch gegevensmodel, elk objecttype
-    in het informatiemodel."""
-    kop = "## Naar het logisch gegevensmodel"
-    if kop not in informatiemodel_md:
-        fouten.append("informatiemodel.md: sectie 'Naar het logisch gegevensmodel' ontbreekt")
-        return
-    sectie = informatiemodel_md.split(kop, 1)[1].split("\n## ", 1)[0]
-    entiteiten = set(ENTITEIT.findall(lgm))
-    objecttypen = {o["naam"] for o in model["objecttypen"]}
-    families = {"Onderwijsspecificatie", "Onderwijsaanbod", "Onderwijsverbintenis", "Onderwijsresultaat",
-                "Resultaatstructuur", "Kwalificatiekader mbo", "Onderwijskundig kader instelling"}
-    for regel in sectie.splitlines():
-        if not regel.startswith("| `") or regel.startswith("| Entiteit"):
-            continue
-        cellen = [c.strip() for c in regel.strip("|").split("|")]
-        for e in BACKQUOTE.findall(cellen[0]):
-            if e not in entiteiten:
-                fouten.append(f"brug: entiteit `{e}` staat niet in logisch-gegevensmodel.md")
-        for o in BACKQUOTE.findall(cellen[1]):
-            if o not in objecttypen and o not in families:
-                fouten.append(f"brug: objecttype `{o}` staat niet in informatiemodel.json")
-    ontbrekend = sorted(e for e in entiteiten if f"`{e}`" not in sectie)
-    for e in ontbrekend:
-        fouten.append(f"brug: entiteit `{e}` uit logisch-gegevensmodel.md staat niet in de brugtabel")
-
-
 def controleer_vindplaatsen(begrippen: dict, kaderscenario: str, fouten: list) -> None:
     """Een definitie met vindplaats in de leerroute-uitwerking staat letterlijk in het
     kaderscenario van Public, want daar wijst de begrippenlijst straks heen."""
@@ -250,11 +215,6 @@ def publiceer(doel: Path, commit: str, alleen_controle: bool) -> list:
         uitvoer[naam] = herschrijf(inhoud, commit, pakketmap, fouten, naam)
 
     model = json.loads((MODELMAP / "informatiemodel.json").read_text(encoding="utf-8"))
-    lgm_pad = pakketmap / "logisch-gegevensmodel.md"
-    if lgm_pad.exists():
-        controleer_brug(uitvoer["informatiemodel.md"], lgm_pad.read_text(encoding="utf-8"), model, fouten)
-    else:
-        fouten.append(f"{lgm_pad} ontbreekt; is de worktree gestapeld op het pakket?")
 
     begrippen = json.loads((BEGRIPPENMAP / "begrippen.json").read_text(encoding="utf-8"))
     kaderscenario = (pakketmap / KADERSCENARIO).resolve()

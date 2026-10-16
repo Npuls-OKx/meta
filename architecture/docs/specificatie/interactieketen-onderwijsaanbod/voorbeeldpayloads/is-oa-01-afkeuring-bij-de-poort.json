@@ -1,0 +1,17 @@
+{
+  "specificationReference": {
+    "specificationId": "79736830-1c5c-470f-b2c2-005029c96733",
+    "version": "0.1.0"
+  },
+  "findings": [
+    {
+      "code": "leeruitkomstOnbekend",
+      "description": "De leeruitkomst op kerntaakniveau ontbreekt in learningOutcomes en bij de catalogus.",
+      "location": "/educationSpecifications/3/learningOutcomeId",
+      "involvedSpecificationIds": [
+        "402c2342-d897-4df4-a667-7fc5bd930944"
+      ],
+      "foundValue": "12301838-92d4-4040-aea2-050bb131ceb7"
+    }
+  ]
+}

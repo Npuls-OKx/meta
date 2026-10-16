@@ -1,0 +1,11 @@
+{
+  "requestId": "7ec74caa-0b5a-4de7-bf69-04415a02f214",
+  "specificationReference": {
+    "specificationId": "79736830-1c5c-470f-b2c2-005029c96733",
+    "version": "0.1.0"
+  },
+  "name": "Planopgave Apothekersassistent, cohort 2026",
+  "cohort": "2026",
+  "requestedAt": "2025-04-01",
+  "expectedIntake": 48
+}

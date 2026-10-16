@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://okx.npuls.nl/schema/expertise-profile/voorstel",
+  "title": "Expertise profile",
+  "DutchName": "Expertise- of functieprofiel",
+  "$comment": "Voorstel van de interactiespecificatie onderwijsaanbod, eenheid IS-OA-02 (werkbrief WB-03). Het profiel zegt welke expertise de uitvoering van een specificatie of een toets vraagt; de persoon zelf volgt bij plannen (beeld F1-06). Objecttype Expertise of functieprofiel, dat Competenties / Skills aggregeert met Vaardigheid, Kennis en Inzicht eronder. De knelpuntcode expertiseTekort in bottleneck.json veronderstelt dit profiel. Zolang dit schema voorstel is eindigt de $id op /voorstel.",
+  "type": "object",
+  "required": ["id", "name"],
+  "properties": {
+    "id": { "type": "string", "format": "uuid", "DutchName": "id" },
+    "name": { "type": "string", "DutchName": "naam" },
+    "role": {
+      "type": "string",
+      "$comment": "open lijst: docent, examinator, praktijkbegeleider",
+      "DutchName": "rol"
+    },
+    "description": { "type": "string", "DutchName": "omschrijving" },
+    "organisationUnitId": {
+      "type": "string",
+      "format": "uuid",
+      "$comment": "de organisatie-eenheid die deze expertise nodig heeft; informatiemodel: Organisatie-eenheid heeft behoefte aan Expertise of functieprofiel. De eenheid zelf volgt organisation-unit.json",
+      "DutchName": "organisatieEenheidId"
+    },
+    "competences": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/competence" },
+      "$comment": "objecttype Competenties / Skills, dat Vaardigheid, Kennis en Inzicht aggregeert",
+      "DutchName": "competenties"
+    }
+  },
+  "$defs": {
+    "competence": {
+      "title": "Competence",
+      "DutchName": "Competentie",
+      "$comment": "Een onderdeel van Competenties / Skills: een Vaardigheid, Kennis of Inzicht. Die drie dragen scope buiten in het informatiemodel, dus houdt een kader buiten OKx de betekenis en draagt het item de verwijzing daarheen.",
+      "type": "object",
+      "required": ["type", "name"],
+      "properties": {
+        "type": {
+          "enum": ["vaardigheid", "kennis", "inzicht"],
+          "$comment": "de drie objecttypen die Competenties / Skills aggregeert",
+          "DutchName": "type"
+        },
+        "name": { "type": "string", "DutchName": "naam" },
+        "framework": {
+          "type": "string",
+          "$comment": "open lijst: competentnl, isced-f. Dezelfde rol als standaard in source.json, die competentnl al als vervolgwaarde noemt",
+          "DutchName": "kader"
+        },
+        "code": {
+          "type": "string",
+          "$comment": "de code binnen dat kader, bijvoorbeeld 0916 in ISCED-F",
+          "DutchName": "code"
+        },
+        "level": {
+          "type": "string",
+          "$comment": "de laag binnen dat kader, bijvoorbeeld laag 2 in CompetentNL",
+          "DutchName": "niveau"
+        }
+      }
+    }
+  }
+}

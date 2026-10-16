@@ -1,0 +1,19 @@
+{
+  "naam": "Voorbeeldpayloads bij is-oa-04.md",
+  "bron": {
+    "wie_is_de_bron": "Elke payload gebruikt de vaste identificaties uit casus.md, dezelfde uuid's en versies waarop IS-OA-03 het verzoek aanbiedt. Het veld schemas zegt tegen welke schema's zij valideert; controleer-interactiespec.py draait daarop.",
+    "waarom_los": "Een payload van honderden regels in het document duwt de berichtspecificatie uit beeld, en los is zij op te halen en te valideren zonder markdown eromheen. Relateert aan: #384"
+  },
+  "payloads": {
+    "is-oa-04-verwerkingsstatus-gelukt.json": {
+      "schemas": [
+        "processing-status"
+      ]
+    },
+    "is-oa-04-gepland-onderwijsaanbod.json": {
+      "schemas": [
+        "education-offering"
+      ]
+    }
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "educationSpecifications": [
+    {
+      "id": "402c2342-d897-4df4-a667-7fc5bd930944",
+      "specificationType": "onderwijseenheidspecificatie",
+      "version": "0.2.0",
+      "parentSpecificationId": "7ae25c1e-ee27-43a2-a001-761ee39ea5c7",
+      "learningOutcomeId": "12301838-92d4-4040-aea2-050bb131ceb7",
+      "name": "Blok B1-K1",
+      "studyLoad": {
+        "value": 2000,
+        "unit": "SBU"
+      },
+      "educationForm": "simulatie",
+      "roomType": "skillslab",
+      "expertiseProfileIds": [
+        "8e1dcda7-ef4e-45d0-931a-e47c3c77ddef"
+      ],
+      "explanation": "Simulatie in de leerapotheek, theorie ondersteunend"
+    },
+    {
+      "id": "327c8263-3516-4b5a-8d57-c16241ec008d",
+      "specificationType": "leeronderdeelspecificatie",
+      "version": "0.2.0",
+      "parentSpecificationId": "402c2342-d897-4df4-a667-7fc5bd930944",
+      "learningOutcomeId": "78f25d62-9fd4-45c4-aa04-3d22f59213f5",
+      "name": "Baliegesprekken 101",
+      "studyLoad": {
+        "value": 600,
+        "unit": "SBU"
+      },
+      "timeDistributions": [
+        {
+          "timeDistribution": "BOT",
+          "volume": {
+            "value": 300,
+            "unit": "SBU"
+          }
+        },
+        {
+          "timeDistribution": "OOT",
+          "volume": {
+            "value": 300,
+            "unit": "SBU"
+          }
+        }
+      ],
+      "educationForm": "simulatie",
+      "roomType": "skillslab",
+      "expertiseProfileIds": [
+        "8e1dcda7-ef4e-45d0-931a-e47c3c77ddef"
+      ],
+      "learningResourceGroupIds": [
+        "7f220267-c1ec-4052-bfc0-fe6517f6f820"
+      ],
+      "explanation": "Balie-simulatie in het skillslab, theorie ondersteunend"
+    }
+  ],
+  "roomTypes": [
+    {
+      "code": "skillslab",
+      "name": "Skillslab met baliesimulatie",
+      "capacity": 24,
+      "features": [
+        "balie-opstelling",
+        "receptenlijnsysteem"
+      ],
+      "locationIds": [
+        "59807057-a6f1-473b-9084-114644557a68"
+      ]
+    }
+  ],
+  "expertiseProfiles": [
+    {
+      "id": "8e1dcda7-ef4e-45d0-931a-e47c3c77ddef",
+      "name": "Apothekersassistent-docent met baliepraktijk",
+      "role": "docent",
+      "organisationUnitId": "d9561371-5ece-482d-a675-a076e63f980f",
+      "competences": [
+        {
+          "type": "vaardigheid",
+          "name": "Didactische en communicatieve vaardigheden",
+          "framework": "competentnl",
+          "level": "laag 2"
+        },
+        {
+          "type": "kennis",
+          "name": "Farmacie",
+          "framework": "isced-f",
+          "code": "0916"
+        }
+      ]
+    }
+  ],
+  "learningResourceGroups": [
+    {
+      "id": "7f220267-c1ec-4052-bfc0-fe6517f6f820",
+      "version": "0.1.0",
+      "name": "Leermiddelen voor de baliesimulatie",
+      "purpose": "onderwijs",
+      "resources": [
+        "apotheekbalie-opstelling",
+        "receptenlijnsysteem",
+        "oefenmedicatie"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://okx.npuls.nl/schema/intake-finding/voorstel",
+  "title": "Intake finding",
+  "DutchName": "Innamebevinding",
+  "$comment": "Voorstel vanuit de interactiespecificatie onderwijsaanbod, eenheid IS-OA-01. Een bevinding zegt op welke grond de onderwijscatalogus een aanlevering afkeurt. De vorm volgt bottleneck/alfa, de codelijst volgt de invarianten uit regels.md.",
+  "type": "object",
+  "required": ["code", "description"],
+  "properties": {
+    "code": {
+      "DutchName": "code",
+      "enum": [
+        "vormFout",
+        "studielastTeltNietOp",
+        "leeruitkomstOnbekend",
+        "ouderOnbekend",
+        "verwijzingOnbekend",
+        "manifestMismatch",
+        "versieConflict",
+        "statusNietVastgesteld"
+      ]
+    },
+    "description": { "type": "string", "DutchName": "omschrijving" },
+    "location": {
+      "type": "string",
+      "DutchName": "locatie",
+      "$comment": "JSON Pointer (RFC 6901) naar het element in de aangeleverde lading, bijvoorbeeld /educationSpecifications/3/studyLoad"
+    },
+    "involvedSpecificationIds": {
+      "type": "array",
+      "items": { "type": "string", "format": "uuid" },
+      "DutchName": "betrokkenSpecificatieIds"
+    },
+    "expectedValue": { "type": "string", "DutchName": "verwachteWaarde" },
+    "foundValue": { "type": "string", "DutchName": "aangetroffenWaarde" }
+  }
+}

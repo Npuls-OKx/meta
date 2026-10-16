@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://okx.npuls.nl/schema/offering-processing-status/voorstel",
+  "title": "Offering processing status",
+  "DutchName": "Verwerkingsstatus van aanbod",
+  "$comment": "Voorstel van de interactiespecificatie onderwijsaanbod (IS-OA-06): het payloadschema van het meldpatroon verwerkingsstatus met het aanbod als onderwerp. processing-status/alfa sleutelt op een specificatie en verplicht specificationReference; de statuswaarden blijven gelijk aan die van dat schema. arrangement-status/voorstel meldt de inrichting bij de kernregistratie en draagt daarom eigen waarden. Werkbrief W6 laat dit schema in Npuls-OKx/Public landen. Verwijzingen naar andere schema's gaan via hun $id.",
+  "type": "object",
+  "required": ["status", "offeringReference"],
+  "properties": {
+    "status": {
+      "enum": ["ontvangen", "gestart", "afgekeurd", "gelukt", "nietGelukt"],
+      "DutchName": "status",
+      "$comment": "De vijf waarden van status in processing-status/alfa. Ontvangen en gestart melden de aanname, afgekeurd een validatiefout op het bericht, gelukt en nietGelukt de uitkomst van het publiceren."
+    },
+    "offeringReference": {
+      "$ref": "https://okx.npuls.nl/schema/offering-reference/voorstel",
+      "DutchName": "aanbodVerwijzing",
+      "$comment": "Voorstel: het aanbod als onderwerp. processing-status/alfa draagt programmeOfferingId (opleidingsaanbodId) als losse sleutel naast specificationReference."
+    },
+    "publicationReference": {
+      "type": "string",
+      "format": "uuid",
+      "DutchName": "publicatieVerwijzing",
+      "$comment": "Voorstel: de publicatie bij de voorziening voor centraal aanmelden, waarvoor het informatiemodel OKx nog een objecttype krijgt (W6). Hoort bij de waarde gelukt."
+    },
+    "reason": {
+      "type": "string",
+      "DutchName": "reden",
+      "$comment": "Voorstel: de reden achter afgekeurd en nietGelukt, in leesbare tekst voor de beheerder van de kernregistratie."
+    },
+    "eventId": {
+      "type": "string",
+      "format": "uuid",
+      "DutchName": "eventId",
+      "$comment": "Voorstel: het stabiele id waarop de ontvanger een herhaalde aflevering herkent, dat U5 vraagt (W8)."
+    }
+  },
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "$comment": "Een uitkomst die afwijzing meldt, draagt de reden.",
+      "if": { "properties": { "status": { "enum": ["afgekeurd", "nietGelukt"] } }, "required": ["status"] },
+      "then": { "required": ["reason"] }
+    }
+  ]
+}

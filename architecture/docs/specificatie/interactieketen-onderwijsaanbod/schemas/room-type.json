@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://okx.npuls.nl/schema/room-type/voorstel",
+  "title": "Room type",
+  "DutchName": "Onderwijslocatie type",
+  "$comment": "Voorstel van de interactiespecificatie onderwijsaanbod, eenheid IS-OA-02 (werkbrief WB-02). Het ruimteprofiel dat het ontwerp vraagt, niet het lokaal: het concrete lokaal volgt bij roosteren (beeld F1-06). De specificatie wijst dit profiel aan met de code in haar veld roomType, zoals de leeruitkomst het kwalificatiekader met source.code aanwijst. Objecttype Onderwijslocatie type, dat in OEAPI de sleutel roomType draagt. Zolang dit schema voorstel is eindigt de $id op /voorstel.",
+  "type": "object",
+  "required": ["code", "name"],
+  "properties": {
+    "code": {
+      "type": "string",
+      "$comment": "de waarde die een specificatie in haar veld roomType draagt, bijvoorbeeld skillslab",
+      "DutchName": "code"
+    },
+    "name": { "type": "string", "DutchName": "naam" },
+    "description": { "type": "string", "DutchName": "omschrijving" },
+    "capacity": {
+      "type": "integer",
+      "$comment": "het aantal studenten dat het ontwerp in deze ruimte kwijt moet; dezelfde sleutel als in group.json",
+      "DutchName": "capaciteit"
+    },
+    "features": {
+      "type": "array",
+      "items": { "type": "string" },
+      "$comment": "open lijst met de kenmerken die de ruimte geschikt maken, bijvoorbeeld balie-opstelling of afsluitbaar voor examinering",
+      "DutchName": "kenmerken"
+    },
+    "locationIds": {
+      "type": "array",
+      "items": { "type": "string", "format": "uuid" },
+      "$comment": "de onderwijslocaties waar dit ruimtetype beschikbaar is; informatiemodel: Onderwijslocatie type verwijst naar Onderwijslocatie, en de locatie zelf volgt location.json",
+      "DutchName": "locatieIds"
+    }
+  }
+}

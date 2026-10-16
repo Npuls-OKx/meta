@@ -1,0 +1,12 @@
+[
+  {
+    "op": "replace",
+    "path": "/offeringInstances/1/applicationWindow/end",
+    "value": "2026-06-01"
+  },
+  {
+    "op": "replace",
+    "path": "/offeringInstances/1/version",
+    "value": "0.2.0"
+  }
+]

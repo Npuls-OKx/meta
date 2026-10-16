@@ -48,7 +48,8 @@ Uitgebreider en voor nieuwe bijdragers: sectie *Waar draait deze repository om?*
 **Bijdragen via branch (in deze repo)**:
 
 - `git checkout dev` → `git pull` → nieuwe branch `feature/…` → na afloop **PR naar `dev`**.
-- Review via GitHub; **merge** door OKx-teamleden.
+- Review via GitHub; **merge** door OKx-teamleden. Een agent merget nooit uit zichzelf, en
+  op `Npuls-OKx/Public` merget een agent nooit; zie [Mergen](AGENTS.md#mergen).
 
 **Bijdragen via fork**:
 

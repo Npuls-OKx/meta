@@ -1,0 +1,113 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://okx.npuls.nl/schema/offering-open-for-application/voorstel",
+  "title": "Offering open for application",
+  "DutchName": "Aanmeldbaar aanbod voor centraal aanmelden",
+  "$comment": "Voorstel van de interactiespecificatie onderwijsaanbod: de snede van education-offering/alfa waarmee een afnemer een opleiding aanmeldbaar toont en een aspirant-student een startmoment kiest. Twee aanbodlagen, met het aanmeldvenster, de uiterste inschrijfdatum en de herkomst in het kwalificatiekader erbij; IS-OA-06 vult daar de leerweg, de doelgroep en de aanbieder bij aan voor een voorziening die meer instellingen dient. De sloten (additionalProperties false) drukken de snede uit: groups (groepen), bottlenecks (knelpunten) en de lagen eronder blijven bij de instelling. IS-OA-05 draagt dit schema op de koppeling van de onderwijscatalogus naar de kernregistratie (W2 daar), IS-OA-06 op die naar de voorziening voor centraal aanmelden (W11 daar); welke lagen en statuswaarden per koppeling reizen staat in het gebruiksprofiel van die koppeling. De afstemming met AII staat open als Npuls-OKx/Public#112. Verwijzingen naar andere schema's gaan via hun $id.",
+  "type": "object",
+  "required": ["offeringInstances"],
+  "properties": {
+    "offeringInstances": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "offeringType", "version", "parentOfferingId", "specificationReference", "name", "status"],
+        "properties": {
+          "id": { "type": "string", "format": "uuid", "DutchName": "id" },
+          "offeringType": {
+            "enum": ["opleidingsaanbod", "opleidingsprogramma-aanbod"],
+            "DutchName": "aanbodType",
+            "$comment": "De opleidingslaag groepeert, de programmalaag draagt het startmoment waarop de aanmelding ontstaat. De lagen onderwijseenheid-aanbod en leergelegenheid uit education-offering/alfa blijven buiten deze snede."
+          },
+          "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$", "DutchName": "versie" },
+          "parentOfferingId": {
+            "type": ["string", "null"],
+            "format": "uuid",
+            "DutchName": "bovenliggendAanbodId",
+            "$comment": "De programmalaag hangt hiermee onder de opleidingslaag, zodat de startmomenten van een opleiding bij elkaar staan."
+          },
+          "specificationReference": { "$ref": "https://okx.npuls.nl/schema/specification-reference/alfa", "DutchName": "specificatieVerwijzing" },
+          "name": { "type": "string", "DutchName": "naam" },
+          "status": {
+            "enum": ["aanmeldbaar", "geannuleerd"],
+            "DutchName": "status",
+            "$comment": "Voorstel: de waarde aanmeldbaar naast de vier waarden van status in education-offering/alfa. Deze snede draagt de twee waarden die de voorziening voor centraal aanmelden aangaan: aanmeldbaar zet het aanbod in de etalage, geannuleerd haalt het eruit."
+          },
+          "cohort": { "type": "string", "DutchName": "cohort" },
+          "period": {
+            "$ref": "https://okx.npuls.nl/schema/period/alfa",
+            "DutchName": "periode",
+            "$comment": "start draagt het startmoment dat de aspirant-student kiest, end de verwachte einddatum."
+          },
+          "applicationWindow": {
+            "$ref": "https://okx.npuls.nl/schema/period/alfa",
+            "DutchName": "aanmeldvenster",
+            "$comment": "Voorstel: de termijn waarin aanmelden op dit startmoment openstaat, in de vorm van period/alfa. W2 van IS-OA-05 en W10 van IS-OA-06 vragen dezelfde sleutel op education-offering/alfa, zodat een vorm beide koppelingen dekt."
+          },
+          "enrolmentDeadline": {
+            "type": "string",
+            "format": "date",
+            "DutchName": "uitersteInschrijfdatum",
+            "$comment": "Voorstel: de uiterste inschrijfdatum, die het conceptueel gegevensoverzicht van leerroute 1 op de opleidingslaag legt, naast de opleidingsspecificatie."
+          },
+          "learningPathway": {
+            "enum": ["BOL", "BBL"],
+            "DutchName": "leerweg",
+            "$comment": "Voorstel: de leerweg, met de sleutel en de waarden die learningPathway in education-specification/alfa draagt op de programmalaag leerweg."
+          },
+          "targetGroup": {
+            "type": "string",
+            "DutchName": "doelgroep",
+            "$comment": "Voorstel: open lijst met de sleutel die targetGroup in education-specification/alfa draagt op de programmalaag doelgroep: regulier, zijinstromer, hybride, organisatiespecifiek."
+          },
+          "source": {
+            "type": "array",
+            "items": { "$ref": "https://okx.npuls.nl/schema/source/alfa" },
+            "DutchName": "bron",
+            "$comment": "Voorstel: de herkomst in het kwalificatiekader, zodat het crebo-dossier en de kwalificatie meekomen zonder de leeruitkomstboom. source/alfa staat vandaag als enkel object op learning-outcome/alfa; W2 van IS-OA-06 maakt er een array van op de aanbodinstantie."
+          },
+          "providerId": {
+            "type": "string",
+            "format": "uuid",
+            "DutchName": "aanbiederId",
+            "$comment": "Voorstel: de onderwijsaanbieder uit de definitie van Opleiding aanbod, op de opleidingslaag, op te lossen in organisationUnits."
+          },
+          "minStudentCount": { "type": "integer", "minimum": 0, "DutchName": "minAantalStudenten" },
+          "maxStudentCount": {
+            "type": "integer",
+            "minimum": 0,
+            "DutchName": "maxAantalStudenten",
+            "$comment": "De capaciteit instroom die het conceptueel gegevensoverzicht van leerroute 1 op de opleidingslaag legt."
+          },
+          "locationId": { "type": "string", "format": "uuid", "DutchName": "locatieId", "$comment": "Op te lossen in locations." },
+          "executingTeamId": { "type": "string", "format": "uuid", "DutchName": "uitvoerendTeamId", "$comment": "Op te lossen in organisationUnits." }
+        },
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "$comment": "Een aanmeldbaar startmoment draagt het venster waarin aanmelden openstaat.",
+            "if": {
+              "properties": { "offeringType": { "const": "opleidingsprogramma-aanbod" }, "status": { "const": "aanmeldbaar" } },
+              "required": ["offeringType", "status"]
+            },
+            "then": { "required": ["applicationWindow", "period"] }
+          }
+        ]
+      },
+      "DutchName": "aanbodInstanties"
+    },
+    "locations": {
+      "type": "array",
+      "items": { "$ref": "https://okx.npuls.nl/schema/location/alfa" },
+      "DutchName": "locaties",
+      "$comment": "codes draagt de vestigingscode, de sleutel waarop een sectorale partij de locatie terugvindt."
+    },
+    "organisationUnits": {
+      "type": "array",
+      "items": { "$ref": "https://okx.npuls.nl/schema/organisation-unit/alfa" },
+      "DutchName": "organisatieEenheden"
+    }
+  },
+  "additionalProperties": false
+}

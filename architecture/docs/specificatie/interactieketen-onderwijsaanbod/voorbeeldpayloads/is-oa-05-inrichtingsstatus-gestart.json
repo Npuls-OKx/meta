@@ -1,0 +1,11 @@
+{
+  "status": "gestart",
+  "offeringReference": {
+    "offeringId": "8c494250-b67a-4666-a762-6f9ec1e70aff",
+    "version": "0.1.0"
+  },
+  "specificationReference": {
+    "specificationId": "7ae25c1e-ee27-43a2-a001-761ee39ea5c7",
+    "version": "0.1.0"
+  }
+}

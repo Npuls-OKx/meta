@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://okx.npuls.nl/schema/offering-status-changed/voorstel",
+  "title": "Offering status changed",
+  "DutchName": "Aanbod-status-gewijzigd",
+  "$comment": "Voorstel van de interactiespecificatie onderwijsaanbod (IS-OA-06): het payloadschema van de melding dat een onderwijsaanbod van status wisselt, bijvoorbeeld van gepland naar aanmeldbaar. De vorm volgt specification-status-changed/alfa, met het aanbod als onderwerp en de statuswaarden van education-offering/alfa. De melding draagt de aanleiding en laat de inhoud bij de bezitter (U4, melden en dan ophalen). Welke overgangen over een koppeling reizen staat in het gebruiksprofiel van die koppeling: IS-OA-05 meldt op aanbod-aanmeldbaar aan de kernregistratie, IS-OA-06 op aanmeldbaar-aanbod-beschikbaar aan de voorziening voor centraal aanmelden. Werkbrief W1 van IS-OA-05 en W5 van IS-OA-06 laten dit schema in Npuls-OKx/Public landen; de afstemming met AII staat open als Npuls-OKx/Public#112. Verwijzingen naar andere schema's gaan via hun $id.",
+  "type": "object",
+  "required": ["offeringId", "version", "offeringType", "specificationReference", "oldStatus", "newStatus"],
+  "properties": {
+    "offeringId": {
+      "type": "string",
+      "format": "uuid",
+      "DutchName": "aanbodId",
+      "$comment": "De sleutel id uit education-offering/alfa, met de naam die offering-reference/voorstel draagt. specification-status-changed/alfa noemt dezelfde plek objectId."
+    },
+    "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$", "DutchName": "versie" },
+    "offeringType": {
+      "enum": ["opleidingsaanbod", "opleidingsprogramma-aanbod", "onderwijseenheid-aanbod", "leergelegenheid"],
+      "DutchName": "aanbodType",
+      "$comment": "De vier lagen van offeringType in education-offering/alfa. Welke lagen een koppeling meldt staat in haar gebruiksprofiel."
+    },
+    "specificationReference": { "$ref": "https://okx.npuls.nl/schema/specification-reference/alfa", "DutchName": "specificatieVerwijzing" },
+    "oldStatus": {
+      "enum": ["inPlanning", "gepland", "nietRealiseerbaar", "geannuleerd", "aanmeldbaar"],
+      "DutchName": "oudeStatus",
+      "$comment": "Voorstel: de vier waarden van status in education-offering/alfa plus aanmeldbaar."
+    },
+    "newStatus": {
+      "enum": ["inPlanning", "gepland", "nietRealiseerbaar", "geannuleerd", "aanmeldbaar"],
+      "DutchName": "nieuweStatus",
+      "$comment": "Voorstel: dezelfde lijst als oldStatus. De koppeling van de kernregistratie naar de voorziening voor centraal aanmelden meldt op de overgangen naar aanmeldbaar en naar geannuleerd."
+    },
+    "cohort": {
+      "type": "string",
+      "DutchName": "cohort",
+      "$comment": "Het cohort waarop de afnemer zijn opvraag filtert, zoals parameter cohort van GET /aanmeldbaar-aanbod."
+    },
+    "eventId": {
+      "type": "string",
+      "format": "uuid",
+      "DutchName": "eventId",
+      "$comment": "Voorstel: het stabiele id waarop de ontvanger een herhaalde aflevering herkent, dat U5 vraagt (W8)."
+    }
+  }
+}

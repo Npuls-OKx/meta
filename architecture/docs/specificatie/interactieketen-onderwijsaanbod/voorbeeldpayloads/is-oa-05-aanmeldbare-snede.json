@@ -1,0 +1,88 @@
+{
+  "offeringInstances": [
+    {
+      "id": "7aa6609f-1d1b-471a-a0f8-beae490d31b5",
+      "offeringType": "opleidingsaanbod",
+      "version": "0.1.0",
+      "parentOfferingId": null,
+      "specificationReference": {
+        "specificationId": "79736830-1c5c-470f-b2c2-005029c96733",
+        "version": "0.1.0"
+      },
+      "name": "Apothekersassistent 2026",
+      "status": "aanmeldbaar",
+      "cohort": "2026",
+      "period": {
+        "start": "2026-09-01",
+        "end": "2029-07-15"
+      },
+      "enrolmentDeadline": "2026-08-01",
+      "maxStudentCount": 48,
+      "source": [
+        {
+          "standard": "sbb-kwalificatiekader",
+          "type": "kwalificatiedossier",
+          "code": "23450"
+        },
+        {
+          "standard": "sbb-kwalificatiekader",
+          "type": "kwalificatie",
+          "code": "27141"
+        }
+      ]
+    },
+    {
+      "id": "8c494250-b67a-4666-a762-6f9ec1e70aff",
+      "offeringType": "opleidingsprogramma-aanbod",
+      "version": "0.1.0",
+      "parentOfferingId": "7aa6609f-1d1b-471a-a0f8-beae490d31b5",
+      "specificationReference": {
+        "specificationId": "7ae25c1e-ee27-43a2-a001-761ee39ea5c7",
+        "version": "0.1.0"
+      },
+      "name": "Regulier BOL 2026",
+      "status": "aanmeldbaar",
+      "cohort": "2026",
+      "period": {
+        "start": "2026-09-01",
+        "end": "2029-07-15"
+      },
+      "applicationWindow": {
+        "start": "2025-10-01",
+        "end": "2026-08-01"
+      },
+      "minStudentCount": 24,
+      "maxStudentCount": 48,
+      "locationId": "59807057-a6f1-473b-9084-114644557a68",
+      "executingTeamId": "d9561371-5ece-482d-a675-a076e63f980f"
+    }
+  ],
+  "locations": [
+    {
+      "id": "59807057-a6f1-473b-9084-114644557a68",
+      "locationType": "vestiging",
+      "name": "Hoofdlocatie Utrecht",
+      "partOfLocationId": null,
+      "codes": [
+        {
+          "codeType": "vestigingscode",
+          "code": "UTR-01"
+        }
+      ]
+    }
+  ],
+  "organisationUnits": [
+    {
+      "id": "6132ece6-d75e-4e80-81ce-91ab7448794d",
+      "unitType": "instelling",
+      "name": "ROC Leren Zonder Drempels",
+      "parentUnitId": null
+    },
+    {
+      "id": "d9561371-5ece-482d-a675-a076e63f980f",
+      "unitType": "onderwijsteam",
+      "name": "Onderwijsteam Farmacie",
+      "parentUnitId": "6132ece6-d75e-4e80-81ce-91ab7448794d"
+    }
+  ]
+}

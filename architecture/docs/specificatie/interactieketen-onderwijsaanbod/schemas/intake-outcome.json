@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://okx.npuls.nl/schema/intake-outcome/voorstel",
+  "title": "Intake outcome",
+  "DutchName": "Innameuitkomst",
+  "$comment": "Voorstel vanuit de interactiespecificatie onderwijsaanbod, eenheid IS-OA-01. De toestand van een levering, als antwoord op de aanlevering (HTTP 202), als melding verwerkingsstatus en als opvraag op /leveringen/{leveringId}. Dit is processing-status/alfa met twee sleutels erbij: leveringId voor de correlatie en bevindingen voor de grond bij een afkeuring. Elk document dat tegen dit schema valideert en een specificatieVerwijzing draagt, valideert ook tegen processing-status/alfa. Waar de meldingen van de andere eenheden hun reden als leesbare tekst dragen, draagt de inname haar grond als bevinding met een code. Verwijzingen naar andere schema's gaan via hun $id.",
+  "type": "object",
+  "required": ["deliveryId", "status"],
+  "properties": {
+    "deliveryId": {
+      "type": "string",
+      "format": "uuid",
+      "$comment": "de onderwijscatalogus kent dit id toe bij aanname en houdt het stabiel over elke uitkomst van dezelfde levering",
+      "DutchName": "leveringId"
+    },
+    "status": {
+      "enum": ["ontvangen", "gestart", "afgekeurd", "gelukt", "nietGelukt"],
+      "DutchName": "status"
+    },
+    "specificationReference": {
+      "$ref": "https://okx.npuls.nl/schema/specification-reference/alfa",
+      "$comment": "de identiteit en de versie die de onderwijscatalogus aan de opgenomen wortel toekent",
+      "DutchName": "specificatieVerwijzing"
+    },
+    "findings": {
+      "type": "array",
+      "items": { "$ref": "https://okx.npuls.nl/schema/intake-finding/voorstel" },
+      "$comment": "gevuld bij afgekeurd en bij nietGelukt",
+      "DutchName": "bevindingen"
+    },
+    "eventId": {
+      "type": "string",
+      "format": "uuid",
+      "$comment": "stabiel per melding, waarop de ontvanger een herhaald bericht herkent",
+      "DutchName": "eventId"
+    }
+  },
+  "allOf": [
+    {
+      "$comment": "op gelukt staat de toegekende identiteit en versie in de uitkomst",
+      "if": {
+        "type": "object",
+        "required": ["status"],
+        "properties": { "status": { "const": "gelukt" } }
+      },
+      "then": { "required": ["specificationReference"] }
+    },
+    {
+      "$comment": "een afkeuring draagt haar grond",
+      "if": {
+        "type": "object",
+        "required": ["status"],
+        "properties": { "status": { "enum": ["afgekeurd", "nietGelukt"] } }
+      },
+      "then": {
+        "required": ["findings"],
+        "properties": { "findings": { "minItems": 1 } }
+      }
+    }
+  ]
+}
