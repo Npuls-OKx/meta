@@ -194,44 +194,44 @@ sequenceDiagram
     participant KRS as Kernregistratie
     participant CA as Centraal aanmelden
 
-    rect rgb(255, 232, 214)
+    rect rgba(59, 130, 246, 0.14)
         Note over CO,OC: IS-OA-01 Ontwerp naar de catalogus
         CO->>OC: POST /onderwijsspecificaties*
         CO->>OC: POST /examenplanspecificaties*
         OC--)CO: verwerkingsstatus* gelukt, identiteit en versie
     end
-    rect rgb(255, 245, 214)
+    rect rgba(16, 185, 129, 0.14)
         Note over CO,OC: IS-OA-02 Onderwijsontwerp naar de catalogus
         CO-)OC: ontwerp-gereed*
         OC->>CO: GET /onderwijsspecificaties/{id}*
         CO-->>OC: 200 vorm, ruimte, expertise, toetsvorm
     end
-    rect rgb(226, 245, 222)
+    rect rgba(245, 158, 11, 0.14)
         Note over OC,PL: IS-OA-03 Verzoek om aanbod naar planning
         OC-)PL: specificatie-planbaar
         PL->>OC: GET /onderwijsspecificaties/{id}
         OC-->>PL: 200 structuur met planbare waarden
     end
-    rect rgb(214, 238, 245)
+    rect rgba(168, 85, 247, 0.14)
         Note over OC,PL: IS-OA-04 Gepland aanbod naar de catalogus
         PL-)OC: verwerkingsstatus gelukt
         OC->>PL: GET /onderwijsaanbod/{id}
         PL-->>OC: 200 aanbod in zijn lagen
     end
-    rect rgb(226, 226, 245)
+    rect rgba(239, 68, 68, 0.14)
         Note over OC,LMS: IS-OA-07 Specificaties naar het leermanagementsysteem
         OC-)LMS: specificatie-beschikbaar
         LMS->>OC: GET /onderwijsspecificaties/{id}
         OC-->>LMS: 200 structuur met leeruitkomsten
         LMS-)OC: inrichtingsstatus ingericht
     end
-    rect rgb(245, 226, 240)
+    rect rgba(99, 102, 241, 0.14)
         Note over OC,KRS: IS-OA-05 Aanmeldbaar aanbod naar de kernregistratie
         OC-)KRS: aanbod-aanmeldbaar*
         KRS->>OC: GET /aanmeldbaar-aanbod/{id}*
         OC-->>KRS: 200 Regulier BOL 2026
     end
-    rect rgb(238, 238, 238)
+    rect rgba(20, 184, 166, 0.14)
         Note over KRS,CA: IS-OA-06 Aanmeldbaar aanbod naar centraal aanmelden
         KRS-)CA: aanmeldbaar-aanbod-beschikbaar*
         CA->>KRS: GET /aanmeldbaar-aanbod*

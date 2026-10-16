@@ -169,29 +169,29 @@ sequenceDiagram
     participant R as Rooster
     participant LMS as Leeromgeving
 
-    rect rgb(232, 244, 253)
+    rect rgba(59, 130, 246, 0.14)
         Note over CA,KRS: IS-SI-01 de aanmelding de instelling in
         CA->>KRS: de aanmelding met de persoon en het aanbod
         KRS-->>CA: de uitkomst, met de verbintenissen of een reden
     end
-    rect rgb(232, 253, 240)
+    rect rgba(16, 185, 129, 0.14)
         Note over KRS,SKS: IS-SI-02 de verbintenis naar het studentkeuzesysteem
         KRS->>SKS: de student met zijn verbintenissen en zijn groepen
     end
-    rect rgb(253, 248, 232)
+    rect rgba(245, 158, 11, 0.14)
         Note over KRS,P: IS-SI-03 plaatsingsgroepen naar planning
         KRS->>P: de plaatsingsgroepen met de studenten erin
     end
-    rect rgb(248, 232, 253)
+    rect rgba(168, 85, 247, 0.14)
         Note over P,R: IS-SI-04 roosteren van de leergelegenheden
         P->>R: de te roosteren leergelegenheden met hun omvang
         R-->>P: het rooster met lokaal en docent
     end
-    rect rgb(253, 236, 232)
+    rect rgba(239, 68, 68, 0.14)
         Note over R,SKS: IS-SI-05 het rooster naar het studentkeuzesysteem
         R->>SKS: de geroosterde gelegenheden met de verbintenissen erop
     end
-    rect rgb(236, 236, 253)
+    rect rgba(99, 102, 241, 0.14)
         Note over KRS,LMS: IS-SI-06 de verbintenis naar de leeromgeving
         KRS->>LMS: dezelfde lading als IS-SI-02, ander been van de junctie
     end
