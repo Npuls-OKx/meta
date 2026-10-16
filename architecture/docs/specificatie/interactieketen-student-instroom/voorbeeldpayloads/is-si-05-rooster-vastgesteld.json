@@ -1,0 +1,11 @@
+{
+  "eventId": "9f3c2e81-4d7a-4b56-8e30-1c6f5b29d407",
+  "eventType": "rooster-vastgesteld",
+  "occurredAt": "2026-07-03T14:05:12Z",
+  "programmeOfferingId": "8c494250-b67a-4666-a762-6f9ec1e70aff",
+  "period": {
+    "start": "2026-09-01",
+    "end": "2026-11-06"
+  },
+  "resourceUrl": "https://rooster.instelling.nl/geroosterd-aanbod?programmaAanbodId=8c494250-b67a-4666-a762-6f9ec1e70aff&periode=2026-09-01"
+}
