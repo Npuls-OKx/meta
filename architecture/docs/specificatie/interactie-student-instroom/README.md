@@ -6,7 +6,7 @@
 | **Doelgroep** | De implementatiespecialist en de tester bij een instelling of een leverancier, en wie een profiel of consumer bouwt |
 | **Dient als input voor** | De bouw van de koppelvlakken, de testgevallen erbij, en de acceptatie van een opgeleverde koppeling |
 | **Kaderstelling** | Het [informatiemodel OKx](../../../model/informatiemodel/informatiemodel.md), de [uitgangspunten](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md) en hoofdplaat v1.7 |
-| **Inhoud** | Zeven interactiespecificaties met hun operaties en berichten, twee signaleringen, en de koppelvlakdiensten per applicatiecomponent |
+| **Inhoud** | Zes interactiespecificaties met hun operaties en berichten, twee signaleringen, en de koppelvlakdiensten per applicatiecomponent |
 | **Status** | Voorstel. Vijf van de zes stromen die deze keten draagt, staan op v1.7 zonder koppelingspecificatie |
 
 ## Leeswijzer
@@ -14,21 +14,20 @@
 | Bestand | Wat erin staat |
 |---|---|
 | [signaleringen.md](signaleringen.md) | Twee punten die een besluit vragen |
-| De zeven interactiespecificaties | Het contract per koppelvlakdienst, met het bericht onder zijn operatie |
+| De zes interactiespecificaties | Het contract per koppelvlakdienst, met het bericht onder zijn operatie |
 
 ## 1. De informatiestromen
 
-Twaalf beelden uit de voorbeelduitwerking van leerroute 1 dragen deze keten. De knip met de keten [onderwijsaanbod ontsluiten](../interactie-onderwijsaanbod/README.md) ligt op de informatiestroom en niet op de procesfase: wat de specificatie fijnmaziger maakt hoort daar, wat de student plaatst en roostert hoort hier.
-
 | Eenheid | Beelden | Van | Naar | Stroom op hoofdplaat v1.7 |
 |---|---|---|---|---|
-| IS-SI-01 | F3-03 | Student | Voorziening Centraal Aanmelden (CAMBO) | Geen; de student is geen applicatiecomponent |
-| IS-SI-02 | F3-04 | Voorziening Centraal Aanmelden (CAMBO) | Kernregistratie (KRS) | `Persoon(Student) Opleidingprogramma verbintenis`, zonder koppelingspecificatie |
-| IS-SI-03 | F3-05, F3-06 | Intakesysteem | Kernregistratie (KRS) | Geen; het intakesysteem draagt geen stroom ([S1](signaleringen.md)) |
-| IS-SI-04 | F3-07, F3-08 | Kernregistratie (KRS) | Studentvolgsysteem (SVS) | Geen ([S2](signaleringen.md)) |
-| IS-SI-05 | F4-06, F4-07 | Kernregistratie (KRS) | Planningssysteem, daarna roostersysteem | `Ontsluiten plaatsingsgroepen met studenten` en `Verzoek tot roosteren leergelegenheid`, beide zonder koppelingspecificatie |
-| IS-SI-06 | F4-08, F4-09 | Roostersysteem | Kernregistratie (KRS) | `Ontsluiten planninggroepen met studenten`, zonder koppelingspecificatie |
-| IS-SI-07 | F4-10, F4-11 | Kernregistratie (KRS) | Leermanagementsysteem (LMS) en studentvolgsysteem | `Student, opleidingprogramma verbintenis, relevante groepen`; de weg naar het studentvolgsysteem ontbreekt ([S2](signaleringen.md)) |
+| IS-SI-01 | F3-04 | Voorziening Centraal Aanmelden (CAMBO) | Kernregistratie (KRS) | `Persoon(Student) Opleidingprogramma verbintenis`, zonder koppelingspecificatie |
+| IS-SI-02 | F3-05, F3-06 | Intakesysteem | Kernregistratie (KRS) | Geen; het intakesysteem draagt geen stroom ([S1](signaleringen.md)) |
+| IS-SI-03 | F3-07, F3-08 | Kernregistratie (KRS) | Studentvolgsysteem (SVS) | Geen ([S2](signaleringen.md)) |
+| IS-SI-04 | F4-06 | Kernregistratie (KRS) | Planningssysteem | `Ontsluiten plaatsingsgroepen met studenten`, zonder koppelingspecificatie |
+| IS-SI-05 | F4-07, F4-08 | Planningssysteem | Roostersysteem | `Verzoek tot roosteren leergelegenheid`, zonder koppelingspecificatie |
+| IS-SI-06 | F4-10 | Kernregistratie (KRS) | Leermanagementsysteem (LMS) | `Student, opleidingprogramma verbintenis, relevante groepen`, zonder koppelingspecificatie |
+
+Negen beelden uit de voorbeelduitwerking van leerroute 1 dragen deze keten. De keten begint waar de aanmelding de instelling binnenkomt: hoe een student zich bij de voorziening voor centraal aanmelden meldt (F3-03) wordt door AII beschreven. De knip met de keten [onderwijsaanbod ontsluiten](../interactie-onderwijsaanbod/README.md) ligt op de informatiestroom en niet op de procesfase: wat de specificatie fijnmaziger maakt hoort daar, wat de student plaatst en roostert hoort hier.
 
 Veertien objecttypen bewegen door deze keten: `Aanmelding`, `Inschrijving`, `Persoon`, `Student`, `Plaatsingsgroep`, `Leergelegenheid`, `Lesgelegenheid`, `Medewerker`, `Leeruitkomst` en de vijf verbintenissoorten op opleiding, opleidingsprogramma, onderwijseenheid, leergelegenheid en lesgelegenheid.
 

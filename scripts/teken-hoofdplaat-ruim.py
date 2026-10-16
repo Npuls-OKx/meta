@@ -606,8 +606,15 @@ def vakken_van_relatie(stromen, knopen, relatie):
     return None, None
 
 
-def dichtste_vakken(componenten, van, naar):
-    """Het paar vakken dat het dichtst bij elkaar ligt; een component staat soms twee keer op de plaat."""
+def dichtste_vakken(componenten, van, naar, nabij=None, groepen=None):
+    """Het paar vakken dat het dichtst bij elkaar ligt; een component staat soms twee keer op de plaat.
+
+    Een stroom die de plaat nog niet kent, draagt geen relatie-ID, en dan is er niets dat de
+    juiste helft aanwijst. Een casus waarvan de andere stromen rechts in de uitvoeringszone
+    liggen, krijgt haar voorgestelde stroom anders links getekend, los van de rest. Met `nabij`
+    telt de afstand tot die eerder geplaatste vakken mee, zodat de voorgestelde stroom bij zijn
+    buren blijft.
+    """
     links = [k for k in componenten if norm(k["naam"]) == norm(van)]
     rechts = [k for k in componenten if norm(k["naam"]) == norm(naar)]
     if not links or not rechts:
@@ -616,9 +623,22 @@ def dichtste_vakken(componenten, van, naar):
     def midden(k):
         return (k["ax"] + k["w"] / 2, k["ay"] + k["h"] / 2)
 
-    return min(((a, b) for a in links for b in rechts if a is not b),
-               key=lambda ab: (midden(ab[0])[0] - midden(ab[1])[0]) ** 2
-               + (midden(ab[0])[1] - midden(ab[1])[1]) ** 2)
+
+    def zone(k):
+        return next((g["id"] for g in (groepen or [])
+                     if g["ax"] <= midden(k)[0] <= g["ax"] + g["w"]
+                     and g["ay"] <= midden(k)[1] <= g["ay"] + g["h"]), None)
+
+    buren = [zone(k) for k in (nabij or [])]
+    buren = [z for z in buren if z is not None]
+    helft = max(set(buren), key=buren.count) if buren else None
+
+    def afstand(ab):
+        a, b = ab
+        anders = sum(1 for k in (a, b) if helft is not None and zone(k) != helft)
+        return (anders, (midden(a)[0] - midden(b)[0]) ** 2 + (midden(a)[1] - midden(b)[1]) ** 2)
+
+    return min(((a, b) for a in links for b in rechts if a is not b), key=afstand)
 
 
 def benen_naar(knoopid, stromen, knopen, doel, diep=0):
@@ -701,11 +721,19 @@ def markeer_stromen(markeringen, stromen, knopen, componenten):
     bestand dat de plaat de lijn kent terwijl zij die niet heeft, dan staat dat in de meldingen
     en wordt de stroom gestippeld getekend: de plaat laat zien wat zij werkelijk heeft.
     """
+    # De twee panelen van de plaat, als rechthoek: de grootste groepen die naast elkaar liggen.
+    panelen = sorted((k for k in knopen.values()
+                      if isinstance(k, dict) and not k.get("type")
+                      and k.get("w") and k.get("h")),
+                     key=lambda g: g["w"] * g["h"], reverse=True)[:2]
     raakt, zonder, ontbreekt, mee = [], [], [], []
-    for m in markeringen:
+    # De vakken die een stroom met een relatie-ID al aanwees, sturen de stromen die de plaat
+    # nog niet kent naar dezelfde helft van de plaat.
+    geplaatst = []
+    for m in sorted(markeringen, key=lambda m: not m.get("stroom")):
         a, b = vakken_van_relatie(stromen, knopen, m.get("stroom", ""))
         if a is None or b is None:
-            a, b = dichtste_vakken(componenten, m["van"], m["naar"])
+            a, b = dichtste_vakken(componenten, m["van"], m["naar"], geplaatst, panelen)
         if a is None or b is None:
             ontbreekt.append(f"{m['label'] or 'stroom'}: {m['van']} naar {m['naar']} is niet op de "
                              f"plaat te plaatsen")
@@ -717,6 +745,7 @@ def markeer_stromen(markeringen, stromen, knopen, componenten):
             else:
                 ontbreekt.append(f"{m['label'] or 'stroom'}: de groep {m['ontvangergroep']} staat "
                                  f"niet op de plaat")
+        geplaatst.extend([a, b])
         benen = markeerpad(stromen, knopen, a, b, m.get("stroom", "")) if m["op_de_plaat"] else []
         if benen:
             raakt.append((m, a, b, benen))
