@@ -10,7 +10,7 @@ staat zij hier als maat. Relateert aan: Npuls-OKx/meta#375.
     python3 scripts/controleer-interactiespec-vorm.py [MAP] [--kort]
 
 Zonder argument toetst het script
-architecture/docs/specificatie/interactie-onderwijsaanbod.
+architecture/docs/specificatie/interactieketen-onderwijsaanbod.
 
 De vijf maten
 -------------
@@ -43,7 +43,7 @@ import re
 import sys
 
 WORTEL = pathlib.Path(__file__).resolve().parent.parent
-STANDAARD = "architecture/docs/specificatie/interactie-onderwijsaanbod"
+STANDAARD = "architecture/docs/specificatie/interactieketen-onderwijsaanbod"
 HOOFDDOCUMENT = "README.md"
 
 # De maten. Een maat die verschuift hoort met de reden erbij te verschuiven.

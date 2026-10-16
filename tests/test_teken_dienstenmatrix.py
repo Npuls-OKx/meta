@@ -14,7 +14,7 @@ import unittest
 from pathlib import Path
 
 WORTEL = Path(__file__).resolve().parent.parent
-KETEN = WORTEL / "architecture/docs/specificatie/interactie-onderwijsaanbod/README.md"
+KETEN = WORTEL / "architecture/docs/specificatie/interactieketen-onderwijsaanbod/README.md"
 
 spec = importlib.util.spec_from_file_location(
     "matrix", WORTEL / "scripts/teken-dienstenmatrix.py")

@@ -37,9 +37,9 @@ import pathlib
 import sys
 
 WORTEL = pathlib.Path(__file__).resolve().parent.parent
-STROMEN = "architecture/docs/specificatie/interactie-onderwijsaanbod/stromen-onderwijsaanbod.json"
+STROMEN = "architecture/docs/specificatie/interactieketen-onderwijsaanbod/stromen-onderwijsaanbod.json"
 REGELS = "architecture/model/informatiemodel/voorbeeld-lr1-regels.json"
-UIT = "architecture/docs/specificatie/interactie-onderwijsaanbod/img/gegevens-per-component.svg"
+UIT = "architecture/docs/specificatie/interactieketen-onderwijsaanbod/img/gegevens-per-component.svg"
 
 # De vormtaal van teken-voorbeeldregels.py: de applicatielaag blauw, de bedrijfslaag geel.
 BUS, BUS_L, BUS_T = "#ffffb5", "#a8a85a", "#5a5a2a"

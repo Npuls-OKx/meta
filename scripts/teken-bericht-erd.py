@@ -10,7 +10,7 @@ Relateert aan: Npuls-OKx/meta#372.
     python3 scripts/teken-bericht-erd.py [--map PAD] [--bestand PAD] [--controleer]
 
 Zonder argumenten werkt het script de ERDs bij in de interactiespecificaties in
-architecture/docs/specificatie/interactie-onderwijsaanbod. Met `--controleer` schrijft het
+architecture/docs/specificatie/interactieketen-onderwijsaanbod. Met `--controleer` schrijft het
 niets en meldt het alleen welk blok zou wijzigen; dat is de poort voor een bouwmachine.
 
 De namen komen uit het model, de attributen uit het bericht
@@ -49,7 +49,7 @@ import re
 import sys
 
 WORTEL = pathlib.Path(__file__).resolve().parent.parent
-MAP = "architecture/docs/specificatie/interactie-onderwijsaanbod"
+MAP = "architecture/docs/specificatie/interactieketen-onderwijsaanbod"
 MODEL = "architecture/model/informatiemodel/informatiemodel.json"
 BINDING = "architecture/model/informatiemodel/schema-binding.json"
 UIT = "img/erd"

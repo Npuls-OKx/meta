@@ -14,7 +14,7 @@ import unittest
 from pathlib import Path
 
 WORTEL = Path(__file__).resolve().parent.parent
-STROMEN = WORTEL / "architecture/docs/specificatie/interactie-onderwijsaanbod/stromen-onderwijsaanbod.json"
+STROMEN = WORTEL / "architecture/docs/specificatie/interactieketen-onderwijsaanbod/stromen-onderwijsaanbod.json"
 REGELS = WORTEL / "architecture/model/informatiemodel/voorbeeld-lr1-regels.json"
 
 spec = importlib.util.spec_from_file_location(
@@ -152,7 +152,7 @@ class InDezeRepository(unittest.TestCase):
         self.assertNotEqual(namen["IS-OA-01"], "IS-OA-01")
 
     def test_given_de_getekende_plaat_when_lezen_then_staat_zij_naast_de_specificatie(self):
-        plaat = WORTEL / "architecture/docs/specificatie/interactie-onderwijsaanbod/img/gegevens-per-component.svg"
+        plaat = WORTEL / "architecture/docs/specificatie/interactieketen-onderwijsaanbod/img/gegevens-per-component.svg"
         if not plaat.is_file():
             self.skipTest("de plaat ontbreekt; draai eerst het script")
         tekst = plaat.read_text(encoding="utf-8")

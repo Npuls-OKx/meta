@@ -17,7 +17,7 @@ import unittest
 from pathlib import Path
 
 WORTEL = Path(__file__).resolve().parent.parent
-SPECIFICATIE = WORTEL / "architecture/docs/specificatie/interactie-onderwijsaanbod"
+SPECIFICATIE = WORTEL / "architecture/docs/specificatie/interactieketen-onderwijsaanbod"
 
 spec = importlib.util.spec_from_file_location(
     "controleer_interactiespec", WORTEL / "scripts/controleer-interactiespec.py"
