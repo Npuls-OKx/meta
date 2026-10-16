@@ -11,6 +11,7 @@ Verder open:
 
 | Punt | Stand |
 |---|---|
+| Het studentkeuzesysteem kan de verbintenis uit IS-SI-03 pas plaatsen als het het aanbod kent. Hoofdplaat v1.7 draagt daarvoor `Onderwijsprogramma aanbod` van de onderwijscatalogus naar het studentkeuzesysteem, en daarnaast `Onsluiten geplande leergelegenheden (capaciteit)` vanuit het planningssysteem en `Ontsluiten van geroosterde leergelegenheden (detail en capaciteit)` vanuit het roostersysteem | Drie stromen die het studentkeuzesysteem inrichten voordat een student kiest. Besloten: zij landen als eenheid in de keuzedeelketen, want het studentkeuzesysteem bestaat om de student te laten kiezen en deze drie zijn zijn inrichting daarvoor. Deze keten noemt ze als voorwaarde |
 | Beeld F4-11 laat de verbintenissen op alle niveaus in het studentvolgsysteem landen; v1.7 draagt daarvoor een stroom van het studentkeuzesysteem naar het studentvolgsysteem | Die stroom hoort bij de keuzedeelketen, waar de student zelf kiest. Langs welke weg de verbintenis in dit traject het studentvolgsysteem bereikt, staat open |
 | De stroom van het studentkeuzesysteem terug naar de kernregistratie, met `Student Opleidingprogramma verbintenis (type: keuzedeel/credential)` | Komt pas aan de orde bij de keuzedeelketen; hier kiest de student nog niets |
 | Het studentkeuzesysteem ontvangt in deze keten verbintenissen en een rooster, terwijl zijn naam naar keuzes verwijst | De keuzedeelketen werkt met hetzelfde component; daar hoort de vraag of die naam de lading dekt |

@@ -102,8 +102,12 @@ def dienstenlijst():
 def claims(pad):
     """Per component de diensten die de keten claimt, met de rol en de stand."""
     tekst = pad.read_text(encoding="utf-8")
-    begin = tekst.index("## 4. Koppelvlakdiensten")
-    blok = tekst[begin:tekst.index("\n## ", begin + 10)]
+    kop = re.search(r"^## \d+\. Koppelvlakdiensten\s*$", tekst, re.M)
+    if not kop:
+        return []
+    begin = kop.start()
+    volgende = tekst.find("\n## ", begin + 10)
+    blok = tekst[begin:volgende if volgende > 0 else len(tekst)]
     uit, kolommen = [], None
     for regel in blok.splitlines():
         g = regel.strip()
@@ -126,7 +130,7 @@ def claims(pad):
         eenheid = cellen[3] if len(cellen) > 4 else ""
         uit.append({"component": component, "onderwerp": onderwerp, "rol": rol,
                     "dienst": dienst, "endpoints": endpoints, "stand": cellen[-1],
-                    "eenheid": re.sub(r"IS-OA-", "", eenheid).replace(", ", "."),
+                    "eenheid": re.sub(r"IS-[A-Z]{2}-", "", eenheid).replace(", ", "."),
                     "eenheid_vol": eenheid,
                     "toevoeging": toevoeging})
     return uit
@@ -482,7 +486,7 @@ def main(argv=None):
     bevindingen = bevindingen_van(rijen, bekend)
     if args.per_interactie:
         aanduidingen = sorted({a for r in rijen
-                               for a in re.findall(r"IS-OA-\d+", r.get("eenheid_vol", ""))})
+                               for a in re.findall(r"IS-[A-Z]{2}-\d+", r.get("eenheid_vol", ""))})
         stroken = 0
         for r in rijen:
             doel = uit.parent / strookslug(r["component"], r["dienst"])

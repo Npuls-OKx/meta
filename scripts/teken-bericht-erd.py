@@ -471,8 +471,11 @@ def main(argv=None):
     if not model.is_file():
         print(f"Het informatiemodel staat niet op {model}.", file=sys.stderr)
         return 2
-    bestanden = ([pathlib.Path(args.bestand)] if args.bestand
-                 else sorted(map_.glob("is-oa-*.md")))
+    if args.bestand:
+        gekozen = pathlib.Path(args.bestand)
+        bestanden = [gekozen if gekozen.is_file() else map_ / gekozen.name]
+    else:
+        bestanden = sorted(map_.glob("is-??-*.md"))
     if not bestanden or not all(b.is_file() for b in bestanden):
         print(f"Geen interactiespecificatie gevonden in {map_}.", file=sys.stderr)
         return 2

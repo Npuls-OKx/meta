@@ -42,7 +42,22 @@ Veertien objecttypen bewegen door deze keten: `Aanmelding`, `Inschrijving`, `Per
 | Leverancier | Het contract per koppelvlakdienst: welke endpoints zij bouwt en welke zij aanroept |
 | Tester | De operaties met hun statuscodes en voorbeeldpayloads |
 
-## 3. Deze keten stelt voor waar de vorige beschreef
+## 3. Koppelvlakdiensten
+
+Een dienst zegt wat er over een koppeling moet kunnen, en elk component kan hem claimen; de aanbieder en de afnemer zijn twee losse diensten. Een leverancier die meer dan een component in een product draagt, legt dat product daarom op deze laag.
+
+| Component | Dienst | Endpoints en meldingen | Eenheid | Stand |
+|---|---|---|---|---|
+| Kernregistratie (KRS) | aanmelding-inname-aanbieder | `POST /aanmeldingen`, `GET /aanmeldingen/{id}` | IS-SI-01 | Voorstel (W1) |
+| Kernregistratie (KRS) | verwerkingsuitkomst-aanbieder | de melding `aanmelding-verwerkt` | IS-SI-01 | Voorstel (W3) |
+| Kernregistratie (KRS) | afleverabonnement-aanbieder | `POST /abonnementen` | IS-SI-01 | Voorstel |
+| Voorziening Centraal Aanmelden (CAMBO) | aanmelding-inname-afnemer | `POST /aanmeldingen`, `GET /aanmeldingen/{id}` bij de kernregistratie | IS-SI-01 | Voorstel |
+| Voorziening Centraal Aanmelden (CAMBO) | verwerkingsuitkomst-afnemer | de melding `aanmelding-verwerkt` | IS-SI-01 | Voorstel |
+| Voorziening Centraal Aanmelden (CAMBO) | afleverabonnement-afnemer | `POST /abonnementen` bij de kernregistratie | IS-SI-01 | Voorstel |
+
+De dienstnamen volgen de [dienstenlijst](https://github.com/Npuls-OKx/Public/blob/d0c20d99b110b29ccf6b0e50109f7d54ffd88d7a/Koppelvlakspecificaties/Applicatiediensten/README.md) van Npuls-OKx/Public. `aanmelding-inname` staat daar nog niet en wordt hier voorgesteld.
+
+## 4. Deze keten stelt voor waar de vorige beschreef
 
 | | De keten onderwijsaanbod | Deze keten |
 |---|---|---|
