@@ -6,7 +6,7 @@
 | **Doelgroep** | De implementatiespecialist en de tester bij een instelling of een leverancier, en wie een profiel of consumer bouwt |
 | **Dient als input voor** | De bouw van de koppelvlakken, de testgevallen erbij, en de acceptatie van een opgeleverde koppeling |
 | **Kaderstelling** | Het [informatiemodel OKx](../../../model/informatiemodel/informatiemodel.md), de [uitgangspunten](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md) en hoofdplaat v1.7, en de keten [onderwijsaanbod ontsluiten](../interactie-onderwijsaanbod/README.md) waarop zij voortbouwt |
-| **Inhoud** | Zes interactiespecificaties met hun operaties en berichten, twee signaleringen, en de koppelvlakdiensten per applicatiecomponent |
+| **Inhoud** | Zeven interactiespecificaties met hun operaties en berichten, twee signaleringen, en de koppelvlakdiensten per applicatiecomponent |
 | **Status** | Voorstel. Vijf van de zes stromen die deze keten draagt, staan op v1.7 zonder koppelingspecificatie |
 
 ## Leeswijzer
@@ -14,13 +14,13 @@
 | Bestand | Wat erin staat |
 |---|---|
 | [signaleringen.md](signaleringen.md) | Een punt dat een besluit vraagt |
-| De zes interactiespecificaties | Het contract per koppelvlakdienst, met het bericht onder zijn operatie |
+| De zeven interactiespecificaties | Het contract per koppelvlakdienst, met het bericht onder zijn operatie |
 
 ## 1. De informatiestromen
 
 ![De zes informatiestromen van deze keten, uitgelicht op de informatiestromen-hoofdplaat v1.7](img/hoofdplaat-student-instroom.svg)
 
-Deze keten bouwt voort op [onderwijsaanbod ontsluiten](../interactie-onderwijsaanbod/README.md): daar staat het aanbod aanmeldbaar, hier meldt een student zich erop aan. Zij begint waar de aanmelding de instelling binnenkomt, eindigt bij een student die geroosterd en ingericht staat, en alle zes haar stromen staan op hoofdplaat v1.7 zonder koppelingspecificatie.
+Deze keten bouwt voort op [onderwijsaanbod ontsluiten](../interactie-onderwijsaanbod/README.md): daar staat het aanbod aanmeldbaar, hier meldt een student zich erop aan. Zij begint waar de aanmelding de instelling binnenkomt en eindigt bij alles wat klaar moet staan voordat Jochem begint: hij is geroosterd, de leeromgeving is ingericht en het volgsysteem kan zijn resultaten lezen.
 
 | Eenheid | Beelden | Van | Naar | Stroom op hoofdplaat v1.7 |
 |---|---|---|---|---|
@@ -30,6 +30,7 @@ Deze keten bouwt voort op [onderwijsaanbod ontsluiten](../interactie-onderwijsaa
 | IS-SI-04 | F4-07, F4-08 | Planningssysteem | Roostersysteem | `Verzoek tot roosteren leergelegenheid` |
 | IS-SI-05 | F4-09 | Roostersysteem | Studentkeuzesysteem (SKS) | `Student Opleidingprogramma- en onderwijseenheid verbintenis` ([S1](signaleringen.md)) |
 | IS-SI-06 | F4-10 | Kernregistratie (KRS) | Leermanagementsysteem (LMS) | Hetzelfde been van de junctie als IS-SI-02 |
+| IS-SI-07 | F4-04 | Onderwijscatalogus | Studentvolgsysteem (SVS) | `Onderwijs specificatie`, koppeling OC-SIS |
 
 Een instelling wijst hier aan welke interactiespecificatie zij uitvraagt; de aanduiding blijft staan ook als de naam verandert. De eenheden volgen de beeldnummers van de voorbeelduitwerking, en dat is ook de volgorde waarin een instelling ze doorloopt. IS-SI-02 en IS-SI-06 delen hun lading: de kernregistratie bedient het studentkeuzesysteem en de leeromgeving langs dezelfde junctie. Het zijn twee eenheden, want een koppeling verbindt twee componenten en de afnemers verschillen; IS-SI-06 wijst voor de lading naar IS-SI-02.
 
@@ -119,6 +120,10 @@ Een dienst zegt wat er over een koppeling moet kunnen, en elk component kan hem 
 | Voorziening Centraal Aanmelden (CAMBO) | aanmelding-inname-afnemer | `POST /aanmeldingen`, `GET /aanmeldingen/{id}` bij de kernregistratie | IS-SI-01 | Voorstel |
 | Voorziening Centraal Aanmelden (CAMBO) | verwerkingsuitkomst-afnemer | de melding `aanmelding-verwerkt` | IS-SI-01 | Voorstel |
 | Voorziening Centraal Aanmelden (CAMBO) | afleverabonnement-afnemer | `POST /abonnementen` bij de kernregistratie | IS-SI-01 | Voorstel |
+| Onderwijscatalogus | resultaatstructuur-aanbieder | `GET /examenplanspecificaties` met `/{id}`, en de melding `resultaatstructuur-beschikbaar` | IS-SI-07 | Voorstel |
+| Onderwijscatalogus | afleverabonnement-aanbieder | `POST /abonnementen` | IS-SI-07 | Voorstel |
+| Studentvolgsysteem (SVS) | resultaatstructuur-afnemer | `GET /examenplanspecificaties/{id}` bij de catalogus, en de melding `resultaatstructuur-beschikbaar` | IS-SI-07 | Voorstel |
+| Studentvolgsysteem (SVS) | afleverabonnement-afnemer | `POST /abonnementen` bij de catalogus | IS-SI-07 | Voorstel |
 | Kernregistratie (KRS) | verbintenistoestand-aanbieder | `GET /verbintenissen`, de melding `verbintenistoestand-gewijzigd` | IS-SI-06 | Voorstel (W1) |
 | Kernregistratie (KRS) | plaatsingsgroep-aanbieder | `GET /plaatsingsgroepen`, de melding `plaatsingsgroep-gewijzigd` | IS-SI-06 | Voorstel (W2) |
 | Kernregistratie (KRS) | afleverabonnement-aanbieder | `POST /abonnementen` | IS-SI-06 | Voorstel (W3) |
@@ -148,7 +153,7 @@ Een dienst zegt wat er over een koppeling moet kunnen, en elk component kan hem 
 | Planningssysteem | verwerkingsuitkomst-afnemer | de melding `roosteropdracht-verwerkt` | IS-SI-04 | Voorstel |
 | Planningssysteem | afleverabonnement-afnemer | `POST /abonnementen` bij het roostersysteem | IS-SI-04 | Voorstel |
 
-De dienstnamen volgen de [dienstenlijst](https://github.com/Npuls-OKx/Public/blob/d0c20d99b110b29ccf6b0e50109f7d54ffd88d7a/Koppelvlakspecificaties/Applicatiediensten/README.md) van Npuls-OKx/Public. `aanmelding-inname`, `plaatsingsgroep` en `roosteropdracht-inname` staan daar nog niet en worden hier voorgesteld.
+De dienstnamen volgen de [dienstenlijst](https://github.com/Npuls-OKx/Public/blob/d0c20d99b110b29ccf6b0e50109f7d54ffd88d7a/Koppelvlakspecificaties/Applicatiediensten/README.md) van Npuls-OKx/Public. `aanmelding-inname`, `plaatsingsgroep`, `roosteropdracht-inname` en `resultaatstructuur` staan daar nog niet en worden hier voorgesteld.
 
 ## 5. Afspraken die elke dienst nakomt
 
@@ -215,6 +220,7 @@ Elk gekleurd kader is een interactiespecificatie, met haar aanduiding erboven. J
 | IS-SI-04 | [is-si-04.md](is-si-04.md) | Roosteren van de leergelegenheden |
 | IS-SI-05 | [is-si-05.md](is-si-05.md) | Het rooster naar het studentkeuzesysteem |
 | IS-SI-06 | [is-si-06.md](is-si-06.md) | De verbintenis naar de leeromgeving |
+| IS-SI-07 | [is-si-07.md](is-si-07.md) | De resultaatstructuur naar het studentvolgsysteem |
 
 Elke interactiespecificatie draagt hetzelfde: het contract per koppelvlakdienst, de volgorde als sequentiediagram, de berichten veld voor veld met hun ERD, en een voorbeeldpayload die valideert. De voorbeeldpayloads gebruiken de vaste identificaties uit [casus.md](casus.md).
 
@@ -223,7 +229,7 @@ Elke interactiespecificatie draagt hetzelfde: het contract per koppelvlakdienst,
 | | De keten onderwijsaanbod | Deze keten |
 |---|---|---|
 | Interactiepatroon in Public | OC-P&R, OC-SIS en OC-LMS, met endpoints en schema's | Geen |
-| Stromen met een koppelingspecificatie | 7 van 7 | 0 van 6 |
+| Stromen met een koppelingspecificatie | 7 van 7 | 1 van 7 |
 | De bronvraag | Rustig genoeg voor een plaat gegevensoorsprong | Betwist op vier punten |
 
 Elke eenheid draagt die stand. De vier bevindingen uit de tegenlezing raken precies de componenten hier: of de intake een bron is, of de kernregistratie bron is van de keuzedeelvoorkeur en van de opleidingsverbintenis, en of de kernregistratie en het studentvolgsysteem los te zien zijn.

@@ -111,6 +111,24 @@
       "naam": "De verbintenis naar de leeromgeving",
       "naam_kort": "verbintenis naar LMS",
       "ontvangergroep": ""
+    },
+    {
+      "van": "Onderwijscatalogus",
+      "naar": "Student volg systeem (SVS)",
+      "label": "IS-SI-07",
+      "op_de_plaat": true,
+      "stroom": "id-e2755a76b8244373bd7e8",
+      "plaatlabel": "Onderwijs specificatie",
+      "wat": [
+        "de summatieve resultaatstructuur als nominaal template",
+        "per onderdeel de schaal en de afnamevorm, zonder welke het volgsysteem een resultaat niet kan lezen"
+      ],
+      "bron": "../../../model/informatiemodel/voorbeeld-lr1-regels.json, F4-04",
+      "aanduiding": "IS-SI-07",
+      "beeld": "F4-04",
+      "status": "voorstel",
+      "naam": "De resultaatstructuur naar het studentvolgsysteem",
+      "naam_kort": "resultaatstructuur naar SVS"
     }
   ]
 }
