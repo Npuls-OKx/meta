@@ -77,6 +77,20 @@ def neemt_svg(x, y, kleur):
 
 RIJ, KOLOM, NAAMBREEDTE, KOP = 30, 152, 352, 92
 
+# De legenda onderaan de matrix staat op vaste plekken, en haar laatste regel is de breedste.
+# Een keten met weinig componenten levert een doek dat smaller is dan die legenda, en dan valt
+# die regel eraf: keur-plaat.py meldde dat als BUITEN op de matrix van de keten student-instroom.
+# Daarom draagt de legenda hier haar eigen ondergrens, met de tekenbreedte waarmee keur-plaat
+# rekent en een marge van de kantlijn.
+LEGENDA_LAATSTE_X = 760
+LEGENDA_LAATSTE = "een vak noemt de interacties waarin het component claimt"
+LEGENDA_TEKEN, LEGENDA_MARGE = 0.55, 20
+
+
+def legendabreedte(grootte=11):
+    """De breedte die de legenda onderaan de matrix minstens vraagt."""
+    return LEGENDA_LAATSTE_X + int(len(LEGENDA_LAATSTE) * grootte * LEGENDA_TEKEN) + LEGENDA_MARGE
+
 
 def breedte(tekst, grootte=12, vet=False):
     return len(tekst) * grootte * (0.56 if vet else 0.52)
@@ -102,8 +116,12 @@ def dienstenlijst():
 def claims(pad):
     """Per component de diensten die de keten claimt, met de rol en de stand."""
     tekst = pad.read_text(encoding="utf-8")
-    begin = tekst.index("## 4. Koppelvlakdiensten")
-    blok = tekst[begin:tekst.index("\n## ", begin + 10)]
+    kop = re.search(r"^## \d+\. Koppelvlakdiensten\s*$", tekst, re.M)
+    if not kop:
+        return []
+    begin = kop.start()
+    volgende = tekst.find("\n## ", begin + 10)
+    blok = tekst[begin:volgende if volgende > 0 else len(tekst)]
     uit, kolommen = [], None
     for regel in blok.splitlines():
         g = regel.strip()
@@ -126,7 +144,7 @@ def claims(pad):
         eenheid = cellen[3] if len(cellen) > 4 else ""
         uit.append({"component": component, "onderwerp": onderwerp, "rol": rol,
                     "dienst": dienst, "endpoints": endpoints, "stand": cellen[-1],
-                    "eenheid": re.sub(r"IS-OA-", "", eenheid).replace(", ", "."),
+                    "eenheid": re.sub(r"IS-[A-Z]{2}-", "", eenheid).replace(", ", "."),
                     "eenheid_vol": eenheid,
                     "toevoeging": toevoeging})
     return uit
@@ -272,7 +290,7 @@ def teken(rijen, bekend, titel):
     for r in rijen:
         per[(r["dienst"], r["component"])].append(r)
 
-    breed = NAAMBREEDTE + len(componenten) * KOLOM + 40
+    breed = max(NAAMBREEDTE + len(componenten) * KOLOM + 40, legendabreedte())
     hoog = KOP + len(diensten) * RIJ + 76
     delen = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{breed}" height="{hoog}" '
              f'viewBox="0 0 {breed} {hoog}" role="img">',
@@ -327,8 +345,7 @@ def teken(rijen, bekend, titel):
     delen.append(tekst_svg(334, y, "een afnemersdienst, de gevraagde interface", 11, MUTED))
     delen.append(icoon_svg(590, y - 11, ICOON_COMPONENT, APP_T))
     delen.append(tekst_svg(612, y, "applicatiecomponent", 11, MUTED))
-    delen.append(tekst_svg(760, y, "een vak noemt de interacties waarin het component claimt",
-                           11, MUTED))
+    delen.append(tekst_svg(LEGENDA_LAATSTE_X, y, LEGENDA_LAATSTE, 11, MUTED))
     delen.append(tekst_svg(20, y + 24,
                            "De aanbieder en de afnemer zijn twee zelfstandige diensten, elk met "
                            "een eigen naam en een eigen versie.", 11, MUTED))
@@ -482,7 +499,7 @@ def main(argv=None):
     bevindingen = bevindingen_van(rijen, bekend)
     if args.per_interactie:
         aanduidingen = sorted({a for r in rijen
-                               for a in re.findall(r"IS-OA-\d+", r.get("eenheid_vol", ""))})
+                               for a in re.findall(r"IS-[A-Z]{2}-\d+", r.get("eenheid_vol", ""))})
         stroken = 0
         for r in rijen:
             doel = uit.parent / strookslug(r["component"], r["dienst"])

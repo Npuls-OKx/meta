@@ -5,7 +5,7 @@
 | **Document doel** | Zet uiteen hoe de onderwijscatalogus het leermanagementsysteem de specificatiestructuur levert waarmee dat de leeromgeving inricht, ten behoeve van de bouw of de verificatie van een implementatie volgens deze specificatie |
 | **Doelgroep** | De implementatiespecialist en de tester bij een instelling of een leverancier, en wie een profiel of consumer bouwt |
 | **Dient als input voor** | De bouw van het koppelvlak, de testgevallen erbij, en de acceptatie van een opgeleverde koppeling |
-| **Kaderstelling** | De [interactieketen](README.md) waarin deze specificatie valt, het [informatiemodel OKx](../../../model/informatiemodel/informatiemodel.md), beeld F4-02 van de [voorbeelduitwerking](../../../model/informatiemodel/voorbeeld-leerroute-1-jochem.md), en het [interactiepatroon onderwijscatalogus naar leermanagementsysteem](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Interactiepatronen/onderwijscatalogus-leermanagementsysteem.md) |
+| **Kaderstelling** | De [interactieketenspecificatie](README.md) waarin deze specificatie valt, het [informatiemodel OKx](../../../model/informatiemodel/informatiemodel.md), beeld F4-02 van de [voorbeelduitwerking](../../../model/informatiemodel/voorbeeld-leerroute-1-jochem.md), en het [interactiepatroon onderwijscatalogus naar leermanagementsysteem](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Interactiepatronen/onderwijscatalogus-leermanagementsysteem.md) |
 | **Inhoud** | Zes operaties met hun statuscodes, zes berichten met hun schema, twee voorbeeldpayloads die valideren, en vier punten die een besluit vragen |
 | **Status** | Vastgelegd: de componentpagina's in Public dragen elke operatie hieronder, en de schema's staan daar op alfa. Twee payloads staan nog open, en die dragen dat per regel |
 
@@ -493,4 +493,4 @@ Deze dienst roept O5 aan bij de aanbieder hierboven. De parameters en de respons
 | Het response body bij 400 en 404 op de opvragingen | Dezelfde vraag als bij de andere opvragingen; signalering [S21](signaleringen.md) draagt haar |
 | De payload van de leermiddelkoppeling | De componentpagina kondigt hem aan zonder schema. [learning-resource-group.json](schemas/learning-resource-group.json) is het voorstel dat IS-OA-02 al doet |
 | Een eigen afleverabonnement op deze koppeling | Het interactiepatroon kent nog geen `POST /abonnementen`, waar de koppeling met planning die wel heeft |
-| Het lesniveau onder het leeronderdeel | De lesspecificatie blijft bij de leeromgeving. Beeld F4-03 toont dat niveau op de conceptplaat, buiten deze specificatie |
+| Het lesniveau onder het leeronderdeel | De lesspecificatie blijft bij de leeromgeving. Beeld F4-03 noemt acht objecttypen op dat niveau: `(Didactische) Leervorm`, `Lesplanning`, `Lesleerdoel`, `Werkinstructies`, `Toetsvorm`, `Toetsinstrument`, `Lesuitkomst` en `Les specificatie / toets specificatie`. Welke velden zij over deze koppeling dragen is niet belegd |

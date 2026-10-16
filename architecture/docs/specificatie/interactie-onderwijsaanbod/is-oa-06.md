@@ -5,7 +5,7 @@
 | **Document doel** | Zet uiteen hoe de kernregistratie het aanmeldbare onderwijsaanbod aan de voorziening voor centraal aanmelden ontsluit, ten behoeve van de bouw of de verificatie van een implementatie volgens deze specificatie |
 | **Doelgroep** | De implementatiespecialist en de tester bij een instelling of een leverancier, en wie een profiel of consumer bouwt |
 | **Dient als input voor** | De bouw van het koppelvlak, de testgevallen erbij, en de acceptatie van een opgeleverde koppeling |
-| **Kaderstelling** | De [interactieketen](README.md) waarin deze specificatie valt, het [informatiemodel OKx](../../../model/informatiemodel/informatiemodel.md), en beeld F3-02 van de [voorbeelduitwerking](../../../model/informatiemodel/voorbeeld-leerroute-1-jochem.md) |
+| **Kaderstelling** | De [interactieketenspecificatie](README.md) waarin deze specificatie valt, het [informatiemodel OKx](../../../model/informatiemodel/informatiemodel.md), en beeld F3-02 van de [voorbeelduitwerking](../../../model/informatiemodel/voorbeeld-leerroute-1-jochem.md) |
 | **Inhoud** | Vijf operaties met hun statuscodes, drie berichten met hun velden, acht aannames met de partij die erover beslist, tien punten voor de afstemming met AII, en drie voorbeeldpayloads die valideren |
 | **Status** | Voorstel, in twee soorten. De vorm van het koppelvlak staat hier uitgewerkt met de stand per regel; de inhoud die centraal aanmelden vraagt staat open in de afstemming met AII, [Public#112](https://github.com/Npuls-OKx/Public/issues/112), waarvoor [de lijst voor AII](#de-lijst-voor-aii) een regel per punt geeft |
 

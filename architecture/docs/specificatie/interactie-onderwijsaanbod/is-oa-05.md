@@ -5,7 +5,7 @@
 | **Document doel** | Zet uiteen hoe de onderwijscatalogus het aanmeldbare onderwijsaanbod aan de kernregistratie levert, ten behoeve van de bouw of de verificatie van een implementatie volgens deze specificatie |
 | **Doelgroep** | De implementatiespecialist en de tester bij een instelling of een leverancier, en wie een profiel of consumer bouwt |
 | **Dient als input voor** | De bouw van het koppelvlak, de testgevallen erbij, en de acceptatie van een opgeleverde koppeling |
-| **Kaderstelling** | De [interactieketen](README.md) waarin deze specificatie valt, het [informatiemodel OKx](../../../model/informatiemodel/informatiemodel.md), en beeld F3-01 van de [voorbeelduitwerking](../../../model/informatiemodel/voorbeeld-leerroute-1-jochem.md), met de grond per regel in [voorbeeld-lr1-regels.json](../../../model/informatiemodel/voorbeeld-lr1-regels.json) |
+| **Kaderstelling** | De [interactieketenspecificatie](README.md) waarin deze specificatie valt, het [informatiemodel OKx](../../../model/informatiemodel/informatiemodel.md), en beeld F3-01 van de [voorbeelduitwerking](../../../model/informatiemodel/voorbeeld-leerroute-1-jochem.md), met de grond per regel in [voorbeeld-lr1-regels.json](../../../model/informatiemodel/voorbeeld-lr1-regels.json) |
 | **Inhoud** | Zes operaties met hun statuscodes, drie berichten met hun velden, tien eisen met hun toetsgeval, en vijf voorbeeldpayloads die valideren |
 | **Status** | De melding `inrichtingsstatus` ligt vast in Public. De aanmeldbare snede op een eigen resource is voorstel, met per regel wat dat in Public toevoegt |
 
