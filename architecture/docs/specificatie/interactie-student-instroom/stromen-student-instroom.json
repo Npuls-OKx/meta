@@ -41,21 +41,21 @@
     },
     {
       "van": "Kernregistratie systeem studenten (KRS)",
-      "naar": "Student volg systeem (SVS)",
+      "naar": "Student Keuze Systeem (SKS)",
       "label": "IS-SI-03",
-      "op_de_plaat": false,
-      "stroom": "",
-      "plaatlabel": "",
+      "op_de_plaat": true,
+      "stroom": "id-865f297e8c1f4371aa143aa225fe4b7f",
+      "plaatlabel": "Student, opleidingprogramma verbintenis, relevante groepen",
       "wat": [
         "de student met zijn verbintenissen op opleiding, programma en eenheid",
-        "de plaatsingsgroep en de leeruitkomsten die hij al heeft behaald"
+        "de groepen waarin hij is geplaatst"
       ],
       "bron": "../../../model/informatiemodel/voorbeeld-lr1-regels.json, F3-07 en F3-08",
       "aanduiding": "IS-SI-03",
       "beeld": "F3-07",
       "status": "voorstel",
-      "naam": "De verbintenis naar het studentvolgsysteem",
-      "naam_kort": "verbintenis naar SVS"
+      "naam": "De verbintenis naar het studentkeuzesysteem",
+      "naam_kort": "verbintenis naar SKS"
     },
     {
       "van": "Kernregistratie systeem studenten (KRS)",
@@ -93,23 +93,40 @@
       "naam_kort": "roosteren"
     },
     {
-      "van": "Kernregistratie systeem studenten (KRS)",
-      "naar": "Leer management systeem (LMS)",
+      "van": "Roostersysteem",
+      "naar": "Student Keuze Systeem (SKS)",
       "label": "IS-SI-06",
-      "op_de_plaat": false,
-      "stroom": "id-865f297e8c1f4371aa143aa225fe4b7f",
-      "plaatlabel": "Student, opleidingprogramma verbintenis, relevante groepen",
+      "op_de_plaat": true,
+      "stroom": "id-7a7e0a17557f487a86fd347ad8569f24",
+      "plaatlabel": "Student Opleidingprogramma- en onderwijseenheid verbintenis",
       "wat": [
-        "de student met zijn verbintenissen op opleiding, programma en eenheid",
-        "de groepen waarin hij is geplaatst, zodat de leeromgeving kan worden ingericht"
+        "de geroosterde leergelegenheden met lokaal en docent",
+        "de verbintenissen van de student op die gelegenheden"
       ],
-      "bron": "../../../model/informatiemodel/voorbeeld-lr1-regels.json, F4-10",
+      "bron": "../../../model/informatiemodel/voorbeeld-lr1-regels.json, F4-08 en F4-09",
       "aanduiding": "IS-SI-06",
+      "beeld": "F4-09",
+      "status": "voorstel",
+      "naam": "Het rooster naar het studentkeuzesysteem",
+      "naam_kort": "rooster naar SKS"
+    },
+    {
+      "van": "Student Keuze Systeem (SKS)",
+      "naar": "Leer management systeem (LMS)",
+      "label": "IS-SI-07",
+      "op_de_plaat": true,
+      "stroom": "id-926ba88e5d2d41788005699e8eedf6bb",
+      "plaatlabel": "Opleidingprogramma-, opleidingseenheid verbintenis",
+      "wat": [
+        "de verbintenissen waarmee de leeromgeving wordt ingericht",
+        "dezelfde lading gaat met een eigen stroom naar het studentvolgsysteem"
+      ],
+      "bron": "../../../model/informatiemodel/voorbeeld-lr1-regels.json, F4-10 en F4-11",
+      "aanduiding": "IS-SI-07",
       "beeld": "F4-10",
       "status": "voorstel",
-      "naam": "De verbintenis naar de leeromgeving",
-      "naam_kort": "verbintenis naar LMS",
-      "toelichting": "Hoofdplaat v1.7 draagt deze relatie wel, maar de lijn loopt via een junctie die teken-hoofdplaat-ruim.py niet kan volgen; daarom staat zij hier gestippeld. Relateert aan: S4"
+      "naam": "De verbintenis naar leeromgeving en volgsysteem",
+      "naam_kort": "naar LMS en SVS"
     }
   ]
 }
