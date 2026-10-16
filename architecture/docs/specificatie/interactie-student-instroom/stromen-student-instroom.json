@@ -1,7 +1,7 @@
 {
   "naam": "De informatiestromen van de keten aanmelden tot de start",
   "plaat": "hoofdplaat v1.7",
-  "toelichting": "De informatiestromen vanaf het moment dat de aanmelding de instelling binnenkomt tot het moment dat Jochem een geroosterde verbintenis heeft. Hoe de student zich bij de voorziening voor centraal aanmelden meldt wordt door AII beschreven en valt buiten deze keten. Relateert aan: #386",
+  "toelichting": "De informatiestromen vanaf het moment dat de aanmelding de instelling binnenkomt tot het moment dat Jochem een geroosterde verbintenis heeft. Hoe de student zich bij de voorziening voor centraal aanmelden meldt wordt door AII beschreven en valt buiten deze keten. Het intakesysteem valt buiten deze keten: wat daar gebeurt is een toestandswijziging binnen de kernregistratie en geen koppeling. Relateert aan: #386",
   "stromen": [
     {
       "van": "Voorziening Centraal Aanmelden (CAMBO)",
@@ -22,27 +22,9 @@
       "naam_kort": "aanmelding binnen"
     },
     {
-      "van": "Intake systeem",
-      "naar": "Kernregistratie systeem studenten (KRS)",
-      "label": "IS-SI-02",
-      "op_de_plaat": false,
-      "stroom": "",
-      "plaatlabel": "",
-      "wat": [
-        "de uitkomst van de intake: de plaatsingsgroep waarin de student komt",
-        "de inschrijving die van de aanmelding wordt gemaakt"
-      ],
-      "bron": "../../../model/informatiemodel/voorbeeld-lr1-regels.json, F3-05 en F3-06",
-      "aanduiding": "IS-SI-02",
-      "beeld": "F3-05",
-      "status": "voorstel",
-      "naam": "Van aanmelding naar inschrijving",
-      "naam_kort": "intake en inschrijving"
-    },
-    {
       "van": "Kernregistratie systeem studenten (KRS)",
       "naar": "Student Keuze Systeem (SKS)",
-      "label": "IS-SI-03",
+      "label": "IS-SI-02",
       "op_de_plaat": true,
       "stroom": "id-865f297e8c1f4371aa143aa225fe4b7f",
       "plaatlabel": "Student, opleidingprogramma verbintenis, relevante groepen",
@@ -51,7 +33,7 @@
         "de groepen waarin hij is geplaatst"
       ],
       "bron": "../../../model/informatiemodel/voorbeeld-lr1-regels.json, F3-07 en F3-08",
-      "aanduiding": "IS-SI-03",
+      "aanduiding": "IS-SI-02",
       "beeld": "F3-07",
       "status": "voorstel",
       "naam": "De verbintenis naar het studentkeuzesysteem",
@@ -61,7 +43,7 @@
     {
       "van": "Kernregistratie systeem studenten (KRS)",
       "naar": "Planningssysteem",
-      "label": "IS-SI-04",
+      "label": "IS-SI-03",
       "op_de_plaat": true,
       "stroom": "id-97010c562d8841f9b908e72b1d2b3f9a",
       "plaatlabel": "Ontsluiten plaatsingsgroepen met studenten",
@@ -69,7 +51,7 @@
         "de plaatsingsgroepen met de studenten erin, zodat planning de aantallen kent"
       ],
       "bron": "../../../model/informatiemodel/voorbeeld-lr1-regels.json, F4-06",
-      "aanduiding": "IS-SI-04",
+      "aanduiding": "IS-SI-03",
       "beeld": "F4-06",
       "status": "voorstel",
       "naam": "Plaatsingsgroepen naar planning",
@@ -78,7 +60,7 @@
     {
       "van": "Planningssysteem",
       "naar": "Roostersysteem",
-      "label": "IS-SI-05",
+      "label": "IS-SI-04",
       "op_de_plaat": true,
       "stroom": "id-08467fe302794db6b935ff685e83efe0",
       "plaatlabel": "Verzoek tot roosteren leergelegenheid",
@@ -87,7 +69,7 @@
         "het rooster dat daaruit volgt, met lokaal en docent"
       ],
       "bron": "../../../model/informatiemodel/voorbeeld-lr1-regels.json, F4-07 en F4-08",
-      "aanduiding": "IS-SI-05",
+      "aanduiding": "IS-SI-04",
       "beeld": "F4-07",
       "status": "voorstel",
       "naam": "Roosteren van de leergelegenheden",
@@ -96,7 +78,7 @@
     {
       "van": "Roostersysteem",
       "naar": "Student Keuze Systeem (SKS)",
-      "label": "IS-SI-06",
+      "label": "IS-SI-05",
       "op_de_plaat": true,
       "stroom": "id-7a7e0a17557f487a86fd347ad8569f24",
       "plaatlabel": "Student Opleidingprogramma- en onderwijseenheid verbintenis",
@@ -105,7 +87,7 @@
         "de verbintenissen van de student op die gelegenheden"
       ],
       "bron": "../../../model/informatiemodel/voorbeeld-lr1-regels.json, F4-08 en F4-09",
-      "aanduiding": "IS-SI-06",
+      "aanduiding": "IS-SI-05",
       "beeld": "F4-09",
       "status": "voorstel",
       "naam": "Het rooster naar het studentkeuzesysteem",
@@ -114,7 +96,7 @@
     {
       "van": "Kernregistratie systeem studenten (KRS)",
       "naar": "Leer management systeem (LMS)",
-      "label": "IS-SI-07",
+      "label": "IS-SI-06",
       "op_de_plaat": true,
       "stroom": "id-865f297e8c1f4371aa143aa225fe4b7f",
       "plaatlabel": "Student, opleidingprogramma verbintenis, relevante groepen",
@@ -123,7 +105,7 @@
         "de leeromgeving richt hiermee de deelnemers op haar onderdelen in"
       ],
       "bron": "../../../model/informatiemodel/voorbeeld-lr1-regels.json, F4-10",
-      "aanduiding": "IS-SI-07",
+      "aanduiding": "IS-SI-06",
       "beeld": "F4-10",
       "status": "voorstel",
       "naam": "De verbintenis naar de leeromgeving",
