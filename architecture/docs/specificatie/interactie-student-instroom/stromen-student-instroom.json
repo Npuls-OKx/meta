@@ -41,22 +41,21 @@
     },
     {
       "van": "Kernregistratie systeem studenten (KRS)",
-      "naar": "Leer management systeem (LMS)",
+      "naar": "Student Keuze Systeem (SKS)",
       "label": "IS-SI-03",
       "op_de_plaat": true,
       "stroom": "id-865f297e8c1f4371aa143aa225fe4b7f",
       "plaatlabel": "Student, opleidingprogramma verbintenis, relevante groepen",
       "wat": [
         "de student met zijn verbintenissen op opleiding, programma en eenheid",
-        "de groepen waarin hij is geplaatst",
-        "dezelfde lading bereikt langs dezelfde junctie het studentkeuzesysteem"
+        "de groepen waarin hij is geplaatst"
       ],
-      "bron": "../../../model/informatiemodel/voorbeeld-lr1-regels.json, F3-07, F3-08 en F4-10",
+      "bron": "../../../model/informatiemodel/voorbeeld-lr1-regels.json, F3-07 en F3-08",
       "aanduiding": "IS-SI-03",
-      "beeld": "F4-10",
+      "beeld": "F3-07",
       "status": "voorstel",
-      "naam": "De verbintenis naar leeromgeving en keuzesysteem",
-      "naam_kort": "verbintenis naar LMS en SKS",
+      "naam": "De verbintenis naar het studentkeuzesysteem",
+      "naam_kort": "verbintenis naar SKS",
       "ontvangergroep": ""
     },
     {
@@ -111,6 +110,25 @@
       "status": "voorstel",
       "naam": "Het rooster naar het studentkeuzesysteem",
       "naam_kort": "rooster naar SKS"
+    },
+    {
+      "van": "Kernregistratie systeem studenten (KRS)",
+      "naar": "Leer management systeem (LMS)",
+      "label": "IS-SI-07",
+      "op_de_plaat": true,
+      "stroom": "id-865f297e8c1f4371aa143aa225fe4b7f",
+      "plaatlabel": "Student, opleidingprogramma verbintenis, relevante groepen",
+      "wat": [
+        "dezelfde lading als IS-SI-03, langs hetzelfde been van de junctie",
+        "de leeromgeving richt hiermee de deelnemers op haar onderdelen in"
+      ],
+      "bron": "../../../model/informatiemodel/voorbeeld-lr1-regels.json, F4-10",
+      "aanduiding": "IS-SI-07",
+      "beeld": "F4-10",
+      "status": "voorstel",
+      "naam": "De verbintenis naar de leeromgeving",
+      "naam_kort": "verbintenis naar LMS",
+      "ontvangergroep": ""
     }
   ]
 }
