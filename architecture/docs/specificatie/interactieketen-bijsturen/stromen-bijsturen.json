@@ -1,0 +1,97 @@
+{
+  "naam": "De informatiestromen van de keten bijsturen tijdens de uitvoering",
+  "plaat": "hoofdplaat v1.7",
+  "toelichting": "De informatiestromen waarmee een instelling tijdens het jaar haar planning, aanbod en rooster bijstuurt. Vier van de vijf koppelingen zijn al gespecificeerd in de ketens onderwijsaanbod en student instroom; deze keten beschrijft wat een wijziging anders maakt dan een eerste levering. Relateert aan: #389",
+  "stromen": [
+    {
+      "van": "Kernregistratie systeem studenten (KRS)",
+      "naar": "Student Keuze Systeem (SKS)",
+      "label": "IS-BS-01",
+      "op_de_plaat": true,
+      "stroom": "id-865f297e8c1f4371aa143aa225fe4b7f",
+      "plaatlabel": "Student, opleidingprogramma verbintenis, relevante groepen",
+      "wat": [
+        "de annulering van een verbintenis op het oude aanbod",
+        "dezelfde koppeling als IS-SI-02, met een toestandswijziging in plaats van een eerste levering"
+      ],
+      "bron": "../../../model/informatiemodel/voorbeeld-lr1-regels.json, F7-02",
+      "aanduiding": "IS-BS-01",
+      "beeld": "F7-02",
+      "status": "voorstel",
+      "naam": "De annulering van een verbintenis",
+      "naam_kort": "annulering"
+    },
+    {
+      "van": "Kernregistratie systeem studenten (KRS)",
+      "naar": "Planningssysteem",
+      "label": "IS-BS-02",
+      "op_de_plaat": true,
+      "stroom": "id-97010c562d8841f9b908e72b1d2b3f9a",
+      "plaatlabel": "Ontsluiten plaatsingsgroepen met studenten",
+      "wat": [
+        "de groep achterlopers als plaatsingsgroep",
+        "dezelfde koppeling als IS-SI-03, met een gewijzigde samenstelling"
+      ],
+      "bron": "../../../model/informatiemodel/voorbeeld-lr1-regels.json, F7-01 en F7-03",
+      "aanduiding": "IS-BS-02",
+      "beeld": "F7-03",
+      "status": "voorstel",
+      "naam": "De groep achterlopers naar planning",
+      "naam_kort": "groep naar planning"
+    },
+    {
+      "van": "Planningssysteem",
+      "naar": "Onderwijscatalogus",
+      "label": "IS-BS-03",
+      "op_de_plaat": false,
+      "stroom": "id-6ece22a4621443bfa17e7cb36c0ba113",
+      "plaatlabel": "Verzoek tot bijwerken onderwijspecificaties Planning",
+      "wat": [
+        "het verzoek om de specificatie bij te werken met wat de bijsturing vraagt"
+      ],
+      "bron": "../../../model/informatiemodel/voorbeeld-lr1-regels.json, F7-04",
+      "aanduiding": "IS-BS-03",
+      "beeld": "F7-04",
+      "status": "voorstel",
+      "naam": "Het verzoek tot bijwerken van de specificatie",
+      "naam_kort": "verzoek tot bijwerken",
+      "toelichting": "Hoofdplaat v1.7 draagt deze relatie wel, maar het planningssysteem en de catalogus delen twee lijnen en teken-hoofdplaat-ruim.py kan er maar een volgen; daarom staat zij hier gestippeld."
+    },
+    {
+      "van": "Planningssysteem",
+      "naar": "Onderwijscatalogus",
+      "label": "IS-BS-04",
+      "op_de_plaat": true,
+      "stroom": "id-020f091db6ea4763aad7527a98afaf99",
+      "plaatlabel": "Bevestiging creatie opleidingprogramma aanbod",
+      "wat": [
+        "het bijgestuurde aanbod voor de groep achterlopers",
+        "dezelfde koppeling als IS-OA-04, met een bijstelling in plaats van een eerste creatie"
+      ],
+      "bron": "../../../model/informatiemodel/voorbeeld-lr1-regels.json, F7-05",
+      "aanduiding": "IS-BS-04",
+      "beeld": "F7-05",
+      "status": "voorstel",
+      "naam": "Het bijgestuurde aanbod naar de catalogus",
+      "naam_kort": "bijgestuurd aanbod"
+    },
+    {
+      "van": "Planningssysteem",
+      "naar": "Roostersysteem",
+      "label": "IS-BS-05",
+      "op_de_plaat": true,
+      "stroom": "id-08467fe302794db6b935ff685e83efe0",
+      "plaatlabel": "Verzoek tot roosteren leergelegenheid",
+      "wat": [
+        "de nieuwe leergelegenheden die uit de bijsturing volgen",
+        "dezelfde koppeling als IS-SI-04, met een aanvulling op een bestaand rooster"
+      ],
+      "bron": "../../../model/informatiemodel/voorbeeld-lr1-regels.json, F7-06",
+      "aanduiding": "IS-BS-05",
+      "beeld": "F7-06",
+      "status": "voorstel",
+      "naam": "De nieuwe leergelegenheden naar het rooster",
+      "naam_kort": "naar het rooster"
+    }
+  ]
+}
