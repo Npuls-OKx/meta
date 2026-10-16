@@ -5,7 +5,7 @@
 | **Document doel** | Zet uiteen hoe het studentkeuzesysteem de verbintenis en de plaatsingsgroep bij de kernregistratie afneemt, zodat het weet wie er mag kiezen voordat het een keuze voorlegt |
 | **Doelgroep** | De implementatiespecialist en de tester bij een instelling of een leverancier, en wie een profiel of consumer bouwt |
 | **Dient als input voor** | De bouw van het koppelvlak, de testgevallen erbij, en de acceptatie van een opgeleverde koppeling |
-| **Kaderstelling** | De [interactieketen](README.md) waarin deze specificatie valt, het [informatiemodel OKx](../../../model/informatiemodel/informatiemodel.md), en hoofdplaat v1.7 |
+| **Kaderstelling** | De [interactieketenspecificatie](README.md) waarin deze specificatie valt, het [informatiemodel OKx](../../../model/informatiemodel/informatiemodel.md), en hoofdplaat v1.7 |
 | **Inhoud** | Vijf operaties met hun statuscodes, vier berichten met hun velden, en zeven werkbrieven |
 | **Status** | Voorstel in zijn geheel. Hoofdplaat v1.7 draagt deze stroom zonder koppelingspecificatie, en Npuls-OKx/Public kent geen interactiepatroon tussen de kernregistratie en het studentkeuzesysteem |
 

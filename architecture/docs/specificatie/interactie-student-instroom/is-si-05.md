@@ -5,7 +5,7 @@
 | **Document doel** | Zet uiteen hoe het roostersysteem het vastgestelde rooster van een periode en de verbintenissen daarop aan het studentkeuzesysteem levert |
 | **Doelgroep** | De implementatiespecialist en de tester bij een instelling of een leverancier, en wie een profiel of consumer bouwt |
 | **Dient als input voor** | De bouw van het koppelvlak, de testgevallen erbij, en de acceptatie van een opgeleverde koppeling |
-| **Kaderstelling** | De [interactieketen](README.md) waarin deze specificatie valt, het [informatiemodel OKx](../../../model/informatiemodel/informatiemodel.md), en hoofdplaat v1.7 |
+| **Kaderstelling** | De [interactieketenspecificatie](README.md) waarin deze specificatie valt, het [informatiemodel OKx](../../../model/informatiemodel/informatiemodel.md), en hoofdplaat v1.7 |
 | **Inhoud** | Zes operaties met hun statuscodes, drie berichten met hun velden, en zeven werkbrieven |
 | **Status** | Voorstel in zijn geheel. Hoofdplaat v1.7 draagt deze stroom zonder koppelingspecificatie, en Npuls-OKx/Public kent geen interactiepatroon tussen het roostersysteem en het studentkeuzesysteem. Diezelfde plaat laat de geroosterde verbintenis ook naar de kernregistratie gaan, en de sectorarchitect zegt dat de kernregistratie niets van het rooster hoeft te weten; dat punt staat als [S1](signaleringen.md) open en wordt hier niet beslist |
 

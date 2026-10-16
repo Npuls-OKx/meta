@@ -5,7 +5,7 @@
 | **Document doel** | Legt vast welke koppelingen een instelling nodig heeft om een student van aanmelding naar een geroosterde verbintenis te brengen, en wat een leverancier daarvoor bouwt |
 | **Doelgroep** | De implementatiespecialist en de tester bij een instelling of een leverancier, en wie een profiel of consumer bouwt |
 | **Dient als input voor** | De bouw van de koppelvlakken, de testgevallen erbij, en de acceptatie van een opgeleverde koppeling |
-| **Kaderstelling** | Het [informatiemodel OKx](../../../model/informatiemodel/informatiemodel.md), de [uitgangspunten](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md) en hoofdplaat v1.7 |
+| **Kaderstelling** | Het [informatiemodel OKx](../../../model/informatiemodel/informatiemodel.md), de [uitgangspunten](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md) en hoofdplaat v1.7, en de keten [onderwijsaanbod ontsluiten](../interactie-onderwijsaanbod/README.md) waarop zij voortbouwt |
 | **Inhoud** | Zes interactiespecificaties met hun operaties en berichten, twee signaleringen, en de koppelvlakdiensten per applicatiecomponent |
 | **Status** | Voorstel. Vijf van de zes stromen die deze keten draagt, staan op v1.7 zonder koppelingspecificatie |
 
@@ -20,7 +20,7 @@
 
 ![De zes informatiestromen van deze keten, uitgelicht op de informatiestromen-hoofdplaat v1.7](img/hoofdplaat-student-instroom.svg)
 
-De keten begint waar de aanmelding de instelling binnenkomt en eindigt bij een student die geroosterd en ingericht staat. Alle zes stromen staan op hoofdplaat v1.7; geen van hen draagt daar een koppelingspecificatie.
+Deze keten bouwt voort op [onderwijsaanbod ontsluiten](../interactie-onderwijsaanbod/README.md): daar staat het aanbod aanmeldbaar, hier meldt een student zich erop aan. Zij begint waar de aanmelding de instelling binnenkomt, eindigt bij een student die geroosterd en ingericht staat, en alle zes haar stromen staan op hoofdplaat v1.7 zonder koppelingspecificatie.
 
 | Eenheid | Beelden | Van | Naar | Stroom op hoofdplaat v1.7 |
 |---|---|---|---|---|
@@ -33,7 +33,13 @@ De keten begint waar de aanmelding de instelling binnenkomt en eindigt bij een s
 
 Een instelling wijst hier aan welke interactiespecificatie zij uitvraagt; de aanduiding blijft staan ook als de naam verandert. De eenheden volgen de beeldnummers van de voorbeelduitwerking, en dat is ook de volgorde waarin een instelling ze doorloopt. IS-SI-02 en IS-SI-06 delen hun lading: de kernregistratie bedient het studentkeuzesysteem en de leeromgeving langs dezelfde junctie. Het zijn twee eenheden, want een koppeling verbindt twee componenten en de afnemers verschillen; IS-SI-06 wijst voor de lading naar IS-SI-02.
 
-Wat voor, naast en na deze keten valt, staat in [signaleringen.md](signaleringen.md).
+Wat voor, naast en na deze keten valt, staat in [signaleringen.md](signaleringen.md). Drie draden lopen door vanuit de vorige keten:
+
+| Wat | Waar het vandaan komt |
+|---|---|
+| Het opleidingsprogramma-aanbod waarop Jochem zich meldt | IS-OA-05 en IS-OA-06, met dezelfde identificatie in [casus.md](casus.md) |
+| De specificatie waarop de leeromgeving haar onderdelen inricht | IS-OA-07 |
+| De leergelegenheid die hier geroosterd wordt | het geplande aanbod van IS-OA-04 |
 
 ### IS-SI-01 De aanmelding de instelling in
 

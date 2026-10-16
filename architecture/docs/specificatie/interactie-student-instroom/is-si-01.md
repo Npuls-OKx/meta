@@ -5,7 +5,7 @@
 | **Document doel** | Zet uiteen hoe de voorziening voor centraal aanmelden een aanmelding bij de kernregistratie aflevert, en hoe de instelling de uitkomst daarvan terugmeldt |
 | **Doelgroep** | De implementatiespecialist en de tester bij een instelling of een leverancier, en wie een profiel of consumer bouwt |
 | **Dient als input voor** | De bouw van het koppelvlak, de testgevallen erbij, en de acceptatie van een opgeleverde koppeling |
-| **Kaderstelling** | De [interactieketen](README.md) waarin deze specificatie valt, het [informatiemodel OKx](../../../model/informatiemodel/informatiemodel.md), en hoofdplaat v1.7 |
+| **Kaderstelling** | De [interactieketenspecificatie](README.md) waarin deze specificatie valt, het [informatiemodel OKx](../../../model/informatiemodel/informatiemodel.md), en hoofdplaat v1.7 |
 | **Inhoud** | Vier operaties met hun statuscodes, een bericht met zijn velden, en vier werkbrieven |
 | **Status** | Voorstel in zijn geheel. Hoofdplaat v1.7 draagt deze stroom zonder koppelingspecificatie, en Npuls-OKx/Public kent geen interactiepatroon tussen de voorziening voor centraal aanmelden en de kernregistratie |
 

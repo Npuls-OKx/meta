@@ -5,7 +5,7 @@
 | **Document doel** | Zet uiteen hoe de curriculum ontwerptool de uitvoeringskenmerken van het ontwerp aan de onderwijscatalogus levert, ten behoeve van de bouw of de verificatie van een implementatie volgens deze specificatie |
 | **Doelgroep** | De implementatiespecialist en de tester bij een instelling of een leverancier, en wie een profiel of consumer bouwt |
 | **Dient als input voor** | De bouw van het koppelvlak, de testgevallen erbij, en de acceptatie van een opgeleverde koppeling |
-| **Kaderstelling** | De [interactieketen](README.md) waarin deze specificatie valt, het [informatiemodel OKx](../../../model/informatiemodel/informatiemodel.md), en beeld F1-13 van de [voorbeelduitwerking](../../../model/informatiemodel/voorbeeld-leerroute-1-jochem.md) |
+| **Kaderstelling** | De [interactieketenspecificatie](README.md) waarin deze specificatie valt, het [informatiemodel OKx](../../../model/informatiemodel/informatiemodel.md), en beeld F1-13 van de [voorbeelduitwerking](../../../model/informatiemodel/voorbeeld-leerroute-1-jochem.md) |
 | **Inhoud** | Zes operaties met hun statuscodes, vijf berichten met hun velden, vier voorgestelde schema's, en twee voorbeeldpayloads die valideren |
 | **Status** | Voorstel. Elke operatie staat op voorstel, en elk schema dat deze eenheid toevoegt draagt een `$id` die op `/voorstel` eindigt; de dragende schema's in Public staan op alfa |
 

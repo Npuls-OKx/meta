@@ -5,7 +5,7 @@
 | **Document doel** | Zet uiteen hoe het planningssysteem de te roosteren leergelegenheden bij het roostersysteem aflevert, en hoe het rooster dat daaruit volgt terugkomt |
 | **Doelgroep** | De implementatiespecialist en de tester bij een instelling of een leverancier, en wie een profiel of consumer bouwt |
 | **Dient als input voor** | De bouw van het koppelvlak, de testgevallen erbij, en de acceptatie van een opgeleverde koppeling |
-| **Kaderstelling** | De [interactieketen](README.md) waarin deze specificatie valt, het [informatiemodel OKx](../../../model/informatiemodel/informatiemodel.md), en hoofdplaat v1.7 |
+| **Kaderstelling** | De [interactieketenspecificatie](README.md) waarin deze specificatie valt, het [informatiemodel OKx](../../../model/informatiemodel/informatiemodel.md), en hoofdplaat v1.7 |
 | **Inhoud** | Vier operaties met hun statuscodes, twee berichten met hun velden, en acht werkbrieven |
 | **Status** | Voorstel in zijn geheel. Hoofdplaat v1.7 draagt deze stroom zonder koppelingspecificatie, en Npuls-OKx/Public kent geen interactiepatroon tussen het planningssysteem en het roostersysteem |
 

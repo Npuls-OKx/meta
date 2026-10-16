@@ -5,7 +5,7 @@
 | **Document doel** | Zet uiteen hoe de leeromgeving de verbintenissen en de plaatsingsgroepen bij de kernregistratie afneemt, zodat zij haar onderdelen inricht voordat het onderwijs begint |
 | **Doelgroep** | De implementatiespecialist en de tester bij een instelling of een leverancier, en wie een profiel of consumer bouwt |
 | **Dient als input voor** | De bouw van het koppelvlak, de testgevallen erbij, en de acceptatie van een opgeleverde koppeling |
-| **Kaderstelling** | De [interactieketen](README.md) waarin deze specificatie valt, het [informatiemodel OKx](../../../model/informatiemodel/informatiemodel.md), en hoofdplaat v1.7 |
+| **Kaderstelling** | De [interactieketenspecificatie](README.md) waarin deze specificatie valt, het [informatiemodel OKx](../../../model/informatiemodel/informatiemodel.md), en hoofdplaat v1.7 |
 | **Inhoud** | Vijf operaties met hun statuscodes, de berichtspecificatie bij IS-SI-02, en zes werkbrieven |
 | **Status** | Voorstel in zijn geheel. Hoofdplaat v1.7 draagt deze stroom zonder koppelingspecificatie, en Npuls-OKx/Public kent geen interactiepatroon tussen de kernregistratie en de leeromgeving |
 
