@@ -9,7 +9,7 @@
 | **Inhoud** | Zes operaties met hun statuscodes, vier functionele eisen met hun toetsgeval, vijf berichten met hun velden, en drie voorbeeldpayloads die valideren |
 | **Status** | Elke operatie ligt vast in het interactiepatroon OC-P&R. Wat deze eenheid erbij voorstelt draagt per regel de stand `voorstel`, met de werkbrief erbij |
 
-De lading: het verzoek tot aanbod voor cohort 2026, met de opleiding, haar programma, de eenheden en hun leeronderdelen, en per specificatie de leeruitkomst waarnaar zij verwijst. De planbare waarden uit het onderwijsontwerp staan in [werkbrief](#5-werkbrieven-de-issueset-die-hieruit-volgt) W2 tot en met W7. De uuid's, de versies en de namen in de voorbeeldpayloads komen uit [casus.md](casus.md); [IS-OA-04](is-oa-04.md) meldt het aanbod terug op dezelfde uuid en dezelfde versie.
+De lading: het verzoek tot aanbod voor cohort 2026, met de opleiding, haar programma, de eenheden en hun leeronderdelen, en per specificatie de leeruitkomst waarnaar zij verwijst. De planbare waarden uit het onderwijsontwerp staan in [werkbrief](#4-werkbrieven-de-issueset-die-hieruit-volgt) W2 tot en met W7. De uuid's, de versies en de namen in de voorbeeldpayloads komen uit [casus.md](casus.md); [IS-OA-04](is-oa-04.md) meldt het aanbod terug op dezelfde uuid en dezelfde versie.
 
 ## 1. Interactie
 
@@ -86,7 +86,7 @@ Een query parameter verandert het endpoint niet: het pad blijft gelijk en de par
 
 Elk veld komt uit een schema in [Informatie-en-gegevensmodellen/schemas](https://github.com/Npuls-OKx/Public/tree/dev/Informatie-en-gegevensmodellen/schemas). De sleutel in de payload draagt de Engelse naam uit het schema, met de Nederlandse naam uit [mapping.md](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/mapping.md) in de kolom ernaast; enumwaarden blijven Nederlands. De objecttypen komen uit het [informatiemodel OKx](../../../model/informatiemodel/informatiemodel.md), met de definities in de [begrippenlijst](../begrippen/begrippenlijst.md).
 
-Elke operatie staat op een componentpagina in Public: de [dienstpagina van het planningssysteem](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Applicatiecomponenten/planningssysteem.md) draagt `specificatie-planbaar`, de [dienstpagina van de onderwijscatalogus](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Applicatiecomponenten/onderwijscatalogus.md) draagt de specificatiepaden, `verwerkingsstatus` en `/abonnementen`, elk met zijn payloadschema erbij. [De werkbrieven](#5-werkbrieven-de-issueset-die-hieruit-volgt) dragen wat deze eenheid daar bovenop vraagt, met het nummer in de regel Stand per operatie.
+Elke operatie staat op een componentpagina in Public: de [dienstpagina van het planningssysteem](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Applicatiecomponenten/planningssysteem.md) draagt `specificatie-planbaar`, de [dienstpagina van de onderwijscatalogus](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Applicatiecomponenten/onderwijscatalogus.md) draagt de specificatiepaden, `verwerkingsstatus` en `/abonnementen`, elk met zijn payloadschema erbij. [De werkbrieven](#4-werkbrieven-de-issueset-die-hieruit-volgt) dragen wat deze eenheid daar bovenop vraagt, met het nummer in de regel Stand per operatie.
 
 #### onderwijsspecificatiestructuur-aanbieder, bij de onderwijscatalogus
 
@@ -684,20 +684,7 @@ Dit bericht richt het kanaal in en vervalt zodra de aflevering over een bus of b
 
 Deze dienst registreert haar `callbackUrl` bij de aanbieder met O6, en ontvangt daarna de melding van O1.
 
-## 4. Functionele eisen
-
-De eisen komen uit het interactiepatroon OC-P&R. Een instelling citeert het eis-id en toetst op de genoemde operaties.
-
-| Id | Eis | Operaties | Toetsgeval |
-|---|---|---|---|
-| [functionele-eis-0001](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Interactiepatronen/onderwijscatalogus-planning-en-roostering.md#functionele-eis-0001) | De onderwijscatalogus laat het planningssysteem weten dat een specificatie gereed is om te plannen, waarna het planningssysteem een opleidingsaanbod met referentie teruglevert | O1, O2, O4 | Een specificatie die status `gepubliceerd` krijgt levert een melding op, en de daaropvolgende opvraag geeft dezelfde `specificationId` en `version` terug |
-| [functionele-eis-0002](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Interactiepatronen/onderwijscatalogus-planning-en-roostering.md#functionele-eis-0002) | Het planningssysteem werkt de planning bij wanneer een specificatie wijzigt, met de wijziging of de volledige structuur als keuze voor de ontvanger ([U11](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u11-toekomstvaste-endpoints-volledige-structuur-en-delta)) | O2, O3 | Beide vormen staan op dezelfde resource: de volledige structuur op `{id}` en de wijziging op `{id}/delta` tussen twee versies |
-| [functionele-eis-0006](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Interactiepatronen/onderwijscatalogus-planning-en-roostering.md#functionele-eis-0006) | Beide partijen halen de informatie na een gemiste melding alsnog op | O5 | Een opvraag met `gewijzigdSinds` op een tijdstip voor de gemiste melding geeft de betrokken specificatie terug |
-| [functionele-eis-0007](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Interactiepatronen/onderwijscatalogus-planning-en-roostering.md#functionele-eis-0007) | Beide partijen leggen een afleveradres vast voordat meldingen worden afgeleverd | O6 | Een tweede registratie op dezelfde `callbackUrl` en hetzelfde event-type overschrijft de eerste, zodat dat adres de melding langs een enkele registratie ontvangt |
-
-Eis 0003 en 0004 landen op IS-OA-04, eis 0005 op de statusmelding die naast deze eenheid loopt.
-
-## 5. Werkbrieven: de issueset die hieruit volgt
+## 4. Werkbrieven: de issueset die hieruit volgt
 
 Deze regels horen niet in de koppelvlakspecificatie zelf. Elk van hen wordt een issue in Npuls-OKx/Public of in meta, en blijft hier staan tot dat issue er is.
 
