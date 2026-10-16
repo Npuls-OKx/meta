@@ -13,7 +13,7 @@ import unittest
 from pathlib import Path
 
 WORTEL = Path(__file__).resolve().parent.parent
-SPECIFICATIE = WORTEL / "architecture/docs/specificatie/interactie-onderwijsaanbod"
+SPECIFICATIE = WORTEL / "architecture/docs/specificatie/interactieketen-onderwijsaanbod"
 MODEL = WORTEL / "architecture/model/informatiemodel/informatiemodel.json"
 
 spec = importlib.util.spec_from_file_location("erd", WORTEL / "scripts/teken-bericht-erd.py")

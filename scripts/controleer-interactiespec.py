@@ -12,7 +12,7 @@ van de sleutels tegen geen enkel schema. Dit script vangt dat.
         [--public-schemas PAD] [--schemas PAD ...] [--kort]
 
 MAP is de map met de interactiespecificatie; standaard
-architecture/docs/specificatie/interactie-onderwijsaanbod.
+architecture/docs/specificatie/interactieketen-onderwijsaanbod.
 
 De koppeling tussen een payload en haar schema
 ----------------------------------------------
@@ -79,7 +79,7 @@ import re
 import sys
 
 WORTEL = pathlib.Path(__file__).resolve().parent.parent
-MAP_STANDAARD = pathlib.Path("architecture/docs/specificatie/interactie-onderwijsaanbod")
+MAP_STANDAARD = pathlib.Path("architecture/docs/specificatie/interactieketen-onderwijsaanbod")
 PUBLIC_STANDAARD = pathlib.Path("../Public/Informatie-en-gegevensmodellen/schemas")
 
 AFBAKENING = re.compile(r"^(?P<hek>`{3,}|~{3,})(?P<info>.*)$")

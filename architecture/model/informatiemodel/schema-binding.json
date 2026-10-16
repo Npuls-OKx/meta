@@ -353,7 +353,7 @@
       "draagt": [
         "Student keuze regelset"
       ],
-      "reden": "Overlay op rule-set.json die het vrije regelobject typeert; draagt daarmee hetzelfde objecttype. Het enumveld $defs/rule/properties/type (kiesbaar, minimaleStudielast, resultaatEis) typeert de regel en niet de laag: alle drie de waarden blijven `Student keuze regelset`, dus er is geen discriminator die enumwaarden op objecttypen afbeeldt. Staat in /workspaces/OKx/OKx-meta/architecture/docs/specificatie/interactie-onderwijsaanbod/schemas/student-choice-rule.json met $id op /voorstel."
+      "reden": "Overlay op rule-set.json die het vrije regelobject typeert; draagt daarmee hetzelfde objecttype. Het enumveld $defs/rule/properties/type (kiesbaar, minimaleStudielast, resultaatEis) typeert de regel en niet de laag: alle drie de waarden blijven `Student keuze regelset`, dus er is geen discriminator die enumwaarden op objecttypen afbeeldt. Staat in /workspaces/OKx/OKx-meta/architecture/docs/specificatie/interactieketen-onderwijsaanbod/schemas/student-choice-rule.json met $id op /voorstel."
     },
     "subscription.json": {
       "soort": "vervoer",

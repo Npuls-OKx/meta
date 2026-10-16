@@ -58,7 +58,7 @@ BINDING = "architecture/model/informatiemodel/schema-binding.json"
 MODEL = "architecture/model/informatiemodel/informatiemodel.json"
 SCHEMAMAPPEN = [
     "../Public/Informatie-en-gegevensmodellen/schemas",
-    "architecture/docs/specificatie/interactie-onderwijsaanbod/schemas",
+    "architecture/docs/specificatie/interactieketen-onderwijsaanbod/schemas",
 ]
 SOORTEN = ("begrip", "waardeobject", "vervoer")
 VELDEN = ("naam", "datatype", "kardinaliteit", "bron")

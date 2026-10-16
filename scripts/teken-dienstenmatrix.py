@@ -39,8 +39,8 @@ import subprocess
 import sys
 
 WORTEL = pathlib.Path(__file__).resolve().parent.parent
-KETEN = "architecture/docs/specificatie/interactie-onderwijsaanbod/README.md"
-UIT = "architecture/docs/specificatie/interactie-onderwijsaanbod/img/dienstenmatrix.svg"
+KETEN = "architecture/docs/specificatie/interactieketen-onderwijsaanbod/README.md"
+UIT = "architecture/docs/specificatie/interactieketen-onderwijsaanbod/img/dienstenmatrix.svg"
 PUBLIC = pathlib.Path("/workspaces/OKx/Public")
 DIENSTENLIJST = "Koppelvlakspecificaties/Applicatiediensten/README.md"
 COMMIT = "d0c20d99"
