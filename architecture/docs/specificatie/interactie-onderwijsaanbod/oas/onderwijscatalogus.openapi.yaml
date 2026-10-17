@@ -1,0 +1,3534 @@
+openapi: 3.1.0
+jsonSchemaDialect: https://json-schema.org/draft/2020-12/schema
+info:
+  title: Onderwijscatalogus, koppelvlak onderwijsaanbod
+  version: 0.0.1
+  summary: 'Het koppelvlak van de onderwijscatalogus: de operaties die dit component serveert en de meldingen
+    die het verstuurt, uit de interactiespecificatie ontwerpen en ontsluiten van onderwijsaanbod.'
+  description: 'Dit document is afgeleid en wordt niet onderhouden: het komt uit operaties.json van de
+    interactiespecificatie, met scripts/genereer-oas.py. Een wijziging hoort in de specificatie, waarna
+    dit document opnieuw wordt gegenereerd.
+
+
+    Elke stroom waarin de onderwijscatalogus voorkomt staat in dit bestand: IS-OA-01 met de curriculum
+    ontwerptool, IS-OA-03 en IS-OA-04 met het planningssysteem, IS-OA-05 met de kernregistratie. IS-OA-04
+    draagt alleen operaties op het planningssysteem plus een melding die de catalogus ontvangt.
+
+
+    Wat deze specificatie als voorstel draagt, draagt dat ook hier: elke operatie, parameter en respons
+    noemt haar stand in haar beschrijving en in x-okx-stand, met de kwalificatie erbij waar de stand een
+    onderdeel van de operatie betreft.'
+servers:
+- url: '{basis}'
+  description: Plaatshouder. De interactiespecificatie legt geen basis-URL vast. De plaatshouder hieronder
+    zegt dat de keuze openstaat; hij wijst naar het gereserveerde topniveaudomein .invalid (RFC 2606),
+    zodat niemand hem voor een werkend adres houdt.
+  variables:
+    basis:
+      default: https://component.invalid/okx
+      description: Het adres waarop de instelling dit component ontsluit.
+security:
+- okxClientCredentials: []
+paths:
+  /aanmeldbaar-aanbod:
+    get:
+      summary: Het aanmeldbare aanbod opsommen
+      operationId: get-aanmeldbaar-aanbod
+      x-okx-stroom: IS-OA-05
+      x-okx-herkomst:
+      - IS-OA-05-O6
+      x-okx-stand: voorstel
+      x-okx-werkbrieven:
+      - IS-OA-05 W3
+      - IS-OA-05 W8
+      parameters:
+      - name: cohort
+        in: query
+        required: false
+        description: Het cohort waarop de lijst filtert.
+        schema:
+          type: string
+      - name: status
+        in: query
+        required: false
+        description: De status waarop de lijst filtert; zonder deze parameter geldt aanmeldbaar.
+        schema:
+          type: string
+          default: aanmeldbaar
+      - name: gewijzigdSinds
+        in: query
+        required: false
+        description: Een tijdstempel; bedoeld voor herstel na een gemist bericht.
+        schema:
+          type: string
+          format: date-time
+      responses:
+        '200':
+          description: 'De aanmeldbare instanties met hun laatste versie, elk als referentie.
+
+
+            Hier staat iets open: De specificatie noemt de referentie per aanbod en geen schema voor de
+            lijst eromheen; de array is hier afgeleid uit de zin die de respons beschrijft.
+
+
+            Stand: voorstel. Werkbrief: IS-OA-05 W8.'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/offering-reference'
+          x-okx-stand: voorstel
+          x-okx-werkbrieven:
+          - IS-OA-05 W8
+        '400':
+          description: Een onbekende parameterwaarde.
+      description: 'Stand: voorstel.
+
+
+        Werkbrief: IS-OA-05 W3, IS-OA-05 W8.
+
+
+        Foutgedrag: 400 bij een onbekende parameterwaarde. Alleen-lezen.
+
+
+        Herkomst: IS-OA-05-O6.'
+  /aanmeldbaar-aanbod/{id}:
+    get:
+      summary: Een aanmeldbaar aanbod ophalen
+      operationId: get-aanmeldbaar-aanbod-id
+      x-okx-stroom: IS-OA-05
+      x-okx-herkomst:
+      - IS-OA-05-O2
+      x-okx-stand: voorstel
+      x-okx-werkbrieven:
+      - IS-OA-05 W2
+      - IS-OA-05 W3
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: Het Opleidingsprogramma aanbod.
+        schema:
+          type: string
+          format: uuid
+      - name: versie
+        in: query
+        required: false
+        description: De versie die de respons draagt; zonder deze parameter de laatst gepubliceerde.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: De aanmeldbare snede, met de instanties in offeringInstances naast locations en
+            organisationUnits.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/offering-open-for-application'
+              examples:
+                voorbeeld-1:
+                  summary: Uit is-oa-05.md:216
+                  value:
+                    offeringInstances:
+                    - id: 7aa6609f-1d1b-471a-a0f8-beae490d31b5
+                      offeringType: opleidingsaanbod
+                      version: 0.1.0
+                      parentOfferingId: null
+                      specificationReference:
+                        specificationId: 79736830-1c5c-470f-b2c2-005029c96733
+                        version: 0.1.0
+                      name: Apothekersassistent 2026
+                      status: aanmeldbaar
+                      cohort: '2026'
+                      period:
+                        start: '2026-09-01'
+                        end: '2029-07-15'
+                      enrolmentDeadline: '2026-08-01'
+                      maxStudentCount: 48
+                      source:
+                      - standard: sbb-kwalificatiekader
+                        type: kwalificatiedossier
+                        code: '23450'
+                      - standard: sbb-kwalificatiekader
+                        type: kwalificatie
+                        code: '27141'
+                    - id: 8c494250-b67a-4666-a762-6f9ec1e70aff
+                      offeringType: opleidingsprogramma-aanbod
+                      version: 0.1.0
+                      parentOfferingId: 7aa6609f-1d1b-471a-a0f8-beae490d31b5
+                      specificationReference:
+                        specificationId: 7ae25c1e-ee27-43a2-a001-761ee39ea5c7
+                        version: 0.1.0
+                      name: Regulier BOL 2026
+                      status: aanmeldbaar
+                      cohort: '2026'
+                      period:
+                        start: '2026-09-01'
+                        end: '2029-07-15'
+                      applicationWindow:
+                        start: '2025-10-01'
+                        end: '2026-08-01'
+                      minStudentCount: 24
+                      maxStudentCount: 48
+                      locationId: 59807057-a6f1-473b-9084-114644557a68
+                      executingTeamId: d9561371-5ece-482d-a675-a076e63f980f
+                    locations:
+                    - id: 59807057-a6f1-473b-9084-114644557a68
+                      locationType: vestiging
+                      name: Hoofdlocatie Utrecht
+                      partOfLocationId: null
+                      codes:
+                      - codeType: vestigingscode
+                        code: UTR-01
+                    organisationUnits:
+                    - id: 6132ece6-d75e-4e80-81ce-91ab7448794d
+                      unitType: instelling
+                      name: ROC Leren Zonder Drempels
+                      parentUnitId: null
+                    - id: d9561371-5ece-482d-a675-a076e63f980f
+                      unitType: onderwijsteam
+                      name: Onderwijsteam Farmacie
+                      parentUnitId: 6132ece6-d75e-4e80-81ce-91ab7448794d
+        '400':
+          description: Een onbruikbare parameterwaarde.
+        '404':
+          description: Een onbekend aanbod-id of een onbekende versie.
+      description: 'Stand: voorstel.
+
+
+        Werkbrief: IS-OA-05 W2, IS-OA-05 W3.
+
+
+        Foutgedrag: 404 bij een onbekend aanbod-id of een onbekende versie. Alleen-lezen, dus herhalen
+        geeft hetzelfde antwoord.
+
+
+        Herkomst: IS-OA-05-O2.'
+  /aanmeldbaar-aanbod/{id}/delta:
+    get:
+      summary: De wijziging op een aanmeldbaar aanbod ophalen
+      operationId: get-aanmeldbaar-aanbod-id-delta
+      x-okx-stroom: IS-OA-05
+      x-okx-herkomst:
+      - IS-OA-05-O3
+      x-okx-stand: voorstel
+      x-okx-werkbrieven:
+      - IS-OA-05 W7
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: Het Opleidingsprogramma aanbod.
+        schema:
+          type: string
+          format: uuid
+      - name: van
+        in: query
+        required: true
+        description: De versie waarvan de wijziging vertrekt; de kernregistratie kent de versie waarop
+          zij staat.
+        schema:
+          type: string
+      - name: naar
+        in: query
+        required: true
+        description: De versie waarop de wijziging uitkomt.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: De wijziging tussen de twee versies, als JSON Patch (RFC 6902).
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/education-offering-delta'
+              examples:
+                voorbeeld-1:
+                  summary: Uit is-oa-05.md:304
+                  value:
+                  - op: replace
+                    path: /offeringInstances/1/applicationWindow/end
+                    value: '2026-06-01'
+                  - op: replace
+                    path: /offeringInstances/1/version
+                    value: 0.2.0
+        '400':
+          description: Een versiebereik dat de catalogus niet kan samenstellen.
+        '404':
+          description: Een onbekend aanbod-id.
+      description: 'Stand: voorstel.
+
+
+        Werkbrief: IS-OA-05 W7.
+
+
+        Foutgedrag: 400 bij een versiebereik dat de catalogus niet kan samenstellen, 404 bij een onbekend
+        aanbod-id.
+
+
+        Herkomst: IS-OA-05-O3.'
+  /abonnementen:
+    post:
+      summary: Het afleveradres vastleggen
+      operationId: post-abonnementen
+      x-okx-stroom: IS-OA-01, IS-OA-03, IS-OA-05
+      x-okx-herkomst:
+      - IS-OA-01-O8
+      - IS-OA-03-O6
+      - IS-OA-05-O5
+      x-okx-stand: vastgelegd
+      x-okx-stand-kwalificatie: 'vastgelegd bij de onderwijscatalogus, op voorstel bij de curriculum ontwerptool
+
+
+        vastgelegd als pad, de meldingssoorten aanbod-aanmeldbaar en inrichtingsstatus staan op voorstel'
+      x-okx-werkbrieven:
+      - IS-OA-01 W2
+      - IS-OA-05 W5
+      requestBody:
+        required: true
+        description: 'Het afleveradres met de meldingssoorten waarop de partij zich abonneert. Dit bericht
+          richt het kanaal in en vervalt zodra de aflevering over een bus of broker loopt (U5).
+
+
+          Hier staat iets open: Geen voorbeeldpayload bij deze operatie, in geen van de drie stromen die
+          haar dragen.'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/subscription'
+      responses:
+        '201':
+          description: 'Het abonnement is vastgelegd, met het toegekende id.
+
+
+            Stand: vastgelegd, de operatietabel noemt geen antwoordlichaam; bericht 4 van IS-OA-03 zegt
+            dat het id in de respons wordt toegekend, en daaruit volgt dit lichaam.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/subscription'
+          x-okx-stand: vastgelegd
+          x-okx-stand-kwalificatie: de operatietabel noemt geen antwoordlichaam; bericht 4 van IS-OA-03
+            zegt dat het id in de respons wordt toegekend, en daaruit volgt dit lichaam
+        '400':
+          description: Een onbruikbaar afleveradres of een onbekende meldingssoort.
+      description: 'Stand: vastgelegd, vastgelegd bij de onderwijscatalogus, op voorstel bij de curriculum
+        ontwerptool (IS-OA-01); vastgelegd als pad, de meldingssoorten aanbod-aanmeldbaar en inrichtingsstatus
+        staan op voorstel (IS-OA-05).
+
+
+        Werkbrief: IS-OA-01 W2, IS-OA-05 W5.
+
+
+        Foutgedrag: Herhaalbaar zonder extra effect (idempotent) op afleveradres plus soort melding: een
+        herhaalde registratie overschrijft de vorige. HTTP-foutcode. Herhaalbaar zonder extra effect (idempotent)
+        op callbackUrl plus event-type: herregistratie overschrijft de vorige. HTTP-foutcodes. Herregistratie
+        overschrijft op de combinatie afleveradres plus meldingssoort.
+
+
+        Dienst: afleverabonnement-aanbieder.
+
+
+        Herkomst: IS-OA-01-O8, IS-OA-03-O6, IS-OA-05-O5.'
+  /examenplanspecificaties:
+    post:
+      summary: De resultaatstructuur aanleveren
+      operationId: post-examenplanspecificaties
+      x-okx-stroom: IS-OA-01
+      x-okx-herkomst:
+      - IS-OA-01-O4
+      x-okx-stand: voorstel
+      x-okx-werkbrieven:
+      - IS-OA-01 W1
+      - IS-OA-01 W16
+      requestBody:
+        required: true
+        description: Het examenplan met zijn resultaatstructuur, als eigen levering met een eigen wortel.
+          appliesTo wijst naar een opgenomen opleidingsprogrammaspecificatie, dus gaat de aanlevering
+          van het ontwerp voor.
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/result-structure'
+              - $ref: '#/components/schemas/student-choice-rule'
+            examples:
+              voorbeeld-1:
+                summary: Uit is-oa-01.md:573
+                value:
+                  educationSpecifications:
+                  - id: 08b4656d-27ec-4175-8c1b-1f1d51780785
+                    specificationType: examenplanspecificatie
+                    version: 0.1.0
+                    parentSpecificationId: null
+                    appliesTo: 7ae25c1e-ee27-43a2-a001-761ee39ea5c7
+                    learningOutcomeId: b84dc98b-6c5f-4ee8-bdfb-40b2639ca5a4
+                    learningOutcome:
+                      type: kwalificatie
+                      code: '27141'
+                    name: Resultaatstructuur Apothekersassistent
+                    description: Alle kerntaken voldoende, de keuzedeelruimte gevuld en afgerond, en het
+                      basisdeel behaald.
+                    aggregation: allenVoldoende
+                    resultModel:
+                      scale: voldoende-onvoldoende
+                    status: vastgesteld
+                    validFrom: '2026-09-01'
+                    validUntil: null
+                    manifest:
+                    - specificationId: 0512c773-9c1b-42c4-ae0d-9af8554f2462
+                      version: 0.1.0
+                      relation: onderdeel
+                    - specificationId: df0d3e50-c7c3-416e-b694-12fe5791eb7c
+                      version: 0.1.0
+                      relation: onderdeel
+                  - id: 0512c773-9c1b-42c4-ae0d-9af8554f2462
+                    specificationType: resultaateenheidspecificatie
+                    version: 0.1.0
+                    parentSpecificationId: 08b4656d-27ec-4175-8c1b-1f1d51780785
+                    learningOutcomeId: 12301838-92d4-4040-aea2-050bb131ceb7
+                    learningOutcome:
+                      type: kerntaak
+                      code: B1-K1
+                    assesses: 402c2342-d897-4df4-a667-7fc5bd930944
+                    name: Resultaat kerntaak B1-K1
+                    weighting: 1
+                    aggregation: gewogenGemiddelde
+                    resultModel:
+                      scale: cijfer-1-10
+                      passMark: 5.5
+                      decimalPlaces: 1
+                    mandatory: true
+                    status: vastgesteld
+                    manifest:
+                    - specificationId: 941f180d-b0af-4933-a580-6ab654dfadda
+                      version: 0.1.0
+                      relation: onderdeel
+                    - specificationId: 6061f30c-e8fd-44b8-a553-e3078c07dc75
+                      version: 0.1.0
+                      relation: onderdeel
+                    - specificationId: f004ba43-1e0b-4b8f-a677-0644ce29f4ea
+                      version: 0.1.0
+                      relation: onderdeel
+                  - id: 941f180d-b0af-4933-a580-6ab654dfadda
+                    specificationType: toetsonderdeelspecificatie
+                    version: 0.1.0
+                    parentSpecificationId: 0512c773-9c1b-42c4-ae0d-9af8554f2462
+                    learningOutcomeId: 12301838-92d4-4040-aea2-050bb131ceb7
+                    learningOutcome:
+                      type: kerntaak
+                      code: B1-K1
+                    name: Proeve van bekwaamheid B1-K1
+                    nature: summatief
+                    assessmentForm: proeveVanBekwaamheid
+                    weighting: 2
+                    resultModel:
+                      scale: cijfer-1-10
+                      passMark: 5.5
+                      decimalPlaces: 1
+                    mandatory: true
+                    status: vastgesteld
+                  - id: 6061f30c-e8fd-44b8-a553-e3078c07dc75
+                    specificationType: toetsonderdeelspecificatie
+                    version: 0.1.0
+                    parentSpecificationId: 0512c773-9c1b-42c4-ae0d-9af8554f2462
+                    learningOutcomeId: 78f25d62-9fd4-45c4-aa04-3d22f59213f5
+                    learningOutcome:
+                      type: werkproces
+                      code: B1-K1-W1
+                    name: Praktijktoets baliegesprek (OSCE)
+                    nature: summatief
+                    assessmentForm: praktijkopdracht
+                    weighting: 1
+                    resultModel:
+                      scale: cijfer-1-10
+                      passMark: 5.5
+                      decimalPlaces: 1
+                    mandatory: true
+                    status: vastgesteld
+                  - id: f004ba43-1e0b-4b8f-a677-0644ce29f4ea
+                    specificationType: toetsonderdeelspecificatie
+                    version: 0.1.0
+                    parentSpecificationId: 0512c773-9c1b-42c4-ae0d-9af8554f2462
+                    learningOutcomeId: 78f25d62-9fd4-45c4-aa04-3d22f59213f5
+                    learningOutcome:
+                      type: werkproces
+                      code: B1-K1-W1
+                    name: Formatieve voortgang baliegesprek
+                    nature: formatief
+                    assessmentForm: criteriumgesprek
+                    weighting: 0
+                    resultModel:
+                      scale: voldoende-onvoldoende
+                    mandatory: false
+                    status: concept
+                  - id: df0d3e50-c7c3-416e-b694-12fe5791eb7c
+                    specificationType: resultaateenheidspecificatie
+                    version: 0.1.0
+                    parentSpecificationId: 08b4656d-27ec-4175-8c1b-1f1d51780785
+                    assesses: fb5be5ae-faa0-4b4b-8085-474fce9aae08
+                    name: Resultaat keuzedelen
+                    description: Welke keuzedeelresultaten meetellen staat in de regelset.
+                    weighting: 1
+                    aggregation: minimaalAantal
+                    resultModel:
+                      scale: voldoende-onvoldoende
+                    mandatory: true
+                    status: vastgesteld
+                    ruleSetReferences:
+                    - 132f165a-973c-41c2-98df-e58d4ca6d7eb
+                  ruleSets:
+                  - id: 132f165a-973c-41c2-98df-e58d4ca6d7eb
+                    version: 0.1.0
+                    name: Meetellende keuzedeelresultaten Apothekersassistent
+                    appliesTo: df0d3e50-c7c3-416e-b694-12fe5791eb7c
+                    rules:
+                    - type: minimaleStudielast
+                      value: 720
+                      unit: SBU
+                      sourceSpecificationId: fb5be5ae-faa0-4b4b-8085-474fce9aae08
+                    - type: resultaatEis
+                      scope: elk gekozen keuzedeel
+                      requirement: voldoende
+      responses:
+        '202':
+          description: De levering is aangenomen, met haar leveringId.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/intake-outcome'
+              examples:
+                voorbeeld-1:
+                  summary: Uit is-oa-01.md:197
+                  value:
+                    deliveryId: 1743e345-3e08-41e2-9e75-f5c4bed8fccb
+                    status: ontvangen
+                    specificationReference:
+                      specificationId: 08b4656d-27ec-4175-8c1b-1f1d51780785
+                      version: 0.1.0
+        '400':
+          description: De vorm of een verwijzing vraagt herstel. Een appliesTo naar een opleidingsprogrammaspecificatie
+            buiten de catalogus geeft code verwijzingOnbekend.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/intake-rejection'
+        '409':
+          description: De catalogus draagt de wortel op dezelfde versie al.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/intake-rejection'
+      description: 'Stand: voorstel.
+
+
+        Werkbrief: IS-OA-01 W1, IS-OA-01 W16.
+
+
+        Foutgedrag: Als de aanlevering van het ontwerp. Een appliesTo naar een opleidingsprogrammaspecificatie
+        buiten de catalogus geeft 400 met code verwijzingOnbekend.
+
+
+        Dienst: onderwijsspecificatie-inname.
+
+
+        Herkomst: IS-OA-01-O4.'
+  /leveringen/{leveringId}:
+    get:
+      summary: De uitkomst van een levering opvragen
+      operationId: get-leveringen-leveringId
+      x-okx-stroom: IS-OA-01
+      x-okx-herkomst:
+      - IS-OA-01-O5
+      x-okx-stand: voorstel
+      x-okx-stand-kwalificatie: de bewaartermijn van een afgehandelde levering staat open
+      x-okx-werkbrieven:
+      - IS-OA-01 W1
+      - IS-OA-01 W17
+      parameters:
+      - name: leveringId
+        in: path
+        required: true
+        description: Het leveringId dat de catalogus bij de aanname toekende en stabiel houdt over elke
+          uitkomst van die levering.
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: 'De huidige toestand van de levering. De uitkomst blijft opvraagbaar zolang de
+            catalogus de levering bewaart.
+
+
+            Hier staat iets open: Geen voorbeeldpayload bij deze operatie; de specificatie toont dezelfde
+            vorm op de melding verwerkingsstatus.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/intake-outcome'
+        '404':
+          description: Een onbekend leveringId.
+      description: 'Stand: voorstel, de bewaartermijn van een afgehandelde levering staat open.
+
+
+        Werkbrief: IS-OA-01 W1, IS-OA-01 W17.
+
+
+        Foutgedrag: 200 draagt de huidige toestand van de levering, 404 volgt bij een onbekend leveringId.
+        Notify then pull (U4) legt deze weg vast, zodat een gemiste melding alsnog te halen is.
+
+
+        Dienst: verwerkingsstatus.
+
+
+        Herkomst: IS-OA-01-O5.'
+  /onderwijsspecificaties:
+    get:
+      summary: Herbruikbare specificaties zoeken
+      operationId: get-onderwijsspecificaties
+      x-okx-stroom: IS-OA-01, IS-OA-03
+      x-okx-herkomst:
+      - IS-OA-01-O1
+      - IS-OA-03-O5
+      x-okx-stand: vastgelegd
+      x-okx-stand-kwalificatie: 'de parameter leeruitkomstId staat op voorstel
+
+
+        de paginering staat op voorstel'
+      x-okx-werkbrieven:
+      - IS-OA-01 W3
+      - IS-OA-03 W14
+      parameters:
+      - name: status
+        in: query
+        required: false
+        description: 'De status waarop de lijst filtert; zonder deze parameter geldt gepubliceerd.
+
+
+          Hier staat iets open: De operatietabel noemt de standaardwaarde en niet de volledige waardenlijst,
+          dus blijft de parameter een vrije string.'
+        schema:
+          type: string
+          default: gepubliceerd
+      - name: gewijzigdSinds
+        in: query
+        required: false
+        description: Een tijdstempel; de lijst draagt wat sindsdien wijzigde. Bedoeld voor herstel na
+          een gemiste melding.
+        schema:
+          type: string
+          format: date-time
+      - name: leeruitkomstId
+        in: query
+        required: false
+        description: 'De leeruitkomst waarop de lijst filtert.
+
+
+          Stand: voorstel. Werkbrief: IS-OA-01 W3.'
+        schema:
+          type: string
+          format: uuid
+        x-okx-stand: voorstel
+        x-okx-werkbrieven:
+        - IS-OA-01 W3
+      responses:
+        '200':
+          description: 'De herbruikbare specificaties, elk als referentie met haar laatste versie binnen
+            de gevraagde status; O2 levert de structuur per id.
+
+
+            Hier staat iets open: Een array zonder omhulling draagt geen vervolgverwijzing en geen totaal,
+            waarmee de paginering uit W14 van IS-OA-03 op een omhullend object uitkomt; signalering S22
+            van de leeswijzer draagt dat punt.
+
+
+            Stand: vastgelegd, de componentpagina van de onderwijscatalogus legt de lijst van specification-reference
+            vast; de kopmetadata name en studyLoad staan op voorstel. Werkbrief: IS-OA-01 W3.'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/specification-reference'
+          x-okx-stand: vastgelegd
+          x-okx-stand-kwalificatie: de componentpagina van de onderwijscatalogus legt de lijst van specification-reference
+            vast; de kopmetadata name en studyLoad staan op voorstel
+          x-okx-werkbrieven:
+          - IS-OA-01 W3
+        '400':
+          description: 'Een onbruikbare parameterwaarde.
+
+
+            Hier staat iets open: Een eigen foutschema naar het model van bottleneck.json, dat W15 van
+            IS-OA-03 vraagt voor het lichaam bij een foutcode op de opvragingen; signalering S21 draagt
+            de vraag of die vorm over de opvragingen gaat.'
+      description: 'Stand: vastgelegd, de parameter leeruitkomstId staat op voorstel (IS-OA-01); de paginering
+        staat op voorstel (IS-OA-03).
+
+
+        Werkbrief: IS-OA-01 W3, IS-OA-03 W14.
+
+
+        Foutgedrag: HTTP-foutcode, de aanroeper bepaalt de herhaling. Alleen-lezen, dus herhalen geeft
+        hetzelfde antwoord. HTTP-foutcode. Bedoeld voor herstel, waarbij de reguliere stroom meldinggedreven
+        blijft.
+
+
+        Dienst: onderwijsspecificatiestructuur-aanbieder.
+
+
+        Herkomst: IS-OA-01-O1, IS-OA-03-O5.'
+    post:
+      summary: Het ontwerp aanleveren
+      operationId: post-onderwijsspecificaties
+      x-okx-stroom: IS-OA-01
+      x-okx-herkomst:
+      - IS-OA-01-O3
+      x-okx-stand: voorstel
+      x-okx-werkbrieven:
+      - IS-OA-01 W1
+      - IS-OA-01 W16
+      requestBody:
+        required: true
+        description: 'De levering als samenhangend geheel: leeruitkomsten, onderwijsspecificaties en regelsets
+          als drie arrays in een document. De catalogus neemt haar in haar geheel aan, of houdt haar in
+          haar geheel bij de poort.'
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/education-specification'
+              - $ref: '#/components/schemas/student-choice-rule'
+            examples:
+              voorbeeld-1:
+                summary: Uit is-oa-01.md:415
+                value:
+                  learningOutcomes:
+                  - id: c5b64fe5-f7bf-490c-acaf-7af1bd24f980
+                    version: 0.1.0
+                    name: Apothekersassistent (kwalificatiedossier 23450)
+                    source:
+                      standard: sbb-kwalificatiekader
+                      type: kwalificatiedossier
+                      code: '23450'
+                    parentLearningOutcomeId: null
+                    indicativeVolume:
+                    - value: 4800
+                      unit: SBU
+                    nlqfLevel: 4
+                    credentialDocument: diploma
+                  - id: b84dc98b-6c5f-4ee8-bdfb-40b2639ca5a4
+                    version: 0.1.0
+                    name: Apothekersassistent (kwalificatie 27141)
+                    source:
+                      standard: sbb-kwalificatiekader
+                      type: kwalificatie
+                      code: '27141'
+                    parentLearningOutcomeId: c5b64fe5-f7bf-490c-acaf-7af1bd24f980
+                    indicativeVolume:
+                    - value: 4800
+                      unit: SBU
+                  - id: 12301838-92d4-4040-aea2-050bb131ceb7
+                    version: 0.1.0
+                    name: Biedt farmaceutische patiëntenzorg in een levensechte apotheekomgeving
+                    source:
+                      standard: sbb-kwalificatiekader
+                      type: kerntaak
+                      code: B1-K1
+                    parentLearningOutcomeId: b84dc98b-6c5f-4ee8-bdfb-40b2639ca5a4
+                    indicativeVolume:
+                    - value: 2000
+                      unit: SBU
+                  - id: 78f25d62-9fd4-45c4-aa04-3d22f59213f5
+                    version: 0.1.0
+                    name: Voert baliegesprek en triage uit in de simulatieapotheek
+                    source:
+                      standard: sbb-kwalificatiekader
+                      type: werkproces
+                      code: B1-K1-W1
+                    parentLearningOutcomeId: 12301838-92d4-4040-aea2-050bb131ceb7
+                    indicativeVolume:
+                    - value: 600
+                      unit: SBU
+                  educationSpecifications:
+                  - id: 79736830-1c5c-470f-b2c2-005029c96733
+                    specificationType: opleidingsspecificatie
+                    version: 0.1.0
+                    parentSpecificationId: null
+                    learningOutcomeId: c5b64fe5-f7bf-490c-acaf-7af1bd24f980
+                    name: Apothekersassistent
+                    description: Opleiding tot apothekersassistent. Domein Zorg en welzijn.
+                    curriculumType: nominaal
+                    status: vastgesteld
+                    validFrom: '2026-08-01'
+                    validUntil: null
+                    studyLoad:
+                      value: 4800
+                      unit: SBU
+                    manifest:
+                    - specificationId: 5ef37812-ae0f-4232-904f-451b9928e45e
+                      version: 0.1.0
+                      relation: variant
+                  - id: 5ef37812-ae0f-4232-904f-451b9928e45e
+                    specificationType: opleidingsprogrammaspecificatie
+                    version: 0.1.0
+                    parentSpecificationId: 79736830-1c5c-470f-b2c2-005029c96733
+                    learningOutcomeId: b84dc98b-6c5f-4ee8-bdfb-40b2639ca5a4
+                    name: BOL voltijd
+                    programmeType: diplomaprogramma
+                    programmeLayer: leerweg
+                    learningPathway: BOL
+                    status: vastgesteld
+                    studyLoad:
+                      value: 4800
+                      unit: SBU
+                    manifest:
+                    - specificationId: 7ae25c1e-ee27-43a2-a001-761ee39ea5c7
+                      version: 0.1.0
+                      relation: variant
+                  - id: 7ae25c1e-ee27-43a2-a001-761ee39ea5c7
+                    specificationType: opleidingsprogrammaspecificatie
+                    version: 0.1.0
+                    parentSpecificationId: 5ef37812-ae0f-4232-904f-451b9928e45e
+                    learningOutcomeId: b84dc98b-6c5f-4ee8-bdfb-40b2639ca5a4
+                    name: Regulier BOL 2026
+                    programmeType: diplomaprogramma
+                    programmeLayer: doelgroep
+                    targetGroup: regulier
+                    learningPathway: BOL
+                    curriculumType: nominaal
+                    cohort: '2026'
+                    startDate: '2026-09-01'
+                    validFrom: '2026-09-01'
+                    validUntil: null
+                    status: vastgesteld
+                    studyLoad:
+                      value: 4800
+                      unit: SBU
+                    manifest:
+                    - specificationId: 402c2342-d897-4df4-a667-7fc5bd930944
+                      version: 0.1.0
+                      relation: onderdeel
+                    - specificationId: fb5be5ae-faa0-4b4b-8085-474fce9aae08
+                      version: 0.1.0
+                      relation: onderdeel
+                  - id: 402c2342-d897-4df4-a667-7fc5bd930944
+                    specificationType: onderwijseenheidspecificatie
+                    version: 0.1.0
+                    parentSpecificationId: 7ae25c1e-ee27-43a2-a001-761ee39ea5c7
+                    learningOutcomeId: 12301838-92d4-4040-aea2-050bb131ceb7
+                    name: Blok B1-K1
+                    status: vastgesteld
+                    studyLoad:
+                      value: 2000
+                      unit: SBU
+                    manifest:
+                    - specificationId: 327c8263-3516-4b5a-8d57-c16241ec008d
+                      version: 0.1.0
+                      relation: onderdeel
+                  - id: 327c8263-3516-4b5a-8d57-c16241ec008d
+                    specificationType: leeronderdeelspecificatie
+                    version: 0.1.0
+                    parentSpecificationId: 402c2342-d897-4df4-a667-7fc5bd930944
+                    learningOutcomeId: 78f25d62-9fd4-45c4-aa04-3d22f59213f5
+                    name: Baliegesprekken 101
+                    timeDistribution: BOT
+                    status: vastgesteld
+                    studyLoad:
+                      value: 600
+                      unit: SBU
+                  - id: fb5be5ae-faa0-4b4b-8085-474fce9aae08
+                    specificationType: keuzedeelruimtespecificatie
+                    version: 0.1.0
+                    parentSpecificationId: 7ae25c1e-ee27-43a2-a001-761ee39ea5c7
+                    name: Keuzedeelruimte
+                    description: Ruimte binnen de kwalificatie die met keuzedelen wordt ingevuld.
+                    status: vastgesteld
+                    studyLoad:
+                      value: 720
+                      unit: SBU
+                    ruleSetReferences:
+                    - e4037953-17d6-40a4-9e59-92ec1f9c19a8
+                  ruleSets:
+                  - id: e4037953-17d6-40a4-9e59-92ec1f9c19a8
+                    version: 0.1.0
+                    name: Kiesbare keuzedelen voor Apothekersassistent
+                    description: Bepaalt welke keuzedelen in de keuzedeelruimte kiesbaar zijn.
+                    appliesTo: fb5be5ae-faa0-4b4b-8085-474fce9aae08
+                    rules:
+                    - type: kiesbaar
+                      scope: alle keuzedelen met electiveUnitClass algemeen-verbredend
+                    - type: kiesbaar
+                      electiveUnit: beaaaf4c-b267-41f7-9b8d-ac9a19a7dfe1
+                      precondition:
+                      - requiredLearningOutcomeId: 12301838-92d4-4040-aea2-050bb131ceb7
+                        status: behaald
+                    - type: minimaleStudielast
+                      value: 720
+                      unit: SBU
+      responses:
+        '202':
+          description: 'De levering is aangenomen, met haar leveringId. Het oordeel over de inhoud volgt
+            op de melding verwerkingsstatus.
+
+
+            Hier staat iets open: Geen voorbeeldpayload bij het 202-antwoord van deze operatie; de specificatie
+            toont de vorm op O4.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/intake-outcome'
+        '400':
+          description: De vorm of een verwijzing vraagt herstel; de bevindingen staan in het lichaam.
+            Een aanlevering die bij de poort blijft laat de catalogus in de toestand van ervoor.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/intake-rejection'
+              examples:
+                voorbeeld-1:
+                  summary: Uit is-oa-01.md:278
+                  value:
+                    specificationReference:
+                      specificationId: 79736830-1c5c-470f-b2c2-005029c96733
+                      version: 0.1.0
+                    findings:
+                    - code: leeruitkomstOnbekend
+                      description: De leeruitkomst op kerntaakniveau ontbreekt in learningOutcomes en
+                        bij de catalogus.
+                      location: /educationSpecifications/3/learningOutcomeId
+                      involvedSpecificationIds:
+                      - 402c2342-d897-4df4-a667-7fc5bd930944
+                      foundValue: 12301838-92d4-4040-aea2-050bb131ceb7
+        '409':
+          description: De catalogus draagt de wortel op dezelfde versie al.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/intake-rejection'
+      description: 'Stand: voorstel.
+
+
+        Werkbrief: IS-OA-01 W1, IS-OA-01 W16.
+
+
+        Foutgedrag: 202 draagt de levering met haar leveringId, en het oordeel over de inhoud volgt op
+        de melding verwerkingsstatus. 400 draagt de bevindingen zodra de vorm of een verwijzing herstel
+        vraagt, 409 zodra de catalogus de wortel op dezelfde versie al draagt.
+
+
+        Dienst: onderwijsspecificatie-inname.
+
+
+        Herkomst: IS-OA-01-O3.'
+  /onderwijsspecificaties/{id}:
+    get:
+      summary: Een herbruikbare structuur ophalen
+      operationId: get-onderwijsspecificaties-id
+      x-okx-stroom: IS-OA-01, IS-OA-03
+      x-okx-herkomst:
+      - IS-OA-01-O2
+      - IS-OA-03-O2
+      x-okx-stand: vastgelegd
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: De wortel van de specificatiestructuur.
+        schema:
+          type: string
+          format: uuid
+      - name: versie
+        in: query
+        required: false
+        description: De versie die de respons draagt; zonder deze parameter de laatst gepubliceerde.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: De volledige specificatiestructuur op die versie.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/education-specification'
+                - $ref: '#/components/schemas/student-choice-rule'
+              examples:
+                voorbeeld-1:
+                  summary: Uit is-oa-03.md:223
+                  value:
+                    educationSpecifications:
+                    - id: 79736830-1c5c-470f-b2c2-005029c96733
+                      specificationType: opleidingsspecificatie
+                      version: 0.1.0
+                      parentSpecificationId: null
+                      learningOutcomeId: c5b64fe5-f7bf-490c-acaf-7af1bd24f980
+                      name: Apothekersassistent
+                      description: Opleiding tot apothekersassistent, kwalificatiedossier 23450, kwalificatie
+                        27141.
+                      curriculumType: nominaal
+                      status: gepubliceerd
+                      validFrom: '2026-08-01'
+                      validUntil: null
+                      studyLoad:
+                        value: 4800
+                        unit: SBU
+                      manifest:
+                      - specificationId: 5ef37812-ae0f-4232-904f-451b9928e45e
+                        version: 0.1.0
+                        relation: variant
+                    - id: 5ef37812-ae0f-4232-904f-451b9928e45e
+                      specificationType: opleidingsprogrammaspecificatie
+                      version: 0.1.0
+                      parentSpecificationId: 79736830-1c5c-470f-b2c2-005029c96733
+                      learningOutcomeId: b84dc98b-6c5f-4ee8-bdfb-40b2639ca5a4
+                      name: BOL voltijd
+                      programmeType: diplomaprogramma
+                      programmeLayer: leerweg
+                      learningPathway: BOL
+                      status: gepubliceerd
+                      studyLoad:
+                        value: 4800
+                        unit: SBU
+                      manifest:
+                      - specificationId: 7ae25c1e-ee27-43a2-a001-761ee39ea5c7
+                        version: 0.1.0
+                        relation: variant
+                    - id: 7ae25c1e-ee27-43a2-a001-761ee39ea5c7
+                      specificationType: opleidingsprogrammaspecificatie
+                      version: 0.1.0
+                      parentSpecificationId: 5ef37812-ae0f-4232-904f-451b9928e45e
+                      learningOutcomeId: b84dc98b-6c5f-4ee8-bdfb-40b2639ca5a4
+                      name: Regulier BOL 2026
+                      programmeType: diplomaprogramma
+                      programmeLayer: doelgroep
+                      targetGroup: regulier
+                      learningPathway: BOL
+                      curriculumType: nominaal
+                      cohort: '2026'
+                      startDate: '2026-09-01'
+                      status: gepubliceerd
+                      studyLoad:
+                        value: 4800
+                        unit: SBU
+                      manifest:
+                      - specificationId: 402c2342-d897-4df4-a667-7fc5bd930944
+                        version: 0.1.0
+                        relation: onderdeel
+                      - specificationId: fb5be5ae-faa0-4b4b-8085-474fce9aae08
+                        version: 0.1.0
+                        relation: onderdeel
+                    - id: 402c2342-d897-4df4-a667-7fc5bd930944
+                      specificationType: onderwijseenheidspecificatie
+                      version: 0.1.0
+                      parentSpecificationId: 7ae25c1e-ee27-43a2-a001-761ee39ea5c7
+                      learningOutcomeId: 12301838-92d4-4040-aea2-050bb131ceb7
+                      name: Blok B1-K1
+                      description: Biedt farmaceutische patiëntenzorg, op kerntaakniveau.
+                      status: gepubliceerd
+                      studyLoad:
+                        value: 2000
+                        unit: SBU
+                      manifest:
+                      - specificationId: 327c8263-3516-4b5a-8d57-c16241ec008d
+                        version: 0.1.0
+                        relation: onderdeel
+                      - specificationId: 29522e42-fb32-46d2-a504-0869831f941f
+                        version: 0.1.0
+                        relation: onderdeel
+                    - id: 327c8263-3516-4b5a-8d57-c16241ec008d
+                      specificationType: leeronderdeelspecificatie
+                      version: 0.1.0
+                      parentSpecificationId: 402c2342-d897-4df4-a667-7fc5bd930944
+                      learningOutcomeId: 78f25d62-9fd4-45c4-aa04-3d22f59213f5
+                      name: Baliegesprekken 101
+                      status: gepubliceerd
+                      timeDistribution: BOT
+                      studyLoad:
+                        value: 600
+                        unit: SBU
+                    - id: 29522e42-fb32-46d2-a504-0869831f941f
+                      specificationType: leeronderdeelspecificatie
+                      version: 0.1.0
+                      parentSpecificationId: 402c2342-d897-4df4-a667-7fc5bd930944
+                      learningOutcomeId: 0ffa279f-c595-49d7-b033-c91f66d18bb1
+                      name: Medicatiebewaking in de leerapotheek
+                      status: gepubliceerd
+                      timeDistribution: BOT
+                      studyLoad:
+                        value: 500
+                        unit: SBU
+                    - id: fb5be5ae-faa0-4b4b-8085-474fce9aae08
+                      specificationType: keuzedeelruimtespecificatie
+                      version: 0.1.0
+                      parentSpecificationId: 7ae25c1e-ee27-43a2-a001-761ee39ea5c7
+                      name: Keuzedeelruimte
+                      status: gepubliceerd
+                      studyLoad:
+                        value: 720
+                        unit: SBU
+                      ruleSetReferences:
+                      - e4037953-17d6-40a4-9e59-92ec1f9c19a8
+                    ruleSets:
+                    - id: e4037953-17d6-40a4-9e59-92ec1f9c19a8
+                      version: 0.1.0
+                      name: Kiesbare keuzedelen voor Apothekersassistent
+                      appliesTo: fb5be5ae-faa0-4b4b-8085-474fce9aae08
+                      rules:
+                      - type: kiesbaar
+                        scope: alle keuzedelen met electiveUnitClass algemeen-verbredend
+                      - type: kiesbaar
+                        electiveUnit: beaaaf4c-b267-41f7-9b8d-ac9a19a7dfe1
+                        precondition:
+                        - requiredLearningOutcomeId: 12301838-92d4-4040-aea2-050bb131ceb7
+                          status: behaald
+                      - type: minimaleStudielast
+                        value: 720
+                        unit: SBU
+        '400':
+          description: Een onbekende versie.
+        '404':
+          description: Een onbekend id.
+      x-okx-stand-kwalificatie: het antwoordlichaam bij 400 en 404 staat op voorstel
+      x-okx-werkbrieven:
+      - IS-OA-03 W15
+      description: 'Stand: vastgelegd, het antwoordlichaam bij 400 en 404 staat op voorstel.
+
+
+        Werkbrief: IS-OA-03 W15.
+
+
+        Foutgedrag: 404 bij een onbekend id, 400 bij een onbekende versie. De delta staat op /onderwijsspecificaties/{id}/delta
+        met van en naar, beide verplicht. HTTP-foutcode, de aanroeper bepaalt het herhalen.
+
+
+        Dienst: onderwijsspecificatiestructuur-aanbieder.
+
+
+        Herkomst: IS-OA-01-O2, IS-OA-03-O2.'
+  /onderwijsspecificaties/{id}/delta:
+    get:
+      summary: De wijziging ophalen (I2)
+      operationId: get-onderwijsspecificaties-id-delta
+      x-okx-stroom: IS-OA-03
+      x-okx-herkomst:
+      - IS-OA-03-O3
+      x-okx-stand: vastgelegd
+      x-okx-stand-kwalificatie: het antwoordlichaam bij 400 en 404 staat op voorstel
+      x-okx-werkbrieven:
+      - IS-OA-03 W15
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: De wortel van de specificatiestructuur.
+        schema:
+          type: string
+          format: uuid
+      - name: van
+        in: query
+        required: true
+        description: De versie waarvan de wijziging vertrekt.
+        schema:
+          type: string
+      - name: naar
+        in: query
+        required: true
+        description: De versie waarop de wijziging uitkomt.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: 'De wijziging tussen de twee versies, als JSON Patch (RFC 6902).
+
+
+            Hier staat iets open: Geen voorbeeldpayload bij deze operatie; IS-OA-05 toont dezelfde vorm
+            op haar aanbod-delta.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/education-specification-delta'
+        '400':
+          description: 'Een versiebereik dat de catalogus niet kan samenstellen.
+
+
+            Hier staat iets open: Een eigen foutschema naar het model van bottleneck.json, dat W15 van
+            IS-OA-03 vraagt voor het lichaam bij een foutcode op de opvragingen; de codelijst van intake-finding
+            dekt de gronden van een inname en laat een onbekend id of een onbekende versie erbuiten. Signalering
+            S21 draagt de vraag of die vorm over de opvragingen gaat.
+
+
+            Stand: voorstel. Werkbrief: IS-OA-03 W15.'
+          x-okx-stand: voorstel
+          x-okx-werkbrieven:
+          - IS-OA-03 W15
+        '404':
+          description: 'Een onbekend id.
+
+
+            Hier staat iets open: Een eigen foutschema naar het model van bottleneck.json, dat W15 van
+            IS-OA-03 vraagt voor het lichaam bij een foutcode op de opvragingen; de codelijst van intake-finding
+            dekt de gronden van een inname en laat een onbekend id of een onbekende versie erbuiten. Signalering
+            S21 draagt de vraag of die vorm over de opvragingen gaat.
+
+
+            Stand: voorstel. Werkbrief: IS-OA-03 W15.'
+          x-okx-stand: voorstel
+          x-okx-werkbrieven:
+          - IS-OA-03 W15
+      description: 'Stand: vastgelegd, het antwoordlichaam bij 400 en 404 staat op voorstel.
+
+
+        Werkbrief: IS-OA-03 W15.
+
+
+        Foutgedrag: HTTP-foutcode. Het antwoord volgt JSON Patch (RFC 6902). U11 vraagt de volledige structuur
+        en de wijziging op dezelfde resource.
+
+
+        Herkomst: IS-OA-03-O3.'
+webhooks:
+  aanbod-aanmeldbaar:
+    post:
+      summary: Melden dat een aanbod aanmeldbaar is
+      operationId: melding-aanbod-aanmeldbaar
+      x-okx-stroom: IS-OA-05
+      x-okx-herkomst:
+      - IS-OA-05-O1
+      x-okx-stand: voorstel
+      x-okx-stand-kwalificatie: IS-OA-06 draagt dezelfde melding op hetzelfde moment en hetzelfde schema
+        onder de naam aanmeldbaar-aanbod-beschikbaar; de keuze tussen de twee namen staat open
+      x-okx-werkbrieven:
+      - IS-OA-05 W1
+      - IS-OA-05 W5
+      - IS-OA-05 W6
+      requestBody:
+        required: true
+        description: 'Dun, conform notify then pull (U4): de statusovergang van een aanbodinstantie met
+          een verwijzing. Een intrekking rijdt mee op de statuswaarde geannuleerd.'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/offering-status-changed'
+            examples:
+              voorbeeld-1:
+                summary: Uit is-oa-05.md:202
+                value:
+                  offeringId: 8c494250-b67a-4666-a762-6f9ec1e70aff
+                  version: 0.1.0
+                  offeringType: opleidingsprogramma-aanbod
+                  specificationReference:
+                    specificationId: 7ae25c1e-ee27-43a2-a001-761ee39ea5c7
+                    version: 0.1.0
+                  oldStatus: gepland
+                  newStatus: aanmeldbaar
+                  cohort: '2026'
+      responses:
+        '200':
+          description: 'De kernregistratie bevestigt de aflevering.
+
+
+            De bevestiging draagt geen lichaam: de specificatie vraagt op deze melding alleen de statuscode.'
+      x-okx-ontvanger: kernregistratie
+      security:
+      - okxAfleverCredentials: []
+      description: 'Stand: voorstel, IS-OA-06 draagt dezelfde melding op hetzelfde moment en hetzelfde
+        schema onder de naam aanmeldbaar-aanbod-beschikbaar; de keuze tussen de twee namen staat open.
+
+
+        Werkbrief: IS-OA-05 W1, IS-OA-05 W5, IS-OA-05 W6.
+
+
+        Foutgedrag: Zonder 200 volgt herhaling met uitstel (backoff) en daarna de wachtrij voor onbestelbare
+        berichten (dead letter channel). Herhaalde aflevering blijft zonder effect op het eventId.
+
+
+        Herkomst: IS-OA-05-O1.'
+  specificatie-planbaar:
+    post:
+      summary: Melden dat de specificatie planbaar is (I1)
+      operationId: melding-specificatie-planbaar
+      x-okx-stroom: IS-OA-03
+      x-okx-herkomst:
+      - IS-OA-03-O1
+      x-okx-stand: vastgelegd
+      x-okx-stand-kwalificatie: het verzoek tot aanbod eromheen staat op voorstel, en het eventId ook
+      x-okx-werkbrieven:
+      - IS-OA-03 W1
+      - IS-OA-03 W13
+      requestBody:
+        required: true
+        description: 'Dun, conform notify then pull (U4): de referentie naar de specificatie die planbaar
+          is, met de inhoud op opvraag.'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/specification-reference'
+            examples:
+              voorbeeld-1:
+                summary: Uit is-oa-03.md:198
+                value:
+                  specificationId: 79736830-1c5c-470f-b2c2-005029c96733
+                  version: 0.1.0
+        x-okx-voorstel-vorm:
+          description: 'De vorm die werkbrief W1 voorstelt: dezelfde referentie met de planopgave eromheen,
+            zodat het verzoek een eigen identiteit draagt. Twee verzoeken op dezelfde specificatieversie
+            zien er in de vastgelegde vorm gelijk uit.
+
+
+            Stand: voorstel. Werkbrief: IS-OA-03 W1.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/offering-request'
+              examples:
+                voorbeeld-1:
+                  summary: Uit is-oa-03.md:207
+                  value:
+                    requestId: 7ec74caa-0b5a-4de7-bf69-04415a02f214
+                    specificationReference:
+                      specificationId: 79736830-1c5c-470f-b2c2-005029c96733
+                      version: 0.1.0
+                    name: Planopgave Apothekersassistent, cohort 2026
+                    cohort: '2026'
+                    requestedAt: '2025-04-01'
+                    expectedIntake: 48
+          x-okx-stand: voorstel
+          x-okx-werkbrieven:
+          - IS-OA-03 W1
+      responses:
+        '200':
+          description: 'Het planningssysteem bevestigt de aflevering.
+
+
+            De bevestiging draagt geen lichaam: de specificatie vraagt op deze melding alleen de statuscode.'
+      x-okx-ontvanger: planningssysteem
+      security:
+      - okxAfleverCredentials: []
+      description: 'Stand: vastgelegd, het verzoek tot aanbod eromheen staat op voorstel, en het eventId
+        ook.
+
+
+        Werkbrief: IS-OA-03 W1, IS-OA-03 W13.
+
+
+        Foutgedrag: Blijft de bevestiging uit, dan opnieuw aanbieden met oplopende wachttijd (backoff)
+        en daarna de wachtrij voor onbestelbare berichten (dead letter channel). Een tweede aflevering
+        van dezelfde specificationId en version wijst hetzelfde verzoek aan.
+
+
+        Herkomst: IS-OA-03-O1.'
+  specificatie-status-gewijzigd:
+    post:
+      summary: Een statuswijziging melden
+      operationId: melding-specificatie-status-gewijzigd
+      x-okx-stroom: IS-OA-01
+      x-okx-herkomst:
+      - IS-OA-01-O7
+      x-okx-stand: vastgelegd
+      x-okx-stand-kwalificatie: de melding, haar schema en haar eventwaarde staan vastgelegd, het endpoint
+        bij de curriculum ontwerptool staat op voorstel
+      x-okx-werkbrieven:
+      - IS-OA-01 W2
+      - IS-OA-01 W12
+      requestBody:
+        required: true
+        description: 'De overgang van vastgesteld naar gepubliceerd op de wortel van de opgenomen structuur.
+          Het publicatiebesluit ligt bij de catalogus (ADR 0020).
+
+
+          Hier staat iets open: Geen voorbeeldpayload bij deze melding.'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/specification-status-changed'
+      responses:
+        '200':
+          description: 'De ontvanger bevestigt de aflevering.
+
+
+            De bevestiging draagt geen lichaam: de specificatie vraagt op deze melding alleen de statuscode.'
+      x-okx-ontvanger: curriculum-ontwerptool
+      security:
+      - okxAfleverCredentials: []
+      description: 'Stand: vastgelegd, de melding, haar schema en haar eventwaarde staan vastgelegd, het
+        endpoint bij de curriculum ontwerptool staat op voorstel.
+
+
+        Werkbrief: IS-OA-01 W2, IS-OA-01 W12.
+
+
+        Foutgedrag: Als de melding verwerkingsstatus: herhalen met oplopende wachttijd en daarna de wachtrij
+        voor onbestelbare berichten, en herhaalbaar zonder extra effect op het eventId.
+
+
+        Dienst: onderwijsspecificatiestructuur-aanbieder.
+
+
+        Herkomst: IS-OA-01-O7.'
+  verwerkingsstatus:
+    post:
+      summary: De uitkomst van de inname melden
+      operationId: melding-verwerkingsstatus
+      x-okx-stroom: IS-OA-01
+      x-okx-herkomst:
+      - IS-OA-01-O6
+      x-okx-stand: vastgelegd
+      x-okx-stand-kwalificatie: de melding en haar schema staan vastgelegd, de sleutels deliveryId en
+        findings erbij staan op voorstel, en het endpoint bij de curriculum ontwerptool staat op voorstel
+      x-okx-werkbrieven:
+      - IS-OA-01 W2
+      - IS-OA-01 W12
+      - IS-OA-01 W14
+      requestBody:
+        required: true
+        description: 'De toestand van de levering: ontvangen, gestart, afgekeurd, gelukt of nietGelukt.
+          Bij gelukt staan de toegekende identiteit en versie in specificationReference, bij een afkeuring
+          staan de bevindingen in findings.'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/intake-outcome'
+            examples:
+              voorbeeld-1:
+                summary: Uit is-oa-01.md:210
+                value:
+                  deliveryId: d6d15731-fb31-4627-b51f-090a1e01be7b
+                  status: gelukt
+                  specificationReference:
+                    specificationId: 79736830-1c5c-470f-b2c2-005029c96733
+                    version: 0.1.0
+                  eventId: e432bfdb-b64f-4f0c-b56c-4b1a87ba2a7d
+              voorbeeld-2:
+                summary: Uit is-oa-01.md:249
+                value:
+                  deliveryId: d6d15731-fb31-4627-b51f-090a1e01be7b
+                  status: afgekeurd
+                  specificationReference:
+                    specificationId: 79736830-1c5c-470f-b2c2-005029c96733
+                    version: 0.1.0
+                  findings:
+                  - code: studielastTeltNietOp
+                    description: De onderdelen van Blok B1-K1 tellen op naar 600 SBU, terwijl de eenheid
+                      2000 SBU draagt.
+                    location: /educationSpecifications/3/studyLoad
+                    involvedSpecificationIds:
+                    - 402c2342-d897-4df4-a667-7fc5bd930944
+                    - 327c8263-3516-4b5a-8d57-c16241ec008d
+                    expectedValue: 2000 SBU
+                    foundValue: 600 SBU
+                  eventId: e432bfdb-b64f-4f0c-b56c-4b1a87ba2a7d
+      responses:
+        '200':
+          description: 'De ontvanger bevestigt de aflevering.
+
+
+            De bevestiging draagt geen lichaam: de specificatie vraagt op deze melding alleen de statuscode.'
+      x-okx-ontvanger: curriculum-ontwerptool
+      security:
+      - okxAfleverCredentials: []
+      description: 'Stand: vastgelegd, de melding en haar schema staan vastgelegd, de sleutels deliveryId
+        en findings erbij staan op voorstel, en het endpoint bij de curriculum ontwerptool staat op voorstel.
+
+
+        Werkbrief: IS-OA-01 W2, IS-OA-01 W12, IS-OA-01 W14.
+
+
+        Foutgedrag: Zonder bevestiging herhaalt de melder met oplopende wachttijd (backoff) en daarna
+        via de wachtrij voor onbestelbare berichten (dead letter channel). Een herhaald bericht heeft
+        geen extra effect: de ontvanger herkent het eventId.
+
+
+        Dienst: verwerkingsuitkomst-aanbieder.
+
+
+        Herkomst: IS-OA-01-O6.'
+components:
+  securitySchemes:
+    okxClientCredentials:
+      type: oauth2
+      description: 'auth-standaard.md in Npuls-OKx/Public legt OAuth 2.0 Client Credentials repo-breed
+        vast, met een token-endpoint per serverend component en zonder centrale autorisatieserver, en
+        past diezelfde regel omgekeerd toe op de aflevering van een melding.
+
+
+        Vindplaats: https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/auth-standaard.md
+
+
+        Hier staat iets open: De tokenUrl per component staat open: de auth-standaard legt het mechanisme
+        vast en laat het adres aan de inrichting van instelling en leverancier.'
+      flows:
+        clientCredentials:
+          tokenUrl: https://component.invalid/okx/token
+          scopes: {}
+    okxAfleverCredentials:
+      type: oauth2
+      description: 'Voor de aflevering van een melding geldt dezelfde regel omgekeerd: de melder haalt
+        een token bij de token-endpoint van de ontvanger, met de gegevens die bij de registratie van het
+        abonnement zijn afgesproken.
+
+
+        Vindplaats: https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/auth-standaard.md
+
+
+        Hier staat iets open: de token-endpoint van de ontvanger staat per abonnement open.'
+      flows:
+        clientCredentials:
+          tokenUrl: https://ontvanger.invalid/okx/token
+          scopes: {}
+  schemas:
+    address:
+      title: Address
+      DutchName: Adres
+      $comment: Alfa en indicatief. Deze vorm onderbouwt welke velden het koppelvlak nodig heeft en kan
+        wijzigen zolang de payload niet is vastgesteld.
+      type: object
+      properties:
+        street:
+          type: string
+          DutchName: straat
+        houseNumber:
+          type: string
+          DutchName: huisnummer
+        postcode:
+          type: string
+          DutchName: postcode
+        city:
+          type: string
+          DutchName: plaats
+        country:
+          type: string
+          DutchName: land
+    arrangement-status:
+      title: Arrangement status
+      DutchName: Inrichtingsstatus
+      $comment: Voorstel. Het label voorstel in de $id houdt dit schema apart van de alfa-schema's die
+        Npuls-OKx/Public draagt; werkbrief W4 van IS-OA-05 laat het daar landen. De dienstpagina van de
+        onderwijscatalogus draagt het meldpatroon inrichtingsstatus en kondigt dit payloadschema aan.
+        De statuswaarden komen uit interactie S4 van het interactiepatroon onderwijscatalogus naar studentinformatiesysteem.
+        De vorm volgt processing-status/alfa, met het aanbod als onderwerp. Een eigenschap met een eigen
+        $comment voorstel staat in geen schema van Public.
+      type: object
+      required:
+      - status
+      - offeringReference
+      - specificationReference
+      properties:
+        eventId:
+          type: string
+          format: uuid
+          $comment: 'voorstel: U5 vraagt een stabiel id waarop de ontvanger een herhaalde aflevering herkent'
+          DutchName: eventId
+        status:
+          enum:
+          - ontvangen
+          - gestart
+          - afgekeurd
+          - ingericht
+          - nietIngericht
+          - verwerkt
+          - nietVerwerkt
+          $comment: ontvangen en gestart melden de aanname, afgekeurd een validatiefout op het bericht,
+            ingericht en nietIngericht de uitkomst van het inrichten. Interactie S4 noemt deze vijf; de
+            acceptatietoets bij een nieuwe versie voegt verwerkt en nietVerwerkt toe
+          DutchName: status
+        offeringReference:
+          $ref: '#/components/schemas/offering-reference'
+          $comment: 'voorstel: het aanbod waarover de melding gaat. processing-status/alfa draagt programmeOfferingId
+            (opleidingsaanbodId) als losse sleutel en sleutelt op de specificatie'
+          DutchName: aanbodVerwijzing
+        specificationReference:
+          $ref: '#/components/schemas/specification-reference'
+          $comment: de specificatie-id en versie die de dienstpagina van de onderwijscatalogus in deze
+            payload vraagt, en die processing-status/alfa verplicht
+          DutchName: specificatieVerwijzing
+        arrangementReference:
+          type: string
+          format: uuid
+          $comment: 'voorstel: de referentie naar de inrichting bij de afnemer, die de dienstpagina van
+            de onderwijscatalogus op dit meldpatroon vraagt. De kernregistratie kent haar toe bij het
+            inrichten'
+          DutchName: inrichtingReferentie
+        reason:
+          type: string
+          $comment: 'voorstel: de reden achter afgekeurd, nietIngericht en nietVerwerkt, in leesbare tekst
+            voor de beheerder van de catalogus'
+          DutchName: reden
+      additionalProperties: false
+      allOf:
+      - $comment: een uitkomst die inrichting meldt, draagt de referentie naar die inrichting
+        if:
+          properties:
+            status:
+              enum:
+              - ingericht
+              - verwerkt
+          required:
+          - status
+        then:
+          required:
+          - arrangementReference
+      - $comment: een uitkomst die afwijzing meldt, draagt de reden
+        if:
+          properties:
+            status:
+              enum:
+              - afgekeurd
+              - nietIngericht
+              - nietVerwerkt
+          required:
+          - status
+        then:
+          required:
+          - reason
+    code:
+      title: Code
+      DutchName: Code
+      $comment: Alfa en indicatief. Externe identificatie, bijvoorbeeld een vestigingscode. Deze vorm
+        onderbouwt welke velden het koppelvlak nodig heeft en kan wijzigen zolang de payload niet is vastgesteld.
+      type: object
+      properties:
+        codeType:
+          type: string
+          DutchName: codeType
+        code:
+          type: string
+          DutchName: code
+    education-offering-delta:
+      title: Education offering delta
+      DutchName: Onderwijsaanbod-delta
+      $comment: Voorstel. Het label voorstel in de $id houdt dit schema apart van de alfa-schema's die
+        Npuls-OKx/Public draagt; werkbrief W7 van IS-OA-05 laat het daar landen. JSON Patch (RFC 6902)
+        tussen twee versies van een aanbodstructuur, de deltavorm die U11 naast de volledige structuur
+        vraagt. RFC 6902 is de normatieve definitie van de operatievorm, dit schema legt vast dat de respons
+        daaraan voldoet. De vorm volgt education-specification-delta/alfa.
+      type: array
+      items:
+        type: object
+        required:
+        - op
+        - path
+        properties:
+          op:
+            enum:
+            - add
+            - remove
+            - replace
+            - move
+            - copy
+            - test
+            DutchName: op
+          path:
+            type: string
+            DutchName: path
+          from:
+            type: string
+            DutchName: from
+          value:
+            DutchName: value
+    education-specification:
+      title: Education specification
+      DutchName: Onderwijsspecificatie
+      $comment: Alfa en indicatief. Deze vorm onderbouwt welke velden het koppelvlak nodig heeft en kan
+        wijzigen zolang de payload niet is vastgesteld.
+      type: object
+      required:
+      - educationSpecifications
+      $comment_required: Alleen onderwijsspecificaties is altijd aanwezig. Of leeruitkomsten en regelsets
+        meekomen bepaalt het gebruiksprofiel van de koppeling; binnen onderwijscatalogus naar planning
+        en roostering blijven leeruitkomsten weg ([ADR 0023](../../Referentiemateriaal/adr/0023-leeruitkomsten-als-opaque-sleutels-in-koppeling-oc-p-en-r.md)).
+      properties:
+        learningOutcomes:
+          type: array
+          items:
+            $ref: '#/components/schemas/learning-outcome'
+          DutchName: leeruitkomsten
+        educationSpecifications:
+          type: array
+          items:
+            type: object
+            required:
+            - id
+            - specificationType
+            - version
+            - parentSpecificationId
+            - name
+            - studyLoad
+            properties:
+              id:
+                type: string
+                format: uuid
+                DutchName: id
+              specificationType:
+                enum:
+                - opleidingsspecificatie
+                - opleidingsprogrammaspecificatie
+                - onderwijseenheidspecificatie
+                - leeronderdeelspecificatie
+                - keuzedeelruimtespecificatie
+                - toetsonderdeelspecificatie
+                - examenplanspecificatie
+                - resultaateenheidspecificatie
+                DutchName: specificatieType
+              version:
+                type: string
+                pattern: ^\d+\.\d+\.\d+$
+                DutchName: versie
+              parentSpecificationId:
+                type:
+                - string
+                - 'null'
+                format: uuid
+                DutchName: bovenliggendSpecificatieId
+              learningOutcomeId:
+                type: string
+                format: uuid
+                DutchName: leeruitkomstId
+              name:
+                type: string
+                DutchName: naam
+              description:
+                type: string
+                DutchName: omschrijving
+              status:
+                enum:
+                - concept
+                - vastgesteld
+                - gepubliceerd
+                - gedeactiveerd
+                - vervallen
+                - gearchiveerd
+                DutchName: status
+              studyLoad:
+                $ref: '#/components/schemas/volume'
+                DutchName: studielast
+              curriculumType:
+                enum:
+                - nominaal
+                - hybride
+                - flexibel
+                DutchName: curriculumtype
+              programmeType:
+                type: string
+                $comment: 'open lijst: diplomaprogramma, keuzedeelprogramma, certificaatprogramma'
+                DutchName: programmatype
+              programmeLayer:
+                enum:
+                - leerweg
+                - doelgroep
+                DutchName: programmaLaag
+              learningPathway:
+                enum:
+                - BOL
+                - BBL
+                DutchName: leerweg
+              targetGroup:
+                type: string
+                $comment: 'open lijst: regulier, zijinstromer, hybride, organisatiespecifiek'
+                DutchName: doelgroep
+              electiveUnitClass:
+                type: string
+                $comment: 'open lijst: algemeen-verbredend, beroepsspecifiek-verdiepend'
+                DutchName: keuzedeelKlasse
+              organisation:
+                $ref: '#/components/schemas/organisation-unit'
+                $comment: de organisatie waarvoor deze variant geldt, bijvoorbeeld een leerbedrijf
+                DutchName: organisatie
+              cohort:
+                type: string
+                DutchName: cohort
+              startDate:
+                type: string
+                format: date
+                DutchName: startdatum
+              validFrom:
+                type: string
+                format: date
+                DutchName: geldigVanaf
+              validUntil:
+                type:
+                - string
+                - 'null'
+                format: date
+                DutchName: geldigTot
+              timeDistribution:
+                type: string
+                $comment: 'open lijst: BOT (begeleide onderwijstijd), OOT (overige onderwijstijd), BPV'
+                DutchName: tijdsverdeling
+              explanation:
+                type: string
+                DutchName: toelichting
+              ruleSetReferences:
+                type: array
+                items:
+                  type: string
+                  format: uuid
+                DutchName: regelsetVerwijzingen
+              manifest:
+                type: array
+                items:
+                  $ref: '#/components/schemas/manifest-item'
+                DutchName: manifest
+          DutchName: onderwijsspecificaties
+        ruleSets:
+          type: array
+          items:
+            $ref: '#/components/schemas/rule-set'
+          DutchName: regelsets
+    education-specification-delta:
+      title: Education specification delta
+      DutchName: Onderwijsspecificatie-delta
+      $comment: Alfa en indicatief. JSON Patch (RFC 6902) tussen twee versies van de onderwijsspecificatiestructuur;
+        RFC 6902 is de normatieve definitie van de operatievorm, dit schema legt vast dat de respons daaraan
+        voldoet.
+      type: array
+      items:
+        type: object
+        required:
+        - op
+        - path
+        properties:
+          op:
+            enum:
+            - add
+            - remove
+            - replace
+            - move
+            - copy
+            - test
+            DutchName: op
+          path:
+            type: string
+            DutchName: path
+          from:
+            type: string
+            DutchName: from
+          value:
+            DutchName: value
+    geolocation:
+      title: Geolocation
+      DutchName: Geolocatie
+      $comment: Alfa en indicatief. Deze vorm onderbouwt welke velden het koppelvlak nodig heeft en kan
+        wijzigen zolang de payload niet is vastgesteld.
+      type: object
+      properties:
+        latitude:
+          type: number
+          DutchName: breedtegraad
+        longitude:
+          type: number
+          DutchName: lengtegraad
+    intake-finding:
+      title: Intake finding
+      DutchName: Innamebevinding
+      $comment: Voorstel vanuit de interactiespecificatie onderwijsaanbod, eenheid IS-OA-01. Een bevinding
+        zegt op welke grond de onderwijscatalogus een aanlevering afkeurt. De vorm volgt bottleneck/alfa,
+        de codelijst volgt de invarianten uit regels.md.
+      type: object
+      required:
+      - code
+      - description
+      properties:
+        code:
+          DutchName: code
+          enum:
+          - vormFout
+          - studielastTeltNietOp
+          - leeruitkomstOnbekend
+          - ouderOnbekend
+          - verwijzingOnbekend
+          - manifestMismatch
+          - versieConflict
+          - statusNietVastgesteld
+        description:
+          type: string
+          DutchName: omschrijving
+        location:
+          type: string
+          DutchName: locatie
+          $comment: JSON Pointer (RFC 6901) naar het element in de aangeleverde lading, bijvoorbeeld /educationSpecifications/3/studyLoad
+        involvedSpecificationIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+          DutchName: betrokkenSpecificatieIds
+        expectedValue:
+          type: string
+          DutchName: verwachteWaarde
+        foundValue:
+          type: string
+          DutchName: aangetroffenWaarde
+    intake-outcome:
+      title: Intake outcome
+      DutchName: Innameuitkomst
+      $comment: 'Voorstel vanuit de interactiespecificatie onderwijsaanbod, eenheid IS-OA-01. De toestand
+        van een levering, als antwoord op de aanlevering (HTTP 202), als melding verwerkingsstatus en
+        als opvraag op /leveringen/{leveringId}. Dit is processing-status/alfa met twee sleutels erbij:
+        leveringId voor de correlatie en bevindingen voor de grond bij een afkeuring. Elk document dat
+        tegen dit schema valideert en een specificatieVerwijzing draagt, valideert ook tegen processing-status/alfa.
+        Waar de meldingen van de andere eenheden hun reden als leesbare tekst dragen, draagt de inname
+        haar grond als bevinding met een code. Verwijzingen naar andere schema''s gaan via hun $id.'
+      type: object
+      required:
+      - deliveryId
+      - status
+      properties:
+        deliveryId:
+          type: string
+          format: uuid
+          $comment: de onderwijscatalogus kent dit id toe bij aanname en houdt het stabiel over elke uitkomst
+            van dezelfde levering
+          DutchName: leveringId
+        status:
+          enum:
+          - ontvangen
+          - gestart
+          - afgekeurd
+          - gelukt
+          - nietGelukt
+          DutchName: status
+        specificationReference:
+          $ref: '#/components/schemas/specification-reference'
+          $comment: de identiteit en de versie die de onderwijscatalogus aan de opgenomen wortel toekent
+          DutchName: specificatieVerwijzing
+        findings:
+          type: array
+          items:
+            $ref: '#/components/schemas/intake-finding'
+          $comment: gevuld bij afgekeurd en bij nietGelukt
+          DutchName: bevindingen
+        eventId:
+          type: string
+          format: uuid
+          $comment: stabiel per melding, waarop de ontvanger een herhaald bericht herkent
+          DutchName: eventId
+      allOf:
+      - $comment: op gelukt staat de toegekende identiteit en versie in de uitkomst
+        if:
+          type: object
+          required:
+          - status
+          properties:
+            status:
+              const: gelukt
+        then:
+          required:
+          - specificationReference
+      - $comment: een afkeuring draagt haar grond
+        if:
+          type: object
+          required:
+          - status
+          properties:
+            status:
+              enum:
+              - afgekeurd
+              - nietGelukt
+        then:
+          required:
+          - findings
+          properties:
+            findings:
+              minItems: 1
+    intake-rejection:
+      title: Intake rejection
+      DutchName: Innameafkeuring
+      $comment: 'Voorstel vanuit de interactiespecificatie onderwijsaanbod, eenheid IS-OA-01. Het antwoordlichaam
+        waarmee de onderwijscatalogus een aanlevering bij de poort houdt (HTTP 400, 404 of 409): er komt
+        geen levering en de aanleverende partij herstelt de lading. Een afkeuring na aanname komt als
+        innameuitkomst met status afgekeurd. Verwijzingen naar andere schema''s gaan via hun $id.'
+      type: object
+      required:
+      - findings
+      properties:
+        findings:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/intake-finding'
+          DutchName: bevindingen
+        specificationReference:
+          $ref: '#/components/schemas/specification-reference'
+          $comment: de wortel van de aangeleverde lading, zodra die te lezen is
+          DutchName: specificatieVerwijzing
+    learning-outcome:
+      title: Learning outcome
+      DutchName: Leeruitkomst
+      $comment: Alfa en indicatief. Deze vorm onderbouwt welke velden het koppelvlak nodig heeft en kan
+        wijzigen zolang de payload niet is vastgesteld.
+      type: object
+      required:
+      - id
+      - version
+      - name
+      - source
+      - parentLearningOutcomeId
+      - indicativeVolume
+      properties:
+        id:
+          type: string
+          format: uuid
+          DutchName: id
+        version:
+          type: string
+          pattern: ^\d+\.\d+\.\d+$
+          DutchName: versie
+        name:
+          type: string
+          DutchName: naam
+        source:
+          $ref: '#/components/schemas/source'
+          DutchName: bron
+        parentLearningOutcomeId:
+          type:
+          - string
+          - 'null'
+          format: uuid
+          DutchName: bovenliggendLeeruitkomstId
+        indicativeVolume:
+          type: array
+          items:
+            $ref: '#/components/schemas/volume'
+          DutchName: indicatieveOmvang
+        nlqfLevel:
+          type: integer
+          minimum: 1
+          maximum: 8
+          DutchName: nlqfNiveau
+        credentialDocument:
+          type: string
+          $comment: 'open lijst: diploma, mbo-certificaat, microcredential'
+          DutchName: waardedocument
+        description:
+          type: string
+          DutchName: omschrijving
+        result:
+          type: string
+          DutchName: resultaat
+        behaviour:
+          type: array
+          items:
+            type: string
+          DutchName: gedrag
+    learning-outcome-designation:
+      title: Learning outcome designation
+      DutchName: Leeruitkomst-aanduiding
+      $comment: Alfa en indicatief. Leesbare aanduiding naast de sleutel (leeruitkomstId); type en code
+        komen uit het kwalificatiekader. Deze vorm onderbouwt welke velden het koppelvlak nodig heeft
+        en kan wijzigen zolang de payload niet is vastgesteld.
+      type: object
+      required:
+      - type
+      - code
+      properties:
+        type:
+          type: string
+          DutchName: type
+        code:
+          type: string
+          DutchName: code
+    location:
+      title: Location
+      DutchName: Locatie
+      $comment: Alfa en indicatief. Deze vorm onderbouwt welke velden het koppelvlak nodig heeft en kan
+        wijzigen zolang de payload niet is vastgesteld.
+      type: object
+      required:
+      - id
+      - locationType
+      - name
+      properties:
+        id:
+          type: string
+          format: uuid
+          DutchName: id
+        locationType:
+          enum:
+          - campus
+          - vestiging
+          - gebouw
+          - ruimte
+          - balie
+          - adres
+          - geopunt
+          - virtueel
+          DutchName: locatieType
+        name:
+          type: string
+          DutchName: naam
+        partOfLocationId:
+          type:
+          - string
+          - 'null'
+          format: uuid
+          DutchName: valtBinnenLocatieId
+        address:
+          $ref: '#/components/schemas/address'
+          DutchName: adres
+        geolocation:
+          $ref: '#/components/schemas/geolocation'
+          DutchName: geolocatie
+        floor:
+          type: string
+          DutchName: verdieping
+        wing:
+          type: string
+          DutchName: vleugel
+        url:
+          type: string
+          DutchName: url
+        codes:
+          type: array
+          items:
+            $ref: '#/components/schemas/code'
+          DutchName: codes
+    manifest-item:
+      title: Manifest item
+      DutchName: Manifest-item
+      $comment: Alfa en indicatief. Deze vorm onderbouwt welke velden het koppelvlak nodig heeft en kan
+        wijzigen zolang de payload niet is vastgesteld.
+      type: object
+      required:
+      - specificationId
+      - version
+      - relation
+      properties:
+        specificationId:
+          type: string
+          format: uuid
+          DutchName: specificatieId
+        version:
+          type: string
+          DutchName: versie
+        relation:
+          enum:
+          - onderdeel
+          - variant
+          - referentie
+          DutchName: relatie
+    offering-open-for-application:
+      title: Offering open for application
+      DutchName: Aanmeldbaar aanbod voor centraal aanmelden
+      $comment: 'Voorstel van de interactiespecificatie onderwijsaanbod: de snede van education-offering/alfa
+        waarmee een afnemer een opleiding aanmeldbaar toont en een aspirant-student een startmoment kiest.
+        Twee aanbodlagen, met het aanmeldvenster, de uiterste inschrijfdatum en de herkomst in het kwalificatiekader
+        erbij; IS-OA-06 vult daar de leerweg, de doelgroep en de aanbieder bij aan voor een voorziening
+        die meer instellingen dient. De sloten (additionalProperties false) drukken de snede uit: groups
+        (groepen), bottlenecks (knelpunten) en de lagen eronder blijven bij de instelling. IS-OA-05 draagt
+        dit schema op de koppeling van de onderwijscatalogus naar de kernregistratie (W2 daar), IS-OA-06
+        op die naar de voorziening voor centraal aanmelden (W11 daar); welke lagen en statuswaarden per
+        koppeling reizen staat in het gebruiksprofiel van die koppeling. De afstemming met AII staat open
+        als Npuls-OKx/Public#112. Verwijzingen naar andere schema''s gaan via hun $id.'
+      type: object
+      required:
+      - offeringInstances
+      properties:
+        offeringInstances:
+          type: array
+          minItems: 1
+          items:
+            type: object
+            required:
+            - id
+            - offeringType
+            - version
+            - parentOfferingId
+            - specificationReference
+            - name
+            - status
+            properties:
+              id:
+                type: string
+                format: uuid
+                DutchName: id
+              offeringType:
+                enum:
+                - opleidingsaanbod
+                - opleidingsprogramma-aanbod
+                DutchName: aanbodType
+                $comment: De opleidingslaag groepeert, de programmalaag draagt het startmoment waarop
+                  de aanmelding ontstaat. De lagen onderwijseenheid-aanbod en leergelegenheid uit education-offering/alfa
+                  blijven buiten deze snede.
+              version:
+                type: string
+                pattern: ^\d+\.\d+\.\d+$
+                DutchName: versie
+              parentOfferingId:
+                type:
+                - string
+                - 'null'
+                format: uuid
+                DutchName: bovenliggendAanbodId
+                $comment: De programmalaag hangt hiermee onder de opleidingslaag, zodat de startmomenten
+                  van een opleiding bij elkaar staan.
+              specificationReference:
+                $ref: '#/components/schemas/specification-reference'
+                DutchName: specificatieVerwijzing
+              name:
+                type: string
+                DutchName: naam
+              status:
+                enum:
+                - aanmeldbaar
+                - geannuleerd
+                DutchName: status
+                $comment: 'Voorstel: de waarde aanmeldbaar naast de vier waarden van status in education-offering/alfa.
+                  Deze snede draagt de twee waarden die de voorziening voor centraal aanmelden aangaan:
+                  aanmeldbaar zet het aanbod in de etalage, geannuleerd haalt het eruit.'
+              cohort:
+                type: string
+                DutchName: cohort
+              period:
+                $ref: '#/components/schemas/period'
+                DutchName: periode
+                $comment: start draagt het startmoment dat de aspirant-student kiest, end de verwachte
+                  einddatum.
+              applicationWindow:
+                $ref: '#/components/schemas/period'
+                DutchName: aanmeldvenster
+                $comment: 'Voorstel: de termijn waarin aanmelden op dit startmoment openstaat, in de vorm
+                  van period/alfa. W2 van IS-OA-05 en W10 van IS-OA-06 vragen dezelfde sleutel op education-offering/alfa,
+                  zodat een vorm beide koppelingen dekt.'
+              enrolmentDeadline:
+                type: string
+                format: date
+                DutchName: uitersteInschrijfdatum
+                $comment: 'Voorstel: de uiterste inschrijfdatum, die het conceptueel gegevensoverzicht
+                  van leerroute 1 op de opleidingslaag legt, naast de opleidingsspecificatie.'
+              learningPathway:
+                enum:
+                - BOL
+                - BBL
+                DutchName: leerweg
+                $comment: 'Voorstel: de leerweg, met de sleutel en de waarden die learningPathway in education-specification/alfa
+                  draagt op de programmalaag leerweg.'
+              targetGroup:
+                type: string
+                DutchName: doelgroep
+                $comment: 'Voorstel: open lijst met de sleutel die targetGroup in education-specification/alfa
+                  draagt op de programmalaag doelgroep: regulier, zijinstromer, hybride, organisatiespecifiek.'
+              source:
+                type: array
+                items:
+                  $ref: '#/components/schemas/source'
+                DutchName: bron
+                $comment: 'Voorstel: de herkomst in het kwalificatiekader, zodat het crebo-dossier en
+                  de kwalificatie meekomen zonder de leeruitkomstboom. source/alfa staat vandaag als enkel
+                  object op learning-outcome/alfa; W2 van IS-OA-06 maakt er een array van op de aanbodinstantie.'
+              providerId:
+                type: string
+                format: uuid
+                DutchName: aanbiederId
+                $comment: 'Voorstel: de onderwijsaanbieder uit de definitie van Opleiding aanbod, op de
+                  opleidingslaag, op te lossen in organisationUnits.'
+              minStudentCount:
+                type: integer
+                minimum: 0
+                DutchName: minAantalStudenten
+              maxStudentCount:
+                type: integer
+                minimum: 0
+                DutchName: maxAantalStudenten
+                $comment: De capaciteit instroom die het conceptueel gegevensoverzicht van leerroute 1
+                  op de opleidingslaag legt.
+              locationId:
+                type: string
+                format: uuid
+                DutchName: locatieId
+                $comment: Op te lossen in locations.
+              executingTeamId:
+                type: string
+                format: uuid
+                DutchName: uitvoerendTeamId
+                $comment: Op te lossen in organisationUnits.
+            additionalProperties: false
+            allOf:
+            - $comment: Een aanmeldbaar startmoment draagt het venster waarin aanmelden openstaat.
+              if:
+                properties:
+                  offeringType:
+                    const: opleidingsprogramma-aanbod
+                  status:
+                    const: aanmeldbaar
+                required:
+                - offeringType
+                - status
+              then:
+                required:
+                - applicationWindow
+                - period
+          DutchName: aanbodInstanties
+        locations:
+          type: array
+          items:
+            $ref: '#/components/schemas/location'
+          DutchName: locaties
+          $comment: codes draagt de vestigingscode, de sleutel waarop een sectorale partij de locatie
+            terugvindt.
+        organisationUnits:
+          type: array
+          items:
+            $ref: '#/components/schemas/organisation-unit'
+          DutchName: organisatieEenheden
+      additionalProperties: false
+    offering-reference:
+      title: Offering reference
+      DutchName: Aanbod-referentie
+      $comment: Voorstel. Het label voorstel in de $id houdt dit schema apart van de alfa-schema's die
+        Npuls-OKx/Public draagt; werkbrief W8 van IS-OA-05 laat het daar landen. Dezelfde vorm als specification-reference/alfa,
+        met het aanbod als onderwerp. arrangement-status/voorstel en offering-processing-status/voorstel
+        wijzen er beide naar.
+      type: object
+      required:
+      - offeringId
+      - version
+      properties:
+        offeringId:
+          type: string
+          format: uuid
+          DutchName: aanbodId
+        version:
+          type: string
+          pattern: ^\d+\.\d+\.\d+$
+          DutchName: versie
+      additionalProperties: false
+    offering-request:
+      title: Offering request
+      DutchName: Verzoek tot aanbod
+      $comment: 'Voorstel van de interactiespecificatie onderwijsaanbod, eenheid IS-OA-03 (werkbrief W1).
+        Het objecttype Verzoek tot Aanbod / Intekening op specificatie reist vandaag mee als de specificatie-referentie
+        van de melding specificatie-planbaar, waarmee de planopgave zelf geen identiteit heeft en de catalogus
+        haar aanvraag niet kan terugvinden. Dit schema geeft haar die identiteit: specification-reference/alfa
+        als verwijzing naar de planbare specificatie, met het verzoek-id, het aangevraagde cohort, het
+        aanvraagmoment en de verwachte instroom eromheen. Beeld F2-02 en F2-03 van voorbeeld-lr1-regels.json
+        dragen de instantie. Een document dat tegen dit schema valideert draagt dezelfde verwijzing als
+        de melding van vandaag, dus blijft die melding leesbaar voor een ontvanger die alleen specification-reference/alfa
+        kent. Werkbrief W13 beslist waar het eventId voor een herhaalde aflevering landt. Verwijzingen
+        naar andere schema''s gaan via hun $id.'
+      type: object
+      required:
+      - requestId
+      - specificationReference
+      - cohort
+      properties:
+        requestId:
+          type: string
+          format: uuid
+          $comment: de onderwijscatalogus kent dit id toe bij het verzoek en houdt het stabiel, zodat
+            de verwerkingsstatus en het geplande aanbod naar dezelfde planopgave terugwijzen
+          DutchName: verzoekId
+        specificationReference:
+          $ref: '#/components/schemas/specification-reference'
+          $comment: de planbare specificatie met haar versie, de lading die de melding specificatie-planbaar
+            vandaag draagt
+          DutchName: specificatieVerwijzing
+        name:
+          type: string
+          $comment: 'de naam van de planopgave, beeld F2-02: Planopgave Apothekersassistent, cohort 2026'
+          DutchName: naam
+        cohort:
+          type: string
+          $comment: het cohort waarvoor het aanbod wordt gevraagd; dezelfde sleutel draagt het cohort
+            in education-specification/alfa en education-offering/alfa
+          DutchName: cohort
+        requestedAt:
+          type: string
+          format: date
+          $comment: het moment waarop de catalogus het verzoek aanbiedt, in de datumvorm die de schema's
+            in Npuls-OKx/Public aanhouden
+          DutchName: aanvraagmoment
+        expectedIntake:
+          type: integer
+          minimum: 0
+          $comment: de instroom die de catalogus verwacht, waartegen planning haar capaciteit zet in minStudentCount
+            en maxStudentCount van education-offering/alfa
+          DutchName: verwachteInstroom
+      additionalProperties: false
+    offering-status-changed:
+      title: Offering status changed
+      DutchName: Aanbod-status-gewijzigd
+      $comment: 'Voorstel van de interactiespecificatie onderwijsaanbod (IS-OA-06): het payloadschema
+        van de melding dat een onderwijsaanbod van status wisselt, bijvoorbeeld van gepland naar aanmeldbaar.
+        De vorm volgt specification-status-changed/alfa, met het aanbod als onderwerp en de statuswaarden
+        van education-offering/alfa. De melding draagt de aanleiding en laat de inhoud bij de bezitter
+        (U4, melden en dan ophalen). Welke overgangen over een koppeling reizen staat in het gebruiksprofiel
+        van die koppeling: IS-OA-05 meldt op aanbod-aanmeldbaar aan de kernregistratie, IS-OA-06 op aanmeldbaar-aanbod-beschikbaar
+        aan de voorziening voor centraal aanmelden. Werkbrief W1 van IS-OA-05 en W5 van IS-OA-06 laten
+        dit schema in Npuls-OKx/Public landen; de afstemming met AII staat open als Npuls-OKx/Public#112.
+        Verwijzingen naar andere schema''s gaan via hun $id.'
+      type: object
+      required:
+      - offeringId
+      - version
+      - offeringType
+      - specificationReference
+      - oldStatus
+      - newStatus
+      properties:
+        offeringId:
+          type: string
+          format: uuid
+          DutchName: aanbodId
+          $comment: De sleutel id uit education-offering/alfa, met de naam die offering-reference/voorstel
+            draagt. specification-status-changed/alfa noemt dezelfde plek objectId.
+        version:
+          type: string
+          pattern: ^\d+\.\d+\.\d+$
+          DutchName: versie
+        offeringType:
+          enum:
+          - opleidingsaanbod
+          - opleidingsprogramma-aanbod
+          - onderwijseenheid-aanbod
+          - leergelegenheid
+          DutchName: aanbodType
+          $comment: De vier lagen van offeringType in education-offering/alfa. Welke lagen een koppeling
+            meldt staat in haar gebruiksprofiel.
+        specificationReference:
+          $ref: '#/components/schemas/specification-reference'
+          DutchName: specificatieVerwijzing
+        oldStatus:
+          enum:
+          - inPlanning
+          - gepland
+          - nietRealiseerbaar
+          - geannuleerd
+          - aanmeldbaar
+          DutchName: oudeStatus
+          $comment: 'Voorstel: de vier waarden van status in education-offering/alfa plus aanmeldbaar.'
+        newStatus:
+          enum:
+          - inPlanning
+          - gepland
+          - nietRealiseerbaar
+          - geannuleerd
+          - aanmeldbaar
+          DutchName: nieuweStatus
+          $comment: 'Voorstel: dezelfde lijst als oldStatus. De koppeling van de kernregistratie naar
+            de voorziening voor centraal aanmelden meldt op de overgangen naar aanmeldbaar en naar geannuleerd.'
+        cohort:
+          type: string
+          DutchName: cohort
+          $comment: Het cohort waarop de afnemer zijn opvraag filtert, zoals parameter cohort van GET
+            /aanmeldbaar-aanbod.
+        eventId:
+          type: string
+          format: uuid
+          DutchName: eventId
+          $comment: 'Voorstel: het stabiele id waarop de ontvanger een herhaalde aflevering herkent, dat
+            U5 vraagt (W8).'
+    organisation-unit:
+      title: Organisation unit
+      DutchName: OrganisatieEenheid
+      $comment: Alfa en indicatief. Deze vorm onderbouwt welke velden het koppelvlak nodig heeft en kan
+        wijzigen zolang de payload niet is vastgesteld.
+      type: object
+      required:
+      - id
+      - unitType
+      - name
+      properties:
+        id:
+          type: string
+          format: uuid
+          DutchName: id
+        unitType:
+          type: string
+          $comment: 'open lijst: instelling, sector, college, afdeling, onderwijsteam'
+          DutchName: eenheidType
+        name:
+          type: string
+          DutchName: naam
+        parentUnitId:
+          type:
+          - string
+          - 'null'
+          format: uuid
+          DutchName: bovenliggendeEenheidId
+        professionalIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+          DutchName: professionalIds
+    period:
+      title: Period
+      DutchName: Periode
+      $comment: Alfa en indicatief. Deze vorm onderbouwt welke velden het koppelvlak nodig heeft en kan
+        wijzigen zolang de payload niet is vastgesteld.
+      type: object
+      properties:
+        start:
+          type: string
+          format: date
+          DutchName: start
+        end:
+          type: string
+          format: date
+          DutchName: eind
+    processing-status:
+      title: Processing status
+      DutchName: Verwerkingsstatus
+      $comment: Alfa en indicatief. Deze vorm onderbouwt welke velden het koppelvlak nodig heeft en kan
+        wijzigen zolang de payload niet is vastgesteld.
+      type: object
+      required:
+      - status
+      - specificationReference
+      properties:
+        status:
+          enum:
+          - ontvangen
+          - gestart
+          - afgekeurd
+          - gelukt
+          - nietGelukt
+          DutchName: status
+        programmeOfferingId:
+          type:
+          - string
+          - 'null'
+          format: uuid
+          DutchName: opleidingsaanbodId
+        specificationReference:
+          $ref: '#/components/schemas/specification-reference'
+          DutchName: specificatieVerwijzing
+    result-model:
+      title: Result model
+      DutchName: Resultaatmodel
+      $comment: Alfa en indicatief. Deze vorm onderbouwt welke velden het koppelvlak nodig heeft en kan
+        wijzigen zolang de payload niet is vastgesteld.
+      type: object
+      properties:
+        scale:
+          type: string
+          $comment: 'open lijst: cijfer-1-10, voldoende-onvoldoende, punten'
+          DutchName: schaal
+        passMark:
+          type: number
+          DutchName: cesuur
+        decimalPlaces:
+          type: integer
+          DutchName: decimalen
+    result-structure:
+      title: Result structure and exam plan
+      DutchName: Resultaatstructuur en examenplan
+      $comment: Alfa en indicatief. Deze vorm onderbouwt welke velden het koppelvlak nodig heeft en kan
+        wijzigen zolang de payload niet is vastgesteld.
+      type: object
+      required:
+      - educationSpecifications
+      properties:
+        educationSpecifications:
+          type: array
+          items:
+            type: object
+            required:
+            - id
+            - specificationType
+            - version
+            - parentSpecificationId
+            - name
+            - status
+            - resultModel
+            properties:
+              id:
+                type: string
+                format: uuid
+                DutchName: id
+              specificationType:
+                enum:
+                - examenplanspecificatie
+                - resultaateenheidspecificatie
+                - toetsonderdeelspecificatie
+                DutchName: specificatieType
+              version:
+                type: string
+                pattern: ^\d+\.\d+\.\d+$
+                DutchName: versie
+              parentSpecificationId:
+                type:
+                - string
+                - 'null'
+                format: uuid
+                DutchName: bovenliggendSpecificatieId
+              name:
+                type: string
+                DutchName: naam
+              description:
+                type: string
+                DutchName: omschrijving
+              status:
+                type: string
+                DutchName: status
+              validFrom:
+                type: string
+                format: date
+                DutchName: geldigVanaf
+              validUntil:
+                type:
+                - string
+                - 'null'
+                format: date
+                DutchName: geldigTot
+              appliesTo:
+                type: string
+                format: uuid
+                $comment: de opleidingsprogrammaspecificatie waarvoor dit examenplan geldt
+                DutchName: geldtVoor
+              assesses:
+                type: string
+                format: uuid
+                $comment: de specificatie die deze resultaateenheid beoordeelt
+                DutchName: beoordeelt
+              learningOutcomeId:
+                type: string
+                format: uuid
+                $comment: verwijst naar de leeruitkomst in de onderwijsspecificatie-payload; dit is de
+                  sleutel waarop het onderwijsresultaat wordt behaald (ADR 0022)
+                DutchName: leeruitkomstId
+              learningOutcome:
+                $ref: '#/components/schemas/learning-outcome-designation'
+                DutchName: leeruitkomst
+              nature:
+                enum:
+                - summatief
+                - formatief
+                DutchName: aard
+              assessmentForm:
+                type: string
+                $comment: 'open lijst: proeveVanBekwaamheid, kennistoets, praktijkopdracht, portfolio,
+                  criteriumgesprek'
+                DutchName: toetsvorm
+              aggregation:
+                enum:
+                - gewogenGemiddelde
+                - som
+                - allenVoldoende
+                - minimaalAantal
+                DutchName: aggregatie
+              weighting:
+                type: number
+                $comment: relatief binnen de ouder; 0 bij formatief
+                DutchName: weging
+              mandatory:
+                type: boolean
+                DutchName: verplicht
+              resultModel:
+                $ref: '#/components/schemas/result-model'
+                DutchName: resultaatmodel
+              ruleSetReferences:
+                type: array
+                items:
+                  type: string
+                  format: uuid
+                DutchName: regelsetVerwijzingen
+              manifest:
+                type: array
+                items:
+                  $ref: '#/components/schemas/manifest-item'
+                DutchName: manifest
+          DutchName: onderwijsspecificaties
+        ruleSets:
+          type: array
+          items:
+            $ref: '#/components/schemas/rule-set'
+          DutchName: regelsets
+    rule-set:
+      title: Rule set
+      DutchName: Regelset
+      $comment: Alfa en indicatief. Deze vorm onderbouwt welke velden het koppelvlak nodig heeft en kan
+        wijzigen zolang de payload niet is vastgesteld.
+      type: object
+      required:
+      - id
+      - version
+      - name
+      - appliesTo
+      - rules
+      properties:
+        id:
+          type: string
+          format: uuid
+          DutchName: id
+        version:
+          type: string
+          DutchName: versie
+        name:
+          type: string
+          DutchName: naam
+        description:
+          type: string
+          DutchName: omschrijving
+        appliesTo:
+          type: string
+          format: uuid
+          DutchName: vanToepassingOp
+        rules:
+          type: array
+          items:
+            type: object
+          DutchName: regels
+    source:
+      title: Source
+      DutchName: Bron
+      $comment: Alfa en indicatief. Deze vorm onderbouwt welke velden het koppelvlak nodig heeft en kan
+        wijzigen zolang de payload niet is vastgesteld.
+      type: object
+      required:
+      - standard
+      - type
+      - code
+      properties:
+        standard:
+          type: string
+          $comment: open lijst; nu sbb-kwalificatiekader, later bijvoorbeeld competentnl
+          DutchName: standaard
+        type:
+          enum:
+          - kwalificatiedossier
+          - kwalificatie
+          - kerntaak
+          - werkproces
+          - keuzedeel
+          DutchName: type
+        code:
+          type: string
+          DutchName: code
+    specification-reference:
+      title: Specification reference
+      DutchName: Specificatie-referentie
+      $comment: Alfa en indicatief. Deze vorm onderbouwt welke velden het koppelvlak nodig heeft en kan
+        wijzigen zolang de payload niet is vastgesteld.
+      type: object
+      required:
+      - specificationId
+      - version
+      properties:
+        specificationId:
+          type: string
+          format: uuid
+          DutchName: specificatieId
+        version:
+          type: string
+          DutchName: versie
+    specification-status-changed:
+      title: Specification status changed
+      DutchName: Specificatie-status-gewijzigd
+      $comment: Alfa en indicatief. Deze vorm onderbouwt welke velden het koppelvlak nodig heeft en kan
+        wijzigen zolang de payload niet is vastgesteld. Status-lifecycle volgt de lifecycle-uitwerking,
+        §3.
+      type: object
+      required:
+      - objectId
+      - oldStatus
+      - newStatus
+      properties:
+        objectId:
+          type: string
+          format: uuid
+          DutchName: objectId
+        oldStatus:
+          enum:
+          - concept
+          - vastgesteld
+          - gepubliceerd
+          - gedeactiveerd
+          - gearchiveerd
+          - vervallen
+          DutchName: oudeStatus
+        newStatus:
+          enum:
+          - concept
+          - vastgesteld
+          - gepubliceerd
+          - gedeactiveerd
+          - gearchiveerd
+          - vervallen
+          DutchName: nieuweStatus
+    student-choice-rule:
+      title: Student choice rule
+      DutchName: Student keuze regel
+      $comment: 'Voorstel van de interactiespecificatie onderwijsaanbod, eenheid IS-OA-01 (werkbrief W9).
+        rule-set/alfa draagt de regelset en laat het regelobject vrij als een object zonder eigenschappen;
+        daarmee staat elke sleutel binnen een regel buiten elk schema. Dit is een overlay op rule-set/alfa:
+        het typeert dat regelobject en laat de regelset zelf onaangeroerd. Een payload met regelsets valideert
+        tegen het dragende schema en tegen deze overlay. De overlay hangt aan de array ruleSets, die education-specification/alfa
+        en result-structure/alfa beide dragen. De sleutels volgen de tabel in paragraaf 4.6 van IS-OA-01,
+        met de grond per sleutel erbij. Zolang dit schema voorstel is eindigt de $id op /voorstel.'
+      type: object
+      properties:
+        ruleSets:
+          type: array
+          items:
+            $ref: '#/components/schemas/student-choice-rule/$defs/typedRuleSet'
+          $comment: dezelfde array die education-specification/alfa en result-structure/alfa dragen
+          DutchName: regelsets
+      $defs:
+        typedRuleSet:
+          title: Typed rule set
+          DutchName: Regelset met getypeerde regels
+          $comment: rule-set/alfa houdt id, versie, naam, omschrijving en vanToepassingOp, dus is hier
+            alleen id verplicht.
+          type: object
+          required:
+          - id
+          properties:
+            id:
+              type: string
+              format: uuid
+              DutchName: id
+            rules:
+              type: array
+              items:
+                $ref: '#/components/schemas/student-choice-rule/$defs/rule'
+              $comment: dezelfde array die rule-set/alfa draagt, daar als object zonder eigenschappen
+              DutchName: regels
+        rule:
+          title: Rule
+          DutchName: Regel
+          $comment: 'Objecttype Student keuze regelset, dat zijn regels zelf draagt. Elk regeltype vult
+            een eigen deel van deze sleutels: kiesbaar werkt met bereik, keuzedeel en voorwaardeVooraf,
+            minimaleStudielast met waarde, eenheid en bronSpecificatieId, en resultaatEis met bereik en
+            eis.'
+          type: object
+          required:
+          - type
+          properties:
+            type:
+              enum:
+              - kiesbaar
+              - minimaleStudielast
+              - resultaatEis
+              $comment: de gesloten en uitbreidbare set uit regelset-payload.md. Die uitwerking voert
+                vier Nederlandse typen (kiesbaarheid, deelnamevoorwaarde, keuzeomvang, beschikbaarheid);
+                deze drie zijn de typen die de keten van IS-OA-01 naar IS-OA-03 nodig heeft, en het gelijktrekken
+                van beide reeksen hoort bij werkbrief W9
+              DutchName: type
+            scope:
+              type: string
+              $comment: 'waar de regel over gaat, als benoemd bereik: een opsomming van specificaties,
+                of een selectie op een attribuut van een specificatie zoals electiveUnitClass. regelset-payload.md
+                draagt het bereik als eigen object met bereikId; zolang die vorm voorstel is draagt deze
+                sleutel de aanduiding als tekst'
+              DutchName: bereik
+            electiveUnit:
+              type: string
+              format: uuid
+              $comment: het keuzedeel waarop de regel slaat; het informatiemodel verbindt Student keuze
+                regelset met Keuzedeel
+              DutchName: keuzedeel
+            precondition:
+              type: array
+              items:
+                $ref: '#/components/schemas/student-choice-rule/$defs/precondition'
+              $comment: de deelnamevoorwaarde; regels.md drukt een voorwaarde uit in behaalde leeruitkomsten
+                en niet in doorlopen specificaties
+              DutchName: voorwaardeVooraf
+            value:
+              type: number
+              $comment: de maat bij een omvangregel, de vorm van value in volume/alfa
+              DutchName: waarde
+            unit:
+              enum:
+              - SBU
+              - EC
+              $comment: dezelfde eenheden als unit in volume/alfa; ADR 0004 belegt SBU en EC als logistieke
+                containergrootte
+              DutchName: eenheid
+            requirement:
+              type: string
+              $comment: het resultaat dat de regel verlangt, een waarde op de schaal uit result-model/alfa,
+                in deze casus voldoende op de schaal voldoende-onvoldoende
+              DutchName: eis
+            sourceSpecificationId:
+              type: string
+              format: uuid
+              $comment: de specificatie waaruit de maat komt, in deze casus de keuzedeelruimte met haar
+                studyLoad in education-specification/alfa
+              DutchName: bronSpecificatieId
+        precondition:
+          title: Precondition
+          DutchName: Voorwaarde vooraf
+          $comment: 'Objecttype Leeruitkomst als voorwaarde op Student keuze regelset. De status blijft
+            behaald: de voorwaarde rust op een vastgesteld onderwijsresultaat op die leeruitkomst (ADR
+            0022).'
+          type: object
+          required:
+          - requiredLearningOutcomeId
+          - status
+          properties:
+            requiredLearningOutcomeId:
+              type: string
+              format: uuid
+              DutchName: vereisteLeeruitkomstId
+            status:
+              enum:
+              - behaald
+              DutchName: status
+    subscription:
+      title: Subscription
+      DutchName: Abonnement
+      $comment: Alfa en indicatief. Deze vorm onderbouwt welke velden het koppelvlak nodig heeft en kan
+        wijzigen zolang de payload niet is vastgesteld. `id` is afwezig in het verzoek en door de server
+        toegekend in de respons.
+      type: object
+      required:
+      - callbackUrl
+      - events
+      properties:
+        id:
+          type: string
+          format: uuid
+          DutchName: id
+        callbackUrl:
+          type: string
+          format: uri
+          DutchName: callbackUrl
+        events:
+          type: array
+          items:
+            enum:
+            - specificatie-planbaar
+            - specificatie-gewijzigd
+            - specificatie-status-gewijzigd
+            - verwerkingsstatus
+          DutchName: events
+    volume:
+      title: Volume
+      DutchName: Omvang
+      $comment: Alfa en indicatief. Deze vorm onderbouwt welke velden het koppelvlak nodig heeft en kan
+        wijzigen zolang de payload niet is vastgesteld.
+      type: object
+      required:
+      - value
+      - unit
+      properties:
+        value:
+          type: number
+          DutchName: waarde
+        unit:
+          enum:
+          - SBU
+          - EC
+          DutchName: eenheid
+x-okx-ontvangen-meldingen:
+- melding: inrichtingsstatus
+  melder: kernregistratie
+  description: 'De inrichtingsstatus terugmelden
+
+
+    De uitkomst van het inrichten: bij ingericht en verwerkt staat arrangementReference gevuld, bij afgekeurd,
+    nietIngericht en nietVerwerkt staat reason gevuld.
+
+
+    Stand: vastgelegd, vastgelegd als meldpatroon, het payloadschema staat op voorstel. Werkbrief: IS-OA-05
+    W4, IS-OA-05 W6.
+
+
+    Deze melding komt aan op het afleveradres dat dit component bij de melder registreert, en dat adres
+    is een inrichtingskeuze in plaats van een pad in dit document. Haar vorm staat onder `webhooks` in
+    het document van de melder, en haar payloadschema staat hieronder.'
+  content:
+    application/json:
+      schema:
+        $ref: '#/components/schemas/arrangement-status'
+      examples:
+        voorbeeld-1:
+          summary: Uit is-oa-05.md:283
+          value:
+            status: gestart
+            offeringReference:
+              offeringId: 8c494250-b67a-4666-a762-6f9ec1e70aff
+              version: 0.1.0
+            specificationReference:
+              specificationId: 7ae25c1e-ee27-43a2-a001-761ee39ea5c7
+              version: 0.1.0
+        voorbeeld-2:
+          summary: Uit is-oa-05.md:293
+          value:
+            status: nietIngericht
+            offeringReference:
+              offeringId: 8c494250-b67a-4666-a762-6f9ec1e70aff
+              version: 0.1.0
+            specificationReference:
+              specificationId: 7ae25c1e-ee27-43a2-a001-761ee39ea5c7
+              version: 0.1.0
+            reason: De resultaatstructuur achter specificatie 7ae25c1e staat bij de kernregistratie nog
+              niet ingericht
+  x-okx-herkomst:
+  - IS-OA-05-O4
+  x-okx-stand: vastgelegd
+  x-okx-stand-kwalificatie: vastgelegd als meldpatroon, het payloadschema staat op voorstel
+  x-okx-werkbrieven:
+  - IS-OA-05 W4
+  - IS-OA-05 W6
+- melding: verwerkingsstatus
+  melder: planningssysteem
+  description: 'De ontvangst en de afkeur terugmelden (I3)
+
+
+    De verwerkingsstatus met de waarden ontvangen, gestart of afgekeurd. Bij gelukt draagt programmeOfferingId
+    het opleidingsaanbod, en daarmee de overgang naar IS-OA-04.
+
+
+    Stand: vastgelegd, het veld voor de validatiefout staat op voorstel. Werkbrief: IS-OA-03 W8.
+
+
+    Deze melding komt aan op het afleveradres dat dit component bij de melder registreert, en dat adres
+    is een inrichtingskeuze in plaats van een pad in dit document. Haar vorm staat onder `webhooks` in
+    het document van de melder, en haar payloadschema staat hieronder.'
+  content:
+    application/json:
+      schema:
+        $ref: '#/components/schemas/processing-status'
+  x-okx-herkomst:
+  - IS-OA-03-O4
+  x-okx-stand: vastgelegd
+  x-okx-stand-kwalificatie: het veld voor de validatiefout staat op voorstel
+  x-okx-werkbrieven:
+  - IS-OA-03 W8
+x-okx-schemas:
+  address:
+    schemaId: https://okx.npuls.nl/schema/address/alfa
+    stand: vastgelegd
+    bestand: ../Public/Informatie-en-gegevensmodellen/schemas/address.json
+    gewijzigd:
+    - $schema eruit, het document draagt de dialect in jsonSchemaDialect
+    - $id eruit, bewaard als schemaId hier
+    verwijst_naar: []
+  arrangement-status:
+    schemaId: https://okx.npuls.nl/schema/arrangement-status/voorstel
+    stand: voorstel
+    bestand: architecture/docs/specificatie/interactie-onderwijsaanbod/schemas/arrangement-status.json
+    gewijzigd:
+    - $schema eruit, het document draagt de dialect in jsonSchemaDialect
+    - $id eruit, bewaard als schemaId hier
+    - 2 verwijzingen naar het document verplaatst
+    verwijst_naar:
+    - offering-reference
+    - specification-reference
+  code:
+    schemaId: https://okx.npuls.nl/schema/code/alfa
+    stand: vastgelegd
+    bestand: ../Public/Informatie-en-gegevensmodellen/schemas/code.json
+    gewijzigd:
+    - $schema eruit, het document draagt de dialect in jsonSchemaDialect
+    - $id eruit, bewaard als schemaId hier
+    verwijst_naar: []
+  education-offering-delta:
+    schemaId: https://okx.npuls.nl/schema/education-offering-delta/voorstel
+    stand: voorstel
+    bestand: architecture/docs/specificatie/interactie-onderwijsaanbod/schemas/education-offering-delta.json
+    gewijzigd:
+    - $schema eruit, het document draagt de dialect in jsonSchemaDialect
+    - $id eruit, bewaard als schemaId hier
+    verwijst_naar: []
+  education-specification:
+    schemaId: https://okx.npuls.nl/schema/education-specification/alfa
+    stand: vastgelegd
+    bestand: ../Public/Informatie-en-gegevensmodellen/schemas/education-specification.json
+    gewijzigd:
+    - $schema eruit, het document draagt de dialect in jsonSchemaDialect
+    - $id eruit, bewaard als schemaId hier
+    - 5 verwijzingen naar het document verplaatst
+    verwijst_naar:
+    - learning-outcome
+    - manifest-item
+    - organisation-unit
+    - rule-set
+    - volume
+  education-specification-delta:
+    schemaId: https://okx.npuls.nl/schema/education-specification-delta/alfa
+    stand: vastgelegd
+    bestand: ../Public/Informatie-en-gegevensmodellen/schemas/education-specification-delta.json
+    gewijzigd:
+    - $schema eruit, het document draagt de dialect in jsonSchemaDialect
+    - $id eruit, bewaard als schemaId hier
+    verwijst_naar: []
+  geolocation:
+    schemaId: https://okx.npuls.nl/schema/geolocation/alfa
+    stand: vastgelegd
+    bestand: ../Public/Informatie-en-gegevensmodellen/schemas/geolocation.json
+    gewijzigd:
+    - $schema eruit, het document draagt de dialect in jsonSchemaDialect
+    - $id eruit, bewaard als schemaId hier
+    verwijst_naar: []
+  intake-finding:
+    schemaId: https://okx.npuls.nl/schema/intake-finding/voorstel
+    stand: voorstel
+    bestand: architecture/docs/specificatie/interactie-onderwijsaanbod/schemas/intake-finding.json
+    gewijzigd:
+    - $schema eruit, het document draagt de dialect in jsonSchemaDialect
+    - $id eruit, bewaard als schemaId hier
+    verwijst_naar: []
+  intake-outcome:
+    schemaId: https://okx.npuls.nl/schema/intake-outcome/voorstel
+    stand: voorstel
+    bestand: architecture/docs/specificatie/interactie-onderwijsaanbod/schemas/intake-outcome.json
+    gewijzigd:
+    - $schema eruit, het document draagt de dialect in jsonSchemaDialect
+    - $id eruit, bewaard als schemaId hier
+    - 2 verwijzingen naar het document verplaatst
+    verwijst_naar:
+    - intake-finding
+    - specification-reference
+  intake-rejection:
+    schemaId: https://okx.npuls.nl/schema/intake-rejection/voorstel
+    stand: voorstel
+    bestand: architecture/docs/specificatie/interactie-onderwijsaanbod/schemas/intake-rejection.json
+    gewijzigd:
+    - $schema eruit, het document draagt de dialect in jsonSchemaDialect
+    - $id eruit, bewaard als schemaId hier
+    - 2 verwijzingen naar het document verplaatst
+    verwijst_naar:
+    - intake-finding
+    - specification-reference
+  learning-outcome:
+    schemaId: https://okx.npuls.nl/schema/learning-outcome/alfa
+    stand: vastgelegd
+    bestand: ../Public/Informatie-en-gegevensmodellen/schemas/learning-outcome.json
+    gewijzigd:
+    - $schema eruit, het document draagt de dialect in jsonSchemaDialect
+    - $id eruit, bewaard als schemaId hier
+    - 2 verwijzingen naar het document verplaatst
+    verwijst_naar:
+    - source
+    - volume
+  learning-outcome-designation:
+    schemaId: https://okx.npuls.nl/schema/learning-outcome-designation/alfa
+    stand: vastgelegd
+    bestand: ../Public/Informatie-en-gegevensmodellen/schemas/learning-outcome-designation.json
+    gewijzigd:
+    - $schema eruit, het document draagt de dialect in jsonSchemaDialect
+    - $id eruit, bewaard als schemaId hier
+    verwijst_naar: []
+  location:
+    schemaId: https://okx.npuls.nl/schema/location/alfa
+    stand: vastgelegd
+    bestand: ../Public/Informatie-en-gegevensmodellen/schemas/location.json
+    gewijzigd:
+    - $schema eruit, het document draagt de dialect in jsonSchemaDialect
+    - $id eruit, bewaard als schemaId hier
+    - 3 verwijzingen naar het document verplaatst
+    verwijst_naar:
+    - address
+    - code
+    - geolocation
+  manifest-item:
+    schemaId: https://okx.npuls.nl/schema/manifest-item/alfa
+    stand: vastgelegd
+    bestand: ../Public/Informatie-en-gegevensmodellen/schemas/manifest-item.json
+    gewijzigd:
+    - $schema eruit, het document draagt de dialect in jsonSchemaDialect
+    - $id eruit, bewaard als schemaId hier
+    verwijst_naar: []
+  offering-open-for-application:
+    schemaId: https://okx.npuls.nl/schema/offering-open-for-application/voorstel
+    stand: voorstel
+    bestand: architecture/docs/specificatie/interactie-onderwijsaanbod/schemas/offering-open-for-application.json
+    gewijzigd:
+    - $schema eruit, het document draagt de dialect in jsonSchemaDialect
+    - $id eruit, bewaard als schemaId hier
+    - 6 verwijzingen naar het document verplaatst
+    verwijst_naar:
+    - location
+    - organisation-unit
+    - period
+    - source
+    - specification-reference
+  offering-reference:
+    schemaId: https://okx.npuls.nl/schema/offering-reference/voorstel
+    stand: voorstel
+    bestand: architecture/docs/specificatie/interactie-onderwijsaanbod/schemas/offering-reference.json
+    gewijzigd:
+    - $schema eruit, het document draagt de dialect in jsonSchemaDialect
+    - $id eruit, bewaard als schemaId hier
+    verwijst_naar: []
+  offering-request:
+    schemaId: https://okx.npuls.nl/schema/offering-request/voorstel
+    stand: voorstel
+    bestand: architecture/docs/specificatie/interactie-onderwijsaanbod/schemas/offering-request.json
+    gewijzigd:
+    - $schema eruit, het document draagt de dialect in jsonSchemaDialect
+    - $id eruit, bewaard als schemaId hier
+    - 1 verwijzingen naar het document verplaatst
+    verwijst_naar:
+    - specification-reference
+  offering-status-changed:
+    schemaId: https://okx.npuls.nl/schema/offering-status-changed/voorstel
+    stand: voorstel
+    bestand: architecture/docs/specificatie/interactie-onderwijsaanbod/schemas/offering-status-changed.json
+    gewijzigd:
+    - $schema eruit, het document draagt de dialect in jsonSchemaDialect
+    - $id eruit, bewaard als schemaId hier
+    - 1 verwijzingen naar het document verplaatst
+    verwijst_naar:
+    - specification-reference
+  organisation-unit:
+    schemaId: https://okx.npuls.nl/schema/organisation-unit/alfa
+    stand: vastgelegd
+    bestand: ../Public/Informatie-en-gegevensmodellen/schemas/organisation-unit.json
+    gewijzigd:
+    - $schema eruit, het document draagt de dialect in jsonSchemaDialect
+    - $id eruit, bewaard als schemaId hier
+    verwijst_naar: []
+  period:
+    schemaId: https://okx.npuls.nl/schema/period/alfa
+    stand: vastgelegd
+    bestand: ../Public/Informatie-en-gegevensmodellen/schemas/period.json
+    gewijzigd:
+    - $schema eruit, het document draagt de dialect in jsonSchemaDialect
+    - $id eruit, bewaard als schemaId hier
+    verwijst_naar: []
+  processing-status:
+    schemaId: https://okx.npuls.nl/schema/processing-status/alfa
+    stand: vastgelegd
+    bestand: ../Public/Informatie-en-gegevensmodellen/schemas/processing-status.json
+    gewijzigd:
+    - $schema eruit, het document draagt de dialect in jsonSchemaDialect
+    - $id eruit, bewaard als schemaId hier
+    - 1 verwijzingen naar het document verplaatst
+    verwijst_naar:
+    - specification-reference
+  result-model:
+    schemaId: https://okx.npuls.nl/schema/result-model/alfa
+    stand: vastgelegd
+    bestand: ../Public/Informatie-en-gegevensmodellen/schemas/result-model.json
+    gewijzigd:
+    - $schema eruit, het document draagt de dialect in jsonSchemaDialect
+    - $id eruit, bewaard als schemaId hier
+    verwijst_naar: []
+  result-structure:
+    schemaId: https://okx.npuls.nl/schema/result-structure/alfa
+    stand: vastgelegd
+    bestand: ../Public/Informatie-en-gegevensmodellen/schemas/result-structure.json
+    gewijzigd:
+    - $schema eruit, het document draagt de dialect in jsonSchemaDialect
+    - $id eruit, bewaard als schemaId hier
+    - 4 verwijzingen naar het document verplaatst
+    verwijst_naar:
+    - learning-outcome-designation
+    - manifest-item
+    - result-model
+    - rule-set
+  rule-set:
+    schemaId: https://okx.npuls.nl/schema/rule-set/alfa
+    stand: vastgelegd
+    bestand: ../Public/Informatie-en-gegevensmodellen/schemas/rule-set.json
+    gewijzigd:
+    - $schema eruit, het document draagt de dialect in jsonSchemaDialect
+    - $id eruit, bewaard als schemaId hier
+    verwijst_naar: []
+  source:
+    schemaId: https://okx.npuls.nl/schema/source/alfa
+    stand: vastgelegd
+    bestand: ../Public/Informatie-en-gegevensmodellen/schemas/source.json
+    gewijzigd:
+    - $schema eruit, het document draagt de dialect in jsonSchemaDialect
+    - $id eruit, bewaard als schemaId hier
+    verwijst_naar: []
+  specification-reference:
+    schemaId: https://okx.npuls.nl/schema/specification-reference/alfa
+    stand: vastgelegd
+    bestand: ../Public/Informatie-en-gegevensmodellen/schemas/specification-reference.json
+    gewijzigd:
+    - $schema eruit, het document draagt de dialect in jsonSchemaDialect
+    - $id eruit, bewaard als schemaId hier
+    verwijst_naar: []
+  specification-status-changed:
+    schemaId: https://okx.npuls.nl/schema/specification-status-changed/alfa
+    stand: vastgelegd
+    bestand: ../Public/Informatie-en-gegevensmodellen/schemas/specification-status-changed.json
+    gewijzigd:
+    - $schema eruit, het document draagt de dialect in jsonSchemaDialect
+    - $id eruit, bewaard als schemaId hier
+    verwijst_naar: []
+  student-choice-rule:
+    schemaId: https://okx.npuls.nl/schema/student-choice-rule/voorstel
+    stand: voorstel
+    bestand: architecture/docs/specificatie/interactie-onderwijsaanbod/schemas/student-choice-rule.json
+    gewijzigd:
+    - $schema eruit, het document draagt de dialect in jsonSchemaDialect
+    - $id eruit, bewaard als schemaId hier
+    - 3 verwijzingen naar het document verplaatst
+    verwijst_naar: []
+  subscription:
+    schemaId: https://okx.npuls.nl/schema/subscription/alfa
+    stand: vastgelegd
+    bestand: ../Public/Informatie-en-gegevensmodellen/schemas/subscription.json
+    gewijzigd:
+    - $schema eruit, het document draagt de dialect in jsonSchemaDialect
+    - $id eruit, bewaard als schemaId hier
+    verwijst_naar: []
+  volume:
+    schemaId: https://okx.npuls.nl/schema/volume/alfa
+    stand: vastgelegd
+    bestand: ../Public/Informatie-en-gegevensmodellen/schemas/volume.json
+    gewijzigd:
+    - $schema eruit, het document draagt de dialect in jsonSchemaDialect
+    - $id eruit, bewaard als schemaId hier
+    verwijst_naar: []
+x-okx-bron:
+  bestand: operaties.json
+  script: scripts/genereer-oas.py
+  wie_is_de_bron: Dit bestand is de bron voor de gegenereerde OpenAPI-documenten in oas/. De operatietabellen
+    in de verdiepingsbestanden blijven de bron voor de lezer; de inhoud hier is daaruit met de hand overgenomen,
+    met de herkomst per operatie in het veld herkomst.
+  wat_nog_openstaat: 'Zolang beide bestanden met de hand gelijk blijven, dragen twee bestanden dezelfde
+    waarheid. De vervolgstap laat de operatietabel uit dit bestand komen, zoals het OpenAPI-document er
+    nu uit komt. Relateert aan: #374'
+  dekking: 'De stromen IS-OA-01, IS-OA-03 en IS-OA-05 staan er volledig in: samen vormen zij het koppelvlak
+    van de onderwijscatalogus. IS-OA-02, IS-OA-04 en IS-OA-06 staan er nog niet in, en daarmee zijn de
+    drie andere componenten onvolledig.'
+  verdiepingsbestanden:
+  - is-oa-01.md
+  - is-oa-03.md
+  - is-oa-05.md
+  welke_vorm_is_normatief: 'Elk component levert twee bestanden met dezelfde inhoud, uit een generatorronde,
+    dus zij kunnen niet uiteenlopen. De YAML-vorm is normatief: dat is de vorm die de OpenAPI-specificatie
+    gangbaar maakt en die de overlay-structuur van OEAPI aanhoudt (profile.yaml, source/spec.yaml). De
+    JSON-vorm staat ernaast voor de keuring en de testgevallen, en voor een werktuig dat geen YAML leest.'
+x-okx-samengevoegd:
+- operatie: GET /onderwijsspecificaties/{id}
+  herkomst: IS-OA-03-O2
+- operatie: GET /onderwijsspecificaties
+  herkomst: IS-OA-03-O5
+- operatie: POST /abonnementen
+  herkomst: IS-OA-03-O6
+- operatie: POST /abonnementen
+  herkomst: IS-OA-05-O5
+x-okx-werkbrieven:
+  IS-OA-01 W1:
+    wat: 'Het innamecontract uit [paragraaf 3](#3-de-operaties) overnemen: de paden `POST /onderwijsspecificaties`,
+      `POST /examenplanspecificaties` en `GET /leveringen/{leveringId}`, met hun statuscodes, de levering
+      als eenheid van aanname en de bevinding als grond bij afkeuring'
+    waar: '[onderwijsspecificatie-inname-aanbieder.md](https://github.com/Npuls-OKx/Public/blob/d0c20d99b110b29ccf6b0e50109f7d54ffd88d7a/Koppelvlakspecificaties/Applicatiediensten/onderwijsspecificatie-inname-aanbieder.md),
+      paragraaf Endpoints, en [onderwijscatalogus.md](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Applicatiecomponenten/onderwijscatalogus.md)'
+    versie-impact: 'Additief: drie paden komen erbij op de catalogus, de bestaande opvragingen en payloadschema''s
+      blijven gelijk'
+    x-okx-stroom: IS-OA-01
+  IS-OA-01 W12:
+    wat: Een stabiel `eventId` op O6 en O7, waarop de ontvanger een herhaald bericht herkent, zoals [U5](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u5-bericht-versus-kanaal)
+      voor herhaalbare verwerking vraagt
+    waar: '[processing-status.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/processing-status.json)
+      en [specification-status-changed.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/specification-status-changed.json),
+      gelijk aan W6 van IS-OA-05 en W8 van IS-OA-06'
+    versie-impact: 'Optioneel: MINOR. Verplicht: MAJOR'
+    x-okx-stroom: IS-OA-01
+  IS-OA-01 W14:
+    wat: 'De sleutels `deliveryId` en `findings` op de verwerkingsstatus, met [intake-outcome.json](schemas/intake-outcome.json)
+      als vorm. Twee landingen: beide sleutels in processing-status.json, of dit schema ernaast voor de
+      inname. Het voorstel vraagt `specificationReference` op `gelukt` en laat hem vrij op een afkeuring,
+      waar processing-status.json hem altijd verplicht'
+    waar: '[processing-status.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/processing-status.json)'
+    versie-impact: 'Twee optionele sleutels erbij: MINOR. De voorwaardelijke `specificationReference`
+      in processing-status.json zelf: MAJOR, omdat een ontvanger die op zijn aanwezigheid rekent dan bijstelt.
+      Een eigen schema voor de inname houdt het additief: MINOR. Dat schema draagt daarnaast het `eventId`
+      uit W12'
+    x-okx-stroom: IS-OA-01
+  IS-OA-01 W16:
+    wat: '[intake-rejection.json](schemas/intake-rejection.json) als antwoordlichaam bij 400 en 409 op
+      O3 en O4'
+    waar: de schemamap in Public, en de statuscodekolom op de dienstpagina
+    versie-impact: 'Nieuw schema, additief: MINOR. De statuscode 409 komt erbij naast de set die de componentpagina''s
+      dragen'
+    x-okx-stroom: IS-OA-01
+  IS-OA-01 W17:
+    wat: 'Het begrip levering en haar bewaartermijn: hoelang O5 de uitkomst van een afgehandelde levering
+      teruggeeft, en of een lijstopvraag op `/leveringen` daarbij hoort'
+    waar: '[begrippenlijst.md](../begrippen/begrippenlijst.md) en de dienstpagina van de inname'
+    versie-impact: 'Geen schemawijziging: begrip en dienstafspraak'
+    x-okx-stroom: IS-OA-01
+  IS-OA-01 W2:
+    wat: Endpointtabel voor de curriculum ontwerptool met `verwerkingsstatus` POST en `POST /abonnementen`,
+      de diensten die zij als ontvanger implementeert
+    waar: '[curriculum-ontwerptool.md](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Applicatiecomponenten/curriculum-ontwerptool.md)'
+    versie-impact: 'Additief: bestaande paden en schema''s, nieuw koppelvlak op een component zonder endpoints'
+    x-okx-stroom: IS-OA-01
+  IS-OA-01 W3:
+    wat: Parameter `leeruitkomstId` op het zoeken naar hergebruik, en kopmetadata (`name`, `studyLoad`)
+      in de respons, zodat de ontwerper kan kiezen op wat de specificatie belooft
+    waar: '[onderwijscatalogus.md](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Applicatiecomponenten/onderwijscatalogus.md)
+      en [specification-reference.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/specification-reference.json)'
+    versie-impact: 'MINOR: additieve parameter en additieve optionele velden'
+    x-okx-stroom: IS-OA-01
+  IS-OA-03 W1:
+    wat: 'Een eigen bericht voor het verzoek: een `requestId` (verzoekId), een `name` (naam), het aangevraagde
+      cohort, het aanvraagmoment en de verwachte instroom. Het objecttype `Verzoek tot Aanbod / Intekening
+      op specificatie` reist nu mee als de specificatie-referentie van bericht 1'
+    waar: '[offering-request.json](schemas/offering-request.json), het schema waarnaar O1 en [bericht
+      1](#bericht-1-specificatie-planbaar) verwijzen, in Public opnemen naast specification-reference.json'
+    versie-impact: 'Minor: een nieuw schema naast specification-reference.json, dat in I7 en processing-status.json
+      ongewijzigd blijft'
+    x-okx-stroom: IS-OA-03
+  IS-OA-03 W13:
+    wat: Een eigen `eventId` (gebeurtenisId) op de melding van O1, waarop de ontvanger een tweede aflevering
+      herkent. Het [interactieoverzicht](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Interactiepatronen/onderwijscatalogus-planning-en-roostering.md#interactieoverzicht)
+      legt die herkenning bij het event-id, en bericht 1 draagt `specificationId` en `version`, waarop
+      deze eenheid haar laat rusten
+    waar: specification-reference.json, of een omhullend meldingsschema naast processing-status.json en
+      subscription.json
+    versie-impact: 'Minor: optioneel veld. Verplicht stellen wordt major'
+    x-okx-stroom: IS-OA-03
+  IS-OA-03 W14:
+    wat: Paginering op de lijstopvraag van O5, die vandaag elke gepubliceerde specificatie in een antwoord
+      teruggeeft. Het interactiepatroon OC-P&R zet paginering onder de mogelijke uitbreidingen (v-next)
+    waar: interactiepatroon OC-P&R en de componentpagina onderwijscatalogus, met parameters op `/onderwijsspecificaties`
+      en een vaste standaardwaarde
+    versie-impact: 'Minor: optionele parameters met een standaardwaarde die het antwoord van vandaag teruggeeft'
+    x-okx-stroom: IS-OA-03
+  IS-OA-03 W15:
+    wat: Het lichaam bij de HTTP-foutcodes 400 en 404 van O2, O3 en O5, waar W8 het foutmodel binnen de
+      melding `verwerkingsstatus` belegt
+    waar: een foutschema in Public, naar het model van [bottleneck.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/bottleneck.json),
+      met een verwijzing erheen op elke opvraag
+    versie-impact: 'Minor: een nieuw schema naast de bestaande statuscodes'
+    x-okx-stroom: IS-OA-03
+  IS-OA-03 W8:
+    wat: Het foutmodel bij status `afgekeurd`, dat het interactieoverzicht belooft. processing-status.json
+      draagt `status`, `programmeOfferingId` en `specificationReference`
+    waar: processing-status.json, veld `errors` (fouten) met een `code` en een `description`, naar het
+      model van [bottleneck.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/bottleneck.json)
+    versie-impact: 'Minor: optioneel veld, met een eigen codelijst voor validatiefouten'
+    x-okx-stroom: IS-OA-03
+  IS-OA-05 W1:
+    wat: '`offering-status-changed.json` opnemen, met de meldingssoort `aanbod-aanmeldbaar` als rij op
+      de [dienstpagina van het studentinformatiesysteem](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Applicatiecomponenten/studentinformatiesysteem.md)
+      en als interactie in het [interactiepatroon OC-SIS](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Interactiepatronen/onderwijscatalogus-studentinformatiesysteem.md)'
+    waar: nieuw schema, plus een endpointrij en een interactierij
+    versie-impact: 'Nieuw schema en nieuw meldpatroon, additief: MINOR'
+    x-okx-stroom: IS-OA-05
+  IS-OA-05 W2:
+    wat: '`offering-open-for-application.json` opnemen als gebruiksprofiel van education-offering.json,
+      met de statuswaarde `aanmeldbaar`, het veld `applicationWindow` (aanmeldvenster), het veld `enrolmentDeadline`
+      (uitersteInschrijfdatum) en `source` (bron) als array op de aanbodinstantie'
+    waar: nieuw schema naast [education-offering.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/education-offering.json),
+      plus een rij in [gebruiksprofielen.md](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/gebruiksprofielen.md)
+    versie-impact: 'Een eigen profiel is additief: MINOR. Diezelfde waarde aan de gesloten `status`-lijst
+      van education-offering.json toevoegen raakt wie erop valideert: MAJOR'
+    x-okx-stroom: IS-OA-05
+  IS-OA-05 W3:
+    wat: De paden `/aanmeldbaar-aanbod`, `/aanmeldbaar-aanbod/{id}` en `/aanmeldbaar-aanbod/{id}/delta`
+      op de [dienstpagina van de onderwijscatalogus](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Applicatiecomponenten/onderwijscatalogus.md),
+      naast de specificatiepaden die zij al draagt
+    waar: drie endpointrijen
+    versie-impact: 'Nieuwe endpoints op een bestaande dienstpagina, additief: MINOR'
+    x-okx-stroom: IS-OA-05
+  IS-OA-05 W4:
+    wat: '`arrangement-status.json` opnemen als het payloadschema dat de rij `inrichtingsstatus` aankondigt,
+      met de statuswaarden uit interactie S4 en met `offeringReference` naast de `specificationReference`
+      die de dienstpagina al vraagt'
+    waar: nieuw schema, plus de verwijzing in de bestaande rij `inrichtingsstatus`
+    versie-impact: 'Het schema vult een aangekondigde leegte: MINOR. De waarden `ingericht`, `nietIngericht`,
+      `verwerkt` en `nietVerwerkt` staan daarmee vast, waar [processing-status.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/processing-status.json)
+      zijn eigen vijf houdt'
+    x-okx-stroom: IS-OA-05
+  IS-OA-05 W5:
+    wat: De meldingssoorten `aanbod-aanmeldbaar` en `inrichtingsstatus` in de lijst waarop een partij
+      zich abonneert
+    waar: '[subscription.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/subscription.json),
+      eigenschap `events`'
+    versie-impact: 'Waarden aan een gesloten lijst toevoegen is additief voor de abonnee en raakt wie
+      erop valideert: MAJOR'
+    x-okx-stroom: IS-OA-05
+  IS-OA-05 W6:
+    wat: Een stabiel `eventId` op elke melding, dat U5 voor herhaalde aflevering vraagt. M1 en M3 houden
+      het veld op 0..1 zolang deze werkbrief openstaat, gelijk aan IS-OA-06
+    waar: '[specification-changed.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/specification-changed.json),
+      [specification-status-changed.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/specification-status-changed.json)
+      en de nieuwe schema''s uit W1 en W4'
+    versie-impact: 'Optioneel: MINOR. Verplicht: MAJOR'
+    x-okx-stroom: IS-OA-05
+  IS-OA-05 W7:
+    wat: '`education-offering-delta.json` opnemen als de deltavorm die U11 naast de volledige structuur
+      vraagt, met het pad uit W3'
+    waar: nieuw schema naar het model van [education-specification-delta.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/education-specification-delta.json)
+    versie-impact: 'Nieuw schema en nieuw endpoint, additief: MINOR'
+    x-okx-stroom: IS-OA-05
+  IS-OA-05 W8:
+    wat: '`offering-reference.json` opnemen, waarnaar `offering-processing-status.json` van IS-OA-06 vandaag
+      uit zijn eigen `$defs` wijst'
+    waar: nieuw schema naast [specification-reference.json](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/schemas/specification-reference.json)
+    versie-impact: 'Nieuw schema, additief: MINOR. Het vervangt de inline vorm in offering-processing-status.json:
+      MAJOR voor wie daarop valideert'
+    x-okx-stroom: IS-OA-05
+x-okx-openstaand:
+- 'IS-OA-01-O1, parameter status: De operatietabel noemt de standaardwaarde en niet de volledige waardenlijst,
+  dus blijft de parameter een vrije string.'
+- 'IS-OA-01-O1, respons 200: Een array zonder omhulling draagt geen vervolgverwijzing en geen totaal,
+  waarmee de paginering uit W14 van IS-OA-03 op een omhullend object uitkomt; signalering S22 van de leeswijzer
+  draagt dat punt.'
+- 'IS-OA-01-O1, respons 400: Een eigen foutschema naar het model van bottleneck.json, dat W15 van IS-OA-03
+  vraagt voor het lichaam bij een foutcode op de opvragingen; signalering S21 draagt de vraag of die vorm
+  over de opvragingen gaat.'
+- 'IS-OA-01-O2, respons 400: de specificatie noemt geen antwoordlichaam, dus draagt deze respons geen
+  schema'
+- 'IS-OA-01-O2, respons 404: de specificatie noemt geen antwoordlichaam, dus draagt deze respons geen
+  schema'
+- 'IS-OA-01-O3, respons 202: Geen voorbeeldpayload bij het 202-antwoord van deze operatie; de specificatie
+  toont de vorm op O4.'
+- 'IS-OA-01-O5, respons 200: Geen voorbeeldpayload bij deze operatie; de specificatie toont dezelfde vorm
+  op de melding verwerkingsstatus.'
+- 'IS-OA-01-O5, respons 404: de specificatie noemt geen antwoordlichaam, dus draagt deze respons geen
+  schema'
+- 'IS-OA-01-O8, verzoek: Geen voorbeeldpayload bij deze operatie, in geen van de drie stromen die haar
+  dragen.'
+- 'IS-OA-01-O8, respons 400: de specificatie noemt geen antwoordlichaam, dus draagt deze respons geen
+  schema'
+- 'IS-OA-01-O8: dezelfde operatie staat ook op curriculum-ontwerptool; die kant landt in het document
+  van dat component'
+- 'IS-OA-03-O2, respons 400: Een eigen foutschema naar het model van bottleneck.json, dat W15 van IS-OA-03
+  vraagt voor het lichaam bij een foutcode op de opvragingen; de codelijst van intake-finding dekt de
+  gronden van een inname en laat een onbekend id of een onbekende versie erbuiten. Signalering S21 draagt
+  de vraag of die vorm over de opvragingen gaat.'
+- 'IS-OA-03-O2, respons 404: Een eigen foutschema naar het model van bottleneck.json, dat W15 van IS-OA-03
+  vraagt voor het lichaam bij een foutcode op de opvragingen; de codelijst van intake-finding dekt de
+  gronden van een inname en laat een onbekend id of een onbekende versie erbuiten. Signalering S21 draagt
+  de vraag of die vorm over de opvragingen gaat.'
+- 'GET /onderwijsspecificaties/{id}: op 200 draagt de ene stroom een overlay over het schema van de andere;
+  dit document draagt de overlay, en welke stroom haar bij deze resource noemt blijft een punt voor de
+  specificatie'
+- 'IS-OA-03-O3, respons 200: Geen voorbeeldpayload bij deze operatie; IS-OA-05 toont dezelfde vorm op
+  haar aanbod-delta.'
+- 'IS-OA-03-O3, respons 400: Een eigen foutschema naar het model van bottleneck.json, dat W15 van IS-OA-03
+  vraagt voor het lichaam bij een foutcode op de opvragingen; de codelijst van intake-finding dekt de
+  gronden van een inname en laat een onbekend id of een onbekende versie erbuiten. Signalering S21 draagt
+  de vraag of die vorm over de opvragingen gaat.'
+- 'IS-OA-03-O3, respons 404: Een eigen foutschema naar het model van bottleneck.json, dat W15 van IS-OA-03
+  vraagt voor het lichaam bij een foutcode op de opvragingen; de codelijst van intake-finding dekt de
+  gronden van een inname en laat een onbekend id of een onbekende versie erbuiten. Signalering S21 draagt
+  de vraag of die vorm over de opvragingen gaat.'
+- 'IS-OA-03-O5, respons 200: Een array zonder omhulling draagt geen vervolgverwijzing en geen totaal,
+  waarmee de paginering uit W14 van IS-OA-03 op een omhullend object uitkomt; signalering S22 van de leeswijzer
+  draagt dat punt.'
+- 'IS-OA-03-O5, respons 400: Een eigen foutschema naar het model van bottleneck.json, dat W15 van IS-OA-03
+  vraagt voor het lichaam bij een foutcode op de opvragingen; signalering S21 draagt de vraag of die vorm
+  over de opvragingen gaat.'
+- 'IS-OA-03-O6, respons 400: de specificatie noemt geen antwoordlichaam, dus draagt deze respons geen
+  schema'
+- 'IS-OA-05-O2, respons 400: de specificatie noemt geen antwoordlichaam, dus draagt deze respons geen
+  schema'
+- 'IS-OA-05-O2, respons 404: de specificatie noemt geen antwoordlichaam, dus draagt deze respons geen
+  schema'
+- 'IS-OA-05-O3, respons 400: de specificatie noemt geen antwoordlichaam, dus draagt deze respons geen
+  schema'
+- 'IS-OA-05-O3, respons 404: de specificatie noemt geen antwoordlichaam, dus draagt deze respons geen
+  schema'
+- 'IS-OA-05-O5, respons 400: de specificatie noemt geen antwoordlichaam, dus draagt deze respons geen
+  schema'
+- 'IS-OA-05-O6, respons 200: De specificatie noemt de referentie per aanbod en geen schema voor de lijst
+  eromheen; de array is hier afgeleid uit de zin die de respons beschrijft.'
+- 'IS-OA-05-O6, respons 400: de specificatie noemt geen antwoordlichaam, dus draagt deze respons geen
+  schema'
+- 'IS-OA-01-O7, verzoek: Geen voorbeeldpayload bij deze melding.'
+- 'IS-OA-03-O1, verzoek: twee vormen voor een bericht: specification-reference staat vastgelegd en offering-request
+  wordt voorgesteld; de keuze staat open'
+- 'IS-OA-03-O4, ontvangen melding: Geen voorbeeldpayload bij deze melding.'
+- 'subscription.events op IS-OA-01-O8, IS-OA-03-O6, IS-OA-05-O5: dit document publiceert de melding aanbod-aanmeldbaar
+  en de lijst waarop een partij zich abonneert draagt haar niet, waarmee zij voor een gegenereerde client
+  onbereikbaar blijft'
+- 'subscription.events op IS-OA-01-O8, IS-OA-03-O6, IS-OA-05-O5: de lijst draagt de meldingssoort specificatie-gewijzigd,
+  waarvoor deze specificatie nergens een vorm legt'
