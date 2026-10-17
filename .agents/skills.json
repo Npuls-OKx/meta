@@ -47,6 +47,11 @@
       "adaptatie": "okx-presentatie (het OKx-specifieke deel); de huisstijl zelf is Npuls-breed en wordt ongewijzigd gebruikt"
     },
     {
+      "naam": "okx-interactiespecificatie",
+      "type": "okx-specifiek",
+      "doel": "De vorm van een interactiespecificatie: per kiesbare eenheid het contract tussen twee componenten, als document om te bekijken. Draagt de maten, de casus vooraf en de koprij per operatietabel."
+    },
+    {
       "naam": "okx-koppelingspecificatie",
       "type": "okx-specifiek",
       "doel": "Vaste opbouw en conventies voor koppelingspecificaties en payload-specificaties: verplichte inleiding, kern naar voren, veldnaamgeving, schema- en boomconventies, indienchecklist."
