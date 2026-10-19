@@ -4,14 +4,18 @@
   "herkomst": "Reviewvraag Npuls-OKx/Public#124 van @niesink, werkbrief Npuls-OKx/meta#390",
   "oeapi": true,
   "rij_labels": [
-    "wat S-BB landelijk vaststelt, wat daaronder valt, en waar het naar vertaalt",
-    "waar het keuzedeel bij de instelling landt"
+    "wat S-BB landelijk vaststelt, en waar het naar vertaalt",
+    "waarmee de instelling die ruimte invult"
   ],
   "objecten": [
     {
       "naam": "Kwalificatie dossier",
+      "rij": 0
+    },
+    {
+      "naam": "Kwalificatie",
       "rij": 0,
-      "noot": "specialisatie van de landelijke structuur"
+      "noot": "crebo"
     },
     {
       "naam": "Kwalificatiestructuur SBB",
@@ -21,36 +25,38 @@
       "waarom": "het landelijke kader waar dossier, kwalificatie en keuzedeel onder vallen"
     },
     {
-      "naam": "Kwalificatie",
-      "rij": 0,
-      "noot": "crebo, specialisatie van de landelijke structuur"
-    },
-    {
-      "naam": "Leeruitkomst",
-      "rij": 0,
-      "noot": "OEAPI: LearningOutcome; de laag waar het kader naar vertaalt"
-    },
-    {
       "naam": "Keuzedeel",
       "rij": 0,
       "merk": "herplaatst",
       "nummer": 2,
-      "waarom": "nu specialisatie van de landelijke structuur, met de K-code als verwijzing"
+      "waarom": "van de onderwijsspecificatie naar het kwalificatiekader, met de K-code"
+    },
+    {
+      "naam": "Leeruitkomst",
+      "rij": 0,
+      "noot": "OEAPI: LearningOutcome"
+    },
+    {
+      "naam": "Opleidingsprogramma specificatie",
+      "rij": 0,
+      "noot": "wordt vertaald naar leeruitkomsten"
+    },
+    {
+      "naam": "Keuzedeel specificatie",
+      "rij": 1,
+      "merk": "hernoemd",
+      "nummer": 3,
+      "waarom": "heette Keuzedeel; de instelling werkt het landelijke keuzedeel hier uit"
     },
     {
       "naam": "Keuzedeelruimte",
       "rij": 1,
       "noot": "de ruimte die de instelling vult"
-    },
-    {
-      "naam": "Opleidingsprogramma specificatie",
-      "rij": 1,
-      "noot": "verwijst naar het landelijke keuzedeel"
     }
   ],
   "voorbeeld": [
     {
-      "kop": "Een keuzedeel uit de landelijke structuur",
+      "kop": "Een landelijk keuzedeel",
       "bij": "Keuzedeel",
       "zin": "Ondernemend gedrag, K0072",
       "delen": [
