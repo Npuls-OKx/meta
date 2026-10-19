@@ -229,6 +229,13 @@
       "oeapi": null
     },
     {
+      "naam": "Kwalificatiestructuur SBB",
+      "kolom": "Kwalificatiekader",
+      "scope": "binnen",
+      "vulkleur": null,
+      "oeapi": null
+    },
+    {
       "naam": "Landelijk Opleidingsprofiel",
       "kolom": "Kwalificatiekader",
       "scope": "binnen",
@@ -1196,6 +1203,18 @@
     {
       "soort": "Association",
       "van": "Keuzedeel",
+      "naar": "Kwalificatie",
+      "label": "is gekoppeld aan (n:m)"
+    },
+    {
+      "soort": "Association",
+      "van": "Keuzedeel",
+      "naar": "Leeruitkomst",
+      "label": "wordt vertaald naar"
+    },
+    {
+      "soort": "Association",
+      "van": "Keuzedeel",
       "naar": "Verzoek tot Aanbod / Intekening op specificatie",
       "label": "Input voor"
     },
@@ -1220,12 +1239,6 @@
     {
       "soort": "Association",
       "van": "Kwalificatie",
-      "naar": "Leeruitkomst",
-      "label": "Wordt vertaald naar"
-    },
-    {
-      "soort": "Association",
-      "van": "Kwalificatie dossier",
       "naar": "Leeruitkomst",
       "label": "Wordt vertaald naar"
     },
@@ -1946,6 +1959,12 @@
     {
       "soort": "Specialization",
       "van": "Keuzedeel",
+      "naar": "Kwalificatiestructuur SBB",
+      "label": null
+    },
+    {
+      "soort": "Specialization",
+      "van": "Keuzedeel",
       "naar": "Opleidingsprogramma specificatie",
       "label": null
     },
@@ -1971,6 +1990,18 @@
       "soort": "Specialization",
       "van": "Keuzedeelruimte",
       "naar": "Opleidingsprogramma specificatie",
+      "label": null
+    },
+    {
+      "soort": "Specialization",
+      "van": "Kwalificatie",
+      "naar": "Kwalificatiestructuur SBB",
+      "label": null
+    },
+    {
+      "soort": "Specialization",
+      "van": "Kwalificatie dossier",
+      "naar": "Kwalificatiestructuur SBB",
       "label": null
     },
     {

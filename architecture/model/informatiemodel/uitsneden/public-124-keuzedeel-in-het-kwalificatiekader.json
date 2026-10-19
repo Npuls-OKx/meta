@@ -1,0 +1,72 @@
+{
+  "id": "public-124-keuzedeel-in-het-kwalificatiekader",
+  "titel": "Staat het keuzedeel nu in het landelijke kwalificatiekader?",
+  "herkomst": "Reviewvraag Npuls-OKx/Public#124 van @niesink, werkbrief Npuls-OKx/meta#390",
+  "oeapi": true,
+  "rij_labels": [
+    "wat S-BB landelijk vaststelt, en wat daaronder valt",
+    "waar het keuzedeel bij de instelling landt"
+  ],
+  "objecten": [
+    {
+      "naam": "Kwalificatie dossier",
+      "rij": 0,
+      "noot": "specialisatie van de landelijke structuur"
+    },
+    {
+      "naam": "Kwalificatie",
+      "rij": 0,
+      "noot": "crebo, specialisatie van de landelijke structuur"
+    },
+    {
+      "naam": "Kwalificatiestructuur SBB",
+      "rij": 0,
+      "merk": "toegevoegd",
+      "nummer": 1,
+      "waarom": "het landelijke kader waar dossier, kwalificatie en keuzedeel onder vallen"
+    },
+    {
+      "naam": "Keuzedeel",
+      "rij": 0,
+      "merk": "herplaatst",
+      "nummer": 2,
+      "waarom": "nu specialisatie van de landelijke structuur, met de K-code als verwijzing"
+    },
+    {
+      "naam": "Keuzedeelruimte",
+      "rij": 1,
+      "noot": "de ruimte die de instelling vult"
+    },
+    {
+      "naam": "Opleidingsprogramma specificatie",
+      "rij": 1,
+      "noot": "verwijst naar het landelijke keuzedeel"
+    }
+  ],
+  "voorbeeld": [
+    {
+      "kop": "Een keuzedeel uit de landelijke structuur",
+      "bij": "Keuzedeel",
+      "zin": "Ondernemend gedrag, K0072",
+      "delen": [
+        {
+          "deel": "landelijke code",
+          "waarde": "K0072"
+        },
+        {
+          "deel": "vastgesteld door",
+          "waarde": "S-BB"
+        },
+        {
+          "deel": "studielast",
+          "waarde": "240 SBU"
+        },
+        {
+          "deel": "gekoppeld aan",
+          "waarde": "kwalificatie Apothekersassistent, crebo 25646"
+        }
+      ],
+      "vindplaats": "voorbeeld-lr1-regels.json, keuzedeel bij de kwalificatie Apothekersassistent"
+    }
+  ]
+}
