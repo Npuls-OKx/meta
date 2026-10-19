@@ -1,10 +1,10 @@
 {
   "id": "public-124-keuzedeel-in-het-kwalificatiekader",
-  "titel": "Staat het keuzedeel nu in het landelijke kwalificatiekader?",
+  "titel": "Hoe hangt het keuzedeel aan het landelijke kwalificatiekader?",
   "herkomst": "Reviewvraag Npuls-OKx/Public#124 van @niesink, werkbrief Npuls-OKx/meta#390",
   "oeapi": true,
   "rij_labels": [
-    "wat S-BB landelijk vaststelt, en wat daaronder valt",
+    "wat S-BB landelijk vaststelt, wat daaronder valt, en waar het naar vertaalt",
     "waar het keuzedeel bij de instelling landt"
   ],
   "objecten": [
@@ -14,16 +14,21 @@
       "noot": "specialisatie van de landelijke structuur"
     },
     {
-      "naam": "Kwalificatie",
-      "rij": 0,
-      "noot": "crebo, specialisatie van de landelijke structuur"
-    },
-    {
       "naam": "Kwalificatiestructuur SBB",
       "rij": 0,
       "merk": "toegevoegd",
       "nummer": 1,
       "waarom": "het landelijke kader waar dossier, kwalificatie en keuzedeel onder vallen"
+    },
+    {
+      "naam": "Kwalificatie",
+      "rij": 0,
+      "noot": "crebo, specialisatie van de landelijke structuur"
+    },
+    {
+      "naam": "Leeruitkomst",
+      "rij": 0,
+      "noot": "OEAPI: LearningOutcome; de laag waar het kader naar vertaalt"
     },
     {
       "naam": "Keuzedeel",
@@ -62,11 +67,11 @@
           "waarde": "240 SBU"
         },
         {
-          "deel": "gekoppeld aan",
-          "waarde": "kwalificatie Apothekersassistent, crebo 25646"
+          "deel": "bij kwalificatie",
+          "waarde": "crebo 25646"
         }
       ],
-      "vindplaats": "voorbeeld-lr1-regels.json, keuzedeel bij de kwalificatie Apothekersassistent"
+      "vindplaats": "voorbeeld-lr1-regels.json, keuzedeel bij Apothekersassistent"
     }
   ]
 }
