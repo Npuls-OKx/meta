@@ -1,0 +1,67 @@
+{
+  "id": "public-114-organisatie-eenheid-op-meer-locaties",
+  "titel": "Hoe kan een organisatie-eenheid op meerdere locaties actief zijn?",
+  "herkomst": "Reviewvraag Npuls-OKx/Public#114 van @JanHendrikvanSchaik en @niesink, werkbrief Npuls-OKx/meta#390",
+  "oeapi": true,
+  "rij_labels": [
+    "wie verantwoordelijk is, wat de specificatie vraagt, en waar het aanbod landt",
+    "welke locaties de eenheid werkelijk gebruikt"
+  ],
+  "objecten": [
+    {
+      "naam": "Expertise of functieprofiel",
+      "rij": 0,
+      "kolom": "Onderwijskundigkader instelling",
+      "merk": "toegevoegd",
+      "nummer": 1,
+      "waarom": "de competenties die een eenheid in huis heeft"
+    },
+    {
+      "naam": "Organisatie-eenheid",
+      "rij": 0,
+      "kolom": "Onderwijskundigkader instelling",
+      "merk": "toegevoegd",
+      "nummer": 2,
+      "waarom": "draagt meer dan een specificatie"
+    },
+    {
+      "naam": "Leeronderdeel specificatie",
+      "rij": 0,
+      "noot": "een van de specificaties die de eenheid draagt"
+    },
+    {
+      "naam": "Onderwijsvorm",
+      "rij": 0,
+      "merk": "toegevoegd",
+      "nummer": 3,
+      "waarom": "hoe het onderwijs wordt gegeven, los van waar"
+    },
+    {
+      "naam": "Onderwijslocatie type",
+      "rij": 0,
+      "merk": "toegevoegd",
+      "nummer": 4,
+      "waarom": "de ruimte die de vorm vraagt, zonder adres"
+    },
+    {
+      "naam": "Onderwijslocatie",
+      "rij": 0,
+      "merk": "toegevoegd",
+      "nummer": 5,
+      "waarom": "het werkelijke adres, pas aan de aanbodkant"
+    },
+    {
+      "naam": "Onderwijslocatie vlekkenplan",
+      "rij": 1,
+      "kolom": "Onderwijskundigkader instelling",
+      "merk": "toegevoegd",
+      "nummer": 6,
+      "waarom": "welke locaties een eenheid gebruikt"
+    },
+    {
+      "naam": "Onderwijseenheid aanbod",
+      "rij": 1,
+      "noot": "landt op een werkelijke locatie"
+    }
+  ]
+}

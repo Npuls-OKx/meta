@@ -22401,7 +22401,7 @@ meerdere tegelijk</content>
                       </sourceConnection>
                       <sourceConnection xsi:type="archimate:Connection" id="id-c69a1fb8b9474798a188a04078e62604" source="id-75610cfaa41248878a4800a1e3a205ca" target="id-1fcc8d865c304706baa7cb4565ed51e6" archimateRelationship="id-c68f59605b2b4916a187edfb275b9c0c"/>
                       <sourceConnection xsi:type="archimate:Connection" id="id-240dd880a79c4d468aec8c40bc198b5b" targetConnections="id-1816aa6bd804471684c54ca82649e3e1" source="id-75610cfaa41248878a4800a1e3a205ca" target="id-72a8021c88f3425284c725b8d9325e4c" archimateRelationship="id-32a257bf7576449eb83273bcb9dd042c">
-                        <bendpoint startX="24" startY="-90" endX="-984" endY="-2"/>
+                        <bendpoint startX="24" startY="-89" endX="-984" endY="-2"/>
                       </sourceConnection>
                       <sourceConnection xsi:type="archimate:Connection" id="id-e120ea9c84bd4965abdab54a96457d13" source="id-75610cfaa41248878a4800a1e3a205ca" target="id-e45b26e39fbb4b948bc74a4188bd8383" archimateRelationship="id-59cd9af01cf64053b215a4bd01e62a3d">
                         <bendpoint startX="-12" startY="-173" endX="-876" endY="-2"/>
@@ -22425,7 +22425,9 @@ meerdere tegelijk</content>
                     </child>
                     <child xsi:type="archimate:Note" id="id-113262d939fc4cbeae8427cf66f37b2b" textAlignment="1">
                       <bounds x="120" y="96" width="385" height="56"/>
-                      <sourceConnection id="id-1816aa6bd804471684c54ca82649e3e1" source="id-113262d939fc4cbeae8427cf66f37b2b" target="id-240dd880a79c4d468aec8c40bc198b5b"/>
+                      <sourceConnection id="id-1816aa6bd804471684c54ca82649e3e1" source="id-113262d939fc4cbeae8427cf66f37b2b" target="id-240dd880a79c4d468aec8c40bc198b5b">
+                        <bendpoint startX="-204" startY="-4" endX="-462" endY="-64"/>
+                      </sourceConnection>
                       <content>We zijn een AOC -> en daarbij hoort een onderwijsmodel dat vooral gericht is op leren met je handen in de klei, bij de boer en op het veld. </content>
                     </child>
                   </child>
@@ -22604,8 +22606,8 @@ Stel ik bouw een opleiding van onder naar boven. En deze = exact gelijk aan van 
                   <sourceConnection xsi:type="archimate:Connection" id="id-73524563ded54f1cb0ae96ce90419ab1" source="id-820f48e100574690970a70118c2cbaae" target="id-5da5a77b3932433ea76ae6a1541717ab" archimateRelationship="id-b450aa1b09204e57a7c387559c87495d"/>
                   <sourceConnection xsi:type="archimate:Connection" id="id-bc13b5fb56544f6d80aaa3f610881364" source="id-820f48e100574690970a70118c2cbaae" target="id-0d74bf2e8c394006857a1c54ee1806e0" archimateRelationship="id-91497361c71a47dca886ebc0600025a0"/>
                   <sourceConnection xsi:type="archimate:Connection" id="id-9c080afe8a7640bf982d62be0da72870" source="id-820f48e100574690970a70118c2cbaae" target="id-0e87655ca5f14c41983d9f7c87fd04d7" archimateRelationship="id-36273516b72a497583e2c252316ccd4d">
-                    <bendpoint startX="-41" startY="116" endX="252" endY="-616"/>
-                    <bendpoint startX="-248" startY="116" endX="36" endY="-614"/>
+                    <bendpoint startX="-32" startY="128" endX="266" endY="-608"/>
+                    <bendpoint startX="-260" startY="128" endX="38" endY="-608"/>
                   </sourceConnection>
                   <sourceConnection xsi:type="archimate:Connection" id="id-50ff429cda244b0e8820ec9510f683c2" source="id-820f48e100574690970a70118c2cbaae" target="id-91d8e62b6b6a407cb5d05b90bca8af27" archimateRelationship="id-082ef4aa65ad4d99b1656c2a22c54adc">
                     <bendpoint startX="-128" startY="-16" endX="118" endY="-16"/>
@@ -22637,7 +22639,7 @@ Stel ik bouw een opleiding van onder naar boven. En deze = exact gelijk aan van 
                   <bendpoint startX="48" startY="722" endX="-84" endY="-3"/>
                 </sourceConnection>
                 <sourceConnection xsi:type="archimate:Connection" id="id-37cbeb8329d84c94bd081322ec786e02" source="id-a470c18944cf4aa4a211dce9b1f782f8" target="id-bfd82979afca42c6bcc7785f3d60d295" archimateRelationship="id-c04eade05ee44fcfbd66945eac057984">
-                  <bendpoint startY="-153" endX="-204" endY="-2"/>
+                  <bendpoint startY="-189" endX="-162" endY="-2"/>
                 </sourceConnection>
                 <sourceConnection xsi:type="archimate:Connection" id="id-99d7dab066374af1bce97e99fdc8f194" source="id-a470c18944cf4aa4a211dce9b1f782f8" target="id-1543fa69ed554e2596135e5177238f1a" archimateRelationship="id-6250196d2fde484cbb6173d8e04ddf95">
                   <bendpoint startX="12" startY="278" endX="180" endY="-411"/>
@@ -23279,14 +23281,16 @@ Je hebt leeruitdoelen nodig om tot goede leeruitkomsten nodig.&#xD;
               <bounds x="6960" y="414" width="120" height="55"/>
               <sourceConnection xsi:type="archimate:Connection" id="id-60c22fc029e644c5b7689a1cf1b6d3e8" source="id-e409539a447448caa8a455a8a4c4d114" target="id-0e87655ca5f14c41983d9f7c87fd04d7" archimateRelationship="id-027b42e859854af2abedd37747a3d049">
                 <bendpoint startX="-3360" startY="4" endX="3362" endY="-32"/>
+                <bendpoint startX="-5004" startY="16" endX="1718" endY="-20"/>
               </sourceConnection>
               <sourceConnection xsi:type="archimate:Connection" id="id-4bf4e09e599e4433a367e3cb8a2b9df7" source="id-e409539a447448caa8a455a8a4c4d114" target="id-e10aa4e636b54ddc9993b261eb04f0a6" archimateRelationship="id-529e50890f6d4630a389fa71f052cacb">
                 <bendpoint startX="-300" startY="-8" endX="264" endY="156"/>
                 <bendpoint startX="-516" startY="-8" endX="48" endY="156"/>
               </sourceConnection>
               <sourceConnection xsi:type="archimate:Connection" id="id-bb9b3d2112074fa59c72cb4976f12033" source="id-e409539a447448caa8a455a8a4c4d114" target="id-aa2be122a46c44609bcd379a46b32abb" archimateRelationship="id-bd35994850fc4d41a3cb5107e3e8694b">
-                <bendpoint startX="-264" startY="-32" endX="3396" endY="964"/>
-                <bendpoint startX="-276" startY="-908" endX="3384" endY="88"/>
+                <bendpoint startX="-48" startY="-44" endX="3612" endY="952"/>
+                <bendpoint startX="-264" startY="-44" endX="3396" endY="952"/>
+                <bendpoint startX="-264" startY="-908" endX="3396" endY="88"/>
                 <bendpoint startX="-1200" startY="-908" endX="775" endY="88"/>
               </sourceConnection>
             </child>
@@ -25004,7 +25008,7 @@ In tussen varianten (transitie periodes) is dit wel nodig. Zeker als je van buit
                 <bendpoint startX="-1" startY="268" endX="-562" endY="-12"/>
               </sourceConnection>
               <sourceConnection xsi:type="archimate:Connection" id="id-fe5564451d3a4c73a763cd32135addd8" source="id-b37d4ecff6ba4af39bbda3017c332812" target="id-1543fa69ed554e2596135e5177238f1a" archimateRelationship="id-a70297e6afb24afd90f838354080561f">
-                <bendpoint startX="395" startY="4" endX="-60" endY="166"/>
+                <bendpoint startX="407" startY="4" endX="-48" endY="166"/>
               </sourceConnection>
             </child>
             <child xsi:type="archimate:DiagramObject" id="id-cb88d0c41ddf4d33a59e71ad4324f659" targetConnections="id-8816c4469bdd41e5a5796f084be06214" archimateElement="id-6a6bf608706d4ae898daf4f8e091f6f8">
