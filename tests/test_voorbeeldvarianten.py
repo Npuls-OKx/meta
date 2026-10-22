@@ -78,10 +78,9 @@ class Variantcontrole(unittest.TestCase):
             basis = fc.regels()
             pad = schrijf(map_, basis, *varianten, namen=namen)
             geladen, onbekend = vv.laad(pad, basis)
-            ids = vv.beeld_ids(basis, geladen)
             uit = []
             for v in geladen:
-                b, _ = cv.controleer_variant(v, basis, ids, fc.model(), fc.stromen() if stromen == "standaard" else stromen,
+                b, _ = cv.controleer_variant(v, basis, geladen, fc.model(), fc.stromen() if stromen == "standaard" else stromen,
                                              schema_pad=SCHEMA, variantschema=VARIANTSCHEMA)
                 uit += b
             return uit, onbekend
@@ -103,6 +102,29 @@ class Variantcontrole(unittest.TestCase):
         verwijzing = [x for x in b if "voorafgegaan" in x]
         self.assertEqual(len(verwijzing), 1)
         self.assertIn("F4-99", verwijzing[0])
+
+    def test_given_reference_forward_to_a_later_variant_when_checked_then_found(self):
+        v = capaciteit(); v["fasen"][0]["voorafgegaan_door"] = ["F4-R01"]
+        b, _ = self.controleer(v, geroosterd())
+        self.assertTrue(any("F4-R01" in x and x.startswith("voorbeeld-lr1-regels-capaciteitsgestuurd.json") for x in b))
+
+    def test_given_vervangt_when_checked_then_existing_earlier_image_passes_and_unknown_is_found(self):
+        v = geroosterd(); v["fasen"][0]["voorafgegaan_door"] = ["F3-01"]; v["fasen"][0]["vervangt"] = ["F4-01", "F4-77"]
+        b, _ = self.controleer(capaciteit(), v)
+        vervangt = [x for x in b if "vervangt" in x]
+        self.assertEqual(len(vervangt), 1)
+        self.assertIn("F4-77", vervangt[0])
+
+    def test_given_variant_fase_not_in_basis_when_checked_then_found(self):
+        v = capaciteit(); v["fasen"].append({"nummer": 7, "bron": "b", "stappen": ["Bijsturen"]})
+        self.assertTrue(any("fase 7" in x and "basis" in x for x in self.controleer(v)[0]))
+
+    def test_given_variant_that_is_no_valid_json_when_loaded_then_clean_exit(self):
+        with tempfile.TemporaryDirectory() as map_:
+            pad = schrijf(map_, fc.regels())
+            (Path(map_) / "voorbeeld-lr1-regels-geroosterd.json").write_text("{kapot", encoding="utf-8")
+            with self.assertRaises(SystemExit):
+                vv.laad(pad, fc.regels())
 
     def test_given_variant_beeld_id_when_validated_then_letter_required_and_must_match_vorm(self):
         self.assertEqual(self.controleer(capaciteit())[0], [])
@@ -161,6 +183,14 @@ class VariantDocument(unittest.TestCase):
         self.assertIn("(#f3-01---de-aanmelding)", deel)
         self.assertLess(deel.index("#f3-01---de-aanmelding"), deel.index("#### F3-C01 - Keuze op de geplande gelegenheid"))
         self.assertIn("img/regels/f3-c01-keuze-op-de-geplande-gelegenheid.svg", deel)
+
+    def test_given_vervangt_when_generated_then_shown_as_link_after_the_reference(self):
+        basis = fg.regels()
+        v = gen_variant(); v["fasen"][0]["vervangt"] = ["F3-01"]
+        varianten = [{"vorm": "capaciteitsgestuurd", "pad": Path("x.json"), "bron": v, "tabel": vv.samenvoegen(basis, v)}]
+        deel = gv.bouw(basis, fg.model(), fg.begrippen(), varianten=varianten).split("### Variant capaciteitsgestuurd")[1]
+        self.assertIn("Vervalt in deze vorm of schuift hierheen: [F3-01](#f3-01---de-aanmelding).", deel)
+        self.assertLess(deel.index("Hieraan gaan vooraf"), deel.index("Vervalt in deze vorm"))
 
     def test_given_variant_when_drawn_then_file_names_match_document(self):
         basis, varianten = self.geladen()

@@ -20,7 +20,8 @@
           "bron": {"type": "string", "description": "waar deze stappen vandaan komen; de basis volgt het kaderscenario, een variant de instellingspraktijk"},
           "stappen": {"type": "array", "items": {"type": "string"}, "minItems": 1},
           "voorafgegaan_door": {"type": "array", "items": {"type": "string", "pattern": "^F[1-8]-[CR]?[0-9]{2}$"}, "description": "de beelden die in dit traject aan de variant voorafgaan, uit de basis of uit een andere variant, zoals de animo-uitvraag voor een keuze op capaciteit"},
-          "toelichting": {"type": "string", "description": "een of twee zinnen over wat deze vorm in deze fase anders doet, en waarom"}
+          "vervangt": {"type": "array", "items": {"type": "string", "pattern": "^F[1-8]-[CR]?[0-9]{2}$"}, "description": "de beelden die in deze vorm vervallen of naar deze fase verschuiven, uit de basis of uit een eerdere variant, zoals de plaatsing uit F4-09 die bij een geroosterde keuze al in fase 6 gebeurt"},
+          "toelichting":{"type": "string", "description": "een of twee zinnen over wat deze vorm in deze fase anders doet, en waarom"}
         }
       }
     },

@@ -13,8 +13,11 @@ Geen eigen opdrachtregel; de scripts laden dit bestand.
 
 import json
 import pathlib
+import sys
 
-# de leesvolgorde in het document, en de letter in het beeld-ID; de basis is de vraaggestuurde vorm
+# de leesvolgorde in het document, en de letter in het beeld-ID; de basis is de vraaggestuurde vorm.
+# Een vorm erbij gaat mee in voorbeeld-lr1-variant.schema.json (enum van vorm, en [CR] in de patronen)
+# en in het patroon van beeld_id in $defs/regel van voorbeeld-lr1-regels.schema.json.
 VORMEN = {"capaciteitsgestuurd": "C", "geroosterd": "R"}
 KOP = ("model", "rollen", "toestanden", "scope_uitzonderingen", "koppelingen", "thema_toelichting")
 # wat een fase van de basis over een volledige reis zegt, en dus niet voor een delta geldt
@@ -43,7 +46,8 @@ def samenvoegen(basis, variant):
         f = {k: kopie(v) for k, v in per_nummer.get(vf.get("nummer"), {"naam": f"fase {vf.get('nummer')}"}).items()
              if k not in ALLEEN_BASIS}
         f.update({"nummer": vf.get("nummer"), "bron": vf.get("bron"), "stappen": list(vf.get("stappen", [])),
-                  "verwacht": [], "voorafgegaan_door": list(vf.get("voorafgegaan_door", []))})
+                  "verwacht": [], "voorafgegaan_door": list(vf.get("voorafgegaan_door", [])),
+                  "vervangt": list(vf.get("vervangt", []))})
         if vf.get("toelichting"):
             f["toelichting"] = vf["toelichting"]
         tabel["fasen"].append(f)
@@ -62,7 +66,11 @@ def laad(basispad, basis=None):
     gevonden, onbekend = paden(basispad)
     uit = []
     for vorm, pad in gevonden:
-        bron = json.loads(pad.read_text(encoding="utf-8"))
+        try:
+            bron = json.loads(pad.read_text(encoding="utf-8"))
+        except json.JSONDecodeError as fout:
+            print(f"variant is geen geldige JSON: {pad}, regel {fout.lineno}: {fout.msg}", file=sys.stderr)
+            raise SystemExit(1)
         tabel = samenvoegen(basis, bron)
         tabel["vorm"] = vorm
         uit.append({"vorm": vorm, "pad": pad, "bron": bron, "tabel": tabel})
@@ -70,11 +78,27 @@ def laad(basispad, basis=None):
 
 
 def beeld_ids(basis, varianten):
-    """Alle beeld-ID's in de basis en de geladen varianten: waar een verwijzing naar mag wijzen."""
+    """Alle beeld-ID's in de basis en de geladen varianten."""
     ids = {r.get("beeld_id") for r in basis.get("regels", [])}
     for v in varianten:
         ids |= {r.get("beeld_id") for r in v["tabel"].get("regels", [])}
     return ids - {None}
+
+
+def eerdere_beelden(basis, varianten, v, fase):
+    """De beelden waar een verwijzing in fase `fase` van variant `v` naar mag wijzen: de basis, de varianten
+    die eerder in VORMEN staan, en de eigen beelden in een eerdere fase. Zo linkt het document altijd naar
+    iets wat erboven staat, en verwijst geen variant naar zichzelf of vooruit."""
+    volgorde = [x["vorm"] for x in varianten]
+    eerder = [x for x in varianten if volgorde.index(x["vorm"]) < volgorde.index(v["vorm"])]
+    ids = beeld_ids(basis, eerder)
+    ids |= {r.get("beeld_id") for r in v["tabel"].get("regels", []) if (r.get("fase") or 0) < fase}
+    return ids - {None}
+
+
+def plaatnaam(fase, vorm):
+    """De hoofdplaat van een variant in een fase; de tekenaar schrijft hem, de generator toont hem."""
+    return f"f{fase}-{vorm}.svg"
 
 
 def ontstaan_in(basis):

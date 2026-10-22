@@ -48,7 +48,8 @@ Een planningsvorm naast de basis (voorbeeld-lr1-regels-<vorm>.json, #401) krijgt
 8, 9, 11 en 13 op de tabel die ontstaat als zij met de kop van de basis wordt samengevoegd, en controle 10
 tegen haar eigen schema. De dekking (6 en 12) geldt alleen voor de basis, want een variant is een delta.
 Daarbij komt: de vorm in het bestand is die van de bestandsnaam, het beeld-ID draagt de letter van de vorm,
-en elk beeld onder voorafgegaan_door bestaat in de basis of in een variant.
+elke fase staat in de basis, en elk beeld onder voorafgegaan_door of vervangt staat erboven: in de basis,
+in een variant die eerder in de leesvolgorde komt, of eerder in dezelfde variant.
 
 Bevindingen en signaleringen staan apart in de uitvoer; de exitcode volgt alleen de bevindingen. Een
 signalering wijst op iets dat aandacht vraagt zonder de uitkomst af te keuren: een objecttype dat de plaat
@@ -516,19 +517,27 @@ def controleer(regels, model, stromen=None, fasen_filter=None, model_commit=None
     return bevindingen, waarschuwingen, ontbrekend
 
 
-def controleer_variant(v, basis, ids, model, stromen=None, conceptplaat=None, componenten=None,
+def controleer_variant(v, basis, geladen, model, stromen=None, conceptplaat=None, componenten=None,
                        schema_pad=SCHEMA, variantschema=VARIANTSCHEMA):
-    """Een variantbestand: het eigen schema, de vorm uit de bestandsnaam, de verwijzingen naar eerdere
-    beelden, en daarna de controles van de basis op de samengevoegde tabel. Elke melding begint met de
+    """Een variantbestand: het eigen schema, de vorm uit de bestandsnaam, de fasen tegen de basis, de
+    verwijzingen naar eerdere beelden, en daarna de controles van de basis op de samengevoegde tabel.
+    Een verwijzing (voorafgegaan_door, vervangt) wijst naar de basis, naar een variant die eerder in de
+    leesvolgorde staat, of naar een eigen beeld in een eerdere fase. Elke melding begint met de
     bestandsnaam. Geeft (bevindingen, waarschuwingen)."""
     naam = pathlib.Path(v["pad"]).name
     bevindingen, waarschuwingen = schemavalidatie(v["bron"], variantschema, (schema_pad,))
     if v["bron"].get("vorm") != v["vorm"]:
         bevindingen.append(f"kop: vorm {v['bron'].get('vorm')!r} wijkt af van de bestandsnaam ({v['vorm']})")
+    basisfasen = {f.get("nummer") for f in basis.get("fasen", [])}
     for f in v["tabel"]["fasen"]:
-        for bid in f.get("voorafgegaan_door", []):
-            if bid not in ids:
-                bevindingen.append(f"fase {f['nummer']}: voorafgegaan door {bid!r}, maar dat beeld staat niet in de basis of in een variant")
+        if f["nummer"] not in basisfasen:
+            bevindingen.append(f"fase {f['nummer']}: staat niet in de basis, dus het document toont dit deel nergens")
+        eerder = varianten.eerdere_beelden(basis, geladen, v, f["nummer"])
+        for veld, wat in (("voorafgegaan_door", "voorafgegaan door"), ("vervangt", "vervangt")):
+            for bid in f.get(veld, []):
+                if bid not in eerder:
+                    bevindingen.append(f"fase {f['nummer']}: {wat} {bid!r}, maar dat beeld staat niet in de basis, "
+                                       f"in een eerdere variant of eerder in deze variant")
     b, w, _ = controleer(v["tabel"], model, stromen, conceptplaat=conceptplaat, componenten=componenten,
                          schema_pad=None, eerder=varianten.ontstaan_in(basis))
     return [f"{naam}: {x}" for x in bevindingen + b], [f"{naam}: {x}" for x in waarschuwingen + w]
@@ -565,9 +574,8 @@ def main(argv=None):
     geladen, onbekend = varianten.laad(args.regels, regels)
     for pad in onbekend:
         bevindingen.append(f"{pad.name}: geen bekende planningsvorm; kies uit {', '.join(varianten.VORMEN)}")
-    ids = varianten.beeld_ids(regels, geladen)
     for v in geladen:
-        b, w = controleer_variant(v, regels, ids, model, stromen, conceptplaat, componenten,
+        b, w = controleer_variant(v, regels, geladen, model, stromen, conceptplaat, componenten,
                                   args.schema, args.variantschema)
         bevindingen += b
         waarschuwingen += w

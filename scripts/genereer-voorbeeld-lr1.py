@@ -30,7 +30,9 @@ import sys
 _spec = importlib.util.spec_from_file_location("teken_voorbeeldregels", pathlib.Path(__file__).resolve().parent / "teken-voorbeeldregels.py")
 teken = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(teken)
-varianten = teken.varianten
+_spec = importlib.util.spec_from_file_location("voorbeeldvarianten", pathlib.Path(__file__).resolve().parent / "voorbeeldvarianten.py")
+varianten = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(varianten)
 
 REGELS = pathlib.Path("architecture/model/informatiemodel/voorbeeld-lr1-regels.json")
 MODEL = pathlib.Path("architecture/model/informatiemodel/informatiemodel.json")
@@ -192,10 +194,13 @@ def variantdeel(v, nummer, blokken, ankers):
     uit = f"### Variant {v['vorm']}\n\n"
     if fase and fase.get("toelichting"):
         uit += fase["toelichting"] + "\n\n"
-    eerder = (fase or {}).get("voorafgegaan_door") or []
-    if eerder:
-        uit += "Hieraan gaan vooraf: " + ", ".join(f"[{bid}](#{ankers[bid]})" if bid in ankers else bid for bid in eerder) + ".\n\n"
-    plaat = f"f{nummer}-{v['vorm']}.svg"
+    def links(ids):
+        return ", ".join(f"[{bid}](#{ankers[bid]})" if bid in ankers else bid for bid in ids)
+    if (fase or {}).get("voorafgegaan_door"):
+        uit += f"Hieraan gaan vooraf: {links(fase['voorafgegaan_door'])}.\n\n"
+    if (fase or {}).get("vervangt"):
+        uit += f"Vervalt in deze vorm of schuift hierheen: {links(fase['vervangt'])}.\n\n"
+    plaat = varianten.plaatnaam(nummer, v["vorm"])
     if any(b["soort"] == "stroomt" for b in blokken) and (PLATEN / plaat).exists():
         uit += f"![Hoofdplaat met de stromen van fase {nummer} in de variant {v['vorm']} gemarkeerd]({PLAATMAP}/{plaat})\n\n"
     for b in blokken:
@@ -381,8 +386,10 @@ def main(argv=None):
         return 2
     componenten = json.loads(COMPONENTEN.read_text(encoding="utf-8")) if COMPONENTEN.exists() else None
     regels = lees(args.regels, "regeltabel")
-    tekst = bouw(regels, lees(args.model, "informatiemodel"), lees(args.begrippen, "begrippen"), componenten,
-                 varianten.laad(args.regels, regels)[0])
+    geladen, onbekend = varianten.laad(args.regels, regels)
+    for pad in onbekend:
+        print(f"waarschuwing: {pad.name} is geen bekende planningsvorm en staat niet in het document", file=sys.stderr)
+    tekst = bouw(regels, lees(args.model, "informatiemodel"), lees(args.begrippen, "begrippen"), componenten, geladen)
     ontbrekend = [m.group(1) for m in re.finditer(r"\]\((img/regels/[^)]+)\)", tekst) if not (args.uit.parent / m.group(1)).exists()]
     if ontbrekend:
         print("regels zonder SVG: " + ", ".join(ontbrekend), file=sys.stderr)

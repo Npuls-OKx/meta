@@ -34,7 +34,7 @@ _spec = importlib.util.spec_from_file_location("voorbeeldvarianten", WORTEL / "v
 varianten = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(varianten)
 
-MODEL =pathlib.Path("architecture/model/model.archimate")
+MODEL = pathlib.Path("architecture/model/model.archimate")
 REGELS = pathlib.Path("architecture/model/informatiemodel/voorbeeld-lr1-regels.json")
 STROMEN = pathlib.Path("architecture/model/informatiemodel/stromen.json")
 UITMAP = pathlib.Path("architecture/model/informatiemodel/img/hoofdplaat")
@@ -66,7 +66,7 @@ def stromen_per_fase(regels):
 def platen_per_variant(geladen):
     """Per variant en per fase de plaat die erbij hoort: [(bestandsnaam, stromen)], in de volgorde
     van de varianten. Een fase zonder stroom in de variant krijgt geen plaat."""
-    return [(f"f{fase}-{v['vorm']}.svg", stromen)
+    return [(varianten.plaatnaam(fase, v["vorm"]), stromen)
             for v in geladen for fase, stromen in stromen_per_fase(v["tabel"]).items()]
 
 

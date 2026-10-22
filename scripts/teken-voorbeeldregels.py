@@ -33,7 +33,7 @@ _spec = importlib.util.spec_from_file_location("voorbeeldvarianten", pathlib.Pat
 varianten = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(varianten)
 
-REGELS =pathlib.Path("architecture/model/informatiemodel/voorbeeld-lr1-regels.json")
+REGELS = pathlib.Path("architecture/model/informatiemodel/voorbeeld-lr1-regels.json")
 UIT = pathlib.Path("architecture/model/informatiemodel/img/regels")
 BUS, BUS_L, BUS_T = "#ffffb5", "#a8a85a", "#5a5a2a"
 APP, APP_L, APP_T = "#b5ffff", "#5aa8a8", "#2a5a5a"
@@ -555,7 +555,10 @@ def main(argv=None):
     print(f"{len(uit)} regels getekend naar {args.uit}")
     # een planningsvorm naast de basis tekent naar dezelfde map; het beeld-ID met de letter van de vorm
     # (f6-c01-...) houdt de bestandsnamen uit elkaar
-    for v in varianten.laad(args.regels, regels)[0]:
+    geladen, onbekend = varianten.laad(args.regels, regels)
+    for pad in onbekend:
+        print(f"waarschuwing: {pad.name} is geen bekende planningsvorm en wordt niet getekend", file=sys.stderr)
+    for v in geladen:
         valideer(v["tabel"])
         print(f"{len(teken(v['tabel'], args.uit))} regels van variant {v['vorm']} getekend naar {args.uit}")
     return 0
