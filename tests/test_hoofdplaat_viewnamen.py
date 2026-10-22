@@ -1,8 +1,8 @@
 """Testgevallen voor de viewnamen waarmee de scripts de hoofdplaat in het model zoeken.
 
-De scripts zoeken een view op naam. Hernoemt de modelleur een view in Archi, dan
-vindt een script hem niet meer; deze gevallen toetsen daarom tegen het echte model
-in de repository, en niet tegen een fixture (#393).
+De scripts zoeken een view op naam. Deze gevallen toetsen daarom tegen het echte
+model in de repository: hernoemt de modelleur een view in Archi, dan valt dat hier
+direct op (#393).
 """
 
 import importlib.util
