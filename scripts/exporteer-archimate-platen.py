@@ -10,7 +10,7 @@ rapport en zet ze op de gevraagde paden. Optioneel legt het per view een laag
 met informatieobjecten over de plaat: per flow (relatie-id uit Archi) een
 objectvak op het langste segment van de pijl, als SVG met de PNG ingebed.
 
-    python3 scripts/exporteer-archimate-platen.py --view "OKx hoofdplaat v1.7<concept>" --uit pad.png
+    python3 scripts/exporteer-archimate-platen.py --view "OKx hoofdplaat v1.7a<concept>" --uit pad.png
     python3 scripts/exporteer-archimate-platen.py --view NAAM --uit pad.svg --objecten objecten.json
 
 Met --objecten worden de pijlteksten (labelexpressies) op de kopie weggelaten, zodat

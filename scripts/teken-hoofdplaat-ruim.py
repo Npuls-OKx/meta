@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """De hoofdplaat informatiestromen ruimer opgezet en netjes gerouteerd.
 
-Waarom dit script bestaat: hoofdplaat v1.7 vertelt een helder verhaal in twee procesgebieden,
+Waarom dit script bestaat: hoofdplaat v1.7a vertelt een helder verhaal in twee procesgebieden,
 links de onderwijsontwikkeling en rechts de onderwijsuitvoering, met de applicatiecomponenten
 die daarin met elkaar praten. Elke informatiestroom blijft binnen haar eigen gebied; daarom
 staat een component dat in beide processen meedoet er twee keer op. Dat verhaal blijft hier
@@ -31,7 +31,7 @@ _spec.loader.exec_module(hoofdplaat)
 
 MODEL = pathlib.Path("architecture/model/model.archimate")
 STROMEN = pathlib.Path("architecture/model/informatiemodel/stromen.json")
-VIEW = "OKx hoofdplaat v1.7<concept>"
+VIEW = "OKx hoofdplaat v1.7a<concept>"
 XSI = "{http://www.w3.org/2001/XMLSchema-instance}type"
 
 INKT = "#1c1c1c"

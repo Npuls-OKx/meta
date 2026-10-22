@@ -1,7 +1,7 @@
 """Testgevallen voor scripts/teken-hoofdplaat-ruim.py.
 
 De plaat mag ruimer worden, maar de onderlinge ligging van de vakken moet blijven staan: dat is
-het verhaal van hoofdplaat v1.7. En een naam die niet past hoort niet stilletjes af te breken.
+het verhaal van hoofdplaat v1.7a. En een naam die niet past hoort niet stilletjes af te breken.
 """
 
 import importlib.util
