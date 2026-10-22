@@ -58,7 +58,7 @@
     },
     "koppelingen": {
       "type": "object",
-      "description": "koppeling-ID uit Public per (van > naar) op hoofdplaat v1.7",
+      "description": "koppeling-ID uit Public per (van > naar) op hoofdplaat v1.7a",
       "additionalProperties": {"type": "string"}
     },
     "regels": {
@@ -75,8 +75,8 @@
           "plaat": {"type": "string", "enum": ["informatiemodel", "onderwijsontwerp"], "default": "informatiemodel", "description": "plaat waartegen de regel wordt gecontroleerd; de conceptplaat Informatiemodel Onderwijsontwerp alleen in een verdieping"},
           "soort": {"type": "string", "enum": ["ontstaat", "verandert", "stroomt"]},
           "wie": {"type": "string", "description": "rol uit de rollenlijst; verplicht bij ontstaat en verandert"},
-          "van": {"type": "string", "description": "componentnaam letterlijk uit v1.7; verplicht bij stroomt"},
-          "naar": {"type": "string", "description": "componentnaam letterlijk uit v1.7; verplicht bij stroomt"},
+          "van": {"type": "string", "description": "componentnaam letterlijk uit v1.7a; verplicht bij stroomt"},
+          "naar": {"type": "string", "description": "componentnaam letterlijk uit v1.7a; verplicht bij stroomt"},
           "pijl": {"type": "string", "description": "relatie-id uit stromen.json, of 'geen pijl op de hoofdplaat'; verplicht bij stroomt"},
           "koppeling": {"type": ["string", "null"], "description": "koppeling-ID van de uitwisseling die deze regel raakt, een waarde uit de koppelingen-lijst op topniveau, of null voor een stroom zonder koppelingspecificatie (dezelfde betekenis als in stromen.json). Verplicht bij stroomt en alleen daar, zodat per uitwisseling vaststaat of een specificatie haar dekt; de controle toetst de waarde tegen de lijst, omdat JSON Schema niet naar een zusterveld kan verwijzen"},
           "objecttype": {"type": "string", "description": "plaatnaam letterlijk (witruimte genormaliseerd)"},
