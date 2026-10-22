@@ -367,7 +367,7 @@ class SchemaContractTests(unittest.TestCase):
         self.assertEqual(fouten, [])
         self.assertEqual(waarschuwingen, [])
         velden = {k for r in tabel["regels"] for k in r}
-        beschreven = set(json.loads(SCHEMA.read_text(encoding="utf-8"))["properties"]["regels"]["items"]["properties"])
+        beschreven = set(json.loads(SCHEMA.read_text(encoding="utf-8"))["$defs"]["regel"]["properties"])
         self.assertEqual(velden - beschreven, set())
 
     def test_given_rule_with_unknown_field_when_checked_then_finding_names_that_field(self):
