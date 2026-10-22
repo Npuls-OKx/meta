@@ -10,6 +10,9 @@ zichtbaar wat er ontbreekt.
 
     python3 scripts/teken-hoofdplaat-highlight.py --plaat img/hoofdplaat.png
 
+Staat er een planningsvorm naast de regeltabel (voorbeeld-lr1-regels-<vorm>.json), dan komt er per
+fase en per vorm een plaat bij, f<fase>-<vorm>.svg, met alleen de stromen van die variant.
+
 Het model wordt alleen gelezen; raak nooit een .archimate-bestand aan.
 """
 
@@ -27,8 +30,11 @@ WORTEL = pathlib.Path(__file__).resolve().parent
 _spec = importlib.util.spec_from_file_location("platen", WORTEL / "exporteer-archimate-platen.py")
 platen = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(platen)
+_spec = importlib.util.spec_from_file_location("voorbeeldvarianten", WORTEL / "voorbeeldvarianten.py")
+varianten = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(varianten)
 
-MODEL = pathlib.Path("architecture/model/model.archimate")
+MODEL =pathlib.Path("architecture/model/model.archimate")
 REGELS = pathlib.Path("architecture/model/informatiemodel/voorbeeld-lr1-regels.json")
 STROMEN = pathlib.Path("architecture/model/informatiemodel/stromen.json")
 UITMAP = pathlib.Path("architecture/model/informatiemodel/img/hoofdplaat")
@@ -55,6 +61,13 @@ def stromen_per_fase(regels):
         if r.get("beeld_id") and r["beeld_id"] not in rij:
             rij.append(r["beeld_id"])
     return uit
+
+
+def platen_per_variant(geladen):
+    """Per variant en per fase de plaat die erbij hoort: [(bestandsnaam, stromen)], in de volgorde
+    van de varianten. Een fase zonder stroom in de variant krijgt geen plaat."""
+    return [(f"f{fase}-{v['vorm']}.svg", stromen)
+            for v in geladen for fase, stromen in stromen_per_fase(v["tabel"]).items()]
 
 
 def stromen_per_koppeling(regels, namen):
@@ -692,6 +705,14 @@ def main(argv=None):
         for x in ontbreekt:
             print(f"waarschuwing: fase {fase}, niet op de plaat te plaatsen: {x}", file=sys.stderr)
     print(f"{aantal} faseplaten geschreven naar {args.uit}")
+    per_variant = platen_per_variant(varianten.laad(args.regels, regels)[0])
+    for naam, stromen in per_variant:
+        svg, ontbreekt = bouw(knopen, connecties, elems, args.plaat, stromen, pijl_van)
+        (args.uit / naam).write_text(svg, encoding="utf-8")
+        for x in ontbreekt:
+            print(f"waarschuwing: {naam}, niet op de plaat te plaatsen: {x}", file=sys.stderr)
+    if per_variant:
+        print(f"{len(per_variant)} variantplaten geschreven naar {args.uit}")
     return 0
 
 

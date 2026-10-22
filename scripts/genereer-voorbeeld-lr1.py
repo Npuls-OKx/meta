@@ -13,6 +13,10 @@ chips en de regels, een stub voor fasen zonder regels, een tabel per begrippenfa
 met twee lege kolommen voor de lezer, en de vragenpagina. Het invulblad, waarop een
 lezer per regel zijn eigen term invult, komt als eigen bestand naast het document:
 het hoort bij een mappingronde met leveranciers en niet in de leesroute zelf.
+
+Staat er een planningsvorm naast de regeltabel (voorbeeld-lr1-regels-<vorm>.json), dan krijgt elke fase
+die zij raakt onder de basis een deel "Variant <vorm>", met de beelden die eraan voorafgaan als link. Het
+register, de bijlage en het invulblad blijven over de basis gaan.
 """
 
 import argparse
@@ -26,6 +30,7 @@ import sys
 _spec = importlib.util.spec_from_file_location("teken_voorbeeldregels", pathlib.Path(__file__).resolve().parent / "teken-voorbeeldregels.py")
 teken = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(teken)
+varianten = teken.varianten
 
 REGELS = pathlib.Path("architecture/model/informatiemodel/voorbeeld-lr1-regels.json")
 MODEL = pathlib.Path("architecture/model/informatiemodel/informatiemodel.json")
@@ -153,15 +158,48 @@ def fase_sectie(f, blokken, regels_in_fase):
     if not regels_in_fase:
         return uit + STUBZIN + "\n\n"
     for b in blokken:
-        alt = f"{b['soort']}: {b['stap']}" + (f", verdieping: {b['verdieping']}" if b.get("verdieping") else "")
-        if b.get("beeld"):
-            uit += f"### {teken.beeldtitel(b)}\n\n"
-        uit += f"![{alt}]({REGELMAP}/{b['naam']})\n\n"
-        if b["soort"] == "stroomt" and b.get("van"):
-            pijl = b.get("koppeling") or ("geen pijl op de hoofdplaat" if b.get("pijl") == GEEN_PIJL else "zonder koppelingspecificatie")
-            uit += (f"**Interactie:** {b['van']} naar {b['naar']}, {pijl}. Op de "
-                    f"[hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd "
-                    f"met {b['beeld_id']}.\n\n")
+        uit += beeldblok(b)
+    return uit
+
+
+def beeldblok(b, kop="###"):
+    """Een beeld met zijn kop, de SVG en bij een stroom de interactie; in een variant een niveau dieper."""
+    uit = ""
+    alt = f"{b['soort']}: {b['stap']}" + (f", verdieping: {b['verdieping']}" if b.get("verdieping") else "")
+    if b.get("beeld"):
+        uit += f"{kop} {teken.beeldtitel(b)}\n\n"
+    uit += f"![{alt}]({REGELMAP}/{b['naam']})\n\n"
+    if b["soort"] == "stroomt" and b.get("van"):
+        pijl = b.get("koppeling") or ("geen pijl op de hoofdplaat" if b.get("pijl") == GEEN_PIJL else "zonder koppelingspecificatie")
+        uit += (f"**Interactie:** {b['van']} naar {b['naar']}, {pijl}. Op de "
+                f"[hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd "
+                f"met {b['beeld_id']}.\n\n")
+    return uit
+
+
+def anker(kop):
+    """Het anker dat GitHub van een kop maakt: kleine letters, leestekens weg, spaties als streepje."""
+    return re.sub(r"[^\w\- ]", "", kop.lower()).replace(" ", "-")
+
+
+def variantdeel(v, nummer, blokken, ankers):
+    """Het deel van een planningsvorm onder de basis van een fase: de toelichting, de beelden die eraan
+    voorafgaan (in de basis of in een andere variant), de hoofdplaat van de variant als die er is, en
+    de beelden van de variant. Een fase die de variant niet raakt, krijgt geen deel."""
+    fase = next((f for f in v["tabel"]["fasen"] if f["nummer"] == nummer), None)
+    if fase is None and not blokken:
+        return ""
+    uit = f"### Variant {v['vorm']}\n\n"
+    if fase and fase.get("toelichting"):
+        uit += fase["toelichting"] + "\n\n"
+    eerder = (fase or {}).get("voorafgegaan_door") or []
+    if eerder:
+        uit += "Hieraan gaan vooraf: " + ", ".join(f"[{bid}](#{ankers[bid]})" if bid in ankers else bid for bid in eerder) + ".\n\n"
+    plaat = f"f{nummer}-{v['vorm']}.svg"
+    if any(b["soort"] == "stroomt" for b in blokken) and (PLATEN / plaat).exists():
+        uit += f"![Hoofdplaat met de stromen van fase {nummer} in de variant {v['vorm']} gemarkeerd]({PLAATMAP}/{plaat})\n\n"
+    for b in blokken:
+        uit += beeldblok(b, "####")
     return uit
 
 
@@ -306,14 +344,19 @@ def systemensectie(componenten, regels):
     return uit + "\n"
 
 
-def bouw(regels, model, begrippen, componenten=None):
+def bouw(regels, model, begrippen, componenten=None, varianten=()):
     per_fase = blokken_per_fase(regels)
+    per_variant = [(v, blokken_per_fase(v["tabel"])) for v in varianten]
+    ankers = {b["beeld_id"]: anker(teken.beeldtitel(b)) for blokken in [per_fase] + [p for _, p in per_variant]
+              for lijst in blokken.values() for b in lijst if b.get("beeld")}
     uit = leeswijzer(regels, model)
     uit += hoofdplaatsectie(regels, per_fase)
     uit += systemensectie(componenten, regels)
     for f in regels["fasen"]:
         regels_in_fase = [r for r in regels["regels"] if r["fase"] == f["nummer"]]
         uit += fase_sectie(f, per_fase.get(f["nummer"], []), regels_in_fase)
+        for v, blokken in per_variant:
+            uit += variantdeel(v, f["nummer"], blokken.get(f["nummer"], []), ankers)
     uit += familietabellen(regels, model, begrippen)
     uit += vragenpagina(regels)
     uit += regelregister(regels, per_fase)
@@ -337,8 +380,9 @@ def main(argv=None):
         print(f"regelmap ontbreekt: {regelmap}; draai eerst teken-voorbeeldregels.py", file=sys.stderr)
         return 2
     componenten = json.loads(COMPONENTEN.read_text(encoding="utf-8")) if COMPONENTEN.exists() else None
-    tekst = bouw(lees(args.regels, "regeltabel"), lees(args.model, "informatiemodel"),
-                 lees(args.begrippen, "begrippen"), componenten)
+    regels = lees(args.regels, "regeltabel")
+    tekst = bouw(regels, lees(args.model, "informatiemodel"), lees(args.begrippen, "begrippen"), componenten,
+                 varianten.laad(args.regels, regels)[0])
     ontbrekend = [m.group(1) for m in re.finditer(r"\]\((img/regels/[^)]+)\)", tekst) if not (args.uit.parent / m.group(1)).exists()]
     if ontbrekend:
         print("regels zonder SVG: " + ", ".join(ontbrekend), file=sys.stderr)

@@ -9,6 +9,9 @@ te maken is.
 
     python3 scripts/teken-voorbeeldregels.py [--regels PAD] [--uit MAP]
 
+Een planningsvorm naast de regeltabel (voorbeeld-lr1-regels-<vorm>.json) wordt daarna getekend,
+naar dezelfde map.
+
 Drie soorten regels, in de kleuren en iconen van ArchiMate:
 - ontstaat: rol (geel, rolicoon), processtap (geel, procesicoon), de objecttypen van
   de plaat (geel, business-objecticoon) met de instantie voor Jochem; "bestaat uit"
@@ -20,12 +23,17 @@ Drie soorten regels, in de kleuren en iconen van ArchiMate:
 
 import argparse
 import html
+import importlib.util
 import json
 import pathlib
 import re
 import sys
 
-REGELS = pathlib.Path("architecture/model/informatiemodel/voorbeeld-lr1-regels.json")
+_spec = importlib.util.spec_from_file_location("voorbeeldvarianten", pathlib.Path(__file__).resolve().parent / "voorbeeldvarianten.py")
+varianten = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(varianten)
+
+REGELS =pathlib.Path("architecture/model/informatiemodel/voorbeeld-lr1-regels.json")
 UIT = pathlib.Path("architecture/model/informatiemodel/img/regels")
 BUS, BUS_L, BUS_T = "#ffffb5", "#a8a85a", "#5a5a2a"
 APP, APP_L, APP_T = "#b5ffff", "#5aa8a8", "#2a5a5a"
@@ -545,6 +553,11 @@ def main(argv=None):
     valideer(regels)
     uit = teken(regels, args.uit)
     print(f"{len(uit)} regels getekend naar {args.uit}")
+    # een planningsvorm naast de basis tekent naar dezelfde map; het beeld-ID met de letter van de vorm
+    # (f6-c01-...) houdt de bestandsnamen uit elkaar
+    for v in varianten.laad(args.regels, regels)[0]:
+        valideer(v["tabel"])
+        print(f"{len(teken(v['tabel'], args.uit))} regels van variant {v['vorm']} getekend naar {args.uit}")
     return 0
 
 
