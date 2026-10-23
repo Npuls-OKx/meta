@@ -23,6 +23,10 @@ def codes(zin, taxonomie=None):
     return {b.code for b in kl.keur(zin, taxonomie)}
 
 
+def blokkerend(zin, taxonomie=None):
+    return {b.code for b in kl.keur(zin, taxonomie) if b.blokkeert}
+
+
 class DeVijfPlekken(unittest.TestCase):
 
     def test_given_a_complete_outcome_when_checked_then_only_the_taxonomy_is_missing(self):
@@ -75,13 +79,22 @@ class TaxonomieBijHetNiveau(unittest.TestCase):
         zin = GOED + " (hbo-bachelor NLQF 6)"
         self.assertNotIn("TAXONOMIE", codes(zin, "solo4"))
 
-    def test_given_solo_at_mbo_level_when_checked_then_reported(self):
+    def test_given_solo_at_mbo_level_when_checked_then_an_advice_that_does_not_block(self):
         zin = GOED + " (operator productietechniek NLQF 2)"
         self.assertIn("TAXONOMIE", codes(zin, "solo4"))
+        self.assertNotIn("TAXONOMIE", blokkerend(zin, "solo4"))
 
-    def test_given_romiszowski_at_higher_education_level_when_checked_then_reported(self):
+    def test_given_romiszowski_at_higher_education_level_when_checked_then_an_advice_that_does_not_block(self):
         zin = GOED + " (hbo-bachelor NLQF 6)"
         self.assertIn("TAXONOMIE", codes(zin, "Rpm"))
+        self.assertNotIn("TAXONOMIE", blokkerend(zin, "Rpm"))
+
+    def test_given_an_unknown_taxonomy_when_checked_then_an_advice_that_does_not_block(self):
+        zin = GOED + " (operator productietechniek NLQF 2)"
+        self.assertNotIn("TAXONOMIE", blokkerend(zin, "bloom3"))
+
+    def test_given_no_taxonomy_when_checked_then_it_blocks(self):
+        self.assertIn("TAXONOMIE", blokkerend(GOED))
 
     def test_given_a_level_written_as_niveau_when_read_then_found(self):
         self.assertEqual(kl.niveau_van("iets (NLQF niveau 2), technische module"), 2)

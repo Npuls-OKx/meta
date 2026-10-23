@@ -1,6 +1,6 @@
 ---
 name: okx-leeruitkomst-formuleren
-description: Schrijf of beoordeel een leeruitkomst volgens het tuning model, met de taxonomie die bij het NLQF-niveau hoort. Gebruik deze skill zodra een leeruitkomst wordt opgesteld, herschreven of gereviewd, in mbo of hoger onderwijs.
+description: Schrijf of beoordeel een leeruitkomst volgens het tuning model, met de gebruikte taxonomie erbij vastgelegd. Gebruik deze skill zodra een leeruitkomst wordt opgesteld, herschreven of gereviewd, in mbo of hoger onderwijs.
 ---
 
 # Een leeruitkomst formuleren
@@ -29,16 +29,18 @@ Het voorbeeld uit de handleiding, met de reikwijdte erboven:
 |---|---|---|---|---|
 | Actief ww | Type | Onderwerp | Standaard | Context |
 
-## De taxonomie hangt af van het niveau
+## De taxonomie is een keuze van de instelling
 
-De handleiding kiest per niveau, en die keuze is geen smaak.
+OKx schrijft geen taxonomie voor. Welke taxonomie bij een opleiding past is een onderwijskundige keuze, en die hoort bij de instelling. Wat OKx vraagt is dat vastligt welke taxonomie is gebruikt, met de code erbij: dan kan een afnemer de code lezen en de leeruitkomsten van twee instellingen naast elkaar leggen.
 
-| NLQF | Taxonomie | Wat zij levert |
+De handleiding werkt twee taxonomieen uit en raadt ze per niveau aan. Dat is een advies en geen eis; Romiszowski in de voorbeelduitwerking van leerroute 1 is daarvan het eerste voorbeeld.
+
+| NLQF | Taxonomie die de handleiding aanraadt | Wat zij levert |
 |---|---|---|
 | 1 tot en met 4 | Romiszowski | Scheidt kennis van vaardigheden en dekt alle vaardigheidsdomeinen |
 | 5 tot en met 8 | SOLO (Biggs) | Richt zich op het cognitieve domein, passend bij hogere niveaus |
 
-Bloom wordt in de handleiding genoemd en terzijde gelegd ten gunste van SOLO. Gebruik Bloom dus niet als eerste keuze; wordt er toch naar gevraagd, zeg dan dat de handleiding SOLO aanbeveelt en waarom.
+De handleiding noemt Bloom en legt hem terzijde ten gunste van SOLO, met redenen. Kiest een instelling toch Bloom, dan is dat haar keuze: leg de taxonomie en de code als paar vast, dan weet een lezer waar de code uit komt. De keuring meldt een afwijking van het advies, en keurt er niet op af.
 
 ### De codes van Romiszowski
 
@@ -56,7 +58,7 @@ De vier domeinen: cognitief is denken, reactief is reageren op, psychomotorisch 
 ## Werkwijze
 
 1. Stel de reikwijdte vast: welke kwalificatie, welk NLQF-niveau, welke module of eenheid. Die staat boven de leeruitkomst, niet erin.
-2. Kies de taxonomie op het niveau.
+2. Kies de taxonomie, of neem over welke de instelling al gebruikt, en leg vast welke dat is.
 3. Kies het actieve werkwoord met die taxonomie. Een werkwoord per leeruitkomst.
 4. Vul de vijf plekken in de voorgeschreven volgorde.
 5. Draai de controle: `python3 scripts/keur-leeruitkomst.py <pad>`.
@@ -85,6 +87,6 @@ Het script toetst de vorm. Zes vragen uit de checklist van de handleiding vragen
 |---|---|
 | Twee werkwoorden in een leeruitkomst | De handleiding verbiedt het; twee handelingen horen twee leeruitkomsten te zijn |
 | Het uitgangspunt van de instelling als werkwoord | Suggereert een handeling die er niet is, en maakt het ontoetsbaar |
-| Bloom kiezen omdat die bekend is | De handleiding beveelt SOLO aan boven Bloom, met redenen |
+| Een taxonomie gebruiken zonder vast te leggen welke | Een code als `Rpm` of `solo4` is zonder haar taxonomie niet te lezen, en dan valt er niets te vergelijken |
 | De taxonomie in de waarde zetten, zoals `bloom3` | Romiszowski kent twee assen; leg taxonomie en code als paar vast |
 | Kwalificatie, niveau en herkomst in de zin proppen | Die horen in de reikwijdte erboven of als relatie in het model |

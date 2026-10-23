@@ -15,7 +15,13 @@ Wat er gemeld wordt:
   STANDAARD   de zin draagt geen herkenbare standaard
   CONTEXT     de zin draagt geen herkenbare context
   WERKWOORDEN de zin draagt meer dan een handeling
-  TAXONOMIE   er is geen taxonomiecode, of zij past niet bij het NLQF-niveau
+  TAXONOMIE   er is geen taxonomie vastgelegd
+
+OKx schrijft geen taxonomie voor. Welke taxonomie past is een onderwijskundige keuze van de
+instelling, en het tuning model werkt met meer dan een. De keuring vraagt daarom alleen dat
+vastligt welke taxonomie is gebruikt, zodat een afnemer de code kan lezen. Wijkt die taxonomie
+af van wat de handleiding bij dat NLQF-niveau aanraadt, dan staat dat als advies en het keurt
+niet af.
 
 Bron: Handleiding Formuleren leeruitkomsten, NCP NLQF, december 2020, paragraaf 2.3 en 2.6.
 """
@@ -46,11 +52,12 @@ NLQF = re.compile(r"NLQF\s*(?:niveau\s*)?(\d)", re.IGNORECASE)
 
 
 class Bevinding:
-    def __init__(self, code, zin, uitleg):
-        self.code, self.zin, self.uitleg = code, zin, uitleg
+    def __init__(self, code, zin, uitleg, blokkeert=True):
+        self.code, self.zin, self.uitleg, self.blokkeert = code, zin, uitleg, blokkeert
 
     def __str__(self):
-        return f"  {self.code:<11} {self.zin[:46]:<48} {self.uitleg}"
+        teken = " " if self.blokkeert else "advies:"
+        return f"  {self.code:<11} {self.zin[:46]:<48} {teken} {self.uitleg}"
 
 
 def niveau_van(zin):
@@ -74,12 +81,15 @@ def keur(zin, taxonomie=None):
             break
     niveau = niveau_van(zin)
     if taxonomie is None:
-        uit.append(Bevinding("TAXONOMIE", zin, "geen taxonomiecode vastgelegd"))
+        uit.append(Bevinding("TAXONOMIE", zin, "geen taxonomie vastgelegd"))
     elif niveau is not None:
         hoort = ROMISZOWSKI if niveau <= 4 else SOLO
         if taxonomie not in hoort:
             welke = "Romiszowski" if niveau <= 4 else "SOLO"
-            uit.append(Bevinding("TAXONOMIE", zin, f"{taxonomie} past niet bij NLQF {niveau}, verwacht {welke}"))
+            uit.append(Bevinding("TAXONOMIE", zin,
+                                 f"{taxonomie} is een andere taxonomie dan de handleiding bij NLQF {niveau} "
+                                 f"aanraadt ({welke}); de keuze is aan de instelling",
+                                 blokkeert=False))
     return uit
 
 
@@ -114,15 +124,18 @@ def main():
         else:
             stel = [(r.strip(), None) for r in pathlib.Path(pad).read_text(encoding="utf-8").splitlines() if r.strip()]
         bevindingen = [b for zin, tax in stel for b in keur(zin, tax)]
+        blokkerend = [b for b in bevindingen if b.blokkeert]
+        adviezen = len(bevindingen) - len(blokkerend)
         if bevindingen or not args.stil:
             print(f"{pad}: {len(stel)} leeruitkomsten")
         for b in bevindingen:
             print(b)
-        if bevindingen:
+        staart = f", {adviezen} adviezen" if adviezen else ""
+        if blokkerend:
             gezakt += 1
-            print(f"  AFGEKEURD {len(bevindingen)} bevindingen op {len(stel)} leeruitkomsten")
+            print(f"  AFGEKEURD {len(blokkerend)} bevindingen op {len(stel)} leeruitkomsten{staart}")
         elif not args.stil:
-            print("  GOEDGEKEURD")
+            print(f"  GOEDGEKEURD{staart}")
     return 1 if gezakt else 0
 
 
