@@ -129,7 +129,7 @@ Het derde deel noemt het object en wat ermee gebeurde: toegevoegd, vervangen, he
 
 Een titel die het gevolg noemt in plaats van het object, "de keuze rijpt", laat de lezer raden wat er is geraakt en of hij de juiste lezer is. Daar gaat de tijd van een reviewer op: aan het vinden van de plek waar hij moet kijken.
 
-Zelfde vorm voor een issue en voor een pull request, zodat de twee naast elkaar te lezen zijn. Houd de titel onder de tachtig tekens waar dat kan, want GitHub kapt een lijst daar af; kost dat het object of zijn context, dan weegt de precisie zwaarder.
+Zelfde vorm voor een issue en voor een pull request, zodat de twee naast elkaar te lezen zijn. Korter is beter. Tachtig tekens is de richting en niet de grens, want GitHub kapt een lijst daar af; blijven het object en zijn context overeind, dan mag een titel daarboven uitkomen.
 
 ## De pull request-beschrijving (vorm)
 
