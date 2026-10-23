@@ -1,0 +1,42 @@
+{
+  "programmeOfferingId": "8c494250-b67a-4666-a762-6f9ec1e70aff",
+  "programmeOfferingVersion": "0.1.0",
+  "period": {
+    "start": "2026-09-01",
+    "end": "2026-11-06"
+  },
+  "determinedAt": "2026-07-03T14:05:00Z",
+  "learningOpportunities": [
+    {
+      "id": "04070a96-01e0-4958-9f7e-69b429c72eec",
+      "courseOfferingId": "04af26e6-96be-480a-8413-87a128164681",
+      "name": "Baliegesprekken 101, periode 1",
+      "status": "geroosterd"
+    }
+  ],
+  "sessions": [
+    {
+      "id": "2b47d9e6-5c81-4f03-a95d-8e16b7c43052",
+      "learningOpportunityId": "04070a96-01e0-4958-9f7e-69b429c72eec",
+      "groupId": "a3d9e6c5-2f18-4970-8b43-6d1c5e92a748",
+      "start": "2026-09-01T09:00:00+02:00",
+      "end": "2026-09-01T11:00:00+02:00",
+      "locationId": "3c9e1a85-6d72-4b18-8a40-9f25d8e61347",
+      "staffIds": ["4a2d7f63-1b95-4e80-9c37-5d81a6f29e04"]
+    }
+  ],
+  "locations": [
+    {
+      "id": "3c9e1a85-6d72-4b18-8a40-9f25d8e61347",
+      "locationType": "ruimte",
+      "name": "Simulatieruimte 2.14",
+      "floor": "2"
+    }
+  ],
+  "staff": [
+    {
+      "id": "4a2d7f63-1b95-4e80-9c37-5d81a6f29e04",
+      "personnelNumber": "4711"
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://okx.npuls.nl/schema/offering-association-changed/voorstel",
+  "title": "Offering association changed",
+  "DutchName": "Verbintenistoestand gewijzigd",
+  "$comment": "Voorstel. Het label voorstel in de $id houdt dit schema apart van de alfa-schema's die Npuls-OKx/Public draagt; werkbrief W3 van IS-SI-02 laat het daar landen. De kernregistratie meldt hiermee dat de toestand van een onderwijsverbintenis is verschoven. Dezelfde vorm als specification-status-changed/alfa, met de verbintenis als onderwerp: een dun bericht met de oude en de nieuwe toestand, waarna de afnemer met O1 ophaalt wat er sinds dat moment veranderde. De meldingssoort verbintenistoestand-gewijzigd staat nog niet in de enum events van subscription/alfa (W5).",
+  "type": "object",
+  "required": [
+    "eventId",
+    "associationId",
+    "associationType",
+    "studentId",
+    "newState",
+    "occurredAt"
+  ],
+  "properties": {
+    "eventId": {
+      "type": "string",
+      "format": "uuid",
+      "DutchName": "eventId",
+      "$comment": "De sleutel waarop een herhaalde delivery idempotent blijft. Uitgangspunt U5 vraagt een stabiel event-id voor herhaalbare verwerking."
+    },
+    "associationId": {
+      "type": "string",
+      "format": "uuid",
+      "DutchName": "verbintenisId",
+      "$comment": "De verbintenis waarover deze melding gaat, het veld id uit offering-association/voorstel. specification-status-changed/alfa noemt dezelfde plek objectId."
+    },
+    "associationType": {
+      "enum": [
+        "opleiding-aanbod-verbintenis",
+        "opleidingsprogramma-aanbod-verbintenis",
+        "onderwijseenheid-aanbod-verbintenis",
+        "leergelegenheid-verbintenis",
+        "lesgelegenheid-verbintenis"
+      ],
+      "DutchName": "verbintenisType",
+      "$comment": "Dezelfde reeks die offering-association/voorstel draagt, zodat een afnemer die alleen het programmaniveau volgt de melding kan wegfilteren zonder iets op te halen."
+    },
+    "studentId": {
+      "type": "string",
+      "format": "uuid",
+      "DutchName": "studentId",
+      "$comment": "De student van wie de verbintenis verschoof."
+    },
+    "programmeOfferingId": {
+      "type": "string",
+      "format": "uuid",
+      "DutchName": "opleidingsprogrammaAanbodId",
+      "$comment": "voorstel: het opleidingsprogramma-aanbod waaronder de verbintenis valt, zodat de afnemer de opvolgende O1 kan stellen zonder eerst te zoeken."
+    },
+    "oldState": {
+      "type": "string",
+      "enum": [
+        "aangemeld",
+        "ingeschreven",
+        "afgewezen",
+        "ingetrokken"
+      ],
+      "DutchName": "oudeToestand",
+      "$comment": "voorstel: leeg bij de eerste toestand die een verbintenis krijgt."
+    },
+    "newState": {
+      "type": "string",
+      "enum": [
+        "aangemeld",
+        "ingeschreven",
+        "afgewezen",
+        "ingetrokken"
+      ],
+      "DutchName": "nieuweToestand"
+    },
+    "occurredAt": {
+      "type": "string",
+      "format": "date-time",
+      "DutchName": "gewijzigdOp"
+    }
+  },
+  "additionalProperties": false
+}

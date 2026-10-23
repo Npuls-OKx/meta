@@ -1,0 +1,37 @@
+{
+  "requestId": "da0a666e-04d4-4da4-811b-c22064cf28a1",
+  "status": "geroosterd",
+  "scheduledAt": "2026-07-02T14:30:00Z",
+  "learningOpportunities": [
+    {
+      "id": "04070a96-01e0-4958-9f7e-69b429c72eec",
+      "status": "geroosterd"
+    }
+  ],
+  "sessions": [
+    {
+      "id": "2b47d9e6-5c81-4f03-a95d-8e16b7c43052",
+      "learningOpportunityId": "04070a96-01e0-4958-9f7e-69b429c72eec",
+      "groupId": "a3d9e6c5-2f18-4970-8b43-6d1c5e92a748",
+      "start": "2026-09-01T09:00:00+02:00",
+      "end": "2026-09-01T11:00:00+02:00",
+      "locationId": "3c9e1a85-6d72-4b18-8a40-9f25d8e61347",
+      "staffIds": [
+        "4a2d7f63-1b95-4e80-9c37-5d81a6f29e04"
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "id": "3c9e1a85-6d72-4b18-8a40-9f25d8e61347",
+      "locationType": "ruimte",
+      "name": "Simulatieruimte 2.14"
+    }
+  ],
+  "staff": [
+    {
+      "id": "4a2d7f63-1b95-4e80-9c37-5d81a6f29e04",
+      "personnelNumber": "4711"
+    }
+  ]
+}
