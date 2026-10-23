@@ -42,10 +42,15 @@
   "customizations": {
     "vscode": {
       // Claude Code (Anthropic.claude-code): na Rebuild inloggen via de extensie (OAuth of API key).
+      // 42Crunch.vscode-openapi: een OpenAPI-document naast de editor bekijken met
+      // SwaggerUI of Redoc, plus codenavigatie en schemacontrole. VS Code rendert
+      // OpenAPI niet uit zichzelf. De generator staat in scripts/genereer-oas.py;
+      // zonder editor werkt scripts/bekijk-oas.py.
       "extensions": [
         "DavidAnson.vscode-markdownlint",
         "ms-python.python",
-        "Anthropic.claude-code"
+        "Anthropic.claude-code",
+        "42Crunch.vscode-openapi"
       ]
     }
   },
