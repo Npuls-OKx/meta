@@ -16,6 +16,7 @@ Exitcodes: 0 = schoon, 1 = problemen gevonden, 2 = pad niet gevonden.
 """
 import json
 import os
+import urllib.parse
 import re
 import sys
 
@@ -53,7 +54,9 @@ def check_file(path: str) -> list[str]:
                 problems.append(f"{path}:{nr}: puntkomma in mermaid (breekt rendering)")
         else:
             for lm in MDLINK.finditer(line):
-                target = os.path.normpath(os.path.join(base, lm.group(1)))
+                # een pad met spaties staat in markdown met procentcodes; zonder decoderen
+                # meldt de controle een bestand als dood terwijl het er gewoon staat
+                target = os.path.normpath(os.path.join(base, urllib.parse.unquote(lm.group(1))))
                 if not os.path.exists(target):
                     problems.append(f"{path}:{nr}: dode link: {lm.group(1)}")
     if lang is not None:

@@ -104,10 +104,10 @@ Hoort bij [de opleiding van Jochem in het informatiemodel](voorbeeld-leerroute-1
 | 5 | F5-05 | Onderwijseenheid resultaat | | | | |
 | 5 | F5-05 | Onderwijseenheid aanbod | | | | |
 | 5 | F5-05 | Summatieve resultaat structuur | | | | |
-| 6 | F6-01 | Keuzedeelaanbod | | | | |
+| 6 | F6-01 | Keuzedeel aanbod | | | | |
 | 6 | F6-03 | Aanmelding | | | | |
 | 6 | F6-03 | Keuzedeel aanbod verbintenis | | | | |
-| 6 | F6-05 | Keuzedeelaanbod | | | | |
+| 6 | F6-05 | Keuzedeel aanbod | | | | |
 | 6 | F6-07 | Inschrijving | | | | |
 | 6 | F6-07 | Keuzedeel aanbod verbintenis | | | | |
 | 7 | F7-01 | Plaatsingsgroep | | | | |

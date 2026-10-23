@@ -32,9 +32,23 @@ De werkafspraken zijn levend; wijzigen via PR.
 1. **Raak nooit een `*.archimate`-bestand aan.** Nooit tekstueel mergen; zie [architecture/model/README.md](architecture/model/README.md) en ADR 0010. Vóór elke model-commit: `python3 scripts/validate-archimate.py`.
 2. **Installaties alleen in de dev-container**, nooit op de host ([.cursor/rules/dev-omgeving.mdc](.cursor/rules/dev-omgeving.mdc); een controlescript (hook) bewaakt dit).
 3. **1 issue = 1 branch = 1 PR**, feature-branches vanaf `dev`, alleen het OKx-team merget ([CONTRIBUTING.md](CONTRIBUTING.md)).
-4. **Deliverables volgen de product-flow**: story met gebruiker en waarde, acceptatiecriteria in het issue, plan met tegenlezing, uitwerking met onafhankelijke review, waardevalidatie. Twee stopmomenten, beide bij de opdrachtgever: akkoord op de criteria, en groen licht op het plan. Zie [hieronder](#product-flow-samenvatting).
-5. Markdown-deliverables halen de voorcontrole: `python3 scripts/validate-docs.py <pad>`.
-6. **Specificeren bovenop OEAPI gaat via een submodule, nooit via een fork.** De OEAPI-specificatie komt binnen als git-submodule op een vastgezet versielabel; het OKx-werk ligt daar als overlay bovenop. Zie [Specificeren bovenop OEAPI](#specificeren-bovenop-oeapi).
+4. **Een agent merget nooit zelfstandig, en op `Npuls-OKx/Public` merget een agent nooit.** Zie [Mergen](#mergen).
+5. **Deliverables volgen de product-flow**: story met gebruiker en waarde, acceptatiecriteria in het issue, plan met tegenlezing, uitwerking met onafhankelijke review, waardevalidatie. Twee stopmomenten, beide bij de opdrachtgever: akkoord op de criteria, en groen licht op het plan. Zie [hieronder](#product-flow-samenvatting).
+6. Markdown-deliverables halen de voorcontrole: `python3 scripts/validate-docs.py <pad>`.
+7. **Specificeren bovenop OEAPI gaat via een submodule, nooit via een fork.** De OEAPI-specificatie komt binnen als git-submodule op een vastgezet versielabel; het OKx-werk ligt daar als overlay bovenop. Zie [Specificeren bovenop OEAPI](#specificeren-bovenop-oeapi).
+
+## Mergen
+
+Een merge is het moment waarop werk van een voorstel een feit wordt. Vanaf dat moment bouwt een afnemer ertegen, en een fout erin is niet meer terug te nemen zonder dat iemand anders het al heeft gezien.
+
+| Repository | Wat een agent doet |
+|---|---|
+| `Npuls-OKx/Public` | **Nooit mergen.** Ook niet op verzoek, ook niet met groen licht in een gesprek, ook niet wanneer alle controles slagen. Een agent opent de pull request, zet de review-instructie erin en meldt dat zij klaarstaat |
+| `Npuls-OKx/meta` | Alleen mergen wanneer het OKx-team daar in de pull request zelf om vraagt. Uit zichzelf nooit |
+
+Dit geldt ongeacht de rechten die de agent toevallig heeft. Een beveiligingsregel op een branch die een goedkeuring eist, wordt nooit omzeild met een adminsleutel, een geforceerde push of het tijdelijk versoepelen van de regel. Blokkeert zo'n regel de merge, dan is dat de uitkomst: de agent meldt wat er blokkeert en wie het kan oplossen.
+
+Public draagt het releasepakket. Wat daar op `dev` staat is gepubliceerd en leidend, en dat is precies waarom het laatste oordeel bij een mens ligt.
 
 ## Specificeren bovenop OEAPI
 
@@ -101,7 +115,7 @@ De koppelingspecificaties per koppeling (OC-P&R, OC-SIS, OC-LMS) leven als inter
 
 - **Skills** (canoniek [.agents/skills/](.agents/skills/); `.cursor/skills` en `.claude/skills` zijn symbolische links (symlinks)): het overzicht met doel en herkomst staat in het manifest [.agents/skills.json](.agents/skills.json). OKx-specifieke skills en extern gevendorde skills (via `npx skills`) staan gescheiden beschreven; externe skills nooit rechtstreeks bewerken, aanpassingen via een adaptatie-wrapper. Werkwijze: [.agents/README.md](.agents/README.md).
 - **Commands** (canoniek [.cursor/commands/](.cursor/commands/); `.claude/commands` is een symbolische link (symlink), zodat zowel Cursor als Claude Code ze vindt): herbruikbare opdrachten, o.a. `adr-opstellen`, `ontwerp-document`, `meeting-notulen-nl`, `release-notes`, `product-flow` en `presentatie`.
-- **Rules** ([.cursor/rules/](.cursor/rules/)): altijd geldend: `okx-governance`, `dev-omgeving`, `schrijfstijl`, `product-flow`; gebonden aan bestandstype: `docs-style` (`**/*.md`), `architecture-artifacts` (`architecture/**/*.md`).
+- **Rules** ([.cursor/rules/](.cursor/rules/)): altijd geldend: `okx-governance`, `dev-omgeving`, `schrijfstijl`, `product-flow`, `vragen-nummeren`; gebonden aan bestandstype: `docs-style` (`**/*.md`), `architecture-artifacts` (`architecture/**/*.md`).
 - **Hooks** ([.cursor/hooks/](.cursor/hooks/)): installatie-guard richting de dev-container.
 
 ### Product-flow (samenvatting)
@@ -118,7 +132,9 @@ Elk deliverable doorloopt de keten uit [.agents/skills/okx-product-flow/SKILL.md
 | 5 | **Uitwerken** met de specialist-skill, daarna onafhankelijke review door tester, specialist en schrijfstijl in verse subagent-contexten |
 | 6 | **Waardevalidatie**: levert het geleverde de waarde uit de story. Vervolgpunten worden kleine iteraties |
 
-De lus is begrensd op drie ronden per poort; daarna escaleert de agent met de openstaande bevindingen. Het verloop staat in het issue of in het **agent-rapport** in de PR-beschrijving. Een werkwijze-issue draagt wel een story en krijgt geen plek in de requirementsboom. Start via het command `product-flow`.
+Een ultracode-sessie of een workflow is uitwerking en geen verkenning: stopmoment 1 geldt daar onverkort, dus eerst sparren over de stories en de criteria. Ook een verkennende workflow legt zijn vraag eerst voor, er start geen tweede workflow op hetzelfde onderwerp voordat de eerste gelezen is, en voor een fan-out staat vast welke branch of structuur normatief is. De lus is begrensd op drie ronden per poort; daarna escaleert de agent met de openstaande bevindingen. Het verloop staat in het issue of in het **agent-rapport** in de PR-beschrijving.
+
+Elke PR-beschrijving opent met een samenvatting van hoogstens vijftien zinnen: het sluitwoord `Closes #123` als context, een genummerde lijst van wat er is opgeleverd met per regel een link naar het document of de plaat zelf, en of de product-flow is doorlopen. Heeft de oplevering structuur, dan hoort daar een visuele uitsplitsing bij (mermaid of ascii), volgens werkafspraak 3. Daaronder een genummerde **review-instructie** die zegt wat van dat werk een mens moet beoordelen, in welke volgorde, en welk bronmateriaal hij kan overslaan. Daaronder de acceptatiecriteria met hun testuitkomst, de openstaande vragen en gevonden fouten, en de issues die daaruit zijn aangemaakt. Een agent mag zelf een issue aanmaken voor wat hij vindt, uitsluitend in `Npuls-OKx/meta` en altijd met het label `gevondenDoorAI`. Een opmerking uit een reviewronde wordt daarentegen altijd twee issues: de interactie in het repository waar de reviewer meeleest, met de opmerking letterlijk erin en de inbrenger getagd, en de werkbrief in meta. Dat interactie-issue draagt vijf koppen (waarom dit issue, de opmerking, observaties, wat ik ermee doe, vervolg), is geschreven in de ik-vorm, en krijgt alleen een story wanneer de inbrenger een concrete wijziging vraagt met een rol die bestaat. Een leverancier spreekt voor zijn product en niet voor de sector: houd uit elkaar wat een product vandaag doet, wat een component moet kunnen, en wat OKx als grootst gemene deler vastlegt. Een applicatie is daarbij geen applicatiecomponent, en een implementatiefeit geen ontwerpargument. Daarna kan de pull request sluiten. Zo'n issue kent drie uitgangen: de inbrenger sluit hem omdat het antwoord volstaat, hij gaat met het label `agenda kerngroep techniek` naar een sessie, of OKx sluit hem met de reden erbij. Het antwoord komt altijd onder het issue te staan, ook als het al in de pull request stond, en het issue gaat op naam van de inbrenger. Een label per sessie komt er niet: dat label is stabiel en de datum staat in de comment. De vorm staat in [.agents/skills/okx-product-flow/SKILL.md](.agents/skills/okx-product-flow/SKILL.md). Een werkwijze-issue draagt wel een story en krijgt geen plek in de requirementsboom. Start via het command `product-flow`.
 
 ## Skills toevoegen of bijwerken
 

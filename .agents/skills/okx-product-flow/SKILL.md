@@ -95,6 +95,31 @@ Daarna de **onafhankelijke review, eigen sporen, verse contexten**. Geef elke re
 
 Na de uitwerking volgt de toets of het geleverde de waarde uit de story werkelijk levert, zoals begroot. In een verse context, met de story en de criteria als maat. De uitkomst is waarneembaar: geleverd zoals begroot, of een lijst vervolgpunten. Die vervolgpunten worden kleine iteraties, elk opnieuw met een story en criteria; dat is geen terugval maar de normale gang.
 
+## Een workflow is uitwerking, geen verkenning
+
+Een ultracode-sessie of een workflow zet tientallen agents aan het werk. Dat is de uitwerking uit stap 5, en
+daarvoor geldt **stopmoment 1 onverkort**: eerst sparren over de stories en de acceptatiecriteria, en pas
+beginnen na akkoord. Een fan-out voelt als verkennen omdat er nog niets ligt, maar hij verbruikt wel de inzet van
+een volle uitwerking.
+
+Vier regels, elk uit een misser van 13 oktober 2026:
+
+**Leg ook de vraag van een verkennende workflow voor.** Een workflow die alleen onderzoekt vraagt geen
+acceptatiecriteria, maar wel instemming met de vraag. Een sweep die doorliep op een onderwerp dat de
+opdrachtgever net had afgeschaald, kostte zes agents en leverde niets dat nog gewenst was.
+
+**Start geen tweede workflow op hetzelfde onderwerp voordat de eerste binnen en gelezen is.** Advies bestellen en
+handelen voordat het gelezen is, is geen volgorde die uit te leggen valt. Wat wel mag: een fan-out die alleen
+bronmateriaal leest, want dat materiaal is hetzelfde bij elke uitkomst. Zeg dan vooraf waarom dat zo is.
+
+**Stel voor de fan-out vast welke branch of structuur normatief is.** Vijf agents lazen de mappenindeling op
+`dev`, terwijl de laag die de opdrachtgever als ontbrekend bouwblok aanwees al bestond op een goedgekeurde
+pull request die een maand als concept openstond. Het werk landde op paden die in zijn eigen pull request
+verdwijnen. Een enkele vraag vooraf, welke pull requests open staan op dit gebied, had dat voorkomen.
+
+**Kies een schaal die bij de vraag past.** Vijfentwintig agents op een plan dat in een gesprek van tien minuten
+was te maken, is geen grondigheid maar uitstel van het gesprek.
+
 ## De lus is begrensd
 
 Ten hoogste **drie ronden** tussen agent en tegenlezer, en ten hoogste drie iteraties in de review van het resultaat. Daarna escaleren naar de opdrachtgever met de openstaande bevindingen, met per bevinding of het een blokkade is voor een eerste iteratie die waarde levert, of een punt voor de volgende. Deugen de criteria zelf niet, dan terug naar stap 1 in plaats van door te bouwen op een slecht criterium.
@@ -106,6 +131,165 @@ Een review die niet gelezen wordt telt niet. Twee regels, allebei uit de praktij
 **Zet de leesbare uitgave bovenaan in de PR-beschrijving.** Bij een visueel deliverable, zoals een deck of een plaat, is de eerste regel een directe link naar de PDF of de afbeelding, niet naar de bron. De lead architect opende de pull request, kwam in de diffweergave terecht en vroeg letterlijk: geef mij gewoon even die PDF. Een PDF in een GitHub-repository opent in de browser; een `.md` of een `.pptx` doet dat niet.
 
 **Een reviewvraag benoemt waar de twijfel zit.** "Willen jullie meelezen" levert instemming op. Stel drie tot vijf genummerde vragen die elk een concreet punt raken, en zeg welke vraag de belangrijkste is. Zet er bij dat er al eerder onjuistheden uit een reviewronde kwamen, met hoeveel: dat nodigt uit om te zoeken in plaats van goed te keuren.
+
+## De pull request-beschrijving (vorm)
+
+Elke pull request opent met een samenvatting van **hoogstens vijftien zinnen**, leesbaar voor iemand die het werk niet heeft gevolgd. Daarin staan drie dingen:
+
+| | |
+|---|---|
+| Context | Het sluitwoord met het issuenummer: `Closes #123` op een eigen regel, of `See also #456` als de pull request het issue alleen raakt. Dat woord is syntaxis die GitHub leest, dus zonder faalt de controle en blijft het issue openstaan |
+| Opgeleverd | Een **genummerde lijst of bullets**, kort, met per regel een link naar het document of de plaat zelf. Geen proza |
+| Tegenlezing | Of de product-flow is doorlopen, en waar hij is afgeweken |
+
+**Wat is opgeleverd, is een lijst en geen verhaal.** Een reviewer telt af wat er ligt; daar helpt een alinea niet bij. Heeft de oplevering structuur, bijvoorbeeld meer dan een handvol onderdelen, lagen die op elkaar steunen of onderdelen die naar elkaar verwijzen, dan **hoort er een visuele uitsplitsing bij**: een mermaid-diagram, een ascii-boom of een tabel. Dat is werkafspraak 3 uit `AGENTS.md`, show don't tell, en voor de vorm van zo'n beeld gelden de UX-skills (`ui-ux-pro-max`, en `okx-presentatie-visueel` als adaptatie daarvan). GitHub rendert mermaid rechtstreeks in een pull request.
+
+Daaronder een eigen kopje **Review-instructie**, genummerd, zoals de leeswijzer voor leveranciers in [Npuls-OKx/Public#104](https://github.com/Npuls-OKx/Public/pull/104). Die vertelt **wat van het opgeleverde werk een mens moet beoordelen**: per regel een link naar wat hij opent, met een zin over wat hij daar weegt, in de volgorde waarin hij het leest. Sluit af met wat hij kan overslaan.
+
+Dat laatste is de regel die het vaakst wordt vergeten. Bij een gegenereerd deliverable zijn de bron en het product twee verschillende dingen: een regeltabel, een JSON-bron en de scripts eromheen zijn het materiaal waarmee het eindproduct is gemaakt, en de reviewer hoort het eindproduct te beoordelen.
+
+```markdown
+## Samenvatting
+
+Closes #123
+
+<een of twee zinnen: waarom dit er is>
+
+**Opgeleverd**
+
+1. [<het product>](link) <een halve regel>
+2. [<het tweede stuk>](link) <idem>
+
+<bij een oplevering met structuur: een mermaid-diagram of ascii-boom>
+
+Product-flow: <doorlopen, of waar afgeweken en waarom>.
+
+## Review-instructie
+
+Wat hiervan een mens moet beoordelen, in leesvolgorde:
+
+1. [<het eindproduct>](link) <wat de reviewer daar weegt>
+2. [<het tweede stuk>](link) <idem>
+
+Bronmateriaal dat geen review vraagt: <de bestanden waarmee het product is gemaakt>.
+
+## Acceptatiecriteria
+
+| Criterium | Stand | Hoe te zien |
+|---|---|---|
+| 1 <kort> | Gehaald | `test_given_X_when_Y_then_Z` |
+
+## Openstaande punten
+
+<vragen, gevonden fouten, impediments; per punt of er een issue van is gemaakt>
+
+## Nieuwe issues
+
+<wat hiervan een eigen issue is geworden, met nummer>
+
+### Agent-rapport
+
+<zie hieronder>
+```
+
+De acceptatiecriteria met hun testuitkomst staan er altijd, maar tellen niet mee in de vijftien zinnen; anders verdringt de verantwoording de samenvatting.
+
+## Een reviewronde afhandelen: elke opmerking wordt een issue
+
+Een reviewronde met leveranciers of instellingen levert opmerkingen die niet in de pull request thuishoren. Inhoudelijk antwoorden houdt de pull request open, en mergen zonder antwoord laat de inbrenger in het ongewisse. Dus: **elke opmerking wordt een issue, en daarna kan de pull request sluiten.**
+
+Elke opmerking krijgt er twee, in twee repositories:
+
+| | Waar | Wat erin staat |
+|---|---|---|
+| **De interactie** | Het repository waar de reviewer meeleest | De opmerking letterlijk, de observaties erbij, en de inbrenger getagd met een vraag |
+| **De werkbrief** | `Npuls-OKx/meta` | Story, context met de vindplaats, wat er moet gebeuren, en acceptatiecriteria |
+
+De opmerking staat **letterlijk** in het interactie-issue, als blokcitaat. Een verwijzing naar een comment is over twee weken niet meer te lezen zonder doorklikken, en de inbrenger moet kunnen zien dat hij goed begrepen is.
+
+De reactie in de pull request zelf blijft kort: wat de opmerking was, dat zij is overgenomen, het issuenummer, en dat de inhoud daar landt. Drie tot vijf regels. Een opmerking die vijf punten draagt wordt vijf issues, en de reactie noemt ze alle vijf.
+
+**Kijk eerst of het issue al bestaat.** Twee inbrengers raken vaak dezelfde ontwerpkeuze. Dan komt er een tweede interactie-issue voor de tweede inbrenger, maar geen tweede werkbrief: de inbreng gaat als meetpunt onder de bestaande.
+
+### De vorm van een interactie-issue
+
+```text
+## Waarom dit issue     een zin: welk besluit dit moet opleveren
+## De opmerking         letterlijk, met naam, datum en permalink
+## Observaties          bullets; waarneming gescheiden van duiding
+## Wat ik ermee doe     kort, zonder toezegging
+## Vervolg              een regel met de werkbrief, daarna een vraag
+```
+
+| Regel | Waarom |
+|---|---|
+| **Ik-vorm, nooit wij** | De inbrenger praat met een persoon, niet met een instituut |
+| **Geen blok dat in elk issue terugkeert** | Vijftien issues met dezelfde alinea over hoe het verdergaat leest niemand; de werkbrief-link zegt hetzelfde |
+| **Story alleen bij een concrete wijziging** | Vraagt de inbrenger iets te veranderen, dan hoort er een story. Beschrijft hij hoe zijn product werkt, dan is `Waarom dit issue` genoeg |
+| **Nooit een rol verzinnen** | Een story met "als examenbureaumedewerker" verzint een gebruiker om de zin kloppend te krijgen. Gebruik de persona's uit de leerroute-uitwerking of laat de story weg |
+| **Een vraag tot slot, geen bevestiging** | "Dekt dit je opmerking" levert een ja op. Een inhoudelijke vraag levert informatie op |
+
+### Een opmerking wegen voor je haar opschrijft
+
+Een leverancier spreekt voor zijn product, niet voor de sector. Er zijn meerdere leveranciers van een onderwijscatalogus en meerdere van een studentinformatiesysteem, elk met hun eigen inrichting en hun eigen belang. OKx zoekt de grootst gemene deler; een opmerking is daarvoor een meetpunt en geen eis.
+
+Houd daarom drie dingen uit elkaar:
+
+| | |
+|---|---|
+| Wat de leverancier zegt | Een product, vandaag, met zijn belang erin |
+| Wat een component moet kunnen | Wat instellingen nodig hebben om hun onderwijs te organiseren |
+| Wat OKx vastlegt | De grootst gemene deler over meerdere partijen |
+
+Vier valkuilen die in de reviewronde van oktober 2026 alle vier zijn gemaakt:
+
+**Een applicatie is geen applicatiecomponent.** Een product kan tegelijk planning, catalogus en studentadministratie dragen. Elke leverancier heeft er belang bij zoveel mogelijk functionaliteit en data in het eigen systeem te houden. Schrijf dus nooit dat een genoemd product "het planningssysteem" is.
+
+**Een implementatiefeit is geen ontwerpargument.** Dat toets en examen in een product in dezelfde tabellen zitten, zegt iets over dat product. Het is geen reden om het onderscheid in het model te laten vallen; juist daar kan het nodig zijn.
+
+**Vandaag is niet straks.** Dat een verbintenis nu via een groep loopt is een waarneming over de huidige inrichting. Een meerjarenplanning of een individuele leerroute kan er meer van vragen. Toets een ontwerpkeuze aan de leerroutes, niet aan de bestaande uitwisseling.
+
+**Niet elke inbrenger is een leverancier.** AII, over aanmelden, inschrijven en intekenen, is een zusterproject binnen dezelfde Npuls-pijler Leren Zonder Drempels. Afstemming daarmee weegt anders dan een productopmerking, en de termen horen daar op elkaar aan te sluiten.
+
+### Reageren in een thread met externen
+
+**Draai nooit een reactie terug in een thread.** Een inbrenger ziet de interne afweging niet en heeft niets aan de wending. Verwijder de onjuiste reactie en zet de kloppende eronder.
+
+**Herhaal niet wat al in de pull request staat.** Drie eerdere antwoorden onder elkaar plakken levert dezelfde tabel drie keer op. Een link naar de pull request met de kern eronder doet hetzelfde werk in een kwart van de ruimte.
+
+### Drie uitgangen per issue
+
+Een issue uit een reviewronde eindigt op een van drie manieren, en de inbrenger hoort te weten welke.
+
+| Uitgang | Wanneer | Wat er gebeurt |
+|---|---|---|
+| **De inbrenger sluit** | Het antwoord beantwoordt de vraag | Het antwoord komt onder het issue te staan, het issue gaat op naam van de inbrenger, en hij wordt gevraagd het te sluiten of te zeggen wat er nog mist |
+| **Op de agenda** | Het vraagt een keuze, of het raakt meer partijen dan de inbrenger | Het issue krijgt het label `agenda kerngroep techniek` en gaat op naam van de inbrenger, en komt terug in het deck van de eerstvolgende sessie |
+| **OKx sluit met een reden** | OKx ziet het anders | De reden staat in het issue, met de bron erbij, en het issue sluit |
+
+**Het antwoord komt altijd onder het issue.** Is een punt al in de pull request beantwoord, dan wordt dat antwoord naar het issue gekopieerd met de datum en een verwijzing naar de plek waar het stond. Anders staat het antwoord in een pull request die straks gemerged en vergeten is, en het issue leeg.
+
+**Zet het issue op naam van de inbrenger.** Dat is geen werkopdracht maar eigenaarschap over de afhandeling: hij bepaalt of het antwoord volstaat, en hij kan het volgen.
+
+### Een agenda bijhouden zonder labels te laten woekeren
+
+Een label per sessie, zoals `bespreken kg techniek 28 oktober`, woekert uit: labels kennen geen levenscyclus, dus na twee jaar staan er vijftig dode in de keuzelijst. Daarom:
+
+- **Een label, stabiel**: `agenda kerngroep techniek` zegt alleen dat het punt een bespreking vraagt.
+- **De datum staat in de comment** die het punt op de agenda zet, en in het deck van die sessie.
+- **Na de sessie gaat het label eraf**, als onderdeel van het afronden van het deck. Een punt dat opnieuw terug moet, krijgt het label opnieuw met een nieuwe comment.
+
+Wie de agenda per sessie wil zien, filtert op het label en leest de laatste comment. Is meer nodig, dan is een projectbord met een weergave per sessie de volgende stap, en nog steeds zonder nieuwe labels.
+
+## Een issue dat de agent zelf aanmaakt
+
+Een agent mag een issue aanmaken voor wat hij onderweg vindt: een openstaande vraag, een fout, een belemmering. Drie regels daarbij.
+
+1. **Alleen in `Npuls-OKx/meta`.** Public draagt releaseartefacten en krijgt geen issues uit een agentloop.
+2. **Altijd het label `gevondenDoorAI`.** Daarmee is in een oogopslag te zien wat uit het werk zelf komt en wat een mens heeft ingebracht.
+3. **Dezelfde leesbare vorm als elk ander issue**: een user story met gebruiker en waarde, context met de vindplaats (welk bestand, welke pull request, welke regel), een kort en waar mogelijk visueel doel, en acceptatiecriteria met testgevallen.
+
+De vindplaats is wat zo'n issue bruikbaar maakt. "Gevonden bij het herschrijven van de leeruitkomsten in fase 1, beeld F1-08" laat een lezer het nalopen; "kwam ik tegen" niet.
 
 ## Agent-rapport (format)
 
@@ -138,6 +322,7 @@ De issue-templates in `.github/ISSUE_TEMPLATE/` volgen deze keten:
 
 ## Kaders
 
-- Governance: `.cursor/rules/okx-governance.mdc` (issues, PR's, alleen OKx-team merget).
+- Governance: `.cursor/rules/okx-governance.mdc` (issues, PR's, alleen OKx-team merget;
+  een agent merget nooit uit zichzelf en op Public nooit).
 - Stijl: `.cursor/rules/schrijfstijl.mdc`.
 - Reviews niet door de maker: de reviewende subagent krijgt een schone opdracht zonder de maak-context.

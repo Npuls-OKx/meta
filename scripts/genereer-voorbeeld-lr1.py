@@ -38,9 +38,11 @@ REGELMAP = "img/regels"
 PLAATMAP = "img/hoofdplaat"
 HOOFDPLAAT = "<../informatiestromen hoofdplaat OKx/1.7/OKx hoofdplaat 1.7.jpg>"
 GEEN_PIJL = "geen pijl op de hoofdplaat"
-KOLOMVOLGORDE = ["Kwalificatiekader MBO", "Onderwijskundigkader instelling", "Onderwijsspecificatie", "Onderwijsaanbod",
+# het informatiemodel noemt de eerste kolom sinds de toevoeging van het hbo-kader `Kwalificatiekader`
+# en niet langer `Kwalificatiekader MBO`; de oude naam laat de hele familietabel wegvallen
+KOLOMVOLGORDE = ["Kwalificatiekader", "Onderwijskundigkader instelling", "Onderwijsspecificatie", "Onderwijsaanbod",
                  "Onderwijsverbintenis", "Onderwijsresultaat", "Resultaatstructuur", None]
-KOLOMNAAM = {None: "Buiten de kolommen (persoon, groep, cohort, verzoek)", "Kwalificatiekader MBO": "Kwalificatiekader mbo",
+KOLOMNAAM = {None: "Buiten de kolommen (persoon, groep, cohort, verzoek)",
              "Onderwijskundigkader instelling": "Onderwijskundig kader instelling"}
 STUBZIN = "Regels volgen na 30 september."
 # Zeven vragen is wat een kerngroepsessie in een ronde kan wegen; dat getal komt uit de agenda van
@@ -136,7 +138,7 @@ alle vier de lagen heen:
 | Laag | Algemeen | Specialisatie |
 |---|---|---|
 | Specificatie | `Opleidingsprogramma specificatie` | `Keuzedeel`, `Keuzedeelruimte` |
-| Aanbod | `Opleidingsprogramma aanbod` | `Keuzedeelaanbod` |
+| Aanbod | `Opleidingsprogramma aanbod` | `Keuzedeel aanbod` |
 | Verbintenis | `Opleidingsprogramma aanbod verbintenis` | `Keuzedeel aanbod verbintenis` |
 | Resultaat | `Opleidingsprogramma resultaat` | `Keuzedeel resultaat` |
 

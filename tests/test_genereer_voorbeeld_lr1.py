@@ -245,12 +245,12 @@ class GenereerTests(unittest.TestCase):
         for bijzonder, algemeen in (
                 ("Keuzedeel", "Opleidingsprogramma specificatie"),
                 ("Keuzedeelruimte", "Opleidingsprogramma specificatie"),
-                ("Keuzedeelaanbod", "Opleidingsprogramma aanbod"),
+                ("Keuzedeel aanbod", "Opleidingsprogramma aanbod"),
                 ("Keuzedeel aanbod verbintenis", "Opleidingsprogramma aanbod verbintenis"),
                 ("Keuzedeel resultaat", "Opleidingsprogramma resultaat")):
             self.assertIn((bijzonder, algemeen), paren, f"{bijzonder} is geen specialisatie van {algemeen}")
         doc = self.bouw()
-        self.assertIn("| Aanbod | `Opleidingsprogramma aanbod` | `Keuzedeelaanbod` |", doc)
+        self.assertIn("| Aanbod | `Opleidingsprogramma aanbod` | `Keuzedeel aanbod` |", doc)
 
     def test_given_document_when_generated_then_no_dash_and_no_frontmatter(self):
         doc = self.bouw()
