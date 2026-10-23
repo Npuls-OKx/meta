@@ -115,7 +115,7 @@ De koppelingspecificaties per koppeling (OC-P&R, OC-SIS, OC-LMS) leven als inter
 
 - **Skills** (canoniek [.agents/skills/](.agents/skills/); `.cursor/skills` en `.claude/skills` zijn symbolische links (symlinks)): het overzicht met doel en herkomst staat in het manifest [.agents/skills.json](.agents/skills.json). OKx-specifieke skills en extern gevendorde skills (via `npx skills`) staan gescheiden beschreven; externe skills nooit rechtstreeks bewerken, aanpassingen via een adaptatie-wrapper. Werkwijze: [.agents/README.md](.agents/README.md).
 - **Commands** (canoniek [.cursor/commands/](.cursor/commands/); `.claude/commands` is een symbolische link (symlink), zodat zowel Cursor als Claude Code ze vindt): herbruikbare opdrachten, o.a. `adr-opstellen`, `ontwerp-document`, `meeting-notulen-nl`, `release-notes`, `product-flow` en `presentatie`.
-- **Rules** ([.cursor/rules/](.cursor/rules/)): altijd geldend: `okx-governance`, `dev-omgeving`, `schrijfstijl`, `product-flow`; gebonden aan bestandstype: `docs-style` (`**/*.md`), `architecture-artifacts` (`architecture/**/*.md`).
+- **Rules** ([.cursor/rules/](.cursor/rules/)): altijd geldend: `okx-governance`, `dev-omgeving`, `schrijfstijl`, `product-flow`, `vragen-nummeren`; gebonden aan bestandstype: `docs-style` (`**/*.md`), `architecture-artifacts` (`architecture/**/*.md`).
 - **Hooks** ([.cursor/hooks/](.cursor/hooks/)): installatie-guard richting de dev-container.
 
 ### Product-flow (samenvatting)
