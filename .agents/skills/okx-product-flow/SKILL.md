@@ -121,13 +121,17 @@ waar het over gaat         welk deel  welk object, in welke context, wat ermee g
 
 Het gebied is een naam die een lezer in de repository terugvindt: `Informatiemodel voorbeeld`, `Sectorketen`, `Begrippenlijst`, `Agent-harnas`, `Presentaties`. Het is geen afkorting en geen scriptnaam.
 
-Het derde deel noemt het object en wat ermee gebeurde: toegevoegd, vervangen, hernoemd, verwijderd. Dezelfde vorm in andere gebieden:
+Het derde deel noemt in domeintaal wat er verandert en wat dat oplevert. Een veldnaam (`beeld_in_fase`), een kaal getal ("vragenpagina's van zeven") en een scriptdetail dragen die betekenis niet: wie het werk niet maakte kan ze niet plaatsen. Dezelfde vorm in andere gebieden:
 
 - `Hoofdplaat, model: stroom SVS naar SKS toegevoegd en views naar 1.7a`
 - `Sectorketen, IS-SI-02: periode en locatie op het keuzedeelaanbod toegevoegd`
 - `Begrippenlijst: definitie leeruitkomst vervangen door de MIM-formulering`
 
-Een titel die het gevolg noemt in plaats van het object, "de keuze rijpt", laat de lezer raden wat er is geraakt en of hij de juiste lezer is. Daar gaat de tijd van een reviewer op: aan het vinden van de plek waar hij moet kijken.
+Een titel die het gevolg noemt in plaats van het object, "de keuze rijpt", laat de lezer raden wat er is geraakt en of hij de juiste lezer is. Daar gaat de tijd van een reviewer op: aan het vinden van de plek waar hij moet kijken. Drie vragen toetsen een titel, alle drie uit een afgekeurde ronde:
+
+1. Is elk woord op te lossen zonder deze repository te kennen? "Zeven wat", "vraag 9 van wat", "wat is de regeltabel".
+2. Staat er wat het oplevert, en niet alleen welke bewerking is uitgevoerd?
+3. Verandert het gebied dat vooraan staat werkelijk? Werk aan de generator hoort onder de generator, ook wanneer het voorbeeld het resultaat is.
 
 Zelfde vorm voor een issue en voor een pull request, zodat de twee naast elkaar te lezen zijn. Korter is beter. Tachtig tekens is de richting en niet de grens, want GitHub kapt een lijst daar af; blijven het object en zijn context overeind, dan mag een titel daarboven uitkomen.
 
