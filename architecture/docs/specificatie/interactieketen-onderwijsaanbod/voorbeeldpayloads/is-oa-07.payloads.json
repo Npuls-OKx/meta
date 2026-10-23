@@ -1,0 +1,19 @@
+{
+  "naam": "Voorbeeldpayloads bij is-oa-07.md",
+  "bron": {
+    "wie_is_de_bron": "Elke payload gebruikt de vaste identificaties uit casus.md. Het veld schemas zegt tegen welke schema's zij valideert; controleer-interactiespec.py draait daarop.",
+    "waarom_los": "Een payload in het document duwt de berichtspecificatie uit beeld, en los is zij op te halen en te valideren zonder markdown eromheen. Relateert aan: #384"
+  },
+  "payloads": {
+    "is-oa-07-specificatieverwijzing.json": {
+      "schemas": [
+        "specification-reference"
+      ]
+    },
+    "is-oa-07-inrichtingsstatus.json": {
+      "schemas": [
+        "arrangement-status"
+      ]
+    }
+  }
+}

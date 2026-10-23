@@ -1,0 +1,177 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1562" height="842" viewBox="0 0 1562 842" role="img">
+<rect width="1562" height="842" fill="#ffffff"/>
+<text x="28" y="30" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#1c1c1c" text-anchor="start" font-weight="600">Wie bezit welk gegeven in deze keten</text>
+<rect x="28" y="56" width="236" height="46" rx="3" fill="#b5ffff" stroke="#5aa8a8" stroke-width="1"/>
+<g transform="translate(38,65)" fill="none" stroke="#2a5a5a" stroke-width="1.2"><rect x="4" y="2" width="10" height="12"/><rect x="2" y="4" width="4" height="2.5"/><rect x="2" y="8.5" width="4" height="2.5"/></g>
+<text x="60" y="76" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#2a5a5a" text-anchor="start" font-weight="600">Curriculum ontwerptool</text>
+<text x="32" y="124" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#5b6663" text-anchor="start" font-weight="600">IS-OA-01 ontwerp</text>
+<rect x="28" y="132" width="236" height="22" rx="3" fill="#ffffb5" stroke="#a8a85a" stroke-width="1"/>
+<g transform="translate(36,136.0)" fill="none" stroke="#5a5a2a" stroke-width="1.2"><rect x="2" y="3" width="12" height="10"/><path d="M2 6.5h12"/></g>
+<text x="56" y="147" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">Competenties / Skills</text>
+<rect x="28" y="159" width="236" height="22" rx="3" fill="#ffffb5" stroke="#a8a85a" stroke-width="1"/>
+<g transform="translate(36,163.0)" fill="none" stroke="#5a5a2a" stroke-width="1.2"><rect x="2" y="3" width="12" height="10"/><path d="M2 6.5h12"/></g>
+<text x="56" y="174" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">Examenonderdeelspecificatie</text>
+<rect x="28" y="186" width="236" height="22" rx="3" fill="#ffffb5" stroke="#a8a85a" stroke-width="1"/>
+<g transform="translate(36,190.0)" fill="none" stroke="#5a5a2a" stroke-width="1.2"><rect x="2" y="3" width="12" height="10"/><path d="M2 6.5h12"/></g>
+<text x="56" y="201" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">Formatieve resultaat structuur</text>
+<rect x="28" y="213" width="236" height="22" rx="3" fill="#ffffb5" stroke="#a8a85a" stroke-width="1"/>
+<g transform="translate(36,217.0)" fill="none" stroke="#5a5a2a" stroke-width="1.2"><rect x="2" y="3" width="12" height="10"/><path d="M2 6.5h12"/></g>
+<text x="56" y="228" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">Inzicht</text>
+<rect x="28" y="240" width="236" height="22" rx="3" fill="#ffffb5" stroke="#a8a85a" stroke-width="1"/>
+<g transform="translate(36,244.0)" fill="none" stroke="#5a5a2a" stroke-width="1.2"><rect x="2" y="3" width="12" height="10"/><path d="M2 6.5h12"/></g>
+<text x="56" y="255" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">Kennis</text>
+<rect x="28" y="267" width="236" height="22" rx="3" fill="#ffffb5" stroke="#a8a85a" stroke-width="1"/>
+<g transform="translate(36,271.0)" fill="none" stroke="#5a5a2a" stroke-width="1.2"><rect x="2" y="3" width="12" height="10"/><path d="M2 6.5h12"/></g>
+<text x="56" y="282" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">Keuzedeelruimte</text>
+<rect x="28" y="294" width="236" height="22" rx="3" fill="#ffffb5" stroke="#a8a85a" stroke-width="1"/>
+<g transform="translate(36,298.0)" fill="none" stroke="#5a5a2a" stroke-width="1.2"><rect x="2" y="3" width="12" height="10"/><path d="M2 6.5h12"/></g>
+<text x="56" y="309" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">Leeronderdeel specificatie</text>
+<rect x="28" y="321" width="236" height="22" rx="3" fill="#ffffb5" stroke="#a8a85a" stroke-width="1"/>
+<g transform="translate(36,325.0)" fill="none" stroke="#5a5a2a" stroke-width="1.2"><rect x="2" y="3" width="12" height="10"/><path d="M2 6.5h12"/></g>
+<text x="56" y="336" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">Leeruitkomst</text>
+<rect x="28" y="348" width="236" height="22" rx="3" fill="#ffffb5" stroke="#a8a85a" stroke-width="1"/>
+<g transform="translate(36,352.0)" fill="none" stroke="#5a5a2a" stroke-width="1.2"><rect x="2" y="3" width="12" height="10"/><path d="M2 6.5h12"/></g>
+<text x="56" y="363" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">Onderwijseenheid specificatie</text>
+<rect x="28" y="375" width="236" height="22" rx="3" fill="#ffffb5" stroke="#a8a85a" stroke-width="1"/>
+<g transform="translate(36,379.0)" fill="none" stroke="#5a5a2a" stroke-width="1.2"><rect x="2" y="3" width="12" height="10"/><path d="M2 6.5h12"/></g>
+<text x="56" y="390" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">Opleiding specificatie</text>
+<rect x="28" y="402" width="236" height="35" rx="3" fill="#ffffb5" stroke="#a8a85a" stroke-width="1"/>
+<g transform="translate(36,412.5)" fill="none" stroke="#5a5a2a" stroke-width="1.2"><rect x="2" y="3" width="12" height="10"/><path d="M2 6.5h12"/></g>
+<text x="56" y="418" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">Opleidingsprogramma</text>
+<text x="56" y="431" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">specificatie</text>
+<rect x="28" y="442" width="236" height="22" rx="3" fill="#ffffb5" stroke="#a8a85a" stroke-width="1"/>
+<g transform="translate(36,446.0)" fill="none" stroke="#5a5a2a" stroke-width="1.2"><rect x="2" y="3" width="12" height="10"/><path d="M2 6.5h12"/></g>
+<text x="56" y="457" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">Student keuze regelset</text>
+<rect x="28" y="469" width="236" height="22" rx="3" fill="#ffffb5" stroke="#a8a85a" stroke-width="1"/>
+<g transform="translate(36,473.0)" fill="none" stroke="#5a5a2a" stroke-width="1.2"><rect x="2" y="3" width="12" height="10"/><path d="M2 6.5h12"/></g>
+<text x="56" y="484" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">Summatief Afrondingscriterium</text>
+<rect x="28" y="496" width="236" height="22" rx="3" fill="#ffffb5" stroke="#a8a85a" stroke-width="1"/>
+<g transform="translate(36,500.0)" fill="none" stroke="#5a5a2a" stroke-width="1.2"><rect x="2" y="3" width="12" height="10"/><path d="M2 6.5h12"/></g>
+<text x="56" y="511" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">Summatieve resultaat structuur</text>
+<rect x="28" y="523" width="236" height="22" rx="3" fill="#ffffb5" stroke="#a8a85a" stroke-width="1"/>
+<g transform="translate(36,527.0)" fill="none" stroke="#5a5a2a" stroke-width="1.2"><rect x="2" y="3" width="12" height="10"/><path d="M2 6.5h12"/></g>
+<text x="56" y="538" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">Toetsonderdeel specificatie</text>
+<rect x="28" y="550" width="236" height="22" rx="3" fill="#ffffb5" stroke="#a8a85a" stroke-width="1"/>
+<g transform="translate(36,554.0)" fill="none" stroke="#5a5a2a" stroke-width="1.2"><rect x="2" y="3" width="12" height="10"/><path d="M2 6.5h12"/></g>
+<text x="56" y="565" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">Vaardigheid</text>
+<text x="32" y="597" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#5b6663" text-anchor="start" font-weight="600">IS-OA-02 onderwijsontwerp</text>
+<rect x="28" y="605" width="236" height="35" rx="3" fill="#ffffb5" stroke="#a8a85a" stroke-width="1"/>
+<g transform="translate(36,615.5)" fill="none" stroke="#5a5a2a" stroke-width="1.2"><rect x="2" y="3" width="12" height="10"/><path d="M2 6.5h12"/></g>
+<text x="56" y="621" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">Gewenst medewerker</text>
+<text x="56" y="634" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">competentieprofiel</text>
+<rect x="28" y="645" width="236" height="35" rx="3" fill="#ffffb5" stroke="#a8a85a" stroke-width="1"/>
+<g transform="translate(36,655.5)" fill="none" stroke="#5a5a2a" stroke-width="1.2"><rect x="2" y="3" width="12" height="10"/><path d="M2 6.5h12"/></g>
+<text x="56" y="661" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">Gewenste Onderwijskundige</text>
+<text x="56" y="674" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">Leeromgeving</text>
+<rect x="28" y="685" width="236" height="22" rx="3" fill="#ffffb5" stroke="#a8a85a" stroke-width="1"/>
+<g transform="translate(36,689.0)" fill="none" stroke="#5a5a2a" stroke-width="1.2"><rect x="2" y="3" width="12" height="10"/><path d="M2 6.5h12"/></g>
+<text x="56" y="700" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">Onderwijsvorm specificatie</text>
+<rect x="28" y="712" width="236" height="35" rx="3" fill="#ffffb5" stroke="#a8a85a" stroke-width="1"/>
+<g transform="translate(36,722.5)" fill="none" stroke="#5a5a2a" stroke-width="1.2"><rect x="2" y="3" width="12" height="10"/><path d="M2 6.5h12"/></g>
+<text x="56" y="728" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">Studiebelasting en begeleide</text>
+<text x="56" y="741" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">onderwijstijd indicatie</text>
+<rect x="28" y="752" width="236" height="22" rx="3" fill="#ffffb5" stroke="#a8a85a" stroke-width="1"/>
+<g transform="translate(36,756.0)" fill="none" stroke="#5a5a2a" stroke-width="1.2"><rect x="2" y="3" width="12" height="10"/><path d="M2 6.5h12"/></g>
+<text x="56" y="767" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">Toetsinstrument</text>
+<rect x="28" y="779" width="236" height="22" rx="3" fill="#ffffb5" stroke="#a8a85a" stroke-width="1"/>
+<g transform="translate(36,783.0)" fill="none" stroke="#5a5a2a" stroke-width="1.2"><rect x="2" y="3" width="12" height="10"/><path d="M2 6.5h12"/></g>
+<text x="56" y="794" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">Toetsvormspecificatie</text>
+<rect x="282" y="56" width="236" height="46" rx="3" fill="#b5ffff" stroke="#5aa8a8" stroke-width="1"/>
+<g transform="translate(292,65)" fill="none" stroke="#2a5a5a" stroke-width="1.2"><rect x="4" y="2" width="10" height="12"/><rect x="2" y="4" width="4" height="2.5"/><rect x="2" y="8.5" width="4" height="2.5"/></g>
+<text x="314" y="76" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#2a5a5a" text-anchor="start" font-weight="600">Onderwijscatalogus</text>
+<text x="286" y="124" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#5b6663" text-anchor="start" font-weight="600">IS-OA-03 verzoek om aanbod</text>
+<rect x="282" y="132" width="236" height="35" rx="3" fill="#ffffb5" stroke="#a8a85a" stroke-width="1"/>
+<g transform="translate(290,142.5)" fill="none" stroke="#5a5a2a" stroke-width="1.2"><rect x="2" y="3" width="12" height="10"/><path d="M2 6.5h12"/></g>
+<text x="310" y="148" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">Gewenst medewerker</text>
+<text x="310" y="161" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">competentieprofiel</text>
+<rect x="282" y="172" width="236" height="35" rx="3" fill="#ffffb5" stroke="#a8a85a" stroke-width="1"/>
+<g transform="translate(290,182.5)" fill="none" stroke="#5a5a2a" stroke-width="1.2"><rect x="2" y="3" width="12" height="10"/><path d="M2 6.5h12"/></g>
+<text x="310" y="188" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">Gewenste Onderwijskundige</text>
+<text x="310" y="201" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">Leeromgeving</text>
+<rect x="282" y="212" width="236" height="22" rx="3" fill="#ffffb5" stroke="#a8a85a" stroke-width="1"/>
+<g transform="translate(290,216.0)" fill="none" stroke="#5a5a2a" stroke-width="1.2"><rect x="2" y="3" width="12" height="10"/><path d="M2 6.5h12"/></g>
+<text x="310" y="227" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">Leeronderdeel specificatie</text>
+<rect x="282" y="239" width="236" height="22" rx="3" fill="#ffffb5" stroke="#a8a85a" stroke-width="1"/>
+<g transform="translate(290,243.0)" fill="none" stroke="#5a5a2a" stroke-width="1.2"><rect x="2" y="3" width="12" height="10"/><path d="M2 6.5h12"/></g>
+<text x="310" y="254" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">Onderwijseenheid specificatie</text>
+<rect x="282" y="266" width="236" height="22" rx="3" fill="#ffffb5" stroke="#a8a85a" stroke-width="1"/>
+<g transform="translate(290,270.0)" fill="none" stroke="#5a5a2a" stroke-width="1.2"><rect x="2" y="3" width="12" height="10"/><path d="M2 6.5h12"/></g>
+<text x="310" y="281" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">Onderwijsvorm specificatie</text>
+<rect x="282" y="293" width="236" height="22" rx="3" fill="#ffffb5" stroke="#a8a85a" stroke-width="1"/>
+<g transform="translate(290,297.0)" fill="none" stroke="#5a5a2a" stroke-width="1.2"><rect x="2" y="3" width="12" height="10"/><path d="M2 6.5h12"/></g>
+<text x="310" y="308" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">Opleiding specificatie</text>
+<rect x="282" y="320" width="236" height="35" rx="3" fill="#ffffb5" stroke="#a8a85a" stroke-width="1"/>
+<g transform="translate(290,330.5)" fill="none" stroke="#5a5a2a" stroke-width="1.2"><rect x="2" y="3" width="12" height="10"/><path d="M2 6.5h12"/></g>
+<text x="310" y="336" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">Opleidingsprogramma</text>
+<text x="310" y="349" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">specificatie</text>
+<rect x="282" y="360" width="236" height="35" rx="3" fill="#ffffb5" stroke="#a8a85a" stroke-width="1"/>
+<g transform="translate(290,370.5)" fill="none" stroke="#5a5a2a" stroke-width="1.2"><rect x="2" y="3" width="12" height="10"/><path d="M2 6.5h12"/></g>
+<text x="310" y="376" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">Studiebelasting en begeleide</text>
+<text x="310" y="389" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">onderwijstijd indicatie</text>
+<rect x="282" y="400" width="236" height="35" rx="3" fill="#ffffb5" stroke="#a8a85a" stroke-width="1"/>
+<g transform="translate(290,410.5)" fill="none" stroke="#5a5a2a" stroke-width="1.2"><rect x="2" y="3" width="12" height="10"/><path d="M2 6.5h12"/></g>
+<text x="310" y="416" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">Verzoek tot Aanbod /</text>
+<text x="310" y="429" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">Intekening op specificatie</text>
+<text x="286" y="460" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#5b6663" text-anchor="start" font-weight="600">IS-OA-05 aanmeldbaar aanbod</text>
+<rect x="282" y="468" width="236" height="22" rx="3" fill="#ffffb5" stroke="#a8a85a" stroke-width="1"/>
+<g transform="translate(290,472.0)" fill="none" stroke="#5a5a2a" stroke-width="1.2"><rect x="2" y="3" width="12" height="10"/><path d="M2 6.5h12"/></g>
+<text x="310" y="483" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">Opleidingsprogramma aanbod</text>
+<text x="286" y="515" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#5b6663" text-anchor="start" font-weight="600">IS-OA-07 specificaties naar het LMS</text>
+<rect x="282" y="523" width="236" height="22" rx="3" fill="#ffffb5" stroke="#a8a85a" stroke-width="1"/>
+<g transform="translate(290,527.0)" fill="none" stroke="#5a5a2a" stroke-width="1.2"><rect x="2" y="3" width="12" height="10"/><path d="M2 6.5h12"/></g>
+<text x="310" y="538" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">Formatieve resultaat structuur</text>
+<rect x="282" y="550" width="236" height="22" rx="3" fill="#ffffb5" stroke="#a8a85a" stroke-width="1"/>
+<g transform="translate(290,554.0)" fill="none" stroke="#5a5a2a" stroke-width="1.2"><rect x="2" y="3" width="12" height="10"/><path d="M2 6.5h12"/></g>
+<text x="310" y="565" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">Leeronderdeel specificatie</text>
+<rect x="282" y="577" width="236" height="22" rx="3" fill="#ffffb5" stroke="#a8a85a" stroke-width="1"/>
+<g transform="translate(290,581.0)" fill="none" stroke="#5a5a2a" stroke-width="1.2"><rect x="2" y="3" width="12" height="10"/><path d="M2 6.5h12"/></g>
+<text x="310" y="592" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">Les specificatie</text>
+<rect x="282" y="604" width="236" height="22" rx="3" fill="#ffffb5" stroke="#a8a85a" stroke-width="1"/>
+<g transform="translate(290,608.0)" fill="none" stroke="#5a5a2a" stroke-width="1.2"><rect x="2" y="3" width="12" height="10"/><path d="M2 6.5h12"/></g>
+<text x="310" y="619" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">Toetsonderdeel specificatie</text>
+<rect x="536" y="56" width="236" height="46" rx="3" fill="#b5ffff" stroke="#5aa8a8" stroke-width="1"/>
+<g transform="translate(546,65)" fill="none" stroke="#2a5a5a" stroke-width="1.2"><rect x="4" y="2" width="10" height="12"/><rect x="2" y="4" width="4" height="2.5"/><rect x="2" y="8.5" width="4" height="2.5"/></g>
+<text x="568" y="76" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#2a5a5a" text-anchor="start" font-weight="600">Planningssysteem</text>
+<text x="540" y="124" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#5b6663" text-anchor="start" font-weight="600">IS-OA-04 gepland aanbod</text>
+<rect x="536" y="132" width="236" height="22" rx="3" fill="#ffffb5" stroke="#a8a85a" stroke-width="1"/>
+<g transform="translate(544,136.0)" fill="none" stroke="#5a5a2a" stroke-width="1.2"><rect x="2" y="3" width="12" height="10"/><path d="M2 6.5h12"/></g>
+<text x="564" y="147" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">Keuzedeel aanbod</text>
+<rect x="536" y="159" width="236" height="22" rx="3" fill="#ffffb5" stroke="#a8a85a" stroke-width="1"/>
+<g transform="translate(544,163.0)" fill="none" stroke="#5a5a2a" stroke-width="1.2"><rect x="2" y="3" width="12" height="10"/><path d="M2 6.5h12"/></g>
+<text x="564" y="174" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">Leergelegenheid</text>
+<rect x="536" y="186" width="236" height="22" rx="3" fill="#ffffb5" stroke="#a8a85a" stroke-width="1"/>
+<g transform="translate(544,190.0)" fill="none" stroke="#5a5a2a" stroke-width="1.2"><rect x="2" y="3" width="12" height="10"/><path d="M2 6.5h12"/></g>
+<text x="564" y="201" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">Onderwijseenheid aanbod</text>
+<rect x="536" y="213" width="236" height="22" rx="3" fill="#ffffb5" stroke="#a8a85a" stroke-width="1"/>
+<g transform="translate(544,217.0)" fill="none" stroke="#5a5a2a" stroke-width="1.2"><rect x="2" y="3" width="12" height="10"/><path d="M2 6.5h12"/></g>
+<text x="564" y="228" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">Opleidingaanbod</text>
+<rect x="536" y="240" width="236" height="35" rx="3" fill="#ffffb5" stroke="#a8a85a" stroke-width="1"/>
+<g transform="translate(544,250.5)" fill="none" stroke="#5a5a2a" stroke-width="1.2"><rect x="2" y="3" width="12" height="10"/><path d="M2 6.5h12"/></g>
+<text x="564" y="256" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">Opleidingsaanbod van</text>
+<text x="564" y="269" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">Instelling</text>
+<rect x="536" y="280" width="236" height="22" rx="3" fill="#ffffb5" stroke="#a8a85a" stroke-width="1"/>
+<g transform="translate(544,284.0)" fill="none" stroke="#5a5a2a" stroke-width="1.2"><rect x="2" y="3" width="12" height="10"/><path d="M2 6.5h12"/></g>
+<text x="564" y="295" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">Opleidingsprogramma aanbod</text>
+<rect x="536" y="307" width="236" height="22" rx="3" fill="#ffffb5" stroke="#a8a85a" stroke-width="1"/>
+<g transform="translate(544,311.0)" fill="none" stroke="#5a5a2a" stroke-width="1.2"><rect x="2" y="3" width="12" height="10"/><path d="M2 6.5h12"/></g>
+<text x="564" y="322" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">Toetsgelegenheid</text>
+<rect x="790" y="56" width="236" height="46" rx="3" fill="#b5ffff" stroke="#5aa8a8" stroke-width="1"/>
+<g transform="translate(800,65)" fill="none" stroke="#2a5a5a" stroke-width="1.2"><rect x="4" y="2" width="10" height="12"/><rect x="2" y="4" width="4" height="2.5"/><rect x="2" y="8.5" width="4" height="2.5"/></g>
+<text x="822" y="76" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#2a5a5a" text-anchor="start" font-weight="600">Kernregistratie systeem</text>
+<text x="822" y="91" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#2a5a5a" text-anchor="start" font-weight="600">studenten (KRS)</text>
+<text x="794" y="124" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#5b6663" text-anchor="start" font-weight="600">IS-OA-06 aanmeldbaar aanbod</text>
+<rect x="790" y="132" width="236" height="22" rx="3" fill="#ffffb5" stroke="#a8a85a" stroke-width="1"/>
+<g transform="translate(798,136.0)" fill="none" stroke="#5a5a2a" stroke-width="1.2"><rect x="2" y="3" width="12" height="10"/><path d="M2 6.5h12"/></g>
+<text x="818" y="147" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">Opleidingsprogramma aanbod</text>
+<rect x="1044" y="56" width="236" height="46" rx="3" fill="#b5ffff" stroke="#5aa8a8" stroke-width="1"/>
+<g transform="translate(1054,65)" fill="none" stroke="#2a5a5a" stroke-width="1.2"><rect x="4" y="2" width="10" height="12"/><rect x="2" y="4" width="4" height="2.5"/><rect x="2" y="8.5" width="4" height="2.5"/></g>
+<text x="1076" y="76" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#2a5a5a" text-anchor="start" font-weight="600">Voorziening Centraal</text>
+<text x="1076" y="91" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#2a5a5a" text-anchor="start" font-weight="600">Aanmelden (CAMBO)</text>
+<text x="1048" y="124" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#5b6663" text-anchor="start">ontvangt, bezit hier niets</text>
+<rect x="1298" y="56" width="236" height="46" rx="3" fill="#b5ffff" stroke="#5aa8a8" stroke-width="1"/>
+<g transform="translate(1308,65)" fill="none" stroke="#2a5a5a" stroke-width="1.2"><rect x="4" y="2" width="10" height="12"/><rect x="2" y="4" width="4" height="2.5"/><rect x="2" y="8.5" width="4" height="2.5"/></g>
+<text x="1330" y="76" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#2a5a5a" text-anchor="start" font-weight="600">Leer management systeem</text>
+<text x="1330" y="91" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#2a5a5a" text-anchor="start" font-weight="600">(LMS)</text>
+<text x="1302" y="124" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#5b6663" text-anchor="start">ontvangt, bezit hier niets</text>
+<text x="28" y="832" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#5b6663" text-anchor="start">Afgeleid uit voorbeeld-lr1-regels.json: een component bezit het objecttype waarvan hij het bronsysteem is.</text>
+</svg>

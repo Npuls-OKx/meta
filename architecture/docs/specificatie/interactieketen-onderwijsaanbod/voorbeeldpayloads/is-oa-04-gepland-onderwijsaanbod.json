@@ -1,0 +1,151 @@
+{
+  "offeringInstances": [
+    {
+      "id": "7aa6609f-1d1b-471a-a0f8-beae490d31b5",
+      "offeringType": "opleidingsaanbod",
+      "version": "0.1.0",
+      "parentOfferingId": null,
+      "specificationReference": {
+        "specificationId": "79736830-1c5c-470f-b2c2-005029c96733",
+        "version": "0.1.0"
+      },
+      "name": "Apothekersassistent 2026",
+      "status": "gepland",
+      "bottlenecks": [],
+      "cohort": "2026",
+      "period": {
+        "start": "2026-09-01",
+        "end": "2029-07-15"
+      },
+      "maxStudentCount": 48,
+      "executingTeamId": "d9561371-5ece-482d-a675-a076e63f980f"
+    },
+    {
+      "id": "8c494250-b67a-4666-a762-6f9ec1e70aff",
+      "offeringType": "opleidingsprogramma-aanbod",
+      "version": "0.1.0",
+      "parentOfferingId": "7aa6609f-1d1b-471a-a0f8-beae490d31b5",
+      "specificationReference": {
+        "specificationId": "7ae25c1e-ee27-43a2-a001-761ee39ea5c7",
+        "version": "0.1.0"
+      },
+      "name": "Regulier BOL 2026",
+      "status": "gepland",
+      "cohort": "2026",
+      "period": {
+        "start": "2026-09-01",
+        "end": "2029-07-15"
+      },
+      "minStudentCount": 24,
+      "maxStudentCount": 48,
+      "executingTeamId": "d9561371-5ece-482d-a675-a076e63f980f"
+    },
+    {
+      "id": "04af26e6-96be-480a-8413-87a128164681",
+      "offeringType": "onderwijseenheid-aanbod",
+      "version": "0.1.0",
+      "parentOfferingId": "8c494250-b67a-4666-a762-6f9ec1e70aff",
+      "specificationReference": {
+        "specificationId": "402c2342-d897-4df4-a667-7fc5bd930944",
+        "version": "0.1.0"
+      },
+      "name": "B1-K1, leerjaar 1, periode 1 tot 4",
+      "status": "gepland",
+      "period": {
+        "start": "2026-09-01",
+        "end": "2027-07-15"
+      },
+      "locationId": "59807057-a6f1-473b-9084-114644557a68"
+    },
+    {
+      "id": "04070a96-01e0-4958-9f7e-69b429c72eec",
+      "offeringType": "leergelegenheid",
+      "version": "0.1.0",
+      "parentOfferingId": "04af26e6-96be-480a-8413-87a128164681",
+      "specificationReference": {
+        "specificationId": "327c8263-3516-4b5a-8d57-c16241ec008d",
+        "version": "0.1.0"
+      },
+      "name": "Baliegesprekken 101, periode 1",
+      "status": "gepland",
+      "period": {
+        "start": "2026-09-01",
+        "end": "2026-11-13"
+      },
+      "locationId": "cfe4ae31-d8d1-40f8-9d62-eda917fefbd3",
+      "executingTeamId": "d9561371-5ece-482d-a675-a076e63f980f",
+      "groups": [
+        {
+          "id": "13cc9125-6f0d-4faf-b483-9f0e4102790e",
+          "name": "APO26-1A",
+          "capacity": 24
+        },
+        {
+          "id": "93937bfe-4e4a-4f6a-9d5b-2754613aa2df",
+          "name": "APO26-1B",
+          "capacity": 24
+        }
+      ]
+    },
+    {
+      "id": "daffa71f-d6dc-470e-9914-4477ea15075f",
+      "offeringType": "opleidingsprogramma-aanbod",
+      "version": "0.1.0",
+      "parentOfferingId": null,
+      "specificationReference": {
+        "specificationId": "beaaaf4c-b267-41f7-9b8d-ac9a19a7dfe1",
+        "version": "0.1.0"
+      },
+      "name": "K0037 Farmaceutische Patientenzorg, periode 7",
+      "status": "gepland",
+      "period": {
+        "start": "2028-02-07",
+        "end": "2028-04-14"
+      },
+      "executingTeamId": "d9561371-5ece-482d-a675-a076e63f980f",
+      "groups": [
+        {
+          "id": "55169145-f993-4bfe-8b89-888807820d8d",
+          "name": "KD-K0037-28-P7",
+          "capacity": 24
+        }
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "id": "59807057-a6f1-473b-9084-114644557a68",
+      "locationType": "vestiging",
+      "name": "Hoofdlocatie Utrecht",
+      "partOfLocationId": null,
+      "codes": [
+        {
+          "codeType": "vestigingscode",
+          "code": "UTR-01"
+        }
+      ]
+    },
+    {
+      "id": "cfe4ae31-d8d1-40f8-9d62-eda917fefbd3",
+      "locationType": "ruimte",
+      "name": "Praktijklokaal farmacie 2.14",
+      "partOfLocationId": "59807057-a6f1-473b-9084-114644557a68",
+      "floor": "2",
+      "wing": "B"
+    }
+  ],
+  "organisationUnits": [
+    {
+      "id": "6132ece6-d75e-4e80-81ce-91ab7448794d",
+      "unitType": "instelling",
+      "name": "ROC Leren Zonder Drempels",
+      "parentUnitId": null
+    },
+    {
+      "id": "d9561371-5ece-482d-a675-a076e63f980f",
+      "unitType": "onderwijsteam",
+      "name": "Onderwijsteam Farmacie",
+      "parentUnitId": "6132ece6-d75e-4e80-81ce-91ab7448794d"
+    }
+  ]
+}

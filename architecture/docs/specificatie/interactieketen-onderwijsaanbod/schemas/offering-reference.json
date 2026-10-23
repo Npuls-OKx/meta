@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://okx.npuls.nl/schema/offering-reference/voorstel",
+  "title": "Offering reference",
+  "DutchName": "Aanbod-referentie",
+  "$comment": "Voorstel. Het label voorstel in de $id houdt dit schema apart van de alfa-schema's die Npuls-OKx/Public draagt; werkbrief W8 van IS-OA-05 laat het daar landen. Dezelfde vorm als specification-reference/alfa, met het aanbod als onderwerp. arrangement-status/voorstel en offering-processing-status/voorstel wijzen er beide naar.",
+  "type": "object",
+  "required": ["offeringId", "version"],
+  "properties": {
+    "offeringId": {
+      "type": "string",
+      "format": "uuid",
+      "DutchName": "aanbodId"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "DutchName": "versie"
+    }
+  },
+  "additionalProperties": false
+}

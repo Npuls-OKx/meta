@@ -1,0 +1,180 @@
+{
+  "educationSpecifications": [
+    {
+      "id": "08b4656d-27ec-4175-8c1b-1f1d51780785",
+      "specificationType": "examenplanspecificatie",
+      "version": "0.1.0",
+      "parentSpecificationId": null,
+      "appliesTo": "7ae25c1e-ee27-43a2-a001-761ee39ea5c7",
+      "learningOutcomeId": "b84dc98b-6c5f-4ee8-bdfb-40b2639ca5a4",
+      "learningOutcome": {
+        "type": "kwalificatie",
+        "code": "27141"
+      },
+      "name": "Resultaatstructuur Apothekersassistent",
+      "description": "Alle kerntaken voldoende, de keuzedeelruimte gevuld en afgerond, en het basisdeel behaald.",
+      "aggregation": "allenVoldoende",
+      "resultModel": {
+        "scale": "voldoende-onvoldoende"
+      },
+      "status": "vastgesteld",
+      "validFrom": "2026-09-01",
+      "validUntil": null,
+      "manifest": [
+        {
+          "specificationId": "0512c773-9c1b-42c4-ae0d-9af8554f2462",
+          "version": "0.1.0",
+          "relation": "onderdeel"
+        },
+        {
+          "specificationId": "df0d3e50-c7c3-416e-b694-12fe5791eb7c",
+          "version": "0.1.0",
+          "relation": "onderdeel"
+        }
+      ]
+    },
+    {
+      "id": "0512c773-9c1b-42c4-ae0d-9af8554f2462",
+      "specificationType": "resultaateenheidspecificatie",
+      "version": "0.1.0",
+      "parentSpecificationId": "08b4656d-27ec-4175-8c1b-1f1d51780785",
+      "learningOutcomeId": "12301838-92d4-4040-aea2-050bb131ceb7",
+      "learningOutcome": {
+        "type": "kerntaak",
+        "code": "B1-K1"
+      },
+      "assesses": "402c2342-d897-4df4-a667-7fc5bd930944",
+      "name": "Resultaat kerntaak B1-K1",
+      "weighting": 1,
+      "aggregation": "gewogenGemiddelde",
+      "resultModel": {
+        "scale": "cijfer-1-10",
+        "passMark": 5.5,
+        "decimalPlaces": 1
+      },
+      "mandatory": true,
+      "status": "vastgesteld",
+      "manifest": [
+        {
+          "specificationId": "941f180d-b0af-4933-a580-6ab654dfadda",
+          "version": "0.1.0",
+          "relation": "onderdeel"
+        },
+        {
+          "specificationId": "6061f30c-e8fd-44b8-a553-e3078c07dc75",
+          "version": "0.1.0",
+          "relation": "onderdeel"
+        },
+        {
+          "specificationId": "f004ba43-1e0b-4b8f-a677-0644ce29f4ea",
+          "version": "0.1.0",
+          "relation": "onderdeel"
+        }
+      ]
+    },
+    {
+      "id": "941f180d-b0af-4933-a580-6ab654dfadda",
+      "specificationType": "toetsonderdeelspecificatie",
+      "version": "0.1.0",
+      "parentSpecificationId": "0512c773-9c1b-42c4-ae0d-9af8554f2462",
+      "learningOutcomeId": "12301838-92d4-4040-aea2-050bb131ceb7",
+      "learningOutcome": {
+        "type": "kerntaak",
+        "code": "B1-K1"
+      },
+      "name": "Proeve van bekwaamheid B1-K1",
+      "nature": "summatief",
+      "assessmentForm": "proeveVanBekwaamheid",
+      "weighting": 2,
+      "resultModel": {
+        "scale": "cijfer-1-10",
+        "passMark": 5.5,
+        "decimalPlaces": 1
+      },
+      "mandatory": true,
+      "status": "vastgesteld"
+    },
+    {
+      "id": "6061f30c-e8fd-44b8-a553-e3078c07dc75",
+      "specificationType": "toetsonderdeelspecificatie",
+      "version": "0.1.0",
+      "parentSpecificationId": "0512c773-9c1b-42c4-ae0d-9af8554f2462",
+      "learningOutcomeId": "78f25d62-9fd4-45c4-aa04-3d22f59213f5",
+      "learningOutcome": {
+        "type": "werkproces",
+        "code": "B1-K1-W1"
+      },
+      "name": "Praktijktoets baliegesprek (OSCE)",
+      "nature": "summatief",
+      "assessmentForm": "praktijkopdracht",
+      "weighting": 1,
+      "resultModel": {
+        "scale": "cijfer-1-10",
+        "passMark": 5.5,
+        "decimalPlaces": 1
+      },
+      "mandatory": true,
+      "status": "vastgesteld"
+    },
+    {
+      "id": "f004ba43-1e0b-4b8f-a677-0644ce29f4ea",
+      "specificationType": "toetsonderdeelspecificatie",
+      "version": "0.1.0",
+      "parentSpecificationId": "0512c773-9c1b-42c4-ae0d-9af8554f2462",
+      "learningOutcomeId": "78f25d62-9fd4-45c4-aa04-3d22f59213f5",
+      "learningOutcome": {
+        "type": "werkproces",
+        "code": "B1-K1-W1"
+      },
+      "name": "Formatieve voortgang baliegesprek",
+      "nature": "formatief",
+      "assessmentForm": "criteriumgesprek",
+      "weighting": 0,
+      "resultModel": {
+        "scale": "voldoende-onvoldoende"
+      },
+      "mandatory": false,
+      "status": "concept"
+    },
+    {
+      "id": "df0d3e50-c7c3-416e-b694-12fe5791eb7c",
+      "specificationType": "resultaateenheidspecificatie",
+      "version": "0.1.0",
+      "parentSpecificationId": "08b4656d-27ec-4175-8c1b-1f1d51780785",
+      "assesses": "fb5be5ae-faa0-4b4b-8085-474fce9aae08",
+      "name": "Resultaat keuzedelen",
+      "description": "Welke keuzedeelresultaten meetellen staat in de regelset.",
+      "weighting": 1,
+      "aggregation": "minimaalAantal",
+      "resultModel": {
+        "scale": "voldoende-onvoldoende"
+      },
+      "mandatory": true,
+      "status": "vastgesteld",
+      "ruleSetReferences": [
+        "132f165a-973c-41c2-98df-e58d4ca6d7eb"
+      ]
+    }
+  ],
+  "ruleSets": [
+    {
+      "id": "132f165a-973c-41c2-98df-e58d4ca6d7eb",
+      "version": "0.1.0",
+      "name": "Meetellende keuzedeelresultaten Apothekersassistent",
+      "appliesTo": "df0d3e50-c7c3-416e-b694-12fe5791eb7c",
+      "rules": [
+        {
+          "type": "minimaleStudielast",
+          "value": 720,
+          "unit": "SBU",
+          "sourceSpecificationId": "fb5be5ae-faa0-4b4b-8085-474fce9aae08"
+        },
+        {
+          "type": "resultaatEis",
+          "scope": "elk gekozen keuzedeel",
+          "requirement": "voldoende"
+        }
+      ]
+    }
+  ]
+}

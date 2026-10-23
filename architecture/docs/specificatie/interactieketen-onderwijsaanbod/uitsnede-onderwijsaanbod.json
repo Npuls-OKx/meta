@@ -1,0 +1,83 @@
+{
+  "id": "uitsnede-onderwijsaanbod",
+  "titel": "Van kwalificatiedossier via leeruitkomst en specificatie naar gepland aanbod, laag voor laag",
+  "herkomst": "Interactiespecificatie ontwerpen en ontsluiten van onderwijsaanbod, hoofdstuk 3; objecttypen uit architecture/model/informatiemodel/informatiemodel.json",
+  "rij_labels": [
+    "laag 1, de opleiding en haar aanbod",
+    "laag 2, het aanmeldbare programma",
+    "laag 3, de eenheid en de leeruitkomst",
+    "laag 4, het planbare leeronderdeel",
+    "de keuzedeelruimte, door de student gevuld",
+    "toetsen, examineren en de weging"
+  ],
+  "objecten": [
+    {"naam": "Kwalificatie dossier", "rij": 0},
+    {"naam": "Opleiding specificatie", "rij": 0},
+    {"naam": "Opleiding aanbod", "rij": 0},
+    {"naam": "Opleidingsaanbod van Instelling", "rij": 0},
+
+    {"naam": "Kwalificatie", "rij": 1},
+    {"naam": "Opleidingsprogramma specificatie", "rij": 1},
+    {"naam": "Opleidingsprogramma aanbod", "rij": 1, "noot": "IS-OA-05 en IS-OA-06 ontsluiten deze laag"},
+
+    {"naam": "Kerntaak", "rij": 2},
+    {"naam": "Leeruitkomst", "rij": 2},
+    {"naam": "Onderwijseenheid specificatie", "rij": 2},
+    {"naam": "Onderwijseenheid aanbod", "rij": 2},
+
+    {"naam": "Werkproces", "rij": 3},
+    {"naam": "Leeronderdeel specificatie", "rij": 3},
+    {"naam": "Leergelegenheid", "rij": 3},
+
+    {"naam": "Keuzedeelruimte", "rij": 4},
+    {"naam": "Student keuze regelset", "rij": 4, "noot": "hangt aan elke laag van de specificatie"},
+    {"naam": "Keuzedeel", "rij": 4},
+    {"naam": "Keuzedeel aanbod", "rij": 4},
+
+    {"naam": "Examenonderdeelspecificatie", "rij": 5},
+    {"naam": "Toetsonderdeel specificatie", "rij": 5},
+    {"naam": "Toetsgelegenheid", "rij": 5},
+    {"naam": "Summatieve resultaat structuur", "rij": 5},
+    {"naam": "Summatief Afrondingscriterium", "rij": 5},
+
+    {"naam": "Verzoek tot Aanbod / Intekening op specificatie", "noot": "elke planbare laag erin, elk gepland aanbod eruit"}
+  ],
+  "verberg": [
+    {"van": "Opleiding specificatie", "naar": "Verzoek tot Aanbod / Intekening op specificatie",
+     "reden": "de band trekt geen lijn naar een kolom; het vak staat op de grens die het overbrugt en zegt in zijn noot wat erin gaat en wat eruit volgt"},
+    {"van": "Opleidingsprogramma specificatie", "naar": "Verzoek tot Aanbod / Intekening op specificatie",
+     "reden": "de band trekt geen lijn naar een kolom; elke laag van de specificatie is op dezelfde manier input"},
+    {"van": "Onderwijseenheid specificatie", "naar": "Verzoek tot Aanbod / Intekening op specificatie",
+     "reden": "de band trekt geen lijn naar een kolom; elke laag van de specificatie is op dezelfde manier input"},
+    {"van": "Leeronderdeel specificatie", "naar": "Verzoek tot Aanbod / Intekening op specificatie",
+     "reden": "de band trekt geen lijn naar een kolom; elke laag van de specificatie is op dezelfde manier input"},
+    {"van": "Toetsonderdeel specificatie", "naar": "Verzoek tot Aanbod / Intekening op specificatie",
+     "reden": "de band trekt geen lijn naar een kolom; elke laag van de specificatie is op dezelfde manier input"},
+    {"van": "Examenonderdeelspecificatie", "naar": "Verzoek tot Aanbod / Intekening op specificatie",
+     "reden": "de band trekt geen lijn naar een kolom; elke laag van de specificatie is op dezelfde manier input"},
+    {"van": "Keuzedeel", "naar": "Verzoek tot Aanbod / Intekening op specificatie",
+     "reden": "de band trekt geen lijn naar een kolom; elke laag van de specificatie is op dezelfde manier input"},
+
+    {"van": "Verzoek tot Aanbod / Intekening op specificatie", "naar": "Opleiding aanbod",
+     "reden": "het verzoek leidt tot elke laag van het aanbod; zes regels in een bandvak maken het vak een alinea"},
+    {"van": "Verzoek tot Aanbod / Intekening op specificatie", "naar": "Opleidingsprogramma aanbod",
+     "reden": "het verzoek leidt tot elke laag van het aanbod; zes regels in een bandvak maken het vak een alinea"},
+    {"van": "Verzoek tot Aanbod / Intekening op specificatie", "naar": "Onderwijseenheid aanbod",
+     "reden": "het verzoek leidt tot elke laag van het aanbod; zes regels in een bandvak maken het vak een alinea"},
+    {"van": "Verzoek tot Aanbod / Intekening op specificatie", "naar": "Leergelegenheid",
+     "reden": "het verzoek leidt tot elke laag van het aanbod; zes regels in een bandvak maken het vak een alinea"},
+    {"van": "Verzoek tot Aanbod / Intekening op specificatie", "naar": "Toetsgelegenheid",
+     "reden": "het verzoek leidt tot elke laag van het aanbod; zes regels in een bandvak maken het vak een alinea"},
+    {"van": "Verzoek tot Aanbod / Intekening op specificatie", "naar": "Keuzedeel aanbod",
+     "reden": "het verzoek leidt tot elke laag van het aanbod; zes regels in een bandvak maken het vak een alinea"},
+
+    {"van": "Student keuze regelset", "naar": "Opleiding specificatie",
+     "reden": "de regelset hangt aan elke laag van de specificatie; de noot op het vak zegt dat in een regel"},
+    {"van": "Student keuze regelset", "naar": "Opleidingsprogramma specificatie",
+     "reden": "de regelset hangt aan elke laag van de specificatie; de noot op het vak zegt dat in een regel"},
+    {"van": "Student keuze regelset", "naar": "Onderwijseenheid specificatie",
+     "reden": "de regelset hangt aan elke laag van de specificatie; de noot op het vak zegt dat in een regel"},
+    {"van": "Student keuze regelset", "naar": "Leeronderdeel specificatie",
+     "reden": "de regelset hangt aan elke laag van de specificatie; een lijn naar een van de vier laat de drie andere lagen eruit vallen"}
+  ]
+}

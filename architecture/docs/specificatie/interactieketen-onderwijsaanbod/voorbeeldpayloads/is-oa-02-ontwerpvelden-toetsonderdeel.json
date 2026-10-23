@@ -1,0 +1,95 @@
+{
+  "educationSpecifications": [
+    {
+      "id": "941f180d-b0af-4933-a580-6ab654dfadda",
+      "specificationType": "toetsonderdeelspecificatie",
+      "version": "0.2.0",
+      "parentSpecificationId": "0512c773-9c1b-42c4-ae0d-9af8554f2462",
+      "learningOutcomeId": "12301838-92d4-4040-aea2-050bb131ceb7",
+      "learningOutcome": {
+        "type": "kerntaak",
+        "code": "B1-K1"
+      },
+      "name": "Proeve van bekwaamheid B1-K1",
+      "nature": "summatief",
+      "assessmentForm": "proeveVanBekwaamheid",
+      "weighting": 2,
+      "resultModel": {
+        "scale": "cijfer-1-10",
+        "passMark": 5.5,
+        "decimalPlaces": 1
+      },
+      "mandatory": true,
+      "status": "concept",
+      "roomType": "skillslab-examen",
+      "assessmentDuration": {
+        "value": 45,
+        "unit": "minuten"
+      },
+      "assessmentInstrumentId": "da138f60-ebb1-4853-870f-7e7d642873f2",
+      "expertiseProfileIds": [
+        "4037f1a2-c182-4f2d-ae00-bfb06b076337"
+      ],
+      "description": "Proeve van bekwaamheid in de simulatieapotheek"
+    }
+  ],
+  "roomTypes": [
+    {
+      "code": "skillslab-examen",
+      "name": "Skillslab met baliesimulatie, afsluitbaar",
+      "capacity": 24,
+      "features": [
+        "balie-opstelling",
+        "afsluitbaar voor examinering"
+      ],
+      "locationIds": [
+        "59807057-a6f1-473b-9084-114644557a68"
+      ]
+    }
+  ],
+  "expertiseProfiles": [
+    {
+      "id": "4037f1a2-c182-4f2d-ae00-bfb06b076337",
+      "name": "Examinator met baliepraktijk en toetsbekwaamheid",
+      "role": "examinator",
+      "organisationUnitId": "d9561371-5ece-482d-a675-a076e63f980f",
+      "competences": [
+        {
+          "type": "vaardigheid",
+          "name": "Beoordelen en feedback geven",
+          "framework": "competentnl",
+          "level": "laag 2"
+        },
+        {
+          "type": "kennis",
+          "name": "Farmacie en toetsing",
+          "framework": "isced-f",
+          "code": "0916"
+        }
+      ]
+    }
+  ],
+  "learningResourceGroups": [
+    {
+      "id": "da138f60-ebb1-4853-870f-7e7d642873f2",
+      "version": "0.1.0",
+      "name": "Beoordelingsformulier met rubric",
+      "purpose": "toetsing",
+      "sourcing": "ingekocht",
+      "partOfLearningResourceGroupId": null
+    },
+    {
+      "id": "36e392b0-a153-4b61-8e09-17b612adea91",
+      "version": "0.1.0",
+      "name": "Examenmateriaal baliesimulatie",
+      "purpose": "toetsing",
+      "sourcing": "geconstrueerd",
+      "resources": [
+        "oefenrecepten",
+        "casuskaarten",
+        "baliemateriaal"
+      ],
+      "partOfLearningResourceGroupId": "da138f60-ebb1-4853-870f-7e7d642873f2"
+    }
+  ]
+}

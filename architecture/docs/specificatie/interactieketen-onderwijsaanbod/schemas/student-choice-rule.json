@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://okx.npuls.nl/schema/student-choice-rule/voorstel",
+  "title": "Student choice rule",
+  "DutchName": "Student keuze regel",
+  "$comment": "Voorstel van de interactiespecificatie onderwijsaanbod, eenheid IS-OA-01 (werkbrief W9). rule-set/alfa draagt de regelset en laat het regelobject vrij als een object zonder eigenschappen; daarmee staat elke sleutel binnen een regel buiten elk schema. Dit is een overlay op rule-set/alfa: het typeert dat regelobject en laat de regelset zelf onaangeroerd. Een payload met regelsets valideert tegen het dragende schema en tegen deze overlay. De overlay hangt aan de array ruleSets, die education-specification/alfa en result-structure/alfa beide dragen. De sleutels volgen de tabel in paragraaf 4.6 van IS-OA-01, met de grond per sleutel erbij. Zolang dit schema voorstel is eindigt de $id op /voorstel.",
+  "type": "object",
+  "properties": {
+    "ruleSets": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/typedRuleSet" },
+      "$comment": "dezelfde array die education-specification/alfa en result-structure/alfa dragen",
+      "DutchName": "regelsets"
+    }
+  },
+  "$defs": {
+    "typedRuleSet": {
+      "title": "Typed rule set",
+      "DutchName": "Regelset met getypeerde regels",
+      "$comment": "rule-set/alfa houdt id, versie, naam, omschrijving en vanToepassingOp, dus is hier alleen id verplicht.",
+      "type": "object",
+      "required": ["id"],
+      "properties": {
+        "id": { "type": "string", "format": "uuid", "DutchName": "id" },
+        "rules": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/rule" },
+          "$comment": "dezelfde array die rule-set/alfa draagt, daar als object zonder eigenschappen",
+          "DutchName": "regels"
+        }
+      }
+    },
+    "rule": {
+      "title": "Rule",
+      "DutchName": "Regel",
+      "$comment": "Objecttype Student keuze regelset, dat zijn regels zelf draagt. Elk regeltype vult een eigen deel van deze sleutels: kiesbaar werkt met bereik, keuzedeel en voorwaardeVooraf, minimaleStudielast met waarde, eenheid en bronSpecificatieId, en resultaatEis met bereik en eis.",
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": {
+          "enum": ["kiesbaar", "minimaleStudielast", "resultaatEis"],
+          "$comment": "de gesloten en uitbreidbare set uit regelset-payload.md. Die uitwerking voert vier Nederlandse typen (kiesbaarheid, deelnamevoorwaarde, keuzeomvang, beschikbaarheid); deze drie zijn de typen die de keten van IS-OA-01 naar IS-OA-03 nodig heeft, en het gelijktrekken van beide reeksen hoort bij werkbrief W9",
+          "DutchName": "type"
+        },
+        "scope": {
+          "type": "string",
+          "$comment": "waar de regel over gaat, als benoemd bereik: een opsomming van specificaties, of een selectie op een attribuut van een specificatie zoals electiveUnitClass. regelset-payload.md draagt het bereik als eigen object met bereikId; zolang die vorm voorstel is draagt deze sleutel de aanduiding als tekst",
+          "DutchName": "bereik"
+        },
+        "electiveUnit": {
+          "type": "string",
+          "format": "uuid",
+          "$comment": "het keuzedeel waarop de regel slaat; het informatiemodel verbindt Student keuze regelset met Keuzedeel",
+          "DutchName": "keuzedeel"
+        },
+        "precondition": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/precondition" },
+          "$comment": "de deelnamevoorwaarde; regels.md drukt een voorwaarde uit in behaalde leeruitkomsten en niet in doorlopen specificaties",
+          "DutchName": "voorwaardeVooraf"
+        },
+        "value": {
+          "type": "number",
+          "$comment": "de maat bij een omvangregel, de vorm van value in volume/alfa",
+          "DutchName": "waarde"
+        },
+        "unit": {
+          "enum": ["SBU", "EC"],
+          "$comment": "dezelfde eenheden als unit in volume/alfa; ADR 0004 belegt SBU en EC als logistieke containergrootte",
+          "DutchName": "eenheid"
+        },
+        "requirement": {
+          "type": "string",
+          "$comment": "het resultaat dat de regel verlangt, een waarde op de schaal uit result-model/alfa, in deze casus voldoende op de schaal voldoende-onvoldoende",
+          "DutchName": "eis"
+        },
+        "sourceSpecificationId": {
+          "type": "string",
+          "format": "uuid",
+          "$comment": "de specificatie waaruit de maat komt, in deze casus de keuzedeelruimte met haar studyLoad in education-specification/alfa",
+          "DutchName": "bronSpecificatieId"
+        }
+      }
+    },
+    "precondition": {
+      "title": "Precondition",
+      "DutchName": "Voorwaarde vooraf",
+      "$comment": "Objecttype Leeruitkomst als voorwaarde op Student keuze regelset. De status blijft behaald: de voorwaarde rust op een vastgesteld onderwijsresultaat op die leeruitkomst (ADR 0022).",
+      "type": "object",
+      "required": ["requiredLearningOutcomeId", "status"],
+      "properties": {
+        "requiredLearningOutcomeId": {
+          "type": "string",
+          "format": "uuid",
+          "DutchName": "vereisteLeeruitkomstId"
+        },
+        "status": {
+          "enum": ["behaald"],
+          "DutchName": "status"
+        }
+      }
+    }
+  }
+}

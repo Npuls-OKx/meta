@@ -1,0 +1,137 @@
+{
+  "naam": "Ontwerpen en ontsluiten van onderwijsaanbod: de zeven informatiestromen",
+  "plaat": "OKx hoofdplaat v1.7<concept>",
+  "toelichting": "De informatiestromen van fase 1 tot en met 3 van leerroute 1, met persona Jochem binnen een instelling: van het ontwerp in de curriculum-ontwerptool tot het aanbod waarop een aspirant-student zich aanmeldt. Per stroom staat erbij wat er overheen gaat, uit welk beeld van de voorbeelduitwerking zij komt, en of hoofdplaat v1.7 de lijn al kent; een lijn die zij niet kent wordt gestippeld getekend. De componentnamen zijn die van de view, zodat de tekenaar ze terugvindt. Beeld F3-02 noemt als ontvanger AII, de opvolger van CAMBO. Hoofdplaat v1.7 tekent een been van de catalogus rechtstreeks naar CAMBO, en dat been draagt hier IS-OA-06; de route via de kernregistratie die deze specificatie voorstelt staat als signalering S3. De aanduiding IS-OA-01 tot en met IS-OA-06 is die van de interactiespecificaties, elk met de naam die zegt wat erover gaat; de aanduiding blijft staan, want een instelling citeert haar in een eis. IS-OA-05 en IS-OA-06 dragen een ontvangergroep: de lijn loopt naar het vak dat de stroom noemt, en de omlijning komt om elk vak in die groep, want wie daarop aansluit krijgt dezelfde informatie.",
+  "stromen": [
+    {
+      "van": "Curriculum ontwerptool",
+      "naar": "Onderwijscatalogus",
+      "label": "IS-OA-01",
+      "op_de_plaat": false,
+      "stroom": "",
+      "plaatlabel": "",
+      "wat": [
+        "de leeruitkomsten met hun vaardigheden, kennis en inzicht uit CompetentNL",
+        "de specificatiestructuur van opleiding tot leeronderdeel, met de keuzedeelruimte en de student keuze regelset",
+        "de summatieve resultaatstructuur met haar toetsonderdelen, wegingen en afrondingscriterium"
+      ],
+      "bron": "../../../model/informatiemodel/voorbeeld-lr1-regels.json, F1-12",
+      "aanduiding": "IS-OA-01",
+      "beeld": "F1-12",
+      "status": "zonder koppelingspecificatie",
+      "naam": "Ontwerp naar de catalogus",
+      "naam_kort": "ontwerp"
+    },
+    {
+      "van": "Curriculum ontwerptool",
+      "naar": "Onderwijscatalogus",
+      "label": "IS-OA-02",
+      "op_de_plaat": false,
+      "stroom": "",
+      "plaatlabel": "",
+      "wat": [
+        "de onderwijsvorm, de gewenste leeromgeving, het docent- en examinatorprofiel en de studiebelasting",
+        "de toetsvorm met haar instrument en materiaal"
+      ],
+      "bron": "../../../model/informatiemodel/voorbeeld-lr1-regels.json, F1-13",
+      "aanduiding": "IS-OA-02",
+      "beeld": "F1-13",
+      "status": "zonder koppelingspecificatie, voorstel",
+      "naam": "Onderwijsontwerp naar de catalogus",
+      "naam_kort": "onderwijsontwerp"
+    },
+    {
+      "van": "Onderwijscatalogus",
+      "naar": "Planningssysteem",
+      "label": "IS-OA-03",
+      "op_de_plaat": true,
+      "stroom": "id-1d27ecfa2c0d4fb7b4f7337e93eed033",
+      "plaatlabel": "Verzoek tot maken onderwijsaanbod obv opleidingsprogramma- en onderwijseenheid specificaties",
+      "wat": [
+        "het verzoek tot aanbod voor cohort 2026, met de opleiding, haar programma, de eenheden en hun leeronderdelen",
+        "per eenheid de planbare waarden: onderwijsvorm, gewenste leeromgeving, docentprofiel en studiebelasting",
+        "per specificatie de leeruitkomst waarnaar zij verwijst"
+      ],
+      "bron": "../../../model/informatiemodel/voorbeeld-lr1-regels.json, F2-03; onderwijscatalogus-planning-en-roostering.md, I1 en I2",
+      "aanduiding": "IS-OA-03",
+      "beeld": "F2-03",
+      "status": "gespecificeerd",
+      "naam": "Verzoek om aanbod naar planning",
+      "naam_kort": "verzoek om aanbod"
+    },
+    {
+      "van": "Planningssysteem",
+      "naar": "Onderwijscatalogus",
+      "label": "IS-OA-04",
+      "op_de_plaat": true,
+      "stroom": "id-020f091db6ea4763aad7527a98afaf99",
+      "plaatlabel": "Bevestiging creatie opleidingprogramma aanbod",
+      "wat": [
+        "het aanbod in drie tredes: intentie, gepland, fijnmazig gepland",
+        "opleidingaanbod, opleidingsprogramma-aanbod, onderwijseenheid-aanbod, leergelegenheid, toetsgelegenheid en keuzedeelaanbod",
+        "per laag de verwijzing naar de specificatie waarvan het is gemaakt en naar het verzoek dat ertoe leidde"
+      ],
+      "bron": "../../../model/informatiemodel/voorbeeld-lr1-regels.json, F2-07; onderwijscatalogus-planning-en-roostering.md, I3 en I5",
+      "aanduiding": "IS-OA-04",
+      "beeld": "F2-07",
+      "status": "gespecificeerd",
+      "naam": "Gepland aanbod naar de catalogus",
+      "naam_kort": "gepland aanbod"
+    },
+    {
+      "van": "Onderwijscatalogus",
+      "naar": "Kernregistratie systeem studenten (KRS)",
+      "label": "IS-OA-05",
+      "op_de_plaat": true,
+      "stroom": "id-ec248a00b6234f1688ee3705d46a59f7",
+      "plaatlabel": "Ontsluiten aanmeld-/inschrijfbaar opleidingsprogramma aanbod",
+      "wat": [
+        "het opleidingsprogramma-aanbod Regulier BOL 2026, als referentie naar het aanbod dat planning bezit"
+      ],
+      "bron": "../../../model/informatiemodel/voorbeeld-lr1-regels.json, F3-01; stromen.json, koppeling OC-SIS",
+      "aanduiding": "IS-OA-05",
+      "beeld": "F3-01",
+      "status": "dienst nog open",
+      "naam": "Aanmeldbaar aanbod naar de kernregistratie",
+      "naam_kort": "aanmeldbaar aanbod",
+      "ontvangergroep": "Student Informatie Systeem"
+    },
+    {
+      "van": "Onderwijscatalogus",
+      "naar": "Voorziening Centraal Aanmelden (CAMBO)",
+      "label": "IS-OA-06",
+      "op_de_plaat": true,
+      "stroom": "id-95a93363df2d4a4a86e86513535e1b01",
+      "plaatlabel": "Ontsluiten aanmeld-/inschrijfbaar opleidingsprogramma aanbod",
+      "wat": [
+        "het opleidingsprogramma-aanbod waarop een aspirant-student zijn gewenste startmoment kiest"
+      ],
+      "bron": "../../../model/informatiemodel/voorbeeld-lr1-regels.json, F3-02; op v1.7 ontsluit de catalogus rechtstreeks aan CAMBO, waar deze specificatie de route via de kernregistratie voorstelt (S3)",
+      "aanduiding": "IS-OA-06",
+      "beeld": "F3-02",
+      "status": "voorstel",
+      "naam": "Aanmeldbaar aanbod naar centraal aanmelden",
+      "naam_kort": "aanmeldbaar aanbod",
+      "ontvangergroep": "RIO/CAMBO/AII"
+    },
+    {
+      "van": "Onderwijscatalogus",
+      "naar": "Leer management systeem (LMS)",
+      "label": "IS-OA-07",
+      "op_de_plaat": true,
+      "stroom": "id-d23841b89bed4935b2aebdeb12ee2acf",
+      "plaatlabel": "Verzoek tot fijnmazige uitwerking onderwijs specificatie",
+      "wat": [
+        "de opleidingsspecificatie-boom tot leeronderdeel, waarmee het LMS de leeromgeving inricht",
+        "de formatieve resultaatstructuur met haar toetsonderdelen",
+        "de leergelegenheid als reeks, waarbinnen het LMS de losse lessen zelf invult"
+      ],
+      "bron": "../../../model/informatiemodel/voorbeeld-lr1-regels.json, F4-02; onderwijscatalogus-leermanagementsysteem.md, L1 tot en met L6",
+      "aanduiding": "IS-OA-07",
+      "beeld": "F4-02",
+      "status": "gespecificeerd",
+      "naam": "Specificaties naar het leermanagementsysteem",
+      "naam_kort": "specificaties naar het LMS"
+    }
+  ]
+}

@@ -47,6 +47,11 @@
       "adaptatie": "okx-presentatie (het OKx-specifieke deel); de huisstijl zelf is Npuls-breed en wordt ongewijzigd gebruikt"
     },
     {
+      "naam": "okx-interactiespecificatie",
+      "type": "okx-specifiek",
+      "doel": "De vorm van een interactiespecificatie: per kiesbare eenheid het contract tussen twee componenten, als document om te bekijken. Draagt de maten, de casus vooraf en de koprij per operatietabel."
+    },
+    {
       "naam": "okx-koppelingspecificatie",
       "type": "okx-specifiek",
       "doel": "Vaste opbouw en conventies voor koppelingspecificaties en payload-specificaties: verplichte inleiding, kern naar voren, veldnaamgeving, schema- en boomconventies, indienchecklist."
@@ -60,6 +65,11 @@
       "naam": "okx-plaat-uit-het-model",
       "type": "okx-specifiek",
       "doel": "Een architectuurplaat uit het ArchiMate-model tekenen: haakse routering, aanhechtingen op volgorde van hun overkant, het ArchiMate-kleurenschema, en keuring op leesbaarheid via scripts/keur-plaat.py."
+    },
+    {
+      "naam": "okx-uitsnede-bij-een-reviewvraag",
+      "type": "okx-specifiek",
+      "doel": "Een uitsnede van het informatiemodel tekenen die een vraag uit een reviewronde beantwoordt: alleen de objecttypen die de vraag raakt, de aard van elke wijziging in het vak, een voorstel voor wat nog ontbreekt, en een ingevuld voorbeeld in de vormtaal van de plaat. Via scripts/teken-informatiemodel-uitsnede.py, gekeurd met scripts/keur-plaat.py op nul kruisingen."
     },
     {
       "naam": "okx-presentatie",

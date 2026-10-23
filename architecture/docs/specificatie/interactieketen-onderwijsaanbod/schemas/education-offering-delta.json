@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://okx.npuls.nl/schema/education-offering-delta/voorstel",
+  "title": "Education offering delta",
+  "DutchName": "Onderwijsaanbod-delta",
+  "$comment": "Voorstel. Het label voorstel in de $id houdt dit schema apart van de alfa-schema's die Npuls-OKx/Public draagt; werkbrief W7 van IS-OA-05 laat het daar landen. JSON Patch (RFC 6902) tussen twee versies van een aanbodstructuur, de deltavorm die U11 naast de volledige structuur vraagt. RFC 6902 is de normatieve definitie van de operatievorm, dit schema legt vast dat de respons daaraan voldoet. De vorm volgt education-specification-delta/alfa.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["op", "path"],
+    "properties": {
+      "op": { "enum": ["add", "remove", "replace", "move", "copy", "test"], "DutchName": "op" },
+      "path": { "type": "string", "DutchName": "path" },
+      "from": { "type": "string", "DutchName": "from" },
+      "value": { "DutchName": "value" }
+    }
+  }
+}

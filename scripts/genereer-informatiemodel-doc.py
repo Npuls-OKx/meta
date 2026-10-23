@@ -26,6 +26,9 @@ KOLOMVOLGORDE = ["Kwalificatiekader MBO", "Onderwijskundigkader instelling", "On
                  "Onderwijsaanbod", "Onderwijsverbintenis", "Onderwijsresultaat", "Resultaatstructuur"]
 
 
+BUS_GEEL = "#ffffb5"          # het geel van het OKx-referentiekader op de plaat
+
+
 def lees_model():
     wortel = ET.parse(MODEL).getroot()
     elementen, relaties = {}, {}
@@ -83,10 +86,15 @@ def main():
     objecttypen = []
     for n in sorted(kolom_van):
         k = kleur.get(n, "standaard")
+        # Een vak zonder eigen vulkleur erft het geel van de view en staat binnen scope. Een
+        # modelleur die een vak terughaalt binnen scope zet er soms datzelfde geel expliciet
+        # op; dan draagt het vak wel een vulkleur en staat het toch binnen scope. De kleur op
+        # de plaat is leidend, want die is wat een lezer ziet.
+        binnen = k == "standaard" or k.lower() == BUS_GEEL
         objecttypen.append({
             "naam": n,
             "kolom": kolom_van[n],
-            "scope": "binnen" if k == "standaard" else "buiten",
+            "scope": "binnen" if binnen else "buiten",
             "vulkleur": None if k == "standaard" else k,
         })
 

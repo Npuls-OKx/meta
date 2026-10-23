@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://okx.npuls.nl/schema/offering-request/voorstel",
+  "title": "Offering request",
+  "DutchName": "Verzoek tot aanbod",
+  "$comment": "Voorstel van de interactiespecificatie onderwijsaanbod, eenheid IS-OA-03 (werkbrief W1). Het objecttype Verzoek tot Aanbod / Intekening op specificatie reist vandaag mee als de specificatie-referentie van de melding specificatie-planbaar, waarmee de planopgave zelf geen identiteit heeft en de catalogus haar aanvraag niet kan terugvinden. Dit schema geeft haar die identiteit: specification-reference/alfa als verwijzing naar de planbare specificatie, met het verzoek-id, het aangevraagde cohort, het aanvraagmoment en de verwachte instroom eromheen. Beeld F2-02 en F2-03 van voorbeeld-lr1-regels.json dragen de instantie. Een document dat tegen dit schema valideert draagt dezelfde verwijzing als de melding van vandaag, dus blijft die melding leesbaar voor een ontvanger die alleen specification-reference/alfa kent. Werkbrief W13 beslist waar het eventId voor een herhaalde aflevering landt. Verwijzingen naar andere schema's gaan via hun $id.",
+  "type": "object",
+  "required": ["requestId", "specificationReference", "cohort"],
+  "properties": {
+    "requestId": {
+      "type": "string",
+      "format": "uuid",
+      "$comment": "de onderwijscatalogus kent dit id toe bij het verzoek en houdt het stabiel, zodat de verwerkingsstatus en het geplande aanbod naar dezelfde planopgave terugwijzen",
+      "DutchName": "verzoekId"
+    },
+    "specificationReference": {
+      "$ref": "https://okx.npuls.nl/schema/specification-reference/alfa",
+      "$comment": "de planbare specificatie met haar versie, de lading die de melding specificatie-planbaar vandaag draagt",
+      "DutchName": "specificatieVerwijzing"
+    },
+    "name": {
+      "type": "string",
+      "$comment": "de naam van de planopgave, beeld F2-02: Planopgave Apothekersassistent, cohort 2026",
+      "DutchName": "naam"
+    },
+    "cohort": {
+      "type": "string",
+      "$comment": "het cohort waarvoor het aanbod wordt gevraagd; dezelfde sleutel draagt het cohort in education-specification/alfa en education-offering/alfa",
+      "DutchName": "cohort"
+    },
+    "requestedAt": {
+      "type": "string",
+      "format": "date",
+      "$comment": "het moment waarop de catalogus het verzoek aanbiedt, in de datumvorm die de schema's in Npuls-OKx/Public aanhouden",
+      "DutchName": "aanvraagmoment"
+    },
+    "expectedIntake": {
+      "type": "integer",
+      "minimum": 0,
+      "$comment": "de instroom die de catalogus verwacht, waartegen planning haar capaciteit zet in minStudentCount en maxStudentCount van education-offering/alfa",
+      "DutchName": "verwachteInstroom"
+    }
+  },
+  "additionalProperties": false
+}
