@@ -171,12 +171,10 @@
     },
     {
       "naam": "Keuzedeel",
-      "kolom": "Onderwijsspecificatie",
+      "kolom": "Kwalificatiekader",
       "scope": "binnen",
       "vulkleur": null,
-      "oeapi": [
-        "Programme"
-      ]
+      "oeapi": null
     },
     {
       "naam": "Keuzedeel aanbod",
@@ -206,6 +204,15 @@
       ]
     },
     {
+      "naam": "Keuzedeel specificatie",
+      "kolom": "Onderwijsspecificatie",
+      "scope": "binnen",
+      "vulkleur": null,
+      "oeapi": [
+        "Programme"
+      ]
+    },
+    {
       "naam": "Keuzedeelruimte",
       "kolom": "Onderwijsspecificatie",
       "scope": "binnen",
@@ -223,6 +230,13 @@
     },
     {
       "naam": "Kwalificatie dossier",
+      "kolom": "Kwalificatiekader",
+      "scope": "binnen",
+      "vulkleur": null,
+      "oeapi": null
+    },
+    {
+      "naam": "Kwalificatiestructuur SBB",
       "kolom": "Kwalificatiekader",
       "scope": "binnen",
       "vulkleur": null,
@@ -324,15 +338,6 @@
       "oeapi": null
     },
     {
-      "naam": "Minor",
-      "kolom": "Onderwijsspecificatie",
-      "scope": "binnen",
-      "vulkleur": null,
-      "oeapi": [
-        "Programme"
-      ]
-    },
-    {
       "naam": "Minor aanbod",
       "kolom": "Onderwijsaanbod",
       "scope": "binnen",
@@ -361,6 +366,15 @@
     },
     {
       "naam": "Minor ruimte",
+      "kolom": "Onderwijsspecificatie",
+      "scope": "binnen",
+      "vulkleur": null,
+      "oeapi": [
+        "Programme"
+      ]
+    },
+    {
+      "naam": "Minor specificatie",
       "kolom": "Onderwijsspecificatie",
       "scope": "binnen",
       "vulkleur": null,
@@ -1184,20 +1198,14 @@
     {
       "soort": "Association",
       "van": "Keuzedeel",
-      "naar": "Keuzedeel aanbod",
-      "label": null
+      "naar": "Kwalificatie",
+      "label": "is gekoppeld aan (n:m)"
     },
     {
       "soort": "Association",
       "van": "Keuzedeel",
-      "naar": "Keuzedeelruimte",
-      "label": null
-    },
-    {
-      "soort": "Association",
-      "van": "Keuzedeel",
-      "naar": "Verzoek tot Aanbod / Intekening op specificatie",
-      "label": "Input voor"
+      "naar": "Leeruitkomst",
+      "label": "wordt vertaald naar"
     },
     {
       "soort": "Association",
@@ -1219,13 +1227,25 @@
     },
     {
       "soort": "Association",
-      "van": "Kwalificatie",
-      "naar": "Leeruitkomst",
-      "label": "Wordt vertaald naar"
+      "van": "Keuzedeel specificatie",
+      "naar": "Keuzedeel aanbod",
+      "label": null
     },
     {
       "soort": "Association",
-      "van": "Kwalificatie dossier",
+      "van": "Keuzedeel specificatie",
+      "naar": "Keuzedeelruimte",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Keuzedeel specificatie",
+      "naar": "Verzoek tot Aanbod / Intekening op specificatie",
+      "label": "Input voor"
+    },
+    {
+      "soort": "Association",
+      "van": "Kwalificatie",
       "naar": "Leeruitkomst",
       "label": "Wordt vertaald naar"
     },
@@ -1333,18 +1353,6 @@
     },
     {
       "soort": "Association",
-      "van": "Minor",
-      "naar": "Minor aanbod",
-      "label": null
-    },
-    {
-      "soort": "Association",
-      "van": "Minor",
-      "naar": "Verzoek tot Aanbod / Intekening op specificatie",
-      "label": "Input voor"
-    },
-    {
-      "soort": "Association",
       "van": "Minor aanbod",
       "naar": "Minor aanbod verbintenis",
       "label": null
@@ -1358,8 +1366,20 @@
     {
       "soort": "Association",
       "van": "Minor ruimte",
-      "naar": "Minor",
+      "naar": "Minor specificatie",
       "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Minor specificatie",
+      "naar": "Minor aanbod",
+      "label": null
+    },
+    {
+      "soort": "Association",
+      "van": "Minor specificatie",
+      "naar": "Verzoek tot Aanbod / Intekening op specificatie",
+      "label": "Input voor"
     },
     {
       "soort": "Association",
@@ -1658,7 +1678,7 @@
     {
       "soort": "Association",
       "van": "Student keuze regelset",
-      "naar": "Keuzedeel",
+      "naar": "Keuzedeel specificatie",
       "label": null
     },
     {
@@ -1682,13 +1702,13 @@
     {
       "soort": "Association",
       "van": "Student keuze regelset",
-      "naar": "Minor",
+      "naar": "Minor ruimte",
       "label": null
     },
     {
       "soort": "Association",
       "van": "Student keuze regelset",
-      "naar": "Minor ruimte",
+      "naar": "Minor specificatie",
       "label": null
     },
     {
@@ -1946,7 +1966,7 @@
     {
       "soort": "Specialization",
       "van": "Keuzedeel",
-      "naar": "Opleidingsprogramma specificatie",
+      "naar": "Kwalificatiestructuur SBB",
       "label": null
     },
     {
@@ -1969,8 +1989,26 @@
     },
     {
       "soort": "Specialization",
+      "van": "Keuzedeel specificatie",
+      "naar": "Opleidingsprogramma specificatie",
+      "label": null
+    },
+    {
+      "soort": "Specialization",
       "van": "Keuzedeelruimte",
       "naar": "Opleidingsprogramma specificatie",
+      "label": null
+    },
+    {
+      "soort": "Specialization",
+      "van": "Kwalificatie",
+      "naar": "Kwalificatiestructuur SBB",
+      "label": null
+    },
+    {
+      "soort": "Specialization",
+      "van": "Kwalificatie dossier",
+      "naar": "Kwalificatiestructuur SBB",
       "label": null
     },
     {
@@ -1983,12 +2021,6 @@
       "soort": "Specialization",
       "van": "Medewerker",
       "naar": "Persoon",
-      "label": null
-    },
-    {
-      "soort": "Specialization",
-      "van": "Minor",
-      "naar": "Opleidingsprogramma specificatie",
       "label": null
     },
     {
@@ -2012,6 +2044,12 @@
     {
       "soort": "Specialization",
       "van": "Minor ruimte",
+      "naar": "Opleidingsprogramma specificatie",
+      "label": null
+    },
+    {
+      "soort": "Specialization",
+      "van": "Minor specificatie",
       "naar": "Opleidingsprogramma specificatie",
       "label": null
     },
@@ -2056,11 +2094,6 @@
       "relatie": "Realization"
     },
     {
-      "okx": "Keuzedeel",
-      "oeapi": "Programme",
-      "relatie": "Realization"
-    },
-    {
       "okx": "Keuzedeel aanbod",
       "oeapi": "ProgrammeOffering",
       "relatie": "Realization"
@@ -2073,6 +2106,11 @@
     {
       "okx": "Keuzedeel resultaat",
       "oeapi": "Result",
+      "relatie": "Realization"
+    },
+    {
+      "okx": "Keuzedeel specificatie",
+      "oeapi": "Programme",
       "relatie": "Realization"
     },
     {
@@ -2126,11 +2164,6 @@
       "relatie": "Realization"
     },
     {
-      "okx": "Minor",
-      "oeapi": "Programme",
-      "relatie": "Realization"
-    },
-    {
       "okx": "Minor aanbod",
       "oeapi": "ProgrammeOffering",
       "relatie": "Realization"
@@ -2147,6 +2180,11 @@
     },
     {
       "okx": "Minor ruimte",
+      "oeapi": "Programme",
+      "relatie": "Realization"
+    },
+    {
+      "okx": "Minor specificatie",
       "oeapi": "Programme",
       "relatie": "Realization"
     },

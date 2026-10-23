@@ -1,0 +1,83 @@
+{
+  "id": "public-124-keuzedeel-in-het-kwalificatiekader",
+  "titel": "Hoe hangt het keuzedeel aan het landelijke kwalificatiekader?",
+  "herkomst": "Reviewvraag Npuls-OKx/Public#124 van @niesink, werkbrief Npuls-OKx/meta#390",
+  "oeapi": true,
+  "rij_labels": [
+    "wat S-BB landelijk vaststelt, en waar het naar vertaalt",
+    "waarmee de instelling die ruimte invult"
+  ],
+  "objecten": [
+    {
+      "naam": "Kwalificatie dossier",
+      "rij": 0
+    },
+    {
+      "naam": "Kwalificatie",
+      "rij": 0,
+      "noot": "crebo"
+    },
+    {
+      "naam": "Kwalificatiestructuur SBB",
+      "rij": 0,
+      "merk": "toegevoegd",
+      "nummer": 1,
+      "waarom": "het landelijke kader waar dossier, kwalificatie en keuzedeel onder vallen"
+    },
+    {
+      "naam": "Keuzedeel",
+      "rij": 0,
+      "merk": "herplaatst",
+      "nummer": 2,
+      "waarom": "van de onderwijsspecificatie naar het kwalificatiekader, met de K-code"
+    },
+    {
+      "naam": "Leeruitkomst",
+      "rij": 0,
+      "noot": "OEAPI: LearningOutcome"
+    },
+    {
+      "naam": "Opleidingsprogramma specificatie",
+      "rij": 0,
+      "noot": "wordt vertaald naar leeruitkomsten"
+    },
+    {
+      "naam": "Keuzedeel specificatie",
+      "rij": 1,
+      "merk": "hernoemd",
+      "nummer": 3,
+      "waarom": "heette Keuzedeel; de instelling werkt het landelijke keuzedeel hier uit"
+    },
+    {
+      "naam": "Keuzedeelruimte",
+      "rij": 1,
+      "noot": "de ruimte die de instelling vult"
+    }
+  ],
+  "voorbeeld": [
+    {
+      "kop": "Een landelijk keuzedeel",
+      "bij": "Keuzedeel",
+      "zin": "Ondernemend gedrag, K0072",
+      "delen": [
+        {
+          "deel": "landelijke code",
+          "waarde": "K0072"
+        },
+        {
+          "deel": "vastgesteld door",
+          "waarde": "S-BB"
+        },
+        {
+          "deel": "studielast",
+          "waarde": "240 SBU"
+        },
+        {
+          "deel": "bij kwalificatie",
+          "waarde": "crebo 25646"
+        }
+      ],
+      "vindplaats": "voorbeeld-lr1-regels.json, keuzedeel bij Apothekersassistent"
+    }
+  ]
+}
