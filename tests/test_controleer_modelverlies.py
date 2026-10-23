@@ -6,6 +6,7 @@ verschuift mag geen alarm geven.
 """
 
 import importlib.util
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -99,6 +100,36 @@ class HoofdTests(unittest.TestCase):
         self.assertEqual(code, 0)
         self.assertIn("geen eerdere versie", uit)
 
+
+class UitzonderingenTests(unittest.TestCase):
+    """Een element dat met opzet weg is draagt zijn reden in een bestand. De controle laat
+    dat ene id door en blijft alarm geven voor elk ander verlies."""
+
+    ID = "id-" + "b" * 32
+
+    def bestand(self, map, inhoud):
+        pad = Path(map) / "verlies-toegestaan.md"
+        pad.write_text(inhoud, encoding="utf-8")
+        return pad
+
+    def test_given_een_id_met_reden_when_gelezen_then_staat_het_in_de_uitzonderingen(self):
+        with tempfile.TemporaryDirectory() as map:
+            pad = self.bestand(map, f"- `{self.ID}` vervangen door een compositie\n")
+            self.assertEqual(verlies.uitzonderingen(pad), {self.ID})
+
+    def test_given_een_bestand_zonder_id_when_gelezen_then_is_er_geen_uitzondering(self):
+        with tempfile.TemporaryDirectory() as map:
+            pad = self.bestand(map, "# Alleen uitleg, geen id\n")
+            self.assertEqual(verlies.uitzonderingen(pad), set())
+
+    def test_given_geen_bestand_when_gelezen_then_is_er_geen_uitzondering(self):
+        with tempfile.TemporaryDirectory() as map:
+            self.assertEqual(verlies.uitzonderingen(Path(map) / "weg.md"), set())
+
+    def test_given_een_korte_of_scheve_code_when_gelezen_then_telt_zij_niet(self):
+        with tempfile.TemporaryDirectory() as map:
+            pad = self.bestand(map, "- `id-abc` te kort\n- `id-" + "z" * 32 + "` geen hex\n")
+            self.assertEqual(verlies.uitzonderingen(pad), set())
 
 if __name__ == "__main__":
     unittest.main()

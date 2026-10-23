@@ -95,6 +95,31 @@ Daarna de **onafhankelijke review, eigen sporen, verse contexten**. Geef elke re
 
 Na de uitwerking volgt de toets of het geleverde de waarde uit de story werkelijk levert, zoals begroot. In een verse context, met de story en de criteria als maat. De uitkomst is waarneembaar: geleverd zoals begroot, of een lijst vervolgpunten. Die vervolgpunten worden kleine iteraties, elk opnieuw met een story en criteria; dat is geen terugval maar de normale gang.
 
+## Een workflow is uitwerking, geen verkenning
+
+Een ultracode-sessie of een workflow zet tientallen agents aan het werk. Dat is de uitwerking uit stap 5, en
+daarvoor geldt **stopmoment 1 onverkort**: eerst sparren over de stories en de acceptatiecriteria, en pas
+beginnen na akkoord. Een fan-out voelt als verkennen omdat er nog niets ligt, maar hij verbruikt wel de inzet van
+een volle uitwerking.
+
+Vier regels, elk uit een misser van 13 oktober 2026:
+
+**Leg ook de vraag van een verkennende workflow voor.** Een workflow die alleen onderzoekt vraagt geen
+acceptatiecriteria, maar wel instemming met de vraag. Een sweep die doorliep op een onderwerp dat de
+opdrachtgever net had afgeschaald, kostte zes agents en leverde niets dat nog gewenst was.
+
+**Start geen tweede workflow op hetzelfde onderwerp voordat de eerste binnen en gelezen is.** Advies bestellen en
+handelen voordat het gelezen is, is geen volgorde die uit te leggen valt. Wat wel mag: een fan-out die alleen
+bronmateriaal leest, want dat materiaal is hetzelfde bij elke uitkomst. Zeg dan vooraf waarom dat zo is.
+
+**Stel voor de fan-out vast welke branch of structuur normatief is.** Vijf agents lazen de mappenindeling op
+`dev`, terwijl de laag die de opdrachtgever als ontbrekend bouwblok aanwees al bestond op een goedgekeurde
+pull request die een maand als concept openstond. Het werk landde op paden die in zijn eigen pull request
+verdwijnen. Een enkele vraag vooraf, welke pull requests open staan op dit gebied, had dat voorkomen.
+
+**Kies een schaal die bij de vraag past.** Vijfentwintig agents op een plan dat in een gesprek van tien minuten
+was te maken, is geen grondigheid maar uitstel van het gesprek.
+
 ## De lus is begrensd
 
 Ten hoogste **drie ronden** tussen agent en tegenlezer, en ten hoogste drie iteraties in de review van het resultaat. Daarna escaleren naar de opdrachtgever met de openstaande bevindingen, met per bevinding of het een blokkade is voor een eerste iteratie die waarde levert, of een punt voor de volgende. Deugen de criteria zelf niet, dan terug naar stap 1 in plaats van door te bouwen op een slecht criterium.
@@ -205,16 +230,60 @@ Elke opmerking krijgt er twee, in twee repositories:
 
 | | Waar | Wat erin staat |
 |---|---|---|
-| **De interactie** | Het repository waar de reviewer meeleest | De opmerking letterlijk, met auteur, datum en permalink; wat OKx erin leest; en de inbrenger getagd met de vraag of het issue zijn opmerking dekt |
+| **De interactie** | Het repository waar de reviewer meeleest | De opmerking letterlijk, de observaties erbij, en de inbrenger getagd met een vraag |
 | **De werkbrief** | `Npuls-OKx/meta` | Story, context met de vindplaats, wat er moet gebeuren, en acceptatiecriteria |
 
 De opmerking staat **letterlijk** in het interactie-issue, als blokcitaat. Een verwijzing naar een comment is over twee weken niet meer te lezen zonder doorklikken, en de inbrenger moet kunnen zien dat hij goed begrepen is.
 
-**Oppakken betekent een antwoord, geen toezegging om te bouwen.** Dat hoort er met zoveel woorden te staan: er komt een onderbouwd antwoord, met het voorstel erbij of met de reden om het niet door te voeren. Leidt het tot een wijziging en zien beide partijen daar aanleiding voor, dan volgt die als pull request. Zonder die zin leest een issue als een belofte.
+De reactie in de pull request zelf blijft kort: wat de opmerking was, dat zij is overgenomen, het issuenummer, en dat de inhoud daar landt. Drie tot vijf regels. Een opmerking die vijf punten draagt wordt vijf issues, en de reactie noemt ze alle vijf.
 
-De reactie in de pull request zelf blijft kort: wat de opmerking was, dat zij is overgenomen, het issuenummer, en dat de inhoud daar landt. Drie tot vijf regels, en de inhoudelijke discussie verhuist mee naar het issue. Een opmerking die vijf punten draagt wordt vijf issues, en de reactie noemt ze alle vijf.
+**Kijk eerst of het issue al bestaat.** Twee inbrengers raken vaak dezelfde ontwerpkeuze. Dan komt er een tweede interactie-issue voor de tweede inbrenger, maar geen tweede werkbrief: de inbreng gaat als meetpunt onder de bestaande.
 
-Sluit af met een vraag aan de inbrenger, niet met een bevestiging: dekt dit issue de opmerking zoals zij bedoeld was. Dat levert meer op dan een akkoord.
+### De vorm van een interactie-issue
+
+```text
+## Waarom dit issue     een zin: welk besluit dit moet opleveren
+## De opmerking         letterlijk, met naam, datum en permalink
+## Observaties          bullets; waarneming gescheiden van duiding
+## Wat ik ermee doe     kort, zonder toezegging
+## Vervolg              een regel met de werkbrief, daarna een vraag
+```
+
+| Regel | Waarom |
+|---|---|
+| **Ik-vorm, nooit wij** | De inbrenger praat met een persoon, niet met een instituut |
+| **Geen blok dat in elk issue terugkeert** | Vijftien issues met dezelfde alinea over hoe het verdergaat leest niemand; de werkbrief-link zegt hetzelfde |
+| **Story alleen bij een concrete wijziging** | Vraagt de inbrenger iets te veranderen, dan hoort er een story. Beschrijft hij hoe zijn product werkt, dan is `Waarom dit issue` genoeg |
+| **Nooit een rol verzinnen** | Een story met "als examenbureaumedewerker" verzint een gebruiker om de zin kloppend te krijgen. Gebruik de persona's uit de leerroute-uitwerking of laat de story weg |
+| **Een vraag tot slot, geen bevestiging** | "Dekt dit je opmerking" levert een ja op. Een inhoudelijke vraag levert informatie op |
+
+### Een opmerking wegen voor je haar opschrijft
+
+Een leverancier spreekt voor zijn product, niet voor de sector. Er zijn meerdere leveranciers van een onderwijscatalogus en meerdere van een studentinformatiesysteem, elk met hun eigen inrichting en hun eigen belang. OKx zoekt de grootst gemene deler; een opmerking is daarvoor een meetpunt en geen eis.
+
+Houd daarom drie dingen uit elkaar:
+
+| | |
+|---|---|
+| Wat de leverancier zegt | Een product, vandaag, met zijn belang erin |
+| Wat een component moet kunnen | Wat instellingen nodig hebben om hun onderwijs te organiseren |
+| Wat OKx vastlegt | De grootst gemene deler over meerdere partijen |
+
+Vier valkuilen die in de reviewronde van oktober 2026 alle vier zijn gemaakt:
+
+**Een applicatie is geen applicatiecomponent.** Een product kan tegelijk planning, catalogus en studentadministratie dragen. Elke leverancier heeft er belang bij zoveel mogelijk functionaliteit en data in het eigen systeem te houden. Schrijf dus nooit dat een genoemd product "het planningssysteem" is.
+
+**Een implementatiefeit is geen ontwerpargument.** Dat toets en examen in een product in dezelfde tabellen zitten, zegt iets over dat product. Het is geen reden om het onderscheid in het model te laten vallen; juist daar kan het nodig zijn.
+
+**Vandaag is niet straks.** Dat een verbintenis nu via een groep loopt is een waarneming over de huidige inrichting. Een meerjarenplanning of een individuele leerroute kan er meer van vragen. Toets een ontwerpkeuze aan de leerroutes, niet aan de bestaande uitwisseling.
+
+**Niet elke inbrenger is een leverancier.** AII, over aanmelden, inschrijven en intekenen, is een zusterproject binnen dezelfde Npuls-pijler Leren Zonder Drempels. Afstemming daarmee weegt anders dan een productopmerking, en de termen horen daar op elkaar aan te sluiten.
+
+### Reageren in een thread met externen
+
+**Draai nooit een reactie terug in een thread.** Een inbrenger ziet de interne afweging niet en heeft niets aan de wending. Verwijder de onjuiste reactie en zet de kloppende eronder.
+
+**Herhaal niet wat al in de pull request staat.** Drie eerdere antwoorden onder elkaar plakken levert dezelfde tabel drie keer op. Een link naar de pull request met de kern eronder doet hetzelfde werk in een kwart van de ruimte.
 
 ### Drie uitgangen per issue
 
@@ -281,6 +350,7 @@ De issue-templates in `.github/ISSUE_TEMPLATE/` volgen deze keten:
 
 ## Kaders
 
-- Governance: `.cursor/rules/okx-governance.mdc` (issues, PR's, alleen OKx-team merget).
+- Governance: `.cursor/rules/okx-governance.mdc` (issues, PR's, alleen OKx-team merget;
+  een agent merget nooit uit zichzelf en op Public nooit).
 - Stijl: `.cursor/rules/schrijfstijl.mdc`.
 - Reviews niet door de maker: de reviewende subagent krijgt een schone opdracht zonder de maak-context.
