@@ -109,19 +109,27 @@ Een review die niet gelezen wordt telt niet. Twee regels, allebei uit de praktij
 
 ## De titel opent met het gebied
 
-Een titel wordt gelezen in een lijst van tientallen, naast werk van anderen en naast werk van maanden terug. Dus staat het gebied vooraan, dan het onderdeel, dan wat er verandert:
+Een titel wordt gelezen in een lijst van tientallen, naast werk van anderen en naast werk van maanden terug. Dus staat het gebied vooraan, dan het onderdeel, dan het object dat verandert met de bewerking erbij:
 
 ```text
-<gebied>[, <onderdeel>]: <wat er verandert>
+<gebied>[, <onderdeel>]: <object> <bewerking>
 
-Informatiemodel voorbeeld, fase 3: de keuze rijpt, en de aanmeldroute benoemd
-^^^^^^^^^^^^^^^^^^^^^^^^  ^^^^^^^  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-waar het over gaat        welk deel  wat een lezer merkt
+Informatiemodel voorbeeld, fase 3: onderwijslocatie object met aanbodgedreven onderwijsmodel voorbeeldvariant toegevoegd
+^^^^^^^^^^^^^^^^^^^^^^^^^  ^^^^^^  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+waar het over gaat         welk deel  welk object, in welke context, wat ermee gebeurde
 ```
 
-Het gebied is een naam die een lezer in de repository terugvindt: `Informatiemodel voorbeeld`, `Sectorketen`, `Begrippenlijst`, `Agent-harnas`, `Presentaties`. Het is geen afkorting en geen scriptnaam. Een titel als "Generator: elke vraag komt in het document" noemt wel het onderdeel maar niet het gebied, en wie het werk niet volgt kent die generator niet.
+Het gebied is een naam die een lezer in de repository terugvindt: `Informatiemodel voorbeeld`, `Sectorketen`, `Begrippenlijst`, `Agent-harnas`, `Presentaties`. Het is geen afkorting en geen scriptnaam.
 
-Zelfde vorm voor een issue en voor een pull request, zodat de twee naast elkaar te lezen zijn. Houd de titel onder de tachtig tekens, want GitHub kapt een lijst daar af.
+Het derde deel noemt het object en wat ermee gebeurde: toegevoegd, vervangen, hernoemd, verwijderd. Dezelfde vorm in andere gebieden:
+
+- `Hoofdplaat, model: stroom SVS naar SKS toegevoegd en views naar 1.7a`
+- `Sectorketen, IS-SI-02: periode en locatie op het keuzedeelaanbod toegevoegd`
+- `Begrippenlijst: definitie leeruitkomst vervangen door de MIM-formulering`
+
+Een titel die het gevolg noemt in plaats van het object, "de keuze rijpt", laat de lezer raden wat er is geraakt en of hij de juiste lezer is. Daar gaat de tijd van een reviewer op: aan het vinden van de plek waar hij moet kijken.
+
+Zelfde vorm voor een issue en voor een pull request, zodat de twee naast elkaar te lezen zijn. Houd de titel onder de tachtig tekens waar dat kan, want GitHub kapt een lijst daar af; kost dat het object of zijn context, dan weegt de precisie zwaarder.
 
 ## De pull request-beschrijving (vorm)
 
