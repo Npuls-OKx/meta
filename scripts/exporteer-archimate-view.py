@@ -9,9 +9,16 @@ relatietype, het label uit de labelexpressie of de relatienaam, en de koppeling-
 uit een mapping. Geen layout; dat doet teken-archimate-view.py.
 
     python3 scripts/exporteer-archimate-view.py [--model PAD] [--view NAAM]
-        [--mapping PAD] [--uit PAD]
+        [--mapping PAD] [--aanvullingen PAD] [--uit PAD]
 
 Het model wordt alleen gelezen, nooit geschreven.
+
+Naast de view schrijft dit script de aanvullingen mee: stromen die een nieuwere versie van de
+hoofdplaat kent en de gepubliceerde versie nog niet. Die bestaan niet als relatie in het model, want
+dat wijzigt alleen de modelleur in Archi. Zonder die aanvullingen zou een voorbeeld dat zo'n stroom
+nodig heeft hem met de hand in de uitvoer moeten zetten, en dan verdwijnt hij bij de volgende export.
+Een aanvulling draagt daarom haar herkomst, haar status en de bron waaruit zij komt, en haar id begint
+met "aanvulling-" zodat zij zich onderscheidt van een relatie-id uit Archi.
 """
 
 import argparse
@@ -24,6 +31,7 @@ XSI = "{http://www.w3.org/2001/XMLSchema-instance}type"
 MODEL = pathlib.Path("architecture/model/model.archimate")
 UIT = pathlib.Path("architecture/model/informatiemodel/stromen.json")
 VIEW = "OKx hoofdplaat v1.7<concept> (zonder context applicaties)"
+AANVULLINGEN = pathlib.Path("architecture/model/informatiemodel/stromen-aanvullingen.json")
 ZONDER = "zonder koppelingspecificatie"
 CONTAINERS = {"ApplicationComponent", "BusinessActor", "BusinessRole", "Node", "Grouping", "Group"}
 
@@ -126,13 +134,53 @@ def stromen(objecten, connecties, relaties, mapping):
     return uit
 
 
-def exporteer(model=MODEL, viewnaam=VIEW, mapping=None):
+def lees_aanvullingen(pad):
+    """De stromen die een nieuwere hoofdplaat kent en de gepubliceerde view nog niet.
+
+    Elke aanvulling draagt een eigen id dat met "aanvulling-" begint, plus herkomst, status en bron.
+    Ontbreekt het bestand, dan levert dit niets op: de export blijft dan precies de view.
+    """
+    if pad is None or not pathlib.Path(pad).exists():
+        return []
+    inhoud = json.loads(pathlib.Path(pad).read_text(encoding="utf-8"))
+    uit = []
+    for a in inhoud.get("aanvullingen", []):
+        ontbreekt = [v for v in ("id", "van", "naar", "label", "herkomst", "status", "bron") if not a.get(v)]
+        if ontbreekt:
+            sys.exit(f"aanvulling {a.get('id', '(zonder id)')!r} mist {', '.join(ontbreekt)}")
+        if not a["id"].startswith("aanvulling-"):
+            sys.exit(f"aanvulling {a['id']!r} hoort een id te dragen dat met 'aanvulling-' begint, "
+                     f"zodat zij zich onderscheidt van een relatie-id uit Archi")
+        uit.append(dict(a, soort=a.get("soort", "Flow"), koppeling=a.get("koppeling", ZONDER)))
+    return uit
+
+
+TOELICHTING = ("De stromen van de genoemde view, plus de aanvullingen uit stromen-aanvullingen.json. "
+               "Een stroom met een id dat met 'aanvulling-' begint staat nog niet op de gepubliceerde "
+               "hoofdplaat; haar herkomst en status zeggen uit welke versie zij komt. Wie de plaat "
+               "gebruikt om iets te verantwoorden kijkt dus naar de view; wie een voorbeeld leest ziet "
+               "aan de aanvulling dat die lijn nog in aanbouw is.")
+
+
+def exporteer(model=MODEL, viewnaam=VIEW, mapping=None, aanvullingen=None):
+    """De view als lijst stromen. Zonder aanvullingen is de uitkomst precies de view; main() geeft het
+    pad naar de aanvullingen mee, zodat de uitvoer van het script ze wel draagt."""
     wortel, elementen, relaties = lees_model(model)
     alle = views(wortel)
     if viewnaam not in alle:
         sys.exit("view niet gevonden: " + viewnaam + "\nbeschikbaar:\n  " + "\n  ".join(sorted(alle)))
     objecten, connecties = lees_view(alle[viewnaam], elementen)
-    return {"view": viewnaam, "model": str(model), "stromen": stromen(objecten, connecties, relaties, mapping or {})}
+    uit = stromen(objecten, connecties, relaties, mapping or {})
+    extra = lees_aanvullingen(aanvullingen)
+    bekend = {(s["van"], s["naar"], s["label"]) for s in uit}
+    for a in extra:
+        if (a["van"], a["naar"], a["label"]) in bekend:
+            sys.exit(f"aanvulling {a['id']!r} staat al als stroom in de view; haal haar uit "
+                     f"stromen-aanvullingen.json")
+    uit += extra
+    uit.sort(key=lambda s: (s["van"], s["naar"], s["label"], s["id"]))
+    return {"view": viewnaam, "model": str(model), "toelichting": TOELICHTING,
+            "aanvullingen_uit": str(aanvullingen) if extra else None, "stromen": uit}
 
 
 def main(argv=None):
@@ -140,16 +188,20 @@ def main(argv=None):
     parser.add_argument("--model", type=pathlib.Path, default=MODEL)
     parser.add_argument("--view", default=VIEW)
     parser.add_argument("--mapping", type=pathlib.Path, help="JSON: {\"Van > Naar\": \"OC-P&R\", ...}")
+    parser.add_argument("--aanvullingen", type=pathlib.Path, default=AANVULLINGEN,
+                        help="stromen die een nieuwere hoofdplaat kent en de view nog niet")
     parser.add_argument("--uit", type=pathlib.Path, default=UIT)
     args = parser.parse_args(argv)
     mapping = json.loads(args.mapping.read_text(encoding="utf-8")) if args.mapping else {}
     if not args.model.exists():
         print(f"model niet gevonden: {args.model}", file=sys.stderr)
         return 2
-    uitkomst = exporteer(args.model, args.view, mapping)
+    uitkomst = exporteer(args.model, args.view, mapping, args.aanvullingen)
     args.uit.parent.mkdir(parents=True, exist_ok=True)
     args.uit.write_text(json.dumps(uitkomst, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(f"{len(uitkomst['stromen'])} stromen geschreven naar {args.uit}")
+    extra = [s for s in uitkomst["stromen"] if s["id"].startswith("aanvulling-")]
+    staart = f", waarvan {len(extra)} uit de aanvullingen" if extra else ""
+    print(f"{len(uitkomst['stromen'])} stromen geschreven naar {args.uit}{staart}")
     return 0
 
 

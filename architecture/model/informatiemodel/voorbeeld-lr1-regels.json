@@ -54,7 +54,7 @@
           "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 1: Wat licht op in de plaat"
         }
       ],
-      "dekking": "open",
+      "dekking": "volledig",
       "link": "https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-1--kwalificatiekader-analyseren-en-grofmazig-ontwerpen"
     },
     {
@@ -93,7 +93,8 @@
             "specificatie-update",
             "plan-assets"
           ],
-          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 2: Wat licht op in de plaat"
+          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 2: Wat licht op in de plaat",
+          "beeld_in_fase": 1
         },
         {
           "van": "Planningssysteem",
@@ -105,7 +106,7 @@
           "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 2: Wat licht op in de plaat"
         }
       ],
-      "dekking": "open",
+      "dekking": "volledig",
       "link": "https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-2--publiceren-en-planbaar-maken"
     },
     {
@@ -135,7 +136,8 @@
           "objecten": [
             "aanbod om op te orienteren"
           ],
-          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 3: Wat licht op in de plaat"
+          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 3: Wat licht op in de plaat",
+          "afwijking": "het voorbeeld volgt de route van hoofdplaat v1.7: de catalogus ontsluit het aanmeldbare aanbod aan de kernregistratie (F3-01), die het doorgeeft aan AII voor centraal aanmelden (F3-02), en de aanmelding komt van AII bij het intakesysteem (F3-04). Een rechtstreekse lijn van de catalogus naar het intakesysteem staat niet op de plaat; CAMBO blijft buiten scope"
         },
         {
           "van": "Intake systeem",
@@ -148,7 +150,7 @@
           "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 3: Wat licht op in de plaat"
         }
       ],
-      "dekking": "open",
+      "dekking": "volledig",
       "link": "https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-3--instroom-intake-en-plaatsing"
     },
     {
@@ -188,7 +190,8 @@
             "plaatsingsgroep",
             "planninggroep"
           ],
-          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 4: Wat licht op in de plaat"
+          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 4: Wat licht op in de plaat",
+          "afwijking": "hoofdplaat v1.7 kent alleen de lijn van de kernregistratie naar planning (Ontsluiten plaatsingsgroepen met studenten), en het voorbeeld volgt de plaat: de plaatsingsgroep gaat in F4-06 van de kernregistratie naar planning. Of een groep die de planner zelf vormt terug hoort naar de kernregistratie staat als vraag bij F4-06"
         },
         {
           "van": "Kernregistratie systeem studenten (KRS)",
@@ -214,7 +217,8 @@
           "objecten": [
             "leergelegenheid-verbintenis als presentielijst"
           ],
-          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 4: Wat licht op in de plaat"
+          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 4: Wat licht op in de plaat",
+          "buiten_scope": "aanwezigheidsregistratie valt buiten OKx. Wat de scope wel raakt is het afgeleide deelnameresultaat, en dat staat bij F5-01"
         },
         {
           "van": "Kernregistratie systeem studenten (KRS)",
@@ -226,7 +230,7 @@
           "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 4: Wat licht op in de plaat"
         }
       ],
-      "dekking": "open",
+      "dekking": "volledig",
       "link": "https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-4--detailleren-roosteren-en-inschrijven"
     },
     {
@@ -260,7 +264,8 @@
           "objecten": [
             "specificatie als referentiekader"
           ],
-          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 5: Wat licht op in de plaat"
+          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 5: Wat licht op in de plaat",
+          "beeld_in_fase": 4
         },
         {
           "van": "Onderwijscatalogus",
@@ -268,7 +273,8 @@
           "objecten": [
             "specificatie als referentiekader"
           ],
-          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 5: Wat licht op in de plaat"
+          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 5: Wat licht op in de plaat",
+          "beeld_in_fase": 4
         },
         {
           "van": "Roostersysteem",
@@ -276,7 +282,8 @@
           "objecten": [
             "geroosterd aanbod tegenover aanwezigheidsfeiten"
           ],
-          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 5: Wat licht op in de plaat"
+          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 5: Wat licht op in de plaat",
+          "buiten_scope": "aanwezigheidsregistratie valt buiten OKx; wat de scope wel raakt is het afgeleide deelnameresultaat, en dat staat in F5-01"
         },
         {
           "van": "Leer management systeem (LMS)",
@@ -288,7 +295,7 @@
           "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 5: Wat licht op in de plaat"
         }
       ],
-      "dekking": "open",
+      "dekking": "volledig",
       "link": "https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-5--onderwijs-uitvoeren-en-voortgang-begeleiden"
     },
     {
@@ -331,7 +338,8 @@
           "objecten": [
             "inschrijving keuzedeel bij passend aanbod"
           ],
-          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 6: Wat licht op in de plaat"
+          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 6: Wat licht op in de plaat",
+          "afwijking": "hoofdplaat v1.7 kent geen lijn van planning naar de kernregistratie. De inschrijving op het keuzedeel loopt in het voorbeeld van het studentkeuzesysteem naar de kernregistratie (F6-08), de stroom die de plaat wel kent"
         },
         {
           "van": "Planningssysteem",
@@ -347,7 +355,8 @@
           "objecten": [
             "geactualiseerd geroosterd aanbod"
           ],
-          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 6: Wat licht op in de plaat"
+          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 6: Wat licht op in de plaat",
+          "beeld_in_fase": 7
         },
         {
           "van": "Kernregistratie systeem studenten (KRS)",
@@ -355,7 +364,8 @@
           "objecten": [
             "deelnemerscontext"
           ],
-          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 6: Wat licht op in de plaat"
+          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 6: Wat licht op in de plaat",
+          "beeld_in_fase": 4
         },
         {
           "van": "Kernregistratie systeem studenten (KRS)",
@@ -363,10 +373,11 @@
           "objecten": [
             "studiepad"
           ],
-          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 6: Wat licht op in de plaat"
+          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 6: Wat licht op in de plaat",
+          "beeld_in_fase": 4
         }
       ],
-      "dekking": "open",
+      "dekking": "volledig",
       "link": "https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-6--organiseren-van-keuzemomenten"
     },
     {
@@ -407,7 +418,7 @@
           "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 7: Wat licht op in de plaat"
         }
       ],
-      "dekking": "open",
+      "dekking": "volledig",
       "link": "https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-7--bijsturen-planning-en-aanbod"
     },
     {
@@ -440,7 +451,8 @@
           "objecten": [
             "kandidatenlijst"
           ],
-          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 8: Wat licht op in de plaat"
+          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 8: Wat licht op in de plaat",
+          "buiten_scope": "de logistiek van het samenstellen en afnemen zelf ligt bij OKE. Wat OKx toont is wat eruit komt: het resultaat naar het volgsysteem en de verantwoording naar de kernregistratie, en die laatste stap behandelt OKE niet"
         },
         {
           "van": "Toets- en examen afname systeem",
@@ -460,7 +472,7 @@
           "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 8: Wat licht op in de plaat"
         }
       ],
-      "dekking": "open",
+      "dekking": "volledig",
       "link": "https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-8--examineren-vaststellen-en-diplomeren"
     }
   ],
@@ -473,7 +485,10 @@
     "SLB'er",
     "docent",
     "examinator",
-    "student"
+    "student",
+    "examenbureaumedewerker",
+    "surveillant",
+    "beoordelaar"
   ],
   "toestanden": [
     {
@@ -720,8 +735,8 @@
       "soort": "ontstaat",
       "wie": "onderwijsontwerper",
       "objecttype": "Leeruitkomst",
-      "instantie": "Biedt farmaceutische patiëntenzorg in een levensechte apotheekomgeving (kerntaakniveau)",
-      "bron": "informatiemodel.md, familie Onderwijskundig kader instelling: de invulling door de instelling van de beoogde leeruitkomsten; leerroute-1-regulier.md, r1046 en r1052 (leervorm simulatie, theorie) en r1092",
+      "instantie": "Verleent farmaceutische patiëntenzorg, volgens de vigerende protocollen en met navolgbare vastlegging, in een levensechte apotheekomgeving (apothekersassistent NLQF 4, kerntaak B1-K1)",
+      "bron": "informatiemodel.md, familie Onderwijskundig kader instelling: de invulling door de instelling van de beoogde leeruitkomsten; leerroute-1-regulier.md, r1046 en r1052 (leervorm simulatie, theorie) en r1092; geformuleerd met de vijfdeling uit de presentatie 'Komen tot leeruitkomsten' (conventie leeruitkomsten, 6 oktober 2026): actief werkwoord, type, onderwerp, standaard en context",
       "aanname": true,
       "relatie": {
         "soort": "Association",
@@ -729,7 +744,8 @@
         "naar": "Leeruitkomst",
         "label": "Wordt vertaald naar"
       },
-      "zin": "Het dossier zegt wat de beroepsbeoefenaar kan; de leeruitkomst is de invulling van de instelling: waar en hoe de student dat laat zien. De kerntaak levert de leeruitkomst op kerntaakniveau, elk werkproces een leeruitkomst eronder: een gelaagde structuur. Hier: leren door te simuleren in een levensechte omgeving, met een klein deel theorie."
+      "zin": "Het dossier zegt wat de beroepsbeoefenaar kan; de leeruitkomst is de invulling van de instelling: waar en hoe de student dat laat zien. De kerntaak levert de leeruitkomst op kerntaakniveau, elk werkproces een leeruitkomst eronder: een gelaagde structuur. De instelling formuleert elke leeruitkomst met vijf vaste onderdelen: een actief werkwoord, het type waarvoor zij geldt, het onderwerp, de standaard waaraan het moet voldoen en de context waarin de student het laat zien. De standaard draagt wat de instelling zelf belangrijk vindt en maakt de leeruitkomst toetsbaar. Daarna plaatst de instelling haar in een onderwijskundige taxonomie, zodat het niveau van het handelen vastligt naast het NLQF-niveau van de kwalificatie. De plaat kent die taxonomie nog niet; zij staat hier gestippeld.",
+      "taxonomie": "Pi"
     },
     {
       "beeld_id": "F1-03",
@@ -739,8 +755,8 @@
       "soort": "ontstaat",
       "wie": "onderwijsontwerper",
       "objecttype": "Leeruitkomst",
-      "instantie": "Voert baliegesprek en triage uit in de simulatieapotheek, onderbouwd met theorie (werkprocesniveau)",
-      "bron": "leerroute-1-regulier.md, r620 (Werkproces 1..* Leeruitkomst) en r1092; r1021 (onderwijseenheden corresponderen met kerntaken, leeronderdelen met werkprocessen)",
+      "instantie": "Voert een baliegesprek met triage uit, volgens het triageprotocol en met een onderbouwd advies of doorverwijzing, in de simulatieapotheek (apothekersassistent NLQF 4, werkproces B1-K1-W1)",
+      "bron": "leerroute-1-regulier.md, r620 (Werkproces 1..* Leeruitkomst) en r1092; r1021 (onderwijseenheden corresponderen met kerntaken, leeronderdelen met werkprocessen); geformuleerd met de vijfdeling uit de presentatie 'Komen tot leeruitkomsten' (conventie leeruitkomsten, 6 oktober 2026): actief werkwoord, type, onderwerp, standaard en context",
       "aanname": true,
       "relatie": {
         "soort": "Aggregation",
@@ -756,7 +772,27 @@
           "label": "Wordt vertaald naar",
           "instantie": "B1-K1-W1 Voert baliegesprek en triage uit"
         }
-      ]
+      ],
+      "zin": "Het dossier zegt wat de beroepsbeoefenaar kan; de leeruitkomst is de invulling van de instelling: waar en hoe de student dat laat zien. De kerntaak levert de leeruitkomst op kerntaakniveau, elk werkproces een leeruitkomst eronder: een gelaagde structuur. De instelling formuleert elke leeruitkomst met vijf vaste onderdelen: een actief werkwoord, het type waarvoor zij geldt, het onderwerp, de standaard waaraan het moet voldoen en de context waarin de student het laat zien. De standaard draagt wat de instelling zelf belangrijk vindt en maakt de leeruitkomst toetsbaar. Daarna plaatst de instelling haar in een onderwijskundige taxonomie, zodat het niveau van het handelen vastligt naast het NLQF-niveau van de kwalificatie. De plaat kent die taxonomie nog niet; zij staat hier gestippeld.",
+      "taxonomie": "Pi"
+    },
+    {
+      "beeld_id": "F1-03",
+      "beeld": "Leeruitkomsten uit het dossier, in de stem van de instelling",
+      "fase": 1,
+      "stap": "Kwalificatiedossier vertalen naar leeruitkomsten",
+      "soort": "ontstaat",
+      "wie": "onderwijsontwerper",
+      "objecttype": "Onderwijskundige taxonomie",
+      "instantie": "Romiszowski: de kerntaakuitkomst is cognitief en productief, de werkprocesuitkomsten volgen een protocol en zijn reproductief",
+      "aanname": true,
+      "relatie": {
+        "soort": "Association",
+        "van": "Leeruitkomst",
+        "naar": "Onderwijskundige taxonomie"
+      },
+      "bron": "presentatie 'Komen tot leeruitkomsten' (conventie leeruitkomsten, 6 oktober 2026); het objecttype staat niet op de informatiemodelplaat en is hier getoond om de uitbreiding bespreekbaar te maken",
+      "zin": "Het dossier zegt wat de beroepsbeoefenaar kan; de leeruitkomst is de invulling van de instelling: waar en hoe de student dat laat zien. De kerntaak levert de leeruitkomst op kerntaakniveau, elk werkproces een leeruitkomst eronder: een gelaagde structuur. De instelling formuleert elke leeruitkomst met vijf vaste onderdelen: een actief werkwoord, het type waarvoor zij geldt, het onderwerp, de standaard waaraan het moet voldoen en de context waarin de student het laat zien. De standaard draagt wat de instelling zelf belangrijk vindt en maakt de leeruitkomst toetsbaar. Daarna plaatst de instelling haar in een onderwijskundige taxonomie, zodat het niveau van het handelen vastligt naast het NLQF-niveau van de kwalificatie. De plaat kent die taxonomie nog niet; zij staat hier gestippeld."
     },
     {
       "beeld_id": "F1-04",
@@ -767,9 +803,9 @@
       "soort": "verandert",
       "wie": "onderwijsontwerper",
       "objecttype": "Leeruitkomst",
-      "instantie": "Biedt farmaceutische patiëntenzorg in een levensechte apotheekomgeving (kerntaakniveau)",
+      "instantie": "Verleent farmaceutische patiëntenzorg, volgens de vigerende protocollen en met navolgbare vastlegging, in een levensechte apotheekomgeving (apothekersassistent NLQF 4, kerntaak B1-K1)",
       "toestand": "vertaald naar skills",
-      "bron": "CompetentNL ontologie 2.1.0 (competentnl.nl, TTL, gewijzigd 14 juli 2026): cnlo:HumanCapability (Vaardigheid) gelaagd via skos:broader, drie lagen (6 verzamelconcepten, 24 generieke, 128 specifieke vaardigheden); cnlo:EducationalNorm (Opleidingsnorm) schrijft vaardigheden voor (cnlo:prescribes); leerroute-1-regulier.md, r1092",
+      "bron": "CompetentNL ontologie 2.1.0 (competentnl.nl, TTL, gewijzigd 14 juli 2026): cnlo:HumanCapability (Vaardigheid) gelaagd via skos:broader, drie lagen (6 verzamelconcepten, 24 generieke, 128 specifieke vaardigheden); cnlo:EducationalNorm (Opleidingsnorm) schrijft vaardigheden voor (cnlo:prescribes); leerroute-1-regulier.md, r1092; geformuleerd met de vijfdeling uit de presentatie 'Komen tot leeruitkomsten' (conventie leeruitkomsten, 6 oktober 2026): actief werkwoord, type, onderwerp, standaard en context",
       "aanname": true,
       "zin": "Verdieping: dezelfde leeruitkomst in CompetentNL-termen: vaardigheden in drie lagen (hier laag 2), kennisgebieden op ISCED-F, en het inzicht dat de plaat apart benoemt. Hoe fijnmaziger, hoe scherper wat Jochem moet leren."
     },
@@ -782,9 +818,9 @@
       "soort": "verandert",
       "wie": "onderwijsontwerper",
       "objecttype": "Leeruitkomst",
-      "instantie": "Voert baliegesprek en triage uit in de simulatieapotheek, onderbouwd met theorie (werkprocesniveau)",
+      "instantie": "Voert een baliegesprek met triage uit, volgens het triageprotocol en met een onderbouwd advies of doorverwijzing, in de simulatieapotheek (apothekersassistent NLQF 4, werkproces B1-K1-W1)",
       "toestand": "vertaald naar skills",
-      "bron": "CompetentNL ontologie 2.1.0 (competentnl.nl, TTL, gewijzigd 14 juli 2026): cnlo:HumanCapability (Vaardigheid) gelaagd via skos:broader, drie lagen (6 verzamelconcepten, 24 generieke, 128 specifieke vaardigheden); cnlo:EducationalNorm (Opleidingsnorm) schrijft vaardigheden voor (cnlo:prescribes); leerroute-1-regulier.md, r1092",
+      "bron": "CompetentNL ontologie 2.1.0 (competentnl.nl, TTL, gewijzigd 14 juli 2026): cnlo:HumanCapability (Vaardigheid) gelaagd via skos:broader, drie lagen (6 verzamelconcepten, 24 generieke, 128 specifieke vaardigheden); cnlo:EducationalNorm (Opleidingsnorm) schrijft vaardigheden voor (cnlo:prescribes); leerroute-1-regulier.md, r1092; geformuleerd met de vijfdeling uit de presentatie 'Komen tot leeruitkomsten' (conventie leeruitkomsten, 6 oktober 2026): actief werkwoord, type, onderwerp, standaard en context",
       "aanname": true,
       "relatie": {
         "soort": "Aggregation",
@@ -891,14 +927,15 @@
       "wie": "onderwijsontwerper",
       "soort": "verandert",
       "objecttype": "Leeruitkomst",
-      "instantie": "Biedt farmaceutische patiëntenzorg in een levensechte apotheekomgeving (kerntaakniveau)",
+      "instantie": "Verleent farmaceutische patiëntenzorg, volgens de vigerende protocollen en met navolgbare vastlegging, in een levensechte apotheekomgeving (apothekersassistent NLQF 4, kerntaak B1-K1)",
       "toestand": "onderwijskundig vertaald",
-      "bron": "informatiemodel.json: Onderwijseenheid specificatie naar Leeruitkomst (associatie); leerroute-1-regulier.md, r621",
+      "bron": "informatiemodel.json: Onderwijseenheid specificatie naar Leeruitkomst (associatie); leerroute-1-regulier.md, r621; geformuleerd met de vijfdeling uit de presentatie 'Komen tot leeruitkomsten' (conventie leeruitkomsten, 6 oktober 2026): actief werkwoord, type, onderwerp, standaard en context",
       "relatie": {
         "soort": "Association",
         "van": "Onderwijseenheid specificatie",
         "naar": "Leeruitkomst"
-      }
+      },
+      "aanname": true
     },
     {
       "beeld_id": "F1-05",
@@ -909,14 +946,15 @@
       "wie": "onderwijsontwerper",
       "soort": "verandert",
       "objecttype": "Leeruitkomst",
-      "instantie": "Voert baliegesprek en triage uit in de simulatieapotheek, onderbouwd met theorie (werkprocesniveau)",
+      "instantie": "Voert een baliegesprek met triage uit, volgens het triageprotocol en met een onderbouwd advies of doorverwijzing, in de simulatieapotheek (apothekersassistent NLQF 4, werkproces B1-K1-W1)",
       "toestand": "onderwijskundig vertaald",
-      "bron": "informatiemodel.json: Leeruitkomst aggregeert Leeruitkomst, Leeronderdeel specificatie naar Leeruitkomst; leerroute-1-regulier.md, r620, r1021 en r1044",
+      "bron": "informatiemodel.json: Leeruitkomst aggregeert Leeruitkomst, Leeronderdeel specificatie naar Leeruitkomst; leerroute-1-regulier.md, r620, r1021 en r1044; geformuleerd met de vijfdeling uit de presentatie 'Komen tot leeruitkomsten' (conventie leeruitkomsten, 6 oktober 2026): actief werkwoord, type, onderwerp, standaard en context",
       "relatie": {
         "soort": "Aggregation",
         "van": "Leeruitkomst",
         "naar": "Leeruitkomst"
-      }
+      },
+      "aanname": true
     },
     {
       "beeld_id": "F1-05",
@@ -980,14 +1018,15 @@
       "wie": "onderwijsontwerper",
       "soort": "verandert",
       "objecttype": "Leeruitkomst",
-      "instantie": "Voert medicatiebewaking uit onder begeleiding in de leerapotheek (werkprocesniveau)",
+      "instantie": "Voert medicatiebewaking uit op signalen uit het apotheeksysteem, volgens het bewakingsprotocol en met overleg bij twijfel, in de leerapotheek onder begeleiding (apothekersassistent NLQF 4, werkprocesniveau)",
       "toestand": "onderwijskundig vertaald",
-      "bron": "informatiemodel.json: Leeruitkomst aggregeert Leeruitkomst; leerroute-1-regulier.md, r1051 (werkproces B1-K1-W2)",
+      "bron": "informatiemodel.json: Leeruitkomst aggregeert Leeruitkomst; leerroute-1-regulier.md, r1051 (werkproces B1-K1-W2); geformuleerd met de vijfdeling uit de presentatie 'Komen tot leeruitkomsten' (conventie leeruitkomsten, 6 oktober 2026): actief werkwoord, type, onderwerp, standaard en context",
       "relatie": {
         "soort": "Aggregation",
         "van": "Leeruitkomst",
         "naar": "Leeruitkomst"
-      }
+      },
+      "aanname": true
     },
     {
       "beeld_id": "F1-05",
@@ -1077,7 +1116,7 @@
           "van": "Leerdoel",
           "naar": "Leeruitkomst",
           "label": "Heeft één of meer",
-          "instantie": "Biedt farmaceutische patiëntenzorg in een levensechte apotheekomgeving (kerntaakniveau)"
+          "instantie": "Verleent farmaceutische patiëntenzorg, volgens de vigerende protocollen en met navolgbare vastlegging, in een levensechte apotheekomgeving (apothekersassistent NLQF 4, kerntaak B1-K1)"
         }
       ]
     },
@@ -1475,16 +1514,16 @@
     },
     {
       "beeld_id": "F1-08",
-      "beeld": "Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen",
+      "beeld": "Kiesbaar onderwijsprogrammaonderdeel: keuzedelen en minor",
       "fase": 1,
       "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
       "wie": "onderwijsontwerper",
       "soort": "ontstaat",
       "objecttype": "Leeruitkomst",
-      "instantie": "Draagt bij aan kwaliteitszorg en arbeidsomstandigheden op de eigen werkplek (kerntaakniveau, keuzedeel)",
+      "instantie": "Draagt bij aan kwaliteitszorg en arbeidsomstandigheden, volgens de RI&E-systematiek en het kwaliteitshandboek van de apotheek, op de eigen werkplek (keuzedeel K0262 NLQF 3, kerntaakniveau)",
       "nieuwe_instantie": true,
       "aanname": true,
-      "bron": "K0262-arbo-kwaliteitszorg-en-hulpverlening-niveau-3.md (keuzedeel mbo K0262, gevalideerd 10-11-2015); leerroute-1-regulier.md, r1072 tot 1080",
+      "bron": "K0262-arbo-kwaliteitszorg-en-hulpverlening-niveau-3.md (keuzedeel mbo K0262, gevalideerd 10-11-2015); leerroute-1-regulier.md, r1072 tot 1080; geformuleerd met de vijfdeling uit de presentatie 'Komen tot leeruitkomsten' (conventie leeruitkomsten, 6 oktober 2026): actief werkwoord, type, onderwerp, standaard en context",
       "relaties": [
         {
           "soort": "Association",
@@ -1494,20 +1533,21 @@
           "instantie": "D1-K1 Draagt bij aan kwaliteitszorg en arbeidsomstandigheden"
         }
       ],
-      "zin": "Een keuzedeel is zelf een programmaspecificatie, gelijksoortig vormgegeven maar los van Jochems opleiding. Het landelijke keuzedeel komt van SBB en levert kerntaken en werkprocessen; de instelling vertaalt die naar leeruitkomsten en geeft ze vorm als onderwijseenheid- en leeronderdeelspecificaties. Ook hier lopen beide verdiepingen niet gelijk op: een werkproces zegt wat summatief moet blijken, een leeronderdeel hoe de student daar komt. Twee keuzedelen vullen samen de ruimte van 720 SBU."
+      "zin": "Een keuzedeel is zelf een programmaspecificatie, gelijksoortig vormgegeven maar los van Jochems opleiding. Het landelijke keuzedeel komt van SBB, met de K-code als verwijzing naar het erkende keuzedeel, en levert kerntaken en werkprocessen; de instelling vertaalt die naar leeruitkomsten en geeft ze vorm als onderwijseenheid- en leeronderdeelspecificaties. Ook hier lopen beide verdiepingen niet gelijk op: een werkproces zegt wat summatief moet blijken, een leeronderdeel hoe de student daar komt. Twee keuzedelen vullen samen de ruimte van 720 SBU. In het hoger onderwijs vult een minor dezelfde ruimte op dezelfde manier, met eigen leeruitkomsten op haar eigen niveau. De plaat draagt het objecttype minor nog niet; het staat hier gestippeld.",
+      "taxonomie": "Rc"
     },
     {
       "beeld_id": "F1-08",
-      "beeld": "Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen",
+      "beeld": "Kiesbaar onderwijsprogrammaonderdeel: keuzedelen en minor",
       "fase": 1,
       "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
       "wie": "onderwijsontwerper",
       "soort": "ontstaat",
       "objecttype": "Leeruitkomst",
-      "instantie": "Levert een bijdrage aan de inrichting van het kwaliteitszorgsysteem (werkprocesniveau, keuzedeel)",
+      "instantie": "Levert een bijdrage aan de inrichting van het kwaliteitszorgsysteem, toetsbaar aan de normen uit het kwaliteitshandboek, in de eigen apotheek (keuzedeel K0262 NLQF 3, werkprocesniveau)",
       "nieuwe_instantie": true,
       "aanname": true,
-      "bron": "K0262-arbo-kwaliteitszorg-en-hulpverlening-niveau-3.md (keuzedeel mbo K0262, gevalideerd 10-11-2015); leerroute-1-regulier.md, r1072 tot 1080",
+      "bron": "K0262-arbo-kwaliteitszorg-en-hulpverlening-niveau-3.md (keuzedeel mbo K0262, gevalideerd 10-11-2015); leerroute-1-regulier.md, r1072 tot 1080; geformuleerd met de vijfdeling uit de presentatie 'Komen tot leeruitkomsten' (conventie leeruitkomsten, 6 oktober 2026): actief werkwoord, type, onderwerp, standaard en context",
       "relatie": {
         "soort": "Aggregation",
         "van": "Leeruitkomst",
@@ -1522,11 +1562,12 @@
           "label": "Wordt vertaald naar",
           "instantie": "D1-K1-W1 Levert een bijdrage aan de inrichting van het kwaliteitszorgsysteem"
         }
-      ]
+      ],
+      "taxonomie": "Pc"
     },
     {
       "beeld_id": "F1-08",
-      "beeld": "Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen",
+      "beeld": "Kiesbaar onderwijsprogrammaonderdeel: keuzedelen en minor",
       "fase": 1,
       "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
       "wie": "onderwijsontwerper",
@@ -1549,7 +1590,7 @@
     },
     {
       "beeld_id": "F1-08",
-      "beeld": "Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen",
+      "beeld": "Kiesbaar onderwijsprogrammaonderdeel: keuzedelen en minor",
       "fase": 1,
       "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
       "wie": "onderwijsontwerper",
@@ -1575,7 +1616,7 @@
     },
     {
       "beeld_id": "F1-08",
-      "beeld": "Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen",
+      "beeld": "Kiesbaar onderwijsprogrammaonderdeel: keuzedelen en minor",
       "fase": 1,
       "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
       "wie": "onderwijsontwerper",
@@ -1601,7 +1642,7 @@
     },
     {
       "beeld_id": "F1-08",
-      "beeld": "Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen",
+      "beeld": "Kiesbaar onderwijsprogrammaonderdeel: keuzedelen en minor",
       "fase": 1,
       "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
       "wie": "onderwijsontwerper",
@@ -1627,7 +1668,7 @@
     },
     {
       "beeld_id": "F1-08",
-      "beeld": "Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen",
+      "beeld": "Kiesbaar onderwijsprogrammaonderdeel: keuzedelen en minor",
       "fase": 1,
       "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
       "wie": "onderwijsontwerper",
@@ -1653,7 +1694,7 @@
     },
     {
       "beeld_id": "F1-08",
-      "beeld": "Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen",
+      "beeld": "Kiesbaar onderwijsprogrammaonderdeel: keuzedelen en minor",
       "fase": 1,
       "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
       "wie": "onderwijsontwerper",
@@ -1679,7 +1720,41 @@
     },
     {
       "beeld_id": "F1-08",
-      "beeld": "Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen",
+      "beeld": "Kiesbaar onderwijsprogrammaonderdeel: keuzedelen en minor",
+      "fase": 1,
+      "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
+      "soort": "ontstaat",
+      "wie": "onderwijsontwerper",
+      "objecttype": "Leeruitkomst",
+      "nieuwe_instantie": true,
+      "aanname": true,
+      "bron": "K0037-farmaceutische-patientenzorg.md (keuzedeel mbo K0037, 480 SBU, aard verdiepend, gevalideerd 26-11-2015); geformuleerd met de vijfdeling uit de presentatie 'Komen tot leeruitkomsten' (conventie leeruitkomsten, 6 oktober 2026): actief werkwoord, type, onderwerp, standaard en context",
+      "instantie": "Voert verdiepende farmaceutische patiëntenzorg uit, volgens de richtlijn farmaceutische patiëntenzorg en met een onderbouwd advies, bij patiënten met meervoudig geneesmiddelgebruik (keuzedeel K0037 NLQF 4, kerntaakniveau)",
+      "taxonomie": "Pc"
+    },
+    {
+      "beeld_id": "F1-08",
+      "beeld": "Kiesbaar onderwijsprogrammaonderdeel: keuzedelen en minor",
+      "fase": 1,
+      "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
+      "soort": "ontstaat",
+      "wie": "onderwijsontwerper",
+      "objecttype": "Leeruitkomst",
+      "nieuwe_instantie": true,
+      "aanname": true,
+      "bron": "K0037-farmaceutische-patientenzorg.md (keuzedeel mbo K0037, 480 SBU, aard verdiepend, gevalideerd 26-11-2015); geformuleerd met de vijfdeling uit de presentatie 'Komen tot leeruitkomsten' (conventie leeruitkomsten, 6 oktober 2026): actief werkwoord, type, onderwerp, standaard en context",
+      "relatie": {
+        "soort": "Aggregation",
+        "van": "Leeruitkomst",
+        "naar": "Leeruitkomst",
+        "nesting": true
+      },
+      "instantie": "Stelt een medicatieoverzicht op, volgens de richtlijn medicatieoverzicht en geverifieerd bij patiënt en voorschrijver, in de leerapotheek (keuzedeel K0037 NLQF 4, werkprocesniveau)",
+      "taxonomie": "Rc"
+    },
+    {
+      "beeld_id": "F1-08",
+      "beeld": "Kiesbaar onderwijsprogrammaonderdeel: keuzedelen en minor",
       "fase": 1,
       "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
       "wie": "onderwijsontwerper",
@@ -1703,7 +1778,7 @@
     },
     {
       "beeld_id": "F1-08",
-      "beeld": "Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen",
+      "beeld": "Kiesbaar onderwijsprogrammaonderdeel: keuzedelen en minor",
       "fase": 1,
       "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
       "wie": "onderwijsontwerper",
@@ -1729,7 +1804,7 @@
     },
     {
       "beeld_id": "F1-08",
-      "beeld": "Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen",
+      "beeld": "Kiesbaar onderwijsprogrammaonderdeel: keuzedelen en minor",
       "fase": 1,
       "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
       "wie": "onderwijsontwerper",
@@ -1755,7 +1830,7 @@
     },
     {
       "beeld_id": "F1-08",
-      "beeld": "Het keuzedeel als eigen programmaspecificatie, met kerntaken en werkprocessen",
+      "beeld": "Kiesbaar onderwijsprogrammaonderdeel: keuzedelen en minor",
       "fase": 1,
       "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
       "wie": "onderwijsontwerper",
@@ -1778,6 +1853,37 @@
           "instantie": "Biedt farmaceutische patientenzorg aan specifieke doelgroepen (werkprocesniveau)"
         }
       ]
+    },
+    {
+      "beeld_id": "F1-08",
+      "beeld": "Kiesbaar onderwijsprogrammaonderdeel: keuzedelen en minor",
+      "fase": 1,
+      "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
+      "soort": "ontstaat",
+      "wie": "onderwijsontwerper",
+      "objecttype": "Minor",
+      "aanname": true,
+      "bron": "Npuls-OKx/Public#104, review van Huib Jan Wielemaker op 6 oktober 2026: het keuzedeel staat op de plaat als vast gegeven terwijl het hoger onderwijs het niet kent. De minor staat hier als pendant; de plaat draagt het objecttype nog niet",
+      "relatie": {
+        "soort": "Specialization",
+        "van": "Minor",
+        "naar": "Opleidingsprogramma specificatie"
+      },
+      "instantie": "Farmacotherapie en patiëntveiligheid, 30 EC (hbo-bachelor NLQF 6)"
+    },
+    {
+      "beeld_id": "F1-08",
+      "beeld": "Kiesbaar onderwijsprogrammaonderdeel: keuzedelen en minor",
+      "fase": 1,
+      "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
+      "soort": "ontstaat",
+      "wie": "onderwijsontwerper",
+      "objecttype": "Leeruitkomst",
+      "nieuwe_instantie": true,
+      "aanname": true,
+      "bron": "Npuls-OKx/Public#104, review van Huib Jan Wielemaker op 6 oktober 2026: het keuzedeel staat op de plaat als vast gegeven terwijl het hoger onderwijs het niet kent. De minor staat hier als pendant; de plaat draagt het objecttype nog niet; geformuleerd met de vijfdeling uit de presentatie 'Komen tot leeruitkomsten' (conventie leeruitkomsten, 6 oktober 2026): actief werkwoord, type, onderwerp, standaard en context",
+      "instantie": "Beoordeelt farmacotherapie op patiëntveiligheid, volgens de vigerende richtlijnen en onderbouwd met literatuur, in een multidisciplinair overleg (minor NLQF 6)",
+      "taxonomie": "solo3"
     },
     {
       "beeld_id": "F1-09",
@@ -2164,9 +2270,10 @@
       "pijl": "geen pijl op de hoofdplaat",
       "koppeling": null,
       "objecttype": "Leeruitkomst",
-      "instantie": "Biedt farmaceutische patiëntenzorg in een levensechte apotheekomgeving (kerntaakniveau)",
-      "bron": "leerroute-1-regulier.md, Fase 1: Curriculum-ontwerptool naar OC, alles op grofmazig niveau; AGENTS.md: de leeruitkomst is de sleutel, specificaties en de resultaatstructuur verwijzen ernaar",
-      "zin": "De opleiding zoals ontworpen gaat als gelinkt geheel naar de catalogus: leeruitkomsten met hun skills, de specificatiestructuur met het onderwijsontwerp (paars: conceptplaat) en de resultaatstructuur; alles verwijst naar de leeruitkomst. Op v1.7 zit de ontwerptool binnen de catalogus, dus geen aparte pijl."
+      "instantie": "Verleent farmaceutische patiëntenzorg, volgens de vigerende protocollen en met navolgbare vastlegging, in een levensechte apotheekomgeving (apothekersassistent NLQF 4, kerntaak B1-K1)",
+      "bron": "leerroute-1-regulier.md, Fase 1: Curriculum-ontwerptool naar OC, alles op grofmazig niveau; AGENTS.md: de leeruitkomst is de sleutel, specificaties en de resultaatstructuur verwijzen ernaar; geformuleerd met de vijfdeling uit de presentatie 'Komen tot leeruitkomsten' (conventie leeruitkomsten, 6 oktober 2026): actief werkwoord, type, onderwerp, standaard en context",
+      "zin": "De opleiding zoals ontworpen gaat als gelinkt geheel naar de catalogus: leeruitkomsten met hun skills, de specificatiestructuur met het onderwijsontwerp (paars: conceptplaat) en de resultaatstructuur; alles verwijst naar de leeruitkomst. Op v1.7 zit de ontwerptool binnen de catalogus, dus geen aparte pijl.",
+      "aanname": true
     },
     {
       "beeld_id": "F1-12",
@@ -2179,14 +2286,15 @@
       "pijl": "geen pijl op de hoofdplaat",
       "koppeling": null,
       "objecttype": "Leeruitkomst",
-      "instantie": "Voert baliegesprek en triage uit in de simulatieapotheek (werkprocesniveau)",
-      "bron": "leerroute-1-regulier.md, Fase 1: Curriculum-ontwerptool naar OC, alles op grofmazig niveau",
+      "instantie": "Voert een baliegesprek met triage uit, volgens het triageprotocol en met een onderbouwd advies of doorverwijzing, in de simulatieapotheek (apothekersassistent NLQF 4, werkproces B1-K1-W1)",
+      "bron": "leerroute-1-regulier.md, Fase 1: Curriculum-ontwerptool naar OC, alles op grofmazig niveau; geformuleerd met de vijfdeling uit de presentatie 'Komen tot leeruitkomsten' (conventie leeruitkomsten, 6 oktober 2026): actief werkwoord, type, onderwerp, standaard en context",
       "relatie": {
         "soort": "Aggregation",
         "van": "Leeruitkomst",
         "naar": "Leeruitkomst",
         "nesting": true
-      }
+      },
+      "aanname": true
     },
     {
       "beeld_id": "F1-12",
@@ -2803,7 +2911,7 @@
       "instantie": "BOL voltijd, planbaar: tijdvensters en capaciteit",
       "toestand": "planbaar",
       "bron": "leerroute-1-regulier.md, Fase 2: aangevuld tot planbare specificatie",
-      "zin": "Planbaar is een rijpheidskenmerk van de specificatie, geen apart object. Het programma draagt tijdvensters en capaciteit, de eenheid haar plek in de opleidingsduur. Op het niveau eronder ligt planbaar niet op het losse leeronderdeel maar op de gewenste leergelegenheid: de catalogus clustert leeronderdelen inhoudelijk tot logistieke eenheden met dezelfde vorm en opbouwende fase, en draagt daarbij de organiseerbaarheidswaarden. Planning clusteert daarna logistiek: kleine lesgroepen bundelen, of leergelegenheden met verschillende inhoud en verschillende studenten gelijktijdig laten plaatsvinden bij dezelfde docent in hetzelfde lokaaltype."
+      "zin": "Planbaar is een rijpheidskenmerk van de specificatie, geen apart object. Het programma draagt tijdvensters en capaciteit, de eenheid haar plek in de opleidingsduur. Op het niveau eronder draagt de gewenste leergelegenheid dat kenmerk, en het losse leeronderdeel niet: de catalogus clustert leeronderdelen inhoudelijk tot logistieke eenheden met dezelfde vorm en opbouwende fase, en draagt daarbij de organiseerbaarheidswaarden. Planning clusteert daarna logistiek: kleine lesgroepen bundelen, of leergelegenheden met verschillende inhoud en verschillende studenten gelijktijdig laten plaatsvinden bij dezelfde docent in hetzelfde lokaaltype."
     },
     {
       "beeld_id": "F2-01",
@@ -3014,7 +3122,7 @@
           "soort": "Association",
           "van": "Leeronderdeel specificatie",
           "naar": "Leeruitkomst",
-          "instantie": "Voert medicatiebewaking uit onder begeleiding in de leerapotheek (werkprocesniveau)"
+          "instantie": "Voert medicatiebewaking uit op signalen uit het apotheeksysteem, volgens het bewakingsprotocol en met overleg bij twijfel, in de leerapotheek onder begeleiding (apothekersassistent NLQF 4, werkprocesniveau)"
         }
       ]
     },
@@ -3131,8 +3239,8 @@
       "soort": "ontstaat",
       "wie": "planner",
       "objecttype": "Opleidingaanbod",
-      "instantie": "Apothekersassistent 2026: vier perioden, 48 plaatsen",
-      "bron": "voorbeeldpayloads.md, aanbodInstanties[0] (7aa6609f); leerroute-1-regulier.md, r738 (aanbod is minimaal gepland zodra perioden en capaciteit vastliggen) en r1021 (stadium 2a, nog zonder lokalen en docenten)",
+      "instantie": "Apothekersassistent 2026: vier perioden, 36 plaatsen",
+      "bron": "voorbeeldpayloads.md, aanbodInstanties[0] (7aa6609f); leerroute-1-regulier.md, r738 (aanbod is minimaal gepland zodra perioden en capaciteit vastliggen) en r1021 (stadium 2a, nog zonder lokalen en docenten); scenario-1.1-regulier-happyflow.md, blok D (maatvoering uit de review van 29 september 2026)",
       "relatie": {
         "soort": "Aggregation",
         "van": "Opleidingsaanbod van Instelling",
@@ -3149,8 +3257,8 @@
       "soort": "ontstaat",
       "wie": "planner",
       "objecttype": "Opleidingsprogramma aanbod",
-      "instantie": "Regulier BOL 2026: 24 tot 48 studenten",
-      "bron": "voorbeeldpayloads.md, aanbodInstanties[1] (8c494250); leerroute-1-regulier.md, r738 (aanbod is minimaal gepland zodra perioden en capaciteit vastliggen) en r1021 (stadium 2a, nog zonder lokalen en docenten)",
+      "instantie": "Regulier BOL 2026: 18 tot 36 studenten",
+      "bron": "voorbeeldpayloads.md, aanbodInstanties[1] (8c494250); leerroute-1-regulier.md, r738 (aanbod is minimaal gepland zodra perioden en capaciteit vastliggen) en r1021 (stadium 2a, nog zonder lokalen en docenten); scenario-1.1-regulier-happyflow.md, blok D (maatvoering uit de review van 29 september 2026)",
       "relatie": {
         "soort": "Aggregation",
         "van": "Opleidingaanbod",
@@ -3185,8 +3293,8 @@
       "soort": "ontstaat",
       "wie": "planner",
       "objecttype": "Leergelegenheid",
-      "instantie": "Baliegesprekken 101, periode 1, twee groepen van 24",
-      "bron": "voorbeeldpayloads.md, aanbodInstanties[3] (04070a96)",
+      "instantie": "Baliegesprekken 101, periode 1, twee groepen van 18",
+      "bron": "voorbeeldpayloads.md, aanbodInstanties[3] (04070a96); scenario-1.1-regulier-happyflow.md, blok D (maatvoering uit de review van 29 september 2026)",
       "relatie": {
         "soort": "Aggregation",
         "van": "Onderwijseenheid aanbod",
@@ -3257,8 +3365,8 @@
       "wie": "planner",
       "aanname": true,
       "objecttype": "Onderwijsaanbod Model",
-      "instantie": "Jaarplan 2026-2027: prognose 48 instromers, twee groepen van 24, vier perioden van tien weken",
-      "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Planning bevat Onderwijsaanbod Model; leerroute-1-regulier.md, Fase 2: strategische jaarplanning",
+      "instantie": "Jaarplan 2026-2027: prognose 36 instromers, twee groepen van 18, vier perioden van tien weken",
+      "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Planning bevat Onderwijsaanbod Model; leerroute-1-regulier.md, Fase 2: strategische jaarplanning; scenario-1.1-regulier-happyflow.md, blok D (maatvoering uit de review van 29 september 2026)",
       "relatie": {
         "soort": "Association",
         "van": "Schaarste van middelen",
@@ -3441,8 +3549,8 @@
       "pijl": "id-020f091db6ea4763aad7527a98afaf99",
       "koppeling": "OC-P&R",
       "objecttype": "Opleidingaanbod",
-      "instantie": "Apothekersassistent 2026: vier perioden, 48 plaatsen",
-      "bron": "leerroute-1-regulier.md, Fase 2: Planning naar OC (opleidingsaanbod als planbaar resultaat); informatiemodel.json: de specificatie is geassocieerd met haar aanbod; het verzoek leidt tot aanbod",
+      "instantie": "Apothekersassistent 2026: vier perioden, 36 plaatsen",
+      "bron": "leerroute-1-regulier.md, Fase 2: Planning naar OC (opleidingsaanbod als planbaar resultaat); informatiemodel.json: de specificatie is geassocieerd met haar aanbod; het verzoek leidt tot aanbod; scenario-1.1-regulier-happyflow.md, blok D (maatvoering uit de review van 29 september 2026)",
       "toestand": "gepland",
       "relatie": {
         "soort": "Aggregation",
@@ -3477,8 +3585,8 @@
       "pijl": "id-020f091db6ea4763aad7527a98afaf99",
       "koppeling": "OC-P&R",
       "objecttype": "Opleidingsprogramma aanbod",
-      "instantie": "Regulier BOL 2026: 24 tot 48 studenten",
-      "bron": "leerroute-1-regulier.md, Fase 2; informatiemodel.json: de specificatie is geassocieerd met haar aanbod; het verzoek leidt tot aanbod",
+      "instantie": "Regulier BOL 2026: 18 tot 36 studenten",
+      "bron": "leerroute-1-regulier.md, Fase 2; informatiemodel.json: de specificatie is geassocieerd met haar aanbod; het verzoek leidt tot aanbod; scenario-1.1-regulier-happyflow.md, blok D (maatvoering uit de review van 29 september 2026)",
       "relatie": {
         "soort": "Aggregation",
         "van": "Opleidingaanbod",
@@ -3549,8 +3657,8 @@
       "pijl": "id-020f091db6ea4763aad7527a98afaf99",
       "koppeling": "OC-P&R",
       "objecttype": "Leergelegenheid",
-      "instantie": "Baliegesprekken 101, periode 1, twee groepen van 24",
-      "bron": "leerroute-1-regulier.md, Fase 2: planbaar aanbod; informatiemodel.json: de specificatie is geassocieerd met haar aanbod; het verzoek leidt tot aanbod",
+      "instantie": "Baliegesprekken 101, periode 1, twee groepen van 18",
+      "bron": "leerroute-1-regulier.md, Fase 2: planbaar aanbod; informatiemodel.json: de specificatie is geassocieerd met haar aanbod; het verzoek leidt tot aanbod; scenario-1.1-regulier-happyflow.md, blok D (maatvoering uit de review van 29 september 2026)",
       "relatie": {
         "soort": "Aggregation",
         "van": "Onderwijseenheid aanbod",
@@ -3615,8 +3723,8 @@
       "pijl": "id-020f091db6ea4763aad7527a98afaf99",
       "koppeling": "OC-P&R",
       "objecttype": "Keuzedeel aanbod",
-      "instantie": "K0037 Farmaceutische Patientenzorg, periode 7: een groep van 24, los van het opleidingsaanbod",
-      "bron": "review Niels van Duin op PR 252: gelegenheden van keuzedelen tonen maakt scherp dat capaciteit los kan staan van de bovenliggende structuur",
+      "instantie": "K0037 Farmaceutische Patientenzorg, periode 7: een groep van 18, los van het opleidingsaanbod",
+      "bron": "review Niels van Duin op PR 252: gelegenheden van keuzedelen tonen maakt scherp dat capaciteit los kan staan van de bovenliggende structuur; scenario-1.1-regulier-happyflow.md, blok D (maatvoering uit de review van 29 september 2026)",
       "relatie": {
         "soort": "Association",
         "van": "Keuzedeel",
@@ -3733,7 +3841,7 @@
           "soort": "Association",
           "van": "Opleidingsprogramma aanbod",
           "naar": "Opleidingsprogramma aanbod verbintenis",
-          "instantie": "Regulier BOL 2026: 24 tot 48 studenten"
+          "instantie": "Regulier BOL 2026: 18 tot 36 studenten"
         }
       ]
     },
@@ -4706,7 +4814,8 @@
           "label": "Worden gegroepeerd via",
           "instantie": "Jochem en 29 andere studenten"
         }
-      ]
+      ],
+      "vraag": "Het kaderscenario zet groepen in twee richtingen tussen planning en de kernregistratie, en hoofdplaat v1.7 kent alleen de lijn van de kernregistratie naar planning. Een planninggroep die de planner om logistieke redenen vormt, hoort die terug naar de kernregistratie als nieuwe plaatsingsgroep, en mist de plaat dan een stroom?"
     },
     {
       "beeld_id": "F4-06",
@@ -4759,8 +4868,8 @@
       "pijl": "id-08467fe302794db6b935ff685e83efe0",
       "koppeling": null,
       "objecttype": "Leergelegenheid",
-      "instantie": "Baliegesprekken 101, periode 1: lokaaltype balie-simulatie, docentexpertise farmacie met baliepraktijk, twee groepen van 24",
-      "bron": "leerroute-1-regulier.md, Fase 4: Planning naar Rooster (te roosteren specificaties)",
+      "instantie": "Baliegesprekken 101, periode 1: lokaaltype balie-simulatie, docentexpertise farmacie met baliepraktijk, twee groepen van 18",
+      "bron": "leerroute-1-regulier.md, Fase 4: Planning naar Rooster (te roosteren specificaties); scenario-1.1-regulier-happyflow.md, blok D (maatvoering uit de review van 29 september 2026)",
       "zin": "Planning geeft de leergelegenheden van periode 1 aan het roostersysteem. Zonder de vaste kenmerken heeft roosteren niets aan die uitwisseling: het lokaaltype en de docentexpertise bepalen wat er past, en de groep bindt de studenten die hetzelfde aanbod afnemen en dus niet gelijktijdig geroosterd kunnen worden. De groep mag nog leeg zijn.",
       "relaties": [
         {
@@ -4918,7 +5027,7 @@
           "soort": "Association",
           "van": "Opleidingsprogramma aanbod",
           "naar": "Opleidingsprogramma aanbod verbintenis",
-          "instantie": "Regulier BOL 2026: 24 tot 48 studenten"
+          "instantie": "Regulier BOL 2026: 18 tot 36 studenten"
         }
       ]
     },
@@ -5313,7 +5422,7 @@
       "pijl": "id-979d8078315c47139a73942028c0300d",
       "koppeling": null,
       "objecttype": "Formatief resultaat",
-      "instantie": "Quiz WHAM-vragen: 8 van 10",
+      "instantie": "Quiz WHAM-vragen: 8",
       "bron": "leerroute-1-regulier.md, Fase 5: LMS naar SVS, formatief",
       "relatie": {
         "soort": "Specialization",
@@ -5500,7 +5609,8 @@
           "naar": "Keuzedeelruimte",
           "instantie": "720 SBU, mbo-4"
         }
-      ]
+      ],
+      "vraag": "Hoort de keuzeregelset bij het keuzedeel of bij het keuzedeelaanbod? De plaat hangt Student keuze regelset aan het keuzedeel, terwijl periode en locatie eigenschappen van het aanbod zijn. Ligt de regelset bij het aanbod, dan liggen haar condities op het niveau van de verbintenis."
     },
     {
       "beeld_id": "F6-03",
@@ -5577,9 +5687,9 @@
       "soort": "verandert",
       "wie": "planner",
       "objecttype": "Keuzedeel aanbod",
-      "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A: 1 groep, 24 plaatsen",
+      "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A: 1 groep, 18 plaatsen",
       "toestand": "planbaar",
-      "bron": "leerroute-1-regulier.md, Fase 6: de planner verwerkt definitieve keuzes periodiek naar groepen en capaciteit",
+      "bron": "leerroute-1-regulier.md, Fase 6: de planner verwerkt definitieve keuzes periodiek naar groepen en capaciteit; scenario-1.1-regulier-happyflow.md, blok D (maatvoering uit de review van 29 september 2026)",
       "zin": "De planner verwerkt de definitieve keuzes periodiek naar groepen en capaciteit."
     },
     {
@@ -5593,8 +5703,8 @@
       "pijl": "id-020f091db6ea4763aad7527a98afaf99",
       "koppeling": "OC-P&R",
       "objecttype": "Keuzedeel aanbod",
-      "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A: 1 groep, 24 plaatsen",
-      "bron": "leerroute-1-regulier.md, Fase 6: actualiseert het planbare aanbod in OC en het rooster volgt; Planning naar OC (geactualiseerd planbaar aanbod)",
+      "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A: 1 groep, 18 plaatsen",
+      "bron": "leerroute-1-regulier.md, Fase 6: actualiseert het planbare aanbod in OC en het rooster volgt; Planning naar OC (geactualiseerd planbaar aanbod); scenario-1.1-regulier-happyflow.md, blok D (maatvoering uit de review van 29 september 2026)",
       "zin": "Het geactualiseerde planbare aanbod gaat terug naar de catalogus; het rooster volgt.",
       "relaties": [
         {
@@ -5665,13 +5775,13 @@
     },
     {
       "beeld_id": "F7-01",
-      "beeld": "Afwijkingen verzameld in een planninggroep",
+      "beeld": "Afwijkingen verzameld in een plaatsingsgroep",
       "fase": 7,
       "stap": "Afwijkingen verzamelen in een planninggroep",
       "soort": "verandert",
       "wie": "planner",
       "objecttype": "Plaatsingsgroep",
-      "instantie": "Planninggroep temporiseren B1-K2, periode 5",
+      "instantie": "Plaatsingsgroep temporiseren B1-K2, periode 5",
       "toestand": "bijgestuurd",
       "bron": "review Niels van Duin op PR 252: periode 4 gemist en toetsen niet gehaald; groepen uit de kernregistratie zijn plaatsingsgroepen",
       "aanname": true,
@@ -5692,7 +5802,7 @@
     },
     {
       "beeld_id": "F7-03",
-      "beeld": "Planninggroep van de kernregistratie naar planning",
+      "beeld": "Plaatsingsgroep van de kernregistratie naar planning",
       "fase": 7,
       "stap": "Bestaande verbintenissen annuleren",
       "soort": "stroomt",
@@ -5701,7 +5811,7 @@
       "pijl": "id-97010c562d8841f9b908e72b1d2b3f9a",
       "koppeling": null,
       "objecttype": "Plaatsingsgroep",
-      "instantie": "Planninggroep temporiseren B1-K2, periode 5",
+      "instantie": "Plaatsingsgroep temporiseren B1-K2, periode 5",
       "bron": "leerroute-1-regulier.md, Fase 7: KRS naar Planning (gewijzigde populatie en plangroepen)",
       "relaties": [
         {
@@ -5716,13 +5826,13 @@
     },
     {
       "beeld_id": "F7-04",
-      "beeld": "Nieuw aanbod voor de planninggroep",
+      "beeld": "Nieuw aanbod voor de plaatsingsgroep",
       "fase": 7,
       "stap": "Nieuw aanbod maken en publiceren",
       "soort": "verandert",
       "wie": "planner",
       "objecttype": "Onderwijseenheid aanbod",
-      "instantie": "B1-K2, periode 5, planninggroep temporiseren",
+      "instantie": "B1-K2, periode 5, plaatsingsgroep temporiseren",
       "toestand": "bijgestuurd",
       "bron": "leerroute-1-regulier.md, Fase 7: nieuw onderwijsaanbod op basis van dezelfde opleidingsprogramma-specificatie",
       "zin": "Nieuw aanbod voor de planninggroep op dezelfde specificatie. De planner haalt dat bij de catalogus op, of het nu precies het nominale pad van periode 5 is of een maatwerkprogramma met gelegenheden uit periode 4, 5 en 6. In beide gevallen is de catalogus de bron."
@@ -5745,10 +5855,11 @@
           "soort": "Aggregation",
           "van": "Opleidingsprogramma aanbod",
           "naar": "Onderwijseenheid aanbod",
-          "instantie": "Regulier BOL 2026: 24 tot 48 studenten"
+          "instantie": "Regulier BOL 2026: 18 tot 36 studenten"
         }
       ],
-      "zin": "Planning publiceert het bijgestuurde aanbod naar de catalogus en het rooster volgt."
+      "zin": "Planning publiceert het bijgestuurde aanbod naar de catalogus en het rooster volgt.",
+      "vraag": "Gaat maatwerkaanbod voor een specifieke groep achterblijvers terug naar de catalogus? Het voorbeeld publiceert het bijgestuurde aanbod, zodat de catalogus de bron blijft, en bij een maatwerkprogramma voor een handvol studenten is de waarde daarvan de vraag."
     },
     {
       "beeld_id": "F7-06",
@@ -5761,8 +5872,8 @@
       "pijl": "id-08467fe302794db6b935ff685e83efe0",
       "koppeling": null,
       "objecttype": "Leergelegenheid",
-      "instantie": "Receptverwerking in de praktijk, periode 5",
-      "bron": "leerroute-1-regulier.md, Fase 7: Planning naar Rooster (nieuw rooster)",
+      "instantie": "Receptverwerking in de praktijk, periode 5: lokaaltype leerapotheek, docentexpertise farmacie met baliepraktijk, een groep van 18",
+      "bron": "leerroute-1-regulier.md, Fase 7: Planning naar Rooster (nieuw rooster); de vaste kenmerken naar analogie van F4-07, want roosteren heeft ze hier net zo nodig (review 29 september 2026)",
       "relaties": [
         {
           "soort": "Aggregation",
@@ -5770,7 +5881,9 @@
           "naar": "Leergelegenheid",
           "instantie": "B1-K2, periode 5, bijgestuurd"
         }
-      ]
+      ],
+      "aanname": true,
+      "zin": "Het nieuwe rooster volgt. Ook hier dragen de leergelegenheden hun vaste kenmerken mee, want zonder lokaaltype, docentexpertise en groep heeft roosteren niets aan de uitwisseling. De groep is de nieuwe plaatsingsgroep van de achterlopers."
     },
     {
       "beeld_id": "F8-01",
@@ -5796,7 +5909,7 @@
       "fase": 8,
       "stap": "Kandidatenlijsten samenstellen",
       "soort": "ontstaat",
-      "wie": "examinator",
+      "wie": "SLB'er",
       "objecttype": "Examengelegenheid verbintenis",
       "instantie": "Jochem op de proeve, periode 12",
       "bron": "leerroute-1-regulier.md, Fase 8: toets- en examenplanning stelt kandidatenlijsten samen",
@@ -5805,11 +5918,11 @@
         "van": "Examengelegenheid",
         "naar": "Examengelegenheid verbintenis"
       },
-      "zin": "De kandidatenlijst: Jochems verbintenis op de examengelegenheid."
+      "zin": "De kandidatenlijst: Jochems verbintenis op de examengelegenheid. Bij een individueel examen zoals een proeve stelt de SLB'er die lijst samen; bij een generiek examen doet een medewerker van het examenbureau dat. De examinator heeft in deze stap geen rol."
     },
     {
       "beeld_id": "F8-03",
-      "beeld": "Zitting: het examenresultaat",
+      "beeld": "Afname en beoordeling: de proeve individueel, een centraal examen in een zitting",
       "fase": 8,
       "stap": "Zitting uitvoeren en resultaten doorgeven",
       "soort": "ontstaat",
@@ -5822,7 +5935,47 @@
         "van": "Examengelegenheid verbintenis",
         "naar": "Examengelegenheid resultaat"
       },
-      "zin": "De examinator voert de zitting uit; het resultaat gaat naar het studentvolgsysteem."
+      "zin": "Jochems proeve is een individuele afname die de examinator direct beoordeelt, dus zonder zitting. Een centraal georganiseerd examen loopt anders: daar is een zitting, draagt de surveillant het zittingsrapport met aanwezigheid en onregelmatigheden, en komt het resultaat van een beoordelaar of rechtstreeks uit het afnamesysteem bij gesloten vragen. Zitting en zittingsrapport staan nog niet op de informatiemodelplaat; zij staan hier gestippeld, omdat OKx ze nodig heeft voor de verantwoording richting de kernregistratie."
+    },
+    {
+      "beeld_id": "F8-03",
+      "beeld": "Afname en beoordeling: de proeve individueel, een centraal examen in een zitting",
+      "fase": 8,
+      "stap": "Zitting uitvoeren en resultaten doorgeven",
+      "soort": "ontstaat",
+      "wie": "surveillant",
+      "objecttype": "Zitting",
+      "instantie": "Centraal examen Nederlands 3F, zitting januari 2029",
+      "aanname": true,
+      "bron": "review 29 september 2026 (bevindingen B34, B35 en B37); het objecttype staat niet op de informatiemodelplaat en is hier getoond om de uitbreiding bespreekbaar te maken",
+      "zin": "Jochems proeve is een individuele afname die de examinator direct beoordeelt, dus zonder zitting. Een centraal georganiseerd examen loopt anders: daar is een zitting, draagt de surveillant het zittingsrapport met aanwezigheid en onregelmatigheden, en komt het resultaat van een beoordelaar of rechtstreeks uit het afnamesysteem bij gesloten vragen. Zitting en zittingsrapport staan nog niet op de informatiemodelplaat; zij staan hier gestippeld, omdat OKx ze nodig heeft voor de verantwoording richting de kernregistratie."
+    },
+    {
+      "beeld_id": "F8-03",
+      "beeld": "Afname en beoordeling: de proeve individueel, een centraal examen in een zitting",
+      "fase": 8,
+      "stap": "Zitting uitvoeren en resultaten doorgeven",
+      "soort": "ontstaat",
+      "wie": "surveillant",
+      "objecttype": "Zittingsrapport",
+      "instantie": "Aanwezigheid en onregelmatigheden bij de zitting",
+      "aanname": true,
+      "bron": "review 29 september 2026 (bevindingen B34, B35 en B37); het objecttype staat niet op de informatiemodelplaat en is hier getoond om de uitbreiding bespreekbaar te maken",
+      "zin": "Jochems proeve is een individuele afname die de examinator direct beoordeelt, dus zonder zitting. Een centraal georganiseerd examen loopt anders: daar is een zitting, draagt de surveillant het zittingsrapport met aanwezigheid en onregelmatigheden, en komt het resultaat van een beoordelaar of rechtstreeks uit het afnamesysteem bij gesloten vragen. Zitting en zittingsrapport staan nog niet op de informatiemodelplaat; zij staan hier gestippeld, omdat OKx ze nodig heeft voor de verantwoording richting de kernregistratie."
+    },
+    {
+      "beeld_id": "F8-03",
+      "beeld": "Afname en beoordeling: de proeve individueel, een centraal examen in een zitting",
+      "fase": 8,
+      "stap": "Zitting uitvoeren en resultaten doorgeven",
+      "soort": "ontstaat",
+      "wie": "beoordelaar",
+      "objecttype": "Examengelegenheid resultaat",
+      "instantie": "Centraal examen Nederlands 3F: 7,2",
+      "nieuwe_instantie": true,
+      "aanname": true,
+      "bron": "review 29 september 2026 (bevindingen B34, B35 en B37); het objecttype staat niet op de informatiemodelplaat en is hier getoond om de uitbreiding bespreekbaar te maken",
+      "zin": "Jochems proeve is een individuele afname die de examinator direct beoordeelt, dus zonder zitting. Een centraal georganiseerd examen loopt anders: daar is een zitting, draagt de surveillant het zittingsrapport met aanwezigheid en onregelmatigheden, en komt het resultaat van een beoordelaar of rechtstreeks uit het afnamesysteem bij gesloten vragen. Zitting en zittingsrapport staan nog niet op de informatiemodelplaat; zij staan hier gestippeld, omdat OKx ze nodig heeft voor de verantwoording richting de kernregistratie."
     },
     {
       "beeld_id": "F8-04",
@@ -5859,6 +6012,20 @@
       "stap": "Summatief vaststellen",
       "soort": "ontstaat",
       "wie": "examencommissie",
+      "objecttype": "Examendossier",
+      "instantie": "Jochem, Apothekersassistent 2026: afnames, zittingsrapporten en beoordelingen",
+      "aanname": true,
+      "bron": "review 29 september 2026 (bevindingen B34, B35 en B37); het objecttype staat niet op de informatiemodelplaat en is hier getoond om de uitbreiding bespreekbaar te maken",
+      "zin": "De examencommissie stelt het summatieve resultaat vast, conform de resultaatstructuur uit fase 1. Zij doet dat op het zittingsverslag en het examendossier, want het resultaat zelf zegt niets over onregelmatigheden tijdens de afname. Het examendossier staat nog niet op de plaat en is hier gestippeld getoond: het draagt de verantwoording die met de vaststelling naar de kernregistratie gaat, en die stap behandelt OKE niet.",
+      "vraag": "Examinering kent objecten en rollen die de informatiemodelplaat niet draagt: zitting, zittingsrapport en examendossier, en de rollen surveillant, beoordelaar en examenbureaumedewerker. Dit voorbeeld toont ze gestippeld, want OKx heeft ze nodig voor de verantwoording en uitwisseling naar de kernregistratie, en juist die stap behandelt OKE niet. Horen zij als uitbreiding op de plaat?"
+    },
+    {
+      "beeld_id": "F8-05",
+      "beeld": "Summatief vastgesteld: resultaten en beoordeling",
+      "fase": 8,
+      "stap": "Summatief vaststellen",
+      "soort": "ontstaat",
+      "wie": "examencommissie",
       "objecttype": "Summatief resultaat",
       "instantie": "B1-K1: voldoende, vastgesteld",
       "bron": "leerroute-1-regulier.md, Fase 8: de examencommissie stelt summatief vast",
@@ -5867,7 +6034,7 @@
         "van": "Summatief resultaat",
         "naar": "Examengelegenheid resultaat"
       },
-      "zin": "De examencommissie stelt het summatieve resultaat vast, conform de resultaatstructuur uit fase 1."
+      "zin": "De examencommissie stelt het summatieve resultaat vast, conform de resultaatstructuur uit fase 1. Zij doet dat op het zittingsverslag en het examendossier, want het resultaat zelf zegt niets over onregelmatigheden tijdens de afname. Het examendossier staat nog niet op de plaat en is hier gestippeld getoond: het draagt de verantwoording die met de vaststelling naar de kernregistratie gaat, en die stap behandelt OKE niet."
     },
     {
       "beeld_id": "F8-05",
@@ -5885,7 +6052,8 @@
         "van": "Summatieve beoordeling",
         "naar": "Summatief resultaat",
         "label": "met"
-      }
+      },
+      "zin": "De examencommissie stelt het summatieve resultaat vast, conform de resultaatstructuur uit fase 1. Zij doet dat op het zittingsverslag en het examendossier, want het resultaat zelf zegt niets over onregelmatigheden tijdens de afname. Het examendossier staat nog niet op de plaat en is hier gestippeld getoond: het draagt de verantwoording die met de vaststelling naar de kernregistratie gaat, en die stap behandelt OKE niet."
     },
     {
       "beeld_id": "F8-05",
@@ -5901,7 +6069,8 @@
         "soort": "Association",
         "van": "Opleidingsprogramma aanbod verbintenis",
         "naar": "Opleidingsprogramma resultaat"
-      }
+      },
+      "zin": "De examencommissie stelt het summatieve resultaat vast, conform de resultaatstructuur uit fase 1. Zij doet dat op het zittingsverslag en het examendossier, want het resultaat zelf zegt niets over onregelmatigheden tijdens de afname. Het examendossier staat nog niet op de plaat en is hier gestippeld getoond: het draagt de verantwoording die met de vaststelling naar de kernregistratie gaat, en die stap behandelt OKE niet."
     },
     {
       "beeld_id": "F8-05",
@@ -5917,7 +6086,8 @@
         "soort": "Specialization",
         "van": "Keuzedeel resultaat",
         "naar": "Opleidingsprogramma resultaat"
-      }
+      },
+      "zin": "De examencommissie stelt het summatieve resultaat vast, conform de resultaatstructuur uit fase 1. Zij doet dat op het zittingsverslag en het examendossier, want het resultaat zelf zegt niets over onregelmatigheden tijdens de afname. Het examendossier staat nog niet op de plaat en is hier gestippeld getoond: het draagt de verantwoording die met de vaststelling naar de kernregistratie gaat, en die stap behandelt OKE niet."
     },
     {
       "beeld_id": "F8-06",
@@ -5940,7 +6110,8 @@
           "label": "conform",
           "instantie": "Resultaatstructuur Apothekersassistent"
         }
-      ]
+      ],
+      "zin": "De vastgestelde resultaten gaan naar de kernregistratie. Welk applicatiecomponent de vaststelling doet is niet voorgeschreven: het kan in het afnamesysteem, de examenlogistiek, het volgsysteem of de kernregistratie gebeuren. Een resultaat reist daarom met een status, zodat de ontvanger weet of het is vastgesteld. Dit voorbeeld stelt vast in het volgsysteem en laat de kernregistratie alleen vastgestelde resultaten verwerken. Deze stap, de verantwoording en uitwisseling naar de kernregistratie, behandelt OKE niet; daarin gaat OKx verder. Hoofdplaat v1.7 heeft deze pijl nog niet; versie 1.7a volgt."
     },
     {
       "beeld_id": "F8-06",
@@ -5955,7 +6126,7 @@
       "objecttype": "Opleidingsprogramma resultaat",
       "instantie": "Regulier BOL 2026: alle kerntaken en keuzedelen voldoende",
       "bron": "leerroute-1-regulier.md, Fase 8: SVS en KRS (kwalificering en diplomering)",
-      "zin": "De vaststelling gaat van het studentvolgsysteem naar de kernregistratie; hoofdplaat v1.7 heeft die pijl nog niet (versie 1.7a volgt).",
+      "zin": "De vastgestelde resultaten gaan naar de kernregistratie. Welk applicatiecomponent de vaststelling doet is niet voorgeschreven: het kan in het afnamesysteem, de examenlogistiek, het volgsysteem of de kernregistratie gebeuren. Een resultaat reist daarom met een status, zodat de ontvanger weet of het is vastgesteld. Dit voorbeeld stelt vast in het volgsysteem en laat de kernregistratie alleen vastgestelde resultaten verwerken. Deze stap, de verantwoording en uitwisseling naar de kernregistratie, behandelt OKE niet; daarin gaat OKx verder. Hoofdplaat v1.7 heeft deze pijl nog niet; versie 1.7a volgt.",
       "relaties": [
         {
           "soort": "Association",
@@ -5982,7 +6153,8 @@
         "soort": "Specialization",
         "van": "Keuzedeel resultaat",
         "naar": "Opleidingsprogramma resultaat"
-      }
+      },
+      "zin": "De vastgestelde resultaten gaan naar de kernregistratie. Welk applicatiecomponent de vaststelling doet is niet voorgeschreven: het kan in het afnamesysteem, de examenlogistiek, het volgsysteem of de kernregistratie gebeuren. Een resultaat reist daarom met een status, zodat de ontvanger weet of het is vastgesteld. Dit voorbeeld stelt vast in het volgsysteem en laat de kernregistratie alleen vastgestelde resultaten verwerken. Deze stap, de verantwoording en uitwisseling naar de kernregistratie, behandelt OKE niet; daarin gaat OKx verder. Hoofdplaat v1.7 heeft deze pijl nog niet; versie 1.7a volgt."
     },
     {
       "beeld_id": "F8-07",
@@ -6048,7 +6220,8 @@
         "W5"
       ],
       "issue": 283,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F1-02: de zin noemt de ontwerper als ontwikkelaar van het examenplan en de eerste resultaatstructuur en de examencommissie als vaststeller, en draagt de praktijk dat een vastgesteld examenplan nog wijzigt wanneer het beheer van het studentvolgsysteem de structuur of de zak-slaagregeling niet kan verwerken, met de catalogus als bewaker vooraf. De rol op de regels is onderwijsontwerper."
     },
     {
       "nummer": "B02",
@@ -6065,7 +6238,8 @@
         "W1"
       ],
       "issue": 283,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F1-06: de zin zegt dat de eenheid alleen toetsbare uitkomsten draagt, dat het ontwerp aan de leeronderdelen hangt, en dat leeronderdelen later inhoudelijk tot leergelegenheden worden geclusterd met dezelfde vorm en opbouwende fase, waarbij een leergelegenheid leeronderdelen van verschillende onderwijseenheden behandelt."
     },
     {
       "nummer": "B03",
@@ -6083,7 +6257,8 @@
         "W1"
       ],
       "issue": 283,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F1-08: de zin zegt dat de twee verdiepingen niet gelijk oplopen, een werkproces zegt wat summatief moet blijken en een leeronderdeel is het ontwikkelingsgerichte antwoord. De leeronderdelen dragen didactische namen (Kwaliteitszorg in de eigen praktijk, RI&E van begin tot eind, Handelen bij calamiteiten, Het medicatieoverzicht opstellen, Zorg aan specifieke doelgroepen) in plaats van werkprocescodes. Het beeld heet nu Kiesbaar onderwijsprogrammaonderdeel: keuzedelen en minor en draagt ook de leeruitkomsten van K0037, die er niet stonden, en de minor als pendant uit het hoger onderwijs, gestippeld omdat de plaat het objecttype niet kent. De modelvraag daarachter staat in #319 en wordt daar gewogen, niet hier."
     },
     {
       "nummer": "B04",
@@ -6100,7 +6275,8 @@
         "W4"
       ],
       "issue": 283,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F1-09: elk toets- en examenonderdeel draagt schaal, afnamevorm, duur, toegestane hulpmiddelen en aantal pogingen in de instantie, en de zin zegt waarom: zonder die kenmerken kan een studentvolgsysteem een resultaat niet interpreteren. Zowel een cijferschaal met decimalen als onvoldoende, voldoende of goed komt voor."
     },
     {
       "nummer": "B05",
@@ -6117,7 +6293,8 @@
         "W4"
       ],
       "issue": 283,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F1-12: de keuzedeelruimte gaat mee in de summatieve resultaatstructuur (instantie: weegt mee in de summatieve resultaatstructuur) en de formatieve resultaatstructuur staat erbij als concept, nog zonder weging."
     },
     {
       "nummer": "B06",
@@ -6135,7 +6312,8 @@
         "W1"
       ],
       "issue": 284,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F2-01: de zin zegt dat de gewenste leergelegenheid het kenmerk planbaar draagt en het losse leeronderdeel niet, dat de catalogus leeronderdelen inhoudelijk clustert tot logistieke eenheden met dezelfde vorm en opbouwende fase, en dat planning daarna logistiek clustert door kleine lesgroepen te bundelen of leergelegenheden met verschillende inhoud gelijktijdig te laten plaatsvinden. De leeronderdelen dragen didactische namen."
     },
     {
       "nummer": "B07",
@@ -6154,7 +6332,8 @@
       ],
       "verwijst_naar": "F2-01",
       "issue": 284,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F2-03: het beeld draagt de volledige specificatiestructuur met de planbare waarden uit het onderwijsontwerp, en de leeronderdelen heten Baliegesprekken 101 en Medicatiebewaking in de leerapotheek in plaats van een werkprocescode."
     },
     {
       "nummer": "B08",
@@ -6173,7 +6352,8 @@
       ],
       "verwijst_naar": "F2-01",
       "issue": 284,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F2-04: dezelfde namen als in F2-01 en F2-03, en de zin zet het aanbod in tredes die met de planningshorizon meelopen: intentie in de meerjarenplanning, perioden en capaciteit in de jaarplanning, gelegenheden met groepen en tijdvensters in de periodeplanning."
     },
     {
       "nummer": "B09",
@@ -6191,7 +6371,8 @@
         "W3"
       ],
       "issue": 284,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F2-05: het cohort staat niet meer in het schaarstebeeld. De zin zegt dat haalbaarheid uit de specificatie samen met de prognose op studentaantallen en de toegewezen capaciteit volgt, als functie binnen planning, en draagt de doorrekening van prognose naar groepen, van groep naar standaard jaarplan, en van de som per organisatie-eenheid naar de vraag per lokaaltype en docentexpertise tegenover de beschikbare uren."
     },
     {
       "nummer": "B10",
@@ -6212,7 +6393,8 @@
         "W3"
       ],
       "issue": 284,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F2-07: de zin zegt dat capaciteit met exacte getallen vrijgeven een hoge organisatorische volwassenheid vraagt omdat het een toezegging is, en voor een aantal logistieke scenario's wel voorwaarde. De leergelegenheid heet Baliegesprekken 101 zonder werkprocesverwijzing, de aantallen volgen het cohort van 36 in twee groepen van 18 (#296), en het keuzedeelaanbod staat als eigen gelegenheid los van het opleidingsaanbod, omdat capaciteit op de bovenliggende laag haar waarde verliest naarmate keuzes fijnmaziger worden."
     },
     {
       "nummer": "B11",
@@ -6229,7 +6411,8 @@
         "W6"
       ],
       "issue": 285,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F3-05: de keuzedeelvoorkeur is uit de intake gehaald. De SLB'er voert de intake uit en plaatst Jochem in een plaatsingsgroep; de zin zegt dat een keuzedeelvoorkeur hier nog niet wordt vastgelegd omdat dat bij de intake niet gebruikelijk is, en dat de definitieve keuze pas minimaal een periode voor de keuzedeelruimte valt."
     },
     {
       "nummer": "B12",
@@ -6246,7 +6429,8 @@
         "W6"
       ],
       "issue": 285,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F3-07: de keuzedeelvoorkeur gaat niet meer mee naar de kernregistratie. Het beeld draagt de inschrijving, de persoon, de student, de plaatsingsgroep en de twee verbintenissen, en de zin zegt dat de kernregistratie later de definitieve keuze registreert terwijl het rijpen van die keuze in het studentkeuzesysteem gebeurt."
     },
     {
       "nummer": "B13",
@@ -6263,7 +6447,8 @@
         "W6"
       ],
       "issue": 285,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F3-08: de kernregistratie levert de student, zijn programmaverbintenis, zijn groep en de leeruitkomsten die hij al heeft behaald, zodat het keuzesysteem geen keuzes voorlegt die hij al deed. De zin zegt dat de deadline hier niet vandaan komt, omdat de kernregistratie niet weet wanneer de keuzedeelruimte in de planning van deze student valt."
     },
     {
       "nummer": "B14",
@@ -6281,7 +6466,8 @@
         "W1"
       ],
       "issue": 286,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F4-01: de titel noemt de lessenreeks zonder werkprocesverwijzing, en de zin zegt dat de lesspecificaties bij het leeronderdeel horen, dat zij logistiek in een leergelegenheid landen, en dat die leergelegenheid in de praktijk lesspecificaties uit meer dan een leeronderdeel draagt: de leergelegenheid is de planningscontainer, het leeronderdeel de inhoudelijke eenheid."
     },
     {
       "nummer": "B15",
@@ -6298,7 +6484,8 @@
         "W7"
       ],
       "issue": 286,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F4-02: het beeld draagt de leeronderdeelspecificatie met haar lessen, het formatieve toetsonderdeel en de formatieve resultaatstructuur, en de zin zegt dat het LMS de volledige opleidingsspecificatie-boom plus de formatieve structuur nodig heeft, dat de leergelegenheid als reeks komt met de te verwerken leerspecificaties, en dat de catalogus de lesspecificatie niet dicteert."
     },
     {
       "nummer": "B16",
@@ -6316,7 +6503,8 @@
         "W7"
       ],
       "issue": 286,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F4-03: de toetsmatrijs is uit de stroom gehaald; de zin zegt dat zij bij het toetsinstrument hoort, zelf ontwikkeld of ingekocht, en niet in de catalogus woont. De verdieping scheidt wat bij de les hoort (leervorm, lesplanning, lesleerdoel, werkinstructies) van wat bij de toetsonderdeelspecificatie hoort (toetsvorm, toetsinstrument)."
     },
     {
       "nummer": "B17",
@@ -6334,7 +6522,8 @@
         "W4"
       ],
       "issue": 286,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F4-04: de titel noemt de summatieve resultaatstructuur. Elk onderdeel draagt schaal en afnamevorm, de zin zegt dat formatieve en summatieve onderdelen naast elkaar bestaan en dat een examen ook als toets telt, dat het volgsysteem ze aan een unieke codering herkent en equivalentie ondersteunt (een resultaat dat in meerdere structuren meetelt), en dat er optioneel condities aan een onderdeel hangen die zeggen wanneer een student mag examineren."
     },
     {
       "nummer": "B18",
@@ -6353,7 +6542,8 @@
         "W7"
       ],
       "issue": 286,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F4-05: de titel noemt de summatieve resultaatstructuur en de zin zegt dat kernregistratie en studentvolgsysteem in de praktijk lastig los te zien zijn, dat alle resultaten idealiter in dynamische structuren in het volgsysteem staan die met de keuzes van de student meegroeien, en dat alleen de eindresultaten naar de kernregistratie gaan ter verantwoording van diplomering."
     },
     {
       "nummer": "B19",
@@ -6373,7 +6563,8 @@
         "W3"
       ],
       "issue": 286,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F4-07: de titel noemt geen werkproces, en de leergelegenheid draagt lokaaltype, docentexpertise en groep in haar instantie. De zin zegt dat roosteren zonder die vaste kenmerken niets aan de uitwisseling heeft, dat de groep de studenten bindt die hetzelfde aanbod afnemen en dus niet gelijktijdig geroosterd kunnen worden, en dat die groep nog leeg mag zijn."
     },
     {
       "nummer": "B20",
@@ -6393,7 +6584,8 @@
         "W5"
       ],
       "issue": 286,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F4-08: de titel noemt geen werkproces. De zin zegt dat het eindproduct van roosteren een vastgesteld tijdstip in lesuren van de instelling is en een lokaaltype dat een lokaalnummer is geworden, en dat de docent vooraf bepaald kan zijn of tijdens het roosteren op expertise gekozen."
     },
     {
       "nummer": "B21",
@@ -6411,7 +6603,8 @@
         "W5"
       ],
       "issue": 286,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F4-09: de SLB'er koppelt Jochem alleen aan het opleidingsprogramma-aanbod en aan een plaatsingsgroep. De drie verbintenissen op de geroosterde gelegenheden ontstaan bij de planner, en de zin zegt dat de groep vanuit de kernregistratie naar planning gaat en dat daar alle leergelegenheden onder het programma-aanbod voor de groep worden gepland zonder tussenkomst van de SLB'er, met de mogelijkheid dat de planner om logistieke redenen een eigen lesgroep vormt. Dit beeld toonde eerder alleen de regel van de SLB'er doordat de renderer twee blokken naar hetzelfde bestand schreef; dat is opgelost in #304."
     },
     {
       "nummer": "B22",
@@ -6428,7 +6621,8 @@
         "W7"
       ],
       "issue": 287,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F5-01: de zin zegt dat de registratie van aanwezigheid zelf buiten OKx ligt, en dat wat telt is wat eruit volgt: bij een onderwijseenheid die niet wordt getoetst kan het aandeel bijgewoonde lesgelegenheden een voortgangsresultaat zijn en daarmee een voorwaarde voor een volgende keuze. De scope van Aanwezigheid staat als vraag bij F5-01."
     },
     {
       "nummer": "B23",
@@ -6446,7 +6640,8 @@
         "W7"
       ],
       "issue": 287,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F5-02: de variant waarin de student zelf intekent is vervallen. De instelling plaatst de hele plaatsingsgroep op het toetsmoment, en de zin zegt dat intekenen op een toetsgelegenheid niet via het studentkeuzesysteem loopt omdat OKE daar al functionaliteit voor heeft en toets- en examenlogistiek buiten de scope van OKx valt."
     },
     {
       "nummer": "B24",
@@ -6463,7 +6658,8 @@
         "W4"
       ],
       "issue": 287,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F5-03: het toetsonderdeel draagt vooraf zijn schaal, zodat vaststaat welk resultaat verwacht mag worden en hoe het te lezen is, en het resultaat staat als Quiz WHAM-vragen: 8. Diezelfde instantie stond in F5-04 nog als 8 van 10 en is nu gelijkgetrokken."
     },
     {
       "nummer": "B25",
@@ -6480,7 +6676,8 @@
         "W7"
       ],
       "issue": 287,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F5-04: het resultaat van een toetsgelegenheid hangt aan de onderwijseenheidverbintenis, want daar toont de student aan wat hij kan. De zin zegt dat een toetsgelegenheid binnen een leergelegenheid plaatsvindt en dat het resultaat op de onderwijseenheid telt. Het resterende punt, of dat formatief net zo loopt als summatief, staat als vraag bij F5-04."
     },
     {
       "nummer": "B26",
@@ -6497,7 +6694,8 @@
         "W6"
       ],
       "issue": 288,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F6-01: de zin kiest de route en zegt waarom. Het keuzedeelaanbod ontstaat bij planning en gaat via de catalogus naar het studentkeuzesysteem, omdat de catalogus de bron is die specificatie en aanbod naast elkaar houdt; hoofdplaat v1.7 kent beide stromen."
     },
     {
       "nummer": "B27",
@@ -6514,7 +6712,8 @@
         "W6"
       ],
       "issue": 288,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F6-02: de vraag staat in de tabel en komt in het document terecht. De plaat hangt de keuzeregelset aan het keuzedeel, terwijl periode en locatie eigenschappen van het aanbod zijn; ligt de regelset bij het aanbod, dan liggen haar condities op verbintenisniveau. Het voorbeeld volgt de plaat en verzint geen relatie."
     },
     {
       "nummer": "B28",
@@ -6531,7 +6730,8 @@
         "W8"
       ],
       "issue": 289,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F7-01: de aanleiding is nu dat Jochem een groot deel van periode 4 niet heeft kunnen bijwonen en de bijbehorende toetsen niet voldoende heeft afgerond. De gemiste bpv-weken zijn vervallen."
     },
     {
       "nummer": "B29",
@@ -6548,7 +6748,8 @@
         "W8"
       ],
       "issue": 289,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F7-02: de titel noemt het niveau, Onderwijseenheid-aanbodverbintenis geannuleerd, en de zin zegt dat annuleren per niveau een andere impact heeft: een programmaverbintenis raakt de hele opleiding en een leergelegenheidverbintenis alleen dat ene onderdeel."
     },
     {
       "nummer": "B30",
@@ -6565,7 +6766,8 @@
         "W8"
       ],
       "issue": 289,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F7-03: de zin zegt dat groepen die in de kernregistratie ontstaan per definitie plaatsingsgroepen zijn, en de achterlopers komen in een nieuwe plaatsingsgroep. De naam volgt dat nu ook: de instantie en de titels van F7-01, F7-03 en F7-04 spreken van een plaatsingsgroep in plaats van een planninggroep."
     },
     {
       "nummer": "B31",
@@ -6582,7 +6784,8 @@
         "W8"
       ],
       "issue": 289,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F7-04: de zin zegt dat de planner het nieuwe aanbod bij de catalogus ophaalt, of het nu precies het nominale pad van periode 5 is of een maatwerkprogramma met gelegenheden uit periode 4, 5 en 6, en dat de catalogus in beide gevallen de bron is."
     },
     {
       "nummer": "B32",
@@ -6599,7 +6802,8 @@
         "W8"
       ],
       "issue": 289,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F7-05: de vraag of maatwerkaanbod voor een groep achterblijvers naar de catalogus terug hoort staat nu als vraag in de tabel, dus hij komt in het document. Het voorbeeld publiceert het bijgestuurde aanbod, zodat de catalogus de bron blijft."
     },
     {
       "nummer": "B33",
@@ -6617,7 +6821,8 @@
       "werkpakketten": [],
       "verwijst_naar": "F4-07",
       "issue": 289,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F7-06: dezelfde behandeling als F4-07. De leergelegenheid draagt lokaaltype, docentexpertise en groep, en de zin zegt dat roosteren zonder die kenmerken niets aan de uitwisseling heeft. De kenmerken zijn een aanname naar analogie van F4-07; de groep is de nieuwe plaatsingsgroep van de achterlopers."
     },
     {
       "nummer": "B34",
@@ -6632,7 +6837,8 @@
       ],
       "werkpakketten": [],
       "issue": 290,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F8-02: de rol is nu de SLB'er, want Jochems examen is een proeve en dus individueel. De zin zegt dat bij een generiek examen een medewerker van het examenbureau de kandidatenlijst samenstelt en dat de examinator in deze stap geen rol heeft. Die rol staat nu in de rollenlijst, met de review als bron."
     },
     {
       "nummer": "B35",
@@ -6647,7 +6853,8 @@
       ],
       "werkpakketten": [],
       "issue": 290,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F8-03: het beeld heet nu Afname en beoordeling: de proeve individueel, een centraal examen in een zitting, en toont beide vormen. Jochems proeve wordt direct door de examinator beoordeeld, en naast hem staan Zitting en Zittingsrapport bij de surveillant en een examengelegenheidresultaat bij de beoordelaar. Die drie objecttypen staan niet op de informatiemodelplaat en zijn daarom gestippeld getoond, zodat de uitbreiding bespreekbaar wordt in plaats van weggelaten. De rollen surveillant en beoordelaar staan nu in de rollenlijst, met de review als bron."
     },
     {
       "nummer": "B36",
@@ -6662,7 +6869,8 @@
       ],
       "werkpakketten": [],
       "issue": 290,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F8-03 en F8-04: de zin zegt dat het resultaat voldoende is omdat het examenonderdeel een schaal van onvoldoende, voldoende of goed draagt. Die schaal staat sinds de verwerking van B04 en B17 op de examenonderdeelspecificatie in F1-09 en F4-04."
     },
     {
       "nummer": "B37",
@@ -6677,7 +6885,8 @@
       ],
       "werkpakketten": [],
       "issue": 290,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F8-05: het examendossier staat als objecttype in het beeld, gestippeld omdat de plaat het niet kent, en de zin zegt dat de examencommissie vaststelt op het zittingsverslag en het examendossier omdat het resultaat zelf niets zegt over onregelmatigheden. Het dossier draagt de verantwoording die met de vaststelling naar de kernregistratie gaat, en die stap behandelt OKE niet."
     },
     {
       "nummer": "B38",
@@ -6693,7 +6902,8 @@
       ],
       "werkpakketten": [],
       "issue": 290,
-      "status": "open"
+      "status": "doorgevoerd",
+      "verwerking": "F8-06: de zin zegt dat niet is voorgeschreven welk applicatiecomponent de vaststelling doet, dat een resultaat daarom met een status reist, en dat dit voorbeeld vaststelt in het volgsysteem en de kernregistratie alleen vastgestelde resultaten laat verwerken. Daarbij staat nu expliciet dat de verantwoording en uitwisseling naar de kernregistratie buiten OKE valt en dat OKx daarin verder gaat."
     }
   ]
 }

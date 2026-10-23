@@ -45,6 +45,10 @@ KOLOMVOLGORDE = ["Kwalificatiekader", "Onderwijskundigkader instelling", "Onderw
 KOLOMNAAM = {None: "Buiten de kolommen (persoon, groep, cohort, verzoek)",
              "Onderwijskundigkader instelling": "Onderwijskundig kader instelling"}
 STUBZIN = "Regels volgen na 30 september."
+# Zeven vragen is wat een kerngroepsessie in een ronde kan wegen; dat getal komt uit de agenda van
+# 30 september 2026. Wat daarna komt staat op een volgende pagina, want een vraag die iemand bewust
+# heeft opgeschreven mag niet uit het product verdwijnen (#294).
+VRAGEN_PER_PAGINA = 7
 PUBLIC = "https://github.com/Npuls-OKx/Public/blob/dev/"
 BRONNEN = {
     "leerroute-1-regulier.md": PUBLIC + "Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md",
@@ -112,6 +116,35 @@ Vier termen, overal gelijk:
 | Instantie | De waarde voor Jochem: een leesbare naam |
 | Applicatiedienst | De ArchiMate-applicatiedienst op de hoofdplaat en in MORA; alleen context |
 | Koppeling | Een pijl op hoofdplaat v1.7 tussen twee componenten; met de koppeling-ID uit Public waar die er is |
+
+Vier lagen waarin hetzelfde onderwijs steeds concreter wordt. Dit onderscheid draagt het hele document, en
+elk beeld staat in een van deze lagen:
+
+| Laag | Wat het is | In dit voorbeeld |
+|---|---|---|
+| Specificatie | Wat de instelling aanbiedt, los van tijd, plaats en student: de opleiding zoals ontworpen | `Apothekersassistent, versie 2026.1` |
+| Aanbod | Diezelfde specificatie in de tijd gezet, met een plaats en een capaciteit | `Apothekersassistent 2026` met perioden en plaatsen |
+| Verbintenis | De band tussen een student en een aanbod: waarop hij staat ingeschreven | `Jochem op Regulier BOL 2026` |
+| Resultaat | Wat de student op die verbintenis heeft laten zien | het cijfer op de praktijktoets baliegesprek |
+
+Een specificatie bestaat dus zonder dat er iemand voor kiest, een aanbod zonder dat er iemand op zit, en een
+verbintenis zonder dat er al een resultaat is. Dezelfde naam komt in meer lagen voor: `Opleidingaanbod` is het
+aanbod, `Opleiding aanbod verbintenis` de inschrijving daarop.
+
+Een specialisatie op de plaat (open pijlpunt) zegt dat het ene objecttype de structuur van het andere overneemt
+en er eigen eigenschappen bij krijgt. Het keuzedeel is daarvan het duidelijkste voorbeeld, en het loopt door
+alle vier de lagen heen:
+
+| Laag | Algemeen | Specialisatie |
+|---|---|---|
+| Specificatie | `Opleidingsprogramma specificatie` | `Keuzedeel`, `Keuzedeelruimte` |
+| Aanbod | `Opleidingsprogramma aanbod` | `Keuzedeel aanbod` |
+| Verbintenis | `Opleidingsprogramma aanbod verbintenis` | `Keuzedeel aanbod verbintenis` |
+| Resultaat | `Opleidingsprogramma resultaat` | `Keuzedeel resultaat` |
+
+Een keuzedeel is daarmee in opbouw bijna hetzelfde als een programma: het erft die opbouw en vult hem aan. Wat
+het eigen heeft komt in het logisch gegevensmodel erbij. Het algemene begrip staat dus al op de plaat, en het
+keuzedeel is de invulling die het mbo eraan geeft.
 
 Twee soorten regels, in de vormtaal van de plaat:
 
@@ -200,16 +233,49 @@ def familietabellen(regels, model, begrippen):
     return uit
 
 
-def vragenpagina(regels):
-    vragen = []
+def alle_vragen(regels):
+    """Elke vraag uit de regeltabel, in de volgorde van de tabel: eerst de vragen die een regel oproept,
+    daarna die van een geparkeerde bevinding uit het register. Een vraag die twee keer staat telt een keer,
+    en houdt de plek van haar eerste verschijning."""
+    vragen, gezien = [], set()
     for r in regels["regels"]:
-        if r.get("vraag") and r["vraag"] not in [v for v, _ in vragen]:
-            vragen.append((r["vraag"], f"{r.get('beeld_id', '')}, `{norm(r['objecttype'])}`"))
+        v = r.get("vraag")
+        if v and v not in gezien:
+            gezien.add(v)
+            vragen.append((v, f"{r.get('beeld_id', '')}, `{norm(r['objecttype'])}`"))
+    for b in regels.get("bevindingen") or []:
+        v = b.get("vraag")
+        if v and v not in gezien:
+            gezien.add(v)
+            vragen.append((v, f"{b.get('beeld_id', '')}, bevinding {b.get('nummer', '')}"))
+    return vragen
+
+
+def vragenpagina(regels):
+    """Alle vragen in het document, in pagina's van VRAGEN_PER_PAGINA.
+
+    Eerder stopte deze pagina na zeven en ging de rest als waarschuwing naar stderr. Wie de generator in
+    een pijplijn draait ziet die waarschuwing niet, en dan is een vraag die iemand bewust heeft
+    opgeschreven weg uit het product. De nummering loopt door over de pagina's, zodat een verwijzing naar
+    "vraag 9" blijft kloppen.
+    """
+    vragen = alle_vragen(regels)
     uit = "## Vragen aan de kerngroep\n\nDe vragen die de regels zelf oproepen, met de regel waar de vraag zichtbaar wordt. Feedback, geen commitment.\n\n"
-    for i, (v, plek) in enumerate(vragen[:7], 1):
-        uit += f"{i}. {v} ({plek})\n"
-    for v, plek in vragen[7:]:
-        print(f"waarschuwing: vraag buiten de zeven, niet in het document: {plek}", file=sys.stderr)
+    if not vragen:
+        return uit + "Er staan nu geen vragen in de regeltabel.\n\n"
+    pagina = 0
+    for begin in range(0, len(vragen), VRAGEN_PER_PAGINA):
+        pagina += 1
+        if pagina > 1:
+            uit += f"\n### Vragen, vervolg ({pagina} van {(len(vragen) - 1) // VRAGEN_PER_PAGINA + 1})\n\n"
+        for i, (v, plek) in enumerate(vragen[begin:begin + VRAGEN_PER_PAGINA], begin + 1):
+            uit += f"{i}. {v} ({plek})\n"
+    rest = len(vragen) - VRAGEN_PER_PAGINA
+    if rest > 0:
+        staart = ("De overige vraag staat hierboven en wacht op een volgende ronde."
+                  if rest == 1 else f"De overige {rest} staan hierboven en wachten op een volgende ronde.")
+        uit += (f"\nDe eerste {VRAGEN_PER_PAGINA} vragen gaan als ronde mee naar de kerngroep; dat is wat een "
+                f"sessie kan wegen. {staart}\n")
     uit += "\nVragen over patronen, schema's, de toetslijst en endpoints horen bij de koppelvlakspecificatie en staan hier niet.\n"
     return uit + "\n"
 
@@ -346,8 +412,13 @@ def main(argv=None):
     args.uit.write_text(tekst, encoding="utf-8")
     print(f"document geschreven: {args.uit}")
     blad = args.invulblad or args.uit.parent / INVULBLAD.name
-    blad.write_text(invulblad(lees(args.regels, "regeltabel")), encoding="utf-8")
+    bron = lees(args.regels, "regeltabel")
+    blad.write_text(invulblad(bron), encoding="utf-8")
     print(f"invulblad geschreven: {blad}")
+    # de aantallen aan het eind, zodat verlies opvalt zonder dat iemand het bestand hoeft te vergelijken
+    beelden = len({r.get("beeld_id") for r in bron.get("regels", []) if r.get("beeld_id")})
+    vragen = len(alle_vragen(bron))
+    print(f"verwerkt: {beelden} beelden, {len(bron.get('regels', []))} regels, {vragen} vragen")
     return 0
 
 
