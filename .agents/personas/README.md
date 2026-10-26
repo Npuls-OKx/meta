@@ -51,4 +51,5 @@ Beiden zijn geen specialist. Zij willen keuzes voorgelegd krijgen als korte afwe
 |---|---|---|
 | [Informatiemanager van een instelling](informatiemanager-instelling.md) | Bepaalt impact op de eigen instelling | Besluiten, uitgangspunten, releases |
 | [Enterprise architect van een instelling](enterprise-architect-instelling.md) | Toetst doelarchitectuur en semantische samenhang | Besluiten, principes, afbakening, componentindeling |
+| [Onderwijsplanner](onderwijsplanner.md) | Vertaalt specificatie naar concreet aanbod en rooster; sleutel voor de acceptatie van de koppelvlakken | Kaderscenario's, voorbeelduitwerking (plannen, roosteren, keuze), eigenschappen van specificaties |
 | [Softwarearchitect bij een leverancier](softwarearchitect-leverancier.md) | Bouwt de koppeling in een product | Koppelvlakspecificaties, interactiepatronen, schema's |

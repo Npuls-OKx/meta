@@ -44,6 +44,13 @@ Controles (R1 en R2 uit het featureplan):
     beeld, en twee rollen in een beeld leveren twee blokken met dezelfde bestandsnaam op, waarvan het
     tweede het eerste overschrijft.
 
+Een planningsvorm naast de basis (voorbeeld-lr1-regels-<vorm>.json, #401) krijgt controle 1 tot en met 5,
+8, 9, 11 en 13 op de tabel die ontstaat als zij met de kop van de basis wordt samengevoegd, en controle 10
+tegen haar eigen schema. De dekking (6 en 12) geldt alleen voor de basis, want een variant is een delta.
+Daarbij komt: de vorm in het bestand is die van de bestandsnaam, het beeld-ID draagt de letter van de vorm,
+elke fase staat in de basis, en elk beeld onder voorafgegaan_door of vervangt staat erboven: in de basis,
+in een variant die eerder in de leesvolgorde komt, of eerder in dezelfde variant.
+
 Bevindingen en signaleringen staan apart in de uitvoer; de exitcode volgt alleen de bevindingen. Een
 signalering wijst op iets dat aandacht vraagt zonder de uitkomst af te keuren: een objecttype dat de plaat
 nog niet draagt, een stroom zonder pijl op de hoofdplaat, een uitwisseling zonder beeld in een fase die
@@ -53,10 +60,15 @@ Exitcode 0: geen bevindingen; 1: bevindingen; 2: invoer niet leesbaar.
 """
 
 import argparse
+import importlib.util
 import json
 import pathlib
 import re
 import sys
+
+_spec = importlib.util.spec_from_file_location("voorbeeldvarianten", pathlib.Path(__file__).resolve().parent / "voorbeeldvarianten.py")
+varianten = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(varianten)
 
 REGELS = pathlib.Path("architecture/model/informatiemodel/voorbeeld-lr1-regels.json")
 MODEL = pathlib.Path("architecture/model/informatiemodel/informatiemodel.json")
@@ -64,6 +76,7 @@ STROMEN = pathlib.Path("architecture/model/informatiemodel/stromen.json")
 CONCEPTPLAAT = pathlib.Path("architecture/model/informatiemodel/conceptplaat-onderwijsontwerp.json")
 COMPONENTEN = pathlib.Path("architecture/model/informatiemodel/componenten.json")
 SCHEMA = pathlib.Path("architecture/model/informatiemodel/voorbeeld-lr1-regels.schema.json")
+VARIANTSCHEMA = pathlib.Path("architecture/model/informatiemodel/voorbeeld-lr1-variant.schema.json")
 PLATEN = {"informatiemodel", "onderwijsontwerp"}
 GEEN_PIJL = "geen pijl op de hoofdplaat"
 NESTING = {"Aggregation", "Composition"}
@@ -93,14 +106,19 @@ def plek_van(r, i):
     return f"regel {i + 1} ({beeld}: {r.get('objecttype')})"
 
 
-def _beeld_id(r, plek, beeld, nieuw, ids):
-    """Het ID hoort een-op-een bij de titel, heeft de vorm F<fase>-<volgnummer> en loopt op binnen de fase."""
+def _beeld_id(r, plek, beeld, nieuw, ids, vorm=None):
+    """Het ID hoort een-op-een bij de titel, heeft de vorm F<fase>-<volgnummer> en loopt op binnen de fase.
+    In een variant staat de letter van de vorm voor het volgnummer: F6-C01 voor capaciteitsgestuurd."""
     uit, bid, fase = [], r.get("beeld_id"), r.get("fase")
     titel_van_id, id_van_titel, hoogste = ids
     if not bid:
         return uit
-    if not re.fullmatch(r"F[1-8]-\d{2}", bid):
-        return [f"{plek}: beeld-ID {bid!r} heeft niet de vorm F<fase>-<volgnummer>, bijvoorbeeld F1-02"]
+    letter = varianten.VORMEN.get(vorm, "")
+    if vorm and re.fullmatch(r"F[1-8]-[A-Z]\d{2}", bid) and bid[3] != letter:
+        return [f"{plek}: beeld-ID {bid!r} draagt de letter {bid[3]}, maar de vorm {vorm} heeft de letter {letter}"]
+    if not re.fullmatch(rf"F[1-8]-{letter}\d{{2}}", bid):
+        voorbeeld = f"F1-{letter}02" if letter else "F1-02"
+        return [f"{plek}: beeld-ID {bid!r} heeft niet de vorm F<fase>-{letter}<volgnummer>, bijvoorbeeld {voorbeeld}"]
     if bid[1] != str(fase):
         uit.append(f"{plek}: beeld-ID {bid!r} noemt een andere fase dan {fase}")
     if titel_van_id.setdefault(bid, beeld) != beeld:
@@ -108,7 +126,7 @@ def _beeld_id(r, plek, beeld, nieuw, ids):
     if id_van_titel.setdefault(beeld, bid) != bid:
         uit.append(f"{plek}: beeld {beeld!r} draagt twee ID's ({id_van_titel[beeld]} en {bid})")
     if nieuw:
-        nr = int(bid.split("-")[1])
+        nr = int(bid[-2:])
         if nr <= hoogste.get(fase, 0):
             uit.append(f"{plek}: beeld-ID {bid!r} loopt niet op binnen fase {fase}")
         hoogste[fase] = max(nr, hoogste.get(fase, 0))
@@ -145,21 +163,29 @@ def _schemamelding(fout):
     return fout.message
 
 
-def schemavalidatie(regels, pad=SCHEMA):
+def schemavalidatie(regels, pad=SCHEMA, verwezen=()):
     """De tabel tegen haar eigen JSON Schema; geeft (bevindingen, waarschuwingen).
 
     Het schema staat naast de tabel en is de woordenlijst van de velden, met additionalProperties
     op false. Zonder het pakket jsonschema slaat deze stap over, zoals scripts/json-tree.py dat
-    doet, en meldt dat als waarschuwing; de eigen controles blijven dan het net.
+    doet, en meldt dat als waarschuwing; de eigen controles blijven dan het net. Verwijst het schema
+    naar een ander schema (het variantschema naar de regeldefinitie van de basis), dan staat dat in
+    verwezen.
     """
-    if not pathlib.Path(pad).exists():
-        return [], [f"schema ontbreekt: {pad}; velden niet tegen het schema gecontroleerd"]
+    for p in (pad, *verwezen):
+        if not pathlib.Path(p).exists():
+            return [], [f"schema ontbreekt: {p}; velden niet tegen het schema gecontroleerd"]
     try:
         import jsonschema
     except ImportError:
         return [], ["schemavalidatie overgeslagen, pakket jsonschema ontbreekt "
                     "(pip install -r .devcontainer/requirements.txt)"]
-    validator = jsonschema.Draft202012Validator(lees_json(pad, "schema"))
+    register = None
+    if verwezen:
+        from referencing import Registry, Resource
+        schemas = [lees_json(p, "schema") for p in verwezen]
+        register = Registry().with_resources((s["$id"], Resource.from_contents(s)) for s in schemas)
+    validator = jsonschema.Draft202012Validator(lees_json(pad, "schema"), **({"registry": register} if register else {}))
     fouten = sorted(validator.iter_errors(regels), key=lambda f: [str(x) for x in f.absolute_path])
     return [f"{_schemaplek(regels, f)}: {_schemamelding(f)}" for f in fouten], []
 
@@ -290,7 +316,7 @@ def schema(regels):
                 uit.append(f"{plek}: beeld {beeld!r} ligt ook in een andere fase, stap, soort of verdieping")
             elif beeld in beelden and vorige != beeld:
                 uit.append(f"{plek}: beeld {beeld!r} is niet aaneengesloten; regels van een beeld staan bij elkaar")
-            uit += _beeld_id(r, plek, beeld, beeld not in beelden, ids)
+            uit += _beeld_id(r, plek, beeld, beeld not in beelden, ids, regels.get("vorm"))
             beelden.setdefault(beeld, sleutel)
         vorige = beeld
         soort = r.get("soort")
@@ -345,9 +371,16 @@ def _route_via_leeruitkomst(r, plek, typen):
 
 
 def controleer(regels, model, stromen=None, fasen_filter=None, model_commit=None, conceptplaat=None,
-               componenten=None, schema_pad=SCHEMA):
-    """Alle controles; geeft (bevindingen, waarschuwingen, ontbrekend per fase)."""
-    schemafouten, waarschuwingen = schemavalidatie(regels, schema_pad)
+               componenten=None, schema_pad=SCHEMA, eerder=()):
+    """Alle controles; geeft (bevindingen, waarschuwingen, ontbrekend per fase).
+
+    Een samengevoegde variant (veld vorm) krijgt de controles op namen, relaties, rollen, stappen,
+    pijlen, beelden en koppelingen, maar niet de dekking (6 en 12): die zeggen iets over een volledige
+    reis, en een variant is een delta. Het JSON Schema van de variant toetst controleer_variant op het
+    bestand zelf; schema_pad is dan None. In eerder staan de objecttypen die al in de basis ontstonden,
+    zodat een variant daar een nieuwe_instantie van kan maken."""
+    variant = bool(regels.get("vorm"))
+    schemafouten, waarschuwingen = schemavalidatie(regels, schema_pad) if schema_pad else ([], [])
     bevindingen = schemafouten + schema(regels) + register(regels)
     waarschuwingen += rol_per_beeld(regels)
     if bevindingen and any(b.startswith("kop:") for b in bevindingen):
@@ -442,11 +475,13 @@ def controleer(regels, model, stromen=None, fasen_filter=None, model_commit=None
             # een genest kind van hetzelfde objecttype (zelfaggregatie op de plaat, bijvoorbeeld een
             # leeruitkomst onder een leeruitkomst) in dezelfde stap telt niet als tweede ontstaan
             zelf = isinstance(rel, dict) and rel.get("nesting") and norm(rel.get("van", "")) == naam == norm(rel.get("naar", ""))
-            if r.get("nieuwe_instantie") and naam not in ontstaan:
+            if r.get("nieuwe_instantie") and naam not in ontstaan and naam not in eerder:
                 bevindingen.append(f"{plek}: nieuwe_instantie, maar {naam!r} is nog niet eerder ontstaan")
             if not zelf and not r.get("nieuwe_instantie"):
                 ontstaan.setdefault(naam, []).append((r.get("fase"), plek))
 
+    if variant:
+        return bevindingen, waarschuwingen, {}
     for naam, plekken in ontstaan.items():
         if len(plekken) > 1:
             bevindingen.append(f"objecttype {naam!r} heeft {len(plekken)} ontstaat-regels; een latere verschijning is een verandert-regel")
@@ -482,6 +517,32 @@ def controleer(regels, model, stromen=None, fasen_filter=None, model_commit=None
     return bevindingen, waarschuwingen, ontbrekend
 
 
+def controleer_variant(v, basis, geladen, model, stromen=None, conceptplaat=None, componenten=None,
+                       schema_pad=SCHEMA, variantschema=VARIANTSCHEMA):
+    """Een variantbestand: het eigen schema, de vorm uit de bestandsnaam, de fasen tegen de basis, de
+    verwijzingen naar eerdere beelden, en daarna de controles van de basis op de samengevoegde tabel.
+    Een verwijzing (voorafgegaan_door, vervangt) wijst naar de basis, naar een variant die eerder in de
+    leesvolgorde staat, of naar een eigen beeld in een eerdere fase. Elke melding begint met de
+    bestandsnaam. Geeft (bevindingen, waarschuwingen)."""
+    naam = pathlib.Path(v["pad"]).name
+    bevindingen, waarschuwingen = schemavalidatie(v["bron"], variantschema, (schema_pad,))
+    if v["bron"].get("vorm") != v["vorm"]:
+        bevindingen.append(f"kop: vorm {v['bron'].get('vorm')!r} wijkt af van de bestandsnaam ({v['vorm']})")
+    basisfasen = {f.get("nummer") for f in basis.get("fasen", [])}
+    for f in v["tabel"]["fasen"]:
+        if f["nummer"] not in basisfasen:
+            bevindingen.append(f"fase {f['nummer']}: staat niet in de basis, dus het document toont dit deel nergens")
+        eerder = varianten.eerdere_beelden(basis, geladen, v, f["nummer"])
+        for veld, wat in (("voorafgegaan_door", "voorafgegaan door"), ("vervangt", "vervangt")):
+            for bid in f.get(veld, []):
+                if bid not in eerder:
+                    bevindingen.append(f"fase {f['nummer']}: {wat} {bid!r}, maar dat beeld staat niet in de basis, "
+                                       f"in een eerdere variant of eerder in deze variant")
+    b, w, _ = controleer(v["tabel"], model, stromen, conceptplaat=conceptplaat, componenten=componenten,
+                         schema_pad=None, eerder=varianten.ontstaan_in(basis))
+    return [f"{naam}: {x}" for x in bevindingen + b], [f"{naam}: {x}" for x in waarschuwingen + w]
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     parser.add_argument("--regels", type=pathlib.Path, default=REGELS)
@@ -490,6 +551,7 @@ def main(argv=None):
     parser.add_argument("--conceptplaat", type=pathlib.Path, default=CONCEPTPLAAT, help="export van de view Informatiemodel Onderwijsontwerp")
     parser.add_argument("--componenten", type=pathlib.Path, default=COMPONENTEN)
     parser.add_argument("--schema", type=pathlib.Path, default=SCHEMA, help="JSON Schema van de regeltabel")
+    parser.add_argument("--variantschema", type=pathlib.Path, default=VARIANTSCHEMA, help="JSON Schema van een variant naast de regeltabel")
     parser.add_argument("--fasen", help="alleen de dekking van deze fasen melden, bijvoorbeeld 2,3,4")
     parser.add_argument("--model-commit", help="commit van informatiemodel.json om tegen de kop te toetsen")
     args = parser.parse_args(argv)
@@ -509,6 +571,14 @@ def main(argv=None):
     fasen_filter = {int(x) for x in args.fasen.split(",")} if args.fasen else None
     bevindingen, waarschuwingen, _ = controleer(regels, model, stromen, fasen_filter, args.model_commit,
                                                conceptplaat, componenten, args.schema)
+    geladen, onbekend = varianten.laad(args.regels, regels)
+    for pad in onbekend:
+        bevindingen.append(f"{pad.name}: geen bekende planningsvorm; kies uit {', '.join(varianten.VORMEN)}")
+    for v in geladen:
+        b, w = controleer_variant(v, regels, geladen, model, stromen, conceptplaat, componenten,
+                                  args.schema, args.variantschema)
+        bevindingen += b
+        waarschuwingen += w
     overzicht = koppelingoverzicht(regels)
     if overzicht:
         print("Koppelingen")
@@ -526,6 +596,8 @@ def main(argv=None):
     register_open = sum(1 for b in regels.get("bevindingen") or [] if b.get("status") == "open")
     staart = f", {register_open} openstaande bevindingen in het register" if register_open else ""
     print(f"{n} regels gecontroleerd, {len(bevindingen)} bevindingen, {len(waarschuwingen)} signaleringen{staart}")
+    for v in geladen:
+        print(f"waarvan variant {v['vorm']}: {len(v['tabel']['regels'])} regels in {v['pad'].name}")
     return 1 if bevindingen else 0
 
 

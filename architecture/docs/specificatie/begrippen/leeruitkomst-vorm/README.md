@@ -31,7 +31,7 @@ Het voorbeeld uit de handleiding, met de scopeaanduiding erboven:
 
 ![Slide Komen tot leeruitkomsten, met hetzelfde voorbeeld uit de handleiding](img/firda-komen-tot-leeruitkomsten.jpg)
 
-*De slide "Komen tot leeruitkomsten" van Firda geeft hetzelfde voorbeeld letterlijk weer. Opgenomen met bronvermelding; de onderliggende bron is de handleiding van het NCP NLQF, in opdracht van het ministerie van OCW.*
+*De slide "Komen tot leeruitkomsten" van Firda geeft hetzelfde voorbeeld letterlijk weer, gepresenteerd op de bijeenkomst leeruitkomsten van Leren Zonder Drempels op dinsdag 6 oktober 2026. Publiek materiaal, opgenomen met bronvermelding; de onderliggende bron is de handleiding van het NCP NLQF, in opdracht van het ministerie van OCW.*
 
 ## Een taxonomie per niveau
 
@@ -94,7 +94,7 @@ Dat sluit aan op de handleiding, die bij de standaard vraagt welke richtlijnen e
 
 ## De controle uit de handleiding
 
-De handleiding sluit af met tien controlevragen. Vier daarvan zijn machinaal te toetsen en vormen de basis voor een controlescript:
+De handleiding sluit af met tien controlevragen. Vier daarvan zijn machinaal te toetsen en staan in [`scripts/keur-leeruitkomst.py`](../../../../../scripts/keur-leeruitkomst.py), met de skill [`okx-leeruitkomst-formuleren`](../../../../../.agents/skills/okx-leeruitkomst-formuleren/SKILL.md) eromheen:
 
 1. Omvat de leeruitkomst alle vijf de plekken uit het Tuning-model.
 2. Draagt de leeruitkomst niet meer dan een actief werkwoord.
@@ -109,4 +109,4 @@ De overige zes vragen een menselijk oordeel: of het beroepsveld is meegenomen, o
 |---|---|
 | [Handleiding Formuleren leeruitkomsten, NCP NLQF, december 2020](https://nlqf.nl/wp-content/uploads/2025/06/Handleiding_Formuleren_leeruitkomsten_2020_NCP_NLQF_28122020.pdf) | Het Tuning-model als voorgeschreven vorm, de taxonomiekeuze per niveau, en de checklist |
 | [Bijlage Taxonomie van Romiszowski](https://maken.wikiwijs.nl/bestanden/1070846/Bijlage-Taxonomie-van-Romiszowski.pdf) | De twaalf codes met hun betekenis en voorbeelden |
-| Firda, slide "Komen tot leeruitkomsten" | De waarneming dat instellingen deze vorm in de praktijk hanteren |
+| Firda, slide "Komen tot leeruitkomsten", bijeenkomst leeruitkomsten Leren Zonder Drempels, 6 oktober 2026 | De waarneming dat instellingen deze vorm in de praktijk hanteren |
