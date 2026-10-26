@@ -71,7 +71,7 @@
       "verwacht": [
         "Verzoek tot Aanbod / Intekening op specificatie",
         "Opleidingsaanbod van Instelling",
-        "Opleidingaanbod",
+        "Opleiding aanbod",
         "Opleidingsprogramma aanbod",
         "Onderwijseenheid aanbod",
         "Leergelegenheid",
@@ -430,7 +430,7 @@
         "Summatieve beoordeling",
         "Opleidingsprogramma resultaat",
         "Keuzedeel resultaat",
-        "Opleiding aanbod resultaat",
+        "Opleiding resultaat",
         "Waarde document (diploma / certificaat)"
       ],
       "uitwisselingen": [
@@ -573,6 +573,14 @@
     {
       "objecttype": "Inzicht",
       "motivering": "Zie Competenties / Skills; de plaat kent inzicht als apart deel van competenties en skills, CompetentNL niet."
+    },
+    {
+      "objecttype": "Aanwezigheid",
+      "motivering": "Het kaderscenario noemt de aanwezigheid bij een les; OKx wisselt haar niet uit (bevinding B22, fase 5). Grijs getoond, zodat de les compleet is."
+    },
+    {
+      "objecttype": "Leergelegenheid resultaat",
+      "motivering": "Het kaderscenario noemt het resultaat op een leergelegenheid; de modelronde zette het buiten scope. Grijs getoond, zodat de formatieve voortgang compleet is."
     }
   ],
   "koppelingen": {
@@ -1385,7 +1393,7 @@
       "instantie": "BOL voltijd, diplomaprogramma",
       "bron": "leerroute-1-regulier.md, r1032 tot 1036",
       "relatie": {
-        "soort": "Aggregation",
+        "soort": "Composition",
         "van": "Opleiding specificatie",
         "naar": "Opleidingsprogramma specificatie",
         "nesting": true
@@ -2299,7 +2307,7 @@
       "instantie": "BOL voltijd",
       "bron": "leerroute-1-regulier.md, Fase 1: Curriculum-ontwerptool naar OC, alles op grofmazig niveau",
       "relatie": {
-        "soort": "Aggregation",
+        "soort": "Composition",
         "van": "Opleiding specificatie",
         "naar": "Opleidingsprogramma specificatie",
         "nesting": true
@@ -2928,7 +2936,7 @@
       "instantie": "BOL voltijd, planbaar",
       "bron": "leerroute-1-regulier.md, Fase 2",
       "relatie": {
-        "soort": "Aggregation",
+        "soort": "Composition",
         "van": "Opleiding specificatie",
         "naar": "Opleidingsprogramma specificatie",
         "nesting": true
@@ -3130,13 +3138,13 @@
       "stap": "Haalbaarheid bepalen en aanbod plannen",
       "soort": "ontstaat",
       "wie": "planner",
-      "objecttype": "Opleidingaanbod",
+      "objecttype": "Opleiding aanbod",
       "instantie": "Apothekersassistent 2026: vier perioden, 48 plaatsen",
       "bron": "voorbeeldpayloads.md, aanbodInstanties[0] (7aa6609f); leerroute-1-regulier.md, r738 (aanbod is minimaal gepland zodra perioden en capaciteit vastliggen) en r1021 (stadium 2a, nog zonder lokalen en docenten)",
       "relatie": {
-        "soort": "Aggregation",
+        "soort": "Composition",
         "van": "Opleidingsaanbod van Instelling",
-        "naar": "Opleidingaanbod",
+        "naar": "Opleiding aanbod",
         "nesting": true
       },
       "toestand": "gepland"
@@ -3152,8 +3160,8 @@
       "instantie": "Regulier BOL 2026: 24 tot 48 studenten",
       "bron": "voorbeeldpayloads.md, aanbodInstanties[1] (8c494250); leerroute-1-regulier.md, r738 (aanbod is minimaal gepland zodra perioden en capaciteit vastliggen) en r1021 (stadium 2a, nog zonder lokalen en docenten)",
       "relatie": {
-        "soort": "Aggregation",
-        "van": "Opleidingaanbod",
+        "soort": "Composition",
+        "van": "Opleiding aanbod",
         "naar": "Opleidingsprogramma aanbod",
         "nesting": true
       },
@@ -3427,7 +3435,7 @@
       "objecttype": "Opleidingsaanbod van Instelling",
       "instantie": "ROC Leren Zonder Drempels",
       "toestand": "intentie",
-      "bron": "informatiemodel.json: Opleidingsaanbod van Instelling aggregeert Opleidingaanbod; leerroute-1-regulier.md, r657",
+      "bron": "informatiemodel.json: Opleidingsaanbod van Instelling omvat Opleiding aanbod (Composition); leerroute-1-regulier.md, r657",
       "zin": "Het geplande aanbod gaat terug naar de catalogus, met per laag de verwijzing naar de specificatie waarvan het is gemaakt en naar het verzoek dat ertoe leidde. Capaciteit met exacte getallen vrijgeven vraagt een hoge organisatorische volwassenheid, want het is een toezegging. Voor een aantal logistieke scenario's is het wel voorwaarde. Naarmate keuzes fijnmaziger worden verliest capaciteit op de bovenliggende laag haar waarde: een leergelegenheid die vanuit meerdere programma's wordt aangeboden heeft een eigen capaciteit, los van het opleidingsaanbod."
     },
     {
@@ -3440,27 +3448,27 @@
       "naar": "Onderwijscatalogus",
       "pijl": "id-020f091db6ea4763aad7527a98afaf99",
       "koppeling": "OC-P&R",
-      "objecttype": "Opleidingaanbod",
+      "objecttype": "Opleiding aanbod",
       "instantie": "Apothekersassistent 2026: vier perioden, 48 plaatsen",
       "bron": "leerroute-1-regulier.md, Fase 2: Planning naar OC (opleidingsaanbod als planbaar resultaat); informatiemodel.json: de specificatie is geassocieerd met haar aanbod; het verzoek leidt tot aanbod",
       "toestand": "gepland",
       "relatie": {
-        "soort": "Aggregation",
+        "soort": "Composition",
         "van": "Opleidingsaanbod van Instelling",
-        "naar": "Opleidingaanbod",
+        "naar": "Opleiding aanbod",
         "nesting": true
       },
       "relaties": [
         {
           "soort": "Association",
           "van": "Opleiding specificatie",
-          "naar": "Opleidingaanbod",
+          "naar": "Opleiding aanbod",
           "instantie": "Apothekersassistent, versie 2026.1"
         },
         {
           "soort": "Association",
           "van": "Verzoek tot Aanbod / Intekening op specificatie",
-          "naar": "Opleidingaanbod",
+          "naar": "Opleiding aanbod",
           "label": "Leidt tot",
           "instantie": "Planopgave Apothekersassistent, cohort 2026"
         }
@@ -3480,8 +3488,8 @@
       "instantie": "Regulier BOL 2026: 24 tot 48 studenten",
       "bron": "leerroute-1-regulier.md, Fase 2; informatiemodel.json: de specificatie is geassocieerd met haar aanbod; het verzoek leidt tot aanbod",
       "relatie": {
-        "soort": "Aggregation",
-        "van": "Opleidingaanbod",
+        "soort": "Composition",
+        "van": "Opleiding aanbod",
         "naar": "Opleidingsprogramma aanbod",
         "nesting": true
       },
@@ -3682,7 +3690,7 @@
       "bron": "leerroute-1-regulier.md, Fase 3; persona_jochem.md, r74 (aanmeldsysteem CAMBO/AII)",
       "relatie": {
         "soort": "Association",
-        "van": "Opleidingaanbod",
+        "van": "Opleiding aanbod",
         "naar": "Aanmelding",
         "label": "Op basis van"
       }
@@ -3706,7 +3714,7 @@
       "relaties": [
         {
           "soort": "Association",
-          "van": "Opleidingaanbod",
+          "van": "Opleiding aanbod",
           "naar": "Opleiding aanbod verbintenis",
           "instantie": "Apothekersassistent 2026"
         }
@@ -3723,10 +3731,10 @@
       "instantie": "Jochem op Regulier BOL 2026, aangemeld",
       "bron": "leerroute-1-regulier.md, Fase 3: opleidingsprogramma-verbintenis in KRS",
       "relatie": {
-        "soort": "Association",
+        "soort": "Composition",
         "van": "Opleiding aanbod verbintenis",
         "naar": "Opleidingsprogramma aanbod verbintenis",
-        "label": "Minimaal 1"
+        "label": "bestaat uit minimaal 1"
       },
       "relaties": [
         {
@@ -3775,7 +3783,7 @@
       "relaties": [
         {
           "soort": "Association",
-          "van": "Opleidingaanbod",
+          "van": "Opleiding aanbod",
           "naar": "Aanmelding",
           "label": "Op basis van",
           "instantie": "Apothekersassistent 2026"
@@ -3818,10 +3826,10 @@
       "bron": "leerroute-1-regulier.md, Fase 3; leerroute-1-regulier.md, r860 en r882 (het intakesysteem verwerkt aanmelding en intake en draagt de positieve uitkomst over aan KRS), r945 en r949",
       "aanname": true,
       "relatie": {
-        "soort": "Association",
+        "soort": "Composition",
         "van": "Opleiding aanbod verbintenis",
         "naar": "Opleidingsprogramma aanbod verbintenis",
-        "label": "Minimaal 1"
+        "label": "bestaat uit minimaal 1"
       }
     },
     {
@@ -3901,10 +3909,10 @@
       "toestand": "ingeschreven",
       "bron": "leerroute-1-regulier.md, Fase 3",
       "relatie": {
-        "soort": "Association",
+        "soort": "Composition",
         "van": "Opleiding aanbod verbintenis",
         "naar": "Opleidingsprogramma aanbod verbintenis",
-        "label": "Minimaal 1"
+        "label": "bestaat uit minimaal 1"
       }
     },
     {
@@ -4011,7 +4019,7 @@
       "relatie": {
         "soort": "Association",
         "van": "Plaatsingsgroep",
-        "naar": "Opleiding aanbod  verbintenis"
+        "naar": "Opleiding aanbod verbintenis"
       }
     },
     {
@@ -5016,8 +5024,8 @@
       "bron": "leerroute-1-regulier.md, r868 (het studentvolgsysteem legt onderwijsresultaten per onderwijsverbintenis vast en houdt de studiepadadministratie bij) en r870 (behaalde resultaten worden in SVS bijgehouden tegen de specificatie uit de catalogus)",
       "relatie": {
         "soort": "Association",
-        "van": "Opleidingaanbod",
-        "naar": "Opleiding aanbod  verbintenis"
+        "van": "Opleiding aanbod",
+        "naar": "Opleiding aanbod verbintenis"
       }
     },
     {
@@ -5991,13 +5999,13 @@
       "stap": "Kwalificering en diplomering registreren",
       "soort": "ontstaat",
       "wie": "examencommissie",
-      "objecttype": "Opleiding aanbod resultaat",
+      "objecttype": "Opleiding resultaat",
       "instantie": "Apothekersassistent 2026: gediplomeerd",
       "bron": "leerroute-1-regulier.md, Fase 8: KRS registreert kwalificering en diplomering",
       "relatie": {
         "soort": "Association",
         "van": "Opleiding aanbod verbintenis",
-        "naar": "Opleiding aanbod resultaat"
+        "naar": "Opleiding resultaat"
       },
       "zin": "Aan het afrondingscriterium is voldaan; de kernregistratie registreert de kwalificering en het diploma."
     },
