@@ -24,6 +24,17 @@ De basis volgt de vraaggestuurde planning uit het kaderscenario. Een andere plan
 
 Alle scripts lezen het model alleen. Plan en eisen: het featureplan bij Public #106.
 
+## Viewnamen
+
+Een viewnaam wordt een bestandsnaam: bij de export van een plaat uit Archi en bij de platen in deze repository. Hij draagt daarom alleen letters, cijfers, spatie, punt, haakjes, koppelteken en `&` (#405). Die tekens zijn op Windows, macOS en Linux geldig in een bestandsnaam, en een aanroep als `exporteer-archimate-platen.py --view` heeft er geen aanhalingstekens voor nodig, waar `<` en `>` de uitvoer omleiden.
+
+| Wel | Niet |
+|---|---|
+| `OKx hoofdplaat v1.7a (zonder context applicaties)` | `OKx hoofdplaat v1.7a<concept>` |
+| `Koppelvlak SIS (KRS-SVS) (obv 1.7a)` | `Koppelvlak: SIS (KRS+SVS) (obv 1.7a)` |
+
+De status van een plaat (concept of vastgesteld) hoort in de documentatie van de view en niet in de naam, zodat een statusovergang geen hernoeming vraagt. `tests/test_hoofdplaat_viewnamen.py` toetst elke viewnaam in het model tegen de conventie, met een oude MOKA-view als enige uitzondering.
+
 ## Valideren vóór commit
 
 Het model is één XML-boom waarin views via **ID's** verwijzen naar elementen elders in het bestand. Raken die verwijzingen los, dan blijft het geldige XML — maar **Archi gooit de losgeraakte objecten bij de eerstvolgende save stilzwijgend weg**. In een diff van 5 MB zie je dat niet.
