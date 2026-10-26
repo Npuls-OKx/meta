@@ -118,7 +118,7 @@ Vier termen, overal gelijk:
 | Objecttype | Element van de informatiemodelplaat (ArchiMate business object), met de plaatnaam letterlijk |
 | Instantie | De waarde voor Jochem: een leesbare naam |
 | Applicatiedienst | De ArchiMate-applicatiedienst op de hoofdplaat en in MORA; alleen context |
-| Koppeling | Een pijl op hoofdplaat v1.7 tussen twee componenten; met de koppeling-ID uit Public waar die er is |
+| Koppeling | Een pijl op hoofdplaat v1.7a tussen twee componenten; met de koppeling-ID uit Public waar die er is |
 
 Twee soorten regels, in de vormtaal van de plaat:
 
@@ -129,7 +129,7 @@ Waar de herkomst loopt: het kwalificatiedossier, de kwalificatie, de kerntaken e
 
 Een **verdieping** (zelfde rol en stap, met "verdieping" op de processtap) zoomt in op een regel erboven. Een paars objecttype komt van de conceptplaat "Informatiemodel Onderwijsontwerp" in het ArchiMate-model (een verdieping daaruit heeft ook een gestippelde rand en een chip): het laat zien waar de informatiemodelplaat kan groeien en telt niet mee in de bijlage.
 
-Koppeling-ID's op hoofdplaat v1.7: {mapping}. Een pijl die op de hoofdplaat staat maar geen koppelingspecificatie heeft, staat als "zonder koppelingspecificatie"; een stroom uit het kaderscenario zonder pijl op de hoofdplaat staat als "geen pijl op de hoofdplaat".
+Koppeling-ID's op hoofdplaat v1.7a: {mapping}. Een pijl die op de hoofdplaat staat maar geen koppelingspecificatie heeft, staat als "zonder koppelingspecificatie"; een stroom uit het kaderscenario zonder pijl op de hoofdplaat staat als "geen pijl op de hoofdplaat".
 
 De fasenamen zijn de sectiekoppen "Fase 1" tot "Fase 8" van het kaderscenario. Het kaderscenario noemt fase 3 in de fasenlijst "Instroom, afstemming en plaatsing" en in de sectiekop "Instroom, intake en plaatsing"; hier geldt de sectiekop.
 

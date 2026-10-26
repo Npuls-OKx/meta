@@ -1,5 +1,5 @@
 {
-  "view": "OKx hoofdplaat v1.7<concept> (zonder context applicaties)",
+  "view": "OKx hoofdplaat v1.7a (zonder context applicaties)",
   "model": "architecture/model/model.archimate",
   "stromen": [
     {
@@ -184,6 +184,14 @@
       "naar": "Student volg systeem (SVS)",
       "soort": "Flow",
       "label": "Student Opleidingprogramma- en onderwijseenheid verbintenis",
+      "koppeling": "zonder koppelingspecificatie"
+    },
+    {
+      "id": "id-965bdcd610454fd09fcccdfd0742f5cf",
+      "van": "Student volg systeem (SVS)",
+      "naar": "Student Keuze Systeem (SKS)",
+      "soort": "Flow",
+      "label": "Student Opleidingsprogramma, onderwijseenheid voltooid",
       "koppeling": "zonder koppelingspecificatie"
     },
     {

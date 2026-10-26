@@ -14,15 +14,26 @@ De opleiding van Jochem stap voor stap in het informatiemodel leeft als regeltab
 
 De basis volgt de vraaggestuurde planning uit het kaderscenario. Een andere planningsvorm staat als eigen tabel ernaast: `voorbeeld-lr1-regels-capaciteitsgestuurd.json` of `voorbeeld-lr1-regels-geroosterd.json`, met schema `voorbeeld-lr1-variant.schema.json` (#401). Een variant erft de kop van de basis; de werkwijze staat in [okx-voorbeeld-in-het-informatiemodel](../../.agents/skills/okx-voorbeeld-in-het-informatiemodel/SKILL.md). De scripts hieronder vinden de varianten zelf. De scripts:
 
-- `python3 scripts/exporteer-archimate-view.py --mapping <koppelingen>` schrijft `informatiemodel/stromen.json`: per flow op hoofdplaat v1.7 de relatie-id, van en naar (junctions opgelost) en het label; de pijlen waar stroomt-regels naar verwijzen.
+- `python3 scripts/exporteer-archimate-view.py --mapping <koppelingen>` schrijft `informatiemodel/stromen.json`: per flow op hoofdplaat v1.7a de relatie-id, van en naar (junctions opgelost) en het label; de pijlen waar stroomt-regels naar verwijzen.
 - `python3 scripts/teken-hoofdplaat-highlight.py --plaat PAD` schrijft `informatiemodel/img/hoofdplaat/f<N>.svg`: per fase de hoofdplaat met de stromen van het voorbeeld gemarkeerd. De render van de plaat komt uit `exporteer-archimate-platen.py`; het script meldt stromen die het niet kon plaatsen. Met `--koppelingen OC-P&R,OC-SIS,OC-LMS` schrijft het in plaats daarvan `koppelingen.svg` met de lijnen van die koppelingen, en `--uitsnede` snijdt de plaat terug tot het deel waar de markeringen liggen.
-- `python3 scripts/exporteer-componenten.py` schrijft `informatiemodel/componenten.json`: per applicatiecomponent van de hoofdplaat de MORA-beschrijving uit het model en de applicatiediensten die hij realiseert. Componenten buiten de plaat voeg je toe met `--extra "Intake systeem"`. De voorbeeldcontrole toetst componentnamen hiertegen.
+- `python3 scripts/exporteer-componenten.py` schrijft `informatiemodel/componenten.json`: per applicatiecomponent van de hoofdplaat de MORA-beschrijving uit het model en de applicatiediensten die hij realiseert. Componenten buiten de plaat voeg je toe met `--extra`; de huidige `componenten.json` komt uit `--extra "AII (centraal aanmelden)" "Aanmeld systeem" "Curriculum ontwerptool" "Intake systeem" "Toets- en examen afname systeem"`. De voorbeeldcontrole toetst componentnamen hiertegen.
 - `python3 scripts/exporteer-conceptplaat.py` schrijft `informatiemodel/conceptplaat-onderwijsontwerp.json`: de objecttypen (met groep) en relaties van de view "Informatiemodel Onderwijsontwerp", waar verdiepingen op de conceptplaat tegen worden getoetst.
 - `python3 scripts/controleer-voorbeeldregels.py [--fasen 2,3,4]` toetst de regeltabel tegen `informatiemodel.json`, `stromen.json` en de conceptplaat (namen, relaties, rollen, stappen, pijlen) en meldt per fase welke objecttypen nog geen ontstaat-regel hebben.
 - `python3 scripts/teken-voorbeeldregels.py` tekent elk beeld (regels met dezelfde beeldtitel) als SVG in ArchiMate-vormtaal naar `informatiemodel/img/regels/`, met de titel als bestandsnaam; `python3 scripts/genereer-voorbeeld-lr1.py` schrijft daaruit `informatiemodel/voorbeeld-leerroute-1-jochem.md`, met het invulblad voor een mappingronde als eigen bestand ernaast.
 - `python3 scripts/exporteer-archimate-platen.py --view NAAM --uit pad.png` exporteert een view met Archi headless (zie `.devcontainer/Dockerfile`); met `--objecten`, `--ruimte` en `--hoekvast` als SVG met de informatieobjecten op de pijlen.
 
 Alle scripts lezen het model alleen. Plan en eisen: het featureplan bij Public #106.
+
+## Viewnamen
+
+Een viewnaam wordt een bestandsnaam: bij de export van een plaat uit Archi en bij de platen in deze repository. Hij draagt daarom alleen letters, cijfers, spatie, punt, haakjes, koppelteken en `&` (#405). Die tekens zijn op Windows, macOS en Linux geldig in een bestandsnaam, en een aanroep als `exporteer-archimate-platen.py --view` heeft er geen aanhalingstekens voor nodig, waar `<` en `>` de uitvoer omleiden.
+
+| Wel | Niet |
+|---|---|
+| `OKx hoofdplaat v1.7a (zonder context applicaties)` | `OKx hoofdplaat v1.7a<concept>` |
+| `Koppelvlak SIS (KRS-SVS) (obv 1.7a)` | `Koppelvlak: SIS (KRS+SVS) (obv 1.7a)` |
+
+De status van een plaat (concept of vastgesteld) hoort in de documentatie van de view en niet in de naam, zodat een statusovergang geen hernoeming vraagt. `tests/test_hoofdplaat_viewnamen.py` toetst elke viewnaam in het model tegen de conventie, met een oude MOKA-view als enige uitzondering.
 
 ## Valideren vóór commit
 

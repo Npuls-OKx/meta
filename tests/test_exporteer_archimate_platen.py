@@ -255,7 +255,7 @@ class ArchiIntegratieTests(unittest.TestCase):
         voor = hashlib.sha256(model.read_bytes()).hexdigest()
         with tempfile.TemporaryDirectory() as map_:
             doel = Path(map_) / "plaat.png"
-            code = ep.main(["--model", str(model), "--view", "OKx hoofdplaat v1.7<concept> (zonder context applicaties)", "--uit", str(doel)])
+            code = ep.main(["--model", str(model), "--view", "OKx hoofdplaat v1.7a (zonder context applicaties)", "--uit", str(doel)])
             self.assertEqual(code, 0)
             self.assertTrue(doel.exists() and doel.stat().st_size > 10000)
             self.assertEqual(doel.read_bytes()[:8], b"\x89PNG\r\n\x1a\n")

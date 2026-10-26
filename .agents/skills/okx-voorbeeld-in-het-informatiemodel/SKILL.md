@@ -40,7 +40,7 @@ python3 scripts/validate-docs.py architecture/model/informatiemodel/voorbeeld-le
 python3 -W error::ResourceWarning -m unittest discover -s tests
 ```
 
-De platen komen uit het ArchiMate-model en worden alleen gelezen: `genereer-informatiemodel-doc.py` (informatiemodelplaat), `exporteer-archimate-view.py --mapping` (pijlen van hoofdplaat v1.7), `exporteer-conceptplaat.py` (view "Informatiemodel Onderwijsontwerp"), `exporteer-componenten.py` (applicatiecomponenten met hun MORA-definitie en de applicatiediensten die zij realiseren). Raak nooit een `.archimate`-bestand aan.
+De platen komen uit het ArchiMate-model en worden alleen gelezen: `genereer-informatiemodel-doc.py` (informatiemodelplaat), `exporteer-archimate-view.py --mapping` (pijlen van hoofdplaat v1.7a), `exporteer-conceptplaat.py` (view "Informatiemodel Onderwijsontwerp"), `exporteer-componenten.py` (applicatiecomponenten met hun MORA-definitie en de applicatiediensten die zij realiseren). Raak nooit een `.archimate`-bestand aan.
 
 ## De regeltabel
 
