@@ -4,16 +4,16 @@
   "fasen": [
     {
       "nummer": 2,
-      "bron": "instellingspraktijk: capaciteitsgestuurd plannen, beschreven door de opdrachtgever (#402)",
+      "bron": "instellingspraktijk: capaciteitsgestuurd plannen (#402)",
       "stappen": [
         "Keuzedeelaanbod plannen op inzetbare capaciteit en prognose",
         "Gepland keuzedeelaanbod terugleveren aan de onderwijscatalogus"
       ],
-      "toelichting": "Capaciteitsgestuurd plannen is in de instellingspraktijk de meest voorkomende vorm. De planner plant vooraf op inzetbare capaciteit, zoals docenten met de juiste expertise en lokaaltypes, en op een prognose, omdat die capaciteit maar beperkt schaalbaar is. Bij de keuze ligt daardoor al meer vast: de planninggroepen, het maximaal aantal studenten en de periode. Fase 1, 3, 5 en 8 blijven in deze vorm gelijk."
+      "toelichting": "Het kaderscenario beschrijft vraaggestuurd plannen: de planner vormt groepen nadat de studenten hebben gekozen. Deze variant toont capaciteitsgestuurd plannen, in de instellingspraktijk de meest voorkomende vorm. De planner plant vooraf op inzetbare capaciteit, zoals docenten met de juiste expertise en lokaaltypen, en op een prognose, omdat die capaciteit maar beperkt schaalbaar is. Bij de keuze ligt daardoor al meer vast: de planninggroepen, het maximaal aantal studenten en de periode. Fase 1, 3, 5 en 8 blijven in deze vorm gelijk."
     },
     {
       "nummer": 4,
-      "bron": "instellingspraktijk: capaciteitsgestuurd plannen, beschreven door de opdrachtgever (#402)",
+      "bron": "instellingspraktijk: capaciteitsgestuurd plannen (#402)",
       "stappen": [
         "Keuzedeelgroep met vaste capaciteit aan het roostersysteem geven"
       ],
@@ -24,7 +24,7 @@
     },
     {
       "nummer": 6,
-      "bron": "instellingspraktijk: capaciteitsgestuurd plannen, beschreven door de opdrachtgever (#402)",
+      "bron": "instellingspraktijk: capaciteitsgestuurd plannen (#402)",
       "stappen": [
         "Capaciteit vaststellen na de animo",
         "Geplande leergelegenheden ontsluiten naar het studentkeuzesysteem",
@@ -41,16 +41,16 @@
         "F6-05",
         "F6-07"
       ],
-      "toelichting": "In deze vorm kiest de student op een geplande leergelegenheid. Hoe die uit de specificatie rijpt, bepaalt het onderwijsontwerp van de instelling. Het keuzedeelaanbod voor de animo komt via de catalogus; de aanmelding daar is een intekening, nog geen keuze. Na de animo stelt de planner de capaciteit vast, en die gaat rechtstreeks van planning naar het studentkeuzesysteem. F6-06 neemt de uitkomst daarvan mee (een groep blijft, de tweede vervalt), en F6-08 geldt ook hier."
+      "toelichting": "In deze vorm kiest de student op een geplande leergelegenheid. Hoe die uit de specificatie rijpt, bepaalt het onderwijsontwerp van de instelling. Het keuzedeelaanbod voor de animo komt via de catalogus; de aanmelding daarop (F6-03) geeft een voorkeur, en de keuze volgt op de leergelegenheid. Na de animo stelt de planner de capaciteit vast. Een afwijking tussen prognose en animo tot 50 procent ligt in dit voorbeeld binnen de marge; daarboven verbetert de instelling de prognose zelf. De capaciteit gaat rechtstreeks van planning naar het studentkeuzesysteem. F6-06 neemt de uitkomst daarvan mee (KD-A blijft, KD-B is geannuleerd), en F6-08 geldt ook hier."
     },
     {
       "nummer": 7,
-      "bron": "instellingspraktijk: capaciteitsgestuurd plannen, beschreven door de opdrachtgever (#402)",
+      "bron": "instellingspraktijk: capaciteitsgestuurd plannen (#402)",
       "stappen": [
         "Vrijgekomen plek binnen de capaciteit verwerken",
         "Vrije plek ontsluiten naar het studentkeuzesysteem"
       ],
-      "toelichting": "Bijsturen levert in deze vorm geen nieuwe planninggroep op: een plek die vrijkomt, gaat binnen de capaciteit terug naar het studentkeuzesysteem."
+      "toelichting": "Bij bijsturen blijft de bestaande planninggroep staan: een plek die vrijkomt, gaat binnen de capaciteit terug naar het studentkeuzesysteem."
     }
   ],
   "regels": [
@@ -63,7 +63,7 @@
       "wie": "planner",
       "objecttype": "Keuzedeel aanbod",
       "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A: prognose 30, dus twee groepen",
-      "bron": "instellingspraktijk: capaciteitsgestuurd plannen, beschreven door de opdrachtgever (#402)",
+      "bron": "instellingspraktijk: capaciteitsgestuurd plannen (#402)",
       "toestand": "gepland",
       "nieuwe_instantie": true,
       "relatie": {
@@ -72,7 +72,7 @@
         "naar": "Keuzedeel aanbod",
         "instantie": "K0037 Farmaceutische Patientenzorg"
       },
-      "zin": "De planner plant het keuzedeel vooraf op inzetbare capaciteit en een prognose van 30 studenten: twee planninggroepen van maximaal 24, omdat docenten met de juiste expertise en balie-simulatieruimtes maar beperkt schaalbaar zijn."
+      "zin": "De planner plant het keuzedeel vooraf op inzetbare capaciteit en een prognose van 30 studenten: twee planninggroepen van maximaal 24, omdat docenten met de juiste expertise en lokaaltypen maar beperkt schaalbaar zijn."
     },
     {
       "beeld_id": "F2-C01",
@@ -83,7 +83,7 @@
       "wie": "planner",
       "objecttype": "Leergelegenheid",
       "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, planninggroep KD-A, maximaal 24: lokaaltype balie-simulatie, docentexpertise farmacie",
-      "bron": "instellingspraktijk: capaciteitsgestuurd plannen, beschreven door de opdrachtgever (#402)",
+      "bron": "instellingspraktijk: capaciteitsgestuurd plannen (#402)",
       "toestand": "gepland",
       "nieuwe_instantie": true,
       "relatie": {
@@ -102,7 +102,7 @@
       "wie": "planner",
       "objecttype": "Leergelegenheid",
       "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, planninggroep KD-B, maximaal 24: lokaaltype balie-simulatie, docentexpertise farmacie",
-      "bron": "instellingspraktijk: capaciteitsgestuurd plannen, beschreven door de opdrachtgever (#402)",
+      "bron": "instellingspraktijk: capaciteitsgestuurd plannen (#402)",
       "toestand": "gepland",
       "nieuwe_instantie": true,
       "relatie": {
@@ -124,7 +124,7 @@
       "koppeling": "OC-P&R",
       "objecttype": "Keuzedeel aanbod",
       "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A: twee groepen gepland",
-      "bron": "instellingspraktijk: capaciteitsgestuurd plannen, beschreven door de opdrachtgever (#402)"
+      "bron": "instellingspraktijk: capaciteitsgestuurd plannen (#402)"
     },
     {
       "beeld_id": "F2-C02",
@@ -138,7 +138,7 @@
       "koppeling": "OC-P&R",
       "objecttype": "Leergelegenheid",
       "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, planninggroep KD-A, maximaal 24",
-      "bron": "instellingspraktijk: capaciteitsgestuurd plannen, beschreven door de opdrachtgever (#402)"
+      "bron": "instellingspraktijk: capaciteitsgestuurd plannen (#402)"
     },
     {
       "beeld_id": "F2-C02",
@@ -152,7 +152,7 @@
       "koppeling": "OC-P&R",
       "objecttype": "Leergelegenheid",
       "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, planninggroep KD-B, maximaal 24",
-      "bron": "instellingspraktijk: capaciteitsgestuurd plannen, beschreven door de opdrachtgever (#402)"
+      "bron": "instellingspraktijk: capaciteitsgestuurd plannen (#402)"
     },
     {
       "beeld_id": "F4-C01",
@@ -166,7 +166,7 @@
       "koppeling": null,
       "objecttype": "Leergelegenheid",
       "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, planninggroep KD-A, 24 plaatsen; het weekmoment volgt bij het roosteren",
-      "bron": "instellingspraktijk: capaciteitsgestuurd plannen, beschreven door de opdrachtgever (#402)",
+      "bron": "instellingspraktijk: capaciteitsgestuurd plannen (#402)",
       "zin": "Het keuzedeel wordt pas geroosterd na de toewijzing in fase 6. De planninggroep en de capaciteit liggen dan vast; het weekmoment volgt bij het roosteren."
     },
     {
@@ -177,10 +177,10 @@
       "soort": "verandert",
       "wie": "planner",
       "objecttype": "Leergelegenheid",
-      "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, planninggroep KD-A: 19 intekeningen bij de animo tegen een prognose van 30, een groep van 24 blijft",
-      "bron": "instellingspraktijk: capaciteitsgestuurd plannen, beschreven door de opdrachtgever (#402)",
+      "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, planninggroep KD-A: 19 aanmeldingen bij de animo tegen een prognose van 30, een groep van 24 blijft",
+      "bron": "instellingspraktijk: capaciteitsgestuurd plannen (#402)",
       "toestand": "gepland",
-      "zin": "Na de animo stelt de planner de capaciteit vast: een groep is genoeg. Een afwijking van ongeveer 37 procent ligt binnen de marge; boven 50 procent zou de instelling de prognose zelf moeten verbeteren."
+      "zin": "Na de animo stelt de planner de capaciteit vast: een groep is genoeg. De docentinzet en het lokaal van KD-B gaan terug naar de inzetplanning. Een afwijking van ongeveer 37 procent ligt binnen de marge die de instelling in dit voorbeeld hanteert; vanaf 50 procent verbetert zij de prognose zelf."
     },
     {
       "beeld_id": "F6-C01",
@@ -190,8 +190,8 @@
       "soort": "verandert",
       "wie": "planner",
       "objecttype": "Leergelegenheid",
-      "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, planninggroep KD-B: vervalt",
-      "bron": "instellingspraktijk: capaciteitsgestuurd plannen, beschreven door de opdrachtgever (#402)",
+      "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, planninggroep KD-B: geannuleerd",
+      "bron": "instellingspraktijk: capaciteitsgestuurd plannen (#402)",
       "toestand": "geannuleerd"
     },
     {
@@ -206,7 +206,7 @@
       "koppeling": null,
       "objecttype": "Leergelegenheid",
       "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, planninggroep KD-A, 24 plaatsen",
-      "bron": "instellingspraktijk: capaciteitsgestuurd plannen, beschreven door de opdrachtgever (#402)",
+      "bron": "instellingspraktijk: capaciteitsgestuurd plannen (#402)",
       "zin": "De capaciteit gaat rechtstreeks van planning naar het studentkeuzesysteem; het keuzedeelaanbod voor de animo kwam via de catalogus."
     },
     {
@@ -218,7 +218,7 @@
       "wie": "student",
       "objecttype": "Aanmelding",
       "instantie": "Plek op K0037 Farmaceutische Patientenzorg, periode 7, planninggroep KD-A",
-      "bron": "instellingspraktijk: capaciteitsgestuurd plannen, beschreven door de opdrachtgever (#402)",
+      "bron": "instellingspraktijk: capaciteitsgestuurd plannen (#402)",
       "nieuwe_instantie": true,
       "relatie": {
         "soort": "Association",
@@ -227,7 +227,7 @@
         "label": "Op basis van",
         "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, KD-A"
       },
-      "zin": "Jochem kiest nu een plek op een geplande leergelegenheid; zijn intekening bij de animo was nog geen keuze."
+      "zin": "Jochem kiest nu een plek op een geplande leergelegenheid. Zijn aanmelding bij de animo gaf een voorkeur op het keuzedeelaanbod; de keuze volgt hier."
     },
     {
       "beeld_id": "F6-C03",
@@ -238,7 +238,7 @@
       "wie": "student",
       "objecttype": "Leergelegenheid verbintenis",
       "instantie": "Jochem op K0037 Farmaceutische Patientenzorg, periode 7, planninggroep KD-A",
-      "bron": "instellingspraktijk: capaciteitsgestuurd plannen, beschreven door de opdrachtgever (#402)",
+      "bron": "instellingspraktijk: capaciteitsgestuurd plannen (#402)",
       "nieuwe_instantie": true,
       "relatie": {
         "soort": "Association",
@@ -249,14 +249,14 @@
     },
     {
       "beeld_id": "F6-C04",
-      "beeld": "Toegewezen binnen de capaciteit: de enige inschrijving",
+      "beeld": "Toegewezen binnen de capaciteit: inschrijving op het keuzedeel",
       "fase": 6,
       "stap": "Toewijzen binnen de capaciteit",
       "soort": "ontstaat",
       "wie": "planner",
       "objecttype": "Inschrijving",
       "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, planninggroep KD-A: plek 20 van 24",
-      "bron": "instellingspraktijk: capaciteitsgestuurd plannen, beschreven door de opdrachtgever (#402)",
+      "bron": "instellingspraktijk: capaciteitsgestuurd plannen (#402)",
       "nieuwe_instantie": true,
       "relatie": {
         "soort": "Association",
@@ -265,18 +265,18 @@
         "label": "middels",
         "instantie": "Jochem op K0037 Farmaceutische Patientenzorg, periode 7, KD-A"
       },
-      "zin": "De planner wijst Jochem toe binnen de capaciteit. Dit is de enige inschrijving: ook de verbintenis op het keuzedeelaanbod staat daarmee op ingeschreven."
+      "zin": "De planner wijst Jochem toe binnen de capaciteit. Deze inschrijving op het keuzedeel vervangt die uit F6-07: ook de verbintenis op het keuzedeelaanbod staat daarmee op ingeschreven."
     },
     {
       "beeld_id": "F6-C04",
-      "beeld": "Toegewezen binnen de capaciteit: de enige inschrijving",
+      "beeld": "Toegewezen binnen de capaciteit: inschrijving op het keuzedeel",
       "fase": 6,
       "stap": "Toewijzen binnen de capaciteit",
       "soort": "verandert",
       "wie": "planner",
       "objecttype": "Keuzedeel aanbod verbintenis",
       "instantie": "Jochem op K0037 Farmaceutische Patientenzorg, periode 7",
-      "bron": "instellingspraktijk: capaciteitsgestuurd plannen, beschreven door de opdrachtgever (#402)",
+      "bron": "instellingspraktijk: capaciteitsgestuurd plannen (#402)",
       "toestand": "ingeschreven"
     },
     {
@@ -288,9 +288,9 @@
       "wie": "planner",
       "objecttype": "Leergelegenheid",
       "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, planninggroep KD-A: 23 van 24 bezet, een plek vrij",
-      "bron": "instellingspraktijk: capaciteitsgestuurd plannen, beschreven door de opdrachtgever (#402)",
+      "bron": "instellingspraktijk: capaciteitsgestuurd plannen (#402)",
       "toestand": "bijgestuurd",
-      "zin": "Een student valt uit. Er komt geen nieuwe planninggroep; de plek blijft binnen de capaciteit."
+      "zin": "De groep zat vol; een student valt uit. De bestaande planninggroep blijft, en de vrije plek blijft binnen de capaciteit."
     },
     {
       "beeld_id": "F7-C02",
@@ -304,7 +304,7 @@
       "koppeling": null,
       "objecttype": "Leergelegenheid",
       "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, planninggroep KD-A: een plek vrij",
-      "bron": "instellingspraktijk: capaciteitsgestuurd plannen, beschreven door de opdrachtgever (#402)"
+      "bron": "instellingspraktijk: capaciteitsgestuurd plannen (#402)"
     }
   ]
 }

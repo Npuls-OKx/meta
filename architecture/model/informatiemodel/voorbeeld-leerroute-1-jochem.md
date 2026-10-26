@@ -194,7 +194,7 @@ De gemarkeerde lijnen zijn de stromen die deze fase raakt, met het beeld waarin 
 
 ### Variant capaciteitsgestuurd
 
-Capaciteitsgestuurd plannen is in de instellingspraktijk de meest voorkomende vorm. De planner plant vooraf op inzetbare capaciteit, zoals docenten met de juiste expertise en lokaaltypes, en op een prognose, omdat die capaciteit maar beperkt schaalbaar is. Bij de keuze ligt daardoor al meer vast: de planninggroepen, het maximaal aantal studenten en de periode. Fase 1, 3, 5 en 8 blijven in deze vorm gelijk.
+Het kaderscenario beschrijft vraaggestuurd plannen: de planner vormt groepen nadat de studenten hebben gekozen. Deze variant toont capaciteitsgestuurd plannen, in de instellingspraktijk de meest voorkomende vorm. De planner plant vooraf op inzetbare capaciteit, zoals docenten met de juiste expertise en lokaaltypen, en op een prognose, omdat die capaciteit maar beperkt schaalbaar is. Bij de keuze ligt daardoor al meer vast: de planninggroepen, het maximaal aantal studenten en de periode. Fase 1, 3, 5 en 8 blijven in deze vorm gelijk.
 
 #### F2-C01 - Keuzedeel K0037 vooraf gepland op capaciteit
 
@@ -428,7 +428,7 @@ De gemarkeerde lijnen zijn de stromen die deze fase raakt, met het beeld waarin 
 
 ### Variant capaciteitsgestuurd
 
-In deze vorm kiest de student op een geplande leergelegenheid. Hoe die uit de specificatie rijpt, bepaalt het onderwijsontwerp van de instelling. Het keuzedeelaanbod voor de animo komt via de catalogus; de aanmelding daar is een intekening, nog geen keuze. Na de animo stelt de planner de capaciteit vast, en die gaat rechtstreeks van planning naar het studentkeuzesysteem. F6-06 neemt de uitkomst daarvan mee (een groep blijft, de tweede vervalt), en F6-08 geldt ook hier.
+In deze vorm kiest de student op een geplande leergelegenheid. Hoe die uit de specificatie rijpt, bepaalt het onderwijsontwerp van de instelling. Het keuzedeelaanbod voor de animo komt via de catalogus; de aanmelding daarop (F6-03) geeft een voorkeur, en de keuze volgt op de leergelegenheid. Na de animo stelt de planner de capaciteit vast. Een afwijking tussen prognose en animo tot 50 procent ligt in dit voorbeeld binnen de marge; daarboven verbetert de instelling de prognose zelf. De capaciteit gaat rechtstreeks van planning naar het studentkeuzesysteem. F6-06 neemt de uitkomst daarvan mee (KD-A blijft, KD-B is geannuleerd), en F6-08 geldt ook hier.
 
 Hieraan gaan vooraf: [F6-01](#f6-01---keuzedeelaanbod-ontsloten), [F6-02](#f6-02---keuzedeelaanbod-specificatie-en-regels-naar-het-studentkeuzesysteem), [F6-03](#f6-03---jochems-aanmelding-op-het-keuzedeelaanbod-met-zijn-voorkeurslijst), [F6-04](#f6-04---keuzestelling-naar-planning).
 
@@ -448,9 +448,9 @@ Vervalt in deze vorm of schuift hierheen: [F6-05](#f6-05---definitieve-keuzes-ve
 
 ![ontstaat: Plek kiezen op een geplande leergelegenheid](img/regels/f6-c03-jochem-kiest-een-plek-op-de-geplande-leergelegenheid.svg)
 
-#### F6-C04 - Toegewezen binnen de capaciteit: de enige inschrijving
+#### F6-C04 - Toegewezen binnen de capaciteit: inschrijving op het keuzedeel
 
-![ontstaat: Toewijzen binnen de capaciteit](img/regels/f6-c04-toegewezen-binnen-de-capaciteit-de-enige-inschrijving.svg)
+![ontstaat: Toewijzen binnen de capaciteit](img/regels/f6-c04-toegewezen-binnen-de-capaciteit-inschrijving-op-het-keuzedeel.svg)
 
 ## Fase 7: Bijsturen planning en aanbod
 
@@ -494,7 +494,7 @@ De gemarkeerde lijnen zijn de stromen die deze fase raakt, met het beeld waarin 
 
 ### Variant capaciteitsgestuurd
 
-Bijsturen levert in deze vorm geen nieuwe planninggroep op: een plek die vrijkomt, gaat binnen de capaciteit terug naar het studentkeuzesysteem.
+Bij bijsturen blijft de bestaande planninggroep staan: een plek die vrijkomt, gaat binnen de capaciteit terug naar het studentkeuzesysteem.
 
 #### F7-C01 - Een plek komt vrij binnen de capaciteit
 
