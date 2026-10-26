@@ -576,11 +576,11 @@
     },
     {
       "objecttype": "Aanwezigheid",
-      "motivering": "Het kaderscenario noemt de aanwezigheid bij een les; OKx wisselt haar niet uit (bevinding B22, fase 5). Grijs getoond, zodat de les compleet is."
+      "motivering": "De aanwezigheidsregistratie zelf ligt buiten OKx. Of het afgeleide deelnameresultaat, zoals het deel van de lesgelegenheden dat de student bijwoonde, een studievoortgangsresultaat is dat keuzes in het studentkeuzesysteem vrijgeeft of beperkt, staat open (bevinding B22, #287). Het beeld toont het grijs, als herkomst van dat deelnameresultaat."
     },
     {
       "objecttype": "Leergelegenheid resultaat",
-      "motivering": "Het kaderscenario noemt het resultaat op een leergelegenheid; de modelronde zette het buiten scope. Grijs getoond, zodat de formatieve voortgang compleet is."
+      "motivering": "Het informatiemodel zet het resultaat op een leergelegenheid buiten scope; of het erbinnen hoort, staat open (Npuls-OKx/Public#117). Het kaderscenario noemt wel de stroom van het LMS naar het SVS met leergelegenheidresultaten. Het beeld toont het grijs, als stroom uit het kaderscenario en niet als OKx-uitwisseling."
     }
   ],
   "koppelingen": {
