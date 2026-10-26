@@ -10320,7 +10320,7 @@ Iemand die is ingeschreven die blijft. &#xD;
     <element xsi:type="archimate:FlowRelationship" id="id-308f56c448e740f2bc89992c6b7f8ef5" source="id-80be190358c14ed096b1da3f6806dd09" target="id-38eb035b383f438a96d89d232325c308"/>
     <element xsi:type="archimate:FlowRelationship" id="id-792e0289e81e4066b975101dab8e69e9" source="id-38eb035b383f438a96d89d232325c308" target="id-95cdb66e0e1e4469aae0db58d1eca0f3"/>
     <element xsi:type="archimate:FlowRelationship" id="id-9b56be82513e4c2aa0b0e8cb15c78e73" source="id-310f7a0eaa5542c1b0cc4982b6464c86" target="id-38eb035b383f438a96d89d232325c308"/>
-    <element xsi:type="archimate:FlowRelationship" id="id-bcb803b12697402e8f59c0765f67e91e" source="id-38eb035b383f438a96d89d232325c308" target="id-e4cc8b950d5d4c1e9c35bd0c6dd94a33"/>
+    <element xsi:type="archimate:FlowRelationship" id="id-bcb803b12697402e8f59c0765f67e91e" source="id-e4cc8b950d5d4c1e9c35bd0c6dd94a33" target="id-38eb035b383f438a96d89d232325c308"/>
     <element xsi:type="archimate:ServingRelationship" id="id-5e9d24643a894be6abab758c0d258858" source="id-22ca56a54e5544efb953a4c33634e0df" target="id-1ba9788c23f64ce085240277cc4afac5"/>
     <element xsi:type="archimate:ServingRelationship" id="id-189f4e3ae0684054b6ba4c2d87532575" source="id-c56540d68fbc4222980afec14d63f13e" target="id-2e601cefd0844f01918630db40819c24"/>
     <element xsi:type="archimate:FlowRelationship" id="id-559edd6b314b42b088188882659354e3" source="id-80be190358c14ed096b1da3f6806dd09" target="id-c56540d68fbc4222980afec14d63f13e"/>
@@ -28486,14 +28486,11 @@ En moet er suboptimaal op leeractiviteit niveau beschreven gaan worden, wat extr
           <child xsi:type="archimate:DiagramObject" id="id-a2f98ae7ff9746f7855f536cc403d5c0" targetConnections="id-2359a9dd82fb4300b0431f7fd1a891a3" lineWidth="3" archimateElement="id-070f8eab68754028bf84a7c1f4849c49">
             <bounds x="408" y="192" width="270" height="49"/>
           </child>
-          <child xsi:type="archimate:DiagramObject" id="id-5e672710638749b0abaa740ba4886667" targetConnections="id-87d37bc4e8584dd19c50de8b0e7b62fb id-a4f462d52925480aa2806b0b11dd8ba9 id-695b4ec2aa0b45f980b5598ab0523302" archimateElement="id-38eb035b383f438a96d89d232325c308">
+          <child xsi:type="archimate:DiagramObject" id="id-5e672710638749b0abaa740ba4886667" targetConnections="id-87d37bc4e8584dd19c50de8b0e7b62fb id-a4f462d52925480aa2806b0b11dd8ba9 id-695b4ec2aa0b45f980b5598ab0523302 id-498b1e2e290548d1852a1beca0dbe966" archimateElement="id-38eb035b383f438a96d89d232325c308">
             <bounds x="195" y="276" width="874" height="55"/>
             <sourceConnection xsi:type="archimate:Connection" id="id-2359a9dd82fb4300b0431f7fd1a891a3" source="id-5e672710638749b0abaa740ba4886667" target="id-a2f98ae7ff9746f7855f536cc403d5c0" archimateRelationship="id-494ec3b0212446b095d066e22d1783a6"/>
             <sourceConnection xsi:type="archimate:Connection" id="id-0fbad1e79f4542ecbddef109b5f4e3c6" source="id-5e672710638749b0abaa740ba4886667" target="id-e2be15debabc40e8922bf201b487ca08" archimateRelationship="id-792e0289e81e4066b975101dab8e69e9">
               <feature name="labelExpression" value="Student &#xD;&#xA;toetsgelegenheidverbintenis &#xD;&#xA;resultaat"/>
-            </sourceConnection>
-            <sourceConnection xsi:type="archimate:Connection" id="id-498b1e2e290548d1852a1beca0dbe966" source="id-5e672710638749b0abaa740ba4886667" target="id-241fe208bf014b179f9c2162d27c478f" archimateRelationship="id-bcb803b12697402e8f59c0765f67e91e">
-              <feature name="labelExpression" value="Student, &#xD;&#xA;opleidingprogramma&#xD;&#xA;verbintenis,&#xD;&#xA;relevante groepen"/>
             </sourceConnection>
           </child>
           <child xsi:type="archimate:DiagramObject" id="id-a2520ee2467d4b27ad7a236e0c264392" lineWidth="3" archimateElement="id-80be190358c14ed096b1da3f6806dd09">
@@ -28509,8 +28506,11 @@ En moet er suboptimaal op leeractiviteit niveau beschreven gaan worden, wat extr
           </child>
           <child xsi:type="archimate:Group" id="id-55c48fb497604918b624d6995972e63a" name="Student Informatie Systeem" lineWidth="2" textAlignment="1" fillColor="#ffffff">
             <bounds x="497" y="612" width="356" height="95"/>
-            <child xsi:type="archimate:DiagramObject" id="id-241fe208bf014b179f9c2162d27c478f" targetConnections="id-498b1e2e290548d1852a1beca0dbe966" lineWidth="3" archimateElement="id-e4cc8b950d5d4c1e9c35bd0c6dd94a33">
+            <child xsi:type="archimate:DiagramObject" id="id-241fe208bf014b179f9c2162d27c478f" lineWidth="3" archimateElement="id-e4cc8b950d5d4c1e9c35bd0c6dd94a33">
               <bounds x="12" y="25" width="157" height="55"/>
+              <sourceConnection xsi:type="archimate:Connection" id="id-498b1e2e290548d1852a1beca0dbe966" source="id-241fe208bf014b179f9c2162d27c478f" target="id-5e672710638749b0abaa740ba4886667" archimateRelationship="id-bcb803b12697402e8f59c0765f67e91e">
+                <feature name="labelExpression" value="Student, &#xD;&#xA;opleidingprogramma&#xD;&#xA;verbintenis,&#xD;&#xA;relevante groepen"/>
+              </sourceConnection>
             </child>
             <child xsi:type="archimate:DiagramObject" id="id-e2be15debabc40e8922bf201b487ca08" targetConnections="id-0fbad1e79f4542ecbddef109b5f4e3c6" lineWidth="3" archimateElement="id-95cdb66e0e1e4469aae0db58d1eca0f3">
               <bounds x="180" y="25" width="157" height="55"/>
