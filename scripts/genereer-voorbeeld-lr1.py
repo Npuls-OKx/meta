@@ -36,7 +36,7 @@ INVULBLAD = pathlib.Path("architecture/model/informatiemodel/voorbeeld-leerroute
 PLATEN = pathlib.Path("architecture/model/informatiemodel/img/hoofdplaat")
 REGELMAP = "img/regels"
 PLAATMAP = "img/hoofdplaat"
-HOOFDPLAAT = "<../informatiestromen hoofdplaat OKx/1.7/OKx hoofdplaat 1.7.jpg>"
+HOOFDPLAAT = f"{PLAATMAP}/hoofdplaat.svg"
 GEEN_PIJL = "geen pijl op de hoofdplaat"
 # het informatiemodel noemt de eerste kolom sinds de toevoeging van het hbo-kader `Kwalificatiekader`
 # en niet langer `Kwalificatiekader MBO`; de oude naam laat de hele familietabel wegvallen
@@ -180,7 +180,7 @@ def fase_sectie(f, blokken, regels_in_fase):
         regel += f". **MORA-hoofdproces:** {mora}"
     uit = kop + regel + ".\n\n"
     if any(r["soort"] == "stroomt" for r in regels_in_fase) and (PLATEN / f"f{f['nummer']}.svg").exists():
-        uit += (f"![Hoofdplaat v1.7 met de stromen van fase {f['nummer']} gemarkeerd]({PLAATMAP}/f{f['nummer']}.svg)\n\n"
+        uit += (f"![De hoofdplaat met de stromen van fase {f['nummer']} gemarkeerd]({PLAATMAP}/f{f['nummer']}.svg)\n\n"
                 "De gemarkeerde lijnen zijn de stromen die deze fase raakt, met het beeld waarin ze staan; een "
                 "gestippelde lijn is een stroom die de plaat nog niet kent.\n\n")
     if not regels_in_fase:
@@ -332,8 +332,9 @@ def hoofdplaatsectie(regels, per_fase):
             rij["beelden"].append(bid)
     uit = ("## De hoofdplaat als kaart\n\n"
            "De beelden met een blauwe rand tonen een stroom tussen twee componenten. Die componenten en pijlen komen van "
-           "hoofdplaat v1.7; de plaat hieronder is de kaart waarop die lijnen te vinden zijn.\n\n"
-           f"![Hoofdplaat OKx informatiestromen v1.7]({HOOFDPLAAT})\n\n"
+           "de hoofdplaat informatiestromen; de plaat hieronder is de kaart waarop die lijnen te vinden zijn, "
+           "getekend uit het model.\n\n"
+           f"![De hoofdplaat informatiestromen van OKx, getekend uit het model]({HOOFDPLAAT})\n\n"
            "Alle stromen die dit voorbeeld gebruikt, met de beelden waarin ze voorkomen:\n\n"
            "| Van | Naar | Op de hoofdplaat | Beelden |\n|---|---|---|---|\n")
     for (van, naar), rij in stromen.items():
