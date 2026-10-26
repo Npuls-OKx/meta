@@ -1,0 +1,94 @@
+{
+  "id": "meta-408-beoordeling-en-resultaat",
+  "titel": "Is een beoordeling een soort resultaat, of komt het resultaat pas na vaststelling?",
+  "herkomst": "Adviesgroep OKx van 26 oktober 2026, werkbrief Npuls-OKx/meta#408",
+  "oeapi": true,
+  "rij_labels": [
+    "het algemene type waar beide onder hangen",
+    "nu een rechtstreekse samenhang; de adviesgroep stelt de stap ertussen voor"
+  ],
+  "objecten": [
+    {
+      "naam": "Examengelegenheid resultaat",
+      "rij": 0,
+      "noot": "OEAPI kent hier een Result"
+    },
+    {
+      "naam": "Summatieve beoordeling",
+      "rij": 1,
+      "noot": "de docent of beoordelaar"
+    },
+    {
+      "naam": "Vaststelling",
+      "rij": 1,
+      "kolom": "Onderwijsresultaat",
+      "scope": "binnen",
+      "merk": "voorstel",
+      "nummer": 1,
+      "waarom": "de examencommissie zet er een krabbel onder"
+    },
+    {
+      "naam": "Summatief resultaat",
+      "rij": 1,
+      "noot": "een cijfer of behaald"
+    }
+  ],
+  "ontbreekt": [
+    {
+      "van": "Summatieve beoordeling",
+      "naar": "Vaststelling",
+      "soort": "Association",
+      "label": "ontbreekt: gaat ter vaststelling naar",
+      "waarom": "de stap tussen beoordelen en resultaat"
+    },
+    {
+      "van": "Vaststelling",
+      "naar": "Summatief resultaat",
+      "soort": "Association",
+      "label": "ontbreekt: levert pas hier een resultaat",
+      "waarom": "pas na de vaststelling heet het een resultaat"
+    }
+  ],
+  "voorbeeld": [
+    {
+      "kop": "Variant 1: de beoordeling wordt vastgesteld",
+      "bij": "Summatieve beoordeling",
+      "zin": "Quiz WHAM-vragen: 8",
+      "delen": [
+        {
+          "deel": "wie beoordeelt",
+          "waarde": "de docent"
+        },
+        {
+          "deel": "schaal",
+          "waarde": "cijfer 1 tot 10"
+        },
+        {
+          "deel": "wordt resultaat na",
+          "waarde": "vaststelling door de commissie"
+        }
+      ],
+      "vindplaats": "voorbeeld-lr1-regels.json, fase 5, beeld F5-03"
+    },
+    {
+      "kop": "Variant 2: een schaal voor de inspanning",
+      "bij": "Summatief resultaat",
+      "zin": "Bewijs van deelname na voldoende aanwezigheid",
+      "delen": [
+        {
+          "deel": "waar het voorkomt",
+          "waarde": "contractonderwijs, NEN 3110, vlieguren"
+        },
+        {
+          "deel": "schaal",
+          "waarde": "voldaan of niet voldaan"
+        },
+        {
+          "deel": "gevolg",
+          "waarde": "toelating tot afronding of herkansing"
+        }
+      ],
+      "vindplaats": "adviesgroep OKx, 26 oktober 2026"
+    }
+  ]
+}
