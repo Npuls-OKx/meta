@@ -19,6 +19,7 @@ Drie soorten regels, in de kleuren en iconen van ArchiMate:
 """
 
 import argparse
+import importlib.util
 import html
 import json
 import pathlib
@@ -62,17 +63,44 @@ def text(x, y, s, size=13, bold=False, fill=INK, anchor="start"):
     return f'<text x="{x:.0f}" y="{y:.0f}" font-family="{FONT}" font-size="{size}"{fw} fill="{fill}" text-anchor="{anchor}">{html.escape(s)}</text>'
 
 
+INSTANTIE_MAX_BREEDTE = 430  # een instantie breekt af in plaats van het vak op te rekken; twee vakken van
+                             # deze maat passen naast elkaar binnen MAX_BREEDTE, dus de rij blijft leesbaar
+
+
+def afbreken(tekst, maxw, size=14, bold=True):
+    """Een tekst in regels die binnen maxw passen. Een woord dat zelf te breed is krijgt een eigen regel."""
+    woorden, regels, huidige = str(tekst).split(), [], ""
+    for w in woorden:
+        proef = (huidige + " " + w).strip()
+        if huidige and tw(proef, size, bold) > maxw:
+            regels.append(huidige)
+            huidige = w
+        else:
+            huidige = proef
+    if huidige:
+        regels.append(huidige)
+    return regels or [""]
+
+
 def element(x, y, kind, label, inst, fill=BUS, line=BUS_L, labelkleur=BUS_T, rx=0, dashed=False, toestand=None, verwijzing=None, verwijzingen=()):
-    """Eén element: typelabel klein, instantie vet, en eronder de toestand en de verwijzingen naar
-    objecten buiten het blok. Geeft (svg, w, h)."""
+    """Eén element: typelabel klein, instantie vet over zo veel regels als nodig, en eronder de toestand
+    en de verwijzingen naar objecten buiten het blok. Geeft (svg, w, h).
+
+    De instantie breekt af op INSTANTIE_MAX_BREEDTE. Zonder dat afbreken rekt een zin het vak op tot
+    ver voorbij de breedte die een document aankan: een leeruitkomst die volgens het tuning model is
+    geformuleerd is een volledige zin, en die maakte een beeld bijna twee keer zo breed.
+    """
     extra = _extra(toestand, verwijzing, verwijzingen)
-    w = max(120, max([tw(label, 12), tw(inst, 14, True)] + [tw(e, 12) for e in extra]) + 42)
-    h = 48 + 17 * len(extra)
+    regels = afbreken(inst, INSTANTIE_MAX_BREEDTE)
+    w = max(120, max([tw(label, 12)] + [tw(r, 14, True) for r in regels] + [tw(e, 12) for e in extra]) + 42)
+    h = 48 + 18 * (len(regels) - 1) + 17 * len(extra)
     s = box(x, y, w, h, fill, line, rx, dashed) + icon(kind, x + w - 22, y + 5)
     s += text(x + 10, y + 18, label, 12, fill=labelkleur)
-    s += text(x + 10, y + 36, inst, 14, True)
+    for i, r in enumerate(regels):
+        s += text(x + 10, y + 36 + 18 * i, r, 14, True)
+    voet = y + 36 + 18 * (len(regels) - 1)
     for i, e in enumerate(extra):
-        s += text(x + 10, y + 53 + 17 * i, e, 12, fill=MUTED)
+        s += text(x + 10, voet + 17 + 17 * i, e, 12, fill=MUTED)
     return s, w, h
 
 
@@ -130,10 +158,77 @@ def relatielijn_v(x, y1, y2, soort, label, omlaag=True):
     return s
 
 
+OMWEG_MARGE = 22  # ruimte rechts van het breedste vak waar een omweglijn omhoog loopt
+OMWEG_BAAN = 14   # afstand tussen twee omwegbanen, zodat verticale stukken niet samenvallen
+OMWEG_REGEL = 14  # hoogte van een labelregel, voor twee omwegen die bij hetzelfde doel uitkomen
+# een omweg loopt ver van zijn label af, dus kleur bindt de twee aan elkaar. De uitlijning op de hoogte
+# van de pijlpunt blijft ernaast staan, zodat kleur niet het enige onderscheid is. De tinten zijn donker
+# en onderling verschillend in helderheid, zodat ze ook op het gele vlak en in grijstint uit elkaar vallen
+OMWEG_KLEUREN = ["#1f6fb2", "#b5651d", "#11776b", "#7a3b9e", "#a33a3a", "#4a4a4a"]
+# boven de drie omwegen wordt een blok een rangeerterrein: de banen lopen om het hele beeld heen en
+# winnen het niet meer van de verwijzing die er anders staat. Daarboven valt de tekenaar dus terug
+OMWEG_MAX = 3
+# verder terug dan drie objecten is een lijn niet meer te volgen; dan zegt de verwijzing onder het
+# object meer, want die noemt de instantie. Draagt de relatie een label, dan is de lijn het wel waard
+OMWEG_BEREIK = 3
+
+
+def _de_moeite(objecten_in_blok, ander, label):
+    """Of een relatie over afstand als lijn te tekenen is in plaats van als verwijzing."""
+    if _omwegen_in_blok(objecten_in_blok) >= OMWEG_MAX:
+        return False
+    types = [it["type"] for it in objecten_in_blok if "type" in it]
+    if ander not in types:
+        return bool(label)
+    return bool(label) or len(types) - types.index(ander) <= OMWEG_BEREIK
+
+
+def _horizontaal_met_bruggen(x1, x2, y, banen, eigen):
+    """Een horizontaal stuk dat met een boogje over elke andere baan heen gaat die het kruist.
+
+    Het stuk stopt vlak voor de baan, maakt een boogje eroverheen en loopt verder. Daardoor raken de
+    twee lijnen elkaar niet: wat overblijft is een brug, en geen kruising."""
+    heen = x2 > x1
+    kruist = sorted((bx for bx, y0, y1 in banen
+                     if bx != eigen and min(x1, x2) < bx < max(x1, x2) and y0 <= y <= y1),
+                    reverse=not heen)
+    d = ""
+    for bx in kruist:
+        voor, na = (bx - 4, bx + 4) if heen else (bx + 4, bx - 4)
+        d += f"H{voor:.0f}A4 4 0 0 {1 if heen else 0} {na:.0f} {y:.0f}"
+    return d + f"H{x2:.0f}"
+
+
+def relatielijn_omweg(x_bron, y_bron, x_doel, y_doel, baan, soort, label, naar_bron=True, banen=(), kleur="#444"):
+    """Een relatie naar een object dat niet de buur is: haaks om de blokken heen, langs een goot rechts
+    ervan. De baan ligt voorbij de rechterrand van alles ertussen, dus de lijn kruist geen vak.
+    naar_bron: de relatie wijst naar het object dat hier wordt getekend (de bron van de lijn); anders
+    wijst zij naar het object verder terug (het doel)."""
+    heen = _horizontaal_met_bruggen(x_bron, baan, y_bron, banen, baan)
+    terug = _horizontaal_met_bruggen(baan, x_doel, y_doel, banen, baan)
+    s = (f'<path d="M{x_bron:.0f} {y_bron:.0f}{heen}V{y_doel:.0f}{terug}" '
+         f'stroke="{kleur}" stroke-width="1.3" fill="none"/>')
+    # het geheel draagt de ruit, het doel van de relatie draagt de punt
+    punt_x, punt_y = (x_bron, y_bron) if naar_bron else (x_doel, y_doel)
+    heel_x, heel_y = (x_doel, y_doel) if naar_bron else (x_bron, y_bron)
+    if soort in ("Aggregation", "Composition"):
+        vulling = kleur if soort == "Composition" else "#ffffff"
+        s += (f'<path d="M{heel_x:.0f} {heel_y:.0f}l7 -5l7 5l-7 5z" '
+              f'fill="{vulling}" stroke="{kleur}" stroke-width="1.3"/>')
+    elif soort == "Specialization":
+        s += f'<path d="M{punt_x:.0f} {punt_y:.0f}l10 -6v12z" fill="#ffffff" stroke="{kleur}" stroke-width="1.3"/>'
+    elif label:
+        s += f'<path d="M{punt_x:.0f} {punt_y:.0f}l8 -4v8z" fill="{kleur}"/>'
+    return s
+
+
 def objecten(x, y, items, uitzonderingen):
     """Rij van objecten met de relaties van de plaat als lijnen ertussen; nesting bij kinderen.
     Wordt de rij breder dan MAX_BREEDTE, dan gaat de keten na het eerste object onder elkaar.
     Geeft (svg, w, h)."""
+    if any(it.get("over_afstand") for it in items):
+        # een omweg vraagt verticale ruimte: dit blok gaat altijd als kolom
+        return _objecten_kolom(x, y, items, uitzonderingen, alles_onder=True)
     svg, w, h = _objecten_rij(x, y, items, uitzonderingen)
     objs = [it for it in items if "type" in it]
     if w <= MAX_BREEDTE or len(objs) < 2:
@@ -156,26 +251,68 @@ def _objecten_kolom(x, y, items, uitzonderingen, alles_onder=False):
     lijnen = ""
     vorige_onder = None
     vorige_mid_x = None
-    wachtende_relatie = None
+    wachtende_relaties = []
     maxw = w1 if alles_onder else w1 + RELATIE_AFSTAND
     if alles_onder:
         vorige_onder = y + h1
+    # waar elk getekend objecttype staat: (rechterrand, middenhoogte); voor een relatie over afstand
+    plekken = {eerste["type"]: (x + w1, y + 24)}
+    omwegen = []  # (bron_rechts, bron_mid, doel_type, soort, label) om na te tekenen als de goot bekend is
     for it in items[1:]:
         if "relatie" in it and "type" not in it:
-            wachtende_relatie = it
+            wachtende_relaties.append(it)
             continue
         svg_it, w_it, h_it = _objecten_rij(kx, ky, [it], uitzonderingen)
         out += svg_it
-        if wachtende_relatie is not None:
-            if vorige_onder is None:
+        # meerdere relaties op een object: een naar de buur als lijn, de rest met een omweg
+        for i, wacht in enumerate(wachtende_relaties):
+            soort = wacht.get("soort", "Association")
+            label = wacht["relatie"]
+            doel = wacht.get("ander")
+            if wacht.get("over_afstand"):
+                # het andere eind staat verder terug: haaks eromheen, langs een goot rechts van de blokken
+                if doel in plekken:
+                    omwegen.append((kx + w_it, ky + 24 + 14 * i, doel, soort, label, wacht.get("naar_rechts", True)))
+            elif vorige_onder is None:
                 # relatie tussen het eerste object (links) en dit object: horizontaal, op de hoogte van dit object
-                lijnen += relatielijn(x + w1, ky + 24, kx, wachtende_relatie.get("soort", "Association"), wachtende_relatie["relatie"], wachtende_relatie.get("naar_rechts", True))
+                lijnen += relatielijn(x + w1, ky + 24, kx, soort, label, wacht.get("naar_rechts", True))
             else:
-                lijnen += relatielijn_v(kx + min(w_it, 120) / 2, vorige_onder, ky, wachtende_relatie.get("soort", "Association"), wachtende_relatie["relatie"], wachtende_relatie.get("naar_rechts", True))
-            wachtende_relatie = None
+                lijnen += relatielijn_v(kx + min(w_it, 120) / 2, vorige_onder, ky, soort, label, wacht.get("naar_rechts", True))
+        wachtende_relaties = []
+        plekken.setdefault(it["type"], (kx + w_it, ky + 24))
+        plekken[it["type"]] = (kx + w_it, ky + 24)
         vorige_onder = ky + h_it
         ky += h_it + 28
         maxw = max(maxw, w_it if alles_onder else w1 + RELATIE_AFSTAND + w_it)
+    if omwegen:
+        # elke omweg krijgt een eigen baan, de langste buitenom, zodat geen twee verticale stukken
+        # samenvallen en elke lijn van begin tot eind te volgen is
+        op_lengte = sorted(omwegen, key=lambda o: abs(plekken[o[2]][1] - o[1]))
+        buitenste = x + maxw + OMWEG_MARGE + (len(op_lengte) - 1) * OMWEG_BAAN
+        # elke baan met haar verticale bereik, zodat een lijn die eroverheen moet een brug krijgt
+        banen = [(x + maxw + OMWEG_MARGE + i * OMWEG_BAAN,
+                  min(o[1], plekken[o[2]][1]), max(o[1], plekken[o[2]][1]))
+                 for i, o in enumerate(op_lengte)]
+        bezet = {}
+        for i, (bron_x, bron_y, doel, soort, label, naar_rechts) in enumerate(op_lengte):
+            doel_x, doel_y = plekken[doel]
+            # komen er twee omwegen bij hetzelfde doel uit, dan schuift de tweede aankomst een regel op;
+            # anders vallen twee pijlpunten samen en is niet te zien welk label bij welke lijn hoort
+            rij = bezet.get(doel, 0)
+            bezet[doel] = rij + 1
+            doel_y += rij * OMWEG_REGEL
+            baan = banen[i][0]
+            # kleur verschijnt waar zij iets onderscheidt; bij een enkele omweg valt er niets te
+            # onderscheiden en blijft het beeld in de gewone lijnkleur
+            kleur = OMWEG_KLEUREN[i % len(OMWEG_KLEUREN)] if len(op_lengte) > 1 else "#444"
+            lijnen += relatielijn_omweg(bron_x, bron_y, doel_x, doel_y, baan, soort, label, naar_rechts, banen, kleur)
+            if label:
+                # het label staat op de hoogte van de pijlpunt, voorbij alle banen, in de kleur van de lijn.
+                # welk eind de punt draagt hangt af van de richting van de relatie
+                punt_y = bron_y if naar_rechts else doel_y
+                lijnen += text(buitenste + 8, punt_y + 4, label, 10, fill=kleur)
+        breedste = max((tw(lab, 10) for *_, lab, _ in omwegen), default=0)
+        maxw = buitenste - x + 8 + (breedste + 10 if breedste else 0)
     return out + lijnen, maxw, max(h1, ky - 28 - y)
 
 
@@ -211,13 +348,19 @@ def _objecten_rij(x, y, items, uitzonderingen, verbind=False):
             # een container toont, net als een los element, de toestand en verwijzingen onder de instantie
             extra = _extra(it.get("toestand"), it.get("verwijzing"), it.get("verwijzingen", ()))
             kop = 42 + 17 * len(extra)
+            inst_regels = afbreken(it["instantie"], INSTANTIE_MAX_BREEDTE)
+            kop = 42 + 18 * (len(inst_regels) - 1) + 17 * len(extra)
             ksvg, kw, kh = _kinderen(cx + 14, y + kop, it["kinderen"], uitzonderingen)
-            w = max([kw + 24, tw(it["type"], 12) + 42, tw(it["instantie"], 14, True) + 42] + [tw(e, 12) + 42 for e in extra])
+            w = max([kw + 24, tw(it["type"], 12) + 42] + [tw(r, 14, True) + 42 for r in inst_regels]
+                    + [tw(e, 12) + 42 for e in extra])
             h = kop + kh + 10
             out += box(cx, y, w, h, fill, line, 0, dashed) + icon("object", cx + w - 22, y + 5)
-            out += text(cx + 10, y + 18, it["type"], 12, fill=lk) + text(cx + 10, y + 36, it["instantie"], 14, True) + ksvg
+            out += text(cx + 10, y + 18, it["type"], 12, fill=lk) + ksvg
+            for i, r in enumerate(inst_regels):
+                out += text(cx + 10, y + 36 + 18 * i, r, 14, True)
+            voet = y + 36 + 18 * (len(inst_regels) - 1)
             for i, e in enumerate(extra):
-                out += text(cx + 10, y + 53 + 17 * i, e, 12, fill=MUTED)
+                out += text(cx + 10, voet + 17 + 17 * i, e, 12, fill=MUTED)
         else:
             s, w, h = element(cx, y, "object", it["type"], it["instantie"], fill, line, lk, 0, dashed, it.get("toestand"), it.get("verwijzing"), it.get("verwijzingen", ()))
             out += s
@@ -335,7 +478,7 @@ def regel_ontstaat(blok, uitzonderingen):
         cw = tw(tekst, 12) + 16
         chip = box(12, zin_y - 14, cw, 19, "#ffffff", "#c8ccc9", 9, True, "2 2") + text(20, zin_y, tekst, 12, fill=MUTED)
         zin_x = 12 + cw + 10
-    zin, zw, zh = alinea(zin_x, zin_y, blok.get("zin", ""), 14, max(ZIN_MAX_BREEDTE - (zin_x - 12), ox + ow - zin_x))
+    zin, zw, zh = alinea(zin_x, zin_y, blok.get("zin", ""), 14, min(ZIN_MAX_BREEDTE, max(360, ox + ow - zin_x)))
     W = max(x + sw + 12, ox + ow + 12, zin_x + zw + 12)
     H = zin_y + zh + 12
     return wrap(W, H, wie + stap + haak + objs + chip + zin, dashed=concept, titel=beeldtitel(blok))
@@ -373,7 +516,7 @@ def regel_stroomt(blok, uitzonderingen):
         s += f'<path d="M{ox + 24} {oy}V{ry - 4}" stroke="{APP_T}" stroke-width="1.5" stroke-dasharray="3 3"/>'
     s += osvg
     zin_y = oy + oh + 22
-    zin, zw, zh = alinea(12, zin_y, blok.get("zin", ""), 14, max(ZIN_MAX_BREEDTE, ox + ow - 12))
+    zin, zw, zh = alinea(12, zin_y, blok.get("zin", ""), 14, min(ZIN_MAX_BREEDTE, max(360, ox + ow - 12)))
     W = max(x_naar + nw + 12, ox + ow + 12, zw + 24)
     H = zin_y + zh + 12
     body = f'<rect x="0" y="0" width="4" height="{H:.0f}" fill="{APP_L}"/>' + s + zin
@@ -390,6 +533,22 @@ def _verwijzing(rel, objecttype):
     label = rel.get("label") or STANDAARDLABEL.get(rel["soort"], "hangt aan")
     tekst = f"{label} {ander}" if rel["van"] == objecttype else f"{ander} {label}"
     return f"{tekst}: {rel['instantie']}" if rel.get("instantie") else tekst
+
+
+def _omwegen_in_blok(objecten_in_blok):
+    """Hoeveel relaties over afstand dit blok al draagt."""
+    return sum(1 for it in objecten_in_blok if it.get("over_afstand"))
+
+
+def _types_in_blok(objecten_in_blok):
+    """Alle objecttypen die al in dit blok staan, kinderen meegerekend. Een relatie naar zo'n type is
+    met een omweg te tekenen; een relatie naar iets daarbuiten blijft een verwijzing."""
+    uit = set()
+    for it in objecten_in_blok:
+        if "type" in it:
+            uit.add(it["type"])
+            uit |= _types_in_blok(it.get("kinderen", []))
+    return uit
 
 
 def groepeer(regels):
@@ -437,13 +596,40 @@ def groepeer(regels):
                             "koppeling": r.get("koppeling"), "pijl": r.get("pijl"), "objecten": [item], "zin": r.get("zin", "")})
             continue
         laatste = blokken[-1] if blokken else None
-        if not laatste or laatste["soort"] != "ontstaat" or (laatste["fase"], laatste["stap"], laatste["wie"], laatste.get("verdieping"), laatste.get("beeld")) != (r["fase"], r["stap"], r.get("wie"), r.get("verdieping"), r.get("beeld")):
-            laatste = {"soort": "ontstaat", "fase": r["fase"], "stap": r["stap"], "wie": r.get("wie"), "verdieping": r.get("verdieping"),
+        # een beeld is een blok en dus een bestand. Draagt een regel een beeld, dan telt de rol niet mee
+        # in de sleutel: anders vallen de regels van hetzelfde beeld in twee blokken met dezelfde
+        # bestandsnaam, en overschrijft het tweede het eerste. Zonder beeld blijft de rol de grens.
+        if r.get("beeld"):
+            zelfde = (laatste and laatste["soort"] == "ontstaat"
+                      and (laatste["fase"], laatste["stap"], laatste.get("verdieping"), laatste.get("beeld"))
+                      == (r["fase"], r["stap"], r.get("verdieping"), r["beeld"]))
+        else:
+            zelfde = (laatste and laatste["soort"] == "ontstaat" and not laatste.get("beeld")
+                      and (laatste["fase"], laatste["stap"], laatste.get("rollen"), laatste.get("verdieping"))
+                      == (r["fase"], r["stap"], [r.get("wie")], r.get("verdieping")))
+        if not zelfde:
+            laatste = {"soort": "ontstaat", "fase": r["fase"], "stap": r["stap"], "wie": r.get("wie"),
+                       "rollen": [], "verdieping": r.get("verdieping"),
                        "beeld": r.get("beeld"), "beeld_id": r.get("beeld_id"),
                        "plaat": r.get("plaat", "informatiemodel"), "objecten": [], "zin": r.get("zin", "")}
             blokken.append(laatste)
+        if r.get("wie") and r["wie"] not in laatste["rollen"]:
+            laatste["rollen"].append(r["wie"])
+            laatste["wie"] = ", ".join(laatste["rollen"])
+        # een extra relatie waarvan het andere eind al in dit blok staat wordt een lijn met een omweg;
+        # de rest blijft een verwijzing onder het object
+        _reeds = _types_in_blok(laatste["objecten"])
+        _ver, _omweg = [], []
+        for x in r.get("relaties", []):
+            _ander = x["naar"] if x["van"] == r["objecttype"] else x["van"]
+            if _ander in _reeds and _de_moeite(laatste["objecten"] + _omweg, _ander, x.get("label")):
+                _omweg.append({"relatie": x.get("label") or "", "soort": x["soort"],
+                               "naar_rechts": x["naar"] == r["objecttype"], "ander": _ander, "over_afstand": True})
+            else:
+                _ver.append(_verwijzing(x, r["objecttype"]))
+        laatste["objecten"] += _omweg
         item = {"type": r["objecttype"], "instantie": r["instantie"], "aanname": r.get("aanname", False),
-                "plaat": r.get("plaat", "informatiemodel"), "verwijzingen": [_verwijzing(x, r["objecttype"]) for x in r.get("relaties", [])]}
+                "plaat": r.get("plaat", "informatiemodel"), "verwijzingen": _ver}
         _rel = r.get("relatie") or {}
         if _rel.get("soort") == "Specialization" and _rel.get("van") == r["objecttype"]:
             item["specialiseert"] = _rel["naar"]
@@ -476,6 +662,9 @@ def groepeer(regels):
             if ander in in_blok:
                 # het andere eind staat ernaast in dit blok: relatielijn ertussen; naar_rechts als dit object het doel is
                 laatste["objecten"].append({"relatie": rel.get("label") or "", "soort": rel["soort"], "naar_rechts": rel["naar"] == r["objecttype"], "ander": ander})
+            elif ander in _types_in_blok(laatste["objecten"]) and _de_moeite(laatste["objecten"], ander, rel.get("label")):
+                # het andere eind staat verder terug in dit blok: een lijn met een omweg in plaats van een verwijzing
+                laatste["objecten"].append({"relatie": rel.get("label") or "", "soort": rel["soort"], "naar_rechts": rel["naar"] == r["objecttype"], "ander": ander, "over_afstand": True})
             else:
                 item["verwijzing"] = _verwijzing(rel, r["objecttype"])
         laatste["objecten"].append(item)
@@ -504,20 +693,61 @@ def bestandsnaam(blok, volgnummer=None):
     return f"f{blok['fase']}-{volgnummer or 0:02d}-{s}.svg"
 
 
-def teken(regels, uitmap):
-    """Schrijft per blok een SVG; geeft de lijst (bestandsnaam, blok)."""
+def _snijd():
+    """scripts/snijd-beeld.py als module, zodat de renderer de banen per beeld kan noemen."""
+    pad = pathlib.Path(__file__).resolve().parent / "snijd-beeld.py"
+    spec = importlib.util.spec_from_file_location("snijd_beeld", pad)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+def teken(regels, uitmap, opruimen=False):
+    """Schrijft per blok een SVG; geeft de lijst (bestandsnaam, blok).
+
+    Een beeld is een bestand. Leveren twee blokken dezelfde naam, dan stopt dit met de namen erbij in
+    plaats van het eerste bestand te overschrijven: dan verdwijnt een deel van het beeld zonder dat
+    iemand het ziet. Met opruimen verdwijnt een SVG die geen blok meer draagt, zodat een beeld dat van
+    naam verandert geen tweeling achterlaat.
+    """
     uitzonderingen = {u["objecttype"] for u in regels.get("scope_uitzonderingen", [])}
     uitmap = pathlib.Path(uitmap)
     uitmap.mkdir(parents=True, exist_ok=True)
-    uit = []
+    uit, gezien = [], {}
     for n, blok in enumerate(groepeer(regels), 1):
         if blok["soort"] == "stroomt":
             svg = regel_stroomt(blok, uitzonderingen)
         else:
             svg = regel_ontstaat(blok, uitzonderingen)
         naam = bestandsnaam(blok, n)
+        if naam in gezien:
+            sys.exit(f"twee blokken leveren hetzelfde bestand {naam}: "
+                     f"{gezien[naam]} en {beeldtitel(blok) or blok['stap']}; een beeld is een bestand")
+        gezien[naam] = beeldtitel(blok) or blok["stap"]
         (uitmap / naam).write_text(svg, encoding="utf-8")
         uit.append((naam, blok))
+    if opruimen:
+        for pad in sorted(uitmap.glob("*.svg")):
+            if pad.name not in gezien:
+                pad.unlink()
+                print(f"opgeruimd: {pad.name} draagt geen regel meer")
+    return uit
+
+
+def maten(uitmap, namen):
+    """Per beeld de breedte, de hoogte, de hoogte van elke baan en de reden als het niet te snijden is.
+
+    De baanhoogtes staan erbij omdat ze niet gelijk kunnen uitvallen: een snede ligt altijd in
+    witruimte, dus waar een beeld dicht getekend staat liggen de grenzen vast. Ongelijke banen zijn
+    daarmee een teken dat het beeld zelf te dicht is, en dat is werk aan het beeld.
+    """
+    snijd = _snijd()
+    uit = []
+    for naam in namen:
+        svg = (pathlib.Path(uitmap) / naam).read_text(encoding="utf-8")
+        _, _, breedte, hoogte = snijd.doek(svg)
+        hoogtes = [snijd.doek(deel)[3] for deel in snijd.banen(svg, marge=0)]
+        uit.append((naam, breedte, hoogte, hoogtes, snijd.knelpunt(svg)))
     return uit
 
 
@@ -537,14 +767,33 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     parser.add_argument("--regels", type=pathlib.Path, default=REGELS)
     parser.add_argument("--uit", type=pathlib.Path, default=UIT)
+    parser.add_argument("--houd-verweesde-beelden", action="store_true",
+                        help="een SVG die geen regel meer draagt laten staan; standaard verdwijnt hij")
+    parser.add_argument("--stil", action="store_true", help="alleen de slotregel, zonder de maat per beeld")
+    parser.add_argument("--streng", action="store_true",
+                        help="eindigen met een foutcode zodra een beeld niet te snijden is; standaard is "
+                             "het een melding, zodat een bestaande plaat de keten niet stillegt")
     args = parser.parse_args(argv)
     if not args.regels.exists():
         print(f"regeltabel niet gevonden: {args.regels}", file=sys.stderr)
         return 2
     regels = json.loads(args.regels.read_text(encoding="utf-8"))
     valideer(regels)
-    uit = teken(regels, args.uit)
-    print(f"{len(uit)} regels getekend naar {args.uit}")
+    uit = teken(regels, args.uit, opruimen=not args.houd_verweesde_beelden)
+    knel = []
+    for naam, breedte, hoogte, hoogtes, reden in maten(args.uit, [n for n, _ in uit]):
+        if not args.stil:
+            banen = f"{len(hoogtes)} {'baan' if len(hoogtes) == 1 else 'banen'}"
+            verdeling = f" ({', '.join(f'{h:g}' for h in hoogtes)})" if len(hoogtes) > 1 else ""
+            print(f"  {naam}: {breedte:g} bij {hoogte:g}, {banen}{verdeling}"
+                  + (f", niet te snijden: {reden}" if reden else ""))
+        if reden:
+            knel.append(naam)
+    print(f"{len(uit)} beelden getekend naar {args.uit}")
+    if knel:
+        print(f"{len(knel)} beelden passen niet in banen en worden op een slide te klein; voor het "
+              f"document is dat geen gebrek: {', '.join(knel)}", file=sys.stderr)
+        return 1 if args.streng else 0
     return 0
 
 

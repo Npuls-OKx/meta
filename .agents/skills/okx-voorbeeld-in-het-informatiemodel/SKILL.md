@@ -32,10 +32,9 @@ Volgorde bij elke wijziging, altijd volledig:
 python3 scripts/exporteer-componenten.py --extra "Intake systeem" "Aanmeld systeem" \
     "Curriculum ontwerptool" "AII (centraal aanmelden)" "Toets- en examen afname systeem"
 python3 scripts/controleer-voorbeeldregels.py            # 0 bevindingen, anders eerst herstellen
-rm -f architecture/model/informatiemodel/img/regels/*.svg
-python3 scripts/teken-voorbeeldregels.py
+python3 scripts/teken-voorbeeldregels.py                 # per beeld de maat en de banen; ruimt verweesde SVG's op
 python3 scripts/teken-hoofdplaat-highlight.py            # alleen als de plaat of de stromen wijzigen
-python3 scripts/genereer-voorbeeld-lr1.py                # waarschuwt voor vragen buiten de zeven
+python3 scripts/genereer-voorbeeld-lr1.py                # slotregel: beelden, regels en vragen
 python3 scripts/validate-docs.py architecture/model/informatiemodel/voorbeeld-leerroute-1-jochem.md
 python3 -W error::ResourceWarning -m unittest discover -s tests
 ```
@@ -67,7 +66,7 @@ Elke regel is een fragment van een plaat bij een processtap:
 | `nieuwe_instantie` | een verdere instantie van een objecttype dat al eerder ontstond, omdat het scenario die nodig heeft (de keuzedeelvoorkeur bij de intake als tweede intekening); telt niet als tweede ontstaan |
 | `bron` | bestand en regelnummer (`leerroute-1-regulier.md, r1046`), payload-id, ontologie met versie, of "geen bron, keuze van het voorbeeld"; het register maakt er links van |
 | `zin` | één zin, uit het kaderscenario waar die er is; laag houden |
-| `vraag` | alleen waar plaat en bron elkaar tegenspreken of de plaat iets mist; het document toont er zeven |
+| `vraag` | alleen waar plaat en bron elkaar tegenspreken of de plaat iets mist; het document toont ze alle, in pagina's van zeven, en een geparkeerde bevinding uit het register levert er ook een |
 
 ### Uitwisselingen per fase, en het aftekenen
 
@@ -87,7 +86,7 @@ Elke fase draagt de uitwisselingen die het kaderscenario onder *Wat licht op in 
 
 ### Bevinding of signalering
 
-De controle scheidt de twee en de exitcode volgt alleen de bevindingen. Een signalering wijst op iets dat aandacht vraagt zonder de uitkomst af te keuren: een objecttype dat de plaat nog niet draagt (met de fase en de stap waar het nodig is), een stroom zonder pijl op de hoofdplaat, een uitwisseling zonder beeld in een fase die nog loopt, een beeld dat meer dan een rol draagt.
+De controle scheidt de twee en de exitcode volgt alleen de bevindingen. Een signalering wijst op iets dat aandacht vraagt zonder de uitkomst af te keuren: een objecttype dat de plaat nog niet draagt (met de fase en de stap waar het nodig is), een stroom zonder pijl op de hoofdplaat, een uitwisseling zonder beeld in een fase die nog loopt. Een objecttype dat de plaat niet draagt hoort met een gestippelde rand in het beeld te staan en in de zin te zeggen dat de plaat het nog niet kent: zo lokt het voorbeeld de discussie uit in plaats van het weg te laten.
 
 Wat de controle weigert, hoort niet in het voorbeeld: een objecttype dat niet op de plaat staat, een relatie die er niet als drietal (soort, van, naar) staat, een label dat afwijkt, nesting op een associatie, een rol of stap buiten de lijst, een pijl die niet op de hoofdplaat staat, een tweede ontstaat-regel voor hetzelfde objecttype, een objecttype in een andere fase dan verwacht, een beeld-ID dat niet de vorm F<fase>-<volgnummer> heeft, bij twee beelden hoort of niet oploopt binnen de fase. Mist de plaat iets dat de bron wel kent, dan is dat een `vraag` voor de modelronde, geen verzonnen label.
 
@@ -95,13 +94,30 @@ Wat de controle weigert, hoort niet in het voorbeeld: een objecttype dat niet op
 
 De renderer tekent per beeld één SVG in ArchiMate-kleur, met het ID en de beeldtitel bovenaan: geel voor rol, processtap en object, blauw voor component, grijs voor een scope-uitzondering, gestippeld voor een aanname, paars voor een objecttype van de conceptplaat (een conceptverdieping heeft bovendien een gestippelde rand en een chip). Bovenaan staat wie en wat (rol en processtap) of de pijl van component naar component als horizontale stippellijn met koppeling-ID en stap; eronder hangen de objecten aan een stippellijn, onderling gerelateerd. Nesting is een container; een relatielijn loopt alleen naar het buurobject (ruit bij aggregatie, open pijlpunt bij specialisatie, gelabelde lijn bij associatie), elke andere relatie staat als verwijzing op het object. Leesbaarheid gaat voor breedte: een beeld is hooguit ongeveer 1000 px breed (letters 12 en 14 px), brede ketens gaan in een kolom of over meer rijen, brede kinderrijen worden een stapel en de zin loopt door over meer regels. GitHub schaalt een breder beeld terug tot onleesbaar.
 
+Een beeld is een bestand. De renderer groepeert de regels van een beeld tot een blok, ook als zij van rol wisselen: de rollen staan dan samen in de kop ("planner, SLB'er"). Een beeld mag dus meer rollen dragen waar het verhaal daarom vraagt, zoals een afname die individueel wordt beoordeeld naast een zitting met een surveillant en een beoordelaar. Leveren twee blokken toch dezelfde bestandsnaam, dan stopt de renderer met beide namen erbij, want een overschreven bestand toont minder dan de tabel zegt.
+
+De renderer noemt per beeld de breedte, de hoogte, het aantal banen en de hoogte van elke baan. Een snede ligt altijd in witruimte, dus banen vallen alleen even uit waar het beeld dat toelaat; ongelijke banen zijn daarmee een teken dat het beeld te dicht getekend staat. Een beeld dat helemaal niet te snijden is levert de reden en het y-bereik waar de witregel ontbreekt. De voorbeelduitwerking is een document, dus dat is daar geen gebrek: het snijden telt pas wanneer een beeld op een slide moet, en de melding zegt dan welk beeld eerst korter hoort. Met `--streng` eindigt het in een foutcode, voor wie een deck bouwt.
+
 Bekijk het beeld zelf voordat je het meldt: `soffice --headless --convert-to png` in de scratchpad, en zet het beeld voor de gebruiker op een branch met een GitHub-link (bestanden sturen werkt niet in de container).
+
+## Een stroom die de hoofdplaat nog niet kent
+
+`stromen.json` is de export van de gepubliceerde view door `exporteer-archimate-view.py`; het model
+wijzigt alleen de modelleur in Archi. Een stroom die een nieuwere versie van de plaat kent, kan daarom
+niet met de hand in de export. Die staat in `stromen-aanvullingen.json`, met haar herkomst, haar status
+en de bron waaruit zij komt, en de export voegt haar bij elke ronde opnieuw toe. Haar id begint met
+`aanvulling-`, zodat zij zich onderscheidt van een relatie-id uit Archi, en de kop van `stromen.json`
+zegt wat dat betekent voor wie de plaat gebruikt.
+
+De export weigert een aanvulling die al als stroom in de view staat: zodra de modelleur haar opneemt
+vervalt de aanvulling. Staat een stroom in geen van beide, dan draagt een regel de markering "geen pijl
+op de hoofdplaat" en komt dat als signalering uit de controle.
 
 ## De hoofdplaat als context bij elke interactie
 
-Een stroombeeld toont twee componenten en wat er tussen hen beweegt, maar niet waar die lijn op de hoofdplaat loopt. Daarom staat onder elke fasekop een render van hoofdplaat v1.7 waarop de stromen van die fase zijn gemarkeerd, met het beeld-ID erbij; de rest van de plaat vervaagt, zodat de lijn eruit springt. Een stroom die de plaat nog niet kent, staat als gestippelde lijn tussen de twee componenten: zo is zichtbaar wat er ontbreekt in plaats van dat het wegvalt.
+Een stroombeeld toont twee componenten en wat er tussen hen beweegt, maar niet waar die lijn op de hoofdplaat loopt. Daarom staat onder elke fasekop de hoofdplaat, getekend uit het model, waarop de stromen van die fase zijn gemarkeerd, met het beeld-ID erbij; de rest van de plaat vervaagt, zodat de lijn eruit springt. Een stroom die de plaat nog niet kent, staat als gestippelde lijn tussen de twee componenten: zo is zichtbaar wat er ontbreekt in plaats van dat het wegvalt.
 
-`teken-hoofdplaat-highlight.py` maakt die platen uit de view-geometrie van het model en de render `img/hoofdplaat/hoofdplaat-v1.7.jpg`. Die render komt uit `exporteer-archimate-platen.py` (Archi headless) en staat in de repository, zodat de platen zonder Archi te maken zijn; vernieuw hem zodra de hoofdplaat wijzigt. Archi rendert met tien pixels marge en het script rekent met dezelfde marge, zodat de vakken kloppen. De markering volgt het pad dat in het model staat: van rand tot rand van de twee vakken, langs de knikpunten van de modelleur (knikpunt i van n weegt (i + 1) / (n + 1) tussen bron en doel, zoals de tekenlaag onder Archi rekent) en door een junction heen tot het vak van de ontvanger. Daarmee ligt de markering op of vlak langs de pijl van de plaat. Let op: Archi kiest bij sommige pijlen zelf een aanhechtpunt dat uit het bestand niet te herleiden is; die markering loopt evenwijdig aan de pijl in plaats van erop. Toetsen doe je door alle berekende lijnen over een verse render te leggen. Een stroom zonder pijl op de plaat krijgt een gestippelde boog tussen de twee vakken: zichtbaar wat er ontbreekt. Een relatie die twee keer op de plaat staat, krijgt de kortste van de twee lijnen. Met `--koppelingen OC-P&R,OC-SIS,OC-LMS` markeert het script niet een fase maar de lijnen van die koppelingen, en met `--uitsnede` blijft alleen het deel van de plaat over waar de markeringen liggen. Het meldt welke stromen het niet kon plaatsen; dat zijn componenten die de plaat niet kent, en die horen in het document als vraag.
+`teken-fasenplaten.py` maakt die platen uit het model, via de markeerstand van `teken-hoofdplaat-ruim.py`. Er komt geen render aan te pas, dus de plaat loopt mee met elke wijziging van de view (Archi headless) en staat in de repository, zodat de platen zonder Archi te maken zijn; vernieuw hem zodra de hoofdplaat wijzigt. Archi rendert met tien pixels marge en het script rekent met dezelfde marge, zodat de vakken kloppen. De markering volgt het pad dat in het model staat: van rand tot rand van de twee vakken, langs de knikpunten van de modelleur (knikpunt i van n weegt (i + 1) / (n + 1) tussen bron en doel, zoals de tekenlaag onder Archi rekent) en door een junction heen tot het vak van de ontvanger. Daarmee ligt de markering op of vlak langs de pijl van de plaat. Let op: Archi kiest bij sommige pijlen zelf een aanhechtpunt dat uit het bestand niet te herleiden is; die markering loopt evenwijdig aan de pijl in plaats van erop. Toetsen doe je door alle berekende lijnen over een verse render te leggen. Een stroom zonder pijl op de plaat krijgt een gestippelde boog tussen de twee vakken: zichtbaar wat er ontbreekt. Een relatie die twee keer op de plaat staat, krijgt de kortste van de twee lijnen. Met `--koppelingen OC-P&R,OC-SIS,OC-LMS` markeert het script niet een fase maar de lijnen van die koppelingen, en met `--uitsnede` blijft alleen het deel van de plaat over waar de markeringen liggen. Het meldt welke stromen het niet kon plaatsen; dat zijn componenten die de plaat niet kent, en die horen in het document als vraag.
 
 Elk stroombeeld draagt daarnaast een regel **Interactie:** met de twee systemen, de koppeling of de aanduiding "geen pijl op de hoofdplaat", en het beeld-ID waarmee de lijn op de faseplaat is gemarkeerd.
 

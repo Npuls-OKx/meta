@@ -14,6 +14,7 @@ Hoort bij [de opleiding van Jochem in het informatiemodel](voorbeeld-leerroute-1
 | 1 | F1-02 | Examenplan | | | | |
 | 1 | F1-03 | Leeruitkomst | | | | |
 | 1 | F1-03 | Leeruitkomst | | | | |
+| 1 | F1-03 | Onderwijskundige taxonomie | | | | |
 | 1 | F1-04 | Leeruitkomst | | | | |
 | 1 | F1-04 | Leeruitkomst | | | | |
 | 1 | F1-04 | Competenties / Skills | | | | |
@@ -42,10 +43,14 @@ Hoort bij [de opleiding van Jochem in het informatiemodel](voorbeeld-leerroute-1
 | 1 | F1-08 | Leeronderdeel specificatie | | | | |
 | 1 | F1-08 | Onderwijseenheid specificatie | | | | |
 | 1 | F1-08 | Leeronderdeel specificatie | | | | |
+| 1 | F1-08 | Leeruitkomst | | | | |
+| 1 | F1-08 | Leeruitkomst | | | | |
 | 1 | F1-08 | Keuzedeel | | | | |
 | 1 | F1-08 | Onderwijseenheid specificatie | | | | |
 | 1 | F1-08 | Leeronderdeel specificatie | | | | |
 | 1 | F1-08 | Leeronderdeel specificatie | | | | |
+| 1 | F1-08 | Minor | | | | |
+| 1 | F1-08 | Leeruitkomst | | | | |
 | 1 | F1-09 | Summatieve resultaat structuur | | | | |
 | 1 | F1-09 | Toetsonderdeel specificatie | | | | |
 | 1 | F1-09 | Examenonderdeelspecificatie | | | | |
@@ -111,6 +116,10 @@ Hoort bij [de opleiding van Jochem in het informatiemodel](voorbeeld-leerroute-1
 | 8 | F8-01 | Examengelegenheid | | | | |
 | 8 | F8-02 | Examengelegenheid verbintenis | | | | |
 | 8 | F8-03 | Examengelegenheid resultaat | | | | |
+| 8 | F8-03 | Zitting | | | | |
+| 8 | F8-03 | Zittingsrapport | | | | |
+| 8 | F8-03 | Examengelegenheid resultaat | | | | |
+| 8 | F8-05 | Examendossier | | | | |
 | 8 | F8-05 | Summatief resultaat | | | | |
 | 8 | F8-05 | Summatieve beoordeling | | | | |
 | 8 | F8-05 | Opleidingsprogramma resultaat | | | | |

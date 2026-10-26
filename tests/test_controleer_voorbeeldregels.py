@@ -440,6 +440,39 @@ class RegisterTests(unittest.TestCase):
         b, _, _ = bevindingen(register_regels(status="geparkeerd", reden="wacht op de modelronde"))
         self.assertEqual(b, [])
 
+    def test_given_a_processed_finding_without_an_account_when_checked_then_finding(self):
+        """Criterium 5 van een fase vraagt per bevinding wat er is gewijzigd; doorgevoerd zonder dat
+        verhaal laat de lezer met een vinkje achter."""
+        b, _, _ = bevindingen(register_regels(status="doorgevoerd"))
+        self.assertTrue(any("doorgevoerd zonder te zeggen wat er is gewijzigd" in x for x in b), b)
+
+    def test_given_a_processed_finding_with_an_account_when_checked_then_accepted(self):
+        b, _, _ = bevindingen(register_regels(status="doorgevoerd", verwerking="F2-01: de zin herschreven"))
+        self.assertEqual(b, [])
+
+    def test_given_the_register_when_read_then_every_finding_of_the_round_is_accounted_for(self):
+        """Na de acht fasen draagt elke bevinding een status met het verhaal erbij, en staat er niets open."""
+        tabel = json.loads((WORTEL / "architecture/model/informatiemodel/voorbeeld-lr1-regels.json").read_text(encoding="utf-8"))
+        for b in tabel["bevindingen"]:
+            self.assertIn(b["status"], ("doorgevoerd", "geparkeerd"), b["nummer"])
+            if b["status"] == "doorgevoerd":
+                # de verantwoording noemt het beeld waar zij landde; soms raakt zij er twee
+                self.assertIn(b["beeld_id"], b["verwerking"], b["nummer"])
+            else:
+                self.assertTrue(b["reden"], b["nummer"])
+
+    def test_given_every_phase_when_read_then_its_coverage_is_complete(self):
+        tabel = json.loads((WORTEL / "architecture/model/informatiemodel/voorbeeld-lr1-regels.json").read_text(encoding="utf-8"))
+        self.assertEqual([f["nummer"] for f in tabel["fasen"] if f.get("dekking") != "volledig"], [])
+
+    def test_given_the_register_when_read_then_phase_one_is_fully_processed(self):
+        tabel = json.loads((WORTEL / "architecture/model/informatiemodel/voorbeeld-lr1-regels.json").read_text(encoding="utf-8"))
+        fase1 = [b for b in tabel["bevindingen"] if b["issue"] == 283]
+        self.assertEqual(len(fase1), 5)
+        for b in fase1:
+            self.assertEqual(b["status"], "doorgevoerd", b["nummer"])
+            self.assertIn(b["beeld_id"], b["verwerking"], b["nummer"])
+
     def test_given_status_outside_the_list_when_checked_then_finding(self):
         b, _, _ = bevindingen(register_regels(status="afgehandeld"))
         self.assertTrue(any("staat niet in de lijst" in x for x in b), b)
@@ -449,8 +482,9 @@ class RegisterTests(unittest.TestCase):
         self.assertTrue(any("verwijst naar beeld" in x for x in b), b)
 
     def test_given_the_register_when_read_then_six_findings_have_no_decision_in_the_feature_plan(self):
-        """Het featureplan is van 29 september 17:23; zes bevindingen kwamen daarna binnen en wachten
-        dus nog op een besluit. Dit geval houdt dat getal zichtbaar in plaats van in een commitbericht."""
+        """Het featureplan is van 29 september 17:23; zes bevindingen kwamen daarna binnen en vallen in geen
+        werkpakket. Hun besluit staat daarom in het veld verwerking van het register zelf, en dit geval houdt
+        zichtbaar welke zes dat zijn."""
         tabel = json.loads((WORTEL / "architecture/model/informatiemodel/voorbeeld-lr1-regels.json").read_text(encoding="utf-8"))
         zonder = [b["nummer"] for b in tabel["bevindingen"] if not b.get("werkpakketten")]
         self.assertEqual(zonder, ["B33", "B34", "B35", "B36", "B37", "B38"])
@@ -536,13 +570,52 @@ class DekkingTests(unittest.TestCase):
         _, w, _ = bevindingen(r, componenten={"componenten": [{"naam": "Planningssysteem"}, {"naam": "Onderwijscatalogus"}]})
         self.assertTrue(any("componenten.json niet kent" in x for x in w), w)
 
-    def test_given_the_real_table_when_measured_then_twelve_exchanges_wait_for_an_answer(self):
-        """De werklijst van de acht fase-issues: elk gat krijgt daar beeld_in_fase, afwijking of
-        buiten_scope, en de fase gaat op dekking volledig."""
+    def test_given_the_real_table_when_measured_then_every_gap_sits_in_a_phase_still_open(self):
+        """De werklijst van de fase-issues: elk gat krijgt daar beeld_in_fase, afwijking of buiten_scope,
+        en de fase gaat op dekking volledig. Een fase die volledig heet draagt dus geen gat meer, en de
+        controle levert geen bevinding zolang de rest nog loopt."""
         tabel = json.loads((WORTEL / "architecture/model/informatiemodel/voorbeeld-lr1-regels.json").read_text(encoding="utf-8"))
         b, w = cv.dekking_uitwisselingen(tabel)
         self.assertEqual(b, [])
-        self.assertEqual(len([x for x in w if "draagt geen beeld" in x]), 12)
+        gaten = [x for x in w if "draagt geen beeld" in x]
+        volledig = {f["nummer"] for f in tabel["fasen"] if f.get("dekking") == "volledig"}
+        self.assertTrue(volledig, "geen enkele fase staat op volledig")
+        for gat in gaten:
+            nummer = int(gat.split()[1].rstrip(":"))
+            self.assertNotIn(nummer, volledig, gat)
+
+
+class AanvullendeStroomTests(unittest.TestCase):
+    """Een stroom die hoofdplaat 1.7a kent en 1.7 nog niet, komt via stromen-aanvullingen.json in
+    stromen.json terecht. Een regel moet daarnaar kunnen wijzen, anders kan fase 6 de conditionele
+    keuze niet tonen."""
+
+    def echte_stromen(self):
+        """De echte export naast de fixture-stroom, zodat de bestaande regels van de fixture blijven kloppen."""
+        echt = json.loads((WORTEL / "architecture/model/informatiemodel/stromen.json").read_text(encoding="utf-8"))
+        return {"stromen": stromen()["stromen"] + echt["stromen"]}
+
+    def test_given_a_rule_pointing_at_an_addition_when_checked_then_the_arrow_is_accepted(self):
+        r = regels()
+        r["regels"].append({"beeld_id": "F3-02", "beeld": "Voltooide verbintenissen naar het keuzesysteem",
+                            "fase": 3, "stap": "Aanmelden", "soort": "stroomt",
+                            "van": "Student volg systeem (SVS)", "naar": "Student Keuze Systeem (SKS)",
+                            "pijl": "aanvulling-svs-naar-sks-voltooide-verbintenissen", "koppeling": None,
+                            "objecttype": "Opleidingaanbod", "instantie": "Apothekersassistent 2026",
+                            "bron": "stromen-aanvullingen.json"})
+        b, w, _ = bevindingen(r, s=self.echte_stromen())
+        self.assertEqual([x for x in b if "pijl" in x], [])
+        self.assertEqual([x for x in w if "geen pijl op de hoofdplaat" in x], [])
+
+    def test_given_a_rule_pointing_at_an_unknown_addition_when_checked_then_finding(self):
+        r = regels()
+        r["regels"].append({"beeld_id": "F3-02", "beeld": "Verzonnen aanvulling", "fase": 3, "stap": "Aanmelden",
+                            "soort": "stroomt", "van": "Student volg systeem (SVS)",
+                            "naar": "Student Keuze Systeem (SKS)", "pijl": "aanvulling-bestaat-niet",
+                            "koppeling": None, "objecttype": "Opleidingaanbod", "instantie": "x",
+                            "bron": "b"})
+        b, _, _ = bevindingen(r, s=self.echte_stromen())
+        self.assertTrue(any("aanvulling-bestaat-niet" in x for x in b), b)
 
 
 class KoppelingoverzichtTests(unittest.TestCase):
@@ -565,28 +638,6 @@ class KoppelingoverzichtTests(unittest.TestCase):
         tabel = json.loads((WORTEL / "architecture/model/informatiemodel/voorbeeld-lr1-regels.json").read_text(encoding="utf-8"))
         overzicht = cv.koppelingoverzicht(tabel)
         self.assertTrue(any("Curriculum ontwerptool naar Onderwijscatalogus, 29 regels" in x for x in overzicht), overzicht)
-
-
-class RolPerBeeldTests(unittest.TestCase):
-    """De renderer groepeert op rol; twee rollen in een beeld leveren twee bestanden met dezelfde naam op."""
-
-    def test_given_an_image_with_two_roles_when_checked_then_signal_names_both(self):
-        r = regels()
-        r["regels"][6]["beeld"] = r["regels"][5]["beeld"]
-        r["regels"][6]["beeld_id"] = r["regels"][5]["beeld_id"]
-        r["regels"][6]["wie"] = "student"
-        _, w, _ = bevindingen(r)
-        self.assertTrue(any("draagt meer dan een rol" in x and "planner" in x and "student" in x for x in w), w)
-
-    def test_given_an_image_with_one_role_when_checked_then_nothing_is_reported(self):
-        _, w, _ = bevindingen(regels())
-        self.assertEqual([x for x in w if "meer dan een rol" in x], [])
-
-    def test_given_the_real_table_when_checked_then_only_f4_09_carries_two_roles(self):
-        tabel = json.loads((WORTEL / "architecture/model/informatiemodel/voorbeeld-lr1-regels.json").read_text(encoding="utf-8"))
-        gevonden = cv.rol_per_beeld(tabel)
-        self.assertEqual(len(gevonden), 1)
-        self.assertIn("F4-09", gevonden[0])
 
 
 class UitvoerTests(unittest.TestCase):
@@ -625,6 +676,36 @@ class UitvoerTests(unittest.TestCase):
             with contextlib.redirect_stdout(io.StringIO()):
                 code = cv.main(["--regels", str(rp), "--model", str(mp), "--stromen", str(sp), "--schema", str(SCHEMA)])
         self.assertEqual(code, 0)
+
+
+class StijlTests(unittest.TestCase):
+    """De zinnen van de regeltabel zijn de tekst van het document, dus de schrijfstijl van het project
+    geldt er onverkort: positief formuleren, en geen em-dash."""
+
+    def tabel(self):
+        return json.loads((WORTEL / "architecture/model/informatiemodel/voorbeeld-lr1-regels.json").read_text(encoding="utf-8"))
+
+    def teksten(self):
+        d = self.tabel()
+        for r in d["regels"]:
+            for veld in ("zin", "instantie"):
+                if r.get(veld):
+                    yield f"{r['beeld_id']} {veld}", r[veld]
+        for b in d["bevindingen"]:
+            for veld in ("verwerking", "reden"):
+                if b.get(veld):
+                    yield f"bevinding {b['nummer']} {veld}", b[veld]
+
+    def test_given_a_sentence_when_read_then_it_says_what_is_instead_of_what_is_not(self):
+        """Geen "niet X maar Y": zeg wat het is en waar het hoort."""
+        import re
+        patroon = re.compile(r"\bniet\b[^.]{0,80}?\bmaar\b", re.I)
+        fout = [(plek, patroon.search(tekst).group(0)) for plek, tekst in self.teksten() if patroon.search(tekst)]
+        self.assertEqual(fout, [])
+
+    def test_given_a_sentence_when_read_then_it_carries_no_em_dash(self):
+        fout = [plek for plek, tekst in self.teksten() if "\u2014" in tekst or "\u2013" in tekst]
+        self.assertEqual(fout, [])
 
 
 class MainTests(unittest.TestCase):
