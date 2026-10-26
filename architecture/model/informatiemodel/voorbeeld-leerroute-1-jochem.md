@@ -192,6 +192,20 @@ De gemarkeerde lijnen zijn de stromen die deze fase raakt, met het beeld waarin 
 
 **Interactie:** Planningssysteem naar Onderwijscatalogus, OC-P&R. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F2-07.
 
+### Variant capaciteitsgestuurd
+
+Capaciteitsgestuurd plannen is in de instellingspraktijk de meest voorkomende vorm. De planner plant vooraf op inzetbare capaciteit, zoals docenten met de juiste expertise en lokaaltypes, en op een prognose, omdat die capaciteit maar beperkt schaalbaar is. Bij de keuze ligt daardoor al meer vast: de planninggroepen, het maximaal aantal studenten en de periode. Fase 1, 3, 5 en 8 blijven in deze vorm gelijk.
+
+#### F2-C01 - Keuzedeel K0037 vooraf gepland op capaciteit
+
+![ontstaat: Keuzedeelaanbod plannen op inzetbare capaciteit en prognose](img/regels/f2-c01-keuzedeel-k0037-vooraf-gepland-op-capaciteit.svg)
+
+#### F2-C02 - Geplande keuzedeelgroepen naar de catalogus
+
+![stroomt: Gepland keuzedeelaanbod terugleveren aan de onderwijscatalogus](img/regels/f2-c02-geplande-keuzedeelgroepen-naar-de-catalogus.svg)
+
+**Interactie:** Planningssysteem naar Onderwijscatalogus, OC-P&R. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F2-C02.
+
 ## Fase 3: Instroom, intake en plaatsing
 
 De fase in detail: [kaderscenario leerroute 1, fase 3](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-3--instroom-intake-en-plaatsing).
@@ -318,6 +332,18 @@ De gemarkeerde lijnen zijn de stromen die deze fase raakt, met het beeld waarin 
 
 **Interactie:** Kernregistratie systeem studenten (KRS) naar Student volg systeem (SVS), geen pijl op de hoofdplaat. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F4-11.
 
+### Variant capaciteitsgestuurd
+
+Het keuzedeel wordt pas geroosterd na de toewijzing in fase 6; dan ligt ook het weekmoment vast.
+
+Hieraan gaan vooraf: [F2-C01](#f2-c01---keuzedeel-k0037-vooraf-gepland-op-capaciteit).
+
+#### F4-C01 - Na de toewijzing: de keuzedeelgroep met vaste capaciteit naar het roostersysteem
+
+![stroomt: Keuzedeelgroep met vaste capaciteit aan het roostersysteem geven](img/regels/f4-c01-na-de-toewijzing-de-keuzedeelgroep-met-vaste-capaciteit-naar-het-roostersysteem.svg)
+
+**Interactie:** Planningssysteem naar Roostersysteem, zonder koppelingspecificatie. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F4-C01.
+
 ## Fase 5: Onderwijs uitvoeren en voortgang begeleiden
 
 De fase in detail: [kaderscenario leerroute 1, fase 5](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-5--onderwijs-uitvoeren-en-voortgang-begeleiden).
@@ -400,6 +426,32 @@ De gemarkeerde lijnen zijn de stromen die deze fase raakt, met het beeld waarin 
 
 **Interactie:** Student Keuze Systeem (SKS) naar Kernregistratie systeem studenten (KRS), zonder koppelingspecificatie. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F6-08.
 
+### Variant capaciteitsgestuurd
+
+In deze vorm kiest de student op een geplande leergelegenheid. Hoe die uit de specificatie rijpt, bepaalt het onderwijsontwerp van de instelling. Het keuzedeelaanbod voor de animo komt via de catalogus; de aanmelding daar is een intekening, nog geen keuze. Na de animo stelt de planner de capaciteit vast, en die gaat rechtstreeks van planning naar het studentkeuzesysteem. F6-06 neemt de uitkomst daarvan mee (een groep blijft, de tweede vervalt), en F6-08 geldt ook hier.
+
+Hieraan gaan vooraf: [F6-01](#f6-01---keuzedeelaanbod-ontsloten), [F6-02](#f6-02---keuzedeelaanbod-specificatie-en-regels-naar-het-studentkeuzesysteem), [F6-03](#f6-03---jochems-aanmelding-op-het-keuzedeelaanbod-met-zijn-voorkeurslijst), [F6-04](#f6-04---keuzestelling-naar-planning).
+
+Vervalt in deze vorm of schuift hierheen: [F6-05](#f6-05---definitieve-keuzes-verwerkt-naar-groepen-en-capaciteit), [F6-07](#f6-07---de-aanmelding-wordt-een-inschrijving-op-het-keuzedeel).
+
+#### F6-C01 - Capaciteit vastgesteld na de animo
+
+![ontstaat: Capaciteit vaststellen na de animo](img/regels/f6-c01-capaciteit-vastgesteld-na-de-animo.svg)
+
+#### F6-C02 - Geplande leergelegenheid naar het studentkeuzesysteem
+
+![stroomt: Geplande leergelegenheden ontsluiten naar het studentkeuzesysteem](img/regels/f6-c02-geplande-leergelegenheid-naar-het-studentkeuzesysteem.svg)
+
+**Interactie:** Planningssysteem naar Student Keuze Systeem (SKS), zonder koppelingspecificatie. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F6-C02.
+
+#### F6-C03 - Jochem kiest een plek op de geplande leergelegenheid
+
+![ontstaat: Plek kiezen op een geplande leergelegenheid](img/regels/f6-c03-jochem-kiest-een-plek-op-de-geplande-leergelegenheid.svg)
+
+#### F6-C04 - Toegewezen binnen de capaciteit: de enige inschrijving
+
+![ontstaat: Toewijzen binnen de capaciteit](img/regels/f6-c04-toegewezen-binnen-de-capaciteit-de-enige-inschrijving.svg)
+
 ## Fase 7: Bijsturen planning en aanbod
 
 De fase in detail: [kaderscenario leerroute 1, fase 7](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-7--bijsturen-planning-en-aanbod).
@@ -439,6 +491,20 @@ De gemarkeerde lijnen zijn de stromen die deze fase raakt, met het beeld waarin 
 ![stroomt: Nieuw aanbod maken en publiceren](img/regels/f7-06-nieuwe-leergelegenheden-naar-het-roostersysteem.svg)
 
 **Interactie:** Planningssysteem naar Roostersysteem, zonder koppelingspecificatie. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F7-06.
+
+### Variant capaciteitsgestuurd
+
+Bijsturen levert in deze vorm geen nieuwe planninggroep op: een plek die vrijkomt, gaat binnen de capaciteit terug naar het studentkeuzesysteem.
+
+#### F7-C01 - Een plek komt vrij binnen de capaciteit
+
+![ontstaat: Vrijgekomen plek binnen de capaciteit verwerken](img/regels/f7-c01-een-plek-komt-vrij-binnen-de-capaciteit.svg)
+
+#### F7-C02 - De vrije plek terug naar het studentkeuzesysteem
+
+![stroomt: Vrije plek ontsluiten naar het studentkeuzesysteem](img/regels/f7-c02-de-vrije-plek-terug-naar-het-studentkeuzesysteem.svg)
+
+**Interactie:** Planningssysteem naar Student Keuze Systeem (SKS), zonder koppelingspecificatie. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F7-C02.
 
 ## Fase 8: Examineren, vaststellen en diplomeren
 
