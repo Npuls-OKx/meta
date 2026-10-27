@@ -5,6 +5,7 @@ De inhoudelijke **ingang** van OKx-meta: overzichten, ketenuitleg, governance/bi
 | Document | Beantwoordt |
 |---|---|
 | [OKx in context](OKx_Context.md) | Wat de opdracht is, in welke omgeving die loopt, en welke uitdagingen eronder liggen |
+| [Hoe OKx hier kwam](OKx_Historie.md) | Welke keerpunten het project doorliep, elk met een bron |
 | [Leesroute OKx](leesroute-okx.md) | Waar een nieuwe lezer begint, en in welke volgorde |
 | [Projectoverzicht](OKx_Projectoverzicht.md) | De ketenuitleg met de hoofdplaat informatiestromen |
 | [Informatiestromen](OKx_Informatiesstromen.md) | Wat een stroom in de keten betekent als invoer voor een specificatie |
