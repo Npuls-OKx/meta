@@ -111,6 +111,27 @@ flowchart TB
 
 Drie lagen dragen die samenhang. Een **informatiestroom** is de beweging van gegevens tussen twee componenten. Een **koppeling** is de gestandaardiseerde realisatie daarvan. Een **koppelvlak** is de verzameling koppelingen van precies een component.
 
+### De productopdeling, concept
+
+De vier deliverables hierboven zijn de producten die vandaag bestaan. De opdeling van de volledige set staat als concept in [#396](https://github.com/Npuls-OKx/meta/issues/396), met de instellingsspecificatie als nieuw product tussen de leerroutes en de koppelvlakspecificatie.
+
+```mermaid
+flowchart TB
+  L["Leerroutes en businesswaarde"] --> S
+  subgraph S["Instellingsspecificatie, werknaam"]
+    direction LR
+    P["Proces"]
+    I["Informatie"]
+    A["Applicatielandschap"]
+    B["Beleid en<br/>organisatie-inrichting"]
+  end
+  S --> K["Interactieketenspecificatie<br/>met provisioning en authenticatie"]
+  K --> C["Koppelvlakspecificatie<br/>met datamodelschema's"]
+  C --> AD["Adoptie via BOPSI"]
+```
+
+De instellingsspecificatie draagt per leerroute een businessarchitectuur: wat een instelling moet kunnen om die leerroute te voeren. Die kennis is vandaag impliciet, deels uit MORA, en dat maakt het vullen van de koppelvlakspecificatie een vraag zonder vastgelegd antwoord. De naam, de inhoud en de dragende rol per product zijn concept.
+
 De vorm van de set rijpt in de specificatiefase. Deze vragen staan open, elk met de plek waar die wordt uitgewerkt.
 
 | Vraag | Wordt uitgewerkt in |
