@@ -17,6 +17,8 @@ Als er een nieuw markdown document aangemaakt wordt, zorg dan dat de index op de
 
 - **Geen vulwoorden.** "Kort", "conceptueel", "een eerste", "eenvoudige" voegen niets toe in een kopje of zin. Schrap ze.
 - **Eén drager per informatie-eenheid.** Een diagram, een tabel en een alinea die alle drie hetzelfde zeggen is redundantie. Kies er één; laat de andere alleen staan als die iets toevoegt wat de eerste niet toont.
+- **Een titel labelt, hij vertelt niet.** Een documenttitel en een kop noemen wat er staat: "Historisch overzicht OKx", "Deliverables", "Totstandkoming". Verhalende titels als "Hoe OKx hier kwam" of "De set van vandaag" vervallen; die lezen als een zin waar een label hoort.
+- **Een overzichtstabel toont, hij legt niet uit.** Een inhoudsopgave bevat de onderdelen en hun maat. Een kolom die uitlegt wat een onderdeel oplevert hoort in dat onderdeel zelf, niet in het overzicht.
 - **Een kopje dekt de lading.** Een sectie "Context" geeft context, geen opsomming van bronnen. Een inleiding leidt in, en is geen lijst losse feiten.
 - **Statusaanduidingen horen bij het artefact, niet bij het document.** Schrijf niet "alpha" of "een eerste versie" in titel, doel of scope; de volwassenheid van een schema of payload noteer je op dat schema zelf, en de status van het werk staat in de PR en de git-historie.
 - **Afkortingen voluit bij eerste gebruik**, daarna mag de korte vorm. Geldt ook voor mapnamen: leg in een README uit waar `dr/` of `oc-p-en-r/` voor staat. Bij veel afkortingen: een legenda.

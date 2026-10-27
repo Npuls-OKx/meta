@@ -2,16 +2,16 @@
 
 | Deel | Kern | Verdieping |
 |---|---|---|
-| [1 Context](#deel-1-context) | 3 min | optioneel, 8 min |
+| [1 Context](#deel-1-context) | 5 min | optioneel, 12 min |
 | [2 Historisch overzicht](#deel-2-historisch-overzicht) | | optioneel, 10 min |
-| [3 Scope](#deel-3-scope) | 5 min | optioneel, 34 min |
-| [4 Deliverables](#deel-4-deliverables) | 8 min | optioneel, 42 min |
-| [5 Architectuurbesluiten](#deel-5-architectuurbesluiten) | 4 min | optioneel, 15 min |
-| [6 Release en beheer](#deel-6-release-en-beheer) | 3 min | optioneel, 6 min |
+| [3 Scope](#deel-3-scope) | 10 min | optioneel, 50 min |
+| [4 Deliverables](#deel-4-deliverables) | 15 min | optioneel, 65 min |
+| [5 Architectuurbesluiten](#deel-5-architectuurbesluiten) | 6 min | optioneel, 23 min |
+| [6 Release en beheer](#deel-6-release-en-beheer) | 4 min | optioneel, 9 min |
 
-Kern: 23 minuten. Alles: ruim twee uur.
+Kern: 40 minuten. Alles: ongeveer drie uur.
 
-Leestijd is de woordtelling gedeeld door honderdtachtig woorden per minuut. Per stap staat de status van het materiaal met de lopende pull request erbij; de route schrijft geen statuswaarde over.
+Leestijd is de woordtelling gedeeld door honderdtwintig woorden per minuut, het tempo waarop architectuurmateriaal leest dat een lezer moet kunnen navertellen. Per stap staat de status van het materiaal met de lopende pull request erbij; de route schrijft geen statuswaarde over.
 
 ## Deel 1, context
 
@@ -19,7 +19,7 @@ OKx legt gestandaardiseerde koppelingen vast voor de onderwijslogistiek, zodat e
 
 De kaderstelling ontstaat in `Npuls-OKx/meta`; `Npuls-OKx/Public` draagt de releaseartefacten. Bestaat een document in beide, dan geldt voor een uitspraak naar buiten de versie in Public.
 
-Kern: de [managementsamenvatting](OKx_Context.md#managementsamenvatting), 3 minuten.
+Kern: de [managementsamenvatting](OKx_Context.md#managementsamenvatting), 5 minuten.
 
 ### Verdieping: het contextdocument
 
@@ -30,7 +30,7 @@ Kern: de [managementsamenvatting](OKx_Context.md#managementsamenvatting), 3 minu
 | Beantwoordt | Wat de opdracht is, welke resultaten die draagt, met welke initiatieven OKx raakvlakken heeft, wie wat beslist, en welke uitdagingen eronder liggen |
 | Overslaan | Niets bij eerste lezing; wie haast heeft leest de managementsamenvatting |
 | Status | Samengesteld uit het projectplan en de platen van het programma |
-| Omvang | 1388 woorden, 8 minuten |
+| Omvang | 1388 woorden, 12 minuten |
 
 ## Deel 2, historisch overzicht
 
@@ -43,7 +43,7 @@ Kern: de [managementsamenvatting](OKx_Context.md#managementsamenvatting), 3 minu
 | Beantwoordt | Welke keerpunten het project doorliep sinds november 2024, en waarom de vorm van de oplevering nog beweegt |
 | Overslaan | De bronnen achter elk keerpunt; die zijn er voor wie wil doorklikken |
 | Status | De periode voor maart 2026 steunt op het projectplan en het geheugen van het team |
-| Omvang | Een pagina, 10 minuten |
+| Omvang | Een pagina met veertien keerpunten, 10 minuten |
 
 ## Deel 3, scope
 
@@ -74,7 +74,7 @@ Welke leerroutes eerst aan bod komen, staat in de [basisuitgangspunten](OKx_Cont
 | Beantwoordt | Wat er in de keten gebeurt, welke informatie waar ontstaat, en welke componenten welke rol dragen |
 | Overslaan | De studentreis, de keuzedelen in detail, de gegevensoverzichten, de anti-patronen, en het concept-informatiemodel dat in deel 4 vastgelegd terugkomt |
 | Status | Kaderstellend voor de reguliere leerroute; de andere leerroutes volgen als verschil daarop. [meta PR 144](https://github.com/Npuls-OKx/meta/pull/144) herstructureert de uitwerking |
-| Omvang | 6030 van 15679 woorden, 34 minuten. Voluit 87 minuten |
+| Omvang | 6030 van 15679 woorden, 50 minuten. Voluit ruim twee uur |
 
 ## Deel 4, deliverables
 
@@ -168,7 +168,7 @@ Per laag een dragende partij:
 | Beantwoordt | Welke objecttypen de keten kent, hoe die samenhangen, en welke begrippenfamilies haar indelen |
 | Overslaan | De ontwerpkeuzes met de status voorstel |
 | Status | Laag 1 en 2 vastgelegd in Public. [Public PR 131](https://github.com/Npuls-OKx/Public/pull/131) brengt de modelronde van oktober, met de review-instructie daarin; [meta PR 391](https://github.com/Npuls-OKx/meta/pull/391) raakt het kwalificatiekader, [410](https://github.com/Npuls-OKx/meta/pull/410) de resultaatkant |
-| Omvang | 2741 woorden, 15 minuten |
+| Omvang | 2741 woorden, 23 minuten |
 
 ### Verdieping: de hoofdplaat informatiestromen
 
@@ -179,7 +179,7 @@ De hoogste versiemap onder [`architecture/model/informatiestromen hoofdplaat OKx
 | Beantwoordt | Welke stromen tussen welke componenten lopen, en welke nog een beschrijving vragen |
 | Overslaan | De eerdere versiemappen, die de historie dragen |
 | Status | Werkbeeld: elke stroom is een kandidaat voor een koppelingspecificatie. [meta PR 412](https://github.com/Npuls-OKx/meta/pull/412) en [Public PR 133](https://github.com/Npuls-OKx/Public/pull/133) werken de plaat bij |
-| Omvang | Een plaat met leeswijzer, 5 minuten |
+| Omvang | Een plaat met leeswijzer, 10 minuten |
 
 Het ArchiMate-model achter de plaat opent in Archi; de platen in dit deel dragen de inhoud.
 
@@ -192,7 +192,7 @@ Het ArchiMate-model achter de plaat opent in Archi; de platen in dit deel dragen
 | Beantwoordt | Wat een afgeronde beschrijving bevat, en hoe koppeling en koppelvlak zich verhouden |
 | Overslaan | De uitgangspunten buiten de eigen vraag; de README wijst de leesvolgorde |
 | Status | Het eerste pakket is uitgebracht en wordt herzien naar interactieketens: [meta PR 373](https://github.com/Npuls-OKx/meta/pull/373) onderwijsaanbod en [387](https://github.com/Npuls-OKx/meta/pull/387) student-instroom, zie de interactieketens hieronder. [Public PR 100](https://github.com/Npuls-OKx/Public/pull/100) legt een laag applicatiediensten tussen component en endpoint |
-| Omvang | 1998 woorden, 11 minuten |
+| Omvang | 1998 woorden, 17 minuten |
 
 Wie verder wil, opent een applicatiecomponent met zijn interactiepatroon en een datamodelschema.
 
@@ -205,7 +205,7 @@ Wie verder wil, opent een applicatiecomponent met zijn interactiepatroon en een 
 | Beantwoordt | Hoe een keten loopt van de waarde voor student en instelling tot een machineleesbaar contract |
 | Overslaan | De stroomdocumenten en de OpenAPI-documenten; lees per pull request de review-instructie en de eerste plaat |
 | Status | Nog op een branch. Dit is de herziening van de koppelvlakspecificaties: de keten begint bij de waarde en trekt die door naar de koppelingen. [Public PR 100](https://github.com/Npuls-OKx/Public/pull/100) legt de dienstlaag eronder. De twee vormen komen nog samen |
-| Omvang | 1975 woorden voor de keten onderwijsaanbod, 11 minuten |
+| Omvang | 1975 woorden voor de keten onderwijsaanbod, 17 minuten |
 
 ![Van beeld naar bericht: dezelfde stap als interactie, voorbeeldbericht en endpoint](../img/OKx_van_beeld_naar_bericht_20261027.png)
 
@@ -230,7 +230,7 @@ Wie verder wil, opent een applicatiecomponent met zijn interactiepatroon en een 
 | Beantwoordt | Hoe OKx zich tot ROSA en het Kernmodel Onderwijsinformatie verhoudt, welke verdieping het in MORA vraagt, en welke taal de producten dragen |
 | Overslaan | De overige besluiten, tot er een op een eigen vraag drukt |
 | Status | De `Status`-regel in elk besluit is leidend; een besluit kan ook vervangen zijn. Het onderscheid uit 0021 is in beweging: het kan opgaan in de interactieketen en de interactiespecificatie |
-| Omvang | 2731 woorden, 15 minuten |
+| Omvang | 2731 woorden, 23 minuten |
 
 Verder lezen: 0003 en 0004 onder de leeruitkomst, 0009 en 0014 voor de rolverdeling tussen studentkeuzesysteem en studentvolgsysteem, en 0018 voor de messaging-patronen.
 
@@ -249,4 +249,4 @@ Wie iets wil toevoegen of corrigeren, opent een issue of een pull request; de we
 | Beantwoordt | Wie het resultaat draagt, hoe een versie tot stand komt, en wat vandaag openstaat |
 | Overslaan | Niets |
 | Status | Elk pakket in Public draagt een eigen versielijn met een manifest. [Public PR 82](https://github.com/Npuls-OKx/Public/pull/82) brengt de volgende momentopname |
-| Omvang | 1109 woorden en twee milestonelijsten, 6 minuten |
+| Omvang | 1109 woorden en twee milestonelijsten, 9 minuten |

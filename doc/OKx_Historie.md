@@ -2,6 +2,25 @@
 
 Rode draad: OKx begon als specificatieproject en ontdekte dat de kaderstelling eronder ontbrak. Elke verschuiving sindsdien legt die kaderstelling alsnog.
 
+```mermaid
+timeline
+    title Van opdracht naar specificatie
+    section 2024
+        november : Opdracht en zes use-cases
+    section 2025
+        januari : Tweedaagse : scope bevestigd : startflows
+        voorjaar : Visie op de hele keten : alignment met OEAPI
+        najaar : Architectuurmappingsessies met scholen : MOKA draagt de kaderstelling niet
+        december : Gedeeld op het IM-netwerk : eerste hoofdplaat
+    section 2026
+        maart : Kennisbank ingericht : studentkeuzesysteem als component
+        april : Alignment MORA en HORA
+        juli : Releaseartefacten naar Public
+        augustus : Leeruitkomst als ordenend principe
+        september : Informatiemodel naar Public
+        oktober : Informatiemodel v0.2 : herziening naar interactieketens : herijking
+```
+
 ## November 2024 tot februari 2026
 
 Bron: het projectplan en het geheugen van het team. De kennisbank en de meetingverslagen beginnen in maart 2026.
