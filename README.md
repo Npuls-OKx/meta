@@ -50,7 +50,7 @@ Deze tabel zegt per onderdeel hoe hard het is en welke wijziging in behandeling 
 | Kaderscenario reguliere leerroute | Kaderstellend; de andere leerroutes volgen als verschil daarop | [meta PR 144](https://github.com/Npuls-OKx/meta/pull/144): de leerroute-uitwerking herstructureren |
 | Informatiemodel | Laag 1 en 2 vastgelegd in Public, met de ontwerpkeuzes erbij | [Public PR 131](https://github.com/Npuls-OKx/Public/pull/131) brengt de modelronde van oktober; [meta PR 391](https://github.com/Npuls-OKx/meta/pull/391) en [410](https://github.com/Npuls-OKx/meta/pull/410) raken het kwalificatiekader en de resultaatkant |
 | Hoofdplaat informatiestromen | Werkbeeld van het project; elke stroom erop is een kandidaat voor een koppelingspecificatie | [meta PR 412](https://github.com/Npuls-OKx/meta/pull/412) en [Public PR 133](https://github.com/Npuls-OKx/Public/pull/133) |
-| Vorm van de oplevering | In de specificatiefase. De productopdeling, de verwachte vorm per product en de afhankelijkheden worden uitgewerkt | [meta #396](https://github.com/Npuls-OKx/meta/issues/396), [#342](https://github.com/Npuls-OKx/meta/issues/342), [#259](https://github.com/Npuls-OKx/meta/issues/259) en [PR 300](https://github.com/Npuls-OKx/meta/pull/300) |
+| Vorm van de oplevering | In de specificatiefase. De productopdeling, de verwachte vorm per product en de afhankelijkheden worden uitgewerkt | [meta #421](https://github.com/Npuls-OKx/meta/issues/421) projectstartarchitectuur, met #396, #342, #259, #262 en #422 eronder |
 | Koppelvlakspecificatie | Eerste pakket uitgebracht, en nu in herziening naar interactieketens die bij de waarde voor student en instelling beginnen | [meta PR 364](https://github.com/Npuls-OKx/meta/pull/364), [373](https://github.com/Npuls-OKx/meta/pull/373), [387](https://github.com/Npuls-OKx/meta/pull/387) en [377](https://github.com/Npuls-OKx/meta/pull/377); [Public PR 100](https://github.com/Npuls-OKx/Public/pull/100) legt een dienstlaag tussen component en endpoint |
 | Voorbeelduitwerking reguliere leerroute | In uitwerking per fase, als toets van het model aan een echte casus | [meta PR 314](https://github.com/Npuls-OKx/meta/pull/314), [413](https://github.com/Npuls-OKx/meta/pull/413) en [414](https://github.com/Npuls-OKx/meta/pull/414) |
 | Release en versionering | Elk pakket in Public draagt een eigen versielijn met een manifest | [Public PR 82](https://github.com/Npuls-OKx/Public/pull/82): de volgende momentopname |
@@ -66,17 +66,29 @@ Deze tabel zegt per onderdeel hoe hard het is en welke wijziging in behandeling 
 
 ## Wat staat waar
 
-| Onderdeel | Locatie | Inhoud |
-|---|---|---|
-| Projectcontext | [`doc/`](doc/) en [`img/`](img/) | Overzichten, ketenplaten en contextdocumenten |
-| Architectuur en model | [`architecture/`](architecture/) | Het ArchiMate-model, de hoofdplaat per versie, meetingverslagen |
-| Specificaties | [`architecture/docs/specificatie/`](architecture/docs/specificatie/) | Begrippenlijst, leerroute-uitwerking, interactieketens, keuzevraagstukken |
-| Agent-artifacten | [`architecture/agent-artifacts/`](architecture/agent-artifacts/) | Ontwerpen, plannen en onderzoek van agents |
-| OKE en MOKA | [`OKE/`](OKE/), [`moka-koppelvlakspecificaties/`](moka-koppelvlakspecificaties/) | De eerste subdomein-uitwerking en de MOKA-templates |
-| Presentaties | [`presentaties/`](presentaties/) | De decks per gremium, in de Npuls-huisstijl |
-| Scripts | [`scripts/`](scripts/) | De generatoren en de controles op model, platen en documenten |
-| Agent-omgeving | [`AGENTS.md`](AGENTS.md), [`.agents/`](.agents/), [`.cursor/`](.cursor/) | Basisdocument, skills met manifest, commands, rules en hooks |
-| Dev-container | [`.devcontainer/`](.devcontainer/) | De reproduceerbare werkomgeving; installaties horen alleen hier |
+```text
+meta/
+├── doc/                              projectcontext, release en versionering, en deze leesroute
+├── architecture/
+│   ├── docs/
+│   │   ├── specificatie/             begrippenlijst, leerroute-uitwerking, interactieketens, keuzevraagstukken
+│   │   ├── externe-kaders/           MOSA en de andere kaders waar OKx op aansluit
+│   │   ├── kwalificatiedossier/      de bron waar de keten begint
+│   │   ├── leeruitkomsten/           de sleutel tussen specificatie en resultaat
+│   │   └── mappingsessies-instellingen/   wat instellingen in werksessies inbrachten
+│   ├── model/                        het ArchiMate-model, het informatiemodel en de hoofdplaat per versie
+│   ├── meetings/                     de verslagen per sessie
+│   └── agent-artifacts/              onderzoek, plannen en ontwerpen van agents
+├── OKE/                              de eerste subdomein-uitwerking, examen en beoordeling
+├── moka-koppelvlakspecificaties/     de MOKA-templates waarop een specificatie rust
+├── presentaties/                     de decks per gremium, met het platenmanifest
+├── scripts/                          de generatoren en de controles op model, platen en documenten
+└── AGENTS.md                         de werkwijze voor agents, met de harde regels
+```
+
+De indeling volgt de productdeliverables, de richting uit [#109](https://github.com/Npuls-OKx/meta/issues/109). Hoe ver de ingang vandaag reikt, staat gemeten in [#416](https://github.com/Npuls-OKx/meta/issues/416).
+
+Waar iets ontstaat: de releaseartefacten in [`Npuls-OKx/Public`](https://github.com/Npuls-OKx/Public), de kaderstelling hier, en het besluit erachter als architectuurbesluit in Public.
 
 ## Verhouding met de standaarden en de referentiearchitecturen
 

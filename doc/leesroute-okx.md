@@ -97,7 +97,7 @@ De kaderstelling ontstaat in `Npuls-OKx/meta`. `Npuls-OKx/Public` draagt de rele
 
 OKx levert een set specificaties van de koppelingen tussen de componenten in de onderwijsketen. Die set dient als functioneel ontwerp voor een implementatie, bij voorkeur als [OEAPI-profiel](https://oeapi.eu/v6.0/#/technical/consumers-and-profiles/profiling-guidelines). Valt een eis buiten de profielvorm, dan komt een andere generieke standaard in beeld, zoals een eigen REST OpenAPI-specificatie of GraphQL. Het uitgangspunt is OEAPI tenzij.
 
-[OKE](https://www.edustandaard.nl/app/uploads/2026/06/OKE-MBO-toetsafname-specs-v1.0.1_20260527definitief.pdf) specificeert de toetsafname in het mbo op een scherp afgebakend procesgebied met vastgelegde documentatie: examinering en verantwoording. OKx draagt een bredere scope met meer belanghebbenden, waardoor de OKE-vorm hier als vertrekpunt dient en de uiteindelijke vorm een eigen uitwerking vraagt.
+[OKE](https://www.edustandaard.nl/app/uploads/2026/06/OKE-MBO-toetsafname-specs-v1.0.1_20260527definitief.pdf) specificeert de toetsafname in het mbo op een scherp afgebakend procesgebied met vastgelegde documentatie: examinering en verantwoording. OKx draagt een bredere scope met meer belanghebbenden, waardoor de OKE-vorm hier als vertrekpunt dient en de uiteindelijke vorm een eigen uitwerking vraagt. Welke eigenschappen van die vorm overdragen, wordt onderzocht in [#422](https://github.com/Npuls-OKx/meta/issues/422).
 
 De vier deliverables hangen aan elkaar: het model levert de taal, de plaat de stromen, de specificatie het contract, en de interactieketen verbindt de waarde met dat contract.
 
@@ -116,7 +116,8 @@ De vorm van de set rijpt in de specificatiefase. Deze vragen staan open, elk met
 | Vraag | Wordt uitgewerkt in |
 |---|---|
 | Welke eenheden leveren waarde voor student, instelling en leverancier | De proefopstellingen die user stories en businesswaarde namens instellingen ophalen |
-| Welke producten horen bij de set, en welke rol draagt elk product | [#396](https://github.com/Npuls-OKx/meta/issues/396) productopdeling, met de instellingsspecificatie tussen leerroute en koppelvlak |
+| Welke producten de set draagt, in welke vorm, en waarvan die afhangen | [#421](https://github.com/Npuls-OKx/meta/issues/421) projectstartarchitectuur, met [#396](https://github.com/Npuls-OKx/meta/issues/396) productopdeling eronder |
+| Welke eigenschappen van de OKE-vorm overdragen | [#422](https://github.com/Npuls-OKx/meta/issues/422) |
 | Welke partij maakt welk architectuurproduct in de sectorketen | [#300](https://github.com/Npuls-OKx/meta/pull/300) met [#262](https://github.com/Npuls-OKx/meta/issues/262), zeven lagen en achtenvijftig producten uit een bron |
 | Wat OKx versioneert, en wat als OEAPI-profiel naar buiten gaat | [#342](https://github.com/Npuls-OKx/meta/issues/342) specificatielagen |
 | Welke koppelingen lopen waar, en welke informatie ontstaat waar en beweegt hoe | [#259](https://github.com/Npuls-OKx/meta/issues/259) speelveld en ecosysteem |
