@@ -97,7 +97,7 @@ Waar iets ontstaat: de releasebare en geversioneerde artefacten in [`Npuls-OKx/P
 
 ## Standaarden en referentiearchitecturen
 
-Waar passend sluiten de uitwerkingen aan op de [Open Education API](https://openonderwijsapi.nl/v6.0/), als profiel bovenop de standaard en niet als afsplitsing ervan. We onderhouden nauwe verbinding met sector architecuren als MORA en HORA: deze kennisbank wijzigt deze niet direct. Eventuele OKx uitwerkingen kunnen later als onderbouwd voorstel richting de referentiearchitecturen gaan. De verhouding met ROSA en het Kernmodel Onderwijsinformatie ligt vast in de architectuurbesluiten.
+Waar passend sluiten de uitwerkingen aan op de [Open Education API](https://openonderwijsapi.nl/v6.0/), als profiel bovenop de standaard en niet als afsplitsing ervan. We onderhouden nauwe verbinding met sectorarchitecturen als MORA en HORA: deze kennisbank wijzigt deze niet direct. Eventuele OKx uitwerkingen kunnen later als onderbouwd voorstel richting de referentiearchitecturen gaan. De verhouding met ROSA en het Kernmodel Onderwijsinformatie ligt vast in de architectuurbesluiten.
 
 ## Meepraten
 
