@@ -128,23 +128,11 @@ flowchart LR
   D -.->|"volgende wens"| V
 ```
 
-### De set van vandaag
-
 OKx levert een set specificaties van de koppelingen tussen de componenten in de onderwijsketen. Die set dient als functioneel ontwerp voor een implementatie, bij voorkeur als [OEAPI-profiel](https://oeapi.eu/v6.0/#/technical/consumers-and-profiles/profiling-guidelines). Valt een eis buiten de profielvorm, dan komt een andere generieke standaard in beeld, zoals een eigen REST OpenAPI-specificatie of GraphQL. Het uitgangspunt is OEAPI tenzij.
 
 [OKE](https://www.edustandaard.nl/app/uploads/2026/06/OKE-MBO-toetsafname-specs-v1.0.1_20260527definitief.pdf) specificeert de toetsafname in het mbo op een scherp afgebakend procesgebied met vastgelegde documentatie: examinering en verantwoording. OKx draagt een bredere scope met meer belanghebbenden, waardoor de OKE-vorm hier als vertrekpunt dient en de uiteindelijke vorm een eigen uitwerking vraagt. Welke eigenschappen van die vorm overdragen, wordt onderzocht in [#422](https://github.com/Npuls-OKx/meta/issues/422).
 
-De vier deliverables hangen aan elkaar: het model levert de taal, de plaat de stromen, de specificatie het contract, en de interactieketen verbindt de waarde met dat contract.
-
-```mermaid
-flowchart TB
-  M["Informatiemodel<br/>de taal van de keten"] --> H["Hoofdplaat<br/>de informatiestromen"]
-  H --> K["Koppelvlakspecificatie<br/>koppelingen per component"]
-  I["Interactieketen<br/>waarde voor student en instelling"] --> K
-  M --> I
-```
-
-Drie lagen dragen die samenhang. Een **informatiestroom** is de beweging van gegevens tussen twee componenten. Een **koppeling** is de gestandaardiseerde realisatie daarvan. Een **koppelvlak** is de verzameling koppelingen van precies een component.
+Drie lagen dragen de uitwerking. Een **informatiestroom** is de beweging van gegevens tussen twee componenten. Een **koppeling** is de gestandaardiseerde realisatie daarvan. Een **koppelvlak** is de verzameling koppelingen van precies een component.
 
 ### Productopdeling, concept
 
