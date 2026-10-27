@@ -56,7 +56,7 @@ Deze tabel zegt per onderdeel hoe hard het is en welke wijziging in behandeling 
 
 | Wie binnenkomt | Begint bij | Tijd |
 |---|---|---|
-| Een architect die OKx nog niet kent | [De leesroute](doc/leesroute-okx.md): tien stappen door beide repositories, langs doel, scope, deliverables en methode | 2 uur |
+| Wie nieuw aanhaakt bij OKx | [De leesroute](doc/leesroute-okx.md): tien stappen door beide repositories, langs doel, scope, deliverables en totstandkoming | 2 uur |
 | Wie wil bijdragen | [`CONTRIBUTING.md`](CONTRIBUTING.md) voor de werkwijze, [`doc/Bijdragen-voor-beginners.md`](doc/Bijdragen-voor-beginners.md) voor de eerste stappen | 20 min |
 | Een AI-agent | [`AGENTS.md`](AGENTS.md): de harde regels, de product-flow en de skills | eerst dit |
 | Wie wil bouwen tegen een koppelvlak | [Koppelvlakspecificaties in Public](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/README.md), met de leesvolgorde daar | 1 uur |
