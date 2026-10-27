@@ -10,7 +10,7 @@ Beweegt zich vanzelf in architectuurtaal, modellering en standaardisatie-governa
 
 ## Afstand tot OKx en de kennisbank
 
-Groot op de inhoud, klein op de vorm. Kent de onderwijslogistieke keten niet in detail en het werk van OKx nog niet, maar leest een architectuurbesluit, een informatiemodel en een koppelingspecificatie zonder opstap. Gaat de specificaties wel in, zodra een besluit of een landelijke voorziening erop leunt; daarin verschilt hij van de [sectorarchitect](sectorarchitect.md), die daar buiten blijft.
+Groot op de inhoud, klein op de vorm. Kent de onderwijslogistieke keten niet in detail en het werk van OKx nog niet, maar leest een architectuurbesluit, een informatiemodel en een koppelingspecificatie zonder opstap. Gaat de specificaties in zodra een besluit of een landelijke voorziening erop leunt, en blijft erbuiten waar het de uitwerking zelf betreft.
 
 ## Belangen en drijfveren
 
@@ -32,6 +32,6 @@ Wat is besloten, wat is nog voorstel, waar raakt dit de landelijke voorzieningen
 
 | Persona | Verschil |
 |---|---|
-| [Sectorarchitect](sectorarchitect.md) | Toetst vanuit het beheer van de referentiearchitecturen en blijft buiten de specificaties; de domeinarchitect toetst vanuit de pijler en gaat erin zodra een voorziening erop leunt |
+| [Solution architect](solution-architect-si.md) | Ontwerpt de oplossingsrichting en houdt de keten van besluit tot specificatie heel; de domeinarchitect beoordeelt die richting vanuit de pijler en bouwt haar niet |
 | [Programmamanager en opdrachtgever](programmamanager-opdrachtgever.md) | Beslist over richting en mandaat en beoordeelt niet op techniek; de domeinarchitect beoordeelt juist de inhoud en adviseert hem |
 | [Informatiemanager van een instelling](informatiemanager-instelling.md) | Weegt de gevolgen voor een enkele instelling; de domeinarchitect weegt de samenhang over de instellingen en voorzieningen heen |
