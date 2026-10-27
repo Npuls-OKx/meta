@@ -101,7 +101,7 @@ Waar passend sluiten de uitwerkingen aan op de [Open Education API](https://open
 
 ## Meepraten
 
-Vragen en open gesprekken gaan via [Discussions](https://github.com/Npuls-OKx/meta/discussions), achtergrond en langere uitleg staan in de [wiki](https://github.com/Npuls-OKx/meta/wiki), en concrete wijzigingen lopen via issues en pull requests.
+Vragen en open gesprekken gaan via [Discussions](https://github.com/Npuls-OKx/meta/discussions) en concrete wijzigingen lopen via issues en pull requests.
 
 ## Privacy
 
