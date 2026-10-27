@@ -280,6 +280,16 @@
       "let_op": "Status concept, ter review in meta PR 225. Nog drukker dan de basisplaat; werkt alleen op volle breedte met de conclusie ernaast in tekst.",
       "kopie": "informatiemodel-oeapi-mapping-v0.1.jpg",
       "hash": "4a0cd7f482e8e55e"
+    },
+    {
+      "naam": "mora-okx-oke",
+      "titel": "Hoofdprocesmodel MORA, met OKx en OKE gemarkeerd",
+      "bron": "Npuls-OKx/meta",
+      "pad": "img/MORA_hoofdprocesmodel_OKx_en_OKE_20261027.webp",
+      "versie": "20261027",
+      "toont": "De processen van een mbo-instelling volgens MORA, met goud omlijnd waarop OKx acteert en groen omlijnd waar OKE begon.",
+      "gebruik_bij": "Een publiek dat wil weten waar OKx in de sectorarchitectuur staat, en hoe het zich tot OKE verhoudt. Kerngroep techniek, adviesgroep, nieuwe aanhakers.",
+      "let_op": "De markering is met de hand aangebracht op het hoofdprocesmodel van MORA 2.6. Komt er een nieuwe MORA-versie, dan vervalt de markering en moet zij opnieuw worden aangebracht."
     }
   ],
   "overslaan": [
