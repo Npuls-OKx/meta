@@ -12,9 +12,9 @@ Na de route zijn vier vragen te beantwoorden.
 
 ```mermaid
 flowchart LR
-  V1["1. Doel<br/>welk probleem OKx oplost<br/>stap 1 en 2, 14 min"] --> V2["2. Scope<br/>waarover OKx afspraken maakt<br/>stap 3 en 4, 50 min"]
-  V2 --> V3["3. Deliverables<br/>wat OKx oplevert<br/>stap 5 tot 8, 42 min"]
-  V3 --> V4["4. Totstandkoming<br/>hoe een afspraak ontstaat<br/>stap 9 en 10, 14 min"]
+  V1["1. Doel<br/>stap 1 en 2, 14 min"] --> V2["2. Scope<br/>stap 3 en 4, 50 min"]
+  V2 --> V3["3. Deliverables<br/>stap 5 tot 8, 42 min"]
+  V3 --> V4["4. Totstandkoming<br/>stap 9 en 10, 14 min"]
 ```
 
 Blijft een van de vier onbeantwoord, dan hoort dat als issue in deze repository.
@@ -36,7 +36,7 @@ Het bouwen tegen een koppelvlak begint bij de [koppelvlakspecificaties in Public
 
 Statuslabels en versienummers staan in de bron, niet in deze route.
 
-## 2. Doel: welk probleem OKx oplost
+## 2. Doel
 
 ### Stap 1. De twee repositories
 
@@ -62,7 +62,7 @@ De kaderstelling ontstaat in `Npuls-OKx/meta`. `Npuls-OKx/Public` draagt de rele
 | Stand | Vastgelegd in Public. [Public PR 71](https://github.com/Npuls-OKx/Public/pull/71) voegt een principe toe dat eisen voor de techniekkeuze plaatst |
 | Omvang | 2112 woorden, 12 minuten |
 
-## 3. Scope: waarover OKx afspraken maakt
+## 3. Scope
 
 ### Stap 3. De architectuurbesluiten
 
@@ -93,7 +93,7 @@ De kaderstelling ontstaat in `Npuls-OKx/meta`. `Npuls-OKx/Public` draagt de rele
 | Stand | Kaderstellend voor de reguliere leerroute; de andere leerroutes volgen als verschil daarop. [meta PR 144](https://github.com/Npuls-OKx/meta/pull/144) herstructureert de leerroute-uitwerking |
 | Omvang | 6030 van 15679 woorden, 34 minuten. Voluit 87 minuten |
 
-## 4. Deliverables: wat OKx oplevert
+## 4. Deliverables
 
 OKx levert een set specificaties van de koppelingen tussen de componenten in de onderwijsketen. Die set dient als functioneel ontwerp voor een implementatie, bij voorkeur als [OEAPI-profiel](https://oeapi.eu/v6.0/#/technical/consumers-and-profiles/profiling-guidelines). Valt een eis buiten de profielvorm, dan komt een andere generieke standaard in beeld, zoals een eigen REST OpenAPI-specificatie of GraphQL. Het uitgangspunt is OEAPI tenzij.
 
@@ -111,24 +111,67 @@ flowchart TB
 
 Drie lagen dragen die samenhang. Een **informatiestroom** is de beweging van gegevens tussen twee componenten. Een **koppeling** is de gestandaardiseerde realisatie daarvan. Een **koppelvlak** is de verzameling koppelingen van precies een component.
 
-### De productopdeling, concept
+### Productopdeling, concept
 
 De vier deliverables hierboven zijn de producten die vandaag bestaan. De opdeling van de volledige set staat als concept in [#396](https://github.com/Npuls-OKx/meta/issues/396), met de instellingsspecificatie als nieuw product tussen de leerroutes en de koppelvlakspecificatie.
 
 ```mermaid
 flowchart TB
-  L["Leerroutes en businesswaarde"] --> S
-  subgraph S["Instellingsspecificatie, werknaam"]
-    direction LR
-    P["Proces"]
-    I["Informatie"]
-    A["Applicatielandschap"]
-    B["Beleid en<br/>organisatie-inrichting"]
+  subgraph K["1. Kaderstelling, per leerroute"]
+    direction TB
+    BV["Businesswaarde"] --> LR["Leerroute"]
+    LR --> OI["Organisatie-inrichting"]
+    LR --> BE["Beleid"]
+    LR --> PM["SOLL procesmodel"]
+    LR --> IM["SOLL informatiemodel"]
+    AL["SOLL applicatielandschap<br/>hoofdplaat informatiestromen"] --> IM
   end
-  S --> K["Interactieketenspecificatie<br/>met provisioning en authenticatie"]
-  K --> C["Koppelvlakspecificatie<br/>met datamodelschema's"]
-  C --> AD["Adoptie via BOPSI"]
+  K --> G["OKx: governance orgaan,<br/>projectleiding, adviesgroep"]
+  G --> S
+  subgraph S["2. Interactieketenspecificatie, per leerroute"]
+    direction TB
+    KS["Ketensequentie"] --> IS
+    subgraph IS["Interactiespecificaties"]
+      direction LR
+      D1["Interactiediensten en<br/>koppelvlakdiensten"]
+      D2["Operaties en methodes"]
+      D3["Datamodel"]
+      D4["Endpoints"]
+      D5["Interactiesequentiediagram"]
+    end
+    IS --- PR["Provisioning"]
+    IS --- AU["Authenticatie"]
+    IS --- CT["Conformiteitstoets"]
+  end
+  S --> P
+  subgraph P["3. OKx OEAPI-profiel"]
+    direction TB
+    GW["Governance orgaan,<br/>werkwijze, issue raising"]
+    BP["Profiel en consumers bouwen:<br/>OAS, OEAPI-consumer, besluiten"]
+  end
+  P --> A
+  subgraph A["4. Adoptie via BOPSI, per leerroute"]
+    direction LR
+    A1["Beleid"]
+    A2["Organisatie"]
+    A3["Proces"]
+    A4["Systeem"]
+    A5["Informatie"]
+    A6["Techniek"]
+    A7["Architectuur"]
+    A8["Projecttemplate"]
+  end
+  A --> E(["Geimplementeerde koppelingen<br/>en koppelingketens"])
 ```
+
+Per laag een dragende partij:
+
+| Laag | Draagt het | Toetst het |
+|---|---|---|
+| Kaderstelling | Het programma Npuls met de instelling, vanuit de instellingsreis van vandaag | Adviesgroep |
+| Interactieketenspecificatie | De solution architecten van OKx | Kerngroep techniek |
+| OEAPI-profiel en consumers | OKx met de leveranciers | Kerngroep techniek en de werkgroep van de standaard |
+| Adoptie | BOPSI, met de instelling | Governance orgaan |
 
 De instellingsspecificatie draagt per leerroute een businessarchitectuur: wat een instelling moet kunnen om die leerroute te voeren. Die kennis is vandaag impliciet, deels uit MORA, en dat maakt het vullen van de koppelvlakspecificatie een vraag zonder vastgelegd antwoord. De naam, de inhoud en de dragende rol per product zijn concept.
 
@@ -194,7 +237,7 @@ Wie verder wil, opent een applicatiecomponent met zijn interactiepatroon en een 
 | Stand | Nog op een branch. Dit is de herziening van de koppelvlakspecificaties: de keten begint bij de waarde en trekt die door naar de koppelingen. [Public PR 100](https://github.com/Npuls-OKx/Public/pull/100) legt de dienstlaag eronder. De twee vormen komen nog samen |
 | Omvang | 1975 woorden voor de keten onderwijsaanbod, 11 minuten |
 
-## 5. Totstandkoming: hoe een afspraak ontstaat
+## 5. Totstandkoming deliverables
 
 De route van een vraag naar een vastgelegde afspraak volgt AMIGO, met de product-flow per deliverable eromheen.
 

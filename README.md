@@ -19,7 +19,7 @@ Systemen in de onderwijsketen werken nu per instelling en per leverancier op eig
 
 De afbakening staat als architectuurbesluit vast in [ADR 0008](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0008-scope-planning-eerst-intra-instelling.md).
 
-## Wat OKx oplevert
+## Deliverables
 
 | Deliverable | Wat het is | Waar het staat |
 |---|---|---|
@@ -28,9 +28,9 @@ De afbakening staat als architectuurbesluit vast in [ADR 0008](https://github.co
 | Referentiemateriaal | De onderbouwing: principes, uitgangspunten, architectuurbesluiten en de kaderscenario's per leerroute | [Public, Referentiemateriaal](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal) |
 | Kaderstelling en modellen | Het ArchiMate-model, de hoofdplaat informatiestromen, de interactieketens en de voorbeelduitwerkingen | deze repository |
 
-De koppelvlakspecificatie is de hoofdoplevering: een set specificaties van koppelingen die als functioneel ontwerp dient voor een implementatie, bij voorkeur als [OEAPI-profiel](https://oeapi.eu/v6.0/#/technical/consumers-and-profiles/profiling-guidelines). Valt een eis buiten de profielvorm, dan komt een andere generieke standaard in beeld. Het uitgangspunt is OEAPI tenzij.
+De koppelvlakspecificatie is de hoofdoplevering: een set specificaties van koppelingen die als functioneel ontwerp dient voor een implementatie, bij voorkeur als [OEAPI-profiel](https://oeapi.eu/v6.0/#/technical/consumers-and-profiles/profiling-guidelines). Valt een eis buiten de profielvorm, dan komt een andere generieke standaard in beeld. Het uitgangspunt is OEAPI tenzij. De opdeling van de volledige set en de verwachte vorm per product staan in [#421](https://github.com/Npuls-OKx/meta/issues/421), met de [leesroute](doc/leesroute-okx.md) als ingang erop.
 
-## Hoe het tot stand komt
+## Totstandkoming deliverables
 
 De route van een vraag naar een vastgelegde afspraak volgt [AMIGO](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/principes/principes.md): scenario-analyse, gegevens- en interactieanalyse, technologiekeuze, berichtspecificatie, interfacespecificatie. Daarbinnen gelden vier werkafspraken: ontwerpen en reviewen voor af, machine-interpreteerbaar vastleggen, beelden en tabellen boven lange tekst, en elk issue onder een milestone die naar de requirementsboom herleidt.
 
@@ -38,24 +38,7 @@ Drie lagen houden de uitwerking bij elkaar. Een **informatiestroom** is de conce
 
 Elk deliverable doorloopt de [product-flow](.agents/skills/okx-product-flow/SKILL.md): een story met een benoemde gebruiker en waarde, acceptatiecriteria in het issue, een plan met tegenlezing, uitwerking met onafhankelijke review, en een toets of de waarde geleverd is. Wijzigen gaat via een pull request; alleen het OKx-team merget.
 
-## De stand per onderdeel
-
-Deze tabel zegt per onderdeel hoe hard het is en welke wijziging in behandeling is. Wat er deze week gebeurt staat in de [milestones](https://github.com/Npuls-OKx/meta/milestones) en de [openstaande pull requests](https://github.com/Npuls-OKx/meta/pulls) van beide repositories; het [wijzigingenoverzicht](CHANGELOG.md) draagt de uitgebrachte versies.
-
-| Onderdeel | Hoe hard | Wijziging in behandeling |
-|---|---|---|
-| Principes en uitgangspunten | Vastgelegd in Public, de aangehaalde besluiten dragen de status voorstel | [Public PR 71](https://github.com/Npuls-OKx/Public/pull/71): een principe dat eisen voor de techniekkeuze plaatst |
-| Architectuurbesluiten | Vastgelegd in Public, alle met de status voorstel; de statusregel in het besluit zelf is leidend | [Public PR 71](https://github.com/Npuls-OKx/Public/pull/71) en [72](https://github.com/Npuls-OKx/Public/pull/72) |
-| Requirementsboom | Vroeg concept. De huidige boom demonstreert de vorm van een uiteindelijke uitwerking en is geen weergave van de werkelijke breakdown; die ontstaat in de proefopstellingen die Niels van Duin uitvoert | Loopt buiten de boom om, in die proefopstellingen |
-| Kaderscenario reguliere leerroute | Kaderstellend; de andere leerroutes volgen als verschil daarop | [meta PR 144](https://github.com/Npuls-OKx/meta/pull/144): de leerroute-uitwerking herstructureren |
-| Informatiemodel | Laag 1 en 2 vastgelegd in Public, met de ontwerpkeuzes erbij | [Public PR 131](https://github.com/Npuls-OKx/Public/pull/131) brengt de modelronde van oktober; [meta PR 391](https://github.com/Npuls-OKx/meta/pull/391) en [410](https://github.com/Npuls-OKx/meta/pull/410) raken het kwalificatiekader en de resultaatkant |
-| Hoofdplaat informatiestromen | Werkbeeld van het project; elke stroom erop is een kandidaat voor een koppelingspecificatie | [meta PR 412](https://github.com/Npuls-OKx/meta/pull/412) en [Public PR 133](https://github.com/Npuls-OKx/Public/pull/133) |
-| Vorm van de oplevering | In de specificatiefase. De productopdeling, de verwachte vorm per product en de afhankelijkheden worden uitgewerkt | [meta #421](https://github.com/Npuls-OKx/meta/issues/421) projectstartarchitectuur, met #396, #342, #259, #262 en #422 eronder |
-| Koppelvlakspecificatie | Eerste pakket uitgebracht, en nu in herziening naar interactieketens die bij de waarde voor student en instelling beginnen | [meta PR 364](https://github.com/Npuls-OKx/meta/pull/364), [373](https://github.com/Npuls-OKx/meta/pull/373), [387](https://github.com/Npuls-OKx/meta/pull/387) en [377](https://github.com/Npuls-OKx/meta/pull/377); [Public PR 100](https://github.com/Npuls-OKx/Public/pull/100) legt een dienstlaag tussen component en endpoint |
-| Voorbeelduitwerking reguliere leerroute | In uitwerking per fase, als toets van het model aan een echte casus | [meta PR 314](https://github.com/Npuls-OKx/meta/pull/314), [413](https://github.com/Npuls-OKx/meta/pull/413) en [414](https://github.com/Npuls-OKx/meta/pull/414) |
-| Release en versionering | Elk pakket in Public draagt een eigen versielijn met een manifest | [Public PR 82](https://github.com/Npuls-OKx/Public/pull/82): de volgende momentopname |
-
-## Waar te beginnen
+## Leeswijzer
 
 | Wie binnenkomt | Begint bij | Tijd |
 |---|---|---|
@@ -64,7 +47,7 @@ Deze tabel zegt per onderdeel hoe hard het is en welke wijziging in behandeling 
 | Een AI-agent | [`AGENTS.md`](AGENTS.md): de harde regels, de product-flow en de skills | eerst dit |
 | Wie wil bouwen tegen een koppelvlak | [Koppelvlakspecificaties in Public](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/README.md), met de leesvolgorde daar | 1 uur |
 
-## Wat staat waar
+## Repository
 
 ```text
 meta/
@@ -90,7 +73,7 @@ De indeling volgt de productdeliverables, de richting uit [#109](https://github.
 
 Waar iets ontstaat: de releaseartefacten in [`Npuls-OKx/Public`](https://github.com/Npuls-OKx/Public), de kaderstelling hier, en het besluit erachter als architectuurbesluit in Public.
 
-## Verhouding met de standaarden en de referentiearchitecturen
+## Standaarden en referentiearchitecturen
 
 Waar passend sluiten de uitwerkingen aan op de [Open Education API](https://openonderwijsapi.nl/v6.0/), als profiel bovenop de standaard en niet als afsplitsing ervan. De sectorarchitecturen blijven leidend: deze kennisbank wijzigt MORA niet, en een uitwerking die goed draagt kan later als onderbouwd voorstel richting de sectorprocessen gaan. De verhouding met ROSA en het Kernmodel Onderwijsinformatie ligt vast in de architectuurbesluiten.
 
@@ -98,7 +81,7 @@ Waar passend sluiten de uitwerkingen aan op de [Open Education API](https://open
 
 Vragen en open gesprekken gaan via [Discussions](https://github.com/Npuls-OKx/meta/discussions), achtergrond en langere uitleg staan in de [wiki](https://github.com/Npuls-OKx/meta/wiki), en concrete wijzigingen lopen via issues en pull requests.
 
-## Privacy bij meetings
+## Privacy
 
 Sessies die deze kennisbank voeden kunnen opgenomen en met AI getranscribeerd worden; de facilitator kondigt dat vooraf aan. Bij bezwaar volgt anonimisering in het transcript of beëindiging van de deelname. Niet-publieke informatie hoort niet in deze repository. Volledige toelichting: [`doc/Privacy-meetings-en-transcriptie.md`](doc/Privacy-meetings-en-transcriptie.md).
 
