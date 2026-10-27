@@ -4,6 +4,8 @@ Deze repository is de **publieke knowledge base** van **OKx**: hier verzamelen e
 
 ## Welkom — waar zijn we nu mee bezig?
 
+Een architect die nieuw op OKx is, begint bij de [leesroute voor een architect](doc/leesroute-domeinarchitect.md): tien stappen door beide repositories, samen ongeveer twee uur.
+
 Als je hier voor het eerst binnenkomt: we leggen **keteninzicht** en **koppelvlakrichting** vast — samen met de sector, in het open — zodat we geen losse eilandoplossingen per systeem bouwen, maar een **gedeeld minimum** aan afspraken. Concreet werkt het kernteam en de community nu o.a. aan:
 
 - **Informatiestromen (hoofdplaat)**: een overzicht van welke **stromen** tussen referentiecomponenten nog (conceptueel én technisch) beschreven moeten worden. De actuele plaat, uitleg en tabel staan in [`doc/OKx_Projectoverzicht.md`](doc/OKx_Projectoverzicht.md) bij *Hoofdplaat OKx informatiestromen*.
