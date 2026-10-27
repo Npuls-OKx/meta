@@ -1,12 +1,10 @@
-# Hoe OKx hier kwam
+# Historisch overzicht OKx
 
-De keerpunten van het project, elk met de bron erachter. Wie meer wil weten klikt door; de regel zelf volstaat om de lijn te volgen.
+Rode draad: OKx begon als specificatieproject en ontdekte dat de kaderstelling eronder ontbrak. Elke verschuiving sindsdien legt die kaderstelling alsnog.
 
-De rode draad: OKx begon als specificatieproject en ontdekte dat de kaderstelling eronder ontbrak. Elke verschuiving sindsdien is een poging die kaderstelling alsnog te leggen.
+## November 2024 tot februari 2026
 
-## Voor de kennisbank
-
-De kennisbank en de meetingverslagen beginnen in maart 2026. Wat daarvoor ligt, steunt op het projectplan en op het geheugen van het team.
+Bron: het projectplan en het geheugen van het team. De kennisbank en de meetingverslagen beginnen in maart 2026.
 
 | Wanneer | Keerpunt | Bron |
 |---|---|---|
@@ -18,7 +16,7 @@ De kennisbank en de meetingverslagen beginnen in maart 2026. Wat daarvoor ligt, 
 | 2025 | De MOKA-werkgroep wordt klaargemaakt voor de kaderstellende rol van gatekeeper en reviewer. Die rol blijkt op vrijwillige inzet niet te dragen, waarna OKx de kaderstelling zelf gaat maken | [MOKA-templates](../moka-koppelvlakspecificaties/) |
 | december 2025 | De startflows en het doelbeeld worden gedeeld op het netwerk van informatiemanagers, met de eerste hoofdplaat informatiestromen als uitkomst | [Doel en resultaten](../img/OKx_doel_en_resultaten_20251217.png), [de huidige vorm van onderwijslogistiek](../img/OKx_onderwijslogistiek_huidige_vorm_20251217.png), [de aandachtspunten](../img/OKx_aandachtspunten_20251217.png) |
 
-## In de kennisbank
+## Maart 2026 tot vandaag
 
 | Wanneer | Keerpunt | Bron |
 |---|---|---|
