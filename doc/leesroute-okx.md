@@ -64,6 +64,28 @@ De kaderstelling ontstaat in `Npuls-OKx/meta`. `Npuls-OKx/Public` draagt de rele
 
 ## 3. Scope
 
+OKE begon op de examenketen. OKx acteert op drie andere procesketens van de [MORA](https://mora.mbodigitaal.nl/index.php/Hoofdpagina).
+
+```mermaid
+flowchart TB
+  OKE["OKE<br/>toetsafname"] --> K2
+  OKX["OKx<br/>onderwijslogistiek"] --> K3
+  OKX --> K4
+  OKX --> K6
+  subgraph M["MORA-procesketens"]
+    direction LR
+    K1["1 BPV"]
+    K2["2 Examineren"]
+    K3["3 Onderwijsuitvoering<br/>en begeleiding"]
+    K4["4 Onderwijslogistiek"]
+    K5["5 Werving en<br/>administratie"]
+    K6["6 Onderwijsontwikkeling"]
+    K7["7 Bedrijfsvoering"]
+  end
+```
+
+De integratie van die ketens over de studentreizen heen heet in het kaderscenario de **instellingsreis**. Dat is waar de koppelingen van OKx ontstaan.
+
 ### Stap 3. De architectuurbesluiten
 
 [`adr/README.md`](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/README.md), met vier besluiten voluit:
@@ -117,6 +139,7 @@ De vier deliverables hierboven zijn de producten die vandaag bestaan. De opdelin
 
 ```mermaid
 flowchart TB
+  V["Student- en instellingsvraag"] --> K
   subgraph K["1. Kaderstelling, per leerroute"]
     direction TB
     BV["Businesswaarde"] --> LR["Leerroute"]
@@ -221,7 +244,7 @@ Het ArchiMate-model achter de plaat opent in Archi; de platen in stap 5, 6 en 8 
 |---|---|
 | Beantwoordt | Wat een afgeronde beschrijving bevat, en hoe koppeling en koppelvlak zich verhouden |
 | Overslaan | De uitgangspunten buiten de eigen vraag; de README wijst de leesvolgorde |
-| Stand | Het eerste pakket is uitgebracht en wordt herzien, zie stap 8. [Public PR 100](https://github.com/Npuls-OKx/Public/pull/100) legt een laag applicatiediensten tussen component en endpoint |
+| Stand | Het eerste pakket is uitgebracht en wordt herzien naar interactieketens: [meta PR 373](https://github.com/Npuls-OKx/meta/pull/373) onderwijsaanbod en [387](https://github.com/Npuls-OKx/meta/pull/387) student-instroom, zie stap 8. [Public PR 100](https://github.com/Npuls-OKx/Public/pull/100) legt een laag applicatiediensten tussen component en endpoint |
 | Omvang | 1998 woorden, 11 minuten |
 
 Wie verder wil, opent een applicatiecomponent met zijn interactiepatroon en een datamodelschema.

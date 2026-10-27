@@ -6,7 +6,9 @@ De releaseartefacten staan niet hier maar in [`Npuls-OKx/Public`](https://github
 
 ## Doel
 
-Systemen in de onderwijsketen werken nu per instelling en per leverancier op eigen afspraken samen. Dat maakt elke verandering in het onderwijs duur: een school die een leerroute wil flexibiliseren, moet daarvoor langs elk systeem afzonderlijk. OKx legt daarom een gedeeld minimum aan afspraken vast, zodat instellingen en leveranciers tegen dezelfde koppelvlakken bouwen en de onderwijslogistiek de onderwijsvraag kan volgen in plaats van te begrenzen.
+1. Komen tot gezamenlijke taal en standaarden voor gegevensuitwisseling die een scala aan flexibilisering mogelijk maken in het mbo.
+2. Komen tot functionele en technische gegevensuitwisseling voor het mbo, hbo en wo die studentmobiliteit ondersteunen.
+3. Pilot studentmobiliteit starten in het mbo: implementatie en realisatie van de digitale koppelingen, met eventueel gebruik van SURF-diensten.
 
 ## Scope
 
@@ -32,11 +34,33 @@ De koppelvlakspecificatie is de hoofdoplevering: een set specificaties van koppe
 
 ## Totstandkoming deliverables
 
-De route van een vraag naar een vastgelegde afspraak volgt [AMIGO](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/principes/principes.md): scenario-analyse, gegevens- en interactieanalyse, technologiekeuze, berichtspecificatie, interfacespecificatie. Daarbinnen gelden vier werkafspraken: ontwerpen en reviewen voor af, machine-interpreteerbaar vastleggen, beelden en tabellen boven lange tekst, en elk issue onder een milestone die naar de requirementsboom herleidt.
+De route naar een vastgelegde afspraak volgt de [AMIGO-aanpak](https://www.edustandaard.nl/amigo/aanpak/) van Edustandaard.
 
-Drie lagen houden de uitwerking bij elkaar. Een **informatiestroom** is de conceptuele beweging van gegevens tussen twee componenten, zichtbaar op de hoofdplaat. Een **koppeling** is de gestandaardiseerde realisatie daarvan. Een **koppelvlak** is de verzameling koppelingen van precies een component. In die volgorde wordt er gewerkt, en een eis sneuvelt nooit omdat een technische standaard hem niet toestaat; zo'n verschil wordt een signalering richting die standaard.
+```mermaid
+flowchart LR
+  S["Scenario"] --> G["Gegevens"] --> I["Interactie"] --> T["Technologie"] --> B["Bericht"] --> F["Interface"]
+```
 
-Elk deliverable doorloopt de [product-flow](.agents/skills/okx-product-flow/SKILL.md): een story met een benoemde gebruiker en waarde, acceptatiecriteria in het issue, een plan met tegenlezing, uitwerking met onafhankelijke review, en een toets of de waarde geleverd is. Wijzigen gaat via een pull request; alleen het OKx-team merget.
+Elk koppelvlak begint bij een wens in de student- en instellingsreis en sluit de cirkel bij de drie doelen.
+
+```mermaid
+flowchart LR
+  V["Student- en<br/>instellingsvraag"] --> L["Leerroute"]
+  L --> A["Architectuur:<br/>proces en ecosysteem"]
+  A --> K["Koppelvlakspecificatie<br/>functioneel ontwerp"]
+  K --> P["OKx-profiel<br/>binnen OEAPI"]
+  P --> IM["Implementatie<br/>bij de instelling,<br/>met adoptie door OKx"]
+  IM --> D["De drie doelen"]
+  D -.->|"volgende wens"| V
+```
+
+| Laag | Wat het is |
+|---|---|
+| Informatiestroom | De beweging van gegevens tussen twee componenten, zichtbaar op de hoofdplaat |
+| Koppeling | De gestandaardiseerde realisatie van die stroom |
+| Koppelvlak | De verzameling koppelingen van precies een component |
+
+Een eis die buiten een technische standaard valt, wordt een signalering richting die standaard. De werkwijze staat in [`CONTRIBUTING.md`](CONTRIBUTING.md) en de [product-flow](.agents/skills/okx-product-flow/SKILL.md).
 
 ## Leeswijzer
 
