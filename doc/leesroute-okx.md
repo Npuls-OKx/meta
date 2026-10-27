@@ -1,67 +1,56 @@
 # Leesroute OKx
 
-## 1. Inleiding
+Het werk van OKx staat verdeeld over twee repositories. Deze route wijst de volgorde aan, in twee lagen.
 
-### 1.1 Context
+| Laag | Wat het oplevert | Tijd |
+|---|---|---|
+| Kern | Meepraten over de inhoud | ongeveer een half uur |
+| Verdieping | Meedenken over de uitwerking | ongeveer twee uur |
 
-Het werk van OKx staat verdeeld over twee repositories en ruim tweehonderd documenten. Deze route wijst een leesvolgorde aan: tien stappen, samen ongeveer twee uur, voor wie architectuur leest en OKx nog niet kent.
+De kern leest delen van dezelfde documenten die de verdieping voluit behandelt. Elke kernregel draagt wat een lezer meeneemt zonder door te klikken.
 
-### 1.2 Doel
+De leestijd is de woordtelling gedeeld door honderdtachtig woorden per minuut, afgerond op hele minuten. Per stap staat de **status** van het materiaal: vastgelegd, voorstel of concept, met de wijziging die in behandeling is en de pull request erbij. De route schrijft geen statuswaarde over, want een overzicht dat dat doet veroudert sneller dan de bron.
 
-Na de route zijn drie vragen te beantwoorden.
+## De kern
 
-```mermaid
-flowchart LR
-  V1["1. Doel<br/>stap 1 en 2, 14 min"] --> V2["2. Scope<br/>stap 3 en 4, 50 min"]
-  V2 --> V3["3. Deliverables<br/>met hun totstandkoming<br/>stap 5 tot 9, 48 min"]
-```
+| Vraag | Wat een lezer meeneemt | Waar | Min |
+|---|---|---|---|
+| Wat is de opdracht | OKx legt gestandaardiseerde koppelingen vast voor de onderwijslogistiek, zodat een student binnen en later buiten de eigen instelling onderwijs kan kiezen en volgen terwijl de administratie meebeweegt | De managementsamenvatting in [OKx in context](OKx_Context.md) | 3 |
+| Welke leerroutes eerst | Prioriteit bij leerroute 1, 2, 3, 4 en 7. Wat nu wordt opgeleverd mag leerroute 5, 6, 8 en 9 later niet in de weg zitten | De [basisuitgangspunten](OKx_Context.md#basisuitgangspunten) | 3 |
+| Waar acteert OKx | Op onderwijsontwikkeling, onderwijslogistiek en onderwijsuitvoering; OKE begon op de examenketen. De applicatie is van de leverancier, les en didactiek zijn van de instelling en worden in de specificatie vastgelegd | [Deel 3, scope](#deel-3-scope) | 5 |
+| Wat levert OKx op | Een set specificaties van koppelingen die als functioneel ontwerp dient voor een implementatie, bij voorkeur als OEAPI-profiel. De route ernaartoe loopt van userstories via begrippen en informatiemodel naar informatiestromen | [Deel 4, deliverables](#deel-4-deliverables) | 8 |
+| Welke keuzes liggen vast | Binnen de instelling eerst, federatie gefaseerd. En de leeruitkomst als verbindende sleutel tussen specificatie, aanbod en resultaat | [ADR 0008](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0008-scope-planning-eerst-intra-instelling.md) en [ADR 0026](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0026-leeruitkomst-als-verbindende-sleutel.md) | 4 |
+| Hoe hard is het | Elk pakket in Public draagt een eigen versielijn. Tot een pakket zijn eerste stabiele versie bereikt, kan elk onderdeel eraan wijzigen | [Deel 6, release en beheer](#deel-6-release-en-beheer) | 3 |
 
-Blijft een van de drie onbeantwoord, dan hoort dat als issue in deze repository.
+## Deel 1, context
 
-### 1.3 Scope
+### Stap 1. De opdracht en de projectomgeving
 
-In scope: de kaderstelling, de scope van OKx, de deliverables en de werkwijze waarmee die tot stand komen.
-
-Het bouwen tegen een koppelvlak begint bij de [koppelvlakspecificaties in Public](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/README.md), die daar hun eigen leesvolgorde dragen. De werkwijze voor een bijdrage staat in [`CONTRIBUTING.md`](../CONTRIBUTING.md), de werkwijze voor agents in [`AGENTS.md`](../AGENTS.md). Al het overige valt buiten deze route.
-
-### 1.4 Leeswijzer
-
-| Veld per stap | Betekenis |
-|---|---|
-| Beantwoordt | De vraag die het document oplost |
-| Overslaan | Wat bij eerste lezing buiten de route blijft |
-| Status | Hoe hard het materiaal is, met de pull request die eraan werkt |
-| Omvang | Woordtelling en leestijd bij honderdtachtig woorden per minuut |
-
-Statuslabels en versienummers staan in de bron, niet in deze route.
-
-## 2. Doel
-
-### Stap 1. De twee repositories
-
-[`README.md` in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/blob/dev/README.md)
+[OKx in context](OKx_Context.md)
 
 | | |
 |---|---|
-| Beantwoordt | Welke repository draagt wat, en welke kopie van een document is leidend |
-| Overslaan | Niets |
-| Status | De indeling staat in het document beschreven |
-| Omvang | 343 woorden, 2 minuten |
+| Beantwoordt | Wat de opdracht is, welke resultaten die draagt, met welke initiatieven OKx raakvlakken heeft, wie wat beslist, en welke uitdagingen eronder liggen |
+| Overslaan | Niets bij eerste lezing; wie haast heeft leest de managementsamenvatting |
+| Status | Samengesteld uit het projectplan en de platen van het programma |
+| Omvang | 1388 woorden, 8 minuten |
 
-De kaderstelling ontstaat in `Npuls-OKx/meta`. `Npuls-OKx/Public` draagt de releaseartefacten. Voor een uitspraak naar buiten geldt de versie in Public.
+Dit document zegt ook welke repository wat draagt: de kaderstelling ontstaat in `Npuls-OKx/meta`, en `Npuls-OKx/Public` draagt de releaseartefacten. Bestaat een document in beide, dan geldt voor een uitspraak naar buiten de versie in Public.
 
-### Stap 2. De principes en de uitgangspunten
+## Deel 2, historie
 
-[`principes.md`](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/principes/principes.md) met de [uitgangspunten](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/principes/uitgangspunten.md)
+### Stap 2. Hoe OKx hier kwam
+
+[Hoe OKx hier kwam](OKx_Historie.md)
 
 | | |
 |---|---|
-| Beantwoordt | Welke richting onder alle uitwerkingen ligt, en welke standaardiseringsroute het project volgt |
-| Overslaan | De toelichting per principe |
-| Status | Vastgelegd in Public. [Public PR 71](https://github.com/Npuls-OKx/Public/pull/71) voegt een principe toe dat eisen voor de techniekkeuze plaatst |
-| Omvang | 2112 woorden, 12 minuten |
+| Beantwoordt | Welke keerpunten het project doorliep sinds november 2024, en waarom de vorm van de oplevering nog beweegt |
+| Overslaan | De bronnen achter elk keerpunt; die zijn er voor wie wil doorklikken |
+| Status | De periode voor maart 2026 steunt op het projectplan en het geheugen van het team |
+| Omvang | Een pagina, 10 minuten |
 
-## 3. Scope
+## Deel 3, scope
 
 OKE begon op de examenketen. OKx acteert op de processen daaromheen.
 
@@ -71,72 +60,50 @@ OKE begon op de examenketen. OKx acteert op de processen daaromheen.
 
 De integratie van die ketens over de studentreizen heen heet in het kaderscenario de **instellingsreis**. Dat is waar de koppelingen van OKx ontstaan.
 
-### Stap 3. De architectuurbesluiten
+De grens die daarbij hoort:
 
-[`adr/README.md`](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/README.md), met vier besluiten voluit:
-
-| Besluit | Draagt |
+| Onderdeel | Hoort bij |
 |---|---|
-| [0008 afbakening](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0008-scope-planning-eerst-intra-instelling.md) | Wat binnen bereik valt, en waarom federatie later komt |
-| [0019 gelaagdheid](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0019-conceptuele-gelaagdheid-kwalificatie-specificatie-aanbod-rosa-koi.md) | De verhouding met ROSA en het Kernmodel Onderwijsinformatie |
-| [0022 resultaatbegrippen](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0022-resultaatbegrippen-conform-rosa-koi.md) | Hetzelfde, voor de resultaatkant van de keten |
-| [0026 leeruitkomst](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0026-leeruitkomst-als-verbindende-sleutel.md) | Het scharnier van het informatiemodel |
+| De applicatie | De leverancier |
+| Les en didactiek | De instelling, vastgelegd in de specificatie |
+| De landelijke voorzieningen | Hun eigen pijler |
 
-| | |
-|---|---|
-| Beantwoordt | Welke keuzes vastliggen, met welke onderbouwing |
-| Overslaan | De overige besluiten, tot er een op een eigen vraag drukt |
-| Status | Alle besluiten dragen de status voorstel; de `Status`-regel in het besluit is leidend. [Public PR 71](https://github.com/Npuls-OKx/Public/pull/71) en [72](https://github.com/Npuls-OKx/Public/pull/72) voegen besluiten toe |
-| Omvang | 2920 woorden, 16 minuten |
+Welke leerroutes eerst aan bod komen, staat in de [basisuitgangspunten](OKx_Context.md#basisuitgangspunten): prioriteit bij 1, 2, 3, 4 en 7.
 
-### Stap 4. Het kaderscenario van de reguliere leerroute
+### Stap 3. Het kaderscenario van de reguliere leerroute
 
 [`leerroute-1-regulier.md`](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), vier secties: de opening tot en met de leeswijzer, *De procesbeleving achter 'regulier' onderwijs van een Instelling*, *Betrokken informatie bij proces*, *Procesfasen, interacties op de plaat en informatie*, en *Componenten en hun doel*.
 
 | | |
 |---|---|
 | Beantwoordt | Wat er in de keten gebeurt, welke informatie waar ontstaat, en welke componenten welke rol dragen |
-| Overslaan | De studentreis, de keuzedelen in detail, de gegevensoverzichten, de anti-patronen, en het concept-informatiemodel dat in stap 5 vastgelegd terugkomt |
-| Status | Kaderstellend voor de reguliere leerroute; de andere leerroutes volgen als verschil daarop. [meta PR 144](https://github.com/Npuls-OKx/meta/pull/144) herstructureert de leerroute-uitwerking |
+| Overslaan | De studentreis, de keuzedelen in detail, de gegevensoverzichten, de anti-patronen, en het concept-informatiemodel dat in stap 4 vastgelegd terugkomt |
+| Status | Kaderstellend voor de reguliere leerroute; de andere leerroutes volgen als verschil daarop. [meta PR 144](https://github.com/Npuls-OKx/meta/pull/144) herstructureert de uitwerking |
 | Omvang | 6030 van 15679 woorden, 34 minuten. Voluit 87 minuten |
 
-## 4. Deliverables
+## Deel 4, deliverables
 
-### Hoe een deliverable ontstaat
+OKx levert een set specificaties van de koppelingen tussen de componenten in de onderwijsketen. Die set dient als functioneel ontwerp voor een implementatie, bij voorkeur als [OEAPI-profiel](https://oeapi.eu/v6.0/#/technical/consumers-and-profiles/profiling-guidelines). Valt een eis buiten de profielvorm, dan komt een andere generieke standaard in beeld. Het uitgangspunt is OEAPI tenzij.
 
-Elk koppelvlak begint bij een wens in de student- en instellingsreis. De route daarheen volgt de [AMIGO-aanpak](https://www.edustandaard.nl/amigo/aanpak/) van Edustandaard.
+![De route van userstories naar de koppelvlakspecificatie](../img/OKx_route_naar_eindproduct_20261027.png)
 
-```mermaid
-flowchart LR
-  S["Scenario<br/>analyse"] --> G["Gegevens en<br/>interactie"]
-  G --> T["Technologie<br/>keuze"]
-  T --> B["Bericht<br/>specificatie"]
-  B --> I["Interface<br/>specificatie"]
-  I --> A["Afspraken<br/>set"]
-```
+Die route volgt de [AMIGO-aanpak](https://www.edustandaard.nl/amigo/aanpak/) van Edustandaard:
 
-Vertaald naar de producten van OKx sluit die route een cirkel: de implementatie bij de instelling realiseert de drie doelen van het project, en de volgende wens begint opnieuw bij de student en de instelling.
-
-```mermaid
-flowchart LR
-  V["Student- en<br/>instellingsvraag"] --> L["Leerroute"]
-  L --> A["Architectuur:<br/>proces en ecosysteem"]
-  A --> K["Koppelvlakspecificatie<br/>functioneel ontwerp"]
-  K --> P["OKx-profiel<br/>binnen OEAPI"]
-  P --> I["Implementatie<br/>bij de instelling,<br/>met adoptie door OKx"]
-  I --> D["De drie doelen<br/>van het project"]
-  D -.->|"volgende wens"| V
-```
-
-OKx levert een set specificaties van de koppelingen tussen de componenten in de onderwijsketen. Die set dient als functioneel ontwerp voor een implementatie, bij voorkeur als [OEAPI-profiel](https://oeapi.eu/v6.0/#/technical/consumers-and-profiles/profiling-guidelines). Valt een eis buiten de profielvorm, dan komt een andere generieke standaard in beeld, zoals een eigen REST OpenAPI-specificatie of GraphQL. Het uitgangspunt is OEAPI tenzij.
-
-[OKE](https://www.edustandaard.nl/app/uploads/2026/06/OKE-MBO-toetsafname-specs-v1.0.1_20260527definitief.pdf) specificeert de toetsafname in het mbo op een scherp afgebakend procesgebied met vastgelegde documentatie: examinering en verantwoording. OKx draagt een bredere scope met meer belanghebbenden, waardoor de OKE-vorm hier als vertrekpunt dient en de uiteindelijke vorm een eigen uitwerking vraagt. Welke eigenschappen van die vorm overdragen, wordt onderzocht in [#422](https://github.com/Npuls-OKx/meta/issues/422).
+| AMIGO-stap | In de route naar het eindproduct |
+|---|---|
+| Scenario-analyse | Userstories, op de leerroute en het kaderscenario |
+| Gegevensanalyse | Bouwblokken, begrippen en het informatiemodel |
+| Interactieanalyse | Informatiestromen tussen applicatiecomponenten |
+| Technologiekeuze | OEAPI tenzij; de keuze ligt bij OKx, in afstemming met de sector via de kerngroep techniek en de adviesgroep |
+| Berichtspecificatie | Datamodelschema's, payloads en berichtstromen |
+| Interfacespecificatie | Endpoints, operaties, antwoorden en voorbeelden |
+| Afsprakenset | De koppelvlakspecificatie als geheel, met authenticatie en het inrichten van toegang erbij |
 
 Drie lagen dragen de uitwerking. Een **informatiestroom** is de beweging van gegevens tussen twee componenten. Een **koppeling** is de gestandaardiseerde realisatie daarvan. Een **koppelvlak** is de verzameling koppelingen van precies een component.
 
 ### Productopdeling, concept
 
-De vier deliverables hierboven zijn de producten die vandaag bestaan. De opdeling van de volledige set staat als concept in [#396](https://github.com/Npuls-OKx/meta/issues/396), met de instellingsspecificatie als nieuw product tussen de leerroutes en de koppelvlakspecificatie.
+De opdeling van de volledige set staat als concept in [#396](https://github.com/Npuls-OKx/meta/issues/396), met de instellingsspecificatie als nieuw product tussen de leerroutes en de koppelvlakspecificatie.
 
 ```mermaid
 flowchart TB
@@ -192,28 +159,12 @@ Per laag een dragende partij:
 
 | Laag | Draagt het | Toetst het |
 |---|---|---|
-| Kaderstelling | Het programma Npuls met de instelling, vanuit de instellingsreis van vandaag | Adviesgroep |
+| Kaderstelling | Het programma met de instelling, vanuit de instellingsreis van vandaag | Adviesgroep |
 | Interactieketenspecificatie | De solution architecten van OKx | Kerngroep techniek |
 | OEAPI-profiel en consumers | OKx met de leveranciers | Kerngroep techniek en de werkgroep van de standaard |
 | Adoptie | BOPSI, met de instelling | Governance orgaan |
 
-De instellingsspecificatie draagt per leerroute een businessarchitectuur: wat een instelling moet kunnen om die leerroute te voeren. Die kennis is vandaag impliciet, deels uit MORA, en dat maakt het vullen van de koppelvlakspecificatie een vraag zonder vastgelegd antwoord. De naam, de inhoud en de dragende rol per product zijn concept.
-
-De vorm van de set rijpt in de specificatiefase. Deze vragen staan open, elk met de plek waar die wordt uitgewerkt.
-
-| Vraag | Wordt uitgewerkt in |
-|---|---|
-| Welke eenheden leveren waarde voor student, instelling en leverancier | De proefopstellingen die user stories en businesswaarde namens instellingen ophalen |
-| Welke producten de set draagt, in welke vorm, en waarvan die afhangen | [#421](https://github.com/Npuls-OKx/meta/issues/421) projectstartarchitectuur, met [#396](https://github.com/Npuls-OKx/meta/issues/396) productopdeling eronder |
-| Welke eigenschappen van de OKE-vorm overdragen | [#422](https://github.com/Npuls-OKx/meta/issues/422) |
-| Welke partij maakt welk architectuurproduct in de sectorketen | [#300](https://github.com/Npuls-OKx/meta/pull/300) met [#262](https://github.com/Npuls-OKx/meta/issues/262), zeven lagen en achtenvijftig producten uit een bron |
-| Wat OKx versioneert, en wat als OEAPI-profiel naar buiten gaat | [#342](https://github.com/Npuls-OKx/meta/issues/342) specificatielagen |
-| Welke koppelingen lopen waar, en welke informatie ontstaat waar en beweegt hoe | [#259](https://github.com/Npuls-OKx/meta/issues/259) speelveld en ecosysteem |
-| Waar het informatiemodel OEAPI v6 raakt | [#218](https://github.com/Npuls-OKx/meta/issues/218) |
-
-De vraag die boven alle andere staat: wat de sector precies genoeg geformuleerd wil hebben om het te adopteren. Daarop richten de proefopstellingen zich.
-
-### Stap 5. Het informatiemodel
+### Stap 4. Het informatiemodel
 
 [`informatiemodel.md`](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/informatiemodel.md) met [`begrippen.md`](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/begrippen.md) als naslag
 
@@ -224,7 +175,7 @@ De vraag die boven alle andere staat: wat de sector precies genoeg geformuleerd 
 | Status | Laag 1 en 2 vastgelegd in Public. [Public PR 131](https://github.com/Npuls-OKx/Public/pull/131) brengt de modelronde van oktober, met de review-instructie daarin; [meta PR 391](https://github.com/Npuls-OKx/meta/pull/391) raakt het kwalificatiekader, [410](https://github.com/Npuls-OKx/meta/pull/410) de resultaatkant |
 | Omvang | 2741 woorden, 15 minuten |
 
-### Stap 6. De hoofdplaat informatiestromen
+### Stap 5. De hoofdplaat informatiestromen
 
 De hoogste versiemap onder [`architecture/model/informatiestromen hoofdplaat OKx/`](../architecture/model/)
 
@@ -235,9 +186,9 @@ De hoogste versiemap onder [`architecture/model/informatiestromen hoofdplaat OKx
 | Status | Werkbeeld: elke stroom is een kandidaat voor een koppelingspecificatie. [meta PR 412](https://github.com/Npuls-OKx/meta/pull/412) en [Public PR 133](https://github.com/Npuls-OKx/Public/pull/133) werken de plaat bij |
 | Omvang | Een plaat met leeswijzer, 5 minuten |
 
-Het ArchiMate-model achter de plaat opent in Archi; de platen in stap 5, 6 en 8 dragen de inhoud.
+Het ArchiMate-model achter de plaat opent in Archi; de platen in stap 4, 5 en 7 dragen de inhoud.
 
-### Stap 7. De koppelvlakspecificatie
+### Stap 6. De koppelvlakspecificatie
 
 [`Koppelvlakspecificaties/README.md`](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/README.md) met [`uitgangspunten.md`](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md)
 
@@ -245,12 +196,12 @@ Het ArchiMate-model achter de plaat opent in Archi; de platen in stap 5, 6 en 8 
 |---|---|
 | Beantwoordt | Wat een afgeronde beschrijving bevat, en hoe koppeling en koppelvlak zich verhouden |
 | Overslaan | De uitgangspunten buiten de eigen vraag; de README wijst de leesvolgorde |
-| Status | Het eerste pakket is uitgebracht en wordt herzien naar interactieketens: [meta PR 373](https://github.com/Npuls-OKx/meta/pull/373) onderwijsaanbod en [387](https://github.com/Npuls-OKx/meta/pull/387) student-instroom, zie stap 8. [Public PR 100](https://github.com/Npuls-OKx/Public/pull/100) legt een laag applicatiediensten tussen component en endpoint |
+| Status | Het eerste pakket is uitgebracht en wordt herzien naar interactieketens: [meta PR 373](https://github.com/Npuls-OKx/meta/pull/373) onderwijsaanbod en [387](https://github.com/Npuls-OKx/meta/pull/387) student-instroom, zie stap 7. [Public PR 100](https://github.com/Npuls-OKx/Public/pull/100) legt een laag applicatiediensten tussen component en endpoint |
 | Omvang | 1998 woorden, 11 minuten |
 
 Wie verder wil, opent een applicatiecomponent met zijn interactiepatroon en een datamodelschema.
 
-### Stap 8. De interactieketens
+### Stap 7. De interactieketens
 
 [meta PR 373](https://github.com/Npuls-OKx/meta/pull/373) onderwijsaanbod, [387](https://github.com/Npuls-OKx/meta/pull/387) student-instroom, [364](https://github.com/Npuls-OKx/meta/pull/364) keuzedelen, [377](https://github.com/Npuls-OKx/meta/pull/377) OpenAPI per component
 
@@ -261,7 +212,38 @@ Wie verder wil, opent een applicatiecomponent met zijn interactiepatroon en een 
 | Status | Nog op een branch. Dit is de herziening van de koppelvlakspecificaties: de keten begint bij de waarde en trekt die door naar de koppelingen. [Public PR 100](https://github.com/Npuls-OKx/Public/pull/100) legt de dienstlaag eronder. De twee vormen komen nog samen |
 | Omvang | 1975 woorden voor de keten onderwijsaanbod, 11 minuten |
 
-### Stap 9. Release en beheer
+![Van beeld naar bericht: dezelfde stap als interactie, voorbeeldbericht en endpoint](../img/OKx_van_beeld_naar_bericht_20261027.png)
+
+*Wat een specificatie uiteindelijk oplevert: de interactie, het bericht en het endpoint. Het bericht ligt vast, de techniek is een keuze.*
+
+## Deel 5, architectuurbesluiten
+
+Met de context, de scope en de deliverables ervoor leest een besluit als een afweging. Twee besluiten horen in de kern, de rest is verdieping.
+
+| Vraag | Besluit | Laag |
+|---|---|---|
+| Waar ligt de grens | [0008](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0008-scope-planning-eerst-intra-instelling.md) eerst intra-instelling, federatie gefaseerd | kern |
+| Wat is het ordenend principe | [0026](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0026-leeruitkomst-als-verbindende-sleutel.md) de leeruitkomst als verbindende sleutel | kern |
+| Hoe verhoudt OKx zich tot de sectorarchitectuur | [0019](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0019-conceptuele-gelaagdheid-kwalificatie-specificatie-aanbod-rosa-koi.md) gelaagdheid en [0022](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0022-resultaatbegrippen-conform-rosa-koi.md) resultaatbegrippen | verdieping |
+| Welke verdieping vraagt OKx in MORA | [0005](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0005-student-keuze-systeem-zelfstandige-referentiecomponent.md) het studentkeuzesysteem als zelfstandige referentiecomponent | verdieping |
+| Welke taal dragen de producten | [0021](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0021-koppeling-versus-koppelvlak-terminologie.md) koppeling tegenover koppelvlak | verdieping |
+
+### Stap 8. De besluiten uit de verdieping
+
+[`adr/README.md`](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/README.md) met 0019, 0022, 0005 en 0021
+
+| | |
+|---|---|
+| Beantwoordt | Hoe OKx zich tot ROSA en het Kernmodel Onderwijsinformatie verhoudt, welke verdieping het in MORA vraagt, en welke taal de producten dragen |
+| Overslaan | De overige besluiten, tot er een op een eigen vraag drukt |
+| Status | De `Status`-regel in elk besluit is leidend; een besluit kan ook vervangen zijn. Het onderscheid uit 0021 is in beweging: het kan opgaan in de interactieketen en de interactiespecificatie |
+| Omvang | 2731 woorden, 15 minuten |
+
+Verder lezen: 0003 en 0004 onder de leeruitkomst, 0009 en 0014 voor de rolverdeling tussen studentkeuzesysteem en studentvolgsysteem, en 0018 voor de messaging-patronen.
+
+## Deel 6, release en beheer
+
+### Stap 9. Wie het draagt
 
 [`Release-management-algemeen.md`](https://github.com/Npuls-OKx/Public/blob/dev/Algemeen/release-management/Release-management-algemeen.md), met de milestones van [meta](https://github.com/Npuls-OKx/meta/milestones) en [Public](https://github.com/Npuls-OKx/Public/milestones) en het [wijzigingenoverzicht](../CHANGELOG.md)
 
@@ -273,3 +255,5 @@ Wie verder wil, opent een applicatiecomponent met zijn interactiepatroon en een 
 | Omvang | 1109 woorden en twee milestonelijsten, 6 minuten |
 
 Tot een pakket zijn eerste stabiele versie bereikt, kan elk onderdeel eraan wijzigen.
+
+Wie iets wil toevoegen of corrigeren, opent een issue of een pull request; de werkwijze staat in [`CONTRIBUTING.md`](../CONTRIBUTING.md).
