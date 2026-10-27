@@ -2,7 +2,7 @@
 
 De publieke kennisbank van **OKx**: de plek waar het keteninzicht en de koppelvlakrichting voor onderwijslogistiek ontstaan, in het open en samen met de sector. OKx is onderdeel van [Npuls, pijler Leren Zonder Drempels](https://npuls.nl/project-onderwijskoppelingen).
 
-De releaseartefacten staan niet hier maar in [`Npuls-OKx/Public`](https://github.com/Npuls-OKx/Public): wat in deze kennisbank tot een releasebaar artefact rijpt, verhuist daarheen. Bestaat een document in beide repositories, dan is de versie in Public de vastgelegde en de versie hier de werkversie.
+De releaseartefacten staan in [`Npuls-OKx/Public`](https://github.com/Npuls-OKx/Public): wat in deze kennisbank tot een releasebaar artefact rijpt, verhuist daarheen. Bestaat een document in beide repositories, dan is de versie in Public de vastgelegde en de versie hier de werkversie.
 
 ## Doel
 
