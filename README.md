@@ -41,15 +41,15 @@ flowchart LR
   S["Scenario"] --> G["Gegevens"] --> I["Interactie"] --> T["Technologie"] --> B["Bericht"] --> F["Interface"]
 ```
 
-Elk koppelvlak begint bij een wens in de student- en instellingsreis en sluit de cirkel bij de drie doelen.
+Elke specificatie van koppelvlakken begint bij een wens in de student- en instellingsreis en sluit de cirkel bij de drie doelen.
 
 ```mermaid
 flowchart LR
   V["Student- en<br/>instellingsvraag"] --> L["Leerroute"]
-  L --> A["Architectuur:<br/>proces en ecosysteem"]
-  A --> K["Koppelvlakspecificatie<br/>functioneel ontwerp"]
-  K --> P["OKx-profiel<br/>binnen OEAPI"]
-  P --> IM["Implementatie<br/>bij de instelling,<br/>met adoptie door OKx"]
+  L --> A["Architectuur:<br/>proces, informatiemodel, SOLL ecosysteem"]
+  A --> K["Koppelvlakspecificatie<br/>functioneel ontwerp van koppelingen"]
+  K --> P["Technische specificatie van<br/>OKx-profiel<br/>binnen OEAPI"]
+  P --> IM["Implementatie<br/>bij de instelling,<br/>met adoptie ondersteuning door OKx"]
   IM --> D["De drie doelen"]
   D -.->|"volgende wens"| V
 ```
@@ -93,13 +93,11 @@ meta/
 └── AGENTS.md                         de werkwijze voor agents, met de harde regels
 ```
 
-De indeling volgt de productdeliverables, de richting uit [#109](https://github.com/Npuls-OKx/meta/issues/109). Hoe ver de ingang vandaag reikt, staat gemeten in [#416](https://github.com/Npuls-OKx/meta/issues/416).
-
-Waar iets ontstaat: de releaseartefacten in [`Npuls-OKx/Public`](https://github.com/Npuls-OKx/Public), de kaderstelling hier, en het besluit erachter als architectuurbesluit in Public.
+Waar iets ontstaat: de releasebare en geversioneerde artefacten in [`Npuls-OKx/Public`](https://github.com/Npuls-OKx/Public), de kaderstelling en uitwerking van voorbereidend werk hier, en het besluit erachter als architectuurbesluit in Public.
 
 ## Standaarden en referentiearchitecturen
 
-Waar passend sluiten de uitwerkingen aan op de [Open Education API](https://openonderwijsapi.nl/v6.0/), als profiel bovenop de standaard en niet als afsplitsing ervan. De sectorarchitecturen blijven leidend: deze kennisbank wijzigt MORA niet, en een uitwerking die goed draagt kan later als onderbouwd voorstel richting de sectorprocessen gaan. De verhouding met ROSA en het Kernmodel Onderwijsinformatie ligt vast in de architectuurbesluiten.
+Waar passend sluiten de uitwerkingen aan op de [Open Education API](https://openonderwijsapi.nl/v6.0/), als profiel bovenop de standaard en niet als afsplitsing ervan. We onderhouden nauwe verbinding met sector architecuren als MORA en HORA: deze kennisbank wijzigt deze niet direct. Eventuele OKx uitwerkingen kunnen later als onderbouwd voorstel richting de referentiearchitecturen gaan. De verhouding met ROSA en het Kernmodel Onderwijsinformatie ligt vast in de architectuurbesluiten.
 
 ## Meepraten
 
