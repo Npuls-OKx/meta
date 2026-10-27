@@ -24,6 +24,7 @@ Een verslag is invoer voor een **architectuurbesluit**. Het besluit zelf en de a
 | [Requirementsboom uitwerkingsronde 2](20260816_1500_requirementsboom-uitwerkingsronde-2.md) | Welke wijzigingen draagt de tweede uitwerkingsronde, op welke bron steunt elke nieuwe rij, en wat is bewust niet gedaan? | Afgerond |
 | [Keten-eisen versus requirementsboom](20260816_1530_afbakening-keteneisen-versus-requirementsboom.md) | Kan de boom de rol van de keten-eisen K1 tot en met K5 in het Public-releasepakket overnemen, binnen de PDF-randvoorwaarden? | Afgerond |
 | [Hernummering requirementsboom](20260816_1820_hernummering-requirementsboom.md) | Welke oude id draagt welke nieuwe id na de hernummering naar de id-conventie, en wat bleef bewust buiten scope? | Afgerond |
+| [De OKE-vorm tegenover de scope van OKx](20261027_1248_oke-vorm-tegenover-okx-scope.md) | Welke eigenschappen van de OKE-afsprakenset dragen over naar de bredere scope van OKx, en welke vragen een eigen uitwerking? | Ter besluitvorming |
 
 De drie verslagen bij issue #130 horen bij elkaar: AMIGO zegt wat er gemaakt moet worden, de praktijk laat zien welke koppelmechanismen het volhouden, en het gereedschapsverslag toetst wat daarvan bij onze randvoorwaarden past.
 
