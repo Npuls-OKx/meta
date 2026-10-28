@@ -99,6 +99,20 @@ Herkomst: de plaat van het programma. De rijen zijn ingevuld in afstemming binne
 
 De grens die de plaat trekt: de applicatie is van de leverancier, les en didactiek zijn van de instelling en worden in de specificatie vastgelegd, en de landelijke voorzieningen horen bij hun eigen pijler.
 
+## Stand van het werk
+
+Herkomst: afstemming binnen het kernteam en de SI-afstemming van 28 oktober 2026. De verwijzingen wijzen naar wat er ligt.
+
+OKx staat in de specificatiefase. Wat er ligt is genoeg om het gesprek met de sector te voeren, en nog niet genoeg om tegen te bouwen.
+
+| | |
+|---|---|
+| Wat er ligt | Het [informatiemodel](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/informatiemodel.md) met de begrippenlijst, de [hoofdplaat informatiestromen](OKx_Informatiesstromen.md), een eerste pakket [koppelvlakspecificaties](https://github.com/Npuls-OKx/Public/tree/dev/Koppelvlakspecificaties) in Public, het [kaderscenario van leerroute 1](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md) en de [voorbeelduitwerking daarvan per processtap](../architecture/model/informatiemodel/voorbeeld-leerroute-1-jochem.md). Daarnaast lopen proefopstellingen met koploperscholen |
+| Wat nu bepaald wordt | De vorm waarin de oplevering uitkomt: hoe de set wordt opgedeeld, op welk niveau zij wordt uitgegeven, en met welke woorden de lagen worden benoemd. Dat vastzetten wacht op een scherper beeld van wat de keten nodig heeft |
+| Waar het naartoe gaat | Per leerroute een best practice die een instelling voor ongeveer tachtig procent herkent, en daarnaast de capabilities die een voorziening daarvoor moet hebben. De voorbeelduitwerking per processtap verbindt die twee |
+
+Het werk dat daarvoor nu loopt gaat over een vraag: genoeg inzicht krijgen in wat een instelling doet, en een vorm vinden om dat uit te drukken. Die vorm bestaat uit drie lagen, een persona, een leerroutedocument daarop en informatiemodel-voorbeeldregels per fase. Leerroute 1 draagt die drie; de volgende leerroutes staan in de milestone [Instellingsreizen per leerroute](https://github.com/Npuls-OKx/meta/milestone/24).
+
 ## Stip op de horizon
 
 Herkomst: afstemming binnen het kernteam, oktober 2026.

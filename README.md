@@ -14,6 +14,12 @@ Het projectplan noemt drie resultaten.
 
 Wat elk resultaat van de uitwerking vraagt staat in [`doc/OKx_Context.md`](doc/OKx_Context.md), samen met de opdracht, de use-cases en de uitgangspunten.
 
+## Stand
+
+OKx staat in de specificatiefase. Er ligt een informatiemodel met een begrippenlijst, een hoofdplaat van de informatiestromen, een eerste pakket koppelvlakspecificaties in Public, en de uitwerking van leerroute 1 tot op processtap. Daarmee is het gesprek met de sector te voeren; bouwen kan er nog niet tegen.
+
+Wat nu bepaald wordt is de vorm waarin de oplevering uitkomt. Waar het werk daarvoor op aankomt is genoeg inzicht krijgen in wat een instelling doet, en een vorm vinden om dat uit te drukken: een persona, een leerroutedocument daarop, en informatiemodel-voorbeeldregels per fase. [`doc/OKx_Context.md`](doc/OKx_Context.md#stand-van-het-werk) zegt wat er ligt, wat nu bepaald wordt en waar het naartoe gaat.
+
 ## Scope
 
 | | |
