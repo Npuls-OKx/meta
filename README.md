@@ -78,14 +78,16 @@ Een eis die buiten een technische standaard valt, wordt een signalering richting
 
 Deze route wordt aangescherpt terwijl zij wordt gelopen. De stap die nu het meeste werk vraagt is de laag van de instelling: wat een instelling doet, in welke volgorde, en welke informatie daarbij beweegt. Dat beeld ontstaat per leerroute, in drie lagen: een persona, een leerroutedocument daarop, en informatiemodel-voorbeeldregels per fase. De [leesroute](doc/leesroute-okx.md#status-van-de-route) zegt waar dat staat.
 
-## Leeswijzer
+## Leesroutes
 
-| Wie binnenkomt | Begint bij | Tijd |
+Een leesroute brengt een lezer in een vaste volgorde langs wat hij nodig heeft. Er is er een; de volgende komen wanneer het werk zover is.
+
+| Lezer | Route | Tijd |
 |---|---|---|
-| Wie nieuw aanhaakt bij OKx | [De leesroute](doc/leesroute-okx.md): zes delen door beide repositories, langs context, historie, scope, deliverables, besluiten en beheer | 45 min, met verdieping drie uur |
-| Wie wil bijdragen | [`CONTRIBUTING.md`](CONTRIBUTING.md) voor de werkwijze, [`doc/Bijdragen-voor-beginners.md`](doc/Bijdragen-voor-beginners.md) voor de eerste stappen | 20 min |
+| Wie nieuw aanhaakt bij OKx | [Leesroute OKx](doc/leesroute-okx.md): zes delen door beide repositories, langs context, historie, scope, deliverables, besluiten en beheer | 45 min, met verdieping drie uur |
+| Wie wil bouwen tegen een koppelvlak | Volgt wanneer de specificaties bouwklaar zijn. Voor nu: [Koppelvlakspecificaties in Public](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/README.md), met de leesvolgorde daar | |
+| Wie wil bijdragen | Volgt in de beheerfase. Voor nu: [`CONTRIBUTING.md`](CONTRIBUTING.md) voor de werkwijze en [`doc/Bijdragen-voor-beginners.md`](doc/Bijdragen-voor-beginners.md) voor de eerste stappen | 20 min |
 | Een AI-agent | [`AGENTS.md`](AGENTS.md): de harde regels, de product-flow en de skills | eerst dit |
-| Wie wil bouwen tegen een koppelvlak | [Koppelvlakspecificaties in Public](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/README.md), met de leesvolgorde daar | 1 uur |
 
 ## Repository
 
