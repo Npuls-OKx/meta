@@ -1,6 +1,10 @@
 # OKx in context
 
+Elke sectie draagt haar herkomst: het projectplan, een plaat van het programma, afstemming binnen het kernteam, of een eigen afleiding. Zolang het projectplan zelf niet in deze repository staat is die regel de enige controle; [#449](https://github.com/Npuls-OKx/meta/issues/449) draagt het voorstel om het plan als bron toe te voegen.
+
 ## Managementsamenvatting
+
+Herkomst: projectplan voor de opdracht, de resultaten en de aanleiding. De drie fasen en de stand daarin komen uit afstemming binnen het kernteam, oktober 2026. De alinea over de benodigde tijd en over de vraagarticulatie is een eigen afleiding daaruit.
 
 Een student volgt een module bij een andere instelling. De inschrijving loopt door, de planning houdt rekening met zijn rooster, en het resultaat komt terug op zijn eigen leerroute. Dat is het beeld waar de [leerroutes voor wendbaar georganiseerd onderwijs](https://npuls.nl/kennisbank/leerroutes-wendbaar-georganiseerd-onderwijs) van Npuls naartoe werken, en waarvoor OKx de koppelingen vastlegt.
 
@@ -20,11 +24,15 @@ De opgave reikt verder dan techniek. Instellingen richten hun onderwijslogistiek
 
 ## Opdracht
 
+Herkomst: projectplan. Wat de x aanduidt komt uit afstemming binnen het kernteam.
+
 OKx staat voor onderwijskoppelingen, waarbij de x het domein aanduidt waarop de koppelingen betrekking hebben. OKE, onderwijskoppelingen examinering, is het eerste ingevulde geval.
 
 De hoofdopdrachtgever is de transformatiehub Wendbaar georganiseerd onderwijs van Npuls. Daarnaast loopt een samenwerking met Digitale sectorvoorzieningen voor de realisatie van de digitale sectorvoorzieningen rond studentmobiliteit.
 
 ## Aanleiding
+
+Herkomst: projectplan, inclusief de zes use-cases.
 
 De transformatiehub werkt aan leerroutes die een student in staat stellen vakken en modules te volgen bij mbo-, hbo- en wo-instellingen. Dat vraagt afspraken, standaarden en architectuur, zodat systemen samenwerken terwijl instellingen hun eigen onderwijsvormen en inhoud houden.
 
@@ -39,6 +47,8 @@ Zes use-cases zijn vanuit mbo, hbo en wo opgehaald:
 
 ## Resultaten en implicaties
 
+Herkomst: de resultaten uit het projectplan. De implicaties zijn een eigen afleiding, aangescherpt in afstemming binnen het kernteam, oktober 2026.
+
 De drie resultaten staan hierboven in de samenvatting. Wat zij vragen van de uitwerking:
 
 | Resultaat | Implicatie |
@@ -48,6 +58,8 @@ De drie resultaten staan hierboven in de samenvatting. Wat zij vragen van de uit
 | 3. Pilot studentmobiliteit in het mbo | Een pilot vraagt een toetsbare koppeling. Een conformiteitstoets hoort daarmee bij de oplevering, naast de specificatie |
 
 ## Basisuitgangspunten
+
+Herkomst: de plaat van het programma. De laatste uitgangspunten zijn daar door de programmaleiding aan toegevoegd.
 
 ![Basisuitgangspunten van het programma OKx](../img/OKx_basisuitgangspunten_20261027.webp)
 
@@ -64,11 +76,15 @@ De drie resultaten staan hierboven in de samenvatting. Wat zij vragen van de uit
 
 ## Scope
 
+Herkomst: projectplan, met de afbakening uit [ADR 0008](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0008-scope-planning-eerst-intra-instelling.md).
+
 De gegevensuitwisseling tussen de referentiecomponenten onderwijscatalogus, kernregistratie, studentvolgsysteem, leermanagementsysteem en planning en roostering, voor mobiliteit binnen de instelling. Dat is de opmaat naar mobiliteit tussen instellingen via de landelijke voorzieningen.
 
 De procesketens onderwijslogistiek, onderwijsontwikkeling en onderwijsuitvoering en begeleiding van [MORA](https://mora.mbodigitaal.nl/index.php/Hoofdpagina) vallen binnen deze scope. Andere procesketens worden geraakt en vragen afstemming. De onderwijskundige keuze van een instelling blijft bij de instelling. Al het overige valt buiten scope.
 
 ## Raakvlakken
+
+Herkomst: de plaat van het programma. De rijen zijn ingevuld in afstemming binnen het kernteam, oktober 2026, en geven daarmee de stand van het team weer en geen vastgestelde afspraak met die initiatieven.
 
 ![Waar OKx andere ontwikkelingen raakt](../img/OKx_raakvlakken_ontwikkelingen_20261027.png)
 
@@ -85,9 +101,13 @@ De grens die de plaat trekt: de applicatie is van de leverancier, les en didacti
 
 ## Stip op de horizon
 
+Herkomst: afstemming binnen het kernteam, oktober 2026.
+
 In het derde kwartaal van 2027 zijn de eerste specificaties gereed, zodat het technisch specificeren van een OEAPI-profiel kan beginnen. Dat start bij drie informatiestromen vanuit de onderwijscatalogus: naar planning en roostering, naar het studentinformatiesysteem, en naar het leermanagementsysteem.
 
 ## Governance
+
+Herkomst: de bijlageplaat bij het projectplan. De omschrijving per gremium komt uit afstemming binnen het kernteam.
 
 ![Programma en governance van OKx](../img/OKx_programma_en_governance_20261027.png)
 
@@ -103,6 +123,8 @@ In het derde kwartaal van 2027 zijn de eerste specificaties gereed, zodat het te
 De deelteams beleid, organisatie en proces valideren de specificaties en deelresultaten in afstemming met instellingen, onder meer via de proefopstelling met koploperscholen.
 
 ## Uitdagingen
+
+Herkomst: de plaat van het programma. De rij over de OKE-vorm komt uit het onderzoek in [#422](https://github.com/Npuls-OKx/meta/issues/422) en de SI-afstemming van 28 oktober 2026.
 
 ![Aandachtspunten voor instellingen en leveranciers](../img/OKx_aandachtspunten_20251217.png)
 

@@ -29,7 +29,7 @@ Kern: de [managementsamenvatting](OKx_Context.md#managementsamenvatting), 5 minu
 |---|---|
 | Beantwoordt | Wat de opdracht is, welke resultaten die draagt, met welke initiatieven OKx raakvlakken heeft, wie wat beslist, en welke uitdagingen eronder liggen |
 | Overslaan | Niets bij eerste lezing; wie haast heeft leest de managementsamenvatting |
-| Status | Samengesteld uit het projectplan en de platen van het programma |
+| Status | Samengesteld uit het projectplan en de platen van het programma. Elke sectie draagt haar herkomst, zodat een uitspraak uit het plan te onderscheiden is van een afleiding. Het plan zelf staat nog niet in deze repository, zie [#449](https://github.com/Npuls-OKx/meta/issues/449) |
 | Omvang | 1388 woorden, 12 minuten |
 
 ## Deel 2, historisch overzicht
