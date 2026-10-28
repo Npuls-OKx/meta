@@ -17,7 +17,7 @@ Vijf vragen:
 1. Welke eigenschappen van de OKE-vorm zijn bruikbaar binnen de scope van OKx.
 2. Welke eigenschappen vragen een eigen uitwerking, met de reden erbij.
 3. Wat OKE oplost met het beschrijven van functiegebieden, en wat daarvoor bij OKx nodig zou zijn.
-4. Welke eenheid in OKx de rol zou kunnen vervullen die de zitting in OKE vervult.
+4. Of de dragende eenheid die OKE kent een equivalent heeft binnen OKx.
 5. Wat dat betekent voor de vorm van de oplevering.
 
 Dit verslag beslist geen van deze vragen. Het levert de onderbouwing waarmee het team kan kiezen; het besluit zelf hoort als architectuurbesluit in Public en verwijst naar dit verslag terug.
@@ -77,9 +77,9 @@ flowchart LR
     X1["de keten van<br/>kwalificatiekader tot resultaat"]
     X2["13 componenten"]
     X3["stromen per leerroute"]
-    X4["eenheid nog een keuze"]
+    X4["geen dragende eenheid:<br/>twee aangrijpingspunten"]
   end
-  OKE -->|"vorm als vertrekpunt"| OKX
+  OKE -->|"vorm als vertrekpunt,<br/>ander paradigma"| OKX
 ```
 
 | As | OKE | OKx | Wat dat betekent |
@@ -87,7 +87,7 @@ flowchart LR
 | Procesgebied | Een ketenproces, uitgewerkt in MORA en ROSA (2.2) | De onderwijslogistieke keten, met inrichtingskeuzes per instelling | Het procesgebied ligt bij OKx niet vast, dus een product dat dat vastlegt ontbreekt nog; zie #396 |
 | Componenten | Drie functionaliteiten (2.1) | Dertien in het model, zeven met een document | Een document per component houdt bij dit aantal geen overzicht; een laag erboven zou dat opvangen |
 | Informatiestromen | Zeven, genummerd en gesloten (3.0 tot 3.6) | Per leerroute een eigen verzameling, met de reguliere route als baseline | De set groeit met elke leerroute, dus een nummering over de hele set gaat schuiven |
-| Dragende eenheid | De zitting: moment en locatie (2.1 stap C) | Nog een keuze, zie hoofdstuk 6 | Zonder zo'n eenheid heeft een stroom geen natuurlijke begrenzing |
+| Dragende eenheid | De zitting: moment en locatie (2.1 stap C) | Geen equivalent, zie hoofdstuk 6 | De begrenzing van een stroom komt bij OKx niet uit een bestaande eenheid en wordt per keten gekozen |
 | Belanghebbenden | Acht instellingen, drie toetsleveranciers, zes systeemleveranciers, vijf coordinerende partijen | Dezelfde soorten partijen, en daarnaast de rollen rond planning, roostering en studentkeuze | Meer partijen aan tafel betekent meer afstemming per stroom |
 | Documentvorm | Een afsprakenset van 104 paginas | Twee releasepakketten met eigen versielijnen | Een bundeling van deze omvang loopt vast op reviewbaarheid; zie hoofdstuk 7 |
 | Verhouding tot de standaard | Gebruikt OOAPI en levert wensen terug (5) | Hetzelfde uitgangspunt: OEAPI tenzij, zie #342 | Hier is geen verschil dat om een eigen vorm vraagt |
@@ -138,19 +138,53 @@ Dit verslag kan niet zeggen welke functiegebieden OKx heeft. Wat het wel kan is 
 
 De eerste kandidaat die in de sessie werd genoemd, met de aantekening dat niemand hem aandurft: het maken van een onderwijsspecificatiestructuur die uitgewisseld kan worden. Niels van Duin noemde als kleinste eenheid met waarde een onderwijsspecificatie-distributeur, uitdrukkelijk een distributeur en geen maker, omdat het maken buiten het koppelvlak valt. Beide uitspraken zijn hier opgenomen als vindplaats, niet als uitkomst.
 
-## 6. De dragende eenheid
+## 6. Twee paradigma's
 
-In OKE is de zitting de eenheid: zij is te plannen, af te nemen, te beoordelen en vast te stellen, en elke stroom hangt eraan.
+De vergelijking in hoofdstuk 4 zet beide trajecten op dezelfde assen. Dat werkt voor de vorm, en het verbergt waar het grootste verschil zit: beide trajecten doen iets anders.
 
-OKx kent die eenheid nog niet. Drie kandidaten liggen voor.
+### 6.1 Het paradigma van OKE
 
-| Kandidaat | Wat de eenheid dan draagt | Wat ertegen pleit |
+Toetsafname bestond al voordat OKE er was, en bestond grotendeels met de hand: een kandidatenlijst, een ruimte, een surveillant, een afname, een uitslag. OKE legt afspraken over die bestaande keten heen.
+
+Daarmee ligt de scope vast voordat de standaard begint. De actoren bestaan, de stappen bestaan, de artefacten bestaan. Standaardiseren is hier beschrijven wat al gebeurt, in een vorm die een machine kan lezen. De zitting is daarin geen ontwerpkeuze maar een gegeven: de praktijk kende haar al, als een moment met een plaats en een groep kandidaten, en elke stroom in OKE hangt er vanzelf aan.
+
+### 6.2 Het paradigma van OKx
+
+OKx doet twee dingen tegelijk.
+
+| Wat | Waar het op aangrijpt |
+|---|---|
+| De bestaande onderwijslogistiek uitwisselbaar maken tussen instellingen die haar elk anders hebben ingericht | Een landschap van dertien componenten, met per instelling een eigen verdeling van functies daarover |
+| Leerroutes mogelijk maken die vandaag grotendeels niet bestaan | Een praktijk die er nog niet is, en die per leerroute moet worden beschreven voordat zij te standaardiseren valt |
+
+Geen van beide is het digitaliseren van een bestaand proces. Leerroute 1 komt er het dichtst bij, en zelfs daar verschilt de inrichting per instelling. Er is dus geen enkel bestaand proces met een eigen ritme waaraan een eenheid zich vanzelf aanbiedt.
+
+### 6.3 De hybride
+
+Wat daaruit volgt is een vorm die OKE niet nodig had: twee kanten, elk met een eigen aangrijpingspunt.
+
+```text
+best practice per leerroute            capability van de voorziening
+student- en instellingsreis            functiegebied en wat het moet kunnen
+persona, procesmodel, leerroute        infrastructuur, informatievoorziening, IT
+          \                                      /
+           \                                    /
+            informatiemodel-voorbeelden per fase
+            welke objecten bewegen, en waarheen
+```
+
+| Kant | Wat zij oplevert | Voor wie |
 |---|---|---|
-| De leeruitkomst | De sleutel die specificatie, aanbod en resultaat verbindt, vastgelegd in [ADR 0026](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0026-leeruitkomst-als-verbindende-sleutel.md) | Zij is een verwijzing en geen logistieke gebeurtenis, dus een stroom begint er zelden en eindigt er zelden |
-| De leergelegenheid of het geplande aanbod | Een eenheid met een moment en een plaats, het naaste equivalent van de zitting | Zij bestaat pas na het plannen, en de helft van de keten ligt ervoor |
-| De keuze van de student | De gebeurtenis waar waarde voor de student ontstaat, en de aanleiding van het grootste deel van de stromen | Zij raakt meerdere componenten tegelijk, waardoor een stroom moeilijk te begrenzen is |
+| Best practice per leerroute | Herkenbaarheid: een instelling ziet zich voor ongeveer tachtig procent terug en weet waar zij naartoe werkt | De instelling, de onderwijskundige, de informatiemanager |
+| Capability van infrastructuur, informatievoorziening en IT | Bouwbaarheid: een leverancier weet wat hij implementeert, los van in welk product het landt | De leverancier, de architect |
 
-De keuze hiertussen bepaalt hoe de set wordt opgedeeld. Dit verslag draagt die keuze niet; zij hoort bij #421, met de proefopstellingen die user stories en businesswaarde namens instellingen ophalen als invoer.
+De twee ontmoeten elkaar in de informatiemodel-voorbeelden: daar staat per processtap welke objecten ontstaan, veranderen en stromen. Dat is de brug tussen de reis die een instelling herkent en de capability die een leverancier bouwt, en dat is het werk dat nu loopt.
+
+### 6.4 Gevolg voor deze vergelijking
+
+De vraag welke eenheid in OKx de rol van de zitting vervult, draagt niet over. De premisse klopt niet: een dragende eenheid veronderstelt een proces dat er al is. OKx heeft dat niet, en zoekt naar een equivalent dat er niet hoeft te zijn.
+
+Wat wel overdraagt is de functie die de zitting vervult. Zij geeft een stroom haar begrenzing: waar zij begint, waar zij eindigt, en wat erbinnen valt. Die begrenzing heeft OKx ook nodig, maar zij komt niet uit een bestaande eenheid. Zij moet per interactieketen gekozen worden, en de keuze hangt af van welke kant van de hybride de keten bedient.
 
 ## 7. Advies
 
@@ -164,21 +198,24 @@ De keuze hiertussen bepaalt hoe de set wordt opgedeeld. Dit verslag draagt die k
 
 **De verhouding tot de standaard en de scheiding van de technische laag zijn bruikbaar zoals OKE ze legt.** OOAPI gebruiken en wensen terugleveren is hetzelfde uitgangspunt als OEAPI tenzij; de scheiding van Edukoppeling en OAuth 2.0 van de semantische laag is dat ook. Hier ziet dit verslag geen reden voor een eigen vorm.
 
+**Zoek geen equivalent van de zitting.** OKE digitaliseert een proces dat er al was, en erft daarmee een eenheid uit de praktijk. OKx standaardiseert een landschap en maakt tegelijk routes mogelijk die er nog niet zijn, en erft niets. Het advies is om de twee aangrijpingspunten van hoofdstuk 6 aan te houden, de best practice per leerroute en de capability van de voorziening, en de begrenzing per keten te kiezen in plaats van haar aan een eenheid op te hangen. Wat ertegen pleit: twee aangrijpingspunten vragen twee soorten documenten en een brug ertussen, en die brug is op dit moment het enige dat de twee verbindt.
+
 ### 7.2 Suggesties
 
 | Suggestie | Waarom | Raakt |
 |---|---|---|
 | Laat elke interactieketen dezelfde vijf onderdelen dragen, in dezelfde volgorde als OKE | Een lezer treft dan overal hetzelfde aan, en een ontbrekend onderdeel valt op | De lopende ketens in meta |
 | Laat de nummering van informatiestromen per keten sluiten in plaats van over de set | De set groeit met elke leerroute; een doorlopende nummering gaat dan schuiven | #342 |
-| Benoem per keten expliciet welke eenheid haar draagt, zoals de zitting dat in OKE doet | Zonder zo'n eenheid heeft een stroom geen natuurlijke begrenzing | #421 |
+| Kies per keten haar begrenzing, en zeg erbij waar die vandaan komt | De zitting geeft OKE die begrenzing gratis; OKx moet haar kiezen | #421 |
 | Houd het systeemlandschap als voorbeeld naast de specificatie, niet erin | Dat is wat OKE de ruimte geeft om over functiegebieden te praten | #396, #445 |
 
 ### 7.3 Open punten
 
-1. **Welke eenheid OKx draagt.** Hoofdstuk 6 noemt drie kandidaten met wat tegen elk pleit. De keuze vraagt invoer die dit verslag niet heeft: user stories en businesswaarde opgehaald bij instellingen. Hoort bij #421.
-2. **Welke functiegebieden OKx kent, en op welk niveau zij liggen.** Hoofdstuk 5 laat zien wat daaraan voorafgaat. Hoort bij #445 en de instellingsreizen.
-3. **Of een product tussen leerroute en koppelvlak nodig is**, en zo ja welke vorm. Dit verslag stelt vast dat OKE dat gat niet heeft omdat MORA en ROSA het dichten, en dat OKx het wel heeft. Wat eraan moet gebeuren staat in #396.
-4. **Wat niet geverifieerd kon worden.** Of OKE het systeemlandschap bewust als voorbeeld neerzet staat niet in de afsprakenset; dat is een lezing van dit verslag. Hoeveel van de 104 paginas aan de drie koppelvlakken besteed is, is niet geteld, dus de uitspraak over reviewbaarheid steunt op de omvang en niet op een meting per onderdeel.
+1. **Waar de begrenzing van een keten vandaan komt.** Hoofdstuk 6 laat zien dat OKx geen eenheid erft waaraan zij zich vanzelf ophangt. Welke begrenzing per keten werkt vraagt invoer die dit verslag niet heeft: user stories en businesswaarde opgehaald bij instellingen. Hoort bij #421.
+2. **Of de hybride twee soorten opleveringen vraagt of een.** Hoofdstuk 6 schetst twee aangrijpingspunten met de informatiemodel-voorbeelden als brug. Of dat uitmondt in twee documentreeksen naast elkaar, of in een reeks die beide kanten draagt, is hier niet uitgezocht.
+3. **Welke functiegebieden OKx kent, en op welk niveau zij liggen.** Hoofdstuk 5 laat zien wat daaraan voorafgaat. Hoort bij #445 en de instellingsreizen.
+4. **Of een product tussen leerroute en koppelvlak nodig is**, en zo ja welke vorm. Dit verslag stelt vast dat OKE dat gat niet heeft omdat MORA en ROSA het dichten, en dat OKx het wel heeft. Wat eraan moet gebeuren staat in #396.
+5. **Wat niet geverifieerd kon worden.** Of OKE het systeemlandschap bewust als voorbeeld neerzet staat niet in de afsprakenset; dat is een lezing van dit verslag. Hoeveel van de 104 paginas aan de drie koppelvlakken besteed is, is niet geteld, dus de uitspraak over reviewbaarheid steunt op de omvang en niet op een meting per onderdeel. Dat OKE een voorheen handmatig proces digitaliseert is de lezing van dit verslag op grond van de scenariobeschrijving (2.1); de afsprakenset zegt dat niet met zoveel woorden.
 
 ## 8. Bronnen
 
