@@ -28,7 +28,7 @@ In scope: de vergelijking van beide trajecten op procesgebied, aantal componente
 
 De inhoud van de OKE-specificatie blijft bij Edustandaard. De vorm van de OKx-oplevering wordt uitgewerkt in #421. Het besluit zelf hoort als architectuurbesluit in Public. Al het overige valt buiten dit verslag.
 
-## 2. Wat de OKE-afsprakenset is
+## 2. De OKE-afsprakenset
 
 Versie 1.0.1, definitief, 27 mei 2026, 104 paginas, een document. Ondertitel: afsprakenset op basis van de AMIGO-aanpak en OOAPI.
 
@@ -48,7 +48,7 @@ Het procesgebied ligt vast tegen bestaande kaders (2.2): de processen staan uitg
 
 De dragende eenheid is de **zitting**: een toetsafname op een bepaald moment op een bepaalde locatie (2.1, stap C). Alle zeven stromen hangen aan die eenheid, van het inplannen tot het vaststellen van het resultaat.
 
-## 3. Wat de scope van OKx is
+## 3. De scope van OKx
 
 | As | Vindplaats |
 |---|---|
@@ -94,9 +94,9 @@ flowchart LR
 | Technische laag | Gescheiden van de semantische laag, met Edukoppeling en OAuth 2.0 (5) | Hetzelfde onderscheid | Hier is geen verschil dat om een eigen vorm vraagt |
 | Wat beschreven wordt | Drie functionaliteiten, met het systeemlandschap als voorbeeld ernaast (2.1 en 2.4) | Dertien applicatiecomponenten, met de naam van het component in de koppeling | Zie hoofdstuk 5: dit is de as waar de winst van OKE zit, en waar OKx de vertaling nog mist |
 
-## 5. Wat OKE oplost en OKx nog niet: het functiegebied
+## 5. Het functiegebied
 
-### 5.1 De winst bij OKE
+### 5.1 Functiegebieden bij OKE
 
 OKE beschrijft drie functionaliteiten en zet het systeemlandschap ernaast als voorbeeld (2.1 en 2.4). Wie de afsprakenset implementeert leest wat zijn functiegebied moet kunnen, en bepaalt zelf in welk product dat landt.
 
@@ -110,7 +110,7 @@ Niels van Duin redeneert vanuit hetzelfde punt vanaf de koppelvlakkant:
 
 De eigenschap die dit bij OKE mogelijk maakt is de afbakening. Het ketenproces ligt vast in MORA en ROSA (2.2), het aantal stromen is gesloten (3.0 tot 3.6), en de drie functionaliteiten volgen daaruit. Wie weet welke stromen er zijn, weet welke functiegebieden er nodig zijn.
 
-### 5.2 Waarom OKx die lijst nog niet heeft
+### 5.2 De afbakening bij OKx
 
 Bij OKx ontbreekt precies die afbakening. Het procesgebied kent inrichtingskeuzes per instelling, en de verzameling informatiestromen groeit met elke leerroute. Daardoor is de lijst functiegebieden geen vertaling van iets dat al vastligt, maar zelf de uitkomst van werk dat nog loopt. Niek Derksen in diezelfde sessie:
 
@@ -126,7 +126,7 @@ De volgorde is daarmee omgekeerd aan die bij OKE.
 
 Een tweede verschil zit in de omvang van zo'n gebied. OKE komt uit op drie; OKx heeft dertien componenten in het model en kent kandidaten op meerdere niveaus tegelijk, van een business capability die een doel bereikt tot een koppelvlakdienst die een component moet kunnen. Welke van die niveaus het functiegebied is, is binnen het team nog geen gedeelde taal.
 
-### 5.3 Wat ervoor nodig zou zijn
+### 5.3 Voorwaarden
 
 Dit verslag kan niet zeggen welke functiegebieden OKx heeft. Wat het wel kan is benoemen wat er aan vooraf gaat, op grond van het materiaal.
 
@@ -138,7 +138,7 @@ Dit verslag kan niet zeggen welke functiegebieden OKx heeft. Wat het wel kan is 
 
 De eerste kandidaat die in de sessie werd genoemd, met de aantekening dat niemand hem aandurft: het maken van een onderwijsspecificatiestructuur die uitgewisseld kan worden. Niels van Duin noemde als kleinste eenheid met waarde een onderwijsspecificatie-distributeur, uitdrukkelijk een distributeur en geen maker, omdat het maken buiten het koppelvlak valt. Beide uitspraken zijn hier opgenomen als vindplaats, niet als uitkomst.
 
-## 6. De eenheid die waarde draagt
+## 6. De dragende eenheid
 
 In OKE is de zitting de eenheid: zij is te plannen, af te nemen, te beoordelen en vast te stellen, en elke stroom hangt eraan.
 
@@ -154,7 +154,7 @@ De keuze hiertussen bepaalt hoe de set wordt opgedeeld. Dit verslag draagt die k
 
 ## 7. Advies
 
-### 7.1 Wat dit verslag aanraadt
+### 7.1 Aanbevelingen
 
 **De opbouw van OKE is bruikbaar, per interactieketen in plaats van per afsprakenset.** Scenario met uitgangspunten, informatiestromen met hun interacties, een gegevensmodel met de standaardnamen ernaast, en koppelvlakken met de technische laag apart: die volgorde is navolgbaar en bewezen. Wat haar bij OKE laat werken is dat het aantal stromen vastligt. Per keten ligt dat aantal ook vast, dus daar is dezelfde opbouw houdbaar.
 
@@ -164,7 +164,7 @@ De keuze hiertussen bepaalt hoe de set wordt opgedeeld. Dit verslag draagt die k
 
 **De verhouding tot de standaard en de scheiding van de technische laag zijn bruikbaar zoals OKE ze legt.** OOAPI gebruiken en wensen terugleveren is hetzelfde uitgangspunt als OEAPI tenzij; de scheiding van Edukoppeling en OAuth 2.0 van de semantische laag is dat ook. Hier ziet dit verslag geen reden voor een eigen vorm.
 
-### 7.2 Suggesties voor de uitwerking
+### 7.2 Suggesties
 
 | Suggestie | Waarom | Raakt |
 |---|---|---|
@@ -173,7 +173,7 @@ De keuze hiertussen bepaalt hoe de set wordt opgedeeld. Dit verslag draagt die k
 | Benoem per keten expliciet welke eenheid haar draagt, zoals de zitting dat in OKE doet | Zonder zo'n eenheid heeft een stroom geen natuurlijke begrenzing | #421 |
 | Houd het systeemlandschap als voorbeeld naast de specificatie, niet erin | Dat is wat OKE de ruimte geeft om over functiegebieden te praten | #396, #445 |
 
-### 7.3 Wat dit verslag openlaat
+### 7.3 Open punten
 
 1. **Welke eenheid OKx draagt.** Hoofdstuk 6 noemt drie kandidaten met wat tegen elk pleit. De keuze vraagt invoer die dit verslag niet heeft: user stories en businesswaarde opgehaald bij instellingen. Hoort bij #421.
 2. **Welke functiegebieden OKx kent, en op welk niveau zij liggen.** Hoofdstuk 5 laat zien wat daaraan voorafgaat. Hoort bij #445 en de instellingsreizen.

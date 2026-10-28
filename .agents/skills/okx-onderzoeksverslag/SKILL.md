@@ -18,21 +18,31 @@ onderzoeksverslag   wat is er, wat leid ik daaruit af, welke richtingen zijn er
    (Public)         verwijst terug naar het verslag
 ```
 
-## De woorden die het verschil maken
+## Woorden en koppen
 
-De vorm verraadt zich in de werkwoorden. Deze tabel is de snelste controle op een conceptverslag.
+De vorm verraadt zich in de werkwoorden. Links hoort in het verslag, rechts in het architectuurbesluit dat erop volgt. Deze tabel is de snelste controle op een concept.
 
-| Een verslag schrijft | Een verslag schrijft niet |
+| In een verslag | In een ADR |
 |---|---|
 | "De opbouw van OKE is navolgbaar, en zij werkt omdat het aantal stromen vastligt" | "OKx neemt de opbouw over" |
 | "Wat ertegen pleit is de omvang: bij dertien componenten loopt de bundeling vast" | "De bundeling draagt niet over" |
 | "Drie richtingen liggen open, met per richting wat zij kost" | "Het besluit is richting twee" |
 | "Dit verslag raadt aan om eerst X te doen, omdat Y" | "Wij doen eerst X" |
-| "Hier kan dit verslag niets over zeggen, want Z is niet uitgezocht" | stilte op dat punt |
+| "Hier kan dit verslag niets over zeggen, want Z is niet uitgezocht" | "Z valt buiten dit besluit" |
 
-Kopteksten volgen dezelfde regel. `Advies`, `Suggesties`, `Open punten` en `Wat dit verslag niet kan beantwoorden` horen bij een verslag. `Besluit`, `Besluitvoorstel` en `Gevolgen` horen in een ADR.
+Kopteksten volgen dezelfde regel. `Advies`, `Suggesties` en `Open punten` horen bij een verslag. `Besluit`, `Besluitvoorstel` en `Gevolgen` horen in een ADR.
 
-## De vaste eisen
+Een kop is een label en geen zin, net als overal in OKx. De val bij een verslag zit in de koppen die het oordeel dragen.
+
+| Zin | Label |
+|---|---|
+| Wat dit verslag aanraadt | Advies |
+| Wat dit verslag openlaat | Open punten |
+| Wat er niet geverifieerd kon worden | Onzekerheden |
+| Waarom de ander dit wel kan | De afbakening bij `<naam>` |
+| Wat de vergelijking oplevert | Vergelijking |
+
+## Eisen
 
 Deze staan in de [index van de onderzoeksverslagen](../../../architecture/agent-artifacts/research/README.md) en gelden onverkort.
 
@@ -52,12 +62,12 @@ Een vaste volgorde, zodat een lezer weet waar hij is.
 | Wat onze situatie is | Hetzelfde voor OKx, met per uitspraak de vindplaats in de eigen repositories |
 | De vergelijking | Per as wat beide kanten doen en wat dat betekent. Een tabel, geen betoog |
 | De open keuze | Waar het materiaal geen antwoord geeft, met de kandidaten en wat tegen elk pleit |
-| Advies | Wat het verslag aanraadt, met de reden, en wat het uitdrukkelijk openlaat |
+| Advies | De aanbevelingen met hun reden, de suggesties, en de punten die open blijven |
 | Bronnen | Elke bron met waarvoor hij gebruikt is |
 
 Voor een vergelijkend verslag is de as de bouwsteen. Houd de assen gelijk aan beide kanten, en zet per as in een eigen kolom wat het betekent. Een as waarop de ene kant niets heeft is informatie en geen leemte in het onderzoek.
 
-## Een vergelijking resolveert geen teamvraag
+## Vergelijkende verslagen
 
 De valkuil bij een vergelijkend verslag: de ene kant heeft iets opgelost dat bij ons nog open staat, en dan ligt de conclusie voor de hand dat wij het net zo moeten doen. Dat is zelden waar, en het verslag kan het niet weten.
 
@@ -80,7 +90,7 @@ Zo blijft zichtbaar dat de vraag bij het team ligt, en krijgt het team wel het m
 
 Boven in het verslag staat de regel `Relateert aan:` met de issues die het raakt. Een metadatakop komt er niet in: GitHub draagt auteurschap en datum.
 
-## Voor je oplevert
+## Controlelijst
 
 - [ ] Geen kop of zin die een besluit formuleert; de tabel met werkwoorden hierboven langsgelopen.
 - [ ] Elke bewering over de bron draagt een paragraaf- of paginanummer.
