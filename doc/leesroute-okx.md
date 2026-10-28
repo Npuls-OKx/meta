@@ -63,7 +63,7 @@ De grens die daarbij hoort:
 | Les en didactiek | De instelling, vastgelegd in de specificatie |
 | De landelijke voorzieningen | Hun eigen pijler |
 
-Welke leerroutes eerst aan bod komen, staat in de [basisuitgangspunten](OKx_Context.md#basisuitgangspunten): prioriteit bij 1, 2, 3, 4 en 7.
+Welke leerroutes eerst aan bod komen, staat in de [basisuitgangspunten](OKx_Context.md#basisuitgangspunten): prioriteit bij 1, 2, 3, 4 en 7. De [negen leerroutes van Npuls](../architecture/docs/specificatie/leerroute-uitwerking/img/README.md) staan als tekening bij elkaar, met per route de keten van persona, uitwerking, scenario's en voorbeeldregels.
 
 ### Verdieping: het kaderscenario
 

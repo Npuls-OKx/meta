@@ -15,7 +15,7 @@ De releaseartefacten staan in [`Npuls-OKx/Public`](https://github.com/Npuls-OKx/
 | | |
 |---|---|
 | Onderwijssoort | Start bij het mbo, daarna het hoger onderwijs |
-| Leerroutes | De reguliere leerroute eerst, met temporiseren en versnellen erna; de flexibele en modulaire routes volgen als verschil daarop |
+| Leerroutes | De reguliere leerroute eerst, met temporiseren en versnellen erna; de flexibele en modulaire routes volgen als verschil daarop. De [negen leerroutes van Npuls](architecture/docs/specificatie/leerroute-uitwerking/img/README.md) staan als tekening bij elkaar, met per route de keten van persona, uitwerking, scenario's en voorbeeldregels |
 | Bereik | Binnen een instelling eerst, federatie tussen instellingen gefaseerd |
 | Buiten scope | De onderwijskundige keuze van een instelling. OKx legt de vorm van de uitwisseling vast, niet hoe een school haar onderwijs inricht |
 
