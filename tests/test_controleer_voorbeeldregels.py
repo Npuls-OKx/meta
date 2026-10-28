@@ -163,6 +163,28 @@ class ControleTests(unittest.TestCase):
         self.assertEqual([x for x in b if "Verzonnen" in x], [])
         self.assertTrue(any("Verzonnen" in x for x in w))
 
+    def test_given_proposed_relation_when_checked_then_signal_instead_of_finding(self):
+        r = regels()
+        r["regels"][3]["relatie"] = {"soort": "Association", "van": "Aanmelding", "naar": "Opleidingaanbod"}
+        r["regels"][3]["voorstel"] = True
+        b, w, _ = bevindingen(r)
+        self.assertEqual([x for x in b if "staat niet op de plaat" in x], [])
+        self.assertTrue(any("voorstel" in x for x in w))
+
+    def test_given_proposed_extra_relation_when_checked_then_signal_instead_of_finding(self):
+        r = regels()
+        r["regels"][3]["relaties"] = [{"soort": "Association", "van": "Aanmelding", "naar": "Opleidingaanbod"}]
+        r["regels"][3]["voorstel"] = True
+        b, w, _ = bevindingen(r)
+        self.assertEqual([x for x in b if "(relaties) staat niet op de plaat" in x], [])
+        self.assertTrue(any("voorstel" in x for x in w))
+
+    def test_given_relation_off_plate_without_proposal_when_checked_then_finding(self):
+        r = regels()
+        r["regels"][3]["relatie"] = {"soort": "Association", "van": "Aanmelding", "naar": "Opleidingaanbod"}
+        b, _, _ = bevindingen(r)
+        self.assertTrue(any("staat niet op de plaat" in x for x in b))
+
     def test_given_relation_triple_on_plate_when_checked_then_accepted(self):
         b, _, _ = bevindingen()
         self.assertFalse(any("relatie" in x for x in b))
@@ -637,7 +659,7 @@ class KoppelingoverzichtTests(unittest.TestCase):
     def test_given_the_real_table_when_counted_then_the_curriculum_tool_has_no_specification(self):
         tabel = json.loads((WORTEL / "architecture/model/informatiemodel/voorbeeld-lr1-regels.json").read_text(encoding="utf-8"))
         overzicht = cv.koppelingoverzicht(tabel)
-        self.assertTrue(any("Curriculum ontwerptool naar Onderwijscatalogus, 29 regels" in x for x in overzicht), overzicht)
+        self.assertTrue(any("Curriculum ontwerptool naar Onderwijscatalogus, 30 regels" in x for x in overzicht), overzicht)
 
 
 class UitvoerTests(unittest.TestCase):

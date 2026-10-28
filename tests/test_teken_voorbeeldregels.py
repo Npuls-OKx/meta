@@ -222,6 +222,19 @@ class TekenTests(unittest.TestCase):
         gestippeld = [r for r in rects(svg) if r.get("stroke-dasharray") == "5 3"]
         self.assertEqual(len(gestippeld), 1)
 
+    def test_given_proposal_when_drawn_then_marked_in_the_box_and_dashed(self):
+        extra = [{"fase": 2, "stap": "Aanbod maken", "soort": "ontstaat", "wie": "planner",
+                  "objecttype": "Nominale leerroute", "instantie": "Jochem, cohort 2026", "bron": "b", "voorstel": True}]
+        blok = [x for x in self.blokken(regels(extra))
+                if any(o.get("type") == "Nominale leerroute" for o in x["objecten"])][0]
+        svg = tv.regel_ontstaat(blok, set())
+        self.assertIn(tv.VOORSTEL_MERK, teksten(svg))
+        self.assertEqual(len([r for r in rects(svg) if r.get("stroke-dasharray") == "5 3"]), 1)
+
+    def test_given_no_proposal_when_drawn_then_no_mark(self):
+        svg = tv.regel_ontstaat(self.blokken()[0], set())
+        self.assertNotIn(tv.VOORSTEL_MERK, teksten(svg))
+
     def test_given_relation_label_when_drawn_then_label_between_objects(self):
         svg = tv.regel_ontstaat(self.blokken()[0], set())
         self.assertIn("Op basis van", teksten(svg))

@@ -104,6 +104,18 @@ def element(x, y, kind, label, inst, fill=BUS, line=BUS_L, labelkleur=BUS_T, rx=
     return s, w, h
 
 
+VOORSTEL_MERK = "toe te voegen aan het informatiemodel"
+
+
+def _merk_voorstel(item, r):
+    """Een objecttype dat het informatiemodel nog niet draagt staat als voorstel op de plaat: gestippeld,
+    met het merk in het vak. Zonder dat merk leest een voorstel als een feit, en daar bouwt een lezer op."""
+    if r.get("voorstel"):
+        item["aanname"] = True
+        item["verwijzingen"] = [VOORSTEL_MERK] + [v for v in (item.get("verwijzingen") or []) if v]
+    return item
+
+
 def _extra(toestand, verwijzing, verwijzingen):
     uit = [f"toestand: {toestand}"] if toestand else []
     if verwijzing:
@@ -561,6 +573,7 @@ def groepeer(regels):
             laatste = blokken[-1] if blokken else None
             item = {"type": r["objecttype"], "instantie": r["instantie"], "aanname": r.get("aanname", False),
                     "plaat": r.get("plaat", "informatiemodel"), "verwijzingen": [_verwijzing(x, r["objecttype"]) for x in r.get("relaties", [])]}
+            _merk_voorstel(item, r)
             if r.get("toestand"):
                 item["toestand"] = r["toestand"]
             rel = r.get("relatie")
@@ -630,6 +643,7 @@ def groepeer(regels):
         laatste["objecten"] += _omweg
         item = {"type": r["objecttype"], "instantie": r["instantie"], "aanname": r.get("aanname", False),
                 "plaat": r.get("plaat", "informatiemodel"), "verwijzingen": _ver}
+        _merk_voorstel(item, r)
         _rel = r.get("relatie") or {}
         if _rel.get("soort") == "Specialization" and _rel.get("van") == r["objecttype"]:
             item["specialiseert"] = _rel["naar"]

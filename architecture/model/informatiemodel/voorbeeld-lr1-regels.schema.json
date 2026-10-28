@@ -375,6 +375,11 @@
             "type": "boolean",
             "default": false
           },
+          "voorstel": {
+            "type": "boolean",
+            "default": false,
+            "description": "het objecttype of de relatie staat nog niet in het informatiemodel: de regel toont hem gestippeld met 'toe te voegen aan het informatiemodel' in het vak, en de controle geeft er een signalering op in plaats van een bevinding, zodat de uitwerking door kan lopen terwijl de modelronde volgt"
+          },
           "nieuwe_instantie": {
             "type": "boolean",
             "default": false,

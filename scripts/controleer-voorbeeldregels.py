@@ -46,6 +46,10 @@ signalering wijst op iets dat aandacht vraagt zonder de uitkomst af te keuren: e
 nog niet draagt, een stroom zonder pijl op de hoofdplaat, een uitwisseling zonder beeld in een fase die
 nog loopt.
 
+Een regel met `voorstel` hoort in die tweede categorie: zij wijst bewust naar een objecttype of een
+relatie die het model nog niet kent, zodat de uitwerking door kan lopen terwijl de modelronde volgt. Het
+beeld zet zo'n object gestippeld neer met het merk erin, en de controle meldt het als signalering.
+
 Exitcode 0: geen bevindingen; 1: bevindingen; 2: invoer niet leesbaar.
 """
 
@@ -396,10 +400,15 @@ def controleer(regels, model, stromen=None, fasen_filter=None, model_commit=None
         if not concept:
             waarschuwingen += _route_via_leeruitkomst(r, plek, typen)
         rel = r.get("relatie")
+        # een regel die zichzelf als voorstel aanmerkt wijst naar een objecttype of een relatie die het
+        # model nog niet draagt; dat is de bedoeling, dus het levert een signalering op en geen bevinding
+        voorstel = bool(r.get("voorstel"))
         if isinstance(rel, dict) and all(k in rel for k in ("soort", "van", "naar")):
             sleutel = (rel["soort"], norm(rel["van"]), norm(rel["naar"]))
             if sleutel not in plaat_relaties:
-                bevindingen.append(f"{plek}: relatie {rel['soort']} van {rel['van']!r} naar {rel['naar']!r} staat niet op {plaatnaam}")
+                (waarschuwingen if voorstel else bevindingen).append(
+                    f"{plek}: relatie {rel['soort']} van {rel['van']!r} naar {rel['naar']!r} staat niet op {plaatnaam}"
+                    + (" (voorstel)" if voorstel else ""))
             elif rel.get("label") and plaat_relaties[sleutel] != rel["label"]:
                 bevindingen.append(f"{plek}: relatielabel {rel['label']!r} wijkt af van {plaatnaam} ({plaat_relaties[sleutel]!r})")
             if rel.get("nesting") and rel["soort"] not in NESTING:
@@ -409,7 +418,9 @@ def controleer(regels, model, stromen=None, fasen_filter=None, model_commit=None
                 continue
             sleutel = (x["soort"], norm(x["van"]), norm(x["naar"]))
             if sleutel not in plaat_relaties:
-                bevindingen.append(f"{plek}: relatie {x['soort']} van {x['van']!r} naar {x['naar']!r} (relaties) staat niet op {plaatnaam}")
+                (waarschuwingen if voorstel else bevindingen).append(
+                    f"{plek}: relatie {x['soort']} van {x['van']!r} naar {x['naar']!r} (relaties) staat niet op {plaatnaam}"
+                    + (" (voorstel)" if voorstel else ""))
             elif x.get("label") and plaat_relaties[sleutel] != x["label"]:
                 bevindingen.append(f"{plek}: relatielabel {x['label']!r} (relaties) wijkt af van {plaatnaam} ({plaat_relaties[sleutel]!r})")
             if naam not in (norm(x["van"]), norm(x["naar"])):

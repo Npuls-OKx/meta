@@ -65,12 +65,12 @@ Hoort bij [de opleiding van Jochem in het informatiemodel](voorbeeld-leerroute-1
 | 2 | F2-01 | Leeronderdeel specificatie | | | | |
 | 2 | F2-01 | Leeronderdeel specificatie | | | | |
 | 2 | F2-02 | Verzoek tot Aanbod / Intekening op specificatie | | | | |
-| 2 | F2-04 | Opleidingsaanbod van Instelling | | | | |
-| 2 | F2-04 | Opleidingaanbod | | | | |
-| 2 | F2-04 | Opleidingsprogramma aanbod | | | | |
-| 2 | F2-04 | Onderwijseenheid aanbod | | | | |
-| 2 | F2-04 | Leergelegenheid | | | | |
-| 2 | F2-04 | Toetsgelegenheid | | | | |
+| 2 | F2-08 | Opleidingsaanbod van Instelling | | | | |
+| 2 | F2-08 | Opleiding aanbod | | | | |
+| 2 | F2-08 | Opleidingsprogramma aanbod | | | | |
+| 2 | F2-08 | Onderwijseenheid aanbod | | | | |
+| 2 | F2-08 | Leergelegenheid | | | | |
+| 2 | F2-08 | Toetsgelegenheid | | | | |
 | 3 | F3-03 | Persoon | | | | |
 | 3 | F3-03 | Aanmelding | | | | |
 | 3 | F3-03 | Opleiding aanbod verbintenis | | | | |
@@ -124,5 +124,5 @@ Hoort bij [de opleiding van Jochem in het informatiemodel](voorbeeld-leerroute-1
 | 8 | F8-05 | Summatieve beoordeling | | | | |
 | 8 | F8-05 | Opleidingsprogramma resultaat | | | | |
 | 8 | F8-05 | Keuzedeel resultaat | | | | |
-| 8 | F8-07 | Opleiding aanbod resultaat | | | | |
+| 8 | F8-07 | Opleiding resultaat | | | | |
 | 8 | F8-07 | Waarde document (diploma / certificaat) | | | | |

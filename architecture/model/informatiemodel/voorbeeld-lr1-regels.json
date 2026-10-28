@@ -61,17 +61,20 @@
       "nummer": 2,
       "naam": "Publiceren en planbaar maken",
       "mora_hoofdproces": "Plannen en roosteren",
-      "bron": "leerroute-1-regulier.md, Fase 2: de grofmazige specificaties zijn aangevuld tot planbare specificatie; OC verzoekt het Planningssysteem om die te transformeren tot onderwijsaanbod; de planner bepaalt haalbaarheid en levert gepland aanbod terug aan OC",
+      "bron": "leerroute-1-regulier.md, Fase 2: de grofmazige specificaties zijn aangevuld tot planbare specificatie; OC verzoekt het Planningssysteem om die te transformeren tot onderwijsaanbod; de planner bepaalt haalbaarheid en levert gepland aanbod terug aan OC; sparsessie met Niels van Duin en Garik Hakopian, 28 oktober 2026: de stap haalbaarheid bepalen en aanbod plannen valt uiteen in een toets op de specificatie zelf, een aanbodvraag per opleiding en een jaarplanning op instellingsniveau",
       "stappen": [
         "Specificatie aanvullen tot planbare specificatie",
         "Planningssysteem verzoeken om onderwijsaanbod",
-        "Haalbaarheid bepalen en aanbod plannen",
+        "Specificatie op haalbaarheid toetsen",
+        "Aanbodvraag per opleiding bepalen",
+        "Jaarplanning op instellingsniveau vaststellen",
+        "Aanbod plannen",
         "Gepland aanbod terugleveren aan de onderwijscatalogus"
       ],
       "verwacht": [
         "Verzoek tot Aanbod / Intekening op specificatie",
         "Opleidingsaanbod van Instelling",
-        "Opleidingaanbod",
+        "Opleiding aanbod",
         "Opleidingsprogramma aanbod",
         "Onderwijseenheid aanbod",
         "Leergelegenheid",
@@ -441,7 +444,7 @@
         "Summatieve beoordeling",
         "Opleidingsprogramma resultaat",
         "Keuzedeel resultaat",
-        "Opleiding aanbod resultaat",
+        "Opleiding resultaat",
         "Waarde document (diploma / certificaat)"
       ],
       "uitwisselingen": [
@@ -544,6 +547,10 @@
       "bron": "leerroute-1-regulier.md, r738 (aanbod is minimaal gepland zodra perioden en capaciteit vastliggen) en r1021 (planbaar aanbod, stadium 2a, nog zonder lokalen en docenten)"
     },
     {
+      "naam": "grofmazig gepland",
+      "bron": "leerroute-1-regulier.md, r1021 (planbaar aanbod, stadium 2a: perioden en capaciteit vast, nog zonder lokalen en docenten); sparsessie met Niels van Duin en Garik Hakopian, 28 oktober 2026: lokaaltype en docentexpertise staan vast, het lokaal, de persoon en het tijdvenster nog niet"
+    },
+    {
       "naam": "fijnmazig gepland",
       "bron": "leerroute-1-regulier.md, r726 (gedetailleerd planbaar: leergelegenheden, lessen en toetsmomenten met expertise- en faciliteitkoppelingen) en r657 (periodeplanning)"
     },
@@ -588,6 +595,14 @@
     {
       "objecttype": "Inzicht",
       "motivering": "Zie Competenties / Skills; de plaat kent inzicht als apart deel van competenties en skills, CompetentNL niet."
+    },
+    {
+      "objecttype": "Aanwezigheid",
+      "motivering": "Bevinding B22 van de reviewronde: aanwezigheidsregistratie zelf ligt buiten de OKx-scope. Het kaderscenario noemt haar bij het volgen van een les, dus de plaat toont haar grijs met deze motivering."
+    },
+    {
+      "objecttype": "Leergelegenheid resultaat",
+      "motivering": "Bij de modelronde buiten scope geplaatst. Het kaderscenario noemt het formatieve resultaat op de leergelegenheid als bron voor het studiebeeld, dus de plaat toont het grijs met deze motivering."
     }
   ],
   "koppelingen": {
@@ -1424,7 +1439,7 @@
       "instantie": "BOL voltijd, diplomaprogramma",
       "bron": "leerroute-1-regulier.md, r1032 tot 1036",
       "relatie": {
-        "soort": "Aggregation",
+        "soort": "Composition",
         "van": "Opleiding specificatie",
         "naar": "Opleidingsprogramma specificatie",
         "nesting": true
@@ -2407,7 +2422,7 @@
       "instantie": "BOL voltijd",
       "bron": "leerroute-1-regulier.md, Fase 1: Curriculum-ontwerptool naar OC, alles op grofmazig niveau",
       "relatie": {
-        "soort": "Aggregation",
+        "soort": "Composition",
         "van": "Opleiding specificatie",
         "naar": "Opleidingsprogramma specificatie",
         "nesting": true
@@ -2747,6 +2762,28 @@
       "naar": "Onderwijscatalogus",
       "pijl": "geen pijl op de hoofdplaat",
       "koppeling": null,
+      "objecttype": "Nominale Leerroute",
+      "instantie": "Nominale leerroute Apothekersassistent, cohort 2026: Baliegesprekken 101 in periode 1, Medicatiebewaking in de leerapotheek in periode 2",
+      "aanname": true,
+      "relatie": {
+        "soort": "Aggregation",
+        "van": "Onderwijs programma",
+        "naar": "Nominale Leerroute",
+        "nesting": true
+      },
+      "bron": "conceptplaat-onderwijsontwerp.json: Onderwijs programma aggregeert Nominale Leerroute; sparsessie met Niels van Duin en Garik Hakopian, 28 oktober 2026: de nominale leerroute draagt een verwijzing naar de specificatie en een gewenste periode, zodat de specificatie herbruikbaar blijft en planning toch weet wanneer een onderdeel gepland moet worden"
+    },
+    {
+      "beeld_id": "F1-13",
+      "beeld": "Het onderwijs- en examenontwerp mee naar de catalogus (conceptplaat)",
+      "fase": 1,
+      "stap": "Grofmazig resultaat publiceren naar de onderwijscatalogus",
+      "plaat": "onderwijsontwerp",
+      "soort": "stroomt",
+      "van": "Curriculum ontwerptool",
+      "naar": "Onderwijscatalogus",
+      "pijl": "geen pijl op de hoofdplaat",
+      "koppeling": null,
       "aanname": true,
       "objecttype": "Toetsvormspecificatie",
       "instantie": "Proeve van bekwaamheid in de simulatieapotheek",
@@ -2911,7 +2948,7 @@
       "instantie": "BOL voltijd, planbaar: tijdvensters en capaciteit",
       "toestand": "planbaar",
       "bron": "leerroute-1-regulier.md, Fase 2: aangevuld tot planbare specificatie",
-      "zin": "Planbaar is een rijpheidskenmerk van de specificatie, geen apart object. Het programma draagt tijdvensters en capaciteit, de eenheid haar plek in de opleidingsduur. Op het niveau eronder draagt de gewenste leergelegenheid dat kenmerk, en het losse leeronderdeel niet: de catalogus clustert leeronderdelen inhoudelijk tot logistieke eenheden met dezelfde vorm en opbouwende fase, en draagt daarbij de organiseerbaarheidswaarden. Planning clusteert daarna logistiek: kleine lesgroepen bundelen, of leergelegenheden met verschillende inhoud en verschillende studenten gelijktijdig laten plaatsvinden bij dezelfde docent in hetzelfde lokaaltype."
+      "zin": "Planbaar is een rijpheidskenmerk van de specificatie, geen apart object. Het programma draagt tijdvensters en capaciteit, de eenheid haar plek in de opleidingsduur. Op het niveau eronder draagt de gewenste leergelegenheid dat kenmerk, en het losse leeronderdeel niet: de catalogus clustert leeronderdelen inhoudelijk tot logistieke eenheden met dezelfde vorm en opbouwende fase, en draagt daarbij de organiseerbaarheidswaarden. Planning clusteert daarna logistiek: kleine lesgroepen bundelen, of leergelegenheden met verschillende inhoud en verschillende studenten gelijktijdig laten plaatsvinden bij dezelfde docent in hetzelfde lokaaltype. Wat planning nodig heeft is de begeleide onderwijstijd, het ruimtetype en de docentexpertise. De studiebelasting en de onbegeleide onderwijstijd horen bij het curriculumontwerp en gaan niet mee in de planopgave."
     },
     {
       "beeld_id": "F2-01",
@@ -2939,7 +2976,7 @@
       "soort": "verandert",
       "wie": "onderwijsontwerper",
       "objecttype": "Leeronderdeel specificatie",
-      "instantie": "Baliegesprekken 101: BOT 50 / OOT 50 SBU, praktijkruimte, docent farmacie",
+      "instantie": "Baliegesprekken 101: BOT 50 uur, praktijkruimte, docent farmacie",
       "toestand": "planbaar",
       "bron": "leerroute-1-regulier.md, r1021 (op leeronderdeelniveau staan de organiseerbaarheidswaarden: BOT/OOT, BPV, ruimtetype, expertiseprofiel) en r713 (planbaar als rijpheidskenmerk van de specificatie)",
       "relatie": {
@@ -2958,7 +2995,7 @@
       "soort": "verandert",
       "wie": "onderwijsontwerper",
       "objecttype": "Leeronderdeel specificatie",
-      "instantie": "Medicatiebewaking in de leerapotheek: BOT 30 / OOT 70 SBU, praktijkruimte, docent farmacie",
+      "instantie": "Medicatiebewaking in de leerapotheek: BOT 30 uur, praktijkruimte, docent farmacie",
       "toestand": "planbaar",
       "bron": "leerroute-1-regulier.md, r1021 (op leeronderdeelniveau staan de organiseerbaarheidswaarden: BOT/OOT, BPV, ruimtetype, expertiseprofiel) en r713 (planbaar als rijpheidskenmerk van de specificatie)",
       "relatie": {
@@ -3000,7 +3037,8 @@
       "objecttype": "Verzoek tot Aanbod / Intekening op specificatie",
       "instantie": "Planopgave Apothekersassistent, cohort 2026",
       "bron": "leerroute-1-regulier.md, Fase 2: OC verzoekt het Planningssysteem",
-      "zin": "Het verzoek gaat met de hele specificatiestructuur naar planning: de opleiding met haar programma, de eenheden en hun leeronderdelen, elk met de leeruitkomst waarnaar zij verwijzen, en per eenheid de planbare waarden uit het onderwijsontwerp (paars): onderwijsvorm, leeromgeving, docentprofiel en studiebelasting."
+      "zin": "Het verzoek gaat met de hele specificatiestructuur naar planning: de opleiding met haar programma, de eenheden en hun leeronderdelen, elk met de leeruitkomst waarnaar zij verwijzen, en per eenheid de planbare waarden uit het onderwijsontwerp (paars): onderwijsvorm, leeromgeving, docentprofiel en studiebelasting. De gewenste periode gaat mee in een eigen laag op de specificatie: de nominale leerroute. De specificatie zelf draagt geen periode, zodat zij herbruikbaar blijft voor een volgend cohort. De conceptplaat kent die laag al onder het onderwijsprogramma; op de informatiemodelplaat staat zij hier als voorstel.",
+      "vraag": "Planning krijgt de begeleide onderwijstijd, het ruimtetype en de docentexpertise per specificatieniveau. Op de leeronderdeel- en onderwijseenheidspecificatie staan die waarden hier; op de opleidings- en programmaspecificatie niet. Heeft planning die waarden ook als totaal per opleiding en per programma nodig?"
     },
     {
       "beeld_id": "F2-03",
@@ -3036,7 +3074,7 @@
       "instantie": "BOL voltijd, planbaar",
       "bron": "leerroute-1-regulier.md, Fase 2",
       "relatie": {
-        "soort": "Aggregation",
+        "soort": "Composition",
         "van": "Opleiding specificatie",
         "naar": "Opleidingsprogramma specificatie",
         "nesting": true
@@ -3053,8 +3091,8 @@
       "pijl": "id-1d27ecfa2c0d4fb7b4f7337e93eed033",
       "koppeling": "OC-P&R",
       "objecttype": "Onderwijseenheid specificatie",
-      "instantie": "Blok B1-K1",
-      "bron": "leerroute-1-regulier.md, Fase 2",
+      "instantie": "Blok B1-K1: BOT 80 uur, praktijkruimte, docent farmacie",
+      "bron": "leerroute-1-regulier.md, Fase 2; sparsessie met Niels van Duin en Garik Hakopian, 28 oktober 2026: planning krijgt per specificatieniveau de begeleide onderwijstijd, het ruimtetype en de docentexpertise. De tachtig uur is de som van de twee leeronderdelen in dit voorbeeld",
       "relatie": {
         "soort": "Aggregation",
         "van": "Opleidingsprogramma specificatie",
@@ -3068,7 +3106,8 @@
           "naar": "Leeruitkomst",
           "instantie": "Biedt farmaceutische patiëntenzorg (kerntaakniveau)"
         }
-      ]
+      ],
+      "aanname": true
     },
     {
       "beeld_id": "F2-03",
@@ -3081,7 +3120,7 @@
       "pijl": "id-1d27ecfa2c0d4fb7b4f7337e93eed033",
       "koppeling": "OC-P&R",
       "objecttype": "Leeronderdeel specificatie",
-      "instantie": "Baliegesprekken 101",
+      "instantie": "Baliegesprekken 101: BOT 50 uur, praktijkruimte, docent farmacie",
       "bron": "leerroute-1-regulier.md, Fase 2",
       "relatie": {
         "soort": "Aggregation",
@@ -3109,7 +3148,7 @@
       "pijl": "id-1d27ecfa2c0d4fb7b4f7337e93eed033",
       "koppeling": "OC-P&R",
       "objecttype": "Leeronderdeel specificatie",
-      "instantie": "Medicatiebewaking in de leerapotheek",
+      "instantie": "Medicatiebewaking in de leerapotheek: BOT 30 uur, praktijkruimte, docent farmacie",
       "bron": "leerroute-1-regulier.md, Fase 2; leerroute-1-regulier.md, r1051 (leeronderdeel B1-K1-W2)",
       "relatie": {
         "soort": "Aggregation",
@@ -3207,8 +3246,8 @@
       "plaat": "onderwijsontwerp",
       "aanname": true,
       "objecttype": "Studiebelasting en begeleide onderwijstijd indicatie",
-      "instantie": "BOT 50 / OOT 50 SBU",
-      "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat)",
+      "instantie": "Begeleide onderwijstijd: 50 uur voor Baliegesprekken 101, 30 uur voor Medicatiebewaking",
+      "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat); sparsessie met Niels van Duin en Garik Hakopian, 28 oktober 2026: de studiebelasting en de onbegeleide onderwijstijd gaan niet mee, planning plant alleen de begeleide onderwijstijd",
       "relaties": [
         {
           "soort": "Association",
@@ -3218,113 +3257,68 @@
       ]
     },
     {
-      "beeld_id": "F2-04",
-      "beeld": "Het aanbod gepland: opleiding, programma, eenheid, gelegenheid",
+      "beeld_id": "F2-03",
+      "beeld": "Verzoek met specificatiestructuur en planbare waarden naar planning",
       "fase": 2,
-      "stap": "Haalbaarheid bepalen en aanbod plannen",
-      "soort": "ontstaat",
-      "wie": "planner",
-      "objecttype": "Opleidingsaanbod van Instelling",
-      "instantie": "ROC Leren Zonder Drempels: ambitie en verwachte instroom voor cohort 2026",
-      "aanname": true,
-      "bron": "geen bron, keuze van het voorbeeld: het objecttype heeft geen instantie in het kaderscenario; leerroute-1-regulier.md, r657 (drie stadia van onderwijsaanbod, parallel aan meerjaren-, jaar- en periodeplanning)",
-      "zin": "Het aanbod rijpt in tredes die met de planningshorizon meelopen. In de meerjarenplanning staat de intentie: welke opleiding, met welke verwachte instroom. In de jaarplanning wordt het aanbod gepland met perioden en capaciteit, nog zonder lokalen en docenten. In de periodeplanning worden de gelegenheden fijnmazig gepland, met groepen en tijdvensters. Roosteren volgt daarna en valt buiten de uitwisseling.",
-      "toestand": "intentie"
-    },
-    {
-      "beeld_id": "F2-04",
-      "beeld": "Het aanbod gepland: opleiding, programma, eenheid, gelegenheid",
-      "fase": 2,
-      "stap": "Haalbaarheid bepalen en aanbod plannen",
-      "soort": "ontstaat",
-      "wie": "planner",
-      "objecttype": "Opleidingaanbod",
-      "instantie": "Apothekersassistent 2026: vier perioden, 36 plaatsen",
-      "bron": "voorbeeldpayloads.md, aanbodInstanties[0] (7aa6609f); leerroute-1-regulier.md, r738 (aanbod is minimaal gepland zodra perioden en capaciteit vastliggen) en r1021 (stadium 2a, nog zonder lokalen en docenten); scenario-1.1-regulier-happyflow.md, blok D (maatvoering uit de review van 29 september 2026)",
-      "relatie": {
-        "soort": "Aggregation",
-        "van": "Opleidingsaanbod van Instelling",
-        "naar": "Opleidingaanbod",
-        "nesting": true
-      },
-      "toestand": "gepland"
-    },
-    {
-      "beeld_id": "F2-04",
-      "beeld": "Het aanbod gepland: opleiding, programma, eenheid, gelegenheid",
-      "fase": 2,
-      "stap": "Haalbaarheid bepalen en aanbod plannen",
-      "soort": "ontstaat",
-      "wie": "planner",
-      "objecttype": "Opleidingsprogramma aanbod",
-      "instantie": "Regulier BOL 2026: 18 tot 36 studenten",
-      "bron": "voorbeeldpayloads.md, aanbodInstanties[1] (8c494250); leerroute-1-regulier.md, r738 (aanbod is minimaal gepland zodra perioden en capaciteit vastliggen) en r1021 (stadium 2a, nog zonder lokalen en docenten); scenario-1.1-regulier-happyflow.md, blok D (maatvoering uit de review van 29 september 2026)",
-      "relatie": {
-        "soort": "Aggregation",
-        "van": "Opleidingaanbod",
-        "naar": "Opleidingsprogramma aanbod",
-        "nesting": true
-      },
-      "toestand": "gepland"
-    },
-    {
-      "beeld_id": "F2-04",
-      "beeld": "Het aanbod gepland: opleiding, programma, eenheid, gelegenheid",
-      "fase": 2,
-      "stap": "Haalbaarheid bepalen en aanbod plannen",
-      "soort": "ontstaat",
-      "wie": "planner",
-      "objecttype": "Onderwijseenheid aanbod",
-      "instantie": "B1-K1, leerjaar 1, periode 1 tot 4",
-      "bron": "voorbeeldpayloads.md, aanbodInstanties[2] (04af26e6); leerroute-1-regulier.md, r738 (aanbod is minimaal gepland zodra perioden en capaciteit vastliggen) en r1021 (stadium 2a, nog zonder lokalen en docenten)",
-      "relatie": {
-        "soort": "Aggregation",
-        "van": "Opleidingsprogramma aanbod",
-        "naar": "Onderwijseenheid aanbod",
-        "nesting": true
-      },
-      "toestand": "gepland"
-    },
-    {
-      "beeld_id": "F2-04",
-      "beeld": "Het aanbod gepland: opleiding, programma, eenheid, gelegenheid",
-      "fase": 2,
-      "stap": "Haalbaarheid bepalen en aanbod plannen",
-      "soort": "ontstaat",
-      "wie": "planner",
-      "objecttype": "Leergelegenheid",
-      "instantie": "Baliegesprekken 101, periode 1, twee groepen van 18",
-      "bron": "voorbeeldpayloads.md, aanbodInstanties[3] (04070a96); scenario-1.1-regulier-happyflow.md, blok D (maatvoering uit de review van 29 september 2026)",
-      "relatie": {
-        "soort": "Aggregation",
-        "van": "Onderwijseenheid aanbod",
-        "naar": "Leergelegenheid",
-        "nesting": true
-      },
-      "toestand": "fijnmazig gepland"
-    },
-    {
-      "beeld_id": "F2-04",
-      "beeld": "Het aanbod gepland: opleiding, programma, eenheid, gelegenheid",
-      "fase": 2,
-      "stap": "Haalbaarheid bepalen en aanbod plannen",
-      "soort": "ontstaat",
-      "wie": "planner",
-      "objecttype": "Toetsgelegenheid",
-      "instantie": "Praktijktoets baliegesprek (OSCE), einde periode 1",
-      "bron": "leerroute-1-regulier.md, r1114 tot 1117",
+      "stap": "Planningssysteem verzoeken om onderwijsaanbod",
+      "soort": "stroomt",
+      "van": "Onderwijscatalogus",
+      "naar": "Planningssysteem",
+      "pijl": "id-1d27ecfa2c0d4fb7b4f7337e93eed033",
+      "koppeling": "OC-P&R",
+      "objecttype": "Nominale Leerroute",
+      "instantie": "Nominale leerroute Apothekersassistent, cohort 2026: Baliegesprekken 101 in periode 1, Medicatiebewaking in de leerapotheek in periode 2",
+      "voorstel": true,
       "relatie": {
         "soort": "Association",
-        "van": "Toetsonderdeel specificatie",
-        "naar": "Toetsgelegenheid"
+        "van": "Opleidingsprogramma specificatie",
+        "naar": "Nominale Leerroute"
       },
-      "toestand": "fijnmazig gepland"
+      "bron": "conceptplaat-onderwijsontwerp.json: Onderwijs programma aggregeert Nominale Leerroute; sparsessie met Niels van Duin en Garik Hakopian, 28 oktober 2026: de nominale leerroute draagt een verwijzing naar de specificatie en een gewenste periode, zodat de specificatie herbruikbaar blijft en planning toch weet wanneer een onderdeel gepland moet worden"
+    },
+    {
+      "beeld_id": "F2-04",
+      "beeld": "De specificatie op haalbaarheid getoetst",
+      "fase": 2,
+      "stap": "Specificatie op haalbaarheid toetsen",
+      "soort": "stroomt",
+      "van": "Planningssysteem",
+      "naar": "Onderwijscatalogus",
+      "pijl": "id-020f091db6ea4763aad7527a98afaf99",
+      "koppeling": "OC-P&R",
+      "objecttype": "Verzoek tot Aanbod / Intekening op specificatie",
+      "instantie": "Planopgave Apothekersassistent, cohort 2026: niet haalbaar op docentexpertise",
+      "aanname": true,
+      "bron": "sparsessie met Niels van Duin en Garik Hakopian, 28 oktober 2026: planning toetst eerst of de specificatie uberhaupt te realiseren is. Een gevraagde docentexpertise die er niet is en binnen een jaar niet komt, gaat direct terug naar de ontwerper",
+      "zin": "Planning zet drie stappen voordat er aanbod ligt. Eerst de toets op de specificatie zelf: een eis die niet te realiseren is gaat hier terug, nog voor er iets gepland wordt. Daarna volgt de aanbodvraag per opleiding naast de maxima, en daarna de jaarplanning op instellingsniveau. Elke stap kent haar eigen terugkoppeling, met een eigen ontvanger en een eigen oplossing.",
+      "vraag": "Wordt deze terugkoppeling een koppeling in OKx, of blijft zij buiten de uitwisseling? Een telefoontje naar de ontwerper is hier een logische vorm, en een volledige interface in de planningsapplicatie vraagt veel informatie. Zie issue 439."
+    },
+    {
+      "beeld_id": "F2-04",
+      "beeld": "De specificatie op haalbaarheid getoetst",
+      "fase": 2,
+      "stap": "Specificatie op haalbaarheid toetsen",
+      "soort": "stroomt",
+      "van": "Planningssysteem",
+      "naar": "Onderwijscatalogus",
+      "pijl": "id-020f091db6ea4763aad7527a98afaf99",
+      "koppeling": "OC-P&R",
+      "objecttype": "Onderwijseenheid specificatie",
+      "instantie": "Blok B1-K1: de gevraagde docentexpertise is binnen een jaar niet te verwerven",
+      "aanname": true,
+      "relatie": {
+        "soort": "Association",
+        "van": "Onderwijseenheid specificatie",
+        "naar": "Verzoek tot Aanbod / Intekening op specificatie",
+        "label": "Input voor"
+      },
+      "bron": "sparsessie met Niels van Duin en Garik Hakopian, 28 oktober 2026: planning toetst eerst of de specificatie uberhaupt te realiseren is. Een gevraagde docentexpertise die er niet is en binnen een jaar niet komt, gaat direct terug naar de ontwerper"
     },
     {
       "beeld_id": "F2-05",
-      "beeld": "Ruimtes en mensen op de specificatie (conceptplaat)",
+      "beeld": "De aanbodvraag naast de schaarste van ruimtes en mensen (conceptplaat)",
       "fase": 2,
-      "stap": "Haalbaarheid bepalen en aanbod plannen",
+      "stap": "Aanbodvraag per opleiding bepalen",
       "verdieping": "ruimtes en mensen op de specificatie",
       "plaat": "onderwijsontwerp",
       "soort": "ontstaat",
@@ -3337,9 +3331,9 @@
     },
     {
       "beeld_id": "F2-05",
-      "beeld": "Ruimtes en mensen op de specificatie (conceptplaat)",
+      "beeld": "De aanbodvraag naast de schaarste van ruimtes en mensen (conceptplaat)",
       "fase": 2,
-      "stap": "Haalbaarheid bepalen en aanbod plannen",
+      "stap": "Aanbodvraag per opleiding bepalen",
       "verdieping": "ruimtes en mensen op de specificatie",
       "plaat": "onderwijsontwerp",
       "soort": "ontstaat",
@@ -3356,9 +3350,9 @@
     },
     {
       "beeld_id": "F2-05",
-      "beeld": "Ruimtes en mensen op de specificatie (conceptplaat)",
+      "beeld": "De aanbodvraag naast de schaarste van ruimtes en mensen (conceptplaat)",
       "fase": 2,
-      "stap": "Haalbaarheid bepalen en aanbod plannen",
+      "stap": "Aanbodvraag per opleiding bepalen",
       "verdieping": "ruimtes en mensen op de specificatie",
       "plaat": "onderwijsontwerp",
       "soort": "ontstaat",
@@ -3375,9 +3369,9 @@
     },
     {
       "beeld_id": "F2-05",
-      "beeld": "Ruimtes en mensen op de specificatie (conceptplaat)",
+      "beeld": "De aanbodvraag naast de schaarste van ruimtes en mensen (conceptplaat)",
       "fase": 2,
-      "stap": "Haalbaarheid bepalen en aanbod plannen",
+      "stap": "Aanbodvraag per opleiding bepalen",
       "verdieping": "ruimtes en mensen op de specificatie",
       "plaat": "onderwijsontwerp",
       "soort": "ontstaat",
@@ -3394,9 +3388,9 @@
     },
     {
       "beeld_id": "F2-05",
-      "beeld": "Ruimtes en mensen op de specificatie (conceptplaat)",
+      "beeld": "De aanbodvraag naast de schaarste van ruimtes en mensen (conceptplaat)",
       "fase": 2,
-      "stap": "Haalbaarheid bepalen en aanbod plannen",
+      "stap": "Aanbodvraag per opleiding bepalen",
       "verdieping": "ruimtes en mensen op de specificatie",
       "plaat": "onderwijsontwerp",
       "soort": "ontstaat",
@@ -3413,9 +3407,65 @@
     },
     {
       "beeld_id": "F2-06",
-      "beeld": "Examenplanning uit de resultaatstructuur (conceptplaat)",
+      "beeld": "De jaarplanning op instellingsniveau (conceptplaat)",
       "fase": 2,
-      "stap": "Haalbaarheid bepalen en aanbod plannen",
+      "stap": "Jaarplanning op instellingsniveau vaststellen",
+      "verdieping": "jaarplanning op instellingsniveau",
+      "plaat": "onderwijsontwerp",
+      "soort": "ontstaat",
+      "wie": "planner",
+      "aanname": true,
+      "objecttype": "Meerjaren planning",
+      "instantie": "Meerjarenplanning ROC Leren Zonder Drempels: zestien opleidingen op een locatie",
+      "bron": "conceptplaat-onderwijsontwerp.json: Meerjaren planning aggregeert Jaarplanning; sparsessie met Niels van Duin en Garik Hakopian, 28 oktober 2026: planning rekent per locatie, voor alle opleidingen die daar samen om dezelfde lokalen en docenten vragen",
+      "zin": "Conceptplaat: hier komt de vraag van de hele instelling bij elkaar. Per locatie telt planning de aanbodvraag van alle opleidingen op en legt die naast de toegewezen capaciteit aan lokalen en docentexpertise. Wat knelt, kan ook buiten de specificatie worden opgelost: een gebouw bijhuren, of docenten aantrekken met de expertise die pas in periode 3 nodig is. Die route loopt naar inzetplanning en faciliteitenplanning, en die staan buiten de scope van OKx."
+    },
+    {
+      "beeld_id": "F2-06",
+      "beeld": "De jaarplanning op instellingsniveau (conceptplaat)",
+      "fase": 2,
+      "stap": "Jaarplanning op instellingsniveau vaststellen",
+      "verdieping": "jaarplanning op instellingsniveau",
+      "plaat": "onderwijsontwerp",
+      "soort": "ontstaat",
+      "wie": "planner",
+      "aanname": true,
+      "objecttype": "Jaarplanning",
+      "instantie": "Jaarplanning 2026-2027: de totale vraag per periode naast de toegewezen capaciteit",
+      "bron": "conceptplaat-onderwijsontwerp.json: Meerjaren planning aggregeert Jaarplanning",
+      "relatie": {
+        "soort": "Aggregation",
+        "van": "Meerjaren planning",
+        "naar": "Jaarplanning",
+        "nesting": true
+      }
+    },
+    {
+      "beeld_id": "F2-06",
+      "beeld": "De jaarplanning op instellingsniveau (conceptplaat)",
+      "fase": 2,
+      "stap": "Jaarplanning op instellingsniveau vaststellen",
+      "verdieping": "jaarplanning op instellingsniveau",
+      "plaat": "onderwijsontwerp",
+      "soort": "ontstaat",
+      "wie": "planner",
+      "aanname": true,
+      "objecttype": "Jaarplanningsbeperkingen",
+      "instantie": "Periode 3: tekort aan docentexpertise integraal beroepsspecifiek",
+      "bron": "conceptplaat-onderwijsontwerp.json: Onderwijsaanbod Model naar Jaarplanningsbeperkingen; sparsessie met Niels van Duin en Garik Hakopian, 28 oktober 2026: het knelpunt zit op de expertise die pas in periode 3 nodig is",
+      "relatie": {
+        "soort": "Association",
+        "van": "Onderwijsaanbod Model",
+        "naar": "Jaarplanningsbeperkingen",
+        "label": "Leidt via planning en roostering proces tot"
+      },
+      "vraag": "Komt het signaal dat de jaarplanning niet rond komt uit het planningssysteem, uit de onderwijscatalogus, of uit beide? Zie issue 436."
+    },
+    {
+      "beeld_id": "F2-07",
+      "beeld": "Examenbehoefte uit de resultaatstructuur (conceptplaat)",
+      "fase": 2,
+      "stap": "Jaarplanning op instellingsniveau vaststellen",
       "verdieping": "examenplanning uit de resultaatstructuur",
       "plaat": "onderwijsontwerp",
       "soort": "ontstaat",
@@ -3424,13 +3474,14 @@
       "objecttype": "Jaarplanning",
       "instantie": "Jaarplanning 2026-2027",
       "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Planning bevat Jaarplanning; Jaarplanning naar Jaarplanning examens",
-      "zin": "Conceptplaat: de examenplanning volgt uit de resultaatstructuur (het examen is er functioneel aan gekoppeld) en het examenplan zegt wanneer; op de informatiemodelplaat blijft het examenplan buiten de uitwisseling (ontwerpkeuze 10)."
+      "zin": "Conceptplaat: de examenbehoefte volgt uit de resultaatstructuur en uit de jaarplanning. Het voorbeeld gebruikt een generiek vakexamen, want dat is cohort- en periodegebonden en loopt daarmee door de planning; een proeve van bekwaamheid wordt individueel afgenomen zodra de student er klaar voor is. Op de informatiemodelplaat blijft het examenplan buiten de uitwisseling (ontwerpkeuze 10); de enige lijn die OKx hier draagt is het summatieve resultaat in de resultaatstructuur.",
+      "vraag": "De conceptplaat noemt hier Examenmoment, Examen instrument en Examen. Het OKx-framework kent examenspecificatie, examengelegenheid en examenresultaat, en het exameninstrument hoort bij de specificatie. Het grootste deel hiervan valt buiten de scope van OKx. Komt de conceptplaat op deze termen, en wat daarvan komt binnen de scope? Zie issue 438."
     },
     {
-      "beeld_id": "F2-06",
-      "beeld": "Examenplanning uit de resultaatstructuur (conceptplaat)",
+      "beeld_id": "F2-07",
+      "beeld": "Examenbehoefte uit de resultaatstructuur (conceptplaat)",
       "fase": 2,
-      "stap": "Haalbaarheid bepalen en aanbod plannen",
+      "stap": "Jaarplanning op instellingsniveau vaststellen",
       "verdieping": "examenplanning uit de resultaatstructuur",
       "plaat": "onderwijsontwerp",
       "soort": "ontstaat",
@@ -3446,18 +3497,18 @@
       }
     },
     {
-      "beeld_id": "F2-06",
-      "beeld": "Examenplanning uit de resultaatstructuur (conceptplaat)",
+      "beeld_id": "F2-07",
+      "beeld": "Examenbehoefte uit de resultaatstructuur (conceptplaat)",
       "fase": 2,
-      "stap": "Haalbaarheid bepalen en aanbod plannen",
+      "stap": "Jaarplanning op instellingsniveau vaststellen",
       "verdieping": "examenplanning uit de resultaatstructuur",
       "plaat": "onderwijsontwerp",
       "soort": "ontstaat",
       "wie": "planner",
       "aanname": true,
       "objecttype": "Examenmoment",
-      "instantie": "Proeve van bekwaamheid B1-K1, periode 12",
-      "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Jaarplanning examens 'bestaat uit' Examenmoment",
+      "instantie": "Vakexamen Nederlands 3F, cohort 2026: periode 8",
+      "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Jaarplanning examens 'bestaat uit' Examenmoment; sparsessie met Niels van Duin en Garik Hakopian, 28 oktober 2026: een generiek vakexamen draagt het planningsverhaal, want het is cohort- en periodegebonden. Een proeve van bekwaamheid wordt individueel en ongepland afgenomen zodra de student er klaar voor is. Het niveau 3F staat al in F1-10 als examenonderdeelspecificatie",
       "relatie": {
         "soort": "Aggregation",
         "van": "Jaarplanning examens",
@@ -3467,18 +3518,18 @@
       }
     },
     {
-      "beeld_id": "F2-06",
-      "beeld": "Examenplanning uit de resultaatstructuur (conceptplaat)",
+      "beeld_id": "F2-07",
+      "beeld": "Examenbehoefte uit de resultaatstructuur (conceptplaat)",
       "fase": 2,
-      "stap": "Haalbaarheid bepalen en aanbod plannen",
+      "stap": "Jaarplanning op instellingsniveau vaststellen",
       "verdieping": "examenplanning uit de resultaatstructuur",
       "plaat": "onderwijsontwerp",
       "soort": "ontstaat",
       "wie": "planner",
       "aanname": true,
       "objecttype": "Examen instrument",
-      "instantie": "Beoordelingsformulier proeve B1-K1",
-      "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Examenmoment 'Afgenomen tijdens' Examen instrument",
+      "instantie": "Digitale examenomgeving voor het centraal examen Nederlands 3F",
+      "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Examenmoment 'Afgenomen tijdens' Examen instrument; sparsessie met Niels van Duin en Garik Hakopian, 28 oktober 2026: een generiek vakexamen draagt het planningsverhaal, want het is cohort- en periodegebonden. Een proeve van bekwaamheid wordt individueel en ongepland afgenomen zodra de student er klaar voor is. Het niveau 3F staat al in F1-10 als examenonderdeelspecificatie",
       "relatie": {
         "soort": "Association",
         "van": "Examenmoment",
@@ -3487,18 +3538,18 @@
       }
     },
     {
-      "beeld_id": "F2-06",
-      "beeld": "Examenplanning uit de resultaatstructuur (conceptplaat)",
+      "beeld_id": "F2-07",
+      "beeld": "Examenbehoefte uit de resultaatstructuur (conceptplaat)",
       "fase": 2,
-      "stap": "Haalbaarheid bepalen en aanbod plannen",
+      "stap": "Jaarplanning op instellingsniveau vaststellen",
       "verdieping": "examenplanning uit de resultaatstructuur",
       "plaat": "onderwijsontwerp",
       "soort": "ontstaat",
       "wie": "planner",
       "aanname": true,
       "objecttype": "Examen",
-      "instantie": "Proeve van bekwaamheid B1-K1",
-      "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Examen instrument 'Wordt afgenomen door middel van' Examen; Examen 'Functionele koppeling aan' Summatieve resultaat structuur; Examenplan 'is uitgewekt in' Examen (labels letterlijk van de conceptplaat)",
+      "instantie": "Centraal examen Nederlands 3F",
+      "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Examen instrument 'Wordt afgenomen door middel van' Examen; Examen 'Functionele koppeling aan' Summatieve resultaat structuur; Examenplan 'is uitgewekt in' Examen (labels letterlijk van de conceptplaat); sparsessie met Niels van Duin en Garik Hakopian, 28 oktober 2026: een generiek vakexamen draagt het planningsverhaal, want het is cohort- en periodegebonden. Een proeve van bekwaamheid wordt individueel en ongepland afgenomen zodra de student er klaar voor is. Het niveau 3F staat al in F1-10 als examenonderdeelspecificatie",
       "relatie": {
         "soort": "Association",
         "van": "Examen instrument",
@@ -3523,7 +3574,110 @@
       ]
     },
     {
-      "beeld_id": "F2-07",
+      "beeld_id": "F2-08",
+      "beeld": "Het aanbod gepland: opleiding, programma, eenheid, gelegenheid",
+      "fase": 2,
+      "stap": "Aanbod plannen",
+      "soort": "ontstaat",
+      "wie": "planner",
+      "objecttype": "Opleidingsaanbod van Instelling",
+      "instantie": "ROC Leren Zonder Drempels: ambitie en verwachte instroom voor cohort 2026",
+      "aanname": true,
+      "bron": "geen bron, keuze van het voorbeeld: het objecttype heeft geen instantie in het kaderscenario; leerroute-1-regulier.md, r657 (drie stadia van onderwijsaanbod, parallel aan meerjaren-, jaar- en periodeplanning)",
+      "zin": "Het aanbod rijpt in tredes die met de planningshorizon meelopen. In de meerjarenplanning staat de intentie: welke opleiding, met welke verwachte instroom. In de jaarplanning wordt het aanbod gepland met perioden en capaciteit, nog zonder lokalen en docenten. In de periodeplanning worden de gelegenheden fijnmazig gepland, met groepen en tijdvensters. Roosteren volgt daarna en valt buiten de uitwisseling.",
+      "toestand": "intentie"
+    },
+    {
+      "beeld_id": "F2-08",
+      "beeld": "Het aanbod gepland: opleiding, programma, eenheid, gelegenheid",
+      "fase": 2,
+      "stap": "Aanbod plannen",
+      "soort": "ontstaat",
+      "wie": "planner",
+      "objecttype": "Opleiding aanbod",
+      "instantie": "Apothekersassistent 2026: vier perioden, 36 plaatsen",
+      "bron": "voorbeeldpayloads.md, aanbodInstanties[0] (7aa6609f); leerroute-1-regulier.md, r738 (aanbod is minimaal gepland zodra perioden en capaciteit vastliggen) en r1021 (stadium 2a, nog zonder lokalen en docenten); scenario-1.1-regulier-happyflow.md, blok D (maatvoering uit de review van 29 september 2026)",
+      "relatie": {
+        "soort": "Composition",
+        "van": "Opleidingsaanbod van Instelling",
+        "naar": "Opleiding aanbod",
+        "nesting": true
+      },
+      "toestand": "gepland"
+    },
+    {
+      "beeld_id": "F2-08",
+      "beeld": "Het aanbod gepland: opleiding, programma, eenheid, gelegenheid",
+      "fase": 2,
+      "stap": "Aanbod plannen",
+      "soort": "ontstaat",
+      "wie": "planner",
+      "objecttype": "Opleidingsprogramma aanbod",
+      "instantie": "Regulier BOL 2026: 18 tot 36 studenten",
+      "bron": "voorbeeldpayloads.md, aanbodInstanties[1] (8c494250); leerroute-1-regulier.md, r738 (aanbod is minimaal gepland zodra perioden en capaciteit vastliggen) en r1021 (stadium 2a, nog zonder lokalen en docenten); scenario-1.1-regulier-happyflow.md, blok D (maatvoering uit de review van 29 september 2026)",
+      "relatie": {
+        "soort": "Composition",
+        "van": "Opleiding aanbod",
+        "naar": "Opleidingsprogramma aanbod",
+        "nesting": true
+      },
+      "toestand": "gepland"
+    },
+    {
+      "beeld_id": "F2-08",
+      "beeld": "Het aanbod gepland: opleiding, programma, eenheid, gelegenheid",
+      "fase": 2,
+      "stap": "Aanbod plannen",
+      "soort": "ontstaat",
+      "wie": "planner",
+      "objecttype": "Onderwijseenheid aanbod",
+      "instantie": "B1-K1, leerjaar 1, periode 1 tot 4",
+      "bron": "voorbeeldpayloads.md, aanbodInstanties[2] (04af26e6); leerroute-1-regulier.md, r738 (aanbod is minimaal gepland zodra perioden en capaciteit vastliggen) en r1021 (stadium 2a, nog zonder lokalen en docenten)",
+      "relatie": {
+        "soort": "Aggregation",
+        "van": "Opleidingsprogramma aanbod",
+        "naar": "Onderwijseenheid aanbod",
+        "nesting": true
+      },
+      "toestand": "gepland"
+    },
+    {
+      "beeld_id": "F2-08",
+      "beeld": "Het aanbod gepland: opleiding, programma, eenheid, gelegenheid",
+      "fase": 2,
+      "stap": "Aanbod plannen",
+      "soort": "ontstaat",
+      "wie": "planner",
+      "objecttype": "Leergelegenheid",
+      "instantie": "Baliegesprekken 101, periode 1, twee groepen van 18",
+      "bron": "voorbeeldpayloads.md, aanbodInstanties[3] (04070a96); scenario-1.1-regulier-happyflow.md, blok D (maatvoering uit de review van 29 september 2026); sparsessie met Niels van Duin en Garik Hakopian, 28 oktober 2026: in deze fase staan het lokaaltype en de docentexpertise vast, het lokaal, de persoon en het tijdvenster nog niet",
+      "relatie": {
+        "soort": "Aggregation",
+        "van": "Onderwijseenheid aanbod",
+        "naar": "Leergelegenheid",
+        "nesting": true
+      },
+      "toestand": "grofmazig gepland"
+    },
+    {
+      "beeld_id": "F2-08",
+      "beeld": "Het aanbod gepland: opleiding, programma, eenheid, gelegenheid",
+      "fase": 2,
+      "stap": "Aanbod plannen",
+      "soort": "ontstaat",
+      "wie": "planner",
+      "objecttype": "Toetsgelegenheid",
+      "instantie": "Praktijktoets baliegesprek (OSCE), einde periode 1",
+      "bron": "leerroute-1-regulier.md, r1114 tot 1117; sparsessie met Niels van Duin en Garik Hakopian, 28 oktober 2026: in deze fase staan het lokaaltype en de docentexpertise vast, het lokaal, de persoon en het tijdvenster nog niet",
+      "relatie": {
+        "soort": "Association",
+        "van": "Toetsonderdeel specificatie",
+        "naar": "Toetsgelegenheid"
+      },
+      "toestand": "grofmazig gepland"
+    },
+    {
+      "beeld_id": "F2-09",
       "beeld": "Het geplande aanbod terug naar de catalogus",
       "fase": 2,
       "stap": "Gepland aanbod terugleveren aan de onderwijscatalogus",
@@ -3539,7 +3693,7 @@
       "zin": "Het geplande aanbod gaat terug naar de catalogus, met per laag de verwijzing naar de specificatie waarvan het is gemaakt en naar het verzoek dat ertoe leidde. Capaciteit met exacte getallen vrijgeven vraagt een hoge organisatorische volwassenheid, want het is een toezegging. Voor een aantal logistieke scenario's is het wel voorwaarde. Naarmate keuzes fijnmaziger worden verliest capaciteit op de bovenliggende laag haar waarde: een leergelegenheid die vanuit meerdere programma's wordt aangeboden heeft een eigen capaciteit, los van het opleidingsaanbod."
     },
     {
-      "beeld_id": "F2-07",
+      "beeld_id": "F2-09",
       "beeld": "Het geplande aanbod terug naar de catalogus",
       "fase": 2,
       "stap": "Gepland aanbod terugleveren aan de onderwijscatalogus",
@@ -3548,34 +3702,34 @@
       "naar": "Onderwijscatalogus",
       "pijl": "id-020f091db6ea4763aad7527a98afaf99",
       "koppeling": "OC-P&R",
-      "objecttype": "Opleidingaanbod",
+      "objecttype": "Opleiding aanbod",
       "instantie": "Apothekersassistent 2026: vier perioden, 36 plaatsen",
       "bron": "leerroute-1-regulier.md, Fase 2: Planning naar OC (opleidingsaanbod als planbaar resultaat); informatiemodel.json: de specificatie is geassocieerd met haar aanbod; het verzoek leidt tot aanbod; scenario-1.1-regulier-happyflow.md, blok D (maatvoering uit de review van 29 september 2026)",
       "toestand": "gepland",
       "relatie": {
-        "soort": "Aggregation",
+        "soort": "Composition",
         "van": "Opleidingsaanbod van Instelling",
-        "naar": "Opleidingaanbod",
+        "naar": "Opleiding aanbod",
         "nesting": true
       },
       "relaties": [
         {
           "soort": "Association",
           "van": "Opleiding specificatie",
-          "naar": "Opleidingaanbod",
+          "naar": "Opleiding aanbod",
           "instantie": "Apothekersassistent, versie 2026.1"
         },
         {
           "soort": "Association",
           "van": "Verzoek tot Aanbod / Intekening op specificatie",
-          "naar": "Opleidingaanbod",
+          "naar": "Opleiding aanbod",
           "label": "Leidt tot",
           "instantie": "Planopgave Apothekersassistent, cohort 2026"
         }
       ]
     },
     {
-      "beeld_id": "F2-07",
+      "beeld_id": "F2-09",
       "beeld": "Het geplande aanbod terug naar de catalogus",
       "fase": 2,
       "stap": "Gepland aanbod terugleveren aan de onderwijscatalogus",
@@ -3588,8 +3742,8 @@
       "instantie": "Regulier BOL 2026: 18 tot 36 studenten",
       "bron": "leerroute-1-regulier.md, Fase 2; informatiemodel.json: de specificatie is geassocieerd met haar aanbod; het verzoek leidt tot aanbod; scenario-1.1-regulier-happyflow.md, blok D (maatvoering uit de review van 29 september 2026)",
       "relatie": {
-        "soort": "Aggregation",
-        "van": "Opleidingaanbod",
+        "soort": "Composition",
+        "van": "Opleiding aanbod",
         "naar": "Opleidingsprogramma aanbod",
         "nesting": true
       },
@@ -3611,7 +3765,7 @@
       "toestand": "gepland"
     },
     {
-      "beeld_id": "F2-07",
+      "beeld_id": "F2-09",
       "beeld": "Het geplande aanbod terug naar de catalogus",
       "fase": 2,
       "stap": "Gepland aanbod terugleveren aan de onderwijscatalogus",
@@ -3647,7 +3801,7 @@
       ]
     },
     {
-      "beeld_id": "F2-07",
+      "beeld_id": "F2-09",
       "beeld": "Het geplande aanbod terug naar de catalogus",
       "fase": 2,
       "stap": "Gepland aanbod terugleveren aan de onderwijscatalogus",
@@ -3658,14 +3812,14 @@
       "koppeling": "OC-P&R",
       "objecttype": "Leergelegenheid",
       "instantie": "Baliegesprekken 101, periode 1, twee groepen van 18",
-      "bron": "leerroute-1-regulier.md, Fase 2: planbaar aanbod; informatiemodel.json: de specificatie is geassocieerd met haar aanbod; het verzoek leidt tot aanbod; scenario-1.1-regulier-happyflow.md, blok D (maatvoering uit de review van 29 september 2026)",
+      "bron": "leerroute-1-regulier.md, Fase 2: planbaar aanbod; informatiemodel.json: de specificatie is geassocieerd met haar aanbod; het verzoek leidt tot aanbod; scenario-1.1-regulier-happyflow.md, blok D (maatvoering uit de review van 29 september 2026); sparsessie met Niels van Duin en Garik Hakopian, 28 oktober 2026: in deze fase staan het lokaaltype en de docentexpertise vast, het lokaal, de persoon en het tijdvenster nog niet",
       "relatie": {
         "soort": "Aggregation",
         "van": "Onderwijseenheid aanbod",
         "naar": "Leergelegenheid",
         "nesting": true
       },
-      "toestand": "fijnmazig gepland",
+      "toestand": "grofmazig gepland",
       "relaties": [
         {
           "soort": "Association",
@@ -3683,7 +3837,7 @@
       ]
     },
     {
-      "beeld_id": "F2-07",
+      "beeld_id": "F2-09",
       "beeld": "Het geplande aanbod terug naar de catalogus",
       "fase": 2,
       "stap": "Gepland aanbod terugleveren aan de onderwijscatalogus",
@@ -3694,8 +3848,8 @@
       "koppeling": "OC-P&R",
       "objecttype": "Toetsgelegenheid",
       "instantie": "Praktijktoets baliegesprek (OSCE), einde periode 1",
-      "bron": "leerroute-1-regulier.md, Fase 2: planbaar aanbod; informatiemodel.json: de specificatie is geassocieerd met haar aanbod; het verzoek leidt tot aanbod",
-      "toestand": "fijnmazig gepland",
+      "bron": "leerroute-1-regulier.md, Fase 2: planbaar aanbod; informatiemodel.json: de specificatie is geassocieerd met haar aanbod; het verzoek leidt tot aanbod; sparsessie met Niels van Duin en Garik Hakopian, 28 oktober 2026: in deze fase staan het lokaaltype en de docentexpertise vast, het lokaal, de persoon en het tijdvenster nog niet",
+      "toestand": "grofmazig gepland",
       "relaties": [
         {
           "soort": "Association",
@@ -3713,7 +3867,7 @@
       ]
     },
     {
-      "beeld_id": "F2-07",
+      "beeld_id": "F2-09",
       "beeld": "Het geplande aanbod terug naar de catalogus",
       "fase": 2,
       "stap": "Gepland aanbod terugleveren aan de onderwijscatalogus",
@@ -3724,16 +3878,23 @@
       "koppeling": "OC-P&R",
       "objecttype": "Keuzedeel aanbod",
       "instantie": "K0037 Farmaceutische Patientenzorg, periode 7: een groep van 18, los van het opleidingsaanbod",
-      "bron": "review Niels van Duin op PR 252: gelegenheden van keuzedelen tonen maakt scherp dat capaciteit los kan staan van de bovenliggende structuur; scenario-1.1-regulier-happyflow.md, blok D (maatvoering uit de review van 29 september 2026)",
+      "bron": "review Niels van Duin op PR 252: gelegenheden van keuzedelen tonen maakt scherp dat capaciteit los kan staan van de bovenliggende structuur; scenario-1.1-regulier-happyflow.md, blok D (maatvoering uit de review van 29 september 2026); sparsessie met Niels van Duin en Garik Hakopian, 28 oktober 2026: in deze fase staan het lokaaltype en de docentexpertise vast, het lokaal, de persoon en het tijdvenster nog niet; sparsessie met Niels van Duin en Garik Hakopian, 28 oktober 2026: het keuzedeelaanbod stond als los blokje op de plaat. De plaat kent Keuzedeel aanbod als soort van Opleidingsprogramma aanbod; een relatie die zegt onder welk programma-aanbod het wordt aangeboden ontbreekt nog, en die staat in issue 434",
       "relatie": {
-        "soort": "Association",
-        "van": "Keuzedeel",
-        "naar": "Keuzedeel aanbod",
-        "instantie": "K0037 Farmaceutische Patientenzorg"
+        "soort": "Specialization",
+        "van": "Keuzedeel aanbod",
+        "naar": "Opleidingsprogramma aanbod"
       },
-      "toestand": "fijnmazig gepland",
+      "toestand": "grofmazig gepland",
       "nieuwe_instantie": true,
-      "aanname": true
+      "aanname": true,
+      "relaties": [
+        {
+          "soort": "Association",
+          "van": "Keuzedeel",
+          "naar": "Keuzedeel aanbod",
+          "instantie": "K0037 Farmaceutische Patientenzorg"
+        }
+      ]
     },
     {
       "beeld_id": "F3-01",
@@ -3790,7 +3951,7 @@
       "bron": "leerroute-1-regulier.md, Fase 3; persona_jochem.md, r74 (aanmeldsysteem CAMBO/AII)",
       "relatie": {
         "soort": "Association",
-        "van": "Opleidingaanbod",
+        "van": "Opleiding aanbod",
         "naar": "Aanmelding",
         "label": "Op basis van"
       }
@@ -3814,7 +3975,7 @@
       "relaties": [
         {
           "soort": "Association",
-          "van": "Opleidingaanbod",
+          "van": "Opleiding aanbod",
           "naar": "Opleiding aanbod verbintenis",
           "instantie": "Apothekersassistent 2026"
         }
@@ -3831,10 +3992,10 @@
       "instantie": "Jochem op Regulier BOL 2026, aangemeld",
       "bron": "leerroute-1-regulier.md, Fase 3: opleidingsprogramma-verbintenis in KRS",
       "relatie": {
-        "soort": "Association",
+        "soort": "Composition",
         "van": "Opleiding aanbod verbintenis",
         "naar": "Opleidingsprogramma aanbod verbintenis",
-        "label": "Minimaal 1"
+        "label": "bestaat uit minimaal 1"
       },
       "relaties": [
         {
@@ -3883,7 +4044,7 @@
       "relaties": [
         {
           "soort": "Association",
-          "van": "Opleidingaanbod",
+          "van": "Opleiding aanbod",
           "naar": "Aanmelding",
           "label": "Op basis van",
           "instantie": "Apothekersassistent 2026"
@@ -3926,10 +4087,10 @@
       "bron": "leerroute-1-regulier.md, Fase 3; leerroute-1-regulier.md, r860 en r882 (het intakesysteem verwerkt aanmelding en intake en draagt de positieve uitkomst over aan KRS), r945 en r949",
       "aanname": true,
       "relatie": {
-        "soort": "Association",
+        "soort": "Composition",
         "van": "Opleiding aanbod verbintenis",
         "naar": "Opleidingsprogramma aanbod verbintenis",
-        "label": "Minimaal 1"
+        "label": "bestaat uit minimaal 1"
       }
     },
     {
@@ -4009,10 +4170,10 @@
       "toestand": "ingeschreven",
       "bron": "leerroute-1-regulier.md, Fase 3",
       "relatie": {
-        "soort": "Association",
+        "soort": "Composition",
         "van": "Opleiding aanbod verbintenis",
         "naar": "Opleidingsprogramma aanbod verbintenis",
-        "label": "Minimaal 1"
+        "label": "bestaat uit minimaal 1"
       }
     },
     {
@@ -5125,7 +5286,7 @@
       "bron": "leerroute-1-regulier.md, r868 (het studentvolgsysteem legt onderwijsresultaten per onderwijsverbintenis vast en houdt de studiepadadministratie bij) en r870 (behaalde resultaten worden in SVS bijgehouden tegen de specificatie uit de catalogus)",
       "relatie": {
         "soort": "Association",
-        "van": "Opleidingaanbod",
+        "van": "Opleiding aanbod",
         "naar": "Opleiding aanbod  verbintenis"
       }
     },
@@ -6163,13 +6324,13 @@
       "stap": "Kwalificering en diplomering registreren",
       "soort": "ontstaat",
       "wie": "examencommissie",
-      "objecttype": "Opleiding aanbod resultaat",
+      "objecttype": "Opleiding resultaat",
       "instantie": "Apothekersassistent 2026: gediplomeerd",
       "bron": "leerroute-1-regulier.md, Fase 8: KRS registreert kwalificering en diplomering",
       "relatie": {
         "soort": "Association",
         "van": "Opleiding aanbod verbintenis",
-        "naar": "Opleiding aanbod resultaat"
+        "naar": "Opleiding resultaat"
       },
       "zin": "Aan het afrondingscriterium is voldaan; de kernregistratie registreert de kwalificering en het diploma."
     },
