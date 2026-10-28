@@ -5,11 +5,11 @@
 | [1 Context](#deel-1-context) | 5 min | optioneel, 12 min |
 | [2 Historisch overzicht](#deel-2-historisch-overzicht) | | optioneel, 10 min |
 | [3 Scope](#deel-3-scope) | 10 min | optioneel, 50 min |
-| [4 Deliverables](#deel-4-deliverables) | 15 min | optioneel, 65 min |
+| [4 Deliverables](#deel-4-deliverables) | 18 min | optioneel, 65 min |
 | [5 Architectuurbesluiten](#deel-5-architectuurbesluiten) | 6 min | optioneel, 23 min |
 | [6 Release en beheer](#deel-6-release-en-beheer) | 4 min | optioneel, 9 min |
 
-Kern: 40 minuten. Alles: ongeveer drie uur.
+Kern: 43 minuten. Alles: ongeveer drie uur.
 
 Leestijd is de woordtelling gedeeld door honderdtwintig woorden per minuut, het tempo waarop architectuurmateriaal leest dat een lezer moet kunnen navertellen. Per stap staat de status van het materiaal met de lopende pull request erbij; de route schrijft geen statuswaarde over.
 
@@ -158,6 +158,22 @@ Per laag een dragende partij:
 | Interactieketenspecificatie | De solution architecten van OKx | Kerngroep techniek |
 | OEAPI-profiel en consumers | OKx met de leveranciers | Kerngroep techniek en de werkgroep van de standaard |
 | Adoptie | BOPSI, met de instelling | Governance orgaan |
+
+### Stand van de route
+
+De opdeling hierboven is een concept, en de route eromheen wordt aangescherpt. De laag die het langst openstaat is die van de instelling: wat een instelling doet, in welke volgorde, en welke informatie daarbij beweegt. Zolang dat beeld ontbreekt laat de set koppelingen zich niet afbakenen, en laat de vorm waarin zij uitkomt zich niet kiezen. Het vastzetten van de specificatie- en releasestructuur staat daarom stil tot dat beeld er is ([#424](https://github.com/Npuls-OKx/meta/issues/424)).
+
+Het werk loopt nu via de reis van een instelling, per leerroute, in drie lagen.
+
+| Laag | Wat het vastlegt | Voor leerroute 1 |
+|---|---|---|
+| Persona | De lerende, en wat zijn situatie van de instelling vraagt | [`persona_jochem.md`](../architecture/docs/specificatie/leerroute-uitwerking/doc/persona_jochem.md) |
+| Leerroutedocument | Wat de instelling doet per fase, met de componenten en objecttypen die daarbij oplichten | [kaderscenario leerroute 1](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md) |
+| Informatiemodel-voorbeeldregels | Per processtap welke objecten ontstaan, veranderen en stromen, met de bron erbij | [`voorbeeld-leerroute-1-jochem.md`](../architecture/model/informatiemodel/voorbeeld-leerroute-1-jochem.md) |
+
+Leerroute 1 draagt die drie lagen. Leerroute 2 en 3 staan in de milestone [Instellingsreizen per leerroute](https://github.com/Npuls-OKx/meta/milestone/24). De maat: een instelling herkent zich voor ongeveer tachtig procent in zo'n beschrijving, en de rest is lokale variant die als variant wordt vastgelegd.
+
+Daarnaast loopt een tweede lijn: de capabilities van de voorziening, oftewel wat een functiegebied moet kunnen, los van het product waarin dat landt. De informatiemodel-voorbeelden verbinden die twee lijnen, want daar staat per stap welke objecten bewegen. Het onderzoek naar die verhouding staat in [#422](https://github.com/Npuls-OKx/meta/issues/422).
 
 ### Verdieping: het informatiemodel
 
