@@ -15,7 +15,7 @@ Vier termen, overal gelijk:
 | Objecttype | Element van de informatiemodelplaat (ArchiMate business object), met de plaatnaam letterlijk |
 | Instantie | De waarde voor Jochem: een leesbare naam |
 | Applicatiedienst | De ArchiMate-applicatiedienst op de hoofdplaat en in MORA; alleen context |
-| Koppeling | Een pijl op hoofdplaat v1.7 tussen twee componenten; met de koppeling-ID uit Public waar die er is |
+| Koppeling | Een pijl op hoofdplaat v1.7a tussen twee componenten; met de koppeling-ID uit Public waar die er is |
 
 Twee soorten regels, in de vormtaal van de plaat:
 
@@ -26,7 +26,7 @@ Waar de herkomst loopt: het kwalificatiedossier, de kwalificatie, de kerntaken e
 
 Een **verdieping** (zelfde rol en stap, met "verdieping" op de processtap) zoomt in op een regel erboven. Een paars objecttype komt van de conceptplaat "Informatiemodel Onderwijsontwerp" in het ArchiMate-model (een verdieping daaruit heeft ook een gestippelde rand en een chip): het laat zien waar de informatiemodelplaat kan groeien en telt niet mee in de bijlage.
 
-Koppeling-ID's op hoofdplaat v1.7: OC-P&R is Onderwijscatalogus naar Planningssysteem; OC-P&R is Planningssysteem naar Onderwijscatalogus; OC-KRS is Onderwijscatalogus naar Kernregistratie systeem studenten (KRS); OC-SVS is Onderwijscatalogus naar Student volg systeem (SVS); OC-LMS is Onderwijscatalogus naar Leer management systeem (LMS). Een pijl die op de hoofdplaat staat maar geen koppelingspecificatie heeft, staat als "zonder koppelingspecificatie"; een stroom uit het kaderscenario zonder pijl op de hoofdplaat staat als "geen pijl op de hoofdplaat".
+Koppeling-ID's op hoofdplaat v1.7a: OC-P&R is Onderwijscatalogus naar Planningssysteem; OC-P&R is Planningssysteem naar Onderwijscatalogus; OC-KRS is Onderwijscatalogus naar Kernregistratie systeem studenten (KRS); OC-SVS is Onderwijscatalogus naar Student volg systeem (SVS); OC-LMS is Onderwijscatalogus naar Leer management systeem (LMS). Een pijl die op de hoofdplaat staat maar geen koppelingspecificatie heeft, staat als "zonder koppelingspecificatie"; een stroom uit het kaderscenario zonder pijl op de hoofdplaat staat als "geen pijl op de hoofdplaat".
 
 De fasenamen zijn de sectiekoppen "Fase 1" tot "Fase 8" van het kaderscenario. Het kaderscenario noemt fase 3 in de fasenlijst "Instroom, afstemming en plaatsing" en in de sectiekop "Instroom, intake en plaatsing"; hier geldt de sectiekop.
 
@@ -154,7 +154,7 @@ De gemarkeerde lijnen zijn de stromen die deze fase raakt, met het beeld waarin 
 
 De fase in detail: [kaderscenario leerroute 1, fase 2](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-2--publiceren-en-planbaar-maken).
 
-**Ontstaat:** `Opleidingsprogramma specificatie`, `Onderwijseenheid specificatie`, `Leeronderdeel specificatie`, `Verzoek tot Aanbod / Intekening op specificatie`, `Opleidingsaanbod van Instelling`, `Opleidingaanbod`, `Opleidingsprogramma aanbod`, `Onderwijseenheid aanbod`, `Leergelegenheid`, `Toetsgelegenheid`. **Stroomt:** Onderwijscatalogus naar Planningssysteem; Planningssysteem naar Onderwijscatalogus. **MORA-hoofdproces:** Plannen en roosteren.
+**Ontstaat:** `Opleidingsprogramma specificatie`, `Onderwijseenheid specificatie`, `Leeronderdeel specificatie`, `Verzoek tot Aanbod / Intekening op specificatie`, `Opleidingsaanbod van Instelling`, `Opleiding aanbod`, `Opleidingsprogramma aanbod`, `Onderwijseenheid aanbod`, `Leergelegenheid`, `Toetsgelegenheid`. **Stroomt:** Onderwijscatalogus naar Planningssysteem; Planningssysteem naar Onderwijscatalogus. **MORA-hoofdproces:** Plannen en roosteren.
 
 ![Hoofdplaat v1.7 met de stromen van fase 2 gemarkeerd](img/hoofdplaat/f2.svg)
 
@@ -444,7 +444,7 @@ De gemarkeerde lijnen zijn de stromen die deze fase raakt, met het beeld waarin 
 
 De fase in detail: [kaderscenario leerroute 1, fase 8](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-8--examineren-vaststellen-en-diplomeren).
 
-**Ontstaat:** `Examengelegenheid`, `Examengelegenheid verbintenis`, `Examengelegenheid resultaat`, `Summatief resultaat`, `Summatieve beoordeling`, `Opleidingsprogramma resultaat`, `Keuzedeel resultaat`, `Opleiding aanbod resultaat`, `Waarde document (diploma / certificaat)`. **Stroomt:** Toets- en examen afname systeem naar Student volg systeem (SVS); Student volg systeem (SVS) naar Kernregistratie systeem studenten (KRS). **MORA-hoofdproces:** Examens uitvoeren en vaststellen; diplomeren.
+**Ontstaat:** `Examengelegenheid`, `Examengelegenheid verbintenis`, `Examengelegenheid resultaat`, `Summatief resultaat`, `Summatieve beoordeling`, `Opleidingsprogramma resultaat`, `Keuzedeel resultaat`, `Opleiding resultaat`, `Waarde document (diploma / certificaat)`. **Stroomt:** Toets- en examen afname systeem naar Student volg systeem (SVS); Student volg systeem (SVS) naar Kernregistratie systeem studenten (KRS). **MORA-hoofdproces:** Examens uitvoeren en vaststellen; diplomeren.
 
 ![Hoofdplaat v1.7 met de stromen van fase 8 gemarkeerd](img/hoofdplaat/f8.svg)
 
@@ -490,13 +490,13 @@ Per objecttype het beeld waarin hij verschijnt (het ID uit de kop), de instantie
 
 | Objecttype | Beeld | Jochem | Fase | Aanname | Definitie | OEAPI | Heet bij u | Hangt bij u onder |
 |---|---|---|---|---|---|---|---|---|
-| Eindkwalificatie |  | regels volgen na 30 september |  |  | nog niet | geen equivalent | | |
+| Eindkwalificatie |  | regels volgen na 30 september |  |  | nog te definieren | geen equivalent | | |
 | Kerntaak | F1-01 | B1-K1 Biedt farmaceutische patiëntenzorg | 1 |  | ja | geen equivalent | | |
 | Kwalificatie | F1-01 | Apothekersassistent, 27141 | 1 |  | ja | geen equivalent | | |
 | Kwalificatie dossier | F1-01 | Apothekersassistent, crebo 23450 | 1 |  | ja | geen equivalent | | |
-| Landelijk Opleidingsprofiel |  | regels volgen na 30 september |  |  | nog niet | geen equivalent | | |
+| Landelijk Opleidingsprofiel |  | regels volgen na 30 september |  |  | nog te definieren | geen equivalent | | |
 | Werkproces | F1-01 | B1-K1-W1 Neemt de zorg-/adviesvraag in behandeling | 1 |  | ja | geen equivalent | | |
-| Werkveld of beroepenveld of deelnemer competentie |  | regels volgen na 30 september |  |  | nog niet | geen equivalent | | |
+| Werkveld of beroepenveld of deelnemer competentie |  | regels volgen na 30 september |  |  | nog te definieren | geen equivalent | | |
 
 ### Onderwijskundig kader instelling
 
@@ -517,11 +517,11 @@ Per objecttype het beeld waarin hij verschijnt (het ID uit de kop), de instantie
 | Keuzedeelruimte | F1-07 | 720 SBU, mbo-4: te vullen met 480 SBU verdiepend en 240 SBU generiek | 1 |  | ja | Programme | | |
 | Leeronderdeel specificatie | F1-05 | Baliegesprekken 101 | 1 |  | ja | LearningComponent | | |
 | Les specificatie | F4-01 | Les 1 Introductie WHAM-vragen en triage | 4 |  | ja | LearningComponent | | |
-| Minor |  | regels volgen na 30 september |  |  | nog niet | Programme | | |
-| Minor ruimte |  | regels volgen na 30 september |  |  | nog niet | Programme | | |
+| Minor |  | regels volgen na 30 september |  |  | nog te definieren | Programme | | |
+| Minor ruimte |  | regels volgen na 30 september |  |  | nog te definieren | Programme | | |
 | Onderwijseenheid specificatie | F1-05 | Blok B1-K1 Biedt farmaceutische patiëntenzorg | 1 |  | ja | Course | | |
-| Onderwijslocatie type |  | regels volgen na 30 september |  |  | nog niet | roomType | | |
-| Onderwijsvorm |  | regels volgen na 30 september |  |  | nog niet | geen equivalent | | |
+| Onderwijslocatie type |  | regels volgen na 30 september |  |  | nog te definieren | roomType | | |
+| Onderwijsvorm |  | regels volgen na 30 september |  |  | nog te definieren | geen equivalent | | |
 | Opleiding specificatie | F1-07 | Apothekersassistent, versie 2026.1 | 1 |  | nog te definieren | Programme | | |
 | Opleidingsprogramma specificatie | F1-07 | BOL voltijd, diplomaprogramma | 1 |  | ja | Programme | | |
 | Student keuze regelset | F1-07 | Kiesbare keuzedelen: K0037 Farmaceutische Patientenzorg (480 SBU, verdiepend) of K0262 ARBO, kwaliteitszorg en hulpverlening (240 SBU, generiek) | 1 |  | nog te definieren | geen equivalent | | |
@@ -532,13 +532,13 @@ Per objecttype het beeld waarin hij verschijnt (het ID uit de kop), de instantie
 | Objecttype | Beeld | Jochem | Fase | Aanname | Definitie | OEAPI | Heet bij u | Hangt bij u onder |
 |---|---|---|---|---|---|---|---|---|
 | Examengelegenheid | F8-01 | Proeve van bekwaamheid B1-K1, periode 12 | 8 | ja | ja | TestComponentOffering | | |
-| Keuzedeel aanbod | F6-01 | K0037 Farmaceutische Patientenzorg, periode 7, locatie A | 6 | ja | nog niet | ProgrammeOffering | | |
+| Keuzedeel aanbod | F6-01 | K0037 Farmaceutische Patientenzorg, periode 7, locatie A | 6 | ja | nog te definieren | ProgrammeOffering | | |
 | Leergelegenheid | F2-04 | Baliegesprekken 101, periode 1, twee groepen van 24 | 2 |  | nog te definieren | LearningComponentOffering | | |
 | Lesgelegenheid | F4-08 | Les 1, maandag 1 september 09:00, simulatieruimte 2.14 | 4 |  | nog te definieren | LearningComponentOffering | | |
-| Minor aanbod |  | regels volgen na 30 september |  |  | nog niet | ProgrammeOffering | | |
+| Minor aanbod |  | regels volgen na 30 september |  |  | nog te definieren | ProgrammeOffering | | |
 | Onderwijseenheid aanbod | F2-04 | B1-K1, leerjaar 1, periode 1 tot 4 | 2 |  | nog te definieren | CourseOffering | | |
-| Onderwijslocatie |  | regels volgen na 30 september |  |  | nog niet | Building, Room | | |
-| Opleidingaanbod | F2-04 | Apothekersassistent 2026: vier perioden, 48 plaatsen | 2 |  | ja | ProgrammeOffering | | |
+| Onderwijslocatie |  | regels volgen na 30 september |  |  | nog te definieren | Building, Room | | |
+| Opleiding aanbod | F2-04 | Apothekersassistent 2026: vier perioden, 48 plaatsen | 2 |  | ja | ProgrammeOffering | | |
 | Opleidingsaanbod van Instelling | F2-04 | ROC Leren Zonder Drempels: ambitie en verwachte instroom voor cohort 2026 | 2 | ja | ja | geen equivalent | | |
 | Opleidingsprogramma aanbod | F2-04 | Regulier BOL 2026: 24 tot 48 studenten | 2 |  | nog te definieren | ProgrammeOffering | | |
 | Toetsgelegenheid | F2-04 | Praktijktoets baliegesprek (OSCE), einde periode 1 | 2 |  | ja | TestComponentOffering | | |
@@ -552,7 +552,7 @@ Per objecttype het beeld waarin hij verschijnt (het ID uit de kop), de instantie
 | Keuzedeel aanbod verbintenis | F6-03 | Jochem op K0037 Farmaceutische Patientenzorg, periode 7 (voorkeur 1) | 6 |  | nog te definieren | ProgrammeOfferingAssociation | | |
 | Leergelegenheid verbintenis | F4-09 | Jochem op Baliegesprekken 101, periode 1 | 4 |  | nog te definieren | LearningComponentOfferingAssociation | | |
 | Lesgelegenheid verbintenis | F4-09 | Jochem op les 1, 1 september 09:00 | 4 |  | nog te definieren | LearningComponentOfferingAssociation | | |
-| Minor aanbod verbintenis |  | regels volgen na 30 september |  |  | nog niet | ProgrammeOfferingAssociation | | |
+| Minor aanbod verbintenis |  | regels volgen na 30 september |  |  | nog te definieren | ProgrammeOfferingAssociation | | |
 | Onderwijseenheid aanbod verbintenis | F4-09 | Jochem op B1-K1, leerjaar 1 | 4 |  | nog te definieren | CourseOfferingAssociation | | |
 | Opleiding aanbod verbintenis | F3-03 | Jochem op Apothekersassistent 2026, aangemeld | 3 |  | nog te definieren | ProgrammeOfferingAssociation | | |
 | Opleidingsprogramma aanbod verbintenis | F3-03 | Jochem op Regulier BOL 2026, aangemeld | 3 |  | nog te definieren | ProgrammeOfferingAssociation | | |
@@ -562,14 +562,16 @@ Per objecttype het beeld waarin hij verschijnt (het ID uit de kop), de instantie
 
 | Objecttype | Beeld | Jochem | Fase | Aanname | Definitie | OEAPI | Heet bij u | Hangt bij u onder |
 |---|---|---|---|---|---|---|---|---|
+| Aanwezigheid | F5-01 | Deelname Baliegesprekken 101: 90 procent van de lesgelegenheden bijgewoond | 5 |  | nog te definieren | geen equivalent | | |
 | Examengelegenheid resultaat | F8-03 | Proeve B1-K1: voldoende | 8 |  | nog te definieren | Result | | |
 | Formatief resultaat | F5-03 | Quiz WHAM-vragen: 8 | 5 | ja | ja | geen equivalent | | |
 | Formatieve beoordeling | F5-03 | Op koers voor B1-K1-W1 | 5 | ja | ja | geen equivalent | | |
 | Keuzedeel resultaat | F8-05 | K0037 Farmaceutische Patientenzorg: voldoende | 8 |  | nog te definieren | Result | | |
+| Leergelegenheid resultaat | F5-03 | Baliegesprekken 101 afgerond, periode 1 | 5 |  | nog te definieren | Result | | |
 | Lesgelegenheid resultaat | F5-01 | Les 1 gevolgd | 5 |  | nog te definieren | Result | | |
-| Minor resultaat |  | regels volgen na 30 september |  |  | nog niet | Result | | |
+| Minor resultaat |  | regels volgen na 30 september |  |  | nog te definieren | Result | | |
 | Onderwijseenheid resultaat | F5-05 | B1-K1: in uitvoering, twee van vier leeronderdelen afgerond | 5 |  | nog te definieren | Result | | |
-| Opleiding aanbod resultaat | F8-07 | Apothekersassistent 2026: gediplomeerd | 8 |  | nog te definieren | Result | | |
+| Opleiding resultaat | F8-07 | Apothekersassistent 2026: gediplomeerd | 8 |  | nog te definieren | Result | | |
 | Opleidingsprogramma resultaat | F8-05 | Regulier BOL 2026: alle kerntaken en keuzedelen voldoende | 8 |  | nog te definieren | Result | | |
 | Summatief resultaat | F8-05 | B1-K1: voldoende, vastgesteld | 8 |  | ja | geen equivalent | | |
 | Summatieve beoordeling | F8-05 | Examencommissie, juni 2029 | 8 | ja | ja | geen equivalent | | |
@@ -593,10 +595,10 @@ Per objecttype het beeld waarin hij verschijnt (het ID uit de kop), de instantie
 | Aanmelding | F3-03 | April 2026, Apothekersassistent BOL | 3 |  | ja | geen equivalent | | |
 | Cohort / periode | F1-02 | Cohort 2026 | 1 |  | ja | geen equivalent | | |
 | Examenplan | F1-02 | Examenplan Apothekersassistent, cohort 2026 | 1 | ja | ja | geen equivalent | | |
-| Expertise of functieprofiel |  | regels volgen na 30 september |  |  | nog niet | geen equivalent | | |
+| Expertise of functieprofiel |  | regels volgen na 30 september |  |  | nog te definieren | geen equivalent | | |
 | Medewerker | F4-08 | Docent, personeelsnummer 4711 | 4 |  | ja | geen equivalent | | |
-| Onderwijslocatie vlekkenplan |  | regels volgen na 30 september |  |  | nog niet | geen equivalent | | |
-| Organisatie-eenheid |  | regels volgen na 30 september |  |  | nog niet | geen equivalent | | |
+| Onderwijslocatie vlekkenplan |  | regels volgen na 30 september |  |  | nog te definieren | geen equivalent | | |
+| Organisatie-eenheid |  | regels volgen na 30 september |  |  | nog te definieren | geen equivalent | | |
 | Persoon | F3-03 | Jochem, 17, na het vmbo | 3 |  | nog te definieren | Person | | |
 | Plaatsingsgroep | F3-05 | APO26-1A | 3 | ja | nog te definieren | Group | | |
 | Student | F3-05 | Jochem, cohort 2026 | 3 |  | ja | geen equivalent | | |
@@ -826,7 +828,7 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
 | ontstaat | Opleidingsaanbod van Instelling | ROC Leren Zonder Drempels: ambitie en verwachte instroom voor cohort 2026 | geen bron, keuze van het voorbeeld: het objecttype heeft geen instantie in het kaderscenario; leerroute-1-regulier.md, r657 (drie stadia van onderwijsaanbod, parallel aan meerjaren-, jaar- en periodeplanning) |
-| ontstaat | Opleidingaanbod | Apothekersassistent 2026: vier perioden, 48 plaatsen | [voorbeeldpayloads.md](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Datamodelschema's/voorbeeldpayloads.md), aanbodInstanties[0] (7aa6609f); leerroute-1-regulier.md, [r738](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Datamodelschema's/voorbeeldpayloads.md?plain=1#L738) (aanbod is minimaal gepland zodra perioden en capaciteit vastliggen) en [r1021](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Datamodelschema's/voorbeeldpayloads.md?plain=1#L1021) (stadium 2a, nog zonder lokalen en docenten) |
+| ontstaat | Opleiding aanbod | Apothekersassistent 2026: vier perioden, 48 plaatsen | [voorbeeldpayloads.md](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Datamodelschema's/voorbeeldpayloads.md), aanbodInstanties[0] (7aa6609f); leerroute-1-regulier.md, [r738](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Datamodelschema's/voorbeeldpayloads.md?plain=1#L738) (aanbod is minimaal gepland zodra perioden en capaciteit vastliggen) en [r1021](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Datamodelschema's/voorbeeldpayloads.md?plain=1#L1021) (stadium 2a, nog zonder lokalen en docenten) |
 | ontstaat | Opleidingsprogramma aanbod | Regulier BOL 2026: 24 tot 48 studenten | [voorbeeldpayloads.md](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Datamodelschema's/voorbeeldpayloads.md), aanbodInstanties[1] (8c494250); leerroute-1-regulier.md, [r738](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Datamodelschema's/voorbeeldpayloads.md?plain=1#L738) (aanbod is minimaal gepland zodra perioden en capaciteit vastliggen) en [r1021](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Datamodelschema's/voorbeeldpayloads.md?plain=1#L1021) (stadium 2a, nog zonder lokalen en docenten) |
 | ontstaat | Onderwijseenheid aanbod | B1-K1, leerjaar 1, periode 1 tot 4 | [voorbeeldpayloads.md](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Datamodelschema's/voorbeeldpayloads.md), aanbodInstanties[2] (04af26e6); leerroute-1-regulier.md, [r738](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Datamodelschema's/voorbeeldpayloads.md?plain=1#L738) (aanbod is minimaal gepland zodra perioden en capaciteit vastliggen) en [r1021](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Datamodelschema's/voorbeeldpayloads.md?plain=1#L1021) (stadium 2a, nog zonder lokalen en docenten) |
 | ontstaat | Leergelegenheid | Baliegesprekken 101, periode 1, twee groepen van 24 | [voorbeeldpayloads.md](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Datamodelschema's/voorbeeldpayloads.md), aanbodInstanties[3] (04070a96) |
@@ -856,8 +858,8 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
-| stroomt | Opleidingsaanbod van Instelling | ROC Leren Zonder Drempels | informatiemodel.json: Opleidingsaanbod van Instelling aggregeert Opleidingaanbod; leerroute-1-regulier.md, r657 |
-| stroomt | Opleidingaanbod | Apothekersassistent 2026: vier perioden, 48 plaatsen | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 2](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-2--publiceren-en-planbaar-maken): Planning naar OC (opleidingsaanbod als planbaar resultaat); informatiemodel.json: de specificatie is geassocieerd met haar aanbod; het verzoek leidt tot aanbod |
+| stroomt | Opleidingsaanbod van Instelling | ROC Leren Zonder Drempels | informatiemodel.json: Opleidingsaanbod van Instelling omvat Opleiding aanbod (Composition); leerroute-1-regulier.md, r657 |
+| stroomt | Opleiding aanbod | Apothekersassistent 2026: vier perioden, 48 plaatsen | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 2](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-2--publiceren-en-planbaar-maken): Planning naar OC (opleidingsaanbod als planbaar resultaat); informatiemodel.json: de specificatie is geassocieerd met haar aanbod; het verzoek leidt tot aanbod |
 | stroomt | Opleidingsprogramma aanbod | Regulier BOL 2026: 24 tot 48 studenten | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 2](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-2--publiceren-en-planbaar-maken); informatiemodel.json: de specificatie is geassocieerd met haar aanbod; het verzoek leidt tot aanbod |
 | stroomt | Onderwijseenheid aanbod | B1-K1, leerjaar 1, periode 1 tot 4 | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 2](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-2--publiceren-en-planbaar-maken): planbaar aanbod, periode en capaciteit; informatiemodel.json: de specificatie is geassocieerd met haar aanbod; het verzoek leidt tot aanbod |
 | stroomt | Leergelegenheid | Baliegesprekken 101, periode 1, twee groepen van 24 | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 2](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-2--publiceren-en-planbaar-maken): planbaar aanbod; informatiemodel.json: de specificatie is geassocieerd met haar aanbod; het verzoek leidt tot aanbod |
@@ -1205,6 +1207,6 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
-| ontstaat | Opleiding aanbod resultaat | Apothekersassistent 2026: gediplomeerd | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 8](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-8--examineren-vaststellen-en-diplomeren): KRS registreert kwalificering en diplomering |
+| ontstaat | Opleiding resultaat | Apothekersassistent 2026: gediplomeerd | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 8](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-8--examineren-vaststellen-en-diplomeren): KRS registreert kwalificering en diplomering |
 | ontstaat | Waarde document (diploma / certificaat) | Diploma Apothekersassistent, juli 2029 | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [r58](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L58) en [Fase 8](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-8--examineren-vaststellen-en-diplomeren): diplomering |
 
