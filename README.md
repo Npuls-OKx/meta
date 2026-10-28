@@ -14,11 +14,11 @@ Het projectplan noemt drie resultaten.
 
 Wat elk resultaat van de uitwerking vraagt staat in [`doc/OKx_Context.md`](doc/OKx_Context.md), samen met de opdracht, de use-cases en de uitgangspunten.
 
-## Stand
+## Status
 
 OKx staat in de specificatiefase. Er ligt een informatiemodel met een begrippenlijst, een hoofdplaat van de informatiestromen, een eerste pakket koppelvlakspecificaties in Public, en de uitwerking van leerroute 1 tot op processtap. Daarmee is het gesprek met de sector te voeren; bouwen kan er nog niet tegen.
 
-Wat nu bepaald wordt is de vorm waarin de oplevering uitkomt. Waar het werk daarvoor op aankomt is genoeg inzicht krijgen in wat een instelling doet, en een vorm vinden om dat uit te drukken: een persona, een leerroutedocument daarop, en informatiemodel-voorbeeldregels per fase. [`doc/OKx_Context.md`](doc/OKx_Context.md#stand-van-het-werk) zegt wat er ligt, wat nu bepaald wordt en waar het naartoe gaat.
+Wat nu bepaald wordt is de vorm waarin de oplevering uitkomt. Waar het werk daarvoor op aankomt is genoeg inzicht krijgen in wat een instelling doet, en een vorm vinden om dat uit te drukken: een persona, een leerroutedocument daarop, en informatiemodel-voorbeeldregels per fase. [`doc/OKx_Context.md`](doc/OKx_Context.md#status-van-het-werk) zegt wat er ligt, wat nu bepaald wordt en waar het naartoe gaat.
 
 ## Scope
 
@@ -44,7 +44,7 @@ OKx levert vier groepen producten. Welke groepen dat zijn ligt vast; de vorm waa
 
 De koppelvlakspecificatie is de hoofdoplevering: een set specificaties van koppelingen die als functioneel ontwerp dient voor een implementatie, bij voorkeur als [OEAPI-profiel](https://oeapi.eu/v6.0/#/technical/consumers-and-profiles/profiling-guidelines). Valt een eis buiten de profielvorm, dan komt een andere generieke standaard in beeld. Het uitgangspunt is OEAPI tenzij.
 
-Hoe die set wordt opgedeeld en op welk niveau zij uitkomt, is onderwerp van werk dat loopt. Het concept voor de opdeling staat in [#396](https://github.com/Npuls-OKx/meta/issues/396) en [#421](https://github.com/Npuls-OKx/meta/issues/421); het vastzetten ervan wacht op een scherper beeld van wat de keten nodig heeft ([#424](https://github.com/Npuls-OKx/meta/issues/424)). De [leesroute](doc/leesroute-okx.md#stand-van-de-route) zegt waar dat op dit moment staat.
+Hoe die set wordt opgedeeld en op welk niveau zij uitkomt, is onderwerp van werk dat loopt. Het concept voor de opdeling staat in [#396](https://github.com/Npuls-OKx/meta/issues/396) en [#421](https://github.com/Npuls-OKx/meta/issues/421); het vastzetten ervan wacht op een scherper beeld van wat de keten nodig heeft ([#424](https://github.com/Npuls-OKx/meta/issues/424)). De [leesroute](doc/leesroute-okx.md#status-van-de-route) zegt waar dat op dit moment staat.
 
 ## Totstandkoming deliverables
 
@@ -76,7 +76,7 @@ flowchart LR
 
 Een eis die buiten een technische standaard valt, wordt een signalering richting die standaard. De werkwijze staat in [`CONTRIBUTING.md`](CONTRIBUTING.md) en de [product-flow](.agents/skills/okx-product-flow/SKILL.md).
 
-Deze route wordt aangescherpt terwijl zij wordt gelopen. De stap die nu het meeste werk vraagt is de laag van de instelling: wat een instelling doet, in welke volgorde, en welke informatie daarbij beweegt. Dat beeld ontstaat per leerroute, in drie lagen: een persona, een leerroutedocument daarop, en informatiemodel-voorbeeldregels per fase. De [leesroute](doc/leesroute-okx.md#stand-van-de-route) zegt waar dat staat.
+Deze route wordt aangescherpt terwijl zij wordt gelopen. De stap die nu het meeste werk vraagt is de laag van de instelling: wat een instelling doet, in welke volgorde, en welke informatie daarbij beweegt. Dat beeld ontstaat per leerroute, in drie lagen: een persona, een leerroutedocument daarop, en informatiemodel-voorbeeldregels per fase. De [leesroute](doc/leesroute-okx.md#status-van-de-route) zegt waar dat staat.
 
 ## Leeswijzer
 

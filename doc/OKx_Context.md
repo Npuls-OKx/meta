@@ -99,7 +99,7 @@ Herkomst: de plaat van het programma. De rijen zijn ingevuld in afstemming binne
 
 De grens die de plaat trekt: de applicatie is van de leverancier, les en didactiek zijn van de instelling en worden in de specificatie vastgelegd, en de landelijke voorzieningen horen bij hun eigen pijler.
 
-## Stand van het werk
+## Status van het werk
 
 Herkomst: afstemming binnen het kernteam en de SI-afstemming van 28 oktober 2026. De verwijzingen wijzen naar wat er ligt.
 
