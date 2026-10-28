@@ -96,6 +96,19 @@ Die route volgt de [AMIGO-aanpak](https://www.edustandaard.nl/amigo/aanpak/) van
 
 Drie lagen dragen de uitwerking. Een **informatiestroom** is de beweging van gegevens tussen twee componenten. Een **koppeling** is de gestandaardiseerde realisatie daarvan. Een **koppelvlak** is de verzameling koppelingen van precies een component.
 
+Elke specificatie begint bij een wens in de student- en instellingsreis en sluit de cirkel bij de drie resultaten.
+
+```mermaid
+flowchart LR
+  V["Student- en<br/>instellingsvraag"] --> L["Leerroute"]
+  L --> A["Architectuur:<br/>proces, informatiemodel, SOLL ecosysteem"]
+  A --> K["Koppelvlakspecificatie<br/>functioneel ontwerp van koppelingen"]
+  K --> P["Technische specificatie van<br/>OKx-profiel<br/>binnen OEAPI"]
+  P --> IM["Implementatie<br/>bij de instelling,<br/>met adoptie ondersteuning door OKx"]
+  IM --> D["De drie resultaten"]
+  D -.->|"volgende wens"| V
+```
+
 ### Productopdeling, concept
 
 De opdeling van de volledige set staat als concept in [#396](https://github.com/Npuls-OKx/meta/issues/396), met de instellingsspecificatie als nieuw product tussen de leerroutes en de koppelvlakspecificatie.

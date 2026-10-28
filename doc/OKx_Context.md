@@ -80,7 +80,17 @@ Herkomst: projectplan, met de afbakening uit [ADR 0008](https://github.com/Npuls
 
 De gegevensuitwisseling tussen de referentiecomponenten onderwijscatalogus, kernregistratie, studentvolgsysteem, leermanagementsysteem en planning en roostering, voor mobiliteit binnen de instelling. Dat is de opmaat naar mobiliteit tussen instellingen via de landelijke voorzieningen.
 
+De reguliere leerroute komt eerst, met temporiseren en versnellen erna; de flexibele en modulaire routes volgen als verschil daarop. De [negen leerroutes van Npuls](../architecture/docs/specificatie/leerroute-uitwerking/img/README.md) staan als tekening bij elkaar, met per route de keten van persona, uitwerking, scenario's en voorbeeldregels.
+
 De procesketens onderwijslogistiek, onderwijsontwikkeling en onderwijsuitvoering en begeleiding van [MORA](https://mora.mbodigitaal.nl/index.php/Hoofdpagina) vallen binnen deze scope. Andere procesketens worden geraakt en vragen afstemming. De onderwijskundige keuze van een instelling blijft bij de instelling. Al het overige valt buiten scope.
+
+## Standaarden en referentiearchitecturen
+
+Herkomst: de basisuitgangspunten van het programma, met de verhouding tot ROSA en het Kernmodel Onderwijsinformatie uit de architectuurbesluiten.
+
+De uitwerkingen sluiten waar passend aan op de [Open Education API](https://openonderwijsapi.nl/v6.0/), als profiel bovenop de standaard en niet als afsplitsing ervan. Een eis die buiten een technische standaard valt, wordt een signalering richting die standaard in plaats van een aanpassing in de basis.
+
+Met de sectorarchitecturen MORA en HORA houdt OKx nauwe verbinding zonder ze te wijzigen. Een uitwerking van OKx kan later als onderbouwd voorstel richting een referentiearchitectuur gaan. De verhouding met ROSA en het Kernmodel Onderwijsinformatie ligt vast in de architectuurbesluiten.
 
 ## Raakvlakken
 
