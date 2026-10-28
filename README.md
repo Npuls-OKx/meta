@@ -4,11 +4,15 @@ De publieke werkomgeving van **OKx**: hier ontstaan de producten van het project
 
 De releaseartefacten staan in [`Npuls-OKx/Public`](https://github.com/Npuls-OKx/Public): wat in deze kennisbank tot een releasebaar artefact rijpt, verhuist daarheen. Bestaat een document in beide repositories, dan is de versie in Public de vastgelegde en de versie hier de werkversie.
 
-## Doel
+## Resultaten
+
+Het projectplan noemt drie resultaten.
 
 1. Komen tot gezamenlijke taal en standaarden voor gegevensuitwisseling die een scala aan flexibilisering mogelijk maken in het mbo.
 2. Komen tot functionele en technische gegevensuitwisseling voor het mbo, hbo en wo die studentmobiliteit ondersteunen.
 3. Pilot studentmobiliteit starten in het mbo: implementatie en realisatie van de digitale koppelingen, met eventueel gebruik van SURF-diensten.
+
+Wat elk resultaat van de uitwerking vraagt staat in [`doc/OKx_Context.md`](doc/OKx_Context.md), samen met de opdracht, de use-cases en de uitgangspunten.
 
 ## Scope
 
@@ -23,6 +27,8 @@ De afbakening staat als architectuurbesluit vast in [ADR 0008](https://github.co
 
 ## Deliverables
 
+OKx levert vier groepen producten. Welke groepen dat zijn ligt vast; de vorm waarin elk product uitkomt wordt nu bepaald, op grond van de eerste iteraties en proefopstellingen die er liggen.
+
 | Deliverable | Wat het is | Waar het staat |
 |---|---|---|
 | Koppelvlakspecificatie | De specificaties waarmee een partij een koppelvlak bouwt: per component de diensten, per koppeling het berichtgedrag, met de schema's erbij | [Public, Koppelvlakspecificaties](https://github.com/Npuls-OKx/Public/tree/dev/Koppelvlakspecificaties) |
@@ -30,7 +36,9 @@ De afbakening staat als architectuurbesluit vast in [ADR 0008](https://github.co
 | Referentiemateriaal | De onderbouwing: principes, uitgangspunten, architectuurbesluiten en de kaderscenario's per leerroute | [Public, Referentiemateriaal](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal) |
 | Kaderstelling en modellen | Het ArchiMate-model, de hoofdplaat informatiestromen, de interactieketens en de voorbeelduitwerkingen | deze repository |
 
-De koppelvlakspecificatie is de hoofdoplevering: een set specificaties van koppelingen die als functioneel ontwerp dient voor een implementatie, bij voorkeur als [OEAPI-profiel](https://oeapi.eu/v6.0/#/technical/consumers-and-profiles/profiling-guidelines). Valt een eis buiten de profielvorm, dan komt een andere generieke standaard in beeld. Het uitgangspunt is OEAPI tenzij. De opdeling van de volledige set en de verwachte vorm per product staan in [#421](https://github.com/Npuls-OKx/meta/issues/421), met de [leesroute](doc/leesroute-okx.md) als ingang erop.
+De koppelvlakspecificatie is de hoofdoplevering: een set specificaties van koppelingen die als functioneel ontwerp dient voor een implementatie, bij voorkeur als [OEAPI-profiel](https://oeapi.eu/v6.0/#/technical/consumers-and-profiles/profiling-guidelines). Valt een eis buiten de profielvorm, dan komt een andere generieke standaard in beeld. Het uitgangspunt is OEAPI tenzij.
+
+Hoe die set wordt opgedeeld en op welk niveau zij uitkomt, is onderwerp van werk dat loopt. Het concept voor de opdeling staat in [#396](https://github.com/Npuls-OKx/meta/issues/396) en [#421](https://github.com/Npuls-OKx/meta/issues/421); het vastzetten ervan wacht op een scherper beeld van wat de keten nodig heeft ([#424](https://github.com/Npuls-OKx/meta/issues/424)). De [leesroute](doc/leesroute-okx.md#stand-van-de-route) zegt waar dat op dit moment staat.
 
 ## Totstandkoming deliverables
 
@@ -41,7 +49,7 @@ flowchart LR
   S["Scenario"] --> G["Gegevens"] --> I["Interactie"] --> T["Technologie"] --> B["Bericht"] --> F["Interface"]
 ```
 
-Elke specificatie van koppelvlakken begint bij een wens in de student- en instellingsreis en sluit de cirkel bij de drie doelen.
+Elke specificatie van koppelvlakken begint bij een wens in de student- en instellingsreis en sluit de cirkel bij de drie resultaten.
 
 ```mermaid
 flowchart LR
@@ -50,7 +58,7 @@ flowchart LR
   A --> K["Koppelvlakspecificatie<br/>functioneel ontwerp van koppelingen"]
   K --> P["Technische specificatie van<br/>OKx-profiel<br/>binnen OEAPI"]
   P --> IM["Implementatie<br/>bij de instelling,<br/>met adoptie ondersteuning door OKx"]
-  IM --> D["De drie doelen"]
+  IM --> D["De drie resultaten"]
   D -.->|"volgende wens"| V
 ```
 
