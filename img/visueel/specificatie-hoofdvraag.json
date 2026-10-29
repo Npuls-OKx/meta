@@ -1,0 +1,50 @@
+{
+  "titel": "Hoe ziet onze specificatie eruit?",
+  "ondertitel": "De vraag waar het werk van OKx op uitkomt, en waarom de vorm nog niet vaststaat",
+  "breedte": 1200,
+  "blokken": [
+    {
+      "soort": "kolommen",
+      "kolommen": [
+        {
+          "titel": "Wat er in concept ligt",
+          "kleur": "#3D68EC",
+          "regels": [
+            {"tekst": "Een eerste pakket koppelvlakspecificaties", "bron": "Public, versie 0.0.x, uitgebracht"},
+            {"tekst": "De herziening naar interactieketens", "bron": "meta PR 373 en 387, op een branch"},
+            {"tekst": "Een laag applicatiediensten eronder", "bron": "Public PR 100"},
+            {"tekst": "Het informatiemodel met de begrippenlijst", "bron": "80 objecttypen, 226 relaties"},
+            {"tekst": "De route naar een OEAPI-profiel", "bron": "OEAPI tenzij, als overlay op de standaard"},
+            {"tekst": "De voorbeeldregels per processtap", "bron": "leerroute 1, 67 beelden uit een regeltabel"}
+          ]
+        },
+        {
+          "titel": "Wat nog open staat",
+          "kleur": "#DD784B",
+          "regels": [
+            {"tekst": "Op welk niveau de set wordt geknipt: capability, koppelvlakdienst of keten", "bron": "issue 342", "open": true},
+            {"tekst": "Hoe optionaliteit zich in een profiel laat uitdrukken", "bron": "issue 447", "open": true},
+            {"tekst": "Met welke woorden de lagen worden benoemd", "bron": "issue 445", "open": true},
+            {"tekst": "Wat een instelling moet kunnen om een leerroute te realiseren. De taal daarvoor is in aanbouw en begint bruikbaar te worden", "bron": "issue 424 en 440", "open": true}
+          ]
+        }
+      ]
+    },
+    {
+      "kop": "De route om dat beeld te krijgen",
+      "soort": "stappen",
+      "stappen": [
+        {"naam": "Persona", "toelichting": "wie is de lerende", "icoon": "user-multiple", "kleur": "#00AF81"},
+        {"naam": "Leerroutedocument", "toelichting": "wat de instelling doet per fase", "icoon": "road", "kleur": "#00AF81"},
+        {"naam": "Voorbeeldregels", "toelichting": "welke objecten bewegen per stap", "icoon": "flow", "kleur": "#00AF81"},
+        {"naam": "Wat ontbreekt", "toelichting": "begrippen die de reis blootlegt", "icoon": "search", "kleur": "#DD784B"},
+        {"naam": "Informatiemodel", "toelichting": "aangevuld, en de taal groeit", "icoon": "model", "kleur": "#3D68EC"}
+      ]
+    },
+    {
+      "soort": "tekst",
+      "tekst": "De reis stap voor stap doorlopen legt bloot welke begrippen ontbreken. Zo kwam de nominale leerroute boven water. Dat is geen illustratie achteraf maar de manier waarop de taal wordt opgebouwd."
+    }
+  ],
+  "voet": "Rijpheid: wat er ligt staat op niveau 3 en 6, er staat niets op niveau 7. Het vastzetten van de vorm wacht op een scherper beeld van wat een instelling moet kunnen."
+}

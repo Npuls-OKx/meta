@@ -1,0 +1,29 @@
+{
+  "titel": "Rijpheid",
+  "ondertitel": "Hoe hard is wat hier staat, van open vraag tot bekrachtigde afspraak",
+  "breedte": 1100,
+  "blokken": [
+    {
+      "soort": "ladder",
+      "treden": [
+        {"nummer": 1, "naam": "Vraag", "toelichting": "open, OKx zoekt hier nog antwoord op", "kleur": "#DD784B"},
+        {"nummer": 2, "naam": "Verkenning", "toelichting": "uitgezocht, nog geen richting gekozen", "kleur": "#DD784B"},
+        {"nummer": 3, "naam": "Concept", "toelichting": "een uitwerking om op te schieten", "kleur": "#3D68EC", "merk": "het meeste staat hier"},
+        {"nummer": 4, "naam": "Voorstel", "toelichting": "klaar om over te besluiten", "kleur": "#3D68EC"},
+        {"nummer": 5, "naam": "Besloten in OKx", "toelichting": "het team heeft gekozen, vastgelegd in een architectuurbesluit", "kleur": "#3D68EC"},
+        {"nummer": 6, "naam": "Uitgebracht", "toelichting": "in een release met een versienummer, in Public", "kleur": "#00AF81"},
+        {"nummer": 7, "naam": "Bekrachtigd", "toelichting": "geratificeerd door leveranciers, instellingen en de architectuurgremia", "leeg": true, "merk": "nog niets"}
+      ]
+    },
+    {
+      "soort": "legenda",
+      "items": [
+        {"tekst": "open vraag of verkenning", "kleur": "#DD784B"},
+        {"tekst": "in uitwerking binnen OKx", "kleur": "#3D68EC"},
+        {"tekst": "uitgebracht in Public", "kleur": "#00AF81"},
+        {"tekst": "nog leeg", "gestippeld": true}
+      ]
+    }
+  ],
+  "voet": "Een niveau zegt hoe ver de besluitvorming is, niet hoe goed het werk is en niet welke versie je leest. Wat in Public staat is uitgebracht en daarmee bruikbaar; bekrachtigd is het nog niet."
+}

@@ -1,0 +1,40 @@
+{
+  "titel": "De fasen van OKx",
+  "ondertitel": "Waar het project staat, en wat er na de oplevering nog moet gebeuren",
+  "breedte": 1200,
+  "blokken": [
+    {
+      "soort": "stappen",
+      "hoogte": 112,
+      "stappen": [
+        {"naam": "Specificatie", "toelichting": "hier staat OKx nu", "icoon": "document", "kleur": "#3D68EC"},
+        {"naam": "Bouw", "toelichting": "leveranciers bouwen de koppelingen", "icoon": "api", "kleur": "#6B7280"},
+        {"naam": "Implementatie en adoptie", "toelichting": "instellingen nemen in gebruik", "icoon": "building", "kleur": "#6B7280"},
+        {"naam": "Borging", "toelichting": "wie neemt het over?", "icoon": "help", "kleur": "#DD784B"}
+      ]
+    },
+    {
+      "soort": "kolommen",
+      "kolommen": [
+        {
+          "titel": "Wat vastligt",
+          "kleur": "#3D68EC",
+          "regels": [
+            {"tekst": "In het derde kwartaal van 2027 zijn de eerste specificaties gereed, zodat het technisch specificeren van een OEAPI-profiel kan beginnen"},
+            {"tekst": "In 2032 houdt Npuls op. De borging moet daarvoor rond zijn"}
+          ]
+        },
+        {
+          "titel": "Wat open staat",
+          "kleur": "#DD784B",
+          "regels": [
+            {"tekst": "Wie de standaard overneemt in een lijnorganisatie", "bron": "issue 450 en 451", "open": true},
+            {"tekst": "Wanneer de overdracht begint, en wat er dan precies overgaat", "bron": "zeven onderdelen, van de specificaties tot de gremia", "open": true},
+            {"tekst": "Hoe het gremium in leven blijft. Bij OKE loopt de continuiteit via de deelnemers en niet via een organisatie", "open": true}
+          ]
+        }
+      ]
+    }
+  ],
+  "voet": "OKx specificeert nog. Beheer en overdracht liggen ver weg; er is oog op via het borgingstraject van OKE."
+}

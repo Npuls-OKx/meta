@@ -11,11 +11,15 @@
 
 Kern: 43 minuten. Alles: ongeveer drie uur.
 
-Wat hier staat is grotendeels **concept**: een uitwerking om op te schieten. Niets is bekrachtigd door de sector. De zeven niveaus staan in [Rijpheid](OKx_Rijpheid.md); per stap hieronder zegt de statusregel waar dat deel op staat.
+Wat hier staat is grotendeels **concept**: een uitwerking om op te schieten. Niets is bekrachtigd door de sector. Per stap hieronder zegt de statusregel waar dat deel op staat.
+
+![De zeven rijpheidsniveaus, met het hoogste nog leeg](../img/visueel/rijpheid.svg)
 
 Leestijd is de woordtelling gedeeld door honderdtwintig woorden per minuut, het tempo waarop architectuurmateriaal leest dat een lezer moet kunnen navertellen. Per stap staat de status van het materiaal met de lopende pull request erbij; de route schrijft geen statuswaarde over.
 
 ## Deel 1, context
+
+![Waarvoor OKx bestaat: wat de sector vraagt, en de tegenvraag die een leverancier stelt](../img/visueel/aanleiding.svg)
 
 OKx legt gestandaardiseerde koppelingen vast voor de onderwijslogistiek, zodat een student binnen en later buiten de eigen instelling onderwijs kan kiezen en volgen terwijl de administratie meebeweegt. Het project valt onder de transformatiehub Wendbaar georganiseerd onderwijs van Npuls, in samenwerking met Digitale sectorvoorzieningen.
 
@@ -79,6 +83,8 @@ Welke leerroutes eerst aan bod komen, staat in de [basisuitgangspunten](OKx_Cont
 | Omvang | 6030 van 15679 woorden, 50 minuten. Voluit ruim twee uur |
 
 ## Deel 4, deliverables
+
+![Hoe ziet onze specificatie eruit: wat er in concept ligt tegenover wat open staat](../img/visueel/specificatie-hoofdvraag.svg)
 
 OKx levert een set specificaties van de koppelingen tussen de componenten in de onderwijsketen. Die set dient als functioneel ontwerp voor een implementatie, bij voorkeur als [OEAPI-profiel](https://oeapi.eu/v6.0/#/technical/consumers-and-profiles/profiling-guidelines). Valt een eis buiten de profielvorm, dan komt een andere generieke standaard in beeld. Het uitgangspunt is OEAPI tenzij.
 
@@ -244,6 +250,8 @@ Wie verder wil, opent een applicatiecomponent met zijn interactiepatroon en een 
 
 ## Deel 5, architectuurbesluiten
 
+![De architectuurbesluiten die de rest van het werk dragen](../img/visueel/besluiten.svg)
+
 | Vraag | Besluit | Laag |
 |---|---|---|
 | Waar ligt de grens | [0008](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0008-scope-planning-eerst-intra-instelling.md) eerst intra-instelling, federatie gefaseerd | kern |
@@ -266,6 +274,8 @@ Wie verder wil, opent een applicatiecomponent met zijn interactiepatroon en een 
 Verder lezen: 0003 en 0004 onder de leeruitkomst, 0009 en 0014 voor de rolverdeling tussen studentkeuzesysteem en studentvolgsysteem, en 0018 voor de messaging-patronen.
 
 ## Deel 6, release en beheer
+
+![De fasen van OKx: specificatie, bouw, implementatie en adoptie, borging, met 2032 als eindpunt](../img/visueel/fasen.svg)
 
 Elk pakket in Public draagt een eigen versielijn met een manifest. Tot een pakket zijn eerste stabiele versie bereikt, kan elk onderdeel eraan wijzigen.
 

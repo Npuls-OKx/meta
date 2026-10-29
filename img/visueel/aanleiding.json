@@ -1,0 +1,43 @@
+{
+  "titel": "Waarvoor OKx bestaat",
+  "ondertitel": "Wat de sector vraagt, en waarom het bestaande dat niet oplost",
+  "breedte": 1200,
+  "blokken": [
+    {
+      "soort": "kolommen",
+      "kolommen": [
+        {
+          "titel": "Meer keuzemogelijkheden, ontleed",
+          "kleur": "#00AF81",
+          "regels": [
+            {"tekst": "Binnen de eigen opleiding kiezen", "bron": "leerroute 1 tot 3: regulier, temporiseren, versnellen"},
+            {"tekst": "Binnen de instelling kiezen, buiten de eigen opleiding", "bron": "leerroute 4"},
+            {"tekst": "Buiten de instelling kiezen, binnen de sector", "bron": "leerroute 5"},
+            {"tekst": "Over sectoren heen kiezen, en modulair stapelen", "bron": "leerroute 6 tot 9"}
+          ]
+        },
+        {
+          "titel": "De tegenvraag die een leverancier stelt",
+          "kleur": "#DD784B",
+          "regels": [
+            {"tekst": "Waarom maken we de bestaande koppelingen niet gewoon OEAPI-conform, dan zijn we klaar", "open": true},
+            {"tekst": "Als dat de oplossing is, waarom is het dan nog niet gebeurd, en waarvoor is OKx dan nodig", "open": true},
+            {"tekst": "Hypothese van het team: er conflicteren belangen. Een leverancier of instelling heeft op zichzelf weinig reden om alles met de buurman uit te wisselen", "bron": "niveau 1, niet getoetst", "open": true}
+          ]
+        }
+      ]
+    },
+    {
+      "kop": "Waar een gedeelde afspraak dan voor nodig is",
+      "soort": "kaarten",
+      "hoogte": 112,
+      "items": [
+        {"titel": "De middenweg vinden", "toelichting": "tussen wat instellingen willen en wat leveranciers bouwen", "icoon": "partnership", "kleur": "#3D68EC"},
+        {"titel": "Voorschrijven met een voorwaarde", "toelichting": "wilt u deze functionaliteit en leerroute, dan wisselt u zo uit", "icoon": "task", "kleur": "#3D68EC"},
+        {"titel": "Beschrijven voor het bouwen", "toelichting": "proces, informatie en systeem op een vaste manier beschreven", "icoon": "document", "kleur": "#3D68EC"},
+        {"titel": "Standaardiseren op niveau", "toelichting": "op het uitwisselingsniveau dat bij die doelen hoort", "icoon": "network-3", "kleur": "#3D68EC"}
+      ]
+    }
+  ],
+  "voet": "De voorwaarde is het verschil tussen een standaard en een dictaat. OKx schrijft niet voor dat een instelling iets moet willen; het schrijft voor wat er nodig is zodra zij iets wil."
+}

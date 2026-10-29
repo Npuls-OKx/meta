@@ -1,0 +1,22 @@
+{
+  "titel": "Waarop de uitwerking steunt",
+  "ondertitel": "De architectuurbesluiten die de rest van het werk dragen",
+  "breedte": 1200,
+  "blokken": [
+    {
+      "soort": "kaarten",
+      "hoogte": 118,
+      "items": [
+        {"titel": "Intra-instelling eerst", "toelichting": "federatie tussen instellingen gefaseerd, ADR 0008", "icoon": "building", "kleur": "#3D68EC"},
+        {"titel": "De leeruitkomst als sleutel", "toelichting": "zij verbindt specificatie, aanbod en resultaat, ADR 0026", "icoon": "certificate", "kleur": "#3D68EC"},
+        {"titel": "Het model is de bron", "toelichting": "beelden en lijsten volgen uit ArchiMate, ADR 0010", "icoon": "model", "kleur": "#3D68EC"},
+        {"titel": "Eisen voor de techniekkeuze", "toelichting": "een mismatch wordt een signalering richting de standaard", "icoon": "warning", "kleur": "#DD784B"}
+      ]
+    },
+    {
+      "soort": "tekst",
+      "tekst": "Een besluit draagt zijn eigen statusregel; die is leidend. Een besluit kan ook vervangen zijn. Het onderscheid uit besluit 0021 is in beweging: het kan opgaan in de interactieketen en de interactiespecificatie."
+    }
+  ],
+  "voet": "Rijpheid: een vastgesteld besluit staat op niveau 5. De besluiten zelf staan in Npuls-OKx/Public, onder Referentiemateriaal."
+}
