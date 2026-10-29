@@ -196,7 +196,7 @@ Daarnaast loopt een tweede lijn: de capabilities van de voorziening, oftewel wat
 |---|---|
 | Beantwoordt | Welke objecttypen de keten kent, hoe die samenhangen, en welke begrippenfamilies haar indelen |
 | Overslaan | De ontwerpkeuzes met de status voorstel |
-| Status | Laag 1 en 2 vastgelegd in Public. [Public PR 131](https://github.com/Npuls-OKx/Public/pull/131) brengt de modelronde van oktober, met de review-instructie daarin; [meta PR 391](https://github.com/Npuls-OKx/meta/pull/391) raakt het kwalificatiekader, [410](https://github.com/Npuls-OKx/meta/pull/410) de resultaatkant |
+| Status | Laag 1 en 2 vastgelegd in Public, met de modelronde van oktober erin ([Public PR 131](https://github.com/Npuls-OKx/Public/pull/131)). Lopend: [meta PR 391](https://github.com/Npuls-OKx/meta/pull/391) raakt het kwalificatiekader, [410](https://github.com/Npuls-OKx/meta/pull/410) de resultaatkant |
 | Omvang | 2741 woorden, 23 minuten |
 
 ### Verdieping: de hoofdplaat informatiestromen
