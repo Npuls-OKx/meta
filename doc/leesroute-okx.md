@@ -1,15 +1,16 @@
 # Leesroute OKx
 
-| Deel | Kern | Verdieping |
-|---|---|---|
-| [1 Context](#deel-1-context) | 5 min | optioneel, 12 min |
-| [2 Historisch overzicht](#deel-2-historisch-overzicht) | | optioneel, 10 min |
-| [3 Scope](#deel-3-scope) | 10 min | optioneel, 50 min |
-| [4 Deliverables](#deel-4-deliverables) | 18 min | optioneel, 65 min |
-| [5 Architectuurbesluiten](#deel-5-architectuurbesluiten) | 6 min | optioneel, 23 min |
-| [6 Release en beheer](#deel-6-release-en-beheer) | 4 min | optioneel, 9 min |
+| Deel | De vraag | Kern | Verdieping |
+|---|---|---|---|
+| [1 Context](#deel-1-context) | Waarvoor bestaat OKx | 5 min | optioneel, 12 min |
+| [2 Historisch overzicht](#deel-2-historisch-overzicht) | Hoe is het zo gelopen | | optioneel, 10 min |
+| [3 Scope](#deel-3-scope) | Waar houdt het op | 10 min | optioneel, 50 min |
+| [4 Deliverables](#deel-4-deliverables) | Wat komt eruit | 18 min | optioneel, 65 min |
+| [5 Architectuurbesluiten](#deel-5-architectuurbesluiten) | Waarop steunt dat | 6 min | optioneel, 23 min |
+| [6 Release en beheer](#deel-6-release-en-beheer) | Hoe blijft het in leven | 4 min | optioneel, 9 min |
+| [7 Wat nu](#deel-7-wat-nu) | Waar stap ik in | 2 min | |
 
-Kern: 43 minuten. Alles: ongeveer drie uur.
+Kern: 45 minuten. Alles: ongeveer drie uur.
 
 Wat hier staat is grotendeels **concept**: een uitwerking om op te schieten. Niets is bekrachtigd door de sector. Per stap hieronder zegt de statusregel waar dat deel op staat.
 
@@ -18,6 +19,8 @@ Wat hier staat is grotendeels **concept**: een uitwerking om op te schieten. Nie
 Leestijd is de woordtelling gedeeld door honderdtwintig woorden per minuut, het tempo waarop architectuurmateriaal leest dat een lezer moet kunnen navertellen. Per stap staat de status van het materiaal met de lopende pull request erbij; de route schrijft geen statuswaarde over.
 
 ## Deel 1, context
+
+**Waarvoor bestaat OKx, en waarom lost het bestaande dat niet op?**
 
 ![Waarvoor OKx bestaat: wat de sector vraagt, en de tegenvraag die een leverancier stelt](../img/visueel/aanleiding.svg)
 
@@ -40,6 +43,8 @@ Kern: de [managementsamenvatting](OKx_Context.md#managementsamenvatting), 5 minu
 
 ## Deel 2, historisch overzicht
 
+**Hoe is het zo gelopen?**
+
 ### Verdieping: het historisch overzicht
 
 [Hoe OKx hier kwam](OKx_Historie.md)
@@ -52,6 +57,8 @@ Kern: de [managementsamenvatting](OKx_Context.md#managementsamenvatting), 5 minu
 | Omvang | Een pagina met veertien keerpunten, 10 minuten |
 
 ## Deel 3, scope
+
+**Waar acteert OKx, en waar houdt het op?**
 
 OKE begon op de examenketen. OKx acteert op de processen daaromheen.
 
@@ -83,6 +90,8 @@ Welke leerroutes eerst aan bod komen, staat in de [basisuitgangspunten](OKx_Cont
 | Omvang | 6030 van 15679 woorden, 50 minuten. Voluit ruim twee uur |
 
 ## Deel 4, deliverables
+
+**Wat komt eruit, en hoe ontstaat dat?**
 
 ![Hoe ziet onze specificatie eruit: wat er in concept ligt tegenover wat open staat](../img/visueel/specificatie-hoofdvraag.svg)
 
@@ -250,6 +259,8 @@ Wie verder wil, opent een applicatiecomponent met zijn interactiepatroon en een 
 
 ## Deel 5, architectuurbesluiten
 
+**Waarop steunen die keuzes?**
+
 ![De architectuurbesluiten die de rest van het werk dragen](../img/visueel/besluiten.svg)
 
 | Vraag | Besluit | Laag |
@@ -275,6 +286,8 @@ Verder lezen: 0003 en 0004 onder de leeruitkomst, 0009 en 0014 voor de rolverdel
 
 ## Deel 6, release en beheer
 
+**Hoe blijft dit in leven?**
+
 ![De fasen van OKx: specificatie, bouw, implementatie en adoptie, borging, met 2032 als eindpunt](../img/visueel/fasen.svg)
 
 Elk pakket in Public draagt een eigen versielijn met een manifest. Tot een pakket zijn eerste stabiele versie bereikt, kan elk onderdeel eraan wijzigen.
@@ -291,3 +304,17 @@ Wie iets wil toevoegen of corrigeren, opent een issue of een pull request; de we
 | Overslaan | Niets |
 | Status | Niveau 6. Elk pakket in Public draagt een eigen versielijn met een manifest. [Public PR 82](https://github.com/Npuls-OKx/Public/pull/82) brengt de volgende momentopname |
 | Omvang | 1109 woorden en twee milestonelijsten, 9 minuten |
+
+## Deel 7, wat nu
+
+Drie uur lezen levert weinig op als er daarna niets te doen valt. Dit is wat er openstaat en waar een lezer binnenkomt.
+
+| Wat | Waar |
+|---|---|
+| Een vraag stellen of meedenken | [Discussions](https://github.com/Npuls-OKx/meta/discussions), of een issue met het label `question` |
+| Een fout melden in wat hier staat | Een issue via de sjabloon correctie-documentatie |
+| Meelezen op wat nu loopt | De open pull requests, elk met een review-instructie bovenaan |
+| Zien waar het werk aan toe is | De [milestones](https://github.com/Npuls-OKx/meta/milestones), elk met de vraag die zij beantwoordt |
+| Bijdragen | [`CONTRIBUTING.md`](../CONTRIBUTING.md) voor de werkwijze, [Bijdragen voor beginners](Bijdragen-voor-beginners.md) voor de eerste stappen |
+
+De vragen waar OKx zelf het meeste aan heeft staan in de platen hierboven met een vraagteken erbij. Wie daar een antwoord op heeft, of een reden waarom de vraag verkeerd staat, is precies wie we zoeken.
