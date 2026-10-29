@@ -1,4 +1,4 @@
-# Rijpheid van wat hier staat
+# Rijpheid
 
 Deze repository draagt werk in alle stadia: een vraag die net is opgeschreven staat naast een uitwerking waar maanden in zit. Zonder een aanduiding leest dat hetzelfde, en wordt een schets gelezen als een besluit.
 
@@ -14,13 +14,13 @@ Zeven niveaus, van open vraag tot bekrachtigde afspraak.
 | 6 | Uitgebracht | In een release met een versienummer | Een releasepakket in Public, met een manifest |
 | 7 | Bekrachtigd | Geratificeerd door leveranciers, door instellingen via het IM-netwerk, en door de architectuurgremia | Nog niets |
 
-## Niveau 7 is leeg
+## Het lege niveau
 
 Dat is de belangrijkste uitspraak van deze ladder. Wat in Public staat is uitgebracht en daarmee leesbaar en bruikbaar, maar het is niet bekrachtigd. Er is nog geen set documentatie waarvan de sector heeft gezegd: hieraan houden wij ons.
 
 Een lezer die dat weet, leest de rest anders. Een concept is dan een uitnodiging om mee te denken, en geen claim om tegenin te gaan.
 
-## Waar het niveau staat
+## Vindplaats per soort
 
 | Waar | Hoe |
 |---|---|
@@ -29,7 +29,7 @@ Een lezer die dat weet, leest de rest anders. Een concept is dan een uitnodiging
 | Een aanname in een beeld | Gestippeld, zonder merk: dat is een invulling van het voorbeeld en geen uitspraak over de werkelijkheid |
 | Een issue | Het label en de milestone zeggen waar het werk staat, de tekst zegt het niveau |
 
-## Wat dit niet is
+## Afbakening
 
 Dit is geen versienummering. Een versie zegt welke uitgave je leest; een niveau zegt hoe hard de inhoud is. Een document kan versie 0.2 dragen en op niveau 3 staan. Het versiebeleid staat in [Release en versionering](OKx_Release-management-en-versionering.md).
 

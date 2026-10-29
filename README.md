@@ -4,7 +4,7 @@ De publieke werkomgeving van **OKx**: hier ontstaan de producten van het project
 
 Bestaat een document in beide repositories, dan is de versie in [`Npuls-OKx/Public`](https://github.com/Npuls-OKx/Public) de vastgelegde en de versie hier de werkversie. Waar OKx aansluit op bestaande standaarden en referentiearchitecturen staat in [`doc/OKx_Context.md`](doc/OKx_Context.md#standaarden-en-referentiearchitecturen).
 
-## Wat OKx oplevert
+## Oplevering
 
 Het projectplan noemt drie resultaten: gezamenlijke taal en standaarden voor gegevensuitwisseling in het mbo, functionele en technische uitwisseling voor mbo, hbo en wo die studentmobiliteit ondersteunt, en een pilot studentmobiliteit in het mbo. De opdracht, de scope, de use-cases en wat elk resultaat van de uitwerking vraagt staan in [`doc/OKx_Context.md`](doc/OKx_Context.md).
 

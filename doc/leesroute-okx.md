@@ -11,7 +11,7 @@
 
 Kern: 43 minuten. Alles: ongeveer drie uur.
 
-Wat hier staat is grotendeels **concept**: een uitwerking om op te schieten. Niets is bekrachtigd door de sector. De zeven niveaus staan in [Rijpheid van wat hier staat](OKx_Rijpheid.md); per stap hieronder zegt de statusregel waar dat deel op staat.
+Wat hier staat is grotendeels **concept**: een uitwerking om op te schieten. Niets is bekrachtigd door de sector. De zeven niveaus staan in [Rijpheid](OKx_Rijpheid.md); per stap hieronder zegt de statusregel waar dat deel op staat.
 
 Leestijd is de woordtelling gedeeld door honderdtwintig woorden per minuut, het tempo waarop architectuurmateriaal leest dat een lezer moet kunnen navertellen. Per stap staat de status van het materiaal met de lopende pull request erbij; de route schrijft geen statuswaarde over.
 
