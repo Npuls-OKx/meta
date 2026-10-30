@@ -1,0 +1,84 @@
+{
+  "titel": "Keuzemogelijkheden, ontleed",
+  "ondertitel": "Wat meer keuze betekent, van binnen de eigen opleiding tot over sectoren heen",
+  "versie": "0.1.0",
+  "breedte": 1240,
+  "blokken": [
+    {
+      "soort": "niveaus",
+      "labelbreedte": 440,
+      "miniatuurbreedte": 136,
+      "rijen": [
+        {
+          "titel": "Binnen de eigen opleiding kiezen",
+          "bron": "leerroute 1 tot 3: regulier, temporiseren, versnellen",
+          "kleur": "#00AF81",
+          "beelden": [
+            {
+              "pad": "architecture/docs/specificatie/leerroute-uitwerking/img/npuls-leerroute1-regulier-jochem.png",
+              "label": "1 Jochem"
+            },
+            {
+              "pad": "architecture/docs/specificatie/leerroute-uitwerking/img/Npuls-leerroute2-regulier-Larissa.jpg",
+              "label": "2 Larissa"
+            },
+            {
+              "pad": "architecture/docs/specificatie/leerroute-uitwerking/img/Npuls-leerroute3-regulier-Linda.jpg",
+              "label": "3 Linda"
+            }
+          ]
+        },
+        {
+          "titel": "Binnen de instelling kiezen, buiten de eigen opleiding",
+          "bron": "leerroute 4",
+          "kleur": "#3D68EC",
+          "beelden": [
+            {
+              "pad": "architecture/docs/specificatie/leerroute-uitwerking/img/npuls-leerroute4-personaliseren-binnen-de-instelling-kyra.png",
+              "label": "4 Kyra"
+            }
+          ]
+        },
+        {
+          "titel": "Buiten de instelling kiezen, binnen de sector",
+          "bron": "leerroute 5",
+          "kleur": "#3D68EC",
+          "beelden": [
+            {
+              "pad": "architecture/docs/specificatie/leerroute-uitwerking/img/npuls-leerroute5-personaliseren-binnen-de-sector-macca.png",
+              "label": "5 Macca"
+            }
+          ]
+        },
+        {
+          "titel": "Over sectoren heen kiezen, en modulair stapelen",
+          "bron": "leerroute 6 tot 9: over sectoren, vrije keuze, bundelen, stapelen",
+          "kleur": "#DD784B",
+          "beelden": [
+            {
+              "pad": "architecture/docs/specificatie/leerroute-uitwerking/img/npuls-leerroute6-personaliseren-over-sectoren-heen-aurelie.png",
+              "label": "6 Aurelie"
+            },
+            {
+              "pad": "architecture/docs/specificatie/leerroute-uitwerking/img/npuls-leerroute7-vrije-keuze-sinead.png",
+              "label": "7 Sinead"
+            },
+            {
+              "pad": "architecture/docs/specificatie/leerroute-uitwerking/img/npuls-leerroute8-bundelen-chen.png",
+              "label": "8 Chen"
+            },
+            {
+              "pad": "architecture/docs/specificatie/leerroute-uitwerking/img/npuls-leerroute9-stapelen-michelle.png",
+              "label": "9 Michelle"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "soort": "tekst",
+      "tekst": "Elke trede hoger betekent meer afspraken met partijen buiten de eigen muren, meer uitwisseling tussen systemen, en meer beschrijflast voor wie het onderwijs ontwerpt. Een instelling kiest zelf welk niveau bij haar past. De tekeningen komen van Npuls, met per leerroute een persona."
+    }
+  ],
+  "voet": "De tekeningen per leerroute staan voluit in architecture/docs/specificatie/leerroute-uitwerking/img, met de keten van persona, uitwerking, scenario en modeldoorloop erbij."
+}

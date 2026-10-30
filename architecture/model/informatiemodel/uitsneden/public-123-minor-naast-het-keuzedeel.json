@@ -1,89 +1,90 @@
 {
- "id": "public-123-minor-naast-het-keuzedeel",
- "titel": "Is het keuzedeel generieker te modelleren, met de minor ernaast?",
- "herkomst": "Reviewvraag Npuls-OKx/Public#123 van @niesink en @hjwielemaker, werkbrief Npuls-OKx/meta#319",
- "oeapi": true,
- "rij_labels": [
-  "mbo-invulling",
-  "algemeen type",
-  "ho-invulling"
- ],
- "objecten": [
-  {
-   "naam": "Keuzedeelruimte",
-   "rij": 0
-  },
-  {
-   "naam": "Keuzedeel",
-   "rij": 0
-  },
-  {
-   "naam": "Keuzedeel aanbod",
-   "rij": 0,
-   "merk": "hernoemd",
-   "nummer": 1,
-   "waarom": "heette Keuzedeelaanbod, nu los geschreven net als opleidingsprogramma aanbod"
-  },
-  {
-   "naam": "Keuzedeel aanbod verbintenis",
-   "rij": 0
-  },
-  {
-   "naam": "Keuzedeel resultaat",
-   "rij": 0
-  },
-  {
-   "naam": "Opleidingsprogramma specificatie",
-   "rij": 1,
-   "noot": "bevat zichzelf: een keuzedeelruimte of minor ruimte is zo'n deel"
-  },
-  {
-   "naam": "Opleidingsprogramma aanbod",
-   "rij": 1
-  },
-  {
-   "naam": "Opleidingsprogramma aanbod verbintenis",
-   "rij": 1
-  },
-  {
-   "naam": "Opleidingsprogramma resultaat",
-   "rij": 1
-  },
-  {
-   "naam": "Minor ruimte",
-   "rij": 2,
-   "merk": "toegevoegd",
-   "nummer": 2,
-   "noot": "associatie loopt andersom dan bij het keuzedeel",
-   "waarom": "wijst aan welke minors kiesbaar zijn"
-  },
-  {
-   "naam": "Minor",
-   "rij": 2,
-   "merk": "toegevoegd",
-   "nummer": 3,
-   "waarom": "is net als het keuzedeel een opleidingsprogramma specificatie"
-  },
-  {
-   "naam": "Minor aanbod",
-   "rij": 2,
-   "merk": "toegevoegd",
-   "nummer": 4,
-   "waarom": "het concrete aanbod van een minor"
-  },
-  {
-   "naam": "Minor aanbod verbintenis",
-   "rij": 2,
-   "merk": "toegevoegd",
-   "nummer": 5,
-   "waarom": "de deelname van een student aan dat aanbod"
-  },
-  {
-   "naam": "Minor resultaat",
-   "rij": 2,
-   "merk": "toegevoegd",
-   "nummer": 6,
-   "waarom": "het resultaat op die deelname"
-  }
- ]
+  "id": "public-123-minor-naast-het-keuzedeel",
+  "titel": "Is het keuzedeel generieker te modelleren, met de minor ernaast?",
+  "herkomst": "Reviewvraag Npuls-OKx/Public#123 van @niesink en @hjwielemaker, werkbrief Npuls-OKx/meta#319",
+  "versie": "0.1.0",
+  "oeapi": true,
+  "rij_labels": [
+    "mbo-invulling",
+    "algemeen type",
+    "ho-invulling"
+  ],
+  "objecten": [
+    {
+      "naam": "Keuzedeelruimte",
+      "rij": 0
+    },
+    {
+      "naam": "Keuzedeel",
+      "rij": 0
+    },
+    {
+      "naam": "Keuzedeel aanbod",
+      "rij": 0,
+      "merk": "hernoemd",
+      "nummer": 1,
+      "waarom": "heette Keuzedeelaanbod, nu los geschreven net als opleidingsprogramma aanbod"
+    },
+    {
+      "naam": "Keuzedeel aanbod verbintenis",
+      "rij": 0
+    },
+    {
+      "naam": "Keuzedeel resultaat",
+      "rij": 0
+    },
+    {
+      "naam": "Opleidingsprogramma specificatie",
+      "rij": 1,
+      "noot": "bevat zichzelf: een keuzedeelruimte of minor ruimte is zo'n deel"
+    },
+    {
+      "naam": "Opleidingsprogramma aanbod",
+      "rij": 1
+    },
+    {
+      "naam": "Opleidingsprogramma aanbod verbintenis",
+      "rij": 1
+    },
+    {
+      "naam": "Opleidingsprogramma resultaat",
+      "rij": 1
+    },
+    {
+      "naam": "Minor ruimte",
+      "rij": 2,
+      "merk": "toegevoegd",
+      "nummer": 2,
+      "noot": "associatie loopt andersom dan bij het keuzedeel",
+      "waarom": "wijst aan welke minors kiesbaar zijn"
+    },
+    {
+      "naam": "Minor",
+      "rij": 2,
+      "merk": "toegevoegd",
+      "nummer": 3,
+      "waarom": "is net als het keuzedeel een opleidingsprogramma specificatie"
+    },
+    {
+      "naam": "Minor aanbod",
+      "rij": 2,
+      "merk": "toegevoegd",
+      "nummer": 4,
+      "waarom": "het concrete aanbod van een minor"
+    },
+    {
+      "naam": "Minor aanbod verbintenis",
+      "rij": 2,
+      "merk": "toegevoegd",
+      "nummer": 5,
+      "waarom": "de deelname van een student aan dat aanbod"
+    },
+    {
+      "naam": "Minor resultaat",
+      "rij": 2,
+      "merk": "toegevoegd",
+      "nummer": 6,
+      "waarom": "het resultaat op die deelname"
+    }
+  ]
 }

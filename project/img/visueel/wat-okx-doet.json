@@ -1,0 +1,110 @@
+{
+  "titel": "Systemen in een school wisselen de hele dag gegevens uit",
+  "ondertitel": "OKx legt vast hoe dat gaat, zodat elke school en elke leverancier dezelfde afspraak gebruikt",
+  "versie": "0.1.0",
+  "breedte": 1240,
+  "blokken": [
+    {
+      "soort": "netwerk",
+      "hoogte": 330,
+      "panelen": [
+        {
+          "titel": "Vandaag richt elke school het zelf in",
+          "toelichting": "zes systemen die elkaar rechtstreeks kennen, dat zijn vijftien koppelingen",
+          "kleur": "#DD784B",
+          "vorm": "onderling",
+          "knopen": [
+            {
+              "naam": "Onderwijscatalogus",
+              "icoon": "catalog"
+            },
+            {
+              "naam": "Planning en rooster",
+              "icoon": "calendar"
+            },
+            {
+              "naam": "Studentinformatie",
+              "icoon": "data-base"
+            },
+            {
+              "naam": "Leeromgeving",
+              "icoon": "education"
+            },
+            {
+              "naam": "Keuzesysteem",
+              "icoon": "user-multiple"
+            },
+            {
+              "naam": "Toetsen en examineren",
+              "icoon": "certificate"
+            }
+          ]
+        },
+        {
+          "titel": "Met een koppelvlakstandaard",
+          "toelichting": "dezelfde zes systemen, en een afspraak die overal hetzelfde is",
+          "kleur": "#00AF81",
+          "vorm": "via",
+          "midden": "OKx-koppelvlak",
+          "middenicoon": "network-3",
+          "knopen": [
+            {
+              "naam": "Onderwijscatalogus",
+              "icoon": "catalog"
+            },
+            {
+              "naam": "Planning en rooster",
+              "icoon": "calendar"
+            },
+            {
+              "naam": "Studentinformatie",
+              "icoon": "data-base"
+            },
+            {
+              "naam": "Leeromgeving",
+              "icoon": "education"
+            },
+            {
+              "naam": "Keuzesysteem",
+              "icoon": "user-multiple"
+            },
+            {
+              "naam": "Toetsen en examineren",
+              "icoon": "certificate"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kop": "Wat dat oplevert",
+      "soort": "kaarten",
+      "hoogte": 112,
+      "items": [
+        {
+          "titel": "Overzichtelijk onderwijsaanbod",
+          "toelichting": "een student ziet wat er te kiezen valt, en de school weet wat zij aanbiedt",
+          "icoon": "catalog",
+          "kleur": "#3D68EC"
+        },
+        {
+          "titel": "Haalbare onderwijslogistiek",
+          "toelichting": "plannen en roosteren steunt op gegevens die kloppen, in plaats van op overtypen",
+          "icoon": "calendar",
+          "kleur": "#3D68EC"
+        },
+        {
+          "titel": "Betaalbaar voor de sector",
+          "toelichting": "een leverancier bouwt de koppeling een keer, en elke school gebruikt hem",
+          "icoon": "partnership",
+          "kleur": "#00AF81"
+        }
+      ]
+    },
+    {
+      "soort": "tekst",
+      "tekst": "Elke school doet dit nu op haar eigen manier, en binnen een school verschilt het vaak per team. Een leverancier bouwt daardoor voor elke klant opnieuw. OKx legt de afspraken vast waarmee dat verkeer overal hetzelfde loopt."
+    }
+  ],
+  "voet": "De afspraken zijn in concept. Wat er ligt en wat nog open staat, staat in de plaat hieronder."
+}

@@ -6,7 +6,7 @@ de informatiemodelplaat (MIM 1 en 2). Een verdieping mag putten uit een conceptp
 zoals "Informatiemodel Onderwijsontwerp", maar alleen met objecttypen en relaties die
 daar echt op staan. Dit script leest zo'n view alleen en schrijft de objecttypen (met
 de groep waarin ze staan) en de relaties die op de view getekend zijn, in dezelfde vorm
-als informatiemodel.json, zodat controleer-voorbeeldregels.py er zonder omweg mee werkt.
+als informatiemodel.json, zodat controleer-modeldoorloop.py er zonder omweg mee werkt.
 
     python3 tools/scripts/exporteer-conceptplaat.py [--model PAD] [--view NAAM] [--uit PAD]
 

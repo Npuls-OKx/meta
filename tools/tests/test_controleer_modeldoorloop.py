@@ -1,4 +1,4 @@
-"""Testgevallen voor tools/scripts/controleer-voorbeeldregels.py.
+"""Testgevallen voor tools/scripts/controleer-modeldoorloop.py.
 
 Elk geval werkt op een klein fixture-model en een fixture-regeltabel die in de
 test zelf worden opgebouwd; de verwachtingen volgen uit die fixtures, niet uit de
@@ -13,8 +13,8 @@ import unittest
 from pathlib import Path
 
 WORTEL = Path(__file__).resolve().parent.parent.parent
-SCHEMA = WORTEL / "architecture/model/informatiemodel/voorbeeld-lr1-regels.schema.json"
-spec = importlib.util.spec_from_file_location("controleer_voorbeeldregels", WORTEL / "tools/scripts/controleer-voorbeeldregels.py")
+SCHEMA = WORTEL / "architecture/model/informatiemodel/modeldoorloop-lr1.schema.json"
+spec = importlib.util.spec_from_file_location("controleer_modeldoorloop", WORTEL / "tools/scripts/controleer-modeldoorloop.py")
 cv = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(cv)
 
@@ -362,7 +362,7 @@ class SchemaContractTests(unittest.TestCase):
     """Het schema naast de tabel is de woordenlijst van de velden; wat het niet kent hoort op te vallen."""
 
     def test_given_the_real_table_when_validated_then_it_passes_and_the_schema_knows_every_field(self):
-        tabel = json.loads((WORTEL / "architecture/model/informatiemodel/voorbeeld-lr1-regels.json").read_text(encoding="utf-8"))
+        tabel = json.loads((WORTEL / "architecture/model/informatiemodel/modeldoorloop-lr1.json").read_text(encoding="utf-8"))
         fouten, waarschuwingen = cv.schemavalidatie(tabel, SCHEMA)
         self.assertEqual(fouten, [])
         self.assertEqual(waarschuwingen, [])
@@ -451,12 +451,12 @@ class RegisterTests(unittest.TestCase):
     def test_given_the_register_when_read_then_six_findings_have_no_decision_in_the_feature_plan(self):
         """Het featureplan is van 29 september 17:23; zes bevindingen kwamen daarna binnen en wachten
         dus nog op een besluit. Dit geval houdt dat getal zichtbaar in plaats van in een commitbericht."""
-        tabel = json.loads((WORTEL / "architecture/model/informatiemodel/voorbeeld-lr1-regels.json").read_text(encoding="utf-8"))
+        tabel = json.loads((WORTEL / "architecture/model/informatiemodel/modeldoorloop-lr1.json").read_text(encoding="utf-8"))
         zonder = [b["nummer"] for b in tabel["bevindingen"] if not b.get("werkpakketten")]
         self.assertEqual(zonder, ["B33", "B34", "B35", "B36", "B37", "B38"])
 
     def test_given_every_finding_of_the_round_when_counted_then_the_register_holds_all_of_them(self):
-        tabel = json.loads((WORTEL / "architecture/model/informatiemodel/voorbeeld-lr1-regels.json").read_text(encoding="utf-8"))
+        tabel = json.loads((WORTEL / "architecture/model/informatiemodel/modeldoorloop-lr1.json").read_text(encoding="utf-8"))
         self.assertEqual(len(tabel["bevindingen"]), 38)
         beelden = {r["beeld_id"] for r in tabel["regels"]}
         for b in tabel["bevindingen"]:
@@ -539,7 +539,7 @@ class DekkingTests(unittest.TestCase):
     def test_given_the_real_table_when_measured_then_twelve_exchanges_wait_for_an_answer(self):
         """De werklijst van de acht fase-issues: elk gat krijgt daar beeld_in_fase, afwijking of
         buiten_scope, en de fase gaat op dekking volledig."""
-        tabel = json.loads((WORTEL / "architecture/model/informatiemodel/voorbeeld-lr1-regels.json").read_text(encoding="utf-8"))
+        tabel = json.loads((WORTEL / "architecture/model/informatiemodel/modeldoorloop-lr1.json").read_text(encoding="utf-8"))
         b, w = cv.dekking_uitwisselingen(tabel)
         self.assertEqual(b, [])
         self.assertEqual(len([x for x in w if "draagt geen beeld" in x]), 12)
@@ -562,7 +562,7 @@ class KoppelingoverzichtTests(unittest.TestCase):
                             for x in overzicht), overzicht)
 
     def test_given_the_real_table_when_counted_then_the_curriculum_tool_has_no_specification(self):
-        tabel = json.loads((WORTEL / "architecture/model/informatiemodel/voorbeeld-lr1-regels.json").read_text(encoding="utf-8"))
+        tabel = json.loads((WORTEL / "architecture/model/informatiemodel/modeldoorloop-lr1.json").read_text(encoding="utf-8"))
         overzicht = cv.koppelingoverzicht(tabel)
         self.assertTrue(any("Curriculum ontwerptool naar Onderwijscatalogus, 29 regels" in x for x in overzicht), overzicht)
 
@@ -583,7 +583,7 @@ class RolPerBeeldTests(unittest.TestCase):
         self.assertEqual([x for x in w if "meer dan een rol" in x], [])
 
     def test_given_the_real_table_when_checked_then_only_f4_09_carries_two_roles(self):
-        tabel = json.loads((WORTEL / "architecture/model/informatiemodel/voorbeeld-lr1-regels.json").read_text(encoding="utf-8"))
+        tabel = json.loads((WORTEL / "architecture/model/informatiemodel/modeldoorloop-lr1.json").read_text(encoding="utf-8"))
         gevonden = cv.rol_per_beeld(tabel)
         self.assertEqual(len(gevonden), 1)
         self.assertIn("F4-09", gevonden[0])

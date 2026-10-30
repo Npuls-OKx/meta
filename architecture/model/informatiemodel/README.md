@@ -4,17 +4,17 @@ Deze map draagt het informatiemodel van OKx en de voorbeelduitwerking die erbij 
 
 ## Een bron, de rest is uitvoer
 
-Alleen `voorbeeld-lr1-regels.json` wijzigt met de hand. Al het andere wordt eruit gegenereerd en wordt nooit met de hand bijgewerkt, want een handmatige correctie in de uitvoer is bij de volgende generatie weg.
+Alleen `modeldoorloop-lr1.json` wijzigt met de hand. Al het andere wordt eruit gegenereerd en wordt nooit met de hand bijgewerkt, want een handmatige correctie in de uitvoer is bij de volgende generatie weg.
 
 ```
-voorbeeld-lr1-regels.json         de bron: 262 regels over 8 fasen
-voorbeeld-lr1-regels.schema.json  het contract waar elke regel aan moet voldoen
+modeldoorloop-lr1.json         de bron: 262 regels over 8 fasen
+modeldoorloop-lr1.schema.json  het contract waar elke regel aan moet voldoen
          |
-         +--> controleer-voorbeeldregels.py
+         +--> controleer-modeldoorloop.py
          |      toetst de bron tegen het informatiemodel en tegen het schema
          |      uitkomst: bevindingen (blokkerend) en signaleringen (een signaal)
          |
-         +--> teken-voorbeeldregels.py
+         +--> teken-modeldoorloop.py
          |      maakt per beeld een SVG in ArchiMate-vormtaal
          |      uitvoer: img/
          |
@@ -22,10 +22,10 @@ voorbeeld-lr1-regels.schema.json  het contract waar elke regel aan moet voldoen
          |      markeert per fase de informatiestromen op de hoofdplaat
          |      uitvoer: img/
          |
-         +--> genereer-voorbeeld-lr1.py
+         +--> genereer-modeldoorloop-lr1.py
                 bouwt het document en het invulblad
-                uitvoer: voorbeeld-leerroute-1-jochem.md
-                         voorbeeld-leerroute-1-jochem-invulblad.md
+                uitvoer: modeldoorloop-leerroute-1-jochem.md
+                         modeldoorloop-leerroute-1-jochem-invulblad.md
 ```
 
 De drie bestanden `informatiemodel.json`, `componenten.json` en `stromen.json` komen uit het ArchiMate-model en zijn de maat waartegen de controle toetst. Het model zelf wijzigt alleen de modelleur in Archi.
@@ -62,10 +62,10 @@ Drie afspraken gelden bij deze bron. Zij zijn hier vastgelegd en niet als ADR, o
 In de dev-container, na elke wijziging aan de bron:
 
 ```bash
-python3 tools/scripts/controleer-voorbeeldregels.py
-python3 tools/scripts/teken-voorbeeldregels.py
-python3 tools/scripts/genereer-voorbeeld-lr1.py
+python3 tools/scripts/controleer-modeldoorloop.py
+python3 tools/scripts/teken-modeldoorloop.py
+python3 tools/scripts/genereer-modeldoorloop-lr1.py
 python3 -m unittest discover -s tools/tests -p "test_*.py"
 ```
 
-De werkwijze per fase staat in de skill [`okx-voorbeeld-in-het-informatiemodel`](../../../.agents/skills/okx-voorbeeld-in-het-informatiemodel/SKILL.md).
+De werkwijze per fase staat in de skill [`okx-modeldoorloop`](../../../.agents/skills/okx-modeldoorloop/SKILL.md).

@@ -25,6 +25,31 @@ import sys
 FENCE = re.compile(r"^```(\w+)?(?:\s.*)?$")
 MDLINK = re.compile(r"\]\((?!https?://|mailto:|#)([^)#\s]+?\.(?:md|json|py|png|jpg|jpeg))(?:#[^)]*)?\)")
 
+# Een kop is een label en geen zin (.cursor/rules/schrijfstijl.mdc). Een kop die opent met een
+# vraagwoord of met een persoonsvorm is een zin: hij vertelt in plaats van te benoemen. De controle
+# vangt de openers die in de praktijk misgaan; subtielere gevallen blijven mensenwerk.
+KOP = re.compile(r"^(#{1,6})\s+(.+?)\s*$")
+VRAAGWOORD = re.compile(r"^(wat|hoe|waarom|wanneer|waar|wie|welke)\b", re.I)
+PERSOONSVORM = re.compile(r"^(dit|dat|deze|die|er|het|zo)\s+(is|zijn|staat|staan|hoort|horen|werkt|werken|gaat|gaan|komt|komen|doet|doen|heeft|hebben)\b", re.I)
+
+
+# De kopcontrole geldt voor de pagina's waar een lezer binnenkomt. De skills, de templates en het
+# oudere materiaal dragen nog zinkoppen; die gaan mee zodra dat materiaal wordt herzien.
+LEZERSPAGINAS = ("README.md", "project/leesroute.md", "project/context.md",
+                 "project/historie.md", "project/status.md", "project/README.md")
+
+
+def kopprobleem(tekst: str) -> str | None:
+    """De reden waarom een kop een zin is, of None als hij een label is."""
+    kaal = re.sub(r"^\s*\d+(\.\d+)*\.?\s+", "", tekst).strip()
+    kaal = re.sub(r"[`*_\[\]]", "", kaal)
+    if VRAAGWOORD.match(kaal):
+        return "opent met een vraagwoord"
+    if PERSOONSVORM.match(kaal):
+        return "opent met een persoonsvorm"
+    return None
+
+
 def check_file(path: str) -> list[str]:
     problems = []
     text = open(path, encoding="utf-8").read()
@@ -53,6 +78,11 @@ def check_file(path: str) -> list[str]:
             if lang == "mermaid" and ";" in line:
                 problems.append(f"{path}:{nr}: puntkomma in mermaid (breekt rendering)")
         else:
+            km = KOP.match(line)
+            if km and os.path.normpath(path) in LEZERSPAGINAS:
+                reden = kopprobleem(km.group(2))
+                if reden:
+                    problems.append(f"{path}:{nr}: kop {km.group(2)!r} {reden}; een kop is een label")
             for lm in MDLINK.finditer(line):
                 # een pad met spaties staat in markdown met procentcodes; zonder decoderen
                 # meldt de controle een bestand als dood terwijl het er gewoon staat

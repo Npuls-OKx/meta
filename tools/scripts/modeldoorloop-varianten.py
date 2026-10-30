@@ -4,7 +4,7 @@
 Waarom dit bestand bestaat: de voorbeelduitwerking van leerroute 1 volgt de vraaggestuurde vorm uit
 het kaderscenario, maar een instelling plant ook capaciteitsgestuurd of kiest op een al geroosterde
 gelegenheid (#401). Zo'n vorm staat als eigen regeltabel naast de basis,
-voorbeeld-lr1-regels-<vorm>.json, en erft daarvan de kop: rollen, toestanden, koppelingen,
+modeldoorloop-lr1-<vorm>.json, en erft daarvan de kop: rollen, toestanden, koppelingen,
 scope-uitzonderingen en de modelcommit. De controle, de tekenaars en de generator lezen de varianten
 hier, zodat zij alle vier dezelfde samengevoegde tabel zien.
 
@@ -16,8 +16,8 @@ import pathlib
 import sys
 
 # de leesvolgorde in het document, en de letter in het beeld-ID; de basis is de vraaggestuurde vorm.
-# Een vorm erbij gaat mee in voorbeeld-lr1-variant.schema.json (enum van vorm, en [CR] in de patronen)
-# en in het patroon van beeld_id in $defs/regel van voorbeeld-lr1-regels.schema.json.
+# Een vorm erbij gaat mee in modeldoorloop-variant.schema.json (enum van vorm, en [CR] in de patronen)
+# en in het patroon van beeld_id in $defs/regel van modeldoorloop-lr1.schema.json.
 VORMEN = {"capaciteitsgestuurd": "C", "geroosterd": "R"}
 KOP = ("model", "rollen", "toestanden", "scope_uitzonderingen", "koppelingen", "thema_toelichting")
 # wat een fase van de basis over een volledige reis zegt, en dus niet voor een delta geldt

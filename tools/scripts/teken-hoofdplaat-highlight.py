@@ -10,7 +10,7 @@ zichtbaar wat er ontbreekt.
 
     python3 tools/scripts/teken-hoofdplaat-highlight.py --plaat img/hoofdplaat.png
 
-Staat er een planningsvorm naast de regeltabel (voorbeeld-lr1-regels-<vorm>.json), dan komt er per
+Staat er een planningsvorm naast de regeltabel (modeldoorloop-lr1-<vorm>.json), dan komt er per
 fase en per vorm een plaat bij, f<fase>-<vorm>.svg, met alleen de stromen van die variant.
 
 Het model wordt alleen gelezen; raak nooit een .archimate-bestand aan.
@@ -30,12 +30,12 @@ WORTEL = pathlib.Path(__file__).resolve().parent
 _spec = importlib.util.spec_from_file_location("platen", WORTEL / "exporteer-archimate-platen.py")
 platen = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(platen)
-_spec = importlib.util.spec_from_file_location("voorbeeldvarianten", WORTEL / "voorbeeldvarianten.py")
+_spec = importlib.util.spec_from_file_location("modeldoorloop_varianten", WORTEL / "modeldoorloop-varianten.py")
 varianten = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(varianten)
 
 MODEL = pathlib.Path("architecture/model/model.archimate")
-REGELS = pathlib.Path("architecture/model/informatiemodel/voorbeeld-lr1-regels.json")
+REGELS = pathlib.Path("architecture/model/informatiemodel/modeldoorloop-lr1.json")
 STROMEN = pathlib.Path("architecture/model/informatiemodel/stromen.json")
 UITMAP = pathlib.Path("architecture/model/informatiemodel/img/hoofdplaat")
 PLAAT = UITMAP / "hoofdplaat-v1.7.jpg"

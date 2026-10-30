@@ -1,5 +1,5 @@
 ---
-name: okx-voorbeeld-in-het-informatiemodel
+name: okx-modeldoorloop
 description: >-
   Een persona stap voor stap in het OKx-informatiemodel uitdrukken (MIM 1 en 2):
   een regeltabel per processtap uit een kaderscenario, gecontroleerd tegen de
@@ -12,17 +12,17 @@ description: >-
 
 # Een persona in het informatiemodel
 
-Het voorbeeld is een leeshulp die feedback ophaalt op het informatiemodel, geen ontwerp. Het beslist niets over het model; elke regel wijst naar iets dat op een plaat staat, en waar plaat en bron elkaar tegenspreken staat een vraag. Uitgewerkt voor Jochem in `architecture/model/informatiemodel/voorbeeld-leerroute-1-jochem.md` (Public #106, meta #243).
+Het voorbeeld is een leeshulp die feedback ophaalt op het informatiemodel, geen ontwerp. Het beslist niets over het model; elke regel wijst naar iets dat op een plaat staat, en waar plaat en bron elkaar tegenspreken staat een vraag. Uitgewerkt voor Jochem in `architecture/model/informatiemodel/modeldoorloop-leerroute-1-jochem.md` (Public #106, meta #243).
 
 ## De keten
 
 ```mermaid
 flowchart LR
-    B["Bronnen<br/>kaderscenario, payloads, ontologie"] --> R["Regeltabel<br/>voorbeeld-lr1-regels.json"]
-    P["Platen<br/>informatiemodel.json, stromen.json,<br/>conceptplaat-onderwijsontwerp.json"] --> C["controleer-voorbeeldregels.py"]
+    B["Bronnen<br/>kaderscenario, payloads, ontologie"] --> R["Regeltabel<br/>modeldoorloop-lr1.json"]
+    P["Platen<br/>informatiemodel.json, stromen.json,<br/>conceptplaat-onderwijsontwerp.json"] --> C["controleer-modeldoorloop.py"]
     R --> C
-    C --> T["teken-voorbeeldregels.py<br/>SVG per blok"]
-    T --> G["genereer-voorbeeld-lr1.py<br/>document"]
+    C --> T["teken-modeldoorloop.py<br/>SVG per blok"]
+    T --> G["genereer-modeldoorloop-lr1.py<br/>document"]
     G --> V["validate-docs.py"]
 ```
 
@@ -31,12 +31,12 @@ Volgorde bij elke wijziging, altijd volledig:
 ```
 python3 tools/scripts/exporteer-componenten.py --extra "Intake systeem" "Aanmeld systeem" \
     "Curriculum ontwerptool" "AII (centraal aanmelden)" "Toets- en examen afname systeem"
-python3 tools/scripts/controleer-voorbeeldregels.py            # 0 bevindingen, anders eerst herstellen
+python3 tools/scripts/controleer-modeldoorloop.py            # 0 bevindingen, anders eerst herstellen
 rm -f architecture/model/informatiemodel/img/regels/*.svg
-python3 tools/scripts/teken-voorbeeldregels.py
+python3 tools/scripts/teken-modeldoorloop.py
 python3 tools/scripts/teken-hoofdplaat-highlight.py            # alleen als de plaat of de stromen wijzigen
-python3 tools/scripts/genereer-voorbeeld-lr1.py                # waarschuwt voor vragen buiten de zeven
-python3 tools/scripts/validate-docs.py architecture/model/informatiemodel/voorbeeld-leerroute-1-jochem.md
+python3 tools/scripts/genereer-modeldoorloop-lr1.py                # waarschuwt voor vragen buiten de zeven
+python3 tools/scripts/validate-docs.py architecture/model/informatiemodel/modeldoorloop-leerroute-1-jochem.md
 python3 -W error::ResourceWarning -m unittest discover -s tools/tests
 ```
 
@@ -46,9 +46,9 @@ De platen komen uit het ArchiMate-model en worden alleen gelezen: `genereer-info
 
 Kop: `model` (commits waartegen is gecontroleerd), `fasen` (nummer, naam, MORA-hoofdproces, bron, stappen, verwacht, `uitwisselingen` en `dekking`, link naar de fasekop in het kaderscenario), `rollen` (gesloten lijst), `toestanden` (elk met bron), `scope_uitzonderingen` (objecttype buiten scope dat het voorbeeld toch toont, met motivering), `koppelingen` ("Van > Naar" naar koppeling-ID), `thema_toelichting` en `bevindingen` (het register van een reviewronde).
 
-Het schema `voorbeeld-lr1-regels.schema.json` is de woordenlijst: het staat op `additionalProperties: false` op de tabel, op een regel en op beide relatievormen, en de controle valideert de tabel ertegen. Een veld dat het schema niet kent is dus een bevinding, niet een stille toevoeging. Komt er een veld bij, dan komt het eerst in het schema. De woordenlijst van een regel staat in `$defs/regel`, zodat een variant dezelfde gebruikt.
+Het schema `modeldoorloop-lr1.schema.json` is de woordenlijst: het staat op `additionalProperties: false` op de tabel, op een regel en op beide relatievormen, en de controle valideert de tabel ertegen. Een veld dat het schema niet kent is dus een bevinding, niet een stille toevoeging. Komt er een veld bij, dan komt het eerst in het schema. De woordenlijst van een regel staat in `$defs/regel`, zodat een variant dezelfde gebruikt.
 
-**Planningsvormen.** De basis volgt het kaderscenario: vraaggestuurd, de student kiest op de specificatie. Een capaciteitsgestuurde of geroosterde vorm staat als eigen tabel ernaast, `voorbeeld-lr1-regels-<vorm>.json` met schema `voorbeeld-lr1-variant.schema.json`. Een variant erft de kop van de basis, draagt per fase haar eigen stappen met een eigen bron, en zet de letter van de vorm in het beeld-ID (`F6-C01`, `F6-R01`). Wat al eerder staat, tekent een variant niet opnieuw: `voorafgegaan_door` verwijst ernaar, in de basis of in een variant die eerder in de leesvolgorde komt, zodat een traject van animo via capaciteit naar het rooster zichtbaar wordt. Onder `vervangt` staan de beelden die in haar vorm vervallen of naar die fase schuiven, zoals de plaatsing uit F4-09 bij een geroosterde keuze. De dekkingscontroles gelden alleen voor de basis, want een variant beschrijft een delta: alleen wat afwijkt. Een verdere instantie van een objecttype uit de basis draagt `nieuwe_instantie`. Lees met de [onderwijsplanner](../../personas/onderwijsplanner.md) als persona.
+**Planningsvormen.** De basis volgt het kaderscenario: vraaggestuurd, de student kiest op de specificatie. Een capaciteitsgestuurde of geroosterde vorm staat als eigen tabel ernaast, `modeldoorloop-lr1-<vorm>.json` met schema `modeldoorloop-variant.schema.json`. Een variant erft de kop van de basis, draagt per fase haar eigen stappen met een eigen bron, en zet de letter van de vorm in het beeld-ID (`F6-C01`, `F6-R01`). Wat al eerder staat, tekent een variant niet opnieuw: `voorafgegaan_door` verwijst ernaar, in de basis of in een variant die eerder in de leesvolgorde komt, zodat een traject van animo via capaciteit naar het rooster zichtbaar wordt. Onder `vervangt` staan de beelden die in haar vorm vervallen of naar die fase schuiven, zoals de plaatsing uit F4-09 bij een geroosterde keuze. De dekkingscontroles gelden alleen voor de basis, want een variant beschrijft een delta: alleen wat afwijkt. Een verdere instantie van een objecttype uit de basis draagt `nieuwe_instantie`. Lees met de [onderwijsplanner](../../personas/onderwijsplanner.md) als persona.
 
 Elke regel is een fragment van een plaat bij een processtap:
 

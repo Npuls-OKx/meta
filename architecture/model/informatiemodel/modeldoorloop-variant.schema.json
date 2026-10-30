@@ -1,13 +1,13 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "voorbeeld-lr1-variant.schema.json",
+  "$id": "modeldoorloop-variant.schema.json",
   "title": "Variant van de regeltabel voorbeelduitwerking leerroute 1 (Jochem)",
-  "description": "Een planningsvorm naast de basisuitwerking, als eigen bestand voorbeeld-lr1-regels-<vorm>.json. De variant erft van de basis de rollen, toestanden, koppelingen, scope-uitzonderingen en de modelcommit, en draagt zelf per fase haar stappen en haar regels. De regels hebben dezelfde woordenlijst als in de basis (voorbeeld-lr1-regels.schema.json#/$defs/regel); alleen het beeld-ID draagt een letter per vorm (#401).",
+  "description": "Een planningsvorm naast de basisuitwerking, als eigen bestand modeldoorloop-lr1-<vorm>.json. De variant erft van de basis de rollen, toestanden, koppelingen, scope-uitzonderingen en de modelcommit, en draagt zelf per fase haar stappen en haar regels. De regels hebben dezelfde woordenlijst als in de basis (modeldoorloop-lr1.schema.json#/$defs/regel); alleen het beeld-ID draagt een letter per vorm (#401).",
   "type": "object",
   "required": ["basis", "vorm", "fasen", "regels"],
   "properties": {
     "basis": {"type": "string", "description": "de bestandsnaam van de basisregeltabel waarvan de kop wordt geerfd"},
-    "vorm": {"type": "string", "enum": ["capaciteitsgestuurd", "geroosterd"], "description": "de planningsvorm; gelijk aan het deel van de bestandsnaam na voorbeeld-lr1-regels-. De basis is de vraaggestuurde vorm"},
+    "vorm": {"type": "string", "enum": ["capaciteitsgestuurd", "geroosterd"], "description": "de planningsvorm; gelijk aan het deel van de bestandsnaam na modeldoorloop-lr1-. De basis is de vraaggestuurde vorm"},
     "fasen": {
       "type": "array",
       "description": "de fasen die de variant raakt, met de stappen van deze vorm; naam en MORA-hoofdproces komen uit de basis",
@@ -28,7 +28,7 @@
     "regels": {
       "type": "array",
       "description": "de regels van de variant; het beeld-ID draagt de letter van de vorm: C voor capaciteitsgestuurd, R voor geroosterd",
-      "items": {"allOf": [{"$ref": "voorbeeld-lr1-regels.schema.json#/$defs/regel"}, {"properties": {"beeld_id": {"pattern": "^F[1-8]-[CR][0-9]{2}$"}}}]}
+      "items": {"allOf": [{"$ref": "modeldoorloop-lr1.schema.json#/$defs/regel"}, {"properties": {"beeld_id": {"pattern": "^F[1-8]-[CR][0-9]{2}$"}}}]}
     }
   },
   "additionalProperties": false

@@ -4,9 +4,9 @@
 Waarom dit script bestaat: het document dat de opleiding van Jochem stap voor stap
 in het informatiemodel toont moet bij elke modelronde opnieuw te maken zijn, met zo
 weinig mogelijk tekst. Alles komt uit de regeltabel, informatiemodel.json en
-begrippen.json; de regels zelf zijn de SVG's van teken-voorbeeldregels.py.
+begrippen.json; de regels zelf zijn de SVG's van teken-modeldoorloop.py.
 
-    python3 tools/scripts/genereer-voorbeeld-lr1.py [--regels PAD] [--uit PAD] [--invulblad PAD]
+    python3 tools/scripts/genereer-modeldoorloop-lr1.py [--regels PAD] [--uit PAD] [--invulblad PAD]
 
 Opbouw: leeswijzer (vier termen, legenda, koppeling-ID's, aannames), per fase de
 chips en de regels, een stub voor fasen zonder regels, een tabel per begrippenfamilie
@@ -14,7 +14,7 @@ met twee lege kolommen voor de lezer, en de vragenpagina. Het invulblad, waarop 
 lezer per regel zijn eigen term invult, komt als eigen bestand naast het document:
 het hoort bij een mappingronde met leveranciers en niet in de leesroute zelf.
 
-Staat er een planningsvorm naast de regeltabel (voorbeeld-lr1-regels-<vorm>.json), dan krijgt elke fase
+Staat er een planningsvorm naast de regeltabel (modeldoorloop-lr1-<vorm>.json), dan krijgt elke fase
 die zij raakt onder de basis een deel "Variant <vorm>", met de beelden die eraan voorafgaan als link. Het
 register, de bijlage en het invulblad blijven over de basis gaan.
 """
@@ -27,19 +27,19 @@ import pathlib
 import re
 import sys
 
-_spec = importlib.util.spec_from_file_location("teken_voorbeeldregels", pathlib.Path(__file__).resolve().parent / "teken-voorbeeldregels.py")
+_spec = importlib.util.spec_from_file_location("teken_modeldoorloop", pathlib.Path(__file__).resolve().parent / "teken-modeldoorloop.py")
 teken = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(teken)
-_spec = importlib.util.spec_from_file_location("voorbeeldvarianten", pathlib.Path(__file__).resolve().parent / "voorbeeldvarianten.py")
+_spec = importlib.util.spec_from_file_location("modeldoorloop_varianten", pathlib.Path(__file__).resolve().parent / "modeldoorloop-varianten.py")
 varianten = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(varianten)
 
-REGELS = pathlib.Path("architecture/model/informatiemodel/voorbeeld-lr1-regels.json")
+REGELS = pathlib.Path("architecture/model/informatiemodel/modeldoorloop-lr1.json")
 MODEL = pathlib.Path("architecture/model/informatiemodel/informatiemodel.json")
 COMPONENTEN = pathlib.Path("architecture/model/informatiemodel/componenten.json")
 BEGRIPPEN = pathlib.Path("architecture/docs/specificatie/begrippen/begrippen.json")
-UIT = pathlib.Path("architecture/model/informatiemodel/voorbeeld-leerroute-1-jochem.md")
-INVULBLAD = pathlib.Path("architecture/model/informatiemodel/voorbeeld-leerroute-1-jochem-invulblad.md")
+UIT = pathlib.Path("architecture/model/informatiemodel/modeldoorloop-leerroute-1-jochem.md")
+INVULBLAD = pathlib.Path("architecture/model/informatiemodel/modeldoorloop-leerroute-1-jochem-invulblad.md")
 PLATEN = pathlib.Path("architecture/model/informatiemodel/img/hoofdplaat")
 REGELMAP = "img/regels"
 PLAATMAP = "img/hoofdplaat"
@@ -103,7 +103,7 @@ def leeswijzer(regels, model):
     mapping = "; ".join(f"{v} is {kk.replace(' > ', ' naar ')}" for kk, v in k.items())
     return f"""# De opleiding van Jochem in het informatiemodel
 
-Relateert aan: het [kaderscenario leerroute 1](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md) (persona Jochem, Apothekersassistent, cohort 2026), het architectuurkader van OKx, en het [informatiemodel OKx](informatiemodel.md). Gegenereerd uit `voorbeeld-lr1-regels.json`; gecontroleerd tegen `informatiemodel.json` op commit {regels['model']['informatiemodel_commit']} en `begrippen.json` op commit {regels['model']['begrippen_commit']}.
+Relateert aan: het [kaderscenario leerroute 1](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md) (persona Jochem, Apothekersassistent, cohort 2026), het architectuurkader van OKx, en het [informatiemodel OKx](informatiemodel.md). Gegenereerd uit `modeldoorloop-lr1.json`; gecontroleerd tegen `informatiemodel.json` op commit {regels['model']['informatiemodel_commit']} en `begrippen.json` op commit {regels['model']['begrippen_commit']}.
 
 ## Leeswijzer
 
@@ -261,7 +261,7 @@ def invulblad(regels):
     """Het invulblad als eigen bestand: een regel per objecttype dat ontstaat of verandert,
     om naast het eigen model van een leverancier te leggen. Staat los van het leesdocument."""
     uit = ("# Invulblad bij de voorbeelduitwerking van leerroute 1\n\n"
-           "Hoort bij [de opleiding van Jochem in het informatiemodel](voorbeeld-leerroute-1-jochem.md) en is bedoeld voor een mappingronde: "
+           "Hoort bij [de opleiding van Jochem in het informatiemodel](modeldoorloop-leerroute-1-jochem.md) en is bedoeld voor een mappingronde: "
            "wie het voorbeeld naast het eigen model legt, noteert hier per regel de eigen term en de eigen plek. Per regel één van vier antwoorden: "
            "herken ik dit; heet bij ons anders (welke term); hangt bij ons anders (waaronder); ontbreekt. "
            "De kolom Beeld draagt het beeld-ID uit de kop in het document.\n\n"
@@ -382,7 +382,7 @@ def main(argv=None):
             return 2
     regelmap = args.uit.parent / REGELMAP
     if not regelmap.is_dir():
-        print(f"regelmap ontbreekt: {regelmap}; draai eerst teken-voorbeeldregels.py", file=sys.stderr)
+        print(f"regelmap ontbreekt: {regelmap}; draai eerst teken-modeldoorloop.py", file=sys.stderr)
         return 2
     componenten = json.loads(COMPONENTEN.read_text(encoding="utf-8")) if COMPONENTEN.exists() else None
     regels = lees(args.regels, "regeltabel")

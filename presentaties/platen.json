@@ -255,8 +255,7 @@
       "toont": "Hoe een snapshot van dev via een pull request een release wordt, en dat de huidige en de vorige majorversie allebei als branch en als pakket blijven bestaan.",
       "gebruik_bij": "Release management uitleggen aan wie wil weten hoe iets naar buiten komt en hoelang een vorige versie beschikbaar blijft. Kerngroep techniek, leveranciers.",
       "let_op": "Komt uit Public PR 81 en is nog niet gemerged op dev. In de plaat staan tester en reviewer nog als een blok; afgesproken is dat het twee rollen worden. Benoem dat erbij.",
-      "kopie": "release-branching.png",
-      "hash": "c22b7378c3d5d7ed"
+      "kopie": "release-branching.png"
     },
     {
       "naam": "informatiemodel",
@@ -268,7 +267,7 @@
       "gebruik_bij": "De vraag hoe alles op conceptueel niveau aan elkaar hangt, voordat de payloads aan bod komen. Kerngroep techniek, leveranciers, technische werkgroep OEAPI.",
       "let_op": "Status concept, ter review in meta PR 225. De plaat is dicht bezet; op een slide alleen op volle breedte tonen en de leeswijzer erbij: kolommen zijn begrippen, de leeruitkomst is de sleutel. De legenda draagt de tikfout 'alligned'. Bron staat op branch 89-informatiemodel-en-begrippenkader tot de PR is gemerged.",
       "kopie": "informatiemodel-v0.1.jpg",
-      "hash": "eaf11141dcb2fb02"
+      "hash": "b88e96ee94aace72"
     },
     {
       "naam": "informatiemodel-oeapi-mapping",
@@ -280,13 +279,23 @@
       "gebruik_bij": "De vraag waar OEAPI het model dekt en waar niet. Technische werkgroep OEAPI, kerngroep techniek.",
       "let_op": "Status concept, ter review in meta PR 225. Nog drukker dan de basisplaat; werkt alleen op volle breedte met de conclusie ernaast in tekst.",
       "kopie": "informatiemodel-oeapi-mapping-v0.1.jpg",
-      "hash": "73793ed4e331d974"
+      "hash": "4a0cd7f482e8e55e"
+    },
+    {
+      "naam": "mora-okx-oke",
+      "titel": "Hoofdprocesmodel MORA, met OKx en OKE gemarkeerd",
+      "bron": "Npuls-OKx/meta",
+      "pad": "project/img/mora-hoofdprocesmodel-okx-en-oke-20261027.webp",
+      "versie": "20261027",
+      "toont": "De processen van een mbo-instelling volgens MORA, met goud omlijnd waarop OKx acteert en groen omlijnd waar OKE begon.",
+      "gebruik_bij": "Een publiek dat wil weten waar OKx in de sectorarchitectuur staat, en hoe het zich tot OKE verhoudt. Kerngroep techniek, adviesgroep, nieuwe aanhakers.",
+      "let_op": "De markering is met de hand aangebracht op het hoofdprocesmodel van MORA 2.6. Komt er een nieuwe MORA-versie, dan vervalt de markering en moet zij opnieuw worden aangebracht."
     },
     {
       "naam": "sectorketen",
       "titel": "De sectorketen en haar producten",
       "bron": "Npuls-OKx/meta",
-      "pad": "img/sectorketen-v0.2.0.png",
+      "pad": "project/img/sectorketen-v0.2.0.png",
       "versie": "v20261005",
       "toont": "Zeven lagen van overheidsbreed kader tot koppelingimplementatie, met per laag de partijen en hun producten. De vulkleur is de ArchiMate-laag, de rand de aard (voorschrift of herbruikbaar product), en onderin het MIM-niveau met het AMIGO-inhoudsgebied. Rechts de gereedschapsband met IT-fundamenten en sectorprofielen.",
       "gebruik_bij": "De vraag wie wat maakt in de keten, en op welk niveau een product bruikbaar is. Architectuursync, programma- en projectleiding, kerngroep techniek.",

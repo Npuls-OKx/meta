@@ -82,7 +82,7 @@ Daarmee is de toon geen OKx-afspraak maar een landelijke norm, en hoeft OKx alle
 
 De aanvulbare opsomming `complexityLevel` uit het [gearchiveerde conceptmodel](../../leerroute-uitwerking/doc/archief-conceptmodellen.md) zette de taxonomie in de waarde (`bloom1-6`, `solo0-4`). Dat werkt voor SOLO en Bloom, en loopt vast op Romiszowski, die twee assen kent en codes als `Rpm` oplevert.
 
-De negen leeruitkomsten in [`voorbeeld-lr1-regels.json`](../../../../model/informatiemodel/voorbeeld-lr1-regels.json) dragen alle vijf de plekken, met het type achteraan tussen haakjes in plaats van op plek twee, en zonder taxonomiecode:
+De negen leeruitkomsten in [`modeldoorloop-lr1.json`](../../../../model/informatiemodel/modeldoorloop-lr1.json) dragen alle vijf de plekken, met het type achteraan tussen haakjes in plaats van op plek twee, en zonder taxonomiecode:
 
 > Verleent farmaceutische patientenzorg, volgens de vigerende protocollen en met navolgbare vastlegging, in een levensechte apotheekomgeving (apothekersassistent NLQF 4, kerntaak B1-K1)
 

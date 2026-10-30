@@ -1,7 +1,7 @@
 # OKx Projectoverzicht
 
 ## Doelbinding
-Project OKx is een onderdeel van het [groeifonds programma NPuls](https://npuls.nl/project-onderwijskoppelingen), zoals bekrachtigd door het Nederlandse ministerie van Onderwijs, Cultuur en Wetenschap. De repository dient als een knowledge base voor het inhoudelijke component van dit project.
+Project OKx is een onderdeel van het [groeifonds programma NPuls](https://npuls.nl/onderwerpen/ontsluiten-onderwijsaanbod), zoals bekrachtigd door het Nederlandse ministerie van Onderwijs, Cultuur en Wetenschap. De repository dient als een knowledge base voor het inhoudelijke component van dit project.
 
 OKx heeft als doel **uniforme en gestandaardiseerde koppelvlakken** voor onderwijslogistiek te realiseren, met het BOPSI-implementatiepad als uitgangspunt. De scope start bij **MBO**; **HO** (hoger onderwijs) volgt in een later stadium. Door koppelvlakken eenduidig te specificeren ontstaat interoperabiliteit tussen systemen en partijen in de onderwijsketen.
 
