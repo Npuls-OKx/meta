@@ -10,7 +10,7 @@ Dit is de publieke werkomgeving waar die afspraken ontstaan, in het open en same
 
 ![Hoe ziet onze specificatie eruit: wat er in concept ligt tegenover wat open staat, met de route van persona naar profiel](project/img/visueel/specificatie-hoofdvraag.svg)
 
-Wat hier staat is grotendeels concept en voorstel. Van de zeven [statussen](project/status.md) die een product doorloopt zijn 5 en 7 leeg, en release 0.0.1 kreeg geen review. Het werk beweegt sindsdien tussen status 1 en 4, bij de vraag wat een instelling moet kunnen.
+Wat hier staat is grotendeels concept en voorstel. Van de zeven [statussen](project/status.md) die een product doorloopt is de hoogste leeg, en release 0.0.1 kreeg geen review. Het werk beweegt sindsdien tussen status 1 en 4, bij de vraag wat een instelling moet kunnen.
 
 | | |
 |---|---|
@@ -29,7 +29,7 @@ Voluit, met de herkomst per uitspraak: [`project/context.md`](project/context.md
 | Referentiemateriaal: principes, uitgangspunten, besluiten, kaderscenario's | [Public](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal) |
 | Kaderstelling en modellen | deze repository |
 
-Waarvoor OKx die levert en wat elk resultaat van de uitwerking vraagt staat in [`project/context.md`](project/context.md); hoe de set wordt opgedeeld in [deel 4 van de leesroute](project/leesroute.md#deel-4-deliverables).
+Waarvoor OKx die levert en wat elk resultaat van de uitwerking vraagt staat in [`project/context.md`](project/context.md); hoe de set wordt opgedeeld in [deel 4 van de leesroute](project/leesroute.md#deel-4-producten).
 
 ## Leesroutes
 

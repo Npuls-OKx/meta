@@ -6,21 +6,94 @@
     {
       "soort": "ladder",
       "labelbreedte": 240,
-      "band": {"boven": 4, "onder": 1, "tekst": "hier beweegt het werk"},
-      "terugloop": {"van": 6, "naar": 1, "tekst": "de vraag kwam terug"},
+      "band": {
+        "boven": 4,
+        "onder": 1,
+        "tekst": "hier beweegt het werk, heen en weer",
+        "kleur": "#DD784B"
+      },
+      "terugloop": {
+        "van": 6,
+        "naar": 1,
+        "tekst": "de vraag kwam terug"
+      },
       "treden": [
-        {"nummer": 1, "naam": "Vraag en wens", "kleur": "#DD784B",
-         "items": ["Wat een instelling moet kunnen per leerroute", "Op welk niveau de set wordt geknipt", "Optionaliteit in een profiel", "Hoe de lagen heten", "De vorm van een release"]},
-        {"nummer": 2, "naam": "Verkenning", "kleur": "#DD784B",
-         "items": ["Negen onderzoeksverslagen in meta", "OKE-vorm tegenover OKx-scope", "Praktijk van standaardisatieprojecten"]},
-        {"nummer": 3, "naam": "Concept", "kleur": "#3D68EC",
-         "items": ["Leerroute 1 met drie persona's", "Begrippenlijst", "Hoofdplaat informatiestromen", "Kaderscenario leerroute 1", "OKx modeldoorloop leerroute 1", "Release-management", "MOKA-templates", "OKE-subdomein", "Keuze-requirements"]},
-        {"nummer": 4, "naam": "Voorstel", "kleur": "#3D68EC",
-         "items": ["Informatiemodel 0.2", "26 architectuurbesluiten", "13 principes en de uitgangspunten", "Requirementsboom", "7 applicatiecomponenten", "3 interactiepatronen", "24 datamodelschema's", "Herziening naar interactieketens"]},
-        {"nummer": 5, "naam": "Besloten in OKx", "leeg": true, "merk": "leeg"},
-        {"nummer": 6, "naam": "Gereleased", "kleur": "#00AF81", "merk": "geen review",
-         "items": ["Koppelvlakspecificatie 0.0.1, augustus 2026"]},
-        {"nummer": 7, "naam": "Bekrachtigd", "leeg": true, "merk": "leeg"}
+        {
+          "nummer": 1,
+          "naam": "Vraag en wens",
+          "kleur": "#DD784B",
+          "items": [
+            "Wat een instelling moet kunnen per leerroute",
+            "Welke functionaliteit bij welk applicatiecomponent hoort",
+            "Optionaliteit in een profiel",
+            "Hoe de lagen heten",
+            "De vorm van een release"
+          ]
+        },
+        {
+          "nummer": 2,
+          "naam": "Verkenning",
+          "kleur": "#DD784B",
+          "items": [
+            "Negen onderzoeksverslagen in meta",
+            "OKE-vorm tegenover OKx-scope",
+            "Praktijk van standaardisatieprojecten"
+          ]
+        },
+        {
+          "nummer": 3,
+          "naam": "Concept",
+          "kleur": "#3D68EC",
+          "items": [
+            "Leerroute 1 met drie persona's",
+            "Begrippenlijst",
+            "Hoofdplaat informatiestromen",
+            "Kaderscenario leerroute 1",
+            "OKx modeldoorloop leerroute 1",
+            "Release-management",
+            "MOKA-templates",
+            "OKE-subdomein",
+            "Keuze-requirements",
+            "Requirementsboom"
+          ]
+        },
+        {
+          "nummer": 4,
+          "naam": "Voorstel",
+          "kleur": "#3D68EC",
+          "items": [
+            "Informatiemodel 0.2",
+            "26 architectuurbesluiten",
+            "7 applicatiecomponenten",
+            "3 interactiepatronen",
+            "24 datamodelschema's",
+            "Herziening naar interactieketens"
+          ]
+        },
+        {
+          "nummer": 5,
+          "naam": "Besloten in OKx",
+          "kleur": "#3D68EC",
+          "items": [
+            "13 principes en de uitgangspunten",
+            "De grens bij de les: OKx legt die niet vast"
+          ]
+        },
+        {
+          "nummer": 6,
+          "naam": "Gereleased",
+          "kleur": "#00AF81",
+          "merk": "geen review",
+          "items": [
+            "Koppelvlakspecificatie 0.0.1, augustus 2026"
+          ]
+        },
+        {
+          "nummer": 7,
+          "naam": "Bekrachtigd",
+          "leeg": true,
+          "merk": "leeg"
+        }
       ]
     },
     {

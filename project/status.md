@@ -20,7 +20,7 @@ Een lezer die dat weet, leest de rest anders. Een concept is een uitnodiging om 
 
 | Status | Stand |
 |---|---|
-| 5, besloten in OKx | Leeg. De 26 besluiten in [Referentiemateriaal/adr](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr) staan op `Voorstel`. Zij leggen vast wat het team koos en waarom, zodat een keuze herleidbaar is; een gremium heeft ze nog niet gedragen |
+| 5, besloten in OKx | De 13 principes met de uitgangspunten staan hier, en de grens bij de les: OKx legt het onderwijs niet vast tot op de leslaag, vanwege de beschrijflast die dat vraagt. Wat die grens voor de specificatie betekent is nog open. De 26 besluiten in [Referentiemateriaal/adr](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr) staan op `Voorstel` en vallen daarmee op status 4 |
 | 7, bekrachtigd | Leeg. Er is nog geen set documentatie waarvan de sector heeft gezegd dat zij zich eraan houdt |
 
 ## Publicatieplek

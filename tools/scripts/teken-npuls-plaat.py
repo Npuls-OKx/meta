@@ -213,11 +213,13 @@ def blok_ladder(b, x, y, w, p, ic):
         _, _, boven, _ = rand_van(band["boven"], "band")
         _, _, _, onder = rand_van(band["onder"], "band")
         bx = x - goot + 20
-        kleur = p["np-mid-gray"]
+        kleur = band.get("kleur", p["np-mid-gray"])
         svg += (f'<path d="M{bx + 10:.0f} {boven:.0f}q-10 0 -10 10V{onder - 10:.0f}'
-                f'q0 10 10 10" fill="none" stroke="{kleur}" stroke-width="2"/>')
+                f'q0 10 10 10" fill="none" stroke="{kleur}" stroke-width="3"/>')
+        for ry in (boven + 12, (boven + onder) / 2, onder - 12):
+            svg += f'<path d="M{bx:.0f} {ry:.0f}l8 -5v10z" fill="{kleur}"/>'
         if band.get("tekst"):
-            svg += _rechtop(bx - 7, (boven + onder) / 2, band["tekst"], kleur)
+            svg += _rechtop(bx - 8, (boven + onder) / 2, band["tekst"], kleur, 12)
 
     if terug:
         vx, vy, _, _ = rand_van(terug["van"], "terugloop")
