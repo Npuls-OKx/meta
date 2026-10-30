@@ -455,78 +455,82 @@ review), meta #448 (tekeningen, gemerged 28 oktober).
 
 ---
 
-<!-- 8. VAN KETEN NAAR SPECIFICATIE -->
+<!-- 8. INTERACTIEKETENS UITGEWERKT -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
 
-# Van keten naar specificatie
+# Interactieketens uitgewerkt
 
-<div class="np-pipeline" style="margin-top: 3.2rem; align-items: stretch;">
-  <div class="np-step blue np-stap">
-    <carbon-catalog class="np-groot" />
-    <strong>Aanbod</strong>
+<div class="np-vier">
+  <div class="np-card accent-blue np-keten">
+    <div class="np-kop"><carbon-catalog class="np-pic" /> Aanbod</div>
     <small>van ontwerp tot aanmeldbaar</small>
+    <div class="np-getal" style="color: var(--np-blue);">7</div>
+    <small>uitwisselingen</small>
   </div>
-  <div class="np-arrow" style="align-self: center;">&#8594;</div>
-  <div class="np-step blue np-stap">
-    <carbon-user-follow class="np-groot" />
-    <strong>Instroom</strong>
+  <div class="np-card accent-orange np-keten">
+    <div class="np-kop"><carbon-user-follow class="np-pic" style="color: var(--np-orange);" /> Instroom</div>
     <small>van aanmelding tot start</small>
+    <div class="np-getal" style="color: var(--np-orange);">7</div>
+    <small>uitwisselingen</small>
   </div>
-  <div class="np-arrow" style="align-self: center;">&#8594;</div>
-  <div class="np-step blue np-stap">
-    <carbon-user-favorite class="np-groot" />
-    <strong>Keuzedelen</strong>
+  <div class="np-card accent-green np-keten">
+    <div class="np-kop"><carbon-user-favorite class="np-pic" style="color: var(--np-green);" /> Keuzedelen</div>
     <small>wat kiesbaar is, met reden</small>
+    <div class="np-getal" style="color: var(--np-green);">7</div>
+    <small>berichtstromen</small>
   </div>
-  <div class="np-arrow" style="align-self: center;">&#8594;</div>
-  <div class="np-step green np-stap">
-    <carbon-document class="np-groot" style="color: var(--np-green);" />
-    <strong>Technische specificatie</strong>
-    <small>per systeem, eerst de catalogus</small>
+  <div class="np-card accent-yellow np-keten">
+    <div class="np-kop"><carbon-document class="np-pic" style="color: var(--np-dark-blue);" /> Technische specificatie</div>
+    <small>proef voor de catalogus</small>
+    <div class="np-getal" style="color: var(--np-dark-blue);">22</div>
+    <small>operaties</small>
   </div>
 </div>
 
-<div class="np-card accent-orange" style="margin-top: 2.4rem; padding: 0.6rem 1rem; text-align: center;">
-  <div style="font-weight: 700; font-size: 0.95rem;">Uitgewerkt tot het bericht tussen systemen</div>
-</div>
+<div class="np-onderkop">Leerroute 1, per fase</div>
+<div class="np-fasen"><div class="np-fase" style="border-top-color: #3D68EC;">1 Ontwerpen</div><div class="np-fase" style="border-top-color: #3D68EC;">2 Plannen</div><div class="np-fase" style="border-top-color: #DD784B;">3 Intake</div><div class="np-fase open">4 Roosteren</div><div class="np-fase open">5 Uitvoeren</div><div class="np-fase" style="border-top-color: #00AF81;">6 Kiezen</div><div class="np-fase open">7 Bijsturen</div><div class="np-fase open">8 Examineren</div></div>
 
-<div style="margin-top: 1rem; font-size: 0.86rem; color: var(--np-dark-blue); text-align: center;">
-  Sluit aan op de Open Education API, een bestaande standaard
-</div>
-
-<div style="margin-top: 0.6rem; font-size: 0.78rem; color: var(--np-mid-gray); text-align: center;">
-  Status: ter beoordeling
-</div>
+<div class="np-voet">Aansluitend op de Open Education API &middot; ter beoordeling</div>
 
 <style scoped>
-.fill { padding: 0.9rem 1.8rem; justify-content: flex-start; }
+.fill { padding: 0.9rem 1.6rem; justify-content: flex-start; }
 h1 { font-size: 1.75rem !important; line-height: 1.1; margin: 0; }
-.np-stap { flex: 1; padding: 1.4rem 0.5rem; align-items: center; justify-content: center; text-align: center; }
-.np-stap strong { font-size: 0.95rem; }
-.np-stap small { font-size: 0.8rem; }
-.np-groot { font-size: 1.8rem; color: var(--np-blue); }
+.np-vier { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.8rem; margin-top: 1.2rem; }
+.np-keten { padding: 0.7rem 0.8rem; text-align: center; }
+.np-keten small { font-size: 0.78rem; display: block; color: var(--np-mid-gray); }
+.np-kop { font-weight: 700; font-size: 0.95rem; }
+.np-pic { font-size: 1.1rem; color: var(--np-blue); vertical-align: -0.2rem; }
+.np-getal { font-size: 2.4rem; font-weight: 700; line-height: 1.1; margin-top: 0.5rem; }
+.np-onderkop { margin-top: 1.4rem; font-size: 0.86rem; font-weight: 700; color: var(--np-dark-blue); }
+.np-fasen { display: grid; grid-template-columns: repeat(8, 1fr); gap: 0.35rem; margin-top: 0.4rem; }
+.np-fase { background: #fff; border: 1px solid var(--np-light-gray); border-top: 4px solid var(--np-blue); border-radius: 4px; padding: 0.35rem 0.3rem; font-size: 0.72rem; font-weight: 600; color: var(--np-dark-blue); text-align: center; line-height: 1.25; }
+.np-fase.open { border-top: 4px dashed var(--np-light-gray); color: var(--np-mid-gray); font-weight: 400; }
+.np-voet { margin-top: 1rem; text-align: center; font-size: 0.8rem; color: var(--np-mid-gray); }
 </style>
 
 </div>
 
 <!--
-Op 29 september stond het doel voor het eerste kwartaal van 2027: per koppeling alle lagen
-beschreven. Sindsdien zijn drie ketens uitgewerkt tot op het bericht dat tussen twee systemen gaat,
-in de volgorde waarin een student ze meemaakt.
+Wat er sinds 29 september is opgeleverd aan de specificatiekant: drie interactieketens, uitgewerkt tot
+op het bericht dat tussen twee systemen gaat, in de volgorde waarin een student ze meemaakt.
 
-Aanbod: van het ontwerp in de curriculumontwerptool tot aanbod dat aanmeldbaar in de catalogus staat
-(zeven interactiespecificaties). Instroom: van de aanmelding die binnenkomt tot alles wat klaar moet
-staan voordat de student begint (zeven interactiespecificaties). Keuzedelen: de catalogus levert de
-keuzedeelruimte, het geplande aanbod en de keuzeregels, en het studentkeuzesysteem berekent wat voor
-deze student kiesbaar is, met de reden bij een keuzedeel dat niet kan; casus apothekersassistent.
-
-Een proef laat zien dat uit die uitwerking per systeem een technische specificatie (een
+Aanbod: van het ontwerp in de curriculumontwerptool tot aanbod dat aanmeldbaar in de catalogus staat;
+zeven uitwisselingen, elk met het contract, het bericht en een gegevensmodel (zeven
+interactiespecificaties). Instroom: van de aanmelding die binnenkomt tot alles wat klaar moet staan
+voordat de student begint; ook zeven. Keuzedelen: de catalogus levert keuzedeelruimte, gepland aanbod
+en keuzeregels, en het studentkeuzesysteem berekent wat voor deze student kiesbaar is, met de reden
+bij een keuzedeel dat niet kan; elf diensten, zeven berichtstromen, twaalf operaties, casus
+apothekersassistent. De proef laat zien dat uit die uitwerking een technische specificatie (een
 OpenAPI-document) af te leiden is; voor de onderwijscatalogus zijn dat 22 operaties.
 
-OKx sluit aan op de Open Education API. Op verzoek van de beheerder van die standaard gebeurt dat als een
-laag bovenop een vaste versie van de standaard, zodat OKx met de standaard in de pas blijft.
+De strook onderaan legt de ketens naast de acht fasen van leerroute 1: aanbod raakt fase 1 en 2,
+instroom fase 3, keuzedelen fase 6. Fase 4, 5, 7 en 8 hebben nog geen keten. Die toewijzing is een
+afleiding van het team uit de beschrijving van de ketens.
+
+OKx sluit aan op de Open Education API, als laag bovenop een vaste versie van de standaard, zodat OKx
+met de standaard in de pas blijft.
 
 Bron: meta #373 (aanbod), meta #387 (instroom), meta #364 (keuzedelen), meta #377 (proef OpenAPI),
 alle vier PR ter beoordeling; meta #270 (OEAPI als vaste versie, gemerged 1 oktober).
@@ -541,68 +545,71 @@ alle vier PR ter beoordeling; meta #270 (OEAPI als vaste versie, gemerged 1 okto
 
 # Stand en koers
 
-<div class="np-pipeline" style="margin-top: 2.6rem; align-items: stretch;">
-  <div class="np-step green np-stap"><carbon-user-multiple class="np-icoon" style="color: var(--np-green);" /><strong>Persona</strong></div>
-  <div class="np-arrow" style="align-self: center;">&#8594;</div>
-  <div class="np-step green np-stap"><carbon-map class="np-icoon" style="color: var(--np-green);" /><strong>Leerroute</strong></div>
-  <div class="np-arrow" style="align-self: center;">&#8594;</div>
-  <div class="np-step green np-stap"><carbon-flow class="np-icoon" style="color: var(--np-green);" /><strong>Uitwerking</strong></div>
-  <div class="np-arrow" style="align-self: center;">&#8594;</div>
-  <div class="np-step orange np-stap"><carbon-search class="np-icoon" style="color: var(--np-orange);" /><strong>Ontbrekende begrippen</strong></div>
-  <div class="np-arrow" style="align-self: center;">&#8594;</div>
-  <div class="np-step blue np-stap"><carbon-data-structured class="np-icoon" /><strong>Informatiemodel</strong></div>
+<div class="np-onderkop">Opgeleverd, als voorstel</div>
+<div class="np-vier">
+  <div class="np-card accent-blue np-klein"><div class="np-kop">Informatiemodel 0.2</div><small>in Public</small></div>
+  <div class="np-card accent-orange np-klein"><div class="np-kop">Leerroute 1 uitgewerkt</div><small>67 platen, acht fasen</small></div>
+  <div class="np-card accent-green np-klein"><div class="np-kop">Drie interactieketens</div><small>tot op het bericht</small></div>
+  <div class="np-card accent-yellow np-klein"><div class="np-kop">Hoofdplaat 1.7a</div><small>met inbreng mboRijnland</small></div>
 </div>
 
-<div class="np-terug"><carbon-recycle style="font-size: 0.9rem; vertical-align: -0.15rem;" /> volgende leerroute, met instellingen en leveranciers</div>
-
-<div class="np-card accent-green" style="margin-top: 1.4rem; padding: 0.6rem 1rem; text-align: center;">
-  <div style="font-weight: 700; font-size: 1rem;">Doorzetten: het informatiemodel en de voorbeelden</div>
+<div class="np-onderkop">Koers</div>
+<div class="np-pipeline" style="margin-top: 0.35rem; align-items: stretch;">
+  <div class="np-step np-stap" style="border-top: 4px solid #3D68EC;"><carbon-user-multiple class="np-icoon" style="color: #3D68EC;" /><strong>Persona</strong></div>
+  <div class="np-arrow" style="align-self: center;">&#8594;</div>
+  <div class="np-step np-stap" style="border-top: 4px solid #DD784B;"><carbon-map class="np-icoon" style="color: #DD784B;" /><strong>Leerroute</strong></div>
+  <div class="np-arrow" style="align-self: center;">&#8594;</div>
+  <div class="np-step np-stap" style="border-top: 4px solid #00AF81;"><carbon-flow class="np-icoon" style="color: #00AF81;" /><strong>Uitwerking</strong></div>
+  <div class="np-arrow" style="align-self: center;">&#8594;</div>
+  <div class="np-step np-stap" style="border-top: 4px solid #F4D74B;"><carbon-search class="np-icoon" style="color: #1B2A6B;" /><strong>Ontbrekende begrippen</strong></div>
+  <div class="np-arrow" style="align-self: center;">&#8594;</div>
+  <div class="np-step np-stap" style="border-top: 4px solid #1B2A6B;"><carbon-data-structured class="np-icoon" style="color: #1B2A6B;" /><strong>Informatiemodel</strong></div>
 </div>
+<div class="np-terug"><carbon-recycle style="font-size: 0.9rem; vertical-align: -0.15rem;" /> volgende: leerroute 2 en 3, met instellingen en leveranciers</div>
 
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin-top: 1rem;">
-  <div class="np-card accent-orange np-mini">
-    <carbon-document class="np-icoon" style="color: var(--np-orange);" />
-    <div class="np-kop">Alles is voorstel</div>
-    <small>uitgave (release) wacht op de vorm</small>
-  </div>
-  <div class="np-card accent-blue np-mini">
-    <carbon-partnership class="np-icoon" />
-    <div class="np-kop">Met architecten van Npuls</div>
-    <small>naast toetsafname (OKE) en aanmelden (AII)</small>
-  </div>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin-top: 0.9rem;">
+  <div class="np-card accent-green np-klein"><div class="np-kop"><carbon-arrow-right class="np-icoon2" style="color: #00AF81;" /> Doorzetten</div><small>informatiemodel en voorbeelden</small></div>
+  <div class="np-card accent-blue np-klein"><div class="np-kop"><carbon-partnership class="np-icoon2" /> Verbinden met andere pijlers binnen Npuls</div><small>eduXchange, eduID, leeruitkomsten</small></div>
 </div>
 
 <style scoped>
 .fill { padding: 0.9rem 1.6rem; justify-content: flex-start; }
 h1 { font-size: 1.75rem !important; line-height: 1.1; margin: 0; }
-.np-pil { display: inline-block; background: #F1F3F5; border-radius: 999px; padding: 0.15rem 0.7rem; font-size: 0.8rem; color: var(--np-dark-blue); }
-.np-stap { flex: 1; padding: 0.45rem 0.3rem; align-items: center; justify-content: center; text-align: center; }
-.np-stap strong { font-size: 0.82rem; }
-.np-icoon { font-size: 1.25rem; color: var(--np-blue); }
-.np-terug { margin-top: 0.4rem; text-align: center; font-size: 0.8rem; color: var(--np-mid-gray); border-top: 2px dashed var(--np-light-gray); padding-top: 0.3rem; }
-.np-mini { padding: 0.5rem 0.8rem; margin: 0; }
-.np-mini small { font-size: 0.8rem; display: block; }
+.np-onderkop { margin-top: 0.9rem; font-size: 0.86rem; font-weight: 700; color: var(--np-dark-blue); }
+.np-vier { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.7rem; margin-top: 0.35rem; }
+.np-klein { padding: 0.45rem 0.7rem; margin: 0; }
+.np-klein small { font-size: 0.78rem; display: block; color: var(--np-mid-gray); }
 .np-kop { font-weight: 700; font-size: 0.9rem; line-height: 1.25; }
+.np-stap { flex: 1; padding: 0.4rem 0.3rem; align-items: center; justify-content: center; text-align: center; }
+.np-stap strong { font-size: 0.8rem; }
+.np-icoon { font-size: 1.2rem; }
+.np-icoon2 { font-size: 1rem; color: var(--np-blue); vertical-align: -0.15rem; }
+.np-terug { margin-top: 0.35rem; text-align: center; font-size: 0.8rem; color: var(--np-mid-gray); border-top: 2px dashed var(--np-light-gray); padding-top: 0.3rem; }
 </style>
 
 </div>
 
 <!--
-Wat er ligt is een voorstel. Van de 26 architectuurbesluiten in Public staan er 25
-op voorstel en is er een vervangen; de releases zijn een pre-release (0.0.1) en een concept (0.0.2).
-De vorm van wat OKx uitbrengt ligt zelf nog open.
+Wat er ligt, is opgeleverd als voorstel. Het informatiemodel versie 0.2 staat in Public, de openbare
+publicatie van OKx (PR Public #131, gemerged 27 oktober). De opleiding van Jochem staat in 67 platen
+over acht fasen in het informatiemodel (PR meta #314, ter beoordeling). Drie interactieketens zijn
+uitgewerkt tot op het bericht (PR meta #373, #387, #364, ter beoordeling). Hoofdplaat 1.7a draagt de
+stroom uit de casus van mboRijnland (PR meta #400 gemerged, plaat in PR Public #133 ter beoordeling).
+Van de 26 architectuurbesluiten in Public staan er 25 op voorstel en is er een vervangen; de releases
+zijn een pre-release (0.0.1) en een concept (0.0.2). De vorm van wat OKx uitbrengt ligt nog open.
 
-De route om de vragen uit de hoofdvraag te beantwoorden: een persona, de leerroute die hij loopt, die leerroute stap
-voor stap uitgewerkt in het informatiemodel, en wat daarbij ontbreekt, komt in het informatiemodel.
-Daarna de volgende leerroute. Zo kwam bijvoorbeeld de nominale leerroute boven water. Dat gebeurt
-samen met instellingen en leveranciers. OKx zet door op het informatiemodel en de voorbeelden.
+De koers: een persona, de leerroute die hij loopt, die leerroute stap voor stap uitgewerkt in het
+informatiemodel, en wat daarbij ontbreekt, komt in het informatiemodel. Daarna de volgende leerroute:
+leerroute 2 (Larissa) en 3 (Linda), samen met instellingen en leveranciers. Zo kwam bijvoorbeeld de
+nominale leerroute boven water. OKx zet door op het informatiemodel en de voorbeelden.
 
-Samen met de architecten van Npuls (de architectuursync) wordt de vraag concreet: waar OKx staat in
-de keten, naast de afsprakenset voor toetsafname (OKE) en het zusterproject voor aanmelden,
-inschrijven en intekenen (AII). De plaat daarvan staat ter beoordeling in meta #300.
+OKx verbindt met de andere pijlers binnen Npuls: eduXchange voor de catalogus, eduID en het inrichten
+van toegang, en de werkgroep leeruitkomsten voor de sleutel over de pijlers heen. Binnen de eigen
+pijler Leren Zonder Drempels raakt OKx ook de afsprakenset voor toetsafname (OKE) en het project voor
+aanmelden, inschrijven en intekenen (AII). De sectorketen staat ter beoordeling in PR meta #300.
 
-Bron: besluiten in Public, Referentiemateriaal/adr/ (status per besluit); releases op de
-releasepagina van Npuls-OKx/Public; vraaggebieden in de issues meta #342, #365, #447 en #440 en de
-PR Public #100 (open); nominale leerroute: meta #314, fase 2 (PR open); sectorketen: meta #300 (PR
-open).
+Bron: besluiten in Public, Referentiemateriaal/adr/; releases op de releasepagina van
+Npuls-OKx/Public; leerroute 2 en 3 als volgende persona's: SI-afstemming 28 oktober en informatiemodel
+en ontwerpvragen 29 oktober (Jamie); pijlers: deck alignment Npuls-pijlers 21 september
+(presentaties/src/260921_alignment_npuls_pijlers.md); nominale leerroute: PR meta #314, fase 2.
 -->
