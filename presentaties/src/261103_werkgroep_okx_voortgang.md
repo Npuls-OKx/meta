@@ -45,7 +45,7 @@ specificatie. Bron: issue meta #462.
 <div class="np-rij">
   <div class="np-card accent-blue np-mini">
     <div class="np-kop"><carbon-flow class="np-pic" /> Route naar het eindproduct</div>
-    <small>van wens tot koppelvlakspecificatie</small>
+    <small>van wens tot afspraken tussen systemen</small>
   </div>
   <div class="np-card accent-orange np-mini">
     <div class="np-kop"><carbon-map class="np-pic" style="color: var(--np-orange);" /> Leerroute 1 als toets</div>
@@ -53,7 +53,7 @@ specificatie. Bron: issue meta #462.
   </div>
   <div class="np-card accent-green np-mini">
     <div class="np-kop"><carbon-flag class="np-pic" style="color: var(--np-green);" /> Doel</div>
-    <small>drie koppelingen, alle lagen beschreven</small>
+    <small>drie koppelingen, volledig beschreven</small>
   </div>
 </div>
 
@@ -75,8 +75,9 @@ Op 29 september liet het techniekblok drie dingen zien. De route naar het eindpr
 van een school via bouwblokken, begrippen en het informatiemodel naar de informatiestromen en de
 koppelvlakspecificatie. Leerroute 1 als toets, met Jochem als rode draad. En het doel: voor drie
 koppelingen, de catalogus met planning, met studentadministratie en met de leeromgeving, alle lagen
-beschreven in het eerste kwartaal van 2027. De plaat is dezelfde als toen: de drie lijnen op de
-hoofdplaat van de informatiestromen.
+beschreven in het eerste kwartaal van 2027, als richting. De plaat is dezelfde als toen: de
+koppelingen op de hoofdplaat van de informatiestromen, waarbij studentadministratie de kernregistratie
+(OC-KRS) en het studentvolgsysteem (OC-SVS) omvat.
 
 Bron: presentaties/src/260929_werkgroep_okx_voortgang.md (techniekblok 29 september), meta #255.
 -->
@@ -91,16 +92,15 @@ Bron: presentaties/src/260929_werkgroep_okx_voortgang.md (techniekblok 29 septem
 # Hoofdvraag
 
 <div class="np-citaat">
-  <carbon-quotes class="np-citaaticoon" />
-  <div class="np-citaattekst">Wat bouwen we nu eigenlijk?</div>
+  <div class="np-citaattekst">&ldquo;Wat bouwen we nu eigenlijk?&rdquo;</div>
   <div class="np-afzender">SI-team, techniek</div>
 </div>
 
 <div class="np-drie">
   <div class="np-card accent-blue np-vak">
     <carbon-document class="np-groot" />
-    <div class="np-kop">De oplevering</div>
-    <small>welke vorm</small>
+    <div class="np-kop">De uitgave</div>
+    <small>wat, en in welke vorm</small>
   </div>
   <div class="np-card accent-orange np-vak">
     <carbon-enterprise class="np-groot" style="color: var(--np-orange);" />
@@ -119,9 +119,9 @@ Bron: presentaties/src/260929_werkgroep_okx_voortgang.md (techniekblok 29 septem
 <style scoped>
 .fill { padding: 0.9rem 1.8rem; justify-content: flex-start; }
 h1 { font-size: 1.75rem !important; line-height: 1.1; margin: 0; }
-.np-citaat { margin: 1.6rem auto 0; text-align: center; }
+.np-citaat { margin: 2.6rem auto 0; text-align: center; }
 .np-citaaticoon { font-size: 1.8rem; color: var(--np-orange); }
-.np-citaattekst { font-size: 2.2rem; font-weight: 700; color: var(--np-dark-blue); line-height: 1.2; }
+.np-citaattekst { font-size: 1.9rem; font-weight: 500; font-style: italic; color: var(--np-dark-blue); line-height: 1.2; }
 .np-afzender { font-size: 0.86rem; color: var(--np-mid-gray); margin-top: 0.3rem; }
 .np-drie { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.9rem; margin-top: 1.8rem; }
 .np-vak { padding: 0.8rem 0.9rem; text-align: center; }
@@ -145,6 +145,8 @@ dat weet (issue meta #447). Wat een instelling moet kunnen om een leerroute te r
 
 Het antwoord ontstaat samen met instellingen, leveranciers en de architecten van Npuls. De slides
 hierna laten zien wat er sinds 29 september is uitgewerkt; de laatste slide hoe het verder gaat.
+
+Bron van beide citaten: de opdrachtgever bij het maken van dit deck, 30 oktober 2026 (issue meta #462).
 -->
 
 ---
@@ -470,12 +472,12 @@ alle vier PR ter beoordeling; meta #270 (OEAPI als vaste versie, gemerged 1 okto
   <div class="np-card accent-orange np-mini">
     <carbon-document class="np-icoon" style="color: var(--np-orange);" />
     <div class="np-kop">Alles is voorstel</div>
-    <small>uitgave wacht op de vorm</small>
+    <small>uitgave (release) wacht op de vorm</small>
   </div>
   <div class="np-card accent-blue np-mini">
     <carbon-partnership class="np-icoon" />
     <div class="np-kop">Met architecten van Npuls</div>
-    <small>naast toetsen (OKE) en aanmelden (AII)</small>
+    <small>naast toetsafname (OKE) en aanmelden (AII)</small>
   </div>
 </div>
 
@@ -497,8 +499,7 @@ h1 { font-size: 1.75rem !important; line-height: 1.1; margin: 0; }
 <!--
 Wat er ligt is een voorstel. Van de 26 architectuurbesluiten in Public staan er 25
 op voorstel en is er een vervangen; de releases zijn een pre-release (0.0.1) en een concept (0.0.2).
-Er is nog geen vastgestelde release, wel een pre-release en een concept; de vorm van wat OKx
-uitbrengt ligt zelf nog open.
+De vorm van wat OKx uitbrengt ligt zelf nog open.
 
 De route om de vragen uit de hoofdvraag te beantwoorden: een persona, de leerroute die hij loopt, die leerroute stap
 voor stap uitgewerkt in het informatiemodel, en wat daarbij ontbreekt, komt in het informatiemodel.
