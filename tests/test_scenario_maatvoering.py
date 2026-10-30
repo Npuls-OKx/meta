@@ -13,7 +13,7 @@ from pathlib import Path
 
 WORTEL = Path(__file__).resolve().parent.parent
 SCENARIO = WORTEL / "architecture/docs/specificatie/leerroute-uitwerking/doc/scenario-uitwerkingen/scenario-1.1-regulier-happyflow.md"
-REGELS = WORTEL / "architecture/model/informatiemodel/voorbeeld-lr1-regels.json"
+REGELS = WORTEL / "architecture/model/informatiemodel/modeldoorloop-lr1.json"
 
 
 def scenario():

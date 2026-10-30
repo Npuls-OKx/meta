@@ -13,7 +13,7 @@ leeswijzer die per nummer zegt wat die stap voor de vraag betekent.
         --selectie architecture/model/informatiemodel/uitsneden/public-123-minor.json \\
         --uit architecture/model/informatiemodel/img/uitsneden
 
-De vormtaal komt uit `teken-voorbeeldregels.py` en wordt daar ongewijzigd uit geleend:
+De vormtaal komt uit `teken-modeldoorloop.py` en wordt daar ongewijzigd uit geleend:
 dezelfde kleuren, hetzelfde pictogram, dezelfde ruit, driehoek en pijlpunt. De opmaak is
 eigen, want die van dat script hangt aan de regeltabel van de voorbeelduitwerking.
 
@@ -104,7 +104,7 @@ import pathlib
 import sys
 
 WORTEL = pathlib.Path(__file__).resolve().parent
-_spec = importlib.util.spec_from_file_location("teken_voorbeeldregels", WORTEL / "teken-voorbeeldregels.py")
+_spec = importlib.util.spec_from_file_location("teken_modeldoorloop", WORTEL / "teken-modeldoorloop.py")
 vt = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(vt)
 

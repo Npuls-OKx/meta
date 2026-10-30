@@ -1,4 +1,4 @@
-"""Testgevallen voor scripts/teken-voorbeeldregels.py.
+"""Testgevallen voor scripts/teken-modeldoorloop.py.
 
 Elke verwachting volgt uit een fixture-regeltabel in de test; de SVG wordt als XML
 geparst en op inhoud en geometrie getoetst, niet op een momentopname.
@@ -14,7 +14,7 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 
 WORTEL = Path(__file__).resolve().parent.parent
-spec = importlib.util.spec_from_file_location("teken_voorbeeldregels", WORTEL / "scripts/teken-voorbeeldregels.py")
+spec = importlib.util.spec_from_file_location("teken_modeldoorloop", WORTEL / "scripts/teken-modeldoorloop.py")
 tv = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(tv)
 
@@ -370,7 +370,7 @@ class BeeldIsBestandTests(unittest.TestCase):
         self.assertIn("een beeld is een bestand", str(fout.exception))
 
     def test_given_the_real_table_when_drawn_then_every_block_gets_its_own_file(self):
-        tabel = json.loads((WORTEL / "architecture/model/informatiemodel/voorbeeld-lr1-regels.json").read_text(encoding="utf-8"))
+        tabel = json.loads((WORTEL / "architecture/model/informatiemodel/modeldoorloop-lr1.json").read_text(encoding="utf-8"))
         with tempfile.TemporaryDirectory() as map_:
             uit = tv.teken(tabel, Path(map_))
             self.assertEqual(len(uit), len({n for n, _ in uit}))

@@ -54,7 +54,7 @@ ZONE = ("#faf5ee", "#f0f5fa")
 ZONE_RAND = ("#e4d8c6", "#d3e0ec")
 
 # Het ArchiMate-kleurenschema per laag: vulkleur, randkleur, tekstkleur, zoals Archi een view
-# tekent en zoals scripts/teken-voorbeeldregels.py de platen in deze repository kleurt. Wie in de
+# tekent en zoals scripts/teken-modeldoorloop.py de platen in deze repository kleurt. Wie in de
 # view zelf een kleur meegeeft, houdt die; de rest krijgt de kleur van haar laag.
 ARCHIMATE = {
     "Strategy": ("#f5deaa", "#a89460", "#5a4a2a"),

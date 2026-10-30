@@ -34,7 +34,7 @@ record:
 
 ### Waarom dit dossier hier staat
 
-Dit keuzedeel is het verdiepende voorbeeld naast het generieke keuzedeel [K0262](K0262-arbo-kwaliteitszorg-en-hulpverlening-niveau-3.md). Samen vullen zij de keuzedeelruimte van 720 SBU voor een opleiding op niveau 4: 480 SBU verdiepend en 240 SBU generiek. De pdf zegt het verband met de opleiding letterlijk: "Het keuzedeel biedt een verdieping voor het kwalificatiedossier Apothekersassistent (AA)." In de [voorbeelduitwerking van Jochem](../../model/informatiemodel/voorbeeld-leerroute-1-jochem.md) zijn dit de twee kiesbare keuzedelen.
+Dit keuzedeel is het verdiepende voorbeeld naast het generieke keuzedeel [K0262](K0262-arbo-kwaliteitszorg-en-hulpverlening-niveau-3.md). Samen vullen zij de keuzedeelruimte van 720 SBU voor een opleiding op niveau 4: 480 SBU verdiepend en 240 SBU generiek. De pdf zegt het verband met de opleiding letterlijk: "Het keuzedeel biedt een verdieping voor het kwalificatiedossier Apothekersassistent (AA)." In de [voorbeelduitwerking van Jochem](../../model/informatiemodel/modeldoorloop-leerroute-1-jochem.md) zijn dit de twee kiesbare keuzedelen.
 
 ## 1. Algemene informatie
 

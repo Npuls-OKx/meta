@@ -7,7 +7,7 @@ wijst daarom naar een objecttype, een relatie, een rol en een pijl die bestaan;
 dit script faalt zodra dat niet zo is, en meldt per fase welke objecttypen binnen
 scope nog geen ontstaat-regel hebben.
 
-    python3 scripts/controleer-voorbeeldregels.py [--regels PAD] [--model PAD]
+    python3 scripts/controleer-modeldoorloop.py [--regels PAD] [--model PAD]
         [--stromen PAD] [--conceptplaat PAD] [--fasen 2,3,4] [--model-commit SHA]
 
 Controles (R1 en R2 uit het featureplan):
@@ -59,12 +59,12 @@ import pathlib
 import re
 import sys
 
-REGELS = pathlib.Path("architecture/model/informatiemodel/voorbeeld-lr1-regels.json")
+REGELS = pathlib.Path("architecture/model/informatiemodel/modeldoorloop-lr1.json")
 MODEL = pathlib.Path("architecture/model/informatiemodel/informatiemodel.json")
 STROMEN = pathlib.Path("architecture/model/informatiemodel/stromen.json")
 CONCEPTPLAAT = pathlib.Path("architecture/model/informatiemodel/conceptplaat-onderwijsontwerp.json")
 COMPONENTEN = pathlib.Path("architecture/model/informatiemodel/componenten.json")
-SCHEMA = pathlib.Path("architecture/model/informatiemodel/voorbeeld-lr1-regels.schema.json")
+SCHEMA = pathlib.Path("architecture/model/informatiemodel/modeldoorloop-lr1.schema.json")
 PLATEN = {"informatiemodel", "onderwijsontwerp"}
 GEEN_PIJL = "geen pijl op de hoofdplaat"
 NESTING = {"Aggregation", "Composition"}

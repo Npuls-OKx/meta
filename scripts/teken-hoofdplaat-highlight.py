@@ -29,7 +29,7 @@ platen = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(platen)
 
 MODEL = pathlib.Path("architecture/model/model.archimate")
-REGELS = pathlib.Path("architecture/model/informatiemodel/voorbeeld-lr1-regels.json")
+REGELS = pathlib.Path("architecture/model/informatiemodel/modeldoorloop-lr1.json")
 STROMEN = pathlib.Path("architecture/model/informatiemodel/stromen.json")
 UITMAP = pathlib.Path("architecture/model/informatiemodel/img/hoofdplaat")
 PLAAT = UITMAP / "hoofdplaat-v1.7.jpg"

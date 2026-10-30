@@ -1,5 +1,5 @@
 ---
-name: okx-voorbeeld-in-het-informatiemodel
+name: okx-modeldoorloop
 description: >-
   Een persona stap voor stap in het OKx-informatiemodel uitdrukken (MIM 1 en 2):
   een regeltabel per processtap uit een kaderscenario, gecontroleerd tegen de
@@ -12,17 +12,17 @@ description: >-
 
 # Een persona in het informatiemodel
 
-Het voorbeeld is een leeshulp die feedback ophaalt op het informatiemodel, geen ontwerp. Het beslist niets over het model; elke regel wijst naar iets dat op een plaat staat, en waar plaat en bron elkaar tegenspreken staat een vraag. Uitgewerkt voor Jochem in `architecture/model/informatiemodel/voorbeeld-leerroute-1-jochem.md` (Public #106, meta #243).
+Het voorbeeld is een leeshulp die feedback ophaalt op het informatiemodel, geen ontwerp. Het beslist niets over het model; elke regel wijst naar iets dat op een plaat staat, en waar plaat en bron elkaar tegenspreken staat een vraag. Uitgewerkt voor Jochem in `architecture/model/informatiemodel/modeldoorloop-leerroute-1-jochem.md` (Public #106, meta #243).
 
 ## De keten
 
 ```mermaid
 flowchart LR
-    B["Bronnen<br/>kaderscenario, payloads, ontologie"] --> R["Regeltabel<br/>voorbeeld-lr1-regels.json"]
-    P["Platen<br/>informatiemodel.json, stromen.json,<br/>conceptplaat-onderwijsontwerp.json"] --> C["controleer-voorbeeldregels.py"]
+    B["Bronnen<br/>kaderscenario, payloads, ontologie"] --> R["Regeltabel<br/>modeldoorloop-lr1.json"]
+    P["Platen<br/>informatiemodel.json, stromen.json,<br/>conceptplaat-onderwijsontwerp.json"] --> C["controleer-modeldoorloop.py"]
     R --> C
-    C --> T["teken-voorbeeldregels.py<br/>SVG per blok"]
-    T --> G["genereer-voorbeeld-lr1.py<br/>document"]
+    C --> T["teken-modeldoorloop.py<br/>SVG per blok"]
+    T --> G["genereer-modeldoorloop-lr1.py<br/>document"]
     G --> V["validate-docs.py"]
 ```
 
@@ -31,11 +31,11 @@ Volgorde bij elke wijziging, altijd volledig:
 ```
 python3 scripts/exporteer-componenten.py --extra "Intake systeem" "Aanmeld systeem" \
     "Curriculum ontwerptool" "AII (centraal aanmelden)" "Toets- en examen afname systeem"
-python3 scripts/controleer-voorbeeldregels.py            # 0 bevindingen, anders eerst herstellen
-python3 scripts/teken-voorbeeldregels.py                 # per beeld de maat en de banen; ruimt verweesde SVG's op
+python3 scripts/controleer-modeldoorloop.py            # 0 bevindingen, anders eerst herstellen
+python3 scripts/teken-modeldoorloop.py                 # per beeld de maat en de banen; ruimt verweesde SVG's op
 python3 scripts/teken-hoofdplaat-highlight.py            # alleen als de plaat of de stromen wijzigen
-python3 scripts/genereer-voorbeeld-lr1.py                # slotregel: beelden, regels en vragen
-python3 scripts/validate-docs.py architecture/model/informatiemodel/voorbeeld-leerroute-1-jochem.md
+python3 scripts/genereer-modeldoorloop-lr1.py                # slotregel: beelden, regels en vragen
+python3 scripts/validate-docs.py architecture/model/informatiemodel/modeldoorloop-leerroute-1-jochem.md
 python3 -W error::ResourceWarning -m unittest discover -s tests
 ```
 
@@ -45,7 +45,7 @@ De platen komen uit het ArchiMate-model en worden alleen gelezen: `genereer-info
 
 Kop: `model` (commits waartegen is gecontroleerd), `fasen` (nummer, naam, MORA-hoofdproces, bron, stappen, verwacht, `uitwisselingen` en `dekking`, link naar de fasekop in het kaderscenario), `rollen` (gesloten lijst), `toestanden` (elk met bron), `scope_uitzonderingen` (objecttype buiten scope dat het voorbeeld toch toont, met motivering), `koppelingen` ("Van > Naar" naar koppeling-ID), `thema_toelichting` en `bevindingen` (het register van een reviewronde).
 
-Het schema `voorbeeld-lr1-regels.schema.json` is de woordenlijst: het staat op `additionalProperties: false` op de tabel, op een regel en op beide relatievormen, en de controle valideert de tabel ertegen. Een veld dat het schema niet kent is dus een bevinding, niet een stille toevoeging. Komt er een veld bij, dan komt het eerst in het schema.
+Het schema `modeldoorloop-lr1.schema.json` is de woordenlijst: het staat op `additionalProperties: false` op de tabel, op een regel en op beide relatievormen, en de controle valideert de tabel ertegen. Een veld dat het schema niet kent is dus een bevinding, niet een stille toevoeging. Komt er een veld bij, dan komt het eerst in het schema.
 
 Elke regel is een fragment van een plaat bij een processtap:
 

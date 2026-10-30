@@ -38,7 +38,7 @@ def _laad(naam, bestand):
 hoog = _laad("hoofdplaat_highlight", "teken-hoofdplaat-highlight.py")
 ruim = _laad("hoofdplaat_ruim", "teken-hoofdplaat-ruim.py")
 
-REGELS = pathlib.Path("architecture/model/informatiemodel/voorbeeld-lr1-regels.json")
+REGELS = pathlib.Path("architecture/model/informatiemodel/modeldoorloop-lr1.json")
 UITMAP = pathlib.Path("architecture/model/informatiemodel/img/hoofdplaat")
 OVERZICHT = "hoofdplaat.svg"
 

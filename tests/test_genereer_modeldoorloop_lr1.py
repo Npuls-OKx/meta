@@ -1,4 +1,4 @@
-"""Testgevallen voor scripts/genereer-voorbeeld-lr1.py.
+"""Testgevallen voor scripts/genereer-modeldoorloop-lr1.py.
 
 Fixture-regeltabel, -model en -begrippen in de test zelf; het document wordt in
 een tijdelijke map gebouwd met lege SVG's op de verwachte paden.
@@ -14,10 +14,10 @@ import unittest
 from pathlib import Path
 
 WORTEL = Path(__file__).resolve().parent.parent
-spec = importlib.util.spec_from_file_location("genereer_voorbeeld_lr1", WORTEL / "scripts/genereer-voorbeeld-lr1.py")
+spec = importlib.util.spec_from_file_location("genereer_voorbeeld_lr1", WORTEL / "scripts/genereer-modeldoorloop-lr1.py")
 gv = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(gv)
-spec2 = importlib.util.spec_from_file_location("teken_voorbeeldregels", WORTEL / "scripts/teken-voorbeeldregels.py")
+spec2 = importlib.util.spec_from_file_location("teken_modeldoorloop", WORTEL / "scripts/teken-modeldoorloop.py")
 tv = importlib.util.module_from_spec(spec2)
 spec2.loader.exec_module(tv)
 
@@ -93,7 +93,7 @@ class GenereerTests(unittest.TestCase):
         blad = gv.invulblad(r)
         self.assertTrue(blad.startswith("# Invulblad bij de voorbeelduitwerking van leerroute 1"))
         self.assertIn("| 2 | F2-01 | Opleidingaanbod | | | | |", blad)
-        self.assertIn("(voorbeeld-leerroute-1-jochem.md)", blad)
+        self.assertIn("(modeldoorloop-leerroute-1-jochem.md)", blad)
         doc = self.bouw(r)
         self.assertNotIn("Invulblad", doc)
         self.assertNotIn("invulblad", doc)
@@ -231,7 +231,7 @@ class GenereerTests(unittest.TestCase):
 
     def test_given_the_examples_in_the_reading_guide_when_checked_then_the_table_still_carries_them(self):
         """De leeswijzer noemt instanties uit de regeltabel; verdwijnt er een, dan liegt de uitleg."""
-        tabel = json.loads((Path(__file__).resolve().parent.parent / "architecture/model/informatiemodel/voorbeeld-lr1-regels.json").read_text(encoding="utf-8"))
+        tabel = json.loads((Path(__file__).resolve().parent.parent / "architecture/model/informatiemodel/modeldoorloop-lr1.json").read_text(encoding="utf-8"))
         alles = " | ".join(r.get("instantie", "") for r in tabel["regels"])
         for voorbeeld in ("Apothekersassistent, versie 2026.1", "Apothekersassistent 2026", "Jochem op Regulier BOL 2026"):
             self.assertIn(voorbeeld, alles)
@@ -312,10 +312,10 @@ class GenereerTests(unittest.TestCase):
             with contextlib.redirect_stdout(io.StringIO()):
                 gv.main(argv)
                 eerst = (m / "doc.md").read_text(encoding="utf-8")
-                blad_eerst = (m / "voorbeeld-leerroute-1-jochem-invulblad.md").read_text(encoding="utf-8")
+                blad_eerst = (m / "modeldoorloop-leerroute-1-jochem-invulblad.md").read_text(encoding="utf-8")
                 gv.main(argv)
             self.assertEqual(eerst, (m / "doc.md").read_text(encoding="utf-8"))
-            self.assertEqual(blad_eerst, (m / "voorbeeld-leerroute-1-jochem-invulblad.md").read_text(encoding="utf-8"))
+            self.assertEqual(blad_eerst, (m / "modeldoorloop-leerroute-1-jochem-invulblad.md").read_text(encoding="utf-8"))
 
     def test_given_all_svgs_present_when_run_then_document_written_and_validate_docs_zero(self):
         with tempfile.TemporaryDirectory() as map_:

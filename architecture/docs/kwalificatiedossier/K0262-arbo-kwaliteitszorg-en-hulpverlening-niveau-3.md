@@ -36,7 +36,7 @@ record:
 
 ### Waarom dit dossier hier staat
 
-Dit keuzedeel dient als domeinvoorbeeld naast het kwalificatiedossier Apothekersassistent. Het laat zien dat een keuzedeel dezelfde opbouw kent als een kwalificatie: kerntaken met daaronder werkprocessen. In de [voorbeelduitwerking van Jochem](../../model/informatiemodel/voorbeeld-leerroute-1-jochem.md) vult het de keuzedeelruimte van zijn opleiding.
+Dit keuzedeel dient als domeinvoorbeeld naast het kwalificatiedossier Apothekersassistent. Het laat zien dat een keuzedeel dezelfde opbouw kent als een kwalificatie: kerntaken met daaronder werkprocessen. In de [voorbeelduitwerking van Jochem](../../model/informatiemodel/modeldoorloop-leerroute-1-jochem.md) vult het de keuzedeelruimte van zijn opleiding.
 
 ## 1. Algemene informatie
 

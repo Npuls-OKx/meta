@@ -1,4 +1,4 @@
-"""Testgevallen voor scripts/controleer-voorbeeldregels.py.
+"""Testgevallen voor scripts/controleer-modeldoorloop.py.
 
 Elk geval werkt op een klein fixture-model en een fixture-regeltabel die in de
 test zelf worden opgebouwd; de verwachtingen volgen uit die fixtures, niet uit de
@@ -13,8 +13,8 @@ import unittest
 from pathlib import Path
 
 WORTEL = Path(__file__).resolve().parent.parent
-SCHEMA = WORTEL / "architecture/model/informatiemodel/voorbeeld-lr1-regels.schema.json"
-spec = importlib.util.spec_from_file_location("controleer_voorbeeldregels", WORTEL / "scripts/controleer-voorbeeldregels.py")
+SCHEMA = WORTEL / "architecture/model/informatiemodel/modeldoorloop-lr1.schema.json"
+spec = importlib.util.spec_from_file_location("controleer_modeldoorloop", WORTEL / "scripts/controleer-modeldoorloop.py")
 cv = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(cv)
 
@@ -384,7 +384,7 @@ class SchemaContractTests(unittest.TestCase):
     """Het schema naast de tabel is de woordenlijst van de velden; wat het niet kent hoort op te vallen."""
 
     def test_given_the_real_table_when_validated_then_it_passes_and_the_schema_knows_every_field(self):
-        tabel = json.loads((WORTEL / "architecture/model/informatiemodel/voorbeeld-lr1-regels.json").read_text(encoding="utf-8"))
+        tabel = json.loads((WORTEL / "architecture/model/informatiemodel/modeldoorloop-lr1.json").read_text(encoding="utf-8"))
         fouten, waarschuwingen = cv.schemavalidatie(tabel, SCHEMA)
         self.assertEqual(fouten, [])
         self.assertEqual(waarschuwingen, [])
@@ -474,7 +474,7 @@ class RegisterTests(unittest.TestCase):
 
     def test_given_the_register_when_read_then_every_finding_of_the_round_is_accounted_for(self):
         """Na de acht fasen draagt elke bevinding een status met het verhaal erbij, en staat er niets open."""
-        tabel = json.loads((WORTEL / "architecture/model/informatiemodel/voorbeeld-lr1-regels.json").read_text(encoding="utf-8"))
+        tabel = json.loads((WORTEL / "architecture/model/informatiemodel/modeldoorloop-lr1.json").read_text(encoding="utf-8"))
         for b in tabel["bevindingen"]:
             self.assertIn(b["status"], ("doorgevoerd", "geparkeerd"), b["nummer"])
             if b["status"] == "doorgevoerd":
@@ -484,11 +484,11 @@ class RegisterTests(unittest.TestCase):
                 self.assertTrue(b["reden"], b["nummer"])
 
     def test_given_every_phase_when_read_then_its_coverage_is_complete(self):
-        tabel = json.loads((WORTEL / "architecture/model/informatiemodel/voorbeeld-lr1-regels.json").read_text(encoding="utf-8"))
+        tabel = json.loads((WORTEL / "architecture/model/informatiemodel/modeldoorloop-lr1.json").read_text(encoding="utf-8"))
         self.assertEqual([f["nummer"] for f in tabel["fasen"] if f.get("dekking") != "volledig"], [])
 
     def test_given_the_register_when_read_then_phase_one_is_fully_processed(self):
-        tabel = json.loads((WORTEL / "architecture/model/informatiemodel/voorbeeld-lr1-regels.json").read_text(encoding="utf-8"))
+        tabel = json.loads((WORTEL / "architecture/model/informatiemodel/modeldoorloop-lr1.json").read_text(encoding="utf-8"))
         fase1 = [b for b in tabel["bevindingen"] if b["issue"] == 283]
         self.assertEqual(len(fase1), 5)
         for b in fase1:
@@ -507,12 +507,12 @@ class RegisterTests(unittest.TestCase):
         """Het featureplan is van 29 september 17:23; zes bevindingen kwamen daarna binnen en vallen in geen
         werkpakket. Hun besluit staat daarom in het veld verwerking van het register zelf, en dit geval houdt
         zichtbaar welke zes dat zijn."""
-        tabel = json.loads((WORTEL / "architecture/model/informatiemodel/voorbeeld-lr1-regels.json").read_text(encoding="utf-8"))
+        tabel = json.loads((WORTEL / "architecture/model/informatiemodel/modeldoorloop-lr1.json").read_text(encoding="utf-8"))
         zonder = [b["nummer"] for b in tabel["bevindingen"] if not b.get("werkpakketten")]
         self.assertEqual(zonder, ["B33", "B34", "B35", "B36", "B37", "B38"])
 
     def test_given_every_finding_of_the_round_when_counted_then_the_register_holds_all_of_them(self):
-        tabel = json.loads((WORTEL / "architecture/model/informatiemodel/voorbeeld-lr1-regels.json").read_text(encoding="utf-8"))
+        tabel = json.loads((WORTEL / "architecture/model/informatiemodel/modeldoorloop-lr1.json").read_text(encoding="utf-8"))
         self.assertEqual(len(tabel["bevindingen"]), 38)
         beelden = {r["beeld_id"] for r in tabel["regels"]}
         for b in tabel["bevindingen"]:
@@ -596,7 +596,7 @@ class DekkingTests(unittest.TestCase):
         """De werklijst van de fase-issues: elk gat krijgt daar beeld_in_fase, afwijking of buiten_scope,
         en de fase gaat op dekking volledig. Een fase die volledig heet draagt dus geen gat meer, en de
         controle levert geen bevinding zolang de rest nog loopt."""
-        tabel = json.loads((WORTEL / "architecture/model/informatiemodel/voorbeeld-lr1-regels.json").read_text(encoding="utf-8"))
+        tabel = json.loads((WORTEL / "architecture/model/informatiemodel/modeldoorloop-lr1.json").read_text(encoding="utf-8"))
         b, w = cv.dekking_uitwisselingen(tabel)
         self.assertEqual(b, [])
         gaten = [x for x in w if "draagt geen beeld" in x]
@@ -657,7 +657,7 @@ class KoppelingoverzichtTests(unittest.TestCase):
                             for x in overzicht), overzicht)
 
     def test_given_the_real_table_when_counted_then_the_curriculum_tool_has_no_specification(self):
-        tabel = json.loads((WORTEL / "architecture/model/informatiemodel/voorbeeld-lr1-regels.json").read_text(encoding="utf-8"))
+        tabel = json.loads((WORTEL / "architecture/model/informatiemodel/modeldoorloop-lr1.json").read_text(encoding="utf-8"))
         overzicht = cv.koppelingoverzicht(tabel)
         self.assertTrue(any("Curriculum ontwerptool naar Onderwijscatalogus, 30 regels" in x for x in overzicht), overzicht)
 
@@ -705,7 +705,7 @@ class StijlTests(unittest.TestCase):
     geldt er onverkort: positief formuleren, en geen em-dash."""
 
     def tabel(self):
-        return json.loads((WORTEL / "architecture/model/informatiemodel/voorbeeld-lr1-regels.json").read_text(encoding="utf-8"))
+        return json.loads((WORTEL / "architecture/model/informatiemodel/modeldoorloop-lr1.json").read_text(encoding="utf-8"))
 
     def teksten(self):
         d = self.tabel()

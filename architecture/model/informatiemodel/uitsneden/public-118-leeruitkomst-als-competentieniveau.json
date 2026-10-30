@@ -104,7 +104,7 @@
    ],
    "niveau": "NLQF 4, taxonomie Romiszowski",
    "gradatie": "Dezelfde competentie een niveau hoger: Biedt farmaceutische patientenzorg in een levensechte apotheekomgeving.",
-   "vindplaats": "zin en gradatie uit voorbeeld-lr1-regels.json, kwalificatiedossier Apothekersassistent van S-BB; de vijf plekken uit begrippen/leeruitkomst-vorm/README.md",
+   "vindplaats": "zin en gradatie uit modeldoorloop-lr1.json, kwalificatiedossier Apothekersassistent van S-BB; de vijf plekken uit begrippen/leeruitkomst-vorm/README.md",
    "laag": {
     "objecttype": "Competenties / Skills",
     "voorlopig": "voorlopig ingevuld, de vaardigheidscodes zijn niet geverifieerd (meta#366)",

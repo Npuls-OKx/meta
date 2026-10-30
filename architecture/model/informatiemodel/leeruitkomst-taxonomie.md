@@ -1,6 +1,6 @@
 # De taxonomiecode per leeruitkomst
 
-De zeven leeruitkomsten in de voorbeelduitwerking van leerroute 1 dragen sinds dit document een taxonomiecode in het veld `taxonomie` van [`voorbeeld-lr1-regels.json`](voorbeeld-lr1-regels.json). Hier staat welke code en waarom. Relateert aan: #350 en #347.
+De zeven leeruitkomsten in de voorbeelduitwerking van leerroute 1 dragen sinds dit document een taxonomiecode in het veld `taxonomie` van [`modeldoorloop-lr1.json`](modeldoorloop-lr1.json). Hier staat welke code en waarom. Relateert aan: #350 en #347.
 
 **De codes zijn een voorstel.** De plaatsing van een leeruitkomst in een taxonomie is onderwijskundig werk. Wat hier staat is afgeleid uit de formulering en uit de indeling van Romiszowski; bevestiging door een onderwijskundige staat nog open.
 
@@ -39,7 +39,7 @@ En de minor valt buiten de reeks, want daar wisselt de taxonomie mee met het NLQ
 ## Controle
 
 ```bash
-python3 scripts/keur-leeruitkomst.py architecture/model/informatiemodel/voorbeeld-lr1-regels.json
+python3 scripts/keur-leeruitkomst.py architecture/model/informatiemodel/modeldoorloop-lr1.json
 ```
 
-Die toetst of de code bestaat en of zij bij het NLQF-niveau in de zin past. Het schema [`voorbeeld-lr1-regels.schema.json`](voorbeeld-lr1-regels.schema.json) kent de zeventien toegestane waarden: twaalf van Romiszowski en vijf van SOLO.
+Die toetst of de code bestaat en of zij bij het NLQF-niveau in de zin past. Het schema [`modeldoorloop-lr1.schema.json`](modeldoorloop-lr1.schema.json) kent de zeventien toegestane waarden: twaalf van Romiszowski en vijf van SOLO.

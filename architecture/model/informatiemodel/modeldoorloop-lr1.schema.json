@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "voorbeeld-lr1-regels.schema.json",
+  "$id": "modeldoorloop-lr1.schema.json",
   "title": "Regeltabel voorbeelduitwerking leerroute 1 (Jochem)",
   "description": "Bron voor het document dat de opleiding van Jochem stap voor stap in het informatiemodel uitdrukt. Elke regel is een fragment van de plaat bij een processtap; de controle toetst namen, relaties, rollen, stappen en pijlen tegen informatiemodel.json en stromen.json.",
   "type": "object",
