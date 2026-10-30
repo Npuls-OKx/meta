@@ -44,10 +44,10 @@ Kern: de [managementsamenvatting](context.md#managementsamenvatting), 5 minuten.
 
 | | |
 |---|---|
-| Beantwoordt | Wie de opdrachtgever is, hoe het project bestuurd wordt, welke risico's zijn benoemd en welke alternatieven zijn afgewogen |
-| Overslaan | Het conceptcommunicatieplan, tenzij je over de uitdracht gaat |
-| Status | Bevroren bron, versie 2.1 van 19 november 2024, bijgewerkt 4 juni 2025. De secties 2 tot en met 8 zijn nog niet overgenomen; de inzet van mensen en middelen blijft eruit |
-| Omvang | 909 woorden, 8 minuten |
+| Beantwoordt | Waarom het project bestaat, welke zes use-cases eronder liggen, welke drie resultaten het draagt, wat de scope is, hoe de aanpak loopt, wie de opdrachtgever is, hoe het bestuurd wordt, welke risico's zijn benoemd en welke alternatieven zijn afgewogen |
+| Overslaan | De planning in de secties 5 en 7, want die is in oktober 2026 herijkt. En het conceptcommunicatieplan, tenzij je over de uitdracht gaat |
+| Status | Bevroren bron, versie 2.1 van 19 november 2024, bijgewerkt 4 juni 2025. Sectie 8 is nog niet overgenomen; de inzet van mensen en middelen blijft eruit, en de governance in sectie 9 is ingehaald |
+| Omvang | 2683 woorden, 22 minuten |
 
 ### Verdieping: het contextdocument
 
