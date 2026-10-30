@@ -224,75 +224,94 @@ leveranciersoverleg 12 oktober (Jamie).
 
 ---
 
-<!-- 5. VAN PROCESSTAP NAAR DETAIL -->
+<!-- 5. VAN PROCESGEBIED NAAR VOORBEELD -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
 
-# Van processtap naar detail
+# Van procesgebied naar voorbeeld
 
 <div class="np-rij">
-  <div class="np-paneel">
-    <div class="np-plaatvak"><img src="/platen/mora-keten4-onderwijsprocessen.png" class="np-mora" /><div class="np-ring"></div></div>
-    <div class="np-onder"><strong>Een processtap in MORA</strong><br/>plannen en roosteren</div>
+  <div class="np-card accent-blue np-niveau">
+    <div class="np-label">Procesgebied</div>
+    <div class="np-beeld"><span class="np-wrap"><img src="/platen/mora-procesgebieden.png" /><span class="np-kader" style="left: 20%; top: 76%; width: 57%; height: 23%;"></span></span></div>
+    <div class="np-naam">Onderwijs ondersteunen</div>
   </div>
   <div class="np-pijl">&#8594;</div>
-  <div class="np-paneel">
-    <img src="/platen/jochem-f2-01-planbaar.png" class="np-detail" />
-    <div class="np-onder"><strong>Stap voor stap uitgewerkt</strong><br/>67 platen in acht fasen, voor Jochem</div>
+  <div class="np-card accent-orange np-niveau">
+    <div class="np-label">Procesketen</div>
+    <div class="np-beeld"><img src="/platen/mora-keten4-onderwijsprocessen.png" /></div>
+    <div class="np-naam">Onderwijslogistiek</div>
   </div>
   <div class="np-pijl">&#8594;</div>
-  <div class="np-card accent-green np-slot">
-    <carbon-data-structured class="np-groot" />
-    <div class="np-kop">Informatiemodel bijgewerkt</div>
-    <small>nieuwe begrippen en relaties</small>
+  <div class="np-card accent-green np-niveau">
+    <div class="np-label">Processtap</div>
+    <div class="np-beeld"><span class="np-wrap"><img src="/platen/mora-processtap-plannen.png" /><span class="np-kader" style="left: 24.5%; top: 31%; width: 24.5%; height: 51%;"></span></span></div>
+    <div class="np-naam">Plannen en roosteren</div>
+  </div>
+  <div class="np-pijl">&#8594;</div>
+  <div class="np-card accent-yellow np-niveau">
+    <div class="np-label">Voorbeeldstap</div>
+    <div class="np-beeld"><img src="/platen/jochem-f2-01-planbaar.png" class="np-hoog" /></div>
+    <div class="np-naam">Opleiding van Jochem planbaar</div>
   </div>
 </div>
 
-<div class="np-kern">Een conceptuele processtap leidt tot een hele boel detail</div>
-<div class="np-status">Status: ter beoordeling</div>
+<div class="np-onder">
+  <div class="np-card np-lus" style="border-top: 4px solid #C2577A;">
+    <carbon-renew class="np-groot" style="color: #C2577A;" />
+    <div><div class="np-kop">Toetsen en verifiëren</div><small>op de instellingsvloer, steeds opnieuw</small></div>
+  </div>
+  <div class="np-pijl">&#8594;</div>
+  <div class="np-card np-lus" style="border-top: 4px solid var(--np-dark-blue);">
+    <carbon-data-structured class="np-groot" style="color: var(--np-dark-blue);" />
+    <div><div class="np-kop">Informatiemodel bijgewerkt</div><small>nieuwe begrippen en relaties</small></div>
+  </div>
+</div>
 
 <style scoped>
 .fill { padding: 0.9rem 1.4rem; }
 h1 { font-size: 1.75rem !important; line-height: 1.1; margin: 0 0 0.8rem; }
-.np-rij { display: flex; align-items: center; gap: 0.6rem; }
-.np-paneel { text-align: center; }
-.np-paneel:first-child { flex: 1.5; }
-.np-paneel:nth-child(3) { flex: 0.9; }
-.np-plaatvak { position: relative; }
-.np-mora { width: 100%; display: block; border-radius: 4px; }
-.np-ring { position: absolute; left: 34.5%; top: 79%; width: 15%; height: 17%; border: 3px solid var(--np-orange); border-radius: 50%; }
-.np-detail { width: 100%; max-height: 14rem; object-fit: contain; border: 1px solid var(--np-light-gray); border-radius: 4px; background: #fff; }
-.np-onder { font-size: 0.8rem; color: var(--np-dark-blue); margin-top: 0.35rem; line-height: 1.35; }
-.np-pijl { color: var(--np-orange); font-size: 1.6rem; font-weight: 700; }
-.np-slot { flex: 0.7; padding: 0.8rem 0.6rem; text-align: center; margin: 0; }
-.np-slot small { font-size: 0.78rem; display: block; color: var(--np-mid-gray); }
-.np-groot { font-size: 1.6rem; color: var(--np-green); }
-.np-kop { font-weight: 700; font-size: 0.9rem; line-height: 1.25; margin-top: 0.2rem; }
-.np-kern { margin-top: 1.1rem; text-align: center; font-weight: 700; font-size: 1.05rem; color: var(--np-dark-blue); }
-.np-status { margin-top: 0.3rem; text-align: center; font-size: 0.78rem; color: var(--np-mid-gray); }
+.np-rij { display: flex; align-items: stretch; gap: 0.45rem; }
+.np-niveau { flex: 1; padding: 0.45rem 0.5rem; margin: 0; text-align: center; display: flex; flex-direction: column; }
+.np-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--np-mid-gray); }
+.np-beeld { margin: 0.35rem 0; flex: 1; display: flex; align-items: center; justify-content: center; height: 7.5rem; }
+.np-wrap { position: relative; display: inline-block; line-height: 0; }
+.np-beeld img { max-width: 100%; max-height: 7.5rem; display: block; border-radius: 3px; }
+.np-beeld img.np-hoog { border: 1px solid var(--np-light-gray); }
+.np-kader { position: absolute; border: 3px solid var(--np-orange); border-radius: 6px; }
+.np-naam { font-size: 0.86rem; font-weight: 700; color: var(--np-dark-blue); line-height: 1.25; }
+.np-pijl { align-self: center; color: var(--np-orange); font-size: 1.4rem; font-weight: 700; }
+.np-onder { display: flex; justify-content: center; align-items: center; gap: 0.6rem; margin-top: 1rem; }
+.np-lus { display: flex; align-items: center; gap: 0.7rem; padding: 0.6rem 1rem; margin: 0; min-width: 18rem; }
+.np-lus small { font-size: 0.8rem; display: block; color: var(--np-mid-gray); }
+.np-groot { font-size: 1.8rem; }
+.np-kop { font-weight: 700; font-size: 0.95rem; color: var(--np-dark-blue); }
 </style>
 
 </div>
 
 <!--
-Zo ziet zelf fijnmazig uitwerken eruit. Links het hoofdprocesmodel van MORA, de referentiearchitectuur
-voor het mbo, met de keten onderwijslogistiek uitgelicht; de oranje ring staat om plannen en
-roosteren. In MORA is dat een enkele conceptuele processtap. Uitgewerkt voor de opleiding van Jochem,
-apothekersassistent in leerroute 1, wordt het een reeks concrete stappen: hier de stap waarin de
-onderwijsontwerper de opleiding planbaar maakt, met tijdvensters, groepsgrootte, ruimte en docent.
-Over de hele leerroute zijn dat 67 platen in acht fasen, met de 33 bevindingen uit de beoordeling door
-Niels verwerkt.
+Zo ziet zelf fijnmazig uitwerken eruit. MORA, de referentiearchitectuur voor het mbo, deelt het werk
+van een instelling in procesgebieden in; hier onderwijs ondersteunen. Daaronder loopt een procesketen,
+onderwijslogistiek, die over meerdere gebieden heen gaat. In die keten zit de processtap plannen en
+roosteren. Pas daaronder komt het stapje dat OKx als concreet voorbeeld uitwerkt: voor de opleiding
+van Jochem, apothekersassistent in leerroute 1, maakt de onderwijsontwerper de opleiding planbaar, met
+tijdvensters, groepsgrootte, ruimte en docent. Over de hele leerroute zijn dat 67 platen in acht
+fasen. Een conceptuele processtap leidt zo tot een hele boel detail.
 
-Dit proces heeft ons beeld van het informatiemodel bijgewerkt: begrippen en relaties die de reis
-blootlegt, komen in het model. Daarnaast staat de capaciteitsgestuurde planningsvorm, die bij de
-meeste instellingen voorkomt (PR meta #414).
+Elke voorbeeldstap wordt getoetst en geverifieerd op de instellingsvloer, met de koploperscholen, en
+dat gaat in rondes: de 33 bevindingen uit de beoordeling door Niels zijn er zo een. Wat daaruit komt,
+werkt het beeld van het informatiemodel bij: begrippen en relaties die de reis blootlegt, komen in
+het model. Daarnaast staat de capaciteitsgestuurde planningsvorm, die bij de meeste instellingen
+voorkomt (PR meta #414).
 
 Demo: de voorbeelduitwerking in PR meta #314.
 
 Bron: PR meta #314 (voorbeelduitwerking, ter beoordeling), PR meta #414 (variant capaciteitsgestuurd,
-ter beoordeling), PR meta #404 (varianten mogelijk gemaakt, gemerged 26 oktober); MORA-hoofdprocesmodel,
-keten onderwijslogistiek (architecture/docs/specificatie/leerroute-uitwerking/img/).
+ter beoordeling); MORA-hoofdprocesmodel en de keten onderwijslogistiek
+(architecture/docs/specificatie/leerroute-uitwerking/img/). Opbouw van procesgebied tot voorbeeldstap:
+de opdrachtgever, 30 oktober 2026 (issue meta #462).
 -->
 
 ---
