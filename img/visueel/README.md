@@ -16,7 +16,8 @@ De selectie is het werk; het tekenen kost seconden. Een plaat hertekenen na een 
 
 | Plaat | Toont | Gebruikt in |
 |---|---|---|
-| [`rijpheid`](rijpheid.svg) | de zeven niveaus, met het hoogste leeg | [Rijpheid](../../doc/OKx_Rijpheid.md), de leesroute |
+| [`status-ladder`](status-ladder.svg) | de zeven statussen die een product doorloopt | [Status](../../doc/OKx_Status.md) |
+| [`status-nu`](status-nu.svg) | waar de producten vandaag staan, met het werk tussen status 1 en 4 | [Status](../../doc/OKx_Status.md), de leesroute |
 | [`specificatie-hoofdvraag`](specificatie-hoofdvraag.svg) | wat er in concept ligt tegenover wat open staat, met de route ernaartoe | de landingspagina, de leesroute |
 | [`aanleiding`](aanleiding.svg) | wat de sector vraagt, en de tegenvraag van een leverancier | de leesroute, deel 1 |
 | [`fasen`](fasen.svg) | specificatie, bouw, adoptie, borging, met 2032 als eindpunt | de leesroute, deel 6 |

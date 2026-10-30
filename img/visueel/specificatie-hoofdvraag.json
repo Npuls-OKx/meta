@@ -1,7 +1,7 @@
 {
   "titel": "Hoe ziet onze specificatie eruit?",
   "ondertitel": "De vraag waar het werk van OKx op uitkomt, en waarom de vorm nog niet vaststaat",
-  "breedte": 1200,
+  "breedte": 1240,
   "blokken": [
     {
       "soort": "kolommen",
@@ -10,41 +10,53 @@
           "titel": "Wat er in concept ligt",
           "kleur": "#3D68EC",
           "regels": [
-            {"tekst": "Een eerste pakket koppelvlakspecificaties", "bron": "Public, uitgave 0.0.1 van augustus 2026, zonder review"},
-            {"tekst": "De herziening naar interactieketens", "bron": "meta PR 373 en 387, op een branch"},
-            {"tekst": "Een laag applicatiediensten eronder", "bron": "Public PR 100"},
+            {"tekst": "Een eerste set koppelvlakspecificaties", "bron": "Public, release 0.0.1, zonder review"},
+            {"tekst": "Interactieketens op basis van meerwaarde voor instelling en student", "bron": "in herziening, op een branch in meta"},
+            {"tekst": "Een laag applicatiediensten eronder", "bron": "in review in Public"},
             {"tekst": "Het informatiemodel met de begrippenlijst", "bron": "80 objecttypen, 226 relaties"},
-            {"tekst": "De route naar een OEAPI-profiel", "bron": "OEAPI tenzij, als overlay op de standaard"},
-            {"tekst": "De voorbeeldregels per processtap", "bron": "leerroute 1, 67 beelden uit een regeltabel"}
+            {"tekst": "De route naar een OKx-profiel", "bron": "OEAPI waar het kan, als overlay op de standaard"},
+            {"tekst": "De voorbeeldregels per processtap", "bron": "leerroute 1, de casus stap voor stap door het model"}
           ]
         },
         {
           "titel": "Wat nog open staat",
           "kleur": "#DD784B",
           "regels": [
-            {"tekst": "Op welk niveau de set wordt geknipt: capability, koppelvlakdienst of keten", "bron": "issue 342", "open": true},
-            {"tekst": "Hoe optionaliteit zich in een profiel laat uitdrukken", "bron": "issue 447", "open": true},
-            {"tekst": "Met welke woorden de lagen worden benoemd", "bron": "issue 445", "open": true},
-            {"tekst": "Wat een instelling moet kunnen om een leerroute te realiseren. De taal daarvoor is in aanbouw en begint bruikbaar te worden", "bron": "issue 424 en 440", "open": true}
+            {"tekst": "Wat een instelling moet kunnen om een leerroute te realiseren. De taal daarvoor is in aanbouw en begint bruikbaar te worden", "open": true},
+            {"tekst": "Op welk niveau de set wordt geknipt: capability, koppelvlakdienst of keten", "open": true},
+            {"tekst": "Hoe optionaliteit zich in een profiel laat uitdrukken", "open": true},
+            {"tekst": "Hoe de lagen heten", "open": true},
+            {"tekst": "Welke vorm een release krijgt, en wie hem beoordeelt", "open": true}
           ]
         }
       ]
     },
     {
-      "kop": "De route om dat beeld te krijgen",
+      "kop": "De taal opbouwen",
       "soort": "stappen",
+      "lus": {"van": 5, "naar": 3, "tekst": "het aangevulde model gaat opnieuw door de casus"},
       "stappen": [
         {"naam": "Persona", "toelichting": "wie is de lerende", "icoon": "user-multiple", "kleur": "#00AF81"},
         {"naam": "Leerroutedocument", "toelichting": "wat de instelling doet per fase", "icoon": "road", "kleur": "#00AF81"},
         {"naam": "Voorbeeldregels", "toelichting": "welke objecten bewegen per stap", "icoon": "flow", "kleur": "#00AF81"},
-        {"naam": "Wat ontbreekt", "toelichting": "begrippen die de reis blootlegt", "icoon": "search", "kleur": "#DD784B"},
+        {"naam": "Ontbrekende begrippen", "toelichting": "wat de reis blootlegt", "icoon": "search", "kleur": "#DD784B"},
         {"naam": "Informatiemodel", "toelichting": "aangevuld, en de taal groeit", "icoon": "model", "kleur": "#3D68EC"}
       ]
     },
     {
+      "kop": "Van taal naar specificatie",
+      "soort": "stappen",
+      "stappen": [
+        {"naam": "Voorbeeldregels", "toelichting": "de casus in het model, per stap", "icoon": "flow", "kleur": "#3D68EC"},
+        {"naam": "Interacties en waardeketens", "toelichting": "welke interacties samen waarde opleveren voor instelling en student", "icoon": "chart-relationship", "kleur": "#3D68EC"},
+        {"naam": "Interactieketenspecificatie", "toelichting": "de keten beschreven, van waarde naar koppeling", "icoon": "document", "kleur": "#3D68EC"},
+        {"naam": "OKx-profiel", "toelichting": "gegevensuitwisseling, in OEAPI waar het kan", "icoon": "api", "kleur": "#00AF81"}
+      ]
+    },
+    {
       "soort": "tekst",
-      "tekst": "De reis stap voor stap doorlopen legt bloot welke begrippen ontbreken. Zo kwam de nominale leerroute boven water. Dat is geen illustratie achteraf maar de manier waarop de taal wordt opgebouwd."
+      "tekst": "De reis stap voor stap doorlopen legt bloot welke begrippen ontbreken. Zo kwam de nominale leerroute boven water. Dat is geen illustratie achteraf maar de manier waarop de taal wordt opgebouwd, en die taal draagt daarna de keten en het profiel."
     }
   ],
-  "voet": "Rijpheid: wat er ligt staat op niveau 3 en 4, niveau 5 en 7 zijn leeg, en de uitgave die niveau 6 haalde kreeg geen review. Het vastzetten van de vorm wacht op een scherper beeld van wat een instelling moet kunnen."
+  "voet": "Status: wat er ligt is concept en voorstel, status 5 en 7 zijn leeg, en release 0.0.1 kreeg geen review. Het vastzetten van de vorm wacht op een scherper beeld van wat een instelling moet kunnen."
 }

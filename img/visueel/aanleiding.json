@@ -22,7 +22,7 @@
           "regels": [
             {"tekst": "Waarom maken we de bestaande koppelingen niet gewoon OEAPI-conform, dan zijn we klaar", "open": true},
             {"tekst": "Als dat de oplossing is, waarom is het dan nog niet gebeurd, en waarvoor is OKx dan nodig", "open": true},
-            {"tekst": "Hypothese van het team: er conflicteren belangen. Een leverancier of instelling heeft op zichzelf weinig reden om alles met de buurman uit te wisselen", "bron": "niveau 1, niet getoetst", "open": true}
+            {"tekst": "Hypothese van het team: er conflicteren belangen. Een leverancier of instelling heeft op zichzelf weinig reden om alles met de buurman uit te wisselen", "bron": "status 1, niet getoetst", "open": true}
           ]
         }
       ]

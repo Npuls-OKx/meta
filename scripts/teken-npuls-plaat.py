@@ -13,9 +13,10 @@ na een wijziging kost dus niets.
 
 Blokken die een selectie kan dragen:
 
-    ladder      treden onder elkaar, oplopend, met een trede die leeg kan zijn en een
-                terugloop die van een hogere trede naar een lagere wijst
-    stappen     kaarten naast elkaar met een pijl ertussen
+    ladder      treden onder elkaar, oplopend. Een trede kan leeg staan, producten dragen
+                als chips, in een band vallen, of doel zijn van een terugloop
+    stappen     kaarten naast elkaar met een pijl ertussen, en een lus eronder die van
+                een latere stap terugwijst naar een eerdere
     kolommen    twee kolommen met een lijst, bijvoorbeeld in concept tegenover nog open
     kaarten     een rij kaarten met icoon, titel en een regel
     legenda     een regel met kleurvlakjes en hun betekenis
@@ -116,73 +117,124 @@ def pijl(x1, y1, x2, kleur):
 
 # ---------------------------------------------------------------- blokken
 
+def _chiprijen(items, ruimte, grootte=11):
+    """Chips verdelen over rijen die binnen de ruimte passen."""
+    rijen, huidig, breed = [], [], 0.0
+    for naam in items:
+        b = tw(naam, grootte) + 20
+        if huidig and breed + 6 + b > ruimte:
+            rijen.append(huidig)
+            huidig, breed = [], 0.0
+        huidig.append((naam, b))
+        breed += b + (6 if breed else 0)
+    if huidig:
+        rijen.append(huidig)
+    return rijen
+
+
 def blok_ladder(b, x, y, w, p, ic):
     """Treden die oplopen. Een trede met leeg: true staat gestippeld en in grijs.
 
-    Een ladder met terugloop houdt links een goot vrij voor de pijl die van een hogere trede
-    terugwijst naar een lagere. Die pijl is de uitspraak zelf: werk dat hoger kwam en na een
-    onbeantwoorde vraag opnieuw begint. Zonder goot zou de pijl door de treden heen lopen,
-    want een hogere trede springt naar rechts in en laat links juist geen ruimte over.
+    Een trede kan items dragen: de producten die op die trede staan, als chips rechts van de
+    naam. De trede groeit dan mee met het aantal rijen chips, zodat een volle trede niet over
+    de volgende heen loopt.
+
+    Links houdt de ladder een goot vrij voor twee aanduidingen. Een band beugelt een reeks
+    treden en zegt wat daar geldt. Een terugloop wijst van een hogere trede naar een lagere:
+    werk dat hoger kwam en na een onbeantwoorde vraag opnieuw begint. Beide moeten in die goot
+    staan, want een hogere trede springt naar rechts in en laat daar geen ruimte over.
     """
     treden = b["treden"]
-    hoog = b.get("tredehoogte", 54)
+    basis = b.get("tredehoogte", 54)
     gat = 10
     inspring = b.get("inspring", 26)
     terug = b.get("terugloop")
-    goot = 58 if terug else 0
+    band = b.get("band")
+    goot = (46 if band else 0) + (58 if terug else 0)
     x += goot
     w -= goot
+    labelbreedte = b.get("labelbreedte", 300)
+
+    hoogten, chips = [], []
+    for j, t in enumerate(treden):
+        rijen = _chiprijen(t.get("items") or [], w - inspring * j - labelbreedte - 24)
+        chips.append(rijen)
+        hoogten.append(max(basis, 22 + len(rijen) * 26) if rijen else basis)
+    totaal = sum(hoogten) + gat * (len(treden) - 1)
+
+    def plaats(j):
+        """Linkerrand en bovenkant van de trede met bronindex j, geteld vanaf de onderste."""
+        onder = sum(hoogten[:j]) + gat * j
+        return x + inspring * j, y + totaal - onder - hoogten[j]
+
     svg = ""
-    for i, t in enumerate(reversed(treden)):
-        n = len(treden) - i
+    for j, t in enumerate(treden):
         leeg = t.get("leeg", False)
-        tx = x + inspring * (n - 1)
-        tw_ = w - inspring * (n - 1)
-        ty = y + i * (hoog + gat)
+        tx, ty = plaats(j)
+        tw_, h = w - inspring * j, hoogten[j]
         vul = p["np-bg"] if leeg else "#ffffff"
         rand = p["np-mid-gray"] if leeg else p["np-light-gray"]
         streep = p["np-light-gray"] if leeg else t.get("kleur", p["np-blue"])
-        svg += kaart(tx, ty, tw_, hoog, vul, rand, streep=streep, gestippeld=leeg)
+        svg += kaart(tx, ty, tw_, h, vul, rand, streep=streep, gestippeld=leeg)
         bol = p["np-mid-gray"] if leeg else t.get("kleur", p["np-blue"])
-        svg += f'<circle cx="{tx + 26:.0f}" cy="{ty + hoog / 2:.0f}" r="13" fill="{bol}"/>'
-        svg += tekst(tx + 26, ty + hoog / 2 + 5, str(t["nummer"]), 13, "#ffffff", vet=True, midden=True)
+        kop = ty + (basis / 2 if chips[j] else h / 2)
+        svg += f'<circle cx="{tx + 26:.0f}" cy="{kop:.0f}" r="13" fill="{bol}"/>'
+        svg += tekst(tx + 26, kop + 5, str(t["nummer"]), 13, "#ffffff", vet=True, midden=True)
         naamkleur = p["np-mid-gray"] if leeg else p["np-ink"]
-        svg += tekst(tx + 50, ty + hoog / 2 - 3, t["naam"], 15, naamkleur, vet=True)
+        svg += tekst(tx + 50, kop - 3, t["naam"], 15, naamkleur, vet=True)
         if t.get("toelichting"):
-            svg += tekst(tx + 50, ty + hoog / 2 + 15, t["toelichting"], 12, p["np-mid-gray"])
+            svg += tekst(tx + 50, kop + 15, t["toelichting"], 12, p["np-mid-gray"])
+        cx0 = tx + labelbreedte
+        for r, rij in enumerate(chips[j]):
+            cx = cx0
+            cy = ty + 16 + r * 26
+            for naam, cb in rij:
+                svg += kaart(cx, cy, cb, 20, p["np-bg"], p["np-light-gray"], straal=10)
+                svg += tekst(cx + 10, cy + 14, naam, 11, p["np-ink"])
+                cx += cb + 6
         if t.get("merk"):
             mb = tw(t["merk"], 11) + 18
-            svg += kaart(tx + tw_ - mb - 14, ty + hoog / 2 - 11, mb, 22, p["np-pink"], p["np-pink"], straal=11)
-            svg += tekst(tx + tw_ - mb - 14 + 9, ty + hoog / 2 + 4, t["merk"], 11, p["np-orange"], vet=True)
-    if terug:
-        svg += _terugloop(terug, treden, x, y, hoog, gat, inspring, goot, p)
-    return svg, len(treden) * (hoog + gat) - gat
+            svg += kaart(tx + tw_ - mb - 14, kop - 11, mb, 22, p["np-pink"], p["np-pink"], straal=11)
+            svg += tekst(tx + tw_ - mb - 14 + 9, kop + 4, t["merk"], 11, p["np-orange"], vet=True)
 
-
-def _terugloop(terug, treden, x, y, hoog, gat, inspring, goot, p):
-    """De pijl in de goot, van een hogere trede terug naar een lagere."""
     nummers = [t["nummer"] for t in treden]
-    for sleutel in ("van", "naar"):
-        if terug[sleutel] not in nummers:
-            sys.exit(f"terugloop verwijst naar trede {terug[sleutel]}, die de ladder niet heeft")
 
-    def linkerrand(nummer):
-        i = len(treden) - nummers.index(nummer) - 1
-        return x + inspring * nummers.index(nummer), y + i * (hoog + gat) + hoog / 2
+    def rand_van(nummer, naam):
+        if nummer not in nummers:
+            sys.exit(f"{naam} verwijst naar trede {nummer}, die de ladder niet heeft")
+        j = nummers.index(nummer)
+        tx, ty = plaats(j)
+        return tx, ty + hoogten[j] / 2, ty, ty + hoogten[j]
 
-    vx, vy = linkerrand(terug["van"])
-    nx, ny = linkerrand(terug["naar"])
-    gx = x - goot + 26
-    kleur = p["np-mid-gray"]
-    svg = (f'<path d="M{vx:.0f} {vy:.0f}H{gx + 10:.0f}q-10 0 -10 10V{ny - 10:.0f}'
-           f'q0 10 10 10H{nx - 11:.0f}" fill="none" stroke="{kleur}" stroke-width="2"/>'
-           f'<path d="M{nx - 2:.0f} {ny:.0f}l-10 -5v10z" fill="{kleur}"/>')
-    if terug.get("tekst"):
-        mx, my = gx - 13, (vy + ny) / 2
-        svg += (f'<text x="{mx:.0f}" y="{my:.0f}" font-family="{FONT}" font-size="11"'
-                f' fill="{kleur}" font-weight="600" text-anchor="middle"'
-                f' transform="rotate(-90 {mx:.0f} {my:.0f})">{esc(terug["tekst"])}</text>')
-    return svg
+    if band:
+        _, _, boven, _ = rand_van(band["boven"], "band")
+        _, _, _, onder = rand_van(band["onder"], "band")
+        bx = x - goot + 20
+        kleur = p["np-mid-gray"]
+        svg += (f'<path d="M{bx + 10:.0f} {boven:.0f}q-10 0 -10 10V{onder - 10:.0f}'
+                f'q0 10 10 10" fill="none" stroke="{kleur}" stroke-width="2"/>')
+        if band.get("tekst"):
+            svg += _rechtop(bx - 7, (boven + onder) / 2, band["tekst"], kleur)
+
+    if terug:
+        vx, vy, _, _ = rand_van(terug["van"], "terugloop")
+        nx, ny, _, _ = rand_van(terug["naar"], "terugloop")
+        gx = x - goot + (46 if band else 0) + 26
+        kleur = p["np-mid-gray"]
+        svg += (f'<path d="M{vx:.0f} {vy:.0f}H{gx + 10:.0f}q-10 0 -10 10V{ny - 10:.0f}'
+                f'q0 10 10 10H{nx - 11:.0f}" fill="none" stroke="{kleur}" stroke-width="2"/>'
+                f'<path d="M{nx - 2:.0f} {ny:.0f}l-10 -5v10z" fill="{kleur}"/>')
+        if terug.get("tekst"):
+            svg += _rechtop(gx - 13, (vy + ny) / 2, terug["tekst"], kleur)
+
+    return svg, totaal
+
+
+def _rechtop(x, y, t, kleur, grootte=11):
+    """Een label dat van onder naar boven leest, voor in de goot naast de ladder."""
+    return (f'<text x="{x:.0f}" y="{y:.0f}" font-family="{FONT}" font-size="{grootte}"'
+            f' fill="{kleur}" font-weight="600" text-anchor="middle"'
+            f' transform="rotate(-90 {x:.0f} {y:.0f})">{esc(t)}</text>')
 
 
 def blok_stappen(b, x, y, w, p, ic):
@@ -207,7 +259,24 @@ def blok_stappen(b, x, y, w, p, ic):
                 svg += tekst(kx + kb / 2, onder + j * 13, r, 11, p["np-mid-gray"], midden=True)
         if i < n - 1:
             svg += pijl(kx + kb + 8, y + hoog / 2, kx + kb + pijlbreed - 8, p["np-orange"])
-    return svg, hoog
+    lus = b.get("lus")
+    if not lus:
+        return svg, hoog
+
+    # De lus loopt onder de rij terug: wat de ene stap oplevert, voedt een eerdere opnieuw.
+    for sleutel in ("van", "naar"):
+        if not 1 <= lus[sleutel] <= n:
+            sys.exit(f"lus verwijst naar stap {lus[sleutel]}, die de rij niet heeft")
+    mx = lambda i: x + (i - 1) * (kb + pijlbreed) + kb / 2
+    vx, nx = mx(lus["van"]), mx(lus["naar"])
+    diep = y + hoog + 26
+    kleur = p["np-mid-gray"]
+    svg += (f'<path d="M{vx:.0f} {y + hoog:.0f}V{diep - 10:.0f}q0 10 -10 10H{nx + 10:.0f}'
+            f'q-10 0 -10 -10V{y + hoog + 9:.0f}" fill="none" stroke="{kleur}" stroke-width="2"/>'
+            f'<path d="M{nx:.0f} {y + hoog + 1:.0f}l-5 10h10z" fill="{kleur}"/>')
+    if lus.get("tekst"):
+        svg += tekst((vx + nx) / 2, diep + 18, lus["tekst"], 11, kleur, midden=True)
+    return svg, hoog + 44
 
 
 def blok_kolommen(b, x, y, w, p, ic):

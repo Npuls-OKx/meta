@@ -1,0 +1,32 @@
+{
+  "titel": "Waar de producten vandaag staan",
+  "ondertitel": "De producten van OKx in beide repositories, op 30 oktober 2026",
+  "breedte": 1260,
+  "blokken": [
+    {
+      "soort": "ladder",
+      "labelbreedte": 240,
+      "band": {"boven": 4, "onder": 1, "tekst": "hier beweegt het werk"},
+      "terugloop": {"van": 6, "naar": 1, "tekst": "de vraag kwam terug"},
+      "treden": [
+        {"nummer": 1, "naam": "Vraag en wens", "kleur": "#DD784B",
+         "items": ["Wat een instelling moet kunnen per leerroute", "Op welk niveau de set wordt geknipt", "Optionaliteit in een profiel", "Hoe de lagen heten", "De vorm van een release"]},
+        {"nummer": 2, "naam": "Verkenning", "kleur": "#DD784B",
+         "items": ["Negen onderzoeksverslagen in meta", "OKE-vorm tegenover OKx-scope", "Praktijk van standaardisatieprojecten"]},
+        {"nummer": 3, "naam": "Concept", "kleur": "#3D68EC",
+         "items": ["Leerroute 1 met drie persona's", "Begrippenlijst", "Hoofdplaat informatiestromen", "Kaderscenario leerroute 1", "Voorbeeldregels leerroute 1", "Release-management", "MOKA-templates", "OKE-subdomein", "Keuze-requirements"]},
+        {"nummer": 4, "naam": "Voorstel", "kleur": "#3D68EC",
+         "items": ["Informatiemodel 0.2", "26 architectuurbesluiten", "13 principes en de uitgangspunten", "Requirementsboom", "7 applicatiecomponenten", "3 interactiepatronen", "24 datamodelschema's", "Herziening naar interactieketens"]},
+        {"nummer": 5, "naam": "Besloten in OKx", "leeg": true, "merk": "leeg"},
+        {"nummer": 6, "naam": "Gereleased", "kleur": "#00AF81", "merk": "geen review",
+         "items": ["Koppelvlakspecificatie 0.0.1, augustus 2026"]},
+        {"nummer": 7, "naam": "Bekrachtigd", "leeg": true, "merk": "leeg"}
+      ]
+    },
+    {
+      "soort": "tekst",
+      "tekst": "De koers was: zo snel mogelijk naar het eindproduct, de specificaties. Augustus 2026 leverde release 0.0.1 op. Instellingen en leveranciers hebben die niet beoordeeld, en zij is uit gebruik. Elke volgende poging om te specificeren eindigde bij dezelfde vraag, gesteld door instellingen, door leveranciers en door het team zelf: wat maken we eigenlijk, en wat moet een instelling kunnen. Specificeren begint bij dat antwoord, dus beweegt het werk sindsdien tussen status 1 en 4."
+    }
+  ],
+  "voet": "Stand uit Npuls-OKx/meta en Npuls-OKx/Public. Een product schuift zodra zijn eigen Status-regel schuift; de ladder zelf staat in Status van een product."
+}
