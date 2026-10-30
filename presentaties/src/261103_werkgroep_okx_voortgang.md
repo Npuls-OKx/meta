@@ -112,7 +112,7 @@ Bron: presentaties/src/260929_werkgroep_okx_voortgang.md (techniekblok 29 septem
 
 <div class="np-card accent-blue np-blok">
   <div class="np-label">Vraag die OKx invult</div>
-  <div class="np-kern">Welke schakel van interacties in het IT-landschap van een instelling levert waarde voor instelling en student?</div>
+  <div class="np-kern" style="max-width: 70%; margin-left: auto; margin-right: auto;">Welke schakel van interacties in het IT-landschap van een instelling levert waarde voor instelling en student?</div>
 </div>
 
 <div class="np-pijl">&#8595;</div>
@@ -133,7 +133,7 @@ h1 { font-size: 1.75rem !important; line-height: 1.1; margin: 0 0 1.2rem; }
 .np-citaat { font-size: 1.05rem; font-style: italic; color: var(--np-dark-blue); margin-top: 0.2rem; }
 .np-kern { font-size: 1rem; font-weight: 700; color: var(--np-dark-blue); margin-top: 0.25rem; }
 .np-pijl { text-align: center; color: var(--np-orange); font-size: 1.3rem; font-weight: 700; line-height: 1; margin: 0.35rem 0; }
-.np-stap { flex: 1; padding: 0.55rem 0.4rem; align-items: center; justify-content: center; text-align: center; }
+.np-stap { border-radius: 0; flex: 1; padding: 0.55rem 0.4rem; align-items: center; justify-content: center; text-align: center; }
 .np-stap strong { font-size: 0.86rem; color: var(--np-dark-blue); }
 .np-icoon { font-size: 1.3rem; }
 </style>
@@ -187,10 +187,10 @@ de opdrachtgever, 30 oktober 2026 (issue meta #462).
 <style scoped>
 .fill { padding: 0.9rem 1.8rem; }
 h1 { font-size: 1.75rem !important; line-height: 1.1; margin: 0 0 0.8rem; }
-.np-vraag { text-align: center; font-size: 1.1rem; font-style: italic; color: var(--np-dark-blue); }
-.np-vraag span { font-style: normal; font-size: 0.8rem; color: var(--np-mid-gray); margin-left: 0.5rem; }
+.np-vraag { text-align: center; font-size: 1rem; font-style: italic; color: var(--np-dark-blue); }
+.np-vraag span { display: block; font-style: normal; font-size: 0.78rem; color: var(--np-mid-gray); margin-top: 0.1rem; }
 .np-hoofd { margin-top: 0.8rem; padding: 0.8rem 1.2rem; text-align: center; }
-.np-hoofdtekst { font-size: 1.3rem; font-weight: 700; color: var(--np-dark-blue); line-height: 1.3; }
+.np-hoofdtekst { font-size: 1.3rem; font-weight: 700; color: var(--np-dark-blue); line-height: 1.3; max-width: 78%; margin: 0 auto; }
 .np-kortom { margin-top: 0.5rem; font-size: 1.05rem; font-weight: 700; color: var(--np-orange); }
 .np-label { margin-top: 1rem; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--np-mid-gray); }
 .np-vier { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.7rem; margin-top: 0.35rem; }
@@ -507,7 +507,7 @@ h1 { font-size: 1.75rem !important; line-height: 1.1; margin: 0; }
 .np-pil { display: inline-block; margin-top: 0.4rem; background: #F1F3F5; border-radius: 999px; padding: 0.1rem 0.6rem; font-size: 0.74rem; color: var(--np-dark-blue); }
 .np-onderkop { margin-top: 1.1rem; font-size: 0.84rem; font-weight: 700; color: var(--np-dark-blue); }
 .np-fasen { display: grid; grid-template-columns: repeat(8, 1fr); gap: 0.35rem; margin-top: 0.35rem; }
-.np-fase { background: #fff; border: 1px solid var(--np-light-gray); border-top: 4px solid var(--np-blue); border-radius: 4px; padding: 0.3rem 0.2rem; font-size: 0.72rem; font-weight: 600; color: var(--np-dark-blue); text-align: center; }
+.np-fase { background: #fff; border: 1px solid var(--np-light-gray); border-top: 4px solid var(--np-blue); border-radius: 0; padding: 0.3rem 0.2rem; font-size: 0.72rem; font-weight: 600; color: var(--np-dark-blue); text-align: center; }
 .np-fase.open { border-top: 4px dashed var(--np-light-gray); color: var(--np-mid-gray); font-weight: 400; }
 .np-weg { margin-top: 1.1rem; padding: 0.6rem 1rem; text-align: center; }
 .np-weg small { font-size: 0.82rem; display: block; color: var(--np-dark-gray); margin-top: 0.2rem; }
@@ -580,7 +580,7 @@ h1 { font-size: 1.75rem !important; line-height: 1.1; margin: 0; }
 .np-klein { padding: 0.45rem 0.7rem; margin: 0; }
 .np-klein small { font-size: 0.78rem; display: block; color: var(--np-mid-gray); }
 .np-kop { font-weight: 700; font-size: 0.88rem; line-height: 1.25; }
-.np-stap { flex: 1; padding: 0.4rem 0.2rem; align-items: center; justify-content: center; text-align: center; }
+.np-stap { border-radius: 0; flex: 1; padding: 0.4rem 0.2rem; align-items: center; justify-content: center; text-align: center; }
 .np-stap strong { font-size: 0.72rem; color: var(--np-dark-blue); line-height: 1.2; }
 .np-icoon { font-size: 1.1rem; }
 .np-icoon2 { font-size: 1rem; color: var(--np-blue); vertical-align: -0.15rem; }
