@@ -2,6 +2,8 @@
 
 Rode draad: OKx begon als specificatieproject en ontdekte dat de kaderstelling eronder ontbrak. Elke verschuiving sindsdien legt die kaderstelling alsnog.
 
+**Werk in uitvoering.** Deze tijdlijn is nog niet compleet; er horen meer keerpunten in dan er nu staan. Het aanvullen loopt via [#468](https://github.com/Npuls-OKx/meta/issues/468).
+
 ```mermaid
 timeline
     title Van opdracht naar specificatie
@@ -9,12 +11,12 @@ timeline
         november : Opdracht en zes use-cases
     section 2025
         januari : Tweedaagse : scope bevestigd : startflows
-        najaar : Onderzoek naar kaderstelling en doelstellingen : productomschrijvingen : visie op de keten : alignment met OEAPI : mappingsessies met scholen : MOKA draagt de kaderstelling niet
-        december : IT-landschap van een instelling beschreven
+        najaar : Onderzoek naar kaderstelling en doelstellingen : productomschrijvingen : visie op de keten : alignment met OEAPI : mappingsessies met scholen : alignment met de mbo-architectuurgremia via MOKA
+        december : IT-landschap van een instelling beschreven in de hoofdplaat informatiestromen
     section 2026
         januari en februari : Inzichten verwerkt : werkwijze heringericht : agentisch werken
         maart : Kennisbank ingericht : uitwerken kaderstelling : studentkeuzesysteem als component
-        voorjaar : Leveranciers haken aan : kerngroep techniek ingericht : student- en instellingsreis als ordening
+        voorjaar : Leveranciers haken aan : kerngroep techniek ingericht : student- en instellingsreis als ordening : MOKA draagt de kaderstelling niet
         juli : Eerste poging de koppelvlakspecificatie te releasen
         augustus : Leeruitkomst afgestemd met de pijlers : requirementsboom
         september : Verdiepend informatiemodel naar Public
@@ -33,8 +35,8 @@ Bron: het projectplan en het geheugen van het team. De kennisbank en de meetingv
 | najaar 2025 | Het team vormt een interne visie op de hele keten, van onderwijsontwerp tot onderwijsuitvoering en leven lang ontwikkelen. Die procesmodellen dragen alles wat er daarna uit voortkomt | [Leerroute-uitwerking](../architecture/docs/specificatie/leerroute-uitwerking/) |
 | najaar 2025 | Alignment met de Open Education API, gericht op het formaliseren van wat OKx van de standaard nodig heeft | [Definitiemapping MORA en OEAPI](../architecture/docs/definitie_mapping_MORA_OEAPI_excel/) |
 | september tot november 2025 | Architectuurmappingsessies met scholen: procesmapping, informatieobjecten ophalen, het instellingsperspectief ophalen, en de toets of werken vanuit MORA houdbaar is | [Mappingsessies met instellingen](../architecture/docs/mappingsessies-instellingen/) |
-| najaar 2025 | De MOKA-werkgroep wordt klaargemaakt voor de kaderstellende rol van gatekeeper en reviewer. Die rol blijkt op vrijwillige inzet niet te dragen, waarna OKx de kaderstelling zelf gaat maken | [MOKA-sjabloon, gearchiveerd](../archief/MOKA/) |
-| december 2025 | Het IT-landschap van een instelling wordt voor het eerst beschreven, met de hoofdplaat informatiestromen als vorm | [De huidige vorm van onderwijslogistiek](img/onderwijslogistiek-huidige-vorm-20251217.png), [de aandachtspunten](img/aandachtspunten-20251217.png) |
+| najaar 2025 | Alignment met de architectuurgremia van het mbo via MOKA, de koppelvlakaanpak van MORA. De MOKA-werkgroep wordt daarbij klaargemaakt voor de kaderstellende rol van gatekeeper en reviewer | [MOKA-sjabloon, gearchiveerd](../archief/MOKA/) |
+| december 2025 | Het IT-landschap van een instelling wordt voor het eerst beschreven, in de hoofdplaat informatiestromen. Die plaat draagt sindsdien elke uitwerking | [De huidige vorm van onderwijslogistiek](img/onderwijslogistiek-huidige-vorm-20251217.png), [de aandachtspunten](img/aandachtspunten-20251217.png) |
 | januari en februari 2026 | De inzichten uit het najaar worden verwerkt. Het team heroverweegt de werkwijze radicaal en richt haar opnieuw in, met agentisch werken als onderdeel daarvan | [AGENTS.md](../AGENTS.md) |
 
 ## Maart 2026 tot vandaag
@@ -44,6 +46,7 @@ Bron: het projectplan en het geheugen van het team. De kennisbank en de meetingv
 | maart 2026 | De kennisbank wordt ingericht: architectuurprincipes, de procesmodellen uit de mappingsessies, en het studentkeuzesysteem als zelfstandige referentiecomponent | [ADR 0005](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0005-student-keuze-systeem-zelfstandige-referentiecomponent.md) |
 | maart 2026 | Het uitwerken van de kaderstelling begint, te beginnen bij de criteria waarop een student kiest | [Kaderstelling student keuze criteria](../architecture/meetings/20260331_okx_kernteam_inhoud_uitwerken_kaderstelling_student_keuze_criteria/) |
 | maart tot mei 2026 | Leveranciers haken aan: eerst een eigen sessie, daarna de challenge op hoofdplaat 1.3 | [Voorbereiding leveranciersessie](../architecture/meetings/20260327_OKx_kernteam_inhoud_voorbereidingleveranciersessie/), [challenge met leveranciers](../architecture/meetings/20260506_challenge_hoofdplaat1.3_leveranciers/) |
+| voorjaar 2026 | De kaderstellende rol van de MOKA-werkgroep blijkt op vrijwillige inzet niet te dragen. OKx gaat de kaderstelling zelf maken | [MOKA-sjabloon, gearchiveerd](../archief/MOKA/) |
 | april 2026 | Alignment met het initiatief dat de informatiemodellen van MORA en HORA op elkaar afstemt | [Begrippenkader](../architecture/docs/specificatie/leerroute-uitwerking/doc/begrippenkader.md) |
 | mei 2026 | De studentreis en de instellingsreis worden de ordening van het werk: waarde eerst, en het domein als indeling. De scenario's en het ontwerplab bouwen daarop, net als de sessies van de kerngroep techniek | [Ontwerplab en kerngroepsessies](../architecture/meetings/20260508_OKx_kernteam_inhoud_ontwerplab_scenarios_kerngroep_techniek_sessies/), [leerroute-uitwerking](../architecture/docs/specificatie/leerroute-uitwerking/README.md) |
 | juli 2026 | De eerste poging om een koppelvlakspecificatie te releasen. Architectuurbesluiten en koppelingspecificaties verhuizen naar `Npuls-OKx/Public`; meta wordt kennisbank, Public draagt de release | [pull request 127](https://github.com/Npuls-OKx/meta/pull/127) |

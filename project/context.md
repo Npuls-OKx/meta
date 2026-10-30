@@ -49,6 +49,8 @@ Die zes use-cases vallen uiteen in vier niveaus van keuze. Npuls heeft ze als ne
 
 ![Keuzemogelijkheden ontleed: vier niveaus van binnen de eigen opleiding tot over sectoren heen, met de leerroutetekeningen van Npuls erbij](img/visueel/keuzeniveaus.svg)
 
+*De negen leerroutetekeningen van Npuls, voluit en op formaat: [de leerroutes met hun keten](../architecture/docs/specificatie/leerroute-uitwerking/img/README.md). Per route staat daar de persona, de uitwerking, de scenario's en de modeldoorloop.*
+
 Elk niveau hoger brengt partijen in beeld die buiten de eigen muren staan. Een keuze binnen de eigen opleiding raakt de systemen van een instelling. Een keuze over sectoren heen raakt de systemen van twee instellingen, met twee kwalificatiekaders, twee administraties en twee roosters. Dat vraagt meer afspraken, meer uitwisseling en meer beschrijflast bij wie het onderwijs ontwerpt. Een instelling kiest zelf welk niveau bij haar past; OKx maakt vooraf duidelijk wat die keuze van haar vraagt.
 
 ### De afspraak en haar voorwaarde

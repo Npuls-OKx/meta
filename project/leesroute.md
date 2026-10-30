@@ -24,6 +24,8 @@ Leestijd is de woordtelling gedeeld door honderdtwintig woorden per minuut, het 
 
 ![Keuzemogelijkheden ontleed: vier niveaus van binnen de eigen opleiding tot over sectoren heen, met de leerroutetekeningen van Npuls erbij](img/visueel/keuzeniveaus.svg)
 
+*De negen leerroutetekeningen van Npuls, voluit en op formaat: [de leerroutes met hun keten](../architecture/docs/specificatie/leerroute-uitwerking/img/README.md).*
+
 De sector vraagt om meer keuze. Elk niveau hoger brengt partijen buiten de eigen muren in beeld, en vraagt daarmee meer afspraken, meer uitwisseling en meer beschrijflast. Een instelling kiest zelf welk niveau bij haar past.
 
 ![Voorschrijven met een voorwaarde: de redenering van ambitie naar systemen, de waarde voor drie groepen, de tegenvraag van een leverancier en de uitdaging voor OKx](img/visueel/aanleiding.svg)
@@ -53,7 +55,7 @@ Kern: de [managementsamenvatting](context.md#managementsamenvatting), 5 minuten.
 
 ### Verdieping: het historisch overzicht
 
-[Hoe OKx hier kwam](historie.md)
+[Detaillering van de OKx-tijdlijn](historie.md)
 
 | | |
 |---|---|

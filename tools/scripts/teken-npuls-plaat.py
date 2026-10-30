@@ -425,20 +425,28 @@ def blok_niveaus(b, x, y, w, p, ic):
     gat = 10
     svg, yy = "", y
     for r in rijen:
-        beelden = [_miniatuur(pad, mini) for pad in r.get("beelden", [])]
+        # Een beeld is een pad, of een paar van pad en onderschrift. Zonder onderschrift is een
+        # miniatuur van deze maat niet te plaatsen: de lezer ziet een plaatje zonder nummer.
+        bronnen = [v if isinstance(v, dict) else {"pad": v} for v in r.get("beelden", [])]
+        beelden = [_miniatuur(v["pad"], mini) for v in bronnen]
+        onderschrift = 15 if any(v.get("label") for v in bronnen) else 0
         beeldhoog = max([h for _, h in beelden], default=0)
-        hoog = max(b.get("rijhoogte", 62), beeldhoog + 22)
+        hoog = max(b.get("rijhoogte", 62), beeldhoog + onderschrift + 22)
         kleur = r.get("kleur", p["np-green"])
         svg += kaart(x, yy, w, hoog, "#ffffff", p["np-light-gray"], streep=kleur)
         svg += tekst(x + 18, yy + hoog / 2 - 2, r["titel"], 13, p["np-ink"], vet=True)
         if r.get("bron"):
             svg += tekst(x + 18, yy + hoog / 2 + 16, r["bron"], 11, p["np-mid-gray"])
         bx = x + labelbreedte
-        for data, bh in beelden:
-            svg += (f'<image x="{bx:.0f}" y="{yy + (hoog - bh) / 2:.0f}" width="{mini}" height="{bh}"'
+        for (data, bh), bron in zip(beelden, bronnen):
+            by = yy + (hoog - bh - onderschrift) / 2
+            svg += (f'<image x="{bx:.0f}" y="{by:.0f}" width="{mini}" height="{bh}"'
                     f' href="data:image/jpeg;base64,{data}"/>')
-            svg += (f'<rect x="{bx:.0f}" y="{yy + (hoog - bh) / 2:.0f}" width="{mini}" height="{bh}"'
+            svg += (f'<rect x="{bx:.0f}" y="{by:.0f}" width="{mini}" height="{bh}"'
                     f' fill="none" stroke="{p["np-light-gray"]}"/>')
+            if bron.get("label"):
+                svg += tekst(bx + mini / 2, by + bh + 13, bron["label"], 11, p["np-dark-gray"],
+                             vet=True, midden=True)
             bx += mini + gat
         yy += hoog + gat
     return svg, yy - y - gat
