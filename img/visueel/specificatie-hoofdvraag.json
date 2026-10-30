@@ -10,7 +10,7 @@
           "titel": "Wat er in concept ligt",
           "kleur": "#3D68EC",
           "regels": [
-            {"tekst": "Een eerste pakket koppelvlakspecificaties", "bron": "Public, versie 0.0.x, uitgebracht"},
+            {"tekst": "Een eerste pakket koppelvlakspecificaties", "bron": "Public, uitgave 0.0.1 van augustus 2026, zonder review"},
             {"tekst": "De herziening naar interactieketens", "bron": "meta PR 373 en 387, op een branch"},
             {"tekst": "Een laag applicatiediensten eronder", "bron": "Public PR 100"},
             {"tekst": "Het informatiemodel met de begrippenlijst", "bron": "80 objecttypen, 226 relaties"},
@@ -46,5 +46,5 @@
       "tekst": "De reis stap voor stap doorlopen legt bloot welke begrippen ontbreken. Zo kwam de nominale leerroute boven water. Dat is geen illustratie achteraf maar de manier waarop de taal wordt opgebouwd."
     }
   ],
-  "voet": "Rijpheid: wat er ligt staat op niveau 3 en 6, er staat niets op niveau 7. Het vastzetten van de vorm wacht op een scherper beeld van wat een instelling moet kunnen."
+  "voet": "Rijpheid: wat er ligt staat op niveau 3 en 4, niveau 5 en 7 zijn leeg, en de uitgave die niveau 6 haalde kreeg geen review. Het vastzetten van de vorm wacht op een scherper beeld van wat een instelling moet kunnen."
 }

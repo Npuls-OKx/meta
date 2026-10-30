@@ -13,7 +13,8 @@ na een wijziging kost dus niets.
 
 Blokken die een selectie kan dragen:
 
-    ladder      treden onder elkaar, oplopend, met een trede die leeg kan zijn
+    ladder      treden onder elkaar, oplopend, met een trede die leeg kan zijn en een
+                terugloop die van een hogere trede naar een lagere wijst
     stappen     kaarten naast elkaar met een pijl ertussen
     kolommen    twee kolommen met een lijst, bijvoorbeeld in concept tegenover nog open
     kaarten     een rij kaarten met icoon, titel en een regel
@@ -116,11 +117,21 @@ def pijl(x1, y1, x2, kleur):
 # ---------------------------------------------------------------- blokken
 
 def blok_ladder(b, x, y, w, p, ic):
-    """Treden die oplopen. Een trede met leeg: true staat gestippeld en in grijs."""
+    """Treden die oplopen. Een trede met leeg: true staat gestippeld en in grijs.
+
+    Een ladder met terugloop houdt links een goot vrij voor de pijl die van een hogere trede
+    terugwijst naar een lagere. Die pijl is de uitspraak zelf: werk dat hoger kwam en na een
+    onbeantwoorde vraag opnieuw begint. Zonder goot zou de pijl door de treden heen lopen,
+    want een hogere trede springt naar rechts in en laat links juist geen ruimte over.
+    """
     treden = b["treden"]
     hoog = b.get("tredehoogte", 54)
     gat = 10
     inspring = b.get("inspring", 26)
+    terug = b.get("terugloop")
+    goot = 58 if terug else 0
+    x += goot
+    w -= goot
     svg = ""
     for i, t in enumerate(reversed(treden)):
         n = len(treden) - i
@@ -143,7 +154,35 @@ def blok_ladder(b, x, y, w, p, ic):
             mb = tw(t["merk"], 11) + 18
             svg += kaart(tx + tw_ - mb - 14, ty + hoog / 2 - 11, mb, 22, p["np-pink"], p["np-pink"], straal=11)
             svg += tekst(tx + tw_ - mb - 14 + 9, ty + hoog / 2 + 4, t["merk"], 11, p["np-orange"], vet=True)
+    if terug:
+        svg += _terugloop(terug, treden, x, y, hoog, gat, inspring, goot, p)
     return svg, len(treden) * (hoog + gat) - gat
+
+
+def _terugloop(terug, treden, x, y, hoog, gat, inspring, goot, p):
+    """De pijl in de goot, van een hogere trede terug naar een lagere."""
+    nummers = [t["nummer"] for t in treden]
+    for sleutel in ("van", "naar"):
+        if terug[sleutel] not in nummers:
+            sys.exit(f"terugloop verwijst naar trede {terug[sleutel]}, die de ladder niet heeft")
+
+    def linkerrand(nummer):
+        i = len(treden) - nummers.index(nummer) - 1
+        return x + inspring * nummers.index(nummer), y + i * (hoog + gat) + hoog / 2
+
+    vx, vy = linkerrand(terug["van"])
+    nx, ny = linkerrand(terug["naar"])
+    gx = x - goot + 26
+    kleur = p["np-mid-gray"]
+    svg = (f'<path d="M{vx:.0f} {vy:.0f}H{gx + 10:.0f}q-10 0 -10 10V{ny - 10:.0f}'
+           f'q0 10 10 10H{nx - 11:.0f}" fill="none" stroke="{kleur}" stroke-width="2"/>'
+           f'<path d="M{nx - 2:.0f} {ny:.0f}l-10 -5v10z" fill="{kleur}"/>')
+    if terug.get("tekst"):
+        mx, my = gx - 13, (vy + ny) / 2
+        svg += (f'<text x="{mx:.0f}" y="{my:.0f}" font-family="{FONT}" font-size="11"'
+                f' fill="{kleur}" font-weight="600" text-anchor="middle"'
+                f' transform="rotate(-90 {mx:.0f} {my:.0f})">{esc(terug["tekst"])}</text>')
+    return svg
 
 
 def blok_stappen(b, x, y, w, p, ic):

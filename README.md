@@ -8,11 +8,11 @@ Bestaat een document in beide repositories, dan is de versie in [`Npuls-OKx/Publ
 
 ## Status
 
-Wat hier staat is grotendeels concept. Van de zeven [rijpheidsniveaus](doc/OKx_Rijpheid.md) is het hoogste leeg: er is nog geen set documentatie die de sector heeft bekrachtigd.
+Wat hier staat is grotendeels concept en voorstel. Van de zeven [rijpheidsniveaus](doc/OKx_Rijpheid.md) zijn 5 en 7 leeg, en de uitgave die niveau 6 haalde kreeg geen review. Het werk staat daarmee terug op niveau 1: wat een instelling moet kunnen.
 
 | | |
 |---|---|
-| Wat er ligt | Een informatiemodel met begrippenlijst, de hoofdplaat informatiestromen, een eerste pakket koppelvlakspecificaties in Public, en leerroute 1 uitgewerkt tot op processtap |
+| Wat er ligt | Een informatiemodel met begrippenlijst, de hoofdplaat informatiestromen, een eerste pakket koppelvlakspecificaties in Public uit augustus 2026, en leerroute 1 uitgewerkt tot op processtap |
 | Wat nu bepaald wordt | De vorm waarin de oplevering uitkomt. Dat wacht op een scherper beeld van wat een instelling moet kunnen |
 | Waar het naartoe gaat | Per leerroute een best practice die een instelling herkent, en de capabilities die een voorziening daarvoor nodig heeft |
 

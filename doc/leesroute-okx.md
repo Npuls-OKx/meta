@@ -12,9 +12,9 @@
 
 Kern: 45 minuten. Alles: ongeveer drie uur.
 
-Wat hier staat is grotendeels **concept**: een uitwerking om op te schieten. Niets is bekrachtigd door de sector. Per stap hieronder zegt de statusregel waar dat deel op staat.
+Wat hier staat is grotendeels **concept** en **voorstel**: een uitwerking om op te schieten. Niets is bekrachtigd door de sector, en de uitgave van augustus 2026 kreeg geen review. Per stap hieronder zegt de statusregel waar dat deel op staat.
 
-![De zeven rijpheidsniveaus, met het hoogste nog leeg](../img/visueel/rijpheid.svg)
+![De zeven rijpheidsniveaus, met de uitgave op niveau 6 en de pijl die terugwijst naar niveau 1](../img/visueel/rijpheid.svg)
 
 Leestijd is de woordtelling gedeeld door honderdtwintig woorden per minuut, het tempo waarop architectuurmateriaal leest dat een lezer moet kunnen navertellen. Per stap staat de status van het materiaal met de lopende pull request erbij; de route schrijft geen statuswaarde over.
 
@@ -213,7 +213,7 @@ Daarnaast loopt een tweede lijn: de capabilities van de voorziening, oftewel wat
 |---|---|
 | Beantwoordt | Welke objecttypen de keten kent, hoe die samenhangen, en welke begrippenfamilies haar indelen |
 | Overslaan | De ontwerpkeuzes met de status voorstel |
-| Status | Niveau 6, uitgebracht in Public, met de modelronde van oktober erin ([Public PR 131](https://github.com/Npuls-OKx/Public/pull/131)). Lopend: [meta PR 391](https://github.com/Npuls-OKx/meta/pull/391) raakt het kwalificatiekader, [410](https://github.com/Npuls-OKx/meta/pull/410) de resultaatkant |
+| Status | Niveau 4, voorstel, gepubliceerd op `dev` in Public met de modelronde van oktober erin ([Public PR 131](https://github.com/Npuls-OKx/Public/pull/131)). Lopend: [meta PR 391](https://github.com/Npuls-OKx/meta/pull/391) raakt het kwalificatiekader, [410](https://github.com/Npuls-OKx/meta/pull/410) de resultaatkant |
 | Omvang | 2741 woorden, 23 minuten |
 
 ### Verdieping: de hoofdplaat informatiestromen
@@ -237,7 +237,7 @@ Het ArchiMate-model achter de plaat opent in Archi; de platen in dit deel dragen
 |---|---|
 | Beantwoordt | Wat een afgeronde beschrijving bevat, en hoe koppeling en koppelvlak zich verhouden |
 | Overslaan | De uitgangspunten buiten de eigen vraag; de README wijst de leesvolgorde |
-| Status | Niveau 6 voor het uitgebrachte pakket, niveau 3 voor de herziening naar interactieketens: [meta PR 373](https://github.com/Npuls-OKx/meta/pull/373) onderwijsaanbod en [387](https://github.com/Npuls-OKx/meta/pull/387) student-instroom, zie de interactieketens hieronder. [Public PR 100](https://github.com/Npuls-OKx/Public/pull/100) legt een laag applicatiediensten tussen component en endpoint |
+| Status | Niveau 6 voor de uitgave van augustus 2026, die geen review kreeg en uit gebruik is; niveau 3 voor de herziening naar interactieketens: [meta PR 373](https://github.com/Npuls-OKx/meta/pull/373) onderwijsaanbod en [387](https://github.com/Npuls-OKx/meta/pull/387) student-instroom, zie de interactieketens hieronder. [Public PR 100](https://github.com/Npuls-OKx/Public/pull/100) legt een laag applicatiediensten tussen component en endpoint |
 | Omvang | 1998 woorden, 17 minuten |
 
 Wie verder wil, opent een applicatiecomponent met zijn interactiepatroon en een datamodelschema.
@@ -279,7 +279,7 @@ Wie verder wil, opent een applicatiecomponent met zijn interactiepatroon en een 
 |---|---|
 | Beantwoordt | Hoe OKx zich tot ROSA en het Kernmodel Onderwijsinformatie verhoudt, welke verdieping het in MORA vraagt, en welke taal de producten dragen |
 | Overslaan | De overige besluiten, tot er een op een eigen vraag drukt |
-| Status | Niveau 5 voor een vastgesteld besluit; de `Status`-regel in elk besluit is leidend. een besluit kan ook vervangen zijn. Het onderscheid uit 0021 is in beweging: het kan opgaan in de interactieketen en de interactiespecificatie |
+| Status | Niveau 4: alle 26 besluiten staan op `Voorstel` en leggen herleidbaar vast wat het team koos; de `Status`-regel in elk besluit is leidend, en een besluit kan vervangen zijn. Het onderscheid uit 0021 is in beweging: het kan opgaan in de interactieketen en de interactiespecificatie |
 | Omvang | 2731 woorden, 23 minuten |
 
 Verder lezen: 0003 en 0004 onder de leeruitkomst, 0009 en 0014 voor de rolverdeling tussen studentkeuzesysteem en studentvolgsysteem, en 0018 voor de messaging-patronen.
@@ -302,7 +302,7 @@ Wie iets wil toevoegen of corrigeren, opent een issue of een pull request; de we
 |---|---|
 | Beantwoordt | Wie het resultaat draagt, hoe een versie tot stand komt, en wat vandaag openstaat |
 | Overslaan | Niets |
-| Status | Niveau 6. Elk pakket in Public draagt een eigen versielijn met een manifest. [Public PR 82](https://github.com/Npuls-OKx/Public/pull/82) brengt de volgende momentopname |
+| Status | Niveau 3, concept, gepubliceerd op `dev` in Public en in gebruik door het team: elk pakket draagt een eigen versielijn met een manifest. De vorm van een uitgave ligt zelf nog open, en dat is waarom er sinds augustus 2026 geen nieuwe is. [Public PR 82](https://github.com/Npuls-OKx/Public/pull/82) brengt de volgende momentopname |
 | Omvang | 1109 woorden en twee milestonelijsten, 9 minuten |
 
 ## Deel 7, wat nu
