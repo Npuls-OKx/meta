@@ -26,7 +26,7 @@ fonts:
 
 <!--
 Vervolg op het techniekblok van 29 september. Toon: werk in uitvoering. Alles wat er ligt is een
-voorstel; de laatste slide komt daarop terug. Vier onderwerpen: de voorbeelduitwerking van Jochem,
+voorstel; de laatste slide komt daarop terug. Vier onderwerpen: de modeldoorloop van Jochem,
 het informatiemodel na de leveranciersronde, de inbreng van scholen, en de stap van keten naar
 specificatie. Bron: issue meta #462.
 -->
@@ -85,7 +85,7 @@ koppelvlakspecificatie. Leerroute 1 als toets, met Jochem als rode draad. En het
 koppelingen, de catalogus met planning, met studentadministratie en met de leeromgeving, alle lagen
 beschreven in het eerste kwartaal van 2027, als richting. De plaat toont die koppelingen op de
 hoofdplaat van de informatiestromen, opnieuw getekend uit het huidige model (versie 1.7a) met de
-ruime opzet uit de voorbeelduitwerking; studentadministratie omvat de kernregistratie (OC-KRS) en het
+ruime opzet uit de modeldoorloop; studentadministratie omvat de kernregistratie (OC-KRS) en het
 studentvolgsysteem (OC-SVS). In kleur staan alleen de koppelingen vanuit de catalogus in het
 vlak onderwijsontwikkeling (OC-P, OC-KRS en OC-LMS); de overige stromen staan zwart.
 
@@ -119,7 +119,7 @@ Bron: presentaties/src/260929_werkgroep_okx_voortgang.md (techniekblok 29 septem
 <div class="np-pipeline" style="align-items: stretch;">
   <div class="np-step np-stap" style="border-top: 4px solid #00AF81;"><carbon-network-3 class="np-icoon" style="color: #00AF81;" /><strong>Informatiestromen</strong></div>
   <div class="np-arrow" style="align-self: center;">&#8594;</div>
-  <div class="np-step np-stap" style="border-top: 4px solid #F4D74B;"><carbon-data-structured class="np-icoon" style="color: #1B2A6B;" /><strong>Informatiemodel en voorbeelden</strong></div>
+  <div class="np-step np-stap" style="border-top: 4px solid #F4D74B;"><carbon-data-structured class="np-icoon" style="color: #1B2A6B;" /><strong>Informatiemodel en modeldoorloop</strong></div>
   <div class="np-arrow" style="align-self: center;">&#8594;</div>
   <div class="np-step np-stap" style="border-top: 4px solid #1B2A6B;"><carbon-flow class="np-icoon" style="color: #1B2A6B;" /><strong>Interactieketens en interacties</strong></div>
 </div>
@@ -147,7 +147,7 @@ daarmee voor het losse koppelvlak.
 
 De vraag die OKx nu invult: welke schakel van interacties binnen het IT-landschap van een instelling
 levert waarde voor de instelling en de student? Pas daarna komt het specificeren: de
-informatiestromen die bij die schakel horen, het informatiemodel en de voorbeelden die laten zien
+informatiestromen die bij die schakel horen, het informatiemodel en de modeldoorloop die laat zien
 welke informatie er beweegt, en zo de interactieketens en de interacties daarbinnen. Bij elke poging
 om op de lijntjes van de hoofdplaat te specificeren bleek namelijk niet duidelijk wat daar gebeurt.
 Uit een gesprek met een instelling: "Het zijn allemaal blokjes en pijltjes."
@@ -224,12 +224,12 @@ leveranciersoverleg 12 oktober (Jamie).
 
 ---
 
-<!-- 5. VAN PROCESGEBIED NAAR VOORBEELD -->
+<!-- 5. VAN PROCESGEBIED NAAR MODELDOORLOOPSTAP -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
 
-# Van procesgebied naar voorbeeld
+# Van procesgebied naar modeldoorloopstap
 
 <div class="np-rij">
   <div class="np-card accent-blue np-niveau">
@@ -240,22 +240,30 @@ leveranciersoverleg 12 oktober (Jamie).
   <div class="np-pijl">&#8594;</div>
   <div class="np-card accent-orange np-niveau">
     <div class="np-label">Procesketen</div>
-    <div class="np-beeld"><img src="/platen/mora-keten4-onderwijsprocessen.png" /></div>
+    <div class="np-beeld"><span class="np-wrap"><img src="/platen/mora-procesketen-onderwijslogistiek.png" /><span class="np-kader" style="left: 39.5%; top: 19.5%; width: 48.5%; height: 62.5%;"></span></span></div>
     <div class="np-naam">Onderwijslogistiek</div>
   </div>
   <div class="np-pijl">&#8594;</div>
   <div class="np-card accent-green np-niveau">
     <div class="np-label">Processtap</div>
-    <div class="np-beeld"><span class="np-wrap"><img src="/platen/mora-processtap-plannen.png" /><span class="np-kader" style="left: 24.5%; top: 31%; width: 24.5%; height: 51%;"></span></span></div>
-    <div class="np-naam">Plannen en roosteren</div>
+    <div class="np-beeld"><span class="np-wrap"><img src="/platen/mora-plannen-en-roosteren.png" /><span class="np-kader" style="left: 0.5%; top: 13.5%; width: 27%; height: 18%;"></span></span></div>
+    <div class="np-naam">Clusteren leeractiviteiten</div>
   </div>
   <div class="np-pijl">&#8594;</div>
   <div class="np-card accent-yellow np-niveau">
-    <div class="np-label">Voorbeeldstap</div>
-    <div class="np-beeld"><img src="/platen/jochem-f2-01-planbaar.png" class="np-hoog" /></div>
+    <div class="np-label">Leerroute-procesbeeld</div>
+    <div class="np-beeld"><span class="np-wrap"><img src="/platen/lr1-fase2-informatiestromen.jpg" /></span></div>
+    <div class="np-naam">Leerroute 1, fase 2: student en instelling</div>
+  </div>
+  <div class="np-pijl">&#8594;</div>
+  <div class="np-card  np-niveau" style="border-top: 4px solid var(--np-dark-blue);">
+    <div class="np-label">Modeldoorloopstap</div>
+    <div class="np-beeld"><span class="np-wrap"><img src="/platen/jochem-f2-01-planbaar.png" /></span></div>
     <div class="np-naam">Opleiding van Jochem planbaar</div>
   </div>
 </div>
+
+<div class="np-laag"><span>MORA</span><span>OKx-oplossingsmodel en producten</span></div>
 
 <div class="np-onder">
   <div class="np-card np-lus" style="border-top: 4px solid #C2577A;">
@@ -270,48 +278,55 @@ leveranciersoverleg 12 oktober (Jamie).
 </div>
 
 <style scoped>
-.fill { padding: 0.9rem 1.4rem; }
+.fill { padding: 0.9rem 1.2rem; }
 h1 { font-size: 1.75rem !important; line-height: 1.1; margin: 0 0 0.8rem; }
-.np-rij { display: flex; align-items: stretch; gap: 0.45rem; }
-.np-niveau { flex: 1; padding: 0.45rem 0.5rem; margin: 0; text-align: center; display: flex; flex-direction: column; }
-.np-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--np-mid-gray); }
-.np-beeld { margin: 0.35rem 0; flex: 1; display: flex; align-items: center; justify-content: center; height: 7.5rem; }
+.np-rij { display: flex; align-items: stretch; gap: 0.3rem; }
+.np-niveau { flex: 1; min-width: 0; padding: 0.4rem 0.4rem; margin: 0; text-align: center; display: flex; flex-direction: column; }
+.np-label { font-size: 0.64rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; color: var(--np-mid-gray); }
+.np-beeld { margin: 0.3rem 0; flex: 1; display: flex; align-items: center; justify-content: center; height: 7.5rem; }
 .np-wrap { position: relative; display: inline-block; line-height: 0; }
-.np-beeld img { max-width: 100%; max-height: 7.5rem; display: block; border-radius: 3px; }
-.np-beeld img.np-hoog { border: 1px solid var(--np-light-gray); }
+.np-wrap img { max-width: 100%; max-height: 7.5rem; display: block; border-radius: 3px; border: 1px solid var(--np-light-gray); }
 .np-kader { position: absolute; border: 3px solid var(--np-orange); border-radius: 6px; }
-.np-naam { font-size: 0.86rem; font-weight: 700; color: var(--np-dark-blue); line-height: 1.25; }
-.np-pijl { align-self: center; color: var(--np-orange); font-size: 1.4rem; font-weight: 700; }
-.np-onder { display: flex; justify-content: center; align-items: center; gap: 0.6rem; margin-top: 1rem; }
-.np-lus { display: flex; align-items: center; gap: 0.7rem; padding: 0.6rem 1rem; margin: 0; min-width: 18rem; }
+.np-naam { font-size: 0.78rem; font-weight: 700; color: var(--np-dark-blue); line-height: 1.25; }
+.np-pijl { align-self: center; color: var(--np-orange); font-size: 1.2rem; font-weight: 700; }
+.np-laag { display: grid; grid-template-columns: 3fr 2fr; gap: 0.6rem; margin-top: 0.35rem; }
+.np-laag span { border-top: 2px solid var(--np-light-gray); padding-top: 0.2rem; font-size: 0.72rem; color: var(--np-mid-gray); text-align: center; }
+.np-onder { display: flex; justify-content: center; align-items: center; gap: 0.6rem; margin-top: 0.9rem; }
+.np-lus { display: flex; align-items: center; gap: 0.7rem; padding: 0.55rem 1rem; margin: 0; min-width: 17rem; }
 .np-lus small { font-size: 0.8rem; display: block; color: var(--np-mid-gray); }
-.np-groot { font-size: 1.8rem; }
-.np-kop { font-weight: 700; font-size: 0.95rem; color: var(--np-dark-blue); }
+.np-groot { font-size: 1.7rem; }
+.np-kop { font-weight: 700; font-size: 0.92rem; color: var(--np-dark-blue); }
 </style>
 
 </div>
 
 <!--
 Zo ziet zelf fijnmazig uitwerken eruit. MORA, de referentiearchitectuur voor het mbo, deelt het werk
-van een instelling in procesgebieden in; hier onderwijs ondersteunen. Daaronder loopt een procesketen,
-onderwijslogistiek, die over meerdere gebieden heen gaat. In die keten zit de processtap plannen en
-roosteren. Pas daaronder komt het stapje dat OKx als concreet voorbeeld uitwerkt: voor de opleiding
-van Jochem, apothekersassistent in leerroute 1, maakt de onderwijsontwerper de opleiding planbaar, met
-tijdvensters, groepsgrootte, ruimte en docent. Over de hele leerroute zijn dat 67 platen in acht
-fasen. Een conceptuele processtap leidt zo tot een hele boel detail.
+van een instelling in procesgebieden in; hier onderwijs ondersteunen. Daaronder loopt de procesketen
+onderwijslogistiek, met daarin de processen en hun processtappen; het kader staat om plannen en
+roosteren. Een van de processtappen daarin is clusteren leeractiviteiten.
 
-Elke voorbeeldstap wordt getoetst en geverifieerd op de instellingsvloer, met de koploperscholen, en
-dat gaat in rondes: de 33 bevindingen uit de beoordeling door Niels zijn er zo een. Wat daaruit komt,
-werkt het beeld van het informatiemodel bij: begrippen en relaties die de reis blootlegt, komen in
+Die processtappen verdiept OKx met het procesbeeld van de leerroute, per student en per instelling:
+hier fase 2 van leerroute 1, met de informatiestromen die in die fase lopen. Dat procesbeeld valt onder
+het OKx-oplossingsmodel en onze producten. Pas daaronder komt de modeldoorloopstap: voor de opleiding
+van Jochem, apothekersassistent, maakt de onderwijsontwerper de opleiding planbaar, met tijdvensters,
+groepsgrootte, ruimte en docent; de catalogus clustert leeronderdelen tot logistieke eenheden. Over de
+hele leerroute zijn dat 67 platen in acht fasen. Een conceptuele processtap leidt zo tot een hele boel
+detail.
+
+Elke modeldoorloopstap wordt getoetst en geverifieerd op de instellingsvloer, met de koploperscholen,
+en dat gaat in rondes: de 33 bevindingen uit de beoordeling door Niels zijn er zo een. Wat daaruit komt,
+werkt het beeld van het informatiemodel bij: begrippen en relaties die de doorloop blootlegt, komen in
 het model. Daarnaast staat de capaciteitsgestuurde planningsvorm, die bij de meeste instellingen
 voorkomt (PR meta #414).
 
-Demo: de voorbeelduitwerking in PR meta #314.
+Demo: de modeldoorloop in PR meta #314.
 
-Bron: PR meta #314 (voorbeelduitwerking, ter beoordeling), PR meta #414 (variant capaciteitsgestuurd,
-ter beoordeling); MORA-hoofdprocesmodel en de keten onderwijslogistiek
-(architecture/docs/specificatie/leerroute-uitwerking/img/). Opbouw van procesgebied tot voorbeeldstap:
-de opdrachtgever, 30 oktober 2026 (issue meta #462).
+Bron: MORA, procesketen onderwijslogistiek (mora.mbodigitaal.nl, view van 11 oktober 2026) en het
+MORA-hoofdprocesmodel; leerroute 1 fase 2: OKx_LR1_informatiestromen_v20260526_f2
+(architecture/docs/specificatie/leerroute-uitwerking/img/); PR meta #314 (modeldoorloop, ter
+beoordeling), PR meta #414 (variant capaciteitsgestuurd, ter beoordeling). Opbouw van procesgebied
+tot modeldoorloopstap: de opdrachtgever, 30 oktober 2026 (issue meta #462).
 -->
 
 ---
@@ -500,7 +515,7 @@ h1 { font-size: 1.75rem !important; line-height: 1.1; margin: 0; }
 </div>
 
 <!--
-Elk inzicht uit de voorbeelden en de gesprekken gebruiken we om het eindproduct aan te scherpen. Voor
+Elk inzicht uit de modeldoorloop en de gesprekken gebruiken we om het eindproduct aan te scherpen. Voor
 drie onderdelen van leerroute 1 ligt een eerste concept van de interactieketens: aanbod (van ontwerp
 tot aanmeldbaar aanbod), instroom (van aanmelding tot de start) en keuzedelen (wat voor deze student
 kiesbaar is, met de reden erbij). In de strook: aanbod raakt fase 1 en 2, instroom fase 3,
