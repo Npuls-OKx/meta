@@ -1,6 +1,6 @@
 ---
-description: Conventies voor architecture (ADR/meetings/platen)
-globs: architecture/**/*.md,architecture/model/**
+description: Conventies voor architecture en voor de platen die daaruit komen (ADR/meetings/platen)
+globs: architecture/**/*.md,architecture/model/**,project/img/**,tools/scripts/teken-*.py,presentaties/platen.json
 alwaysApply: false
 ---
 
