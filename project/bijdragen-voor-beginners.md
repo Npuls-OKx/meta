@@ -155,13 +155,13 @@ Lees je dit document **op GitHub**? Dan zit je al in de **webinterface** van de 
 3. Klik op **New issue** (of de vergelijkbare knop).
 
 
-![Issue Web Interface van Github](../project/img/bijdragen-voor-beginners-issue-webinterface.jpg)
+![Issue Web Interface van Github](img/bijdragen-voor-beginners-issue-webinterface.jpg)
 
 Wanneer je geen Github account hebt ingelogd, wordt je nu gevraagd in te loggen. Heb je geen Github account? Maak er dan een aan.
 
 GitHub opent dan meestal **geen leeg tekstveld**, maar een **keuzescherm met sjablonen** (*issue templates*). Dat is expres zo ingesteld.
 
-![Issue Web Interface template keuzemenu van Github](../project/img/bijdragen-voor-beginners-issuetemplate.jpg)
+![Issue Web Interface template keuzemenu van Github](img/bijdragen-voor-beginners-issuetemplate.jpg)
 
 
 ### Hoe werken issue templates?
@@ -189,7 +189,7 @@ GitHub opent dan meestal **geen leeg tekstveld**, maar een **keuzescherm met sja
 
 Vul nu je Issue, wijziging of vraag naar wens in. Hoe meer detail, hoe beter! De templates dienen ter referentie.
 
-![Issue Web Interface issue invullen van Github](../project/img/bijdragen-voor-beginners-issue-invullen-view.jpg)
+![Issue Web Interface issue invullen van Github](img/bijdragen-voor-beginners-issue-invullen-view.jpg)
 
 ---
 

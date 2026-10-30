@@ -10,7 +10,7 @@ De besluitboom maakt expliciet welke keuzes er zijn bij het tot stand brengen en
 
 Voor de visuele weergave van de besluitboom wordt verwezen naar:
 
-![Besluitboom – conceptuele keuzes en startpaden](../project/img/bijlage3-mini-mind-map.jpg)
+![Besluitboom – conceptuele keuzes en startpaden](img/bijlage3-mini-mind-map.jpg)
 
 *Legenda:*
 - Hexagon: OKx kernteam initiatief.

@@ -15,7 +15,7 @@ OKx heeft als doel **uniforme en gestandaardiseerde koppelvlakken** voor onderwi
 
 De projectaanpak van het OKx-kernteam volgt een vaste lijn van **begrijpen** naar **ontwerpen** naar **realiseren**. Het project bevindt zich **nu** in de fase **begrijpen**, met een lichte start in de **ontwerpfase** (onder meer door de MOKA-koppelvlakspecificatie voor OKE, en de initiatieven om de OKx uitwerking te realiseren).
 
-![OKx kernteam projectaanpak](../project/img/kernteam-project-aanpak-v20260317.jpg)
+![OKx kernteam projectaanpak](img/kernteam-project-aanpak-v20260317.jpg)
 
 ## Hoofdplaat OKx informatiestromen
 
@@ -27,7 +27,7 @@ Het projectteam OKx wil de vraagstelling van de **sector** (van de instellingen)
 
 **In de plaat: rood = eerste prioriteit.**
 
-![Hoofdplaat OKx informatiestromen](../project/img/hoofdplaat-informatiestromen-v20260317.png)
+![Hoofdplaat OKx informatiestromen](img/hoofdplaat-informatiestromen-v20260317.png)
 
 ### Interpretatie van de informatiestromen (uit de hoofdplaat)
 
