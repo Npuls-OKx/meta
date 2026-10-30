@@ -8,7 +8,7 @@ daar echt op staan. Dit script leest zo'n view alleen en schrijft de objecttypen
 de groep waarin ze staan) en de relaties die op de view getekend zijn, in dezelfde vorm
 als informatiemodel.json, zodat controleer-voorbeeldregels.py er zonder omweg mee werkt.
 
-    python3 scripts/exporteer-conceptplaat.py [--model PAD] [--view NAAM] [--uit PAD]
+    python3 tools/scripts/exporteer-conceptplaat.py [--model PAD] [--view NAAM] [--uit PAD]
 
 Het model wordt alleen gelezen, nooit geschreven.
 """

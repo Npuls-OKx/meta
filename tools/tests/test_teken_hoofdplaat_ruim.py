@@ -1,4 +1,4 @@
-"""Testgevallen voor scripts/teken-hoofdplaat-ruim.py.
+"""Testgevallen voor tools/scripts/teken-hoofdplaat-ruim.py.
 
 De plaat mag ruimer worden, maar de onderlinge ligging van de vakken moet blijven staan: dat is
 het verhaal van hoofdplaat v1.7a. En een naam die niet past hoort niet stilletjes af te breken.
@@ -8,8 +8,8 @@ import importlib.util
 import unittest
 from pathlib import Path
 
-WORTEL = Path(__file__).resolve().parent.parent
-spec = importlib.util.spec_from_file_location("ruim", WORTEL / "scripts/teken-hoofdplaat-ruim.py")
+WORTEL = Path(__file__).resolve().parent.parent.parent
+spec = importlib.util.spec_from_file_location("ruim", WORTEL / "tools/scripts/teken-hoofdplaat-ruim.py")
 ruim = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(ruim)
 

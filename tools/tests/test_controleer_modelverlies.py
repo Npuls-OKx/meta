@@ -1,4 +1,4 @@
-"""Testgevallen voor scripts/controleer-modelverlies.py.
+"""Testgevallen voor tools/scripts/controleer-modelverlies.py.
 
 De controle moet verlies van een concept melden en tegelijk zwijgen over een view die
 anders is ingedeeld. Beide kanten staan hier, want een merge die alleen een weergave
@@ -10,8 +10,8 @@ import tempfile
 import unittest
 from pathlib import Path
 
-WORTEL = Path(__file__).resolve().parent.parent
-spec = importlib.util.spec_from_file_location("verlies", WORTEL / "scripts/controleer-modelverlies.py")
+WORTEL = Path(__file__).resolve().parent.parent.parent
+spec = importlib.util.spec_from_file_location("verlies", WORTEL / "tools/scripts/controleer-modelverlies.py")
 verlies = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(verlies)
 

@@ -20,9 +20,9 @@ Kruisingen horen erbij maar zijn niet altijd te vermijden; met `--max-kruisingen
 plaat haar eigen bovengrens vast, zodat een latere wijziging het niet stilletjes erger maakt.
 
 Gebruik:
-    python3 scripts/keur-plaat.py <plaat>.svg [<plaat>.svg ...]
-    python3 scripts/keur-plaat.py plaat.svg --max-kruisingen 14
-    python3 scripts/keur-plaat.py platen/*.svg --stil        # alleen wat er mis is
+    python3 tools/scripts/keur-plaat.py <plaat>.svg [<plaat>.svg ...]
+    python3 tools/scripts/keur-plaat.py plaat.svg --max-kruisingen 14
+    python3 tools/scripts/keur-plaat.py platen/*.svg --stil        # alleen wat er mis is
 """
 
 from __future__ import annotations

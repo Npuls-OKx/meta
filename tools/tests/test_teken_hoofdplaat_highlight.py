@@ -1,4 +1,4 @@
-"""Testgevallen voor scripts/teken-hoofdplaat-highlight.py.
+"""Testgevallen voor tools/scripts/teken-hoofdplaat-highlight.py.
 
 De groepering bepaalt wat er op de plaat komt: per fase de beelden, of per koppeling
 de lijnen die zij gebruikt.
@@ -8,8 +8,8 @@ import importlib.util
 import unittest
 from pathlib import Path
 
-WORTEL = Path(__file__).resolve().parent.parent
-spec = importlib.util.spec_from_file_location("hoofdplaat", WORTEL / "scripts/teken-hoofdplaat-highlight.py")
+WORTEL = Path(__file__).resolve().parent.parent.parent
+spec = importlib.util.spec_from_file_location("hoofdplaat", WORTEL / "tools/scripts/teken-hoofdplaat-highlight.py")
 hp = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(hp)
 

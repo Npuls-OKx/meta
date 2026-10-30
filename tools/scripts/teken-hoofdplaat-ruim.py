@@ -12,7 +12,7 @@ lijn een eigen baan: recht waar het kan, en anders met een hoek van 90 graden.
 De plaat komt uit het model, dus zij loopt mee met elke wijziging van de view. Het model wordt
 alleen gelezen; raak nooit een .archimate-bestand aan.
 
-    python3 scripts/teken-hoofdplaat-ruim.py --uit <pad>.svg
+    python3 tools/scripts/teken-hoofdplaat-ruim.py --uit <pad>.svg
 """
 
 import argparse
@@ -41,7 +41,7 @@ ZONE = ("#faf5ee", "#f0f5fa")
 ZONE_RAND = ("#e4d8c6", "#d3e0ec")
 
 # Het ArchiMate-kleurenschema per laag: vulkleur, randkleur, tekstkleur, zoals Archi een view
-# tekent en zoals scripts/teken-voorbeeldregels.py de platen in deze repository kleurt. Wie in de
+# tekent en zoals tools/scripts/teken-voorbeeldregels.py de platen in deze repository kleurt. Wie in de
 # view zelf een kleur meegeeft, houdt die; de rest krijgt de kleur van haar laag.
 ARCHIMATE = {
     "Strategy": ("#f5deaa", "#a89460", "#5a4a2a"),

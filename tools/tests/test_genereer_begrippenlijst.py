@@ -1,4 +1,4 @@
-"""Testgevallen voor scripts/genereer-begrippenlijst.py.
+"""Testgevallen voor tools/scripts/genereer-begrippenlijst.py.
 
 Elk negatief geval breekt precies een ding in een verder geldige invoer, zodat de
 melding herleidbaar is naar de mutatie. De verwachte waarden worden berekend uit
@@ -10,9 +10,9 @@ import importlib.util
 import unittest
 from pathlib import Path
 
-WORTEL = Path(__file__).resolve().parent.parent
+WORTEL = Path(__file__).resolve().parent.parent.parent
 spec = importlib.util.spec_from_file_location(
-    "genereer_begrippenlijst", WORTEL / "scripts/genereer-begrippenlijst.py")
+    "genereer_begrippenlijst", WORTEL / "tools/scripts/genereer-begrippenlijst.py")
 gb = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(gb)
 

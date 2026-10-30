@@ -116,7 +116,7 @@ Na review en consolidatie ([ADR 0024 in Npuls-OKx/Public](https://github.com/Npu
 ## Bronnen
 
 - [MOSA-Visiedocument v1.0](MOSA-Visiedocument.md) (januari 2025)
-- [OKx Projectoverzicht](../../../../../doc/OKx_Projectoverzicht.md)
+- [OKx Projectoverzicht](../../../../../project/projectoverzicht.md)
 - [OKx Architectuurprincipes in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/principes/principes.md)
 - [MORA](https://mora.mbodigitaal.nl/)
 - [AMIGO-aanpak](https://www.edustandaard.nl/amigo/aanpak/)

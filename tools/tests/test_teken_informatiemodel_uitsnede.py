@@ -1,4 +1,4 @@
-"""Testgevallen voor scripts/teken-informatiemodel-uitsnede.py.
+"""Testgevallen voor tools/scripts/teken-informatiemodel-uitsnede.py.
 
 Elke verwachting volgt uit een fixture-informatiemodel in de test; de SVG wordt als XML
 geparst en op inhoud en geometrie getoetst, niet op een momentopname. De plaat draagt
@@ -12,7 +12,7 @@ import unittest
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
-WORTEL = Path(__file__).resolve().parent.parent
+WORTEL = Path(__file__).resolve().parent.parent.parent
 
 
 def _laad(naam, bestand):
@@ -22,8 +22,8 @@ def _laad(naam, bestand):
     return module
 
 
-tu = _laad("teken_informatiemodel_uitsnede", "scripts/teken-informatiemodel-uitsnede.py")
-kp = _laad("keur_plaat", "scripts/keur-plaat.py")
+tu = _laad("teken_informatiemodel_uitsnede", "tools/scripts/teken-informatiemodel-uitsnede.py")
+kp = _laad("keur_plaat", "tools/scripts/keur-plaat.py")
 
 SVG = "{http://www.w3.org/2000/svg}"
 

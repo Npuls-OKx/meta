@@ -1,4 +1,4 @@
-"""Testgevallen voor scripts/controleer-voorbeeldregels.py.
+"""Testgevallen voor tools/scripts/controleer-voorbeeldregels.py.
 
 Elk geval werkt op een klein fixture-model en een fixture-regeltabel die in de
 test zelf worden opgebouwd; de verwachtingen volgen uit die fixtures, niet uit de
@@ -12,9 +12,9 @@ import tempfile
 import unittest
 from pathlib import Path
 
-WORTEL = Path(__file__).resolve().parent.parent
+WORTEL = Path(__file__).resolve().parent.parent.parent
 SCHEMA = WORTEL / "architecture/model/informatiemodel/voorbeeld-lr1-regels.schema.json"
-spec = importlib.util.spec_from_file_location("controleer_voorbeeldregels", WORTEL / "scripts/controleer-voorbeeldregels.py")
+spec = importlib.util.spec_from_file_location("controleer_voorbeeldregels", WORTEL / "tools/scripts/controleer-voorbeeldregels.py")
 cv = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(cv)
 

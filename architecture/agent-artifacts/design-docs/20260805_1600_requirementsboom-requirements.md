@@ -35,7 +35,7 @@ Aangescherpt na de eerste-indruk-review van 7 augustus (commentaar bij PR 131): 
 | R8 Vertaalbaar naar issues | De tabellen volgen exact de kolomformats uit de skill, zodat de boom later mechanisch naar milestones en issues is om te zetten. | Kolomkoppen per laag identiek aan de skill. |
 | R9 Leeswijzer verwijst, dupliceert niet | De leeswijzer wijst bestaande documenten en secties aan en neemt geen inhoud over. | Geen inhoudelijke passages die ook in het brondocument staan (steekproef door de reviewer). |
 | R10 Achtergrondmechaniek buiten de boom | Geen eis-ID-traceernotatie of uitvoerbare scenario's (Gherkin) in de boomdocumenten; de index verwijst voor die mechaniek naar het ADR en #135. De leesbare verwijzings-id's per rij (E, F, S) zijn geen achtergrondmechaniek. | `grep` op `req~`, `Covers:` en `Functionaliteit:` in `architecture/docs/requirements/` levert niets op. |
-| R11 Mechanisch schoon | Validatie en indexplicht gelden zoals overal in de repo. | `python3 scripts/validate-docs.py architecture/docs/requirements` slaagt; nieuwe bestanden staan in de README-indexen. |
+| R11 Mechanisch schoon | Validatie en indexplicht gelden zoals overal in de repo. | `python3 tools/scripts/validate-docs.py architecture/docs/requirements` slaagt; nieuwe bestanden staan in de README-indexen. |
 | R12 Plaat en tabel vertellen hetzelfde | De mermaid-plaat in de index is een leesbare, met de hand klein gehouden weergave van opdracht, doelen en epics, binnen de plaatlimiet van de skill. | Elke epicknoop in de plaat staat in `epics.md` en omgekeerd, met id; de plaat bevat geen feature- of storyknopen en geen statusinformatie (aangepast na de eerste-indruk-review van 7 augustus). |
 
 Het pad dat R2 en R5 samen toetsen, als voorbeeld uit leerroute 1:

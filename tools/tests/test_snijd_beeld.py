@@ -1,4 +1,4 @@
-"""Testgevallen voor scripts/snijd-beeld.py.
+"""Testgevallen voor tools/scripts/snijd-beeld.py.
 
 Een beeld in banen snijden mag nooit door een vak heen gaan, en een breed beeld hoeft niet
 gesneden te worden ook al is het hoog in punten. Beide kanten staan hier.
@@ -8,8 +8,8 @@ import importlib.util
 import unittest
 from pathlib import Path
 
-WORTEL = Path(__file__).resolve().parent.parent
-spec = importlib.util.spec_from_file_location("snijd", WORTEL / "scripts/snijd-beeld.py")
+WORTEL = Path(__file__).resolve().parent.parent.parent
+spec = importlib.util.spec_from_file_location("snijd", WORTEL / "tools/scripts/snijd-beeld.py")
 snijd = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(snijd)
 

@@ -15,19 +15,19 @@ OKx heeft als doel **uniforme en gestandaardiseerde koppelvlakken** voor onderwi
 
 De projectaanpak van het OKx-kernteam volgt een vaste lijn van **begrijpen** naar **ontwerpen** naar **realiseren**. Het project bevindt zich **nu** in de fase **begrijpen**, met een lichte start in de **ontwerpfase** (onder meer door de MOKA-koppelvlakspecificatie voor OKE, en de initiatieven om de OKx uitwerking te realiseren).
 
-![OKx kernteam projectaanpak](../img/OKx_kernteam_project_aanpak_v20260317.jpg)
+![OKx kernteam projectaanpak](../project/img/kernteam-project-aanpak-v20260317.jpg)
 
 ## Hoofdplaat OKx informatiestromen
 
 Het projectteam OKx wil de vraagstelling van de **sector** (van de instellingen) kanaliseren richting de **leveranciers** van onderwijsondersteunende software. De onderstaande hoofdplaat geeft een indicatie van alle informatiestromen die in samenwerking — en volgens de MOKA-koppelvlakspecificaties — uitgewerkt kunnen worden. Daarmee geeft ze richting en ondersteunt ze goed geïnformeerde architectuur- en technische besluiten.
 
-**Keten en concept (invoer voor technische specs):** wat de stromen in de keten betekenen en hoe dat richting geeft aan berichtspecificaties, klassendiagrammen en API-uitwerking, staat in [OKx Informatiestromen (ketenconcept)](OKx_Informatiesstromen.md).
+**Keten en concept (invoer voor technische specs):** wat de stromen in de keten betekenen en hoe dat richting geeft aan berichtspecificaties, klassendiagrammen en API-uitwerking, staat in [OKx Informatiestromen (ketenconcept)](informatiestromen.md).
 
-**Architectuur en model:** hoe besluiten en informatiestromen samenhangen met documentatie en het ArchiMate-model staat in [OKx Architectuurbesluiten en impact](OKx_Architectuurbesluiten-en-impact.md) en [Informatiestromen, ArchiMate en MOKA-view](OKx_Informatiestromen-ArchiMate-en-MOKA-view.md).
+**Architectuur en model:** hoe besluiten en informatiestromen samenhangen met documentatie en het ArchiMate-model staat in [OKx Architectuurbesluiten en impact](architectuurbesluiten-en-impact.md) en [Informatiestromen, ArchiMate en MOKA-view](informatiestromen-archimate-en-moka-view.md).
 
 **In de plaat: rood = eerste prioriteit.**
 
-![Hoofdplaat OKx informatiestromen](../img/Hoofdplaat%20OKx%20informatiestromen%20v20260317.png)
+![Hoofdplaat OKx informatiestromen](../project/img/hoofdplaat-informatiestromen-v20260317.png)
 
 ### Interpretatie van de informatiestromen (uit de hoofdplaat)
 
@@ -57,7 +57,7 @@ De onderstaande tabel interpreteert de plaat **"Hoofdplaat OKx informatiestromen
 
 ## Relatie tot ArchiMate-model (in deze repo)
 
-Het functionele en technische ontwerp wordt ondersteund door een **ArchiMate-model** in [`architecture/model/model.archimate`](../architecture/model/model.archimate). Dit model bevat o.a. **MOKA-koppelvlakspecificatie-views**; de view **01. Onderwijsvisie vertalen naar onderwijsaanbod - Basis Model** is een groot diagram om stroom **1** (curriculumontwerp → onderwijscatalogus) t/m 17 en aanverwante processen te verdiepen — zie [Informatiestromen, ArchiMate en MOKA-view](OKx_Informatiestromen-ArchiMate-en-MOKA-view.md).
+Het functionele en technische ontwerp wordt ondersteund door een **ArchiMate-model** in [`architecture/model/model.archimate`](../architecture/model/model.archimate). Dit model bevat o.a. **MOKA-koppelvlakspecificatie-views**; de view **01. Onderwijsvisie vertalen naar onderwijsaanbod - Basis Model** is een groot diagram om stroom **1** (curriculumontwerp → onderwijscatalogus) t/m 17 en aanverwante processen te verdiepen — zie [Informatiestromen, ArchiMate en MOKA-view](informatiestromen-archimate-en-moka-view.md).
 
 
 
@@ -78,9 +78,9 @@ Het functionele en technische ontwerp wordt ondersteund door een **ArchiMate-mod
 | Onderdeel | Locatie | Inhoud |
 |-----------|---------|--------|
 | OKx context | `doc/`, `img/` | Projectoverzicht, besluitboom/historie, informatiestromen, bijlagen |
-| Architectuurbesluiten (samenvatting) | [`doc/OKx_Architectuurbesluiten-en-impact.md`](OKx_Architectuurbesluiten-en-impact.md) | ADR’s, impact op keten/model |
-| ArchiMate en MOKA-view (gids) | [`doc/OKx_Informatiestromen-ArchiMate-en-MOKA-view.md`](OKx_Informatiestromen-ArchiMate-en-MOKA-view.md) | Hoofdplaat ↔ model ↔ Basis Model-view |
+| Architectuurbesluiten (samenvatting) | [`project/architectuurbesluiten-en-impact.md`](architectuurbesluiten-en-impact.md) | ADR’s, impact op keten/model |
+| ArchiMate en MOKA-view (gids) | [`project/informatiestromen-archimate-en-moka-view.md`](informatiestromen-archimate-en-moka-view.md) | Hoofdplaat ↔ model ↔ Basis Model-view |
 | OKE uitwerking | `OKE/` | Eerste subdomein-uitwerking (o.a. examen: uitvoering en beoordeling) |
-| Generiek template | `moka-koppelvlakspecificaties/Template/` | MOKA-template en generieke instructies |
+| Generiek template | `archief/MOKA/Template/` | MOKA-template en generieke instructies |
 
-Zie ook de [root README](../README.md) voor de generieke intro, repo-indeling en de verwijzingen naar Wiki/Discussions, en [Bijdragen voor beginners](Bijdragen-voor-beginners.md) voor git/GitHub, branches en PR’s.
+Zie ook de [root README](../README.md) voor de generieke intro, repo-indeling en de verwijzingen naar Wiki/Discussions, en [Bijdragen voor beginners](bijdragen-voor-beginners.md) voor git/GitHub, branches en PR’s.

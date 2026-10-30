@@ -7,7 +7,7 @@ ergens vandaan, en elke term uit het corpus staat in de lijst, op de negeerlijst
 of in de werkvoorraad.
 
 Gebruik:
-    python3 scripts/genereer-begrippenlijst.py [--controleer]
+    python3 tools/scripts/genereer-begrippenlijst.py [--controleer]
 """
 
 import argparse
@@ -18,7 +18,7 @@ import sys
 from collections import defaultdict
 from pathlib import Path
 
-WORTEL = Path(__file__).resolve().parent.parent
+WORTEL = Path(__file__).resolve().parent.parent.parent
 DEELPAD = "architecture/docs/specificatie/begrippen"
 
 KOP = """# Begrippenlijst OKx

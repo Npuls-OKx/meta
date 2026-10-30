@@ -4,7 +4,7 @@ Dit document staat **in deze repository** (onder `doc/`), zodat het mee versione
 
 **Kort**: lees eerst [`CONTRIBUTING.md`](../CONTRIBUTING.md) voor governance.
 
-Neem ook [`Privacy-meetings-en-transcriptie.md`](Privacy-meetings-en-transcriptie.md) door als je **deelneemt aan OKx-meetings** waarvan inhoud in deze repo kan terugkomen (opname, AI-transcriptie, publiek karakter).
+Neem ook [`Privacy-meetings-en-transcriptie.md`](privacy-meetings-en-transcriptie.md) door als je **deelneemt aan OKx-meetings** waarvan inhoud in deze repo kan terugkomen (opname, AI-transcriptie, publiek karakter).
 
 **Leeswijzer**: eerst **Git & GitHub** (samenwerking in de repo), daarna **Cursor/agents**, vervolgens **agent-artifacten** (waar plannen en ontwerpdocumenten landen), tot slot **principes** en **referenties**.
 
@@ -18,9 +18,9 @@ Concreet hangen de belangrijkste “ankers” in deze repo zo samen:
 
 | Anker | Wat het is |
 |-------|------------|
-| **Hoofdplaat + tabel informatiestromen** | Richtinggevend overzicht: **welke** stromen tussen referentiecomponenten nog **conceptueel en technisch** beschreven moeten worden. Zie [OKx-projectoverzicht](OKx_Projectoverzicht.md) (*Hoofdplaat OKx informatiestromen*). |
-| **Ketenconcept (geen dubbeling van de tabel)** | Wat die stromen **betekenen** als keten en als **invoer** voor latere specs: [OKx Informatiestromen (ketenconcept)](OKx_Informatiesstromen.md). |
-| **MOKA-koppelvlak-view `01. Onderwijsvisie vertalen naar onderwijsaanbod - Basis Model`** | Grote **ArchiMate-diagram-view** in [`architecture/model/model.archimate`](../architecture/model/model.archimate) — verdieping van het koppelvlak volgens het **MOKA-metamodel** (proces en informatie in samenhang). Hoe je die vindt en leest: [Informatiestromen, ArchiMate en MOKA-view](OKx_Informatiestromen-ArchiMate-en-MOKA-view.md). |
+| **Hoofdplaat + tabel informatiestromen** | Richtinggevend overzicht: **welke** stromen tussen referentiecomponenten nog **conceptueel en technisch** beschreven moeten worden. Zie [OKx-projectoverzicht](projectoverzicht.md) (*Hoofdplaat OKx informatiestromen*). |
+| **Ketenconcept (geen dubbeling van de tabel)** | Wat die stromen **betekenen** als keten en als **invoer** voor latere specs: [OKx Informatiestromen (ketenconcept)](informatiestromen.md). |
+| **MOKA-koppelvlak-view `01. Onderwijsvisie vertalen naar onderwijsaanbod - Basis Model`** | Grote **ArchiMate-diagram-view** in [`architecture/model/model.archimate`](../architecture/model/model.archimate) — verdieping van het koppelvlak volgens het **MOKA-metamodel** (proces en informatie in samenhang). Hoe je die vindt en leest: [Informatiestromen, ArchiMate en MOKA-view](informatiestromen-archimate-en-moka-view.md). |
 | **Informatiemodel** (zelfde koppelvlak) | In dezelfde map staat o.a. het diagram **`1.Onderwijsvisie vertalen naar onderwijs aanbod - Informatiemodel`** — focus op de **informatiestructuur** naast varianten als Klassiek en Flexibel. |
 
 Er is al inhoud voor een deel van de stromen; **veel andere stromen** uit de hoofdplaat moeten nog worden beschreven en daarna naar hetzelfde type **technische** deliverables worden vertaald. Zo voorkomen we **lokale eilandoplossingen** en houden we een **gedeeld minimum** in zicht — waarna onderdelen als **MORA** desgewenst via een **gericht wijzigingsverzoek** kunnen worden gevoed, niet via een omweg buiten het sectorproces om.
@@ -54,7 +54,7 @@ Er is al inhoud voor een deel van de stromen; **veel andere stromen** uit de hoo
 
 ### Projectaanpak (kort)
 
-In [`OKx_Projectoverzicht.md`](OKx_Projectoverzicht.md) staat de lijn **begrijpen** → **ontwerpen** → **realiseren**: samenhang tussen **sector** (instellingen), **leveranciers** en ketenpartijen, met **MOKA-koppelvlakspecificaties** als gemeenschappelijk kader. Zo werken we toe naar **flexibele koppelvlakken** die de **Nederlandse onderwijssector** verder helpen — niet als een afgesloten document, maar als **gedeeld** en **iteratief** verbeterd gedachtegoed.
+In [`projectoverzicht.md`](projectoverzicht.md) staat de lijn **begrijpen** → **ontwerpen** → **realiseren**: samenhang tussen **sector** (instellingen), **leveranciers** en ketenpartijen, met **MOKA-koppelvlakspecificaties** als gemeenschappelijk kader. Zo werken we toe naar **flexibele koppelvlakken** die de **Nederlandse onderwijssector** verder helpen — niet als een afgesloten document, maar als **gedeeld** en **iteratief** verbeterd gedachtegoed.
 
 ### Wat is collaborative design?
 
@@ -77,7 +77,7 @@ Voordelen voor beginners en drukke deelnemers:
 
 - Je kunt **in je eigen tijd** reageren of een issue aanmaken.
 - Anderen kunnen **later** meelezen en inhaken zonder de hele chatgeschiedenis te missen.
-- **Transparantie**: de backlog en besluiten zijn voor contributors zichtbaar (rekening houdend met [privacy bij meetings](Privacy-meetings-en-transcriptie.md)).
+- **Transparantie**: de backlog en besluiten zijn voor contributors zichtbaar (rekening houdend met [privacy bij meetings](privacy-meetings-en-transcriptie.md)).
 
 ### GitHub in deze flow (agile-achtige artefacten)
 
@@ -155,13 +155,13 @@ Lees je dit document **op GitHub**? Dan zit je al in de **webinterface** van de 
 3. Klik op **New issue** (of de vergelijkbare knop).
 
 
-![Issue Web Interface van Github](../img/bijdragen_voor_beginners_issue_webinterface.jpg)
+![Issue Web Interface van Github](../project/img/bijdragen-voor-beginners-issue-webinterface.jpg)
 
 Wanneer je geen Github account hebt ingelogd, wordt je nu gevraagd in te loggen. Heb je geen Github account? Maak er dan een aan.
 
 GitHub opent dan meestal **geen leeg tekstveld**, maar een **keuzescherm met sjablonen** (*issue templates*). Dat is expres zo ingesteld.
 
-![Issue Web Interface template keuzemenu van Github](../img/bijdragen_voor_beginners_issue_webinterface_issuetemplate.jpg)
+![Issue Web Interface template keuzemenu van Github](../project/img/bijdragen-voor-beginners-issuetemplate.jpg)
 
 
 ### Hoe werken issue templates?
@@ -189,7 +189,7 @@ GitHub opent dan meestal **geen leeg tekstveld**, maar een **keuzescherm met sja
 
 Vul nu je Issue, wijziging of vraag naar wens in. Hoe meer detail, hoe beter! De templates dienen ter referentie.
 
-![Issue Web Interface issue invullen van Github](../img/bijdragen_voor_beginners_issue_webinterface_issue_invullen_view.jpg)
+![Issue Web Interface issue invullen van Github](../project/img/bijdragen-voor-beginners-issue-invullen-view.jpg)
 
 ---
 

@@ -7,7 +7,7 @@ wijst daarom naar een objecttype, een relatie, een rol en een pijl die bestaan;
 dit script faalt zodra dat niet zo is, en meldt per fase welke objecttypen binnen
 scope nog geen ontstaat-regel hebben.
 
-    python3 scripts/controleer-voorbeeldregels.py [--regels PAD] [--model PAD]
+    python3 tools/scripts/controleer-voorbeeldregels.py [--regels PAD] [--model PAD]
         [--stromen PAD] [--conceptplaat PAD] [--fasen 2,3,4] [--model-commit SHA]
 
 Controles (R1 en R2 uit het featureplan):
@@ -167,7 +167,7 @@ def schemavalidatie(regels, pad=SCHEMA, verwezen=()):
     """De tabel tegen haar eigen JSON Schema; geeft (bevindingen, waarschuwingen).
 
     Het schema staat naast de tabel en is de woordenlijst van de velden, met additionalProperties
-    op false. Zonder het pakket jsonschema slaat deze stap over, zoals scripts/json-tree.py dat
+    op false. Zonder het pakket jsonschema slaat deze stap over, zoals tools/scripts/json-tree.py dat
     doet, en meldt dat als waarschuwing; de eigen controles blijven dan het net. Verwijst het schema
     naar een ander schema (het variantschema naar de regeldefinitie van de basis), dan staat dat in
     verwezen.

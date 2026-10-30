@@ -6,7 +6,7 @@ in het informatiemodel toont moet bij elke modelronde opnieuw te maken zijn, met
 weinig mogelijk tekst. Alles komt uit de regeltabel, informatiemodel.json en
 begrippen.json; de regels zelf zijn de SVG's van teken-voorbeeldregels.py.
 
-    python3 scripts/genereer-voorbeeld-lr1.py [--regels PAD] [--uit PAD] [--invulblad PAD]
+    python3 tools/scripts/genereer-voorbeeld-lr1.py [--regels PAD] [--uit PAD] [--invulblad PAD]
 
 Opbouw: leeswijzer (vier termen, legenda, koppeling-ID's, aannames), per fase de
 chips en de regels, een stub voor fasen zonder regels, een tabel per begrippenfamilie

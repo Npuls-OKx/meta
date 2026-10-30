@@ -1,6 +1,6 @@
 # Informatiestromen, ArchiMate-model en MOKA-koppelvlak-view (Basis Model)
 
-Dit document is bedoeld voor **nieuwe aanhakers**: hoe de **hoofdplaat** en de **tabel met informatiestromen** in het [projectoverzicht](OKx_Projectoverzicht.md) samenhangen met het **ArchiMate-model** in deze repository, en **waar** je de grote MOKA-**koppelvlakspecificatie-view** **Basis Model** vindt.
+Dit document is bedoeld voor **nieuwe aanhakers**: hoe de **hoofdplaat** en de **tabel met informatiestromen** in het [projectoverzicht](projectoverzicht.md) samenhangen met het **ArchiMate-model** in deze repository, en **waar** je de grote MOKA-**koppelvlakspecificatie-view** **Basis Model** vindt.
 
 Het is **geen** volledige uitleg van het MOKA-metamodel; zie de [architectuurprincipes in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/principes/principes.md) en de [ADR’s over keten en fundament](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0002-prioriteitsketen-catalogus-drielagen-fundament.md).
 
@@ -8,7 +8,7 @@ Het is **geen** volledige uitleg van het MOKA-metamodel; zie de [architectuurpri
 
 | Laag | Wat je ziet | Rol |
 |------|-------------|-----|
-| **Ketenplaat + tabel** | PNG *Hoofdplaat OKx informatiestromen* en de nummering (stromen 1–17) in [OKx_Projectoverzicht](OKx_Projectoverzicht.md) | **Strategisch overzicht**: welke **referentiecomponenten** (systemen/rollen) en welke **semantiek** van de stroom (bijv. *Uitgewerkt aanbod*). |
+| **Ketenplaat + tabel** | PNG *Hoofdplaat OKx informatiestromen* en de nummering (stromen 1–17) in [OKx_Projectoverzicht](projectoverzicht.md) | **Strategisch overzicht**: welke **referentiecomponenten** (systemen/rollen) en welke **semantiek** van de stroom (bijv. *Uitgewerkt aanbod*). |
 | **ArchiMate-model** | Bestand [`architecture/model/model.archimate`](../architecture/model/model.archimate) | **Structureel model**: processen, rollen, applicatie- en informatie-elementen en **relaties** in meerdere **views** (diagrammen). Niet alles staat op één plaatje. |
 | **MOKA-koppelvlakspecificatie-view** | Één **diagram-view** binnen het model, ingericht volgens het **MOKA-metamodel** voor het koppelvlak *Onderwijsvisie vertalen naar onderwijsaanbod* | **Verdieping** van hoe dit koppelvlak is uitgewerkt: o.a. proces en informatie in samenhang. De view **Basis Model** is één **variant** (naast o.a. Klassiek en Flexibel). |
 
@@ -45,10 +45,10 @@ Als je iets niet terugvindt: **geen fout in jouw lezen** — het model groeit it
 
 - Geen vervanging van **MOKA-template**-instructies onder `moka-koppelvlakspecificaties/`.
 - Geen export van **alle** elementen uit het Basis Model (het bestand is groot).
-- Geen wijzigingshandleiding voor `model.archimate`: wijzigingen lopen via **pull requests** (zie [Bijdragen voor beginners](Bijdragen-voor-beginners.md) en [CONTRIBUTING](../CONTRIBUTING.md)).
+- Geen wijzigingshandleiding voor `model.archimate`: wijzigingen lopen via **pull requests** (zie [Bijdragen voor beginners](bijdragen-voor-beginners.md) en [CONTRIBUTING](../CONTRIBUTING.md)).
 
 ## Zie ook
 
-- [OKx Architectuurbesluiten en impact](OKx_Architectuurbesluiten-en-impact.md)
-- [OKx Informatiestromen](OKx_Informatiesstromen.md)
-- [OKx Projectoverzicht](OKx_Projectoverzicht.md)
+- [OKx Architectuurbesluiten en impact](architectuurbesluiten-en-impact.md)
+- [OKx Informatiestromen](informatiestromen.md)
+- [OKx Projectoverzicht](projectoverzicht.md)

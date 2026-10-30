@@ -7,7 +7,7 @@ tekst. Elke regel uit de regeltabel wordt een zelfdragende SVG (geen externe fon
 geen scripts), zodat hij op GitHub in markdown rendert en na een modelronde opnieuw
 te maken is.
 
-    python3 scripts/teken-voorbeeldregels.py [--regels PAD] [--uit MAP]
+    python3 tools/scripts/teken-voorbeeldregels.py [--regels PAD] [--uit MAP]
 
 Een planningsvorm naast de regeltabel (voorbeeld-lr1-regels-<vorm>.json) wordt daarna getekend,
 naar dezelfde map.

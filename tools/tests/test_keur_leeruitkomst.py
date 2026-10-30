@@ -1,4 +1,4 @@
-"""Testgevallen voor scripts/keur-leeruitkomst.py.
+"""Testgevallen voor tools/scripts/keur-leeruitkomst.py.
 
 Elke verwachting volgt uit de vier machinaal toetsbare vragen uit de checklist van de
 Handleiding Formuleren leeruitkomsten (NCP NLQF, december 2020).
@@ -10,8 +10,8 @@ import tempfile
 import unittest
 from pathlib import Path
 
-WORTEL = Path(__file__).resolve().parent.parent
-spec = importlib.util.spec_from_file_location("keur_leeruitkomst", WORTEL / "scripts/keur-leeruitkomst.py")
+WORTEL = Path(__file__).resolve().parent.parent.parent
+spec = importlib.util.spec_from_file_location("keur_leeruitkomst", WORTEL / "tools/scripts/keur-leeruitkomst.py")
 kl = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(kl)
 

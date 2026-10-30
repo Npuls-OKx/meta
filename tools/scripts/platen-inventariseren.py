@@ -16,8 +16,8 @@ Dit script vergelijkt het manifest met wat er werkelijk staat en meldt:
   KOPIE LOS    er ligt een kopie die geen enkele manifestregel opeist
 
 Gebruik:
-    python3 scripts/platen-inventariseren.py              # controleren
-    python3 scripts/platen-inventariseren.py --bijwerken  # hashes bijwerken
+    python3 tools/scripts/platen-inventariseren.py              # controleren
+    python3 tools/scripts/platen-inventariseren.py --bijwerken  # hashes bijwerken
 """
 
 from __future__ import annotations
@@ -33,7 +33,7 @@ REPOS = {
     "Npuls-OKx/meta": Path("/workspaces/OKx/OKx-meta"),
     "Npuls-OKx/Public": Path("/workspaces/OKx/Public"),
 }
-MANIFEST = Path(__file__).resolve().parent.parent / "presentaties" / "platen.json"
+MANIFEST = Path(__file__).resolve().parent.parent.parent / "presentaties" / "platen.json"
 # Slidev serveert alleen bestanden onder public/; een slide kan niet buiten het
 # project wijzen. Een gebruikte plaat is dus altijd een kopie, en een kopie kan
 # achterlopen op zijn bron zonder dat iemand het merkt.

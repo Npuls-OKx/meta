@@ -11,7 +11,7 @@ De maat is een verhouding, geen hoogte: een brede plaat wordt op een slide vanze
 niet gesneden te worden. Gesneden wordt zodra de hoogte meer is dan de breedte maal de verhouding
 die de slide toelaat.
 
-    python3 scripts/snijd-beeld.py <beeld>.svg [--uit MAP] [--baan HOOGTE] [--marge 8]
+    python3 tools/scripts/snijd-beeld.py <beeld>.svg [--uit MAP] [--baan HOOGTE] [--marge 8]
 
 De banen komen als <naam>-deel1.svg, -deel2.svg naast elkaar te staan; elke baan draagt dezelfde
 tekening met een eigen viewBox, dus zonder de inhoud te kopieren. Een beeld dat in een baan past

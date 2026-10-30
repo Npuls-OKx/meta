@@ -19,8 +19,8 @@ Wat het script doet:
    overleeft.
 
 Gebruik:
-    python3 scripts/publiceer-informatiemodel.py --doel ../Public [--meta-commit <sha>]
-    python3 scripts/publiceer-informatiemodel.py --doel ../Public --controleer
+    python3 tools/scripts/publiceer-informatiemodel.py --doel ../Public [--meta-commit <sha>]
+    python3 tools/scripts/publiceer-informatiemodel.py --doel ../Public --controleer
 
 De meta-commit is de commit waarop de gepinde verwijzingen wijzen; standaard HEAD. Pin op
 een commit die gepusht is, anders wijst de verwijzing in Public naar niets.
@@ -34,7 +34,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-WORTEL = Path(__file__).resolve().parent.parent
+WORTEL = Path(__file__).resolve().parent.parent.parent
 MODELMAP = WORTEL / "architecture" / "model" / "informatiemodel"
 BEGRIPPENMAP = WORTEL / "architecture" / "docs" / "specificatie" / "begrippen"
 PAKKET = "Informatie-en-gegevensmodellen"

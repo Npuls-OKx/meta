@@ -1,4 +1,4 @@
-"""Testgevallen voor scripts/validate-docs.py.
+"""Testgevallen voor tools/scripts/validate-docs.py.
 
 De voorcontrole bewaakt markdown-deliverables. Wat zij meldt moet kloppen: een melding die
 onterecht is leert mensen om de uitkomst te negeren.
@@ -9,8 +9,8 @@ import tempfile
 import unittest
 from pathlib import Path
 
-WORTEL = Path(__file__).resolve().parent.parent
-spec = importlib.util.spec_from_file_location("validate_docs", WORTEL / "scripts/validate-docs.py")
+WORTEL = Path(__file__).resolve().parent.parent.parent
+spec = importlib.util.spec_from_file_location("validate_docs", WORTEL / "tools/scripts/validate-docs.py")
 vd = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(vd)
 

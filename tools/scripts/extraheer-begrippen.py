@@ -9,7 +9,7 @@ De map met de begrippenlijst zelf blijft buiten de oogst. Anders zou elk begrip
 zichzelf bewijzen zodra het in de lijst staat.
 
 Gebruik:
-    python3 scripts/extraheer-begrippen.py [--oeapi <pad naar de OpenAPI-JSON>]
+    python3 tools/scripts/extraheer-begrippen.py [--oeapi <pad naar de OpenAPI-JSON>]
 """
 
 import argparse
@@ -19,7 +19,7 @@ import sys
 from collections import defaultdict
 from pathlib import Path
 
-WORTEL = Path(__file__).resolve().parent.parent
+WORTEL = Path(__file__).resolve().parent.parent.parent
 REPOS = {
     "meta": WORTEL,
     "public": WORTEL.parent / "Public",
@@ -212,7 +212,7 @@ def main():
             "oeapi_specificatie": args.oeapi,
             "oeapi_schemas": len(schemas),
             "oeapi_velden": len(velden),
-            "commando": ("python3 scripts/extraheer-begrippen.py"
+            "commando": ("python3 tools/scripts/extraheer-begrippen.py"
                          + (f" --oeapi {args.oeapi}" if args.oeapi else "")),
         },
         "termen": termen,

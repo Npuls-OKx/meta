@@ -1,4 +1,4 @@
-"""Testgevallen voor scripts/exporteer-conceptplaat.py.
+"""Testgevallen voor tools/scripts/exporteer-conceptplaat.py.
 
 Elke verwachting komt uit het fixture-model in de test zelf. Het echte model wordt
 alleen gebruikt om te toetsen dat het script het niet wijzigt.
@@ -11,8 +11,8 @@ import tempfile
 import unittest
 from pathlib import Path
 
-WORTEL = Path(__file__).resolve().parent.parent
-spec = importlib.util.spec_from_file_location("exporteer_conceptplaat", WORTEL / "scripts/exporteer-conceptplaat.py")
+WORTEL = Path(__file__).resolve().parent.parent.parent
+spec = importlib.util.spec_from_file_location("exporteer_conceptplaat", WORTEL / "tools/scripts/exporteer-conceptplaat.py")
 ex = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(ex)
 

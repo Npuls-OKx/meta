@@ -7,7 +7,7 @@ wat een systeem doet stond nergens machinaal vast. MORA beschrijft dat, en die b
 het model. Dit script haalt haar eruit, zodat de controle componentnamen kan toetsen en het document
 kan tonen wat een systeem doet.
 
-    python3 scripts/exporteer-componenten.py [--model PAD] [--uit PAD]
+    python3 tools/scripts/exporteer-componenten.py [--model PAD] [--uit PAD]
 
 Het model wordt alleen gelezen; raak nooit een .archimate-bestand aan.
 """

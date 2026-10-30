@@ -1,4 +1,4 @@
-"""Testgevallen voor scripts/exporteer-archimate-view.py.
+"""Testgevallen voor tools/scripts/exporteer-archimate-view.py.
 
 Elke verwachting komt uit het fixture-model in de test zelf, niet uit het
 model in de repository. Het echte model wordt alleen gebruikt om te toetsen
@@ -12,8 +12,8 @@ import tempfile
 import unittest
 from pathlib import Path
 
-WORTEL = Path(__file__).resolve().parent.parent
-spec = importlib.util.spec_from_file_location("exporteer_archimate_view", WORTEL / "scripts/exporteer-archimate-view.py")
+WORTEL = Path(__file__).resolve().parent.parent.parent
+spec = importlib.util.spec_from_file_location("exporteer_archimate_view", WORTEL / "tools/scripts/exporteer-archimate-view.py")
 ex = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(ex)
 

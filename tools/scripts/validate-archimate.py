@@ -10,7 +10,7 @@ stilzwijgend vallen bij de eerstvolgende save, waarna het verlies definitief is.
 Deze check vangt dat. Zie ADR 0010 (https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0010-archimatemodel-werkafspraken.md).
 
 Gebruik:
-    python3 scripts/validate-archimate.py architecture/model/model.archimate
+    python3 tools/scripts/validate-archimate.py architecture/model/model.archimate
 
 Exitcode 0 = schoon, 1 = probleem gevonden.
 """

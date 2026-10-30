@@ -1,4 +1,4 @@
-"""Testgevallen voor scripts/genereer-voorbeeld-lr1.py.
+"""Testgevallen voor tools/scripts/genereer-voorbeeld-lr1.py.
 
 Fixture-regeltabel, -model en -begrippen in de test zelf; het document wordt in
 een tijdelijke map gebouwd met lege SVG's op de verwachte paden.
@@ -13,11 +13,11 @@ import tempfile
 import unittest
 from pathlib import Path
 
-WORTEL = Path(__file__).resolve().parent.parent
-spec = importlib.util.spec_from_file_location("genereer_voorbeeld_lr1", WORTEL / "scripts/genereer-voorbeeld-lr1.py")
+WORTEL = Path(__file__).resolve().parent.parent.parent
+spec = importlib.util.spec_from_file_location("genereer_voorbeeld_lr1", WORTEL / "tools/scripts/genereer-voorbeeld-lr1.py")
 gv = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(gv)
-spec2 = importlib.util.spec_from_file_location("teken_voorbeeldregels", WORTEL / "scripts/teken-voorbeeldregels.py")
+spec2 = importlib.util.spec_from_file_location("teken_voorbeeldregels", WORTEL / "tools/scripts/teken-voorbeeldregels.py")
 tv = importlib.util.module_from_spec(spec2)
 spec2.loader.exec_module(tv)
 
@@ -196,7 +196,7 @@ class GenereerTests(unittest.TestCase):
             (m / "informatiemodel.md").write_text("# Informatiemodel\n", encoding="utf-8")  # het document verwijst ernaar
             code = gv.main(["--regels", str(m / "r.json"), "--model", str(m / "m.json"), "--begrippen", str(m / "b.json"), "--uit", str(m / "doc.md")])
             self.assertEqual(code, 0)
-            uit = subprocess.run([sys.executable, str(WORTEL / "scripts/validate-docs.py"), str(m / "doc.md")], capture_output=True, text=True)
+            uit = subprocess.run([sys.executable, str(WORTEL / "tools/scripts/validate-docs.py"), str(m / "doc.md")], capture_output=True, text=True)
             self.assertEqual(uit.returncode, 0, uit.stdout + uit.stderr)
 
 

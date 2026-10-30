@@ -9,7 +9,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-WORTEL = Path(__file__).resolve().parent.parent
+WORTEL = Path(__file__).resolve().parent.parent.parent
 spec = importlib.util.spec_from_file_location("tel_woorden", WORTEL / "presentaties/tel-woorden.py")
 tw = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(tw)

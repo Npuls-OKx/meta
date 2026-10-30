@@ -4,7 +4,7 @@
 |--------|-------|--------|
 | Voorstel | 2026-07-13 | Niek Derksen (Kernteam OKx) |
 
-Dit document wordt pas afspraak na review en merge door de eigenaren (zie [§2 Eigenaarschap](#2-eigenaarschap-en-governance)). Leg een geaccepteerd besluit vast als ADR in [[Referentiemateriaal/adr in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr)](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr). Het bouwt voort op de **branchstrategie** uit de beginnershandleiding, paragraaf 9 ([`doc/Bijdragen-voor-beginners.md` (§9)](Bijdragen-voor-beginners.md#9-branchstrategie-dev-feature-branches)).
+Dit document wordt pas afspraak na review en merge door de eigenaren (zie [§2 Eigenaarschap](#2-eigenaarschap-en-governance)). Leg een geaccepteerd besluit vast als ADR in [[Referentiemateriaal/adr in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr)](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr). Het bouwt voort op de **branchstrategie** uit de beginnershandleiding, paragraaf 9 ([`project/bijdragen-voor-beginners.md` (§9)](bijdragen-voor-beginners.md#9-branchstrategie-dev-feature-branches)).
 
 ---
 
@@ -432,4 +432,4 @@ Toelichting op de regels:
 - Inrichten van **release notes / CHANGELOG**-conventie en eventueel automatisering (PR-labels → changelog) in beide repo's.
 
 
-Reageren of bijdragen? Open een issue of PR; koppel die aan dit document (`See also #...`). Zie [`doc/Bijdragen-voor-beginners.md`](Bijdragen-voor-beginners.md).
+Reageren of bijdragen? Open een issue of PR; koppel die aan dit document (`See also #...`). Zie [`project/bijdragen-voor-beginners.md`](bijdragen-voor-beginners.md).

@@ -8,7 +8,7 @@ relatie-id uit Archi, de componenten aan beide kanten (junctions opgelost), het
 relatietype, het label uit de labelexpressie of de relatienaam, en de koppeling-ID
 uit een mapping. Geen layout; dat doet teken-archimate-view.py.
 
-    python3 scripts/exporteer-archimate-view.py [--model PAD] [--view NAAM]
+    python3 tools/scripts/exporteer-archimate-view.py [--model PAD] [--view NAAM]
         [--mapping PAD] [--uit PAD]
 
 Het model wordt alleen gelezen, nooit geschreven.

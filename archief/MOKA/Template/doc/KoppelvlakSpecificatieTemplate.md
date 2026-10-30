@@ -212,7 +212,7 @@ Per (type) view:
 
 Zie voor een uitgewerkt voorbeeld van een MOKA koppelvlak specificatie:
 
-**[Koppelvlakspecificatie – Examen uitvoering en beoordeling](../../../OKE/moka-koppelvlakspecificaties/Examen%20Uitvoering%20en%20beoordeling/doc/KoppelvlakSpecificatieDocument.md)**
+**[Koppelvlakspecificatie – Examen uitvoering en beoordeling](../../Examen%20Uitvoering%20en%20beoordeling/doc/KoppelvlakSpecificatieDocument.md)**
 
 Dat voorbeeld beschrijft een deel van de procesketen Examineren en diplomeren/certificeren (uitvoeren examen tot en met beoordelen en diplomeren) en dient voor strategische duiding of adaptie/implementatie van logische/technische implementaties (digitale examinering).
 

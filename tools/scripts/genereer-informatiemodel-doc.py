@@ -5,7 +5,7 @@ een validatiescript kan er niet mee werken. Dit script schrijft dezelfde inhoud
 als `informatiemodel.json`: objecttypen met hun kolom en scope, de relaties, en
 de mapping naar OEAPI. De prozadocumentatie blijft handwerk.
 
-    python3 scripts/genereer-informatiemodel-doc.py
+    python3 tools/scripts/genereer-informatiemodel-doc.py
 
 Het model wordt alleen gelezen, nooit geschreven.
 """

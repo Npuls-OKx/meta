@@ -1,4 +1,4 @@
-"""Testgevallen voor scripts/extraheer-begrippen.py.
+"""Testgevallen voor tools/scripts/extraheer-begrippen.py.
 
 Het testcorpus wordt per geval opgebouwd, zodat de verwachte aantallen uit de
 invoer volgen en niet uit de inhoud van de repository.
@@ -9,9 +9,9 @@ import tempfile
 import unittest
 from pathlib import Path
 
-WORTEL = Path(__file__).resolve().parent.parent
+WORTEL = Path(__file__).resolve().parent.parent.parent
 spec = importlib.util.spec_from_file_location(
-    "extraheer_begrippen", WORTEL / "scripts/extraheer-begrippen.py")
+    "extraheer_begrippen", WORTEL / "tools/scripts/extraheer-begrippen.py")
 eb = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(eb)
 
@@ -129,7 +129,7 @@ class IndelingTest(unittest.TestCase):
         self.assertEqual(eb.classificeer("architecture/model/README.md"), "pad")
 
     def test_given_commando_when_classificeren_then_commando(self):
-        self.assertEqual(eb.classificeer("python3 scripts/validate-docs.py"), "commando")
+        self.assertEqual(eb.classificeer("python3 tools/scripts/validate-docs.py"), "commando")
 
     def test_given_nederlands_begrip_when_classificeren_then_kandidaat_begrip(self):
         self.assertEqual(eb.classificeer("Onderwijseenheid specificatie"), "kandidaat-begrip")

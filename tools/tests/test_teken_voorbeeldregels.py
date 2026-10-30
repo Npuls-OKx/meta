@@ -1,4 +1,4 @@
-"""Testgevallen voor scripts/teken-voorbeeldregels.py.
+"""Testgevallen voor tools/scripts/teken-voorbeeldregels.py.
 
 Elke verwachting volgt uit een fixture-regeltabel in de test; de SVG wordt als XML
 geparst en op inhoud en geometrie getoetst, niet op een momentopname.
@@ -11,8 +11,8 @@ import unittest
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
-WORTEL = Path(__file__).resolve().parent.parent
-spec = importlib.util.spec_from_file_location("teken_voorbeeldregels", WORTEL / "scripts/teken-voorbeeldregels.py")
+WORTEL = Path(__file__).resolve().parent.parent.parent
+spec = importlib.util.spec_from_file_location("teken_voorbeeldregels", WORTEL / "tools/scripts/teken-voorbeeldregels.py")
 tv = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(tv)
 

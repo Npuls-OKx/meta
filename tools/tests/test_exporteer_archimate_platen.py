@@ -1,4 +1,4 @@
-"""Testgevallen voor scripts/exporteer-archimate-platen.py.
+"""Testgevallen voor tools/scripts/exporteer-archimate-platen.py.
 
 De geometrie (knikpunten, rand, langste segment, objectenlaag) wordt getoetst op
 een fixture-model. De aanroep van Archi zelf is een integratietest die alleen
@@ -15,8 +15,8 @@ import unittest
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
-WORTEL = Path(__file__).resolve().parent.parent
-spec = importlib.util.spec_from_file_location("exporteer_archimate_platen", WORTEL / "scripts/exporteer-archimate-platen.py")
+WORTEL = Path(__file__).resolve().parent.parent.parent
+spec = importlib.util.spec_from_file_location("exporteer_archimate_platen", WORTEL / "tools/scripts/exporteer-archimate-platen.py")
 ep = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(ep)
 

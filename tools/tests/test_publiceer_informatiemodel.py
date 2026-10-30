@@ -1,4 +1,4 @@
-"""Testgevallen voor scripts/publiceer-informatiemodel.py, given-when-then."""
+"""Testgevallen voor tools/scripts/publiceer-informatiemodel.py, given-when-then."""
 
 import importlib.util
 import json
@@ -7,8 +7,8 @@ import tempfile
 import unittest
 from pathlib import Path
 
-WORTEL = Path(__file__).resolve().parent.parent
-spec = importlib.util.spec_from_file_location("publiceer", WORTEL / "scripts" / "publiceer-informatiemodel.py")
+WORTEL = Path(__file__).resolve().parent.parent.parent
+spec = importlib.util.spec_from_file_location("publiceer", WORTEL / "tools" / "scripts" / "publiceer-informatiemodel.py")
 publiceer = importlib.util.module_from_spec(spec)
 sys.modules["publiceer"] = publiceer
 spec.loader.exec_module(publiceer)

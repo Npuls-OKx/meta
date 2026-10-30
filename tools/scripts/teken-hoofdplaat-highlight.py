@@ -8,7 +8,7 @@ fase raakt, met het beeld-ID erbij, en omlijnt de betrokken componenten. Een str
 die de plaat nog niet kent, staat als gestippelde lijn tussen de twee componenten:
 zichtbaar wat er ontbreekt.
 
-    python3 scripts/teken-hoofdplaat-highlight.py --plaat img/hoofdplaat.png
+    python3 tools/scripts/teken-hoofdplaat-highlight.py --plaat img/hoofdplaat.png
 
 Staat er een planningsvorm naast de regeltabel (voorbeeld-lr1-regels-<vorm>.json), dan komt er per
 fase en per vorm een plaat bij, f<fase>-<vorm>.svg, met alleen de stromen van die variant.

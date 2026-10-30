@@ -8,7 +8,7 @@ objecttypen die het antwoord dragen, gegroepeerd per begrippenfamilie zoals op d
 plaat, met de gewijzigde objecten uitgelicht tegen hun context, en onder het beeld een
 leeswijzer die per nummer zegt wat die stap voor de vraag betekent.
 
-    python3 scripts/teken-informatiemodel-uitsnede.py \\
+    python3 tools/scripts/teken-informatiemodel-uitsnede.py \\
         --model architecture/model/informatiemodel/informatiemodel.json \\
         --selectie architecture/model/informatiemodel/uitsneden/public-123-minor.json \\
         --uit architecture/model/informatiemodel/img/uitsneden
@@ -116,7 +116,7 @@ INK, MUTED, LIJN = vt.INK, vt.MUTED, vt.LIJN
 MODEL = pathlib.Path("architecture/model/informatiemodel/informatiemodel.json")
 UIT = pathlib.Path("architecture/model/informatiemodel/img/uitsneden")
 
-ACCENT = "#d9531e"            # dezelfde accentkleur als scripts/teken-hoofdplaat-highlight.py
+ACCENT = "#d9531e"            # dezelfde accentkleur als tools/scripts/teken-hoofdplaat-highlight.py
 RELATIE = "#444"
 KOL_VUL, KOL_RAND, KOL_TAB = "#f4f4f4", "#d8ddda", "#e4e4dc"
 
@@ -404,7 +404,7 @@ def _controleer_namen(namen, objecten):
             onbekend.append(f"{n!r}{erbij}")
     if onbekend:
         raise Fout("deze namen staan niet in het model: " + "; ".join(onbekend)
-                   + ". Draai eerst python3 scripts/genereer-informatiemodel-doc.py als het "
+                   + ". Draai eerst python3 tools/scripts/genereer-informatiemodel-doc.py als het "
                      "model net gewijzigd is; een hernoeming valt hier als onbekende naam op.")
 
 

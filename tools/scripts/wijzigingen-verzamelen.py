@@ -16,8 +16,8 @@ pull request-titel zegt *wat* er is veranderd; wat het betekent staat in de
 beschrijving en in de documenten zelf. Lees die voordat je een slide schrijft.
 
 Gebruik:
-    python3 scripts/wijzigingen-verzamelen.py --sinds 2026-07-01
-    python3 scripts/wijzigingen-verzamelen.py --sinds 2026-07-01 --formaat json
+    python3 tools/scripts/wijzigingen-verzamelen.py --sinds 2026-07-01
+    python3 tools/scripts/wijzigingen-verzamelen.py --sinds 2026-07-01 --formaat json
 """
 
 from __future__ import annotations

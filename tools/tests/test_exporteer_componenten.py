@@ -1,4 +1,4 @@
-"""Testgevallen voor scripts/exporteer-componenten.py.
+"""Testgevallen voor tools/scripts/exporteer-componenten.py.
 
 Elk geval bouwt een klein ArchiMate-bestand in een tijdelijke map, zodat de test
 niet afhangt van het echte model en dat model ook nooit aanraakt.
@@ -10,8 +10,8 @@ import tempfile
 import unittest
 from pathlib import Path
 
-WORTEL = Path(__file__).resolve().parent.parent
-spec = importlib.util.spec_from_file_location("exporteer_componenten", WORTEL / "scripts/exporteer-componenten.py")
+WORTEL = Path(__file__).resolve().parent.parent.parent
+spec = importlib.util.spec_from_file_location("exporteer_componenten", WORTEL / "tools/scripts/exporteer-componenten.py")
 ec = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(ec)
 

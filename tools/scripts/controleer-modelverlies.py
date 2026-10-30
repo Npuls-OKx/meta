@@ -7,8 +7,8 @@ levert een bestand op dat wel klopt en toch minder draagt dan de versie ervoor. 
 precies wat in juli 2026 gebeurde: 276 elementdefinities verdwenen. Deze controle kijkt
 daarom niet naar de staat van een bestand maar naar het verschil met de versie ervoor.
 
-    python3 scripts/controleer-modelverlies.py <oud>.archimate <nieuw>.archimate
-    python3 scripts/controleer-modelverlies.py --git <basis-ref> <pad>
+    python3 tools/scripts/controleer-modelverlies.py <oud>.archimate <nieuw>.archimate
+    python3 tools/scripts/controleer-modelverlies.py --git <basis-ref> <pad>
 
 Exitcode 0 = niets verdwenen, 1 = er ging iets weg.
 

@@ -11,7 +11,7 @@ Dit is uitsluitend de mechanische voorcontrole uit de product-flow
 (.agents/skills/okx-requirements-tester); het inhoudelijke oordeel blijft
 bij de reviewende persona's.
 
-Gebruik: python3 scripts/validate-docs.py [pad ...]   (standaard: repo-root)
+Gebruik: python3 tools/scripts/validate-docs.py [pad ...]   (standaard: repo-root)
 Exitcodes: 0 = schoon, 1 = problemen gevonden, 2 = pad niet gevonden.
 """
 import json

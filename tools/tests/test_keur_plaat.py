@@ -1,4 +1,4 @@
-"""Testgevallen voor scripts/keur-plaat.py.
+"""Testgevallen voor tools/scripts/keur-plaat.py.
 
 Het harnas moet vinden wat een plaat onleesbaar maakt, en moet zwijgen over wat alleen een
 afronding is. Beide kanten staan hier: een echte schuine lijn valt op, een pixel drift niet.
@@ -9,8 +9,8 @@ import tempfile
 import unittest
 from pathlib import Path
 
-WORTEL = Path(__file__).resolve().parent.parent
-spec = importlib.util.spec_from_file_location("keur", WORTEL / "scripts/keur-plaat.py")
+WORTEL = Path(__file__).resolve().parent.parent.parent
+spec = importlib.util.spec_from_file_location("keur", WORTEL / "tools/scripts/keur-plaat.py")
 keur = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(keur)
 

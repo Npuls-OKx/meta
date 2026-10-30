@@ -14,7 +14,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-WORTEL = Path(__file__).resolve().parent.parent
+WORTEL = Path(__file__).resolve().parent.parent.parent
 SCHEMA = WORTEL / "architecture/model/informatiemodel/voorbeeld-lr1-regels.schema.json"
 VARIANTSCHEMA = WORTEL / "architecture/model/informatiemodel/voorbeeld-lr1-variant.schema.json"
 
@@ -26,13 +26,13 @@ def laad(naam, pad):
     return module
 
 
-vv = laad("voorbeeldvarianten", "scripts/voorbeeldvarianten.py")
-cv = laad("controleer_voorbeeldregels", "scripts/controleer-voorbeeldregels.py")
-gv = laad("genereer_voorbeeld_lr1", "scripts/genereer-voorbeeld-lr1.py")
-tv = laad("teken_voorbeeldregels", "scripts/teken-voorbeeldregels.py")
-hl = laad("teken_hoofdplaat_highlight", "scripts/teken-hoofdplaat-highlight.py")
-fc = laad("test_controleer_voorbeeldregels", "tests/test_controleer_voorbeeldregels.py")
-fg = laad("test_genereer_voorbeeld_lr1", "tests/test_genereer_voorbeeld_lr1.py")
+vv = laad("voorbeeldvarianten", "tools/scripts/voorbeeldvarianten.py")
+cv = laad("controleer_voorbeeldregels", "tools/scripts/controleer-voorbeeldregels.py")
+gv = laad("genereer_voorbeeld_lr1", "tools/scripts/genereer-voorbeeld-lr1.py")
+tv = laad("teken_voorbeeldregels", "tools/scripts/teken-voorbeeldregels.py")
+hl = laad("teken_hoofdplaat_highlight", "tools/scripts/teken-hoofdplaat-highlight.py")
+fc = laad("test_controleer_voorbeeldregels", "tools/tests/test_controleer_voorbeeldregels.py")
+fg = laad("test_genereer_voorbeeld_lr1", "tools/tests/test_genereer_voorbeeld_lr1.py")
 
 
 def capaciteit():

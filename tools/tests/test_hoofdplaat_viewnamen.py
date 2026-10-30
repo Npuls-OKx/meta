@@ -13,7 +13,7 @@ import unittest
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
-WORTEL = Path(__file__).resolve().parent.parent
+WORTEL = Path(__file__).resolve().parent.parent.parent
 MODEL = WORTEL / "architecture/model/model.archimate"
 XSI = "{http://www.w3.org/2001/XMLSchema-instance}type"
 # letters, cijfers, spatie, punt, haakjes, koppelteken en &: geldig als bestandsnaam op Windows, macOS
@@ -24,7 +24,7 @@ UITGEZONDERD = {"id-140ced0690894291acfbd86453fa6e57": "oude MOKA-view in Views 
 
 
 def laad(naam, bestand):
-    spec = importlib.util.spec_from_file_location(naam, WORTEL / "scripts" / bestand)
+    spec = importlib.util.spec_from_file_location(naam, WORTEL / "tools" / "scripts" / bestand)
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     return module
