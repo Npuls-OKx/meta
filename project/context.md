@@ -189,4 +189,8 @@ Herkomst: de plaat van het programma. De rij over de OKE-vorm komt uit het onder
 | Werken met flows vraagt verandering | Verandering in beleid, organisatie en proces, naast de techniek |
 | De OKE-vorm schaalt niet mee | OKE kwam uit met het benoemen van functiegebieden op een afgebakend procesgebied. In de scope van OKx hangt de rol van een component af van de leerroute, en daarmee van het proces- en informatiemodel eronder. Dat vraagt applicatieservices en koppelvlakdiensten per keten |
 
+De laatste rij vraagt toelichting, want zij verklaart waarom de vorm van de oplevering nog niet vaststaat. Het vertrekpunt van OKx was dat de vorm van OKE na te maken is: OKE leverde een afsprakenset voor examinering, op een procesgebied dat in MORA en ROSA vastligt, en beschrijft daarin drie functiegebieden met het systeemlandschap ernaast als voorbeeld. Wie die set implementeert leest wat zijn functiegebied moet kunnen, en bepaalt zelf in welk product dat landt. Dat lost de discussie op die OKx telkens opnieuw voert over wat een component precies is.
+
+De eigenschap die dat bij OKE mogelijk maakt is de afbakening. Het ketenproces ligt vast en het aantal stromen is gesloten, dus volgen de functiegebieden daaruit. Bij OKx kent het procesgebied inrichtingskeuzes per instelling en groeit de verzameling stromen met elke leerroute. De lijst functiegebieden is daar dus geen vertaling van iets dat al vastligt, maar zelf de uitkomst van werk dat nog loopt. Daarom staat de vraag wat OKx maakt nog bovenaan, en is wat er ligt een eerste vorm in plaats van de eindvorm. De vergelijking voluit staat in [het onderzoek naar de OKE-vorm](../architecture/agent-artifacts/research/20261027_1248_oke-vorm-tegenover-okx-scope.md).
+
 Relateert aan: #426, #421, #422.
