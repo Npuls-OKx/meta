@@ -1,0 +1,13 @@
+---
+description: Vragen aan de opdrachtgever genummerd en gebundeld
+alwaysApply: true
+---
+
+Elke vraag aan de opdrachtgever staat in een genummerde lijst onderaan het antwoord, onder de kop `## Vragen`.
+
+- Alle open vragen uit een antwoord komen in die lijst. Een vraag die in een alinea erboven blijft staan, raakt kwijt.
+- Elke vraag draagt een nummer, zodat een antwoord van de vorm "1 ja, 2 de tweede, 3 later" volstaat.
+- Een vraag is in een regel te beantwoorden: de keuze staat erin, de opties staan erbij, en de voorkeur van de agent staat erbij benoemd.
+- Een onderwerp per vraag. Twee keuzes in een vraag levert een half antwoord.
+- Een onbeantwoorde vraag houdt haar nummer in de volgende ronde, zodat te zien is wat open staat.
+- Zijn er geen vragen, dan staat er geen lijst.

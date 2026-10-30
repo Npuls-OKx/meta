@@ -122,7 +122,7 @@ De catalogus publiceert een keer, en een groep systemen neemt af: planning, het 
 
 Een component bezit hier het objecttype waarvan hij in de voorbeelduitwerking het bronsysteem is, en dat is de enige bron ervan ([U3](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u3-resource-eigenaarschap)). Over een koppeling gaat daarom een verwijzing, met de inhoud op opvraag.
 
-De plaat komt uit [voorbeeld-lr1-regels.json](../../../model/informatiemodel/voorbeeld-lr1-regels.json), getekend met `python3 scripts/teken-gegevens-per-component.py`. Verschuift een objecttype daar naar een ander systeem, dan verschuift het hier mee.
+De plaat komt uit [voorbeeld-lr1-regels.json](../../../model/informatiemodel/voorbeeld-lr1-regels.json), getekend met `python3 tools/scripts/teken-gegevens-per-component.py`. Verschuift een objecttype daar naar een ander systeem, dan verschuift het hier mee.
 
 ## 4. Koppelvlakdiensten
 
@@ -255,4 +255,4 @@ Elk gekleurd kader is een interactiespecificatie, met haar aanduiding erboven. E
 
 Elke interactiespecificatie draagt hetzelfde: het contract per koppelvlakdienst, de volgorde als sequentiediagram, de berichten veld voor veld met hun ERD, en een voorbeeldpayload die valideert.
 
-De voorbeeldpayloads gebruiken de vaste identificaties uit [casus.md](casus.md), zodat dezelfde opleiding door de hele keten dezelfde uuid draagt. De controle `python3 scripts/controleer-interactiespec.py` haalt elke payload langs haar schema en meldt elke sleutel die geen schema verklaart.
+De voorbeeldpayloads gebruiken de vaste identificaties uit [casus.md](casus.md), zodat dezelfde opleiding door de hele keten dezelfde uuid draagt. De controle `python3 tools/scripts/controleer-interactiespec.py` haalt elke payload langs haar schema en meldt elke sleutel die geen schema verklaart.

@@ -1,0 +1,12 @@
+{
+  "externalId": "CA-2026-0041872",
+  "submittedAt": "2026-04-14T09:21:00Z",
+  "person": {
+    "identifier": "b1f0c7d2-5a84-4e3b-9f61-2c7d8e45a013",
+    "givenName": "Jochem",
+    "familyName": "de Vries",
+    "dateOfBirth": "2009-02-11"
+  },
+  "offeringId": "8c494250-b67a-4666-a762-6f9ec1e70aff",
+  "offeringVersion": "0.1.0"
+}

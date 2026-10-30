@@ -1,0 +1,146 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://okx.npuls.nl/schema/timetable/voorstel",
+  "title": "Timetable",
+  "DutchName": "Rooster",
+  "$comment": "Voorstel. Het label voorstel in de $id houdt dit schema apart van de alfa-schema's die Npuls-OKx/Public draagt; werkbrief W2 van IS-SI-05 laat het daar landen. Het roostersysteem ontsluit hiermee het vastgestelde rooster van een periode aan het studentkeuzesysteem: de leergelegenheid, haar lesgelegenheden met tijdstip, het lokaal en de docent. De beelden F4-08 en F4-09 van voorbeeld-lr1-regels.json dragen de instantie. De veldnamen volgen scheduling-result/voorstel van IS-SI-04, dat hetzelfde gegeven als uitkomst op een roosteropdracht naar planning terugvoert; dit schema zet de sleutel op het opleidingsprogramma-aanbod met zijn periode in plaats van op die opdracht, omdat het studentkeuzesysteem daarop filtert, en voegt de naam en het onderwijseenheid-aanbod toe waarop het de student het rooster toont. Werkbrief W6 hier en werkbrief W8 van IS-SI-04 wegen of een schema beide draagt. Verwijzingen naar andere schema's gaan via hun $id.",
+  "type": "object",
+  "required": ["programmeOfferingId", "period", "learningOpportunities", "sessions"],
+  "properties": {
+    "programmeOfferingId": {
+      "type": "string",
+      "format": "uuid",
+      "DutchName": "opleidingsprogrammaAanbodId",
+      "$comment": "het opleidingsprogramma-aanbod waaronder dit rooster valt, met dezelfde sleutel als education-offering/alfa"
+    },
+    "programmeOfferingVersion": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "DutchName": "opleidingsprogrammaAanbodVersie"
+    },
+    "period": {
+      "$ref": "https://okx.npuls.nl/schema/period/alfa",
+      "DutchName": "periode",
+      "$comment": "de periode die is geroosterd; beeld F4-08 roostert alleen periode 1 en laat latere perioden planbaar"
+    },
+    "determinedAt": {
+      "type": "string",
+      "format": "date-time",
+      "DutchName": "vastgesteldOp",
+      "$comment": "het moment waarop het rooster van deze periode vaststond, zodat een afnemer op gewijzigdSinds kan ophalen"
+    },
+    "learningOpportunities": {
+      "type": "array",
+      "minItems": 1,
+      "DutchName": "leergelegenheden",
+      "items": {
+        "type": "object",
+        "required": ["id", "courseOfferingId", "name", "status"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "DutchName": "leergelegenheidId"
+          },
+          "courseOfferingId": {
+            "type": "string",
+            "format": "uuid",
+            "DutchName": "onderwijseenheidAanbodId",
+            "$comment": "informatiemodel: Onderwijseenheid aanbod aggregeert Leergelegenheid. Het studentkeuzesysteem groepeert het rooster hierop"
+          },
+          "name": {
+            "type": "string",
+            "DutchName": "naam",
+            "$comment": "de naam waaronder de student de gelegenheid terugziet, zoals Baliegesprekken 101"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["geroosterd", "geannuleerd"],
+            "DutchName": "status",
+            "$comment": "beeld F4-08 zet de leergelegenheid op geroosterd. education-offering/alfa kent die waarde nog niet; werkbrief W2 belegt dat"
+          }
+        }
+      }
+    },
+    "sessions": {
+      "type": "array",
+      "minItems": 1,
+      "DutchName": "lesgelegenheden",
+      "items": {
+        "type": "object",
+        "required": ["id", "learningOpportunityId", "start", "end"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "DutchName": "lesgelegenheidId"
+          },
+          "learningOpportunityId": {
+            "type": "string",
+            "format": "uuid",
+            "DutchName": "leergelegenheidId",
+            "$comment": "informatiemodel: Leergelegenheid aggregeert Lesgelegenheid"
+          },
+          "groupId": {
+            "type": "string",
+            "format": "uuid",
+            "DutchName": "plaatsingsgroepId",
+            "$comment": "de groep die deze les afneemt. Beeld F4-09 laat de planner om logistieke redenen een eigen lesgroep vormen die in deelnemers van de plaatsingsgroep afwijkt"
+          },
+          "start": {
+            "type": "string",
+            "format": "date-time",
+            "DutchName": "aanvangstijdstip"
+          },
+          "end": {
+            "type": "string",
+            "format": "date-time",
+            "DutchName": "eindtijdstip"
+          },
+          "locationId": {
+            "type": "string",
+            "format": "uuid",
+            "DutchName": "onderwijslocatieId",
+            "$comment": "het lokaal waarin de les valt; het lokaaltype uit de specificatie is bij het roosteren een lokaalnummer geworden"
+          },
+          "staffIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "DutchName": "medewerkerIds"
+          }
+        }
+      }
+    },
+    "locations": {
+      "type": "array",
+      "items": {
+        "$ref": "https://okx.npuls.nl/schema/location/alfa"
+      },
+      "DutchName": "locaties",
+      "$comment": "de lokalen waarnaar de lesgelegenheden verwijzen, in de vorm die education-offering/alfa aanhoudt"
+    },
+    "staff": {
+      "type": "array",
+      "DutchName": "medewerkers",
+      "items": {
+        "type": "object",
+        "required": ["id"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "DutchName": "medewerkerId"
+          },
+          "personnelNumber": {
+            "type": "string",
+            "DutchName": "personeelsnummer",
+            "$comment": "beeld F4-08 draagt de docent als personeelsnummer 4711. Werkbrief W2 belegt welke medewerkergegevens over deze koppeling gaan en wat uit de identiteitsvoorziening komt"
+          }
+        }
+      }
+    }
+  }
+}

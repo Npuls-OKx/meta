@@ -43,7 +43,7 @@ Een schema zonder eigen payload draagt de objecten waarnaar een ander schema wij
 Elke voorbeeldpayload in een interactiespecificatie noemt achter haar taalaanduiding de schema's waartegen zij valideert, zoals `schema=intake-outcome`. Twee namen achter elkaar staan voor een dragend schema met een overlay erop; de payload gaat dan tegen beide.
 
 ```bash
-python3 scripts/controleer-interactiespec.py
+python3 tools/scripts/controleer-interactiespec.py
 ```
 
 Dat haalt elke payload langs haar schema's en meldt elke sleutel die geen schema verklaart.

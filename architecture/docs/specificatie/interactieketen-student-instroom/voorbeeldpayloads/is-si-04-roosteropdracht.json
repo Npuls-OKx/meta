@@ -1,0 +1,35 @@
+{
+  "requestId": "da0a666e-04d4-4da4-811b-c22064cf28a1",
+  "requestedAt": "2026-06-15T10:00:00Z",
+  "period": {
+    "start": "2026-09-01",
+    "end": "2026-11-06"
+  },
+  "learningOpportunities": [
+    {
+      "id": "04070a96-01e0-4958-9f7e-69b429c72eec",
+      "name": "Baliegesprekken 101, periode 1",
+      "unitOfferingId": "04af26e6-96be-480a-8413-87a128164681",
+      "roomType": "skillslab",
+      "expertiseProfileId": "8e1dcda7-ef4e-45d0-931a-e47c3c77ddef",
+      "sessionCount": 8,
+      "sessionDuration": 120,
+      "groupIds": [
+        "a3d9e6c5-2f18-4970-8b43-6d1c5e92a748",
+        "ca26d662-48fc-463d-b9d1-b1957ec3d102"
+      ]
+    }
+  ],
+  "groups": [
+    {
+      "id": "a3d9e6c5-2f18-4970-8b43-6d1c5e92a748",
+      "name": "APO26-1A",
+      "capacity": 24
+    },
+    {
+      "id": "ca26d662-48fc-463d-b9d1-b1957ec3d102",
+      "name": "APO26-1B",
+      "capacity": 24
+    }
+  ]
+}

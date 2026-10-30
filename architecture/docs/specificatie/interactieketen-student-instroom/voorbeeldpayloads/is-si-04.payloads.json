@@ -1,0 +1,11 @@
+{
+  "naam": "Voorbeeldpayloads bij is-si-04.md",
+  "bron": {
+    "wie_is_de_bron": "Elke payload gebruikt de vaste identificaties uit casus.md. Het veld schemas zegt tegen welke schema's zij valideert; controleer-interactiespec.py draait daarop.",
+    "waarom_los": "Een payload in het document duwt de berichtspecificatie uit beeld, en los is zij op te halen en te valideren zonder markdown eromheen. Relateert aan: #384"
+  },
+  "payloads": {
+    "is-si-04-roosteropdracht.json": { "schemas": ["scheduling-request"] },
+    "is-si-04-roosteruitkomst.json": { "schemas": ["scheduling-result"] }
+  }
+}

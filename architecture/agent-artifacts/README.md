@@ -29,4 +29,4 @@ Bij **grote herziening** van hetzelfde onderwerp: nieuw bestand met nieuwe times
 
 Documenten hier hebben **geen** YAML-frontmatter. GitHub is de bron: **auteurschap en datums** via de git-historie, **koppeling en traceerbaarheid** via issues en pull requests. Vermeld gerelateerde issues en bronnen in de **documenttekst** zelf, bijvoorbeeld met een contextregel onder de titel ("Relateert aan: #12") en een sectie *Gerelateerde uitwerkingen*. Human-in-the-loop blijft gelden: de mens die de PR opent is verantwoordelijk voor de inhoud.
 
-Zie ook [`doc/Bijdragen-voor-beginners.md`](../../doc/Bijdragen-voor-beginners.md) (Cursor-workflow).
+Zie ook [`project/bijdragen-voor-beginners.md`](../../project/bijdragen-voor-beginners.md) (Cursor-workflow).

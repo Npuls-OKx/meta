@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://okx.npuls.nl/schema/scheduled-enrolment/voorstel",
+  "title": "Scheduled enrolment",
+  "DutchName": "Geroosterde verbintenis",
+  "$comment": "Voorstel. Het label voorstel in de $id houdt dit schema apart van de alfa-schema's die Npuls-OKx/Public draagt; werkbrief W3 van IS-SI-05 laat het daar landen. Het roostersysteem ontsluit hiermee de verbintenis die op een geroosterde gelegenheid is ontstaan, zoals beeld F4-09 haar laat ontstaan. De vorm volgt offering-association/voorstel van IS-SI-02, dat dezelfde dienst verbintenistoestand draagt: het niveau staat in een veld in plaats van in een eigen schema per niveau. Dit schema voegt de niveaus leergelegenheid en lesgelegenheid toe, de toestand geroosterd, en de vlag tijdelijk voor de lesgroep die de planner zelf vormt. Werkbrief W6 belegt dat de dienst verbintenistoestand eenmaal centraal een payload draagt; IS-SI-02 en IS-SI-06 dragen hem met offering-association/voorstel. Verwijzingen naar andere schema's gaan via hun $id.",
+  "type": "object",
+  "required": ["id", "level", "state", "stateChangedAt", "studentId", "offeringId"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid",
+      "DutchName": "verbintenisId",
+      "$comment": "voorstel: de sleutel van de verbintenis, toegekend door wie haar laat ontstaan"
+    },
+    "level": {
+      "enum": [
+        "opleidingsprogramma",
+        "onderwijseenheid",
+        "leergelegenheid",
+        "lesgelegenheid"
+      ],
+      "DutchName": "niveau",
+      "$comment": "voorstel: het niveau waarop deze verbintenis staat, en daarmee welk objecttype uit het informatiemodel zij draagt. offering-association/voorstel kent opleiding, opleidingsprogramma en onderwijseenheid; beeld F4-09 voegt leergelegenheid en lesgelegenheid toe"
+    },
+    "parentAssociationId": {
+      "type": "string",
+      "format": "uuid",
+      "DutchName": "bovenliggendVerbintenisId",
+      "$comment": "voorstel: de verbintenis een niveau hoger, afwezig op het hoogste niveau in de levering. Een kale bovenliggendId is context-gevoelig, daarom staat het type in de naam"
+    },
+    "state": {
+      "type": "string",
+      "enum": [
+        "aangemeld",
+        "ingeschreven",
+        "geroosterd",
+        "afgewezen",
+        "ingetrokken"
+      ],
+      "DutchName": "toestand",
+      "$comment": "voorstel: de vier waarden van offering-association/voorstel aangevuld met geroosterd, de toestand die beeld F4-09 op de verbintenis zet"
+    },
+    "stateChangedAt": {
+      "type": "string",
+      "format": "date-time",
+      "DutchName": "toestandGewijzigdOp",
+      "$comment": "voorstel: het moment waarop de toestand deze waarde kreeg, zodat een afnemer op gewijzigdSinds kan ophalen"
+    },
+    "studentId": {
+      "type": "string",
+      "format": "uuid",
+      "DutchName": "studentId",
+      "$comment": "voorstel: de student die de verbintenis draagt. Het roostersysteem kent hem als sleutel; zijn persoonsgegevens gaan niet over deze koppeling, anders dan bij offering-association/voorstel waar de kernregistratie als bron ze wel kan meesturen"
+    },
+    "offeringId": {
+      "type": "string",
+      "format": "uuid",
+      "DutchName": "aanbodId",
+      "$comment": "voorstel: het aanbod waarop deze verbintenis staat, op het niveau dat level noemt, met de sleutel uit timetable/voorstel"
+    },
+    "placementGroupIds": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uuid"
+      },
+      "DutchName": "plaatsingsgroepIds",
+      "$comment": "voorstel: de groepen waarlangs de student op deze gelegenheid terecht is gekomen. De groep zelf komt met placement-group/voorstel, zodat deze verbintenis alleen de verwijzing draagt"
+    },
+    "temporary": {
+      "type": "boolean",
+      "DutchName": "tijdelijk",
+      "$comment": "voorstel: waar zodra de planner om logistieke redenen een eigen lesgroep vormt die in deelnemers van de plaatsingsgroep afwijkt (beeld F4-09). De verbintenis vervalt met die lesgroep"
+    }
+  },
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "$comment": "een verbintenis onder het niveau opleidingsprogramma hangt onder een verbintenis een niveau hoger",
+      "if": {
+        "properties": {
+          "level": {
+            "enum": ["onderwijseenheid", "leergelegenheid", "lesgelegenheid"]
+          }
+        },
+        "required": ["level"]
+      },
+      "then": {
+        "required": ["parentAssociationId"]
+      }
+    }
+  ]
+}

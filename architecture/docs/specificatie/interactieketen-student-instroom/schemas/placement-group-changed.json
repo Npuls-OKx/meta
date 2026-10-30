@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://okx.npuls.nl/schema/placement-group-changed/voorstel",
+  "title": "Placement group changed",
+  "DutchName": "Plaatsingsgroep-gewijzigd",
+  "$comment": "Voorstel. Het label voorstel in de $id houdt dit schema apart van de alfa-schema's die Npuls-OKx/Public draagt; de werkbrieven van IS-SI-02 en IS-SI-03 laten het daar landen. Dezelfde vorm als specification-status-changed/alfa, met de plaatsingsgroep als onderwerp: een dun bericht met de aanleiding en de nieuwe omvang, waarna de afnemer de groep met een opvraag ophaalt. De meldingssoort plaatsingsgroep-gewijzigd staat nog niet in de enum events van subscription/alfa.",
+  "type": "object",
+  "required": ["eventId", "placementGroupId", "change", "changedAt"],
+  "properties": {
+    "eventId": {
+      "type": "string",
+      "format": "uuid",
+      "DutchName": "eventId",
+      "$comment": "De sleutel waarop een herhaalde delivery idempotent blijft. Uitgangspunt U5 vraagt een stabiel event-id voor herhaalbare verwerking."
+    },
+    "placementGroupId": {
+      "type": "string",
+      "format": "uuid",
+      "DutchName": "plaatsingsgroepId",
+      "$comment": "De groep waarop de wijziging slaat, het veld id uit placement-group/voorstel. specification-status-changed/alfa noemt dezelfde plek objectId."
+    },
+    "change": {
+      "enum": ["studentToegevoegd", "studentVerwijderd", "groepOpgeheven"],
+      "DutchName": "wijziging",
+      "$comment": "Wat er aan de plaatsing veranderde. Bij groepOpgeheven vervalt de groep en blijft studentId leeg."
+    },
+    "studentId": {
+      "type": "string",
+      "format": "uuid",
+      "DutchName": "studentId",
+      "$comment": "De student die in of uit de groep ging."
+    },
+    "changedAt": {
+      "type": "string",
+      "format": "date-time",
+      "DutchName": "gewijzigdOp"
+    },
+    "memberCount": {
+      "type": "integer",
+      "minimum": 0,
+      "DutchName": "aantalLeden",
+      "$comment": "De omvang van de groep na deze wijziging, zodat een afnemer op de aantallen besluit zonder de groep op te halen."
+    }
+  },
+  "additionalProperties": false
+}

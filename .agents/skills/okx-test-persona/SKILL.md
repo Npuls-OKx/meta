@@ -15,7 +15,7 @@ Wrapper om de externe skill [`test-driven-development`](../test-driven-developme
 
 ## OKx-kaders (gaan voor)
 
-1. **Testraamwerk en locatie.** Tests staan in de map `tests/`, gescheiden van de productiescripts, één bestand per script of valideerbare definitie: `tests/test_<naam>.py`. Stdlib `unittest`, geen pytest of andere dependency. Draaibaar met `python3 -m unittest discover -s tests`.
+1. **Testraamwerk en locatie.** Tests staan in de map `tools/tests/`, gescheiden van de productiescripts, één bestand per script of valideerbare definitie: `tools/tests/test_<naam>.py`. Stdlib `unittest`, geen pytest of andere dependency. Draaibaar met `python3 -m unittest discover -s tools/tests`.
 2. **Given-when-then.** Elk testgeval volgt de conventie in de methodenaam (`test_given_X_when_Y_then_Z`) en in de teststructuur: eerst de uitgangssituatie (given), dan de handeling (when), dan de toets van het resultaat (then). Dit is de OKx-invulling van de arrange-act-assert-structuur uit de externe skill.
 3. **Taal.** Identifiers in code (methodenamen, variabelen) zijn Engels; gebruikersuitvoer die het script zelf produceert (foutmeldingen, printregels) is Nederlands.
 4. **Onafhankelijke verwachtingen.** Een testgeval berekent of telt zijn verwachte waarde zelf, los van de huidige inhoud van de repository. Geen hardgecodeerde momentopname (bijvoorbeeld een vast aantal boom-items) die stilletjes veroudert zodra de repo groeit; zie de reviewbevinding op PR #178.
