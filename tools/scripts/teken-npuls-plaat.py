@@ -20,6 +20,7 @@ Blokken die een selectie kan dragen:
     kolommen    twee kolommen met een lijst, bijvoorbeeld in concept tegenover nog open
     kaarten     een rij kaarten met icoon, titel en een regel
     netwerk     panelen met knopen in een ovaal, onderling verbonden of via een midden
+    niveaus     rijen met een naam en een strook miniaturen van bestaande beelden
     legenda     een regel met kleurvlakjes en hun betekenis
     tekst       een alinea, voor de regel onder een blok
 
@@ -395,6 +396,54 @@ def blok_netwerk(b, x, y, w, p, ic):
     return svg, hoog
 
 
+def _miniatuur(pad: str, breedte: int):
+    """Een bestaand beeld als miniatuur, ingebed in de SVG.
+
+    Waarom ingebed: GitHub toont een SVG via een img-element, en dat laadt geen externe
+    bestanden. Een verwijzing naar een jpg naast de plaat blijft daar dus leeg.
+    """
+    import base64
+    import io
+    from PIL import Image
+
+    bron = WORTEL / pad
+    if not bron.exists():
+        sys.exit(f"beeld niet gevonden: {pad}")
+    im = Image.open(bron).convert("RGB")
+    hoog = max(1, round(im.height * breedte / im.width))
+    im = im.resize((breedte, hoog), Image.LANCZOS)
+    buf = io.BytesIO()
+    im.save(buf, "JPEG", quality=72)
+    return base64.b64encode(buf.getvalue()).decode("ascii"), hoog
+
+
+def blok_niveaus(b, x, y, w, p, ic):
+    """Rijen met een naam, een bron en een strook miniaturen van bestaande beelden."""
+    rijen = b["rijen"]
+    labelbreedte = b.get("labelbreedte", 360)
+    mini = b.get("miniatuurbreedte", 104)
+    gat = 10
+    svg, yy = "", y
+    for r in rijen:
+        beelden = [_miniatuur(pad, mini) for pad in r.get("beelden", [])]
+        beeldhoog = max([h for _, h in beelden], default=0)
+        hoog = max(b.get("rijhoogte", 62), beeldhoog + 22)
+        kleur = r.get("kleur", p["np-green"])
+        svg += kaart(x, yy, w, hoog, "#ffffff", p["np-light-gray"], streep=kleur)
+        svg += tekst(x + 18, yy + hoog / 2 - 2, r["titel"], 13, p["np-ink"], vet=True)
+        if r.get("bron"):
+            svg += tekst(x + 18, yy + hoog / 2 + 16, r["bron"], 11, p["np-mid-gray"])
+        bx = x + labelbreedte
+        for data, bh in beelden:
+            svg += (f'<image x="{bx:.0f}" y="{yy + (hoog - bh) / 2:.0f}" width="{mini}" height="{bh}"'
+                    f' href="data:image/jpeg;base64,{data}"/>')
+            svg += (f'<rect x="{bx:.0f}" y="{yy + (hoog - bh) / 2:.0f}" width="{mini}" height="{bh}"'
+                    f' fill="none" stroke="{p["np-light-gray"]}"/>')
+            bx += mini + gat
+        yy += hoog + gat
+    return svg, yy - y - gat
+
+
 def blok_legenda(b, x, y, w, p, ic):
     svg = ""
     cx = x
@@ -419,7 +468,7 @@ def blok_tekst(b, x, y, w, p, ic):
 
 BLOKKEN = {"ladder": blok_ladder, "stappen": blok_stappen, "kolommen": blok_kolommen,
            "kaarten": blok_kaarten,
-    "netwerk": blok_netwerk, "legenda": blok_legenda, "tekst": blok_tekst}
+    "netwerk": blok_netwerk, "niveaus": blok_niveaus, "legenda": blok_legenda, "tekst": blok_tekst}
 
 
 def teken(sel: dict) -> str:

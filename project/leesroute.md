@@ -22,7 +22,13 @@ Leestijd is de woordtelling gedeeld door honderdtwintig woorden per minuut, het 
 
 **Waarvoor bestaat OKx, en waarom lost het bestaande dat niet op?**
 
-![Waarvoor OKx bestaat: wat de sector vraagt, en de tegenvraag die een leverancier stelt](img/visueel/aanleiding.svg)
+![Keuzemogelijkheden ontleed: vier niveaus van binnen de eigen opleiding tot over sectoren heen, met de leerroutetekeningen van Npuls erbij](img/visueel/keuzeniveaus.svg)
+
+De sector vraagt om meer keuze. Elk niveau hoger brengt partijen buiten de eigen muren in beeld, en vraagt daarmee meer afspraken, meer uitwisseling en meer beschrijflast. Een instelling kiest zelf welk niveau bij haar past.
+
+![Voorschrijven met een voorwaarde: de redenering van ambitie naar systemen, de waarde voor drie groepen, de tegenvraag van een leverancier en de uitdaging voor OKx](img/visueel/aanleiding.svg)
+
+De afspraak die daarbij hoort draagt een voorwaarde, en levert waarde voor de student, de instelling en de leverancier tegelijk. Voluit staat die redenering in [de aanleiding](context.md#aanleiding).
 
 OKx legt gestandaardiseerde koppelingen vast voor de onderwijslogistiek, zodat een student binnen en later buiten de eigen instelling onderwijs kan kiezen en volgen terwijl de administratie meebeweegt. Het project valt onder de transformatiehub Wendbaar georganiseerd onderwijs van Npuls, in samenwerking met Digitale sectorvoorzieningen.
 

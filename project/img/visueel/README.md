@@ -20,7 +20,8 @@ De selectie is het werk; het tekenen kost seconden. Een plaat hertekenen na een 
 | [`status-ladder`](status-ladder.svg) | de zeven statussen die een product doorloopt | [Status](../../status.md) |
 | [`status-nu`](status-nu.svg) | waar de producten vandaag staan, met het werk tussen status 1 en 4 | [Status](../../status.md), de leesroute |
 | [`specificatie-hoofdvraag`](specificatie-hoofdvraag.svg) | wat er in concept ligt tegenover wat open staat, met de route ernaartoe | de landingspagina, de leesroute |
-| [`aanleiding`](aanleiding.svg) | wat de sector vraagt, en de tegenvraag van een leverancier | de leesroute, deel 1 |
+| [`keuzeniveaus`](keuzeniveaus.svg) | de vier niveaus van keuze, met de leerroutetekeningen van Npuls | de leesroute, [de aanleiding](../../context.md#aanleiding) |
+| [`aanleiding`](aanleiding.svg) | de redenering onder de standaard, de waarde voor drie groepen, en de tegenvraag van een leverancier | de leesroute, [de aanleiding](../../context.md#aanleiding) |
 | [`fasen`](fasen.svg) | specificatie, bouw, adoptie, borging, met 2032 als eindpunt | de leesroute, deel 6 |
 | [`besluiten`](besluiten.svg) | de besluiten die de rest van het werk dragen | de leesroute, deel 5 |
 

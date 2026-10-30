@@ -45,6 +45,32 @@ Zes use-cases zijn vanuit mbo, hbo en wo opgehaald:
 5. Meer keuzemogelijkheden buiten de instelling, over landsgrenzen heen.
 6. Keuzemogelijkheden over sectoren heen, los van een inschrijving bij een instelling.
 
+Die zes use-cases vallen uiteen in vier niveaus van keuze. Npuls heeft ze als negen leerroutes getekend, elk met een persona.
+
+![Keuzemogelijkheden ontleed: vier niveaus van binnen de eigen opleiding tot over sectoren heen, met de leerroutetekeningen van Npuls erbij](img/visueel/keuzeniveaus.svg)
+
+Elk niveau hoger brengt partijen in beeld die buiten de eigen muren staan. Een keuze binnen de eigen opleiding raakt de systemen van een instelling. Een keuze over sectoren heen raakt de systemen van twee instellingen, met twee kwalificatiekaders, twee administraties en twee roosters. Dat vraagt meer afspraken, meer uitwisseling en meer beschrijflast bij wie het onderwijs ontwerpt. Een instelling kiest zelf welk niveau bij haar past; OKx maakt vooraf duidelijk wat die keuze van haar vraagt.
+
+### De afspraak en haar voorwaarde
+
+![Voorschrijven met een voorwaarde: de redenering van ambitie naar systemen, de waarde voor drie groepen, de tegenvraag van een leverancier en de uitdaging voor OKx](img/visueel/aanleiding.svg)
+
+De redenering onder de standaard loopt in vier stappen. Wilt u deze functionaliteit, deze studentervaring en deze instellingservaring, dan kunt u het beste op deze manier uitwisselen. Daarvoor leveren delen van uw processen bepaalde informatie, in een bepaalde vorm, op bepaalde momenten, zodat uw systemen op die manier met elkaar kunnen interacteren.
+
+Die voorwaarde is het verschil tussen een standaard en een dictaat. OKx schrijft niet voor dat een instelling iets moet willen; het schrijft voor wat er nodig is zodra zij iets wil.
+
+De waarde ervan landt bij drie groepen tegelijk, en een afspraak die er maar twee bedient houdt geen stand:
+
+| Groep | Wat zij eraan heeft |
+|---|---|
+| De student | Een leerroute die bij hem past, met een administratie die meebeweegt in plaats van achterloopt |
+| De instelling | Onderwijs dat te plannen en te roosteren valt, met minder overtypen tussen systemen |
+| De leverancier | Een koppeling die hij een keer bouwt, en die bij elke klant werkt |
+
+Daar staat een tegenvraag tegenover die leveranciers stellen: waarom maken we de bestaande koppelingen niet gewoon conform de Open Education API, dan zijn we klaar. Als dat de oplossing is, waarom is het dan nog niet gebeurd, en waarvoor is OKx dan nodig. De hypothese van het team is dat er belangen conflicteren: een leverancier of instelling heeft op zichzelf weinig reden om alles met de buurman uit te wisselen. Die hypothese staat op status 1 en is niet getoetst.
+
+Daarmee ligt de uitdaging van OKx vast: een standaard beschrijven die past bij hoe instellingen vandaag werken, en die ruimte laat voor wat zij morgen willen.
+
 ## Resultaten en implicaties
 
 Herkomst: de resultaten uit het projectplan. De implicaties zijn een eigen afleiding, aangescherpt in afstemming binnen het kernteam, oktober 2026.
