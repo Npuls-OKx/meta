@@ -44,7 +44,8 @@ Een leesroute brengt een lezer in een vaste volgorde langs wat hij nodig heeft. 
 
 ```text
 meta/
-├── doc/                              projectcontext, de leesroute, release en versionering
+├── project/                          wat OKx is en hoe je het leest: context, historie, status, leesroute
+│   └── img/                          de platen van het programma en de gegenereerde beelden
 ├── architecture/
 │   ├── docs/
 │   │   ├── specificatie/             begrippenlijst, leerroute-uitwerking, interactieketens, keuzevraagstukken
@@ -52,13 +53,14 @@ meta/
 │   │   ├── kwalificatiedossier/      de bron waar de keten begint
 │   │   ├── leeruitkomsten/           de sleutel tussen specificatie en resultaat
 │   │   └── mappingsessies-instellingen/   wat instellingen in werksessies inbrachten
-│   ├── model/                        het ArchiMate-model, het informatiemodel en de hoofdplaat per versie
+│   ├── model/                        het ArchiMate-model, het informatiemodel en de modeldoorloop
 │   ├── meetings/                     de verslagen per sessie
 │   └── agent-artifacts/              onderzoek, plannen en ontwerpen van agents
-├── OKE/                              de eerste subdomein-uitwerking, examen en beoordeling
-├── moka-koppelvlakspecificaties/     de MOKA-templates waarop een specificatie rust
 ├── presentaties/                     de decks per gremium, met het platenmanifest
-├── tools/scripts/                          de generatoren en de controles op model, platen en documenten
+├── tools/
+│   ├── scripts/                      de generatoren en de controles op model, platen en documenten
+│   └── tests/                        de testgevallen daarbij
+├── archief/MOKA/                     het MOKA-sjabloon, de guidelines en de uitwerking erop
 └── AGENTS.md                         de werkwijze voor agents, met de harde regels
 ```
 

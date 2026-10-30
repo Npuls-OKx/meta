@@ -16,7 +16,7 @@
             },
             {
               "tekst": "Interactieketens op meerwaarde voor instelling en student",
-              "bron": "in herziening, op een branch in meta"
+              "bron": "drie ketens in concept, over fase 1, 2, 3 en 6 van de acht"
             },
             {
               "tekst": "Applicatiediensten als laag eronder",
@@ -25,10 +25,6 @@
             {
               "tekst": "Informatiemodel met begrippenlijst",
               "bron": "80 objecttypen, 226 relaties"
-            },
-            {
-              "tekst": "OKx-profiel voor gegevensuitwisseling",
-              "bron": "OEAPI waar het kan, als overlay op de standaard"
             },
             {
               "tekst": "OKx modeldoorloop per processtap",
@@ -42,12 +38,12 @@
           "regels": [
             {
               "tekst": "Wat een instelling moet kunnen per leerroute",
-              "bron": "de taal is in aanbouw en begint bruikbaar te worden",
+              "bron": "de taal daarvoor is in aanbouw en begint bruikbaar te worden",
               "open": true
             },
             {
-              "tekst": "Het knipniveau van de set",
-              "bron": "capability, koppelvlakdienst of keten",
+              "tekst": "Welke functionaliteit bij welk applicatiecomponent hoort",
+              "bron": "en wat die knip doet met een koppelvlakspecificatie",
               "open": true
             },
             {
@@ -145,5 +141,5 @@
       "tekst": "De reis stap voor stap doorlopen legt bloot welke begrippen ontbreken. Zo kwam de nominale leerroute boven water. Dat is geen illustratie achteraf maar de manier waarop de taal wordt opgebouwd, en die taal draagt daarna de keten en het profiel."
     }
   ],
-  "voet": "Status: wat er ligt is concept en voorstel, status 5 en 7 zijn leeg, en release 0.0.1 kreeg geen review. Het vastzetten van de vorm wacht op een scherper beeld van wat een instelling moet kunnen."
+  "voet": "Status: wat er ligt is concept en voorstel, en verre van implementatiewaardig. Status 5 en 7 zijn leeg en release 0.0.1 kreeg geen review. Het vastzetten van de vorm wacht op een scherper beeld van wat een instelling moet kunnen."
 }
