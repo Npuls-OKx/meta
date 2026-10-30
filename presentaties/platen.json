@@ -1,5 +1,5 @@
 {
-  "toelichting": "Platen en diagrammen die in een OKx-presentatie gebruikt kunnen worden. Een deck wordt beter van een bestaande architectuurplaat dan van een zelfgetekend diagram: die plaat is al besproken en al goedgekeurd, dus je opent geen discussie die je niet wilde voeren. Controleer dit manifest met 'python3 scripts/platen-inventariseren.py' voordat je een plaat kiest; dat meldt gewijzigde bronnen, nieuwere versies en platen die hier nog niet in staan.",
+  "toelichting": "Platen en diagrammen die in een OKx-presentatie gebruikt kunnen worden. Een deck wordt beter van een bestaande architectuurplaat dan van een zelfgetekend diagram: die plaat is al besproken en al goedgekeurd, dus je opent geen discussie die je niet wilde voeren. Controleer dit manifest met 'python3 tools/scripts/platen-inventariseren.py' voordat je een plaat kiest; dat meldt gewijzigde bronnen, nieuwere versies en platen die hier nog niet in staan.",
   "gebruik": "Kopieer de gekozen plaat naar presentaties/public/platen/ en verwijs ernaar met /platen/<naam>. Zet er altijd een regel bij die zegt waar de kijker naar moet kijken; een plaat zonder leeswijzer is decoratie.",
   "velden": {
     "versie": "De versie die de plaat zelf draagt, niet de datum waarop hij hier belandde.",
@@ -180,7 +180,7 @@
       "naam": "amigo-matrix",
       "titel": "AMIGO modellenmatrix",
       "bron": "Npuls-OKx/meta",
-      "pad": "moka-koppelvlakspecificaties/Template/img/AMIGO Modellen matrix v20260204.png",
+      "pad": "archief/MOKA/Template/img/AMIGO Modellen matrix v20260204.png",
       "versie": "v20260204",
       "toont": "Welke modellen de AMIGO-aanpak onderscheidt en hoe ze op elkaar stapelen.",
       "gebruik_bij": "Uitleggen waarom een koppelvlakspecificatie eruitziet zoals hij eruitziet.",
@@ -191,7 +191,7 @@
       "naam": "beheerketen",
       "titel": "Beheerketen totstandkoming koppelvlakspecificaties",
       "bron": "Npuls-OKx/meta",
-      "pad": "moka-koppelvlakspecificaties/Template/img/Beheerketen voor tot standkoming koppelvlak specificaties.jpg",
+      "pad": "archief/MOKA/Template/img/Beheerketen voor tot standkoming koppelvlak specificaties.jpg",
       "versie": "-",
       "toont": "Wie welke rol heeft in het tot stand brengen en beheren van een koppelvlakspecificatie.",
       "gebruik_bij": "Governance-vragen bij programmaleiding en adviesgroep: wie besluit wat, en wanneer.",
@@ -285,7 +285,7 @@
       "naam": "mora-okx-oke",
       "titel": "Hoofdprocesmodel MORA, met OKx en OKE gemarkeerd",
       "bron": "Npuls-OKx/meta",
-      "pad": "img/MORA_hoofdprocesmodel_OKx_en_OKE_20261027.webp",
+      "pad": "project/img/mora-hoofdprocesmodel-okx-en-oke-20261027.webp",
       "versie": "20261027",
       "toont": "De processen van een mbo-instelling volgens MORA, met goud omlijnd waarop OKx acteert en groen omlijnd waar OKE begon.",
       "gebruik_bij": "Een publiek dat wil weten waar OKx in de sectorarchitectuur staat, en hoe het zich tot OKE verhoudt. Kerngroep techniek, adviesgroep, nieuwe aanhakers.",
@@ -310,7 +310,7 @@
     },
     {
       "bron": "Npuls-OKx/meta",
-      "patroon": "moka-koppelvlakspecificaties/Template/img/*",
+      "patroon": "archief/MOKA/Template/img/*",
       "reden": "Templateplaten. De twee die in een deck bruikbaar zijn, staan hierboven apart genoemd."
     },
     {

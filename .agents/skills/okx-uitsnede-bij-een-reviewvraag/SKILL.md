@@ -14,7 +14,7 @@ De maat waar dit over gaat: een vraag, hoogstens vierentwintig objecttypen, en e
 - **Het model is de bron.** De tekenaar leest `architecture/model/informatiemodel/informatiemodel.json`, dat uit het ArchiMate-model gegenereerd wordt. Raak nooit een `*.archimate`-bestand aan (harde regel 1 uit [AGENTS.md](../../../AGENTS.md)); een wijziging in het model maakt de modelleur in Archi.
 - **De selectie is het werk, niet de code.** Een uitsnede is een JSON-bestand onder `architecture/model/informatiemodel/uitsneden/`. Het tekenen is een scriptaanroep van een paar seconden, dus hertekenen na een modelronde kost niets.
 - **Een beeld beantwoordt een vraag en vat geen hoofdstuk samen.** De titel is de vraag van de inbrenger, letterlijk genoeg dat hij hem herkent.
-- **Nul kruisingen.** `scripts/keur-plaat.py --max-kruisingen 0` is de poort. Een kruising betekent dat de rijen of de kolommen anders moeten, niet dat de maat soepeler moet.
+- **Nul kruisingen.** `tools/scripts/keur-plaat.py --max-kruisingen 0` is de poort. Een kruising betekent dat de rijen of de kolommen anders moeten, niet dat de maat soepeler moet.
 
 ## De volgorde van de stappen
 
@@ -23,10 +23,10 @@ De maat waar dit over gaat: een vraag, hoogstens vierentwintig objecttypen, en e
 3. **Teken en keur.**
 
    ```bash
-   python3 scripts/teken-informatiemodel-uitsnede.py \
+   python3 tools/scripts/teken-informatiemodel-uitsnede.py \
      --selectie architecture/model/informatiemodel/uitsneden/public-123-minor.json \
      --uit architecture/model/informatiemodel/img/uitsneden/public-123-minor.svg
-   python3 scripts/keur-plaat.py <de svg> --max-kruisingen 0
+   python3 tools/scripts/keur-plaat.py <de svg> --max-kruisingen 0
    ```
 
 4. **Kijk ernaar.** Een plaat die de keuring haalt kan nog steeds het verkeerde zeggen. Zet hem om naar een afbeelding en bekijk hem.
@@ -68,7 +68,7 @@ Een vraag als "kan een leeruitkomst het niveau van een competentie uitdrukken" i
 
 Drie regels houden dat blok een voorbeeld.
 
-**Het leent de vormtaal van de plaat.** Een blok met een eigen kolomtab leest als een achtste begrippenfamilie, terwijl het een invulling van een objecttype is. Het draagt daarom de vulling, het pictogram en de naam van een vak, dezelfde taal die `scripts/teken-modeldoorloop.py` gebruikt voor de instanties van de voorbeelduitwerking. De naam van het vak is het objecttype; waar het voorbeeld vandaan komt staat klein eronder.
+**Het leent de vormtaal van de plaat.** Een blok met een eigen kolomtab leest als een achtste begrippenfamilie, terwijl het een invulling van een objecttype is. Het draagt daarom de vulling, het pictogram en de naam van een vak, dezelfde taal die `tools/scripts/teken-modeldoorloop.py` gebruikt voor de instanties van de voorbeelduitwerking. De naam van het vak is het objecttype; waar het voorbeeld vandaan komt staat klein eronder.
 
 **Het hangt aan zijn objecttype.** Een grijze onderbroken lijn met het opschrift `voorbeeld uitwerking` loopt van het vak op het raster naar de voorbeelden, zodat zichtbaar is waarvan zij een invulling zijn. Bij twee voorbeelden stijgt die lijn naar een eigen baan erboven en laat per voorbeeld een stomp zakken.
 
@@ -103,7 +103,7 @@ Een modelronde verandert namen, relaties en scope. Hertekenen is een lus over de
 ```bash
 for f in architecture/model/informatiemodel/uitsneden/*.json; do
   n=$(basename "$f" .json)
-  python3 scripts/teken-informatiemodel-uitsnede.py --selectie "$f" \
+  python3 tools/scripts/teken-informatiemodel-uitsnede.py --selectie "$f" \
     --uit "architecture/model/informatiemodel/img/uitsneden/$n.svg"
 done
 ```

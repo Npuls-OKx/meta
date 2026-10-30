@@ -19,7 +19,7 @@ Afspraak:
 - Notulen linken altijd naar relevante issues/ADR's/OKx docs.
 - Het **transcript** is de primaire bron; de **samenvatting** is een hulpmiddel en kan
   interpretatiefouten bevatten (o.a. verkeerd toegewezen sprekers). Zie
-  [`doc/Privacy-meetings-en-transcriptie.md`](../../doc/Privacy-meetings-en-transcriptie.md).
+  [`project/privacy-meetings-en-transcriptie.md`](../../project/privacy-meetings-en-transcriptie.md).
 
 Template:
 

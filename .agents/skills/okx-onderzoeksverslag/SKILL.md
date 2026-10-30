@@ -98,7 +98,7 @@ Boven in het verslag staat de regel `Relateert aan:` met de issues die het raakt
 - [ ] De alternatieven staan er met wat tegen elk pleit.
 - [ ] Wat niet verifieerbaar was staat benoemd.
 - [ ] De index draagt de rij, met een status die klopt.
-- [ ] `python3 scripts/validate-docs.py <pad>` slaagt.
+- [ ] `python3 tools/scripts/validate-docs.py <pad>` slaagt.
 
 ## Verwante skills
 

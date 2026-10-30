@@ -29,15 +29,15 @@ flowchart LR
 Volgorde bij elke wijziging, altijd volledig:
 
 ```
-python3 scripts/exporteer-componenten.py --extra "Intake systeem" "Aanmeld systeem" \
+python3 tools/scripts/exporteer-componenten.py --extra "Intake systeem" "Aanmeld systeem" \
     "Curriculum ontwerptool" "AII (centraal aanmelden)" "Toets- en examen afname systeem"
-python3 scripts/controleer-modeldoorloop.py            # 0 bevindingen, anders eerst herstellen
+python3 tools/scripts/controleer-modeldoorloop.py            # 0 bevindingen, anders eerst herstellen
 rm -f architecture/model/informatiemodel/img/regels/*.svg
-python3 scripts/teken-modeldoorloop.py
-python3 scripts/teken-hoofdplaat-highlight.py            # alleen als de plaat of de stromen wijzigen
-python3 scripts/genereer-modeldoorloop-lr1.py                # waarschuwt voor vragen buiten de zeven
-python3 scripts/validate-docs.py architecture/model/informatiemodel/modeldoorloop-leerroute-1-jochem.md
-python3 -W error::ResourceWarning -m unittest discover -s tests
+python3 tools/scripts/teken-modeldoorloop.py
+python3 tools/scripts/teken-hoofdplaat-highlight.py            # alleen als de plaat of de stromen wijzigen
+python3 tools/scripts/genereer-modeldoorloop-lr1.py                # waarschuwt voor vragen buiten de zeven
+python3 tools/scripts/validate-docs.py architecture/model/informatiemodel/modeldoorloop-leerroute-1-jochem.md
+python3 -W error::ResourceWarning -m unittest discover -s tools/tests
 ```
 
 De platen komen uit het ArchiMate-model en worden alleen gelezen: `genereer-informatiemodel-doc.py` (informatiemodelplaat), `exporteer-archimate-view.py --mapping` (pijlen van hoofdplaat v1.7a), `exporteer-conceptplaat.py` (view "Informatiemodel Onderwijsontwerp"), `exporteer-componenten.py` (applicatiecomponenten met hun MORA-definitie en de applicatiediensten die zij realiseren). Raak nooit een `.archimate`-bestand aan.

@@ -13,4 +13,4 @@ Alle pakket-installaties en script-uitvoer gebeuren in de Dev Container, NOOIT o
   - Node: voeg het toe aan `postCreateCommand` in `.devcontainer/devcontainer.json`.
   Doe dit reproduceerbaar voor het hele team in plaats van ad-hoc te installeren, en rebuild de container.
 - Twijfel je of je in de container zit? Controleer dat eerst (bijv. bestaat `/.dockerenv`, of `whoami` = `vscode`) VOORDAT je iets installeert. Zit je niet in de container, installeer dan niets en meld het.
-- Tijdelijke scripts/artefacten draai je in de werkmap binnen de container en ruim je daarna op.
+- Tijdelijke tools/scripts/artefacten draai je in de werkmap binnen de container en ruim je daarna op.

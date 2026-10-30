@@ -8,8 +8,8 @@ Vraag eerst **voor welk gremium** en **welke periode**, tenzij dat al uit de opd
 
 Ga niet meteen schrijven. Verzamel eerst wat er is gebeurd, en **leg de inhoud voor** aan degene die het deck vraagt:
 
-1. Draai `python3 scripts/wijzigingen-verzamelen.py --sinds JJJJ-MM-DD` en lees de pull request-beschrijvingen en de gewijzigde documenten.
-2. Draai `python3 scripts/platen-inventariseren.py` en lees `presentaties/platen.json`, zodat je weet welk beeld beschikbaar is voordat je onderwerpen kiest.
+1. Draai `python3 tools/scripts/wijzigingen-verzamelen.py --sinds JJJJ-MM-DD` en lees de pull request-beschrijvingen en de gewijzigde documenten.
+2. Draai `python3 tools/scripts/platen-inventariseren.py` en lees `presentaties/platen.json`, zodat je weet welk beeld beschikbaar is voordat je onderwerpen kiest.
 3. Groepeer wat je vindt in **drie tot zes onderwerpen**, met per onderwerp een zin over wat het betekent **en welke plaat je erbij wilt zetten**.
 4. Leg die lijst voor: *"dit zag ik gebeuren, hier wil ik het over hebben, met dit beeld erbij — klopt dat?"* Noem er expliciet bij wat je zou **weglaten** en waarom, en bij welk onderwerp je geen passende plaat kon vinden.
 5. Wacht op het antwoord. Wat technisch de grootste wijziging is, is zelden waar het gesprek over moet gaan; alleen de aanvrager weet wat er maandag op tafel moet, en welke plaat er vorige keer vragen opriep.

@@ -2,13 +2,13 @@
 
 De publieke werkomgeving van **OKx**: hier ontstaan de producten van het project, in het open en samen met de sector. Het keteninzicht, de modellen, de kaderstelling en de specificaties worden hier gemaakt, besproken en herzien, en wat releasebaar is verhuist naar Public. OKx is onderdeel van [Npuls, pijler Leren Zonder Drempels](https://npuls.nl/project-onderwijskoppelingen).
 
-Bestaat een document in beide repositories, dan is de versie in [`Npuls-OKx/Public`](https://github.com/Npuls-OKx/Public) de vastgelegde en de versie hier de werkversie. Waar OKx aansluit op bestaande standaarden en referentiearchitecturen staat in [`doc/OKx_Context.md`](doc/OKx_Context.md#standaarden-en-referentiearchitecturen).
+Bestaat een document in beide repositories, dan is de versie in [`Npuls-OKx/Public`](https://github.com/Npuls-OKx/Public) de vastgelegde en de versie hier de werkversie. Waar OKx aansluit op bestaande standaarden en referentiearchitecturen staat in [`project/context.md`](project/context.md#standaarden-en-referentiearchitecturen).
 
-![Hoe ziet onze specificatie eruit: wat er in concept ligt tegenover wat open staat, met de route van persona naar profiel](img/visueel/specificatie-hoofdvraag.svg)
+![Hoe ziet onze specificatie eruit: wat er in concept ligt tegenover wat open staat, met de route van persona naar profiel](project/img/visueel/specificatie-hoofdvraag.svg)
 
 ## Status
 
-Wat hier staat is grotendeels concept en voorstel. Van de zeven [statussen](doc/OKx_Status.md) die een product doorloopt zijn 5 en 7 leeg, en release 0.0.1 kreeg geen review. Het werk beweegt sindsdien tussen status 1 en 4, bij de vraag wat een instelling moet kunnen.
+Wat hier staat is grotendeels concept en voorstel. Van de zeven [statussen](project/status.md) die een product doorloopt zijn 5 en 7 leeg, en release 0.0.1 kreeg geen review. Het werk beweegt sindsdien tussen status 1 en 4, bij de vraag wat een instelling moet kunnen.
 
 | | |
 |---|---|
@@ -16,7 +16,7 @@ Wat hier staat is grotendeels concept en voorstel. Van de zeven [statussen](doc/
 | Wat nu bepaald wordt | De vorm waarin de oplevering uitkomt. Dat wacht op een scherper beeld van wat een instelling moet kunnen |
 | Waar het naartoe gaat | Per leerroute een best practice die een instelling herkent, en de capabilities die een voorziening daarvoor nodig heeft |
 
-Voluit, met de herkomst per uitspraak: [`doc/OKx_Context.md`](doc/OKx_Context.md#status-van-het-werk).
+Voluit, met de herkomst per uitspraak: [`project/context.md`](project/context.md#status-van-het-werk).
 
 ## Oplevering
 
@@ -27,7 +27,7 @@ Voluit, met de herkomst per uitspraak: [`doc/OKx_Context.md`](doc/OKx_Context.md
 | Referentiemateriaal: principes, uitgangspunten, besluiten, kaderscenario's | [Public](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal) |
 | Kaderstelling en modellen | deze repository |
 
-Waarvoor OKx die levert en wat elk resultaat van de uitwerking vraagt staat in [`doc/OKx_Context.md`](doc/OKx_Context.md); hoe de set wordt opgedeeld in [deel 4 van de leesroute](doc/leesroute-okx.md#deel-4-deliverables).
+Waarvoor OKx die levert en wat elk resultaat van de uitwerking vraagt staat in [`project/context.md`](project/context.md); hoe de set wordt opgedeeld in [deel 4 van de leesroute](project/leesroute.md#deel-4-deliverables).
 
 ## Leesroutes
 
@@ -35,9 +35,9 @@ Een leesroute brengt een lezer in een vaste volgorde langs wat hij nodig heeft. 
 
 | Lezer | Route | Stand |
 |---|---|---|
-| Wie nieuw aanhaakt bij OKx | [Leesroute OKx](doc/leesroute-okx.md): zeven delen door beide repositories, langs context, historie, scope, deliverables, besluiten en beheer | 45 minuten, met verdieping drie uur |
+| Wie nieuw aanhaakt bij OKx | [Leesroute OKx](project/leesroute.md): zeven delen door beide repositories, langs context, historie, scope, deliverables, besluiten en beheer | 45 minuten, met verdieping drie uur |
 | Wie wil bouwen tegen een koppelvlak, de implementerende partijen | [Koppelvlakspecificaties in Public](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/README.md), met de leesvolgorde daar | Alles staat er als concept. De bouwfase begint later; wat nu kan is meelezen en bijdragen aan de specificatie |
-| Wie wil bijdragen | [`CONTRIBUTING.md`](CONTRIBUTING.md) voor de werkwijze en [`doc/Bijdragen-voor-beginners.md`](doc/Bijdragen-voor-beginners.md) voor de eerste stappen | 20 minuten. Een eigen route volgt in de beheerfase |
+| Wie wil bijdragen | [`CONTRIBUTING.md`](CONTRIBUTING.md) voor de werkwijze en [`project/bijdragen-voor-beginners.md`](project/bijdragen-voor-beginners.md) voor de eerste stappen | 20 minuten. Een eigen route volgt in de beheerfase |
 | Een AI-agent | [`AGENTS.md`](AGENTS.md): de harde regels, de product-flow en de skills | eerst dit |
 
 ## Repository
@@ -58,7 +58,7 @@ meta/
 ├── OKE/                              de eerste subdomein-uitwerking, examen en beoordeling
 ├── moka-koppelvlakspecificaties/     de MOKA-templates waarop een specificatie rust
 ├── presentaties/                     de decks per gremium, met het platenmanifest
-├── scripts/                          de generatoren en de controles op model, platen en documenten
+├── tools/scripts/                          de generatoren en de controles op model, platen en documenten
 └── AGENTS.md                         de werkwijze voor agents, met de harde regels
 ```
 
@@ -70,6 +70,6 @@ Vragen en open gesprekken gaan via [Discussions](https://github.com/Npuls-OKx/me
 
 ## Privacy
 
-Sessies die deze werkomgeving voeden kunnen opgenomen en met AI getranscribeerd worden; de facilitator kondigt dat vooraf aan. Bij bezwaar volgt anonimisering in het transcript of beëindiging van de deelname. Niet-publieke informatie hoort niet in deze repository. Volledige toelichting: [`doc/Privacy-meetings-en-transcriptie.md`](doc/Privacy-meetings-en-transcriptie.md).
+Sessies die deze werkomgeving voeden kunnen opgenomen en met AI getranscribeerd worden; de facilitator kondigt dat vooraf aan. Bij bezwaar volgt anonimisering in het transcript of beëindiging van de deelname. Niet-publieke informatie hoort niet in deze repository. Volledige toelichting: [`project/privacy-meetings-en-transcriptie.md`](project/privacy-meetings-en-transcriptie.md).
 
 Contact voor afstemming: niek.derksen@surf.nl.
