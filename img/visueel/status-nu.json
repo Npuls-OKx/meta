@@ -14,7 +14,7 @@
         {"nummer": 2, "naam": "Verkenning", "kleur": "#DD784B",
          "items": ["Negen onderzoeksverslagen in meta", "OKE-vorm tegenover OKx-scope", "Praktijk van standaardisatieprojecten"]},
         {"nummer": 3, "naam": "Concept", "kleur": "#3D68EC",
-         "items": ["Leerroute 1 met drie persona's", "Begrippenlijst", "Hoofdplaat informatiestromen", "Kaderscenario leerroute 1", "Voorbeeldregels leerroute 1", "Release-management", "MOKA-templates", "OKE-subdomein", "Keuze-requirements"]},
+         "items": ["Leerroute 1 met drie persona's", "Begrippenlijst", "Hoofdplaat informatiestromen", "Kaderscenario leerroute 1", "OKx modeldoorloop leerroute 1", "Release-management", "MOKA-templates", "OKE-subdomein", "Keuze-requirements"]},
         {"nummer": 4, "naam": "Voorstel", "kleur": "#3D68EC",
          "items": ["Informatiemodel 0.2", "26 architectuurbesluiten", "13 principes en de uitgangspunten", "Requirementsboom", "7 applicatiecomponenten", "3 interactiepatronen", "24 datamodelschema's", "Herziening naar interactieketens"]},
         {"nummer": 5, "naam": "Besloten in OKx", "leeg": true, "merk": "leeg"},
