@@ -5,11 +5,11 @@
 | [1 Context](#deel-1-context) | Waarvoor bestaat OKx | 5 min | optioneel, 12 min |
 | [2 Historisch overzicht](#deel-2-historisch-overzicht) | Hoe is het zo gelopen | 2 min | optioneel, 10 min |
 | [3 Scope](#deel-3-scope) | Waar houdt het op | 14 min | optioneel, 50 min |
-| [4 Producten](#deel-4-producten) | Wat komt eruit | 14 min | optioneel, 70 min |
-| [5 De gedeelde taal](#deel-5-de-gedeelde-taal) | Waarop staat dat | 6 min | optioneel, 33 min |
+| [4 De gedeelde taal](#deel-4-de-gedeelde-taal) | Hoe bouwen we dat op | 8 min | optioneel, 33 min |
+| [5 Producten](#deel-5-producten) | Wat komt eruit | 12 min | optioneel, 70 min |
 | [6 Architectuurbesluiten](#deel-6-architectuurbesluiten) | Waarop steunt dat | 6 min | optioneel, 23 min |
 | [7 Release en beheer](#deel-7-release-en-beheer) | Hoe blijft het in leven | 4 min | optioneel, 9 min |
-| [8 Wat nu](#deel-8-wat-nu) | Waar stap ik in | 2 min | |
+| [8 Vervolg](#deel-8-vervolg) | Waar stap ik in | 3 min | |
 
 Kern: 45 minuten. Alles: ongeveer drie uur.
 
@@ -138,7 +138,89 @@ Welke leerroutes eerst aan bod komen, staat in de [basisuitgangspunten](context.
 | Status | Concept. Kaderstellend voor de reguliere leerroute; de andere leerroutes volgen als verschil daarop. [meta PR 144](https://github.com/Npuls-OKx/meta/pull/144) herstructureert de uitwerking |
 | Omvang | 6030 van 15679 woorden, 50 minuten. Voluit ruim twee uur |
 
-## Deel 4, producten
+## Deel 4, de gedeelde taal
+
+**Hoe bouwt OKx een referentiekader dat er nog niet is?**
+
+Deel 3 eindigt bij een gat: het eenduidige referentiekader ontbreekt. OKx legt dat gaandeweg zelf, met een methodiek die van een procesgebied in MORA afdaalt tot een enkele stap in het model, en die elke stap terugtoetst op de instellingsvloer.
+
+![Van procesgebied naar modeldoorloopstap: MORA deelt het werk in procesgebied, procesketen en processtap, waarna het leerroute-procesbeeld en de modeldoorloopstap van OKx volgen](img/van-procesgebied-naar-modeldoorloopstap-20261103.png)
+
+*Van een procesgebied in MORA tot een doorloopstap in het model, met de lus eronder: elke toets op de instellingsvloer werkt het informatiemodel bij. Uit het deck voor de werkgroep OKx van 3 november 2026.*
+
+Drie lagen dragen de uitwerking. Een **informatiestroom** is de beweging van gegevens tussen twee componenten. Een **koppeling** is de gestandaardiseerde realisatie daarvan. Een **koppelvlak** is de verzameling koppelingen van precies een component.
+
+### Verifieren op de instellingsvloer
+
+Een model alleen blijft abstract. Elke doorloopstap wordt daarom ingevuld met een echte opleiding, en langs scholen en leveranciers gelegd met een enkele vraag: herkent u dit, en ontbreekt er iets.
+
+![Verifieren met voorbeelduitwerkingen: een doorloopstap waarin het geplande aanbod teruggaat naar de catalogus, met per laag de verwijzing naar de specificatie](img/verifieren-met-voorbeelduitwerkingen-20260929.png)
+
+*Een stap uit de uitwerking: het geplande aanbod terug naar de catalogus, met per laag de verwijzing naar de specificatie waarvan het aanbod is gemaakt. Uit het deck voor de werkgroep OKx van 29 september 2026.*
+
+### Van beeld naar bericht
+
+Dezelfde stap draagt drie gedaantes: de interactie tussen twee componenten, het bericht dat daarover gaat, en het endpoint waarop dat bericht binnenkomt. Het bericht ligt vast; de techniek eronder is een keuze.
+
+![Van beeld naar bericht: dezelfde stap als interactie, voorbeeldbericht en endpoint](img/van-beeld-naar-bericht-20261027.png)
+
+### AMIGO, de route naar een gedragen standaard
+
+Die opbouw is geen eigen vinding. [AMIGO](https://www.edustandaard.nl/amigo/aanpak/) is de aanpak van Edustandaard om van een scenario naar een bouwbare afsprakenset te komen, en leveranciers kennen hem uit andere onderwijsstandaarden. Hieronder de stappen, met het product dat OKx per stap maakt.
+
+```mermaid
+flowchart TD
+  A["Scenario-analyse<br/>persona's, leerroute-uitwerkingen"] --> B["Gegevensanalyse<br/>bouwblokken, begrippenlijst,<br/>informatiemodel, modeldoorloop"]
+  A --> C["Interactie-analyse<br/>hoofdplaat informatiestromen,<br/>interactieketenspecificatie"]
+  B --> D["Technologiekeuze<br/>OEAPI tenzij"]
+  C --> D
+  D --> E["Berichtspecificatie<br/>datamodelschema's, payloads"]
+  D --> F["Interfacespecificatie<br/>interactiespecificatie, endpoints"]
+  E --> G["Afsprakenset<br/>koppelvlakspecificatie, authenticatie,<br/>inrichten van toegang, conformiteitstoets"]
+  F --> G
+```
+
+De stappen worden iteratief doorlopen: een keuze in het bericht kan aanleiding zijn om scenario, gegevens of interacties aan te scherpen. De technologiekeuze ligt bij OKx, in afstemming met de sector via de kerngroep techniek en de adviesgroep.
+
+### De taal opbouwen
+
+Het werk loopt nu via de reis van een instelling, per leerroute, in drie lagen.
+
+| Laag | Wat het vastlegt | Voor leerroute 1 |
+|---|---|---|
+| Persona | De lerende, en wat zijn situatie van de instelling vraagt | [`persona_jochem.md`](../architecture/docs/specificatie/leerroute-uitwerking/doc/persona_jochem.md) |
+| Leerroutedocument | Wat de instelling doet per fase, met de componenten en objecttypen die daarbij oplichten | [kaderscenario leerroute 1](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md) |
+| OKx modeldoorloop | Per doorloopstap welke objecten ontstaan, veranderen en stromen, met de bron erbij | [`modeldoorloop-leerroute-1-jochem.md`](../architecture/model/informatiemodel/modeldoorloop-leerroute-1-jochem.md) |
+
+Leerroute 1 draagt die drie lagen. Leerroute 2 en 3 staan in de milestone [Instellingsreizen per leerroute](https://github.com/Npuls-OKx/meta/milestone/24). De maat: een instelling herkent zich voor ongeveer tachtig procent in zo'n beschrijving, en de rest is lokale variant die als variant wordt vastgelegd.
+
+Daarnaast loopt een tweede lijn: de capabilities van de voorziening, oftewel wat een functiegebied moet kunnen, los van het product waarin dat landt. De OKx modeldoorloop verbindt die twee lijnen, want daar staat per doorloopstap welke objecten bewegen. Het onderzoek naar die verhouding staat in [#422](https://github.com/Npuls-OKx/meta/issues/422).
+
+### Verdieping: het informatiemodel
+
+[`informatiemodel.md`](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/informatiemodel.md) met [`begrippen.md`](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/begrippen.md) als naslag
+
+| | |
+|---|---|
+| Beantwoordt | Welke objecttypen de keten kent, hoe die samenhangen, en welke begrippenfamilies haar indelen |
+| Overslaan | De ontwerpkeuzes met de status voorstel |
+| Status | Voorstel, gepubliceerd op `dev` in Public met de modelronde van oktober erin ([Public PR 131](https://github.com/Npuls-OKx/Public/pull/131)). Lopend: [meta PR 391](https://github.com/Npuls-OKx/meta/pull/391) raakt het kwalificatiekader, [410](https://github.com/Npuls-OKx/meta/pull/410) de resultaatkant |
+| Omvang | 2741 woorden, 23 minuten |
+
+### Verdieping: de hoofdplaat informatiestromen
+
+De hoogste versiemap onder [`architecture/model/informatiestromen hoofdplaat OKx/`](../architecture/model/)
+
+| | |
+|---|---|
+| Beantwoordt | Welke stromen tussen welke componenten lopen, en welke nog een beschrijving vragen |
+| Overslaan | De eerdere versiemappen, die de historie dragen |
+| Status | Concept. Elke stroom is een kandidaat voor een koppelingspecificatie. [meta PR 412](https://github.com/Npuls-OKx/meta/pull/412) en [Public PR 133](https://github.com/Npuls-OKx/Public/pull/133) werken de plaat bij |
+| Omvang | Een plaat met leeswijzer, 10 minuten |
+
+Het ArchiMate-model achter de plaat opent in Archi; de platen in dit deel dragen de inhoud.
+
+## Deel 5, producten
 
 **Wat komt eruit, en hoe ontstaat dat?**
 
@@ -147,24 +229,6 @@ Welke leerroutes eerst aan bod komen, staat in de [basisuitgangspunten](context.
 Het vertrekpunt was eenvoudig. OKE leverde een afsprakenset voor examinering, op een procesgebied dat in MORA en ROSA vastligt, en die vorm leek na te maken voor de rest van de onderwijslogistiek. Dat blijkt niet te kunnen zolang de afbakening ontbreekt: bij OKE liggen de stromen vast, dus volgen de functiegebieden daaruit, terwijl bij OKx de stromen pas volgen uit de uitwerking per leerroute. Daarom staat de vraag wat OKx maakt nog steeds bovenaan, en is wat er ligt een eerste vorm in plaats van de eindvorm. De vergelijking staat voluit in [het onderzoek naar de OKE-vorm](../architecture/agent-artifacts/research/20261027_1248_oke-vorm-tegenover-okx-scope.md).
 
 OKx levert een set specificaties van de koppelingen tussen de componenten in de onderwijsketen. Die set dient als functioneel ontwerp voor een implementatie, bij voorkeur als [OEAPI-profiel](https://oeapi.eu/v6.0/#/technical/consumers-and-profiles/profiling-guidelines). Valt een eis buiten de profielvorm, dan komt een andere generieke standaard in beeld. Het uitgangspunt is OEAPI tenzij.
-
-![Van procesgebied naar modeldoorloopstap: MORA deelt het werk in procesgebied, procesketen en processtap, waarna het leerroute-procesbeeld en de modeldoorloopstap van OKx volgen](img/van-procesgebied-naar-modeldoorloopstap-20261103.png)
-
-*Van een procesgebied in MORA tot een doorloopstap in het model, met de lus eronder: elke toets op de instellingsvloer werkt het informatiemodel bij. Uit het deck voor de werkgroep OKx van 3 november 2026.*
-
-Die route volgt de [AMIGO-aanpak](https://www.edustandaard.nl/amigo/aanpak/) van Edustandaard:
-
-| AMIGO-stap | In de route naar het eindproduct |
-|---|---|
-| Scenario-analyse | Userstories, op de leerroute en het kaderscenario |
-| Gegevensanalyse | Bouwblokken, begrippen en het informatiemodel |
-| Interactieanalyse | Informatiestromen tussen applicatiecomponenten |
-| Technologiekeuze | OEAPI tenzij; de keuze ligt bij OKx, in afstemming met de sector via de kerngroep techniek en de adviesgroep |
-| Berichtspecificatie | Datamodelschema's, payloads en berichtstromen |
-| Interfacespecificatie | Endpoints, operaties, antwoorden en voorbeelden |
-| Afsprakenset | De koppelvlakspecificatie als geheel, met authenticatie en het inrichten van toegang erbij |
-
-Drie lagen dragen de uitwerking. Een **informatiestroom** is de beweging van gegevens tussen twee componenten. Een **koppeling** is de gestandaardiseerde realisatie daarvan. Een **koppelvlak** is de verzameling koppelingen van precies een component.
 
 ### De producten
 
@@ -255,9 +319,9 @@ Per laag een dragende partij:
 | OEAPI-profiel en consumers | OKx met de leveranciers | Kerngroep techniek en de werkgroep van de standaard |
 | Adoptie | BOPSI, met de instelling | Governance orgaan |
 
-### Status van de route
+### Status van de producten
 
-De opdeling hierboven is een concept, en de route eromheen wordt aangescherpt. Wat er ligt, wat nu bepaald wordt en waar het naartoe gaat staat in [de status van het werk](context.md#status-van-het-werk). De laag die het langst openstaat is die van de instelling: wat een instelling doet, in welke volgorde, en welke informatie daarbij beweegt. Zolang dat beeld ontbreekt laat de set koppelingen zich niet afbakenen, en laat de vorm waarin zij uitkomt zich niet kiezen. Het vastzetten van de specificatie- en releasestructuur staat daarom stil tot dat beeld er is ([#424](https://github.com/Npuls-OKx/meta/issues/424)).
+De opdeling hierboven is een concept, en de producten eromheen worden aangescherpt. Wat er ligt, wat nu bepaald wordt en waar het naartoe gaat staat in [de status van het werk](context.md#status-van-het-werk). De laag die het langst openstaat is die van de instelling: wat een instelling doet, in welke volgorde, en welke informatie daarbij beweegt. Zolang dat beeld ontbreekt laat de set koppelingen zich niet afbakenen, en laat de vorm waarin zij uitkomt zich niet kiezen. Het vastzetten van de specificatie- en releasestructuur staat daarom stil tot dat beeld er is ([#424](https://github.com/Npuls-OKx/meta/issues/424)).
 
 ### Verdieping: de koppelvlakspecificatie
 
@@ -266,6 +330,7 @@ De opdeling hierboven is een concept, en de route eromheen wordt aangescherpt. W
 | | |
 |---|---|
 | Beantwoordt | Wat een afgeronde beschrijving bevat, en hoe koppeling en koppelvlak zich verhouden |
+| Wat het is | De eerste poging om een koppelvlakspecificatie als document op te stellen, uit augustus 2026. Het staat hier als herkomst: de vorm die OKx nu bouwt is de interactieketen hieronder |
 | Overslaan | De uitgangspunten buiten de eigen vraag; de README wijst de leesvolgorde |
 | Status | Gereleased als 0.0.1 in augustus 2026, zonder review en uit gebruik; concept voor de herziening naar interactieketens: [meta PR 373](https://github.com/Npuls-OKx/meta/pull/373) onderwijsaanbod en [387](https://github.com/Npuls-OKx/meta/pull/387) student-instroom, zie de interactieketens hieronder. [Public PR 100](https://github.com/Npuls-OKx/Public/pull/100) legt een laag applicatiediensten tussen component en endpoint |
 | Omvang | 1998 woorden, 17 minuten |
@@ -283,10 +348,6 @@ Wie verder wil, opent een applicatiecomponent met zijn interactiepatroon en een 
 | Status | Voorstel, nog op een branch. Dit is de herziening van de koppelvlakspecificaties: de keten begint bij de waarde en trekt die door naar de koppelingen. [Public PR 100](https://github.com/Npuls-OKx/Public/pull/100) legt de dienstlaag eronder. De twee vormen komen nog samen |
 | Omvang | 1975 woorden voor de keten onderwijsaanbod, 17 minuten |
 
-![Van beeld naar bericht: dezelfde stap als interactie, voorbeeldbericht en endpoint](img/van-beeld-naar-bericht-20261027.png)
-
-*Wat een specificatie uiteindelijk oplevert: de interactie, het bericht en het endpoint. Het bericht ligt vast, de techniek is een keuze.*
-
 ### Verdieping: de OKE-vorm tegenover de scope van OKx
 
 [De OKE-vorm tegenover de scope van OKx](../architecture/agent-artifacts/research/20261027_1248_oke-vorm-tegenover-okx-scope.md)
@@ -297,50 +358,6 @@ Wie verder wil, opent een applicatiecomponent met zijn interactiepatroon en een 
 | Overslaan | De bronnenlijst en de vergelijkingstabel per eigenschap, tenzij je de afweging zelf wilt nalopen |
 | Status | Verkenning, ter bespreking. Het verslag adviseert en besluit niet |
 | Omvang | 2200 woorden, 18 minuten |
-
-## Deel 5, de gedeelde taal
-
-**Waarop staan die specificaties?**
-
-Een specificatie die elke partij anders leest, levert koppelingen op die niet op elkaar passen. Onder de set ligt daarom een gedeelde taal: het informatiemodel met de begrippenlijst zegt welke objecttypen de keten kent, en de hoofdplaat informatiestromen zegt welke componenten gegevens met elkaar uitwisselen. Elke specificatie verwijst daarnaar en voert geen eigen termen in.
-
-### De taal opbouwen
-
-Het werk loopt nu via de reis van een instelling, per leerroute, in drie lagen.
-
-| Laag | Wat het vastlegt | Voor leerroute 1 |
-|---|---|---|
-| Persona | De lerende, en wat zijn situatie van de instelling vraagt | [`persona_jochem.md`](../architecture/docs/specificatie/leerroute-uitwerking/doc/persona_jochem.md) |
-| Leerroutedocument | Wat de instelling doet per fase, met de componenten en objecttypen die daarbij oplichten | [kaderscenario leerroute 1](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md) |
-| OKx modeldoorloop | Per doorloopstap welke objecten ontstaan, veranderen en stromen, met de bron erbij | [`modeldoorloop-leerroute-1-jochem.md`](../architecture/model/informatiemodel/modeldoorloop-leerroute-1-jochem.md) |
-
-Leerroute 1 draagt die drie lagen. Leerroute 2 en 3 staan in de milestone [Instellingsreizen per leerroute](https://github.com/Npuls-OKx/meta/milestone/24). De maat: een instelling herkent zich voor ongeveer tachtig procent in zo'n beschrijving, en de rest is lokale variant die als variant wordt vastgelegd.
-
-Daarnaast loopt een tweede lijn: de capabilities van de voorziening, oftewel wat een functiegebied moet kunnen, los van het product waarin dat landt. De OKx modeldoorloop verbindt die twee lijnen, want daar staat per doorloopstap welke objecten bewegen. Het onderzoek naar die verhouding staat in [#422](https://github.com/Npuls-OKx/meta/issues/422).
-
-### Verdieping: het informatiemodel
-
-[`informatiemodel.md`](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/informatiemodel.md) met [`begrippen.md`](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/begrippen.md) als naslag
-
-| | |
-|---|---|
-| Beantwoordt | Welke objecttypen de keten kent, hoe die samenhangen, en welke begrippenfamilies haar indelen |
-| Overslaan | De ontwerpkeuzes met de status voorstel |
-| Status | Voorstel, gepubliceerd op `dev` in Public met de modelronde van oktober erin ([Public PR 131](https://github.com/Npuls-OKx/Public/pull/131)). Lopend: [meta PR 391](https://github.com/Npuls-OKx/meta/pull/391) raakt het kwalificatiekader, [410](https://github.com/Npuls-OKx/meta/pull/410) de resultaatkant |
-| Omvang | 2741 woorden, 23 minuten |
-
-### Verdieping: de hoofdplaat informatiestromen
-
-De hoogste versiemap onder [`architecture/model/informatiestromen hoofdplaat OKx/`](../architecture/model/)
-
-| | |
-|---|---|
-| Beantwoordt | Welke stromen tussen welke componenten lopen, en welke nog een beschrijving vragen |
-| Overslaan | De eerdere versiemappen, die de historie dragen |
-| Status | Concept. Elke stroom is een kandidaat voor een koppelingspecificatie. [meta PR 412](https://github.com/Npuls-OKx/meta/pull/412) en [Public PR 133](https://github.com/Npuls-OKx/Public/pull/133) werken de plaat bij |
-| Omvang | Een plaat met leeswijzer, 10 minuten |
-
-Het ArchiMate-model achter de plaat opent in Archi; de platen in dit deel dragen de inhoud.
 
 ## Deel 6, architectuurbesluiten
 
@@ -390,16 +407,25 @@ Wie iets wil toevoegen of corrigeren, opent een issue of een pull request; de we
 | Status | Concept, gepubliceerd op `dev` in Public en in gebruik door het team: elk pakket draagt een eigen versielijn met een manifest. De vorm van een uitgave ligt zelf nog open, en dat is waarom er sinds augustus 2026 geen nieuwe is. [Public PR 82](https://github.com/Npuls-OKx/Public/pull/82) brengt de volgende momentopname |
 | Omvang | 1109 woorden en twee milestonelijsten, 9 minuten |
 
-## Deel 8, wat nu
-
-Drie uur lezen levert weinig op als er daarna niets te doen valt. Dit is wat er openstaat en waar een lezer binnenkomt.
+## Deel 8, vervolg
 
 | Wat | Waar |
 |---|---|
 | Een vraag stellen of meedenken | [Discussions](https://github.com/Npuls-OKx/meta/discussions), of een issue met het label `question` |
-| Een fout melden in wat hier staat | Een issue via de sjabloon correctie-documentatie |
+| Een fout melden | Een issue via de sjabloon correctie-documentatie |
 | Meelezen op wat nu loopt | De open pull requests, elk met een review-instructie bovenaan |
 | Zien waar het werk aan toe is | De [milestones](https://github.com/Npuls-OKx/meta/milestones), elk met de vraag die zij beantwoordt |
-| Bijdragen | [`CONTRIBUTING.md`](../CONTRIBUTING.md) voor de werkwijze, [Bijdragen voor beginners](bijdragen-voor-beginners.md) voor de eerste stappen |
+| Zelf bijdragen | [`CONTRIBUTING.md`](../CONTRIBUTING.md) voor de werkwijze, [Bijdragen voor beginners](bijdragen-voor-beginners.md) voor de eerste stappen |
 
-De vragen waar OKx zelf het meeste aan heeft staan in de platen hierboven met een vraagteken erbij. Wie daar een antwoord op heeft, of een reden waarom de vraag verkeerd staat, is precies wie we zoeken.
+### Vragen waar OKx een antwoord op zoekt
+
+Deze zijn met de producten uit deel 5 in de hand te beantwoorden, en zonder die producten niet.
+
+1. Waar landt de leeractiviteit van MORA in het informatiemodel van OKx, en draagt zij daar dezelfde betekenis?
+2. Welke functionaliteit hoort bij welk applicatiecomponent, en wat doet die knip met een koppelvlakspecificatie?
+3. Wat moet een instelling kunnen om leerroute 1 te realiseren, uitgedrukt in stappen die zij herkent?
+4. Welke doorloopstap uit de modeldoorloop ontbreekt in uw eigen proces, of staat er anders in?
+5. Welke vorm moet een release krijgen, en wie beoordeelt hem voordat hij uitgaat?
+6. Waar meldt u een wijziging op wat hier staat, en hoe weet u wat ermee gebeurt?
+
+De eerste vijf liggen bij OKx en bij de sector samen. De zesde ligt bij OKx alleen: de werkwijze staat in [`CONTRIBUTING.md`](../CONTRIBUTING.md), de besluitvorming in deel 6, en het beheer in deel 7.
