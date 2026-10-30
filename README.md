@@ -6,20 +6,20 @@ Deze repository is de **publieke knowledge base** van **OKx**: hier verzamelen e
 
 Als je hier voor het eerst binnenkomt: we leggen **keteninzicht** en **koppelvlakrichting** vast — samen met de sector, in het open — zodat we geen losse eilandoplossingen per systeem bouwen, maar een **gedeeld minimum** aan afspraken. Concreet werkt het kernteam en de community nu o.a. aan:
 
-- **Informatiestromen (hoofdplaat)**: een overzicht van welke **stromen** tussen referentiecomponenten nog (conceptueel én technisch) beschreven moeten worden. De actuele plaat, uitleg en tabel staan in [`doc/OKx_Projectoverzicht.md`](doc/OKx_Projectoverzicht.md) bij *Hoofdplaat OKx informatiestromen*.
-- **Van concept naar techniek**: wat die stromen in de keten **betekenen**, als **invoer** voor latere deliverables zoals **berichtspecificaties**, **klassendiagrammen** en **API-/OEAPI-beschrijvingen** (vergelijkbaar met bestaande sectorpakketten): [`doc/OKx_Informatiesstromen.md`](doc/OKx_Informatiesstromen.md).
-- **MOKA & ArchiMate-model**: in [`architecture/model/model.archimate`](architecture/model/model.archimate) staan o.a. de MOKA-koppelvlak-view **`01. Onderwijsvisie vertalen naar onderwijsaanbod - Basis Model`** en het bijbehorende **informatiemodel**-diagram. Praktische uitleg waar je die vindt: [`doc/OKx_Informatiestromen-ArchiMate-en-MOKA-view.md`](doc/OKx_Informatiestromen-ArchiMate-en-MOKA-view.md).
+- **Informatiestromen (hoofdplaat)**: een overzicht van welke **stromen** tussen referentiecomponenten nog (conceptueel én technisch) beschreven moeten worden. De actuele plaat, uitleg en tabel staan in [`project/projectoverzicht.md`](project/projectoverzicht.md) bij *Hoofdplaat OKx informatiestromen*.
+- **Van concept naar techniek**: wat die stromen in de keten **betekenen**, als **invoer** voor latere deliverables zoals **berichtspecificaties**, **klassendiagrammen** en **API-/OEAPI-beschrijvingen** (vergelijkbaar met bestaande sectorpakketten): [`project/informatiestromen.md`](project/informatiestromen.md).
+- **MOKA & ArchiMate-model**: in [`architecture/model/model.archimate`](architecture/model/model.archimate) staan o.a. de MOKA-koppelvlak-view **`01. Onderwijsvisie vertalen naar onderwijsaanbod - Basis Model`** en het bijbehorende **informatiemodel**-diagram. Praktische uitleg waar je die vindt: [`project/informatiestromen-archimate-en-moka-view.md`](project/informatiestromen-archimate-en-moka-view.md).
 - **Besluiten vastleggen**: belangrijke architectuurkeuzes staan in **ADR’s**: [[ADR-index in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/README.md)](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/README.md).
 
 Niet alles is al uitgewerkt — dat hoort erbij. Deze repo is **geen directe wijziging van MORA**; goed gedragen uitwerkingen kunnen later als **onderbouwd voorstel** richting sectorprocessen dienen.
 
-Wil je meer houvast als nieuwe bijdrager? Lees de sectie *Waar draait deze repository om?* in [`doc/Bijdragen-voor-beginners.md`](doc/Bijdragen-voor-beginners.md) — vriendelijk uitgelegd, met dezelfde lijn.
+Wil je meer houvast als nieuwe bijdrager? Lees de sectie *Waar draait deze repository om?* in [`project/bijdragen-voor-beginners.md`](project/bijdragen-voor-beginners.md) — vriendelijk uitgelegd, met dezelfde lijn.
 
 ## Wat is OKx?
 
 **OKx** werkt aan **uniforme, gestandaardiseerde koppelvlakken** zodat systemen in de onderwijsketen beter met elkaar kunnen samenwerken. Het **BOPSI-implementatiepad** is het uitgangspunt; de scope start bij **MBO** en wordt later uitgebreid naar **HO**. We zijn onderdeel van het [groeifondsprogramma Npuls, onder de Leren Zonder Drempels pilaar](https://npuls.nl/project-onderwijskoppelingen).
 
-Meer context en de huidige stand van zaken: [`doc/OKx_Projectoverzicht.md`](doc/OKx_Projectoverzicht.md).
+Meer context en de huidige stand van zaken: [`project/projectoverzicht.md`](project/projectoverzicht.md).
 
 ## Wat proberen we te doen?
 
@@ -37,19 +37,18 @@ Meer context en de huidige stand van zaken: [`doc/OKx_Projectoverzicht.md`](doc/
 - **Wiki**: achtergrond, uitleg en langere how-to’s: `https://github.com/Npuls-OKx/meta/wiki`
 - **Discussions**: vragen, ideeën en open gesprekken: `https://github.com/Npuls-OKx/meta/discussions`
 
-Voor concrete wijzigingen werken we via **issues** en **pull requests**. Zie [`CONTRIBUTING.md`](CONTRIBUTING.md) en de beginnershandleiding [`doc/Bijdragen-voor-beginners.md`](doc/Bijdragen-voor-beginners.md).
+Voor concrete wijzigingen werken we via **issues** en **pull requests**. Zie [`CONTRIBUTING.md`](CONTRIBUTING.md) en de beginnershandleiding [`project/bijdragen-voor-beginners.md`](project/bijdragen-voor-beginners.md).
 
 ## Wat staat er in deze repository?
 
 | Onderdeel | Locatie | Inhoud |
 |-----------|---------|--------|
-| **Projectcontext** | [`doc/`](doc/) en [`img/`](img/) | Overzichten, ketenplaten, bijlagen en contextdocumenten |
-| **Release & versionering** | [`doc/OKx_Release-management-en-versionering.md`](doc/OKx_Release-management-en-versionering.md) | Voorstel voor versienummers en de verhouding tussen meta- en spec-releases |
-| **OKE uitwerking** | [`OKE/`](OKE/) | Eerste subdomein-uitwerking (o.a. examen: uitvoering en beoordeling) |
-| **MOKA templates** | [`moka-koppelvlakspecificaties/`](moka-koppelvlakspecificaties/) | Templates en generieke instructies voor koppelvlakspecificaties |
+| **Projectcontext** | [`project/`](project/) | Overzichten, ketenplaten, bijlagen en contextdocumenten |
+| **Release & versionering** | [`project/release-management-en-versionering.md`](project/release-management-en-versionering.md) | Voorstel voor versienummers en de verhouding tussen meta- en spec-releases |
+| **Archief** | [`archief/MOKA/`](archief/MOKA/) | Het MOKA-sjabloon, de guidelines en de uitwerking Examen uitvoering en beoordeling |
 | **Architectuur & besluiten** | [`architecture/`](architecture/) | ArchiMate-model, ADR’s en meeting-notulen; de [architectuurprincipes staan in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/principes/principes.md) |
 | **Agent-artifacten** | [`architecture/agent-artifacts/`](architecture/agent-artifacts/) | Projectaanvragen, featureplannen en ontwerpdocumenten (Cursor slash commands); zie [`architecture/agent-artifacts/README.md`](architecture/agent-artifacts/README.md) |
-| **Agent-omgeving (AI)** | [`AGENTS.md`](AGENTS.md), [`.agents/`](.agents/) en [`.cursor/`](.cursor/) | Basisdocument voor AI-agents, skills met manifest (`npx skills`), commands, rules en hooks (o.a. blokkade van pakket-installaties op de host); uitleg in [`doc/Bijdragen-voor-beginners.md`](doc/Bijdragen-voor-beginners.md) |
+| **Agent-omgeving (AI)** | [`AGENTS.md`](AGENTS.md), [`.agents/`](.agents/) en [`.cursor/`](.cursor/) | Basisdocument voor AI-agents, skills met manifest (`npx skills`), commands, rules en hooks (o.a. blokkade van pakket-installaties op de host); uitleg in [`project/bijdragen-voor-beginners.md`](project/bijdragen-voor-beginners.md) |
 | **Dev container** | [`.devcontainer/`](.devcontainer/) | Geisoleerde, reproduceerbare dev-omgeving (Docker); "Reopen in Container" — zie [`.devcontainer/README.md`](.devcontainer/README.md) |
 
 ## Relatie met OEAPI
@@ -60,7 +59,7 @@ Waar passend sluiten uitwerkingen aan op **OEAPI**. Zie [OEAPI v6.0](https://ope
 
 OKx-sessies die deze knowledge base voeden kunnen **opgenomen en met AI getranscribeerd** worden; de facilitator **kondigt dat vooraf** aan. Bij bezwaar: **anonimisering in het transcript** of **deelneming beëindigen**. Tools worden gekozen met **AVG/privacy** in het oog; zie o.a. [Jamie — data handling](https://docs.meetjamie.ai/pages/faqs_troubleshooting/data). **Deel geen niet-publieke informatie** — deze repo is bedoeld als **publiek** gedachtegoed.
 
-Volledige toelichting: [`doc/Privacy-meetings-en-transcriptie.md`](doc/Privacy-meetings-en-transcriptie.md).
+Volledige toelichting: [`project/privacy-meetings-en-transcriptie.md`](project/privacy-meetings-en-transcriptie.md).
 
 ## Status
 

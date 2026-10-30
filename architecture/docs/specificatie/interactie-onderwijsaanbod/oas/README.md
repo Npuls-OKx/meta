@@ -18,7 +18,7 @@ VS Code rendert een OpenAPI-document niet uit zichzelf, en GitHub ook niet. Er z
 **In de browser**, zonder extensie:
 
 ```bash
-python3 scripts/bekijk-oas.py
+python3 tools/scripts/bekijk-oas.py
 ```
 
 Dat dient deze map op `http://localhost:8088` met een pagina die Redoc op het document richt. Er wordt niets naar schijf geschreven. Draait er al iets op die poort, geef dan `--poort 8089`. De server bindt op `0.0.0.0` en niet op de loopback alleen: een dev container stuurt de poort over IPv4 door, en een server die alleen op `[::1]` staat is daar niet te bereiken.
@@ -28,7 +28,7 @@ Dat dient deze map op `http://localhost:8088` met een pagina die Redoc op het do
 ## Genereren
 
 ```bash
-python3 scripts/genereer-oas.py
+python3 tools/scripts/genereer-oas.py
 ```
 
 De generator leest `../operaties.json`, bundelt de schema's uit `../schemas/` en uit Npuls-OKx/Public, keurt het resultaat als OpenAPI 3.1 en schrijft beide vormen. Met `--alles` schrijft hij ook de componenten die nog niet volledig in de bron staan, voor wie de vorm wil zien.

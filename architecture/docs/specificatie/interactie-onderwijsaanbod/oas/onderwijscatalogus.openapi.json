@@ -5,7 +5,7 @@
     "title": "Onderwijscatalogus, koppelvlak onderwijsaanbod",
     "version": "0.0.1",
     "summary": "Het koppelvlak van de onderwijscatalogus: de operaties die dit component serveert en de meldingen die het verstuurt, uit de interactiespecificatie ontwerpen en ontsluiten van onderwijsaanbod.",
-    "description": "Dit document is afgeleid en wordt niet onderhouden: het komt uit operaties.json van de interactiespecificatie, met scripts/genereer-oas.py. Een wijziging hoort in de specificatie, waarna dit document opnieuw wordt gegenereerd.\n\nElke stroom waarin de onderwijscatalogus voorkomt staat in dit bestand: IS-OA-01 met de curriculum ontwerptool, IS-OA-03 en IS-OA-04 met het planningssysteem, IS-OA-05 met de kernregistratie. IS-OA-04 draagt alleen operaties op het planningssysteem plus een melding die de catalogus ontvangt.\n\nWat deze specificatie als voorstel draagt, draagt dat ook hier: elke operatie, parameter en respons noemt haar stand in haar beschrijving en in x-okx-stand, met de kwalificatie erbij waar de stand een onderdeel van de operatie betreft."
+    "description": "Dit document is afgeleid en wordt niet onderhouden: het komt uit operaties.json van de interactiespecificatie, met tools/scripts/genereer-oas.py. Een wijziging hoort in de specificatie, waarna dit document opnieuw wordt gegenereerd.\n\nElke stroom waarin de onderwijscatalogus voorkomt staat in dit bestand: IS-OA-01 met de curriculum ontwerptool, IS-OA-03 en IS-OA-04 met het planningssysteem, IS-OA-05 met de kernregistratie. IS-OA-04 draagt alleen operaties op het planningssysteem plus een melding die de catalogus ontvangt.\n\nWat deze specificatie als voorstel draagt, draagt dat ook hier: elke operatie, parameter en respons noemt haar stand in haar beschrijving en in x-okx-stand, met de kwalificatie erbij waar de stand een onderdeel van de operatie betreft."
   },
   "servers": [
     {
@@ -3826,7 +3826,7 @@
   },
   "x-okx-bron": {
     "bestand": "operaties.json",
-    "script": "scripts/genereer-oas.py",
+    "script": "tools/scripts/genereer-oas.py",
     "wie_is_de_bron": "Dit bestand is de bron voor de gegenereerde OpenAPI-documenten in oas/. De operatietabellen in de verdiepingsbestanden blijven de bron voor de lezer; de inhoud hier is daaruit met de hand overgenomen, met de herkomst per operatie in het veld herkomst.",
     "wat_nog_openstaat": "Zolang beide bestanden met de hand gelijk blijven, dragen twee bestanden dezelfde waarheid. De vervolgstap laat de operatietabel uit dit bestand komen, zoals het OpenAPI-document er nu uit komt. Relateert aan: #374",
     "dekking": "De stromen IS-OA-01, IS-OA-03 en IS-OA-05 staan er volledig in: samen vormen zij het koppelvlak van de onderwijscatalogus. IS-OA-02, IS-OA-04 en IS-OA-06 staan er nog niet in, en daarmee zijn de drie andere componenten onvolledig.",
