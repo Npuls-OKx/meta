@@ -27,7 +27,7 @@ import pathlib
 import sys
 
 BRON = pathlib.Path("project/sectorketen-producten.json")
-UIT = pathlib.Path("project/img/sectorketen-v20261030.svg")
+UIT = pathlib.Path("project/img/sectorketen-v0.2.0.svg")
 
 # Het standaardpalet van Archi, per ArchiMate-laag.
 LAAGKLEUR = {
@@ -535,6 +535,10 @@ def teken(data, breedte):
     uit.append(text(breedte - RAND, 66,
                     f"{len(lagen)} lagen, {aantal} producten getoond", 12,
                     fill=MUTED, anchor="end"))
+    # De versie van de plaat zelf, volgens SemVer. Zij gaat omhoog zodra de plaat verandert.
+    if data.get("versie"):
+        uit.append(text(breedte - RAND, 42, f"v{data['versie']}", 14, True, fill=MUTED,
+                        anchor="end"))
 
     for i, (laag, by, bh, gelegd) in enumerate(blokken):
         vul = BAND if i % 2 == 0 else BAND_ALT

@@ -6,9 +6,9 @@ Relateert aan: #262, #186.
 
 ## De plaat
 
-![De sectorketen en haar producten](img/sectorketen-v20261030.png)
+![De sectorketen en haar producten](img/sectorketen-v0.2.0.png)
 
-De plaat in vectorvorm staat in [`img/sectorketen-v20261030.svg`](img/sectorketen-v20261030.svg).
+De plaat in vectorvorm staat in [`img/sectorketen-v0.2.0.svg`](img/sectorketen-v0.2.0.svg).
 
 ## Viewpointbeschrijving
 
@@ -116,9 +116,9 @@ De OKx-invulling per product:
 De bron is [`project/sectorketen-producten.json`](sectorketen-producten.json). Een actualisatie is een wijziging in dat bestand, waarna de plaat opnieuw wordt getekend en de keuring draait.
 
 ```bash
-python3 tools/scripts/teken-sectorketen.py --uit img/sectorketen-v20261030.svg
-python3 tools/scripts/keur-plaat.py img/sectorketen-v20261030.svg --max-kruisingen 0
-npx svgexport img/sectorketen-v20261030.svg img/sectorketen-v20261030.png 1680:
+python3 tools/scripts/teken-sectorketen.py --uit img/sectorketen-v0.2.0.svg
+python3 tools/scripts/keur-plaat.py img/sectorketen-v0.2.0.svg --max-kruisingen 0
+npx svgexport img/sectorketen-v0.2.0.svg img/sectorketen-v0.2.0.png 1680:
 ```
 
 De keuring meldt schuine segmenten, tekst buiten het doek, tekst onder de leesbaarheidsgrens en kruisende lijnen. `--max-kruisingen` legt de drempel vast, zodat een latere wijziging het beeld niet drukker maakt.

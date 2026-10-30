@@ -1,5 +1,6 @@
 {
   "toelichting": "De keten van kaderstelling tot implementatie, met per laag de partijen en de producten die zij maken. Deze bron beschrijft wat er is; het oordeel over wat voor een bepaald doel ontbreekt laat zij aan de lezer. Daardoor kan dezelfde bron een gatanalyse, een voortgangsanalyse en een aansluitvraag dragen. Relateert aan: #262.",
+  "versie": "0.2.0",
   "peildatum": "2026-10-05",
   "waarden": {
     "aard": {

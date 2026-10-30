@@ -286,7 +286,7 @@
       "naam": "sectorketen",
       "titel": "De sectorketen en haar producten",
       "bron": "Npuls-OKx/meta",
-      "pad": "img/sectorketen-v20261030.png",
+      "pad": "img/sectorketen-v0.2.0.png",
       "versie": "v20261005",
       "toont": "Zeven lagen van overheidsbreed kader tot koppelingimplementatie, met per laag de partijen en hun producten. De vulkleur is de ArchiMate-laag, de rand de aard (voorschrift of herbruikbaar product), en onderin het MIM-niveau met het AMIGO-inhoudsgebied. Rechts de gereedschapsband met IT-fundamenten en sectorprofielen.",
       "gebruik_bij": "De vraag wie wat maakt in de keten, en op welk niveau een product bruikbaar is. Architectuursync, programma- en projectleiding, kerngroep techniek.",
