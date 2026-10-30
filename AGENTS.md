@@ -4,7 +4,7 @@ Basisdocument voor AI-agents (Cursor, Claude Code, Codex en vergelijkbaar) die i
 
 ## Wat is deze repository
 
-OKx-meta is de **publieke kennisbank** van OKx (Npuls, pijler Leren Zonder Drempels): gedeelde kennis, afspraken en conceptuitwerkingen rond **gestandaardiseerde koppelvlakken voor onderwijslogistiek**. Dit is een documentatierepository, geen codebase. Scope start bij mbo (leerroutes 1-3 eerst), hoger onderwijs volgt. Volledige introductie: [README.md](README.md) en [doc/OKx_Projectoverzicht.md](doc/OKx_Projectoverzicht.md).
+OKx-meta is de **publieke kennisbank** van OKx (Npuls, pijler Leren Zonder Drempels): gedeelde kennis, afspraken en conceptuitwerkingen rond **gestandaardiseerde koppelvlakken voor onderwijslogistiek**. Dit is een documentatierepository, geen codebase. Scope start bij mbo (leerroutes 1-3 eerst), hoger onderwijs volgt. Volledige introductie: [README.md](README.md) en [project/projectoverzicht.md](project/projectoverzicht.md).
 
 ## Principes en werkafspraken
 
@@ -29,26 +29,85 @@ De werkafspraken zijn levend; wijzigen via PR.
 
 ## Harde regels
 
-1. **Raak nooit een `*.archimate`-bestand aan.** Nooit tekstueel mergen; zie [architecture/model/README.md](architecture/model/README.md) en ADR 0010. Vóór elke model-commit: `python3 scripts/validate-archimate.py`.
+1. **Raak nooit een `*.archimate`-bestand aan.** Nooit tekstueel mergen; zie [architecture/model/README.md](architecture/model/README.md) en ADR 0010. Vóór elke model-commit: `python3 tools/scripts/validate-archimate.py`.
 2. **Installaties alleen in de dev-container**, nooit op de host ([.cursor/rules/dev-omgeving.mdc](.cursor/rules/dev-omgeving.mdc); een controlescript (hook) bewaakt dit).
 3. **1 issue = 1 branch = 1 PR**, feature-branches vanaf `dev`, alleen het OKx-team merget ([CONTRIBUTING.md](CONTRIBUTING.md)).
-4. **Deliverables volgen de product-flow** (requirements, uitwerking, onafhankelijke review; zie hieronder).
-5. Markdown-deliverables halen de voorcontrole: `python3 scripts/validate-docs.py <pad>`.
+4. **Een agent merget nooit zelfstandig, en op `Npuls-OKx/Public` merget een agent nooit.** Zie [Mergen](#mergen).
+5. **Deliverables volgen de product-flow**: story met gebruiker en waarde, acceptatiecriteria in het issue, plan met tegenlezing, uitwerking met onafhankelijke review, waardevalidatie. Twee stopmomenten, beide bij de opdrachtgever: akkoord op de criteria, en groen licht op het plan. Zie [hieronder](#product-flow-samenvatting).
+6. Markdown-deliverables halen de voorcontrole: `python3 tools/scripts/validate-docs.py <pad>`.
+7. **Specificeren bovenop OEAPI gaat via een submodule, nooit via een fork.** De OEAPI-specificatie komt binnen als git-submodule op een vastgezet versielabel; het OKx-werk ligt daar als overlay bovenop. Zie [Specificeren bovenop OEAPI](#specificeren-bovenop-oeapi).
+
+## Mergen
+
+Een merge is het moment waarop werk van een voorstel een feit wordt. Vanaf dat moment bouwt een afnemer ertegen, en een fout erin is niet meer terug te nemen zonder dat iemand anders het al heeft gezien.
+
+| Repository | Wat een agent doet |
+|---|---|
+| `Npuls-OKx/Public` | **Nooit mergen.** Ook niet op verzoek, ook niet met groen licht in een gesprek, ook niet wanneer alle controles slagen. Een agent opent de pull request, zet de review-instructie erin en meldt dat zij klaarstaat |
+| `Npuls-OKx/meta` | Alleen mergen wanneer het OKx-team daar in de pull request zelf om vraagt. Uit zichzelf nooit |
+
+Dit geldt ongeacht de rechten die de agent toevallig heeft. Een beveiligingsregel op een branch die een goedkeuring eist, wordt nooit omzeild met een adminsleutel, een geforceerde push of het tijdelijk versoepelen van de regel. Blokkeert zo'n regel de merge, dan is dat de uitkomst: de agent meldt wat er blokkeert en wie het kan oplossen.
+
+Public draagt het releasepakket. Wat daar op `dev` staat is gepubliceerd en leidend, en dat is precies waarom het laatste oordeel bij een mens ligt.
+
+## Specificeren bovenop OEAPI
+
+OKx bouwt voort op de [Open Education API](https://github.com/open-education-api/specification). Dat gebeurt met een **git-submodule op een vastgezet versielabel**, en niet met een fork. Een fork kan de specificatie aanpassen en gaat daarmee uit de pas lopen met de standaard; dat is precies wat OKx wil voorkomen.
+
+De vorm staat in [oeapi-profile-example](https://github.com/open-education-api/oeapi-profile-example) van OEAPI zelf:
+
+```text
+OEAPI base specification
++ profile overlay
++ consumer overlay
+= gegenereerde OpenAPI-specificatie
+```
+
+De basis komt binnen als submodule, met een label in plaats van een branch:
+
+```text
+[submodule "base/oeapi"]
+	path = base/oeapi
+	url = https://github.com/open-education-api/specification.git
+```
+
+| | |
+|---|---|
+| Vastzetten | De submodule staat op een versielabel, bijvoorbeeld `v6.0-rc.3`, zodat de basis niet onder het werk verschuift |
+| Meebewegen | Overgaan naar een volgende OEAPI-versie betekent de submodule naar dat nieuwe label verzetten, waarna de overlay opnieuw wordt samengevoegd |
+| Samenvoegen | De overlay gaat over de basis heen met `overlay-merger.js`; het resultaat komt in `generated/` en wordt niet met de hand bijgewerkt |
+| Afwijken | Een verschil tussen een OKx-eis en wat OEAPI toestaat blijft een signalering richting de standaard, en wordt geen aanpassing in de basis |
+
+De mappenindeling die OEAPI aanraadt:
+
+```text
+<profiel-repository>/
+├── base/oeapi/source/        de submodule, alleen-lezen
+└── <profiel>/
+    ├── profile.yaml
+    ├── source/
+    │   ├── spec.yaml
+    │   ├── paths/ schemas/
+    │   └── consumers/<consumer>/
+    └── generated/
+```
+
+Dit vervangt de fork `Npuls-OKx/specification`, die op verzoek van de OEAPI-beheerder is opgeheven. Het werk dat daarin stond is bewaard in `architecture/agent-artifacts/eerste-vertaalpoging-naar-oeapi-met-ai/`, met een leeswijzer die de status erbij zegt.
 
 ## Waar vind ik wat
 
 | Wat | Waar |
 |---|---|
-| Projectcontext, hoofdplaat informatiestromen | [doc/](doc/) |
+| Projectcontext, hoofdplaat informatiestromen | [project/](project/) |
 | Requirementsboom (opdracht, epics, features, stories) | [Referentiemateriaal/requirementsboom in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/requirementsboom/README.md) |
 | Architectuurbesluiten (ADR's) | [Referentiemateriaal/adr in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr) |
 | ArchiMate-model (niet aanraken) | [architecture/model/](architecture/model/) |
 | Meetingverslagen | [architecture/meetings/](architecture/meetings/) |
 | Specificaties (leerroute-uitwerking, persona's) | [architecture/docs/specificatie/](architecture/docs/specificatie/) |
 | Agent-artifacten (ontwerpen, plannen) | [architecture/agent-artifacts/](architecture/agent-artifacts/) |
-| OKE-subdomein en MOKA-templates | [OKE/](OKE/), [moka-koppelvlakspecificaties/](moka-koppelvlakspecificaties/) |
+| MOKA-sjabloon en de uitwerking erop, gearchiveerd | [archief/MOKA/](archief/MOKA/) |
 | Presentaties (Slidev, Npuls huisstijl) | [presentaties/](presentaties/) |
-| Validatiescripts | [scripts/](scripts/) |
+| Validatiescripts en testgevallen | [tools/scripts/](tools/scripts/), [tools/tests/](tools/tests/) |
 
 De koppelingspecificaties per koppeling (OC-P&R, OC-SIS, OC-LMS) leven als interactiepatronen met datamodelschema's in [Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Koppelvlakspecificaties); de [keuze-requirements met regelset-payload](architecture/docs/specificatie/student-keuze/keuze-requirements.md) staan onder `architecture/docs/specificatie/student-keuze/`.
 
@@ -56,12 +115,28 @@ De koppelingspecificaties per koppeling (OC-P&R, OC-SIS, OC-LMS) leven als inter
 
 - **Skills** (canoniek [.agents/skills/](.agents/skills/); `.cursor/skills` en `.claude/skills` zijn symbolische links (symlinks)): het overzicht met doel en herkomst staat in het manifest [.agents/skills.json](.agents/skills.json). OKx-specifieke skills en extern gevendorde skills (via `npx skills`) staan gescheiden beschreven; externe skills nooit rechtstreeks bewerken, aanpassingen via een adaptatie-wrapper. Werkwijze: [.agents/README.md](.agents/README.md).
 - **Commands** (canoniek [.cursor/commands/](.cursor/commands/); `.claude/commands` is een symbolische link (symlink), zodat zowel Cursor als Claude Code ze vindt): herbruikbare opdrachten, o.a. `adr-opstellen`, `ontwerp-document`, `meeting-notulen-nl`, `release-notes`, `product-flow` en `presentatie`.
-- **Rules** ([.cursor/rules/](.cursor/rules/)): altijd geldend: `okx-governance`, `dev-omgeving`, `schrijfstijl`, `product-flow`; gebonden aan bestandstype: `docs-style` (`**/*.md`), `architecture-artifacts` (`architecture/**/*.md`).
+- **Rules** ([.cursor/rules/](.cursor/rules/)): altijd geldend: `okx-governance`, `dev-omgeving`, `schrijfstijl`, `product-flow`, `vragen-nummeren`; gebonden aan bestandstype: `docs-style` (`**/*.md`), `architecture-artifacts` (`architecture/**/*.md`).
 - **Hooks** ([.cursor/hooks/](.cursor/hooks/)): installatie-guard richting de dev-container.
 
 ### Product-flow (samenvatting)
 
-Elk deliverable doorloopt de keten uit [.agents/skills/okx-product-flow/SKILL.md](.agents/skills/okx-product-flow/SKILL.md): **requirements** opstellen met de business-analyse-persona, **uitwerken** met de specialist-skill, **onafhankelijke review** door tester en specialist in verse subagent-contexten, **itereren** tot beide reviews slagen, en afsluiten met een kort **agent-rapport** in de PR-beschrijving. Start via het command `product-flow`.
+Elk deliverable doorloopt de keten uit [.agents/skills/okx-product-flow/SKILL.md](.agents/skills/okx-product-flow/SKILL.md). Elke iteratie begint bij waarde voor een benoemde gebruiker en eindigt met de controle of die waarde geleverd is; het doel is een eerste iteratie die waarde levert, niet een volmaakt resultaat.
+
+| Stap | Wat er gebeurt |
+|---|---|
+| 0 | **Story**: als `<gebruiker>` wil ik `<X>` met als doel dat `<waarde>`. Zonder benoemde gebruiker en waarde begint het werk niet |
+| 1 | **Acceptatiecriteria** in gesprek scherp gemaakt en vastgelegd in het issue, met per criterium een testgeval. *Stopmoment: akkoord van de opdrachtgever* |
+| 2 | **Implementatieplan**, autonoom |
+| 3 | **Tegenlezing van het plan** door een onafhankelijke agent in een verse context, die afkeurt op vier gronden en niet op volledigheid of smaak |
+| 4 | *Stopmoment: groen licht van de opdrachtgever* |
+| 5 | **Uitwerken** met de specialist-skill, daarna onafhankelijke review door tester, specialist en schrijfstijl in verse subagent-contexten |
+| 6 | **Waardevalidatie**: levert het geleverde de waarde uit de story. Vervolgpunten worden kleine iteraties |
+
+Een ultracode-sessie of een workflow is uitwerking en geen verkenning: stopmoment 1 geldt daar onverkort, dus eerst sparren over de stories en de criteria. Ook een verkennende workflow legt zijn vraag eerst voor, er start geen tweede workflow op hetzelfde onderwerp voordat de eerste gelezen is, en voor een fan-out staat vast welke branch of structuur normatief is. De lus is begrensd op drie ronden per poort; daarna escaleert de agent met de openstaande bevindingen. Het verloop staat in het issue of in het **agent-rapport** in de PR-beschrijving.
+
+Een titel van een issue of pull request opent met het gebied, dan het onderdeel, dan het object dat verandert met de bewerking erbij: `Informatiemodel voorbeeld, fase 3: onderwijslocatie object met aanbodgedreven onderwijsmodel voorbeeldvariant toegevoegd`. Het gebied is een naam die in de repository terugkomt, geen scriptnaam; het derde deel noemt het object en wat ermee gebeurde, en niet het gevolg. Korter is beter; tachtig tekens is de richting en niet de grens.
+
+Elke PR-beschrijving opent met een samenvatting van hoogstens vijftien zinnen: het sluitwoord `Closes #123` als context, een genummerde lijst van wat er is opgeleverd met per regel een link naar het document of de plaat zelf, en of de product-flow is doorlopen. Heeft de oplevering structuur, dan hoort daar een visuele uitsplitsing bij (mermaid of ascii), volgens werkafspraak 3. Daaronder een genummerde **review-instructie** die zegt wat van dat werk een mens moet beoordelen, in welke volgorde, en welk bronmateriaal hij kan overslaan. Daaronder de acceptatiecriteria met hun testuitkomst, de openstaande vragen en gevonden fouten, en de issues die daaruit zijn aangemaakt. Een agent mag zelf een issue aanmaken voor wat hij vindt, uitsluitend in `Npuls-OKx/meta` en altijd met het label `gevondenDoorAI`. Een opmerking uit een reviewronde wordt daarentegen altijd twee issues: de interactie in het repository waar de reviewer meeleest, met de opmerking letterlijk erin en de inbrenger getagd, en de werkbrief in meta. Dat interactie-issue draagt vijf koppen (waarom dit issue, de opmerking, observaties, wat ik ermee doe, vervolg), is geschreven in de ik-vorm, en krijgt alleen een story wanneer de inbrenger een concrete wijziging vraagt met een rol die bestaat. Een leverancier spreekt voor zijn product en niet voor de sector: houd uit elkaar wat een product vandaag doet, wat een component moet kunnen, en wat OKx als grootst gemene deler vastlegt. Een applicatie is daarbij geen applicatiecomponent, en een implementatiefeit geen ontwerpargument. Daarna kan de pull request sluiten. Zo'n issue kent drie uitgangen: de inbrenger sluit hem omdat het antwoord volstaat, hij gaat met het label `agenda kerngroep techniek` naar een sessie, of OKx sluit hem met de reden erbij. Het antwoord komt altijd onder het issue te staan, ook als het al in de pull request stond, en het issue gaat op naam van de inbrenger. Een label per sessie komt er niet: dat label is stabiel en de datum staat in de comment. De vorm staat in [.agents/skills/okx-product-flow/SKILL.md](.agents/skills/okx-product-flow/SKILL.md). Een werkwijze-issue draagt wel een story en krijgt geen plek in de requirementsboom. Start via het command `product-flow`.
 
 ## Skills toevoegen of bijwerken
 

@@ -55,7 +55,7 @@ OKx levert een samenhangende keten van **projectdeliverables** — van kaderstel
 
 **Leeswijzer.** De [deliverable-keten en versionering](../../../../../../doc/
 OKx_Release-management-en-versionering.md#1-doel-en-scope) staan in het release-document; 
-[ketenplaat, BOPSI en projectfase](../../../../../doc/OKx_Projectoverzicht.md) in het 
+[ketenplaat, BOPSI en projectfase](../../../../../project/projectoverzicht.md) in het 
 projectoverzicht.
 
 Het diagram leest **van boven naar beneden**: **meta** (kaderstelling) bovenaan, **spec**, adoptie 
@@ -130,9 +130,9 @@ volgende pass opgeschoond.*
 | Repository | Scope | Rol |
 |------------|-------|-----|
 | [**meta**](https://github.com/Npuls-OKx/meta) | **Kaderstelling** t/m **specificatiedocument** (businesslaag) | *Wat* de standaard betekent en *hoe* uitwisseling conceptueel is afgesproken |
-| [**spec**](https://github.com/Npuls-OKx/specification) | **OEAPI OpenAPI** | Technische implementatie van het profiel |
+| **OEAPI-profiel** | **OEAPI OpenAPI** | Overlay op een vastgezette OEAPI-versie, als submodule |
 
-Versiebeheer en releases: [OKx Release management en versionering](../../../../../doc/OKx_Release-management-en-versionering.md).
+Versiebeheer en releases: [OKx Release management en versionering](../../../../../project/release-management-en-versionering.md).
 
 ### 2.3 Terugkoppeling
 
@@ -192,7 +192,7 @@ Onderstaande tabel koppelt deliverables uit de keten (§2) aan de plek waar ze n
 | OKx principes en uitgangspunten | [architectuurprincipes](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/principes/principes.md) en [uitgangspunten](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md) in Public |
 | Procesbeeld · scenario's · persona's | §3.5, §3.2.1 en verder, [scenario-uitwerkingen](scenario-uitwerkingen/README.md) |
 | Informatiemodellen | conceptmodellen in het [archief](archief-conceptmodellen.md); terugkoppeling volgt uit de payload-specificaties (Public) |
-| Informatiestromen | de informatiestromenplaat en het blok "Betrokken systemen bij gegevensuitwisseling" in de leerroute-1-uitwerking; [hoofdplaat](../../../../../doc/OKx_Projectoverzicht.md) |
+| Informatiestromen | de informatiestromenplaat en het blok "Betrokken systemen bij gegevensuitwisseling" in de leerroute-1-uitwerking; [hoofdplaat](../../../../../project/projectoverzicht.md) |
 | Interactieanalyse | het blok "Applicatiecomponenten op de plaat" in de leerroute-1-uitwerking; oudere interactiepatronen in het [archief](archief-conceptmodellen.md) |
 | Endpointbeschrijvingen | koppelingspecificaties en endpoint-sets in Public |
 | Interactiepatronen | patroonsecties van de koppelingspecificaties in Public |
@@ -200,8 +200,8 @@ Onderstaande tabel koppelt deliverables uit de keten (§2) aan de plek waar ze n
 | Datamodel | payload-specificaties in Public, bottom-up en endpoint-gedreven |
 | Requirementsboom (opdracht, epics, features, stories) | [requirementsboom](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/requirementsboom/README.md); elk scenario benoemt in zijn veld Verantwoordt de stories die eruit volgen, en elke story wijst met zijn bron terug naar de passage hier |
 | Security | uitwerking volgt; oudere ontwerpkeuzes in het [archief](archief-conceptmodellen.md) |
-| OEAPI OpenAPI (spec-repo) | *Buiten dit document* — [Npuls-OKx/specification](https://github.com/Npuls-OKx/specification) |
-| Pilots · BOPSI · borging | [Projectoverzicht](../../../../../doc/OKx_Projectoverzicht.md), [release-doc §1](../../../../../doc/OKx_Release-management-en-versionering.md#1-doel-en-scope) |
+| OEAPI OpenAPI (profiel) | *Buiten dit document*: een overlay op de OEAPI-specificatie, als submodule |
+| Pilots · BOPSI · borging | [Projectoverzicht](../../../../../project/projectoverzicht.md), [release-doc §1](../../../../../project/release-management-en-versionering.md#1-doel-en-scope) |
 
 ### 3.3 OEAPI-broncode en signaleringen
 

@@ -10,8 +10,10 @@ Hier slaan we **onderzoeksverslagen**, **projectaanvragen**, **featureplannen** 
 | [`project-requests/`](project-requests/) | Iteratieve projectaanvragen (`/project-aanvraag`) |
 | [`feature-plans/`](feature-plans/) | Featureplannen uit een request (`/maak-plan`) |
 | [`design-docs/`](design-docs/) | Ontwerp per feature (`/ontwerp-document`) |
+| [`eerste-vertaalpoging-naar-oeapi-met-ai/`](eerste-vertaalpoging-naar-oeapi-met-ai/) | Afgesloten verkenning uit april en mei 2026, bewaard uit de verwijderde fork |
+| [`voorbeelduitwerking-leerroute-1/`](voorbeelduitwerking-leerroute-1/) | Het voorwerk van september 2026 onder de voorbeelduitwerking van Jochem: de analyse per laag, het plan en de vormtaal |
 
-De volgorde is de volgorde van het werk: onderzoek onderbouwt een besluit, een projectaanvraag beschrijft wat we willen maken, een featureplan knipt dat op, en een ontwerpdocument werkt één onderdeel uit. Het besluit zelf hoort niet hier maar als ADR in [`Npuls-OKx/Public`](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr).
+De volgorde is de volgorde van het werk: onderzoek onderbouwt een besluit, een projectaanvraag beschrijft wat we willen maken, een featureplan knipt dat op, en een ontwerpdocument werkt één onderdeel uit. Een afgesloten lijn van werk mag een eigen map krijgen met een leeswijzer erin, zoals [`eerste-vertaalpoging-naar-oeapi-met-ai/`](eerste-vertaalpoging-naar-oeapi-met-ai/); die map bewaart wat anders zou verdwijnen en zegt erbij wat de status is. De mapnaam zegt wat het was, niet wat het had moeten worden. Het besluit zelf hoort niet hier maar als ADR in [`Npuls-OKx/Public`](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr).
 
 ## Bestandsnaam
 
@@ -27,4 +29,4 @@ Bij **grote herziening** van hetzelfde onderwerp: nieuw bestand met nieuwe times
 
 Documenten hier hebben **geen** YAML-frontmatter. GitHub is de bron: **auteurschap en datums** via de git-historie, **koppeling en traceerbaarheid** via issues en pull requests. Vermeld gerelateerde issues en bronnen in de **documenttekst** zelf, bijvoorbeeld met een contextregel onder de titel ("Relateert aan: #12") en een sectie *Gerelateerde uitwerkingen*. Human-in-the-loop blijft gelden: de mens die de PR opent is verantwoordelijk voor de inhoud.
 
-Zie ook [`doc/Bijdragen-voor-beginners.md`](../../doc/Bijdragen-voor-beginners.md) (Cursor-workflow).
+Zie ook [`project/bijdragen-voor-beginners.md`](../../project/bijdragen-voor-beginners.md) (Cursor-workflow).

@@ -6,12 +6,12 @@ Deze repository is een knowledge base die team OKx maintaint. Leveranciers, inst
 
 Voordat je een issue of PR opent, is het nuttig te weten **waar** deze repo voor dient: we bouwen **keteninzicht** en **MOKA-gestuurde koppelvlakuitwerking** op — richting **technische specificaties** (o.a. berichten, modellen, **OEAPI** waar passend), zodat werk **gericht** blijft en we **lokale maxima** in één koppelvlak vermijden.
 
-- **Actuele plaat en prioriteit** (welke informatiestromen tellen mee): [`doc/OKx_Projectoverzicht.md`](doc/OKx_Projectoverzicht.md) — *Hoofdplaat OKx informatiestromen*.
-- **Ketenconcept** (wat de stromen doen, invoer voor specs): [`doc/OKx_Informatiesstromen.md`](doc/OKx_Informatiesstromen.md).
-- **ArchiMate-model** met o.a. MOKA-view **`01. Onderwijsvisie vertalen naar onderwijsaanbod - Basis Model`** en het **informatiemodel** in hetzelfde koppelvlak: [`architecture/model/model.archimate`](architecture/model/model.archimate) — lees [`doc/OKx_Informatiestromen-ArchiMate-en-MOKA-view.md`](doc/OKx_Informatiestromen-ArchiMate-en-MOKA-view.md) voor waar je die views opent.
+- **Actuele plaat en prioriteit** (welke informatiestromen tellen mee): [`project/projectoverzicht.md`](project/projectoverzicht.md) — *Hoofdplaat OKx informatiestromen*.
+- **Ketenconcept** (wat de stromen doen, invoer voor specs): [`project/informatiestromen.md`](project/informatiestromen.md).
+- **ArchiMate-model** met o.a. MOKA-view **`01. Onderwijsvisie vertalen naar onderwijsaanbod - Basis Model`** en het **informatiemodel** in hetzelfde koppelvlak: [`architecture/model/model.archimate`](architecture/model/model.archimate) — lees [`project/informatiestromen-archimate-en-moka-view.md`](project/informatiestromen-archimate-en-moka-view.md) voor waar je die views opent.
 - **Architectuurbesluiten (ADR’s)**: [[ADR-index in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/README.md)](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/README.md).
 
-Uitgebreider en voor nieuwe bijdragers: sectie *Waar draait deze repository om?* in [`doc/Bijdragen-voor-beginners.md`](doc/Bijdragen-voor-beginners.md).
+Uitgebreider en voor nieuwe bijdragers: sectie *Waar draait deze repository om?* in [`project/bijdragen-voor-beginners.md`](project/bijdragen-voor-beginners.md).
 
 ### Governance
 
@@ -25,40 +25,40 @@ Uitgebreider en voor nieuwe bijdragers: sectie *Waar draait deze repository om?*
 - ArchiMate model: `architecture/model/model.archimate`
 - ADR's (decision records): [Referentiemateriaal/adr in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr)
 - Meetings (notulen + optioneel transcript): `architecture/meetings/`
-- OKx context: `doc/` en `img/`
-- OKE uitwerkingen: `OKE/`
-- MOKA template (onderdeel van OKx): `moka-koppelvlakspecificaties/`
+- OKx context: `project/`, met de platen in `project/img/`
+- Gearchiveerd: het MOKA-sjabloon en de uitwerking erop, in `archief/MOKA/`
 - Agent-artifacten (projectaanvraag / featureplan / ontwerpdocument via Cursor): `architecture/agent-artifacts/` — zie `architecture/agent-artifacts/README.md`
 
 ### Workflow (kort)
 
 1. Start met een issue (vraag, voorstel, meeting follow-up, ADR-voorstel).
 2. Werk het uit in een PR met concrete wijzigingen: 1 issue = 1 branch = 1 PR.
-3. Link in de PR naar het issue (Fixes #123 / See also #456).
+3. Link in de PR naar het issue. Lost de PR het issue op, zet dan `Closes #123` op een eigen regel; raakt hij het alleen, dan `See also #456`. Het sluitwoord blijft Engels, want GitHub leest het.
 4. Als het een architectuurbesluit is: voeg of wijzig een ADR in [Referentiemateriaal/adr in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr) en link naar notulen/issues.
 
 ### Branchingstrategie & Pull Requests
 
-- **`main`**: stabiele **release**-lijn — officiële stand; **tags** (bijv. `v1.0.0`) markeren release-momenten.
-- **`dev`**: integratie van werk voor de **volgende release**; hier komen feature-PR’s op.
+- **`dev`**: de enige langlevende branch en de default; hier staat de actuele stand en hier komen feature-PR’s op.
 - **Feature branches** (`feature/…`): vertrek vanaf **`dev`**; PR richting **`dev`**.
-- **Release**: wanneer `dev` klaar is voor een oplevering, gaat een PR **`dev` → `main`**, daarna eventueel een **git tag** op `main`.
-- **Hotfixes** (klein, direct op release): branch vanaf **`main`**, PR naar **`main`**, en wijzigingen ook terug naar **`dev`** zodat die gelijk blijft.
+- **Release**: de release van OKx leeft in [Npuls-OKx/Public](https://github.com/Npuls-OKx/Public), met het releasepakket, de release notes en het versielabel. Deze repository draagt de kennisbank en levert daaraan: een wijziging is klaar zodra zij op `dev` staat.
+- **Een correctie met haast** volgt dezelfde weg als al het andere werk: een eigen branch vanaf `dev` met een pull request terug.
+- **De oude branch `main`** is op 5 oktober 2026 verwijderd en bewaard als de tag `archief/main`. De herstelroute staat in [`project/release-management-en-versionering.md`](project/release-management-en-versionering.md#de-verwijderde-branch-main-en-hoe-die-terugkomt) (§4) en in het bericht van die tag.
 
 **Bijdragen via branch (in deze repo)**:
 
 - `git checkout dev` → `git pull` → nieuwe branch `feature/…` → na afloop **PR naar `dev`**.
-- Review via GitHub; **merge** door OKx-teamleden.
+- Review via GitHub; **merge** door OKx-teamleden. Een agent merget nooit uit zichzelf, en
+  op `Npuls-OKx/Public` merget een agent nooit; zie [Mergen](AGENTS.md#mergen).
 
 **Bijdragen via fork**:
 
-- Zelfde flow, maar PR naar **upstream `dev`** (of **`main`** alleen bij afgesproken hotfix).
+- Zelfde flow, met een PR naar **upstream `dev`**.
 
 **Grote impact** (richtlijn): architectuurwijzigingen, grote scope-/richtingwijzigingen, of wijzigingen die (templates/specificaties) “breaking” maken.
 
 - **Bij grote impact**: PR’s gaan altijd gepaard met een review met het **SI-team** in een fysieke/digitale **Teams meeting** (naast de normale GitHub review).
 
-#### Flow (branch of fork, met `dev` en `main`)
+#### Flow (branch of fork, met `dev`)
 
 ```mermaid
 flowchart TD
@@ -72,7 +72,7 @@ flowchart TD
   impact -->|Ja| siReview[SI_team_review_meeting_Teams]
   siReview --> review
   review --> mergeDev[Merge_naar_dev_door_OKx_team]
-  mergeDev --> endDev[Verder_op_dev_tot_release]
+  mergeDev --> endDev[Actuele_stand_op_dev]
 
   choose -->|Fork_repo| fork[Maak_fork_van_repo]
   fork --> forkBranch[Branch_vanaf_dev_in_fork]
@@ -89,7 +89,7 @@ flowchart TD
   mergeMain --> tag[Tag_op_main_bijv_v1_x]
 ```
 
-Uitgebreide uitleg voor beginners (Git, GitHub, Cursor, epics/issues, sprints): [`doc/Bijdragen-voor-beginners.md`](doc/Bijdragen-voor-beginners.md) — bewust **in de repo** (niet op de GitHub Wiki), i.v.m. mogelijke migratie naar bijv. self-hosted GitLab.
+Uitgebreide uitleg voor beginners (Git, GitHub, Cursor, epics/issues, sprints): [`project/bijdragen-voor-beginners.md`](project/bijdragen-voor-beginners.md) — bewust **in de repo** (niet op de GitHub Wiki), i.v.m. mogelijke migratie naar bijv. self-hosted GitLab.
 
 ### AI-agents
 
@@ -101,7 +101,7 @@ De architectuurprincipes (OKx-AP01 tot en met AP13) staan in [Referentiemateriaa
 
 ### Meetings vastleggen
 
-We werken federatief en asynchroon. Meetings worden daarom vastgelegd in de repo. Zie [`doc/Privacy-meetings-en-transcriptie.md`](doc/Privacy-meetings-en-transcriptie.md) voor **opname, AI-transcriptie** en het **publieke** karakter van bijdragen.
+We werken federatief en asynchroon. Meetings worden daarom vastgelegd in de repo. Zie [`project/privacy-meetings-en-transcriptie.md`](project/privacy-meetings-en-transcriptie.md) voor **opname, AI-transcriptie** en het **publieke** karakter van bijdragen.
 
 1. Vastleggen: opname en/of ruwe aantekeningen.
 2. Transcriberen: optioneel transcript opslaan in `architecture/meetings/[YYYYMMDD]_[meetingnaam]/transcript.md`.

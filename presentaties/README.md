@@ -111,7 +111,7 @@ Per plaat lees je daar wat hij toont, bij welk publiek hij werkt, en waar je op 
 Controleer de lijst voordat je hem gebruikt:
 
 ```bash
-python3 ../scripts/platen-inventariseren.py
+python3 ../tools/scripts/platen-inventariseren.py
 ```
 
 Dat vergelijkt het manifest met wat er werkelijk in beide repositories staat en meldt: een bron die is **verdwenen**, een bron die is **gewijzigd** sinds de omschrijving werd geschreven, een **nieuwere versie** die ernaast is verschenen, een plaat die nog **niet in het manifest** staat, en een kopie in `public/platen/` die is gaan **afwijken van zijn bron**. Los meldingen op voordat je een plaat kiest.
@@ -135,7 +135,7 @@ Gebruik je een plaat niet meer, haal de kopie dan weg en laat het veld `kopie` l
 Zet hem in het manifest en werk daarna de vingerafdrukken bij:
 
 ```bash
-python3 ../scripts/platen-inventariseren.py --bijwerken
+python3 ../tools/scripts/platen-inventariseren.py --bijwerken
 ```
 
 Twee velden doen het werk. `gebruik_bij` is waar een agent op selecteert, dus schrijf daar het publiek en de situatie, niet de inhoud. `let_op` is waar het voorbehoud staat; wat daar staat komt terug in de afstemming voordat er een deck wordt geschreven.
@@ -167,3 +167,9 @@ Pas de huisstijl alleen aan in `style.css`, nooit per presentatie. Bouw slides m
 Het designsysteem, de achtergronden en de componentbibliotheek komen uit [`cedanl/clidev-presentaties`](https://github.com/cedanl/clidev-presentaties). De werkwijze en de huisstijl uit de skills [`clidev`](https://github.com/cedanl/.github/tree/main/.claude/skills/clidev) en [`npuls-huisstijl`](https://github.com/cedanl/.github/tree/main/.claude/skills/npuls-huisstijl); die zijn gevendord onder [`.agents/skills/`](../.agents/skills/) en worden niet bewerkt.
 
 De Npuls huisstijl is eigendom van Npuls. OKx is een Npuls-programma, dus het gebruik valt binnen de voorwaarden.
+
+## Tekstbudget toetsen
+
+`python3 tel-woorden.py src/<deck>.md` telt de zichtbare woorden per slide: koppen, kaarten en bijschriften, zonder sprekersnotities. Rond de veertig woorden is het doel, boven de zestig faalt het script. Een slide die zakt, vraagt om steekwoorden met een drager: pictogram, kaart, pijplijn of plaat.
+
+Code telt apart. Een endpoint, een schemafragment of een voorbeeldbericht wordt herkend en niet gelezen, net als een plaat, en valt daarom buiten het woordbudget. Het script meldt per slide het aantal coderegels en faalt boven de twaalf; `--coderegels` verzet die maat. Een mermaid-blok telt als plaat en niet als code: daar ziet de zaal een diagram, geen regels.

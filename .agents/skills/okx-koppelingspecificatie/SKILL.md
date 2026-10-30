@@ -67,14 +67,14 @@ Eén hoofdstuk met drie subsecties. Na het lezen daarvan weet een nieuwkomer waa
 
 ## Schema- en instantiebomen
 
-Gegenereerd met `scripts/json-tree.py`, tussen HTML-comment-markers zodat de bomen bij de JSON blijven kloppen:
+Gegenereerd met `tools/scripts/json-tree.py`, tussen HTML-comment-markers zodat de bomen bij de JSON blijven kloppen:
 
 ```
 <!-- json-tree:begin kind=schema -->
 <!-- json-tree:begin kind=instance array=aanbodInstanties id=id parent=bovenliggendAanbodId label=naam type=aanbodType attrs=versie,status -->
 ```
 
-Draai `python3 scripts/json-tree.py --check <document>` vóór de commit; het script meldt ook dode ouder-verwijzingen en cykels, en valideert het voorbeeld tegen het schema.
+Draai `python3 tools/scripts/json-tree.py --check <document>` vóór de commit; het script meldt ook dode ouder-verwijzingen en cykels, en valideert het voorbeeld tegen het schema.
 
 Gebruik géén `<details>`-inklapblokken voor payloads. De documentatie moet ook als PDF werken, en daar verdwijnt de inhoud van een `<details>` (pandoc laat raw HTML vallen, print-to-PDF drukt dichtgeklapt af).
 
@@ -87,6 +87,23 @@ Zet onder een gegenereerde boom een korte duiding van wat de structuur zelf niet
 - Mermaid **zonder puntkomma's**; die breken de GitHub-parser.
 - Eén diagramstijl per documentsoort. Een informatiemodel is overal een `erDiagram`, een procesbeeld overal een `flowchart`.
 - Diagram, tabel en alinea die hetzelfde zeggen is redundantie. Kies één drager.
+
+## De verhouding tot OEAPI
+
+Een koppelingspecificatie beschrijft wat er over een koppeling gaat en waarom. Een OEAPI-profiel beschrijft hoe dat technisch in de Open Education API past. Die twee zijn gescheiden, en de volgorde ligt vast: de eis komt eerst, de techniekkeuze volgt.
+
+| | Waar het leeft | Wat het vastlegt |
+|---|---|---|
+| Koppelingspecificatie | `Koppelvlakspecificaties/` in Npuls-OKx/Public | Berichtstromen, procesbeeld, informatiemodel, endpoints en payloads in OKx-termen |
+| OEAPI-profiel | Een eigen repository met de OEAPI-specificatie als submodule | De overlay die het OKx-werk uitdrukt in OEAPI-objecten |
+
+Drie regels die daaruit volgen.
+
+**Nooit een fork van de OEAPI-specificatie.** De basis komt binnen als git-submodule op een vastgezet versielabel, met het OKx-werk als overlay erbovenop. De vorm staat in [oeapi-profile-example](https://github.com/open-education-api/oeapi-profile-example); de werkafspraak staat als harde regel 6 in [AGENTS.md](../../../AGENTS.md). Een fork kan de standaard aanpassen en gaat daarmee uit de pas lopen.
+
+**Een verschil met OEAPI is een signalering, geen aanpassing.** Past een eis niet in de huidige OEAPI-vorm, dan blijft de eis staan en gaat het verschil als wijzigingsverzoek naar de standaard. Dat is ook waarom de veldnamen hier Nederlands zijn: de vertaling naar OEAPI gebeurt in de overlay, niet in de koppelingspecificatie.
+
+**De gegenereerde specificatie is uitvoer, geen bron.** Zij ontstaat door de overlay over de submodule te leggen en wordt niet met de hand bijgewerkt. Wie iets wil wijzigen, wijzigt de overlay of de koppelingspecificatie.
 
 ## Indienchecklist
 
