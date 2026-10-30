@@ -52,14 +52,29 @@
       "doel": "Vaste opbouw en conventies voor koppelingspecificaties en payload-specificaties: verplichte inleiding, kern naar voren, veldnaamgeving, schema- en boomconventies, indienchecklist."
     },
     {
+      "naam": "okx-leeruitkomst-formuleren",
+      "type": "okx-specifiek",
+      "doel": "Schrijft en keurt een leeruitkomst volgens het tuning model uit de NLQF-handleiding, met Romiszowski voor NLQF 1 tot 4 en SOLO voor 5 tot 8. Hoort bij tools/scripts/keur-leeruitkomst.py."
+    },
+    {
       "naam": "okx-oeapi-scenario-uitwerking",
       "type": "okx-specifiek",
       "doel": "Kaderstellende scenario's per leerroute schrijven en aanscherpen binnen de leerroute-uitwerking."
     },
     {
+      "naam": "okx-onderzoeksverslag",
+      "type": "okx-specifiek",
+      "doel": "Een onderzoeksverslag onderbouwt een openstaande vraag en beslist haar niet: bronplicht per bewering, afleiding herkenbaar, alternatieven met hun kosten, en een advies in plaats van een besluit. Het besluit hoort in een ADR in Public."
+    },
+    {
       "naam": "okx-plaat-uit-het-model",
       "type": "okx-specifiek",
-      "doel": "Een architectuurplaat uit het ArchiMate-model tekenen: haakse routering, aanhechtingen op volgorde van hun overkant, het ArchiMate-kleurenschema, en keuring op leesbaarheid via scripts/keur-plaat.py."
+      "doel": "Een architectuurplaat uit het ArchiMate-model tekenen: haakse routering, aanhechtingen op volgorde van hun overkant, het ArchiMate-kleurenschema, en keuring op leesbaarheid via tools/scripts/keur-plaat.py."
+    },
+    {
+      "naam": "okx-uitsnede-bij-een-reviewvraag",
+      "type": "okx-specifiek",
+      "doel": "Een uitsnede van het informatiemodel tekenen die een vraag uit een reviewronde beantwoordt: alleen de objecttypen die de vraag raakt, de aard van elke wijziging in het vak, een voorstel voor wat nog ontbreekt, en een ingevuld voorbeeld in de vormtaal van de plaat. Via tools/scripts/teken-informatiemodel-uitsnede.py, gekeurd met tools/scripts/keur-plaat.py op nul kruisingen."
     },
     {
       "naam": "okx-presentatie",
@@ -104,7 +119,7 @@
     {
       "naam": "okx-test-persona",
       "type": "okx-specifiek",
-      "doel": "Adaptatie-wrapper: schrijft en reviewt testgevallen voor scripts en valideerbare definities binnen de OKx-conventies (tests/, stdlib unittest, given-when-then, onafhankelijke verwachtingen, rapportage per testgeval)."
+      "doel": "Adaptatie-wrapper: schrijft en reviewt testgevallen voor scripts en valideerbare definities binnen de OKx-conventies (tools/tests/, stdlib unittest, given-when-then, onafhankelijke verwachtingen, rapportage per testgeval)."
     },
     {
       "naam": "okx-voorbeeld-in-het-informatiemodel",

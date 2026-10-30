@@ -67,14 +67,14 @@ Eén hoofdstuk met drie subsecties. Na het lezen daarvan weet een nieuwkomer waa
 
 ## Schema- en instantiebomen
 
-Gegenereerd met `scripts/json-tree.py`, tussen HTML-comment-markers zodat de bomen bij de JSON blijven kloppen:
+Gegenereerd met `tools/scripts/json-tree.py`, tussen HTML-comment-markers zodat de bomen bij de JSON blijven kloppen:
 
 ```
 <!-- json-tree:begin kind=schema -->
 <!-- json-tree:begin kind=instance array=aanbodInstanties id=id parent=bovenliggendAanbodId label=naam type=aanbodType attrs=versie,status -->
 ```
 
-Draai `python3 scripts/json-tree.py --check <document>` vóór de commit; het script meldt ook dode ouder-verwijzingen en cykels, en valideert het voorbeeld tegen het schema.
+Draai `python3 tools/scripts/json-tree.py --check <document>` vóór de commit; het script meldt ook dode ouder-verwijzingen en cykels, en valideert het voorbeeld tegen het schema.
 
 Gebruik géén `<details>`-inklapblokken voor payloads. De documentatie moet ook als PDF werken, en daar verdwijnt de inhoud van een `<details>` (pandoc laat raw HTML vallen, print-to-PDF drukt dichtgeklapt af).
 

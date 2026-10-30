@@ -171,11 +171,11 @@ W1 eerst, want de naamgeving raakt 18 beelden en alle latere pakketten bouwen er
 Alle wijzigingen gaan in `architecture/model/informatiemodel/voorbeeld-lr1-regels.json` en in `scenario-1.1-regulier-happyflow.md`. De rest is gegenereerd. Na elke stap:
 
 ```bash
-python3 scripts/controleer-voorbeeldregels.py     # 0 bevindingen, anders eerst herstellen
-python3 scripts/teken-voorbeeldregels.py
-python3 scripts/genereer-voorbeeld-lr1.py         # waarschuwt voor vragen buiten de zeven
+python3 tools/scripts/controleer-voorbeeldregels.py     # 0 bevindingen, anders eerst herstellen
+python3 tools/scripts/teken-voorbeeldregels.py
+python3 tools/scripts/genereer-voorbeeld-lr1.py         # waarschuwt voor vragen buiten de zeven
 python3 -m unittest
-python3 scripts/validate-docs.py architecture/model/informatiemodel/voorbeeld-leerroute-1-jochem.md
+python3 tools/scripts/validate-docs.py architecture/model/informatiemodel/voorbeeld-leerroute-1-jochem.md
 ```
 
 Het ArchiMate-model blijft onaangeraakt. De zes vragen raken de plaat, maar het voorbeeld past zich aan de plaat aan en niet andersom.

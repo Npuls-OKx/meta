@@ -61,7 +61,7 @@ Hoort bij [de opleiding van Jochem in het informatiemodel](voorbeeld-leerroute-1
 | 2 | F2-01 | Leeronderdeel specificatie | | | | |
 | 2 | F2-02 | Verzoek tot Aanbod / Intekening op specificatie | | | | |
 | 2 | F2-04 | Opleidingsaanbod van Instelling | | | | |
-| 2 | F2-04 | Opleidingaanbod | | | | |
+| 2 | F2-04 | Opleiding aanbod | | | | |
 | 2 | F2-04 | Opleidingsprogramma aanbod | | | | |
 | 2 | F2-04 | Onderwijseenheid aanbod | | | | |
 | 2 | F2-04 | Leergelegenheid | | | | |
@@ -99,10 +99,10 @@ Hoort bij [de opleiding van Jochem in het informatiemodel](voorbeeld-leerroute-1
 | 5 | F5-05 | Onderwijseenheid resultaat | | | | |
 | 5 | F5-05 | Onderwijseenheid aanbod | | | | |
 | 5 | F5-05 | Summatieve resultaat structuur | | | | |
-| 6 | F6-01 | Keuzedeelaanbod | | | | |
+| 6 | F6-01 | Keuzedeel aanbod | | | | |
 | 6 | F6-03 | Aanmelding | | | | |
 | 6 | F6-03 | Keuzedeel aanbod verbintenis | | | | |
-| 6 | F6-05 | Keuzedeelaanbod | | | | |
+| 6 | F6-05 | Keuzedeel aanbod | | | | |
 | 6 | F6-07 | Inschrijving | | | | |
 | 6 | F6-07 | Keuzedeel aanbod verbintenis | | | | |
 | 7 | F7-01 | Plaatsingsgroep | | | | |
@@ -115,5 +115,5 @@ Hoort bij [de opleiding van Jochem in het informatiemodel](voorbeeld-leerroute-1
 | 8 | F8-05 | Summatieve beoordeling | | | | |
 | 8 | F8-05 | Opleidingsprogramma resultaat | | | | |
 | 8 | F8-05 | Keuzedeel resultaat | | | | |
-| 8 | F8-07 | Opleiding aanbod resultaat | | | | |
+| 8 | F8-07 | Opleiding resultaat | | | | |
 | 8 | F8-07 | Waarde document (diploma / certificaat) | | | | |

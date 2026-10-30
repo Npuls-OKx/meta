@@ -44,7 +44,7 @@ When a user asks for a new feature or system:
 4.  **Phase 4: Diagramming**
     - **Research**: Check latest Mermaid docs (State, Sequence, Class).
     - **Generate**: Create Mermaid diagrams to visualize the flow.
-    - **Verify**: Run `scripts/verify_mermaid.py` (if available) or review syntax carefully.
+    - **Verify**: Run `tools/scripts/verify_mermaid.py` (if available) or review syntax carefully.
 5.  **Phase 5: Documentation**
     - Generate the appropriate artifacts (PRD, Technical Spec, User Stories) using `references/templates/`.
     - **Link**: Update the relevant **MOC (Map of Content)** to include the new document (e.g., `docs/030-Specs/Specs-MOC.md`).
@@ -94,7 +94,7 @@ Act as the conductor. Coordinate specialized skills when needed.
 
 ## 🛠️ Tools & Scripts
 
-- `scripts/verify_mermaid.py`: Validates syntax of generated diagram code.
+- `tools/scripts/verify_mermaid.py`: Validates syntax of generated diagram code.
 
 ---
 

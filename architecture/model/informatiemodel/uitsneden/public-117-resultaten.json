@@ -1,0 +1,46 @@
+{
+  "id": "public-117-resultaten",
+  "titel": "Op welke niveaus ontstaat een resultaat, en wat is daar beoordeling en wat deelname?",
+  "herkomst": "Reviewvraag Npuls-OKx/Public#117 van @hjwielemaker, werkbrief Npuls-OKx/meta#335",
+  "oeapi": true,
+  "rij_labels": ["lesgelegenheid: bijgewoond", "leergelegenheid: deelgenomen",
+                 "toetsgelegenheid: formatief beoordeeld", "examengelegenheid: summatief beoordeeld",
+                 "onderwijseenheid: afgerond", "opleidingsprogramma: gediplomeerd"],
+  "objecten": [
+    {"naam": "Lesgelegenheid", "rij": 0, "merk": "binnen scope", "nummer": 1,
+     "waarom": "de leslaag telt weer mee in het aanbod"},
+    {"naam": "Lesgelegenheid verbintenis", "rij": 0, "merk": "binnen scope", "nummer": 2,
+     "waarom": "de deelname aan een les wordt vastgelegd"},
+    {"naam": "Lesgelegenheid resultaat", "rij": 0, "merk": "binnen scope", "nummer": 3,
+     "noot": "Les specificatie blijft buiten scope",
+     "waarom": "op dit niveau ontstaat weer een resultaat"},
+    {"naam": "Aanwezigheid", "rij": 0, "merk": "buiten scope", "nummer": 4,
+     "waarom": "draagt de deelname onder toets en examen"},
+
+    {"naam": "Leergelegenheid", "rij": 1},
+    {"naam": "Leergelegenheid verbintenis", "rij": 1},
+    {"naam": "Leergelegenheid resultaat", "rij": 1, "merk": "buiten scope", "nummer": 5,
+     "waarom": "de verbintenis eronder blijft binnen scope"},
+    {"naam": "Formatief resultaat", "rij": 1},
+
+    {"naam": "Toetsgelegenheid", "rij": 2},
+    {"naam": "Toetsgelegenheid verbintenis", "rij": 2},
+    {"naam": "Toetsgelegenheid resultaat", "rij": 2},
+    {"naam": "Formatieve beoordeling", "rij": 2},
+
+    {"naam": "Examengelegenheid", "rij": 3},
+    {"naam": "Examengelegenheid verbintenis", "rij": 3},
+    {"naam": "Examengelegenheid resultaat", "rij": 3},
+    {"naam": "Summatieve beoordeling", "rij": 3},
+
+    {"naam": "Onderwijseenheid aanbod", "rij": 4},
+    {"naam": "Onderwijseenheid aanbod verbintenis", "rij": 4},
+    {"naam": "Onderwijseenheid resultaat", "rij": 4},
+    {"naam": "Summatief resultaat", "rij": 4},
+    {"naam": "Summatieve resultaat structuur", "rij": 4},
+
+    {"naam": "Opleidingsprogramma aanbod", "rij": 5},
+    {"naam": "Opleidingsprogramma aanbod verbintenis", "rij": 5},
+    {"naam": "Opleidingsprogramma resultaat", "rij": 5}
+  ]
+}
