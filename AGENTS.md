@@ -4,7 +4,7 @@ Basisdocument voor AI-agents (Cursor, Claude Code, Codex en vergelijkbaar) die i
 
 ## Wat is deze repository
 
-OKx-meta is de **publieke kennisbank** van OKx (Npuls, pijler Leren Zonder Drempels): gedeelde kennis, afspraken en conceptuitwerkingen rond **gestandaardiseerde koppelvlakken voor onderwijslogistiek**. Dit is een documentatierepository, geen codebase. Scope start bij mbo (leerroutes 1-3 eerst), hoger onderwijs volgt. Volledige introductie: [README.md](README.md) en [doc/OKx_Projectoverzicht.md](doc/OKx_Projectoverzicht.md).
+OKx-meta is de **publieke kennisbank** van OKx (Npuls, pijler Leren Zonder Drempels): gedeelde kennis, afspraken en conceptuitwerkingen rond **gestandaardiseerde koppelvlakken voor onderwijslogistiek**. Dit is een documentatierepository, geen codebase. Scope start bij mbo (leerroutes 1-3 eerst), hoger onderwijs volgt. Volledige introductie: [README.md](README.md) en [project/projectoverzicht.md](project/projectoverzicht.md).
 
 ## Principes en werkafspraken
 
@@ -29,12 +29,12 @@ De werkafspraken zijn levend; wijzigen via PR.
 
 ## Harde regels
 
-1. **Raak nooit een `*.archimate`-bestand aan.** Nooit tekstueel mergen; zie [architecture/model/README.md](architecture/model/README.md) en ADR 0010. Vóór elke model-commit: `python3 scripts/validate-archimate.py`.
+1. **Raak nooit een `*.archimate`-bestand aan.** Nooit tekstueel mergen; zie [architecture/model/README.md](architecture/model/README.md) en ADR 0010. Vóór elke model-commit: `python3 tools/scripts/validate-archimate.py`.
 2. **Installaties alleen in de dev-container**, nooit op de host ([.cursor/rules/dev-omgeving.mdc](.cursor/rules/dev-omgeving.mdc); een controlescript (hook) bewaakt dit).
 3. **1 issue = 1 branch = 1 PR**, feature-branches vanaf `dev`, alleen het OKx-team merget ([CONTRIBUTING.md](CONTRIBUTING.md)).
 4. **Een agent merget nooit zelfstandig, en op `Npuls-OKx/Public` merget een agent nooit.** Zie [Mergen](#mergen).
 5. **Deliverables volgen de product-flow**: story met gebruiker en waarde, acceptatiecriteria in het issue, plan met tegenlezing, uitwerking met onafhankelijke review, waardevalidatie. Twee stopmomenten, beide bij de opdrachtgever: akkoord op de criteria, en groen licht op het plan. Zie [hieronder](#product-flow-samenvatting).
-6. Markdown-deliverables halen de voorcontrole: `python3 scripts/validate-docs.py <pad>`.
+6. Markdown-deliverables halen de voorcontrole: `python3 tools/scripts/validate-docs.py <pad>`.
 7. **Specificeren bovenop OEAPI gaat via een submodule, nooit via een fork.** De OEAPI-specificatie komt binnen als git-submodule op een vastgezet versielabel; het OKx-werk ligt daar als overlay bovenop. Zie [Specificeren bovenop OEAPI](#specificeren-bovenop-oeapi).
 
 ## Mergen
@@ -98,16 +98,16 @@ Dit vervangt de fork `Npuls-OKx/specification`, die op verzoek van de OEAPI-behe
 
 | Wat | Waar |
 |---|---|
-| Projectcontext, hoofdplaat informatiestromen | [doc/](doc/) |
+| Projectcontext, hoofdplaat informatiestromen | [project/](project/) |
 | Requirementsboom (opdracht, epics, features, stories) | [Referentiemateriaal/requirementsboom in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/requirementsboom/README.md) |
 | Architectuurbesluiten (ADR's) | [Referentiemateriaal/adr in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr) |
 | ArchiMate-model (niet aanraken) | [architecture/model/](architecture/model/) |
 | Meetingverslagen | [architecture/meetings/](architecture/meetings/) |
 | Specificaties (leerroute-uitwerking, persona's) | [architecture/docs/specificatie/](architecture/docs/specificatie/) |
 | Agent-artifacten (ontwerpen, plannen) | [architecture/agent-artifacts/](architecture/agent-artifacts/) |
-| OKE-subdomein en MOKA-templates | [OKE/](OKE/), [moka-koppelvlakspecificaties/](moka-koppelvlakspecificaties/) |
+| MOKA-sjabloon en de uitwerking erop, gearchiveerd | [archief/MOKA/](archief/MOKA/) |
 | Presentaties (Slidev, Npuls huisstijl) | [presentaties/](presentaties/) |
-| Validatiescripts | [scripts/](scripts/) |
+| Validatiescripts en testgevallen | [tools/scripts/](tools/scripts/), [tools/tests/](tools/tests/) |
 
 De koppelingspecificaties per koppeling (OC-P&R, OC-SIS, OC-LMS) leven als interactiepatronen met datamodelschema's in [Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Koppelvlakspecificaties); de [keuze-requirements met regelset-payload](architecture/docs/specificatie/student-keuze/keuze-requirements.md) staan onder `architecture/docs/specificatie/student-keuze/`.
 

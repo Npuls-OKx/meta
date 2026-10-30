@@ -15,8 +15,8 @@ Elk nieuw of substantieel gewijzigd deliverable (requirements-document, payload-
 - **De lus is begrensd**: ten hoogste drie ronden met de tegenlezer en ten hoogste drie iteraties in de review van het resultaat, daarna escaleren met de openstaande bevindingen en per bevinding of die een eerste waardevolle iteratie blokkeert. Deugen de criteria niet, dan terug naar de criteria.
 - **Het verloop staat in het issue of de pull request**: akkoord op de criteria, planversies, oordelen van de tegenlezer, menselijk akkoord, en de uitkomst van de waardevalidatie. Het agent-rapport in de PR-beschrijving draagt die regels.
 - Testgevallen zijn expliciet en naloopbaar (afspraak 26 augustus, issue #172): een script of
-  valideerbare definitie krijgt tests in de map `tests/` (`tests/test_<naam>.py`, stdlib
-  `unittest`, draaibaar met `python3 -m unittest discover -s tests`). Elk testgeval volgt de
+  valideerbare definitie krijgt tests in de map `tools/tests/` (`tools/tests/test_<naam>.py`, stdlib
+  `unittest`, draaibaar met `python3 -m unittest discover -s tools/tests`). Elk testgeval volgt de
   given-when-then-conventie: in de methodenaam (`test_given_X_when_Y_then_Z`) en als de drie
   stappen in de testcode. Identifiers in code zijn Engels; gebruikersuitvoer is Nederlands.
   De PR-beschrijving rapporteert per testgeval wat gedraaid is en wat de uitkomst was;

@@ -94,7 +94,7 @@ Dat sluit aan op de handleiding, die bij de standaard vraagt welke richtlijnen e
 
 ## De controle uit de handleiding
 
-De handleiding sluit af met tien controlevragen. Vier daarvan zijn machinaal te toetsen en staan in [`scripts/keur-leeruitkomst.py`](../../../../../scripts/keur-leeruitkomst.py), met de skill [`okx-leeruitkomst-formuleren`](../../../../../.agents/skills/okx-leeruitkomst-formuleren/SKILL.md) eromheen:
+De handleiding sluit af met tien controlevragen. Vier daarvan zijn machinaal te toetsen en staan in [`tools/scripts/keur-leeruitkomst.py`](../../../../../tools/scripts/keur-leeruitkomst.py), met de skill [`okx-leeruitkomst-formuleren`](../../../../../.agents/skills/okx-leeruitkomst-formuleren/SKILL.md) eromheen:
 
 1. Omvat de leeruitkomst alle vijf de plekken uit het Tuning-model.
 2. Draagt de leeruitkomst niet meer dan een actief werkwoord.

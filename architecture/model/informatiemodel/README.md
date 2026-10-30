@@ -62,10 +62,10 @@ Drie afspraken gelden bij deze bron. Zij zijn hier vastgelegd en niet als ADR, o
 In de dev-container, na elke wijziging aan de bron:
 
 ```bash
-python3 scripts/controleer-voorbeeldregels.py
-python3 scripts/teken-voorbeeldregels.py
-python3 scripts/genereer-voorbeeld-lr1.py
-python3 -m unittest discover -s tests -p "test_*.py"
+python3 tools/scripts/controleer-voorbeeldregels.py
+python3 tools/scripts/teken-voorbeeldregels.py
+python3 tools/scripts/genereer-voorbeeld-lr1.py
+python3 -m unittest discover -s tools/tests -p "test_*.py"
 ```
 
 De werkwijze per fase staat in de skill [`okx-voorbeeld-in-het-informatiemodel`](../../../.agents/skills/okx-voorbeeld-in-het-informatiemodel/SKILL.md).

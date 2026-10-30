@@ -1,6 +1,6 @@
 # Elementen die met opzet uit het model zijn gehaald
 
-`scripts/controleer-modelverlies.py` vergelijkt het model met de versie ervoor en faalt zodra er een element verdwijnt. Die controle bestaat omdat een regelgebaseerde merge in juli 2026 276 elementdefinities liet wegvallen in een bestand dat intern bleef kloppen.
+`tools/scripts/controleer-modelverlies.py` vergelijkt het model met de versie ervoor en faalt zodra er een element verdwijnt. Die controle bestaat omdat een regelgebaseerde merge in juli 2026 276 elementdefinities liet wegvallen in een bestand dat intern bleef kloppen.
 
 Een modelleur die in Archi iets weghaalt of vervangt laat datzelfde signaal afgaan. Dat is geen fout, en de reden hoort vastgelegd te zijn. Elke regel hieronder draagt een id en waarom dat element weg mocht. Het script leest de ids en laat ze door; de rest van de regel is voor een lezer.
 

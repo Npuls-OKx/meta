@@ -4,9 +4,9 @@ Het OKx **ArchiMate-model** (`model.archimate`) met o.a. de MOKA-koppelvlak-view
 
 ## Informatiemodel
 
-De map [`informatiemodel/`](informatiemodel/) bevat de twee informatiemodelplaten met hun documentatie: het [informatiemodel](informatiemodel/informatiemodel.md), de [mapping naar OEAPI v6](informatiemodel/informatiemodel-oeapi-mapping.md) en [`informatiemodel.json`](informatiemodel/informatiemodel.json), dat met `python3 scripts/genereer-informatiemodel-doc.py` uit het model wordt gegenereerd. Draai dat script na elke wijziging aan een van beide views.
+De map [`informatiemodel/`](informatiemodel/) bevat de twee informatiemodelplaten met hun documentatie: het [informatiemodel](informatiemodel/informatiemodel.md), de [mapping naar OEAPI v6](informatiemodel/informatiemodel-oeapi-mapping.md) en [`informatiemodel.json`](informatiemodel/informatiemodel.json), dat met `python3 tools/scripts/genereer-informatiemodel-doc.py` uit het model wordt gegenereerd. Draai dat script na elke wijziging aan een van beide views.
 
-Deze documentatie en de [begrippenlijst](../docs/specificatie/begrippen/begrippenlijst.md) landen in Public in het releasepakket `Informatie-en-gegevensmodellen/` als laag 1 en 2. Meta is de bron; Public krijgt de release-variant via `python3 scripts/publiceer-informatiemodel.py --doel <Public-worktree>`. Het script zet de verwijzingen om naar paden binnen Public, pint wat in meta blijft op een commit, hernoemt de platen naar `img/` en faalt op een verwijzing die het niet kent, een entiteit in de brugtabel die niet in het logisch gegevensmodel staat, of een definitie die niet letterlijk in het kaderscenario van Public terug te vinden is. Met `--controleer` meldt het of Public nog gelijk loopt met meta. Exporteer de platen eerst met de hand uit Archi (het script leest de jpg's, het rendert ze niet).
+Deze documentatie en de [begrippenlijst](../docs/specificatie/begrippen/begrippenlijst.md) landen in Public in het releasepakket `Informatie-en-gegevensmodellen/` als laag 1 en 2. Meta is de bron; Public krijgt de release-variant via `python3 tools/scripts/publiceer-informatiemodel.py --doel <Public-worktree>`. Het script zet de verwijzingen om naar paden binnen Public, pint wat in meta blijft op een commit, hernoemt de platen naar `img/` en faalt op een verwijzing die het niet kent, een entiteit in de brugtabel die niet in het logisch gegevensmodel staat, of een definitie die niet letterlijk in het kaderscenario van Public terug te vinden is. Met `--controleer` meldt het of Public nog gelijk loopt met meta. Exporteer de platen eerst met de hand uit Archi (het script leest de jpg's, het rendert ze niet).
 
 ## Voorbeelduitwerking leerroute 1 (Jochem)
 
@@ -14,13 +14,13 @@ De opleiding van Jochem stap voor stap in het informatiemodel leeft als regeltab
 
 De basis volgt de vraaggestuurde planning uit het kaderscenario. Een andere planningsvorm staat als eigen tabel ernaast: `voorbeeld-lr1-regels-capaciteitsgestuurd.json` of `voorbeeld-lr1-regels-geroosterd.json`, met schema `voorbeeld-lr1-variant.schema.json` (#401). Een variant erft de kop van de basis; de werkwijze staat in [okx-voorbeeld-in-het-informatiemodel](../../.agents/skills/okx-voorbeeld-in-het-informatiemodel/SKILL.md). De scripts hieronder vinden de varianten zelf. De scripts:
 
-- `python3 scripts/exporteer-archimate-view.py --mapping <koppelingen>` schrijft `informatiemodel/stromen.json`: per flow op hoofdplaat v1.7a de relatie-id, van en naar (junctions opgelost) en het label; de pijlen waar stroomt-regels naar verwijzen.
-- `python3 scripts/teken-hoofdplaat-highlight.py --plaat PAD` schrijft `informatiemodel/img/hoofdplaat/f<N>.svg`: per fase de hoofdplaat met de stromen van het voorbeeld gemarkeerd. De render van de plaat komt uit `exporteer-archimate-platen.py`; het script meldt stromen die het niet kon plaatsen. Met `--koppelingen OC-P&R,OC-SIS,OC-LMS` schrijft het in plaats daarvan `koppelingen.svg` met de lijnen van die koppelingen, en `--uitsnede` snijdt de plaat terug tot het deel waar de markeringen liggen.
-- `python3 scripts/exporteer-componenten.py` schrijft `informatiemodel/componenten.json`: per applicatiecomponent van de hoofdplaat de MORA-beschrijving uit het model en de applicatiediensten die hij realiseert. Componenten buiten de plaat voeg je toe met `--extra`; de huidige `componenten.json` komt uit `--extra "AII (centraal aanmelden)" "Aanmeld systeem" "Curriculum ontwerptool" "Intake systeem" "Toets- en examen afname systeem"`. De voorbeeldcontrole toetst componentnamen hiertegen.
-- `python3 scripts/exporteer-conceptplaat.py` schrijft `informatiemodel/conceptplaat-onderwijsontwerp.json`: de objecttypen (met groep) en relaties van de view "Informatiemodel Onderwijsontwerp", waar verdiepingen op de conceptplaat tegen worden getoetst.
-- `python3 scripts/controleer-voorbeeldregels.py [--fasen 2,3,4]` toetst de regeltabel tegen `informatiemodel.json`, `stromen.json` en de conceptplaat (namen, relaties, rollen, stappen, pijlen) en meldt per fase welke objecttypen nog geen ontstaat-regel hebben.
-- `python3 scripts/teken-voorbeeldregels.py` tekent elk beeld (regels met dezelfde beeldtitel) als SVG in ArchiMate-vormtaal naar `informatiemodel/img/regels/`, met de titel als bestandsnaam; `python3 scripts/genereer-voorbeeld-lr1.py` schrijft daaruit `informatiemodel/voorbeeld-leerroute-1-jochem.md`, met het invulblad voor een mappingronde als eigen bestand ernaast.
-- `python3 scripts/exporteer-archimate-platen.py --view NAAM --uit pad.png` exporteert een view met Archi headless (zie `.devcontainer/Dockerfile`); met `--objecten`, `--ruimte` en `--hoekvast` als SVG met de informatieobjecten op de pijlen.
+- `python3 tools/scripts/exporteer-archimate-view.py --mapping <koppelingen>` schrijft `informatiemodel/stromen.json`: per flow op hoofdplaat v1.7a de relatie-id, van en naar (junctions opgelost) en het label; de pijlen waar stroomt-regels naar verwijzen.
+- `python3 tools/scripts/teken-hoofdplaat-highlight.py --plaat PAD` schrijft `informatiemodel/img/hoofdplaat/f<N>.svg`: per fase de hoofdplaat met de stromen van het voorbeeld gemarkeerd. De render van de plaat komt uit `exporteer-archimate-platen.py`; het script meldt stromen die het niet kon plaatsen. Met `--koppelingen OC-P&R,OC-SIS,OC-LMS` schrijft het in plaats daarvan `koppelingen.svg` met de lijnen van die koppelingen, en `--uitsnede` snijdt de plaat terug tot het deel waar de markeringen liggen.
+- `python3 tools/scripts/exporteer-componenten.py` schrijft `informatiemodel/componenten.json`: per applicatiecomponent van de hoofdplaat de MORA-beschrijving uit het model en de applicatiediensten die hij realiseert. Componenten buiten de plaat voeg je toe met `--extra`; de huidige `componenten.json` komt uit `--extra "AII (centraal aanmelden)" "Aanmeld systeem" "Curriculum ontwerptool" "Intake systeem" "Toets- en examen afname systeem"`. De voorbeeldcontrole toetst componentnamen hiertegen.
+- `python3 tools/scripts/exporteer-conceptplaat.py` schrijft `informatiemodel/conceptplaat-onderwijsontwerp.json`: de objecttypen (met groep) en relaties van de view "Informatiemodel Onderwijsontwerp", waar verdiepingen op de conceptplaat tegen worden getoetst.
+- `python3 tools/scripts/controleer-voorbeeldregels.py [--fasen 2,3,4]` toetst de regeltabel tegen `informatiemodel.json`, `stromen.json` en de conceptplaat (namen, relaties, rollen, stappen, pijlen) en meldt per fase welke objecttypen nog geen ontstaat-regel hebben.
+- `python3 tools/scripts/teken-voorbeeldregels.py` tekent elk beeld (regels met dezelfde beeldtitel) als SVG in ArchiMate-vormtaal naar `informatiemodel/img/regels/`, met de titel als bestandsnaam; `python3 tools/scripts/genereer-voorbeeld-lr1.py` schrijft daaruit `informatiemodel/voorbeeld-leerroute-1-jochem.md`, met het invulblad voor een mappingronde als eigen bestand ernaast.
+- `python3 tools/scripts/exporteer-archimate-platen.py --view NAAM --uit pad.png` exporteert een view met Archi headless (zie `.devcontainer/Dockerfile`); met `--objecten`, `--ruimte` en `--hoekvast` als SVG met de informatieobjecten op de pijlen.
 
 Alle scripts lezen het model alleen. Plan en eisen: het featureplan bij Public #106.
 
@@ -33,7 +33,7 @@ Een viewnaam wordt een bestandsnaam: bij de export van een plaat uit Archi en bi
 | `OKx hoofdplaat v1.7a (zonder context applicaties)` | `OKx hoofdplaat v1.7a<concept>` |
 | `Koppelvlak SIS (KRS-SVS) (obv 1.7a)` | `Koppelvlak: SIS (KRS+SVS) (obv 1.7a)` |
 
-De status van een plaat (concept of vastgesteld) hoort in de documentatie van de view en niet in de naam, zodat een statusovergang geen hernoeming vraagt. `tests/test_hoofdplaat_viewnamen.py` toetst elke viewnaam in het model tegen de conventie, met een oude MOKA-view als enige uitzondering.
+De status van een plaat (concept of vastgesteld) hoort in de documentatie van de view en niet in de naam, zodat een statusovergang geen hernoeming vraagt. `tools/tests/test_hoofdplaat_viewnamen.py` toetst elke viewnaam in het model tegen de conventie, met een oude MOKA-view als enige uitzondering.
 
 ## Valideren vóór commit
 
@@ -42,7 +42,7 @@ Het model is één XML-boom waarin views via **ID's** verwijzen naar elementen e
 Draai daarom vóór elke commit:
 
 ```bash
-python3 scripts/validate-archimate.py architecture/model/model.archimate
+python3 tools/scripts/validate-archimate.py architecture/model/model.archimate
 ```
 
 Controleert dode verwijzingen, dubbele id's en XML-welgevormdheid; exitcode ≠ 0 bij problemen.
@@ -50,7 +50,7 @@ Controleert dode verwijzingen, dubbele id's en XML-welgevormdheid; exitcode ≠ 
 En vergelijk met de versie waarop gewerkt wordt, want een merge die alleen invoegt levert een geldig bestand op dat toch minder draagt:
 
 ```bash
-python3 scripts/controleer-modelverlies.py --git origin/dev architecture/model/model.archimate
+python3 tools/scripts/controleer-modelverlies.py --git origin/dev architecture/model/model.archimate
 ```
 
 Meldt per element wat verdween, met naam en id. Weghalen mag, zolang het met opzet gebeurt: draai dan met `--toegestaan <aantal>`.

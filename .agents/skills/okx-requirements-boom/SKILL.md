@@ -84,8 +84,8 @@ Deze skill is de specialist-skill voor stap 2 (uitwerken) van [`okx-product-flow
 
 - [ ] Elke node heeft precies één ouder; geen laag overgeslagen (opdracht, epic, feature, story). Raakt een leaf inhoudelijk een tweede ouder, dan is hij te groot: opknippen, nooit een tweede relatie vastleggen.
 - [ ] Geen twee nodes met dezelfde naam of dezelfde strekking.
-- [ ] Elke rij heeft een gevulde bronkolom; links werken (`python3 scripts/check-links.py` in de Public-repository).
-- [ ] De boomnavigatie is sluitend: `python3 scripts/validate-requirementsboom-navigatie.py` slaagt in de Public-repository (ankerintegriteit en id-conventie, doel↔epic, epic↔feature, feature↔story inclusief Epic-cel, story→functionele eis, terugleiding). Script en testgevallen leven daar; de CI draait ze op elke PR.
+- [ ] Elke rij heeft een gevulde bronkolom; links werken (`python3 tools/scripts/check-links.py` in de Public-repository).
+- [ ] De boomnavigatie is sluitend: `python3 tools/scripts/validate-requirementsboom-navigatie.py` slaagt in de Public-repository (ankerintegriteit en id-conventie, doel↔epic, epic↔feature, feature↔story inclusief Epic-cel, story→functionele eis, terugleiding). Script en testgevallen leven daar; de CI draait ze op elke PR.
 - [ ] Elke story heeft in de kolom Functionele eisen een functionele-eis-id-link naar de rij van de eis in het interactiepatroon of expliciet "geen", en een featurecel die als ankerlink naar de feature werkt.
 - [ ] De Stories-kolom van elke feature bevat exact de stories die met hun featurecel naar die feature terugwijzen (tweerichtingsconsistentie), of expliciet "geen".
 - [ ] De Epic-cel van elke featurerij linkt naar een bestaande epic en komt overeen met de sectie waarin de rij staat.

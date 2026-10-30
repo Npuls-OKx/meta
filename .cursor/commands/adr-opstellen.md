@@ -15,4 +15,4 @@ Eisen aan het besluit:
 - Link naar de meeting-notulen waar het besluit uit voortkomt, en naar de relevante OKx- en OKE-documentatie.
 - Vergelijk met de bestaande besluiten op overlap, en benoem die overlap met bronverwijzing.
 
-Let op: in Npuls-OKx/Public gelden de conventies voor gereleasde documenten. Geen issueverwijzingen in de tekst zelf; die horen in de commit message en de pull request. Draai daar `scripts/check-links.py` en `scripts/check-conventies.py` voordat je de pull request opent.
+Let op: in Npuls-OKx/Public gelden de conventies voor gereleasde documenten. Geen issueverwijzingen in de tekst zelf; die horen in de commit message en de pull request. Draai daar `tools/scripts/check-links.py` en `tools/scripts/check-conventies.py` voordat je de pull request opent.

@@ -61,7 +61,7 @@ De vier domeinen: cognitief is denken, reactief is reageren op, psychomotorisch 
 2. Kies de taxonomie, of neem over welke de instelling al gebruikt, en leg vast welke dat is.
 3. Kies het actieve werkwoord met die taxonomie. Een werkwoord per leeruitkomst.
 4. Vul de vijf plekken in de voorgeschreven volgorde.
-5. Draai de controle: `python3 scripts/keur-leeruitkomst.py <pad>`.
+5. Draai de controle: `python3 tools/scripts/keur-leeruitkomst.py <pad>`.
 6. Loop de zes vragen na die een mens moet beantwoorden, hieronder.
 
 ## Het uitgangspunt van de instelling hoort in de standaard
