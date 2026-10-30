@@ -125,8 +125,8 @@ Bron: presentaties/src/260929_werkgroep_okx_voortgang.md (techniekblok 29 septem
 </div>
 
 <style scoped>
-.fill { padding: 0.9rem 1.8rem; justify-content: flex-start; }
-h1 { font-size: 1.75rem !important; line-height: 1.1; margin: 0 0 0.9rem; }
+.fill { padding: 0.9rem 1.8rem; }
+h1 { font-size: 1.75rem !important; line-height: 1.1; margin: 0 0 1.2rem; }
 .np-blok { padding: 0.6rem 1rem; text-align: center; margin: 0; }
 .np-label { font-size: 0.74rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--np-mid-gray); }
 .np-citaat { font-size: 1.05rem; font-style: italic; color: var(--np-dark-blue); margin-top: 0.2rem; }
@@ -168,43 +168,35 @@ de opdrachtgever, 30 oktober 2026 (issue meta #462).
 
 # Hoofdvraag
 
-<div class="np-citaat">
-  <div class="np-citaattekst">&ldquo;Wat moet OKx nu eigenlijk beschrijven en bouwen?&rdquo;</div>
-  <div class="np-afzender">SI-team, techniek</div>
+<div class="np-vraag">&ldquo;Wat moet OKx nu eigenlijk beschrijven en bouwen?&rdquo; <span>SI-team, techniek</span></div>
+
+<div class="np-card accent-orange np-hoofd">
+  <div class="np-hoofdtekst">Specificeren met wat we nu weten en de randvoorwaardelijke documentatie levert geen stabiele specificatie op</div>
+  <div class="np-kortom">Kortom: er ontbreekt informatie</div>
 </div>
 
-<div class="np-drie">
-  <div class="np-card accent-blue np-vak">
-    <carbon-partnership class="np-groot" />
-    <div class="np-kop">Gesprekken met de sector</div>
-    <small>leveranciers en instellingen geven richting</small>
-  </div>
-  <div class="np-card accent-orange np-vak">
-    <carbon-document class="np-groot" style="color: var(--np-orange);" />
-    <div class="np-kop">Specificeren met wat er ligt</div>
-    <small>levert nog geen stabiele versie om te bespreken</small>
-  </div>
-  <div class="np-card accent-green np-vak">
-    <carbon-enterprise class="np-groot" style="color: var(--np-green);" />
-    <div class="np-kop">Het IT-landschap van een instelling</div>
-    <small>wat het moet kunnen voor wat de sector wil</small>
-  </div>
+<div class="np-label">Zo halen we die op</div>
+<div class="np-vier">
+  <div class="np-card accent-blue np-vak"><carbon-partnership class="np-groot" /><div class="np-kop">Gesprekken met de sector</div><small>instellingen en leveranciers</small></div>
+  <div class="np-card accent-green np-vak"><mdi-key-variant class="np-groot" style="color: var(--np-green);" /><div class="np-kop">Leeruitkomsten</div><small>met de werkgroep</small></div>
+  <div class="np-card accent-yellow np-vak"><carbon-document-protected class="np-groot" style="color: var(--np-dark-blue);" /><div class="np-kop">Leveranciers</div><small>afspraken over geheimhouding</small></div>
+  <div class="np-card np-vak" style="border-top: 4px solid var(--np-dark-blue);"><carbon-flow class="np-groot" style="color: var(--np-dark-blue);" /><div class="np-kop">Zelf fijnmazig uitwerken</div><small>het IT-landschap stap voor stap</small></div>
 </div>
-
-<div class="np-kern">Kortom: er ontbreekt informatie</div>
 
 <style scoped>
-.fill { padding: 0.9rem 1.8rem; justify-content: flex-start; }
-h1 { font-size: 1.75rem !important; line-height: 1.1; margin: 0; }
-.np-citaat { margin: 2.6rem auto 0; text-align: center; }
-.np-citaattekst { font-size: 1.9rem; font-weight: 500; font-style: italic; color: var(--np-dark-blue); line-height: 1.2; }
-.np-afzender { font-size: 0.86rem; color: var(--np-mid-gray); margin-top: 0.3rem; }
-.np-drie { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.9rem; margin-top: 1.8rem; }
-.np-vak { padding: 0.8rem 0.9rem; text-align: center; }
-.np-vak small { font-size: 0.8rem; display: block; color: var(--np-mid-gray); }
-.np-groot { font-size: 1.6rem; color: var(--np-blue); }
-.np-kop { font-weight: 700; font-size: 0.92rem; line-height: 1.25; margin-top: 0.2rem; }
-.np-kern { margin-top: 1.4rem; text-align: center; font-weight: 700; font-size: 1.05rem; color: var(--np-dark-blue); }
+.fill { padding: 0.9rem 1.8rem; }
+h1 { font-size: 1.75rem !important; line-height: 1.1; margin: 0 0 0.8rem; }
+.np-vraag { text-align: center; font-size: 1.1rem; font-style: italic; color: var(--np-dark-blue); }
+.np-vraag span { font-style: normal; font-size: 0.8rem; color: var(--np-mid-gray); margin-left: 0.5rem; }
+.np-hoofd { margin-top: 0.8rem; padding: 0.8rem 1.2rem; text-align: center; }
+.np-hoofdtekst { font-size: 1.3rem; font-weight: 700; color: var(--np-dark-blue); line-height: 1.3; }
+.np-kortom { margin-top: 0.5rem; font-size: 1.05rem; font-weight: 700; color: var(--np-orange); }
+.np-label { margin-top: 1rem; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--np-mid-gray); }
+.np-vier { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.7rem; margin-top: 0.35rem; }
+.np-vak { padding: 0.6rem 0.6rem; text-align: center; margin: 0; }
+.np-vak small { font-size: 0.78rem; display: block; color: var(--np-mid-gray); }
+.np-groot { font-size: 1.4rem; color: var(--np-blue); }
+.np-kop { font-weight: 700; font-size: 0.9rem; line-height: 1.25; margin-top: 0.15rem; }
 </style>
 
 </div>
@@ -214,95 +206,93 @@ De hoofdvraag waar het SI-team aan de techniekkant mee worstelt: wat moet OKx nu
 en bouwen? In de woorden van het team: "Ik weet niet wat we bouwen, en daarvoor hebben we de sector
 nodig."
 
-Er zijn veel gesprekken gevoerd met leveranciers van planning, studentadministratie en leeromgeving,
-met koploperscholen en met informatiemanagers, om hier richting aan te geven. Er blijven veel vragen.
-Een daarvan: specificeren met wat er nu ligt, leidt nog niet tot een stabiele versie die partijen
-kunnen beoordelen en waarover OKx met hen in gesprek kan. Daarom is de indeling van een release op 28
-oktober geparkeerd en ligt de focus op het informatiemodel en de voorbeelden.
+Het hoofdpunt: specificeren met wat we nu weten en met de randvoorwaardelijke documentatie die er
+ligt, levert geen stabiele specificatie op, geen versie die partijen kunnen beoordelen en waarover OKx
+met hen in gesprek kan. Daarom is de indeling van een release op 28 oktober geparkeerd. Kortom: er
+ontbreekt informatie.
 
-De kern: wat moet het uitwisselende IT-landschap van een instelling kunnen om de functionaliteit te
-leveren die OKx met de sector wil realiseren? Kortom: er ontbreekt informatie, en die komt uit de
-leerroutes en uit de sector.
+Zo halen we die op. Gesprekken met de sector: koploperscholen, informatiemanagers en leveranciers van
+planning, studentadministratie en leeromgeving. Leeruitkomsten: met de werkgroep leeruitkomsten, want
+de leeruitkomst is de sleutel van het informatiemodel. Leveranciers: afspraken over geheimhouding
+(NDA), zodat zij kunnen laten zien hoe hun product werkt. En zelf fijnmazig uitwerken wat ontbreekt:
+het IT-landschap van een instelling stap voor stap doorlopen. Dat is de volgende slide.
 
-Vraaggebieden in de kennisbank: wat OKx oplevert en in welke vorm (issues meta #342 en #365), welk
-deel een instelling overneemt (issue meta #447), wat een instelling moet kunnen (PR Public #100,
-open; issue meta #440).
-
-Bron van de citaten: de opdrachtgever bij het maken van dit deck, 30 oktober 2026 (issue meta #462).
-Release-indeling geparkeerd: SI-afstemming 28 oktober (Jamie).
+Bron van de citaten en de aanpak: de opdrachtgever, 30 oktober 2026 (issue meta #462). Release-indeling
+geparkeerd: SI-afstemming 28 oktober (Jamie). Leveranciers en NDA: teammeeting 9 oktober en
+leveranciersoverleg 12 oktober (Jamie).
 -->
 
 ---
 
-<!-- 5. JOCHEM -->
+<!-- 5. VAN PROCESSTAP NAAR DETAIL -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
 
-# Jochem van dossier tot diploma
+# Van processtap naar detail
 
-<div class="np-plaatrij">
-
-<img src="/platen/jochem-f2-01-planbaar.png" class="np-plaat" />
-
-<div class="np-kolom">
-  <div class="np-card accent-blue np-mini">
-    <carbon-map class="np-pic" />
-    <div class="np-kop">Acht fasen</div>
-    <small>van kwalificatiedossier tot diploma</small>
+<div class="np-rij">
+  <div class="np-paneel">
+    <div class="np-plaatvak"><img src="/platen/mora-keten4-onderwijsprocessen.png" class="np-mora" /><div class="np-ring"></div></div>
+    <div class="np-onder"><strong>Een processtap in MORA</strong><br/>plannen en roosteren</div>
   </div>
-  <div class="np-card accent-orange np-mini">
-    <carbon-calendar class="np-pic" style="color: var(--np-orange);" />
-    <div class="np-kop">Capaciteitsgestuurd plannen</div>
-    <small>keuze op geplande groepen</small>
+  <div class="np-pijl">&#8594;</div>
+  <div class="np-paneel">
+    <img src="/platen/jochem-f2-01-planbaar.png" class="np-detail" />
+    <div class="np-onder"><strong>Stap voor stap uitgewerkt</strong><br/>67 platen in acht fasen, voor Jochem</div>
   </div>
-  <div class="np-card accent-green np-mini">
-    <carbon-user-multiple class="np-pic" style="color: var(--np-green);" />
-    <div class="np-kop">Beoordeling verwerkt</div>
-    <small>33 bevindingen</small>
+  <div class="np-pijl">&#8594;</div>
+  <div class="np-card accent-green np-slot">
+    <carbon-data-structured class="np-groot" />
+    <div class="np-kop">Informatiemodel bijgewerkt</div>
+    <small>nieuwe begrippen en relaties</small>
   </div>
-  <div class="np-kern">Een school ziet haar eigen werk terug in het model</div>
-  <div class="np-bijschrift">Fase 2: de specificatie planbaar gemaakt</div>
-  <div class="np-status">Status: ter beoordeling</div>
 </div>
 
-</div>
+<div class="np-kern">Een conceptuele processtap leidt tot een hele boel detail</div>
+<div class="np-status">Status: ter beoordeling</div>
 
 <style scoped>
-.fill { padding: 0.9rem 1.1rem; }
-h1 { font-size: 1.75rem !important; line-height: 1.1; margin: 0 0 0.35rem; }
-.np-plaatrij { display: flex; gap: 1rem; align-items: center; height: calc(100% - 3.2rem); }
-.np-plaat { height: 100%; width: auto; max-width: 62%; object-fit: contain; flex: none; border: 1px solid var(--np-light-gray); border-radius: 6px; background: #fff; }
-.np-kolom { flex: 1; min-width: 0; }
-.np-mini { padding: 0.5rem 0.7rem; margin-bottom: 0.5rem; }
-.np-mini small { font-size: 0.78rem; line-height: 1.4; display: block; }
-.np-pic { font-size: 1.1rem; color: var(--np-blue); }
-.np-kop { font-weight: 700; font-size: 0.86rem; line-height: 1.25; }
-.np-bijschrift { font-size: 0.78rem; color: var(--np-mid-gray); margin-top: 0.4rem; }
-.np-status { font-size: 0.78rem; color: var(--np-mid-gray); margin-top: 0.3rem; }
-.np-kern { font-weight: 700; font-size: 0.9rem; color: var(--np-dark-blue); margin-top: 0.6rem; background: #fff; }
-.np-bijschrift, .np-status { background: #fff; display: table; }
+.fill { padding: 0.9rem 1.4rem; }
+h1 { font-size: 1.75rem !important; line-height: 1.1; margin: 0 0 0.8rem; }
+.np-rij { display: flex; align-items: center; gap: 0.6rem; }
+.np-paneel { text-align: center; }
+.np-paneel:first-child { flex: 1.5; }
+.np-paneel:nth-child(3) { flex: 0.9; }
+.np-plaatvak { position: relative; }
+.np-mora { width: 100%; display: block; border-radius: 4px; }
+.np-ring { position: absolute; left: 34.5%; top: 79%; width: 15%; height: 17%; border: 3px solid var(--np-orange); border-radius: 50%; }
+.np-detail { width: 100%; max-height: 14rem; object-fit: contain; border: 1px solid var(--np-light-gray); border-radius: 4px; background: #fff; }
+.np-onder { font-size: 0.8rem; color: var(--np-dark-blue); margin-top: 0.35rem; line-height: 1.35; }
+.np-pijl { color: var(--np-orange); font-size: 1.6rem; font-weight: 700; }
+.np-slot { flex: 0.7; padding: 0.8rem 0.6rem; text-align: center; margin: 0; }
+.np-slot small { font-size: 0.78rem; display: block; color: var(--np-mid-gray); }
+.np-groot { font-size: 1.6rem; color: var(--np-green); }
+.np-kop { font-weight: 700; font-size: 0.9rem; line-height: 1.25; margin-top: 0.2rem; }
+.np-kern { margin-top: 1.1rem; text-align: center; font-weight: 700; font-size: 1.05rem; color: var(--np-dark-blue); }
+.np-status { margin-top: 0.3rem; text-align: center; font-size: 0.78rem; color: var(--np-mid-gray); }
 </style>
 
 </div>
 
 <!--
-De opleiding van Jochem, apothekersassistent in leerroute 1, staat stap voor stap in het
-informatiemodel: in acht fasen van kwalificatiedossier tot diploma, 67 platen per processtap. De
-plaat links is een stap uit fase 2: de onderwijsontwerper maakt de opleiding planbaar, met
-tijdvensters, groepsgrootte, ruimte en docent. Zo ziet een school haar eigen werk terug in de taal
-van het model.
+Zo ziet zelf fijnmazig uitwerken eruit. Links het hoofdprocesmodel van MORA, de referentiearchitectuur
+voor het mbo, met de keten onderwijslogistiek uitgelicht; de oranje ring staat om plannen en
+roosteren. In MORA is dat een enkele conceptuele processtap. Uitgewerkt voor de opleiding van Jochem,
+apothekersassistent in leerroute 1, wordt het een reeks concrete stappen: hier de stap waarin de
+onderwijsontwerper de opleiding planbaar maakt, met tijdvensters, groepsgrootte, ruimte en docent.
+Over de hele leerroute zijn dat 67 platen in acht fasen, met de 33 bevindingen uit de beoordeling door
+Niels verwerkt.
 
-Daarnaast staat nu de vorm van plannen die bij de meeste instellingen voorkomt: capaciteitsgestuurd.
-De planner plant het keuzedeel vooraf op inzetbare capaciteit en een prognose, en Jochem kiest daarna
-een geplande groep. Eerst toonde het voorbeeld alleen vraaggestuurd plannen; een planner die zijn
-eigen vorm niet terugvindt, legt het voorbeeld weg.
+Dit proces heeft ons beeld van het informatiemodel bijgewerkt: begrippen en relaties die de reis
+blootlegt, komen in het model. Daarnaast staat de capaciteitsgestuurde planningsvorm, die bij de
+meeste instellingen voorkomt (PR meta #414).
 
-De 33 bevindingen uit de beoordeling door Niels zijn verwerkt; vijftien vragen staan klaar voor de
-kerngroep techniek.
+Demo: de voorbeelduitwerking in PR meta #314.
 
-Bron: meta #314 (voorbeelduitwerking, PR ter beoordeling), meta #414 (variant capaciteitsgestuurd, PR ter
-beoordeling), meta #404 (varianten mogelijk gemaakt, gemerged 26 oktober).
+Bron: PR meta #314 (voorbeelduitwerking, ter beoordeling), PR meta #414 (variant capaciteitsgestuurd,
+ter beoordeling), PR meta #404 (varianten mogelijk gemaakt, gemerged 26 oktober); MORA-hoofdprocesmodel,
+keten onderwijslogistiek (architecture/docs/specificatie/leerroute-uitwerking/img/).
 -->
 
 ---
@@ -447,101 +437,80 @@ review), meta #448 (tekeningen, gemerged 28 oktober).
 
 ---
 
-<!-- 8. INTERACTIEKETENS UITGEWERKT -->
+<!-- 8. INTERACTIEKETENS IN CONCEPT -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
 
-# Interactieketens uitgewerkt
+# Interactieketens in concept
 
-<div class="np-vier">
-  <div class="np-card accent-blue np-keten">
-    <div class="np-kop"><carbon-catalog class="np-pic" /> Aanbod</div>
-    <small>van ontwerp tot aanmeldbaar</small>
-    <div class="np-getal" style="color: var(--np-blue);">7</div>
-    <small>uitwisselingen</small>
-  </div>
-  <div class="np-card accent-orange np-keten">
-    <div class="np-kop"><carbon-user-follow class="np-pic" style="color: var(--np-orange);" /> Instroom</div>
-    <small>van aanmelding tot start</small>
-    <div class="np-getal" style="color: var(--np-orange);">7</div>
-    <small>uitwisselingen</small>
-  </div>
-  <div class="np-card accent-green np-keten">
-    <div class="np-kop"><carbon-user-favorite class="np-pic" style="color: var(--np-green);" /> Keuzedelen</div>
-    <small>wat kiesbaar is, met reden</small>
-    <div class="np-getal" style="color: var(--np-green);">7</div>
-    <small>berichtstromen</small>
-  </div>
-  <div class="np-card accent-yellow np-keten">
-    <div class="np-kop"><carbon-document class="np-pic" style="color: var(--np-dark-blue);" /> Technische specificatie</div>
-    <small>proef voor de catalogus</small>
-    <div class="np-getal" style="color: var(--np-dark-blue);">22</div>
-    <small>operaties</small>
-  </div>
+<div class="np-kern">Elk inzicht scherpt het eindproduct aan</div>
+
+<div class="np-drie">
+  <div class="np-card accent-blue np-keten"><div class="np-kop"><carbon-catalog class="np-pic" /> Aanbod</div><small>van ontwerp tot aanmeldbaar</small></div>
+  <div class="np-card accent-orange np-keten"><div class="np-kop"><carbon-user-follow class="np-pic" style="color: var(--np-orange);" /> Instroom</div><small>van aanmelding tot start</small></div>
+  <div class="np-card accent-green np-keten"><div class="np-kop"><carbon-user-favorite class="np-pic" style="color: var(--np-green);" /> Keuzedelen</div><small>wat kiesbaar is, met reden</small></div>
 </div>
 
 <div class="np-onderkop">Leerroute 1, per fase</div>
 <div class="np-fasen"><div class="np-fase" style="border-top-color: #3D68EC;">1 Ontwerpen</div><div class="np-fase" style="border-top-color: #3D68EC;">2 Plannen</div><div class="np-fase" style="border-top-color: #DD784B;">3 Intake</div><div class="np-fase open">4 Roosteren</div><div class="np-fase open">5 Uitvoeren</div><div class="np-fase" style="border-top-color: #00AF81;">6 Kiezen</div><div class="np-fase open">7 Bijsturen</div><div class="np-fase open">8 Examineren</div></div>
 
-<div class="np-voet">Aansluitend op de Open Education API &middot; ter beoordeling</div>
+<div class="np-card accent-yellow np-weg">
+  <div class="np-kop">Nog verre van implementatiewaardig</div>
+  <small>eerst intern vormgeven, daarna review met de sector, over twee maanden</small>
+</div>
 
 <style scoped>
-.fill { padding: 0.9rem 1.6rem; justify-content: flex-start; }
+.fill { padding: 0.9rem 1.6rem; }
 h1 { font-size: 1.75rem !important; line-height: 1.1; margin: 0; }
-.np-vier { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.8rem; margin-top: 1.2rem; }
-.np-keten { padding: 0.7rem 0.8rem; text-align: center; }
-.np-keten small { font-size: 0.78rem; display: block; color: var(--np-mid-gray); }
+.np-kern { margin-top: 0.6rem; font-size: 1.1rem; font-weight: 700; color: var(--np-dark-blue); text-align: center; }
+.np-drie { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8rem; margin-top: 0.9rem; }
+.np-keten { padding: 0.6rem 0.8rem; text-align: center; margin: 0; }
+.np-keten small { font-size: 0.8rem; display: block; color: var(--np-mid-gray); }
 .np-kop { font-weight: 700; font-size: 0.95rem; }
 .np-pic { font-size: 1.1rem; color: var(--np-blue); vertical-align: -0.2rem; }
-.np-getal { font-size: 2.4rem; font-weight: 700; line-height: 1.1; margin-top: 0.5rem; }
-.np-onderkop { margin-top: 1.4rem; font-size: 0.86rem; font-weight: 700; color: var(--np-dark-blue); }
-.np-fasen { display: grid; grid-template-columns: repeat(8, 1fr); gap: 0.35rem; margin-top: 0.4rem; }
-.np-fase { background: #fff; border: 1px solid var(--np-light-gray); border-top: 4px solid var(--np-blue); border-radius: 4px; padding: 0.35rem 0.3rem; font-size: 0.72rem; font-weight: 600; color: var(--np-dark-blue); text-align: center; line-height: 1.25; }
+.np-pil { display: inline-block; margin-top: 0.4rem; background: #F1F3F5; border-radius: 999px; padding: 0.1rem 0.6rem; font-size: 0.74rem; color: var(--np-dark-blue); }
+.np-onderkop { margin-top: 1.1rem; font-size: 0.84rem; font-weight: 700; color: var(--np-dark-blue); }
+.np-fasen { display: grid; grid-template-columns: repeat(8, 1fr); gap: 0.35rem; margin-top: 0.35rem; }
+.np-fase { background: #fff; border: 1px solid var(--np-light-gray); border-top: 4px solid var(--np-blue); border-radius: 4px; padding: 0.3rem 0.2rem; font-size: 0.72rem; font-weight: 600; color: var(--np-dark-blue); text-align: center; }
 .np-fase.open { border-top: 4px dashed var(--np-light-gray); color: var(--np-mid-gray); font-weight: 400; }
-.np-voet { margin-top: 1rem; text-align: center; font-size: 0.8rem; color: var(--np-mid-gray); }
+.np-weg { margin-top: 1.1rem; padding: 0.6rem 1rem; text-align: center; }
+.np-weg small { font-size: 0.82rem; display: block; color: var(--np-dark-gray); margin-top: 0.2rem; }
 </style>
 
 </div>
 
 <!--
-Wat er sinds 29 september is opgeleverd aan de specificatiekant: drie interactieketens, uitgewerkt tot
-op het bericht dat tussen twee systemen gaat, in de volgorde waarin een student ze meemaakt.
+Elk inzicht uit de voorbeelden en de gesprekken gebruiken we om het eindproduct aan te scherpen. Voor
+drie onderdelen van leerroute 1 ligt een eerste concept van de interactieketens: aanbod (van ontwerp
+tot aanmeldbaar aanbod), instroom (van aanmelding tot de start) en keuzedelen (wat voor deze student
+kiesbaar is, met de reden erbij). In de strook: aanbod raakt fase 1 en 2, instroom fase 3,
+keuzedelen fase 6; de andere fasen hebben nog geen keten. Die toewijzing is een afleiding van het
+team.
 
-Aanbod: van het ontwerp in de curriculumontwerptool tot aanbod dat aanmeldbaar in de catalogus staat;
-zeven uitwisselingen, elk met het contract, het bericht en een gegevensmodel (zeven
-interactiespecificaties). Instroom: van de aanmelding die binnenkomt tot alles wat klaar moet staan
-voordat de student begint; ook zeven. Keuzedelen: de catalogus levert keuzedeelruimte, gepland aanbod
-en keuzeregels, en het studentkeuzesysteem berekent wat voor deze student kiesbaar is, met de reden
-bij een keuzedeel dat niet kan; elf diensten, zeven berichtstromen, twaalf operaties, casus
-apothekersassistent. De proef laat zien dat uit die uitwerking een technische specificatie (een
-OpenAPI-document) af te leiden is; voor de onderwijscatalogus zijn dat 22 operaties.
+Deze ketens zijn nog verre van implementatiewaardig. We geven ze nu intern vorm, zodat we ze tegen
+leveranciers en instellingen kunnen aanhouden. Het doel is over ongeveer twee maanden een eerste
+review.
 
-De strook onderaan legt de ketens naast de acht fasen van leerroute 1: aanbod raakt fase 1 en 2,
-instroom fase 3, keuzedelen fase 6. Fase 4, 5, 7 en 8 hebben nog geen keten. Die toewijzing is een
-afleiding van het team uit de beschrijving van de ketens.
-
-OKx sluit aan op de Open Education API, als laag bovenop een vaste versie van de standaard, zodat OKx
-met de standaard in de pas blijft.
-
-Bron: meta #373 (aanbod), meta #387 (instroom), meta #364 (keuzedelen), meta #377 (proef OpenAPI),
-alle vier PR ter beoordeling; meta #270 (OEAPI als vaste versie, gemerged 1 oktober).
+Bron: PR meta #373 (aanbod), #387 (instroom), #364 (keuzedelen), alle drie ter beoordeling; de proef met
+een technische specificatie per systeem staat in PR meta #377. Doel van twee maanden: de opdrachtgever,
+30 oktober 2026 (issue meta #462).
 -->
 
 ---
 
-<!-- 9. STAND EN KOERS -->
+<!-- 9. SAMENVATTING TECHNIEK -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
 
-# Stand en koers
+# Samenvatting techniek
 
 <div class="np-onderkop">Opgeleverd, als voorstel</div>
 <div class="np-vier">
   <div class="np-card accent-blue np-klein"><div class="np-kop">Informatiemodel 0.2</div><small>in Public</small></div>
   <div class="np-card accent-orange np-klein"><div class="np-kop">Leerroute 1 uitgewerkt</div><small>67 platen, acht fasen</small></div>
-  <div class="np-card accent-green np-klein"><div class="np-kop">Drie interactieketens</div><small>tot op het bericht</small></div>
+  <div class="np-card accent-green np-klein"><div class="np-kop">Interactieketens</div><small>eerste concept</small></div>
   <div class="np-card accent-yellow np-klein"><div class="np-kop">Hoofdplaat 1.7a</div><small>met inbreng mboRijnland</small></div>
 </div>
 
@@ -556,25 +525,29 @@ alle vier PR ter beoordeling; meta #270 (OEAPI als vaste versie, gemerged 1 okto
   <div class="np-step np-stap" style="border-top: 4px solid #F4D74B;"><carbon-search class="np-icoon" style="color: #1B2A6B;" /><strong>Ontbrekende begrippen</strong></div>
   <div class="np-arrow" style="align-self: center;">&#8594;</div>
   <div class="np-step np-stap" style="border-top: 4px solid #1B2A6B;"><carbon-data-structured class="np-icoon" style="color: #1B2A6B;" /><strong>Informatiemodel</strong></div>
+  <div class="np-arrow" style="align-self: center;">&#8594;</div>
+  <div class="np-step np-stap" style="border-top: 4px solid #C2577A;"><carbon-network-3 class="np-icoon" style="color: #C2577A;" /><strong>Interactieketen</strong></div>
+  <div class="np-arrow" style="align-self: center;">&#8594;</div>
+  <div class="np-step np-stap" style="border-top: 4px solid #6B7280;"><carbon-document class="np-icoon" style="color: #374151;" /><strong>Interactie&shy;specificaties</strong></div>
 </div>
 <div class="np-terug"><carbon-recycle style="font-size: 0.9rem; vertical-align: -0.15rem;" /> volgende: leerroute 2 en 3, met instellingen en leveranciers</div>
 
 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin-top: 0.9rem;">
-  <div class="np-card accent-green np-klein"><div class="np-kop"><carbon-arrow-right class="np-icoon2" style="color: #00AF81;" /> Doorzetten</div><small>informatiemodel en voorbeelden</small></div>
+  <div class="np-card accent-orange np-klein"><div class="np-kop"><carbon-flag class="np-icoon2" style="color: #DD784B;" /> Doel over twee maanden</div><small>reviewbare interactieketenspecificatie, met leveranciers</small></div>
   <div class="np-card accent-blue np-klein"><div class="np-kop"><carbon-partnership class="np-icoon2" /> Verbinden met andere pijlers binnen Npuls</div><small>eduXchange, eduID, leeruitkomsten</small></div>
 </div>
 
 <style scoped>
-.fill { padding: 0.9rem 1.6rem; justify-content: flex-start; }
+.fill { padding: 0.9rem 1.4rem; }
 h1 { font-size: 1.75rem !important; line-height: 1.1; margin: 0; }
-.np-onderkop { margin-top: 0.9rem; font-size: 0.86rem; font-weight: 700; color: var(--np-dark-blue); }
+.np-onderkop { margin-top: 0.8rem; font-size: 0.84rem; font-weight: 700; color: var(--np-dark-blue); }
 .np-vier { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.7rem; margin-top: 0.35rem; }
 .np-klein { padding: 0.45rem 0.7rem; margin: 0; }
 .np-klein small { font-size: 0.78rem; display: block; color: var(--np-mid-gray); }
-.np-kop { font-weight: 700; font-size: 0.9rem; line-height: 1.25; }
-.np-stap { flex: 1; padding: 0.4rem 0.3rem; align-items: center; justify-content: center; text-align: center; }
-.np-stap strong { font-size: 0.8rem; }
-.np-icoon { font-size: 1.2rem; }
+.np-kop { font-weight: 700; font-size: 0.88rem; line-height: 1.25; }
+.np-stap { flex: 1; padding: 0.4rem 0.2rem; align-items: center; justify-content: center; text-align: center; }
+.np-stap strong { font-size: 0.72rem; color: var(--np-dark-blue); line-height: 1.2; }
+.np-icoon { font-size: 1.1rem; }
 .np-icoon2 { font-size: 1rem; color: var(--np-blue); vertical-align: -0.15rem; }
 .np-terug { margin-top: 0.35rem; text-align: center; font-size: 0.8rem; color: var(--np-mid-gray); border-top: 2px dashed var(--np-light-gray); padding-top: 0.3rem; }
 </style>
@@ -582,26 +555,27 @@ h1 { font-size: 1.75rem !important; line-height: 1.1; margin: 0; }
 </div>
 
 <!--
-Wat er ligt, is opgeleverd als voorstel. Het informatiemodel versie 0.2 staat in Public, de openbare
-publicatie van OKx (PR Public #131, gemerged 27 oktober). De opleiding van Jochem staat in 67 platen
-over acht fasen in het informatiemodel (PR meta #314, ter beoordeling). Drie interactieketens zijn
-uitgewerkt tot op het bericht (PR meta #373, #387, #364, ter beoordeling). Hoofdplaat 1.7a draagt de
-stroom uit de casus van mboRijnland (PR meta #400 gemerged, plaat in PR Public #133 ter beoordeling).
-Van de 26 architectuurbesluiten in Public staan er 25 op voorstel en is er een vervangen; de releases
-zijn een pre-release (0.0.1) en een concept (0.0.2). De vorm van wat OKx uitbrengt ligt nog open.
+Samenvatting van de voortgang aan de techniekkant. Opgeleverd, als voorstel: het informatiemodel
+versie 0.2 in Public, de openbare publicatie van OKx (PR Public #131, gemerged 27 oktober); de
+opleiding van Jochem in 67 platen over acht fasen (PR meta #314, ter beoordeling); een eerste concept
+van de interactieketens voor drie onderdelen (PR meta #373, #387, #364, ter beoordeling); hoofdplaat
+1.7a met de stroom uit de casus van mboRijnland (PR meta #400 gemerged, plaat in PR Public #133 ter
+beoordeling). Van de 26 architectuurbesluiten in Public staan er 25 op voorstel en is er een vervangen;
+de releases zijn een pre-release (0.0.1) en een concept (0.0.2).
 
-De koers: een persona, de leerroute die hij loopt, die leerroute stap voor stap uitgewerkt in het
-informatiemodel, en wat daarbij ontbreekt, komt in het informatiemodel. Daarna de volgende leerroute:
-leerroute 2 (Larissa) en 3 (Linda), samen met instellingen en leveranciers. Zo kwam bijvoorbeeld de
-nominale leerroute boven water. OKx zet door op het informatiemodel en de voorbeelden.
+De koers: een persona, de leerroute die hij loopt, die leerroute stap voor stap uitgewerkt, de
+begrippen die daarbij ontbreken, het informatiemodel, en dan de interactieketen op basis van waarde
+voor student en instelling, met de interactiespecificaties als laatste stap. Daarna de volgende
+leerroute: 2 (Larissa) en 3 (Linda), samen met instellingen en leveranciers.
 
-OKx verbindt met de andere pijlers binnen Npuls: eduXchange voor de catalogus, eduID en het inrichten
-van toegang, en de werkgroep leeruitkomsten voor de sleutel over de pijlers heen. Binnen de eigen
-pijler Leren Zonder Drempels raakt OKx ook de afsprakenset voor toetsafname (OKE) en het project voor
-aanmelden, inschrijven en intekenen (AII). De sectorketen staat ter beoordeling in PR meta #300.
+Het doel: over twee maanden een reviewbare interactieketenspecificatie die ter review naar de
+leveranciers gaat. Ondertussen blijft OKx verbinden met de andere pijlers binnen Npuls: eduXchange
+voor de catalogus, eduID en het inrichten van toegang, en de werkgroep leeruitkomsten. Binnen de eigen
+pijler Leren Zonder Drempels raakt OKx de afsprakenset voor toetsafname (OKE) en het project voor
+aanmelden, inschrijven en intekenen (AII). Deze richting zetten we door.
 
 Bron: besluiten in Public, Referentiemateriaal/adr/; releases op de releasepagina van
-Npuls-OKx/Public; leerroute 2 en 3 als volgende persona's: SI-afstemming 28 oktober en informatiemodel
-en ontwerpvragen 29 oktober (Jamie); pijlers: deck alignment Npuls-pijlers 21 september
-(presentaties/src/260921_alignment_npuls_pijlers.md); nominale leerroute: PR meta #314, fase 2.
+Npuls-OKx/Public; leerroute 2 en 3: SI-afstemming 28 oktober en informatiemodel en ontwerpvragen 29
+oktober (Jamie); pijlers: deck alignment Npuls-pijlers 21 september; doel van twee maanden: de
+opdrachtgever, 30 oktober 2026 (issue meta #462).
 -->
