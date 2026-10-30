@@ -22,8 +22,8 @@ De selectie is het werk; het tekenen kost seconden. Een plaat hertekenen na een 
 | [`specificatie-hoofdvraag`](specificatie-hoofdvraag.svg) | wat er in concept ligt tegenover wat open staat, met de route ernaartoe | de landingspagina, de leesroute |
 | [`keuzeniveaus`](keuzeniveaus.svg) | de vier niveaus van keuze, met de leerroutetekeningen van Npuls | de leesroute, [de aanleiding](../../context.md#aanleiding) |
 | [`aanleiding`](aanleiding.svg) | de redenering onder de standaard, de waarde voor drie groepen, en de tegenvraag van een leverancier | de leesroute, [de aanleiding](../../context.md#aanleiding) |
-| [`fasen`](fasen.svg) | specificatie, bouw, adoptie, borging, met 2032 als eindpunt | de leesroute, deel 6 |
-| [`besluiten`](besluiten.svg) | de besluiten die de rest van het werk dragen | de leesroute, deel 5 |
+| [`fasen`](fasen.svg) | specificatie, bouw, adoptie, borging, met 2032 als eindpunt | de leesroute, deel 7 |
+| [`besluiten`](besluiten.svg) | de besluiten die de rest van het werk dragen | de leesroute, deel 6 |
 
 ## Bronnen
 
