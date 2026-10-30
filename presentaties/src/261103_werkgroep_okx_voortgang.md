@@ -57,11 +57,12 @@ specificatie. Bron: issue meta #462.
   </div>
   <div class="np-card accent-green np-mini">
     <carbon-user-multiple class="np-pic" style="color: var(--np-green);" />
-    <div class="np-kop">Review verwerkt</div>
+    <div class="np-kop">Beoordeling verwerkt</div>
     <small>33 bevindingen</small>
   </div>
-  <div class="np-bijschrift">Fase 2: de opleiding planbaar gemaakt</div>
-  <div class="np-status">Status: ter review</div>
+  <div class="np-kern">Een school ziet haar eigen werk terug in het model</div>
+  <div class="np-bijschrift">Fase 2: de specificatie planbaar gemaakt</div>
+  <div class="np-status">Status: ter beoordeling</div>
 </div>
 
 </div>
@@ -78,6 +79,8 @@ h1 { font-size: 1.75rem !important; line-height: 1.1; margin: 0 0 0.35rem; }
 .np-kop { font-weight: 700; font-size: 0.86rem; line-height: 1.25; }
 .np-bijschrift { font-size: 0.78rem; color: var(--np-mid-gray); margin-top: 0.4rem; }
 .np-status { font-size: 0.78rem; color: var(--np-mid-gray); margin-top: 0.3rem; }
+.np-kern { font-weight: 700; font-size: 0.9rem; color: var(--np-dark-blue); margin-top: 0.6rem; background: #fff; }
+.np-bijschrift, .np-status { background: #fff; display: table; }
 </style>
 
 </div>
@@ -94,11 +97,11 @@ De planner plant het keuzedeel vooraf op inzetbare capaciteit en een prognose, e
 een geplande groep. Eerst toonde het voorbeeld alleen vraaggestuurd plannen; een planner die zijn
 eigen vorm niet terugvindt, legt het voorbeeld weg.
 
-De 33 bevindingen uit de review van Niels zijn verwerkt; vijftien vragen staan klaar voor de
+De 33 bevindingen uit de beoordeling door Niels zijn verwerkt; vijftien vragen staan klaar voor de
 kerngroep techniek.
 
-Bron: meta #314 (voorbeelduitwerking, ter review), meta #414 (variant capaciteitsgestuurd, ter
-review), meta #404 (varianten mogelijk gemaakt, gemerged 26 oktober).
+Bron: meta #314 (voorbeelduitwerking, PR ter beoordeling), meta #414 (variant capaciteitsgestuurd, PR ter
+beoordeling), meta #404 (varianten mogelijk gemaakt, gemerged 26 oktober).
 -->
 
 ---
@@ -128,10 +131,11 @@ review), meta #404 (varianten mogelijk gemaakt, gemerged 26 oktober).
   <div class="np-card accent-green np-mini">
     <mdi-key-variant class="np-pic" style="color: var(--np-green);" />
     <div class="np-kop">Leeruitkomst</div>
-    <small>schrijfvorm volgens de landelijke handleiding</small>
-    <div class="np-pil">in de kennisbank, voorstel</div>
+    <small>de sleutel, geschreven volgens de landelijke handleiding</small>
+    <div class="np-pil">werkversie, voorstel</div>
   </div>
-  <div class="np-bijschrift">Versie 0.2, in Public als voorstel</div>
+  <div class="np-kern">Een gemeenschappelijke taal, door leveranciers gelezen</div>
+  <div class="np-bijschrift">Versie 0.2, gepubliceerd als voorstel</div>
 </div>
 
 </div>
@@ -148,6 +152,8 @@ h1 { font-size: 1.75rem !important; line-height: 1.1; margin: 0 0 0.35rem; }
 .np-kop { font-weight: 700; font-size: 0.86rem; line-height: 1.25; }
 .np-pil { margin-top: 0.3rem; display: inline-block; background: #F1F3F5; border-radius: 999px; padding: 0.1rem 0.55rem; font-size: 0.7rem; color: var(--np-dark-blue); }
 .np-bijschrift { font-size: 0.78rem; color: var(--np-mid-gray); margin-top: 0.4rem; }
+.np-kern { font-weight: 700; font-size: 0.9rem; color: var(--np-dark-blue); margin-top: 0.6rem; background: #fff; }
+.np-bijschrift, .np-status { background: #fff; display: table; }
 </style>
 
 </div>
@@ -156,18 +162,19 @@ h1 { font-size: 1.75rem !important; line-height: 1.1; margin: 0 0 0.35rem; }
 Het informatiemodel is de gemeenschappelijke taal: van kwalificatiekader tot resultaat, in zeven
 families van begrippen, de kolommen op de plaat. Leveranciers hebben het in september gelezen en
 vijftien opmerkingen geplaatst; dertien daarvan zijn verwerkt. Versie 0.2 staat sinds 27 oktober
-in Public, met 82 objecttypen en 230 relaties. Het is een voorstel: er is nog niets bekrachtigd.
+in Public, de openbare publicatie van OKx, met 82 objecttypen en 230 relaties. Het is een voorstel.
 
 Het model draagt nu ook het hoger onderwijs: de minor staat naast het keuzedeel, en het
 kwalificatiekader kent naast het mbo een tak voor het hoger onderwijs.
 
 De leeruitkomst is de sleutel van het model. Hoe zij geschreven wordt, volgt de landelijke
 Handleiding Formuleren leeruitkomsten (NLQF, het Tuning-model), en een script controleert of een
-leeruitkomst die vorm draagt. OKx schrijft daarmee geen taxonomie voor; de onderwijskundige keuze
-blijft bij de instelling. Dit staat in de kennisbank (meta) en nog niet in Public.
+leeruitkomst die vorm draagt. De keuze voor een taxonomie ligt bij de instelling. Dit staat als
+voorstel in de kennisbank (meta).
 
-Bron: Public #104 (reviewronde), Public #131 (versie 0.2, gemerged 27 oktober), meta #356 (minor
-en hoger onderwijs), meta #349 (leeruitkomst, alleen in meta).
+Bron: Public #104 (reviewronde, PR gemerged 13 oktober), Public #131 (versie 0.2, PR gemerged 27
+oktober), meta #356 (minor en hoger onderwijs, PR gemerged in meta, in Public via #131), meta #349
+(leeruitkomst, PR gemerged in meta).
 -->
 
 ---
@@ -187,7 +194,7 @@ en hoger onderwijs), meta #349 (leeruitkomst, alleen in meta).
 <div class="np-onder">
   <div class="np-card accent-orange np-mini" style="flex: 1;">
     <div class="np-kop"><carbon-chart-line class="np-pic" style="color: var(--np-orange);" /> Casus mboRijnland</div>
-    <small>Wat een student al afrondde, verschijnt niet opnieuw als keuze</small>
+    <small>Het keuzesysteem weet wat een student al afrondde</small>
   </div>
   <div class="np-card accent-blue np-mini" style="flex: 1.6;">
     <div class="np-kop"><carbon-map class="np-pic" /> Leerroute 4 tot en met 9</div>
@@ -202,7 +209,7 @@ en hoger onderwijs), meta #349 (leeruitkomst, alleen in meta).
   </div>
 </div>
 
-<div class="np-status">Status: ter review</div>
+<div class="np-status">Status: hoofdplaat ter beoordeling, tekeningen in de kennisbank</div>
 
 <style scoped>
 .fill { padding: 0.9rem 1.1rem; }
@@ -225,8 +232,9 @@ h1 { font-size: 1.75rem !important; line-height: 1.1; margin: 0 0 0.35rem; }
 <!--
 Wat scholen inbrengen, landt in de keten. In de gesprekken met koploperscholen bracht mboRijnland een
 casus in waarvoor een stroom ontbrak. Op de hoofdplaat, versie 1.7a, is die nu toegevoegd (de
-oranje ring): het studentvolgsysteem meldt het studentkeuzesysteem welk opleidingsprogramma of welke
-onderwijseenheid een student heeft voltooid, zodat dat niet opnieuw als keuze verschijnt.
+oranje ring): het studentvolgsysteem meldt het studentkeuzesysteem welk resultaat een student al
+behaalde op een opleidingsprogramma of onderwijseenheid, zodat het keuzesysteem dat onderdeel uit
+de keuzes kan laten.
 
 Onderaan de tekeningen van leerroute 4 tot en met 9 uit de publicatie van Npuls: personaliseren
 binnen de instelling, binnen de sector en over sectoren heen, vrije keuze, bundelen en stapelen.
@@ -267,7 +275,7 @@ review), meta #448 (tekeningen, gemerged 28 oktober).
   <div class="np-step green np-stap">
     <carbon-document class="np-groot" style="color: var(--np-green);" />
     <strong>Technische specificatie</strong>
-    <small>per systeem af te leiden</small>
+    <small>per systeem, eerst de catalogus</small>
   </div>
 </div>
 
@@ -276,11 +284,11 @@ review), meta #448 (tekeningen, gemerged 28 oktober).
 </div>
 
 <div style="margin-top: 1rem; font-size: 0.86rem; color: var(--np-dark-blue); text-align: center;">
-  Gebouwd op de Open Education API (OEAPI), de bestaande standaard voor onderwijsdata
+  Sluit aan op de Open Education API, een bestaande standaard
 </div>
 
 <div style="margin-top: 0.6rem; font-size: 0.78rem; color: var(--np-mid-gray); text-align: center;">
-  Status: ter review
+  Status: ter beoordeling
 </div>
 
 <style scoped>
@@ -308,11 +316,11 @@ deze student kiesbaar is, met de reden bij een keuzedeel dat niet kan; casus apo
 Een proef laat zien dat uit die uitwerking per systeem een technische specificatie (een
 OpenAPI-document) af te leiden is; voor de onderwijscatalogus zijn dat 22 operaties.
 
-OKx bouwt op de Open Education API. Op verzoek van de beheerder van die standaard gebeurt dat als een
+OKx sluit aan op de Open Education API. Op verzoek van de beheerder van die standaard gebeurt dat als een
 laag bovenop een vaste versie van de standaard, zodat OKx met de standaard in de pas blijft.
 
 Bron: meta #373 (aanbod), meta #387 (instroom), meta #364 (keuzedelen), meta #377 (proef OpenAPI),
-alle vier ter review; meta #270 (OEAPI als vaste versie, gemerged 1 oktober).
+alle vier PR ter beoordeling; meta #270 (OEAPI als vaste versie, gemerged 1 oktober).
 -->
 
 ---
@@ -328,7 +336,7 @@ alle vier ter review; meta #270 (OEAPI als vaste versie, gemerged 1 oktober).
   <div style="font-weight: 700; font-size: 1rem;">De hoofdvraag: wat OKx bouwt</div>
   <div style="margin-top: 0.35rem; display: flex; gap: 0.45rem; flex-wrap: wrap;">
     <span class="np-pil">vorm van de oplevering</span>
-    <span class="np-pil">welk deel een instelling invoert</span>
+    <span class="np-pil">welk deel een instelling overneemt</span>
     <span class="np-pil">wat een instelling moet kunnen</span>
   </div>
 </div>
@@ -338,9 +346,9 @@ alle vier ter review; meta #270 (OEAPI als vaste versie, gemerged 1 oktober).
   <div class="np-arrow" style="align-self: center;">&#8594;</div>
   <div class="np-step green np-stap"><carbon-map class="np-icoon" style="color: var(--np-green);" /><strong>Leerroute</strong></div>
   <div class="np-arrow" style="align-self: center;">&#8594;</div>
-  <div class="np-step green np-stap"><carbon-flow class="np-icoon" style="color: var(--np-green);" /><strong>Stap voor stap uitgewerkt</strong></div>
+  <div class="np-step green np-stap"><carbon-flow class="np-icoon" style="color: var(--np-green);" /><strong>Per stap uitgewerkt</strong></div>
   <div class="np-arrow" style="align-self: center;">&#8594;</div>
-  <div class="np-step orange np-stap"><carbon-search class="np-icoon" style="color: var(--np-orange);" /><strong>Wat ontbreekt</strong></div>
+  <div class="np-step orange np-stap"><carbon-search class="np-icoon" style="color: var(--np-orange);" /><strong>Ontbrekende begrippen</strong></div>
   <div class="np-arrow" style="align-self: center;">&#8594;</div>
   <div class="np-step blue np-stap"><carbon-data-structured class="np-icoon" /><strong>Informatiemodel</strong></div>
 </div>
@@ -350,8 +358,8 @@ alle vier ter review; meta #270 (OEAPI als vaste versie, gemerged 1 oktober).
 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin-top: 1.2rem;">
   <div class="np-card accent-orange np-mini">
     <carbon-document class="np-icoon" style="color: var(--np-orange);" />
-    <div class="np-kop">Wat er ligt is een voorstel</div>
-    <small>nog geen release</small>
+    <div class="np-kop">Alles is voorstel</div>
+    <small>uitgave wacht op de vorm</small>
   </div>
   <div class="np-card accent-blue np-mini">
     <carbon-partnership class="np-icoon" />
@@ -376,22 +384,28 @@ h1 { font-size: 1.75rem !important; line-height: 1.1; margin: 0; }
 </div>
 
 <!--
-De stand eerlijk: wat er ligt is een voorstel. Van de 26 architectuurbesluiten in Public staan er 25
+Wat er ligt is een voorstel. Van de 26 architectuurbesluiten in Public staan er 25
 op voorstel en is er een vervangen; de releases zijn een pre-release (0.0.1) en een concept (0.0.2).
-Er is nog geen release, omdat de vorm van wat OKx uitbrengt zelf nog openligt.
+Er is nog geen vastgestelde release, wel een pre-release en een concept; de vorm van wat OKx
+uitbrengt ligt zelf nog open.
 
 De hoofdvraag is wat OKx bouwt. In de woorden van het team: "Ik weet niet wat we bouwen, en daarvoor
-hebben we de sector nodig." Er wordt een berg afhankelijkheden ingevuld die ontbraken. Drie
+hebben we de sector nodig." OKx vult de afhankelijkheden in die ontbraken. Drie
 vraaggebieden: wat OKx oplevert en in welke vorm (meta #342, #365), welk deel van de afspraken een
-instelling invoert (meta #447), en wat een instelling moet kunnen om een leerroute te realiseren
+instelling overneemt (meta #447), en wat een instelling moet kunnen om een leerroute te realiseren
 (Public #100, meta #440).
 
 De route om die vragen te beantwoorden: een persona, de leerroute die hij loopt, die leerroute stap
-voor stap uitgewerkt in het informatiemodel, en wat daarbij ontbreekt, vult het informatiemodel aan.
+voor stap uitgewerkt in het informatiemodel, en wat daarbij ontbreekt, komt in het informatiemodel.
 Daarna de volgende leerroute. Zo kwam bijvoorbeeld de nominale leerroute boven water. Dat gebeurt
 samen met instellingen en leveranciers. OKx zet door op het informatiemodel en de voorbeelden.
 
 Samen met de architecten van Npuls (de architectuursync) wordt de vraag concreet: waar OKx staat in
 de keten, naast de afsprakenset voor toetsafname (OKE) en het zusterproject voor aanmelden,
-inschrijven en intekenen (AII). De plaat daarvan staat ter review in meta #300.
+inschrijven en intekenen (AII). De plaat daarvan staat ter beoordeling in meta #300.
+
+Bron: besluiten in Public, Referentiemateriaal/adr/ (status per besluit); releases op de
+releasepagina van Npuls-OKx/Public; vraaggebieden in de issues meta #342, #365, #447 en #440 en de
+PR Public #100 (open); nominale leerroute: meta #314, fase 2 (PR open); sectorketen: meta #300 (PR
+open).
 -->
