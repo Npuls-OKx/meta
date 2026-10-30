@@ -26,9 +26,9 @@ Dat vraagt een document om te bekijken, met de tekst voor de details die exact m
 5. **Toets de vorm en de payloads.**
 
    ```bash
-   python3 scripts/controleer-interactiespec-vorm.py <de map>
-   python3 scripts/controleer-interactiespec.py <de map>
-   python3 scripts/validate-docs.py <de map>
+   python3 tools/scripts/controleer-interactiespec-vorm.py <de map>
+   python3 tools/scripts/controleer-interactiespec.py <de map>
+   python3 tools/scripts/validate-docs.py <de map>
    ```
 
 6. **Kijk ernaar.** Een document dat elke maat haalt kan nog steeds het verkeerde zeggen. Open het en lees hoofdstuk 1 als een lezer die de snede niet kent.
@@ -137,7 +137,7 @@ grond staat per veldrij in de kolom Grond, en dat is genoeg.
 
 ## De ERD per bericht
 
-`scripts/teken-bericht-erd.py` schrijft per berichtsectie een mermaid-diagram tussen de
+`tools/scripts/teken-bericht-erd.py` schrijft per berichtsectie een mermaid-diagram tussen de
 merktekens `<!-- erd -->` en `<!-- /erd -->`.
 
 | Wat | Waar het vandaan komt |
@@ -159,7 +159,7 @@ schema's en het model, en geen fout van het diagram.
 
 ## De maten, en waarom zij er zijn
 
-`scripts/controleer-interactiespec-vorm.py` draagt deze maten, en is de bron: een maat die hier en daar uiteenloopt is geen maat.
+`tools/scripts/controleer-interactiespec-vorm.py` draagt deze maten, en is de bron: een maat die hier en daar uiteenloopt is geen maat.
 
 | Maat | Waarom |
 |---|---|
@@ -175,7 +175,7 @@ Die laatste ging een ronde mis in de andere richting. Op de regel "een kop zegt 
 
 ## Het bewijs dat het bouwbaar is
 
-`scripts/controleer-interactiespec.py` vindt elke voorbeeldpayload in de specificatie en valideert haar tegen het schema dat de afbakening van haar codeblok aanwijst: na de drie backquotes komt `json schema=intake-outcome`. Twee namen achter elkaar, met een komma ertussen, staan voor een dragend schema met een overlay erop; de payload gaat dan tegen beide. Het script meldt daarnaast elke sleutel die in geen van de schema's voorkomt, en dat is de controle die op Public ontbrak: daar valideren 84 van de 96 sleutels in de gepubliceerde voorbeeldpayloads tegen geen enkel schema ([Public#132](https://github.com/Npuls-OKx/Public/issues/132)).
+`tools/scripts/controleer-interactiespec.py` vindt elke voorbeeldpayload in de specificatie en valideert haar tegen het schema dat de afbakening van haar codeblok aanwijst: na de drie backquotes komt `json schema=intake-outcome`. Twee namen achter elkaar, met een komma ertussen, staan voor een dragend schema met een overlay erop; de payload gaat dan tegen beide. Het script meldt daarnaast elke sleutel die in geen van de schema's voorkomt, en dat is de controle die op Public ontbrak: daar valideren 84 van de 96 sleutels in de gepubliceerde voorbeeldpayloads tegen geen enkel schema ([Public#132](https://github.com/Npuls-OKx/Public/issues/132)).
 
 Draai het script met de schemamap van Public ernaast. Ontbreekt die werkmap, dan eindigt het met de code voor geen oordeel in plaats van met een loos alarm.
 
