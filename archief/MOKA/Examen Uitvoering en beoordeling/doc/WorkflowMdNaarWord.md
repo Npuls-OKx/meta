@@ -12,16 +12,16 @@ De MOKA koppelvlak specificaties staan in Markdown (`.md`). Voor overleg of leve
 
 In de map `scripts` staan twee scripts:
 
-- **Windows:** `scripts/md2docx.bat`
-- **Linux/macOS:** `scripts/md2docx.sh` (maak uitvoerbaar met `chmod +x scripts/md2docx.sh`)
+- **Windows:** `tools/scripts/md2docx.bat`
+- **Linux/macOS:** `tools/scripts/md2docx.sh` (maak uitvoerbaar met `chmod +x tools/scripts/md2docx.sh`)
 
 ### Gebruik
 
 | Situatie | Commando (Windows) | Commando (Linux/macOS) |
 |----------|---------------------|-------------------------|
-| Voorbeelduitwerking naar .docx (standaard) | `scripts\md2docx.bat` | `./scripts/md2docx.sh` |
-| Template naar .docx | `scripts\md2docx.bat doc\KoppelvlakSpecificatieTemplate.md` | `./scripts/md2docx.sh doc/KoppelvlakSpecificatieTemplate.md` |
-| Eigen invoer en uitvoer | `scripts\md2docx.bat doc\mijn.md doc\mijn.docx` | `./scripts/md2docx.sh doc/mijn.md doc/mijn.docx` |
+| Voorbeelduitwerking naar .docx (standaard) | `scripts\md2docx.bat` | `./tools/scripts/md2docx.sh` |
+| Template naar .docx | `scripts\md2docx.bat doc\KoppelvlakSpecificatieTemplate.md` | `./tools/scripts/md2docx.sh doc/KoppelvlakSpecificatieTemplate.md` |
+| Eigen invoer en uitvoer | `scripts\md2docx.bat doc\mijn.md doc\mijn.docx` | `./tools/scripts/md2docx.sh doc/mijn.md doc/mijn.docx` |
 
 Zonder argumenten wordt `doc/KoppelvlakSpecificatieDocument.md` geconverteerd naar `doc/KoppelvlakSpecificatieDocument.docx`.
 
