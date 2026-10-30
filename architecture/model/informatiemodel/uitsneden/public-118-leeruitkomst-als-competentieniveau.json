@@ -1,182 +1,183 @@
 {
- "id": "public-118-leeruitkomst-als-competentieniveau",
- "titel": "Kan een leeruitkomst het niveau van een competentie uitdrukken?",
- "herkomst": "Reviewvraag Npuls-OKx/Public#118 van @JanHendrikvanSchaik, werkbrief Npuls-OKx/meta#336",
- "oeapi": true,
- "rij_labels": [
-  "waar de eis vandaan komt, en de eis van het hoger onderwijs",
-  "de mbo-eis, de lat, en wat hem draagt",
-  "het algemene type: de competentie"
- ],
- "objecten": [
-  {
-   "naam": "Kwalificatie dossier",
-   "rij": 0,
-   "noot": "mbo, vastgesteld door S-BB"
-  },
-  {
-   "naam": "Landelijk Opleidingsprofiel",
-   "rij": 0,
-   "merk": "toegevoegd",
-   "nummer": 1,
-   "waarom": "het kwalificatiekader van het hoger onderwijs"
-  },
-  {
-   "naam": "Kwalificatie",
-   "rij": 1,
-   "noot": "mbo"
-  },
-  {
-   "naam": "Eindkwalificatie",
-   "rij": 0,
-   "merk": "toegevoegd",
-   "nummer": 2,
-   "waarom": "het woord van het hoger onderwijs voor dezelfde eis"
-  },
-  {
-   "naam": "Kwalificatieniveau",
-   "rij": 1,
-   "kolom": "Kwalificatiekader",
-   "merk": "voorstel",
-   "nummer": 3,
-   "waarom": "NLQF 1 tot 8, met EQF als Europese equivalent"
-  },
-  {
-   "naam": "Leeruitkomst",
-   "rij": 1,
-   "noot": "OEAPI: LearningOutcome"
-  },
-  {
-   "naam": "Competenties / Skills",
-   "rij": 2,
-   "noot": "CompetentNL is het kader hierachter"
-  }
- ],
- "ontbreekt": [
-  {
-   "van": "Kwalificatie",
-   "naar": "Kwalificatieniveau",
-   "soort": "Association",
-   "label": "op niveau",
-   "waarom": "het mbo-dossier landt op NLQF 1 tot 4; de plaat kent die lat nog niet"
-  },
-  {
-   "van": "Eindkwalificatie",
-   "naar": "Kwalificatieniveau",
-   "soort": "Association",
-   "label": "op niveau",
-   "waarom": "het hoger onderwijs landt op NLQF 5 tot 8, op diezelfde lat"
-  },
-  {
-   "van": "Kwalificatieniveau",
-   "naar": "Leeruitkomst",
-   "soort": "Association",
-   "label": "drukt dat niveau uit",
-   "waarom": "hiermee drukt dezelfde formulering een mbo- en een ho-niveau uit"
-  }
- ],
- "voorbeeld": [
-  {
-   "kop": "Uit een kwalificatiedossier, mbo",
-   "bij": "Leeruitkomst",
-   "zin": "Voert medicatiebewaking uit onder begeleiding in de leerapotheek",
-   "delen": [
+  "id": "public-118-leeruitkomst-als-competentieniveau",
+  "titel": "Kan een leeruitkomst het niveau van een competentie uitdrukken?",
+  "herkomst": "Reviewvraag Npuls-OKx/Public#118 van @JanHendrikvanSchaik, werkbrief Npuls-OKx/meta#336",
+  "versie": "0.1.0",
+  "oeapi": true,
+  "rij_labels": [
+    "waar de eis vandaan komt, en de eis van het hoger onderwijs",
+    "de mbo-eis, de lat, en wat hem draagt",
+    "het algemene type: de competentie"
+  ],
+  "objecten": [
     {
-     "deel": "actief werkwoord",
-     "waarde": "voert uit"
+      "naam": "Kwalificatie dossier",
+      "rij": 0,
+      "noot": "mbo, vastgesteld door S-BB"
     },
     {
-     "deel": "type",
-     "waarde": "kerntaak B1-K1 farmaceutische patientenzorg"
+      "naam": "Landelijk Opleidingsprofiel",
+      "rij": 0,
+      "merk": "toegevoegd",
+      "nummer": 1,
+      "waarom": "het kwalificatiekader van het hoger onderwijs"
     },
     {
-     "deel": "onderwerp",
-     "waarde": "medicatiebewaking"
+      "naam": "Kwalificatie",
+      "rij": 1,
+      "noot": "mbo"
     },
     {
-     "deel": "standaard",
-     "waarde": "onder begeleiding"
+      "naam": "Eindkwalificatie",
+      "rij": 0,
+      "merk": "toegevoegd",
+      "nummer": 2,
+      "waarom": "het woord van het hoger onderwijs voor dezelfde eis"
     },
     {
-     "deel": "context",
-     "waarde": "in de leerapotheek"
+      "naam": "Kwalificatieniveau",
+      "rij": 1,
+      "kolom": "Kwalificatiekader",
+      "merk": "voorstel",
+      "nummer": 3,
+      "waarom": "NLQF 1 tot 8, met EQF als Europese equivalent"
+    },
+    {
+      "naam": "Leeruitkomst",
+      "rij": 1,
+      "noot": "OEAPI: LearningOutcome"
+    },
+    {
+      "naam": "Competenties / Skills",
+      "rij": 2,
+      "noot": "CompetentNL is het kader hierachter"
     }
-   ],
-   "niveau": "NLQF 4, taxonomie Romiszowski",
-   "gradatie": "Dezelfde competentie een niveau hoger: Biedt farmaceutische patientenzorg in een levensechte apotheekomgeving.",
-   "vindplaats": "zin en gradatie uit modeldoorloop-lr1.json, kwalificatiedossier Apothekersassistent van S-BB; de vijf plekken uit begrippen/leeruitkomst-vorm/README.md",
-   "laag": {
-    "objecttype": "Competenties / Skills",
-    "voorlopig": "voorlopig ingevuld, de vaardigheidscodes zijn niet geverifieerd (meta#366)",
-    "regels": [
-     {
-      "kader": "CompetentNL laag 2",
-      "code": "CNL-V-2-031",
-      "omschrijving": "Communiceren met clienten en patienten"
-     },
-     {
-      "kader": "CompetentNL laag 3",
-      "code": "CNL-V-3-114",
-      "omschrijving": "Medicatiebewaking uitvoeren"
-     },
-     {
-      "kader": "ISCED-F kennisgebied",
-      "code": "0916",
-      "omschrijving": "Farmacie"
-     }
-    ]
-   }
-  },
-  {
-   "kop": "Uit een opleidingsprofiel, hoger onderwijs",
-   "bij": "Leeruitkomst",
-   "zin": "Vertaalt een probleem naar een onderzoekstrategie en voert het onderzoek uit",
-   "delen": [
+  ],
+  "ontbreekt": [
     {
-     "deel": "actief werkwoord",
-     "waarde": "vertaalt, voert uit"
+      "van": "Kwalificatie",
+      "naar": "Kwalificatieniveau",
+      "soort": "Association",
+      "label": "op niveau",
+      "waarom": "het mbo-dossier landt op NLQF 1 tot 4; de plaat kent die lat nog niet"
     },
     {
-     "deel": "type",
-     "waarde": "domeincompetentie 1 Onderzoeken, Bachelor of Applied Science"
+      "van": "Eindkwalificatie",
+      "naar": "Kwalificatieniveau",
+      "soort": "Association",
+      "label": "op niveau",
+      "waarom": "het hoger onderwijs landt op NLQF 5 tot 8, op diezelfde lat"
     },
     {
-     "deel": "onderwerp",
-     "waarde": "een probleem naar een onderzoekstrategie"
-    },
-    {
-     "deel": "standaard",
-     "waarde": "competentieniveau III van vier"
-    },
-    {
-     "deel": "context",
-     "waarde": "binnen de eigen werkomgeving"
+      "van": "Kwalificatieniveau",
+      "naar": "Leeruitkomst",
+      "soort": "Association",
+      "label": "drukt dat niveau uit",
+      "waarom": "hiermee drukt dezelfde formulering een mbo- en een ho-niveau uit"
     }
-   ],
-   "niveau": "NLQF 6 en EQF 6, taxonomie SOLO",
-   "gradatie": "Dezelfde competentie een niveau lager, met een andere standaard: kiest onder begeleiding een onderzoeksstrategie.",
-   "vindplaats": "Landelijk Opleidingsprofiel hbo-bachelor Technische Natuurkunde, december 2016, paragraaf 5.2 en bijlage IV; het document noemt EQF niveau 6 bij de bachelor",
-   "laag": {
-    "objecttype": "Competenties / Skills",
-    "voorlopig": "voorlopig ingevuld; CompetentNL metadateert eerst de mbo-opleidingsnormen",
-    "regels": [
-     {
-      "kader": "CompetentNL laag 2",
-      "code": "CNL-V-2-007",
-      "omschrijving": "Onderzoek opzetten en uitvoeren"
-     },
-     {
-      "kader": "CompetentNL laag 3",
-      "code": "CNL-V-3-022",
-      "omschrijving": "Onderzoeksstrategie bepalen"
-     },
-     {
-      "kader": "ISCED-F kennisgebied",
-      "code": "0533",
-      "omschrijving": "Natuurkunde"
-     }
-    ]
-   }
-  }
- ]
+  ],
+  "voorbeeld": [
+    {
+      "kop": "Uit een kwalificatiedossier, mbo",
+      "bij": "Leeruitkomst",
+      "zin": "Voert medicatiebewaking uit onder begeleiding in de leerapotheek",
+      "delen": [
+        {
+          "deel": "actief werkwoord",
+          "waarde": "voert uit"
+        },
+        {
+          "deel": "type",
+          "waarde": "kerntaak B1-K1 farmaceutische patientenzorg"
+        },
+        {
+          "deel": "onderwerp",
+          "waarde": "medicatiebewaking"
+        },
+        {
+          "deel": "standaard",
+          "waarde": "onder begeleiding"
+        },
+        {
+          "deel": "context",
+          "waarde": "in de leerapotheek"
+        }
+      ],
+      "niveau": "NLQF 4, taxonomie Romiszowski",
+      "gradatie": "Dezelfde competentie een niveau hoger: Biedt farmaceutische patientenzorg in een levensechte apotheekomgeving.",
+      "vindplaats": "zin en gradatie uit modeldoorloop-lr1.json, kwalificatiedossier Apothekersassistent van S-BB; de vijf plekken uit begrippen/leeruitkomst-vorm/README.md",
+      "laag": {
+        "objecttype": "Competenties / Skills",
+        "voorlopig": "voorlopig ingevuld, de vaardigheidscodes zijn niet geverifieerd (meta#366)",
+        "regels": [
+          {
+            "kader": "CompetentNL laag 2",
+            "code": "CNL-V-2-031",
+            "omschrijving": "Communiceren met clienten en patienten"
+          },
+          {
+            "kader": "CompetentNL laag 3",
+            "code": "CNL-V-3-114",
+            "omschrijving": "Medicatiebewaking uitvoeren"
+          },
+          {
+            "kader": "ISCED-F kennisgebied",
+            "code": "0916",
+            "omschrijving": "Farmacie"
+          }
+        ]
+      }
+    },
+    {
+      "kop": "Uit een opleidingsprofiel, hoger onderwijs",
+      "bij": "Leeruitkomst",
+      "zin": "Vertaalt een probleem naar een onderzoekstrategie en voert het onderzoek uit",
+      "delen": [
+        {
+          "deel": "actief werkwoord",
+          "waarde": "vertaalt, voert uit"
+        },
+        {
+          "deel": "type",
+          "waarde": "domeincompetentie 1 Onderzoeken, Bachelor of Applied Science"
+        },
+        {
+          "deel": "onderwerp",
+          "waarde": "een probleem naar een onderzoekstrategie"
+        },
+        {
+          "deel": "standaard",
+          "waarde": "competentieniveau III van vier"
+        },
+        {
+          "deel": "context",
+          "waarde": "binnen de eigen werkomgeving"
+        }
+      ],
+      "niveau": "NLQF 6 en EQF 6, taxonomie SOLO",
+      "gradatie": "Dezelfde competentie een niveau lager, met een andere standaard: kiest onder begeleiding een onderzoeksstrategie.",
+      "vindplaats": "Landelijk Opleidingsprofiel hbo-bachelor Technische Natuurkunde, december 2016, paragraaf 5.2 en bijlage IV; het document noemt EQF niveau 6 bij de bachelor",
+      "laag": {
+        "objecttype": "Competenties / Skills",
+        "voorlopig": "voorlopig ingevuld; CompetentNL metadateert eerst de mbo-opleidingsnormen",
+        "regels": [
+          {
+            "kader": "CompetentNL laag 2",
+            "code": "CNL-V-2-007",
+            "omschrijving": "Onderzoek opzetten en uitvoeren"
+          },
+          {
+            "kader": "CompetentNL laag 3",
+            "code": "CNL-V-3-022",
+            "omschrijving": "Onderzoeksstrategie bepalen"
+          },
+          {
+            "kader": "ISCED-F kennisgebied",
+            "code": "0533",
+            "omschrijving": "Natuurkunde"
+          }
+        ]
+      }
+    }
+  ]
 }

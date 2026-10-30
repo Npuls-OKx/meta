@@ -13,6 +13,9 @@ na een wijziging kost dus niets.
 
 Blokken die een selectie kan dragen:
 
+    Een selectie draagt een versie volgens SemVer. Die staat rechts in de voetregel en gaat mee
+    omhoog zodra de plaat verandert: minor bij nieuwe inhoud, patch bij een correctie.
+
     ladder      treden onder elkaar, oplopend. Een trede kan leeg staan, producten dragen
                 als chips, in een band vallen, of doel zijn van een terugloop
     stappen     kaarten naast elkaar met een pijl ertussen, en een lus eronder die van
@@ -503,13 +506,19 @@ def teken(sel: dict) -> str:
         deel, hoog = fn(b, RAND, y, binnen, p, ic)
         svg += deel
         y += hoog + b.get("ruimte", 28)
-    if sel.get("voet"):
+    if sel.get("voet") or sel.get("versie"):
         y += 2
+        hoogte_voet = y + 14
         svg += f'<path d="M{RAND} {y:.0f}H{w - RAND}" stroke="{p["np-light-gray"]}" stroke-width="1"/>'
         y += 14
-        for r in breek(sel["voet"], binnen, 12.5):
+        for r in breek(sel.get("voet", ""), binnen - 70, 12.5):
             svg += tekst(RAND, y + 11, r, 12.5, p["np-mid-gray"])
             y += 18
+        # De versie van de plaat zelf, rechts op dezelfde regel als de eerste voetregel.
+        if sel.get("versie"):
+            svg += (f'<text x="{w - RAND}" y="{hoogte_voet + 11:.0f}" font-family="{FONT}"'
+                    f' font-size="12.5" fill="{p["np-mid-gray"]}" text-anchor="end">'
+                    f'v{esc(sel["versie"])}</text>')
     h = y + RAND - 10
     return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h:.0f}" width="{w}"'
             f' height="{h:.0f}" role="img" aria-label="{esc(sel["titel"])}">'

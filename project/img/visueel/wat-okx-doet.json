@@ -1,6 +1,7 @@
 {
   "titel": "Systemen in een school wisselen de hele dag gegevens uit",
   "ondertitel": "OKx legt vast hoe dat gaat, zodat elke school en elke leverancier dezelfde afspraak gebruikt",
+  "versie": "0.1.0",
   "breedte": 1240,
   "blokken": [
     {
@@ -13,12 +14,30 @@
           "kleur": "#DD784B",
           "vorm": "onderling",
           "knopen": [
-            {"naam": "Onderwijscatalogus", "icoon": "catalog"},
-            {"naam": "Planning en rooster", "icoon": "calendar"},
-            {"naam": "Studentinformatie", "icoon": "data-base"},
-            {"naam": "Leeromgeving", "icoon": "education"},
-            {"naam": "Keuzesysteem", "icoon": "user-multiple"},
-            {"naam": "Toetsen en examineren", "icoon": "certificate"}
+            {
+              "naam": "Onderwijscatalogus",
+              "icoon": "catalog"
+            },
+            {
+              "naam": "Planning en rooster",
+              "icoon": "calendar"
+            },
+            {
+              "naam": "Studentinformatie",
+              "icoon": "data-base"
+            },
+            {
+              "naam": "Leeromgeving",
+              "icoon": "education"
+            },
+            {
+              "naam": "Keuzesysteem",
+              "icoon": "user-multiple"
+            },
+            {
+              "naam": "Toetsen en examineren",
+              "icoon": "certificate"
+            }
           ]
         },
         {
@@ -29,12 +48,30 @@
           "midden": "OKx-koppelvlak",
           "middenicoon": "network-3",
           "knopen": [
-            {"naam": "Onderwijscatalogus", "icoon": "catalog"},
-            {"naam": "Planning en rooster", "icoon": "calendar"},
-            {"naam": "Studentinformatie", "icoon": "data-base"},
-            {"naam": "Leeromgeving", "icoon": "education"},
-            {"naam": "Keuzesysteem", "icoon": "user-multiple"},
-            {"naam": "Toetsen en examineren", "icoon": "certificate"}
+            {
+              "naam": "Onderwijscatalogus",
+              "icoon": "catalog"
+            },
+            {
+              "naam": "Planning en rooster",
+              "icoon": "calendar"
+            },
+            {
+              "naam": "Studentinformatie",
+              "icoon": "data-base"
+            },
+            {
+              "naam": "Leeromgeving",
+              "icoon": "education"
+            },
+            {
+              "naam": "Keuzesysteem",
+              "icoon": "user-multiple"
+            },
+            {
+              "naam": "Toetsen en examineren",
+              "icoon": "certificate"
+            }
           ]
         }
       ]
@@ -44,9 +81,24 @@
       "soort": "kaarten",
       "hoogte": 112,
       "items": [
-        {"titel": "Overzichtelijk onderwijsaanbod", "toelichting": "een student ziet wat er te kiezen valt, en de school weet wat zij aanbiedt", "icoon": "catalog", "kleur": "#3D68EC"},
-        {"titel": "Haalbare onderwijslogistiek", "toelichting": "plannen en roosteren steunt op gegevens die kloppen, in plaats van op overtypen", "icoon": "calendar", "kleur": "#3D68EC"},
-        {"titel": "Betaalbaar voor de sector", "toelichting": "een leverancier bouwt de koppeling een keer, en elke school gebruikt hem", "icoon": "partnership", "kleur": "#00AF81"}
+        {
+          "titel": "Overzichtelijk onderwijsaanbod",
+          "toelichting": "een student ziet wat er te kiezen valt, en de school weet wat zij aanbiedt",
+          "icoon": "catalog",
+          "kleur": "#3D68EC"
+        },
+        {
+          "titel": "Haalbare onderwijslogistiek",
+          "toelichting": "plannen en roosteren steunt op gegevens die kloppen, in plaats van op overtypen",
+          "icoon": "calendar",
+          "kleur": "#3D68EC"
+        },
+        {
+          "titel": "Betaalbaar voor de sector",
+          "toelichting": "een leverancier bouwt de koppeling een keer, en elke school gebruikt hem",
+          "icoon": "partnership",
+          "kleur": "#00AF81"
+        }
       ]
     },
     {

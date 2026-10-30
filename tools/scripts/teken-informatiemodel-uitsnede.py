@@ -1542,6 +1542,11 @@ def bouw(model, selectie):
     if herkomst:
         kop += text(DOEK_MARGE, DOEK_MARGE + 20 + HERKOMST_MAAT + 8, herkomst, HERKOMST_MAAT,
                     fill=MUTED)
+    # De versie van de uitsnede zelf, rechtsboven. Zij gaat omhoog zodra het beeld verandert:
+    # minor bij nieuwe inhoud, patch bij een correctie.
+    if selectie.get("versie"):
+        kop += text(breed - DOEK_MARGE, DOEK_MARGE + 20, f"v{selectie['versie']}",
+                    HERKOMST_MAAT, fill=MUTED, anchor="end")
     svg = (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {breed:.0f} {hoog_doek:.0f}" '
            f'width="{breed:.0f}" height="{hoog_doek:.0f}">'
            f'<rect x="0.5" y="0.5" width="{breed - 1:.0f}" height="{hoog_doek - 1:.0f}" rx="10" '

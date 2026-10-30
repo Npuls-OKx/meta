@@ -146,5 +146,24 @@ class NetwerkTests(unittest.TestCase):
             self.assertIn(f"Systeem {n}", svg)
 
 
+class VersieTests(unittest.TestCase):
+    def plaat(self, **extra):
+        sel = {"titel": "Proef", "breedte": 800, "voet": "een voetregel",
+               "blokken": [{"soort": "tekst", "tekst": "inhoud"}]}
+        sel.update(extra)
+        return npuls.teken(sel)
+
+    def test_given_a_selectie_with_a_versie_when_drawn_then_it_stands_in_the_voetregel(self):
+        self.assertIn(">v0.2.0<", self.plaat(versie="0.2.0"))
+
+    def test_given_a_selectie_without_a_versie_when_drawn_then_no_version_is_shown(self):
+        self.assertNotRegex(self.plaat(), r">v\d")
+
+    def test_given_only_a_versie_when_drawn_then_the_voetregel_still_appears(self):
+        svg = npuls.teken({"titel": "Proef", "breedte": 800, "versie": "1.0.0",
+                           "blokken": [{"soort": "tekst", "tekst": "inhoud"}]})
+        self.assertIn(">v1.0.0<", svg)
+
+
 if __name__ == "__main__":
     unittest.main()

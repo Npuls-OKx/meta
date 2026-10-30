@@ -2,36 +2,80 @@
   "id": "public-116-formatief-en-summatief",
   "titel": "Kunnen formatief en summatief een kenmerk van de toets zijn, in plaats van twee takken?",
   "herkomst": "Reviewvraag Npuls-OKx/Public#116 van @hjwielemaker en @JanHendrikvanSchaik, werkbrief Npuls-OKx/meta#334",
+  "versie": "0.1.0",
   "oeapi": true,
-  "rij_labels": ["telt mee in het leerproces", "algemeen type: toets",
-                 "bijzonder geval: examen", "telt mee voor het diploma"],
+  "rij_labels": [
+    "telt mee in het leerproces",
+    "algemeen type: toets",
+    "bijzonder geval: examen",
+    "telt mee voor het diploma"
+  ],
   "objecten": [
-    {"naam": "Leergelegenheid resultaat", "rij": 0,
-     "noot": "OEAPI: Result"},
-
-    {"naam": "Toetsonderdeel specificatie", "rij": 1,
-     "noot": "OEAPI: TestComponent; definitie: formatief of summatief"},
-    {"naam": "Toetsgelegenheid", "rij": 1,
-     "noot": "OEAPI: TestComponentOffering"},
-    {"naam": "Toetsgelegenheid verbintenis", "rij": 1,
-     "noot": "OEAPI: TestComponentOfferingAssociation"},
-    {"naam": "Toetsgelegenheid resultaat", "rij": 1,
-     "noot": "OEAPI: Result"},
-    {"naam": "Formatief resultaat", "rij": 1, "merk": "herplaatst", "nummer": 1,
-     "waarom": "hangt nu onder het toetsresultaat", "noot": "OEAPI kent dit onderscheid niet"},
-
-    {"naam": "Examenonderdeelspecificatie", "rij": 2,
-     "noot": "OEAPI: TestComponent; definitie: summatief examen"},
-    {"naam": "Examengelegenheid", "rij": 2,
-     "noot": "OEAPI: TestComponentOffering"},
-    {"naam": "Examengelegenheid verbintenis", "rij": 2,
-     "noot": "OEAPI: TestComponentOfferingAssociation"},
-    {"naam": "Examengelegenheid resultaat", "rij": 2,
-     "noot": "OEAPI: Result"},
-    {"naam": "Summatief resultaat", "rij": 2, "merk": "herplaatst", "nummer": 2,
-     "waarom": "hangt nu onder het examenresultaat", "noot": "OEAPI kent dit onderscheid niet"},
-
-    {"naam": "Onderwijseenheid resultaat", "rij": 3,
-     "noot": "OEAPI: Result"}
+    {
+      "naam": "Leergelegenheid resultaat",
+      "rij": 0,
+      "noot": "OEAPI: Result"
+    },
+    {
+      "naam": "Toetsonderdeel specificatie",
+      "rij": 1,
+      "noot": "OEAPI: TestComponent; definitie: formatief of summatief"
+    },
+    {
+      "naam": "Toetsgelegenheid",
+      "rij": 1,
+      "noot": "OEAPI: TestComponentOffering"
+    },
+    {
+      "naam": "Toetsgelegenheid verbintenis",
+      "rij": 1,
+      "noot": "OEAPI: TestComponentOfferingAssociation"
+    },
+    {
+      "naam": "Toetsgelegenheid resultaat",
+      "rij": 1,
+      "noot": "OEAPI: Result"
+    },
+    {
+      "naam": "Formatief resultaat",
+      "rij": 1,
+      "merk": "herplaatst",
+      "nummer": 1,
+      "waarom": "hangt nu onder het toetsresultaat",
+      "noot": "OEAPI kent dit onderscheid niet"
+    },
+    {
+      "naam": "Examenonderdeelspecificatie",
+      "rij": 2,
+      "noot": "OEAPI: TestComponent; definitie: summatief examen"
+    },
+    {
+      "naam": "Examengelegenheid",
+      "rij": 2,
+      "noot": "OEAPI: TestComponentOffering"
+    },
+    {
+      "naam": "Examengelegenheid verbintenis",
+      "rij": 2,
+      "noot": "OEAPI: TestComponentOfferingAssociation"
+    },
+    {
+      "naam": "Examengelegenheid resultaat",
+      "rij": 2,
+      "noot": "OEAPI: Result"
+    },
+    {
+      "naam": "Summatief resultaat",
+      "rij": 2,
+      "merk": "herplaatst",
+      "nummer": 2,
+      "waarom": "hangt nu onder het examenresultaat",
+      "noot": "OEAPI kent dit onderscheid niet"
+    },
+    {
+      "naam": "Onderwijseenheid resultaat",
+      "rij": 3,
+      "noot": "OEAPI: Result"
+    }
   ]
 }
