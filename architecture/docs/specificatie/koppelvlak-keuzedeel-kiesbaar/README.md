@@ -156,7 +156,7 @@ Het beperken en relateren van keuzes houdt die keten beheersbaar (keuze-requirem
 | Requirementsboom | 3 doelen, 8 epics, 36 features, 28 stories | Hard | [Requirementsboom](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/requirementsboom/README.md) |
 | Dienstpagina's in het pakket | 14 applicatiediensten op 28 pagina's, waarvan keuzeregelset en kiesbaarheidsbepaling zonder endpoints | Hard | [Applicatiediensten](https://github.com/Npuls-OKx/Public/tree/d0c20d99b110b29ccf6b0e50109f7d54ffd88d7a/Koppelvlakspecificaties/Applicatiediensten) |
 | Koppelingspecificaties in het pakket | 3, alle vanuit de onderwijscatalogus | Hard | [Koppelingspecificaties](https://github.com/Npuls-OKx/Public/tree/d0c20d99b110b29ccf6b0e50109f7d54ffd88d7a/Koppelvlakspecificaties/Koppelingspecificaties) |
-| Informatiestromen op de hoofdplaat | 17 beschreven stromen op circa 20 lijnen | Hard, met marge | [Projectoverzicht](../../../../doc/OKx_Projectoverzicht.md) |
+| Informatiestromen op de hoofdplaat | 17 beschreven stromen op circa 20 lijnen | Hard, met marge | [Projectoverzicht](../../../../project/projectoverzicht.md) |
 | ADR's in Public | 26, waarvan 25 status Voorstel | Hard | [ADR-map](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr) |
 | Draagvlaknorm OKx-AP09 | Meer dan 1 instelling en meer dan 1 leverancier, minimaal 2 plus 2 | Norm | Principes |
 | Feitelijke betrokkenheid | 4 koploper-leveranciers, 6 tot 8 koploper-instellingen | Schatting van de deelnemers | Verslag 13 juli 2026 |
@@ -200,7 +200,7 @@ De koppelvlakview van het studentkeuzesysteem op de informatiestromen-hoofdplaat
 De vier stromen staan als gegeven in [stromen-kiesbaar.json](stromen-kiesbaar.json). De plaat komt uit het model met de volgende aanroep.
 
 ```text
-python3 scripts/teken-hoofdplaat-ruim.py \
+python3 tools/scripts/teken-hoofdplaat-ruim.py \
   --uit architecture/docs/specificatie/koppelvlak-keuzedeel-kiesbaar/img/hoofdplaat-keuzedeel-kiesbaar.svg \
   --markeer architecture/docs/specificatie/koppelvlak-keuzedeel-kiesbaar/stromen-kiesbaar.json
 ```
@@ -2676,7 +2676,7 @@ Deze keuzes houden de specificatie consistent; de kerngroep techniek bekrachtigt
 | Aantallen rond het keuzedelenaanbod | De regelsetvorm noemt zo'n 20 keuzedelen in het verbredende bereik en 5 in het opgesomde bereik, en merkt die aan als indicatief. Uitvraag aan instellingen, met de rekensom van K0037 en K0262 erbij |
 | Conformiteitstoets op de regelevaluatie | R6 vraagt dezelfde uitkomst bij elk systeem. De toets erop volgt bij de vaststelling van de getypeerde vorm |
 | Het conceptuele model draagt geen attribuutsoorten | Het informatiemodel staat op MIM-niveau 2 en legt die keuze vast. Het [datamodel](#datamodel) hierboven is de eerste niveau-3-uitwerking voor de keuzekant, en de velden gaan als signalering richting het [logisch gegevensmodel](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/logisch-gegevensmodel.md), dat de regelset nog met een ongetypeerde `regels`-lijst kent |
-| Zes entiteiten uit deze snede zijn nieuw als begrip | Manifest-item, Bereik, Regel, Kiesbaarheidsuitkomst, Specificatie-uitkomst en Reden dragen in het [datamodel](#datamodel) een definitievoorstel. De naam Specificatie-uitkomst vervangt het eerdere Uitkomstregel, omdat het woord regel in deze snede de keuzeregel is. `Keuzedeel aanbod` en `Onderwijslocatie` ontbreken in de begrippenlijst, wat `python3 scripts/genereer-begrippenlijst.py --controleer` zelf meldt. De voorstellen gaan daarheen |
+| Zes entiteiten uit deze snede zijn nieuw als begrip | Manifest-item, Bereik, Regel, Kiesbaarheidsuitkomst, Specificatie-uitkomst en Reden dragen in het [datamodel](#datamodel) een definitievoorstel. De naam Specificatie-uitkomst vervangt het eerdere Uitkomstregel, omdat het woord regel in deze snede de keuzeregel is. `Keuzedeel aanbod` en `Onderwijslocatie` ontbreken in de begrippenlijst, wat `python3 tools/scripts/genereer-begrippenlijst.py --controleer` zelf meldt. De voorstellen gaan daarheen |
 | De Npuls-leerroute heeft geen veld in een payload | `learningPathway` draagt de leerweg (BOL of BBL) en `targetGroup` de doelgroep. `presortedFor.learningRoute` is het voorstel bij werkbrief 6, en de naamgeving naast `learningPathway` vraagt aandacht: leerweg en leerroute zijn twee verschillende begrippen |
 | `appliesTo` staat in de lijst verplichte velden van `rule-set.json` | B4 maakt het veld optioneel. Zolang de wijziging uit werkbrief 1 niet in het schema staat, loopt deze specificatie op de gewijzigde vorm vooruit |
 | Dezelfde opsomming voor de wijzigingsklasse in beide meldingen | De melding over een specificatie draagt vijf waarden uit de levensloop-uitwerking, de melding over een regelset twee. Werkbrief 10 legt de vorm vast, met de vraag of beide dezelfde opsomming dragen. Welk gevolg elke waarde voor een lopend keuzemoment heeft is een voorstel ter bekrachtiging |

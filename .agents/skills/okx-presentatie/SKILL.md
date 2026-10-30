@@ -259,7 +259,7 @@ Het overzicht staat in [`presentaties/platen.json`](../../../presentaties/platen
 Controleer het manifest eerst tegen de werkelijkheid:
 
 ```bash
-python3 scripts/platen-inventariseren.py
+python3 tools/scripts/platen-inventariseren.py
 ```
 
 Dat meldt bronnen die zijn gewijzigd, versies die zijn ingehaald, en platen die nog nergens beschreven staan. Krijg je meldingen, los die dan op vóór je een plaat kiest; anders zet je een verouderd beeld in een deck.

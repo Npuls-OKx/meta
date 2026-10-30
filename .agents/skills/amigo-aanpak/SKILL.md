@@ -21,7 +21,7 @@ verwijst per stap naar de skill of stapbeschrijving die hem uitwerkt.
 ## Bron van waarheid
 
 - Profiel: `architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md` (§2.3 Projectaanpak AMIGO).
-- Release-roadmap: [`doc/OKx_Release-management-en-versionering.md`](../../../doc/OKx_Release-management-en-versionering.md) §8 (`v0.1.0` milestone 3 → `v1.0.0` ecosysteem compleet).
+- Release-roadmap: [`project/release-management-en-versionering.md`](../../../project/release-management-en-versionering.md) §8 (`v0.1.0` milestone 3 → `v1.0.0` ecosysteem compleet).
 - Stappen worden **iteratief** doorlopen: een keuze in bericht/interface kan aanleiding zijn scenario, gegevens of interacties aan te scherpen.
 
 ## Ladder: informatiestroom → koppeling → koppelvlak

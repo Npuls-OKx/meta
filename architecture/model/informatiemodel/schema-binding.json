@@ -4,7 +4,7 @@
     "status": "voorstel",
     "route": "Dit bestand is geen model. Issue #369 legt de route vast waarlangs attribuutsoorten als properties in Archi landen, waarna genereer-informatiemodel-doc.py ze meeneemt; tot die tijd staat hier wat de interactiespecificaties nodig hebben. Raak nooit een .archimate-bestand aan.",
     "aanleiding": "Npuls-OKx/meta#385",
-    "poort": "python3 scripts/controleer-schema-binding.py",
+    "poort": "python3 tools/scripts/controleer-schema-binding.py",
     "soorten": {
       "begrip": "draagt objecttypen uit het informatiemodel; toets: een eigen identiteit, een id of een code met een name",
       "waardeobject": "een genest object zonder eigen identiteit, waarvan de velden attribuutsoort worden van het objecttype dat het houdt; toets: geen eigen identiteit en aangehaald door een ander schema",
