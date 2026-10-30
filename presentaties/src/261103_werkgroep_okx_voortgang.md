@@ -86,85 +86,77 @@ koppelingen, de catalogus met planning, met studentadministratie en met de leero
 beschreven in het eerste kwartaal van 2027, als richting. De plaat toont die koppelingen op de
 hoofdplaat van de informatiestromen, opnieuw getekend uit het huidige model (versie 1.7a) met de
 ruime opzet uit de voorbeelduitwerking; studentadministratie omvat de kernregistratie (OC-KRS) en het
-studentvolgsysteem (OC-SVS). De overige stromen staan grijs.
+studentvolgsysteem (OC-SVS). In kleur staan alleen de koppelingen vanuit de catalogus in het
+vlak onderwijsontwikkeling (OC-P, OC-KRS en OC-LMS); de overige stromen staan zwart.
 
 Bron: presentaties/src/260929_werkgroep_okx_voortgang.md (techniekblok 29 september), meta #255.
 -->
 
 ---
 
-<!-- 3. DE REIS -->
+<!-- 3. VOORTGANG -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
 
-# De reis sinds 29 september
+# Voortgang sinds 29 september
 
-<div class="np-pipeline" style="margin-top: 1.4rem; align-items: stretch;">
-  <div class="np-step blue np-stap">
-    <carbon-network-3 class="np-groot" />
-    <strong>Specificeren op de stromen</strong>
-    <small>inhoud van de lijntjes open</small>
-  </div>
-  <div class="np-arrow" style="align-self: center;">&#8594;</div>
-  <div class="np-step orange np-stap">
-    <carbon-data-structured class="np-groot" style="color: var(--np-orange);" />
-    <strong>Informatiemodel en voorbeeld</strong>
-    <small>leerroute stap voor stap</small>
-  </div>
-  <div class="np-arrow" style="align-self: center;">&#8594;</div>
-  <div class="np-step green np-stap">
-    <carbon-flow class="np-groot" style="color: var(--np-green);" />
-    <strong>Interactieketens</strong>
-    <small>samen waarde voor student en docent</small>
-  </div>
+<div class="np-card accent-orange np-blok">
+  <div class="np-label">Uitgangspunt</div>
+  <div class="np-citaat">&ldquo;Een geïsoleerd koppelvlak lost voor een instelling geen probleem op.&rdquo;</div>
+  <div class="np-kern">De keten gaat voor het losse koppelvlak</div>
 </div>
 
-<div class="np-citaat">&ldquo;Een geïsoleerd koppelvlak lost voor een instelling geen probleem op.&rdquo;</div>
-<div class="np-afzender">afstemming OKx en OEAPI, 20 oktober</div>
+<div class="np-pijl">&#8595;</div>
 
-<div class="np-card accent-orange np-vraag">
-  <div class="np-kop">Welke data wisselt het IT-landschap daarvoor uit?</div>
-  <div class="np-pillen"><span class="np-pil">waar vandaan</span><span class="np-pil">in welke vorm</span></div>
+<div class="np-card accent-blue np-blok">
+  <div class="np-label">Vraag die OKx invult</div>
+  <div class="np-kern">Welke schakel van interacties in het IT-landschap van een instelling levert waarde voor instelling en student?</div>
+</div>
+
+<div class="np-pijl">&#8595;</div>
+
+<div class="np-pipeline" style="align-items: stretch;">
+  <div class="np-step np-stap" style="border-top: 4px solid #00AF81;"><carbon-network-3 class="np-icoon" style="color: #00AF81;" /><strong>Informatiestromen</strong></div>
+  <div class="np-arrow" style="align-self: center;">&#8594;</div>
+  <div class="np-step np-stap" style="border-top: 4px solid #F4D74B;"><carbon-data-structured class="np-icoon" style="color: #1B2A6B;" /><strong>Informatiemodel en voorbeelden</strong></div>
+  <div class="np-arrow" style="align-self: center;">&#8594;</div>
+  <div class="np-step np-stap" style="border-top: 4px solid #1B2A6B;"><carbon-flow class="np-icoon" style="color: #1B2A6B;" /><strong>Interactieketens en interacties</strong></div>
 </div>
 
 <style scoped>
 .fill { padding: 0.9rem 1.8rem; justify-content: flex-start; }
-h1 { font-size: 1.75rem !important; line-height: 1.1; margin: 0; }
-.np-stap { flex: 1; padding: 1rem 0.6rem; align-items: center; justify-content: center; text-align: center; }
-.np-stap strong { font-size: 0.95rem; }
-.np-stap small { font-size: 0.8rem; }
-.np-groot { font-size: 1.7rem; color: var(--np-blue); }
-.np-citaat { margin-top: 1.4rem; text-align: center; font-size: 1.15rem; font-style: italic; color: var(--np-dark-blue); }
-.np-afzender { text-align: center; font-size: 0.78rem; color: var(--np-mid-gray); margin-top: 0.2rem; }
-.np-vraag { margin-top: 1.2rem; padding: 0.7rem 1rem; text-align: center; }
-.np-kop { font-weight: 700; font-size: 1rem; }
-.np-pillen { margin-top: 0.45rem; display: flex; gap: 0.5rem; justify-content: center; }
-.np-pil { display: inline-block; background: #F1F3F5; border-radius: 999px; padding: 0.15rem 0.7rem; font-size: 0.8rem; color: var(--np-dark-blue); }
+h1 { font-size: 1.75rem !important; line-height: 1.1; margin: 0 0 0.9rem; }
+.np-blok { padding: 0.6rem 1rem; text-align: center; margin: 0; }
+.np-label { font-size: 0.74rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--np-mid-gray); }
+.np-citaat { font-size: 1.05rem; font-style: italic; color: var(--np-dark-blue); margin-top: 0.2rem; }
+.np-kern { font-size: 1rem; font-weight: 700; color: var(--np-dark-blue); margin-top: 0.25rem; }
+.np-pijl { text-align: center; color: var(--np-orange); font-size: 1.3rem; font-weight: 700; line-height: 1; margin: 0.35rem 0; }
+.np-stap { flex: 1; padding: 0.55rem 0.4rem; align-items: center; justify-content: center; text-align: center; }
+.np-stap strong { font-size: 0.86rem; color: var(--np-dark-blue); }
+.np-icoon { font-size: 1.3rem; }
 </style>
 
 </div>
 
 <!--
-Sinds 29 september liep elke poging om op de informatiestromen van de hoofdplaat te specificeren tegen
-dezelfde vraag aan: wat gebeurt er precies op die lijntjes? Uit een gesprek met een instelling: "Het
-zijn allemaal blokjes en pijltjes." Daarom ging het werk naar het informatiemodel en de
-voorbeelduitwerking: de leerroute van Jochem stap voor stap, zodat zichtbaar wordt welke informatie
-van welk systeem naar welk systeem gaat. Die vraag kwam ook uit de markt.
+Wat sinds 29 september veranderde, is het uitgangspunt. Op 20 oktober, in de afstemming tussen OKx en
+OEAPI, kwam boven: een geïsoleerd koppelvlak lost voor een instelling geen probleem op. Dat Jochem
+een keuzedeel kan kiezen, lost geen enkele koppeling alleen op, en ook twee niet. De keten gaat
+daarmee voor het losse koppelvlak.
 
-Op 20 oktober kwam het begrip interactieketen op tafel: een reeks interacties die samen iets bereiken
-voor de student en de docent. Dat Jochem een keuzedeel kan kiezen, lost geen enkele koppeling alleen
-op, en ook twee niet. Het voorbeeld maakt die ketens concreet en toetsbaar.
+De vraag die OKx nu invult: welke schakel van interacties binnen het IT-landschap van een instelling
+levert waarde voor de instelling en de student? Pas daarna komt het specificeren: de
+informatiestromen die bij die schakel horen, het informatiemodel en de voorbeelden die laten zien
+welke informatie er beweegt, en zo de interactieketens en de interacties daarbinnen. Bij elke poging
+om op de lijntjes van de hoofdplaat te specificeren bleek namelijk niet duidelijk wat daar gebeurt.
+Uit een gesprek met een instelling: "Het zijn allemaal blokjes en pijltjes."
 
-De vraag die daaruit volgt: welke data wisselt het IT-landschap van een instelling uit om die waarde te
-leveren, waar komt die data vandaan en hoe ziet die eruit? Of, zoals een deelnemer het zei: "het gaat
-erom wat je wilt dat er in die applicatie gebeurt."
-
-Het citaat op de slide is licht ingekort uit de afstemming tussen OKx en OEAPI van 20 oktober.
+Het citaat op de slide is licht ingekort.
 
 Bron (Jamie): afstemming OKx en OEAPI 20 oktober; informatiemodel en koppelingen 2 oktober;
-informatiemodel en ontwerpvragen 29 oktober; afstemming POC-resultaten 30 oktober; versionering
-bouwblokken 30 september. De docent als begunstigde is de lezing van de opdrachtgever.
+informatiemodel en ontwerpvragen 29 oktober; SI-afstemming 28 oktober. Formulering van de vraag:
+de opdrachtgever, 30 oktober 2026 (issue meta #462).
 -->
 
 ---
