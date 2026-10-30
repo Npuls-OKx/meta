@@ -333,10 +333,10 @@ alle vier PR ter beoordeling; meta #270 (OEAPI als vaste versie, gemerged 1 okto
 # Stand en koers
 
 <div class="np-card accent-blue" style="padding: 0.55rem 1rem; margin-top: 1.2rem;">
-  <div style="font-weight: 700; font-size: 1rem;">De hoofdvraag: wat OKx bouwt</div>
+  <div style="font-weight: 700; font-size: 1rem;">Hoofdvraag: wat OKx bouwt</div>
   <div style="margin-top: 0.35rem; display: flex; gap: 0.45rem; flex-wrap: wrap;">
-    <span class="np-pil">vorm van de oplevering</span>
-    <span class="np-pil">welk deel een instelling overneemt</span>
+    <span class="np-pil">de oplevering</span>
+    <span class="np-pil">wat een instelling overneemt</span>
     <span class="np-pil">wat een instelling moet kunnen</span>
   </div>
 </div>
@@ -346,7 +346,7 @@ alle vier PR ter beoordeling; meta #270 (OEAPI als vaste versie, gemerged 1 okto
   <div class="np-arrow" style="align-self: center;">&#8594;</div>
   <div class="np-step green np-stap"><carbon-map class="np-icoon" style="color: var(--np-green);" /><strong>Leerroute</strong></div>
   <div class="np-arrow" style="align-self: center;">&#8594;</div>
-  <div class="np-step green np-stap"><carbon-flow class="np-icoon" style="color: var(--np-green);" /><strong>Per stap uitgewerkt</strong></div>
+  <div class="np-step green np-stap"><carbon-flow class="np-icoon" style="color: var(--np-green);" /><strong>Uitwerking</strong></div>
   <div class="np-arrow" style="align-self: center;">&#8594;</div>
   <div class="np-step orange np-stap"><carbon-search class="np-icoon" style="color: var(--np-orange);" /><strong>Ontbrekende begrippen</strong></div>
   <div class="np-arrow" style="align-self: center;">&#8594;</div>
@@ -363,7 +363,7 @@ alle vier PR ter beoordeling; meta #270 (OEAPI als vaste versie, gemerged 1 okto
   </div>
   <div class="np-card accent-blue np-mini">
     <carbon-partnership class="np-icoon" />
-    <div class="np-kop">Samen met de architecten van Npuls</div>
+    <div class="np-kop">Met architecten van Npuls</div>
     <small>naast toetsen (OKE) en aanmelden (AII)</small>
   </div>
 </div>
