@@ -27,7 +27,7 @@ import pathlib
 import sys
 
 BRON = pathlib.Path("project/sectorketen-producten.json")
-UIT = pathlib.Path("img/OKx_sectorketen.svg")
+UIT = pathlib.Path("project/img/sectorketen-v20261030.svg")
 
 # Het standaardpalet van Archi, per ArchiMate-laag.
 LAAGKLEUR = {

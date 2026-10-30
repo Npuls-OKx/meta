@@ -93,6 +93,60 @@
           "archimate": "Principle",
           "mim_niveau": "niet van toepassing",
           "inhoudsgebied": null
+        },
+        {
+          "omvang": "",
+          "peildatum": "2026-10-30",
+          "op_plaat": true,
+          "deelproducten": [],
+          "mim_niveau": "begrippen",
+          "inhoudsgebied": null,
+          "naam": "Begrippenkader NORA",
+          "partij": "NORA",
+          "beheerder": "ICTU",
+          "aard": "herbruikbaar product",
+          "vindplaats": "https://begrippen.noraonline.nl/nl/",
+          "herkomst": [
+            "nora"
+          ],
+          "archimate": "Meaning",
+          "familie": "modelketen"
+        },
+        {
+          "omvang": "",
+          "peildatum": "2026-10-30",
+          "op_plaat": true,
+          "deelproducten": [],
+          "mim_niveau": "niet van toepassing",
+          "inhoudsgebied": null,
+          "naam": "EU-wallet voor credentials",
+          "partij": "de rijksoverheid",
+          "beheerder": "ministerie van Binnenlandse Zaken",
+          "aard": "herbruikbaar product",
+          "vindplaats": "https://www.digitaleoverheid.nl/overzicht-van-alle-onderwerpen/identiteit/edi-wallet/",
+          "herkomst": [
+            "nora"
+          ],
+          "archimate": "Application Component",
+          "opmerking": "Raakt het bewaren en tonen van behaalde resultaten door de lerende zelf."
+        },
+        {
+          "omvang": "",
+          "peildatum": "2026-10-30",
+          "op_plaat": true,
+          "deelproducten": [],
+          "mim_niveau": "niet van toepassing",
+          "inhoudsgebied": null,
+          "naam": "Stelsel Toegang",
+          "partij": "de rijksoverheid",
+          "beheerder": "ministerie van Binnenlandse Zaken",
+          "aard": "voorschrift",
+          "vindplaats": "https://www.digitaleoverheid.nl/overzicht-van-alle-onderwerpen/stelsel-toegang/",
+          "herkomst": [
+            "nora"
+          ],
+          "archimate": "Principle",
+          "opmerking": "Van burger naar lerende: de identiteit waarmee iemand toegang krijgt."
         }
       ]
     },
@@ -221,6 +275,24 @@
             "Pijler Leren zonder Drempels, vijf programmaonderdelen"
           ],
           "inhoudsgebied": "onderwijsbreed"
+        },
+        {
+          "omvang": "",
+          "peildatum": "2026-10-30",
+          "op_plaat": true,
+          "deelproducten": [],
+          "mim_niveau": "niet van toepassing",
+          "inhoudsgebied": null,
+          "naam": "Digitaliseringsroute van het mbo",
+          "partij": "MBO Digitaal",
+          "beheerder": "MBO Digitaal",
+          "aard": "voorschrift",
+          "vindplaats": "https://mbodigitaal.nl/de-digitaliseringsroute-van-het-mbo/",
+          "herkomst": [
+            "mbo-digitaal"
+          ],
+          "archimate": "Plateau",
+          "opmerking": "Het transitiepad op hoofdlijnen; de uitwerking is nog niet openbaar."
         }
       ]
     },
@@ -399,6 +471,42 @@
           "op_plaat": true,
           "deelproducten": [],
           "inhoudsgebied": "onderwijsbreed"
+        },
+        {
+          "omvang": "",
+          "peildatum": "2026-10-30",
+          "op_plaat": true,
+          "deelproducten": [],
+          "mim_niveau": "niet van toepassing",
+          "inhoudsgebied": "onderwijsbreed",
+          "naam": "Geregistreerde afspraken en standaarden mbo",
+          "partij": "Edustandaard",
+          "beheerder": "Bureau Edustandaard",
+          "aard": "voorschrift",
+          "vindplaats": "https://www.edustandaard.nl/standaard_afspraken/",
+          "herkomst": [
+            "edustandaard"
+          ],
+          "archimate": "Principle",
+          "opmerking": "Het werkingsgebied bve, met de status en het gebruiksadvies per afspraak."
+        },
+        {
+          "omvang": "",
+          "peildatum": "2026-10-30",
+          "op_plaat": true,
+          "deelproducten": [],
+          "mim_niveau": "niet van toepassing",
+          "inhoudsgebied": "onderwijsbreed",
+          "naam": "ROSA drivers en kwaliteitsdoelen",
+          "partij": "ROSA",
+          "beheerder": "Bureau Edustandaard, ROSA-beheerteam",
+          "aard": "voorschrift",
+          "vindplaats": "https://rosa.wikixl.nl/index.php/Drivers_en_doelen",
+          "herkomst": [
+            "rosa"
+          ],
+          "archimate": "Driver",
+          "opmerking": "De kernwaarden waaraan een uitwisselafspraak in het onderwijs wordt getoetst."
         }
       ]
     },
@@ -666,77 +774,89 @@
           "mim_niveau": "niet van toepassing",
           "aard": "voorschrift",
           "op_plaat": true,
-          "inhoudsgebied": "inrichting"
+          "inhoudsgebied": "inrichting",
+          "archimate": "Business Process"
         },
         {
           "naam": "AMIGO-aanpak en modeltalen",
           "mim_niveau": "niet van toepassing",
           "aard": "voorschrift",
           "op_plaat": true,
-          "inhoudsgebied": "inrichting"
+          "inhoudsgebied": "inrichting",
+          "archimate": "Business Process"
         },
         {
           "naam": "MORA-procesplaatsing",
           "mim_niveau": "niet van toepassing",
           "aard": "voorschrift",
           "op_plaat": true,
-          "inhoudsgebied": "inrichting"
+          "inhoudsgebied": "inrichting",
+          "archimate": "Business Process"
         },
         {
           "naam": "Viewpointbeschrijving",
           "mim_niveau": "niet van toepassing",
           "aard": "voorschrift",
           "op_plaat": true,
-          "inhoudsgebied": "inrichting"
+          "inhoudsgebied": "inrichting",
+          "archimate": "Representation"
         },
         {
-          "naam": "MORA en MOKA metamodel",
+          "naam": "MORA-metamodel",
           "mim_niveau": "conceptueel informatiemodel",
           "aard": "herbruikbaar product",
           "op_plaat": true,
-          "inhoudsgebied": "inrichting"
+          "inhoudsgebied": "inrichting",
+          "opmerking": "Het metamodel van MORA; MOKA is daarvan een deelverzameling. Aangescherpt na de opmerking van Joel de Bruijn, 30 oktober 2026.",
+          "archimate": "Business Object"
         },
         {
-          "naam": "MOKA Koppelvlak specificatie View",
+          "naam": "Koppelvlak specificatie View",
           "mim_niveau": "conceptueel informatiemodel",
           "aard": "voorschrift",
           "op_plaat": true,
-          "inhoudsgebied": "inrichting"
+          "inhoudsgebied": "inrichting",
+          "archimate": "Business Process"
         },
         {
-          "naam": "MOKA Koppelvlak informatiemodel view",
+          "naam": "Koppelvlak informatiemodel view",
           "mim_niveau": "conceptueel informatiemodel",
           "aard": "voorschrift",
           "op_plaat": true,
-          "inhoudsgebied": "inrichting"
+          "inhoudsgebied": "inrichting",
+          "archimate": "Business Object"
         },
         {
           "naam": "Referentie klassendiagram",
           "mim_niveau": "logisch gegevensmodel",
           "aard": "voorschrift",
           "op_plaat": true,
-          "inhoudsgebied": "inrichting"
+          "inhoudsgebied": "inrichting",
+          "archimate": "Data Object"
         },
         {
           "naam": "Referentie interactiepatroon",
           "mim_niveau": "niet van toepassing",
           "aard": "voorschrift",
           "op_plaat": true,
-          "inhoudsgebied": "inrichting"
+          "inhoudsgebied": "inrichting",
+          "archimate": "Application Service"
         },
         {
           "naam": "Interactiepatronen en messaginggedrag",
           "mim_niveau": "niet van toepassing",
           "aard": "voorschrift",
           "op_plaat": true,
-          "inhoudsgebied": "inrichting"
+          "inhoudsgebied": "inrichting",
+          "archimate": "Application Service"
         },
         {
           "naam": "Gerelateerde implementaties en specificaties",
           "mim_niveau": "niet van toepassing",
           "aard": "voorschrift",
           "op_plaat": true,
-          "inhoudsgebied": "inrichting"
+          "inhoudsgebied": "inrichting",
+          "archimate": "Representation"
         }
       ],
       "gemeenschappelijk": {
@@ -751,7 +871,6 @@
         ],
         "deelproducten": [],
         "opmerking": "De elf producten zijn de hoofdstukken 4 tot en met 14 van het MOKA-template en van de voorbeelduitwerking Examen uitvoering en beoordeling. Het sjabloon wordt per koppelvlak ingevuld.",
-        "archimate": "Constraint",
         "inhoudsgebied": "inrichting"
       }
     },
@@ -769,7 +888,7 @@
           "partij": "de solutionarchitectuur",
           "beheerder": "de solution",
           "aard": "voorschrift",
-          "archimate": "Constraint",
+          "archimate": "Deliverable",
           "mim_niveau": "niet van toepassing",
           "invulling": "OKx: scope, uitgangspunten en afbakening",
           "vindplaats": "https://www.noraonline.nl/wiki/NORA_online",
@@ -871,6 +990,30 @@
           "opmerking": "AMIGO stap 2 vraagt een logisch model. Het informatiemodel kondigt een logisch gegevensmodel aan in Public; dat document staat daar nog niet.",
           "voorgenomen": true,
           "inhoudsgebied": "inrichting"
+        },
+        {
+          "omvang": "",
+          "peildatum": "2026-10-30",
+          "op_plaat": true,
+          "deelproducten": [
+            "Interactiespecificatie"
+          ],
+          "mim_niveau": "niet van toepassing",
+          "inhoudsgebied": "inrichting",
+          "naam": "Interactieketenspecificatie",
+          "partij": "de solutionarchitectuur",
+          "beheerder": "de solution",
+          "aard": "herbruikbaar product",
+          "archimate": "Application Service",
+          "amigo_stap": "stap 3",
+          "invulling": "OKx: keten onderwijsaanbod, student-instroom, keuzedelen",
+          "vindplaats": "https://github.com/Npuls-OKx/meta/pull/373",
+          "herkomst": [
+            "amigo",
+            "okx"
+          ],
+          "familie": "modelketen",
+          "opmerking": "Welke interacties samen waarde opleveren voor instelling en student. De interactiespecificatie werkt een enkele interactie daarvan uit."
         },
         {
           "naam": "Interactiespecificatie",
@@ -1245,6 +1388,12 @@
       "naar": 6,
       "label": "wijzigingsverzoek",
       "soort": "terug"
+    },
+    {
+      "van": 5,
+      "naar": 6,
+      "label": "koppelvlak informatiemodel en referentie klassendiagram naar uitwisselingsgegevensmodel",
+      "soort": "overslaand"
     }
   ],
   "ketens": [
