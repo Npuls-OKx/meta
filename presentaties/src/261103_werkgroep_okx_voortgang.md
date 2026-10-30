@@ -40,7 +40,13 @@ specificatie. Bron: issue meta #462.
 
 # Vertrekpunt 29 september
 
-<img src="/platen/koppelingen-hoofdplaat.svg" class="np-breed" />
+<img src="/platen/hoofdplaat-ruim-drie-koppelingen.svg" class="np-breed" />
+
+<div class="np-legenda">
+  <span><i style="background: #3D68EC;"></i>catalogus en planning</span>
+  <span><i style="background: #00AF81;"></i>catalogus en studentadministratie</span>
+  <span><i style="background: #DD784B;"></i>catalogus en leeromgeving</span>
+</div>
 
 <div class="np-rij">
   <div class="np-card accent-blue np-mini">
@@ -60,7 +66,9 @@ specificatie. Bron: issue meta #462.
 <style scoped>
 .fill { padding: 0.9rem 1.1rem; justify-content: flex-start; }
 h1 { font-size: 1.75rem !important; line-height: 1.1; margin: 0 0 0.35rem; }
-.np-breed { width: 100%; max-height: 62%; object-fit: contain; display: block; }
+.np-breed { width: 100%; max-height: 66%; object-fit: contain; display: block; }
+.np-legenda { display: flex; justify-content: center; gap: 1.4rem; font-size: 0.78rem; color: var(--np-dark-blue); margin-top: 0.2rem; }
+.np-legenda i { display: inline-block; width: 1.4rem; height: 0.3rem; border-radius: 2px; margin-right: 0.4rem; vertical-align: middle; }
 .np-rij { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.7rem; margin-top: 0.6rem; }
 .np-mini { padding: 0.45rem 0.7rem; margin: 0; }
 .np-mini small { font-size: 0.78rem; line-height: 1.4; display: block; margin-top: 0.15rem; }
@@ -75,16 +83,93 @@ Op 29 september liet het techniekblok drie dingen zien. De route naar het eindpr
 van een school via bouwblokken, begrippen en het informatiemodel naar de informatiestromen en de
 koppelvlakspecificatie. Leerroute 1 als toets, met Jochem als rode draad. En het doel: voor drie
 koppelingen, de catalogus met planning, met studentadministratie en met de leeromgeving, alle lagen
-beschreven in het eerste kwartaal van 2027, als richting. De plaat is dezelfde als toen: de
-koppelingen op de hoofdplaat van de informatiestromen, waarbij studentadministratie de kernregistratie
-(OC-KRS) en het studentvolgsysteem (OC-SVS) omvat.
+beschreven in het eerste kwartaal van 2027, als richting. De plaat toont die koppelingen op de
+hoofdplaat van de informatiestromen, opnieuw getekend uit het huidige model (versie 1.7a) met de
+ruime opzet uit de voorbeelduitwerking; studentadministratie omvat de kernregistratie (OC-KRS) en het
+studentvolgsysteem (OC-SVS). De overige stromen staan grijs.
 
 Bron: presentaties/src/260929_werkgroep_okx_voortgang.md (techniekblok 29 september), meta #255.
 -->
 
 ---
 
-<!-- 3. HOOFDVRAAG -->
+<!-- 3. DE REIS -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# De reis sinds 29 september
+
+<div class="np-pipeline" style="margin-top: 1.4rem; align-items: stretch;">
+  <div class="np-step blue np-stap">
+    <carbon-network-3 class="np-groot" />
+    <strong>Specificeren op de stromen</strong>
+    <small>inhoud van de lijntjes open</small>
+  </div>
+  <div class="np-arrow" style="align-self: center;">&#8594;</div>
+  <div class="np-step orange np-stap">
+    <carbon-data-structured class="np-groot" style="color: var(--np-orange);" />
+    <strong>Informatiemodel en voorbeeld</strong>
+    <small>leerroute stap voor stap</small>
+  </div>
+  <div class="np-arrow" style="align-self: center;">&#8594;</div>
+  <div class="np-step green np-stap">
+    <carbon-flow class="np-groot" style="color: var(--np-green);" />
+    <strong>Interactieketens</strong>
+    <small>samen waarde voor student en docent</small>
+  </div>
+</div>
+
+<div class="np-citaat">&ldquo;Een geïsoleerd koppelvlak lost voor een instelling geen probleem op.&rdquo;</div>
+<div class="np-afzender">afstemming OKx en OEAPI, 20 oktober</div>
+
+<div class="np-card accent-orange np-vraag">
+  <div class="np-kop">Welke data wisselt het IT-landschap daarvoor uit?</div>
+  <div class="np-pillen"><span class="np-pil">waar vandaan</span><span class="np-pil">in welke vorm</span></div>
+</div>
+
+<style scoped>
+.fill { padding: 0.9rem 1.8rem; justify-content: flex-start; }
+h1 { font-size: 1.75rem !important; line-height: 1.1; margin: 0; }
+.np-stap { flex: 1; padding: 1rem 0.6rem; align-items: center; justify-content: center; text-align: center; }
+.np-stap strong { font-size: 0.95rem; }
+.np-stap small { font-size: 0.8rem; }
+.np-groot { font-size: 1.7rem; color: var(--np-blue); }
+.np-citaat { margin-top: 1.4rem; text-align: center; font-size: 1.15rem; font-style: italic; color: var(--np-dark-blue); }
+.np-afzender { text-align: center; font-size: 0.78rem; color: var(--np-mid-gray); margin-top: 0.2rem; }
+.np-vraag { margin-top: 1.2rem; padding: 0.7rem 1rem; text-align: center; }
+.np-kop { font-weight: 700; font-size: 1rem; }
+.np-pillen { margin-top: 0.45rem; display: flex; gap: 0.5rem; justify-content: center; }
+.np-pil { display: inline-block; background: #F1F3F5; border-radius: 999px; padding: 0.15rem 0.7rem; font-size: 0.8rem; color: var(--np-dark-blue); }
+</style>
+
+</div>
+
+<!--
+Sinds 29 september liep elke poging om op de informatiestromen van de hoofdplaat te specificeren tegen
+dezelfde vraag aan: wat gebeurt er precies op die lijntjes? Uit een gesprek met een instelling: "Het
+zijn allemaal blokjes en pijltjes." Daarom ging het werk naar het informatiemodel en de
+voorbeelduitwerking: de leerroute van Jochem stap voor stap, zodat zichtbaar wordt welke informatie
+van welk systeem naar welk systeem gaat. Die vraag kwam ook uit de markt.
+
+Op 20 oktober kwam het begrip interactieketen op tafel: een reeks interacties die samen iets bereiken
+voor de student en de docent. Dat Jochem een keuzedeel kan kiezen, lost geen enkele koppeling alleen
+op, en ook twee niet. Het voorbeeld maakt die ketens concreet en toetsbaar.
+
+De vraag die daaruit volgt: welke data wisselt het IT-landschap van een instelling uit om die waarde te
+leveren, waar komt die data vandaan en hoe ziet die eruit? Of, zoals een deelnemer het zei: "het gaat
+erom wat je wilt dat er in die applicatie gebeurt."
+
+Het citaat op de slide is licht ingekort uit de afstemming tussen OKx en OEAPI van 20 oktober.
+
+Bron (Jamie): afstemming OKx en OEAPI 20 oktober; informatiemodel en koppelingen 2 oktober;
+informatiemodel en ontwerpvragen 29 oktober; afstemming POC-resultaten 30 oktober; versionering
+bouwblokken 30 september. De docent als begunstigde is de lezing van de opdrachtgever.
+-->
+
+---
+
+<!-- 4. HOOFDVRAAG -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
@@ -92,35 +177,34 @@ Bron: presentaties/src/260929_werkgroep_okx_voortgang.md (techniekblok 29 septem
 # Hoofdvraag
 
 <div class="np-citaat">
-  <div class="np-citaattekst">&ldquo;Wat bouwen we nu eigenlijk?&rdquo;</div>
+  <div class="np-citaattekst">&ldquo;Wat moet OKx nu eigenlijk beschrijven en bouwen?&rdquo;</div>
   <div class="np-afzender">SI-team, techniek</div>
 </div>
 
 <div class="np-drie">
   <div class="np-card accent-blue np-vak">
-    <carbon-document class="np-groot" />
-    <div class="np-kop">De uitgave</div>
-    <small>wat, en in welke vorm</small>
+    <carbon-partnership class="np-groot" />
+    <div class="np-kop">Gesprekken met de sector</div>
+    <small>leveranciers en instellingen geven richting</small>
   </div>
   <div class="np-card accent-orange np-vak">
-    <carbon-enterprise class="np-groot" style="color: var(--np-orange);" />
-    <div class="np-kop">Wat een instelling overneemt</div>
-    <small>welk deel van de afspraken</small>
+    <carbon-document class="np-groot" style="color: var(--np-orange);" />
+    <div class="np-kop">Specificeren met wat er ligt</div>
+    <small>levert nog geen stabiele versie om te bespreken</small>
   </div>
   <div class="np-card accent-green np-vak">
-    <carbon-tool-box class="np-groot" style="color: var(--np-green);" />
-    <div class="np-kop">Wat een instelling moet kunnen</div>
-    <small>om een leerroute te realiseren</small>
+    <carbon-enterprise class="np-groot" style="color: var(--np-green);" />
+    <div class="np-kop">Het IT-landschap van een instelling</div>
+    <small>wat het moet kunnen voor wat de sector wil</small>
   </div>
 </div>
 
-<div class="np-kern">Het antwoord ontstaat samen met de sector</div>
+<div class="np-kern">Kortom: er ontbreekt informatie</div>
 
 <style scoped>
 .fill { padding: 0.9rem 1.8rem; justify-content: flex-start; }
 h1 { font-size: 1.75rem !important; line-height: 1.1; margin: 0; }
 .np-citaat { margin: 2.6rem auto 0; text-align: center; }
-.np-citaaticoon { font-size: 1.8rem; color: var(--np-orange); }
 .np-citaattekst { font-size: 1.9rem; font-weight: 500; font-style: italic; color: var(--np-dark-blue); line-height: 1.2; }
 .np-afzender { font-size: 0.86rem; color: var(--np-mid-gray); margin-top: 0.3rem; }
 .np-drie { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.9rem; margin-top: 1.8rem; }
@@ -128,30 +212,37 @@ h1 { font-size: 1.75rem !important; line-height: 1.1; margin: 0; }
 .np-vak small { font-size: 0.8rem; display: block; color: var(--np-mid-gray); }
 .np-groot { font-size: 1.6rem; color: var(--np-blue); }
 .np-kop { font-weight: 700; font-size: 0.92rem; line-height: 1.25; margin-top: 0.2rem; }
-.np-kern { margin-top: 1.4rem; text-align: center; font-weight: 700; font-size: 1rem; color: var(--np-dark-blue); }
+.np-kern { margin-top: 1.4rem; text-align: center; font-weight: 700; font-size: 1.05rem; color: var(--np-dark-blue); }
 </style>
 
 </div>
 
 <!--
-Onderweg naar dat doel is de vraag scherper geworden die het SI-team aan de techniekkant bezighoudt:
-wat bouwen we nu eigenlijk? In de woorden van het team: "Ik weet niet wat we bouwen, en daarvoor
-hebben we de sector nodig." OKx vult een berg afhankelijkheden in die ontbraken.
+De hoofdvraag waar het SI-team aan de techniekkant mee worstelt: wat moet OKx nu eigenlijk beschrijven
+en bouwen? In de woorden van het team: "Ik weet niet wat we bouwen, en daarvoor hebben we de sector
+nodig."
 
-Drie vraaggebieden. De oplevering: wat OKx oplevert en in welke vorm (issues meta #342 en #365).
-Wat een instelling overneemt: welk deel van de afspraken een instelling overneemt, en hoe een afnemer
-dat weet (issue meta #447). Wat een instelling moet kunnen om een leerroute te realiseren (PR Public
-#100, open; issue meta #440).
+Er zijn veel gesprekken gevoerd met leveranciers van planning, studentadministratie en leeromgeving,
+met koploperscholen en met informatiemanagers, om hier richting aan te geven. Er blijven veel vragen.
+Een daarvan: specificeren met wat er nu ligt, leidt nog niet tot een stabiele versie die partijen
+kunnen beoordelen en waarover OKx met hen in gesprek kan. Daarom is de indeling van een release op 28
+oktober geparkeerd en ligt de focus op het informatiemodel en de voorbeelden.
 
-Het antwoord ontstaat samen met instellingen, leveranciers en de architecten van Npuls. De slides
-hierna laten zien wat er sinds 29 september is uitgewerkt; de laatste slide hoe het verder gaat.
+De kern: wat moet het uitwisselende IT-landschap van een instelling kunnen om de functionaliteit te
+leveren die OKx met de sector wil realiseren? Kortom: er ontbreekt informatie, en die komt uit de
+leerroutes en uit de sector.
 
-Bron van beide citaten: de opdrachtgever bij het maken van dit deck, 30 oktober 2026 (issue meta #462).
+Vraaggebieden in de kennisbank: wat OKx oplevert en in welke vorm (issues meta #342 en #365), welk
+deel een instelling overneemt (issue meta #447), wat een instelling moet kunnen (PR Public #100,
+open; issue meta #440).
+
+Bron van de citaten: de opdrachtgever bij het maken van dit deck, 30 oktober 2026 (issue meta #462).
+Release-indeling geparkeerd: SI-afstemming 28 oktober (Jamie).
 -->
 
 ---
 
-<!-- 4. JOCHEM -->
+<!-- 5. JOCHEM -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
@@ -224,7 +315,7 @@ beoordeling), meta #404 (varianten mogelijk gemaakt, gemerged 26 oktober).
 
 ---
 
-<!-- 5. INFORMATIEMODEL -->
+<!-- 6. INFORMATIEMODEL -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
@@ -297,7 +388,7 @@ oktober), meta #356 (minor en hoger onderwijs, PR gemerged in meta, in Public vi
 
 ---
 
-<!-- 6. INBRENG VAN SCHOLEN -->
+<!-- 7. INBRENG VAN SCHOLEN -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
@@ -364,7 +455,7 @@ review), meta #448 (tekeningen, gemerged 28 oktober).
 
 ---
 
-<!-- 7. VAN KETEN NAAR SPECIFICATIE -->
+<!-- 8. VAN KETEN NAAR SPECIFICATIE -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
@@ -443,7 +534,7 @@ alle vier PR ter beoordeling; meta #270 (OEAPI als vaste versie, gemerged 1 okto
 
 ---
 
-<!-- 8. STAND EN KOERS -->
+<!-- 9. STAND EN KOERS -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
