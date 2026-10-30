@@ -144,29 +144,37 @@ Welke leerroutes eerst aan bod komen, staat in de [basisuitgangspunten](context.
 
 Deel 3 eindigt bij een gat: het eenduidige referentiekader ontbreekt. OKx legt dat gaandeweg zelf, met een methodiek die van een procesgebied in MORA afdaalt tot een enkele stap in het model, en die elke stap terugtoetst op de instellingsvloer.
 
-![Van procesgebied naar modeldoorloopstap: MORA deelt het werk in procesgebied, procesketen en processtap, waarna het leerroute-procesbeeld en de modeldoorloopstap van OKx volgen](img/van-procesgebied-naar-modeldoorloopstap-20261103.png)
-
-*Van een procesgebied in MORA tot een doorloopstap in het model, met de lus eronder: elke toets op de instellingsvloer werkt het informatiemodel bij. Uit het deck voor de werkgroep OKx van 3 november 2026.*
-
 Drie lagen dragen de uitwerking. Een **informatiestroom** is de beweging van gegevens tussen twee componenten. Een **koppeling** is de gestandaardiseerde realisatie daarvan. Een **koppelvlak** is de verzameling koppelingen van precies een component.
 
-### Verifieren op de instellingsvloer
+### Vier beelden van die methodiek
+
+De afdaling begint bij MORA en eindigt bij een enkele stap in het model, met een lus terug: elke toets op de instellingsvloer werkt het informatiemodel bij.
+
+![Van procesgebied naar modeldoorloopstap: MORA deelt het werk in procesgebied, procesketen en processtap, waarna het leerroute-procesbeeld en de modeldoorloopstap van OKx volgen](img/van-procesgebied-naar-modeldoorloopstap-20261103.png)
+
+*Van een procesgebied in MORA tot een doorloopstap in het model. Uit het deck voor de werkgroep OKx van 3 november 2026.*
 
 Een model alleen blijft abstract. Elke doorloopstap wordt daarom ingevuld met een echte opleiding, en langs scholen en leveranciers gelegd met een enkele vraag: herkent u dit, en ontbreekt er iets.
 
 ![Verifieren met voorbeelduitwerkingen: een doorloopstap waarin het geplande aanbod teruggaat naar de catalogus, met per laag de verwijzing naar de specificatie](img/verifieren-met-voorbeelduitwerkingen-20260929.png)
 
-*Een stap uit de uitwerking: het geplande aanbod terug naar de catalogus, met per laag de verwijzing naar de specificatie waarvan het aanbod is gemaakt. Uit het deck voor de werkgroep OKx van 29 september 2026.*
-
-### Van beeld naar bericht
+*Een stap uit de uitwerking: het geplande aanbod terug naar de catalogus, met per laag de verwijzing naar de specificatie waarvan het aanbod is gemaakt.*
 
 Dezelfde stap draagt drie gedaantes: de interactie tussen twee componenten, het bericht dat daarover gaat, en het endpoint waarop dat bericht binnenkomt. Het bericht ligt vast; de techniek eronder is een keuze.
 
 ![Van beeld naar bericht: dezelfde stap als interactie, voorbeeldbericht en endpoint](img/van-beeld-naar-bericht-20261027.png)
 
-### AMIGO, de route naar een gedragen standaard
+*Van een stap in het model naar een bericht op een endpoint, in drie gedaantes van hetzelfde.*
 
-Die opbouw is geen eigen vinding. [AMIGO](https://www.edustandaard.nl/amigo/aanpak/) is de aanpak van Edustandaard om van een scenario naar een bouwbare afsprakenset te komen, en leveranciers kennen hem uit andere onderwijsstandaarden. Hieronder de stappen, met het product dat OKx per stap maakt.
+Die opbouw is geen eigen vinding. [AMIGO](https://www.edustandaard.nl/amigo/aanpak/) is de aanpak van Edustandaard om van een scenario naar een bouwbare afsprakenset te komen, en leveranciers kennen hem uit andere onderwijsstandaarden.
+
+![AMIGO van Edustandaard: de landelijke route van scenario-analyse naar afsprakenset, met daarnaast hoe OKx die stappen invult](img/amigo-van-edustandaard-20260929.png)
+
+*De landelijke route van scenario naar afsprakenset. Deze drie beelden komen uit het deck voor de werkgroep OKx van 29 september 2026.*
+
+### AMIGO uitgelijnd op onze producten
+
+De plaat hierboven toont de landelijke route. Hieronder staat dezelfde route met het product dat OKx per stap maakt, zodat te zien is waar een product vandaan komt en wat er nog ontbreekt.
 
 ```mermaid
 flowchart TD
