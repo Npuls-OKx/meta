@@ -1,33 +1,14 @@
 # Historisch overzicht OKx
 
-Rode draad: OKx begon als specificatieproject en ontdekte dat de kaderstelling eronder ontbrak. Elke verschuiving sindsdien legt die kaderstelling alsnog.
+Rode draad: OKx begon als specificatieproject en ontdekte dat de kaderstelling eronder ontbrak. Elke verschuiving sindsdien legt die kaderstelling alsnog. De tijdlijn op hoofdlijnen staat in [deel 2 van de leesroute](leesroute.md#deel-2-historisch-overzicht); hieronder staat het moment voor moment, met de bron erbij.
 
-**Werk in uitvoering.** Deze tijdlijn is nog niet compleet; er horen meer keerpunten in dan er nu staan. Het aanvullen loopt via [#468](https://github.com/Npuls-OKx/meta/issues/468).
-
-```mermaid
-timeline
-    title Van opdracht naar specificatie
-    section 2024
-        november : Opdracht en zes use-cases
-    section 2025
-        januari : Tweedaagse : scope aangescherpt : OEAPI tenzij : startflows
-        najaar : Onderzoek naar kaderstelling en doelstellingen : productomschrijvingen : visie op de keten : definitiemapping MORA en OEAPI : mappingsessies met scholen : alignment met de mbo-architectuurgremia via MOKA
-        december : IT-landschap van een instelling beschreven in de hoofdplaat informatiestromen
-    section 2026
-        januari en februari : Inzichten verwerkt : werkwijze heringericht : agentisch werken
-        maart : Kennisbank ingericht : uitwerken kaderstelling : studentkeuzesysteem als component
-        voorjaar : Leveranciers haken aan : kerngroep techniek ingericht : studentreis en instellingsreis als ordening : MOKA draagt de kaderstelling niet
-        juli : Eerste poging de koppelvlakspecificatie te releasen
-        augustus : Leeruitkomst afgestemd met de pijlers : requirementsboom
-        september : Verdiepend informatiemodel naar Public
-        oktober : Informatiemodel v0.2 : herziening naar interactieketens : roadmap herijkt
-```
+**Werk in uitvoering.** Dit overzicht is nog niet compleet; er horen meer momenten in dan er nu staan. Het aanvullen loopt via [#468](https://github.com/Npuls-OKx/meta/issues/468).
 
 ## November 2024 tot februari 2026
 
 Bron: het projectplan en het geheugen van het team. De kennisbank en de meetingverslagen beginnen in maart 2026.
 
-| Wanneer | Keerpunt | Bron |
+| Wanneer | Wat er gebeurde | Bron |
 |---|---|---|
 | november 2024 | De opdracht wordt vastgelegd, met zes use-cases voor studentmobiliteit van binnen de eigen opleiding tot over landsgrenzen heen | [OKx in context](context.md) |
 | januari 2025 | Een tweedaagse met instellingen, ondersteunende organisaties en leveranciers scherpt de scope aan en kiest voor een hoofdproces met varianten. Het projectplan wordt daarna aangepast tot versie 2.1, en de uitkomst krijgt een eigen advies: *Advies gegevensuitwisseling voor flexibilisering (OKX)*. Daar ontstaan de startflows, en daar ontstaat het uitgangspunt dat OKx op de Open Education API aansluit tenzij een eis dat onmogelijk maakt | [Projectplan, versie 2.1](projectdocumentatie/projectplan-okx.md), [de startflows](img/startflows-doelgebied-20251217.png) |
@@ -41,7 +22,7 @@ Bron: het projectplan en het geheugen van het team. De kennisbank en de meetingv
 
 ## Maart 2026 tot vandaag
 
-| Wanneer | Keerpunt | Bron |
+| Wanneer | Wat er gebeurde | Bron |
 |---|---|---|
 | maart 2026 | De kennisbank wordt ingericht: architectuurprincipes, de procesmodellen uit de mappingsessies, en het studentkeuzesysteem als zelfstandige referentiecomponent | [ADR 0005](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0005-student-keuze-systeem-zelfstandige-referentiecomponent.md) |
 | maart 2026 | Het uitwerken van de kaderstelling begint, te beginnen bij de criteria waarop een student kiest | [Kaderstelling student keuze criteria](../architecture/meetings/20260331_okx_kernteam_inhoud_uitwerken_kaderstelling_student_keuze_criteria/) |

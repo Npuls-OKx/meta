@@ -3,8 +3,8 @@
 | Deel | De vraag | Kern | Verdieping |
 |---|---|---|---|
 | [1 Context](#deel-1-context) | Waarvoor bestaat OKx | 5 min | optioneel, 12 min |
-| [2 Historisch overzicht](#deel-2-historisch-overzicht) | Hoe is het zo gelopen | | optioneel, 10 min |
-| [3 Scope](#deel-3-scope) | Waar houdt het op | 10 min | optioneel, 50 min |
+| [2 Historisch overzicht](#deel-2-historisch-overzicht) | Hoe is het zo gelopen | 2 min | optioneel, 10 min |
+| [3 Scope](#deel-3-scope) | Waar houdt het op | 14 min | optioneel, 50 min |
 | [4 Deliverables](#deel-4-deliverables) | Wat komt eruit | 12 min | optioneel, 52 min |
 | [5 De gedeelde taal](#deel-5-de-gedeelde-taal) | Waarop staat dat | 6 min | optioneel, 33 min |
 | [6 Architectuurbesluiten](#deel-6-architectuurbesluiten) | Waarop steunt dat | 6 min | optioneel, 23 min |
@@ -65,6 +65,27 @@ Kern: de [managementsamenvatting](context.md#managementsamenvatting), 5 minuten.
 
 **Hoe is het zo gelopen?**
 
+```mermaid
+timeline
+    title Van opdracht naar specificatie
+    section 2024
+        november : Opdracht en zes use-cases
+    section 2025
+        januari : Tweedaagse : scope aangescherpt : OEAPI tenzij : startflows
+        najaar : Onderzoek naar kaderstelling en doelstellingen : productomschrijvingen : visie op de keten : definitiemapping MORA en OEAPI : mappingsessies met scholen : alignment met de mbo-architectuurgremia via MOKA
+        december : IT-landschap van een instelling beschreven in de hoofdplaat informatiestromen
+    section 2026
+        januari en februari : Inzichten verwerkt : werkwijze heringericht : agentisch werken
+        maart : Kennisbank ingericht : uitwerken kaderstelling : studentkeuzesysteem als component
+        voorjaar : Leveranciers haken aan : kerngroep techniek ingericht : studentreis en instellingsreis als ordening : MOKA draagt de kaderstelling niet
+        juli : Eerste poging de koppelvlakspecificatie te releasen
+        augustus : Leeruitkomst afgestemd met de pijlers : requirementsboom
+        september : Verdiepend informatiemodel naar Public
+        oktober : Informatiemodel v0.2 : herziening naar interactieketens : roadmap herijkt
+```
+
+OKx begon als specificatieproject en ontdekte dat de kaderstelling eronder ontbrak. Elke verschuiving sindsdien legt die kaderstelling alsnog. Moment voor moment, met de bron per uitspraak, staat in het detaildocument hieronder.
+
 ### Verdieping: het historisch overzicht
 
 [Detaillering van de OKx-tijdlijn](historie.md)
@@ -95,6 +116,14 @@ De grens die daarbij hoort:
 | De applicatie | De leverancier |
 | Les en didactiek | De instelling, vastgelegd in de specificatie |
 | De landelijke voorzieningen | Hun eigen pijler |
+
+### Uitdagingen bij die scope
+
+MORA is een conceptuele referentiearchitectuur. In de architectuurmappingsessies met scholen bleek dat veel van haar termen, begrippen, processtappen en plaatsingen niet samenvallen met de praktijk op de instellingsvloer. Wat op papier een hoofdproces is, ligt in een school vaak onder een andere naam, bij een ander team, of verdeeld over meerdere.
+
+OKx werkt daarbij onderaan de keten. De lagen erboven zijn conceptueel, en de kaders die daaruit zouden moeten komen, zoals een projectstartarchitectuur en een specificatie onder MORA, bestaan nog niet. Dat geldt niet alleen voor de reguliere leerroute maar voor alle negen. Daarmee ontbreekt een eenduidig referentiekader om op te bouwen, en legt OKx dat kader gaandeweg zelf, terwijl het die rol niet heeft.
+
+Daar komt de reikwijdte bij. De horizon loopt over sectoren heen, en mbo, hbo en wo dragen elk een eigen kwalificatiekader, een eigen administratie en een eigen referentiearchitectuur. Elke afspraak die over die grens heen moet werken, moet in drie stelsels tegelijk kloppen.
 
 Welke leerroutes eerst aan bod komen, staat in de [basisuitgangspunten](context.md#basisuitgangspunten): prioriteit bij 1, 2, 3, 4 en 7. De [negen leerroutes van Npuls](../architecture/docs/specificatie/leerroute-uitwerking/img/README.md) staan als tekening bij elkaar, met per route de keten van persona, uitwerking, scenario's en modeldoorloop.
 
