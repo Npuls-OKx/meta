@@ -96,7 +96,7 @@ Daarnaast geldt de vaste werkafspraak: **bekijk de plaat in de vorm waarin de le
 
 De hoofdplaatscripts landen met #106; wie ze op `dev` niet vindt, kijkt op die branch.
 
-- `tools/scripts/teken-hoofdplaat-ruim.py`: de hoofdplaat informatiestromen uit de view, ruimer opgezet, met een schakelaar voor het opschrift (de stroomnamen of het koppeling-ID).
+- `tools/scripts/teken-hoofdplaat-ruim.py`: de hoofdplaat informatiestromen uit de view, ruimer opgezet, met een schakelaar voor het opschrift (de stroomnamen of het koppeling-ID) en met `--markeer <casus>.json` voor de stromen van een casus: de plaat vervaagt, de stromen worden uitgelicht met wat er overheen gaat, de componenten die meedoen krijgen een omlijning, en een stroom die de plaat nog niet kent staat gestippeld.
 - `tools/scripts/teken-hoofdplaat-highlight.py`: de router zelf, plus markeringen over een render van de plaat.
 - `tools/scripts/teken-voorbeeldregels.py`: de kleuren per ArchiMate-laag.
 - `tools/scripts/platen-inventariseren.py`: het manifest dat bijhoudt welke plaat waarvandaan komt.
