@@ -19,6 +19,7 @@ Blokken die een selectie kan dragen:
                 een latere stap terugwijst naar een eerdere
     kolommen    twee kolommen met een lijst, bijvoorbeeld in concept tegenover nog open
     kaarten     een rij kaarten met icoon, titel en een regel
+    netwerk     panelen met knopen in een ovaal, onderling verbonden of via een midden
     legenda     een regel met kleurvlakjes en hun betekenis
     tekst       een alinea, voor de regel onder een blok
 
@@ -29,6 +30,7 @@ met een doorzichtige achtergrond valt weg in de donkere modus van GitHub.
 
 import argparse
 import json
+import math
 import pathlib
 import re
 import sys
@@ -341,6 +343,58 @@ def blok_kaarten(b, x, y, w, p, ic):
     return svg, hoog
 
 
+def blok_netwerk(b, x, y, w, p, ic):
+    """Panelen met knopen in een ovaal: onderling verbonden, of elk naar een midden.
+
+    Waarom dit blok bestaat: het verkeer tussen de systemen van een school laat zich met woorden
+    slecht vertellen. Zes systemen die elkaar rechtstreeks kennen leveren vijftien lijnen; dezelfde
+    zes via een afspraak leveren er zes. Dat verschil is het hele verhaal, en het is te zien.
+    """
+    panelen = b["panelen"]
+    gat = 24
+    pb = (w - gat * (len(panelen) - 1)) / len(panelen)
+    hoog = b.get("hoogte", 320)
+    svg = ""
+    for i, pan in enumerate(panelen):
+        px = x + i * (pb + gat)
+        kleur = pan.get("kleur", p["np-blue"])
+        svg += kaart(px, y, pb, hoog, "#ffffff", p["np-light-gray"], streep=kleur)
+        svg += tekst(px + 18, y + 28, pan["titel"], 14, kleur, vet=True)
+        if pan.get("toelichting"):
+            svg += tekst(px + 18, y + 47, pan["toelichting"], 11, p["np-mid-gray"])
+        knopen = pan["knopen"]
+        n = len(knopen)
+        mx, my = px + pb / 2, y + 62 + (hoog - 62) / 2
+        rx, ry = pb / 2 - 74, (hoog - 62) / 2 - 34
+        plek = []
+        for j in range(n):
+            hoek = -math.pi / 2 + 2 * math.pi * j / n
+            plek.append((mx + rx * math.cos(hoek), my + ry * math.sin(hoek)))
+        lijn = p["np-light-gray"] if pan.get("vorm") == "via" else p["np-mid-gray"]
+        if pan.get("vorm") == "via":
+            for kx, ky in plek:
+                svg += (f'<path d="M{mx:.0f} {my:.0f}L{kx:.0f} {ky:.0f}" stroke="{kleur}"'
+                        f' stroke-width="2"/>')
+        else:
+            for a in range(n):
+                for b2 in range(a + 1, n):
+                    (ax, ay), (bx, by) = plek[a], plek[b2]
+                    svg += (f'<path d="M{ax:.0f} {ay:.0f}L{bx:.0f} {by:.0f}" stroke="{lijn}"'
+                            f' stroke-width="1.2" stroke-opacity="0.75"/>')
+        if pan.get("vorm") == "via":
+            mb = tw(pan.get("midden", ""), 12, True) + 46
+            svg += kaart(mx - mb / 2, my - 18, mb, 36, kleur, kleur, straal=18)
+            svg += icoon(pan.get("middenicoon", "network-3"), mx - mb / 2 + 13, my - 9, 18, "#ffffff", ic)
+            svg += tekst(mx - mb / 2 + 37, my + 5, pan.get("midden", ""), 12, "#ffffff", vet=True)
+        for (kx, ky), knoop in zip(plek, knopen):
+            svg += f'<circle cx="{kx:.0f}" cy="{ky:.0f}" r="21" fill="{p["np-bg"]}" stroke="{p["np-light-gray"]}" stroke-width="1.5"/>'
+            svg += icoon(knoop.get("icoon", "api"), kx - 10, ky - 10, 20, p["np-ink"], ic)
+            regels = breek(knoop["naam"], 112, 10)[:2]
+            for r, regel in enumerate(regels):
+                svg += tekst(kx, ky + 36 + r * 12, regel, 10, p["np-dark-gray"], midden=True)
+    return svg, hoog
+
+
 def blok_legenda(b, x, y, w, p, ic):
     svg = ""
     cx = x
@@ -364,7 +418,8 @@ def blok_tekst(b, x, y, w, p, ic):
 
 
 BLOKKEN = {"ladder": blok_ladder, "stappen": blok_stappen, "kolommen": blok_kolommen,
-           "kaarten": blok_kaarten, "legenda": blok_legenda, "tekst": blok_tekst}
+           "kaarten": blok_kaarten,
+    "netwerk": blok_netwerk, "legenda": blok_legenda, "tekst": blok_tekst}
 
 
 def teken(sel: dict) -> str:

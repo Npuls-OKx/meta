@@ -125,5 +125,26 @@ class LusTests(unittest.TestCase):
         self.assertIn("stap 9", str(gevangen.exception))
 
 
+class NetwerkTests(unittest.TestCase):
+    def paneel(self, vorm, aantal=4):
+        return {"soort": "netwerk", "panelen": [{
+            "titel": "Een school", "vorm": vorm, "midden": "OKx-koppelvlak",
+            "knopen": [{"naam": f"Systeem {n}"} for n in range(aantal)]}]}
+
+    def test_given_knopen_onderling_when_drawn_then_every_pair_has_a_line(self):
+        svg, _ = npuls.blok_netwerk(self.paneel("onderling", 4), 40, 100, 1000, PALET, {"iconen": {}})
+        self.assertEqual(svg.count('stroke-opacity="0.75"'), 6)
+
+    def test_given_knopen_via_a_midden_when_drawn_then_there_is_a_line_per_knoop(self):
+        svg, _ = npuls.blok_netwerk(self.paneel("via", 4), 40, 100, 1000, PALET, {"iconen": {}})
+        self.assertEqual(svg.count('stroke-width="2"'), 4)
+        self.assertIn("OKx-koppelvlak", svg)
+
+    def test_given_a_paneel_when_drawn_then_every_knoop_carries_its_name(self):
+        svg, _ = npuls.blok_netwerk(self.paneel("via", 4), 40, 100, 1000, PALET, {"iconen": {}})
+        for n in range(4):
+            self.assertIn(f"Systeem {n}", svg)
+
+
 if __name__ == "__main__":
     unittest.main()

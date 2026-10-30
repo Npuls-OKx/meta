@@ -1,12 +1,14 @@
 # OKx-meta
 
-De publieke werkomgeving van **OKx**: hier ontstaan de producten van het project, in het open en samen met de sector. Het keteninzicht, de modellen, de kaderstelling en de specificaties worden hier gemaakt, besproken en herzien, en wat releasebaar is verhuist naar Public. OKx is onderdeel van [Npuls, pijler Leren Zonder Drempels](https://npuls.nl/project-onderwijskoppelingen).
+Een school laat haar systemen de hele dag gegevens uitwisselen om onderwijs mogelijk te maken. Elke school richt dat nu zelf in, en binnen een school verschilt het vaak per team. **OKx legt vast hoe die uitwisseling gaat**, zodat het onderwijsaanbod overzichtelijk wordt en de onderwijslogistiek haalbaar en betaalbaar blijft.
 
-Bestaat een document in beide repositories, dan is de versie in [`Npuls-OKx/Public`](https://github.com/Npuls-OKx/Public) de vastgelegde en de versie hier de werkversie. Waar OKx aansluit op bestaande standaarden en referentiearchitecturen staat in [`project/context.md`](project/context.md#standaarden-en-referentiearchitecturen).
+![Systemen in een school wisselen de hele dag gegevens uit: zes systemen die elkaar rechtstreeks kennen tegenover dezelfde zes via een koppelvlakstandaard, met wat dat oplevert](project/img/visueel/wat-okx-doet.svg)
 
-![Hoe ziet onze specificatie eruit: wat er in concept ligt tegenover wat open staat, met de route van persona naar profiel](project/img/visueel/specificatie-hoofdvraag.svg)
+Dit is de publieke werkomgeving waar die afspraken ontstaan, in het open en samen met de sector. Wat releasebaar is verhuist naar [`Npuls-OKx/Public`](https://github.com/Npuls-OKx/Public); bestaat een document in beide repositories, dan is de versie daar de vastgelegde en de versie hier de werkversie. OKx is onderdeel van [Npuls, pijler Leren Zonder Drempels](https://npuls.nl/onderwerpen/ontsluiten-onderwijsaanbod). Waar OKx aansluit op bestaande standaarden en referentiearchitecturen staat in [`project/context.md`](project/context.md#standaarden-en-referentiearchitecturen).
 
 ## Status
+
+![Hoe ziet onze specificatie eruit: wat er in concept ligt tegenover wat open staat, met de route van persona naar profiel](project/img/visueel/specificatie-hoofdvraag.svg)
 
 Wat hier staat is grotendeels concept en voorstel. Van de zeven [statussen](project/status.md) die een product doorloopt zijn 5 en 7 leeg, en release 0.0.1 kreeg geen review. Het werk beweegt sindsdien tussen status 1 en 4, bij de vraag wat een instelling moet kunnen.
 

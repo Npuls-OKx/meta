@@ -16,6 +16,7 @@ De selectie is het werk; het tekenen kost seconden. Een plaat hertekenen na een 
 
 | Plaat | Toont | Gebruikt in |
 |---|---|---|
+| [`wat-okx-doet`](wat-okx-doet.svg) | wat OKx doet: zes systemen onderling tegenover zes via een koppelvlakstandaard | de landing |
 | [`status-ladder`](status-ladder.svg) | de zeven statussen die een product doorloopt | [Status](../../status.md) |
 | [`status-nu`](status-nu.svg) | waar de producten vandaag staan, met het werk tussen status 1 en 4 | [Status](../../status.md), de leesroute |
 | [`specificatie-hoofdvraag`](specificatie-hoofdvraag.svg) | wat er in concept ligt tegenover wat open staat, met de route ernaartoe | de landingspagina, de leesroute |
