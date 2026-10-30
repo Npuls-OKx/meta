@@ -57,6 +57,11 @@
       "doel": "Schrijft en keurt een leeruitkomst volgens het tuning model uit de NLQF-handleiding, met Romiszowski voor NLQF 1 tot 4 en SOLO voor 5 tot 8. Hoort bij tools/scripts/keur-leeruitkomst.py."
     },
     {
+      "naam": "okx-lezersroute",
+      "type": "okx-specifiek",
+      "doel": "De lezersroute vormgeven: de route in delen met een vraag per deel, de verdieping in vier vaste regels, en de platen in de Npuls-vormtaal uit tools/scripts/teken-npuls-plaat.py, met een versie volgens SemVer op elk beeld."
+    },
+    {
       "naam": "okx-oeapi-scenario-uitwerking",
       "type": "okx-specifiek",
       "doel": "Kaderstellende scenario's per leerroute schrijven en aanscherpen binnen de leerroute-uitwerking."
