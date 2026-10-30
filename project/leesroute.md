@@ -123,6 +123,12 @@ MORA is een conceptuele referentiearchitectuur. In de architectuurmappingsessies
 
 OKx werkt daarbij onderaan de keten. De lagen erboven zijn conceptueel, en de kaders die daaruit zouden moeten komen, zoals een projectstartarchitectuur en een specificatie onder MORA, bestaan nog niet. Dat geldt niet alleen voor de reguliere leerroute maar voor alle negen. Daarmee ontbreekt een eenduidig referentiekader om op te bouwen, en legt OKx dat kader gaandeweg zelf, terwijl het die rol niet heeft.
 
+![De sectorketen en haar producten: zeven lagen van overheidsbreed kader tot koppelingimplementatie, met per laag de partijen en de producten die zij maken](img/sectorketen-v0.2.0.png)
+
+*Zeven lagen, van overheidsbreed kader tot koppelingimplementatie. OKx werkt op laag 6. Voluit, met de bron per product: [de sectorketen en haar producten](sectorketen-viewpoint.md).*
+
+OKx consumeert alles wat boven laag 6 ligt: de kaders van NORA, de visie van Npuls, de ketenafspraken van ROSA, de doel- en referentiearchitectuur van de sector, en het koppelvlakontwerp van MOKA. Die lagen leveren wel een vorm en een werkwijze, en zelden een antwoord op de vraag wat de sector wil kunnen. Laag 5 vult een sjabloon per koppelvlak, maar zegt niet welk koppelvlak er moet zijn. Laag 4 beschrijft hoe een instelling werkt, niet welke keuzevrijheid zij haar studenten wil geven. Daardoor begint OKx elke uitwerking bij een vraag die een laag hoger beantwoord had kunnen zijn.
+
 Daar komt de reikwijdte bij. De horizon loopt over sectoren heen, en mbo, hbo en wo dragen elk een eigen kwalificatiekader, een eigen administratie en een eigen referentiearchitectuur. Elke afspraak die over die grens heen moet werken, moet in drie stelsels tegelijk kloppen.
 
 Welke leerroutes eerst aan bod komen, staat in de [basisuitgangspunten](context.md#basisuitgangspunten): prioriteit bij 1, 2, 3, 4 en 7. De [negen leerroutes van Npuls](../architecture/docs/specificatie/leerroute-uitwerking/img/README.md) staan als tekening bij elkaar, met per route de keten van persona, uitwerking, scenario's en modeldoorloop.
