@@ -47,6 +47,7 @@ Een leesroute brengt een lezer in een vaste volgorde langs wat hij nodig heeft. 
 ```text
 meta/
 ├── project/                          wat OKx is en hoe je het leest: context, historie, status, leesroute
+│   ├── projectdocumentatie/          de bronstukken, zoals het projectplan
 │   └── img/                          de platen van het programma en de gegenereerde beelden
 ├── architecture/
 │   ├── docs/

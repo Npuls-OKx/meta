@@ -4,6 +4,7 @@ De inhoudelijke **ingang** van OKx-meta: overzichten, ketenuitleg, governance/bi
 
 | Document | Beantwoordt |
 |---|---|
+| [Projectplan OKx](projectdocumentatie/projectplan-okx.md) | De bron zoals vastgesteld: opdrachtgever, governance, risico's en alternatieven |
 | [OKx in context](context.md) | Wat de opdracht is, in welke omgeving die loopt, waar het werk staat, en welke uitdagingen eronder liggen |
 | [Status](status.md) | De zeven statussen die een product doorloopt, en waar de producten vandaag staan |
 | [Historisch overzicht OKx](historie.md) | De keerpunten van het project, elk met een bron |

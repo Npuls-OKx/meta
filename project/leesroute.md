@@ -38,6 +38,17 @@ De kaderstelling ontstaat in `Npuls-OKx/meta`; `Npuls-OKx/Public` draagt de rele
 
 Kern: de [managementsamenvatting](context.md#managementsamenvatting), 5 minuten.
 
+### Verdieping: het projectplan
+
+[Projectplan OKx](projectdocumentatie/projectplan-okx.md)
+
+| | |
+|---|---|
+| Beantwoordt | Wie de opdrachtgever is, hoe het project bestuurd wordt, welke risico's zijn benoemd en welke alternatieven zijn afgewogen |
+| Overslaan | Het conceptcommunicatieplan, tenzij je over de uitdracht gaat |
+| Status | Bevroren bron, versie 2.1 van 19 november 2024, bijgewerkt 4 juni 2025. De secties 2 tot en met 8 zijn nog niet overgenomen; de inzet van mensen en middelen blijft eruit |
+| Omvang | 909 woorden, 8 minuten |
+
 ### Verdieping: het contextdocument
 
 [OKx in context](context.md)
@@ -46,7 +57,7 @@ Kern: de [managementsamenvatting](context.md#managementsamenvatting), 5 minuten.
 |---|---|
 | Beantwoordt | Wat de opdracht is, welke resultaten die draagt, met welke initiatieven OKx raakvlakken heeft, wie wat beslist, en welke uitdagingen eronder liggen |
 | Overslaan | Niets bij eerste lezing; wie haast heeft leest de managementsamenvatting |
-| Status | Concept. Samengesteld uit het projectplan en de platen van het programma. Elke sectie draagt haar herkomst, zodat een uitspraak uit het plan te onderscheiden is van een afleiding. Het plan zelf staat nog niet in deze repository, zie [#449](https://github.com/Npuls-OKx/meta/issues/449) |
+| Status | Concept. Samengesteld uit het projectplan en de platen van het programma. Elke sectie draagt haar herkomst, zodat een uitspraak uit het plan te onderscheiden is van een afleiding |
 | Omvang | 1388 woorden, 12 minuten |
 
 ## Deel 2, historisch overzicht
