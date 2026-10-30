@@ -11,12 +11,15 @@ Dit is een bevroren bron: de tekst komt uit het projectplan en wordt hier niet g
 | Overgenomen | De secties 1, 9, 10, 11 en 12, en het conceptcommunicatieplan |
 | Weggelaten | De sectie over de inzet van mensen en middelen. Die hoort niet in een publieke repository |
 | Nog niet overgenomen | De secties 2 tot en met 8. Zij staan in het plan en zijn hier nog niet opgenomen |
+| Ingehaald | Sectie 9 over de governance. Hoe het project vandaag bestuurd wordt staat in [OKx in context](../context.md#governance) |
 
 ## 1. Opdrachtgever
 
 De hoofdopdrachtgever is de transformatiehub Wendbaar georganiseerd onderwijs van Npuls. Daarnaast is er een samenwerking met DSV om de realisatie van de digitale sectorvoorzieningen voor studentmobiliteit te realiseren.
 
 ## 9. Governance project
+
+De inrichting hieronder is sinds het plan veranderd. De huidige governance staat in [OKx in context](../context.md#governance); wat hier staat is de vastgestelde tekst van november 2024.
 
 Het project is gepositioneerd onder de regiegroep studentmobiliteit van de transformatiehub Wendbaar georganiseerd onderwijs. Daarmee fungeert deze regiegroep als stuurgroep voor dit project. In deze regiegroep zitten vertegenwoordigers van veel stakeholders.
 
