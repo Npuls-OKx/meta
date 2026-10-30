@@ -43,6 +43,12 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Pakketten
+        # Dezelfde set als de dev-container, zodat de testgevallen hier hetzelfde doen
+        # als lokaal. Zonder jsonschema slaat de schemacontrole stil een stap over en
+        # falen de testgevallen die juist op die stap toezien.
+        run: python3 -m pip install --quiet -r .devcontainer/requirements.txt
+
       - name: Conflictmarkeringen
         # Een regelgebaseerde merge laat deze achter. Het model is dan nog steeds XML
         # die opent, dus de volgende controle zou hier overheen kunnen kijken.
@@ -59,7 +65,7 @@ jobs:
           set -euo pipefail
           for model in architecture/model/*.archimate; do
             echo "::group::$model"
-            python3 scripts/validate-archimate.py "$model"
+            python3 tools/scripts/validate-archimate.py "$model"
             echo "::endgroup::"
           done
 
@@ -73,9 +79,9 @@ jobs:
           set -euo pipefail
           for model in architecture/model/*.archimate; do
             echo "::group::$model"
-            python3 scripts/controleer-modelverlies.py --git "$BASIS" "$model"
+            python3 tools/scripts/controleer-modelverlies.py --git "$BASIS" "$model"
             echo "::endgroup::"
           done
 
       - name: Testgevallen van de controlescripts
-        run: python3 -m unittest discover -s tests
+        run: python3 -m unittest discover -s tools/tests

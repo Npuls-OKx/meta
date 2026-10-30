@@ -111,7 +111,7 @@ Per plaat lees je daar wat hij toont, bij welk publiek hij werkt, en waar je op 
 Controleer de lijst voordat je hem gebruikt:
 
 ```bash
-python3 ../scripts/platen-inventariseren.py
+python3 ../tools/scripts/platen-inventariseren.py
 ```
 
 Dat vergelijkt het manifest met wat er werkelijk in beide repositories staat en meldt: een bron die is **verdwenen**, een bron die is **gewijzigd** sinds de omschrijving werd geschreven, een **nieuwere versie** die ernaast is verschenen, een plaat die nog **niet in het manifest** staat, en een kopie in `public/platen/` die is gaan **afwijken van zijn bron**. Los meldingen op voordat je een plaat kiest.
@@ -135,7 +135,7 @@ Gebruik je een plaat niet meer, haal de kopie dan weg en laat het veld `kopie` l
 Zet hem in het manifest en werk daarna de vingerafdrukken bij:
 
 ```bash
-python3 ../scripts/platen-inventariseren.py --bijwerken
+python3 ../tools/scripts/platen-inventariseren.py --bijwerken
 ```
 
 Twee velden doen het werk. `gebruik_bij` is waar een agent op selecteert, dus schrijf daar het publiek en de situatie, niet de inhoud. `let_op` is waar het voorbehoud staat; wat daar staat komt terug in de afstemming voordat er een deck wordt geschreven.

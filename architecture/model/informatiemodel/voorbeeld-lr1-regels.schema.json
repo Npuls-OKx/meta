@@ -1,0 +1,160 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "voorbeeld-lr1-regels.schema.json",
+  "title": "Regeltabel voorbeelduitwerking leerroute 1 (Jochem)",
+  "description": "Bron voor het document dat de opleiding van Jochem stap voor stap in het informatiemodel uitdrukt. Elke regel is een fragment van de plaat bij een processtap; de controle toetst namen, relaties, rollen, stappen en pijlen tegen informatiemodel.json en stromen.json.",
+  "type": "object",
+  "required": ["model", "fasen", "rollen", "toestanden", "scope_uitzonderingen", "koppelingen", "regels"],
+  "properties": {
+    "model": {
+      "type": "object",
+      "required": ["informatiemodel_commit", "begrippen_commit"],
+      "properties": {
+        "informatiemodel_commit": {"type": "string", "description": "git-commit van informatiemodel.json waartegen is gecontroleerd"},
+        "begrippen_commit": {"type": "string", "description": "git-commit van begrippen.json waartegen is gecontroleerd"}
+      }
+    },
+    "fasen": {
+      "type": "array",
+      "description": "De acht fasen van de instellingsreis, naam letterlijk uit de sectiekop van het kaderscenario leerroute 1, met de stappen erin en de objecttypen die daar voor het eerst verschijnen.",
+      "items": {
+        "type": "object",
+        "required": ["nummer", "naam", "bron", "stappen", "verwacht"],
+        "properties": {
+          "nummer": {"type": "integer", "minimum": 1, "maximum": 8},
+          "naam": {"type": "string"},
+          "mora_hoofdproces": {"type": "string"},
+          "bron": {"type": "string", "description": "bestand en regel of sectiekop"},
+          "stappen": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+          "verwacht": {"type": "array", "items": {"type": "string"}, "description": "objecttypen (plaatnaam) die in deze fase voor het eerst verschijnen"},
+          "uitwisselingen": {
+            "type": "array",
+            "description": "de uitwisselingen die het kaderscenario onder 'Wat licht op in de plaat' voor deze fase noemt, letterlijk overgenomen. De controle toetst of elke uitwisseling een beeld draagt; een uitwisseling die in het voorbeeld elders of niet verschijnt draagt beeld_in_fase, afwijking of buiten_scope met de reden erbij.",
+            "items": {
+              "type": "object",
+              "required": ["van", "naar", "objecten", "bron"],
+              "additionalProperties": false,
+              "properties": {
+                "van": {"type": "string", "description": "componentnaam zoals componenten.json die draagt; bij buiten_scope de naam uit het kaderscenario"},
+                "naar": {"type": "string"},
+                "objecten": {"type": "array", "items": {"type": "string"}, "description": "de woorden van het kaderscenario, ter lezing; de controle vergelijkt ze niet met het informatiemodel omdat de twee een eigen schrijfwijze hebben"},
+                "bron": {"type": "string"},
+                "beeld_in_fase": {"type": "integer", "minimum": 1, "maximum": 8, "description": "het voorbeeld toont deze uitwisseling in die andere fase, omdat zij daar voor het eerst optreedt"},
+                "afwijking": {"type": "string", "description": "het voorbeeld laat deze uitwisseling anders lopen, met de route en de reden"},
+                "buiten_scope": {"type": "string", "description": "waarom deze uitwisseling buiten OKx valt"}
+              }
+            }
+          },
+          "dekking": {"type": "string", "enum": ["open", "volledig"], "description": "volledig betekent dat elke uitwisseling van deze fase een beeld draagt of een reden; de controle maakt een gat dan een bevinding in plaats van een signalering. Een fase-issue zet dit op volledig bij het aftekenen."}
+        }
+      }
+    },
+    "rollen": {"type": "array", "items": {"type": "string"}, "description": "gesloten lijst, uit het kaderscenario"},
+    "toestanden": {"type": "array", "items": {"type": "object", "required": ["naam", "bron"], "properties": {"naam": {"type": "string"}, "bron": {"type": "string"}}}},
+    "scope_uitzonderingen": {
+      "type": "array",
+      "items": {"type": "object", "required": ["objecttype", "motivering"], "properties": {"objecttype": {"type": "string"}, "motivering": {"type": "string"}}},
+      "description": "objecttypen met scope buiten die het voorbeeld toch meeneemt, met motivering"
+    },
+    "koppelingen": {
+      "type": "object",
+      "description": "koppeling-ID uit Public per (van > naar) op hoofdplaat v1.7a",
+      "additionalProperties": {"type": "string"}
+    },
+    "regels": {
+      "type": "array",
+      "description": "de regels van de basis; een beeld-ID heeft hier geen letter, die hoort bij een variant",
+      "items": {"allOf": [{"$ref": "#/$defs/regel"}, {"properties": {"beeld_id": {"pattern": "^F[1-8]-[0-9]{2}$"}}}]}
+    },
+    "thema_toelichting": {
+      "type": "object",
+      "description": "de thema's waarin de bevindingen van een reviewronde zijn geordend, elk met een regel die zegt wat het thema inhoudt; de ordening is van OKx, de bevinding blijft de tekst van de lezer",
+      "additionalProperties": {"type": "string"}
+    },
+    "bevindingen": {
+      "type": "array",
+      "description": "het register van een reviewronde: elke bevinding op een beeld, met haar bron, de thema's waarin zij valt en wat ermee is gedaan. Een geparkeerde bevinding draagt een reden; levert zij een vraag op, dan draagt zij die vraag zodat het document hem toont.",
+      "items": {
+        "type": "object",
+        "required": ["nummer", "beeld_id", "lezer", "datum", "bron", "tekst", "themas", "issue", "status"],
+        "additionalProperties": false,
+        "properties": {
+          "nummer": {"type": "string", "pattern": "^B[0-9]{2}$", "description": "volgnummer binnen de ronde, stabiel zodat een verwijzing blijft kloppen"},
+          "beeld_id": {"type": "string", "pattern": "^F[1-8]-[0-9]{2}$", "description": "het beeld waarop de bevinding staat; moet in regels voorkomen"},
+          "bestand": {"type": "string", "description": "het SVG-bestand waarop de lezer zijn comment plaatste"},
+          "lezer": {"type": "string", "description": "wie de bevinding schreef, GitHub-naam"},
+          "datum": {"type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"},
+          "bron": {"type": "string", "description": "de URL van de review-comment"},
+          "tekst": {"type": "string", "description": "de bevinding letterlijk zoals de lezer die schreef"},
+          "themas": {"type": "array", "items": {"type": "string"}, "minItems": 1, "description": "sleutels uit thema_toelichting"},
+          "werkpakketten": {"type": "array", "items": {"type": "string", "pattern": "^W[1-8]$"}, "description": "de werkpakketten uit het featureplan 20260929_1723_niels-review-jochem-verwerken.md die het besluit over deze bevinding dragen; leeg betekent dat het besluit nog ontbreekt"},
+          "verwijst_naar": {"type": "string", "pattern": "^F[1-8]-[0-9]{2}$", "description": "het beeld waarnaar de bevinding verwijst als zij een eerdere opmerking herhaalt"},
+          "issue": {"type": "integer", "description": "het fase-issue waarin de bevinding wordt opgelost"},
+          "status": {"type": "string", "enum": ["open", "doorgevoerd", "geparkeerd"]},
+          "reden": {"type": "string", "description": "waarom de bevinding is geparkeerd; verplicht bij geparkeerd"},
+          "vraag": {"type": "string", "description": "de vraag die de bevinding oplevert, voor de vragenpagina"}
+        }
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "regel": {
+      "type": "object",
+      "required": ["beeld_id", "beeld", "fase", "stap", "soort", "objecttype", "instantie", "bron"],
+      "properties": {
+        "beeld_id": {"type": "string", "pattern": "^F[1-8]-[CR]?[0-9]{2}$", "description": "het ID van het beeld waarin de regel staat: F<fase>-<volgnummer>, stabiel zodat verwijzingen blijven kloppen als er een beeld bij komt; staat in het beeld, in de kop, het register, de bijlage en het invulblad"},
+        "beeld": {"type": "string", "description": "de titel van het beeld waarin de regel staat: een beschrijvende zin van wat het beeld toont, uniek per beeld; regels met dezelfde titel vormen samen dat beeld en het bestand ervan"},
+        "fase": {"type": "integer", "minimum": 1, "maximum": 8},
+        "stap": {"type": "string", "description": "moet in fasen[fase].stappen staan"},
+        "verdieping": {"type": "string", "description": "verdieping van de regel erboven binnen dezelfde stap; regels met dezelfde verdieping vormen een eigen blok en beeld"},
+        "plaat": {"type": "string", "enum": ["informatiemodel", "onderwijsontwerp"], "default": "informatiemodel", "description": "plaat waartegen de regel wordt gecontroleerd; de conceptplaat Informatiemodel Onderwijsontwerp alleen in een verdieping"},
+        "soort": {"type": "string", "enum": ["ontstaat", "verandert", "stroomt"]},
+        "wie": {"type": "string", "description": "rol uit de rollenlijst; verplicht bij ontstaat en verandert"},
+        "van": {"type": "string", "description": "componentnaam letterlijk uit v1.7a; verplicht bij stroomt"},
+        "naar": {"type": "string", "description": "componentnaam letterlijk uit v1.7a; verplicht bij stroomt"},
+        "pijl": {"type": "string", "description": "relatie-id uit stromen.json, of 'geen pijl op de hoofdplaat'; verplicht bij stroomt"},
+        "koppeling": {"type": ["string", "null"], "description": "koppeling-ID van de uitwisseling die deze regel raakt, een waarde uit de koppelingen-lijst op topniveau, of null voor een stroom zonder koppelingspecificatie (dezelfde betekenis als in stromen.json). Verplicht bij stroomt en alleen daar, zodat per uitwisseling vaststaat of een specificatie haar dekt; de controle toetst de waarde tegen de lijst, omdat JSON Schema niet naar een zusterveld kan verwijzen"},
+        "objecttype": {"type": "string", "description": "plaatnaam letterlijk (witruimte genormaliseerd)"},
+        "instantie": {"type": "string", "description": "de waarde voor Jochem, leesbare naam"},
+        "toestand": {"type": "string", "description": "uit de toestandenlijst; verplicht bij verandert, en toegestaan bij ontstaat als het object al in een bepaalde rijpheid ontstaat (een aanbod dat als intentie begint)"},
+        "relatie": {
+          "type": "object",
+          "description": "de relatie van de plaat waarmee dit object aan een ander object in dezelfde stap hangt",
+          "required": ["soort", "van", "naar"],
+          "properties": {
+            "soort": {"type": "string", "enum": ["Aggregation", "Composition", "Association", "Specialization", "Access"]},
+            "van": {"type": "string"},
+            "naar": {"type": "string"},
+            "label": {"type": "string"},
+            "instantie": {"type": "string", "description": "de instantie aan het andere eind, getoond in de verwijzing als het andere eind buiten het blok staat"},
+            "nesting": {"type": "boolean", "default": false, "description": "het object staat in het beeld binnen het andere eind getekend; alleen op een aggregatie of compositie, en nooit in relaties"}
+          },
+          "additionalProperties": false
+        },
+        "relaties": {
+          "type": "array",
+          "description": "verdere relaties van de plaat vanaf dit object, als verwijzing op het object (nooit nesting); met de instantie aan het andere eind waar die helpt",
+          "items": {
+            "type": "object",
+            "required": ["soort", "van", "naar"],
+            "properties": {
+              "soort": {"type": "string", "enum": ["Aggregation", "Composition", "Association", "Specialization", "Access"]},
+              "van": {"type": "string"},
+              "naar": {"type": "string"},
+              "label": {"type": "string"},
+              "instantie": {"type": "string"}
+            },
+            "additionalProperties": false
+          }
+        },
+        "aanname": {"type": "boolean", "default": false},
+        "nieuwe_instantie": {"type": "boolean", "default": false, "description": "een verdere instantie van een objecttype dat al eerder ontstond, omdat het scenario die nodig heeft; telt niet als tweede ontstaan"},
+        "bron": {"type": "string", "description": "bestand en regel of id; bij een aanname de bron van de aanname of 'geen bron, keuze van het voorbeeld'"},
+        "zin": {"type": "string", "description": "een zin, uit het kaderscenario waar die er is"},
+        "vraag": {"type": "string", "description": "als de plaat en de bronnen elkaar tegenspreken: de vraag voor de vragenpagina"}
+      },
+      "additionalProperties": false
+    }
+  }
+}

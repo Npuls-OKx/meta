@@ -1,5 +1,5 @@
 {
-  "toelichting": "Platen en diagrammen die in een OKx-presentatie gebruikt kunnen worden. Een deck wordt beter van een bestaande architectuurplaat dan van een zelfgetekend diagram: die plaat is al besproken en al goedgekeurd, dus je opent geen discussie die je niet wilde voeren. Controleer dit manifest met 'python3 scripts/platen-inventariseren.py' voordat je een plaat kiest; dat meldt gewijzigde bronnen, nieuwere versies en platen die hier nog niet in staan.",
+  "toelichting": "Platen en diagrammen die in een OKx-presentatie gebruikt kunnen worden. Een deck wordt beter van een bestaande architectuurplaat dan van een zelfgetekend diagram: die plaat is al besproken en al goedgekeurd, dus je opent geen discussie die je niet wilde voeren. Controleer dit manifest met 'python3 tools/scripts/platen-inventariseren.py' voordat je een plaat kiest; dat meldt gewijzigde bronnen, nieuwere versies en platen die hier nog niet in staan.",
   "gebruik": "Kopieer de gekozen plaat naar presentaties/public/platen/ en verwijs ernaar met /platen/<naam>. Zet er altijd een regel bij die zegt waar de kijker naar moet kijken; een plaat zonder leeswijzer is decoratie.",
   "velden": {
     "versie": "De versie die de plaat zelf draagt, niet de datum waarop hij hier belandde.",
@@ -180,7 +180,7 @@
       "naam": "amigo-matrix",
       "titel": "AMIGO modellenmatrix",
       "bron": "Npuls-OKx/meta",
-      "pad": "moka-koppelvlakspecificaties/Template/img/AMIGO Modellen matrix v20260204.png",
+      "pad": "archief/MOKA/Template/img/AMIGO Modellen matrix v20260204.png",
       "versie": "v20260204",
       "toont": "Welke modellen de AMIGO-aanpak onderscheidt en hoe ze op elkaar stapelen.",
       "gebruik_bij": "Uitleggen waarom een koppelvlakspecificatie eruitziet zoals hij eruitziet.",
@@ -191,7 +191,7 @@
       "naam": "beheerketen",
       "titel": "Beheerketen totstandkoming koppelvlakspecificaties",
       "bron": "Npuls-OKx/meta",
-      "pad": "moka-koppelvlakspecificaties/Template/img/Beheerketen voor tot standkoming koppelvlak specificaties.jpg",
+      "pad": "archief/MOKA/Template/img/Beheerketen voor tot standkoming koppelvlak specificaties.jpg",
       "versie": "-",
       "toont": "Wie welke rol heeft in het tot stand brengen en beheren van een koppelvlakspecificatie.",
       "gebruik_bij": "Governance-vragen bij programmaleiding en adviesgroep: wie besluit wat, en wanneer.",
@@ -286,11 +286,11 @@
       "naam": "sectorketen",
       "titel": "De sectorketen en haar producten",
       "bron": "Npuls-OKx/meta",
-      "pad": "img/OKx_sectorketen_v20261005.png",
+      "pad": "img/sectorketen-v20261005.png",
       "versie": "v20261005",
       "toont": "Zeven lagen van overheidsbreed kader tot koppelingimplementatie, met per laag de partijen en hun producten. De vulkleur is de ArchiMate-laag, de rand de aard (voorschrift of herbruikbaar product), en onderin het MIM-niveau met het AMIGO-inhoudsgebied. Rechts de gereedschapsband met IT-fundamenten en sectorprofielen.",
       "gebruik_bij": "De vraag wie wat maakt in de keten, en op welk niveau een product bruikbaar is. Architectuursync, programma- en projectleiding, kerngroep techniek.",
-      "let_op": "De plaat beschrijft en oordeelt niet; wat voor een bepaald doel ontbreekt vult de lezer zelf in. De solutionlaag is algemeen, met de OKx-invulling als tweede regel per blok. Getekend uit doc/sectorketen-producten.json met scripts/teken-sectorketen.py; werk de bron bij in plaats van het beeld.",
+      "let_op": "De plaat beschrijft en oordeelt niet; wat voor een bepaald doel ontbreekt vult de lezer zelf in. De solutionlaag is algemeen, met de OKx-invulling als tweede regel per blok. Getekend uit doc/sectorketen-producten.json met tools/scripts/teken-sectorketen.py; werk de bron bij in plaats van het beeld.",
       "hash": "7f0b5ddb28c5ebb8"
     }
   ],
@@ -312,7 +312,7 @@
     },
     {
       "bron": "Npuls-OKx/meta",
-      "patroon": "moka-koppelvlakspecificaties/Template/img/*",
+      "patroon": "archief/MOKA/Template/img/*",
       "reden": "Templateplaten. De twee die in een deck bruikbaar zijn, staan hierboven apart genoemd."
     },
     {

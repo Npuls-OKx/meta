@@ -1,0 +1,34 @@
+# Onderwijsplanner (instelling)
+
+## Rol
+
+Vertaalt de onderwijsspecificatie naar concreet aanbod. Plant het onderwijs van grof naar fijn: van meerjaren- en jaarplanning via de periodeplanning tot het rooster, en zet daarbij docenten, lokalen en middelen in. Werkt in de planningsvorm van de eigen instelling: vraaggestuurd (eerst animo, dan plannen), capaciteitsgestuurd (vooraf plannen op inzetbare capaciteit en geprognosticeerde aantallen) of geroosterd (de student wordt opgenomen op gelegenheden die al vastliggen). Vaak combineert de instelling die vormen tot een rijpingsproces van één keuze.
+
+Is een sleutelbelanghebbende bij de acceptatie van OKx-koppelvlakken: de flexibilisering die OKx beoogt raakt het planproces op alle vlakken, en sterker naarmate de leerroute complexer is. Wordt de werkwijze herkend, dan draagt de planner de standaard mee.
+
+## Kennis en vaardigheden
+
+Kent het plan- en roosterproces en de applicaties die erbij horen tot in detail. Heeft bij elke planningsbeslissing tegelijk voor ogen:
+
+- de inzetplanning, met de regels uit de cao en de normjaartaak;
+- de formatieruimte;
+- de expertise van docenten;
+- de typen lokalen en hun aanvullende eigenschappen.
+
+Let daarom extra op de eigenschappen en waardenlijsten (enumeraties) van een leerspecificatie: daar wordt bepaald of iets planbaar is. Weet welke gegevens op welk moment bevroren moeten zijn: de planninggroepen, het maximaal aantal studenten, de periode van uitvoering, het moment in de week, en het lesuur met docent en lokaal.
+
+## Afstand tot OKx en de kennisbank
+
+Leest de kaderscenario's en de voorbeelduitwerking van leerroute 1, vooral de fasen over plannen, roosteren en keuzemomenten. Leest de eigenschappen en waardenlijsten van een specificatie mee, op het niveau waarop een planbare specificatie wordt beschreven. Eindpunten (endpoints) en berichtformaten staan verder weg. Kijkt naar de hoofdplaat om te zien welke informatiestroom de planning voedt en welke eruit komt.
+
+## Leesdoel
+
+Herkent de eigen planningsvorm, concreet beschreven als logistiek scenario, en ziet welke gegevens daarvoor nodig zijn, wanneer, en uit welk systeem. Kan beoordelen of een OKx-koppelvlak de eigen werkwijze draagt.
+
+## Afhaakpunten
+
+- Een werkwijze die niet herkenbaar is, of die niet overal op dezelfde manier is beschreven. Dat leidt tot afwijzing van het geheel.
+- Eén planningsvorm die gepresenteerd wordt als de enige of de juiste, terwijl de eigen instelling anders plant.
+- Een stap waarin de capaciteit, de inzetplanning of de cao- en normjaartaakregels geen rol spelen, terwijl ze in de praktijk bepalend zijn.
+- Eigenschappen of waardenlijsten van een specificatie die vaag blijven, of die pas op aanbodniveau verschijnen terwijl de planner ze op specificatieniveau nodig heeft.
+- Een verandering in werkwijze die als vanzelfsprekend wordt gebracht. De planner is kritisch en meer dan gemiddeld behoudend als het gaat om nieuwe werkwijzen. Een verandering vraagt om een concreet scenario dat laat zien wat er voor de planner verandert, en wat niet.

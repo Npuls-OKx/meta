@@ -15,7 +15,7 @@ Relateert aan: #115. Dit document legt de proefrun van de product-flow-keten op 
 | R7 | Product-flow | De keten (requirements, uitwerking, onafhankelijke review, itereren, agent-rapport) is samengevat met het startcommand `product-flow`. |
 | R8 | Externe skills | De werkwijze voor vendoren staat beschreven: `npx skills`, lock, manifest bijwerken, nooit rechtstreeks bewerken (adaptatie-wrapper). |
 | R9 | Taal en stijl | Nederlands, conform `schrijfstijl.mdc` (geen em-dash, kort en feitelijk, bullets en tabellen boven proza). |
-| R10 | Voorcontrole | `python3 scripts/validate-docs.py AGENTS.md` slaagt zonder problemen. |
+| R10 | Voorcontrole | `python3 tools/scripts/validate-docs.py AGENTS.md` slaagt zonder problemen. |
 
 ## Testrapport (okx-requirements-tester, verse context)
 

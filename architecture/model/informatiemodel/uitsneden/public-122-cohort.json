@@ -1,0 +1,17 @@
+{
+  "id": "public-122-cohort",
+  "titel": "Hangt het cohort aan de student of aan de verbintenis?",
+  "herkomst": "Reviewvraag Npuls-OKx/Public#122 van @niesink, werkbrief Npuls-OKx/meta#332",
+  "oeapi": true,
+  "rij_labels": ["waar het cohort aan hangt"],
+  "objecten": [
+    {"naam": "Opleiding aanbod verbintenis", "rij": 0,
+     "noot": "waar de student zich voor inschrijft"},
+    {"naam": "Inschrijving", "rij": 0, "noot": "formaliseert de aanmelding"},
+    {"naam": "Cohort / periode", "kolom": "Onderwijsverbintenis", "rij": 0,
+     "merk": "herplaatst", "nummer": 1,
+     "waarom": "hangt nu aan de inschrijving binnen de verbintenis"},
+
+    {"naam": "Student", "noot": "hier hing het cohort eerder aan"}
+  ]
+}
