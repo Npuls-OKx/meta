@@ -66,12 +66,12 @@ specificatie. Bron: issue meta #462.
 <style scoped>
 .fill { padding: 0.9rem 1.1rem; justify-content: flex-start; }
 h1 { font-size: 1.75rem !important; line-height: 1.1; margin: 0 0 0.35rem; }
-.np-breed { width: 100%; max-height: 66%; object-fit: contain; display: block; }
+.np-breed { width: 100%; max-height: 74%; object-fit: contain; display: block; }
 .np-legenda { display: flex; justify-content: center; gap: 1.4rem; font-size: 0.78rem; color: var(--np-dark-blue); margin-top: 0.2rem; }
 .np-legenda i { display: inline-block; width: 1.4rem; height: 0.3rem; border-radius: 2px; margin-right: 0.4rem; vertical-align: middle; }
-.np-rij { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.7rem; margin-top: 0.6rem; }
-.np-mini { padding: 0.45rem 0.7rem; margin: 0; }
-.np-mini small { font-size: 0.78rem; line-height: 1.4; display: block; margin-top: 0.15rem; }
+.np-rij { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.7rem; margin-top: 0.4rem; }
+.np-mini { padding: 0.3rem 0.7rem; margin: 0; }
+.np-mini small { font-size: 0.74rem; line-height: 1.3; display: block; }
 .np-pic { font-size: 1rem; color: var(--np-blue); vertical-align: -0.15rem; }
 .np-kop { font-weight: 700; font-size: 0.86rem; line-height: 1.25; }
 </style>
@@ -87,7 +87,8 @@ beschreven in het eerste kwartaal van 2027, als richting. De plaat toont die kop
 hoofdplaat van de informatiestromen, opnieuw getekend uit het huidige model (versie 1.7a) met de
 ruime opzet uit de modeldoorloop; studentadministratie omvat de kernregistratie (OC-KRS) en het
 studentvolgsysteem (OC-SVS). In kleur staan alleen de koppelingen vanuit de catalogus in het
-vlak onderwijsontwikkeling (OC-P, OC-KRS en OC-LMS); de overige stromen staan zwart.
+vlak onderwijsontwikkeling (OC-P, OC-KRS en OC-LMS) dik in de huisstijlkleuren; de overige stromen
+houden de kleur van hun voorlopige koppeling-ID.
 
 Bron: presentaties/src/260929_werkgroep_okx_voortgang.md (techniekblok 29 september), meta #255.
 -->
@@ -202,7 +203,7 @@ h1 { font-size: 1.75rem !important; line-height: 1.1; margin: 0 0 0.8rem; }
 </div>
 
 <!--
-De hoofdvraag waar het SI-team aan de techniekkant mee worstelt: wat moet OKx nu eigenlijk beschrijven
+De hoofdvraag waar het SI-team (systeem en informatie) aan de techniekkant mee worstelt: wat moet OKx nu eigenlijk beschrijven
 en bouwen? In de woorden van het team: "Ik weet niet wat we bouwen, en daarvoor hebben we de sector
 nodig."
 
@@ -519,8 +520,8 @@ Elk inzicht uit de modeldoorloop en de gesprekken gebruiken we om het eindproduc
 drie onderdelen van leerroute 1 ligt een eerste concept van de interactieketens: aanbod (van ontwerp
 tot aanmeldbaar aanbod), instroom (van aanmelding tot de start) en keuzedelen (wat voor deze student
 kiesbaar is, met de reden erbij). In de strook: aanbod raakt fase 1 en 2, instroom fase 3,
-keuzedelen fase 6; de andere fasen hebben nog geen keten. Die toewijzing is een afleiding van het
-team.
+keuzedelen fase 6; de andere fasen hebben nog geen keten. Die toewijzing is indicatief, een
+afleiding van het team.
 
 Deze ketens zijn nog verre van implementatiewaardig. We geven ze nu intern vorm, zodat we ze tegen
 leveranciers en instellingen kunnen aanhouden. Het doel is over ongeveer twee maanden een eerste
@@ -603,7 +604,8 @@ voor student en instelling, met de interactiespecificaties als laatste stap. Daa
 leerroute: 2 (Larissa) en 3 (Linda), samen met instellingen en leveranciers.
 
 Het doel: over twee maanden een reviewbare interactieketenspecificatie die ter review naar de
-leveranciers gaat. Ondertussen blijft OKx verbinden met de andere pijlers binnen Npuls: eduXchange
+leveranciers gaat. De oplevering van de specificaties zelf is getemporiseerd tot de zomer van 2027;
+dat licht de projectleider toe (herijking 26 oktober). Ondertussen blijft OKx verbinden met de andere pijlers binnen Npuls: eduXchange
 voor de catalogus, eduID en het inrichten van toegang, en de werkgroep leeruitkomsten. Binnen de eigen
 pijler Leren Zonder Drempels raakt OKx de afsprakenset voor toetsafname (OKE) en het project voor
 aanmelden, inschrijven en intekenen (AII). Deze richting zetten we door.
