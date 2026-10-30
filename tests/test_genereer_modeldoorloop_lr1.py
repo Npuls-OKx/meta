@@ -1,4 +1,4 @@
-"""Testgevallen voor scripts/genereer-voorbeeld-lr1.py.
+"""Testgevallen voor scripts/genereer-modeldoorloop-lr1.py.
 
 Fixture-regeltabel, -model en -begrippen in de test zelf; het document wordt in
 een tijdelijke map gebouwd met lege SVG's op de verwachte paden.
@@ -14,10 +14,10 @@ import unittest
 from pathlib import Path
 
 WORTEL = Path(__file__).resolve().parent.parent
-spec = importlib.util.spec_from_file_location("genereer_voorbeeld_lr1", WORTEL / "scripts/genereer-voorbeeld-lr1.py")
+spec = importlib.util.spec_from_file_location("genereer_voorbeeld_lr1", WORTEL / "scripts/genereer-modeldoorloop-lr1.py")
 gv = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(gv)
-spec2 = importlib.util.spec_from_file_location("teken_voorbeeldregels", WORTEL / "scripts/teken-voorbeeldregels.py")
+spec2 = importlib.util.spec_from_file_location("teken_modeldoorloop", WORTEL / "scripts/teken-modeldoorloop.py")
 tv = importlib.util.module_from_spec(spec2)
 spec2.loader.exec_module(tv)
 
@@ -93,7 +93,7 @@ class GenereerTests(unittest.TestCase):
         blad = gv.invulblad(r)
         self.assertTrue(blad.startswith("# Invulblad bij de voorbeelduitwerking van leerroute 1"))
         self.assertIn("| 2 | F2-01 | Opleidingaanbod | | | | |", blad)
-        self.assertIn("(voorbeeld-leerroute-1-jochem.md)", blad)
+        self.assertIn("(modeldoorloop-leerroute-1-jochem.md)", blad)
         doc = self.bouw(r)
         self.assertNotIn("Invulblad", doc)
         self.assertNotIn("invulblad", doc)

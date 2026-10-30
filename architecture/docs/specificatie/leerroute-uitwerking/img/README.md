@@ -27,12 +27,12 @@ flowchart LR
   T["Tekening<br/>deze map"] --> P["Persona<br/>wie is de lerende"]
   P --> U["Leerroute-uitwerking<br/>wat de instelling doet"]
   U --> S["Scenario-uitwerkingen<br/>per happy flow en afwijking"]
-  S --> V["Informatiemodel-voorbeeldregels<br/>welke objecten bewegen"]
+  S --> V["Informatiemodel-modeldoorloop<br/>welke objecten bewegen"]
 ```
 
-| Leerroute | Persona | Uitwerking | Scenario's | Voorbeeldregels |
+| Leerroute | Persona | Uitwerking | Scenario's | Modeldoorloop |
 |---|---|---|---|---|
-| 1 Regulier | [Jochem](../doc/persona_jochem.md) | [hoofddocument](../doc/leerroute-uitwerking-lr1.md), met leerroute 1 als basis | [1.1 tot 1.4](../doc/scenario-uitwerkingen/README.md) | [Jochem in het informatiemodel](../../../../model/informatiemodel/voorbeeld-leerroute-1-jochem.md) |
+| 1 Regulier | [Jochem](../doc/persona_jochem.md) | [hoofddocument](../doc/leerroute-uitwerking-lr1.md), met leerroute 1 als basis | [1.1 tot 1.4](../doc/scenario-uitwerkingen/README.md) | [Jochem in het informatiemodel](../../../../model/informatiemodel/modeldoorloop-leerroute-1-jochem.md) |
 | 2 Temporiseren | [Larissa](../doc/persona_larissa.md) | als verschil in het hoofddocument | [2.1 tot 2.4](../doc/scenario-uitwerkingen/README.md) | open, zie [#442](https://github.com/Npuls-OKx/meta/issues/442) |
 | 3 Versnellen | [Linda](../doc/persona_linda.md) | als verschil in het hoofddocument | [3.1 tot 3.4](../doc/scenario-uitwerkingen/README.md) | open, zie [#443](https://github.com/Npuls-OKx/meta/issues/443) |
 | 4 tot en met 9 | open, zie [#441](https://github.com/Npuls-OKx/meta/issues/441) | open | open | open |

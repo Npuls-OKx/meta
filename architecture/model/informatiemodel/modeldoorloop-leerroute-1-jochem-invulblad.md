@@ -1,6 +1,6 @@
 # Invulblad bij de voorbeelduitwerking van leerroute 1
 
-Hoort bij [de opleiding van Jochem in het informatiemodel](voorbeeld-leerroute-1-jochem.md) en is bedoeld voor een mappingronde: wie het voorbeeld naast het eigen model legt, noteert hier per regel de eigen term en de eigen plek. Per regel één van vier antwoorden: herken ik dit; heet bij ons anders (welke term); hangt bij ons anders (waaronder); ontbreekt. De kolom Beeld draagt het beeld-ID uit de kop in het document.
+Hoort bij [de opleiding van Jochem in het informatiemodel](modeldoorloop-leerroute-1-jochem.md) en is bedoeld voor een mappingronde: wie het voorbeeld naast het eigen model legt, noteert hier per regel de eigen term en de eigen plek. Per regel één van vier antwoorden: herken ik dit; heet bij ons anders (welke term); hangt bij ons anders (waaronder); ontbreekt. De kolom Beeld draagt het beeld-ID uit de kop in het document.
 
 | Fase | Beeld | Objecttype | Herken | Heet anders | Hangt anders | Ontbreekt |
 |---|---|---|---|---|---|---|

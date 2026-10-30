@@ -68,7 +68,7 @@ Een vraag als "kan een leeruitkomst het niveau van een competentie uitdrukken" i
 
 Drie regels houden dat blok een voorbeeld.
 
-**Het leent de vormtaal van de plaat.** Een blok met een eigen kolomtab leest als een achtste begrippenfamilie, terwijl het een invulling van een objecttype is. Het draagt daarom de vulling, het pictogram en de naam van een vak, dezelfde taal die `scripts/teken-voorbeeldregels.py` gebruikt voor de instanties van de voorbeelduitwerking. De naam van het vak is het objecttype; waar het voorbeeld vandaan komt staat klein eronder.
+**Het leent de vormtaal van de plaat.** Een blok met een eigen kolomtab leest als een achtste begrippenfamilie, terwijl het een invulling van een objecttype is. Het draagt daarom de vulling, het pictogram en de naam van een vak, dezelfde taal die `scripts/teken-modeldoorloop.py` gebruikt voor de instanties van de voorbeelduitwerking. De naam van het vak is het objecttype; waar het voorbeeld vandaan komt staat klein eronder.
 
 **Het hangt aan zijn objecttype.** Een grijze onderbroken lijn met het opschrift `voorbeeld uitwerking` loopt van het vak op het raster naar de voorbeelden, zodat zichtbaar is waarvan zij een invulling zijn. Bij twee voorbeelden stijgt die lijn naar een eigen baan erboven en laat per voorbeeld een stomp zakken.
 
@@ -115,5 +115,5 @@ Loop daarna twee dingen na. Een gat dat een uitsnede gestippeld aanwees kan gedi
 | Skill | Verhouding |
 |---|---|
 | [okx-plaat-uit-het-model](../okx-plaat-uit-het-model/SKILL.md) | tekent de informatiestromenplaat uit de view-geometrie; deze skill tekent uit de objecttypen en relaties |
-| [okx-voorbeeld-in-het-informatiemodel](../okx-voorbeeld-in-het-informatiemodel/SKILL.md) | de voorbeelduitwerking per fase, waar de vormtaal van de instanties vandaan komt |
+| [okx-modeldoorloop](../okx-modeldoorloop/SKILL.md) | de voorbeelduitwerking per fase, waar de vormtaal van de instanties vandaan komt |
 | [okx-product-flow](../okx-product-flow/SKILL.md) | de vorm van het antwoord onder het issue waar de uitsnede bij hoort |

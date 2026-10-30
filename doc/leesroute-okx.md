@@ -199,7 +199,7 @@ Het werk loopt nu via de reis van een instelling, per leerroute, in drie lagen.
 |---|---|---|
 | Persona | De lerende, en wat zijn situatie van de instelling vraagt | [`persona_jochem.md`](../architecture/docs/specificatie/leerroute-uitwerking/doc/persona_jochem.md) |
 | Leerroutedocument | Wat de instelling doet per fase, met de componenten en objecttypen die daarbij oplichten | [kaderscenario leerroute 1](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md) |
-| OKx modeldoorloop | Per doorloopstap welke objecten ontstaan, veranderen en stromen, met de bron erbij | [`voorbeeld-leerroute-1-jochem.md`](../architecture/model/informatiemodel/voorbeeld-leerroute-1-jochem.md) |
+| OKx modeldoorloop | Per doorloopstap welke objecten ontstaan, veranderen en stromen, met de bron erbij | [`modeldoorloop-leerroute-1-jochem.md`](../architecture/model/informatiemodel/modeldoorloop-leerroute-1-jochem.md) |
 
 Leerroute 1 draagt die drie lagen. Leerroute 2 en 3 staan in de milestone [Instellingsreizen per leerroute](https://github.com/Npuls-OKx/meta/milestone/24). De maat: een instelling herkent zich voor ongeveer tachtig procent in zo'n beschrijving, en de rest is lokale variant die als variant wordt vastgelegd.
 

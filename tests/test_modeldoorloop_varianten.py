@@ -1,6 +1,6 @@
 """Testgevallen voor de planningsvormen naast de basisuitwerking (#401).
 
-Een variant is een eigen regeltabel naast de basis: voorbeeld-lr1-regels-<vorm>.json. Zij erft de kop
+Een variant is een eigen regeltabel naast de basis: modeldoorloop-lr1-<vorm>.json. Zij erft de kop
 van de basis en draagt per fase haar eigen stappen en regels. De gevallen hieronder bouwen een kleine
 basis uit de fixtures van de bestaande tests en zetten daar een variant naast; de verwachtingen volgen
 uit die fixtures, niet uit de inhoud van de repository.
@@ -15,8 +15,8 @@ import unittest
 from pathlib import Path
 
 WORTEL = Path(__file__).resolve().parent.parent
-SCHEMA = WORTEL / "architecture/model/informatiemodel/voorbeeld-lr1-regels.schema.json"
-VARIANTSCHEMA = WORTEL / "architecture/model/informatiemodel/voorbeeld-lr1-variant.schema.json"
+SCHEMA = WORTEL / "architecture/model/informatiemodel/modeldoorloop-lr1.schema.json"
+VARIANTSCHEMA = WORTEL / "architecture/model/informatiemodel/modeldoorloop-variant.schema.json"
 
 
 def laad(naam, pad):
@@ -26,18 +26,18 @@ def laad(naam, pad):
     return module
 
 
-vv = laad("voorbeeldvarianten", "scripts/voorbeeldvarianten.py")
-cv = laad("controleer_voorbeeldregels", "scripts/controleer-voorbeeldregels.py")
-gv = laad("genereer_voorbeeld_lr1", "scripts/genereer-voorbeeld-lr1.py")
-tv = laad("teken_voorbeeldregels", "scripts/teken-voorbeeldregels.py")
+vv = laad("modeldoorloop_varianten", "scripts/modeldoorloop-varianten.py")
+cv = laad("controleer_modeldoorloop", "scripts/controleer-modeldoorloop.py")
+gv = laad("genereer_voorbeeld_lr1", "scripts/genereer-modeldoorloop-lr1.py")
+tv = laad("teken_modeldoorloop", "scripts/teken-modeldoorloop.py")
 hl = laad("teken_hoofdplaat_highlight", "scripts/teken-hoofdplaat-highlight.py")
-fc = laad("test_controleer_voorbeeldregels", "tests/test_controleer_voorbeeldregels.py")
-fg = laad("test_genereer_voorbeeld_lr1", "tests/test_genereer_voorbeeld_lr1.py")
+fc = laad("test_controleer_modeldoorloop", "tests/test_controleer_modeldoorloop.py")
+fg = laad("test_genereer_modeldoorloop_lr1", "tests/test_genereer_modeldoorloop_lr1.py")
 
 
 def capaciteit():
     """Een variant op de checker-fixture: in fase 4 een stap die de basis niet kent, met een stroom erbij."""
-    return {"basis": "voorbeeld-lr1-regels.json", "vorm": "capaciteitsgestuurd",
+    return {"basis": "modeldoorloop-lr1.json", "vorm": "capaciteitsgestuurd",
             "fasen": [{"nummer": 4, "bron": "instellingspraktijk", "stappen": ["Op capaciteit plannen"],
                        "voorafgegaan_door": ["F3-01"]}],
             "regels": [
@@ -50,7 +50,7 @@ def capaciteit():
 
 
 def geroosterd():
-    return {"basis": "voorbeeld-lr1-regels.json", "vorm": "geroosterd",
+    return {"basis": "modeldoorloop-lr1.json", "vorm": "geroosterd",
             "fasen": [{"nummer": 4, "bron": "instellingspraktijk", "stappen": ["Op het rooster opnemen"],
                        "voorafgegaan_door": ["F3-01", "F4-C01", "F4-99"]}],
             "regels": [
@@ -62,10 +62,10 @@ def geroosterd():
 def schrijf(map_, basis, *varianten, namen=None):
     """De basis en haar varianten als bestanden in een map, zoals ze in de repository naast elkaar staan."""
     map_ = Path(map_)
-    pad = map_ / "voorbeeld-lr1-regels.json"
+    pad = map_ / "modeldoorloop-lr1.json"
     pad.write_text(json.dumps(basis), encoding="utf-8")
     for i, v in enumerate(varianten):
-        naam = (namen or {}).get(i) or f"voorbeeld-lr1-regels-{v['vorm']}.json"
+        naam = (namen or {}).get(i) or f"modeldoorloop-lr1-{v['vorm']}.json"
         (map_ / naam).write_text(json.dumps(v), encoding="utf-8")
     return pad
 
@@ -92,10 +92,10 @@ class Variantcontrole(unittest.TestCase):
 
     def test_given_variant_with_unknown_vorm_when_loaded_then_reported(self):
         v = capaciteit(); v["vorm"] = "vrij"
-        b, _ = self.controleer(v, namen={0: "voorbeeld-lr1-regels-capaciteitsgestuurd.json"})
+        b, _ = self.controleer(v, namen={0: "modeldoorloop-lr1-capaciteitsgestuurd.json"})
         self.assertTrue(any("vrij" in x for x in b))
-        _, onbekend = self.controleer(capaciteit(), namen={0: "voorbeeld-lr1-regels-vrij.json"})
-        self.assertEqual([p.name for p in onbekend], ["voorbeeld-lr1-regels-vrij.json"])
+        _, onbekend = self.controleer(capaciteit(), namen={0: "modeldoorloop-lr1-vrij.json"})
+        self.assertEqual([p.name for p in onbekend], ["modeldoorloop-lr1-vrij.json"])
 
     def test_given_references_to_basis_variant_and_nothing_when_checked_then_only_the_missing_one_is_found(self):
         b, _ = self.controleer(capaciteit(), geroosterd())
@@ -106,7 +106,7 @@ class Variantcontrole(unittest.TestCase):
     def test_given_reference_forward_to_a_later_variant_when_checked_then_found(self):
         v = capaciteit(); v["fasen"][0]["voorafgegaan_door"] = ["F4-R01"]
         b, _ = self.controleer(v, geroosterd())
-        self.assertTrue(any("F4-R01" in x and x.startswith("voorbeeld-lr1-regels-capaciteitsgestuurd.json") for x in b))
+        self.assertTrue(any("F4-R01" in x and x.startswith("modeldoorloop-lr1-capaciteitsgestuurd.json") for x in b))
 
     def test_given_vervangt_when_checked_then_existing_earlier_image_passes_and_unknown_is_found(self):
         v = geroosterd(); v["fasen"][0]["voorafgegaan_door"] = ["F3-01"]; v["fasen"][0]["vervangt"] = ["F4-01", "F4-77"]
@@ -122,7 +122,7 @@ class Variantcontrole(unittest.TestCase):
     def test_given_variant_that_is_no_valid_json_when_loaded_then_clean_exit(self):
         with tempfile.TemporaryDirectory() as map_:
             pad = schrijf(map_, fc.regels())
-            (Path(map_) / "voorbeeld-lr1-regels-geroosterd.json").write_text("{kapot", encoding="utf-8")
+            (Path(map_) / "modeldoorloop-lr1-geroosterd.json").write_text("{kapot", encoding="utf-8")
             with self.assertRaises(SystemExit):
                 vv.laad(pad, fc.regels())
 
@@ -136,7 +136,7 @@ class Variantcontrole(unittest.TestCase):
     def test_given_variant_with_unknown_arrow_when_checked_then_finding_names_variant_file(self):
         v = capaciteit(); v["regels"][1]["pijl"] = "rel-onbekend"
         b, _ = self.controleer(v)
-        self.assertTrue(any(x.startswith("voorbeeld-lr1-regels-capaciteitsgestuurd.json") and "rel-onbekend" in x for x in b))
+        self.assertTrue(any(x.startswith("modeldoorloop-lr1-capaciteitsgestuurd.json") and "rel-onbekend" in x for x in b))
 
     def test_given_new_instance_of_type_from_basis_when_checked_then_no_finding(self):
         self.assertFalse(any("nieuwe_instantie" in x for x in self.controleer(capaciteit())[0]))
@@ -155,7 +155,7 @@ class Variantcontrole(unittest.TestCase):
 
 def gen_variant():
     """Een variant op de generator-fixture: in fase 3 een eigen stap, voorafgegaan door F3-01 uit de basis."""
-    return {"basis": "voorbeeld-lr1-regels.json", "vorm": "capaciteitsgestuurd",
+    return {"basis": "modeldoorloop-lr1.json", "vorm": "capaciteitsgestuurd",
             "fasen": [{"nummer": 3, "bron": "instellingspraktijk", "stappen": ["Op capaciteit kiezen"],
                        "voorafgegaan_door": ["F3-01"], "toelichting": "De keuze landt op een geplande gelegenheid."}],
             "regels": [
@@ -170,7 +170,7 @@ class VariantDocument(unittest.TestCase):
 
     def geladen(self):
         basis = fg.regels()
-        return basis, [{"vorm": "capaciteitsgestuurd", "pad": Path("voorbeeld-lr1-regels-capaciteitsgestuurd.json"),
+        return basis, [{"vorm": "capaciteitsgestuurd", "pad": Path("modeldoorloop-lr1-capaciteitsgestuurd.json"),
                         "bron": gen_variant(), "tabel": vv.samenvoegen(basis, gen_variant())}]
 
     def test_given_variant_in_fase_3_when_generated_then_part_under_basis_with_reference_first(self):

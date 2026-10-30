@@ -29,14 +29,14 @@ Het voorbeeld laat dat verschil zien. Dat is de belangrijkste uitkomst van het v
 
 | Het plan vroeg | Wat er staat | Afwijking |
 |---|---|---|
-| Een instantiebestand als brug tussen informatiemodel en casus, werknaam `instanties.json`, in Npuls-OKx/Public bij de payloads | `architecture/model/informatiemodel/voorbeeld-lr1-regels.json` in meta: 262 regels, 65 beelden, acht fasen | Andere plek en andere naam. De regeltabel landde in meta omdat zij het model en de platen van meta leest; Public draagt het releasepakket |
-| Een generator die de tabellen en diagrammen maakt | `teken-voorbeeldregels.py` voor de beelden, `genereer-voorbeeld-lr1.py` voor het document en het invulblad, `snijd-beeld.py` voor de leesbaarheid op een slide | Uitgevoerd, in drie scripts in plaats van een |
-| Een controle naast `check-conventies.py`, met vijf toetsen | `controleer-voorbeeldregels.py`, met testgevallen | Uitgevoerd, in meta in plaats van Public |
+| Een instantiebestand als brug tussen informatiemodel en casus, werknaam `instanties.json`, in Npuls-OKx/Public bij de payloads | `architecture/model/informatiemodel/modeldoorloop-lr1.json` in meta: 262 regels, 65 beelden, acht fasen | Andere plek en andere naam. De regeltabel landde in meta omdat zij het model en de platen van meta leest; Public draagt het releasepakket |
+| Een generator die de tabellen en diagrammen maakt | `teken-modeldoorloop.py` voor de beelden, `genereer-modeldoorloop-lr1.py` voor het document en het invulblad, `snijd-beeld.py` voor de leesbaarheid op een slide | Uitgevoerd, in drie scripts in plaats van een |
+| Een controle naast `check-conventies.py`, met vijf toetsen | `controleer-modeldoorloop.py`, met testgevallen | Uitgevoerd, in meta in plaats van Public |
 | Leemtes, aannames en vragen als eersteklas inhoud | De velden `aanname`, `vraag` en `bron` op de regel, en scope-uitzonderingen met motivering | Uitgevoerd zoals bedoeld |
-| De vormtaal uit de proefopstelling | De blokvormen uit [bron/](bron/) zitten in `teken-voorbeeldregels.py` | Uitgevoerd |
+| De vormtaal uit de proefopstelling | De blokvormen uit [bron/](bron/) zitten in `teken-modeldoorloop.py` | Uitgevoerd |
 | Een kaart per stap die **opent bij het koppelvlak**, met de processtap als context eronder | Een beeld per processtap dat opent bij de **objecten** en hun beweging | Omgedraaid. Zie hieronder |
 
-Wat de negen tegenlezingen veranderden staat in sectie 9 van [plan.md](plan.md), per persona met de drie zwaarste punten en waar elk is verwerkt; de losse rapporten zijn daarmee opgenomen in het plan. De proefopstelling is teruggebracht tot de twee blokvormen in [bron/](bron/); de beeldexports eruit zijn opgevolgd door de echte beelden, en de twee proefscripts door `teken-voorbeeldregels.py` en de hoofdplaatscripts.
+Wat de negen tegenlezingen veranderden staat in sectie 9 van [plan.md](plan.md), per persona met de drie zwaarste punten en waar elk is verwerkt; de losse rapporten zijn daarmee opgenomen in het plan. De proefopstelling is teruggebracht tot de twee blokvormen in [bron/](bron/); de beeldexports eruit zijn opgevolgd door de echte beelden, en de twee proefscripts door `teken-modeldoorloop.py` en de hoofdplaatscripts.
 
 ## Wat het nieuwe doel verandert
 
@@ -57,7 +57,7 @@ Op 2 oktober 2026 is de story van de voorbeelduitwerking herschreven, en dat raa
 | Waar | Wat |
 |---|---|
 | Milestone "Voorbeelduitwerking leerroute 1 per fase afmaken" | Acht fase-issues met hun bevindingen en fixplan, vijf engine-issues en een voor het kaderscenario |
-| `architecture/model/informatiemodel/voorbeeld-lr1-regels.json` | De regeltabel, de enige bron van het voorbeeld |
+| `architecture/model/informatiemodel/modeldoorloop-lr1.json` | De regeltabel, de enige bron van het voorbeeld |
 | [Kaderscenario leerroute 1 in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario%27s/leerroute-1-regulier.md) | De bron van waarheid over hoe het proces loopt en hoe de informatieobjecten ontstaan |
 
 Relateert aan: #237, Npuls-OKx/Public#106.
