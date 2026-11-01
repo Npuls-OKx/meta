@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://okx.npuls.nl/schema/scheduling-request/voorstel",
+  "title": "Scheduling request",
+  "DutchName": "Roosteropdracht",
+  "$comment": "Voorstel. Het label voorstel in de $id houdt dit schema apart van de alfa-schema's die Npuls-OKx/Public draagt; werkbrief W3 van IS-SI-04 laat het daar landen. Het planningssysteem levert dit bericht aan bij het roostersysteem: de leergelegenheden van een periode met de kenmerken die roosteren nodig heeft, en de plaatsingsgroepen waaraan zij hangen. Beeld F4-07 van voorbeeld-lr1-regels.json draagt de instantie. Het objecttype is Verzoek tot Aanbod / Intekening op specificatie, op zijn been Leidt tot Lesgelegenheid; werkbrief W7 weegt of de planopgave van IS-OA-03 en deze roosteropdracht hetzelfde objecttype dragen. Verwijzingen naar andere schema's gaan via hun $id.",
+  "type": "object",
+  "required": ["requestId", "requestedAt", "period", "learningOpportunities", "groups"],
+  "properties": {
+    "requestId": {
+      "type": "string",
+      "format": "uuid",
+      "DutchName": "verzoekId",
+      "$comment": "het planningssysteem kent dit id toe en houdt het stabiel, zodat het geroosterde aanbod en de toestandsopvraag naar dezelfde opdracht terugwijzen; dezelfde sleutel draagt het verzoek in offering-request/voorstel van IS-OA-03"
+    },
+    "requestedAt": {
+      "type": "string",
+      "format": "date-time",
+      "DutchName": "aanvraagmoment"
+    },
+    "period": {
+      "$ref": "https://okx.npuls.nl/schema/period/alfa",
+      "DutchName": "periode",
+      "$comment": "de periode waarvoor het roostersysteem roostert; beeld F4-08 laat de roosteraar alleen periode 1 roosteren en de latere perioden planbaar blijven"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["aangenomen", "inBehandeling", "geroosterd", "nietRealiseerbaar"],
+      "DutchName": "toestand",
+      "$comment": "toegekend door het roostersysteem, aangenomen bij aanname. De reeks staat naast status van education-offering/alfa, die geroosterd nog niet kent; werkbrief W4 belegt dat"
+    },
+    "learningOpportunities": {
+      "type": "array",
+      "minItems": 1,
+      "DutchName": "leergelegenheden",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "unitOfferingId", "roomType", "sessionCount", "sessionDuration", "groupIds"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "DutchName": "leergelegenheidId"
+          },
+          "name": {
+            "type": "string",
+            "DutchName": "naam"
+          },
+          "unitOfferingId": {
+            "type": "string",
+            "format": "uuid",
+            "DutchName": "onderwijseenheidAanbodId",
+            "$comment": "informatiemodel: Onderwijseenheid aanbod aggregeert Leergelegenheid"
+          },
+          "roomType": {
+            "type": "string",
+            "DutchName": "onderwijslocatieTypeCode",
+            "$comment": "de code uit room-type/voorstel van IS-OA-02, bijvoorbeeld skillslab; het concrete lokaal volgt in scheduled-offering/voorstel"
+          },
+          "expertiseProfileId": {
+            "type": "string",
+            "format": "uuid",
+            "DutchName": "expertiseOfFunctieprofielId",
+            "$comment": "het profiel uit expertise-profile/voorstel van IS-OA-02; het informatiemodel legt geen lijn van Leergelegenheid naar Expertise of functieprofiel, en werkbrief W5 belegt dat"
+          },
+          "sessionCount": {
+            "type": "integer",
+            "minimum": 1,
+            "DutchName": "aantalLesgelegenheden"
+          },
+          "sessionDuration": {
+            "type": "integer",
+            "minimum": 1,
+            "DutchName": "lesduur",
+            "$comment": "in minuten; zonder het aantal en de duur kan het roostersysteem geen lesgelegenheid plaatsen"
+          },
+          "groupIds": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "DutchName": "plaatsingsgroepIds"
+          }
+        }
+      }
+    },
+    "groups": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "https://okx.npuls.nl/schema/group/alfa"
+      },
+      "DutchName": "plaatsingsgroepen",
+      "$comment": "de groepen staan naast de leergelegenheden en niet erin genest, omdat dezelfde groep meer dan een leergelegenheid afneemt; group/alfa draagt de capaciteit, en beeld F4-07 laat de groep nog leeg zijn"
+    }
+  }
+}

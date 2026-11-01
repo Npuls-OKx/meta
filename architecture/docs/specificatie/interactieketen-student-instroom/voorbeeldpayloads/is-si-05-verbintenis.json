@@ -1,0 +1,11 @@
+{
+  "id": "7e94a26d-8c13-4f57-b021-3d75e8c4196a",
+  "level": "lesgelegenheid",
+  "parentAssociationId": "084ebac2-6ca8-44fc-b3f9-efca5b7bd1bd",
+  "state": "geroosterd",
+  "stateChangedAt": "2026-07-03T14:05:00Z",
+  "studentId": "c4a2e918-7b36-4d50-8e29-1f6b3a97d824",
+  "offeringId": "2b47d9e6-5c81-4f03-a95d-8e16b7c43052",
+  "placementGroupIds": ["a3d9e6c5-2f18-4970-8b43-6d1c5e92a748"],
+  "temporary": false
+}

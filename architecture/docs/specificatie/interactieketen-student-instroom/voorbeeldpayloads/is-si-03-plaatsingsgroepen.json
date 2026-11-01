@@ -1,0 +1,18 @@
+{
+  "placementGroups": [
+    {
+      "id": "a3d9e6c5-2f18-4970-8b43-6d1c5e92a748",
+      "name": "APO26-1A",
+      "offeringId": "8c494250-b67a-4666-a762-6f9ec1e70aff",
+      "offeringVersion": "0.1.0",
+      "memberCount": 30,
+      "members": [
+        {
+          "studentId": "c4a2e918-7b36-4d50-8e29-1f6b3a97d824",
+          "associationId": "f9b4d1a8-6e27-4c35-9d80-5a2e7f84c139",
+          "placedOn": "2026-06-08"
+        }
+      ]
+    }
+  ]
+}

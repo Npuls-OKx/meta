@@ -1,0 +1,15 @@
+{
+  "naam": "Voorbeeldpayloads bij is-si-07.md",
+  "bron": {
+    "wie_is_de_bron": "Elke payload gebruikt de vaste identificaties uit casus.md. Het veld schemas zegt tegen welke schema's zij valideert; controleer-interactiespec.py draait daarop.",
+    "waarom_los": "Een payload in het document duwt de berichtspecificatie uit beeld. Relateert aan: #384"
+  },
+  "payloads": {
+    "is-si-07-resultaatstructuur.json": {
+      "schemas": [
+        "result-structure",
+        "assessment-scale"
+      ]
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "programmeOfferingId": "8c494250-b67a-4666-a762-6f9ec1e70aff",
+  "programmeOfferingVersion": "0.1.0",
+  "students": [
+    {
+      "id": "c4a2e918-7b36-4d50-8e29-1f6b3a97d824",
+      "personIdentifier": "b1f0c7d2-5a84-4e3b-9f61-2c7d8e45a013",
+      "givenName": "Jochem",
+      "familyName": "de Vries"
+    }
+  ],
+  "associations": [
+    {
+      "id": "e2c58f74-1d93-4b06-a7e5-8c4d9b31f206",
+      "associationType": "opleiding-aanbod-verbintenis",
+      "parentAssociationId": null,
+      "studentId": "c4a2e918-7b36-4d50-8e29-1f6b3a97d824",
+      "offeringId": "7aa6609f-1d1b-471a-a0f8-beae490d31b5",
+      "state": "ingeschreven",
+      "stateChangedAt": "2026-06-08T14:02:00Z"
+    },
+    {
+      "id": "f9b4d1a8-6e27-4c35-9d80-5a2e7f84c139",
+      "associationType": "opleidingsprogramma-aanbod-verbintenis",
+      "parentAssociationId": "e2c58f74-1d93-4b06-a7e5-8c4d9b31f206",
+      "studentId": "c4a2e918-7b36-4d50-8e29-1f6b3a97d824",
+      "offeringId": "8c494250-b67a-4666-a762-6f9ec1e70aff",
+      "state": "ingeschreven",
+      "stateChangedAt": "2026-06-08T14:02:00Z",
+      "placementGroupIds": ["a3d9e6c5-2f18-4970-8b43-6d1c5e92a748"]
+    },
+    {
+      "id": "12e0f8b6-74eb-4a1e-90ff-c130c4c71dda",
+      "associationType": "onderwijseenheid-aanbod-verbintenis",
+      "parentAssociationId": "f9b4d1a8-6e27-4c35-9d80-5a2e7f84c139",
+      "studentId": "c4a2e918-7b36-4d50-8e29-1f6b3a97d824",
+      "offeringId": "04af26e6-96be-480a-8413-87a128164681",
+      "state": "ingeschreven",
+      "stateChangedAt": "2026-06-08T14:02:00Z"
+    }
+  ]
+}

@@ -1,0 +1,137 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://okx.npuls.nl/schema/scheduling-result/voorstel",
+  "title": "Scheduling result",
+  "DutchName": "Roosteruitkomst",
+  "$comment": "Voorstel. Het label voorstel in de $id houdt dit schema apart van de alfa-schema's die Npuls-OKx/Public draagt; werkbrief W3 van IS-SI-04 laat het daar landen. Het roostersysteem meldt hiermee wat het met een roosteropdracht deed: de leergelegenheid op geroosterd met haar lesgelegenheden, het lokaal en de docent, of de knelpunten waarop zij vastliep. Beeld F4-08 van voorbeeld-lr1-regels.json draagt de instantie. Dit bericht is de uitkomst op een opdracht en niet het rooster van een periode: dat laatste gaat in IS-SI-05 naar het studentkeuzesysteem, en werkbrief W8 weegt of een schema beide draagt. Waar het eventId voor een herhaalde aflevering landt, beslist werkbrief W1 met het interactiepatroon. Verwijzingen naar andere schema's gaan via hun $id.",
+  "type": "object",
+  "required": ["requestId", "status", "learningOpportunities"],
+  "properties": {
+    "requestId": {
+      "type": "string",
+      "format": "uuid",
+      "DutchName": "verzoekId",
+      "$comment": "de roosteropdracht waarop deze uitkomst volgt, met dezelfde sleutel als scheduling-request/voorstel"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["geroosterd", "deelsGeroosterd", "nietRealiseerbaar"],
+      "DutchName": "toestand",
+      "$comment": "de toestand van de opdracht als geheel; de toestand per leergelegenheid staat eronder"
+    },
+    "scheduledAt": {
+      "type": "string",
+      "format": "date-time",
+      "DutchName": "geroosterdOp"
+    },
+    "learningOpportunities": {
+      "type": "array",
+      "minItems": 1,
+      "DutchName": "leergelegenheden",
+      "items": {
+        "type": "object",
+        "required": ["id", "status"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "DutchName": "leergelegenheidId"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["geroosterd", "nietRealiseerbaar"],
+            "DutchName": "status",
+            "$comment": "beeld F4-08 zet de leergelegenheid op geroosterd; status van education-offering/alfa kent die waarde niet, en werkbrief W4 belegt dat"
+          },
+          "bottlenecks": {
+            "type": "array",
+            "items": {
+              "$ref": "https://okx.npuls.nl/schema/bottleneck/alfa"
+            },
+            "DutchName": "knelpunten",
+            "$comment": "bottleneck/alfa kent ruimteTekort, expertiseTekort en kalenderConflict, de drie waarop een roosteropdracht vastloopt"
+          }
+        }
+      }
+    },
+    "sessions": {
+      "type": "array",
+      "DutchName": "lesgelegenheden",
+      "items": {
+        "type": "object",
+        "required": ["id", "learningOpportunityId", "groupId", "start", "end", "locationId"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "DutchName": "lesgelegenheidId"
+          },
+          "learningOpportunityId": {
+            "type": "string",
+            "format": "uuid",
+            "DutchName": "leergelegenheidId",
+            "$comment": "informatiemodel: Leergelegenheid aggregeert Lesgelegenheid"
+          },
+          "groupId": {
+            "type": "string",
+            "format": "uuid",
+            "DutchName": "plaatsingsgroepId",
+            "$comment": "de groep die deze les afneemt; werkbrief W6 weegt of dat de plaatsingsgroep uit de kernregistratie is of een lesgroep van de planner"
+          },
+          "start": {
+            "type": "string",
+            "format": "date-time",
+            "DutchName": "aanvangstijdstip"
+          },
+          "end": {
+            "type": "string",
+            "format": "date-time",
+            "DutchName": "eindtijdstip"
+          },
+          "locationId": {
+            "type": "string",
+            "format": "uuid",
+            "DutchName": "onderwijslocatieId",
+            "$comment": "het lokaaltype dat de opdracht vroeg is hier een lokaal geworden"
+          },
+          "staffIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "DutchName": "medewerkerIds"
+          }
+        }
+      }
+    },
+    "locations": {
+      "type": "array",
+      "items": {
+        "$ref": "https://okx.npuls.nl/schema/location/alfa"
+      },
+      "DutchName": "locaties",
+      "$comment": "de lokalen waarnaar de lesgelegenheden verwijzen, los van die lesgelegenheden zoals education-offering/alfa het doet"
+    },
+    "staff": {
+      "type": "array",
+      "DutchName": "medewerkers",
+      "items": {
+        "type": "object",
+        "required": ["id"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "DutchName": "medewerkerId"
+          },
+          "personnelNumber": {
+            "type": "string",
+            "DutchName": "personeelsnummer",
+            "$comment": "beeld F4-08 draagt de docent als personeelsnummer 4711. Welke expertise zij meebrengt staat bij de medewerker zelf en komt niet over deze koppeling; de opdracht vroeg het profiel en deze uitkomst noemt de persoon die eraan voldoet"
+          }
+        }
+      }
+    }
+  }
+}

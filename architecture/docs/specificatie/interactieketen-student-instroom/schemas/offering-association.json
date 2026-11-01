@@ -1,0 +1,173 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://okx.npuls.nl/schema/offering-association/voorstel",
+  "title": "Offering association",
+  "DutchName": "Aanbodverbintenis",
+  "$comment": "Voorstel. Het label voorstel in de $id houdt dit schema apart van de alfa-schema's die Npuls-OKx/Public draagt; werkbrief W3 van IS-SI-02 laat het daar landen. De kernregistratie ontsluit hiermee de onderwijsverbintenis van een student per niveau, zodat het studentkeuzesysteem weet wie er mag kiezen en de leeromgeving weet wie zij verwacht (IS-SI-06 wijst voor de velden hierheen). De verbintenissen staan plat in een array met een verwijzing naar hun bovenliggende verbintenis en naar hun student (U7); het niveau staat in een veld in plaats van in een schema per niveau, omdat de dienst verbintenistoestand de toestand per niveau draagt en de velden over de niveaus gelijk zijn. De reeks op state is dezelfde die IS-SI-01 voorstelt op application/voorstel; wat de uitvoering na ingeschreven ervan maakt belegt werkbrief W4.",
+  "type": "object",
+  "required": [
+    "programmeOfferingId",
+    "programmeOfferingVersion",
+    "students",
+    "associations"
+  ],
+  "properties": {
+    "programmeOfferingId": {
+      "type": "string",
+      "format": "uuid",
+      "DutchName": "opleidingsprogrammaAanbodId",
+      "$comment": "Het opleidingsprogramma-aanbod waarop O1 is bevraagd en waaronder deze verbintenissen vallen."
+    },
+    "programmeOfferingVersion": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "DutchName": "opleidingsprogrammaAanbodVersie"
+    },
+    "students": {
+      "type": "array",
+      "minItems": 1,
+      "DutchName": "studenten",
+      "$comment": "voorstel: de studenten waarnaar de verbintenissen verwijzen. Zij staan los van de verbintenissen, zodat een student met drie verbintenissen een keer in het bericht staat.",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "personIdentifier"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "DutchName": "studentId",
+            "$comment": "De student zoals de kernregistratie hem voert. Hij ontstaat bij de inschrijving en niet bij de aanmelding."
+          },
+          "personIdentifier": {
+            "type": "string",
+            "DutchName": "persoonsidentificatie",
+            "$comment": "voorstel: dezelfde identificatie die IS-SI-01 op de aanmelding draagt, waarmee twee partijen dezelfde persoon herkennen. Werkbrief W2 van IS-SI-01 belegt welke dat is."
+          },
+          "givenName": {
+            "type": "string",
+            "DutchName": "voornaam",
+            "$comment": "voorstel: optioneel, want een afnemer die de student aan de voordeur authenticeert heeft zijn naam al."
+          },
+          "familyName": {
+            "type": "string",
+            "DutchName": "achternaam",
+            "$comment": "voorstel: optioneel, op dezelfde grond als voornaam."
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "associations": {
+      "type": "array",
+      "minItems": 1,
+      "DutchName": "verbintenissen",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "associationType",
+          "studentId",
+          "offeringId",
+          "state",
+          "stateChangedAt"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "DutchName": "verbintenisId",
+            "$comment": "voorstel: de sleutel van de verbintenis, toegekend door de kernregistratie."
+          },
+          "associationType": {
+            "enum": [
+              "opleiding-aanbod-verbintenis",
+              "opleidingsprogramma-aanbod-verbintenis",
+              "onderwijseenheid-aanbod-verbintenis",
+              "leergelegenheid-verbintenis",
+              "lesgelegenheid-verbintenis"
+            ],
+            "DutchName": "verbintenisType",
+            "$comment": "voorstel: de vijf verbintenissoorten die het informatiemodel draagt. De soort zegt op welk niveau de verbintenis hangt en welk objecttype zij is; dezelfde reeks die scheduled-enrolment/voorstel van IS-SI-05 draagt, met de opleiding erbij."
+          },
+          "parentAssociationId": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "uuid",
+            "DutchName": "bovenliggendVerbintenisId",
+            "$comment": "voorstel: de verbintenis een niveau hoger, leeg op het niveau van de opleiding. Een kale bovenliggendId is context-gevoelig, daarom staat het type in de naam (U7)."
+          },
+          "studentId": {
+            "type": "string",
+            "format": "uuid",
+            "DutchName": "studentId",
+            "$comment": "De student van wie deze verbintenis is, uit de array students."
+          },
+          "offeringId": {
+            "type": "string",
+            "format": "uuid",
+            "DutchName": "aanbodId",
+            "$comment": "voorstel: het aanbod waarop deze verbintenis staat, op het niveau dat associationType noemt."
+          },
+          "state": {
+            "type": "string",
+            "enum": [
+              "aangemeld",
+              "ingeschreven",
+              "afgewezen",
+              "ingetrokken"
+            ],
+            "DutchName": "toestand",
+            "$comment": "voorstel: dezelfde vier waarden die application/voorstel van IS-SI-01 draagt. Een afnemer legt alleen een keuze voor aan een student wiens verbintenis op ingeschreven staat."
+          },
+          "stateChangedAt": {
+            "type": "string",
+            "format": "date-time",
+            "DutchName": "toestandGewijzigdOp",
+            "$comment": "voorstel: het moment waarop de toestand deze waarde kreeg. De query parameter gewijzigdSinds filtert hierop."
+          },
+          "placementGroupIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "DutchName": "plaatsingsgroepIds",
+            "$comment": "voorstel: de groepen waarin de student op dit niveau is geplaatst. De groep zelf komt met placement-group/voorstel, zodat deze verbintenis alleen de verwijzing draagt."
+          }
+        },
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "$comment": "een verbintenis onder het niveau van de opleiding hangt onder een verbintenis een niveau hoger",
+            "if": {
+              "properties": {
+                "associationType": {
+                  "enum": [
+                    "opleidingsprogramma-aanbod-verbintenis",
+                    "onderwijseenheid-aanbod-verbintenis",
+                    "leergelegenheid-verbintenis",
+                    "lesgelegenheid-verbintenis"
+                  ]
+                }
+              },
+              "required": [
+                "associationType"
+              ]
+            },
+            "then": {
+              "required": [
+                "parentAssociationId"
+              ]
+            }
+          }
+        ]
+      }
+    }
+  },
+  "additionalProperties": false
+}

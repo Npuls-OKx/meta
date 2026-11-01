@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://okx.npuls.nl/schema/placement-group/voorstel",
+  "title": "Placement group",
+  "DutchName": "Plaatsingsgroep",
+  "$comment": "Voorstel. Het label voorstel in de $id houdt dit schema apart van de alfa-schema's die Npuls-OKx/Public draagt; de werkbrieven van IS-SI-02 en IS-SI-03 laten het daar landen. De kernregistratie ontsluit hiermee een plaatsingsgroep met de studenten die erin zijn geplaatst, elk met de verbintenis waarop zij is geplaatst. group/alfa draagt de groep vandaag binnen een aanbodinstantie, met id, name en capacity en zonder leden; dit schema zet de groep zelf aan de wortel en voegt de leden en de aanbodverwijzing toe. De capaciteit blijft erbuiten: die komt van de planningszijde zelf (IS-OA-04), en deze groep draagt de werkelijke plaatsing.",
+  "type": "object",
+  "required": ["id", "name", "offeringId", "offeringVersion", "members"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid",
+      "DutchName": "id",
+      "$comment": "Dezelfde sleutel die group/alfa draagt."
+    },
+    "name": {
+      "type": "string",
+      "DutchName": "naam",
+      "$comment": "Dezelfde sleutel die group/alfa draagt. In deze casus APO26-1A."
+    },
+    "offeringId": {
+      "type": "string",
+      "format": "uuid",
+      "DutchName": "aanbodId",
+      "$comment": "De aanbodlaag waarop de groep is gevormd, in deze casus het opleidingsprogramma-aanbod Regulier BOL 2026. Het informatiemodel hangt Plaatsingsgroep aan Persoon en aan de verbintenislagen en niet aan een aanbodlaag: werkbrief W5 van IS-SI-03."
+    },
+    "offeringVersion": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "DutchName": "aanbodVersie"
+    },
+    "memberCount": {
+      "type": "integer",
+      "minimum": 0,
+      "DutchName": "aantalLeden",
+      "$comment": "Het aantal studenten dat in deze groep is geplaatst, de maat waarop het planningssysteem zijn eigen groepen en lokalen schaalt."
+    },
+    "members": {
+      "type": "array",
+      "DutchName": "leden",
+      "$comment": "De studenten die in de groep zijn geplaatst. Het informatiemodel legt die plaatsing vast als de relatie van Persoon naar Plaatsingsgroep (Worden gegroepeerd via), en Student is een Persoon.",
+      "items": {
+        "type": "object",
+        "required": ["studentId"],
+        "properties": {
+          "studentId": {
+            "type": "string",
+            "format": "uuid",
+            "DutchName": "studentId"
+          },
+          "associationId": {
+            "type": "string",
+            "format": "uuid",
+            "DutchName": "verbintenisId",
+            "$comment": "De verbintenis waarop de student is geplaatst, in deze casus de opleidingsprogramma-aanbodverbintenis. Het model hangt Plaatsingsgroep aan negen verbintenislagen."
+          },
+          "placedOn": {
+            "type": "string",
+            "format": "date",
+            "DutchName": "geplaatstOp",
+            "$comment": "De datum waarop de student in deze groep kwam. Eigenschap van de plaatsing zelf, waarvoor het model geen plek op een relatie draagt: werkbrief W5 van IS-SI-03."
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

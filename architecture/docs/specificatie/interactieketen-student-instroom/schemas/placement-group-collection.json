@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://okx.npuls.nl/schema/placement-group-collection/voorstel",
+  "title": "Placement group collection",
+  "DutchName": "Plaatsingsgroepen van een aanbod",
+  "$comment": "Voorstel van IS-SI-03: de verzameling die een opvraag op plaatsingsgroepen teruggeeft, met de groep zelf in de vorm van placement-group/voorstel. Werkbrief W2 van IS-SI-03 laat de omhulling in Npuls-OKx/Public landen, naast de omhullingen die education-offering/alfa met offeringInstances al draagt. Het planningssysteem haalt hiermee in een opvraag alle groepen van een aanbod op.",
+  "type": "object",
+  "required": ["placementGroups"],
+  "properties": {
+    "placementGroups": {
+      "type": "array",
+      "minItems": 1,
+      "DutchName": "plaatsingsgroepen",
+      "items": {
+        "$ref": "https://okx.npuls.nl/schema/placement-group/voorstel"
+      }
+    }
+  },
+  "additionalProperties": false
+}

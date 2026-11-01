@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://okx.npuls.nl/schema/application/voorstel",
+  "title": "Application",
+  "DutchName": "Aanmelding",
+  "$comment": "Voorstel. Het label voorstel in de $id houdt dit schema apart van de alfa-schema's die Npuls-OKx/Public draagt; werkbrief W1 van IS-SI-01 laat het daar landen. De voorziening voor centraal aanmelden levert dit bericht aan bij de kernregistratie; de verbintenissen die eruit ontstaan komen terug op de melding aanmelding-verwerkt.",
+  "type": "object",
+  "required": ["externalId", "submittedAt", "person", "offeringId", "offeringVersion"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid",
+      "DutchName": "aanmeldingId",
+      "$comment": "Toegekend door de kernregistratie; afwezig bij aanlevering."
+    },
+    "externalId": {
+      "type": "string",
+      "DutchName": "externeAanmeldingId",
+      "$comment": "De identificatie die de voorziening voor centraal aanmelden zelf voert."
+    },
+    "submittedAt": {
+      "type": "string",
+      "format": "date-time",
+      "DutchName": "aangemeldOp"
+    },
+    "person": {
+      "type": "object",
+      "DutchName": "persoon",
+      "required": ["identifier", "givenName", "familyName", "dateOfBirth"],
+      "properties": {
+        "identifier": {
+          "type": "string",
+          "DutchName": "persoonsidentificatie",
+          "$comment": "Werkbrief W2 belegt welke identificatie de voorziening en de instelling delen."
+        },
+        "givenName": { "type": "string", "DutchName": "voornaam" },
+        "familyName": { "type": "string", "DutchName": "achternaam" },
+        "dateOfBirth": { "type": "string", "format": "date", "DutchName": "geboortedatum" }
+      }
+    },
+    "offeringId": {
+      "type": "string",
+      "format": "uuid",
+      "DutchName": "opleidingsprogrammaAanbodId"
+    },
+    "offeringVersion": {
+      "type": "string",
+      "DutchName": "opleidingsprogrammaAanbodVersie"
+    },
+    "state": {
+      "type": "string",
+      "DutchName": "toestand",
+      "enum": ["aangemeld", "ingeschreven", "afgewezen", "ingetrokken"],
+      "$comment": "Toegekend door de kernregistratie; aangemeld bij aanname."
+    }
+  }
+}

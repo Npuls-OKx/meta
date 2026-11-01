@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://okx.npuls.nl/schema/schedule-notification/voorstel",
+  "title": "Schedule notification",
+  "DutchName": "Roostermelding",
+  "$comment": "Voorstel. Het label voorstel in de $id houdt dit schema apart van de alfa-schema's die Npuls-OKx/Public draagt; werkbrief W4 van IS-SI-05 laat het daar landen, samen met de meldingssoorten in de enum events van subscription/alfa. Het roostersysteem meldt hiermee dat er iets klaarstaat en laat de inhoud bij zich (U4, melden en dan ophalen): de melding draagt de aanleiding en een verwijzing, de afnemer haalt daarna op met O1 of O4. Dezelfde vorm dient beide meldingen van IS-SI-05; eventType zegt welke. Verwijzingen naar andere schema's gaan via hun $id.",
+  "type": "object",
+  "required": ["eventId", "eventType", "occurredAt", "programmeOfferingId"],
+  "properties": {
+    "eventId": {
+      "type": "string",
+      "format": "uuid",
+      "DutchName": "eventId",
+      "$comment": "Het stabiele id waarop de ontvanger een herhaalde aflevering herkent, dat U5 vraagt."
+    },
+    "eventType": {
+      "enum": ["rooster-vastgesteld", "verbintenis-geroosterd"],
+      "DutchName": "eventType",
+      "$comment": "rooster-vastgesteld hoort bij O3 en wijst naar het geroosterde aanbod; verbintenis-geroosterd hoort bij O5 en wijst naar de verbintenissen daarop."
+    },
+    "occurredAt": {
+      "type": "string",
+      "format": "date-time",
+      "DutchName": "opgetredenOp"
+    },
+    "programmeOfferingId": {
+      "type": "string",
+      "format": "uuid",
+      "DutchName": "opleidingsprogrammaAanbodId",
+      "$comment": "Het opleidingsprogramma-aanbod waarover deze melding gaat; het studentkeuzesysteem filtert zijn opvraag hierop."
+    },
+    "period": {
+      "$ref": "https://okx.npuls.nl/schema/period/alfa",
+      "DutchName": "periode",
+      "$comment": "De periode waarvoor het rooster vaststaat, zodat de afnemer alleen die periode ophaalt."
+    },
+    "resourceUrl": {
+      "type": "string",
+      "format": "uri",
+      "DutchName": "bronUrl",
+      "$comment": "Het endpoint waar de afnemer de inhoud ophaalt, zodat de melding zelf geen structuur draagt."
+    }
+  }
+}

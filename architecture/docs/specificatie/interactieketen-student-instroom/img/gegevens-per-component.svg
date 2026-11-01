@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1562" height="411" viewBox="0 0 1562 411" role="img">
+<rect width="1562" height="411" fill="#ffffff"/>
+<text x="28" y="30" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#1c1c1c" text-anchor="start" font-weight="600">Wie bezit welk gegeven in deze keten</text>
+<rect x="28" y="56" width="236" height="46" rx="3" fill="#b5ffff" stroke="#5aa8a8" stroke-width="1"/>
+<g transform="translate(38,65)" fill="none" stroke="#2a5a5a" stroke-width="1.2"><rect x="4" y="2" width="10" height="12"/><rect x="2" y="4" width="4" height="2.5"/><rect x="2" y="8.5" width="4" height="2.5"/></g>
+<text x="60" y="76" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#2a5a5a" text-anchor="start" font-weight="600">Voorziening Centraal</text>
+<text x="60" y="91" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#2a5a5a" text-anchor="start" font-weight="600">Aanmelden (CAMBO)</text>
+<text x="32" y="124" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#5b6663" text-anchor="start">ontvangt, bezit hier niets</text>
+<rect x="282" y="56" width="236" height="46" rx="3" fill="#b5ffff" stroke="#5aa8a8" stroke-width="1"/>
+<g transform="translate(292,65)" fill="none" stroke="#2a5a5a" stroke-width="1.2"><rect x="4" y="2" width="10" height="12"/><rect x="2" y="4" width="4" height="2.5"/><rect x="2" y="8.5" width="4" height="2.5"/></g>
+<text x="314" y="76" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#2a5a5a" text-anchor="start" font-weight="600">Kernregistratie systeem</text>
+<text x="314" y="91" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#2a5a5a" text-anchor="start" font-weight="600">studenten (KRS)</text>
+<text x="286" y="124" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#5b6663" text-anchor="start" font-weight="600">IS-SI-03 groepen naar planning</text>
+<rect x="282" y="132" width="236" height="22" rx="3" fill="#ffffb5" stroke="#a8a85a" stroke-width="1"/>
+<g transform="translate(290,136.0)" fill="none" stroke="#5a5a2a" stroke-width="1.2"><rect x="2" y="3" width="12" height="10"/><path d="M2 6.5h12"/></g>
+<text x="310" y="147" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">Plaatsingsgroep</text>
+<rect x="282" y="159" width="236" height="22" rx="3" fill="#ffffb5" stroke="#a8a85a" stroke-width="1"/>
+<g transform="translate(290,163.0)" fill="none" stroke="#5a5a2a" stroke-width="1.2"><rect x="2" y="3" width="12" height="10"/><path d="M2 6.5h12"/></g>
+<text x="310" y="174" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">Student</text>
+<text x="286" y="206" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#5b6663" text-anchor="start" font-weight="600">IS-SI-06 verbintenis naar LMS</text>
+<rect x="282" y="214" width="236" height="22" rx="3" fill="#ffffb5" stroke="#a8a85a" stroke-width="1"/>
+<g transform="translate(290,218.0)" fill="none" stroke="#5a5a2a" stroke-width="1.2"><rect x="2" y="3" width="12" height="10"/><path d="M2 6.5h12"/></g>
+<text x="310" y="229" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">Leergelegenheid verbintenis</text>
+<rect x="282" y="241" width="236" height="35" rx="3" fill="#ffffb5" stroke="#a8a85a" stroke-width="1"/>
+<g transform="translate(290,251.5)" fill="none" stroke="#5a5a2a" stroke-width="1.2"><rect x="2" y="3" width="12" height="10"/><path d="M2 6.5h12"/></g>
+<text x="310" y="257" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">Onderwijseenheid aanbod</text>
+<text x="310" y="270" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">verbintenis</text>
+<rect x="282" y="281" width="236" height="35" rx="3" fill="#ffffb5" stroke="#a8a85a" stroke-width="1"/>
+<g transform="translate(290,291.5)" fill="none" stroke="#5a5a2a" stroke-width="1.2"><rect x="2" y="3" width="12" height="10"/><path d="M2 6.5h12"/></g>
+<text x="310" y="297" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">Opleidingsprogramma aanbod</text>
+<text x="310" y="310" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">verbintenis</text>
+<rect x="282" y="321" width="236" height="22" rx="3" fill="#ffffb5" stroke="#a8a85a" stroke-width="1"/>
+<g transform="translate(290,325.0)" fill="none" stroke="#5a5a2a" stroke-width="1.2"><rect x="2" y="3" width="12" height="10"/><path d="M2 6.5h12"/></g>
+<text x="310" y="336" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">Plaatsingsgroep</text>
+<rect x="282" y="348" width="236" height="22" rx="3" fill="#ffffb5" stroke="#a8a85a" stroke-width="1"/>
+<g transform="translate(290,352.0)" fill="none" stroke="#5a5a2a" stroke-width="1.2"><rect x="2" y="3" width="12" height="10"/><path d="M2 6.5h12"/></g>
+<text x="310" y="363" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">Student</text>
+<rect x="536" y="56" width="236" height="46" rx="3" fill="#b5ffff" stroke="#5aa8a8" stroke-width="1"/>
+<g transform="translate(546,65)" fill="none" stroke="#2a5a5a" stroke-width="1.2"><rect x="4" y="2" width="10" height="12"/><rect x="2" y="4" width="4" height="2.5"/><rect x="2" y="8.5" width="4" height="2.5"/></g>
+<text x="568" y="76" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#2a5a5a" text-anchor="start" font-weight="600">Student Keuze Systeem (SKS)</text>
+<text x="540" y="124" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#5b6663" text-anchor="start">ontvangt, bezit hier niets</text>
+<rect x="790" y="56" width="236" height="46" rx="3" fill="#b5ffff" stroke="#5aa8a8" stroke-width="1"/>
+<g transform="translate(800,65)" fill="none" stroke="#2a5a5a" stroke-width="1.2"><rect x="4" y="2" width="10" height="12"/><rect x="2" y="4" width="4" height="2.5"/><rect x="2" y="8.5" width="4" height="2.5"/></g>
+<text x="822" y="76" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#2a5a5a" text-anchor="start" font-weight="600">Planningssysteem</text>
+<text x="794" y="124" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#5b6663" text-anchor="start" font-weight="600">IS-SI-04 roosteren</text>
+<rect x="790" y="132" width="236" height="22" rx="3" fill="#ffffb5" stroke="#a8a85a" stroke-width="1"/>
+<g transform="translate(798,136.0)" fill="none" stroke="#5a5a2a" stroke-width="1.2"><rect x="2" y="3" width="12" height="10"/><path d="M2 6.5h12"/></g>
+<text x="818" y="147" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5a5a2a" text-anchor="start">Leergelegenheid</text>
+<rect x="1044" y="56" width="236" height="46" rx="3" fill="#b5ffff" stroke="#5aa8a8" stroke-width="1"/>
+<g transform="translate(1054,65)" fill="none" stroke="#2a5a5a" stroke-width="1.2"><rect x="4" y="2" width="10" height="12"/><rect x="2" y="4" width="4" height="2.5"/><rect x="2" y="8.5" width="4" height="2.5"/></g>
+<text x="1076" y="76" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#2a5a5a" text-anchor="start" font-weight="600">Roostersysteem</text>
+<text x="1048" y="124" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#5b6663" text-anchor="start">ontvangt, bezit hier niets</text>
+<rect x="1298" y="56" width="236" height="46" rx="3" fill="#b5ffff" stroke="#5aa8a8" stroke-width="1"/>
+<g transform="translate(1308,65)" fill="none" stroke="#2a5a5a" stroke-width="1.2"><rect x="4" y="2" width="10" height="12"/><rect x="2" y="4" width="4" height="2.5"/><rect x="2" y="8.5" width="4" height="2.5"/></g>
+<text x="1330" y="76" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#2a5a5a" text-anchor="start" font-weight="600">Leer management systeem</text>
+<text x="1330" y="91" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#2a5a5a" text-anchor="start" font-weight="600">(LMS)</text>
+<text x="1302" y="124" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#5b6663" text-anchor="start">ontvangt, bezit hier niets</text>
+<text x="28" y="401" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#5b6663" text-anchor="start">Afgeleid uit voorbeeld-lr1-regels.json: een component bezit het objecttype waarvan hij het bronsysteem is.</text>
+</svg>

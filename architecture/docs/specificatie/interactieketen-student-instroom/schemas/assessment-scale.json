@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://okx.npuls.nl/schema/assessment-scale/voorstel",
+  "title": "Assessment scale",
+  "DutchName": "Beoordelingsschaal",
+  "$comment": "Voorstel. Dit schema beschrijft de ene toevoeging die IS-SI-07 doet op result-structure.json in Npuls-OKx/Public: de schaal per examenonderdeel. Zonder de schaal kan een studentvolgsysteem een resultaat niet lezen; de afnamevorm draagt result-structure al als assessmentForm. Het beschrijft de plek waar de schaal hangt en laat de rest van de lading aan result-structure over; werkbrief W1 van IS-SI-07 laat de toevoeging daar landen.",
+  "type": "object",
+  "properties": {
+    "educationSpecifications": {
+      "type": "array",
+      "DutchName": "onderwijsspecificaties",
+      "items": {
+        "type": "object",
+        "properties": {
+          "scale": {
+            "type": "object",
+            "DutchName": "schaal",
+            "required": ["type"],
+            "properties": {
+              "type": {
+                "type": "string",
+                "DutchName": "schaalsoort",
+                "enum": ["cijfer", "voldoendeOnvoldoende", "behaaldNietBehaald", "rubric"],
+                "$comment": "De reeks is een voorstel; welke waarden de sector voert ligt bij W1."
+              },
+              "passingValue": {
+                "type": "string",
+                "DutchName": "voldoendegrens",
+                "$comment": "Afwezig bij een schaal die geen grens kent, zoals rubric."
+              },
+              "minimum": { "type": "string", "DutchName": "ondergrens" },
+              "maximum": { "type": "string", "DutchName": "bovengrens" }
+            }
+          }
+        }
+      }
+    }
+  }
+}
