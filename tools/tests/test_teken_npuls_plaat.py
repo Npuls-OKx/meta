@@ -225,6 +225,57 @@ class BuitenwereldTests(unittest.TestCase):
         self.assertNotIn("grens van de instelling", svg)
 
 
+class TeamrijTests(unittest.TestCase):
+    """Twee onderwijsteams op hetzelfde landschap, met de vraag ertussen."""
+
+    def paneel(self, **extra):
+        teams = {"leden": [{"naam": "Team Techniek"}, {"naam": "Team Zorg"}], "teken": "?",
+                 "toelichting": "hergebruik vraagt een vertaalslag"}
+        teams.update(extra.pop("teams", {}))
+        pan = {"titel": "Een school", "vorm": "onderling", "teams": teams,
+               "knopen": [{"naam": f"Systeem {n}"} for n in range(4)]}
+        pan.update(extra)
+        return {"soort": "netwerk", "hoogte": 440, "panelen": [pan]}
+
+    def teken(self, **extra):
+        svg, _ = npuls.blok_netwerk(self.paneel(**extra), 40, 100, 1000, PALET,
+                                    {"iconen": {"checkmark-outline": {"body": "<path/>"}}})
+        return svg
+
+    def test_given_teams_when_drawn_then_both_names_stand_on_the_plaat(self):
+        svg = self.teken()
+        self.assertIn("Team Techniek", svg)
+        self.assertIn("Team Zorg", svg)
+        self.assertIn("hergebruik vraagt een vertaalslag", svg)
+
+    def test_given_a_vraagteken_when_drawn_then_it_stands_between_the_teams(self):
+        svg = self.teken()
+        self.assertIn(">?</text>", svg)
+
+    def test_given_a_teken_that_is_an_icoon_when_drawn_then_it_is_drawn_as_one(self):
+        svg = self.teken(teams={"teken": "checkmark-outline"})
+        self.assertNotIn(">checkmark-outline</text>", svg)
+
+    def test_given_a_teamrij_that_is_too_wide_when_drawn_then_it_stops_with_the_maat(self):
+        with self.assertRaises(SystemExit) as gevangen:
+            self.teken(teams={"leden": [{"naam": "Team " + "lang" * 20},
+                                        {"naam": "Team " + "lang" * 20}]})
+        self.assertIn("breed", str(gevangen.exception))
+
+    def test_given_a_regel_of_three_lines_when_drawn_then_it_stops(self):
+        with self.assertRaises(SystemExit) as gevangen:
+            self.teken(teams={"toelichting": "woord " * 90})
+        self.assertIn("regels", str(gevangen.exception))
+
+    def test_given_teams_when_drawn_then_the_ovaal_moves_down(self):
+        zonder, _ = npuls.blok_netwerk(
+            {"soort": "netwerk", "hoogte": 440, "panelen": [{"titel": "Een school",
+             "vorm": "onderling", "knopen": [{"naam": "Systeem 1"}, {"naam": "Systeem 2"}]}]},
+            40, 100, 1000, PALET, {"iconen": {}})
+        self.assertNotIn("Team Techniek", zonder)
+        self.assertEqual(npuls.TEAMZONE, 86)
+
+
 class PastTests(unittest.TestCase):
     """Een regel die niet afbreekt en niet past, loopt stil door de rand heen."""
 

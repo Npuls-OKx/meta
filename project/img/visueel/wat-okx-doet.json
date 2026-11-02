@@ -1,12 +1,12 @@
 {
   "titel": "Systemen in een school wisselen de hele dag gegevens uit",
   "ondertitel": "Elke school beschrijft die gegevens op een eigen manier, en over de schoolgrens begint dat opnieuw. OKx legt vast hoe die uitwisseling gaat.",
-  "versie": "0.3.0",
+  "versie": "0.4.0",
   "breedte": 1240,
   "blokken": [
     {
       "soort": "netwerk",
-      "hoogte": 470,
+      "hoogte": 484,
       "panelen": [
         {
           "titel": "Vandaag",
@@ -46,6 +46,7 @@
             "naam": "Een andere instelling",
             "toelichting": "mbo of ho, met hetzelfde landschap en een eigen beschrijving",
             "icoon": "building",
+            "teken": "?",
             "vanaf": [
               "Studentinformatie",
               "Toetsen en examineren"
@@ -61,6 +62,20 @@
                 "icoon": "education"
               }
             ]
+          },
+          "teams": {
+            "leden": [
+              {
+                "naam": "Team Techniek",
+                "icoon": "user"
+              },
+              {
+                "naam": "Team Zorg",
+                "icoon": "user"
+              }
+            ],
+            "teken": "?",
+            "toelichting": "dezelfde componenten, en per team een eigen beschrijving: hergebruik vraagt eerst een vertaalslag"
           }
         },
         {
@@ -100,6 +115,7 @@
             "naam": "Een andere instelling",
             "toelichting": "mbo of ho, op hetzelfde profiel, dus de koppeling werkt er al",
             "icoon": "building",
+            "teken": "checkmark-outline",
             "vanaf": [
               "Studentinformatie",
               "Toetsen en examineren"
@@ -115,6 +131,20 @@
                 "icoon": "education"
               }
             ]
+          },
+          "teams": {
+            "leden": [
+              {
+                "naam": "Team Techniek",
+                "icoon": "user"
+              },
+              {
+                "naam": "Team Zorg",
+                "icoon": "user"
+              }
+            ],
+            "teken": "checkmark-outline",
+            "toelichting": "dezelfde componenten en een gedeelde beschrijving: hergebruik kan rechtstreeks"
           }
         }
       ]
@@ -132,7 +162,7 @@
         },
         {
           "titel": "Tussen teams in een school",
-          "toelichting": "elk team richt het onderwijs anders in, dus een koppeling die bij het ene team past, past bij het andere niet",
+          "toelichting": "elk team beschrijft het onderwijs anders, dus de onderwijsspecificatie van het ene team leest als een andere taal",
           "icoon": "building",
           "kleur": "#DD784B"
         },
