@@ -1,7 +1,7 @@
 {
   "titel": "Systemen in een school wisselen de hele dag gegevens uit",
   "ondertitel": "Elke school beschrijft die gegevens op een eigen manier, en over de schoolgrens begint dat opnieuw. OKx legt vast hoe die uitwisseling gaat.",
-  "versie": "0.4.0",
+  "versie": "0.4.1",
   "breedte": 1240,
   "blokken": [
     {
@@ -14,7 +14,7 @@
           "kleur": "#DD784B",
           "vorm": "onderling",
           "lijnkleur": "#DD784B",
-          "merk": "zeventien eigen afspraken",
+          "merk": "negentien eigen afspraken",
           "knopen": [
             {
               "naam": "Onderwijscatalogus",
@@ -48,8 +48,10 @@
             "icoon": "building",
             "teken": "?",
             "vanaf": [
-              "Studentinformatie",
-              "Toetsen en examineren"
+              "Keuzesysteem",
+              "Onderwijscatalogus",
+              "Planning en rooster",
+              "Studentinformatie"
             ],
             "knopen": [
               {
@@ -84,7 +86,7 @@
           "kleur": "#00AF81",
           "vorm": "onderling",
           "lijnkleur": "#00AF81",
-          "merk": "zeventien keer dezelfde",
+          "merk": "negentien keer dezelfde",
           "knopen": [
             {
               "naam": "Onderwijscatalogus",
@@ -117,8 +119,10 @@
             "icoon": "building",
             "teken": "checkmark-outline",
             "vanaf": [
-              "Studentinformatie",
-              "Toetsen en examineren"
+              "Keuzesysteem",
+              "Onderwijscatalogus",
+              "Planning en rooster",
+              "Studentinformatie"
             ],
             "knopen": [
               {
