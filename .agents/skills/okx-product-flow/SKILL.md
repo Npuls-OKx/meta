@@ -245,7 +245,7 @@ De reactie in de pull request zelf blijft kort: wat de opmerking was, dat zij is
 ## Waarom dit issue     een zin: welk besluit dit moet opleveren
 ## De opmerking         letterlijk, met naam, datum en permalink
 ## Observaties          bullets; waarneming gescheiden van duiding
-## Wat ik ermee doe     kort, zonder toezegging
+## Actiepunten          bullets; een punt per regel, zonder toezegging
 ## Vervolg              een regel met de werkbrief, daarna een vraag
 ```
 
@@ -256,6 +256,18 @@ De reactie in de pull request zelf blijft kort: wat de opmerking was, dat zij is
 | **Story alleen bij een concrete wijziging** | Vraagt de inbrenger iets te veranderen, dan hoort er een story. Beschrijft hij hoe zijn product werkt, dan is `Waarom dit issue` genoeg |
 | **Nooit een rol verzinnen** | Een story met "als examenbureaumedewerker" verzint een gebruiker om de zin kloppend te krijgen. Gebruik de persona's uit de leerroute-uitwerking of laat de story weg |
 | **Een vraag tot slot, geen bevestiging** | "Dekt dit je opmerking" levert een ja op. Een inhoudelijke vraag levert informatie op |
+| **Elke kop is een label** | `Observaties`, `Actiepunten`, `Vervolg`. Geen verhalende kop en geen kop die vertelt wat de schrijver doet: `Wat ik ermee doe` is een zin, `Actiepunten` is een label |
+| **Een punt is een regel** | Onder `Observaties` en `Actiepunten` staan bullets van hoogstens twee regels. Loopt een punt uit tot een alinea, dan is het een eigen issue of hoort het in de werkbrief |
+
+### De vorm van een comment onder een issue
+
+Een comment volgt dezelfde regels als het issue zelf, met drie verschillen.
+
+| | |
+|---|---|
+| De openingskop | Een label met het gebied en het gremium erin: `Observaties werkgroep techniek Leeruitkomsten`. Nooit een verhalende zin |
+| De omvang | Een comment draagt hoogstens drie koppen. Wie meer nodig heeft, schrijft een eigen issue |
+| Het slot | `Actiepunten` als bullets, daarna hoogstens een vraag. Geen alinea die vertelt hoe het verdergaat |
 
 ### Een opmerking wegen voor je haar opschrijft
 

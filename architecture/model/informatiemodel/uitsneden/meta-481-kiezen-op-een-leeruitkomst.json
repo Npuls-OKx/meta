@@ -2,7 +2,7 @@
   "id": "meta-481-kiezen-op-een-leeruitkomst",
   "titel": "Kan een behaalde leeruitkomst een voorwaarde zijn op wat een student mag kiezen?",
   "herkomst": "Werksessie OKx-informatiemodel en ontwerpvragen, 29 oktober 2026, en kick-off werkgroep techniek Leeruitkomsten, 2 november 2026; werkbrief Npuls-OKx/meta#481, ingebracht in Npuls-OKx/Public#135",
-  "versie": "0.1.0",
+  "versie": "0.2.0",
   "oeapi": false,
   "rij_labels": [
     "de voorwaarde, de regel, en waarop die regel slaat"
@@ -26,6 +26,54 @@
     {
       "naam": "Keuzedeel",
       "rij": 0
+    }
+  ],
+  "voorbeeld": [
+    {
+      "kop": "Behaald: de keuze staat open",
+      "bij": "Leeruitkomst",
+      "zin": "Meet elektrische grootheden en legt de meetwaarden vast",
+      "delen": [
+        {
+          "deel": "stand",
+          "waarde": "behaald"
+        },
+        {
+          "deel": "bewijs",
+          "waarde": "summatief resultaat op de verbintenis"
+        },
+        {
+          "deel": "gebruik",
+          "waarde": "voorwaarde vooraf in de keuzeregel"
+        }
+      ],
+      "gradatie": "De regelset ziet de sleutel van deze leeruitkomst terug in de behaalde resultaten en laat de keuze toe.",
+      "vindplaats": "voorbeeldcasus mechatronica uit de werkbrief Npuls-OKx/meta#481; opgesteld als illustratie en niet ontleend aan een vastgesteld kwalificatiedossier"
+    },
+    {
+      "kop": "Nog niet behaald: de keuze blijft dicht",
+      "bij": "Student keuze regelset",
+      "zin": "Stelt een regelkring in op een werkende installatie",
+      "delen": [
+        {
+          "deel": "stand",
+          "waarde": "nog niet behaald"
+        },
+        {
+          "deel": "gevolg",
+          "waarde": "de regelset blokkeert de keuze"
+        },
+        {
+          "deel": "wat dicht blijft",
+          "waarde": "het keuzedeel industriele automatisering"
+        },
+        {
+          "deel": "wat de regel leest",
+          "waarde": "de sleutel, niet de tekst"
+        }
+      ],
+      "gradatie": "Een leeruitkomst is geen vrijblijvende omschrijving: zolang zij open staat, houdt de regelset de onderwijsspecificatie erachter dicht.",
+      "vindplaats": "voorbeeldcasus mechatronica uit de werkbrief Npuls-OKx/meta#481; opgesteld als illustratie en niet ontleend aan een vastgesteld kwalificatiedossier"
     }
   ]
 }
