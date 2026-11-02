@@ -4,7 +4,7 @@ Basisdocument voor AI-agents (Cursor, Claude Code, Codex en vergelijkbaar) die i
 
 ## Wat is deze repository
 
-OKx-meta is de **publieke kennisbank** van OKx (Npuls, pijler Leren Zonder Drempels): gedeelde kennis, afspraken en conceptuitwerkingen rond **gestandaardiseerde koppelvlakken voor onderwijslogistiek**. Dit is een documentatierepository, geen codebase. Scope start bij mbo (leerroutes 1-3 eerst), hoger onderwijs volgt. Volledige introductie: [README.md](README.md) en [project/projectoverzicht.md](project/projectoverzicht.md).
+OKx-meta is de **publieke kennisbank** van OKx (Npuls, pijler Leren Zonder Drempels): gedeelde kennis, afspraken en conceptuitwerkingen rond **gestandaardiseerde koppelvlakken voor onderwijslogistiek**. Dit is een documentatierepository, geen codebase. Scope start bij mbo (leerroutes 1-3 eerst), hoger onderwijs volgt. Volledige introductie: [README.md](README.md) en [project/](project/).
 
 ## Principes en werkafspraken
 
@@ -107,6 +107,7 @@ Dit vervangt de fork `Npuls-OKx/specification`, die op verzoek van de OEAPI-behe
 | Meetingverslagen | [architecture/meetings/](architecture/meetings/) |
 | Specificaties (leerroute-uitwerking, persona's) | [architecture/docs/specificatie/](architecture/docs/specificatie/) |
 | Agent-artifacten (ontwerpen, plannen) | [architecture/agent-artifacts/](architecture/agent-artifacts/) |
+| Onderzoek van het team zelf | [architecture/docs/onderzoek/](architecture/docs/onderzoek/) |
 | MOKA-sjabloon en de uitwerking erop, gearchiveerd | [archief/MOKA/](archief/MOKA/) |
 | Presentaties (Slidev, Npuls huisstijl) | [presentaties/](presentaties/) |
 | Validatiescripts en testgevallen | [tools/scripts/](tools/scripts/), [tools/tests/](tools/tests/) |

@@ -55,8 +55,8 @@ OKx levert een samenhangende keten van **projectdeliverables** — van kaderstel
 
 **Leeswijzer.** De [deliverable-keten en versionering](../../../../../../doc/
 OKx_Release-management-en-versionering.md#1-doel-en-scope) staan in het release-document; 
-[ketenplaat, BOPSI en projectfase](../../../../../project/projectoverzicht.md) in het 
-projectoverzicht.
+[ketenplaat, BOPSI en projectfase](../../../../../project/projectdocumentatie/projectplan-okx.md) in het 
+projectplan.
 
 Het diagram leest **van boven naar beneden**: **meta** (kaderstelling) bovenaan, **spec**, adoptie 
 en borging onderaan. Onder het diagram: terugkoppeling van **wijzigingsverzoeken**.
@@ -192,7 +192,7 @@ Onderstaande tabel koppelt deliverables uit de keten (§2) aan de plek waar ze n
 | OKx principes en uitgangspunten | [architectuurprincipes](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/principes/principes.md) en [uitgangspunten](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md) in Public |
 | Procesbeeld · scenario's · persona's | §3.5, §3.2.1 en verder, [scenario-uitwerkingen](scenario-uitwerkingen/README.md) |
 | Informatiemodellen | conceptmodellen in het [archief](archief-conceptmodellen.md); terugkoppeling volgt uit de payload-specificaties (Public) |
-| Informatiestromen | de informatiestromenplaat en het blok "Betrokken systemen bij gegevensuitwisseling" in de leerroute-1-uitwerking; [hoofdplaat](../../../../../project/projectoverzicht.md) |
+| Informatiestromen | de informatiestromenplaat en het blok "Betrokken systemen bij gegevensuitwisseling" in de leerroute-1-uitwerking; [hoofdplaat](../../../../../README.md) |
 | Interactieanalyse | het blok "Applicatiecomponenten op de plaat" in de leerroute-1-uitwerking; oudere interactiepatronen in het [archief](archief-conceptmodellen.md) |
 | Endpointbeschrijvingen | koppelingspecificaties en endpoint-sets in Public |
 | Interactiepatronen | patroonsecties van de koppelingspecificaties in Public |
@@ -201,7 +201,7 @@ Onderstaande tabel koppelt deliverables uit de keten (§2) aan de plek waar ze n
 | Requirementsboom (opdracht, epics, features, stories) | [requirementsboom](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/requirementsboom/README.md); elk scenario benoemt in zijn veld Verantwoordt de stories die eruit volgen, en elke story wijst met zijn bron terug naar de passage hier |
 | Security | uitwerking volgt; oudere ontwerpkeuzes in het [archief](archief-conceptmodellen.md) |
 | OEAPI OpenAPI (profiel) | *Buiten dit document*: een overlay op de OEAPI-specificatie, als submodule |
-| Pilots · BOPSI · borging | [Projectoverzicht](../../../../../project/projectoverzicht.md), [release-doc §1](../../../../../project/release-management-en-versionering.md#1-doel-en-scope) |
+| Pilots · BOPSI · borging | [projectplan](../../../../../project/projectdocumentatie/projectplan-okx.md), [release-doc §1](../../../../../project/release-management-en-versionering.md#1-doel-en-scope) |
 
 ### 3.3 OEAPI-broncode en signaleringen
 

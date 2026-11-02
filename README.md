@@ -6,9 +6,9 @@ Een school laat haar systemen de hele dag gegevens uitwisselen om onderwijs moge
 
 Dat is geen schema van een voorziening die OKx bouwt. Het landschap waar het over gaat bestaat al, bij elke instelling, en ziet er zo uit:
 
-![Hoofdplaat informatiestromen: de applicatiecomponenten van een instelling met de stromen daartussen](project/img/hoofdplaat-informatiestromen-v20260317.png)
+![Hoofdplaat informatiestromen v1.7a: de applicatiecomponenten van een instelling in twee procesgebieden, met de stromen daartussen](project/img/hoofdplaat-informatiestromen-v1.7a.svg)
 
-*De hoofdplaat informatiestromen: welke componenten een instelling kent en welke gegevens tussen hen bewegen. Elke pijl is een kandidaat voor een afspraak.*
+*De hoofdplaat informatiestromen, versie 1.7a, getekend uit het ArchiMate-model: welke componenten een instelling kent en welke gegevens tussen hen bewegen. Links de onderwijsontwikkeling, rechts de onderwijsuitvoering. Elke pijl is een kandidaat voor een afspraak.*
 
 Dit is de publieke werkomgeving waar die afspraken ontstaan, in het open en samen met de sector. Wat releasebaar is verhuist naar [`Npuls-OKx/Public`](https://github.com/Npuls-OKx/Public); bestaat een document in beide repositories, dan is de versie daar de vastgelegde en de versie hier de werkversie. OKx is onderdeel van [Npuls, pijler Leren Zonder Drempels](https://npuls.nl/onderwerpen/ontsluiten-onderwijsaanbod). Waar OKx aansluit op bestaande standaarden en referentiearchitecturen staat in [`project/context.md`](project/context.md#standaarden-en-referentiearchitecturen).
 
@@ -59,6 +59,7 @@ meta/
 │   ├── docs/
 │   │   ├── specificatie/             begrippenlijst, leerroute-uitwerking, interactieketens, keuzevraagstukken
 │   │   ├── externe-kaders/           MOSA en de andere kaders waar OKx op aansluit
+│   │   ├── onderzoek/              verkenningen die het team zelf schreef
 │   │   ├── kwalificatiedossier/      de bron waar de keten begint
 │   │   ├── leeruitkomsten/           de sleutel tussen specificatie en resultaat
 │   │   └── mappingsessies-instellingen/   wat instellingen in werksessies inbrachten
@@ -69,7 +70,7 @@ meta/
 ├── tools/
 │   ├── scripts/                      de generatoren en de controles op model, platen en documenten
 │   └── tests/                        de testgevallen daarbij
-├── archief/MOKA/                     het MOKA-sjabloon, de guidelines en de uitwerking erop
+├── archief/                          wat zijn werk heeft gedaan, met per stuk de reden
 └── AGENTS.md                         de werkwijze voor agents, met de harde regels
 ```
 
