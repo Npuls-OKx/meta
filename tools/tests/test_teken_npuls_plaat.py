@@ -175,6 +175,81 @@ class GevarieerdTests(unittest.TestCase):
         self.assertIn("een keer beschreven", svg)
 
 
+class BuitenwereldTests(unittest.TestCase):
+    """De grens van de instelling, en de tweede instelling erachter."""
+
+    def paneel(self, **extra):
+        buiten = {"naam": "Een andere instelling", "toelichting": "mbo of ho",
+                  "vanaf": ["Systeem 1"], "knopen": [{"icoon": "catalog"}, {"icoon": "education"}]}
+        buiten.update(extra.pop("buiten", {}))
+        pan = {"titel": "Een school", "vorm": "onderling", "buiten": buiten,
+               "knopen": [{"naam": f"Systeem {n}"} for n in range(4)]}
+        pan.update(extra)
+        return {"soort": "netwerk", "hoogte": 420, "panelen": [pan]}
+
+    def teken(self, **extra):
+        svg, _ = npuls.blok_netwerk(self.paneel(**extra), 40, 100, 1000, PALET, {"iconen": {}})
+        return svg
+
+    def test_given_a_paneel_with_a_buitenkant_when_drawn_then_the_grens_is_a_dashed_line(self):
+        svg = self.teken()
+        self.assertIn('stroke-dasharray="4 5"', svg)
+        self.assertIn("grens van de instelling", svg)
+
+    def test_given_a_buitenkant_when_drawn_then_a_line_crosses_the_grens(self):
+        svg = self.teken()
+        zy = 100 + 420 - npuls.BUITENZONE + 6
+        kruisend = [m for m in re.findall(r'd="M\d+ (\d+)L\d+ (\d+)"', svg)
+                    if int(m[0]) < zy < int(m[1])]
+        self.assertEqual(len(kruisend), 1)
+
+    def test_given_a_gevarieerd_paneel_when_drawn_then_the_crossing_line_carries_a_streep(self):
+        svg = self.teken(gevarieerd=True, buiten={"vanaf": ["Systeem 1", "Systeem 2"]})
+        self.assertGreater(len(set(re.findall(r'stroke-dasharray="([\d ]+)"', svg))), 1)
+
+    def test_given_a_buitenkant_when_drawn_then_the_second_instelling_carries_its_own_lines(self):
+        svg = self.teken()
+        self.assertIn("Een andere instelling", svg)
+        self.assertIn("mbo of ho", svg)
+        self.assertEqual(svg.count('r="14"'), 2)
+
+    def test_given_a_vanaf_to_a_missing_systeem_when_drawn_then_it_stops_with_a_message(self):
+        with self.assertRaises(SystemExit) as gevangen:
+            self.teken(buiten={"vanaf": ["Systeem 9"]})
+        self.assertIn("Systeem 9", str(gevangen.exception))
+
+    def test_given_a_paneel_without_a_buitenkant_when_drawn_then_there_is_no_grens(self):
+        pan = {"soort": "netwerk", "panelen": [{"titel": "Een school", "vorm": "onderling",
+               "knopen": [{"naam": "Systeem 1"}, {"naam": "Systeem 2"}]}]}
+        svg, _ = npuls.blok_netwerk(pan, 40, 100, 1000, PALET, {"iconen": {}})
+        self.assertNotIn("grens van de instelling", svg)
+
+
+class PastTests(unittest.TestCase):
+    """Een regel die niet afbreekt en niet past, loopt stil door de rand heen."""
+
+    def test_given_an_ondertitel_that_is_too_long_when_drawn_then_it_stops(self):
+        with self.assertRaises(SystemExit) as gevangen:
+            npuls.teken({"titel": "Proef", "ondertitel": "woord " * 80, "breedte": 800,
+                         "blokken": [{"soort": "tekst", "tekst": "inhoud"}]})
+        self.assertIn("ondertitel", str(gevangen.exception))
+
+    def test_given_a_toelichting_that_is_too_long_when_drawn_then_it_names_the_paneel(self):
+        pan = {"soort": "netwerk", "panelen": [{"titel": "Een school", "vorm": "onderling",
+               "toelichting": "woord " * 60,
+               "knopen": [{"naam": "Systeem 1"}, {"naam": "Systeem 2"}]}]}
+        with self.assertRaises(SystemExit) as gevangen:
+            npuls.blok_netwerk(pan, 40, 100, 1000, PALET, {"iconen": {}})
+        self.assertIn("Een school", str(gevangen.exception))
+
+    def test_given_a_toelichting_that_fits_when_drawn_then_it_stands_on_the_paneel(self):
+        pan = {"soort": "netwerk", "panelen": [{"titel": "Een school", "vorm": "onderling",
+               "toelichting": "kort genoeg",
+               "knopen": [{"naam": "Systeem 1"}, {"naam": "Systeem 2"}]}]}
+        svg, _ = npuls.blok_netwerk(pan, 40, 100, 1000, PALET, {"iconen": {}})
+        self.assertIn("kort genoeg", svg)
+
+
 class VersieTests(unittest.TestCase):
     def plaat(self, **extra):
         sel = {"titel": "Proef", "breedte": 800, "voet": "een voetregel",

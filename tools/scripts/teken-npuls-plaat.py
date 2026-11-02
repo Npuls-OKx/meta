@@ -23,7 +23,9 @@ Blokken die een selectie kan dragen:
     kolommen    twee kolommen met een lijst, bijvoorbeeld in concept tegenover nog open
     kaarten     een rij kaarten met icoon, titel en een regel
     netwerk     panelen met knopen in een ovaal, onderling verbonden of via een midden,
-                met een eigen lijnkleur, een merk, en lijnen die gevarieerd kunnen zijn
+                met een eigen lijnkleur, een merk, en lijnen die gevarieerd kunnen zijn.
+                Een paneel kan een buitenkant dragen: de grens van de instelling, een tweede
+                instelling erachter, en lijnen die vanaf benoemde knopen die grens kruisen
     niveaus     rijen met een naam en een strook miniaturen van bestaande beelden
     legenda     een regel met kleurvlakjes en hun betekenis
     tekst       een alinea, voor de regel onder een blok
@@ -47,6 +49,14 @@ ICONEN = WORTEL / "project/img/visueel/iconen.json"
 FONT = "Inter, Segoe UI, Helvetica Neue, Arial, sans-serif"
 RAND = 40          # marge rond het doek
 REGELHOOGTE = 19
+
+# Een gevarieerd paneel geeft elke lijn een eigen streep en dikte: zes systemen die elkaar
+# rechtstreeks kennen leveren vijftien koppelingen, en vandaag is elke koppeling een eigen
+# afspraak. Dat verschil moet te zien zijn, niet alleen te lezen. Dezelfde reeks geldt voor de
+# lijn die de grens van de instelling kruist, want daar is de afspraak net zo eigen.
+STIPPEN = ["", "5 4", "2 3", "8 3", "1 4", "6 2 2 2"]
+DIKTES = [1.0, 2.2, 1.4, 2.8, 1.2, 1.8]
+BUITENZONE = 108   # hoogte van de strook onder de grens van de instelling
 
 
 def palet() -> dict:
@@ -123,6 +133,27 @@ def pijl(x1, y1, x2, kleur):
 
 
 # ---------------------------------------------------------------- blokken
+
+def _past(t: str, grootte: float, ruimte: float, waar: str, vet: bool = False):
+    """Een regel die op een vaste plek staat en niet afbreekt, moet binnen zijn ruimte blijven.
+
+    Zonder deze poort loopt een te lange regel stil door de rand van het doek of van een paneel
+    heen; dat ziet alleen wie de plaat opent, en de tekst staat er dan al in.
+    """
+    breed = tw(t, grootte, vet)
+    if breed > ruimte:
+        tekens = max(1, int(len(t) * ruimte / breed))
+        sys.exit(f"{waar} past niet: {breed:.0f} punten in {ruimte:.0f}. "
+                 f"Kort in tot ongeveer {tekens} tekens.")
+
+
+def _lijnstijl(k: int, gevarieerd: bool):
+    """De streep en de dikte van lijn k; gelijk voor elke lijn, of elk een eigen vorm."""
+    if not gevarieerd:
+        return "", 1.2
+    stip = STIPPEN[k % len(STIPPEN)]
+    return (f' stroke-dasharray="{stip}"' if stip else ""), DIKTES[k % len(DIKTES)]
+
 
 def _chiprijen(items, ruimte, grootte=11):
     """Chips verdelen over rijen die binnen de ruimte passen."""
@@ -350,6 +381,55 @@ def blok_kaarten(b, x, y, w, p, ic):
     return svg, hoog
 
 
+def _buitenwereld(pan, px, pb, zt, vertrek, lijn, kleur, k, p, ic):
+    """De grens van de instelling, en achter die grens een tweede instelling.
+
+    Waarom dit erbij hoort: een plaat die bij de schoolgrens stopt, leest als een huisafspraak.
+    Een student stroomt over van mbo naar ho en neemt resultaten mee; op die lijn speelt
+    dezelfde beschrijvingsvraag, en daar kan geen beheerder meer even afstemmen. De tweede
+    instelling draagt daarom hetzelfde landschap in dezelfde vormtaal, niet een leeg vak.
+    """
+    buiten = pan["buiten"]
+    gevarieerd = bool(pan.get("gevarieerd"))
+    zy = zt + 6
+    svg = (f'<path d="M{px + 14:.0f} {zy:.0f}H{px + pb - 14:.0f}" stroke="{p["np-mid-gray"]}"'
+           f' stroke-width="1" stroke-dasharray="4 5"/>')
+    svg += tekst(px + 18, zy - 7, buiten.get("grens", "grens van de instelling"), 10,
+                 p["np-mid-gray"])
+
+    kb, kh = 328, 76
+    cx, cy = px + pb / 2 - kb / 2, zy + 12
+    knopen = buiten.get("knopen", [])
+    plek = [(cx + 36, cy + 28), (cx + 80, cy + 28), (cx + 58, cy + 57)][:len(knopen)]
+
+    # De lijnen die de grens kruisen gaan eerst, zodat het vak van de tweede instelling hun
+    # einde bedekt en alleen de kruising zichtbaar blijft.
+    for i, (vx, vy) in enumerate(vertrek):
+        stip, dik = _lijnstijl(k + i, gevarieerd)
+        doel = cx + 46 + i * 26
+        svg += (f'<path d="M{vx:.0f} {vy:.0f}L{doel:.0f} {cy + 20:.0f}" stroke="{lijn}"'
+                f' stroke-width="{max(dik, 1.6):.1f}" stroke-opacity="0.75"{stip}/>')
+
+    svg += kaart(cx, cy, kb, kh, "#ffffff", kleur, straal=10, gestippeld=gevarieerd)
+    for a in range(len(plek)):
+        for b2 in range(a + 1, len(plek)):
+            stip, dik = _lijnstijl(k + len(vertrek) + a + b2, gevarieerd)
+            (ax, ay), (bx, by) = plek[a], plek[b2]
+            svg += (f'<path d="M{ax:.0f} {ay:.0f}L{bx:.0f} {by:.0f}" stroke="{lijn}"'
+                    f' stroke-width="{dik}" stroke-opacity="0.75"{stip}/>')
+    for (nx, ny), knoop in zip(plek, knopen):
+        svg += (f'<circle cx="{nx:.0f}" cy="{ny:.0f}" r="14" fill="{p["np-bg"]}"'
+                f' stroke="{p["np-light-gray"]}" stroke-width="1.5"/>')
+        svg += icoon(knoop.get("icoon", "api"), nx - 7, ny - 7, 14, p["np-ink"], ic)
+
+    tx = cx + 126
+    svg += icoon(buiten.get("icoon", "building"), tx, cy + 18, 16, kleur, ic)
+    svg += tekst(tx + 22, cy + 31, buiten["naam"], 12, kleur, vet=True)
+    for i, regel in enumerate(breek(buiten.get("toelichting", ""), kb - 150, 10)[:3]):
+        svg += tekst(tx, cy + 48 + i * 12, regel, 10, p["np-mid-gray"])
+    return svg
+
+
 def blok_netwerk(b, x, y, w, p, ic):
     """Panelen met knopen in een ovaal: onderling verbonden, of elk naar een midden.
 
@@ -368,36 +448,31 @@ def blok_netwerk(b, x, y, w, p, ic):
         svg += kaart(px, y, pb, hoog, "#ffffff", p["np-light-gray"], streep=kleur)
         svg += tekst(px + 18, y + 28, pan["titel"], 14, kleur, vet=True)
         if pan.get("toelichting"):
+            _past(pan["toelichting"], 11, pb - 36, f"de toelichting van {pan['titel']}")
             svg += tekst(px + 18, y + 47, pan["toelichting"], 11, p["np-mid-gray"])
         knopen = pan["knopen"]
         n = len(knopen)
-        mx, my = px + pb / 2, y + 62 + (hoog - 62) / 2
-        rx, ry = pb / 2 - 74, (hoog - 62) / 2 - 34
+        buiten = pan.get("buiten")
+        onder = BUITENZONE if buiten else 0
+        binnen = hoog - 62 - onder
+        mx, my = px + pb / 2, y + 62 + binnen / 2
+        rx, ry = pb / 2 - 74, binnen / 2 - (50 if buiten else 34)
         plek = []
         for j in range(n):
             hoek = -math.pi / 2 + 2 * math.pi * j / n
             plek.append((mx + rx * math.cos(hoek), my + ry * math.sin(hoek)))
         lijn = pan.get("lijnkleur") or (p["np-light-gray"] if pan.get("vorm") == "via"
                                         else p["np-mid-gray"])
+        k = 0
         if pan.get("vorm") == "via":
             for kx, ky in plek:
                 svg += (f'<path d="M{mx:.0f} {my:.0f}L{kx:.0f} {ky:.0f}" stroke="{kleur}"'
                         f' stroke-width="2"/>')
         else:
-            # Een gevarieerd paneel geeft elke lijn een eigen streep en dikte: zes systemen die
-            # elkaar rechtstreeks kennen leveren vijftien koppelingen, en vandaag is elke
-            # koppeling een eigen afspraak. Dat verschil moet te zien zijn, niet alleen te lezen.
-            stippen = ["", "5 4", "2 3", "8 3", "1 4", "6 2 2 2"]
-            diktes = [1.0, 2.2, 1.4, 2.8, 1.2, 1.8]
-            k = 0
             for a in range(n):
                 for b2 in range(a + 1, n):
                     (ax, ay), (bx, by) = plek[a], plek[b2]
-                    if pan.get("gevarieerd"):
-                        stip = f' stroke-dasharray="{stippen[k % len(stippen)]}"' if stippen[k % len(stippen)] else ""
-                        dik = diktes[k % len(diktes)]
-                    else:
-                        stip, dik = "", 1.2
+                    stip, dik = _lijnstijl(k, pan.get("gevarieerd"))
                     k += 1
                     svg += (f'<path d="M{ax:.0f} {ay:.0f}L{bx:.0f} {by:.0f}" stroke="{lijn}"'
                             f' stroke-width="{dik}" stroke-opacity="0.75"{stip}/>')
@@ -410,6 +485,15 @@ def blok_netwerk(b, x, y, w, p, ic):
             mb = tw(pan["merk"], 11, vet=True) + 26
             svg += kaart(px + pb - mb - 18, y + 16, mb, 22, p["np-bg"], kleur, straal=11)
             svg += tekst(px + pb - mb - 18 + 13, y + 31, pan["merk"], 11, kleur, vet=True)
+        if buiten:
+            namen = [k2["naam"] for k2 in knopen]
+            vertrek = []
+            for naam in buiten.get("vanaf", []):
+                if naam not in namen:
+                    sys.exit(f"paneel {pan['titel']}: vanaf verwijst naar {naam}, "
+                             f"en dat systeem staat niet in dit paneel")
+                vertrek.append(plek[namen.index(naam)])
+            svg += _buitenwereld(pan, px, pb, y + hoog - onder, vertrek, lijn, kleur, k, p, ic)
         for (kx, ky), knoop in zip(plek, knopen):
             svg += f'<circle cx="{kx:.0f}" cy="{ky:.0f}" r="21" fill="{p["np-bg"]}" stroke="{p["np-light-gray"]}" stroke-width="1.5"/>'
             svg += icoon(knoop.get("icoon", "api"), kx - 10, ky - 10, 20, p["np-ink"], ic)
@@ -511,6 +595,7 @@ def teken(sel: dict) -> str:
     svg += tekst(RAND, y + 26, sel["titel"], 26, p["np-ink"], vet=True)
     y += 36
     if sel.get("ondertitel"):
+        _past(sel["ondertitel"], 14, w - 2 * RAND, "de ondertitel")
         svg += tekst(RAND, y + 14, sel["ondertitel"], 14, p["np-mid-gray"])
         y += 26
     y += 16
