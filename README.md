@@ -2,7 +2,13 @@
 
 Een school laat haar systemen de hele dag gegevens uitwisselen om onderwijs mogelijk te maken. Elke school richt dat nu zelf in, en binnen een school verschilt het vaak per team. **OKx legt vast hoe die uitwisseling gaat**, zodat het onderwijsaanbod overzichtelijk wordt en de onderwijslogistiek haalbaar en betaalbaar blijft.
 
-![Systemen in een school wisselen de hele dag gegevens uit: zes systemen die elkaar rechtstreeks kennen tegenover dezelfde zes via een koppelvlakstandaard, met wat dat oplevert](project/img/visueel/wat-okx-doet.svg)
+![Systemen in een school wisselen de hele dag gegevens uit: dezelfde zes systemen met vijftien eigen afspraken ertussen, tegenover dezelfde zes met op elke lijn dezelfde afspraak](project/img/visueel/wat-okx-doet.svg)
+
+Dat is geen schema van een voorziening die OKx bouwt. Het landschap waar het over gaat bestaat al, bij elke instelling, en ziet er zo uit:
+
+![Hoofdplaat informatiestromen: de applicatiecomponenten van een instelling met de stromen daartussen](project/img/hoofdplaat-informatiestromen-v20260317.png)
+
+*De hoofdplaat informatiestromen: welke componenten een instelling kent en welke gegevens tussen hen bewegen. Elke pijl is een kandidaat voor een afspraak.*
 
 Dit is de publieke werkomgeving waar die afspraken ontstaan, in het open en samen met de sector. Wat releasebaar is verhuist naar [`Npuls-OKx/Public`](https://github.com/Npuls-OKx/Public); bestaat een document in beide repositories, dan is de versie daar de vastgelegde en de versie hier de werkversie. OKx is onderdeel van [Npuls, pijler Leren Zonder Drempels](https://npuls.nl/onderwerpen/ontsluiten-onderwijsaanbod). Waar OKx aansluit op bestaande standaarden en referentiearchitecturen staat in [`project/context.md`](project/context.md#standaarden-en-referentiearchitecturen).
 

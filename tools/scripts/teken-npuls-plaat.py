@@ -22,7 +22,8 @@ Blokken die een selectie kan dragen:
                 een latere stap terugwijst naar een eerdere
     kolommen    twee kolommen met een lijst, bijvoorbeeld in concept tegenover nog open
     kaarten     een rij kaarten met icoon, titel en een regel
-    netwerk     panelen met knopen in een ovaal, onderling verbonden of via een midden
+    netwerk     panelen met knopen in een ovaal, onderling verbonden of via een midden,
+                met een eigen lijnkleur, een merk, en lijnen die gevarieerd kunnen zijn
     niveaus     rijen met een naam en een strook miniaturen van bestaande beelden
     legenda     een regel met kleurvlakjes en hun betekenis
     tekst       een alinea, voor de regel onder een blok
@@ -376,22 +377,39 @@ def blok_netwerk(b, x, y, w, p, ic):
         for j in range(n):
             hoek = -math.pi / 2 + 2 * math.pi * j / n
             plek.append((mx + rx * math.cos(hoek), my + ry * math.sin(hoek)))
-        lijn = p["np-light-gray"] if pan.get("vorm") == "via" else p["np-mid-gray"]
+        lijn = pan.get("lijnkleur") or (p["np-light-gray"] if pan.get("vorm") == "via"
+                                        else p["np-mid-gray"])
         if pan.get("vorm") == "via":
             for kx, ky in plek:
                 svg += (f'<path d="M{mx:.0f} {my:.0f}L{kx:.0f} {ky:.0f}" stroke="{kleur}"'
                         f' stroke-width="2"/>')
         else:
+            # Een gevarieerd paneel geeft elke lijn een eigen streep en dikte: zes systemen die
+            # elkaar rechtstreeks kennen leveren vijftien koppelingen, en vandaag is elke
+            # koppeling een eigen afspraak. Dat verschil moet te zien zijn, niet alleen te lezen.
+            stippen = ["", "5 4", "2 3", "8 3", "1 4", "6 2 2 2"]
+            diktes = [1.0, 2.2, 1.4, 2.8, 1.2, 1.8]
+            k = 0
             for a in range(n):
                 for b2 in range(a + 1, n):
                     (ax, ay), (bx, by) = plek[a], plek[b2]
+                    if pan.get("gevarieerd"):
+                        stip = f' stroke-dasharray="{stippen[k % len(stippen)]}"' if stippen[k % len(stippen)] else ""
+                        dik = diktes[k % len(diktes)]
+                    else:
+                        stip, dik = "", 1.2
+                    k += 1
                     svg += (f'<path d="M{ax:.0f} {ay:.0f}L{bx:.0f} {by:.0f}" stroke="{lijn}"'
-                            f' stroke-width="1.2" stroke-opacity="0.75"/>')
+                            f' stroke-width="{dik}" stroke-opacity="0.75"{stip}/>')
         if pan.get("vorm") == "via":
             mb = tw(pan.get("midden", ""), 12, True) + 46
             svg += kaart(mx - mb / 2, my - 18, mb, 36, kleur, kleur, straal=18)
             svg += icoon(pan.get("middenicoon", "network-3"), mx - mb / 2 + 13, my - 9, 18, "#ffffff", ic)
             svg += tekst(mx - mb / 2 + 37, my + 5, pan.get("midden", ""), 12, "#ffffff", vet=True)
+        if pan.get("merk"):
+            mb = tw(pan["merk"], 11, vet=True) + 26
+            svg += kaart(px + pb - mb - 18, y + 16, mb, 22, p["np-bg"], kleur, straal=11)
+            svg += tekst(px + pb - mb - 18 + 13, y + 31, pan["merk"], 11, kleur, vet=True)
         for (kx, ky), knoop in zip(plek, knopen):
             svg += f'<circle cx="{kx:.0f}" cy="{ky:.0f}" r="21" fill="{p["np-bg"]}" stroke="{p["np-light-gray"]}" stroke-width="1.5"/>'
             svg += icoon(knoop.get("icoon", "api"), kx - 10, ky - 10, 20, p["np-ink"], ic)
