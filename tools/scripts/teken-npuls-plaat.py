@@ -25,7 +25,9 @@ Blokken die een selectie kan dragen:
     netwerk     panelen met knopen in een ovaal, onderling verbonden of via een midden,
                 met een eigen lijnkleur, een merk, en lijnen die gevarieerd kunnen zijn.
                 Een paneel kan een buitenkant dragen: de grens van de instelling, een tweede
-                instelling erachter, en lijnen die vanaf benoemde knopen die grens kruisen
+                instelling erachter, en lijnen die vanaf benoemde knopen die grens kruisen.
+                In het hart passen twee onderwijsteams met een merk op de lijn ertussen:
+                een mannetje met een vraagteken, of een mannetje met een korte uitkomst
     niveaus     rijen met een naam en een strook miniaturen van bestaande beelden
     legenda     een regel met kleurvlakjes en hun betekenis
     tekst       een alinea, voor de regel onder een blok
@@ -57,6 +59,7 @@ REGELHOOGTE = 19
 STIPPEN = ["", "5 4", "2 3", "8 3", "1 4", "6 2 2 2"]
 DIKTES = [1.0, 2.2, 1.4, 2.8, 1.2, 1.8]
 BUITENZONE = 108   # hoogte van de strook onder de grens van de instelling
+TEAMZONE = 86      # hoogte van de strook met de onderwijsteams boven de componenten
 
 
 def palet() -> dict:
@@ -381,6 +384,63 @@ def blok_kaarten(b, x, y, w, p, ic):
     return svg, hoog
 
 
+def _merkpil(mx, my, inhoud, kleur, p, ic, icoon_="user"):
+    """Een pil met een mannetje en een korte inhoud, op een lijn.
+
+    Waarom een mannetje: een lijn tussen twee systemen vertelt niet wie er vastloopt. Dat is een
+    mens die de beschrijving van een ander moet lezen, en met een vraagteken erbij staat op de
+    plaat wat hem overkomt.
+    """
+    br = 64
+    svg = kaart(mx - br / 2, my - 14, br, 28, "#ffffff", kleur, straal=14)
+    svg += icoon(icoon_, mx - br / 2 + 11, my - 8, 16, kleur, ic)
+    if inhoud in ic["iconen"]:
+        svg += icoon(inhoud, mx + 5, my - 8, 16, kleur, ic)
+    else:
+        svg += tekst(mx + 13, my + 6, inhoud, 15, kleur, vet=True, midden=True)
+    return svg, br
+
+
+def _teamrij(pan, mx, my, ruimte, lijn, kleur, k, p, ic):
+    """Twee onderwijsteams op hetzelfde landschap, met de vraag ertussen.
+
+    Waarom dit in het hart van het paneel staat: de componenten eromheen zijn van de instelling,
+    en elk onderwijsteam legt zijn onderwijs daarin op een eigen manier vast. Wil het ene team de
+    onderwijsspecificatie van het andere hergebruiken, dan leest die als een andere taal. Die
+    vraag komt eerder dan de grens van de instelling, en staat daarom binnen dezelfde ovaal.
+    """
+    teams = pan["teams"]
+    leden = teams["leden"]
+    pillen = [tw(lid["naam"], 11, vet=True) + 42 for lid in leden]
+    inhoud = teams.get("teken", "?")
+    mb = 64
+    gat = 34
+    breed = sum(pillen) + mb + 2 * gat
+    if breed > ruimte:
+        sys.exit(f"paneel {pan['titel']}: de teamrij is {breed:.0f} punten breed en er is "
+                 f"{ruimte:.0f}. Kort de namen in of neem er een weg.")
+
+    svg = ""
+    links = mx - breed / 2
+    stip, dik = _lijnstijl(k, pan.get("gevarieerd"))
+    svg += (f'<path d="M{links + pillen[0]:.0f} {my:.0f}H{links + breed - pillen[-1]:.0f}"'
+            f' stroke="{lijn}" stroke-width="{max(dik, 1.6):.1f}"{stip}/>')
+    for i, (lid, br) in enumerate(zip(leden, pillen)):
+        lx = links if i == 0 else links + breed - br
+        svg += kaart(lx, my - 14, br, 28, p["np-bg"], p["np-light-gray"], straal=14)
+        svg += icoon(lid.get("icoon", "user-multiple"), lx + 12, my - 8, 16, p["np-dark-gray"], ic)
+        svg += tekst(lx + 34, my + 4, lid["naam"], 11, p["np-ink"], vet=True)
+    svg += _merkpil(mx, my, inhoud, kleur, p, ic)[0]
+    if teams.get("toelichting"):
+        regels = breek(teams["toelichting"], ruimte * 0.8, 10)
+        if len(regels) > 2:
+            sys.exit(f"paneel {pan['titel']}: de regel onder de teams beslaat {len(regels)} "
+                     f"regels en er passen er twee. Kort hem in.")
+        for i, regel in enumerate(regels):
+            svg += tekst(mx, my + 32 + i * 13, regel, 10, p["np-mid-gray"], midden=True)
+    return svg
+
+
 def _buitenwereld(pan, px, pb, zt, vertrek, lijn, kleur, k, p, ic):
     """De grens van de instelling, en achter die grens een tweede instelling.
 
@@ -398,7 +458,7 @@ def _buitenwereld(pan, px, pb, zt, vertrek, lijn, kleur, k, p, ic):
                  p["np-mid-gray"])
 
     kb, kh = 328, 76
-    cx, cy = px + pb / 2 - kb / 2, zy + 12
+    cx, cy = px + pb / 2 - kb / 2, zy + 16
     knopen = buiten.get("knopen", [])
     plek = [(cx + 36, cy + 28), (cx + 80, cy + 28), (cx + 58, cy + 57)][:len(knopen)]
 
@@ -410,6 +470,8 @@ def _buitenwereld(pan, px, pb, zt, vertrek, lijn, kleur, k, p, ic):
         svg += (f'<path d="M{vx:.0f} {vy:.0f}L{doel:.0f} {cy + 20:.0f}" stroke="{lijn}"'
                 f' stroke-width="{max(dik, 1.6):.1f}" stroke-opacity="0.75"{stip}/>')
 
+    if buiten.get("teken") and vertrek:
+        svg += _merkpil(cx + 46 + (len(vertrek) - 1) * 13, zy, buiten["teken"], kleur, p, ic)[0]
     svg += kaart(cx, cy, kb, kh, "#ffffff", kleur, straal=10, gestippeld=gevarieerd)
     for a in range(len(plek)):
         for b2 in range(a + 1, len(plek)):
@@ -454,8 +516,9 @@ def blok_netwerk(b, x, y, w, p, ic):
         n = len(knopen)
         buiten = pan.get("buiten")
         onder = BUITENZONE if buiten else 0
-        binnen = hoog - 62 - onder
-        mx, my = px + pb / 2, y + 62 + binnen / 2
+        boven = TEAMZONE if pan.get("teams") else 0
+        binnen = hoog - 62 - boven - onder
+        mx, my = px + pb / 2, y + 62 + boven + binnen / 2
         rx, ry = pb / 2 - 74, binnen / 2 - (50 if buiten else 34)
         plek = []
         for j in range(n):
@@ -485,6 +548,8 @@ def blok_netwerk(b, x, y, w, p, ic):
             mb = tw(pan["merk"], 11, vet=True) + 26
             svg += kaart(px + pb - mb - 18, y + 16, mb, 22, p["np-bg"], kleur, straal=11)
             svg += tekst(px + pb - mb - 18 + 13, y + 31, pan["merk"], 11, kleur, vet=True)
+        if pan.get("teams"):
+            svg += _teamrij(pan, mx, y + 62 + 26, pb - 36, lijn, kleur, k, p, ic)
         if buiten:
             namen = [k2["naam"] for k2 in knopen]
             vertrek = []

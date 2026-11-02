@@ -2,7 +2,7 @@
 
 Een school laat haar systemen de hele dag gegevens uitwisselen om onderwijs mogelijk te maken. Elke school richt dat nu zelf in, binnen een school verschilt het vaak per team, en over de schoolgrens begint het opnieuw. **OKx legt vast hoe die uitwisseling gaat**, zodat het onderwijsaanbod overzichtelijk wordt en de onderwijslogistiek haalbaar en betaalbaar blijft.
 
-![Systemen in een school wisselen de hele dag gegevens uit: zes systemen met zeventien eigen afspraken ertussen en over de grens naar een andere instelling, tegenover dezelfde zes met op elke lijn dezelfde afspraak](project/img/visueel/wat-okx-doet.svg)
+![Systemen in een school wisselen de hele dag gegevens uit: twee onderwijsteams op zes gedeelde systemen, met zeventien eigen afspraken ertussen en een vraagteken tussen de teams en op de grens naar een andere instelling, tegenover dezelfde teams en systemen met op elke lijn dezelfde afspraak](project/img/visueel/wat-okx-doet.svg)
 
 Dat is geen schema van een voorziening die OKx bouwt. Het landschap waar het over gaat bestaat al, bij elke instelling, en ziet er zo uit:
 
