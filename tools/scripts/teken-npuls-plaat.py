@@ -466,12 +466,12 @@ def _buitenwereld(pan, px, pb, zt, vertrek, lijn, kleur, k, p, ic):
     # einde bedekt en alleen de kruising zichtbaar blijft.
     for i, (vx, vy) in enumerate(vertrek):
         stip, dik = _lijnstijl(k + i, gevarieerd)
-        doel = cx + 46 + i * 26
+        doel = cx + 58 - (len(vertrek) - 1) * 13 + i * 26
         svg += (f'<path d="M{vx:.0f} {vy:.0f}L{doel:.0f} {cy + 20:.0f}" stroke="{lijn}"'
                 f' stroke-width="{max(dik, 1.6):.1f}" stroke-opacity="0.75"{stip}/>')
 
     if buiten.get("teken") and vertrek:
-        svg += _merkpil(cx + 46 + (len(vertrek) - 1) * 13, zy, buiten["teken"], kleur, p, ic)[0]
+        svg += _merkpil(cx + 58, zy, buiten["teken"], kleur, p, ic)[0]
     svg += kaart(cx, cy, kb, kh, "#ffffff", kleur, straal=10, gestippeld=gevarieerd)
     for a in range(len(plek)):
         for b2 in range(a + 1, len(plek)):

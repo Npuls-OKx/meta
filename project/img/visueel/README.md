@@ -16,7 +16,7 @@ De selectie is het werk; het tekenen kost seconden. Een plaat hertekenen na een 
 
 | Plaat | Toont | Gebruikt in |
 |---|---|---|
-| [`wat-okx-doet`](wat-okx-doet.svg) | wat OKx doet: zeventien eigen afspraken tussen zes systemen en over de instellingsgrens, met de vraag tussen twee onderwijsteams, tegenover zeventien keer dezelfde | de landing |
+| [`wat-okx-doet`](wat-okx-doet.svg) | wat OKx doet: negentien eigen afspraken tussen zes systemen en over de instellingsgrens, met de vraag tussen twee onderwijsteams, tegenover negentien keer dezelfde | de landing |
 | [`status-ladder`](status-ladder.svg) | de zeven statussen die een product doorloopt | [Status](../../status.md) |
 | [`status-nu`](status-nu.svg) | waar de producten vandaag staan, met het werk tussen status 1 en 4 | [Status](../../status.md), de leesroute |
 | [`specificatie-hoofdvraag`](specificatie-hoofdvraag.svg) | wat er in concept ligt tegenover wat open staat, met de route ernaartoe | de landingspagina, de leesroute |
@@ -33,4 +33,4 @@ De selectie is het werk; het tekenen kost seconden. Een plaat hertekenen na een 
 | Iconen | [`iconen.json`](iconen.json), uitgepakt uit de Carbon-set van IBM, Apache License 2.0 |
 | Achtergrond | altijd expliciet licht; een doorzichtige SVG valt weg in de donkere modus van GitHub |
 
-Relateert aan: #454, #455, #475, #477.
+Relateert aan: #454, #455, #475, #477, #479.
