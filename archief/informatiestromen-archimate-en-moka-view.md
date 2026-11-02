@@ -1,5 +1,14 @@
 # Informatiestromen, ArchiMate-model en MOKA-koppelvlak-view (Basis Model)
 
+> **Gearchiveerd op 2 november 2026.** Dit document beschrijft de hoofdplaat van maart 2026 en
+> leunt op het MOKA-sjabloon, dat zelf in [`archief/MOKA`](MOKA/) staat. Het wordt niet meer
+> bijgewerkt.
+>
+> Waar de levende versie staat: het [informatiemodel en de stromen](../architecture/model/) komen
+> uit het ArchiMate-model, de hoofdplaat staat als versie 1.7a op de [landingspagina](../README.md),
+> en hoe OKx van een stroom naar een specificatie komt staat in [deel 4 van de
+> leesroute](../project/leesroute.md#deel-4-de-gedeelde-taal). Bij verschil is het model leidend.
+>
 Dit document is bedoeld voor **nieuwe aanhakers**: hoe de **hoofdplaat** en de **tabel met informatiestromen** in het [informatiestromen](informatiestromen.md) samenhangen met het **ArchiMate-model** in deze repository, en **waar** je de grote MOKA-**koppelvlakspecificatie-view** **Basis Model** vindt.
 
 Het is **geen** volledige uitleg van het MOKA-metamodel; zie de [architectuurprincipes in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/principes/principes.md) en de [ADR’s over keten en fundament](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0002-prioriteitsketen-catalogus-drielagen-fundament.md).
@@ -45,10 +54,10 @@ Als je iets niet terugvindt: **geen fout in jouw lezen** — het model groeit it
 
 - Geen vervanging van **MOKA-template**-instructies onder `moka-koppelvlakspecificaties/`.
 - Geen export van **alle** elementen uit het Basis Model (het bestand is groot).
-- Geen wijzigingshandleiding voor `model.archimate`: wijzigingen lopen via **pull requests** (zie [Bijdragen voor beginners](bijdragen-voor-beginners.md) en [CONTRIBUTING](../CONTRIBUTING.md)).
+- Geen wijzigingshandleiding voor `model.archimate`: wijzigingen lopen via **pull requests** (zie [Bijdragen voor beginners](../project/bijdragen-voor-beginners.md) en [CONTRIBUTING](../CONTRIBUTING.md)).
 
 ## Zie ook
 
-- [OKx Architectuurbesluiten en impact](architectuurbesluiten-en-impact.md)
+- [OKx Architectuurbesluiten en impact](../project/architectuurbesluiten-en-impact.md)
 - [OKx Informatiestromen](informatiestromen.md)
 - [OKx Informatiestromen](informatiestromen.md)

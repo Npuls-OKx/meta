@@ -9,7 +9,8 @@ De inhoudelijke **ingang** van OKx-meta: overzichten, ketenuitleg, governance/bi
 | [Status](status.md) | De zeven statussen die een product doorloopt, en waar de producten vandaag staan |
 | [Historisch overzicht OKx](historie.md) | De keerpunten van het project, elk met een bron |
 | [Leesroute OKx](leesroute.md) | Waar een nieuwe lezer begint, en in welke volgorde |
-| [Informatiestromen](informatiestromen.md) | Welke stromen de keten kent, genummerd en met hun prioriteit, als invoer voor een specificatie |
 | [Release en versionering](release-management-en-versionering.md) | Hoe een versie tot stand komt en wat een label zegt |
 | [Bijdragen voor beginners](bijdragen-voor-beginners.md) | Hoe iemand een eerste bijdrage levert |
 | [Privacy bij meetings](privacy-meetings-en-transcriptie.md) | Wat er met opnames en transcripties gebeurt |
+
+Wat hier eerder stond en zijn werk heeft gedaan, staat in het [archief](../archief/README.md).

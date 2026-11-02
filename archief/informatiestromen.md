@@ -1,5 +1,18 @@
 # OKx Informatiestromen
 
+> **Gearchiveerd op 2 november 2026.** Dit document beschrijft de hoofdplaat van maart 2026 en
+> leunt op het MOKA-sjabloon, dat zelf in [`archief/MOKA`](MOKA/) staat. Het wordt niet meer
+> bijgewerkt.
+>
+> Waar de levende versie staat: het [informatiemodel en de stromen](../architecture/model/) komen
+> uit het ArchiMate-model, de hoofdplaat staat als versie 1.7a op de [landingspagina](../README.md),
+> en hoe OKx van een stroom naar een specificatie komt staat in [deel 4 van de
+> leesroute](../project/leesroute.md#deel-4-de-gedeelde-taal). Bij verschil is het model leidend.
+>
+> De nummering van de stromen hieronder blijft in gebruik: documenten en besluiten verwijzen ernaar,
+> onder meer [ADR 0002](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0002-prioriteitsketen-catalogus-drielagen-fundament.md)
+> met stroom 1 als eerste prioriteitsstroom.
+>
 ## Rol van dit document
 
 Hier leggen we **conceptueel** vast **wat** de informatiestromen in de onderwijslogistieke keten **doen** (welke informatie gaat waarheen, met welke bedoeling). Die beschrijving is **geen** eindproduct op zich: ze dient als **invoer** voor latere **technische koppelvlakuitwerking** — de **hoofdleverables** van OKx.
@@ -50,7 +63,7 @@ Deze uitwerking is **niet** bedoeld als **directe wijziging** van de MORA. We ge
 
 ## Architectuurbesluiten en impact
 
-De vastgelegde **architectuurrichting** (ADR’s, meetings) en impact op keten en model: **[OKx Architectuurbesluiten en impact](architectuurbesluiten-en-impact.md)**.
+De vastgelegde **architectuurrichting** (ADR’s, meetings) en impact op keten en model: **[OKx Architectuurbesluiten en impact](../project/architectuurbesluiten-en-impact.md)**.
 
 ## Verwijzing naar (technische) specificaties en OEAPI
 
