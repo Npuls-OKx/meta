@@ -2,14 +2,13 @@
   "id": "meta-481-vertaling-kwalificatiekader",
   "titel": "Op welk niveau hangt een leeruitkomst, links in het kader en rechts in de specificatie?",
   "herkomst": "Werksessie OKx-informatiemodel en ontwerpvragen, 29 oktober 2026, en kick-off werkgroep techniek Leeruitkomsten, 2 november 2026; werkbrief Npuls-OKx/meta#481, ingebracht in Npuls-OKx/Public#135",
-  "versie": "0.2.0",
+  "versie": "0.3.0",
   "oeapi": false,
   "rij_labels": [
     "het dossier",
     "de kwalificatie",
     "de kerntaak",
-    "het werkproces, de vertaling, en wat ernaar verwijst",
-    "wat die vertaling zou vastleggen"
+    "het werkproces, de vertaling, en wat ernaar verwijst"
   ],
   "objecten": [
     {
@@ -49,23 +48,6 @@
     {
       "naam": "Opleiding specificatie",
       "rij": 3
-    },
-    {
-      "naam": "Vertaalaandeel",
-      "kolom": "Onderwijskundigkader instelling",
-      "rij": 4,
-      "merk": "voorstel",
-      "nummer": 1,
-      "waarom": "bestaat alleen als er een aandeel vastgelegd moet worden"
-    }
-  ],
-  "ontbreekt": [
-    {
-      "van": "Vertaalaandeel",
-      "naar": "Leeruitkomst",
-      "soort": "Association",
-      "label": "telt mee in",
-      "waarom": "welk deel van een werkproces is afgedekt"
     }
   ],
   "voorbeeld": [
@@ -75,20 +57,12 @@
       "zin": "Bouwt een mechatronisch deelsysteem volgens tekening en stelt het werkend af",
       "delen": [
         {
-          "deel": "actief werkwoord",
-          "waarde": "bouwt, stelt af"
-        },
-        {
-          "deel": "onderwerp",
-          "waarde": "een mechatronisch deelsysteem"
-        },
-        {
-          "deel": "standaard",
-          "waarde": "volgens tekening, werkend afgesteld"
+          "deel": "hergebruik",
+          "waarde": "drie onderwijsspecificaties wijzen deze leeruitkomst aan"
         },
         {
           "deel": "niveau 2",
-          "waarde": "monteert uit een bak voorbewerkte onderdelen"
+          "waarde": "monteert uit voorbewerkte onderdelen"
         },
         {
           "deel": "niveau 3",
@@ -97,43 +71,18 @@
         {
           "deel": "niveau 4",
           "waarde": "ontwerpt het deelsysteem eerst zelf"
+        },
+        {
+          "deel": "wat gelijk blijft",
+          "waarde": "de zin en de sleutel"
+        },
+        {
+          "deel": "wat verschilt",
+          "waarde": "wat de student zelf doet"
         }
       ],
       "niveau": "NLQF 2, 3 en 4 op dezelfde zin",
-      "gradatie": "Drie onderwijsspecificaties wijzen dezelfde leeruitkomst aan; wat de student zelf doet verschuift van monteren naar maken naar ontwerpen.",
-      "vindplaats": "voorbeeldcasus mechatronica uit de werkbrief Npuls-OKx/meta#481; opgesteld als illustratie en niet ontleend aan een vastgesteld kwalificatiedossier"
-    },
-    {
-      "kop": "Hetzelfde deel, formatief of summatief",
-      "bij": "Vertaalaandeel",
-      "zin": "Het ontwerpdeel telt alleen mee waar de student het deelsysteem zelf ontwerpt",
-      "delen": [
-        {
-          "deel": "aandeel monteren",
-          "waarde": "telt op alle drie de niveaus"
-        },
-        {
-          "deel": "aandeel maken",
-          "waarde": "telt vanaf niveau 3"
-        },
-        {
-          "deel": "aandeel ontwerpen",
-          "waarde": "telt alleen op niveau 4"
-        },
-        {
-          "deel": "niveau 2 en 3",
-          "waarde": "ontwerpen staat formatief"
-        },
-        {
-          "deel": "niveau 4",
-          "waarde": "ontwerpen staat summatief"
-        },
-        {
-          "deel": "wat ontbreekt",
-          "waarde": "het aandeel per onderwijsspecificatie"
-        }
-      ],
-      "gradatie": "Zonder dat aandeel dragen de drie specificaties dezelfde leeruitkomst, zonder dat te zien is wat er per niveau summatief van meetelt.",
+      "gradatie": "Een leeruitkomst wordt een keer vastgelegd en vanuit elke specificatie aangewezen; wat het model openlaat is op welk niveau zij wordt geformuleerd.",
       "vindplaats": "voorbeeldcasus mechatronica uit de werkbrief Npuls-OKx/meta#481; opgesteld als illustratie en niet ontleend aan een vastgesteld kwalificatiedossier"
     }
   ]

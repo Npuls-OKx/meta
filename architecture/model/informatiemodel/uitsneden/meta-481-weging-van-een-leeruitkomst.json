@@ -1,0 +1,120 @@
+{
+  "id": "meta-481-weging-van-een-leeruitkomst",
+  "titel": "Hangt de weging van een leeruitkomst in de resultaatstructuur of aan de leeruitkomst zelf?",
+  "herkomst": "Werksessie OKx-informatiemodel en ontwerpvragen, 29 oktober 2026, en kick-off werkgroep techniek Leeruitkomsten, 2 november 2026; werkbrief Npuls-OKx/meta#481, ingebracht in Npuls-OKx/Public#135",
+  "versie": "0.1.0",
+  "oeapi": false,
+  "rij_labels": [
+    "waar de weging vandaag kan hangen",
+    "waar zij ook zou kunnen hangen"
+  ],
+  "objecten": [
+    {
+      "naam": "Werkproces",
+      "rij": 0
+    },
+    {
+      "naam": "Leeruitkomst",
+      "rij": 0,
+      "noot": "vertaald door de instelling"
+    },
+    {
+      "naam": "Summatieve resultaat structuur",
+      "rij": 0,
+      "noot": "van de instelling"
+    },
+    {
+      "naam": "Examenonderdeel weging",
+      "rij": 0
+    },
+    {
+      "naam": "Formatieve resultaat structuur",
+      "rij": 0
+    },
+    {
+      "naam": "Toetsonderdeel weging",
+      "rij": 0
+    },
+    {
+      "naam": "Vertaalaandeel",
+      "kolom": "Onderwijskundigkader instelling",
+      "rij": 1,
+      "merk": "voorstel",
+      "nummer": 1,
+      "waarom": "bestaat alleen als het aandeel landelijk gelijk moet zijn"
+    }
+  ],
+  "ontbreekt": [
+    {
+      "van": "Vertaalaandeel",
+      "naar": "Leeruitkomst",
+      "soort": "Association",
+      "label": "telt mee in",
+      "waarom": "welk deel van een werkproces afgedekt is"
+    }
+  ],
+  "voorbeeld": [
+    {
+      "kop": "Lezing 1: de weging hangt in de resultaatstructuur",
+      "bij": "Summatieve resultaat structuur",
+      "zin": "Bouwt een mechatronisch deelsysteem volgens tekening en stelt het werkend af",
+      "delen": [
+        {
+          "deel": "waar de weging hangt",
+          "waarde": "bij de instelling, in haar resultaatstructuur"
+        },
+        {
+          "deel": "wat zij zegt",
+          "waarde": "hoe zwaar deze leeruitkomst meetelt"
+        },
+        {
+          "deel": "niveau 2 en 3",
+          "waarde": "ontwerpen weegt formatief mee"
+        },
+        {
+          "deel": "niveau 4",
+          "waarde": "ontwerpen weegt summatief mee"
+        },
+        {
+          "deel": "wat het model draagt",
+          "waarde": "examenonderdeel weging, toetsonderdeel weging"
+        },
+        {
+          "deel": "gevolg",
+          "waarde": "elke instelling weegt zelf"
+        }
+      ],
+      "gradatie": "De leeruitkomst blijft landelijk gelijk; wat zij waard is in het examen bepaalt de instelling per onderwijsspecificatie.",
+      "vindplaats": "voorbeeldcasus mechatronica uit de werkbrief Npuls-OKx/meta#481; opgesteld als illustratie en niet ontleend aan een vastgesteld kwalificatiedossier"
+    },
+    {
+      "kop": "Lezing 2: de weging hangt aan de leeruitkomst",
+      "bij": "Vertaalaandeel",
+      "zin": "Bouwt een mechatronisch deelsysteem volgens tekening en stelt het werkend af",
+      "delen": [
+        {
+          "deel": "waar de weging hangt",
+          "waarde": "aan de vertaling uit het kwalificatiekader"
+        },
+        {
+          "deel": "wat zij zegt",
+          "waarde": "welk deel van een werkproces afgedekt is"
+        },
+        {
+          "deel": "voor wie",
+          "waarde": "landelijk gelijk voor elke instelling"
+        },
+        {
+          "deel": "gevolg",
+          "waarde": "een instelling weegt niet zelf"
+        },
+        {
+          "deel": "wat ontbreekt",
+          "waarde": "een objecttype dat dat aandeel draagt"
+        }
+      ],
+      "gradatie": "Het aandeel is dan deel van de landelijke afspraak; de instelling kiest nog hoe zij toetst, niet hoe zwaar het in het kader meetelt.",
+      "vindplaats": "voorbeeldcasus mechatronica uit de werkbrief Npuls-OKx/meta#481; opgesteld als illustratie en niet ontleend aan een vastgesteld kwalificatiedossier"
+    }
+  ]
+}

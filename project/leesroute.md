@@ -449,11 +449,15 @@ De leeruitkomst is in het informatiemodel de sleutel die het kwalificatiekader, 
 
 ![Op welk niveau hangt een leeruitkomst: vier niveaus van het kwalificatiekader vertalen ernaar, en vier niveaus van de onderwijsspecificatie hangen eraan](../architecture/model/informatiemodel/img/uitsneden/meta-481-vertaling-kwalificatiekader.svg)
 
-*Het model laat elk niveau van het kwalificatiekader naar een leeruitkomst vertalen, en elk niveau van de onderwijsspecificatie eraan hangen. Welk niveau het is, en voor welk deel, staat er niet.*
+*Het model laat elk niveau van het kwalificatiekader naar een leeruitkomst vertalen, en elk niveau van de onderwijsspecificatie eraan hangen. Welk niveau het is, staat er niet. Het voorbeeld rechts toont dezelfde leeruitkomst in drie onderwijsspecificaties: de zin blijft gelijk, wat de student zelf doet verschuift van monteren naar maken naar ontwerpen.*
 
 1. Waarvoor moet een leeruitkomst inzetbaar zijn? Het model gebruikt haar vandaag voor drie dingen tegelijk: verwijzen vanuit een specificatie, voorwaarde zijn in een keuzeregel, en bewijs dragen in de resultaatstructuur.
 2. Hoe verhoudt een leeruitkomst zich tot het kwalificatiekader: is zij een extra laag eromheen, is zij specifieker dan een werkproces, of juist algemener doordat zij delen van werkprocessen over kerntaken heen samenvoegt?
-3. Wanneer een werkproces in meer dan een leeruitkomst terugkomt, legt de sector dan vast voor welk deel? Zonder dat aandeel is niet te herleiden welk deel van het kader is afgedekt.
+3. Waar hangt de weging van een leeruitkomst? Twee lezingen: in de resultaatstructuur, waar een instelling per onderwijsspecificatie bepaalt hoe zwaar een leeruitkomst meetelt in haar examinering, of aan de vertaling uit het kwalificatiekader, waarmee het aandeel landelijk gelijk wordt. De eerste past in het model zoals het nu is; de tweede vraagt een objecttype dat er nog niet is.
+
+![Hangt de weging van een leeruitkomst in de resultaatstructuur of aan de leeruitkomst zelf: twee lezingen naast elkaar](../architecture/model/informatiemodel/img/uitsneden/meta-481-weging-van-een-leeruitkomst.svg)
+
+*Links de lezing waarin de instelling weegt: het model kent daar al een examenonderdeel weging en een toetsonderdeel weging. Rechts de lezing waarin het aandeel aan de vertaling hangt en voor elke instelling gelijk is. De keuze bepaalt wie mag bepalen hoe zwaar een leeruitkomst meetelt.*
 4. Hoe blijft een leeruitkomst uitwisselbaar? De tuning-methode voegt context toe aan de formulering, en juist die context maakt haar moeilijker herbruikbaar buiten de opleiding waarvoor zij is geschreven.
 5. Is een leeruitkomst herbruikbaar voor een andere opleiding, en hoe moet zij er dan uitzien? Het model gaat ervan uit dat een leeruitkomst een keer wordt vastgelegd en daarna vanuit elke specificatie wordt aangewezen.
 
