@@ -146,6 +146,35 @@ class NetwerkTests(unittest.TestCase):
             self.assertIn(f"Systeem {n}", svg)
 
 
+class GevarieerdTests(unittest.TestCase):
+    def paneel(self, **extra):
+        pan = {"titel": "Een school", "vorm": "onderling",
+               "knopen": [{"naam": f"Systeem {n}"} for n in range(4)]}
+        pan.update(extra)
+        return {"soort": "netwerk", "panelen": [pan]}
+
+    def test_given_an_even_paneel_when_drawn_then_every_line_has_the_same_width(self):
+        svg, _ = npuls.blok_netwerk(self.paneel(), 40, 100, 1000, PALET, {"iconen": {}})
+        self.assertEqual(svg.count('stroke-width="1.2"'), 6)
+        self.assertNotIn("stroke-dasharray", svg)
+
+    def test_given_a_gevarieerd_paneel_when_drawn_then_the_lines_differ(self):
+        svg, _ = npuls.blok_netwerk(self.paneel(gevarieerd=True), 40, 100, 1000, PALET,
+                                    {"iconen": {}})
+        self.assertIn("stroke-dasharray", svg)
+        self.assertGreater(len(set(re.findall(r'stroke-width="([\d.]+)" stroke-opacity', svg))), 1)
+
+    def test_given_a_lijnkleur_when_drawn_then_the_lines_carry_it(self):
+        svg, _ = npuls.blok_netwerk(self.paneel(lijnkleur="#00AF81"), 40, 100, 1000, PALET,
+                                    {"iconen": {}})
+        self.assertIn('stroke="#00AF81"', svg)
+
+    def test_given_a_merk_when_drawn_then_it_stands_on_the_paneel(self):
+        svg, _ = npuls.blok_netwerk(self.paneel(merk="een keer beschreven"), 40, 100, 1000,
+                                    PALET, {"iconen": {}})
+        self.assertIn("een keer beschreven", svg)
+
+
 class VersieTests(unittest.TestCase):
     def plaat(self, **extra):
         sel = {"titel": "Proef", "breedte": 800, "voet": "een voetregel",
