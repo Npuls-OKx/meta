@@ -13,6 +13,14 @@ De plaat komt uit het model, dus zij loopt mee met elke wijziging van de view. H
 alleen gelezen; raak nooit een .archimate-bestand aan.
 
     python3 tools/scripts/teken-hoofdplaat-ruim.py --uit <pad>.svg
+
+Met `--markeer` komt daar een markering over: de plaat vervaagt, de stromen van een casus
+worden uitgelicht met wat er overheen gaat, de componenten die meedoen krijgen een omlijning,
+en een stroom die de plaat nog niet kent staat als gestippelde lijn. De markeringen lopen
+haaks, langs dezelfde router als de plaat zelf, en nemen de vormtaal over van
+tools/scripts/teken-hoofdplaat-highlight.py, dat hetzelfde doet over een rasterrender.
+
+    python3 tools/scripts/teken-hoofdplaat-ruim.py --uit <pad>.svg --markeer <casus>.json
 """
 
 import argparse
@@ -81,6 +89,14 @@ ZONENAAM = {
 
 LETTER = 15     # de maat van een stroomnaam; de rest van de plaat schaalt hierop mee
 BREED = LETTER * 0.55   # geschatte breedte van een teken
+
+# De vormtaal van een markering komt uit teken-hoofdplaat-highlight.py, dat hetzelfde doet over
+# een rasterrender: dezelfde accentkleur voor de uitgelichte stroom, dezelfde randkleur om een
+# component dat meedoet, en dezelfde witte sluier over de plaat zodat de markering eruit springt.
+MARKEER = hoofdplaat.ACCENT
+MARKEER_RAND = hoofdplaat.RAND
+SLUIER = 0.62
+MARKEER_STROOK = 120   # de ruimte onder de plaat voor de titel en de legenda van een markering
 
 
 def norm(s):
@@ -509,9 +525,116 @@ def legenda_svg(rijen, x, y, breedte, kolommen=6, regel=38, kop=42):
     return "".join(delen)
 
 
+# --------------------------------------------------------------- markeren --
+
+def lees_markering(pad):
+    """De stromen van een casus uit een eigen bestand, naast het model.
+
+    Waarvoor: welke lijnen een casus raakt en wat er overheen gaat, staat niet in het model.
+    Dat hoort bij de casus en blijft daarom een eigen bestand naast de specificatie. Per stroom:
+    `van` en `naar` met de componentnaam van de view, `label` met wat er overheen gaat, en
+    `op_de_plaat` dat zegt of de hoofdplaat de lijn al kent.
+    """
+    gegeven = json.loads(pathlib.Path(pad).read_text(encoding="utf-8"))
+    uit = [dict(van=norm(s["van"]), naar=norm(s["naar"]), label=norm(s.get("label", "")),
+                op_de_plaat=bool(s.get("op_de_plaat", True)))
+           for s in gegeven.get("stromen", [])]
+    return norm(gegeven.get("naam", "")), uit
+
+
+def dichtste_vakken(componenten, van, naar):
+    """Het paar vakken dat het dichtst bij elkaar ligt; een component staat soms twee keer op de plaat."""
+    links = [k for k in componenten if norm(k["naam"]) == norm(van)]
+    rechts = [k for k in componenten if norm(k["naam"]) == norm(naar)]
+    if not links or not rechts:
+        return None, None
+
+    def midden(k):
+        return (k["ax"] + k["w"] / 2, k["ay"] + k["h"] / 2)
+
+    return min(((a, b) for a in links for b in rechts if a is not b),
+               key=lambda ab: (midden(ab[0])[0] - midden(ab[1])[0]) ** 2
+               + (midden(ab[0])[1] - midden(ab[1])[1]) ** 2)
+
+
+def markeerlijn_svg(punten, gestippeld=False):
+    """Een uitgelichte stroom: een dikke accentlijn met een witte onderlaag, zodat zij overal leest.
+
+    Een lijn die de plaat nog niet kent staat gestippeld: zichtbaar wat er ontbreekt.
+    """
+    d = "M" + " L".join(f"{x:.1f},{y:.1f}" for x, y in punten)
+    streep = ' stroke-dasharray="16 11"' if gestippeld else ""
+    return (f'<path d="{d}" fill="none" stroke="#ffffff" stroke-width="11" stroke-opacity="0.9" '
+            f'stroke-linejoin="round"/>'
+            f'<path d="{d}" fill="none" stroke="{MARKEER}" stroke-width="5"{streep} '
+            f'stroke-linejoin="round" marker-end="url(#markeerpunt)"/>')
+
+
+def markeer_legenda_svg(naam, x, y, breedte):
+    """De titel van de markering en de drie tekens die zij gebruikt, in de plaat zelf.
+
+    Waarvoor: een plaat die in een specificatie landt wordt los van haar tekst gelezen. Wie
+    de legenda in het document zet, levert een plaat die zonder dat document niet te lezen is.
+    """
+    uitleg = (("lijn", "stroom van deze casus, met wat er overheen gaat"),
+              ("stippel", "stroom die deze hoofdplaat nog niet kent"),
+              ("rand", "component dat meedoet"))
+    delen = [f'<text x="{x:.0f}" y="{y + 30:.0f}" font-size="28" font-weight="700" '
+             f'fill="{INKT}">{esc(naam)}</text>'] if naam else []
+    vak = breedte / len(uitleg)
+    for i, (soort, wat) in enumerate(uitleg):
+        kx, ky = x + i * vak, y + 78
+        if soort == "rand":
+            delen.append(f'<rect x="{kx:.0f}" y="{ky - 14:.0f}" width="48" height="28" fill="none" '
+                         f'stroke="{MARKEER_RAND}" stroke-width="4" rx="4"/>')
+        else:
+            streep = ' stroke-dasharray="16 11"' if soort == "stippel" else ""
+            delen.append(f'<path d="M{kx:.0f},{ky:.0f} L{kx + 52:.0f},{ky:.0f}" stroke="{MARKEER}" '
+                         f'stroke-width="5" fill="none"{streep}/>')
+        delen.append(f'<text x="{kx + 68:.0f}" y="{ky + 9:.0f}" font-size="22" '
+                     f'fill="{STIL}">{esc(wat)}</text>')
+    return "".join(delen)
+
+
+def markeer_svg(markeringen, alles, per_zone, routers, vakken, bezet, doek):
+    """De stromen van een casus over de plaat markeren, haaks gerouteerd.
+
+    De markering trekt een eigen baan tussen de twee vakken in plaats van de bestaande pijl over
+    te tekenen: de router kent de vakken en de banen die de plaat al bezet houdt, dus de markering
+    loopt er netjes naast en blijft recht of haaks. Een stroom die de plaat niet kent krijgt op
+    dezelfde manier een baan, gestippeld. Geeft de delen terug plus wat niet te plaatsen was.
+    """
+    componenten = [k for k in alles if k["type"] == "ApplicationComponent"]
+    gekozen, omlijnd, ontbreekt = [], [], []
+    for m in markeringen:
+        a, b = dichtste_vakken(componenten, m["van"], m["naar"])
+        if a is None or b is None:
+            ontbreekt.append(f"{m['label'] or 'stroom'}: {m['van']} naar {m['naar']}")
+            continue
+        router = routers.get(per_zone.get(a["id"], "los")) or next(iter(routers.values()), None)
+        va, vb = vakken[a["id"]], vakken[b["id"]]
+        punten = router.pad(va, vb) if router else hoofdplaat.haaks_pad(va, vb)
+        gekozen.append((m, punten))
+        for k in (a, b):
+            if k["id"] not in [q["id"] for q in omlijnd]:
+                omlijnd.append(k)
+    delen = [markeerlijn_svg(p, not m["op_de_plaat"]) for m, p in gekozen]
+    for k in omlijnd:
+        delen.append(f'<rect x="{k["ax"] - 4:.0f}" y="{k["ay"] - 4:.0f}" width="{k["w"] + 8}" '
+                     f'height="{k["h"] + 8}" fill="none" stroke="{MARKEER_RAND}" stroke-width="4" rx="5"/>')
+    for m, punten in gekozen:
+        bezet += hoofdplaat.lijnvakken(punten, dikte=10)
+    # de namen bovenop, zodat zij over de markeringen heen leesbaar blijven
+    for m, punten in gekozen:
+        label = m["label"] + ("" if m["op_de_plaat"] else " (nog geen lijn op deze plaat)")
+        delen.append(naam_svg(punten, label, MARKEER, bezet, doek, maat=LETTER + 3, omlijnd=True))
+    return delen, ontbreekt
+
+
 # -------------------------------------------------------------------- bouw --
 
-def bouw(ruimte_x=1.55, ruimte_y=1.85, tussen=70, marge=30, opschriften="namen"):
+def bouw(ruimte_x=1.55, ruimte_y=1.85, tussen=70, marge=30, opschriften="namen", markeer=(),
+         markeer_naam=""):
     top, knopen, verbindingen, relaties = lees(MODEL, VIEW)
     labels = labels_van_stromen()
 
@@ -606,7 +729,7 @@ def bouw(ruimte_x=1.55, ruimte_y=1.85, tussen=70, marge=30, opschriften="namen")
             else:
                 s["kleur"] = kleuren[knopen[s["bron"]]["naam"] or "junctie"]
 
-    onderkant = hoogte + legenda_hoogte(len(legenda))
+    onderkant = hoogte + legenda_hoogte(len(legenda)) + (MARKEER_STROOK if markeer else 0)
     gebruikt = list(dict.fromkeys(s["kleur"] for s in stromen))
     merk = {kleur: f"pijl{i}" for i, kleur in enumerate(gebruikt)}
     delen = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {breedte:.0f} {onderkant:.0f}" '
@@ -616,6 +739,10 @@ def bouw(ruimte_x=1.55, ruimte_y=1.85, tussen=70, marge=30, opschriften="namen")
         delen.append(f'<marker id="{naam}" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="5.5" '
                      f'markerHeight="5.5" orient="auto-start-reverse">'
                      f'<path d="M0 0 L10 5 L0 10 z" fill="{kleur}"/></marker>')
+    if markeer:
+        delen.append(f'<marker id="markeerpunt" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="5" '
+                     f'markerHeight="5" orient="auto-start-reverse">'
+                     f'<path d="M0 0 L10 5 L0 10 z" fill="{MARKEER}"/></marker>')
     delen += ["</defs>", f'<rect width="{breedte:.0f}" height="{onderkant:.0f}" fill="#ffffff"/>']
 
     for i, z in enumerate(zones):
@@ -649,10 +776,19 @@ def bouw(ruimte_x=1.55, ruimte_y=1.85, tussen=70, marge=30, opschriften="namen")
         delen.append(naam_svg(s["punten"], s["label"], s["kleur"], bezet, (breedte, hoogte),
                               maat=LETTER + 5 if opschriften == "ids" else LETTER,
                               omlijnd=opschriften == "ids"))
+    ontbreekt = []
+    if markeer:
+        # de plaat vervaagt, zodat de markering eruit springt; daarna de uitgelichte stromen erover
+        delen.append(f'<rect x="0" y="0" width="{breedte:.0f}" height="{hoogte:.0f}" fill="#ffffff" '
+                     f'fill-opacity="{SLUIER}"/>')
+        gemarkeerd, ontbreekt = markeer_svg(markeer, alles, per_zone, routers, vakken, bezet,
+                                            (breedte, hoogte))
+        delen += gemarkeerd
+        delen.append(markeer_legenda_svg(markeer_naam, marge, hoogte - marge / 2, breedte - 2 * marge))
     delen.append(legenda_svg(legenda, marge, hoogte - marge / 2, breedte - 2 * marge))
     delen.append("</svg>")
     return ("".join(delen), stromen, verbanden,
-            [k for k in alles if k["type"] == "ApplicationComponent"], legenda)
+            [k for k in alles if k["type"] == "ApplicationComponent"], legenda, ontbreekt)
 
 
 def kruisingen(lijnen):
@@ -675,15 +811,25 @@ def main():
     p.add_argument("--ruimte-y", type=float, default=1.85)
     p.add_argument("--opschriften", choices=("namen", "ids"), default="namen",
                    help="namen: de stroomnamen van de plaat; ids: het voorlopige koppeling-ID per stroom")
+    p.add_argument("--markeer", type=pathlib.Path,
+                   help="bestand met de stromen van een casus; markeert die op de plaat")
     args = p.parse_args()
-    svg, stromen, verbanden, componenten, legenda = bouw(args.ruimte_x, args.ruimte_y,
-                                                         opschriften=args.opschriften)
+    naam, markeringen = lees_markering(args.markeer) if args.markeer else ("", ())
+    svg, stromen, verbanden, componenten, legenda, ontbreekt = bouw(
+        args.ruimte_x, args.ruimte_y, opschriften=args.opschriften,
+        markeer=markeringen, markeer_naam=naam)
     pathlib.Path(args.uit).write_text(svg, encoding="utf-8")
+    for x in ontbreekt:
+        print(f"waarschuwing: niet op de plaat te plaatsen: {x}", file=sys.stderr)
     haaks = sum(1 for s in stromen for a, b in zip(s["punten"], s["punten"][1:])
                 if abs(a[0] - b[0]) > 0.5 and abs(a[1] - b[1]) > 0.5)
     kruis = kruisingen([v["punten"] for v in stromen + verbanden])
     erbij = (f", {sum(a for _, _, a in legenda)} stromen onder {len(legenda)} koppeling-ID's"
              if legenda else "")
+    if markeringen:
+        gestippeld = sum(1 for m in markeringen if not m["op_de_plaat"])
+        erbij += (f", {len(markeringen) - len(ontbreekt)} gemarkeerde stromen "
+                  f"waarvan {gestippeld} gestippeld")
     print(f"{len(componenten)} componenten, {len(stromen)} stromen, {len(verbanden)} verbanden; "
           f"{haaks} schuine segmenten, {kruis} kruisingen{erbij}")
     return 0
