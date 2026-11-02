@@ -58,6 +58,6 @@ Als je iets niet terugvindt: **geen fout in jouw lezen** — het model groeit it
 
 ## Zie ook
 
-- [OKx Architectuurbesluiten en impact](../project/architectuurbesluiten-en-impact.md)
+- [OKx Architectuurbesluiten en impact](architectuurbesluiten-en-impact.md)
 - [OKx Informatiestromen](informatiestromen.md)
 - [OKx Informatiestromen](informatiestromen.md)

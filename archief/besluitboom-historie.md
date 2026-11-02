@@ -1,5 +1,12 @@
 # OKx Besluitboom en Historie
 
+> **Gearchiveerd op 2 november 2026.** Dit document vatte de besluitboom uit bijlage 3 van het
+> projectplan samen, met de projecthistorie erachteraan. Het wordt niet meer bijgewerkt.
+>
+> Waar de levende versie staat: het [historisch overzicht](../project/historie.md) draagt de
+> momenten met hun bron, en het [projectplan](../project/projectdocumentatie/projectplan-okx.md)
+> draagt de bijlage waar de besluitboom uit komt.
+>
 Dit document beschrijft de **conceptuele keuze-momenten** en **startpaden** binnen OKx, gebaseerd op bijlage 3 (besluitboom). Het fungeert tevens als **lijdraad voor de projecthistorie**: keuzes, mijlpalen en context worden hier (of via verwijzingen) vastgelegd zodat architectuur- en besluitvorming traceerbaar blijven.
 
 ## Doel van de besluitboom
@@ -10,7 +17,7 @@ De besluitboom maakt expliciet welke keuzes er zijn bij het tot stand brengen en
 
 Voor de visuele weergave van de besluitboom wordt verwezen naar:
 
-![Besluitboom – conceptuele keuzes en startpaden](img/bijlage3-mini-mind-map.jpg)
+![Besluitboom – conceptuele keuzes en startpaden](../project/img/bijlage3-mini-mind-map.jpg)
 
 *Legenda:*
 - Hexagon: OKx kernteam initiatief.

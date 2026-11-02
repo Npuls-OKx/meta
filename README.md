@@ -59,6 +59,7 @@ meta/
 │   ├── docs/
 │   │   ├── specificatie/             begrippenlijst, leerroute-uitwerking, interactieketens, keuzevraagstukken
 │   │   ├── externe-kaders/           MOSA en de andere kaders waar OKx op aansluit
+│   │   ├── onderzoek/              verkenningen die het team zelf schreef
 │   │   ├── kwalificatiedossier/      de bron waar de keten begint
 │   │   ├── leeruitkomsten/           de sleutel tussen specificatie en resultaat
 │   │   └── mappingsessies-instellingen/   wat instellingen in werksessies inbrachten
@@ -69,7 +70,7 @@ meta/
 ├── tools/
 │   ├── scripts/                      de generatoren en de controles op model, platen en documenten
 │   └── tests/                        de testgevallen daarbij
-├── archief/MOKA/                     het MOKA-sjabloon, de guidelines en de uitwerking erop
+├── archief/                          wat zijn werk heeft gedaan, met per stuk de reden
 └── AGENTS.md                         de werkwijze voor agents, met de harde regels
 ```
 

@@ -1,5 +1,14 @@
 # OKx: architectuurbesluiten en impact
 
+> **Gearchiveerd op 2 november 2026.** Dit document vatte de architectuurrichting samen die uit de
+> eerste tien architectuurbesluiten volgde. Er zijn er inmiddels 26, en zij leven in Public met hun
+> eigen `Status`-regel. Het wordt niet meer bijgewerkt.
+>
+> Waar de levende versie staat: de [besluiten in Public](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr),
+> met [deel 6 van de leesroute](../project/leesroute.md#deel-6-architectuurbesluiten) als ingang en
+> de plaat `besluiten` als overzicht. De werkafspraken rond het ArchiMate-model staan in
+> [`architecture/model/README.md`](../architecture/model/README.md) en in ADR 0010.
+>
 Dit document **vat samen** welke architectuurrichting uit **Architecture Decision Records (ADR’s)** en uit **kernteam- en SI-afstemming** volgt, en wat dat betekent voor **documentatie**, **informatiestromen** en het **ArchiMate-model**. Het vervangt geen ADR: voor de volledige onderbouwing en status per besluit gelden de bestanden in [[Referentiemateriaal/adr in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr)](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr).
 
 **Status:** de onderliggende ADR’s staan als *Voorstel*; deze pagina is eveneens **concept** en wordt mee bijgewerkt als ADR’s worden geaccepteerd of vervangen.
@@ -43,7 +52,7 @@ Dit document **vat samen** welke architectuurrichting uit **Architecture Decisio
 - De **eerste diepgaande technische uitwerking** richt zich op het **uitgewerkte aanbod tussen curriculumontwerp en onderwijscatalogus** — de **onderwijscatalogus** geldt als **bronsysteem** voor veel vervolgstromen.
 - Zolang sectorbrede streeflevering (o.a. volledige MOKA-sectoruitwerking) achterloopt, werkt OKx aan een **minimaal pakket**: verdieping op het **MORA-procesbeeld**, **MOKA-koppelvlakspecificatie-views** en het **MOKA-koppelvlak-informatiemodel** — als **referentiekader**, niet als vervanging van sectorarchitectuur.
 
-**Impact op informatiestromen (zie het [ketenconcept in het archief](../archief/informatiestromen.md)):**
+**Impact op informatiestromen (zie het [ketenconcept in het archief](informatiestromen.md)):**
 
 - **Stroom 1** (Curriculum ontwerptool → Onderwijscatalogus, *Uitgewerkt aanbod*) is de **basislijn** waaraan latere stromen (2, 3, …) inhoudelijk hangen.
 - Stromen **2 en 3** zijn **direct downstream** van de catalogus in de prioritering; zonder helder beeld op stroom 1 zijn specs daar lastig te verdedigen.
@@ -93,6 +102,6 @@ Samengevat (detail per ADR):
 
 ## Zie ook
 
-- [Ketenconcept informatiestromen, gearchiveerd](../archief/informatiestromen.md) — overzicht stromen en specs
-- [Informatiestromen, ArchiMate en MOKA-view, gearchiveerd](../archief/informatiestromen-archimate-en-moka-view.md) — **hoe** je stromen terugvindt in het model
-- [Ketenconcept informatiestromen, gearchiveerd](../archief/informatiestromen.md) — hoofdplaat en interpretatietabel
+- [Ketenconcept informatiestromen, gearchiveerd](informatiestromen.md) — overzicht stromen en specs
+- [Informatiestromen, ArchiMate en MOKA-view, gearchiveerd](informatiestromen-archimate-en-moka-view.md) — **hoe** je stromen terugvindt in het model
+- [Ketenconcept informatiestromen, gearchiveerd](informatiestromen.md) — hoofdplaat en interpretatietabel

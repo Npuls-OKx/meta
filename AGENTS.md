@@ -107,6 +107,7 @@ Dit vervangt de fork `Npuls-OKx/specification`, die op verzoek van de OEAPI-behe
 | Meetingverslagen | [architecture/meetings/](architecture/meetings/) |
 | Specificaties (leerroute-uitwerking, persona's) | [architecture/docs/specificatie/](architecture/docs/specificatie/) |
 | Agent-artifacten (ontwerpen, plannen) | [architecture/agent-artifacts/](architecture/agent-artifacts/) |
+| Onderzoek van het team zelf | [architecture/docs/onderzoek/](architecture/docs/onderzoek/) |
 | MOKA-sjabloon en de uitwerking erop, gearchiveerd | [archief/MOKA/](archief/MOKA/) |
 | Presentaties (Slidev, Npuls huisstijl) | [presentaties/](presentaties/) |
 | Validatiescripts en testgevallen | [tools/scripts/](tools/scripts/), [tools/tests/](tools/tests/) |

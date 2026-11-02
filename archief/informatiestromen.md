@@ -63,7 +63,7 @@ Deze uitwerking is **niet** bedoeld als **directe wijziging** van de MORA. We ge
 
 ## Architectuurbesluiten en impact
 
-De vastgelegde **architectuurrichting** (ADR’s, meetings) en impact op keten en model: **[OKx Architectuurbesluiten en impact](../project/architectuurbesluiten-en-impact.md)**.
+De vastgelegde **architectuurrichting** (ADR’s, meetings) en impact op keten en model: **[OKx Architectuurbesluiten en impact](architectuurbesluiten-en-impact.md)**.
 
 ## Verwijzing naar (technische) specificaties en OEAPI
 
