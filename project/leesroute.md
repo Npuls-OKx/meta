@@ -435,11 +435,36 @@ Wie iets wil toevoegen of corrigeren, opent een issue of een pull request; de we
 
 Deze zijn met de producten uit deel 5 in de hand te beantwoorden, en zonder die producten niet.
 
-1. Waar landt de leeractiviteit van MORA in het informatiemodel van OKx, en draagt zij daar dezelfde betekenis?
-2. Welke functionaliteit hoort bij welk applicatiecomponent, en wat doet die knip met een koppelvlakspecificatie?
-3. Wat moet een instelling kunnen om leerroute 1 te realiseren, uitgedrukt in stappen die zij herkent?
-4. Welke doorloopstap uit de modeldoorloop ontbreekt in uw eigen proces, of staat er anders in?
-5. Welke vorm moet een release krijgen, en wie beoordeelt hem voordat hij uitgaat?
-6. Waar meldt u een wijziging op wat hier staat, en hoe weet u wat ermee gebeurt?
+1. Welke functionaliteit hoort bij welk applicatiecomponent, en wat doet die knip met een koppelvlakspecificatie?
+2. Wat moet een instelling kunnen om leerroute 1 te realiseren, uitgedrukt in stappen die zij herkent?
+3. Welke doorloopstap uit de modeldoorloop ontbreekt in uw eigen proces, of staat er anders in?
+4. Welke vorm moet een release krijgen, en wie beoordeelt hem voordat hij uitgaat?
+5. Waar meldt u een wijziging op wat hier staat, en hoe weet u wat ermee gebeurt?
 
-De eerste vijf liggen bij OKx en bij de sector samen. De zesde ligt bij OKx alleen: de werkwijze staat in [`CONTRIBUTING.md`](../CONTRIBUTING.md), de besluitvorming in deel 6, en het beheer in deel 7.
+De eerste vier liggen bij OKx en bij de sector samen. De vijfde ligt bij OKx alleen: de werkwijze staat in [`CONTRIBUTING.md`](../CONTRIBUTING.md), de besluitvorming in deel 6, en het beheer in deel 7.
+
+### Vragen over de leeruitkomst
+
+De leeruitkomst is in het informatiemodel de sleutel die het kwalificatiekader, de onderwijsspecificaties en het bewijs van wat een student heeft behaald aan elkaar knoopt. Wat zij precies is, ligt niet vast. In de werksessie over het informatiemodel van 29 oktober 2026 en in de kick-off van de landelijke werkgroep techniek Leeruitkomsten van 2 november 2026 kwam dezelfde vraag langs, in verschillende woorden: het model zegt dat een kwalificatiekader naar leeruitkomsten wordt vertaald, en laat open wat die vertaling is. Het antwoord ligt bij de landelijke werkgroepen leeruitkomsten; deze vragen zijn wat OKx daarvoor nodig heeft. Zij staan ingebracht in [Npuls-OKx/Public#135](https://github.com/Npuls-OKx/Public/issues/135).
+
+![Op welk niveau hangt een leeruitkomst: vier niveaus van het kwalificatiekader vertalen ernaar, en vier niveaus van de onderwijsspecificatie hangen eraan](../architecture/model/informatiemodel/img/uitsneden/meta-481-vertaling-kwalificatiekader.svg)
+
+*Het model laat elk niveau van het kwalificatiekader naar een leeruitkomst vertalen, en elk niveau van de onderwijsspecificatie eraan hangen. Welk niveau het is, en voor welk deel, staat er niet.*
+
+1. Waarvoor moet een leeruitkomst inzetbaar zijn? Het model gebruikt haar vandaag voor drie dingen tegelijk: verwijzen vanuit een specificatie, voorwaarde zijn in een keuzeregel, en bewijs dragen in de resultaatstructuur.
+2. Hoe verhoudt een leeruitkomst zich tot het kwalificatiekader: is zij een extra laag eromheen, is zij specifieker dan een werkproces, of juist algemener doordat zij delen van werkprocessen over kerntaken heen samenvoegt?
+3. Wanneer een werkproces in meer dan een leeruitkomst terugkomt, legt de sector dan vast voor welk deel? Zonder dat aandeel is niet te herleiden welk deel van het kader is afgedekt.
+4. Hoe blijft een leeruitkomst uitwisselbaar? De tuning-methode voegt context toe aan de formulering, en juist die context maakt haar moeilijker herbruikbaar buiten de opleiding waarvoor zij is geschreven.
+5. Is een leeruitkomst herbruikbaar voor een andere opleiding, en hoe moet zij er dan uitzien? Het model gaat ervan uit dat een leeruitkomst een keer wordt vastgelegd en daarna vanuit elke specificatie wordt aangewezen.
+
+![Kan een behaalde leeruitkomst een voorwaarde zijn op wat een student mag kiezen: leeruitkomst, keuzeregelset, keuzedeelruimte en keuzedeel op een rij](../architecture/model/informatiemodel/img/uitsneden/meta-481-kiezen-op-een-leeruitkomst.svg)
+
+*Een behaalde leeruitkomst is in het model een voorwaarde op een keuzeregel. Een planningssysteem gebruikt daarvoor alleen de sleutel en kent de inhoud niet ([ADR 0026](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0026-leeruitkomst-als-verbindende-sleutel.md)). Dat stelt eisen aan identificatie en stabiliteit, en niet aan de formulering.*
+
+6. Moet een student kunnen kiezen op een leeruitkomst, en onder welke omstandigheden? Een keuze op een leeruitkomst vraagt dat zij stabiel geidentificeerd is, ook wanneer haar tekst verandert.
+
+![Loopt het recht op een diploma of certificaat uitsluitend via de leeruitkomst: van kwalificatiedossier via leeruitkomst en resultaatstructuur naar het waardedocument](../architecture/model/informatiemodel/img/uitsneden/meta-481-diplomeren-via-de-leeruitkomst.svg)
+
+*Van het landelijke kader naar het waardedocument loopt in het model een enkele lijn, en die loopt door de leeruitkomst heen. Dat is de reden dat de vorige vragen geen modelleerdetail zijn.*
+
+7. Loopt het recht op een diploma of certificaat uitsluitend via de leeruitkomst? Een certificaat is vandaag een subselectie van kerntaken en werkprocessen; in het model is de enige weg daarnaartoe de resultaatstructuur over leeruitkomsten.

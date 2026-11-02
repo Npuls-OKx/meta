@@ -1,0 +1,31 @@
+{
+  "id": "meta-481-kiezen-op-een-leeruitkomst",
+  "titel": "Kan een behaalde leeruitkomst een voorwaarde zijn op wat een student mag kiezen?",
+  "herkomst": "Werksessie OKx-informatiemodel en ontwerpvragen, 29 oktober 2026, en kick-off werkgroep techniek Leeruitkomsten, 2 november 2026; werkbrief Npuls-OKx/meta#481, ingebracht in Npuls-OKx/Public#135",
+  "versie": "0.1.0",
+  "oeapi": false,
+  "rij_labels": [
+    "de voorwaarde, de regel, en waarop die regel slaat"
+  ],
+  "objecten": [
+    {
+      "naam": "Leeruitkomst",
+      "rij": 0,
+      "noot": "als sleutel, zonder de inhoud"
+    },
+    {
+      "naam": "Student keuze regelset",
+      "rij": 0,
+      "noot": "ADR 0026: verbindende sleutel"
+    },
+    {
+      "naam": "Keuzedeelruimte",
+      "rij": 0,
+      "noot": "mbo 4: 720 SBU"
+    },
+    {
+      "naam": "Keuzedeel",
+      "rij": 0
+    }
+  ]
+}
