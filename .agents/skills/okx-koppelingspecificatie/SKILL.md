@@ -53,7 +53,7 @@ De kern staat voorin. Een lezer heeft de payload binnen twee schermen.
 
 Eén hoofdstuk met drie subsecties. Na het lezen daarvan weet een nieuwkomer waar het document voor is, wat er wel en niet in staat, en hoe het is ontstaan.
 
-- **1.1 Context.** Waar de koppeling in de keten zit (met stroomnummer uit het projectoverzicht), voor wie het document is, en hoe het is ontstaan: werksessie, afgeleid, of voortbouwend op een ander document. Verwijs naar het scenario en de persona. Geen opsomming van losse bronnen; een bron is invoer, geen context.
+- **1.1 Context.** Waar de koppeling in de keten zit (met stroomnummer uit de informatiestromen), voor wie het document is, en hoe het is ontstaan: werksessie, afgeleid, of voortbouwend op een ander document. Verwijs naar het scenario en de persona. Geen opsomming van losse bronnen; een bron is invoer, geen context.
 - **1.2 Doel.** In twee vormen: **welke vragen beantwoordt dit document**, en **wanneer is het geslaagd**. Neem geen doelen op die buiten het document liggen.
 - **1.3 Scope.** Positief geformuleerd: wat er in scope is. Sluit af met de regel dat al het overige buiten scope valt, zodat de lezer niet hoeft te raden of iets vergeten of bewust weggelaten is. Noem uitzonderingen die verwarring wekken expliciet.
 

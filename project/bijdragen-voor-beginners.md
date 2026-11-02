@@ -18,7 +18,7 @@ Concreet hangen de belangrijkste “ankers” in deze repo zo samen:
 
 | Anker | Wat het is |
 |-------|------------|
-| **Hoofdplaat + tabel informatiestromen** | Richtinggevend overzicht: **welke** stromen tussen referentiecomponenten nog **conceptueel en technisch** beschreven moeten worden. Zie [OKx-projectoverzicht](projectoverzicht.md) (*Hoofdplaat OKx informatiestromen*). |
+| **Hoofdplaat + tabel informatiestromen** | Richtinggevend overzicht: **welke** stromen tussen referentiecomponenten nog **conceptueel en technisch** beschreven moeten worden. Zie [OKx-projectoverzicht](informatiestromen.md) (*Hoofdplaat OKx informatiestromen*). |
 | **Ketenconcept (geen dubbeling van de tabel)** | Wat die stromen **betekenen** als keten en als **invoer** voor latere specs: [OKx Informatiestromen (ketenconcept)](informatiestromen.md). |
 | **MOKA-koppelvlak-view `01. Onderwijsvisie vertalen naar onderwijsaanbod - Basis Model`** | Grote **ArchiMate-diagram-view** in [`architecture/model/model.archimate`](../architecture/model/model.archimate) — verdieping van het koppelvlak volgens het **MOKA-metamodel** (proces en informatie in samenhang). Hoe je die vindt en leest: [Informatiestromen, ArchiMate en MOKA-view](informatiestromen-archimate-en-moka-view.md). |
 | **Informatiemodel** (zelfde koppelvlak) | In dezelfde map staat o.a. het diagram **`1.Onderwijsvisie vertalen naar onderwijs aanbod - Informatiemodel`** — focus op de **informatiestructuur** naast varianten als Klassiek en Flexibel. |
@@ -54,7 +54,7 @@ Er is al inhoud voor een deel van de stromen; **veel andere stromen** uit de hoo
 
 ### Projectaanpak (kort)
 
-In [`projectoverzicht.md`](projectoverzicht.md) staat de lijn **begrijpen** → **ontwerpen** → **realiseren**: samenhang tussen **sector** (instellingen), **leveranciers** en ketenpartijen, met **MOKA-koppelvlakspecificaties** als gemeenschappelijk kader. Zo werken we toe naar **flexibele koppelvlakken** die de **Nederlandse onderwijssector** verder helpen — niet als een afgesloten document, maar als **gedeeld** en **iteratief** verbeterd gedachtegoed.
+In [`projectoverzicht.md`](informatiestromen.md) staat de lijn **begrijpen** → **ontwerpen** → **realiseren**: samenhang tussen **sector** (instellingen), **leveranciers** en ketenpartijen, met **MOKA-koppelvlakspecificaties** als gemeenschappelijk kader. Zo werken we toe naar **flexibele koppelvlakken** die de **Nederlandse onderwijssector** verder helpen — niet als een afgesloten document, maar als **gedeeld** en **iteratief** verbeterd gedachtegoed.
 
 ### Wat is collaborative design?
 

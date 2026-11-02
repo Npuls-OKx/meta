@@ -4,7 +4,7 @@ Basisdocument voor AI-agents (Cursor, Claude Code, Codex en vergelijkbaar) die i
 
 ## Wat is deze repository
 
-OKx-meta is de **publieke kennisbank** van OKx (Npuls, pijler Leren Zonder Drempels): gedeelde kennis, afspraken en conceptuitwerkingen rond **gestandaardiseerde koppelvlakken voor onderwijslogistiek**. Dit is een documentatierepository, geen codebase. Scope start bij mbo (leerroutes 1-3 eerst), hoger onderwijs volgt. Volledige introductie: [README.md](README.md) en [project/projectoverzicht.md](project/projectoverzicht.md).
+OKx-meta is de **publieke kennisbank** van OKx (Npuls, pijler Leren Zonder Drempels): gedeelde kennis, afspraken en conceptuitwerkingen rond **gestandaardiseerde koppelvlakken voor onderwijslogistiek**. Dit is een documentatierepository, geen codebase. Scope start bij mbo (leerroutes 1-3 eerst), hoger onderwijs volgt. Volledige introductie: [README.md](README.md) en [project/informatiestromen.md](project/informatiestromen.md).
 
 ## Principes en werkafspraken
 

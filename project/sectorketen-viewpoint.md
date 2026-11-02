@@ -107,7 +107,7 @@ De OKx-invulling per product:
 | Scenariobeschrijving | [kaderscenario leerroute 1](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md) |
 | Interactiespecificatie, berichtspecificatie, interfacespecificatie | de [koppelvlakspecificaties](https://github.com/Npuls-OKx/Public/tree/dev/Koppelvlakspecificaties) |
 | Eisen en besluiten | [requirementsboom](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/requirementsboom/README.md) en de [architectuurbesluiten](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr) |
-| Projectplan met doelen | [projectoverzicht](projectoverzicht.md) |
+| Projectplan met doelen | [informatiestromen](informatiestromen.md) |
 | Roadmap, productbacklog | de milestones en de issues in deze repository |
 | Conformiteitsvoorziening | testplatform, voorgenomen |
 

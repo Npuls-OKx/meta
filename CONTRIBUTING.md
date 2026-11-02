@@ -6,7 +6,7 @@ Deze repository is een knowledge base die team OKx maintaint. Leveranciers, inst
 
 Voordat je een issue of PR opent, is het nuttig te weten **waar** deze repo voor dient: we bouwen **keteninzicht** en **MOKA-gestuurde koppelvlakuitwerking** op — richting **technische specificaties** (o.a. berichten, modellen, **OEAPI** waar passend), zodat werk **gericht** blijft en we **lokale maxima** in één koppelvlak vermijden.
 
-- **Actuele plaat en prioriteit** (welke informatiestromen tellen mee): [`project/projectoverzicht.md`](project/projectoverzicht.md) — *Hoofdplaat OKx informatiestromen*.
+- **Actuele plaat en prioriteit** (welke informatiestromen tellen mee): [`project/informatiestromen.md`](project/informatiestromen.md) — *Hoofdplaat OKx informatiestromen*.
 - **Ketenconcept** (wat de stromen doen, invoer voor specs): [`project/informatiestromen.md`](project/informatiestromen.md).
 - **ArchiMate-model** met o.a. MOKA-view **`01. Onderwijsvisie vertalen naar onderwijsaanbod - Basis Model`** en het **informatiemodel** in hetzelfde koppelvlak: [`architecture/model/model.archimate`](architecture/model/model.archimate) — lees [`project/informatiestromen-archimate-en-moka-view.md`](project/informatiestromen-archimate-en-moka-view.md) voor waar je die views opent.
 - **Architectuurbesluiten (ADR’s)**: [[ADR-index in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/README.md)](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/README.md).
