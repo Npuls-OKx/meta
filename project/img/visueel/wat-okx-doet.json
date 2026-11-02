@@ -1,20 +1,20 @@
 {
   "titel": "Systemen in een school wisselen de hele dag gegevens uit",
-  "ondertitel": "Elke school beschrijft die gegevens op een eigen manier, en binnen een school verschilt het per team. OKx legt vast hoe die uitwisseling gaat.",
-  "versie": "0.2.0",
+  "ondertitel": "Elke school beschrijft die gegevens op een eigen manier, en over de schoolgrens begint dat opnieuw. OKx legt vast hoe die uitwisseling gaat.",
+  "versie": "0.3.0",
   "breedte": 1240,
   "blokken": [
     {
       "soort": "netwerk",
-      "hoogte": 344,
+      "hoogte": 470,
       "panelen": [
         {
           "titel": "Vandaag",
-          "toelichting": "per school en per team verschillend: elke koppeling draagt een eigen afspraak",
+          "toelichting": "per school en per team verschillend, en over de grens opnieuw",
           "kleur": "#DD784B",
           "vorm": "onderling",
           "lijnkleur": "#DD784B",
-          "merk": "vijftien eigen afspraken",
+          "merk": "zeventien eigen afspraken",
           "knopen": [
             {
               "naam": "Onderwijscatalogus",
@@ -41,15 +41,35 @@
               "icoon": "certificate"
             }
           ],
-          "gevarieerd": true
+          "gevarieerd": true,
+          "buiten": {
+            "naam": "Een andere instelling",
+            "toelichting": "mbo of ho, met hetzelfde landschap en een eigen beschrijving",
+            "icoon": "building",
+            "vanaf": [
+              "Studentinformatie",
+              "Toetsen en examineren"
+            ],
+            "knopen": [
+              {
+                "icoon": "catalog"
+              },
+              {
+                "icoon": "data-base"
+              },
+              {
+                "icoon": "education"
+              }
+            ]
+          }
         },
         {
           "titel": "Met het OKx-profiel",
-          "toelichting": "dezelfde zes systemen, dezelfde lijnen, op elke lijn dezelfde afspraak",
+          "toelichting": "dezelfde systemen en dezelfde lijnen, binnen en buiten de school dezelfde afspraak",
           "kleur": "#00AF81",
           "vorm": "onderling",
           "lijnkleur": "#00AF81",
-          "merk": "vijftien keer dezelfde",
+          "merk": "zeventien keer dezelfde",
           "knopen": [
             {
               "naam": "Onderwijscatalogus",
@@ -75,7 +95,27 @@
               "naam": "Toetsen en examineren",
               "icoon": "certificate"
             }
-          ]
+          ],
+          "buiten": {
+            "naam": "Een andere instelling",
+            "toelichting": "mbo of ho, op hetzelfde profiel, dus de koppeling werkt er al",
+            "icoon": "building",
+            "vanaf": [
+              "Studentinformatie",
+              "Toetsen en examineren"
+            ],
+            "knopen": [
+              {
+                "icoon": "catalog"
+              },
+              {
+                "icoon": "data-base"
+              },
+              {
+                "icoon": "education"
+              }
+            ]
+          }
         }
       ]
     },
@@ -94,6 +134,12 @@
           "titel": "Tussen teams in een school",
           "toelichting": "elk team richt het onderwijs anders in, dus een koppeling die bij het ene team past, past bij het andere niet",
           "icoon": "building",
+          "kleur": "#DD784B"
+        },
+        {
+          "titel": "Tussen instellingen",
+          "toelichting": "een student stroomt over en neemt resultaten mee, en beide kanten beschrijven die anders",
+          "icoon": "flow",
           "kleur": "#DD784B"
         },
         {
@@ -131,7 +177,7 @@
     },
     {
       "soort": "tekst",
-      "tekst": "OKx bouwt geen centrale voorziening waar het verkeer doorheen gaat. De systemen van een school blijven rechtstreeks met elkaar uitwisselen; wat OKx beschrijft en eenduidig vastlegt is hoe die uitwisseling eruitziet, als profiel over de koppelvlakken van die systemen heen."
+      "tekst": "OKx bouwt geen centrale voorziening waar het verkeer doorheen gaat. De systemen van een school blijven rechtstreeks met elkaar uitwisselen; wat OKx beschrijft en eenduidig vastlegt is hoe die uitwisseling eruitziet, als profiel over de koppelvlakken van die systemen heen. Dezelfde beschrijvingsvraag speelt over de instellingsgrens, bij een overstap van mbo naar ho of een keuzedeel bij een andere school. De uitwisseling binnen een instelling staat als eerste beschreven; de uitwisseling tussen instellingen volgt in een latere fase (ADR 0008)."
     }
   ],
   "voet": "De afspraken zijn in concept. Welk landschap OKx beschrijft staat in de hoofdplaat informatiestromen hieronder."
