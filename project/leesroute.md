@@ -431,44 +431,45 @@ Wie iets wil toevoegen of corrigeren, opent een issue of een pull request; de we
 | Zien waar het werk aan toe is | De [milestones](https://github.com/Npuls-OKx/meta/milestones), elk met de vraag die zij beantwoordt |
 | Zelf bijdragen | [`CONTRIBUTING.md`](../CONTRIBUTING.md) voor de werkwijze, [Bijdragen voor beginners](bijdragen-voor-beginners.md) voor de eerste stappen |
 
-### Vragen waar OKx een antwoord op zoekt
+### Openstaande vragen OKx
 
 Deze zijn met de producten uit deel 5 in de hand te beantwoorden, en zonder die producten niet.
 
-1. Welke functionaliteit hoort bij welk applicatiecomponent, en wat doet die knip met een koppelvlakspecificatie?
+1. Een leverancier verkoopt een applicatie, de architectuur beschrijft een applicatiecomponent, en die twee vallen zelden samen: een product dekt vaak meer dan een component, en een component ligt soms verspreid over twee producten. OKx legt niet vast wat een applicatie doet, wel wat een applicatiecomponent moet kunnen zodra er een koppelvlak aan hangt. Waar loopt die grens, en hoe houdt een koppelvlakspecificatie hem vol tegenover MORA en tegenover de markt?
 2. Wat moet een instelling kunnen om leerroute 1 te realiseren, uitgedrukt in stappen die zij herkent?
-3. Welke doorloopstap uit de modeldoorloop ontbreekt in uw eigen proces, of staat er anders in?
-4. Welke vorm moet een release krijgen, en wie beoordeelt hem voordat hij uitgaat?
-5. Waar meldt u een wijziging op wat hier staat, en hoe weet u wat ermee gebeurt?
+3. Helpt de modeldoorloop een instelling voldoende om haar doelen te halen, en is het OKx-model robuust genoeg? Daaronder de lastigste variant: wat ontbreekt er dat nog niemand gemist heeft?
+4. Wat releaset OKx, en wat versioneert het? En hoe bewegen die twee mee wanneer er in een onderliggend product iets verandert?
 
-De eerste vier liggen bij OKx en bij de sector samen. De vijfde ligt bij OKx alleen: de werkwijze staat in [`CONTRIBUTING.md`](../CONTRIBUTING.md), de besluitvorming in deel 6, en het beheer in deel 7.
+### Openstaande vragen leeruitkomst
 
-### Vragen over de leeruitkomst
+De leeruitkomst knoopt in het informatiemodel het kwalificatiekader, de onderwijsspecificaties en het bewijs van wat een student heeft behaald aan elkaar. Wat zij precies is, ligt niet vast: het model zegt dat een kwalificatiekader naar leeruitkomsten wordt vertaald, en laat open wat die vertaling is. Dezelfde vraag kwam langs in de werksessie over het informatiemodel van 29 oktober 2026 en in de kick-off van de landelijke werkgroep techniek Leeruitkomsten van 2 november 2026. Het antwoord ligt bij die werkgroepen; deze vragen zijn wat OKx daarvoor nodig heeft, en staan ingebracht in [Npuls-OKx/Public#135](https://github.com/Npuls-OKx/Public/issues/135).
 
-De leeruitkomst is in het informatiemodel de sleutel die het kwalificatiekader, de onderwijsspecificaties en het bewijs van wat een student heeft behaald aan elkaar knoopt. Wat zij precies is, ligt niet vast. In de werksessie over het informatiemodel van 29 oktober 2026 en in de kick-off van de landelijke werkgroep techniek Leeruitkomsten van 2 november 2026 kwam dezelfde vraag langs, in verschillende woorden: het model zegt dat een kwalificatiekader naar leeruitkomsten wordt vertaald, en laat open wat die vertaling is. Het antwoord ligt bij de landelijke werkgroepen leeruitkomsten; deze vragen zijn wat OKx daarvoor nodig heeft. Zij staan ingebracht in [Npuls-OKx/Public#135](https://github.com/Npuls-OKx/Public/issues/135).
+**a.** Waarvoor moet een leeruitkomst inzetbaar zijn? Het model gebruikt haar voor drie dingen tegelijk: verwijzen vanuit een specificatie, voorwaarde zijn in een keuzeregel, en bewijs dragen in de resultaatstructuur.
+
+**b.** Is een leeruitkomst een extra laag om het kwalificatiekader heen of een laag erbinnen? Specifieker dan een werkproces, of juist algemener doordat zij delen van werkprocessen over kerntaken heen samenvoegt?
+
+**c.** Waar hangt de weging van een leeruitkomst? In de resultaatstructuur, waar een instelling per onderwijsspecificatie bepaalt hoe zwaar zij meetelt in haar examinering, of aan de vertaling uit het kwalificatiekader, waarmee het aandeel landelijk gelijk wordt.
+
+**d.** Moet een student kunnen kiezen op een leeruitkomst, en onder welke omstandigheden?
+
+**e.** Hoe blijft een leeruitkomst uitwisselbaar? De tuning-methode voegt context toe aan de formulering, en juist die context maakt haar moeilijker herbruikbaar buiten de opleiding waarvoor zij is geschreven.
+
+**f.** Is een leeruitkomst herbruikbaar voor een andere opleiding, en hoe ziet zij er dan uit?
+
+**g.** Loopt het recht op een diploma of certificaat uitsluitend via de leeruitkomst? Een certificaat is vandaag een subselectie van kerntaken en werkprocessen.
 
 ![Op welk niveau hangt een leeruitkomst: vier niveaus van het kwalificatiekader vertalen ernaar, en vier niveaus van de onderwijsspecificatie hangen eraan](../architecture/model/informatiemodel/img/uitsneden/meta-481-vertaling-kwalificatiekader.svg)
 
-*Het model laat elk niveau van het kwalificatiekader naar een leeruitkomst vertalen, en elk niveau van de onderwijsspecificatie eraan hangen. Welk niveau het is, staat er niet. Het voorbeeld rechts toont dezelfde leeruitkomst in drie onderwijsspecificaties: de zin blijft gelijk, wat de student zelf doet verschuift van monteren naar maken naar ontwerpen.*
-
-1. Waarvoor moet een leeruitkomst inzetbaar zijn? Het model gebruikt haar vandaag voor drie dingen tegelijk: verwijzen vanuit een specificatie, voorwaarde zijn in een keuzeregel, en bewijs dragen in de resultaatstructuur.
-2. Hoe verhoudt een leeruitkomst zich tot het kwalificatiekader: is zij een extra laag eromheen, is zij specifieker dan een werkproces, of juist algemener doordat zij delen van werkprocessen over kerntaken heen samenvoegt?
-3. Waar hangt de weging van een leeruitkomst? Twee lezingen: in de resultaatstructuur, waar een instelling per onderwijsspecificatie bepaalt hoe zwaar een leeruitkomst meetelt in haar examinering, of aan de vertaling uit het kwalificatiekader, waarmee het aandeel landelijk gelijk wordt. De eerste past in het model zoals het nu is; de tweede vraagt een objecttype dat er nog niet is.
+*Bij b en f. Elk niveau van het kwalificatiekader vertaalt naar een leeruitkomst, en elk niveau van de onderwijsspecificatie hangt eraan; welk niveau het is, staat er niet. Het voorbeeld rechts toont dezelfde leeruitkomst in drie onderwijsspecificaties: de zin blijft gelijk, wat de student zelf doet verschuift van monteren naar maken naar ontwerpen.*
 
 ![Hangt de weging van een leeruitkomst in de resultaatstructuur of aan de leeruitkomst zelf: twee lezingen naast elkaar](../architecture/model/informatiemodel/img/uitsneden/meta-481-weging-van-een-leeruitkomst.svg)
 
-*Links de lezing waarin de instelling weegt: het model kent daar al een examenonderdeel weging en een toetsonderdeel weging. Rechts de lezing waarin het aandeel aan de vertaling hangt en voor elke instelling gelijk is. De keuze bepaalt wie mag bepalen hoe zwaar een leeruitkomst meetelt.*
-4. Hoe blijft een leeruitkomst uitwisselbaar? De tuning-methode voegt context toe aan de formulering, en juist die context maakt haar moeilijker herbruikbaar buiten de opleiding waarvoor zij is geschreven.
-5. Is een leeruitkomst herbruikbaar voor een andere opleiding, en hoe moet zij er dan uitzien? Het model gaat ervan uit dat een leeruitkomst een keer wordt vastgelegd en daarna vanuit elke specificatie wordt aangewezen.
+*Bij c. Links de lezing waarin de instelling weegt: het model kent daar al een examenonderdeel weging en een toetsonderdeel weging. Rechts de lezing waarin het aandeel aan de vertaling hangt en voor elke instelling gelijk is. De keuze bepaalt wie mag bepalen hoe zwaar een leeruitkomst meetelt.*
 
 ![Kan een behaalde leeruitkomst een voorwaarde zijn op wat een student mag kiezen: leeruitkomst, keuzeregelset, keuzedeelruimte en keuzedeel op een rij](../architecture/model/informatiemodel/img/uitsneden/meta-481-kiezen-op-een-leeruitkomst.svg)
 
-*Een behaalde leeruitkomst is in het model een voorwaarde op een keuzeregel. Een planningssysteem gebruikt daarvoor alleen de sleutel en kent de inhoud niet ([ADR 0026](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0026-leeruitkomst-als-verbindende-sleutel.md)). Dat stelt eisen aan identificatie en stabiliteit, en niet aan de formulering.*
-
-6. Moet een student kunnen kiezen op een leeruitkomst, en onder welke omstandigheden? Een keuze op een leeruitkomst vraagt dat zij stabiel geidentificeerd is, ook wanneer haar tekst verandert.
+*Bij a en d. Een behaalde leeruitkomst is een voorwaarde op een keuzeregel. Een planningssysteem gebruikt daarvoor alleen de sleutel en kent de inhoud niet ([ADR 0026](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0026-leeruitkomst-als-verbindende-sleutel.md)). Dat stelt eisen aan identificatie en stabiliteit, en niet aan de formulering.*
 
 ![Loopt het recht op een diploma of certificaat uitsluitend via de leeruitkomst: van kwalificatiedossier via leeruitkomst en resultaatstructuur naar het waardedocument](../architecture/model/informatiemodel/img/uitsneden/meta-481-diplomeren-via-de-leeruitkomst.svg)
 
-*Van het landelijke kader naar het waardedocument loopt in het model een enkele lijn, en die loopt door de leeruitkomst heen. Dat is de reden dat de vorige vragen geen modelleerdetail zijn.*
-
-7. Loopt het recht op een diploma of certificaat uitsluitend via de leeruitkomst? Een certificaat is vandaag een subselectie van kerntaken en werkprocessen; in het model is de enige weg daarnaartoe de resultaatstructuur over leeruitkomsten.
+*Bij g. Van het landelijke kader naar het waardedocument loopt een enkele lijn, en die loopt door de leeruitkomst heen. Dat is de reden dat de vragen hierboven geen modelleerdetail zijn.*
