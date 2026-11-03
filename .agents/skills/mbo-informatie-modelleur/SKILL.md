@@ -37,7 +37,7 @@ Het informatiemodel beschrijft **wat** er in een informatiestroom zit (entiteite
 - **Koppeling** — gestandaardiseerde realisatie van die stroom (berichten + interactie; AMIGO stap 3–5).
 - **Koppelvlak** — technische endpoint-set in de spec-repo (AMIGO stap 6).
 
-Milestone 3 ([OC P afgerond](https://github.com/Npuls-OKx/meta/milestone/3)) levert in meta **`v0.1.0`**: informatiemodellen en eerste gestandaardiseerde koppelingen voor OC P (LR1–LR3); volledige koppelvlakken volgen bij **`v1.0.0`**. Zie [`project/release-management-en-versionering.md`](../../../project/release-management-en-versionering.md) §8.
+Wat er wordt uitgebracht en wanneer staat in [Release management, algemene regels](https://github.com/Npuls-OKx/Public/blob/dev/Algemeen/release-management/Release-management-algemeen.md); de versieregel die in meta geldt staat in [`project/release-management-en-versionering.md`](../../../project/release-management-en-versionering.md).
 
 ## Bron van waarheid
 

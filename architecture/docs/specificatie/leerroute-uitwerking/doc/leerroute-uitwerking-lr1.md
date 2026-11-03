@@ -201,7 +201,7 @@ Onderstaande tabel koppelt deliverables uit de keten (§2) aan de plek waar ze n
 | Requirementsboom (opdracht, epics, features, stories) | [requirementsboom](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/requirementsboom/README.md); elk scenario benoemt in zijn veld Verantwoordt de stories die eruit volgen, en elke story wijst met zijn bron terug naar de passage hier |
 | Security | uitwerking volgt; oudere ontwerpkeuzes in het [archief](archief-conceptmodellen.md) |
 | OEAPI OpenAPI (profiel) | *Buiten dit document*: een overlay op de OEAPI-specificatie, als submodule |
-| Pilots · BOPSI · borging | [projectplan](../../../../../project/projectdocumentatie/projectplan-okx.md), [release-doc §1](../../../../../project/release-management-en-versionering.md#1-doel-en-scope) |
+| Pilots · BOPSI · borging | [projectplan](../../../../../project/projectdocumentatie/projectplan-okx.md), [release en versionering](../../../../../project/release-management-en-versionering.md) |
 
 ### 3.3 OEAPI-broncode en signaleringen
 
