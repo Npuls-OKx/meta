@@ -10,27 +10,39 @@ labels: []
      Het gebied is een naam die in de repository terugkomt, geen scriptnaam. Het derde deel noemt
      het object en wat ermee gebeurt, niet het gevolg. Tachtig tekens is de richting, geen grens.
 
-     Elke kop hieronder is een label van een woord. Een kop die vertelt wat er komt
-     ("Waarom dit issue") of wat de schrijver doet ("Wat ik ermee doe") vervalt.
-     Laat een kop weg wanneer hij niet van toepassing is; laat hem niet leeg staan. -->
+     Elke kop hieronder is een label van een woord. Laat een kop weg wanneer hij niet van
+     toepassing is; laat hem niet leeg staan. -->
 
 ## Aanleiding
 
-<!-- Een zin: welk besluit of welke wijziging dit issue moet opleveren. Altijd invullen. -->
+<!-- Wat dit issue moet opleveren, in een zin. Niet wat er is gebeurd, maar welk besluit of welke
+     wijziging eruit moet komen. Toets: kan iemand over een maand aan deze zin zien of het issue
+     klaar is?
+     Voorbeeld: "Het landschap van OKx kent geen vak voor een landelijk register van
+     leeruitkomsten. Dit issue moet opleveren dat vaststaat of dat vak er hoort te komen."
+     Altijd invullen. -->
 
 ## Inbreng
 
-<!-- Alleen wanneer het issue van buiten komt: een reviewronde, een gremium, een leverancier,
-     een werksessie. Neem de opmerking letterlijk over als citaat, met datum en waar zij staat,
-     en tag de inbrenger. De inbrenger moet kunnen zien dat hij goed begrepen is.
-     Een leverancier spreekt voor zijn product en niet voor de sector: houd uit elkaar wat een
+<!-- Wat iemand van buiten heeft gezegd, letterlijk. Een reviewronde, een gremium, een
+     leverancier, een werksessie. Citaat, datum, waar het staat, en de inbrenger getagd, zodat hij
+     kan zien dat hij goed begrepen is. Niet jouw samenvatting ervan: die hoort onder Observaties.
+     Een leverancier spreekt voor zijn product en niet voor de sector; houd uit elkaar wat een
      product vandaag doet, wat een component moet kunnen, en wat OKx als grootst gemene deler
-     vastlegt. Komt het issue uit eigen werk, laat deze kop dan weg. -->
+     vastlegt.
+     Voorbeeld: "Kick-off werkgroep techniek Leeruitkomsten, 2 november 2026: 'hangt een werkproces
+     aan twee leeruitkomsten, dan heb je bijna een verdeelsleutel nodig'."
+     Laat deze kop weg wanneer het issue uit eigen werk komt. -->
 
 ## Observaties
 
-<!-- Bullets of een tabel. Waarneming gescheiden van duiding: wat er staat, met de vindplaats,
-     en daarna pas wat dat betekent. Altijd invullen. -->
+<!-- Wat er vandaag in de repository staat, met de vindplaats erbij, en pas daarna wat dat
+     betekent. Waarneming en duiding gescheiden, zodat een lezer je conclusie kan wegen zonder
+     hem te moeten geloven. Bullets of een tabel.
+     Voorbeeld: "`Curriculum ontwerptool` bestaat in componenten.json met de dienst
+     `Curriculum ontwerp`. De definitie noemt leerdoelen, kerntaken en werkprocessen; een bron
+     voor leeruitkomsten staat er niet bij."
+     Altijd invullen. -->
 
 ## Story
 
@@ -41,6 +53,8 @@ Als [rol] wil ik [wat] zodat [waarde].
      Wat: het effect in de keten, niet de werking binnen een systeem.
      Waarde: wat er daarna mogelijk is dat nu niet kan. Lukt het zodat-deel niet, dan is de wens
      nog niet scherp.
+     Voorbeeld: "Als enterprise architect van een instelling wil ik op de hoofdplaat zien waar
+     een leeruitkomst vandaan komt, zodat ik weet welk systeem in mijn landschap haar houdt."
      Laat deze kop weg bij de lichte vorm: een correctie zonder keuze in de oplossingsrichting,
      hoogstens een enkel bestand. Dan volstaan aanleiding, observaties en een criterium. -->
 
@@ -53,6 +67,8 @@ Als [rol] wil ik [wat] zodat [waarde].
      Toetsbaar betekent: twee mensen komen los van elkaar tot hetzelfde oordeel.
      Dek ook de randen: wat mag juist niet gebeuren, en wat gebeurt er als het misgaat.
      Vermijd "moet ondersteunen" zonder waarneembaar resultaat.
+     Voorbeeld: "Het register staat in componenten.json met een definitie die zegt wat het houdt
+     en wie het beheert, zonder productnaam."
      Deze criteria zijn het eerste stopmoment: zonder akkoord erop geen plan en geen uitwerking. -->
 
 ## Testgevallen
@@ -63,7 +79,10 @@ Als [rol] wil ik [wat] zodat [waarde].
 <!-- Per criterium ten minste een geval, in die drieslag. Dek het gangbare verloop, per faalmodus
      een geval, en de randen: lege invoer, ontbrekende gegevens, grenswaarden.
      Een verwacht resultaat is waarneembaar: een melding, een status, een exitcode, een zichtbaar
-     gevolg in de keten. Voor scripts gelden de conventies uit de skill okx-test-persona.
+     gevolg in de keten.
+     Voorbeeld: "Bij 1: gegeven de bijgewerkte modellering, wanneer de stromenlijst wordt
+     gegenereerd, dan staat er een stroom tussen register en curriculumontwerptool."
+     Voor scripts gelden de conventies uit de skill okx-test-persona.
      Laat deze kop weg bij de lichte vorm. -->
 
 ## Vragen
@@ -71,4 +90,8 @@ Als [rol] wil ik [wat] zodat [waarde].
 1.
 
 <!-- Genummerd, een onderwerp per vraag, in een regel te beantwoorden, met de opties en de eigen
-     voorkeur erbij. Zijn er geen vragen, laat deze kop dan weg. -->
+     voorkeur erbij. Een vraag zonder voorkeur legt het werk bij de lezer.
+     Voorbeeld: "Valt het register binnen de scope van OKx? Binnen: OKx beschrijft de uitwisseling
+     ermee. Erbuiten maar in beeld: een vak als context, zonder koppelvlak. Mijn voorkeur is de
+     tweede, omdat het beeld dan klopt zonder vooruit te lopen op een besluit."
+     Zijn er geen vragen, laat deze kop dan weg. -->
