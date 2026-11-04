@@ -10,11 +10,8 @@ zichtbaar wat er ontbreekt.
 
     python3 tools/scripts/teken-hoofdplaat-highlight.py --plaat img/hoofdplaat.png
 
-Een voorstel dat nog niet in het model staat komt uit een eigen bestand en wordt getekend in
-dezelfde vorm als een ontbrekende stroom, met het woord voorstel in het label:
-
-    python3 tools/scripts/teken-hoofdplaat-highlight.py \\
-        --voorstel architecture/model/informatiemodel/voorstellen/<naam>.json --uitsnede
+Een voorgestelde stroom die nog niet in het model staat, hoort niet hier maar in
+teken-hoofdplaat-ruim.py: daar komt zij in dezelfde vormtaal als de rest van de plaat.
 
 Staat er een planningsvorm naast de regeltabel (modeldoorloop-lr1-<vorm>.json), dan komt er per
 fase en per vorm een plaat bij, f<fase>-<vorm>.svg, met alleen de stromen van die variant.
@@ -48,7 +45,6 @@ UITMAP = pathlib.Path("architecture/model/informatiemodel/img/hoofdplaat")
 PLAAT = UITMAP / "hoofdplaat-v1.7a.png"
 VIEW = "OKx hoofdplaat v1.7a"
 GEEN_PIJL = "geen pijl op de hoofdplaat"
-VOORSTEL = "voorstel, staat nog niet in het model"
 MARGE = 10  # Archi rendert de view met tien pixels marge; met dezelfde marge vallen de markeringen op de pijlen
 ACCENT = "#d9531e"
 RAND = "#1f6feb"
@@ -124,29 +120,6 @@ def controleer_plaat(plaat, view):
     if merk and merk.group(1) not in plaat.name:
         sys.exit(f"de ondergrond {plaat.name} hoort niet bij {view}; geef met --plaat een render "
                  f"van v{merk.group(1)}")
-
-
-def stromen_uit_voorstel(pad, knopen, elems):
-    """De stromen uit een voorstelbestand, gecontroleerd tegen de view.
-
-    Waarom een eigen bestand: een voorstel is nog geen besluit. Het model in Archi wijzigen voor
-    iets wat nog ter discussie staat, maakt van een vraag een feit; een bestand ernaast houdt het
-    een vraag en laat de plaat toch zien waar de lijn zou lopen. Het model wordt alleen gelezen.
-    """
-    rauw = json.loads(pathlib.Path(pad).read_text(encoding="utf-8"))
-    if not rauw.get("herkomst"):
-        sys.exit(f"{pad}: het voorstel draagt geen herkomst; zeg waar het vandaan komt")
-    uit = collections.OrderedDict()
-    for s in rauw.get("stromen", []):
-        for kant in ("van", "naar"):
-            if not knopen_van_component(knopen, elems, norm(s.get(kant, ""))):
-                sys.exit(f"{pad}: {s.get(kant)!r} staat niet op deze view")
-        if not norm(s.get("label", "")):
-            sys.exit(f"{pad}: een stroom zonder label; zeg wat er over die lijn gaat")
-        uit.setdefault((norm(s["van"]), norm(s["naar"]), VOORSTEL), []).append(s["label"])
-    if not uit:
-        sys.exit(f"{pad}: het voorstel draagt geen stromen")
-    return uit
 
 
 def knopen_van_component(knopen, elems, naam):
@@ -657,7 +630,7 @@ def bouw(knopen, connecties, elems, png, stromen, pijl_van, uitsnede=False, haak
     for (van, naar, pijl), beelden in stromen.items():
         label = ", ".join(beelden)
         conn = None if haaks else (connectie_voor(connecties, knopen, elems, pijl, van, naar)
-                                   if pijl not in (GEEN_PIJL, VOORSTEL) else None)
+                                   if pijl != GEEN_PIJL else None)
         if haaks:
             a, b = dichtste_paar(knopen, elems, van, naar)
             if not a or not b:
@@ -685,7 +658,7 @@ def bouw(knopen, connecties, elems, png, stromen, pijl_van, uitsnede=False, haak
             d = (f'M{punten[0][0]:.0f},{punten[0][1]:.0f} Q{punten[1][0]:.0f},{punten[1][1]:.0f} '
                  f'{punten[2][0]:.0f},{punten[2][1]:.0f}')
             streep = ' stroke-dasharray="12 9"'
-            label += {GEEN_PIJL: " (geen pijl)", VOORSTEL: " (voorstel)"}.get(pijl, "")
+            label += " (geen pijl)" if pijl == GEEN_PIJL else ""
             geraakt += [a, b]
         delen.append(f'<path d="{d}" fill="none" stroke="#ffffff" stroke-width="11" stroke-opacity="0.85"/>')
         delen.append(f'<path d="{d}" fill="none" stroke="{ACCENT}" stroke-width="5"{streep} '
@@ -751,9 +724,6 @@ def main(argv=None):
                                               "in plaats van een plaat per fase")
     parser.add_argument("--uitsnede", action="store_true", help="snijd uit rond de gemarkeerde vakken")
     parser.add_argument("--haaks", action="store_true", help="teken de markeringen orthogonaal in plaats van over de bestaande pijlen")
-    parser.add_argument("--voorstel", type=pathlib.Path, help="json met voorgestelde stromen; "
-                        "tekent ze als onderbroken boog zonder het model te wijzigen")
-    parser.add_argument("--naam", default=None, help="bestandsnaam van de plaat, zonder .svg")
     args = parser.parse_args(argv)
     if not args.plaat.exists():
         sys.exit(f"plaat niet gevonden: {args.plaat}; render hem met exporteer-archimate-platen.py")
@@ -762,17 +732,7 @@ def main(argv=None):
     pijl_van = {s["id"]: s for s in stromen_json.get("stromen", [])}
     knopen, connecties, elems = lees_geometrie(args.model)
     args.uit.mkdir(parents=True, exist_ok=True)
-    if args.voorstel:
-        controleer_plaat(args.plaat, stromen_json.get("view", ""))
-        stromen = stromen_uit_voorstel(args.voorstel, knopen, elems)
-        svg, ontbreekt = bouw(knopen, connecties, elems, args.plaat, stromen, pijl_van,
-                              args.uitsnede, args.haaks)
-        doel = args.uit / f"{args.naam or args.voorstel.stem}.svg"
-        doel.write_text(svg, encoding="utf-8")
-        for x in ontbreekt:
-            print(f"waarschuwing: niet op de plaat te plaatsen: {x}", file=sys.stderr)
-        print(f"voorstelplaat geschreven naar {doel}")
-        return 0
+    controleer_plaat(args.plaat, stromen_json.get("view", ""))
     if args.koppelingen:
         namen = [n.strip() for n in args.koppelingen.split(",") if n.strip()]
         stromen = stromen_per_koppeling(regels, namen)

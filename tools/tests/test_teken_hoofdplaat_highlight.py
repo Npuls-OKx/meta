@@ -5,8 +5,6 @@ de lijnen die zij gebruikt.
 """
 
 import importlib.util
-import json
-import tempfile
 import unittest
 from pathlib import Path
 
@@ -153,59 +151,6 @@ class VensterBurenTests(unittest.TestCase):
         x, y, w, h = hp.venster(geraakt, 0, 0, 2000, 1500, lucht=50, buren=[buur, ver])
         self.assertEqual(x, 172)
         self.assertEqual(x + w, 450)
-
-
-KNOPEN = {"a": {"element": "e1", "x": 0, "y": 0, "w": 100, "h": 50},
-          "b": {"element": "e2", "x": 400, "y": 300, "w": 100, "h": 50}}
-ELEMS = {"e1": ("ApplicationComponent", "Planningssysteem"),
-         "e2": ("ApplicationComponent", "Kernregistratie systeem studenten (KRS)")}
-
-
-class VoorstelTests(unittest.TestCase):
-    """Een voorstel komt uit een eigen bestand en wijzigt het model niet."""
-
-    def schrijf(self, tmp, inhoud):
-        pad = Path(tmp) / "voorstel.json"
-        pad.write_text(json.dumps(inhoud, ensure_ascii=False), encoding="utf-8")
-        return pad
-
-    def geldig(self):
-        return {"herkomst": "sessie 4 november 2026",
-                "stromen": [{"van": "Planningssysteem",
-                             "naar": "Kernregistratie systeem studenten (KRS)",
-                             "label": "geplande gelegenheid met capaciteit"}]}
-
-    def test_given_a_voorstel_when_read_then_the_flow_carries_the_voorstel_marker(self):
-        with tempfile.TemporaryDirectory() as tmp:
-            uit = hp.stromen_uit_voorstel(self.schrijf(tmp, self.geldig()), KNOPEN, ELEMS)
-        self.assertEqual(list(uit), [("Planningssysteem",
-                                      "Kernregistratie systeem studenten (KRS)", hp.VOORSTEL)])
-
-    def test_given_a_voorstel_without_herkomst_when_read_then_it_stops(self):
-        inhoud = self.geldig()
-        del inhoud["herkomst"]
-        with tempfile.TemporaryDirectory() as tmp, self.assertRaises(SystemExit) as gevangen:
-            hp.stromen_uit_voorstel(self.schrijf(tmp, inhoud), KNOPEN, ELEMS)
-        self.assertIn("herkomst", str(gevangen.exception))
-
-    def test_given_a_component_outside_the_view_when_read_then_it_names_that_component(self):
-        inhoud = self.geldig()
-        inhoud["stromen"][0]["naar"] = "Roostersysteem"
-        with tempfile.TemporaryDirectory() as tmp, self.assertRaises(SystemExit) as gevangen:
-            hp.stromen_uit_voorstel(self.schrijf(tmp, inhoud), KNOPEN, ELEMS)
-        self.assertIn("Roostersysteem", str(gevangen.exception))
-
-    def test_given_a_stroom_without_label_when_read_then_it_stops(self):
-        inhoud = self.geldig()
-        inhoud["stromen"][0]["label"] = ""
-        with tempfile.TemporaryDirectory() as tmp, self.assertRaises(SystemExit) as gevangen:
-            hp.stromen_uit_voorstel(self.schrijf(tmp, inhoud), KNOPEN, ELEMS)
-        self.assertIn("label", str(gevangen.exception))
-
-    def test_given_an_empty_voorstel_when_read_then_it_stops(self):
-        with tempfile.TemporaryDirectory() as tmp, self.assertRaises(SystemExit) as gevangen:
-            hp.stromen_uit_voorstel(self.schrijf(tmp, {"herkomst": "een sessie"}), KNOPEN, ELEMS)
-        self.assertIn("stromen", str(gevangen.exception))
 
 
 class OndergrondTests(unittest.TestCase):

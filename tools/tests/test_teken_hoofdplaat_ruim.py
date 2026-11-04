@@ -5,6 +5,8 @@ het verhaal van hoofdplaat v1.7a. En een naam die niet past hoort niet stilletje
 """
 
 import importlib.util
+import json
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -145,3 +147,79 @@ class LegendaTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+ALLES = [{"id": "a", "naam": "Planningssysteem"},
+         {"id": "b", "naam": "Kernregistratie systeem studenten (KRS)"},
+         {"id": "c", "naam": "Planningssysteem"},
+         {"id": "d", "naam": "Roostersysteem"}]
+VAKKEN = {"a": {}, "b": {}, "c": {}, "d": {}}
+PER_ZONE = {"a": "links", "b": "links", "c": "rechts", "d": "rechts"}
+
+
+class VoorstelTests(unittest.TestCase):
+    """Een voorstel komt uit een eigen bestand en wijzigt het model niet."""
+
+    def schrijf(self, tmp, inhoud):
+        pad = Path(tmp) / "voorstel.json"
+        pad.write_text(json.dumps(inhoud, ensure_ascii=False), encoding="utf-8")
+        return pad
+
+    def geldig(self):
+        return {"herkomst": "sessie 4 november 2026",
+                "stromen": [{"van": "Planningssysteem",
+                             "naar": "Kernregistratie systeem studenten (KRS)",
+                             "label": "geplande gelegenheid met capaciteit"}]}
+
+    def lees(self, inhoud):
+        with tempfile.TemporaryDirectory() as tmp:
+            return ruim.voorstel_stromen(self.schrijf(tmp, inhoud), ALLES, VAKKEN, PER_ZONE)
+
+    def test_given_a_voorstel_when_read_then_it_lands_in_one_procesgebied(self):
+        uit = self.lees(self.geldig())
+        self.assertEqual([(s["bron"], s["doel"]) for s in uit], [("a", "b")])
+
+    def test_given_a_voorstel_when_read_then_the_label_says_voorstel(self):
+        self.assertTrue(self.lees(self.geldig())[0]["label"].endswith("(voorstel)"))
+
+    def test_given_a_voorstel_when_read_then_it_is_marked_as_one(self):
+        self.assertTrue(self.lees(self.geldig())[0]["voorstel"])
+
+    def test_given_a_voorstel_without_herkomst_when_read_then_it_stops(self):
+        inhoud = self.geldig()
+        del inhoud["herkomst"]
+        with self.assertRaises(SystemExit) as gevangen:
+            self.lees(inhoud)
+        self.assertIn("herkomst", str(gevangen.exception))
+
+    def test_given_a_component_outside_the_view_when_read_then_it_names_that_component(self):
+        inhoud = self.geldig()
+        inhoud["stromen"][0]["naar"] = "Onderwijscatalogus"
+        with self.assertRaises(SystemExit) as gevangen:
+            self.lees(inhoud)
+        self.assertIn("Onderwijscatalogus", str(gevangen.exception))
+
+    def test_given_two_components_in_different_zones_when_read_then_it_stops(self):
+        inhoud = self.geldig()
+        inhoud["stromen"][0]["van"] = "Kernregistratie systeem studenten (KRS)"
+        inhoud["stromen"][0]["naar"] = "Roostersysteem"
+        with self.assertRaises(SystemExit) as gevangen:
+            self.lees(inhoud)
+        self.assertIn("procesgebied", str(gevangen.exception))
+
+    def test_given_a_stroom_without_label_when_read_then_it_stops(self):
+        inhoud = self.geldig()
+        inhoud["stromen"][0]["label"] = ""
+        with self.assertRaises(SystemExit) as gevangen:
+            self.lees(inhoud)
+        self.assertIn("label", str(gevangen.exception))
+
+    def test_given_an_empty_voorstel_when_read_then_it_stops(self):
+        with self.assertRaises(SystemExit) as gevangen:
+            self.lees({"herkomst": "een sessie"})
+        self.assertIn("stromen", str(gevangen.exception))
+
+    def test_given_a_voorstel_when_drawn_then_the_line_is_dashed(self):
+        self.assertIn("stroke-dasharray", ruim.lijn_svg([(0, 0), (10, 10)], "#d9531e", "pijl0", streep=True))
+        self.assertNotIn("stroke-dasharray", ruim.lijn_svg([(0, 0), (10, 10)], "#d9531e", "pijl0"))
+

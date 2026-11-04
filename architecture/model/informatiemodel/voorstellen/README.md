@@ -5,11 +5,12 @@ Een voorstel is een lijn of een vak dat nog niet in het model staat en dat wel g
 ## Tekenen
 
 ```bash
-python3 tools/scripts/teken-hoofdplaat-highlight.py \
-  --voorstel architecture/model/informatiemodel/voorstellen/<naam>.json --uitsnede
+python3 tools/scripts/teken-hoofdplaat-ruim.py \
+  --voorstel architecture/model/informatiemodel/voorstellen/<naam>.json --uitsnede \
+  --uit architecture/model/informatiemodel/img/hoofdplaat/<naam>.svg
 ```
 
-De plaat komt in [`../img/hoofdplaat/`](../img/hoofdplaat/). Zonder `--uitsnede` staat het voorstel op de hele plaat.
+De plaat wordt uit het model getekend, dus het voorstel komt in dezelfde vormtaal als de rest: haaks gerouteerd, met dezelfde pijlpunt. Zonder `--uitsnede` staat het voorstel op de hele plaat.
 
 ## Wat een voorstel draagt
 
@@ -18,9 +19,9 @@ De plaat komt in [`../img/hoofdplaat/`](../img/hoofdplaat/). Zonder `--uitsnede`
 | `titel` | De vraag die het voorstel stelt |
 | `herkomst` | Waar het vandaan komt: de sessie met datum, en het issue. Zonder herkomst weigert het script |
 | `versie` | SemVer, zoals elke plaat |
-| `stromen` | Per stroom `van`, `naar` en `label`. Beide componenten staan op de view, anders stopt het script met die naam |
+| `stromen` | Per stroom `van`, `naar` en `label`. Beide componenten staan op de view en in hetzelfde procesgebied, anders stopt het script met die naam. Staat een component in beide gebieden, dan kiest `zone` welke |
 
-Een voorgestelde stroom komt als onderbroken boog in de accentkleur op de plaat, met beide vakken omlijnd en het woord `voorstel` in het label. Dat is dezelfde vorm die het script gebruikt voor een stroom die de plaat nog niet kent, zodat een lezer ziet dat het om iets gaat wat er niet is.
+Een voorgestelde stroom komt onderbroken en in de accentkleur op de plaat, met het woord `voorstel` in het label. Zij volgt dezelfde routering als elke andere stroom, zodat zij op de plaat thuishoort en toch te zien is als iets wat er nog niet is.
 
 ## Wat er nog niet kan
 
