@@ -62,6 +62,11 @@
       "doel": "De lezersroute vormgeven: de route in delen met een vraag per deel, de verdieping in vier vaste regels, en de platen in de Npuls-vormtaal uit tools/scripts/teken-npuls-plaat.py, met een versie volgens SemVer op elk beeld."
     },
     {
+      "naam": "okx-modeldoorloop",
+      "type": "okx-specifiek",
+      "doel": "Een persona stap voor stap in het informatiemodel uitdrukken (MIM 1 en 2): regeltabel per processtap, controle tegen de platen, beelden in ArchiMate-vormtaal en het gegenereerde leesdocument met bijlage en vragen, met het invulblad als eigen bestand."
+    },
+    {
       "naam": "okx-oeapi-scenario-uitwerking",
       "type": "okx-specifiek",
       "doel": "Kaderstellende scenario's per leerroute schrijven en aanscherpen binnen de leerroute-uitwerking."
@@ -75,11 +80,6 @@
       "naam": "okx-plaat-uit-het-model",
       "type": "okx-specifiek",
       "doel": "Een architectuurplaat uit het ArchiMate-model tekenen: haakse routering, aanhechtingen op volgorde van hun overkant, het ArchiMate-kleurenschema, en keuring op leesbaarheid via tools/scripts/keur-plaat.py."
-    },
-    {
-      "naam": "okx-uitsnede-bij-een-reviewvraag",
-      "type": "okx-specifiek",
-      "doel": "Een uitsnede van het informatiemodel tekenen die een vraag uit een reviewronde beantwoordt: alleen de objecttypen die de vraag raakt, de aard van elke wijziging in het vak, een voorstel voor wat nog ontbreekt, en een ingevuld voorbeeld in de vormtaal van de plaat. Via tools/scripts/teken-informatiemodel-uitsnede.py, gekeurd met tools/scripts/keur-plaat.py op nul kruisingen."
     },
     {
       "naam": "okx-presentatie",
@@ -127,9 +127,14 @@
       "doel": "Adaptatie-wrapper: schrijft en reviewt testgevallen voor scripts en valideerbare definities binnen de OKx-conventies (tools/tests/, stdlib unittest, given-when-then, onafhankelijke verwachtingen, rapportage per testgeval)."
     },
     {
-      "naam": "okx-modeldoorloop",
+      "naam": "okx-uitsnede-bij-een-reviewvraag",
       "type": "okx-specifiek",
-      "doel": "Een persona stap voor stap in het informatiemodel uitdrukken (MIM 1 en 2): regeltabel per processtap, controle tegen de platen, beelden in ArchiMate-vormtaal en het gegenereerde leesdocument met bijlage en vragen, met het invulblad als eigen bestand."
+      "doel": "Een uitsnede van het informatiemodel tekenen die een vraag uit een reviewronde beantwoordt: alleen de objecttypen die de vraag raakt, de aard van elke wijziging in het vak, een voorstel voor wat nog ontbreekt, en een ingevuld voorbeeld in de vormtaal van de plaat. Via tools/scripts/teken-informatiemodel-uitsnede.py, gekeurd met tools/scripts/keur-plaat.py op nul kruisingen."
+    },
+    {
+      "naam": "okx-voorstel-op-de-hoofdplaat",
+      "type": "okx-specifiek",
+      "doel": "Een voorgestelde stroom of wijziging op de hoofdplaat informatiestromen tekenen als uitsnede met een wijzer, zonder het ArchiMate-model te wijzigen; voor concepten, comments en sparvragen."
     },
     {
       "naam": "requirements-engineering",

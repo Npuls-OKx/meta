@@ -188,6 +188,36 @@ def zet_koppeling_ids(stromen, knopen):
 VOORSTELKLEUR = "#d9531e"
 
 
+def wijzer_svg(x, y, breed, vakken, zones, doek, venster, view):
+    """Een kleine wijzer: de hele plaat in het klein, met het venster van de uitsnede erin.
+
+    Waarom: een uitsnede zonder wijzer laat een lezer raden waar hij kijkt. Twee vakken en een
+    lijn zien er op elke plek van de plaat hetzelfde uit, en juist de plek is wat een
+    architect nodig heeft om het beeld tegen zijn eigen landschap te houden.
+    """
+    bw, bh = doek
+    schaal = breed / bw
+    hoog = bh * schaal
+    kop = 17
+    delen = [f'<g><rect x="{x:.0f}" y="{y:.0f}" width="{breed:.0f}" height="{hoog + kop + 10:.0f}" '
+             f'rx="5" fill="#ffffff" fill-opacity="0.95" stroke="#b6c2cd" stroke-width="1"/>',
+             f'<text x="{x + 7:.0f}" y="{y + 12:.0f}" font-size="9" fill="#5b6b7b">'
+             f'{esc(view)}, uitsnede</text>']
+    for z in zones:
+        delen.append(f'<rect x="{x + z["ax"] * schaal:.1f}" y="{y + kop + z["ay"] * schaal:.1f}" '
+                     f'width="{z["w"] * schaal:.1f}" height="{z["h"] * schaal:.1f}" '
+                     f'fill="#f3efe9" stroke="#d8d2c8" stroke-width="0.5"/>')
+    for vk in vakken:
+        delen.append(f'<rect x="{x + vk["x"] * schaal:.1f}" y="{y + kop + vk["y"] * schaal:.1f}" '
+                     f'width="{max(vk["w"] * schaal, 1):.1f}" height="{max(vk["h"] * schaal, 1):.1f}" '
+                     f'fill="#c9d6de"/>')
+    vx, vy, vw, vh = venster
+    delen.append(f'<rect x="{x + vx * schaal:.1f}" y="{y + kop + vy * schaal:.1f}" '
+                 f'width="{vw * schaal:.1f}" height="{vh * schaal:.1f}" fill="{VOORSTELKLEUR}" '
+                 f'fill-opacity="0.14" stroke="{VOORSTELKLEUR}" stroke-width="1.4"/></g>')
+    return "".join(delen)
+
+
 def voorstel_stromen(pad, alles, vakken, per_zone):
     """De stromen uit een voorstelbestand, als vakken op deze view.
 
@@ -715,6 +745,10 @@ def bouw(ruimte_x=1.55, ruimte_y=1.85, tussen=70, marge=30, opschriften="namen",
         delen[0] = (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="{x1:.0f} {y1:.0f} '
                     f'{x2 - x1:.0f} {y2 - y1:.0f}" width="{x2 - x1:.0f}" height="{y2 - y1:.0f}" '
                     f'font-family="Segoe UI, Arial, sans-serif">')
+        wijzerbreed = min(200, (x2 - x1) * 0.3)
+        delen.insert(-1, wijzer_svg(x2 - wijzerbreed - 14, y1 + 14, wijzerbreed,
+                                    list(vakken.values()), zones, (breedte, onderkant),
+                                    (x1, y1, x2 - x1, y2 - y1), VIEW))
     return ("".join(delen), stromen, verbanden,
             [k for k in alles if k["type"] == "ApplicationComponent"], legenda)
 

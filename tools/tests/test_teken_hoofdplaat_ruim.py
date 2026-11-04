@@ -223,3 +223,22 @@ class VoorstelTests(unittest.TestCase):
         self.assertIn("stroke-dasharray", ruim.lijn_svg([(0, 0), (10, 10)], "#d9531e", "pijl0", streep=True))
         self.assertNotIn("stroke-dasharray", ruim.lijn_svg([(0, 0), (10, 10)], "#d9531e", "pijl0"))
 
+
+class WijzerTests(unittest.TestCase):
+    """De uitsnede zegt waar zij op de plaat ligt, en van welke versie zij komt."""
+
+    def wijzer(self):
+        vakken = [{"x": 10, "y": 10, "w": 40, "h": 20}]
+        zones = [{"ax": 0, "ay": 0, "w": 100, "h": 100}]
+        return ruim.wijzer_svg(0, 0, 100, vakken, zones, (200, 200), (20, 20, 60, 60),
+                               "OKx hoofdplaat v1.7a")
+
+    def test_given_a_wijzer_when_drawn_then_it_names_the_version(self):
+        self.assertIn("v1.7a", self.wijzer())
+
+    def test_given_a_wijzer_when_drawn_then_the_venster_carries_the_accent(self):
+        self.assertIn(ruim.VOORSTELKLEUR, self.wijzer())
+
+    def test_given_a_wijzer_when_drawn_then_it_says_it_is_an_uitsnede(self):
+        self.assertIn("uitsnede", self.wijzer())
+
