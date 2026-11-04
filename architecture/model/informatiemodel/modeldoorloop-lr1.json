@@ -224,13 +224,14 @@
           "buiten_scope": "aanwezigheidsregistratie valt buiten OKx. Wat de scope wel raakt is het afgeleide deelnameresultaat, en dat staat bij F5-01"
         },
         {
-          "van": "Kernregistratie systeem studenten (KRS)",
+          "van": "Roostersysteem",
           "naar": "Leer management systeem (LMS)",
           "objecten": [
             "opleidingsprogramma-verbintenis",
             "Persoon"
           ],
-          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 4: Wat licht op in de plaat"
+          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 4: Wat licht op in de plaat; bron gecorrigeerd in de sparsessie PR 314, deel 2, 4 november 2026",
+          "afwijking": "hoofdplaat v1.7a kent geen lijn van het roostersysteem naar het leermanagementsysteem; vandaag loopt die route via de kernregistratie. De kernregistratie weet niet wat een lesgroep is, dus de bron is het roostersysteem. Of het studentinformatiesysteem de orchestrator voor provisioning blijft, is een open vraag."
         }
       ],
       "dekking": "volledig",
@@ -362,13 +363,14 @@
           "beeld_in_fase": 7
         },
         {
-          "van": "Kernregistratie systeem studenten (KRS)",
+          "van": "Roostersysteem",
           "naar": "Leer management systeem (LMS)",
           "objecten": [
             "deelnemerscontext"
           ],
-          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 6: Wat licht op in de plaat",
-          "beeld_in_fase": 4
+          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 6: Wat licht op in de plaat; bron gecorrigeerd in de sparsessie PR 314, deel 2, 4 november 2026",
+          "beeld_in_fase": 4,
+          "afwijking": "hoofdplaat v1.7a kent geen lijn van het roostersysteem naar het leermanagementsysteem; vandaag loopt die route via de kernregistratie. De kernregistratie weet niet wat een lesgroep is, dus de bron is het roostersysteem. Of het studentinformatiesysteem de orchestrator voor provisioning blijft, is een open vraag."
         },
         {
           "van": "Kernregistratie systeem studenten (KRS)",
@@ -4108,7 +4110,7 @@
         "van": "Student",
         "naar": "Persoon"
       },
-      "zin": "De SLB'er voert de intake uit en plaatst Jochem in een plaatsingsgroep. Een keuzedeelvoorkeur legt zij hier nog niet vast: dat is bij de intake niet gebruikelijk, en de definitieve keuze valt pas minimaal een periode voor de keuzedeelruimte in het programma."
+      "zin": "De SLB'er voert de intake uit en plaatst Jochem in een plaatsingsgroep. Een keuzedeelvoorkeur legt zij hier nog niet vast: dat is bij de intake niet gebruikelijk, en de definitieve keuze valt pas minimaal een periode voor de keuzedeelruimte in het programma. De groep zelf krijgt pas vorm in de kernregistratie, nadat de intake is afgerond; de SLB'er bepaalt bij wie Jochem hoort, de kernregistratie legt de groep vast."
     },
     {
       "beeld_id": "F3-05",
@@ -4119,7 +4121,7 @@
       "wie": "SLB'er",
       "objecttype": "Plaatsingsgroep",
       "instantie": "APO26-1A",
-      "bron": "voorbeeldpayloads.md, groepen (13cc9125); leerroute-1-regulier.md, Fase 3: initiele plaatsingsgroep",
+      "bron": "voorbeeldpayloads.md, groepen (13cc9125); leerroute-1-regulier.md, Fase 3: initiele plaatsingsgroep; plek van ontstaan aangescherpt in de sparsessie PR 314, deel 2, 4 november 2026",
       "aanname": true,
       "relatie": {
         "soort": "Association",
@@ -4188,8 +4190,8 @@
       "koppeling": null,
       "objecttype": "Inschrijving",
       "instantie": "Juni 2026",
-      "bron": "leerroute-1-regulier.md, r860 en r882 (het intakesysteem verwerkt aanmelding en intake en draagt de positieve uitkomst over aan KRS), r945 en r949",
-      "zin": "Bij een positieve uitkomst zet het intakesysteem de aanmelding om in een inschrijving en draagt die over aan de kernregistratie, samen met de persoon en de verbintenissen die daarmee op ingeschreven staan. Vanaf dat moment is de kernregistratie de bron voor persoon en plaatsing, en registreert zij later de definitieve keuze. Het rijpen van die keuze gebeurt in het studentkeuzesysteem.",
+      "bron": "leerroute-1-regulier.md, r860 en r882 (het intakesysteem verwerkt aanmelding en intake en draagt de positieve uitkomst over aan KRS), r945 en r949; gecorrigeerd in de sparsessie PR 314, deel 2, 4 november 2026",
+      "zin": "Bij een positieve uitkomst zet het intakesysteem de aanmelding om in een inschrijving en draagt die over aan de kernregistratie, samen met de persoon en de verbintenissen die daarmee op ingeschreven staan. Vanaf dat moment is de kernregistratie de bron voor persoon en plaatsing, en registreert zij later de definitieve keuze. Het rijpen van die keuze gebeurt in het studentkeuzesysteem. De plaatsingsgroep zit hier niet bij: het intakesysteem heeft geen zicht op wie er voor de start bij elkaar gegroepeerd zijn. Die groep wordt in de kernregistratie gevormd, nadat de intake is afgerond, en gaat van daaruit naar het keuzesysteem (F3-08) en naar planning (F4-06).",
       "relaties": [
         {
           "soort": "Association",
@@ -4251,28 +4253,6 @@
       "naar": "Kernregistratie systeem studenten (KRS)",
       "pijl": "geen pijl op de hoofdplaat",
       "koppeling": null,
-      "objecttype": "Plaatsingsgroep",
-      "instantie": "APO26-1A",
-      "bron": "leerroute-1-regulier.md, r860 en r882 (het intakesysteem verwerkt aanmelding en intake en draagt de positieve uitkomst over aan KRS), r945 en r949",
-      "relaties": [
-        {
-          "soort": "Association",
-          "van": "Persoon",
-          "naar": "Plaatsingsgroep",
-          "label": "Worden gegroepeerd via"
-        }
-      ]
-    },
-    {
-      "beeld_id": "F3-07",
-      "beeld": "Inschrijving en verbintenissen naar de kernregistratie",
-      "fase": 3,
-      "stap": "Persoon en verbintenissen vastleggen in de kernregistratie",
-      "soort": "stroomt",
-      "van": "Intake systeem",
-      "naar": "Kernregistratie systeem studenten (KRS)",
-      "pijl": "geen pijl op de hoofdplaat",
-      "koppeling": null,
       "objecttype": "Opleiding aanbod verbintenis",
       "instantie": "Jochem op Apothekersassistent 2026",
       "toestand": "ingeschreven",
@@ -4323,7 +4303,7 @@
         "van": "Student",
         "naar": "Persoon"
       },
-      "zin": "De kernregistratie geeft door wie er in het keuzesysteem mag kiezen: de student met zijn programmaverbintenis en zijn groep, en de leeruitkomsten die hij al heeft behaald, zodat het keuzesysteem geen keuzes voorlegt die hij al deed. De deadline komt hier niet vandaan: de kernregistratie weet niet wanneer de keuzedeelruimte in de planning van deze student valt."
+      "zin": "De kernregistratie geeft door wie er in het keuzesysteem mag kiezen: de student met zijn programmaverbintenis en zijn groep, en de leeruitkomsten die hij al heeft behaald, zodat het keuzesysteem geen keuzes voorlegt die hij al deed. De deadline komt hier niet vandaan: de kernregistratie weet niet wanneer de keuzedeelruimte in de planning van deze student valt. De leeruitkomst gaat hier mee als sleutel, niet als vrijstelling: het keuzesysteem toetst zijn keuzeregels zonder de inhoud te kennen."
     },
     {
       "beeld_id": "F3-08",
@@ -4375,8 +4355,8 @@
       "pijl": "id-865f297e8c1f4371aa143aa225fe4b7f",
       "koppeling": null,
       "objecttype": "Leeruitkomst",
-      "instantie": "Al behaald door Jochem: geen, hij start zonder vrijstellingen",
-      "bron": "review Niels van Duin op PR 252: de kernregistratie weet welke keuzedelen de student al heeft afgenomen; ontwerpkeuze 6, een voorwaarde vooraf wordt uitgedrukt in behaalde leeruitkomsten",
+      "instantie": "Al behaald door Jochem: geen",
+      "bron": "review Niels van Duin op PR 252: de kernregistratie weet welke keuzedelen de student al heeft afgenomen; ontwerpkeuze 6, een voorwaarde vooraf wordt uitgedrukt in behaalde leeruitkomsten; aangescherpt in de sparsessie PR 314, deel 2, 4 november 2026",
       "relatie": {
         "soort": "Association",
         "van": "Leeruitkomst",
@@ -4384,7 +4364,7 @@
         "label": "voorwaarde op"
       },
       "nieuwe_instantie": true,
-      "vraag": "Het studentkeuzesysteem heeft de behaalde leeruitkomsten nodig om geen keuzes voor te leggen die de student al deed. Hoofdplaat v1.7 kent wel een stroom van de kernregistratie naar het keuzesysteem en geen van het studentvolgsysteem. Komt die kennis uit de kernregistratie, of mist de plaat een stroom?"
+      "vraag": "Een vrijstelling en een behaald resultaat lopen in de praktijk door elkaar. Een vrijstelling stelt de examencommissie vooraf vast en betekent dat er op dat onderdeel geen resultaat hoeft te komen; zij landt als vrijgesteld onderdeel in de resultaatstructuur. Wat eerder is behaald zijn resultaten, en die worden in die structuur ingepast. Hoe legt OKx dat verschil vast?"
     },
     {
       "beeld_id": "F4-01",
@@ -5156,13 +5136,13 @@
       "fase": 4,
       "stap": "Verwachte deelnemers delen en toegang geven",
       "soort": "stroomt",
-      "van": "Kernregistratie systeem studenten (KRS)",
+      "van": "Roostersysteem",
       "naar": "Leer management systeem (LMS)",
       "pijl": "id-865f297e8c1f4371aa143aa225fe4b7f",
       "koppeling": null,
       "objecttype": "Student",
       "instantie": "Jochem, cohort 2026",
-      "bron": "leerroute-1-regulier.md, Fase 4: KRS naar LMS, student, verbintenis en relevante groepen",
+      "bron": "leerroute-1-regulier.md, Fase 4: KRS naar LMS, student, verbintenis en relevante groepen; bron gecorrigeerd in de sparsessie PR 314, deel 2, 4 november 2026",
       "relatie": {
         "soort": "Specialization",
         "van": "Student",
@@ -5175,14 +5155,14 @@
       "fase": 4,
       "stap": "Verwachte deelnemers delen en toegang geven",
       "soort": "stroomt",
-      "van": "Kernregistratie systeem studenten (KRS)",
+      "van": "Roostersysteem",
       "naar": "Leer management systeem (LMS)",
       "pijl": "id-865f297e8c1f4371aa143aa225fe4b7f",
       "koppeling": null,
       "objecttype": "Opleidingsprogramma aanbod verbintenis",
       "instantie": "Jochem op Regulier BOL 2026",
-      "bron": "leerroute-1-regulier.md, Fase 4: KRS naar LMS (verbintenis en persoon voor rechtmatige toegang)",
-      "zin": "De verbintenis gaat naar het LMS zodat Jochem eind augustus toegang krijgt; persoonsgegevens komen uit het IAM.",
+      "bron": "leerroute-1-regulier.md, Fase 4: KRS naar LMS (verbintenis en persoon voor rechtmatige toegang); bron gecorrigeerd in de sparsessie PR 314, deel 2, 4 november 2026",
+      "zin": "De verbintenis gaat naar het LMS zodat Jochem eind augustus toegang krijgt; persoonsgegevens komen uit het IAM. De bron is het roostersysteem en niet de kernregistratie: die weet niet wat een lesgroep is.",
       "relaties": [
         {
           "soort": "Association",
@@ -5190,7 +5170,8 @@
           "naar": "Opleidingsprogramma aanbod verbintenis",
           "instantie": "Regulier BOL 2026: 18 tot 36 studenten"
         }
-      ]
+      ],
+      "vraag": "Op de hoofdplaat staat geen lijn van het roostersysteem naar het leermanagementsysteem; vandaag loopt die route via de kernregistratie. Is het studentinformatiesysteem de orchestrator voor provisioning, of levert elk bronsysteem rechtstreeks?"
     },
     {
       "beeld_id": "F4-10",
@@ -5198,13 +5179,13 @@
       "fase": 4,
       "stap": "Verwachte deelnemers delen en toegang geven",
       "soort": "stroomt",
-      "van": "Kernregistratie systeem studenten (KRS)",
+      "van": "Roostersysteem",
       "naar": "Leer management systeem (LMS)",
       "pijl": "id-865f297e8c1f4371aa143aa225fe4b7f",
       "koppeling": null,
       "objecttype": "Plaatsingsgroep",
       "instantie": "APO26-1A",
-      "bron": "leerroute-1-regulier.md, Fase 4: relevante groepen",
+      "bron": "leerroute-1-regulier.md, Fase 4: relevante groepen; bron gecorrigeerd in de sparsessie PR 314, deel 2, 4 november 2026",
       "relatie": {
         "soort": "Association",
         "van": "Plaatsingsgroep",
@@ -5217,13 +5198,13 @@
       "fase": 4,
       "stap": "Verwachte deelnemers delen en toegang geven",
       "soort": "stroomt",
-      "van": "Kernregistratie systeem studenten (KRS)",
+      "van": "Roostersysteem",
       "naar": "Leer management systeem (LMS)",
       "pijl": "id-865f297e8c1f4371aa143aa225fe4b7f",
       "koppeling": null,
       "objecttype": "Onderwijseenheid aanbod verbintenis",
       "instantie": "Jochem op B1-K1, leerjaar 1",
-      "bron": "leerroute-1-regulier.md, Fase 4: verwachte deelnemers",
+      "bron": "leerroute-1-regulier.md, Fase 4: verwachte deelnemers; bron gecorrigeerd in de sparsessie PR 314, deel 2, 4 november 2026",
       "relatie": {
         "soort": "Association",
         "van": "Onderwijseenheid aanbod",
@@ -5237,13 +5218,13 @@
       "fase": 4,
       "stap": "Verwachte deelnemers delen en toegang geven",
       "soort": "stroomt",
-      "van": "Kernregistratie systeem studenten (KRS)",
+      "van": "Roostersysteem",
       "naar": "Leer management systeem (LMS)",
       "pijl": "id-865f297e8c1f4371aa143aa225fe4b7f",
       "koppeling": null,
       "objecttype": "Leergelegenheid verbintenis",
       "instantie": "Jochem op Baliegesprekken 101, periode 1",
-      "bron": "leerroute-1-regulier.md, Fase 4: verwachte deelnemers",
+      "bron": "leerroute-1-regulier.md, Fase 4: verwachte deelnemers; bron gecorrigeerd in de sparsessie PR 314, deel 2, 4 november 2026",
       "relatie": {
         "soort": "Association",
         "van": "Leergelegenheid",
@@ -5555,8 +5536,8 @@
       "koppeling": null,
       "objecttype": "Toetsgelegenheid resultaat",
       "instantie": "OSCE: voldoende",
-      "bron": "leerroute-1-regulier.md, Fase 5: LMS naar SVS (toetsgelegenheid-verbintenis resultaten, formatief)",
-      "zin": "De formatieve resultaten gaan van het LMS naar het studentvolgsysteem. De toetsgelegenheid vindt plaats binnen een leergelegenheid, maar het resultaat telt op de onderwijseenheid: daar hangt de verbintenis waarop de student aantoont wat hij kan.",
+      "bron": "leerroute-1-regulier.md, Fase 5: LMS naar SVS (toetsgelegenheid-verbintenis resultaten, formatief); ingekort in de sparsessie PR 314, deel 2, 4 november 2026",
+      "zin": "De formatieve resultaten gaan van het LMS naar het studentvolgsysteem, met de sleutel waarop zij in de formatieve resultaatstructuur landen. Leergelegenheid en onderwijseenheid gaan niet mee: de resultaatstructuur lost op waar een resultaat telt.",
       "relaties": [
         {
           "soort": "Association",
@@ -5590,51 +5571,6 @@
         "van": "Formatief resultaat",
         "naar": "Toetsgelegenheid resultaat"
       }
-    },
-    {
-      "beeld_id": "F5-04",
-      "beeld": "Formatieve resultaten van het LMS naar het studentvolgsysteem",
-      "fase": 5,
-      "stap": "Formatieve voortgang bijhouden",
-      "soort": "stroomt",
-      "van": "Leer management systeem (LMS)",
-      "naar": "Student volg systeem (SVS)",
-      "pijl": "id-979d8078315c47139a73942028c0300d",
-      "koppeling": null,
-      "objecttype": "Leergelegenheid resultaat",
-      "instantie": "Baliegesprekken 101 afgerond, periode 1",
-      "bron": "leerroute-1-regulier.md, Fase 5: LMS naar SVS, leergelegenheid-verbintenis resultaten",
-      "relaties": [
-        {
-          "soort": "Association",
-          "van": "Leergelegenheid verbintenis",
-          "naar": "Leergelegenheid resultaat",
-          "instantie": "Jochem op Baliegesprekken 101, periode 1"
-        }
-      ]
-    },
-    {
-      "beeld_id": "F5-04",
-      "beeld": "Formatieve resultaten van het LMS naar het studentvolgsysteem",
-      "fase": 5,
-      "stap": "Formatieve voortgang bijhouden",
-      "soort": "stroomt",
-      "van": "Leer management systeem (LMS)",
-      "naar": "Student volg systeem (SVS)",
-      "pijl": "id-979d8078315c47139a73942028c0300d",
-      "koppeling": null,
-      "objecttype": "Onderwijseenheid resultaat",
-      "instantie": "B1-K1 in ontwikkeling, periode 1",
-      "bron": "review Niels van Duin op PR 252: een toetsgelegenheidresultaat relateert aan de onderwijseenheidverbintenis, summatief en formatief; informatiemodel.json: Onderwijseenheid aanbod verbintenis naar Onderwijseenheid resultaat",
-      "nieuwe_instantie": true,
-      "aanname": true,
-      "relatie": {
-        "soort": "Association",
-        "van": "Onderwijseenheid aanbod verbintenis",
-        "naar": "Onderwijseenheid resultaat",
-        "instantie": "Jochem op B1-K1, leerjaar 1"
-      },
-      "vraag": "Een toetsgelegenheid vindt plaats binnen een leergelegenheid, maar het resultaat telt op de onderwijseenheid. Hangt een toetsgelegenheidresultaat aan de leergelegenheidverbintenis of aan de onderwijseenheidverbintenis, formatief zowel als summatief?"
     },
     {
       "beeld_id": "F5-05",
@@ -5704,13 +5640,13 @@
       "objecttype": "Keuzedeel aanbod",
       "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A",
       "aanname": true,
-      "bron": "leerroute-1-regulier.md, Fase 6: OC naar SKS (opleidingsprogramma-aanbod type keuzedeel + opleidingsprogramma-specificatie); wanneer het keuzedeelaanbod planbaar wordt, zegt het kaderscenario niet",
+      "bron": "leerroute-1-regulier.md, Fase 6: OC naar SKS (opleidingsprogramma-aanbod type keuzedeel + opleidingsprogramma-specificatie); wanneer het keuzedeelaanbod planbaar wordt, zegt het kaderscenario niet; voorwaarden toegevoegd in de sparsessie PR 314, deel 2, 4 november 2026",
       "relatie": {
         "soort": "Association",
         "van": "Keuzedeel",
         "naar": "Keuzedeel aanbod"
       },
-      "zin": "De keuzedeelruimte nadert. Het keuzedeelaanbod ontstaat bij planning en gaat via de catalogus naar het studentkeuzesysteem, en niet rechtstreeks: de catalogus is de bron die specificatie en aanbod naast elkaar houdt. Hoofdplaat v1.7 kent beide stromen."
+      "zin": "De keuzedeelruimte nadert. Het keuzedeelaanbod ontstaat bij planning en gaat via de catalogus naar het studentkeuzesysteem. Dat kan alleen omdat twee dingen er al zijn: de keuzedeelruimte uit de onderwijsspecificatie (F1-04) en de studentkeuzeregelset die zegt wat kiesbaar is (F1-06). Zonder die twee weet het keuzesysteem niet wat het mag tonen."
     },
     {
       "beeld_id": "F6-02",
@@ -5865,8 +5801,8 @@
       "koppeling": "OC-P&R",
       "objecttype": "Keuzedeel aanbod",
       "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A: 1 groep, 18 plaatsen",
-      "bron": "leerroute-1-regulier.md, Fase 6: actualiseert het planbare aanbod in OC en het rooster volgt; Planning naar OC (geactualiseerd planbaar aanbod); scenario-1.1-regulier-happyflow.md, blok D (maatvoering uit de review van 29 september 2026)",
-      "zin": "Het geactualiseerde planbare aanbod gaat terug naar de catalogus; het rooster volgt.",
+      "bron": "leerroute-1-regulier.md, Fase 6: actualiseert het planbare aanbod in OC en het rooster volgt; Planning naar OC (geactualiseerd planbaar aanbod); scenario-1.1-regulier-happyflow.md, blok D (maatvoering uit de review van 29 september 2026); betekenis aangescherpt in de sparsessie PR 314, deel 2, 4 november 2026",
+      "zin": "Het geactualiseerde planbare aanbod gaat terug naar de catalogus; het rooster volgt. Het moment waarop Jochem moet kiezen komt niet uit deze stroom: dat hangt aan de jaaruitzetting van zijn plaatsingsgroep, en kan per groep verschillen omdat dat capaciteitstechnisch beter uitkomt.",
       "relaties": [
         {
           "soort": "Association",
@@ -5874,7 +5810,8 @@
           "naar": "Keuzedeel aanbod",
           "instantie": "K0037 Farmaceutische Patientenzorg"
         }
-      ]
+      ],
+      "vraag": "Welk systeem start het keuzemoment van een student? Planning is het enige systeem met een notie van onderwijsperiode, het keuzesysteem beheert de regels, en de SLB'er heeft in de praktijk een evaluatierol. Op de plaatsingsgroep houdt het verkeer laag; per student levert groepen van een op."
     },
     {
       "beeld_id": "F6-07",
