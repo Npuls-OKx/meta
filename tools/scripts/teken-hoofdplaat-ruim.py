@@ -17,6 +17,7 @@ alleen gelezen; raak nooit een .archimate-bestand aan.
 
 import argparse
 import collections
+import json
 import html
 import importlib.util
 import json
@@ -183,6 +184,75 @@ def zet_koppeling_ids(stromen, knopen):
 
 
 # ---------------------------------------------------------------- ruimte ----
+
+VOORSTELKLEUR = "#d9531e"
+
+
+def wijzer_svg(x, y, breed, vakken, zones, doek, venster, view):
+    """Een kleine wijzer: de hele plaat in het klein, met het venster van de uitsnede erin.
+
+    Waarom: een uitsnede zonder wijzer laat een lezer raden waar hij kijkt. Twee vakken en een
+    lijn zien er op elke plek van de plaat hetzelfde uit, en juist de plek is wat een
+    architect nodig heeft om het beeld tegen zijn eigen landschap te houden.
+    """
+    bw, bh = doek
+    schaal = breed / bw
+    hoog = bh * schaal
+    kop = 17
+    delen = [f'<g><rect x="{x:.0f}" y="{y:.0f}" width="{breed:.0f}" height="{hoog + kop + 10:.0f}" '
+             f'rx="5" fill="#ffffff" fill-opacity="0.95" stroke="#b6c2cd" stroke-width="1"/>',
+             f'<text x="{x + 7:.0f}" y="{y + 12:.0f}" font-size="9" fill="#5b6b7b">'
+             f'{esc(view)}, uitsnede</text>']
+    for z in zones:
+        delen.append(f'<rect x="{x + z["ax"] * schaal:.1f}" y="{y + kop + z["ay"] * schaal:.1f}" '
+                     f'width="{z["w"] * schaal:.1f}" height="{z["h"] * schaal:.1f}" '
+                     f'fill="#f3efe9" stroke="#d8d2c8" stroke-width="0.5"/>')
+    for vk in vakken:
+        delen.append(f'<rect x="{x + vk["x"] * schaal:.1f}" y="{y + kop + vk["y"] * schaal:.1f}" '
+                     f'width="{max(vk["w"] * schaal, 1):.1f}" height="{max(vk["h"] * schaal, 1):.1f}" '
+                     f'fill="#c9d6de"/>')
+    vx, vy, vw, vh = venster
+    delen.append(f'<rect x="{x + vx * schaal:.1f}" y="{y + kop + vy * schaal:.1f}" '
+                 f'width="{vw * schaal:.1f}" height="{vh * schaal:.1f}" fill="{VOORSTELKLEUR}" '
+                 f'fill-opacity="0.14" stroke="{VOORSTELKLEUR}" stroke-width="1.4"/></g>')
+    return "".join(delen)
+
+
+def voorstel_stromen(pad, alles, vakken, per_zone):
+    """De stromen uit een voorstelbestand, als vakken op deze view.
+
+    Waarom hier en niet in het model: een voorstel is nog geen besluit. Het model wijzigen voor
+    iets wat ter discussie staat maakt van een vraag een feit. Dit bestand staat ernaast en de
+    lijn komt in dezelfde vormtaal als de rest op de plaat, onderbroken en in de accentkleur.
+    """
+    rauw = json.loads(pathlib.Path(pad).read_text(encoding="utf-8"))
+    if not norm(rauw.get("herkomst")):
+        sys.exit(f"{pad}: het voorstel draagt geen herkomst; zeg waar het vandaan komt")
+    uit = []
+    for s in rauw.get("stromen", []):
+        if not norm(s.get("label")):
+            sys.exit(f"{pad}: een stroom zonder label; zeg wat er over die lijn gaat")
+        plekken = {}
+        for kant in ("van", "naar"):
+            kandidaten = [k for k in alles if k["id"] in vakken and norm(k.get("naam")) == norm(s.get(kant))]
+            if not kandidaten:
+                sys.exit(f"{pad}: {s.get(kant)!r} staat niet op deze view")
+            plekken[kant] = kandidaten
+        zones = [z for z in ("links", "rechts")
+                 if any(per_zone.get(k["id"]) == z for k in plekken["van"])
+                 and any(per_zone.get(k["id"]) == z for k in plekken["naar"])]
+        if not zones:
+            sys.exit(f"{pad}: {s['van']!r} en {s['naar']!r} staan niet samen in een procesgebied; "
+                     f"een stroom blijft binnen haar gebied")
+        zone = s.get("zone") or zones[0]
+        bron = next(k for k in plekken["van"] if per_zone.get(k["id"]) == zone)
+        doel = next(k for k in plekken["naar"] if per_zone.get(k["id"]) == zone)
+        uit.append({"bron": bron["id"], "doel": doel["id"], "relatie": None,
+                    "label": f"{s['label']} (voorstel)", "voorstel": True})
+    if not uit:
+        sys.exit(f"{pad}: het voorstel draagt geen stromen")
+    return uit
+
 
 def is_groep(knoop):
     return knoop["soort"] == "Group"
@@ -418,13 +488,16 @@ def groep_svg(knoop, zone=None):
                f'fill="{STIL}">{esc(naam)}</text>' if naam else ""))
 
 
-def lijn_svg(punten, kleur, merk, stroom=True):
+def lijn_svg(punten, kleur, merk, stroom=True, streep=False):
     d = "M" + " L".join(f"{x:.1f},{y:.1f}" for x, y in punten)
     if stroom:
+        # een voorstel loopt onderbroken: dezelfde routering en dezelfde pijlpunt, maar zichtbaar
+        # iets wat nog niet in het model staat
+        stip = ' stroke-dasharray="11 7"' if streep else ""
         return (f'<path d="{d}" fill="none" stroke="#ffffff" stroke-width="7" stroke-opacity="0.9" '
                 f'stroke-linejoin="round"/>'
-                f'<path d="{d}" fill="none" stroke="{kleur}" stroke-width="2.6" stroke-linejoin="round" '
-                f'marker-end="url(#{merk})"/>')
+                f'<path d="{d}" fill="none" stroke="{kleur}" stroke-width="{3.2 if streep else 2.6}" '
+                f'stroke-linejoin="round"{stip} marker-end="url(#{merk})"/>')
     return (f'<path d="{d}" fill="none" stroke="#b6c2cd" stroke-width="1.4" stroke-dasharray="5 4" '
             f'stroke-linejoin="round"/>')
 
@@ -511,7 +584,8 @@ def legenda_svg(rijen, x, y, breedte, kolommen=6, regel=38, kop=42):
 
 # -------------------------------------------------------------------- bouw --
 
-def bouw(ruimte_x=1.55, ruimte_y=1.85, tussen=70, marge=30, opschriften="namen"):
+def bouw(ruimte_x=1.55, ruimte_y=1.85, tussen=70, marge=30, opschriften="namen",
+         voorstel=None, uitsnede=False):
     top, knopen, verbindingen, relaties = lees(MODEL, VIEW)
     labels = labels_van_stromen()
 
@@ -563,6 +637,8 @@ def bouw(ruimte_x=1.55, ruimte_y=1.85, tussen=70, marge=30, opschriften="namen")
             stromen.append(dict(v, label=v["opschrift"] or labels.get(v["relatie"], "")))
         elif soort == "AssociationRelationship":
             verbanden.append(v)
+    voorgesteld = voorstel_stromen(voorstel, alles, vakken, per_zone) if voorstel else []
+    stromen += voorgesteld
     idents = zet_koppeling_ids(stromen, knopen) if opschriften == "ids" else []
 
     # per zone routeren: eerst de stromen, dan de verbanden, kort voor lang
@@ -606,6 +682,9 @@ def bouw(ruimte_x=1.55, ruimte_y=1.85, tussen=70, marge=30, opschriften="namen")
             else:
                 s["kleur"] = kleuren[knopen[s["bron"]]["naam"] or "junctie"]
 
+    for s in voorgesteld:
+        s["kleur"] = VOORSTELKLEUR
+
     onderkant = hoogte + legenda_hoogte(len(legenda))
     gebruikt = list(dict.fromkeys(s["kleur"] for s in stromen))
     merk = {kleur: f"pijl{i}" for i, kleur in enumerate(gebruikt)}
@@ -627,7 +706,7 @@ def bouw(ruimte_x=1.55, ruimte_y=1.85, tussen=70, marge=30, opschriften="namen")
     for v in verbanden:
         delen.append(lijn_svg(v["punten"], None, None, stroom=False))
     for s in stromen:
-        delen.append(lijn_svg(s["punten"], s["kleur"], merk[s["kleur"]]))
+        delen.append(lijn_svg(s["punten"], s["kleur"], merk[s["kleur"]], streep=s.get("voorstel", False)))
     for k in alles:
         if is_groep(k):
             continue
@@ -651,6 +730,25 @@ def bouw(ruimte_x=1.55, ruimte_y=1.85, tussen=70, marge=30, opschriften="namen")
                               omlijnd=opschriften == "ids"))
     delen.append(legenda_svg(legenda, marge, hoogte - marge / 2, breedte - 2 * marge))
     delen.append("</svg>")
+    if uitsnede and voorgesteld:
+        # rond de vakken van het voorstel, met lucht voor de lijn en haar opschrift
+        hoeken = [vakken[s[kant]] for s in voorgesteld for kant in ("bron", "doel")]
+        punten = [p for s in voorgesteld for p in s["punten"]]
+        # ruimer in de breedte dan in de hoogte: een uitsnede zonder buren eromheen is geen plaat
+        lucht_x, lucht_y = 420, 120
+        x1 = min([vk["x"] for vk in hoeken] + [x for x, _ in punten]) - lucht_x
+        y1 = min([vk["y"] for vk in hoeken] + [y for _, y in punten]) - lucht_y
+        x2 = max([vk["x"] + vk["w"] for vk in hoeken] + [x for x, _ in punten]) + lucht_x
+        y2 = max([vk["y"] + vk["h"] for vk in hoeken] + [y for _, y in punten]) + lucht_y
+        x1, y1 = max(x1, 0), max(y1, 0)
+        x2, y2 = min(x2, breedte), min(y2, onderkant)
+        delen[0] = (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="{x1:.0f} {y1:.0f} '
+                    f'{x2 - x1:.0f} {y2 - y1:.0f}" width="{x2 - x1:.0f}" height="{y2 - y1:.0f}" '
+                    f'font-family="Segoe UI, Arial, sans-serif">')
+        wijzerbreed = min(200, (x2 - x1) * 0.3)
+        delen.insert(-1, wijzer_svg(x2 - wijzerbreed - 14, y1 + 14, wijzerbreed,
+                                    list(vakken.values()), zones, (breedte, onderkant),
+                                    (x1, y1, x2 - x1, y2 - y1), VIEW))
     return ("".join(delen), stromen, verbanden,
             [k for k in alles if k["type"] == "ApplicationComponent"], legenda)
 
@@ -675,9 +773,14 @@ def main():
     p.add_argument("--ruimte-y", type=float, default=1.85)
     p.add_argument("--opschriften", choices=("namen", "ids"), default="namen",
                    help="namen: de stroomnamen van de plaat; ids: het voorlopige koppeling-ID per stroom")
+    p.add_argument("--voorstel", help="json met voorgestelde stromen; zij komen onderbroken en in "
+                                      "de accentkleur op de plaat, zonder het model te wijzigen")
+    p.add_argument("--uitsnede", action="store_true", help="snijd uit rond het voorstel")
     args = p.parse_args()
     svg, stromen, verbanden, componenten, legenda = bouw(args.ruimte_x, args.ruimte_y,
-                                                         opschriften=args.opschriften)
+                                                         opschriften=args.opschriften,
+                                                         voorstel=args.voorstel,
+                                                         uitsnede=args.uitsnede)
     pathlib.Path(args.uit).write_text(svg, encoding="utf-8")
     haaks = sum(1 for s in stromen for a, b in zip(s["punten"], s["punten"][1:])
                 if abs(a[0] - b[0]) > 0.5 and abs(a[1] - b[1]) > 0.5)

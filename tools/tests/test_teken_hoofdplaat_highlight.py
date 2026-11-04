@@ -151,3 +151,23 @@ class VensterBurenTests(unittest.TestCase):
         x, y, w, h = hp.venster(geraakt, 0, 0, 2000, 1500, lucht=50, buren=[buur, ver])
         self.assertEqual(x, 172)
         self.assertEqual(x + w, 450)
+
+
+class OndergrondTests(unittest.TestCase):
+    """De ondergrond hoort bij de view, anders staan de markeringen naast de vakken."""
+
+    def test_given_a_plaat_of_another_version_when_checked_then_it_stops(self):
+        with self.assertRaises(SystemExit) as gevangen:
+            hp.controleer_plaat(Path("hoofdplaat-v1.7.jpg"), "OKx hoofdplaat v1.7a (zonder context)")
+        self.assertIn("1.7a", str(gevangen.exception))
+
+    def test_given_a_plaat_of_the_same_version_when_checked_then_it_passes(self):
+        self.assertIsNone(hp.controleer_plaat(Path("hoofdplaat-v1.7a.png"),
+                                              "OKx hoofdplaat v1.7a (zonder context)"))
+
+    def test_given_a_view_without_a_version_when_checked_then_it_passes(self):
+        self.assertIsNone(hp.controleer_plaat(Path("hoofdplaat.png"), "een view zonder versie"))
+
+    def test_given_an_svg_background_when_the_ratio_is_checked_then_it_is_skipped(self):
+        self.assertIsNone(hp.controleer_verhouding(Path("plaat.svg"), 100, 50))
+

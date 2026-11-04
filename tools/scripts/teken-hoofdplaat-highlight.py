@@ -10,6 +10,9 @@ zichtbaar wat er ontbreekt.
 
     python3 tools/scripts/teken-hoofdplaat-highlight.py --plaat img/hoofdplaat.png
 
+Een voorgestelde stroom die nog niet in het model staat, hoort niet hier maar in
+teken-hoofdplaat-ruim.py: daar komt zij in dezelfde vormtaal als de rest van de plaat.
+
 Staat er een planningsvorm naast de regeltabel (modeldoorloop-lr1-<vorm>.json), dan komt er per
 fase en per vorm een plaat bij, f<fase>-<vorm>.svg, met alleen de stromen van die variant.
 
@@ -24,6 +27,7 @@ import importlib.util
 import itertools
 import json
 import pathlib
+import re
 import sys
 
 WORTEL = pathlib.Path(__file__).resolve().parent
@@ -38,7 +42,7 @@ MODEL = pathlib.Path("architecture/model/model.archimate")
 REGELS = pathlib.Path("architecture/model/informatiemodel/modeldoorloop-lr1.json")
 STROMEN = pathlib.Path("architecture/model/informatiemodel/stromen.json")
 UITMAP = pathlib.Path("architecture/model/informatiemodel/img/hoofdplaat")
-PLAAT = UITMAP / "hoofdplaat-v1.7.jpg"
+PLAAT = UITMAP / "hoofdplaat-v1.7a.png"
 VIEW = "OKx hoofdplaat v1.7a"
 GEEN_PIJL = "geen pijl op de hoofdplaat"
 MARGE = 10  # Archi rendert de view met tien pixels marge; met dezelfde marge vallen de markeringen op de pijlen
@@ -84,6 +88,38 @@ def stromen_per_koppeling(regels, namen):
         if r["koppeling"] not in rij:
             rij.append(r["koppeling"])
     return uit
+
+
+def controleer_verhouding(plaat, W, H, speling=0.02):
+    """De ondergrond moet hetzelfde vlak beslaan als de geometrie uit het model.
+
+    Waarom: de markeringen worden geplaatst op de maten van de view, en de ondergrond wordt
+    daar overheen geschaald. Beslaat de render een ander vlak, dan schuift alles en wijst de
+    plaat vakken aan die er niet onder liggen. Dat is niet te zien aan de melding, alleen aan
+    het beeld, en dus hoort het hier te stoppen.
+    """
+    if plaat.suffix.lower() == ".svg":
+        return
+    from PIL import Image
+    with Image.open(plaat) as beeld:
+        bw, bh = beeld.size
+    if abs((bw / bh) - (W / H)) > speling * (W / H):
+        sys.exit(f"de ondergrond {plaat.name} is {bw} bij {bh} en de view {W:.0f} bij {H:.0f}; "
+                 f"die verhoudingen lopen uiteen, dus de markeringen komen naast de vakken")
+
+
+def controleer_plaat(plaat, view):
+    """De ondergrond hoort bij de view waar de geometrie uit komt.
+
+    Waarom dit een poort is: de markeringen komen uit het model en de ondergrond is een render.
+    Lopen die uit de pas, dan staan de lijnen naast de vakken en lijkt de plaat een fout te
+    tonen die er niet is. Dat is precies wat gebeurde toen het model op 1.7a stond en de
+    ondergrond nog 1.7 was.
+    """
+    merk = re.search(r"v(\d+\.\d+[a-z]?)", view or "")
+    if merk and merk.group(1) not in plaat.name:
+        sys.exit(f"de ondergrond {plaat.name} hoort niet bij {view}; geef met --plaat een render "
+                 f"van v{merk.group(1)}")
 
 
 def knopen_van_component(knopen, elems, naam):
@@ -576,15 +612,16 @@ def bouw(knopen, connecties, elems, png, stromen, pijl_van, uitsnede=False, haak
     miny = min(k["y"] for k in knopen.values()) - MARGE
     W = max(k["x"] + k["w"] for k in knopen.values()) + MARGE - minx
     H = max(k["y"] + k["h"] for k in knopen.values()) + MARGE - miny
+    controleer_verhouding(png, W, H)
     b64 = base64.b64encode(png.read_bytes()).decode()
-    soort = png.suffix.lstrip(".").replace("jpg", "jpeg")
+    soort = {".svg": "svg+xml", ".jpg": "jpeg"}.get(png.suffix.lower(), png.suffix.lstrip("."))
     delen = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}">',
              f'<defs><marker id="punt" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" '
              f'orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="{ACCENT}"/></marker></defs>',
              f'<image href="data:image/{soort};base64,{b64}" x="0" y="0" width="{W}" height="{H}"/>',
              # de plaat vervaagt, zodat de markeringen eruit springen
              f'<rect x="0" y="0" width="{W}" height="{H}" fill="#ffffff" fill-opacity="0.6"/>']
-    geraakt, ontbreekt, labels, bezet = [], [], [], [k_vak(k, minx, miny) for k in knopen.values() if not k.get("groep")]
+    geraakt, ontbreekt, labels, labelvakken, bezet = [], [], [], [], [k_vak(k, minx, miny) for k in knopen.values() if not k.get("groep")]
     # de router kent alle vakken, zodat een baan niet door een vak loopt en niet op een andere baan valt,
     # en alle lijnen vooraf, zodat de aanhechtingen per vak op volgorde van hun overkant staan
     paren = [dichtste_paar(knopen, elems, van, naar) for van, naar, _ in stromen] if haaks else []
@@ -592,7 +629,8 @@ def bouw(knopen, connecties, elems, png, stromen, pijl_van, uitsnede=False, haak
                    [(a, b) for a, b in paren if a and b])
     for (van, naar, pijl), beelden in stromen.items():
         label = ", ".join(beelden)
-        conn = None if haaks else (connectie_voor(connecties, knopen, elems, pijl, van, naar) if pijl != GEEN_PIJL else None)
+        conn = None if haaks else (connectie_voor(connecties, knopen, elems, pijl, van, naar)
+                                   if pijl != GEEN_PIJL else None)
         if haaks:
             a, b = dichtste_paar(knopen, elems, van, naar)
             if not a or not b:
@@ -630,6 +668,9 @@ def bouw(knopen, connecties, elems, png, stromen, pijl_van, uitsnede=False, haak
         if haaks:
             bezet += lijnvakken(punten)
         labels.append(tekst(mx, my + 6, label))
+        # de maat van het vak dat tekst() werkelijk tekent, zodat de uitsnede het hele label vat
+        breed = 10 + 9 * len(label)
+        labelvakken.append((mx - breed / 2, my - 9, breed, 21))
     for k in geraakt:
         delen.append(f'<rect x="{k["x"]-minx-3:.0f}" y="{k["y"]-miny-3:.0f}" width="{k["w"]+6}" '
                      f'height="{k["h"]+6}" fill="none" stroke="{RAND}" stroke-width="4" rx="4"/>')
@@ -638,6 +679,12 @@ def bouw(knopen, connecties, elems, png, stromen, pijl_van, uitsnede=False, haak
     if uitsnede and geraakt:
         # op een slide leest de hele plaat niet; snijd uit rond de gemarkeerde vakken, met lucht voor de bogen
         bx, by, bw, bh = venster(geraakt, minx, miny, W, H, buren=knopen.values())
+        # een label dat half buiten de uitsnede valt leest als een fout; trek het venster eromheen
+        for vx, vy, vw, vh in labelvakken:
+            bx2, by2 = min(bx, vx - 10), min(by, vy - 10)
+            bw = max(bx + bw, vx + vw + 10) - bx2
+            bh = max(by + bh, vy + vh + 10) - by2
+            bx, by = bx2, by2
         delen[0] = (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="{bx} {by} {bw} {bh}" '
                     f'width="{bw}" height="{bh}">')
     return "".join(delen), ontbreekt
@@ -685,6 +732,7 @@ def main(argv=None):
     pijl_van = {s["id"]: s for s in stromen_json.get("stromen", [])}
     knopen, connecties, elems = lees_geometrie(args.model)
     args.uit.mkdir(parents=True, exist_ok=True)
+    controleer_plaat(args.plaat, stromen_json.get("view", ""))
     if args.koppelingen:
         namen = [n.strip() for n in args.koppelingen.split(",") if n.strip()]
         stromen = stromen_per_koppeling(regels, namen)
