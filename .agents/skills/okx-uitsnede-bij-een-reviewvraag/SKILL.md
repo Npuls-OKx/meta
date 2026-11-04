@@ -53,6 +53,11 @@ Een vak met een accentrand zegt dat er iets gebeurd is. Dat is te weinig: de inb
 | `buiten scope` | `1 buiten scope` | het is erbuiten geplaatst |
 | `herplaatst` | `1 herplaatst` | het hangt aan een ander objecttype dan eerst |
 | `voorstel` | `1 voorstel` | deze uitsnede stelt het voor; het staat nog niet in het model |
+| `in verkenning` | `1 in verkenning` | het staat in het model, de vorm wordt nog onderzocht |
+
+`in verkenning` is de soort voor een objecttype dat op de plaat staat terwijl de vorm ervan nog ter discussie is. Het verschil met `voorstel`: een voorstel staat nog niet in het model, een verkenning staat er wel en wacht op bekrachtiging. Een lezer die op zo'n vak bouwt, bouwt op iets wat nog kan wijzigen, en dat hoort hij aan het beeld te zien.
+
+Een sleutel die het script niet kent laat het stoppen. Dat is er niet voor de vorm: een leeswijzer onder een eigen naam wordt anders genegeerd, en de auteur ziet een plaat die wordt getekend zonder dat wat hij schreef erop staat. De regel onder het beeld komt uit `waarom` per gemerkt objecttype, niet uit een eigen lijst.
 
 `voorstel` is de soort voor het antwoord dat verder gaat dan het model nu draagt. Een reviewvraag eindigt vaak in een objecttype dat ontbreekt, en dat hoort op de plaat te staan als voorstel: wit vak, onderbroken accentrand, met een expliciete `kolom` omdat het model er geen voor kent. De relaties ernaartoe gaan in `ontbreekt`, zodat zij gestippeld lopen.
 

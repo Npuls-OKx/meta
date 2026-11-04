@@ -225,6 +225,28 @@ class UitsnedeTests(unittest.TestCase):
             plaat(sel, mod)
         self.assertIn("te veel voor een uitsnede", str(fout.exception))
 
+    def test_given_merk_in_verkenning_when_getekend_then_staat_het_woord_in_het_vak(self):
+        """De markering zegt dat dit deel nog wordt onderzocht, niet dat er iets veranderde."""
+        sel = selectie(objecten=[{"naam": "Minor", "rij": 1, "merk": "in verkenning",
+                                  "waarom": "de vorm wordt nog onderzocht"}])
+        self.assertIn("1 in verkenning", plaat(sel)[0])
+
+    def test_given_een_onbekende_sleutel_in_de_selectie_when_gelezen_then_stopt_het(self):
+        """Een sleutel die het script niet kent wordt genegeerd, en dat is stiller dan een fout."""
+        with self.assertRaises(tu.Fout) as fout:
+            tu._controleer_sleutels({"titel": "t", "leeswijzer": ["een regel"]})
+        self.assertIn("leeswijzer", str(fout.exception))
+
+    def test_given_een_onbekende_sleutel_op_een_objecttype_when_gelezen_then_stopt_het(self):
+        with self.assertRaises(tu.Fout) as fout:
+            tu._controleer_sleutels({"objecten": [{"naam": "Minor", "reden": "x"}]})
+        self.assertIn("reden", str(fout.exception))
+
+    def test_given_alleen_bekende_sleutels_when_gelezen_then_zwijgt_het(self):
+        tu._controleer_sleutels({"titel": "t", "herkomst": "h", "versie": "0.1.0",
+                                 "objecten": [{"naam": "Minor", "rij": 0,
+                                               "merk": "in verkenning", "waarom": "x"}]})
+
     def test_given_een_merk_buiten_de_woordenlijst_when_getekend_then_stopt_het_met_een_melding(self):
         sel = selectie(objecten=[{"naam": "Minor", "merk": "verbouwd"}])
         with self.assertRaises(tu.Fout) as fout:
