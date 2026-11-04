@@ -4,11 +4,11 @@ Deze repository is een knowledge base die team OKx maintaint. Leveranciers, inst
 
 ### Waar werken we nu aan? (samenhang)
 
-Voordat je een issue of PR opent, is het nuttig te weten **waar** deze repo voor dient: we bouwen **keteninzicht** en **MOKA-gestuurde koppelvlakuitwerking** op — richting **technische specificaties** (o.a. berichten, modellen, **OEAPI** waar passend), zodat werk **gericht** blijft en we **lokale maxima** in één koppelvlak vermijden.
+Voordat je een issue of PR opent, is het nuttig te weten **waar** deze repo voor dient: we bouwen **keteninzicht** en **MOKA-gestuurde koppelvlakuitwerking** op, richting **technische specificaties** (o.a. berichten, modellen, **OEAPI** waar passend), zodat werk **gericht** blijft en we **lokale maxima** in een koppelvlak vermijden.
 
 - **Actuele plaat en prioriteit** (welke informatiestromen tellen mee): de hoofdplaat v1.7a op de [landingspagina](README.md), getekend uit het model.
 - **Ketenconcept** (wat de stromen doen, invoer voor specs): [deel 4 van de leesroute](project/leesroute.md#deel-4-de-gedeelde-taal).
-- **ArchiMate-model** met o.a. MOKA-view **`01. Onderwijsvisie vertalen naar onderwijsaanbod - Basis Model`** en het **informatiemodel** in hetzelfde koppelvlak: [`architecture/model/model.archimate`](architecture/model/model.archimate) — lees [`archief/informatiestromen-archimate-en-moka-view.md`](archief/informatiestromen-archimate-en-moka-view.md) voor waar je die views opent.
+- **ArchiMate-model** met o.a. MOKA-view **`01. Onderwijsvisie vertalen naar onderwijsaanbod - Basis Model`** en het **informatiemodel** in hetzelfde koppelvlak: [`architecture/model/model.archimate`](architecture/model/model.archimate). Waar je die views opent staat in [`archief/informatiestromen-archimate-en-moka-view.md`](archief/informatiestromen-archimate-en-moka-view.md).
 - **Architectuurbesluiten (ADR’s)**: [[ADR-index in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/README.md)](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/README.md).
 
 Uitgebreider en voor nieuwe bijdragers: sectie *Waar draait deze repository om?* in [`project/bijdragen-voor-beginners.md`](project/bijdragen-voor-beginners.md).
@@ -27,7 +27,7 @@ Uitgebreider en voor nieuwe bijdragers: sectie *Waar draait deze repository om?*
 - Meetings (notulen + optioneel transcript): `architecture/meetings/`
 - OKx context: `project/`, met de platen in `project/img/`
 - Gearchiveerd: het MOKA-sjabloon en de uitwerking erop, in `archief/MOKA/`
-- Agent-artifacten (projectaanvraag / featureplan / ontwerpdocument via Cursor): `architecture/agent-artifacts/` — zie `architecture/agent-artifacts/README.md`
+- Agent-artifacten (projectaanvraag / featureplan / ontwerpdocument via Cursor): `architecture/agent-artifacts/`, met de werkwijze in `architecture/agent-artifacts/README.md`
 
 ### Workflow (kort)
 
@@ -84,9 +84,7 @@ flowchart TD
   siReview2 --> review2
   review2 --> mergeDev
 
-  endDev -.->|Release_moment| prMain[PR_dev_naar_main]
-  prMain --> mergeMain[Merge_naar_main]
-  mergeMain --> tag[Tag_op_main_bijv_v1_x]
+  endDev -.->|Release_moment| release[Releasepakket_in_Npuls_OKx_Public]
 ```
 
 Uitgebreide uitleg voor beginners (Git, GitHub, Cursor, epics/issues, sprints): [`project/bijdragen-voor-beginners.md`](project/bijdragen-voor-beginners.md) — bewust **in de repo** (niet op de GitHub Wiki), i.v.m. mogelijke migratie naar bijv. self-hosted GitLab.
