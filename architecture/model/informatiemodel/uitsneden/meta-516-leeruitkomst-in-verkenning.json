@@ -1,0 +1,45 @@
+{
+  "id": "meta-516-leeruitkomst-in-verkenning",
+  "titel": "Welk deel van het model rond de leeruitkomst wordt nog onderzocht?",
+  "herkomst": "Werksessie OKx-informatiemodel en ontwerpvragen, 29 oktober 2026; werkbrief Npuls-OKx/meta#516, vragen in Npuls-OKx/Public#135",
+  "versie": "0.1.0",
+  "oeapi": false,
+  "rij_labels": [
+    "het dossier",
+    "de kerntaak",
+    "het werkproces, de leeruitkomst, en wat ernaar wijst"
+  ],
+  "objecten": [
+    {
+      "naam": "Kwalificatie dossier",
+      "rij": 0,
+      "noot": "normatief, SBB"
+    },
+    {
+      "naam": "Kerntaak",
+      "rij": 1
+    },
+    {
+      "naam": "Werkproces",
+      "rij": 2
+    },
+    {
+      "naam": "Leeruitkomst",
+      "rij": 2,
+      "merk": "in verkenning",
+      "waarom": "de verhouding tot het kwalificatiekader wordt nog onderzocht"
+    },
+    {
+      "naam": "Competenties / Skills",
+      "rij": 2,
+      "merk": "in verkenning",
+      "waarom": "specialisatie of een eigen type: nog open"
+    },
+    {
+      "naam": "Summatieve resultaat structuur",
+      "rij": 2,
+      "merk": "in verkenning",
+      "waarom": "de weging naar een leeruitkomst is nog open"
+    }
+  ]
+}

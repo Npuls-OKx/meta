@@ -176,7 +176,9 @@ MERKEN = {"toegevoegd": ("toegevoegd", "toegevoegd: nieuw in het model"),
           "binnen scope": ("binnen scope", "binnen scope: binnen scope van OKx geplaatst"),
           "buiten scope": ("buiten scope", "buiten scope: buiten scope van OKx geplaatst"),
           "herplaatst": ("herplaatst", "herplaatst: aan een ander objecttype gehangen"),
-          "voorstel": ("voorstel", "voorstel: bestaat nog niet in het model")}
+          "voorstel": ("voorstel", "voorstel: bestaat nog niet in het model"),
+          "in verkenning": ("in verkenning",
+                            "in verkenning: staat in het model, de vorm wordt nog onderzocht")}
 # `verwijderd` en `voorstel` zijn de twee soorten waarbij de naam juist niet in het model
 # staat: de een is eruit gehaald, de ander is wat deze uitsnede voorstelt om toe te voegen.
 BUITEN_HET_MODEL = ("verwijderd", "voorstel")
@@ -370,9 +372,30 @@ def kruisingen(segmenten):
 
 # -------------------------------------------------------------------- inlezen --
 
+# De sleutels die een selectie kan dragen. Een sleutel die er niet in staat wordt genegeerd, en
+# dat is stiller dan een fout: wie een leeswijzer schrijft onder een naam die het script niet
+# kent, ziet een plaat die wordt getekend zonder die leeswijzer en denkt dat zij er staat.
+SELECTIESLEUTELS = {"id", "titel", "herkomst", "versie", "oeapi", "vraag", "toelichting",
+                    "rij_labels", "kolommen", "objecten", "ontbreekt", "verberg", "voorbeeld"}
+OBJECTSLEUTELS = {"naam", "rij", "kolom", "merk", "noot", "nummer", "waarom"}
+
+
+def _controleer_sleutels(selectie):
+    vreemd = sorted(set(selectie) - SELECTIESLEUTELS)
+    if vreemd:
+        raise Fout(f"de selectie draagt sleutels die het script niet kent: {', '.join(vreemd)}. "
+                   f"Kies uit {', '.join(sorted(SELECTIESLEUTELS))}")
+    for e in selectie.get("objecten", []):
+        vreemd = sorted(set(e) - OBJECTSLEUTELS)
+        if vreemd:
+            raise Fout(f"{e.get('naam', 'een objecttype')!r} draagt sleutels die het script niet "
+                       f"kent: {', '.join(vreemd)}. Kies uit {', '.join(sorted(OBJECTSLEUTELS))}")
+
+
 def lees(model_pad, selectie_pad):
     model = json.loads(pathlib.Path(model_pad).read_text(encoding="utf-8"))
     selectie = json.loads(pathlib.Path(selectie_pad).read_text(encoding="utf-8"))
+    _controleer_sleutels(selectie)
     return model, selectie
 
 
