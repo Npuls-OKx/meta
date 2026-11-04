@@ -218,6 +218,57 @@ def wijzer_svg(x, y, breed, vakken, zones, doek, venster, view):
     return "".join(delen)
 
 
+KANTEN = {"onder": (0, 1), "boven": (0, -1), "links": (-1, 0), "rechts": (1, 0)}
+
+
+def voorstel_vak_svg(knoop):
+    """Een voorgesteld vak: wit, met een onderbroken rand in de accentkleur, zoals een voorstel-lijn."""
+    # het woord voorstel staat onderin, dus de naam krijgt de ruimte daarboven
+    grootte, regels = passend(knoop["naam"], knoop["w"] - 30, knoop["h"] - 26, maximaal=17, minimaal=10)
+    y = knoop["ay"] + (knoop["h"] - 16) / 2 + grootte / 2 - (len(regels) - 1) * grootte * 0.6
+    return (f'<rect x="{knoop["ax"]:.0f}" y="{knoop["ay"]:.0f}" width="{knoop["w"]:.0f}" '
+            f'height="{knoop["h"]:.0f}" rx="4" fill="#ffffff" stroke="{VOORSTELKLEUR}" '
+            f'stroke-width="2" stroke-dasharray="9 6"/>'
+            + tekstblok(knoop["ax"] + knoop["w"] / 2, y, regels, grootte, VOORSTELKLEUR, dik=True)
+            + tekstblok(knoop["ax"] + knoop["w"] / 2, knoop["ay"] + knoop["h"] - 7,
+                        ["voorstel"], 10, VOORSTELKLEUR))
+
+
+def voorstel_objecten(rauw, alles, vakken, per_zone, pad):
+    """De vakken uit een voorstelbestand, geplaatst ten opzichte van een vak dat er wel is.
+
+    Waarom ten opzichte van: de renderer leest de plek van elk vak uit de view, en een vak dat
+    daar niet staat heeft geen plek. Een voorstel zegt daarom bij welk vak het hoort en aan welke
+    kant, en de plaat rekent de rest uit. Zo hoeft het model geen coordinaten te leveren voor
+    iets wat nog geen besluit is.
+    """
+    uit = []
+    for n, o in enumerate(rauw.get("objecten", [])):
+        for sleutel in ("naam", "bij"):
+            if not norm(o.get(sleutel)):
+                sys.exit(f"{pad}: een object zonder {sleutel}")
+        kant = o.get("kant", "onder")
+        if kant not in KANTEN:
+            sys.exit(f"{pad}: kant {kant!r} bestaat niet; kies uit {', '.join(sorted(KANTEN))}")
+        buren = [k for k in alles if k["id"] in vakken and norm(k.get("naam")) == norm(o["bij"])]
+        if not buren:
+            sys.exit(f"{pad}: {o['bij']!r} staat niet op deze view")
+        zone = o.get("zone")
+        buur = next((k for k in buren if per_zone.get(k["id"]) == zone), buren[0]) if zone else buren[0]
+        dx, dy = KANTEN[kant]
+        vk = vakken[buur["id"]]           # de plek zoals de plaat die kent, niet de knoop zelf
+        breed, hoog = o.get("breedte", vk["w"]), o.get("hoogte", 80)
+        x = vk["x"] + dx * (vk["w"] + 46) + (0 if dx else (vk["w"] - breed) / 2)
+        y = vk["y"] + dy * (vk["h"] + 54) + (0 if dy else (vk["h"] - hoog) / 2)
+        uit.append({"id": f"voorstel-{n}", "naam": o["naam"], "opschrift": None,
+                    "type": "ApplicationService" if o.get("soort") == "dienst" else "ApplicationComponent",
+                    "soort": "Element", "ouder": buur.get("ouder"), "kinderen": [],
+                    "x": x, "y": y, "ax": x, "ay": y, "w": breed, "h": hoog,
+                    "vul": "#ffffff", "lijn": VOORSTELKLEUR, "letter": VOORSTELKLEUR,
+                    "voorstel": True, "zone": per_zone.get(buur["id"], "los")})
+    return uit
+
+
 def voorstel_stromen(pad, alles, vakken, per_zone):
     """De stromen uit een voorstelbestand, als vakken op deze view.
 
@@ -225,7 +276,7 @@ def voorstel_stromen(pad, alles, vakken, per_zone):
     iets wat ter discussie staat maakt van een vraag een feit. Dit bestand staat ernaast en de
     lijn komt in dezelfde vormtaal als de rest op de plaat, onderbroken en in de accentkleur.
     """
-    rauw = json.loads(pathlib.Path(pad).read_text(encoding="utf-8"))
+    rauw = pad if isinstance(pad, dict) else json.loads(pathlib.Path(pad).read_text(encoding="utf-8"))
     if not norm(rauw.get("herkomst")):
         sys.exit(f"{pad}: het voorstel draagt geen herkomst; zeg waar het vandaan komt")
     uit = []
@@ -249,8 +300,8 @@ def voorstel_stromen(pad, alles, vakken, per_zone):
         doel = next(k for k in plekken["naar"] if per_zone.get(k["id"]) == zone)
         uit.append({"bron": bron["id"], "doel": doel["id"], "relatie": None,
                     "label": f"{s['label']} (voorstel)", "voorstel": True})
-    if not uit:
-        sys.exit(f"{pad}: het voorstel draagt geen stromen")
+    if not uit and not rauw.get("objecten"):
+        sys.exit(f"{pad}: het voorstel draagt geen stromen en geen objecten")
     return uit
 
 
@@ -531,11 +582,27 @@ def naam_svg(punten, tekst, kleur, bezet, doek=None, maat=LETTER, omlijnd=False)
                        and doos[1] < q[1] + q[3] and q[1] < doos[1] + doos[3] for q in bezet):
                 bezet.append(doos)
                 return _plaatje(doos, mx, regels, maat, kleur, omlijnd)
+    # Niets langs de lijn is vrij. Schuif dan vanaf het midden naar buiten tot er wel plek is:
+    # een naam die op een andere naam valt kost meer leesbaarheid dan een naam die wat verder
+    # van haar lijn staat.
     a, b = benen[0]
-    mx, my = (a[0] + b[0]) / 2, (a[1] + b[1]) / 2
-    doos = (mx - breedte / 2, my - hoog / 2, breedte, hoog)
+    mx0, my0 = (a[0] + b[0]) / 2, (a[1] + b[1]) / 2
+    for straal in range(0, 400, 14):
+        for dx, dy in ((0, -1), (0, 1), (-1, 0), (1, 0), (-1, -1), (1, -1), (-1, 1), (1, 1)):
+            mx, my = mx0 + dx * straal, my0 + dy * straal
+            doos = (mx - breedte / 2, my - hoog / 2, breedte, hoog)
+            if doek and not (2 <= doos[0] and doos[0] + breedte <= doek[0] - 2
+                             and 2 <= doos[1] and doos[1] + hoog <= doek[1] - 2):
+                continue
+            if not any(doos[0] < q[0] + q[2] and q[0] < doos[0] + doos[2]
+                       and doos[1] < q[1] + q[3] and q[1] < doos[1] + doos[3] for q in bezet):
+                bezet.append(doos)
+                return _plaatje(doos, mx, regels, maat, kleur, omlijnd)
+            if straal == 0:
+                break
+    doos = (mx0 - breedte / 2, my0 - hoog / 2, breedte, hoog)
     bezet.append(doos)
-    return _plaatje(doos, mx, regels, maat, kleur, omlijnd)
+    return _plaatje(doos, mx0, regels, maat, kleur, omlijnd)
 
 
 def _plaatje(doos, mx, regels, maat, kleur, omlijnd):
@@ -637,7 +704,19 @@ def bouw(ruimte_x=1.55, ruimte_y=1.85, tussen=70, marge=30, opschriften="namen",
             stromen.append(dict(v, label=v["opschrift"] or labels.get(v["relatie"], "")))
         elif soort == "AssociationRelationship":
             verbanden.append(v)
-    voorgesteld = voorstel_stromen(voorstel, alles, vakken, per_zone) if voorstel else []
+    nieuwe_vakken = []
+    if voorstel:
+        rauw = json.loads(pathlib.Path(voorstel).read_text(encoding="utf-8"))
+        # eerst de vakken: een voorgestelde stroom mag naar een voorgesteld vak wijzen
+        nieuwe_vakken = voorstel_objecten(rauw, alles, vakken, per_zone, voorstel)
+        for k in nieuwe_vakken:
+            alles.append(k)
+            vakken[k["id"]] = vak(k)
+            hindernissen[k["zone"]].append(vakken[k["id"]])
+            per_zone[k["id"]] = k["zone"]
+        voorgesteld = voorstel_stromen(rauw, alles, vakken, per_zone)
+    else:
+        voorgesteld = []
     stromen += voorgesteld
     idents = zet_koppeling_ids(stromen, knopen) if opschriften == "ids" else []
 
@@ -710,6 +789,9 @@ def bouw(ruimte_x=1.55, ruimte_y=1.85, tussen=70, marge=30, opschriften="namen",
     for k in alles:
         if is_groep(k):
             continue
+        if k.get("voorstel"):
+            delen.append(voorstel_vak_svg(k))
+            continue
         if k["soort"] == "Note":
             delen.append(notitie_svg(k))
         elif k["type"] == "Junction":
@@ -730,9 +812,10 @@ def bouw(ruimte_x=1.55, ruimte_y=1.85, tussen=70, marge=30, opschriften="namen",
                               omlijnd=opschriften == "ids"))
     delen.append(legenda_svg(legenda, marge, hoogte - marge / 2, breedte - 2 * marge))
     delen.append("</svg>")
-    if uitsnede and voorgesteld:
+    if uitsnede and (voorgesteld or nieuwe_vakken):
         # rond de vakken van het voorstel, met lucht voor de lijn en haar opschrift
-        hoeken = [vakken[s[kant]] for s in voorgesteld for kant in ("bron", "doel")]
+        hoeken = ([vakken[s[kant]] for s in voorgesteld for kant in ("bron", "doel")]
+                  + [vakken[k["id"]] for k in nieuwe_vakken])
         punten = [p for s in voorgesteld for p in s["punten"]]
         # ruimer in de breedte dan in de hoogte: een uitsnede zonder buren eromheen is geen plaat
         lucht_x, lucht_y = 420, 120

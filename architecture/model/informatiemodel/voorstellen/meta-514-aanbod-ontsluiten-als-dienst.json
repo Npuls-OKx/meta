@@ -1,0 +1,22 @@
+{
+  "titel": "Waar hangt de dienst die het onderwijsaanbod ontsluit: bij de catalogus of bij planning?",
+  "herkomst": "Review informatiemodel doorloopstap F3-01, 4 november 2026; ADR-voorstel Npuls-OKx/meta#514, werkbrief Npuls-OKx/meta#515",
+  "versie": "0.1.0",
+  "objecten": [
+    {
+      "naam": "Onderwijsaanbod ontsluiten",
+      "soort": "dienst",
+      "bij": "Planningssysteem",
+      "kant": "onder",
+      "zone": "links",
+      "breedte": 210
+    }
+  ],
+  "stromen": [
+    {
+      "van": "Planningssysteem",
+      "naar": "Kernregistratie systeem studenten (KRS)",
+      "label": "geplande gelegenheid met capaciteit, bij modulair onderwijs"
+    }
+  ]
+}
