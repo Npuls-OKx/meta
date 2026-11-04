@@ -10,6 +10,12 @@ zichtbaar wat er ontbreekt.
 
     python3 tools/scripts/teken-hoofdplaat-highlight.py --plaat img/hoofdplaat.png
 
+Een voorstel dat nog niet in het model staat komt uit een eigen bestand en wordt getekend in
+dezelfde vorm als een ontbrekende stroom, met het woord voorstel in het label:
+
+    python3 tools/scripts/teken-hoofdplaat-highlight.py \\
+        --voorstel architecture/model/informatiemodel/voorstellen/<naam>.json --uitsnede
+
 Staat er een planningsvorm naast de regeltabel (modeldoorloop-lr1-<vorm>.json), dan komt er per
 fase en per vorm een plaat bij, f<fase>-<vorm>.svg, met alleen de stromen van die variant.
 
@@ -24,6 +30,7 @@ import importlib.util
 import itertools
 import json
 import pathlib
+import re
 import sys
 
 WORTEL = pathlib.Path(__file__).resolve().parent
@@ -38,9 +45,10 @@ MODEL = pathlib.Path("architecture/model/model.archimate")
 REGELS = pathlib.Path("architecture/model/informatiemodel/modeldoorloop-lr1.json")
 STROMEN = pathlib.Path("architecture/model/informatiemodel/stromen.json")
 UITMAP = pathlib.Path("architecture/model/informatiemodel/img/hoofdplaat")
-PLAAT = UITMAP / "hoofdplaat-v1.7.jpg"
+PLAAT = UITMAP / "hoofdplaat-v1.7a.png"
 VIEW = "OKx hoofdplaat v1.7a"
 GEEN_PIJL = "geen pijl op de hoofdplaat"
+VOORSTEL = "voorstel, staat nog niet in het model"
 MARGE = 10  # Archi rendert de view met tien pixels marge; met dezelfde marge vallen de markeringen op de pijlen
 ACCENT = "#d9531e"
 RAND = "#1f6feb"
@@ -83,6 +91,61 @@ def stromen_per_koppeling(regels, namen):
         rij = uit.setdefault((norm(r["van"]), norm(r["naar"]), r.get("pijl")), [])
         if r["koppeling"] not in rij:
             rij.append(r["koppeling"])
+    return uit
+
+
+def controleer_verhouding(plaat, W, H, speling=0.02):
+    """De ondergrond moet hetzelfde vlak beslaan als de geometrie uit het model.
+
+    Waarom: de markeringen worden geplaatst op de maten van de view, en de ondergrond wordt
+    daar overheen geschaald. Beslaat de render een ander vlak, dan schuift alles en wijst de
+    plaat vakken aan die er niet onder liggen. Dat is niet te zien aan de melding, alleen aan
+    het beeld, en dus hoort het hier te stoppen.
+    """
+    if plaat.suffix.lower() == ".svg":
+        return
+    from PIL import Image
+    with Image.open(plaat) as beeld:
+        bw, bh = beeld.size
+    if abs((bw / bh) - (W / H)) > speling * (W / H):
+        sys.exit(f"de ondergrond {plaat.name} is {bw} bij {bh} en de view {W:.0f} bij {H:.0f}; "
+                 f"die verhoudingen lopen uiteen, dus de markeringen komen naast de vakken")
+
+
+def controleer_plaat(plaat, view):
+    """De ondergrond hoort bij de view waar de geometrie uit komt.
+
+    Waarom dit een poort is: de markeringen komen uit het model en de ondergrond is een render.
+    Lopen die uit de pas, dan staan de lijnen naast de vakken en lijkt de plaat een fout te
+    tonen die er niet is. Dat is precies wat gebeurde toen het model op 1.7a stond en de
+    ondergrond nog 1.7 was.
+    """
+    merk = re.search(r"v(\d+\.\d+[a-z]?)", view or "")
+    if merk and merk.group(1) not in plaat.name:
+        sys.exit(f"de ondergrond {plaat.name} hoort niet bij {view}; geef met --plaat een render "
+                 f"van v{merk.group(1)}")
+
+
+def stromen_uit_voorstel(pad, knopen, elems):
+    """De stromen uit een voorstelbestand, gecontroleerd tegen de view.
+
+    Waarom een eigen bestand: een voorstel is nog geen besluit. Het model in Archi wijzigen voor
+    iets wat nog ter discussie staat, maakt van een vraag een feit; een bestand ernaast houdt het
+    een vraag en laat de plaat toch zien waar de lijn zou lopen. Het model wordt alleen gelezen.
+    """
+    rauw = json.loads(pathlib.Path(pad).read_text(encoding="utf-8"))
+    if not rauw.get("herkomst"):
+        sys.exit(f"{pad}: het voorstel draagt geen herkomst; zeg waar het vandaan komt")
+    uit = collections.OrderedDict()
+    for s in rauw.get("stromen", []):
+        for kant in ("van", "naar"):
+            if not knopen_van_component(knopen, elems, norm(s.get(kant, ""))):
+                sys.exit(f"{pad}: {s.get(kant)!r} staat niet op deze view")
+        if not norm(s.get("label", "")):
+            sys.exit(f"{pad}: een stroom zonder label; zeg wat er over die lijn gaat")
+        uit.setdefault((norm(s["van"]), norm(s["naar"]), VOORSTEL), []).append(s["label"])
+    if not uit:
+        sys.exit(f"{pad}: het voorstel draagt geen stromen")
     return uit
 
 
@@ -576,15 +639,16 @@ def bouw(knopen, connecties, elems, png, stromen, pijl_van, uitsnede=False, haak
     miny = min(k["y"] for k in knopen.values()) - MARGE
     W = max(k["x"] + k["w"] for k in knopen.values()) + MARGE - minx
     H = max(k["y"] + k["h"] for k in knopen.values()) + MARGE - miny
+    controleer_verhouding(png, W, H)
     b64 = base64.b64encode(png.read_bytes()).decode()
-    soort = png.suffix.lstrip(".").replace("jpg", "jpeg")
+    soort = {".svg": "svg+xml", ".jpg": "jpeg"}.get(png.suffix.lower(), png.suffix.lstrip("."))
     delen = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}">',
              f'<defs><marker id="punt" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" '
              f'orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="{ACCENT}"/></marker></defs>',
              f'<image href="data:image/{soort};base64,{b64}" x="0" y="0" width="{W}" height="{H}"/>',
              # de plaat vervaagt, zodat de markeringen eruit springen
              f'<rect x="0" y="0" width="{W}" height="{H}" fill="#ffffff" fill-opacity="0.6"/>']
-    geraakt, ontbreekt, labels, bezet = [], [], [], [k_vak(k, minx, miny) for k in knopen.values() if not k.get("groep")]
+    geraakt, ontbreekt, labels, labelvakken, bezet = [], [], [], [], [k_vak(k, minx, miny) for k in knopen.values() if not k.get("groep")]
     # de router kent alle vakken, zodat een baan niet door een vak loopt en niet op een andere baan valt,
     # en alle lijnen vooraf, zodat de aanhechtingen per vak op volgorde van hun overkant staan
     paren = [dichtste_paar(knopen, elems, van, naar) for van, naar, _ in stromen] if haaks else []
@@ -592,7 +656,8 @@ def bouw(knopen, connecties, elems, png, stromen, pijl_van, uitsnede=False, haak
                    [(a, b) for a, b in paren if a and b])
     for (van, naar, pijl), beelden in stromen.items():
         label = ", ".join(beelden)
-        conn = None if haaks else (connectie_voor(connecties, knopen, elems, pijl, van, naar) if pijl != GEEN_PIJL else None)
+        conn = None if haaks else (connectie_voor(connecties, knopen, elems, pijl, van, naar)
+                                   if pijl not in (GEEN_PIJL, VOORSTEL) else None)
         if haaks:
             a, b = dichtste_paar(knopen, elems, van, naar)
             if not a or not b:
@@ -620,7 +685,7 @@ def bouw(knopen, connecties, elems, png, stromen, pijl_van, uitsnede=False, haak
             d = (f'M{punten[0][0]:.0f},{punten[0][1]:.0f} Q{punten[1][0]:.0f},{punten[1][1]:.0f} '
                  f'{punten[2][0]:.0f},{punten[2][1]:.0f}')
             streep = ' stroke-dasharray="12 9"'
-            label += " (geen pijl)" if pijl == GEEN_PIJL else ""
+            label += {GEEN_PIJL: " (geen pijl)", VOORSTEL: " (voorstel)"}.get(pijl, "")
             geraakt += [a, b]
         delen.append(f'<path d="{d}" fill="none" stroke="#ffffff" stroke-width="11" stroke-opacity="0.85"/>')
         delen.append(f'<path d="{d}" fill="none" stroke="{ACCENT}" stroke-width="5"{streep} '
@@ -630,6 +695,9 @@ def bouw(knopen, connecties, elems, png, stromen, pijl_van, uitsnede=False, haak
         if haaks:
             bezet += lijnvakken(punten)
         labels.append(tekst(mx, my + 6, label))
+        # de maat van het vak dat tekst() werkelijk tekent, zodat de uitsnede het hele label vat
+        breed = 10 + 9 * len(label)
+        labelvakken.append((mx - breed / 2, my - 9, breed, 21))
     for k in geraakt:
         delen.append(f'<rect x="{k["x"]-minx-3:.0f}" y="{k["y"]-miny-3:.0f}" width="{k["w"]+6}" '
                      f'height="{k["h"]+6}" fill="none" stroke="{RAND}" stroke-width="4" rx="4"/>')
@@ -638,6 +706,12 @@ def bouw(knopen, connecties, elems, png, stromen, pijl_van, uitsnede=False, haak
     if uitsnede and geraakt:
         # op een slide leest de hele plaat niet; snijd uit rond de gemarkeerde vakken, met lucht voor de bogen
         bx, by, bw, bh = venster(geraakt, minx, miny, W, H, buren=knopen.values())
+        # een label dat half buiten de uitsnede valt leest als een fout; trek het venster eromheen
+        for vx, vy, vw, vh in labelvakken:
+            bx2, by2 = min(bx, vx - 10), min(by, vy - 10)
+            bw = max(bx + bw, vx + vw + 10) - bx2
+            bh = max(by + bh, vy + vh + 10) - by2
+            bx, by = bx2, by2
         delen[0] = (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="{bx} {by} {bw} {bh}" '
                     f'width="{bw}" height="{bh}">')
     return "".join(delen), ontbreekt
@@ -677,6 +751,9 @@ def main(argv=None):
                                               "in plaats van een plaat per fase")
     parser.add_argument("--uitsnede", action="store_true", help="snijd uit rond de gemarkeerde vakken")
     parser.add_argument("--haaks", action="store_true", help="teken de markeringen orthogonaal in plaats van over de bestaande pijlen")
+    parser.add_argument("--voorstel", type=pathlib.Path, help="json met voorgestelde stromen; "
+                        "tekent ze als onderbroken boog zonder het model te wijzigen")
+    parser.add_argument("--naam", default=None, help="bestandsnaam van de plaat, zonder .svg")
     args = parser.parse_args(argv)
     if not args.plaat.exists():
         sys.exit(f"plaat niet gevonden: {args.plaat}; render hem met exporteer-archimate-platen.py")
@@ -685,6 +762,17 @@ def main(argv=None):
     pijl_van = {s["id"]: s for s in stromen_json.get("stromen", [])}
     knopen, connecties, elems = lees_geometrie(args.model)
     args.uit.mkdir(parents=True, exist_ok=True)
+    if args.voorstel:
+        controleer_plaat(args.plaat, stromen_json.get("view", ""))
+        stromen = stromen_uit_voorstel(args.voorstel, knopen, elems)
+        svg, ontbreekt = bouw(knopen, connecties, elems, args.plaat, stromen, pijl_van,
+                              args.uitsnede, args.haaks)
+        doel = args.uit / f"{args.naam or args.voorstel.stem}.svg"
+        doel.write_text(svg, encoding="utf-8")
+        for x in ontbreekt:
+            print(f"waarschuwing: niet op de plaat te plaatsen: {x}", file=sys.stderr)
+        print(f"voorstelplaat geschreven naar {doel}")
+        return 0
     if args.koppelingen:
         namen = [n.strip() for n in args.koppelingen.split(",") if n.strip()]
         stromen = stromen_per_koppeling(regels, namen)

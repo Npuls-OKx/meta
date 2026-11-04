@@ -1,0 +1,12 @@
+{
+  "titel": "Loopt het aanbod via de onderwijscatalogus naar het KRS, of rechtstreeks vanaf planning?",
+  "herkomst": "Sparsessie informatiemodel 28 oktober 2026 en review doorloopstap F3-01 op 4 november 2026; reviewvraag Npuls-OKx/meta#436, werkbrief Npuls-OKx/meta#493",
+  "versie": "0.1.0",
+  "stromen": [
+    {
+      "van": "Planningssysteem",
+      "naar": "Kernregistratie systeem studenten (KRS)",
+      "label": "geplande gelegenheid met capaciteit, bij modulair onderwijs"
+    }
+  ]
+}
