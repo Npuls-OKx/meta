@@ -4,7 +4,7 @@ RijnIJssel levert vier JSON-berichten aan waarmee haar onderwijscatalogus de res
 
 ## De vier berichten
 
-Alle vier dragen dezelfde envelop, `opleidingseenheid`, met hetzelfde kopblok: opleidingscode, crebo, naam, niveau, onderwijstype, waarderoute, cohort, versie en een PeopleSoft-sleutel. Wat erin zit verschilt per ontvangend systeem.
+Alle vier dragen een object `opleidingseenheid` met hetzelfde kopblok: opleidingscode, crebo, naam, niveau, onderwijstype, waarderoute, cohort, versie en een PeopleSoft-sleutel. Wat erin zit verschilt per ontvangend systeem.
 
 | Bericht | Opleiding | Wat het draagt |
 |---|---|---|
@@ -20,7 +20,7 @@ Drie berichten beschrijven dus dezelfde opleiding vanuit drie systemen; het vier
 | Beeld | Wat het toont |
 |---|---|
 | [`indeling-sbis.svg`](img/indeling-sbis.svg) | De indeling van het SBIS-bericht, als JSON-viewer |
-| [`indeling-peoplesoft.svg`](img/indeling-peoplesoft.svg) | Dezelfde envelop, zonder leereenheden en zonder roosterbare eenheden |
+| [`indeling-peoplesoft.svg`](img/indeling-peoplesoft.svg) | Dezelfde opbouw, zonder leereenheden en zonder roosterbare eenheden |
 | [`indeling-xedule.svg`](img/indeling-xedule.svg) | Alleen de opleidingsonderdelen, en nul roosterbare eenheden |
 | [`indeling-peilstok.svg`](img/indeling-peilstok.svg) | Alleen de rubrieken, en daarvan alleen die op leertaakniveau |
 | [`okx-overlap-catalogus-naar-drie-systemen.svg`](img/okx-overlap-catalogus-naar-drie-systemen.svg) | Waar de berichten de hoofdplaat raken: OC-LMS, OC-P&R en OC-KRS gemarkeerd |
