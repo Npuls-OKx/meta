@@ -347,18 +347,20 @@ Kort, in de PR-beschrijving. GitHub is de bron; geen extra bestanden.
 - Restpunten: <open vragen voor de reviewer>.
 ```
 
-## Welke templates welke vorm dragen
+## De vorm van een issue
 
-De issue-templates in `.github/ISSUE_TEMPLATE/` volgen deze keten:
+`.github/ISSUE_TEMPLATE/okx-issue.md` is de enige vorm; daarnaast staat een blanco issue open.
+Zeven koppen, elk een label van een woord, en elke kop die niet van toepassing is vervalt.
 
-| Template | Vorm | Waarom |
-|---|---|---|
-| `feature-uitwerking.md` | zwaar: story, criteria, testgevallen | Werk met een deliverable |
-| `okx-specificatie-wijziging.md` | zwaar: story, criteria | Een wijziging met impact op model, ADR of specificatie |
-| `correctie-documentatie.md` | licht: wat er mis is en wat er daarna klopt | Een typefout of een dode verwijzing vraagt geen gespreksronde |
-| `meeting-follow-up.md` | intake | Legt actiepunten vast; elk actiepunt dat werk wordt krijgt zijn eigen issue met story en criteria |
-| `adr-voorstel.md` | besluit | Beschrijft een keuze, geen werk |
-| `vraag-verduidelijking.md` | vraag | Beschrijft een vraag, geen werk |
+| Kop | Wanneer hij vervalt |
+|---|---|
+| `Aanleiding` | nooit |
+| `Inbreng` | wanneer het issue uit eigen werk komt en niet van een gremium, een reviewronde of een leverancier |
+| `Observaties` | nooit |
+| `Story` | bij de lichte vorm: een correctie zonder keuze in de oplossingsrichting, hoogstens een enkel bestand |
+| `Acceptatiecriteria` | nooit; bij de lichte vorm volstaat een regel |
+| `Testgevallen` | bij de lichte vorm |
+| `Vragen` | wanneer er geen zijn |
 
 ## Kaders
 

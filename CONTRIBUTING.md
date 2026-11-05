@@ -111,7 +111,7 @@ De datum staat **vooraan** zodat `architecture/meetings/` chronologisch sorteert
 
 ### Templates
 
-- Issue templates: `.github/ISSUE_TEMPLATE/`
+- Issue template: `.github/ISSUE_TEMPLATE/okx-issue.md`, de enige vorm; een blanco issue blijft mogelijk
 - PR template: `.github/PULL_REQUEST_TEMPLATE.md`
 - ADR template: [ADR-template in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/template.md)
 - Notulen template: `architecture/meetings/template-notulen.md`
