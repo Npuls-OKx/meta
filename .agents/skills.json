@@ -47,6 +47,11 @@
       "adaptatie": "okx-presentatie (het OKx-specifieke deel); de huisstijl zelf is Npuls-breed en wordt ongewijzigd gebruikt"
     },
     {
+      "naam": "okx-json-bericht-in-beeld",
+      "type": "okx-specifiek",
+      "doel": "Tekent de indeling van een JSON-bericht als plaat in de vorm van een JSON-viewer, met de typen uit RFC 8259 en JSON Schema; voor een payload van een leverancier of een instelling die naast het OKx-model wordt gelegd."
+    },
+    {
       "naam": "okx-koppelingspecificatie",
       "type": "okx-specifiek",
       "doel": "Vaste opbouw en conventies voor koppelingspecificaties en payload-specificaties: verplichte inleiding, kern naar voren, veldnaamgeving, schema- en boomconventies, indienchecklist."

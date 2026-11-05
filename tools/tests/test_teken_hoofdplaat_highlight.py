@@ -130,6 +130,16 @@ class VensterTests(unittest.TestCase):
 
     KNOPEN = [dict(x=200, y=300, w=120, h=55), dict(x=500, y=400, w=120, h=55)]
 
+    def test_given_minder_lucht_when_uitgesneden_then_wordt_het_venster_kleiner(self):
+        """Met minder lucht valt een toelichtingsvak naast de markeringen buiten beeld."""
+        ruim = hp.venster(self.KNOPEN, 0, 0, 2000, 1500, lucht=90)
+        krap = hp.venster(self.KNOPEN, 0, 0, 2000, 1500, lucht=20)
+        self.assertLess(krap[2], ruim[2])
+        self.assertLess(krap[3], ruim[3])
+
+    def test_given_geen_lucht_meegegeven_when_uitgesneden_then_geldt_de_standaard(self):
+        self.assertEqual(hp.venster(self.KNOPEN, 0, 0, 2000, 1500),
+                         hp.venster(self.KNOPEN, 0, 0, 2000, 1500, lucht=hp.LUCHT))
     def test_given_marked_nodes_when_cropped_then_window_holds_them_with_air(self):
         x, y, w, h = hp.venster(self.KNOPEN, 0, 0, 2000, 1500, lucht=50)
         self.assertEqual((x, y), (150, 250))
