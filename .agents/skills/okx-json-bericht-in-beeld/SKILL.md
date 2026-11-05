@@ -53,6 +53,32 @@ Een leeg veld blijft zichtbaar als `null`, en een lege lijst als `array [ 0 ]`. 
 4. **Kijk ernaar.** Zet de SVG om naar een beeld en open het. De keuring loopt mee: `python3 tools/scripts/keur-plaat.py <plaat>.svg`.
 5. **Hang hem onder het issue**, gepind op een commit, met de herkomst erbij.
 
+## Een boom die geen boom is: het kruisverband
+
+De indelingsplaat zegt hoeveel er van iets zijn, niet hoe zij aan elkaar hangen. Zodra een laag naar een andere laag verwijst, is de vraag of dat een boom is of een netwerk, en dat verschil bepaalt of het OKx-informatiemodel het kan dragen.
+
+```bash
+python3 tools/scripts/teken-kruisverband.py \
+  --selectie <selectie>.json --uit <plaat>.svg
+```
+
+De selectie wijst het bericht aan, de twee lagen, en waar de verwijzing zit:
+
+```json
+{
+  "titel": "Welke leereenheid put uit welk opleidingsonderdeel?",
+  "herkomst": "van wie, welk bestand, en het issue",
+  "versie": "0.1.0",
+  "bron": "../RijnIJssel/sbis.json",
+  "rijen":    {"pad": "opleidingseenheid.leereenheden", "verwijst_naar": "leertaken"},
+  "kolommen": {"pad": "opleidingseenheid.opleidingsonderdelen", "bevat": "leertaken"}
+}
+```
+
+Een rij draagt een lijst codes, een kolom draagt een lijst objecten met een `code`. Staat een code van de rij in de lijst van de kolom, dan komt er een kruisje. Het script kent geen leereenheid en geen opleidingsonderdeel; het leest wat de selectie aanwijst.
+
+Wat de plaat laat zien en de tekst niet: een rij die meer dan een kolom raakt staat in de accentkleur, en een kolom waar niemand naar wijst ook. Dat laatste is vaak de verrassing. Bij RijnIJssel raakten 24 van de 42 leereenheden meer dan een opleidingsonderdeel, en bleven 13 van de 36 onderdelen onaangeraakt.
+
 ## Wat je ermee zegt
 
 De plaat is een argument en geen dump. Drie dingen vallen erop op die in de tekst eronder horen te landen.
@@ -61,7 +87,7 @@ De plaat is een argument en geen dump. Drie dingen vallen erop op die in de teks
 |---|---|
 | Een tak die OKx niet kent | Een eigen laag van de inbrenger. Noem hem bij naam en zeg wat het dichtstbijzijnde OKx-objecttype is |
 | Een veld dat overal leeg is | Een afspraak die wel bestaat en nog niet wordt gebruikt. Vraag de inbrenger wat erin hoort |
-| Een lijst die naar een andere lijst verwijst | De boom is in werkelijkheid een netwerk. Dat raakt het informatiemodel, dat een boom met bevatting kent |
+| Een lijst die naar een andere lijst verwijst | De boom is in werkelijkheid een netwerk. Teken het kruisverband; dat raakt het informatiemodel, dat een boom met bevatting kent |
 
 ## De maten, en waarom zij er zijn
 
@@ -71,6 +97,7 @@ De plaat is een argument en geen dump. Drie dingen vallen erop op die in de teks
 | Diepte | 3 als begin | de bovenlaag, de takken, en de vorm van een element |
 | Tekens per vormregel | 86 | daarboven wordt de plaat breder dan een scherm; de rij breekt af naar een volgende regel |
 | Gemerkte sleutels | drie tot vijf | wie alles merkt, merkt niets |
+| Rijen bij kolommen in een kruisverband | hoogstens 80 bij 80 | daarboven is een cel niet meer te onderscheiden; kies een deel van het bericht |
 
 ## Verwante skills
 

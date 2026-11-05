@@ -24,6 +24,7 @@ Drie berichten beschrijven dus dezelfde opleiding vanuit drie systemen; het vier
 | [`indeling-xedule.svg`](img/indeling-xedule.svg) | Alleen de opleidingsonderdelen, en nul roosterbare eenheden |
 | [`indeling-peilstok.svg`](img/indeling-peilstok.svg) | Alleen de rubrieken, en daarvan alleen die op leertaakniveau |
 | [`okx-overlap-catalogus-naar-drie-systemen.svg`](img/okx-overlap-catalogus-naar-drie-systemen.svg) | Waar de berichten de hoofdplaat raken: OC-LMS, OC-P&R en OC-KRS gemarkeerd |
+| [`kruisverband-leereenheid-opleidingsonderdeel.svg`](img/kruisverband-leereenheid-opleidingsonderdeel.svg) | Welke leereenheid uit welk opleidingsonderdeel put: 42 bij 36, met 106 verbindingen |
 
 Hertekenen na een nieuwe aanlevering:
 
@@ -38,6 +39,10 @@ done
 python3 tools/scripts/teken-hoofdplaat-highlight.py \
   --koppelingen "OC-LMS,OC-P&R,OC-KRS" --uitsnede --haaks --lucht 8 \
   --uit architecture/docs/onderzoek/PoC/img/
+
+python3 tools/scripts/teken-kruisverband.py \
+  --selectie architecture/docs/onderzoek/PoC/kruisverbanden/sbis-leereenheid-opleidingsonderdeel.json \
+  --uit architecture/docs/onderzoek/PoC/img/kruisverband-leereenheid-opleidingsonderdeel.svg
 ```
 
 De werkwijze staat in de skill [okx-json-bericht-in-beeld](../../../../.agents/skills/okx-json-bericht-in-beeld/SKILL.md). De platen dragen hier wel de waarden van het kopblok, omdat RijnIJssel heeft gezegd dat de bestanden openbaar mogen.

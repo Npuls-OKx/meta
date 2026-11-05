@@ -49,7 +49,7 @@
     {
       "naam": "okx-json-bericht-in-beeld",
       "type": "okx-specifiek",
-      "doel": "Tekent de indeling van een JSON-bericht als plaat in de vorm van een JSON-viewer, met de typen uit RFC 8259 en JSON Schema; voor een payload van een leverancier of een instelling die naast het OKx-model wordt gelegd."
+      "doel": "Tekent de indeling van een JSON-bericht als plaat in de vorm van een JSON-viewer, met de typen uit RFC 8259 en JSON Schema, en het kruisverband tussen twee lagen ervan als matrix; voor een payload van een leverancier of een instelling die naast het OKx-model wordt gelegd."
     },
     {
       "naam": "okx-koppelingspecificatie",

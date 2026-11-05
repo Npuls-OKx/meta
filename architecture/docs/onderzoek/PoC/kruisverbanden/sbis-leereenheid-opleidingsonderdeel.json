@@ -1,0 +1,8 @@
+{
+  "titel": "Welke leereenheid put uit welk opleidingsonderdeel?",
+  "herkomst": "RijnIJssel, sbis.json, opleiding DV127058 Leidinggevende Tourism; werkbrief Npuls-OKx/meta#522",
+  "versie": "0.1.0",
+  "bron": "../RijnIJssel/sbis.json",
+  "rijen": {"pad": "opleidingseenheid.leereenheden", "verwijst_naar": "leertaken"},
+  "kolommen": {"pad": "opleidingseenheid.opleidingsonderdelen", "bevat": "leertaken"}
+}
