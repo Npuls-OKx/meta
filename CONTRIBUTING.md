@@ -11,7 +11,7 @@ Voordat je een issue of PR opent, is het nuttig te weten **waar** deze repo voor
 - **ArchiMate-model** met o.a. MOKA-view **`01. Onderwijsvisie vertalen naar onderwijsaanbod - Basis Model`** en het **informatiemodel** in hetzelfde koppelvlak: [`architecture/model/model.archimate`](architecture/model/model.archimate) — lees [`archief/informatiestromen-archimate-en-moka-view.md`](archief/informatiestromen-archimate-en-moka-view.md) voor waar je die views opent.
 - **Architectuurbesluiten (ADR’s)**: [[ADR-index in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/README.md)](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/README.md).
 
-Uitgebreider en voor nieuwe bijdragers: sectie *Waar draait deze repository om?* in [`project/bijdragen-voor-beginners.md`](project/bijdragen-voor-beginners.md).
+Uitgebreider: de [landingspagina](README.md) en de [leesroute](project/leesroute.md).
 
 ### Governance
 
@@ -89,7 +89,7 @@ flowchart TD
   mergeMain --> tag[Tag_op_main_bijv_v1_x]
 ```
 
-Uitgebreide uitleg voor beginners (Git, GitHub, Cursor, epics/issues, sprints): [`project/bijdragen-voor-beginners.md`](project/bijdragen-voor-beginners.md) — bewust **in de repo** (niet op de GitHub Wiki), i.v.m. mogelijke migratie naar bijv. self-hosted GitLab.
+De handeling erbij, van een issue tot een pull request: [`project/bijdragen-voor-beginners.md`](project/bijdragen-voor-beginners.md). Dat document staat bewust **in de repository** en niet op een wiki, zodat het mee versioneert en meeverhuist.
 
 ### AI-agents
 
