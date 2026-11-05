@@ -45,7 +45,7 @@ MARGE = 18
 KOP, HERKOMST_MAAT, MAAT, VORM_MAAT = 17, 12, 13, 11
 MONO_BREED = 0.602            # tekenbreedte van de monospace-letter, als deel van de puntmaat
 MAX_REGELS = 60               # daarboven is het geen beeld meer maar een bestand
-MAX_VORMSLEUTELS = 9          # de sleutels van een object in een lijst, als vorm eronder
+VORM_TEKENS = 86              # waar de rij sleutels afbreekt naar een volgende regel
 
 
 def breedte(s, maat=MAAT):
@@ -55,18 +55,31 @@ def breedte(s, maat=MAAT):
 
 
 def soortnaam(waarde):
+    """Het type zoals RFC 8259 en JSON Schema het noemen, met het aantal erachter.
+
+    Onvertaald en in kleine letters, want zo staan zij in de standaard en zo komen zij terug in
+    een OpenAPI-schema. Een lezer die het bericht straks tegen een schema legt, leest hier
+    dezelfde woorden. `integer` is de verfijning die JSON Schema op `number` kent; RFC 8259 zelf
+    kent alleen `number`, maar het verschil tussen een telling en een maat is bij een payload
+    precies wat je wilt zien.
+    """
     if isinstance(waarde, dict):
-        n = len(waarde)
-        return f"{{ {n} sleutel{'s' if n != 1 else ''} }}"
+        return f"object {{ {len(waarde)} }}"
     if isinstance(waarde, list):
         if not waarde:
-            return "[ leeg ]"
-        soorten = sorted({type(x).__name__ for x in waarde})
-        wat = "object" if soorten == ["dict"] else "lijst" if soorten == ["list"] else "waarde"
-        return f"[ {len(waarde)} x {wat} ]"
+            return "array [ 0 ]"
+        soorten = {soortnaam(x).split(" ")[0] for x in waarde}
+        staart = f" of {soorten.pop()}" if len(soorten) == 1 else ""
+        return f"array [ {len(waarde)} ]{staart}"
     if waarde is None:
-        return "leeg"
-    return {bool: "ja of nee", int: "getal", float: "getal", str: "tekst"}[type(waarde)]
+        return "null"
+    if isinstance(waarde, bool):
+        return "boolean"
+    if isinstance(waarde, int):
+        return "integer"
+    if isinstance(waarde, float):
+        return "number"
+    return "string"
 
 
 def waardetekst(waarde, breed=46):
@@ -81,20 +94,32 @@ def waardetekst(waarde, breed=46):
 
 
 def sleutelvorm(knoop):
-    """De sleutels die een knoop draagt, als een regel: de vorm achter een dichtgeklapt vak.
+    """De sleutels die een knoop draagt, afgebroken over regels: de vorm achter een dichte tak.
 
     Bij een lijst zijn dat de sleutels van het eerste object erin, want daar hebben alle
-    elementen dezelfde vorm. Zonder deze regel zegt een dichtgeklapte tak alleen hoeveel het
-    er zijn, en dat is precies niet wat iemand wil weten die de indeling bekijkt.
+    elementen dezelfde vorm. Elke sleutel komt erop. Een afkapping met "en nog vijf" laat de
+    lezer precies de velden missen waar het gesprek over kan gaan, en het is nooit de eerste
+    vijf die ertoe doen. Past de rij niet op een regel, dan komt er een regel bij.
     """
     if isinstance(knoop, list):
         knoop = next((x for x in knoop if isinstance(x, dict)), None)
     if not isinstance(knoop, dict) or not knoop:
         return None
-    sleutels = list(knoop)
-    if len(sleutels) > MAX_VORMSLEUTELS:
-        sleutels = sleutels[:MAX_VORMSLEUTELS] + [f"en nog {len(knoop) - MAX_VORMSLEUTELS}"]
-    return ", ".join(sleutels)
+    return breek(list(knoop), VORM_TEKENS)
+
+
+def breek(sleutels, tekens):
+    """De sleutels als regels van hoogstens zoveel tekens, komma's meegerekend."""
+    regels, lopend = [], ""
+    for i, s in enumerate(sleutels):
+        stuk = s + (", " if i < len(sleutels) - 1 else "")
+        if lopend and len(lopend) + len(stuk) > tekens:
+            regels.append(lopend.rstrip())
+            lopend = ""
+        lopend += stuk
+    if lopend:
+        regels.append(lopend.rstrip())
+    return regels
 
 
 def regels_van(knoop, diepte, waarden_tot, merk, niveau=0, sleutel=None):
@@ -119,22 +144,24 @@ def regels_van(knoop, diepte, waarden_tot, merk, niveau=0, sleutel=None):
 
 
 def teken(regels, titel, herkomst, versie, bron):
-    if len(regels) > MAX_REGELS:
-        sys.exit(f"de plaat telt {len(regels)} regels (hoogstens {MAX_REGELS}). Verlaag --diepte "
-                 f"of kies een deel van het bericht; daarboven is het geen beeld meer")
+    """De plaat. Een regel kan meer dan een tekstregel hoog zijn, want elke sleutel komt erop."""
+    hoogtes = [max(1, len(v) if v else 1) for *_, v, _ in regels]
+    if sum(hoogtes) > MAX_REGELS:
+        sys.exit(f"de plaat telt {sum(hoogtes)} regels (hoogstens {MAX_REGELS}). Verlaag "
+                 f"--diepte of kies een deel van het bericht; daarboven is het geen beeld meer")
     # De kolommen schuiven mee met wat er in staat: de sleutelkolom zo breed als de diepste
-    # sleutel, de soortkolom zo breed als het langste soortwoord. Een vaste kolom laat een
+    # sleutel, de soortkolom zo breed als het langste typewoord. Een vaste kolom laat een
     # lange sleutel in de kolom ernaast lopen, en dat is precies wat een viewer nooit doet.
     sleutel_eind = max(MARGE + 10 + (n - 1) * INSPRONG + breedte(str(s)) for n, s, *_ in regels)
     kolom = sleutel_eind + 26
     soort_eind = kolom + max(breedte(so) for _, _, so, *_ in regels)
     derde = soort_eind + 26
-    staart = max((breedte(w) if w else breedte(v, VORM_MAAT) if v else 0
+    staart = max((breedte(w) if w else max((breedte(r, VORM_MAAT) for r in v or []), default=0)
                   for *_, w, v, _ in regels), default=0)
     breed = max(derde + staart + MARGE, MARGE * 2 + int(len(titel) * KOP * 0.56),
                 MARGE * 2 + int(len(herkomst) * HERKOMST_MAAT * 0.52))
     boven = MARGE + KOP + (HERKOMST_MAAT + 8 if herkomst else 0) + 14
-    hoog = boven + len(regels) * REGEL + MARGE + 22
+    hoog = boven + sum(hoogtes) * REGEL + MARGE + 22
 
     delen = [f'<rect x="0.5" y="0.5" width="{breed - 1}" height="{hoog - 1}" rx="10" '
              f'fill="#ffffff" stroke="{LIJN}"/>',
@@ -147,18 +174,19 @@ def teken(regels, titel, herkomst, versie, bron):
                              fill=MUTED, anchor="end"))
 
     rijen, geleiders = [], []
+    y = boven
     for i, (niveau, sleutel, soort, waarde, vorm, gemerkt) in enumerate(regels):
-        y = boven + i * REGEL
+        h = hoogtes[i] * REGEL
         if i % 2:
             rijen.append(f'<rect x="{MARGE}" y="{y:.0f}" width="{breed - 2 * MARGE}" '
-                         f'height="{REGEL}" fill="{ZEBRA}"/>')
+                         f'height="{h}" fill="{ZEBRA}"/>')
         if gemerkt:
             rijen.append(f'<rect x="{MARGE}" y="{y:.0f}" width="{breed - 2 * MARGE}" '
-                         f'height="{REGEL}" fill="#ffffff" stroke="{ACCENT}" stroke-width="1.4"/>')
+                         f'height="{h}" fill="#ffffff" stroke="{ACCENT}" stroke-width="1.4"/>')
         x = MARGE + 10 + (niveau - 1) * INSPRONG
         for n in range(1, niveau):
             gx = MARGE + 10 + (n - 1) * INSPRONG + 3
-            geleiders.append(f'<path d="M{gx} {y:.0f}V{y + REGEL:.0f}" stroke="{LIJN}"/>')
+            geleiders.append(f'<path d="M{gx} {y:.0f}V{y + h:.0f}" stroke="{LIJN}"/>')
         basis = y + REGEL - 5
         kleur = ACCENT if gemerkt else SLEUTEL
         rijen.append(f'<text x="{x:.0f}" y="{basis:.0f}" font-family="{MONO}" font-size="{MAAT}" '
@@ -171,12 +199,15 @@ def teken(regels, titel, herkomst, versie, bron):
             rijen.append(f'<text x="{derde}" y="{basis:.0f}" font-family="{MONO}" '
                          f'font-size="{MAAT}" fill="{wk}">{html.escape(waarde)}</text>')
         elif vorm:
-            rijen.append(f'<text x="{derde}" y="{basis:.0f}" font-family="{MONO}" '
-                         f'font-size="{VORM_MAAT}" fill="{MUTED}">{html.escape(vorm)}</text>')
+            for k, regel in enumerate(vorm):
+                rijen.append(f'<text x="{derde}" y="{basis + k * REGEL:.0f}" '
+                             f'font-family="{MONO}" font-size="{VORM_MAAT}" '
+                             f'fill="{MUTED}">{html.escape(regel)}</text>')
+        y += h
 
     delen += geleiders + rijen
     delen.append(vt.text(MARGE, hoog - MARGE + 6,
-                         f"indeling van {bron}; sleutels, soorten en aantallen, geen inhoud",
+                         f"indeling van {bron}; sleutels, typen en aantallen, geen inhoud",
                          HERKOMST_MAAT, fill=MUTED))
     return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {breed} {hoog}" '
             f'width="{breed}" height="{hoog}">' + "".join(delen) + "</svg>")

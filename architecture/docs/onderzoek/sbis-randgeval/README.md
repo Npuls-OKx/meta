@@ -6,12 +6,12 @@ Een instelling levert een JSON-bestand van het bestandstype `SBIS` van haar onde
 
 | Beeld | Wat het toont |
 |---|---|
-| [`sbis-indeling.svg`](img/sbis-indeling.svg) | De indeling van het bericht zoals een JSON-viewer hem toont: per sleutel de soort en het aantal, en bij een lijst de vorm van een element |
+| [`sbis-indeling.svg`](img/sbis-indeling.svg) | De indeling van het bericht zoals een JSON-viewer hem toont: per sleutel het type uit RFC 8259 en JSON Schema, het aantal, en bij een lijst elke sleutel die een element draagt |
 | [`okx-overlap-oc-lms-en-oc-pr.svg`](img/okx-overlap-oc-lms-en-oc-pr.svg) | Waar dat bericht de hoofdplaat raakt: de koppelingen OC-LMS en OC-P&R gemarkeerd, uitgesneden rond de drie componenten die het betreft |
 
 ## Het bericht zelf staat hier nog niet
 
-De plaat met de indeling is getekend uit het aangeleverde bestand, dat buiten dit repository ligt zolang de instelling niet heeft gezegd dat het hier mag landen. Daarom draagt de plaat alleen sleutels, soorten en aantallen, en geen waarden: de inhoud van een instelling hoort niet ongevraagd in een publiek repository.
+De plaat met de indeling is getekend uit het aangeleverde bestand, dat buiten dit repository ligt zolang de instelling niet heeft gezegd dat het hier mag landen. Daarom draagt de plaat alleen sleutels, typen en aantallen, en geen waarden: de inhoud van een instelling hoort niet ongevraagd in een publiek repository. De werkwijze staat in de skill [okx-json-bericht-in-beeld](../../../../.agents/skills/okx-json-bericht-in-beeld/SKILL.md).
 
 Zodra dat akkoord er is komt het bestand hiernaast te staan en is de plaat met een enkele aanroep opnieuw te maken:
 

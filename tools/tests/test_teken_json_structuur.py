@@ -32,32 +32,57 @@ def regels(diepte=3, waarden_tot=-1, merk=()):
 
 
 class SoortnaamTests(unittest.TestCase):
-    def test_given_an_object_when_named_then_it_counts_its_keys(self):
-        self.assertEqual(js.soortnaam({"a": 1, "b": 2}), "{ 2 sleutels }")
+    """De typenamen komen onvertaald uit RFC 8259 en JSON Schema, want daar leest de lezer ze."""
 
-    def test_given_an_object_with_one_key_when_named_then_the_word_is_singular(self):
-        self.assertEqual(js.soortnaam({"a": 1}), "{ 1 sleutel }")
+    def test_given_an_object_when_named_then_it_is_an_object_with_its_count(self):
+        self.assertEqual(js.soortnaam({"a": 1, "b": 2}), "object { 2 }")
 
-    def test_given_a_list_of_objects_when_named_then_it_counts_and_types_them(self):
-        self.assertEqual(js.soortnaam([{"a": 1}, {"a": 2}]), "[ 2 x object ]")
+    def test_given_a_list_of_objects_when_named_then_it_names_the_element_type(self):
+        self.assertEqual(js.soortnaam([{"a": 1}, {"a": 2}]), "array [ 2 ] of object")
 
-    def test_given_an_empty_list_when_named_then_it_says_so(self):
-        self.assertEqual(js.soortnaam([]), "[ leeg ]")
+    def test_given_a_list_of_strings_when_named_then_it_says_string(self):
+        self.assertEqual(js.soortnaam(["x", "y"]), "array [ 2 ] of string")
 
-    def test_given_a_null_when_named_then_it_says_leeg(self):
-        self.assertEqual(js.soortnaam(None), "leeg")
+    def test_given_a_mixed_list_when_named_then_it_names_no_element_type(self):
+        self.assertEqual(js.soortnaam([1, "x"]), "array [ 2 ]")
 
-    def test_given_a_boolean_when_named_then_it_is_not_a_getal(self):
-        self.assertEqual(js.soortnaam(True), "ja of nee")
+    def test_given_an_empty_list_when_named_then_it_counts_zero(self):
+        self.assertEqual(js.soortnaam([]), "array [ 0 ]")
+
+    def test_given_a_null_when_named_then_it_says_null(self):
+        self.assertEqual(js.soortnaam(None), "null")
+
+    def test_given_a_boolean_when_named_then_it_is_not_an_integer(self):
+        self.assertEqual(js.soortnaam(True), "boolean")
+
+    def test_given_a_whole_number_when_named_then_it_is_an_integer(self):
+        self.assertEqual(js.soortnaam(2), "integer")
+
+    def test_given_a_fraction_when_named_then_it_is_a_number(self):
+        self.assertEqual(js.soortnaam(2.5), "number")
 
 
 class SleutelvormTests(unittest.TestCase):
-    def test_given_a_list_of_objects_when_asked_then_it_gives_the_keys_of_the_first(self):
-        self.assertEqual(js.sleutelvorm([{"code": 1, "naam": 2}]), "code, naam")
+    """Elke sleutel komt erop. Een afkapping laat de lezer precies de velden missen waar het
+    gesprek over kan gaan, en het zijn nooit de eerste negen die ertoe doen."""
 
-    def test_given_more_keys_than_fit_when_asked_then_it_says_how_many_are_left(self):
-        knoop = {f"k{i}": i for i in range(js.MAX_VORMSLEUTELS + 3)}
-        self.assertTrue(js.sleutelvorm(knoop).endswith(f"en nog 3"))
+    def test_given_a_list_of_objects_when_asked_then_it_gives_the_keys_of_the_first(self):
+        self.assertEqual(js.sleutelvorm([{"code": 1, "naam": 2}]), ["code, naam"])
+
+    def test_given_more_keys_than_fit_on_a_line_when_asked_then_a_line_is_added(self):
+        knoop = {f"sleutel_{i:02d}": i for i in range(12)}
+        regels = js.sleutelvorm(knoop)
+        self.assertGreater(len(regels), 1)
+
+    def test_given_many_keys_when_asked_then_every_key_stands_on_a_line(self):
+        knoop = {f"sleutel_{i:02d}": i for i in range(12)}
+        samen = " ".join(js.sleutelvorm(knoop))
+        for sleutel in knoop:
+            self.assertIn(sleutel, samen)
+
+    def test_given_a_long_rij_when_broken_then_no_line_runs_past_the_width(self):
+        regels = js.breek([f"sleutel_{i:02d}" for i in range(12)], 40)
+        self.assertTrue(all(len(r) <= 40 for r in regels))
 
     def test_given_a_list_of_values_when_asked_then_there_is_no_vorm(self):
         self.assertIsNone(js.sleutelvorm([1, 2, 3]))
@@ -79,6 +104,10 @@ class RegelsTests(unittest.TestCase):
         self.assertEqual(gevonden["bestandstype"], '"SBIS"')
         self.assertEqual(gevonden["niveau"], "2")
 
+    def test_given_a_deep_object_when_walked_then_its_keys_are_the_vorm(self):
+        vormen = {s: v for _, s, _, _, v, _ in regels(diepte=2)}
+        self.assertEqual(vormen["onderdelen"], ["code, naam, sbu"])
+
     def test_given_waarden_tot_when_walked_then_deeper_values_stay_off(self):
         gevonden = {s: w for _, s, _, w, _, _ in regels(waarden_tot=1)}
         self.assertEqual(gevonden["bestandstype"], '"SBIS"')
@@ -93,10 +122,24 @@ class TekenTests(unittest.TestCase):
     def plaat(self, diepte=3, waarden_tot=-1):
         return js.teken(regels(diepte, waarden_tot), "Titel", "Herkomst", "0.1.0", "bericht.json")
 
+    def test_given_a_long_key_list_when_drawn_then_every_key_stands_on_the_plaat(self):
+        """De reden dat een regel meer dan een tekstregel hoog mag zijn."""
+        bericht = {"lijst": [{f"sleutel_{i:02d}": i for i in range(14)}]}
+        svg = js.teken(js.regels_van(bericht, 1, -1, set()), "T", "", "", "x.json")
+        for i in range(14):
+            self.assertIn(f"sleutel_{i:02d}", svg)
+
     def test_given_a_message_when_drawn_then_every_key_stands_on_the_plaat(self):
         svg = self.plaat()
         for sleutel in ("bestandstype", "opleidingseenheid", "onderdelen", "leeg"):
             self.assertIn(sleutel, svg)
+
+    def test_given_a_row_of_two_lines_when_drawn_then_the_canvas_grows_with_it(self):
+        bericht = {"lijst": [{f"sleutel_{i:02d}": i for i in range(14)}]}
+        een = js.teken(js.regels_van({"lijst": [{"a": 1}]}, 1, -1, set()), "T", "", "", "x.json")
+        twee = js.teken(js.regels_van(bericht, 1, -1, set()), "T", "", "", "x.json")
+        self.assertGreater(int(twee.split('height="')[1].split('"')[0]),
+                           int(een.split('height="')[1].split('"')[0]))
 
     def test_given_no_waarden_when_drawn_then_the_content_stays_off(self):
         self.assertNotIn("DV125960", self.plaat())
