@@ -54,6 +54,13 @@ def haal(bron, pad):
     return bron
 
 
+def kolomnaam(k, voorvoegsel, breed=30):
+    """De kolom draagt haar naam en niet alleen haar code; een code alleen zegt een lezer niets."""
+    naam = k.get("naam", "")
+    naam = naam if len(naam) <= breed else naam[:breed - 1] + "\u2026"
+    return f'{kort(k["code"], voorvoegsel)}  {naam}'.strip()
+
+
 def kort(code, voorvoegsel):
     return code[len(voorvoegsel):] if voorvoegsel and code.startswith(voorvoegsel) else code
 
@@ -106,10 +113,11 @@ def teken(sel, rijen, kolommen, paren):
     kv = gemeen_voorvoegsel([k["code"] for k in kolommen])
     # de strook boven de matrix is zo hoog als het langste staande kolomlabel; een vaste
     # hoogte laat een plaat met korte codes met een lege band erboven staan
-    langste = max((len(kort(k["code"], kv)) for k in kolommen), default=0)
+    langste = max((len(kolomnaam(k, kv)) for k in kolommen), default=0)
     kophoogte = max(KOPHOOGTE_MIN, int(langste * LABEL * 0.62) + 10)
     breed = MARGE + RIJLABEL + len(kolommen) * CEL + 90 + MARGE
-    hoog = MARGE + KOP + HERKOMST_MAAT + 10 + kophoogte + len(rijen) * CEL + 52 + MARGE
+    hoog = (MARGE + KOP + HERKOMST_MAAT + 10 + kophoogte + len(rijen) * CEL + 52 + MARGE
+            + (28 if sel.get("leesregel") else 0))
     x0, y0 = MARGE + RIJLABEL, MARGE + KOP + HERKOMST_MAAT + 10 + kophoogte
 
     d = [f'<rect x="0.5" y="0.5" width="{breed - 1}" height="{hoog - 1}" rx="10" '
@@ -125,12 +133,17 @@ def teken(sel, rijen, kolommen, paren):
 
     for j, k in enumerate(kolommen):
         x = x0 + j * CEL + CEL / 2
-        kleur = ACCENT if per_kolom[k["code"]] == 0 else MUTED
-        d.append(f'<text transform="translate({x:.0f},{y0 - 6}) rotate(-90)" font-family="{FONT}" '
+        kleur = ACCENT if per_kolom[k["code"]] == 0 else INK
+        d.append(f'<text transform="translate({x:.0f},{y0 - 8}) rotate(-90)" font-family="{FONT}" '
                  f'font-size="{LABEL}" fill="{kleur}" text-anchor="start">'
-                 f'{html.escape(kort(k["code"], kv))}</text>')
+                 f'{html.escape(kolomnaam(k, kv))}</text>')
         d.append(vt.text(x, y0 + len(rijen) * CEL + 16, str(per_kolom[k["code"]]), TEL,
                          fill=MUTED, anchor="middle"))
+    d.append(vt.text(MARGE, y0 - 8, sel["rijen"].get("opschrift", "rijen"), LABEL,
+                     bold=True, fill=MUTED))
+    d.append(f'<text transform="translate({x0 + len(kolommen) * CEL + 40},{y0 - 8}) rotate(-90)" '
+             f'font-family="{FONT}" font-size="{LABEL}" font-weight="bold" fill="{MUTED}" '
+             f'text-anchor="start">{html.escape(sel["kolommen"].get("opschrift", "kolommen"))}</text>')
 
     for i, r in enumerate(rijen):
         y = y0 + i * CEL
@@ -157,6 +170,10 @@ def teken(sel, rijen, kolommen, paren):
 
     meer = sum(1 for v in per_rij.values() if v > 1)
     leeg = sum(1 for v in per_kolom.values() if v == 0)
+    if sel.get("leesregel"):
+        d.append(f'<rect x="{MARGE}" y="{hoog - MARGE - 42}" width="11" height="11" rx="2" '
+                 f'fill="{VAK}"/>')
+        d.append(vt.text(MARGE + 18, hoog - MARGE - 33, sel["leesregel"], LABEL, fill=INK))
     d.append(vt.text(MARGE, hoog - MARGE - 14,
                      f"{len(paren)} verbindingen; {meer} van de {len(rijen)} rijen raken meer dan "
                      f"een kolom; {leeg} kolommen blijven leeg, in de accentkleur", LABEL, fill=MUTED))

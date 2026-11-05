@@ -3,6 +3,15 @@
   "herkomst": "RijnIJssel, sbis.json, opleiding DV127058 Leidinggevende Tourism; werkbrief Npuls-OKx/meta#522",
   "versie": "0.1.0",
   "bron": "../RijnIJssel/sbis.json",
-  "rijen": {"pad": "opleidingseenheid.leereenheden", "verwijst_naar": "leertaken"},
-  "kolommen": {"pad": "opleidingseenheid.opleidingsonderdelen", "bevat": "leertaken"}
+  "rijen": {
+    "pad": "opleidingseenheid.leereenheden",
+    "verwijst_naar": "leertaken",
+    "opschrift": "rijen: leereenheden"
+  },
+  "kolommen": {
+    "pad": "opleidingseenheid.opleidingsonderdelen",
+    "bevat": "leertaken",
+    "opschrift": "kolommen: opleidingsonderdelen"
+  },
+  "leesregel": "een vlak: deze leereenheid gebruikt ten minste een leertaak van dit opleidingsonderdeel"
 }
