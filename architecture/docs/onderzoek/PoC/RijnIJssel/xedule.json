@@ -1,0 +1,1065 @@
+{
+  "bestandstype": "Xedule",
+  "opleidingseenheid": {
+    "opleidingscode": "DV127140",
+    "crebo_nummer": "27140",
+    "naam": "Leidinggevende facilitaire dienstverlening",
+    "niveau": 4,
+    "onderwijsType": "BOL",
+    "waarderoute": "MBO-Diploma",
+    "cohort": "2026",
+    "versie": "1",
+    "peopleSoftId": "27140_2026_4_O_019_M1453",
+    "onderwijsteam": null,
+    "opleidingsonderdelen": [
+      {
+        "code": "DV12706522",
+        "naam": "Nederlands 3F",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 2,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": null,
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": []
+      },
+      {
+        "code": "DV12706541",
+        "naam": "Rekenen Niveau 4",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 2,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": "Niveau 4",
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": []
+      },
+      {
+        "code": "DV12706543",
+        "naam": "Engels B1/B1",
+        "peopleSoftId": "MBO4 3014",
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 2,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": null,
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": []
+      },
+      {
+        "code": "DV12706546",
+        "naam": "Loopbaan en Burgerschap",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 2,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": null,
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": []
+      },
+      {
+        "code": "DV12714001",
+        "naam": "Onderzoekt en ontwikkelt de eigen leiderschapsstijl",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 2,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": null,
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "P2-K1-W1",
+            "naam": "Onderzoekt en ontwikkelt de eigen leiderschapsstijl",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P2-K1",
+              "naam": "Geeft leiding aan medewerkers"
+            }
+          }
+        ]
+      },
+      {
+        "code": "DV12714002",
+        "naam": "Plant, verdeelt en bewaakt werkzaamheden",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 2,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": null,
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "P2-K1-W2",
+            "naam": "Plant, verdeelt en bewaakt de werkzaamheden",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P2-K1",
+              "naam": "Geeft leiding aan medewerkers"
+            }
+          }
+        ]
+      },
+      {
+        "code": "DV12714003",
+        "naam": "Begeleidt, instrueert en stuurt medewerkers aan",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 2,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": null,
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "P2-K1-W3",
+            "naam": "Begeleidt, instrueert en stuurt medewerkers aan",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P2-K1",
+              "naam": "Geeft leiding aan medewerkers"
+            }
+          }
+        ]
+      },
+      {
+        "code": "DV12714004",
+        "naam": "Voert werkoverleg",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 2,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": null,
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "P2-K1-W4",
+            "naam": "Voert werkoverleg",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P2-K1",
+              "naam": "Geeft leiding aan medewerkers"
+            }
+          }
+        ]
+      },
+      {
+        "code": "DV12714005",
+        "naam": "Draagt bij aan een operationeel plan voor facilitaire dienstverlening",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 2,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": null,
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "P2-K2-W1",
+            "naam": "Draagt bij aan een operationeel plan voor facilitaire dienstverlening",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P2-K2",
+              "naam": "Coördineert facilitaire processen"
+            }
+          }
+        ]
+      },
+      {
+        "code": "DV12714006",
+        "naam": "Beheert financiën",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 2,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": null,
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "P2-K2-W2",
+            "naam": "Beheert financiën",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P2-K2",
+              "naam": "Coördineert facilitaire processen"
+            }
+          }
+        ]
+      },
+      {
+        "code": "DV12714007",
+        "naam": "Organiseert (interne) evenementen",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 2,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": null,
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "P2-K2-W3",
+            "naam": "Organiseert (interne) evenementen",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P2-K2",
+              "naam": "Coördineert facilitaire processen"
+            }
+          }
+        ]
+      },
+      {
+        "code": "DV12714008",
+        "naam": "Stemt af met stakeholders",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 2,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": null,
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "P2-K2-W4",
+            "naam": "Stemt af met stakeholders",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P2-K2",
+              "naam": "Coördineert facilitaire processen"
+            }
+          }
+        ]
+      },
+      {
+        "code": "DV12714009",
+        "naam": "K0023 Digitale vaardigheden gevorderd",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 1,
+        "keuze": false,
+        "sbu": 120,
+        "startniveau": "niveau 4",
+        "duur_in_weken": 20,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "B1-K1-W1",
+            "naam": "Bereidt gastgerichte werkzaamheden voor",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K1",
+              "naam": "Verleent gastvrijheid"
+            }
+          },
+          {
+            "code": "B1-K1-W2",
+            "naam": "Draagt bij aan een gastgerichte beleving",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K1",
+              "naam": "Verleent gastvrijheid"
+            }
+          },
+          {
+            "code": "B1-K1-W3",
+            "naam": "Rondt gastgerichte werkzaamheden af",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K1",
+              "naam": "Verleent gastvrijheid"
+            }
+          },
+          {
+            "code": "B1-K1-W4",
+            "naam": "Evalueert de eigen werkzaamheden",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K1",
+              "naam": "Verleent gastvrijheid"
+            }
+          },
+          {
+            "code": "B1-K2-W1",
+            "naam": "Verricht werkzaamheden in de backoffice",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K2",
+              "naam": "Verricht facilitaire werkzaamheden"
+            }
+          },
+          {
+            "code": "B1-K2-W2",
+            "naam": "Faciliteert en controleert ruimtes, gebouw en omgeving",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K2",
+              "naam": "Verricht facilitaire werkzaamheden"
+            }
+          },
+          {
+            "code": "B1-K2-W3",
+            "naam": "Beheert de voorraad",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K2",
+              "naam": "Verricht facilitaire werkzaamheden"
+            }
+          },
+          {
+            "code": "B1-K2-W4",
+            "naam": "Faciliteert branche-specifieke diensten",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K2",
+              "naam": "Verricht facilitaire werkzaamheden"
+            }
+          },
+          {
+            "code": "B1-K2-W5",
+            "naam": "Bevordert een veilige werk- en verblijfsomgeving",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K2",
+              "naam": "Verricht facilitaire werkzaamheden"
+            }
+          },
+          {
+            "code": "B1-K2-W6",
+            "naam": "Verricht onderhoud aan gangbare apparatuur, meubilair en buitenruimtes",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K2",
+              "naam": "Verricht facilitaire werkzaamheden"
+            }
+          },
+          {
+            "code": "P2-K1-W1",
+            "naam": "Onderzoekt en ontwikkelt de eigen leiderschapsstijl",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P2-K1",
+              "naam": "Geeft leiding aan medewerkers"
+            }
+          },
+          {
+            "code": "P2-K1-W2",
+            "naam": "Plant, verdeelt en bewaakt de werkzaamheden",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P2-K1",
+              "naam": "Geeft leiding aan medewerkers"
+            }
+          },
+          {
+            "code": "P2-K1-W3",
+            "naam": "Begeleidt, instrueert en stuurt medewerkers aan",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P2-K1",
+              "naam": "Geeft leiding aan medewerkers"
+            }
+          },
+          {
+            "code": "P2-K1-W4",
+            "naam": "Voert werkoverleg",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P2-K1",
+              "naam": "Geeft leiding aan medewerkers"
+            }
+          },
+          {
+            "code": "P2-K2-W1",
+            "naam": "Draagt bij aan een operationeel plan voor facilitaire dienstverlening",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P2-K2",
+              "naam": "Coördineert facilitaire processen"
+            }
+          },
+          {
+            "code": "P2-K2-W2",
+            "naam": "Beheert financiën",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P2-K2",
+              "naam": "Coördineert facilitaire processen"
+            }
+          },
+          {
+            "code": "P2-K2-W3",
+            "naam": "Organiseert (interne) evenementen",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P2-K2",
+              "naam": "Coördineert facilitaire processen"
+            }
+          },
+          {
+            "code": "P2-K2-W4",
+            "naam": "Stemt af met stakeholders",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P2-K2",
+              "naam": "Coördineert facilitaire processen"
+            }
+          }
+        ]
+      },
+      {
+        "code": "DV12714010",
+        "naam": "Keuzedeel 2",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 1,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": "Niveau 4",
+        "duur_in_weken": 20,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "B1-K1-W1",
+            "naam": "Bereidt gastgerichte werkzaamheden voor",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K1",
+              "naam": "Verleent gastvrijheid"
+            }
+          },
+          {
+            "code": "B1-K1-W2",
+            "naam": "Draagt bij aan een gastgerichte beleving",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K1",
+              "naam": "Verleent gastvrijheid"
+            }
+          },
+          {
+            "code": "B1-K1-W3",
+            "naam": "Rondt gastgerichte werkzaamheden af",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K1",
+              "naam": "Verleent gastvrijheid"
+            }
+          },
+          {
+            "code": "B1-K1-W4",
+            "naam": "Evalueert de eigen werkzaamheden",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K1",
+              "naam": "Verleent gastvrijheid"
+            }
+          },
+          {
+            "code": "B1-K2-W1",
+            "naam": "Verricht werkzaamheden in de backoffice",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K2",
+              "naam": "Verricht facilitaire werkzaamheden"
+            }
+          },
+          {
+            "code": "B1-K2-W2",
+            "naam": "Faciliteert en controleert ruimtes, gebouw en omgeving",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K2",
+              "naam": "Verricht facilitaire werkzaamheden"
+            }
+          },
+          {
+            "code": "B1-K2-W3",
+            "naam": "Beheert de voorraad",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K2",
+              "naam": "Verricht facilitaire werkzaamheden"
+            }
+          },
+          {
+            "code": "B1-K2-W4",
+            "naam": "Faciliteert branche-specifieke diensten",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K2",
+              "naam": "Verricht facilitaire werkzaamheden"
+            }
+          },
+          {
+            "code": "B1-K2-W5",
+            "naam": "Bevordert een veilige werk- en verblijfsomgeving",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K2",
+              "naam": "Verricht facilitaire werkzaamheden"
+            }
+          },
+          {
+            "code": "B1-K2-W6",
+            "naam": "Verricht onderhoud aan gangbare apparatuur, meubilair en buitenruimtes",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K2",
+              "naam": "Verricht facilitaire werkzaamheden"
+            }
+          },
+          {
+            "code": "P2-K1-W1",
+            "naam": "Onderzoekt en ontwikkelt de eigen leiderschapsstijl",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P2-K1",
+              "naam": "Geeft leiding aan medewerkers"
+            }
+          },
+          {
+            "code": "P2-K1-W2",
+            "naam": "Plant, verdeelt en bewaakt de werkzaamheden",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P2-K1",
+              "naam": "Geeft leiding aan medewerkers"
+            }
+          },
+          {
+            "code": "P2-K1-W3",
+            "naam": "Begeleidt, instrueert en stuurt medewerkers aan",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P2-K1",
+              "naam": "Geeft leiding aan medewerkers"
+            }
+          },
+          {
+            "code": "P2-K1-W4",
+            "naam": "Voert werkoverleg",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P2-K1",
+              "naam": "Geeft leiding aan medewerkers"
+            }
+          },
+          {
+            "code": "P2-K2-W1",
+            "naam": "Draagt bij aan een operationeel plan voor facilitaire dienstverlening",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P2-K2",
+              "naam": "Coördineert facilitaire processen"
+            }
+          },
+          {
+            "code": "P2-K2-W2",
+            "naam": "Beheert financiën",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P2-K2",
+              "naam": "Coördineert facilitaire processen"
+            }
+          },
+          {
+            "code": "P2-K2-W3",
+            "naam": "Organiseert (interne) evenementen",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P2-K2",
+              "naam": "Coördineert facilitaire processen"
+            }
+          },
+          {
+            "code": "P2-K2-W4",
+            "naam": "Stemt af met stakeholders",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P2-K2",
+              "naam": "Coördineert facilitaire processen"
+            }
+          }
+        ]
+      },
+      {
+        "code": "DV12714011",
+        "naam": "Keuzedeel 3",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 1,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": "Niveau 4",
+        "duur_in_weken": 20,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "B1-K1-W1",
+            "naam": "Bereidt gastgerichte werkzaamheden voor",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K1",
+              "naam": "Verleent gastvrijheid"
+            }
+          },
+          {
+            "code": "B1-K1-W2",
+            "naam": "Draagt bij aan een gastgerichte beleving",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K1",
+              "naam": "Verleent gastvrijheid"
+            }
+          },
+          {
+            "code": "B1-K1-W3",
+            "naam": "Rondt gastgerichte werkzaamheden af",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K1",
+              "naam": "Verleent gastvrijheid"
+            }
+          },
+          {
+            "code": "B1-K1-W4",
+            "naam": "Evalueert de eigen werkzaamheden",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K1",
+              "naam": "Verleent gastvrijheid"
+            }
+          },
+          {
+            "code": "B1-K2-W1",
+            "naam": "Verricht werkzaamheden in de backoffice",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K2",
+              "naam": "Verricht facilitaire werkzaamheden"
+            }
+          },
+          {
+            "code": "B1-K2-W2",
+            "naam": "Faciliteert en controleert ruimtes, gebouw en omgeving",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K2",
+              "naam": "Verricht facilitaire werkzaamheden"
+            }
+          },
+          {
+            "code": "B1-K2-W3",
+            "naam": "Beheert de voorraad",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K2",
+              "naam": "Verricht facilitaire werkzaamheden"
+            }
+          },
+          {
+            "code": "B1-K2-W4",
+            "naam": "Faciliteert branche-specifieke diensten",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K2",
+              "naam": "Verricht facilitaire werkzaamheden"
+            }
+          },
+          {
+            "code": "B1-K2-W5",
+            "naam": "Bevordert een veilige werk- en verblijfsomgeving",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K2",
+              "naam": "Verricht facilitaire werkzaamheden"
+            }
+          },
+          {
+            "code": "B1-K2-W6",
+            "naam": "Verricht onderhoud aan gangbare apparatuur, meubilair en buitenruimtes",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K2",
+              "naam": "Verricht facilitaire werkzaamheden"
+            }
+          },
+          {
+            "code": "P2-K1-W1",
+            "naam": "Onderzoekt en ontwikkelt de eigen leiderschapsstijl",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P2-K1",
+              "naam": "Geeft leiding aan medewerkers"
+            }
+          },
+          {
+            "code": "P2-K1-W2",
+            "naam": "Plant, verdeelt en bewaakt de werkzaamheden",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P2-K1",
+              "naam": "Geeft leiding aan medewerkers"
+            }
+          },
+          {
+            "code": "P2-K1-W3",
+            "naam": "Begeleidt, instrueert en stuurt medewerkers aan",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P2-K1",
+              "naam": "Geeft leiding aan medewerkers"
+            }
+          },
+          {
+            "code": "P2-K1-W4",
+            "naam": "Voert werkoverleg",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P2-K1",
+              "naam": "Geeft leiding aan medewerkers"
+            }
+          },
+          {
+            "code": "P2-K2-W1",
+            "naam": "Draagt bij aan een operationeel plan voor facilitaire dienstverlening",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P2-K2",
+              "naam": "Coördineert facilitaire processen"
+            }
+          },
+          {
+            "code": "P2-K2-W2",
+            "naam": "Beheert financiën",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P2-K2",
+              "naam": "Coördineert facilitaire processen"
+            }
+          },
+          {
+            "code": "P2-K2-W3",
+            "naam": "Organiseert (interne) evenementen",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P2-K2",
+              "naam": "Coördineert facilitaire processen"
+            }
+          },
+          {
+            "code": "P2-K2-W4",
+            "naam": "Stemt af met stakeholders",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P2-K2",
+              "naam": "Coördineert facilitaire processen"
+            }
+          }
+        ]
+      },
+      {
+        "code": "DV12714012",
+        "naam": "BPV",
+        "peopleSoftId": "00000107440",
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 1,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": null,
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": []
+      },
+      {
+        "code": "DV12714013",
+        "naam": "Verricht werkzaamheden in de backoffice",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 2,
+        "keuze": false,
+        "sbu": 0,
+        "startniveau": null,
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "B1-K2-W1",
+            "naam": "Verricht werkzaamheden in de backoffice",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K2",
+              "naam": "Verricht facilitaire werkzaamheden"
+            }
+          }
+        ]
+      },
+      {
+        "code": "DV12714014",
+        "naam": "Faciliteert en controleert ruimtes, gebouw en omgeving",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 2,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": null,
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "B1-K2-W2",
+            "naam": "Faciliteert en controleert ruimtes, gebouw en omgeving",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K2",
+              "naam": "Verricht facilitaire werkzaamheden"
+            }
+          }
+        ]
+      },
+      {
+        "code": "DV12714015",
+        "naam": "Beheert de voorraad",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 2,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": null,
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "B1-K2-W3",
+            "naam": "Beheert de voorraad",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K2",
+              "naam": "Verricht facilitaire werkzaamheden"
+            }
+          }
+        ]
+      },
+      {
+        "code": "DV12714016",
+        "naam": "Faciliteert branche-specifieke diensten",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 2,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": null,
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "B1-K2-W4",
+            "naam": "Faciliteert branche-specifieke diensten",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K2",
+              "naam": "Verricht facilitaire werkzaamheden"
+            }
+          }
+        ]
+      },
+      {
+        "code": "DV12714017",
+        "naam": "Bevordert een veilige werk- en verblijfsomgeving",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 2,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": null,
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "B1-K2-W5",
+            "naam": "Bevordert een veilige werk- en verblijfsomgeving",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K2",
+              "naam": "Verricht facilitaire werkzaamheden"
+            }
+          }
+        ]
+      },
+      {
+        "code": "DV12714018",
+        "naam": "Verricht onderhoud aan gangbare apparatuur, meubilair en buitenruimtes",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 2,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": null,
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "B1-K2-W6",
+            "naam": "Verricht onderhoud aan gangbare apparatuur, meubilair en buitenruimtes",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K2",
+              "naam": "Verricht facilitaire werkzaamheden"
+            }
+          }
+        ]
+      },
+      {
+        "code": "DV12714019",
+        "naam": "Professioneel handelen",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 1,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": null,
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": []
+      },
+      {
+        "code": "DV12714020",
+        "naam": "Bereidt gastgerichte werkzaamheden voor",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 2,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": null,
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "B1-K1-W1",
+            "naam": "Bereidt gastgerichte werkzaamheden voor",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K1",
+              "naam": "Verleent gastvrijheid"
+            }
+          }
+        ]
+      },
+      {
+        "code": "DV12714021",
+        "naam": "Draagt bij aan een gastgerichte beleving",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 2,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": null,
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "B1-K1-W2",
+            "naam": "Draagt bij aan een gastgerichte beleving",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K1",
+              "naam": "Verleent gastvrijheid"
+            }
+          }
+        ]
+      },
+      {
+        "code": "DV12714022",
+        "naam": "Rond gastgerichte werkzaamheden af",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 2,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": null,
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "B1-K1-W3",
+            "naam": "Rondt gastgerichte werkzaamheden af",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K1",
+              "naam": "Verleent gastvrijheid"
+            }
+          }
+        ]
+      },
+      {
+        "code": "DV12714023",
+        "naam": "Evalueert de eigen werkzaamheden",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 2,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": null,
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "B1-K1-W4",
+            "naam": "Evalueert de eigen werkzaamheden",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K1",
+              "naam": "Verleent gastvrijheid"
+            }
+          }
+        ]
+      }
+    ],
+    "roosterbare_eenheden": []
+  }
+}

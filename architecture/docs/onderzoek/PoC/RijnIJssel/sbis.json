@@ -1,0 +1,5305 @@
+{
+  "bestandstype": "SBIS",
+  "opleidingseenheid": {
+    "opleidingscode": "DV127058",
+    "crebo_nummer": "27058",
+    "naam": "Leidinggevende Tourism",
+    "niveau": 4,
+    "onderwijsType": "BOL",
+    "waarderoute": "MBO-Diploma",
+    "cohort": "2026",
+    "versie": "1",
+    "peopleSoftId": "27058_2026_4_O_005_M1395",
+    "onderwijsteam": null,
+    "kwalificatiedossier": {
+      "delen": [
+        {
+          "code": "B1",
+          "naam": "Basisdeel",
+          "type": "BASIS",
+          "kerntaken": [
+            {
+              "code": "B1-K1",
+              "naam": "Verleent gastvrijheid",
+              "werkprocessen": [
+                {
+                  "code": "B1-K1-W1",
+                  "naam": "Bereidt gastgerichte werkzaamheden voor"
+                },
+                {
+                  "code": "B1-K1-W2",
+                  "naam": "Draagt bij aan een gastgerichte beleving"
+                },
+                {
+                  "code": "B1-K1-W3",
+                  "naam": "Draagt bij aan een sociaal en fysiek veilige werkomgeving"
+                },
+                {
+                  "code": "B1-K1-W4",
+                  "naam": "Rondt gastgerichte werkzaamheden af"
+                },
+                {
+                  "code": "B1-K1-W5",
+                  "naam": "Evalueert de (eigen) werkzaamheden"
+                }
+              ]
+            },
+            {
+              "code": "B1-K2",
+              "naam": "Voert hospitality werkzaamheden uit",
+              "werkprocessen": [
+                {
+                  "code": "B1-K2-W1",
+                  "naam": "Verwerkt reserveringen"
+                },
+                {
+                  "code": "B1-K2-W2",
+                  "naam": "Ontvangt en neemt afscheid van gasten"
+                },
+                {
+                  "code": "B1-K2-W3",
+                  "naam": "Treedt op als aanspreekpunt"
+                },
+                {
+                  "code": "B1-K2-W4",
+                  "naam": "Handelt bij incidenten of calamiteiten"
+                },
+                {
+                  "code": "B1-K2-W5",
+                  "naam": "Verkoopt of verhuurt producten en/of diensten"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "P6",
+          "naam": "Profieldeel",
+          "type": "PROFIEL",
+          "kerntaken": [
+            {
+              "code": "P6-K1",
+              "naam": "Voert commerciële activiteiten uit",
+              "werkprocessen": [
+                {
+                  "code": "P6-K1-W1",
+                  "naam": "Promoot het (toeristisch)commerciële aanbod"
+                },
+                {
+                  "code": "P6-K1-W2",
+                  "naam": "Voert aftersales uit en handelt klachten af"
+                },
+                {
+                  "code": "P6-K1-W3",
+                  "naam": "Voert (financieel-)administratieve werkzaamheden uit"
+                },
+                {
+                  "code": "P6-K1-W4",
+                  "naam": "Ontwikkelt een voorstel voor (nieuwe) toeristische producten/diensten"
+                }
+              ]
+            },
+            {
+              "code": "P6-K2",
+              "naam": "Verzorgt toeristische activiteiten",
+              "werkprocessen": [
+                {
+                  "code": "P6-K2-W1",
+                  "naam": "Stelt een toeristische activiteit samen"
+                },
+                {
+                  "code": "P6-K2-W2",
+                  "naam": "Organiseert en begeleidt toeristische activiteiten"
+                }
+              ]
+            },
+            {
+              "code": "P6-K3",
+              "naam": "Managet processen en medewerkers",
+              "werkprocessen": [
+                {
+                  "code": "P6-K3-W1",
+                  "naam": "Maakt en bewaakt een operationeel plan"
+                },
+                {
+                  "code": "P6-K3-W2",
+                  "naam": "Bewaakt processen en stuurt medewerkers aan"
+                },
+                {
+                  "code": "P6-K3-W3",
+                  "naam": "Bewaakt de financiën"
+                },
+                {
+                  "code": "P6-K3-W4",
+                  "naam": "Verzamelt en evalueert informatie en data"
+                },
+                {
+                  "code": "P6-K3-W5",
+                  "naam": "Optimaliseert het (toeristisch) commerciële aanbod en de dienstverlening"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "opleidingsonderdelen": [
+      {
+        "code": "DV12705801",
+        "naam": "Verwerkt reserveringen",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 2,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": "Niveau 4",
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "B1-K2-W1",
+            "naam": "Verwerkt reserveringen",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K2",
+              "naam": "Voert hospitality werkzaamheden uit"
+            }
+          }
+        ],
+        "leertaken": [
+          {
+            "code": "DV12705608LT01",
+            "naam": "B1-K2-W1 Bedrijfstypes, formules en concepten",
+            "omschrijving": null
+          },
+          {
+            "code": "DV12705608LT02",
+            "naam": "B1-K2-W1 Gastvrij en Klantgericht handelen",
+            "omschrijving": null
+          },
+          {
+            "code": "DV12705608LT03",
+            "naam": "B1-K2-W1 Materialen, middelen, Systemen & ICT",
+            "omschrijving": null
+          },
+          {
+            "code": "DV12705608LT04",
+            "naam": "B1-K2-W1 Taal-activiteiten",
+            "omschrijving": null
+          },
+          {
+            "code": "DV12705608LT05",
+            "naam": "B1-K2-W1 Plannen, organiseren & samenwerken",
+            "omschrijving": null
+          }
+        ]
+      },
+      {
+        "code": "DV12705802",
+        "naam": "Treedt op als aanspreekpunt",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 1,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": "Niveau 4",
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "B1-K2-W3",
+            "naam": "Treedt op als aanspreekpunt",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K2",
+              "naam": "Voert hospitality werkzaamheden uit"
+            }
+          }
+        ],
+        "leertaken": [
+          {
+            "code": "DV12705910LT01",
+            "naam": "B1-K2-W3 Gastvrij en Klantgericht handelen",
+            "omschrijving": null
+          },
+          {
+            "code": "DV12705910LT02",
+            "naam": "B1-K2-W3 Materialen, middelen, Systemen & ICT",
+            "omschrijving": null
+          },
+          {
+            "code": "DV12705910LT03",
+            "naam": "B1-K2-W3 Taal-activiteiten",
+            "omschrijving": null
+          },
+          {
+            "code": "DV12705910LT04",
+            "naam": "B1-K2-W3 Plannen, organiseren & samenwerken",
+            "omschrijving": null
+          }
+        ]
+      },
+      {
+        "code": "DV12705810",
+        "naam": "Ontvangt en neemt afscheid van gasten",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 1,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": "4",
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "B1-K2-W2",
+            "naam": "Ontvangt en neemt afscheid van gasten",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K2",
+              "naam": "Voert hospitality werkzaamheden uit"
+            }
+          }
+        ],
+        "leertaken": [
+          {
+            "code": "DV12705810LT01",
+            "naam": "Taalactiviteiten (Professioneel en gastgericht communiceren bij ontvangst)",
+            "omschrijving": "Je leert hoe je gasten op een duidelijke, vriendelijke en professionele manier ontvangt en te woord staat. Je oefent hoe je helder communiceert, oprechte aandacht toont en jouw service afstemt op de wensen van de gast."
+          },
+          {
+            "code": "DV12705810LT02",
+            "naam": "Je stemt je service af op verschillende gasten en situaties",
+            "omschrijving": "Je leert hoe je jouw service en houding aanpast aan verschillende typen gasten, culturen en wensen. Zo zorg je ervoor dat iedere gast zich welkom voelt."
+          },
+          {
+            "code": "DV12705810LT03",
+            "naam": "Taalactiviteiten (Informeren van gasten in het Engels en een 2e MVT)",
+            "omschrijving": "Je leert hoe je gasten in het Engels of een 2e moderne vreemde taal eenvoudige informatie geeft over de locatie, het aanbod en praktische zaken. Hierdoor kun je internationale gasten professioneel en zelfverzekerd helpen."
+          }
+        ]
+      },
+      {
+        "code": "DV12705812",
+        "naam": "Handelt bij incidenten of calamiteiten",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 1,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": "4",
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "B1-K2-W4",
+            "naam": "Handelt bij incidenten of calamiteiten",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K2",
+              "naam": "Voert hospitality werkzaamheden uit"
+            }
+          }
+        ],
+        "leertaken": [
+          {
+            "code": "DV12705812LT01",
+            "naam": "Je handelt rustig en veilig tijdens incidenten en calamiteiten",
+            "omschrijving": "Je leert hoe je in onverwachte, stressvolle of gevaarlijke situaties kalm blijft, snel beoordeelt wat er aan de hand is en direct de juiste acties onderneemt om de veiligheid van gasten, collega’s en jezelf te waarborgen."
+          },
+          {
+            "code": "DV12705812LT02",
+            "naam": "Je past veiligheidsvoorschriften en noodprocedures toe",
+            "omschrijving": "Je leert hoe je veiligheidsregels, protocollen en ontruimingsplannen nauwkeurig opvolgt. Je weet wat je moet doen bij verschillende soorten incidenten en kunt eerste hulp verlenen wanneer dat nodig is."
+          },
+          {
+            "code": "DV12705812LT03",
+            "naam": "Je communiceert en documenteert tijdens en na incidenten",
+            "omschrijving": "Je leert welke wetten en regels gelden bij incidenten en calamiteiten, zoals privacyregels en arbeidsveiligheid en hoe je deze correct toepast tijdens jouw handelen."
+          }
+        ]
+      },
+      {
+        "code": "DV12705813",
+        "naam": "Verkoopt of verhuurt producten en/of diensten",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 1,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": "4",
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "B1-K2-W5",
+            "naam": "Verkoopt of verhuurt producten en/of diensten",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K2",
+              "naam": "Voert hospitality werkzaamheden uit"
+            }
+          }
+        ],
+        "leertaken": [
+          {
+            "code": "DV12705813LT01",
+            "naam": "Je achterhaalt klantbehoeften en doet passend aanbod",
+            "omschrijving": "Je leert hoe je de behoefte van gasten herkent, onderzoekt en bespreekt, zodat je precies weet wat zij belangrijk vinden. Daarmee kun je hun wensen vertalen naar een passend en aantrekkelijk aanbod."
+          },
+          {
+            "code": "DV12705813LT02",
+            "naam": "Taalactiviteiten (Professioneel communiceren en presenteren van aanbod)",
+            "omschrijving": "Je leert hoe je helder communiceert en verkoopinformatie op een gastgerichte manier presenteert. Je oefent met het aanpassen van je communicatie aan doelgroep en situatie om jouw aanbod aantrekkelijk over te brengen."
+          },
+          {
+            "code": "DV12705813LT03",
+            "naam": "Taalactiviteiten (voeren van verkoopgesprekken (in NL/ENG en 2e MVT)",
+            "omschrijving": "Je leert hoe je een professioneel verkoopgesprek voert en hoe je in het Engels of een 2e moderne vreemde taal eenvoudige klant- of verkoopgesprekken kunt voeren, zodat je internationale gasten goed kunt ondersteunen."
+          },
+          {
+            "code": "DV12705813LT04",
+            "naam": "Je past verkoopvoorwaarden toe, wetgeving en e-commerce",
+            "omschrijving": "Je leert welke wetten en regels gelden bij (online) verkoop, hoe je voorwaarden toepast en hoe je digitale verkoopprocessen inzet. Daarmee kun je transacties correct, veilig en professioneel afhandelen."
+          },
+          {
+            "code": "DV12705813LT05",
+            "naam": "Je handelt transacties af en houdt nauwkeurige registratie bij",
+            "omschrijving": "Je leert hoe je verkooptransacties foutloos afrondt, met de juiste prijzen en voorwaarden en hoe je alle informatie nauwkeurig registreert zodat het aanbod, de dienst of de verkoop goed verwerkt kan worden."
+          },
+          {
+            "code": "DV12705813LT06",
+            "naam": "Je ziet commerciële kansen en benut ze",
+            "omschrijving": "Je leert hoe je kansen in de markt of tijdens gastcontact herkent en deze vertaalt naar acties die de verkoop, gastbeleving of het aanbod verbeteren."
+          }
+        ]
+      },
+      {
+        "code": "DV12705814",
+        "naam": "Promoot het (toeristisch)commerciële aanbod",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 1,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": "4",
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "P6-K1-W1",
+            "naam": "Promoot het (toeristisch)commerciële aanbod",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P6-K1",
+              "naam": "Voert commerciële activiteiten uit"
+            }
+          }
+        ],
+        "leertaken": [
+          {
+            "code": "DV12705814LT01",
+            "naam": "Je maakt kennis met de toeristische markt en de klant",
+            "omschrijving": "Je leert begrijpen wie je klant is, wat voor type gasten er zijn en wat er speelt op de bestemming. Hierdoor kun je beter inspelen op hun wensen."
+          },
+          {
+            "code": "DV12705814LT02",
+            "naam": "Je werkt met digitale systemen, data en online kanalen",
+            "omschrijving": "Je leert hoe je digitale tools, social media, e-commerce en data gebruikt om betere keuzes te kunnen maken in je werk."
+          },
+          {
+            "code": "DV12705814LT03",
+            "naam": "Je maakt en voert marketing en promotie uit",
+            "omschrijving": "Je leert hoe je promotie activiteiten ontwerpt, kiest en uitvoert op een manier die past bij de doelgroep en het doel."
+          },
+          {
+            "code": "DV12705814LT04",
+            "naam": "Je communiceert met en presenteert voor klanten (online en offline)",
+            "omschrijving": "Je leert beter communiceren met klanten, professioneel communiceren via verschillende kanalen en het aanbod overtuigend presenteren."
+          },
+          {
+            "code": "DV12705814LT05",
+            "naam": "Je stelt passend en duurzaam toeristisch aanbod samen",
+            "omschrijving": "Je leert hoe je een reis- of toeristisch aanbod maakt dat past bij de klant én rekening houdt met duurzaamheid."
+          }
+        ]
+      },
+      {
+        "code": "DV12705815",
+        "naam": "Voert aftersales uit en handelt klachten af",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 1,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": "4",
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "P6-K1-W2",
+            "naam": "Voert aftersales uit en handelt klachten af",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P6-K1",
+              "naam": "Voert commerciële activiteiten uit"
+            }
+          }
+        ],
+        "leertaken": [
+          {
+            "code": "DV12705815LT01",
+            "naam": "Je communiceert met klanten op een professionele manier (online en offline)",
+            "omschrijving": "Je leert rustig, duidelijk en vriendelijk te communiceren, ook als een klant ontevreden is en je leert hoe je contact houdt tot het probleem echt opgelost is."
+          },
+          {
+            "code": "DV12705815LT02",
+            "naam": "Je werkt met klant- en informatiesystemen (CRM & registratie)",
+            "omschrijving": "Je leert hoe je klantgegevens netjes vastlegt, hoe je met CRM-systemen werkt en hoe je professioneel omgaat met webcare."
+          },
+          {
+            "code": "DV12705815LT03",
+            "naam": "Je herkent klachten, onderzoekt -en handelt ze zorgvuldig af",
+            "omschrijving": "Je leert hoe je klachten onderzoekt, waarom ze ontstaan en hoe je eerlijk en zorgvuldig een goede oplossing kiest."
+          },
+          {
+            "code": "DV12705815LT04",
+            "naam": "Je leert hoe je van klachten kunt leren en verbeteringen kunt aanbrengen",
+            "omschrijving": "Je leert hoe je van klachten kunt leren, verbeteringen kunt voorstellen en hoe je rekening houdt met regels en duurzaamheid."
+          }
+        ]
+      },
+      {
+        "code": "DV12705816",
+        "naam": "Voert administratieve werkzaamheden uit",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 1,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": "4",
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "P6-K1-W3",
+            "naam": "Voert (financieel-)administratieve werkzaamheden uit",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P6-K1",
+              "naam": "Voert commerciële activiteiten uit"
+            }
+          }
+        ],
+        "leertaken": [
+          {
+            "code": "DV12705816LT01",
+            "naam": "Je voert administratieve werkzaamheden uit met digitale systemen",
+            "omschrijving": "Je leert hoe je de behoefte van gasten herkent, onderzoekt en bespreekt, zodat je precies weet wat zij belangrijk vinden. Daarmee kun je hun wensen vertalen naar een passend en aantrekkelijk aanbod."
+          },
+          {
+            "code": "DV12705816LT02",
+            "naam": "Je kunt financiële kennis, prijzen en berekeningen toepassen",
+            "omschrijving": "Je leert hoe je financiële gegevens toepast in de praktijk, zoals prijsopbouw, verdiensten, tarieven en berekeningen. Zo kun je de financiële kant van reserveringen en administratieve processen goed en professioneel uitvoeren."
+          },
+          {
+            "code": "DV12705816LT03",
+            "naam": "Je kunt werken volgens commerciële en financiële procedures en wetgeving",
+            "omschrijving": "Je leert hoe je administratieve werkzaamheden uitvoert volgens de geldende regels, procedures en wetgeving. Zo weet je zeker dat je reserveringen, boekingen en financiële handelingen correct en volgens de voorschriften afhandelt."
+          }
+        ]
+      },
+      {
+        "code": "DV12705817",
+        "naam": "Ontwikkelt een voorstel voor toeristische producten/diensten",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 1,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": "4",
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "P6-K1-W4",
+            "naam": "Ontwikkelt een voorstel voor (nieuwe) toeristische producten/diensten",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P6-K1",
+              "naam": "Voert commerciële activiteiten uit"
+            }
+          }
+        ],
+        "leertaken": [
+          {
+            "code": "DV12705817LT01",
+            "naam": "Je onderzoekt de markt en bestemming",
+            "omschrijving": "Je leert hoe je onderzoek doet naar bestemmingen, trends, doelgroepen en de toeristische markt, zodat je goed begrijpt welke kansen er zijn en welke bestemmingen passen bij de wensen van klanten."
+          },
+          {
+            "code": "DV12705817LT02",
+            "naam": "Je werkt met data en informatie voor productontwikkeling",
+            "omschrijving": "Je leert hoe je relevante informatie en online data verzamelt, analyseert en gebruikt om te bepalen of een nieuw product haalbaar is en aansluit bij de behoeften en interesses van klanten."
+          },
+          {
+            "code": "DV12705817LT03",
+            "naam": "Je ontwerpt, duurzame en verantwoorde toeristische producten",
+            "omschrijving": "Je leert hoe je bij het ontwikkelen van een toeristisch product rekening houdt met duurzaamheid, regels en de maatschappelijke impact, zodat je een aanbod maakt dat verantwoord en toekomstgericht is."
+          },
+          {
+            "code": "DV12705817LT04",
+            "naam": "Je kunt nieuwe ideeën uitwerken tot een duidelijk en haalbaar voorstel",
+            "omschrijving": "Je leert hoe je creatieve ideeën omzet in een concreet, duidelijk en haalbaar voorstel dat je goed kunt toelichten en dat echt waarde toevoegt voor klanten én het bedrijf."
+          }
+        ]
+      },
+      {
+        "code": "DV12705818",
+        "naam": "Stelt een toeristische activiteit samen",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 1,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": "4",
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "P6-K2-W1",
+            "naam": "Stelt een toeristische activiteit samen",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P6-K2",
+              "naam": "Verzorgt toeristische activiteiten"
+            }
+          }
+        ],
+        "leertaken": [
+          {
+            "code": "DV12705818LT01",
+            "naam": "Je werkt met veiligheids- en toezichtplannen voor activiteiten",
+            "omschrijving": "Je leert hoe je zorgt dat een activiteit veilig verloopt door veiligheidsvoorschriften, toezichtplannen en het ontruimingsplan te gebruiken en toe te passen tijdens de voorbereiding."
+          },
+          {
+            "code": "DV12705818LT02",
+            "naam": "Je stemt een activiteit af op doel, doelroep en groepsdynamiek",
+            "omschrijving": "Je leert hoe je een activiteit samenstelt die past bij een specifieke doelgroep, hoe je rekening houdt met groepsprocessen en hoe je een passende sfeer creëert."
+          },
+          {
+            "code": "DV12705818LT03",
+            "naam": "Je bereidt zorgvuldig een toeristische activiteit voor",
+            "omschrijving": "Je leert hoe je een activiteit zorgvuldig plant, de juiste materialen, middelen en mensen organiseert en hoe je een duidelijk, overzichtelijk en realistisch programma maakt."
+          },
+          {
+            "code": "DV12705818LT04",
+            "naam": "Je werkt samen en stemt af met collega’s",
+            "omschrijving": "Je leert hoe je tijdig en professioneel afstemt met collega’s, leidinggevenden en gasten, zodat iedereen weet wat er moet gebeuren en de activiteit soepel kan verlopen."
+          }
+        ]
+      },
+      {
+        "code": "DV12705819",
+        "naam": "Organiseert en begeleidt toeristische activiteiten",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 1,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": "4",
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "P6-K2-W2",
+            "naam": "Organiseert en begeleidt toeristische activiteiten",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P6-K2",
+              "naam": "Verzorgt toeristische activiteiten"
+            }
+          }
+        ],
+        "leertaken": [
+          {
+            "code": "DV12705819LT01",
+            "naam": "Je maakt een toeristische activiteit klaar op de dag van uitvoering",
+            "omschrijving": "Je leert hoe je op de dag van de activiteit alles gereedmaakt, door te controleren of alle materialen, middelen en faciliteiten aanwezig zijn, deze op de juiste plek klaar te zetten en ervoor te zorgen dat de activiteit direct goed kan starten."
+          },
+          {
+            "code": "DV12705819LT02",
+            "naam": "Je begeleidt de activiteit en speelt in op situaties (incl. EHBO)",
+            "omschrijving": "Je leert hoe je een activiteit begeleidt, hoe je controleert of alles volgens planning verloopt en hoe je snel en professioneel reageert op onverwachte situaties of afwijkingen."
+          },
+          {
+            "code": "DV12705819LT03",
+            "naam": "Taalactiviteiten (Duidelijke informatie en instructies geven (ook in ENG)",
+            "omschrijving": "Je leert hoe je duidelijke, enthousiaste en deskundige instructies geeft, zowel in het Nederlands als in het Engels of een tweede moderne vreemde taal, zodat gasten precies weten wat ze moeten doen tijdens de activiteit."
+          },
+          {
+            "code": "DV12705819LT04",
+            "naam": "Je stemt communicatie en interactie af op doel en doelgroep",
+            "omschrijving": "Je leert hoe je tijdens de activiteit je communicatie aanpast aan verschillende doelgroepen en hoe je sociale vaardigheden inzet om gasten een goede beleving te geven."
+          }
+        ]
+      },
+      {
+        "code": "DV12705820",
+        "naam": "Maakt en bewaakt een operationeel plan",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 1,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": "4",
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "P6-K3-W1",
+            "naam": "Maakt en bewaakt een operationeel plan",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P6-K3",
+              "naam": "Managet processen en medewerkers"
+            }
+          }
+        ],
+        "leertaken": [
+          {
+            "code": "DV12705820LT01",
+            "naam": "Je analyseert de bedrijfsinformatie voor een realistisch operationeel plan",
+            "omschrijving": "Je leert hoe je allerlei soorten bedrijfsinformatie, cijfers en trends analyseert om een realistisch operationeel plan te maken. Je krijgt inzicht in wat een organisatie nodig heeft om doelen te bereiken en wat de kansen en beperkingen zijn."
+          },
+          {
+            "code": "DV12705820LT02",
+            "naam": "Je plant en stelt het operationeel plan op",
+            "omschrijving": "Je leert hoe je alle activiteiten logisch plant, de juiste prioriteiten stelt en een volledig en helder operationeel plan schrijft. Je zorgt dat alle onderdelen op elkaar aansluiten en uitvoerbaar zijn, zodat het plan in de praktijk goed werkt."
+          },
+          {
+            "code": "DV12705820LT03",
+            "naam": "Je organiseert mensen, middelen en budget voor de uitvoering van het plan",
+            "omschrijving": "Je leert hoe je inschat wat er nodig is om het plan uit te voeren (zoals mensen, materialen, middelen en budget) en hoe je deze middelen verantwoord plant en verdeelt."
+          },
+          {
+            "code": "DV12705820LT04",
+            "naam": "Je bewaakt, stuurt bij en werkt samen tijdens de uitvoering van het plan",
+            "omschrijving": "Je leert hoe je de uitvoering van het operationeel plan actief bewaakt, tijdig afstemt met het management en samenwerkt met collega’s en partners. Je houdt rekening met duurzaamheid en inclusie en stuurt bij wanneer dat nodig is."
+          }
+        ]
+      },
+      {
+        "code": "DV12705821",
+        "naam": "Bewaakt processen en stuurt medewerkers aan",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 1,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": "4",
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "P6-K3-W2",
+            "naam": "Bewaakt processen en stuurt medewerkers aan",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P6-K3",
+              "naam": "Managet processen en medewerkers"
+            }
+          }
+        ],
+        "leertaken": [
+          {
+            "code": "DV12705821LT01",
+            "naam": "Je bewaakt processen en werkt volgens regels en procedures",
+            "omschrijving": "Je leert hoe je de kwaliteit van het werk bewaakt door goed te letten op de planning, productiviteit en bedrijfsprocedures. Je leert werken volgens wettelijke richtlijnen en ziet tijdig waar het proces niet lekker loopt."
+          },
+          {
+            "code": "DV12705821LT02",
+            "naam": "Je plant werkzaamheden en wijst taken toe",
+            "omschrijving": "Je leert hoe je een team aanstuurt door werkzaamheden te plannen, de juiste prioriteiten te stellen en taken eerlijk en doelgericht te verdelen op basis van de kwaliteiten van medewerkers."
+          },
+          {
+            "code": "DV12705821LT03",
+            "naam": "Je begeleidt, motiveert en stuurt medewerkers aan",
+            "omschrijving": "Je leert hoe je medewerkers ondersteunt, motiveert en begeleidt in hun werk. Je oefent hoe je duidelijke instructies geeft, hoe je constructieve feedback geeft en hoe je verschillende leiderschapsstijlen inzet om het beste uit medewerkers te halen."
+          },
+          {
+            "code": "DV12705821LT04",
+            "naam": "Je communiceert professioneel als leidinggevende",
+            "omschrijving": "Je leert hoe je als leidinggevende duidelijke gesprekken voert, hoe je lastige situaties professioneel aanpakt, en hoe je zorgt voor een veilige en inclusieve werkomgeving waarin mensen zich gerespecteerd voelen."
+          }
+        ]
+      },
+      {
+        "code": "DV12705822",
+        "naam": "Bewaakt de financiën",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 2,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": "4",
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "P6-K3-W3",
+            "naam": "Bewaakt de financiën",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P6-K3",
+              "naam": "Managet processen en medewerkers"
+            }
+          }
+        ],
+        "leertaken": [
+          {
+            "code": "DV12705822LT01",
+            "naam": "Je verzamelt, controleert en analyseert de financiële gegevens",
+            "omschrijving": "Je leert hoe je financiële informatie zorgvuldig verzamelt, controleert en grondig analyseert. Je oefent met het begrijpen van cijfers, resultaten en trends, zodat je inzicht krijgt in hoe het bedrijf financieel presteert."
+          },
+          {
+            "code": "DV12705822LT02",
+            "naam": "Je trekt financiële conclusies en stelt rapportages op",
+            "omschrijving": "Je leert hoe je financiële informatie omzet in duidelijke, overzichtelijke rapportages. Je oefent hoe je logische conclusies trekt en financiële inzichten op een begrijpelijke manier vastlegt voor management of collega’s."
+          },
+          {
+            "code": "DV12705822LT03",
+            "naam": "Je stelt begrotingen op en onderbouwt financiële keuzes",
+            "omschrijving": "Je leert hoe je een begroting maakt, kosten en baten afweegt en financiële keuzes onderbouwt. Hierdoor kun je adviseren over beslissingen die financieel gezond en strategisch verstandig zijn."
+          },
+          {
+            "code": "DV12705822LT04",
+            "naam": "Je adviseert over financiële maatregelen en resultaten",
+            "omschrijving": "Je leert hoe je financiële resultaten bespreekt, passende maatregelen voorstelt en meedenkt over verbeteringen. Je ontwikkelt inzicht in wat het bedrijf financieel nodig heeft en hoe jij daaraan kunt bijdragen."
+          }
+        ]
+      },
+      {
+        "code": "DV12705823",
+        "naam": "Verzamelt en evalueert informatie en data",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 2,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": "4",
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "P6-K3-W4",
+            "naam": "Verzamelt en evalueert informatie en data",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P6-K3",
+              "naam": "Managet processen en medewerkers"
+            }
+          }
+        ],
+        "leertaken": [
+          {
+            "code": "DV12705823LT01",
+            "naam": "Je verzamelt zorgvuldig informatie en data",
+            "omschrijving": "Je leert hoe je doelgericht informatie en data verzamelt uit verschillende bronnen, zodat je een volledig en actueel beeld krijgt van bedrijfsresultaten, processen en ontwikkelingen in het vakgebied."
+          },
+          {
+            "code": "DV12705823LT02",
+            "naam": "Je analyseert en beoordeelt informatie en data",
+            "omschrijving": "Je leert hoe je informatie kritisch beoordeelt op betrouwbaarheid en relevantie en hoe je analyses maakt die inzicht geven in kansen, risico’s, sterktes en zwaktes binnen de organisatie."
+          },
+          {
+            "code": "DV12705823LT03",
+            "naam": "Je verwerkt en presenteert informatie en data",
+            "omschrijving": "Je leert hoe je informatie overzichtelijk verwerkt en presenteert in rapportages, zodat collega’s en leidinggevenden in één oogopslag begrijpen wat de belangrijkste inzichten zijn."
+          }
+        ]
+      },
+      {
+        "code": "DV12705824",
+        "naam": "Optimaliseert het commerciële aanbod en de dienstverlening",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 2,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": "4",
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "P6-K3-W5",
+            "naam": "Optimaliseert het (toeristisch) commerciële aanbod en de dienstverlening",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P6-K3",
+              "naam": "Managet processen en medewerkers"
+            }
+          }
+        ],
+        "leertaken": [
+          {
+            "code": "DV12705824LT01",
+            "naam": "Je analyseert de markt-, klant- en bedrijfsinformatie",
+            "omschrijving": "Je leert hoe je relevante gegevens, trends en ontwikkelingen grondig analyseert. Je ontdekt hoe je deze informatie gebruikt om te begrijpen wat er speelt in de markt, waar kansen liggen en hoe het bedrijf de dienstverlening kan verbeteren."
+          },
+          {
+            "code": "DV12705824LT02",
+            "naam": "Je ontwikkelt verbetervoorstellen voor aanbod en dienstverlening",
+            "omschrijving": "Je leert hoe je commerciële kansen herkent en vertaalt naar concrete ideeën voor verbetering. Je oefent hoe je deze verbeterpunten helder verwoordt, onderbouwt en presenteert zodat het bedrijf stappen kan zetten in groei en vernieuwing."
+          },
+          {
+            "code": "DV12705824LT03",
+            "naam": "Je werkt duurzaam en professioneel samen binnen en buiten de organisatie",
+            "omschrijving": "Je leert samenwerken met diverse collega’s en partners, met aandacht voor inclusiviteit en duurzaamheid. Je benut verschillende perspectieven om processen te verbeteren en neemt verantwoord ondernemen mee in je keuzes."
+          },
+          {
+            "code": "DV12705824LT04",
+            "naam": "Je werkt professioneel met digitale informatie- en communicatiesystemen",
+            "omschrijving": "Je leert hoe je digitale systemen en communicatiemiddelen gebruikt om informatie te verzamelen, te verwerken en te presenteren. Daarmee kun je analyses ondersteunen en verbeteringen effectief onderbouwen."
+          }
+        ]
+      },
+      {
+        "code": "DV12705825",
+        "naam": "Bereidt gastgerichte werkzaamheden voor",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 1,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": "4",
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "B1-K1-W1",
+            "naam": "Bereidt gastgerichte werkzaamheden voor",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K1",
+              "naam": "Verleent gastvrijheid"
+            }
+          }
+        ],
+        "leertaken": [
+          {
+            "code": "DV12705825LT01",
+            "naam": "Gastvrij en klantgericht handelen",
+            "omschrijving": null
+          },
+          {
+            "code": "DV12705825LT02",
+            "naam": "Bedrijfstypes, formules en concepten",
+            "omschrijving": null
+          },
+          {
+            "code": "DV12705825LT03",
+            "naam": "Materialen, middelen, systemen & ICT",
+            "omschrijving": null
+          },
+          {
+            "code": "DV12705825LT04",
+            "naam": "Plannen, organiseren & samenwerken",
+            "omschrijving": null
+          }
+        ]
+      },
+      {
+        "code": "DV12705826",
+        "naam": "Draagt bij aan een gastgerichte beleving",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 1,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": "4",
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "B1-K1-W2",
+            "naam": "Draagt bij aan een gastgerichte beleving",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K1",
+              "naam": "Verleent gastvrijheid"
+            }
+          }
+        ],
+        "leertaken": [
+          {
+            "code": "DV12705826LT01",
+            "naam": "Plannen, organiseren & samenwerken",
+            "omschrijving": null
+          },
+          {
+            "code": "DV12705826LT02",
+            "naam": "Gastvrij en klantgericht handelen",
+            "omschrijving": null
+          },
+          {
+            "code": "DV12705826LT03",
+            "naam": "Taal-activiteiten",
+            "omschrijving": null
+          },
+          {
+            "code": "DV12705826LT04",
+            "naam": "Duurzaamheid, Cultuur & maatschappelijke verantwoordelijkheid",
+            "omschrijving": null
+          }
+        ]
+      },
+      {
+        "code": "DV12705827",
+        "naam": "Draagt bij aan een sociaal en fysiek veilige werkomgeving",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 1,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": "4",
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "B1-K1-W3",
+            "naam": "Draagt bij aan een sociaal en fysiek veilige werkomgeving",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K1",
+              "naam": "Verleent gastvrijheid"
+            }
+          }
+        ],
+        "leertaken": [
+          {
+            "code": "DV12705827LT01",
+            "naam": "Gastvrij en klantgericht handelen",
+            "omschrijving": null
+          },
+          {
+            "code": "DV12705827LT02",
+            "naam": "Materialen, middelen, systemen & ICT",
+            "omschrijving": null
+          },
+          {
+            "code": "DV12705827LT03",
+            "naam": "Veiligheid, regels & richtlijnen",
+            "omschrijving": null
+          },
+          {
+            "code": "DV12705827LT04",
+            "naam": "Plannen, organiseren & samenwerken",
+            "omschrijving": null
+          },
+          {
+            "code": "DV12705827LT05",
+            "naam": "Gastvrij en klantgericht handelen",
+            "omschrijving": null
+          }
+        ]
+      },
+      {
+        "code": "DV12705828",
+        "naam": "Rondt gastgerichte werkzaamheden af",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 1,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": "4",
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "B1-K1-W4",
+            "naam": "Rondt gastgerichte werkzaamheden af",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K1",
+              "naam": "Verleent gastvrijheid"
+            }
+          }
+        ],
+        "leertaken": [
+          {
+            "code": "DV12705828LT01",
+            "naam": "Duurzaamheid, Cultuur & Maatschappelijke verantwoordelijkheid",
+            "omschrijving": null
+          },
+          {
+            "code": "DV12705828LT02",
+            "naam": "Materialen, middelen, systemen & ICT",
+            "omschrijving": null
+          },
+          {
+            "code": "DV12705828LT03",
+            "naam": "Veiligheid, regels & richtlijnen",
+            "omschrijving": null
+          },
+          {
+            "code": "DV12705828LT04",
+            "naam": "Plannen, organiseren & samenwerken",
+            "omschrijving": null
+          },
+          {
+            "code": "DV12705828LT05",
+            "naam": "Gastvrij en klantgericht handelen",
+            "omschrijving": null
+          }
+        ]
+      },
+      {
+        "code": "DV12705829",
+        "naam": "Evalueert de werkzaamheden",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 1,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": "4",
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "B1-K1-W5",
+            "naam": "Evalueert de (eigen) werkzaamheden",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K1",
+              "naam": "Verleent gastvrijheid"
+            }
+          }
+        ],
+        "leertaken": [
+          {
+            "code": "DV12705829LT01",
+            "naam": "Bedrijfstypes, formules en concepten",
+            "omschrijving": null
+          },
+          {
+            "code": "DV12705829LT02",
+            "naam": "Plannen, organiseren & samenwerken",
+            "omschrijving": null
+          },
+          {
+            "code": "DV12705829LT03",
+            "naam": "Gastvrij en klantgericht handelen",
+            "omschrijving": null
+          }
+        ]
+      },
+      {
+        "code": "DV12705830",
+        "naam": "Engels B1",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 1,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": "3",
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [],
+        "leertaken": [
+          {
+            "code": "DV12705830LT01",
+            "naam": "Engels Spreken en Gesprekken B1",
+            "omschrijving": null
+          },
+          {
+            "code": "DV12705830LT02",
+            "naam": "Engels lezen B1",
+            "omschrijving": null
+          },
+          {
+            "code": "DV12705830LT03",
+            "naam": "Engels luisteren B1",
+            "omschrijving": null
+          },
+          {
+            "code": "DV12705830LT04",
+            "naam": "Engels Schrijven B1",
+            "omschrijving": null
+          }
+        ]
+      },
+      {
+        "code": "DV12705831",
+        "naam": "LBO (ontwikkelgesprekken)",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 1,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": null,
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [],
+        "leertaken": [
+          {
+            "code": "DV12705831LT01",
+            "naam": "Voeren van ontwikkelgesprekken op basis van jouw peilstok en voortgang",
+            "omschrijving": "e neemt de verantwoordelijkheid om met jouw loopbaancoach in gesprek te gaan betreffende jouw voortgang op de opleiding die je volgt. Dit doe je minimaal 2x per jaar, zodat de coach en jij goed in contact zijn over jouw studie en ontwikkeling"
+          }
+        ]
+      },
+      {
+        "code": "DV12705832",
+        "naam": "Interne Praktijk",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 1,
+        "keuze": false,
+        "sbu": 20,
+        "startniveau": null,
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [],
+        "leertaken": [
+          {
+            "code": "DV12705832LT01",
+            "naam": "Interne praktijk",
+            "omschrijving": "Je neemt deel aan interne evenementen van Rijn IJssel, open dagen,  netwerkdagen, dinnershows enzovoort. Met deze deelname werk je aan het basideel van je opleiding: Verleent Gastvrijheid."
+          }
+        ]
+      },
+      {
+        "code": "DV12705833",
+        "naam": "Sport",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 1,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": "4",
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [],
+        "leertaken": [
+          {
+            "code": "DV12705833LT01",
+            "naam": "Sportactiviteiten",
+            "omschrijving": null
+          }
+        ]
+      },
+      {
+        "code": "DV12705834",
+        "naam": "Nederlands 3F",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 1,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": "4",
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [],
+        "leertaken": [
+          {
+            "code": "DV12705834LT01",
+            "naam": "Schrijven 3F",
+            "omschrijving": null
+          },
+          {
+            "code": "DV12705834LT02",
+            "naam": "lezen en luisteren 3F",
+            "omschrijving": null
+          },
+          {
+            "code": "DV12705834LT03",
+            "naam": "Spreken en Gesprekken 3F",
+            "omschrijving": null
+          }
+        ]
+      },
+      {
+        "code": "DV12705835",
+        "naam": "Rekenen MBO4",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 1,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": "4",
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [],
+        "leertaken": [
+          {
+            "code": "DV12705835LT01",
+            "naam": "rekenen niveau 4",
+            "omschrijving": null
+          }
+        ]
+      },
+      {
+        "code": "DV12705836",
+        "naam": "Loopbaan en Burgerschap",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 1,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": "4",
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [],
+        "leertaken": [
+          {
+            "code": "DV12705836LT01",
+            "naam": "Opdrachten burgerschap",
+            "omschrijving": null
+          },
+          {
+            "code": "DV12705836LT02",
+            "naam": "Deelnameverplichting loopbaan",
+            "omschrijving": null
+          },
+          {
+            "code": "DV12705836LT03",
+            "naam": "Deelnameverplichting burgerschap",
+            "omschrijving": null
+          }
+        ]
+      },
+      {
+        "code": "DV12705837",
+        "naam": "Keuzedeel Lean & Creatief",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 1,
+        "keuze": false,
+        "sbu": 240,
+        "startniveau": "4",
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [],
+        "leertaken": [
+          {
+            "code": "DV12705837LT01",
+            "naam": "Theorie keuzedeel",
+            "omschrijving": null
+          },
+          {
+            "code": "DV12705837LT02",
+            "naam": "Eindopdracht keuzedeel",
+            "omschrijving": null
+          }
+        ]
+      },
+      {
+        "code": "DV12705838",
+        "naam": "Keuzedeel Spaans",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 1,
+        "keuze": false,
+        "sbu": 240,
+        "startniveau": "niveau 4",
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [],
+        "leertaken": [
+          {
+            "code": "DV12705843LT01",
+            "naam": "Theorie keuzedeel",
+            "omschrijving": null
+          },
+          {
+            "code": "DV12705843LT02",
+            "naam": "Eindopdrachten keuzedeel Spaans",
+            "omschrijving": null
+          }
+        ]
+      },
+      {
+        "code": "DV12705839",
+        "naam": "Keuzedeel Standplaatshostess",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 1,
+        "keuze": false,
+        "sbu": 240,
+        "startniveau": "4",
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [],
+        "leertaken": [
+          {
+            "code": "DV12705839LT01",
+            "naam": "Theorie keuzedeel standplaatshost",
+            "omschrijving": null
+          },
+          {
+            "code": "DV12705839LT02",
+            "naam": "Afronding keuzedeel standplaatshost",
+            "omschrijving": null
+          }
+        ]
+      },
+      {
+        "code": "DV12705840",
+        "naam": "Keuzedeel HBO Doorstroom",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 1,
+        "keuze": false,
+        "sbu": 240,
+        "startniveau": "4",
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [],
+        "leertaken": [
+          {
+            "code": "DV12705840LT01",
+            "naam": "Theorie keuzedeel HBO",
+            "omschrijving": null
+          },
+          {
+            "code": "DV12705840LT02",
+            "naam": "Afronding keuzedeel HBO",
+            "omschrijving": null
+          }
+        ]
+      },
+      {
+        "code": "DV12705841",
+        "naam": "Duits A2",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 1,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": "niveau 4",
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "B1-K2-W2",
+            "naam": "Ontvangt en neemt afscheid van gasten",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K2",
+              "naam": "Voert hospitality werkzaamheden uit"
+            }
+          },
+          {
+            "code": "B1-K2-W3",
+            "naam": "Treedt op als aanspreekpunt",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K2",
+              "naam": "Voert hospitality werkzaamheden uit"
+            }
+          }
+        ],
+        "leertaken": [
+          {
+            "code": "DV12705841LT01",
+            "naam": "Lezen A2",
+            "omschrijving": null
+          },
+          {
+            "code": "DV12705841LT02",
+            "naam": "luisteren A2",
+            "omschrijving": null
+          },
+          {
+            "code": "DV12705841LT03",
+            "naam": "schrijven A2",
+            "omschrijving": null
+          },
+          {
+            "code": "DV12705841LT04",
+            "naam": "spreken en gesprekken A2",
+            "omschrijving": null
+          }
+        ]
+      },
+      {
+        "code": "DV12705842",
+        "naam": "BPV",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 1,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": "Niveau 3",
+        "duur_in_weken": 18,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [],
+        "leertaken": [
+          {
+            "code": "DV12705842LT01",
+            "naam": "BPV",
+            "omschrijving": null
+          }
+        ]
+      },
+      {
+        "code": "DV12705844",
+        "naam": "Loopbaancoaching",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 1,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": null,
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "B1-K1-W1",
+            "naam": "Bereidt gastgerichte werkzaamheden voor",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K1",
+              "naam": "Verleent gastvrijheid"
+            }
+          },
+          {
+            "code": "B1-K1-W2",
+            "naam": "Draagt bij aan een gastgerichte beleving",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K1",
+              "naam": "Verleent gastvrijheid"
+            }
+          },
+          {
+            "code": "B1-K1-W3",
+            "naam": "Draagt bij aan een sociaal en fysiek veilige werkomgeving",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K1",
+              "naam": "Verleent gastvrijheid"
+            }
+          },
+          {
+            "code": "B1-K1-W4",
+            "naam": "Rondt gastgerichte werkzaamheden af",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K1",
+              "naam": "Verleent gastvrijheid"
+            }
+          },
+          {
+            "code": "B1-K1-W5",
+            "naam": "Evalueert de (eigen) werkzaamheden",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K1",
+              "naam": "Verleent gastvrijheid"
+            }
+          },
+          {
+            "code": "B1-K2-W1",
+            "naam": "Verwerkt reserveringen",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K2",
+              "naam": "Voert hospitality werkzaamheden uit"
+            }
+          },
+          {
+            "code": "B1-K2-W2",
+            "naam": "Ontvangt en neemt afscheid van gasten",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K2",
+              "naam": "Voert hospitality werkzaamheden uit"
+            }
+          },
+          {
+            "code": "B1-K2-W3",
+            "naam": "Treedt op als aanspreekpunt",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K2",
+              "naam": "Voert hospitality werkzaamheden uit"
+            }
+          },
+          {
+            "code": "B1-K2-W4",
+            "naam": "Handelt bij incidenten of calamiteiten",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K2",
+              "naam": "Voert hospitality werkzaamheden uit"
+            }
+          },
+          {
+            "code": "B1-K2-W5",
+            "naam": "Verkoopt of verhuurt producten en/of diensten",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K2",
+              "naam": "Voert hospitality werkzaamheden uit"
+            }
+          },
+          {
+            "code": "P6-K1-W1",
+            "naam": "Promoot het (toeristisch)commerciële aanbod",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P6-K1",
+              "naam": "Voert commerciële activiteiten uit"
+            }
+          },
+          {
+            "code": "P6-K1-W2",
+            "naam": "Voert aftersales uit en handelt klachten af",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P6-K1",
+              "naam": "Voert commerciële activiteiten uit"
+            }
+          },
+          {
+            "code": "P6-K1-W3",
+            "naam": "Voert (financieel-)administratieve werkzaamheden uit",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P6-K1",
+              "naam": "Voert commerciële activiteiten uit"
+            }
+          },
+          {
+            "code": "P6-K1-W4",
+            "naam": "Ontwikkelt een voorstel voor (nieuwe) toeristische producten/diensten",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P6-K1",
+              "naam": "Voert commerciële activiteiten uit"
+            }
+          },
+          {
+            "code": "P6-K2-W1",
+            "naam": "Stelt een toeristische activiteit samen",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P6-K2",
+              "naam": "Verzorgt toeristische activiteiten"
+            }
+          },
+          {
+            "code": "P6-K2-W2",
+            "naam": "Organiseert en begeleidt toeristische activiteiten",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P6-K2",
+              "naam": "Verzorgt toeristische activiteiten"
+            }
+          },
+          {
+            "code": "P6-K3-W1",
+            "naam": "Maakt en bewaakt een operationeel plan",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P6-K3",
+              "naam": "Managet processen en medewerkers"
+            }
+          },
+          {
+            "code": "P6-K3-W2",
+            "naam": "Bewaakt processen en stuurt medewerkers aan",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P6-K3",
+              "naam": "Managet processen en medewerkers"
+            }
+          },
+          {
+            "code": "P6-K3-W3",
+            "naam": "Bewaakt de financiën",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P6-K3",
+              "naam": "Managet processen en medewerkers"
+            }
+          },
+          {
+            "code": "P6-K3-W4",
+            "naam": "Verzamelt en evalueert informatie en data",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P6-K3",
+              "naam": "Managet processen en medewerkers"
+            }
+          },
+          {
+            "code": "P6-K3-W5",
+            "naam": "Optimaliseert het (toeristisch) commerciële aanbod en de dienstverlening",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P6-K3",
+              "naam": "Managet processen en medewerkers"
+            }
+          }
+        ],
+        "leertaken": [
+          {
+            "code": "DV12705844LT01",
+            "naam": "Loopbaancoaching",
+            "omschrijving": "Je ontwikkelt jezelf en je loopbaan op school door samen met de coach in gesprek te gaan en deel te nemen aan de LOB lessen."
+          }
+        ]
+      },
+      {
+        "code": "DV12705845",
+        "naam": "keuzedeel 2",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 1,
+        "keuze": false,
+        "sbu": 240,
+        "startniveau": "4",
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [],
+        "leertaken": [
+          {
+            "code": "DV12705838LT01",
+            "naam": "Theorie keuzedeel",
+            "omschrijving": null
+          },
+          {
+            "code": "DV12705838LT02",
+            "naam": "Eindopdrachten keuzedeel Spaans",
+            "omschrijving": null
+          }
+        ]
+      }
+    ],
+    "beroepstaken": [
+      {
+        "code": "BT1",
+        "naam": "Beroepstaak Tourism & Hospitality",
+        "werkprocessen": [
+          "B1-K1-W1",
+          "B1-K1-W2",
+          "B1-K1-W3",
+          "B1-K1-W4",
+          "B1-K1-W5"
+        ]
+      },
+      {
+        "code": "BT2",
+        "naam": "Beroepstaak Verzorgen en uitvoeren van toeristisch",
+        "werkprocessen": [
+          "B1-K2-W4",
+          "P6-K1-W1",
+          "P6-K1-W2",
+          "P6-K1-W4",
+          "P6-K2-W1",
+          "P6-K2-W2",
+          "P6-K3-W1",
+          "P6-K3-W2",
+          "P6-K3-W3",
+          "P6-K3-W4",
+          "P6-K3-W5"
+        ]
+      },
+      {
+        "code": "BT3",
+        "naam": "Beroepstaak Aanspreekpunt in het Tourism",
+        "werkprocessen": [
+          "B1-K2-W1",
+          "B1-K2-W2",
+          "B1-K2-W3",
+          "B1-K2-W4",
+          "B1-K2-W5",
+          "P6-K1-W3"
+        ]
+      }
+    ],
+    "leereenheden": [
+      {
+        "code": "LE-DV12705801",
+        "naam": "Oriëntatie op de branche",
+        "is_keuze": false,
+        "aantal_periodes": 1,
+        "leerjaren": [
+          {
+            "leerjaar": 1,
+            "periodes": [
+              1
+            ]
+          }
+        ],
+        "leertaken": [
+          "DV12705810LT01",
+          "DV12705810LT02",
+          "DV12705810LT03",
+          "DV12705814LT01",
+          "DV12705817LT01",
+          "DV12705818LT04"
+        ],
+        "leeractiviteiten": [
+          {
+            "code": "LA000001",
+            "naam": "Bedrijfsonderzoek",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": false,
+            "is_inleveropdracht": true,
+            "titel_toets": null,
+            "titel_inleveropdracht": "Bedrijfsonderzoek"
+          },
+          {
+            "code": "LA000002",
+            "naam": "Afnemen interview",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": false,
+            "is_inleveropdracht": true,
+            "titel_toets": null,
+            "titel_inleveropdracht": "Interview"
+          },
+          {
+            "code": "LA000003",
+            "naam": "Presentatie ouderavond",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "Presentatie ouderavond",
+            "titel_inleveropdracht": "Presentatie ouderavond"
+          },
+          {
+            "code": "LA000013",
+            "naam": "Ontvangst en afscheid nemen van gasten in het Duits",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "Ontvangen en afnemen van gasten in het Duits tijdens de ouderavond",
+            "titel_inleveropdracht": "Ontvangen en afnemen van gasten in het Duits tijdens de ouderavond"
+          },
+          {
+            "code": "LA000014",
+            "naam": "Bedrijven introduceren in het Engels",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "Bedrijven introduceren in het Engels tijdens de ouderavond",
+            "titel_inleveropdracht": "Bedrijven introduceren in het Engels tijdens de ouderavond"
+          }
+        ]
+      },
+      {
+        "code": "LE-DV12705802",
+        "naam": "Explore Arnhem",
+        "is_keuze": false,
+        "aantal_periodes": 2,
+        "leerjaren": [
+          {
+            "leerjaar": 1,
+            "periodes": [
+              1,
+              2
+            ]
+          }
+        ],
+        "leertaken": [
+          "DV12705814LT01",
+          "DV12705814LT03",
+          "DV12705814LT04",
+          "DV12705814LT05",
+          "DV12705815LT01",
+          "DV12705817LT01",
+          "DV12705817LT04",
+          "DV12705818LT01",
+          "DV12705818LT02",
+          "DV12705818LT03",
+          "DV12705818LT04",
+          "DV12705819LT01",
+          "DV12705819LT02",
+          "DV12705819LT03",
+          "DV12705819LT04"
+        ],
+        "leeractiviteiten": [
+          {
+            "code": "LA000004",
+            "naam": "Programma, draaiboek & activiteiten opzetten en ontwikkelen",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": false,
+            "is_inleveropdracht": true,
+            "titel_toets": null,
+            "titel_inleveropdracht": "Programma Holland Tour"
+          },
+          {
+            "code": "LA000005",
+            "naam": "Uitvoering stadsrondleiding",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "Uitvoering en begeleiding van de Holland Tour activiteiten",
+            "titel_inleveropdracht": "Uitvoering en begeleiding van de Holland Tour activiteiten"
+          },
+          {
+            "code": "LA000016",
+            "naam": "Introductie stadsonderdeel in Engels",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": false,
+            "is_inleveropdracht": true,
+            "titel_toets": null,
+            "titel_inleveropdracht": "Introductie stadsonderdeel in Engels"
+          },
+          {
+            "code": "LA000017",
+            "naam": "Flyer Duits en gespreksvoering",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": false,
+            "is_inleveropdracht": true,
+            "titel_toets": null,
+            "titel_inleveropdracht": "Flyer + gesprekje ter promotie van de Holland Tour in het Duits"
+          }
+        ]
+      },
+      {
+        "code": "LE-DV12705803",
+        "naam": "My Favourite Citytrip",
+        "is_keuze": false,
+        "aantal_periodes": 2,
+        "leerjaren": [
+          {
+            "leerjaar": 1,
+            "periodes": [
+              3,
+              4
+            ]
+          }
+        ],
+        "leertaken": [
+          "DV12705810LT01",
+          "DV12705810LT02",
+          "DV12705810LT03",
+          "DV12705813LT01",
+          "DV12705813LT02",
+          "DV12705813LT03",
+          "DV12705813LT05",
+          "DV12705813LT06",
+          "DV12705816LT03"
+        ],
+        "leeractiviteiten": [
+          {
+            "code": "LA000006",
+            "naam": "Ontwikkel een City informatiemap",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": false,
+            "is_inleveropdracht": true,
+            "titel_toets": null,
+            "titel_inleveropdracht": "Bestemmingsmap"
+          },
+          {
+            "code": "LA000008",
+            "naam": "Uitvoering vakantiemarkt in ENG en NL",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "Uitvoering vakantiemarkt: promoten van aanbod en informeren van potentiële klanten",
+            "titel_inleveropdracht": "Uitvoering vakantiemarkt: promoten van aanbod en informeren van potentiële klanten"
+          },
+          {
+            "code": "LA000015",
+            "naam": "Ontwikkelen reisvoorstel en prijsopgave",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": true,
+            "titel_toets": "Adviesgesprek reisvoorstel",
+            "titel_inleveropdracht": "reisvoorstel met prijsopgave"
+          },
+          {
+            "code": "LA000018",
+            "naam": "Pitch reisbestemming Engels",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "Pitch reisbestemming Engels",
+            "titel_inleveropdracht": "Pitch reisbestemming Engels"
+          },
+          {
+            "code": "LA000019",
+            "naam": "Promoten city als Travel influencer in het Duits",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "Promoten van de reis als Travel influencer",
+            "titel_inleveropdracht": "Promoten van de reis als Travel influencer"
+          }
+        ]
+      },
+      {
+        "code": "LE-DV12705805",
+        "naam": "Front Office Skills",
+        "is_keuze": false,
+        "aantal_periodes": 2,
+        "leerjaren": [
+          {
+            "leerjaar": 1,
+            "periodes": [
+              5,
+              6
+            ]
+          }
+        ],
+        "leertaken": [
+          "DV12705810LT01",
+          "DV12705810LT02",
+          "DV12705810LT03",
+          "DV12705812LT02",
+          "DV12705813LT01",
+          "DV12705813LT02",
+          "DV12705813LT05",
+          "DV12705813LT06",
+          "DV12705814LT01",
+          "DV12705814LT03",
+          "DV12705815LT01",
+          "DV12705815LT02",
+          "DV12705815LT03",
+          "DV12705815LT04",
+          "DV12705816LT01",
+          "DV12705816LT02",
+          "DV12705816LT03"
+        ],
+        "leeractiviteiten": [
+          {
+            "code": "LA000009",
+            "naam": "Manual hotel/vakantiepark",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": false,
+            "is_inleveropdracht": true,
+            "titel_toets": null,
+            "titel_inleveropdracht": "Manual"
+          },
+          {
+            "code": "LA000010",
+            "naam": "Inchecken gasten aan de front office",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "Inchecken gasten aan de front office in het Nederlands",
+            "titel_inleveropdracht": "Inchecken gasten aan de front office in het Nederlands"
+          },
+          {
+            "code": "LA000011",
+            "naam": "Informatie verstrekken aan de balie",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "Verstrekken van informatie aan de balie",
+            "titel_inleveropdracht": "Verstrekken van informatie aan de balie"
+          },
+          {
+            "code": "LA000012",
+            "naam": "Telefonische reservering aannemen",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": true,
+            "titel_toets": "Aannemen en verwerken van een hotelreservering",
+            "titel_inleveropdracht": "Portfolio Lodgegate"
+          },
+          {
+            "code": "LA000022",
+            "naam": "Verkoop via de mail in het Duits",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "Verkoop via de mail",
+            "titel_inleveropdracht": "Verkoop via de mail"
+          },
+          {
+            "code": "LA000023",
+            "naam": "Uitchecken van gasten en klachtengesprek in het Engels",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "Uitchecken van gasten en klachtengesprek in het Engels",
+            "titel_inleveropdracht": "Uitchecken van gasten en klachtengesprek in het Engels"
+          },
+          {
+            "code": "LA000024",
+            "naam": "Email schrijven naar aanleiding van een klacht van de gast",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "E-mail schrijven naar aanleiding van een klacht van de gast",
+            "titel_inleveropdracht": "E-mail schrijven naar aanleiding van een klacht van de gast"
+          }
+        ]
+      },
+      {
+        "code": "LE-DV12705806",
+        "naam": "Ontwikkelingsgerichte BPV",
+        "is_keuze": false,
+        "aantal_periodes": 4,
+        "leerjaren": [
+          {
+            "leerjaar": 1,
+            "periodes": [
+              7,
+              8
+            ]
+          },
+          {
+            "leerjaar": 2,
+            "periodes": [
+              1,
+              2
+            ]
+          }
+        ],
+        "leertaken": [
+          "DV12705810LT01",
+          "DV12705810LT02",
+          "DV12705813LT01",
+          "DV12705813LT02",
+          "DV12705813LT03",
+          "DV12705813LT05",
+          "DV12705813LT06",
+          "DV12705814LT01",
+          "DV12705815LT01",
+          "DV12705815LT02",
+          "DV12705815LT03",
+          "DV12705815LT04",
+          "DV12705816LT01",
+          "DV12705818LT04"
+        ],
+        "leeractiviteiten": [
+          {
+            "code": "LA000025",
+            "naam": "BPV opdrachten werkboek",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": false,
+            "is_inleveropdracht": true,
+            "titel_toets": null,
+            "titel_inleveropdracht": "BPV opdrachten werkboek"
+          },
+          {
+            "code": "LA000026",
+            "naam": "BPV urenoverzicht",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": false,
+            "is_inleveropdracht": true,
+            "titel_toets": null,
+            "titel_inleveropdracht": "BPV urenoverzicht"
+          }
+        ]
+      },
+      {
+        "code": "LE-DV12705807",
+        "naam": "Wintersport excursie",
+        "is_keuze": false,
+        "aantal_periodes": 2,
+        "leerjaren": [
+          {
+            "leerjaar": 2,
+            "periodes": [
+              3,
+              4
+            ]
+          }
+        ],
+        "leertaken": [
+          "DV12705817LT01",
+          "DV12705818LT02",
+          "DV12705818LT03",
+          "DV12705818LT04",
+          "DV12705819LT01",
+          "DV12705819LT02"
+        ],
+        "leeractiviteiten": []
+      },
+      {
+        "code": "LE-DV12705808",
+        "naam": "Alaska tot Azteken",
+        "is_keuze": false,
+        "aantal_periodes": 2,
+        "leerjaren": [
+          {
+            "leerjaar": 2,
+            "periodes": [
+              5,
+              6
+            ]
+          }
+        ],
+        "leertaken": [
+          "DV12705817LT01"
+        ],
+        "leeractiviteiten": []
+      },
+      {
+        "code": "LE-DV12705809",
+        "naam": "Citytrip excursie",
+        "is_keuze": false,
+        "aantal_periodes": 1,
+        "leerjaren": [
+          {
+            "leerjaar": 3,
+            "periodes": [
+              1
+            ]
+          }
+        ],
+        "leertaken": [
+          "DV12705814LT04",
+          "DV12705814LT05",
+          "DV12705818LT02",
+          "DV12705818LT03",
+          "DV12705818LT04",
+          "DV12705819LT01",
+          "DV12705819LT02",
+          "DV12705819LT04"
+        ],
+        "leeractiviteiten": []
+      },
+      {
+        "code": "LE-DV12705810",
+        "naam": "Themahotel",
+        "is_keuze": false,
+        "aantal_periodes": 1,
+        "leerjaren": [
+          {
+            "leerjaar": 2,
+            "periodes": [
+              1
+            ]
+          }
+        ],
+        "leertaken": [
+          "DV12705817LT01",
+          "DV12705817LT02",
+          "DV12705817LT03",
+          "DV12705817LT04"
+        ],
+        "leeractiviteiten": []
+      },
+      {
+        "code": "LE-DV12705811",
+        "naam": "Rekenen MBO4",
+        "is_keuze": false,
+        "aantal_periodes": 6,
+        "leerjaren": [
+          {
+            "leerjaar": 1,
+            "periodes": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ]
+          }
+        ],
+        "leertaken": [
+          "DV12705835LT01"
+        ],
+        "leeractiviteiten": [
+          {
+            "code": "LA000058",
+            "naam": "Toets Wonen",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "Toets Wonen",
+            "titel_inleveropdracht": null
+          },
+          {
+            "code": "LA000059",
+            "naam": "Toets Studie en werk",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "Toets Studie en werk",
+            "titel_inleveropdracht": null
+          },
+          {
+            "code": "LA000060",
+            "naam": "Toets Vrije Tijd",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "Toets Vrije Tijd",
+            "titel_inleveropdracht": null
+          }
+        ]
+      },
+      {
+        "code": "LE-DV12705812",
+        "naam": "Loopbaan en burgerschap",
+        "is_keuze": false,
+        "aantal_periodes": 4,
+        "leerjaren": [
+          {
+            "leerjaar": 1,
+            "periodes": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ],
+        "leertaken": [
+          "DV12705836LT01",
+          "DV12705836LT02",
+          "DV12705836LT03"
+        ],
+        "leeractiviteiten": []
+      },
+      {
+        "code": "LE-DV12705813",
+        "naam": "Keuzedeel Lean en creatief",
+        "is_keuze": false,
+        "aantal_periodes": 1,
+        "leerjaren": [
+          {
+            "leerjaar": 2,
+            "periodes": [
+              1
+            ]
+          }
+        ],
+        "leertaken": [
+          "DV12705837LT01",
+          "DV12705837LT02"
+        ],
+        "leeractiviteiten": [
+          {
+            "code": "LA000028",
+            "naam": "Keuzedeel Lean en Creatief",
+            "keuze": true,
+            "niveau": "beginner",
+            "type_bij_optioneel": "verbredend",
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "Afronding keuzedeel",
+            "titel_inleveropdracht": "Afronding keuzedeel"
+          }
+        ]
+      },
+      {
+        "code": "LE-DV12705814",
+        "naam": "Keuzedeel Spaans",
+        "is_keuze": false,
+        "aantal_periodes": 4,
+        "leerjaren": [
+          {
+            "leerjaar": 1,
+            "periodes": [
+              3,
+              4,
+              5,
+              6
+            ]
+          }
+        ],
+        "leertaken": [
+          "DV12705843LT01",
+          "DV12705843LT02"
+        ],
+        "leeractiviteiten": [
+          {
+            "code": "LA000048",
+            "naam": "KZD – SPA 1",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "KZD – SPA 1",
+            "titel_inleveropdracht": null
+          },
+          {
+            "code": "LA000049",
+            "naam": "KZD – SPA 2",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "KZD – SPA 2",
+            "titel_inleveropdracht": null
+          },
+          {
+            "code": "LA000050",
+            "naam": "KZD – SPA 3",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "KZD – SPA 3",
+            "titel_inleveropdracht": null
+          },
+          {
+            "code": "LA000051",
+            "naam": "KZD – SPA 4",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "KZD – SPA 4",
+            "titel_inleveropdracht": null
+          }
+        ]
+      },
+      {
+        "code": "LE-DV12705815",
+        "naam": "Keuzedeel HBO",
+        "is_keuze": false,
+        "aantal_periodes": 1,
+        "leerjaren": [
+          {
+            "leerjaar": 2,
+            "periodes": [
+              1
+            ]
+          }
+        ],
+        "leertaken": [
+          "DV12705840LT01",
+          "DV12705840LT02"
+        ],
+        "leeractiviteiten": [
+          {
+            "code": "LA000029",
+            "naam": "Keuzedeel HBO",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "Examenonderdelen HBO",
+            "titel_inleveropdracht": "Examenonderdelen HBO"
+          }
+        ]
+      },
+      {
+        "code": "LE-DV12705816",
+        "naam": "Keuzedeel standplaatshostess",
+        "is_keuze": false,
+        "aantal_periodes": 1,
+        "leerjaren": [
+          {
+            "leerjaar": 2,
+            "periodes": [
+              1
+            ]
+          }
+        ],
+        "leertaken": [
+          "DV12705839LT01",
+          "DV12705839LT02"
+        ],
+        "leeractiviteiten": [
+          {
+            "code": "LA000030",
+            "naam": "Standplaatshostess",
+            "keuze": true,
+            "niveau": "beginner",
+            "type_bij_optioneel": "verbredend",
+            "type_vrij": "Keuzedeel",
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "Afronding keuzedeel",
+            "titel_inleveropdracht": "Afronding keuzedeel"
+          }
+        ]
+      },
+      {
+        "code": "LE-DV12705817",
+        "naam": "Sport",
+        "is_keuze": false,
+        "aantal_periodes": 2,
+        "leerjaren": [
+          {
+            "leerjaar": 1,
+            "periodes": [
+              7,
+              8
+            ]
+          }
+        ],
+        "leertaken": [
+          "DV12705833LT01"
+        ],
+        "leeractiviteiten": []
+      },
+      {
+        "code": "LE-DV12705818",
+        "naam": "Interne praktijk",
+        "is_keuze": false,
+        "aantal_periodes": 5,
+        "leerjaren": [
+          {
+            "leerjaar": 1,
+            "periodes": [
+              2,
+              3,
+              4,
+              5,
+              6
+            ]
+          }
+        ],
+        "leertaken": [
+          "DV12705832LT01"
+        ],
+        "leeractiviteiten": []
+      },
+      {
+        "code": "LE-DV12705819",
+        "naam": "WDK periode 1 & 2",
+        "is_keuze": false,
+        "aantal_periodes": 2,
+        "leerjaren": [
+          {
+            "leerjaar": 1,
+            "periodes": [
+              1,
+              2
+            ]
+          }
+        ],
+        "leertaken": [
+          "DV12705817LT01"
+        ],
+        "leeractiviteiten": [
+          {
+            "code": "LA000031",
+            "naam": "Topografie Nederland",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "Topografie Nederland",
+            "titel_inleveropdracht": null
+          },
+          {
+            "code": "LA000032",
+            "naam": "Presentatie Nederland",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "Presentatie Nederland",
+            "titel_inleveropdracht": null
+          },
+          {
+            "code": "LA000067",
+            "naam": "Toets topografie Nederland",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "Toets topografie Nederland",
+            "titel_inleveropdracht": null
+          }
+        ]
+      },
+      {
+        "code": "LE-DV12705820",
+        "naam": "WDK periode 3 & 4",
+        "is_keuze": false,
+        "aantal_periodes": 2,
+        "leerjaren": [
+          {
+            "leerjaar": 1,
+            "periodes": [
+              3,
+              4
+            ]
+          }
+        ],
+        "leertaken": [
+          "DV12705817LT01"
+        ],
+        "leeractiviteiten": [
+          {
+            "code": "LA000033",
+            "naam": "Toets Wereldsteden",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "Toets Wereldsteden",
+            "titel_inleveropdracht": null
+          },
+          {
+            "code": "LA000034",
+            "naam": "Presentatie \"ontdekking\"",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "Presentatie \"ontdekking\"",
+            "titel_inleveropdracht": null
+          },
+          {
+            "code": "LA000069",
+            "naam": "Toets topografie Stedenreizen",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "Toets topografie Stedenreizen",
+            "titel_inleveropdracht": null
+          },
+          {
+            "code": "LA000071",
+            "naam": "Topografie vakantiebestemming",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "Topografie vakantiebestemming",
+            "titel_inleveropdracht": null
+          }
+        ]
+      },
+      {
+        "code": "LE-DV12705821",
+        "naam": "WDK periode 5 & 6",
+        "is_keuze": false,
+        "aantal_periodes": 2,
+        "leerjaren": [
+          {
+            "leerjaar": 1,
+            "periodes": [
+              5,
+              6
+            ]
+          }
+        ],
+        "leertaken": [
+          "DV12705817LT01"
+        ],
+        "leeractiviteiten": [
+          {
+            "code": "LA000035",
+            "naam": "Topografie vakantiebestemmingen",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "Topografie vakantiebestemmingen",
+            "titel_inleveropdracht": null
+          },
+          {
+            "code": "LA000036",
+            "naam": "Factsheets bestemmingen",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "Factsheets bestemmingen",
+            "titel_inleveropdracht": null
+          },
+          {
+            "code": "LA000072",
+            "naam": "Factsheets bestemmingen",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "Factsheets bestemmingen",
+            "titel_inleveropdracht": null
+          }
+        ]
+      },
+      {
+        "code": "LE-DV12705822",
+        "naam": "Nederlands beroepsgericht periode 1 & 2",
+        "is_keuze": false,
+        "aantal_periodes": 2,
+        "leerjaren": [
+          {
+            "leerjaar": 1,
+            "periodes": [
+              1,
+              2
+            ]
+          }
+        ],
+        "leertaken": [
+          "DV12705813LT02",
+          "DV12705834LT01",
+          "DV12705834LT02",
+          "DV12705834LT03"
+        ],
+        "leeractiviteiten": []
+      },
+      {
+        "code": "LE-DV12705823",
+        "naam": "Nederlands beroepsgericht periode 3 & 4",
+        "is_keuze": false,
+        "aantal_periodes": 2,
+        "leerjaren": [
+          {
+            "leerjaar": 1,
+            "periodes": [
+              3,
+              4
+            ]
+          }
+        ],
+        "leertaken": [
+          "DV12705810LT03",
+          "DV12705813LT02",
+          "DV12705813LT03",
+          "DV12705815LT01",
+          "DV12705834LT01",
+          "DV12705834LT02",
+          "DV12705834LT03"
+        ],
+        "leeractiviteiten": []
+      },
+      {
+        "code": "LE-DV12705824",
+        "naam": "Nederlands beroepsgericht periode 5 & 6",
+        "is_keuze": false,
+        "aantal_periodes": 2,
+        "leerjaren": [
+          {
+            "leerjaar": 1,
+            "periodes": [
+              5,
+              6
+            ]
+          }
+        ],
+        "leertaken": [
+          "DV12705810LT03",
+          "DV12705813LT02",
+          "DV12705814LT04",
+          "DV12705815LT01",
+          "DV12705819LT03",
+          "DV12705834LT01",
+          "DV12705834LT02",
+          "DV12705834LT03"
+        ],
+        "leeractiviteiten": []
+      },
+      {
+        "code": "LE-DV12705825",
+        "naam": "Tourism periode 1 & 2",
+        "is_keuze": false,
+        "aantal_periodes": 2,
+        "leerjaren": [
+          {
+            "leerjaar": 1,
+            "periodes": [
+              1,
+              2
+            ]
+          }
+        ],
+        "leertaken": [
+          "DV12705814LT01",
+          "DV12705814LT03",
+          "DV12705814LT04",
+          "DV12705815LT01",
+          "DV12705817LT04",
+          "DV12705818LT02",
+          "DV12705818LT03",
+          "DV12705818LT04",
+          "DV12705819LT01",
+          "DV12705819LT02",
+          "DV12705819LT03",
+          "DV12705819LT04"
+        ],
+        "leeractiviteiten": [
+          {
+            "code": "LA000068",
+            "naam": "Opdracht inkomend toerisme: presentatie",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "Opdracht inkomend toerisme: presentatie",
+            "titel_inleveropdracht": null
+          },
+          {
+            "code": "LA000078",
+            "naam": "Portfolio opdracht",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": false,
+            "is_inleveropdracht": true,
+            "titel_toets": null,
+            "titel_inleveropdracht": "Portfolio opdracht"
+          }
+        ]
+      },
+      {
+        "code": "LE-DV12705826",
+        "naam": "Tourism periode 3 & 4",
+        "is_keuze": false,
+        "aantal_periodes": 2,
+        "leerjaren": [
+          {
+            "leerjaar": 1,
+            "periodes": [
+              3,
+              4
+            ]
+          }
+        ],
+        "leertaken": [
+          "DV12705810LT02",
+          "DV12705813LT01",
+          "DV12705813LT06",
+          "DV12705814LT01",
+          "DV12705817LT01",
+          "DV12705817LT02"
+        ],
+        "leeractiviteiten": [
+          {
+            "code": "LA000037",
+            "naam": "Vakkennis My favourite Citytrip",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "Vakkennis My favourite Citytrip",
+            "titel_inleveropdracht": null
+          },
+          {
+            "code": "LA000070",
+            "naam": "Presentatie Ontdekking in BE,LUX, DUI en FR",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "Presentatie Ontdekking in BE,LUX, DUI en FR",
+            "titel_inleveropdracht": null
+          }
+        ]
+      },
+      {
+        "code": "LE-DV12705827",
+        "naam": "Tourism periode 5 & 6",
+        "is_keuze": false,
+        "aantal_periodes": 2,
+        "leerjaren": [
+          {
+            "leerjaar": 1,
+            "periodes": [
+              5,
+              6
+            ]
+          }
+        ],
+        "leertaken": [
+          "DV12705813LT01",
+          "DV12705813LT06",
+          "DV12705814LT02"
+        ],
+        "leeractiviteiten": [
+          {
+            "code": "LA000038",
+            "naam": "Vakkennis Front office Skills",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "Vakkennis Front office Skills",
+            "titel_inleveropdracht": null
+          }
+        ]
+      },
+      {
+        "code": "LE-DV12705828",
+        "naam": "Engels beroepsgericht periode 1 & 2",
+        "is_keuze": false,
+        "aantal_periodes": 2,
+        "leerjaren": [
+          {
+            "leerjaar": 1,
+            "periodes": [
+              1,
+              2
+            ]
+          }
+        ],
+        "leertaken": [
+          "DV12705810LT03",
+          "DV12705819LT03",
+          "DV12705830LT01",
+          "DV12705830LT02",
+          "DV12705830LT03",
+          "DV12705830LT04"
+        ],
+        "leeractiviteiten": [
+          {
+            "code": "LA000082",
+            "naam": "ENG 1.1 BGR Periode 1 & 2",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "ENG 1.1 BGR Periode 1 & 2",
+            "titel_inleveropdracht": null
+          }
+        ]
+      },
+      {
+        "code": "LE-DV12705829",
+        "naam": "Engels beroepsgericht periode 3 & 4",
+        "is_keuze": false,
+        "aantal_periodes": 2,
+        "leerjaren": [
+          {
+            "leerjaar": 1,
+            "periodes": [
+              3,
+              4
+            ]
+          }
+        ],
+        "leertaken": [
+          "DV12705810LT03",
+          "DV12705813LT03",
+          "DV12705830LT01",
+          "DV12705830LT02",
+          "DV12705830LT03",
+          "DV12705830LT04"
+        ],
+        "leeractiviteiten": [
+          {
+            "code": "LA000081",
+            "naam": "ENG 1.3 BGR Periode 3 & 4",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "ENG 1.3 BGR Periode 3 & 4",
+            "titel_inleveropdracht": null
+          }
+        ]
+      },
+      {
+        "code": "LE-DV12705830",
+        "naam": "Engels beroepsgericht periode 5 & 6",
+        "is_keuze": false,
+        "aantal_periodes": 2,
+        "leerjaren": [
+          {
+            "leerjaar": 1,
+            "periodes": [
+              5,
+              6
+            ]
+          }
+        ],
+        "leertaken": [
+          "DV12705810LT03",
+          "DV12705830LT01",
+          "DV12705830LT02",
+          "DV12705830LT03",
+          "DV12705830LT04"
+        ],
+        "leeractiviteiten": [
+          {
+            "code": "LA000080",
+            "naam": "ENG 1.4 BGR Periode 5 & 6",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "ENG 1.4 BGR Periode 5 & 6",
+            "titel_inleveropdracht": null
+          }
+        ]
+      },
+      {
+        "code": "LE-DV12705831",
+        "naam": "LVK Oriëntatie",
+        "is_keuze": false,
+        "aantal_periodes": 1,
+        "leerjaren": [
+          {
+            "leerjaar": 1,
+            "periodes": [
+              1
+            ]
+          }
+        ],
+        "leertaken": [
+          "DV12705814LT01"
+        ],
+        "leeractiviteiten": [
+          {
+            "code": "LA000079",
+            "naam": "Tijdlijn luchtvaart",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": false,
+            "is_inleveropdracht": true,
+            "titel_toets": null,
+            "titel_inleveropdracht": "Tijdlijn luchtvaart"
+          }
+        ]
+      },
+      {
+        "code": "LE-DV12705832",
+        "naam": "Nederlands generiek",
+        "is_keuze": false,
+        "aantal_periodes": 6,
+        "leerjaren": [
+          {
+            "leerjaar": 1,
+            "periodes": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ]
+          }
+        ],
+        "leertaken": [
+          "DV12705810LT01",
+          "DV12705810LT03",
+          "DV12705813LT02",
+          "DV12705813LT03",
+          "DV12705819LT03",
+          "DV12705834LT01",
+          "DV12705834LT02",
+          "DV12705834LT03"
+        ],
+        "leeractiviteiten": [
+          {
+            "code": "LA000039",
+            "naam": "NED 1.1",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "NED 1.1",
+            "titel_inleveropdracht": null
+          },
+          {
+            "code": "LA000040",
+            "naam": "NED 1.2",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "NED 1.2",
+            "titel_inleveropdracht": null
+          },
+          {
+            "code": "LA000041",
+            "naam": "NED 1.3",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "NED 1.3",
+            "titel_inleveropdracht": null
+          },
+          {
+            "code": "LA000042",
+            "naam": "NED 1.4",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "NED 1.3",
+            "titel_inleveropdracht": null
+          },
+          {
+            "code": "LA000043",
+            "naam": "NED 1.5",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "NED 1.5",
+            "titel_inleveropdracht": null
+          },
+          {
+            "code": "LA000044",
+            "naam": "NED 1.6",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "NED 1.6",
+            "titel_inleveropdracht": null
+          }
+        ]
+      },
+      {
+        "code": "LE-DV12705833",
+        "naam": "Engels generiek",
+        "is_keuze": false,
+        "aantal_periodes": 6,
+        "leerjaren": [
+          {
+            "leerjaar": 1,
+            "periodes": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ]
+          }
+        ],
+        "leertaken": [
+          "DV12705810LT03",
+          "DV12705813LT03",
+          "DV12705819LT03",
+          "DV12705830LT01",
+          "DV12705830LT02",
+          "DV12705830LT03",
+          "DV12705830LT04"
+        ],
+        "leeractiviteiten": [
+          {
+            "code": "LA000045",
+            "naam": "ENG 1.2 ALG Mondeling",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "ENG 1.2 ALG Mondeling",
+            "titel_inleveropdracht": null
+          },
+          {
+            "code": "LA000046",
+            "naam": "ENG 1.2 ALG Presentatie",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "ENG 1.2 ALG Mondeling",
+            "titel_inleveropdracht": null
+          },
+          {
+            "code": "LA000047",
+            "naam": "ENG 1.6 ALG gesprekken",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "ENG 1.6 ALG gesprekken",
+            "titel_inleveropdracht": null
+          }
+        ]
+      },
+      {
+        "code": "LE-DV12705834",
+        "naam": "Duits beroepsgericht periode 1 & 2",
+        "is_keuze": false,
+        "aantal_periodes": 2,
+        "leerjaren": [
+          {
+            "leerjaar": 1,
+            "periodes": [
+              1,
+              2
+            ]
+          }
+        ],
+        "leertaken": [
+          "DV12705810LT03",
+          "DV12705813LT03",
+          "DV12705841LT01",
+          "DV12705841LT02",
+          "DV12705841LT03",
+          "DV12705841LT04"
+        ],
+        "leeractiviteiten": [
+          {
+            "code": "LA000052",
+            "naam": "DUI – ALG 1",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "DUI – ALG 1",
+            "titel_inleveropdracht": null
+          },
+          {
+            "code": "LA000053",
+            "naam": "DUI – ALG 2",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "DUI – ALG 2",
+            "titel_inleveropdracht": null
+          }
+        ]
+      },
+      {
+        "code": "LE-DV12705835",
+        "naam": "Duits beroepsgericht periode 3 & 4",
+        "is_keuze": false,
+        "aantal_periodes": 2,
+        "leerjaren": [
+          {
+            "leerjaar": 1,
+            "periodes": [
+              3,
+              4
+            ]
+          }
+        ],
+        "leertaken": [
+          "DV12705810LT03",
+          "DV12705813LT03",
+          "DV12705841LT01",
+          "DV12705841LT02",
+          "DV12705841LT03",
+          "DV12705841LT04"
+        ],
+        "leeractiviteiten": [
+          {
+            "code": "LA000054",
+            "naam": "DUI – ALG 3",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "DUI – ALG 3",
+            "titel_inleveropdracht": null
+          },
+          {
+            "code": "LA000055",
+            "naam": "DUI – ALG 4",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "DUI – ALG 4",
+            "titel_inleveropdracht": null
+          }
+        ]
+      },
+      {
+        "code": "LE-DV12705836",
+        "naam": "Duits beroepsgericht periode 5 & 6",
+        "is_keuze": false,
+        "aantal_periodes": 2,
+        "leerjaren": [
+          {
+            "leerjaar": 1,
+            "periodes": [
+              5,
+              6
+            ]
+          }
+        ],
+        "leertaken": [
+          "DV12705810LT03",
+          "DV12705813LT03",
+          "DV12705841LT01",
+          "DV12705841LT02",
+          "DV12705841LT03",
+          "DV12705841LT04",
+          "DV12705910LT01"
+        ],
+        "leeractiviteiten": [
+          {
+            "code": "LA000056",
+            "naam": "DUI – ALG 5",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "DUI – ALG 5",
+            "titel_inleveropdracht": null
+          },
+          {
+            "code": "LA000057",
+            "naam": "DUI – ALG 6",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "DUI – ALG 6",
+            "titel_inleveropdracht": null
+          }
+        ]
+      },
+      {
+        "code": "LE-DV12705837",
+        "naam": "ECM",
+        "is_keuze": false,
+        "aantal_periodes": 4,
+        "leerjaren": [
+          {
+            "leerjaar": 1,
+            "periodes": [
+              1,
+              2,
+              3,
+              4
+            ]
+          }
+        ],
+        "leertaken": [
+          "DV12705813LT04",
+          "DV12705814LT03",
+          "DV12705816LT03",
+          "DV12705817LT02"
+        ],
+        "leeractiviteiten": [
+          {
+            "code": "LA000062",
+            "naam": "ECM Intern",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "ECM Intern",
+            "titel_inleveropdracht": null
+          },
+          {
+            "code": "LA000063",
+            "naam": "ECM Extern",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "ECM Extern",
+            "titel_inleveropdracht": null
+          }
+        ]
+      },
+      {
+        "code": "LE-DV12705838",
+        "naam": "ECO",
+        "is_keuze": false,
+        "aantal_periodes": 5,
+        "leerjaren": [
+          {
+            "leerjaar": 1,
+            "periodes": [
+              1,
+              2,
+              3,
+              4,
+              6
+            ]
+          }
+        ],
+        "leertaken": [
+          "DV12705813LT04",
+          "DV12705813LT05",
+          "DV12705816LT02",
+          "DV12705816LT03",
+          "DV12705817LT02"
+        ],
+        "leeractiviteiten": [
+          {
+            "code": "LA000073",
+            "naam": "ECO1 Marketingmix",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": false,
+            "is_inleveropdracht": true,
+            "titel_toets": null,
+            "titel_inleveropdracht": "ECO1 Marketingmix"
+          },
+          {
+            "code": "LA000074",
+            "naam": "ECO2 SWOT",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": false,
+            "is_inleveropdracht": true,
+            "titel_toets": null,
+            "titel_inleveropdracht": "ECO2 SWOT"
+          },
+          {
+            "code": "LA000075",
+            "naam": "ECO3 Vakantieganger",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": false,
+            "is_inleveropdracht": true,
+            "titel_toets": null,
+            "titel_inleveropdracht": "ECO3 Vakantieganger"
+          },
+          {
+            "code": "LA000076",
+            "naam": "ECO4 Budgetteren",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": false,
+            "is_inleveropdracht": true,
+            "titel_toets": null,
+            "titel_inleveropdracht": "ECO4 Budgetteren"
+          },
+          {
+            "code": "LA000077",
+            "naam": "ECO5 Social Media",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": false,
+            "is_inleveropdracht": true,
+            "titel_toets": null,
+            "titel_inleveropdracht": "ECO5 Social Media"
+          }
+        ]
+      },
+      {
+        "code": "LE-DV12705839",
+        "naam": "HRM",
+        "is_keuze": false,
+        "aantal_periodes": 3,
+        "leerjaren": [
+          {
+            "leerjaar": 1,
+            "periodes": [
+              4,
+              5,
+              6
+            ]
+          }
+        ],
+        "leertaken": [
+          "DV12705817LT02",
+          "DV12705817LT03",
+          "DV12705818LT04"
+        ],
+        "leeractiviteiten": [
+          {
+            "code": "LA000064",
+            "naam": "HRM-ECP HRM01",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": "H1 - H2 Introductie Personeelsmanagement & H2 De Organisatie",
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "H1 - H2 Introductie Personeelsmanagement & H2 De Organisatie",
+            "titel_inleveropdracht": null
+          },
+          {
+            "code": "LA000065",
+            "naam": "HRM-ECP HRM02",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": "H5 - Planning en werkroosters",
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "H5 - Planning en werkroosters",
+            "titel_inleveropdracht": null
+          },
+          {
+            "code": "LA000066",
+            "naam": "HRM-ECP HRM03",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": "Competentieopdracht “Vlieg eruit”",
+            "is_toets": true,
+            "is_inleveropdracht": true,
+            "titel_toets": null,
+            "titel_inleveropdracht": "Competentie opdracht vlieg eruit"
+          }
+        ]
+      },
+      {
+        "code": "LE-DV12705840",
+        "naam": "ECE",
+        "is_keuze": false,
+        "aantal_periodes": 2,
+        "leerjaren": [
+          {
+            "leerjaar": 1,
+            "periodes": [
+              5,
+              6
+            ]
+          }
+        ],
+        "leertaken": [
+          "DV12705813LT04"
+        ],
+        "leeractiviteiten": [
+          {
+            "code": "LA000061",
+            "naam": "ECE H7 & H8 Prijs en omzet",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "ECE H7 & H8 Prijs en omzet",
+            "titel_inleveropdracht": null
+          }
+        ]
+      },
+      {
+        "code": "LE-DV12705841",
+        "naam": "Hospitality",
+        "is_keuze": false,
+        "aantal_periodes": 3,
+        "leerjaren": [
+          {
+            "leerjaar": 1,
+            "periodes": [
+              1,
+              2,
+              3
+            ]
+          }
+        ],
+        "leertaken": [
+          "DV12705814LT01"
+        ],
+        "leeractiviteiten": []
+      },
+      {
+        "code": "LE-DV12705842",
+        "naam": "LoopBaanOntwikkeling",
+        "is_keuze": false,
+        "aantal_periodes": 2,
+        "leerjaren": [
+          {
+            "leerjaar": 1,
+            "periodes": [
+              3,
+              6
+            ]
+          }
+        ],
+        "leertaken": [
+          "DV12705831LT01"
+        ],
+        "leeractiviteiten": []
+      },
+      {
+        "code": "LE-DV12705843",
+        "naam": "LBC",
+        "is_keuze": false,
+        "aantal_periodes": 6,
+        "leerjaren": [
+          {
+            "leerjaar": 1,
+            "periodes": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ]
+          }
+        ],
+        "leertaken": [
+          "DV12705844LT01"
+        ],
+        "leeractiviteiten": []
+      }
+    ],
+    "roosterbare_eenheden": [
+      {
+        "code": "DV127058RE01",
+        "roepnaam": "Leereenheid Oriëntatie op de branche",
+        "basis_type": "LE",
+        "basis_refs": [
+          {
+            "type": "LE",
+            "code": "LE-DV12705801",
+            "naam": "Oriëntatie op de branche"
+          }
+        ],
+        "basis_label": null,
+        "groep_type": "S",
+        "duur_re": 3,
+        "frequentie_per_week": 1,
+        "periodes": [
+          1
+        ],
+        "weken": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "jaar_ids": [
+          1
+        ],
+        "is_keuzeles": false,
+        "docent_codes": [
+          "1"
+        ],
+        "gelijktijdig_met": [],
+        "leeractiviteiten": [
+          {
+            "code": "LA000001",
+            "naam": "Bedrijfsonderzoek",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": false,
+            "is_inleveropdracht": true,
+            "titel_toets": null,
+            "titel_inleveropdracht": "Bedrijfsonderzoek"
+          },
+          {
+            "code": "LA000002",
+            "naam": "Afnemen interview",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": false,
+            "is_inleveropdracht": true,
+            "titel_toets": null,
+            "titel_inleveropdracht": "Interview"
+          },
+          {
+            "code": "LA000003",
+            "naam": "Presentatie ouderavond",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "Presentatie ouderavond",
+            "titel_inleveropdracht": "Presentatie ouderavond"
+          }
+        ]
+      },
+      {
+        "code": "DV127058RE02",
+        "roepnaam": "Leereenheid Explore Arnhem 1",
+        "basis_type": "LE",
+        "basis_refs": [
+          {
+            "type": "LE",
+            "code": "LE-DV12705802",
+            "naam": "Explore Arnhem"
+          }
+        ],
+        "basis_label": null,
+        "groep_type": "S",
+        "duur_re": 3,
+        "frequentie_per_week": 2,
+        "periodes": [
+          1
+        ],
+        "weken": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "jaar_ids": [
+          1
+        ],
+        "is_keuzeles": false,
+        "docent_codes": [
+          "1"
+        ],
+        "gelijktijdig_met": [],
+        "leeractiviteiten": [
+          {
+            "code": "LA000004",
+            "naam": "Programma, draaiboek & activiteiten opzetten en ontwikkelen",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": false,
+            "is_inleveropdracht": true,
+            "titel_toets": null,
+            "titel_inleveropdracht": "Programma Holland Tour"
+          }
+        ]
+      },
+      {
+        "code": "DV127058RE04",
+        "roepnaam": "Tourism",
+        "basis_type": "LE",
+        "basis_refs": [
+          {
+            "type": "LE",
+            "code": "LE-DV12705802",
+            "naam": "Explore Arnhem"
+          }
+        ],
+        "basis_label": null,
+        "groep_type": "S",
+        "duur_re": 2,
+        "frequentie_per_week": 1,
+        "periodes": [
+          1,
+          2
+        ],
+        "weken": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "jaar_ids": [
+          1
+        ],
+        "is_keuzeles": false,
+        "docent_codes": [
+          "1"
+        ],
+        "gelijktijdig_met": [],
+        "leeractiviteiten": []
+      },
+      {
+        "code": "DV127058RE05",
+        "roepnaam": "Wereldkunde",
+        "basis_type": "LE",
+        "basis_refs": [
+          {
+            "type": "LE",
+            "code": "LE-DV12705802",
+            "naam": "Explore Arnhem"
+          }
+        ],
+        "basis_label": null,
+        "groep_type": "S",
+        "duur_re": 2,
+        "frequentie_per_week": 1,
+        "periodes": [
+          1,
+          2
+        ],
+        "weken": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "jaar_ids": [
+          1
+        ],
+        "is_keuzeles": false,
+        "docent_codes": [
+          "1"
+        ],
+        "gelijktijdig_met": [],
+        "leeractiviteiten": []
+      },
+      {
+        "code": "DV127058RE06",
+        "roepnaam": "Tourism",
+        "basis_type": "LE",
+        "basis_refs": [
+          {
+            "type": "LE",
+            "code": "LE-DV12705802",
+            "naam": "Explore Arnhem"
+          }
+        ],
+        "basis_label": null,
+        "groep_type": "S",
+        "duur_re": 4,
+        "frequentie_per_week": 1,
+        "periodes": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "weken": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "jaar_ids": [
+          1
+        ],
+        "is_keuzeles": false,
+        "docent_codes": [
+          "1"
+        ],
+        "gelijktijdig_met": [],
+        "leeractiviteiten": []
+      },
+      {
+        "code": "DV127058RE08",
+        "roepnaam": "Praktijk",
+        "basis_type": "LE",
+        "basis_refs": [
+          {
+            "type": "LE",
+            "code": "LE-DV12705801",
+            "naam": "Oriëntatie op de branche"
+          }
+        ],
+        "basis_label": null,
+        "groep_type": "S",
+        "duur_re": 12,
+        "frequentie_per_week": 1,
+        "periodes": [
+          1,
+          2,
+          6
+        ],
+        "weken": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "jaar_ids": [
+          1
+        ],
+        "is_keuzeles": false,
+        "docent_codes": [
+          "1"
+        ],
+        "gelijktijdig_met": [],
+        "leeractiviteiten": []
+      },
+      {
+        "code": "DV127058RE10",
+        "roepnaam": "Luchtvaartkunde",
+        "basis_type": "LE",
+        "basis_refs": [
+          {
+            "type": "LE",
+            "code": "LE-DV12705801",
+            "naam": "Oriëntatie op de branche"
+          }
+        ],
+        "basis_label": null,
+        "groep_type": "S",
+        "duur_re": 2,
+        "frequentie_per_week": 1,
+        "periodes": [
+          1
+        ],
+        "weken": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "jaar_ids": [
+          1
+        ],
+        "is_keuzeles": false,
+        "docent_codes": [
+          "1"
+        ],
+        "gelijktijdig_met": [],
+        "leeractiviteiten": []
+      },
+      {
+        "code": "DV127058RE100",
+        "roepnaam": "Ontwikkelingsgerichte BPV",
+        "basis_type": "LE",
+        "basis_refs": [
+          {
+            "type": "LE",
+            "code": "LE-DV12705806",
+            "naam": "Ontwikkelingsgerichte BPV"
+          }
+        ],
+        "basis_label": null,
+        "groep_type": "S",
+        "duur_re": 16,
+        "frequentie_per_week": 5,
+        "periodes": [
+          7,
+          8
+        ],
+        "weken": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "jaar_ids": [
+          1
+        ],
+        "is_keuzeles": false,
+        "docent_codes": [],
+        "gelijktijdig_met": [],
+        "leeractiviteiten": [
+          {
+            "code": "LA000025",
+            "naam": "BPV opdrachten werkboek",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": false,
+            "is_inleveropdracht": true,
+            "titel_toets": null,
+            "titel_inleveropdracht": "BPV opdrachten werkboek"
+          },
+          {
+            "code": "LA000026",
+            "naam": "BPV urenoverzicht",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": false,
+            "is_inleveropdracht": true,
+            "titel_toets": null,
+            "titel_inleveropdracht": "BPV urenoverzicht"
+          }
+        ]
+      },
+      {
+        "code": "DV127058RE11",
+        "roepnaam": "Presentatie Ouderavond",
+        "basis_type": "LE",
+        "basis_refs": [
+          {
+            "type": "LE",
+            "code": "LE-DV12705801",
+            "naam": "Oriëntatie op de branche"
+          }
+        ],
+        "basis_label": null,
+        "groep_type": "L",
+        "duur_re": 4,
+        "frequentie_per_week": 0,
+        "periodes": [
+          2
+        ],
+        "weken": [
+          1
+        ],
+        "jaar_ids": [
+          1
+        ],
+        "is_keuzeles": false,
+        "docent_codes": [
+          "3"
+        ],
+        "gelijktijdig_met": [
+          "DV127058RE01"
+        ],
+        "leeractiviteiten": []
+      },
+      {
+        "code": "DV127058RE14",
+        "roepnaam": "Leereenheid Explore Arnhem 2",
+        "basis_type": "LE",
+        "basis_refs": [
+          {
+            "type": "LE",
+            "code": "LE-DV12705802",
+            "naam": "Explore Arnhem"
+          }
+        ],
+        "basis_label": null,
+        "groep_type": "S",
+        "duur_re": 4,
+        "frequentie_per_week": 2,
+        "periodes": [
+          2
+        ],
+        "weken": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "jaar_ids": [
+          1
+        ],
+        "is_keuzeles": false,
+        "docent_codes": [
+          "1"
+        ],
+        "gelijktijdig_met": [],
+        "leeractiviteiten": [
+          {
+            "code": "LA000004",
+            "naam": "Programma, draaiboek & activiteiten opzetten en ontwikkelen",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": false,
+            "is_inleveropdracht": true,
+            "titel_toets": null,
+            "titel_inleveropdracht": "Programma Holland Tour"
+          },
+          {
+            "code": "LA000005",
+            "naam": "Uitvoering stadsrondleiding",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "Uitvoering en begeleiding van de Holland Tour activiteiten",
+            "titel_inleveropdracht": "Uitvoering en begeleiding van de Holland Tour activiteiten"
+          }
+        ]
+      },
+      {
+        "code": "DV127058RE18",
+        "roepnaam": "Leereenheid My Favourite Citytrip 1",
+        "basis_type": "LE",
+        "basis_refs": [
+          {
+            "type": "LE",
+            "code": "LE-DV12705803",
+            "naam": "My Favourite Citytrip"
+          }
+        ],
+        "basis_label": null,
+        "groep_type": "S",
+        "duur_re": 3,
+        "frequentie_per_week": 1,
+        "periodes": [
+          3,
+          4
+        ],
+        "weken": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "jaar_ids": [
+          1
+        ],
+        "is_keuzeles": false,
+        "docent_codes": [
+          "1"
+        ],
+        "gelijktijdig_met": [],
+        "leeractiviteiten": []
+      },
+      {
+        "code": "DV127058RE20",
+        "roepnaam": "Leereenheid Front Office Skills 1",
+        "basis_type": "LE",
+        "basis_refs": [
+          {
+            "type": "LE",
+            "code": "LE-DV12705805",
+            "naam": "Front Office Skills"
+          }
+        ],
+        "basis_label": null,
+        "groep_type": "S",
+        "duur_re": 3,
+        "frequentie_per_week": 1,
+        "periodes": [
+          5,
+          6
+        ],
+        "weken": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "jaar_ids": [
+          1
+        ],
+        "is_keuzeles": false,
+        "docent_codes": [
+          "1"
+        ],
+        "gelijktijdig_met": [],
+        "leeractiviteiten": [
+          {
+            "code": "LA000009",
+            "naam": "Manual hotel/vakantiepark",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": false,
+            "is_inleveropdracht": true,
+            "titel_toets": null,
+            "titel_inleveropdracht": "Manual"
+          },
+          {
+            "code": "LA000010",
+            "naam": "Inchecken gasten aan de front office",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "Inchecken gasten aan de front office in het Nederlands",
+            "titel_inleveropdracht": "Inchecken gasten aan de front office in het Nederlands"
+          },
+          {
+            "code": "LA000011",
+            "naam": "Informatie verstrekken aan de balie",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "Verstrekken van informatie aan de balie",
+            "titel_inleveropdracht": "Verstrekken van informatie aan de balie"
+          },
+          {
+            "code": "LA000012",
+            "naam": "Telefonische reservering aannemen",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": true,
+            "titel_toets": "Aannemen en verwerken van een hotelreservering",
+            "titel_inleveropdracht": "Portfolio Lodgegate"
+          },
+          {
+            "code": "LA000022",
+            "naam": "Verkoop via de mail in het Duits",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "Verkoop via de mail",
+            "titel_inleveropdracht": "Verkoop via de mail"
+          },
+          {
+            "code": "LA000023",
+            "naam": "Uitchecken van gasten en klachtengesprek in het Engels",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "Uitchecken van gasten en klachtengesprek in het Engels",
+            "titel_inleveropdracht": "Uitchecken van gasten en klachtengesprek in het Engels"
+          },
+          {
+            "code": "LA000024",
+            "naam": "Email schrijven naar aanleiding van een klacht van de gast",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": false,
+            "titel_toets": "E-mail schrijven naar aanleiding van een klacht van de gast",
+            "titel_inleveropdracht": "E-mail schrijven naar aanleiding van een klacht van de gast"
+          }
+        ]
+      },
+      {
+        "code": "DV127058RE23",
+        "roepnaam": "Lodgegate",
+        "basis_type": "LE",
+        "basis_refs": [
+          {
+            "type": "LE",
+            "code": "LE-DV12705805",
+            "naam": "Front Office Skills"
+          }
+        ],
+        "basis_label": null,
+        "groep_type": "S",
+        "duur_re": 2,
+        "frequentie_per_week": 1,
+        "periodes": [
+          5,
+          6
+        ],
+        "weken": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "jaar_ids": [
+          1
+        ],
+        "is_keuzeles": false,
+        "docent_codes": [],
+        "gelijktijdig_met": [],
+        "leeractiviteiten": [
+          {
+            "code": "LA000012",
+            "naam": "Telefonische reservering aannemen",
+            "keuze": false,
+            "niveau": "beginner",
+            "type_bij_optioneel": null,
+            "type_vrij": null,
+            "is_toets": true,
+            "is_inleveropdracht": true,
+            "titel_toets": "Aannemen en verwerken van een hotelreservering",
+            "titel_inleveropdracht": "Portfolio Lodgegate"
+          }
+        ]
+      },
+      {
+        "code": "DV127058RE25",
+        "roepnaam": "Wereldkunde",
+        "basis_type": "LE",
+        "basis_refs": [
+          {
+            "type": "LE",
+            "code": "LE-DV12705803",
+            "naam": "My Favourite Citytrip"
+          },
+          {
+            "type": "LE",
+            "code": "LE-DV12705805",
+            "naam": "Front Office Skills"
+          }
+        ],
+        "basis_label": null,
+        "groep_type": "S",
+        "duur_re": 2,
+        "frequentie_per_week": 2,
+        "periodes": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "weken": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "jaar_ids": [
+          1
+        ],
+        "is_keuzeles": false,
+        "docent_codes": [
+          "1"
+        ],
+        "gelijktijdig_met": [],
+        "leeractiviteiten": []
+      },
+      {
+        "code": "DV127058RE27",
+        "roepnaam": "KD Spaans",
+        "basis_type": "LE",
+        "basis_refs": [
+          {
+            "type": "LE",
+            "code": "LE-DV12705803",
+            "naam": "My Favourite Citytrip"
+          },
+          {
+            "type": "LE",
+            "code": "LE-DV12705805",
+            "naam": "Front Office Skills"
+          }
+        ],
+        "basis_label": null,
+        "groep_type": "S",
+        "duur_re": 2,
+        "frequentie_per_week": 2,
+        "periodes": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "weken": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "jaar_ids": [
+          1
+        ],
+        "is_keuzeles": false,
+        "docent_codes": [
+          "1"
+        ],
+        "gelijktijdig_met": [],
+        "leeractiviteiten": []
+      },
+      {
+        "code": "DV127058RE29",
+        "roepnaam": "Burgerschap",
+        "basis_type": "LE",
+        "basis_refs": [
+          {
+            "type": "LE",
+            "code": "LE-DV12705802",
+            "naam": "Explore Arnhem"
+          },
+          {
+            "type": "LE",
+            "code": "LE-DV12705803",
+            "naam": "My Favourite Citytrip"
+          },
+          {
+            "type": "LE",
+            "code": "LE-DV12705805",
+            "naam": "Front Office Skills"
+          }
+        ],
+        "basis_label": null,
+        "groep_type": "S",
+        "duur_re": 3,
+        "frequentie_per_week": 1,
+        "periodes": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "weken": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "jaar_ids": [
+          1
+        ],
+        "is_keuzeles": false,
+        "docent_codes": [
+          "1"
+        ],
+        "gelijktijdig_met": [],
+        "leeractiviteiten": []
+      },
+      {
+        "code": "DV127058RE31",
+        "roepnaam": "Rekenen",
+        "basis_type": "LE",
+        "basis_refs": [
+          {
+            "type": "LE",
+            "code": "LE-DV12705802",
+            "naam": "Explore Arnhem"
+          },
+          {
+            "type": "LE",
+            "code": "LE-DV12705803",
+            "naam": "My Favourite Citytrip"
+          },
+          {
+            "type": "LE",
+            "code": "LE-DV12705805",
+            "naam": "Front Office Skills"
+          }
+        ],
+        "basis_label": null,
+        "groep_type": "S",
+        "duur_re": 2,
+        "frequentie_per_week": 1,
+        "periodes": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "weken": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "jaar_ids": [
+          1
+        ],
+        "is_keuzeles": false,
+        "docent_codes": [],
+        "gelijktijdig_met": [],
+        "leeractiviteiten": []
+      },
+      {
+        "code": "DV127058RE33",
+        "roepnaam": "ECO",
+        "basis_type": "LE",
+        "basis_refs": [
+          {
+            "type": "LE",
+            "code": "LE-DV12705802",
+            "naam": "Explore Arnhem"
+          },
+          {
+            "type": "LE",
+            "code": "LE-DV12705803",
+            "naam": "My Favourite Citytrip"
+          }
+        ],
+        "basis_label": null,
+        "groep_type": "S",
+        "duur_re": 2,
+        "frequentie_per_week": 1,
+        "periodes": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "weken": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "jaar_ids": [
+          1
+        ],
+        "is_keuzeles": false,
+        "docent_codes": [],
+        "gelijktijdig_met": [],
+        "leeractiviteiten": []
+      },
+      {
+        "code": "DV127058RE35",
+        "roepnaam": "ECM - Marketing",
+        "basis_type": "LE",
+        "basis_refs": [
+          {
+            "type": "LE",
+            "code": "LE-DV12705802",
+            "naam": "Explore Arnhem"
+          }
+        ],
+        "basis_label": null,
+        "groep_type": "S",
+        "duur_re": 2,
+        "frequentie_per_week": 1,
+        "periodes": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "weken": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "jaar_ids": [
+          1
+        ],
+        "is_keuzeles": false,
+        "docent_codes": [],
+        "gelijktijdig_met": [],
+        "leeractiviteiten": []
+      },
+      {
+        "code": "DV127058RE37",
+        "roepnaam": "ECP - Personeelsmanagement",
+        "basis_type": "LE",
+        "basis_refs": [
+          {
+            "type": "LE",
+            "code": "LE-DV12705805",
+            "naam": "Front Office Skills"
+          }
+        ],
+        "basis_label": null,
+        "groep_type": "S",
+        "duur_re": 2,
+        "frequentie_per_week": 1,
+        "periodes": [
+          5,
+          6
+        ],
+        "weken": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "jaar_ids": [
+          1
+        ],
+        "is_keuzeles": false,
+        "docent_codes": [],
+        "gelijktijdig_met": [],
+        "leeractiviteiten": []
+      },
+      {
+        "code": "DV127058RE39",
+        "roepnaam": "LBC",
+        "basis_type": "LE",
+        "basis_refs": [
+          {
+            "type": "LE",
+            "code": "LE-DV12705802",
+            "naam": "Explore Arnhem"
+          },
+          {
+            "type": "LE",
+            "code": "LE-DV12705803",
+            "naam": "My Favourite Citytrip"
+          },
+          {
+            "type": "LE",
+            "code": "LE-DV12705805",
+            "naam": "Front Office Skills"
+          }
+        ],
+        "basis_label": null,
+        "groep_type": "S",
+        "duur_re": 2,
+        "frequentie_per_week": 1,
+        "periodes": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "weken": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "jaar_ids": [
+          1
+        ],
+        "is_keuzeles": false,
+        "docent_codes": [
+          "1"
+        ],
+        "gelijktijdig_met": [],
+        "leeractiviteiten": []
+      },
+      {
+        "code": "DV127058RE41",
+        "roepnaam": "BPV Les",
+        "basis_type": "LE",
+        "basis_refs": [
+          {
+            "type": "LE",
+            "code": "LE-DV12705802",
+            "naam": "Explore Arnhem"
+          },
+          {
+            "type": "LE",
+            "code": "LE-DV12705805",
+            "naam": "Front Office Skills"
+          }
+        ],
+        "basis_label": null,
+        "groep_type": "S",
+        "duur_re": 2,
+        "frequentie_per_week": 1,
+        "periodes": [
+          2,
+          6
+        ],
+        "weken": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "jaar_ids": [
+          1
+        ],
+        "is_keuzeles": false,
+        "docent_codes": [
+          "1"
+        ],
+        "gelijktijdig_met": [],
+        "leeractiviteiten": []
+      },
+      {
+        "code": "DV127058RE42",
+        "roepnaam": "Nederlands generiek",
+        "basis_type": "LE",
+        "basis_refs": [
+          {
+            "type": "LE",
+            "code": "LE-DV12705801",
+            "naam": "Oriëntatie op de branche"
+          },
+          {
+            "type": "LE",
+            "code": "LE-DV12705802",
+            "naam": "Explore Arnhem"
+          },
+          {
+            "type": "LE",
+            "code": "LE-DV12705803",
+            "naam": "My Favourite Citytrip"
+          },
+          {
+            "type": "LE",
+            "code": "LE-DV12705805",
+            "naam": "Front Office Skills"
+          }
+        ],
+        "basis_label": null,
+        "groep_type": "S",
+        "duur_re": 2,
+        "frequentie_per_week": 1,
+        "periodes": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "weken": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "jaar_ids": [
+          1
+        ],
+        "is_keuzeles": false,
+        "docent_codes": [
+          "1"
+        ],
+        "gelijktijdig_met": [],
+        "leeractiviteiten": []
+      },
+      {
+        "code": "DV127058RE44",
+        "roepnaam": "Nederlands beroepsgericht",
+        "basis_type": "LE",
+        "basis_refs": [
+          {
+            "type": "LE",
+            "code": "LE-DV12705801",
+            "naam": "Oriëntatie op de branche"
+          },
+          {
+            "type": "LE",
+            "code": "LE-DV12705802",
+            "naam": "Explore Arnhem"
+          },
+          {
+            "type": "LE",
+            "code": "LE-DV12705803",
+            "naam": "My Favourite Citytrip"
+          },
+          {
+            "type": "LE",
+            "code": "LE-DV12705805",
+            "naam": "Front Office Skills"
+          }
+        ],
+        "basis_label": null,
+        "groep_type": "S",
+        "duur_re": 2,
+        "frequentie_per_week": 1,
+        "periodes": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "weken": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "jaar_ids": [
+          1
+        ],
+        "is_keuzeles": false,
+        "docent_codes": [
+          "1"
+        ],
+        "gelijktijdig_met": [],
+        "leeractiviteiten": []
+      },
+      {
+        "code": "DV127058RE50",
+        "roepnaam": "Duits",
+        "basis_type": "LE",
+        "basis_refs": [
+          {
+            "type": "LE",
+            "code": "LE-DV12705801",
+            "naam": "Oriëntatie op de branche"
+          },
+          {
+            "type": "LE",
+            "code": "LE-DV12705802",
+            "naam": "Explore Arnhem"
+          },
+          {
+            "type": "LE",
+            "code": "LE-DV12705803",
+            "naam": "My Favourite Citytrip"
+          },
+          {
+            "type": "LE",
+            "code": "LE-DV12705805",
+            "naam": "Front Office Skills"
+          }
+        ],
+        "basis_label": null,
+        "groep_type": "S",
+        "duur_re": 2,
+        "frequentie_per_week": 2,
+        "periodes": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "weken": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "jaar_ids": [
+          1
+        ],
+        "is_keuzeles": false,
+        "docent_codes": [
+          "1"
+        ],
+        "gelijktijdig_met": [],
+        "leeractiviteiten": []
+      },
+      {
+        "code": "DV127058RE54",
+        "roepnaam": "Engels generiek",
+        "basis_type": "LE",
+        "basis_refs": [
+          {
+            "type": "LE",
+            "code": "LE-DV12705801",
+            "naam": "Oriëntatie op de branche"
+          },
+          {
+            "type": "LE",
+            "code": "LE-DV12705802",
+            "naam": "Explore Arnhem"
+          },
+          {
+            "type": "LE",
+            "code": "LE-DV12705803",
+            "naam": "My Favourite Citytrip"
+          },
+          {
+            "type": "LE",
+            "code": "LE-DV12705805",
+            "naam": "Front Office Skills"
+          }
+        ],
+        "basis_label": null,
+        "groep_type": "S",
+        "duur_re": 2,
+        "frequentie_per_week": 1,
+        "periodes": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "weken": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "jaar_ids": [
+          1
+        ],
+        "is_keuzeles": false,
+        "docent_codes": [
+          "1"
+        ],
+        "gelijktijdig_met": [],
+        "leeractiviteiten": []
+      },
+      {
+        "code": "DV127058RE56",
+        "roepnaam": "Engels beroepsgericht",
+        "basis_type": "LE",
+        "basis_refs": [
+          {
+            "type": "LE",
+            "code": "LE-DV12705801",
+            "naam": "Oriëntatie op de branche"
+          },
+          {
+            "type": "LE",
+            "code": "LE-DV12705802",
+            "naam": "Explore Arnhem"
+          },
+          {
+            "type": "LE",
+            "code": "LE-DV12705803",
+            "naam": "My Favourite Citytrip"
+          },
+          {
+            "type": "LE",
+            "code": "LE-DV12705805",
+            "naam": "Front Office Skills"
+          }
+        ],
+        "basis_label": null,
+        "groep_type": "S",
+        "duur_re": 2,
+        "frequentie_per_week": 1,
+        "periodes": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "weken": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "jaar_ids": [
+          1
+        ],
+        "is_keuzeles": false,
+        "docent_codes": [
+          "1"
+        ],
+        "gelijktijdig_met": [],
+        "leeractiviteiten": []
+      },
+      {
+        "code": "DV127058RE57",
+        "roepnaam": "HSP",
+        "basis_type": "LE",
+        "basis_refs": [
+          {
+            "type": "LE",
+            "code": "LE-DV12705841",
+            "naam": "Hospitality"
+          }
+        ],
+        "basis_label": null,
+        "groep_type": "L",
+        "duur_re": 2,
+        "frequentie_per_week": 1,
+        "periodes": [
+          1,
+          2
+        ],
+        "weken": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "jaar_ids": [
+          1
+        ],
+        "is_keuzeles": false,
+        "docent_codes": [],
+        "gelijktijdig_met": [],
+        "leeractiviteiten": []
+      },
+      {
+        "code": "DV127058RE58",
+        "roepnaam": "Leereenheid My Favourite Citytrip 2",
+        "basis_type": "LE",
+        "basis_refs": [
+          {
+            "type": "LE",
+            "code": "LE-DV12705803",
+            "naam": "My Favourite Citytrip"
+          }
+        ],
+        "basis_label": null,
+        "groep_type": "L",
+        "duur_re": 3,
+        "frequentie_per_week": 1,
+        "periodes": [
+          3,
+          4
+        ],
+        "weken": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "jaar_ids": [
+          1
+        ],
+        "is_keuzeles": false,
+        "docent_codes": [],
+        "gelijktijdig_met": [],
+        "leeractiviteiten": []
+      },
+      {
+        "code": "DV127058RE59",
+        "roepnaam": "Leereenheid My Favourite Citytrip 3",
+        "basis_type": "LE",
+        "basis_refs": [
+          {
+            "type": "LE",
+            "code": "LE-DV12705803",
+            "naam": "My Favourite Citytrip"
+          }
+        ],
+        "basis_label": null,
+        "groep_type": "L",
+        "duur_re": 3,
+        "frequentie_per_week": 1,
+        "periodes": [
+          3,
+          4
+        ],
+        "weken": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "jaar_ids": [
+          1
+        ],
+        "is_keuzeles": false,
+        "docent_codes": [],
+        "gelijktijdig_met": [],
+        "leeractiviteiten": []
+      },
+      {
+        "code": "DV127058RE60",
+        "roepnaam": "Leereenheid Front Office Skills 2",
+        "basis_type": "LE",
+        "basis_refs": [
+          {
+            "type": "LE",
+            "code": "LE-DV12705805",
+            "naam": "Front Office Skills"
+          }
+        ],
+        "basis_label": null,
+        "groep_type": "L",
+        "duur_re": 3,
+        "frequentie_per_week": 1,
+        "periodes": [
+          5,
+          6
+        ],
+        "weken": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "jaar_ids": [
+          1
+        ],
+        "is_keuzeles": false,
+        "docent_codes": [],
+        "gelijktijdig_met": [],
+        "leeractiviteiten": []
+      },
+      {
+        "code": "DV127058RE61",
+        "roepnaam": "Hospitality",
+        "basis_type": "LE",
+        "basis_refs": [
+          {
+            "type": "LE",
+            "code": "LE-DV12705801",
+            "naam": "Oriëntatie op de branche"
+          }
+        ],
+        "basis_label": null,
+        "groep_type": "L",
+        "duur_re": 2,
+        "frequentie_per_week": 1,
+        "periodes": [
+          1,
+          2
+        ],
+        "weken": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "jaar_ids": [
+          1
+        ],
+        "is_keuzeles": false,
+        "docent_codes": [
+          "1"
+        ],
+        "gelijktijdig_met": [],
+        "leeractiviteiten": []
+      }
+    ],
+    "rubrics": {
+      "niveau_oo": [
+        {
+          "target": {
+            "type": "OO",
+            "code": "DV12705820",
+            "naam": "Maakt en bewaakt een operationeel plan"
+          },
+          "beginner": "Je verzamelt eenvoudige bedrijfsinformatie en herkent basistrends in duidelijke situaties.\n\nJe ondersteunt bij het plannen van activiteiten en werkt met duidelijke onderdelen van een operationeel plan.Je maakt een basisinschatting van benodigde middelen en ondersteunt bij eenvoudige budgettaken.\n\nJe voert taken uit binnen het plan, werkt samen met collega’s en meldt afwijkingen tijdig.",
+          "gevorderd": "Je analyseert bedrijfsinformatie zelfstandig, duidt trends en beoordeelt kansen en beperkingen in herkenbare situaties\n\n.Je plant activiteiten logisch, stelt prioriteiten en schrijft een volledig en gestructureerd operationeel plan.\n\nJe plant middelen, maakt kosten‑batenanalyses en stelt begrotingen op in herkenbare situaties.\n\nJe bewaakt zelfstandig de voortgang, stemt af met collega’s en management en past waar nodig duurzaamheids- en inclusieprincipes toe.",
+          "beroepsbekwaam": "Je analyseert complexe bedrijfsinformatie grondig, schat kansen en risico’s realistisch in en vertaalt deze naar uitvoerbare doelen en activiteiten. \n\nJe stelt professionele operationele plannen op, stemt alle activiteiten zorgvuldig af en zorgt dat het plan uitvoerbaar en doelgericht is.\n\nJe organiseert middelen, personeel en budget professioneel en verantwoord, inclusief strategische financiële keuzes.\n\nJe bewaakt en stuurt het operationeel plan professioneel aan, werkt samen met diverse partners en past duurzaamheids- en inclusieprincipes volledig toe."
+        },
+        {
+          "target": {
+            "type": "OO",
+            "code": "DV12705821",
+            "naam": "Bewaakt processen en stuurt medewerkers aan"
+          },
+          "beginner": "Je voert eenvoudige werkzaamheden uit volgens duidelijke instructies. Je herkent wanneer iets afwijkt van de planning en meldt dit tijdig.\n\nJe ondersteunt bij het plannen van werkzaamheden en benoemt welke taken uitgevoerd moeten worden.Je geeft eenvoudige aanwijzingen en toont een behulpzame houding richting collega’s.\n\nJe voert eenvoudige gesprekken met medewerkers op een vriendelijke en duidelijke manier.",
+          "gevorderd": "Je bewaakt zelfstandig de voortgang van werkzaamheden. Je controleert kwaliteit en productiviteit, signaleert knelpunten en past prioriteiten toe volgens bedrijfsprocedures.\n\nJe plant werkzaamheden zelfstandig en verdeelt taken doelgericht op basis van capaciteiten en prioriteiten.\n\nJe begeleidt medewerkers actief, geeft duidelijke instructies en motiveert het team op een positieve manier.\n\n.Je communiceert professioneel in diverse situaties, past gesprekstechnieken toe en zorgt voor een respectvolle werksfeer.",
+          "beroepsbekwaam": "Je bewaakt processen nauwkeurig en professioneel. \nJe werkt volledig volgens bedrijfsprocedures en wetgeving, plant efficiënt en signaleert knelpunten tijdig en doordacht.\n\nJe stuurt medewerkers professioneel aan. Je plant efficiënt, verdeelt taken strategisch en bewaakt de kwaliteit van uitvoering.\n\nJe stuurt medewerkers professioneel aan. Je geeft constructieve feedback, past verschillende leiderschapsstijlen toe en motiveert medewerkers om doelen te behalen.\n\nJe voert complexe gesprekken professioneel, hanteert conflicthanteringstechnieken en bewaakt sociale veiligheid en inclusiviteit binnen het team."
+        },
+        {
+          "target": {
+            "type": "OO",
+            "code": "DV12705822",
+            "naam": "Bewaakt de financiën"
+          },
+          "beginner": "Je verzamelt basis financiële gegevens en controleert eenvoudige cijfers onder begeleiding. Je herkent trends in duidelijke, voorspelbare situaties.\n\nJe legt eenvoudige financiële bevindingen vast in een basisrapportage. Je verwerkt gegevens nauwkeurig met duidelijke instructies.\n\nJe ondersteunt bij het opstellen van eenvoudige begrotingen en kent basisbegrippen zoals kosten en baten.\n\nJe bespreekt eenvoudige financiële resultaten met collega’s en toont basis financieel bewustzijn.",
+          "gevorderd": "Je verzamelt en controleert financiële gegevens zelfstandig. Je analyseert cijfers, trends en resultaten in herkenbare situaties en legt uit wat deze betekenen.\n\nJe stelt duidelijke financiële rapportages op waarin je zelfstandig conclusies trekt. Je verwerkt en registreert benodigde gegevens volledig en correct.\n\nJe stelt zelfstandig begrotingen op en maakt kosten‑batenanalyses. Je onderbouwt keuzes met relevante gegevens.\n\nJe adviseert in herkenbare situaties over mogelijke financiële maatregelen en licht deze duidelijk toe.",
+          "beroepsbekwaam": "Je verzamelt, controleert en analyseert financiële gegevens grondig. Je interpreteert commerciële cijfers, voert berekeningen uit en toont inzicht in financiële prestaties van het bedrijf.\n\nJe stelt volledige financiële rapportages op, trekt logische conclusies en communiceert deze professioneel. Je houdt financiële en urenadministratie nauwkeurig en volledig bij.\n\nJe stelt professionele begrotingen op, maakt volledige kosten‑batenanalyses en onderbouwt financiële keuzes strategisch, inclusief kennis van marketinginstrumenten.\n\nJe bespreekt financiële resultaten tijdig met management, stelt realistische maatregelen voor en toont sterk financieel bewustzijn."
+        },
+        {
+          "target": {
+            "type": "OO",
+            "code": "DV12705823",
+            "naam": "Verzamelt en evalueert informatie en data"
+          },
+          "beginner": "Je verkent verschillende bronnen om relevante en actuele informatie en data te verzamelen over bedrijfsresultaten, processen en ontwikkelingen binnen het vakgebied.\n\nJe verkent hoe je informatie en data kunt analyseren en beoordeelt deze op basisniveau op relevantie en betrouwbaarheid binnen de context van een toeristische organisatie.\n\nJe verkent hoe je informatie en data overzichtelijk kunt verwerken met behulp van digitale systemen binnen een toeristische organisatie.",
+          "gevorderd": "Je verzamelt doelgericht relevante en actuele informatie en data uit diverse bronnen en houdt ontwikkelingen binnen het vakgebied actief bij.\n\nJe analyseert informatie en data systematisch, beoordeelt deze kritisch op betrouwbaarheid en relevantie en trekt eerste conclusies over sterktes, zwaktes, kansen en bedreigingen.\n\nJe verwerkt informatie en data op een overzichtelijke en volledige manier en gebruikt digitale systemen om deze duidelijk te presenteren.",
+          "beroepsbekwaam": "Je verzamelt zorgvuldig en systematisch informatie en data uit diverse betrouwbare bronnen om een volledig, actueel en onderbouwd beeld te creëren van bedrijfsresultaten, processen en ontwikkelingen binnen het vakgebied.\n\nJe beoordeelt informatie en data deskundig op relevantie en betrouwbaarheid, voert volledige analyses uit en trekt logische, onderbouwde conclusies over sterktes, zwaktes, kansen en bedreigingen binnen de organisatie.\n\nJe verwerkt en presenteert informatie en data professioneel, volledig en helder in rapportages zodat belangrijke inzichten direct zichtbaar zijn voor collega’s en leidinggevenden."
+        },
+        {
+          "target": {
+            "type": "OO",
+            "code": "DV12705824",
+            "naam": "Optimaliseert het commerciële aanbod en de dienstverlening"
+          },
+          "beginner": "Je verkent relevante markt-, klant- en bedrijfsinformatie en past basisanalyse toe om eerste inzichten te krijgen in trends en ontwikkelingen binnen de context van een toeristische organisatie.\n\nJe signaleert commerciële kansen en verkent mogelijke verbeteringen voor het aanbod en de dienstverlening binnen een toeristische organisatie.\n\nJe verkent hoe je professioneel kunt samenwerken met collega’s, partners en andere betrokkenen, met aandacht voor inclusiviteit en duurzaamheid binnen een toeristische organisatie.\n\nJe verkent hoe je digitale informatie- en communicatiesystemen kunt gebruiken om basisinformatie te verzamelen en te verwerken binnen een toeristische organisatie.",
+          "gevorderd": "Je analyseert relevante markt-, klant- en bedrijfsinformatie systematisch met gebruik van passende analysemethoden om commerciële kansen en risico’s te onderbouwen binnen een toeristische organisatie.\n\nJe ontwikkelt concrete en onderbouwde verbetervoorstellen voor het aanbod en de dienstverlening, passend bij de bedrijfsdoelstellingen.\n\nJe werkt effectief en respectvol samen met diverse collega’s en partners en past principes van inclusie en duurzaamheid toe om gezamenlijke doelen te behalen.\n\nJe gebruikt digitale informatie- en communicatiesystemen efficiënt om informatie te verzamelen, verwerken en presenteren ter ondersteuning van analyses en voorstellen.",
+          "beroepsbekwaam": "Je voert een grondige en volledige analyse uit van markt-, klant- en bedrijfsinformatie met behulp van professionele analysemethoden om strategische aanbevelingen te doen voor commerciële kansen en optimalisaties binnen de dienstverlening.\n\nJe werkt doordachte en strategisch onderbouwde verbetervoorstellen uit voor aanbod en dienstverlening en presenteert deze overtuigend binnen de context van een toeristische organisatie.\n\nJe werkt proactief, professioneel en duurzaam samen binnen en buiten de organisatie en benut diverse perspectieven om processen en dienstverlening te verbeteren.\n\nJe werkt professioneel en doelgericht met diverse digitale informatie- en communicatiesystemen om complexe informatie te analyseren en onderbouwde aanbevelingen te presenteren."
+        }
+      ],
+      "niveau_lt": [],
+      "niveau_wp": [],
+      "uitgesloten_opleidingsonderdelen": [
+        "DV12705801",
+        "DV12705802",
+        "DV12705810",
+        "DV12705812",
+        "DV12705813",
+        "DV12705814",
+        "DV12705815",
+        "DV12705816",
+        "DV12705817",
+        "DV12705818",
+        "DV12705819",
+        "DV12705825",
+        "DV12705826",
+        "DV12705827",
+        "DV12705828",
+        "DV12705829",
+        "DV12705830",
+        "DV12705831",
+        "DV12705832",
+        "DV12705833",
+        "DV12705834",
+        "DV12705835",
+        "DV12705836",
+        "DV12705837",
+        "DV12705838",
+        "DV12705839",
+        "DV12705840",
+        "DV12705841",
+        "DV12705842",
+        "DV12705844",
+        "DV12705845"
+      ]
+    },
+    "examenplan": {
+      "items": []
+    }
+  }
+}
