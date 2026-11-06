@@ -43,10 +43,10 @@ Het scenario werkt met een instroomcohort van 120 studenten. Niels: 20 tot 40 is
 
 | Onderdeel | Wijziging |
 |---|---|
-| Scenario 1.1 | Cohort naar 48 studenten in twee groepen van 24. Verdeling over leerroutes toevoegen: 70 procent leerroute 1, 15 procent leerroute 2, 15 procent leerroute 3 |
+| Scenario 1.1 | Cohort naar 36 studenten in twee groepen van 18. Verdeling over leerroutes toevoegen: 70 procent leerroute 1, 15 procent leerroute 2, 15 procent leerroute 3. Dit plan noemde eerst 48; criterium 1 van #296 vraagt een cohort tussen 20 en 40, en 36 houdt twee groepen zichtbaar met een bandbreedte van een standaard groepsgrootte |
 | Docent | Aanstelling 0,8 FTE, dus een dag per week niet inzetbaar; 200 uur jaartaak als lid van de examencommissie; 10 minuten voor- en nazorg per gepland lesuur |
 | Lesuur | Geen landelijke standaard: een ROC-eigen eenheid van 35, 45 of 50 minuten, vaak als blokuur van twee eenheden. Het voorbeeld kiest 45 minuten en noemt dat expliciet een keuze van de instelling |
-| Aanbodgetallen | `120 plaatsen` naar `48 plaatsen`; `18 tot 120 studenten` naar `24 tot 48 studenten`, zodat de bandbreedte niet groter is dan een groepsgrootte |
+| Aanbodgetallen | `120 plaatsen` naar `36 plaatsen`; `18 tot 120 studenten` naar `18 tot 36 studenten`, zodat de bandbreedte niet groter is dan een groepsgrootte |
 
 Opmerkingen: 4122687194, 4122816686, 4122878371, 4126981947.
 Beelden: scenario 1.1, F2-04, F2-05, F2-07, F6-05, F6-06.

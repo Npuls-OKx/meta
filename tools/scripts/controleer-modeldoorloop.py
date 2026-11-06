@@ -39,10 +39,7 @@ Controles (R1 en R2 uit het featureplan):
 12. dekking van de uitwisselingen: elke uitwisseling die het kaderscenario voor een fase noemt draagt in
     die fase een beeld, of een reden waarom niet (beeld_in_fase, afwijking of buiten_scope). Staat de
     dekking van een fase op volledig, dan is een gat een bevinding; anders een signalering, zodat een
-    fase die nog loopt zijn werklijst ziet zonder de poort rood te zetten;
-13. een beeld dat geen stroom is draagt een rol: de renderer groepeert op fase, stap, rol, verdieping en
-    beeld, en twee rollen in een beeld leveren twee blokken met dezelfde bestandsnaam op, waarvan het
-    tweede het eerste overschrijft.
+    fase die nog loopt zijn werklijst ziet zonder de poort rood te zetten.
 
 Een planningsvorm naast de basis (modeldoorloop-lr1-<vorm>.json, #401) krijgt controle 1 tot en met 5,
 8, 9, 11 en 13 op de tabel die ontstaat als zij met de kop van de basis wordt samengevoegd, en controle 10
@@ -55,6 +52,10 @@ Bevindingen en signaleringen staan apart in de uitvoer; de exitcode volgt alleen
 signalering wijst op iets dat aandacht vraagt zonder de uitkomst af te keuren: een objecttype dat de plaat
 nog niet draagt, een stroom zonder pijl op de hoofdplaat, een uitwisseling zonder beeld in een fase die
 nog loopt.
+
+Een regel met `voorstel` hoort in die tweede categorie: zij wijst bewust naar een objecttype of een
+relatie die het model nog niet kent, zodat de uitwerking door kan lopen terwijl de modelronde volgt. Het
+beeld zet zo'n object gestippeld neer met het merk erin, en de controle meldt het als signalering.
 
 Exitcode 0: geen bevindingen; 1: bevindingen; 2: invoer niet leesbaar.
 """
@@ -209,6 +210,8 @@ def register(regels):
                 uit.append(f"{plek}: thema {thema!r} staat niet in thema_toelichting")
         if b.get("status") == "geparkeerd" and not b.get("reden"):
             uit.append(f"{plek}: geparkeerd zonder reden")
+        if b.get("status") == "doorgevoerd" and not b.get("verwerking"):
+            uit.append(f"{plek}: doorgevoerd zonder te zeggen wat er is gewijzigd")
     return uit
 
 
@@ -272,30 +275,6 @@ def koppelingoverzicht(regels):
     for sleutel in sorted(zonder):
         uit.append(f"zonder koppelingspecificatie: {sleutel}, {zonder[sleutel]} regels")
     return uit
-
-
-def rol_per_beeld(regels):
-    """Een beeld dat geen stroom is hoort een rol te dragen.
-
-    De renderer groepeert zo'n blok op fase, stap, rol, verdieping en beeld, en leidt de bestandsnaam af
-    van de beeldtitel. Twee rollen in een beeld leveren dus twee blokken met dezelfde bestandsnaam op,
-    waarvan het tweede het eerste overschrijft; het beeld toont dan minder dan de tabel zegt.
-    """
-    rollen = {}
-    for r in regels.get("regels", []):
-        if r.get("soort") == "stroomt" or not r.get("beeld_id"):
-            continue
-        rollen.setdefault(r["beeld_id"], {}).setdefault(r.get("wie"), 0)
-        rollen[r["beeld_id"]][r.get("wie")] += 1
-    uit = []
-    for bid in sorted(rollen):
-        if len(rollen[bid]) > 1:
-            namen = ", ".join(f"{w} ({n} regels)" for w, n in rollen[bid].items())
-            uit.append(f"beeld {bid} draagt meer dan een rol: {namen}; de renderer maakt daar twee "
-                       f"bestanden van met dezelfde naam")
-    return uit
-
-
 def schema(regels):
     """Verplichte velden en typen per soort regel, en de regels die over meer dan een veld gaan;
     het JSON Schema dekt de woordenlijst, deze controle de voorwaarden. Geeft bevindingen."""
@@ -382,7 +361,6 @@ def controleer(regels, model, stromen=None, fasen_filter=None, model_commit=None
     variant = bool(regels.get("vorm"))
     schemafouten, waarschuwingen = schemavalidatie(regels, schema_pad) if schema_pad else ([], [])
     bevindingen = schemafouten + schema(regels) + register(regels)
-    waarschuwingen += rol_per_beeld(regels)
     if bevindingen and any(b.startswith("kop:") for b in bevindingen):
         return bevindingen, waarschuwingen, {}
 
@@ -453,10 +431,15 @@ def controleer(regels, model, stromen=None, fasen_filter=None, model_commit=None
         if not concept:
             waarschuwingen += _route_via_leeruitkomst(r, plek, typen)
         rel = r.get("relatie")
+        # een regel die zichzelf als voorstel aanmerkt wijst naar een objecttype of een relatie die het
+        # model nog niet draagt; dat is de bedoeling, dus het levert een signalering op en geen bevinding
+        voorstel = bool(r.get("voorstel"))
         if isinstance(rel, dict) and all(k in rel for k in ("soort", "van", "naar")):
             sleutel = (rel["soort"], norm(rel["van"]), norm(rel["naar"]))
             if sleutel not in plaat_relaties:
-                bevindingen.append(f"{plek}: relatie {rel['soort']} van {rel['van']!r} naar {rel['naar']!r} staat niet op {plaatnaam}")
+                (waarschuwingen if voorstel else bevindingen).append(
+                    f"{plek}: relatie {rel['soort']} van {rel['van']!r} naar {rel['naar']!r} staat niet op {plaatnaam}"
+                    + (" (voorstel)" if voorstel else ""))
             elif rel.get("label") and plaat_relaties[sleutel] != rel["label"]:
                 bevindingen.append(f"{plek}: relatielabel {rel['label']!r} wijkt af van {plaatnaam} ({plaat_relaties[sleutel]!r})")
             if rel.get("nesting") and rel["soort"] not in NESTING:
@@ -466,7 +449,9 @@ def controleer(regels, model, stromen=None, fasen_filter=None, model_commit=None
                 continue
             sleutel = (x["soort"], norm(x["van"]), norm(x["naar"]))
             if sleutel not in plaat_relaties:
-                bevindingen.append(f"{plek}: relatie {x['soort']} van {x['van']!r} naar {x['naar']!r} (relaties) staat niet op {plaatnaam}")
+                (waarschuwingen if voorstel else bevindingen).append(
+                    f"{plek}: relatie {x['soort']} van {x['van']!r} naar {x['naar']!r} (relaties) staat niet op {plaatnaam}"
+                    + (" (voorstel)" if voorstel else ""))
             elif x.get("label") and plaat_relaties[sleutel] != x["label"]:
                 bevindingen.append(f"{plek}: relatielabel {x['label']!r} (relaties) wijkt af van {plaatnaam} ({plaat_relaties[sleutel]!r})")
             if naam not in (norm(x["van"]), norm(x["naar"])):
