@@ -65,7 +65,7 @@ jobs:
           set -euo pipefail
           for model in architecture/model/*.archimate; do
             echo "::group::$model"
-            python3 scripts/validate-archimate.py "$model"
+            python3 tools/scripts/validate-archimate.py "$model"
             echo "::endgroup::"
           done
 
@@ -79,9 +79,9 @@ jobs:
           set -euo pipefail
           for model in architecture/model/*.archimate; do
             echo "::group::$model"
-            python3 scripts/controleer-modelverlies.py --git "$BASIS" "$model"
+            python3 tools/scripts/controleer-modelverlies.py --git "$BASIS" "$model"
             echo "::endgroup::"
           done
 
       - name: Testgevallen van de controlescripts
-        run: python3 -m unittest discover -s tests
+        run: python3 -m unittest discover -s tools/tests

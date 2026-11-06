@@ -62,10 +62,10 @@ Drie afspraken gelden bij deze bron. Zij zijn hier vastgelegd en niet als ADR, o
 In de dev-container, na elke wijziging aan de bron:
 
 ```bash
-python3 scripts/controleer-modeldoorloop.py
-python3 scripts/teken-modeldoorloop.py
-python3 scripts/genereer-modeldoorloop-lr1.py
-python3 -m unittest discover -s tests -p "test_*.py"
+python3 tools/scripts/controleer-modeldoorloop.py
+python3 tools/scripts/teken-modeldoorloop.py
+python3 tools/scripts/genereer-modeldoorloop-lr1.py
+python3 -m unittest discover -s tools/tests -p "test_*.py"
 ```
 
 De werkwijze per fase staat in de skill [`okx-modeldoorloop`](../../../.agents/skills/okx-modeldoorloop/SKILL.md).

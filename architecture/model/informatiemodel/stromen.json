@@ -1,8 +1,6 @@
 {
-  "view": "OKx hoofdplaat v1.7<concept> (zonder context applicaties)",
+  "view": "OKx hoofdplaat v1.7a (zonder context applicaties)",
   "model": "architecture/model/model.archimate",
-  "toelichting": "De stromen van de genoemde view, plus de aanvullingen uit stromen-aanvullingen.json. Een stroom met een id dat met 'aanvulling-' begint staat nog niet op de gepubliceerde hoofdplaat; haar herkomst en status zeggen uit welke versie zij komt. Wie de plaat gebruikt om iets te verantwoorden kijkt dus naar de view; wie een voorbeeld leest ziet aan de aanvulling dat die lijn nog in aanbouw is.",
-  "aanvullingen_uit": "architecture/model/informatiemodel/stromen-aanvullingen.json",
   "stromen": [
     {
       "id": "id-865f297e8c1f4371aa143aa225fe4b7f",
@@ -42,7 +40,7 @@
       "naar": "Kernregistratie systeem studenten (KRS)",
       "soort": "Flow",
       "label": "Ontsluiten aanmeld-/inschrijfbaar opleidingsprogramma aanbod",
-      "koppeling": "zonder koppelingspecificatie"
+      "koppeling": "OC-SIS"
     },
     {
       "id": "id-e2755a76b8244373bd7e8da4ccb7c3f6",
@@ -50,7 +48,7 @@
       "naar": "Leer management systeem (LMS)",
       "soort": "Flow",
       "label": "Onderwijs specificatie",
-      "koppeling": "zonder koppelingspecificatie"
+      "koppeling": "OC-LMS"
     },
     {
       "id": "id-d23841b89bed4935b2aebdeb12ee2acf",
@@ -58,7 +56,7 @@
       "naar": "Leer management systeem (LMS)",
       "soort": "Flow",
       "label": "Verzoek tot fijnmazige uitwerking onderwijs specificatie",
-      "koppeling": "zonder koppelingspecificatie"
+      "koppeling": "OC-LMS"
     },
     {
       "id": "id-1d27ecfa2c0d4fb7b4f7337e93eed033",
@@ -66,7 +64,7 @@
       "naar": "Planningssysteem",
       "soort": "Flow",
       "label": "Verzoek tot maken onderwijsaanbod obv opleidingsprogramma- en onderwijseenheid specificaties",
-      "koppeling": "zonder koppelingspecificatie"
+      "koppeling": "OC-P&R"
     },
     {
       "id": "id-5f2568d7b99a49eaa863f539ae362f4d",
@@ -82,7 +80,7 @@
       "naar": "Student volg systeem (SVS)",
       "soort": "Flow",
       "label": "Onderwijs specificatie",
-      "koppeling": "zonder koppelingspecificatie"
+      "koppeling": "OC-SIS"
     },
     {
       "id": "id-ec248a00b6234f1688ee3705d46a59f7",
@@ -98,7 +96,7 @@
       "naar": "Onderwijscatalogus",
       "soort": "Flow",
       "label": "Bevestiging creatie opleidingprogramma aanbod",
-      "koppeling": "zonder koppelingspecificatie"
+      "koppeling": "OC-P&R"
     },
     {
       "id": "id-6ece22a4621443bfa17e7cb36c0ba113",
@@ -106,7 +104,7 @@
       "naar": "Onderwijscatalogus",
       "soort": "Flow",
       "label": "Verzoek tot bijwerken onderwijspecificaties Planning elementen",
-      "koppeling": "zonder koppelingspecificatie"
+      "koppeling": "OC-P&R"
     },
     {
       "id": "id-08467fe302794db6b935ff685e83efe0",
@@ -189,20 +187,12 @@
       "koppeling": "zonder koppelingspecificatie"
     },
     {
-      "id": "aanvulling-svs-naar-sks-voltooide-verbintenissen",
+      "id": "id-965bdcd610454fd09fcccdfd0742f5cf",
       "van": "Student volg systeem (SVS)",
       "naar": "Student Keuze Systeem (SKS)",
       "soort": "Flow",
-      "label": "Opleidingsprogramma- en onderwijseenheid aanbodverbintenis van de student voltooid, voor het vrijgeven van conditionele keuzes",
-      "koppeling": "zonder koppelingspecificatie",
-      "objecten": [
-        "Opleidingsprogramma aanbod verbintenis",
-        "Onderwijseenheid aanbod verbintenis"
-      ],
-      "aanleiding": "beide verbintenissen zijn voltooid",
-      "herkomst": "OKx hoofdplaat 1.7a",
-      "status": "nog niet gepubliceerd",
-      "bron": "https://github.com/Npuls-OKx/meta/pull/252#discussion_r4137854450"
+      "label": "Student Opleidingsprogramma, onderwijseenheid voltooid",
+      "koppeling": "zonder koppelingspecificatie"
     },
     {
       "id": "id-eaed86afaeee476d885121adbf18f0b1",

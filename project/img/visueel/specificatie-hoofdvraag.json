@@ -1,0 +1,146 @@
+{
+  "titel": "Hoe ziet onze specificatie eruit?",
+  "ondertitel": "De vraag waar het werk van OKx op uitkomt, en waarom de vorm nog niet vaststaat",
+  "versie": "0.1.0",
+  "breedte": 1240,
+  "blokken": [
+    {
+      "soort": "kolommen",
+      "kolommen": [
+        {
+          "titel": "Conceptuele OKx producten",
+          "kleur": "#3D68EC",
+          "regels": [
+            {
+              "tekst": "Koppelvlakspecificaties",
+              "bron": "Public, release 0.0.1, zonder review"
+            },
+            {
+              "tekst": "Interactieketens op meerwaarde voor instelling en student",
+              "bron": "drie ketens in concept, over fase 1, 2, 3 en 6 van de acht"
+            },
+            {
+              "tekst": "Applicatiediensten als laag eronder",
+              "bron": "in review in Public"
+            },
+            {
+              "tekst": "Informatiemodel met begrippenlijst",
+              "bron": "80 objecttypen, 226 relaties"
+            },
+            {
+              "tekst": "OKx modeldoorloop per processtap",
+              "bron": "leerroute 1, de casus stap voor stap door het model"
+            }
+          ]
+        },
+        {
+          "titel": "Openstaande vraagstukken",
+          "kleur": "#DD784B",
+          "regels": [
+            {
+              "tekst": "Wat een instelling moet kunnen per leerroute",
+              "bron": "de taal daarvoor is in aanbouw en begint bruikbaar te worden",
+              "open": true
+            },
+            {
+              "tekst": "Welke functionaliteit bij welk applicatiecomponent hoort",
+              "bron": "en wat die knip doet met een koppelvlakspecificatie",
+              "open": true
+            },
+            {
+              "tekst": "Optionaliteit in een profiel",
+              "bron": "hoe een afnemer ziet wat een instelling implementeert",
+              "open": true
+            },
+            {
+              "tekst": "De naamgeving van de lagen",
+              "bron": "met welke woorden de set wordt opgedeeld",
+              "open": true
+            },
+            {
+              "tekst": "De vorm van een release",
+              "bron": "wat erin zit, en wie hem beoordeelt",
+              "open": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kop": "De taal opbouwen",
+      "soort": "stappen",
+      "lus": {
+        "van": 5,
+        "naar": 3,
+        "tekst": "het aangevulde model gaat opnieuw door de casus"
+      },
+      "stappen": [
+        {
+          "naam": "Persona",
+          "toelichting": "wie is de lerende",
+          "icoon": "user-multiple",
+          "kleur": "#00AF81"
+        },
+        {
+          "naam": "Leerroutedocument",
+          "toelichting": "wat de instelling doet per fase",
+          "icoon": "road",
+          "kleur": "#00AF81"
+        },
+        {
+          "naam": "Modeldoorloop",
+          "toelichting": "welke objecten bewegen per stap",
+          "icoon": "flow",
+          "kleur": "#00AF81"
+        },
+        {
+          "naam": "Ontbrekende begrippen",
+          "toelichting": "wat de reis blootlegt",
+          "icoon": "search",
+          "kleur": "#DD784B"
+        },
+        {
+          "naam": "Informatiemodel",
+          "toelichting": "aangevuld, en de taal groeit",
+          "icoon": "model",
+          "kleur": "#3D68EC"
+        }
+      ]
+    },
+    {
+      "kop": "Van taal naar specificatie",
+      "soort": "stappen",
+      "stappen": [
+        {
+          "naam": "Modeldoorloop",
+          "toelichting": "de casus in het model, per stap",
+          "icoon": "flow",
+          "kleur": "#3D68EC"
+        },
+        {
+          "naam": "Interacties en waardeketens",
+          "toelichting": "welke interacties samen waarde opleveren voor instelling en student",
+          "icoon": "chart-relationship",
+          "kleur": "#3D68EC"
+        },
+        {
+          "naam": "Interactieketenspecificatie",
+          "toelichting": "de keten beschreven, van waarde naar koppeling",
+          "icoon": "document",
+          "kleur": "#3D68EC"
+        },
+        {
+          "naam": "OKx-profiel",
+          "toelichting": "gegevensuitwisseling, in OEAPI waar het kan",
+          "icoon": "api",
+          "kleur": "#00AF81"
+        }
+      ]
+    },
+    {
+      "soort": "tekst",
+      "tekst": "De reis stap voor stap doorlopen legt bloot welke begrippen ontbreken. Zo kwam de nominale leerroute boven water. Dat is geen illustratie achteraf maar de manier waarop de taal wordt opgebouwd, en die taal draagt daarna de keten en het profiel."
+    }
+  ],
+  "voet": "Status: wat er ligt is concept en voorstel, en verre van implementatiewaardig. Status 7 is leeg en release 0.0.1 kreeg geen review. Het vastzetten van de vorm wacht op een scherper beeld van wat een instelling moet kunnen."
+}

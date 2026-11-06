@@ -60,7 +60,7 @@ Deze waarden komen uit de hoofdplaat en zijn een bruikbaar vertrekpunt:
 
 ## Kleuren
 
-Het **ArchiMate-kleurenschema**, zoals Archi een view tekent: de kleur uit de view waar die er staat, en anders die van de laag waar het element toe hoort. Zo blijven de keuzes van de tekenaar overeind, zoals een wit vak voor een component dat buiten het verhaal valt. Vul- en randkleuren per laag staan in `scripts/teken-modeldoorloop.py`; een randkleur zonder eigen opgave wordt van de vulkleur afgeleid door haar donkerder te maken.
+Het **ArchiMate-kleurenschema**, zoals Archi een view tekent: de kleur uit de view waar die er staat, en anders die van de laag waar het element toe hoort. Zo blijven de keuzes van de tekenaar overeind, zoals een wit vak voor een component dat buiten het verhaal valt. Vul- en randkleuren per laag staan in `tools/scripts/teken-modeldoorloop.py`; een randkleur zonder eigen opgave wordt van de vulkleur afgeleid door haar donkerder te maken.
 
 Lijnen zijn de uitzondering. In ArchiMate is een relatie zwart, en dertig zwarte lijnen door elkaar leest niet. Geef een lijn daarom een kleur, donker genoeg om over een vak van de applicatielaag heen te lezen, met een witte onderlaag eronder zodat een kruising leesbaar blijft. Waarnaar die kleur verwijst volgt de vraag die de plaat beantwoordt: per bronsysteem als de vraag is waar informatie vandaan komt, per koppelvlak als de plaat over de koppelingen zelf gaat.
 
@@ -74,10 +74,10 @@ Een opschrift langs een lijn zoekt de eerste vrije plek op het langste been, van
 
 ## De poort
 
-Leveren gaat via [`scripts/keur-plaat.py`](../../../scripts/keur-plaat.py). Dat harnas leest de SVG terug en meldt wat een plaat onleesbaar maakt: schuine segmenten, tekst buiten het doek, tekst onder de ondergrens, een te ijle verhouding tekst tot plaat, en het aantal kruisende lijnen.
+Leveren gaat via [`tools/scripts/keur-plaat.py`](../../../tools/scripts/keur-plaat.py). Dat harnas leest de SVG terug en meldt wat een plaat onleesbaar maakt: schuine segmenten, tekst buiten het doek, tekst onder de ondergrens, een te ijle verhouding tekst tot plaat, en het aantal kruisende lijnen.
 
 ```bash
-python3 scripts/keur-plaat.py <plaat>.svg --max-kruisingen <het aantal van nu>
+python3 tools/scripts/keur-plaat.py <plaat>.svg --max-kruisingen <het aantal van nu>
 ```
 
 Zet het aantal kruisingen van vandaag vast met `--max-kruisingen`, zodat een latere wijziging het niet stilletjes erger maakt. Laat de generator zelf ook haar aantallen afdrukken (componenten, lijnen, schuine segmenten, kruisingen), zodat de winst van een wijziging navolgbaar is.
@@ -96,7 +96,7 @@ Daarnaast geldt de vaste werkafspraak: **bekijk de plaat in de vorm waarin de le
 
 De hoofdplaatscripts landen met #106; wie ze op `dev` niet vindt, kijkt op die branch.
 
-- `scripts/teken-hoofdplaat-ruim.py`: de hoofdplaat informatiestromen uit de view, ruimer opgezet, met een schakelaar voor het opschrift (de stroomnamen of het koppeling-ID).
-- `scripts/teken-hoofdplaat-highlight.py`: de router zelf, plus markeringen over een render van de plaat.
-- `scripts/teken-modeldoorloop.py`: de kleuren per ArchiMate-laag.
-- `scripts/platen-inventariseren.py`: het manifest dat bijhoudt welke plaat waarvandaan komt.
+- `tools/scripts/teken-hoofdplaat-ruim.py`: de hoofdplaat informatiestromen uit de view, ruimer opgezet, met een schakelaar voor het opschrift (de stroomnamen of het koppeling-ID).
+- `tools/scripts/teken-hoofdplaat-highlight.py`: de router zelf, plus markeringen over een render van de plaat.
+- `tools/scripts/teken-modeldoorloop.py`: de kleuren per ArchiMate-laag.
+- `tools/scripts/platen-inventariseren.py`: het manifest dat bijhoudt welke plaat waarvandaan komt.

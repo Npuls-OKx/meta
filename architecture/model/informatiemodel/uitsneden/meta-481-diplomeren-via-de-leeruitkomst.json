@@ -1,0 +1,77 @@
+{
+  "id": "meta-481-diplomeren-via-de-leeruitkomst",
+  "titel": "Loopt het recht op een diploma of certificaat uitsluitend via de leeruitkomst?",
+  "herkomst": "Werksessie OKx-informatiemodel en ontwerpvragen, 29 oktober 2026; werkbrief Npuls-OKx/meta#481, ingebracht in Npuls-OKx/Public#135",
+  "versie": "0.2.0",
+  "oeapi": false,
+  "rij_labels": [
+    "van het landelijke kader naar het waardedocument, in een lijn"
+  ],
+  "objecten": [
+    {
+      "naam": "Kwalificatie dossier",
+      "rij": 0,
+      "noot": "vastgesteld door S-BB"
+    },
+    {
+      "naam": "Kwalificatie",
+      "rij": 0,
+      "noot": "bestaat uit kerntaken en werkprocessen"
+    },
+    {
+      "naam": "Leeruitkomst",
+      "rij": 0,
+      "noot": "vertaald door de instelling"
+    },
+    {
+      "naam": "Summatieve resultaat structuur",
+      "rij": 0,
+      "noot": "zegt welke resultaten samen bewijs vormen"
+    },
+    {
+      "naam": "Summatief Afrondingscriterium",
+      "rij": 0
+    },
+    {
+      "naam": "Waarde document (diploma / certificaat)",
+      "kolom": "Resultaatstructuur",
+      "rij": 0,
+      "noot": "in het model zonder kolom"
+    }
+  ],
+  "voorbeeld": [
+    {
+      "kop": "Twaalf leeruitkomsten onder een opleidingsspecificatie",
+      "bij": "Summatieve resultaat structuur",
+      "zin": "De opleidingsspecificatie wijst twaalf leeruitkomsten aan en de structuur weegt ze tot een diploma",
+      "delen": [
+        {
+          "deel": "opleidingsspecificatie",
+          "waarde": "Mechatronica, niveau 4"
+        },
+        {
+          "deel": "wijst aan",
+          "waarde": "twaalf leeruitkomsten"
+        },
+        {
+          "deel": "structuur",
+          "waarde": "weegt die twaalf tot een uitspraak"
+        },
+        {
+          "deel": "afrondingscriterium",
+          "waarde": "alle twaalf summatief behaald"
+        },
+        {
+          "deel": "waardedocument",
+          "waarde": "het diploma"
+        },
+        {
+          "deel": "certificaat",
+          "waarde": "een subselectie van dezelfde twaalf"
+        }
+      ],
+      "gradatie": "Het kwalificatiekader blijft bepalen wat normatief geldig is; de weg naar het waardedocument loopt in het model door de leeruitkomsten heen.",
+      "vindplaats": "voorbeeldcasus mechatronica uit de werkbrief Npuls-OKx/meta#481; opgesteld als illustratie en niet ontleend aan een vastgesteld kwalificatiedossier"
+    }
+  ]
+}

@@ -600,11 +600,11 @@
     },
     {
       "objecttype": "Aanwezigheid",
-      "motivering": "Bevinding B22 van de reviewronde: aanwezigheidsregistratie zelf ligt buiten de OKx-scope. Het kaderscenario noemt haar bij het volgen van een les, dus de plaat toont haar grijs met deze motivering."
+      "motivering": "De aanwezigheidsregistratie zelf ligt buiten OKx. Of het afgeleide deelnameresultaat, zoals het deel van de lesgelegenheden dat de student bijwoonde, een studievoortgangsresultaat is dat keuzes in het studentkeuzesysteem vrijgeeft of beperkt, staat open (bevinding B22, #287). Het beeld toont het grijs, als herkomst van dat deelnameresultaat."
     },
     {
       "objecttype": "Leergelegenheid resultaat",
-      "motivering": "Bij de modelronde buiten scope geplaatst. Het kaderscenario noemt het formatieve resultaat op de leergelegenheid als bron voor het studiebeeld, dus de plaat toont het grijs met deze motivering."
+      "motivering": "Het informatiemodel zet het resultaat op een leergelegenheid buiten scope; of het erbinnen hoort, staat open (Npuls-OKx/Public#117). Het kaderscenario noemt wel de stroom van het LMS naar het SVS met leergelegenheidresultaten. Het beeld toont het grijs, als stroom uit het kaderscenario en niet als OKx-uitwisseling."
     }
   ],
   "koppelingen": {
@@ -3691,7 +3691,7 @@
       "objecttype": "Opleidingsaanbod van Instelling",
       "instantie": "ROC Leren Zonder Drempels",
       "toestand": "intentie",
-      "bron": "informatiemodel.json: Opleidingsaanbod van Instelling aggregeert Opleidingaanbod; leerroute-1-regulier.md, r657",
+      "bron": "informatiemodel.json: Opleidingsaanbod van Instelling omvat Opleiding aanbod (Composition); leerroute-1-regulier.md, r657",
       "zin": "Het geplande aanbod gaat terug naar de catalogus, met per laag de verwijzing naar de specificatie waarvan het is gemaakt en naar het verzoek dat ertoe leidde. Capaciteit met exacte getallen vrijgeven vraagt een hoge organisatorische volwassenheid, want het is een toezegging. Voor een aantal logistieke scenario's is het wel voorwaarde. Naarmate keuzes fijnmaziger worden verliest capaciteit op de bovenliggende laag haar waarde: een leergelegenheid die vanuit meerdere programma's wordt aangeboden heeft een eigen capaciteit, los van het opleidingsaanbod."
     },
     {
@@ -4260,7 +4260,7 @@
       "relatie": {
         "soort": "Association",
         "van": "Plaatsingsgroep",
-        "naar": "Opleiding aanbod  verbintenis"
+        "naar": "Opleiding aanbod verbintenis"
       }
     },
     {
@@ -5268,7 +5268,7 @@
       "relatie": {
         "soort": "Association",
         "van": "Opleiding aanbod",
-        "naar": "Opleiding aanbod  verbintenis"
+        "naar": "Opleiding aanbod verbintenis"
       }
     },
     {

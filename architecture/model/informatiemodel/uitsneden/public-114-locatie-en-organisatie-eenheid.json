@@ -2,26 +2,70 @@
   "id": "public-114-locatie-en-organisatie-eenheid",
   "titel": "Zijn locatie en organisatie-eenheid te gebruiken als keuzebepalende factor?",
   "herkomst": "Reviewvraag Npuls-OKx/Public#114 van Jan Hendrik van Schaik, werkbrief Npuls-OKx/meta#332",
+  "versie": "0.1.0",
   "oeapi": true,
-  "rij_labels": ["wie voert wat uit", "wat kiest de student", "waar vindt het plaats"],
+  "rij_labels": [
+    "wie voert wat uit",
+    "wat kiest de student",
+    "waar vindt het plaats"
+  ],
   "objecten": [
-    {"naam": "Organisatie-eenheid", "kolom": "Onderwijsspecificatie", "rij": 0,
-     "merk": "toegevoegd", "nummer": 1, "noot": "zonder kolom in het model",
-     "waarom": "voert de onderwijsspecificaties uit, en daarmee elk keuzedeel"},
-    {"naam": "Opleidingsprogramma specificatie", "rij": 0},
-
-    {"naam": "Student keuze regelset", "rij": 1},
-    {"naam": "Keuzedeel", "rij": 1},
-    {"naam": "Keuzedeel aanbod", "rij": 1, "merk": "hernoemd", "nummer": 5,
-     "noot": "heette Keuzedeelaanbod"},
-    {"naam": "Opleidingsprogramma aanbod", "rij": 1},
-
-    {"naam": "Leeronderdeel specificatie", "rij": 2},
-    {"naam": "Onderwijsvorm", "rij": 2, "merk": "toegevoegd", "nummer": 2,
-     "waarom": "legt per leeronderdeel vast hoe het onderwijs gegeven wordt"},
-    {"naam": "Onderwijslocatie type", "rij": 2, "merk": "toegevoegd", "nummer": 3,
-     "waarom": "het soort ruimte dat die onderwijsvorm vraagt"},
-    {"naam": "Onderwijslocatie", "rij": 2, "merk": "toegevoegd", "nummer": 4,
-     "waarom": "het gebouw of de ruimte, nu gedragen door het aanbod"}
+    {
+      "naam": "Organisatie-eenheid",
+      "kolom": "Onderwijsspecificatie",
+      "rij": 0,
+      "merk": "toegevoegd",
+      "nummer": 1,
+      "noot": "zonder kolom in het model",
+      "waarom": "voert de onderwijsspecificaties uit, en daarmee elk keuzedeel"
+    },
+    {
+      "naam": "Opleidingsprogramma specificatie",
+      "rij": 0
+    },
+    {
+      "naam": "Student keuze regelset",
+      "rij": 1
+    },
+    {
+      "naam": "Keuzedeel",
+      "rij": 1
+    },
+    {
+      "naam": "Keuzedeel aanbod",
+      "rij": 1,
+      "merk": "hernoemd",
+      "nummer": 5,
+      "noot": "heette Keuzedeelaanbod"
+    },
+    {
+      "naam": "Opleidingsprogramma aanbod",
+      "rij": 1
+    },
+    {
+      "naam": "Leeronderdeel specificatie",
+      "rij": 2
+    },
+    {
+      "naam": "Onderwijsvorm",
+      "rij": 2,
+      "merk": "toegevoegd",
+      "nummer": 2,
+      "waarom": "legt per leeronderdeel vast hoe het onderwijs gegeven wordt"
+    },
+    {
+      "naam": "Onderwijslocatie type",
+      "rij": 2,
+      "merk": "toegevoegd",
+      "nummer": 3,
+      "waarom": "het soort ruimte dat die onderwijsvorm vraagt"
+    },
+    {
+      "naam": "Onderwijslocatie",
+      "rij": 2,
+      "merk": "toegevoegd",
+      "nummer": 4,
+      "waarom": "het gebouw of de ruimte, nu gedragen door het aanbod"
+    }
   ]
 }
