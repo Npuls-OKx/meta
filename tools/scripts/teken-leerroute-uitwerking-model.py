@@ -7,9 +7,9 @@ tekst. Elke regel uit de regeltabel wordt een zelfdragende SVG (geen externe fon
 geen scripts), zodat hij op GitHub in markdown rendert en na een modelronde opnieuw
 te maken is.
 
-    python3 tools/scripts/teken-modeldoorloop.py [--regels PAD] [--uit MAP]
+    python3 tools/scripts/teken-leerroute-uitwerking-model.py [--regels PAD] [--uit MAP]
 
-Een planningsvorm naast de regeltabel (modeldoorloop-lr1-<vorm>.json) wordt daarna getekend,
+Een planningsvorm naast de regeltabel (leerroute-uitwerking-model-lr1-<vorm>.json) wordt daarna getekend,
 naar dezelfde map.
 
 Drie soorten regels, in de kleuren en iconen van ArchiMate:
@@ -30,11 +30,11 @@ import pathlib
 import re
 import sys
 
-_spec = importlib.util.spec_from_file_location("modeldoorloop_varianten", pathlib.Path(__file__).resolve().parent / "modeldoorloop-varianten.py")
+_spec = importlib.util.spec_from_file_location("leerroute_uitwerking_model_varianten", pathlib.Path(__file__).resolve().parent / "leerroute-uitwerking-model-varianten.py")
 varianten = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(varianten)
 
-REGELS = pathlib.Path("architecture/model/informatiemodel/modeldoorloop-lr1.json")
+REGELS = pathlib.Path("architecture/model/informatiemodel/leerroute-uitwerking-model-lr1.json")
 UIT = pathlib.Path("architecture/model/informatiemodel/img/regels")
 BUS, BUS_L, BUS_T = "#ffffb5", "#a8a85a", "#5a5a2a"
 APP, APP_L, APP_T = "#b5ffff", "#5aa8a8", "#2a5a5a"
@@ -774,7 +774,7 @@ def maten(uitmap, namen):
 
 
 def valideer(regels):
-    """Wat de renderer zelf nodig heeft; de inhoudelijke controle doet controleer-modeldoorloop.py."""
+    """Wat de renderer zelf nodig heeft; de inhoudelijke controle doet controleer-leerroute-uitwerking-model.py."""
     for i, r in enumerate(regels.get("regels", []), 1):
         if r.get("soort") not in SOORTEN:
             sys.exit(f"regel {i}: soort {r.get('soort')!r} is niet ontstaat, verandert of stroomt")

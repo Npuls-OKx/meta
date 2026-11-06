@@ -62,7 +62,7 @@
       "doel": "De lezersroute vormgeven: de route in delen met een vraag per deel, de verdieping in vier vaste regels, en de platen in de Npuls-vormtaal uit tools/scripts/teken-npuls-plaat.py, met een versie volgens SemVer op elk beeld."
     },
     {
-      "naam": "okx-modeldoorloop",
+      "naam": "okx-leerroute-uitwerking-model",
       "type": "okx-specifiek",
       "doel": "Een persona stap voor stap in het informatiemodel uitdrukken (MIM 1 en 2): regeltabel per processtap, controle tegen de platen, beelden in ArchiMate-vormtaal en het gegenereerde leesdocument met bijlage en vragen, met het invulblad als eigen bestand."
     },

@@ -16,7 +16,7 @@ spec = importlib.util.spec_from_file_location("teken_fasenplaten", WORTEL / "too
 tf = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(tf)
 
-REGELS = WORTEL / "architecture/model/informatiemodel/modeldoorloop-lr1.json"
+REGELS = WORTEL / "architecture/model/informatiemodel/leerroute-uitwerking-model-lr1.json"
 
 
 def fixture():

@@ -131,7 +131,7 @@ OKx consumeert alles wat boven laag 6 ligt: de kaders van NORA, de visie van Npu
 
 Daar komt de reikwijdte bij. De horizon loopt over sectoren heen, en mbo, hbo en wo dragen elk een eigen kwalificatiekader, een eigen administratie en een eigen referentiearchitectuur. Elke afspraak die over die grens heen moet werken, moet in drie stelsels tegelijk kloppen.
 
-Welke leerroutes eerst aan bod komen, staat in de [basisuitgangspunten](context.md#basisuitgangspunten): prioriteit bij 1, 2, 3, 4 en 7. De [negen leerroutes van Npuls](../architecture/docs/specificatie/leerroute-uitwerking/img/README.md) staan als tekening bij elkaar, met per route de keten van persona, uitwerking, scenario's en modeldoorloop.
+Welke leerroutes eerst aan bod komen, staat in de [basisuitgangspunten](context.md#basisuitgangspunten): prioriteit bij 1, 2, 3, 4 en 7. De [negen leerroutes van Npuls](../architecture/docs/specificatie/leerroute-uitwerking/img/README.md) staan als tekening bij elkaar, met per route de keten van persona, uitwerking, scenario's en de uitwerking in het informatiemodel.
 
 ### Verdieping: het kaderscenario
 
@@ -156,7 +156,7 @@ Drie lagen dragen de uitwerking. Een **informatiestroom** is de beweging van geg
 
 De afdaling begint bij MORA en eindigt bij een enkele stap in het model, met een lus terug: elke toets op de instellingsvloer werkt het informatiemodel bij.
 
-![Van procesgebied naar modeldoorloopstap: MORA deelt het werk in procesgebied, procesketen en processtap, waarna het leerroute-procesbeeld en de modeldoorloopstap van OKx volgen](img/van-procesgebied-naar-modeldoorloopstap-20261103.png)
+![Van procesgebied naar doorloopstap: MORA deelt het werk in procesgebied, procesketen en processtap, waarna het leerroute-procesbeeld en de doorloopstap van OKx volgen. Het beeld komt uit het deck van 3 november 2026 en spreekt daar van modeldoorloopstap](img/van-procesgebied-naar-modeldoorloopstap-20261103.png)
 
 *Van een procesgebied in MORA tot een doorloopstap in het model. Uit het deck voor de werkgroep OKx van 3 november 2026.*
 
@@ -184,7 +184,7 @@ De plaat hierboven toont de landelijke route. Hieronder staat dezelfde route met
 
 ```mermaid
 flowchart TD
-  A["Scenario-analyse<br/>persona's, leerroute-uitwerkingen"] --> B["Gegevensanalyse<br/>bouwblokken, begrippenlijst,<br/>informatiemodel, modeldoorloop"]
+  A["Scenario-analyse<br/>persona's, leerroute-uitwerkingen"] --> B["Gegevensanalyse<br/>bouwblokken, begrippenlijst,<br/>informatiemodel, leerroute-uitwerking"]
   A --> C["Interactie-analyse<br/>hoofdplaat informatiestromen,<br/>interactieketenspecificatie"]
   B --> D["Technologiekeuze<br/>OEAPI tenzij"]
   C --> D
@@ -204,11 +204,11 @@ Het werk loopt nu via de reis van een instelling, per leerroute, in drie lagen.
 |---|---|---|
 | Persona | De lerende, en wat zijn situatie van de instelling vraagt | [`persona_jochem.md`](../architecture/docs/specificatie/leerroute-uitwerking/doc/persona_jochem.md) |
 | Leerroutedocument | Wat de instelling doet per fase, met de componenten en objecttypen die daarbij oplichten | [kaderscenario leerroute 1](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md) |
-| OKx modeldoorloop | Per doorloopstap welke objecten ontstaan, veranderen en stromen, met de bron erbij | [`modeldoorloop-leerroute-1-jochem.md`](../architecture/model/informatiemodel/modeldoorloop-leerroute-1-jochem.md) |
+| Leerroute-uitwerking in het model | Per doorloopstap welke objecten ontstaan, veranderen en stromen, met de bron erbij | [`leerroute-uitwerking-model-lr1-jochem.md`](../architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md) |
 
-Leerroute 1 draagt die drie lagen. De modeldoorloop op `dev` is de vorige versie; de herziene ligt ter review in [PR 314](https://github.com/Npuls-OKx/meta/pull/314), met acht fasen, 67 platen per processtap, een bijlage per begrippenfamilie, vijftien vragen aan de kerngroep en het regelregister. Leerroute 2 en 3 staan in de milestone [Instellingsreizen per leerroute](https://github.com/Npuls-OKx/meta/milestone/24). De maat: een instelling herkent zich voor ongeveer tachtig procent in zo'n beschrijving, en de rest is lokale variant die als variant wordt vastgelegd.
+Leerroute 1 draagt die drie lagen. De leerroute-uitwerking in het model op `dev` is de vorige versie; de herziene ligt ter review in [PR 314](https://github.com/Npuls-OKx/meta/pull/314), met acht fasen, 67 platen per processtap, een bijlage per begrippenfamilie, vijftien vragen aan de kerngroep en het regelregister. Leerroute 2 en 3 staan in de milestone [Instellingsreizen per leerroute](https://github.com/Npuls-OKx/meta/milestone/24). De maat: een instelling herkent zich voor ongeveer tachtig procent in zo'n beschrijving, en de rest is lokale variant die als variant wordt vastgelegd.
 
-Daarnaast loopt een tweede lijn: de capabilities van de voorziening, oftewel wat een functiegebied moet kunnen, los van het product waarin dat landt. De OKx modeldoorloop verbindt die twee lijnen, want daar staat per doorloopstap welke objecten bewegen. Het onderzoek naar die verhouding staat in [#422](https://github.com/Npuls-OKx/meta/issues/422).
+Daarnaast loopt een tweede lijn: de capabilities van de voorziening, oftewel wat een functiegebied moet kunnen, los van het product waarin dat landt. De leerroute-uitwerking in het model verbindt die twee lijnen, want daar staat per doorloopstap welke objecten bewegen. Het onderzoek naar die verhouding staat in [#422](https://github.com/Npuls-OKx/meta/issues/422).
 
 ### Verdieping: het informatiemodel
 
@@ -253,7 +253,7 @@ Zes producten dragen het beeld van wat een instelling doet en welke taal daarbij
 | Persona's | Wie de lerende is, en wat zijn situatie van de instelling vraagt | [negen persona's, een per leerroute](../architecture/docs/specificatie/leerroute-uitwerking/img/README.md) |
 | Leerroute-uitwerkingen | Wat de instelling doet per fase, met de componenten en objecttypen die daarbij oplichten | [leerroute-uitwerking](../architecture/docs/specificatie/leerroute-uitwerking/README.md), met het [kaderscenario van leerroute 1](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md) in Public |
 | OKx informatiemodel | Welke objecttypen de keten kent en hoe zij samenhangen, met de begrippenlijst eronder | [informatiemodel in Public](https://github.com/Npuls-OKx/Public/tree/dev/Informatie-en-gegevensmodellen) |
-| OKx modeldoorloop | Per doorloopstap welke objecten ontstaan, veranderen en stromen, met de bron erbij | [modeldoorloop leerroute 1](../architecture/model/informatiemodel/modeldoorloop-leerroute-1-jochem.md), herzien in [PR 314](https://github.com/Npuls-OKx/meta/pull/314) |
+| Leerroute-uitwerking in het model | Per doorloopstap welke objecten ontstaan, veranderen en stromen, met de bron erbij | [leerroute 1, Jochem](../architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md), herzien in [PR 314](https://github.com/Npuls-OKx/meta/pull/314) |
 | Bouwblokken | Welke waarde een stuk keten voor een instelling oplevert, als eenheid om op te bouwen. Nog een concept: wat een bouwblok precies afbakent ligt open | [de route in het deck van 3 november](../presentaties/src/261103_werkgroep_okx_voortgang.md) |
 | Hoofdplaat informatiestromen | Het IT-ecosysteem van een instelling en de stromen daartussen, op MORA gebaseerd | [hoofdplaat per versie](../architecture/model/) |
 
@@ -437,7 +437,7 @@ Deze zijn met de producten uit deel 5 in de hand te beantwoorden, en zonder die 
 
 1. Een leverancier verkoopt een applicatie, de architectuur beschrijft een applicatiecomponent, en die twee vallen zelden samen: een product dekt vaak meer dan een component, en een component ligt soms verspreid over twee producten. OKx legt niet vast wat een applicatie doet, wel wat een applicatiecomponent moet kunnen zodra er een koppelvlak aan hangt. Waar loopt die grens, en hoe houdt een koppelvlakspecificatie hem vol tegenover MORA en tegenover de markt?
 2. Wat moet een instelling kunnen om leerroute 1 te realiseren, uitgedrukt in stappen die zij herkent?
-3. Helpt de modeldoorloop een instelling voldoende om haar doelen te halen, en is het OKx-model robuust genoeg? Daaronder de lastigste variant: wat ontbreekt er dat nog niemand gemist heeft?
+3. Helpt de leerroute-uitwerking in het model een instelling voldoende om haar doelen te halen, en is het OKx-model robuust genoeg? Daaronder de lastigste variant: wat ontbreekt er dat nog niemand gemist heeft?
 4. Wat releaset OKx, en wat versioneert het? En hoe bewegen die twee mee wanneer er in een onderliggend product iets verandert?
 
 ### Openstaande vragen leeruitkomst

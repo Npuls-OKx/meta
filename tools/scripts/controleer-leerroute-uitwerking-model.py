@@ -7,7 +7,7 @@ wijst daarom naar een objecttype, een relatie, een rol en een pijl die bestaan;
 dit script faalt zodra dat niet zo is, en meldt per fase welke objecttypen binnen
 scope nog geen ontstaat-regel hebben.
 
-    python3 tools/scripts/controleer-modeldoorloop.py [--regels PAD] [--model PAD]
+    python3 tools/scripts/controleer-leerroute-uitwerking-model.py [--regels PAD] [--model PAD]
         [--stromen PAD] [--conceptplaat PAD] [--fasen 2,3,4] [--model-commit SHA]
 
 Controles (R1 en R2 uit het featureplan):
@@ -41,7 +41,7 @@ Controles (R1 en R2 uit het featureplan):
     dekking van een fase op volledig, dan is een gat een bevinding; anders een signalering, zodat een
     fase die nog loopt zijn werklijst ziet zonder de poort rood te zetten.
 
-Een planningsvorm naast de basis (modeldoorloop-lr1-<vorm>.json, #401) krijgt controle 1 tot en met 5,
+Een planningsvorm naast de basis (leerroute-uitwerking-model-lr1-<vorm>.json, #401) krijgt controle 1 tot en met 5,
 8, 9, 11 en 13 op de tabel die ontstaat als zij met de kop van de basis wordt samengevoegd, en controle 10
 tegen haar eigen schema. De dekking (6 en 12) geldt alleen voor de basis, want een variant is een delta.
 Daarbij komt: de vorm in het bestand is die van de bestandsnaam, het beeld-ID draagt de letter van de vorm,
@@ -67,17 +67,17 @@ import pathlib
 import re
 import sys
 
-_spec = importlib.util.spec_from_file_location("modeldoorloop_varianten", pathlib.Path(__file__).resolve().parent / "modeldoorloop-varianten.py")
+_spec = importlib.util.spec_from_file_location("leerroute_uitwerking_model_varianten", pathlib.Path(__file__).resolve().parent / "leerroute-uitwerking-model-varianten.py")
 varianten = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(varianten)
 
-REGELS = pathlib.Path("architecture/model/informatiemodel/modeldoorloop-lr1.json")
+REGELS = pathlib.Path("architecture/model/informatiemodel/leerroute-uitwerking-model-lr1.json")
 MODEL = pathlib.Path("architecture/model/informatiemodel/informatiemodel.json")
 STROMEN = pathlib.Path("architecture/model/informatiemodel/stromen.json")
 CONCEPTPLAAT = pathlib.Path("architecture/model/informatiemodel/conceptplaat-onderwijsontwerp.json")
 COMPONENTEN = pathlib.Path("architecture/model/informatiemodel/componenten.json")
-SCHEMA = pathlib.Path("architecture/model/informatiemodel/modeldoorloop-lr1.schema.json")
-VARIANTSCHEMA = pathlib.Path("architecture/model/informatiemodel/modeldoorloop-variant.schema.json")
+SCHEMA = pathlib.Path("architecture/model/informatiemodel/leerroute-uitwerking-model-lr1.schema.json")
+VARIANTSCHEMA = pathlib.Path("architecture/model/informatiemodel/leerroute-uitwerking-model-variant.schema.json")
 PLATEN = {"informatiemodel", "onderwijsontwerp"}
 GEEN_PIJL = "geen pijl op de hoofdplaat"
 NESTING = {"Aggregation", "Composition"}
