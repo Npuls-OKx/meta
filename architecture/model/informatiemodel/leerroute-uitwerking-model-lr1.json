@@ -143,14 +143,14 @@
           "afwijking": "het voorbeeld volgt de route van hoofdplaat v1.7: de catalogus ontsluit het aanmeldbare aanbod aan de kernregistratie (F3-01), die het doorgeeft aan AII voor centraal aanmelden (F3-02), en de aanmelding komt van AII bij het intakesysteem (F3-04). Een rechtstreekse lijn van de catalogus naar het intakesysteem staat niet op de plaat; CAMBO blijft buiten scope"
         },
         {
-          "van": "Intake systeem",
+          "van": "Voorziening Centraal Aanmelden (CAMBO)",
           "naar": "Kernregistratie systeem studenten (KRS)",
           "objecten": [
             "opleidingsverbintenis",
             "opleidingsprogramma-verbintenis",
             "Persoon"
           ],
-          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 3: Wat licht op in de plaat"
+          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 3: Wat licht op in de plaat; hoofdplaat v1.7a, Persoon(Student) Opleidingprogramma verbintenis"
         }
       ],
       "dekking": "volledig",
@@ -4184,14 +4184,14 @@
       "fase": 3,
       "stap": "Persoon en verbintenissen vastleggen in de kernregistratie",
       "soort": "stroomt",
-      "van": "Intake systeem",
+      "van": "Voorziening Centraal Aanmelden (CAMBO)",
       "naar": "Kernregistratie systeem studenten (KRS)",
-      "pijl": "geen pijl op de hoofdplaat",
+      "pijl": "id-eaed86afaeee476d885121adbf18f0b1",
       "koppeling": null,
       "objecttype": "Inschrijving",
       "instantie": "Juni 2026",
-      "bron": "leerroute-1-regulier.md, r860 en r882 (het intakesysteem verwerkt aanmelding en intake en draagt de positieve uitkomst over aan KRS), r945 en r949; gecorrigeerd in de sparsessie PR 314, deel 2, 4 november 2026",
-      "zin": "Bij een positieve uitkomst zet het intakesysteem de aanmelding om in een inschrijving en draagt die over aan de kernregistratie, samen met de persoon en de verbintenissen die daarmee op ingeschreven staan. Vanaf dat moment is de kernregistratie de bron voor persoon en plaatsing, en registreert zij later de definitieve keuze. Het rijpen van die keuze gebeurt in het studentkeuzesysteem. De plaatsingsgroep zit hier niet bij: het intakesysteem heeft geen zicht op wie er voor de start bij elkaar gegroepeerd zijn. Die groep wordt in de kernregistratie gevormd, nadat de intake is afgerond, en gaat van daaruit naar het keuzesysteem (F3-08) en naar planning (F4-06).",
+      "bron": "leerroute-1-regulier.md, r860 en r882, r945 en r949; hoofdplaat v1.7a, stroom Persoon(Student) Opleidingprogramma verbintenis van de Voorziening Centraal Aanmelden naar de kernregistratie; gecorrigeerd op aanwijzing van de opdrachtgever, 6 november 2026",
+      "zin": "Bij een positieve uitkomst van de intake wordt de aanmelding een inschrijving, en de voorziening voor centraal aanmelden draagt die over aan de kernregistratie, samen met de persoon en de verbintenissen die daarmee op ingeschreven staan. Dat is de lijn die hoofdplaat v1.7a kent: Persoon(Student) Opleidingprogramma verbintenis loopt rechtstreeks van de voorziening naar de kernregistratie. Vanaf dat moment is de kernregistratie de bron voor persoon en plaatsing, en registreert zij later de definitieve keuze. Het rijpen van die keuze gebeurt in het studentkeuzesysteem. De plaatsingsgroep zit hier niet bij: zij wordt in de kernregistratie gevormd nadat de intake is afgerond, en gaat van daaruit naar het keuzesysteem (F3-08) en naar planning (F4-06).",
       "relaties": [
         {
           "soort": "Association",
@@ -4200,7 +4200,8 @@
           "label": "Wordt na formalisatie",
           "instantie": "April 2026, Apothekersassistent BOL"
         }
-      ]
+      ],
+      "vraag": "Het intakesysteem voert de intake uit (F3-05) maar is niet de afzender van de inschrijving: de plaat laat die lijn van de voorziening naar de kernregistratie lopen. Wat gaat er dan terug van het intakesysteem naar de voorziening, en langs welke lijn? De plaat kent geen stroom van het intakesysteem naar de voorziening."
     },
     {
       "beeld_id": "F3-07",
@@ -4208,13 +4209,13 @@
       "fase": 3,
       "stap": "Persoon en verbintenissen vastleggen in de kernregistratie",
       "soort": "stroomt",
-      "van": "Intake systeem",
+      "van": "Voorziening Centraal Aanmelden (CAMBO)",
       "naar": "Kernregistratie systeem studenten (KRS)",
-      "pijl": "geen pijl op de hoofdplaat",
+      "pijl": "id-eaed86afaeee476d885121adbf18f0b1",
       "koppeling": null,
       "objecttype": "Persoon",
       "instantie": "Jochem, 17, na het vmbo",
-      "bron": "leerroute-1-regulier.md, r860 en r882 (het intakesysteem verwerkt aanmelding en intake en draagt de positieve uitkomst over aan KRS), r945 en r949",
+      "bron": "leerroute-1-regulier.md, r860 en r882, r945 en r949; hoofdplaat v1.7a, stroom Persoon(Student) Opleidingprogramma verbintenis van de Voorziening Centraal Aanmelden naar de kernregistratie; gecorrigeerd op aanwijzing van de opdrachtgever, 6 november 2026",
       "relaties": [
         {
           "soort": "Access",
@@ -4230,13 +4231,13 @@
       "fase": 3,
       "stap": "Persoon en verbintenissen vastleggen in de kernregistratie",
       "soort": "stroomt",
-      "van": "Intake systeem",
+      "van": "Voorziening Centraal Aanmelden (CAMBO)",
       "naar": "Kernregistratie systeem studenten (KRS)",
-      "pijl": "geen pijl op de hoofdplaat",
+      "pijl": "id-eaed86afaeee476d885121adbf18f0b1",
       "koppeling": null,
       "objecttype": "Student",
       "instantie": "Jochem, cohort 2026",
-      "bron": "leerroute-1-regulier.md, r860 en r882 (het intakesysteem verwerkt aanmelding en intake en draagt de positieve uitkomst over aan KRS), r945 en r949",
+      "bron": "leerroute-1-regulier.md, r860 en r882, r945 en r949; hoofdplaat v1.7a, stroom Persoon(Student) Opleidingprogramma verbintenis van de Voorziening Centraal Aanmelden naar de kernregistratie; gecorrigeerd op aanwijzing van de opdrachtgever, 6 november 2026",
       "relatie": {
         "soort": "Specialization",
         "van": "Student",
@@ -4249,14 +4250,14 @@
       "fase": 3,
       "stap": "Persoon en verbintenissen vastleggen in de kernregistratie",
       "soort": "stroomt",
-      "van": "Intake systeem",
+      "van": "Voorziening Centraal Aanmelden (CAMBO)",
       "naar": "Kernregistratie systeem studenten (KRS)",
-      "pijl": "geen pijl op de hoofdplaat",
+      "pijl": "id-eaed86afaeee476d885121adbf18f0b1",
       "koppeling": null,
       "objecttype": "Opleiding aanbod verbintenis",
       "instantie": "Jochem op Apothekersassistent 2026",
       "toestand": "ingeschreven",
-      "bron": "leerroute-1-regulier.md, r860 en r882 (het intakesysteem verwerkt aanmelding en intake en draagt de positieve uitkomst over aan KRS), r945 en r949",
+      "bron": "leerroute-1-regulier.md, r860 en r882, r945 en r949; hoofdplaat v1.7a, stroom Persoon(Student) Opleidingprogramma verbintenis van de Voorziening Centraal Aanmelden naar de kernregistratie; gecorrigeerd op aanwijzing van de opdrachtgever, 6 november 2026",
       "relatie": {
         "soort": "Association",
         "van": "Plaatsingsgroep",
@@ -4269,14 +4270,14 @@
       "fase": 3,
       "stap": "Persoon en verbintenissen vastleggen in de kernregistratie",
       "soort": "stroomt",
-      "van": "Intake systeem",
+      "van": "Voorziening Centraal Aanmelden (CAMBO)",
       "naar": "Kernregistratie systeem studenten (KRS)",
-      "pijl": "geen pijl op de hoofdplaat",
+      "pijl": "id-eaed86afaeee476d885121adbf18f0b1",
       "koppeling": null,
       "objecttype": "Opleidingsprogramma aanbod verbintenis",
       "instantie": "Jochem op Regulier BOL 2026",
       "toestand": "ingeschreven",
-      "bron": "leerroute-1-regulier.md, r860 en r882 (het intakesysteem verwerkt aanmelding en intake en draagt de positieve uitkomst over aan KRS), r945 en r949",
+      "bron": "leerroute-1-regulier.md, r860 en r882, r945 en r949; hoofdplaat v1.7a, stroom Persoon(Student) Opleidingprogramma verbintenis van de Voorziening Centraal Aanmelden naar de kernregistratie; gecorrigeerd op aanwijzing van de opdrachtgever, 6 november 2026",
       "relaties": [
         {
           "soort": "Association",
