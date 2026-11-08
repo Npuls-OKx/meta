@@ -1,10 +1,16 @@
 # Product breakdown OKx
 
-De producten en artifacts van OKx in één overzicht: het eindproduct voor leveranciers en instellingen, de tussenproducten die er inhoud voor leveren en de kaders waarbinnen ze ontstaan. Per artifact staan de bron, de rol die het werk doet en de prioriteit. De roadmap zet leerroute 1 in de tijd, van leerroute-uitwerking tot specificatie, met de capaciteit per rol.
+De producten en artifacts van OKx in één overzicht: het eindproduct voor leveranciers en instellingen, de tussenproducten die er inhoud voor leveren en de kaders waarbinnen ze ontstaan. Per artifact staan de bron, de rol die het werk doet en de prioriteit. Daarnaast de backlog als basis voor de planning, de benodigde rollen, de capaciteit tot eind Q1 2027 en de opzet voor november. De presentatie bij dit document staat in [presentaties](../../presentaties/src/261108_product_breakdown_en_projectopzet.md).
+
+## Doel
+
+1. Duidelijkheid over waar we nu staan: de product breakdown als gedeeld beeld van wat er gemaakt wordt.
+2. Een consistente projectplanning: de backlog langs de product breakdown als basis voor schatting, roadmap en capaciteit.
+3. Inzicht in wat het project nodig heeft: de rollen, wie ze dekt, de capaciteit en de opzet voor november.
 
 ## Scope
 
-In scope zijn de artifacts van OKx met hun relaties, rol en prioriteit, en de planning en capaciteit van leerroute 1 tot specificatie. Al het overige valt buiten scope, waaronder de planning van varianten, van leerroute 2 en 3, van conformiteitstesten en van adoptie.
+In scope zijn de artifacts van OKx met hun relaties, rol en prioriteit, de opbouw van de backlog, de rollen, de capaciteitsschatting tot eind Q1 2027 voor leerroute 1 en 2, de opzet voor november en de roadmap van scenario 1.1. Al het overige valt buiten scope, waaronder leerroute 3 tot en met 9, conformiteitstesten en adoptie.
 
 ## Overzicht
 
@@ -17,37 +23,111 @@ In scope zijn de artifacts van OKx met hun relaties, rol en prioriteit, en de pl
 
 Elk artifact staat erop omdat het onderdeel is van het eindproduct, er inhoud voor levert, of er het kader voor is. Controles, zoals waartegen de leerroute-uitwerking wordt getoetst, staan in de tabellen.
 
+## Opbouw
+
+```mermaid
+flowchart LR
+  LR["Leerroute-uitwerking"] --> K1["Keten onderwijsaanbod"]
+  LR --> K2["Keten student-instroom"]
+  LR --> K3["Keten bijsturen"]
+  K1 --> S1["Koppelvlakspecificatie onderwijsaanbod, eigen versie"]
+  K2 --> S2["Koppelvlakspecificatie student-instroom, eigen versie"]
+  K3 --> S3["Koppelvlakspecificatie bijsturen, eigen versie"]
+  BB["Generieke bouwblokken: interacties, koppelvlakdiensten, operaties, JSON-schema's, applicatiecomponenten"] -.-> S1
+  BB -.-> S2
+  BB -.-> S3
+```
+
+Een leerroute-uitwerking levert interactieketens op. Elke keten krijgt een eigen koppelvlakspecificatie met eigen versiebeheer en een eigen release, opgebouwd uit generieke bouwblokken die samen de keten beschrijven.
+
+## Backlog
+
+De backlog volgt dezelfde opbouw: per leerroute de interactieketens, per keten de koppelvlakspecificatie, per specificatie de bouwblokken en per bouwblok de vaste taken.
+
+- Leerroute 1
+  - Interactieketen onderwijsaanbod
+    - Koppelvlakspecificatie onderwijsaanbod, v0.x.x
+      - Bouwblokken: interacties, koppelvlakdiensten, operaties, JSON-schema's, applicatiecomponenten
+        - Taken: uitwerken, review en release, elk met een schatting
+  - Interactieketen student-instroom, zelfde opbouw
+  - Interactieketen bijsturen, zelfde opbouw
+
+Op de backlog schatten we de werklast per taak; daaruit volgen de roadmap en de capaciteit per rol. Tot dan rekenen we met de [rekenregels](#rekenregels). Garik geeft de backlog en de planning vorm en verfijnt ze met het team; Ruud is als productowner eigenaar.
+
 ## Planning november
 
-OKx werkt met een vaste opbouw. Een leerroute-uitwerking levert interactieketens op, en elke interactieketen wordt uitgewerkt tot een eigen koppelvlakspecificatie met eigen versiebeheer. Die specificatie bestaat uit generieke bouwblokken die samen de keten beschrijven, zoals interacties, koppelvlakdiensten, operaties en JSON-schema's.
+Niek, Niels en Garik werken leerroute 1 verder uit; Garik geeft daarnaast de backlog en de planning vorm.
 
-Langs dezelfde opbouw komt er een backlog met alle taken per leerroute en per interactieketen. Op die backlog schatten we de werklast, en daaruit volgen de roadmap en de capaciteit per rol. Tot dan zijn de capaciteit en de roadmap in dit document een raming op basis van rekenregels.
+| Wie | Inzet in november |
+|---|---|
+| Niek | Leerroute 1, solution; 0,1 FTE backlog en planning |
+| Niels | Leerroute 1, business-analyse; 0,1 FTE backlog en planning |
+| Garik | 0,5 FTE backlog en planning: vormgeven en verfijnen met het team; daarnaast leerroute 1 |
+| Ruud | Productowner; 0,1 FTE om backlog en planning te bespreken |
 
-| Week | Backlog en planning | Leerroute 1 |
+| Week | Backlog en planning | Leerroute 1 | Wie |
+|---|---|---|---|
+| Week 46<br>9 tot en met 13 november | De opbouw van de backlog vastleggen: leerroute, interactieketen, koppelvlakspecificatie, bouwblok en taak. Per bouwblok de vaste taken benoemen, zoals uitwerken, review en release, en kiezen waar de backlog komt te staan. | Uitwerken | Garik, met Ruud |
+| Week 47<br>16 tot en met 20 november | De backlog vullen voor leerroute 1: de drie ketens in concept, onderwijsaanbod, student-instroom en bijsturen, met hun taken per bouwblok. | Uitwerken | Garik, met Niek en Niels |
+| Week 48<br>23 tot en met 27 november | De werklast per taak schatten, met het team dat het werk doet. | Uitwerken | Garik, met het team |
+| Week 49<br>30 november tot en met 4 december | De roadmap en de capaciteit per rol afleiden uit de backlog en de schatting, en de backlog bijwerken met de ketens die uit de leerroute-uitwerking komen. | Uitwerken | Garik, met Ruud |
+
+Begin december liggen er de backlog van leerroute 1 met een schatting per taak, een roadmap die daaruit volgt, en de capaciteit per rol. Die vervangen de schatting op basis van rekenregels. Leerroute 1 krijgt in november minder dan de 2,5 FTE uit de rekenregel, omdat het backlogwerk en het contact met instellingen en leveranciers ook tijd vragen.
+
+## Rollen
+
+| Rol | Vraag tot eind Q1 2027, schatting | Wie |
 |---|---|---|
-| Week 46<br>9 tot en met 13 november | De opbouw van de backlog vastleggen: leerroute, interactieketen, koppelvlakspecificatie, bouwblok en taak. Per bouwblok de vaste taken benoemen, zoals uitwerken, review en release, en kiezen waar de backlog komt te staan. | Uitwerken, week 1 |
-| Week 47<br>16 tot en met 20 november | De backlog vullen voor leerroute 1: de drie ketens in concept, onderwijsaanbod, student-instroom en bijsturen, met hun taken per bouwblok. | Uitwerken, week 2 |
-| Week 48<br>23 tot en met 27 november | De werklast per taak schatten, met het team dat het werk doet. | Uitwerken, week 3 |
-| Week 49<br>30 november tot en met 4 december | De roadmap en de capaciteit per rol afleiden uit de backlog en de schatting, en de backlog bijwerken met de ketens die uit de leerroute-uitwerking komen. | Uitwerken, week 4; leerroute 1 uitgewerkt op 4 december |
+| Solution en API | 1,6–3,1 FTE | Niek, Garik |
+| Business-analyse | 1,7–2,2 FTE | Niels |
+| Domein | 0,9 FTE | Niek, Garik, Niels |
+| Productowner en planning | 0,2 FTE, plus de backlog | Ruud; Garik voor backlog en planning |
 
-Begin december liggen er de backlog van leerroute 1 met een schatting per taak, een roadmap die daaruit volgt, en de capaciteit per rol. Die vervangen de raming op basis van rekenregels. De productowner bouwt de backlog; het team schat de werklast.
+- Overlap: Niek en Garik kunnen allebei domein en solution, met API- en technische kennis; Niels werkt op domeinniveau en als business-analist. De overlap maakt vervanging mogelijk; de uren tellen één keer.
+- Contact met instellingen en leveranciers: iedereen besteedt daar ongeveer een dag per week aan.
 
 ## Capaciteit
 
-Voltijdsequivalenten (FTE) per rol per maand om leerroute 1 tot specificatie te brengen, volgens de [roadmap](#roadmap-leerroute-1) en de [rekenregels](#rekenregels). Per maand staat het gemiddelde over de werkweken van die maand.
+Schatting voor de opgave tot eind Q1 2027: leerroute 1 en 2, elk met het anker en drie scenario's (vertraging, versnelling en hybride), in 18 werkweken vanaf 9 november 2026, met de kerstvakantie vrij. De rekenregels staan bij de [roadmap](#rekenregels).
 
-| Rol | Weken werk | Gemiddeld | nov | dec | jan | feb | mrt |
-|---|---|---|---|---|---|---|---|
-| Solutionarchitect | 13 | 0,7 | 1,0 | 1,0 | 1,5 | 0,3 |  |
-| Business-analist | 14 | 0,8 | 1,0 | 0,7 | 1,0 | 0,8 | 0,5 |
-| Domeinarchitect | 8 | 0,4 | 0,5 | 0,5 | 0,5 | 0,5 | 0,3 |
-| Productowner | 3,6 | 0,2 | 0,2 | 0,2 | 0,2 | 0,2 | 0,2 |
-| Totaal | 38,6 | 2,1 | 2,7 | 2,4 | 3,2 | 1,8 | 1,0 |
+| Leerroute 1, regulier | FTE-weken |
+|---|---|
+| Anker, scenario 1.1 uitwerken | 10 |
+| Scenario's 1.2 tot en met 1.4 | 15 |
+| Keten onderwijsaanbod tot specificatie | 4 |
+| Keten student-instroom tot specificatie | 4 |
+| Keten bijsturen tot specificatie | 4 |
+| Ketenwerk door de scenario's | 0–12 |
+| **Subtotaal** | **37–49** |
 
-- In januari is er 1,5 FTE solutionarchitect nodig: de review van een keten loopt terwijl de volgende keten wordt uitgewerkt. Dat zijn twee mensen.
-- De productowner werkt de hele periode 0,2 FTE aan backlog, roadmap en releases.
-- Het totaal per maand is de som van de afgeronde waarden per rol.
-- De telling omvat het werk uit de rekenregels en de schattingen daarbij. De besluiten onderweg vallen erbuiten.
+| Leerroute 2, temporiseren | FTE-weken |
+|---|---|
+| Anker, scenario 2.1 uitwerken | 10 |
+| Scenario's 2.2 tot en met 2.4 | 15 |
+| Keten onderwijsaanbod, wijziging | 0–4 |
+| Keten student-instroom, wijziging | 0–4 |
+| Keten bijsturen, wijziging | 0–4 |
+| Ketenwerk door de scenario's | 0–12 |
+| **Subtotaal** | **25–49** |
+
+| Gezamenlijk | FTE-weken |
+|---|---|
+| Basis: informatiemodel, begrippen, logisch gegevensmodel, ArchiMate-model | 13 |
+| Productowner, 0,2 FTE | 3,6 |
+| Contact met instellingen en leveranciers, een dag per week per persoon | 14,4 |
+| Backlog en planning in november: Garik 0,5, Niek en Niels elk 0,1 FTE | 2,8 |
+| **Subtotaal** | **33,8** |
+
+| Uitkomst | Schatting |
+|---|---|
+| Totaal | 96–132 FTE-weken |
+| Nodig technisch, zonder het werk van Ruud | 4,9–6,9 FTE |
+| Beschikbaar technisch, hoogstens | 2,8 FTE: Garik 0,8 (32 uur), Niek en Niels voltijd |
+| Tekort | 2–4 FTE |
+
+- Eén leerrouteteam is te weinig: twee leerroutes met alle scenario's zijn 20 weken teamwerk, in 18 werkweken, nog zonder ketens.
+- Alle negen leerroutes met vier scenario's zijn 90 weken teamwerk met deze rekenregels.
+- Bronnen: vier scenario's per leerroute volgens de [scenario-uitwerkingen](../docs/specificatie/leerroute-uitwerking/doc/scenario-uitwerkingen/README.md); het doel Q1 2027 uit de werkgroepdecks van [29 september](../../presentaties/src/260929_werkgroep_okx_voortgang.md) en [3 november](../../presentaties/src/261103_werkgroep_okx_voortgang.md); Gariks 32 uur uit de [SI-afstemming van 13 juli](../meetings/20260713_OKx_SI_afstemming_specificaties_en_planning_project_OKx/summary.md).
 
 ## Artifacts
 
@@ -108,7 +188,7 @@ Per vlak de artifacts met hun bron, de rol die het werk doet en de prioriteit. D
 
 ## Roadmap leerroute 1
 
-Leerroute 1 van leerroute-uitwerking tot een koppelvlakspecificatie per interactieketen, zonder varianten.
+Leerroute 1, scenario 1.1: van leerroute-uitwerking tot een koppelvlakspecificatie per interactieketen. De scenario's 1.2 tot en met 1.4 en leerroute 2 komen daar nog bij; hun capaciteit staat bij [Capaciteit](#capaciteit).
 
 ### Rekenregels
 
@@ -129,14 +209,32 @@ Leerroute 1 van leerroute-uitwerking tot een koppelvlakspecificatie per interact
 - Ketens: uit leerroute 1 komen drie interactieketens, [onderwijsaanbod ontwerpen en ontsluiten](https://github.com/Npuls-OKx/meta/blob/386-interactieketen-aanmelden-tot-start/architecture/docs/specificatie/interactieketen-onderwijsaanbod/README.md), [student-instroom van aanmelding tot start](https://github.com/Npuls-OKx/meta/blob/386-interactieketen-aanmelden-tot-start/architecture/docs/specificatie/interactieketen-student-instroom/README.md) en [bijsturen van planning, aanbod en rooster tijdens de uitvoering](https://github.com/Npuls-OKx/meta/blob/389-interactieketen-bijsturen/architecture/docs/specificatie/interactieketen-bijsturen/README.md). Ze staan als voorstel op een branch in meta.
 - Volgorde: in deze planning werkt één solutionarchitect de ketens na elkaar uit, en na de reviewronde kan elke keten als release uit. Met een solutionarchitect per keten lopen de ketens tegelijk in december en is de specificatie half januari klaar; dan zijn er in december drie solutionarchitecten tegelijk nodig. De keuze hangt af van wie er beschikbaar is.
 - Releases: elke keten krijgt een eigen koppelvlakspecificatie met een eigen release, na de reviewronde: onderwijsaanbod op 15 januari, student-instroom op 29 januari en bijsturen op 12 februari 2027.
-- Mijlpalen: leerroute 1 uitgewerkt op 4 december 2026, specificatie leerroute 1 klaar op 12 februari 2027.
+- Mijlpalen: leerroute 1 uitgewerkt op 4 december 2026, specificatie leerroute 1 klaar op 12 februari 2027, uitgaande van het volle team uit de rekenregels.
 - Werkweken: de planning start op 9 november 2026; de kerstvakantie van 21 december tot 4 januari telt als vrij.
-- Capaciteit: de FTE per rol per maand staat bij [Capaciteit](#capaciteit), onder het overzicht.
+
+### Capaciteit voor deze roadmap
+
+Voltijdsequivalenten (FTE) per rol per maand voor scenario 1.1, als gemiddelde over de werkweken van die maand.
+
+| Rol | Weken werk | Gemiddeld | nov | dec | jan | feb | mrt |
+|---|---|---|---|---|---|---|---|
+| Solutionarchitect | 13 | 0,7 | 1,0 | 1,0 | 1,5 | 0,3 |  |
+| Business-analist | 14 | 0,8 | 1,0 | 0,7 | 1,0 | 0,8 | 0,5 |
+| Domeinarchitect | 8 | 0,4 | 0,5 | 0,5 | 0,5 | 0,5 | 0,3 |
+| Productowner | 3,6 | 0,2 | 0,2 | 0,2 | 0,2 | 0,2 | 0,2 |
+| Totaal | 38,6 | 2,1 | 2,7 | 2,4 | 3,2 | 1,8 | 1,0 |
+
+## Besluiten
+
+1. Akkoord op de opzet: de product breakdown als structuur, de backlog per leerroute en keten, en een release per keten.
+2. Beschikbaarheid: per persoon vastleggen hoeveel FTE Ruud, Garik, Niek en Niels per maand aan OKx-techniek besteden.
+3. Extra capaciteit: 2 tot 4 FTE erbij voor twee leerroutes tot eind Q1 2027, een tweede leerrouteteam, en later test en adoptie.
 
 ## Open punten
 
 1. De data en de weken zijn een voorstel; ze worden afgestemd met het programmamanagement.
 2. De drie ketens van leerroute 1 staan als voorstel op een branch; de set wordt bij de review vastgesteld.
-3. Het werk aan taal en informatie, aan het ArchiMate-model en van de productowner is een schatting buiten de rekenregels.
-4. Voor varianten en voor leerroute 2 en 3 gelden dezelfde rekenregels. De capaciteit volgt zodra het aantal varianten en ketens bekend is.
-5. Een deel van de bronlinks wijst naar de branch `feature/restructure-and-versioning` in Public; na de merge gaan ze naar `dev`.
+3. Aannames in de capaciteitsschatting: leerroute 2 is temporiseren, met dezelfde drie ketens; Niek en Niels werken voltijd; het werk aan taal en informatie, aan het ArchiMate-model en van de productowner is een schatting buiten de rekenregels.
+4. Het doel Q1 2027 komt uit de werkgroepdecks; [project/context.md](../../project/context.md) noemt het derde kwartaal van 2027 voor de eerste specificaties.
+5. Leerroute 3 tot en met 9 volgen dezelfde rekenregels; de capaciteit volgt zodra het aantal scenario's en ketens bekend is.
+6. Een deel van de bronlinks wijst naar de branch `feature/restructure-and-versioning` in Public; na de merge gaan ze naar `dev`.
