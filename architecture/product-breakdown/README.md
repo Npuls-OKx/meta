@@ -17,6 +17,21 @@ In scope zijn de artifacts van OKx met hun relaties, rol en prioriteit, en de pl
 
 Elk artifact staat erop omdat het onderdeel is van het eindproduct, er inhoud voor levert, of er het kader voor is. Controles, zoals waartegen de leerroute-uitwerking wordt getoetst, staan in de tabellen.
 
+## Planning november
+
+OKx werkt met een vaste opbouw. Een leerroute-uitwerking levert interactieketens op, en elke interactieketen wordt uitgewerkt tot een eigen koppelvlakspecificatie met eigen versiebeheer. Die specificatie bestaat uit generieke bouwblokken die samen de keten beschrijven, zoals interacties, koppelvlakdiensten, operaties en JSON-schema's.
+
+Langs dezelfde opbouw komt er een backlog met alle taken per leerroute en per interactieketen. Op die backlog schatten we de werklast, en daaruit volgen de roadmap en de capaciteit per rol. Tot dan zijn de capaciteit en de roadmap in dit document een raming op basis van rekenregels.
+
+| Week | Backlog en planning | Leerroute 1 |
+|---|---|---|
+| Week 46<br>9 tot en met 13 november | De opbouw van de backlog vastleggen: leerroute, interactieketen, koppelvlakspecificatie, bouwblok en taak. Per bouwblok de vaste taken benoemen, zoals uitwerken, review en release, en kiezen waar de backlog komt te staan. | Uitwerken, week 1 |
+| Week 47<br>16 tot en met 20 november | De backlog vullen voor leerroute 1: de drie ketens in concept, onderwijsaanbod, student-instroom en bijsturen, met hun taken per bouwblok. | Uitwerken, week 2 |
+| Week 48<br>23 tot en met 27 november | De werklast per taak schatten, met het team dat het werk doet. | Uitwerken, week 3 |
+| Week 49<br>30 november tot en met 4 december | De roadmap en de capaciteit per rol afleiden uit de backlog en de schatting, en de backlog bijwerken met de ketens die uit de leerroute-uitwerking komen. | Uitwerken, week 4; leerroute 1 uitgewerkt op 4 december |
+
+Begin december liggen er de backlog van leerroute 1 met een schatting per taak, een roadmap die daaruit volgt, en de capaciteit per rol. Die vervangen de raming op basis van rekenregels. De productowner bouwt de backlog; het team schat de werklast.
+
 ## Capaciteit
 
 Voltijdsequivalenten (FTE) per rol per maand om leerroute 1 tot specificatie te brengen, volgens de [roadmap](#roadmap-leerroute-1) en de [rekenregels](#rekenregels). Per maand staat het gemiddelde over de werkweken van die maand.
