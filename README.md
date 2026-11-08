@@ -65,6 +65,7 @@ meta/
 │   │   └── mappingsessies-instellingen/   wat instellingen in werksessies inbrachten
 │   ├── model/                        het ArchiMate-model, het informatiemodel en de modeldoorloop
 │   ├── meetings/                     de verslagen per sessie
+│   ├── product-breakdown/            de artifacts van OKx met rol en prioriteit, en de roadmap van leerroute 1
 │   └── agent-artifacts/              onderzoek, plannen en ontwerpen van agents
 ├── presentaties/                     de decks per gremium, met het platenmanifest
 ├── tools/
