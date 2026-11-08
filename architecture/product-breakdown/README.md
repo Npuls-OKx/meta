@@ -124,10 +124,11 @@ Leerroute 1 van leerroute-uitwerking tot een koppelvlakspecificatie per interact
 
 ### Planning
 
-![Roadmap leerroute 1: uitwerken, drie interactieketens met hun reviewronde, en het werk aan taal en informatie, van november 2026 tot maart 2027](img/roadmap-leerroute-1.svg)
+![Roadmap leerroute 1 langs de product breakdown: de leerroute-uitwerking, per interactieketen uitwerken, review en release, en de gezamenlijke basis, van november 2026 tot en met maart 2027](img/roadmap-leerroute-1.svg)
 
 - Ketens: uit leerroute 1 komen drie interactieketens, [onderwijsaanbod ontwerpen en ontsluiten](https://github.com/Npuls-OKx/meta/blob/386-interactieketen-aanmelden-tot-start/architecture/docs/specificatie/interactieketen-onderwijsaanbod/README.md), [student-instroom van aanmelding tot start](https://github.com/Npuls-OKx/meta/blob/386-interactieketen-aanmelden-tot-start/architecture/docs/specificatie/interactieketen-student-instroom/README.md) en [bijsturen van planning, aanbod en rooster tijdens de uitvoering](https://github.com/Npuls-OKx/meta/blob/389-interactieketen-bijsturen/architecture/docs/specificatie/interactieketen-bijsturen/README.md). Ze staan als voorstel op een branch in meta.
 - Volgorde: in deze planning werkt één solutionarchitect de ketens na elkaar uit, en na de reviewronde kan elke keten als release uit. Met een solutionarchitect per keten lopen de ketens tegelijk in december en is de specificatie half januari klaar; dan zijn er in december drie solutionarchitecten tegelijk nodig. De keuze hangt af van wie er beschikbaar is.
+- Releases: elke keten krijgt een eigen koppelvlakspecificatie met een eigen release, na de reviewronde: onderwijsaanbod op 15 januari, student-instroom op 29 januari en bijsturen op 12 februari 2027.
 - Mijlpalen: leerroute 1 uitgewerkt op 4 december 2026, specificatie leerroute 1 klaar op 12 februari 2027.
 - Werkweken: de planning start op 9 november 2026; de kerstvakantie van 21 december tot 4 januari telt als vrij.
 - Capaciteit: de FTE per rol per maand staat bij [Capaciteit](#capaciteit), onder het overzicht.
