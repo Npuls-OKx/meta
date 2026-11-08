@@ -1,16 +1,16 @@
 # Product breakdown OKx
 
-De producten en artifacts van OKx in één overzicht: het eindproduct voor leveranciers en instellingen, de tussenproducten die er inhoud voor leveren en de kaders waarbinnen ze ontstaan. Per artifact staan de bron, de rol die het werk doet en de prioriteit. Daarnaast de backlog als basis voor de planning, de benodigde rollen, de capaciteit tot eind Q1 2027 en de opzet voor november. De presentatie bij dit document staat in [presentaties](../../presentaties/src/261108_product_breakdown_en_projectopzet.md).
+De producten en artifacts van OKx in één overzicht: het eindproduct voor leveranciers en instellingen, de tussenproducten die er inhoud voor leveren en de kaders waarbinnen ze ontstaan. Per artifact staan de bron, de rol die het werk doet en de prioriteit. Daarnaast de backlog als basis voor de planning, de benodigde rollen en de capaciteit tot eind Q1 2027. De presentatie bij dit document staat in [presentaties](../../presentaties/src/261108_product_breakdown_en_projectopzet.md).
 
 ## Doel
 
 1. Duidelijkheid over waar we nu staan: de product breakdown als gedeeld beeld van wat er gemaakt wordt.
 2. Een consistente projectplanning: de backlog langs de product breakdown als basis voor schatting, roadmap en capaciteit.
-3. Inzicht in wat het project nodig heeft: de rollen, wie ze dekt, de capaciteit en de opzet voor november.
+3. Inzicht in wat het project nodig heeft: de rollen, wie ze dekt en de capaciteit.
 
 ## Scope
 
-In scope zijn de artifacts van OKx met hun relaties, rol en prioriteit, de opbouw van de backlog, de rollen, de capaciteitsschatting tot eind Q1 2027 voor leerroute 1 en 2, de opzet voor november en de roadmap van scenario 1.1. Al het overige valt buiten scope, waaronder leerroute 3 tot en met 9, conformiteitstesten en adoptie.
+In scope zijn de artifacts van OKx met hun relaties, rol en prioriteit, de opbouw van de backlog, de rollen, de capaciteitsschatting tot eind Q1 2027 voor leerroute 1 en 2, en de roadmap van scenario 1.1. Al het overige valt buiten scope, waaronder leerroute 3 tot en met 9, conformiteitstesten en adoptie.
 
 ## Overzicht
 
@@ -53,26 +53,6 @@ De backlog volgt dezelfde opbouw: per leerroute de interactieketens, per keten d
   - Interactieketen bijsturen, zelfde opbouw
 
 Op de backlog schatten we de werklast per taak; daaruit volgen de roadmap en de capaciteit per rol. Tot dan rekenen we met de [rekenregels](#rekenregels). Garik geeft de backlog en de planning vorm en verfijnt ze met het team; Ruud is als productowner eigenaar.
-
-## Planning november
-
-Niek, Niels en Garik werken leerroute 1 verder uit; Garik geeft daarnaast de backlog en de planning vorm.
-
-| Wie | Inzet in november |
-|---|---|
-| Niek | Leerroute 1, solution; 0,1 FTE backlog en planning |
-| Niels | Leerroute 1, business-analyse; 0,1 FTE backlog en planning |
-| Garik | 0,5 FTE backlog en planning: vormgeven en verfijnen met het team; daarnaast leerroute 1 |
-| Ruud | Productowner; 0,1 FTE om backlog en planning te bespreken |
-
-| Week | Backlog en planning | Leerroute 1 | Wie |
-|---|---|---|---|
-| Week 46<br>9 tot en met 13 november | De opbouw van de backlog vastleggen: leerroute, interactieketen, koppelvlakspecificatie, bouwblok en taak. Per bouwblok de vaste taken benoemen, zoals uitwerken, review en release, en kiezen waar de backlog komt te staan. | Uitwerken | Garik, met Ruud |
-| Week 47<br>16 tot en met 20 november | De backlog vullen voor leerroute 1: de drie ketens in concept, onderwijsaanbod, student-instroom en bijsturen, met hun taken per bouwblok. | Uitwerken | Garik, met Niek en Niels |
-| Week 48<br>23 tot en met 27 november | De werklast per taak schatten, met het team dat het werk doet. | Uitwerken | Garik, met het team |
-| Week 49<br>30 november tot en met 4 december | De roadmap en de capaciteit per rol afleiden uit de backlog en de schatting, en de backlog bijwerken met de ketens die uit de leerroute-uitwerking komen. | Uitwerken | Garik, met Ruud |
-
-Begin december liggen er de backlog van leerroute 1 met een schatting per taak, een roadmap die daaruit volgt, en de capaciteit per rol. Die vervangen de schatting op basis van rekenregels. Leerroute 1 krijgt in november minder dan de 2,5 FTE uit de rekenregel, omdat het backlogwerk en het contact met instellingen en leveranciers ook tijd vragen.
 
 ## Rollen
 
