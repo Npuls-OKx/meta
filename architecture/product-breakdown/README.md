@@ -17,6 +17,23 @@ In scope zijn de artifacts van OKx met hun relaties, rol en prioriteit, en de pl
 
 Elk artifact staat erop omdat het onderdeel is van het eindproduct, er inhoud voor levert, of er het kader voor is. Controles, zoals waartegen de leerroute-uitwerking wordt getoetst, staan in de tabellen.
 
+## Capaciteit
+
+Voltijdsequivalenten (FTE) per rol per maand om leerroute 1 tot specificatie te brengen, volgens de [roadmap](#roadmap-leerroute-1) en de [rekenregels](#rekenregels). Per maand staat het gemiddelde over de werkweken van die maand.
+
+| Rol | Weken werk | Gemiddeld | nov | dec | jan | feb | mrt |
+|---|---|---|---|---|---|---|---|
+| Solutionarchitect | 13 | 0,7 | 1,0 | 1,0 | 1,5 | 0,3 |  |
+| Business-analist | 14 | 0,8 | 1,0 | 0,7 | 1,0 | 0,8 | 0,5 |
+| Domeinarchitect | 8 | 0,4 | 0,5 | 0,5 | 0,5 | 0,5 | 0,3 |
+| Productowner | 3,6 | 0,2 | 0,2 | 0,2 | 0,2 | 0,2 | 0,2 |
+| Totaal | 38,6 | 2,1 | 2,7 | 2,4 | 3,2 | 1,8 | 1,0 |
+
+- In januari is er 1,5 FTE solutionarchitect nodig: de review van een keten loopt terwijl de volgende keten wordt uitgewerkt. Dat zijn twee mensen.
+- De productowner werkt de hele periode 0,2 FTE aan backlog, roadmap en releases.
+- Het totaal per maand is de som van de afgeronde waarden per rol.
+- De telling omvat het werk uit de rekenregels en de schattingen daarbij. De besluiten onderweg vallen erbuiten.
+
 ## Artifacts
 
 Per vlak de artifacts met hun bron, de rol die het werk doet en de prioriteit. De solutionarchitect doet ook het werk aan interacties, operaties en profielen op de Open Education API (OEAPI); de business-analist ook het werk aan begrippen, informatiemodel en logisch gegevensmodel.
@@ -88,6 +105,7 @@ Leerroute 1 van leerroute-uitwerking tot een koppelvlakspecificatie per interact
 | Reviewronde na elke keten | 0,5 solutionarchitect, 0,5 business-analist | 2 weken per keten |
 | Informatiemodel bekrachtigen, begrippen bijwerken, logisch gegevensmodel | 0,5 business-analist | 14 weken, schatting |
 | ArchiMate-model en applicatiediensten bijwerken | 0,5 domeinarchitect | 12 weken, schatting |
+| Backlog, roadmap en releases | 0,2 productowner | de hele periode, schatting |
 
 ### Planning
 
@@ -97,26 +115,12 @@ Leerroute 1 van leerroute-uitwerking tot een koppelvlakspecificatie per interact
 - Volgorde: in deze planning werkt één solutionarchitect de ketens na elkaar uit, en na de reviewronde kan elke keten als release uit. Met een solutionarchitect per keten lopen de ketens tegelijk in december en is de specificatie half januari klaar; dan zijn er in december drie solutionarchitecten tegelijk nodig. De keuze hangt af van wie er beschikbaar is.
 - Mijlpalen: leerroute 1 uitgewerkt op 4 december 2026, specificatie leerroute 1 klaar op 12 februari 2027.
 - Werkweken: de planning start op 9 november 2026; de kerstvakantie van 21 december tot 4 januari telt als vrij.
-
-## Capaciteit
-
-Voltijdsequivalenten (FTE) per rol per maand voor deze roadmap: per maand het gemiddelde over de werkweken van die maand.
-
-| Rol | Weken werk | Gemiddeld | nov | dec | jan | feb | mrt |
-|---|---|---|---|---|---|---|---|
-| Solutionarchitect | 13 | 0,7 | 1,0 | 1,0 | 1,5 | 0,3 |  |
-| Business-analist | 14 | 0,8 | 1,0 | 0,7 | 1,0 | 0,8 | 0,5 |
-| Domeinarchitect | 8 | 0,4 | 0,5 | 0,5 | 0,5 | 0,5 | 0,3 |
-| Totaal | 35 | 1,9 | 2,5 | 2,2 | 3,0 | 1,6 | 0,8 |
-
-- In januari is er 1,5 FTE solutionarchitect nodig: de review van een keten loopt terwijl de volgende keten wordt uitgewerkt. Dat zijn twee mensen.
-- Het totaal per maand is de som van de afgeronde waarden per rol.
-- De telling omvat het werk uit de rekenregels en de twee schattingen. De productowner voor backlog, roadmap en releases en de besluiten onderweg vallen erbuiten.
+- Capaciteit: de FTE per rol per maand staat bij [Capaciteit](#capaciteit), onder het overzicht.
 
 ## Open punten
 
 1. De data en de weken zijn een voorstel; ze worden afgestemd met het programmamanagement.
 2. De drie ketens van leerroute 1 staan als voorstel op een branch; de set wordt bij de review vastgesteld.
-3. Het werk aan taal en informatie en aan het ArchiMate-model is een schatting buiten de rekenregels.
+3. Het werk aan taal en informatie, aan het ArchiMate-model en van de productowner is een schatting buiten de rekenregels.
 4. Voor varianten en voor leerroute 2 en 3 gelden dezelfde rekenregels. De capaciteit volgt zodra het aantal varianten en ketens bekend is.
 5. Een deel van de bronlinks wijst naar de branch `feature/restructure-and-versioning` in Public; na de merge gaan ze naar `dev`.
