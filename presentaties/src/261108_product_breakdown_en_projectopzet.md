@@ -41,7 +41,7 @@ de capaciteit, en de opzet voor november. Alle cijfers over capaciteit zijn scha
 <div class="np-grid-3" style="margin-top: 0.8rem; align-items: stretch;">
 <div class="np-card accent-blue"><span class="np-num">1</span><h3 style="margin-top: 0.6rem;">Duidelijkheid over waar we nu staan</h3><p class="muted" style="font-size: 0.82rem; margin: 0;">Product breakdown, slide 3 en 4</p></div>
 <div class="np-card accent-orange"><span class="np-num" style="background: var(--np-orange);">2</span><h3 style="margin-top: 0.6rem;">Een consistente projectplanning</h3><p class="muted" style="font-size: 0.82rem; margin: 0;">Backlog en schatting, slide 5 en 6</p></div>
-<div class="np-card accent-green"><span class="np-num" style="background: var(--np-green);">3</span><h3 style="margin-top: 0.6rem;">Inzicht in wat het project nodig heeft</h3><p class="muted" style="font-size: 0.82rem; margin: 0;">Rollen, capaciteit en november, slide 7 tot en met 10</p></div>
+<div class="np-card accent-green"><span class="np-num" style="background: var(--np-green);">3</span><h3 style="margin-top: 0.6rem;">Inzicht in wat het project nodig heeft</h3><p class="muted" style="font-size: 0.82rem; margin: 0;">Rollen, capaciteit en november, slide 7 tot en met 9</p></div>
 </div>
 
 </div>
@@ -57,21 +57,15 @@ in wat het project nodig heeft aan rollen en capaciteit, en hoe we november inri
 <!-- 3. PRODUCT BREAKDOWN -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
-<div class="fill">
-
-# Product breakdown
-
-<div style="display: grid; grid-template-columns: 1fr auto; gap: 1.4rem; align-items: center; margin-top: 0.3rem;">
-<div style="font-size: 0.86rem; line-height: 1.55;">
-<p style="margin: 0 0 0.6rem;"><span style="color: #8A5A12; font-weight: 700;">Projectmanagement</span> &middot; <span style="color: #874B83; font-weight: 700;">Domein</span> &middot; <span style="color: #2D5B8A; font-weight: 700;">Solution</span> &middot; <span style="color: #2C7548; font-weight: 700;">Eindproduct</span></p>
-<p style="margin: 0 0 0.4rem;">Doorgetrokken pijl: levert inhoud voor</p>
-<p style="margin: 0 0 0.4rem;">Gestippelde lijn: onderdeel van</p>
-<p style="margin: 0 0 0.4rem;">Getal in een blok: prioriteit, 1 is eerst</p>
-<p class="muted" style="font-size: 0.74rem; margin: 0.8rem 0 0;">Op ware grootte in meta: architecture/product-breakdown</p>
+<div style="position: absolute; inset: 0; display: flex; gap: 1.2rem; align-items: center; padding: 0.7rem 1.4rem;">
+<img src="/platen/product-breakdown.svg" style="height: 530px; width: auto; border: 1px solid #e2e8f0; border-radius: 8px; background: white;" />
+<div style="flex: 1; display: flex; flex-direction: column; gap: 0.55rem; font-size: 0.86rem; align-self: flex-start; margin-top: 2.2rem;">
+<p class="eyebrow" style="margin: 0 0 0.3rem;">1 &middot; Product breakdown</p>
+<div style="display: flex; align-items: center; gap: 0.6rem;"><span style="width: 18px; height: 18px; flex: none; background: #F8EEDB; border: 2px solid #8A5A12; border-radius: 4px;"></span>Projectmanagement</div>
+<div style="display: flex; align-items: center; gap: 0.6rem;"><span style="width: 18px; height: 18px; flex: none; background: #F3E6F2; border: 2px solid #874B83; border-radius: 4px;"></span>Domeinarchitectuur</div>
+<div style="display: flex; align-items: center; gap: 0.6rem;"><span style="width: 18px; height: 18px; flex: none; background: #E2EBF5; border: 2px solid #2D5B8A; border-radius: 4px;"></span>Solutionarchitectuur</div>
+<div style="display: flex; align-items: center; gap: 0.6rem;"><span style="width: 18px; height: 18px; flex: none; background: #E4F2E8; border: 2px solid #2C7548; border-radius: 4px;"></span>Eindproduct</div>
 </div>
-<img src="/platen/product-breakdown.svg" style="max-height: 400px; width: auto; border: 1px solid #e2e8f0; border-radius: 8px; background: white;" />
-</div>
-
 </div>
 
 <!--
@@ -186,59 +180,7 @@ dat er voor leerroute 1. Tot die tijd rekenen we met deze rekenregels. De produc
 
 ---
 
-<!-- 7. BENODIGDE ROLLEN EN WIE ZE DEKT -->
-<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
-
-<div class="fill">
-
-# Benodigde rollen en wie ze dekt
-
-<div style="display: flex; gap: 1.2rem; align-items: center; margin-top: 0.4rem;">
-<div style="position: relative; width: 600px; height: 330px; flex: none;">
-<div style="position: absolute; left: 0; top: 110px; width: 200px; height: 200px; border-radius: 50%; background: rgba(163,58,74,0.13); border: 2px solid #A33A4A;"></div>
-<div style="position: absolute; left: 130px; top: 105px; width: 210px; height: 210px; border-radius: 50%; background: rgba(135,75,131,0.15); border: 2px solid #874B83;"></div>
-<div style="position: absolute; left: 265px; top: 105px; width: 210px; height: 210px; border-radius: 50%; background: rgba(45,91,138,0.15); border: 2px solid #2D5B8A;"></div>
-<div style="position: absolute; left: 440px; top: 0; width: 150px; height: 150px; border-radius: 50%; background: rgba(138,90,18,0.15); border: 2px solid #8A5A12;"></div>
-<div style="position: absolute; left: 15px; top: 152px; width: 120px; text-align: center; font-size: 0.66rem; line-height: 1.3; color: #A33A4A;"><b style="color: #A33A4A;">Business-analyse</b><br>1,7–2,2 FTE</div>
-<div style="position: absolute; left: 195px; top: 272px; width: 80px; text-align: center; font-size: 0.66rem; line-height: 1.3; color: #874B83;"><b style="color: #874B83;">Domein</b><br>0,9 FTE</div>
-<div style="position: absolute; left: 368px; top: 192px; width: 100px; text-align: center; font-size: 0.66rem; line-height: 1.3; color: #2D5B8A;"><b style="color: #2D5B8A;">Solution en API</b><br>1,6–3,1 FTE</div>
-<div style="position: absolute; left: 270px; top: 36px; width: 160px; text-align: right; font-size: 0.66rem; line-height: 1.3; color: #8A5A12;"><b style="color: #8A5A12;">Productowner en planning</b><br>0,2 FTE, plus de backlog</div>
-<div style="position: absolute; left: 487px; top: 64px; width: 56px; text-align: center; font-size: 0.7rem; font-weight: 700; line-height: 1.6; color: white; background: var(--np-ink); border-radius: 999px;">Ruud</div>
-<div style="position: absolute; left: 274px; top: 180px; width: 56px; text-align: center; font-size: 0.7rem; font-weight: 700; line-height: 1.6; color: white; background: var(--np-ink); border-radius: 999px;">Niek</div>
-<div style="position: absolute; left: 274px; top: 218px; width: 56px; text-align: center; font-size: 0.7rem; font-weight: 700; line-height: 1.6; color: white; background: var(--np-ink); border-radius: 999px;">Garik</div>
-<div style="position: absolute; left: 137px; top: 199px; width: 56px; text-align: center; font-size: 0.7rem; font-weight: 700; line-height: 1.6; color: white; background: var(--np-ink); border-radius: 999px;">Niels</div>
-</div>
-<div style="flex: 1; display: flex; flex-direction: column; gap: 0.6rem;">
-<div style="background: var(--np-ink); color: white; border-radius: 12px; padding: 0.8rem 1rem;">
-<div style="font-size: 0.7rem; color: #BFD3D5;">Nodig tot eind Q1 2027, geschat</div>
-<div style="font-size: 1.9rem; font-weight: 700; color: #73C3CE; line-height: 1.1;">4,9–6,9</div>
-<div style="font-size: 0.7rem; color: #BFD3D5;">FTE technisch, met stakeholdercontact</div>
-<div style="font-size: 0.7rem; color: #BFD3D5; margin-top: 0.6rem;">Beschikbaar, hoogstens</div>
-<div style="font-size: 1.9rem; font-weight: 700; color: white; line-height: 1.1;">2,8</div>
-<div style="font-size: 0.7rem; color: #BFD3D5;">FTE technisch: Garik 0,8, Niek en Niels voltijd</div>
-</div>
-</div>
-</div>
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; max-width: 740px; margin-top: 0.5rem;">
-<div style="font-size: 0.72rem; line-height: 1.45; color: var(--np-dark-gray);"><b>Overlap is vervanging, geen extra capaciteit:</b> wie domein doet, doet in die uren geen solution of business-analyse.</div>
-<div style="font-size: 0.72rem; line-height: 1.45; color: var(--np-dark-gray);"><b>Stakeholdercontact:</b> iedereen besteedt ongeveer een dag per week aan instellingen en leveranciers.</div>
-</div>
-
-</div>
-
-<!--
-Elke cirkel is een rol die het project nodig heeft, met de geschatte gemiddelde vraag tot eind Q1 2027 voor twee leerroutes
-met elk vier scenario's. De namen staan in de overlap van de rollen die iemand kan vervullen. Niek en Garik kunnen allebei
-domein en solution, met API- en technische kennis; Garik geeft daarnaast backlog en planning vorm. Niels werkt op
-domeinniveau en als business-analist. Ruud is productowner en projectleider. Voor test en adoptie is er nog niemand. De
-overlap maakt vervanging mogelijk, maar levert geen extra uren: technisch is er hoogstens 2,8 FTE, terwijl 4,9 tot 6,9 FTE
-nodig is, inclusief het backlogwerk in november en een dag per week contact met instellingen en leveranciers per persoon.
-Bron voor Gariks 32 uur: SI-afstemming 13 juli 2026.
--->
-
----
-
-<!-- 8. CAPACITEIT -->
+<!-- 7. CAPACITEIT -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
 <div class="fill">
@@ -296,6 +238,58 @@ Garik, Niek en Niels), backlog en planning in november 2,8 (Ruuds 0,1 valt binne
 
 ---
 
+<!-- 8. BENODIGDE ROLLEN EN WIE ZE DEKT -->
+<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
+
+<div class="fill">
+
+# Benodigde rollen en wie ze dekt
+
+<div style="display: flex; gap: 1.2rem; align-items: center; margin-top: 0.4rem;">
+<div style="position: relative; width: 600px; height: 330px; flex: none;">
+<div style="position: absolute; left: 0; top: 110px; width: 200px; height: 200px; border-radius: 50%; background: rgba(163,58,74,0.13); border: 2px solid #A33A4A;"></div>
+<div style="position: absolute; left: 130px; top: 105px; width: 210px; height: 210px; border-radius: 50%; background: rgba(135,75,131,0.15); border: 2px solid #874B83;"></div>
+<div style="position: absolute; left: 265px; top: 105px; width: 210px; height: 210px; border-radius: 50%; background: rgba(45,91,138,0.15); border: 2px solid #2D5B8A;"></div>
+<div style="position: absolute; left: 440px; top: 0; width: 150px; height: 150px; border-radius: 50%; background: rgba(138,90,18,0.15); border: 2px solid #8A5A12;"></div>
+<div style="position: absolute; left: 15px; top: 152px; width: 120px; text-align: center; font-size: 0.66rem; line-height: 1.3; color: #A33A4A;"><b style="color: #A33A4A;">Business-analyse</b><br>1,7–2,2 FTE</div>
+<div style="position: absolute; left: 195px; top: 272px; width: 80px; text-align: center; font-size: 0.66rem; line-height: 1.3; color: #874B83;"><b style="color: #874B83;">Domein</b><br>0,9 FTE</div>
+<div style="position: absolute; left: 368px; top: 192px; width: 100px; text-align: center; font-size: 0.66rem; line-height: 1.3; color: #2D5B8A;"><b style="color: #2D5B8A;">Solution en API</b><br>1,6–3,1 FTE</div>
+<div style="position: absolute; left: 270px; top: 36px; width: 160px; text-align: right; font-size: 0.66rem; line-height: 1.3; color: #8A5A12;"><b style="color: #8A5A12;">Productowner en planning</b><br>0,2 FTE, plus de backlog</div>
+<div style="position: absolute; left: 487px; top: 64px; width: 56px; text-align: center; font-size: 0.7rem; font-weight: 700; line-height: 1.6; color: white; background: var(--np-ink); border-radius: 999px;">Ruud</div>
+<div style="position: absolute; left: 274px; top: 180px; width: 56px; text-align: center; font-size: 0.7rem; font-weight: 700; line-height: 1.6; color: white; background: var(--np-ink); border-radius: 999px;">Niek</div>
+<div style="position: absolute; left: 274px; top: 218px; width: 56px; text-align: center; font-size: 0.7rem; font-weight: 700; line-height: 1.6; color: white; background: var(--np-ink); border-radius: 999px;">Garik</div>
+<div style="position: absolute; left: 137px; top: 199px; width: 56px; text-align: center; font-size: 0.7rem; font-weight: 700; line-height: 1.6; color: white; background: var(--np-ink); border-radius: 999px;">Niels</div>
+</div>
+<div style="flex: 1; display: flex; flex-direction: column; gap: 0.6rem;">
+<div style="background: var(--np-ink); color: white; border-radius: 12px; padding: 0.8rem 1rem;">
+<div style="font-size: 0.7rem; color: #BFD3D5;">Nodig tot eind Q1 2027, geschat</div>
+<div style="font-size: 1.9rem; font-weight: 700; color: #73C3CE; line-height: 1.1;">4,9–6,9</div>
+<div style="font-size: 0.7rem; color: #BFD3D5;">FTE technisch, met stakeholdercontact</div>
+<div style="font-size: 0.7rem; color: #BFD3D5; margin-top: 0.6rem;">Beschikbaar, hoogstens</div>
+<div style="font-size: 1.9rem; font-weight: 700; color: white; line-height: 1.1;">2,8</div>
+<div style="font-size: 0.7rem; color: #BFD3D5;">FTE technisch: Garik 0,8, Niek en Niels voltijd</div>
+</div>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; max-width: 740px; margin-top: 0.5rem;">
+<div style="font-size: 0.72rem; line-height: 1.45; color: var(--np-dark-gray);"><b>Overlap is vervanging, geen extra capaciteit:</b> wie domein doet, doet in die uren geen solution of business-analyse.</div>
+<div style="font-size: 0.72rem; line-height: 1.45; color: var(--np-dark-gray);"><b>Stakeholdercontact:</b> iedereen besteedt ongeveer een dag per week aan instellingen en leveranciers.</div>
+</div>
+
+</div>
+
+<!--
+Elke cirkel is een rol die het project nodig heeft, met de geschatte gemiddelde vraag tot eind Q1 2027 voor twee leerroutes
+met elk vier scenario's. De namen staan in de overlap van de rollen die iemand kan vervullen. Niek en Garik kunnen allebei
+domein en solution, met API- en technische kennis; Garik geeft daarnaast backlog en planning vorm. Niels werkt op
+domeinniveau en als business-analist. Ruud is productowner en projectleider. Voor test en adoptie is er nog niemand. De
+overlap maakt vervanging mogelijk, maar levert geen extra uren: technisch is er hoogstens 2,8 FTE, terwijl 4,9 tot 6,9 FTE
+nodig is, inclusief het backlogwerk in november en een dag per week contact met instellingen en leveranciers per persoon.
+Bron voor Gariks 32 uur: SI-afstemming 13 juli 2026.
+-->
+
+---
+
 <!-- 9. PROJECTOPZET NOVEMBER -->
 <div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
 
@@ -330,30 +324,6 @@ Niek, Niels en Garik werken leerroute 1 verder uit. Garik geeft de backlog en de
 krijgt daardoor in november minder dan de 2,5 FTE die de rekenregel vraagt (een solutionarchitect, een business-analist en
 een halve domeinarchitect), ook omdat iedereen ongeveer een dag per week aan contact met instellingen en leveranciers
 besteedt. De uitwerking duurt dus langer dan vier weken.
--->
-
----
-
-<!-- 10. BESLUIT NODIG OP -->
-<div class="np-bg" style="background-image: url(/npuls/powerpoint_slides/Slide3.PNG);"></div>
-
-<div class="fill">
-
-# Besluit nodig op
-
-<div style="display: flex; flex-direction: column; gap: 0.7rem; margin-top: 0.6rem;">
-<dl class="np-besluit"><dt>Besluit</dt><dd>Akkoord op de opzet: de product breakdown als structuur, de backlog per leerroute en keten, en een release per keten</dd></dl>
-<dl class="np-besluit"><dt>Besluit</dt><dd>Beschikbaarheid: per persoon vastleggen hoeveel FTE Ruud, Garik, Niek en Niels per maand aan OKx-techniek besteden</dd></dl>
-<dl class="np-besluit"><dt>Besluit</dt><dd>Extra capaciteit: 2 tot 4 FTE erbij voor twee leerroutes tot eind Q1 2027, een tweede leerrouteteam, en later test en adoptie</dd></dl>
-</div>
-
-</div>
-
-<!--
-Drie besluiten. Een: akkoord op de opzet, met de product breakdown als structuur voor backlog, roadmap en releases. Twee: de
-beschikbaarheid per persoon, zodat de capaciteit uit de backlog tegen echte uren af te zetten is. Drie: extra capaciteit. De
-schatting laat zien dat het team tot eind Q1 2027 2 tot 4 FTE tekortkomt, met een business-analist en zonder test en
-adoptie; leerroute 3 en de overige leerroutes zitten er nog niet in.
 -->
 
 ---
