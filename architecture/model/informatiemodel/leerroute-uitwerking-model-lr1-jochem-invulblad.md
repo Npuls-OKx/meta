@@ -37,7 +37,7 @@ Hoort bij [de opleiding van Jochem in het informatiemodel](leerroute-uitwerking-
 | 1 | F1-07 | Student keuze regelset | | | | |
 | 1 | F1-08 | Leeruitkomst | | | | |
 | 1 | F1-08 | Leeruitkomst | | | | |
-| 1 | F1-08 | Keuzedeel | | | | |
+| 1 | F1-08 | Keuzedeel specificatie | | | | |
 | 1 | F1-08 | Onderwijseenheid specificatie | | | | |
 | 1 | F1-08 | Leeronderdeel specificatie | | | | |
 | 1 | F1-08 | Leeronderdeel specificatie | | | | |
@@ -45,11 +45,11 @@ Hoort bij [de opleiding van Jochem in het informatiemodel](leerroute-uitwerking-
 | 1 | F1-08 | Leeronderdeel specificatie | | | | |
 | 1 | F1-08 | Leeruitkomst | | | | |
 | 1 | F1-08 | Leeruitkomst | | | | |
-| 1 | F1-08 | Keuzedeel | | | | |
+| 1 | F1-08 | Keuzedeel specificatie | | | | |
 | 1 | F1-08 | Onderwijseenheid specificatie | | | | |
 | 1 | F1-08 | Leeronderdeel specificatie | | | | |
 | 1 | F1-08 | Leeronderdeel specificatie | | | | |
-| 1 | F1-08 | Minor | | | | |
+| 1 | F1-08 | Minor specificatie | | | | |
 | 1 | F1-08 | Leeruitkomst | | | | |
 | 1 | F1-09 | Summatieve resultaat structuur | | | | |
 | 1 | F1-09 | Toetsonderdeel specificatie | | | | |
