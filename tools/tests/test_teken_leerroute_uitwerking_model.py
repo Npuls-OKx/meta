@@ -1,4 +1,4 @@
-"""Testgevallen voor tools/scripts/teken-modeldoorloop.py.
+"""Testgevallen voor tools/scripts/teken-leerroute-uitwerking-model.py.
 
 Elke verwachting volgt uit een fixture-regeltabel in de test; de SVG wordt als XML
 geparst en op inhoud en geometrie getoetst, niet op een momentopname.
@@ -14,7 +14,7 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 
 WORTEL = Path(__file__).resolve().parent.parent.parent
-spec = importlib.util.spec_from_file_location("teken_modeldoorloop", WORTEL / "tools/scripts/teken-modeldoorloop.py")
+spec = importlib.util.spec_from_file_location("teken_leerroute_uitwerking_model", WORTEL / "tools/scripts/teken-leerroute-uitwerking-model.py")
 tv = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(tv)
 
@@ -370,7 +370,7 @@ class BeeldIsBestandTests(unittest.TestCase):
         self.assertIn("een beeld is een bestand", str(fout.exception))
 
     def test_given_the_real_table_when_drawn_then_every_block_gets_its_own_file(self):
-        tabel = json.loads((WORTEL / "architecture/model/informatiemodel/modeldoorloop-lr1.json").read_text(encoding="utf-8"))
+        tabel = json.loads((WORTEL / "architecture/model/informatiemodel/leerroute-uitwerking-model-lr1.json").read_text(encoding="utf-8"))
         with tempfile.TemporaryDirectory() as map_:
             uit = tv.teken(tabel, Path(map_))
             self.assertEqual(len(uit), len({n for n, _ in uit}))

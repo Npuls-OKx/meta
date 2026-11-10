@@ -63,7 +63,7 @@ meta/
 │   │   ├── kwalificatiedossier/      de bron waar de keten begint
 │   │   ├── leeruitkomsten/           de sleutel tussen specificatie en resultaat
 │   │   └── mappingsessies-instellingen/   wat instellingen in werksessies inbrachten
-│   ├── model/                        het ArchiMate-model, het informatiemodel en de modeldoorloop
+│   ├── model/                        het ArchiMate-model, het informatiemodel en de leerroute-uitwerking
 │   ├── meetings/                     de verslagen per sessie
 │   └── agent-artifacts/              onderzoek, plannen en ontwerpen van agents
 ├── presentaties/                     de decks per gremium, met het platenmanifest
