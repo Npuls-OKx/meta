@@ -71,5 +71,43 @@ class BanenTests(unittest.TestCase):
             self.assertIn('<rect x="10" y="540"', deel)   # elke baan draagt de hele tekening
 
 
+class VerdelingTests(unittest.TestCase):
+    """Banen van vergelijkbare hoogte: een beeld dat in drie banen moet, hoort drie banen van ongeveer
+    een derde te krijgen in plaats van twee volle en een restje."""
+
+    def test_given_a_tall_plate_when_split_then_the_bands_are_of_comparable_height(self):
+        vakken = [(y, 40) for y in range(40, 1200, 100)]
+        delen = snijd.banen(beeld(1240, vakken), marge=0)
+        hoogtes = [snijd.doek(d)[3] for d in delen]
+        self.assertGreater(len(hoogtes), 1)
+        self.assertLess(max(hoogtes) - min(hoogtes), max(hoogtes) / 4, hoogtes)
+
+    def test_given_bands_when_split_then_no_band_is_taller_than_the_slide_allows(self):
+        vakken = [(y, 40) for y in range(40, 1200, 100)]
+        svg = beeld(1240, vakken)
+        baan = 1000 * snijd.VERHOUDING
+        for deel in snijd.banen(svg, marge=0):
+            self.assertLessEqual(snijd.doek(deel)[3], baan + 1)
+
+    def test_given_every_cut_when_placed_then_it_falls_in_whitespace(self):
+        vakken = [(y, 40) for y in range(40, 1200, 100)]
+        svg = beeld(1240, vakken)
+        bezet = snijd.bezet(svg, 1240)
+        for snede in snijd.snedes(svg, 1000 * snijd.VERHOUDING):
+            for a, b in bezet:
+                self.assertFalse(a < snede < b, f"snede {snede} ligt in een vak van {a} tot {b}")
+
+    def test_given_a_plate_without_usable_whitespace_when_split_then_the_reason_is_named(self):
+        """Een beeld dat vol staat levert geen stille onleesbare plaat op, maar een reden."""
+        svg = beeld(1000, [(10, 980)])
+        reden = snijd.knelpunt(svg)
+        self.assertIsNotNone(reden)
+        self.assertIn("geen witregel", reden)
+        self.assertIn("420", reden)
+
+    def test_given_a_plate_that_fits_when_checked_then_there_is_no_reason(self):
+        self.assertIsNone(snijd.knelpunt(beeld(300, [(40, 60)])))
+
+
 if __name__ == "__main__":
     unittest.main()
