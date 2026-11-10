@@ -413,3 +413,36 @@ De zesentwintig bevindingen op `deels` krijgen geen nieuw issue. Daar bestaat al
 | B1 | [#436](https://github.com/Npuls-OKx/meta/issues/436), [#513](https://github.com/Npuls-OKx/meta/issues/513) | dat er na twee sessies niets is besloten, en dat de tussenvorm met `verzoek tot aanbod` op tafel lag |
 
 Een voorstel dat dit verslag niet zelf uitvoert: de zeventien issues die na de merge van PR 314 onder milestone 17 overblijven horen naar milestone 26, zodat milestone 17 de eerste iteratie draagt en met de merge leeg raakt. Dat is een herindeling van werk van anderen, en de afspraak uit de sessie van 10 november is dat zulke verschuivingen eerst op een lijst komen en niet uit eigen beweging gebeuren.
+
+## Wat PR 314 niet bevat
+
+Dit hoort bij het advies en stond er in de eerste versie van dit verslag te zwak in. PR 314 raakt **geen** van deze bestanden:
+
+| Bestand | Raakt PR 314 het? |
+|---|---|
+| `architecture/model/model.archimate` | nee |
+| `architecture/model/informatiemodel/informatiemodel.json` | nee |
+| `architecture/model/informatiemodel/stromen.json` | nee |
+| `architecture/docs/specificatie/begrippen/begrippenlijst.md` | nee |
+
+Wat hij wel raakt: 75 beelden onder `img/regels`, dertien vastgelegde afbeeldingen, negen fasenplaten, zes bestanden in `informatiemodel/` (de regeltabel, haar schema, het document, het invulblad en twee READMEs), vijftien bestanden onder `tools/`, en drie losse documenten.
+
+Daaruit volgt iets wat voor het advies telt: **de wijzigingen aan het informatiemodel en aan de begrippenlijst zitten niet in PR 314 en kunnen door de merge dus niet verloren gaan.** Zij zijn apart werk dat de modelleur in Archi doet, en de merge verandert daar niets aan. Wat de merge wel doet, is de uitwerking publiceren die naar die modelwijzigingen vooruitwijst.
+
+### De groepen, als voorbeeld van wat dat betekent
+
+Drie groepsbegrippen staan niet in dezelfde producten:
+
+| Begrip | Informatiemodel | Begrippenlijst | Hoofdplaat v1.7a | Regeltabel na PR 314 |
+|---|---|---|---|---|
+| `Plaatsingsgroep` | ja | ja, mapt op MORA Cohort | 1 lijn | zes beelden |
+| `planninggroep` | nee | nee | 5 lijnen | nergens; PR 314 haalt hem eruit |
+| `lesgroep` | nee | nee | nergens | nergens |
+
+PR 314 hernoemt `planninggroep` naar `plaatsingsgroep` in F7-01, F7-03 en F7-04, op de reviewopmerking van Niels van Duin bij PR 252: *"Groepen die in KRS ontstaan zijn per definitie plaatsingsgroepen."* Die hernoeming brengt de uitwerking in overeenstemming met het informatiemodel en de begrippenlijst, en maakt de hoofdplaat tot de enige die het andere woord gebruikt.
+
+Dat is geen regressie: voor de merge stemt de uitwerking met de plaat en niet met het model, na de merge met het model en niet met de plaat. De tegenspraak verhuist. Zij was al belegd, maar alleen als openstaand punt 4 in [#389](https://github.com/Npuls-OKx/meta/issues/389), onder een andere milestone, en zonder de begrippenlijst erbij. Daarom staat zij nu als [#538](https://github.com/Npuls-OKx/meta/issues/538).
+
+### Wat dit aan het advies verandert
+
+Het advies blijft: eerst mergen. Wat erbij hoort, en wat in de eerste versie van dit verslag onder de maat was opgeschreven: de merge publiceert een uitwerking die de hoofdplaat op vijf lijnen tegenspreekt op de groepsnaam, en die niet door een agent te repareren is omdat de labels uit de ArchiMate-view komen. Dat is een vierde ding dat ertegen pleit, naast de drie die hierboven al staan, en het is zwaarder dan de andere drie omdat het twee formeel vrijgegeven producten tegen elkaar zet: informatiemodel v0.2 en hoofdplaat v1.7a, beide vrijgegeven op 3 november.
