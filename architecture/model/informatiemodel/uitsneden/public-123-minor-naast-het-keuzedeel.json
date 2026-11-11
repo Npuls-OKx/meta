@@ -2,6 +2,7 @@
   "id": "public-123-minor-naast-het-keuzedeel",
   "titel": "Is het keuzedeel generieker te modelleren, met de minor ernaast?",
   "herkomst": "Reviewvraag Npuls-OKx/Public#123 van @niesink en @hjwielemaker, werkbrief Npuls-OKx/meta#319",
+  "versie": "0.2.0",
   "oeapi": true,
   "rij_labels": [
     "mbo-invulling",

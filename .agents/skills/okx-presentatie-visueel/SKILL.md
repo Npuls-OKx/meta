@@ -83,9 +83,9 @@ Gebruik voor dezelfde component steeds hetzelfde pictogram, over decks heen.
 Raadpleeg `ui-ux-pro-max` met een gerichte vraag als een slide visueel niet werkt; de zoekopdracht loopt via het script in die skill:
 
 ```bash
-python3 .agents/skills/ui-ux-pro-max/scripts/search.py "<vraag>" --domain ux
-python3 .agents/skills/ui-ux-pro-max/scripts/search.py "<vraag>" --domain icons
-python3 .agents/skills/ui-ux-pro-max/scripts/search.py "<vraag>" --domain typography
+python3 .agents/skills/ui-ux-pro-max/tools/scripts/search.py "<vraag>" --domain ux
+python3 .agents/skills/ui-ux-pro-max/tools/scripts/search.py "<vraag>" --domain icons
+python3 .agents/skills/ui-ux-pro-max/tools/scripts/search.py "<vraag>" --domain typography
 ```
 
 Wat daaruit voor presentaties geldt: contrast van tekst op de achtergrond (donker op licht, nooit grijs op grijs), pictogrammen als SVG met een tekstlabel, lettergrootte in een geprojecteerde slide minstens 0.78rem voor bijschriften en 0.84rem voor lopende tekst, een leesrichting van links naar rechts en van boven naar beneden, een accentkleur per betekenis en steeds dezelfde. Wat daaruit hier buiten beeld blijft: alles over interactie, formulieren, navigatie, animatie en implementatiestacks; een slide is statisch.

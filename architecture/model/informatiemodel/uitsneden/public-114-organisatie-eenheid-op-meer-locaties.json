@@ -2,6 +2,7 @@
   "id": "public-114-organisatie-eenheid-op-meer-locaties",
   "titel": "Hoe kan een organisatie-eenheid op meerdere locaties actief zijn?",
   "herkomst": "Reviewvraag Npuls-OKx/Public#114 van @JanHendrikvanSchaik en @niesink, werkbrief Npuls-OKx/meta#390",
+  "versie": "0.1.0",
   "oeapi": true,
   "rij_labels": [
     "wie verantwoordelijk is, wat de specificatie vraagt, en waar het aanbod landt",

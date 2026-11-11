@@ -1,0 +1,111 @@
+{
+  "titel": "Voorschrijven met een voorwaarde",
+  "ondertitel": "Wat een gedeelde afspraak oplevert, en wat zij van een instelling vraagt",
+  "versie": "0.1.0",
+  "breedte": 1240,
+  "blokken": [
+    {
+      "kop": "De redenering",
+      "soort": "stappen",
+      "hoogte": 104,
+      "stappen": [
+        {
+          "naam": "Uw ambitie",
+          "toelichting": "welke functionaliteit, studentervaring en instellingservaring u wilt",
+          "icoon": "idea",
+          "kleur": "#00AF81"
+        },
+        {
+          "naam": "De uitwisseling",
+          "toelichting": "de manier van gegevens delen die daarbij hoort",
+          "icoon": "network-3",
+          "kleur": "#3D68EC"
+        },
+        {
+          "naam": "Uw processen",
+          "toelichting": "leveren bepaalde informatie, in een bepaalde vorm, op bepaalde momenten",
+          "icoon": "document",
+          "kleur": "#3D68EC"
+        },
+        {
+          "naam": "Uw systemen",
+          "toelichting": "interacteren op de manier die daarbij past",
+          "icoon": "flow",
+          "kleur": "#3D68EC"
+        }
+      ]
+    },
+    {
+      "soort": "tekst",
+      "tekst": "Wilt u deze functionaliteit, deze studentervaring en deze instellingservaring, dan kunt u het beste op deze manier uitwisselen. Daarvoor leveren delen van uw processen bepaalde informatie, in een bepaalde vorm, op bepaalde momenten, zodat uw systemen op die manier met elkaar kunnen interacteren."
+    },
+    {
+      "kop": "Waarde voor drie groepen",
+      "soort": "kaarten",
+      "hoogte": 104,
+      "items": [
+        {
+          "titel": "De student",
+          "toelichting": "een leerroute die bij hem past, met een administratie die meebeweegt",
+          "icoon": "user-multiple",
+          "kleur": "#00AF81"
+        },
+        {
+          "titel": "De instelling",
+          "toelichting": "onderwijs dat te plannen en te roosteren valt, met minder overtypen",
+          "icoon": "building",
+          "kleur": "#3D68EC"
+        },
+        {
+          "titel": "De leverancier",
+          "toelichting": "een koppeling die hij een keer bouwt, en die bij elke klant werkt",
+          "icoon": "partnership",
+          "kleur": "#3D68EC"
+        }
+      ]
+    },
+    {
+      "soort": "kolommen",
+      "kolommen": [
+        {
+          "titel": "De tegenvraag die een leverancier stelt",
+          "kleur": "#DD784B",
+          "regels": [
+            {
+              "tekst": "Waarom maken we de bestaande koppelingen niet gewoon OEAPI-conform, dan zijn we klaar",
+              "open": true
+            },
+            {
+              "tekst": "Als dat de oplossing is, waarom is het dan nog niet gebeurd, en waarvoor is OKx dan nodig",
+              "open": true
+            },
+            {
+              "tekst": "Hypothese van het team: er conflicteren belangen. Een leverancier of instelling heeft op zichzelf weinig reden om alles met de buurman uit te wisselen",
+              "bron": "status 1, niet getoetst",
+              "open": true
+            }
+          ]
+        },
+        {
+          "titel": "De uitdaging voor OKx",
+          "kleur": "#3D68EC",
+          "regels": [
+            {
+              "tekst": "Een standaard die past bij hoe instellingen vandaag werken",
+              "bron": "en die ruimte laat voor wat zij morgen willen"
+            },
+            {
+              "tekst": "Meer keuze, ook buiten de eigen sector, vraagt meer standaardisatie, meer uitwisseling en meer beschrijflast",
+              "bron": "de keuzeniveaus staan in de plaat hiervoor"
+            },
+            {
+              "tekst": "Een instelling kiest zelf welk niveau van functionaliteit bij haar past",
+              "bron": "en weet vooraf wat die keuze van haar vraagt"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "voet": "De voorwaarde is het verschil tussen een standaard en een dictaat. OKx schrijft niet voor dat een instelling iets moet willen; het schrijft voor wat er nodig is zodra zij iets wil."
+}

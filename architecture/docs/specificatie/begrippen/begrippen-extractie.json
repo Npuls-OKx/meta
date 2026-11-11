@@ -13,7 +13,7 @@
     "oeapi_specificatie": "/home/vscode/.claude/jobs/46eec104/tmp/oeapi.json",
     "oeapi_schemas": 114,
     "oeapi_velden": 210,
-    "commando": "python3 scripts/extraheer-begrippen.py --oeapi /home/vscode/.claude/jobs/46eec104/tmp/oeapi.json"
+    "commando": "python3 tools/scripts/extraheer-begrippen.py --oeapi /home/vscode/.claude/jobs/46eec104/tmp/oeapi.json"
   },
   "termen": [
     {
@@ -168,7 +168,7 @@
           "schrijfwijze": "## 3. Interactieoverzicht",
           "aantal": 1,
           "vindplaatsen": [
-            "public:scripts/README.md:49"
+            "public:tools/scripts/README.md:49"
           ]
         }
       ]
@@ -282,7 +282,7 @@
           "schrijfwijze": "#12",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:doc/Bijdragen-voor-beginners.md:42"
+            "meta:project/bijdragen-voor-beginners.md:42"
           ]
         }
       ]
@@ -296,7 +296,7 @@
           "schrijfwijze": "#123",
           "aantal": 4,
           "vindplaatsen": [
-            "meta:doc/Bijdragen-voor-beginners.md:139",
+            "meta:project/bijdragen-voor-beginners.md:139",
             "public:.agents/skills/okx-public-artefact/SKILL.md:12",
             "public:AGENTS.md:20",
             "public:CLAUDE.md:20"
@@ -476,8 +476,8 @@
             "meta:.cursor/commands/maak-plan.md:5",
             "meta:.cursor/commands/project-aanvraag.md:18",
             "meta:.cursor/commands/release-notes.md:7",
-            "meta:doc/Bijdragen-voor-beginners.md:538",
-            "meta:doc/Bijdragen-voor-beginners.md:539"
+            "meta:project/bijdragen-voor-beginners.md:538",
+            "meta:project/bijdragen-voor-beginners.md:539"
           ]
         }
       ]
@@ -531,8 +531,8 @@
             "meta:architecture/agent-artifacts/research/20260804_1500_gereedschap-requirements-architectuur-docs-as-code.md:168",
             "meta:architecture/agent-artifacts/research/20260804_1500_gereedschap-requirements-architectuur-docs-as-code.md:168",
             "meta:architecture/agent-artifacts/research/20260804_1500_gereedschap-requirements-architectuur-docs-as-code.md:168",
-            "meta:doc/OKx_Release-management-en-versionering.md:188",
-            "meta:doc/OKx_Release-management-en-versionering.md:363"
+            "meta:project/release-management-en-versionering.md:188",
+            "meta:project/release-management-en-versionering.md:363"
           ]
         }
       ]
@@ -694,7 +694,7 @@
           "schrijfwijze": "*.md",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:doc/Bijdragen-voor-beginners.md:513"
+            "meta:project/bijdragen-voor-beginners.md:513"
           ]
         }
       ]
@@ -709,7 +709,7 @@
           "aantal": 3,
           "vindplaatsen": [
             "meta:.cursor/rules/README.md:3",
-            "meta:doc/Bijdragen-voor-beginners.md:512",
+            "meta:project/bijdragen-voor-beginners.md:512",
             "public:.cursor/rules/README.md:3"
           ]
         }
@@ -772,11 +772,11 @@
           "aantal": 9,
           "vindplaatsen": [
             "meta:.cursor/commands/README.md:3",
-            "meta:doc/Bijdragen-voor-beginners.md:467",
-            "meta:doc/Bijdragen-voor-beginners.md:484",
-            "meta:doc/Bijdragen-voor-beginners.md:504",
-            "meta:doc/Bijdragen-voor-beginners.md:508",
-            "meta:doc/Bijdragen-voor-beginners.md:513"
+            "meta:project/bijdragen-voor-beginners.md:467",
+            "meta:project/bijdragen-voor-beginners.md:484",
+            "meta:project/bijdragen-voor-beginners.md:504",
+            "meta:project/bijdragen-voor-beginners.md:508",
+            "meta:project/bijdragen-voor-beginners.md:513"
           ]
         },
         {
@@ -784,7 +784,7 @@
           "aantal": 2,
           "vindplaatsen": [
             "meta:architecture/agent-artifacts/research/20260804_1500_gereedschap-requirements-architectuur-docs-as-code.md:167",
-            "public:scripts/README.md:35"
+            "public:tools/scripts/README.md:35"
           ]
         }
       ]
@@ -1104,7 +1104,7 @@
           "schrijfwijze": "../img/...",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:OKE/moka-koppelvlakspecificaties/Examen Uitvoering en beoordeling/doc/WorkflowMdNaarWord.md:43"
+            "meta:archief/MOKA/Examen Uitvoering en beoordeling/doc/WorkflowMdNaarWord.md:43"
           ]
         }
       ]
@@ -1118,7 +1118,7 @@
           "schrijfwijze": "../Koppelingspecificaties/...md#anchor",
           "aantal": 1,
           "vindplaatsen": [
-            "public:scripts/README.md:47"
+            "public:tools/scripts/README.md:47"
           ]
         }
       ]
@@ -1192,8 +1192,8 @@
             "meta:architecture/agent-artifacts/README.md:11",
             "meta:architecture/agent-artifacts/feature-plans/README.md:3",
             "meta:architecture/docs/specificatie/leerroute-uitwerking/doc/archief-conceptmodellen.md:2311",
-            "meta:doc/Bijdragen-voor-beginners.md:538",
-            "meta:doc/Bijdragen-voor-beginners.md:579"
+            "meta:project/bijdragen-voor-beginners.md:538",
+            "meta:project/bijdragen-voor-beginners.md:579"
           ]
         }
       ]
@@ -1318,8 +1318,8 @@
             "meta:.cursor/commands/maak-plan.md:22",
             "meta:architecture/agent-artifacts/README.md:12",
             "meta:architecture/agent-artifacts/design-docs/README.md:3",
-            "meta:doc/Bijdragen-voor-beginners.md:539",
-            "meta:doc/Bijdragen-voor-beginners.md:580"
+            "meta:project/bijdragen-voor-beginners.md:539",
+            "meta:project/bijdragen-voor-beginners.md:580"
           ]
         }
       ]
@@ -1377,8 +1377,8 @@
           "schrijfwijze": "/prep-repo-context",
           "aantal": 6,
           "vindplaatsen": [
-            "meta:doc/Bijdragen-voor-beginners.md:504",
-            "meta:doc/Bijdragen-voor-beginners.md:536",
+            "meta:project/bijdragen-voor-beginners.md:504",
+            "meta:project/bijdragen-voor-beginners.md:536",
             "public:AGENTS.md:16",
             "public:AGENTS.md:40",
             "public:CLAUDE.md:16",
@@ -1440,8 +1440,8 @@
           "vindplaatsen": [
             "meta:architecture/agent-artifacts/README.md:10",
             "meta:architecture/agent-artifacts/project-requests/README.md:3",
-            "meta:doc/Bijdragen-voor-beginners.md:537",
-            "meta:doc/Bijdragen-voor-beginners.md:578"
+            "meta:project/bijdragen-voor-beginners.md:537",
+            "meta:project/bijdragen-voor-beginners.md:578"
           ]
         }
       ]
@@ -1490,12 +1490,12 @@
       ]
     },
     {
-      "sleutel": "/scripts/",
+      "sleutel": "/tools/scripts/",
       "aantal": 1,
       "indeling": "pad",
       "schrijfwijzen": [
         {
-          "schrijfwijze": "../scripts/",
+          "schrijfwijze": "../tools/scripts/",
           "aantal": 1,
           "vindplaatsen": [
             "public:.cursor/README.md:27"
@@ -1504,43 +1504,43 @@
       ]
     },
     {
-      "sleutel": "/scripts/md2docx.sh",
+      "sleutel": "/tools/scripts/md2docx.sh",
       "aantal": 1,
       "indeling": "commando",
       "schrijfwijzen": [
         {
-          "schrijfwijze": "./scripts/md2docx.sh",
+          "schrijfwijze": "./tools/scripts/md2docx.sh",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:OKE/moka-koppelvlakspecificaties/Examen Uitvoering en beoordeling/doc/WorkflowMdNaarWord.md:22"
+            "meta:archief/MOKA/Examen Uitvoering en beoordeling/doc/WorkflowMdNaarWord.md:22"
           ]
         }
       ]
     },
     {
-      "sleutel": "/scripts/md2docx.shdoc/koppelvlakspecificatietemplate.md",
+      "sleutel": "/tools/scripts/md2docx.shdoc/koppelvlakspecificatietemplate.md",
       "aantal": 1,
       "indeling": "commando",
       "schrijfwijzen": [
         {
-          "schrijfwijze": "./scripts/md2docx.sh doc/KoppelvlakSpecificatieTemplate.md",
+          "schrijfwijze": "./tools/scripts/md2docx.sh doc/KoppelvlakSpecificatieTemplate.md",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:OKE/moka-koppelvlakspecificaties/Examen Uitvoering en beoordeling/doc/WorkflowMdNaarWord.md:23"
+            "meta:archief/MOKA/Examen Uitvoering en beoordeling/doc/WorkflowMdNaarWord.md:23"
           ]
         }
       ]
     },
     {
-      "sleutel": "/scripts/md2docx.shdoc/mijn.mddoc/mijn.docx",
+      "sleutel": "/tools/scripts/md2docx.shdoc/mijn.mddoc/mijn.docx",
       "aantal": 1,
       "indeling": "commando",
       "schrijfwijzen": [
         {
-          "schrijfwijze": "./scripts/md2docx.sh doc/mijn.md doc/mijn.docx",
+          "schrijfwijze": "./tools/scripts/md2docx.sh doc/mijn.md doc/mijn.docx",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:OKE/moka-koppelvlakspecificaties/Examen Uitvoering en beoordeling/doc/WorkflowMdNaarWord.md:24"
+            "meta:archief/MOKA/Examen Uitvoering en beoordeling/doc/WorkflowMdNaarWord.md:24"
           ]
         }
       ]
@@ -1644,10 +1644,10 @@
           "schrijfwijze": "0.0.x",
           "aantal": 4,
           "vindplaatsen": [
-            "meta:doc/OKx_Release-management-en-versionering.md:147",
-            "meta:doc/OKx_Release-management-en-versionering.md:359",
-            "meta:doc/OKx_Release-management-en-versionering.md:359",
-            "meta:doc/OKx_Release-management-en-versionering.md:393"
+            "meta:project/release-management-en-versionering.md:147",
+            "meta:project/release-management-en-versionering.md:359",
+            "meta:project/release-management-en-versionering.md:359",
+            "meta:project/release-management-en-versionering.md:393"
           ]
         }
       ]
@@ -1661,7 +1661,7 @@
           "schrijfwijze": "0.1",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:doc/OKx_Release-management-en-versionering.md:372"
+            "meta:project/release-management-en-versionering.md:372"
           ]
         }
       ]
@@ -1675,7 +1675,7 @@
           "schrijfwijze": "0.1.0",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:doc/OKx_Release-management-en-versionering.md:149"
+            "meta:project/release-management-en-versionering.md:149"
           ]
         }
       ]
@@ -1689,8 +1689,8 @@
           "schrijfwijze": "0.1.x",
           "aantal": 2,
           "vindplaatsen": [
-            "meta:doc/OKx_Release-management-en-versionering.md:335",
-            "meta:doc/OKx_Release-management-en-versionering.md:393"
+            "meta:project/release-management-en-versionering.md:335",
+            "meta:project/release-management-en-versionering.md:393"
           ]
         }
       ]
@@ -1704,7 +1704,7 @@
           "schrijfwijze": "0.2+",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:doc/OKx_Release-management-en-versionering.md:393"
+            "meta:project/release-management-en-versionering.md:393"
           ]
         }
       ]
@@ -1718,7 +1718,7 @@
           "schrijfwijze": "0.2.0",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:doc/OKx_Release-management-en-versionering.md:335"
+            "meta:project/release-management-en-versionering.md:335"
           ]
         }
       ]
@@ -1732,12 +1732,12 @@
           "schrijfwijze": "0.x",
           "aantal": 6,
           "vindplaatsen": [
-            "meta:doc/OKx_Release-management-en-versionering.md:122",
-            "meta:doc/OKx_Release-management-en-versionering.md:122",
-            "meta:doc/OKx_Release-management-en-versionering.md:150",
-            "meta:doc/OKx_Release-management-en-versionering.md:362",
-            "meta:doc/OKx_Release-management-en-versionering.md:364",
-            "meta:doc/OKx_Release-management-en-versionering.md:374"
+            "meta:project/release-management-en-versionering.md:122",
+            "meta:project/release-management-en-versionering.md:122",
+            "meta:project/release-management-en-versionering.md:150",
+            "meta:project/release-management-en-versionering.md:362",
+            "meta:project/release-management-en-versionering.md:364",
+            "meta:project/release-management-en-versionering.md:374"
           ]
         }
       ]
@@ -1751,7 +1751,7 @@
           "schrijfwijze": "0.y.z",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:doc/OKx_Release-management-en-versionering.md:122"
+            "meta:project/release-management-en-versionering.md:122"
           ]
         }
       ]
@@ -1784,8 +1784,8 @@
             "meta:CONTRIBUTING.md:11",
             "meta:README.md:11",
             "meta:architecture/docs/specificatie/leerroute-uitwerking/doc/archief-conceptmodellen.md:1143",
-            "meta:doc/Bijdragen-voor-beginners.md:23",
-            "meta:doc/OKx_Informatiestromen-ArchiMate-en-MOKA-view.md:32"
+            "meta:project/bijdragen-voor-beginners.md:23",
+            "meta:project/informatiestromen-archimate-en-moka-view.md:32"
           ]
         }
       ]
@@ -1818,10 +1818,10 @@
           "schrijfwijze": "1.0",
           "aantal": 4,
           "vindplaatsen": [
-            "meta:doc/OKx_Release-management-en-versionering.md:152",
-            "meta:doc/OKx_Release-management-en-versionering.md:335",
-            "meta:doc/OKx_Release-management-en-versionering.md:366",
-            "meta:doc/OKx_Release-management-en-versionering.md:377"
+            "meta:project/release-management-en-versionering.md:152",
+            "meta:project/release-management-en-versionering.md:335",
+            "meta:project/release-management-en-versionering.md:366",
+            "meta:project/release-management-en-versionering.md:377"
           ]
         }
       ]
@@ -1835,8 +1835,8 @@
           "schrijfwijze": "1.0.0",
           "aantal": 2,
           "vindplaatsen": [
-            "meta:doc/OKx_Release-management-en-versionering.md:122",
-            "meta:doc/OKx_Release-management-en-versionering.md:394"
+            "meta:project/release-management-en-versionering.md:122",
+            "meta:project/release-management-en-versionering.md:394"
           ]
         }
       ]
@@ -1850,7 +1850,7 @@
           "schrijfwijze": "1.1",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:doc/OKx_Release-management-en-versionering.md:335"
+            "meta:project/release-management-en-versionering.md:335"
           ]
         }
       ]
@@ -1864,7 +1864,7 @@
           "schrijfwijze": "1.1+",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:doc/OKx_Release-management-en-versionering.md:393"
+            "meta:project/release-management-en-versionering.md:393"
           ]
         }
       ]
@@ -1878,9 +1878,9 @@
           "schrijfwijze": "1.2",
           "aantal": 3,
           "vindplaatsen": [
-            "meta:doc/OKx_Release-management-en-versionering.md:222",
-            "meta:doc/OKx_Release-management-en-versionering.md:222",
-            "meta:doc/OKx_Release-management-en-versionering.md:377"
+            "meta:project/release-management-en-versionering.md:222",
+            "meta:project/release-management-en-versionering.md:222",
+            "meta:project/release-management-en-versionering.md:377"
           ]
         }
       ]
@@ -1894,7 +1894,7 @@
           "schrijfwijze": "1.3",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:doc/OKx_Release-management-en-versionering.md:222"
+            "meta:project/release-management-en-versionering.md:222"
           ]
         }
       ]
@@ -1908,7 +1908,7 @@
           "schrijfwijze": "1.Onderwijsvisie vertalen naar onderwijs aanbod - Informatiemodel",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:doc/Bijdragen-voor-beginners.md:24"
+            "meta:project/bijdragen-voor-beginners.md:24"
           ]
         }
       ]
@@ -1922,10 +1922,10 @@
           "schrijfwijze": "1.x",
           "aantal": 4,
           "vindplaatsen": [
-            "meta:doc/OKx_Release-management-en-versionering.md:153",
-            "meta:doc/OKx_Release-management-en-versionering.md:335",
-            "meta:doc/OKx_Release-management-en-versionering.md:367",
-            "meta:doc/OKx_Release-management-en-versionering.md:378"
+            "meta:project/release-management-en-versionering.md:153",
+            "meta:project/release-management-en-versionering.md:335",
+            "meta:project/release-management-en-versionering.md:367",
+            "meta:project/release-management-en-versionering.md:378"
           ]
         }
       ]
@@ -2009,7 +2009,7 @@
           "schrijfwijze": "2.0",
           "aantal": 5,
           "vindplaatsen": [
-            "meta:doc/OKx_Release-management-en-versionering.md:335",
+            "meta:project/release-management-en-versionering.md:335",
             "public:Koppelvlakspecificaties/Datamodelschema's/README.md:334",
             "public:Koppelvlakspecificaties/Datamodelschema's/README.md:335",
             "public:Koppelvlakspecificaties/koppelvlakspecificatie.md:1611",
@@ -2027,8 +2027,8 @@
           "schrijfwijze": "2.1",
           "aantal": 6,
           "vindplaatsen": [
-            "meta:doc/OKx_Release-management-en-versionering.md:153",
-            "meta:doc/OKx_Release-management-en-versionering.md:378",
+            "meta:project/release-management-en-versionering.md:153",
+            "meta:project/release-management-en-versionering.md:378",
             "public:Koppelvlakspecificaties/Datamodelschema's/README.md:334",
             "public:Koppelvlakspecificaties/Datamodelschema's/README.md:335",
             "public:Koppelvlakspecificaties/koppelvlakspecificatie.md:1611",
@@ -2061,7 +2061,7 @@
           "schrijfwijze": "2.x",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:doc/OKx_Release-management-en-versionering.md:223"
+            "meta:project/release-management-en-versionering.md:223"
           ]
         }
       ]
@@ -2159,8 +2159,8 @@
           "schrijfwijze": "3.0",
           "aantal": 4,
           "vindplaatsen": [
-            "meta:doc/OKx_Release-management-en-versionering.md:153",
-            "meta:doc/OKx_Release-management-en-versionering.md:378",
+            "meta:project/release-management-en-versionering.md:153",
+            "meta:project/release-management-en-versionering.md:378",
             "public:Koppelvlakspecificaties/Datamodelschema's/README.md:334",
             "public:Koppelvlakspecificaties/koppelvlakspecificatie.md:1611"
           ]
@@ -2406,12 +2406,12 @@
           "schrijfwijze": "@",
           "aantal": 6,
           "vindplaatsen": [
-            "meta:doc/Bijdragen-voor-beginners.md:466",
-            "meta:doc/Bijdragen-voor-beginners.md:504",
-            "meta:doc/Bijdragen-voor-beginners.md:508",
-            "meta:doc/Bijdragen-voor-beginners.md:514",
-            "meta:doc/Bijdragen-voor-beginners.md:516",
-            "meta:doc/Bijdragen-voor-beginners.md:536"
+            "meta:project/bijdragen-voor-beginners.md:466",
+            "meta:project/bijdragen-voor-beginners.md:504",
+            "meta:project/bijdragen-voor-beginners.md:508",
+            "meta:project/bijdragen-voor-beginners.md:514",
+            "meta:project/bijdragen-voor-beginners.md:516",
+            "meta:project/bijdragen-voor-beginners.md:536"
           ]
         }
       ]
@@ -2553,7 +2553,7 @@
           "schrijfwijze": "[CONTRIBUTING.md](../CONTRIBUTING.md)",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:doc/OKx_Informatiesstromen.md:42"
+            "meta:project/informatiestromen.md:42"
           ]
         }
       ]
@@ -2564,7 +2564,7 @@
       "indeling": "pad",
       "schrijfwijzen": [
         {
-          "schrijfwijze": "[doc/OKx_Informatiesstromen.md](https://github.com/Npuls-OKx/meta/blob/d47bb0c74ec899a4384d06331692f74b9bd1db58/doc/OKx_Informatiesstromen.md)",
+          "schrijfwijze": "[project/informatiestromen.md](https://github.com/Npuls-OKx/meta/blob/d47bb0c74ec899a4384d06331692f74b9bd1db58/project/informatiestromen.md)",
           "aantal": 3,
           "vindplaatsen": [
             "public:Referentiemateriaal/adr/0005-student-keuze-systeem-zelfstandige-referentiecomponent.md:55",
@@ -2580,7 +2580,7 @@
       "indeling": "pad",
       "schrijfwijzen": [
         {
-          "schrijfwijze": "[doc/OKx_Informatiestromen-ArchiMate-en-MOKA-view.md](https://github.com/Npuls-OKx/meta/blob/d47bb0c74ec899a4384d06331692f74b9bd1db58/doc/OKx_Informatiestromen-ArchiMate-en-MOKA-view.md)",
+          "schrijfwijze": "[project/informatiestromen-archimate-en-moka-view.md](https://github.com/Npuls-OKx/meta/blob/d47bb0c74ec899a4384d06331692f74b9bd1db58/project/informatiestromen-archimate-en-moka-view.md)",
           "aantal": 1,
           "vindplaatsen": [
             "public:Referentiemateriaal/adr/0010-archimatemodel-werkafspraken.md:67"
@@ -2594,7 +2594,7 @@
       "indeling": "pad",
       "schrijfwijzen": [
         {
-          "schrijfwijze": "[doc/OKx_Projectoverzicht.md](https://github.com/Npuls-OKx/meta/blob/d47bb0c74ec899a4384d06331692f74b9bd1db58/doc/OKx_Projectoverzicht.md)",
+          "schrijfwijze": "[project/projectoverzicht.md](https://github.com/Npuls-OKx/meta/blob/d47bb0c74ec899a4384d06331692f74b9bd1db58/project/projectoverzicht.md)",
           "aantal": 8,
           "vindplaatsen": [
             "public:Referentiemateriaal/adr/0004-leeruitkomsten-sbu-ec-logistieke-containergrootte.md:54",
@@ -3215,7 +3215,7 @@
           "schrijfwijze": "agent_command",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:doc/Bijdragen-voor-beginners.md:582"
+            "meta:project/bijdragen-voor-beginners.md:582"
           ]
         }
       ]
@@ -3420,7 +3420,7 @@
           "schrijfwijze": "--alleen-controle",
           "aantal": 1,
           "vindplaatsen": [
-            "public:scripts/README.md:41"
+            "public:tools/scripts/README.md:41"
           ]
         }
       ]
@@ -3524,7 +3524,7 @@
           "aantal": 2,
           "vindplaatsen": [
             "meta:AGENTS.md:28",
-            "meta:doc/Bijdragen-voor-beginners.md:512"
+            "meta:project/bijdragen-voor-beginners.md:512"
           ]
         }
       ]
@@ -3638,7 +3638,7 @@
           "aantal": 2,
           "vindplaatsen": [
             "meta:architecture/model/README.md:19",
-            "meta:doc/OKx_Informatiestromen-ArchiMate-en-MOKA-view.md:27"
+            "meta:project/informatiestromen-archimate-en-moka-view.md:27"
           ]
         }
       ]
@@ -3652,7 +3652,7 @@
           "schrijfwijze": "ArchimateDiagramModel",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:doc/OKx_Informatiestromen-ArchiMate-en-MOKA-view.md:34"
+            "meta:project/informatiestromen-archimate-en-moka-view.md:34"
           ]
         }
       ]
@@ -3696,8 +3696,8 @@
           "vindplaatsen": [
             "meta:CONTRIBUTING.md:31",
             "meta:README.md:51",
-            "meta:doc/Bijdragen-voor-beginners.md:563",
-            "meta:doc/Bijdragen-voor-beginners.md:574"
+            "meta:project/bijdragen-voor-beginners.md:563",
+            "meta:project/bijdragen-voor-beginners.md:574"
           ]
         }
       ]
@@ -3713,7 +3713,7 @@
           "vindplaatsen": [
             "meta:.cursor/commands/ontwerp-document.md:11",
             "meta:.cursor/commands/ontwerp-document.md:36",
-            "meta:doc/Bijdragen-voor-beginners.md:539"
+            "meta:project/bijdragen-voor-beginners.md:539"
           ]
         }
       ]
@@ -3758,7 +3758,7 @@
           "vindplaatsen": [
             "meta:.cursor/commands/maak-plan.md:11",
             "meta:.cursor/commands/ontwerp-document.md:22",
-            "meta:doc/Bijdragen-voor-beginners.md:538"
+            "meta:project/bijdragen-voor-beginners.md:538"
           ]
         }
       ]
@@ -3774,7 +3774,7 @@
           "vindplaatsen": [
             "meta:.cursor/commands/maak-plan.md:5",
             "meta:.cursor/commands/project-aanvraag.md:7",
-            "meta:doc/Bijdragen-voor-beginners.md:537"
+            "meta:project/bijdragen-voor-beginners.md:537"
           ]
         }
       ]
@@ -3793,7 +3793,7 @@
             "meta:.cursor/commands/project-aanvraag.md:8",
             "meta:CONTRIBUTING.md:31",
             "meta:README.md:51",
-            "meta:doc/Bijdragen-voor-beginners.md:582"
+            "meta:project/bijdragen-voor-beginners.md:582"
           ]
         }
       ]
@@ -3943,7 +3943,7 @@
           "aantal": 2,
           "vindplaatsen": [
             "meta:architecture/agent-artifacts/design-docs/20260807_0940_refactorplan-leerroute-uitwerking.md:11",
-            "meta:doc/OKx_Release-management-en-versionering.md:72"
+            "meta:project/release-management-en-versionering.md:72"
           ]
         }
       ]
@@ -4090,7 +4090,7 @@
           "schrijfwijze": "architecture/meetings/20260324_okx_si_team_afstemming_josvdarend/okx_si_team_afstemming_josvdarend_aanhaken_voortgang_okx_240326_summary.md",
           "aantal": 4,
           "vindplaatsen": [
-            "meta:doc/OKx_Architectuurbesluiten-en-impact.md:29",
+            "meta:project/architectuurbesluiten-en-impact.md:29",
             "public:Referentiemateriaal/adr/0001-publieke-repo-en-samenwerkingsmodel.md:47",
             "public:Referentiemateriaal/adr/0002-prioriteitsketen-catalogus-drielagen-fundament.md:48",
             "public:Referentiemateriaal/adr/0003-student-kiest-leeruitkomsten-domeinprincipes.md:48"
@@ -4122,7 +4122,7 @@
           "schrijfwijze": "architecture/meetings/20260325_okx_kernteam_inhoud_uitwerken_studentkiest_flexibelonderwijs_overeenkomst/summary.md",
           "aantal": 10,
           "vindplaatsen": [
-            "meta:doc/OKx_Architectuurbesluiten-en-impact.md:26",
+            "meta:project/architectuurbesluiten-en-impact.md:26",
             "public:Referentiemateriaal/adr/0001-publieke-repo-en-samenwerkingsmodel.md:49",
             "public:Referentiemateriaal/adr/0002-prioriteitsketen-catalogus-drielagen-fundament.md:50",
             "public:Referentiemateriaal/adr/0003-student-kiest-leeruitkomsten-domeinprincipes.md:46",
@@ -4156,7 +4156,7 @@
           "schrijfwijze": "architecture/meetings/20260327_OKx_kernteam_inhoud_voorbereidingleveranciersessie/summary.md",
           "aantal": 3,
           "vindplaatsen": [
-            "meta:doc/OKx_Architectuurbesluiten-en-impact.md:27",
+            "meta:project/architectuurbesluiten-en-impact.md:27",
             "public:Referentiemateriaal/adr/0004-leeruitkomsten-sbu-ec-logistieke-containergrootte.md:50",
             "public:Referentiemateriaal/adr/0005-student-keuze-systeem-zelfstandige-referentiecomponent.md:52"
           ]
@@ -4187,7 +4187,7 @@
           "schrijfwijze": "architecture/meetings/20260331_okx_kernteam_inhoud_uitwerken_kaderstelling_student_keuze_criteria/summary.md",
           "aantal": 6,
           "vindplaatsen": [
-            "meta:doc/OKx_Architectuurbesluiten-en-impact.md:28",
+            "meta:project/architectuurbesluiten-en-impact.md:28",
             "public:Referentiemateriaal/adr/0006-studentorientatie-trechter-ketenfase.md:47",
             "public:Referentiemateriaal/adr/0007-student-keuze-criteria-als-query-parameters-onderwijs-aanbod.md:45",
             "public:Referentiemateriaal/adr/0008-scope-planning-eerst-intra-instelling.md:43",
@@ -5361,7 +5361,7 @@
           "schrijfwijze": "blank_issues_enabled: false",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:doc/Bijdragen-voor-beginners.md:172"
+            "meta:project/bijdragen-voor-beginners.md:172"
           ]
         }
       ]
@@ -5698,9 +5698,9 @@
           "vindplaatsen": [
             "meta:architecture/agent-artifacts/research/20260816_1530_afbakening-keteneisen-versus-requirementsboom.md:16",
             "meta:architecture/agent-artifacts/research/20260816_1530_afbakening-keteneisen-versus-requirementsboom.md:37",
-            "public:scripts/README.md:10",
-            "public:scripts/README.md:41",
-            "public:scripts/README.md:41"
+            "public:tools/scripts/README.md:10",
+            "public:tools/scripts/README.md:41",
+            "public:tools/scripts/README.md:41"
           ]
         }
       ]
@@ -6013,7 +6013,7 @@
           "vindplaatsen": [
             "meta:.cursor/commands/release-notes.md:31",
             "meta:.cursor/commands/release-notes.md:36",
-            "meta:doc/OKx_Release-management-en-versionering.md:258"
+            "meta:project/release-management-en-versionering.md:258"
           ]
         }
       ]
@@ -6028,7 +6028,7 @@
           "aantal": 2,
           "vindplaatsen": [
             "public:.cursor/rules/README.md:13",
-            "public:scripts/README.md:8"
+            "public:tools/scripts/README.md:8"
           ]
         }
       ]
@@ -6075,7 +6075,7 @@
             "public:.agents/skills/okx-public-artefact/SKILL.md:24",
             "public:.cursor/README.md:21",
             "public:.cursor/rules/README.md:13",
-            "public:scripts/README.md:7"
+            "public:tools/scripts/README.md:7"
           ]
         }
       ]
@@ -6112,15 +6112,15 @@
       ]
     },
     {
-      "sleutel": "chmod+xscripts/md2docx.sh",
+      "sleutel": "chmod+xtools/scripts/md2docx.sh",
       "aantal": 1,
       "indeling": "pad",
       "schrijfwijzen": [
         {
-          "schrijfwijze": "chmod +x scripts/md2docx.sh",
+          "schrijfwijze": "chmod +x tools/scripts/md2docx.sh",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:OKE/moka-koppelvlakspecificaties/Examen Uitvoering en beoordeling/doc/WorkflowMdNaarWord.md:16"
+            "meta:archief/MOKA/Examen Uitvoering en beoordeling/doc/WorkflowMdNaarWord.md:16"
           ]
         }
       ]
@@ -6489,7 +6489,7 @@
           "schrijfwijze": "COMPATIBILITY.md",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:doc/OKx_Release-management-en-versionering.md:217"
+            "meta:project/release-management-en-versionering.md:217"
           ]
         }
       ]
@@ -6877,9 +6877,9 @@
             "meta:.cursor/commands/release-notes.md:14",
             "meta:README.md:40",
             "meta:architecture/agent-artifacts/research/20260804_1500_praktijk-standaardisatieprojecten.md:145",
-            "meta:doc/Bijdragen-voor-beginners.md:5",
-            "meta:doc/Bijdragen-voor-beginners.md:126",
-            "meta:doc/Bijdragen-voor-beginners.md:188"
+            "meta:project/bijdragen-voor-beginners.md:5",
+            "meta:project/bijdragen-voor-beginners.md:126",
+            "meta:project/bijdragen-voor-beginners.md:188"
           ]
         }
       ]
@@ -7075,7 +7075,7 @@
           "schrijfwijze": "created",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:doc/Bijdragen-voor-beginners.md:582"
+            "meta:project/bijdragen-voor-beginners.md:582"
           ]
         }
       ]
@@ -7178,7 +7178,7 @@
           "aantal": 2,
           "vindplaatsen": [
             "meta:.agents/skills/mbo-informatie-modelleur/SKILL.md:82",
-            "meta:doc/OKx_Release-management-en-versionering.md:364"
+            "meta:project/release-management-en-versionering.md:364"
           ]
         }
       ]
@@ -7237,9 +7237,9 @@
           "aantal": 6,
           "vindplaatsen": [
             "meta:CHANGELOG.md:20",
-            "meta:doc/Bijdragen-voor-beginners.md:467",
-            "meta:doc/Bijdragen-voor-beginners.md:484",
-            "meta:doc/Bijdragen-voor-beginners.md:513",
+            "meta:project/bijdragen-voor-beginners.md:467",
+            "meta:project/bijdragen-voor-beginners.md:484",
+            "meta:project/bijdragen-voor-beginners.md:513",
             "public:AGENTS.md:40",
             "public:CLAUDE.md:40"
           ]
@@ -7255,7 +7255,7 @@
           "schrijfwijze": ".cursor/commands/ontwerp-document.md",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:doc/Bijdragen-voor-beginners.md:539"
+            "meta:project/bijdragen-voor-beginners.md:539"
           ]
         }
       ]
@@ -7269,7 +7269,7 @@
           "schrijfwijze": ".cursor/commands/prep-repo-context.md",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:doc/Bijdragen-voor-beginners.md:536"
+            "meta:project/bijdragen-voor-beginners.md:536"
           ]
         }
       ]
@@ -7283,7 +7283,7 @@
           "schrijfwijze": ".cursor/commands/project-aanvraag.md",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:doc/Bijdragen-voor-beginners.md:537"
+            "meta:project/bijdragen-voor-beginners.md:537"
           ]
         }
       ]
@@ -7327,7 +7327,7 @@
           "aantal": 5,
           "vindplaatsen": [
             "meta:architecture/agent-artifacts/research/20260804_1500_gereedschap-requirements-architectuur-docs-as-code.md:162",
-            "meta:doc/Bijdragen-voor-beginners.md:512",
+            "meta:project/bijdragen-voor-beginners.md:512",
             "public:.cursor/commands/prep-repo-context.md:8",
             "public:AGENTS.md:12",
             "public:CLAUDE.md:12"
@@ -7379,7 +7379,7 @@
             "meta:.agents/skills/okx-oeapi-scenario-uitwerking/SKILL.md:146",
             "meta:.agents/skills/okx-oeapi-scenario-uitwerking/SKILL.md:171",
             "meta:.agents/skills/okx-product-flow/SKILL.md:53",
-            "meta:doc/OKx_Release-management-en-versionering.md:99"
+            "meta:project/release-management-en-versionering.md:99"
           ]
         }
       ]
@@ -7911,7 +7911,7 @@
           "aantal": 2,
           "vindplaatsen": [
             "meta:architecture/agent-artifacts/README.md:12",
-            "meta:doc/Bijdragen-voor-beginners.md:580"
+            "meta:project/bijdragen-voor-beginners.md:580"
           ]
         }
       ]
@@ -8149,7 +8149,7 @@
             "meta:CHANGELOG.md:17",
             "meta:CONTRIBUTING.md:28",
             "meta:README.md:46",
-            "meta:doc/Bijdragen-voor-beginners.md:3"
+            "meta:project/bijdragen-voor-beginners.md:3"
           ]
         },
         {
@@ -8170,7 +8170,7 @@
       "indeling": "pad",
       "schrijfwijzen": [
         {
-          "schrijfwijze": "doc/Bijdragen-voor-beginners.md",
+          "schrijfwijze": "project/bijdragen-voor-beginners.md",
           "aantal": 13,
           "vindplaatsen": [
             "meta:.cursor/README.md:5",
@@ -8207,7 +8207,7 @@
           "schrijfwijze": "doc/KoppelvlakSpecificatieDocument.docx",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:OKE/moka-koppelvlakspecificaties/Examen Uitvoering en beoordeling/doc/WorkflowMdNaarWord.md:26"
+            "meta:archief/MOKA/Examen Uitvoering en beoordeling/doc/WorkflowMdNaarWord.md:26"
           ]
         }
       ]
@@ -8221,7 +8221,7 @@
           "schrijfwijze": "doc/KoppelvlakSpecificatieDocument.md",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:OKE/moka-koppelvlakspecificaties/Examen Uitvoering en beoordeling/doc/WorkflowMdNaarWord.md:26"
+            "meta:archief/MOKA/Examen Uitvoering en beoordeling/doc/WorkflowMdNaarWord.md:26"
           ]
         }
       ]
@@ -8232,10 +8232,10 @@
       "indeling": "pad",
       "schrijfwijzen": [
         {
-          "schrijfwijze": "doc/OKx_Architectuurbesluiten-en-impact.md",
+          "schrijfwijze": "project/architectuurbesluiten-en-impact.md",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:doc/OKx_Projectoverzicht.md:81"
+            "meta:project/projectoverzicht.md:81"
           ]
         }
       ]
@@ -8246,7 +8246,7 @@
       "indeling": "pad",
       "schrijfwijzen": [
         {
-          "schrijfwijze": "doc/OKx_Informatiesstromen.md",
+          "schrijfwijze": "project/informatiestromen.md",
           "aantal": 3,
           "vindplaatsen": [
             "meta:CONTRIBUTING.md:10",
@@ -8262,12 +8262,12 @@
       "indeling": "pad",
       "schrijfwijzen": [
         {
-          "schrijfwijze": "doc/OKx_Informatiestromen-ArchiMate-en-MOKA-view.md",
+          "schrijfwijze": "project/informatiestromen-archimate-en-moka-view.md",
           "aantal": 4,
           "vindplaatsen": [
             "meta:CONTRIBUTING.md:11",
             "meta:README.md:11",
-            "meta:doc/OKx_Projectoverzicht.md:82",
+            "meta:project/projectoverzicht.md:82",
             "public:Referentiemateriaal/adr/0019-conceptuele-gelaagdheid-kwalificatie-specificatie-aanbod-rosa-koi.md:99"
           ]
         }
@@ -8279,7 +8279,7 @@
       "indeling": "pad",
       "schrijfwijzen": [
         {
-          "schrijfwijze": "doc/OKx_Projectoverzicht.md",
+          "schrijfwijze": "project/projectoverzicht.md",
           "aantal": 9,
           "vindplaatsen": [
             "meta:CONTRIBUTING.md:9",
@@ -8298,7 +8298,7 @@
       "indeling": "pad",
       "schrijfwijzen": [
         {
-          "schrijfwijze": "doc/OKx_Release-management-en-versionering.md",
+          "schrijfwijze": "project/release-management-en-versionering.md",
           "aantal": 4,
           "vindplaatsen": [
             "meta:.agents/skills/amigo-aanpak/SKILL.md:24",
@@ -8315,7 +8315,7 @@
       "indeling": "pad",
       "schrijfwijzen": [
         {
-          "schrijfwijze": "doc/Privacy-meetings-en-transcriptie.md",
+          "schrijfwijze": "project/privacy-meetings-en-transcriptie.md",
           "aantal": 5,
           "vindplaatsen": [
             "meta:CONTRIBUTING.md:104",
@@ -8497,8 +8497,8 @@
           "schrijfwijze": ".docx",
           "aantal": 2,
           "vindplaatsen": [
-            "meta:OKE/moka-koppelvlakspecificaties/Examen Uitvoering en beoordeling/doc/WorkflowMdNaarWord.md:3",
-            "meta:OKE/moka-koppelvlakspecificaties/Examen Uitvoering en beoordeling/scripts/README.md:3"
+            "meta:archief/MOKA/Examen Uitvoering en beoordeling/doc/WorkflowMdNaarWord.md:3",
+            "meta:archief/MOKA/Examen Uitvoering en beoordeling/tools/scripts/README.md:3"
           ]
         }
       ]
@@ -8571,7 +8571,7 @@
           "schrijfwijze": "duaal",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:doc/OKx_Release-management-en-versionering.md:364"
+            "meta:project/release-management-en-versionering.md:364"
           ]
         }
       ]
@@ -9643,8 +9643,8 @@
           "schrijfwijze": "feature/...",
           "aantal": 2,
           "vindplaatsen": [
-            "meta:doc/OKx_Release-management-en-versionering.md:200",
-            "meta:doc/OKx_Release-management-en-versionering.md:266"
+            "meta:project/release-management-en-versionering.md:200",
+            "meta:project/release-management-en-versionering.md:266"
           ]
         }
       ]
@@ -9658,7 +9658,7 @@
           "schrijfwijze": "feature/doc-readme-typos",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:doc/Bijdragen-voor-beginners.md:313"
+            "meta:project/bijdragen-voor-beginners.md:313"
           ]
         }
       ]
@@ -9674,9 +9674,9 @@
           "vindplaatsen": [
             "meta:CONTRIBUTING.md:44",
             "meta:CONTRIBUTING.md:50",
-            "meta:doc/Bijdragen-voor-beginners.md:308",
-            "meta:doc/Bijdragen-voor-beginners.md:329",
-            "meta:doc/Bijdragen-voor-beginners.md:401"
+            "meta:project/bijdragen-voor-beginners.md:308",
+            "meta:project/bijdragen-voor-beginners.md:329",
+            "meta:project/bijdragen-voor-beginners.md:401"
           ]
         }
       ]
@@ -9734,7 +9734,7 @@
           "aantal": 2,
           "vindplaatsen": [
             "meta:architecture/agent-artifacts/README.md:11",
-            "meta:doc/Bijdragen-voor-beginners.md:579"
+            "meta:project/bijdragen-voor-beginners.md:579"
           ]
         }
       ]
@@ -9918,7 +9918,7 @@
           "schrijfwijze": "fix/…",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:doc/Bijdragen-voor-beginners.md:308"
+            "meta:project/bijdragen-voor-beginners.md:308"
           ]
         }
       ]
@@ -9932,7 +9932,7 @@
           "schrijfwijze": "Fixes #123",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:doc/Bijdragen-voor-beginners.md:403"
+            "meta:project/bijdragen-voor-beginners.md:403"
           ]
         }
       ]
@@ -9949,8 +9949,8 @@
             "meta:.agents/skills/amigo-aanpak/SKILL.md:79",
             "meta:.agents/skills/mbo-informatie-modelleur/SKILL.md:171",
             "meta:.agents/skills/okx-oeapi-scenario-uitwerking/SKILL.md:146",
-            "meta:doc/Bijdragen-voor-beginners.md:143",
-            "meta:doc/Bijdragen-voor-beginners.md:188"
+            "meta:project/bijdragen-voor-beginners.md:143",
+            "meta:project/bijdragen-voor-beginners.md:188"
           ]
         }
       ]
@@ -10858,7 +10858,7 @@
           "aantal": 2,
           "vindplaatsen": [
             "meta:.cursor/commands/release-notes.md:35",
-            "meta:doc/Bijdragen-voor-beginners.md:562"
+            "meta:project/bijdragen-voor-beginners.md:562"
           ]
         }
       ]
@@ -10872,7 +10872,7 @@
           "schrijfwijze": "git add",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:doc/Bijdragen-voor-beginners.md:278"
+            "meta:project/bijdragen-voor-beginners.md:278"
           ]
         }
       ]
@@ -10930,7 +10930,7 @@
           "schrijfwijze": "git clone",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:doc/Bijdragen-voor-beginners.md:438"
+            "meta:project/bijdragen-voor-beginners.md:438"
           ]
         }
       ]
@@ -10944,7 +10944,7 @@
           "schrijfwijze": "git commit",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:doc/Bijdragen-voor-beginners.md:279"
+            "meta:project/bijdragen-voor-beginners.md:279"
           ]
         }
       ]
@@ -10972,7 +10972,7 @@
           "schrijfwijze": "git diff",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:doc/Bijdragen-voor-beginners.md:286"
+            "meta:project/bijdragen-voor-beginners.md:286"
           ]
         }
       ]
@@ -11042,7 +11042,7 @@
           "schrijfwijze": ".github/ISSUE_TEMPLATE/config.yml",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:doc/Bijdragen-voor-beginners.md:172"
+            "meta:project/bijdragen-voor-beginners.md:172"
           ]
         }
       ]
@@ -11057,7 +11057,7 @@
           "aantal": 2,
           "vindplaatsen": [
             "meta:CONTRIBUTING.md:115",
-            "meta:doc/Bijdragen-voor-beginners.md:402"
+            "meta:project/bijdragen-voor-beginners.md:402"
           ]
         }
       ]
@@ -11127,7 +11127,7 @@
           "schrijfwijze": "git log --oneline -10",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:doc/Bijdragen-voor-beginners.md:286"
+            "meta:project/bijdragen-voor-beginners.md:286"
           ]
         }
       ]
@@ -11183,7 +11183,7 @@
           "schrijfwijze": "git push",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:doc/Bijdragen-voor-beginners.md:280"
+            "meta:project/bijdragen-voor-beginners.md:280"
           ]
         }
       ]
@@ -11239,7 +11239,7 @@
           "schrijfwijze": "git status",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:doc/Bijdragen-voor-beginners.md:286"
+            "meta:project/bijdragen-voor-beginners.md:286"
           ]
         }
       ]
@@ -11295,7 +11295,7 @@
           "schrijfwijze": "git --version",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:doc/Bijdragen-voor-beginners.md:207"
+            "meta:project/bijdragen-voor-beginners.md:207"
           ]
         }
       ]
@@ -11309,7 +11309,7 @@
           "schrijfwijze": "globs",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:doc/Bijdragen-voor-beginners.md:512"
+            "meta:project/bijdragen-voor-beginners.md:512"
           ]
         }
       ]
@@ -11926,7 +11926,7 @@
           "vindplaatsen": [
             "meta:.cursor/commands/maak-plan.md:16",
             "meta:.cursor/commands/project-aanvraag.md:12",
-            "meta:doc/Bijdragen-voor-beginners.md:582"
+            "meta:project/bijdragen-voor-beginners.md:582"
           ]
         }
       ]
@@ -12085,7 +12085,7 @@
           "schrijfwijze": "img",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:OKE/moka-koppelvlakspecificaties/Examen Uitvoering en beoordeling/doc/ContextRules.md:46"
+            "meta:archief/MOKA/Examen Uitvoering en beoordeling/doc/ContextRules.md:46"
           ]
         }
       ]
@@ -12101,7 +12101,7 @@
           "vindplaatsen": [
             "meta:CONTRIBUTING.md:28",
             "meta:README.md:46",
-            "meta:doc/OKx_Projectoverzicht.md:80",
+            "meta:project/projectoverzicht.md:80",
             "meta:presentaties/README.md:93",
             "public:.cursor/commands/controleer-document.md:37",
             "public:.cursor/commands/overhevelen-uit-meta.md:65"
@@ -12115,7 +12115,7 @@
       "indeling": "pad",
       "schrijfwijzen": [
         {
-          "schrijfwijze": "img/Hoofdplaat OKx informatiestromen v20260317.png",
+          "schrijfwijze": "project/img/hoofdplaat-informatiestromen-v20260317.png",
           "aantal": 1,
           "vindplaatsen": [
             "meta:architecture/docs/specificatie/leerroute-uitwerking/doc/scenario-uitwerkingen/scenario-1.1-regulier-happyflow.md:119"
@@ -12206,7 +12206,7 @@
           "schrijfwijze": "InformatiemodelOverzicht.json",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:OKE/moka-koppelvlakspecificaties/Examen Uitvoering en beoordeling/doc/ContextRules.md:86"
+            "meta:archief/MOKA/Examen Uitvoering en beoordeling/doc/ContextRules.md:86"
           ]
         }
       ]
@@ -12687,7 +12687,7 @@
           "vindplaatsen": [
             "meta:architecture/agent-artifacts/research/20260804_1500_gereedschap-requirements-architectuur-docs-as-code.md:168",
             "meta:architecture/agent-artifacts/research/20260804_1500_gereedschap-requirements-architectuur-docs-as-code.md:178",
-            "public:scripts/README.md:9"
+            "public:tools/scripts/README.md:9"
           ]
         }
       ]
@@ -12827,7 +12827,7 @@
           "schrijfwijze": "kernteam-okx",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:doc/OKx_Release-management-en-versionering.md:96"
+            "meta:project/release-management-en-versionering.md:96"
           ]
         }
       ]
@@ -13081,7 +13081,7 @@
           "schrijfwijze": "Koppelvlakspecificaties/koppelvlakspecificatie.md",
           "aantal": 1,
           "vindplaatsen": [
-            "public:scripts/README.md:41"
+            "public:tools/scripts/README.md:41"
           ]
         }
       ]
@@ -13112,7 +13112,7 @@
           "schrijfwijze": "Koppelvlakspecificaties/release.json",
           "aantal": 1,
           "vindplaatsen": [
-            "public:scripts/README.md:41"
+            "public:tools/scripts/README.md:41"
           ]
         }
       ]
@@ -13146,7 +13146,7 @@
           "aantal": 2,
           "vindplaatsen": [
             "public:Algemeen/release-management/Release-management-algemeen.md:52",
-            "public:scripts/README.md:62"
+            "public:tools/scripts/README.md:62"
           ]
         }
       ]
@@ -14967,9 +14967,9 @@
           "schrijfwijze": "MAJOR",
           "aantal": 3,
           "vindplaatsen": [
-            "meta:doc/OKx_Release-management-en-versionering.md:233",
-            "meta:doc/OKx_Release-management-en-versionering.md:233",
-            "meta:doc/OKx_Release-management-en-versionering.md:236"
+            "meta:project/release-management-en-versionering.md:233",
+            "meta:project/release-management-en-versionering.md:233",
+            "meta:project/release-management-en-versionering.md:236"
           ]
         }
       ]
@@ -14983,7 +14983,7 @@
           "schrijfwijze": "MAJOR.MINOR",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:doc/OKx_Release-management-en-versionering.md:209"
+            "meta:project/release-management-en-versionering.md:209"
           ]
         }
       ]
@@ -14998,9 +14998,9 @@
           "aantal": 5,
           "vindplaatsen": [
             "meta:architecture/docs/specificatie/student-keuze/regelset-payload.md:82",
-            "meta:doc/OKx_Release-management-en-versionering.md:113",
-            "meta:doc/OKx_Release-management-en-versionering.md:117",
-            "meta:doc/OKx_Release-management-en-versionering.md:386",
+            "meta:project/release-management-en-versionering.md:113",
+            "meta:project/release-management-en-versionering.md:117",
+            "meta:project/release-management-en-versionering.md:386",
             "public:Algemeen/release-management/Release-management-algemeen.md:34"
           ]
         }
@@ -15210,12 +15210,12 @@
           "schrijfwijze": ".md",
           "aantal": 6,
           "vindplaatsen": [
-            "meta:OKE/moka-koppelvlakspecificaties/Examen Uitvoering en beoordeling/doc/WorkflowMdNaarWord.md:3",
-            "meta:OKE/moka-koppelvlakspecificaties/Examen Uitvoering en beoordeling/doc/WorkflowMdNaarWord.md:43",
+            "meta:archief/MOKA/Examen Uitvoering en beoordeling/doc/WorkflowMdNaarWord.md:3",
+            "meta:archief/MOKA/Examen Uitvoering en beoordeling/doc/WorkflowMdNaarWord.md:43",
             "meta:architecture/agent-artifacts/research/20260804_1500_gereedschap-requirements-architectuur-docs-as-code.md:126",
             "meta:architecture/agent-artifacts/research/20260804_1500_gereedschap-requirements-architectuur-docs-as-code.md:176",
             "meta:architecture/agent-artifacts/research/20260804_1500_gereedschap-requirements-architectuur-docs-as-code.md:180",
-            "meta:doc/Bijdragen-voor-beginners.md:513"
+            "meta:project/bijdragen-voor-beginners.md:513"
           ]
         }
       ]
@@ -15438,9 +15438,9 @@
           "schrijfwijze": "MINOR",
           "aantal": 3,
           "vindplaatsen": [
-            "meta:doc/OKx_Release-management-en-versionering.md:234",
-            "meta:doc/OKx_Release-management-en-versionering.md:234",
-            "meta:doc/OKx_Release-management-en-versionering.md:237"
+            "meta:project/release-management-en-versionering.md:234",
+            "meta:project/release-management-en-versionering.md:234",
+            "meta:project/release-management-en-versionering.md:237"
           ]
         }
       ]
@@ -15489,7 +15489,7 @@
             "meta:architecture/model/README.md:3",
             "meta:architecture/model/informatiemodel/informatiemodel-oeapi-mapping.md:69",
             "meta:architecture/model/informatiemodel/informatiemodel.md:79",
-            "meta:doc/OKx_Architectuurbesluiten-en-impact.md:76"
+            "meta:project/architectuurbesluiten-en-impact.md:76"
           ]
         }
       ]
@@ -15521,7 +15521,7 @@
           "vindplaatsen": [
             "meta:CONTRIBUTING.md:30",
             "meta:README.md:49",
-            "meta:doc/OKx_Informatiestromen-ArchiMate-en-MOKA-view.md:46"
+            "meta:project/informatiestromen-archimate-en-moka-view.md:46"
           ]
         },
         {
@@ -15539,11 +15539,11 @@
       "indeling": "pad",
       "schrijfwijzen": [
         {
-          "schrijfwijze": "moka-koppelvlakspecificaties/Template/",
+          "schrijfwijze": "archief/MOKA/Template/",
           "aantal": 2,
           "vindplaatsen": [
             "meta:OKE/moka-koppelvlakspecificaties/README.md:3",
-            "meta:doc/OKx_Projectoverzicht.md:84"
+            "meta:project/projectoverzicht.md:84"
           ]
         }
       ]
@@ -15554,7 +15554,7 @@
       "indeling": "pad",
       "schrijfwijzen": [
         {
-          "schrijfwijze": "moka-koppelvlakspecificaties/Template/doc/KoppelvlakSpecificatieTemplate.md",
+          "schrijfwijze": "archief/MOKA/Template/doc/KoppelvlakSpecificatieTemplate.md",
           "aantal": 1,
           "vindplaatsen": [
             "meta:architecture/agent-artifacts/research/20260804_1500_amigo-producten-en-gat-analyse.md:80"
@@ -15833,7 +15833,7 @@
           "schrijfwijze": "node",
           "aantal": 1,
           "vindplaatsen": [
-            "public:scripts/README.md:51"
+            "public:tools/scripts/README.md:51"
           ]
         }
       ]
@@ -16354,7 +16354,7 @@
             "meta:.agents/skills/okx-presentatie/SKILL.md:30",
             "meta:.agents/skills/okx-presentatie/SKILL.md:38",
             "meta:.cursor/commands/presentatie.md:21",
-            "meta:doc/OKx_Release-management-en-versionering.md:96",
+            "meta:project/release-management-en-versionering.md:96",
             "public:AGENTS.md:48"
           ]
         }
@@ -16388,7 +16388,7 @@
           "schrijfwijze": "Npuls-OKx/specification",
           "aantal": 3,
           "vindplaatsen": [
-            "meta:doc/OKx_Release-management-en-versionering.md:97",
+            "meta:project/release-management-en-versionering.md:97",
             "public:AGENTS.md:48",
             "public:CLAUDE.md:48"
           ]
@@ -16488,7 +16488,7 @@
           "schrijfwijze": "npx",
           "aantal": 1,
           "vindplaatsen": [
-            "public:scripts/README.md:51"
+            "public:tools/scripts/README.md:51"
           ]
         }
       ]
@@ -16754,7 +16754,7 @@
           "vindplaatsen": [
             "meta:CONTRIBUTING.md:29",
             "meta:README.md:48",
-            "meta:doc/OKx_Projectoverzicht.md:83",
+            "meta:project/projectoverzicht.md:83",
             "meta:moka-koppelvlakspecificaties/README.md:3"
           ]
         },
@@ -16792,7 +16792,7 @@
           "schrijfwijze": "OKE_Gegevensgroeptypes_Overzicht.md",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:OKE/moka-koppelvlakspecificaties/Examen Uitvoering en beoordeling/doc/ContextRules.md:95"
+            "meta:archief/MOKA/Examen Uitvoering en beoordeling/doc/ContextRules.md:95"
           ]
         }
       ]
@@ -16806,7 +16806,7 @@
           "schrijfwijze": "OKE_Informatiemodel_Analyse.md",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:OKE/moka-koppelvlakspecificaties/Examen Uitvoering en beoordeling/doc/ContextRules.md:96"
+            "meta:archief/MOKA/Examen Uitvoering en beoordeling/doc/ContextRules.md:96"
           ]
         }
       ]
@@ -16849,7 +16849,7 @@
           "schrijfwijze": "OKx-meta",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:doc/Bijdragen-voor-beginners.md:216"
+            "meta:project/bijdragen-voor-beginners.md:216"
           ]
         }
       ]
@@ -16954,7 +16954,7 @@
           "schrijfwijze": "OKx_Projectoverzicht.md",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:doc/Bijdragen-voor-beginners.md:57"
+            "meta:project/bijdragen-voor-beginners.md:57"
           ]
         }
       ]
@@ -17647,7 +17647,7 @@
           "schrijfwijze": "OnderwijsresultaatRegistratie",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:OKE/moka-koppelvlakspecificaties/Examen Uitvoering en beoordeling/doc/ContextRules.md:89"
+            "meta:archief/MOKA/Examen Uitvoering en beoordeling/doc/ContextRules.md:89"
           ]
         }
       ]
@@ -18670,11 +18670,11 @@
           "schrijfwijze": "origin",
           "aantal": 5,
           "vindplaatsen": [
-            "meta:doc/Bijdragen-voor-beginners.md:232",
-            "meta:doc/Bijdragen-voor-beginners.md:280",
-            "meta:doc/Bijdragen-voor-beginners.md:288",
-            "meta:doc/Bijdragen-voor-beginners.md:422",
-            "meta:doc/Bijdragen-voor-beginners.md:446"
+            "meta:project/bijdragen-voor-beginners.md:232",
+            "meta:project/bijdragen-voor-beginners.md:280",
+            "meta:project/bijdragen-voor-beginners.md:288",
+            "meta:project/bijdragen-voor-beginners.md:422",
+            "meta:project/bijdragen-voor-beginners.md:446"
           ]
         }
       ]
@@ -18859,7 +18859,7 @@
           "aantal": 2,
           "vindplaatsen": [
             "meta:.devcontainer/README.md:32",
-            "public:scripts/README.md:51"
+            "public:tools/scripts/README.md:51"
           ]
         }
       ]
@@ -18873,7 +18873,7 @@
           "schrijfwijze": "pandoc --version",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:OKE/moka-koppelvlakspecificaties/Examen Uitvoering en beoordeling/doc/WorkflowMdNaarWord.md:9"
+            "meta:archief/MOKA/Examen Uitvoering en beoordeling/doc/WorkflowMdNaarWord.md:9"
           ]
         }
       ]
@@ -19061,8 +19061,8 @@
           "schrijfwijze": "PATCH",
           "aantal": 2,
           "vindplaatsen": [
-            "meta:doc/OKx_Release-management-en-versionering.md:235",
-            "meta:doc/OKx_Release-management-en-versionering.md:238"
+            "meta:project/release-management-en-versionering.md:235",
+            "meta:project/release-management-en-versionering.md:238"
           ]
         }
       ]
@@ -19842,7 +19842,7 @@
           "schrijfwijze": "Privacy-meetings-en-transcriptie.md",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:doc/Bijdragen-voor-beginners.md:7"
+            "meta:project/bijdragen-voor-beginners.md:7"
           ]
         }
       ]
@@ -20330,7 +20330,7 @@
           "aantal": 2,
           "vindplaatsen": [
             "meta:architecture/agent-artifacts/README.md:10",
-            "meta:doc/Bijdragen-voor-beginners.md:578"
+            "meta:project/bijdragen-voor-beginners.md:578"
           ]
         }
       ]
@@ -20566,24 +20566,24 @@
       "indeling": "commando",
       "schrijfwijzen": [
         {
-          "schrijfwijze": "python3 -m unittest discover -s tests",
+          "schrijfwijze": "python3 -m unittest discover -s tools/tests",
           "aantal": 4,
           "vindplaatsen": [
             "meta:.agents/skills/okx-test-persona/SKILL.md:18",
             "public:Koppelvlakspecificaties/koppelvlakspecificatie.md:296",
             "public:Referentiemateriaal/requirementsboom/README.md:70",
-            "public:scripts/README.md:29"
+            "public:tools/scripts/README.md:29"
           ]
         }
       ]
     },
     {
-      "sleutel": "python3scripts/checkconventies.py",
+      "sleutel": "python3tools/scripts/checkconventies.py",
       "aantal": 1,
       "indeling": "commando",
       "schrijfwijzen": [
         {
-          "schrijfwijze": "python3 scripts/check-conventies.py",
+          "schrijfwijze": "python3 tools/scripts/check-conventies.py",
           "aantal": 1,
           "vindplaatsen": [
             "public:.github/PULL_REQUEST_TEMPLATE.md:22"
@@ -20592,12 +20592,12 @@
       ]
     },
     {
-      "sleutel": "python3scripts/checklinks.py",
+      "sleutel": "python3tools/scripts/checklinks.py",
       "aantal": 2,
       "indeling": "commando",
       "schrijfwijzen": [
         {
-          "schrijfwijze": "python3 scripts/check-links.py",
+          "schrijfwijze": "python3 tools/scripts/check-links.py",
           "aantal": 2,
           "vindplaatsen": [
             "meta:.agents/skills/okx-requirements-boom/SKILL.md:87",
@@ -20607,12 +20607,12 @@
       ]
     },
     {
-      "sleutel": "python3scripts/jsontree.pycheck<document>",
+      "sleutel": "python3tools/scripts/jsontree.pycheck<document>",
       "aantal": 1,
       "indeling": "commando",
       "schrijfwijzen": [
         {
-          "schrijfwijze": "python3 scripts/json-tree.py --check <document>",
+          "schrijfwijze": "python3 tools/scripts/json-tree.py --check <document>",
           "aantal": 1,
           "vindplaatsen": [
             "meta:.agents/skills/okx-koppelingspecificatie/SKILL.md:77"
@@ -20621,12 +20621,12 @@
       ]
     },
     {
-      "sleutel": "python3scripts/jsontree.pycheck<document>.md",
+      "sleutel": "python3tools/scripts/jsontree.pycheck<document>.md",
       "aantal": 1,
       "indeling": "commando",
       "schrijfwijzen": [
         {
-          "schrijfwijze": "python3 scripts/json-tree.py --check <document>.md",
+          "schrijfwijze": "python3 tools/scripts/json-tree.py --check <document>.md",
           "aantal": 1,
           "vindplaatsen": [
             "public:.github/PULL_REQUEST_TEMPLATE.md:23"
@@ -20635,12 +20635,12 @@
       ]
     },
     {
-      "sleutel": "python3scripts/plateninventariseren.py",
+      "sleutel": "python3tools/scripts/plateninventariseren.py",
       "aantal": 1,
       "indeling": "commando",
       "schrijfwijzen": [
         {
-          "schrijfwijze": "python3 scripts/platen-inventariseren.py",
+          "schrijfwijze": "python3 tools/scripts/platen-inventariseren.py",
           "aantal": 1,
           "vindplaatsen": [
             "meta:.cursor/commands/presentatie.md:12"
@@ -20649,12 +20649,12 @@
       ]
     },
     {
-      "sleutel": "python3scripts/validatearchimate.py",
+      "sleutel": "python3tools/scripts/validatearchimate.py",
       "aantal": 1,
       "indeling": "commando",
       "schrijfwijzen": [
         {
-          "schrijfwijze": "python3 scripts/validate-archimate.py",
+          "schrijfwijze": "python3 tools/scripts/validate-archimate.py",
           "aantal": 1,
           "vindplaatsen": [
             "meta:AGENTS.md:32"
@@ -20663,12 +20663,12 @@
       ]
     },
     {
-      "sleutel": "python3scripts/validatearchimate.pyarchitecture/model/model.archimate",
+      "sleutel": "python3tools/scripts/validatearchimate.pyarchitecture/model/model.archimate",
       "aantal": 1,
       "indeling": "commando",
       "schrijfwijzen": [
         {
-          "schrijfwijze": "python3 scripts/validate-archimate.py architecture/model/model.archimate",
+          "schrijfwijze": "python3 tools/scripts/validate-archimate.py architecture/model/model.archimate",
           "aantal": 1,
           "vindplaatsen": [
             "public:Referentiemateriaal/adr/0010-archimatemodel-werkafspraken.md:19"
@@ -20677,19 +20677,19 @@
       ]
     },
     {
-      "sleutel": "python3scripts/validatedocs.py",
+      "sleutel": "python3tools/scripts/validatedocs.py",
       "aantal": 2,
       "indeling": "commando",
       "schrijfwijzen": [
         {
-          "schrijfwijze": "python3 scripts/validate-docs.py .",
+          "schrijfwijze": "python3 tools/scripts/validate-docs.py .",
           "aantal": 1,
           "vindplaatsen": [
             "meta:architecture/agent-artifacts/design-docs/20260807_0940_refactorplan-leerroute-uitwerking.md:23"
           ]
         },
         {
-          "schrijfwijze": "python3 scripts/validate-docs.py",
+          "schrijfwijze": "python3 tools/scripts/validate-docs.py",
           "aantal": 1,
           "vindplaatsen": [
             "meta:architecture/agent-artifacts/research/20260816_1820_hernummering-requirementsboom.md:125"
@@ -20698,12 +20698,12 @@
       ]
     },
     {
-      "sleutel": "python3scripts/validatedocs.py<deliverable>",
+      "sleutel": "python3tools/scripts/validatedocs.py<deliverable>",
       "aantal": 1,
       "indeling": "commando",
       "schrijfwijzen": [
         {
-          "schrijfwijze": "python3 scripts/validate-docs.py <deliverable>",
+          "schrijfwijze": "python3 tools/scripts/validate-docs.py <deliverable>",
           "aantal": 1,
           "vindplaatsen": [
             "meta:.agents/skills/okx-requirements-tester/SKILL.md:17"
@@ -20712,12 +20712,12 @@
       ]
     },
     {
-      "sleutel": "python3scripts/validatedocs.py<pad>",
+      "sleutel": "python3tools/scripts/validatedocs.py<pad>",
       "aantal": 1,
       "indeling": "commando",
       "schrijfwijzen": [
         {
-          "schrijfwijze": "python3 scripts/validate-docs.py <pad>",
+          "schrijfwijze": "python3 tools/scripts/validate-docs.py <pad>",
           "aantal": 1,
           "vindplaatsen": [
             "meta:AGENTS.md:36"
@@ -20726,12 +20726,12 @@
       ]
     },
     {
-      "sleutel": "python3scripts/validatedocs.pyagents.md",
+      "sleutel": "python3tools/scripts/validatedocs.pyagents.md",
       "aantal": 1,
       "indeling": "commando",
       "schrijfwijzen": [
         {
-          "schrijfwijze": "python3 scripts/validate-docs.py AGENTS.md",
+          "schrijfwijze": "python3 tools/scripts/validate-docs.py AGENTS.md",
           "aantal": 1,
           "vindplaatsen": [
             "meta:architecture/agent-artifacts/design-docs/agents-md-requirements-en-review.md:18"
@@ -20740,12 +20740,12 @@
       ]
     },
     {
-      "sleutel": "python3scripts/validatedocs.pyarchitecture/docs/requirements",
+      "sleutel": "python3tools/scripts/validatedocs.pyarchitecture/docs/requirements",
       "aantal": 1,
       "indeling": "commando",
       "schrijfwijzen": [
         {
-          "schrijfwijze": "python3 scripts/validate-docs.py architecture/docs/requirements",
+          "schrijfwijze": "python3 tools/scripts/validate-docs.py architecture/docs/requirements",
           "aantal": 1,
           "vindplaatsen": [
             "meta:architecture/agent-artifacts/design-docs/20260805_1600_requirementsboom-requirements.md:38"
@@ -20754,12 +20754,12 @@
       ]
     },
     {
-      "sleutel": "python3scripts/validaterequirementsboomnavigatie.py",
+      "sleutel": "python3tools/scripts/validaterequirementsboomnavigatie.py",
       "aantal": 3,
       "indeling": "commando",
       "schrijfwijzen": [
         {
-          "schrijfwijze": "python3 scripts/validate-requirementsboom-navigatie.py",
+          "schrijfwijze": "python3 tools/scripts/validate-requirementsboom-navigatie.py",
           "aantal": 3,
           "vindplaatsen": [
             "meta:.agents/skills/okx-requirements-boom/SKILL.md:88",
@@ -20770,12 +20770,12 @@
       ]
     },
     {
-      "sleutel": "python3scripts/wijzigingenverzamelen.pysindsjjjjmmdd",
+      "sleutel": "python3tools/scripts/wijzigingenverzamelen.pysindsjjjjmmdd",
       "aantal": 1,
       "indeling": "commando",
       "schrijfwijzen": [
         {
-          "schrijfwijze": "python3 scripts/wijzigingen-verzamelen.py --sinds JJJJ-MM-DD",
+          "schrijfwijze": "python3 tools/scripts/wijzigingen-verzamelen.py --sinds JJJJ-MM-DD",
           "aantal": 1,
           "vindplaatsen": [
             "meta:.cursor/commands/presentatie.md:11"
@@ -20842,8 +20842,8 @@
             "meta:.agents/skills/okx-requirements-boom/SKILL.md:40",
             "meta:.cursor/commands/release-notes.md:14",
             "meta:architecture/agent-artifacts/design-docs/20260805_1600_requirementsboom-requirements.md:28",
-            "meta:doc/Bijdragen-voor-beginners.md:222",
-            "meta:doc/Privacy-meetings-en-transcriptie.md:98",
+            "meta:project/bijdragen-voor-beginners.md:222",
+            "meta:project/privacy-meetings-en-transcriptie.md:98",
             "public:.cursor/commands/prep-repo-context.md:7"
           ]
         }
@@ -21158,7 +21158,7 @@
             "public:AGENTS.md:23",
             "public:CLAUDE.md:23",
             "public:README.md:12",
-            "public:scripts/README.md:47"
+            "public:tools/scripts/README.md:47"
           ]
         }
       ]
@@ -21388,7 +21388,7 @@
           "schrijfwijze": "related_issues",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:doc/Bijdragen-voor-beginners.md:582"
+            "meta:project/bijdragen-voor-beginners.md:582"
           ]
         }
       ]
@@ -21461,7 +21461,7 @@
           "schrijfwijze": "RelatieTotExamenAfname",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:OKE/moka-koppelvlakspecificaties/Examen Uitvoering en beoordeling/doc/ContextRules.md:89"
+            "meta:archief/MOKA/Examen Uitvoering en beoordeling/doc/ContextRules.md:89"
           ]
         }
       ]
@@ -21475,8 +21475,8 @@
           "schrijfwijze": "RelatieTotOpsteller",
           "aantal": 2,
           "vindplaatsen": [
-            "meta:OKE/moka-koppelvlakspecificaties/Examen Uitvoering en beoordeling/doc/ContextRules.md:87",
-            "meta:OKE/moka-koppelvlakspecificaties/Examen Uitvoering en beoordeling/doc/ContextRules.md:89"
+            "meta:archief/MOKA/Examen Uitvoering en beoordeling/doc/ContextRules.md:87",
+            "meta:archief/MOKA/Examen Uitvoering en beoordeling/doc/ContextRules.md:89"
           ]
         }
       ]
@@ -21490,7 +21490,7 @@
           "schrijfwijze": "RelatieTotSummatiefResultaat",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:OKE/moka-koppelvlakspecificaties/Examen Uitvoering en beoordeling/doc/ContextRules.md:89"
+            "meta:archief/MOKA/Examen Uitvoering en beoordeling/doc/ContextRules.md:89"
           ]
         }
       ]
@@ -21504,7 +21504,7 @@
           "schrijfwijze": "release-*",
           "aantal": 1,
           "vindplaatsen": [
-            "public:scripts/README.md:58"
+            "public:tools/scripts/README.md:58"
           ]
         }
       ]
@@ -21519,8 +21519,8 @@
           "aantal": 3,
           "vindplaatsen": [
             "meta:architecture/agent-artifacts/research/20260816_1530_afbakening-keteneisen-versus-requirementsboom.md:16",
-            "public:scripts/README.md:41",
-            "public:scripts/README.md:62"
+            "public:tools/scripts/README.md:41",
+            "public:tools/scripts/README.md:62"
           ]
         }
       ]
@@ -21534,7 +21534,7 @@
           "schrijfwijze": "release.yml",
           "aantal": 1,
           "vindplaatsen": [
-            "public:scripts/README.md:58"
+            "public:tools/scripts/README.md:58"
           ]
         }
       ]
@@ -21659,7 +21659,7 @@
           "schrijfwijze": "required",
           "aantal": 3,
           "vindplaatsen": [
-            "meta:doc/OKx_Release-management-en-versionering.md:182",
+            "meta:project/release-management-en-versionering.md:182",
             "public:Koppelvlakspecificaties/koppelvlakspecificatie.md:3727",
             "public:Koppelvlakspecificaties/mapping.md:5"
           ]
@@ -22398,18 +22398,18 @@
           "schrijfwijze": "scripts",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:OKE/moka-koppelvlakspecificaties/Examen Uitvoering en beoordeling/doc/WorkflowMdNaarWord.md:13"
+            "meta:archief/MOKA/Examen Uitvoering en beoordeling/doc/WorkflowMdNaarWord.md:13"
           ]
         }
       ]
     },
     {
-      "sleutel": "scripts/",
+      "sleutel": "tools/scripts/",
       "aantal": 2,
       "indeling": "pad",
       "schrijfwijzen": [
         {
-          "schrijfwijze": "scripts/",
+          "schrijfwijze": "tools/scripts/",
           "aantal": 2,
           "vindplaatsen": [
             "public:.cursor/rules/README.md:13",
@@ -22419,12 +22419,12 @@
       ]
     },
     {
-      "sleutel": "scripts/checkconventies.py",
+      "sleutel": "tools/scripts/checkconventies.py",
       "aantal": 1,
       "indeling": "pad",
       "schrijfwijzen": [
         {
-          "schrijfwijze": "scripts/check-conventies.py",
+          "schrijfwijze": "tools/scripts/check-conventies.py",
           "aantal": 1,
           "vindplaatsen": [
             "meta:.cursor/commands/adr-opstellen.md:18"
@@ -22433,12 +22433,12 @@
       ]
     },
     {
-      "sleutel": "scripts/checklinks.py",
+      "sleutel": "tools/scripts/checklinks.py",
       "aantal": 1,
       "indeling": "pad",
       "schrijfwijzen": [
         {
-          "schrijfwijze": "scripts/check-links.py",
+          "schrijfwijze": "tools/scripts/check-links.py",
           "aantal": 1,
           "vindplaatsen": [
             "meta:.cursor/commands/adr-opstellen.md:18"
@@ -22447,12 +22447,12 @@
       ]
     },
     {
-      "sleutel": "scripts/jsontree.py",
+      "sleutel": "tools/scripts/jsontree.py",
       "aantal": 1,
       "indeling": "pad",
       "schrijfwijzen": [
         {
-          "schrijfwijze": "scripts/json-tree.py",
+          "schrijfwijze": "tools/scripts/json-tree.py",
           "aantal": 1,
           "vindplaatsen": [
             "meta:.agents/skills/okx-koppelingspecificatie/SKILL.md:70"
@@ -22461,40 +22461,40 @@
       ]
     },
     {
-      "sleutel": "scripts/md2docx.bat",
+      "sleutel": "tools/scripts/md2docx.bat",
       "aantal": 1,
       "indeling": "pad",
       "schrijfwijzen": [
         {
-          "schrijfwijze": "scripts/md2docx.bat",
+          "schrijfwijze": "tools/scripts/md2docx.bat",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:OKE/moka-koppelvlakspecificaties/Examen Uitvoering en beoordeling/doc/WorkflowMdNaarWord.md:15"
+            "meta:archief/MOKA/Examen Uitvoering en beoordeling/doc/WorkflowMdNaarWord.md:15"
           ]
         }
       ]
     },
     {
-      "sleutel": "scripts/md2docx.sh",
+      "sleutel": "tools/scripts/md2docx.sh",
       "aantal": 1,
       "indeling": "pad",
       "schrijfwijzen": [
         {
-          "schrijfwijze": "scripts/md2docx.sh",
+          "schrijfwijze": "tools/scripts/md2docx.sh",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:OKE/moka-koppelvlakspecificaties/Examen Uitvoering en beoordeling/doc/WorkflowMdNaarWord.md:16"
+            "meta:archief/MOKA/Examen Uitvoering en beoordeling/doc/WorkflowMdNaarWord.md:16"
           ]
         }
       ]
     },
     {
-      "sleutel": "scripts/validatearchimate.py",
+      "sleutel": "tools/scripts/validatearchimate.py",
       "aantal": 2,
       "indeling": "pad",
       "schrijfwijzen": [
         {
-          "schrijfwijze": "scripts/validate-archimate.py",
+          "schrijfwijze": "tools/scripts/validate-archimate.py",
           "aantal": 2,
           "vindplaatsen": [
             "meta:architecture/agent-artifacts/research/20260804_1700_oplossingsrichtingen-business-techniek.md:26",
@@ -22504,12 +22504,12 @@
       ]
     },
     {
-      "sleutel": "scripts/validaterequirementsboomnavigatie.py",
+      "sleutel": "tools/scripts/validaterequirementsboomnavigatie.py",
       "aantal": 2,
       "indeling": "pad",
       "schrijfwijzen": [
         {
-          "schrijfwijze": "scripts/validate-requirementsboom-navigatie.py",
+          "schrijfwijze": "tools/scripts/validate-requirementsboom-navigatie.py",
           "aantal": 2,
           "vindplaatsen": [
             "meta:architecture/docs/requirements/README.md:5",
@@ -22519,12 +22519,12 @@
       ]
     },
     {
-      "sleutel": "scripts/verifymermaid.py",
+      "sleutel": "tools/scripts/verifymermaid.py",
       "aantal": 2,
       "indeling": "pad",
       "schrijfwijzen": [
         {
-          "schrijfwijze": "scripts/verify_mermaid.py",
+          "schrijfwijze": "tools/scripts/verify_mermaid.py",
           "aantal": 2,
           "vindplaatsen": [
             "meta:.agents/skills/business-analysis/SKILL.md:47",
@@ -22542,7 +22542,7 @@
           "schrijfwijze": "scripts\\md2docx.bat",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:OKE/moka-koppelvlakspecificaties/Examen Uitvoering en beoordeling/doc/WorkflowMdNaarWord.md:22"
+            "meta:archief/MOKA/Examen Uitvoering en beoordeling/doc/WorkflowMdNaarWord.md:22"
           ]
         }
       ]
@@ -22556,7 +22556,7 @@
           "schrijfwijze": "scripts\\md2docx.bat doc\\KoppelvlakSpecificatieTemplate.md",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:OKE/moka-koppelvlakspecificaties/Examen Uitvoering en beoordeling/doc/WorkflowMdNaarWord.md:23"
+            "meta:archief/MOKA/Examen Uitvoering en beoordeling/doc/WorkflowMdNaarWord.md:23"
           ]
         }
       ]
@@ -22570,7 +22570,7 @@
           "schrijfwijze": "scripts\\md2docx.bat doc\\mijn.md doc\\mijn.docx",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:OKE/moka-koppelvlakspecificaties/Examen Uitvoering en beoordeling/doc/WorkflowMdNaarWord.md:24"
+            "meta:archief/MOKA/Examen Uitvoering en beoordeling/doc/WorkflowMdNaarWord.md:24"
           ]
         }
       ]
@@ -22714,7 +22714,7 @@
           "schrijfwijze": "See also #...",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:doc/OKx_Release-management-en-versionering.md:409"
+            "meta:project/release-management-en-versionering.md:409"
           ]
         }
       ]
@@ -22728,7 +22728,7 @@
           "schrijfwijze": "See also #45",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:doc/Bijdragen-voor-beginners.md:403"
+            "meta:project/bijdragen-voor-beginners.md:403"
           ]
         }
       ]
@@ -22760,8 +22760,8 @@
             "meta:.agents/skills/amigo-aanpak/SKILL.md:79",
             "meta:.agents/skills/mbo-informatie-modelleur/SKILL.md:171",
             "meta:.agents/skills/okx-oeapi-scenario-uitwerking/SKILL.md:146",
-            "meta:doc/Bijdragen-voor-beginners.md:143",
-            "meta:doc/Bijdragen-voor-beginners.md:188"
+            "meta:project/bijdragen-voor-beginners.md:143",
+            "meta:project/bijdragen-voor-beginners.md:188"
           ]
         }
       ]
@@ -22803,7 +22803,7 @@
           "schrijfwijze": "semver:major",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:doc/OKx_Release-management-en-versionering.md:125"
+            "meta:project/release-management-en-versionering.md:125"
           ]
         }
       ]
@@ -22817,7 +22817,7 @@
           "schrijfwijze": "semver:minor",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:doc/OKx_Release-management-en-versionering.md:125"
+            "meta:project/release-management-en-versionering.md:125"
           ]
         }
       ]
@@ -22831,7 +22831,7 @@
           "schrijfwijze": "semver:patch",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:doc/OKx_Release-management-en-versionering.md:125"
+            "meta:project/release-management-en-versionering.md:125"
           ]
         }
       ]
@@ -23270,7 +23270,7 @@
           "aantal": 2,
           "vindplaatsen": [
             "meta:.cursor/commands/maak-plan.md:16",
-            "meta:doc/Bijdragen-voor-beginners.md:582"
+            "meta:project/bijdragen-voor-beginners.md:582"
           ]
         }
       ]
@@ -24918,31 +24918,31 @@
       ]
     },
     {
-      "sleutel": "tests/",
+      "sleutel": "tools/tests/",
       "aantal": 2,
       "indeling": "pad",
       "schrijfwijzen": [
         {
-          "schrijfwijze": "tests/",
+          "schrijfwijze": "tools/tests/",
           "aantal": 2,
           "vindplaatsen": [
             "meta:.agents/skills/okx-test-persona/SKILL.md:18",
-            "public:scripts/README.md:29"
+            "public:tools/scripts/README.md:29"
           ]
         }
       ]
     },
     {
-      "sleutel": "tests/test<naam>.py",
+      "sleutel": "tools/tests/test<naam>.py",
       "aantal": 2,
       "indeling": "pad",
       "schrijfwijzen": [
         {
-          "schrijfwijze": "tests/test_<naam>.py",
+          "schrijfwijze": "tools/tests/test_<naam>.py",
           "aantal": 2,
           "vindplaatsen": [
             "meta:.agents/skills/okx-test-persona/SKILL.md:18",
-            "public:scripts/README.md:29"
+            "public:tools/scripts/README.md:29"
           ]
         }
       ]
@@ -25802,7 +25802,7 @@
           "aantal": 2,
           "vindplaatsen": [
             "meta:.agents/skills/okx-test-persona/SKILL.md:18",
-            "public:scripts/README.md:29"
+            "public:tools/scripts/README.md:29"
           ]
         }
       ]
@@ -25816,8 +25816,8 @@
           "schrijfwijze": "updated",
           "aantal": 2,
           "vindplaatsen": [
-            "meta:doc/Bijdragen-voor-beginners.md:582",
-            "meta:doc/Bijdragen-voor-beginners.md:584"
+            "meta:project/bijdragen-voor-beginners.md:582",
+            "meta:project/bijdragen-voor-beginners.md:584"
           ]
         }
       ]
@@ -25831,9 +25831,9 @@
           "schrijfwijze": "upstream",
           "aantal": 3,
           "vindplaatsen": [
-            "meta:doc/Bijdragen-voor-beginners.md:288",
-            "meta:doc/Bijdragen-voor-beginners.md:422",
-            "meta:doc/Bijdragen-voor-beginners.md:439"
+            "meta:project/bijdragen-voor-beginners.md:288",
+            "meta:project/bijdragen-voor-beginners.md:422",
+            "meta:project/bijdragen-voor-beginners.md:439"
           ]
         }
       ]
@@ -25976,7 +25976,7 @@
           "vindplaatsen": [
             "meta:.cursor/commands/release-notes.md:3",
             "meta:.cursor/commands/release-notes.md:7",
-            "meta:doc/OKx_Release-management-en-versionering.md:147"
+            "meta:project/release-management-en-versionering.md:147"
           ]
         }
       ]
@@ -25990,7 +25990,7 @@
           "schrijfwijze": "v0.0.2",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:doc/OKx_Release-management-en-versionering.md:147"
+            "meta:project/release-management-en-versionering.md:147"
           ]
         }
       ]
@@ -26004,8 +26004,8 @@
           "schrijfwijze": "v0.0.x",
           "aantal": 2,
           "vindplaatsen": [
-            "meta:doc/OKx_Release-management-en-versionering.md:256",
-            "meta:doc/OKx_Release-management-en-versionering.md:371"
+            "meta:project/release-management-en-versionering.md:256",
+            "meta:project/release-management-en-versionering.md:371"
           ]
         }
       ]
@@ -26024,7 +26024,7 @@
             "meta:.agents/skills/mbo-informatie-modelleur/SKILL.md:40",
             "meta:.agents/skills/okx-oeapi-scenario-uitwerking/SKILL.md:78",
             "meta:architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md:139",
-            "meta:doc/OKx_Release-management-en-versionering.md:148"
+            "meta:project/release-management-en-versionering.md:148"
           ]
         }
       ]
@@ -26038,10 +26038,10 @@
           "schrijfwijze": "v0.1.1",
           "aantal": 4,
           "vindplaatsen": [
-            "meta:doc/OKx_Release-management-en-versionering.md:149",
-            "meta:doc/OKx_Release-management-en-versionering.md:354",
-            "meta:doc/OKx_Release-management-en-versionering.md:361",
-            "meta:doc/OKx_Release-management-en-versionering.md:361"
+            "meta:project/release-management-en-versionering.md:149",
+            "meta:project/release-management-en-versionering.md:354",
+            "meta:project/release-management-en-versionering.md:361",
+            "meta:project/release-management-en-versionering.md:361"
           ]
         }
       ]
@@ -26055,7 +26055,7 @@
           "schrijfwijze": "v0.1.2",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:doc/OKx_Release-management-en-versionering.md:149"
+            "meta:project/release-management-en-versionering.md:149"
           ]
         }
       ]
@@ -26069,8 +26069,8 @@
           "schrijfwijze": "v0.1.x",
           "aantal": 2,
           "vindplaatsen": [
-            "meta:doc/OKx_Release-management-en-versionering.md:256",
-            "meta:doc/OKx_Release-management-en-versionering.md:373"
+            "meta:project/release-management-en-versionering.md:256",
+            "meta:project/release-management-en-versionering.md:373"
           ]
         }
       ]
@@ -26084,12 +26084,12 @@
           "schrijfwijze": "v0.2.0",
           "aantal": 6,
           "vindplaatsen": [
-            "meta:doc/OKx_Release-management-en-versionering.md:150",
-            "meta:doc/OKx_Release-management-en-versionering.md:256",
-            "meta:doc/OKx_Release-management-en-versionering.md:354",
-            "meta:doc/OKx_Release-management-en-versionering.md:362",
-            "meta:doc/OKx_Release-management-en-versionering.md:362",
-            "meta:doc/OKx_Release-management-en-versionering.md:374"
+            "meta:project/release-management-en-versionering.md:150",
+            "meta:project/release-management-en-versionering.md:256",
+            "meta:project/release-management-en-versionering.md:354",
+            "meta:project/release-management-en-versionering.md:362",
+            "meta:project/release-management-en-versionering.md:362",
+            "meta:project/release-management-en-versionering.md:374"
           ]
         }
       ]
@@ -26103,7 +26103,7 @@
           "schrijfwijze": "v0.2.1",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:doc/OKx_Release-management-en-versionering.md:363"
+            "meta:project/release-management-en-versionering.md:363"
           ]
         }
       ]
@@ -26117,8 +26117,8 @@
           "schrijfwijze": "v0.3.0",
           "aantal": 2,
           "vindplaatsen": [
-            "meta:doc/OKx_Release-management-en-versionering.md:150",
-            "meta:doc/OKx_Release-management-en-versionering.md:364"
+            "meta:project/release-management-en-versionering.md:150",
+            "meta:project/release-management-en-versionering.md:364"
           ]
         }
       ]
@@ -26132,8 +26132,8 @@
           "schrijfwijze": "v0.n.0",
           "aantal": 2,
           "vindplaatsen": [
-            "meta:doc/OKx_Release-management-en-versionering.md:364",
-            "meta:doc/OKx_Release-management-en-versionering.md:374"
+            "meta:project/release-management-en-versionering.md:364",
+            "meta:project/release-management-en-versionering.md:374"
           ]
         }
       ]
@@ -26152,7 +26152,7 @@
             "meta:.agents/skills/mbo-informatie-modelleur/SKILL.md:40",
             "meta:.agents/skills/okx-oeapi-scenario-uitwerking/SKILL.md:79",
             "meta:CONTRIBUTING.md:42",
-            "meta:doc/Bijdragen-voor-beginners.md:330"
+            "meta:project/bijdragen-voor-beginners.md:330"
           ]
         }
       ]
@@ -26166,10 +26166,10 @@
           "schrijfwijze": "v1.1.0",
           "aantal": 4,
           "vindplaatsen": [
-            "meta:doc/OKx_Release-management-en-versionering.md:152",
-            "meta:doc/OKx_Release-management-en-versionering.md:366",
-            "meta:doc/OKx_Release-management-en-versionering.md:366",
-            "meta:doc/OKx_Release-management-en-versionering.md:377"
+            "meta:project/release-management-en-versionering.md:152",
+            "meta:project/release-management-en-versionering.md:366",
+            "meta:project/release-management-en-versionering.md:366",
+            "meta:project/release-management-en-versionering.md:377"
           ]
         }
       ]
@@ -26183,8 +26183,8 @@
           "schrijfwijze": "v1.2.0",
           "aantal": 2,
           "vindplaatsen": [
-            "meta:doc/OKx_Release-management-en-versionering.md:152",
-            "public:scripts/README.md:62"
+            "meta:project/release-management-en-versionering.md:152",
+            "public:tools/scripts/README.md:62"
           ]
         }
       ]
@@ -26198,8 +26198,8 @@
           "schrijfwijze": "v1.4.2",
           "aantal": 3,
           "vindplaatsen": [
-            "meta:doc/OKx_Release-management-en-versionering.md:113",
-            "meta:doc/OKx_Release-management-en-versionering.md:117",
+            "meta:project/release-management-en-versionering.md:113",
+            "meta:project/release-management-en-versionering.md:117",
             "public:Algemeen/release-management/Release-management-algemeen.md:34"
           ]
         }
@@ -26214,7 +26214,7 @@
           "schrijfwijze": "v1.5.0-rc.1",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:doc/OKx_Release-management-en-versionering.md:203"
+            "meta:project/release-management-en-versionering.md:203"
           ]
         }
       ]
@@ -26242,7 +26242,7 @@
           "schrijfwijze": "v2.0",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:doc/OKx_Release-management-en-versionering.md:393"
+            "meta:project/release-management-en-versionering.md:393"
           ]
         }
       ]
@@ -26256,10 +26256,10 @@
           "schrijfwijze": "v2.0.0",
           "aantal": 4,
           "vindplaatsen": [
-            "meta:doc/OKx_Release-management-en-versionering.md:153",
-            "meta:doc/OKx_Release-management-en-versionering.md:367",
-            "meta:doc/OKx_Release-management-en-versionering.md:367",
-            "meta:doc/OKx_Release-management-en-versionering.md:378"
+            "meta:project/release-management-en-versionering.md:153",
+            "meta:project/release-management-en-versionering.md:367",
+            "meta:project/release-management-en-versionering.md:367",
+            "meta:project/release-management-en-versionering.md:378"
           ]
         }
       ]
@@ -26273,7 +26273,7 @@
           "schrijfwijze": "v2.x",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:doc/OKx_Release-management-en-versionering.md:135"
+            "meta:project/release-management-en-versionering.md:135"
           ]
         }
       ]
@@ -26301,7 +26301,7 @@
           "schrijfwijze": "v3.x",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:doc/OKx_Release-management-en-versionering.md:134"
+            "meta:project/release-management-en-versionering.md:134"
           ]
         }
       ]
@@ -26406,7 +26406,7 @@
           "schrijfwijze": "validate-requirementsboom-navigatie.py",
           "aantal": 1,
           "vindplaatsen": [
-            "public:scripts/README.md:11"
+            "public:tools/scripts/README.md:11"
           ]
         }
       ]
@@ -26420,8 +26420,8 @@
           "schrijfwijze": "validatie.yml",
           "aantal": 2,
           "vindplaatsen": [
-            "public:scripts/README.md:29",
-            "public:scripts/README.md:57"
+            "public:tools/scripts/README.md:29",
+            "public:tools/scripts/README.md:57"
           ]
         }
       ]
@@ -26856,7 +26856,7 @@
           "schrijfwijze": "VerslagTotStandkoming",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:OKE/moka-koppelvlakspecificaties/Examen Uitvoering en beoordeling/doc/ContextRules.md:87"
+            "meta:archief/MOKA/Examen Uitvoering en beoordeling/doc/ContextRules.md:87"
           ]
         }
       ]
@@ -26961,7 +26961,7 @@
           "schrijfwijze": "vMAJOR.MINOR.PATCH",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:doc/OKx_Release-management-en-versionering.md:201"
+            "meta:project/release-management-en-versionering.md:201"
           ]
         }
       ]
@@ -27123,7 +27123,7 @@
           "schrijfwijze": "vX.Y.Z",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:doc/OKx_Release-management-en-versionering.md:326"
+            "meta:project/release-management-en-versionering.md:326"
           ]
         }
       ]
@@ -27515,7 +27515,7 @@
           "aantal": 2,
           "vindplaatsen": [
             "meta:architecture/docs/specificatie/leerroute-uitwerking/doc/archief-conceptmodellen.md:959",
-            "meta:doc/OKx_Release-management-en-versionering.md:186"
+            "meta:project/release-management-en-versionering.md:186"
           ]
         }
       ]
@@ -27627,7 +27627,7 @@
           "schrijfwijze": "YYYYMMDD_HHmm_slug.md",
           "aantal": 1,
           "vindplaatsen": [
-            "meta:doc/Bijdragen-voor-beginners.md:582"
+            "meta:project/bijdragen-voor-beginners.md:582"
           ]
         }
       ]
@@ -27655,7 +27655,7 @@
           "schrijfwijze": "{\"sectie\", \"inleiding\", \"documenten\"}",
           "aantal": 1,
           "vindplaatsen": [
-            "public:scripts/README.md:41"
+            "public:tools/scripts/README.md:41"
           ]
         }
       ]

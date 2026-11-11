@@ -1,0 +1,82 @@
+{
+  "titel": "Status van een product",
+  "ondertitel": "De zeven stadia die een product van OKx doorloopt",
+  "versie": "0.1.0",
+  "breedte": 1100,
+  "blokken": [
+    {
+      "soort": "ladder",
+      "terugloop": {
+        "van": 6,
+        "naar": 1,
+        "tekst": "een open vraag zet terug"
+      },
+      "treden": [
+        {
+          "nummer": 1,
+          "naam": "Vraag en wens",
+          "toelichting": "wat de sector vraagt en wil kunnen, zonder antwoord",
+          "kleur": "#DD784B"
+        },
+        {
+          "nummer": 2,
+          "naam": "Verkenning",
+          "toelichting": "uitgezocht, nog geen richting gekozen",
+          "kleur": "#DD784B"
+        },
+        {
+          "nummer": 3,
+          "naam": "Concept",
+          "toelichting": "een uitwerking om op te schieten",
+          "kleur": "#3D68EC"
+        },
+        {
+          "nummer": 4,
+          "naam": "Voorstel",
+          "toelichting": "klaar om over te besluiten, met een review-instructie erbij",
+          "kleur": "#3D68EC"
+        },
+        {
+          "nummer": 5,
+          "naam": "Besloten in OKx",
+          "toelichting": "een gremium heeft gekozen en draagt het besluit",
+          "kleur": "#3D68EC"
+        },
+        {
+          "nummer": 6,
+          "naam": "Gereleased",
+          "toelichting": "in een release met een versienummer, in Public",
+          "kleur": "#00AF81"
+        },
+        {
+          "nummer": 7,
+          "naam": "Bekrachtigd",
+          "toelichting": "geratificeerd door leveranciers, instellingen en de architectuurgremia",
+          "kleur": "#00AF81"
+        }
+      ]
+    },
+    {
+      "soort": "tekst",
+      "tekst": "Een product doorloopt deze stadia zelden in een rechte lijn. Zolang er een vraag onder een product open staat, valt het terug naar status 1, hoe ver het al gekomen was. De status zegt hoe ver de besluitvorming is: niet hoe goed het werk is, en niet welke versie je leest."
+    },
+    {
+      "soort": "legenda",
+      "items": [
+        {
+          "tekst": "vraag of verkenning",
+          "kleur": "#DD784B"
+        },
+        {
+          "tekst": "in uitwerking binnen OKx",
+          "kleur": "#3D68EC"
+        },
+        {
+          "tekst": "buiten OKx gedragen",
+          "kleur": "#00AF81"
+        }
+      ]
+    }
+  ],
+  "voet": "De publicatieplek zegt de status niet. Wat op dev in Public staat is gepubliceerd en kan een concept of een voorstel zijn; een release draagt een versienummer; en pas de sector maakt er een bekrachtigde afspraak van."
+}

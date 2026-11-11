@@ -95,6 +95,31 @@ Daarna de **onafhankelijke review, eigen sporen, verse contexten**. Geef elke re
 
 Na de uitwerking volgt de toets of het geleverde de waarde uit de story werkelijk levert, zoals begroot. In een verse context, met de story en de criteria als maat. De uitkomst is waarneembaar: geleverd zoals begroot, of een lijst vervolgpunten. Die vervolgpunten worden kleine iteraties, elk opnieuw met een story en criteria; dat is geen terugval maar de normale gang.
 
+## Een workflow is uitwerking, geen verkenning
+
+Een ultracode-sessie of een workflow zet tientallen agents aan het werk. Dat is de uitwerking uit stap 5, en
+daarvoor geldt **stopmoment 1 onverkort**: eerst sparren over de stories en de acceptatiecriteria, en pas
+beginnen na akkoord. Een fan-out voelt als verkennen omdat er nog niets ligt, maar hij verbruikt wel de inzet van
+een volle uitwerking.
+
+Vier regels, elk uit een misser van 13 oktober 2026:
+
+**Leg ook de vraag van een verkennende workflow voor.** Een workflow die alleen onderzoekt vraagt geen
+acceptatiecriteria, maar wel instemming met de vraag. Een sweep die doorliep op een onderwerp dat de
+opdrachtgever net had afgeschaald, kostte zes agents en leverde niets dat nog gewenst was.
+
+**Start geen tweede workflow op hetzelfde onderwerp voordat de eerste binnen en gelezen is.** Advies bestellen en
+handelen voordat het gelezen is, is geen volgorde die uit te leggen valt. Wat wel mag: een fan-out die alleen
+bronmateriaal leest, want dat materiaal is hetzelfde bij elke uitkomst. Zeg dan vooraf waarom dat zo is.
+
+**Stel voor de fan-out vast welke branch of structuur normatief is.** Vijf agents lazen de mappenindeling op
+`dev`, terwijl de laag die de opdrachtgever als ontbrekend bouwblok aanwees al bestond op een goedgekeurde
+pull request die een maand als concept openstond. Het werk landde op paden die in zijn eigen pull request
+verdwijnen. Een enkele vraag vooraf, welke pull requests open staan op dit gebied, had dat voorkomen.
+
+**Kies een schaal die bij de vraag past.** Vijfentwintig agents op een plan dat in een gesprek van tien minuten
+was te maken, is geen grondigheid maar uitstel van het gesprek.
+
 ## De lus is begrensd
 
 Ten hoogste **drie ronden** tussen agent en tegenlezer, en ten hoogste drie iteraties in de review van het resultaat. Daarna escaleren naar de opdrachtgever met de openstaande bevindingen, met per bevinding of het een blokkade is voor een eerste iteratie die waarde levert, of een punt voor de volgende. Deugen de criteria zelf niet, dan terug naar stap 1 in plaats van door te bouwen op een slecht criterium.
@@ -106,6 +131,34 @@ Een review die niet gelezen wordt telt niet. Twee regels, allebei uit de praktij
 **Zet de leesbare uitgave bovenaan in de PR-beschrijving.** Bij een visueel deliverable, zoals een deck of een plaat, is de eerste regel een directe link naar de PDF of de afbeelding, niet naar de bron. De lead architect opende de pull request, kwam in de diffweergave terecht en vroeg letterlijk: geef mij gewoon even die PDF. Een PDF in een GitHub-repository opent in de browser; een `.md` of een `.pptx` doet dat niet.
 
 **Een reviewvraag benoemt waar de twijfel zit.** "Willen jullie meelezen" levert instemming op. Stel drie tot vijf genummerde vragen die elk een concreet punt raken, en zeg welke vraag de belangrijkste is. Zet er bij dat er al eerder onjuistheden uit een reviewronde kwamen, met hoeveel: dat nodigt uit om te zoeken in plaats van goed te keuren.
+
+## De titel opent met het gebied
+
+Een titel wordt gelezen in een lijst van tientallen, naast werk van anderen en naast werk van maanden terug. Dus staat het gebied vooraan, dan het onderdeel, dan het object dat verandert met de bewerking erbij:
+
+```text
+<gebied>[, <onderdeel>]: <object> <bewerking>
+
+Informatiemodel voorbeeld, fase 3: onderwijslocatie object met aanbodgedreven onderwijsmodel voorbeeldvariant toegevoegd
+^^^^^^^^^^^^^^^^^^^^^^^^^  ^^^^^^  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+waar het over gaat         welk deel  welk object, in welke context, wat ermee gebeurde
+```
+
+Het gebied is een naam die een lezer in de repository terugvindt: `Informatiemodel voorbeeld`, `Sectorketen`, `Begrippenlijst`, `Agent-harnas`, `Presentaties`. Het is geen afkorting en geen scriptnaam.
+
+Het derde deel noemt in domeintaal wat er verandert en wat dat oplevert. Een veldnaam (`beeld_in_fase`), een kaal getal ("vragenpagina's van zeven") en een scriptdetail dragen die betekenis niet: wie het werk niet maakte kan ze niet plaatsen. Dezelfde vorm in andere gebieden:
+
+- `Hoofdplaat, model: stroom SVS naar SKS toegevoegd en views naar 1.7a`
+- `Sectorketen, IS-SI-02: periode en locatie op het keuzedeelaanbod toegevoegd`
+- `Begrippenlijst: definitie leeruitkomst vervangen door de MIM-formulering`
+
+Een titel die het gevolg noemt in plaats van het object, "de keuze rijpt", laat de lezer raden wat er is geraakt en of hij de juiste lezer is. Daar gaat de tijd van een reviewer op: aan het vinden van de plek waar hij moet kijken. Drie vragen toetsen een titel, alle drie uit een afgekeurde ronde:
+
+1. Is elk woord op te lossen zonder deze repository te kennen? "Zeven wat", "vraag 9 van wat", "wat is de regeltabel".
+2. Staat er wat het oplevert, en niet alleen welke bewerking is uitgevoerd?
+3. Verandert het gebied dat vooraan staat werkelijk? Werk aan de generator hoort onder de generator, ook wanneer het voorbeeld het resultaat is.
+
+Zelfde vorm voor een issue en voor een pull request, zodat de twee naast elkaar te lezen zijn. Korter is beter. Tachtig tekens is de richting en niet de grens, want GitHub kapt een lijst daar af; blijven het object en zijn context overeind, dan mag een titel daarboven uitkomen.
 
 ## De pull request-beschrijving (vorm)
 
@@ -189,11 +242,11 @@ De reactie in de pull request zelf blijft kort: wat de opmerking was, dat zij is
 ### De vorm van een interactie-issue
 
 ```text
-## Waarom dit issue     een zin: welk besluit dit moet opleveren
-## De opmerking         letterlijk, met naam, datum en permalink
-## Observaties          bullets; waarneming gescheiden van duiding
-## Wat ik ermee doe     kort, zonder toezegging
-## Vervolg              een regel met de werkbrief, daarna een vraag
+## Aanleiding      een zin: welk besluit dit moet opleveren
+## Inbreng         letterlijk, met naam, datum en permalink
+## Observaties     bullets; waarneming gescheiden van duiding
+## Actiepunten     bullets; een punt per regel, zonder toezegging
+## Vervolg         een regel met de werkbrief, daarna een vraag
 ```
 
 | Regel | Waarom |
@@ -203,6 +256,18 @@ De reactie in de pull request zelf blijft kort: wat de opmerking was, dat zij is
 | **Story alleen bij een concrete wijziging** | Vraagt de inbrenger iets te veranderen, dan hoort er een story. Beschrijft hij hoe zijn product werkt, dan is `Waarom dit issue` genoeg |
 | **Nooit een rol verzinnen** | Een story met "als examenbureaumedewerker" verzint een gebruiker om de zin kloppend te krijgen. Gebruik de persona's uit de leerroute-uitwerking of laat de story weg |
 | **Een vraag tot slot, geen bevestiging** | "Dekt dit je opmerking" levert een ja op. Een inhoudelijke vraag levert informatie op |
+| **Elke kop is een label van een woord** | `Aanleiding`, `Inbreng`, `Observaties`, `Actiepunten`, `Vervolg`. Geen kop die vertelt wat er komt (`Waarom dit issue`, `Wat er is ingebracht`) en geen kop die vertelt wat de schrijver doet (`Wat ik ermee doe`) |
+| **Een punt is een regel** | Onder `Observaties` en `Actiepunten` staan bullets van hoogstens twee regels. Loopt een punt uit tot een alinea, dan is het een eigen issue of hoort het in de werkbrief |
+
+### De vorm van een comment onder een issue
+
+Een comment volgt dezelfde regels als het issue zelf, met drie verschillen.
+
+| | |
+|---|---|
+| De openingskop | Een label met het gebied en het gremium erin: `Observaties werkgroep techniek Leeruitkomsten`. Nooit een verhalende zin |
+| De omvang | Een comment draagt hoogstens drie koppen. Wie meer nodig heeft, schrijft een eigen issue |
+| Het slot | `Actiepunten` als bullets, daarna hoogstens een vraag. Geen alinea die vertelt hoe het verdergaat |
 
 ### Een opmerking wegen voor je haar opschrijft
 

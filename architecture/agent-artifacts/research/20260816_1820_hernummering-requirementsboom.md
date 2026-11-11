@@ -122,5 +122,5 @@ Nieks review op de PR leidde tot wijzigingen bovenop de mechanische stap; die st
 ## Bewijs
 
 - Restcontrole oude vormen in de boomdocumenten en de skill: `grep -rnE '\b([EFS][0-9]+\.[0-9]+|E[1-8]\b|D[1-3])\b' architecture/docs/requirements .agents/skills/okx-requirements-boom` levert alleen nog de bewuste voorbeelden van oude vormen op (de vertaalregel in de README en de checklistregel in de skill).
-- `python3 scripts/validate-docs.py` schoon op `architecture/docs/requirements/`, dit artifact en de skill.
+- `python3 tools/scripts/validate-docs.py` schoon op `architecture/docs/requirements/`, dit artifact en de skill.
 - Tellingen ongewijzigd: 3 doelen, 8 epics, 36 features, 24 stories.

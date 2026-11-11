@@ -1,0 +1,11 @@
+Deze map blijft lokaal en gaat niet mee in een commit.
+
+Zet hier bronmateriaal neer dat nog niet gepubliceerd mag worden: een payload van een
+leverancier, een exportbestand van een instelling, een bijlage uit een mail. De plaat die
+eruit getekend wordt kan wel een commit in, want die draagt alleen sleutels, typen en
+aantallen.
+
+    python3 tools/scripts/teken-json-structuur.py --bron _lokaal/<bestand>.json --uit <plaat>.svg
+
+Zodra de inbrenger zegt dat het bestand de repository in mag, verhuist het naar
+architecture/docs/onderzoek/<onderwerp>/ en komt het wel in een commit.
