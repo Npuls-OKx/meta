@@ -51,7 +51,7 @@ def eigen_views(wortel):
         naam = e.get("name") or ""
         if e.get("id") in UITGEZONDERD:
             continue
-        if naam.startswith("OKx hoofdplaat") or naam.startswith("Koppelvlak ") or naam.startswith("OKx informatiemodel"):
+        if naam.startswith("OKx ") or naam.startswith("Koppelvlak "):
             yield e
 
 
@@ -62,6 +62,20 @@ class ViewnaamZonderVersie(unittest.TestCase):
         fout = sorted((e.get("name") or "") for e in eigen_views(wortel)
                       if VERSIE_IN_NAAM.search(e.get("name") or ""))
         self.assertEqual(fout, [], "viewnamen met een versie erin; de versie hoort in herkomst.json")
+
+    def test_given_own_views_when_listed_then_no_two_share_a_name(self):
+        """Zonder versie in de naam is een dubbele naam stil: elk script pakt de eerste.
+
+        Dat is geen theoretisch risico. Toen de vier hoofdplaatviews hun versie verloren
+        heetten zij alle vier `OKx hoofdplaat`, en de eerste in documentvolgorde was de
+        oudste uit de map `oud`. De tekenaars zouden dus de verkeerde plaat tekenen
+        zonder dat iets het meldt. Oude views horen weg; git draagt hun historie.
+        """
+        from collections import Counter
+        wortel = ET.parse(MODEL).getroot()
+        telling = Counter((e.get("name") or "") for e in eigen_views(wortel))
+        dubbel = sorted(n for n, k in telling.items() if k > 1)
+        self.assertEqual(dubbel, [], "twee views met dezelfde naam; elk script pakt de eerste")
 
     def test_given_the_exception_list_when_checked_then_each_id_still_in_the_model(self):
         """Een uitzondering die niets meer uitzondert, moet verdwijnen."""

@@ -25232,7 +25232,7 @@ Alle constraints in de onderwijsspecificatie zijn hier nodig om CSP te kunnen dr
           </element>
         </folder>
         <folder name="oud" id="id-2653119fcb1744f3aceaf02d654e406b">
-          <element xsi:type="archimate:ArchimateDiagramModel" name="OKx hoofdplaat v1.4.0" id="id-3a4c2ab1a1a3441ebf4980b132773497">
+          <element xsi:type="archimate:ArchimateDiagramModel" name="OKx hoofdplaat" id="id-3a4c2ab1a1a3441ebf4980b132773497">
             <child xsi:type="archimate:Group" id="id-905e5502da194d339b2ef02a52f67dda" name="Group" textAlignment="1">
               <bounds x="252" y="228" width="769" height="721"/>
               <feature name="labelExpression" value="(onderwijsontwikkeling) Inrichting van nominale- en keuze aanbod"/>
@@ -25390,8 +25390,9 @@ jaarplanning</content>
                 </sourceConnection>
               </child>
             </child>
+            <documentation>v1.4.0</documentation>
           </element>
-          <element xsi:type="archimate:ArchimateDiagramModel" name="OKx hoofdplaat v1.6.1" id="id-f6b2a952c77e4c2d850bae94c5db1582">
+          <element xsi:type="archimate:ArchimateDiagramModel" name="OKx hoofdplaat" id="id-f6b2a952c77e4c2d850bae94c5db1582">
             <child xsi:type="archimate:Group" id="id-bc3c1b4147b4483999057af5b2e86d6d" name="Group" textAlignment="1">
               <bounds x="84" y="48" width="753" height="841"/>
               <feature name="labelExpression" value="(onderwijsontwikkeling) Inrichting van nominale- en keuze aanbod"/>
@@ -25665,8 +25666,9 @@ jaarplanning</content>
                 <sourceConnection xsi:type="archimate:Connection" id="id-5e66f45f388f47a4b1cdc7bbf2431904" source="id-7d4b994701aa441f9585983e76d55a3e" target="id-06d0305687c5434283f49c2a20ac5361" archimateRelationship="id-0440c6c22abc48dd835e829700442c17"/>
               </child>
             </child>
+            <documentation>v1.6.1</documentation>
           </element>
-          <element xsi:type="archimate:ArchimateDiagramModel" name="OKx hoofdplaat v1.6.2" id="id-b9aba75ae4ee4a7bb52297b181817094">
+          <element xsi:type="archimate:ArchimateDiagramModel" name="OKx hoofdplaat" id="id-b9aba75ae4ee4a7bb52297b181817094">
             <child xsi:type="archimate:Group" id="id-aaa5b218e6c34fef8f274d5a84b86f94" name="Group" textAlignment="1">
               <bounds x="84" y="36" width="753" height="853"/>
               <feature name="labelExpression" value="(onderwijsontwikkeling) Inrichting van nominale- en keuze aanbod"/>
@@ -25992,8 +25994,9 @@ nominale route planning over meer jaren expliciet in OC plaatsen</content>
               <bounds x="1080" y="1056" width="185" height="169"/>
               <feature name="labelExpression" value="Leveranciers niet belasten met grofmazig ontwerp = deelproduct&#xD;&#xA;&#xD;&#xA;Scheiding tussen KRS/SVS komt in praktijk niet voor, enkel additionele SVS portal bovenop SIS.&#xD;&#xA;SVS gegevens uit SIS wel met standaard kunnen ontsluiten?"/>
             </child>
+            <documentation>v1.6.2</documentation>
           </element>
-          <element xsi:type="archimate:ArchimateDiagramModel" name="OKx informatiestroom Scenario 1. Basis- geen keuze  obv v1.5.0" id="id-688164805dd5462c86fb4164f5b28f28">
+          <element xsi:type="archimate:ArchimateDiagramModel" name="OKx informatiestroom Scenario 1. Basis- geen keuze  " id="id-688164805dd5462c86fb4164f5b28f28">
             <child xsi:type="archimate:Group" id="id-01f715c4fde14e5ca99b36b03fe39bb3" name="Group" textAlignment="1">
               <bounds x="84" y="48" width="753" height="781"/>
               <feature name="labelExpression" value="(onderwijsontwikkeling) Inrichting van nominale- en keuze aanbod"/>
@@ -26179,8 +26182,10 @@ Scenario 1. Geen Keuze&#xD;
                 <feature name="iconColor" value="#ffffff"/>
               </child>
             </child>
+            <documentation>obv v1.5.0&#xD;
+</documentation>
           </element>
-          <element xsi:type="archimate:ArchimateDiagramModel" name="OKx informatiestroom Scenario 1 (obv 1.6.2) v1.0.0" id="id-c49e2b71aab34a1193a536adf36bea28">
+          <element xsi:type="archimate:ArchimateDiagramModel" name="OKx informatiestroom Scenario 1" id="id-c49e2b71aab34a1193a536adf36bea28">
             <child xsi:type="archimate:Group" id="id-acd7e464942543c0b6627e5c152c3073" name="Group" textAlignment="1">
               <bounds x="84" y="36" width="753" height="853"/>
               <feature name="labelExpression" value="(onderwijsontwikkeling) Inrichting van nominale- en keuze aanbod"/>
@@ -26457,6 +26462,7 @@ jaarplanning</content>
                 </child>
               </child>
             </child>
+            <documentation> v1.0.0 obv 1.6.2</documentation>
           </element>
         </folder>
         <element xsi:type="archimate:ArchimateDiagramModel" name="Informatiemodel Onderwijsontwerp" id="id-156c3167e2bd41a898ec9209ce9658b6">
@@ -27597,7 +27603,7 @@ En moet er suboptimaal op leeractiviteit niveau beschreven gaan worden, wat extr
             </child>
           </child>
         </element>
-        <element xsi:type="archimate:ArchimateDiagramModel" name="Koppelvlak perspectief v0.0.1" id="id-26935124c6694a8aa405862f86a547a0">
+        <element xsi:type="archimate:ArchimateDiagramModel" name="Koppelvlak perspectief" id="id-26935124c6694a8aa405862f86a547a0">
           <child xsi:type="archimate:DiagramObject" id="id-007d20b186fe4ff0bfc0b62b782c20e1" archimateElement="id-59b5118dc95a413aa21c5b2764062999" type="1">
             <bounds x="228" y="396" width="792" height="121"/>
             <sourceConnection xsi:type="archimate:Connection" id="id-bcd3198a40b84a5095cb477914245c52" source="id-007d20b186fe4ff0bfc0b62b782c20e1" target="id-ce45115dc3d94911b8bdfcb004ae1e3e" archimateRelationship="id-f4571ea5a5204429bf22b5d218296d76"/>
@@ -27630,6 +27636,8 @@ En moet er suboptimaal op leeractiviteit niveau beschreven gaan worden, wat extr
           <child xsi:type="archimate:DiagramObject" id="id-648af148495045e88ad1cb6f41f15d85" targetConnections="id-bd65ba54022f490dbfb30dba501a1fc3" archimateElement="id-d311adbffe444f729d9cfcafc42798e9">
             <bounds x="636" y="188" width="120" height="54"/>
           </child>
+          <documentation>v0.0.1&#xD;
+</documentation>
         </element>
         <element xsi:type="archimate:ArchimateDiagramModel" name="Student Keuze Systeem functionaliteit" id="id-73fbc9c3aeeb48b8adc5cb338573c5dc">
           <child xsi:type="archimate:DiagramObject" id="id-13782d931fe74b979816abef362f37f3" archimateElement="id-35450058a0b448a599fd3221c5c728f6">
@@ -27682,7 +27690,7 @@ En moet er suboptimaal op leeractiviteit niveau beschreven gaan worden, wat extr
             <bounds x="708" y="96" width="120" height="145"/>
           </child>
         </element>
-        <element xsi:type="archimate:ArchimateDiagramModel" name="OKx hoofdplaat v1.7.0" id="id-1a0e14494aab4a5ba08dc9c1440d75ce">
+        <element xsi:type="archimate:ArchimateDiagramModel" name="OKx hoofdplaat" id="id-1a0e14494aab4a5ba08dc9c1440d75ce">
           <child xsi:type="archimate:Group" id="id-b2319dd147e249f785f428775c19a8b1" name="Group" textAlignment="1">
             <bounds x="84" y="36" width="753" height="853"/>
             <feature name="labelExpression" value="(onderwijsontwikkeling) Inrichting van nominale- en keuze aanbod"/>
@@ -28076,8 +28084,9 @@ AII/Eduhub </content>
             <content>Organisatie structuur en inrichtings principes in SIS (ook werkelijke bron?) hebben impact op OC->SIS uitwisseling. Vergelijkbaar met plannings elementen van planning->OC&#xD;
 Vraagstuk hoeveel niet- onderwijs specificatie informatie willen we in de OC opnemen</content>
           </child>
+          <documentation>v1.7.0</documentation>
         </element>
-        <element xsi:type="archimate:ArchimateDiagramModel" name="OKx hoofdplaat v1.7.0 (zonder context applicaties)" id="id-cf386efb216448fc9d8643c7d6587c78">
+        <element xsi:type="archimate:ArchimateDiagramModel" name="OKx hoofdplaat (zonder context applicaties)" id="id-cf386efb216448fc9d8643c7d6587c78">
           <child xsi:type="archimate:Group" id="id-6b6b5dc5f81b4d12a5804f09d9215e9b" name="Group" textAlignment="1">
             <bounds x="84" y="36" width="753" height="853"/>
             <feature name="labelExpression" value="(onderwijsontwikkeling) Inrichting van nominale- en keuze aanbod"/>
@@ -28359,8 +28368,9 @@ Vraagstuk hoeveel niet- onderwijs specificatie informatie willen we in de OC opn
               </child>
             </child>
           </child>
+          <documentation>v1.7.0</documentation>
         </element>
-        <element xsi:type="archimate:ArchimateDiagramModel" name="Koppelvlak Onderwijscatalogus (obv 1.7.0)" id="id-c3496067165442b6a8f5247cdd4896c4">
+        <element xsi:type="archimate:ArchimateDiagramModel" name="Koppelvlak Onderwijscatalogus" id="id-c3496067165442b6a8f5247cdd4896c4">
           <child xsi:type="archimate:Group" id="id-8f7a9503e54045f3ba3f458ea20711dc" name="Onderwijscatalogus" lineWidth="2" textAlignment="1" fillColor="#ffffff">
             <bounds x="444" y="18" width="361" height="217"/>
             <child xsi:type="archimate:DiagramObject" id="id-454342dbf5e9466e8eef680b1819abd1" archimateElement="id-6ea5f46fa0a344078e8b439458471583">
@@ -28440,8 +28450,9 @@ Vraagstuk hoeveel niet- onderwijs specificatie informatie willen we in de OC opn
               <bendpoint startX="62" startY="-144" endX="534" endY="154"/>
             </sourceConnection>
           </child>
+          <documentation>obv 1.7.0</documentation>
         </element>
-        <element xsi:type="archimate:ArchimateDiagramModel" name="Koppelvlak SIS (KRS-SVS) (obv 1.7.0)" id="id-1721e3eb6fd540b3a5cfd7464ef10d41">
+        <element xsi:type="archimate:ArchimateDiagramModel" name="Koppelvlak SIS (KRS-SVS)" id="id-1721e3eb6fd540b3a5cfd7464ef10d41">
           <child xsi:type="archimate:Group" id="id-9a34ead015494304af162defe19f5a2c" name="Student Informatie Systeem" lineWidth="2" textAlignment="1" fillColor="#ffffff">
             <bounds x="336" y="96" width="366" height="100"/>
             <child xsi:type="archimate:DiagramObject" id="id-3df833df16584c22b5edaa969ca56e8b" targetConnections="id-d7e16f6a398543d1b36d24e53d14d2e7" lineWidth="3" archimateElement="id-e4cc8b950d5d4c1e9c35bd0c6dd94a33">
@@ -28524,8 +28535,9 @@ Vraagstuk hoeveel niet- onderwijs specificatie informatie willen we in de OC opn
               <bounds x="372" y="24" width="121" height="55"/>
             </child>
           </child>
+          <documentation>obv 1.7.0</documentation>
         </element>
-        <element xsi:type="archimate:ArchimateDiagramModel" name="Koppelvlak LMS (obv 1.7.0)" id="id-033f278354334dce87ee977a1c37f4ec">
+        <element xsi:type="archimate:ArchimateDiagramModel" name="Koppelvlak LMS" id="id-033f278354334dce87ee977a1c37f4ec">
           <child xsi:type="archimate:DiagramObject" id="id-a2f98ae7ff9746f7855f536cc403d5c0" targetConnections="id-2359a9dd82fb4300b0431f7fd1a891a3" lineWidth="3" archimateElement="id-070f8eab68754028bf84a7c1f4849c49">
             <bounds x="408" y="192" width="270" height="49"/>
           </child>
@@ -28565,8 +28577,9 @@ Vraagstuk hoeveel niet- onderwijs specificatie informatie willen we in de OC opn
               <feature name="labelExpression" value="Opleidingprogramma-,&#xD;&#xA;opleidingseenheid&#xD;&#xA;verbintenis,&#xD;&#xA;planninggroep"/>
             </sourceConnection>
           </child>
+          <documentation>obv 1.7.0</documentation>
         </element>
-        <element xsi:type="archimate:ArchimateDiagramModel" name="Koppelvlak Plannen en roosteren (obv 1.7.0)" id="id-32ab9ed795604c52b8789c791c001eed">
+        <element xsi:type="archimate:ArchimateDiagramModel" name="Koppelvlak Plannen en roosteren" id="id-32ab9ed795604c52b8789c791c001eed">
           <child xsi:type="archimate:DiagramObject" id="id-7385bfbab3b044da80709df460550ae6" targetConnections="id-ef561fea6f8849868d64e1916c2e7340 id-b807badf158c4d8a89e1746d1fbaa140" lineWidth="3" archimateElement="id-1ba9788c23f64ce085240277cc4afac5">
             <bounds x="1236" y="204" width="253" height="67"/>
           </child>
@@ -28634,8 +28647,9 @@ Vraagstuk hoeveel niet- onderwijs specificatie informatie willen we in de OC opn
             <bounds x="1632" y="408" width="185" height="130"/>
             <content>rooster gaat eigenlijk alleen over de leer- en lesgelegenheden, maar match is wel randvoorwaardelijk voor de verbintenis wanneer er ook een leergelegenheid in het opleidingsprogramma zit</content>
           </child>
+          <documentation>obv 1.7.0</documentation>
         </element>
-        <element xsi:type="archimate:ArchimateDiagramModel" name="Koppelvlak SKS (obv 1.7.0)" id="id-171ff6145fcc4a93acdb67dbcc0b4b5b">
+        <element xsi:type="archimate:ArchimateDiagramModel" name="Koppelvlak SKS" id="id-171ff6145fcc4a93acdb67dbcc0b4b5b">
           <child xsi:type="archimate:DiagramObject" id="id-fc5b0f29397745b19ca18ebf6ec7b026" targetConnections="id-cb06d946d7e94e309756354f571b3349" lineWidth="3" archimateElement="id-310f7a0eaa5542c1b0cc4982b6464c86">
             <bounds x="660" y="288" width="409" height="73"/>
           </child>
@@ -28700,10 +28714,11 @@ Vraagstuk hoeveel niet- onderwijs specificatie informatie willen we in de OC opn
           <child xsi:type="archimate:DiagramObject" id="id-c7a1cb1398df4e02a47868c24e66875d" targetConnections="id-8f33d6aa540344a2956645d3d23334bd" lineWidth="3" archimateElement="id-070f8eab68754028bf84a7c1f4849c49">
             <bounds x="1380" y="760" width="193" height="73"/>
           </child>
+          <documentation>obv 1.7.0</documentation>
         </element>
       </folder>
       <folder name="Informatiemodel en mappingen" id="id-9669d1ca9a734eb5ad645834b0e2d788">
-        <element xsi:type="archimate:ArchimateDiagramModel" name="Praatplaat Definitiemapping OOAPI v6 v1.2.0" id="id-bfe87d5262574b48a021409b31c45633">
+        <element xsi:type="archimate:ArchimateDiagramModel" name="Praatplaat Definitiemapping OOAPI v6" id="id-bfe87d5262574b48a021409b31c45633">
           <child xsi:type="archimate:DiagramObject" id="id-b9010cb8afa04b0e8d4144656790afc6" targetConnections="id-d2ab5a03360f4339baff6ac854fba347" textAlignment="1" archimateElement="id-d3a9fa43c53944a380b196673dd852fc">
             <bounds x="768" y="12" width="904" height="509"/>
             <sourceConnection xsi:type="archimate:Connection" id="id-af445eb166aa41e29f670cfbb424eeed" source="id-b9010cb8afa04b0e8d4144656790afc6" target="id-009e8002aad6406284aceb2abd29724b" archimateRelationship="id-36bdea8578264bd4a70bcac6f5036c79"/>
@@ -29027,6 +29042,7 @@ Vraagstuk hoeveel niet- onderwijs specificatie informatie willen we in de OC opn
 &#xD;
 Denk aan de metafoor van geld. Zonder geld is het gissen en handje klappen om in te kunnen schatten wat een van deze bouwstenen waard is. Met gestandaardiseerde uitkomsten kun je de waarde van één van deze bouwstenen relatief gezien definiëren.</content>
           </child>
+          <documentation>v1.2.0</documentation>
         </element>
         <element xsi:type="archimate:ArchimateDiagramModel" name="Definitiemapping OEAPI vs OKx" id="id-134925b810d94053b5a47c37b95b3333">
           <child xsi:type="archimate:Group" id="id-3a2a96d7b15443f68a9e0742877cb098" name="Legenda" textAlignment="1">
@@ -29496,7 +29512,7 @@ Denk aan de metafoor van geld. Zonder geld is het gissen en handje klappen om in
             </sourceConnection>
           </child>
         </element>
-        <element xsi:type="archimate:ArchimateDiagramModel" name="OKx informatiemodel en mapping OEAPI v0.2.0" id="id-4640ab27831d4b4b89e3b04b1715bb32" viewpoint="application_usage">
+        <element xsi:type="archimate:ArchimateDiagramModel" name="OKx informatiemodel en mapping OEAPI" id="id-4640ab27831d4b4b89e3b04b1715bb32" viewpoint="application_usage">
           <child xsi:type="archimate:Group" id="id-d83e64775e0b4770bdd7e99c3f4eec29" name="Kwalificatiekader" textAlignment="1">
             <bounds x="-540" y="-120" width="240" height="1492"/>
             <child xsi:type="archimate:Group" id="id-6685fad53d3f41b7994e9ce30c21f763" name="MBO" textAlignment="1">
@@ -30854,9 +30870,9 @@ Uitgangspunt: we gaan niet beschrijven wat er in een les &quot;moet&quot; gebeur
               <bendpoint startX="275" startY="249" endX="-180" endY="-23"/>
             </sourceConnection>
           </child>
-          <documentation>Een benoemde groepering van medewerkers binnen een onderwijsaanbieder, die verantwoordelijk is voor de uitvoering van onderwijs. Een eenheid kan deel uitmaken van een andere eenheid.</documentation>
+          <documentation>v0.2.0</documentation>
         </element>
-        <element xsi:type="archimate:ArchimateDiagramModel" name="OKx informatiemodel v0.2.0" id="id-62da403cc5814ddba7fd99b74df0a778" viewpoint="application_usage">
+        <element xsi:type="archimate:ArchimateDiagramModel" name="OKx informatiemodel" id="id-62da403cc5814ddba7fd99b74df0a778" viewpoint="information_structure">
           <child xsi:type="archimate:Group" id="id-c646a5a8cd294b719f5a04e52c28b071" name="Kwalificatiekader" textAlignment="1">
             <bounds x="-540" y="-120" width="240" height="1492"/>
             <child xsi:type="archimate:Group" id="id-d98bd5c3853946569e82f8187265bde8" name="MBO" textAlignment="1">
@@ -31931,7 +31947,7 @@ Uitgangspunt: we gaan niet beschrijven wat er in een les &quot;moet&quot; gebeur
               <bendpoint startX="275" startY="249" endX="-180" endY="-23"/>
             </sourceConnection>
           </child>
-          <documentation>Een benoemde groepering van medewerkers binnen een onderwijsaanbieder, die verantwoordelijk is voor de uitvoering van onderwijs. Een eenheid kan deel uitmaken van een andere eenheid.</documentation>
+          <documentation>v0.2.0</documentation>
         </element>
       </folder>
       <element xsi:type="archimate:ArchimateDiagramModel" name="Koppelvlak Examinering" id="294eeee7-c2de-4b74-8d96-621f51d73646">
