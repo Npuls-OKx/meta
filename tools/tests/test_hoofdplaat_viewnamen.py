@@ -53,9 +53,9 @@ class ViewnaamTests(unittest.TestCase):
     def test_given_model_when_default_view_of_teken_hoofdplaat_ruim_then_found(self):
         self.gevonden("teken_hoofdplaat_ruim", "teken-hoofdplaat-ruim.py")
 
-    def test_given_model_when_hoofdplaat_views_listed_then_none_left_on_1_7(self):
-        oud = sorted(v for v in self.views if "v1.7<" in v or "obv 1.7)" in v)
-        self.assertEqual(oud, [])
+    # De controle op een versie in de viewnaam staat in test_plaatherkomst.py: die is
+    # strenger (elke versie, niet alleen 1.7) en hoort bij de afspraak dat de versie
+    # aan de export hangt en niet aan de view.
 
 
 class NaamconventieTests(unittest.TestCase):

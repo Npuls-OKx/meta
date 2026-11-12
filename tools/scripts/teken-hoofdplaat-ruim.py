@@ -45,7 +45,7 @@ _spec.loader.exec_module(hoofdplaat)
 
 MODEL = pathlib.Path("architecture/model/model.archimate")
 STROMEN = pathlib.Path("architecture/model/informatiemodel/stromen.json")
-VIEW = "OKx hoofdplaat v1.7a"
+VIEW = "OKx hoofdplaat"
 XSI = "{http://www.w3.org/2001/XMLSchema-instance}type"
 
 INKT = "#1c1c1c"

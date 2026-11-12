@@ -30,7 +30,7 @@ import xml.etree.ElementTree as ET
 XSI = "{http://www.w3.org/2001/XMLSchema-instance}type"
 MODEL = pathlib.Path("architecture/model/model.archimate")
 UIT = pathlib.Path("architecture/model/informatiemodel/stromen.json")
-VIEW = "OKx hoofdplaat v1.7a (zonder context applicaties)"
+VIEW = "OKx hoofdplaat (zonder context applicaties)"
 AANVULLINGEN = pathlib.Path("architecture/model/informatiemodel/stromen-aanvullingen.json")
 ZONDER = "zonder koppelingspecificatie"
 CONTAINERS = {"ApplicationComponent", "BusinessActor", "BusinessRole", "Node", "Grouping", "Group"}
