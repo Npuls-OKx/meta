@@ -3993,7 +3993,7 @@ is gekoppeld aan 1..n Kwalificatie&#xD;
 wordt gekozen in 0..n Beroepsopleiding</documentation>
     </element>
     <element xsi:type="archimate:BusinessObject" name="Planningsgroep" id="id-6ba8bb30debe4ed3a4aeb6422bea5ebe">
-      <documentation>Opdeling van een plaatsingsgroep voor één roosterbaar moment, wanneer de Planninggroep plaatsingsgroep niet in één keer past binnen de capaciteit van ruimte, begeleiding of middelen.</documentation>
+      <documentation>Opdeling van een plaatsingsgroep voor één roosterbaar moment, wanneer de Planningsgroep plaatsingsgroep niet in één keer past binnen de capaciteit van ruimte, begeleiding of middelen.</documentation>
     </element>
   </folder>
   <folder name="Application" id="6eb3b108-4e48-463e-a026-a465d2163f50" type="application">
@@ -10671,6 +10671,9 @@ Iemand die is ingeschreven die blijft. &#xD;
     <element xsi:type="archimate:RealizationRelationship" id="id-98b1452522b448a48f0dbc22e172ceb7" source="id-477160f2284a49b1897a88b8d1959778" target="id-9aa7958766e64412979d91c36450ddba"/>
     <element xsi:type="archimate:AssociationRelationship" name="Groepeert tot" id="id-4e7c3c48780e42a781245e7e291555d4" source="id-faa1c49da9ef4dad8790e65888acec15" target="id-9ac825f63e8a4db09ddc2cab59d85e53" directed="true"/>
     <element xsi:type="archimate:RealizationRelationship" id="id-878613661cef4f66bf4188adfaa2c008" source="id-5b6453df428f40909f23d6634450dbc6" target="id-9ac825f63e8a4db09ddc2cab59d85e53"/>
+    <element xsi:type="archimate:FlowRelationship" id="id-9adeda53478c48c4ad4c05bdbda902d9" source="id-ac2ad83f9efa417bab6b7c9c05e4bfe4" target="id-310f7a0eaa5542c1b0cc4982b6464c86"/>
+    <element xsi:type="archimate:FlowRelationship" id="id-252405af217446c3a885e957321d990f" source="id-b72ece4b0fc44a03a9624db4bdaa9cbb" target="id-310f7a0eaa5542c1b0cc4982b6464c86"/>
+    <element xsi:type="archimate:FlowRelationship" id="id-d3abbedf17bd4829b34e5214aa0c39a9" source="id-95cdb66e0e1e4469aae0db58d1eca0f3" target="id-9cf14a75ef7741ef8ad5da38c8b6c0c0"/>
   </folder>
   <folder name="Views" id="52563955-8b98-416b-808e-ff9c5a174636" type="diagrams">
     <folder name="Views in ontwikkeling" id="65ffe888-6b98-4319-893b-3c2a60c568a3">
@@ -26458,7 +26461,7 @@ En moet er suboptimaal op leeractiviteit niveau beschreven gaan worden, wat extr
               <bounds x="240" y="528" width="169" height="61"/>
             </child>
             <child xsi:type="archimate:Note" id="id-2179810434ea4aa698c618b35fe69659" font="1|Segoe UI|12.0|0|WINDOWS|1|-20|0|0|0|400|0|0|0|0|3|2|1|34|Segoe UI" textAlignment="1">
-              <bounds x="12" y="672" width="325" height="169"/>
+              <bounds x="12" y="660" width="325" height="181"/>
               <content>Okx hoofdplaat 1.7 &lt;concept>&#xD;
 - Onderwijs Catalogus groepering&#xD;
 - PlanningMeerjarenplanning links focus op capaciteit, nominale route uitwerking in OC&#xD;
@@ -26562,10 +26565,11 @@ En moet er suboptimaal op leeractiviteit niveau beschreven gaan worden, wat extr
                 <bendpoint startX="-533" startY="135" endX="-161" endY="-291"/>
               </sourceConnection>
             </child>
-            <child xsi:type="archimate:DiagramObject" id="id-e307cef0a46e48b09aa5e474d1b7bab4" targetConnections="id-bc3b4a8b4d064c70828e0df12e84cf8c id-7b8e41d4018d421aa7672097d71da87a id-06fa033ad51b44fca2970fa076a5f62a id-eff6c49e7f9e42f4913a2f4958ebe419 id-1603d163bcdf43db9a2215ef4b326295 id-ffaf3b730b5e485c874697335ddd8322 id-5faa1805a60e4674bcf75888a5421ddb" lineWidth="3" archimateElement="id-310f7a0eaa5542c1b0cc4982b6464c86">
+            <child xsi:type="archimate:DiagramObject" id="id-e307cef0a46e48b09aa5e474d1b7bab4" targetConnections="id-bc3b4a8b4d064c70828e0df12e84cf8c id-7b8e41d4018d421aa7672097d71da87a id-06fa033ad51b44fca2970fa076a5f62a id-eff6c49e7f9e42f4913a2f4958ebe419 id-1603d163bcdf43db9a2215ef4b326295 id-ffaf3b730b5e485c874697335ddd8322 id-5faa1805a60e4674bcf75888a5421ddb id-4dbff88c78c040dab71a3b83761d12b6" lineWidth="3" archimateElement="id-310f7a0eaa5542c1b0cc4982b6464c86">
               <bounds x="297" y="372" width="675" height="85"/>
               <sourceConnection xsi:type="archimate:Connection" id="id-7c065604d8764e81bb6fe904c7490edc" source="id-e307cef0a46e48b09aa5e474d1b7bab4" target="id-59071a887c734f47b1d95045eedc860f" archimateRelationship="id-3aefce69b5454d4eb5f2d28e6e6ec13e">
                 <feature name="labelExpression" value="Student&#xD;&#xA;Opleidingprogramma- en &#xD;&#xA;onderwijseenheid verbintenis"/>
+                <bendpoint startX="170" startY="114" endX="-125" endY="-99"/>
               </sourceConnection>
               <sourceConnection xsi:type="archimate:Connection" id="id-6f87047b53e44e17a44d0dc64e667299" source="id-e307cef0a46e48b09aa5e474d1b7bab4" target="id-31789608aad5445fac0a54922165ad2b" archimateRelationship="id-926ba88e5d2d41788005699e8eedf6bb">
                 <feature name="labelExpression" value="Opleidingprogramma-,&#xD;&#xA;opleidingseenheid&#xD;&#xA;verbintenis,&#xD;&#xA;planninggroep"/>
@@ -26681,7 +26685,7 @@ En moet er suboptimaal op leeractiviteit niveau beschreven gaan worden, wat extr
               </sourceConnection>
             </child>
             <child xsi:type="archimate:DiagramObject" id="id-0385e422e31c461da82c284886ab9de0" targetConnections="id-2a89dc17a7e949eeb4c94e267dd45aaa" archimateElement="id-8ac3ccd5e9ff414db63c042cae8367e7">
-              <bounds x="584" y="480" width="15" height="15"/>
+              <bounds x="584" y="468" width="15" height="15"/>
               <sourceConnection xsi:type="archimate:Connection" id="id-06fa033ad51b44fca2970fa076a5f62a" source="id-0385e422e31c461da82c284886ab9de0" target="id-e307cef0a46e48b09aa5e474d1b7bab4" archimateRelationship="id-bce9b9e0ed794856b0c130e9b576cfc3">
                 <bendpoint startX="-4" startY="-7" endX="-47" endY="66"/>
               </sourceConnection>
@@ -26774,6 +26778,10 @@ En moet er suboptimaal op leeractiviteit niveau beschreven gaan worden, wat extr
                   <feature name="labelExpression" value="&lt;OKE>"/>
                   <bendpoint startX="-6" startY="107" endX="-24" endY="-109"/>
                 </sourceConnection>
+                <sourceConnection xsi:type="archimate:Connection" id="id-4dbff88c78c040dab71a3b83761d12b6" source="id-59071a887c734f47b1d95045eedc860f" target="id-e307cef0a46e48b09aa5e474d1b7bab4" archimateRelationship="id-9adeda53478c48c4ad4c05bdbda902d9">
+                  <feature name="labelExpression" value="Student Opleidingsprogramma, &#xD;&#xA;onderwijseenheid voltooid"/>
+                  <bendpoint startX="19" startY="-123" endX="314" endY="90"/>
+                </sourceConnection>
               </child>
             </child>
             <child xsi:type="archimate:DiagramObject" id="id-fa9a8a2b37f342a09edb51cd4427b349" targetConnections="id-860b97a3fc114ecfabcfa380ab12032a" fontColor="#408080" fillColor="#ffffff" archimateElement="id-807e1b5000974ac18026fa3c586b67c5">
@@ -26805,308 +26813,6 @@ En moet er suboptimaal op leeractiviteit niveau beschreven gaan worden, wat extr
               <sourceConnection xsi:type="archimate:Connection" id="id-7dce9e763f77426fac05555946a1b746" source="id-0c06b74defd349558aaa217691c31620" target="id-e3b74449f8c54260a2b1946200ebd82a" archimateRelationship="id-6e1843a92b8941dea4ef85e9f454645b">
                 <feature name="labelExpression" value="Extern &#xD;&#xA;onderwijsprogramma &#xD;&#xA;'aanbod'"/>
               </sourceConnection>
-            </child>
-          </child>
-          <child xsi:type="archimate:Note" id="id-a4f184e94deb4b4d976fd3551b14ba2f" textAlignment="1">
-            <bounds x="2155" y="912" width="185" height="87"/>
-            <content>eduhub geen concreet aanbod&#xD;
-&#xD;
-exacte tijdstip /wederzijdse acceptatie kan pas laat in het proces</content>
-          </child>
-          <child xsi:type="archimate:Note" id="id-2be81b52a9c7418c94ff571eb8847cf2" textAlignment="1">
-            <bounds x="2155" y="1010" width="185" height="91"/>
-            <content>externe student journey doet waar intrede?&#xD;
-Uitwisseling detail info (tijdigheid/states van idee tot geroosterd&#xD;
-&#xD;
-AII/Eduhub </content>
-          </child>
-          <child xsi:type="archimate:Note" id="id-fc90fd80a04449b8a10b151c43b41ead" textAlignment="1">
-            <bounds x="453" y="954" width="185" height="175"/>
-            <content>Organisatie structuur en inrichtings principes in SIS (ook werkelijke bron?) hebben impact op OC->SIS uitwisseling. Vergelijkbaar met plannings elementen van planning->OC&#xD;
-Vraagstuk hoeveel niet- onderwijs specificatie informatie willen we in de OC opnemen</content>
-          </child>
-          <documentation>v1.7.0</documentation>
-        </element>
-        <element xsi:type="archimate:ArchimateDiagramModel" name="OKx hoofdplaat (zonder context applicaties)" id="id-cf386efb216448fc9d8643c7d6587c78">
-          <child xsi:type="archimate:Group" id="id-6b6b5dc5f81b4d12a5804f09d9215e9b" name="Group" textAlignment="1">
-            <bounds x="84" y="36" width="753" height="853"/>
-            <feature name="labelExpression" value="(onderwijsontwikkeling) Inrichting van nominale- en keuze aanbod"/>
-            <child xsi:type="archimate:DiagramObject" id="id-1780c3edc64a4f56ad52708be9d79f37" targetConnections="id-9864621c734c4cd5a202cf7d551ffc07" archimateElement="id-25903a2640fa43ddbd4aa2819beed937">
-              <bounds x="516" y="168" width="217" height="67"/>
-              <sourceConnection xsi:type="archimate:Connection" id="id-763d4bcb707a400d849225ed80716241" lineColor="#0000ff" source="id-1780c3edc64a4f56ad52708be9d79f37" target="id-66e7424e40664d1880e1b954143cb50f" archimateRelationship="id-020f091db6ea4763aad7527a98afaf99">
-                <feature name="labelExpression" value="Bevestiging creatie&#xD;&#xA;opleidingprogramma aanbod"/>
-                <bendpoint startX="36" startY="177" endX="336" endY="3"/>
-              </sourceConnection>
-              <sourceConnection xsi:type="archimate:Connection" id="id-8c84782bb1d64d219ba3be47c8d139ed" lineColor="#0000ff" source="id-1780c3edc64a4f56ad52708be9d79f37" target="id-8fa6fd89e5c34d77b9b22bcb5e4221e2" archimateRelationship="id-6ece22a4621443bfa17e7cb36c0ba113">
-                <feature name="labelExpression" value="Verzoek tot bijwerken onderwijspecificaties&#xD;&#xA;Planning elementen"/>
-              </sourceConnection>
-              <sourceConnection xsi:type="archimate:Connection" id="id-a4ddfed414c34207b8ce8b2c1006a803" source="id-1780c3edc64a4f56ad52708be9d79f37" target="id-c19e4f7b292744b6b58dba6a8c24f9f2" archimateRelationship="id-e4e3bf3644cb46008694bf3b1ba220c2"/>
-              <child xsi:type="archimate:DiagramObject" id="id-c19e4f7b292744b6b58dba6a8c24f9f2" targetConnections="id-a4ddfed414c34207b8ce8b2c1006a803" font="1|Segoe UI|7.8|0|WINDOWS|1|-13|0|0|0|400|0|0|0|0|3|2|1|34|Segoe UI" archimateElement="id-b23c5e0268ae45c9affd0d3fd2f0867f">
-                <bounds x="12" y="24" width="193" height="36"/>
-              </child>
-            </child>
-            <child xsi:type="archimate:DiagramObject" id="id-5683c3c3715042dea6ffa7963085d93c" targetConnections="id-368f178c2f594a52ba0afd9ce1e52e19" lineWidth="3" archimateElement="id-7583e0350fa14a56a30726edda853203">
-              <bounds x="240" y="528" width="169" height="61"/>
-            </child>
-            <child xsi:type="archimate:Note" id="id-2af7cd15e11e42268301ce275a843ab3" font="1|Segoe UI|12.0|0|WINDOWS|1|-20|0|0|0|400|0|0|0|0|3|2|1|34|Segoe UI" textAlignment="1">
-              <bounds x="12" y="672" width="325" height="169"/>
-              <content>Okx hoofdplaat 1.7 &lt;concept>&#xD;
-- Onderwijs Catalogus groepering&#xD;
-- Meerjarenplanning links focus op capaciteit, nominale route uitwerking in OC&#xD;
-- KRS+SVS groepering&#xD;
-- SKS keuze differentiatie op wat en hoe&#xD;
-- EduHub toevoeging&#xD;
-- LLO in AII&#xD;
-</content>
-            </child>
-            <child xsi:type="archimate:DiagramObject" id="id-8fa6fd89e5c34d77b9b22bcb5e4221e2" targetConnections="id-8c84782bb1d64d219ba3be47c8d139ed" archimateElement="id-f49d211aeeb54a179955c86eb428a4aa">
-              <bounds x="252" y="200" width="15" height="15"/>
-              <sourceConnection xsi:type="archimate:Connection" id="id-56acd58bf35d4ecfb9ebe19a9f8c5e3d" lineColor="#0000ff" source="id-8fa6fd89e5c34d77b9b22bcb5e4221e2" target="id-66e7424e40664d1880e1b954143cb50f" archimateRelationship="id-869dbdd9cda84e0dba34d9675e090115"/>
-            </child>
-            <child xsi:type="archimate:Group" id="id-fe10ac45eb824d6788164ffc7a267de3" name="RIO/CAMBO/AII" lineWidth="3" textAlignment="1" fillColor="#ffffff">
-              <bounds x="372" y="684" width="266" height="157"/>
-              <feature name="lineStyle" value="2"/>
-              <child xsi:type="archimate:DiagramObject" id="id-18795e9bfed04e488aaeb6ac864b5ff3" fontColor="#408080" fillColor="#ffffff" archimateElement="id-44f764d5a55e436d938dcdd4a529c519">
-                <bounds x="13" y="84" width="108" height="55"/>
-              </child>
-              <child xsi:type="archimate:DiagramObject" id="id-7b3af9b631574ca0ac1431ce6f7365dd" fontColor="#408080" fillColor="#ffffff" archimateElement="id-85d59e5d664748d89874c883cd4db819">
-                <bounds x="133" y="84" width="121" height="55"/>
-              </child>
-              <child xsi:type="archimate:DiagramObject" id="id-2f7d0f41a7004e2bad3c6fcbc2d3f553" targetConnections="id-4d4b48173df545f58bb05fa35aaf0e09" fontColor="#408080" fillColor="#ffffff" archimateElement="id-c89ed4e4d0e64e3183df8450aa567900">
-                <bounds x="13" y="24" width="108" height="55"/>
-              </child>
-              <child xsi:type="archimate:DiagramObject" id="id-08842114cb2541c49ee699ad7a453044" fontColor="#408080" fillColor="#ffffff" archimateElement="id-1f2f6fd1dfb5484cbb4d65a3d31be885">
-                <bounds x="133" y="24" width="121" height="55"/>
-              </child>
-            </child>
-            <child xsi:type="archimate:DiagramObject" id="id-bc5e0bab0c0141959e94e422265b9988" targetConnections="id-57a5610353a342ce976dbc2c21628dd8" archimateElement="id-35f129a1db48472a9524ff76f646ea3c">
-              <bounds x="516" y="480" width="15" height="15"/>
-              <sourceConnection xsi:type="archimate:Connection" id="id-e383b2541be1442d9c4e64450667650c" source="id-bc5e0bab0c0141959e94e422265b9988" target="id-c1cac16030a84ab2b61ba0d7b5c80d86" archimateRelationship="id-93a2119839d141d5a02b0f79acaec91d"/>
-              <sourceConnection xsi:type="archimate:Connection" id="id-4d4b48173df545f58bb05fa35aaf0e09" lineColor="#0000ff" source="id-bc5e0bab0c0141959e94e422265b9988" target="id-2f7d0f41a7004e2bad3c6fcbc2d3f553" archimateRelationship="id-95a93363df2d4a4a86e86513535e1b01"/>
-            </child>
-            <child xsi:type="archimate:Group" id="id-d1384a0f4194439e8b1f62faf8cd6c6b" name="Onderwijscatalogus" lineWidth="2" textAlignment="1" fillColor="#ffffff">
-              <bounds x="60" y="234" width="361" height="217"/>
-              <child xsi:type="archimate:DiagramObject" id="id-a521b21b5bba443f8c80574354ce739b" archimateElement="id-6ea5f46fa0a344078e8b439458471583">
-                <bounds x="12" y="30" width="157" height="103"/>
-                <sourceConnection xsi:type="archimate:Connection" id="id-020779db6fa749ecaa36926e1a729e8a" lineColor="#0000ff" source="id-a521b21b5bba443f8c80574354ce739b" target="id-66e7424e40664d1880e1b954143cb50f" archimateRelationship="id-e0f634dc7e484494bf941cfae1effbd7"/>
-                <sourceConnection xsi:type="archimate:Connection" id="id-5db30f32f00347fda28f45122a446454" source="id-a521b21b5bba443f8c80574354ce739b" target="id-5ab782adac624e07b6b68124abc046fa" archimateRelationship="id-3f3700b4b94f45288d539f39e2fa54e2"/>
-                <child xsi:type="archimate:DiagramObject" id="id-5ab782adac624e07b6b68124abc046fa" targetConnections="id-5db30f32f00347fda28f45122a446454" font="1|Segoe UI|7.8|0|WINDOWS|1|-13|0|0|0|400|0|0|0|0|3|2|1|34|Segoe UI" archimateElement="id-dd728aca73f14a948849c998ff965c3f">
-                  <bounds x="12" y="36" width="135" height="55"/>
-                </child>
-              </child>
-              <child xsi:type="archimate:DiagramObject" id="id-66e7424e40664d1880e1b954143cb50f" targetConnections="id-56acd58bf35d4ecfb9ebe19a9f8c5e3d id-763d4bcb707a400d849225ed80716241 id-020779db6fa749ecaa36926e1a729e8a id-f380f28088ac4958b1b26dfcd2f780c0" lineWidth="3" archimateElement="id-205c43730abe4f54afd60b117d36de7f">
-                <bounds x="180" y="30" width="169" height="175"/>
-                <sourceConnection xsi:type="archimate:Connection" id="id-368f178c2f594a52ba0afd9ce1e52e19" lineWidth="2" lineColor="#ff0000" source="id-66e7424e40664d1880e1b954143cb50f" target="id-5683c3c3715042dea6ffa7963085d93c" archimateRelationship="id-d23841b89bed4935b2aebdeb12ee2acf">
-                  <feature name="labelExpression" value="Verzoek tot fijnmazige uitwerking&#xD;&#xA;onderwijs specificatie"/>
-                  <bendpoint startY="153" endY="-87"/>
-                </sourceConnection>
-                <sourceConnection xsi:type="archimate:Connection" id="id-9864621c734c4cd5a202cf7d551ffc07" lineWidth="2" lineColor="#ff0000" source="id-66e7424e40664d1880e1b954143cb50f" target="id-1780c3edc64a4f56ad52708be9d79f37" archimateRelationship="id-1d27ecfa2c0d4fb7b4f7337e93eed033">
-                  <feature name="labelExpression" value="Verzoek tot maken onderwijsaanbod &#xD;&#xA;obv opleidingsprogramma-&#xD;&#xA;en onderwijseenheid specificaties"/>
-                  <bendpoint startX="240" startY="-69" endX="-60" endY="105"/>
-                </sourceConnection>
-                <sourceConnection xsi:type="archimate:Connection" id="id-57a5610353a342ce976dbc2c21628dd8" lineWidth="2" lineColor="#ff0000" source="id-66e7424e40664d1880e1b954143cb50f" target="id-bc5e0bab0c0141959e94e422265b9988" archimateRelationship="id-ec248a00b6234f1688ee3705d46a59f7">
-                  <feature name="labelExpression" value="Ontsluiten aanmeld-/inschrijfbaar &#xD;&#xA;opleidingsprogramma aanbod"/>
-                  <bendpoint startX="204" startY="81" endX="-7" endY="-55"/>
-                </sourceConnection>
-                <sourceConnection xsi:type="archimate:Connection" id="id-3c0b9b65a2724cc489640c14ebf6d21f" source="id-66e7424e40664d1880e1b954143cb50f" target="id-529f92db2a144501a4028c846921dc42" archimateRelationship="id-ce5963f78baf420d8a3c3c84092239ab"/>
-                <child xsi:type="archimate:DiagramObject" id="id-529f92db2a144501a4028c846921dc42" targetConnections="id-3c0b9b65a2724cc489640c14ebf6d21f" font="1|Segoe UI|7.8|0|WINDOWS|1|-13|0|0|0|400|0|0|0|0|3|2|1|34|Segoe UI" archimateElement="id-c4b52728ebb44456b3d425dcabf986f0">
-                  <bounds x="12" y="36" width="145" height="55"/>
-                </child>
-              </child>
-              <child xsi:type="archimate:DiagramObject" id="id-be5aef609bd14ba881bcd9d01359c203" fontColor="#408080" fillColor="#ffffff" archimateElement="id-10d6dced9c2242848cf3a907d258229c">
-                <bounds x="12" y="150" width="157" height="55"/>
-                <sourceConnection xsi:type="archimate:Connection" id="id-f380f28088ac4958b1b26dfcd2f780c0" lineColor="#0000ff" source="id-be5aef609bd14ba881bcd9d01359c203" target="id-66e7424e40664d1880e1b954143cb50f" archimateRelationship="id-040b922ee11b4cac8dd699e5d5fac507"/>
-              </child>
-            </child>
-            <child xsi:type="archimate:Group" id="id-0a2e79b227504ce4bc06c70420ee76a8" name="Student Informatie Systeem" lineWidth="2" textAlignment="1" fillColor="#ffffff">
-              <bounds x="564" y="531" width="181" height="154"/>
-              <child xsi:type="archimate:DiagramObject" id="id-c1cac16030a84ab2b61ba0d7b5c80d86" targetConnections="id-e383b2541be1442d9c4e64450667650c" lineWidth="3" archimateElement="id-e4cc8b950d5d4c1e9c35bd0c6dd94a33">
-                <bounds x="12" y="24" width="157" height="55"/>
-              </child>
-              <child xsi:type="archimate:DiagramObject" id="id-9331e1368104464ba69769f56c0c8e6b" lineWidth="3" archimateElement="id-95cdb66e0e1e4469aae0db58d1eca0f3">
-                <bounds x="12" y="84" width="157" height="55"/>
-              </child>
-            </child>
-          </child>
-          <child xsi:type="archimate:Group" id="id-1b53803071ae401eb090a6178273c4d5" name="Group" textAlignment="1">
-            <bounds x="852" y="36" width="1453" height="853"/>
-            <feature name="labelExpression" value="(onderwijsuitvoering) Student studeeert en maakt keuzes"/>
-            <child xsi:type="archimate:DiagramObject" id="id-40cd8e73a0a5401fa18eb544c937e169" targetConnections="id-a3140acc90924731bc0a59d5d28522cc id-ff2ba20924754f74a690c06fb30156a4" lineWidth="3" archimateElement="id-1ba9788c23f64ce085240277cc4afac5">
-              <bounds x="588" y="168" width="302" height="67"/>
-              <sourceConnection xsi:type="archimate:Connection" id="id-65aed8ada39a43519f02eabba24b372b" source="id-40cd8e73a0a5401fa18eb544c937e169" target="id-d58b61bd5cd44d1397fe19233b09034f" archimateRelationship="id-7aaf2959ba45489296a1c1d89dae786c">
-                <feature name="labelExpression" value="Ontsluiten van &#xD;&#xA;geroosterde &#xD;&#xA;leergelegenheden&#xD;&#xA;(detail en capaciteit)"/>
-                <bendpoint startX="-102" startY="123" endX="13" endY="-90"/>
-              </sourceConnection>
-              <sourceConnection xsi:type="archimate:Connection" id="id-2d364fb227604d8cb95325c39a407e46" source="id-40cd8e73a0a5401fa18eb544c937e169" target="id-d58b61bd5cd44d1397fe19233b09034f" archimateRelationship="id-7a7e0a17557f487a86fd347ad8569f24">
-                <feature name="labelExpression" value="Student&#xD;&#xA;Opleidingprogramma- en &#xD;&#xA;onderwijseenheid verbintenis&#xD;&#xA;(+ planninggroep)"/>
-                <bendpoint startX="138" startY="111" endX="253" endY="-102"/>
-              </sourceConnection>
-              <sourceConnection xsi:type="archimate:Connection" id="id-8c02402af64f44ee8017f45eaef2a659" source="id-40cd8e73a0a5401fa18eb544c937e169" target="id-01b018cb1c0d4c2db1aa8460e9f8d84c" archimateRelationship="id-70bdd7dbcb234951ad2c1c719f19c543">
-                <feature name="labelExpression" value="Ontsluiten &#xD;&#xA;planninggroepen &#xD;&#xA;met studenten"/>
-                <bendpoint startX="-138" startY="63" endX="234" endY="-363"/>
-                <bendpoint startX="-522" startY="63" endX="-150" endY="-363"/>
-                <bendpoint startX="-522" startY="63" endX="-150" endY="-363"/>
-              </sourceConnection>
-            </child>
-            <child xsi:type="archimate:DiagramObject" id="id-d58b61bd5cd44d1397fe19233b09034f" targetConnections="id-65aed8ada39a43519f02eabba24b372b id-2d364fb227604d8cb95325c39a407e46 id-b9f8d4b8ff8f4a24b69e18a251cfd6ff id-df418725d81047e98aa481c035a53222 id-7b21943f35cd4ce088081451bd959d66" lineWidth="3" archimateElement="id-310f7a0eaa5542c1b0cc4982b6464c86">
-              <bounds x="274" y="372" width="675" height="85"/>
-              <sourceConnection xsi:type="archimate:Connection" id="id-a2e9321f188f4f978beb67a800e653d9" source="id-d58b61bd5cd44d1397fe19233b09034f" target="id-be668761ad1a4f40b6854e5a52e50c25" archimateRelationship="id-3aefce69b5454d4eb5f2d28e6e6ec13e">
-                <feature name="labelExpression" value="Student&#xD;&#xA;Opleidingprogramma- en &#xD;&#xA;onderwijseenheid verbintenis"/>
-              </sourceConnection>
-              <sourceConnection xsi:type="archimate:Connection" id="id-2272d7ef039141cfb8047e07672a8401" source="id-d58b61bd5cd44d1397fe19233b09034f" target="id-f8960e629e8c4a7d9525374208810188" archimateRelationship="id-926ba88e5d2d41788005699e8eedf6bb">
-                <feature name="labelExpression" value="Opleidingprogramma-,&#xD;&#xA;opleidingseenheid&#xD;&#xA;verbintenis,&#xD;&#xA;planninggroep"/>
-              </sourceConnection>
-              <sourceConnection xsi:type="archimate:Connection" id="id-a3140acc90924731bc0a59d5d28522cc" source="id-d58b61bd5cd44d1397fe19233b09034f" target="id-40cd8e73a0a5401fa18eb544c937e169" archimateRelationship="id-e38169b2a08a47d2ab3722ea29bfc8ba">
-                <feature name="labelExpression" value="Verzoek tot &#xD;&#xA;Opleidingprogramma- en &#xD;&#xA;onderwijseenheid verbintenis"/>
-                <bendpoint startX="133" startY="-138" endX="18" endY="75"/>
-              </sourceConnection>
-              <sourceConnection xsi:type="archimate:Connection" id="id-fa31165868114d26a818d0eda998d930" source="id-d58b61bd5cd44d1397fe19233b09034f" target="id-452f024b71c14ad08743124178e3f047" archimateRelationship="id-726d0826868b4be1afc4145fbd9ad49c">
-                <feature name="labelExpression" value="Intekening student &#xD;&#xA;op (nog) ongepland &#xD;&#xA;opleidingprogramma-,&#xD;&#xA;opleidingseenheid&#xD;&#xA;(animo)"/>
-                <bendpoint startX="-287" startY="-102" endX="96" endY="111"/>
-              </sourceConnection>
-              <sourceConnection xsi:type="archimate:Connection" id="id-6f0374ddccb34b398387de97bc07f7a7" source="id-d58b61bd5cd44d1397fe19233b09034f" target="id-01b018cb1c0d4c2db1aa8460e9f8d84c" archimateRelationship="id-642ea2bf4fcd4d58968ba4f952a7e990">
-                <feature name="labelExpression" value="Student&#xD;&#xA;Opleidingprogramma&#xD;&#xA;verbintenis &#xD;&#xA;(type: keuzedeel/credential)"/>
-                <bendpoint startX="-299" startY="108" endX="-42" endY="-111"/>
-              </sourceConnection>
-              <sourceConnection xsi:type="archimate:Connection" id="id-999b773ad1b14eee821b7ab2f5b7ddec" source="id-d58b61bd5cd44d1397fe19233b09034f" target="id-3adde98ca9ec4e12b09fbd577d8fe2d5" archimateRelationship="id-213fe1b0fc514586a012bec0dc1e9901"/>
-              <sourceConnection xsi:type="archimate:Connection" id="id-f2343aee490d4ef490b952c18027078c" source="id-d58b61bd5cd44d1397fe19233b09034f" target="id-9ea9157c897f466184ce420af9464076" archimateRelationship="id-2bbac2c97bc44221ad40ae32e8aa0cc3"/>
-              <sourceConnection xsi:type="archimate:Connection" id="id-2b79a8fc26c54ff382d2e5090f9f8d5d" source="id-d58b61bd5cd44d1397fe19233b09034f" target="id-4f600a7146cc450783110a20368f52a6" archimateRelationship="id-a13da7a70cf045baab6851e8a859293c"/>
-              <sourceConnection xsi:type="archimate:Connection" id="id-91547971fc5442989fd69811e7185737" source="id-d58b61bd5cd44d1397fe19233b09034f" target="id-85550abb701340e3b4472bcabb5a12a3" archimateRelationship="id-36da05e3d7b04319b0df1bf7a7d0a21f"/>
-              <child xsi:type="archimate:DiagramObject" id="id-3adde98ca9ec4e12b09fbd577d8fe2d5" targetConnections="id-999b773ad1b14eee821b7ab2f5b7ddec" font="1|Segoe UI|7.8|0|WINDOWS|1|-13|0|0|0|400|0|0|0|0|3|2|1|34|Segoe UI" archimateElement="id-74da000635b6457598914e00bdb091e5">
-                <bounds x="156" y="24" width="133" height="48"/>
-              </child>
-              <child xsi:type="archimate:DiagramObject" id="id-9ea9157c897f466184ce420af9464076" targetConnections="id-f2343aee490d4ef490b952c18027078c" font="1|Segoe UI|7.8|0|WINDOWS|1|-13|0|0|0|400|0|0|0|0|3|2|1|34|Segoe UI" archimateElement="id-bd68fd8033fe46f180f26efa8af62179">
-                <bounds x="12" y="24" width="145" height="48"/>
-              </child>
-              <child xsi:type="archimate:Note" id="id-d0d7fe36ad9a4a2ca7b3c8bbc5e57b9d" font="1|Segoe UI|7.8|0|WINDOWS|1|-13|0|0|0|400|0|0|0|0|3|2|1|34|Segoe UI" textAlignment="1" fillColor="#80ffff">
-                <bounds x="539" y="24" width="132" height="43"/>
-                <content>Meerdere SKS'en in het landschap mogelijk</content>
-              </child>
-              <child xsi:type="archimate:DiagramObject" id="id-4f600a7146cc450783110a20368f52a6" targetConnections="id-2b79a8fc26c54ff382d2e5090f9f8d5d" font="1|Segoe UI|7.8|0|WINDOWS|1|-13|0|0|0|400|0|0|0|0|3|2|1|34|Segoe UI" archimateElement="id-7bae725cd55a464f9b855cd642a6bdc5">
-                <bounds x="288" y="24" width="133" height="48"/>
-              </child>
-              <child xsi:type="archimate:DiagramObject" id="id-85550abb701340e3b4472bcabb5a12a3" targetConnections="id-91547971fc5442989fd69811e7185737" font="1|Segoe UI|7.8|0|WINDOWS|1|-13|0|0|0|400|0|0|0|0|3|2|1|34|Segoe UI" archimateElement="id-e9fe90af46804806aede01b33a70f58a">
-                <bounds x="420" y="25" width="120" height="46"/>
-              </child>
-            </child>
-            <child xsi:type="archimate:DiagramObject" id="id-452f024b71c14ad08743124178e3f047" targetConnections="id-446160f98b834583bfa15107959efa15 id-fa31165868114d26a818d0eda998d930" lineWidth="3" archimateElement="id-2e601cefd0844f01918630db40819c24">
-              <bounds x="12" y="168" width="373" height="67"/>
-              <sourceConnection xsi:type="archimate:Connection" id="id-ff2ba20924754f74a690c06fb30156a4" source="id-452f024b71c14ad08743124178e3f047" target="id-40cd8e73a0a5401fa18eb544c937e169" archimateRelationship="id-08467fe302794db6b935ff685e83efe0">
-                <feature name="labelExpression" value="Verzoek tot roosteren leergelegenheid&#xD;&#xA;Ontsluiten van planninggroepen&#xD;&#xA;"/>
-                <bendpoint startX="186" startY="4" endX="-284" endY="4"/>
-                <bendpoint startX="294" startY="3" endX="-247" endY="3"/>
-                <bendpoint startX="294" startY="4" endX="-176" endY="4"/>
-              </sourceConnection>
-              <sourceConnection xsi:type="archimate:Connection" id="id-df418725d81047e98aa481c035a53222" lineColor="#400040" source="id-452f024b71c14ad08743124178e3f047" target="id-d58b61bd5cd44d1397fe19233b09034f" archimateRelationship="id-6268df4c8b1e4a1ca02d4bd6732b8b34">
-                <feature name="labelExpression" value="Onsluiten geplande &#xD;&#xA;leergelegenheden&#xD;&#xA;(capaciteit)"/>
-                <bendpoint startX="240" startY="111" endX="-143" endY="-102"/>
-              </sourceConnection>
-              <sourceConnection xsi:type="archimate:Connection" id="id-a54baae9fd80406bbe83aa63ed5594b1" source="id-452f024b71c14ad08743124178e3f047" target="id-3a8a4d07d5b44007bbccacb5d8673e5b" archimateRelationship="id-c4df252b21de4ef882ebf88565a10de5"/>
-              <sourceConnection xsi:type="archimate:Connection" id="id-e754339935a7496fa9c8715edafac308" source="id-452f024b71c14ad08743124178e3f047" target="id-d93042e1d42d431f9d36b1825a32c0df" archimateRelationship="id-22fdee5270384bafaf9d8ff82c620b30"/>
-              <sourceConnection xsi:type="archimate:Connection" id="id-a6fea84a7c154622bc5450d6b303fcab" source="id-452f024b71c14ad08743124178e3f047" target="id-61bdd1c7e2f3467288b2285ea23db53a" archimateRelationship="id-c828ea20828d491493651a4ffa57f530"/>
-              <child xsi:type="archimate:DiagramObject" id="id-3a8a4d07d5b44007bbccacb5d8673e5b" targetConnections="id-a54baae9fd80406bbe83aa63ed5594b1" font="1|Segoe UI|7.8|0|WINDOWS|1|-13|0|0|0|400|0|0|0|0|3|2|1|34|Segoe UI" archimateElement="id-4a28372a85d445569f091862c68020cf">
-                <bounds x="131" y="24" width="134" height="37"/>
-              </child>
-              <child xsi:type="archimate:DiagramObject" id="id-d93042e1d42d431f9d36b1825a32c0df" targetConnections="id-e754339935a7496fa9c8715edafac308" font="1|Segoe UI|7.8|0|WINDOWS|1|-13|0|0|0|400|0|0|0|0|3|2|1|34|Segoe UI" archimateElement="id-62e1d64d1d5d415ca43cfd4bc50abadc">
-                <bounds x="264" y="24" width="98" height="37"/>
-              </child>
-              <child xsi:type="archimate:DiagramObject" id="id-61bdd1c7e2f3467288b2285ea23db53a" targetConnections="id-a6fea84a7c154622bc5450d6b303fcab" font="1|Segoe UI|7.8|0|WINDOWS|1|-13|0|0|0|400|0|0|0|0|3|2|1|34|Segoe UI" archimateElement="id-ebca35fc037a4f54ad1d47cef22cd233">
-                <bounds x="12" y="24" width="120" height="37"/>
-              </child>
-            </child>
-            <child xsi:type="archimate:DiagramObject" id="id-8bc622c8bf4b4908bbfae44b1082d5b4" lineWidth="3" archimateElement="id-80be190358c14ed096b1da3f6806dd09">
-              <bounds x="1111" y="168" width="270" height="67"/>
-              <sourceConnection xsi:type="archimate:Connection" id="id-1997253974514386b88a48cc5cc31a1a" lineWidth="2" lineColor="#ff0000" source="id-8bc622c8bf4b4908bbfae44b1082d5b4" target="id-98e5775f05714cd7b80d084a7ac79c95" archimateRelationship="id-e2755a76b8244373bd7e8da4ccb7c3f6">
-                <feature name="labelExpression" value="Onderwijs specificatie"/>
-                <bendpoint startX="62" startY="87" endX="-7" endY="-19"/>
-              </sourceConnection>
-              <sourceConnection xsi:type="archimate:Connection" id="id-7b21943f35cd4ce088081451bd959d66" lineWidth="2" lineColor="#ff0000" source="id-8bc622c8bf4b4908bbfae44b1082d5b4" target="id-d58b61bd5cd44d1397fe19233b09034f" archimateRelationship="id-5f2568d7b99a49eaa863f539ae362f4d">
-                <feature name="labelExpression" value="Onderwijsprogramma&#xD;&#xA;aanbod"/>
-              </sourceConnection>
-            </child>
-            <child xsi:type="archimate:DiagramObject" id="id-f8960e629e8c4a7d9525374208810188" targetConnections="id-2272d7ef039141cfb8047e07672a8401 id-3706a48af43048a0b1462e8bc221899f id-2c139cea8d494b2bbde8327d6d76ec9e" lineWidth="3" archimateElement="id-070f8eab68754028bf84a7c1f4849c49">
-              <bounds x="1111" y="372" width="270" height="109"/>
-              <sourceConnection xsi:type="archimate:Connection" id="id-edc6b040374a42e5974b6808589c3f86" source="id-f8960e629e8c4a7d9525374208810188" target="id-be668761ad1a4f40b6854e5a52e50c25" archimateRelationship="id-979d8078315c47139a73942028c0300d">
-                <feature name="labelExpression" value="Student &#xD;&#xA;toetsgelegenheidverbintenis &#xD;&#xA;resultaat"/>
-                <bendpoint startX="-70" startY="90" endX="270" endY="-111"/>
-                <bendpoint startX="-70" startY="90" endX="270" endY="-111"/>
-                <bendpoint startX="-70" startY="198" endX="270" endY="-3"/>
-              </sourceConnection>
-              <child xsi:type="archimate:Note" id="id-b8239a8107664a688f417627dce8717e" font="1|Segoe UI|7.8|0|WINDOWS|1|-13|0|0|0|400|0|0|0|0|3|2|1|34|Segoe UI" textAlignment="1" fillColor="#80ffff">
-                <bounds x="120" y="60" width="145" height="43"/>
-                <content>Meerdere LMS'en in het landschap mogelijk</content>
-              </child>
-            </child>
-            <child xsi:type="archimate:DiagramObject" id="id-20b54591c25e4a1e8d93306ffb5949a1" targetConnections="id-9341a799ca9b4b40970e7df5d6259e77" archimateElement="id-4649e051567346f8a683734902bf9460">
-              <bounds x="644" y="768" width="120" height="76"/>
-            </child>
-            <child xsi:type="archimate:DiagramObject" id="id-6c43201d6e5846bdb8b0241044b923d7" fontColor="#408080" fillColor="#ffffff" archimateElement="id-0e2a7e10c90c43df8a4eaf183616ba8b">
-              <bounds x="120" y="780" width="122" height="55"/>
-            </child>
-            <child xsi:type="archimate:DiagramObject" id="id-0fa4416469c44a8c928ebfbe6e3c2847" targetConnections="id-38f042e844904c86b5112aaef47a943b" archimateElement="id-8ac3ccd5e9ff414db63c042cae8367e7">
-              <bounds x="561" y="480" width="15" height="15"/>
-              <sourceConnection xsi:type="archimate:Connection" id="id-b9f8d4b8ff8f4a24b69e18a251cfd6ff" source="id-0fa4416469c44a8c928ebfbe6e3c2847" target="id-d58b61bd5cd44d1397fe19233b09034f" archimateRelationship="id-bce9b9e0ed794856b0c130e9b576cfc3">
-                <bendpoint startX="-4" startY="-7" endX="-47" endY="66"/>
-              </sourceConnection>
-              <sourceConnection xsi:type="archimate:Connection" id="id-2c139cea8d494b2bbde8327d6d76ec9e" lineColor="#000000" source="id-0fa4416469c44a8c928ebfbe6e3c2847" target="id-f8960e629e8c4a7d9525374208810188" archimateRelationship="id-1995b6411d4d408f8c0d61117558ca09"/>
-            </child>
-            <child xsi:type="archimate:DiagramObject" id="id-98e5775f05714cd7b80d084a7ac79c95" targetConnections="id-1997253974514386b88a48cc5cc31a1a" archimateElement="id-44e3b50cb2d744e8a0a56d568fa8df0c">
-              <bounds x="1308" y="300" width="15" height="15"/>
-              <sourceConnection xsi:type="archimate:Connection" id="id-3706a48af43048a0b1462e8bc221899f" lineWidth="2" lineColor="#ff0000" source="id-98e5775f05714cd7b80d084a7ac79c95" target="id-f8960e629e8c4a7d9525374208810188" archimateRelationship="id-ec331ef495654bab924822fe5d047196">
-                <bendpoint startX="-7" startY="5" endX="62" endY="-114"/>
-              </sourceConnection>
-              <sourceConnection xsi:type="archimate:Connection" id="id-bbf8ea54789a4fe5b3c40113b7e4ce7e" lineWidth="2" lineColor="#ff0000" source="id-98e5775f05714cd7b80d084a7ac79c95" target="id-be668761ad1a4f40b6854e5a52e50c25" archimateRelationship="id-3df87f5bfa1a4667a96a2cd5801ff9aa">
-                <bendpoint startX="5" startY="5" endX="414" endY="-315"/>
-                <bendpoint startX="101" startY="5" endX="510" endY="-315"/>
-                <bendpoint startX="101" startY="473" endX="510" endY="153"/>
-                <bendpoint startX="-463" startY="473" endX="-54" endY="153"/>
-              </sourceConnection>
-            </child>
-            <child xsi:type="archimate:Group" id="id-a5b8f643aa0243508f76ad40da750830" name="Student Informatie Systeem" lineWidth="2" textAlignment="1" fillColor="#ffffff">
-              <bounds x="96" y="564" width="997" height="106"/>
-              <child xsi:type="archimate:DiagramObject" id="id-01b018cb1c0d4c2db1aa8460e9f8d84c" targetConnections="id-6f0374ddccb34b398387de97bc07f7a7 id-55a00747357045b4ba3a44adffcf5e95 id-8c02402af64f44ee8017f45eaef2a659" lineWidth="3" archimateElement="id-7baf9f6edc4045ef83ba269fc9a75623">
-                <bounds x="24" y="36" width="469" height="55"/>
-                <sourceConnection xsi:type="archimate:Connection" id="id-446160f98b834583bfa15107959efa15" source="id-01b018cb1c0d4c2db1aa8460e9f8d84c" target="id-452f024b71c14ad08743124178e3f047" archimateRelationship="id-97010c562d8841f9b908e72b1d2b3f9a">
-                  <feature name="labelExpression" value="Ontsluiten &#xD;&#xA;plaatsingsgroepen &#xD;&#xA;met studenten"/>
-                  <bendpoint startX="-198" startY="-99" endX="-84" endY="327"/>
-                </sourceConnection>
-                <sourceConnection xsi:type="archimate:Connection" id="id-38f042e844904c86b5112aaef47a943b" source="id-01b018cb1c0d4c2db1aa8460e9f8d84c" target="id-0fa4416469c44a8c928ebfbe6e3c2847" archimateRelationship="id-865f297e8c1f4371aa143aa225fe4b7f">
-                  <feature name="labelExpression" value="Student, &#xD;&#xA;opleidingprogramma&#xD;&#xA;verbintenis,&#xD;&#xA;relevante groepen"/>
-                  <bendpoint startX="222" startY="-86" endX="-4" endY="68"/>
-                  <bendpoint startX="222" startY="-98" endX="-4" endY="56"/>
-                  <bendpoint startX="222" startY="-134" endX="-4" endY="20"/>
-                </sourceConnection>
-                <sourceConnection xsi:type="archimate:Connection" id="id-c0fa4eaec51944f6b9944fd2a47783a5" source="id-01b018cb1c0d4c2db1aa8460e9f8d84c" target="id-48f7aaacd2004c28a9db7a9bb6977a14" archimateRelationship="id-306d6aaa82c2407c8bdfedfe6c8be8a6"/>
-                <sourceConnection xsi:type="archimate:Connection" id="id-966a7db5b56b4032aac0d67de3f25e51" lineColor="#0000ff" source="id-01b018cb1c0d4c2db1aa8460e9f8d84c" target="id-be668761ad1a4f40b6854e5a52e50c25" archimateRelationship="id-7caa8c2bdf9c42f6af189ddc4a3bbfa6">
-                  <bendpoint startX="294" startY="-3" endX="-258" endY="-3"/>
-                </sourceConnection>
-                <child xsi:type="archimate:DiagramObject" id="id-48f7aaacd2004c28a9db7a9bb6977a14" targetConnections="id-c0fa4eaec51944f6b9944fd2a47783a5" font="1|Segoe UI|7.8|0|WINDOWS|1|-13|0|0|0|400|0|0|0|0|3|2|1|34|Segoe UI" archimateElement="id-cd6bcd5a864949b6858aecc1c90e766f">
-                  <bounds x="84" y="24" width="277" height="25"/>
-                </child>
-              </child>
-              <child xsi:type="archimate:DiagramObject" id="id-be668761ad1a4f40b6854e5a52e50c25" targetConnections="id-a2e9321f188f4f978beb67a800e653d9 id-edc6b040374a42e5974b6808589c3f86 id-bbf8ea54789a4fe5b3c40113b7e4ce7e id-966a7db5b56b4032aac0d67de3f25e51" lineWidth="3" archimateElement="id-ac2ad83f9efa417bab6b7c9c05e4bfe4">
-                <bounds x="636" y="36" width="349" height="55"/>
-              </child>
-            </child>
-            <child xsi:type="archimate:Group" id="id-8b7763e8c71a4fe6b2ed2beb4d3945b5" name="RIO/CAMBO/AII" lineWidth="3" textAlignment="1" fillColor="#ffffff">
-              <bounds x="95" y="747" width="505" height="97"/>
-              <feature name="lineStyle" value="2"/>
-              <sourceConnection id="id-9341a799ca9b4b40970e7df5d6259e77" source="id-8b7763e8c71a4fe6b2ed2beb4d3945b5" target="id-20b54591c25e4a1e8d93306ffb5949a1"/>
-              <child xsi:type="archimate:DiagramObject" id="id-05e31a2038eb4ecca10ab147a0ae6ea4" fontColor="#408080" fillColor="#ffffff" archimateElement="id-1e581d00a23743d8a81c6a3ce399511c">
-                <bounds x="264" y="24" width="97" height="55"/>
-              </child>
-              <child xsi:type="archimate:DiagramObject" id="id-d9ecda2a26574b1186781e3d777931fa" fontColor="#408080" fillColor="#ffffff" archimateElement="id-128a8e4526b44806845426bab4eb850a">
-                <bounds x="132" y="24" width="121" height="55"/>
-              </child>
-              <child xsi:type="archimate:DiagramObject" id="id-da6056eec3414f00a53a42159126845d" fontColor="#408080" fillColor="#ffffff" archimateElement="id-99890ee8aca64528ad2736fb5353c025">
-                <bounds x="12" y="24" width="108" height="55"/>
-                <sourceConnection xsi:type="archimate:Connection" id="id-55a00747357045b4ba3a44adffcf5e95" source="id-da6056eec3414f00a53a42159126845d" target="id-01b018cb1c0d4c2db1aa8460e9f8d84c" archimateRelationship="id-eaed86afaeee476d885121adbf18f0b1">
-                  <feature name="labelExpression" value="Persoon(Student)&#xD;&#xA;Opleidingprogramma&#xD;&#xA;verbintenis"/>
-                </sourceConnection>
-              </child>
-              <child xsi:type="archimate:DiagramObject" id="id-521a301d6a4348dea0bbe22db867ca01" fontColor="#408080" fillColor="#ffffff" archimateElement="id-b88d0cbb76f84133a1bae1ed191479f6">
-                <bounds x="372" y="24" width="121" height="55"/>
-              </child>
             </child>
           </child>
           <documentation>v1.7.0</documentation>
@@ -27204,51 +26910,55 @@ Vraagstuk hoeveel niet- onderwijs specificatie informatie willen we in de OC opn
             </child>
           </child>
           <child xsi:type="archimate:DiagramObject" id="id-5bc1048d700d4650a28c338268b13af9" targetConnections="id-c65f155e9cbc427e9c7bf2b2bf040efe id-7d699cc4c7654868851be760366b2090 id-d158d8bb47d74d729af67be453e9d6a4 id-e33290d5bcb049d7af03ab84286879c6 id-cad966badbb04dcd80d6659063cb99e5 id-e70be1cafc614676a55ac81f4fbb2854" archimateElement="id-b72ece4b0fc44a03a9624db4bdaa9cbb">
-            <bounds x="24" y="240" width="1129" height="55"/>
+            <bounds x="24" y="240" width="1249" height="55"/>
             <sourceConnection xsi:type="archimate:Connection" id="id-1531959e9cb94c808a09af79c2eb16db" source="id-5bc1048d700d4650a28c338268b13af9" target="id-9ac5f0956b7f4c2bb254e5192152500f" archimateRelationship="id-c44a342dd95648919b5ef706af5a0737"/>
             <sourceConnection xsi:type="archimate:Connection" id="id-3388ff7d76994e31a3e6d926468e7c3e" source="id-5bc1048d700d4650a28c338268b13af9" target="id-bfd52839ab95487086a1e9bb67faebb1" archimateRelationship="id-5e1c8f856102418984397bf6fea6f683">
               <feature name="labelExpression" value="Ontsluiten &#xD;&#xA;plaatsingsgroepen &#xD;&#xA;met studenten"/>
             </sourceConnection>
             <sourceConnection xsi:type="archimate:Connection" id="id-e0b42cf577e44d8ba2be3112bb2aa6de" source="id-5bc1048d700d4650a28c338268b13af9" target="id-298b0cca464142aca4d0a0dacf94a631" archimateRelationship="id-264c98e5d38a4b7ea26877c19e93f354">
               <feature name="labelExpression" value="Student&#xD;&#xA;Opleidingprogramma&#xD;&#xA;verbintenis &#xD;&#xA;(type: keuzedeel/credential)"/>
-              <bendpoint startX="-24" startY="189" endX="-90" endY="-114"/>
+              <bendpoint startX="-72" startY="165" endX="-126" endY="-138"/>
             </sourceConnection>
             <sourceConnection xsi:type="archimate:Connection" id="id-d43f4ad1dc6a4adc8d756b83f3523bbd" source="id-5bc1048d700d4650a28c338268b13af9" target="id-298b0cca464142aca4d0a0dacf94a631" archimateRelationship="id-a9c141993d53434f864fbdd7d64380bd">
               <feature name="labelExpression" value="Student&#xD;&#xA;Opleidingprogramma- en &#xD;&#xA;onderwijseenheid verbintenis"/>
-              <bendpoint startX="60" startY="93" endX="-6" endY="-210"/>
+              <bendpoint startX="12" startY="81" endX="-42" endY="-222"/>
             </sourceConnection>
             <sourceConnection xsi:type="archimate:Connection" id="id-a208e8ab082b4bc2841acae40e9e2c3b" source="id-5bc1048d700d4650a28c338268b13af9" target="id-674d2fb9758945fe8439a6b8ea17c6fa" archimateRelationship="id-165feef4f01844168541db0d418ac7ad">
               <feature name="labelExpression" value="Student, &#xD;&#xA;opleidingprogramma&#xD;&#xA;verbintenis,&#xD;&#xA;relevante groepen"/>
-              <bendpoint startX="264" startY="105" endX="-54" endY="-198"/>
+              <bendpoint startX="312" startY="129" endX="-66" endY="-174"/>
             </sourceConnection>
             <sourceConnection xsi:type="archimate:Connection" id="id-d7e16f6a398543d1b36d24e53d14d2e7" source="id-5bc1048d700d4650a28c338268b13af9" target="id-3df833df16584c22b5edaa969ca56e8b" archimateRelationship="id-89902da0c0e44d28adbf357aec3d9c54"/>
+            <sourceConnection xsi:type="archimate:Connection" id="id-7981f57b79674d4fa5766bda5ca2420d" source="id-5bc1048d700d4650a28c338268b13af9" target="id-298b0cca464142aca4d0a0dacf94a631" archimateRelationship="id-252405af217446c3a885e957321d990f">
+              <feature name="labelExpression" value="Student Opleidingsprogramma, &#xD;&#xA;onderwijseenheid voltooid"/>
+              <bendpoint startX="192" startY="69" endX="138" endY="-234"/>
+            </sourceConnection>
           </child>
           <child xsi:type="archimate:DiagramObject" id="id-6e5a221b40bd48f48925bb84272da26a" lineWidth="3" archimateElement="id-205c43730abe4f54afd60b117d36de7f">
             <bounds x="24" y="540" width="193" height="61"/>
             <sourceConnection xsi:type="archimate:Connection" id="id-c65f155e9cbc427e9c7bf2b2bf040efe" lineWidth="2" lineColor="#ff0000" source="id-6e5a221b40bd48f48925bb84272da26a" target="id-5bc1048d700d4650a28c338268b13af9" archimateRelationship="id-dd77d9e40ebb4cab931c0b8a5881a774">
               <feature name="labelExpression" value="Ontsluiten aanmeld-/inschrijfbaar &#xD;&#xA;opleidingsprogramma aanbod"/>
-              <bendpoint startX="-24" startY="-150" endX="-438" endY="154"/>
+              <bendpoint startX="-60" startY="-150" endX="-588" endY="153"/>
             </sourceConnection>
             <sourceConnection xsi:type="archimate:Connection" id="id-d158d8bb47d74d729af67be453e9d6a4" lineColor="#ff0000" source="id-6e5a221b40bd48f48925bb84272da26a" target="id-5bc1048d700d4650a28c338268b13af9" archimateRelationship="id-9974614f3bc34d129f6ad53bd00cce5d">
               <feature name="labelExpression" value="Onderwijs specificatie"/>
-              <bendpoint startX="72" startY="-186" endX="-342" endY="118"/>
+              <bendpoint startX="36" startY="-90" endX="-492" endY="213"/>
             </sourceConnection>
           </child>
           <child xsi:type="archimate:DiagramObject" id="id-bfd52839ab95487086a1e9bb67faebb1" targetConnections="id-3388ff7d76994e31a3e6d926468e7c3e" lineWidth="3" archimateElement="id-2e601cefd0844f01918630db40819c24">
             <bounds x="228" y="540" width="145" height="61"/>
           </child>
-          <child xsi:type="archimate:DiagramObject" id="id-298b0cca464142aca4d0a0dacf94a631" targetConnections="id-e0b42cf577e44d8ba2be3112bb2aa6de id-d43f4ad1dc6a4adc8d756b83f3523bbd" lineWidth="3" archimateElement="id-310f7a0eaa5542c1b0cc4982b6464c86">
-            <bounds x="528" y="540" width="253" height="61"/>
+          <child xsi:type="archimate:DiagramObject" id="id-298b0cca464142aca4d0a0dacf94a631" targetConnections="id-e0b42cf577e44d8ba2be3112bb2aa6de id-d43f4ad1dc6a4adc8d756b83f3523bbd id-7981f57b79674d4fa5766bda5ca2420d" lineWidth="3" archimateElement="id-310f7a0eaa5542c1b0cc4982b6464c86">
+            <bounds x="528" y="540" width="349" height="61"/>
             <sourceConnection xsi:type="archimate:Connection" id="id-7d699cc4c7654868851be760366b2090" source="id-298b0cca464142aca4d0a0dacf94a631" target="id-5bc1048d700d4650a28c338268b13af9" archimateRelationship="id-5c15cdf5f8f44cc78c134b5f853a7071">
               <feature name="labelExpression" value="Student, &#xD;&#xA;opleidingprogramma&#xD;&#xA;verbintenis,&#xD;&#xA;relevante groepen"/>
-              <bendpoint startX="90" startY="-114" endX="156" endY="189"/>
+              <bendpoint startX="42" startY="-126" endX="96" endY="177"/>
             </sourceConnection>
           </child>
           <child xsi:type="archimate:DiagramObject" id="id-674d2fb9758945fe8439a6b8ea17c6fa" targetConnections="id-a208e8ab082b4bc2841acae40e9e2c3b" lineWidth="3" archimateElement="id-070f8eab68754028bf84a7c1f4849c49">
-            <bounds x="792" y="540" width="229" height="61"/>
+            <bounds x="912" y="540" width="229" height="61"/>
             <sourceConnection xsi:type="archimate:Connection" id="id-e33290d5bcb049d7af03ab84286879c6" source="id-674d2fb9758945fe8439a6b8ea17c6fa" target="id-5bc1048d700d4650a28c338268b13af9" archimateRelationship="id-81f5915cfc414354b2c3242c48d000ab">
               <feature name="labelExpression" value="Student &#xD;&#xA;toetsgelegenheidverbintenis &#xD;&#xA;resultaat"/>
-              <bendpoint startX="42" startY="-126" endX="360" endY="177"/>
+              <bendpoint startX="42" startY="-126" endX="420" endY="177"/>
             </sourceConnection>
           </child>
           <child xsi:type="archimate:DiagramObject" id="id-699cee7a65984b7d8fcb02a71eb50d65" lineWidth="3" archimateElement="id-1ba9788c23f64ce085240277cc4afac5">
@@ -27258,7 +26968,7 @@ Vraagstuk hoeveel niet- onderwijs specificatie informatie willen we in de OC opn
             </sourceConnection>
           </child>
           <child xsi:type="archimate:Group" id="id-e2e55054b59245738d08e42996c85c59" name="RIO/CAMBO/AII" lineWidth="3" textAlignment="1" fillColor="#ffffff">
-            <bounds x="1032" y="522" width="505" height="97"/>
+            <bounds x="1152" y="522" width="505" height="97"/>
             <feature name="lineStyle" value="2"/>
             <child xsi:type="archimate:DiagramObject" id="id-07550b259d32403d8a7b30a70f4133fd" fontColor="#408080" fillColor="#ffffff" archimateElement="id-1e581d00a23743d8a81c6a3ce399511c">
               <bounds x="264" y="24" width="97" height="55"/>
@@ -27394,7 +27104,7 @@ Vraagstuk hoeveel niet- onderwijs specificatie informatie willen we in de OC opn
           <child xsi:type="archimate:DiagramObject" id="id-fc5b0f29397745b19ca18ebf6ec7b026" targetConnections="id-cb06d946d7e94e309756354f571b3349" lineWidth="3" archimateElement="id-310f7a0eaa5542c1b0cc4982b6464c86">
             <bounds x="660" y="288" width="409" height="73"/>
           </child>
-          <child xsi:type="archimate:DiagramObject" id="id-d0032a2d85ee49fbb3882e3042e71b3e" targetConnections="id-b3de75969b6045e8a71dbd5527d52850 id-798bbe2d93e4481c801561b2bb56e75b id-cf5b780aeaf541fdaf12a7c92467bda1 id-66c7558bce5e45f09230079b4b048055" archimateElement="id-9cf14a75ef7741ef8ad5da38c8b6c0c0">
+          <child xsi:type="archimate:DiagramObject" id="id-d0032a2d85ee49fbb3882e3042e71b3e" targetConnections="id-b3de75969b6045e8a71dbd5527d52850 id-798bbe2d93e4481c801561b2bb56e75b id-cf5b780aeaf541fdaf12a7c92467bda1 id-66c7558bce5e45f09230079b4b048055 id-2a313666089f45cca50d8108750ec9fc" archimateElement="id-9cf14a75ef7741ef8ad5da38c8b6c0c0">
             <bounds x="96" y="404" width="1477" height="55"/>
             <sourceConnection xsi:type="archimate:Connection" id="id-cb06d946d7e94e309756354f571b3349" source="id-d0032a2d85ee49fbb3882e3042e71b3e" target="id-fc5b0f29397745b19ca18ebf6ec7b026" archimateRelationship="id-ee155cd3f870410e9887431d64d0c507"/>
             <sourceConnection xsi:type="archimate:Connection" id="id-351d91115410474a954b319448c3ed82" source="id-d0032a2d85ee49fbb3882e3042e71b3e" target="id-51ab80fa8a40403faa42ebd09da7ea7d" archimateRelationship="id-12f667c52e79417a995a273784e953e1">
@@ -27407,6 +27117,7 @@ Vraagstuk hoeveel niet- onderwijs specificatie informatie willen we in de OC opn
             </sourceConnection>
             <sourceConnection xsi:type="archimate:Connection" id="id-553cf33dac964da0a58ebfad149b34dc" source="id-d0032a2d85ee49fbb3882e3042e71b3e" target="id-99cad28eb14f49eb991f981b6cbc8d7e" archimateRelationship="id-296836a911a748e1bfa753254af62ea0">
               <feature name="labelExpression" value="Student&#xD;&#xA;Opleidingprogramma- en &#xD;&#xA;onderwijseenheid verbintenis"/>
+              <bendpoint startX="-486" startY="253" endX="-54" endY="-113"/>
             </sourceConnection>
             <sourceConnection xsi:type="archimate:Connection" id="id-b543986c2393467ab9476d872427ef7e" source="id-d0032a2d85ee49fbb3882e3042e71b3e" target="id-a23bea1182274f44bbc8ef07f6c7fad0" archimateRelationship="id-4f706367030e41e8b3677313d586df2e">
               <feature name="labelExpression" value="Verzoek tot &#xD;&#xA;Opleidingprogramma- en &#xD;&#xA;onderwijseenheid verbintenis"/>
@@ -27430,6 +27141,10 @@ Vraagstuk hoeveel niet- onderwijs specificatie informatie willen we in de OC opn
             </child>
             <child xsi:type="archimate:DiagramObject" id="id-99cad28eb14f49eb991f981b6cbc8d7e" targetConnections="id-553cf33dac964da0a58ebfad149b34dc" lineWidth="3" archimateElement="id-95cdb66e0e1e4469aae0db58d1eca0f3">
               <bounds x="228" y="30" width="157" height="55"/>
+              <sourceConnection xsi:type="archimate:Connection" id="id-2a313666089f45cca50d8108750ec9fc" source="id-99cad28eb14f49eb991f981b6cbc8d7e" target="id-d0032a2d85ee49fbb3882e3042e71b3e" archimateRelationship="id-d3abbedf17bd4829b34e5214aa0c39a9">
+                <feature name="labelExpression" value="Student Opleidingsprogramma, &#xD;&#xA;onderwijseenheid voltooid"/>
+                <bendpoint startX="54" startY="-209" endX="-378" endY="157"/>
+              </sourceConnection>
             </child>
           </child>
           <child xsi:type="archimate:DiagramObject" id="id-a23bea1182274f44bbc8ef07f6c7fad0" targetConnections="id-b543986c2393467ab9476d872427ef7e id-5bb0d86e0c894044b09583670382b322" lineWidth="3" archimateElement="id-1ba9788c23f64ce085240277cc4afac5">
@@ -27456,6 +27171,330 @@ Vraagstuk hoeveel niet- onderwijs specificatie informatie willen we in de OC opn
             <bounds x="1380" y="760" width="193" height="73"/>
           </child>
           <documentation>obv 1.7.0</documentation>
+        </element>
+        <element xsi:type="archimate:ArchimateDiagramModel" name="OKx hoofdplaat (zonder context applicaties)" id="id-923fe2f272ce4eb5a10f6da193b1614b">
+          <child xsi:type="archimate:Group" id="id-20ad4893f33f4bc1bb45b8551d0b18ce" name="Group" textAlignment="1">
+            <bounds x="84" y="36" width="753" height="853"/>
+            <feature name="labelExpression" value="(onderwijsontwikkeling) Inrichting van nominale- en keuze aanbod"/>
+            <child xsi:type="archimate:DiagramObject" id="id-543087048adf4228acc5e6d433628f72" targetConnections="id-af0421f82a87446194ded4aa64adcaec id-5fb252fbef284427aa9c1f2ad1b33288" archimateElement="id-25903a2640fa43ddbd4aa2819beed937">
+              <bounds x="516" y="168" width="217" height="73"/>
+              <sourceConnection xsi:type="archimate:Connection" id="id-79c20a96369c4afdbd1c8cbac99caf99" lineColor="#0000ff" source="id-543087048adf4228acc5e6d433628f72" target="id-c639999b7dc44a65b0520074b3758220" archimateRelationship="id-020f091db6ea4763aad7527a98afaf99">
+                <feature name="labelExpression" value="Bevestiging creatie&#xD;&#xA;opleidingprogramma aanbod"/>
+                <bendpoint startX="36" startY="177" endX="336" endY="3"/>
+              </sourceConnection>
+              <sourceConnection xsi:type="archimate:Connection" id="id-d82edf8a14da4d68aaf7d7d3f27b3228" lineColor="#0000ff" source="id-543087048adf4228acc5e6d433628f72" target="id-c639999b7dc44a65b0520074b3758220" archimateRelationship="id-80d8c8398c2849528300c0ff54ae0709">
+                <feature name="labelExpression" value="Verzoek tot bijwerken onderwijspecificaties&#xD;&#xA;Planning elementen"/>
+                <bendpoint startX="-156" startY="-3" endX="144" endY="-147"/>
+                <bendpoint startX="-336" startY="-3" endX="-36" endY="-147"/>
+              </sourceConnection>
+              <sourceConnection xsi:type="archimate:Connection" id="id-9e457988057842d0a9f07818393e4692" source="id-543087048adf4228acc5e6d433628f72" target="id-44f9403d581c4e94911b76f8f17c2923" archimateRelationship="id-e4e3bf3644cb46008694bf3b1ba220c2"/>
+              <child xsi:type="archimate:DiagramObject" id="id-44f9403d581c4e94911b76f8f17c2923" targetConnections="id-9e457988057842d0a9f07818393e4692" font="1|Segoe UI|7.8|0|WINDOWS|1|-13|0|0|0|400|0|0|0|0|3|2|1|34|Segoe UI" archimateElement="id-b23c5e0268ae45c9affd0d3fd2f0867f">
+                <bounds x="12" y="24" width="193" height="36"/>
+              </child>
+            </child>
+            <child xsi:type="archimate:DiagramObject" id="id-2bf0c209d5364209b77e416e6f7e6d0e" targetConnections="id-a2617ee2d6f74e78b49f82e0c67f4756" lineWidth="3" archimateElement="id-7583e0350fa14a56a30726edda853203">
+              <bounds x="240" y="528" width="169" height="61"/>
+            </child>
+            <child xsi:type="archimate:Note" id="id-ffa320535d884c59a61f5b587eb6a3ec" font="1|Segoe UI|12.0|0|WINDOWS|1|-20|0|0|0|400|0|0|0|0|3|2|1|34|Segoe UI" textAlignment="1">
+              <bounds x="12" y="660" width="325" height="181"/>
+              <content>Okx hoofdplaat 1.7.1 &lt;concept>&#xD;
+- Onderwijs Catalogus groepering&#xD;
+- PlanningMeerjarenplanning links focus op capaciteit, nominale route uitwerking in OC&#xD;
+- KRS+SVS groepering&#xD;
+- SKS keuze differentiatie op wat en hoe&#xD;
+- EduHub toevoeging&#xD;
+- LLO in AII&#xD;
+</content>
+            </child>
+            <child xsi:type="archimate:Group" id="id-ba0318128cf847a990f81c209aa9cb70" name="RIO/CAMBO/AII" lineWidth="2" textAlignment="1" fillColor="#ffffff">
+              <bounds x="372" y="684" width="266" height="157"/>
+              <child xsi:type="archimate:DiagramObject" id="id-4e038111042244968f28f130c7be68b3" fontColor="#408080" fillColor="#ffffff" archimateElement="id-44f764d5a55e436d938dcdd4a529c519">
+                <bounds x="13" y="84" width="108" height="55"/>
+              </child>
+              <child xsi:type="archimate:DiagramObject" id="id-72afc81da1964dd391763a7882888311" fontColor="#408080" fillColor="#ffffff" archimateElement="id-85d59e5d664748d89874c883cd4db819">
+                <bounds x="133" y="84" width="121" height="55"/>
+              </child>
+              <child xsi:type="archimate:DiagramObject" id="id-c843f0560c7c40019dd4a1d43c0a019f" targetConnections="id-0295c73b85d8405f9d23d982c82ac8bd" fontColor="#408080" fillColor="#ffffff" archimateElement="id-c89ed4e4d0e64e3183df8450aa567900">
+                <bounds x="13" y="24" width="108" height="55"/>
+              </child>
+              <child xsi:type="archimate:DiagramObject" id="id-8fd01c2fb67c43648bf275bd285f8791" fontColor="#408080" fillColor="#ffffff" archimateElement="id-1f2f6fd1dfb5484cbb4d65a3d31be885">
+                <bounds x="133" y="24" width="121" height="55"/>
+              </child>
+            </child>
+            <child xsi:type="archimate:DiagramObject" id="id-19f751c9758a4601a92998484b90c04b" targetConnections="id-6f249b7f12cf4e778102cad475e9dc1a" archimateElement="id-35f129a1db48472a9524ff76f646ea3c">
+              <bounds x="516" y="480" width="15" height="15"/>
+              <sourceConnection xsi:type="archimate:Connection" id="id-4141fb7c661d482cba85abcc11f8219f" source="id-19f751c9758a4601a92998484b90c04b" target="id-fd4b712bc11c47c9a2ab33c8b7745869" archimateRelationship="id-93a2119839d141d5a02b0f79acaec91d"/>
+              <sourceConnection xsi:type="archimate:Connection" id="id-0295c73b85d8405f9d23d982c82ac8bd" lineColor="#0000ff" source="id-19f751c9758a4601a92998484b90c04b" target="id-c843f0560c7c40019dd4a1d43c0a019f" archimateRelationship="id-95a93363df2d4a4a86e86513535e1b01"/>
+              <sourceConnection xsi:type="archimate:Connection" id="id-da8433d19b094fe09d8f03694d180df2" lineColor="#0000ff" source="id-19f751c9758a4601a92998484b90c04b" target="id-7eb00f63a66441f8afcf0ab4ec52aaf7" archimateRelationship="id-66e330a4600d447cb59e91cbb985cd19"/>
+            </child>
+            <child xsi:type="archimate:Group" id="id-25e10d763454422a803a2171319e7750" name="Onderwijscatalogus" lineWidth="2" textAlignment="1" fillColor="#ffffff">
+              <bounds x="60" y="234" width="361" height="217"/>
+              <child xsi:type="archimate:DiagramObject" id="id-5e0bfa51513f4e4ea5de9d54465fb692" archimateElement="id-6ea5f46fa0a344078e8b439458471583">
+                <bounds x="12" y="30" width="157" height="115"/>
+                <sourceConnection xsi:type="archimate:Connection" id="id-b350b6b42d744caa946d5de511981cc0" lineColor="#0000ff" source="id-5e0bfa51513f4e4ea5de9d54465fb692" target="id-c639999b7dc44a65b0520074b3758220" archimateRelationship="id-e0f634dc7e484494bf941cfae1effbd7"/>
+                <sourceConnection xsi:type="archimate:Connection" id="id-2dd7aba6175843fd8dac81658c842981" source="id-5e0bfa51513f4e4ea5de9d54465fb692" target="id-bb61451deb71434183ea557dba448cdc" archimateRelationship="id-3f3700b4b94f45288d539f39e2fa54e2"/>
+                <child xsi:type="archimate:DiagramObject" id="id-bb61451deb71434183ea557dba448cdc" targetConnections="id-2dd7aba6175843fd8dac81658c842981" font="1|Segoe UI|7.8|0|WINDOWS|1|-13|0|0|0|400|0|0|0|0|3|2|1|34|Segoe UI" archimateElement="id-dd728aca73f14a948849c998ff965c3f">
+                  <bounds x="12" y="48" width="135" height="55"/>
+                </child>
+              </child>
+              <child xsi:type="archimate:DiagramObject" id="id-c639999b7dc44a65b0520074b3758220" targetConnections="id-79c20a96369c4afdbd1c8cbac99caf99 id-b350b6b42d744caa946d5de511981cc0 id-6e5dcfab7e284ca3bee33042ed85dadd id-d82edf8a14da4d68aaf7d7d3f27b3228" lineWidth="3" archimateElement="id-205c43730abe4f54afd60b117d36de7f">
+                <bounds x="180" y="30" width="169" height="175"/>
+                <sourceConnection xsi:type="archimate:Connection" id="id-a2617ee2d6f74e78b49f82e0c67f4756" lineWidth="2" lineColor="#ff0000" source="id-c639999b7dc44a65b0520074b3758220" target="id-2bf0c209d5364209b77e416e6f7e6d0e" archimateRelationship="id-d23841b89bed4935b2aebdeb12ee2acf">
+                  <feature name="labelExpression" value="Verzoek tot fijnmazige uitwerking&#xD;&#xA;onderwijs specificatie"/>
+                  <bendpoint startY="153" endY="-87"/>
+                </sourceConnection>
+                <sourceConnection xsi:type="archimate:Connection" id="id-af0421f82a87446194ded4aa64adcaec" lineWidth="2" lineColor="#ff0000" source="id-c639999b7dc44a65b0520074b3758220" target="id-543087048adf4228acc5e6d433628f72" archimateRelationship="id-1d27ecfa2c0d4fb7b4f7337e93eed033">
+                  <feature name="labelExpression" value="Verzoek tot maken onderwijsaanbod &#xD;&#xA;obv opleidingsprogramma-&#xD;&#xA;en onderwijseenheid specificaties"/>
+                  <bendpoint startX="240" startY="-69" endX="-60" endY="105"/>
+                </sourceConnection>
+                <sourceConnection xsi:type="archimate:Connection" id="id-6f249b7f12cf4e778102cad475e9dc1a" lineWidth="2" lineColor="#ff0000" source="id-c639999b7dc44a65b0520074b3758220" target="id-19f751c9758a4601a92998484b90c04b" archimateRelationship="id-ec248a00b6234f1688ee3705d46a59f7">
+                  <feature name="labelExpression" value="Ontsluiten aanmeld-/inschrijfbaar &#xD;&#xA;opleidingsprogramma aanbod"/>
+                  <bendpoint startX="204" startY="81" endX="-7" endY="-55"/>
+                </sourceConnection>
+                <sourceConnection xsi:type="archimate:Connection" id="id-168fc5d70ff748528fa8928b3a7f6f19" source="id-c639999b7dc44a65b0520074b3758220" target="id-e508d17389bb4409a70b92fa0921faa6" archimateRelationship="id-ce5963f78baf420d8a3c3c84092239ab"/>
+                <child xsi:type="archimate:DiagramObject" id="id-e508d17389bb4409a70b92fa0921faa6" targetConnections="id-168fc5d70ff748528fa8928b3a7f6f19" font="1|Segoe UI|7.8|0|WINDOWS|1|-13|0|0|0|400|0|0|0|0|3|2|1|34|Segoe UI" archimateElement="id-c4b52728ebb44456b3d425dcabf986f0">
+                  <bounds x="12" y="48" width="145" height="55"/>
+                </child>
+              </child>
+              <child xsi:type="archimate:DiagramObject" id="id-4b51d821bf7643b6bb82afd4225b148f" fontColor="#408080" fillColor="#ffffff" archimateElement="id-10d6dced9c2242848cf3a907d258229c">
+                <bounds x="12" y="150" width="157" height="55"/>
+                <sourceConnection xsi:type="archimate:Connection" id="id-6e5dcfab7e284ca3bee33042ed85dadd" lineColor="#0000ff" source="id-4b51d821bf7643b6bb82afd4225b148f" target="id-c639999b7dc44a65b0520074b3758220" archimateRelationship="id-040b922ee11b4cac8dd699e5d5fac507"/>
+              </child>
+            </child>
+            <child xsi:type="archimate:Group" id="id-0c4dd927a44b4f97a43b3029687815ea" name="Student Informatie Systeem" lineWidth="2" textAlignment="1" fillColor="#ffffff">
+              <bounds x="564" y="531" width="181" height="154"/>
+              <child xsi:type="archimate:DiagramObject" id="id-fd4b712bc11c47c9a2ab33c8b7745869" targetConnections="id-4141fb7c661d482cba85abcc11f8219f" lineWidth="3" archimateElement="id-e4cc8b950d5d4c1e9c35bd0c6dd94a33">
+                <bounds x="12" y="24" width="157" height="55"/>
+              </child>
+              <child xsi:type="archimate:DiagramObject" id="id-b60662bcdf624d88a4d7208099e03dae" lineWidth="3" archimateElement="id-95cdb66e0e1e4469aae0db58d1eca0f3">
+                <bounds x="12" y="84" width="157" height="55"/>
+              </child>
+            </child>
+            <child xsi:type="archimate:DiagramObject" id="id-7eb00f63a66441f8afcf0ab4ec52aaf7" targetConnections="id-da8433d19b094fe09d8f03694d180df2" fillColor="#ffffff" archimateElement="id-f638fb68098948179355f582ac22f6a0">
+              <bounds x="289" y="600" width="120" height="55"/>
+              <feature name="iconColor" value="#408080"/>
+            </child>
+          </child>
+          <child xsi:type="archimate:Group" id="id-17e63bf9525841e0b900cf047261e692" name="Group" textAlignment="1">
+            <bounds x="864" y="36" width="1476" height="853"/>
+            <feature name="labelExpression" value="(onderwijsuitvoering) Student studeeert en maakt keuzes"/>
+            <child xsi:type="archimate:DiagramObject" id="id-172a3a4d676a42a6b20e407bbcb7ca56" targetConnections="id-6c6f4a23146e45908c8ed28a06ea9f29 id-6425a420621a46e984567f6c8daf88c4" lineWidth="3" archimateElement="id-1ba9788c23f64ce085240277cc4afac5">
+              <bounds x="598" y="168" width="302" height="73"/>
+              <sourceConnection xsi:type="archimate:Connection" id="id-e88f947815c44ff69b804dc312a6c08c" source="id-172a3a4d676a42a6b20e407bbcb7ca56" target="id-3079f3f8fcd8476580b4a579ba65b126" archimateRelationship="id-7aaf2959ba45489296a1c1d89dae786c">
+                <feature name="labelExpression" value="Ontsluiten van &#xD;&#xA;geroosterde &#xD;&#xA;leergelegenheden&#xD;&#xA;(detail en capaciteit)"/>
+                <bendpoint startX="-102" startY="123" endX="13" endY="-90"/>
+              </sourceConnection>
+              <sourceConnection xsi:type="archimate:Connection" id="id-27b7ace9ec694525b55d045a79eaf000" source="id-172a3a4d676a42a6b20e407bbcb7ca56" target="id-3079f3f8fcd8476580b4a579ba65b126" archimateRelationship="id-7a7e0a17557f487a86fd347ad8569f24">
+                <feature name="labelExpression" value="Student&#xD;&#xA;Opleidingprogramma- en &#xD;&#xA;onderwijseenheid verbintenis&#xD;&#xA;(+ planninggroep)"/>
+                <bendpoint startX="151" startY="114" endX="266" endY="-90"/>
+              </sourceConnection>
+              <sourceConnection xsi:type="archimate:Connection" id="id-0b61601ce181499a9905a95eb284e22c" source="id-172a3a4d676a42a6b20e407bbcb7ca56" target="id-a3b0ce13887e4965ba59185810a047fe" archimateRelationship="id-70bdd7dbcb234951ad2c1c719f19c543">
+                <feature name="labelExpression" value="Ontsluiten &#xD;&#xA;planninggroepen &#xD;&#xA;met studenten"/>
+                <bendpoint startX="-125" startY="75" endX="247" endY="-351"/>
+                <bendpoint startX="-533" startY="75" endX="-161" endY="-351"/>
+                <bendpoint startX="-533" startY="99" endX="-161" endY="-327"/>
+                <bendpoint startX="-533" startY="135" endX="-161" endY="-291"/>
+              </sourceConnection>
+            </child>
+            <child xsi:type="archimate:DiagramObject" id="id-3079f3f8fcd8476580b4a579ba65b126" targetConnections="id-e88f947815c44ff69b804dc312a6c08c id-27b7ace9ec694525b55d045a79eaf000 id-b7e233f028ee4818a135c1e44d438b82 id-a1bb699323824af299c4b2372b8a0f65 id-e0c5c133fbd546a6b149a29d000afcc2 id-e21731e16a754c46a758c2ea11761a2d" lineWidth="3" archimateElement="id-310f7a0eaa5542c1b0cc4982b6464c86">
+              <bounds x="297" y="372" width="675" height="85"/>
+              <sourceConnection xsi:type="archimate:Connection" id="id-d72eea06424044b284fa05ffd22efcdf" source="id-3079f3f8fcd8476580b4a579ba65b126" target="id-8d72c0c8c2c84b5fb8f25f9ef2e16b90" archimateRelationship="id-3aefce69b5454d4eb5f2d28e6e6ec13e">
+                <feature name="labelExpression" value="Student&#xD;&#xA;Opleidingprogramma- en &#xD;&#xA;onderwijseenheid verbintenis"/>
+                <bendpoint startX="170" startY="114" endX="-125" endY="-99"/>
+              </sourceConnection>
+              <sourceConnection xsi:type="archimate:Connection" id="id-fda86500d4bb458b85b16dec9c3d0d07" source="id-3079f3f8fcd8476580b4a579ba65b126" target="id-1f010c8c9e894808a7b79e5ca6e2b6f7" archimateRelationship="id-926ba88e5d2d41788005699e8eedf6bb">
+                <feature name="labelExpression" value="Opleidingprogramma-,&#xD;&#xA;opleidingseenheid&#xD;&#xA;verbintenis,&#xD;&#xA;planninggroep"/>
+              </sourceConnection>
+              <sourceConnection xsi:type="archimate:Connection" id="id-6c6f4a23146e45908c8ed28a06ea9f29" source="id-3079f3f8fcd8476580b4a579ba65b126" target="id-172a3a4d676a42a6b20e407bbcb7ca56" archimateRelationship="id-e38169b2a08a47d2ab3722ea29bfc8ba">
+                <feature name="labelExpression" value="Verzoek tot &#xD;&#xA;Opleidingprogramma- en &#xD;&#xA;onderwijseenheid verbintenis"/>
+                <bendpoint startX="133" startY="-138" endX="18" endY="75"/>
+              </sourceConnection>
+              <sourceConnection xsi:type="archimate:Connection" id="id-46f15e4bc5da427fb738aae6030abcc7" source="id-3079f3f8fcd8476580b4a579ba65b126" target="id-0011daf6c0754638bb72ad55508c8a1f" archimateRelationship="id-726d0826868b4be1afc4145fbd9ad49c">
+                <feature name="labelExpression" value="Intekening student &#xD;&#xA;op (nog) ongepland &#xD;&#xA;opleidingprogramma-,&#xD;&#xA;opleidingseenheid&#xD;&#xA;(animo)"/>
+                <bendpoint startX="-287" startY="-90" endX="102" endY="123"/>
+              </sourceConnection>
+              <sourceConnection xsi:type="archimate:Connection" id="id-54a4c750f56f4e7ab230b2282e3ac848" source="id-3079f3f8fcd8476580b4a579ba65b126" target="id-a3b0ce13887e4965ba59185810a047fe" archimateRelationship="id-642ea2bf4fcd4d58968ba4f952a7e990">
+                <feature name="labelExpression" value="Student&#xD;&#xA;Opleidingprogramma&#xD;&#xA;verbintenis &#xD;&#xA;(type: keuzedeel/credential)"/>
+                <bendpoint startX="-299" startY="108" endX="-42" endY="-111"/>
+              </sourceConnection>
+              <sourceConnection xsi:type="archimate:Connection" id="id-216d5f3360084ff78f5197878c02f54a" source="id-3079f3f8fcd8476580b4a579ba65b126" target="id-7addfa1922fe4107a8b0f118f550ef2b" archimateRelationship="id-213fe1b0fc514586a012bec0dc1e9901"/>
+              <sourceConnection xsi:type="archimate:Connection" id="id-a7d21b1b812b42308ed8b202340da8bf" source="id-3079f3f8fcd8476580b4a579ba65b126" target="id-471c597ebc274481b3a70a73840d487f" archimateRelationship="id-2bbac2c97bc44221ad40ae32e8aa0cc3"/>
+              <sourceConnection xsi:type="archimate:Connection" id="id-0d83846491ad41b98a7007c1ab7e1ea2" source="id-3079f3f8fcd8476580b4a579ba65b126" target="id-496f99722a97497e8d8a94e864521231" archimateRelationship="id-a13da7a70cf045baab6851e8a859293c"/>
+              <sourceConnection xsi:type="archimate:Connection" id="id-621c5823463c44939acbae84bb71b192" source="id-3079f3f8fcd8476580b4a579ba65b126" target="id-06c764c6a70048f5a2386cc90816d858" archimateRelationship="id-36da05e3d7b04319b0df1bf7a7d0a21f"/>
+              <child xsi:type="archimate:DiagramObject" id="id-7addfa1922fe4107a8b0f118f550ef2b" targetConnections="id-216d5f3360084ff78f5197878c02f54a" font="1|Segoe UI|7.8|0|WINDOWS|1|-13|0|0|0|400|0|0|0|0|3|2|1|34|Segoe UI" archimateElement="id-74da000635b6457598914e00bdb091e5">
+                <bounds x="156" y="22" width="133" height="48"/>
+              </child>
+              <child xsi:type="archimate:DiagramObject" id="id-471c597ebc274481b3a70a73840d487f" targetConnections="id-a7d21b1b812b42308ed8b202340da8bf" font="1|Segoe UI|7.8|0|WINDOWS|1|-13|0|0|0|400|0|0|0|0|3|2|1|34|Segoe UI" archimateElement="id-bd68fd8033fe46f180f26efa8af62179">
+                <bounds x="12" y="22" width="145" height="48"/>
+              </child>
+              <child xsi:type="archimate:Note" id="id-17b7cc8af648420da71184681febd708" font="1|Segoe UI|7.8|0|WINDOWS|1|-13|0|0|0|400|0|0|0|0|3|2|1|34|Segoe UI" textAlignment="1" fillColor="#80ffff">
+                <bounds x="539" y="24" width="132" height="49"/>
+                <content>Meerdere SKS'en in het landschap mogelijk</content>
+              </child>
+              <child xsi:type="archimate:DiagramObject" id="id-496f99722a97497e8d8a94e864521231" targetConnections="id-0d83846491ad41b98a7007c1ab7e1ea2" font="1|Segoe UI|7.8|0|WINDOWS|1|-13|0|0|0|400|0|0|0|0|3|2|1|34|Segoe UI" archimateElement="id-7bae725cd55a464f9b855cd642a6bdc5">
+                <bounds x="288" y="22" width="133" height="48"/>
+              </child>
+              <child xsi:type="archimate:DiagramObject" id="id-06c764c6a70048f5a2386cc90816d858" targetConnections="id-621c5823463c44939acbae84bb71b192" font="1|Segoe UI|7.8|0|WINDOWS|1|-13|0|0|0|400|0|0|0|0|3|2|1|34|Segoe UI" archimateElement="id-e9fe90af46804806aede01b33a70f58a">
+                <bounds x="420" y="24" width="120" height="46"/>
+              </child>
+            </child>
+            <child xsi:type="archimate:DiagramObject" id="id-0011daf6c0754638bb72ad55508c8a1f" targetConnections="id-329df613188043df9950b5eda75e6032 id-46f15e4bc5da427fb738aae6030abcc7" lineWidth="3" archimateElement="id-2e601cefd0844f01918630db40819c24">
+              <bounds x="12" y="168" width="385" height="73"/>
+              <sourceConnection xsi:type="archimate:Connection" id="id-6425a420621a46e984567f6c8daf88c4" source="id-0011daf6c0754638bb72ad55508c8a1f" target="id-172a3a4d676a42a6b20e407bbcb7ca56" archimateRelationship="id-08467fe302794db6b935ff685e83efe0">
+                <feature name="labelExpression" value="Verzoek tot roosteren leergelegenheid&#xD;&#xA;Ontsluiten van planninggroepen&#xD;&#xA;"/>
+                <bendpoint startX="186" startY="4" endX="-284" endY="4"/>
+                <bendpoint startX="294" startY="3" endX="-257" endY="3"/>
+                <bendpoint startX="294" startY="4" endX="-176" endY="4"/>
+              </sourceConnection>
+              <sourceConnection xsi:type="archimate:Connection" id="id-a1bb699323824af299c4b2372b8a0f65" lineColor="#400040" source="id-0011daf6c0754638bb72ad55508c8a1f" target="id-3079f3f8fcd8476580b4a579ba65b126" archimateRelationship="id-6268df4c8b1e4a1ca02d4bd6732b8b34">
+                <feature name="labelExpression" value="Onsluiten geplande &#xD;&#xA;leergelegenheden&#xD;&#xA;(capaciteit)"/>
+                <bendpoint startX="234" startY="111" endX="-155" endY="-102"/>
+              </sourceConnection>
+              <sourceConnection xsi:type="archimate:Connection" id="id-5fb252fbef284427aa9c1f2ad1b33288" source="id-0011daf6c0754638bb72ad55508c8a1f" target="id-543087048adf4228acc5e6d433628f72" archimateRelationship="id-e0ece4d20f924f3392b7dd23984d52f8"/>
+              <sourceConnection xsi:type="archimate:Connection" id="id-0b33960912574b729ce25b406ceaa736" source="id-0011daf6c0754638bb72ad55508c8a1f" target="id-91c61fc8cfbe4371b2da01331614294a" archimateRelationship="id-c828ea20828d491493651a4ffa57f530"/>
+              <sourceConnection xsi:type="archimate:Connection" id="id-4be58bedd95242a4ae2c2599a01df0fa" source="id-0011daf6c0754638bb72ad55508c8a1f" target="id-21cecdb8ead8425ca841e75d8a9ddec2" archimateRelationship="id-22fdee5270384bafaf9d8ff82c620b30"/>
+              <sourceConnection xsi:type="archimate:Connection" id="id-9a18f691438b4c88ab3f1e136563ab1e" source="id-0011daf6c0754638bb72ad55508c8a1f" target="id-768132c679464c49a126bdc84e8a0c10" archimateRelationship="id-c4df252b21de4ef882ebf88565a10de5"/>
+              <child xsi:type="archimate:DiagramObject" id="id-91c61fc8cfbe4371b2da01331614294a" targetConnections="id-0b33960912574b729ce25b406ceaa736" font="1|Segoe UI|7.8|0|WINDOWS|1|-13|0|0|0|400|0|0|0|0|3|2|1|34|Segoe UI" archimateElement="id-ebca35fc037a4f54ad1d47cef22cd233">
+                <bounds x="12" y="24" width="120" height="37"/>
+              </child>
+              <child xsi:type="archimate:DiagramObject" id="id-21cecdb8ead8425ca841e75d8a9ddec2" targetConnections="id-4be58bedd95242a4ae2c2599a01df0fa" font="1|Segoe UI|7.8|0|WINDOWS|1|-13|0|0|0|400|0|0|0|0|3|2|1|34|Segoe UI" archimateElement="id-62e1d64d1d5d415ca43cfd4bc50abadc">
+                <bounds x="276" y="24" width="98" height="37"/>
+              </child>
+              <child xsi:type="archimate:DiagramObject" id="id-768132c679464c49a126bdc84e8a0c10" targetConnections="id-9a18f691438b4c88ab3f1e136563ab1e" font="1|Segoe UI|7.8|0|WINDOWS|1|-13|0|0|0|400|0|0|0|0|3|2|1|34|Segoe UI" archimateElement="id-4a28372a85d445569f091862c68020cf">
+                <bounds x="131" y="24" width="145" height="37"/>
+              </child>
+            </child>
+            <child xsi:type="archimate:DiagramObject" id="id-cb41eb27b0924a45ab8d001159a66b1f" targetConnections="id-a2144717ef8f41b98f3c94d374a6f74d" lineWidth="3" archimateElement="id-80be190358c14ed096b1da3f6806dd09">
+              <bounds x="1134" y="168" width="270" height="73"/>
+              <sourceConnection xsi:type="archimate:Connection" id="id-006700df300642a68ee8b9c0a06d0a5e" lineWidth="2" lineColor="#ff0000" source="id-cb41eb27b0924a45ab8d001159a66b1f" target="id-b3477c2f0db04b4d9c764245e5db98c3" archimateRelationship="id-e2755a76b8244373bd7e8da4ccb7c3f6">
+                <feature name="labelExpression" value="Onderwijs specificatie"/>
+                <bendpoint startX="62" startY="75" endX="-7" endY="-31"/>
+              </sourceConnection>
+              <sourceConnection xsi:type="archimate:Connection" id="id-e0c5c133fbd546a6b149a29d000afcc2" lineWidth="2" lineColor="#000000" source="id-cb41eb27b0924a45ab8d001159a66b1f" target="id-3079f3f8fcd8476580b4a579ba65b126" archimateRelationship="id-5f2568d7b99a49eaa863f539ae362f4d">
+                <feature name="labelExpression" value="Onderwijsprogramma&#xD;&#xA;aanbod"/>
+              </sourceConnection>
+            </child>
+            <child xsi:type="archimate:DiagramObject" id="id-1f010c8c9e894808a7b79e5ca6e2b6f7" targetConnections="id-fda86500d4bb458b85b16dec9c3d0d07 id-26d8f4c6df7e48cc83366688cadc6997 id-d06a683b543f4e88abaf0b21514181bb id-0132dec456974be9b2b96206dc2cdc98" lineWidth="3" archimateElement="id-070f8eab68754028bf84a7c1f4849c49">
+              <bounds x="1134" y="372" width="270" height="109"/>
+              <sourceConnection xsi:type="archimate:Connection" id="id-643de9b50ea44877ac8bea283b96a53e" source="id-1f010c8c9e894808a7b79e5ca6e2b6f7" target="id-8d72c0c8c2c84b5fb8f25f9ef2e16b90" archimateRelationship="id-979d8078315c47139a73942028c0300d">
+                <feature name="labelExpression" value="Student &#xD;&#xA;toetsgelegenheidverbintenis &#xD;&#xA;resultaat"/>
+                <bendpoint startX="-70" startY="90" endX="270" endY="-111"/>
+                <bendpoint startX="-70" startY="90" endX="270" endY="-111"/>
+                <bendpoint startX="-70" startY="198" endX="270" endY="-3"/>
+              </sourceConnection>
+              <child xsi:type="archimate:Note" id="id-c831d803cbbe488db489e4c3c9126e1d" font="1|Segoe UI|7.8|0|WINDOWS|1|-13|0|0|0|400|0|0|0|0|3|2|1|34|Segoe UI" textAlignment="1" fillColor="#80ffff">
+                <bounds x="120" y="60" width="145" height="43"/>
+                <content>Meerdere LMS'en in het landschap mogelijk</content>
+              </child>
+            </child>
+            <child xsi:type="archimate:DiagramObject" id="id-4ef7c73ebd864829baee894b01021d91" targetConnections="id-9c9677da4e6a4ebd9194448d314cd84e" fontColor="#408080" fillColor="#ffffff" archimateElement="id-ff2add1d0be347c6b97ffba187a92114">
+              <bounds x="1139" y="696" width="193" height="55"/>
+              <sourceConnection xsi:type="archimate:Connection" id="id-4dbb385ffc6a4fcc9220c12a211a4065" lineColor="#ff8000" source="id-4ef7c73ebd864829baee894b01021d91" target="id-4686924a51074d51920d3745a87ebcb8" archimateRelationship="id-1691fb3b04e145a8af87bb1ef191df6a">
+                <bendpoint startX="-288" startY="-15" endX="282" endY="-15"/>
+              </sourceConnection>
+              <sourceConnection xsi:type="archimate:Connection" id="id-26d8f4c6df7e48cc83366688cadc6997" lineColor="#0000ff" source="id-4ef7c73ebd864829baee894b01021d91" target="id-1f010c8c9e894808a7b79e5ca6e2b6f7" archimateRelationship="id-3e7126f6eb51463f89f9d13fb3da0f33">
+                <bendpoint startX="48" startY="-159" endX="14" endY="138"/>
+              </sourceConnection>
+            </child>
+            <child xsi:type="archimate:DiagramObject" id="id-6eda163ae43e47f5ae13b8a6234ae650" targetConnections="id-586b998d6e0b4162b59095a3de5944b4" archimateElement="id-4649e051567346f8a683734902bf9460">
+              <bounds x="667" y="768" width="120" height="76"/>
+            </child>
+            <child xsi:type="archimate:DiagramObject" id="id-ae8a829c40794bf5b9aaed844e34c1fe" fontColor="#408080" fillColor="#ffffff" archimateElement="id-0e2a7e10c90c43df8a4eaf183616ba8b">
+              <bounds x="143" y="780" width="122" height="55"/>
+            </child>
+            <child xsi:type="archimate:DiagramObject" id="id-4686924a51074d51920d3745a87ebcb8" targetConnections="id-a23f69b2844546fc81bd5120ec473490 id-4dbb385ffc6a4fcc9220c12a211a4065" fontColor="#408080" fillColor="#ffffff" archimateElement="id-f01434587e9e46e7ba4143aaf5596142">
+              <bounds x="947" y="696" width="156" height="55"/>
+              <sourceConnection xsi:type="archimate:Connection" id="id-9c9677da4e6a4ebd9194448d314cd84e" lineColor="#ff8000" source="id-4686924a51074d51920d3745a87ebcb8" target="id-4ef7c73ebd864829baee894b01021d91" archimateRelationship="id-59cfa429b5d54df08dac59bce567479a"/>
+              <sourceConnection xsi:type="archimate:Connection" id="id-de28dfdbcaf246dc91cc28e700ee82a3" lineColor="#ff8000" source="id-4686924a51074d51920d3745a87ebcb8" target="id-8d72c0c8c2c84b5fb8f25f9ef2e16b90" archimateRelationship="id-eed62135bc004cabbe798074d14ac533">
+                <bendpoint startX="30" startY="-63" endX="31" endY="45"/>
+              </sourceConnection>
+            </child>
+            <child xsi:type="archimate:DiagramObject" id="id-b97593f5ca374a4fb7cc73bd53bfb62d" targetConnections="id-356ea86072ad4c9da917add88ac1acc5" archimateElement="id-8ac3ccd5e9ff414db63c042cae8367e7">
+              <bounds x="584" y="468" width="15" height="15"/>
+              <sourceConnection xsi:type="archimate:Connection" id="id-b7e233f028ee4818a135c1e44d438b82" source="id-b97593f5ca374a4fb7cc73bd53bfb62d" target="id-3079f3f8fcd8476580b4a579ba65b126" archimateRelationship="id-bce9b9e0ed794856b0c130e9b576cfc3">
+                <bendpoint startX="-4" startY="-7" endX="-47" endY="66"/>
+              </sourceConnection>
+              <sourceConnection xsi:type="archimate:Connection" id="id-0132dec456974be9b2b96206dc2cdc98" lineColor="#000000" source="id-b97593f5ca374a4fb7cc73bd53bfb62d" target="id-1f010c8c9e894808a7b79e5ca6e2b6f7" archimateRelationship="id-1995b6411d4d408f8c0d61117558ca09"/>
+            </child>
+            <child xsi:type="archimate:DiagramObject" id="id-b3477c2f0db04b4d9c764245e5db98c3" targetConnections="id-006700df300642a68ee8b9c0a06d0a5e" archimateElement="id-44e3b50cb2d744e8a0a56d568fa8df0c">
+              <bounds x="1331" y="300" width="15" height="15"/>
+              <sourceConnection xsi:type="archimate:Connection" id="id-d06a683b543f4e88abaf0b21514181bb" lineWidth="2" lineColor="#ff0000" source="id-b3477c2f0db04b4d9c764245e5db98c3" target="id-1f010c8c9e894808a7b79e5ca6e2b6f7" archimateRelationship="id-ec331ef495654bab924822fe5d047196">
+                <bendpoint startX="-7" startY="5" endX="62" endY="-114"/>
+              </sourceConnection>
+              <sourceConnection xsi:type="archimate:Connection" id="id-736a3e4a85994c8ea6104b2984896718" lineWidth="2" lineColor="#ff0000" source="id-b3477c2f0db04b4d9c764245e5db98c3" target="id-8d72c0c8c2c84b5fb8f25f9ef2e16b90" archimateRelationship="id-3df87f5bfa1a4667a96a2cd5801ff9aa">
+                <bendpoint startX="5" startY="5" endX="414" endY="-315"/>
+                <bendpoint startX="101" startY="5" endX="510" endY="-315"/>
+                <bendpoint startX="101" startY="473" endX="510" endY="153"/>
+                <bendpoint startX="-463" startY="473" endX="-54" endY="153"/>
+              </sourceConnection>
+            </child>
+            <child xsi:type="archimate:Group" id="id-cc0fbaf4038944bfb75ecd7208f801e6" name="Student Informatie Systeem" lineWidth="2" textAlignment="1" fillColor="#ffffff">
+              <bounds x="119" y="564" width="997" height="106"/>
+              <child xsi:type="archimate:DiagramObject" id="id-a3b0ce13887e4965ba59185810a047fe" targetConnections="id-54a4c750f56f4e7ab230b2282e3ac848 id-9b0e916e92ff4be9b3bdf61077957295 id-0b61601ce181499a9905a95eb284e22c" lineWidth="3" archimateElement="id-7baf9f6edc4045ef83ba269fc9a75623">
+                <bounds x="24" y="36" width="469" height="55"/>
+                <sourceConnection xsi:type="archimate:Connection" id="id-329df613188043df9950b5eda75e6032" source="id-a3b0ce13887e4965ba59185810a047fe" target="id-0011daf6c0754638bb72ad55508c8a1f" archimateRelationship="id-97010c562d8841f9b908e72b1d2b3f9a">
+                  <feature name="labelExpression" value="Ontsluiten &#xD;&#xA;plaatsingsgroepen &#xD;&#xA;met studenten"/>
+                  <bendpoint startX="-198" startY="-99" endX="-84" endY="327"/>
+                </sourceConnection>
+                <sourceConnection xsi:type="archimate:Connection" id="id-356ea86072ad4c9da917add88ac1acc5" source="id-a3b0ce13887e4965ba59185810a047fe" target="id-b97593f5ca374a4fb7cc73bd53bfb62d" archimateRelationship="id-865f297e8c1f4371aa143aa225fe4b7f">
+                  <feature name="labelExpression" value="Student, &#xD;&#xA;opleidingprogramma&#xD;&#xA;verbintenis,&#xD;&#xA;relevante groepen"/>
+                  <bendpoint startX="222" startY="-86" endX="-4" endY="68"/>
+                  <bendpoint startX="222" startY="-98" endX="-4" endY="56"/>
+                  <bendpoint startX="222" startY="-134" endX="-4" endY="20"/>
+                </sourceConnection>
+                <sourceConnection xsi:type="archimate:Connection" id="id-36b0122e18ca4876be98e9c71a6f0e6b" source="id-a3b0ce13887e4965ba59185810a047fe" target="id-39ccfe71bd234628b2f0b729e0e8f320" archimateRelationship="id-306d6aaa82c2407c8bdfedfe6c8be8a6"/>
+                <sourceConnection xsi:type="archimate:Connection" id="id-ffc39a2aa06447528423446109bf1327" lineColor="#0000ff" source="id-a3b0ce13887e4965ba59185810a047fe" target="id-8d72c0c8c2c84b5fb8f25f9ef2e16b90" archimateRelationship="id-7caa8c2bdf9c42f6af189ddc4a3bbfa6">
+                  <bendpoint startX="222" startY="33" endX="-330" endY="33"/>
+                  <bendpoint startX="390" startY="33" endX="-162" endY="33"/>
+                </sourceConnection>
+                <child xsi:type="archimate:DiagramObject" id="id-39ccfe71bd234628b2f0b729e0e8f320" targetConnections="id-36b0122e18ca4876be98e9c71a6f0e6b" font="1|Segoe UI|7.8|0|WINDOWS|1|-13|0|0|0|400|0|0|0|0|3|2|1|34|Segoe UI" archimateElement="id-cd6bcd5a864949b6858aecc1c90e766f">
+                  <bounds x="120" y="24" width="241" height="25"/>
+                </child>
+              </child>
+              <child xsi:type="archimate:DiagramObject" id="id-8d72c0c8c2c84b5fb8f25f9ef2e16b90" targetConnections="id-d72eea06424044b284fa05ffd22efcdf id-de28dfdbcaf246dc91cc28e700ee82a3 id-643de9b50ea44877ac8bea283b96a53e id-736a3e4a85994c8ea6104b2984896718 id-ffc39a2aa06447528423446109bf1327" lineWidth="3" archimateElement="id-ac2ad83f9efa417bab6b7c9c05e4bfe4">
+                <bounds x="636" y="36" width="349" height="55"/>
+                <sourceConnection xsi:type="archimate:Connection" id="id-a23f69b2844546fc81bd5120ec473490" fontColor="#ff8000" lineColor="#ff8000" source="id-8d72c0c8c2c84b5fb8f25f9ef2e16b90" target="id-4686924a51074d51920d3745a87ebcb8" archimateRelationship="id-a18ac9501e7142f08e6f0f31928b567d">
+                  <feature name="labelExpression" value="&lt;OKE>"/>
+                  <bendpoint startX="-6" startY="107" endX="-24" endY="-109"/>
+                </sourceConnection>
+                <sourceConnection xsi:type="archimate:Connection" id="id-e21731e16a754c46a758c2ea11761a2d" source="id-8d72c0c8c2c84b5fb8f25f9ef2e16b90" target="id-3079f3f8fcd8476580b4a579ba65b126" archimateRelationship="id-9adeda53478c48c4ad4c05bdbda902d9">
+                  <feature name="labelExpression" value="Student Opleidingsprogramma, &#xD;&#xA;onderwijseenheid voltooid"/>
+                  <bendpoint startX="19" startY="-123" endX="314" endY="90"/>
+                </sourceConnection>
+              </child>
+            </child>
+            <child xsi:type="archimate:DiagramObject" id="id-81613040fd45404baaa5c9f15ecac14b" targetConnections="id-503973fa0d314525b6a29a9451d7c561" fontColor="#408080" fillColor="#ffffff" archimateElement="id-807e1b5000974ac18026fa3c586b67c5">
+              <bounds x="491" y="696" width="120" height="55"/>
+            </child>
+            <child xsi:type="archimate:Group" id="id-0deaea952ed3417eb42caab0c04cbbf8" name="RIO/CAMBO/AII" lineWidth="2" textAlignment="1" fillColor="#ffffff">
+              <bounds x="118" y="747" width="505" height="97"/>
+              <sourceConnection id="id-586b998d6e0b4162b59095a3de5944b4" source="id-0deaea952ed3417eb42caab0c04cbbf8" target="id-6eda163ae43e47f5ae13b8a6234ae650"/>
+              <child xsi:type="archimate:DiagramObject" id="id-a69718fe39ee4015ae64197abef1d0db" fontColor="#408080" fillColor="#ffffff" archimateElement="id-1e581d00a23743d8a81c6a3ce399511c">
+                <bounds x="264" y="24" width="97" height="55"/>
+              </child>
+              <child xsi:type="archimate:DiagramObject" id="id-4ef0245d3b254200bb601069ba0691b1" fontColor="#408080" fillColor="#ffffff" archimateElement="id-128a8e4526b44806845426bab4eb850a">
+                <bounds x="132" y="24" width="121" height="55"/>
+              </child>
+              <child xsi:type="archimate:DiagramObject" id="id-da949c96e8c74411873eb0efb08c0ba9" fontColor="#408080" fillColor="#ffffff" archimateElement="id-99890ee8aca64528ad2736fb5353c025">
+                <bounds x="12" y="24" width="108" height="55"/>
+                <sourceConnection xsi:type="archimate:Connection" id="id-9b0e916e92ff4be9b3bdf61077957295" source="id-da949c96e8c74411873eb0efb08c0ba9" target="id-a3b0ce13887e4965ba59185810a047fe" archimateRelationship="id-eaed86afaeee476d885121adbf18f0b1">
+                  <feature name="labelExpression" value="Persoon(Student)&#xD;&#xA;Opleidingprogramma&#xD;&#xA;verbintenis"/>
+                </sourceConnection>
+              </child>
+              <child xsi:type="archimate:DiagramObject" id="id-1268ecdf0bc44f10bc152127b6307a37" fontColor="#408080" fillColor="#ffffff" archimateElement="id-b88d0cbb76f84133a1bae1ed191479f6">
+                <bounds x="372" y="24" width="121" height="55"/>
+                <sourceConnection xsi:type="archimate:Connection" id="id-503973fa0d314525b6a29a9451d7c561" lineColor="#0000ff" source="id-1268ecdf0bc44f10bc152127b6307a37" target="id-81613040fd45404baaa5c9f15ecac14b" archimateRelationship="id-d3166763e80b4c278176f662d9339336"/>
+              </child>
+            </child>
+            <child xsi:type="archimate:DiagramObject" id="id-9249ba07567c4b69be86ae0ac21a6004" fillColor="#ffffff" archimateElement="id-6cdecf0ce12642feb2809bcc18fd8689">
+              <bounds x="1284" y="51" width="120" height="55"/>
+              <feature name="iconColor" value="#408080"/>
+              <sourceConnection xsi:type="archimate:Connection" id="id-a2144717ef8f41b98f3c94d374a6f74d" source="id-9249ba07567c4b69be86ae0ac21a6004" target="id-cb41eb27b0924a45ab8d001159a66b1f" archimateRelationship="id-6e1843a92b8941dea4ef85e9f454645b">
+                <feature name="labelExpression" value="Extern &#xD;&#xA;onderwijsprogramma &#xD;&#xA;'aanbod'"/>
+              </sourceConnection>
+            </child>
+          </child>
+          <documentation>v1.7.0</documentation>
         </element>
       </folder>
       <folder name="Informatiemodel en mappingen" id="id-9669d1ca9a734eb5ad645834b0e2d788">
