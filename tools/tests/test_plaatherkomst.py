@@ -84,28 +84,64 @@ class ViewnaamZonderVersie(unittest.TestCase):
 
 
 class HerkomstVanDeExport(unittest.TestCase):
-    def test_given_the_manifest_when_read_then_it_carries_version_and_hash(self):
-        self.assertTrue(MANIFEST.exists(),
-                        "herkomst.json ontbreekt; draai plaatherkomst.py --schrijf --versie <v>")
-        m = json.loads(MANIFEST.read_text(encoding="utf-8"))
-        for sleutel in ("view", "versie", "viewhash", "export"):
-            self.assertIn(sleutel, m)
-        self.assertRegex(m["versie"], SEMVER, "de versie van de export is geen MAJOR.MINOR.PATCH")
+    """Het manifest is de enige brug tussen een uitgebrachte plaat en de modelstaat erachter."""
 
-    def test_given_the_view_when_hashed_then_it_matches_the_exported_plate(self):
-        """Wijkt de view af, dan toont de geexporteerde plaat iets anders dan het model."""
-        m = json.loads(MANIFEST.read_text(encoding="utf-8"))
+    def manifest(self):
+        self.assertTrue(MANIFEST.exists(),
+                        "herkomst.json ontbreekt; draai plaatherkomst.py --retrofit")
+        return json.loads(MANIFEST.read_text(encoding="utf-8"))
+
+    def test_given_the_manifest_when_read_then_every_version_carries_its_fields(self):
+        for v in self.manifest()["versies"]:
+            for sleutel in ("versie", "export", "commit", "viewhash", "herkomst"):
+                self.assertIn(sleutel, v, f"versie {v.get('versie')} mist {sleutel}")
+            self.assertRegex(v["versie"], re.compile(r"^\d+\.\d+(\.\d+)?$"))
+
+    def test_given_a_commit_when_recorded_then_it_is_the_full_forty_characters(self):
+        """Een afkorting is een prefix waarvan de uniciteit alleen nu geldt.
+
+        Git schaalt zijn afkortlengte mee met het aantal objecten in de repository;
+        in deze repository staat die al op acht tekens in plaats van zeven. Een
+        verwijzing die jaren mee moet, slaat daarom de volle hash op.
+        """
+        for v in self.manifest()["versies"]:
+            if v["commit"] is not None:
+                self.assertRegex(v["commit"], re.compile(r"^[0-9a-f]{40}$"),
+                                 f"versie {v['versie']} draagt geen volledige commithash")
+
+    def test_given_a_version_when_it_claims_provenance_then_it_carries_a_hash(self):
+        """Wie zegt waar hij vandaan komt, moet dat kunnen aantonen."""
+        for v in self.manifest()["versies"]:
+            if v["herkomst"] in ("vastgelegd bij export", "nagemeten"):
+                self.assertIsNotNone(v["viewhash"], f"versie {v['versie']} zegt {v['herkomst']} zonder hash")
+                self.assertIsNotNone(v["view"])
+
+    def test_given_each_version_when_read_then_its_export_exists(self):
+        for v in self.manifest()["versies"]:
+            self.assertIsNotNone(v["export"], f"versie {v['versie']} noemt geen export")
+            self.assertTrue((MANIFEST.parent / v["export"]).exists(),
+                            f"de export die het manifest noemt bestaat niet: {v['export']}")
+
+    def test_given_the_current_view_when_hashed_then_it_matches_the_current_export(self):
+        """Wijkt de view af, dan toont de uitgebrachte plaat iets anders dan het model."""
+        m = self.manifest()
+        huidig = m.get("huidig")
+        if not huidig:
+            self.skipTest("nog geen versie vastgelegd bij export; draai --schrijf na de eerste export")
+        v = next(x for x in m["versies"] if x["versie"] == huidig)
         nu = laad().viewhash(MODEL, m["view"])
         self.assertIsNotNone(nu, f"view niet gevonden: {m['view']}")
-        self.assertEqual(
-            nu, m["viewhash"],
-            "de hoofdplaat is gewijzigd zonder nieuwe export; exporteer en draai "
-            "python3 tools/scripts/plaatherkomst.py --schrijf")
+        self.assertEqual(nu, v["viewhash"],
+                         "de hoofdplaat is gewijzigd zonder nieuwe export; exporteer en draai "
+                         "python3 tools/scripts/plaatherkomst.py --schrijf --versie <versie>")
 
-    def test_given_the_manifest_when_read_then_the_export_file_exists(self):
-        m = json.loads(MANIFEST.read_text(encoding="utf-8"))
-        self.assertTrue((MANIFEST.parent / m["export"]).exists(),
-                        f"de export die het manifest noemt bestaat niet: {m['export']}")
+    def test_given_a_retrofitted_version_when_rehashed_then_it_still_matches(self):
+        """De nagemeten hashes moeten reproduceerbaar zijn, anders is de historie waardeloos."""
+        mod = laad()
+        for v in self.manifest()["versies"]:
+            if v["herkomst"] == "nagemeten":
+                self.assertEqual(mod.viewhash_op_commit(v["commit"], v["view"]), v["viewhash"],
+                                 f"versie {v['versie']} is niet opnieuw na te meten")
 
 
 class DeHashIsPrecies(unittest.TestCase):
@@ -122,6 +158,53 @@ class DeHashIsPrecies(unittest.TestCase):
         if len(namen) < 2:
             self.skipTest("minder dan twee views in het model")
         self.assertNotEqual(mod.viewhash(MODEL, namen[0]), mod.viewhash(MODEL, namen[1]))
+
+    def test_given_a_moved_box_when_rehashed_then_the_hash_changes(self):
+        """De poort moet een plaat vinden die achterloopt. Dit bewijst dat zij dat kan.
+
+        Een verschoven vak is de kleinste wijziging die de plaat zichtbaar verandert
+        en die een bestandsvergelijking op naam of datum niet opmerkt.
+        """
+        import shutil
+        import tempfile
+        mod = laad()
+        naam = json.loads(MANIFEST.read_text(encoding="utf-8"))["view"]
+        with tempfile.TemporaryDirectory() as map_:
+            kopie = Path(map_) / "model.archimate"
+            shutil.copy(MODEL, kopie)
+            voor = mod.viewhash(kopie, naam)
+            boom = ET.parse(kopie)
+            view = mod.view_element(boom.getroot(), naam)
+            vak = next(c for c in view.iter() if c.find("bounds") is not None)
+            b = vak.find("bounds")
+            b.set("x", str(int(b.get("x") or 0) + 1))
+            boom.write(kopie, encoding="utf-8", xml_declaration=True)
+            self.assertNotEqual(voor, mod.viewhash(kopie, naam),
+                                "een verschoven vak verandert de hash niet; de poort is blind")
+
+    def test_given_a_change_outside_the_view_when_rehashed_then_the_hash_is_unchanged(self):
+        """En zij mag geen export afdwingen voor een wijziging die de plaat niet raakt."""
+        import shutil
+        import tempfile
+        mod = laad()
+        m = json.loads(MANIFEST.read_text(encoding="utf-8"))
+        naam = m["view"]
+        with tempfile.TemporaryDirectory() as map_:
+            kopie = Path(map_) / "model.archimate"
+            shutil.copy(MODEL, kopie)
+            voor = mod.viewhash(kopie, naam)
+            boom = ET.parse(kopie)
+            wortel = boom.getroot()
+            ander = next(e for e in wortel.iter("element")
+                         if e.get(XSI) == "archimate:ArchimateDiagramModel"
+                         and e.get("name") != naam)
+            vak = next(c for c in ander.iter() if c.find("bounds") is not None)
+            b = vak.find("bounds")
+            b.set("x", str(int(b.get("x") or 0) + 37))
+            boom.write(kopie, encoding="utf-8", xml_declaration=True)
+            self.assertEqual(voor, mod.viewhash(kopie, naam),
+                             "een wijziging in een andere view verandert de hash; dat dwingt "
+                             "een export af die niets met de hoofdplaat te maken heeft")
 
     def test_given_the_same_view_twice_when_hashed_then_the_hash_is_stable(self):
         mod = laad()
