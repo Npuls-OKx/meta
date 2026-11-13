@@ -48,6 +48,7 @@ Uit `informatiemodel.json`: de 35 realisaties en de associatie van `Persoon` naa
 | `Leergelegenheid` | Onderwijsaanbod | `LearningComponentOffering` | te grof: draagt 2 OKx-objecttypen binnen scope, het onderscheid ligt buiten de standaard |
 | `Leergelegenheid resultaat` | Onderwijsresultaat | `Result` | buiten scope: de leslaag valt buiten de uitwisseling |
 | `Leergelegenheid verbintenis` | Onderwijsverbintenis | `LearningComponentOfferingAssociation` | te grof: draagt 2 OKx-objecttypen binnen scope, het onderscheid ligt buiten de standaard |
+| `Leergelegenheid verbintenis` | Onderwijsverbintenis | `Lesgroep` | volstaat |
 | `Leeronderdeel specificatie` | Onderwijsspecificatie | `LearningComponent` | volstaat |
 | `Leeruitkomst` | Onderwijskundig kader instelling | `LearningOutcome` | volstaat |
 | `Les specificatie` | Onderwijsspecificatie | `LearningComponent` | buiten scope: de leslaag valt buiten de uitwisseling |
@@ -73,9 +74,11 @@ Uit `informatiemodel.json`: de 35 realisaties en de associatie van `Persoon` naa
 | `Opleidingsprogramma aanbod` | Onderwijsaanbod | `ProgrammeOffering` | te grof: draagt 4 OKx-objecttypen binnen scope, het onderscheid ligt buiten de standaard |
 | `Opleidingsprogramma aanbod verbintenis` | Onderwijsverbintenis | `ProgrammeOfferingAssociation` | te grof: draagt 4 OKx-objecttypen binnen scope, het onderscheid ligt buiten de standaard |
 | `Opleidingsprogramma resultaat` | Onderwijsresultaat | `Result` | te grof: draagt 8 OKx-objecttypen binnen scope, het onderscheid ligt buiten de standaard |
+| `Opleidingsprogramma specificatie` | Onderwijsspecificatie | `Nominale Leerroute` | volstaat |
 | `Opleidingsprogramma specificatie` | Onderwijsspecificatie | `Programme` | te grof: draagt 6 OKx-objecttypen binnen scope, het onderscheid ligt buiten de standaard |
 | `Persoon` | buiten de kolommen | `Person` | volstaat |
-| `Plaatsingsgroep` | buiten de kolommen | `Group` | volstaat |
+| `Plaatsingsgroep` | buiten de kolommen | `Group` | te grof: draagt 2 OKx-objecttypen binnen scope, het onderscheid ligt buiten de standaard |
+| `Planningsgroep` | Onderwijsverbintenis | `Group` | te grof: draagt 2 OKx-objecttypen binnen scope, het onderscheid ligt buiten de standaard |
 | `Toetsgelegenheid` | Onderwijsaanbod | `TestComponentOffering` | te grof: draagt 2 OKx-objecttypen binnen scope, het onderscheid ligt buiten de standaard |
 | `Toetsgelegenheid resultaat` | Onderwijsresultaat | `Result` | te grof: draagt 8 OKx-objecttypen binnen scope, het onderscheid ligt buiten de standaard |
 | `Toetsgelegenheid verbintenis` | Onderwijsverbintenis | `TestComponentOfferingAssociation` | te grof: draagt 2 OKx-objecttypen binnen scope, het onderscheid ligt buiten de standaard |

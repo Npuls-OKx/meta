@@ -9,6 +9,8 @@
     "LearningComponentOffering",
     "LearningComponentOfferingAssociation",
     "LearningOutcome",
+    "Lesgroep",
+    "Nominale Leerroute",
     "Person",
     "Programme",
     "ProgrammeOffering",
@@ -51,7 +53,7 @@
     },
     {
       "naam": "Competenties / Skills",
-      "kolom": "Onderwijskundigkader instelling",
+      "kolom": "Onderwijskundig kader instelling",
       "scope": "buiten",
       "vulkleur": "#e8e8e8",
       "oeapi": null
@@ -150,14 +152,14 @@
     },
     {
       "naam": "Inzicht",
-      "kolom": "Onderwijskundigkader instelling",
+      "kolom": "Onderwijskundig kader instelling",
       "scope": "buiten",
       "vulkleur": "#e8e8e8",
       "oeapi": null
     },
     {
       "naam": "Kennis",
-      "kolom": "Onderwijskundigkader instelling",
+      "kolom": "Onderwijskundig kader instelling",
       "scope": "buiten",
       "vulkleur": "#e8e8e8",
       "oeapi": null
@@ -273,7 +275,8 @@
       "scope": "binnen",
       "vulkleur": null,
       "oeapi": [
-        "LearningComponentOfferingAssociation"
+        "LearningComponentOfferingAssociation",
+        "Lesgroep"
       ]
     },
     {
@@ -287,7 +290,7 @@
     },
     {
       "naam": "Leeruitkomst",
-      "kolom": "Onderwijskundigkader instelling",
+      "kolom": "Onderwijskundig kader instelling",
       "scope": "binnen",
       "vulkleur": null,
       "oeapi": [
@@ -534,6 +537,7 @@
       "scope": "binnen",
       "vulkleur": null,
       "oeapi": [
+        "Nominale Leerroute",
         "Programme"
       ]
     },
@@ -563,6 +567,15 @@
     {
       "naam": "Plaatsingsgroep",
       "kolom": null,
+      "scope": "binnen",
+      "vulkleur": null,
+      "oeapi": [
+        "Group"
+      ]
+    },
+    {
+      "naam": "Planningsgroep",
+      "kolom": "Onderwijsverbintenis",
       "scope": "binnen",
       "vulkleur": null,
       "oeapi": [
@@ -656,7 +669,7 @@
     },
     {
       "naam": "Vaardigheid",
-      "kolom": "Onderwijskundigkader instelling",
+      "kolom": "Onderwijskundig kader instelling",
       "scope": "buiten",
       "vulkleur": "#e8e8e8",
       "oeapi": null
@@ -1928,6 +1941,12 @@
       "label": "Minimaal 1"
     },
     {
+      "soort": "Composition",
+      "van": "Plaatsingsgroep",
+      "naar": "Planningsgroep",
+      "label": null
+    },
+    {
       "soort": "Specialization",
       "van": "Examengelegenheid",
       "naar": "Toetsgelegenheid",
@@ -2134,6 +2153,11 @@
       "relatie": "Realization"
     },
     {
+      "okx": "Leergelegenheid verbintenis",
+      "oeapi": "Lesgroep",
+      "relatie": "Association"
+    },
+    {
       "okx": "Leeronderdeel specificatie",
       "oeapi": "LearningComponent",
       "relatie": "Realization"
@@ -2260,6 +2284,11 @@
     },
     {
       "okx": "Opleidingsprogramma specificatie",
+      "oeapi": "Nominale Leerroute",
+      "relatie": "Association"
+    },
+    {
+      "okx": "Opleidingsprogramma specificatie",
       "oeapi": "Programme",
       "relatie": "Realization"
     },
@@ -2270,6 +2299,11 @@
     },
     {
       "okx": "Plaatsingsgroep",
+      "oeapi": "Group",
+      "relatie": "Realization"
+    },
+    {
+      "okx": "Planningsgroep",
       "oeapi": "Group",
       "relatie": "Realization"
     },

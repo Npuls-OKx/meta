@@ -15,7 +15,7 @@ Vier termen, overal gelijk:
 | Objecttype | Element van de informatiemodelplaat (ArchiMate business object), met de plaatnaam letterlijk |
 | Instantie | De waarde voor Jochem: een leesbare naam |
 | Applicatiedienst | De ArchiMate-applicatiedienst op de hoofdplaat en in MORA; alleen context |
-| Koppeling | Een pijl op hoofdplaat v1.7a tussen twee componenten; met de koppeling-ID uit Public waar die er is |
+| Koppeling | Een pijl op de hoofdplaat tussen twee componenten; met de koppeling-ID uit Public waar die er is |
 
 Vier lagen waarin hetzelfde onderwijs steeds concreter wordt. Dit onderscheid draagt het hele document, en
 elk beeld staat in een van deze lagen:
@@ -118,7 +118,7 @@ Zonder beschrijving in het model: AII (centraal aanmelden), Planningssysteem, St
 
 De fase in detail: [kaderscenario leerroute 1, fase 1](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-1--kwalificatiekader-analyseren-en-grofmazig-ontwerpen).
 
-**Ontstaat:** `Kwalificatie dossier`, `Kwalificatie`, `Kerntaak`, `Werkproces`, `Examenplan`, `Summatieve resultaat structuur`, `Cohort / periode`, `Leeruitkomst`, `Onderwijskundige taxonomie`, `Competenties / Skills`, `Vaardigheid`, `Kennis`, `Inzicht`, `Onderwijseenheid specificatie`, `Leeronderdeel specificatie`, `Opleiding specificatie`, `Opleidingsprogramma specificatie`, `Keuzedeelruimte`, `Student keuze regelset`, `Keuzedeel`, `Minor`, `Toetsonderdeel specificatie`, `Examenonderdeelspecificatie`, `Examenonderdeel weging`, `Summatief Afrondingscriterium`. **Stroomt:** Curriculum ontwerptool naar Onderwijscatalogus. **MORA-hoofdproces:** Ontwikkelen.
+**Ontstaat:** `Kwalificatie dossier`, `Kwalificatie`, `Kerntaak`, `Werkproces`, `Examenplan`, `Summatieve resultaat structuur`, `Cohort / periode`, `Leeruitkomst`, `Onderwijskundige taxonomie`, `Competenties / Skills`, `Vaardigheid`, `Kennis`, `Inzicht`, `Onderwijseenheid specificatie`, `Leeronderdeel specificatie`, `Opleiding specificatie`, `Opleidingsprogramma specificatie`, `Keuzedeelruimte`, `Student keuze regelset`, `Keuzedeel specificatie`, `Minor specificatie`, `Toetsonderdeel specificatie`, `Examenonderdeelspecificatie`, `Examenonderdeel weging`, `Summatief Afrondingscriterium`. **Stroomt:** Curriculum ontwerptool naar Onderwijscatalogus. **MORA-hoofdproces:** Ontwikkelen.
 
 ![De hoofdplaat met de stromen van fase 1 gemarkeerd](img/hoofdplaat/f1.svg)
 
@@ -528,7 +528,7 @@ Per objecttype het beeld waarin hij verschijnt (het ID uit de kop), de instantie
 |---|---|---|---|---|---|---|---|---|
 | Eindkwalificatie |  | regels volgen na 30 september |  |  | nog te definieren | geen equivalent | | |
 | Kerntaak | F1-01 | B1-K1 Biedt farmaceutische patiëntenzorg | 1 |  | ja | geen equivalent | | |
-| Keuzedeel | F1-08 | K0262 ARBO, kwaliteitszorg en hulpverlening geschikt voor niveau 3 (240 SBU) | 1 |  | nog te definieren | geen equivalent | | |
+| Keuzedeel |  | regels volgen na 30 september |  |  | nog te definieren | geen equivalent | | |
 | Kwalificatie | F1-01 | Apothekersassistent, 27141 | 1 |  | ja | geen equivalent | | |
 | Kwalificatie dossier | F1-01 | Apothekersassistent, crebo 23450 | 1 |  | ja | geen equivalent | | |
 | Kwalificatiestructuur SBB |  | regels volgen na 30 september |  |  | nog niet | geen equivalent | | |
@@ -536,32 +536,22 @@ Per objecttype het beeld waarin hij verschijnt (het ID uit de kop), de instantie
 | Werkproces | F1-01 | B1-K1-W1 Neemt de zorg-/adviesvraag in behandeling | 1 |  | ja | geen equivalent | | |
 | Werkveld of beroepenveld of deelnemer competentie |  | regels volgen na 30 september |  |  | nog te definieren | geen equivalent | | |
 
-### Onderwijskundig kader instelling
-
-| Objecttype | Beeld | Jochem | Fase | Aanname | Definitie | OEAPI | Heet bij u | Hangt bij u onder |
-|---|---|---|---|---|---|---|---|---|
-| Competenties / Skills | F1-04 | Vaardigheden bij deze leeruitkomst (CompetentNL) | 1 | ja | nog te definieren | geen equivalent | | |
-| Inzicht | F1-04 | Werking en risico van een geneesmiddel bij de vraag aan de balie | 1 | ja | nog te definieren | geen equivalent | | |
-| Kennis | F1-04 | Farmacie (CompetentNL kennisgebied op ISCED-F 0916) | 1 | ja | nog te definieren | geen equivalent | | |
-| Leeruitkomst | F1-03 | Verleent farmaceutische patiëntenzorg, volgens de vigerende protocollen en met navolgbare vastlegging, in een levensechte apotheekomgeving (apothekersassistent NLQF 4, kerntaak B1-K1) | 1 | ja | ja | LearningOutcome | | |
-| Vaardigheid | F1-04 | Communicatieve vaardigheden (CompetentNL laag 2) | 1 | ja | nog te definieren | geen equivalent | | |
-
 ### Onderwijsspecificatie
 
 | Objecttype | Beeld | Jochem | Fase | Aanname | Definitie | OEAPI | Heet bij u | Hangt bij u onder |
 |---|---|---|---|---|---|---|---|---|
 | Examenonderdeelspecificatie | F1-09 | Proeve van bekwaamheid B1-K1: schaal onvoldoende, voldoende of goed, afname op de bpv-werkplek, 120 minuten, eigen protocollenmap toegestaan, twee pogingen | 1 | ja | ja | TestComponent | | |
-| Keuzedeel specificatie |  | regels volgen na 30 september |  |  | nog niet | Programme | | |
+| Keuzedeel specificatie | F1-08 | K0262 ARBO, kwaliteitszorg en hulpverlening geschikt voor niveau 3 (240 SBU) | 1 |  | nog niet | Programme | | |
 | Keuzedeelruimte | F1-07 | 720 SBU, mbo-4: te vullen met 480 SBU verdiepend en 240 SBU generiek | 1 |  | ja | Programme | | |
 | Leeronderdeel specificatie | F1-05 | Baliegesprekken 101 | 1 |  | ja | LearningComponent | | |
 | Les specificatie | F4-01 | Les 1 Introductie WHAM-vragen en triage | 4 |  | ja | LearningComponent | | |
 | Minor ruimte |  | regels volgen na 30 september |  |  | nog te definieren | Programme | | |
-| Minor specificatie |  | regels volgen na 30 september |  |  | nog niet | Programme | | |
+| Minor specificatie | F1-08 | Farmacotherapie en patiëntveiligheid, 30 EC (hbo-bachelor NLQF 6) | 1 | ja | nog niet | Programme | | |
 | Onderwijseenheid specificatie | F1-05 | Blok B1-K1 Biedt farmaceutische patiëntenzorg | 1 |  | ja | Course | | |
 | Onderwijslocatie type |  | regels volgen na 30 september |  |  | nog te definieren | roomType | | |
 | Onderwijsvorm |  | regels volgen na 30 september |  |  | nog te definieren | geen equivalent | | |
 | Opleiding specificatie | F1-07 | Apothekersassistent, versie 2026.1 | 1 |  | nog te definieren | Programme | | |
-| Opleidingsprogramma specificatie | F1-07 | BOL voltijd, diplomaprogramma | 1 |  | ja | Programme | | |
+| Opleidingsprogramma specificatie | F1-07 | BOL voltijd, diplomaprogramma | 1 |  | ja | Nominale Leerroute, Programme | | |
 | Student keuze regelset | F1-07 | Kiesbare keuzedelen: K0037 Farmaceutische Patientenzorg (480 SBU, verdiepend) of K0262 ARBO, kwaliteitszorg en hulpverlening (240 SBU, generiek) | 1 |  | nog te definieren | geen equivalent | | |
 | Toetsonderdeel specificatie | F1-09 | Praktijktoets baliegesprek (OSCE), summatief: schaal 1,0 tot 10,0 met een decimaal, afname in de simulatieapotheek, 30 minuten, geen hulpmiddelen, twee pogingen | 1 |  | ja | TestComponent | | |
 
@@ -588,12 +578,13 @@ Per objecttype het beeld waarin hij verschijnt (het ID uit de kop), de instantie
 | Examengelegenheid verbintenis | F8-02 | Jochem op de proeve, periode 12 | 8 |  | ja | TestComponentOfferingAssociation | | |
 | Inschrijving | F3-06 | Juni 2026 | 3 |  | ja | geen equivalent | | |
 | Keuzedeel aanbod verbintenis | F6-03 | Jochem op K0037 Farmaceutische Patientenzorg, periode 7 (voorkeur 1) | 6 |  | nog te definieren | ProgrammeOfferingAssociation | | |
-| Leergelegenheid verbintenis | F4-09 | Jochem op Baliegesprekken 101, periode 1 | 4 |  | nog te definieren | LearningComponentOfferingAssociation | | |
+| Leergelegenheid verbintenis | F4-09 | Jochem op Baliegesprekken 101, periode 1 | 4 |  | nog te definieren | LearningComponentOfferingAssociation, Lesgroep | | |
 | Lesgelegenheid verbintenis | F4-09 | Jochem op les 1, 1 september 09:00 | 4 |  | nog te definieren | LearningComponentOfferingAssociation | | |
 | Minor aanbod verbintenis |  | regels volgen na 30 september |  |  | nog te definieren | ProgrammeOfferingAssociation | | |
 | Onderwijseenheid aanbod verbintenis | F4-09 | Jochem op B1-K1, leerjaar 1 | 4 |  | nog te definieren | CourseOfferingAssociation | | |
 | Opleiding aanbod verbintenis | F3-03 | Jochem op Apothekersassistent 2026, aangemeld | 3 |  | nog te definieren | ProgrammeOfferingAssociation | | |
 | Opleidingsprogramma aanbod verbintenis | F3-03 | Jochem op Regulier BOL 2026, aangemeld | 3 |  | nog te definieren | ProgrammeOfferingAssociation | | |
+| Planningsgroep |  | regels volgen na 30 september |  |  | nog niet | Group | | |
 | Toetsgelegenheid verbintenis | F5-02 | Jochem op de OSCE, einde periode 1, via zijn plaatsingsgroep | 5 |  | ja | TestComponentOfferingAssociation | | |
 
 ### Onderwijsresultaat
@@ -767,7 +758,7 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 |---|---|---|---|
 | ontstaat | Leeruitkomst | Draagt bij aan kwaliteitszorg en arbeidsomstandigheden, volgens de RI&E-systematiek en het kwaliteitshandboek van de apotheek, op de eigen werkplek (keuzedeel K0262 NLQF 3, kerntaakniveau) | K0262-arbo-kwaliteitszorg-en-hulpverlening-niveau-3.md (keuzedeel mbo K0262, gevalideerd 10-11-2015); leerroute-1-regulier.md, r1072 tot 1080; geformuleerd met de vijfdeling uit de presentatie 'Komen tot leeruitkomsten' (conventie leeruitkomsten, 6 oktober 2026): actief werkwoord, type, onderwerp, standaard en context |
 | ontstaat | Leeruitkomst | Levert een bijdrage aan de inrichting van het kwaliteitszorgsysteem, toetsbaar aan de normen uit het kwaliteitshandboek, in de eigen apotheek (keuzedeel K0262 NLQF 3, werkprocesniveau) | K0262-arbo-kwaliteitszorg-en-hulpverlening-niveau-3.md (keuzedeel mbo K0262, gevalideerd 10-11-2015); leerroute-1-regulier.md, r1072 tot 1080; geformuleerd met de vijfdeling uit de presentatie 'Komen tot leeruitkomsten' (conventie leeruitkomsten, 6 oktober 2026): actief werkwoord, type, onderwerp, standaard en context |
-| ontstaat | Keuzedeel | K0262 ARBO, kwaliteitszorg en hulpverlening geschikt voor niveau 3 (240 SBU) | K0262-arbo-kwaliteitszorg-en-hulpverlening-niveau-3.md (keuzedeel mbo K0262, gevalideerd 10-11-2015); leerroute-1-regulier.md, r1072 tot 1080 |
+| ontstaat | Keuzedeel specificatie | K0262 ARBO, kwaliteitszorg en hulpverlening geschikt voor niveau 3 (240 SBU) | K0262-arbo-kwaliteitszorg-en-hulpverlening-niveau-3.md (keuzedeel mbo K0262, gevalideerd 10-11-2015); leerroute-1-regulier.md, r1072 tot 1080 |
 | ontstaat | Onderwijseenheid specificatie | D1-K1 Draagt bij aan kwaliteitszorg en arbeidsomstandigheden | K0262-arbo-kwaliteitszorg-en-hulpverlening-niveau-3.md (keuzedeel mbo K0262, gevalideerd 10-11-2015); leerroute-1-regulier.md, r1072 tot 1080 |
 | ontstaat | Leeronderdeel specificatie | Kwaliteitszorg in de eigen praktijk | K0262-arbo-kwaliteitszorg-en-hulpverlening-niveau-3.md (keuzedeel mbo K0262, gevalideerd 10-11-2015); leerroute-1-regulier.md, r1072 tot 1080 |
 | ontstaat | Leeronderdeel specificatie | RI&E van begin tot eind | K0262-arbo-kwaliteitszorg-en-hulpverlening-niveau-3.md (keuzedeel mbo K0262, gevalideerd 10-11-2015); leerroute-1-regulier.md, r1072 tot 1080 |
@@ -775,11 +766,11 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 | ontstaat | Leeronderdeel specificatie | Handelen bij calamiteiten | K0262-arbo-kwaliteitszorg-en-hulpverlening-niveau-3.md (keuzedeel mbo K0262, gevalideerd 10-11-2015); leerroute-1-regulier.md, r1072 tot 1080 |
 | ontstaat | Leeruitkomst | Voert verdiepende farmaceutische patiëntenzorg uit, volgens de richtlijn farmaceutische patiëntenzorg en met een onderbouwd advies, bij patiënten met meervoudig geneesmiddelgebruik (keuzedeel K0037 NLQF 4, kerntaakniveau) | K0037-farmaceutische-patientenzorg.md (keuzedeel mbo K0037, 480 SBU, aard verdiepend, gevalideerd 26-11-2015); geformuleerd met de vijfdeling uit de presentatie 'Komen tot leeruitkomsten' (conventie leeruitkomsten, 6 oktober 2026): actief werkwoord, type, onderwerp, standaard en context |
 | ontstaat | Leeruitkomst | Stelt een medicatieoverzicht op, volgens de richtlijn medicatieoverzicht en geverifieerd bij patiënt en voorschrijver, in de leerapotheek (keuzedeel K0037 NLQF 4, werkprocesniveau) | K0037-farmaceutische-patientenzorg.md (keuzedeel mbo K0037, 480 SBU, aard verdiepend, gevalideerd 26-11-2015); geformuleerd met de vijfdeling uit de presentatie 'Komen tot leeruitkomsten' (conventie leeruitkomsten, 6 oktober 2026): actief werkwoord, type, onderwerp, standaard en context |
-| ontstaat | Keuzedeel | K0037 Farmaceutische Patientenzorg (480 SBU, verdiepend) | K0037-farmaceutische-patientenzorg.md (keuzedeel mbo K0037, 480 SBU, aard verdiepend, gevalideerd 26-11-2015) |
+| ontstaat | Keuzedeel specificatie | K0037 Farmaceutische Patientenzorg (480 SBU, verdiepend) | K0037-farmaceutische-patientenzorg.md (keuzedeel mbo K0037, 480 SBU, aard verdiepend, gevalideerd 26-11-2015) |
 | ontstaat | Onderwijseenheid specificatie | D1-K1 Voert farmaceutische patientenzorg uit | K0037-farmaceutische-patientenzorg.md (keuzedeel mbo K0037, 480 SBU, aard verdiepend, gevalideerd 26-11-2015) |
 | ontstaat | Leeronderdeel specificatie | Het medicatieoverzicht opstellen | K0037-farmaceutische-patientenzorg.md (keuzedeel mbo K0037, 480 SBU, aard verdiepend, gevalideerd 26-11-2015) |
 | ontstaat | Leeronderdeel specificatie | Zorg aan specifieke doelgroepen | K0037-farmaceutische-patientenzorg.md (keuzedeel mbo K0037, 480 SBU, aard verdiepend, gevalideerd 26-11-2015) |
-| ontstaat | Minor | Farmacotherapie en patiëntveiligheid, 30 EC (hbo-bachelor NLQF 6) | Npuls-OKx/Public#104, review van Huib Jan Wielemaker op 6 oktober 2026: het keuzedeel staat op de plaat als vast gegeven terwijl het hoger onderwijs het niet kent. De minor staat hier als pendant; de plaat draagt het objecttype nog niet |
+| ontstaat | Minor specificatie | Farmacotherapie en patiëntveiligheid, 30 EC (hbo-bachelor NLQF 6) | Npuls-OKx/Public#104, review van Huib Jan Wielemaker op 6 oktober 2026: het keuzedeel staat op de plaat als vast gegeven terwijl het hoger onderwijs het niet kent. De minor staat hier als pendant; de plaat draagt het objecttype nog niet |
 | ontstaat | Leeruitkomst | Beoordeelt farmacotherapie op patiëntveiligheid, volgens de vigerende richtlijnen en onderbouwd met literatuur, in een multidisciplinair overleg (minor NLQF 6) | Npuls-OKx/Public#104, review van Huib Jan Wielemaker op 6 oktober 2026: het keuzedeel staat op de plaat als vast gegeven terwijl het hoger onderwijs het niet kent. De minor staat hier als pendant; de plaat draagt het objecttype nog niet; geformuleerd met de vijfdeling uit de presentatie 'Komen tot leeruitkomsten' (conventie leeruitkomsten, 6 oktober 2026): actief werkwoord, type, onderwerp, standaard en context |
 
 **F1-09 - Toetsonderdelen, wegingen en afrondingscriterium** (fase 1, Toetsonderdelen en resultaatstructuur uit het examenplan afleiden; [f1-09-toetsonderdelen-wegingen-en-afrondingscriterium.svg](img/regels/f1-09-toetsonderdelen-wegingen-en-afrondingscriterium.svg))
@@ -1160,7 +1151,7 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
 | stroomt | Keuzedeel aanbod | K0037 Farmaceutische Patientenzorg, periode 7, locatie A | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 6](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-6--organiseren-van-keuzemomenten): OC naar SKS |
-| stroomt | Keuzedeel | K0037 Farmaceutische Patientenzorg | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 6](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-6--organiseren-van-keuzemomenten): OC naar SKS, opleidingsprogramma-specificatie |
+| stroomt | Keuzedeel specificatie | K0037 Farmaceutische Patientenzorg | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 6](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-6--organiseren-van-keuzemomenten): OC naar SKS, opleidingsprogramma-specificatie |
 | stroomt | Student keuze regelset | Kiesbare keuzedelen voor Apothekersassistent | [voorbeeldpayloads.md](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Datamodelschema's/voorbeeldpayloads.md), regelsets[0] (e4037953); keuze-requirements.md |
 
 **F6-03 - Jochems aanmelding op het keuzedeelaanbod, met zijn voorkeurslijst** (fase 6, Voorkeurslijst samenstellen in het studentkeuzesysteem; [f6-03-jochems-aanmelding-op-het-keuzedeelaanbod-met-zijn-voorkeurslijst.svg](img/regels/f6-03-jochems-aanmelding-op-het-keuzedeelaanbod-met-zijn-voorkeurslijst.svg))
