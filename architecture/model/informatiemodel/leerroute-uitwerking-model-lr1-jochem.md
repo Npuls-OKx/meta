@@ -547,11 +547,12 @@ Per objecttype het beeld waarin hij verschijnt (het ID uit de kop), de instantie
 | Les specificatie | F4-01 | Les 1 Introductie WHAM-vragen en triage | 4 |  | ja | LearningComponent | | |
 | Minor ruimte |  | regels volgen na 30 september |  |  | nog te definieren | Programme | | |
 | Minor specificatie | F1-08 | Farmacotherapie en patiëntveiligheid, 30 EC (hbo-bachelor NLQF 6) | 1 | ja | nog niet | Programme | | |
+| Nominale Leerroute |  | regels volgen na 30 september |  |  | nog niet | Programme | | |
 | Onderwijseenheid specificatie | F1-05 | Blok B1-K1 Biedt farmaceutische patiëntenzorg | 1 |  | ja | Course | | |
 | Onderwijslocatie type |  | regels volgen na 30 september |  |  | nog te definieren | roomType | | |
 | Onderwijsvorm |  | regels volgen na 30 september |  |  | nog te definieren | geen equivalent | | |
 | Opleiding specificatie | F1-07 | Apothekersassistent, versie 2026.1 | 1 |  | nog te definieren | Programme | | |
-| Opleidingsprogramma specificatie | F1-07 | BOL voltijd, diplomaprogramma | 1 |  | ja | Nominale Leerroute, Programme | | |
+| Opleidingsprogramma specificatie | F1-07 | BOL voltijd, diplomaprogramma | 1 |  | ja | Programme | | |
 | Student keuze regelset | F1-07 | Kiesbare keuzedelen: K0037 Farmaceutische Patientenzorg (480 SBU, verdiepend) of K0262 ARBO, kwaliteitszorg en hulpverlening (240 SBU, generiek) | 1 |  | nog te definieren | geen equivalent | | |
 | Toetsonderdeel specificatie | F1-09 | Praktijktoets baliegesprek (OSCE), summatief: schaal 1,0 tot 10,0 met een decimaal, afname in de simulatieapotheek, 30 minuten, geen hulpmiddelen, twee pogingen | 1 |  | ja | TestComponent | | |
 
@@ -578,12 +579,14 @@ Per objecttype het beeld waarin hij verschijnt (het ID uit de kop), de instantie
 | Examengelegenheid verbintenis | F8-02 | Jochem op de proeve, periode 12 | 8 |  | ja | TestComponentOfferingAssociation | | |
 | Inschrijving | F3-06 | Juni 2026 | 3 |  | ja | geen equivalent | | |
 | Keuzedeel aanbod verbintenis | F6-03 | Jochem op K0037 Farmaceutische Patientenzorg, periode 7 (voorkeur 1) | 6 |  | nog te definieren | ProgrammeOfferingAssociation | | |
-| Leergelegenheid verbintenis | F4-09 | Jochem op Baliegesprekken 101, periode 1 | 4 |  | nog te definieren | LearningComponentOfferingAssociation, Lesgroep | | |
+| Leergelegenheid verbintenis | F4-09 | Jochem op Baliegesprekken 101, periode 1 | 4 |  | nog te definieren | LearningComponentOfferingAssociation | | |
 | Lesgelegenheid verbintenis | F4-09 | Jochem op les 1, 1 september 09:00 | 4 |  | nog te definieren | LearningComponentOfferingAssociation | | |
+| Lesgroep |  | regels volgen na 30 september |  |  | nog niet | Group | | |
 | Minor aanbod verbintenis |  | regels volgen na 30 september |  |  | nog te definieren | ProgrammeOfferingAssociation | | |
 | Onderwijseenheid aanbod verbintenis | F4-09 | Jochem op B1-K1, leerjaar 1 | 4 |  | nog te definieren | CourseOfferingAssociation | | |
 | Opleiding aanbod verbintenis | F3-03 | Jochem op Apothekersassistent 2026, aangemeld | 3 |  | nog te definieren | ProgrammeOfferingAssociation | | |
 | Opleidingsprogramma aanbod verbintenis | F3-03 | Jochem op Regulier BOL 2026, aangemeld | 3 |  | nog te definieren | ProgrammeOfferingAssociation | | |
+| Plaatsingsgroep | F3-05 | APO26-1A | 3 | ja | nog te definieren | Group | | |
 | Planningsgroep |  | regels volgen na 30 september |  |  | nog niet | Group | | |
 | Toetsgelegenheid verbintenis | F5-02 | Jochem op de OSCE, einde periode 1, via zijn plaatsingsgroep | 5 |  | ja | TestComponentOfferingAssociation | | |
 
@@ -622,14 +625,13 @@ Per objecttype het beeld waarin hij verschijnt (het ID uit de kop), de instantie
 | Objecttype | Beeld | Jochem | Fase | Aanname | Definitie | OEAPI | Heet bij u | Hangt bij u onder |
 |---|---|---|---|---|---|---|---|---|
 | Aanmelding | F3-03 | April 2026, Apothekersassistent BOL | 3 |  | ja | geen equivalent | | |
-| Cohort / periode | F1-02 | Cohort 2026 | 1 |  | ja | geen equivalent | | |
+| Cohort |  | regels volgen na 30 september |  |  | nog niet | geen equivalent | | |
 | Examenplan | F1-02 | Examenplan Apothekersassistent, cohort 2026 | 1 | ja | ja | geen equivalent | | |
 | Expertise of functieprofiel |  | regels volgen na 30 september |  |  | nog te definieren | geen equivalent | | |
 | Medewerker | F4-08 | Docent, personeelsnummer 4711 | 4 |  | ja | geen equivalent | | |
 | Onderwijslocatie vlekkenplan |  | regels volgen na 30 september |  |  | nog te definieren | geen equivalent | | |
 | Organisatie-eenheid |  | regels volgen na 30 september |  |  | nog te definieren | geen equivalent | | |
 | Persoon | F3-03 | Jochem, 17, na het vmbo | 3 |  | nog te definieren | Person | | |
-| Plaatsingsgroep | F3-05 | APO26-1A | 3 | ja | nog te definieren | Group | | |
 | Student | F3-05 | Jochem, cohort 2026 | 3 |  | ja | geen equivalent | | |
 | Verzoek tot Aanbod / Intekening op specificatie | F2-02 | Planopgave Apothekersassistent, cohort 2026 | 2 | ja | ja | geen equivalent | | |
 | Waarde document (diploma / certificaat) | F8-07 | Diploma Apothekersassistent, juli 2029 | 8 |  | ja | geen equivalent | | |
