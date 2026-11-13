@@ -5,7 +5,8 @@ alwaysApply: true
 
 Voordat een agent een opdracht met een herkenbaar type uitvoert (tests schrijven,
 requirements, review, presentatie, ADR, koppelingspecificatie, scenario, payload,
-notulen, validatiescript), geldt de skill-check:
+notulen, validatiescript, een JSON-bericht van een leverancier of instelling in
+beeld brengen), geldt de skill-check:
 
 1. Controleer EERST het skills-manifest [.agents/skills.json](../../.agents/skills.json)
    op een relevante skill; en de bronnenlijst in

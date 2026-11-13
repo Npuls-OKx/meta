@@ -1,0 +1,1945 @@
+{
+  "bestandstype": "PeopleSoft",
+  "opleidingseenheid": {
+    "opleidingscode": "DV127140",
+    "crebo_nummer": "27140",
+    "naam": "Leidinggevende facilitaire dienstverlening",
+    "niveau": 4,
+    "onderwijsType": "BOL",
+    "waarderoute": "MBO-Diploma",
+    "cohort": "2026",
+    "versie": "1",
+    "peopleSoftId": "27140_2026_4_O_019_M1453",
+    "onderwijsteam": null,
+    "kwalificatiedossier": {
+      "delen": [
+        {
+          "code": "B1",
+          "naam": "Basisdeel",
+          "type": "BASIS",
+          "kerntaken": [
+            {
+              "code": "B1-K1",
+              "naam": "Verleent gastvrijheid",
+              "werkprocessen": [
+                {
+                  "code": "B1-K1-W1",
+                  "naam": "Bereidt gastgerichte werkzaamheden voor"
+                },
+                {
+                  "code": "B1-K1-W2",
+                  "naam": "Draagt bij aan een gastgerichte beleving"
+                },
+                {
+                  "code": "B1-K1-W3",
+                  "naam": "Rondt gastgerichte werkzaamheden af"
+                },
+                {
+                  "code": "B1-K1-W4",
+                  "naam": "Evalueert de eigen werkzaamheden"
+                }
+              ]
+            },
+            {
+              "code": "B1-K2",
+              "naam": "Verricht facilitaire werkzaamheden",
+              "werkprocessen": [
+                {
+                  "code": "B1-K2-W1",
+                  "naam": "Verricht werkzaamheden in de backoffice"
+                },
+                {
+                  "code": "B1-K2-W2",
+                  "naam": "Faciliteert en controleert ruimtes, gebouw en omgeving"
+                },
+                {
+                  "code": "B1-K2-W3",
+                  "naam": "Beheert de voorraad"
+                },
+                {
+                  "code": "B1-K2-W4",
+                  "naam": "Faciliteert branche-specifieke diensten"
+                },
+                {
+                  "code": "B1-K2-W5",
+                  "naam": "Bevordert een veilige werk- en verblijfsomgeving"
+                },
+                {
+                  "code": "B1-K2-W6",
+                  "naam": "Verricht onderhoud aan gangbare apparatuur, meubilair en buitenruimtes"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "P2",
+          "naam": "Profieldeel",
+          "type": "PROFIEL",
+          "kerntaken": [
+            {
+              "code": "P2-K1",
+              "naam": "Geeft leiding aan medewerkers",
+              "werkprocessen": [
+                {
+                  "code": "P2-K1-W1",
+                  "naam": "Onderzoekt en ontwikkelt de eigen leiderschapsstijl"
+                },
+                {
+                  "code": "P2-K1-W2",
+                  "naam": "Plant, verdeelt en bewaakt de werkzaamheden"
+                },
+                {
+                  "code": "P2-K1-W3",
+                  "naam": "Begeleidt, instrueert en stuurt medewerkers aan"
+                },
+                {
+                  "code": "P2-K1-W4",
+                  "naam": "Voert werkoverleg"
+                }
+              ]
+            },
+            {
+              "code": "P2-K2",
+              "naam": "Coördineert facilitaire processen",
+              "werkprocessen": [
+                {
+                  "code": "P2-K2-W1",
+                  "naam": "Draagt bij aan een operationeel plan voor facilitaire dienstverlening"
+                },
+                {
+                  "code": "P2-K2-W2",
+                  "naam": "Beheert financiën"
+                },
+                {
+                  "code": "P2-K2-W3",
+                  "naam": "Organiseert (interne) evenementen"
+                },
+                {
+                  "code": "P2-K2-W4",
+                  "naam": "Stemt af met stakeholders"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "opleidingsonderdelen": [
+      {
+        "code": "DV12706522",
+        "naam": "Nederlands 3F",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 2,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": null,
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": []
+      },
+      {
+        "code": "DV12706541",
+        "naam": "Rekenen Niveau 4",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 2,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": "Niveau 4",
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": []
+      },
+      {
+        "code": "DV12706543",
+        "naam": "Engels B1/B1",
+        "peopleSoftId": "MBO4 3014",
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 2,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": null,
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": []
+      },
+      {
+        "code": "DV12706546",
+        "naam": "Loopbaan en Burgerschap",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 2,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": null,
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": []
+      },
+      {
+        "code": "DV12714001",
+        "naam": "Onderzoekt en ontwikkelt de eigen leiderschapsstijl",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 2,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": null,
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "P2-K1-W1",
+            "naam": "Onderzoekt en ontwikkelt de eigen leiderschapsstijl",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P2-K1",
+              "naam": "Geeft leiding aan medewerkers"
+            }
+          }
+        ]
+      },
+      {
+        "code": "DV12714002",
+        "naam": "Plant, verdeelt en bewaakt werkzaamheden",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 2,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": null,
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "P2-K1-W2",
+            "naam": "Plant, verdeelt en bewaakt de werkzaamheden",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P2-K1",
+              "naam": "Geeft leiding aan medewerkers"
+            }
+          }
+        ]
+      },
+      {
+        "code": "DV12714003",
+        "naam": "Begeleidt, instrueert en stuurt medewerkers aan",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 2,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": null,
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "P2-K1-W3",
+            "naam": "Begeleidt, instrueert en stuurt medewerkers aan",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P2-K1",
+              "naam": "Geeft leiding aan medewerkers"
+            }
+          }
+        ]
+      },
+      {
+        "code": "DV12714004",
+        "naam": "Voert werkoverleg",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 2,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": null,
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "P2-K1-W4",
+            "naam": "Voert werkoverleg",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P2-K1",
+              "naam": "Geeft leiding aan medewerkers"
+            }
+          }
+        ]
+      },
+      {
+        "code": "DV12714005",
+        "naam": "Draagt bij aan een operationeel plan voor facilitaire dienstverlening",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 2,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": null,
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "P2-K2-W1",
+            "naam": "Draagt bij aan een operationeel plan voor facilitaire dienstverlening",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P2-K2",
+              "naam": "Coördineert facilitaire processen"
+            }
+          }
+        ]
+      },
+      {
+        "code": "DV12714006",
+        "naam": "Beheert financiën",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 2,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": null,
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "P2-K2-W2",
+            "naam": "Beheert financiën",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P2-K2",
+              "naam": "Coördineert facilitaire processen"
+            }
+          }
+        ]
+      },
+      {
+        "code": "DV12714007",
+        "naam": "Organiseert (interne) evenementen",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 2,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": null,
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "P2-K2-W3",
+            "naam": "Organiseert (interne) evenementen",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P2-K2",
+              "naam": "Coördineert facilitaire processen"
+            }
+          }
+        ]
+      },
+      {
+        "code": "DV12714008",
+        "naam": "Stemt af met stakeholders",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 2,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": null,
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "P2-K2-W4",
+            "naam": "Stemt af met stakeholders",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P2-K2",
+              "naam": "Coördineert facilitaire processen"
+            }
+          }
+        ]
+      },
+      {
+        "code": "DV12714009",
+        "naam": "K0023 Digitale vaardigheden gevorderd",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 1,
+        "keuze": false,
+        "sbu": 120,
+        "startniveau": "niveau 4",
+        "duur_in_weken": 20,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "B1-K1-W1",
+            "naam": "Bereidt gastgerichte werkzaamheden voor",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K1",
+              "naam": "Verleent gastvrijheid"
+            }
+          },
+          {
+            "code": "B1-K1-W2",
+            "naam": "Draagt bij aan een gastgerichte beleving",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K1",
+              "naam": "Verleent gastvrijheid"
+            }
+          },
+          {
+            "code": "B1-K1-W3",
+            "naam": "Rondt gastgerichte werkzaamheden af",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K1",
+              "naam": "Verleent gastvrijheid"
+            }
+          },
+          {
+            "code": "B1-K1-W4",
+            "naam": "Evalueert de eigen werkzaamheden",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K1",
+              "naam": "Verleent gastvrijheid"
+            }
+          },
+          {
+            "code": "B1-K2-W1",
+            "naam": "Verricht werkzaamheden in de backoffice",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K2",
+              "naam": "Verricht facilitaire werkzaamheden"
+            }
+          },
+          {
+            "code": "B1-K2-W2",
+            "naam": "Faciliteert en controleert ruimtes, gebouw en omgeving",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K2",
+              "naam": "Verricht facilitaire werkzaamheden"
+            }
+          },
+          {
+            "code": "B1-K2-W3",
+            "naam": "Beheert de voorraad",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K2",
+              "naam": "Verricht facilitaire werkzaamheden"
+            }
+          },
+          {
+            "code": "B1-K2-W4",
+            "naam": "Faciliteert branche-specifieke diensten",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K2",
+              "naam": "Verricht facilitaire werkzaamheden"
+            }
+          },
+          {
+            "code": "B1-K2-W5",
+            "naam": "Bevordert een veilige werk- en verblijfsomgeving",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K2",
+              "naam": "Verricht facilitaire werkzaamheden"
+            }
+          },
+          {
+            "code": "B1-K2-W6",
+            "naam": "Verricht onderhoud aan gangbare apparatuur, meubilair en buitenruimtes",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K2",
+              "naam": "Verricht facilitaire werkzaamheden"
+            }
+          },
+          {
+            "code": "P2-K1-W1",
+            "naam": "Onderzoekt en ontwikkelt de eigen leiderschapsstijl",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P2-K1",
+              "naam": "Geeft leiding aan medewerkers"
+            }
+          },
+          {
+            "code": "P2-K1-W2",
+            "naam": "Plant, verdeelt en bewaakt de werkzaamheden",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P2-K1",
+              "naam": "Geeft leiding aan medewerkers"
+            }
+          },
+          {
+            "code": "P2-K1-W3",
+            "naam": "Begeleidt, instrueert en stuurt medewerkers aan",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P2-K1",
+              "naam": "Geeft leiding aan medewerkers"
+            }
+          },
+          {
+            "code": "P2-K1-W4",
+            "naam": "Voert werkoverleg",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P2-K1",
+              "naam": "Geeft leiding aan medewerkers"
+            }
+          },
+          {
+            "code": "P2-K2-W1",
+            "naam": "Draagt bij aan een operationeel plan voor facilitaire dienstverlening",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P2-K2",
+              "naam": "Coördineert facilitaire processen"
+            }
+          },
+          {
+            "code": "P2-K2-W2",
+            "naam": "Beheert financiën",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P2-K2",
+              "naam": "Coördineert facilitaire processen"
+            }
+          },
+          {
+            "code": "P2-K2-W3",
+            "naam": "Organiseert (interne) evenementen",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P2-K2",
+              "naam": "Coördineert facilitaire processen"
+            }
+          },
+          {
+            "code": "P2-K2-W4",
+            "naam": "Stemt af met stakeholders",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P2-K2",
+              "naam": "Coördineert facilitaire processen"
+            }
+          }
+        ]
+      },
+      {
+        "code": "DV12714010",
+        "naam": "Keuzedeel 2",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 1,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": "Niveau 4",
+        "duur_in_weken": 20,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "B1-K1-W1",
+            "naam": "Bereidt gastgerichte werkzaamheden voor",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K1",
+              "naam": "Verleent gastvrijheid"
+            }
+          },
+          {
+            "code": "B1-K1-W2",
+            "naam": "Draagt bij aan een gastgerichte beleving",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K1",
+              "naam": "Verleent gastvrijheid"
+            }
+          },
+          {
+            "code": "B1-K1-W3",
+            "naam": "Rondt gastgerichte werkzaamheden af",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K1",
+              "naam": "Verleent gastvrijheid"
+            }
+          },
+          {
+            "code": "B1-K1-W4",
+            "naam": "Evalueert de eigen werkzaamheden",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K1",
+              "naam": "Verleent gastvrijheid"
+            }
+          },
+          {
+            "code": "B1-K2-W1",
+            "naam": "Verricht werkzaamheden in de backoffice",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K2",
+              "naam": "Verricht facilitaire werkzaamheden"
+            }
+          },
+          {
+            "code": "B1-K2-W2",
+            "naam": "Faciliteert en controleert ruimtes, gebouw en omgeving",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K2",
+              "naam": "Verricht facilitaire werkzaamheden"
+            }
+          },
+          {
+            "code": "B1-K2-W3",
+            "naam": "Beheert de voorraad",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K2",
+              "naam": "Verricht facilitaire werkzaamheden"
+            }
+          },
+          {
+            "code": "B1-K2-W4",
+            "naam": "Faciliteert branche-specifieke diensten",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K2",
+              "naam": "Verricht facilitaire werkzaamheden"
+            }
+          },
+          {
+            "code": "B1-K2-W5",
+            "naam": "Bevordert een veilige werk- en verblijfsomgeving",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K2",
+              "naam": "Verricht facilitaire werkzaamheden"
+            }
+          },
+          {
+            "code": "B1-K2-W6",
+            "naam": "Verricht onderhoud aan gangbare apparatuur, meubilair en buitenruimtes",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K2",
+              "naam": "Verricht facilitaire werkzaamheden"
+            }
+          },
+          {
+            "code": "P2-K1-W1",
+            "naam": "Onderzoekt en ontwikkelt de eigen leiderschapsstijl",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P2-K1",
+              "naam": "Geeft leiding aan medewerkers"
+            }
+          },
+          {
+            "code": "P2-K1-W2",
+            "naam": "Plant, verdeelt en bewaakt de werkzaamheden",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P2-K1",
+              "naam": "Geeft leiding aan medewerkers"
+            }
+          },
+          {
+            "code": "P2-K1-W3",
+            "naam": "Begeleidt, instrueert en stuurt medewerkers aan",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P2-K1",
+              "naam": "Geeft leiding aan medewerkers"
+            }
+          },
+          {
+            "code": "P2-K1-W4",
+            "naam": "Voert werkoverleg",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P2-K1",
+              "naam": "Geeft leiding aan medewerkers"
+            }
+          },
+          {
+            "code": "P2-K2-W1",
+            "naam": "Draagt bij aan een operationeel plan voor facilitaire dienstverlening",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P2-K2",
+              "naam": "Coördineert facilitaire processen"
+            }
+          },
+          {
+            "code": "P2-K2-W2",
+            "naam": "Beheert financiën",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P2-K2",
+              "naam": "Coördineert facilitaire processen"
+            }
+          },
+          {
+            "code": "P2-K2-W3",
+            "naam": "Organiseert (interne) evenementen",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P2-K2",
+              "naam": "Coördineert facilitaire processen"
+            }
+          },
+          {
+            "code": "P2-K2-W4",
+            "naam": "Stemt af met stakeholders",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P2-K2",
+              "naam": "Coördineert facilitaire processen"
+            }
+          }
+        ]
+      },
+      {
+        "code": "DV12714011",
+        "naam": "Keuzedeel 3",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 1,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": "Niveau 4",
+        "duur_in_weken": 20,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "B1-K1-W1",
+            "naam": "Bereidt gastgerichte werkzaamheden voor",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K1",
+              "naam": "Verleent gastvrijheid"
+            }
+          },
+          {
+            "code": "B1-K1-W2",
+            "naam": "Draagt bij aan een gastgerichte beleving",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K1",
+              "naam": "Verleent gastvrijheid"
+            }
+          },
+          {
+            "code": "B1-K1-W3",
+            "naam": "Rondt gastgerichte werkzaamheden af",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K1",
+              "naam": "Verleent gastvrijheid"
+            }
+          },
+          {
+            "code": "B1-K1-W4",
+            "naam": "Evalueert de eigen werkzaamheden",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K1",
+              "naam": "Verleent gastvrijheid"
+            }
+          },
+          {
+            "code": "B1-K2-W1",
+            "naam": "Verricht werkzaamheden in de backoffice",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K2",
+              "naam": "Verricht facilitaire werkzaamheden"
+            }
+          },
+          {
+            "code": "B1-K2-W2",
+            "naam": "Faciliteert en controleert ruimtes, gebouw en omgeving",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K2",
+              "naam": "Verricht facilitaire werkzaamheden"
+            }
+          },
+          {
+            "code": "B1-K2-W3",
+            "naam": "Beheert de voorraad",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K2",
+              "naam": "Verricht facilitaire werkzaamheden"
+            }
+          },
+          {
+            "code": "B1-K2-W4",
+            "naam": "Faciliteert branche-specifieke diensten",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K2",
+              "naam": "Verricht facilitaire werkzaamheden"
+            }
+          },
+          {
+            "code": "B1-K2-W5",
+            "naam": "Bevordert een veilige werk- en verblijfsomgeving",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K2",
+              "naam": "Verricht facilitaire werkzaamheden"
+            }
+          },
+          {
+            "code": "B1-K2-W6",
+            "naam": "Verricht onderhoud aan gangbare apparatuur, meubilair en buitenruimtes",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K2",
+              "naam": "Verricht facilitaire werkzaamheden"
+            }
+          },
+          {
+            "code": "P2-K1-W1",
+            "naam": "Onderzoekt en ontwikkelt de eigen leiderschapsstijl",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P2-K1",
+              "naam": "Geeft leiding aan medewerkers"
+            }
+          },
+          {
+            "code": "P2-K1-W2",
+            "naam": "Plant, verdeelt en bewaakt de werkzaamheden",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P2-K1",
+              "naam": "Geeft leiding aan medewerkers"
+            }
+          },
+          {
+            "code": "P2-K1-W3",
+            "naam": "Begeleidt, instrueert en stuurt medewerkers aan",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P2-K1",
+              "naam": "Geeft leiding aan medewerkers"
+            }
+          },
+          {
+            "code": "P2-K1-W4",
+            "naam": "Voert werkoverleg",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P2-K1",
+              "naam": "Geeft leiding aan medewerkers"
+            }
+          },
+          {
+            "code": "P2-K2-W1",
+            "naam": "Draagt bij aan een operationeel plan voor facilitaire dienstverlening",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P2-K2",
+              "naam": "Coördineert facilitaire processen"
+            }
+          },
+          {
+            "code": "P2-K2-W2",
+            "naam": "Beheert financiën",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P2-K2",
+              "naam": "Coördineert facilitaire processen"
+            }
+          },
+          {
+            "code": "P2-K2-W3",
+            "naam": "Organiseert (interne) evenementen",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P2-K2",
+              "naam": "Coördineert facilitaire processen"
+            }
+          },
+          {
+            "code": "P2-K2-W4",
+            "naam": "Stemt af met stakeholders",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "P2-K2",
+              "naam": "Coördineert facilitaire processen"
+            }
+          }
+        ]
+      },
+      {
+        "code": "DV12714012",
+        "naam": "BPV",
+        "peopleSoftId": "00000107440",
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 1,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": null,
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": []
+      },
+      {
+        "code": "DV12714013",
+        "naam": "Verricht werkzaamheden in de backoffice",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 2,
+        "keuze": false,
+        "sbu": 0,
+        "startniveau": null,
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "B1-K2-W1",
+            "naam": "Verricht werkzaamheden in de backoffice",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K2",
+              "naam": "Verricht facilitaire werkzaamheden"
+            }
+          }
+        ]
+      },
+      {
+        "code": "DV12714014",
+        "naam": "Faciliteert en controleert ruimtes, gebouw en omgeving",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 2,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": null,
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "B1-K2-W2",
+            "naam": "Faciliteert en controleert ruimtes, gebouw en omgeving",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K2",
+              "naam": "Verricht facilitaire werkzaamheden"
+            }
+          }
+        ]
+      },
+      {
+        "code": "DV12714015",
+        "naam": "Beheert de voorraad",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 2,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": null,
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "B1-K2-W3",
+            "naam": "Beheert de voorraad",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K2",
+              "naam": "Verricht facilitaire werkzaamheden"
+            }
+          }
+        ]
+      },
+      {
+        "code": "DV12714016",
+        "naam": "Faciliteert branche-specifieke diensten",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 2,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": null,
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "B1-K2-W4",
+            "naam": "Faciliteert branche-specifieke diensten",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K2",
+              "naam": "Verricht facilitaire werkzaamheden"
+            }
+          }
+        ]
+      },
+      {
+        "code": "DV12714017",
+        "naam": "Bevordert een veilige werk- en verblijfsomgeving",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 2,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": null,
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "B1-K2-W5",
+            "naam": "Bevordert een veilige werk- en verblijfsomgeving",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K2",
+              "naam": "Verricht facilitaire werkzaamheden"
+            }
+          }
+        ]
+      },
+      {
+        "code": "DV12714018",
+        "naam": "Verricht onderhoud aan gangbare apparatuur, meubilair en buitenruimtes",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 2,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": null,
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "B1-K2-W6",
+            "naam": "Verricht onderhoud aan gangbare apparatuur, meubilair en buitenruimtes",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K2",
+              "naam": "Verricht facilitaire werkzaamheden"
+            }
+          }
+        ]
+      },
+      {
+        "code": "DV12714019",
+        "naam": "Professioneel handelen",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 1,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": null,
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": []
+      },
+      {
+        "code": "DV12714020",
+        "naam": "Bereidt gastgerichte werkzaamheden voor",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 2,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": null,
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "B1-K1-W1",
+            "naam": "Bereidt gastgerichte werkzaamheden voor",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K1",
+              "naam": "Verleent gastvrijheid"
+            }
+          }
+        ]
+      },
+      {
+        "code": "DV12714021",
+        "naam": "Draagt bij aan een gastgerichte beleving",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 2,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": null,
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "B1-K1-W2",
+            "naam": "Draagt bij aan een gastgerichte beleving",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K1",
+              "naam": "Verleent gastvrijheid"
+            }
+          }
+        ]
+      },
+      {
+        "code": "DV12714022",
+        "naam": "Rond gastgerichte werkzaamheden af",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 2,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": null,
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "B1-K1-W3",
+            "naam": "Rondt gastgerichte werkzaamheden af",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K1",
+              "naam": "Verleent gastvrijheid"
+            }
+          }
+        ]
+      },
+      {
+        "code": "DV12714023",
+        "naam": "Evalueert de eigen werkzaamheden",
+        "peopleSoftId": null,
+        "oo_type": "REGULIER",
+        "aantal_instroommomenten": 2,
+        "keuze": false,
+        "sbu": null,
+        "startniveau": null,
+        "duur_in_weken": null,
+        "voorwaarden_voor_deelname": [],
+        "kenmerken": [],
+        "werkprocessen": [
+          {
+            "code": "B1-K1-W4",
+            "naam": "Evalueert de eigen werkzaamheden",
+            "dekkingsgraad": null,
+            "kerntaak": {
+              "code": "B1-K1",
+              "naam": "Verleent gastvrijheid"
+            }
+          }
+        ]
+      }
+    ],
+    "beroepstaken": [
+      {
+        "code": "BT1",
+        "naam": "Beroepstaak Verleent gastvrijheid",
+        "werkprocessen": [
+          "B1-K1-W1",
+          "B1-K1-W2",
+          "B1-K1-W3",
+          "B1-K1-W4"
+        ]
+      },
+      {
+        "code": "BT2",
+        "naam": "Beroepstaak Verricht facilitaire werkzaamheden",
+        "werkprocessen": [
+          "B1-K2-W1",
+          "B1-K2-W2",
+          "B1-K2-W3",
+          "B1-K2-W4",
+          "B1-K2-W5",
+          "B1-K2-W6"
+        ]
+      },
+      {
+        "code": "BT3",
+        "naam": "Beroepstaak Leidinggeven",
+        "werkprocessen": [
+          "P2-K1-W1",
+          "P2-K1-W2",
+          "P2-K1-W3",
+          "P2-K1-W4"
+        ]
+      },
+      {
+        "code": "BT4",
+        "naam": "Beroepstaak Coördineert facilitaire processen",
+        "werkprocessen": [
+          "P2-K2-W1",
+          "P2-K2-W2",
+          "P2-K2-W3",
+          "P2-K2-W4"
+        ]
+      }
+    ],
+    "rubrics": {
+      "niveau_oo": [],
+      "niveau_lt": [
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12713909LT01",
+            "naam": "KWIS-meldingen verwerken"
+          },
+          "beginner": "Registreert eenvoudige meldingen met begeleiding volgens vaste werkwijze en herkent verschillende soorten meldingen.\n\nCommuniceert volgens instructie met gasten en collega’s en vraagt hulp wanneer nodig.",
+          "gevorderd": "Verwerkt meldingen, reserveringen en bezoekersgegevens zelfstandig en correct en zet meldingen door naar de juiste partij.\n\nCommuniceert zelfstandig en professioneel met gasten en collega’s. Stelt vragen, vat samen en vraagt door.",
+          "beroepsbekwaam": "Verwerkt registraties zelfstandig volgens procedures, zet meldingen tijdig door en bewaakt de opvolging van meldingen.\n\nCommuniceert duidelijk, klantgericht en tijdig met alle betrokkenen. Controleert of de ander de informatie heeft begrepen."
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12713909LT02",
+            "naam": "Klachten afhandelen"
+          },
+          "beginner": "Neemt KWIS-meldingen aan en blijft professioneel en vriendelijk.",
+          "gevorderd": "Handelt eenvoudige klachten zelfstandig af volgens procedures en kiest passende acties.",
+          "beroepsbekwaam": "Handelt klachten professioneel en volgens de procedures af."
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12713909LT03",
+            "naam": "Beheertaken uitvoeren"
+          },
+          "beginner": "Registreert bezoekers met hulp volgens de werkwijze.\n\nGeeft met hulp een rondleiding en wijst de basisfacilitaire voorzieningen en functies aan",
+          "gevorderd": "Registreert bezoekers zelfstandig en correct in het systeem.\n\nIntroduceert nieuwe medewerkers en legt faciliteiten en werkwijzen uit",
+          "beroepsbekwaam": "Beheert bezoekersregistratie, controleert gegevens en houdt informatie actueel.\n\nVoert onboarding zelfstandig en professioneel uit, legt procedures en voorzieningen duidelijk uit en zorgt voor een gastvrije complete start."
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12713910LT01",
+            "naam": "Ruimtes inrichten"
+          },
+          "beginner": "Maakt een plan voor de inrichting in volgens opdracht en licht keuzes toe.\n\nHoudt rekening met looproutes, werkruimte en veiligheid.",
+          "gevorderd": "Stemt het inrichtingsplan af op het gebruik en de wensen van de opdrachtgever.\n\nRicht ruimtes logisch en veilig in volgens richtlijnen.",
+          "beroepsbekwaam": "Ontwerpt een inrichtingsplan, maakt een planning, stemt af met de opdrachtgever en verwerkt feedback.\n\nOntwerpt een functionele en veilige indeling met passende routing en voorzieningen volgens richtlijnen"
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12713910LT02",
+            "naam": "Vergaderservice uitvoeren"
+          },
+          "beginner": "Zet ruimtes en faciliteiten onderbegeleiding klaar volgens planning.\n\nVerplaatst materialen en middelen veilig volgens instructie. Legt uit waarom veilig werken belangrijk is.\n\nCommuniceert beleefd met gebruikers wanneer nodig.",
+          "gevorderd": "Richt ruimtes zelfstandig in volgens opdracht, maakt AV gebruiksklaar en levert de ruimte netjes en gebruiksklaar op. \n\nRegelt transport en opstelling zelfstandig en zorgt dat middelen compleet en bruikbaar zijn.\n\nBenadert gebruikers professioneel, ook in het Engels wanneer nodig, en controleert of de ruimte aan hun wensen voldoet. Stelt vragen en stemt af.",
+          "beroepsbekwaam": "Coördineert vergaderservice, stemt af op wensen van de gebruiker, ondersteunt tijdens bijeenkomsten, lost verstoringen op en bewaakt de kwaliteit van de opgeleverde ruimte.\n\nOrganiseert logistiek, stemt af en bewaakt voortgang en deadlines.\n\nCommuniceert servicegericht, ook in het Engels wanneer nodig, stemt verwachtingen af en zorgt voor een positieve ervaring."
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12713910LT03",
+            "naam": "Ruimtes controleren"
+          },
+          "beginner": "Voert eenvoudige controle- en opruimtaken uit volgens instructie.\n\nHerkent afwijkingen en meldt deze bij collega’s.\n\nControleert eigen werk en registreert bevindingen.",
+          "gevorderd": "Controleert of ruimtes veilig, schoon, netjes en bruikbaar zijn en meldt afwijkingen. \n\nMeldt afwijkingen tijdig en lost eenvoudige problemen zelfstandig op volgens procedures.\n\nControleert kwaliteit van schoonmaak en afvalscheiding en registreert bevindingen volgens procedures (bijv. DKS).",
+          "beroepsbekwaam": "Controleert planmatig op veiligheid, hygiëne en kwaliteit en levert ruimtes volgens afspraak op.\n\nLost problemen zelfstandig op of schakelt hulp in en zorgt voor opvolging.\n\nVoert kwaliteitsmetingen uit, rapporteert afwijkingen en bewaakt opvolging"
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12713911LT01",
+            "naam": "Goederen ontvangen, controleren en opslaan"
+          },
+          "beginner": "Neemt leveringen aan en controleert de bestelling op juistheid.\n\nSlaat materialen veilig op en houdt de ruimte netjes en overzichtelijk.\n\nWerkt volgens basisinstructies voor hygiëne.",
+          "gevorderd": "Controleert leveringen zelfstandig op aantal, kwaliteit en houdbaarheid en meldt afwijkingen.\n\nWerkt volgens opslagregels en past FIFO toe.\n\nWerkt volgens HACCP en gaat zorgvuldig om met materialen.",
+          "beroepsbekwaam": "Regelt ontvangst en registratie zelfstandig en handelt afwijkingen en retouren correct af.\n\nBewaakt opslagcondities en voorkomt derving en verspilling.\n\nWerkt volgens regels, voorkomt verspilling en draagt bij aan duurzaam voorraadbeheer."
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12713911LT02",
+            "naam": "Goederen verstrekken en aanvullen"
+          },
+          "beginner": "Geeft producten/materialen uit volgens instructie en afspraken.\n\nSignaleert tekorten en geeft dit door.",
+          "gevorderd": "Verstrekt materialen zelfstandig en registreert dit.\n\nPlaatst standaardbestellingen en registreert deze.",
+          "beroepsbekwaam": "Geeft materialen tijdig en nauwkeurig uit en voorkomt verspilling of verkeerd gebruik.\n\nBewaakt voorraadniveaus en stemt bestellingen af."
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12713911LT03",
+            "naam": "Voorraad registreren en bewaken"
+          },
+          "beginner": "Houdt eenvoudige voorraadregistraties bij.\n\nTelt voorraden en signaleert tekorten.",
+          "gevorderd": "Registreert voorraad zelfstandig en volledig.\n\nControleert voorraad op aantal en kwaliteit en registreert afwijkingen.",
+          "beroepsbekwaam": "Registreert voorraad nauwkeurig en controleert de gegevens.\n\nControleert voorraad op aantallen, kwaliteit, houdbaarheid en opslagwijze en registreert bevindingen."
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12713912LT01",
+            "naam": "Facilitaire services voorbereiden"
+          },
+          "beginner": "Benoemt verschillende facilitaire services en wat deze globaal inhouden.\n\nZet materialen en middelen klaar met hulp en volgens instructies.",
+          "gevorderd": "Legt zelfstandig uit welke facilitaire service wordt uitgevoerd en wat dit betekent voor voorbereiding, uitvoering en kwaliteit.\n\nZet materialen en middelen zelfstandig en volgens planning klaar.",
+          "beroepsbekwaam": "Kiest op basis van de betreffende facilitaire service, doelgroep en situatie de juiste werkwijze en vertaalt dit naar de uitvoering van de dienstverlening.\n\nBereidt de dienstverlening volledig, netjes en op tijd voor en controleert of alles klaarstaat."
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12713912LT02",
+            "naam": "Cateringtaken uitvoeren"
+          },
+          "beginner": "Helpt bij eenvoudige cateringtaken zoals klaarzetten en uitserveren.",
+          "gevorderd": "Voert cateringwerkzaamheden uit en houdt rekening met presentatie en gebruikers.",
+          "beroepsbekwaam": "Organiseert catering zelfstandig, houdt rekening met allergieën en dieetwensen en zorgt voor een gastvrije beleving."
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12713912LT03",
+            "naam": "Facilitaire services uitvoeren"
+          },
+          "beginner": "Stemt af met collega’s over wat nodig is en meldt bijzonderheden op tijd.\n\nVoert eenvoudige taken uit volgens instructie.\n\nWerkt volgens basisregels voor veiligheid en hygiëne.",
+          "gevorderd": "Overlegt zelfstandig met collega’s en/of klanten, ook in het Engels wanneer nodig, en maakt duidelijke afspraken.\n\nVoert werkzaamheden zelfstandig uit volgens afspraken.\n\nPast interne regels, hygiënecodes en veiligheidsvoorschriften correct toe.",
+          "beroepsbekwaam": "Stemt actief af, bewaakt afspraken en communiceert duidelijk en klantgericht, ook in het Engels wanneer nodig.\n\nWerkt zelfstandig en bewaakt de kwaliteit tijdens de uitvoering.\n\nWerkt volgens richtlijnen en spreekt anderen aan op onveilig of onhygiënisch werken."
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12713912LT04",
+            "naam": "Facilitaire services controleren"
+          },
+          "beginner": "Signaleert problemen of tekorten en meldt deze aan collega’s.\n\nControleert eigen werk op netheid en volledigheid.",
+          "gevorderd": "Neemt zelf passende actie bij eenvoudige problemen.\n\nControleert ook het werk van anderen en meldt afwijkingen.",
+          "beroepsbekwaam": "Lost problemen zelfstandig op of schakelt de juiste persoon in en bewaakt de opvolging.\n\nControleert de kwaliteit van werkzaamheden en onderneemt actie bij afwijkingen."
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12713912LT05",
+            "naam": "Facilitaire services afronden"
+          },
+          "beginner": "Ruimt op en legt materialen terug volgens afspraak.",
+          "gevorderd": "Rondt werkzaamheden netjes af en controleert of alles gereed is.",
+          "beroepsbekwaam": "Evalueert de uitvoering en benoemt actief eventuele verbeterpunten."
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12713913LT01",
+            "naam": "Sociale veiligheid bewaken"
+          },
+          "beginner": "Gaat respectvol om met anderen en meldt ongewenst gedrag.",
+          "gevorderd": "Spreekt mensen aan op ongewenst gedrag, bewaakt eigen grenzen.",
+          "beroepsbekwaam": "Zorgt actief voor een sociaal veilige sfeer en voorkomt dat situaties escaleren."
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12713913LT02",
+            "naam": "Preventief handelen"
+          },
+          "beginner": "Kent basisregels en herkent onveilige situaties en risico’s.\n\nWerkt volgens veiligheidsregels en volgt instructies.\n\nVoert veiligheidschecks uit volgens instructie en geeft bevindingen door",
+          "gevorderd": "Herkent risico’s en controleert of voorzieningen in orde zijn en neemt passende acties.\n\nPast Arbo-regels, huisregels en interne procedures toe en spreekt mensen aan op naleving.\n\nVoert zelfstandig veiligheidschecks uit en registreert afwijkingen volgens procedures",
+          "beroepsbekwaam": "Signaleert risico’s op tijd, controleert voorzieningen en voorkomt dat situaties erger worden.\n\nHoudt toezicht, handhaaft regels en spreekt mensen aan op gedrag.\n\nPlant en voert veiligheidschecks uit, registreert nauwkeurig en bewaakt de opvolging"
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12713913LT03",
+            "naam": "Handelen bij incidenten en calamiteiten"
+          },
+          "beginner": "Voert eenvoudige veiligheidshandelingen uit onder begeleiding.\n\nVolgt instructies uit het calamiteiten- of ontruimingsplan.\n\nBlijft rustig bij incidenten en vraagt hulp wanneer nodig.",
+          "gevorderd": "Lost eenvoudige situaties zelfstandig op en schakelt hulp in bij complexere situaties. \n\nHandelt volgens het ontruimingsplan in een oefensituatie en voert eenvoudige taken uit.\n\nHandelt professioneel bij paniek, agressie of ongewenst gedrag en spreekt mensen aan.",
+          "beroepsbekwaam": "Handelt zelfstandig en adequaat en neemt passende vervolgacties.\n\nHandelt adequaat bij calamiteiten, past basis-BHV toe, schakelt hulpdiensten in en legt incidenten vast.\n\nBlijft effectief onder druk, handhaaft regels en treedt de-escalerend op."
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12713914LT01",
+            "naam": "Onderhoud uitvoeren"
+          },
+          "beginner": "Herkent eenvoudige gebreken of storingen en meldt deze volgens instructie.",
+          "gevorderd": "Herkent storingen zelfstandig en onderzoekt de mogelijke oorzaken.",
+          "beroepsbekwaam": "Signaleert storingen tijdig, ziet patronen en voorkomt herhaling."
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12713914LT02",
+            "naam": "Specialist inschakelen"
+          },
+          "beginner": "Voert klein onderhoud uit met begeleiding en gebruikt basisgereedschap.\n\nWerkt veilig volgens instructies en houdt rekening met gebruikers.\n\nVraagt hulp wanneer nodig is en stemt af met collega’s.",
+          "gevorderd": "Verhelpt zelfstandig kleine storingen binnen de eigen rol en gebruikt handleidingen.\n\nWerkt volgens voorschriften en gebruikt materialen en middelen op de juiste manier.\n\nStemt af met collega’s of specialisten en communiceert servicegericht met gebruikers.",
+          "beroepsbekwaam": "Lost storingen zelfstandig op, rondt werkzaamheden volledig af en controleert het resultaat.\n\nWerkt veilig en duurzaam, volgt procedures en spreekt anderen hierop aan.\n\nHoudt overzicht, stemt werk goed af en communiceert duidelijk over voortgang en resultaat."
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12713914LT03",
+            "naam": "Onderhoud afronden"
+          },
+          "beginner": "Meldt storingen die hij/zij niet zelf kan oplossen.",
+          "gevorderd": "Registreert uitgevoerde werkzaamheden en meldingen volgens de afspraken.",
+          "beroepsbekwaam": "Registreert en bewaakt opvolging van onderhoud in logboek/FMIS, controleert ook werk van specialisten en zorgt voor volledige afronding."
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12713915LT01",
+            "naam": "Professionele werkhouding tonen"
+          },
+          "beginner": "Reageert vriendelijk en behulpzaam op vragen van anderen.\n\nToont positief gedrag, heeft een verzorgd voorkomen en houdt zich aan de geldende omgangsnormen. \n\nWerkt volgens afspraken, komt op tijd en voert taken netjes uit.",
+          "gevorderd": "Speelt in op wensen en behoeften van klanten/collega’s.\n\nGedraagt zich representatief en past houding en gedrag aan aan de werksituatie.\n\nToont verantwoordelijk gedrag en is aanspreekbaar op eigen handelen.",
+          "beroepsbekwaam": "Creëert een positieve beleving en handelt bewust vanuit het belang van de ander.\n\nStraalt professionaliteit uit, is zich bewust van de voorbeeldfunctie en handelt daarnaar.\n\nNeemt eigenaarschap voor eigen functioneren en handelt betrouwbaar."
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12713915LT02",
+            "naam": "Samenwerken"
+          },
+          "beginner": "Overlegt met collega’s wanneer nodig en communiceert beleefd.\n\nGeeft feedback wanneer dit gevraagd wordt.",
+          "gevorderd": "Stemt actief af, luistert naar anderen en draagt bij aan het gezamenlijke resultaat.\n\nGeeft op respectvolle wijze gerichte feedback.",
+          "beroepsbekwaam": "Werkt doelgericht samen, bevordert de samenwerking en spreekt anderen respectvol aan.\n\nGebruikt feedback doelgericht om de samenwerking te verbeteren."
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12713915LT03",
+            "naam": "Communiceren"
+          },
+          "beginner": "Legt werkzaamheden vast volgens een aangereikt format.\n\nLicht het eigen werk toe met ondersteuning.\n\nGebruikt digitale middelen volgens instructie.\n\nGebruikt AI volgens gegeven opdracht.",
+          "gevorderd": "Rapporteert volledig en gestructureerd volgens de gestelde eisen.\n\nPresenteert het eigen werk gestructureerd en begrijpelijk en beantwoord vragen.\n\nKiest passende digitale middelen voor het uitvoeren van het werk.\n\nZet AI doelgericht in voor eenvoudige werkzaamheden en controleert de betrouwbaarheid van de uitkomst.",
+          "beroepsbekwaam": "Rapporteert doelgericht en stemt inhoud en vorm af op de ontvanger.\n\nPresenteert duidelijk en overtuigend en stemt vorm af op de ontvanger. \n\nZet digitale middelen efficiënt en doelgericht in om het werk te verbeteren.\n\nGebruikt AI kritisch en verantwoord, controleert betrouwbaarheid en past resultaten professioneel toe in het werk."
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12713915LT04",
+            "naam": "Reflecteren"
+          },
+          "beginner": "Benoemt met hulp wat goed ging en wat beter kan.\n\nOntvangt feedback en past deze toe met begeleiding.\n\nWerkt aan leerdoelen met begeleiding.",
+          "gevorderd": "Analyseert het eigen handelen en benoemt leerpunten.\n\nVraagt actief om feedback en gebruikt deze om te verbeteren.\n\nFormuleert eigen leerdoelen en werkt hieraan.",
+          "beroepsbekwaam": "Evalueert systematisch eigen functioneren, stelt ontwikkeldoelen en werkt actief aan verbetering.\n\nGebruikt feedback structureel om de eigen ontwikkeling te sturen.\n\nStuurt zelfstandig de eigen ontwikkeling op basis van leerdoelen en resultaten."
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12713915LT05",
+            "naam": "Zelfstandig en proactief handelen"
+          },
+          "beginner": "Voert taken uit volgens instructie.\n\nPakt werkzaamheden op wanneer dit wordt aangegeven.\n\nVraagt hulp waar nodig.\n\nMaakt keuzes met begeleiding.",
+          "gevorderd": "Ziet zelf wat er moet gebeuren en pakt werkzaamheden zelfstandig op.\n\nZiet zelf werk liggen en onderneemt actie.\n\nLost eenvoudige problemen zelfstandig op en denkt mee over oplossingen.\n\nMaakt passende keuzes binnen de eigen taak.",
+          "beroepsbekwaam": "Werkt geheel zelfstandig, overziet taken en stuurt bij waar nodig.\n\nSignaleert kansen en doet verbetervoorstellen.\n\nAnticipeert op situaties, neemt initiatief tot verbetering en handelt zelfstandig binnen de eigen verantwoordelijkheid.\n\nMaakt onderbouwde keuzes en licht deze toe aan betrokkenen."
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12713915LT08",
+            "naam": "Duurzaam handelen in het werk"
+          },
+          "beginner": "Weet wat duurzaamheid betekent.\n\nHerkent met hulp eenvoudige voorbeelden van duurzaam of niet-duurzaam werken.\n\nVolgt instructies over duurzaam werken.",
+          "gevorderd": "Legt uit wat SDG’s en duurzaamheidsprincipes zijn.\n\nSignaleert zelfstandig situaties waar duurzamer gewerkt kan worden.\n\nPast kennis toe bij eenvoudige keuzes.",
+          "beroepsbekwaam": "Legt uit wat duurzaamheid betekent voor facilitaire dienstverlening en eigen werkzaamheden.\n\nBenoemt actief aanknopingspunten voor duurzaamheid en circulariteit in de eigen werkomgeving.\n\nMaakt bewuste keuzes en kan uitleggen waarom deze duurzamer zijn."
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12713916LT01",
+            "naam": "Gastvrij en klantgericht handelen 1"
+          },
+          "beginner": "Je herkent basisinformatie over gasten wanneer deze wordt aangereikt en presenteert jezelf verzorgd wanneer dit wordt gevraagd.",
+          "gevorderd": "Je verzamelt zelfstandig informatie over gasten, toont interesse in de gast en presenteert jezelf consequent representatief.",
+          "beroepsbekwaam": "Je verzamelt proactief informatie over gasten, speelt in op wensen en verwachtingen van de gast en presenteert jezelf representatief als visitekaartje van het bedrijf."
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12713916LT02",
+            "naam": "Bedrijfstypes, formules en concepten 1"
+          },
+          "beginner": "Je herkent het type bedrijf wanneer dit wordt uitgelegd en volgt eenvoudige instructies passend bij het concept.",
+          "gevorderd": "Je stemt je werkzaamheden grotendeels zelfstandig af op de bedrijfsformule, de doelgroep en de situatie en maakt passende keuzes.",
+          "beroepsbekwaam": "Je stemt je werkzaamheden en voorbereiding af op de bedrijfsformule, de doelgroep en het gastvrijheidsconcept en maakt passende keuzes voor de situatie en de gast."
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12713916LT03",
+            "naam": "Materialen, middelen, systemen & ICT 1"
+          },
+          "beginner": "Je zet materialen klaar wanneer iemand dit voordoet en gebruikt systemen onder begeleiding en meldt het wanneer iets niet werkt.",
+          "gevorderd": "Je kiest meestal zelfstandig de juiste materialen en middelen en maakt systemen gebruiksklaar en controleert apparatuur en systemen op basisfunctionaliteit.",
+          "beroepsbekwaam": "Je kiest zelfstandig de juiste materialen en middelen en zorgt dat apparatuur en systemen volledig en correct gebruiksklaar zijn en signaleert afwijkingen tijdig."
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12713916LT04",
+            "naam": "Plannen, organiseren & samenwerken 1"
+          },
+          "beginner": "Je voert taken uit in de volgorde die je wordt aangegeven en vraagt hulp bij prioriteiten.",
+          "gevorderd": "Je plant je werkzaamheden grotendeels zelfstandig en stemt deze af met collega’s wanneer nodig.",
+          "beroepsbekwaam": "Je plant je eigen werkzaamheden in een logische volgorde, stelt prioriteiten en stemt deze tijdig en effectief af met collega’s."
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12713916LT05",
+            "naam": "Taal-activiteiten 1"
+          },
+          "beginner": "Je kunt eenvoudige woorden of zinnen in het Engels herhalen wanneer dit wordt voorgedaan.",
+          "gevorderd": "Je gebruikt basiscommunicatie in het Engels tijdens de voorbereiding.",
+          "beroepsbekwaam": "Je kunt de voorbereiding van de gastontvangst mede afstemmen op anderstalige gasten door gebruik van de Engelse taal."
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12713917LT01",
+            "naam": "Gastvrij en klantgericht handelen 2"
+          },
+          "beginner": "Je begroet gasten vriendelijk wanneer iemand je hieraan herinnert, herkent eenvoudige wensen en vraagt hulp bij complexere situaties.",
+          "gevorderd": "Je toont interesse, stelt vragen bij wensen, draagt actief bij aan een prettige sfeer en probeert eenvoudige problemen zelfstandig op te lossen.",
+          "beroepsbekwaam": "Je observeert gasten, achterhaalt hun wensen en behoeften en speelt hierop in. Je handelt adequaat bij problemen of klachten en draagt actief bij aan een optimale gastbeleving."
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12713917LT02",
+            "naam": "Plannen, organiseren & samenwerken 2"
+          },
+          "beginner": "Je volgt aanwijzingen van collega’s en meldt signalen van gasten wanneer dit wordt gevraagd.",
+          "gevorderd": "Je schakelt tijdig met collega’s wanneer je merkt dat een gast iets nodig heeft en stemt je werkzaamheden af.",
+          "beroepsbekwaam": "Je stemt tijdig en effectief af met collega’s en speelt samen in op signalen en feedback van de gast."
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12713917LT03",
+            "naam": "Taal-activiteiten 2"
+          },
+          "beginner": "Je gebruikt eenvoudige standaardzinnen in het Nederlands en kunt gasten in het Engels begroeten.",
+          "gevorderd": "Je voert eenvoudige gesprekken in het Nederlands en geeft basisinformatie in het Engels.",
+          "beroepsbekwaam": "Je communiceert duidelijk in het Nederlands en voert eenvoudige, dagelijkse gesprekken met internationale gasten in het Engels."
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12713917LT04",
+            "naam": "Duurzaamheid, Cultuur & Maatschappelijke verantwoordelijkheid 2"
+          },
+          "beginner": "Je behandelt gasten van verschillende achtergronden vriendelijk en respectvol.",
+          "gevorderd": "Je houdt rekening met culturele verschillen in je communicatie.",
+          "beroepsbekwaam": "Je communiceert respectvol en adequaat met gasten van verschillende achtergronden en leeftijden."
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12713918LT01",
+            "naam": "Materialen, middelen, systemen & ICT 3"
+          },
+          "beginner": "Je ruimt materialen op onder begeleiding en voert eenvoudige handelingen uit in systemen.",
+          "gevorderd": "Je ruimt materialen zelfstandig op en verwerkt eenvoudige gegevens in digitale systemen.",
+          "beroepsbekwaam": "Je ruimt gebruikte materialen en middelen veilig op en verwerkt relevante gegevens correct en volledig in digitale systemen."
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12713918LT02",
+            "naam": "Gastvrij en klantgericht handelen 3"
+          },
+          "beginner": "Je geeft belangrijke informatie door wanneer iemand hiernaar vraagt.",
+          "gevorderd": "Je registreert zelfstandig belangrijke informatie en gemaakte afspraken zorgvuldig en volledig.",
+          "beroepsbekwaam": "Je zorgt voor een zorgvuldige overdracht van werkzaamheden door belangrijke informatie, afspraken en bijzonderheden correct en volledig te registreren."
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12713918LT03",
+            "naam": "Plannen, organiseren & samenwerken 3"
+          },
+          "beginner": "Je helpt mee met afrondende taken wanneer iemand dit aangeeft.",
+          "gevorderd": "Je stemt afrondende taken af met collega’s zodat de werkplek op tijd klaar is.",
+          "beroepsbekwaam": "Je stemt afrondende taken tijdig en effectief af met collega’s zodat de werkplek gereed is voor de volgende dienst of gast."
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12713918LT04",
+            "naam": "Duurzaamheid, Cultuur & Maatschappelijke verantwoordelijkheid 3"
+          },
+          "beginner": "Je ruimt afval op wanneer iemand dit aangeeft en laat de werkplek netjes achter.",
+          "gevorderd": "Je scheidt afval wanneer dit duidelijk is aangegeven en houdt de werkplek schoon en opgeruimd.",
+          "beroepsbekwaam": "Je ruimt de werkplek milieubewust op door afval te scheiden en te zorgen voor hergebruik volgens de duurzaamheidsprincipes"
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12713918LT05",
+            "naam": "Veiligheid, regels & richtlijnen 3"
+          },
+          "beginner": "Je volgt basisregels bij afronden van de werkzaamheden.",
+          "gevorderd": "Je rondt taken af volgens bekende de veiligheidsrichtlijnen",
+          "beroepsbekwaam": "Je kunt de werkzaamheden afronden volgens de wettelijke voorschriften en de specifieke veiligheidsrichtlijnen van het bedrijf"
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12713919LT01",
+            "naam": "Gastvrij en klantgericht handelen 4"
+          },
+          "beginner": "Je herkent verbeterpunten in je eigen handelen wanneer iemand deze benoemt.",
+          "gevorderd": "Je formuleert op basis van feedback eenvoudige verbeterpunten voor je eigen handelen",
+          "beroepsbekwaam": "Je formuleert op basis van feedback concrete verbeterpunten en gebruikt deze om je gastvrijheid en klantgerichtheid te verbeteren."
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12713919LT02",
+            "naam": "Plannen, organiseren & samenwerken 4"
+          },
+          "beginner": "Je ontvangt feedback en probeert deze toe te passen in je werk.",
+          "gevorderd": "Je wisselt feedback uit met collega’s op een respectvolle manier en doet eenvoudige verbetervoorstellen.",
+          "beroepsbekwaam": "Je geeft en ontvangt feedback op een constructieve manier en gebruikt deze om je eigen werk en samenwerking te verbeteren."
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12714001LT01",
+            "naam": "Inzicht in leiderschap ontwikkelen"
+          },
+          "beginner": "Benoemt wat leiderschap is en noemt kenmerken, eigenschappen en kwaliteiten met hulp.\n\nBenoemt met hulp eigen kwaliteiten en voorkeursgedrag als leidinggevende.",
+          "gevorderd": "Legt verschillende leiderschapsstijlen en ontwikkelingen uit en koppelt deze aan praktijksituaties.\n\nBeschrijft zelfstandig de eigen leiderschapsstijl en geeft voorbeelden uit de praktijk.",
+          "beroepsbekwaam": "Legt uit welke leiderschapsstijl bij zichzelf past en onderbouwt dit met voorbeelden uit de praktijk.\n\nPast de eigen leiderschapsstijl aan op de situatie en het team."
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12714001LT02",
+            "naam": "Reflecteren op eigen handelen"
+          },
+          "beginner": "Denkt met begeleiding na over eigen gedrag als leidinggevende en benoemt sterke punten en verbeterpunten.\n\nStaat open voor leren en begeleiding.",
+          "gevorderd": "Reflecteert zelfstandig op eigen handelen en het effect daarvan op anderen. \n\nToont eigenaarschap over de eigen ontwikkeling en bewaakt eigen welzijn en vitaliteit.",
+          "beroepsbekwaam": "Reflecteert kritisch op eigen handelen en gebruikt feedback om het eigen gedrag te verbeteren.\n\nWerkt actief aan de eigen ontwikkeling en bewaakt eigen welzijn en vitaliteit."
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12714001LT03",
+            "naam": "Persoonlijke ontwikkeling sturen"
+          },
+          "beginner": "Gebruikt eenvoudige reflectie- of ontwikkelmethoden met begeleiding.\n\nBenoemt eenvoudige leer- of verbeterpunten.\n\nVoert verbeterpunten uit met begeleiding.",
+          "gevorderd": "Past ontwikkelmethodieken zelfstandig toe en trekt conclusies voor eigen groei. \n\nFormuleert concrete, haalbare en realistische ontwikkeldoelen.\n\nNeemt zelfstandig passende acties om het eigen functioneren te verbeteren.",
+          "beroepsbekwaam": "Kiest en gebruikt doelgericht passende methodieken en onderbouwt gemaakte ontwikkelkeuzes.\n\nFormuleert gerichte ontwikkeldoelen en bewaakt de voortgang hiervan.\n\nOnderneemt zelfstandig actie om het eigen functioneren te verbeteren."
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12714002LT01",
+            "naam": "Werkzaamheden analyseren"
+          },
+          "beginner": "Brengt met hulp in beeld welke werkzaamheden er zijn.",
+          "gevorderd": "Brengt zelfstandig in kaart welke werkzaamheden er zijn en welke eisen gelden.",
+          "beroepsbekwaam": "Maakt een compleet overzicht van de werkzaamheden, eisen en beschikbare capaciteit."
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12714002LT02",
+            "naam": "Werkzaamheden plannen"
+          },
+          "beginner": "Maakt met begeleiding een eenvoudige planning.\n\nWijst taken toe volgens instructie.\n\nCommuniceert duidelijk over taken en afspraken.",
+          "gevorderd": "Maakt zelfstandig realistische planningen en roosters en stelt prioriteiten. \n\nVerdeelt taken passend bij medewerkers en situatie. \n\nStemt tijdig af over wijzigingen en verwachtingen.",
+          "beroepsbekwaam": "Maakt een planning op basis van tijd, medewerkers, middelen en afspraken.\n\nVerdeelt werkzaamheden passend bij medewerkers, verantwoordelijkheden en beschikbare capaciteit.\n\nStemt werkzaamheden effectief af met team, leidinggevende en externe partijen."
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12714002LT03",
+            "naam": "Planning evalueren en bijstellen"
+          },
+          "beginner": "Vergelijkt uitgevoerde werkzaamheden met de planning met begeleiding.\n\nGeeft knelpunten door aan begeleider.",
+          "gevorderd": "Vergelijkt planning, uren en kosten met de uitvoering en signaleert afwijkingen.\n\nAnalyseert knelpunten en doet verbetervoorstellen.",
+          "beroepsbekwaam": "Evalueert de planning op basis van uitvoering, uren en kosten en past deze waar nodig aan.\n\nNeemt onderbouwde beslissingen, past de planning aan en schakelt leidinggevende in bij afwijkingen buiten het mandaat."
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12714003LT01",
+            "naam": "Medewerkers instrueren"
+          },
+          "beginner": "Geeft eenvoudige instructies onder begeleiding en vraagt feedback op de eigen uitleg.",
+          "gevorderd": "Geeft duidelijke instructies afgestemd op de taak en medewerker en controleert of deze begrepen zijn.",
+          "beroepsbekwaam": "Geeft duidelijke instructies over werkzaamheden, prioriteiten en kwaliteitseisen en past uitleg aan op de medewerker en situatie."
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12714003LT02",
+            "naam": "Medewerkers begeleiden & coachen"
+          },
+          "beginner": "Houdt toezicht en signaleert knelpunten tijdens werkzaamheden en meldt deze tijdig.\n\nOndersteunt medewerkers bij werkzaamheden en werkt respectvol samen.\n\nToont betrokkenheid bij medewerkers.\n\nSignaleert onveilige of ongewenste situaties.",
+          "gevorderd": "Controleert of werkzaamheden worden uitgevoerd volgens planning, procedures en afspraken en stuurt bij waar nodig.\n\nBegeleidt medewerkers zelfstandig tijdens werkzaamheden en past uitleg of ondersteuning aan op de medewerker.\n\nStimuleert motivatie en werkplezier door positieve feedback en positieve houding. \n\nCreëert een veilige werkomgeving en spreekt medewerkers aan op gedrag en handelt volgens geldende afspraken.",
+          "beroepsbekwaam": "Controleert de uitvoering van werkzaamheden, geeft aanvullende instructies of ondersteuning en grijpt in bij afwijkingen binnen het eigen mandaat.\n\nObserveert medewerkers, signaleert wanneer extra ondersteuning nodig is en begeleidt medewerkers passend bij hun behoeften en werkzaamheden.\n\nInspireert en motiveert medewerkers om gezamenlijk doelen te behalen en creëert een professionele en resultaatgerichte werksfeer.\n\nTreedt de-escalerend op en borgt sociale veiligheid en vervult een voorbeeldrol in professioneel gedrag."
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12714003LT03",
+            "naam": "Voortgangsgesprekken voeren"
+          },
+          "beginner": "Deelt observaties over het functioneren van de medewerkers.",
+          "gevorderd": "Voert voortgangs- en coachgesprekken, geeft constructieve feedback en legt afspraken vast.",
+          "beroepsbekwaam": "Voert gesprekken met medewerkers over functioneren, ontwikkeling en welzijn en geeft gerichte feedback en input aan de leidinggevende."
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12714004LT01",
+            "naam": "Werkoverleg voorbereiden"
+          },
+          "beginner": "Bereidt onder begeleiding een werkoverleg voor.\n\nVolgt een vaste overlegstructuur met ondersteuning.\n\nInformeert betrokkenen over het overleg",
+          "gevorderd": "Bereidt zelfstandig een werkoverleg voor en maakt een agenda met relevante onderwerpen.\n\nBepaalt zelfstandig de overlegstructuur en bewaakt tijd en agenda in de voorbereiding. \n\nInformeert betrokkenen over het overleg en vraagt welke onderwerpen ingebracht moeten worden.",
+          "beroepsbekwaam": "Bereidt zelfstandig een werkoverleg voor, verzamelt relevante informatie en stemt onderwerpen en aandachtspunten af op het team.\n\nKiest een passende overlegvorm en richt het overleg procesmatig en resultaatgericht in.\n\nStemt vooraf af met teamleden en andere betrokkenen over agenda, planning en verwachtingen."
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12714004LT02",
+            "naam": "Werkoverleg leiden"
+          },
+          "beginner": "Neemt het voortouw en volgt de agenda.\n\nGeeft medewerkers ruimte om te reageren.\n\nNoteert afspraken en acties.\n\nCommuniceert duidelijk en respectvol.",
+          "gevorderd": "Leidt het overleg zelfstandig en bewaakt structuur, tijd en voortgang. \n\nBetrekt medewerkers actief en vraagt om ideeën en feedback. \n\nMaakt afspraken met medewerkers en legt acties vast volgens richtlijnen.\n\nCommuniceert doelgericht en staat open voor verschillende meningen.",
+          "beroepsbekwaam": "Leidt het overleg doelgericht, bewaakt de voortgang en neemt duidelijke beslissingen wanneer nodig.\n\nInformeert medewerkers volledig, betrekt hen actief bij het overleg en bespreekt knelpunten en oplossingen met het team.\n\nMaakt duidelijke afspraken, legt deze vast en koppelt verantwoordelijkheden en acties terug aan betrokkenen.\n\nCommuniceert overtuigend, transparant en verbindend en straalt professioneel leiderschap uit."
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12714004LT03",
+            "naam": "Werkoverleg vastleggen"
+          },
+          "beginner": "Werkt notulen overzichtelijk uit en deelt deze met het team.",
+          "gevorderd": "Zorgt voor een duidelijke actielijst en koppelt afspraken en acties terug aan betrokkenen.",
+          "beroepsbekwaam": "Legt afspraken, acties, verantwoordelijken en verbeterpunten eenduidig vast en koppelt deze terug aan het team."
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12714005LT01",
+            "naam": "Facilitaire situatie analyseren"
+          },
+          "beginner": "Verzamelt met hulp informatie over de facilitaire dienstverlening en benoemt zichtbare knelpunten en aandachtspunten.\n\nBenoemt met hulp wat goed gaat en wat beter kan in de facilitaire dienstverlening.",
+          "gevorderd": "Verzamelt zelfstandig relevante informatie, analyseert de facilitaire situatie en legt verbanden tussen gegevens en knelpunten.\n\nTrekt logische conclusies uit de analyse en licht deze toe aan de hand van feiten en waarnemingen.",
+          "beroepsbekwaam": "Analyseert zelfstandig de facilitaire situatie, signaleert kansen, risico’s en knelpunten en onderbouwt bevindingen met verzamelde gegevens.\n\nFormuleert onderbouwde conclusies en verbindt deze aan verbeterpunten voor de facilitaire dienstverlening."
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12714005LT02",
+            "naam": "Prioriteiten bepalen"
+          },
+          "beginner": "Herkent met hulp welke knelpunten of kansen belangrijk zijn.",
+          "gevorderd": "Bepaalt zelfstandig welke knelpunten, risico’s of kansen prioriteit hebben en licht keuzes toe.",
+          "beroepsbekwaam": "Stelt prioriteiten op basis van doelen, situatie en haalbaarheid en onderbouwt gemaakte keuzes."
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12714005LT03",
+            "naam": "Facilitair plan opstellen"
+          },
+          "beginner": "Doet met hulp een eenvoudig verbetervoorstel en benoemt globale voor- en nadelen.",
+          "gevorderd": "Doet zelfstandig een haalbaar en onderbouwd verbetervoorstel en licht gemaakte keuzes toe.",
+          "beroepsbekwaam": "Werkt een verbetervoorstel uit, vergelijkt alternatieven en onderbouwt de gemaakte keuzes."
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12714005LT04",
+            "naam": "Facilitair plan afstemmen en bijstellen"
+          },
+          "beginner": "Licht onderdelen van het plan toe aan de begeleider of collega’s en beantwoordt eenvoudige vragen.\n\nPast onderdelen van het plan aan volgens aanwijzingen.",
+          "gevorderd": "Presenteert het plan aan betrokkenen, licht gemaakte keuzes toe en beantwoordt vragen. \n\nVerwerkt ontvangen feedback zelfstandig in het plan en licht de aanpassingen toe.",
+          "beroepsbekwaam": "Presenteert het plan overtuigend aan stakeholders, onderbouwt keuzes met verzamelde informatie en vraagt gericht om feedback.\n\nVerwerkt feedback en verbeterpunten zelfstandig in het plan en onderbouwt gemaakte aanpassingen."
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12714006LT01",
+            "naam": "Kostenberekening maken"
+          },
+          "beginner": "Maakt met hulp een eenvoudige kostenberekening volgens aangereikte gegevens.",
+          "gevorderd": "Maakt zelfstandig realistische kostenberekeningen en verwerkt gegevens correct.",
+          "beroepsbekwaam": "Maakt kostenberekeningen passend bij het beschikbare budget en licht gemaakte keuzes toe."
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12714006LT02",
+            "naam": "Verschillen verklaren"
+          },
+          "beginner": "Vergelijkt met hulp begrote en werkelijke kosten en benoemt eenvoudige verschillen.",
+          "gevorderd": "Vergelijkt zelfstandig geplande en werkelijke kosten en verklaart verschillen met gegevens.",
+          "beroepsbekwaam": "Analyseert financiële afwijkingen en licht gevolgen voor budget en uitvoering duidelijk toe."
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12714006LT03",
+            "naam": "Maatregelen bedenken"
+          },
+          "beginner": "Doet met hulp een voorstel om kosten te besparen of opbrengsten te verhogen.",
+          "gevorderd": "Beschrijft haalbare maatregelen om kosten te besparen of opbrengsten te verhogen.",
+          "beroepsbekwaam": "Doet onderbouwde voorstellen om budgetoverschrijdingen te voorkomen of financiële resultaten te verbeteren."
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12714006LT04",
+            "naam": "Bespreken met betrokkenen"
+          },
+          "beginner": "Meldt gesignaleerde afwijkingen aan de begeleider of leidinggevende.",
+          "gevorderd": "Bespreekt bevindingen en afwijkingen met betrokkenen en licht afspraken toe.",
+          "beroepsbekwaam": "Bespreekt financiële bevindingen en voorstellen tijdig met betrokkenen en maakt afspraken over opvolging."
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12714007LT01",
+            "naam": "Wensen en mogelijkheden bepalen"
+          },
+          "beginner": "Vraagt eenvoudige wensen en eisen uit bij opdrachtgever en  noteert deze.\n\nBespreekt met begeleiding wat mogelijk is binnen tijd, budget en middelen.",
+          "gevorderd": "Inventariseert zelfstandig wensen en eisen van opdrachtgever.\n\nOnderzoekt zelfstandig mogelijkheden voor het evenement.",
+          "beroepsbekwaam": "Brengt wensen, eisen en verwachtingen volledig in kaart, weegt belangen en vertaalt deze naar uitgangspunten voor het evenement.\n\nMaakt haalbare keuzes op basis van tijd, budget, middelen en wensen van betrokkenen."
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12714007LT02",
+            "naam": "Event plannen en voorbereiden"
+          },
+          "beginner": "Werkt mee aan een eenvoudige planning of deel van een draaiboek volgens instructie.\n\nZet materialen, middelen en ruimtes klaar volgens instructie.",
+          "gevorderd": "Maakt zelfstandig een planning of draaiboek voor het eigen onderdeel.\n\nRegelt zelfstandig benodigde faciliteiten en controleert of alles beschikbaar is.",
+          "beroepsbekwaam": "Maakt een compleet draaiboek of planning en bewaakt samenhang, afspraken en voortgang.\n\nRegelt faciliteiten en middelen zelfstandig en maakt onderbouwde keuzes binnen het budget."
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12714007LT03",
+            "naam": "Event aansturen"
+          },
+          "beginner": "Voert taken uit volgens planning en aanwijzingen.\n\nOverlegt met collega’s of betrokkenen volgens instructie.",
+          "gevorderd": "Controleert of alles volgens draaiboek en afspraken verloopt en lost eenvoudige problemen op. \n\nStemt zelfstandig af met interne en externe betrokkenen.",
+          "beroepsbekwaam": "Stuurt het evenement actief aan, neemt tijdig onderbouwde beslissingen, lost knelpunten zelfstandig op en blijft effectief onder druk.\n\nIs aanspreekpunt, communiceert helder en zorgt voor goede samenwerking."
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12714007LT04",
+            "naam": "Event evalueren"
+          },
+          "beginner": "Bespreekt wat goed ging en wat beter kan.",
+          "gevorderd": "Evalueert het eigen onderdeel en benoemt indien nodig verbeterpunten.",
+          "beroepsbekwaam": "Evalueert het evenement met betrokkenen en vertaalt verbeterpunten naar concrete acties."
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12714008LT01",
+            "naam": "Stakeholdersoverleg voorbereiden"
+          },
+          "beginner": "Verzamelt basisinformatie voor het overleg volgens de instructie.",
+          "gevorderd": "Bepaalt zelfstandig doel, inhoud en aanpak van het overleg.",
+          "beroepsbekwaam": "Bereidt doelgericht een overleg voor en stemt relevante informatie en aandachtspunten af op de situatie."
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12714008LT02",
+            "naam": "Stakeholdersoverleg voeren"
+          },
+          "beginner": "Wisselt informatie uit volgens instructie en meldt afwijkingen.\n\nMaakt afspraken en legt deze vast volgens instructie.\n\nCommuniceert respectvol en betrouwbaar.",
+          "gevorderd": "Overlegt zelfstandig met stakeholders over voortgang van afspraken uit contracten.\n\nMaakt zelfstandig duidelijke (nieuwe) afspraken en legt deze correct vast.\n\nBlijft professioneel bij spanningen en verschillende meningen.",
+          "beroepsbekwaam": "Voert doelgericht overleg, ziet erop toe dat afspraken uit contracten worden nagekomen en onderneemt actie bij afwijkingen.\n\nBorgt dat afspraken, acties en verbeterpunten volledig en zorgvuldig worden vastgelegd volgens richtlijnen.\n\nCommuniceert overtuigend, transparant en onderhoudt professionele werkrelaties met stakeholders."
+        },
+        {
+          "target": {
+            "type": "LT",
+            "code": "DV12714008LT03",
+            "naam": "Voortgang bewaken"
+          },
+          "beginner": "Meldt knelpunten aan de leidinggevende en vraagt hulp bij twijfel.",
+          "gevorderd": "Bespreekt problemen met stakeholders en zoekt samen oplossingen.",
+          "beroepsbekwaam": "Neemt tijdig duidelijke onderbouwde beslissingen bij knelpunten, maakt afspraken en schakelt de leidinggevende in bij twijfel over bevoegdheden."
+        }
+      ],
+      "niveau_wp": [],
+      "uitgesloten_opleidingsonderdelen": []
+    },
+    "examenplan": {
+      "items": [
+        {
+          "examencode": "1",
+          "naam": "Examens nog niet bekend",
+          "peopleSoftStudiedeelId": null,
+          "gekoppelde_opleidingsonderdelen": [
+            "DV12714001",
+            "DV12714002",
+            "DV12714003",
+            "DV12714004",
+            "DV12714005",
+            "DV12714006",
+            "DV12714007",
+            "DV12714008",
+            "DV12714013",
+            "DV12714014",
+            "DV12714015",
+            "DV12714016",
+            "DV12714017",
+            "DV12714018",
+            "DV12714019"
+          ]
+        }
+      ]
+    }
+  }
+}
