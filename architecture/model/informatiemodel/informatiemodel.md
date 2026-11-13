@@ -27,6 +27,14 @@ Verder buiten scope: applicatiecomponenten, techniekkeuzes en federatie tussen i
 
 ![Informatiemodel OKx, versie v0.2 van 14 oktober 2026](<OKx informatiemodel v0.2.jpg>)
 
+### In verkenning: de leeruitkomst
+
+De modellering rond de leeruitkomst wordt nog onderzocht. Drie dingen staan op de plaat zoals dit model ze nu voorstelt, en geen van drie is bekrachtigd: de verhouding van de leeruitkomst tot het kwalificatiekader, of de leeruitkomst een specialisatie van een competentie is of een eigen type, en hoe de summatieve resultaatstructuur naar een leeruitkomst weegt. De vragen staan in [Npuls-OKx/Public#135](https://github.com/Npuls-OKx/Public/issues/135) en in [deel 8 van de leesroute](../../../project/leesroute.md); de werkgroep leeruitkomsten beantwoordt ze.
+
+Wie op dit deel bouwt, bouwt op een voorstel. De uitsnede hieronder toont welke drie vakken dat zijn.
+
+![Welk deel van het model rond de leeruitkomst wordt nog onderzocht](img/uitsneden/meta-516-leeruitkomst-in-verkenning.svg)
+
 ## Lezers en detailniveau
 
 | | |
@@ -69,7 +77,7 @@ Waar de betekenis niet uit de twee objecttypen volgt, draagt de relatie een labe
 
 ## Ontwerpkeuzes
 
-Elke keuze noemt zijn bron; staat er *voorstel*, dan is de keuze in dit model gemaakt en wacht hij op bekrachtiging.
+Elke keuze noemt zijn bron; staat er *voorstel*, dan is de keuze in dit model gemaakt en wacht hij op bekrachtiging. De keuzes 1, 2, 4, 7 en 11 raken de leeruitkomst en staan daarmee [in verkenning](#in-verkenning-de-leeruitkomst).
 
 1. **De leeruitkomst is de sleutel die specificaties en resultaatstructuur verbindt.** Zeven specificatietypen wijzen rechtstreeks naar leeruitkomsten, `Keuzedeel` en `Keuzedeelruimte` doen dat via specialisatie, en de summatieve resultaatstructuur wijst er ook naar. Een leeruitkomst kan subleeruitkomsten bevatten. Bron: [ADR 0026](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/adr/0026-leeruitkomst-als-verbindende-sleutel.md).
 2. **Het kwalificatiekader wordt vertaald naar leeruitkomsten, niet gespecialiseerd.** Kwalificatiedossier, kwalificatie, kerntaak en werkproces stellen vast wat normatief geldig is. Een leeruitkomst is de invulling door de instelling van wat het kwalificatiekader beoogt: wat een student moet kennen en kunnen, zo geformuleerd dat specificaties ernaar kunnen verwijzen en dat behaalde toets- en examenresultaten er het bewijs voor leveren. Een leeruitkomst is dus geen bijzonder geval van een werkproces; een instelling die geen eigen leeruitkomsten formuleert kan de vertaling een op een maken. Voorstel.
