@@ -25,12 +25,18 @@ De verleiding is dan om de lijn in Archi te zetten. Dat is fout: het model wijzi
      "titel": "De vraag die dit voorstel stelt",
      "herkomst": "sessie met datum, en het issue waar de vraag staat",
      "versie": "0.1.0",
+     "objecten": [
+       {"naam": "Onderwijsaanbod ontsluiten", "soort": "dienst",
+        "bij": "Planningssysteem", "kant": "onder"}
+     ],
      "stromen": [
        {"van": "Planningssysteem", "naar": "Kernregistratie systeem studenten (KRS)",
         "label": "wat er over die lijn gaat"}
      ]
    }
    ```
+
+   Een voorstel draagt stromen, objecten, of allebei. Een stroom mag naar een voorgesteld vak wijzen; de vakken worden eerst geplaatst.
 
 2. **Teken.**
 
@@ -44,6 +50,21 @@ De verleiding is dan om de lijn in Archi te zetten. Dat is fout: het model wijzi
 
 4. **Hang hem onder het issue**, gepind op een commit, met de versie van de hoofdplaat erbij en de vraag erboven.
 
+## Een vak voorstellen
+
+De renderer leest de plek van elk vak uit de view, en een vak dat daar niet staat heeft geen plek. Een voorstel zegt daarom bij welk vak het hoort en aan welke kant; de plaat rekent de rest uit. Zo hoeft het model geen coordinaten te leveren voor iets wat nog geen besluit is.
+
+| Sleutel | | Wat het doet |
+|---|---|---|
+| `naam` | verplicht | Staat in het vak, met het woord `voorstel` eronder |
+| `bij` | verplicht | De naam van een vak dat wel op de view staat |
+| `kant` | `onder` | `onder`, `boven`, `links` of `rechts` van dat vak |
+| `soort` | component | `dienst` voor een applicatiedienst |
+| `zone` | | Bij twee vakken met dezelfde naam: in welk procesgebied |
+| `breedte`, `hoogte` | de buurman, 80 | Alleen wanneer de plek krap is |
+
+Een vak in een druk gebied duwt de namen van de lijnen opzij. Het script zoekt dan een vrije plek verder van de lijn, maar een naam die ver van zijn lijn staat is lastiger te lezen dan een naam ernaast. Kijk dus naar het beeld, en kies een rustiger `kant` of een kleinere `breedte` wanneer het schuift.
+
 ## Wat het script bewaakt
 
 | Wat | Waarom |
@@ -51,6 +72,8 @@ De verleiding is dan om de lijn in Archi te zetten. Dat is fout: het model wijzi
 | Een voorstel zonder `herkomst` | Een lijn zonder herkomst is over een maand niet te plaatsen en wordt stilletjes waarheid |
 | Een stroom zonder label | Een lijn zonder label zegt dat er iets stroomt en niet wat |
 | Een component dat niet op de view staat | Dan wijst het voorstel naar iets anders dan de lezer denkt |
+| Een voorstel zonder stromen en zonder objecten | Dan valt er niets te zien |
+| Een object zonder `naam` of `bij`, of met een `kant` die niet bestaat | Dan is de plek een gok |
 | Twee componenten in verschillende procesgebieden | Een stroom blijft binnen haar gebied; dat is het verhaal van deze plaat. Een component dat in beide meedoet staat er twee keer op, en `zone` kiest welke |
 
 ## De vorm van de comment
@@ -66,7 +89,9 @@ Vervalt een eerder beeld, trek het dan in met een regel erboven in plaats van he
 
 ## Wat er nog niet kan
 
-Een vak toevoegen, zoals een applicatiedienst of een component dat nog niet bestaat. De renderer leest de plek van elk vak uit de view, en een nieuw vak heeft geen plek. Zeg dat erbij in plaats van het te omzeilen met een getekende schets.
+Een relatie tussen twee voorgestelde vakken onderling, en een vak in een procesgebied waar geen enkel bestaand vak staat. Zeg dat erbij in plaats van het te omzeilen met een getekende schets.
+
+De keuring `keur-plaat.py` leest de breedte en de hoogte van het doek en niet het venster van de uitsnede; op een uitsnede meldt zij daardoor tekst buiten het doek. Keur de volle plaat, niet de uitsnede.
 
 ## Verwante skills
 

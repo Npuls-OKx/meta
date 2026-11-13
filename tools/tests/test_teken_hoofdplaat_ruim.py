@@ -521,8 +521,48 @@ ALLES = [{"id": "a", "naam": "Planningssysteem"},
          {"id": "b", "naam": "Kernregistratie systeem studenten (KRS)"},
          {"id": "c", "naam": "Planningssysteem"},
          {"id": "d", "naam": "Roostersysteem"}]
-VAKKEN = {"a": {}, "b": {}, "c": {}, "d": {}}
+VAKKEN = {"a": {"x": 300, "y": 200, "w": 180, "h": 90},
+          "b": {"x": 300, "y": 600, "w": 180, "h": 90},
+          "c": {"x": 900, "y": 200, "w": 180, "h": 90},
+          "d": {"x": 900, "y": 600, "w": 180, "h": 90}}
 PER_ZONE = {"a": "links", "b": "links", "c": "rechts", "d": "rechts"}
+
+
+class VoorstelObjectTests(unittest.TestCase):
+    """Een voorgesteld vak krijgt zijn plek van een vak dat wel op de view staat."""
+
+    def objecten(self, *objecten):
+        return ruim.voorstel_objecten({"objecten": list(objecten)}, ALLES, VAKKEN, PER_ZONE,
+                                      Path("voorstel.json"))
+
+    def test_given_an_object_beside_a_box_when_placed_then_it_lands_outside_that_box(self):
+        uit = self.objecten({"naam": "Aanbod ontsluiten", "bij": "Planningssysteem"})
+        self.assertEqual(len(uit), 1)
+        buur = VAKKEN["a"]
+        self.assertGreaterEqual(uit[0]["ay"], buur["y"] + buur["h"])
+
+    def test_given_kant_boven_when_placed_then_it_lands_above_that_box(self):
+        uit = self.objecten({"naam": "Aanbod ontsluiten", "bij": "Planningssysteem",
+                             "kant": "boven"})
+        self.assertLess(uit[0]["ay"] + uit[0]["h"], VAKKEN["a"]["y"])
+
+    def test_given_an_object_when_placed_then_it_is_marked_as_a_voorstel(self):
+        self.assertTrue(self.objecten({"naam": "x", "bij": "Planningssysteem"})[0]["voorstel"])
+
+    def test_given_an_object_without_a_naam_when_read_then_it_stops(self):
+        with self.assertRaises(SystemExit) as gevangen:
+            self.objecten({"bij": "Planningssysteem"})
+        self.assertIn("zonder naam", str(gevangen.exception))
+
+    def test_given_an_unknown_kant_when_read_then_it_stops(self):
+        with self.assertRaises(SystemExit) as gevangen:
+            self.objecten({"naam": "x", "bij": "Planningssysteem", "kant": "schuin"})
+        self.assertIn("schuin", str(gevangen.exception))
+
+    def test_given_a_bij_that_is_not_on_the_view_when_read_then_it_stops(self):
+        with self.assertRaises(SystemExit) as gevangen:
+            self.objecten({"naam": "x", "bij": "Grootboek"})
+        self.assertIn("staat niet op deze view", str(gevangen.exception))
 
 
 class VoorstelTests(unittest.TestCase):
@@ -581,6 +621,12 @@ class VoorstelTests(unittest.TestCase):
         with self.assertRaises(SystemExit) as gevangen:
             self.lees(inhoud)
         self.assertIn("label", str(gevangen.exception))
+
+    def test_given_a_voorstel_with_only_objecten_when_read_then_it_is_allowed(self):
+        """Een voorstel mag een vak voorstellen zonder er een stroom bij te leggen."""
+        self.assertEqual(self.lees({"herkomst": "sessie 4 november 2026", "stromen": [],
+                                    "objecten": [{"naam": "Aanbod ontsluiten",
+                                                  "bij": "Planningssysteem"}]}), [])
 
     def test_given_an_empty_voorstel_when_read_then_it_stops(self):
         with self.assertRaises(SystemExit) as gevangen:
