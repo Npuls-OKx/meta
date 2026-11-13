@@ -42,7 +42,18 @@ Uitgebreider en voor nieuwe bijdragers: sectie *Waar draait deze repository om?*
 - **Feature branches** (`feature/…`): vertrek vanaf **`dev`**; PR richting **`dev`**.
 - **Release**: de release van OKx leeft in [Npuls-OKx/Public](https://github.com/Npuls-OKx/Public), met het releasepakket, de release notes en het versielabel. Deze repository draagt de kennisbank en levert daaraan: een wijziging is klaar zodra zij op `dev` staat.
 - **Een correctie met haast** volgt dezelfde weg als al het andere werk: een eigen branch vanaf `dev` met een pull request terug.
-- **De oude branch `main`** is op 5 oktober 2026 verwijderd en bewaard als de tag `archief/main`. De herstelroute staat in [`project/release-management-en-versionering.md`](project/release-management-en-versionering.md#de-verwijderde-branch-main-en-hoe-die-terugkomt) (§4) en in het bericht van die tag.
+- **De oude branch `main`** is op 5 oktober 2026 verwijderd en bewaard als de tag `archief/main`, op commit `cf9d62a`. Van de 27 bestanden die alleen daar stonden zijn er 17 naar `dev` gehaald (PR #281); de overige tien hebben een nieuwere tegenhanger in [Npuls-OKx/Public](https://github.com/Npuls-OKx/Public). Herstellen is dus vrijwel nooit nodig.
+
+  Terugzetten gaat via de API en niet met `git push`: een push van die commits wordt geweigerd met `push declined due to email privacy restrictions`, omdat een van de zeven commits een adres draagt dat die accountinstelling blokkeert.
+
+  ```bash
+  git fetch origin 'refs/tags/archief/main:refs/tags/archief/main'
+  gh api repos/Npuls-OKx/meta/git/refs \
+    -f ref=refs/heads/main \
+    -f sha=cf9d62a84d06dca0f6818cce01250e70d319f549
+  ```
+
+  Een los bestand ophalen kan zonder de branch terug te zetten: `git show archief/main:<pad>`. Het bericht van de tag draagt dezelfde route.
 
 **Bijdragen via branch (in deze repo)**:
 
