@@ -31,7 +31,7 @@
         "Onderwijseenheid specificatie",
         "Leeronderdeel specificatie",
         "Keuzedeelruimte",
-        "Keuzedeel",
+        "Keuzedeel specificatie",
         "Student keuze regelset",
         "Toetsonderdeel specificatie",
         "Examenonderdeelspecificatie",
@@ -1589,19 +1589,19 @@
       "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
       "wie": "onderwijsontwerper",
       "soort": "ontstaat",
-      "objecttype": "Keuzedeel",
+      "objecttype": "Keuzedeel specificatie",
       "instantie": "K0262 ARBO, kwaliteitszorg en hulpverlening geschikt voor niveau 3 (240 SBU)",
       "bron": "K0262-arbo-kwaliteitszorg-en-hulpverlening-niveau-3.md (keuzedeel mbo K0262, gevalideerd 10-11-2015); leerroute-1-regulier.md, r1072 tot 1080",
       "relatie": {
         "soort": "Specialization",
-        "van": "Keuzedeel",
+        "van": "Keuzedeel specificatie",
         "naar": "Opleidingsprogramma specificatie"
       },
       "relaties": [
         {
           "soort": "Association",
           "van": "Student keuze regelset",
-          "naar": "Keuzedeel"
+          "naar": "Keuzedeel specificatie"
         }
       ]
     },
@@ -1776,20 +1776,20 @@
       "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
       "wie": "onderwijsontwerper",
       "soort": "ontstaat",
-      "objecttype": "Keuzedeel",
+      "objecttype": "Keuzedeel specificatie",
       "instantie": "K0037 Farmaceutische Patientenzorg (480 SBU, verdiepend)",
       "nieuwe_instantie": true,
       "bron": "K0037-farmaceutische-patientenzorg.md (keuzedeel mbo K0037, 480 SBU, aard verdiepend, gevalideerd 26-11-2015)",
       "relatie": {
         "soort": "Specialization",
-        "van": "Keuzedeel",
+        "van": "Keuzedeel specificatie",
         "naar": "Opleidingsprogramma specificatie"
       },
       "relaties": [
         {
           "soort": "Association",
           "van": "Student keuze regelset",
-          "naar": "Keuzedeel"
+          "naar": "Keuzedeel specificatie"
         }
       ]
     },
@@ -1878,12 +1878,12 @@
       "stap": "Keuzedeelprogramma als eigen specificatie vormgeven",
       "soort": "ontstaat",
       "wie": "onderwijsontwerper",
-      "objecttype": "Minor",
+      "objecttype": "Minor specificatie",
       "aanname": true,
       "bron": "Npuls-OKx/Public#104, review van Huib Jan Wielemaker op 6 oktober 2026: het keuzedeel staat op de plaat als vast gegeven terwijl het hoger onderwijs het niet kent. De minor staat hier als pendant; de plaat draagt het objecttype nog niet",
       "relatie": {
         "soort": "Specialization",
-        "van": "Minor",
+        "van": "Minor specificatie",
         "naar": "Opleidingsprogramma specificatie"
       },
       "instantie": "Farmacotherapie en patiëntveiligheid, 30 EC (hbo-bachelor NLQF 6)"
@@ -3892,7 +3892,7 @@
       "relaties": [
         {
           "soort": "Association",
-          "van": "Keuzedeel",
+          "van": "Keuzedeel specificatie",
           "naar": "Keuzedeel aanbod",
           "instantie": "K0037 Farmaceutische Patientenzorg"
         }
@@ -5644,7 +5644,7 @@
       "bron": "leerroute-1-regulier.md, Fase 6: OC naar SKS (opleidingsprogramma-aanbod type keuzedeel + opleidingsprogramma-specificatie); wanneer het keuzedeelaanbod planbaar wordt, zegt het kaderscenario niet; voorwaarden toegevoegd in de sparsessie PR 314, deel 2, 4 november 2026",
       "relatie": {
         "soort": "Association",
-        "van": "Keuzedeel",
+        "van": "Keuzedeel specificatie",
         "naar": "Keuzedeel aanbod"
       },
       "zin": "De keuzedeelruimte nadert. Het keuzedeelaanbod ontstaat bij planning en gaat via de catalogus naar het studentkeuzesysteem. Dat kan alleen omdat twee dingen er al zijn: de keuzedeelruimte uit de onderwijsspecificatie (F1-04) en de studentkeuzeregelset die zegt wat kiesbaar is (F1-06). Zonder die twee weet het keuzesysteem niet wat het mag tonen."
@@ -5673,12 +5673,12 @@
       "naar": "Student Keuze Systeem (SKS)",
       "pijl": "id-5f2568d7b99a49eaa863f539ae362f4d",
       "koppeling": null,
-      "objecttype": "Keuzedeel",
+      "objecttype": "Keuzedeel specificatie",
       "instantie": "K0037 Farmaceutische Patientenzorg",
       "bron": "leerroute-1-regulier.md, Fase 6: OC naar SKS, opleidingsprogramma-specificatie",
       "relatie": {
         "soort": "Association",
-        "van": "Keuzedeel",
+        "van": "Keuzedeel specificatie",
         "naar": "Keuzedeel aanbod"
       }
     },
@@ -5698,7 +5698,7 @@
       "relatie": {
         "soort": "Association",
         "van": "Student keuze regelset",
-        "naar": "Keuzedeel"
+        "naar": "Keuzedeel specificatie"
       },
       "relaties": [
         {
@@ -5807,7 +5807,7 @@
       "relaties": [
         {
           "soort": "Association",
-          "van": "Keuzedeel",
+          "van": "Keuzedeel specificatie",
           "naar": "Keuzedeel aanbod",
           "instantie": "K0037 Farmaceutische Patientenzorg"
         }
