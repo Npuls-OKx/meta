@@ -46,6 +46,7 @@ PLAAT = UITMAP / "hoofdplaat-v1.7a.png"
 VIEW = "OKx hoofdplaat v1.7a"
 GEEN_PIJL = "geen pijl op de hoofdplaat"
 MARGE = 10  # Archi rendert de view met tien pixels marge; met dezelfde marge vallen de markeringen op de pijlen
+LUCHT = 90  # de lucht rond de gemarkeerde vakken bij een uitsnede; met --lucht per plaat te zetten
 ACCENT = "#d9531e"
 RAND = "#1f6feb"
 
@@ -607,7 +608,7 @@ def lijnvakken(punten, dikte=8):
     return uit
 
 
-def bouw(knopen, connecties, elems, png, stromen, pijl_van, uitsnede=False, haaks=False):
+def bouw(knopen, connecties, elems, png, stromen, pijl_van, uitsnede=False, haaks=False, lucht=LUCHT):
     minx = min(k["x"] for k in knopen.values()) - MARGE
     miny = min(k["y"] for k in knopen.values()) - MARGE
     W = max(k["x"] + k["w"] for k in knopen.values()) + MARGE - minx
@@ -678,7 +679,7 @@ def bouw(knopen, connecties, elems, png, stromen, pijl_van, uitsnede=False, haak
     delen.append("</svg>")
     if uitsnede and geraakt:
         # op een slide leest de hele plaat niet; snijd uit rond de gemarkeerde vakken, met lucht voor de bogen
-        bx, by, bw, bh = venster(geraakt, minx, miny, W, H, buren=knopen.values())
+        bx, by, bw, bh = venster(geraakt, minx, miny, W, H, lucht=lucht, buren=knopen.values())
         # een label dat half buiten de uitsnede valt leest als een fout; trek het venster eromheen
         for vx, vy, vw, vh in labelvakken:
             bx2, by2 = min(bx, vx - 10), min(by, vy - 10)
@@ -690,7 +691,7 @@ def bouw(knopen, connecties, elems, png, stromen, pijl_van, uitsnede=False, haak
     return "".join(delen), ontbreekt
 
 
-def venster(geraakt, minx, miny, W, H, lucht=90, buren=()):
+def venster(geraakt, minx, miny, W, H, lucht=LUCHT, buren=()):
     """Het deel van de plaat waar de markeringen liggen, met lucht eromheen, binnen de plaat.
 
     Vakken die de rand van dat deel raken worden er helemaal in getrokken: een half
@@ -723,6 +724,9 @@ def main(argv=None):
     parser.add_argument("--koppelingen", help="komma-gescheiden koppelingen; markeert die op een plaat "
                                               "in plaats van een plaat per fase")
     parser.add_argument("--uitsnede", action="store_true", help="snijd uit rond de gemarkeerde vakken")
+    parser.add_argument("--lucht", type=int, default=LUCHT,
+                        help="de lucht rond de gemarkeerde vakken bij --uitsnede; minder lucht laat "
+                             "een toelichtingsvak of een buur buiten beeld")
     parser.add_argument("--haaks", action="store_true", help="teken de markeringen orthogonaal in plaats van over de bestaande pijlen")
     args = parser.parse_args(argv)
     if not args.plaat.exists():
@@ -738,7 +742,7 @@ def main(argv=None):
         stromen = stromen_per_koppeling(regels, namen)
         if not stromen:
             sys.exit(f"geen stromen gevonden voor {', '.join(namen)}")
-        svg, ontbreekt = bouw(knopen, connecties, elems, args.plaat, stromen, pijl_van, args.uitsnede, args.haaks)
+        svg, ontbreekt = bouw(knopen, connecties, elems, args.plaat, stromen, pijl_van, args.uitsnede, args.haaks, args.lucht)
         doel = args.uit / "koppelingen.svg"
         doel.write_text(svg, encoding="utf-8")
         for x in ontbreekt:
