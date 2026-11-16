@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """De hoofdplaat informatiestromen ruimer opgezet en netjes gerouteerd.
 
-Waarom dit script bestaat: hoofdplaat v1.7a vertelt een helder verhaal in twee procesgebieden,
+Waarom dit script bestaat: de hoofdplaat vertelt een helder verhaal in twee procesgebieden,
 links de onderwijsontwikkeling en rechts de onderwijsuitvoering, met de applicatiecomponenten
 die daarin met elkaar praten. Elke informatiestroom blijft binnen haar eigen gebied; daarom
 staat een component dat in beide processen meedoet er twee keer op. Dat verhaal blijft hier

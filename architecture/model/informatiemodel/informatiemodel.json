@@ -1256,7 +1256,7 @@
       "soort": "Association",
       "van": "Keuzedeel specificatie",
       "naar": "Keuzedeel aanbod",
-      "label": null
+      "label": "wordt aangeboden als"
     },
     {
       "soort": "Association",
@@ -1310,7 +1310,7 @@
       "soort": "Association",
       "van": "Leeronderdeel specificatie",
       "naar": "Leergelegenheid",
-      "label": null
+      "label": "wordt aangeboden als"
     },
     {
       "soort": "Association",
@@ -1346,7 +1346,7 @@
       "soort": "Association",
       "van": "Les specificatie",
       "naar": "Lesgelegenheid",
-      "label": null
+      "label": "wordt aangeboden als"
     },
     {
       "soort": "Association",
@@ -1406,7 +1406,7 @@
       "soort": "Association",
       "van": "Minor specificatie",
       "naar": "Minor aanbod",
-      "label": null
+      "label": "wordt aangeboden als"
     },
     {
       "soort": "Association",
@@ -1460,7 +1460,7 @@
       "soort": "Association",
       "van": "Onderwijseenheid specificatie",
       "naar": "Onderwijseenheid aanbod",
-      "label": null
+      "label": "wordt aangeboden als"
     },
     {
       "soort": "Association",
@@ -1520,7 +1520,7 @@
       "soort": "Association",
       "van": "Opleiding specificatie",
       "naar": "Opleiding aanbod",
-      "label": null
+      "label": "wordt aangeboden als"
     },
     {
       "soort": "Association",
@@ -1568,7 +1568,7 @@
       "soort": "Association",
       "van": "Opleidingsprogramma specificatie",
       "naar": "Opleidingsprogramma aanbod",
-      "label": null
+      "label": "wordt aangeboden als"
     },
     {
       "soort": "Association",

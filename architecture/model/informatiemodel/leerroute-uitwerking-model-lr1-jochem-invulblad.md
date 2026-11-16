@@ -10,7 +10,7 @@ Hoort bij [de opleiding van Jochem in het informatiemodel](leerroute-uitwerking-
 | 1 | F1-01 | Werkproces | | | | |
 | 1 | F1-02 | Examenplan | | | | |
 | 1 | F1-02 | Summatieve resultaat structuur | | | | |
-| 1 | F1-02 | Cohort / periode | | | | |
+| 1 | F1-02 | Cohort | | | | |
 | 1 | F1-02 | Examenplan | | | | |
 | 1 | F1-03 | Leeruitkomst | | | | |
 | 1 | F1-03 | Leeruitkomst | | | | |
