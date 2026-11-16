@@ -10292,7 +10292,7 @@ Iemand die is ingeschreven die blijft. &#xD;
     <element xsi:type="archimate:ServingRelationship" id="id-e7008b6c96e044fc8b80cf4304405585" source="id-f6fe3a2f479844df8da5e9951fc7ef53" target="id-205c43730abe4f54afd60b117d36de7f"/>
     <element xsi:type="archimate:FlowRelationship" id="id-d692b2f6cc324f0d9ac447bbf1ff6bd6" source="id-f6fe3a2f479844df8da5e9951fc7ef53" target="id-7583e0350fa14a56a30726edda853203"/>
     <element xsi:type="archimate:FlowRelationship" id="id-21c0e17fbe7b4fc5b5683f190cf6d5e8" source="id-6cdecf0ce12642feb2809bcc18fd8689" target="id-f6fe3a2f479844df8da5e9951fc7ef53"/>
-    <element xsi:type="archimate:FlowRelationship" id="id-2e17713303414e65b481fe0923ccb5ad" source="id-f6fe3a2f479844df8da5e9951fc7ef53" target="id-310f7a0eaa5542c1b0cc4982b6464c86"/>
+    <element xsi:type="archimate:FlowRelationship" name="Onderwijsprogrammaaanbod*" id="id-2e17713303414e65b481fe0923ccb5ad" source="id-f6fe3a2f479844df8da5e9951fc7ef53" target="id-310f7a0eaa5542c1b0cc4982b6464c86"/>
     <element xsi:type="archimate:FlowRelationship" id="id-6861c37509d347bbb304aeb312101207" source="id-f6fe3a2f479844df8da5e9951fc7ef53" target="id-e4cc8b950d5d4c1e9c35bd0c6dd94a33"/>
     <element xsi:type="archimate:AssociationRelationship" id="id-e0ece4d20f924f3392b7dd23984d52f8" source="id-2e601cefd0844f01918630db40819c24" target="id-25903a2640fa43ddbd4aa2819beed937"/>
     <element xsi:type="archimate:FlowRelationship" id="id-a5e25d006ea847e083505675afd4be58" source="id-f6fe3a2f479844df8da5e9951fc7ef53" target="id-25903a2640fa43ddbd4aa2819beed937"/>
@@ -26843,9 +26843,7 @@ En moet er suboptimaal op leeractiviteit niveau beschreven gaan worden, wat extr
               <feature name="labelExpression" value="Onderwijs specificatie"/>
               <bendpoint startX="24" startY="142" endX="-36" endY="-156"/>
             </sourceConnection>
-            <sourceConnection xsi:type="archimate:Connection" id="id-99c52455a715413aa15d3c12dcbfc518" source="id-0ce40f7691d1423cb291a3d4ad0ebed2" target="id-1e177989d4ee45ebb6ac7c8bfd1e7f66" archimateRelationship="id-2e17713303414e65b481fe0923ccb5ad">
-              <feature name="labelExpression" value="Onderwijsprogramma&#xD;&#xA;aanbod*"/>
-            </sourceConnection>
+            <sourceConnection xsi:type="archimate:Connection" id="id-99c52455a715413aa15d3c12dcbfc518" source="id-0ce40f7691d1423cb291a3d4ad0ebed2" target="id-1e177989d4ee45ebb6ac7c8bfd1e7f66" archimateRelationship="id-2e17713303414e65b481fe0923ccb5ad"/>
             <sourceConnection xsi:type="archimate:Connection" id="id-3d990c4f572348589a9c949bea5ea5e2" lineColor="#ff0000" source="id-0ce40f7691d1423cb291a3d4ad0ebed2" target="id-a4649c4143384db8a078e0b6bc2176bd" archimateRelationship="id-6861c37509d347bbb304aeb312101207">
               <feature name="labelExpression" value="Onderwijs specificatie"/>
               <bendpoint startX="-178" startY="130" endX="-50" endY="-100"/>

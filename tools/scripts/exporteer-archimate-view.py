@@ -60,10 +60,15 @@ def views(wortel):
             if el.get(XSI, "").endswith("ArchimateDiagramModel")}
 
 
+def plat(tekst):
+    """Trekt wit samen, zodat een regelafbreking in een naam of expressie geen tekst wordt."""
+    return " ".join((tekst or "").split())
+
+
 def labelexpressie(knoop):
     for feature in knoop.findall("feature"):
         if feature.get("name") == "labelExpression":
-            return " ".join(feature.get("value", "").split())
+            return plat(feature.get("value", ""))
     return ""
 
 
@@ -127,7 +132,10 @@ def stromen(objecten, connecties, relaties, mapping):
         for laatste, doel in doelen(conn, set()):
             naar = componentnaam(objecten, laatste["doel"])
             laatste_rel = relaties.get(laatste["relatie"], rel)
-            label = conn["label"] or laatste["label"] or rel["naam"] or laatste_rel["naam"]
+            # Een naam mag regelafbrekingen dragen: de modelleur breekt een lang label af
+            # zodat het op de lijn past zonder over een ander label te vallen. Voor de
+            # uitvoer is dat opmaak, dus wit wordt samengetrokken net als bij een expressie.
+            label = plat(conn["label"] or laatste["label"] or rel["naam"] or laatste_rel["naam"])
             uit.append({"id": conn["relatie"], "van": van, "naar": naar, "soort": "Flow",
                         "label": label, "koppeling": mapping.get(f"{van} > {naar}", ZONDER)})
     uit.sort(key=lambda s: (s["van"], s["naar"], s["label"], s["id"]))
