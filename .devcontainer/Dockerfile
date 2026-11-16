@@ -33,10 +33,15 @@ RUN apt-get update \
 # rendert elke view als PNG via het HTML-rapport. Eigen JRE meegeleverd; geen
 # display nodig. De download is vastgepind op versie en sha256, zodat de build
 # reproduceerbaar is. Gebruik: scripts/exporteer-archimate-platen.py.
-ARG ARCHI_VERSIE=5.10.0
-ARG ARCHI_SHA256=f9422455a00a22f5340dc28692ceafe0ad720c8cde839eaafb0fab1cea57287f
-RUN curl -fsSL -o /tmp/archi.tgz \
-      "https://github.com/archimatetool/archi.io/releases/download/${ARCHI_VERSIE%.*}_${ARCHI_VERSIE##*.}/Archi-Linux64-${ARCHI_VERSIE}.tgz" \
+# Het releaselabel bij Archi is major_minor, dus 5.11.0 hangt onder 5_11. De eerdere
+# opbouw maakte er 5.11_0 van en gaf een 404; die bouwstap faalde stil, waardoor
+# /opt/Archi ontbrak en exporteer-archimate-platen.py niet kon draaien. Archi haalt
+# oude releases bovendien weg: 5.10.0 was in november 2026 niet meer op te halen.
+ARG ARCHI_VERSIE=5.11.0
+ARG ARCHI_SHA256=a13f4f058c16d8653c1307a145b9dd6bddd4226abc952f58c586c46d61db219e
+RUN LABEL="$(echo "${ARCHI_VERSIE%.*}" | tr . _)" \
+ && curl -fsSL -o /tmp/archi.tgz \
+      "https://github.com/archimatetool/archi.io/releases/download/${LABEL}/Archi-Linux64-${ARCHI_VERSIE}.tgz" \
  && echo "${ARCHI_SHA256}  /tmp/archi.tgz" | sha256sum -c - \
  && mkdir -p /opt \
  && tar -xzf /tmp/archi.tgz -C /opt \
