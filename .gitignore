@@ -1,3 +1,9 @@
+# Bronmateriaal dat nog niet gepubliceerd mag worden: een payload van een leverancier,
+# een export van een instelling, een bijlage uit een mail. Zie _lokaal/LEESMIJ.txt. Deze
+# regel staat hier omdat de map op 13 november 2026 per ongeluk in een commit belandde
+# door een `git add -A`; de plaat die eruit getekend wordt mag wel een commit in.
+_lokaal/
+
 # Archi backup (lokaal)
 architecture/model/*.bak
 
