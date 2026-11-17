@@ -63,7 +63,7 @@ HISTORIE = {
     "1.4": ("OKx hoofdplaat v1.4 <concept>", "a65979b48ae32c730f60cc909aa43c8b00d045ba"),
     "1.6.1": ("OKx hoofdplaat v1.6a<concept>", "a65979b48ae32c730f60cc909aa43c8b00d045ba"),
     "1.6.2": ("OKx hoofdplaat v1.6b<concept>", "a65979b48ae32c730f60cc909aa43c8b00d045ba"),
-    "1.7": ("OKx hoofdplaat v1.7<concept>", "a65979b48ae32c730f60cc909aa43c8b00d045ba"),
+    "1.7.0": ("OKx hoofdplaat v1.7<concept>", "a65979b48ae32c730f60cc909aa43c8b00d045ba"),
 }
 
 # Versie 1.1 en 1.2 hebben nooit een view in het model gehad. De eerste hoofdplaatview is
@@ -76,7 +76,7 @@ ZONDER_MODELSTAAT = ("1.1", "1.2")
 # Gemeten op 17 november 2026: hoofdplaat 1.7 is 2267 bij 861, en een export uit precies
 # die modelstaat geeft 2276 bij 1113 voor de volle view en 2241 bij 873 voor de view
 # zonder contextapplicaties. Vanaf 1.7.1 komt de export uit het gecommitte model.
-HANDMATIG_TOT_EN_MET = "1.7"
+HANDMATIG_TOT_EN_MET = "1.7.0"
 
 
 def view_element(wortel, naam):
@@ -173,9 +173,13 @@ def item(m, versie):
     return nieuw
 
 
+def _getal(v):
+    return tuple(int(x) for x in v.split("."))
+
+
 def _beeld_bron(versie):
     """Hoe de afbeelding van deze versie gemaakt is, en of zij te herbouwen valt."""
-    if versie <= HANDMATIG_TOT_EN_MET:
+    if _getal(versie) <= _getal(HANDMATIG_TOT_EN_MET):
         return ("handmatige export uit de lokale Archi van de modelleur", False)
     return ("exporteer-archimate-platen.py uit het gecommitte model", True)
 

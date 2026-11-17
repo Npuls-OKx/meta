@@ -14,10 +14,14 @@ De viewnamen in het ArchiMate-model dragen **geen** versie. Wie een plaatversie 
 | 1.4 | `1.4/hoofdplaat 1.4.jpg` | handmatig | nagemeten, view `OKx hoofdplaat v1.4 <concept>` |
 | 1.6.1 | `1.6.1/hoofdplaat 1.6a.jpg` | handmatig | nagemeten, view `OKx hoofdplaat v1.6a<concept>` |
 | 1.6.2 | `1.6.2/hoofdplaat 1.6b.jpg` | handmatig | nagemeten, view `OKx hoofdplaat v1.6b<concept>` |
-| 1.7 | `1.7/OKx hoofdplaat 1.7.jpg` | handmatig | nagemeten, view `OKx hoofdplaat v1.7<concept>` |
+| 1.7.0 | `1.7.0/OKx hoofdplaat 1.7.jpg` | handmatig | nagemeten, view `OKx hoofdplaat v1.7<concept>` |
 | **1.7.1** | `1.7.1/OKx hoofdplaat 1.7.1.png` | `exporteer-archimate-platen.py` uit het gecommitte model | vastgelegd bij export |
 
 Versie 1.5 is nooit uitgebracht; die view bestond van 1 tot 26 mei 2026 in het model en is daarna vervangen door 1.6a en 1.6b. Die twee zijn als `1.6.1` en `1.6.2` opgenomen, want een letterversie wordt semver; zij stonden eerder samen in een map `1.6` en daardoor viel `1.6b` buiten het manifest.
+
+De mapnamen dragen alle drie de delen, want een letterversie wordt semver: `1.6a` en `1.6b` werden `1.6.1` en `1.6.2`, en `1.7` werd `1.7.0`. Versie 1.1 tot 1.4 staan nog in twee delen; zij dateren van voor die afspraak en hun nummering is nooit vastgesteld.
+
+Public haalt de plaat nog aan als `hoofdplaat v1.7`, in de tekst en in bestandsnamen als `informatiestromen_hoofdplaat_v1_7.png`. Die kant loopt via #532 en vraagt een eigen pull request op Public.
 
 Versie 1.7.2 bestaat niet. In de sessie van 4 november is afgesproken dat een `1.7b` die Niels in voorbereiding had `1.7.2` zou worden; die plaat is nog niet uitgebracht.
 
