@@ -12,11 +12,16 @@ De viewnamen in het ArchiMate-model dragen **geen** versie. Wie een plaatversie 
 | 1.2 | `1.2/hoofdplaat 1.2.jpg` | handmatig | geen |
 | 1.3 | `1.3/hoofdplaat 1.3.jpg` | handmatig | nagemeten, view `OKx hoofdplaat v1.3` |
 | 1.4 | `1.4/hoofdplaat 1.4.jpg` | handmatig | nagemeten, view `OKx hoofdplaat v1.4 <concept>` |
-| 1.6 | `1.6/hoofdplaat 1.6a.jpg` | handmatig | nagemeten, view `OKx hoofdplaat v1.6a<concept>` |
+| 1.6.1 | `1.6.1/hoofdplaat 1.6a.jpg` | handmatig | nagemeten, view `OKx hoofdplaat v1.6a<concept>` |
+| 1.6.2 | `1.6.2/hoofdplaat 1.6b.jpg` | handmatig | nagemeten, view `OKx hoofdplaat v1.6b<concept>` |
 | 1.7 | `1.7/OKx hoofdplaat 1.7.jpg` | handmatig | nagemeten, view `OKx hoofdplaat v1.7<concept>` |
 | **1.7.1** | `1.7.1/OKx hoofdplaat 1.7.1.png` | `exporteer-archimate-platen.py` uit het gecommitte model | vastgelegd bij export |
 
-Versie 1.5 is nooit uitgebracht; die view bestond van 1 tot 26 mei 2026 in het model en is daarna vervangen door 1.6a en 1.6b.
+Versie 1.5 is nooit uitgebracht; die view bestond van 1 tot 26 mei 2026 in het model en is daarna vervangen door 1.6a en 1.6b. Die twee zijn als `1.6.1` en `1.6.2` opgenomen, want een letterversie wordt semver; zij stonden eerder samen in een map `1.6` en daardoor viel `1.6b` buiten het manifest.
+
+Versie 1.7.2 bestaat niet. In de sessie van 4 november is afgesproken dat een `1.7b` die Niels in voorbereiding had `1.7.2` zou worden; die plaat is nog niet uitgebracht.
+
+**Een map is een versie en draagt precies een beeld.** Staan er twee, dan weigert `maak-versiemanifest-plaat.py` in plaats van er een te kiezen, en een testgeval vangt het af.
 
 ## Tot 1.7 handmatig, vanaf 1.7.1 uit het gecommitte model
 
@@ -55,4 +60,5 @@ Dat de verwijzing klopt is na te meten: haal het model van die commit en bereken
 - twee views dezelfde naam dragen, want dan pakt elk script de eerste;
 - het manifest een versie draagt zonder volledige commithash van veertig tekens;
 - de huidige view afwijkt van de hash van de huidige versie, dus de plaat loopt achter op het model;
-- een versie een export noemt die niet bestaat.
+- een versie een export noemt die niet bestaat;
+- een versiemap twee beelden draagt, of een map geen regel in het manifest heeft.

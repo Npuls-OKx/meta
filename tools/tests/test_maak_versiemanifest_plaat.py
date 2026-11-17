@@ -148,6 +148,45 @@ class HerkomstVanDeExport(unittest.TestCase):
                                  f"versie {v['versie']} is niet opnieuw na te meten")
 
 
+class EenMapIsEenVersie(unittest.TestCase):
+    """Een versiemap draagt precies een beeld, want de map noemt de versie.
+
+    Dit is geen formaliteit. Tot 17 november stonden `1.6a` en `1.6b` samen in de map
+    `1.6`, en het manifest nam de eerste op alfabet. Daarmee was `1.6b` een uitgebrachte
+    plaat die nergens in het manifest stond, en dus niet aan een modelstaat te koppelen.
+    """
+
+    def test_given_every_version_folder_when_read_then_it_carries_one_image(self):
+        BEELD = {".jpg", ".jpeg", ".png", ".svg"}
+        fout = {}
+        for map_ in sorted(p for p in MANIFEST.parent.iterdir() if p.is_dir()):
+            beelden = [b.name for b in sorted(map_.iterdir()) if b.suffix.lower() in BEELD]
+            if len(beelden) != 1:
+                fout[map_.name] = beelden
+        self.assertEqual(fout, {}, "een map is een versie; geef elke plaat haar eigen map")
+
+    def test_given_a_folder_with_two_images_when_read_then_the_script_refuses(self):
+        """Bewijzen dat het script weigert in plaats van stil te kiezen."""
+        import shutil
+        mod = laad()
+        map_ = MANIFEST.parent / "1.6.1"
+        tweede = map_ / "_proef-tweede-beeld.jpg"
+        shutil.copy(next(b for b in map_.iterdir() if b.suffix.lower() == ".jpg"), tweede)
+        try:
+            with self.assertRaises(SystemExit):
+                mod.export_van("1.6.1")
+        finally:
+            tweede.unlink()
+
+    def test_given_the_manifest_when_read_then_every_folder_has_an_entry(self):
+        """Een map zonder regel is een uitgebrachte plaat die niemand kan herleiden."""
+        m = json.loads(MANIFEST.read_text(encoding="utf-8"))
+        mappen = {p.name for p in MANIFEST.parent.iterdir() if p.is_dir()}
+        genoemd = {v["versie"] for v in m["versies"]}
+        self.assertEqual(mappen - genoemd, set(), "versiemap zonder regel in het manifest")
+        self.assertEqual(genoemd - mappen, set(), "manifestregel zonder versiemap")
+
+
 class DeHashIsPrecies(unittest.TestCase):
     """De hash dekt de view en niet het hele bestand; anders dwingt elke modelwijziging een export af."""
 

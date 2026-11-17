@@ -61,7 +61,8 @@ XSI = "{http://www.w3.org/2001/XMLSchema-instance}type"
 HISTORIE = {
     "1.3": ("OKx hoofdplaat v1.3", "665c7a00a79f57eefcbca333a71e4e4f72987ce6"),
     "1.4": ("OKx hoofdplaat v1.4 <concept>", "a65979b48ae32c730f60cc909aa43c8b00d045ba"),
-    "1.6": ("OKx hoofdplaat v1.6a<concept>", "a65979b48ae32c730f60cc909aa43c8b00d045ba"),
+    "1.6.1": ("OKx hoofdplaat v1.6a<concept>", "a65979b48ae32c730f60cc909aa43c8b00d045ba"),
+    "1.6.2": ("OKx hoofdplaat v1.6b<concept>", "a65979b48ae32c730f60cc909aa43c8b00d045ba"),
     "1.7": ("OKx hoofdplaat v1.7<concept>", "a65979b48ae32c730f60cc909aa43c8b00d045ba"),
 }
 
@@ -133,14 +134,23 @@ def volledige_commit(pad):
 
 
 def export_van(versie):
-    """Het geexporteerde beeld in de versiemap, relatief aan de platenmap."""
+    """Het geexporteerde beeld in de versiemap, relatief aan de platenmap.
+
+    Een map draagt precies een beeld, want een map is een versie. Toen `1.6a` en `1.6b`
+    samen in de map `1.6` stonden, koos dit de eerste op alfabet en bleef `1.6b` stil
+    buiten het manifest: een uitgebrachte plaat die nergens stond. Daarom faalt dit nu
+    in plaats van te kiezen.
+    """
     map_ = PLATEN / versie
     if not map_.is_dir():
         return None
-    for p in sorted(map_.iterdir()):
-        if p.suffix.lower() in {".jpg", ".jpeg", ".png", ".svg"}:
-            return f"{versie}/{p.name}"
-    return None
+    beelden = [p for p in sorted(map_.iterdir())
+               if p.suffix.lower() in {".jpg", ".jpeg", ".png", ".svg"}]
+    if len(beelden) > 1:
+        raise SystemExit(f"map {versie} draagt {len(beelden)} beelden: "
+                         + ", ".join(p.name for p in beelden)
+                         + "\neen map is een versie, dus geef elke plaat haar eigen map")
+    return f"{versie}/{beelden[0].name}" if beelden else None
 
 
 def lees():
@@ -176,7 +186,12 @@ def retrofit(m):
     Een uitgebrachte plaat blijft staan zoals zij is uitgebracht. Dit vult alleen de
     verwijzing naar de modelstaat erachter, zodat navolgbaar is waar de bron zit.
     """
-    for versie in sorted(p.name for p in PLATEN.iterdir() if p.is_dir()):
+    # Een versie waarvan de map verdwenen is, hoort niet in het manifest te blijven staan.
+    # Dat gebeurde toen `1.6` werd gesplitst in `1.6.1` en `1.6.2`: de oude regel bleef
+    # en wees naar een beeld dat er niet meer was.
+    mappen = sorted(p.name for p in PLATEN.iterdir() if p.is_dir())
+    m["versies"] = [v for v in m["versies"] if v["versie"] in mappen]
+    for versie in mappen:
         v = item(m, versie)
         if v.get("model_herkomst") == "vastgelegd bij export":
             continue

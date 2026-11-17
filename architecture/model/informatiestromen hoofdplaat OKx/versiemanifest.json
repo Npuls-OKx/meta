@@ -47,14 +47,25 @@
       "model_herkomst": "nagemeten: de view bestond onder deze naam op deze commit"
     },
     {
-      "versie": "1.6",
-      "export": "1.6/hoofdplaat 1.6a.jpg",
+      "versie": "1.6.1",
+      "export": "1.6.1/hoofdplaat 1.6a.jpg",
       "beeld_bron": "handmatige export uit de lokale Archi van de modelleur",
-      "beeld_commit": "bbe5f36e88f564d695bf01fe2ddc9056fc95dc13",
+      "beeld_commit": null,
       "reproduceerbaar": false,
       "view": "OKx hoofdplaat v1.6a<concept>",
       "model_commit": "a65979b48ae32c730f60cc909aa43c8b00d045ba",
       "viewhash": "sha256:d193e52dc0ddbf067d2d9882dc3562d8b435c360e7dcdb36494ddfdb8783244d",
+      "model_herkomst": "nagemeten: de view bestond onder deze naam op deze commit"
+    },
+    {
+      "versie": "1.6.2",
+      "export": "1.6.2/hoofdplaat 1.6b.jpg",
+      "beeld_bron": "handmatige export uit de lokale Archi van de modelleur",
+      "beeld_commit": null,
+      "reproduceerbaar": false,
+      "view": "OKx hoofdplaat v1.6b<concept>",
+      "model_commit": "a65979b48ae32c730f60cc909aa43c8b00d045ba",
+      "viewhash": "sha256:b370358e4c03c58e1e8a15f3f0b0931ed051ab7851b4cb751918394f7a817c2e",
       "model_herkomst": "nagemeten: de view bestond onder deze naam op deze commit"
     },
     {
