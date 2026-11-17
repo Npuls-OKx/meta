@@ -59,8 +59,8 @@ XSI = "{http://www.w3.org/2001/XMLSchema-instance}type"
 # commit is de LAATSTE waarin die view nog bestond, want een view die later hernoemd is
 # bestaat op de commit van de afbeelding niet meer onder die naam.
 HISTORIE = {
-    "1.3": ("OKx hoofdplaat v1.3", "665c7a00a79f57eefcbca333a71e4e4f72987ce6"),
-    "1.4": ("OKx hoofdplaat v1.4 <concept>", "a65979b48ae32c730f60cc909aa43c8b00d045ba"),
+    "1.3.0": ("OKx hoofdplaat v1.3", "665c7a00a79f57eefcbca333a71e4e4f72987ce6"),
+    "1.4.0": ("OKx hoofdplaat v1.4 <concept>", "a65979b48ae32c730f60cc909aa43c8b00d045ba"),
     "1.6.1": ("OKx hoofdplaat v1.6a<concept>", "a65979b48ae32c730f60cc909aa43c8b00d045ba"),
     "1.6.2": ("OKx hoofdplaat v1.6b<concept>", "a65979b48ae32c730f60cc909aa43c8b00d045ba"),
     "1.7.0": ("OKx hoofdplaat v1.7<concept>", "a65979b48ae32c730f60cc909aa43c8b00d045ba"),
@@ -69,7 +69,7 @@ HISTORIE = {
 # Versie 1.1 en 1.2 hebben nooit een view in het model gehad. De eerste hoofdplaatview is
 # `OKx hoofdplaat v1.3` en verscheen op 1 april 2026; het model zelf kwam op 18 maart in
 # de repository. Hun afbeelding is er wel, en die geldt als release.
-ZONDER_MODELSTAAT = ("1.1", "1.2")
+ZONDER_MODELSTAAT = ("1.1.0", "1.2.0")
 
 # Hoe de afbeelding gemaakt is. Tot en met 1.7 handmatig, uit de lokale Archi van de
 # modelleur; daarom is een uitgebrachte plaat niet uit haar modelstaat te herbouwen.

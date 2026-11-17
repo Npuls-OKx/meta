@@ -96,7 +96,10 @@ class HerkomstVanDeExport(unittest.TestCase):
             for sleutel in ("versie", "export", "beeld_bron", "beeld_commit",
                             "reproduceerbaar", "viewhash", "model_herkomst"):
                 self.assertIn(sleutel, v, f"versie {v.get('versie')} mist {sleutel}")
-            self.assertRegex(v["versie"], re.compile(r"^\d+\.\d+(\.\d+)?$"))
+            # Drie delen, want een letterversie wordt semver: 1.6a werd 1.6.1 en 1.7 werd
+            # 1.7.0. Een versie in twee delen laat open of er nog een patch volgt.
+            self.assertRegex(v["versie"], re.compile(r"^\d+\.\d+\.\d+$"),
+                             f"versie {v['versie']} is geen MAJOR.MINOR.PATCH")
 
     def test_given_a_commit_when_recorded_then_it_is_the_full_forty_characters(self):
         """Een afkorting is een prefix waarvan de uniciteit alleen nu geldt.
