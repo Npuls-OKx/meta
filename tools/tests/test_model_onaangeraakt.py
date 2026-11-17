@@ -12,7 +12,9 @@ welke ronde het deed. De verliescontrole vangt alleen wat verdwijnt, niet wat ve
 
 Elk geval hier draait het script op een **kopie** van het echte model en vergelijkt de
 sha256 ervoor en erna. Een kopie, omdat het echte bestand dan ook bij een falend geval
-onaangeraakt blijft.
+onaangeraakt blijft. Daarvoor kregen `genereer-informatiemodel-doc.py`,
+`teken-hoofdplaat-ruim.py` en `teken-fasenplaten.py` een `--model`-vlag; zij lazen het
+pad eerder als constante en konden dus alleen op het echte bestand draaien.
 """
 
 import hashlib
@@ -36,16 +38,15 @@ MET_MODELVLAG = {
     "exporteer-componenten.py": ["--model", "{model}", "--uit", "{uit}/componenten.json"],
     "exporteer-conceptplaat.py": ["--model", "{model}", "--uit", "{uit}/conceptplaat.json"],
     "plaatherkomst.py": ["--model", "{model}"],
+    "genereer-informatiemodel-doc.py": ["--model", "{model}"],
+    "teken-hoofdplaat-ruim.py": ["--model", "{model}", "--uit", "{uit}/plaat.svg"],
+    "teken-fasenplaten.py": ["--model", "{model}", "--uit", "{uit}"],
 }
 
-# Scripts die het model lezen zonder een --model-vlag. Zij kunnen niet op een kopie
-# draaien, dus hier bewijst de test alleen dat zij het bestand na een ronde niet
-# gewijzigd hebben. Een vlag erbij zou beter zijn; zie de vraag in issue #551.
-ZONDER_MODELVLAG = {
-    "genereer-informatiemodel-doc.py": [],
-    "teken-hoofdplaat-ruim.py": ["--uit", "{uit}/plaat.svg"],
-    "teken-fasenplaten.py": ["--uit", "{uit}"],
-}
+# Elk script dat het model leest kent een --model-vlag, dus elke controle draait op een
+# kopie en het echte bestand komt in een testgeval nooit aan de orde. Komt er een script
+# zonder die vlag bij, dan zet het hier en de controle valt terug op het echte bestand.
+ZONDER_MODELVLAG = {}
 
 
 def sha(pad):
@@ -83,6 +84,8 @@ class OpHetEchteModel(unittest.TestCase):
     """Een script zonder --model leest het echte bestand; ook dan blijft het gelijk."""
 
     def test_given_each_script_without_a_model_flag_when_run_then_the_model_is_untouched(self):
+        if not ZONDER_MODELVLAG:
+            self.skipTest("elk script kent een --model-vlag, dus elke controle draait op een kopie")
         voor = sha(MODEL)
         with tempfile.TemporaryDirectory() as map_:
             for script, argumenten in ZONDER_MODELVLAG.items():

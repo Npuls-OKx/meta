@@ -914,8 +914,8 @@ def markeer_svg(raakt, zonder, per_zone, routers, vakken, bezet, doek, mee=()):
 # -------------------------------------------------------------------- bouw --
 
 def bouw(ruimte_x=1.55, ruimte_y=1.85, tussen=70, marge=30, opschriften="namen", markeer=(),
-         markeer_naam="", voorstel=None, uitsnede=False):
-    top, knopen, verbindingen, relaties = lees(MODEL, VIEW)
+         markeer_naam="", voorstel=None, uitsnede=False, model=None):
+    top, knopen, verbindingen, relaties = lees(model or MODEL, VIEW)
     labels = labels_van_stromen()
 
     zones = [k for k in top if is_groep(k)]
@@ -1129,6 +1129,9 @@ def kruisingen(lijnen):
 def main():
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     p.add_argument("--uit", required=True)
+    # Zie tools/tests/test_model_onaangeraakt.py: met een eigen modelpad draait een
+    # testgeval op een kopie en komt het echte bestand er nooit aan te pas.
+    p.add_argument("--model", type=pathlib.Path, default=MODEL)
     p.add_argument("--ruimte-x", type=float, default=1.55)
     p.add_argument("--ruimte-y", type=float, default=1.85)
     p.add_argument("--opschriften", choices=("namen", "ids"), default="namen",
@@ -1142,7 +1145,7 @@ def main():
     naam, markeringen = lees_markering(args.markeer) if args.markeer else ("", ())
     svg, stromen, verbanden, componenten, legenda, ontbreekt, gemarkeerd = bouw(
         args.ruimte_x, args.ruimte_y, opschriften=args.opschriften,
-        markeer=markeringen, markeer_naam=naam, voorstel=args.voorstel, uitsnede=args.uitsnede)
+        markeer=markeringen, markeer_naam=naam, voorstel=args.voorstel, uitsnede=args.uitsnede, model=args.model)
     pathlib.Path(args.uit).write_text(svg, encoding="utf-8")
     for x in ontbreekt:
         print(f"waarschuwing: {x}", file=sys.stderr)
