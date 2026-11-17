@@ -28,11 +28,11 @@ Daarnaast zegt elk item met `herkomst` hoe hard de verwijzing is:
   onbekend                geen modelstaat te vinden; alleen de afbeelding bestaat
 
 Gebruik:
-    python3 tools/scripts/plaatherkomst.py                      # controleren
-    python3 tools/scripts/plaatherkomst.py --schrijf --versie 1.7.1
-    python3 tools/scripts/plaatherkomst.py --retrofit           # de historie aanvullen
+    python3 tools/scripts/maak-versiemanifest-plaat.py                      # controleren
+    python3 tools/scripts/maak-versiemanifest-plaat.py --schrijf --versie 1.7.1
+    python3 tools/scripts/maak-versiemanifest-plaat.py --retrofit           # de historie aanvullen
 
-De controle hangt in `tools/tests/test_plaatherkomst.py` en loopt dus mee in CI.
+De controle hangt in `tools/tests/test_maak-versiemanifest-plaat.py` en loopt dus mee in CI.
 """
 
 from __future__ import annotations
@@ -48,17 +48,34 @@ from pathlib import Path
 WORTEL = Path(__file__).resolve().parent.parent.parent
 MODEL = WORTEL / "architecture/model/model.archimate"
 PLATEN = WORTEL / "architecture/model/informatiestromen hoofdplaat OKx"
-MANIFEST = PLATEN / "herkomst.json"
+MANIFEST = PLATEN / "versiemanifest.json"
 MODELPAD = "architecture/model/model.archimate"
 XSI = "{http://www.w3.org/2001/XMLSchema-instance}type"
 
 # De viewnaam zoals die toen heette, per uitgebrachte versie. De namen dragen sinds
 # november 2026 geen versie meer; voor de historie is de oude naam de enige ingang.
+# Per uitgebrachte versie de viewnaam zoals die toen heette. De viewnamen dragen sinds
+# november 2026 geen versie meer; voor de historie is de oude naam de enige ingang. De
+# commit is de LAATSTE waarin die view nog bestond, want een view die later hernoemd is
+# bestaat op de commit van de afbeelding niet meer onder die naam.
 HISTORIE = {
-    "1.4": "OKx hoofdplaat v1.4 <concept>",
-    "1.6": "OKx hoofdplaat v1.6a<concept>",
-    "1.7": "OKx hoofdplaat v1.7<concept>",
+    "1.3": ("OKx hoofdplaat v1.3", "665c7a00a79f57eefcbca333a71e4e4f72987ce6"),
+    "1.4": ("OKx hoofdplaat v1.4 <concept>", "a65979b48ae32c730f60cc909aa43c8b00d045ba"),
+    "1.6": ("OKx hoofdplaat v1.6a<concept>", "a65979b48ae32c730f60cc909aa43c8b00d045ba"),
+    "1.7": ("OKx hoofdplaat v1.7<concept>", "a65979b48ae32c730f60cc909aa43c8b00d045ba"),
 }
+
+# Versie 1.1 en 1.2 hebben nooit een view in het model gehad. De eerste hoofdplaatview is
+# `OKx hoofdplaat v1.3` en verscheen op 1 april 2026; het model zelf kwam op 18 maart in
+# de repository. Hun afbeelding is er wel, en die geldt als release.
+ZONDER_MODELSTAAT = ("1.1", "1.2")
+
+# Hoe de afbeelding gemaakt is. Tot en met 1.7 handmatig, uit de lokale Archi van de
+# modelleur; daarom is een uitgebrachte plaat niet uit haar modelstaat te herbouwen.
+# Gemeten op 17 november 2026: hoofdplaat 1.7 is 2267 bij 861, en een export uit precies
+# die modelstaat geeft 2276 bij 1113 voor de volle view en 2241 bij 873 voor de view
+# zonder contextapplicaties. Vanaf 1.7.1 komt de export uit het gecommitte model.
+HANDMATIG_TOT_EN_MET = "1.7"
 
 
 def view_element(wortel, naam):
@@ -146,22 +163,41 @@ def item(m, versie):
     return nieuw
 
 
+def _beeld_bron(versie):
+    """Hoe de afbeelding van deze versie gemaakt is, en of zij te herbouwen valt."""
+    if versie <= HANDMATIG_TOT_EN_MET:
+        return ("handmatige export uit de lokale Archi van de modelleur", False)
+    return ("exporteer-archimate-platen.py uit het gecommitte model", True)
+
+
 def retrofit(m):
-    """Vult de historie aan voor versies die al uitgebracht zijn."""
-    gevonden = sorted(p.name for p in PLATEN.iterdir() if p.is_dir())
-    for versie in gevonden:
+    """Vult de historie aan voor versies die al uitgebracht zijn.
+
+    Een uitgebrachte plaat blijft staan zoals zij is uitgebracht. Dit vult alleen de
+    verwijzing naar de modelstaat erachter, zodat navolgbaar is waar de bron zit.
+    """
+    for versie in sorted(p.name for p in PLATEN.iterdir() if p.is_dir()):
         v = item(m, versie)
-        if v.get("herkomst") == "vastgelegd bij export":
+        if v.get("model_herkomst") == "vastgelegd bij export":
             continue
         pad = export_van(versie)
         v["export"] = pad
-        v["commit"] = volledige_commit(f"{PLATEN.relative_to(WORTEL)}/{pad}") if pad else None
-        naam = HISTORIE.get(versie)
-        h = viewhash_op_commit(v["commit"], naam) if (naam and v["commit"]) else None
-        v["view"] = naam
-        v["viewhash"] = h
-        v["herkomst"] = ("nagemeten" if h else
-                         "onbekend, geen view met deze naam in het model van die commit")
+        v["beeld_bron"], v["reproduceerbaar"] = _beeld_bron(versie)
+        v["beeld_commit"] = volledige_commit(f"{PLATEN.relative_to(WORTEL)}/{pad}") if pad else None
+        if versie in ZONDER_MODELSTAAT:
+            v["view"], v["model_commit"], v["viewhash"] = None, None, None
+            v["model_herkomst"] = ("geen: deze versie heeft nooit een view in het model gehad, "
+                                   "de eerste hoofdplaatview verscheen op 1 april 2026")
+            continue
+        naam, commit = HISTORIE.get(versie, (None, None))
+        h = viewhash_op_commit(commit, naam) if (naam and commit) else None
+        v["view"], v["model_commit"], v["viewhash"] = naam, commit, h
+        v["model_herkomst"] = ("nagemeten: de view bestond onder deze naam op deze commit"
+                               if h else "geen: viewnaam of commit onbekend")
+    ORDE = ["versie", "export", "beeld_bron", "beeld_commit", "reproduceerbaar",
+            "view", "model_commit", "viewhash", "model_herkomst"]
+    for i, v in enumerate(m["versies"]):
+        m["versies"][i] = {k: v[k] for k in ORDE if k in v}
     m["versies"].sort(key=lambda v: [int(x) for x in v["versie"].split(".")])
     return m
 
@@ -182,7 +218,7 @@ def main(argv=None):
         schrijf(retrofit(m))
         print(f"historie aangevuld: {len(m['versies'])} versies in {MANIFEST.name}")
         for v in m["versies"]:
-            print(f"  {v['versie']:7s} {v.get('herkomst','')}")
+            print(f"  {v['versie']:7s} {v.get('model_herkomst','')[:58]}")
         return 0
 
     nu = viewhash(args.model, naam)
@@ -200,9 +236,12 @@ def main(argv=None):
             print(f"geen export gevonden in {PLATEN.name}/{versie}; exporteer de plaat eerst")
             return 1
         v = item(m, versie)
-        v.update({"view": naam, "viewhash": nu, "export": pad,
-                  "commit": volledige_commit(f"{PLATEN.relative_to(WORTEL)}/{pad}"),
-                  "herkomst": "vastgelegd bij export"})
+        bron, reproduceerbaar = _beeld_bron(versie)
+        v.update({"export": pad, "beeld_bron": bron, "reproduceerbaar": reproduceerbaar,
+                  "beeld_commit": volledige_commit(f"{PLATEN.relative_to(WORTEL)}/{pad}"),
+                  "view": naam, "viewhash": nu,
+                  "model_commit": volledige_commit(MODELPAD),
+                  "model_herkomst": "vastgelegd bij export"})
         m["huidig"] = versie
         schrijf(m)
         print(f"vastgelegd: versie {versie}, {nu[:22]}...")
@@ -216,7 +255,7 @@ def main(argv=None):
     print(f"vastgelegd  {(v or {}).get('viewhash') or '(nog niet vastgelegd)'}")
     if not v or v.get("viewhash") != nu:
         print("\nDe view wijkt af van wat er is geexporteerd. Exporteer de plaat opnieuw en draai:")
-        print("  python3 tools/scripts/plaatherkomst.py --schrijf --versie <versie>")
+        print("  python3 tools/scripts/maak-versiemanifest-plaat.py --schrijf --versie <versie>")
         return 1
     print("\ngelijk")
     return 0

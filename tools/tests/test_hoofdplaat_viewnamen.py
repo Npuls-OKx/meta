@@ -53,7 +53,7 @@ class ViewnaamTests(unittest.TestCase):
     def test_given_model_when_default_view_of_teken_hoofdplaat_ruim_then_found(self):
         self.gevonden("teken_hoofdplaat_ruim", "teken-hoofdplaat-ruim.py")
 
-    # De controle op een versie in de viewnaam staat in test_plaatherkomst.py: die is
+    # De controle op een versie in de viewnaam staat in test_maak-versiemanifest-plaat.py: die is
     # strenger (elke versie, niet alleen 1.7) en hoort bij de afspraak dat de versie
     # aan de export hangt en niet aan de view.
 

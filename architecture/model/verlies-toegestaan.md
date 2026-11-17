@@ -36,7 +36,7 @@ De modelronde van #551: de versie uit de viewnamen, de drie groepsbegrippen en d
 - `id-76b57ef5740e48de8cb7d1e679d783cb` flow `Koppelvlak` naar `Student Keuze Systeem (SKS)`, op de view `Koppelvlak SIS (KRS-SVS)`
 - `id-dc14c45bf8c94c1ba7b428ca2a2d5de2` flow `Student volg systeem (SVS)` naar `Koppelvlak`, op de view `Koppelvlak SKS`
 
-**Vijf views zijn opgeruimd, omdat de versie naar de export is verhuisd.** Een viewnaam draagt geen versie meer; de versie hangt aan de geexporteerde plaat en staat met haar commit en een hash over de view in `informatiestromen hoofdplaat OKx/herkomst.json`. Daarmee zou een hernoeming vier views met dezelfde naam opleveren, en elk script dat op naam zoekt pakt de eerste. De historie blijft in git en de platen in de versiemappen:
+**Vijf views zijn opgeruimd, omdat de versie naar de export is verhuisd.** Een viewnaam draagt geen versie meer; de versie hangt aan de geexporteerde plaat en staat met haar commit en een hash over de view in `informatiestromen hoofdplaat OKx/versiemanifest.json`. Daarmee zou een hernoeming vier views met dezelfde naam opleveren, en elk script dat op naam zoekt pakt de eerste. De historie blijft in git en de platen in de versiemappen:
 
 - `id-3a4c2ab1a1a3441ebf4980b132773497` view `OKx hoofdplaat v1.4`, 18 vakken en 25 verbindingen
 - `id-f6b2a952c77e4c2d850bae94c5db1582` view `OKx hoofdplaat v1.6a`, 35 vakken en 51 verbindingen

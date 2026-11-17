@@ -4,7 +4,7 @@ Zet het ArchiMate-model terug op de staat achter een uitgebrachte plaatversie, o
 
 ## Waarom dit een commando is
 
-De viewnamen in het model dragen geen versie. De versie hangt aan de **export**, want dat is wat Public aanhaalt. De brug tussen die twee is [`architecture/model/informatiestromen hoofdplaat OKx/herkomst.json`](../../architecture/model/informatiestromen%20hoofdplaat%20OKx/herkomst.json): per uitgebrachte versie de commit, de viewnaam zoals die toen heette, en een hash over de inhoud van de view.
+De viewnamen in het model dragen geen versie. De versie hangt aan de **export**, want dat is wat Public aanhaalt. De brug tussen die twee is [`architecture/model/informatiestromen hoofdplaat OKx/versiemanifest.json`](../../architecture/model/informatiestromen%20hoofdplaat%20OKx/versiemanifest.json): per uitgebrachte versie de commit, de viewnaam zoals die toen heette, en een hash over de inhoud van de view.
 
 Zonder dat manifest is een oude versie alleen op datum terug te vinden, en dat is gokwerk.
 
@@ -13,7 +13,7 @@ Zonder dat manifest is een oude versie alleen op datum terug te vinden, en dat i
 1. **Lees het manifest.**
 
    ```bash
-   python3 -c "import json;[print(f\"{v['versie']:7s} {v['herkomst']:12s} {v['commit']}\") for v in json.load(open('architecture/model/informatiestromen hoofdplaat OKx/herkomst.json'))['versies']]"
+   python3 -c "import json;[print(f\"{v['versie']:7s} {v['herkomst']:12s} {v['commit']}\") for v in json.load(open('architecture/model/informatiestromen hoofdplaat OKx/versiemanifest.json'))['versies']]"
    ```
 
    Drie soorten herkomst, en zij zeggen hoe hard de verwijzing is:
@@ -57,7 +57,7 @@ Zonder dat manifest is een oude versie alleen op datum terug te vinden, en dat i
 Na een nieuwe export:
 
 ```bash
-python3 tools/scripts/plaatherkomst.py --schrijf --versie 1.7.1
+python3 tools/scripts/maak-versiemanifest-plaat.py --schrijf --versie 1.7.1
 ```
 
-De controle hangt in `tools/tests/test_plaatherkomst.py` en loopt mee in CI: wijzigt de view zonder dat er een nieuwe export is, dan faalt de pull request.
+De controle hangt in `tools/tests/test_maak_versiemanifest_plaat.py` en loopt mee in CI: wijzigt de view zonder dat er een nieuwe export is, dan faalt de pull request.

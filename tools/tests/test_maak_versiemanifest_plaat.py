@@ -19,7 +19,7 @@ from pathlib import Path
 
 WORTEL = Path(__file__).resolve().parent.parent.parent
 MODEL = WORTEL / "architecture/model/model.archimate"
-MANIFEST = WORTEL / "architecture/model/informatiestromen hoofdplaat OKx/herkomst.json"
+MANIFEST = WORTEL / "architecture/model/informatiestromen hoofdplaat OKx/versiemanifest.json"
 XSI = "{http://www.w3.org/2001/XMLSchema-instance}type"
 SEMVER = re.compile(r"^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)$")
 # Een viewnaam draagt geen versie meer: die hoort bij de export. Deze vormen vangen
@@ -33,7 +33,7 @@ UITGEZONDERD = {
 
 def laad():
     spec = importlib.util.spec_from_file_location(
-        "plaatherkomst", WORTEL / "tools/scripts/plaatherkomst.py")
+        "maak_versiemanifest_plaat", WORTEL / "tools/scripts/maak-versiemanifest-plaat.py")
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     return module
@@ -57,11 +57,11 @@ def eigen_views(wortel):
 
 class ViewnaamZonderVersie(unittest.TestCase):
     def test_given_own_views_when_named_then_no_version_in_the_name(self):
-        """De versie hoort bij de export en niet bij de view; zie plaatherkomst.py."""
+        """De versie hoort bij de export en niet bij de view; zie maak-versiemanifest-plaat.py."""
         wortel = ET.parse(MODEL).getroot()
         fout = sorted((e.get("name") or "") for e in eigen_views(wortel)
                       if VERSIE_IN_NAAM.search(e.get("name") or ""))
-        self.assertEqual(fout, [], "viewnamen met een versie erin; de versie hoort in herkomst.json")
+        self.assertEqual(fout, [], "viewnamen met een versie erin; de versie hoort in versiemanifest.json")
 
     def test_given_own_views_when_listed_then_no_two_share_a_name(self):
         """Zonder versie in de naam is een dubbele naam stil: elk script pakt de eerste.
@@ -88,12 +88,13 @@ class HerkomstVanDeExport(unittest.TestCase):
 
     def manifest(self):
         self.assertTrue(MANIFEST.exists(),
-                        "herkomst.json ontbreekt; draai plaatherkomst.py --retrofit")
+                        "versiemanifest.json ontbreekt; draai maak-versiemanifest-plaat.py --retrofit")
         return json.loads(MANIFEST.read_text(encoding="utf-8"))
 
     def test_given_the_manifest_when_read_then_every_version_carries_its_fields(self):
         for v in self.manifest()["versies"]:
-            for sleutel in ("versie", "export", "commit", "viewhash", "herkomst"):
+            for sleutel in ("versie", "export", "beeld_bron", "beeld_commit",
+                            "reproduceerbaar", "viewhash", "model_herkomst"):
                 self.assertIn(sleutel, v, f"versie {v.get('versie')} mist {sleutel}")
             self.assertRegex(v["versie"], re.compile(r"^\d+\.\d+(\.\d+)?$"))
 
@@ -105,16 +106,19 @@ class HerkomstVanDeExport(unittest.TestCase):
         verwijzing die jaren mee moet, slaat daarom de volle hash op.
         """
         for v in self.manifest()["versies"]:
-            if v["commit"] is not None:
-                self.assertRegex(v["commit"], re.compile(r"^[0-9a-f]{40}$"),
-                                 f"versie {v['versie']} draagt geen volledige commithash")
+            for sleutel in ("beeld_commit", "model_commit"):
+                if v.get(sleutel) is not None:
+                    self.assertRegex(v[sleutel], re.compile(r"^[0-9a-f]{40}$"),
+                                     f"versie {v['versie']} draagt geen volledige {sleutel}")
 
     def test_given_a_version_when_it_claims_provenance_then_it_carries_a_hash(self):
         """Wie zegt waar hij vandaan komt, moet dat kunnen aantonen."""
         for v in self.manifest()["versies"]:
-            if v["herkomst"] in ("vastgelegd bij export", "nagemeten"):
-                self.assertIsNotNone(v["viewhash"], f"versie {v['versie']} zegt {v['herkomst']} zonder hash")
+            if v["model_herkomst"].startswith(("vastgelegd", "nagemeten")):
+                self.assertIsNotNone(v["viewhash"],
+                                     f"versie {v['versie']} zegt {v['model_herkomst'][:20]} zonder hash")
                 self.assertIsNotNone(v["view"])
+                self.assertIsNotNone(v["model_commit"])
 
     def test_given_each_version_when_read_then_its_export_exists(self):
         for v in self.manifest()["versies"]:
@@ -133,14 +137,14 @@ class HerkomstVanDeExport(unittest.TestCase):
         self.assertIsNotNone(nu, f"view niet gevonden: {m['view']}")
         self.assertEqual(nu, v["viewhash"],
                          "de hoofdplaat is gewijzigd zonder nieuwe export; exporteer en draai "
-                         "python3 tools/scripts/plaatherkomst.py --schrijf --versie <versie>")
+                         "python3 tools/scripts/maak-versiemanifest-plaat.py --schrijf --versie <versie>")
 
     def test_given_a_retrofitted_version_when_rehashed_then_it_still_matches(self):
         """De nagemeten hashes moeten reproduceerbaar zijn, anders is de historie waardeloos."""
         mod = laad()
         for v in self.manifest()["versies"]:
-            if v["herkomst"] == "nagemeten":
-                self.assertEqual(mod.viewhash_op_commit(v["commit"], v["view"]), v["viewhash"],
+            if v["model_herkomst"].startswith("nagemeten"):
+                self.assertEqual(mod.viewhash_op_commit(v["model_commit"], v["view"]), v["viewhash"],
                                  f"versie {v['versie']} is niet opnieuw na te meten")
 
 

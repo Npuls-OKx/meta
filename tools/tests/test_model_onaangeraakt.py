@@ -37,7 +37,7 @@ MET_MODELVLAG = {
     "exporteer-archimate-view.py": ["--model", "{model}", "--uit", "{uit}/stromen.json"],
     "exporteer-componenten.py": ["--model", "{model}", "--uit", "{uit}/componenten.json"],
     "exporteer-conceptplaat.py": ["--model", "{model}", "--uit", "{uit}/conceptplaat.json"],
-    "plaatherkomst.py": ["--model", "{model}"],
+    "maak-versiemanifest-plaat.py": ["--model", "{model}"],
     "genereer-informatiemodel-doc.py": ["--model", "{model}"],
     "teken-hoofdplaat-ruim.py": ["--model", "{model}", "--uit", "{uit}/plaat.svg"],
     "teken-fasenplaten.py": ["--model", "{model}", "--uit", "{uit}"],
