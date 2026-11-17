@@ -49,9 +49,10 @@ BLIJVEND = {
 # Een map die nog opgeruimd moet worden: het issue dat dat doet, en hoeveel bestanden er nu los
 # staan. Dat tweede getal houdt de map tegen om erger te worden terwijl zij wacht.
 WACHT = {
-    # Dertien sinds PR 539 de capaciteitsgestuurde variant-regeltabel naast de basis zette.
-    # Die twee horen bij elkaar en verhuizen samen met #542.
-    "architecture/model/informatiemodel": (542, 13),
+    # Vijftien: dertien sinds PR 539 de capaciteitsgestuurde variant-regeltabel naast de
+    # basis zette, en twee erbij doordat het informatiemodel als 0.3.0 is uitgebracht. De
+    # zes platen en de regeltabellen verhuizen samen met #542 naar bron en gegenereerd.
+    "architecture/model/informatiemodel": (542, 15),
     "architecture/docs/specificatie/begrippen": (543, 3),
     "project": (543, 1),
     "project/img/visueel": (543, 17),

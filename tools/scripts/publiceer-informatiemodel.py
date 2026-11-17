@@ -52,8 +52,8 @@ DOCUMENTEN = {
     BEGRIPPENMAP / "begrippenlijst.md": "begrippen.md",
 }
 BESTANDEN = {
-    MODELMAP / "OKx informatiemodel v0.2.jpg": "img/informatiemodel.jpg",
-    MODELMAP / "OKx informatiemodel en mapping OEAPI v0.2.jpg": "img/informatiemodel-oeapi-mapping.jpg",
+    MODELMAP / "OKx informatiemodel v0.2.0.jpg": "img/informatiemodel.jpg",
+    MODELMAP / "OKx informatiemodel en mapping OEAPI v0.2.0.jpg": "img/informatiemodel-oeapi-mapping.jpg",
     BEGRIPPENMAP / "referentiekaders.json": "referentiekaders.json",
 }
 # informatiemodel.json en begrippen.json worden niet gekopieerd maar herschreven: de
@@ -69,8 +69,8 @@ VERWIJZINGEN = {
     "../../docs/specificatie/leerroute-uitwerking/doc/begrippenkader.md": ANKERTABEL,
     "../../docs/specificatie/student-keuze/keuze-requirements.md":
         META_BLOB + "architecture/docs/specificatie/student-keuze/keuze-requirements.md",
-    "OKx informatiemodel v0.2.jpg": "img/informatiemodel.jpg",
-    "OKx informatiemodel en mapping OEAPI v0.2.jpg": "img/informatiemodel-oeapi-mapping.jpg",
+    "OKx informatiemodel v0.2.0.jpg": "img/informatiemodel.jpg",
+    "OKx informatiemodel en mapping OEAPI v0.2.0.jpg": "img/informatiemodel-oeapi-mapping.jpg",
     PUBLIC_DEV + "Informatie-en-gegevensmodellen/schemas/result-structure.json": "schemas/result-structure.json",
     PUBLIC_DEV_TREE + "Informatie-en-gegevensmodellen/schemas": "schemas/",
     PUBLIC_DEV + "Koppelvlakspecificaties/uitgangspunten.md": "../Koppelvlakspecificaties/uitgangspunten.md",

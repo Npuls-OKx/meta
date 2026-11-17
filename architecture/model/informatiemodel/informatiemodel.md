@@ -25,7 +25,7 @@ De scope volgt de beschouwingsniveaus van het [Metamodel Informatie Modellering 
 
 Verder buiten scope: applicatiecomponenten, techniekkeuzes en federatie tussen instellingen. Welke component welk objecttype bezit staat in [uitgangspunt U3](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/uitgangspunten.md#u3-resource-eigenaarschap) van de koppelvlakspecificatie. Een conceptueel informatiemodel is volgens MIM onafhankelijk van standaarden voor gegevensuitwisseling; de verhouding tot de Open Education API (OEAPI) staat daarom in een [apart document](informatiemodel-oeapi-mapping.md).
 
-![Informatiemodel OKx, versie v0.2 van 19 oktober 2026](<OKx informatiemodel v0.2.jpg>)
+![Informatiemodel OKx, versie v0.2 van 19 oktober 2026](<OKx informatiemodel v0.2.0.jpg>)
 
 ## Lezers en detailniveau
 

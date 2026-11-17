@@ -2,7 +2,15 @@
 
 Elke map hier draagt een uitgebrachte plaat. [Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Koppelvlakspecificaties) haalt die versies aan, in de tekst als `hoofdplaat v1.7` en in bestandsnamen als `informatiestromen_hoofdplaat_v1_7.png`. Een versie die hier staat is daarmee een afspraak met de sector, niet een werkbestand.
 
-De viewnamen in het ArchiMate-model dragen **geen** versie. Wie een plaatversie wil terugvinden, gaat daarom via [`versiemanifest.json`](versiemanifest.json): per versie het beeld, de modelstaat erachter en hoe hard die verwijzing is.
+De viewnamen in het ArchiMate-model dragen **geen** versie. Wie een plaatversie wil terugvinden, gaat daarom via [`bron/versiemanifest.json`](../bron/versiemanifest.json): per plaat en per versie het beeld, de modelstaat erachter en hoe hard die verwijzing is. Dat manifest dekt drie platen:
+
+| Plaat | View | Waar de versies staan |
+|---|---|---|
+| hoofdplaat | `OKx hoofdplaat` | deze map, een map per versie |
+| informatiemodel | `OKx informatiemodel` | `architecture/model/informatiemodel/`, de versie in de bestandsnaam |
+| informatiemodel-oeapi | `OKx informatiemodel en mapping OEAPI` | idem |
+
+Hieronder de hoofdplaat.
 
 ## De versies
 
@@ -38,7 +46,7 @@ Daarom draagt elke versie het veld `reproduceerbaar`. Staat dat op `false`, dan 
 ```bash
 python3 tools/scripts/exporteer-archimate-platen.py \
   --view "OKx hoofdplaat" --uit "architecture/model/informatiestromen hoofdplaat OKx/<versie>/OKx hoofdplaat <versie>.png"
-python3 tools/scripts/maak-versiemanifest-plaat.py --schrijf --versie <versie>
+python3 tools/scripts/maak-versiemanifest-plaat.py --plaat hoofdplaat --schrijf --versie <versie>
 ```
 
 Het manifest vult de commit van de export pas wanneer die gecommit is, dus de volgorde is: exporteren, committen, vastleggen.
@@ -65,4 +73,5 @@ Dat de verwijzing klopt is na te meten: haal het model van die commit en bereken
 - een versie geen `MAJOR.MINOR.PATCH` is, of een commithash draagt die niet de volle veertig tekens heeft;
 - de huidige view afwijkt van de hash van de huidige versie, dus de plaat loopt achter op het model;
 - een versie een export noemt die niet bestaat;
-- een versiemap twee beelden draagt, of een map geen regel in het manifest heeft.
+- een versiemap twee beelden draagt, of een map geen regel in het manifest heeft;
+- een plaat is gewijzigd en dezelfde versie opnieuw wordt vastgelegd: een gewijzigde plaat krijgt een nieuw nummer.
