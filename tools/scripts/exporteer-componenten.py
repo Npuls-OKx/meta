@@ -82,12 +82,19 @@ def componentnamen(stromen):
     return namen
 
 
+BUITEN_DE_PLAAT = ["AII (centraal aanmelden)", "Aanmeld systeem", "Curriculum ontwerptool",
+                   "Intake systeem", "Toets- en examen afname systeem"]
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     parser.add_argument("--model", type=pathlib.Path, default=MODEL)
     parser.add_argument("--stromen", type=pathlib.Path, default=STROMEN)
     parser.add_argument("--uit", type=pathlib.Path, default=UIT)
-    parser.add_argument("--extra", nargs="*", default=[],
+    # Componenten die de regeltabel noemt maar die niet op de hoofdplaat staan. Zonder deze
+    # standaard leverde een regeneratie acht componenten in plaats van vijftien, en verdwenen
+    # de definities van vijf componenten stil uit componenten.json.
+    parser.add_argument("--extra", nargs="*", default=BUITEN_DE_PLAAT,
                         help="componentnamen buiten de hoofdplaat, bijvoorbeeld Intakesysteem")
     args = parser.parse_args(argv)
 

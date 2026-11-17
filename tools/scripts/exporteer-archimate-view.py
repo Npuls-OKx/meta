@@ -32,6 +32,10 @@ MODEL = pathlib.Path("architecture/model/model.archimate")
 UIT = pathlib.Path("architecture/model/informatiemodel/stromen.json")
 VIEW = "OKx hoofdplaat (zonder context applicaties)"
 AANVULLINGEN = pathlib.Path("architecture/model/informatiemodel/stromen-aanvullingen.json")
+# Welke stroom bij welke koppelingspecificatie hoort. Dit stond nergens vastgelegd, en een
+# regeneratie zonder mapping zette daardoor alle stromen op "zonder koppelingspecificatie":
+# de zeven koppeling-ID's verdwenen stil uit stromen.json. Vandaar een standaardpad.
+KOPPELINGEN = pathlib.Path("architecture/model/informatiemodel/bron/koppelingen.json")
 ZONDER = "zonder koppelingspecificatie"
 CONTAINERS = {"ApplicationComponent", "BusinessActor", "BusinessRole", "Node", "Grouping", "Group"}
 
@@ -195,7 +199,8 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     parser.add_argument("--model", type=pathlib.Path, default=MODEL)
     parser.add_argument("--view", default=VIEW)
-    parser.add_argument("--mapping", type=pathlib.Path, help="JSON: {\"Van > Naar\": \"OC-P&R\", ...}")
+    parser.add_argument("--mapping", type=pathlib.Path, default=KOPPELINGEN,
+                        help="JSON: {\"Van > Naar\": \"OC-P&R\", ...}")
     parser.add_argument("--aanvullingen", type=pathlib.Path, default=AANVULLINGEN,
                         help="stromen die een nieuwere hoofdplaat kent en de view nog niet")
     parser.add_argument("--uit", type=pathlib.Path, default=UIT)
