@@ -47,7 +47,7 @@ De `model_commit` staat in het manifest. Of gebruik het commando [`modelversie`]
 
 Dat de verwijzing klopt is na te meten: haal het model van die commit en bereken de hash van de genoemde view met `maak-versiemanifest-plaat.py`. Voor 1.3, 1.4, 1.6 en 1.7 komt dan precies de hash uit het manifest terug.
 
-## Wat de poort afdwingt
+## Controle in CI
 
 `tools/tests/test_maak_versiemanifest_plaat.py` loopt mee in CI en faalt wanneer:
 
