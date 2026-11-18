@@ -1,12 +1,16 @@
 """Testgevallen bij de sjablonen voor de adviesgroep (#554).
 
-De poort bewaakt twee dingen. Het sjabloon draagt wat een invuller nodig heeft:
-de aggregatiestap, de invultabel, de aanwijzing over de koppen en een
-voorbeelduitwerking. En de .docx die in versiebeheer staat hoort bij het skelet
-ernaast, zodat de adviesgroep nooit een sjabloon opent dat achterloopt.
+De poort bewaakt drie dingen. Het skelet is uit zijn uitwerking afgeleid en
+draagt elke kop daarvan, zodat een sjabloon niet kleiner is dan het document
+dat het nadoet. Het draagt de vaste aanwijzingen die een invuller nodig heeft.
+En de .docx die in versiebeheer staat hoort bij het skelet, zodat de
+adviesgroep nooit een sjabloon opent dat achterloopt op de bron.
 """
 
+import importlib
+import json
 import pathlib
+import re
 import subprocess
 import sys
 import tempfile
@@ -16,13 +20,14 @@ import zipfile
 WORTEL = pathlib.Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(WORTEL / "tools/scripts"))
 
-import importlib
-
 bouw_docx = importlib.import_module("bouw-sjablonen-docx")
 bouw_ref = importlib.import_module("bouw-sjabloon-referentie")
+maak = importlib.import_module("maak-sjabloon-uit-document")
 
 MAP = WORTEL / "architecture/docs/sjablonen"
-BRON = MAP / "bron"
+SKELET = MAP / "gegenereerd"
+CONFIG = json.loads((MAP / "bron/sjablonen.json").read_text(encoding="utf-8"))
+KOP = re.compile(r"^#{1,6} ", re.M)
 
 
 def document_xml(pad: pathlib.Path) -> bytes:
@@ -31,24 +36,27 @@ def document_xml(pad: pathlib.Path) -> bytes:
         return z.read("word/document.xml")
 
 
+def skelet(naam: str) -> str:
+    return (SKELET / f"{naam}.md").read_text(encoding="utf-8")
+
+
 class ElkSjabloonBestaat(unittest.TestCase):
-    def test_vijf_skeletten(self):
-        self.assertEqual(len(bouw_docx.SJABLONEN), 5)
-        for naam in bouw_docx.SJABLONEN:
+    def test_vijf_sjablonen(self):
+        self.assertEqual(len(CONFIG), 5)
+        for naam in CONFIG:
             with self.subTest(naam):
-                self.assertTrue((BRON / f"{naam}.md").exists(),
-                                f"het skelet {naam}.md ontbreekt")
+                self.assertTrue((SKELET / f"{naam}.md").exists())
 
     def test_elke_docx_staat_in_versiebeheer(self):
         gevolgd = subprocess.run(
             ["git", "ls-files", "architecture/docs/sjablonen"],
             cwd=WORTEL, capture_output=True, text=True, check=True,
         ).stdout.splitlines()
-        for bestand in bouw_docx.SJABLONEN.values():
-            with self.subTest(bestand):
-                self.assertIn(f"architecture/docs/sjablonen/{bestand}", gevolgd,
-                              "de adviesgroep moet dit bestand kunnen openen "
-                              "zonder iets te bouwen")
+        for cfg in CONFIG.values():
+            with self.subTest(cfg["bestand"]):
+                self.assertIn(f"architecture/docs/sjablonen/{cfg['bestand']}",
+                              gevolgd, "de adviesgroep moet dit bestand kunnen "
+                              "openen zonder iets te bouwen")
 
     def test_controleer_meldt_een_ontbrekend_sjabloon(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -57,54 +65,119 @@ class ElkSjabloonBestaat(unittest.TestCase):
                                controleer=True), 1)
 
 
-class HetSkeletDraagtDeAanwijzingen(unittest.TestCase):
-    def setUp(self):
-        self.skeletten = {n: (BRON / f"{n}.md").read_text(encoding="utf-8")
-                          for n in bouw_docx.SJABLONEN}
-
-    def test_de_aggregatiestap_staat_erin(self):
-        for naam, tekst in self.skeletten.items():
+class HetSkeletDraagtZijnUitwerking(unittest.TestCase):
+    def test_elke_kop_van_de_bron_staat_erin(self):
+        """Een sjabloon dat koppen weglaat, laat de invuller hoofdstukken missen."""
+        for naam, cfg in CONFIG.items():
             with self.subTest(naam):
-                self.assertIn("## De grootst gemene deler", tekst)
-                self.assertIn("niet voor de sector", tekst,
-                              "de waarschuwing dat een instelling voor haar "
-                              "eigen praktijk spreekt ontbreekt")
-                self.assertIn("## Afwijkingen per instelling", tekst)
+                bron = maak.Sjabloon(naam, cfg).brontekst()
+                self.assertGreaterEqual(
+                    len(KOP.findall(skelet(naam))), len(KOP.findall(bron)),
+                    f"{naam} draagt minder koppen dan {cfg['bron']}")
 
-    def test_de_invultabel_staat_erin(self):
-        for naam, tekst in self.skeletten.items():
+    def test_opnieuw_afleiden_geeft_hetzelfde_skelet(self):
+        for naam, cfg in CONFIG.items():
             with self.subTest(naam):
-                self.assertIn("## Invullen", tekst)
-                for veld in ("Wat dit wordt", "Wie dit invult",
-                             "Voorbeelduitwerking", "Inleveren"):
-                    self.assertIn(veld, tekst, f"het veld {veld} ontbreekt")
+                self.assertEqual(
+                    maak.Sjabloon(naam, cfg).maak(), skelet(naam),
+                    f"gegenereerd/{naam}.md loopt achter op {cfg['bron']}; "
+                    "genereer opnieuw met maak-sjabloon-uit-document.py")
 
-    def test_de_koppen_blijven_staan(self):
-        for naam, tekst in self.skeletten.items():
+    def test_geen_relatieve_verwijzing(self):
+        """Een Word-bestand staat niet in de repository."""
+        for naam in CONFIG:
             with self.subTest(naam):
-                self.assertIn("lezer (parser)", tekst,
-                              "de aanwijzing dat de koppen blijven staan "
-                              "ontbreekt")
-
-    def test_elk_skelet_verwijst_naar_een_voorbeeld(self):
-        for naam, tekst in self.skeletten.items():
-            with self.subTest(naam):
-                self.assertIn("https://github.com/Npuls-OKx/meta/blob/", tekst,
-                              "een volledige verwijzing is nodig, want een "
-                              "relatief pad werkt niet in een Word-bestand")
+                los = [d for d in re.findall(r"\]\(([^)]+)\)", skelet(naam))
+                       if not d.startswith(("http://", "https://", "#"))]
+                self.assertEqual(los, [], f"{naam} draagt een pad dat in Word "
+                                          "nergens heen wijst")
 
     def test_elke_tabel_heeft_een_kopregel(self):
-        for naam, tekst in self.skeletten.items():
-            for nr, regel in enumerate(tekst.splitlines(), 1):
-                kaal = regel.replace("|", "").strip()
-                if regel.startswith("|") and not kaal:
-                    self.fail(f"{naam}.md regel {nr}: een lege kopregel wordt "
-                              f"in Word een lege rij; geef de tabel een kop")
+        for naam in CONFIG:
+            for nr, regel in enumerate(skelet(naam).splitlines(), 1):
+                if regel.startswith("|") and not regel.replace("|", "").strip():
+                    if re.match(r"^\|[\s:|-]+\|\s*$", regel):
+                        continue  # de scheidingsregel is geen kopregel
+                    vorige = skelet(naam).splitlines()[nr - 2]
+                    if not vorige.startswith("|"):
+                        self.fail(f"{naam}.md regel {nr}: een lege kopregel "
+                                  "wordt in Word een lege rij")
+
+
+class HetSkeletDraagtDeAanwijzingen(unittest.TestCase):
+    def test_de_aggregatiestap_staat_erin(self):
+        for naam in CONFIG:
+            with self.subTest(naam):
+                t = skelet(naam)
+                self.assertIn("## De grootst gemene deler", t)
+                self.assertIn("niet voor de sector", t)
+                self.assertIn("## Afwijkingen per instelling", t)
+
+    def test_de_invultabel_staat_erin(self):
+        for naam in CONFIG:
+            with self.subTest(naam):
+                t = skelet(naam)
+                self.assertIn("## Invullen", t)
+                for veld in ("Wat dit wordt", "Wie dit invult",
+                             "Voorbeelduitwerking", "Inleveren"):
+                    self.assertIn(veld, t)
+
+    def test_de_koppen_blijven_staan(self):
+        for naam in CONFIG:
+            with self.subTest(naam):
+                self.assertIn("lezer (parser)", skelet(naam))
+
+    def test_elk_skelet_verwijst_naar_zijn_uitwerking(self):
+        for naam in CONFIG:
+            with self.subTest(naam):
+                self.assertIn("https://github.com/Npuls-OKx/meta/blob/",
+                              skelet(naam))
+
+    def test_elk_skelet_biedt_schrijfruimte(self):
+        for naam in CONFIG:
+            with self.subTest(naam):
+                self.assertIn(maak.RUIMTE, skelet(naam),
+                              "zonder schrijfruimte is het geen invulsjabloon")
 
     def test_een_vraagsectie_sluit_elk_skelet_af(self):
-        for naam, tekst in self.skeletten.items():
+        for naam in CONFIG:
             with self.subTest(naam):
-                self.assertIn("## Vragen aan OKx", tekst)
+                self.assertIn("## Vragen aan OKx", skelet(naam))
+
+
+class DeGeneratorWeigertWatHijNietKan(unittest.TestCase):
+    def test_een_onbekend_sjabloon(self):
+        with self.assertRaises(SystemExit):
+            maak.main(["--sjabloon", "bestaat-niet"])
+
+    def test_een_bron_die_niet_bestaat(self):
+        with self.assertRaises(SystemExit) as e:
+            maak.Sjabloon("x", {"bron": "nergens.md"}).brontekst()
+        self.assertIn("bestaat niet", str(e.exception))
+
+    def test_een_bron_op_een_tak_die_er_niet_is(self):
+        with self.assertRaises(SystemExit) as e:
+            maak.Sjabloon("x", {"bron": "README.md",
+                                "bron_ref": "geen-tak"}).brontekst()
+        self.assertIn("git fetch", str(e.exception))
+
+    def test_een_verwijzing_blijft_heel_bij_het_vervangen(self):
+        """De naam in een linkdoel is geen inhoud en mag niet wijzigen."""
+        uit = maak.vervang("[(2) Temporiseren](persona_larissa.md) van Larissa",
+                           [["Larissa", "<student>"]])
+        self.assertIn("persona_larissa.md", uit)
+        self.assertIn("van <student>", uit)
+
+    def test_een_linkdoel_maakt_een_alinea_niet_bronspecifiek(self):
+        self.assertFalse(maak.bronspecifiek("zie [tempo](persona_larissa.md)",
+                                            [["Larissa", "<student>"]]))
+        self.assertTrue(maak.bronspecifiek("Larissa studeert",
+                                           [["Larissa", "<student>"]]))
+
+    def test_een_kop_houdt_haar_hoofdletter(self):
+        self.assertEqual(maak.vervang("Leerroute 1 en leerroute 1",
+                                      [["leerroute 1", "leerroute <n>"]]),
+                         "Leerroute <n> en leerroute <n>")
 
 
 class DeDocxHoortBijHetSkelet(unittest.TestCase):
@@ -116,8 +189,7 @@ class DeDocxHoortBijHetSkelet(unittest.TestCase):
                 with self.subTest(naam):
                     self.assertEqual(
                         document_xml(MAP / bestand), document_xml(tmp / bestand),
-                        f"{bestand} loopt achter op bron/{naam}.md; bouw opnieuw "
-                        "met tools/scripts/bouw-sjablonen-docx.py")
+                        f"{bestand} loopt achter op gegenereerd/{naam}.md")
 
     def test_zonder_referentie_weigert_het_script(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -125,8 +197,7 @@ class DeDocxHoortBijHetSkelet(unittest.TestCase):
             with self.assertRaises(SystemExit) as e:
                 bouw_docx.bouw(tmp, tmp / "bestaat-niet.docx")
             self.assertIn("ontbreekt", str(e.exception))
-            self.assertEqual(list(tmp.iterdir()), [],
-                             "een weigering schrijft niets")
+            self.assertEqual(list(tmp.iterdir()), [])
 
 
 class DeReferentieDraagtDeHuisstijl(unittest.TestCase):
@@ -134,11 +205,14 @@ class DeReferentieDraagtDeHuisstijl(unittest.TestCase):
         with zipfile.ZipFile(bouw_docx.REFERENTIE) as z:
             thema = z.read("word/theme/theme1.xml").decode("utf-8")
             stijlen = z.read("word/styles.xml").decode("utf-8")
-        self.assertIn(bouw_ref.ORANJE, thema, "de koppen staan niet in het "
-                      "primaire accent van Npuls")
+        self.assertIn(bouw_ref.ORANJE, thema)
+        self.assertIn(bouw_ref.ORANJE, stijlen, "een lezer die het thema niet "
+                      "oplost ziet dan de standaardkleur")
         self.assertIn(bouw_ref.LETTER, thema)
-        self.assertIn(bouw_ref.BLAUW, stijlen, "links staan niet in Npuls-blauw")
-        self.assertIn("nl-NL", stijlen, "Word onderstreept dan elk woord")
+        self.assertIn(bouw_ref.BLAUW, stijlen)
+        self.assertIn(bouw_ref.GRIJS, stijlen, "een invultabel zonder randen "
+                      "is niet te gebruiken")
+        self.assertIn("nl-NL", stijlen)
 
     def test_de_referentie_is_opnieuw_te_bouwen(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -147,9 +221,7 @@ class DeReferentieDraagtDeHuisstijl(unittest.TestCase):
             for deel in ("word/theme/theme1.xml", "word/styles.xml"):
                 with self.subTest(deel), zipfile.ZipFile(uit) as nieuw, \
                         zipfile.ZipFile(bouw_docx.REFERENTIE) as oud:
-                    self.assertEqual(nieuw.read(deel), oud.read(deel),
-                                     "de referentie in versiebeheer wijkt af "
-                                     "van wat het script nu bouwt")
+                    self.assertEqual(nieuw.read(deel), oud.read(deel))
 
 
 if __name__ == "__main__":

@@ -2,15 +2,28 @@
 
 Vijf sjablonen waarmee de adviesgroep een OKx-product zelf kan opschrijven. Zij horen bij een invulverzoek van OKx SI: de solutionlaag kan pas zeggen wat zij nodig heeft wanneer de producten eronder er liggen.
 
-Open het Word-bestand; de markdown eronder is de bron.
+Open het Word-bestand. Elk sjabloon is **afgeleid uit de uitwerking die er al ligt**, dus het draagt elke kop en elke tabel van dat document. Een sjabloon is daarmee even groot als het product dat het nadoet.
 
-| Product | Sjabloon | Voorbeelduitwerking |
+| Product | Sjabloon | Afgeleid uit |
 |---|---|---|
 | persona | `OKx sjabloon persona.docx` | [persona Jochem](../specificatie/leerroute-uitwerking/doc/persona_jochem.md) |
 | leerroute-kaderscenario | `OKx sjabloon leerroute-kaderscenario.docx` | [kaderscenario leerroute 1](../specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md) |
 | informatiemodel-viewpoint | `OKx sjabloon informatiemodel-viewpoint.docx` | [informatiemodel OKx](../../model/informatiemodel/informatiemodel.md) |
 | informatiemodel-voorbeelduitwerking | `OKx sjabloon informatiemodel-voorbeelduitwerking.docx` | [de opleiding van Jochem](../../model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md) |
 | interactieketen | `OKx sjabloon interactieketen.docx` | [interactieketen onderwijsaanbod](https://github.com/Npuls-OKx/meta/blob/e05b4444a29a09b92cc8afd73bce69af78f1ac12/architecture/docs/specificatie/interactieketen-onderwijsaanbod/README.md), nog in review |
+
+## Wat de generator met de uitwerking doet
+
+| Onderdeel | Wat ermee gebeurt |
+|---|---|
+| kop | blijft staan, met de termen van die ene uitwerking vervangen door een invulhaak zoals `<student>` |
+| alinea die algemeen is | blijft staan, want die geldt voor elke uitwerking |
+| alinea die aan die ene uitwerking hing | wordt een ingesprongen citaat met de eerste zin eruit, en schrijfruimte onder het hoofdstuk |
+| tabel | houdt haar kopregel; algemene rijen blijven staan, uitwerkingsrijen worden leeg, evenveel rijen als het origineel had |
+| beeld en diagram | worden een regel die zegt dat daar een beeld hoort |
+| verwijzing | wordt volledig, want een Word-bestand staat niet in de repository |
+
+De grens tussen kader en uitwerking staat per sjabloon in `invullen_vanaf`. Bij het kaderscenario blijven de hoofdstukken over OKx, de deliverable-keten en de negen leerroutes dus staan, en begint de schrijfruimte bij de uitwerking van de route zelf.
 
 ## De invuller aggregeert
 
@@ -24,32 +37,33 @@ In het agent-harnas komt een lezer (parser) die een ingevuld document terugverta
 
 ## Opbouw
 
-Drie dingen, elk op een eigen plek:
-
 | Plek | Wat er staat |
 |---|---|
 | deze map | de vijf `.docx`-bestanden, want de adviesgroep moet er een kunnen openen zonder iets te bouwen |
-| `bron/` | de markdown-skeletten, de bron die een mens bewerkt |
-| `gegenereerd/` | de Word-referentie in de Npuls-huisstijl, die alleen een script leest |
+| `bron/sjablonen.json` | per sjabloon de uitwerking waaruit het komt, de invulhaken en de grens tussen kader en uitwerking |
+| `gegenereerd/` | de afgeleide skeletten en de Word-referentie in de Npuls-huisstijl; hier bewerkt niemand iets met de hand |
 
-Wijzig dus een skelet in `bron/` en bouw daarna opnieuw:
+Wijzig dus `bron/sjablonen.json` of de uitwerking zelf, en leid daarna opnieuw af:
 
 ```bash
-python3 tools/scripts/bouw-sjabloon-referentie.py   # alleen na een wijziging in de huisstijl
+python3 tools/scripts/maak-sjabloon-uit-document.py      # skelet uit de uitwerking
+python3 tools/scripts/bouw-sjabloon-referentie.py        # alleen na een wijziging in de huisstijl
 python3 tools/scripts/bouw-sjablonen-docx.py
-python3 tools/scripts/bouw-sjablonen-docx.py --controleer   # faalt wanneer een .docx ontbreekt
+python3 tools/scripts/bouw-sjablonen-docx.py --controleer
 ```
 
-De referentie komt uit de standaardreferentie van pandoc met de Npuls-kleuren erin: oranje `#DD784B` voor de koppen, blauw `#3D68EC` voor links, General Sans als letter. Staat General Sans niet op de machine van de invuller, dan kiest Word zelf een vervanger; de huisstijl blijft dan in de kleuren zichtbaar.
+De referentie komt uit de standaardreferentie van pandoc met de Npuls-waarden erin: oranje `#DD784B` voor de koppen, blauw `#3D68EC` voor links, randen om elke cel, General Sans als letter en `nl-NL` als taal. Staat General Sans niet op de machine van de invuller, dan kiest Word zelf een vervanger; de huisstijl blijft dan in de kleuren zichtbaar.
 
 ## Controle in CI
 
 `tools/tests/test_sjablonen.py` loopt mee in CI en faalt wanneer:
 
-- een skelet ontbreekt, of een `.docx` niet in versiebeheer staat;
-- een skelet de aggregatiestap, de invultabel of de aanwijzing over de koppen mist;
-- een skelet geen verwijzing naar een voorbeelduitwerking draagt;
+- een skelet minder koppen draagt dan de uitwerking waaruit het komt;
+- een skelet afwijkt van wat de generator nu uit die uitwerking maakt, dus het sjabloon loopt achter op de bron;
+- een skelet een relatieve verwijzing draagt, die in Word nergens heen wijst;
+- een skelet de aggregatiestap, de invultabel, de aanwijzing over de koppen of de schrijfruimte mist;
 - een tabel geen kopregel heeft, want een lege kopregel wordt in Word een lege rij;
-- een `.docx` ouder is dan zijn skelet, dus het sjabloon loopt achter op de bron.
+- een `.docx` niet in versiebeheer staat of achterloopt op zijn skelet;
+- de referentie een van de vijf huisstijlwaarden mist.
 
 Relateert aan: #554

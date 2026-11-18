@@ -1,0 +1,124 @@
+{
+  "persona": {
+    "titel": "Sjabloon persona",
+    "bron": "architecture/docs/specificatie/leerroute-uitwerking/doc/persona_jochem.md",
+    "bestand": "OKx sjabloon persona.docx",
+    "wat": "een persona: een student met een naam, een opleiding en een route door het onderwijs, waar elk scenario daarna naar verwijst",
+    "wie": "de adviesgroep. Suggestie: de informatiemanagers nemen het voortouw, want zij kennen de instellingspraktijk per stap",
+    "voorbeeld": "[persona Jochem](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/persona_jochem.md)",
+    "aggregatie": "Tussen de inbreng van instellingen en dit document zit een analysestap. Haal op bij meerdere instellingen, zoek wat zij delen, en schrijf dat op. Wat een persona draagt is wat bij meerdere instellingen zo werkt, niet wat bij een ervan zo heet.",
+    "vervang": [
+      [
+        "Jochem",
+        "<student>"
+      ],
+      [
+        "apothekersassistent",
+        "<opleiding>"
+      ],
+      [
+        "mbo-instelling",
+        "<instelling>"
+      ]
+    ],
+    "verwijzing": "Persona Jochem schrijft hier"
+  },
+  "kaderscenario": {
+    "titel": "Sjabloon leerroute-kaderscenario",
+    "bron": "architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md",
+    "bestand": "OKx sjabloon leerroute-kaderscenario.docx",
+    "wat": "een kaderscenario: een leerroute uitgewerkt tot het punt waarop duidelijk is welke informatie waarheen moet. Het is kaderstellend, dus geen anekdote en geen instellingsontwerp",
+    "wie": "de adviesgroep. Suggestie: de BOP-adviseurs en de business analisten samen, met de onderwijskundige kant bij de adviesgroep zelf",
+    "voorbeeld": "[kaderscenario leerroute 1](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md)",
+    "aggregatie": "Tussen de inbreng van instellingen en dit document zit een analysestap. Dat geldt hier dubbel, want een kaderscenario is wat OKx als afspraak vastlegt: een procesgewoonte van een instelling die hier als kader belandt, wordt een eis aan elke leverancier.",
+    "invullen_vanaf": "3.2.1.1",
+    "vervang": [
+      [
+        "leerroute 1",
+        "leerroute <nummer>"
+      ],
+      [
+        "Jochem",
+        "<student>"
+      ],
+      [
+        "Larissa",
+        "<student>"
+      ],
+      [
+        "Linda",
+        "<student>"
+      ]
+    ],
+    "verwijzing": "Leerroute 1 schrijft hier",
+    "kop_vervang": [
+      [
+        "regulier studeren",
+        "<de route in twee woorden>"
+      ],
+      [
+        "Regulier",
+        "<naam van de route>"
+      ]
+    ]
+  },
+  "informatiemodel-viewpoint": {
+    "titel": "Sjabloon informatiemodel-viewpoint",
+    "bron": "architecture/model/informatiemodel/informatiemodel.md",
+    "bestand": "OKx sjabloon informatiemodel-viewpoint.docx",
+    "wat": "een viewpoint op het informatiemodel: welke objecttypen er zijn, hoe zij samenhangen, en voor welke lezer deze plaat bedoeld is",
+    "wie": "de adviesgroep. Suggestie: de business analisten met Niels, want het viewpoint hangt aan het ArchiMate-model",
+    "voorbeeld": "[informatiemodel OKx](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/informatiemodel.md)",
+    "aggregatie": "Tussen de inbreng van instellingen en dit document zit een analysestap. Een objecttype hoort hier wanneer meerdere instellingen het nodig hebben, niet wanneer een instelling het zo genoemd heeft. Hoe een instelling haar onderwijs inricht blijft haar keuze: OKx legt alleen de vorm van de uitwisseling vast.",
+    "vervang": [
+      [
+        "OKx informatiemodel",
+        "<naam van de plaat>"
+      ]
+    ],
+    "verwijzing": "Het informatiemodel OKx schrijft hier"
+  },
+  "informatiemodel-voorbeelduitwerking": {
+    "titel": "Sjabloon informatiemodel-voorbeelduitwerking",
+    "bron": "architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md",
+    "bestand": "OKx sjabloon informatiemodel-voorbeelduitwerking.docx",
+    "wat": "een voorbeelduitwerking: een persona stap voor stap in het informatiemodel, zodat zichtbaar wordt of het model de werkelijkheid draagt",
+    "wie": "de adviesgroep. Suggestie: de informatiemanagers vullen de regels, de business analisten leggen ze naast het model",
+    "voorbeeld": "[de opleiding van Jochem in het informatiemodel](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md)",
+    "aggregatie": "Tussen de inbreng van instellingen en dit document zit een analysestap. Dat geldt hier sterker dan elders, omdat een voorbeeld overtuigt: een regel die uit een enkele instelling komt en hier als voorbeeld staat, leest als sectorpraktijk.",
+    "invullen_vanaf": "Fase 1",
+    "vervang": [
+      [
+        "Jochem",
+        "<student>"
+      ],
+      [
+        "leerroute 1",
+        "leerroute <nummer>"
+      ]
+    ],
+    "verwijzing": "De uitwerking van Jochem schrijft hier"
+  },
+  "interactieketen": {
+    "titel": "Sjabloon interactieketen",
+    "bron": "architecture/docs/specificatie/interactieketen-onderwijsaanbod/README.md",
+    "bestand": "OKx sjabloon interactieketen.docx",
+    "wat": "een interactieketen: welke diensten elkaar in welke volgorde aanroepen om een keten af te maken, en welke afspraken elke dienst nakomt",
+    "wie": "de adviesgroep. Suggestie: de business analisten met Niels, want de keten raakt de koppelvlakken",
+    "voorbeeld": "[interactieketen onderwijsaanbod](https://github.com/Npuls-OKx/meta/blob/e05b4444a29a09b92cc8afd73bce69af78f1ac12/architecture/docs/specificatie/interactieketen-onderwijsaanbod/README.md), nog in review als pull request 373",
+    "aggregatie": "Tussen de inbreng van instellingen en leveranciers en dit document zit een analysestap. Houd daarbij drie dingen uit elkaar: wat een product vandaag doet, wat een component moet kunnen, en wat OKx als grootst gemene deler vastlegt. Een leverancier spreekt voor zijn product en niet voor de sector.",
+    "invullen_vanaf": "De informatiestromen",
+    "vervang": [
+      [
+        "onderwijsaanbod",
+        "<keten>"
+      ],
+      [
+        "IS-OA-",
+        "IS-XX-"
+      ]
+    ],
+    "bron_ref": "e05b4444a29a09b92cc8afd73bce69af78f1ac12",
+    "verwijzing": "De keten onderwijsaanbod schrijft hier"
+  }
+}

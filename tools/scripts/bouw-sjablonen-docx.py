@@ -12,6 +12,7 @@ Relateert aan: #554
 """
 
 import argparse
+import json
 import pathlib
 import shutil
 import subprocess
@@ -19,18 +20,19 @@ import sys
 
 WORTEL = pathlib.Path(__file__).resolve().parents[2]
 MAP = WORTEL / "architecture/docs/sjablonen"
-BRON = MAP / "bron"
-REFERENTIE = MAP / "gegenereerd/npuls-referentie.docx"
+GEGENEREERD = MAP / "gegenereerd"
+BRON = GEGENEREERD          # de skeletten komen uit maak-sjabloon-uit-document.py
+CONFIG = MAP / "bron/sjablonen.json"
+REFERENTIE = GEGENEREERD / "npuls-referentie.docx"
 
-# De vijf producten, met de bestandsnaam die de adviesgroep ziet.
-SJABLONEN = {
-    "persona": "OKx sjabloon persona.docx",
-    "kaderscenario": "OKx sjabloon leerroute-kaderscenario.docx",
-    "informatiemodel-viewpoint": "OKx sjabloon informatiemodel-viewpoint.docx",
-    "informatiemodel-voorbeelduitwerking":
-        "OKx sjabloon informatiemodel-voorbeelduitwerking.docx",
-    "interactieketen": "OKx sjabloon interactieketen.docx",
-}
+
+def sjablonen() -> dict[str, str]:
+    """De vijf producten, met de bestandsnaam die de adviesgroep ziet."""
+    config = json.loads(CONFIG.read_text(encoding="utf-8"))
+    return {naam: cfg["bestand"] for naam, cfg in config.items()}
+
+
+SJABLONEN = sjablonen()
 
 
 def eis_pandoc() -> str:
@@ -44,7 +46,9 @@ def eis_pandoc() -> str:
 def bouw_een(naam: str, uit: pathlib.Path, referentie: pathlib.Path) -> None:
     bron = BRON / f"{naam}.md"
     if not bron.exists():
-        raise SystemExit(f"het skelet {kort(bron)} bestaat niet")
+        raise SystemExit(
+            f"het skelet {kort(bron)} bestaat niet; genereer het met "
+            "tools/scripts/maak-sjabloon-uit-document.py")
     subprocess.run(
         [eis_pandoc(), str(bron), "--from", "gfm", "--to", "docx",
          "--reference-doc", str(referentie), "--output", str(uit)],
