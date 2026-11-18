@@ -54,9 +54,9 @@ python3 tools/scripts/bouw-sjablonen-docx.py --controleer
 
 De referentie komt uit de standaardreferentie van pandoc met de Npuls-waarden erin: oranje `#DD784B` voor de koppen, blauw `#3D68EC` voor links, randen om elke cel, General Sans als letter en `nl-NL` als taal. Staat General Sans niet op de machine van de invuller, dan kiest Word zelf een vervanger; de huisstijl blijft dan in de kleuren zichtbaar.
 
-## Controle in CI
+## Controle
 
-`tools/tests/test_sjablonen.py` loopt mee in CI en faalt wanneer:
+`tools/tests/test_sjablonen.py` faalt wanneer:
 
 - een skelet minder koppen draagt dan de uitwerking waaruit het komt;
 - een skelet afwijkt van wat de generator nu uit die uitwerking maakt, dus het sjabloon loopt achter op de bron;
@@ -65,5 +65,11 @@ De referentie komt uit de standaardreferentie van pandoc met de Npuls-waarden er
 - een tabel geen kopregel heeft, want een lege kopregel wordt in Word een lege rij;
 - een `.docx` niet in versiebeheer staat of achterloopt op zijn skelet;
 - de referentie een van de vijf huisstijlwaarden mist.
+
+```bash
+python3 -m unittest tools.tests.test_sjablonen
+```
+
+**Deze controle is nog geen poort.** De testsuite draait in de workflow `Model`, en die start alleen wanneer een `*.archimate`-bestand wijzigt. Een pull request die alleen aan de sjablonen raakt, draait de testgevallen dus niet. Dat geldt voor alles onder `tools/tests/` en niet alleen voor deze sjablonen; zie het openstaande punt in de pull request.
 
 Relateert aan: #554
