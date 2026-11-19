@@ -25,7 +25,7 @@ Elk artifact staat erop omdat het onderdeel is van het eindproduct, er inhoud vo
 
 ## Lijnen en labels
 
-Twee regels houden de plaat leesbaar nu er meer in staat. Een lijn loopt **nooit door een vak** en **nooit over het opschrift van een andere lijn**. Een kruising tussen twee lijnen mag wel; samenvallen niet, dus elke lange baan heeft haar eigen hoogte of breedte.
+Twee regels houden de plaat leesbaar nu er meer in staat. Een lijn loopt **nooit door een vak** en **nooit over het opschrift van een andere lijn**. Een kruising tussen twee lijnen mag wel, maar kost: de dertien lijnen die in 0.2.0 zijn gelegd of omgelegd, zijn gerouteerd op zo min mogelijk kruisingen en bochten, en kiezen daarbij zelf hun ankerpunt op het vak. Samenvallen mag niet; elke lijn houdt afstand tot een lijn die dezelfde kant op loopt. Twee bestaande lijnen naar het informatiemodel liepen na het invoegen van de kolom achter het vak Functionele eisen door en zijn daarom omgelegd.
 
 ## De eisen in de plaat
 
