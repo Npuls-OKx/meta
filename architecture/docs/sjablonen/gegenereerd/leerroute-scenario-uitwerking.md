@@ -30,22 +30,30 @@ Dit document legt een leerroute scenario stap voor stap naast het informatiemode
 
 Elk hoofdstuk opent met een blok dat zegt wat er wordt verwacht: waar hetzelfde al is uitgewerkt, welk artefact hier hoort en waaraan het voldoet, en wat dit hoofdstuk aan het pakket van eisen bijdraagt. Dat blok blijft staan; het is de opdracht en niet de uitwerking.
 
-## Pakket van eisen
+## Eisen uit dit document
 
-Het pakket van eisen is een eigen document. Het komt uit de gedeelde analyse van alles wat scholen hebben ingebracht, geinventariseerd in de PoC-sessies met de koploperscholen, en de grootst gemene deler daaruit is wat OKx vastlegt. **Dit document bevat het pakket van eisen dus niet; het verwijst ernaar en levert eraan.**
+OKx kent drie soorten eisen. **Instellingseisen** zeggen wat de instelling moet kunnen; zij komen uit de inbreng van de koploperinstellingen, de persona's en de leerroute scenario's samen. **Functionele eisen** zeggen wat een component moet doen met welke gegevens; zij komen uit de leerroute scenario uitwerking. **Technische eisen** zeggen wat er over het koppelvlak gaat; die liggen in de interactieketen zelf vast en zijn onderdeel van de koppelvlakspecificatie.
 
-Waar een eis landt hangt af van zijn laag. Een business of functional requirement hoort in de leerroute specificatie, want daar staat wat de instelling moet kunnen en wat een component moet doen. Een technical requirement hoort in de interactieketenspecificatie, want daar staat wat er over het koppelvlak gaat.
+**Dit document bevat die eisen niet; het levert eraan.** Noteer per hoofdstuk alleen de nummers; de eis zelf wordt elders uitgeschreven.
 
 Niet elk hoofdstuk levert hetzelfde. Een journey brengt een behoefte naar boven en levert user stories. Een procesbeschrijving zegt wat de instelling moet kunnen. Een gegevens- of systeemhoofdstuk zegt wat een component moet doen. Een interactiehoofdstuk zegt wat er over het koppelvlak gaat. Het blok boven elk hoofdstuk noemt welke laag daar hoort, en noteert de nummers; de eis zelf wordt elders uitgeschreven.
 
-| Laag | Waar die ontstaat | Waar die landt | Voorbeeld |
-|---|---|---|------------------------------|
-| User story | in een journey of een scenario | pakket van eisen | Als student wil ik bij mijn keuzedeelruimte een geprioriteerde voorkeurslijst opgeven, met als doel dat ik niet zonder keuzedeel kom te zitten wanneer mijn eerste keuze vol is |
-| Business requirement | in een procesbeschrijving | leerroute specificatie | de instelling kent per keuzedeelruimte de voorkeursvolgorde van de student voordat zij plaatst |
-| Functional requirement | in een gegevens- of systeemhoofdstuk | leerroute specificatie | het studentkeuzesysteem legt per keuzedeelruimte een geordende lijst voorkeuren vast, met per voorkeur het onderdeel, de periode en de locatie |
-| Technical requirement | in een interactiehoofdstuk | interactieketenspecificatie | de voorkeurslijst gaat als geordende verzameling over het koppelvlak, met de volgorde expliciet in het bericht en niet afgeleid uit de positie |
+| Soort | Komt uit | Zegt wat |
+|---|---|------------------------------------|
+| Instellingseis | de PoC-inbreng, de persona's en de leerroute scenario's | de instelling moet kunnen om de route te draaien |
+| Functionele eis | de leerroute scenario uitwerking | een component moet doen met welke gegevens |
+| Technische eis | de interactieketen en haar interacties | er over het koppelvlak gaat en in welke vorm |
 
-Vul in dit document de laag in die boven het hoofdstuk staat, als verwijzing. De uitgeschreven eis volgt in een eigen ronde, in het document waar hij hoort.
+Een voorbeeld van de keten, van behoefte tot koppelvlak:
+
+| Soort | Voorbeeld |
+|---|------------------------------------------------|
+| User story | Als student wil ik bij mijn keuzedeelruimte een geprioriteerde voorkeurslijst opgeven, met als doel dat ik niet zonder keuzedeel kom te zitten wanneer mijn eerste keuze vol is |
+| Instellingseis | de instelling kent per keuzedeelruimte de voorkeursvolgorde van de student voordat zij plaatst |
+| Functionele eis | het studentkeuzesysteem legt per keuzedeelruimte een geordende lijst voorkeuren vast, met per voorkeur het onderdeel, de periode en de locatie |
+| Technische eis | de voorkeurslijst gaat als geordende verzameling over het koppelvlak, met de volgorde expliciet in het bericht en niet afgeleid uit de positie |
+
+Vul in dit document de soort in die boven het hoofdstuk staat, als verwijzing. De uitgeschreven eis volgt in een eigen ronde, in het register waar hij hoort.
 
 ## Business analyse en aggregatie van pakket van eisen
 
@@ -89,7 +97,7 @@ Het voorbeeld hieronder is er een met meerdere relaties tegelijk: het kiesbare o
 
 **Acceptatiecriteria** een ArchiMate-plaat of een SVG-render daarvan, met de scope van deze processtap uitgelicht, met daarnaast de tabel hieronder ingevuld, en de plaat toont de actor, de processtap en het informatie-element dat daar ontstaat, elk met de term uit de begrippenlijst, **en de relaties naar de informatie-elementen die in eerdere bouwstenen zijn ontstaan**; wat de begrippenlijst niet kent staat als observatie in het slot
 
-**Functional requirements** *wat een component moet doen met welke gegevens; dit landt in de leerroute specificatie, met het nummer van de story erbij*
+**Functionele eisen** *wat een component moet doen met welke gegevens; noteer de nummers uit het register functionele eisen*
 
 | Veld | Invulling |
 |---|------------------------------------------------|
@@ -115,7 +123,7 @@ Het voorbeeld hieronder is er een met een volle structuur: het verzoek om onderw
 
 **Acceptatiecriteria** een ArchiMate-plaat of een SVG-render daarvan, met de scope van deze uitwisseling uitgelicht, met daarnaast het volledige ingevulde informatievoorbeeld dat over de lijn gaat, en de plaat toont beide applicatiecomponenten en de richting; het voorbeeld draagt elk objecttype **met zijn relaties**, zodat zichtbaar is wat de ontvanger werkelijk binnenkrijgt en niet alleen welk veld er over de lijn gaat
 
-**Functional requirements** *wat een component moet doen met welke gegevens; dit landt in de leerroute specificatie, met het nummer van de story erbij*
+**Functionele eisen** *wat een component moet doen met welke gegevens; noteer de nummers uit het register functionele eisen*
 
 | Veld | Invulling |
 |---|------------------------------------------------|

@@ -126,10 +126,14 @@ class ElkHoofdstukZegtWatErWordtVerwacht(unittest.TestCase):
                 self.assertIn("**Voorbeeld** [", t)
                 self.assertEqual(t.count("**Voorbeeld** ["),
                                  t.count("**Acceptatiecriteria** "))
-                lagen = sum(t.count(f"**{kop}**") for kop in
-                            ("User stories", "Business requirements",
-                             "Functional requirements",
-                             "Technical requirements", "Pakket van eisen"))
+                # Alleen een regel die ermee opent is een laagregel; dezelfde
+                # woorden staan ook vet in de uitleg vooraan.
+                lagen = len([r for r in t.splitlines()
+                             if r.startswith(("**User stories**",
+                                              "**Instellingseisen**",
+                                              "**Functionele eisen**",
+                                              "**Technische eisen**",
+                                              "**Eisen**"))])
                 self.assertEqual(lagen, t.count("**Voorbeeld** ["),
                                  "elk hoofdstuk noemt zijn laag in de "
                                  "requirementketen")
@@ -142,9 +146,9 @@ class ElkHoofdstukZegtWatErWordtVerwacht(unittest.TestCase):
         self.assertLess(stories, t.count("**Voorbeeld** [") / 2,
                         "als elk hoofdstuk user stories vraagt, zegt de "
                         "indeling niets meer")
-        for laag in ("**Business requirements**", "**Functional requirements**",
-                     "**Technical requirements**"):
-            self.assertIn(laag, t)
+        for soort in ("**Instellingseisen**", "**Functionele eisen**",
+                      "**Technische eisen**"):
+            self.assertIn(soort, t)
 
     def test_een_acceptatiecriterium_noemt_de_context(self):
         t = skelet("leerroute-scenario")
@@ -172,11 +176,20 @@ class ElkHoofdstukZegtWatErWordtVerwacht(unittest.TestCase):
             t = skelet(naam)
             with self.subTest(naam):
                 self.assertIn("## Doelstelling document", t)
-                self.assertIn("## Pakket van eisen", t)
-                for laag in ("Business requirement", "Functional requirement",
-                             "Technical requirement"):
-                    self.assertIn(laag, t)
-                self.assertIn("pakket van eisen", t)
+                self.assertIn("## Eisen uit dit document", t)
+                for soort in ("Instellingseis", "Functionele eis",
+                              "Technische eis"):
+                    self.assertIn(soort, t)
+                self.assertIn("koploperinstellingen", t)
+
+    def test_geen_engelse_eisentermen(self):
+        """OKx spreekt met instellingen, niet met bedrijven."""
+        for naam in CONFIG:
+            t = skelet(naam)
+            with self.subTest(naam):
+                for engels in ("Business requirement", "Functional requirement",
+                               "Technical requirement"):
+                    self.assertNotIn(engels, t)
 
 
 class EenBeeldIsEenBeeld(unittest.TestCase):

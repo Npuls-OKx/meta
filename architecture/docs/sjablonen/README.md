@@ -97,31 +97,32 @@ De nummering staat als conventie uitgelegd en niet als voorbeeld: `IS` voor inte
 
 Een hoofdstuk is een interactie, en waar het begint en eindigt bepaalt de business analist. De maat staat in elk sjabloon: de **kleinst mogelijke eenheid die waarde oplevert voor zowel de student als de instelling**, groter dan een enkele interactie en kleiner dan het hele ecosysteem. Een scope die daarboven zit levert een eis die niemand kan bouwen, een scope die daaronder zit levert een eis die niemand mist.
 
-## Het pakket van eisen staat elders
+## De eisen staan elders
 
-Het pakket van eisen is een **eigen document**. Een sjabloon bevat het niet; het verwijst ernaar en levert eraan. Waar een eis landt hangt af van zijn laag:
+Een sjabloon bevat de eisen niet; het **levert eraan** en noteert per hoofdstuk alleen de nummers. OKx kent drie soorten, en de keuze voor die indeling staat in [eisen in de productafbakening](../../agent-artifacts/requirements-in-de-productafbakening/README.md):
 
-| Laag | Waar die ontstaat | Waar die landt |
+| Soort | Komt uit | Zegt wat |
 |---|---|---|
-| user story | in een journey of een scenario | pakket van eisen |
-| business requirement | in een procesbeschrijving | leerroute specificatie |
-| functional requirement | in een gegevens- of systeemhoofdstuk | leerroute specificatie |
-| technical requirement | in een interactiehoofdstuk | interactieketenspecificatie |
+| **instellingseis** | de PoC-inbreng, de persona's en de leerroute scenario's | de instelling moet kunnen om de route te draaien |
+| **functionele eis** | de leerroute scenario uitwerking | een component moet doen met welke gegevens |
+| **technische eis** | de interactieketen en haar interacties | er over het koppelvlak gaat en in welke vorm |
 
-In het sjabloon staan dus alleen de **nummers**, als verwijzing. De uitgeschreven eis volgt in een eigen ronde, in het document waar hij hoort. Het register met genummerde stories bestaat nog niet; dat moet zich materialiseren uit de adviesgroep en de PoC-scholen, en loopt via #558. Leerroute 1 koppelen aan dat register loopt via #557.
+Niet business requirement maar **instellingseis**: OKx spreekt met publieke onderwijsinstellingen en niet met bedrijven.
+
+De registers bestaan nog niet; zij moeten zich materialiseren uit de adviesgroep en de PoC-scholen, en dat loopt via #558. Leerroute 1 koppelen aan die eisen loopt via #557.
 
 ## Niet elk hoofdstuk levert een eis
 
-Een journey brengt een behoefte naar boven en levert **user stories**. Een procesbeschrijving zegt wat de instelling moet kunnen: **business requirements**. Een gegevens- of systeemhoofdstuk zegt wat een component moet doen: **functional requirements**. Een interactiehoofdstuk zegt wat er over het koppelvlak gaat: **technical requirements**. Een enkel hoofdstuk levert niets en geeft alleen context.
+Een journey brengt een behoefte naar boven en levert **user stories**. Een procesbeschrijving zegt wat de instelling moet kunnen: **instellingseisen**. Een gegevens- of systeemhoofdstuk zegt wat een component moet doen: **functionele eisen**. Een interactiehoofdstuk zegt wat er over het koppelvlak gaat: **technische eisen**. Een enkel hoofdstuk levert niets en geeft alleen context.
 
 Zo valt het leerroute-scenario uiteen:
 
 | Laag | Hoofdstukken | Welke |
 |---|---|---|
 | user story | 7 | de journeys, de keuzemomenten, de scenario's binnen de route |
-| business requirement | 5 | de instelling, de procesbeleving, het plan- en roosterproces, de plancyclus |
-| functional requirement | 11 | de informatie, de gegevens, de systemen, de componenten en het informatiemodel |
-| technical requirement | 9 | de procesfasen met hun interacties |
+| instellingseis | 5 | de instelling, de procesbeleving, het plan- en roosterproces, de plancyclus |
+| functionele eis | 11 | de informatie, de gegevens, de systemen, de componenten en het informatiemodel |
+| technische eis | 9 | de procesfasen met hun interacties |
 | context | 2 | de route zelf en haar kenmerken |
 
 De verdeling staat in `hoofdstukken` in de configuratie, en een testgeval faalt wanneer elk hoofdstuk user stories zou vragen: dan zegt de indeling niets meer.
