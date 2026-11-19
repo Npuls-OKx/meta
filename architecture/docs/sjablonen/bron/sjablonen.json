@@ -364,10 +364,10 @@
     ]
   },
   "leerroute-scenario-uitwerking": {
-    "titel": "Sjabloon leerroute scenario uitwerking",
+    "titel": "Sjabloon leerroute scenario uitwerking in het informatiemodel",
     "bron": "architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md",
     "bestand": "OKx sjabloon leerroute scenario uitwerking.docx",
-    "wat": "een leerroute scenario uitwerking: het scenario stap voor stap naast het informatiemodel gelegd, als een herhaling van twee bouwstenen tot de hele route gedekt is",
+    "wat": "een leerroute scenario uitwerking in het informatiemodel: het scenario stap voor stap naast het informatiemodel gelegd, als een herhaling van twee bouwstenen tot de hele route gedekt is",
     "wie": "de adviesgroep. Suggestie: de informatiemanagers vullen de regels, de business analisten leggen ze naast het model",
     "voorbeeld": "[de uitwerking van leerroute 1 met Jochem](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md)",
     "voorbeeld_naam": "Leerroute 1 scenario uitwerking",
@@ -460,7 +460,7 @@
         ]
       }
     },
-    "breakdown_vak": "uitwerking",
+    "breakdown_vak": "uitwerking in het",
     "plek": "volgt op het leerroute scenario en toetst het informatiemodel aan die route",
     "levert": "**functionele eisen**, samen met de instellingseisen",
     "keten": [

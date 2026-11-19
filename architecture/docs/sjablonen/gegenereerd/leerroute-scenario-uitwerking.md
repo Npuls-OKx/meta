@@ -16,7 +16,7 @@
 
 ## Productplaatsing
 
-![De producten rond sjabloon leerroute scenario uitwerking, met dit product uitgelicht](<img/leerroute-scenario-uitwerking/product-breakdown.png>)
+![De producten rond sjabloon leerroute scenario uitwerking in het informatiemodel, met dit product uitgelicht](<img/leerroute-scenario-uitwerking/product-breakdown.png>)
 
 Het uitgelichte vak is het product dat u met dit sjabloon beschrijft.
 

@@ -9,7 +9,7 @@ Open het Word-bestand. Elk sjabloon is **afgeleid uit de uitwerking die er al li
 | persona | `OKx sjabloon persona.docx` | twee bouwblokken, met [persona Jochem](../specificatie/leerroute-uitwerking/doc/persona_jochem.md) als voorbeeld |
 | leerroute scenario | `OKx sjabloon leerroute scenario.docx` | [leerroute 1 scenario](../specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md) |
 | informatiemodel viewpoint | `OKx sjabloon informatiemodel viewpoint.docx` | [informatiemodel OKx](../../model/informatiemodel/informatiemodel.md) |
-| leerroute scenario uitwerking | `OKx sjabloon leerroute scenario uitwerking.docx` | twee bouwstenen, met [de uitwerking met Jochem](../../model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md) als voorbeeld |
+| leerroute scenario uitwerking in het informatiemodel | `OKx sjabloon leerroute scenario uitwerking.docx` | twee bouwstenen, met [de uitwerking met Jochem](../../model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md) als voorbeeld |
 | interactieketen | `OKx sjabloon interactieketen.docx` | [keten onderwijsaanbod](https://github.com/Npuls-OKx/meta/blob/e05b4444a29a09b92cc8afd73bce69af78f1ac12/architecture/docs/specificatie/interactieketen-onderwijsaanbod/README.md), nog in review |
 
 ## Opbouw van een sjabloon
