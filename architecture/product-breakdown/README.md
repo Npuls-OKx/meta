@@ -23,9 +23,15 @@ In scope zijn de artifacts van OKx met hun relaties, rol en prioriteit, de opbou
 
 Elk artifact staat erop omdat het onderdeel is van het eindproduct, er inhoud voor levert, of er het kader voor is. Controles, zoals waartegen de leerroute-uitwerking wordt getoetst, staan in de tabellen.
 
+## Lijnen en labels
+
+Twee regels houden de plaat leesbaar nu er meer in staat. Een lijn loopt **nooit door een vak** en **nooit over het opschrift van een andere lijn**. Een kruising tussen twee lijnen mag wel; samenvallen niet, dus elke lange baan heeft haar eigen hoogte of breedte.
+
 ## De eisen in de plaat
 
-De plaat draagt sinds 0.2.0 de drie soorten eisen en hun herkomst. De PoC-inbreng, de persona's en de leerroute scenario's **definieren samen** de instellingseisen. Die leiden **samen met de leerroute scenario uitwerking** tot de functionele eisen. Functionele eisen, instellingseisen en diezelfde uitwerking leiden **samen tot de interactieketens**, en die leiden tot de technische eisen aan interacties, die onderdeel zijn van de koppelvlakspecificaties.
+De plaat draagt sinds 0.2.0 de eisen en hun herkomst. De PoC-inbreng, de persona's en de leerroute scenario's **definieren samen** de instellingseisen. Die leiden **samen met de leerroute scenario uitwerking** tot de functionele eisen. Functionele eisen, instellingseisen en diezelfde uitwerking leiden **samen tot de interactieketens**.
+
+**De technische eisen krijgen geen eigen vak.** De solutionlaag is de technische eis: wat er over de lijn gaat, in welke vorm en wat er bij een fout gebeurt, staat in de interacties, de koppelvlakdiensten en de operaties zelf. Een apart vak zou twee teksten over hetzelfde opleveren.
 
 De afweging achter die indeling, met de varianten die afvielen, staat in [eisen in de productafbakening](../agent-artifacts/requirements-in-de-productafbakening/README.md).
 
@@ -36,7 +42,7 @@ De plaat draagt haar versie in de bestandsnaam, als `MAJOR.MINOR.PATCH`. De teks
 | Versie | Wat erin veranderde |
 |---|---|
 | [0.1.0](img/product-breakdown-v0.1.0.svg) | de eerste plaat, met de artifacts per vlak, de inbreng van leveranciers en het logisch gegevensmodel op de solutionlaag |
-| [0.2.0](img/product-breakdown-v0.2.0.svg) | vier artefacten erbij: PoC-inbreng, instellingseisen, functionele eisen en technische eisen aan interacties, met de keten ertussen. Daarnaast de producten hernoemd naar leerroute scenario en leerroute scenario uitwerking, OEAPI-standaard erbij naast de solutionlaag, de leveranciersinbreng benoemd als bestaande maatwerk koppelingen en leveranciersbelangen met een lijn naar de interactieketens, en de voortgangsregel per vak vervangen door een steekwoordregel |
+| [0.2.0](img/product-breakdown-v0.2.0.svg) | een kolom erbij, zodat er lucht in de plaat komt. Drie artefacten erbij: PoC-inbreng, instellingseisen en functionele eisen, met de keten ertussen. De leveranciersinbreng staat nu tussen de leerroutes en de persona's, met de eisen eronder. Daarnaast de producten hernoemd naar leerroute scenario en leerroute scenario uitwerking, OEAPI-standaard erbij naast de solutionlaag, de leveranciersinbreng benoemd als bestaande maatwerk koppelingen en leveranciersbelangen met een lijn naar de interactieketens, en de voortgangsregel per vak vervangen door een steekwoordregel |
 
 ## Opbouw
 

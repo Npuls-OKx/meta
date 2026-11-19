@@ -21,10 +21,12 @@ Wat opvalt in de keten hieronder: de **interactieketens zijn geen bron van eisen
 | **Instellingseisen** | de PoC-inbreng, de persona's en de leerroute scenario's **definieren ze samen**: wat een instelling kan of wil kunnen om de scenario's te realiseren |
 | **Functionele eisen** | de instellingseisen, samen met de leerroute scenario uitwerking in het informatiemodel |
 | **Interactieketens** | de functionele eisen, de instellingseisen en diezelfde uitwerking, alle drie |
-| **Technische eisen aan interacties** | de interactieketens |
-| **Koppelvlakspecificaties** | de technische eisen zijn er **onderdeel van**; dat is wat een leverancier leest en bouwt |
+| **Technische eisen** | die krijgen geen eigen artefact; de solutionlaag *is* de technische eis |
+| **Koppelvlakspecificaties** | wat een leverancier leest en bouwt; de interacties, operaties en schema's erin zijn de technische eis |
 
 De keten loopt dus van wat een instelling wil, via wat een component moet doen, naar wat er over de lijn gaat. Elke stap voegt iets toe dat de vorige nog niet kon zeggen.
+
+**De technische eisen staan niet als apart artefact op de plaat.** De solutionlaag is de technische eis: wat er over de lijn gaat, in welke vorm en wat er bij een fout gebeurt, staat in de interacties, de koppelvlakdiensten en de operaties zelf. Een vak ernaast zou twee teksten over hetzelfde opleveren.
 
 De plaat is te hertekenen met `tools/scripts/teken-requirementsvoorstel.py`.
 
