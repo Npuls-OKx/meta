@@ -11,8 +11,7 @@
     "laag": "user story",
     "versie": "0.0.1",
     "doel": "Dit document maakt een leerroute invoelbaar door haar te volgen door de ogen van de mensen die haar doorlopen, zodat een ontwerpkeuze te toetsen is aan wat zij ervan merken.",
-    "context": "Een persona is een portret van een mens in de scope van OKx: wat hij in zijn onderwijs meemaakt, wat hem daarin beweegt, en wat de gang van zaken met hem doet. Geen gemiddelde student, maar een herkenbaar iemand aan wie een ontwerpkeuze te toetsen is. Het document loopt in tandem met het leerroute scenario: het procesbeeld daar bepaalt welke stappen deze persona doorloopt, en wat deze persona meemaakt scherpt dat procesbeeld aan.",
-    "keten": "hoort bij een [leerroute scenario](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md) en wordt daarmee samen geschreven, niet ervoor of erna",
+    "keten": "wordt samen geschreven met het [leerroute scenario](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md), waar het procesbeeld de stappen bepaalt",
     "vervang": [],
     "opbouw": {
       "Werkwijze": {
@@ -64,12 +63,7 @@
         "toelichting": "Herhaal hieronder het portret en de reis voor elke persona van dit leerroute scenario. Zet de student vooraan; de persona's vanuit de instelling volgen in de volgorde waarin zij de route raken."
       }
     },
-    "breakdown_vak": [
-      535,
-      110,
-      712,
-      192
-    ]
+    "breakdown_vak": "Persona's"
   },
   "leerroute-scenario": {
     "titel": "Sjabloon leerroute scenario",
@@ -328,14 +322,8 @@
     },
     "versie": "0.0.1",
     "doel": "Dit document werkt een Npuls-leerroute uit tot het punt waarop duidelijk is welke informatie waarheen moet, zodat de solutionlaag erop kan bouwen zonder de onderwijskundige keuze over te nemen.",
-    "context": "Het leerroute scenario is de kaderstelling per route. Het bouwt op een persona, en het levert de business en functional requirements waarop de uitwerking en de interactieketen verder bouwen.",
-    "keten": "bouwt op een persona, en gaat vooraf aan de [uitwerking](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md) en de interactieketen",
-    "breakdown_vak": [
-      287,
-      288,
-      465,
-      370
-    ]
+    "keten": "bouwt op een of meer persona's, en gaat vooraf aan de uitwerking en de interactieketen",
+    "breakdown_vak": "Leerroute scenario"
   },
   "informatiemodel-viewpoint": {
     "titel": "Sjabloon informatiemodel viewpoint",
@@ -358,14 +346,8 @@
     "laag": "functional",
     "versie": "0.0.1",
     "doel": "Dit document legt vast welke objecttypen er zijn, hoe zij samenhangen en voor welke lezer de plaat bedoeld is, zodat een leverancier dezelfde begrippen leest als een onderwijskundige.",
-    "context": "Het viewpoint legt de begrippen vast waarin alle andere documenten spreken. Wijkt een leerroute scenario hiervan af, dan is dat een signalering en geen eigen term.",
-    "keten": "staat naast alle andere documenten; de [begrippenlijst](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/begrippen/begrippenlijst.md) hoort erbij",
-    "breakdown_vak": [
-      535,
-      435,
-      712,
-      518
-    ]
+    "keten": "staat naast alle andere producten en levert de begrippen waarin zij spreken",
+    "breakdown_vak": "Informatiemodel OKx"
   },
   "leerroute-scenario-uitwerking": {
     "titel": "Sjabloon leerroute scenario uitwerking",
@@ -464,14 +446,8 @@
         ]
       }
     },
-    "context": "De uitwerking toetst het informatiemodel aan een leerroute scenario. Wat niet past, wordt een functional requirement en een wijziging op het viewpoint.",
-    "keten": "volgt op het leerroute scenario en toetst het informatiemodel",
-    "breakdown_vak": [
-      287,
-      435,
-      465,
-      518
-    ]
+    "keten": "volgt op het leerroute scenario en toetst het informatiemodel aan die route",
+    "breakdown_vak": "uitwerking"
   },
   "interactieketen": {
     "titel": "Sjabloon interactieketen",
@@ -496,7 +472,6 @@
     "laag": "technical",
     "versie": "0.0.1",
     "doel": "Dit document legt vast welke diensten elkaar in welke volgorde aanroepen om een keten af te maken, zodat een bouwer weet wat hij moet bouwen en wat hij mag verwachten.",
-    "context": "De interactieketen bouwt op de informatiestromen die een leerroute scenario heeft benoemd, en levert de technical requirements waarmee een leverancier bouwt.",
     "keten": "volgt op het leerroute scenario en gaat vooraf aan de koppelvlakspecificatie",
     "opbouw": {
       "Werkwijze": {
@@ -557,11 +532,6 @@
         ]
       }
     },
-    "breakdown_vak": [
-      287,
-      723,
-      465,
-      805
-    ]
+    "breakdown_vak": "Interactieketens"
   }
 }

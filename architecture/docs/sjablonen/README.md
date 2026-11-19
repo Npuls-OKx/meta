@@ -24,13 +24,21 @@ De inhoudsopgave is een Word-veld en staat leeg tot hij wordt bijgewerkt; dat do
 
 ## De productafbakening
 
-![De producten van OKx en hoe zij op elkaar bouwen](<product-breakdown-v0.1.png>)
+De basis onder de vijf sjablonen is de [productafbakening](../../product-breakdown/README.md): welke producten OKx maakt, in welke volgorde zij op elkaar bouwen, en wat een eindproduct is.
 
-Dit is de basis onder de vijf sjablonen: welke producten OKx maakt, in welke volgorde zij op elkaar bouwen, en wat een eindproduct is. Een kader is grijs, een tussenproduct wit, een eindproduct omlijnd; het cijfer rechtsboven in een vak is de prioriteit, waarbij lager eerder is.
+Elk sjabloon opent met het hoofdstuk **Productplaatsing**: een uitsnede van die plaat met het eigen vak uitgelicht en de buren eromheen zichtbaar, en hoogstens drie regels eronder. Zo ziet een invuller waar zijn document op bouwt en wat erop verder bouwt, zonder de hele plaat te lezen.
 
-Elk sjabloon draagt onder zijn inleiding een **uitsnede** van deze plaat, met het eigen vak uitgelicht en de buren eromheen zichtbaar. Zo ziet een invuller waar zijn document op bouwt en wat erop verder bouwt, zonder de hele plaat te hoeven lezen. De uitsnede wordt gegenereerd uit `breakdown_vak` in de configuratie: de rechthoek van dat vak in de plaat.
+**Het vak wordt afgeleid en niet opgemeten.** In de configuratie staat alleen de naam van het vak; de generator zoekt die kop in de SVG en neemt de rechthoek die haar omsluit. Verschuift de plaat, dan klopt de uitlichting nog steeds, en een naam die niet bestaat laat de generator weigeren.
 
-De plaat draagt nog de oude productnamen, `Kaderscenario` en `Leerroute-uitwerking`. Die worden `leerroute scenario` en `leerroute scenario uitwerking`; dat loopt via #556 en vraagt ook een nieuwe versie van deze plaat.
+Deze pull request wijzigt de plaat zelf op drie punten:
+
+| Wat | Waarom |
+|---|---|
+| `Kaderscenario` werd `Leerroute scenario` | de productnaam uit #556 |
+| `Leerroute-uitwerking` werd `Leerroute scenario uitwerking`, op twee regels | de naam past niet op een regel in een vak van 176 breed; de ondertitel ging daarvoor terug naar een regel |
+| `OEAPI-standaard` is toegevoegd, naast de solutionlaag | de open standaard waarop OKx bouwt, met een lijn naar de uitgangspunten en naar de OEAPI-profielen |
+
+De presentatie in `presentaties/src/public/platen/` draagt een eigen kopie van de plaat die al afweek van de bron; die is niet meegewijzigd.
 
 ## Het blok boven elk hoofdstuk
 

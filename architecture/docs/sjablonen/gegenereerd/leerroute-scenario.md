@@ -10,21 +10,25 @@
 
 | Onderdeel | Inhoud |
 |---|------------------------------------------------|
-| Context van het document | Het leerroute scenario is de kaderstelling per route. Het bouwt op een persona, en het levert de business en functional requirements waarop de uitwerking en de interactieketen verder bouwen. |
-| Plek in de keten | bouwt op een persona, en gaat vooraf aan de [uitwerking](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md) en de interactieketen |
 | Wie dit invult | de adviesgroep. Suggestie: de BOP-adviseurs en de business analisten samen, met de onderwijskundige kant bij de adviesgroep zelf |
 | Voorbeeld | [leerroute 1 scenario](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md) |
 | Inleveren | terug naar OKx SI als Word-bestand |
 
+## Productplaatsing
+
 ![De producten rond sjabloon leerroute scenario, met dit product uitgelicht](<img/leerroute-scenario/product-breakdown.png>)
 
-*Het uitgelichte vak is het product dat u met dit sjabloon beschrijft; de vakken eromheen zijn de producten waar het op bouwt en die erop verder bouwen. Het cijfer rechtsboven in een vak is de prioriteit, waarbij lager eerder is. Dit is een uitsnede van de productafbakening v0.1; de hele plaat staat in [de leeswijzer bij de sjablonen](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/sjablonen/README.md).*
+Het uitgelichte vak is het product dat u met dit sjabloon beschrijft.
 
-Elk hoofdstuk opent met een blok dat zegt wat er van dat hoofdstuk wordt verwacht: waar hetzelfde al is uitgewerkt, welk artefact hier hoort en waaraan het voldoet, en wat dit hoofdstuk aan het pakket van eisen bijdraagt. Dat blok blijft staan; het is de opdracht en niet de uitwerking. Een hoofdstuk dat niet van toepassing is houdt zijn kop, met de reden eronder.
+Het bouwt op een of meer persona's, en gaat vooraf aan de uitwerking en de interactieketen.
+
+Het cijfer rechtsboven in een vak is de prioriteit, waarbij lager eerder is; de hele plaat staat in de [productafbakening](https://github.com/Npuls-OKx/meta/blob/dev/architecture/product-breakdown/README.md).
 
 ## Doelstelling document
 
 Dit document werkt een Npuls-leerroute uit tot het punt waarop duidelijk is welke informatie waarheen moet, zodat de solutionlaag erop kan bouwen zonder de onderwijskundige keuze over te nemen.
+
+Elk hoofdstuk opent met een blok dat zegt wat er wordt verwacht: waar hetzelfde al is uitgewerkt, welk artefact hier hoort en waaraan het voldoet, en wat dit hoofdstuk aan het pakket van eisen bijdraagt. Dat blok blijft staan; het is de opdracht en niet de uitwerking.
 
 ## Pakket van eisen
 

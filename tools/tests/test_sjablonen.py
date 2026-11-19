@@ -211,9 +211,17 @@ class DeProductafbakeningStaatInElkSjabloon(unittest.TestCase):
         for naam in CONFIG:
             t = skelet(naam)
             with self.subTest(naam):
+                self.assertIn("## Productplaatsing", t)
                 self.assertIn(f"img/{naam}/product-breakdown.png", t)
-                self.assertIn("Het uitgelichte vak is het product dat u met "
-                              "dit sjabloon beschrijft", t)
+
+    def test_hoogstens_drie_regels_onder_de_plaat(self):
+        """Een plaat met een alinea eronder leest niemand."""
+        for naam in CONFIG:
+            na = skelet(naam).split("product-breakdown.png>)", 1)[1]
+            tot = na.split("\n## ", 1)[0]
+            regels = [r for r in tot.splitlines() if r.strip()]
+            with self.subTest(naam):
+                self.assertLessEqual(len(regels), 3, regels)
 
     def test_de_uitsnede_staat_in_de_inleiding(self):
         for naam in CONFIG:
@@ -224,21 +232,26 @@ class DeProductafbakeningStaatInElkSjabloon(unittest.TestCase):
                 self.assertLess(t.index("product-breakdown.png"),
                                 t.index(maak.INHOUDSOPGAVE))
 
-    def test_elk_vak_ligt_binnen_de_plaat(self):
-        from PIL import Image
-        with Image.open(WORTEL / maak.BREAKDOWN) as plaat:
-            breed, hoog = plaat.size
+    def test_elk_vak_is_in_de_plaat_te_vinden(self):
+        """Het vak wordt afgeleid en niet opgemeten, dus het moet bestaan."""
+        plaat = (WORTEL / maak.BREAKDOWN).read_text(encoding="utf-8")
         for naam, cfg in CONFIG.items():
-            vak = cfg.get("breakdown_vak")
             with self.subTest(naam):
-                self.assertIsNotNone(vak, "dit sjabloon wijst geen vak aan")
-                self.assertTrue(0 <= vak[0] < vak[2] <= breed)
-                self.assertTrue(0 <= vak[1] < vak[3] <= hoog)
+                vak = maak.vak_in_de_plaat(plaat, cfg["breakdown_vak"])
+                self.assertEqual(vak[2] - vak[0], 176)
+                self.assertEqual(vak[3] - vak[1], 84)
 
-    def test_elk_sjabloon_wijst_een_eigen_vak_aan(self):
-        vakken = [tuple(cfg["breakdown_vak"]) for cfg in CONFIG.values()]
-        self.assertEqual(len(set(vakken)), len(vakken),
-                         "twee sjablonen lichten hetzelfde vak uit")
+    def test_een_onbekend_vak_wordt_geweigerd(self):
+        plaat = (WORTEL / maak.BREAKDOWN).read_text(encoding="utf-8")
+        with self.assertRaises(SystemExit):
+            maak.vak_in_de_plaat(plaat, "bestaat niet")
+
+    def test_de_plaat_draagt_de_nieuwe_productnamen(self):
+        plaat = (WORTEL / maak.BREAKDOWN).read_text(encoding="utf-8")
+        self.assertIn(">Leerroute scenario</text>", plaat)
+        self.assertNotIn(">Kaderscenario</text>", plaat)
+        self.assertNotIn(">Leerroute-uitwerking</text>", plaat)
+        self.assertIn(">OEAPI-standaard</text>", plaat)
 
 
 class HetSkeletDraagtZijnUitwerking(unittest.TestCase):
@@ -297,7 +310,7 @@ class DeGeneratorWeigertWatHijNietKan(unittest.TestCase):
 
     def test_een_grens_die_alles_weglaat(self):
         kaal = {"bron": "README.md", "titel": "T", "wat": "w", "wie": "w",
-                "doel": "d", "context": "c", "keten": "k",
+                "doel": "d", "keten": "k",
                 "voorbeeld": "v", "aggregatie": "a",
                 "weglaten_tot": "bestaat niet"}
         with self.assertRaises(SystemExit) as e:
@@ -421,10 +434,8 @@ class DeVoorpaginaDraagtAlleenDeOmslag(unittest.TestCase):
         for naam, cfg in CONFIG.items():
             with self.subTest(naam):
                 self.assertTrue(cfg.get("versie"))
-                self.assertTrue(cfg.get("context"), "de inleiding noemt de "
-                                "context van het document")
-                self.assertTrue(cfg.get("keten"), "de inleiding noemt de plek "
-                                "in de keten")
+                self.assertTrue(cfg.get("keten"), "de productplaatsing noemt "
+                                "de plek in de keten")
 
 
 class DeDocxHoortBijHetSkelet(unittest.TestCase):

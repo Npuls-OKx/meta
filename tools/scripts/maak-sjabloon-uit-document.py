@@ -99,12 +99,16 @@ KLEUREN = 64
 
 # De productafbakening staat in elk sjabloon, met het vak van dit product
 # uitgelicht: de invuller ziet waar zijn document in het geheel past.
-BREAKDOWN = "architecture/docs/sjablonen/product-breakdown-v0.1.png"
+BREAKDOWN = "architecture/product-breakdown/img/product-breakdown.svg"
 ACCENT = (221, 120, 75)        # Npuls-oranje
 DOFHEID = 0.55                 # hoeveel de omgeving naar wit verschuift
 # De hele plaat is op paginabreedte onleesbaar. Een uitsnede rond het eigen vak
 # toont wat de invuller nodig heeft: de buren en de pijlen ertussen.
 MARGE = (430, 250)
+# De plaat is een SVG met een viewBox die op -16 begint; op deze breedte komt
+# een eenheid uit de SVG overeen met een beeldpunt.
+PLAATBREEDTE = 1514
+PLAATOFFSET = 16
 BLOB = "https://github.com/Npuls-OKx/meta/blob"
 
 # Wat de uitwerking in een hoofdstuk levert, bepaalt wat het sjabloon daar
@@ -209,6 +213,31 @@ def label(kop: str, labels: dict[str, str]) -> str:
     return kaal
 
 
+def vak_in_de_plaat(svg: str, titel: str) -> tuple[int, int, int, int]:
+    """Zoekt het vak van een product op in de plaat.
+
+    Het vak wordt niet met de hand opgemeten maar afgeleid: zoek de kop met
+    deze naam, en neem de rechthoek van productformaat die haar omsluit. Zo
+    blijft de uitlichting kloppen wanneer de plaat verschuift.
+    """
+    kop = re.search(
+        r'<text x="([\d.]+)" y="([\d.]+)"[^>]*>%s</text>' % re.escape(titel), svg)
+    if not kop:
+        raise SystemExit(f"de plaat kent geen vak {titel!r}")
+    tx, ty = float(kop.group(1)), float(kop.group(2))
+    vakken = [tuple(float(x) for x in m.groups()) for m in re.finditer(
+        r'<rect x="([-\d.]+)" y="([-\d.]+)" width="([\d.]+)" height="([\d.]+)"',
+        svg)]
+    omsluit = [v for v in vakken
+               if 140 < v[2] < 260 and 60 < v[3] < 120
+               and v[0] <= tx <= v[0] + v[2] and v[1] <= ty <= v[1] + v[3]]
+    if not omsluit:
+        raise SystemExit(f"geen vak gevonden om de kop {titel!r} heen")
+    x, y, b, h = omsluit[0]
+    return (round(x) + PLAATOFFSET, round(y) + PLAATOFFSET,
+            round(x + b) + PLAATOFFSET, round(y + h) + PLAATOFFSET)
+
+
 def uitgelicht(bron: pathlib.Path, doel: pathlib.Path,
                vak: tuple[int, int, int, int]) -> None:
     """Zet de productafbakening neer met een vak uitgelicht.
@@ -218,7 +247,13 @@ def uitgelicht(bron: pathlib.Path, doel: pathlib.Path,
     hangt, zonder dat de rest de aandacht trekt.
     """
     from PIL import Image, ImageDraw
-    with Image.open(bron) as beeld:
+    if not shutil.which("rsvg-convert"):
+        raise SystemExit("rsvg-convert ontbreekt; installeer librsvg2-bin in "
+                         "de dev-container")
+    tussen = doel.with_suffix(".tussen.png")
+    subprocess.run(["rsvg-convert", "-w", str(PLAATBREEDTE), str(bron),
+                    "-o", str(tussen)], check=True, capture_output=True)
+    with Image.open(tussen) as beeld:
         plat = Image.new("RGB", beeld.size, "white")
         plat.paste(beeld, mask=beeld.split()[-1] if beeld.mode == "RGBA" else None)
         dof = Image.blend(plat, Image.new("RGB", plat.size, "white"), DOFHEID)
@@ -232,6 +267,7 @@ def uitgelicht(bron: pathlib.Path, doel: pathlib.Path,
                    min(dof.width, vak[2] + MARGE[0]),
                    min(dof.height, vak[3] + MARGE[1]))
         dof.crop(venster).quantize(colors=128).save(doel, optimize=True)
+    tussen.unlink()
 
 
 def raster(bron: pathlib.Path, doel: pathlib.Path) -> None:
@@ -356,23 +392,20 @@ class Sjabloon:
             "",
             "| Onderdeel | Inhoud |",
             "|---|------------------------------------------------|",
-            f"| Context van het document | {c['context']} |",
-            f"| Plek in de keten | {c['keten']} |",
             f"| Wie dit invult | {c['wie']} |",
             f"| Voorbeeld | {c['voorbeeld']} |",
             "| Inleveren | terug naar OKx SI als Word-bestand |",
             "",
             *self.afbakening(),
-            "Elk hoofdstuk opent met een blok dat zegt wat er van dat hoofdstuk "
-            "wordt verwacht: waar hetzelfde al is uitgewerkt, welk artefact "
-            "hier hoort en waaraan het voldoet, en wat dit hoofdstuk aan het "
-            "pakket van eisen bijdraagt. Dat blok blijft staan; het is de "
-            "opdracht en niet de uitwerking. Een hoofdstuk dat niet van "
-            "toepassing is houdt zijn kop, met de reden eronder.",
-            "",
             "## Doelstelling document",
             "",
             c["doel"],
+            "",
+            "Elk hoofdstuk opent met een blok dat zegt wat er wordt verwacht: "
+            "waar hetzelfde al is uitgewerkt, welk artefact hier hoort en "
+            "waaraan het voldoet, en wat dit hoofdstuk aan het pakket van "
+            "eisen bijdraagt. Dat blok blijft staan; het is de opdracht en "
+            "niet de uitwerking.",
             "",
             "## Pakket van eisen",
             "",
@@ -449,18 +482,22 @@ class Sjabloon:
         """De productafbakening, met het vak van dit product uitgelicht."""
         if not self.cfg.get("breakdown_vak"):
             return []
+        c = self.cfg
         return [
-            f"![De producten rond {self.cfg['titel'].lower()}, met dit "
-            f"product uitgelicht](<{self.breakdownpad()}>)",
+            "## Productplaatsing",
             "",
-            "*Het uitgelichte vak is het product dat u met dit sjabloon "
-            "beschrijft; de vakken eromheen zijn de producten waar het op "
-            "bouwt en die erop verder bouwen. Het cijfer rechtsboven in een "
-            "vak is de prioriteit, waarbij lager eerder is. Dit is een "
-            "uitsnede van de productafbakening v0.1; de hele plaat staat in "
-            "[de leeswijzer bij de sjablonen]"
-            "(https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/"
-            "sjablonen/README.md).*",
+            f"![De producten rond {c['titel'].lower()}, met dit product "
+            f"uitgelicht](<{self.breakdownpad()}>)",
+            "",
+            "Het uitgelichte vak is het product dat u met dit sjabloon "
+            "beschrijft.",
+            "",
+            f"Het {c['keten']}.",
+            "",
+            "Het cijfer rechtsboven in een vak is de prioriteit, waarbij lager "
+            "eerder is; de hele plaat staat in de "
+            "[productafbakening](https://github.com/Npuls-OKx/meta/blob/dev/"
+            "architecture/product-breakdown/README.md).",
             "",
         ]
 
@@ -688,11 +725,13 @@ class Sjabloon:
             uit = self.uitmap / pad
             uit.parent.mkdir(parents=True, exist_ok=True)
             verklein(bron, uit)
-        vak = self.cfg.get("breakdown_vak")
-        if vak:
+        titel = self.cfg.get("breakdown_vak")
+        if titel:
+            plaat = WORTEL / BREAKDOWN
+            vak = vak_in_de_plaat(plaat.read_text(encoding="utf-8"), titel)
             uit = self.uitmap / self.breakdownpad()
             uit.parent.mkdir(parents=True, exist_ok=True)
-            uitgelicht(WORTEL / BREAKDOWN, uit, tuple(vak))
+            uitgelicht(plaat, uit, vak)
         return doel
 
     def breakdownpad(self) -> str:

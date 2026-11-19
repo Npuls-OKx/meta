@@ -10,21 +10,25 @@
 
 | Onderdeel | Inhoud |
 |---|------------------------------------------------|
-| Context van het document | De interactieketen bouwt op de informatiestromen die een leerroute scenario heeft benoemd, en levert de technical requirements waarmee een leverancier bouwt. |
-| Plek in de keten | volgt op het leerroute scenario en gaat vooraf aan de koppelvlakspecificatie |
 | Wie dit invult | de adviesgroep. Suggestie: de business analisten met Niels, want de keten raakt de koppelvlakken |
 | Voorbeeld | [interactieketen onderwijsaanbod](https://github.com/Npuls-OKx/meta/blob/e05b4444a29a09b92cc8afd73bce69af78f1ac12/architecture/docs/specificatie/interactieketen-onderwijsaanbod/README.md), nog in review als pull request 373 |
 | Inleveren | terug naar OKx SI als Word-bestand |
 
+## Productplaatsing
+
 ![De producten rond sjabloon interactieketen, met dit product uitgelicht](<img/interactieketen/product-breakdown.png>)
 
-*Het uitgelichte vak is het product dat u met dit sjabloon beschrijft; de vakken eromheen zijn de producten waar het op bouwt en die erop verder bouwen. Het cijfer rechtsboven in een vak is de prioriteit, waarbij lager eerder is. Dit is een uitsnede van de productafbakening v0.1; de hele plaat staat in [de leeswijzer bij de sjablonen](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/sjablonen/README.md).*
+Het uitgelichte vak is het product dat u met dit sjabloon beschrijft.
 
-Elk hoofdstuk opent met een blok dat zegt wat er van dat hoofdstuk wordt verwacht: waar hetzelfde al is uitgewerkt, welk artefact hier hoort en waaraan het voldoet, en wat dit hoofdstuk aan het pakket van eisen bijdraagt. Dat blok blijft staan; het is de opdracht en niet de uitwerking. Een hoofdstuk dat niet van toepassing is houdt zijn kop, met de reden eronder.
+Het volgt op het leerroute scenario en gaat vooraf aan de koppelvlakspecificatie.
+
+Het cijfer rechtsboven in een vak is de prioriteit, waarbij lager eerder is; de hele plaat staat in de [productafbakening](https://github.com/Npuls-OKx/meta/blob/dev/architecture/product-breakdown/README.md).
 
 ## Doelstelling document
 
 Dit document legt vast welke diensten elkaar in welke volgorde aanroepen om een keten af te maken, zodat een bouwer weet wat hij moet bouwen en wat hij mag verwachten.
+
+Elk hoofdstuk opent met een blok dat zegt wat er wordt verwacht: waar hetzelfde al is uitgewerkt, welk artefact hier hoort en waaraan het voldoet, en wat dit hoofdstuk aan het pakket van eisen bijdraagt. Dat blok blijft staan; het is de opdracht en niet de uitwerking.
 
 ## Pakket van eisen
 
