@@ -325,38 +325,14 @@
     "keten": "bouwt op een of meer persona's, en gaat vooraf aan de uitwerking en de interactieketen",
     "breakdown_vak": "Leerroute scenario"
   },
-  "informatiemodel-viewpoint": {
-    "titel": "Sjabloon informatiemodel viewpoint",
-    "bron": "architecture/model/informatiemodel/informatiemodel.md",
-    "bestand": "OKx sjabloon informatiemodel viewpoint.docx",
-    "wat": "een viewpoint op het informatiemodel: welke objecttypen er zijn, hoe zij samenhangen, en voor welke lezer deze plaat bedoeld is",
-    "wie": "de adviesgroep. Suggestie: de business analisten met Niels, want het viewpoint hangt aan het ArchiMate-model",
-    "voorbeeld": "[informatiemodel OKx](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/informatiemodel.md)",
-    "voorbeeld_naam": "Informatiemodel OKx",
-    "aggregatie": "Tussen de inbreng van instellingen en dit document zit een analysestap. Een objecttype hoort hier wanneer meerdere instellingen het nodig hebben, niet wanneer een instelling het zo genoemd heeft. Hoe een instelling haar onderwijs inricht blijft haar keuze: OKx legt alleen de vorm van de uitwisseling vast.",
-    "kop_labels": {
-      "Lezers en detailniveau": "Lezers en detailniveau"
-    },
-    "vervang": [
-      [
-        "OKx informatiemodel",
-        "<naam van de plaat>"
-      ]
-    ],
-    "laag": "functional",
-    "versie": "0.0.1",
-    "doel": "Dit document legt vast welke objecttypen er zijn, hoe zij samenhangen en voor welke lezer de plaat bedoeld is, zodat een leverancier dezelfde begrippen leest als een onderwijskundige.",
-    "keten": "staat naast alle andere producten en levert de begrippen waarin zij spreken",
-    "breakdown_vak": "Informatiemodel OKx"
-  },
-  "leerroute-scenario-uitwerking": {
-    "titel": "Sjabloon leerroute scenario uitwerking",
+  "informatiemodeluitwerking": {
+    "titel": "Sjabloon informatiemodeluitwerking per leerroute scenario",
     "bron": "architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md",
-    "bestand": "OKx sjabloon leerroute scenario uitwerking.docx",
-    "wat": "een leerroute scenario uitwerking: het scenario stap voor stap naast het informatiemodel gelegd, als een herhaling van twee bouwstenen tot de hele route gedekt is",
+    "bestand": "OKx sjabloon informatiemodeluitwerking.docx",
+    "wat": "een informatiemodeluitwerking per leerroute scenario: het scenario stap voor stap naast het informatiemodel gelegd, als een herhaling van twee bouwstenen tot de hele route gedekt is",
     "wie": "de adviesgroep. Suggestie: de informatiemanagers vullen de regels, de business analisten leggen ze naast het model",
     "voorbeeld": "[de uitwerking van leerroute 1 met Jochem](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md)",
-    "voorbeeld_naam": "Leerroute 1 scenario uitwerking",
+    "voorbeeld_naam": "Informatiemodeluitwerking van leerroute 1",
     "aggregatie": "Tussen de inbreng van instellingen en dit document zit een analysestap. Dat geldt hier sterker dan elders, omdat een voorbeeld overtuigt: een regel die uit een enkele instelling komt en hier als voorbeeld staat, leest als sectorpraktijk.",
     "kop_labels": {},
     "vervang": [
@@ -447,7 +423,31 @@
       }
     },
     "keten": "volgt op het leerroute scenario en toetst het informatiemodel aan die route",
-    "breakdown_vak": "uitwerking"
+    "breakdown_vak": "Informatiemodeluitwerking"
+  },
+  "informatiemodel-viewpoint": {
+    "titel": "Sjabloon informatiemodel viewpoint",
+    "bron": "architecture/model/informatiemodel/informatiemodel.md",
+    "bestand": "OKx sjabloon informatiemodel viewpoint.docx",
+    "wat": "een viewpoint op het informatiemodel: welke objecttypen er zijn, hoe zij samenhangen, en voor welke lezer deze plaat bedoeld is",
+    "wie": "de adviesgroep. Suggestie: de business analisten met Niels, want het viewpoint hangt aan het ArchiMate-model",
+    "voorbeeld": "[informatiemodel OKx](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/informatiemodel.md)",
+    "voorbeeld_naam": "Informatiemodel OKx",
+    "aggregatie": "Tussen de inbreng van instellingen en dit document zit een analysestap. Een objecttype hoort hier wanneer meerdere instellingen het nodig hebben, niet wanneer een instelling het zo genoemd heeft. Hoe een instelling haar onderwijs inricht blijft haar keuze: OKx legt alleen de vorm van de uitwisseling vast.",
+    "kop_labels": {
+      "Lezers en detailniveau": "Lezers en detailniveau"
+    },
+    "vervang": [
+      [
+        "OKx informatiemodel",
+        "<naam van de plaat>"
+      ]
+    ],
+    "laag": "functional",
+    "versie": "0.0.1",
+    "doel": "Dit document legt vast welke objecttypen er zijn, hoe zij samenhangen en voor welke lezer de plaat bedoeld is, zodat een leverancier dezelfde begrippen leest als een onderwijskundige.",
+    "keten": "staat naast alle andere producten en levert de begrippen waarin zij spreken",
+    "breakdown_vak": "Informatiemodel OKx"
   },
   "interactieketen": {
     "titel": "Sjabloon interactieketen",

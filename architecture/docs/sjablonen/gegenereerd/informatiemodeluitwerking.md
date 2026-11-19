@@ -16,7 +16,7 @@
 
 ## Productplaatsing
 
-![De producten rond sjabloon leerroute scenario uitwerking, met dit product uitgelicht](<img/leerroute-scenario-uitwerking/product-breakdown.png>)
+![De producten rond sjabloon informatiemodeluitwerking per leerroute scenario, met dit product uitgelicht](<img/informatiemodeluitwerking/product-breakdown.png>)
 
 Het uitgelichte vak is het product dat u met dit sjabloon beschrijft.
 
@@ -85,7 +85,7 @@ Het gaat hier niet alleen om wat er nieuw ontstaat. Een bouwsteen is pas af wann
 
 Het voorbeeld hieronder is er een met meerdere relaties tegelijk: het kiesbare onderwijsprogrammaonderdeel ontstaat, en hangt aan de opleidingsspecificatie, de keuzedeelruimte en de leeruitkomsten die in eerdere stappen al bestonden.
 
-**Voorbeeld** [Leerroute 1 scenario uitwerking, F1-08 - Kiesbaar onderwijsprogrammaonderdeel: keuzedelen en minor](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f1-08---kiesbaar-onderwijsprogrammaonderdeel-keuzedelen-en-minor)
+**Voorbeeld** [Informatiemodeluitwerking van leerroute 1, F1-08 - Kiesbaar onderwijsprogrammaonderdeel: keuzedelen en minor](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f1-08---kiesbaar-onderwijsprogrammaonderdeel-keuzedelen-en-minor)
 
 **Acceptatiecriteria** een ArchiMate-plaat of een SVG-render daarvan, met de scope van deze processtap uitgelicht, met daarnaast de tabel hieronder ingevuld, en de plaat toont de actor, de processtap en het informatie-element dat daar ontstaat, elk met de term uit de begrippenlijst, **en de relaties naar de informatie-elementen die in eerdere bouwstenen zijn ontstaan**; wat de begrippenlijst niet kent staat als observatie in het slot
 
@@ -101,7 +101,7 @@ Het voorbeeld hieronder is er een met meerdere relaties tegelijk: het kiesbare o
 | Relaties naar eerder ontstane elementen | *waaraan het hangt en wat ernaar verwijst, met het nummer van de bouwsteen waar dat element ontstond* |
 | Voorbeeldwaarde | *de ingevulde waarde voor deze persona* |
 
-![Voorbeeld van bouwsteen A: het kiesbare onderwijsprogrammaonderdeel, met de relaties naar de opleidingsspecificatie en de keuzedeelruimte die eerder zijn ontstaan](<img/leerroute-scenario-uitwerking/f1-08-kiesbaar-onderwijsprogrammaonderdeel-keuzedelen-en-minor.png>)
+![Voorbeeld van bouwsteen A: het kiesbare onderwijsprogrammaonderdeel, met de relaties naar de opleidingsspecificatie en de keuzedeelruimte die eerder zijn ontstaan](<img/informatiemodeluitwerking/f1-08-kiesbaar-onderwijsprogrammaonderdeel-keuzedelen-en-minor.png>)
 
 *Schrijf hier de uitwerking.*
 
@@ -111,7 +111,7 @@ Kopieer dit blok voor elke uitwisseling. Hier gaat niet een los gegeven over de 
 
 Het voorbeeld hieronder is er een met een volle structuur: het verzoek om onderwijsaanbod neemt de specificatiestructuur en de planbare waarden mee, zodat het planningssysteem zonder navraag kan plannen.
 
-**Voorbeeld** [Leerroute 1 scenario uitwerking, F2-03 - Verzoek met specificatiestructuur en planbare waarden naar planning](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f2-03---verzoek-met-specificatiestructuur-en-planbare-waarden-naar-planning)
+**Voorbeeld** [Informatiemodeluitwerking van leerroute 1, F2-03 - Verzoek met specificatiestructuur en planbare waarden naar planning](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f2-03---verzoek-met-specificatiestructuur-en-planbare-waarden-naar-planning)
 
 **Acceptatiecriteria** een ArchiMate-plaat of een SVG-render daarvan, met de scope van deze uitwisseling uitgelicht, met daarnaast het volledige ingevulde informatievoorbeeld dat over de lijn gaat, en de plaat toont beide applicatiecomponenten en de richting; het voorbeeld draagt elk objecttype **met zijn relaties**, zodat zichtbaar is wat de ontvanger werkelijk binnenkrijgt en niet alleen welk veld er over de lijn gaat
 
@@ -126,7 +126,7 @@ Het voorbeeld hieronder is er een met een volle structuur: het verzoek om onderw
 | Informatievoorbeeld | *het ingevulde voorbeeld, met alle relaties* |
 | Informatiestroom | *het nummer uit het leerroute scenario* |
 
-![Voorbeeld van bouwsteen B: het verzoek om onderwijsaanbod gaat met de hele specificatiestructuur en de planbare waarden van de onderwijscatalogus naar het planningssysteem](<img/leerroute-scenario-uitwerking/f2-03-verzoek-met-specificatiestructuur-en-planbare-waarden-naar-planning.png>)
+![Voorbeeld van bouwsteen B: het verzoek om onderwijsaanbod gaat met de hele specificatiestructuur en de planbare waarden van de onderwijscatalogus naar het planningssysteem](<img/informatiemodeluitwerking/f2-03-verzoek-met-specificatiestructuur-en-planbare-waarden-naar-planning.png>)
 
 *Schrijf hier de uitwerking.*
 
