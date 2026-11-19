@@ -26,7 +26,9 @@
         "<instelling>"
       ]
     ],
-    "laag": "user story"
+    "laag": "user story",
+    "ondertitel": "Een student, zijn opleiding en zijn route door het onderwijs",
+    "versie": "0.0.1"
   },
   "leerroute-scenario": {
     "titel": "Sjabloon leerroute scenario",
@@ -271,7 +273,9 @@
         "artefact": "een tabel met de interacties van deze fase",
         "eis": "per interactie staat welk systeem levert, welk systeem afneemt, en welke informatie meegaat"
       }
-    }
+    },
+    "ondertitel": "Een Npuls-leerroute uitgewerkt tot de informatie die eruit moet",
+    "versie": "0.0.1"
   },
   "informatiemodel-viewpoint": {
     "titel": "Sjabloon informatiemodel viewpoint",
@@ -291,7 +295,9 @@
         "<naam van de plaat>"
       ]
     ],
-    "laag": "functional"
+    "laag": "functional",
+    "ondertitel": "De objecttypen, hun samenhang en de lezer van de plaat",
+    "versie": "0.0.1"
   },
   "leerroute-scenario-uitwerking": {
     "titel": "Sjabloon leerroute scenario uitwerking (informatiemodel voorbeeld)",
@@ -314,7 +320,9 @@
         "leerroute <nummer>"
       ]
     ],
-    "laag": "functional"
+    "laag": "functional",
+    "ondertitel": "Het scenario stap voor stap in het informatiemodel",
+    "versie": "0.0.1"
   },
   "interactieketen": {
     "titel": "Sjabloon interactieketen",
@@ -342,6 +350,8 @@
         "IS-XX-"
       ]
     ],
-    "laag": "technical"
+    "laag": "technical",
+    "ondertitel": "De diensten van een keten, hun volgorde en hun afspraken",
+    "versie": "0.0.1"
   }
 }

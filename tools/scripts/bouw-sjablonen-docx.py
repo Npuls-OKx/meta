@@ -28,10 +28,12 @@ CONFIG = MAP / "bron/sjablonen.json"
 REFERENTIE = GEGENEREERD / "npuls-referentie.docx"
 
 
-def titels() -> dict[str, str]:
-    """De documenttitel per sjabloon; Word zet hem in de kop- en voettekst."""
+def omslag() -> dict[str, dict[str, str]]:
+    """Wat op de voorpagina staat: titel en ondertitel, per sjabloon."""
     config = json.loads(CONFIG.read_text(encoding="utf-8"))
-    return {naam: cfg["titel"] for naam, cfg in config.items()}
+    return {naam: {"titel": cfg["titel"],
+                   "ondertitel": cfg.get("ondertitel", "")}
+            for naam, cfg in config.items()}
 
 
 def sjablonen() -> dict[str, str]:
@@ -52,7 +54,7 @@ def eis_pandoc() -> str:
 
 
 def bouw_een(naam: str, uit: pathlib.Path, referentie: pathlib.Path,
-             titel: str = "") -> None:
+             titel: str = "", ondertitel: str = "") -> None:
     bron = BRON / f"{naam}.md"
     if not bron.exists():
         raise SystemExit(
@@ -64,10 +66,9 @@ def bouw_een(naam: str, uit: pathlib.Path, referentie: pathlib.Path,
         [eis_pandoc(), str(bron), "--from", "gfm+raw_attribute", "--to", "docx",
          "--reference-doc", str(referentie),
          "--resource-path", str(bron.parent),
-         "--toc", "--toc-depth=3",
          "--metadata", f"title={titel}",
+         "--metadata", f"subtitle={ondertitel}",
          "--metadata", "lang=nl-NL",
-         "--metadata", "toc-title=Inhoudsopgave",
          "--output", str(uit)],
         capture_output=True, text=True,
     )
@@ -126,7 +127,9 @@ def bouw(doel: pathlib.Path, referentie: pathlib.Path,
             if not uit.exists():
                 ontbreekt.append(bestand)
             continue
-        bouw_een(naam, uit, referentie, titels().get(naam, ""))
+        kaft = omslag().get(naam, {})
+        bouw_een(naam, uit, referentie, kaft.get("titel", ""),
+                 kaft.get("ondertitel", ""))
         print(f"  {bestand}  ({uit.stat().st_size} bytes)")
     if ontbreekt:
         print("deze sjablonen staan niet in versiebeheer:", file=sys.stderr)

@@ -1,17 +1,26 @@
-`<w:p><w:r><w:br w:type="page"/></w:r></w:p>`{=openxml}
+| Onderdeel | Inhoud |
+|---|------------------------------------------------|
+| Versie | 0.0.1 |
+| Uitgegeven door | OKx, pijler Leren Zonder Drempels (Npuls) |
+| Ingevuld door | *naam en organisatie van de invuller* |
+| Datum | *datum van invullen* |
+| Inleveren | terug naar OKx SI als Word-bestand |
 
-# Invullen
+```{=openxml}
+<w:p><w:r><w:br w:type="page"/></w:r></w:p>
+```
+
+# Inleiding
 
 | Onderdeel | Inhoud |
 |---|------------------------------------------------|
 | Wat dit wordt | een persona: een student met een naam, een opleiding en een route door het onderwijs, waar elk leerroute scenario daarna naar verwijst |
 | Wie dit invult | de adviesgroep. Suggestie: de informatiemanagers nemen het voortouw, want zij kennen de instellingspraktijk per stap |
 | Voorbeeld | [persona Jochem](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/persona_jochem.md) |
-| Inleveren | terug naar OKx SI als Word-bestand |
 
 Elk hoofdstuk opent met een blok dat zegt wat er van dat hoofdstuk wordt verwacht: waar hetzelfde al is uitgewerkt, welk artefact hier hoort en waaraan het voldoet, en wat dit hoofdstuk aan het pakket van eisen bijdraagt. Dat blok blijft staan; het is de opdracht en niet de uitwerking. Een hoofdstuk dat niet van toepassing is houdt zijn kop, met de reden eronder.
 
-# Van user story naar eis
+## Van user story naar eis
 
 Het pakket van eisen komt uit de gedeelde analyse van alles wat scholen hebben ingebracht, geinventariseerd in de PoC-sessies met de koploperscholen. De grootst gemene deler daaruit is wat OKx vastlegt.
 
@@ -26,11 +35,25 @@ Niet elk hoofdstuk levert hetzelfde. Een journey brengt een behoefte naar boven 
 
 Vul in dit document de laag in die boven het hoofdstuk staat. De lagen eronder volgen in een eigen ronde, met dit document als bron.
 
-# De grootst gemene deler
+## De grootst gemene deler
 
 Tussen de inbreng van instellingen en dit document zit een analysestap. Haal op bij meerdere instellingen, zoek wat zij delen, en schrijf dat op. Wat een persona draagt is wat bij meerdere instellingen zo werkt, niet wat bij een ervan zo heet.
 
 Een instelling spreekt voor haar eigen praktijk en niet voor de sector. Noteer daarom apart wat afwijkt, onder [Afwijkingen per instelling](#afwijkingen-per-instelling).
+
+```{=openxml}
+<w:p><w:pPr><w:pStyle w:val="Kop1zondernummer"/></w:pPr>
+<w:r><w:t>Inhoudsopgave</w:t></w:r></w:p>
+<w:p><w:r><w:fldChar w:fldCharType="begin" w:dirty="true"/></w:r>
+<w:r><w:instrText xml:space="preserve"> TOC \o "1-3" \h \z \u </w:instrText></w:r>
+<w:r><w:fldChar w:fldCharType="separate"/></w:r>
+<w:r><w:t xml:space="preserve">Werk deze inhoudsopgave bij met Ctrl+A en F9.</w:t></w:r>
+<w:r><w:fldChar w:fldCharType="end"/></w:r></w:p>
+```
+
+```{=openxml}
+<w:p><w:r><w:br w:type="page"/></w:r></w:p>
+```
 
 # Persona <student>
 

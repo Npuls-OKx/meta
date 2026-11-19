@@ -12,6 +12,16 @@ Open het Word-bestand. Elk sjabloon is **afgeleid uit de uitwerking die er al li
 | leerroute scenario uitwerking | `OKx sjabloon leerroute scenario uitwerking.docx` | [de uitwerking met Jochem](../../model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md) |
 | interactieketen | `OKx sjabloon interactieketen.docx` | [keten onderwijsaanbod](https://github.com/Npuls-OKx/meta/blob/e05b4444a29a09b92cc8afd73bce69af78f1ac12/architecture/docs/specificatie/interactieketen-onderwijsaanbod/README.md), nog in review |
 
+## Opbouw van een sjabloon
+
+| Pagina | Wat erop staat |
+|---|---|
+| 1 | de omslag: titel, ondertitel, versie, wie het uitgeeft, wie het invult en wanneer |
+| 2 | de inleiding: wat dit wordt, wie het invult, het voorbeeld, en de keten van user story naar eis |
+| daarna | de inhoudsopgave, en dan de hoofdstukken uit de uitwerking |
+
+De inhoudsopgave is een Word-veld en staat leeg tot hij wordt bijgewerkt; dat doet de lezer met Ctrl+A en F9, en de tekst in het veld zegt dat ook.
+
 ## Het blok boven elk hoofdstuk
 
 Elk hoofdstuk opent met een blok dat zegt wat er wordt verwacht. Dat blok blijft staan: het is de opdracht en niet de uitwerking.
@@ -121,7 +131,10 @@ python3 -m unittest tools.tests.test_sjablonen
 - een skelet de aggregatiestap, de requirementketen of de schrijfruimte mist;
 - een tabel geen kopregel heeft, want een lege kopregel wordt in Word een lege rij;
 - een `.docx` niet in versiebeheer staat of achterloopt op zijn skelet;
-- een beeld ontbreekt of een SVG in het skelet staat.
+- een beeld ontbreekt of een SVG in het skelet staat;
+- een alinea een alinea of een tabel bevat, want **Word weigert dat bestand te openen**;
+- een onderdeel van het pakket geen content-type draagt, of het hoofddocument als sjabloon in plaats van als document is aangemerkt;
+- de voorpagina meer draagt dan de omslag, of de inhoudsopgave voor de inleiding staat.
 
 **Deze controle is nog geen poort.** De testsuite draait in de workflow `Model`, en die start alleen wanneer een `*.archimate`-bestand wijzigt. Een pull request die alleen aan de sjablonen raakt, draait de testgevallen dus niet.
 

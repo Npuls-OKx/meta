@@ -14,6 +14,7 @@ import subprocess
 import sys
 import tempfile
 import unittest
+import xml.etree.ElementTree as ET
 import zipfile
 
 WORTEL = pathlib.Path(__file__).resolve().parents[2]
@@ -97,14 +98,19 @@ class EenKopIsEenLabel(unittest.TestCase):
 
 class ElkHoofdstukZegtWatErWordtVerwacht(unittest.TestCase):
     def test_het_verwachtingsblok_staat_er_even_vaak_als_een_hoofdstuk(self):
-        vast = ("Invullen", "Van user story naar eis", "De grootst gemene deler",
-                "Afwijkingen per instelling", "Vragen aan OKx")
+        """De koppen van de bron dragen een blok; die van OKx zelf niet.
+
+        De inleiding staat voor de inhoudsopgave, het slot erachter; daartussen
+        staat wat uit de uitwerking komt. Tellen op naam gaat mis zodra de bron
+        zelf een hoofdstuk Inleiding heeft.
+        """
+        slot = ("Afwijkingen per instelling", "Vragen aan OKx")
         for naam in CONFIG:
             t = skelet(naam)
-            eigen = len([k for _, k in KOP.findall(t) if k in vast])
+            lijf = t.split(maak.INHOUDSOPGAVE, 1)[1]
+            uit_de_bron = len([k for _, k in KOP.findall(lijf) if k not in slot])
             with self.subTest(naam):
-                self.assertEqual(t.count("**Voorbeeld** ["),
-                                 len(KOP.findall(t)) - eigen,
+                self.assertEqual(t.count("**Voorbeeld** ["), uit_de_bron,
                                  "elk hoofdstuk uit de bron draagt een "
                                  "verwachtingsblok")
 
@@ -268,6 +274,95 @@ class DeGeneratorWeigertWatHijNietKan(unittest.TestCase):
         self.assertEqual(maak.vervang("Leerroute 1 en leerroute 1",
                                       [["leerroute 1", "leerroute <n>"]]),
                          "Leerroute <n> en leerroute <n>")
+
+
+class WordKanHetBestandOpenen(unittest.TestCase):
+    """Deze poort bestaat omdat alle vijf sjablonen een ronde onopenbaar waren.
+
+    Een ruwe regel binnen een alinea levert een w:p binnen een w:p op. Dat is
+    geldige XML en LibreOffice toont het gewoon, maar Word weigert het bestand
+    met "Word experienced an error trying to open the file". Niets ving dat af.
+    """
+
+    W = "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}"
+
+    def alinea_in_alinea(self, docx: pathlib.Path) -> list[str]:
+        with zipfile.ZipFile(docx) as z:
+            wortel = ET.fromstring(z.read("word/document.xml"))
+        fout = []
+        for p in wortel.iter(f"{self.W}p"):
+            for kind in p:
+                if kind.tag in (f"{self.W}p", f"{self.W}tbl"):
+                    fout.append(kind.tag.rsplit("}", 1)[-1])
+        return fout
+
+    def test_geen_alinea_in_een_alinea(self):
+        for naam, bestand in bouw_docx.SJABLONEN.items():
+            with self.subTest(naam):
+                self.assertEqual(self.alinea_in_alinea(MAP / bestand), [],
+                                 "Word weigert dit bestand te openen")
+
+    def test_elk_onderdeel_heeft_een_contenttype(self):
+        for naam, bestand in bouw_docx.SJABLONEN.items():
+            with zipfile.ZipFile(MAP / bestand) as z:
+                namen = [n for n in z.namelist() if not n.endswith("/")]
+                ct = z.read("[Content_Types].xml").decode("utf-8")
+            standaard = {e.lower() for e in
+                         re.findall(r'<Default Extension="([^"]+)"', ct)}
+            eigen = set(re.findall(r'<Override PartName="/([^"]+)"', ct))
+            kaal = [n for n in namen if n != "[Content_Types].xml"
+                    and n not in eigen
+                    and n.rsplit(".", 1)[-1].lower() not in standaard]
+            with self.subTest(naam):
+                self.assertEqual(kaal, [], "een onderdeel zonder content-type "
+                                           "maakt het pakket onleesbaar")
+
+    def test_het_hoofddocument_is_een_document_en_geen_sjabloon(self):
+        for naam, bestand in bouw_docx.SJABLONEN.items():
+            with zipfile.ZipFile(MAP / bestand) as z:
+                ct = z.read("[Content_Types].xml").decode("utf-8")
+            soort = re.search(
+                r'<Override PartName="/word/document.xml" ContentType="([^"]+)"',
+                ct).group(1)
+            with self.subTest(naam):
+                self.assertIn("wordprocessingml.document.main", soort,
+                              "de bron is een .dotx; het resultaat moet een "
+                              "document zijn en geen sjabloon")
+
+
+class DeVoorpaginaDraagtAlleenDeOmslag(unittest.TestCase):
+    def test_de_omslag_noemt_versie_uitgever_en_invuller(self):
+        for naam in CONFIG:
+            t = skelet(naam)
+            kop = t.split(maak.PAGINA_EINDE)[0]
+            with self.subTest(naam):
+                for veld in ("| Versie |", "| Uitgegeven door |",
+                             "| Ingevuld door |", "| Datum |"):
+                    self.assertIn(veld, kop)
+                self.assertNotIn("#", kop, "de voorpagina draagt geen hoofdstuk")
+
+    def test_de_inleiding_opent_pagina_twee(self):
+        for naam in CONFIG:
+            na = skelet(naam).split(maak.PAGINA_EINDE)[1]
+            with self.subTest(naam):
+                self.assertTrue(na.lstrip().startswith("# Inleiding"))
+
+    def test_de_inhoudsopgave_staat_na_de_inleiding(self):
+        for naam in CONFIG:
+            t = skelet(naam)
+            with self.subTest(naam):
+                self.assertIn(maak.INHOUDSOPGAVE, t)
+                self.assertLess(t.index("# Inleiding"),
+                                t.index(maak.INHOUDSOPGAVE))
+                eerste = t.index("# De grootst gemene deler")
+                self.assertLess(eerste, t.index(maak.INHOUDSOPGAVE),
+                                "de inleiding is af voordat de inhoudsopgave komt")
+
+    def test_de_ondertitel_staat_in_de_configuratie(self):
+        for naam, cfg in CONFIG.items():
+            with self.subTest(naam):
+                self.assertTrue(cfg.get("ondertitel"))
+                self.assertTrue(cfg.get("versie"))
 
 
 class DeDocxHoortBijHetSkelet(unittest.TestCase):

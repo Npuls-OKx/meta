@@ -44,6 +44,23 @@ LINK = re.compile(r"\]\((<[^>]*>|[^)]*)\)")
 DOEL = re.compile(r"\]\((<[^>]*>|[^)]*)\)")
 
 RUIMTE = "*Schrijf hier de uitwerking.*"
+
+# Een pagina-einde en een inhoudsopgave bestaan niet in markdown. Zij gaan als
+# ruw blok mee, en nadrukkelijk als blok: een ruwe regel binnen een alinea
+# levert een w:p binnen een w:p op, en dat weigert Word te openen.
+PAGINA_EINDE = """```{=openxml}
+<w:p><w:r><w:br w:type="page"/></w:r></w:p>
+```"""
+
+INHOUDSOPGAVE = """```{=openxml}
+<w:p><w:pPr><w:pStyle w:val="Kop1zondernummer"/></w:pPr>
+<w:r><w:t>Inhoudsopgave</w:t></w:r></w:p>
+<w:p><w:r><w:fldChar w:fldCharType="begin" w:dirty="true"/></w:r>
+<w:r><w:instrText xml:space="preserve"> TOC \\o "1-3" \\h \\z \\u </w:instrText></w:r>
+<w:r><w:fldChar w:fldCharType="separate"/></w:r>
+<w:r><w:t xml:space="preserve">Werk deze inhoudsopgave bij met Ctrl+A en F9.</w:t></w:r>
+<w:r><w:fldChar w:fldCharType="end"/></w:r></w:p>
+```"""
 # Een beeld gaat verkleind mee: A4 op 150 dpi is ruim 1200 pixels breed, dus
 # boven deze maat draagt een beeld alleen bestandsgrootte en geen scherpte.
 MAXBREEDTE = 1600
@@ -265,17 +282,26 @@ class Sjabloon:
     def aanhef(self) -> list[str]:
         c = self.cfg
         return [
-            # De omslag en de inhoudsopgave krijgen een eigen pagina.
-            "`<w:p><w:r><w:br w:type=\"page\"/></w:r></w:p>`{=openxml}",
+            # Pagina 1 draagt alleen de omslag: titel, ondertitel, versie en
+            # wie het uitgeeft en invult. De titel en de ondertitel komen uit
+            # de documenteigenschappen en staan daarom niet in deze lijst.
+            "| Onderdeel | Inhoud |",
+            "|---|------------------------------------------------|",
+            f"| Versie | {c.get('versie', '0.0.1')} |",
+            "| Uitgegeven door | OKx, pijler Leren Zonder Drempels (Npuls) |",
+            f"| Ingevuld door | *naam en organisatie van de invuller* |",
+            "| Datum | *datum van invullen* |",
+            "| Inleveren | terug naar OKx SI als Word-bestand |",
             "",
-            "# Invullen",
+            PAGINA_EINDE,
+            "",
+            "# Inleiding",
             "",
             "| Onderdeel | Inhoud |",
             "|---|------------------------------------------------|",
             f"| Wat dit wordt | {c['wat']} |",
             f"| Wie dit invult | {c['wie']} |",
             f"| Voorbeeld | {c['voorbeeld']} |",
-            "| Inleveren | terug naar OKx SI als Word-bestand |",
             "",
             "Elk hoofdstuk opent met een blok dat zegt wat er van dat hoofdstuk "
             "wordt verwacht: waar hetzelfde al is uitgewerkt, welk artefact "
@@ -284,7 +310,7 @@ class Sjabloon:
             "opdracht en niet de uitwerking. Een hoofdstuk dat niet van "
             "toepassing is houdt zijn kop, met de reden eronder.",
             "",
-            "# Van user story naar eis",
+            "## Van user story naar eis",
             "",
             "Het pakket van eisen komt uit de gedeelde analyse van alles wat "
             "scholen hebben ingebracht, geinventariseerd in de PoC-sessies met "
@@ -319,13 +345,17 @@ class Sjabloon:
             "Vul in dit document de laag in die boven het hoofdstuk staat. De "
             "lagen eronder volgen in een eigen ronde, met dit document als bron.",
             "",
-            "# De grootst gemene deler",
+            "## De grootst gemene deler",
             "",
             c["aggregatie"],
             "",
             "Een instelling spreekt voor haar eigen praktijk en niet voor de "
             "sector. Noteer daarom apart wat afwijkt, onder "
             "[Afwijkingen per instelling](#afwijkingen-per-instelling).",
+            "",
+            INHOUDSOPGAVE,
+            "",
+            PAGINA_EINDE,
             "",
         ]
 

@@ -1,17 +1,26 @@
-`<w:p><w:r><w:br w:type="page"/></w:r></w:p>`{=openxml}
+| Onderdeel | Inhoud |
+|---|------------------------------------------------|
+| Versie | 0.0.1 |
+| Uitgegeven door | OKx, pijler Leren Zonder Drempels (Npuls) |
+| Ingevuld door | *naam en organisatie van de invuller* |
+| Datum | *datum van invullen* |
+| Inleveren | terug naar OKx SI als Word-bestand |
 
-# Invullen
+```{=openxml}
+<w:p><w:r><w:br w:type="page"/></w:r></w:p>
+```
+
+# Inleiding
 
 | Onderdeel | Inhoud |
 |---|------------------------------------------------|
 | Wat dit wordt | een interactieketen: welke diensten elkaar in welke volgorde aanroepen om een keten af te maken, en welke afspraken elke dienst nakomt |
 | Wie dit invult | de adviesgroep. Suggestie: de business analisten met Niels, want de keten raakt de koppelvlakken |
 | Voorbeeld | [interactieketen onderwijsaanbod](https://github.com/Npuls-OKx/meta/blob/e05b4444a29a09b92cc8afd73bce69af78f1ac12/architecture/docs/specificatie/interactieketen-onderwijsaanbod/README.md), nog in review als pull request 373 |
-| Inleveren | terug naar OKx SI als Word-bestand |
 
 Elk hoofdstuk opent met een blok dat zegt wat er van dat hoofdstuk wordt verwacht: waar hetzelfde al is uitgewerkt, welk artefact hier hoort en waaraan het voldoet, en wat dit hoofdstuk aan het pakket van eisen bijdraagt. Dat blok blijft staan; het is de opdracht en niet de uitwerking. Een hoofdstuk dat niet van toepassing is houdt zijn kop, met de reden eronder.
 
-# Van user story naar eis
+## Van user story naar eis
 
 Het pakket van eisen komt uit de gedeelde analyse van alles wat scholen hebben ingebracht, geinventariseerd in de PoC-sessies met de koploperscholen. De grootst gemene deler daaruit is wat OKx vastlegt.
 
@@ -26,11 +35,25 @@ Niet elk hoofdstuk levert hetzelfde. Een journey brengt een behoefte naar boven 
 
 Vul in dit document de laag in die boven het hoofdstuk staat. De lagen eronder volgen in een eigen ronde, met dit document als bron.
 
-# De grootst gemene deler
+## De grootst gemene deler
 
 Tussen de inbreng van instellingen en leveranciers en dit document zit een analysestap. Houd daarbij drie dingen uit elkaar: wat een product vandaag doet, wat een component moet kunnen, en wat OKx als grootst gemene deler vastlegt. Een leverancier spreekt voor zijn product en niet voor de sector.
 
 Een instelling spreekt voor haar eigen praktijk en niet voor de sector. Noteer daarom apart wat afwijkt, onder [Afwijkingen per instelling](#afwijkingen-per-instelling).
+
+```{=openxml}
+<w:p><w:pPr><w:pStyle w:val="Kop1zondernummer"/></w:pPr>
+<w:r><w:t>Inhoudsopgave</w:t></w:r></w:p>
+<w:p><w:r><w:fldChar w:fldCharType="begin" w:dirty="true"/></w:r>
+<w:r><w:instrText xml:space="preserve"> TOC \o "1-3" \h \z \u </w:instrText></w:r>
+<w:r><w:fldChar w:fldCharType="separate"/></w:r>
+<w:r><w:t xml:space="preserve">Werk deze inhoudsopgave bij met Ctrl+A en F9.</w:t></w:r>
+<w:r><w:fldChar w:fldCharType="end"/></w:r></w:p>
+```
+
+```{=openxml}
+<w:p><w:r><w:br w:type="page"/></w:r></w:p>
+```
 
 # De informatiestromen
 
