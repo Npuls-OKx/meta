@@ -16,6 +16,10 @@
 | Voorbeeld | [de uitwerking van leerroute 1 met Jochem](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md) |
 | Inleveren | terug naar OKx SI als Word-bestand |
 
+![De producten rond sjabloon leerroute scenario uitwerking, met dit product uitgelicht](<img/leerroute-scenario-uitwerking/product-breakdown.png>)
+
+*Het uitgelichte vak is het product dat u met dit sjabloon beschrijft; de vakken eromheen zijn de producten waar het op bouwt en die erop verder bouwen. Het cijfer rechtsboven in een vak is de prioriteit, waarbij lager eerder is. Dit is een uitsnede van de productafbakening v0.1; de hele plaat staat in [de leeswijzer bij de sjablonen](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/sjablonen/README.md).*
+
 Elk hoofdstuk opent met een blok dat zegt wat er van dat hoofdstuk wordt verwacht: waar hetzelfde al is uitgewerkt, welk artefact hier hoort en waaraan het voldoet, en wat dit hoofdstuk aan het pakket van eisen bijdraagt. Dat blok blijft staan; het is de opdracht en niet de uitwerking. Een hoofdstuk dat niet van toepassing is houdt zijn kop, met de reden eronder.
 
 ## Doelstelling document

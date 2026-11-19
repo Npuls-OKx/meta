@@ -22,6 +22,16 @@ Open het Word-bestand. Elk sjabloon is **afgeleid uit de uitwerking die er al li
 
 De inhoudsopgave is een Word-veld en staat leeg tot hij wordt bijgewerkt; dat doet de lezer met Ctrl+A en F9, en de tekst in het veld zegt dat ook.
 
+## De productafbakening
+
+![De producten van OKx en hoe zij op elkaar bouwen](<product-breakdown-v0.1.png>)
+
+Dit is de basis onder de vijf sjablonen: welke producten OKx maakt, in welke volgorde zij op elkaar bouwen, en wat een eindproduct is. Een kader is grijs, een tussenproduct wit, een eindproduct omlijnd; het cijfer rechtsboven in een vak is de prioriteit, waarbij lager eerder is.
+
+Elk sjabloon draagt onder zijn inleiding een **uitsnede** van deze plaat, met het eigen vak uitgelicht en de buren eromheen zichtbaar. Zo ziet een invuller waar zijn document op bouwt en wat erop verder bouwt, zonder de hele plaat te hoeven lezen. De uitsnede wordt gegenereerd uit `breakdown_vak` in de configuratie: de rechthoek van dat vak in de plaat.
+
+De plaat draagt nog de oude productnamen, `Kaderscenario` en `Leerroute-uitwerking`. Die worden `leerroute scenario` en `leerroute scenario uitwerking`; dat loopt via #556 en vraagt ook een nieuwe versie van deze plaat.
+
 ## Het blok boven elk hoofdstuk
 
 Elk hoofdstuk opent met een blok dat zegt wat er wordt verwacht. Dat blok blijft staan: het is de opdracht en niet de uitwerking.

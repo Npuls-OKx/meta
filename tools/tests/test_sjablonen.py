@@ -204,6 +204,43 @@ class EenBeeldIsEenBeeld(unittest.TestCase):
                      if p.lower().endswith(".svg")], [])
 
 
+class DeProductafbakeningStaatInElkSjabloon(unittest.TestCase):
+    """Een invuller moet zien waar zijn document in het geheel past."""
+
+    def test_elk_sjabloon_draagt_de_uitsnede(self):
+        for naam in CONFIG:
+            t = skelet(naam)
+            with self.subTest(naam):
+                self.assertIn(f"img/{naam}/product-breakdown.png", t)
+                self.assertIn("Het uitgelichte vak is het product dat u met "
+                              "dit sjabloon beschrijft", t)
+
+    def test_de_uitsnede_staat_in_de_inleiding(self):
+        for naam in CONFIG:
+            t = skelet(naam)
+            with self.subTest(naam):
+                self.assertLess(t.index("# Inleiding"),
+                                t.index("product-breakdown.png"))
+                self.assertLess(t.index("product-breakdown.png"),
+                                t.index(maak.INHOUDSOPGAVE))
+
+    def test_elk_vak_ligt_binnen_de_plaat(self):
+        from PIL import Image
+        with Image.open(WORTEL / maak.BREAKDOWN) as plaat:
+            breed, hoog = plaat.size
+        for naam, cfg in CONFIG.items():
+            vak = cfg.get("breakdown_vak")
+            with self.subTest(naam):
+                self.assertIsNotNone(vak, "dit sjabloon wijst geen vak aan")
+                self.assertTrue(0 <= vak[0] < vak[2] <= breed)
+                self.assertTrue(0 <= vak[1] < vak[3] <= hoog)
+
+    def test_elk_sjabloon_wijst_een_eigen_vak_aan(self):
+        vakken = [tuple(cfg["breakdown_vak"]) for cfg in CONFIG.values()]
+        self.assertEqual(len(set(vakken)), len(vakken),
+                         "twee sjablonen lichten hetzelfde vak uit")
+
+
 class HetSkeletDraagtZijnUitwerking(unittest.TestCase):
     def test_opnieuw_afleiden_geeft_hetzelfde_skelet(self):
         with tempfile.TemporaryDirectory() as tmp:

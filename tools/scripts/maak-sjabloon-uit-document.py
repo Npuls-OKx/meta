@@ -96,6 +96,15 @@ MAXBREEDTE = 1600
 # niet van het origineel te onderscheiden en een vijfde zo groot.
 RASTERBREEDTE = 1200
 KLEUREN = 64
+
+# De productafbakening staat in elk sjabloon, met het vak van dit product
+# uitgelicht: de invuller ziet waar zijn document in het geheel past.
+BREAKDOWN = "architecture/docs/sjablonen/product-breakdown-v0.1.png"
+ACCENT = (221, 120, 75)        # Npuls-oranje
+DOFHEID = 0.55                 # hoeveel de omgeving naar wit verschuift
+# De hele plaat is op paginabreedte onleesbaar. Een uitsnede rond het eigen vak
+# toont wat de invuller nodig heeft: de buren en de pijlen ertussen.
+MARGE = (430, 250)
 BLOB = "https://github.com/Npuls-OKx/meta/blob"
 
 # Wat de uitwerking in een hoofdstuk levert, bepaalt wat het sjabloon daar
@@ -198,6 +207,31 @@ def label(kop: str, labels: dict[str, str]) -> str:
                       r"Wanneer|Welke|Wie)\s+", "", kaal, flags=re.I)
         kaal = kaal[:1].upper() + kaal[1:] if kaal else kop
     return kaal
+
+
+def uitgelicht(bron: pathlib.Path, doel: pathlib.Path,
+               vak: tuple[int, int, int, int]) -> None:
+    """Zet de productafbakening neer met een vak uitgelicht.
+
+    De omgeving verschuift naar wit en het eigen vak blijft staan, met een
+    accentrand eromheen. Zo blijft zichtbaar waar het product in het geheel
+    hangt, zonder dat de rest de aandacht trekt.
+    """
+    from PIL import Image, ImageDraw
+    with Image.open(bron) as beeld:
+        plat = Image.new("RGB", beeld.size, "white")
+        plat.paste(beeld, mask=beeld.split()[-1] if beeld.mode == "RGBA" else None)
+        dof = Image.blend(plat, Image.new("RGB", plat.size, "white"), DOFHEID)
+        dof.paste(plat.crop(vak), (vak[0], vak[1]))
+        tekenaar = ImageDraw.Draw(dof)
+        rand = 4
+        tekenaar.rectangle(
+            [vak[0] - rand, vak[1] - rand, vak[2] + rand, vak[3] + rand],
+            outline=ACCENT, width=rand)
+        venster = (max(0, vak[0] - MARGE[0]), max(0, vak[1] - MARGE[1]),
+                   min(dof.width, vak[2] + MARGE[0]),
+                   min(dof.height, vak[3] + MARGE[1]))
+        dof.crop(venster).quantize(colors=128).save(doel, optimize=True)
 
 
 def raster(bron: pathlib.Path, doel: pathlib.Path) -> None:
@@ -328,6 +362,7 @@ class Sjabloon:
             f"| Voorbeeld | {c['voorbeeld']} |",
             "| Inleveren | terug naar OKx SI als Word-bestand |",
             "",
+            *self.afbakening(),
             "Elk hoofdstuk opent met een blok dat zegt wat er van dat hoofdstuk "
             "wordt verwacht: waar hetzelfde al is uitgewerkt, welk artefact "
             "hier hoort en waaraan het voldoet, en wat dit hoofdstuk aan het "
@@ -407,6 +442,25 @@ class Sjabloon:
             INHOUDSOPGAVE,
             "",
             PAGINA_EINDE,
+            "",
+        ]
+
+    def afbakening(self) -> list[str]:
+        """De productafbakening, met het vak van dit product uitgelicht."""
+        if not self.cfg.get("breakdown_vak"):
+            return []
+        return [
+            f"![De producten rond {self.cfg['titel'].lower()}, met dit "
+            f"product uitgelicht](<{self.breakdownpad()}>)",
+            "",
+            "*Het uitgelichte vak is het product dat u met dit sjabloon "
+            "beschrijft; de vakken eromheen zijn de producten waar het op "
+            "bouwt en die erop verder bouwen. Het cijfer rechtsboven in een "
+            "vak is de prioriteit, waarbij lager eerder is. Dit is een "
+            "uitsnede van de productafbakening v0.1; de hele plaat staat in "
+            "[de leeswijzer bij de sjablonen]"
+            "(https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/"
+            "sjablonen/README.md).*",
             "",
         ]
 
@@ -634,7 +688,15 @@ class Sjabloon:
             uit = self.uitmap / pad
             uit.parent.mkdir(parents=True, exist_ok=True)
             verklein(bron, uit)
+        vak = self.cfg.get("breakdown_vak")
+        if vak:
+            uit = self.uitmap / self.breakdownpad()
+            uit.parent.mkdir(parents=True, exist_ok=True)
+            uitgelicht(WORTEL / BREAKDOWN, uit, tuple(vak))
         return doel
+
+    def breakdownpad(self) -> str:
+        return f"img/{self.naam}/product-breakdown.png"
 
 
 def main(argv: list[str] | None = None) -> int:
