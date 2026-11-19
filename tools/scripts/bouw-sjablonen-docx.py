@@ -16,6 +16,8 @@ import json
 import pathlib
 import shutil
 import subprocess
+import tempfile
+import zipfile
 import sys
 
 WORTEL = pathlib.Path(__file__).resolve().parents[2]
@@ -24,6 +26,12 @@ GEGENEREERD = MAP / "gegenereerd"
 BRON = GEGENEREERD          # de skeletten komen uit maak-sjabloon-uit-document.py
 CONFIG = MAP / "bron/sjablonen.json"
 REFERENTIE = GEGENEREERD / "npuls-referentie.docx"
+
+
+def titels() -> dict[str, str]:
+    """De documenttitel per sjabloon; Word zet hem in de kop- en voettekst."""
+    config = json.loads(CONFIG.read_text(encoding="utf-8"))
+    return {naam: cfg["titel"] for naam, cfg in config.items()}
 
 
 def sjablonen() -> dict[str, str]:
@@ -43,7 +51,8 @@ def eis_pandoc() -> str:
     return pad
 
 
-def bouw_een(naam: str, uit: pathlib.Path, referentie: pathlib.Path) -> None:
+def bouw_een(naam: str, uit: pathlib.Path, referentie: pathlib.Path,
+             titel: str = "") -> None:
     bron = BRON / f"{naam}.md"
     if not bron.exists():
         raise SystemExit(
@@ -52,10 +61,13 @@ def bouw_een(naam: str, uit: pathlib.Path, referentie: pathlib.Path) -> None:
     # --resource-path wijst pandoc naar de beelden die de generator naast het
     # skelet heeft gezet, zodat zij in het Word-bestand zelf landen.
     klaar = subprocess.run(
-        [eis_pandoc(), str(bron), "--from", "gfm", "--to", "docx",
+        [eis_pandoc(), str(bron), "--from", "gfm+raw_attribute", "--to", "docx",
          "--reference-doc", str(referentie),
          "--resource-path", str(bron.parent),
          "--toc", "--toc-depth=3",
+         "--metadata", f"title={titel}",
+         "--metadata", "lang=nl-NL",
+         "--metadata", "toc-title=Inhoudsopgave",
          "--output", str(uit)],
         capture_output=True, text=True,
     )
@@ -65,6 +77,32 @@ def bouw_een(naam: str, uit: pathlib.Path, referentie: pathlib.Path) -> None:
     if klaar.stderr.strip():
         for regel in klaar.stderr.strip().splitlines():
             print(f"    let op: {regel}")
+    zet_titel_in_de_voettekst(uit, titel)
+
+
+def zet_titel_in_de_voettekst(docx: pathlib.Path, titel: str) -> None:
+    """Vult de plaatshouder die het Npuls-sjabloon in zijn voettekst draagt.
+
+    Daar staat letterlijk [titel]; het is geen veld, dus Word vult hem nooit
+    zelf en elk gebouwd sjabloon zou die plaatshouder blijven tonen.
+    """
+    if not titel:
+        return
+    with zipfile.ZipFile(docx) as z:
+        onderdelen = {n: z.read(n) for n in z.namelist()}
+    geraakt = False
+    for naam, inhoud in onderdelen.items():
+        if naam.startswith(("word/footer", "word/header")) and b"[titel]" in inhoud:
+            onderdelen[naam] = inhoud.replace(b"[titel]", titel.encode("utf-8"))
+            geraakt = True
+    if not geraakt:
+        return
+    with tempfile.TemporaryDirectory() as tmp:
+        tussen = pathlib.Path(tmp) / docx.name
+        with zipfile.ZipFile(tussen, "w", zipfile.ZIP_DEFLATED) as z:
+            for naam, inhoud in onderdelen.items():
+                z.writestr(naam, inhoud)
+        shutil.move(str(tussen), docx)
 
 
 def kort(pad: pathlib.Path) -> str:
@@ -88,7 +126,7 @@ def bouw(doel: pathlib.Path, referentie: pathlib.Path,
             if not uit.exists():
                 ontbreekt.append(bestand)
             continue
-        bouw_een(naam, uit, referentie)
+        bouw_een(naam, uit, referentie, titels().get(naam, ""))
         print(f"  {bestand}  ({uit.stat().st_size} bytes)")
     if ontbreekt:
         print("deze sjablonen staan niet in versiebeheer:", file=sys.stderr)

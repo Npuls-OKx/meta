@@ -57,7 +57,7 @@ BLOB = "https://github.com/Npuls-OKx/meta/blob"
 # Wat de uitwerking in een hoofdstuk levert, bepaalt wat het sjabloon daar
 # verwacht. De eis erachter is wat het hoofdstuk af maakt.
 ARTEFACTEN = {
-    "diagram": ("een procesdiagram (BPMN, mermaid, UML of vergelijkbaar)",
+    "diagram": ("een procesplaat in mermaid, BPMN, UML of vergelijkbaar",
                 "het diagram toont de terugweg en het foutpad, en elke stap "
                 "noemt de rol die handelt en het systeem dat zij gebruikt"),
     "beeld": ("een beeld",
@@ -70,6 +70,26 @@ ARTEFACTEN = {
     "tekst": ("een beschrijving in lopende tekst",
               "de tekst noemt wie handelt, met welk systeem, en welke "
               "informatie van waar naar waar beweegt"),
+}
+
+# Niet elk hoofdstuk levert hetzelfde aan het pakket van eisen. Een journey
+# brengt een behoefte naar boven, een procesbeschrijving zegt wat de instelling
+# moet kunnen, een gegevens- of systeemhoofdstuk wat een component moet doen,
+# en een interactiehoofdstuk wat er over het koppelvlak gaat.
+LAGEN = {
+    "user story": "**User stories** *vul de nummers in uit het pakket van "
+                  "eisen die dit hoofdstuk naar boven brengt; een story noemt "
+                  "de rol, de wens en het doel*",
+    "business": "**Business requirements** *wat de instelling moet kunnen om "
+                "de stories van dit hoofdstuk waar te maken; verwijs naar het "
+                "nummer van de story*",
+    "functional": "**Functional requirements** *wat een component moet doen "
+                  "met welke gegevens; verwijs naar het nummer van de story*",
+    "technical": "**Technical requirements** *wat er over het koppelvlak gaat "
+                 "en in welke vorm; verwijs naar het nummer van de story*",
+    "context": "**Pakket van eisen** *dit hoofdstuk levert geen eis op; het "
+               "geeft de context waarin de eisen van de andere hoofdstukken "
+               "te lezen zijn*",
 }
 
 
@@ -190,6 +210,8 @@ class Sjabloon:
         self.paren = [list(p) for p in cfg.get("vervang", [])]
         self.koppen_paren = self.paren + [list(x) for x in cfg.get("kop_vervang", [])]
         self.labels = cfg.get("kop_labels", {})
+        self.hoofdstukken = cfg.get("hoofdstukken", {})
+        self.weg_koppen = [k.lower() for k in cfg.get("kop_weglaten", [])]
         self.weg_tot = cfg.get("weglaten_tot")
         self.weg_vanaf = cfg.get("weglaten_vanaf")
         self.uit: list[str] = []
@@ -243,9 +265,10 @@ class Sjabloon:
     def aanhef(self) -> list[str]:
         c = self.cfg
         return [
-            f"# {c['titel']}",
+            # De omslag en de inhoudsopgave krijgen een eigen pagina.
+            "`<w:p><w:r><w:br w:type=\"page\"/></w:r></w:p>`{=openxml}",
             "",
-            "## Invullen",
+            "# Invullen",
             "",
             "| Onderdeel | Inhoud |",
             "|---|------------------------------------------------|",
@@ -254,59 +277,49 @@ class Sjabloon:
             f"| Voorbeeld | {c['voorbeeld']} |",
             "| Inleveren | terug naar OKx SI als Word-bestand |",
             "",
-            "## Werkwijze",
+            "Elk hoofdstuk opent met een blok dat zegt wat er van dat hoofdstuk "
+            "wordt verwacht: waar hetzelfde al is uitgewerkt, welk artefact "
+            "hier hoort en waaraan het voldoet, en wat dit hoofdstuk aan het "
+            "pakket van eisen bijdraagt. Dat blok blijft staan; het is de "
+            "opdracht en niet de uitwerking. Een hoofdstuk dat niet van "
+            "toepassing is houdt zijn kop, met de reden eronder.",
             "",
-            "Elk hoofdstuk opent met een blok van vier regels. Dat blok zegt wat "
-            "er van dit hoofdstuk wordt verwacht, en het blijft staan: het is de "
-            "opdracht en niet de uitwerking.",
+            "# Van user story naar eis",
             "",
-            "| Regel | Wat erin staat |",
-            "|---|------------------------------------------------|",
-            "| Voorbeeld | de plek in de voorbeelduitwerking waar hetzelfde "
-            "hoofdstuk al is ingevuld |",
-            "| Verwacht | het artefact dat hier hoort, afgeleid uit wat de "
-            "voorbeelduitwerking daar levert |",
-            "| User stories | de nummers uit het pakket van eisen die dit "
-            "hoofdstuk verwezenlijkt |",
-            "| Klaar wanneer | het acceptatiecriterium waaraan de uitwerking "
-            "voldoet |",
+            "Het pakket van eisen komt uit de gedeelde analyse van alles wat "
+            "scholen hebben ingebracht, geinventariseerd in de PoC-sessies met "
+            "de koploperscholen. De grootst gemene deler daaruit is wat OKx "
+            "vastlegt.",
             "",
-            "De koppen blijven staan zoals zij hier staan. In het agent-harnas "
-            "komt een lezer (parser) die een ingevuld document per kop "
-            "terugvertaalt naar de kennisbank; een kop die is herschreven of "
-            "weggehaald maakt zijn hoofdstuk onleesbaar. Een hoofdstuk dat niet "
-            "van toepassing is houdt dus zijn kop, met de reden eronder.",
+            "Niet elk hoofdstuk levert hetzelfde. Een journey brengt een "
+            "behoefte naar boven en levert user stories. Een procesbeschrijving "
+            "zegt wat de instelling moet kunnen. Een gegevens- of "
+            "systeemhoofdstuk zegt wat een component moet doen. Een "
+            "interactiehoofdstuk zegt wat er over het koppelvlak gaat. Het blok "
+            "boven elk hoofdstuk noemt welke laag daar hoort.",
             "",
-            "## Van user story naar requirement",
+            "| Laag | Waar die ontstaat | Voorbeeld |",
+            "|---|---|------------------------------------|",
+            "| User story | in een journey of een scenario | Als student wil "
+            "ik bij mijn keuzedeelruimte een geprioriteerde voorkeurslijst "
+            "opgeven, met als doel dat ik niet zonder keuzedeel kom te zitten "
+            "wanneer mijn eerste keuze vol is |",
+            "| Business requirement | in een procesbeschrijving | de instelling "
+            "kent per keuzedeelruimte de voorkeursvolgorde van de student "
+            "voordat zij plaatst |",
+            "| Functional requirement | in een gegevens- of systeemhoofdstuk | "
+            "het studentkeuzesysteem legt per keuzedeelruimte een geordende "
+            "lijst voorkeuren vast, met per voorkeur het onderdeel, de periode "
+            "en de locatie |",
+            "| Technical requirement | in een interactiehoofdstuk | de "
+            "voorkeurslijst gaat als geordende verzameling over het koppelvlak, "
+            "met de volgorde expliciet in het bericht en niet afgeleid uit de "
+            "positie |",
             "",
-            "Een hoofdstuk is pas af wanneer het aanwijsbaar is welke user "
-            "stories het verwezenlijkt. Die stories komen uit de gedeelde "
-            "analyse van alles wat scholen als input hebben geleverd, "
-            "geinventariseerd in de PoC-sessies met de koploperscholen en "
-            "samengebracht tot het pakket van eisen. De grootst gemene deler "
-            "daaruit is wat OKx vastlegt.",
+            "Vul in dit document de laag in die boven het hoofdstuk staat. De "
+            "lagen eronder volgen in een eigen ronde, met dit document als bron.",
             "",
-            "Elke story gaat daarna door drie lagen. Een voorbeeld, zodat de "
-            "vorm vastligt:",
-            "",
-            "| Laag | Voorbeeld |",
-            "|---|------------------------------------------------|",
-            "| User story | Als student wil ik bij mijn keuzedeelruimte een "
-            "geprioriteerde voorkeurslijst opgeven, met als doel dat ik niet "
-            "zonder keuzedeel kom te zitten wanneer mijn eerste keuze vol is |",
-            "| Business requirement | de instelling kent per keuzedeelruimte de "
-            "voorkeursvolgorde van de student voordat zij plaatst |",
-            "| Functional requirement | het studentkeuzesysteem legt per "
-            "keuzedeelruimte een geordende lijst voorkeuren vast, met per "
-            "voorkeur het keuzedeel, de periode en de locatie |",
-            "| Technical requirement | de voorkeurslijst gaat als geordende "
-            "verzameling over het koppelvlak, met de volgorde expliciet in het "
-            "bericht en niet afgeleid uit de positie |",
-            "",
-            "Vul in dit document de user stories in; de drie requirementlagen "
-            "volgen daarna in een eigen ronde, met dit document als bron.",
-            "",
-            "## De grootst gemene deler",
+            "# De grootst gemene deler",
             "",
             c["aggregatie"],
             "",
@@ -318,7 +331,7 @@ class Sjabloon:
 
     def slot(self) -> list[str]:
         return [
-            "## Afwijkingen per instelling",
+            "# Afwijkingen per instelling",
             "",
             "Wat bij een instelling anders gaat dan hierboven staat, per regel "
             "met de instelling erbij. Dit is geen restcategorie: hier staat het "
@@ -330,7 +343,7 @@ class Sjabloon:
             "| | | |",
             "| | | |",
             "",
-            "## Vragen aan OKx",
+            "# Vragen aan OKx",
             "",
             "Wat onduidelijk bleef, genummerd, met per vraag het hoofdstuk waar "
             "het speelt.",
@@ -345,7 +358,7 @@ class Sjabloon:
 
     # -- de doorloop ----------------------------------------------------------
 
-    def nummer(self, niveau: int) -> str:
+    def nummer(self, niveau: int) -> str:   # niet meer gebruikt; Word telt
         """Hernummert de koppen, want de bron telt op drie plekken 3.2.1.1."""
         i = niveau - 2
         self.teller[i] += 1
@@ -355,6 +368,7 @@ class Sjabloon:
 
     def verwachting(self, kop_bron: str, kop: str,
                     inhoud: list[str]) -> list[str]:
+        eigen = self.hoofdstukken.get(kop, {})
         soorten = []
         tekst = "\n".join(inhoud)
         if "```mermaid" in tekst:
@@ -367,21 +381,29 @@ class Sjabloon:
             soorten.append("opsomming")
         if not soorten:
             soorten.append("tekst")
-        verwacht = ", ".join(ARTEFACTEN[s][0] for s in soorten)
-        eis = "; ".join(ARTEFACTEN[s][1] for s in soorten)
+        verwacht = eigen.get("artefact") or ", ".join(
+            ARTEFACTEN[s][0] for s in soorten)
+        eis = eigen.get("eis") or "; ".join(ARTEFACTEN[s][1] for s in soorten)
+        context = eigen.get("context")
+        if context:
+            verwacht = f"{verwacht}, {context}"
         url = f"{BLOB}/{self.ref()}/{self.bronnaam}#{anker(kop_bron)}"
         naam = self.cfg.get("voorbeeld_naam", "de voorbeelduitwerking")
-        return [
+        laag = LAGEN[eigen.get("laag", self.cfg.get("laag", "context"))]
+
+        blok = []
+        if eigen.get("optioneel"):
+            blok += [f"*Optioneel: {eigen['optioneel']}. Geldt het niet voor "
+                     "deze route, laat de kop staan met die reden eronder.*", ""]
+        blok += [
             f"**Voorbeeld** [{naam}, {kop}]({url})",
             "",
-            f"**Verwacht** {verwacht}",
+            f"**Acceptatiecriteria** {verwacht}, en {eis}",
             "",
-            "**User stories** *vul de nummers in uit het pakket van eisen die "
-            "dit hoofdstuk verwezenlijkt*",
-            "",
-            f"**Klaar wanneer** {eis}",
+            laag,
             "",
         ]
+        return blok
 
     def beeld(self, alt: str, pad: str) -> None:
         """Zet het beeld in het document, niet een beschrijving ervan."""
@@ -435,23 +457,25 @@ class Sjabloon:
                     continue
             if self.weg_vanaf and self.weg_vanaf.lower() in kop_bron.lower():
                 break
+            if any(w in kop_bron.lower() for w in self.weg_koppen):
+                continue
             gekozen.append((niveau, kop_bron, inhoud))
         if not gekozen:
             raise SystemExit(f"{self.naam}: geen enkel hoofdstuk blijft over; "
                              "weglaten_tot of weglaten_vanaf wijst verkeerd")
         basis = min(n for n, _, _ in gekozen)
         for niveau, kop_bron, inhoud in gekozen:
-            self.hoofdstuk(2 + niveau - basis, kop_bron, inhoud)
+            self.hoofdstuk(1 + niveau - basis, kop_bron, inhoud)
 
         self.uit += self.slot()
         tekst = self.absoluut("\n".join(self.uit))
         return re.sub(r"\n{3,}", "\n\n", tekst).strip() + "\n"
 
     def hoofdstuk(self, niveau: int, kop_bron: str, inhoud: list[str]) -> None:
-        niveau = max(2, min(6, niveau))
+        niveau = max(1, min(6, niveau))
 
         tekst = vervang(label(kop_bron, self.labels), self.koppen_paren)
-        self.uit += [f"{'#' * niveau} {self.nummer(niveau)} {tekst}", ""]
+        self.uit += [f"{'#' * niveau} {tekst}", ""]
         self.uit += self.verwachting(kop_bron, tekst, inhoud)
 
         # De beelden en de tabellen van de bron gaan mee; de rest is uitwerking.

@@ -12,18 +12,43 @@ Open het Word-bestand. Elk sjabloon is **afgeleid uit de uitwerking die er al li
 | leerroute scenario uitwerking | `OKx sjabloon leerroute scenario uitwerking.docx` | [de uitwerking met Jochem](../../model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md) |
 | interactieketen | `OKx sjabloon interactieketen.docx` | [keten onderwijsaanbod](https://github.com/Npuls-OKx/meta/blob/e05b4444a29a09b92cc8afd73bce69af78f1ac12/architecture/docs/specificatie/interactieketen-onderwijsaanbod/README.md), nog in review |
 
-## Het verwachtingsblok
+## Het blok boven elk hoofdstuk
 
-Elk hoofdstuk opent met vier regels. Die zeggen wat er van dat hoofdstuk wordt verwacht, en zij blijven staan: het is de opdracht en niet de uitwerking.
+Elk hoofdstuk opent met een blok dat zegt wat er wordt verwacht. Dat blok blijft staan: het is de opdracht en niet de uitwerking.
 
 | Regel | Wat erin staat |
 |---|---|
-| Voorbeeld | de plek in de voorbeelduitwerking waar hetzelfde hoofdstuk al is ingevuld, als link |
-| Verwacht | het artefact dat hier hoort, afgeleid uit wat de voorbeelduitwerking daar levert |
-| User stories | de nummers uit het pakket van eisen die dit hoofdstuk verwezenlijkt |
-| Klaar wanneer | het acceptatiecriterium waaraan de uitwerking voldoet |
+| Voorbeeld | de plek in de voorbeelduitwerking waar hetzelfde hoofdstuk al is uitgewerkt, als link |
+| Acceptatiecriteria | welk artefact hier hoort, in welke context, en waaraan het voldoet |
+| de laag | wat dit hoofdstuk aan het pakket van eisen bijdraagt: user stories, business, functional of technical requirements, of niets |
 
-**Het verwachte artefact is gemeten en niet verzonnen.** Draagt het hoofdstuk in de uitwerking een mermaid-diagram, dan vraagt het sjabloon een procesdiagram; draagt het een tabel, dan vraagt het een ingevulde tabel. Het acceptatiecriterium hangt aan dat artefact: een procesdiagram is klaar wanneer het de terugweg en het foutpad toont en elke stap een rol noemt.
+Een acceptatiecriterium noemt meer dan de soort. Niet "een beeld", maar:
+
+> een procesplaat van de studentreis in mermaid, BPMN, UML of vergelijkbaar, **in het kader van de persona van deze route**, met een link naar het persona-document, en elke stap noemt wat de student doet en wat hij op dat moment moet weten.
+
+Waar geen eigen criterium is vastgelegd, leidt de generator er een af uit wat de voorbeelduitwerking in dat hoofdstuk levert: een mermaid-diagram vraagt om een procesplaat, een tabel om een ingevulde tabel.
+
+## Niet elk hoofdstuk levert een eis
+
+Een journey brengt een behoefte naar boven en levert **user stories**. Een procesbeschrijving zegt wat de instelling moet kunnen: **business requirements**. Een gegevens- of systeemhoofdstuk zegt wat een component moet doen: **functional requirements**. Een interactiehoofdstuk zegt wat er over het koppelvlak gaat: **technical requirements**. Een enkel hoofdstuk levert niets en geeft alleen context.
+
+Zo valt het leerroute-scenario uiteen:
+
+| Laag | Hoofdstukken | Welke |
+|---|---|---|
+| user story | 7 | de journeys, de keuzemomenten, de scenario's binnen de route |
+| business requirement | 5 | de instelling, de procesbeleving, het plan- en roosterproces, de plancyclus |
+| functional requirement | 11 | de informatie, de gegevens, de systemen, de componenten en het informatiemodel |
+| technical requirement | 9 | de procesfasen met hun interacties |
+| context | 2 | de route zelf en haar kenmerken |
+
+De verdeling staat in `hoofdstukken` in de configuratie, en een testgeval faalt wanneer elk hoofdstuk user stories zou vragen: dan zegt de indeling niets meer.
+
+## Wat niet in elke route hoort
+
+Een route kent niet alles wat leerroute 1 kent. Keuzedelen heten in het sjabloon daarom `Kiesbare onderdelen` en zijn **optioneel**: leerroute 9 kan ze niet hebben. Zo'n hoofdstuk opent met de voorwaarde en met de aanwijzing de kop te laten staan met de reden eronder.
+
+Achtergrondtheorie hoort helemaal niet in een route. De verdieping over CSP en NP-hard staat daarom niet in het sjabloon; die hoort in de leesroute, en dat loopt via #556.
 
 ## Een kop is een label
 
@@ -35,8 +60,9 @@ Een kop die in de bron een vraag is, krijgt zijn label in `kop_labels` in de con
 
 | Onderdeel | Wat ermee gebeurt |
 |---|---|
-| kop | wordt een feitelijk label, hernummerd, met de termen van die ene uitwerking vervangen door een invulhaak zoals `<student>` |
-| hoofdstuk | krijgt het verwachtingsblok, met een link naar dezelfde plek in de voorbeelduitwerking |
+| kop | wordt een feitelijk label, met de termen van die ene uitwerking vervangen door een invulhaak zoals `<student>`; de nummering komt uit het Npuls-sjabloon |
+| hoofdstuk | krijgt het blok met voorbeeld, acceptatiecriteria en de laag in de requirementketen |
+| hoofdstuk dat niet elke route raakt | wordt optioneel, met de voorwaarde erboven |
 | beeld | gaat als beeld mee, verkleind tot wat een A4 nodig heeft; een vectorbeeld wordt een PNG, want het Word-formaat draagt geen SVG |
 | tabel | houdt haar kopregel en krijgt evenveel lege rijen als het origineel had |
 | verwijzing | wordt volledig, want een Word-bestand staat niet in de repository |
@@ -50,13 +76,9 @@ Elk sjabloon opent met dezelfde aanwijzing. Tussen de inbreng van instellingen e
 
 Zonder die stap wordt een sjabloon een verzameling instellingsgewoonten en geen kaderstelling. Elk sjabloon draagt daarom een hoofdstuk `Afwijkingen per instelling`, zodat wat afwijkt bewaard blijft zonder dat het kader erdoor verschuift.
 
-## Van user story naar requirement
-
-Elk sjabloon draagt het hoofdstuk dat de keten uitlegt: een user story uit het pakket van eisen gaat door een business requirement, een functional requirement en een technical requirement. Er staat een uitgewerkt voorbeeld bij, zodat de vorm vastligt. In dit document vult de adviesgroep de user stories in; de drie requirementlagen volgen in een eigen ronde met dit document als bron.
-
 ## Koppen blijven staan
 
-In het agent-harnas komt een lezer (parser) die een ingevuld document terugvertaalt naar de kennisbank. Die leest per kop, dus een kop die is herschreven of weggehaald maakt zijn hoofdstuk onleesbaar. Een hoofdstuk dat niet van toepassing is houdt zijn kop, met de reden eronder.
+Een kop die is herschreven of weggehaald maakt zijn hoofdstuk onvindbaar, en een ingevuld sjabloon is daarna niet meer naast een ander te leggen. Later leest een parser uit het agent-harnas deze documenten per kop terug naar de kennisbank; dat is de tweede reden, en hij staat hier en niet in het sjabloon zelf.
 
 ## Opbouw
 
@@ -75,7 +97,9 @@ python3 tools/scripts/bouw-sjablonen-docx.py
 python3 tools/scripts/bouw-sjablonen-docx.py --controleer
 ```
 
-De referentie komt uit de standaardreferentie van pandoc met de Npuls-waarden erin: oranje `#DD784B` voor de koppen, blauw `#3D68EC` voor links, randen om elke cel, General Sans als letter en `nl-NL` als taal. Staat General Sans niet op de machine van de invuller, dan kiest Word zelf een vervanger; de huisstijl blijft dan in de kleuren zichtbaar.
+De referentie komt uit **[Npuls Word template uitgebreid.dotx](<Npuls Word template uitgebreid.dotx>)**, het sjabloon van Npuls zelf: de omslag met het logo, de kleuren, Arial, de genummerde koppen en de kop- en voetteksten. Dat bestand wordt niet bewerkt.
+
+Pandoc zoekt daarnaast een handvol stijlen op hun Engelse naam die het Npuls-sjabloon niet kent. `bouw-sjabloon-referentie.py` zet die erbij met Npuls-waarden: een tabel met randen, een citaat met een oranje kantlijn, links in `#3D68EC`, en `nl-NL` als taal zodat Word niet elk woord onderstreept. De titel krijgt ruimte boven zich, anders loopt hij door het logo van de omslag. In de voettekst van het sjabloon staat letterlijk `[titel]`; de bouwer vervangt die door de titel van het sjabloon, want het is geen veld dat Word zelf vult.
 
 Twee pakketten in de dev-container horen hierbij: `librsvg2-bin` zet een vectorbeeld om naar PNG, en `libreoffice-writer` laat een gebouwd sjabloon bekijken. Beide staan in [de Dockerfile](../../../.devcontainer/Dockerfile).
 
@@ -87,15 +111,17 @@ python3 -m unittest tools.tests.test_sjablonen
 
 `tools/tests/test_sjablonen.py` faalt wanneer:
 
-- een kop een vraag stelt of met een vraagwoord opent, of de nummering niet bij 1 begint;
-- een hoofdstuk het verwachtingsblok mist, of het verwachte artefact niet uit de bron komt;
+- een kop een vraag stelt, met een vraagwoord opent, of een eigen nummer draagt naast dat van Word;
+- een hoofdstuk het blok mist, het artefact niet uit de bron komt, of elk hoofdstuk user stories zou vragen;
+- een acceptatiecriterium geen context noemt, of de optionele hoofdstukken verdwenen zijn;
+- de referentie niet uit het Npuls-sjabloon komt, een stijl mist die pandoc zoekt, de titel door het logo loopt, of `[titel]` in de voettekst blijft staan;
 - een beeld als beschrijving in het document staat, of een genoemd beeld niet bestaat, of een SVG in het skelet staat;
 - een skelet afwijkt van wat de generator nu uit die uitwerking maakt, dus het sjabloon loopt achter op de bron;
 - een skelet een relatieve verwijzing draagt die in Word nergens heen wijst;
 - een skelet de aggregatiestap, de requirementketen of de schrijfruimte mist;
 - een tabel geen kopregel heeft, want een lege kopregel wordt in Word een lege rij;
 - een `.docx` niet in versiebeheer staat of achterloopt op zijn skelet;
-- de referentie een van de vijf huisstijlwaarden mist.
+- een beeld ontbreekt of een SVG in het skelet staat.
 
 **Deze controle is nog geen poort.** De testsuite draait in de workflow `Model`, en die start alleen wanneer een `*.archimate`-bestand wijzigt. Een pull request die alleen aan de sjablonen raakt, draait de testgevallen dus niet.
 

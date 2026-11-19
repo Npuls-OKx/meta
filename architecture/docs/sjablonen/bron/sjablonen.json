@@ -25,7 +25,8 @@
         "mbo-instelling",
         "<instelling>"
       ]
-    ]
+    ],
+    "laag": "user story"
   },
   "leerroute-scenario": {
     "titel": "Sjabloon leerroute scenario",
@@ -41,13 +42,13 @@
     "kop_labels": {
       "Wat betekent “regulier studeren”?": "Kenmerken van de route",
       "De student beleving - De Student Journey": "Studentjourney",
-      "Wanneer kiest een student keuzedelen?": "Keuzemoment keuzedelen",
+      "Wanneer kiest een student keuzedelen?": "Keuzemomenten",
       "Jochem's onderwijsperiode start": "Start van de onderwijsperiode",
       "De Instellingsbeleving - De Instellingsjourney": "Instellingsjourney",
       "De procesbeleving achter 'regulier' onderwijs van een Instelling": "Procesbeleving bij de instelling",
       "Scénario's binnen deze leerroute": "Scenario's binnen deze leerroute",
       "Overige scenario's specifiek voor leerroute 1": "Routespecifieke scenario's",
-      "Switch regulier onderwijs ↔ set certificaten": "Overstap naar een set certificaten",
+      "Switch regulier onderwijs ↔ set certificaten": "Routespecifieke scenario's",
       "Betrokken informatie bij proces": "Betrokken informatie",
       "Het plan en rooster proces": "Plan- en roosterproces",
       "Plannen is cyclisch": "Plancyclus",
@@ -61,7 +62,8 @@
       "Anti-patronen tussen systemen — tegengestelde doelen om te voorkomen": "Anti-patronen tussen systemen",
       "Procesfasen ↔ interacties op de plaat ↔ informatie": "Procesfasen, interacties en informatie",
       "Concept informatiemodel — geneste onderwijsspecificatie (Jochem, Apothekersassistent)": "Concept informatiemodel: geneste onderwijsspecificatie",
-      "Leerroute 1 — Regulier": "De leerroute"
+      "Leerroute 1 — Regulier": "De leerroute",
+      "Keuzedelen": "Kiesbare onderdelen"
     },
     "vervang": [
       [
@@ -90,7 +92,186 @@
         "Regulier",
         "<naam van de route>"
       ]
-    ]
+    ],
+    "laag": "context",
+    "kop_weglaten": [
+      "Voor wie dieper wil: CSP, NP-Hard en controle"
+    ],
+    "hoofdstukken": {
+      "De leerroute": {
+        "laag": "context",
+        "artefact": "het conceptbeeld van de route",
+        "context": "met in een zin wat deze route onderscheidt van leerroute 1",
+        "eis": "het beeld staat in het document zelf"
+      },
+      "Kenmerken van de route": {
+        "laag": "context",
+        "artefact": "een beschrijving in lopende tekst",
+        "eis": "de tekst noemt wat deze route anders maakt in sturing, tempo en keuzeruimte"
+      },
+      "Studentjourney": {
+        "laag": "user story",
+        "artefact": "een procesplaat van de studentreis in mermaid, BPMN, UML of vergelijkbaar",
+        "context": "in het kader van de persona van deze route, met een link naar het persona-document",
+        "eis": "elke stap noemt wat de student doet en wat hij op dat moment moet weten"
+      },
+      "Kiesbare onderdelen": {
+        "laag": "user story",
+        "optioneel": "alleen wanneer deze route kiesbare onderdelen kent; leerroute 9 kan ze bijvoorbeeld niet hebben",
+        "artefact": "een beschrijving met een tabel van de keuzeruimte",
+        "eis": "per kiesbaar onderdeel staat erbij hoeveel ruimte er is en wie kiest"
+      },
+      "Keuzemomenten": {
+        "laag": "user story",
+        "optioneel": "alleen wanneer de route keuzemomenten kent",
+        "artefact": "een procesplaat van het keuzemoment in mermaid, BPMN, UML of vergelijkbaar",
+        "context": "in het kader van de persona van deze route",
+        "eis": "het moment is aanwijsbaar in de tijd, en de plaat toont wat er gebeurt wanneer er geen passend aanbod is"
+      },
+      "Start van de onderwijsperiode": {
+        "laag": "user story",
+        "artefact": "een beschrijving in lopende tekst",
+        "context": "in het kader van de persona van deze route",
+        "eis": "er staat wat er klaar moet zijn voordat de periode start"
+      },
+      "Instellingsjourney": {
+        "laag": "business",
+        "artefact": "een procesplaat van de instellingsreis in mermaid, BPMN, UML of vergelijkbaar",
+        "context": "in het kader van de persona van deze route, naast de studentjourney te leggen",
+        "eis": "elke stap noemt de rol die handelt en het systeem dat zij gebruikt"
+      },
+      "De onderwijsinstelling": {
+        "laag": "business",
+        "artefact": "een beschrijving van de organisatie-inrichting",
+        "eis": "de teams en rollen die deze route dragen staan erin, en wat zij extra moeten organiseren tegenover leerroute 1"
+      },
+      "Procesbeleving bij de instelling": {
+        "laag": "business",
+        "artefact": "een procesplaat in mermaid, BPMN, UML of vergelijkbaar",
+        "eis": "het proces toont de terugweg en het foutpad, en elke stap noemt de rol en het systeem"
+      },
+      "Scenario's binnen deze leerroute": {
+        "laag": "user story",
+        "artefact": "een opsomming van scenario's",
+        "eis": "de vier herbruikbare scenario's staan erin (nominaal verloop, incidenteel temporiseren, incidenteel versnellen, incidenteel hybride), elk met een regel over wat er in deze route anders gaat"
+      },
+      "Routespecifieke scenario's": {
+        "laag": "user story",
+        "optioneel": "alleen wanneer deze route een eigen scenario kent dat in geen andere route voorkomt",
+        "artefact": "per scenario een beschrijving met een procesplaat",
+        "eis": "er staat bij waarom dit scenario alleen in deze route voorkomt"
+      },
+      "Betrokken informatie": {
+        "laag": "functional",
+        "artefact": "een tabel met de informatieobjecten",
+        "eis": "elk object staat met de term uit de begrippenlijst, en wat niet in de lijst staat is als vraag genoteerd"
+      },
+      "Plan- en roosterproces": {
+        "laag": "business",
+        "artefact": "een procesplaat in mermaid, BPMN, UML of vergelijkbaar",
+        "eis": "de plaat toont wanneer er gepland wordt, waarop wordt bijgestuurd, en wat er gebeurt wanneer het plan niet sluit"
+      },
+      "Plancyclus": {
+        "laag": "business",
+        "artefact": "een beschrijving met een beeld van de cyclus",
+        "eis": "de momenten voor en na de startweek staan uit elkaar"
+      },
+      "Groeperingen, plannen en roosteren": {
+        "laag": "functional",
+        "artefact": "een voorbeeld met een tabel",
+        "eis": "de groeperingen zijn benoemd met hun kardinaliteit, en elk getal heeft een voorbeeld"
+      },
+      "Planbare onderwijsspecificaties": {
+        "laag": "functional",
+        "artefact": "een beschrijving met een tabel",
+        "eis": "er staat per specificatie wat haar planbaar maakt"
+      },
+      "Persoon, groep en constraint": {
+        "laag": "functional",
+        "artefact": "een tabel met de constraints",
+        "eis": "elke constraint is te toetsen en noemt het systeem dat hem kent"
+      },
+      "Conceptueel gegevensoverzicht": {
+        "laag": "functional",
+        "artefact": "een gegevensplaat en een tabel",
+        "eis": "elk gegeven noemt zijn bronsysteem"
+      },
+      "Betrokken systemen": {
+        "laag": "functional",
+        "artefact": "een tabel met de systemen",
+        "eis": "elk systeem staat met zijn afkorting uit de afkortingenlijst, dus Onderwijscatalogus (OC) en niet de catalogus"
+      },
+      "Applicatiecomponenten op de plaat": {
+        "laag": "functional",
+        "artefact": "de hoofdplaat met een tabel per component",
+        "eis": "per component staat welk doel het dient en welke gegevens het draagt"
+      },
+      "Componenten en hun scope": {
+        "laag": "functional",
+        "artefact": "een tabel",
+        "eis": "per component staat wat er wel en wat er niet in hoort, met de reden"
+      },
+      "Bron-, lees- en bewerkrollen": {
+        "laag": "functional",
+        "artefact": "een tabel met de rollen per informatieobject",
+        "eis": "per object is er precies een bronsysteem"
+      },
+      "Anti-patronen tussen systemen": {
+        "laag": "functional",
+        "artefact": "een opsomming",
+        "eis": "elk anti-patroon noemt het tegengestelde doel dat eronder ligt"
+      },
+      "Procesfasen, interacties en informatie": {
+        "laag": "technical",
+        "artefact": "een tabel per fase",
+        "eis": "per fase staat welke informatie van welk systeem naar welk systeem gaat; dit is de brug naar de interactieketen"
+      },
+      "Concept informatiemodel: geneste onderwijsspecificatie": {
+        "laag": "functional",
+        "artefact": "een informatiemodelplaat met een tabel",
+        "eis": "elk objecttype staat met de term uit de begrippenlijst, en de kardinaliteit tussen twee typen heeft een voorbeeld"
+      },
+      "Fase 1 — Kwalificatiekader analyseren en grofmazig ontwerpen": {
+        "laag": "technical",
+        "artefact": "een tabel met de interacties van deze fase",
+        "eis": "per interactie staat welk systeem levert, welk systeem afneemt, en welke informatie meegaat"
+      },
+      "Fase 2 — Publiceren en planbaar maken": {
+        "laag": "technical",
+        "artefact": "een tabel met de interacties van deze fase",
+        "eis": "per interactie staat welk systeem levert, welk systeem afneemt, en welke informatie meegaat"
+      },
+      "Fase 3 — Instroom, intake en plaatsing": {
+        "laag": "technical",
+        "artefact": "een tabel met de interacties van deze fase",
+        "eis": "per interactie staat welk systeem levert, welk systeem afneemt, en welke informatie meegaat"
+      },
+      "Fase 4 — Detailleren, roosteren en inschrijven": {
+        "laag": "technical",
+        "artefact": "een tabel met de interacties van deze fase",
+        "eis": "per interactie staat welk systeem levert, welk systeem afneemt, en welke informatie meegaat"
+      },
+      "Fase 5 — Onderwijs uitvoeren en voortgang begeleiden": {
+        "laag": "technical",
+        "artefact": "een tabel met de interacties van deze fase",
+        "eis": "per interactie staat welk systeem levert, welk systeem afneemt, en welke informatie meegaat"
+      },
+      "Fase 6 — Organiseren van keuzemomenten": {
+        "laag": "technical",
+        "artefact": "een tabel met de interacties van deze fase",
+        "eis": "per interactie staat welk systeem levert, welk systeem afneemt, en welke informatie meegaat"
+      },
+      "Fase 7 — Bijsturen planning en aanbod": {
+        "laag": "technical",
+        "artefact": "een tabel met de interacties van deze fase",
+        "eis": "per interactie staat welk systeem levert, welk systeem afneemt, en welke informatie meegaat"
+      },
+      "Fase 8 — Examineren, vaststellen en diplomeren": {
+        "laag": "technical",
+        "artefact": "een tabel met de interacties van deze fase",
+        "eis": "per interactie staat welk systeem levert, welk systeem afneemt, en welke informatie meegaat"
+      }
+    }
   },
   "informatiemodel-viewpoint": {
     "titel": "Sjabloon informatiemodel viewpoint",
@@ -109,7 +290,8 @@
         "OKx informatiemodel",
         "<naam van de plaat>"
       ]
-    ]
+    ],
+    "laag": "functional"
   },
   "leerroute-scenario-uitwerking": {
     "titel": "Sjabloon leerroute scenario uitwerking (informatiemodel voorbeeld)",
@@ -131,7 +313,8 @@
         "leerroute 1",
         "leerroute <nummer>"
       ]
-    ]
+    ],
+    "laag": "functional"
   },
   "interactieketen": {
     "titel": "Sjabloon interactieketen",
@@ -158,6 +341,7 @@
         "IS-OA-",
         "IS-XX-"
       ]
-    ]
+    ],
+    "laag": "technical"
   }
 }

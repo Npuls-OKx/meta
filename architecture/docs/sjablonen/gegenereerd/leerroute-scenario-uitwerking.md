@@ -1,6 +1,6 @@
-# Sjabloon leerroute scenario uitwerking (informatiemodel voorbeeld)
+`<w:p><w:r><w:br w:type="page"/></w:r></w:p>`{=openxml}
 
-## Invullen
+# Invullen
 
 | Onderdeel | Inhoud |
 |---|------------------------------------------------|
@@ -9,1285 +9,1094 @@
 | Voorbeeld | [de uitwerking van leerroute 1 met Jochem](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md) |
 | Inleveren | terug naar OKx SI als Word-bestand |
 
-## Werkwijze
+Elk hoofdstuk opent met een blok dat zegt wat er van dat hoofdstuk wordt verwacht: waar hetzelfde al is uitgewerkt, welk artefact hier hoort en waaraan het voldoet, en wat dit hoofdstuk aan het pakket van eisen bijdraagt. Dat blok blijft staan; het is de opdracht en niet de uitwerking. Een hoofdstuk dat niet van toepassing is houdt zijn kop, met de reden eronder.
 
-Elk hoofdstuk opent met een blok van vier regels. Dat blok zegt wat er van dit hoofdstuk wordt verwacht, en het blijft staan: het is de opdracht en niet de uitwerking.
+# Van user story naar eis
 
-| Regel | Wat erin staat |
-|---|------------------------------------------------|
-| Voorbeeld | de plek in de voorbeelduitwerking waar hetzelfde hoofdstuk al is ingevuld |
-| Verwacht | het artefact dat hier hoort, afgeleid uit wat de voorbeelduitwerking daar levert |
-| User stories | de nummers uit het pakket van eisen die dit hoofdstuk verwezenlijkt |
-| Klaar wanneer | het acceptatiecriterium waaraan de uitwerking voldoet |
+Het pakket van eisen komt uit de gedeelde analyse van alles wat scholen hebben ingebracht, geinventariseerd in de PoC-sessies met de koploperscholen. De grootst gemene deler daaruit is wat OKx vastlegt.
 
-De koppen blijven staan zoals zij hier staan. In het agent-harnas komt een lezer (parser) die een ingevuld document per kop terugvertaalt naar de kennisbank; een kop die is herschreven of weggehaald maakt zijn hoofdstuk onleesbaar. Een hoofdstuk dat niet van toepassing is houdt dus zijn kop, met de reden eronder.
+Niet elk hoofdstuk levert hetzelfde. Een journey brengt een behoefte naar boven en levert user stories. Een procesbeschrijving zegt wat de instelling moet kunnen. Een gegevens- of systeemhoofdstuk zegt wat een component moet doen. Een interactiehoofdstuk zegt wat er over het koppelvlak gaat. Het blok boven elk hoofdstuk noemt welke laag daar hoort.
 
-## Van user story naar requirement
+| Laag | Waar die ontstaat | Voorbeeld |
+|---|---|------------------------------------|
+| User story | in een journey of een scenario | Als student wil ik bij mijn keuzedeelruimte een geprioriteerde voorkeurslijst opgeven, met als doel dat ik niet zonder keuzedeel kom te zitten wanneer mijn eerste keuze vol is |
+| Business requirement | in een procesbeschrijving | de instelling kent per keuzedeelruimte de voorkeursvolgorde van de student voordat zij plaatst |
+| Functional requirement | in een gegevens- of systeemhoofdstuk | het studentkeuzesysteem legt per keuzedeelruimte een geordende lijst voorkeuren vast, met per voorkeur het onderdeel, de periode en de locatie |
+| Technical requirement | in een interactiehoofdstuk | de voorkeurslijst gaat als geordende verzameling over het koppelvlak, met de volgorde expliciet in het bericht en niet afgeleid uit de positie |
 
-Een hoofdstuk is pas af wanneer het aanwijsbaar is welke user stories het verwezenlijkt. Die stories komen uit de gedeelde analyse van alles wat scholen als input hebben geleverd, geinventariseerd in de PoC-sessies met de koploperscholen en samengebracht tot het pakket van eisen. De grootst gemene deler daaruit is wat OKx vastlegt.
+Vul in dit document de laag in die boven het hoofdstuk staat. De lagen eronder volgen in een eigen ronde, met dit document als bron.
 
-Elke story gaat daarna door drie lagen. Een voorbeeld, zodat de vorm vastligt:
-
-| Laag | Voorbeeld |
-|---|------------------------------------------------|
-| User story | Als student wil ik bij mijn keuzedeelruimte een geprioriteerde voorkeurslijst opgeven, met als doel dat ik niet zonder keuzedeel kom te zitten wanneer mijn eerste keuze vol is |
-| Business requirement | de instelling kent per keuzedeelruimte de voorkeursvolgorde van de student voordat zij plaatst |
-| Functional requirement | het studentkeuzesysteem legt per keuzedeelruimte een geordende lijst voorkeuren vast, met per voorkeur het keuzedeel, de periode en de locatie |
-| Technical requirement | de voorkeurslijst gaat als geordende verzameling over het koppelvlak, met de volgorde expliciet in het bericht en niet afgeleid uit de positie |
-
-Vul in dit document de user stories in; de drie requirementlagen volgen daarna in een eigen ronde, met dit document als bron.
-
-## De grootst gemene deler
+# De grootst gemene deler
 
 Tussen de inbreng van instellingen en dit document zit een analysestap. Dat geldt hier sterker dan elders, omdat een voorbeeld overtuigt: een regel die uit een enkele instelling komt en hier als voorbeeld staat, leest als sectorpraktijk.
 
 Een instelling spreekt voor haar eigen praktijk en niet voor de sector. Noteer daarom apart wat afwijkt, onder [Afwijkingen per instelling](#afwijkingen-per-instelling).
 
-## 1 Fase 1: Kwalificatiekader analyseren en grofmazig ontwerpen
+# Fase 1: Kwalificatiekader analyseren en grofmazig ontwerpen
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, Fase 1: Kwalificatiekader analyseren en grofmazig ontwerpen](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#fase-1-kwalificatiekader-analyseren-en-grofmazig-ontwerpen)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![De hoofdplaat met de stromen van fase 1 gemarkeerd](<img/leerroute-scenario-uitwerking/f1.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 1.1 F1-01 - Het kwalificatiedossier ontleed
+## F1-01 - Het kwalificatiedossier ontleed
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F1-01 - Het kwalificatiedossier ontleed](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f1-01---het-kwalificatiedossier-ontleed)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![ontstaat: Kwalificatiedossier analyseren](<img/leerroute-scenario-uitwerking/f1-01-het-kwalificatiedossier-ontleed.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 1.2 F1-02 - Examenplan, eerste resultaatstructuur en cohort
+## F1-02 - Examenplan, eerste resultaatstructuur en cohort
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F1-02 - Examenplan, eerste resultaatstructuur en cohort](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f1-02---examenplan-eerste-resultaatstructuur-en-cohort)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![ontstaat: Examenplan opstellen](<img/leerroute-scenario-uitwerking/f1-02-examenplan-eerste-resultaatstructuur-en-cohort.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 1.3 F1-03 - Leeruitkomsten uit het dossier, in de stem van de instelling
+## F1-03 - Leeruitkomsten uit het dossier, in de stem van de instelling
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F1-03 - Leeruitkomsten uit het dossier, in de stem van de instelling](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f1-03---leeruitkomsten-uit-het-dossier-in-de-stem-van-de-instelling)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![ontstaat: Kwalificatiedossier vertalen naar leeruitkomsten](<img/leerroute-scenario-uitwerking/f1-03-leeruitkomsten-uit-het-dossier-in-de-stem-van-de-instelling.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 1.4 F1-04 - De leeruitkomst in CompetentNL-skills
+## F1-04 - De leeruitkomst in CompetentNL-skills
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F1-04 - De leeruitkomst in CompetentNL-skills](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f1-04---de-leeruitkomst-in-competentnl-skills)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![ontstaat: Kwalificatiedossier vertalen naar leeruitkomsten, verdieping: leeruitkomst naar skills](<img/leerroute-scenario-uitwerking/f1-04-de-leeruitkomst-in-competentnl-skills.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 1.5 F1-05 - De eenheidspecificatie met haar leeronderdelen en de gelinkte leeruitkomsten
+## F1-05 - De eenheidspecificatie met haar leeronderdelen en de gelinkte leeruitkomsten
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F1-05 - De eenheidspecificatie met haar leeronderdelen en de gelinkte leeruitkomsten](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f1-05---de-eenheidspecificatie-met-haar-leeronderdelen-en-de-gelinkte-leeruitkomsten)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![ontstaat: Kwalificatiedossier vertalen naar leeruitkomsten, verdieping: van kerntaak naar eenheid en leeronderdelen](<img/leerroute-scenario-uitwerking/f1-05-de-eenheidspecificatie-met-haar-leeronderdelen-en-de-gelinkte-leeruitkomsten.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 1.6 F1-06 - De eenheidspecificatie met haar onderwijsontwerp: vorm, ruimte, mensen en middelen
+## F1-06 - De eenheidspecificatie met haar onderwijsontwerp: vorm, ruimte, mensen en middelen
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F1-06 - De eenheidspecificatie met haar onderwijsontwerp: vorm, ruimte, mensen en middelen](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f1-06---de-eenheidspecificatie-met-haar-onderwijsontwerp-vorm-ruimte-mensen-en-middelen)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![ontstaat: Kwalificatiedossier vertalen naar leeruitkomsten, verdieping: onderwijsontwerp met ruimte en middelen](<img/leerroute-scenario-uitwerking/f1-06-de-eenheidspecificatie-met-haar-onderwijsontwerp-vorm-ruimte-mensen-en-middelen.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 1.7 F1-07 - De opleidingsspecificatie met programma, eenheden en keuzedeelruimte
+## F1-07 - De opleidingsspecificatie met programma, eenheden en keuzedeelruimte
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F1-07 - De opleidingsspecificatie met programma, eenheden en keuzedeelruimte](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f1-07---de-opleidingsspecificatie-met-programma-eenheden-en-keuzedeelruimte)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![ontstaat: Opleidingsspecificatie met programma en eenheden beschrijven](<img/leerroute-scenario-uitwerking/f1-07-de-opleidingsspecificatie-met-programma-eenheden-en-keuzedeelruimte.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 1.8 F1-08 - Kiesbaar onderwijsprogrammaonderdeel: keuzedelen en minor
+## F1-08 - Kiesbaar onderwijsprogrammaonderdeel: keuzedelen en minor
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F1-08 - Kiesbaar onderwijsprogrammaonderdeel: keuzedelen en minor](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f1-08---kiesbaar-onderwijsprogrammaonderdeel-keuzedelen-en-minor)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![ontstaat: Keuzedeelprogramma als eigen specificatie vormgeven](<img/leerroute-scenario-uitwerking/f1-08-kiesbaar-onderwijsprogrammaonderdeel-keuzedelen-en-minor.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 1.9 F1-09 - Toetsonderdelen, wegingen en afrondingscriterium
+## F1-09 - Toetsonderdelen, wegingen en afrondingscriterium
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F1-09 - Toetsonderdelen, wegingen en afrondingscriterium](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f1-09---toetsonderdelen-wegingen-en-afrondingscriterium)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![ontstaat: Toetsonderdelen en resultaatstructuur uit het examenplan afleiden](<img/leerroute-scenario-uitwerking/f1-09-toetsonderdelen-wegingen-en-afrondingscriterium.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 1.10 F1-10 - De examenonderdeelspecificatie met haar toetsvorm, instrumenten, materiaal en ruimte
+## F1-10 - De examenonderdeelspecificatie met haar toetsvorm, instrumenten, materiaal en ruimte
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F1-10 - De examenonderdeelspecificatie met haar toetsvorm, instrumenten, materiaal en ruimte](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f1-10---de-examenonderdeelspecificatie-met-haar-toetsvorm-instrumenten-materiaal-en-ruimte)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![ontstaat: Exameninstrumenten bepalen, inkopen of construeren, verdieping: examenvorm, instrument en beoordelaar](<img/leerroute-scenario-uitwerking/f1-10-de-examenonderdeelspecificatie-met-haar-toetsvorm-instrumenten-materiaal-en-ruimte.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 1.11 F1-11 - Het examenplan vastgesteld
+## F1-11 - Het examenplan vastgesteld
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F1-11 - Het examenplan vastgesteld](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f1-11---het-examenplan-vastgesteld)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![ontstaat: Examenplan vaststellen](<img/leerroute-scenario-uitwerking/f1-11-het-examenplan-vastgesteld.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 1.12 F1-12 - De opleiding zoals ontworpen naar de catalogus
+## F1-12 - De opleiding zoals ontworpen naar de catalogus
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F1-12 - De opleiding zoals ontworpen naar de catalogus](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f1-12---de-opleiding-zoals-ontworpen-naar-de-catalogus)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![stroomt: Grofmazig resultaat publiceren naar de onderwijscatalogus](<img/leerroute-scenario-uitwerking/f1-12-de-opleiding-zoals-ontworpen-naar-de-catalogus.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 1.13 F1-13 - Het onderwijs- en examenontwerp mee naar de catalogus (conceptplaat)
+## F1-13 - Het onderwijs- en examenontwerp mee naar de catalogus (conceptplaat)
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F1-13 - Het onderwijs- en examenontwerp mee naar de catalogus (conceptplaat)](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f1-13---het-onderwijs--en-examenontwerp-mee-naar-de-catalogus-conceptplaat)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![stroomt: Grofmazig resultaat publiceren naar de onderwijscatalogus](<img/leerroute-scenario-uitwerking/f1-13-het-onderwijs-en-examenontwerp-mee-naar-de-catalogus-conceptplaat.png>)
 
 *Schrijf hier de uitwerking.*
 
-## 2 Fase 2: Publiceren en planbaar maken
+# Fase 2: Publiceren en planbaar maken
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, Fase 2: Publiceren en planbaar maken](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#fase-2-publiceren-en-planbaar-maken)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![De hoofdplaat met de stromen van fase 2 gemarkeerd](<img/leerroute-scenario-uitwerking/f2.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 2.1 F2-01 - De specificatie planbaar gemaakt
+## F2-01 - De specificatie planbaar gemaakt
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F2-01 - De specificatie planbaar gemaakt](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f2-01---de-specificatie-planbaar-gemaakt)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![ontstaat: Specificatie aanvullen tot planbare specificatie](<img/leerroute-scenario-uitwerking/f2-01-de-specificatie-planbaar-gemaakt.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 2.2 F2-02 - Het verzoek om onderwijsaanbod
+## F2-02 - Het verzoek om onderwijsaanbod
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F2-02 - Het verzoek om onderwijsaanbod](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f2-02---het-verzoek-om-onderwijsaanbod)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![ontstaat: Planningssysteem verzoeken om onderwijsaanbod](<img/leerroute-scenario-uitwerking/f2-02-het-verzoek-om-onderwijsaanbod.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 2.3 F2-03 - Verzoek met specificatiestructuur en planbare waarden naar planning
+## F2-03 - Verzoek met specificatiestructuur en planbare waarden naar planning
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F2-03 - Verzoek met specificatiestructuur en planbare waarden naar planning](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f2-03---verzoek-met-specificatiestructuur-en-planbare-waarden-naar-planning)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![stroomt: Planningssysteem verzoeken om onderwijsaanbod](<img/leerroute-scenario-uitwerking/f2-03-verzoek-met-specificatiestructuur-en-planbare-waarden-naar-planning.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 2.4 F2-04 - De specificatie op haalbaarheid getoetst
+## F2-04 - De specificatie op haalbaarheid getoetst
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F2-04 - De specificatie op haalbaarheid getoetst](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f2-04---de-specificatie-op-haalbaarheid-getoetst)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![stroomt: Specificatie op haalbaarheid toetsen](<img/leerroute-scenario-uitwerking/f2-04-de-specificatie-op-haalbaarheid-getoetst.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 2.5 F2-05 - De aanbodvraag naast de schaarste van ruimtes en mensen (conceptplaat)
+## F2-05 - De aanbodvraag naast de schaarste van ruimtes en mensen (conceptplaat)
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F2-05 - De aanbodvraag naast de schaarste van ruimtes en mensen (conceptplaat)](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f2-05---de-aanbodvraag-naast-de-schaarste-van-ruimtes-en-mensen-conceptplaat)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![ontstaat: Aanbodvraag per opleiding bepalen, verdieping: ruimtes en mensen op de specificatie](<img/leerroute-scenario-uitwerking/f2-05-de-aanbodvraag-naast-de-schaarste-van-ruimtes-en-mensen-conceptplaat.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 2.6 F2-06 - De jaarplanning op instellingsniveau (conceptplaat)
+## F2-06 - De jaarplanning op instellingsniveau (conceptplaat)
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F2-06 - De jaarplanning op instellingsniveau (conceptplaat)](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f2-06---de-jaarplanning-op-instellingsniveau-conceptplaat)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![ontstaat: Jaarplanning op instellingsniveau vaststellen, verdieping: jaarplanning op instellingsniveau](<img/leerroute-scenario-uitwerking/f2-06-de-jaarplanning-op-instellingsniveau-conceptplaat.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 2.7 F2-07 - Examenbehoefte uit de resultaatstructuur (conceptplaat)
+## F2-07 - Examenbehoefte uit de resultaatstructuur (conceptplaat)
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F2-07 - Examenbehoefte uit de resultaatstructuur (conceptplaat)](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f2-07---examenbehoefte-uit-de-resultaatstructuur-conceptplaat)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![ontstaat: Jaarplanning op instellingsniveau vaststellen, verdieping: examenplanning uit de resultaatstructuur](<img/leerroute-scenario-uitwerking/f2-07-examenbehoefte-uit-de-resultaatstructuur-conceptplaat.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 2.8 F2-08 - Het aanbod gepland: opleiding, programma, eenheid, gelegenheid
+## F2-08 - Het aanbod gepland: opleiding, programma, eenheid, gelegenheid
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F2-08 - Het aanbod gepland: opleiding, programma, eenheid, gelegenheid](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f2-08---het-aanbod-gepland-opleiding-programma-eenheid-gelegenheid)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![ontstaat: Aanbod plannen](<img/leerroute-scenario-uitwerking/f2-08-het-aanbod-gepland-opleiding-programma-eenheid-gelegenheid.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 2.9 F2-09 - Het geplande aanbod terug naar de catalogus
+## F2-09 - Het geplande aanbod terug naar de catalogus
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F2-09 - Het geplande aanbod terug naar de catalogus](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f2-09---het-geplande-aanbod-terug-naar-de-catalogus)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![stroomt: Gepland aanbod terugleveren aan de onderwijscatalogus](<img/leerroute-scenario-uitwerking/f2-09-het-geplande-aanbod-terug-naar-de-catalogus.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 2.10 Variant capaciteitsgestuurd
+## Variant capaciteitsgestuurd
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, Variant capaciteitsgestuurd](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#variant-capaciteitsgestuurd)
 
-**Verwacht** een beschrijving in lopende tekst
+**Acceptatiecriteria** een beschrijving in lopende tekst, en de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 *Schrijf hier de uitwerking.*
 
-#### 2.10.1 F2-C01 - Keuzedeel K0037 vooraf gepland op capaciteit
+### F2-C01 - Keuzedeel K0037 vooraf gepland op capaciteit
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F2-C01 - Keuzedeel K0037 vooraf gepland op capaciteit](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f2-c01---keuzedeel-k0037-vooraf-gepland-op-capaciteit)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![ontstaat: Keuzedeelaanbod plannen op inzetbare capaciteit en prognose](<img/leerroute-scenario-uitwerking/f2-c01-keuzedeel-k0037-vooraf-gepland-op-capaciteit.png>)
 
 *Schrijf hier de uitwerking.*
 
-#### 2.10.2 F2-C02 - Geplande keuzedeelgroepen naar de catalogus
+### F2-C02 - Geplande keuzedeelgroepen naar de catalogus
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F2-C02 - Geplande keuzedeelgroepen naar de catalogus](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f2-c02---geplande-keuzedeelgroepen-naar-de-catalogus)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![stroomt: Gepland keuzedeelaanbod terugleveren aan de onderwijscatalogus](<img/leerroute-scenario-uitwerking/f2-c02-geplande-keuzedeelgroepen-naar-de-catalogus.png>)
 
 *Schrijf hier de uitwerking.*
 
-## 3 Fase 3: Instroom, intake en plaatsing
+# Fase 3: Instroom, intake en plaatsing
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, Fase 3: Instroom, intake en plaatsing](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#fase-3-instroom-intake-en-plaatsing)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![De hoofdplaat met de stromen van fase 3 gemarkeerd](<img/leerroute-scenario-uitwerking/f3.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 3.1 F3-01 - Aanmeldbaar aanbod naar de kernregistratie
+## F3-01 - Aanmeldbaar aanbod naar de kernregistratie
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F3-01 - Aanmeldbaar aanbod naar de kernregistratie](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f3-01---aanmeldbaar-aanbod-naar-de-kernregistratie)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![stroomt: Orienteren op het gepubliceerde aanbod](<img/leerroute-scenario-uitwerking/f3-01-aanmeldbaar-aanbod-naar-de-kernregistratie.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 3.2 F3-02 - Aanmeldbaar aanbod van de kernregistratie naar AII
+## F3-02 - Aanmeldbaar aanbod van de kernregistratie naar AII
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F3-02 - Aanmeldbaar aanbod van de kernregistratie naar AII](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f3-02---aanmeldbaar-aanbod-van-de-kernregistratie-naar-aii)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![stroomt: Orienteren op het gepubliceerde aanbod](<img/leerroute-scenario-uitwerking/f3-02-aanmeldbaar-aanbod-van-de-kernregistratie-naar-aii.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 3.3 F3-03 - <student> meldt zich aan: aanmelding en verbintenissen
+## F3-03 - <student> meldt zich aan: aanmelding en verbintenissen
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F3-03 - <student> meldt zich aan: aanmelding en verbintenissen](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f3-03---jochem-meldt-zich-aan-aanmelding-en-verbintenissen)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![ontstaat: Aanmelden via het intakesysteem](<img/leerroute-scenario-uitwerking/f3-03-jochem-meldt-zich-aan-aanmelding-en-verbintenissen.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 3.4 F3-04 - De aanmelding van de voorziening naar het intakesysteem
+## F3-04 - De aanmelding van de voorziening naar het intakesysteem
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F3-04 - De aanmelding van de voorziening naar het intakesysteem](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f3-04---de-aanmelding-van-de-voorziening-naar-het-intakesysteem)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![stroomt: Aanmelden via het intakesysteem](<img/leerroute-scenario-uitwerking/f3-04-de-aanmelding-van-de-voorziening-naar-het-intakesysteem.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 3.5 F3-05 - Intake: student en plaatsingsgroep
+## F3-05 - Intake: student en plaatsingsgroep
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F3-05 - Intake: student en plaatsingsgroep](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f3-05---intake-student-en-plaatsingsgroep)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![ontstaat: Intake doorlopen en plaatsen](<img/leerroute-scenario-uitwerking/f3-05-intake-student-en-plaatsingsgroep.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 3.6 F3-06 - Inschrijving: van aangemeld naar ingeschreven
+## F3-06 - Inschrijving: van aangemeld naar ingeschreven
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F3-06 - Inschrijving: van aangemeld naar ingeschreven](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f3-06---inschrijving-van-aangemeld-naar-ingeschreven)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![ontstaat: Persoon en verbintenissen vastleggen in de kernregistratie](<img/leerroute-scenario-uitwerking/f3-06-inschrijving-van-aangemeld-naar-ingeschreven.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 3.7 F3-07 - Inschrijving en verbintenissen naar de kernregistratie
+## F3-07 - Inschrijving en verbintenissen naar de kernregistratie
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F3-07 - Inschrijving en verbintenissen naar de kernregistratie](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f3-07---inschrijving-en-verbintenissen-naar-de-kernregistratie)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![stroomt: Persoon en verbintenissen vastleggen in de kernregistratie](<img/leerroute-scenario-uitwerking/f3-07-inschrijving-en-verbintenissen-naar-de-kernregistratie.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 3.8 F3-08 - Student, verbintenis, groep en behaalde leeruitkomsten naar het studentkeuzesysteem
+## F3-08 - Student, verbintenis, groep en behaalde leeruitkomsten naar het studentkeuzesysteem
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F3-08 - Student, verbintenis, groep en behaalde leeruitkomsten naar het studentkeuzesysteem](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f3-08---student-verbintenis-groep-en-behaalde-leeruitkomsten-naar-het-studentkeuzesysteem)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![stroomt: Persoon en verbintenissen vastleggen in de kernregistratie](<img/leerroute-scenario-uitwerking/f3-08-student-verbintenis-groep-en-behaalde-leeruitkomsten-naar-het-studentkeuzesysteem.png>)
 
 *Schrijf hier de uitwerking.*
 
-## 4 Fase 4: Detailleren, roosteren en inschrijven
+# Fase 4: Detailleren, roosteren en inschrijven
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, Fase 4: Detailleren, roosteren en inschrijven](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#fase-4-detailleren-roosteren-en-inschrijven)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![De hoofdplaat met de stromen van fase 4 gemarkeerd](<img/leerroute-scenario-uitwerking/f4.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 4.1 F4-01 - Het leeronderdeel fijnmazig: lessenreeks en les
+## F4-01 - Het leeronderdeel fijnmazig: lessenreeks en les
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F4-01 - Het leeronderdeel fijnmazig: lessenreeks en les](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f4-01---het-leeronderdeel-fijnmazig-lessenreeks-en-les)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![ontstaat: Leeronderdeel- en toetsonderdeelspecificaties fijnmazig uitwerken](<img/leerroute-scenario-uitwerking/f4-01-het-leeronderdeel-fijnmazig-lessenreeks-en-les.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 4.2 F4-02 - Detailspecificaties naar het LMS
+## F4-02 - Detailspecificaties naar het LMS
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F4-02 - Detailspecificaties naar het LMS](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f4-02---detailspecificaties-naar-het-lms)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![stroomt: Detailspecificaties leveren aan het LMS](<img/leerroute-scenario-uitwerking/f4-02-detailspecificaties-naar-het-lms.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 4.3 F4-03 - De les en de toets van binnen, elk met hun eigen onderdelen (conceptplaat)
+## F4-03 - De les en de toets van binnen, elk met hun eigen onderdelen (conceptplaat)
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F4-03 - De les en de toets van binnen, elk met hun eigen onderdelen (conceptplaat)](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f4-03---de-les-en-de-toets-van-binnen-elk-met-hun-eigen-onderdelen-conceptplaat)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![stroomt: Detailspecificaties leveren aan het LMS](<img/leerroute-scenario-uitwerking/f4-03-de-les-en-de-toets-van-binnen-elk-met-hun-eigen-onderdelen-conceptplaat.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 4.4 F4-04 - Summatieve resultaatstructuur naar het studentvolgsysteem
+## F4-04 - Summatieve resultaatstructuur naar het studentvolgsysteem
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F4-04 - Summatieve resultaatstructuur naar het studentvolgsysteem](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f4-04---summatieve-resultaatstructuur-naar-het-studentvolgsysteem)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![stroomt: Detailspecificaties leveren aan het LMS](<img/leerroute-scenario-uitwerking/f4-04-summatieve-resultaatstructuur-naar-het-studentvolgsysteem.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 4.5 F4-05 - Summatieve resultaatstructuur naar de kernregistratie
+## F4-05 - Summatieve resultaatstructuur naar de kernregistratie
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F4-05 - Summatieve resultaatstructuur naar de kernregistratie](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f4-05---summatieve-resultaatstructuur-naar-de-kernregistratie)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![stroomt: Detailspecificaties leveren aan het LMS](<img/leerroute-scenario-uitwerking/f4-05-summatieve-resultaatstructuur-naar-de-kernregistratie.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 4.6 F4-06 - Plaatsingsgroepen naar planning
+## F4-06 - Plaatsingsgroepen naar planning
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F4-06 - Plaatsingsgroepen naar planning](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f4-06---plaatsingsgroepen-naar-planning)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![stroomt: Plaatsings- en planninggroepen definieren en aan personen koppelen](<img/leerroute-scenario-uitwerking/f4-06-plaatsingsgroepen-naar-planning.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 4.7 F4-07 - Te roosteren leergelegenheden naar het roostersysteem
+## F4-07 - Te roosteren leergelegenheden naar het roostersysteem
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F4-07 - Te roosteren leergelegenheden naar het roostersysteem](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f4-07---te-roosteren-leergelegenheden-naar-het-roostersysteem)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![stroomt: Te roosteren specificaties aan het roostersysteem geven](<img/leerroute-scenario-uitwerking/f4-07-te-roosteren-leergelegenheden-naar-het-roostersysteem.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 4.8 F4-08 - Roosteren: lesgelegenheid, lokaal en docent
+## F4-08 - Roosteren: lesgelegenheid, lokaal en docent
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F4-08 - Roosteren: lesgelegenheid, lokaal en docent](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f4-08---roosteren-lesgelegenheid-lokaal-en-docent)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![ontstaat: Leer-, les- en toetsgelegenheden roosteren](<img/leerroute-scenario-uitwerking/f4-08-roosteren-lesgelegenheid-lokaal-en-docent.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 4.9 F4-09 - <student>s verbintenissen op de geroosterde gelegenheden
+## F4-09 - <student>s verbintenissen op de geroosterde gelegenheden
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F4-09 - <student>s verbintenissen op de geroosterde gelegenheden](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f4-09---jochems-verbintenissen-op-de-geroosterde-gelegenheden)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![ontstaat: Verwachte deelnemers delen en toegang geven](<img/leerroute-scenario-uitwerking/f4-09-jochems-verbintenissen-op-de-geroosterde-gelegenheden.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 4.10 F4-10 - Student, verbintenissen en groep naar het LMS
+## F4-10 - Student, verbintenissen en groep naar het LMS
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F4-10 - Student, verbintenissen en groep naar het LMS](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f4-10---student-verbintenissen-en-groep-naar-het-lms)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![stroomt: Verwachte deelnemers delen en toegang geven](<img/leerroute-scenario-uitwerking/f4-10-student-verbintenissen-en-groep-naar-het-lms.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 4.11 F4-11 - Verbintenissen op alle niveaus naar het studentvolgsysteem
+## F4-11 - Verbintenissen op alle niveaus naar het studentvolgsysteem
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F4-11 - Verbintenissen op alle niveaus naar het studentvolgsysteem](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f4-11---verbintenissen-op-alle-niveaus-naar-het-studentvolgsysteem)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![stroomt: Verwachte deelnemers delen en toegang geven](<img/leerroute-scenario-uitwerking/f4-11-verbintenissen-op-alle-niveaus-naar-het-studentvolgsysteem.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 4.12 Variant capaciteitsgestuurd
+## Variant capaciteitsgestuurd
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, Variant capaciteitsgestuurd](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#variant-capaciteitsgestuurd)
 
-**Verwacht** een beschrijving in lopende tekst
+**Acceptatiecriteria** een beschrijving in lopende tekst, en de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 *Schrijf hier de uitwerking.*
 
-#### 4.12.1 F4-C01 - Na de toewijzing: de keuzedeelgroep met vaste capaciteit naar het roostersysteem
+### F4-C01 - Na de toewijzing: de keuzedeelgroep met vaste capaciteit naar het roostersysteem
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F4-C01 - Na de toewijzing: de keuzedeelgroep met vaste capaciteit naar het roostersysteem](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f4-c01---na-de-toewijzing-de-keuzedeelgroep-met-vaste-capaciteit-naar-het-roostersysteem)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![stroomt: Keuzedeelgroep met vaste capaciteit aan het roostersysteem geven](<img/leerroute-scenario-uitwerking/f4-c01-na-de-toewijzing-de-keuzedeelgroep-met-vaste-capaciteit-naar-het-roostersysteem.png>)
 
 *Schrijf hier de uitwerking.*
 
-## 5 Fase 5: Onderwijs uitvoeren en voortgang begeleiden
+# Fase 5: Onderwijs uitvoeren en voortgang begeleiden
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, Fase 5: Onderwijs uitvoeren en voortgang begeleiden](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#fase-5-onderwijs-uitvoeren-en-voortgang-begeleiden)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![De hoofdplaat met de stromen van fase 5 gemarkeerd](<img/leerroute-scenario-uitwerking/f5.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 5.1 F5-01 - Les gevolgd: aanwezigheid en lesresultaat
+## F5-01 - Les gevolgd: aanwezigheid en lesresultaat
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F5-01 - Les gevolgd: aanwezigheid en lesresultaat](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f5-01---les-gevolgd-aanwezigheid-en-lesresultaat)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![ontstaat: Onderwijs verzorgen](<img/leerroute-scenario-uitwerking/f5-01-les-gevolgd-aanwezigheid-en-lesresultaat.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 5.2 F5-02 - De verbintenis op de toetsgelegenheid: geplaatst of zelf gekozen
+## F5-02 - De verbintenis op de toetsgelegenheid: geplaatst of zelf gekozen
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F5-02 - De verbintenis op de toetsgelegenheid: geplaatst of zelf gekozen](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f5-02---de-verbintenis-op-de-toetsgelegenheid-geplaatst-of-zelf-gekozen)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![ontstaat: Toetsmomenten plannen tijdens lessen](<img/leerroute-scenario-uitwerking/f5-02-de-verbintenis-op-de-toetsgelegenheid-geplaatst-of-zelf-gekozen.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 5.3 F5-03 - Formatieve voortgang: structuur, resultaten en beoordeling
+## F5-03 - Formatieve voortgang: structuur, resultaten en beoordeling
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F5-03 - Formatieve voortgang: structuur, resultaten en beoordeling](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f5-03---formatieve-voortgang-structuur-resultaten-en-beoordeling)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![ontstaat: Formatieve voortgang bijhouden](<img/leerroute-scenario-uitwerking/f5-03-formatieve-voortgang-structuur-resultaten-en-beoordeling.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 5.4 F5-04 - Formatieve resultaten van het LMS naar het studentvolgsysteem
+## F5-04 - Formatieve resultaten van het LMS naar het studentvolgsysteem
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F5-04 - Formatieve resultaten van het LMS naar het studentvolgsysteem](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f5-04---formatieve-resultaten-van-het-lms-naar-het-studentvolgsysteem)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![stroomt: Formatieve voortgang bijhouden](<img/leerroute-scenario-uitwerking/f5-04-formatieve-resultaten-van-het-lms-naar-het-studentvolgsysteem.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 5.5 F5-05 - Studiebeeld: de nominale route naast wat <student> heeft behaald
+## F5-05 - Studiebeeld: de nominale route naast wat <student> heeft behaald
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F5-05 - Studiebeeld: de nominale route naast wat <student> heeft behaald](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f5-05---studiebeeld-de-nominale-route-naast-wat-jochem-heeft-behaald)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![ontstaat: Studiebeeld volgen in het studentvolgsysteem](<img/leerroute-scenario-uitwerking/f5-05-studiebeeld-de-nominale-route-naast-wat-jochem-heeft-behaald.png>)
 
 *Schrijf hier de uitwerking.*
 
-## 6 Fase 6: Organiseren van keuzemomenten
+# Fase 6: Organiseren van keuzemomenten
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, Fase 6: Organiseren van keuzemomenten](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#fase-6-organiseren-van-keuzemomenten)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![De hoofdplaat met de stromen van fase 6 gemarkeerd](<img/leerroute-scenario-uitwerking/f6.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 6.1 F6-01 - Keuzedeelaanbod ontsloten
+## F6-01 - Keuzedeelaanbod ontsloten
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F6-01 - Keuzedeelaanbod ontsloten](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f6-01---keuzedeelaanbod-ontsloten)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![ontstaat: Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem](<img/leerroute-scenario-uitwerking/f6-01-keuzedeelaanbod-ontsloten.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 6.2 F6-02 - Keuzedeelaanbod, specificatie en regels naar het studentkeuzesysteem
+## F6-02 - Keuzedeelaanbod, specificatie en regels naar het studentkeuzesysteem
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F6-02 - Keuzedeelaanbod, specificatie en regels naar het studentkeuzesysteem](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f6-02---keuzedeelaanbod-specificatie-en-regels-naar-het-studentkeuzesysteem)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![stroomt: Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem](<img/leerroute-scenario-uitwerking/f6-02-keuzedeelaanbod-specificatie-en-regels-naar-het-studentkeuzesysteem.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 6.3 F6-03 - <student>s aanmelding op het keuzedeelaanbod, met zijn voorkeurslijst
+## F6-03 - <student>s aanmelding op het keuzedeelaanbod, met zijn voorkeurslijst
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F6-03 - <student>s aanmelding op het keuzedeelaanbod, met zijn voorkeurslijst](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f6-03---jochems-aanmelding-op-het-keuzedeelaanbod-met-zijn-voorkeurslijst)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![ontstaat: Voorkeurslijst samenstellen in het studentkeuzesysteem](<img/leerroute-scenario-uitwerking/f6-03-jochems-aanmelding-op-het-keuzedeelaanbod-met-zijn-voorkeurslijst.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 6.4 F6-04 - Keuzestelling naar planning
+## F6-04 - Keuzestelling naar planning
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F6-04 - Keuzestelling naar planning](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f6-04---keuzestelling-naar-planning)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![stroomt: Voorkeurslijst samenstellen in het studentkeuzesysteem](<img/leerroute-scenario-uitwerking/f6-04-keuzestelling-naar-planning.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 6.5 F6-05 - Definitieve keuzes verwerkt naar groepen en capaciteit
+## F6-05 - Definitieve keuzes verwerkt naar groepen en capaciteit
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F6-05 - Definitieve keuzes verwerkt naar groepen en capaciteit](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f6-05---definitieve-keuzes-verwerkt-naar-groepen-en-capaciteit)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![ontstaat: Definitieve keuzes verwerken naar groepen en capaciteit](<img/leerroute-scenario-uitwerking/f6-05-definitieve-keuzes-verwerkt-naar-groepen-en-capaciteit.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 6.6 F6-06 - Geactualiseerd keuzedeelaanbod terug naar de catalogus
+## F6-06 - Geactualiseerd keuzedeelaanbod terug naar de catalogus
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F6-06 - Geactualiseerd keuzedeelaanbod terug naar de catalogus](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f6-06---geactualiseerd-keuzedeelaanbod-terug-naar-de-catalogus)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![stroomt: Planbaar aanbod actualiseren](<img/leerroute-scenario-uitwerking/f6-06-geactualiseerd-keuzedeelaanbod-terug-naar-de-catalogus.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 6.7 F6-07 - De aanmelding wordt een inschrijving op het keuzedeel
+## F6-07 - De aanmelding wordt een inschrijving op het keuzedeel
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F6-07 - De aanmelding wordt een inschrijving op het keuzedeel](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f6-07---de-aanmelding-wordt-een-inschrijving-op-het-keuzedeel)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![ontstaat: Keuzedeel formeel inschrijven](<img/leerroute-scenario-uitwerking/f6-07-de-aanmelding-wordt-een-inschrijving-op-het-keuzedeel.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 6.8 F6-08 - Keuzedeelverbintenis naar de kernregistratie
+## F6-08 - Keuzedeelverbintenis naar de kernregistratie
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F6-08 - Keuzedeelverbintenis naar de kernregistratie](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f6-08---keuzedeelverbintenis-naar-de-kernregistratie)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![stroomt: Keuzedeel formeel inschrijven](<img/leerroute-scenario-uitwerking/f6-08-keuzedeelverbintenis-naar-de-kernregistratie.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 6.9 Variant capaciteitsgestuurd
+## Variant capaciteitsgestuurd
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, Variant capaciteitsgestuurd](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#variant-capaciteitsgestuurd)
 
-**Verwacht** een beschrijving in lopende tekst
+**Acceptatiecriteria** een beschrijving in lopende tekst, en de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 *Schrijf hier de uitwerking.*
 
-#### 6.9.1 F6-C01 - Capaciteit vastgesteld na de animo
+### F6-C01 - Capaciteit vastgesteld na de animo
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F6-C01 - Capaciteit vastgesteld na de animo](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f6-c01---capaciteit-vastgesteld-na-de-animo)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![ontstaat: Capaciteit vaststellen na de animo](<img/leerroute-scenario-uitwerking/f6-c01-capaciteit-vastgesteld-na-de-animo.png>)
 
 *Schrijf hier de uitwerking.*
 
-#### 6.9.2 F6-C02 - Geplande leergelegenheid naar het studentkeuzesysteem
+### F6-C02 - Geplande leergelegenheid naar het studentkeuzesysteem
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F6-C02 - Geplande leergelegenheid naar het studentkeuzesysteem](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f6-c02---geplande-leergelegenheid-naar-het-studentkeuzesysteem)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![stroomt: Geplande leergelegenheden ontsluiten naar het studentkeuzesysteem](<img/leerroute-scenario-uitwerking/f6-c02-geplande-leergelegenheid-naar-het-studentkeuzesysteem.png>)
 
 *Schrijf hier de uitwerking.*
 
-#### 6.9.3 F6-C03 - <student> kiest een plek op de geplande leergelegenheid
+### F6-C03 - <student> kiest een plek op de geplande leergelegenheid
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F6-C03 - <student> kiest een plek op de geplande leergelegenheid](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f6-c03---jochem-kiest-een-plek-op-de-geplande-leergelegenheid)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![ontstaat: Plek kiezen op een geplande leergelegenheid](<img/leerroute-scenario-uitwerking/f6-c03-jochem-kiest-een-plek-op-de-geplande-leergelegenheid.png>)
 
 *Schrijf hier de uitwerking.*
 
-#### 6.9.4 F6-C04 - Toegewezen binnen de capaciteit: inschrijving op het keuzedeel
+### F6-C04 - Toegewezen binnen de capaciteit: inschrijving op het keuzedeel
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F6-C04 - Toegewezen binnen de capaciteit: inschrijving op het keuzedeel](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f6-c04---toegewezen-binnen-de-capaciteit-inschrijving-op-het-keuzedeel)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![ontstaat: Toewijzen binnen de capaciteit](<img/leerroute-scenario-uitwerking/f6-c04-toegewezen-binnen-de-capaciteit-inschrijving-op-het-keuzedeel.png>)
 
 *Schrijf hier de uitwerking.*
 
-## 7 Fase 7: Bijsturen planning en aanbod
+# Fase 7: Bijsturen planning en aanbod
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, Fase 7: Bijsturen planning en aanbod](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#fase-7-bijsturen-planning-en-aanbod)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![De hoofdplaat met de stromen van fase 7 gemarkeerd](<img/leerroute-scenario-uitwerking/f7.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 7.1 F7-01 - Afwijkingen verzameld in een plaatsingsgroep
+## F7-01 - Afwijkingen verzameld in een plaatsingsgroep
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F7-01 - Afwijkingen verzameld in een plaatsingsgroep](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f7-01---afwijkingen-verzameld-in-een-plaatsingsgroep)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![ontstaat: Afwijkingen verzamelen in een planninggroep](<img/leerroute-scenario-uitwerking/f7-01-afwijkingen-verzameld-in-een-plaatsingsgroep.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 7.2 F7-02 - Onderwijseenheid-aanbodverbintenis geannuleerd
+## F7-02 - Onderwijseenheid-aanbodverbintenis geannuleerd
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F7-02 - Onderwijseenheid-aanbodverbintenis geannuleerd](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f7-02---onderwijseenheid-aanbodverbintenis-geannuleerd)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![ontstaat: Bestaande verbintenissen annuleren](<img/leerroute-scenario-uitwerking/f7-02-onderwijseenheid-aanbodverbintenis-geannuleerd.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 7.3 F7-03 - Plaatsingsgroep van de kernregistratie naar planning
+## F7-03 - Plaatsingsgroep van de kernregistratie naar planning
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F7-03 - Plaatsingsgroep van de kernregistratie naar planning](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f7-03---plaatsingsgroep-van-de-kernregistratie-naar-planning)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![stroomt: Bestaande verbintenissen annuleren](<img/leerroute-scenario-uitwerking/f7-03-plaatsingsgroep-van-de-kernregistratie-naar-planning.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 7.4 F7-04 - Nieuw aanbod voor de plaatsingsgroep
+## F7-04 - Nieuw aanbod voor de plaatsingsgroep
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F7-04 - Nieuw aanbod voor de plaatsingsgroep](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f7-04---nieuw-aanbod-voor-de-plaatsingsgroep)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![ontstaat: Nieuw aanbod maken en publiceren](<img/leerroute-scenario-uitwerking/f7-04-nieuw-aanbod-voor-de-plaatsingsgroep.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 7.5 F7-05 - Bijgestuurd aanbod naar de catalogus
+## F7-05 - Bijgestuurd aanbod naar de catalogus
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F7-05 - Bijgestuurd aanbod naar de catalogus](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f7-05---bijgestuurd-aanbod-naar-de-catalogus)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![stroomt: Nieuw aanbod maken en publiceren](<img/leerroute-scenario-uitwerking/f7-05-bijgestuurd-aanbod-naar-de-catalogus.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 7.6 F7-06 - Nieuwe leergelegenheden naar het roostersysteem
+## F7-06 - Nieuwe leergelegenheden naar het roostersysteem
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F7-06 - Nieuwe leergelegenheden naar het roostersysteem](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f7-06---nieuwe-leergelegenheden-naar-het-roostersysteem)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![stroomt: Nieuw aanbod maken en publiceren](<img/leerroute-scenario-uitwerking/f7-06-nieuwe-leergelegenheden-naar-het-roostersysteem.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 7.7 Variant capaciteitsgestuurd
+## Variant capaciteitsgestuurd
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, Variant capaciteitsgestuurd](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#variant-capaciteitsgestuurd)
 
-**Verwacht** een beschrijving in lopende tekst
+**Acceptatiecriteria** een beschrijving in lopende tekst, en de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 *Schrijf hier de uitwerking.*
 
-#### 7.7.1 F7-C01 - Een plek komt vrij binnen de capaciteit
+### F7-C01 - Een plek komt vrij binnen de capaciteit
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F7-C01 - Een plek komt vrij binnen de capaciteit](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f7-c01---een-plek-komt-vrij-binnen-de-capaciteit)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![ontstaat: Vrijgekomen plek binnen de capaciteit verwerken](<img/leerroute-scenario-uitwerking/f7-c01-een-plek-komt-vrij-binnen-de-capaciteit.png>)
 
 *Schrijf hier de uitwerking.*
 
-#### 7.7.2 F7-C02 - De vrije plek terug naar het studentkeuzesysteem
+### F7-C02 - De vrije plek terug naar het studentkeuzesysteem
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F7-C02 - De vrije plek terug naar het studentkeuzesysteem](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f7-c02---de-vrije-plek-terug-naar-het-studentkeuzesysteem)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![stroomt: Vrije plek ontsluiten naar het studentkeuzesysteem](<img/leerroute-scenario-uitwerking/f7-c02-de-vrije-plek-terug-naar-het-studentkeuzesysteem.png>)
 
 *Schrijf hier de uitwerking.*
 
-## 8 Fase 8: Examineren, vaststellen en diplomeren
+# Fase 8: Examineren, vaststellen en diplomeren
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, Fase 8: Examineren, vaststellen en diplomeren](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#fase-8-examineren-vaststellen-en-diplomeren)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![De hoofdplaat met de stromen van fase 8 gemarkeerd](<img/leerroute-scenario-uitwerking/f8.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 8.1 F8-01 - Examengelegenheid uit de examenspecificatie
+## F8-01 - Examengelegenheid uit de examenspecificatie
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F8-01 - Examengelegenheid uit de examenspecificatie](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f8-01---examengelegenheid-uit-de-examenspecificatie)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![ontstaat: Examenspecificaties omzetten in examengelegenheden](<img/leerroute-scenario-uitwerking/f8-01-examengelegenheid-uit-de-examenspecificatie.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 8.2 F8-02 - Kandidatenlijst: verbintenis op de examengelegenheid
+## F8-02 - Kandidatenlijst: verbintenis op de examengelegenheid
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F8-02 - Kandidatenlijst: verbintenis op de examengelegenheid](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f8-02---kandidatenlijst-verbintenis-op-de-examengelegenheid)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![ontstaat: Kandidatenlijsten samenstellen](<img/leerroute-scenario-uitwerking/f8-02-kandidatenlijst-verbintenis-op-de-examengelegenheid.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 8.3 F8-03 - Afname en beoordeling: de proeve individueel, een centraal examen in een zitting
+## F8-03 - Afname en beoordeling: de proeve individueel, een centraal examen in een zitting
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F8-03 - Afname en beoordeling: de proeve individueel, een centraal examen in een zitting](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f8-03---afname-en-beoordeling-de-proeve-individueel-een-centraal-examen-in-een-zitting)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![ontstaat: Zitting uitvoeren en resultaten doorgeven](<img/leerroute-scenario-uitwerking/f8-03-afname-en-beoordeling-de-proeve-individueel-een-centraal-examen-in-een-zitting.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 8.4 F8-04 - Examenresultaat naar het studentvolgsysteem
+## F8-04 - Examenresultaat naar het studentvolgsysteem
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F8-04 - Examenresultaat naar het studentvolgsysteem](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f8-04---examenresultaat-naar-het-studentvolgsysteem)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![stroomt: Zitting uitvoeren en resultaten doorgeven](<img/leerroute-scenario-uitwerking/f8-04-examenresultaat-naar-het-studentvolgsysteem.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 8.5 F8-05 - Summatief vastgesteld: resultaten en beoordeling
+## F8-05 - Summatief vastgesteld: resultaten en beoordeling
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F8-05 - Summatief vastgesteld: resultaten en beoordeling](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f8-05---summatief-vastgesteld-resultaten-en-beoordeling)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![ontstaat: Summatief vaststellen](<img/leerroute-scenario-uitwerking/f8-05-summatief-vastgesteld-resultaten-en-beoordeling.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 8.6 F8-06 - Vaststelling naar de kernregistratie
+## F8-06 - Vaststelling naar de kernregistratie
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F8-06 - Vaststelling naar de kernregistratie](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f8-06---vaststelling-naar-de-kernregistratie)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![stroomt: Summatief vaststellen](<img/leerroute-scenario-uitwerking/f8-06-vaststelling-naar-de-kernregistratie.png>)
 
 *Schrijf hier de uitwerking.*
 
-### 8.7 F8-07 - Gediplomeerd: opleidingsresultaat en diploma
+## F8-07 - Gediplomeerd: opleidingsresultaat en diploma
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F8-07 - Gediplomeerd: opleidingsresultaat en diploma](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f8-07---gediplomeerd-opleidingsresultaat-en-diploma)
 
-**Verwacht** een beeld
+**Acceptatiecriteria** een beeld, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 ![ontstaat: Kwalificering en diplomering registreren](<img/leerroute-scenario-uitwerking/f8-07-gediplomeerd-opleidingsresultaat-en-diploma.png>)
 
 *Schrijf hier de uitwerking.*
 
-## 9 Bijlage: alle objecttypen per begrippenfamilie
+# Bijlage: alle objecttypen per begrippenfamilie
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, Bijlage: alle objecttypen per begrippenfamilie](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#bijlage-alle-objecttypen-per-begrippenfamilie)
 
-**Verwacht** een beschrijving in lopende tekst
+**Acceptatiecriteria** een beschrijving in lopende tekst, en de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 *Schrijf hier de uitwerking.*
 
-### 9.1 Kwalificatiekader
+## Kwalificatiekader
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, Kwalificatiekader](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#kwalificatiekader)
 
-**Verwacht** een ingevulde tabel
+**Acceptatiecriteria** een ingevulde tabel, en elke rij is ingevuld, of doorgehaald met de reden erbij
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** elke rij is ingevuld, of doorgehaald met de reden erbij
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 | Objecttype | Beeld | <student> | Fase | Aanname | Definitie | OEAPI | Heet bij u | Hangt bij u onder |
 |---|---|---|---|---|---|---|---|---|
@@ -1301,15 +1110,13 @@ Een instelling spreekt voor haar eigen praktijk en niet voor de sector. Noteer d
 
 *Schrijf hier de uitwerking.*
 
-### 9.2 Onderwijskundig kader instelling
+## Onderwijskundig kader instelling
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, Onderwijskundig kader instelling](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#onderwijskundig-kader-instelling)
 
-**Verwacht** een ingevulde tabel
+**Acceptatiecriteria** een ingevulde tabel, en elke rij is ingevuld, of doorgehaald met de reden erbij
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** elke rij is ingevuld, of doorgehaald met de reden erbij
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 | Objecttype | Beeld | <student> | Fase | Aanname | Definitie | OEAPI | Heet bij u | Hangt bij u onder |
 |---|---|---|---|---|---|---|---|---|
@@ -1321,15 +1128,13 @@ Een instelling spreekt voor haar eigen praktijk en niet voor de sector. Noteer d
 
 *Schrijf hier de uitwerking.*
 
-### 9.3 Onderwijsspecificatie
+## Onderwijsspecificatie
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, Onderwijsspecificatie](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#onderwijsspecificatie)
 
-**Verwacht** een ingevulde tabel
+**Acceptatiecriteria** een ingevulde tabel, en elke rij is ingevuld, of doorgehaald met de reden erbij
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** elke rij is ingevuld, of doorgehaald met de reden erbij
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 | Objecttype | Beeld | <student> | Fase | Aanname | Definitie | OEAPI | Heet bij u | Hangt bij u onder |
 |---|---|---|---|---|---|---|---|---|
@@ -1350,15 +1155,13 @@ Een instelling spreekt voor haar eigen praktijk en niet voor de sector. Noteer d
 
 *Schrijf hier de uitwerking.*
 
-### 9.4 Onderwijsaanbod
+## Onderwijsaanbod
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, Onderwijsaanbod](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#onderwijsaanbod)
 
-**Verwacht** een ingevulde tabel
+**Acceptatiecriteria** een ingevulde tabel, en elke rij is ingevuld, of doorgehaald met de reden erbij
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** elke rij is ingevuld, of doorgehaald met de reden erbij
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 | Objecttype | Beeld | <student> | Fase | Aanname | Definitie | OEAPI | Heet bij u | Hangt bij u onder |
 |---|---|---|---|---|---|---|---|---|
@@ -1376,15 +1179,13 @@ Een instelling spreekt voor haar eigen praktijk en niet voor de sector. Noteer d
 
 *Schrijf hier de uitwerking.*
 
-### 9.5 Onderwijsverbintenis
+## Onderwijsverbintenis
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, Onderwijsverbintenis](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#onderwijsverbintenis)
 
-**Verwacht** een ingevulde tabel
+**Acceptatiecriteria** een ingevulde tabel, en elke rij is ingevuld, of doorgehaald met de reden erbij
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** elke rij is ingevuld, of doorgehaald met de reden erbij
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 | Objecttype | Beeld | <student> | Fase | Aanname | Definitie | OEAPI | Heet bij u | Hangt bij u onder |
 |---|---|---|---|---|---|---|---|---|
@@ -1401,15 +1202,13 @@ Een instelling spreekt voor haar eigen praktijk en niet voor de sector. Noteer d
 
 *Schrijf hier de uitwerking.*
 
-### 9.6 Onderwijsresultaat
+## Onderwijsresultaat
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, Onderwijsresultaat](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#onderwijsresultaat)
 
-**Verwacht** een ingevulde tabel
+**Acceptatiecriteria** een ingevulde tabel, en elke rij is ingevuld, of doorgehaald met de reden erbij
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** elke rij is ingevuld, of doorgehaald met de reden erbij
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 | Objecttype | Beeld | <student> | Fase | Aanname | Definitie | OEAPI | Heet bij u | Hangt bij u onder |
 |---|---|---|---|---|---|---|---|---|
@@ -1430,15 +1229,13 @@ Een instelling spreekt voor haar eigen praktijk en niet voor de sector. Noteer d
 
 *Schrijf hier de uitwerking.*
 
-### 9.7 Resultaatstructuur
+## Resultaatstructuur
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, Resultaatstructuur](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#resultaatstructuur)
 
-**Verwacht** een ingevulde tabel
+**Acceptatiecriteria** een ingevulde tabel, en elke rij is ingevuld, of doorgehaald met de reden erbij
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** elke rij is ingevuld, of doorgehaald met de reden erbij
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 | Objecttype | Beeld | <student> | Fase | Aanname | Definitie | OEAPI | Heet bij u | Hangt bij u onder |
 |---|---|---|---|---|---|---|---|---|
@@ -1451,15 +1248,13 @@ Een instelling spreekt voor haar eigen praktijk en niet voor de sector. Noteer d
 
 *Schrijf hier de uitwerking.*
 
-### 9.8 Buiten de kolommen (persoon, groep, cohort, verzoek)
+## Buiten de kolommen (persoon, groep, cohort, verzoek)
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, Buiten de kolommen (persoon, groep, cohort, verzoek)](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#buiten-de-kolommen-persoon-groep-cohort-verzoek)
 
-**Verwacht** een ingevulde tabel
+**Acceptatiecriteria** een ingevulde tabel, en elke rij is ingevuld, of doorgehaald met de reden erbij
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** elke rij is ingevuld, of doorgehaald met de reden erbij
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 | Objecttype | Beeld | <student> | Fase | Aanname | Definitie | OEAPI | Heet bij u | Hangt bij u onder |
 |---|---|---|---|---|---|---|---|---|
@@ -1478,51 +1273,43 @@ Een instelling spreekt voor haar eigen praktijk en niet voor de sector. Noteer d
 
 *Schrijf hier de uitwerking.*
 
-## 10 Vragen aan de kerngroep
+# Vragen aan de kerngroep
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, Vragen aan de kerngroep](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#vragen-aan-de-kerngroep)
 
-**Verwacht** een beschrijving in lopende tekst
+**Acceptatiecriteria** een beschrijving in lopende tekst, en de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 *Schrijf hier de uitwerking.*
 
-### 10.1 Vragen, vervolg (2 van 3)
+## Vragen, vervolg (2 van 3)
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, Vragen, vervolg (2 van 3)](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#vragen-vervolg-2-van-3)
 
-**Verwacht** een beschrijving in lopende tekst
+**Acceptatiecriteria** een beschrijving in lopende tekst, en de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 *Schrijf hier de uitwerking.*
 
-### 10.2 Vragen, vervolg (3 van 3)
+## Vragen, vervolg (3 van 3)
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, Vragen, vervolg (3 van 3)](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#vragen-vervolg-3-van-3)
 
-**Verwacht** een beschrijving in lopende tekst
+**Acceptatiecriteria** een beschrijving in lopende tekst, en de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 *Schrijf hier de uitwerking.*
 
-## 11 Regelregister
+# Regelregister
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, Regelregister](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#regelregister)
 
-**Verwacht** een ingevulde tabel
+**Acceptatiecriteria** een ingevulde tabel, en elke rij is ingevuld, of doorgehaald met de reden erbij
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** elke rij is ingevuld, of doorgehaald met de reden erbij
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
@@ -1996,7 +1783,7 @@ Een instelling spreekt voor haar eigen praktijk en niet voor de sector. Noteer d
 
 *Schrijf hier de uitwerking.*
 
-## Afwijkingen per instelling
+# Afwijkingen per instelling
 
 Wat bij een instelling anders gaat dan hierboven staat, per regel met de instelling erbij. Dit is geen restcategorie: hier staat het materiaal waaruit blijkt of de grootst gemene deler houdbaar is.
 
@@ -2006,7 +1793,7 @@ Wat bij een instelling anders gaat dan hierboven staat, per regel met de instell
 | | | |
 | | | |
 
-## Vragen aan OKx
+# Vragen aan OKx
 
 Wat onduidelijk bleef, genummerd, met per vraag het hoofdstuk waar het speelt.
 

@@ -80,15 +80,12 @@ class EenKopIsEenLabel(unittest.TestCase):
                     self.assertIsNone(VRAAGWOORD.match(kaal),
                                       "zet een feitelijk label in kop_labels")
 
-    def test_de_nummering_begint_bij_een(self):
+    def test_geen_eigen_nummering(self):
+        """Het Npuls-sjabloon nummert zijn koppen zelf; twee tellers botsen."""
         for naam in CONFIG:
-            koppen = [k for n, k in KOP.findall(skelet(naam))
-                      if maak.NUMMER.match(k)]
-            if not koppen:
-                continue
-            with self.subTest(naam):
-                self.assertTrue(koppen[0].startswith("1 "),
-                                f"{naam} opent met {koppen[0]!r}")
+            for _, kop in KOP.findall(skelet(naam)):
+                with self.subTest(f"{naam}: {kop}"):
+                    self.assertIsNone(maak.NUMMER.match(kop))
 
     def test_een_vraagkop_wordt_een_label(self):
         self.assertEqual(maak.label("3.1 Wat is dit document?", {}),
@@ -100,33 +97,58 @@ class EenKopIsEenLabel(unittest.TestCase):
 
 class ElkHoofdstukZegtWatErWordtVerwacht(unittest.TestCase):
     def test_het_verwachtingsblok_staat_er_even_vaak_als_een_hoofdstuk(self):
+        vast = ("Invullen", "Van user story naar eis", "De grootst gemene deler",
+                "Afwijkingen per instelling", "Vragen aan OKx")
         for naam in CONFIG:
             t = skelet(naam)
-            vast = len([k for _, k in KOP.findall(t)
-                        if k in ("Invullen", "Werkwijze",
-                                 "Van user story naar requirement",
-                                 "De grootst gemene deler",
-                                 "Afwijkingen per instelling",
-                                 "Vragen aan OKx")]) + 1  # plus de titel
+            eigen = len([k for _, k in KOP.findall(t) if k in vast])
             with self.subTest(naam):
                 self.assertEqual(t.count("**Voorbeeld** ["),
-                                 len(KOP.findall(t)) - vast,
+                                 len(KOP.findall(t)) - eigen,
                                  "elk hoofdstuk uit de bron draagt een "
                                  "verwachtingsblok")
 
-    def test_de_vier_regels(self):
+    def test_elk_blok_draagt_voorbeeld_criteria_en_een_laag(self):
         for naam in CONFIG:
             t = skelet(naam)
             with self.subTest(naam):
-                for regel in ("**Voorbeeld** [", "**Verwacht** ",
-                              "**User stories** ", "**Klaar wanneer** "):
-                    self.assertIn(regel, t)
+                self.assertIn("**Voorbeeld** [", t)
+                self.assertEqual(t.count("**Voorbeeld** ["),
+                                 t.count("**Acceptatiecriteria** "))
+                lagen = sum(t.count(regel.split("*")[2]) for regel in
+                            maak.LAGEN.values())
+                self.assertEqual(lagen, t.count("**Voorbeeld** ["),
+                                 "elk hoofdstuk noemt zijn laag in de "
+                                 "requirementketen")
+
+    def test_niet_elk_hoofdstuk_vraagt_user_stories(self):
+        """Een journey brengt een behoefte naar boven; een gegevenshoofdstuk niet."""
+        t = skelet("leerroute-scenario")
+        stories = t.count("**User stories**")
+        self.assertGreater(stories, 0)
+        self.assertLess(stories, t.count("**Voorbeeld** [") / 2,
+                        "als elk hoofdstuk user stories vraagt, zegt de "
+                        "indeling niets meer")
+        for laag in ("**Business requirements**", "**Functional requirements**",
+                     "**Technical requirements**"):
+            self.assertIn(laag, t)
+
+    def test_een_acceptatiecriterium_noemt_de_context(self):
+        t = skelet("leerroute-scenario")
+        self.assertIn("procesplaat van de studentreis", t)
+        self.assertIn("in het kader van de persona", t)
+        self.assertIn("mermaid, BPMN, UML of vergelijkbaar", t)
+
+    def test_een_hoofdstuk_dat_niet_elke_route_raakt_is_optioneel(self):
+        t = skelet("leerroute-scenario")
+        self.assertIn("*Optioneel:", t)
+        self.assertIn("laat de kop staan met die reden eronder", t)
 
     def test_het_verwachte_artefact_komt_uit_de_bron(self):
         """Een hoofdstuk met een diagram vraagt om een diagram."""
         s = maak.Sjabloon("x", {"bron": "README.md", "voorbeeld_naam": "Bron"})
         met_diagram = s.verwachting("Kop", "Kop", ["```mermaid", "graph TD", "```"])
-        self.assertIn("procesdiagram", "\n".join(met_diagram))
+        self.assertIn("procesplaat", "\n".join(met_diagram))
         met_tabel = s.verwachting("Kop", "Kop", ["| a | b |", "|---|---|"])
         self.assertIn("tabel", "\n".join(met_tabel))
         leeg = s.verwachting("Kop", "Kop", ["gewone tekst"])
@@ -136,7 +158,7 @@ class ElkHoofdstukZegtWatErWordtVerwacht(unittest.TestCase):
         for naam in CONFIG:
             t = skelet(naam)
             with self.subTest(naam):
-                self.assertIn("## Van user story naar requirement", t)
+                self.assertIn("# Van user story naar eis", t)
                 for laag in ("Business requirement", "Functional requirement",
                              "Technical requirement"):
                     self.assertIn(laag, t)
@@ -199,10 +221,10 @@ class HetSkeletDraagtZijnUitwerking(unittest.TestCase):
         for naam in CONFIG:
             t = skelet(naam)
             with self.subTest(naam):
-                self.assertIn("## De grootst gemene deler", t)
+                self.assertIn("# De grootst gemene deler", t)
                 self.assertIn("niet voor de sector", t)
-                self.assertIn("## Afwijkingen per instelling", t)
-                self.assertIn("## Vragen aan OKx", t)
+                self.assertIn("# Afwijkingen per instelling", t)
+                self.assertIn("# Vragen aan OKx", t)
                 self.assertIn(maak.RUIMTE, t)
 
 
@@ -269,16 +291,46 @@ class DeDocxHoortBijHetSkelet(unittest.TestCase):
 
 
 class DeReferentieDraagtDeHuisstijl(unittest.TestCase):
-    def test_de_npuls_kleuren_en_de_letter(self):
+    def test_de_referentie_komt_uit_het_npuls_sjabloon(self):
         with zipfile.ZipFile(bouw_docx.REFERENTIE) as z:
+            namen = z.namelist()
             thema = z.read("word/theme/theme1.xml").decode("utf-8")
             stijlen = z.read("word/styles.xml").decode("utf-8")
+        self.assertTrue(any("media" in n for n in namen),
+                        "het logo van de omslag ontbreekt")
+        self.assertIn("word/numbering.xml", namen,
+                      "zonder de nummering telt Word de koppen niet")
+        self.assertIn("Kop1", stijlen, "dit is het Npuls-sjabloon niet")
         self.assertIn(bouw_ref.ORANJE, thema)
-        self.assertIn(bouw_ref.ORANJE, stijlen)
         self.assertIn(bouw_ref.LETTER, thema)
+
+    def test_de_stijlen_die_pandoc_zoekt_zijn_toegevoegd(self):
+        with zipfile.ZipFile(bouw_docx.REFERENTIE) as z:
+            stijlen = z.read("word/styles.xml").decode("utf-8")
+        for sid in ("Table", "BodyText", "BlockText", "Hyperlink", "Compact"):
+            with self.subTest(sid):
+                self.assertIn(f'w:styleId="{sid}"', stijlen)
         self.assertIn(bouw_ref.BLAUW, stijlen)
         self.assertIn(bouw_ref.GRIJS, stijlen)
         self.assertIn("nl-NL", stijlen)
+
+    def test_de_titel_staat_onder_het_logo(self):
+        with zipfile.ZipFile(bouw_docx.REFERENTIE) as z:
+            stijlen = z.read("word/styles.xml").decode("utf-8")
+        titel = re.search(r'<w:style [^>]*w:styleId="Titel".*?</w:style>',
+                          stijlen, re.S).group(0)
+        self.assertIn('w:before="2400"', titel,
+                      "zonder ruimte loopt de titel door het logo")
+
+    def test_de_voettekst_draagt_de_titel_van_het_sjabloon(self):
+        for naam, bestand in bouw_docx.SJABLONEN.items():
+            with zipfile.ZipFile(MAP / bestand) as z:
+                voet = b"".join(z.read(n) for n in z.namelist()
+                                if n.startswith("word/footer"))
+            with self.subTest(naam):
+                self.assertNotIn(b"[titel]", voet,
+                                 "de plaatshouder van het Npuls-sjabloon staat "
+                                 "er nog in")
 
     def test_de_referentie_is_opnieuw_te_bouwen(self):
         with tempfile.TemporaryDirectory() as tmp:

@@ -1,6 +1,6 @@
-# Sjabloon informatiemodel viewpoint
+`<w:p><w:r><w:br w:type="page"/></w:r></w:p>`{=openxml}
 
-## Invullen
+# Invullen
 
 | Onderdeel | Inhoud |
 |---|------------------------------------------------|
@@ -9,97 +9,76 @@
 | Voorbeeld | [informatiemodel OKx](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/informatiemodel.md) |
 | Inleveren | terug naar OKx SI als Word-bestand |
 
-## Werkwijze
+Elk hoofdstuk opent met een blok dat zegt wat er van dat hoofdstuk wordt verwacht: waar hetzelfde al is uitgewerkt, welk artefact hier hoort en waaraan het voldoet, en wat dit hoofdstuk aan het pakket van eisen bijdraagt. Dat blok blijft staan; het is de opdracht en niet de uitwerking. Een hoofdstuk dat niet van toepassing is houdt zijn kop, met de reden eronder.
 
-Elk hoofdstuk opent met een blok van vier regels. Dat blok zegt wat er van dit hoofdstuk wordt verwacht, en het blijft staan: het is de opdracht en niet de uitwerking.
+# Van user story naar eis
 
-| Regel | Wat erin staat |
-|---|------------------------------------------------|
-| Voorbeeld | de plek in de voorbeelduitwerking waar hetzelfde hoofdstuk al is ingevuld |
-| Verwacht | het artefact dat hier hoort, afgeleid uit wat de voorbeelduitwerking daar levert |
-| User stories | de nummers uit het pakket van eisen die dit hoofdstuk verwezenlijkt |
-| Klaar wanneer | het acceptatiecriterium waaraan de uitwerking voldoet |
+Het pakket van eisen komt uit de gedeelde analyse van alles wat scholen hebben ingebracht, geinventariseerd in de PoC-sessies met de koploperscholen. De grootst gemene deler daaruit is wat OKx vastlegt.
 
-De koppen blijven staan zoals zij hier staan. In het agent-harnas komt een lezer (parser) die een ingevuld document per kop terugvertaalt naar de kennisbank; een kop die is herschreven of weggehaald maakt zijn hoofdstuk onleesbaar. Een hoofdstuk dat niet van toepassing is houdt dus zijn kop, met de reden eronder.
+Niet elk hoofdstuk levert hetzelfde. Een journey brengt een behoefte naar boven en levert user stories. Een procesbeschrijving zegt wat de instelling moet kunnen. Een gegevens- of systeemhoofdstuk zegt wat een component moet doen. Een interactiehoofdstuk zegt wat er over het koppelvlak gaat. Het blok boven elk hoofdstuk noemt welke laag daar hoort.
 
-## Van user story naar requirement
+| Laag | Waar die ontstaat | Voorbeeld |
+|---|---|------------------------------------|
+| User story | in een journey of een scenario | Als student wil ik bij mijn keuzedeelruimte een geprioriteerde voorkeurslijst opgeven, met als doel dat ik niet zonder keuzedeel kom te zitten wanneer mijn eerste keuze vol is |
+| Business requirement | in een procesbeschrijving | de instelling kent per keuzedeelruimte de voorkeursvolgorde van de student voordat zij plaatst |
+| Functional requirement | in een gegevens- of systeemhoofdstuk | het studentkeuzesysteem legt per keuzedeelruimte een geordende lijst voorkeuren vast, met per voorkeur het onderdeel, de periode en de locatie |
+| Technical requirement | in een interactiehoofdstuk | de voorkeurslijst gaat als geordende verzameling over het koppelvlak, met de volgorde expliciet in het bericht en niet afgeleid uit de positie |
 
-Een hoofdstuk is pas af wanneer het aanwijsbaar is welke user stories het verwezenlijkt. Die stories komen uit de gedeelde analyse van alles wat scholen als input hebben geleverd, geinventariseerd in de PoC-sessies met de koploperscholen en samengebracht tot het pakket van eisen. De grootst gemene deler daaruit is wat OKx vastlegt.
+Vul in dit document de laag in die boven het hoofdstuk staat. De lagen eronder volgen in een eigen ronde, met dit document als bron.
 
-Elke story gaat daarna door drie lagen. Een voorbeeld, zodat de vorm vastligt:
-
-| Laag | Voorbeeld |
-|---|------------------------------------------------|
-| User story | Als student wil ik bij mijn keuzedeelruimte een geprioriteerde voorkeurslijst opgeven, met als doel dat ik niet zonder keuzedeel kom te zitten wanneer mijn eerste keuze vol is |
-| Business requirement | de instelling kent per keuzedeelruimte de voorkeursvolgorde van de student voordat zij plaatst |
-| Functional requirement | het studentkeuzesysteem legt per keuzedeelruimte een geordende lijst voorkeuren vast, met per voorkeur het keuzedeel, de periode en de locatie |
-| Technical requirement | de voorkeurslijst gaat als geordende verzameling over het koppelvlak, met de volgorde expliciet in het bericht en niet afgeleid uit de positie |
-
-Vul in dit document de user stories in; de drie requirementlagen volgen daarna in een eigen ronde, met dit document als bron.
-
-## De grootst gemene deler
+# De grootst gemene deler
 
 Tussen de inbreng van instellingen en dit document zit een analysestap. Een objecttype hoort hier wanneer meerdere instellingen het nodig hebben, niet wanneer een instelling het zo genoemd heeft. Hoe een instelling haar onderwijs inricht blijft haar keuze: OKx legt alleen de vorm van de uitwisseling vast.
 
 Een instelling spreekt voor haar eigen praktijk en niet voor de sector. Noteer daarom apart wat afwijkt, onder [Afwijkingen per instelling](#afwijkingen-per-instelling).
 
-## 1 Informatiemodel OKx
+# Informatiemodel OKx
 
 **Voorbeeld** [Informatiemodel OKx, Informatiemodel OKx](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/informatiemodel.md#informatiemodel-okx)
 
-**Verwacht** een beschrijving in lopende tekst
+**Acceptatiecriteria** een beschrijving in lopende tekst, en de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 *Schrijf hier de uitwerking.*
 
-### 1.1 Context
+## Context
 
 **Voorbeeld** [Informatiemodel OKx, Context](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/informatiemodel.md#context)
 
-**Verwacht** een beschrijving in lopende tekst
+**Acceptatiecriteria** een beschrijving in lopende tekst, en de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 *Schrijf hier de uitwerking.*
 
-### 1.2 Inleiding
+## Inleiding
 
 **Voorbeeld** [Informatiemodel OKx, Inleiding](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/informatiemodel.md#inleiding)
 
-**Verwacht** een beschrijving in lopende tekst
+**Acceptatiecriteria** een beschrijving in lopende tekst, en de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 *Schrijf hier de uitwerking.*
 
-### 1.3 Doel
+## Doel
 
 **Voorbeeld** [Informatiemodel OKx, Doel](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/informatiemodel.md#doel)
 
-**Verwacht** een beschrijving in lopende tekst
+**Acceptatiecriteria** een beschrijving in lopende tekst, en de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 *Schrijf hier de uitwerking.*
 
-### 1.4 Scope
+## Scope
 
 **Voorbeeld** [Informatiemodel OKx, Scope](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/informatiemodel.md#scope)
 
-**Verwacht** een beeld, een ingevulde tabel
+**Acceptatiecriteria** een beeld, een ingevulde tabel, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken; elke rij is ingevuld, of doorgehaald met de reden erbij
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken; elke rij is ingevuld, of doorgehaald met de reden erbij
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 | | Niveau | Waar het staat |
 |---|---|---|
@@ -112,15 +91,13 @@ Een instelling spreekt voor haar eigen praktijk en niet voor de sector. Noteer d
 
 *Schrijf hier de uitwerking.*
 
-### 1.5 Lezers en detailniveau
+## Lezers en detailniveau
 
 **Voorbeeld** [Informatiemodel OKx, Lezers en detailniveau](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/informatiemodel.md#lezers-en-detailniveau)
 
-**Verwacht** een ingevulde tabel
+**Acceptatiecriteria** een ingevulde tabel, en elke rij is ingevuld, of doorgehaald met de reden erbij
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** elke rij is ingevuld, of doorgehaald met de reden erbij
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 | | |
 |---|---|
@@ -129,15 +106,13 @@ Een instelling spreekt voor haar eigen praktijk en niet voor de sector. Noteer d
 
 *Schrijf hier de uitwerking.*
 
-### 1.6 Begrippenfamilies
+## Begrippenfamilies
 
 **Voorbeeld** [Informatiemodel OKx, Begrippenfamilies](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/informatiemodel.md#begrippenfamilies)
 
-**Verwacht** een ingevulde tabel
+**Acceptatiecriteria** een ingevulde tabel, en elke rij is ingevuld, of doorgehaald met de reden erbij
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** elke rij is ingevuld, of doorgehaald met de reden erbij
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 | Begrip | Wat het is | Beantwoordt de vraag |
 |---|---|---|
@@ -151,15 +126,13 @@ Een instelling spreekt voor haar eigen praktijk en niet voor de sector. Noteer d
 
 *Schrijf hier de uitwerking.*
 
-### 1.7 Notatie
+## Notatie
 
 **Voorbeeld** [Informatiemodel OKx, Notatie](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/informatiemodel.md#notatie)
 
-**Verwacht** een ingevulde tabel
+**Acceptatiecriteria** een ingevulde tabel, en elke rij is ingevuld, of doorgehaald met de reden erbij
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** elke rij is ingevuld, of doorgehaald met de reden erbij
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 | | Relatie | Betekenis in dit model |
 |---|---|---|
@@ -170,27 +143,23 @@ Een instelling spreekt voor haar eigen praktijk en niet voor de sector. Noteer d
 
 *Schrijf hier de uitwerking.*
 
-### 1.8 Ontwerpkeuzes
+## Ontwerpkeuzes
 
 **Voorbeeld** [Informatiemodel OKx, Ontwerpkeuzes](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/informatiemodel.md#ontwerpkeuzes)
 
-**Verwacht** een beschrijving in lopende tekst
+**Acceptatiecriteria** een beschrijving in lopende tekst, en de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 *Schrijf hier de uitwerking.*
 
-### 1.9 Verwante documenten
+## Verwante documenten
 
 **Voorbeeld** [Informatiemodel OKx, Verwante documenten](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/informatiemodel.md#verwante-documenten)
 
-**Verwacht** een ingevulde tabel
+**Acceptatiecriteria** een ingevulde tabel, en elke rij is ingevuld, of doorgehaald met de reden erbij
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
-
-**Klaar wanneer** elke rij is ingevuld, of doorgehaald met de reden erbij
+**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
 | Document | Verhouding |
 |---|---|
@@ -203,7 +172,7 @@ Een instelling spreekt voor haar eigen praktijk en niet voor de sector. Noteer d
 
 *Schrijf hier de uitwerking.*
 
-## Afwijkingen per instelling
+# Afwijkingen per instelling
 
 Wat bij een instelling anders gaat dan hierboven staat, per regel met de instelling erbij. Dit is geen restcategorie: hier staat het materiaal waaruit blijkt of de grootst gemene deler houdbaar is.
 
@@ -213,7 +182,7 @@ Wat bij een instelling anders gaat dan hierboven staat, per regel met de instell
 | | | |
 | | | |
 
-## Vragen aan OKx
+# Vragen aan OKx
 
 Wat onduidelijk bleef, genummerd, met per vraag het hoofdstuk waar het speelt.
 
