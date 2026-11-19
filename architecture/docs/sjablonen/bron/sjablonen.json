@@ -3,34 +3,67 @@
     "titel": "Sjabloon persona",
     "bron": "architecture/docs/specificatie/leerroute-uitwerking/doc/persona_jochem.md",
     "bestand": "OKx sjabloon persona.docx",
-    "wat": "een persona: een student met een naam, een opleiding en een route door het onderwijs, waar elk leerroute scenario daarna naar verwijst",
+    "wat": "een of meer persona's bij een leerroute scenario: een portret van een mens in de scope van OKx, met wat hij meemaakt en wat hem daarin beweegt",
     "wie": "de adviesgroep. Suggestie: de informatiemanagers nemen het voortouw, want zij kennen de instellingspraktijk per stap",
     "voorbeeld": "[persona Jochem](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/persona_jochem.md)",
     "voorbeeld_naam": "Persona Jochem",
     "aggregatie": "Tussen de inbreng van instellingen en dit document zit een analysestap. Haal op bij meerdere instellingen, zoek wat zij delen, en schrijf dat op. Wat een persona draagt is wat bij meerdere instellingen zo werkt, niet wat bij een ervan zo heet.",
-    "kop_labels": {
-      "Studentjourney": "Studentjourney",
-      "Instellingsjourney": "Instellingsjourney"
-    },
-    "vervang": [
-      [
-        "Jochem",
-        "<student>"
-      ],
-      [
-        "apothekersassistent",
-        "<opleiding>"
-      ],
-      [
-        "mbo-instelling",
-        "<instelling>"
-      ]
-    ],
     "laag": "user story",
     "versie": "0.0.1",
-    "doel": "Dit document legt een student vast waar elk leerroute scenario naar verwijst, zodat elk scenario over dezelfde mens gaat en de reizen naast elkaar te leggen zijn.",
-    "context": "De persona is het beginpunt van de keten. Elk leerroute scenario volgt een persona, en elke uitwerking legt diezelfde persona naast het informatiemodel.",
-    "keten": "komt voor het [leerroute scenario](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md)"
+    "doel": "Dit document maakt een leerroute invoelbaar door haar te volgen door de ogen van de mensen die haar doorlopen, zodat een ontwerpkeuze te toetsen is aan wat zij ervan merken.",
+    "context": "Een persona is een portret van een mens in de scope van OKx: wat hij in zijn onderwijs meemaakt, wat hem daarin beweegt, en wat de gang van zaken met hem doet. Geen gemiddelde student, maar een herkenbaar iemand aan wie een ontwerpkeuze te toetsen is. Het document loopt in tandem met het leerroute scenario: het procesbeeld daar bepaalt welke stappen deze persona doorloopt, en wat deze persona meemaakt scherpt dat procesbeeld aan.",
+    "keten": "hoort bij een [leerroute scenario](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md) en wordt daarmee samen geschreven, niet ervoor of erna",
+    "vervang": [],
+    "opbouw": {
+      "Werkwijze": {
+        "niveau": 1,
+        "blok": false,
+        "ruimte": false,
+        "toelichting": "Dit document draagt een of meer persona's. Herhaal de twee bouwblokken hieronder per persona tot het leerroute scenario zijn mensen heeft.\n\n**Een persona hoeft geen student te zijn.** Een planner, een examinator, een studieloopbaanbegeleider of een leerbedrijf is net zo goed een persona wanneer de route langs hem loopt. Een leerroute scenario kan er dus meerdere dragen, en dat is eerder regel dan uitzondering: een route die alleen vanuit de student is beschreven, laat niet zien wat zij van de instelling vraagt.\n\n**Schrijf in tandem met het leerroute scenario.** Het procesbeeld daar bepaalt welke stappen deze persona doorloopt; wat deze persona meemaakt scherpt dat procesbeeld aan. Verschilt de stappenreeks hier van die in het scenario, dan is een van de twee nog niet af.\n\n**Een persona is geen gemiddelde.** Een gemiddelde student bestaat niet en is nergens aan te toetsen. Kies een herkenbaar iemand, met een naam, een situatie en een reden waarom hij deze route loopt."
+      },
+      "Bouwblok: het portret": {
+        "niveau": 1,
+        "anker": "Persona Jochem",
+        "voorbeeld_beeld": "architecture/docs/specificatie/leerroute-uitwerking/img/npuls-leerroute1-regulier-jochem.png",
+        "beeld_alt": "Voorbeeld van een portret: Jochem, de persona van leerroute 1",
+        "artefact": "een portret in lopende tekst, met het beeld van de persona erbij wanneer dat er is",
+        "context": "in het kader van het leerroute scenario waar deze persona bij hoort",
+        "eis": "het portret noemt wie deze mens is, waarom hij juist deze route loopt, en wat hem daarin beweegt; een lezer moet hem kunnen navertellen zonder het document erbij",
+        "toelichting": "Kopieer dit blok voor elke persona. Begin met wie het is en waarom deze route bij hem hoort; de reis komt in het volgende blok.",
+        "tabel": [
+          "| Veld | Invulling |",
+          "|---|------------------------------------------------|",
+          "| Naam | *de naam waaronder deze persona in alle documenten terugkomt* |",
+          "| Rol | *student, planner, examinator, leerbedrijf of een andere belanghebbende* |",
+          "| Situatie | *leeftijd, vooropleiding, opleiding en instroommoment, of de positie binnen de instelling* |",
+          "| Waarom deze route | *wat maakt dat juist deze leerroute bij hem hoort* |",
+          "| Wat hem beweegt | *waar hij het voor doet, en wat hij wil vermijden* |",
+          "| Wat het moeilijk maakt | *waar hij in deze route tegenaan loopt* |",
+          "| Waaraan hij merkt dat het goed gaat | *het teken dat voor hem telt* |"
+        ]
+      },
+      "Bouwblok: de reis per processtap": {
+        "niveau": 1,
+        "anker": "Studentjourney",
+        "artefact": "een tabel met een rij per processtap uit het leerroute scenario, en daarnaast een procesplaat in mermaid, BPMN, UML of vergelijkbaar",
+        "context": "met dezelfde stappen en in dezelfde volgorde als het procesbeeld in het leerroute scenario",
+        "eis": "elke stap noemt wat deze persona doet, wat hij op dat moment moet weten en wat het met hem doet; een stap die in het scenario staat en hier niet, staat als observatie in het slot",
+        "toelichting": "Kopieer dit blok voor elke persona, direct onder zijn portret. De stappen komen uit het procesbeeld van het leerroute scenario; neem ze over in dezelfde volgorde, zodat de reizen van twee persona's naast elkaar te leggen zijn.\n\nDe uitgewerkte vorm staat in [persona Jochem](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/persona_jochem.md), die elf stappen doorloopt vanaf orienteren tot het diploma.",
+        "tabel": [
+          "| Processtap | Wat hij doet | Wat hij moet weten | Wat het met hem doet |",
+          "|---|---|---|---|",
+          "| | | | |",
+          "| | | | |",
+          "| | | | |",
+          "| | | | |"
+        ]
+      },
+      "De persona's": {
+        "niveau": 1,
+        "blok": false,
+        "toelichting": "Herhaal hieronder het portret en de reis voor elke persona van dit leerroute scenario. Zet de student vooraan; de persona's vanuit de instelling volgen in de volgorde waarin zij de route raken."
+      }
+    }
   },
   "leerroute-scenario": {
     "titel": "Sjabloon leerroute scenario",

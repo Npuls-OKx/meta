@@ -6,7 +6,7 @@ Open het Word-bestand. Elk sjabloon is **afgeleid uit de uitwerking die er al li
 
 | Product | Sjabloon | Afgeleid uit |
 |---|---|---|
-| persona | `OKx sjabloon persona.docx` | [persona Jochem](../specificatie/leerroute-uitwerking/doc/persona_jochem.md) |
+| persona | `OKx sjabloon persona.docx` | twee bouwblokken, met [persona Jochem](../specificatie/leerroute-uitwerking/doc/persona_jochem.md) als voorbeeld |
 | leerroute scenario | `OKx sjabloon leerroute scenario.docx` | [leerroute 1 scenario](../specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md) |
 | informatiemodel viewpoint | `OKx sjabloon informatiemodel viewpoint.docx` | [informatiemodel OKx](../../model/informatiemodel/informatiemodel.md) |
 | leerroute scenario uitwerking | `OKx sjabloon leerroute scenario uitwerking.docx` | twee bouwstenen, met [de uitwerking met Jochem](../../model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md) als voorbeeld |
@@ -42,6 +42,19 @@ Of, waar het om een reis gaat:
 
 Waar geen eigen criterium is vastgelegd, leidt de generator er een af uit wat de voorbeelduitwerking in dat hoofdstuk levert: een mermaid-diagram vraagt om een procesplaat, een tabel om een ingevulde tabel.
 
+## Een persona is een portret, en er zijn er meer dan een
+
+Een persona is een portret van een mens in de scope van OKx: wat hij in zijn onderwijs meemaakt, wat hem daarin beweegt, en wat de gang van zaken met hem doet. Geen gemiddelde student, maar een herkenbaar iemand aan wie een ontwerpkeuze te toetsen is.
+
+Drie dingen staan daarom in dat sjabloon voorop. **Een persona hoeft geen student te zijn**: een planner, een examinator of een leerbedrijf is net zo goed een persona wanneer de route langs hem loopt, en een leerroute scenario draagt er dus meestal meerdere. **Het document loopt in tandem met het leerroute scenario**: het procesbeeld daar bepaalt welke stappen de persona doorloopt, en wat de persona meemaakt scherpt dat procesbeeld aan; verschillen de twee, dan is er een nog niet af. En **een gemiddelde bestaat niet**, dus is er niets aan te toetsen.
+
+Het sjabloon draagt daarom twee bouwblokken die zich per persona herhalen:
+
+| Bouwblok | Wat erin staat |
+|---|---|
+| **het portret** | naam, rol, situatie, waarom juist deze route, wat hem beweegt, wat het moeilijk maakt, waaraan hij merkt dat het goed gaat |
+| **de reis per processtap** | een rij per stap uit het procesbeeld van het scenario: wat hij doet, wat hij moet weten, wat het met hem doet |
+
 ## Twee bouwstenen in plaats van honderd hoofdstukken
 
 De uitwerking is geen hoofdstukkenreeks maar een herhaling van twee blokken.
@@ -76,7 +89,7 @@ Het pakket van eisen is een **eigen document**. Een sjabloon bevat het niet; het
 | functional requirement | in een gegevens- of systeemhoofdstuk | leerroute specificatie |
 | technical requirement | in een interactiehoofdstuk | interactieketenspecificatie |
 
-In het sjabloon staan dus alleen de **nummers**, als verwijzing. De uitgeschreven eis volgt in een eigen ronde, in het document waar hij hoort. Leerroute 1 draagt die stories zelf nog niet; dat loopt via #557.
+In het sjabloon staan dus alleen de **nummers**, als verwijzing. De uitgeschreven eis volgt in een eigen ronde, in het document waar hij hoort. Het register met genummerde stories bestaat nog niet; dat moet zich materialiseren uit de adviesgroep en de PoC-scholen, en loopt via #558. Leerroute 1 koppelen aan dat register loopt via #557.
 
 ## Niet elk hoofdstuk levert een eis
 
