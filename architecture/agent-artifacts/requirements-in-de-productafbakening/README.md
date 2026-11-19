@@ -1,42 +1,66 @@
 # Requirements in de productafbakening
 
-Waar horen business, functional en technical requirements op de [productafbakening](../../product-breakdown/README.md)? Dit stuk legt drie varianten naast elkaar en tekent de derde uit, zodat erover te besluiten is.
+Waar ontstaan de eisen van OKx, en waar landen zij? Dit stuk legt de varianten naast elkaar en tekent het voorstel uit, zodat erover te besluiten is.
 
 Relateert aan: #554, #558
 
 ## De vraag
 
-De sjablonen voor de adviesgroep noemen per hoofdstuk welke laag daar ontstaat: een journey brengt user stories naar boven, een procesbeschrijving business requirements, een gegevenshoofdstuk functional requirements, een interactiehoofdstuk technical requirements. Die lagen moeten ergens landen, en de plaat zegt nu niet waar.
+De sjablonen voor de adviesgroep noemen per hoofdstuk welke laag daar ontstaat: een journey brengt user stories naar boven, een procesbeschrijving bedrijfseisen, een gegevenshoofdstuk functionele eisen, een interactiehoofdstuk technische eisen. Die lagen moeten ergens landen, en de plaat zegt nu niet waar.
 
-## Drie varianten
+De bedrijfs- en functionele eisen **zitten al in de leerroute scenario's**, zoals die nu geschreven zijn. Alleen staan zij er als lopende tekst, en daarmee zijn zij niet te tellen, niet te prioriteren en niet aan een testgeval te hangen.
 
-| | Wat het betekent | Wat eraan wringt |
-|---|---|---|
-| **A, pakket van eisen op de solutionlaag** | het pakket van eisen komt als artefact bij de interactieketens en het logisch gegevensmodel; de technische laag staat er expliciet, de business- en functionele laag zitten impliciet in het leerroute scenario en de informatiemodeluitwerking | een pakket van eisen is geen oplossing maar een vraag; het hoort niet in de laag die de oplossing beschrijft. En wat impliciet is, is niet te tellen en niet te toetsen |
-| **B, pakket van eisen als aggregatie** | het pakket van eisen is de optelsom van alle eisen, die zelf in hun bronproducten blijven staan: business en functioneel in het leerroute scenario en de informatiemodeluitwerking, technisch in de interacties en de interactieketens | dan is het pakket van eisen een aanzicht en geen product: er is niets om aan te wijzen, te versioneren of over te dragen. Een eis die alleen in lopende tekst bestaat, is bovendien niet te nummeren en dus niet te traceren naar een test |
-| **C, drie eigen artefacten** | business, functional en technical requirements worden elk een eigen artefact, elk met een pijl naar de bron waaruit zij voortkomen; het pakket van eisen draagt de user stories | vier vakken erbij op een plaat die al vol is, en het risico dat een eis en zijn bron uit elkaar gaan lopen |
+## Het voorstel
 
-## Het voorstel, uitgetekend
+![Waar de eisen ontstaan en waar zij landen](gegenereerd/img/requirements-als-artefact.svg)
 
-![Business, functional en technical requirements als eigen artefact, met de bron waaruit elk voortkomt](gegenereerd/img/requirements-als-artefact.svg)
+De keten van links naar rechts, met de vier nieuwe artefacten in een oranje rand:
 
-Vier vakken met een oranje rand bestaan nog niet. De pijl omlaag zegt uit welk product de eis voortkomt; de pijl naar rechts zegt hoe een eis verfijnt tot de laag eronder.
+| Stap | Wat er gebeurt |
+|---|---|
+| **PoC-inbreng** | wat koploperscholen in de sessies hebben ingebracht, per school vastgelegd. Dit is zelf een artefact en geen losse herinnering: zonder die vastlegging is de grootst gemene deler later niet te verantwoorden |
+| **Persona's** | de inbreng krijgt een gezicht: wie de route loopt en wat hem beweegt |
+| **Leerroute scenario** | de route met haar reizen en processtappen, geschreven vanuit de persona's en gevoed door de inbreng |
+| **Bedrijfseisen** | wat de instelling moet kunnen om die route te draaien, afgeleid uit het scenario |
+| **Leerroute scenario uitwerking** | het scenario stap voor stap naast het informatiemodel |
+| **Functionele eisen** | wat een component moet doen met welke gegevens, afgeleid uit scenario en uitwerking samen |
+| **Interacties en ketens** | hier liggen de technische eisen **zelf** vast; zij krijgen geen eigen artefact |
+| **Pakket van eisen** | de eisen bij elkaar, genummerd en herleidbaar naar hun bron |
 
 De plaat is te hertekenen met `tools/scripts/teken-requirementsvoorstel.py`.
 
-## Mijn afweging
+## Waarom technische eisen geen eigen artefact krijgen
 
-**Variant C, met een voorwaarde.** Een eis die alleen in een document staat, is niet te tellen, niet te prioriteren en niet aan een testgeval te hangen. Een eigen artefact lost dat op: het draagt een nummer, een eigenaar en een status, en het is overdraagbaar aan een leverancier zonder het hele scenario mee te sturen.
+Dat lijkt inconsequent, en het is een bewust verschil.
 
-De voorwaarde is dat elk artefact een **register** is en geen tweede verhaal. Het bevat per regel een nummer, de eis in een zin, en het nummer van de bron waaruit hij komt. Zodra er toelichting in komt te staan, gaat hij uit de pas lopen met het leerroute scenario, en dan is variant B achteraf beter geweest.
+Een **interactiespecificatie is zelf het contract**. Wat er over de lijn gaat, in welke vorm, en wat er gebeurt bij een fout: dat *is* de technische eis. Die er nog eens apart naast zetten levert twee teksten over hetzelfde, en die gaan uit de pas lopen.
 
-Twee dingen die daarbij horen:
+Een **leerroute scenario beschrijft, en zijn uitwerking toetst**. De eis is daar geen inhoud maar een conclusie: uit de beschrijving volgt dat de instelling iets moet kunnen. Zo'n conclusie hoort apart, want in lopende tekst is zij niet terug te vinden.
+
+## Moeten de eisen in de leerroute scenario uitwerking zelf?
+
+Nee, en om dezelfde reden. De uitwerking is een toets: zij legt het scenario naast het model en laat zien waar het model tekortschiet. Zodra de eisen er als hoofdstuk in komen, is het twee documenten in een band, en de eis raakt zoek tussen de bouwstenen.
+
+Wat er wel in hoort, staat er al: het hoofdstuk **Hiaten in het model**. Dat is de oogst van de toets, en elke regel daaruit wordt een functionele eis in het register.
+
+## De voorwaarde bij elk eisenartefact
+
+Een eisenartefact is een **register en geen tweede verhaal**. Per regel een nummer, de eis in een zin, en het nummer van de bron waaruit hij komt.
 
 | | |
 |---|---|
 | De bron blijft leidend | het leerroute scenario beschrijft, het register telt. Wijkt een eis af van zijn bron, dan wint de bron en is het register fout |
-| Een eis verwijst omlaag en omhoog | een functional requirement noemt de business requirement waaruit hij komt, en een technical requirement de functional requirement. Zonder die ketting is de herkomst na een halfjaar weg |
+| Een eis verwijst omlaag en omhoog | een functionele eis noemt de bedrijfseis waaruit hij komt. Zonder die ketting is de herkomst na een halfjaar weg |
+| Geen toelichting in het register | zodra er uitleg in komt te staan, loopt het uit de pas met het scenario, en dan was het beter geweest de eisen helemaal in hun bronproduct te laten |
+
+## De varianten die afvielen
+
+| | Waarom niet |
+|---|---|
+| **Pakket van eisen op de solutionlaag** | een pakket van eisen is een vraag en geen oplossing; het hoort niet in de laag die de oplossing beschrijft |
+| **Pakket van eisen als zuivere aggregatie**, met alle eisen in hun bronproduct | dan is het een aanzicht en geen product: niets om aan te wijzen, te versioneren of over te dragen aan een leverancier |
+| **Alle drie de lagen als eigen artefact**, dus ook de technische | twee teksten over hetzelfde contract, zie hierboven |
 
 ## Wat dit betekent voor de sjablonen
 
-Niets dat nu moet veranderen. De sjablonen noteren per hoofdstuk alleen de **nummers** van de eisen die daar ontstaan; waar die nummers vandaan komen en waar zij landen, is precies wat dit besluit vastlegt. Valt het besluit op variant C, dan wijzen de sjablonen naar drie registers in plaats van naar twee documenten.
+Niets dat nu moet veranderen. De sjablonen noteren per hoofdstuk alleen de **nummers** van de eisen die daar ontstaan; waar die nummers vandaan komen en waar zij landen is precies wat dit besluit vastlegt.

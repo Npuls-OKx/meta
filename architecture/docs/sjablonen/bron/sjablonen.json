@@ -325,14 +325,14 @@
     "keten": "bouwt op een of meer persona's, en gaat vooraf aan de uitwerking en de interactieketen",
     "breakdown_vak": "Leerroute scenario"
   },
-  "informatiemodeluitwerking": {
-    "titel": "Sjabloon informatiemodeluitwerking per leerroute scenario",
+  "leerroute-scenario-uitwerking": {
+    "titel": "Sjabloon leerroute scenario uitwerking",
     "bron": "architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md",
-    "bestand": "OKx sjabloon informatiemodeluitwerking.docx",
-    "wat": "een informatiemodeluitwerking per leerroute scenario: het scenario stap voor stap naast het informatiemodel gelegd, als een herhaling van twee bouwstenen tot de hele route gedekt is",
+    "bestand": "OKx sjabloon leerroute scenario uitwerking.docx",
+    "wat": "een leerroute scenario uitwerking: het scenario stap voor stap naast het informatiemodel gelegd, als een herhaling van twee bouwstenen tot de hele route gedekt is",
     "wie": "de adviesgroep. Suggestie: de informatiemanagers vullen de regels, de business analisten leggen ze naast het model",
     "voorbeeld": "[de uitwerking van leerroute 1 met Jochem](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md)",
-    "voorbeeld_naam": "Informatiemodeluitwerking van leerroute 1",
+    "voorbeeld_naam": "Leerroute 1 scenario uitwerking",
     "aggregatie": "Tussen de inbreng van instellingen en dit document zit een analysestap. Dat geldt hier sterker dan elders, omdat een voorbeeld overtuigt: een regel die uit een enkele instelling komt en hier als voorbeeld staat, leest als sectorpraktijk.",
     "kop_labels": {},
     "vervang": [
@@ -423,7 +423,7 @@
       }
     },
     "keten": "volgt op het leerroute scenario en toetst het informatiemodel aan die route",
-    "breakdown_vak": "Informatiemodeluitwerking"
+    "breakdown_vak": "uitwerking"
   },
   "informatiemodel-viewpoint": {
     "titel": "Sjabloon informatiemodel viewpoint",
