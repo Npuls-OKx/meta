@@ -4,16 +4,38 @@
 
 | Onderdeel | Inhoud |
 |---|------------------------------------------------|
-| Wat dit wordt | een persona: een student met een naam, een opleiding en een route door het onderwijs, waar elk scenario daarna naar verwijst |
+| Wat dit wordt | een persona: een student met een naam, een opleiding en een route door het onderwijs, waar elk leerroute scenario daarna naar verwijst |
 | Wie dit invult | de adviesgroep. Suggestie: de informatiemanagers nemen het voortouw, want zij kennen de instellingspraktijk per stap |
-| Voorbeelduitwerking | [persona Jochem](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/persona_jochem.md) |
+| Voorbeeld | [persona Jochem](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/persona_jochem.md) |
 | Inleveren | terug naar OKx SI als Word-bestand |
 
-## Vaste koppen
+## Werkwijze
 
-De koppen in dit document blijven staan zoals zij hier staan. In het agent-harnas komt een lezer (parser) die een ingevuld document per kop terugvertaalt naar de kennisbank; een kop die is herschreven of weggehaald maakt zijn hoofdstuk onleesbaar. Een hoofdstuk dat niet van toepassing is houdt dus zijn kop, met de reden eronder.
+Elk hoofdstuk opent met een blok van vier regels. Dat blok zegt wat er van dit hoofdstuk wordt verwacht, en het blijft staan: het is de opdracht en niet de uitwerking.
 
-Dit sjabloon is afgeleid uit [persona Jochem](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/persona_jochem.md), dus het draagt elke kop en elke tabel van die uitwerking. Wat daar algemeen was staat er nog. Wat daar aan die ene uitwerking hing, staat er als ingesprongen citaat, met *Schrijf hier de uitwerking.* eronder: daar hoort de eigen uitwerking. Een lege tabel heeft evenveel rijen als de uitwerking had, zodat zichtbaar is hoeveel er wordt verwacht.
+| Regel | Wat erin staat |
+|---|------------------------------------------------|
+| Voorbeeld | de plek in de voorbeelduitwerking waar hetzelfde hoofdstuk al is ingevuld |
+| Verwacht | het artefact dat hier hoort, afgeleid uit wat de voorbeelduitwerking daar levert |
+| User stories | de nummers uit het pakket van eisen die dit hoofdstuk verwezenlijkt |
+| Klaar wanneer | het acceptatiecriterium waaraan de uitwerking voldoet |
+
+De koppen blijven staan zoals zij hier staan. In het agent-harnas komt een lezer (parser) die een ingevuld document per kop terugvertaalt naar de kennisbank; een kop die is herschreven of weggehaald maakt zijn hoofdstuk onleesbaar. Een hoofdstuk dat niet van toepassing is houdt dus zijn kop, met de reden eronder.
+
+## Van user story naar requirement
+
+Een hoofdstuk is pas af wanneer het aanwijsbaar is welke user stories het verwezenlijkt. Die stories komen uit de gedeelde analyse van alles wat scholen als input hebben geleverd, geinventariseerd in de PoC-sessies met de koploperscholen en samengebracht tot het pakket van eisen. De grootst gemene deler daaruit is wat OKx vastlegt.
+
+Elke story gaat daarna door drie lagen. Een voorbeeld, zodat de vorm vastligt:
+
+| Laag | Voorbeeld |
+|---|------------------------------------------------|
+| User story | Als student wil ik bij mijn keuzedeelruimte een geprioriteerde voorkeurslijst opgeven, met als doel dat ik niet zonder keuzedeel kom te zitten wanneer mijn eerste keuze vol is |
+| Business requirement | de instelling kent per keuzedeelruimte de voorkeursvolgorde van de student voordat zij plaatst |
+| Functional requirement | het studentkeuzesysteem legt per keuzedeelruimte een geordende lijst voorkeuren vast, met per voorkeur het keuzedeel, de periode en de locatie |
+| Technical requirement | de voorkeurslijst gaat als geordende verzameling over het koppelvlak, met de volgorde expliciet in het bericht en niet afgeleid uit de positie |
+
+Vul in dit document de user stories in; de drie requirementlagen volgen daarna in een eigen ronde, met dit document als bron.
 
 ## De grootst gemene deler
 
@@ -21,151 +43,305 @@ Tussen de inbreng van instellingen en dit document zit een analysestap. Haal op 
 
 Een instelling spreekt voor haar eigen praktijk en niet voor de sector. Noteer daarom apart wat afwijkt, onder [Afwijkingen per instelling](#afwijkingen-per-instelling).
 
-*Beeld: Npuls leerroute 1. Voeg hier het beeld in.*
+## 1 Persona <student>
+
+**Voorbeeld** [Persona Jochem, Persona <student>](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/persona_jochem.md#persona-jochem)
+
+**Verwacht** een beeld
+
+**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
+
+**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken
+
+![Npuls leerroute 1](<img/persona/npuls-leerroute1-regulier-jochem.png>)
 
 *Schrijf hier de uitwerking.*
 
-## Studentjourney
+### 1.1 Studentjourney
 
-### Oriënteren
+**Voorbeeld** [Persona Jochem, Studentjourney](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/persona_jochem.md#studentjourney)
 
-> Persona Jochem schrijft hier: Jochem oriënteert zich op een opleiding via de website van mbo-instelling en socialmediakanalen.
+**Verwacht** een beschrijving in lopende tekst
 
-*Schrijf hier de uitwerking.*
+**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
 
-### Aanmelden
-
-> Persona Jochem schrijft hier: Jochem meldt zich aan bij mbo-instelling met de juiste vooropleiding.
+**Klaar wanneer** de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt
 
 *Schrijf hier de uitwerking.*
 
-### Inschrijven
+#### 1.1.1 Oriënteren
 
-> Persona Jochem schrijft hier: Jochem voert een intakegesprek voor de opleiding waarvoor hij zich heeft aangemeld.
+**Voorbeeld** [Persona Jochem, Oriënteren](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/persona_jochem.md#oriënteren)
 
-*Schrijf hier de uitwerking.*
+**Verwacht** een beschrijving in lopende tekst
 
-### Informeren
+**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
 
-> Persona Jochem schrijft hier: Jochem bekijkt bij de start van de opleiding het volledige geplande leertraject, inclusief modules, BPV en examenplanning.
-
-*Schrijf hier de uitwerking.*
-
-### Studeren
-
-> Persona Jochem schrijft hier: Jochem volgt onderwijs volgens het standaardprogramma: klassikaal, online, individueel of op locatie.
+**Klaar wanneer** de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt
 
 *Schrijf hier de uitwerking.*
 
-### BPV
+#### 1.1.2 Aanmelden
 
-> Persona Jochem schrijft hier: Jochem oriënteert zich op een BPV-plek en kiest een passend leerbedrijf.
+**Voorbeeld** [Persona Jochem, Aanmelden](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/persona_jochem.md#aanmelden)
 
-*Schrijf hier de uitwerking.*
+**Verwacht** een beschrijving in lopende tekst
 
-### Kiezen keuzedelen
+**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
 
-> Persona Jochem schrijft hier: Jochem oriënteert zich op het aanbod van keuzedelen. Hij bekijkt inhoud, studielast en examenvereisten en maakt keuzes die passen binnen zijn traject.
-
-*Schrijf hier de uitwerking.*
-
-### Studievoortgang
-
-> Persona Jochem schrijft hier: Jochem ontvangt regelmatig feedback, feed-up en feedforward op zijn voortgang.
+**Klaar wanneer** de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt
 
 *Schrijf hier de uitwerking.*
 
-### Examineren
+#### 1.1.3 Inschrijven
 
-> Persona Jochem schrijft hier: Jochem legt examens af volgens het examenplan. Hij rondt de opleiding af via passende examenvormen, zoals proeven van bekwaamheid, praktijkexamens of portfolio-beoordeling.
+**Voorbeeld** [Persona Jochem, Inschrijven](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/persona_jochem.md#inschrijven)
 
-*Schrijf hier de uitwerking.*
+**Verwacht** een beschrijving in lopende tekst
 
-### Uitstroom
+**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
 
-> Persona Jochem schrijft hier: Jochem bespreekt samen met zijn slb’er zijn vervolgstap, zoals werk of een vervolgopleiding.
-
-*Schrijf hier de uitwerking.*
-
-### Diploma
-
-> Persona Jochem schrijft hier: Jochem ontvangt zijn diploma en voltooit daarmee zijn opleiding.
+**Klaar wanneer** de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt
 
 *Schrijf hier de uitwerking.*
 
-## Instellingsjourney
+#### 1.1.4 Informeren
 
-### Oriënteren
+**Voorbeeld** [Persona Jochem, Informeren](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/persona_jochem.md#informeren)
 
-> Persona Jochem schrijft hier: De onderwijsinstelling heeft een duidelijk beeld welke opleidingen (en keuzedelen) er worden aangeboden in het eerst volgende instroommoment/schooljaar.
+**Verwacht** een beschrijving in lopende tekst
 
-*Schrijf hier de uitwerking.*
+**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
 
-### Aanmelden
-
-> Persona Jochem schrijft hier: Om mogelijk te maken dat Jochem zich kan aanmelden voor de opleiding apothekersassistent heeft de onderwijsinstelling het aanmeld systeem (CAMBO/AII) ingericht en de aanmeld functie op de eigen website daaraan gekoppeld.
+**Klaar wanneer** de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt
 
 *Schrijf hier de uitwerking.*
 
-### Inschrijven
+#### 1.1.5 Studeren
 
-> Persona Jochem schrijft hier: Jochem wordt op basis van de uitkomst van de intake in de opleiding geplaatst en ingeschreven.
+**Voorbeeld** [Persona Jochem, Studeren](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/persona_jochem.md#studeren)
 
-*Schrijf hier de uitwerking.*
+**Verwacht** een beschrijving in lopende tekst
 
-### Informeren
+**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
 
-> Persona Jochem schrijft hier: De onderwijsinstelling verstuurd meerdere berichten naar Jochem.
-
-*Schrijf hier de uitwerking.*
-
-### Studeren
-
-> Persona Jochem schrijft hier: In de studeren fase van Jochem is ook voor de onderwijsinstelling de belangrijkste fase, er wordt onderwezen.
+**Klaar wanneer** de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt
 
 *Schrijf hier de uitwerking.*
 
-### BPV
+#### 1.1.6 BPV
 
-> Persona Jochem schrijft hier: Jochem blijkt een voorbeeldig student en volgt exact het beoogde schema van het leertraject.
+**Voorbeeld** [Persona Jochem, BPV](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/persona_jochem.md#bpv)
 
-> <a id="instellingsjourney-kiezen-keuzedelen"></a>
+**Verwacht** een beschrijving in lopende tekst
 
-*Schrijf hier de uitwerking.*
+**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
 
-### Kiezen keuzedelen
-
-> Persona Jochem schrijft hier: Jochem blijkt een voorbeeldig student en volgt exact het beoogde schema van het leertraject.
-
-> Als onderwijsstelling is het niet alleen van groot belang dat Jochem een keuze maakt, maar ook dat hij deze tijdig maakt.
-
-> De onderwijsinstelling heeft ter voorbereiding van de definitieve keuzedeel-keuze de systemen zo ingericht dat:
+**Klaar wanneer** de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt
 
 *Schrijf hier de uitwerking.*
 
-### Studievoortgang
+#### 1.1.7 Kiezen keuzedelen
 
-> Persona Jochem schrijft hier: Jochem blijkt een voorbeeldig student en volgt exact het beoogde schema van het leertraject.
+**Voorbeeld** [Persona Jochem, Kiezen keuzedelen](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/persona_jochem.md#kiezen-keuzedelen)
 
-> De SLB'er heeft goed inzichtelijk hoe Jochem's leertraject verloopt, welke leeruitkomsten hij bereikt heeft en in welke context.
+**Verwacht** een beschrijving in lopende tekst
 
-*Schrijf hier de uitwerking.*
+**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
 
-### Examineren
-
-> Persona Jochem schrijft hier: Jochem ligt nog steeds op schema en heeft al enkele examens voltooid.
+**Klaar wanneer** de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt
 
 *Schrijf hier de uitwerking.*
 
-### Uitstroom
+#### 1.1.8 Studievoortgang
 
-> Persona Jochem schrijft hier: Jochem weet glashelder wat hij wil en dat is zo snel mogelijk aan het werk.
+**Voorbeeld** [Persona Jochem, Studievoortgang](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/persona_jochem.md#studievoortgang)
+
+**Verwacht** een beschrijving in lopende tekst
+
+**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
+
+**Klaar wanneer** de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt
 
 *Schrijf hier de uitwerking.*
 
-### Diploma
+#### 1.1.9 Examineren
 
-> Persona Jochem schrijft hier: Jochem heeft zijn opleiding voltooid en alle examens behaald.
+**Voorbeeld** [Persona Jochem, Examineren](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/persona_jochem.md#examineren)
+
+**Verwacht** een beschrijving in lopende tekst
+
+**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
+
+**Klaar wanneer** de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt
+
+*Schrijf hier de uitwerking.*
+
+#### 1.1.10 Uitstroom
+
+**Voorbeeld** [Persona Jochem, Uitstroom](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/persona_jochem.md#uitstroom)
+
+**Verwacht** een beschrijving in lopende tekst
+
+**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
+
+**Klaar wanneer** de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt
+
+*Schrijf hier de uitwerking.*
+
+#### 1.1.11 Diploma
+
+**Voorbeeld** [Persona Jochem, Diploma](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/persona_jochem.md#diploma)
+
+**Verwacht** een beschrijving in lopende tekst
+
+**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
+
+**Klaar wanneer** de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt
+
+*Schrijf hier de uitwerking.*
+
+### 1.2 Instellingsjourney
+
+**Voorbeeld** [Persona Jochem, Instellingsjourney](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/persona_jochem.md#instellingsjourney)
+
+**Verwacht** een beschrijving in lopende tekst
+
+**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
+
+**Klaar wanneer** de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt
+
+*Schrijf hier de uitwerking.*
+
+#### 1.2.1 Oriënteren
+
+**Voorbeeld** [Persona Jochem, Oriënteren](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/persona_jochem.md#oriënteren)
+
+**Verwacht** een beschrijving in lopende tekst
+
+**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
+
+**Klaar wanneer** de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt
+
+*Schrijf hier de uitwerking.*
+
+#### 1.2.2 Aanmelden
+
+**Voorbeeld** [Persona Jochem, Aanmelden](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/persona_jochem.md#aanmelden)
+
+**Verwacht** een beschrijving in lopende tekst
+
+**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
+
+**Klaar wanneer** de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt
+
+*Schrijf hier de uitwerking.*
+
+#### 1.2.3 Inschrijven
+
+**Voorbeeld** [Persona Jochem, Inschrijven](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/persona_jochem.md#inschrijven)
+
+**Verwacht** een beschrijving in lopende tekst
+
+**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
+
+**Klaar wanneer** de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt
+
+*Schrijf hier de uitwerking.*
+
+#### 1.2.4 Informeren
+
+**Voorbeeld** [Persona Jochem, Informeren](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/persona_jochem.md#informeren)
+
+**Verwacht** een beschrijving in lopende tekst
+
+**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
+
+**Klaar wanneer** de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt
+
+*Schrijf hier de uitwerking.*
+
+#### 1.2.5 Studeren
+
+**Voorbeeld** [Persona Jochem, Studeren](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/persona_jochem.md#studeren)
+
+**Verwacht** een beschrijving in lopende tekst
+
+**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
+
+**Klaar wanneer** de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt
+
+*Schrijf hier de uitwerking.*
+
+#### 1.2.6 BPV
+
+**Voorbeeld** [Persona Jochem, BPV](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/persona_jochem.md#bpv)
+
+**Verwacht** een beschrijving in lopende tekst
+
+**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
+
+**Klaar wanneer** de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt
+
+*Schrijf hier de uitwerking.*
+
+#### 1.2.7 Kiezen keuzedelen
+
+**Voorbeeld** [Persona Jochem, Kiezen keuzedelen](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/persona_jochem.md#kiezen-keuzedelen)
+
+**Verwacht** een beschrijving in lopende tekst
+
+**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
+
+**Klaar wanneer** de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt
+
+*Schrijf hier de uitwerking.*
+
+#### 1.2.8 Studievoortgang
+
+**Voorbeeld** [Persona Jochem, Studievoortgang](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/persona_jochem.md#studievoortgang)
+
+**Verwacht** een beschrijving in lopende tekst
+
+**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
+
+**Klaar wanneer** de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt
+
+*Schrijf hier de uitwerking.*
+
+#### 1.2.9 Examineren
+
+**Voorbeeld** [Persona Jochem, Examineren](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/persona_jochem.md#examineren)
+
+**Verwacht** een beschrijving in lopende tekst
+
+**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
+
+**Klaar wanneer** de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt
+
+*Schrijf hier de uitwerking.*
+
+#### 1.2.10 Uitstroom
+
+**Voorbeeld** [Persona Jochem, Uitstroom](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/persona_jochem.md#uitstroom)
+
+**Verwacht** een beschrijving in lopende tekst
+
+**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
+
+**Klaar wanneer** de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt
+
+*Schrijf hier de uitwerking.*
+
+#### 1.2.11 Diploma
+
+**Voorbeeld** [Persona Jochem, Diploma](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/persona_jochem.md#diploma)
+
+**Verwacht** een beschrijving in lopende tekst
+
+**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
+
+**Klaar wanneer** de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt
 
 *Schrijf hier de uitwerking.*
 

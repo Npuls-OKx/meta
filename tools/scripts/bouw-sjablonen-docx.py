@@ -49,11 +49,22 @@ def bouw_een(naam: str, uit: pathlib.Path, referentie: pathlib.Path) -> None:
         raise SystemExit(
             f"het skelet {kort(bron)} bestaat niet; genereer het met "
             "tools/scripts/maak-sjabloon-uit-document.py")
-    subprocess.run(
+    # --resource-path wijst pandoc naar de beelden die de generator naast het
+    # skelet heeft gezet, zodat zij in het Word-bestand zelf landen.
+    klaar = subprocess.run(
         [eis_pandoc(), str(bron), "--from", "gfm", "--to", "docx",
-         "--reference-doc", str(referentie), "--output", str(uit)],
-        check=True, capture_output=True,
+         "--reference-doc", str(referentie),
+         "--resource-path", str(bron.parent),
+         "--toc", "--toc-depth=3",
+         "--output", str(uit)],
+        capture_output=True, text=True,
     )
+    if klaar.returncode:
+        raise SystemExit(f"pandoc kon {kort(bron)} niet omzetten:\n"
+                         f"{klaar.stderr.strip()}")
+    if klaar.stderr.strip():
+        for regel in klaar.stderr.strip().splitlines():
+            print(f"    let op: {regel}")
 
 
 def kort(pad: pathlib.Path) -> str:

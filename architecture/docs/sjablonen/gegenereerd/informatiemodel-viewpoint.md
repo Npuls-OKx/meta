@@ -1,4 +1,4 @@
-# Sjabloon informatiemodel-viewpoint
+# Sjabloon informatiemodel viewpoint
 
 ## Invullen
 
@@ -6,14 +6,36 @@
 |---|------------------------------------------------|
 | Wat dit wordt | een viewpoint op het informatiemodel: welke objecttypen er zijn, hoe zij samenhangen, en voor welke lezer deze plaat bedoeld is |
 | Wie dit invult | de adviesgroep. Suggestie: de business analisten met Niels, want het viewpoint hangt aan het ArchiMate-model |
-| Voorbeelduitwerking | [informatiemodel OKx](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/informatiemodel.md) |
+| Voorbeeld | [informatiemodel OKx](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/informatiemodel.md) |
 | Inleveren | terug naar OKx SI als Word-bestand |
 
-## Vaste koppen
+## Werkwijze
 
-De koppen in dit document blijven staan zoals zij hier staan. In het agent-harnas komt een lezer (parser) die een ingevuld document per kop terugvertaalt naar de kennisbank; een kop die is herschreven of weggehaald maakt zijn hoofdstuk onleesbaar. Een hoofdstuk dat niet van toepassing is houdt dus zijn kop, met de reden eronder.
+Elk hoofdstuk opent met een blok van vier regels. Dat blok zegt wat er van dit hoofdstuk wordt verwacht, en het blijft staan: het is de opdracht en niet de uitwerking.
 
-Dit sjabloon is afgeleid uit [informatiemodel OKx](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/informatiemodel.md), dus het draagt elke kop en elke tabel van die uitwerking. Wat daar algemeen was staat er nog. Wat daar aan die ene uitwerking hing, staat er als ingesprongen citaat, met *Schrijf hier de uitwerking.* eronder: daar hoort de eigen uitwerking. Een lege tabel heeft evenveel rijen als de uitwerking had, zodat zichtbaar is hoeveel er wordt verwacht.
+| Regel | Wat erin staat |
+|---|------------------------------------------------|
+| Voorbeeld | de plek in de voorbeelduitwerking waar hetzelfde hoofdstuk al is ingevuld |
+| Verwacht | het artefact dat hier hoort, afgeleid uit wat de voorbeelduitwerking daar levert |
+| User stories | de nummers uit het pakket van eisen die dit hoofdstuk verwezenlijkt |
+| Klaar wanneer | het acceptatiecriterium waaraan de uitwerking voldoet |
+
+De koppen blijven staan zoals zij hier staan. In het agent-harnas komt een lezer (parser) die een ingevuld document per kop terugvertaalt naar de kennisbank; een kop die is herschreven of weggehaald maakt zijn hoofdstuk onleesbaar. Een hoofdstuk dat niet van toepassing is houdt dus zijn kop, met de reden eronder.
+
+## Van user story naar requirement
+
+Een hoofdstuk is pas af wanneer het aanwijsbaar is welke user stories het verwezenlijkt. Die stories komen uit de gedeelde analyse van alles wat scholen als input hebben geleverd, geinventariseerd in de PoC-sessies met de koploperscholen en samengebracht tot het pakket van eisen. De grootst gemene deler daaruit is wat OKx vastlegt.
+
+Elke story gaat daarna door drie lagen. Een voorbeeld, zodat de vorm vastligt:
+
+| Laag | Voorbeeld |
+|---|------------------------------------------------|
+| User story | Als student wil ik bij mijn keuzedeelruimte een geprioriteerde voorkeurslijst opgeven, met als doel dat ik niet zonder keuzedeel kom te zitten wanneer mijn eerste keuze vol is |
+| Business requirement | de instelling kent per keuzedeelruimte de voorkeursvolgorde van de student voordat zij plaatst |
+| Functional requirement | het studentkeuzesysteem legt per keuzedeelruimte een geordende lijst voorkeuren vast, met per voorkeur het keuzedeel, de periode en de locatie |
+| Technical requirement | de voorkeurslijst gaat als geordende verzameling over het koppelvlak, met de volgorde expliciet in het bericht en niet afgeleid uit de positie |
+
+Vul in dit document de user stories in; de drie requirementlagen volgen daarna in een eigen ronde, met dit document als bron.
 
 ## De grootst gemene deler
 
@@ -21,27 +43,63 @@ Tussen de inbreng van instellingen en dit document zit een analysestap. Een obje
 
 Een instelling spreekt voor haar eigen praktijk en niet voor de sector. Noteer daarom apart wat afwijkt, onder [Afwijkingen per instelling](#afwijkingen-per-instelling).
 
-## Context
+## 1 Informatiemodel OKx
 
-> Het informatiemodel OKx schrijft hier: OKx maakt gestandaardiseerde koppelvlakken voor onderwijslogistiek.
+**Voorbeeld** [Informatiemodel OKx, Informatiemodel OKx](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/informatiemodel.md#informatiemodel-okx)
 
-*Schrijf hier de uitwerking.*
+**Verwacht** een beschrijving in lopende tekst
 
-## Inleiding
+**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
 
-> Het informatiemodel OKx schrijft hier: Dit document zet het informatiemodel van OKx uiteen: welke objecttypen de keten van kwalificatiekader tot resultaat kent, hoe ze samenhangen, en welke begrippen die keten indelen.
-
-*Schrijf hier de uitwerking.*
-
-## Doel
-
-> Het informatiemodel OKx schrijft hier: Het uiteenzetten van de informatiearchitectuur van de belangrijkste informatieobjecten binnen het OKx-ecosysteem, als gedeelde grondslag voor de koppelvlakspecificaties.
+**Klaar wanneer** de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt
 
 *Schrijf hier de uitwerking.*
 
-## Scope
+### 1.1 Context
 
-> Het informatiemodel OKx schrijft hier: De scope volgt de beschouwingsniveaus van het Metamodel Informatie Modellering (MIM).
+**Voorbeeld** [Informatiemodel OKx, Context](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/informatiemodel.md#context)
+
+**Verwacht** een beschrijving in lopende tekst
+
+**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
+
+**Klaar wanneer** de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt
+
+*Schrijf hier de uitwerking.*
+
+### 1.2 Inleiding
+
+**Voorbeeld** [Informatiemodel OKx, Inleiding](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/informatiemodel.md#inleiding)
+
+**Verwacht** een beschrijving in lopende tekst
+
+**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
+
+**Klaar wanneer** de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt
+
+*Schrijf hier de uitwerking.*
+
+### 1.3 Doel
+
+**Voorbeeld** [Informatiemodel OKx, Doel](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/informatiemodel.md#doel)
+
+**Verwacht** een beschrijving in lopende tekst
+
+**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
+
+**Klaar wanneer** de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt
+
+*Schrijf hier de uitwerking.*
+
+### 1.4 Scope
+
+**Voorbeeld** [Informatiemodel OKx, Scope](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/informatiemodel.md#scope)
+
+**Verwacht** een beeld, een ingevulde tabel
+
+**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
+
+**Klaar wanneer** het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken; elke rij is ingevuld, of doorgehaald met de reden erbij
 
 | | Niveau | Waar het staat |
 |---|---|---|
@@ -50,24 +108,36 @@ Een instelling spreekt voor haar eigen praktijk en niet voor de sector. Noteer d
 | | | |
 | | | |
 
-> Verder buiten scope: applicatiecomponenten, techniekkeuzes en federatie tussen instellingen.
-
-*Beeld: Informatiemodel OKx, versie v0.2 van 14 oktober 2026. Voeg hier het beeld in.*
+![Informatiemodel OKx, versie v0.2 van 14 oktober 2026](<img/informatiemodel-viewpoint/OKx informatiemodel v0.2.jpg>)
 
 *Schrijf hier de uitwerking.*
 
-## Lezers en detailniveau
+### 1.5 Lezers en detailniveau
+
+**Voorbeeld** [Informatiemodel OKx, Lezers en detailniveau](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/informatiemodel.md#lezers-en-detailniveau)
+
+**Verwacht** een ingevulde tabel
+
+**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
+
+**Klaar wanneer** elke rij is ingevuld, of doorgehaald met de reden erbij
 
 | | |
 |---|---|
 | | |
 | | |
 
-## Begrippenfamilies
+*Schrijf hier de uitwerking.*
 
-> Het informatiemodel OKx schrijft hier: De kolommen op de plaat zijn de begrippenfamilies waarin OKx de keten indeelt.
+### 1.6 Begrippenfamilies
 
-> Dit model volgt het begrippenkader op en wijzigt het op twee punten.
+**Voorbeeld** [Informatiemodel OKx, Begrippenfamilies](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/informatiemodel.md#begrippenfamilies)
+
+**Verwacht** een ingevulde tabel
+
+**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
+
+**Klaar wanneer** elke rij is ingevuld, of doorgehaald met de reden erbij
 
 | Begrip | Wat het is | Beantwoordt de vraag |
 |---|---|---|
@@ -79,15 +149,17 @@ Een instelling spreekt voor haar eigen praktijk en niet voor de sector. Noteer d
 | | | |
 | | | |
 
-> Objecttypen buiten de kolommen raken de hele keten, en staan er vaak omdat zij twee families verbinden:
-
 *Schrijf hier de uitwerking.*
 
-## Notatie
+### 1.7 Notatie
 
-> Het informatiemodel OKx schrijft hier: Kleur. Geel is het OKx-referentiekader. Het sluit aan op de mbo-referentiearchitectuur (MORA) en, via het lopende initiatief klus 53 (Alignment MORA en HORA, MBO Digitaal), op de referentiearchitectuur van het hoger onderwijs (HORA).
+**Voorbeeld** [Informatiemodel OKx, Notatie](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/informatiemodel.md#notatie)
 
-> Relatiesoorten, in ArchiMate-notatie.
+**Verwacht** een ingevulde tabel
+
+**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
+
+**Klaar wanneer** elke rij is ingevuld, of doorgehaald met de reden erbij
 
 | | Relatie | Betekenis in dit model |
 |---|---|---|
@@ -96,19 +168,29 @@ Een instelling spreekt voor haar eigen praktijk en niet voor de sector. Noteer d
 | | | |
 | | | |
 
-> Waar de betekenis niet uit de twee objecttypen volgt, draagt de relatie een label.
+*Schrijf hier de uitwerking.*
+
+### 1.8 Ontwerpkeuzes
+
+**Voorbeeld** [Informatiemodel OKx, Ontwerpkeuzes](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/informatiemodel.md#ontwerpkeuzes)
+
+**Verwacht** een beschrijving in lopende tekst
+
+**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
+
+**Klaar wanneer** de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt
 
 *Schrijf hier de uitwerking.*
 
-## Ontwerpkeuzes
+### 1.9 Verwante documenten
 
-> Het informatiemodel OKx schrijft hier: Elke keuze noemt zijn bron; staat er voorstel, dan is de keuze in dit model gemaakt en wacht hij op bekrachtiging.
+**Voorbeeld** [Informatiemodel OKx, Verwante documenten](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/informatiemodel.md#verwante-documenten)
 
-> 1. De leeruitkomst is de sleutel die specificaties en resultaatstructuur verbindt.
+**Verwacht** een ingevulde tabel
 
-*Schrijf hier de uitwerking.*
+**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk verwezenlijkt*
 
-## Verwante documenten
+**Klaar wanneer** elke rij is ingevuld, of doorgehaald met de reden erbij
 
 | Document | Verhouding |
 |---|---|
@@ -118,6 +200,8 @@ Een instelling spreekt voor haar eigen praktijk en niet voor de sector. Noteer d
 | | |
 | | |
 | | |
+
+*Schrijf hier de uitwerking.*
 
 ## Afwijkingen per instelling
 

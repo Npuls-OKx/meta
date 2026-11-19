@@ -1,22 +1,21 @@
 #!/usr/bin/env python3
 """Leidt een invulsjabloon af uit een uitgewerkt OKx-document.
 
-Het sjabloon is niet met de hand geschreven: het wordt uit de uitwerking
-gegenereerd die er al ligt. Zo draagt het elke kop en elke tabel van het
-origineel, en loopt het niet achter wanneer de uitwerking wijzigt.
+Het sjabloon is niet met de hand geschreven: het wordt afgeleid uit de
+uitwerking die er al ligt. Zo draagt het elke kop en elke tabel van het
+origineel, en loopt het niet achter wanneer die uitwerking wijzigt.
 
-Wat er per onderdeel gebeurt:
+Vier dingen gebeuren er per hoofdstuk:
 
-- een kop blijft staan, met de bronspecifieke termen vervangen;
-- een alinea zonder bronspecifieke term blijft staan, want die geldt voor elke
-  uitwerking; een alinea met zo'n term wordt een verwijzing naar wat de bron
-  daar zegt, met schrijfruimte eronder;
-- een tabel houdt haar kopregel; haar rijen blijven staan wanneer zij algemeen
-  zijn en worden leeg wanneer zij bronspecifiek zijn, evenveel rijen als de
-  bron had, zodat zichtbaar is hoeveel er wordt verwacht;
-- een beeld en een diagram worden een regel die zegt dat daar een beeld hoort.
+- de kop wordt een feitelijk label, hernummerd, met de termen van die ene
+  uitwerking vervangen door een invulhaak;
+- er komt een verwachtingsblok onder: welk voorbeeld, welk artefact, welke
+  user stories, en wanneer het hoofdstuk klaar is;
+- wat de uitwerking daar levert bepaalt welk artefact wordt verwacht, want
+  een hoofdstuk met een procesdiagram vraagt om een procesdiagram;
+- een beeld gaat als beeld mee en niet als beschrijving van een beeld.
 
-    python3 tools/scripts/maak-sjabloon-uit-document.py            # alle vijf
+    python3 tools/scripts/maak-sjabloon-uit-document.py
     python3 tools/scripts/maak-sjabloon-uit-document.py --sjabloon persona
 
 Relateert aan: #554
@@ -26,6 +25,7 @@ import argparse
 import json
 import pathlib
 import re
+import shutil
 import subprocess
 import sys
 
@@ -37,32 +37,48 @@ UIT = MAP / "gegenereerd"
 KOP = re.compile(r"^(#{1,6}) +(.*)$")
 TABELRIJ = re.compile(r"^\|.*\|\s*$")
 SCHEIDING = re.compile(r"^\|[\s:|-]+\|\s*$")
-BEELD = re.compile(r"^!\[([^\]]*)\]\(([^)]*)\)\s*$")
+BEELD = re.compile(r"^!\[([^\]]*)\]\(<?([^)>]*)>?\)\s*$")
 FENCE = re.compile(r"^```(\w*)\s*$")
+NUMMER = re.compile(r"^\d+(\.\d+)*\.?\s+")
+LINK = re.compile(r"\]\((<[^>]*>|[^)]*)\)")
+DOEL = re.compile(r"\]\((<[^>]*>|[^)]*)\)")
 
 RUIMTE = "*Schrijf hier de uitwerking.*"
+# Een beeld gaat verkleind mee: A4 op 150 dpi is ruim 1200 pixels breed, dus
+# boven deze maat draagt een beeld alleen bestandsgrootte en geen scherpte.
+MAXBREEDTE = 1600
+# Een vectorbeeld wordt een PNG, want het Word-formaat kan geen SVG dragen.
+# Een lijntekening heeft weinig kleuren nodig: met een palet van 64 is zij
+# niet van het origineel te onderscheiden en een vijfde zo groot.
+RASTERBREEDTE = 1200
+KLEUREN = 64
 BLOB = "https://github.com/Npuls-OKx/meta/blob"
-LINK = re.compile(r"\]\(([^)]+)\)")
 
-
-DOEL = re.compile(r"\]\([^)]*\)")
-
-
-def zonder_linkdoelen(tekst: str) -> str:
-    """De tekst zonder de bestemming van een link.
-
-    Een link naar persona_larissa.md draagt een naam die ook in de
-    vervangingen staat; zonder deze stap telt een verwijzing als inhoud en
-    wordt een algemene alinea ten onrechte leeggemaakt.
-    """
-    return DOEL.sub("]()", tekst)
+# Wat de uitwerking in een hoofdstuk levert, bepaalt wat het sjabloon daar
+# verwacht. De eis erachter is wat het hoofdstuk af maakt.
+ARTEFACTEN = {
+    "diagram": ("een procesdiagram (BPMN, mermaid, UML of vergelijkbaar)",
+                "het diagram toont de terugweg en het foutpad, en elke stap "
+                "noemt de rol die handelt en het systeem dat zij gebruikt"),
+    "beeld": ("een beeld",
+              "het beeld staat in het document zelf, met een regel eronder die "
+              "zegt waar de lezer naar moet kijken"),
+    "tabel": ("een ingevulde tabel",
+              "elke rij is ingevuld, of doorgehaald met de reden erbij"),
+    "opsomming": ("een opsomming",
+                  "elk punt is een uitspraak die te toetsen is, geen onderwerp"),
+    "tekst": ("een beschrijving in lopende tekst",
+              "de tekst noemt wie handelt, met welk systeem, en welke "
+              "informatie van waar naar waar beweegt"),
+}
 
 
 def vervang(tekst: str, paren: list[list[str]]) -> str:
     """Vervangt bronspecifieke termen, met de hoofdletter van het origineel.
 
     De bron schrijft "Leerroute 1" in een kop en "leerroute 1" in een zin; een
-    vervanging die dat negeert zet midden in een kop een kleine letter.
+    vervanging die dat negeert zet midden in een kop een kleine letter. Een
+    linkdoel blijft heel, want daar is de naam een pad en geen inhoud.
     """
     def zelfde_kop(nieuw: str, gevonden: str) -> str:
         if gevonden[:1].isupper() and nieuw[:1].islower():
@@ -83,219 +99,112 @@ def vervang(tekst: str, paren: list[list[str]]) -> str:
     return re.sub(r"\x00(\d+)\x00", lambda m: doelen[int(m.group(1))], tekst)
 
 
+def zonder_linkdoelen(tekst: str) -> str:
+    return DOEL.sub("]()", tekst)
+
+
 def bronspecifiek(tekst: str, paren: list[list[str]]) -> bool:
-    """Noemt dit stuk een term die bij deze ene uitwerking hoort."""
     tekst = zonder_linkdoelen(tekst)
     return any(re.search(re.escape(oud), tekst, re.I) for oud, _ in paren)
 
 
-def eerste_zin(blok: list[str]) -> str:
-    """De eerste zin van een blok, zonder opmaak.
+def anker(kop: str) -> str:
+    """De GitHub-verankering van een kop, zodat een voorbeeld aanwijsbaar is."""
+    a = kop.lower()
+    a = re.sub(r"[^\w\s-]", "", a, flags=re.U)
+    return a.strip().replace(" ", "-")
 
-    De bron opent een blok ook wel met een opsommingsteken, een citaat of een
-    vette aanhef; die tekens zeggen de invuller niets en gaan eraf.
+
+def label(kop: str, labels: dict[str, str]) -> str:
+    """Maakt van een kop een feitelijk label.
+
+    Een kop is een naam voor wat eronder staat, geen zin en geen vraag. Een
+    vraagkop die niet in de lijst staat wordt afgekapt tot zijn onderwerp; dat
+    is een terugval, en de lijst is de plek om het goed te doen.
     """
-    schoon = []
-    for r in blok:
-        r = re.sub(r"^\s*[>*+-]+\s*", "", r)
-        schoon.append(r)
-    tekst = " ".join(r.strip() for r in schoon if r.strip())
-    tekst = re.sub(r"\*\*([^*]*)\*\*", r"\1", tekst)
-    tekst = re.sub(r"\*([^*]*)\*", r"\1", tekst)
-    tekst = re.sub(r"!\[[^\]]*\]\([^)]*\)", "", tekst)
-    tekst = re.sub(r"\[([^\]]*)\]\([^)]*\)", r"\1", tekst)
-    tekst = re.sub(r"\s+", " ", tekst).strip()
-    zinnen = re.findall(r".+?(?:[.;:]|$)(?:\s|$)", tekst)
-    uit = ""
-    for zin in zinnen:
-        uit = (uit + " " + zin).strip()
-        if len(uit) >= 60:
-            break
-    uit = uit.strip()
-    if len(uit) > 320:
-        uit = uit[:320].rsplit(" ", 1)[0].rstrip(" ,;:") + " ..."
-    return uit
+    kaal = NUMMER.sub("", kop).strip()
+    for bron, naar in labels.items():
+        if kaal.lower() == bron.lower():
+            return naar
+    if kaal.endswith("?"):
+        kaal = kaal.rstrip("?").strip()
+        kaal = re.sub(r"^(Wat is|Wat betekent|Wat levert|Wat doet|Hoe|Waarom|"
+                      r"Wanneer|Welke|Wie)\s+", "", kaal, flags=re.I)
+        kaal = kaal[:1].upper() + kaal[1:] if kaal else kop
+    return kaal
+
+
+def raster(bron: pathlib.Path, doel: pathlib.Path) -> None:
+    """Zet een vectorbeeld om naar een PNG die Word kan dragen."""
+    if not shutil.which("rsvg-convert"):
+        raise SystemExit(
+            f"rsvg-convert ontbreekt en {bron.name} is een vectorbeeld; "
+            "installeer librsvg2-bin in de dev-container")
+    tussen = doel.with_suffix(".tussen.png")
+    subprocess.run(["rsvg-convert", "-w", str(RASTERBREEDTE),
+                    str(bron), "-o", str(tussen)], check=True,
+                   capture_output=True)
+    try:
+        from PIL import Image
+    except ImportError:
+        tussen.replace(doel)
+        return
+    with Image.open(tussen) as beeld:
+        plat = Image.new("RGB", beeld.size, "white")
+        plat.paste(beeld, mask=beeld.split()[-1] if beeld.mode == "RGBA" else None)
+        plat.quantize(colors=KLEUREN).save(doel, optimize=True)
+    tussen.unlink()
+
+
+def verklein(bron: pathlib.Path, doel: pathlib.Path) -> None:
+    """Kopieert een beeld, verkleind wanneer het breder is dan nodig."""
+    if doel.suffix.lower() == ".png" and bron.suffix.lower() == ".svg":
+        raster(bron, doel)
+        return
+    try:
+        from PIL import Image
+    except ImportError:
+        shutil.copy2(bron, doel)
+        return
+    with Image.open(bron) as beeld:
+        if beeld.width <= MAXBREEDTE and bron.stat().st_size < 200_000:
+            shutil.copy2(bron, doel)
+            return
+        breedte = min(beeld.width, MAXBREEDTE)
+        hoogte = round(beeld.height * breedte / beeld.width)
+        klein = beeld.convert("RGB").resize((breedte, hoogte), Image.LANCZOS)
+        if doel.suffix.lower() == ".png":
+            # Een procesplaat is vlakke kleur; een palet haalt er een
+            # veelvoud af zonder dat je het ziet.
+            klein.quantize(colors=256).save(doel, optimize=True)
+        else:
+            klein.save(doel, quality=85, optimize=True)
 
 
 class Sjabloon:
-    def __init__(self, naam: str, cfg: dict):
+    def __init__(self, naam: str, cfg: dict, uitmap: pathlib.Path = UIT):
         self.naam = naam
         self.cfg = cfg
+        self.uitmap = uitmap
+        self.bronnaam = cfg["bron"]
         self.paren = [list(p) for p in cfg.get("vervang", [])]
         self.koppen_paren = self.paren + [list(x) for x in cfg.get("kop_vervang", [])]
-        # Alles vanaf deze kop is de uitwerking zelf en wordt schrijfruimte, ook
-        # waar de tekst geen bronspecifieke term noemt. Wat ervoor staat is het
-        # kader dat voor elke uitwerking hetzelfde is en blijft dus staan.
-        self.vanaf = cfg.get("invullen_vanaf")
-        self.verwijzing = cfg.get("verwijzing", "In de voorbeelduitwerking staat hier")
-        self.in_uitwerking = self.vanaf is None
-        self.bronnaam = cfg["bron"]
+        self.labels = cfg.get("kop_labels", {})
+        self.weg_tot = cfg.get("weglaten_tot")
+        self.weg_vanaf = cfg.get("weglaten_vanaf")
         self.uit: list[str] = []
-        # Een schrijfruimte per hoofdstuk, niet na elke alinea: een invuller
-        # schrijft zijn uitwerking in een stuk en niet in losse snippers.
-        self.ruimte_open = False
-        self.verwezen = False
+        self.teller = [0] * 7
+        self.beelden: list[tuple[pathlib.Path, str]] = []
 
-    # -- de vaste kop die elk sjabloon draagt ---------------------------------
+    # -- de bron --------------------------------------------------------------
 
-    def aanhef(self) -> list[str]:
-        c = self.cfg
-        return [
-            f"# {c['titel']}",
-            "",
-            "## Invullen",
-            "",
-            "| Onderdeel | Inhoud |",
-            "|---|------------------------------------------------|",
-            f"| Wat dit wordt | {c['wat']} |",
-            f"| Wie dit invult | {c['wie']} |",
-            f"| Voorbeelduitwerking | {c['voorbeeld']} |",
-            "| Inleveren | terug naar OKx SI als Word-bestand |",
-            "",
-            "## Vaste koppen",
-            "",
-            "De koppen in dit document blijven staan zoals zij hier staan. In het "
-            "agent-harnas komt een lezer (parser) die een ingevuld document per kop "
-            "terugvertaalt naar de kennisbank; een kop die is herschreven of "
-            "weggehaald maakt zijn hoofdstuk onleesbaar. Een hoofdstuk dat niet van "
-            "toepassing is houdt dus zijn kop, met de reden eronder.",
-            "",
-            "Dit sjabloon is afgeleid uit "
-            f"{c['voorbeeld']}, dus het draagt elke kop en elke tabel van die "
-            "uitwerking. Wat daar algemeen was staat er nog. Wat daar aan die ene "
-            "uitwerking hing, staat er als ingesprongen citaat, met "
-            f"*{RUIMTE.strip('*')}* eronder: daar hoort de eigen uitwerking. Een "
-            "lege tabel heeft evenveel rijen als de uitwerking had, zodat "
-            "zichtbaar is hoeveel er wordt verwacht.",
-            "",
-            "## De grootst gemene deler",
-            "",
-            c["aggregatie"],
-            "",
-            "Een instelling spreekt voor haar eigen praktijk en niet voor de sector. "
-            "Noteer daarom apart wat afwijkt, onder "
-            "[Afwijkingen per instelling](#afwijkingen-per-instelling).",
-            "",
-        ]
+    def ref(self) -> str:
+        return self.cfg.get("bron_ref", "dev")
 
-    def slot(self) -> list[str]:
-        return [
-            "## Afwijkingen per instelling",
-            "",
-            "Wat bij een instelling anders gaat dan hierboven staat, per regel met "
-            "de instelling erbij. Dit is geen restcategorie: hier staat het "
-            "materiaal waaruit blijkt of de grootst gemene deler houdbaar is.",
-            "",
-            "| Instelling | Hoofdstuk | Wat daar anders gaat |",
-            "|---|---|------------------------------------|",
-            "| | | |",
-            "| | | |",
-            "| | | |",
-            "",
-            "## Vragen aan OKx",
-            "",
-            "Wat onduidelijk bleef, genummerd, met per vraag het hoofdstuk waar het "
-            "speelt.",
-            "",
-            "| Nummer | Hoofdstuk | Vraag |",
-            "|---|---|------------------------------------|",
-            "| 1 | | |",
-            "| 2 | | |",
-            "| 3 | | |",
-            "",
-        ]
-
-    # -- de onderdelen van de bron -------------------------------------------
-
-    def alinea(self, blok: list[str]) -> None:
-        tekst = "\n".join(blok).strip()
-        if not tekst:
-            return
-        if not self.in_uitwerking and not bronspecifiek(tekst, self.paren):
-            # Algemeen, dus het geldt ook voor de volgende uitwerking.
-            self.uit += [vervang(r, self.paren) for r in blok] + [""]
-            return
-        zin = eerste_zin(blok)
-        if zin:
-            # De verwijzing staat eenmaal per hoofdstuk; daarna spreekt het
-            # citaatblok voor zichzelf.
-            aanhef = f"{self.verwijzing}: " if not self.verwezen else ""
-            self.uit += [f"> {aanhef}{zin}", ""]
-            self.verwezen = True
-        self.ruimte_open = True
-
-    def tabel(self, blok: list[str]) -> None:
-        kop = blok[0]
-        scheiding = blok[1] if len(blok) > 1 and SCHEIDING.match(blok[1]) else None
-        rijen = blok[2:] if scheiding else blok[1:]
-        self.uit.append(vervang(kop, self.paren))
-        self.uit.append(scheiding or "|" + "---|" * (kop.count("|") - 1))
-        if (rijen and not self.in_uitwerking
-                and not bronspecifiek("\n".join(rijen), self.paren)):
-            self.uit += [vervang(r, self.paren) for r in rijen]
-        else:
-            kolommen = kop.count("|") - 1
-            for _ in range(max(1, min(len(rijen), 15))):
-                self.uit.append("|" + " |" * kolommen)
-        self.uit.append("")
-
-    def sluit_ruimte(self) -> None:
-        if self.ruimte_open:
-            self.uit += [RUIMTE, ""]
-            self.ruimte_open = False
-        self.verwezen = False
-
-    def beeld(self, alt: str) -> None:
-        alt = vervang(alt, self.paren) or "een beeld"
-        self.uit += [f"*Beeld: {alt}. Voeg hier het beeld in.*", ""]
-        if self.in_uitwerking:
-            self.ruimte_open = True
-
-    def blok(self, taal: str, inhoud: list[str]) -> None:
-        if taal == "mermaid":
-            eerste = next((r.strip() for r in inhoud if r.strip()), "een diagram")
-            self.uit += [f"*Diagram: de bron tekent hier een {eerste.split()[0]}. "
-                         "Voeg hier het diagram in.*", ""]
-            if self.in_uitwerking:
-                self.ruimte_open = True
-            return
-        tekst = "\n".join(inhoud)
-        if self.in_uitwerking or bronspecifiek(tekst, self.paren):
-            self.uit += ["*Voorbeeld: de bron toont hier een fragment. Voeg hier "
-                         "het eigen fragment in.*", ""]
-            return
-        self.uit += [f"```{taal}"] + inhoud + ["```", ""]
-
-    # -- de doorloop ----------------------------------------------------------
-
-    def absoluut(self, tekst: str) -> str:
-        """Maakt elke verwijzing volledig.
-
-        Een Word-bestand staat niet in de repository, dus een pad als
-        persona_jochem.md wijst daar nergens heen. Een anker naar een kop in
-        hetzelfde document blijft staan.
-        """
-        ref = self.cfg.get("bron_ref", "dev")
-        basis = pathlib.PurePosixPath(self.bronnaam).parent
-
-        def een(m: re.Match) -> str:
-            doel = m.group(1).strip()
-            if doel.startswith(("http://", "https://", "#", "mailto:")):
-                return m.group(0)
-            pad, _, anker = doel.partition("#")
-            if not pad:
-                return m.group(0)
-            heel = str((basis / pad)).replace("\\", "/")
-            while "/../" in heel:
-                heel = re.sub(r"[^/]+/\.\./", "", heel, count=1)
-            staart = f"#{anker}" if anker else ""
-            return f"]({BLOB}/{ref}/{heel}{staart})"
-
-        return LINK.sub(een, tekst)
+    def bronmap(self) -> pathlib.PurePosixPath:
+        return pathlib.PurePosixPath(self.bronnaam).parent
 
     def brontekst(self) -> str:
-        """De bron uit de werkmap, of uit een git-verwijzing wanneer de
-        uitwerking nog op een andere tak staat."""
         ref = self.cfg.get("bron_ref")
         if ref:
             uit = subprocess.run(["git", "show", f"{ref}:{self.bronnaam}"],
@@ -310,78 +219,279 @@ class Sjabloon:
             raise SystemExit(f"de bron {self.bronnaam} bestaat niet")
         return pad.read_text(encoding="utf-8")
 
+    def absoluut(self, tekst: str) -> str:
+        """Maakt elke verwijzing volledig; een Word-bestand staat niet in de repository."""
+        basis = self.bronmap()
+
+        def een(m: re.Match) -> str:
+            doel = m.group(1).strip().strip("<>")
+            if doel.startswith(("http://", "https://", "#", "mailto:", "img/")):
+                return m.group(0)
+            pad, _, ank = doel.partition("#")
+            if not pad:
+                return m.group(0)
+            heel = str(basis / pad)
+            while "/../" in heel:
+                heel = re.sub(r"[^/]+/\.\./", "", heel, count=1)
+            staart = f"#{ank}" if ank else ""
+            return f"]({BLOB}/{self.ref()}/{heel}{staart})"
+
+        return LINK.sub(een, tekst)
+
+    # -- de vaste delen -------------------------------------------------------
+
+    def aanhef(self) -> list[str]:
+        c = self.cfg
+        return [
+            f"# {c['titel']}",
+            "",
+            "## Invullen",
+            "",
+            "| Onderdeel | Inhoud |",
+            "|---|------------------------------------------------|",
+            f"| Wat dit wordt | {c['wat']} |",
+            f"| Wie dit invult | {c['wie']} |",
+            f"| Voorbeeld | {c['voorbeeld']} |",
+            "| Inleveren | terug naar OKx SI als Word-bestand |",
+            "",
+            "## Werkwijze",
+            "",
+            "Elk hoofdstuk opent met een blok van vier regels. Dat blok zegt wat "
+            "er van dit hoofdstuk wordt verwacht, en het blijft staan: het is de "
+            "opdracht en niet de uitwerking.",
+            "",
+            "| Regel | Wat erin staat |",
+            "|---|------------------------------------------------|",
+            "| Voorbeeld | de plek in de voorbeelduitwerking waar hetzelfde "
+            "hoofdstuk al is ingevuld |",
+            "| Verwacht | het artefact dat hier hoort, afgeleid uit wat de "
+            "voorbeelduitwerking daar levert |",
+            "| User stories | de nummers uit het pakket van eisen die dit "
+            "hoofdstuk verwezenlijkt |",
+            "| Klaar wanneer | het acceptatiecriterium waaraan de uitwerking "
+            "voldoet |",
+            "",
+            "De koppen blijven staan zoals zij hier staan. In het agent-harnas "
+            "komt een lezer (parser) die een ingevuld document per kop "
+            "terugvertaalt naar de kennisbank; een kop die is herschreven of "
+            "weggehaald maakt zijn hoofdstuk onleesbaar. Een hoofdstuk dat niet "
+            "van toepassing is houdt dus zijn kop, met de reden eronder.",
+            "",
+            "## Van user story naar requirement",
+            "",
+            "Een hoofdstuk is pas af wanneer het aanwijsbaar is welke user "
+            "stories het verwezenlijkt. Die stories komen uit de gedeelde "
+            "analyse van alles wat scholen als input hebben geleverd, "
+            "geinventariseerd in de PoC-sessies met de koploperscholen en "
+            "samengebracht tot het pakket van eisen. De grootst gemene deler "
+            "daaruit is wat OKx vastlegt.",
+            "",
+            "Elke story gaat daarna door drie lagen. Een voorbeeld, zodat de "
+            "vorm vastligt:",
+            "",
+            "| Laag | Voorbeeld |",
+            "|---|------------------------------------------------|",
+            "| User story | Als student wil ik bij mijn keuzedeelruimte een "
+            "geprioriteerde voorkeurslijst opgeven, met als doel dat ik niet "
+            "zonder keuzedeel kom te zitten wanneer mijn eerste keuze vol is |",
+            "| Business requirement | de instelling kent per keuzedeelruimte de "
+            "voorkeursvolgorde van de student voordat zij plaatst |",
+            "| Functional requirement | het studentkeuzesysteem legt per "
+            "keuzedeelruimte een geordende lijst voorkeuren vast, met per "
+            "voorkeur het keuzedeel, de periode en de locatie |",
+            "| Technical requirement | de voorkeurslijst gaat als geordende "
+            "verzameling over het koppelvlak, met de volgorde expliciet in het "
+            "bericht en niet afgeleid uit de positie |",
+            "",
+            "Vul in dit document de user stories in; de drie requirementlagen "
+            "volgen daarna in een eigen ronde, met dit document als bron.",
+            "",
+            "## De grootst gemene deler",
+            "",
+            c["aggregatie"],
+            "",
+            "Een instelling spreekt voor haar eigen praktijk en niet voor de "
+            "sector. Noteer daarom apart wat afwijkt, onder "
+            "[Afwijkingen per instelling](#afwijkingen-per-instelling).",
+            "",
+        ]
+
+    def slot(self) -> list[str]:
+        return [
+            "## Afwijkingen per instelling",
+            "",
+            "Wat bij een instelling anders gaat dan hierboven staat, per regel "
+            "met de instelling erbij. Dit is geen restcategorie: hier staat het "
+            "materiaal waaruit blijkt of de grootst gemene deler houdbaar is.",
+            "",
+            "| Instelling | Hoofdstuk | Wat daar anders gaat |",
+            "|---|---|------------------------------------|",
+            "| | | |",
+            "| | | |",
+            "| | | |",
+            "",
+            "## Vragen aan OKx",
+            "",
+            "Wat onduidelijk bleef, genummerd, met per vraag het hoofdstuk waar "
+            "het speelt.",
+            "",
+            "| Nummer | Hoofdstuk | Vraag |",
+            "|---|---|------------------------------------|",
+            "| 1 | | |",
+            "| 2 | | |",
+            "| 3 | | |",
+            "",
+        ]
+
+    # -- de doorloop ----------------------------------------------------------
+
+    def nummer(self, niveau: int) -> str:
+        """Hernummert de koppen, want de bron telt op drie plekken 3.2.1.1."""
+        i = niveau - 2
+        self.teller[i] += 1
+        for j in range(i + 1, len(self.teller)):
+            self.teller[j] = 0
+        return ".".join(str(n) for n in self.teller[:i + 1] if True)
+
+    def verwachting(self, kop_bron: str, kop: str,
+                    inhoud: list[str]) -> list[str]:
+        soorten = []
+        tekst = "\n".join(inhoud)
+        if "```mermaid" in tekst:
+            soorten.append("diagram")
+        if re.search(r"^!\[", tekst, re.M):
+            soorten.append("beeld")
+        if re.search(r"^\|", tekst, re.M):
+            soorten.append("tabel")
+        if re.search(r"^\s*[-*+] ", tekst, re.M):
+            soorten.append("opsomming")
+        if not soorten:
+            soorten.append("tekst")
+        verwacht = ", ".join(ARTEFACTEN[s][0] for s in soorten)
+        eis = "; ".join(ARTEFACTEN[s][1] for s in soorten)
+        url = f"{BLOB}/{self.ref()}/{self.bronnaam}#{anker(kop_bron)}"
+        naam = self.cfg.get("voorbeeld_naam", "de voorbeelduitwerking")
+        return [
+            f"**Voorbeeld** [{naam}, {kop}]({url})",
+            "",
+            f"**Verwacht** {verwacht}",
+            "",
+            "**User stories** *vul de nummers in uit het pakket van eisen die "
+            "dit hoofdstuk verwezenlijkt*",
+            "",
+            f"**Klaar wanneer** {eis}",
+            "",
+        ]
+
+    def beeld(self, alt: str, pad: str) -> None:
+        """Zet het beeld in het document, niet een beschrijving ervan."""
+        bron = WORTEL / self.bronmap() / pad
+        if not bron.exists():
+            self.uit += [f"*Beeld ontbreekt in de bron: {alt}.*", ""]
+            return
+        naam = bron.name
+        if bron.suffix.lower() == ".svg":
+            naam = bron.with_suffix(".png").name   # Word draagt geen SVG
+        doel = f"img/{self.naam}/{naam}"
+        self.beelden.append((bron, doel))
+        self.uit += [f"![{vervang(alt, self.paren)}](<{doel}>)", ""]
+
+    def tabel(self, blok: list[str]) -> None:
+        kop = blok[0]
+        scheiding = blok[1] if len(blok) > 1 and SCHEIDING.match(blok[1]) else None
+        rijen = blok[2:] if scheiding else blok[1:]
+        self.uit.append(vervang(kop, self.paren))
+        self.uit.append(scheiding or "|" + "---|" * (kop.count("|") - 1))
+        kolommen = kop.count("|") - 1
+        for _ in range(max(1, min(len(rijen), 15))):
+            self.uit.append("|" + " |" * kolommen)
+        self.uit.append("")
+
     def maak(self) -> str:
         regels = self.brontekst().splitlines()
         self.uit = self.aanhef()
+        secties: list[tuple[int, str, list[str]]] = []
+        huidig: tuple[int, str] | None = None
         buffer: list[str] = []
-        soort = None
-        i = 0
-        eerste_kop_gezien = False
 
-        def leeg() -> None:
-            nonlocal buffer, soort
-            if buffer:
-                (self.tabel if soort == "tabel" else self.alinea)(buffer)
-            buffer, soort = [], None
-
-        while i < len(regels):
-            regel = regels[i]
+        for regel in regels:
             m = KOP.match(regel)
             if m:
-                leeg()
-                niveau = len(m.group(1))
-                tekst = vervang(m.group(2), self.koppen_paren)
-                if not eerste_kop_gezien and niveau == 1:
-                    eerste_kop_gezien = True  # de eigen titel staat al in de aanhef
-                    i += 1
-                    continue
-                self.sluit_ruimte()
-                if self.vanaf and self.vanaf.lower() in tekst.lower():
-                    self.in_uitwerking = True
-                self.uit += ["#" * max(2, niveau) + " " + tekst, ""]
-                i += 1
+                if huidig:
+                    secties.append((huidig[0], huidig[1], buffer))
+                huidig, buffer = (len(m.group(1)), m.group(2).strip()), []
                 continue
-            f = FENCE.match(regel)
-            if f:
-                leeg()
-                taal, inhoud = f.group(1), []
-                i += 1
-                while i < len(regels) and not regels[i].startswith("```"):
-                    inhoud.append(regels[i])
-                    i += 1
-                self.blok(taal, inhoud)
-                i += 1
+            buffer.append(regel)
+        if huidig:
+            secties.append((huidig[0], huidig[1], buffer))
+
+        gekozen: list[tuple[int, str, list[str]]] = []
+        begonnen = self.weg_tot is None
+        for niveau, kop_bron, inhoud in secties:
+            if not begonnen:
+                if self.weg_tot.lower() in kop_bron.lower():
+                    begonnen = True
+                else:
+                    continue
+            if self.weg_vanaf and self.weg_vanaf.lower() in kop_bron.lower():
+                break
+            gekozen.append((niveau, kop_bron, inhoud))
+        if not gekozen:
+            raise SystemExit(f"{self.naam}: geen enkel hoofdstuk blijft over; "
+                             "weglaten_tot of weglaten_vanaf wijst verkeerd")
+        basis = min(n for n, _, _ in gekozen)
+        for niveau, kop_bron, inhoud in gekozen:
+            self.hoofdstuk(2 + niveau - basis, kop_bron, inhoud)
+
+        self.uit += self.slot()
+        tekst = self.absoluut("\n".join(self.uit))
+        return re.sub(r"\n{3,}", "\n\n", tekst).strip() + "\n"
+
+    def hoofdstuk(self, niveau: int, kop_bron: str, inhoud: list[str]) -> None:
+        niveau = max(2, min(6, niveau))
+
+        tekst = vervang(label(kop_bron, self.labels), self.koppen_paren)
+        self.uit += [f"{'#' * niveau} {self.nummer(niveau)} {tekst}", ""]
+        self.uit += self.verwachting(kop_bron, tekst, inhoud)
+
+        # De beelden en de tabellen van de bron gaan mee; de rest is uitwerking.
+        blok: list[str] = []
+        in_fence = False
+        for regel in inhoud:
+            if FENCE.match(regel):
+                in_fence = not in_fence
+                continue
+            if in_fence:
                 continue
             b = BEELD.match(regel)
             if b:
-                leeg()
-                self.beeld(b.group(1))
-                i += 1
+                if blok:
+                    self.tabel(blok)
+                    blok = []
+                self.beeld(b.group(1), b.group(2))
                 continue
             if TABELRIJ.match(regel):
-                if soort != "tabel":
-                    leeg()
-                    soort = "tabel"
-                buffer.append(regel)
-                i += 1
+                blok.append(regel)
                 continue
-            if not regel.strip():
-                leeg()
-                i += 1
-                continue
-            if soort == "tabel":
-                leeg()
-            soort = "alinea"
-            buffer.append(regel)
-            i += 1
-        leeg()
-        self.sluit_ruimte()
-        self.uit += self.slot()
+            if blok:
+                self.tabel(blok)
+                blok = []
+        if blok:
+            self.tabel(blok)
+        self.uit += [RUIMTE, ""]
 
-        tekst = "\n".join(self.uit)
-        tekst = self.absoluut(tekst)
-        tekst = re.sub(r"\n{3,}", "\n\n", tekst).strip() + "\n"
-        return tekst
+    def schrijf(self) -> pathlib.Path:
+        tekst = self.maak()
+        doel = self.uitmap / f"{self.naam}.md"
+        doel.write_text(tekst, encoding="utf-8")
+        beeldmap = self.uitmap / "img" / self.naam
+        if beeldmap.exists():
+            shutil.rmtree(beeldmap)
+        for bron, pad in self.beelden:
+            uit = self.uitmap / pad
+            uit.parent.mkdir(parents=True, exist_ok=True)
+            verklein(bron, uit)
+        return doel
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -398,12 +508,13 @@ def main(argv: list[str] | None = None) -> int:
         raise SystemExit(f"onbekend sjabloon: {', '.join(onbekend)}")
     a.uit.mkdir(parents=True, exist_ok=True)
     for naam in namen:
-        tekst = Sjabloon(naam, config[naam]).maak()
-        doel = a.uit / f"{naam}.md"
-        doel.write_text(tekst, encoding="utf-8")
+        s = Sjabloon(naam, config[naam], a.uit)
+        doel = s.schrijf()
+        tekst = doel.read_text(encoding="utf-8")
         print(f"  {doel.relative_to(WORTEL)}  "
               f"({len(tekst.splitlines())} regels, "
-              f"{len([r for r in tekst.splitlines() if r.startswith('#')])} koppen)")
+              f"{len([r for r in tekst.splitlines() if r.startswith('#')])} koppen, "
+              f"{len(s.beelden)} beelden)")
     return 0
 
 
