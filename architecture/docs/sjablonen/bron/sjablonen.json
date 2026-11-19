@@ -27,9 +27,10 @@
       ]
     ],
     "laag": "user story",
-    "ondertitel": "Een student, zijn opleiding en zijn route door het onderwijs",
     "versie": "0.0.1",
-    "doel": "Dit document legt een student vast waar elk leerroute scenario naar verwijst, zodat elk scenario over dezelfde mens gaat en de reizen naast elkaar te leggen zijn."
+    "doel": "Dit document legt een student vast waar elk leerroute scenario naar verwijst, zodat elk scenario over dezelfde mens gaat en de reizen naast elkaar te leggen zijn.",
+    "context": "De persona is het beginpunt van de keten. Elk leerroute scenario volgt een persona, en elke uitwerking legt diezelfde persona naast het informatiemodel.",
+    "keten": "komt voor het [leerroute scenario](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md)"
   },
   "leerroute-scenario": {
     "titel": "Sjabloon leerroute scenario",
@@ -286,9 +287,10 @@
         "context": "in het kader van de interactieketen"
       }
     },
-    "ondertitel": "Een Npuls-leerroute uitgewerkt tot de informatie die eruit moet",
     "versie": "0.0.1",
-    "doel": "Dit document werkt een Npuls-leerroute uit tot het punt waarop duidelijk is welke informatie waarheen moet, zodat de solutionlaag erop kan bouwen zonder de onderwijskundige keuze over te nemen."
+    "doel": "Dit document werkt een Npuls-leerroute uit tot het punt waarop duidelijk is welke informatie waarheen moet, zodat de solutionlaag erop kan bouwen zonder de onderwijskundige keuze over te nemen.",
+    "context": "Het leerroute scenario is de kaderstelling per route. Het bouwt op een persona, en het levert de business en functional requirements waarop de uitwerking en de interactieketen verder bouwen.",
+    "keten": "bouwt op een persona, en gaat vooraf aan de [uitwerking](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md) en de interactieketen"
   },
   "informatiemodel-viewpoint": {
     "titel": "Sjabloon informatiemodel viewpoint",
@@ -309,9 +311,10 @@
       ]
     ],
     "laag": "functional",
-    "ondertitel": "De objecttypen, hun samenhang en de lezer van de plaat",
     "versie": "0.0.1",
-    "doel": "Dit document legt vast welke objecttypen er zijn, hoe zij samenhangen en voor welke lezer de plaat bedoeld is, zodat een leverancier dezelfde begrippen leest als een onderwijskundige."
+    "doel": "Dit document legt vast welke objecttypen er zijn, hoe zij samenhangen en voor welke lezer de plaat bedoeld is, zodat een leverancier dezelfde begrippen leest als een onderwijskundige.",
+    "context": "Het viewpoint legt de begrippen vast waarin alle andere documenten spreken. Wijkt een leerroute scenario hiervan af, dan is dat een signalering en geen eigen term.",
+    "keten": "staat naast alle andere documenten; de [begrippenlijst](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/begrippen/begrippenlijst.md) hoort erbij"
   },
   "leerroute-scenario-uitwerking": {
     "titel": "Sjabloon leerroute scenario uitwerking",
@@ -334,7 +337,6 @@
       ]
     ],
     "laag": "functional",
-    "ondertitel": "Twee bouwstenen, herhaald tot het scenario gedekt is",
     "versie": "0.0.1",
     "doel": "Dit document legt een leerroute scenario stap voor stap naast het informatiemodel, zodat zichtbaar wordt of het model de werkelijkheid van die route draagt en waar het tekortschiet.",
     "opbouw": {
@@ -346,15 +348,15 @@
       },
       "Bouwsteen A: processtap": {
         "niveau": 1,
-        "anker": "Fase 1: Kwalificatiekader analyseren en grofmazig ontwerpen",
+        "anker": "F1-08 - Kiesbaar onderwijsprogrammaonderdeel: keuzedelen en minor",
         "inhoud": [
           "![x](y.svg)",
           "| a | b |"
         ],
         "artefact": "een ArchiMate-plaat of een SVG-render daarvan, met de scope van deze processtap uitgelicht",
         "context": "met daarnaast de tabel hieronder ingevuld",
-        "eis": "de plaat toont de actor, de processtap en het informatie-element dat daar ontstaat, elk met de term uit de begrippenlijst; wat die lijst niet kent staat als observatie in het slot",
-        "toelichting": "Kopieer dit blok voor elke processtap. De nummering volgt het leerroute scenario: F1-01 is de eerste stap van fase 1.",
+        "eis": "de plaat toont de actor, de processtap en het informatie-element dat daar ontstaat, elk met de term uit de begrippenlijst, **en de relaties naar de informatie-elementen die in eerdere bouwstenen zijn ontstaan**; wat de begrippenlijst niet kent staat als observatie in het slot",
+        "toelichting": "Kopieer dit blok voor elke processtap. De nummering volgt het leerroute scenario: F1-01 is de eerste stap van fase 1.\n\nHet gaat hier niet alleen om wat er nieuw ontstaat. Een bouwsteen is pas af wanneer ook de **relaties naar eerder ontstane informatie** erin staan: waaraan hangt het nieuwe element, en wat verwijst ernaar. Zonder die relaties is het een losse doos en zegt de uitwerking niets over het model.\n\nHet voorbeeld hieronder is er een met meerdere relaties tegelijk: het kiesbare onderwijsprogrammaonderdeel ontstaat, en hangt aan de opleidingsspecificatie, de keuzedeelruimte en de leeruitkomsten die in eerdere stappen al bestonden.",
         "tabel": [
           "| Veld | Invulling |",
           "|---|------------------------------------------------|",
@@ -363,21 +365,23 @@
           "| Actor | *wie handelt, met de rol uit het scenario* |",
           "| Applicatiecomponent | *welk systeem daarbij hoort* |",
           "| Ontstaat | *welk objecttype hier voor het eerst bestaat* |",
-          "| Hangt aan | *aan welk bestaand objecttype het hangt* |",
+          "| Relaties naar eerder ontstane elementen | *waaraan het hangt en wat ernaar verwijst, met het nummer van de bouwsteen waar dat element ontstond* |",
           "| Voorbeeldwaarde | *de ingevulde waarde voor deze persona* |"
-        ]
+        ],
+        "voorbeeld_beeld": "architecture/model/informatiemodel/img/regels/f1-08-kiesbaar-onderwijsprogrammaonderdeel-keuzedelen-en-minor.svg",
+        "beeld_alt": "Voorbeeld van bouwsteen A: het kiesbare onderwijsprogrammaonderdeel, met de relaties naar de opleidingsspecificatie en de keuzedeelruimte die eerder zijn ontstaan"
       },
       "Bouwsteen B: uitwisseling": {
         "niveau": 1,
-        "anker": "Fase 2: Publiceren en planbaar maken",
+        "anker": "F2-03 - Verzoek met specificatiestructuur en planbare waarden naar planning",
         "inhoud": [
           "![x](y.svg)",
           "| a | b |"
         ],
         "artefact": "een ArchiMate-plaat of een SVG-render daarvan, met de scope van deze uitwisseling uitgelicht",
         "context": "met daarnaast het volledige ingevulde informatievoorbeeld dat over de lijn gaat",
-        "eis": "de plaat toont beide applicatiecomponenten en de richting; het voorbeeld draagt elk objecttype met zijn relaties, zodat zichtbaar is wat de ontvanger werkelijk binnenkrijgt",
-        "toelichting": "Kopieer dit blok voor elke uitwisseling. Hier gaat niet een los gegeven over de lijn maar het hele samenhangende voorbeeld: het objecttype met alles wat eraan hangt.",
+        "eis": "de plaat toont beide applicatiecomponenten en de richting; het voorbeeld draagt elk objecttype **met zijn relaties**, zodat zichtbaar is wat de ontvanger werkelijk binnenkrijgt en niet alleen welk veld er over de lijn gaat",
+        "toelichting": "Kopieer dit blok voor elke uitwisseling. Hier gaat niet een los gegeven over de lijn maar het hele samenhangende voorbeeld: het objecttype met alles wat eraan hangt.\n\nHet voorbeeld hieronder is er een met een volle structuur: het verzoek om onderwijsaanbod neemt de specificatiestructuur en de planbare waarden mee, zodat het planningssysteem zonder navraag kan plannen.",
         "tabel": [
           "| Veld | Invulling |",
           "|---|------------------------------------------------|",
@@ -385,9 +389,11 @@
           "| Van | *welke applicatiecomponent levert* |",
           "| Naar | *welke applicatiecomponent neemt af* |",
           "| Aanleiding | *welke processtap deze uitwisseling veroorzaakt* |",
-          "| Informatievoorbeeld | *het ingevulde voorbeeld, met de relaties* |",
+          "| Informatievoorbeeld | *het ingevulde voorbeeld, met alle relaties* |",
           "| Informatiestroom | *het nummer uit het leerroute scenario* |"
-        ]
+        ],
+        "voorbeeld_beeld": "architecture/model/informatiemodel/img/regels/f2-03-verzoek-met-specificatiestructuur-en-planbare-waarden-naar-planning.svg",
+        "beeld_alt": "Voorbeeld van bouwsteen B: het verzoek om onderwijsaanbod gaat met de hele specificatiestructuur en de planbare waarden van de onderwijscatalogus naar het planningssysteem"
       },
       "Uitwerking": {
         "niveau": 1,
@@ -406,7 +412,9 @@
           "| | | |"
         ]
       }
-    }
+    },
+    "context": "De uitwerking toetst het informatiemodel aan een leerroute scenario. Wat niet past, wordt een functional requirement en een wijziging op het viewpoint.",
+    "keten": "volgt op het leerroute scenario en toetst het informatiemodel"
   },
   "interactieketen": {
     "titel": "Sjabloon interactieketen",
@@ -418,12 +426,6 @@
     "voorbeeld": "[interactieketen onderwijsaanbod](https://github.com/Npuls-OKx/meta/blob/e05b4444a29a09b92cc8afd73bce69af78f1ac12/architecture/docs/specificatie/interactieketen-onderwijsaanbod/README.md), nog in review als pull request 373",
     "voorbeeld_naam": "Keten onderwijsaanbod",
     "aggregatie": "Tussen de inbreng van instellingen en leveranciers en dit document zit een analysestap. Houd daarbij drie dingen uit elkaar: wat een product vandaag doet, wat een component moet kunnen, en wat OKx als grootst gemene deler vastlegt. Een leverancier spreekt voor zijn product en niet voor de sector.",
-    "weglaten_tot": "De informatiestromen",
-    "kop_labels": {
-      "Wat deze keten oplevert": "Opbrengst van de keten",
-      "Gegevensoorsprong en bronsysteem": "Gegevensoorsprong en bronsysteem",
-      "Afspraken die elke dienst nakomt": "Afspraken per dienst"
-    },
     "vervang": [
       [
         "onderwijsaanbod",
@@ -435,8 +437,68 @@
       ]
     ],
     "laag": "technical",
-    "ondertitel": "De diensten van een keten, hun volgorde en hun afspraken",
     "versie": "0.0.1",
-    "doel": "Dit document legt vast welke diensten elkaar in welke volgorde aanroepen om een keten af te maken, zodat een bouwer weet wat hij moet bouwen en wat hij mag verwachten."
+    "doel": "Dit document legt vast welke diensten elkaar in welke volgorde aanroepen om een keten af te maken, zodat een bouwer weet wat hij moet bouwen en wat hij mag verwachten.",
+    "context": "De interactieketen bouwt op de informatiestromen die een leerroute scenario heeft benoemd, en levert de technical requirements waarmee een leverancier bouwt.",
+    "keten": "volgt op het leerroute scenario en gaat vooraf aan de koppelvlakspecificatie",
+    "opbouw": {
+      "Werkwijze": {
+        "niveau": 1,
+        "blok": false,
+        "ruimte": false,
+        "toelichting": "Een interactieketen is een reeks interacties. Dit document zet er een neer als bouwblok, en dat blok herhaalt zich tot de keten af is.\n\n**De nummering.** Elke interactie draagt een nummer dat begint met `IS`, voor interactiespecificatie. Daarna de afkorting van de keten en een volgnummer: `IS-OA-01` is de eerste interactie van de keten onderwijsaanbod. Kies de afkorting van uw keten en houd hem door het hele document aan; OKx neemt dat nummer over, dus hernummeren achteraf kost iedereen werk.\n\n**De scope van een interactie** bepaalt de business analist: de kleinst mogelijke eenheid die waarde oplevert voor zowel de student als de instelling. Een aanroep die alleen een technische stap zet is te klein; een hele fase is te groot."
+      },
+      "Bouwblok: een interactie": {
+        "niveau": 1,
+        "anker": "IS-OA-03 Verzoek om aanbod naar planning",
+        "artefact": "een ArchiMate-plaat of een SVG-render daarvan, met de scope van deze interactie uitgelicht",
+        "context": "met daarnaast de tabel hieronder ingevuld",
+        "eis": "de plaat toont beide componenten, de richting en het bericht; de tabel noemt wat er gebeurt wanneer de aanbieder niet antwoordt, want een keten zonder foutpad is niet te bouwen",
+        "laag": "technical",
+        "toelichting": "Kopieer dit blok voor elke interactie in de keten. Houd de volgorde van de keten aan, zodat het document van begin tot eind te lezen is.",
+        "tabel": [
+          "| Veld | Invulling |",
+          "|---|------------------------------------------------|",
+          "| Nummer | *IS-XX-01* |",
+          "| Naam | *wat deze interactie doet, als werkwoord met zijn onderwerp* |",
+          "| Aanbieder | *welke component de dienst aanbiedt, met naam en versie* |",
+          "| Afnemer | *welke component hem afneemt, met naam en versie* |",
+          "| Aanleiding | *welke gebeurtenis deze interactie start* |",
+          "| Bericht | *welke informatie meegaat, met de termen uit de begrippenlijst* |",
+          "| Informatiestroom | *het nummer uit het leerroute scenario* |",
+          "| Antwoord | *wat de afnemer terugkrijgt* |",
+          "| Foutpad | *wat er gebeurt wanneer de aanbieder niet of fout antwoordt* |",
+          "| Herhaalbaar | *wat een tweede dezelfde aanroep doet* |"
+        ]
+      },
+      "De keten": {
+        "niveau": 1,
+        "blok": false,
+        "toelichting": "Herhaal het bouwblok hierboven voor elke interactie, in de volgorde van de keten. Zet er een plaat van de hele keten bij zodra alle interacties erin staan: een reeks losse blokken laat niet zien waar de keten wacht, splitst of terugkomt."
+      },
+      "Gegevensoorsprong": {
+        "niveau": 1,
+        "blok": false,
+        "toelichting": "Per gegeven welke component de bron is, en welke het alleen doorgeeft. Dit hoofdstuk voorkomt dat twee componenten zich later eigenaar noemen van hetzelfde gegeven.",
+        "tabel": [
+          "| Gegeven | Bronsysteem | Wie neemt het over | In welke interactie |",
+          "|---|---|---|---|",
+          "| | | | |",
+          "| | | | |",
+          "| | | | |"
+        ]
+      },
+      "Afspraken per dienst": {
+        "niveau": 1,
+        "blok": false,
+        "toelichting": "Wat elke dienst nakomt, ongeacht wie hem bouwt: wanneer hij antwoordt, wat een herhaalde aanroep doet, en wat er gebeurt wanneer hij niet beschikbaar is. Vaktermen op protocolniveau blijven onvertaald.",
+        "tabel": [
+          "| Dienst | Antwoordt binnen | Herhaalde aanroep | Niet beschikbaar |",
+          "|---|---|---|---|",
+          "| | | | |",
+          "| | | | |"
+        ]
+      }
+    }
   }
 }

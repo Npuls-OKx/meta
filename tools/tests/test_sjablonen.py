@@ -259,7 +259,8 @@ class DeGeneratorWeigertWatHijNietKan(unittest.TestCase):
         self.assertIn("git fetch", str(e.exception))
 
     def test_een_grens_die_alles_weglaat(self):
-        kaal = {"bron": "README.md", "titel": "T", "wat": "w", "wie": "w", "doel": "d",
+        kaal = {"bron": "README.md", "titel": "T", "wat": "w", "wie": "w",
+                "doel": "d", "context": "c", "keten": "k",
                 "voorbeeld": "v", "aggregatie": "a",
                 "weglaten_tot": "bestaat niet"}
         with self.assertRaises(SystemExit) as e:
@@ -339,15 +340,28 @@ class WordKanHetBestandOpenen(unittest.TestCase):
 
 
 class DeVoorpaginaDraagtAlleenDeOmslag(unittest.TestCase):
-    def test_de_omslag_noemt_versie_uitgever_en_invuller(self):
+    def test_de_omslag_noemt_versie_auteurs_en_datum(self):
         for naam in CONFIG:
-            t = skelet(naam)
-            kop = t.split(maak.PAGINA_EINDE)[0]
+            kop = skelet(naam).split(maak.PAGINA_EINDE)[0]
             with self.subTest(naam):
-                for veld in ("| Versie |", "| Uitgegeven door |",
-                             "| Ingevuld door |", "| Datum |"):
-                    self.assertIn(veld, kop)
-                self.assertNotIn("#", kop, "de voorpagina draagt geen hoofdstuk")
+                for veld in ("Versie", "Auteurs", "Datum"):
+                    self.assertIn(f"<w:t>{veld}</w:t>", kop)
+                self.assertNotIn("\n#", kop,
+                                 "de voorpagina draagt geen hoofdstuk")
+
+    def test_de_omslagtabel_draagt_geen_randen(self):
+        """Een omlijnde tabel staat onrustig op een omslag."""
+        for naam in CONFIG:
+            kop = skelet(naam).split(maak.PAGINA_EINDE)[0]
+            with self.subTest(naam):
+                self.assertIn('<w:top w:val="none"/>', kop)
+                self.assertIn('<w:insideH w:val="none"/>', kop)
+
+    def test_geen_ondertitel(self):
+        """Een ondertitel werd proza; de titel draagt het alleen."""
+        for naam, cfg in CONFIG.items():
+            with self.subTest(naam):
+                self.assertNotIn("ondertitel", cfg)
 
     def test_de_inleiding_opent_pagina_twee(self):
         for naam in CONFIG:
@@ -366,11 +380,14 @@ class DeVoorpaginaDraagtAlleenDeOmslag(unittest.TestCase):
                 self.assertLess(eerste, t.index(maak.INHOUDSOPGAVE),
                                 "de inleiding is af voordat de inhoudsopgave komt")
 
-    def test_de_ondertitel_staat_in_de_configuratie(self):
+    def test_de_versie_staat_in_de_configuratie(self):
         for naam, cfg in CONFIG.items():
             with self.subTest(naam):
-                self.assertTrue(cfg.get("ondertitel"))
                 self.assertTrue(cfg.get("versie"))
+                self.assertTrue(cfg.get("context"), "de inleiding noemt de "
+                                "context van het document")
+                self.assertTrue(cfg.get("keten"), "de inleiding noemt de plek "
+                                "in de keten")
 
 
 class DeDocxHoortBijHetSkelet(unittest.TestCase):

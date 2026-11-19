@@ -1,10 +1,6 @@
-| Onderdeel | Inhoud |
-|---|------------------------------------------------|
-| Versie | 0.0.1 |
-| Uitgegeven door | OKx, pijler Leren Zonder Drempels (Npuls) |
-| Ingevuld door | *naam en organisatie van de invuller* |
-| Datum | *datum van invullen* |
-| Inleveren | terug naar OKx SI als Word-bestand |
+```{=openxml}
+<w:tbl><w:tblPr><w:tblW w:w="8400" w:type="dxa"/><w:tblBorders><w:top w:val="none"/><w:left w:val="none"/><w:bottom w:val="none"/><w:right w:val="none"/><w:insideH w:val="none"/><w:insideV w:val="none"/></w:tblBorders><w:tblCellMar><w:left w:w="0" w:type="dxa"/><w:right w:w="240" w:type="dxa"/></w:tblCellMar></w:tblPr><w:tr><w:tc><w:tcPr><w:tcW w:w="2400" w:type="dxa"/></w:tcPr><w:p><w:r><w:rPr><w:b/></w:rPr><w:t>Versie</w:t></w:r></w:p></w:tc><w:tc><w:tcPr><w:tcW w:w="6000" w:type="dxa"/></w:tcPr><w:p><w:r><w:t xml:space="preserve">0.0.1</w:t></w:r></w:p></w:tc></w:tr><w:tr><w:tc><w:tcPr><w:tcW w:w="2400" w:type="dxa"/></w:tcPr><w:p><w:r><w:rPr><w:b/></w:rPr><w:t>Auteurs</w:t></w:r></w:p></w:tc><w:tc><w:tcPr><w:tcW w:w="6000" w:type="dxa"/></w:tcPr><w:p><w:r><w:t xml:space="preserve">OKx, pijler Leren Zonder Drempels (Npuls)</w:t></w:r></w:p></w:tc></w:tr><w:tr><w:tc><w:tcPr><w:tcW w:w="2400" w:type="dxa"/></w:tcPr><w:p><w:r><w:rPr><w:b/></w:rPr><w:t>Datum</w:t></w:r></w:p></w:tc><w:tc><w:tcPr><w:tcW w:w="6000" w:type="dxa"/></w:tcPr><w:p><w:r><w:t xml:space="preserve">datum van invullen</w:t></w:r></w:p></w:tc></w:tr></w:tbl>
+```
 
 ```{=openxml}
 <w:p><w:r><w:br w:type="page"/></w:r></w:p>
@@ -14,9 +10,11 @@
 
 | Onderdeel | Inhoud |
 |---|------------------------------------------------|
-| Wat dit wordt | een leerroute scenario uitwerking: het scenario stap voor stap naast het informatiemodel gelegd, als een herhaling van twee bouwstenen tot de hele route gedekt is |
+| Context van het document | De uitwerking toetst het informatiemodel aan een leerroute scenario. Wat niet past, wordt een functional requirement en een wijziging op het viewpoint. |
+| Plek in de keten | volgt op het leerroute scenario en toetst het informatiemodel |
 | Wie dit invult | de adviesgroep. Suggestie: de informatiemanagers vullen de regels, de business analisten leggen ze naast het model |
 | Voorbeeld | [de uitwerking van leerroute 1 met Jochem](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md) |
+| Inleveren | terug naar OKx SI als Word-bestand |
 
 Elk hoofdstuk opent met een blok dat zegt wat er van dat hoofdstuk wordt verwacht: waar hetzelfde al is uitgewerkt, welk artefact hier hoort en waaraan het voldoet, en wat dit hoofdstuk aan het pakket van eisen bijdraagt. Dat blok blijft staan; het is de opdracht en niet de uitwerking. Een hoofdstuk dat niet van toepassing is houdt zijn kop, met de reden eronder.
 
@@ -26,18 +24,20 @@ Dit document legt een leerroute scenario stap voor stap naast het informatiemode
 
 ## Pakket van eisen
 
-Het pakket van eisen komt uit de gedeelde analyse van alles wat scholen hebben ingebracht, geinventariseerd in de PoC-sessies met de koploperscholen. De grootst gemene deler daaruit is wat OKx vastlegt.
+Het pakket van eisen is een eigen document. Het komt uit de gedeelde analyse van alles wat scholen hebben ingebracht, geinventariseerd in de PoC-sessies met de koploperscholen, en de grootst gemene deler daaruit is wat OKx vastlegt. **Dit document bevat het pakket van eisen dus niet; het verwijst ernaar en levert eraan.**
 
-Niet elk hoofdstuk levert hetzelfde. Een journey brengt een behoefte naar boven en levert user stories. Een procesbeschrijving zegt wat de instelling moet kunnen. Een gegevens- of systeemhoofdstuk zegt wat een component moet doen. Een interactiehoofdstuk zegt wat er over het koppelvlak gaat. Het blok boven elk hoofdstuk noemt welke laag daar hoort.
+Waar een eis landt hangt af van zijn laag. Een business of functional requirement hoort in de leerroute specificatie, want daar staat wat de instelling moet kunnen en wat een component moet doen. Een technical requirement hoort in de interactieketenspecificatie, want daar staat wat er over het koppelvlak gaat.
 
-| Laag | Waar die ontstaat | Voorbeeld |
-|---|---|------------------------------------|
-| User story | in een journey of een scenario | Als student wil ik bij mijn keuzedeelruimte een geprioriteerde voorkeurslijst opgeven, met als doel dat ik niet zonder keuzedeel kom te zitten wanneer mijn eerste keuze vol is |
-| Business requirement | in een procesbeschrijving | de instelling kent per keuzedeelruimte de voorkeursvolgorde van de student voordat zij plaatst |
-| Functional requirement | in een gegevens- of systeemhoofdstuk | het studentkeuzesysteem legt per keuzedeelruimte een geordende lijst voorkeuren vast, met per voorkeur het onderdeel, de periode en de locatie |
-| Technical requirement | in een interactiehoofdstuk | de voorkeurslijst gaat als geordende verzameling over het koppelvlak, met de volgorde expliciet in het bericht en niet afgeleid uit de positie |
+Niet elk hoofdstuk levert hetzelfde. Een journey brengt een behoefte naar boven en levert user stories. Een procesbeschrijving zegt wat de instelling moet kunnen. Een gegevens- of systeemhoofdstuk zegt wat een component moet doen. Een interactiehoofdstuk zegt wat er over het koppelvlak gaat. Het blok boven elk hoofdstuk noemt welke laag daar hoort, en noteert de nummers; de eis zelf wordt elders uitgeschreven.
 
-Vul in dit document de laag in die boven het hoofdstuk staat. De lagen eronder volgen in een eigen ronde, met dit document als bron.
+| Laag | Waar die ontstaat | Waar die landt | Voorbeeld |
+|---|---|---|------------------------------|
+| User story | in een journey of een scenario | pakket van eisen | Als student wil ik bij mijn keuzedeelruimte een geprioriteerde voorkeurslijst opgeven, met als doel dat ik niet zonder keuzedeel kom te zitten wanneer mijn eerste keuze vol is |
+| Business requirement | in een procesbeschrijving | leerroute specificatie | de instelling kent per keuzedeelruimte de voorkeursvolgorde van de student voordat zij plaatst |
+| Functional requirement | in een gegevens- of systeemhoofdstuk | leerroute specificatie | het studentkeuzesysteem legt per keuzedeelruimte een geordende lijst voorkeuren vast, met per voorkeur het onderdeel, de periode en de locatie |
+| Technical requirement | in een interactiehoofdstuk | interactieketenspecificatie | de voorkeurslijst gaat als geordende verzameling over het koppelvlak, met de volgorde expliciet in het bericht en niet afgeleid uit de positie |
+
+Vul in dit document de laag in die boven het hoofdstuk staat, als verwijzing. De uitgeschreven eis volgt in een eigen ronde, in het document waar hij hoort.
 
 ## Business analyse en aggregatie van pakket van eisen
 
@@ -73,11 +73,15 @@ De uitgewerkte vorm staat in [de uitwerking van leerroute 1 met Jochem](https://
 
 Kopieer dit blok voor elke processtap. De nummering volgt het leerroute scenario: F1-01 is de eerste stap van fase 1.
 
-**Voorbeeld** [Leerroute 1 scenario uitwerking, Fase 1: Kwalificatiekader analyseren en grofmazig ontwerpen](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#fase-1-kwalificatiekader-analyseren-en-grofmazig-ontwerpen)
+Het gaat hier niet alleen om wat er nieuw ontstaat. Een bouwsteen is pas af wanneer ook de **relaties naar eerder ontstane informatie** erin staan: waaraan hangt het nieuwe element, en wat verwijst ernaar. Zonder die relaties is het een losse doos en zegt de uitwerking niets over het model.
 
-**Acceptatiecriteria** een ArchiMate-plaat of een SVG-render daarvan, met de scope van deze processtap uitgelicht, met daarnaast de tabel hieronder ingevuld, en de plaat toont de actor, de processtap en het informatie-element dat daar ontstaat, elk met de term uit de begrippenlijst; wat die lijst niet kent staat als observatie in het slot
+Het voorbeeld hieronder is er een met meerdere relaties tegelijk: het kiesbare onderwijsprogrammaonderdeel ontstaat, en hangt aan de opleidingsspecificatie, de keuzedeelruimte en de leeruitkomsten die in eerdere stappen al bestonden.
 
-**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
+**Voorbeeld** [Leerroute 1 scenario uitwerking, F1-08 - Kiesbaar onderwijsprogrammaonderdeel: keuzedelen en minor](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f1-08---kiesbaar-onderwijsprogrammaonderdeel-keuzedelen-en-minor)
+
+**Acceptatiecriteria** een ArchiMate-plaat of een SVG-render daarvan, met de scope van deze processtap uitgelicht, met daarnaast de tabel hieronder ingevuld, en de plaat toont de actor, de processtap en het informatie-element dat daar ontstaat, elk met de term uit de begrippenlijst, **en de relaties naar de informatie-elementen die in eerdere bouwstenen zijn ontstaan**; wat de begrippenlijst niet kent staat als observatie in het slot
+
+**Functional requirements** *wat een component moet doen met welke gegevens; dit landt in de leerroute specificatie, met het nummer van de story erbij*
 
 | Veld | Invulling |
 |---|------------------------------------------------|
@@ -86,8 +90,10 @@ Kopieer dit blok voor elke processtap. De nummering volgt het leerroute scenario
 | Actor | *wie handelt, met de rol uit het scenario* |
 | Applicatiecomponent | *welk systeem daarbij hoort* |
 | Ontstaat | *welk objecttype hier voor het eerst bestaat* |
-| Hangt aan | *aan welk bestaand objecttype het hangt* |
+| Relaties naar eerder ontstane elementen | *waaraan het hangt en wat ernaar verwijst, met het nummer van de bouwsteen waar dat element ontstond* |
 | Voorbeeldwaarde | *de ingevulde waarde voor deze persona* |
+
+![Voorbeeld van bouwsteen A: het kiesbare onderwijsprogrammaonderdeel, met de relaties naar de opleidingsspecificatie en de keuzedeelruimte die eerder zijn ontstaan](<img/leerroute-scenario-uitwerking/f1-08-kiesbaar-onderwijsprogrammaonderdeel-keuzedelen-en-minor.png>)
 
 *Schrijf hier de uitwerking.*
 
@@ -95,11 +101,13 @@ Kopieer dit blok voor elke processtap. De nummering volgt het leerroute scenario
 
 Kopieer dit blok voor elke uitwisseling. Hier gaat niet een los gegeven over de lijn maar het hele samenhangende voorbeeld: het objecttype met alles wat eraan hangt.
 
-**Voorbeeld** [Leerroute 1 scenario uitwerking, Fase 2: Publiceren en planbaar maken](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#fase-2-publiceren-en-planbaar-maken)
+Het voorbeeld hieronder is er een met een volle structuur: het verzoek om onderwijsaanbod neemt de specificatiestructuur en de planbare waarden mee, zodat het planningssysteem zonder navraag kan plannen.
 
-**Acceptatiecriteria** een ArchiMate-plaat of een SVG-render daarvan, met de scope van deze uitwisseling uitgelicht, met daarnaast het volledige ingevulde informatievoorbeeld dat over de lijn gaat, en de plaat toont beide applicatiecomponenten en de richting; het voorbeeld draagt elk objecttype met zijn relaties, zodat zichtbaar is wat de ontvanger werkelijk binnenkrijgt
+**Voorbeeld** [Leerroute 1 scenario uitwerking, F2-03 - Verzoek met specificatiestructuur en planbare waarden naar planning](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f2-03---verzoek-met-specificatiestructuur-en-planbare-waarden-naar-planning)
 
-**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
+**Acceptatiecriteria** een ArchiMate-plaat of een SVG-render daarvan, met de scope van deze uitwisseling uitgelicht, met daarnaast het volledige ingevulde informatievoorbeeld dat over de lijn gaat, en de plaat toont beide applicatiecomponenten en de richting; het voorbeeld draagt elk objecttype **met zijn relaties**, zodat zichtbaar is wat de ontvanger werkelijk binnenkrijgt en niet alleen welk veld er over de lijn gaat
+
+**Functional requirements** *wat een component moet doen met welke gegevens; dit landt in de leerroute specificatie, met het nummer van de story erbij*
 
 | Veld | Invulling |
 |---|------------------------------------------------|
@@ -107,8 +115,10 @@ Kopieer dit blok voor elke uitwisseling. Hier gaat niet een los gegeven over de 
 | Van | *welke applicatiecomponent levert* |
 | Naar | *welke applicatiecomponent neemt af* |
 | Aanleiding | *welke processtap deze uitwisseling veroorzaakt* |
-| Informatievoorbeeld | *het ingevulde voorbeeld, met de relaties* |
+| Informatievoorbeeld | *het ingevulde voorbeeld, met alle relaties* |
 | Informatiestroom | *het nummer uit het leerroute scenario* |
+
+![Voorbeeld van bouwsteen B: het verzoek om onderwijsaanbod gaat met de hele specificatiestructuur en de planbare waarden van de onderwijscatalogus naar het planningssysteem](<img/leerroute-scenario-uitwerking/f2-03-verzoek-met-specificatiestructuur-en-planbare-waarden-naar-planning.png>)
 
 *Schrijf hier de uitwerking.*
 

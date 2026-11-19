@@ -1,10 +1,6 @@
-| Onderdeel | Inhoud |
-|---|------------------------------------------------|
-| Versie | 0.0.1 |
-| Uitgegeven door | OKx, pijler Leren Zonder Drempels (Npuls) |
-| Ingevuld door | *naam en organisatie van de invuller* |
-| Datum | *datum van invullen* |
-| Inleveren | terug naar OKx SI als Word-bestand |
+```{=openxml}
+<w:tbl><w:tblPr><w:tblW w:w="8400" w:type="dxa"/><w:tblBorders><w:top w:val="none"/><w:left w:val="none"/><w:bottom w:val="none"/><w:right w:val="none"/><w:insideH w:val="none"/><w:insideV w:val="none"/></w:tblBorders><w:tblCellMar><w:left w:w="0" w:type="dxa"/><w:right w:w="240" w:type="dxa"/></w:tblCellMar></w:tblPr><w:tr><w:tc><w:tcPr><w:tcW w:w="2400" w:type="dxa"/></w:tcPr><w:p><w:r><w:rPr><w:b/></w:rPr><w:t>Versie</w:t></w:r></w:p></w:tc><w:tc><w:tcPr><w:tcW w:w="6000" w:type="dxa"/></w:tcPr><w:p><w:r><w:t xml:space="preserve">0.0.1</w:t></w:r></w:p></w:tc></w:tr><w:tr><w:tc><w:tcPr><w:tcW w:w="2400" w:type="dxa"/></w:tcPr><w:p><w:r><w:rPr><w:b/></w:rPr><w:t>Auteurs</w:t></w:r></w:p></w:tc><w:tc><w:tcPr><w:tcW w:w="6000" w:type="dxa"/></w:tcPr><w:p><w:r><w:t xml:space="preserve">OKx, pijler Leren Zonder Drempels (Npuls)</w:t></w:r></w:p></w:tc></w:tr><w:tr><w:tc><w:tcPr><w:tcW w:w="2400" w:type="dxa"/></w:tcPr><w:p><w:r><w:rPr><w:b/></w:rPr><w:t>Datum</w:t></w:r></w:p></w:tc><w:tc><w:tcPr><w:tcW w:w="6000" w:type="dxa"/></w:tcPr><w:p><w:r><w:t xml:space="preserve">datum van invullen</w:t></w:r></w:p></w:tc></w:tr></w:tbl>
+```
 
 ```{=openxml}
 <w:p><w:r><w:br w:type="page"/></w:r></w:p>
@@ -14,9 +10,11 @@
 
 | Onderdeel | Inhoud |
 |---|------------------------------------------------|
-| Wat dit wordt | een leerroute scenario: een van de negen Npuls-leerroutes uitgewerkt tot het punt waarop duidelijk is welke informatie waarheen moet. Het is kaderstellend, dus geen anekdote en geen instellingsontwerp |
+| Context van het document | Het leerroute scenario is de kaderstelling per route. Het bouwt op een persona, en het levert de business en functional requirements waarop de uitwerking en de interactieketen verder bouwen. |
+| Plek in de keten | bouwt op een persona, en gaat vooraf aan de [uitwerking](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md) en de interactieketen |
 | Wie dit invult | de adviesgroep. Suggestie: de BOP-adviseurs en de business analisten samen, met de onderwijskundige kant bij de adviesgroep zelf |
 | Voorbeeld | [leerroute 1 scenario](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md) |
+| Inleveren | terug naar OKx SI als Word-bestand |
 
 Elk hoofdstuk opent met een blok dat zegt wat er van dat hoofdstuk wordt verwacht: waar hetzelfde al is uitgewerkt, welk artefact hier hoort en waaraan het voldoet, en wat dit hoofdstuk aan het pakket van eisen bijdraagt. Dat blok blijft staan; het is de opdracht en niet de uitwerking. Een hoofdstuk dat niet van toepassing is houdt zijn kop, met de reden eronder.
 
@@ -26,18 +24,20 @@ Dit document werkt een Npuls-leerroute uit tot het punt waarop duidelijk is welk
 
 ## Pakket van eisen
 
-Het pakket van eisen komt uit de gedeelde analyse van alles wat scholen hebben ingebracht, geinventariseerd in de PoC-sessies met de koploperscholen. De grootst gemene deler daaruit is wat OKx vastlegt.
+Het pakket van eisen is een eigen document. Het komt uit de gedeelde analyse van alles wat scholen hebben ingebracht, geinventariseerd in de PoC-sessies met de koploperscholen, en de grootst gemene deler daaruit is wat OKx vastlegt. **Dit document bevat het pakket van eisen dus niet; het verwijst ernaar en levert eraan.**
 
-Niet elk hoofdstuk levert hetzelfde. Een journey brengt een behoefte naar boven en levert user stories. Een procesbeschrijving zegt wat de instelling moet kunnen. Een gegevens- of systeemhoofdstuk zegt wat een component moet doen. Een interactiehoofdstuk zegt wat er over het koppelvlak gaat. Het blok boven elk hoofdstuk noemt welke laag daar hoort.
+Waar een eis landt hangt af van zijn laag. Een business of functional requirement hoort in de leerroute specificatie, want daar staat wat de instelling moet kunnen en wat een component moet doen. Een technical requirement hoort in de interactieketenspecificatie, want daar staat wat er over het koppelvlak gaat.
 
-| Laag | Waar die ontstaat | Voorbeeld |
-|---|---|------------------------------------|
-| User story | in een journey of een scenario | Als student wil ik bij mijn keuzedeelruimte een geprioriteerde voorkeurslijst opgeven, met als doel dat ik niet zonder keuzedeel kom te zitten wanneer mijn eerste keuze vol is |
-| Business requirement | in een procesbeschrijving | de instelling kent per keuzedeelruimte de voorkeursvolgorde van de student voordat zij plaatst |
-| Functional requirement | in een gegevens- of systeemhoofdstuk | het studentkeuzesysteem legt per keuzedeelruimte een geordende lijst voorkeuren vast, met per voorkeur het onderdeel, de periode en de locatie |
-| Technical requirement | in een interactiehoofdstuk | de voorkeurslijst gaat als geordende verzameling over het koppelvlak, met de volgorde expliciet in het bericht en niet afgeleid uit de positie |
+Niet elk hoofdstuk levert hetzelfde. Een journey brengt een behoefte naar boven en levert user stories. Een procesbeschrijving zegt wat de instelling moet kunnen. Een gegevens- of systeemhoofdstuk zegt wat een component moet doen. Een interactiehoofdstuk zegt wat er over het koppelvlak gaat. Het blok boven elk hoofdstuk noemt welke laag daar hoort, en noteert de nummers; de eis zelf wordt elders uitgeschreven.
 
-Vul in dit document de laag in die boven het hoofdstuk staat. De lagen eronder volgen in een eigen ronde, met dit document als bron.
+| Laag | Waar die ontstaat | Waar die landt | Voorbeeld |
+|---|---|---|------------------------------|
+| User story | in een journey of een scenario | pakket van eisen | Als student wil ik bij mijn keuzedeelruimte een geprioriteerde voorkeurslijst opgeven, met als doel dat ik niet zonder keuzedeel kom te zitten wanneer mijn eerste keuze vol is |
+| Business requirement | in een procesbeschrijving | leerroute specificatie | de instelling kent per keuzedeelruimte de voorkeursvolgorde van de student voordat zij plaatst |
+| Functional requirement | in een gegevens- of systeemhoofdstuk | leerroute specificatie | het studentkeuzesysteem legt per keuzedeelruimte een geordende lijst voorkeuren vast, met per voorkeur het onderdeel, de periode en de locatie |
+| Technical requirement | in een interactiehoofdstuk | interactieketenspecificatie | de voorkeurslijst gaat als geordende verzameling over het koppelvlak, met de volgorde expliciet in het bericht en niet afgeleid uit de positie |
+
+Vul in dit document de laag in die boven het hoofdstuk staat, als verwijzing. De uitgeschreven eis volgt in een eigen ronde, in het document waar hij hoort.
 
 ## Business analyse en aggregatie van pakket van eisen
 
@@ -89,7 +89,7 @@ Een hoofdstuk is een interactie, en de business analist bepaalt waar hij begint 
 
 **Acceptatiecriteria** een procesplaat van de studentreis in mermaid, BPMN, UML of vergelijkbaar, in het kader van de persona van deze route, met een link naar het persona-document, en elke stap noemt wat de student doet en wat hij op dat moment moet weten
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk naar boven brengt; een story noemt de rol, de wens en het doel*
+**User stories** *welke stories uit het pakket van eisen dit hoofdstuk naar boven brengt; noteer de nummers, niet de stories zelf*
 
 *Schrijf hier de uitwerking.*
 
@@ -101,7 +101,7 @@ Een hoofdstuk is een interactie, en de business analist bepaalt waar hij begint 
 
 **Acceptatiecriteria** een beschrijving met een tabel van de keuzeruimte, en per kiesbaar onderdeel staat erbij hoeveel ruimte er is en wie kiest
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk naar boven brengt; een story noemt de rol, de wens en het doel*
+**User stories** *welke stories uit het pakket van eisen dit hoofdstuk naar boven brengt; noteer de nummers, niet de stories zelf*
 
 | Voorkeur  | Keuzedeel                            | Onderwijsperiode   | Onderwijslocatie         |
 |-----------|--------------------------------------|--------------------|--------------------------|
@@ -119,7 +119,7 @@ Een hoofdstuk is een interactie, en de business analist bepaalt waar hij begint 
 
 **Acceptatiecriteria** een procesplaat van het keuzemoment in mermaid, BPMN, UML of vergelijkbaar, in het kader van de persona van deze route, en het moment is aanwijsbaar in de tijd, en de plaat toont wat er gebeurt wanneer er geen passend aanbod is
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk naar boven brengt; een story noemt de rol, de wens en het doel*
+**User stories** *welke stories uit het pakket van eisen dit hoofdstuk naar boven brengt; noteer de nummers, niet de stories zelf*
 
 | Moment | Van (aanmelding) | Naar (inschrijving) | Voorwaarde |
 | --- | --- | --- | --- |
@@ -134,7 +134,7 @@ Een hoofdstuk is een interactie, en de business analist bepaalt waar hij begint 
 
 **Acceptatiecriteria** een beschrijving in lopende tekst, in het kader van de persona van deze route, en er staat wat er klaar moet zijn voordat de periode start
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk naar boven brengt; een story noemt de rol, de wens en het doel*
+**User stories** *welke stories uit het pakket van eisen dit hoofdstuk naar boven brengt; noteer de nummers, niet de stories zelf*
 
 *Schrijf hier de uitwerking.*
 
@@ -144,7 +144,7 @@ Een hoofdstuk is een interactie, en de business analist bepaalt waar hij begint 
 
 **Acceptatiecriteria** een procesplaat van de instellingsreis in mermaid, BPMN, UML of vergelijkbaar, in het kader van de persona van deze route, naast de studentjourney te leggen, en elke stap noemt de rol die handelt en het systeem dat zij gebruikt
 
-**Business requirements** *wat de instelling moet kunnen om de stories van dit hoofdstuk waar te maken; verwijs naar het nummer van de story*
+**Business requirements** *wat de instelling moet kunnen om die stories waar te maken; dit landt in de leerroute specificatie, met het nummer van de story erbij*
 
 *Schrijf hier de uitwerking.*
 
@@ -154,7 +154,7 @@ Een hoofdstuk is een interactie, en de business analist bepaalt waar hij begint 
 
 **Acceptatiecriteria** een beschrijving van de organisatie-inrichting, en de teams en rollen die deze route dragen staan erin, en wat zij extra moeten organiseren tegenover leerroute 1
 
-**Business requirements** *wat de instelling moet kunnen om de stories van dit hoofdstuk waar te maken; verwijs naar het nummer van de story*
+**Business requirements** *wat de instelling moet kunnen om die stories waar te maken; dit landt in de leerroute specificatie, met het nummer van de story erbij*
 
 *Schrijf hier de uitwerking.*
 
@@ -164,7 +164,7 @@ Een hoofdstuk is een interactie, en de business analist bepaalt waar hij begint 
 
 **Acceptatiecriteria** een procesplaat in mermaid, BPMN, UML of vergelijkbaar, en het proces toont de terugweg en het foutpad, en elke stap noemt de rol en het systeem
 
-**Business requirements** *wat de instelling moet kunnen om de stories van dit hoofdstuk waar te maken; verwijs naar het nummer van de story*
+**Business requirements** *wat de instelling moet kunnen om die stories waar te maken; dit landt in de leerroute specificatie, met het nummer van de story erbij*
 
 ![MORA Hoofdprocesmodel](<img/leerroute-scenario/MORA_hoofdprocesmodel_12_05_26.png>)
 
@@ -182,7 +182,7 @@ Een hoofdstuk is een interactie, en de business analist bepaalt waar hij begint 
 
 **Acceptatiecriteria** een opsomming van scenario's, en de vier herbruikbare scenario's staan erin (nominaal verloop, incidenteel temporiseren, incidenteel versnellen, incidenteel hybride), elk met een regel over wat er in deze route anders gaat
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk naar boven brengt; een story noemt de rol, de wens en het doel*
+**User stories** *welke stories uit het pakket van eisen dit hoofdstuk naar boven brengt; noteer de nummers, niet de stories zelf*
 
 *Schrijf hier de uitwerking.*
 
@@ -194,7 +194,7 @@ Een hoofdstuk is een interactie, en de business analist bepaalt waar hij begint 
 
 **Acceptatiecriteria** per scenario een beschrijving met een procesplaat, en er staat bij waarom dit scenario alleen in deze route voorkomt
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk naar boven brengt; een story noemt de rol, de wens en het doel*
+**User stories** *welke stories uit het pakket van eisen dit hoofdstuk naar boven brengt; noteer de nummers, niet de stories zelf*
 
 *Schrijf hier de uitwerking.*
 
@@ -206,7 +206,7 @@ Een hoofdstuk is een interactie, en de business analist bepaalt waar hij begint 
 
 **Acceptatiecriteria** per scenario een beschrijving met een procesplaat, en er staat bij waarom dit scenario alleen in deze route voorkomt
 
-**User stories** *vul de nummers in uit het pakket van eisen die dit hoofdstuk naar boven brengt; een story noemt de rol, de wens en het doel*
+**User stories** *welke stories uit het pakket van eisen dit hoofdstuk naar boven brengt; noteer de nummers, niet de stories zelf*
 
 | Aspect | Regulier | Switch naar certificaten (of terug) |
 | --- | --- | --- |
@@ -237,7 +237,7 @@ Een hoofdstuk is een interactie, en de business analist bepaalt waar hij begint 
 
 **Acceptatiecriteria** een tabel met de informatieobjecten, en elk object staat met de term uit de begrippenlijst, en wat niet in de lijst staat is als vraag genoteerd
 
-**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
+**Functional requirements** *wat een component moet doen met welke gegevens; dit landt in de leerroute specificatie, met het nummer van de story erbij*
 
 | Vraag                                        | Concept                | Doel/toelichting                                                                                                   |
 |----------------------------------------------|------------------------|--------------------------------------------------------------------------------------------------------------------|
@@ -283,7 +283,7 @@ Een hoofdstuk is een interactie, en de business analist bepaalt waar hij begint 
 
 **Acceptatiecriteria** een procesplaat in mermaid, BPMN, UML of vergelijkbaar, en de plaat toont wanneer er gepland wordt, waarop wordt bijgestuurd, en wat er gebeurt wanneer het plan niet sluit
 
-**Business requirements** *wat de instelling moet kunnen om de stories van dit hoofdstuk waar te maken; verwijs naar het nummer van de story*
+**Business requirements** *wat de instelling moet kunnen om die stories waar te maken; dit landt in de leerroute specificatie, met het nummer van de story erbij*
 
 *Schrijf hier de uitwerking.*
 
@@ -293,7 +293,7 @@ Een hoofdstuk is een interactie, en de business analist bepaalt waar hij begint 
 
 **Acceptatiecriteria** een beschrijving met een beeld van de cyclus, en de momenten voor en na de startweek staan uit elkaar
 
-**Business requirements** *wat de instelling moet kunnen om de stories van dit hoofdstuk waar te maken; verwijs naar het nummer van de story*
+**Business requirements** *wat de instelling moet kunnen om die stories waar te maken; dit landt in de leerroute specificatie, met het nummer van de story erbij*
 
 *Schrijf hier de uitwerking.*
 
@@ -303,7 +303,7 @@ Een hoofdstuk is een interactie, en de business analist bepaalt waar hij begint 
 
 **Acceptatiecriteria** een voorbeeld met een tabel, en de groeperingen zijn benoemd met hun kardinaliteit, en elk getal heeft een voorbeeld
 
-**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
+**Functional requirements** *wat een component moet doen met welke gegevens; dit landt in de leerroute specificatie, met het nummer van de story erbij*
 
 *Schrijf hier de uitwerking.*
 
@@ -313,7 +313,7 @@ Een hoofdstuk is een interactie, en de business analist bepaalt waar hij begint 
 
 **Acceptatiecriteria** een beschrijving met een tabel, en er staat per specificatie wat haar planbaar maakt
 
-**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
+**Functional requirements** *wat een component moet doen met welke gegevens; dit landt in de leerroute specificatie, met het nummer van de story erbij*
 
 | Gegevensdimensie | Wat de planner nodig heeft | Voorbeeld (generiek) |
 | --- | --- | --- |
@@ -340,7 +340,7 @@ Een hoofdstuk is een interactie, en de business analist bepaalt waar hij begint 
 
 **Acceptatiecriteria** een tabel met de constraints, en elke constraint is te toetsen en noemt het systeem dat hem kent
 
-**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
+**Functional requirements** *wat een component moet doen met welke gegevens; dit landt in de leerroute specificatie, met het nummer van de story erbij*
 
 | **Bron (keten)** | **Primair inzicht** | **`Persoon` (student / medewerker)** | **Groep / cluster / populatie** | **Constraintdimensie (voorbeelden)** |
 | --- | --- | --- | --- | --- |
@@ -374,7 +374,7 @@ Een hoofdstuk is een interactie, en de business analist bepaalt waar hij begint 
 
 **Acceptatiecriteria** een ArchiMate-plaat of een SVG-render daarvan, met de scope uitgelicht van de gegevens, met een tabel ernaast, en elk gegeven noemt zijn bronsysteem en de term uit de begrippenlijst
 
-**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
+**Functional requirements** *wat een component moet doen met welke gegevens; dit landt in de leerroute specificatie, met het nummer van de story erbij*
 
 | **Gegevensgroep / informatie-object** | **Vlak** | **Doel en conceptuele inhoud** | **Voorbeeld attributen** (niet exhaustief) | **Conceptdefinitie** |
 | --- | --- | --- | --- | --- |
@@ -402,7 +402,7 @@ Een hoofdstuk is een interactie, en de business analist bepaalt waar hij begint 
 
 **Acceptatiecriteria** een tabel met de systemen, en elk systeem staat met zijn afkorting uit de afkortingenlijst, dus Onderwijscatalogus (OC) en niet de catalogus
 
-**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
+**Functional requirements** *wat een component moet doen met welke gegevens; dit landt in de leerroute specificatie, met het nummer van de story erbij*
 
 ![OKx informatiestromen Leerroute <nummer> - Regulier](<img/leerroute-scenario/OKx_LR1_informatiestromen_v20260526.jpg>)
 
@@ -414,7 +414,7 @@ Een hoofdstuk is een interactie, en de business analist bepaalt waar hij begint 
 
 **Acceptatiecriteria** een ArchiMate-plaat of een SVG-render daarvan, met de scope uitgelicht van de informatiestromen hoofdplaat, in het kader van de interactieketen die deze route raakt, en per component staat welk doel het dient en welke gegevens het draagt; wat buiten de scope valt is op de plaat zichtbaar gedimd
 
-**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
+**Functional requirements** *wat een component moet doen met welke gegevens; dit landt in de leerroute specificatie, met het nummer van de story erbij*
 
 *Schrijf hier de uitwerking.*
 
@@ -424,7 +424,7 @@ Een hoofdstuk is een interactie, en de business analist bepaalt waar hij begint 
 
 **Acceptatiecriteria** een tabel, en per component staat wat er wel en wat er niet in hoort, met de reden
 
-**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
+**Functional requirements** *wat een component moet doen met welke gegevens; dit landt in de leerroute specificatie, met het nummer van de story erbij*
 
 | Component (zoals op plaat) | Hoofddoel in dit scenario | Wat dit systeem **niet** doet (rolafbakening) | Welke informatie hier ontstaat of leeft (conceptueel) |
 | --- | --- | --- | --- |
@@ -450,7 +450,7 @@ Een hoofdstuk is een interactie, en de business analist bepaalt waar hij begint 
 
 **Acceptatiecriteria** een tabel met de rollen per informatieobject, en per object is er precies een bronsysteem
 
-**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
+**Functional requirements** *wat een component moet doen met welke gegevens; dit landt in de leerroute specificatie, met het nummer van de story erbij*
 
 | Systeem | Bron van waarheid voor (informatie-objecten) | Leest (consumeert) | Bewerkt / schrijft |
 | --- | --- | --- | --- |
@@ -476,7 +476,7 @@ Een hoofdstuk is een interactie, en de business analist bepaalt waar hij begint 
 
 **Acceptatiecriteria** een opsomming, en elk anti-patroon noemt het tegengestelde doel dat eronder ligt
 
-**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
+**Functional requirements** *wat een component moet doen met welke gegevens; dit landt in de leerroute specificatie, met het nummer van de story erbij*
 
 *Schrijf hier de uitwerking.*
 
@@ -486,7 +486,7 @@ Een hoofdstuk is een interactie, en de business analist bepaalt waar hij begint 
 
 **Acceptatiecriteria** een ArchiMate-plaat of een SVG-render daarvan, met de scope uitgelicht per fase, met een tabel ernaast, in het kader van de interactieketen, en per interactie staat welk systeem levert, welk systeem afneemt en welke informatie meegaat; dit is de brug naar de interactieketen
 
-**Technical requirements** *wat er over het koppelvlak gaat en in welke vorm; verwijs naar het nummer van de story*
+**Technical requirements** *wat er over het koppelvlak gaat en in welke vorm; dit landt in de interactieketenspecificatie, met het nummer van de story erbij*
 
 *Schrijf hier de uitwerking.*
 
@@ -496,7 +496,7 @@ Een hoofdstuk is een interactie, en de business analist bepaalt waar hij begint 
 
 **Acceptatiecriteria** een ArchiMate-plaat of een SVG-render daarvan, met de scope uitgelicht van deze fase, met een tabel ernaast, in het kader van de interactieketen, en per interactie staat welk systeem levert, welk systeem afneemt en welke informatie meegaat
 
-**Technical requirements** *wat er over het koppelvlak gaat en in welke vorm; verwijs naar het nummer van de story*
+**Technical requirements** *wat er over het koppelvlak gaat en in welke vorm; dit landt in de interactieketenspecificatie, met het nummer van de story erbij*
 
 ![OKx informatiestromen Leerroute <nummer> — highlight Procesfase 1](<img/leerroute-scenario/OKx_LR1_informatiestromen_v20260526_f1.jpg>)
 
@@ -508,7 +508,7 @@ Een hoofdstuk is een interactie, en de business analist bepaalt waar hij begint 
 
 **Acceptatiecriteria** een ArchiMate-plaat of een SVG-render daarvan, met de scope uitgelicht van deze fase, met een tabel ernaast, in het kader van de interactieketen, en per interactie staat welk systeem levert, welk systeem afneemt en welke informatie meegaat
 
-**Technical requirements** *wat er over het koppelvlak gaat en in welke vorm; verwijs naar het nummer van de story*
+**Technical requirements** *wat er over het koppelvlak gaat en in welke vorm; dit landt in de interactieketenspecificatie, met het nummer van de story erbij*
 
 ![OKx informatiestromen Leerroute <nummer> — highlight Procesfase 2](<img/leerroute-scenario/OKx_LR1_informatiestromen_v20260526_f2.jpg>)
 
@@ -520,7 +520,7 @@ Een hoofdstuk is een interactie, en de business analist bepaalt waar hij begint 
 
 **Acceptatiecriteria** een ArchiMate-plaat of een SVG-render daarvan, met de scope uitgelicht van deze fase, met een tabel ernaast, in het kader van de interactieketen, en per interactie staat welk systeem levert, welk systeem afneemt en welke informatie meegaat
 
-**Technical requirements** *wat er over het koppelvlak gaat en in welke vorm; verwijs naar het nummer van de story*
+**Technical requirements** *wat er over het koppelvlak gaat en in welke vorm; dit landt in de interactieketenspecificatie, met het nummer van de story erbij*
 
 ![OKx informatiestromen Leerroute <nummer> — highlight Procesfase 3](<img/leerroute-scenario/OKx_LR1_informatiestromen_v20260526_f3.jpg>)
 
@@ -532,7 +532,7 @@ Een hoofdstuk is een interactie, en de business analist bepaalt waar hij begint 
 
 **Acceptatiecriteria** een ArchiMate-plaat of een SVG-render daarvan, met de scope uitgelicht van deze fase, met een tabel ernaast, in het kader van de interactieketen, en per interactie staat welk systeem levert, welk systeem afneemt en welke informatie meegaat
 
-**Technical requirements** *wat er over het koppelvlak gaat en in welke vorm; verwijs naar het nummer van de story*
+**Technical requirements** *wat er over het koppelvlak gaat en in welke vorm; dit landt in de interactieketenspecificatie, met het nummer van de story erbij*
 
 ![OKx informatiestromen Leerroute <nummer> — highlight Procesfase 4](<img/leerroute-scenario/OKx_LR1_informatiestromen_v20260526_f4.jpg>)
 
@@ -544,7 +544,7 @@ Een hoofdstuk is een interactie, en de business analist bepaalt waar hij begint 
 
 **Acceptatiecriteria** een ArchiMate-plaat of een SVG-render daarvan, met de scope uitgelicht van deze fase, met een tabel ernaast, in het kader van de interactieketen, en per interactie staat welk systeem levert, welk systeem afneemt en welke informatie meegaat
 
-**Technical requirements** *wat er over het koppelvlak gaat en in welke vorm; verwijs naar het nummer van de story*
+**Technical requirements** *wat er over het koppelvlak gaat en in welke vorm; dit landt in de interactieketenspecificatie, met het nummer van de story erbij*
 
 ![OKx informatiestromen Leerroute <nummer> — highlight Procesfase 5](<img/leerroute-scenario/OKx_LR1_informatiestromen_v20260526_f5.jpg>)
 
@@ -556,7 +556,7 @@ Een hoofdstuk is een interactie, en de business analist bepaalt waar hij begint 
 
 **Acceptatiecriteria** een ArchiMate-plaat of een SVG-render daarvan, met de scope uitgelicht van deze fase, met een tabel ernaast, in het kader van de interactieketen, en per interactie staat welk systeem levert, welk systeem afneemt en welke informatie meegaat
 
-**Technical requirements** *wat er over het koppelvlak gaat en in welke vorm; verwijs naar het nummer van de story*
+**Technical requirements** *wat er over het koppelvlak gaat en in welke vorm; dit landt in de interactieketenspecificatie, met het nummer van de story erbij*
 
 ![OKx informatiestromen Leerroute <nummer> — highlight Procesfase 6](<img/leerroute-scenario/OKx_LR1_informatiestromen_v20260526_f6.jpg>)
 
@@ -568,7 +568,7 @@ Een hoofdstuk is een interactie, en de business analist bepaalt waar hij begint 
 
 **Acceptatiecriteria** een ArchiMate-plaat of een SVG-render daarvan, met de scope uitgelicht van deze fase, met een tabel ernaast, in het kader van de interactieketen, en per interactie staat welk systeem levert, welk systeem afneemt en welke informatie meegaat
 
-**Technical requirements** *wat er over het koppelvlak gaat en in welke vorm; verwijs naar het nummer van de story*
+**Technical requirements** *wat er over het koppelvlak gaat en in welke vorm; dit landt in de interactieketenspecificatie, met het nummer van de story erbij*
 
 ![OKx informatiestromen Leerroute <nummer> — highlight Procesfase 7](<img/leerroute-scenario/OKx_LR1_informatiestromen_v20260526_f7.jpg>)
 
@@ -580,7 +580,7 @@ Een hoofdstuk is een interactie, en de business analist bepaalt waar hij begint 
 
 **Acceptatiecriteria** een ArchiMate-plaat of een SVG-render daarvan, met de scope uitgelicht van deze fase, met een tabel ernaast, in het kader van de interactieketen, en per interactie staat welk systeem levert, welk systeem afneemt en welke informatie meegaat
 
-**Technical requirements** *wat er over het koppelvlak gaat en in welke vorm; verwijs naar het nummer van de story*
+**Technical requirements** *wat er over het koppelvlak gaat en in welke vorm; dit landt in de interactieketenspecificatie, met het nummer van de story erbij*
 
 ![OKx informatiestromen Leerroute <nummer> — highlight Procesfase 8](<img/leerroute-scenario/OKx_LR1_informatiestromen_v20260526_f8.jpg>)
 
@@ -592,7 +592,7 @@ Een hoofdstuk is een interactie, en de business analist bepaalt waar hij begint 
 
 **Acceptatiecriteria** een ArchiMate-plaat of een SVG-render daarvan, met de scope uitgelicht van het informatiemodel, met alleen de objecttypen die deze route raakt, en elk objecttype draagt de term uit de begrippenlijst, en elke kardinaliteit tussen twee typen heeft een ingevuld voorbeeld
 
-**Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
+**Functional requirements** *wat een component moet doen met welke gegevens; dit landt in de leerroute specificatie, met het nummer van de story erbij*
 
 *Schrijf hier de uitwerking.*
 

@@ -52,6 +52,33 @@ PAGINA_EINDE = """```{=openxml}
 <w:p><w:r><w:br w:type="page"/></w:r></w:p>
 ```"""
 
+def omslagtabel(versie: str) -> str:
+    """De velden op de omslag, zonder randen.
+
+    Pandoc geeft elke markdown-tabel dezelfde stijl, en die draagt randen.
+    Op een omslag staat dat onrustig, dus deze tabel gaat als ruw blok mee.
+    """
+    rijen = [("Versie", versie),
+             ("Auteurs", "OKx, pijler Leren Zonder Drempels (Npuls)"),
+             ("Datum", "datum van invullen")]
+    cellen = "".join(
+        '<w:tr>'
+        f'<w:tc><w:tcPr><w:tcW w:w="2400" w:type="dxa"/></w:tcPr>'
+        f'<w:p><w:r><w:rPr><w:b/></w:rPr><w:t>{kop}</w:t></w:r></w:p></w:tc>'
+        f'<w:tc><w:tcPr><w:tcW w:w="6000" w:type="dxa"/></w:tcPr>'
+        f'<w:p><w:r><w:t xml:space="preserve">{waarde}</w:t></w:r></w:p></w:tc>'
+        '</w:tr>'
+        for kop, waarde in rijen)
+    return ("```{=openxml}\n"
+            '<w:tbl><w:tblPr><w:tblW w:w="8400" w:type="dxa"/>'
+            '<w:tblBorders><w:top w:val="none"/><w:left w:val="none"/>'
+            '<w:bottom w:val="none"/><w:right w:val="none"/>'
+            '<w:insideH w:val="none"/><w:insideV w:val="none"/></w:tblBorders>'
+            '<w:tblCellMar><w:left w:w="0" w:type="dxa"/>'
+            '<w:right w:w="240" w:type="dxa"/></w:tblCellMar></w:tblPr>'
+            f"{cellen}</w:tbl>\n```")
+
+
 INHOUDSOPGAVE = """```{=openxml}
 <w:p><w:pPr><w:pStyle w:val="Kop1zondernummer"/></w:pPr>
 <w:r><w:t>Inhoudsopgave</w:t></w:r></w:p>
@@ -94,16 +121,18 @@ ARTEFACTEN = {
 # moet kunnen, een gegevens- of systeemhoofdstuk wat een component moet doen,
 # en een interactiehoofdstuk wat er over het koppelvlak gaat.
 LAGEN = {
-    "user story": "**User stories** *vul de nummers in uit het pakket van "
-                  "eisen die dit hoofdstuk naar boven brengt; een story noemt "
-                  "de rol, de wens en het doel*",
+    "user story": "**User stories** *welke stories uit het pakket van eisen "
+                  "dit hoofdstuk naar boven brengt; noteer de nummers, niet de "
+                  "stories zelf*",
     "business": "**Business requirements** *wat de instelling moet kunnen om "
-                "de stories van dit hoofdstuk waar te maken; verwijs naar het "
-                "nummer van de story*",
+                "die stories waar te maken; dit landt in de leerroute "
+                "specificatie, met het nummer van de story erbij*",
     "functional": "**Functional requirements** *wat een component moet doen "
-                  "met welke gegevens; verwijs naar het nummer van de story*",
+                  "met welke gegevens; dit landt in de leerroute "
+                  "specificatie, met het nummer van de story erbij*",
     "technical": "**Technical requirements** *wat er over het koppelvlak gaat "
-                 "en in welke vorm; verwijs naar het nummer van de story*",
+                 "en in welke vorm; dit landt in de interactieketen"
+                 "specificatie, met het nummer van de story erbij*",
     "context": "**Pakket van eisen** *dit hoofdstuk levert geen eis op; het "
                "geeft de context waarin de eisen van de andere hoofdstukken "
                "te lezen zijn*",
@@ -285,13 +314,7 @@ class Sjabloon:
             # Pagina 1 draagt alleen de omslag: titel, ondertitel, versie en
             # wie het uitgeeft en invult. De titel en de ondertitel komen uit
             # de documenteigenschappen en staan daarom niet in deze lijst.
-            "| Onderdeel | Inhoud |",
-            "|---|------------------------------------------------|",
-            f"| Versie | {c.get('versie', '0.0.1')} |",
-            "| Uitgegeven door | OKx, pijler Leren Zonder Drempels (Npuls) |",
-            f"| Ingevuld door | *naam en organisatie van de invuller* |",
-            "| Datum | *datum van invullen* |",
-            "| Inleveren | terug naar OKx SI als Word-bestand |",
+            omslagtabel(c.get("versie", "0.0.1")),
             "",
             PAGINA_EINDE,
             "",
@@ -299,9 +322,11 @@ class Sjabloon:
             "",
             "| Onderdeel | Inhoud |",
             "|---|------------------------------------------------|",
-            f"| Wat dit wordt | {c['wat']} |",
+            f"| Context van het document | {c['context']} |",
+            f"| Plek in de keten | {c['keten']} |",
             f"| Wie dit invult | {c['wie']} |",
             f"| Voorbeeld | {c['voorbeeld']} |",
+            "| Inleveren | terug naar OKx SI als Word-bestand |",
             "",
             "Elk hoofdstuk opent met een blok dat zegt wat er van dat hoofdstuk "
             "wordt verwacht: waar hetzelfde al is uitgewerkt, welk artefact "
@@ -316,38 +341,53 @@ class Sjabloon:
             "",
             "## Pakket van eisen",
             "",
-            "Het pakket van eisen komt uit de gedeelde analyse van alles wat "
-            "scholen hebben ingebracht, geinventariseerd in de PoC-sessies met "
-            "de koploperscholen. De grootst gemene deler daaruit is wat OKx "
-            "vastlegt.",
+            "Het pakket van eisen is een eigen document. Het komt uit de "
+            "gedeelde analyse van alles wat scholen hebben ingebracht, "
+            "geinventariseerd in de PoC-sessies met de koploperscholen, en de "
+            "grootst gemene deler daaruit is wat OKx vastlegt. **Dit document "
+            "bevat het pakket van eisen dus niet; het verwijst ernaar en "
+            "levert eraan.**",
+            "",
+            "Waar een eis landt hangt af van zijn laag. Een business of "
+            "functional requirement hoort in de leerroute specificatie, want "
+            "daar staat wat de instelling moet kunnen en wat een component "
+            "moet doen. Een technical requirement hoort in de "
+            "interactieketenspecificatie, want daar staat wat er over het "
+            "koppelvlak gaat.",
             "",
             "Niet elk hoofdstuk levert hetzelfde. Een journey brengt een "
             "behoefte naar boven en levert user stories. Een procesbeschrijving "
             "zegt wat de instelling moet kunnen. Een gegevens- of "
             "systeemhoofdstuk zegt wat een component moet doen. Een "
             "interactiehoofdstuk zegt wat er over het koppelvlak gaat. Het blok "
-            "boven elk hoofdstuk noemt welke laag daar hoort.",
+            "boven elk hoofdstuk noemt welke laag daar hoort, en noteert de "
+            "nummers; de eis zelf wordt elders uitgeschreven.",
             "",
-            "| Laag | Waar die ontstaat | Voorbeeld |",
-            "|---|---|------------------------------------|",
-            "| User story | in een journey of een scenario | Als student wil "
+            "| Laag | Waar die ontstaat | Waar die landt | Voorbeeld |",
+            "|---|---|---|------------------------------|",
+            "| User story | in een journey of een scenario | pakket van "
+            "eisen | Als student wil "
             "ik bij mijn keuzedeelruimte een geprioriteerde voorkeurslijst "
             "opgeven, met als doel dat ik niet zonder keuzedeel kom te zitten "
             "wanneer mijn eerste keuze vol is |",
-            "| Business requirement | in een procesbeschrijving | de instelling "
+            "| Business requirement | in een procesbeschrijving | leerroute "
+            "specificatie | de instelling "
             "kent per keuzedeelruimte de voorkeursvolgorde van de student "
             "voordat zij plaatst |",
             "| Functional requirement | in een gegevens- of systeemhoofdstuk | "
+            "leerroute specificatie | "
             "het studentkeuzesysteem legt per keuzedeelruimte een geordende "
             "lijst voorkeuren vast, met per voorkeur het onderdeel, de periode "
             "en de locatie |",
-            "| Technical requirement | in een interactiehoofdstuk | de "
+            "| Technical requirement | in een interactiehoofdstuk | "
+            "interactieketenspecificatie | de "
             "voorkeurslijst gaat als geordende verzameling over het koppelvlak, "
             "met de volgorde expliciet in het bericht en niet afgeleid uit de "
             "positie |",
             "",
-            "Vul in dit document de laag in die boven het hoofdstuk staat. De "
-            "lagen eronder volgen in een eigen ronde, met dit document als bron.",
+            "Vul in dit document de laag in die boven het hoofdstuk staat, als "
+            "verwijzing. De uitgeschreven eis volgt in een eigen ronde, in het "
+            "document waar hij hoort.",
             "",
             "## Business analyse en aggregatie van pakket van eisen",
             "",
@@ -452,6 +492,10 @@ class Sjabloon:
     def beeld(self, alt: str, pad: str) -> None:
         """Zet het beeld in het document, niet een beschrijving ervan."""
         bron = WORTEL / self.bronmap() / pad
+        if not bron.exists() and (WORTEL / pad).exists():
+            # Een bouwsteen noemt zijn voorbeeldbeeld vanaf de wortel, want
+            # dat beeld hoeft niet bij de bron van dit sjabloon te liggen.
+            bron = WORTEL / pad
         if not bron.exists():
             self.uit += [f"*Beeld ontbreekt in de bron: {alt}.*", ""]
             return

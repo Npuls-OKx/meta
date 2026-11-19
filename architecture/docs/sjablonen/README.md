@@ -48,14 +48,35 @@ De uitwerking is geen hoofdstukkenreeks maar een herhaling van twee blokken.
 
 | Bouwsteen | Wat erin staat |
 |---|---|
-| **A, processtap** | nummer, processtap, actor, applicatiecomponent, welk objecttype daar ontstaat en waaraan het hangt, met de ingevulde voorbeeldwaarde |
+| **A, processtap** | nummer, processtap, actor, applicatiecomponent, welk objecttype daar ontstaat, **de relaties naar elementen die in eerdere bouwstenen ontstonden**, en de ingevulde voorbeeldwaarde |
 | **B, uitwisseling** | nummer, van welke component naar welke, de aanleiding, en het hele ingevulde informatievoorbeeld met zijn relaties |
 
+Beide blokken dragen een **ingevoegd voorbeeld** uit de uitwerking van Jochem, en bewust een complex geval: bij A het kiesbare onderwijsprogrammaonderdeel, dat aan de opleidingsspecificatie, de keuzedeelruimte en de leeruitkomsten hangt; bij B het verzoek om onderwijsaanbod, dat de hele specificatiestructuur meeneemt naar planning. Een eenvoudig voorbeeld laat niet zien dat de relaties het werk zijn.
+
 Herhaal A tot er een uitwisseling plaatsvindt, zet dan B neer, en ga verder met A. Stop wanneer het hele leerroute scenario is doorlopen; het aantal bouwstenen ligt niet vast. Dat sjabloon staat in `opbouw` in de configuratie en wordt dus niet uit de koppen van een bron afgeleid.
+
+## De interactieketen is een reeks interacties
+
+Het interactieketen-sjabloon draagt geen hoofdstuk per informatiestroom maar **een bouwblok voor een interactie**, dat zich herhaalt tot de keten af is. Het blok vraagt per interactie om de aanbieder en de afnemer met naam en versie, de aanleiding, het bericht, het antwoord, het foutpad en wat een herhaalde aanroep doet.
+
+De nummering staat als conventie uitgelegd en niet als voorbeeld: `IS` voor interactiespecificatie, dan de afkorting van de keten, dan een volgnummer. `IS-OA-01` is de eerste interactie van de keten onderwijsaanbod.
 
 ## Scope is een keuze van de business analist
 
 Een hoofdstuk is een interactie, en waar het begint en eindigt bepaalt de business analist. De maat staat in elk sjabloon: de **kleinst mogelijke eenheid die waarde oplevert voor zowel de student als de instelling**, groter dan een enkele interactie en kleiner dan het hele ecosysteem. Een scope die daarboven zit levert een eis die niemand kan bouwen, een scope die daaronder zit levert een eis die niemand mist.
+
+## Het pakket van eisen staat elders
+
+Het pakket van eisen is een **eigen document**. Een sjabloon bevat het niet; het verwijst ernaar en levert eraan. Waar een eis landt hangt af van zijn laag:
+
+| Laag | Waar die ontstaat | Waar die landt |
+|---|---|---|
+| user story | in een journey of een scenario | pakket van eisen |
+| business requirement | in een procesbeschrijving | leerroute specificatie |
+| functional requirement | in een gegevens- of systeemhoofdstuk | leerroute specificatie |
+| technical requirement | in een interactiehoofdstuk | interactieketenspecificatie |
+
+In het sjabloon staan dus alleen de **nummers**, als verwijzing. De uitgeschreven eis volgt in een eigen ronde, in het document waar hij hoort. Leerroute 1 draagt die stories zelf nog niet; dat loopt via #557.
 
 ## Niet elk hoofdstuk levert een eis
 
