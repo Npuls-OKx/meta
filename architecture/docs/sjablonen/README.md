@@ -104,8 +104,8 @@ Een sjabloon bevat de eisen niet; het **levert eraan** en noteert per hoofdstuk 
 | Soort | Komt uit | Zegt wat |
 |---|---|---|
 | **instellingseis** | de PoC-inbreng, de persona's en de leerroute scenario's | de instelling moet kunnen om de route te draaien |
-| **functionele eis** | de leerroute scenario uitwerking | een component moet doen met welke gegevens |
-| **technische eis** | de interactieketen en haar interacties | er over het koppelvlak gaat en in welke vorm |
+| **functionele eis** | de instellingseisen en de leerroute scenario uitwerking | een component moet doen met welke gegevens |
+| **technische eis** | de interactieketens, die zelf uit de eisen voortkomen | er over het koppelvlak gaat en in welke vorm |
 
 Niet business requirement maar **instellingseis**: OKx spreekt met publieke onderwijsinstellingen en niet met bedrijven.
 

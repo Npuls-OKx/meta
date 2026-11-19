@@ -10,17 +10,21 @@ De sjablonen voor de adviesgroep noemen per hoofdstuk welke laag daar ontstaat: 
 
 De instellings- en functionele eisen **zitten al in de leerroute scenario's**, zoals die nu geschreven zijn. Alleen staan zij er als lopende tekst, en daarmee zijn zij niet te tellen, niet te prioriteren en niet aan een testgeval te hangen.
 
-## Drie soorten eisen
+Wat opvalt in de keten hieronder: de **interactieketens zijn geen bron van eisen maar een gevolg ervan**. Zij ontstaan uit de functionele eisen, de instellingseisen en de uitwerking samen, en leveren daarna pas de technische eisen op.
 
-![Links de producten die eisen opleveren, rechts de drie soorten eisen](gegenereerd/img/requirements-als-artefact.svg)
+## De keten
 
-| Soort | Komt uit | Zegt wat |
-|---|---|---|
-| **Instellingseisen** | de PoC-inbreng, de persona's en de leerroute scenario's samen | de instelling moet kunnen om de route te draaien |
-| **Functionele eisen** | de leerroute scenario uitwerking, het scenario in het informatiemodel | een component moet doen met welke gegevens |
-| **Technische eisen** | de interactieketen en haar interacties | er over het koppelvlak gaat en in welke vorm |
+![Links de producten die de eisen voeden, rechts de keten van eis naar koppelvlakspecificatie](gegenereerd/img/requirements-als-artefact.svg)
 
-De technische eisen zijn **onderdeel van de koppelvlakspecificaties**: dat is wat een leverancier uiteindelijk leest en bouwt.
+| Stap | Wat eraan voorafgaat |
+|---|---|
+| **Instellingseisen** | de PoC-inbreng, de persona's en de leerroute scenario's **definieren ze samen**: wat een instelling kan of wil kunnen om de scenario's te realiseren |
+| **Functionele eisen** | de instellingseisen, samen met de leerroute scenario uitwerking in het informatiemodel |
+| **Interactieketens** | de functionele eisen, de instellingseisen en diezelfde uitwerking, alle drie |
+| **Technische eisen aan interacties** | de interactieketens |
+| **Koppelvlakspecificaties** | de technische eisen zijn er **onderdeel van**; dat is wat een leverancier leest en bouwt |
+
+De keten loopt dus van wat een instelling wil, via wat een component moet doen, naar wat er over de lijn gaat. Elke stap voegt iets toe dat de vorige nog niet kon zeggen.
 
 De plaat is te hertekenen met `tools/scripts/teken-requirementsvoorstel.py`.
 
