@@ -182,6 +182,15 @@ class ElkHoofdstukZegtWatErWordtVerwacht(unittest.TestCase):
                     self.assertIn(soort, t)
                 self.assertIn("koploperinstellingen", t)
 
+    def test_het_eigen_voorbeeld_is_uitgelicht(self):
+        """De eis die dit document levert staat vet in de voorbeeldketen."""
+        for naam, cfg in CONFIG.items():
+            vet = [r for s, r in cfg["keten"] if s.startswith("**")]
+            with self.subTest(naam):
+                self.assertEqual(len(vet), 1, "precies een regel is van dit "
+                                              "document zelf")
+                self.assertIn(vet[0], skelet(naam))
+
     def test_geen_engelse_eisentermen(self):
         """OKx spreekt met instellingen, niet met bedrijven."""
         for naam in CONFIG:
@@ -323,7 +332,7 @@ class DeGeneratorWeigertWatHijNietKan(unittest.TestCase):
 
     def test_een_grens_die_alles_weglaat(self):
         kaal = {"bron": "README.md", "titel": "T", "wat": "w", "wie": "w",
-                "doel": "d", "keten": "k",
+                "doel": "d", "plek": "p", "levert": "l", "keten": [["s", "v"]],
                 "voorbeeld": "v", "aggregatie": "a",
                 "weglaten_tot": "bestaat niet"}
         with self.assertRaises(SystemExit) as e:
@@ -447,8 +456,12 @@ class DeVoorpaginaDraagtAlleenDeOmslag(unittest.TestCase):
         for naam, cfg in CONFIG.items():
             with self.subTest(naam):
                 self.assertTrue(cfg.get("versie"))
-                self.assertTrue(cfg.get("keten"), "de productplaatsing noemt "
+                self.assertTrue(cfg.get("plek"), "de productplaatsing noemt "
                                 "de plek in de keten")
+                self.assertTrue(cfg.get("levert"), "het sjabloon zegt niet "
+                                "welke soort eis het oplevert")
+                self.assertTrue(cfg.get("keten"), "het sjabloon draagt geen "
+                                "voorbeeldketen")
 
 
 class DeDocxHoortBijHetSkelet(unittest.TestCase):
@@ -525,3 +538,46 @@ class DeReferentieDraagtDeHuisstijl(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class DeProductafbakeningDraagtEenVersie(unittest.TestCase):
+    """Een plaat die een document aanhaalt, draagt haar versie in de naam.
+
+    Dat is dezelfde afspraak als bij de hoofdplaat: de view heet zonder
+    versie, de uitgebrachte plaat met. Zonder die regel wijst een document
+    naar een beeld dat onder zijn voeten verandert.
+    """
+
+    MAP = WORTEL / "architecture/product-breakdown/img"
+    SEMVER = re.compile(r"^product-breakdown-v(\d+)\.(\d+)\.(\d+)\.svg$")
+
+    def versies(self) -> list[tuple[int, int, int]]:
+        uit = []
+        for pad in self.MAP.glob("product-breakdown*.svg"):
+            m = self.SEMVER.match(pad.name)
+            self.assertIsNotNone(
+                m, f"{pad.name} draagt geen versie als MAJOR.MINOR.PATCH")
+            uit.append(tuple(int(g) for g in m.groups()))
+        return sorted(uit)
+
+    def test_elke_plaat_draagt_een_semver(self):
+        self.assertTrue(self.versies(), "er staat geen productafbakening")
+
+    def test_het_sjabloon_leest_de_hoogste_versie(self):
+        hoogste = self.versies()[-1]
+        naam = "product-breakdown-v%d.%d.%d.svg" % hoogste
+        self.assertTrue(maak.BREAKDOWN.endswith(naam),
+                        f"de generator leest {maak.BREAKDOWN}, niet {naam}")
+
+    def test_de_leeswijzer_noemt_elke_versie(self):
+        t = (WORTEL / "architecture/product-breakdown/README.md").read_text(
+            encoding="utf-8")
+        for versie in self.versies():
+            naam = "product-breakdown-v%d.%d.%d.svg" % versie
+            with self.subTest(naam):
+                self.assertIn(naam, t, "een uitgebrachte versie zonder regel "
+                                       "in de leeswijzer is niet terug te vinden")
+
+    def test_een_oudere_versie_blijft_staan(self):
+        """Een document dat 0.1.0 aanhaalt, moet blijven kloppen."""
+        self.assertIn((0, 1, 0), self.versies())

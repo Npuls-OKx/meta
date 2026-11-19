@@ -44,14 +44,14 @@ Niet elk hoofdstuk levert hetzelfde. Een journey brengt een behoefte naar boven 
 | Functionele eis | de instellingseisen en de leerroute scenario uitwerking | een component moet doen met welke gegevens |
 | Technische eis | de interactieketens, die zelf uit de eisen voortkomen | er over het koppelvlak gaat en in welke vorm |
 
-Een voorbeeld van de keten, van behoefte tot koppelvlak:
+Dit document levert **technische eisen aan interacties**. Zo ziet zo'n eis eruit, met de keten erboven en eronder:
 
 | Soort | Voorbeeld |
 |---|------------------------------------------------|
-| User story | Als student wil ik bij mijn keuzedeelruimte een geprioriteerde voorkeurslijst opgeven, met als doel dat ik niet zonder keuzedeel kom te zitten wanneer mijn eerste keuze vol is |
-| Instellingseis | de instelling kent per keuzedeelruimte de voorkeursvolgorde van de student voordat zij plaatst |
-| Functionele eis | het studentkeuzesysteem legt per keuzedeelruimte een geordende lijst voorkeuren vast, met per voorkeur het onderdeel, de periode en de locatie |
-| Technische eis | de voorkeurslijst gaat als geordende verzameling over het koppelvlak, met de volgorde expliciet in het bericht en niet afgeleid uit de positie |
+| User story uit de PoC-inbreng | Als student wil ik bij mijn keuzedeelruimte een geprioriteerde voorkeurslijst opgeven, met als doel dat ik niet zonder keuzedeel kom te zitten wanneer mijn eerste keuze vol is |
+| Instellingseis, eerder | de instelling kent per keuzedeelruimte de voorkeursvolgorde van de student voordat zij plaatst |
+| Functionele eis, eerder | het studentkeuzesysteem legt per keuzedeelruimte een geordende lijst voorkeuren vast, met per voorkeur het onderdeel, de periode en de locatie |
+| **Technische eis, uit dit document** | **de voorkeurslijst gaat als geordende verzameling over het koppelvlak, met de volgorde expliciet in het bericht en niet afgeleid uit de positie** |
 
 Vul in dit document de soort in die boven het hoofdstuk staat, als verwijzing. De uitgeschreven eis volgt in een eigen ronde, in het register waar hij hoort.
 

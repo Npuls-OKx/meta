@@ -99,7 +99,7 @@ KLEUREN = 64
 
 # De productafbakening staat in elk sjabloon, met het vak van dit product
 # uitgelicht: de invuller ziet waar zijn document in het geheel past.
-BREAKDOWN = "architecture/product-breakdown/img/product-breakdown.svg"
+BREAKDOWN = "architecture/product-breakdown/img/product-breakdown-v0.2.0.svg"
 ACCENT = (221, 120, 75)        # Npuls-oranje
 DOFHEID = 0.55                 # hoeveel de omgeving naar wit verschuift
 # De hele plaat is op paginabreedte onleesbaar. Een uitsnede rond het eigen vak
@@ -440,21 +440,12 @@ class Sjabloon:
             "| Technische eis | de interactieketens, die zelf uit de eisen "
             "voortkomen | er over het koppelvlak gaat en in welke vorm |",
             "",
-            "Een voorbeeld van de keten, van behoefte tot koppelvlak:",
+            f"Dit document levert {c['levert']}. Zo ziet zo'n eis eruit, met "
+            "de keten erboven en eronder:",
             "",
             "| Soort | Voorbeeld |",
             "|---|------------------------------------------------|",
-            "| User story | Als student wil ik bij mijn keuzedeelruimte een "
-            "geprioriteerde voorkeurslijst opgeven, met als doel dat ik niet "
-            "zonder keuzedeel kom te zitten wanneer mijn eerste keuze vol is |",
-            "| Instellingseis | de instelling kent per keuzedeelruimte de "
-            "voorkeursvolgorde van de student voordat zij plaatst |",
-            "| Functionele eis | het studentkeuzesysteem legt per "
-            "keuzedeelruimte een geordende lijst voorkeuren vast, met per "
-            "voorkeur het onderdeel, de periode en de locatie |",
-            "| Technische eis | de voorkeurslijst gaat als geordende "
-            "verzameling over het koppelvlak, met de volgorde expliciet in "
-            "het bericht en niet afgeleid uit de positie |",
+        ] + [f"| {soort} | {voorbeeld} |" for soort, voorbeeld in c["keten"]] + [
             "",
             "Vul in dit document de soort in die boven het hoofdstuk staat, "
             "als verwijzing. De uitgeschreven eis volgt in een eigen ronde, in "
@@ -495,7 +486,7 @@ class Sjabloon:
             "Het uitgelichte vak is het product dat u met dit sjabloon "
             "beschrijft.",
             "",
-            f"Het {c['keten']}.",
+            f"Het {c['plek']}.",
             "",
             "Het cijfer rechtsboven in een vak is de prioriteit, waarbij lager "
             "eerder is; de hele plaat staat in de "

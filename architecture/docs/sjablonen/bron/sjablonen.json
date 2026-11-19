@@ -11,7 +11,6 @@
     "laag": "user story",
     "versie": "0.0.1",
     "doel": "Dit document maakt een leerroute invoelbaar door haar te volgen door de ogen van de mensen die haar doorlopen, zodat een ontwerpkeuze te toetsen is aan wat zij ervan merken.",
-    "keten": "wordt samen geschreven met het [leerroute scenario](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md), waar het procesbeeld de stappen bepaalt",
     "vervang": [],
     "opbouw": {
       "Werkwijze": {
@@ -63,7 +62,27 @@
         "toelichting": "Herhaal hieronder het portret en de reis voor elke persona van dit leerroute scenario. Zet de student vooraan; de persona's vanuit de instelling volgen in de volgorde waarin zij de route raken."
       }
     },
-    "breakdown_vak": "Persona's"
+    "breakdown_vak": "Persona's",
+    "plek": "wordt samen geschreven met het [leerroute scenario](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md), waar het procesbeeld de stappen bepaalt",
+    "levert": "**instellingseisen**, samen met de PoC-inbreng en het leerroute scenario",
+    "keten": [
+      [
+        "User story uit de PoC-inbreng",
+        "Als student wil ik bij mijn keuzedeelruimte een geprioriteerde voorkeurslijst opgeven, met als doel dat ik niet zonder keuzedeel kom te zitten wanneer mijn eerste keuze vol is"
+      ],
+      [
+        "**Instellingseis, uit dit document**",
+        "**de instelling kent per keuzedeelruimte de voorkeursvolgorde van de student voordat zij plaatst**"
+      ],
+      [
+        "Functionele eis, verderop",
+        "het studentkeuzesysteem legt per keuzedeelruimte een geordende lijst voorkeuren vast, met per voorkeur het onderdeel, de periode en de locatie"
+      ],
+      [
+        "Technische eis, verderop",
+        "de voorkeurslijst gaat als geordende verzameling over het koppelvlak, met de volgorde expliciet in het bericht en niet afgeleid uit de positie"
+      ]
+    ]
   },
   "leerroute-scenario": {
     "titel": "Sjabloon leerroute scenario",
@@ -322,8 +341,27 @@
     },
     "versie": "0.0.1",
     "doel": "Dit document werkt een Npuls-leerroute uit tot het punt waarop duidelijk is welke informatie waarheen moet, zodat de solutionlaag erop kan bouwen zonder de onderwijskundige keuze over te nemen.",
-    "keten": "bouwt op een of meer persona's, en gaat vooraf aan de uitwerking en de interactieketen",
-    "breakdown_vak": "Leerroute scenario"
+    "breakdown_vak": "Leerroute scenario",
+    "plek": "bouwt op een of meer persona's, en gaat vooraf aan de uitwerking en de interactieketen",
+    "levert": "**instellingseisen**, samen met de PoC-inbreng en de persona's",
+    "keten": [
+      [
+        "User story uit de PoC-inbreng",
+        "Als student wil ik bij mijn keuzedeelruimte een geprioriteerde voorkeurslijst opgeven, met als doel dat ik niet zonder keuzedeel kom te zitten wanneer mijn eerste keuze vol is"
+      ],
+      [
+        "**Instellingseis, uit dit document**",
+        "**de instelling kent per keuzedeelruimte de voorkeursvolgorde van de student voordat zij plaatst**"
+      ],
+      [
+        "Functionele eis, verderop",
+        "het studentkeuzesysteem legt per keuzedeelruimte een geordende lijst voorkeuren vast, met per voorkeur het onderdeel, de periode en de locatie"
+      ],
+      [
+        "Technische eis, verderop",
+        "de voorkeurslijst gaat als geordende verzameling over het koppelvlak, met de volgorde expliciet in het bericht en niet afgeleid uit de positie"
+      ]
+    ]
   },
   "leerroute-scenario-uitwerking": {
     "titel": "Sjabloon leerroute scenario uitwerking",
@@ -422,8 +460,27 @@
         ]
       }
     },
-    "keten": "volgt op het leerroute scenario en toetst het informatiemodel aan die route",
-    "breakdown_vak": "uitwerking"
+    "breakdown_vak": "uitwerking",
+    "plek": "volgt op het leerroute scenario en toetst het informatiemodel aan die route",
+    "levert": "**functionele eisen**, samen met de instellingseisen",
+    "keten": [
+      [
+        "User story uit de PoC-inbreng",
+        "Als student wil ik bij mijn keuzedeelruimte een geprioriteerde voorkeurslijst opgeven, met als doel dat ik niet zonder keuzedeel kom te zitten wanneer mijn eerste keuze vol is"
+      ],
+      [
+        "Instellingseis, eerder",
+        "de instelling kent per keuzedeelruimte de voorkeursvolgorde van de student voordat zij plaatst"
+      ],
+      [
+        "**Functionele eis, uit dit document**",
+        "**het studentkeuzesysteem legt per keuzedeelruimte een geordende lijst voorkeuren vast, met per voorkeur het onderdeel, de periode en de locatie**"
+      ],
+      [
+        "Technische eis, verderop",
+        "de voorkeurslijst gaat als geordende verzameling over het koppelvlak, met de volgorde expliciet in het bericht en niet afgeleid uit de positie"
+      ]
+    ]
   },
   "informatiemodel-viewpoint": {
     "titel": "Sjabloon informatiemodel viewpoint",
@@ -446,8 +503,23 @@
     "laag": "functional",
     "versie": "0.0.1",
     "doel": "Dit document legt vast welke objecttypen er zijn, hoe zij samenhangen en voor welke lezer de plaat bedoeld is, zodat een leverancier dezelfde begrippen leest als een onderwijskundige.",
-    "keten": "staat naast alle andere producten en levert de begrippen waarin zij spreken",
-    "breakdown_vak": "Informatiemodel OKx"
+    "breakdown_vak": "Informatiemodel OKx",
+    "plek": "staat naast alle andere producten en levert de begrippen waarin zij spreken",
+    "levert": "geen eigen eis; het levert de begrippen waarin de andere documenten hun eisen schrijven",
+    "keten": [
+      [
+        "Instellingseis, elders",
+        "de instelling kent per keuzedeelruimte de voorkeursvolgorde van de student voordat zij plaatst"
+      ],
+      [
+        "Functionele eis, elders",
+        "het studentkeuzesysteem legt per keuzedeelruimte een geordende lijst voorkeuren vast, met per voorkeur het onderdeel, de periode en de locatie"
+      ],
+      [
+        "**Uit dit document**",
+        "**de termen keuzedeelruimte, voorkeur en onderwijslocatie, met hun definitie en kardinaliteit**"
+      ]
+    ]
   },
   "interactieketen": {
     "titel": "Sjabloon interactieketen",
@@ -472,7 +544,6 @@
     "laag": "technical",
     "versie": "0.0.1",
     "doel": "Dit document legt vast welke diensten elkaar in welke volgorde aanroepen om een keten af te maken, zodat een bouwer weet wat hij moet bouwen en wat hij mag verwachten.",
-    "keten": "volgt op het leerroute scenario en gaat vooraf aan de koppelvlakspecificatie",
     "opbouw": {
       "Werkwijze": {
         "niveau": 1,
@@ -532,6 +603,26 @@
         ]
       }
     },
-    "breakdown_vak": "Interactieketens"
+    "breakdown_vak": "Interactieketens",
+    "plek": "volgt op het leerroute scenario en gaat vooraf aan de koppelvlakspecificatie",
+    "levert": "**technische eisen aan interacties**",
+    "keten": [
+      [
+        "User story uit de PoC-inbreng",
+        "Als student wil ik bij mijn keuzedeelruimte een geprioriteerde voorkeurslijst opgeven, met als doel dat ik niet zonder keuzedeel kom te zitten wanneer mijn eerste keuze vol is"
+      ],
+      [
+        "Instellingseis, eerder",
+        "de instelling kent per keuzedeelruimte de voorkeursvolgorde van de student voordat zij plaatst"
+      ],
+      [
+        "Functionele eis, eerder",
+        "het studentkeuzesysteem legt per keuzedeelruimte een geordende lijst voorkeuren vast, met per voorkeur het onderdeel, de periode en de locatie"
+      ],
+      [
+        "**Technische eis, uit dit document**",
+        "**de voorkeurslijst gaat als geordende verzameling over het koppelvlak, met de volgorde expliciet in het bericht en niet afgeleid uit de positie**"
+      ]
+    ]
   }
 }

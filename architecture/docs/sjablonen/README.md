@@ -24,7 +24,7 @@ De inhoudsopgave is een Word-veld en staat leeg tot hij wordt bijgewerkt; dat do
 
 ## De productafbakening
 
-De basis onder de vijf sjablonen is de [productafbakening](../../product-breakdown/README.md): welke producten OKx maakt, in welke volgorde zij op elkaar bouwen, en wat een eindproduct is.
+De basis onder de vijf sjablonen is de [productafbakening](../../product-breakdown/README.md), versie 0.2.0: welke producten OKx maakt, in welke volgorde zij op elkaar bouwen, en wat een eindproduct is.
 
 Elk sjabloon opent met het hoofdstuk **Productplaatsing**: een uitsnede van die plaat met het eigen vak uitgelicht en de buren eromheen zichtbaar, en hoogstens drie regels eronder. Zo ziet een invuller waar zijn document op bouwt en wat erop verder bouwt, zonder de hele plaat te lezen.
 
@@ -108,6 +108,15 @@ Een sjabloon bevat de eisen niet; het **levert eraan** en noteert per hoofdstuk 
 | **technische eis** | de interactieketens, die zelf uit de eisen voortkomen | er over het koppelvlak gaat en in welke vorm |
 
 Niet business requirement maar **instellingseis**: OKx spreekt met publieke onderwijsinstellingen en niet met bedrijven.
+
+Elk sjabloon zegt welke soort het zelf oplevert en toont de hele keten met een voorbeeld, waarbij de eigen regel vet staat. Zo ziet een invuller wat er van hem gevraagd wordt en wat anderen ermee doen:
+
+| Sjabloon | Levert |
+|---|---|
+| persona, leerroute scenario | instellingseisen, samen met de PoC-inbreng |
+| leerroute scenario uitwerking | functionele eisen, samen met de instellingseisen |
+| interactieketen | technische eisen aan interacties |
+| informatiemodel viewpoint | geen eigen eis; het levert de begrippen waarin de andere documenten hun eisen schrijven |
 
 De registers bestaan nog niet; zij moeten zich materialiseren uit de adviesgroep en de PoC-scholen, en dat loopt via #558. Leerroute 1 koppelen aan die eisen loopt via #557.
 
