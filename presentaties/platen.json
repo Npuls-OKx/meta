@@ -301,6 +301,18 @@
       "gebruik_bij": "De vraag wie wat maakt in de keten, en op welk niveau een product bruikbaar is. Architectuursync, programma- en projectleiding, kerngroep techniek.",
       "let_op": "De plaat beschrijft en oordeelt niet; wat voor een bepaald doel ontbreekt vult de lezer zelf in. De solutionlaag is algemeen, met de OKx-invulling als tweede regel per blok. Getekend uit doc/sectorketen-producten.json met tools/scripts/teken-sectorketen.py; werk de bron bij in plaats van het beeld.",
       "hash": "7f0b5ddb28c5ebb8"
+    },
+    {
+      "naam": "product-breakdown",
+      "titel": "Product breakdown OKx",
+      "bron": "Npuls-OKx/meta",
+      "pad": "architecture/product-breakdown/img/product-breakdown.svg",
+      "versie": "-",
+      "hash": "542a0ebf06f6b216",
+      "kopie": "product-breakdown.svg",
+      "toont": "Alle artifacts van OKx in vier vlakken (projectmanagement, domeinarchitectuur, solutionarchitectuur, eindproduct), met de leerroutes, persona's en MORA erboven. Doorgetrokken pijlen tonen welk artifact inhoud levert voor welk ander, gestippelde lijnen wat onderdeel is van iets anders, en elk blok draagt een prioriteit van 1 tot 10.",
+      "gebruik_bij": "Programma- en projectleiding en het SI-team: het gedeelde beeld van wat er gemaakt wordt, als opmaat naar backlog, planning en capaciteit.",
+      "let_op": "Op slidegrootte is de tekst in de blokken klein; de plaat toont vooral de samenhang. De prioriteiten zijn een relatieve volgorde en nog niet afgestemd. Getekend uit de data van de pagina Koers OKx-techniek; de bron staat op de branch feature/product-breakdown."
     }
   ],
   "overslaan": [
