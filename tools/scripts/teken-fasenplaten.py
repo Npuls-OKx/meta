@@ -64,13 +64,14 @@ def markeringen_van(stromen, gedeeld=()):
     return uit
 
 
-def _teken(markeringen, naam):
+def _teken(markeringen, naam, model=None):
     svg, _, _, _, _, ontbreekt, gemarkeerd = ruim.bouw(
-        markeer=[{**m, "ontvangergroep": ""} for m in markeringen], markeer_naam=naam)
+        markeer=[{**m, "ontvangergroep": ""} for m in markeringen], markeer_naam=naam,
+        model=model)
     return svg, ontbreekt, gemarkeerd
 
 
-def teken(markeringen, naam):
+def teken(markeringen, naam, model=None):
     """De plaat met deze markeringen, als SVG met de meldingen erbij.
 
     Twee ronden, want een stroom-ID wijst niet altijd een lijn aan. Loopt een stroom over een
@@ -78,7 +79,7 @@ def teken(markeringen, naam):
     dan vindt het ID de verkeerde ontvanger. Meldt de eerste ronde zo'n stroom, dan gaat haar ID
     eraf en telt het componentenpaar; dat vindt de lijn die wel door de junctie loopt.
     """
-    svg, ontbreekt, gemarkeerd = _teken(markeringen, naam)
+    svg, ontbreekt, gemarkeerd = _teken(markeringen, naam, model)
     gemist = {m.get("label") for m in markeringen
               if any(str(x).startswith(f"{m.get('label')}:") for x in ontbreekt)}
     if not gemist or not any(m.get("stroom") for m in markeringen if m.get("label") in gemist):
@@ -92,6 +93,9 @@ def main(argv=None):
     p.add_argument("--regels", type=pathlib.Path, default=REGELS)
     p.add_argument("--uit", type=pathlib.Path, default=UITMAP)
     p.add_argument("--fasen", help="komma-gescheiden fasenummers; standaard alle fasen")
+    # Zie tools/tests/test_model_onaangeraakt.py: op een kopie draaien houdt het echte
+    # bestand ook bij een falend geval buiten bereik.
+    p.add_argument("--model", type=pathlib.Path, default=None)
     p.add_argument("--zonder-overzicht", action="store_true",
                    help="schrijf alleen de fasenplaten en niet de kaart zonder markering")
     args = p.parse_args(argv)
@@ -106,7 +110,7 @@ def main(argv=None):
         if gevraagd and fase not in gevraagd:
             continue
         naam = f"Fase {fase}: {namen.get(fase, '')}".rstrip(": ")
-        svg, ontbreekt, gemarkeerd = teken(markeringen_van(stromen), naam)
+        svg, ontbreekt, gemarkeerd = teken(markeringen_van(stromen), naam, args.model)
         (args.uit / f"f{fase}.svg").write_text(svg, encoding="utf-8")
         aantal += 1
         gestippeld += gemarkeerd["gestippeld"]
@@ -116,7 +120,7 @@ def main(argv=None):
           f"waarvan {gestippeld} stromen gestippeld omdat de plaat ze niet kent")
 
     if not args.zonder_overzicht:
-        svg, _, _, _, _, _, _ = ruim.bouw()
+        svg, _, _, _, _, _, _ = ruim.bouw(model=args.model)
         (args.uit / OVERZICHT).write_text(svg, encoding="utf-8")
         print(f"kaart zonder markering geschreven naar {args.uit / OVERZICHT}")
     return 0

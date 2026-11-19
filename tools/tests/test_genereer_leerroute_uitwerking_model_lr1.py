@@ -243,7 +243,8 @@ class GenereerTests(unittest.TestCase):
         model = json.loads((wortel / "architecture/model/informatiemodel/informatiemodel.json").read_text(encoding="utf-8"))
         paren = {(r["van"], r["naar"]) for r in model["relaties"] if r["soort"] == "Specialization"}
         for bijzonder, algemeen in (
-                ("Keuzedeel", "Opleidingsprogramma specificatie"),
+                ("Keuzedeel specificatie", "Opleidingsprogramma specificatie"),
+                ("Keuzedeel", "Kwalificatiestructuur SBB"),
                 ("Keuzedeelruimte", "Opleidingsprogramma specificatie"),
                 ("Keuzedeel aanbod", "Opleidingsprogramma aanbod"),
                 ("Keuzedeel aanbod verbintenis", "Opleidingsprogramma aanbod verbintenis"),

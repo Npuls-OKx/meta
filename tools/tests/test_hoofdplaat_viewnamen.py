@@ -53,9 +53,9 @@ class ViewnaamTests(unittest.TestCase):
     def test_given_model_when_default_view_of_teken_hoofdplaat_ruim_then_found(self):
         self.gevonden("teken_hoofdplaat_ruim", "teken-hoofdplaat-ruim.py")
 
-    def test_given_model_when_hoofdplaat_views_listed_then_none_left_on_1_7(self):
-        oud = sorted(v for v in self.views if "v1.7<" in v or "obv 1.7)" in v)
-        self.assertEqual(oud, [])
+    # De controle op een versie in de viewnaam staat in test_maak-versiemanifest-plaat.py: die is
+    # strenger (elke versie, niet alleen 1.7) en hoort bij de afspraak dat de versie
+    # aan de export hangt en niet aan de view.
 
 
 class NaamconventieTests(unittest.TestCase):
@@ -85,3 +85,42 @@ class StroomSvsSksTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+class StroomlabelsGelijkOverDePlaten(unittest.TestCase):
+    """Een stroom die op meer platen staat, draagt op elke plaat een eigen labelexpressie.
+
+    Archi laat geen regelafbreking in een naam toe, dus de modelleur breekt een lang label
+    af in de expressie zelf en die staat dus per view opnieuw. Gemeten op 16 november 2026:
+    73 relaties dragen een labelexpressie, 24 daarvan op meer dan een plaat, en geen enkele
+    tekst week af. Dat is precies de toestand die stil kan verlopen zodra iemand er een
+    bijwerkt en de andere vergeet.
+    """
+
+    @staticmethod
+    def labels_per_relatie():
+        from collections import defaultdict
+        per = defaultdict(dict)
+        for v in ET.parse(MODEL).getroot().iter("element"):
+            if v.get(XSI) != "archimate:ArchimateDiagramModel":
+                continue
+            for c in v.iter():
+                rid = c.get("archimateRelationship")
+                if not rid:
+                    continue
+                for f in c.findall("feature"):
+                    if f.get("name") == "labelExpression":
+                        per[rid][v.get("name")] = " ".join((f.get("value") or "").split())
+        return per
+
+    def test_given_a_stream_on_more_views_when_labelled_then_the_text_is_the_same(self):
+        afwijkend = {rid: views for rid, views in self.labels_per_relatie().items()
+                     if len(set(views.values())) > 1}
+        self.assertEqual(afwijkend, {},
+                         "dezelfde stroom draagt op twee platen een andere tekst; werk ze bij "
+                         "of leg in het issue vast waarom zij verschillen")
+
+    def test_given_the_check_when_run_then_it_has_something_to_guard(self):
+        """Een controle die niets dekt, geeft valse zekerheid."""
+        meer = [rid for rid, views in self.labels_per_relatie().items() if len(views) > 1]
+        self.assertGreater(len(meer), 10,
+                           "bijna geen stroom staat op meer dan een plaat; deze controle dekt dan niets")
