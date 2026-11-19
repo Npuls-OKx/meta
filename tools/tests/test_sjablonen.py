@@ -104,15 +104,20 @@ class ElkHoofdstukZegtWatErWordtVerwacht(unittest.TestCase):
         staat wat uit de uitwerking komt. Tellen op naam gaat mis zodra de bron
         zelf een hoofdstuk Inleiding heeft.
         """
-        slot = ("Afwijkingen per instelling", "Vragen aan OKx")
+        slot = ("Afwijkingen per instelling", "Observaties en signaleringen")
         for naam in CONFIG:
             t = skelet(naam)
             lijf = t.split(maak.INHOUDSOPGAVE, 1)[1]
             uit_de_bron = len([k for _, k in KOP.findall(lijf) if k not in slot])
             with self.subTest(naam):
-                self.assertEqual(t.count("**Voorbeeld** ["), uit_de_bron,
-                                 "elk hoofdstuk uit de bron draagt een "
-                                 "verwachtingsblok")
+                if CONFIG[naam].get("opbouw"):
+                    # Een bouwsteensjabloon kiest zelf welk blok er een draagt.
+                    self.assertGreater(t.count("**Voorbeeld** ["), 0)
+                    self.assertLessEqual(t.count("**Voorbeeld** ["), uit_de_bron)
+                else:
+                    self.assertEqual(t.count("**Voorbeeld** ["), uit_de_bron,
+                                     "elk hoofdstuk uit de bron draagt een "
+                                     "verwachtingsblok")
 
     def test_elk_blok_draagt_voorbeeld_criteria_en_een_laag(self):
         for naam in CONFIG:
@@ -121,8 +126,10 @@ class ElkHoofdstukZegtWatErWordtVerwacht(unittest.TestCase):
                 self.assertIn("**Voorbeeld** [", t)
                 self.assertEqual(t.count("**Voorbeeld** ["),
                                  t.count("**Acceptatiecriteria** "))
-                lagen = sum(t.count(regel.split("*")[2]) for regel in
-                            maak.LAGEN.values())
+                lagen = sum(t.count(f"**{kop}**") for kop in
+                            ("User stories", "Business requirements",
+                             "Functional requirements",
+                             "Technical requirements", "Pakket van eisen"))
                 self.assertEqual(lagen, t.count("**Voorbeeld** ["),
                                  "elk hoofdstuk noemt zijn laag in de "
                                  "requirementketen")
@@ -164,7 +171,8 @@ class ElkHoofdstukZegtWatErWordtVerwacht(unittest.TestCase):
         for naam in CONFIG:
             t = skelet(naam)
             with self.subTest(naam):
-                self.assertIn("# Van user story naar eis", t)
+                self.assertIn("## Doelstelling document", t)
+                self.assertIn("## Pakket van eisen", t)
                 for laag in ("Business requirement", "Functional requirement",
                              "Technical requirement"):
                     self.assertIn(laag, t)
@@ -227,10 +235,10 @@ class HetSkeletDraagtZijnUitwerking(unittest.TestCase):
         for naam in CONFIG:
             t = skelet(naam)
             with self.subTest(naam):
-                self.assertIn("# De grootst gemene deler", t)
+                self.assertIn("## Business analyse en aggregatie van pakket van eisen", t)
                 self.assertIn("niet voor de sector", t)
                 self.assertIn("# Afwijkingen per instelling", t)
-                self.assertIn("# Vragen aan OKx", t)
+                self.assertIn("# Observaties en signaleringen", t)
                 self.assertIn(maak.RUIMTE, t)
 
 
@@ -251,7 +259,7 @@ class DeGeneratorWeigertWatHijNietKan(unittest.TestCase):
         self.assertIn("git fetch", str(e.exception))
 
     def test_een_grens_die_alles_weglaat(self):
-        kaal = {"bron": "README.md", "titel": "T", "wat": "w", "wie": "w",
+        kaal = {"bron": "README.md", "titel": "T", "wat": "w", "wie": "w", "doel": "d",
                 "voorbeeld": "v", "aggregatie": "a",
                 "weglaten_tot": "bestaat niet"}
         with self.assertRaises(SystemExit) as e:
@@ -354,7 +362,7 @@ class DeVoorpaginaDraagtAlleenDeOmslag(unittest.TestCase):
                 self.assertIn(maak.INHOUDSOPGAVE, t)
                 self.assertLess(t.index("# Inleiding"),
                                 t.index(maak.INHOUDSOPGAVE))
-                eerste = t.index("# De grootst gemene deler")
+                eerste = t.index("## Business analyse en aggregatie")
                 self.assertLess(eerste, t.index(maak.INHOUDSOPGAVE),
                                 "de inleiding is af voordat de inhoudsopgave komt")
 

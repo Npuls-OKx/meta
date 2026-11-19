@@ -20,7 +20,11 @@
 
 Elk hoofdstuk opent met een blok dat zegt wat er van dat hoofdstuk wordt verwacht: waar hetzelfde al is uitgewerkt, welk artefact hier hoort en waaraan het voldoet, en wat dit hoofdstuk aan het pakket van eisen bijdraagt. Dat blok blijft staan; het is de opdracht en niet de uitwerking. Een hoofdstuk dat niet van toepassing is houdt zijn kop, met de reden eronder.
 
-## Van user story naar eis
+## Doelstelling document
+
+Dit document legt vast welke objecttypen er zijn, hoe zij samenhangen en voor welke lezer de plaat bedoeld is, zodat een leverancier dezelfde begrippen leest als een onderwijskundige.
+
+## Pakket van eisen
 
 Het pakket van eisen komt uit de gedeelde analyse van alles wat scholen hebben ingebracht, geinventariseerd in de PoC-sessies met de koploperscholen. De grootst gemene deler daaruit is wat OKx vastlegt.
 
@@ -35,11 +39,13 @@ Niet elk hoofdstuk levert hetzelfde. Een journey brengt een behoefte naar boven 
 
 Vul in dit document de laag in die boven het hoofdstuk staat. De lagen eronder volgen in een eigen ronde, met dit document als bron.
 
-## De grootst gemene deler
+## Business analyse en aggregatie van pakket van eisen
 
 Tussen de inbreng van instellingen en dit document zit een analysestap. Een objecttype hoort hier wanneer meerdere instellingen het nodig hebben, niet wanneer een instelling het zo genoemd heeft. Hoe een instelling haar onderwijs inricht blijft haar keuze: OKx legt alleen de vorm van de uitwisseling vast.
 
 Een instelling spreekt voor haar eigen praktijk en niet voor de sector. Noteer daarom apart wat afwijkt, onder [Afwijkingen per instelling](#afwijkingen-per-instelling).
+
+Een hoofdstuk is een interactie, en de business analist bepaalt waar hij begint en eindigt. Kies de kleinst mogelijke eenheid die waarde oplevert voor zowel de student als de instelling: groter dan een enkele interactie, kleiner dan het hele ecosysteem. Een scope die daarboven zit levert een eis die niemand kan bouwen, een scope die daaronder zit levert een eis die niemand mist.
 
 ```{=openxml}
 <w:p><w:pPr><w:pStyle w:val="Kop1zondernummer"/></w:pPr>
@@ -205,12 +211,12 @@ Wat bij een instelling anders gaat dan hierboven staat, per regel met de instell
 | | | |
 | | | |
 
-# Vragen aan OKx
+# Observaties en signaleringen
 
-Wat onduidelijk bleef, genummerd, met per vraag het hoofdstuk waar het speelt.
+Wat tijdens het invullen opviel en wat openstaat, genummerd. Een observatie is wat u zag; een signalering is wat daarmee moet gebeuren, bijvoorbeeld richting OKx, richting een standaard of richting het eigen bestuur.
 
-| Nummer | Hoofdstuk | Vraag |
-|---|---|------------------------------------|
-| 1 | | |
-| 2 | | |
-| 3 | | |
+| Nummer | Hoofdstuk | Observatie | Wat er nodig is |
+|---|---|---|------------------------------------|
+| 1 | | | |
+| 2 | | | |
+| 3 | | | |

@@ -20,7 +20,11 @@
 
 Elk hoofdstuk opent met een blok dat zegt wat er van dat hoofdstuk wordt verwacht: waar hetzelfde al is uitgewerkt, welk artefact hier hoort en waaraan het voldoet, en wat dit hoofdstuk aan het pakket van eisen bijdraagt. Dat blok blijft staan; het is de opdracht en niet de uitwerking. Een hoofdstuk dat niet van toepassing is houdt zijn kop, met de reden eronder.
 
-## Van user story naar eis
+## Doelstelling document
+
+Dit document werkt een Npuls-leerroute uit tot het punt waarop duidelijk is welke informatie waarheen moet, zodat de solutionlaag erop kan bouwen zonder de onderwijskundige keuze over te nemen.
+
+## Pakket van eisen
 
 Het pakket van eisen komt uit de gedeelde analyse van alles wat scholen hebben ingebracht, geinventariseerd in de PoC-sessies met de koploperscholen. De grootst gemene deler daaruit is wat OKx vastlegt.
 
@@ -35,11 +39,13 @@ Niet elk hoofdstuk levert hetzelfde. Een journey brengt een behoefte naar boven 
 
 Vul in dit document de laag in die boven het hoofdstuk staat. De lagen eronder volgen in een eigen ronde, met dit document als bron.
 
-## De grootst gemene deler
+## Business analyse en aggregatie van pakket van eisen
 
 Tussen de inbreng van instellingen en dit document zit een analysestap. Dat geldt hier dubbel, want een leerroute scenario is wat OKx als afspraak vastlegt: een procesgewoonte van een instelling die hier als kader belandt, wordt een eis aan elke leverancier.
 
 Een instelling spreekt voor haar eigen praktijk en niet voor de sector. Noteer daarom apart wat afwijkt, onder [Afwijkingen per instelling](#afwijkingen-per-instelling).
+
+Een hoofdstuk is een interactie, en de business analist bepaalt waar hij begint en eindigt. Kies de kleinst mogelijke eenheid die waarde oplevert voor zowel de student als de instelling: groter dan een enkele interactie, kleiner dan het hele ecosysteem. Een scope die daarboven zit levert een eis die niemand kan bouwen, een scope die daaronder zit levert een eis die niemand mist.
 
 ```{=openxml}
 <w:p><w:pPr><w:pStyle w:val="Kop1zondernummer"/></w:pPr>
@@ -59,7 +65,7 @@ Een instelling spreekt voor haar eigen praktijk en niet voor de sector. Noteer d
 
 **Voorbeeld** [Leerroute 1 scenario, De leerroute](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#3211-leerroute-1--regulier)
 
-**Acceptatiecriteria** het conceptbeeld van de route, met in een zin wat deze route onderscheidt van leerroute 1, en het beeld staat in het document zelf
+**Acceptatiecriteria** het conceptbeeld van de route uit de Npuls-leerroutereeks, met in een zin wat deze route onderscheidt van leerroute 1, en het beeld staat in het document zelf en draagt het nummer en de naam van de route
 
 **Pakket van eisen** *dit hoofdstuk levert geen eis op; het geeft de context waarin de eisen van de andere hoofdstukken te lezen zijn*
 
@@ -366,7 +372,7 @@ Een instelling spreekt voor haar eigen praktijk en niet voor de sector. Noteer d
 
 **Voorbeeld** [Leerroute 1 scenario, Conceptueel gegevensoverzicht](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#conceptueel-gegevensoverzicht)
 
-**Acceptatiecriteria** een gegevensplaat en een tabel, en elk gegeven noemt zijn bronsysteem
+**Acceptatiecriteria** een ArchiMate-plaat of een SVG-render daarvan, met de scope uitgelicht van de gegevens, met een tabel ernaast, en elk gegeven noemt zijn bronsysteem en de term uit de begrippenlijst
 
 **Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
@@ -406,7 +412,7 @@ Een instelling spreekt voor haar eigen praktijk en niet voor de sector. Noteer d
 
 **Voorbeeld** [Leerroute 1 scenario, Applicatiecomponenten op de plaat](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#applicatiecomponenten-op-de-plaat--doelen-gegevens-en-interacties)
 
-**Acceptatiecriteria** de hoofdplaat met een tabel per component, en per component staat welk doel het dient en welke gegevens het draagt
+**Acceptatiecriteria** een ArchiMate-plaat of een SVG-render daarvan, met de scope uitgelicht van de informatiestromen hoofdplaat, in het kader van de interactieketen die deze route raakt, en per component staat welk doel het dient en welke gegevens het draagt; wat buiten de scope valt is op de plaat zichtbaar gedimd
 
 **Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
@@ -478,7 +484,7 @@ Een instelling spreekt voor haar eigen praktijk en niet voor de sector. Noteer d
 
 **Voorbeeld** [Leerroute 1 scenario, Procesfasen, interacties en informatie](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#procesfasen--interacties-op-de-plaat--informatie)
 
-**Acceptatiecriteria** een tabel per fase, en per fase staat welke informatie van welk systeem naar welk systeem gaat; dit is de brug naar de interactieketen
+**Acceptatiecriteria** een ArchiMate-plaat of een SVG-render daarvan, met de scope uitgelicht per fase, met een tabel ernaast, in het kader van de interactieketen, en per interactie staat welk systeem levert, welk systeem afneemt en welke informatie meegaat; dit is de brug naar de interactieketen
 
 **Technical requirements** *wat er over het koppelvlak gaat en in welke vorm; verwijs naar het nummer van de story*
 
@@ -488,7 +494,7 @@ Een instelling spreekt voor haar eigen praktijk en niet voor de sector. Noteer d
 
 **Voorbeeld** [Leerroute 1 scenario, Fase 1 — Kwalificatiekader analyseren en grofmazig ontwerpen](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#fase-1--kwalificatiekader-analyseren-en-grofmazig-ontwerpen)
 
-**Acceptatiecriteria** een tabel met de interacties van deze fase, en per interactie staat welk systeem levert, welk systeem afneemt, en welke informatie meegaat
+**Acceptatiecriteria** een ArchiMate-plaat of een SVG-render daarvan, met de scope uitgelicht van deze fase, met een tabel ernaast, in het kader van de interactieketen, en per interactie staat welk systeem levert, welk systeem afneemt en welke informatie meegaat
 
 **Technical requirements** *wat er over het koppelvlak gaat en in welke vorm; verwijs naar het nummer van de story*
 
@@ -500,7 +506,7 @@ Een instelling spreekt voor haar eigen praktijk en niet voor de sector. Noteer d
 
 **Voorbeeld** [Leerroute 1 scenario, Fase 2 — Publiceren en planbaar maken](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#fase-2--publiceren-en-planbaar-maken)
 
-**Acceptatiecriteria** een tabel met de interacties van deze fase, en per interactie staat welk systeem levert, welk systeem afneemt, en welke informatie meegaat
+**Acceptatiecriteria** een ArchiMate-plaat of een SVG-render daarvan, met de scope uitgelicht van deze fase, met een tabel ernaast, in het kader van de interactieketen, en per interactie staat welk systeem levert, welk systeem afneemt en welke informatie meegaat
 
 **Technical requirements** *wat er over het koppelvlak gaat en in welke vorm; verwijs naar het nummer van de story*
 
@@ -512,7 +518,7 @@ Een instelling spreekt voor haar eigen praktijk en niet voor de sector. Noteer d
 
 **Voorbeeld** [Leerroute 1 scenario, Fase 3 — Instroom, intake en plaatsing](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#fase-3--instroom-intake-en-plaatsing)
 
-**Acceptatiecriteria** een tabel met de interacties van deze fase, en per interactie staat welk systeem levert, welk systeem afneemt, en welke informatie meegaat
+**Acceptatiecriteria** een ArchiMate-plaat of een SVG-render daarvan, met de scope uitgelicht van deze fase, met een tabel ernaast, in het kader van de interactieketen, en per interactie staat welk systeem levert, welk systeem afneemt en welke informatie meegaat
 
 **Technical requirements** *wat er over het koppelvlak gaat en in welke vorm; verwijs naar het nummer van de story*
 
@@ -524,7 +530,7 @@ Een instelling spreekt voor haar eigen praktijk en niet voor de sector. Noteer d
 
 **Voorbeeld** [Leerroute 1 scenario, Fase 4 — Detailleren, roosteren en inschrijven](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#fase-4--detailleren-roosteren-en-inschrijven)
 
-**Acceptatiecriteria** een tabel met de interacties van deze fase, en per interactie staat welk systeem levert, welk systeem afneemt, en welke informatie meegaat
+**Acceptatiecriteria** een ArchiMate-plaat of een SVG-render daarvan, met de scope uitgelicht van deze fase, met een tabel ernaast, in het kader van de interactieketen, en per interactie staat welk systeem levert, welk systeem afneemt en welke informatie meegaat
 
 **Technical requirements** *wat er over het koppelvlak gaat en in welke vorm; verwijs naar het nummer van de story*
 
@@ -536,7 +542,7 @@ Een instelling spreekt voor haar eigen praktijk en niet voor de sector. Noteer d
 
 **Voorbeeld** [Leerroute 1 scenario, Fase 5 — Onderwijs uitvoeren en voortgang begeleiden](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#fase-5--onderwijs-uitvoeren-en-voortgang-begeleiden)
 
-**Acceptatiecriteria** een tabel met de interacties van deze fase, en per interactie staat welk systeem levert, welk systeem afneemt, en welke informatie meegaat
+**Acceptatiecriteria** een ArchiMate-plaat of een SVG-render daarvan, met de scope uitgelicht van deze fase, met een tabel ernaast, in het kader van de interactieketen, en per interactie staat welk systeem levert, welk systeem afneemt en welke informatie meegaat
 
 **Technical requirements** *wat er over het koppelvlak gaat en in welke vorm; verwijs naar het nummer van de story*
 
@@ -548,7 +554,7 @@ Een instelling spreekt voor haar eigen praktijk en niet voor de sector. Noteer d
 
 **Voorbeeld** [Leerroute 1 scenario, Fase 6 — Organiseren van keuzemomenten](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#fase-6--organiseren-van-keuzemomenten)
 
-**Acceptatiecriteria** een tabel met de interacties van deze fase, en per interactie staat welk systeem levert, welk systeem afneemt, en welke informatie meegaat
+**Acceptatiecriteria** een ArchiMate-plaat of een SVG-render daarvan, met de scope uitgelicht van deze fase, met een tabel ernaast, in het kader van de interactieketen, en per interactie staat welk systeem levert, welk systeem afneemt en welke informatie meegaat
 
 **Technical requirements** *wat er over het koppelvlak gaat en in welke vorm; verwijs naar het nummer van de story*
 
@@ -560,7 +566,7 @@ Een instelling spreekt voor haar eigen praktijk en niet voor de sector. Noteer d
 
 **Voorbeeld** [Leerroute 1 scenario, Fase 7 — Bijsturen planning en aanbod](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#fase-7--bijsturen-planning-en-aanbod)
 
-**Acceptatiecriteria** een tabel met de interacties van deze fase, en per interactie staat welk systeem levert, welk systeem afneemt, en welke informatie meegaat
+**Acceptatiecriteria** een ArchiMate-plaat of een SVG-render daarvan, met de scope uitgelicht van deze fase, met een tabel ernaast, in het kader van de interactieketen, en per interactie staat welk systeem levert, welk systeem afneemt en welke informatie meegaat
 
 **Technical requirements** *wat er over het koppelvlak gaat en in welke vorm; verwijs naar het nummer van de story*
 
@@ -572,7 +578,7 @@ Een instelling spreekt voor haar eigen praktijk en niet voor de sector. Noteer d
 
 **Voorbeeld** [Leerroute 1 scenario, Fase 8 — Examineren, vaststellen en diplomeren](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#fase-8--examineren-vaststellen-en-diplomeren)
 
-**Acceptatiecriteria** een tabel met de interacties van deze fase, en per interactie staat welk systeem levert, welk systeem afneemt, en welke informatie meegaat
+**Acceptatiecriteria** een ArchiMate-plaat of een SVG-render daarvan, met de scope uitgelicht van deze fase, met een tabel ernaast, in het kader van de interactieketen, en per interactie staat welk systeem levert, welk systeem afneemt en welke informatie meegaat
 
 **Technical requirements** *wat er over het koppelvlak gaat en in welke vorm; verwijs naar het nummer van de story*
 
@@ -584,7 +590,7 @@ Een instelling spreekt voor haar eigen praktijk en niet voor de sector. Noteer d
 
 **Voorbeeld** [Leerroute 1 scenario, Concept informatiemodel: geneste onderwijsspecificatie](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#concept-informatiemodel--geneste-onderwijsspecificatie-jochem-apothekersassistent)
 
-**Acceptatiecriteria** een informatiemodelplaat met een tabel, en elk objecttype staat met de term uit de begrippenlijst, en de kardinaliteit tussen twee typen heeft een voorbeeld
+**Acceptatiecriteria** een ArchiMate-plaat of een SVG-render daarvan, met de scope uitgelicht van het informatiemodel, met alleen de objecttypen die deze route raakt, en elk objecttype draagt de term uit de begrippenlijst, en elke kardinaliteit tussen twee typen heeft een ingevuld voorbeeld
 
 **Functional requirements** *wat een component moet doen met welke gegevens; verwijs naar het nummer van de story*
 
@@ -600,12 +606,12 @@ Wat bij een instelling anders gaat dan hierboven staat, per regel met de instell
 | | | |
 | | | |
 
-# Vragen aan OKx
+# Observaties en signaleringen
 
-Wat onduidelijk bleef, genummerd, met per vraag het hoofdstuk waar het speelt.
+Wat tijdens het invullen opviel en wat openstaat, genummerd. Een observatie is wat u zag; een signalering is wat daarmee moet gebeuren, bijvoorbeeld richting OKx, richting een standaard of richting het eigen bestuur.
 
-| Nummer | Hoofdstuk | Vraag |
-|---|---|------------------------------------|
-| 1 | | |
-| 2 | | |
-| 3 | | |
+| Nummer | Hoofdstuk | Observatie | Wat er nodig is |
+|---|---|---|------------------------------------|
+| 1 | | | |
+| 2 | | | |
+| 3 | | | |

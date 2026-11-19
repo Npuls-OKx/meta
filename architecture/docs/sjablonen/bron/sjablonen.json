@@ -28,7 +28,8 @@
     ],
     "laag": "user story",
     "ondertitel": "Een student, zijn opleiding en zijn route door het onderwijs",
-    "versie": "0.0.1"
+    "versie": "0.0.1",
+    "doel": "Dit document legt een student vast waar elk leerroute scenario naar verwijst, zodat elk scenario over dezelfde mens gaat en de reizen naast elkaar te leggen zijn."
   },
   "leerroute-scenario": {
     "titel": "Sjabloon leerroute scenario",
@@ -102,9 +103,9 @@
     "hoofdstukken": {
       "De leerroute": {
         "laag": "context",
-        "artefact": "het conceptbeeld van de route",
+        "artefact": "het conceptbeeld van de route uit de Npuls-leerroutereeks",
         "context": "met in een zin wat deze route onderscheidt van leerroute 1",
-        "eis": "het beeld staat in het document zelf"
+        "eis": "het beeld staat in het document zelf en draagt het nummer en de naam van de route"
       },
       "Kenmerken van de route": {
         "laag": "context",
@@ -195,8 +196,8 @@
       },
       "Conceptueel gegevensoverzicht": {
         "laag": "functional",
-        "artefact": "een gegevensplaat en een tabel",
-        "eis": "elk gegeven noemt zijn bronsysteem"
+        "artefact": "een ArchiMate-plaat of een SVG-render daarvan, met de scope uitgelicht van de gegevens, met een tabel ernaast",
+        "eis": "elk gegeven noemt zijn bronsysteem en de term uit de begrippenlijst"
       },
       "Betrokken systemen": {
         "laag": "functional",
@@ -205,8 +206,9 @@
       },
       "Applicatiecomponenten op de plaat": {
         "laag": "functional",
-        "artefact": "de hoofdplaat met een tabel per component",
-        "eis": "per component staat welk doel het dient en welke gegevens het draagt"
+        "artefact": "een ArchiMate-plaat of een SVG-render daarvan, met de scope uitgelicht van de informatiestromen hoofdplaat",
+        "eis": "per component staat welk doel het dient en welke gegevens het draagt; wat buiten de scope valt is op de plaat zichtbaar gedimd",
+        "context": "in het kader van de interactieketen die deze route raakt"
       },
       "Componenten en hun scope": {
         "laag": "functional",
@@ -225,57 +227,68 @@
       },
       "Procesfasen, interacties en informatie": {
         "laag": "technical",
-        "artefact": "een tabel per fase",
-        "eis": "per fase staat welke informatie van welk systeem naar welk systeem gaat; dit is de brug naar de interactieketen"
+        "artefact": "een ArchiMate-plaat of een SVG-render daarvan, met de scope uitgelicht per fase, met een tabel ernaast",
+        "eis": "per interactie staat welk systeem levert, welk systeem afneemt en welke informatie meegaat; dit is de brug naar de interactieketen",
+        "context": "in het kader van de interactieketen"
       },
       "Concept informatiemodel: geneste onderwijsspecificatie": {
         "laag": "functional",
-        "artefact": "een informatiemodelplaat met een tabel",
-        "eis": "elk objecttype staat met de term uit de begrippenlijst, en de kardinaliteit tussen twee typen heeft een voorbeeld"
+        "artefact": "een ArchiMate-plaat of een SVG-render daarvan, met de scope uitgelicht van het informatiemodel",
+        "eis": "elk objecttype draagt de term uit de begrippenlijst, en elke kardinaliteit tussen twee typen heeft een ingevuld voorbeeld",
+        "context": "met alleen de objecttypen die deze route raakt"
       },
       "Fase 1 — Kwalificatiekader analyseren en grofmazig ontwerpen": {
         "laag": "technical",
-        "artefact": "een tabel met de interacties van deze fase",
-        "eis": "per interactie staat welk systeem levert, welk systeem afneemt, en welke informatie meegaat"
+        "artefact": "een ArchiMate-plaat of een SVG-render daarvan, met de scope uitgelicht van deze fase, met een tabel ernaast",
+        "eis": "per interactie staat welk systeem levert, welk systeem afneemt en welke informatie meegaat",
+        "context": "in het kader van de interactieketen"
       },
       "Fase 2 — Publiceren en planbaar maken": {
         "laag": "technical",
-        "artefact": "een tabel met de interacties van deze fase",
-        "eis": "per interactie staat welk systeem levert, welk systeem afneemt, en welke informatie meegaat"
+        "artefact": "een ArchiMate-plaat of een SVG-render daarvan, met de scope uitgelicht van deze fase, met een tabel ernaast",
+        "eis": "per interactie staat welk systeem levert, welk systeem afneemt en welke informatie meegaat",
+        "context": "in het kader van de interactieketen"
       },
       "Fase 3 — Instroom, intake en plaatsing": {
         "laag": "technical",
-        "artefact": "een tabel met de interacties van deze fase",
-        "eis": "per interactie staat welk systeem levert, welk systeem afneemt, en welke informatie meegaat"
+        "artefact": "een ArchiMate-plaat of een SVG-render daarvan, met de scope uitgelicht van deze fase, met een tabel ernaast",
+        "eis": "per interactie staat welk systeem levert, welk systeem afneemt en welke informatie meegaat",
+        "context": "in het kader van de interactieketen"
       },
       "Fase 4 — Detailleren, roosteren en inschrijven": {
         "laag": "technical",
-        "artefact": "een tabel met de interacties van deze fase",
-        "eis": "per interactie staat welk systeem levert, welk systeem afneemt, en welke informatie meegaat"
+        "artefact": "een ArchiMate-plaat of een SVG-render daarvan, met de scope uitgelicht van deze fase, met een tabel ernaast",
+        "eis": "per interactie staat welk systeem levert, welk systeem afneemt en welke informatie meegaat",
+        "context": "in het kader van de interactieketen"
       },
       "Fase 5 — Onderwijs uitvoeren en voortgang begeleiden": {
         "laag": "technical",
-        "artefact": "een tabel met de interacties van deze fase",
-        "eis": "per interactie staat welk systeem levert, welk systeem afneemt, en welke informatie meegaat"
+        "artefact": "een ArchiMate-plaat of een SVG-render daarvan, met de scope uitgelicht van deze fase, met een tabel ernaast",
+        "eis": "per interactie staat welk systeem levert, welk systeem afneemt en welke informatie meegaat",
+        "context": "in het kader van de interactieketen"
       },
       "Fase 6 — Organiseren van keuzemomenten": {
         "laag": "technical",
-        "artefact": "een tabel met de interacties van deze fase",
-        "eis": "per interactie staat welk systeem levert, welk systeem afneemt, en welke informatie meegaat"
+        "artefact": "een ArchiMate-plaat of een SVG-render daarvan, met de scope uitgelicht van deze fase, met een tabel ernaast",
+        "eis": "per interactie staat welk systeem levert, welk systeem afneemt en welke informatie meegaat",
+        "context": "in het kader van de interactieketen"
       },
       "Fase 7 — Bijsturen planning en aanbod": {
         "laag": "technical",
-        "artefact": "een tabel met de interacties van deze fase",
-        "eis": "per interactie staat welk systeem levert, welk systeem afneemt, en welke informatie meegaat"
+        "artefact": "een ArchiMate-plaat of een SVG-render daarvan, met de scope uitgelicht van deze fase, met een tabel ernaast",
+        "eis": "per interactie staat welk systeem levert, welk systeem afneemt en welke informatie meegaat",
+        "context": "in het kader van de interactieketen"
       },
       "Fase 8 — Examineren, vaststellen en diplomeren": {
         "laag": "technical",
-        "artefact": "een tabel met de interacties van deze fase",
-        "eis": "per interactie staat welk systeem levert, welk systeem afneemt, en welke informatie meegaat"
+        "artefact": "een ArchiMate-plaat of een SVG-render daarvan, met de scope uitgelicht van deze fase, met een tabel ernaast",
+        "eis": "per interactie staat welk systeem levert, welk systeem afneemt en welke informatie meegaat",
+        "context": "in het kader van de interactieketen"
       }
     },
     "ondertitel": "Een Npuls-leerroute uitgewerkt tot de informatie die eruit moet",
-    "versie": "0.0.1"
+    "versie": "0.0.1",
+    "doel": "Dit document werkt een Npuls-leerroute uit tot het punt waarop duidelijk is welke informatie waarheen moet, zodat de solutionlaag erop kan bouwen zonder de onderwijskundige keuze over te nemen."
   },
   "informatiemodel-viewpoint": {
     "titel": "Sjabloon informatiemodel viewpoint",
@@ -297,18 +310,18 @@
     ],
     "laag": "functional",
     "ondertitel": "De objecttypen, hun samenhang en de lezer van de plaat",
-    "versie": "0.0.1"
+    "versie": "0.0.1",
+    "doel": "Dit document legt vast welke objecttypen er zijn, hoe zij samenhangen en voor welke lezer de plaat bedoeld is, zodat een leverancier dezelfde begrippen leest als een onderwijskundige."
   },
   "leerroute-scenario-uitwerking": {
-    "titel": "Sjabloon leerroute scenario uitwerking (informatiemodel voorbeeld)",
+    "titel": "Sjabloon leerroute scenario uitwerking",
     "bron": "architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md",
     "bestand": "OKx sjabloon leerroute scenario uitwerking.docx",
-    "wat": "een leerroute scenario uitwerking: het scenario stap voor stap in het informatiemodel, zodat zichtbaar wordt of het model de werkelijkheid draagt",
+    "wat": "een leerroute scenario uitwerking: het scenario stap voor stap naast het informatiemodel gelegd, als een herhaling van twee bouwstenen tot de hele route gedekt is",
     "wie": "de adviesgroep. Suggestie: de informatiemanagers vullen de regels, de business analisten leggen ze naast het model",
     "voorbeeld": "[de uitwerking van leerroute 1 met Jochem](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md)",
     "voorbeeld_naam": "Leerroute 1 scenario uitwerking",
     "aggregatie": "Tussen de inbreng van instellingen en dit document zit een analysestap. Dat geldt hier sterker dan elders, omdat een voorbeeld overtuigt: een regel die uit een enkele instelling komt en hier als voorbeeld staat, leest als sectorpraktijk.",
-    "weglaten_tot": "Fase 1",
     "kop_labels": {},
     "vervang": [
       [
@@ -321,8 +334,79 @@
       ]
     ],
     "laag": "functional",
-    "ondertitel": "Het scenario stap voor stap in het informatiemodel",
-    "versie": "0.0.1"
+    "ondertitel": "Twee bouwstenen, herhaald tot het scenario gedekt is",
+    "versie": "0.0.1",
+    "doel": "Dit document legt een leerroute scenario stap voor stap naast het informatiemodel, zodat zichtbaar wordt of het model de werkelijkheid van die route draagt en waar het tekortschiet.",
+    "opbouw": {
+      "Werkwijze": {
+        "niveau": 1,
+        "blok": false,
+        "ruimte": false,
+        "toelichting": "Dit document is een herhaling van twee bouwstenen. Bouwsteen A legt een processtap vast: wie handelt, en welk informatie-element daar ontstaat. Bouwsteen B legt een uitwisseling vast: het hele ingevulde informatievoorbeeld dat van de ene applicatiecomponent naar de andere gaat.\n\nHerhaal A tot er een uitwisseling plaatsvindt, zet dan B neer, en ga verder met A. Stop wanneer het hele leerroute scenario is doorlopen. Het aantal bouwstenen ligt niet vast; de dekking van het scenario bepaalt hoeveel het er zijn.\n\nDe uitgewerkte vorm staat in [de uitwerking van leerroute 1 met Jochem](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md). Die telt acht fasen en ruim honderd bouwstenen; dat is de maat waar dit document naartoe werkt, niet de vorm die het moet overnemen."
+      },
+      "Bouwsteen A: processtap": {
+        "niveau": 1,
+        "anker": "Fase 1: Kwalificatiekader analyseren en grofmazig ontwerpen",
+        "inhoud": [
+          "![x](y.svg)",
+          "| a | b |"
+        ],
+        "artefact": "een ArchiMate-plaat of een SVG-render daarvan, met de scope van deze processtap uitgelicht",
+        "context": "met daarnaast de tabel hieronder ingevuld",
+        "eis": "de plaat toont de actor, de processtap en het informatie-element dat daar ontstaat, elk met de term uit de begrippenlijst; wat die lijst niet kent staat als observatie in het slot",
+        "toelichting": "Kopieer dit blok voor elke processtap. De nummering volgt het leerroute scenario: F1-01 is de eerste stap van fase 1.",
+        "tabel": [
+          "| Veld | Invulling |",
+          "|---|------------------------------------------------|",
+          "| Nummer | *F1-01* |",
+          "| Processtap | *welke stap uit het leerroute scenario* |",
+          "| Actor | *wie handelt, met de rol uit het scenario* |",
+          "| Applicatiecomponent | *welk systeem daarbij hoort* |",
+          "| Ontstaat | *welk objecttype hier voor het eerst bestaat* |",
+          "| Hangt aan | *aan welk bestaand objecttype het hangt* |",
+          "| Voorbeeldwaarde | *de ingevulde waarde voor deze persona* |"
+        ]
+      },
+      "Bouwsteen B: uitwisseling": {
+        "niveau": 1,
+        "anker": "Fase 2: Publiceren en planbaar maken",
+        "inhoud": [
+          "![x](y.svg)",
+          "| a | b |"
+        ],
+        "artefact": "een ArchiMate-plaat of een SVG-render daarvan, met de scope van deze uitwisseling uitgelicht",
+        "context": "met daarnaast het volledige ingevulde informatievoorbeeld dat over de lijn gaat",
+        "eis": "de plaat toont beide applicatiecomponenten en de richting; het voorbeeld draagt elk objecttype met zijn relaties, zodat zichtbaar is wat de ontvanger werkelijk binnenkrijgt",
+        "toelichting": "Kopieer dit blok voor elke uitwisseling. Hier gaat niet een los gegeven over de lijn maar het hele samenhangende voorbeeld: het objecttype met alles wat eraan hangt.",
+        "tabel": [
+          "| Veld | Invulling |",
+          "|---|------------------------------------------------|",
+          "| Nummer | *F2-01* |",
+          "| Van | *welke applicatiecomponent levert* |",
+          "| Naar | *welke applicatiecomponent neemt af* |",
+          "| Aanleiding | *welke processtap deze uitwisseling veroorzaakt* |",
+          "| Informatievoorbeeld | *het ingevulde voorbeeld, met de relaties* |",
+          "| Informatiestroom | *het nummer uit het leerroute scenario* |"
+        ]
+      },
+      "Uitwerking": {
+        "niveau": 1,
+        "blok": false,
+        "toelichting": "Herhaal hieronder bouwsteen A en bouwsteen B tot het hele leerroute scenario is doorlopen. Houd de volgorde van het scenario aan, zodat beide documenten naast elkaar te leggen zijn."
+      },
+      "Hiaten in het model": {
+        "niveau": 1,
+        "blok": false,
+        "toelichting": "Welke bouwstenen niet in het informatiemodel pasten, per regel met wat ontbrak. Dit hoofdstuk is de opbrengst van de uitwerking: een voorbeeld dat overal paste heeft niets gemeten. Wat hier staat wordt een functional requirement.",
+        "tabel": [
+          "| Nummer | Wat ontbrak | Wat er nodig is |",
+          "|---|---|------------------------------------|",
+          "| | | |",
+          "| | | |",
+          "| | | |"
+        ]
+      }
+    }
   },
   "interactieketen": {
     "titel": "Sjabloon interactieketen",
@@ -352,6 +436,7 @@
     ],
     "laag": "technical",
     "ondertitel": "De diensten van een keten, hun volgorde en hun afspraken",
-    "versie": "0.0.1"
+    "versie": "0.0.1",
+    "doel": "Dit document legt vast welke diensten elkaar in welke volgorde aanroepen om een keten af te maken, zodat een bouwer weet wat hij moet bouwen en wat hij mag verwachten."
   }
 }

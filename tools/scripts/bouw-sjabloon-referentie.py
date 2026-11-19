@@ -31,6 +31,7 @@ UIT = MAP / "gegenereerd/npuls-referentie.docx"
 ORANJE = "DD784B"
 BLAUW = "3D68EC"
 GRIJS = "BFBFBF"
+ZWART = "000000"
 LETTER = "Arial"
 
 # Pandoc zoekt deze stijlen op hun Engelse naam. Het Npuls-sjabloon kent ze
@@ -56,6 +57,7 @@ AANVULLING = f"""
   <w:style w:type="paragraph" w:styleId="BodyText">
     <w:name w:val="Body Text" /><w:basedOn w:val="Standaard" />
     <w:pPr><w:spacing w:before="120" w:after="120" /></w:pPr>
+    <w:rPr><w:color w:val="{ZWART}" /></w:rPr>
   </w:style>
   <w:style w:type="paragraph" w:styleId="FirstParagraph">
     <w:name w:val="First Paragraph" /><w:basedOn w:val="BodyText" />
@@ -63,6 +65,7 @@ AANVULLING = f"""
   <w:style w:type="paragraph" w:styleId="Compact">
     <w:name w:val="Compact" /><w:basedOn w:val="Standaard" />
     <w:pPr><w:spacing w:before="0" w:after="0" /></w:pPr>
+    <w:rPr><w:color w:val="{ZWART}" /></w:rPr>
   </w:style>
   <w:style w:type="paragraph" w:styleId="BlockText">
     <w:name w:val="Block Text" /><w:basedOn w:val="Standaard" />
@@ -83,6 +86,20 @@ AANVULLING = f"""
     <w:rPr><w:color w:val="{BLAUW}" /><w:u w:val="single" /></w:rPr>
   </w:style>
 """
+
+
+def tekst_in_het_zwart(stijlen: str) -> str:
+    """Zet de tekstkleur expliciet op zwart.
+
+    Het Npuls-sjabloon laat de kleur op automatisch staan. Word kiest dan zelf,
+    en op de gekleurde omslag levert dat witte tekst op; die is daar niet te
+    lezen. Een expliciete kleur haalt die keuze weg.
+    """
+    return re.sub(
+        r'(<w:style w:type="paragraph" w:default="1" w:styleId="Standaard">'
+        r'(?:(?!</w:style>).)*?)(</w:style>)',
+        rf'\1<w:rPr><w:color w:val="{ZWART}" /></w:rPr>\2',
+        stijlen, count=1, flags=re.S)
 
 
 def titel_onder_het_logo(stijlen: str) -> str:
@@ -116,8 +133,11 @@ def bouw(uit: pathlib.Path, npuls: pathlib.Path = NPULS) -> None:
     with zipfile.ZipFile(npuls) as z:
         onderdelen = {n: z.read(n) for n in z.namelist()}
 
-    stijlen = titel_onder_het_logo(
-        aanvullen(onderdelen["word/styles.xml"].decode("utf-8")))
+    stijlen = tekst_in_het_zwart(titel_onder_het_logo(
+        aanvullen(onderdelen["word/styles.xml"].decode("utf-8"))))
+    if f'<w:color w:val="{ZWART}" />' not in stijlen:
+        raise SystemExit("de tekstkleur is niet op zwart gezet; op de omslag "
+                         "wordt de tekst dan wit en onleesbaar")
     for sid in ("Table", "BodyText", "BlockText", "Hyperlink"):
         if f'w:styleId="{sid}"' not in stijlen:
             raise SystemExit(f"de stijl {sid} is niet toegevoegd; het "

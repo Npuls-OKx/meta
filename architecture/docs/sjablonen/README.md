@@ -9,7 +9,7 @@ Open het Word-bestand. Elk sjabloon is **afgeleid uit de uitwerking die er al li
 | persona | `OKx sjabloon persona.docx` | [persona Jochem](../specificatie/leerroute-uitwerking/doc/persona_jochem.md) |
 | leerroute scenario | `OKx sjabloon leerroute scenario.docx` | [leerroute 1 scenario](../specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md) |
 | informatiemodel viewpoint | `OKx sjabloon informatiemodel viewpoint.docx` | [informatiemodel OKx](../../model/informatiemodel/informatiemodel.md) |
-| leerroute scenario uitwerking | `OKx sjabloon leerroute scenario uitwerking.docx` | [de uitwerking met Jochem](../../model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md) |
+| leerroute scenario uitwerking | `OKx sjabloon leerroute scenario uitwerking.docx` | twee bouwstenen, met [de uitwerking met Jochem](../../model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md) als voorbeeld |
 | interactieketen | `OKx sjabloon interactieketen.docx` | [keten onderwijsaanbod](https://github.com/Npuls-OKx/meta/blob/e05b4444a29a09b92cc8afd73bce69af78f1ac12/architecture/docs/specificatie/interactieketen-onderwijsaanbod/README.md), nog in review |
 
 ## Opbouw van een sjabloon
@@ -17,7 +17,7 @@ Open het Word-bestand. Elk sjabloon is **afgeleid uit de uitwerking die er al li
 | Pagina | Wat erop staat |
 |---|---|
 | 1 | de omslag: titel, ondertitel, versie, wie het uitgeeft, wie het invult en wanneer |
-| 2 | de inleiding: wat dit wordt, wie het invult, het voorbeeld, en de keten van user story naar eis |
+| 2 | de inleiding, met de doelstelling van het document, het pakket van eisen en de business analyse |
 | daarna | de inhoudsopgave, en dan de hoofdstukken uit de uitwerking |
 
 De inhoudsopgave is een Word-veld en staat leeg tot hij wordt bijgewerkt; dat doet de lezer met Ctrl+A en F9, en de tekst in het veld zegt dat ook.
@@ -32,11 +32,30 @@ Elk hoofdstuk opent met een blok dat zegt wat er wordt verwacht. Dat blok blijft
 | Acceptatiecriteria | welk artefact hier hoort, in welke context, en waaraan het voldoet |
 | de laag | wat dit hoofdstuk aan het pakket van eisen bijdraagt: user stories, business, functional of technical requirements, of niets |
 
-Een acceptatiecriterium noemt meer dan de soort. Niet "een beeld", maar:
+Een acceptatiecriterium noemt het artefact, zijn context en zijn eis. Niet "een beeld", maar:
 
-> een procesplaat van de studentreis in mermaid, BPMN, UML of vergelijkbaar, **in het kader van de persona van deze route**, met een link naar het persona-document, en elke stap noemt wat de student doet en wat hij op dat moment moet weten.
+> een **ArchiMate-plaat of een SVG-render daarvan, met de scope uitgelicht**, van de informatiestromen hoofdplaat, in het kader van de interactieketen die deze route raakt, en per component staat welk doel het dient en welke gegevens het draagt; wat buiten de scope valt is op de plaat zichtbaar gedimd.
+
+Of, waar het om een reis gaat:
+
+> een **procesplaat in mermaid, BPMN, UML of vergelijkbaar** van de studentreis, in het kader van de persona van deze route, met een link naar het persona-document, en elke stap noemt wat de student doet en wat hij op dat moment moet weten.
 
 Waar geen eigen criterium is vastgelegd, leidt de generator er een af uit wat de voorbeelduitwerking in dat hoofdstuk levert: een mermaid-diagram vraagt om een procesplaat, een tabel om een ingevulde tabel.
+
+## Twee bouwstenen in plaats van honderd hoofdstukken
+
+De uitwerking is geen hoofdstukkenreeks maar een herhaling van twee blokken.
+
+| Bouwsteen | Wat erin staat |
+|---|---|
+| **A, processtap** | nummer, processtap, actor, applicatiecomponent, welk objecttype daar ontstaat en waaraan het hangt, met de ingevulde voorbeeldwaarde |
+| **B, uitwisseling** | nummer, van welke component naar welke, de aanleiding, en het hele ingevulde informatievoorbeeld met zijn relaties |
+
+Herhaal A tot er een uitwisseling plaatsvindt, zet dan B neer, en ga verder met A. Stop wanneer het hele leerroute scenario is doorlopen; het aantal bouwstenen ligt niet vast. Dat sjabloon staat in `opbouw` in de configuratie en wordt dus niet uit de koppen van een bron afgeleid.
+
+## Scope is een keuze van de business analist
+
+Een hoofdstuk is een interactie, en waar het begint en eindigt bepaalt de business analist. De maat staat in elk sjabloon: de **kleinst mogelijke eenheid die waarde oplevert voor zowel de student als de instelling**, groter dan een enkele interactie en kleiner dan het hele ecosysteem. Een scope die daarboven zit levert een eis die niemand kan bouwen, een scope die daaronder zit levert een eis die niemand mist.
 
 ## Niet elk hoofdstuk levert een eis
 
@@ -109,7 +128,7 @@ python3 tools/scripts/bouw-sjablonen-docx.py --controleer
 
 De referentie komt uit **[Npuls Word template uitgebreid.dotx](<Npuls Word template uitgebreid.dotx>)**, het sjabloon van Npuls zelf: de omslag met het logo, de kleuren, Arial, de genummerde koppen en de kop- en voetteksten. Dat bestand wordt niet bewerkt.
 
-Pandoc zoekt daarnaast een handvol stijlen op hun Engelse naam die het Npuls-sjabloon niet kent. `bouw-sjabloon-referentie.py` zet die erbij met Npuls-waarden: een tabel met randen, een citaat met een oranje kantlijn, links in `#3D68EC`, en `nl-NL` als taal zodat Word niet elk woord onderstreept. De titel krijgt ruimte boven zich, anders loopt hij door het logo van de omslag. In de voettekst van het sjabloon staat letterlijk `[titel]`; de bouwer vervangt die door de titel van het sjabloon, want het is geen veld dat Word zelf vult.
+Pandoc zoekt daarnaast een handvol stijlen op hun Engelse naam die het Npuls-sjabloon niet kent. `bouw-sjabloon-referentie.py` zet die erbij met Npuls-waarden: een tabel met randen, een citaat met een oranje kantlijn, links in `#3D68EC`, en `nl-NL` als taal zodat Word niet elk woord onderstreept. De titel krijgt ruimte boven zich, anders loopt hij door het logo van de omslag. De tekstkleur wordt expliciet zwart gezet: het Npuls-sjabloon laat hem op automatisch staan, en op de gekleurde omslag kiest Word dan wit. In de voettekst van het sjabloon staat letterlijk `[titel]`; de bouwer vervangt die door de titel van het sjabloon, want het is geen veld dat Word zelf vult.
 
 Twee pakketten in de dev-container horen hierbij: `librsvg2-bin` zet een vectorbeeld om naar PNG, en `libreoffice-writer` laat een gebouwd sjabloon bekijken. Beide staan in [de Dockerfile](../../../.devcontainer/Dockerfile).
 
@@ -134,7 +153,8 @@ python3 -m unittest tools.tests.test_sjablonen
 - een beeld ontbreekt of een SVG in het skelet staat;
 - een alinea een alinea of een tabel bevat, want **Word weigert dat bestand te openen**;
 - een onderdeel van het pakket geen content-type draagt, of het hoofddocument als sjabloon in plaats van als document is aangemerkt;
-- de voorpagina meer draagt dan de omslag, of de inhoudsopgave voor de inleiding staat.
+- de voorpagina meer draagt dan de omslag, of de inhoudsopgave voor de inleiding staat;
+- de tekstkleur niet expliciet zwart is, want op de gekleurde omslag kiest Word dan wit.
 
 **Deze controle is nog geen poort.** De testsuite draait in de workflow `Model`, en die start alleen wanneer een `*.archimate`-bestand wijzigt. Een pull request die alleen aan de sjablonen raakt, draait de testgevallen dus niet.
 

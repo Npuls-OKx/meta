@@ -310,7 +310,11 @@ class Sjabloon:
             "opdracht en niet de uitwerking. Een hoofdstuk dat niet van "
             "toepassing is houdt zijn kop, met de reden eronder.",
             "",
-            "## Van user story naar eis",
+            "## Doelstelling document",
+            "",
+            c["doel"],
+            "",
+            "## Pakket van eisen",
             "",
             "Het pakket van eisen komt uit de gedeelde analyse van alles wat "
             "scholen hebben ingebracht, geinventariseerd in de PoC-sessies met "
@@ -345,13 +349,20 @@ class Sjabloon:
             "Vul in dit document de laag in die boven het hoofdstuk staat. De "
             "lagen eronder volgen in een eigen ronde, met dit document als bron.",
             "",
-            "## De grootst gemene deler",
+            "## Business analyse en aggregatie van pakket van eisen",
             "",
             c["aggregatie"],
             "",
             "Een instelling spreekt voor haar eigen praktijk en niet voor de "
             "sector. Noteer daarom apart wat afwijkt, onder "
             "[Afwijkingen per instelling](#afwijkingen-per-instelling).",
+            "",
+            "Een hoofdstuk is een interactie, en de business analist bepaalt "
+            "waar hij begint en eindigt. Kies de kleinst mogelijke eenheid die "
+            "waarde oplevert voor zowel de student als de instelling: groter "
+            "dan een enkele interactie, kleiner dan het hele ecosysteem. Een "
+            "scope die daarboven zit levert een eis die niemand kan bouwen, "
+            "een scope die daaronder zit levert een eis die niemand mist.",
             "",
             INHOUDSOPGAVE,
             "",
@@ -373,16 +384,18 @@ class Sjabloon:
             "| | | |",
             "| | | |",
             "",
-            "# Vragen aan OKx",
+            "# Observaties en signaleringen",
             "",
-            "Wat onduidelijk bleef, genummerd, met per vraag het hoofdstuk waar "
-            "het speelt.",
+            "Wat tijdens het invullen opviel en wat openstaat, genummerd. Een "
+            "observatie is wat u zag; een signalering is wat daarmee moet "
+            "gebeuren, bijvoorbeeld richting OKx, richting een standaard of "
+            "richting het eigen bestuur.",
             "",
-            "| Nummer | Hoofdstuk | Vraag |",
-            "|---|---|------------------------------------|",
-            "| 1 | | |",
-            "| 2 | | |",
-            "| 3 | | |",
+            "| Nummer | Hoofdstuk | Observatie | Wat er nodig is |",
+            "|---|---|---|------------------------------------|",
+            "| 1 | | | |",
+            "| 2 | | | |",
+            "| 3 | | | |",
             "",
         ]
 
@@ -419,6 +432,7 @@ class Sjabloon:
             verwacht = f"{verwacht}, {context}"
         url = f"{BLOB}/{self.ref()}/{self.bronnaam}#{anker(kop_bron)}"
         naam = self.cfg.get("voorbeeld_naam", "de voorbeelduitwerking")
+        plek = eigen.get("anker", kop)
         laag = LAGEN[eigen.get("laag", self.cfg.get("laag", "context"))]
 
         blok = []
@@ -426,7 +440,7 @@ class Sjabloon:
             blok += [f"*Optioneel: {eigen['optioneel']}. Geldt het niet voor "
                      "deze route, laat de kop staan met die reden eronder.*", ""]
         blok += [
-            f"**Voorbeeld** [{naam}, {kop}]({url})",
+            f"**Voorbeeld** [{naam}, {plek}]({url})",
             "",
             f"**Acceptatiecriteria** {verwacht}, en {eis}",
             "",
@@ -459,7 +473,38 @@ class Sjabloon:
             self.uit.append("|" + " |" * kolommen)
         self.uit.append("")
 
+    def bouwstenen(self) -> str:
+        """Een sjabloon dat niet de koppen van een bron volgt.
+
+        Sommige producten zijn geen hoofdstukkenreeks maar een herhaling van
+        dezelfde twee blokken tot het onderwerp gedekt is. Dan komt de opbouw
+        uit de configuratie en niet uit een bron.
+        """
+        self.uit = self.aanhef()
+        # De eigen criteria van een bouwsteen staan in zijn eigen regel; het
+        # verwachtingsblok leest ze uit hoofdstukken.
+        self.hoofdstukken = dict(self.hoofdstukken)
+        self.hoofdstukken.update(self.cfg["opbouw"])
+        for kop, cfg in self.cfg["opbouw"].items():
+            self.uit += ["#" * cfg.get("niveau", 1) + f" {kop}", ""]
+            if cfg.get("toelichting"):
+                self.uit += [cfg["toelichting"], ""]
+            if cfg.get("blok", True):
+                self.uit += self.verwachting(
+                    cfg.get("anker", kop), kop, cfg.get("inhoud", []))
+            if cfg.get("tabel"):
+                self.uit += list(cfg["tabel"]) + [""]
+            if cfg.get("voorbeeld_beeld"):
+                self.beeld(cfg.get("beeld_alt", kop), cfg["voorbeeld_beeld"])
+            if cfg.get("ruimte", True):
+                self.uit += [RUIMTE, ""]
+        self.uit += self.slot()
+        tekst = self.absoluut("\n".join(self.uit))
+        return re.sub(r"\n{3,}", "\n\n", tekst).strip() + "\n"
+
     def maak(self) -> str:
+        if self.cfg.get("opbouw"):
+            return self.bouwstenen()
         regels = self.brontekst().splitlines()
         self.uit = self.aanhef()
         secties: list[tuple[int, str, list[str]]] = []
