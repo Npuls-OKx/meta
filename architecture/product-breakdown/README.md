@@ -23,6 +23,12 @@ In scope zijn de artifacts van OKx met hun relaties, rol en prioriteit, de opbou
 
 Elk artifact staat erop omdat het onderdeel is van het eindproduct, er inhoud voor levert, of er het kader voor is. Controles, zoals waartegen de leerroute-uitwerking wordt getoetst, staan in de tabellen.
 
+## De eisen in de plaat
+
+De plaat draagt sinds 0.2.0 de drie soorten eisen en hun herkomst. De PoC-inbreng, de persona's en de leerroute scenario's **definieren samen** de instellingseisen. Die leiden **samen met de leerroute scenario uitwerking** tot de functionele eisen. Functionele eisen, instellingseisen en diezelfde uitwerking leiden **samen tot de interactieketens**, en die leiden tot de technische eisen aan interacties, die onderdeel zijn van de koppelvlakspecificaties.
+
+De afweging achter die indeling, met de varianten die afvielen, staat in [eisen in de productafbakening](../agent-artifacts/requirements-in-de-productafbakening/README.md).
+
 ## Versies
 
 De plaat draagt haar versie in de bestandsnaam, als `MAJOR.MINOR.PATCH`. De tekst verwijst naar de versie die geldt; een oudere versie blijft staan, zodat een document dat haar aanhaalt blijft kloppen.
@@ -30,7 +36,7 @@ De plaat draagt haar versie in de bestandsnaam, als `MAJOR.MINOR.PATCH`. De teks
 | Versie | Wat erin veranderde |
 |---|---|
 | [0.1.0](img/product-breakdown-v0.1.0.svg) | de eerste plaat, met de artifacts per vlak, de inbreng van leveranciers en het logisch gegevensmodel op de solutionlaag |
-| [0.2.0](img/product-breakdown-v0.2.0.svg) | de producten hernoemd naar leerroute scenario en leerroute scenario uitwerking, OEAPI-standaard erbij naast de solutionlaag, de leveranciersinbreng benoemd als bestaande maatwerk koppelingen en leveranciersbelangen met een lijn naar de interactieketens, en de voortgangsregel per vak vervangen door een steekwoordregel |
+| [0.2.0](img/product-breakdown-v0.2.0.svg) | vier artefacten erbij: PoC-inbreng, instellingseisen, functionele eisen en technische eisen aan interacties, met de keten ertussen. Daarnaast de producten hernoemd naar leerroute scenario en leerroute scenario uitwerking, OEAPI-standaard erbij naast de solutionlaag, de leveranciersinbreng benoemd als bestaande maatwerk koppelingen en leveranciersbelangen met een lijn naar de interactieketens, en de voortgangsregel per vak vervangen door een steekwoordregel |
 
 ## Opbouw
 
