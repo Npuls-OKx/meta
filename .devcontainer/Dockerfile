@@ -13,7 +13,10 @@ FROM mcr.microsoft.com/devcontainers/python:3.12-bookworm
 # - pandoc      : markdown -> pdf/docx conversies
 # - chromium    : headless browser voor mermaid-cli (geen losse download nodig)
 # - libreoffice : een presentatie-pdf omzetten naar een bewerkbare PowerPoint,
-#                 met impress en draw voor de pdf-import (./deck <naam> bewerkbaar)
+#                 met impress en draw voor de pdf-import (./deck <naam> bewerkbaar);
+#                 writer om een gebouwd Word-sjabloon te kunnen bekijken (#554)
+# - librsvg     : een vectorbeeld naar PNG, want het Word-formaat draagt geen
+#                 SVG en pandoc roept rsvg-convert aan (#554)
 # - poppler     : pdftoppm, om een omzetting terug naar beeld te controleren
 RUN apt-get update \
  && export DEBIAN_FRONTEND=noninteractive \
@@ -24,6 +27,8 @@ RUN apt-get update \
       chromium \
       libreoffice-impress \
       libreoffice-draw \
+      libreoffice-writer \
+      librsvg2-bin \
       poppler-utils \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*

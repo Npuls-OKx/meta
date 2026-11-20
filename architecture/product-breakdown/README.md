@@ -14,7 +14,7 @@ In scope zijn de artifacts van OKx met hun relaties, rol en prioriteit, de opbou
 
 ## Overzicht
 
-![Product breakdown OKx: de artifacts per vlak met hun relaties en prioriteit](img/product-breakdown.svg)
+![Product breakdown OKx: de artifacts per vlak met hun relaties en prioriteit](img/product-breakdown-v0.2.0.svg)
 
 - Vlakken: projectmanagement plant en stuurt. Domeinarchitectuur beschrijft het onderwijsdomein zelf: processen, begrippen, informatie en systemen met hun diensten, met de principes als kader. Solutionarchitectuur beschrijft hoe OKx dat oplost, van interactieketens tot operaties; de bouwblokken van de koppelvlakspecificatie staan daar bij elkaar. Het eindproduct is wat leveranciers en instellingen krijgen.
 - Bovenaan, los van de vlakken: de leerroutes, de persona's, de mbo-referentiearchitectuur (MORA) en de inbreng van leveranciers. MORA beheert MBO Digitaal; OKx draagt eraan bij. De inbreng van leveranciers komt binnen op het niveau van de domeinarchitectuur en wordt verwerkt in de leerroute-uitwerking en het informatiemodel.
@@ -22,6 +22,27 @@ In scope zijn de artifacts van OKx met hun relaties, rol en prioriteit, de opbou
 - Prioriteit: het getal rechtsboven in een blok loopt van 1 tot 10, en hoe lager, hoe eerder. Bij een gestippeld getal draagt OKx alleen bij. De prioriteit is een relatieve volgorde; de planning in tijd staat bij de [roadmap](#roadmap-leerroute-1).
 
 Elk artifact staat erop omdat het onderdeel is van het eindproduct, er inhoud voor levert, of er het kader voor is. Controles, zoals waartegen de leerroute-uitwerking wordt getoetst, staan in de tabellen.
+
+## Lijnen en labels
+
+Twee regels houden de plaat leesbaar nu er meer in staat. Een lijn loopt **nooit door een vak** en **nooit over het opschrift van een andere lijn**. Een kruising tussen twee lijnen mag wel, maar kost: de dertien lijnen die in 0.2.0 zijn gelegd of omgelegd, zijn gerouteerd op zo min mogelijk kruisingen en bochten, en kiezen daarbij zelf hun ankerpunt op het vak. Samenvallen mag niet; elke lijn houdt afstand tot een lijn die dezelfde kant op loopt. Twee bestaande lijnen naar het informatiemodel liepen na het invoegen van de kolom achter het vak Functionele eisen door en zijn daarom omgelegd.
+
+## De eisen in de plaat
+
+De plaat draagt sinds 0.2.0 de eisen en hun herkomst. De PoC-inbreng, de persona's en de leerroute scenario's **definieren samen** de instellingseisen. Die leiden **samen met de leerroute scenario uitwerking** tot de functionele eisen. Functionele eisen, instellingseisen en diezelfde uitwerking leiden **samen tot de interactieketens**.
+
+**De technische eisen krijgen geen eigen vak.** De solutionlaag is de technische eis: wat er over de lijn gaat, in welke vorm en wat er bij een fout gebeurt, staat in de interacties, de koppelvlakdiensten en de operaties zelf. Een apart vak zou twee teksten over hetzelfde opleveren.
+
+De afweging achter die indeling, met de varianten die afvielen, staat in [eisen in de productafbakening](../agent-artifacts/requirements-in-de-productafbakening/README.md).
+
+## Versies
+
+De plaat draagt haar versie in de bestandsnaam, als `MAJOR.MINOR.PATCH`. De tekst verwijst naar de versie die geldt; een oudere versie blijft staan, zodat een document dat haar aanhaalt blijft kloppen.
+
+| Versie | Wat erin veranderde |
+|---|---|
+| [0.1.0](img/product-breakdown-v0.1.0.svg) | de eerste plaat, met de artifacts per vlak, de inbreng van leveranciers en het logisch gegevensmodel op de solutionlaag |
+| [0.2.0](img/product-breakdown-v0.2.0.svg) | een kolom erbij, zodat er lucht in de plaat komt. Drie artefacten erbij: PoC-inbreng, instellingseisen en functionele eisen, met de keten ertussen. De leveranciersinbreng staat nu tussen de leerroutes en de persona's, met de eisen eronder. Daarnaast de producten hernoemd naar leerroute scenario en leerroute scenario uitwerking, OEAPI-standaard erbij naast de solutionlaag, de leveranciersinbreng benoemd als bestaande maatwerk koppelingen en leveranciersbelangen met een lijn naar de interactieketens, en de voortgangsregel per vak vervangen door een steekwoordregel |
 
 ## Opbouw
 
@@ -136,7 +157,7 @@ Per vlak de artifacts met hun bron, de rol die het werk doet en de prioriteit. D
 |---|---|---|---|---|---|
 | [Architectuurprincipes](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/principes/principes.md)<br>Public | Domeinarchitect | De principes en uitgangspunten van de OKx-architectuur waar elk artifact aan voldoet, deels afgeleid uit de visie van MBO Digitaal op sectorvoorzieningen in de mbo-sectorarchitectuur (MOSA). Ze zijn de herkomst van de uitgangspunten voor interacties. | Waar houden we ons altijd aan? | Houdt alle artifacts in dezelfde lijn. | 7<br>Liggen er als voorstel; de bekrachtiging kan op elk moment en moet nog gebeuren. |
 | [Kaderscenario](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario%27s/leerroute-1-regulier.md)<br>Public, eerder "leerroutedocument" | Business-analist met onderwijskennis | Per leerroute de studentreis, de instellingsreis en de processtappen van de instelling. | Hoe brengt een instelling deze student door de leerroute? | Instellingen kunnen het toetsen, en alle andere uitwerkingen bouwen erop voort. | 2<br>De basis van elke leerroute-uitwerking en wat instellingen in de proefopstelling (proof of concept, POC) toetsen. De varianten van leerroute 1 en de volgende leerroutes komen hierna. |
-| [Leerroute-uitwerking](../model/informatiemodel/modeldoorloop-leerroute-1-jochem.md)<br>meta, daar "modeldoorloop" genoemd | Solutionarchitect, business-analist en halve domeinarchitect | Per fase en stap van de studentreis wie handelt, welk objecttype ontstaat of stroomt en met welke waarde, met een beeld per stap. Gebruikt het informatiemodel en wordt getoetst tegen de hoofdplaat. | Welke informatie ontstaat waar, en wanneer gaat die naar welk systeem? | Hieruit ontstaan de interactieketens. Een objecttype dat in het informatiemodel ontbreekt, wordt hier zichtbaar. | 1<br>De poort voor al het andere: wat naar leveranciers gaat, wacht op een doorgerekende leerroute 1. De eerste versie bevat nog fouten. |
+| [Leerroute-uitwerking](../model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md)<br>meta, daar "modeldoorloop" genoemd | Solutionarchitect, business-analist en halve domeinarchitect | Per fase en stap van de studentreis wie handelt, welk objecttype ontstaat of stroomt en met welke waarde, met een beeld per stap. Gebruikt het informatiemodel en wordt getoetst tegen de hoofdplaat. | Welke informatie ontstaat waar, en wanneer gaat die naar welk systeem? | Hieruit ontstaan de interactieketens. Een objecttype dat in het informatiemodel ontbreekt, wordt hier zichtbaar. | 1<br>De poort voor al het andere: wat naar leveranciers gaat, wacht op een doorgerekende leerroute 1. De eerste versie bevat nog fouten. |
 | [Applicatiediensten](../model/informatiemodel/componenten.json)<br>ArchiMate-model en hoofdplaat, versie 1.7a | Domeinarchitect | Per systeem het gedrag dat het levert, zoals de hoofdplaat het in een component tekent, bijvoorbeeld periodeplanning in het planningssysteem. Het ArchiMate-model bevat er 34, verdeeld over 13 componenten. | Wat moet een systeem kunnen, los van het product? | Laat zien welk gedrag de systemen moeten leveren. Interactieketens vullen indirect een of meer diensten in. | 6<br>Nodig om te zien welke diensten de ketens invullen; volgt op de ketens zelf. |
 | [Begrippenlijst](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/begrippen.md)<br>Public, informatie- en gegevensmodellen | Business-analist | Per begrip de definitie, de vindplaats en de relatie met MORA en het Kernmodel Onderwijsinformatie. Het begrippenkader in meta draagt het volledige model van begrippen. | Wat betekent een begrip precies? | Zonder vaste begrippen praten mensen en systemen langs elkaar heen. | 5<br>Het informatiemodel bouwt op de begrippen; nieuwe begrippen uit de leerroutes moeten er eerst in. |
 | [Informatiemodel OKx](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/informatiemodel.md)<br>meta en Public, plaat versie 0.2 | Business-analist | De plaat met de objecttypen van kwalificatiekader tot resultaat en hun relaties, ingedeeld in begrippenfamilies, met de ontwerpkeuzes erachter. Gemodelleerd in het ArchiMate-model in meta, uitgebracht in Public. Voor reviewvragen worden er uitsneden van gemaakt. | Welke informatie bestaat er, en hoe hangt die samen? | Na bekrachtiging de gedeelde grondslag waar de gegevensmodellen en de interacties zich aan houden. | 2<br>Ligt ter bekrachtiging; de leerroute-uitwerking en de interactieketens gebruiken het, dus het moet vaststaan voordat zij verder kunnen. |

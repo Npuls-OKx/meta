@@ -1,0 +1,505 @@
+{
+  "persona": {
+    "titel": "Sjabloon persona",
+    "bron": "architecture/docs/specificatie/leerroute-uitwerking/doc/persona_jochem.md",
+    "bestand": "OKx sjabloon persona.docx",
+    "wat": "een of meer persona's bij een leerroute scenario: een portret van een mens in de scope van OKx, met wat hij meemaakt en wat hem daarin beweegt",
+    "wie": "de adviesgroep. Suggestie: de informatiemanagers nemen het voortouw, want zij kennen de instellingspraktijk per stap",
+    "voorbeeld": "[persona Jochem](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/persona_jochem.md)",
+    "voorbeeld_naam": "Persona Jochem",
+    "aggregatie": "Tussen de inbreng van instellingen en dit document zit een analysestap. Haal op bij meerdere instellingen, zoek wat zij delen, en schrijf dat op. Wat een persona draagt is wat bij meerdere instellingen zo werkt, niet wat bij een ervan zo heet.",
+    "laag": "user story",
+    "versie": "0.0.1",
+    "doel": "Dit document maakt een leerroute invoelbaar door haar te volgen door de ogen van de mensen die haar doorlopen, zodat een ontwerpkeuze te toetsen is aan wat zij ervan merken.",
+    "vervang": [],
+    "opbouw": {
+      "Werkwijze": {
+        "niveau": 1,
+        "blok": false,
+        "ruimte": false,
+        "toelichting": "Dit document draagt een of meer persona's. Herhaal de twee bouwblokken hieronder per persona tot het leerroute scenario zijn mensen heeft.\n\n**Een persona hoeft geen student te zijn.** Een planner, een examinator, een studieloopbaanbegeleider of een leerbedrijf is net zo goed een persona wanneer de route langs hem loopt. Een leerroute scenario kan er dus meerdere dragen, en dat is eerder regel dan uitzondering: een route die alleen vanuit de student is beschreven, laat niet zien wat zij van de instelling vraagt.\n\n**Schrijf in tandem met het leerroute scenario.** Het procesbeeld daar bepaalt welke stappen deze persona doorloopt; wat deze persona meemaakt scherpt dat procesbeeld aan. Verschilt de stappenreeks hier van die in het scenario, dan is een van de twee nog niet af.\n\n**Een persona is geen gemiddelde.** Een gemiddelde student bestaat niet en is nergens aan te toetsen. Kies een herkenbaar iemand, met een naam, een situatie en een reden waarom hij deze route loopt."
+      },
+      "Bouwblok: het portret": {
+        "niveau": 1,
+        "anker": "Persona Jochem",
+        "voorbeeld_beeld": "architecture/docs/specificatie/leerroute-uitwerking/img/npuls-leerroute1-regulier-jochem.png",
+        "beeld_alt": "Voorbeeld van een portret: Jochem, de persona van leerroute 1",
+        "artefact": "een portret in lopende tekst, met het beeld van de persona erbij wanneer dat er is",
+        "context": "in het kader van het leerroute scenario waar deze persona bij hoort",
+        "eis": "het portret noemt wie deze mens is, waarom hij juist deze route loopt, en wat hem daarin beweegt; een lezer moet hem kunnen navertellen zonder het document erbij",
+        "toelichting": "Kopieer dit blok voor elke persona. Begin met wie het is en waarom deze route bij hem hoort; de reis komt in het volgende blok.",
+        "tabel": [
+          "| Veld | Invulling |",
+          "|---|------------------------------------------------|",
+          "| Naam | *de naam waaronder deze persona in alle documenten terugkomt* |",
+          "| Rol | *student, planner, examinator, leerbedrijf of een andere belanghebbende* |",
+          "| Situatie | *leeftijd, vooropleiding, opleiding en instroommoment, of de positie binnen de instelling* |",
+          "| Waarom deze route | *wat maakt dat juist deze leerroute bij hem hoort* |",
+          "| Wat hem beweegt | *waar hij het voor doet, en wat hij wil vermijden* |",
+          "| Wat het moeilijk maakt | *waar hij in deze route tegenaan loopt* |",
+          "| Waaraan hij merkt dat het goed gaat | *het teken dat voor hem telt* |"
+        ]
+      },
+      "Bouwblok: de reis per processtap": {
+        "niveau": 1,
+        "anker": "Studentjourney",
+        "artefact": "een tabel met een rij per processtap uit het leerroute scenario, en daarnaast een procesplaat in mermaid, BPMN, UML of vergelijkbaar",
+        "context": "met dezelfde stappen en in dezelfde volgorde als het procesbeeld in het leerroute scenario",
+        "eis": "elke stap noemt wat deze persona doet, wat hij op dat moment moet weten en wat het met hem doet; een stap die in het scenario staat en hier niet, staat als observatie in het slot",
+        "toelichting": "Kopieer dit blok voor elke persona, direct onder zijn portret. De stappen komen uit het procesbeeld van het leerroute scenario; neem ze over in dezelfde volgorde, zodat de reizen van twee persona's naast elkaar te leggen zijn.\n\nDe uitgewerkte vorm staat in [persona Jochem](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/persona_jochem.md), die elf stappen doorloopt vanaf orienteren tot het diploma.",
+        "tabel": [
+          "| Processtap | Wat hij doet | Wat hij moet weten | Wat het met hem doet |",
+          "|---|---|---|---|",
+          "| | | | |",
+          "| | | | |",
+          "| | | | |",
+          "| | | | |"
+        ]
+      },
+      "De persona's": {
+        "niveau": 1,
+        "blok": false,
+        "toelichting": "Herhaal hieronder het portret en de reis voor elke persona van dit leerroute scenario. Zet de student vooraan; de persona's vanuit de instelling volgen in de volgorde waarin zij de route raken."
+      }
+    },
+    "breakdown_vak": "Persona's",
+    "plek": "wordt samen geschreven met het [leerroute scenario](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md), waar het procesbeeld de stappen bepaalt",
+    "levert": "**instellingseisen**, samen met de PoC-inbreng en het leerroute scenario",
+    "keten": [
+      [
+        "User story uit de PoC-inbreng",
+        "Als student wil ik bij mijn keuzedeelruimte een geprioriteerde voorkeurslijst opgeven, met als doel dat ik niet zonder keuzedeel kom te zitten wanneer mijn eerste keuze vol is"
+      ],
+      [
+        "**Instellingseis, uit dit document**",
+        "**de instelling kent per keuzedeelruimte de voorkeursvolgorde van de student voordat zij plaatst**"
+      ],
+      [
+        "Functionele eis, verderop",
+        "het studentkeuzesysteem legt per keuzedeelruimte een geordende lijst voorkeuren vast, met per voorkeur het onderdeel, de periode en de locatie"
+      ],
+      [
+        "Technische eis, verderop",
+        "de voorkeurslijst gaat als geordende verzameling over het koppelvlak, met de volgorde expliciet in het bericht en niet afgeleid uit de positie"
+      ]
+    ]
+  },
+  "leerroute-scenario": {
+    "titel": "Sjabloon leerroute scenario",
+    "bron": "architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md",
+    "bestand": "OKx sjabloon leerroute scenario.docx",
+    "wat": "een leerroute scenario: een Npuls-leerroute uitgewerkt in vijf bouwblokken, tot het punt waarop de instellingseisen en de functionele eisen ervan vaststaan",
+    "wie": "de adviesgroep. Suggestie: de BOP-adviseurs en de business analisten samen, met de onderwijskundige kant bij de adviesgroep zelf",
+    "voorbeeld": "[leerroute 1 scenario](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md)",
+    "voorbeeld_naam": "Leerroute 1 scenario",
+    "aggregatie": "Tussen de inbreng van instellingen en dit document zit een analysestap. Dat geldt hier dubbel, want een leerroute scenario is wat OKx als afspraak vastlegt: een procesgewoonte van een instelling die hier als kader belandt, wordt een eis aan elke leverancier.",
+    "vervang": [],
+    "laag": "context",
+    "versie": "0.0.1",
+    "doel": "Dit document werkt een Npuls-leerroute uit tot het punt waarop duidelijk is welke informatie waarheen moet, zodat de solutionlaag erop kan bouwen zonder de onderwijskundige keuze over te nemen.",
+    "breakdown_vak": "Leerroute scenario",
+    "plek": "bouwt op een of meer persona's, en gaat vooraf aan de uitwerking en de interactieketen",
+    "levert": "**instellingseisen** en **functionele eisen**; de technische eisen volgen later, in de interactieketen",
+    "keten": [
+      [
+        "User story uit de PoC-inbreng",
+        "Als student wil ik bij mijn keuzedeelruimte een geprioriteerde voorkeurslijst opgeven, met als doel dat ik niet zonder keuzedeel kom te zitten wanneer mijn eerste keuze vol is"
+      ],
+      [
+        "**Instellingseis, uit dit document**",
+        "**de instelling kent per keuzedeelruimte de voorkeursvolgorde van de student voordat zij plaatst**"
+      ],
+      [
+        "Functionele eis, verderop",
+        "het studentkeuzesysteem legt per keuzedeelruimte een geordende lijst voorkeuren vast, met per voorkeur het onderdeel, de periode en de locatie"
+      ],
+      [
+        "Technische eis, verderop",
+        "de voorkeurslijst gaat als geordende verzameling over het koppelvlak, met de volgorde expliciet in het bericht en niet afgeleid uit de positie"
+      ]
+    ],
+    "opbouw": {
+      "Werkwijze": {
+        "niveau": 1,
+        "blok": false,
+        "ruimte": false,
+        "toelichting": "Een leerroute scenario is opgebouwd uit vijf bouwblokken. Het routeprofiel staat er een keer in; de andere vier herhalen zich tot de route gedekt is.\n\n| Bouwblok | Hoe vaak | Levert |\n|---|---|---|\n| Routeprofiel | een keer | context |\n| Reis | per persona | user stories en instellingseisen |\n| Scenario binnen de route | per scenario | instellingseisen |\n| Procesfase | per fase | instellingseisen |\n| Informatie en systemen | per fase, of een keer voor de route | functionele eisen |\n\nTechnische eisen horen hier niet: die volgen later, in de interactieketen. De uitgewerkte vorm staat in [leerroute 1 scenario](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md); neem daar de diepgang van over, niet de hoofdstukindeling. Wat leerroute 1 eigen is, zoals keuzedelen, hoort alleen in een route die het ook kent."
+      },
+      "Notatie van eisen": {
+        "niveau": 1,
+        "blok": false,
+        "ruimte": false,
+        "toelichting": "Elke eis krijgt een nummer en verwijst naar het bouwblok waaruit hij komt. Een eis is een zin die te toetsen is, zonder toelichting; de toelichting staat in het bouwblok zelf.\n\n| Soort | Nummer | Vorm van de zin |\n|---|---|---|\n| Instellingseis | `IE-LR<route>-<volgnummer>`, bijvoorbeeld `IE-LR2-03` | De instelling kan ... |\n| Functionele eis | `FE-LR<route>-<volgnummer>`, bijvoorbeeld `FE-LR2-07` | Het <component> ... |\n\nEen functionele eis noemt de instellingseis waaruit hij komt. Een voorbeeld uit leerroute 1:\n\n| Nummer | Eis | Komt uit |\n|---|---|---|\n| IE-LR1-01 | De instelling kan per keuzedeelruimte de voorkeursvolgorde van de student vastleggen voordat zij plaatst | reis van de student, stap kiezen |\n| FE-LR1-01 | Het studentkeuzesysteem legt per keuzedeelruimte een geordende lijst voorkeuren vast, met per voorkeur het onderdeel, de periode en de locatie | IE-LR1-01, bouwblok informatie en systemen |"
+      },
+      "Bouwblok: routeprofiel": {
+        "niveau": 1,
+        "laag": "context",
+        "anker": "3.2.1.1 Leerroute 1 — Regulier",
+        "voorbeeld_beeld": "architecture/docs/specificatie/leerroute-uitwerking/img/Npuls_leerroute_1.jpg",
+        "beeld_alt": "Voorbeeld van een routeprofiel: het conceptbeeld van leerroute 1",
+        "artefact": "het conceptbeeld van de route uit de Npuls-leerroutereeks, met de tabel hieronder ingevuld",
+        "eis": "het profiel zegt in een zin wat deze route onderscheidt van leerroute 1, de reguliere en aanbodgedreven route die als vergelijkingspunt dient",
+        "toelichting": "Dit blok staat er een keer in, vooraan.",
+        "tabel": [
+          "| Veld | Invulling |",
+          "|---|------------------------------------------------|",
+          "| Route | *nummer en naam uit de negen Npuls-leerroutes* |",
+          "| Persona's | *wie deze route doorlopen, met een link naar het persona-document* |",
+          "| Sturing | *aanbodgedreven, vraaggedreven of hybride, en voor welk deel van de route* |",
+          "| Verschil met leerroute 1 | *wat gelijk blijft en wat anders gaat, in tempo, keuzeruimte en rollen* |",
+          "| Eindbeeld | *waar dit scenario eindigt, en waarom daar* |"
+        ]
+      },
+      "Bouwblok: reis": {
+        "niveau": 1,
+        "laag": "user story",
+        "anker": "3.2.1.1 De student beleving - De Student Journey",
+        "artefact": "een procesplaat in mermaid, BPMN, UML of vergelijkbaar van de reis van een persona",
+        "context": "in het kader van de persona's van deze route, met een link naar het persona-document",
+        "eis": "de plaat toont de stappen in volgorde, met de terugweg waar die bestaat; de tabel noemt per stap wat deze persona doet, wat hij moet weten en welk systeem hij raakt; elke instellingseis die eruit volgt staat genummerd in de laatste kolom",
+        "toelichting": "Kopieer dit blok voor elke persona van de route: de student, en elke rol vanuit de instelling waar de route langs loopt. De stappen van twee reizen dragen dezelfde namen, zodat zij naast elkaar te leggen zijn.",
+        "tabel": [
+          "| Stap | Wat de persona doet | Wat hij moet weten | Systeem | Instellingseis |",
+          "|---|---|---|---|---|",
+          "| | | | | *IE-LR..-..* |",
+          "| | | | | |",
+          "| | | | | |",
+          "| | | | | |"
+        ]
+      },
+      "Bouwblok: scenario binnen de route": {
+        "niveau": 1,
+        "laag": "business",
+        "optioneel": "het nominale verloop hoort er altijd in; een incidentele variant of een routespecifiek scenario alleen wanneer de route dat kent",
+        "anker": "Scenario's binnen deze leerroute",
+        "artefact": "een beschrijving in vier vaste delen, met een procesplaat in mermaid, BPMN, UML of vergelijkbaar wanneer het verloop afwijkt van de reis",
+        "context": "in het kader van een persona en het routeprofiel",
+        "eis": "het scenario noemt de uitgangssituatie, de aanleiding, het verloop en het eindbeeld; wat alleen in deze route voorkomt staat erbij met de reden",
+        "toelichting": "Kopieer dit blok per scenario. Vier scenario's keren in elke route terug: het nominale verloop, incidenteel temporiseren, incidenteel versnellen en incidenteel hybride.",
+        "tabel": [
+          "| Veld | Invulling |",
+          "|---|------------------------------------------------|",
+          "| Scenario | *naam, en of het nominaal, incidenteel of routespecifiek is* |",
+          "| Uitgangssituatie | *wat er al staat voordat het begint* |",
+          "| Aanleiding | *wat er verandert, en op welk moment* |",
+          "| Verloop | *wie wat doet, in welke volgorde* |",
+          "| Eindbeeld | *wat er klaar is wanneer het scenario eindigt* |",
+          "| Instellingseisen | *IE-LR..-.., een regel per eis* |"
+        ]
+      },
+      "Bouwblok: procesfase": {
+        "niveau": 1,
+        "laag": "business",
+        "anker": "Fase 1 — Kwalificatiekader analyseren en grofmazig ontwerpen",
+        "artefact": "een procesplaat in mermaid, BPMN, UML of vergelijkbaar van de fase aan de kant van de instelling",
+        "context": "naast de reis van de persona's te leggen, met het MORA-hoofdproces erbij",
+        "eis": "de plaat toont wie handelt en met welk systeem, met het foutpad erbij; elke stap die de instelling moet kunnen, staat als genummerde instellingseis in de tabel",
+        "toelichting": "Kopieer dit blok per fase. Houd de fasenamen van leerroute 1 aan waar de fase hetzelfde is; een eigen fase krijgt een eigen naam met de reden erbij.",
+        "tabel": [
+          "| Processtap | Rol | Systeem | Wat de instelling moet kunnen | Instellingseis |",
+          "|---|---|---|---|---|",
+          "| | | | | *IE-LR..-..* |",
+          "| | | | | |",
+          "| | | | | |"
+        ]
+      },
+      "Bouwblok: informatie en systemen": {
+        "niveau": 1,
+        "laag": "functional",
+        "anker": "Betrokken informatie bij proces",
+        "artefact": "een ArchiMate-plaat of een SVG-render daarvan, met de scope van deze fase uitgelicht op de informatiestromen hoofdplaat",
+        "context": "met daarnaast de tabel hieronder ingevuld",
+        "eis": "elk informatieobject draagt de term uit de begrippenlijst en heeft precies een bronsysteem; elke functionele eis noemt het component en de instellingseis waaruit hij komt",
+        "toelichting": "Kopieer dit blok per procesfase, of vul het een keer in voor de hele route wanneer de fasen dezelfde informatie raken.",
+        "tabel": [
+          "| Informatieobject | Bronsysteem | Wie leest of bewerkt | Functionele eis | Komt uit |",
+          "|---|---|---|---|---|",
+          "| | | | *FE-LR..-..* | *IE-LR..-..* |",
+          "| | | | | |",
+          "| | | | | |"
+        ]
+      },
+      "Uitwerking": {
+        "niveau": 1,
+        "blok": false,
+        "toelichting": "Zet hieronder eerst het routeprofiel, en herhaal daarna de bouwblokken tot de hele route gedekt is: de reizen, de scenario's, en per fase het proces met zijn informatie en systemen."
+      },
+      "Eisenoverzicht": {
+        "niveau": 1,
+        "blok": false,
+        "ruimte": false,
+        "toelichting": "Alle eisen uit de bouwblokken hierboven, bij elkaar. Dit overzicht is wat de volgende producten overnemen.",
+        "tabel": [
+          "| Nummer | Eis | Komt uit bouwblok | Komt uit eis of story |",
+          "|---|---|---|---|",
+          "| IE-LR..-01 | | | |",
+          "| IE-LR..-02 | | | |",
+          "| FE-LR..-01 | | | |",
+          "| FE-LR..-02 | | | |"
+        ]
+      }
+    }
+  },
+  "leerroute-scenario-uitwerking": {
+    "titel": "Sjabloon leerroute scenario uitwerking in het informatiemodel",
+    "bron": "architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md",
+    "bestand": "OKx sjabloon leerroute scenario uitwerking.docx",
+    "wat": "een leerroute scenario uitwerking in het informatiemodel: het scenario stap voor stap naast het informatiemodel gelegd, als een herhaling van twee bouwstenen tot de hele route gedekt is",
+    "wie": "de adviesgroep. Suggestie: de informatiemanagers vullen de regels, de business analisten leggen ze naast het model",
+    "voorbeeld": "[de uitwerking van leerroute 1 met Jochem](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md)",
+    "voorbeeld_naam": "Leerroute 1 scenario uitwerking",
+    "aggregatie": "Tussen de inbreng van instellingen en dit document zit een analysestap. Dat geldt hier sterker dan elders, omdat een voorbeeld overtuigt: een regel die uit een enkele instelling komt en hier als voorbeeld staat, leest als sectorpraktijk.",
+    "kop_labels": {},
+    "vervang": [
+      [
+        "Jochem",
+        "<student>"
+      ],
+      [
+        "leerroute 1",
+        "leerroute <nummer>"
+      ]
+    ],
+    "laag": "functional",
+    "versie": "0.0.1",
+    "doel": "Dit document legt een leerroute scenario stap voor stap naast het informatiemodel, zodat zichtbaar wordt of het model de werkelijkheid van die route draagt en waar het tekortschiet.",
+    "opbouw": {
+      "Werkwijze": {
+        "niveau": 1,
+        "blok": false,
+        "ruimte": false,
+        "toelichting": "Dit document is een herhaling van twee bouwstenen. Bouwsteen A legt een processtap vast: wie handelt, en welk informatie-element daar ontstaat. Bouwsteen B legt een uitwisseling vast: het hele ingevulde informatievoorbeeld dat van de ene applicatiecomponent naar de andere gaat.\n\nHerhaal A tot er een uitwisseling plaatsvindt, zet dan B neer, en ga verder met A. Stop wanneer het hele leerroute scenario is doorlopen. Het aantal bouwstenen ligt niet vast; de dekking van het scenario bepaalt hoeveel het er zijn.\n\nDe uitgewerkte vorm staat in [de uitwerking van leerroute 1 met Jochem](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md). Die telt acht fasen en ruim honderd bouwstenen; dat is de maat waar dit document naartoe werkt, niet de vorm die het moet overnemen."
+      },
+      "Bouwsteen A: processtap": {
+        "niveau": 1,
+        "anker": "F1-08 - Kiesbaar onderwijsprogrammaonderdeel: keuzedelen en minor",
+        "inhoud": [
+          "![x](y.svg)",
+          "| a | b |"
+        ],
+        "artefact": "een ArchiMate-plaat of een SVG-render daarvan, met de scope van deze processtap uitgelicht",
+        "context": "met daarnaast de tabel hieronder ingevuld",
+        "eis": "de plaat toont de actor, de processtap en het informatie-element dat daar ontstaat, elk met de term uit de begrippenlijst, **en de relaties naar de informatie-elementen die in eerdere bouwstenen zijn ontstaan**; wat de begrippenlijst niet kent staat als observatie in het slot",
+        "toelichting": "Kopieer dit blok voor elke processtap. De nummering volgt het leerroute scenario: F1-01 is de eerste stap van fase 1.\n\nHet gaat hier niet alleen om wat er nieuw ontstaat. Een bouwsteen is pas af wanneer ook de **relaties naar eerder ontstane informatie** erin staan: waaraan hangt het nieuwe element, en wat verwijst ernaar. Zonder die relaties is het een losse doos en zegt de uitwerking niets over het model.\n\nHet voorbeeld hieronder is er een met meerdere relaties tegelijk: het kiesbare onderwijsprogrammaonderdeel ontstaat, en hangt aan de opleidingsspecificatie, de keuzedeelruimte en de leeruitkomsten die in eerdere stappen al bestonden.",
+        "tabel": [
+          "| Veld | Invulling |",
+          "|---|------------------------------------------------|",
+          "| Nummer | *F1-01* |",
+          "| Processtap | *welke stap uit het leerroute scenario* |",
+          "| Actor | *wie handelt, met de rol uit het scenario* |",
+          "| Applicatiecomponent | *welk systeem daarbij hoort* |",
+          "| Ontstaat | *welk objecttype hier voor het eerst bestaat* |",
+          "| Relaties naar eerder ontstane elementen | *waaraan het hangt en wat ernaar verwijst, met het nummer van de bouwsteen waar dat element ontstond* |",
+          "| Voorbeeldwaarde | *de ingevulde waarde voor deze persona* |"
+        ],
+        "voorbeeld_beeld": "architecture/model/informatiemodel/img/regels/f1-08-kiesbaar-onderwijsprogrammaonderdeel-keuzedelen-en-minor.svg",
+        "beeld_alt": "Voorbeeld van bouwsteen A: het kiesbare onderwijsprogrammaonderdeel, met de relaties naar de opleidingsspecificatie en de keuzedeelruimte die eerder zijn ontstaan"
+      },
+      "Bouwsteen B: uitwisseling": {
+        "niveau": 1,
+        "anker": "F2-03 - Verzoek met specificatiestructuur en planbare waarden naar planning",
+        "inhoud": [
+          "![x](y.svg)",
+          "| a | b |"
+        ],
+        "artefact": "een ArchiMate-plaat of een SVG-render daarvan, met de scope van deze uitwisseling uitgelicht",
+        "context": "met daarnaast het volledige ingevulde informatievoorbeeld dat over de lijn gaat",
+        "eis": "de plaat toont beide applicatiecomponenten en de richting; het voorbeeld draagt elk objecttype **met zijn relaties**, zodat zichtbaar is wat de ontvanger werkelijk binnenkrijgt en niet alleen welk veld er over de lijn gaat",
+        "toelichting": "Kopieer dit blok voor elke uitwisseling. Hier gaat niet een los gegeven over de lijn maar het hele samenhangende voorbeeld: het objecttype met alles wat eraan hangt.\n\nHet voorbeeld hieronder is er een met een volle structuur: het verzoek om onderwijsaanbod neemt de specificatiestructuur en de planbare waarden mee, zodat het planningssysteem zonder navraag kan plannen.",
+        "tabel": [
+          "| Veld | Invulling |",
+          "|---|------------------------------------------------|",
+          "| Nummer | *F2-01* |",
+          "| Van | *welke applicatiecomponent levert* |",
+          "| Naar | *welke applicatiecomponent neemt af* |",
+          "| Aanleiding | *welke processtap deze uitwisseling veroorzaakt* |",
+          "| Informatievoorbeeld | *het ingevulde voorbeeld, met alle relaties* |",
+          "| Informatiestroom | *het nummer uit het leerroute scenario* |"
+        ],
+        "voorbeeld_beeld": "architecture/model/informatiemodel/img/regels/f2-03-verzoek-met-specificatiestructuur-en-planbare-waarden-naar-planning.svg",
+        "beeld_alt": "Voorbeeld van bouwsteen B: het verzoek om onderwijsaanbod gaat met de hele specificatiestructuur en de planbare waarden van de onderwijscatalogus naar het planningssysteem"
+      },
+      "Uitwerking": {
+        "niveau": 1,
+        "blok": false,
+        "toelichting": "Herhaal hieronder bouwsteen A en bouwsteen B tot het hele leerroute scenario is doorlopen. Houd de volgorde van het scenario aan, zodat beide documenten naast elkaar te leggen zijn."
+      },
+      "Hiaten in het model": {
+        "niveau": 1,
+        "blok": false,
+        "toelichting": "Welke bouwstenen niet in het informatiemodel pasten, per regel met wat ontbrak. Dit hoofdstuk is de opbrengst van de uitwerking: een voorbeeld dat overal paste heeft niets gemeten. Wat hier staat wordt een functional requirement.",
+        "tabel": [
+          "| Nummer | Wat ontbrak | Wat er nodig is |",
+          "|---|---|------------------------------------|",
+          "| | | |",
+          "| | | |",
+          "| | | |"
+        ]
+      }
+    },
+    "breakdown_vak": "uitwerking in het",
+    "plek": "volgt op het leerroute scenario en toetst het informatiemodel aan die route",
+    "levert": "**functionele eisen**, samen met de instellingseisen",
+    "keten": [
+      [
+        "User story uit de PoC-inbreng",
+        "Als student wil ik bij mijn keuzedeelruimte een geprioriteerde voorkeurslijst opgeven, met als doel dat ik niet zonder keuzedeel kom te zitten wanneer mijn eerste keuze vol is"
+      ],
+      [
+        "Instellingseis, eerder",
+        "de instelling kent per keuzedeelruimte de voorkeursvolgorde van de student voordat zij plaatst"
+      ],
+      [
+        "**Functionele eis, uit dit document**",
+        "**het studentkeuzesysteem legt per keuzedeelruimte een geordende lijst voorkeuren vast, met per voorkeur het onderdeel, de periode en de locatie**"
+      ],
+      [
+        "Technische eis, verderop",
+        "de voorkeurslijst gaat als geordende verzameling over het koppelvlak, met de volgorde expliciet in het bericht en niet afgeleid uit de positie"
+      ]
+    ]
+  },
+  "informatiemodel-viewpoint": {
+    "titel": "Sjabloon informatiemodel viewpoint",
+    "bron": "architecture/model/informatiemodel/informatiemodel.md",
+    "bestand": "OKx sjabloon informatiemodel viewpoint.docx",
+    "wat": "een viewpoint op het informatiemodel: welke objecttypen er zijn, hoe zij samenhangen, en voor welke lezer deze plaat bedoeld is",
+    "wie": "de adviesgroep. Suggestie: de business analisten met Niels, want het viewpoint hangt aan het ArchiMate-model",
+    "voorbeeld": "[informatiemodel OKx](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/informatiemodel.md)",
+    "voorbeeld_naam": "Informatiemodel OKx",
+    "aggregatie": "Tussen de inbreng van instellingen en dit document zit een analysestap. Een objecttype hoort hier wanneer meerdere instellingen het nodig hebben, niet wanneer een instelling het zo genoemd heeft. Hoe een instelling haar onderwijs inricht blijft haar keuze: OKx legt alleen de vorm van de uitwisseling vast.",
+    "kop_labels": {
+      "Lezers en detailniveau": "Lezers en detailniveau"
+    },
+    "vervang": [
+      [
+        "OKx informatiemodel",
+        "<naam van de plaat>"
+      ]
+    ],
+    "laag": "functional",
+    "versie": "0.0.1",
+    "doel": "Dit document legt vast welke objecttypen er zijn, hoe zij samenhangen en voor welke lezer de plaat bedoeld is, zodat een leverancier dezelfde begrippen leest als een onderwijskundige.",
+    "breakdown_vak": "Informatiemodel OKx",
+    "plek": "staat naast alle andere producten en levert de begrippen waarin zij spreken",
+    "levert": "geen eigen eis; het levert de begrippen waarin de andere documenten hun eisen schrijven",
+    "keten": [
+      [
+        "Instellingseis, elders",
+        "de instelling kent per keuzedeelruimte de voorkeursvolgorde van de student voordat zij plaatst"
+      ],
+      [
+        "Functionele eis, elders",
+        "het studentkeuzesysteem legt per keuzedeelruimte een geordende lijst voorkeuren vast, met per voorkeur het onderdeel, de periode en de locatie"
+      ],
+      [
+        "**Uit dit document**",
+        "**de termen keuzedeelruimte, voorkeur en onderwijslocatie, met hun definitie en kardinaliteit**"
+      ]
+    ]
+  },
+  "interactieketen": {
+    "titel": "Sjabloon interactieketen",
+    "bron": "architecture/docs/specificatie/interactieketen-onderwijsaanbod/README.md",
+    "bron_ref": "e05b4444a29a09b92cc8afd73bce69af78f1ac12",
+    "bestand": "OKx sjabloon interactieketen.docx",
+    "wat": "een interactieketen: welke diensten elkaar in welke volgorde aanroepen om een keten af te maken, en welke afspraken elke dienst nakomt",
+    "wie": "de adviesgroep. Suggestie: de business analisten met Niels, want de keten raakt de koppelvlakken",
+    "voorbeeld": "[interactieketen onderwijsaanbod](https://github.com/Npuls-OKx/meta/blob/e05b4444a29a09b92cc8afd73bce69af78f1ac12/architecture/docs/specificatie/interactieketen-onderwijsaanbod/README.md), nog in review als pull request 373",
+    "voorbeeld_naam": "Keten onderwijsaanbod",
+    "aggregatie": "Tussen de inbreng van instellingen en leveranciers en dit document zit een analysestap. Houd daarbij drie dingen uit elkaar: wat een product vandaag doet, wat een component moet kunnen, en wat OKx als grootst gemene deler vastlegt. Een leverancier spreekt voor zijn product en niet voor de sector.",
+    "vervang": [
+      [
+        "onderwijsaanbod",
+        "<keten>"
+      ],
+      [
+        "IS-OA-",
+        "IS-XX-"
+      ]
+    ],
+    "laag": "technical",
+    "versie": "0.0.1",
+    "doel": "Dit document legt vast welke diensten elkaar in welke volgorde aanroepen om een keten af te maken, zodat een bouwer weet wat hij moet bouwen en wat hij mag verwachten.",
+    "opbouw": {
+      "Werkwijze": {
+        "niveau": 1,
+        "blok": false,
+        "ruimte": false,
+        "toelichting": "Een interactieketen is een reeks interacties. Dit document zet er een neer als bouwblok, en dat blok herhaalt zich tot de keten af is.\n\n**De nummering.** Elke interactie draagt een nummer dat begint met `IS`, voor interactiespecificatie. Daarna de afkorting van de keten en een volgnummer: `IS-OA-01` is de eerste interactie van de keten onderwijsaanbod. Kies de afkorting van uw keten en houd hem door het hele document aan; OKx neemt dat nummer over, dus hernummeren achteraf kost iedereen werk.\n\n**De scope van een interactie** bepaalt de business analist: de kleinst mogelijke eenheid die waarde oplevert voor zowel de student als de instelling. Een aanroep die alleen een technische stap zet is te klein; een hele fase is te groot."
+      },
+      "Bouwblok: een interactie": {
+        "niveau": 1,
+        "anker": "IS-OA-03 Verzoek om aanbod naar planning",
+        "artefact": "een ArchiMate-plaat of een SVG-render daarvan, met de scope van deze interactie uitgelicht",
+        "context": "met daarnaast de tabel hieronder ingevuld",
+        "eis": "de plaat toont beide componenten, de richting en het bericht; de tabel noemt wat er gebeurt wanneer de aanbieder niet antwoordt, want een keten zonder foutpad is niet te bouwen",
+        "laag": "technical",
+        "toelichting": "Kopieer dit blok voor elke interactie in de keten. Houd de volgorde van de keten aan, zodat het document van begin tot eind te lezen is.",
+        "tabel": [
+          "| Veld | Invulling |",
+          "|---|------------------------------------------------|",
+          "| Nummer | *IS-XX-01* |",
+          "| Naam | *wat deze interactie doet, als werkwoord met zijn onderwerp* |",
+          "| Aanbieder | *welke component de dienst aanbiedt, met naam en versie* |",
+          "| Afnemer | *welke component hem afneemt, met naam en versie* |",
+          "| Aanleiding | *welke gebeurtenis deze interactie start* |",
+          "| Bericht | *welke informatie meegaat, met de termen uit de begrippenlijst* |",
+          "| Informatiestroom | *het nummer uit het leerroute scenario* |",
+          "| Antwoord | *wat de afnemer terugkrijgt* |",
+          "| Foutpad | *wat er gebeurt wanneer de aanbieder niet of fout antwoordt* |",
+          "| Herhaalbaar | *wat een tweede dezelfde aanroep doet* |"
+        ]
+      },
+      "De keten": {
+        "niveau": 1,
+        "blok": false,
+        "toelichting": "Herhaal het bouwblok hierboven voor elke interactie, in de volgorde van de keten. Zet er een plaat van de hele keten bij zodra alle interacties erin staan: een reeks losse blokken laat niet zien waar de keten wacht, splitst of terugkomt."
+      },
+      "Gegevensoorsprong": {
+        "niveau": 1,
+        "blok": false,
+        "toelichting": "Per gegeven welke component de bron is, en welke het alleen doorgeeft. Dit hoofdstuk voorkomt dat twee componenten zich later eigenaar noemen van hetzelfde gegeven.",
+        "tabel": [
+          "| Gegeven | Bronsysteem | Wie neemt het over | In welke interactie |",
+          "|---|---|---|---|",
+          "| | | | |",
+          "| | | | |",
+          "| | | | |"
+        ]
+      },
+      "Afspraken per dienst": {
+        "niveau": 1,
+        "blok": false,
+        "toelichting": "Wat elke dienst nakomt, ongeacht wie hem bouwt: wanneer hij antwoordt, wat een herhaalde aanroep doet, en wat er gebeurt wanneer hij niet beschikbaar is. Vaktermen op protocolniveau blijven onvertaald.",
+        "tabel": [
+          "| Dienst | Antwoordt binnen | Herhaalde aanroep | Niet beschikbaar |",
+          "|---|---|---|---|",
+          "| | | | |",
+          "| | | | |"
+        ]
+      }
+    },
+    "breakdown_vak": "Interactieketens",
+    "plek": "volgt op het leerroute scenario en gaat vooraf aan de koppelvlakspecificatie",
+    "levert": "**technische eisen aan interacties**",
+    "keten": [
+      [
+        "User story uit de PoC-inbreng",
+        "Als student wil ik bij mijn keuzedeelruimte een geprioriteerde voorkeurslijst opgeven, met als doel dat ik niet zonder keuzedeel kom te zitten wanneer mijn eerste keuze vol is"
+      ],
+      [
+        "Instellingseis, eerder",
+        "de instelling kent per keuzedeelruimte de voorkeursvolgorde van de student voordat zij plaatst"
+      ],
+      [
+        "Functionele eis, eerder",
+        "het studentkeuzesysteem legt per keuzedeelruimte een geordende lijst voorkeuren vast, met per voorkeur het onderdeel, de periode en de locatie"
+      ],
+      [
+        "**Technische eis, uit dit document**",
+        "**de voorkeurslijst gaat als geordende verzameling over het koppelvlak, met de volgorde expliciet in het bericht en niet afgeleid uit de positie**"
+      ]
+    ]
+  }
+}
