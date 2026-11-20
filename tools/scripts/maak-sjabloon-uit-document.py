@@ -250,7 +250,10 @@ def uitgelicht(bron: pathlib.Path, doel: pathlib.Path,
         raise SystemExit("rsvg-convert ontbreekt; installeer librsvg2-bin in "
                          "de dev-container")
     tussen = doel.with_suffix(".tussen.png")
-    subprocess.run(["rsvg-convert", "-w", str(PLAATBREEDTE), str(bron),
+    kop = re.search(r'viewBox="-?[\d.]+ -?[\d.]+ ([\d.]+) [\d.]+"',
+                    bron.read_text(encoding="utf-8"))
+    breedte = round(float(kop.group(1))) if kop else PLAATBREEDTE
+    subprocess.run(["rsvg-convert", "-w", str(breedte), str(bron),
                     "-o", str(tussen)], check=True, capture_output=True)
     with Image.open(tussen) as beeld:
         plat = Image.new("RGB", beeld.size, "white")

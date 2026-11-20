@@ -7,7 +7,7 @@ Open het Word-bestand. Elk sjabloon is **afgeleid uit de uitwerking die er al li
 | Product | Sjabloon | Afgeleid uit |
 |---|---|---|
 | persona | `OKx sjabloon persona.docx` | twee bouwblokken, met [persona Jochem](../specificatie/leerroute-uitwerking/doc/persona_jochem.md) als voorbeeld |
-| leerroute scenario | `OKx sjabloon leerroute scenario.docx` | [leerroute 1 scenario](../specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md) |
+| leerroute scenario | `OKx sjabloon leerroute scenario.docx` | vijf bouwblokken, met [leerroute 1 scenario](../specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md) als voorbeeld |
 | informatiemodel viewpoint | `OKx sjabloon informatiemodel viewpoint.docx` | [informatiemodel OKx](../../model/informatiemodel/informatiemodel.md) |
 | leerroute scenario uitwerking in het informatiemodel | `OKx sjabloon leerroute scenario uitwerking.docx` | twee bouwstenen, met [de uitwerking met Jochem](../../model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md) als voorbeeld |
 | interactieketen | `OKx sjabloon interactieketen.docx` | [keten onderwijsaanbod](https://github.com/Npuls-OKx/meta/blob/e05b4444a29a09b92cc8afd73bce69af78f1ac12/architecture/docs/specificatie/interactieketen-onderwijsaanbod/README.md), nog in review |
@@ -73,6 +73,20 @@ Het sjabloon draagt daarom twee bouwblokken die zich per persona herhalen:
 |---|---|
 | **het portret** | naam, rol, situatie, waarom juist deze route, wat hem beweegt, wat het moeilijk maakt, waaraan hij merkt dat het goed gaat |
 | **de reis per processtap** | een rij per stap uit het procesbeeld van het scenario: wat hij doet, wat hij moet weten, wat het met hem doet |
+
+## Het leerroute scenario in vijf bouwblokken
+
+Het sjabloon volgde eerst de hoofdstukken van leerroute 1, en droeg daarmee ook wat alleen leerroute 1 eigen is. Het bestaat nu uit de bouwblokken waaruit elk scenario is opgebouwd:
+
+| Bouwblok | Hoe vaak | Levert |
+|---|---|---|
+| routeprofiel | een keer | context |
+| reis | per persona | user stories en instellingseisen |
+| scenario binnen de route | per scenario | instellingseisen |
+| procesfase | per fase | instellingseisen |
+| informatie en systemen | per fase, of een keer | functionele eisen |
+
+Elk blok draagt zijn acceptatiecriteria en een invultabel met een kolom voor de eis. De notatie ligt vast: `IE-LR<route>-<volgnummer>` voor een instellingseis, `FE-LR<route>-<volgnummer>` voor een functionele eis, en een functionele eis noemt de instellingseis waaruit hij komt. Het sjabloon sluit met een eisenoverzicht. Technische eisen staan er niet in; die volgen later, in de interactieketen.
 
 ## Twee bouwstenen in plaats van honderd hoofdstukken
 

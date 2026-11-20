@@ -152,8 +152,17 @@ class ElkHoofdstukZegtWatErWordtVerwacht(unittest.TestCase):
 
     def test_een_acceptatiecriterium_noemt_de_context(self):
         t = skelet("leerroute-scenario")
-        self.assertIn("procesplaat van de studentreis", t)
+        self.assertIn("van de reis van een persona", t)
         self.assertIn("in het kader van de persona", t)
+        self.assertIn("ArchiMate-plaat", t)
+
+    def test_het_scenario_noteert_zijn_eisen(self):
+        """Een eis draagt een nummer en verwijst naar zijn bouwblok."""
+        t = skelet("leerroute-scenario")
+        for stuk in ("# Notatie van eisen", "IE-LR", "FE-LR", "# Eisenoverzicht"):
+            self.assertIn(stuk, t)
+        self.assertNotIn("**Technische eisen** *", t,
+                         "technische eisen komen later, in de interactieketen")
         self.assertIn("mermaid, BPMN, UML of vergelijkbaar", t)
 
     def test_een_hoofdstuk_dat_niet_elke_route_raakt_is_optioneel(self):
