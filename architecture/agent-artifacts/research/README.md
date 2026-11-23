@@ -29,6 +29,7 @@ De vorm staat in de skill [okx-onderzoeksverslag](../../../.agents/skills/okx-on
 | [Keten-eisen versus requirementsboom](20260816_1530_afbakening-keteneisen-versus-requirementsboom.md) | Kan de boom de rol van de keten-eisen K1 tot en met K5 in het Public-releasepakket overnemen, binnen de PDF-randvoorwaarden? | Afgerond |
 | [Hernummering requirementsboom](20260816_1820_hernummering-requirementsboom.md) | Welke oude id draagt welke nieuwe id na de hernummering naar de id-conventie, en wat bleef bewust buiten scope? | Afgerond |
 | [De OKE-vorm tegenover de scope van OKx](20261027_1248_oke-vorm-tegenover-okx-scope.md) | Welke eigenschappen van de OKE-afsprakenset zijn bruikbaar binnen de bredere scope van OKx, wat lost OKE op met functiegebieden, en wat zou daarvoor bij OKx nodig zijn? | Ter bespreking |
+| [Dekking van de reviewsessies tegenover de stand van de leerroute-uitwerking](20261110_1000_dekking-reviewsessies-leerroute-uitwerking.md) | Welke onderwerpen uit vier reviewsessies zijn al gedekt door een open issue, wat is de stand van de uitwerking per fase, en landt het resterende werk op PR 314 of in nieuwe pull requests daarna? | Ter bespreking |
 
 De drie verslagen bij issue #130 horen bij elkaar: AMIGO zegt wat er gemaakt moet worden, de praktijk laat zien welke koppelmechanismen het volhouden, en het gereedschapsverslag toetst wat daarvan bij onze randvoorwaarden past.
 
