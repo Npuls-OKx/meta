@@ -271,13 +271,13 @@ Vanuit studentperspectief lijkt regulier studeren eenvoudig: een student oriente
 
 > **Vignet — Jochem (keuzedeel-voorkeuren).** Jochem stelt een geprioriteerde voorkeurslijst samen met *Ondernemerschap in de zorg* op plaats 1 (semester 2, locatie A), gevolgd door alternatieven op lagere prioriteit — zoals in de tabel hieronder. Per keuzedeel legt hij ook de voorgeprogrammeerde **onderwijsperiode** vast en optinioneel de **onderwijslocatie** vast. Als zijn eerste voorkeur niet haalbaar is op die combinatie, moet hij kunnen heroriënteren; anders blijft zijn **keuzedeelruimte** leeg met studievertraging tot gevolg.
 
-Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): US-02, IE-LR1-01.
+Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): US-LR1-002, IE-LR1-001.
 
 De keuzedelen worden van te voren als beschikbaar aanbod gepubliceerd en getoond aan de student tijdens zijn/haar aanbod oriëntatie. Hierbij zal de onderwijsinstelling vanuit organiseerbaarheid in het individuele aanbod voorsorteren op geschikte beroepsspecifieke keuzedelen in het assortiment en het bredere aanbod van generieke keuzedelen.
 
 Hieruit volgt [story-0013](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/requirementsboom/stories.md#story-0013): de student ziet eerst de keuzedelen die de instelling heeft voorgesorteerd.
 
-Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): US-01, IE-LR1-05.
+Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): US-LR1-001, IE-LR1-005.
 
 Naarmate de student zijn route aflegt, wordt de voortgang van de student gemonitord en de keuze van keuzedelen gefaciliteerd. Zodra de geplande **keuzedeelruimte** dichterbij komt, mag een student zijn/haar geprioriteerde keuzedeel-voorkeurslijst samenstellen. Hierin staat op nummer 1 het keuzedeel met de hoogste voorkeur van de student, en op een hoger volgnummer $x$ (waarbij $x>1$), de keuzedelen met lagere prioriteit.
 
@@ -295,7 +295,7 @@ In deze lijst geeft de student aan dat 'Ondernemerschap in de zorg' het meest ge
 
 Wanneer de student **niet** het gewenste keuzedeel op de voorkeurs **onderwijslocatie** en/of voorkeurs **onderwijsperiode**, dan **moet** de student op een andere onderwijslocatie kunnen oriënteren op meer passende keuzedelen.
 
-Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): US-05, IE-LR1-02.
+Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): US-LR1-005, IE-LR1-002.
 
 Als er geen passend aanbod (combinatie keuzedeel en/of onderwijsperiode en/of onderwijslocatie) is voor de student, dan blijft de geplande keuzedeelruimte mogelijk oningevuld. Hier wordt actief op gesignaleerd om Jochem een nieuwe keuze te laten maken. 
 Jochem heeft in zijn opleiding geplande keuzedeelruimtes, uitgedrukt in SBU's. Jochem dient in deze keuzedeelruimtes ook het minimale SBU's voor zijn kwalificatie te bereiken. Ook hier wordt actief op gesignaleerd.   
@@ -306,7 +306,7 @@ Wanneer een passende combinatie van keuzedeel en/of onderwijsperiode en/of onder
 
 De **aanmelding** voor keuzedelen wordt vast gelegd naarmate de in het **onderwijsprogramma** geplande *keuzdeelruimte* dichterbij komt. De keuze van de student wordt uiterlijk een vast gestelde periode $t$ van te voren vastgelegd.
 
-Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): US-04, IE-LR1-07, FE-LR1-18.
+Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): US-LR1-004, IE-LR1-007, FE-LR1-018.
 
 > **Vignet — Jochem** Jochems instelling legt de keuzedeel-aanmelding **1 periode voorafgaande aan de keuzedeelruimte** vast. Staat de prioritering nog goed? Zo niet, past hij zijn **aanmelding keuzedeel** aan voordat het definitief wordt verwerkt. 
 
@@ -396,7 +396,7 @@ flowchart TB
 | **Opleiding** | `Aanmelding opleiding` (geel) na stap 2 | `Inschrijving opleiding en opleidingsprogramma` (geel) na positieve plaatsing | Match tussen student en instelling op opleiding/programma |
 | **Keuzedeel** | `Aanmelding keuzedeel` (geel) na vastlegging voorkeuren | `Inschrijving keuzedeel` (geel) na gate 10 | Passende combinatie van keuzedeel, **onderwijsperiode** en **onderwijslocatie**. Bij geen passend aanbod blijft de **keuzedeelruimte** leeg (mogelijke studievertraging); geannuleerd aanbod kan leiden tot **inactieve** inschrijving. |
 
-Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): IE-LR1-08, IE-LR1-12.
+Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): IE-LR1-008, IE-LR1-012.
 
 > **Vignet — Jochem (twee stappen naar inschrijving).** Eerst wordt Jochems **aanmelding opleiding** na positieve plaatsing een **inschrijving opleiding en opleidingsprogramma**. Later, wanneer zijn keuzedeel op voorkeursperiode en -locatie past, wordt **aanmelding keuzedeel** **inschrijving keuzedeel**. Zonder passend keuzedeelaanbod blijft zijn programma regulier, maar de keuzedeelruimte oningevuld.
 
@@ -726,7 +726,7 @@ De belangrijkste scenario's binnen deze leerroute zijn:
 - **Incidenteel versnellen**: de student blijkt sneller door bepaalde onderdelen heen te gaan dan vooraf verwacht. Dat kan komen doordat een student eerder vaardigheden oppakt, sneller formatieve doelen behaalt of ruimte krijgt om eerder aan een toetsmoment deel te nemen. Ook dan blijft de route regulier, kan de student aanvragen om op onderdelen sneller door dezelfde keten te bewegen.
 - **Incidenteel versnellen en temporiseren**: de student loopt op het ene onderdeel voor en op het andere onderdeel achter. Bijvoorbeeld: theorie gaat sneller dan gepland, maar praktijk, BPV of een specifiek werkproces vraagt juist meer tijd. In dat geval ontstaat een gemengd beeld waarin de student nog steeds binnen de reguliere leerroute valt, maar de voortgang per onderdeel niet meer overal gelijk oploopt. Hieruit volgt [story-0027](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/requirementsboom/stories.md#story-0027): per werkproces is de actuele verbintenisstatus vast te stellen.
 
-Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): US-16, IE-LR1-03, IE-LR1-17.
+Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): US-LR1-016, IE-LR1-003, IE-LR1-017.
 
 De `happy flow` en de incidentele varianten van temporiseren, versnellen en hybride voortgang zijn niet uniek voor leerroute 1. Ze zijn in feite van toepassing op **elke leerroute** in dit document. Ook binnen temporiseren, versnellen, personaliseren of modulair studeren kunnen studenten onderweg in nominaal tempo doorlopen, incidenteel vertragen, incidenteel versnellen of beide tegelijk ervaren. Daarnaast kent iedere leerroute ook eigen, route-specifieke scenario's. Voor leerroute 1 is \"wisselen van opleiding en behaalde resultaten meenemen\" daarvan een belangrijk voorbeeld.
 
@@ -734,13 +734,13 @@ De `happy flow` en de incidentele varianten van temporiseren, versnellen en hybr
 
 - **Wisselen van opleiding en behaalde resultaten meenemen**: een student volgt eerst een deel van de reguliere route, besluit daarna over te stappen naar een andere opleiding of een ander regulier programma, en wil eerder behaalde resultaten meenemen. Dit scenario raakt niet alleen de studentbeleving, maar vooral de vraag hoe resultaten, vrijstellingen, voortgang en passende herplaatsing overgedragen en opnieuw erkend worden binnen (en buiten) de instelling. Hierbij geldt ook dat de student niet maanden zou moeten wachten tot het eerst volgende instroom moment. Indien de geplande capaciteit het toelaat zou de student flexibel moeten kunnen instromen in het nieuwe programma.
 
-Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): US-09, IE-LR1-23.
+Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): US-LR1-009, IE-LR1-023.
 
 ##### Switch regulier onderwijs ↔ set certificaten
 
 **Trigger.** Een student wil tussentijds het **opleidingsprogramma** loslaten en alleen nog **certificaten** halen (of omgekeerd: van een set certificaten terug naar regulier onderwijs). Dit is met koplopers besproken als **frequent scenario** met hoge prioriteit — een concrete kickstarter voor onderwijsflexibiliteit in ketensystemen.
 
-Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): US-20.
+Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): US-LR1-020.
 
 **Actorflow (hoofdlijnen).** SLB signaleert de wens → onderwijsontwikkelaar/team beoordeelt haalbaarheid en herontwerp → planner en roosteraar hergroeperen aanbod en capaciteit → **KRS/SVS** (en aanverwante registratie) moeten verbintenissen, rechtmatigheid en bekostiging actualiseren. Daar zit nu de grootste pijn: veel **handmatige, foutgevoelige procedures**.
 
@@ -752,7 +752,7 @@ Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): US-20.
 | Resultaten | Voortgang binnen programma | Behaalde resultaten/vrijstellingen **meenemen** en herinterpreteren |
 | Rechtmatigheid / bekostiging | Programma- en cohortlogica | Andere regels per certificaat of traject — vaak niet modelmatig ondersteund |
 
-Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): IE-LR1-24.
+Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): IE-LR1-024.
 
 **KRS/SVS-knelpunten.** Systemen zijn ingericht op één doorlopende opleidingsverbintenis; switch vereist nu ad-hoc mutaties, dubbele controles en papieren workarounds. Behoefte: **modelmatige steun** in OEAPI/profiel voor opdelen/samenvoegen van verbintenissen, koppeling aan certificaat-aanbod en traceerbare overgang van rechtmatigheidsstatus.
 
@@ -893,7 +893,7 @@ Voordat de planner begint, leveren specificatie, inschrijvingen, groepen, capaci
 
 Hieruit volgt [story-0008](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/requirementsboom/stories.md#story-0008): de planner herkent de groep aan het gekozen keuzedeel en de periode.
 
-Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): US-13.
+Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): US-LR1-013.
 
 Verschil tussen nominaal en persoonlijk programma in deze leerroute.
 
@@ -1145,7 +1145,7 @@ Bij **fase 5, 6 en 7** is dit verhaal niet af zonder de **variaties** *incidente
 
 **Wat licht op in de plaat.** **Curriculum-ontwerptool → OC** met `opleidingsspecificatie`, `opleidingsprogramma-specificatie`, `onderwijseenheid-specificatie`, `toetsonderdeel-specificatie` en initieel `examenonderdeel-specificatie` — alles op grofmazig niveau.
 
-Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): FE-LR1-04.
+Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): FE-LR1-004.
 
 ###### Fase 2 — Publiceren en planbaar maken
 
@@ -1155,13 +1155,13 @@ Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): FE-LR1-04.
 
 Hieruit volgen [story-0007](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/requirementsboom/stories.md#story-0007) (de verwerkingsstatus met referentie terugmelden) en [story-0009](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/requirementsboom/stories.md#story-0009) (de haalbaarheidstoets op het concept vóór publicatie).
 
-Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): US-11, US-12, IE-LR1-04, IE-LR1-10, FE-LR1-05.
+Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): US-LR1-011, US-LR1-012, IE-LR1-004, IE-LR1-010, FE-LR1-005.
 
 **Jochem — happy flow.** Nog steeds onzichtbaar, maar deze fase bepaalt of zijn opleiding in september start en met welke capaciteit. Onhaalbaar plan = geen aanbod om zich op te oriënteren.
 
 **Wat licht op in de plaat.** **OC → Planningssysteem** (`opleidingsspecificatie` als planopgave); **Curriculum-ontwerptool → OC** (specificatie-update en plan-assets); **Planning → OC** (`opleidingsaanbod`, `opleidingsprogramma-aanbod` als planbaar resultaat). Het strategische jaarplan loopt op de achtergrond.
 
-Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): US-10, IE-LR1-09, FE-LR1-03, FE-LR1-06.
+Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): US-LR1-010, IE-LR1-009, FE-LR1-003, FE-LR1-006.
 
 ###### Fase 3 — Instroom, intake en plaatsing
 
@@ -1169,13 +1169,13 @@ Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): US-10, IE-L
 
 **Jochem — happy flow.** Jochem ziet het gepubliceerde aanbod (vanuit **OC**) en herkent *Apothekersassistent — regulier* met start in september. Hij **oriënteert**, **meldt zich aan** via het **Intakesysteem** en doorloopt de intake met zijn **SLB'er** (student-journey-stappen 1–4, zie *De student beleving — De Student Journey*). Match? Het Intakesysteem draagt de positieve uitkomst over aan **KRS**; daar wordt zijn `Persoon` vastgelegd plus een **`opleidingsverbintenis`** en **`opleidingsprogramma-verbintenis`**.
 
-Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): IE-LR1-11, IE-LR1-12, FE-LR1-08.
+Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): IE-LR1-011, IE-LR1-012, FE-LR1-008.
 
 **De instelling — journey fase 3.** Vanaf nu bestaat Jochem als formele student in de keten met een inschrijving op opleiding, programma en (waar van toepassing) initiële `plaatsingsgroep`.
 
 **Wat licht op in de plaat.**: **OC → Intakesysteem** (aanbod om op te oriënteren); **Intakesysteem → KRS** (`opleidingsverbintenis`, `opleidingsprogramma-verbintenis` + `Persoon`). KRS wordt master voor persoon en plaatsing.
 
-Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): FE-LR1-07.
+Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): FE-LR1-007.
 
 ###### Fase 4 — Detailleren, roosteren en inschrijven
 
@@ -1183,17 +1183,17 @@ Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): FE-LR1-07.
 
 **De instelling — journey fase 4.** Onderwijsontwikkelaars werken **`leeronderdeel-`** en **`toetsonderdeel-specificaties`** (en waar nodig `lesspecificatie`) fijnmazig uit; **OC → LMS** levert die detailspecificaties ter inrichting. Het **Planningssysteem** definieert **plaatsings-** en **planninggroepen** per `opleidingsprogramma`, koppelt deze in **KRS** aan `Persoon`, en geeft te roosteren `leeronderdeel-specificaties` aan het **Roostersysteem**. Het roostersysteem maakt concrete **`leergelegenheden`**, **`lesgelegenheden`** en (waar van toepassing ) ook **`toetsgelegenheden`** (slots, lokalen, docenten) en deelt verwachte deelnemers als **`leergelegenheid-verbintenis`** met de **Aanwezigheidsregistratie**.
 
-Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): IE-LR1-13, FE-LR1-09, FE-LR1-10, FE-LR1-12.
+Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): IE-LR1-013, FE-LR1-009, FE-LR1-010, FE-LR1-012.
 
 **Jochem — happy flow.** Jochem ontvangt zijn **eerste rooster** en krijgt toegang tot het **LMS** voor periode 1. Latere perioden blijven planbaar tot ze geroosterd worden.
 
 Hieruit volgen [story-0004](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/requirementsboom/stories.md#story-0004) (geroosterd aanbod per periode publiceren) en [story-0005](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/requirementsboom/stories.md#story-0005) (vóór de start toegang tot leeromgeving en rooster).
 
-Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): US-06, US-14, IE-LR1-14, IE-LR1-15.
+Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): US-LR1-006, US-LR1-014, IE-LR1-014, IE-LR1-015.
 
 **Wat licht op in de plaat.** **OC → LMS** (`leeronderdeel-specificaties` ter detaillering); **Planning ↔ KRS** (groepen ↔ persoon i.r.t. personen en groepen i.r.t `onderwijsspeicficatie`); **Planning → Rooster** (te roosteren `leeronderdeel-` en `toetsonderdeel-specificaties`); **Rooster → Aanwezigheidsregistratie** (`leergelegenheid-verbintenis` "presentielijst"); **KRS → LMS** (`opleidingsprogramma-verbintenis` + `Persoon` voor rechtmatige toegang).
 
-Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): FE-LR1-11, FE-LR1-13.
+Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): FE-LR1-011, FE-LR1-013.
 
 ###### Fase 5 — Onderwijs uitvoeren en voortgang begeleiden
 
@@ -1205,7 +1205,7 @@ Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): FE-LR1-11, 
 
 Hieruit volgt [story-0021](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/requirementsboom/stories.md#story-0021): de docent legt tijdens de uitvoering voortgang en resultaat per les vast.
 
-Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): US-15, IE-LR1-16.
+Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): US-LR1-015, IE-LR1-016.
 
 **Jochem — variaties.**
 
@@ -1213,13 +1213,13 @@ Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): US-15, IE-L
 - *Incidenteel versnellen:* hij pakt theorie sneller op en vraagt eerder toegang tot het volgende blok.
 - *Hybride:* theorie versnelt, BPV temporiseert.
 
-Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): US-08, FE-LR1-15.
+Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): US-LR1-008, FE-LR1-015.
 
 In alle drie blijft de **leerroute regulier**; deze signalen uit fase 5 voeden direct **fase 7** (bijsturen).
 
 **Wat licht op in de plaat.** **OC → LMS** en **OC → SVS** (specificatie als referentiekader); **Roostersysteem ↔ Aanwezigheidsregistratie** (geroosterd aanbod ↔ aanwezigheidsfeiten); **LMS → SVS** (`leergelegenheid-verbintenis resultaten` en `toetsgelegenheid-verbintenis resultaten`, formatief).
 
-Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): FE-LR1-14.
+Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): FE-LR1-014.
 
 ###### Fase 6 — Organiseren van keuzemomenten
 
@@ -1227,21 +1227,21 @@ Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): FE-LR1-14.
 
 **Jochem — happy flow.** De **keuzedeelruimte** nadert; Jochem stelt zijn **geprioriteerde voorkeurslijst** samen in het **SKS** (zie *Wanneer kiest een student keuzedelen?*). Zijn `aanmelding keuzedeel` voor *Ondernemerschap in de zorg* (periode 7, locatie A) past — gate 10 ja. **SKS → Planning** geeft zijn keuzestelling door als `opleidingsprogramma-verbintenis` op het gekozen `opleidingsprogramma-aanbod`. De planner verwerkt die keuze; bij passend aanbod levert **Planning → KRS** de formele **inschrijving** op het keuzedeel; **KRS/SVS/LMS** en rooster volgen.
 
-Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): FE-LR1-01.
+Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): FE-LR1-001.
 
 Hieruit volgt [story-0014](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/requirementsboom/stories.md#story-0014): een keuzedeel is alleen kiesbaar wanneer locatie en periode passen.
 
-Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): US-03, IE-LR1-06, FE-LR1-17.
+Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): US-LR1-003, IE-LR1-006, FE-LR1-017.
 
 **De instelling — journey fase 6.** De planner verwerkt definitieve keuzes **periodiek** naar groepen en capaciteit, actualiseert het planbare aanbod in **OC** en het rooster volgt. Bij **niet-passend aanbod** of **oningevulde keuzedeelruimte** signaleert het systeem actief richting SLB.
 
-Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): US-17, IE-LR1-02, IE-LR1-18, FE-LR1-20.
+Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): US-LR1-017, IE-LR1-002, IE-LR1-018, FE-LR1-020.
 
 **Jochem — variaties.** Past zijn eerste voorkeur niet, dan oriënteert hij op een andere locatie (gate 9a) of een ander keuzedeel; blijft passend aanbod uit, dan blijft zijn keuzedeelruimte (tijdelijk) **leeg** met studievertraging als gevolg — én een signaal naar SLB.
 
 **Wat licht op in de plaat.** **OC → SKS** (`opleidingsprogramma-aanbod` type keuzedeel + `opleidingsprogramma-specificatie`); **SKS → Planning** (`opleidingsprogramma-verbintenis` op gekozen aanbod); **Planning → KRS** (formele inschrijving keuzedeel bij passend aanbod); **Planning → OC** en **Planning → Rooster** (geactualiseerd planbaar/geroosterd aanbod); **KRS → LMS** en **SVS** (deelnemerscontext en studiepad).
 
-Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): FE-LR1-02, FE-LR1-16, FE-LR1-19.
+Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): FE-LR1-002, FE-LR1-016, FE-LR1-019.
 
 ###### Fase 7 — Bijsturen planning en aanbod
 
@@ -1249,7 +1249,7 @@ Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): FE-LR1-02, 
 
 **De instelling — journey fase 7 (IST situatie is grotendeels handmatig).** Tijdens het jaar **cumuleren afwijkingen** (uitval, temporiseren, versnellen, hybride) tegen de initiële `opleidingsprogramma-specificatie` van studenten. **SVS** is bron van die individuele voortgang. De planner verzamelt **vergelijkbare afwijkingen** in een **planninggroep**: bestaande `onderwijseenheid-verbintenissen` worden via **KRS** geannuleerd, voor de nieuwe plangroepen wordt **nieuw `onderwijsaanbod`** gemaakt op basis van dezelfde `opleidingsprogramma-specificatie`. **Planning → OC** publiceert het bijgestuurde planbaar aanbod; **Planning → Rooster** levert het nieuwe rooster. 
 
-Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): IE-LR1-19, FE-LR1-22.
+Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): IE-LR1-019, FE-LR1-022.
 
 **Jochem — variaties.**
 
@@ -1257,11 +1257,11 @@ Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): IE-LR1-19, 
 - *Versnellen:* hij komt in een versnel-pool (`planningsgroeping` i.r.t. `onderwijsspecificatie`) met andere studenten die op theorie sneller gaan; nieuw `onderwijseenheid-aanbod` met afwijkende periode. Hieruit volgt [story-0026](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/requirementsboom/stories.md#story-0026): de planner haalt leergelegenheden uit een latere periode naar voren.
 - *Hybride:* hij zit in beide `planningsgroeperingen` — theorie sneller, BPV later — wat het strategische jaarplan opnieuw moet absorberen. Bestaande `onderwijseenheid-verbintenissen` zijn geannuleerd.
 
-Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): US-07, US-18, IE-LR1-20.
+Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): US-LR1-007, US-LR1-018, IE-LR1-020.
 
 **Wat licht op in de plaat.** **SVS** als bron van individuele voortgang (`onderwijsverbintenis resultaten`); **KRS** (verbreken bestaande `onderwijseenheid-verbintenis`); **KRS → Planning** (gewijzigde populatie en plangroepen); **Planning → OC** (mutaties planbaar aanbod); **Planning → Rooster** (nieuw rooster).
 
-Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): FE-LR1-21.
+Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): FE-LR1-021.
 
 ###### Fase 8 — Examineren, vaststellen en diplomeren
 
@@ -1269,13 +1269,13 @@ Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): FE-LR1-21.
 
 **De instelling — journey fase 8.** Op basis van het **examenplan** uit fase 1 worden **`examenspecificaties`** getransformeerd tot **`examengelegenheden`**. **Toets-/examenplanning** stelt kandidatenlijsten samen; **Toets-/examenafname** voert de zitting uit en levert resultaten als **`examengelegenheid-verbintenis resultaten`** door aan **SVS**. De **examencommissie** stelt summatief vast (binnen SVS); op basis daarvan registreert **KRS** kwalificering en diplomering.
 
-Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): US-19, IE-LR1-21, IE-LR1-22.
+Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): US-LR1-019, IE-LR1-021, IE-LR1-022.
 
 **Jochem — happy flow.** Jochem legt examens af, ontvangt zijn formele beoordeling en uiteindelijk zijn diploma — het eindpunt van dezelfde keten die hij als reguliere route ervoer.
 
 **Wat licht op in de plaat.** **Toets-/examenplanning ↔ Toets-/examenafname**; **Toets-/examenafname → SVS** (`examengelegenheid-verbintenis resultaten`); **SVS ↔ KRS** (kwalificering en diplomering).
 
-Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): FE-LR1-23, FE-LR1-24.
+Hieruit volgen in het [eisenoverzicht](#eisenoverzicht-leerroute-1): FE-LR1-023, FE-LR1-024.
 
 **Aansluiting op de informatiestromenplaat.** De [Informatiestromenplaat](../img/OKx_LR1_informatiestromen_v20260526.jpg) hierboven toont **dezelfde stromen** in begrippen uit het begrippenkader en informatiemodel; in latere AMIGO-stappen worden die vertaald naar **OEAPI-termen** op de flow-relaties (zoals `Programme specification`, `ProgrammeOffering`, `Association`). Hier blijft het bij wat er **conceptueel** beweegt; in de berichtspecificatie-stap van AMIGO (§2.4) en de koppelingspecificaties in Public staat hoe dat in uitwisseling wordt gevangen.
 
@@ -1421,90 +1421,90 @@ Onderstaand organogram maakt zichtbaar dat dit probleem niet alleen tussen domei
 
 ##### Eisenoverzicht leerroute 1
 
-De user stories, instellingseisen en functionele eisen die uit leerroute 1 volgen, bij elkaar. De tekst hierboven verwijst er per passage naar. De vorm komt uit het sjabloon leerroute scenario: een instellingseis zegt wat de instelling moet kunnen, een functionele eis wat een applicatiecomponent doet met welke informatieobjecten. Een eis met `(aanname)` heeft in de tekst een aanleiding en geen letterlijke grond.
+De user stories, instellingseisen en functionele eisen die uit leerroute 1 volgen, bij elkaar. De tekst hierboven verwijst er per passage naar. De vorm komt uit het sjabloon leerroute scenario: een instellingseis zegt wat de instelling moet kunnen, een functionele eis wat een applicatiecomponent doet met welke informatieobjecten. Een eis met `(aanname)` heeft in de tekst een aanleiding en geen letterlijke grond. Elk nummer is vast: het wordt een keer uitgegeven en verandert daarna niet, en een eis die vervalt houdt zijn nummer.
 
 **User stories**
 
 | Nummer | Persona | Stap | User story | Requirementsboom |
 |---|---|---|---|---|
-| US-01 | Jochem | Oriënteren | Als student wil ik eerst de keuzedelen zien die de instelling voor mijn opleiding heeft voorgesorteerd, met als doel dat ik kies uit aanbod dat bij mijn opleiding past | [story-0013](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/requirementsboom/stories.md#story-0013) |
-| US-02 | Jochem | Kiezen keuzedelen | Als student wil ik bij mijn keuzedeelruimte een geprioriteerde voorkeurslijst opgeven, met als doel dat ik niet zonder keuzedeel kom te zitten wanneer mijn eerste keuze vol is | nog toe te voegen |
-| US-03 | Jochem | Kiezen keuzedelen | Als student wil ik alleen keuzedelen kiezen waarvan de periode en de locatie in mijn programma passen, met als doel dat mijn keuze een inschrijving kan worden | [story-0014](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/requirementsboom/stories.md#story-0014) |
-| US-04 | Jochem | Kiezen keuzedelen | Als student wil ik mijn aanmelding voor een keuzedeel aanpassen tot het moment waarop de instelling haar vastlegt, met als doel dat mijn voorkeur klopt wanneer zij wordt verwerkt | nog toe te voegen |
-| US-05 | Jochem | Kiezen keuzedelen | Als student wil ik een signaal krijgen wanneer mijn keuzedeelruimte oningevuld blijft, met als doel dat ik op tijd een nieuwe keuze maak | nog toe te voegen |
-| US-06 | Jochem | Informeren | Als student wil ik voor de start van een periode mijn rooster en de toegang tot de leeromgeving hebben, met als doel dat ik voorbereid begin | [story-0005](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/requirementsboom/stories.md#story-0005) |
-| US-07 | Jochem | Studievoortgang | Als student wil ik gemiste leergelegenheden in een latere periode inhalen, met als doel dat ik binnen mijn reguliere opleiding blijf | [story-0028](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/requirementsboom/stories.md#story-0028) |
-| US-08 | Jochem | Studievoortgang | Als student wil ik eerder toegang tot het volgende blok aanvragen wanneer ik sneller ga dan gepland, met als doel dat ik mijn tempo benut | nog toe te voegen |
-| US-09 | Jochem | Uitstroom | Als student wil ik bij een overstap naar een andere opleiding mijn behaalde resultaten meenemen, met als doel dat ik afgeronde onderdelen houd | nog toe te voegen |
-| US-10 | onderwijsontwerper | Publiceren en planbaar maken | Als onderwijsontwerper wil ik mijn grofmazige ontwerp met de planbare waarden aan de planner aanbieden, met als doel dat de planner de haalbaarheid kan bepalen | nog toe te voegen |
-| US-11 | planner | Publiceren en planbaar maken | Als planner wil ik de haalbaarheid van een opleiding bepalen voordat het onderwijsaanbod wordt gepubliceerd, met als doel dat studenten zich alleen oriënteren op aanbod dat de instelling kan uitvoeren | [story-0009](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/requirementsboom/stories.md#story-0009) |
-| US-12 | planner | Publiceren en planbaar maken | Als planner wil ik de verwerkingsstatus van een verzoek om aanbod met een referentie terugmelden, met als doel dat de ontwerper weet wat er met zijn verzoek is gebeurd | [story-0007](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/requirementsboom/stories.md#story-0007) |
-| US-13 | planner | Kiezen keuzedelen | Als planner wil ik een groep herkennen aan het gekozen keuzedeel en de periode, met als doel dat ik studenten met dezelfde keuze samen plan | [story-0008](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/requirementsboom/stories.md#story-0008) |
-| US-14 | roostermaker | Detailleren, roosteren en inschrijven | Als roostermaker wil ik het geroosterde aanbod per periode publiceren, met als doel dat student en docent weten waar en wanneer het onderwijs plaatsvindt | [story-0004](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/requirementsboom/stories.md#story-0004) |
-| US-15 | docent | Onderwijs uitvoeren | Als docent wil ik tijdens de uitvoering voortgang en resultaat per les vastleggen, met als doel dat de begeleiding een actueel beeld van de student heeft | [story-0021](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/requirementsboom/stories.md#story-0021) |
-| US-16 | studieloopbaanbegeleider | Studievoortgang | Als studieloopbaanbegeleider wil ik per werkproces de actuele voortgang van een student zien, met als doel dat ik bijstuur wanneer hij op het ene onderdeel voorloopt en op het andere achter | [story-0027](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/requirementsboom/stories.md#story-0027) |
-| US-17 | studieloopbaanbegeleider | Kiezen keuzedelen | Als studieloopbaanbegeleider wil ik een signaal krijgen wanneer voor een student passend keuzedeelaanbod uitblijft, met als doel dat ik hem naar een nieuwe keuze begeleid | nog toe te voegen |
-| US-18 | planner | Bijsturen planning en aanbod | Als planner wil ik leergelegenheden uit een latere periode naar voren halen voor studenten die sneller gaan, met als doel dat zij in hun tempo door kunnen | [story-0026](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/requirementsboom/stories.md#story-0026) |
-| US-19 | examinator | Examineren | Als lid van de examencommissie wil ik de resultaten van de examengelegenheden summatief vaststellen, met als doel dat de student kan kwalificeren en diplomeren (aanname over de rol) | nog toe te voegen |
-| US-20 | studieloopbaanbegeleider | Uitstroom | Als studieloopbaanbegeleider wil ik de wens van een student om over te stappen naar een set certificaten langs een vaste keten doorzetten, met als doel dat de overstap zonder handmatige procedures verloopt | nog toe te voegen |
+| US-LR1-001 | Jochem | Oriënteren | Als student wil ik eerst de keuzedelen zien die de instelling voor mijn opleiding heeft voorgesorteerd, met als doel dat ik kies uit aanbod dat bij mijn opleiding past | [story-0013](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/requirementsboom/stories.md#story-0013) |
+| US-LR1-002 | Jochem | Kiezen keuzedelen | Als student wil ik bij mijn keuzedeelruimte een geprioriteerde voorkeurslijst opgeven, met als doel dat ik niet zonder keuzedeel kom te zitten wanneer mijn eerste keuze vol is | nog toe te voegen |
+| US-LR1-003 | Jochem | Kiezen keuzedelen | Als student wil ik alleen keuzedelen kiezen waarvan de periode en de locatie in mijn programma passen, met als doel dat mijn keuze een inschrijving kan worden | [story-0014](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/requirementsboom/stories.md#story-0014) |
+| US-LR1-004 | Jochem | Kiezen keuzedelen | Als student wil ik mijn aanmelding voor een keuzedeel aanpassen tot het moment waarop de instelling haar vastlegt, met als doel dat mijn voorkeur klopt wanneer zij wordt verwerkt | nog toe te voegen |
+| US-LR1-005 | Jochem | Kiezen keuzedelen | Als student wil ik een signaal krijgen wanneer mijn keuzedeelruimte oningevuld blijft, met als doel dat ik op tijd een nieuwe keuze maak | nog toe te voegen |
+| US-LR1-006 | Jochem | Informeren | Als student wil ik voor de start van een periode mijn rooster en de toegang tot de leeromgeving hebben, met als doel dat ik voorbereid begin | [story-0005](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/requirementsboom/stories.md#story-0005) |
+| US-LR1-007 | Jochem | Studievoortgang | Als student wil ik gemiste leergelegenheden in een latere periode inhalen, met als doel dat ik binnen mijn reguliere opleiding blijf | [story-0028](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/requirementsboom/stories.md#story-0028) |
+| US-LR1-008 | Jochem | Studievoortgang | Als student wil ik eerder toegang tot het volgende blok aanvragen wanneer ik sneller ga dan gepland, met als doel dat ik mijn tempo benut | nog toe te voegen |
+| US-LR1-009 | Jochem | Uitstroom | Als student wil ik bij een overstap naar een andere opleiding mijn behaalde resultaten meenemen, met als doel dat ik afgeronde onderdelen houd | nog toe te voegen |
+| US-LR1-010 | onderwijsontwerper | Publiceren en planbaar maken | Als onderwijsontwerper wil ik mijn grofmazige ontwerp met de planbare waarden aan de planner aanbieden, met als doel dat de planner de haalbaarheid kan bepalen | nog toe te voegen |
+| US-LR1-011 | planner | Publiceren en planbaar maken | Als planner wil ik de haalbaarheid van een opleiding bepalen voordat het onderwijsaanbod wordt gepubliceerd, met als doel dat studenten zich alleen oriënteren op aanbod dat de instelling kan uitvoeren | [story-0009](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/requirementsboom/stories.md#story-0009) |
+| US-LR1-012 | planner | Publiceren en planbaar maken | Als planner wil ik de verwerkingsstatus van een verzoek om aanbod met een referentie terugmelden, met als doel dat de ontwerper weet wat er met zijn verzoek is gebeurd | [story-0007](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/requirementsboom/stories.md#story-0007) |
+| US-LR1-013 | planner | Kiezen keuzedelen | Als planner wil ik een groep herkennen aan het gekozen keuzedeel en de periode, met als doel dat ik studenten met dezelfde keuze samen plan | [story-0008](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/requirementsboom/stories.md#story-0008) |
+| US-LR1-014 | roostermaker | Detailleren, roosteren en inschrijven | Als roostermaker wil ik het geroosterde aanbod per periode publiceren, met als doel dat student en docent weten waar en wanneer het onderwijs plaatsvindt | [story-0004](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/requirementsboom/stories.md#story-0004) |
+| US-LR1-015 | docent | Onderwijs uitvoeren | Als docent wil ik tijdens de uitvoering voortgang en resultaat per les vastleggen, met als doel dat de begeleiding een actueel beeld van de student heeft | [story-0021](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/requirementsboom/stories.md#story-0021) |
+| US-LR1-016 | studieloopbaanbegeleider | Studievoortgang | Als studieloopbaanbegeleider wil ik per werkproces de actuele voortgang van een student zien, met als doel dat ik bijstuur wanneer hij op het ene onderdeel voorloopt en op het andere achter | [story-0027](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/requirementsboom/stories.md#story-0027) |
+| US-LR1-017 | studieloopbaanbegeleider | Kiezen keuzedelen | Als studieloopbaanbegeleider wil ik een signaal krijgen wanneer voor een student passend keuzedeelaanbod uitblijft, met als doel dat ik hem naar een nieuwe keuze begeleid | nog toe te voegen |
+| US-LR1-018 | planner | Bijsturen planning en aanbod | Als planner wil ik leergelegenheden uit een latere periode naar voren halen voor studenten die sneller gaan, met als doel dat zij in hun tempo door kunnen | [story-0026](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/requirementsboom/stories.md#story-0026) |
+| US-LR1-019 | examinator | Examineren | Als lid van de examencommissie wil ik de resultaten van de examengelegenheden summatief vaststellen, met als doel dat de student kan kwalificeren en diplomeren (aanname over de rol) | nog toe te voegen |
+| US-LR1-020 | studieloopbaanbegeleider | Uitstroom | Als studieloopbaanbegeleider wil ik de wens van een student om over te stappen naar een set certificaten langs een vaste keten doorzetten, met als doel dat de overstap zonder handmatige procedures verloopt | nog toe te voegen |
 
 **Instellingseisen**
 
 | Nummer | Eis | Komt uit |
 |---|---|---|
-| IE-LR1-01 | De instelling kan per keuzedeelruimte de voorkeursvolgorde van de student vastleggen voordat zij plaatst | US-02 |
-| IE-LR1-02 | De instelling kan signaleren dat de keuzedeelruimte van een student oningevuld blijft, op een moment dat de student nog een nieuwe keuze kan maken | US-05, US-17 |
-| IE-LR1-03 | De instelling kan een onderdeel voor een student opnieuw inplannen terwijl de rest van zijn programma doorloopt | scenario incidenteel temporiseren, US-07 |
-| IE-LR1-04 | De instelling kan de haalbaarheid van een `Opleiding specificatie` bepalen voordat zij het onderwijsaanbod publiceert | US-11 |
-| IE-LR1-05 | De instelling kan per opleiding de keuzedelen voorsorteren die zij een student als eerste toont | US-01 |
-| IE-LR1-06 | De instelling kan per keuzedeel vaststellen of de onderwijsperiode en de onderwijslocatie in het programma van de student passen, voordat de student het kiest | US-03 |
-| IE-LR1-07 | De instelling kan het moment vastleggen waarop een aanmelding voor een keuzedeel definitief wordt, en de student tot dat moment laten wijzigen | US-04 |
-| IE-LR1-08 | De instelling kan een aanmelding voor een keuzedeel omzetten in een inschrijving zodra keuzedeel, periode en locatie passen, met hoogstens een actieve inschrijving per keuzedeelruimte | US-03 |
-| IE-LR1-09 | De instelling kan een grofmazig onderwijsontwerp met zijn planbare waarden ter planning aanbieden | US-10 |
-| IE-LR1-10 | De instelling kan de verwerkingsstatus van een verzoek om aanbod terugmelden, met een verwijzing naar dat verzoek | US-12 |
-| IE-LR1-11 | De instelling kan gepland aanbod publiceren waarop een student zich oriënteert en aanmeldt | procesfase 2 en 3 |
-| IE-LR1-12 | De instelling kan na een positieve intake de aanmelding van een student omzetten in een inschrijving op de opleiding en het opleidingsprogramma | procesfase 3 |
-| IE-LR1-13 | De instelling kan studenten per opleidingsprogramma indelen in plaatsingsgroepen en planninggroepen | US-13, procesfase 4 |
-| IE-LR1-14 | De instelling kan het geroosterde aanbod per periode publiceren | US-14 |
-| IE-LR1-15 | De instelling kan een student voor de start van een periode toegang geven tot zijn rooster en zijn leeromgeving | US-06 |
-| IE-LR1-16 | De instelling kan tijdens de uitvoering per les aanwezigheid, voortgang en resultaat vastleggen | US-15 |
-| IE-LR1-17 | De instelling kan per werkproces de actuele voortgang van een student vaststellen | US-16 |
-| IE-LR1-18 | De instelling kan definitieve keuzes periodiek verwerken naar groepen en capaciteit, en het aanbod daarop bijwerken | procesfase 6 |
-| IE-LR1-19 | De instelling kan studenten met een vergelijkbare afwijking samenbrengen in een nieuwe planninggroep, met nieuw aanbod op dezelfde specificatie | US-07, procesfase 7 |
-| IE-LR1-20 | De instelling kan een student een onderdeel uit een latere periode eerder laten volgen | US-08, US-18 |
-| IE-LR1-21 | De instelling kan examengelegenheden plannen op grond van het examenplan en per gelegenheid de kandidaten vaststellen | procesfase 8 |
-| IE-LR1-22 | De instelling kan examenresultaten summatief vaststellen en op grond daarvan kwalificeren en diplomeren | US-19 |
-| IE-LR1-23 | De instelling kan bij een overstap eerder behaalde resultaten erkennen in het nieuwe programma | US-09 |
-| IE-LR1-24 | De instelling kan een verbintenis op een opleiding opdelen in verbintenissen op certificaten, en die weer samenvoegen | US-20 |
+| IE-LR1-001 | De instelling kan per keuzedeelruimte de voorkeursvolgorde van de student vastleggen voordat zij plaatst | US-LR1-002 |
+| IE-LR1-002 | De instelling kan signaleren dat de keuzedeelruimte van een student oningevuld blijft, op een moment dat de student nog een nieuwe keuze kan maken | US-LR1-005, US-LR1-017 |
+| IE-LR1-003 | De instelling kan een onderdeel voor een student opnieuw inplannen terwijl de rest van zijn programma doorloopt | scenario incidenteel temporiseren, US-LR1-007 |
+| IE-LR1-004 | De instelling kan de haalbaarheid van een `Opleiding specificatie` bepalen voordat zij het onderwijsaanbod publiceert | US-LR1-011 |
+| IE-LR1-005 | De instelling kan per opleiding de keuzedelen voorsorteren die zij een student als eerste toont | US-LR1-001 |
+| IE-LR1-006 | De instelling kan per keuzedeel vaststellen of de onderwijsperiode en de onderwijslocatie in het programma van de student passen, voordat de student het kiest | US-LR1-003 |
+| IE-LR1-007 | De instelling kan het moment vastleggen waarop een aanmelding voor een keuzedeel definitief wordt, en de student tot dat moment laten wijzigen | US-LR1-004 |
+| IE-LR1-008 | De instelling kan een aanmelding voor een keuzedeel omzetten in een inschrijving zodra keuzedeel, periode en locatie passen, met hoogstens een actieve inschrijving per keuzedeelruimte | US-LR1-003 |
+| IE-LR1-009 | De instelling kan een grofmazig onderwijsontwerp met zijn planbare waarden ter planning aanbieden | US-LR1-010 |
+| IE-LR1-010 | De instelling kan de verwerkingsstatus van een verzoek om aanbod terugmelden, met een verwijzing naar dat verzoek | US-LR1-012 |
+| IE-LR1-011 | De instelling kan gepland aanbod publiceren waarop een student zich oriënteert en aanmeldt | procesfase 2 en 3 |
+| IE-LR1-012 | De instelling kan na een positieve intake de aanmelding van een student omzetten in een inschrijving op de opleiding en het opleidingsprogramma | procesfase 3 |
+| IE-LR1-013 | De instelling kan studenten per opleidingsprogramma indelen in plaatsingsgroepen en planninggroepen | US-LR1-013, procesfase 4 |
+| IE-LR1-014 | De instelling kan het geroosterde aanbod per periode publiceren | US-LR1-014 |
+| IE-LR1-015 | De instelling kan een student voor de start van een periode toegang geven tot zijn rooster en zijn leeromgeving | US-LR1-006 |
+| IE-LR1-016 | De instelling kan tijdens de uitvoering per les aanwezigheid, voortgang en resultaat vastleggen | US-LR1-015 |
+| IE-LR1-017 | De instelling kan per werkproces de actuele voortgang van een student vaststellen | US-LR1-016 |
+| IE-LR1-018 | De instelling kan definitieve keuzes periodiek verwerken naar groepen en capaciteit, en het aanbod daarop bijwerken | procesfase 6 |
+| IE-LR1-019 | De instelling kan studenten met een vergelijkbare afwijking samenbrengen in een nieuwe planninggroep, met nieuw aanbod op dezelfde specificatie | US-LR1-007, procesfase 7 |
+| IE-LR1-020 | De instelling kan een student een onderdeel uit een latere periode eerder laten volgen | US-LR1-008, US-LR1-018 |
+| IE-LR1-021 | De instelling kan examengelegenheden plannen op grond van het examenplan en per gelegenheid de kandidaten vaststellen | procesfase 8 |
+| IE-LR1-022 | De instelling kan examenresultaten summatief vaststellen en op grond daarvan kwalificeren en diplomeren | US-LR1-019 |
+| IE-LR1-023 | De instelling kan bij een overstap eerder behaalde resultaten erkennen in het nieuwe programma | US-LR1-009 |
+| IE-LR1-024 | De instelling kan een verbintenis op een opleiding opdelen in verbintenissen op certificaten, en die weer samenvoegen | US-LR1-020 |
 
 **Functionele eisen**
 
 | Nummer | Eis | Komt uit |
 |---|---|---|
-| FE-LR1-01 | Het Student Keuze Systeem legt per keuzedeelruimte de `Aanmeldingen` van een student vast in volgorde van voorkeur, elk op een `Keuzedeel aanbod` met zijn onderwijsperiode en optioneel de onderwijslocatie | IE-LR1-01 |
-| FE-LR1-02 | Het Student Keuze Systeem levert per voorkeur van een student de `Aanmelding` op het `Keuzedeel aanbod` aan het Planningssysteem, met haar plaats in de volgorde | IE-LR1-01 |
-| FE-LR1-03 | De Onderwijscatalogus stuurt het verzoek om onderwijsaanbod aan het Planningssysteem, met de specificatiestructuur en per eenheid de planbare waarden | IE-LR1-04, IE-LR1-09 |
-| FE-LR1-04 | De Curriculum ontwerptool levert de `Opleiding specificatie` met haar `Opleidingsprogramma specificaties`, `Onderwijseenheid specificaties`, `Toetsonderdeel specificaties` en het `Examenplan` aan de Onderwijscatalogus | IE-LR1-09 |
-| FE-LR1-05 | Het Planningssysteem meldt de verwerkingsstatus van een `Verzoek tot Aanbod / Intekening op specificatie` terug aan de Onderwijscatalogus, met de verwijzing naar dat verzoek | IE-LR1-10 |
-| FE-LR1-06 | Het Planningssysteem levert het geplande `Opleiding aanbod` en `Opleidingsprogramma aanbod` aan de Onderwijscatalogus, elk met de specificatie waaruit het volgt | IE-LR1-04, IE-LR1-11 |
-| FE-LR1-07 | De Onderwijscatalogus levert het aanmeldbare `Opleidingsprogramma aanbod` aan het Intake systeem | IE-LR1-11 |
-| FE-LR1-08 | Het Intake systeem levert na een positieve intake de `Persoon` met de `Opleiding aanbod verbintenis` en de `Opleidingsprogramma aanbod verbintenis` aan het Kernregistratie systeem studenten | IE-LR1-12 |
-| FE-LR1-09 | De Onderwijscatalogus levert de `Leeronderdeel specificaties` en de `Toetsonderdeel specificaties` aan het Leer management systeem | IE-LR1-15 |
-| FE-LR1-10 | Het Planningssysteem legt per `Opleidingsprogramma specificatie` de `Plaatsingsgroepen` vast en levert de koppeling van groep en `Persoon` aan het Kernregistratie systeem studenten | IE-LR1-13 |
-| FE-LR1-11 | Het Planningssysteem levert de te roosteren `Leeronderdeel specificaties` en `Toetsonderdeel specificaties` aan het Roostersysteem | IE-LR1-14 |
-| FE-LR1-12 | Het Roostersysteem maakt per periode `Leergelegenheden`, `Lesgelegenheden` en `Toetsgelegenheden`, en legt de verwachte deelnemers vast als `Leergelegenheid verbintenis` | IE-LR1-14, IE-LR1-16 |
-| FE-LR1-13 | Het Kernregistratie systeem studenten levert de `Opleidingsprogramma aanbod verbintenis` met de `Persoon` aan het Leer management systeem | IE-LR1-15 |
-| FE-LR1-14 | Het Leer management systeem levert het `Leergelegenheid resultaat` en het `Toetsgelegenheid resultaat` aan het Student volg systeem | IE-LR1-16 |
-| FE-LR1-15 | Het Student volg systeem toont per `Werkproces` de voortgang van een student, uit zijn `Onderwijseenheid resultaten` (aanname) | IE-LR1-17 |
-| FE-LR1-16 | De Onderwijscatalogus levert het `Keuzedeel aanbod` met zijn `Keuzedeel` aan het Student Keuze Systeem | IE-LR1-05, IE-LR1-06 |
-| FE-LR1-17 | Het Student Keuze Systeem toont een student per `Keuzedeelruimte` het `Keuzedeel aanbod` waarvan de onderwijsperiode en de `Onderwijslocatie` in zijn programma passen | IE-LR1-06 |
-| FE-LR1-18 | Het Student Keuze Systeem laat een student zijn `Aanmelding` wijzigen tot het moment dat de instelling heeft vastgelegd | IE-LR1-07 |
-| FE-LR1-19 | Het Planningssysteem levert bij passend aanbod de `Keuzedeel aanbod verbintenis` van de student aan het Kernregistratie systeem studenten | IE-LR1-08, IE-LR1-18 |
-| FE-LR1-20 | Het Student Keuze Systeem meldt een `Keuzedeelruimte` zonder passend `Keuzedeel aanbod` aan de studieloopbaanbegeleider (aanname: de tekst noemt geen component) | IE-LR1-02 |
-| FE-LR1-21 | Het Kernregistratie systeem studenten beeindigt de `Onderwijseenheid aanbod verbintenis` van een student en levert de gewijzigde populatie aan het Planningssysteem | IE-LR1-19 |
-| FE-LR1-22 | Het Planningssysteem maakt voor een nieuwe planninggroep nieuw `Onderwijseenheid aanbod` op dezelfde `Opleidingsprogramma specificatie` en levert het aan de Onderwijscatalogus en het Roostersysteem | IE-LR1-03, IE-LR1-19, IE-LR1-20 |
-| FE-LR1-23 | Het Toets- en examen afname systeem levert het `Examengelegenheid resultaat` aan het Student volg systeem | IE-LR1-22 |
-| FE-LR1-24 | Het Student volg systeem levert het vastgestelde `Opleiding resultaat` aan het Kernregistratie systeem studenten voor kwalificering en diplomering (aanname over het objecttype) | IE-LR1-22 |
+| FE-LR1-001 | Het Student Keuze Systeem legt per keuzedeelruimte de `Aanmeldingen` van een student vast in volgorde van voorkeur, elk op een `Keuzedeel aanbod` met zijn onderwijsperiode en optioneel de onderwijslocatie | IE-LR1-001 |
+| FE-LR1-002 | Het Student Keuze Systeem levert per voorkeur van een student de `Aanmelding` op het `Keuzedeel aanbod` aan het Planningssysteem, met haar plaats in de volgorde | IE-LR1-001 |
+| FE-LR1-003 | De Onderwijscatalogus stuurt het verzoek om onderwijsaanbod aan het Planningssysteem, met de specificatiestructuur en per eenheid de planbare waarden | IE-LR1-004, IE-LR1-009 |
+| FE-LR1-004 | De Curriculum ontwerptool levert de `Opleiding specificatie` met haar `Opleidingsprogramma specificaties`, `Onderwijseenheid specificaties`, `Toetsonderdeel specificaties` en het `Examenplan` aan de Onderwijscatalogus | IE-LR1-009 |
+| FE-LR1-005 | Het Planningssysteem meldt de verwerkingsstatus van een `Verzoek tot Aanbod / Intekening op specificatie` terug aan de Onderwijscatalogus, met de verwijzing naar dat verzoek | IE-LR1-010 |
+| FE-LR1-006 | Het Planningssysteem levert het geplande `Opleiding aanbod` en `Opleidingsprogramma aanbod` aan de Onderwijscatalogus, elk met de specificatie waaruit het volgt | IE-LR1-004, IE-LR1-011 |
+| FE-LR1-007 | De Onderwijscatalogus levert het aanmeldbare `Opleidingsprogramma aanbod` aan het Intake systeem | IE-LR1-011 |
+| FE-LR1-008 | Het Intake systeem levert na een positieve intake de `Persoon` met de `Opleiding aanbod verbintenis` en de `Opleidingsprogramma aanbod verbintenis` aan het Kernregistratie systeem studenten | IE-LR1-012 |
+| FE-LR1-009 | De Onderwijscatalogus levert de `Leeronderdeel specificaties` en de `Toetsonderdeel specificaties` aan het Leer management systeem | IE-LR1-015 |
+| FE-LR1-010 | Het Planningssysteem legt per `Opleidingsprogramma specificatie` de `Plaatsingsgroepen` vast en levert de koppeling van groep en `Persoon` aan het Kernregistratie systeem studenten | IE-LR1-013 |
+| FE-LR1-011 | Het Planningssysteem levert de te roosteren `Leeronderdeel specificaties` en `Toetsonderdeel specificaties` aan het Roostersysteem | IE-LR1-014 |
+| FE-LR1-012 | Het Roostersysteem maakt per periode `Leergelegenheden`, `Lesgelegenheden` en `Toetsgelegenheden`, en legt de verwachte deelnemers vast als `Leergelegenheid verbintenis` | IE-LR1-014, IE-LR1-016 |
+| FE-LR1-013 | Het Kernregistratie systeem studenten levert de `Opleidingsprogramma aanbod verbintenis` met de `Persoon` aan het Leer management systeem | IE-LR1-015 |
+| FE-LR1-014 | Het Leer management systeem levert het `Leergelegenheid resultaat` en het `Toetsgelegenheid resultaat` aan het Student volg systeem | IE-LR1-016 |
+| FE-LR1-015 | Het Student volg systeem toont per `Werkproces` de voortgang van een student, uit zijn `Onderwijseenheid resultaten` (aanname) | IE-LR1-017 |
+| FE-LR1-016 | De Onderwijscatalogus levert het `Keuzedeel aanbod` met zijn `Keuzedeel` aan het Student Keuze Systeem | IE-LR1-005, IE-LR1-006 |
+| FE-LR1-017 | Het Student Keuze Systeem toont een student per `Keuzedeelruimte` het `Keuzedeel aanbod` waarvan de onderwijsperiode en de `Onderwijslocatie` in zijn programma passen | IE-LR1-006 |
+| FE-LR1-018 | Het Student Keuze Systeem laat een student zijn `Aanmelding` wijzigen tot het moment dat de instelling heeft vastgelegd | IE-LR1-007 |
+| FE-LR1-019 | Het Planningssysteem levert bij passend aanbod de `Keuzedeel aanbod verbintenis` van de student aan het Kernregistratie systeem studenten | IE-LR1-008, IE-LR1-018 |
+| FE-LR1-020 | Het Student Keuze Systeem meldt een `Keuzedeelruimte` zonder passend `Keuzedeel aanbod` aan de studieloopbaanbegeleider (aanname: de tekst noemt geen component) | IE-LR1-002 |
+| FE-LR1-021 | Het Kernregistratie systeem studenten beeindigt de `Onderwijseenheid aanbod verbintenis` van een student en levert de gewijzigde populatie aan het Planningssysteem | IE-LR1-019 |
+| FE-LR1-022 | Het Planningssysteem maakt voor een nieuwe planninggroep nieuw `Onderwijseenheid aanbod` op dezelfde `Opleidingsprogramma specificatie` en levert het aan de Onderwijscatalogus en het Roostersysteem | IE-LR1-003, IE-LR1-019, IE-LR1-020 |
+| FE-LR1-023 | Het Toets- en examen afname systeem levert het `Examengelegenheid resultaat` aan het Student volg systeem | IE-LR1-022 |
+| FE-LR1-024 | Het Student volg systeem levert het vastgestelde `Opleiding resultaat` aan het Kernregistratie systeem studenten voor kwalificering en diplomering (aanname over het objecttype) | IE-LR1-022 |
 
 #### 3.3.2 Leerroute 2 — Temporiseren (en personaliseren) by design
 
