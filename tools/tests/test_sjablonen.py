@@ -111,7 +111,7 @@ class ElkHoofdstukZegtWatErWordtVerwacht(unittest.TestCase):
             uit_de_bron = len([k for _, k in KOP.findall(lijf) if k not in slot])
             with self.subTest(naam):
                 if CONFIG[naam].get("opbouw"):
-                    # Een bouwsteensjabloon kiest zelf welk blok er een draagt.
+                    # Een sjabloon uit onderdelen kiest zelf welk onderdeel er een draagt.
                     self.assertGreater(t.count("**Voorbeeld** ["), 0)
                     self.assertLessEqual(t.count("**Voorbeeld** ["), uit_de_bron)
                 else:
@@ -138,17 +138,74 @@ class ElkHoofdstukZegtWatErWordtVerwacht(unittest.TestCase):
                                  "elk hoofdstuk noemt zijn laag in de "
                                  "requirementketen")
 
-    def test_niet_elk_hoofdstuk_vraagt_user_stories(self):
-        """Een journey brengt een behoefte naar boven; een gegevenshoofdstuk niet."""
+    def test_elk_document_vraagt_zijn_eigen_soort(self):
+        """De persona brengt de behoefte naar boven, het scenario de eisen."""
+        self.assertIn("**User stories**", skelet("persona"))
         t = skelet("leerroute-scenario")
-        stories = t.count("**User stories**")
-        self.assertGreater(stories, 0)
-        self.assertLess(stories, t.count("**Voorbeeld** [") / 2,
-                        "als elk hoofdstuk user stories vraagt, zegt de "
-                        "indeling niets meer")
-        for soort in ("**Instellingseisen**", "**Functionele eisen**",
-                      "**Technische eisen**"):
+        self.assertNotIn("**User stories**", t,
+                         "de user stories staan in het persona-document")
+        for soort in ("**Instellingseisen**", "**Functionele eisen**"):
             self.assertIn(soort, t)
+
+    def test_de_acceptatiecriteria_zijn_een_genummerde_lijst(self):
+        """Een criterium per regel is af te vinken; een lange zin niet."""
+        for naam in CONFIG:
+            regels = skelet(naam).splitlines()
+            for i, regel in enumerate(regels):
+                if not regel.startswith("**Acceptatiecriteria**"):
+                    continue
+                with self.subTest(naam, regel=i):
+                    self.assertRegex(regel, r"is af wanneer dit klopt:$")
+                    lijst = []
+                    for r in regels[i + 2:]:
+                        if not re.match(r"\d+\. ", r):
+                            break
+                        lijst.append(r)
+                    self.assertGreaterEqual(len(lijst), 2)
+                    self.assertTrue(lijst[-1].endswith("."))
+
+    def test_een_sjabloononderdeel_draagt_een_ingevuld_voorbeeld(self):
+        """Een leeg vak zegt niet hoe scherp de invulling moet zijn."""
+        for naam in ("persona", "leerroute-scenario",
+                     "leerroute-scenario-uitwerking"):
+            for kop, cfg in CONFIG[naam]["opbouw"].items():
+                if not kop.startswith("Sjabloononderdeel"):
+                    continue
+                with self.subTest(naam, kop=kop):
+                    self.assertTrue(cfg.get("criteria"))
+                    self.assertTrue(cfg.get("voorbeeld_tabel"))
+                    self.assertIn(cfg["voorbeeld_tabel"][-1], skelet(naam))
+            self.assertIn("**Ingevuld voorbeeld** uit", skelet(naam))
+            self.assertIn("**Vul in:**", skelet(naam))
+
+    def test_het_onderdeel_heet_sjabloononderdeel(self):
+        """Een bouwblok is in de architectuur al een functioneel bouwblok."""
+        for naam in CONFIG:
+            with self.subTest(naam):
+                self.assertNotRegex(skelet(naam).lower(), r"bouwblok|bouwsteen")
+
+    def test_de_kwaliteit_van_een_eis_staat_bij_wat_het_document_levert(self):
+        """Elke soort eis draagt criteria en een zwak naast een sterk voorbeeld."""
+        for naam, cfg in CONFIG.items():
+            t = skelet(naam)
+            with self.subTest(naam):
+                if not cfg.get("eissoorten"):
+                    self.assertNotIn("## Kwaliteit van een eis", t)
+                    continue
+                self.assertIn("## Kwaliteit van een eis", t)
+                self.assertIn("| Soort | Zwak | Wat eraan ontbreekt | Sterk |", t)
+                for soort in cfg["eissoorten"]:
+                    self.assertIn(f"**{maak.EISSOORTEN[soort]['naam']}:**", t)
+                    self.assertIn(f"| {soort} | ", t)
+
+    def test_de_eisen_staan_uitgeschreven_in_een_overzicht(self):
+        """De solutionlaag neemt het eisenoverzicht over, geen losse nummers."""
+        for naam in ("leerroute-scenario", "leerroute-scenario-uitwerking"):
+            t = skelet(naam)
+            with self.subTest(naam):
+                self.assertIn("# Eisenoverzicht", t)
+                self.assertIn("vertaalt", t)
+                self.assertNotIn("bevat die eisen niet", t)
 
     def test_een_acceptatiecriterium_noemt_de_context(self):
         t = skelet("leerroute-scenario")
@@ -157,7 +214,7 @@ class ElkHoofdstukZegtWatErWordtVerwacht(unittest.TestCase):
         self.assertIn("ArchiMate-plaat", t)
 
     def test_het_scenario_noteert_zijn_eisen(self):
-        """Een eis draagt een nummer en verwijst naar zijn bouwblok."""
+        """Een eis draagt een nummer en verwijst naar zijn sjabloononderdeel."""
         t = skelet("leerroute-scenario")
         for stuk in ("# Notatie van eisen", "IE-LR", "FE-LR", "# Eisenoverzicht"):
             self.assertIn(stuk, t)

@@ -28,32 +28,46 @@ Het cijfer rechtsboven in een vak is de prioriteit, waarbij lager eerder is; de 
 
 Dit document maakt een leerroute invoelbaar door haar te volgen door de ogen van de mensen die haar doorlopen, zodat een ontwerpkeuze te toetsen is aan wat zij ervan merken.
 
-Elk hoofdstuk opent met een blok dat zegt wat er wordt verwacht: waar hetzelfde al is uitgewerkt, welk artefact hier hoort en waaraan het voldoet, en wat dit hoofdstuk aan het pakket van eisen bijdraagt. Dat blok blijft staan; het is de opdracht en niet de uitwerking.
+Elk sjabloononderdeel opent met een opdrachtblok: waar hetzelfde al is uitgewerkt, de acceptatiecriteria waaraan de invulling voldoet, en welke soort eis het oplevert. Het opdrachtblok blijft staan; de uitwerking komt eronder.
 
 ## Eisen uit dit document
 
-OKx kent drie soorten eisen. **Instellingseisen** zeggen wat de instelling moet kunnen; zij komen uit de inbreng van de koploperinstellingen, de persona's en de leerroute scenario's samen. **Functionele eisen** zeggen wat een component moet doen met welke gegevens; zij komen uit de instellingseisen en de leerroute scenario uitwerking samen. **Technische eisen** zeggen wat er over het koppelvlak gaat; zij komen uit de interactieketens, die zelf uit de eisen voortkomen, en zijn onderdeel van de koppelvlakspecificatie.
+OKx kent drie soorten eisen. **Instellingseisen** zeggen wat de instelling moet kunnen; zij komen uit de inbreng van de koploperinstellingen in de proef (de PoC-inbreng), de persona's en de leerroute scenario's samen. **Functionele eisen** zeggen wat een component moet doen met welke gegevens; zij komen uit de instellingseisen en de leerroute scenario uitwerking samen. **Technische eisen** zeggen wat er over het koppelvlak gaat; zij komen uit de interactieketens, die zelf uit de eisen voortkomen, en zijn onderdeel van de koppelvlakspecificatie.
 
-**Dit document bevat die eisen niet; het levert eraan.** Noteer per hoofdstuk alleen de nummers; de eis zelf wordt elders uitgeschreven.
+**De solutionlaag bouwt op wat hier als eis staat.** De solutionlaag is het deel van OKx dat de koppelvlakken ontwerpt: het team systeem en informatie (OKx SI), samen met de leveranciers. OKx SI neemt de instellingseisen en de functionele eisen over en vertaalt ze met de leveranciers naar technische eisen. Een behoefte bereikt de leveranciers via een uitgeschreven eis in dit pakket.
 
-Niet elk hoofdstuk levert hetzelfde. Een journey brengt een behoefte naar boven en levert user stories. Een procesbeschrijving zegt wat de instelling moet kunnen. Een gegevens- of systeemhoofdstuk zegt wat een component moet doen. Een interactiehoofdstuk zegt wat er over het koppelvlak gaat. Het blok boven elk hoofdstuk noemt welke laag daar hoort, en noteert de nummers; de eis zelf wordt elders uitgeschreven.
+Elk onderdeel levert een eigen soort. De reis van een persona brengt een behoefte naar boven en levert user stories. Een procesbeschrijving zegt wat de instelling moet kunnen. Een gegevens- of systeemonderdeel zegt wat een component moet doen. Een interactie zegt wat er over het koppelvlak gaat. Het opdrachtblok noemt welke soort daar hoort.
 
 | Soort | Komt uit | Zegt wat |
 |---|---|------------------------------------|
-| Instellingseis | de PoC-inbreng, de persona's en de leerroute scenario's samen | een instelling wil kunnen om de scenario's te realiseren |
+| Instellingseis | de PoC-inbreng, de persona's en de leerroute scenario's samen | de instelling moet kunnen om de scenario's te realiseren |
 | Functionele eis | de instellingseisen en de leerroute scenario uitwerking | een component moet doen met welke gegevens |
 | Technische eis | de interactieketens, die zelf uit de eisen voortkomen | er over het koppelvlak gaat en in welke vorm |
 
-Dit document levert **instellingseisen**, samen met de PoC-inbreng en het leerroute scenario. Zo ziet zo'n eis eruit, met de keten erboven en eronder:
+Dit document levert **behoeften, geschreven als user story**; samen met de PoC-inbreng en het leerroute scenario worden dat instellingseisen. Zo ziet zo'n eis eruit, met de keten erboven en eronder:
 
 | Soort | Voorbeeld |
 |---|------------------------------------------------|
-| User story uit de PoC-inbreng | Als student wil ik bij mijn keuzedeelruimte een geprioriteerde voorkeurslijst opgeven, met als doel dat ik niet zonder keuzedeel kom te zitten wanneer mijn eerste keuze vol is |
-| **Instellingseis, uit dit document** | **de instelling kent per keuzedeelruimte de voorkeursvolgorde van de student voordat zij plaatst** |
-| Functionele eis, verderop | het studentkeuzesysteem legt per keuzedeelruimte een geordende lijst voorkeuren vast, met per voorkeur het onderdeel, de periode en de locatie |
+| **User story, uit dit document** | **Als student wil ik bij mijn keuzedeelruimte een geprioriteerde voorkeurslijst opgeven, met als doel dat ik niet zonder keuzedeel kom te zitten wanneer mijn eerste keuze vol is** |
+| Instellingseis, verderop | de instelling kan per keuzedeelruimte de voorkeursvolgorde van de student vastleggen voordat zij plaatst |
+| Functionele eis, verderop | het Student Keuze Systeem legt per keuzedeelruimte de `Aanmeldingen` van een student vast in volgorde van voorkeur, elk op een `Keuzedeel aanbod` met zijn onderwijsperiode en optioneel de onderwijslocatie |
 | Technische eis, verderop | de voorkeurslijst gaat als geordende verzameling over het koppelvlak, met de volgorde expliciet in het bericht en niet afgeleid uit de positie |
 
-Vul in dit document de soort in die boven het hoofdstuk staat, als verwijzing. De uitgeschreven eis volgt in een eigen ronde, in het register waar hij hoort.
+## Kwaliteit van een eis
+
+Een eis is bruikbaar wanneer een leverancier hem kan lezen zonder de instelling te bellen. Wat hier staat is een voorstel voor een sectorafspraak: opgesteld uit de inbreng van afzonderlijke instellingen, vastgelegd als afspraak, en daarna de grond voor de technische specificatie. Schrijf elke eis uit op de plek waar hij ontstaat, en toets hem aan de criteria hieronder.
+
+**Een user story:**
+
+1. heeft de vorm `Als <persona> wil ik <wat> met als doel dat <waarde>`;
+2. noemt de stap van de reis waarin de behoefte ontstaat;
+3. noemt wat de persona wil kunnen en waarom; welk systeem dat draagt volgt in de eisen;
+4. is herkenbaar bij meerdere instellingen; wat bij een instelling speelt staat onder Afwijkingen per instelling.
+
+| Soort | Zwak | Wat eraan ontbreekt | Sterk |
+|---|--------|------|------------|
+| user story | Als student wil ik een overzichtelijke app voor mijn keuzedelen | noemt een systeem; de stap en de waarde ontbreken | Als student wil ik bij mijn keuzedeelruimte een geprioriteerde voorkeurslijst opgeven, met als doel dat ik niet zonder keuzedeel kom te zitten wanneer mijn eerste keuze vol is |
+| user story | Als instelling willen wij beter kunnen plannen | noemt een organisatie in plaats van een persona; de stap en de waarde ontbreken | Als planner wil ik de haalbaarheid van een opleiding bepalen voordat het onderwijsaanbod wordt gepubliceerd, met als doel dat studenten zich alleen oriënteren op aanbod dat de instelling kan uitvoeren |
 
 ## Business analyse en aggregatie van pakket van eisen
 
@@ -79,29 +93,52 @@ Een hoofdstuk is een interactie, en de business analist bepaalt waar hij begint 
 
 # Werkwijze
 
-Dit document draagt een of meer persona's. Herhaal de twee bouwblokken hieronder per persona tot het leerroute scenario zijn mensen heeft.
+Dit document draagt een of meer persona's. Herhaal de twee sjabloononderdelen hieronder per persona tot elke mens uit het leerroute scenario een persona heeft.
 
-**Een persona hoeft geen student te zijn.** Een planner, een examinator, een studieloopbaanbegeleider of een leerbedrijf is net zo goed een persona wanneer de route langs hem loopt. Een leerroute scenario kan er dus meerdere dragen, en dat is eerder regel dan uitzondering: een route die alleen vanuit de student is beschreven, laat niet zien wat zij van de instelling vraagt.
+**Een persona is een student of een actor binnen de instelling.** De onderwijsontwerper, de planner, de roostermaker, de studieloopbaanbegeleider, de examinator en het leerbedrijf zijn net zo goed een persona wanneer de route langs hen loopt. Beschrijf naast de student minstens een persona vanuit de instelling: de student laat zien wat de route moet opleveren, de medewerker laat zien wat de instelling daarvoor moet kunnen. De bestaande voorbeelden Jochem, Linda en Larissa zijn alle drie student; de persona's vanuit de instelling zijn wat dit document toevoegt.
 
 **Schrijf in tandem met het leerroute scenario.** Het procesbeeld daar bepaalt welke stappen deze persona doorloopt; wat deze persona meemaakt scherpt dat procesbeeld aan. Verschilt de stappenreeks hier van die in het scenario, dan is een van de twee nog niet af.
 
 **Een persona is geen gemiddelde.** Een gemiddelde student bestaat niet en is nergens aan te toetsen. Kies een herkenbaar iemand, met een naam, een situatie en een reden waarom hij deze route loopt.
 
-# Bouwblok: het portret
+**Elke behoefte wordt een user story.** Waar de persona iets nodig heeft dat vandaag ontbreekt of misloopt, staat dat als user story bij de stap. Het leerroute scenario leidt daar de instellingseisen uit af; een behoefte die hier ontbreekt, komt daar niet vanzelf boven.
 
-Kopieer dit blok voor elke persona. Begin met wie het is en waarom deze route bij hem hoort; de reis komt in het volgende blok.
+# Sjabloononderdeel: het portret
+
+Kopieer dit sjabloononderdeel voor elke persona. Begin met wie het is en waarom deze route bij hem hoort; de reis komt in het volgende onderdeel.
 
 **Voorbeeld** [Persona Jochem, Persona Jochem](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/persona_jochem.md#persona-jochem)
 
-**Acceptatiecriteria** een portret in lopende tekst, met het beeld van de persona erbij wanneer dat er is, in het kader van het leerroute scenario waar deze persona bij hoort, en het portret noemt wie deze mens is, waarom hij juist deze route loopt, en wat hem daarin beweegt; een lezer moet hem kunnen navertellen zonder het document erbij
+**Acceptatiecriteria** Dit sjabloononderdeel is af wanneer dit klopt:
 
-**User stories** *welke stories uit het pakket van eisen dit hoofdstuk naar boven brengt; noteer de nummers, niet de stories zelf*
+1. het portret staat in lopende tekst, met het beeld van de persona erbij wanneer dat er is;
+2. de tabel is volledig ingevuld; een veld dat voor deze persona vervalt draagt de reden;
+3. het portret noemt wie deze mens is, waarom hij juist deze route loopt en wat hem daarin beweegt; een lezer kan hem navertellen zonder het document erbij;
+4. het veld Rol noemt of dit een student is of een actor binnen de instelling, met de naam van de rol;
+5. het leerroute scenario waar deze persona bij hoort is met een link genoemd;
+6. het veld Wat het moeilijk maakt noemt minstens een concrete situatie in de route, want daaruit komen de behoeften.
+
+**Eisen** *dit hoofdstuk levert geen eis op; het geeft de context waarin de eisen van de andere hoofdstukken te lezen zijn*
+
+**Ingevuld voorbeeld** uit Persona Jochem en Leerroute 1 scenario:
+
+| Veld | Invulling |
+|---|------------------------------------------------|
+| Naam | Jochem |
+| Rol | student |
+| Situatie | 17 jaar, komt van het vmbo, volgt de opleiding Apothekersassistent (mbo niveau 4) en start in september |
+| Waarom deze route | hij volgt de route zoals de instelling haar heeft ontworpen en heeft geen ondersteunings- of maatwerkvraag; alleen zijn keuzedelen kiest hij zelf |
+| Wat hem beweegt | hij wil apothekersassistent worden en later in een openbare apotheek werken |
+| Wat het moeilijk maakt | zijn eerste keuzedeel kan buiten de onderwijsperiode of de onderwijslocatie van zijn voorkeur vallen; dan blijft zijn keuzedeelruimte leeg en loopt hij studievertraging op |
+| Waaraan hij merkt dat het goed gaat | hij weet bij de start welke modules hij volgt en wat er van hem wordt verwacht, en hij ziet welke leeruitkomsten hij heeft behaald |
+
+**Vul in:**
 
 | Veld | Invulling |
 |---|------------------------------------------------|
 | Naam | *de naam waaronder deze persona in alle documenten terugkomt* |
-| Rol | *student, planner, examinator, leerbedrijf of een andere belanghebbende* |
-| Situatie | *leeftijd, vooropleiding, opleiding en instroommoment, of de positie binnen de instelling* |
+| Rol | *student, of een actor binnen de instelling: onderwijsontwerper, planner, roostermaker, studieloopbaanbegeleider, examinator, leerbedrijf* |
+| Situatie | *voor een student: leeftijd, vooropleiding, opleiding en instroommoment; voor een medewerker: afdeling, taak in de route en de systemen waarmee hij werkt* |
 | Waarom deze route | *wat maakt dat juist deze leerroute bij hem hoort* |
 | Wat hem beweegt | *waar hij het voor doet, en wat hij wil vermijden* |
 | Wat het moeilijk maakt | *waar hij in deze route tegenaan loopt* |
@@ -111,24 +148,46 @@ Kopieer dit blok voor elke persona. Begin met wie het is en waarom deze route bi
 
 *Schrijf hier de uitwerking.*
 
-# Bouwblok: de reis per processtap
+# Sjabloononderdeel: de reis per processtap
 
-Kopieer dit blok voor elke persona, direct onder zijn portret. De stappen komen uit het procesbeeld van het leerroute scenario; neem ze over in dezelfde volgorde, zodat de reizen van twee persona's naast elkaar te leggen zijn.
+Kopieer dit sjabloononderdeel voor elke persona, direct onder zijn portret. De stappen komen uit het procesbeeld van het leerroute scenario; neem ze over in dezelfde volgorde, zodat de reizen van twee persona's naast elkaar te leggen zijn.
 
 De uitgewerkte vorm staat in [persona Jochem](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/persona_jochem.md), die elf stappen doorloopt vanaf orienteren tot het diploma.
 
 **Voorbeeld** [Persona Jochem, Studentjourney](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/persona_jochem.md#studentjourney)
 
-**Acceptatiecriteria** een tabel met een rij per processtap uit het leerroute scenario, en daarnaast een procesplaat in mermaid, BPMN, UML of vergelijkbaar, met dezelfde stappen en in dezelfde volgorde als het procesbeeld in het leerroute scenario, en elke stap noemt wat deze persona doet, wat hij op dat moment moet weten en wat het met hem doet; een stap die in het scenario staat en hier niet, staat als observatie in het slot
+**Acceptatiecriteria** Dit sjabloononderdeel is af wanneer dit klopt:
 
-**User stories** *welke stories uit het pakket van eisen dit hoofdstuk naar boven brengt; noteer de nummers, niet de stories zelf*
+1. er staat een tabel met een rij per processtap, met dezelfde stappen in dezelfde volgorde als het procesbeeld in het leerroute scenario;
+2. er staat een procesplaat in mermaid, BPMN, UML of vergelijkbaar van de reis;
+3. elke rij noemt wat deze persona doet, wat hij op dat moment moet weten en wat het met hem doet;
+4. elke stap waar de persona iets nodig heeft dat vandaag ontbreekt of misloopt, draagt een user story; een stap die soepel loopt draagt in de kolom User story het woord geen;
+5. elke user story voldoet aan [Kwaliteit van een eis](#kwaliteit-van-een-eis);
+6. een stap die in het scenario staat en hier ontbreekt, staat onder Observaties en signaleringen.
 
-| Processtap | Wat hij doet | Wat hij moet weten | Wat het met hem doet |
-|---|---|---|---|
-| | | | |
-| | | | |
-| | | | |
-| | | | |
+**User stories** *de behoeften die hier naar boven komen; schrijf elke behoefte uit als user story, bij de stap waar zij ontstaat*
+
+**Ingevuld voorbeeld** uit Persona Jochem en Leerroute 1 scenario:
+
+| Processtap | Wat hij doet | Wat hij moet weten | Wat het met hem doet | User story |
+|---|---|---|---|---|
+| Informeren | bekijkt bij de start het geplande leertraject, met de modules, de BPV en de examenplanning | welke modules hij volgt en wat er van hem wordt verwacht | rust: hij overziet zijn opleiding | geen |
+| Kiezen keuzedelen | bekijkt het aanbod van keuzedelen en stelt een voorkeurslijst op, met per voorkeur de onderwijsperiode en optioneel de onderwijslocatie | welke keuzedelen in zijn keuzedeelruimte passen, hoeveel SBU hij nog nodig heeft, en waar en wanneer elk keuzedeel wordt gegeven | onzekerheid: past zijn eerste keuze niet, dan dreigt een lege keuzedeelruimte en studievertraging | Als student wil ik bij mijn keuzedeelruimte een geprioriteerde voorkeurslijst opgeven, met als doel dat ik niet zonder keuzedeel kom te zitten wanneer mijn eerste keuze vol is |
+
+**Ingevuld voorbeeld** uit Leerroute 1 scenario, fase 2, voor de persona planner:
+
+| Processtap | Wat hij doet | Wat hij moet weten | Wat het met hem doet | User story |
+|---|---|---|---|---|
+| Publiceren en planbaar maken | bepaalt of de opleiding haalbaar is binnen de strategische jaarplanning, met de mensen en middelen van alle opleidingen | welke specificaties planbaar zijn, met hun tijdvensters, capaciteit, expertise en faciliteit | een onhaalbaar plan betekent dat er in september geen aanbod is om op te oriënteren | Als planner wil ik de haalbaarheid van een opleiding bepalen voordat het onderwijsaanbod wordt gepubliceerd, met als doel dat studenten zich alleen oriënteren op aanbod dat de instelling kan uitvoeren |
+
+**Vul in:**
+
+| Processtap | Wat hij doet | Wat hij moet weten | Wat het met hem doet | User story |
+|---|---|---|---|---|
+| | | | | |
+| | | | | |
+| | | | | |
+| | | | | |
 
 *Schrijf hier de uitwerking.*
 

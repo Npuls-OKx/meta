@@ -28,19 +28,19 @@ Het cijfer rechtsboven in een vak is de prioriteit, waarbij lager eerder is; de 
 
 Dit document legt een leerroute scenario stap voor stap naast het informatiemodel, zodat zichtbaar wordt of het model de werkelijkheid van die route draagt en waar het tekortschiet.
 
-Elk hoofdstuk opent met een blok dat zegt wat er wordt verwacht: waar hetzelfde al is uitgewerkt, welk artefact hier hoort en waaraan het voldoet, en wat dit hoofdstuk aan het pakket van eisen bijdraagt. Dat blok blijft staan; het is de opdracht en niet de uitwerking.
+Elk sjabloononderdeel opent met een opdrachtblok: waar hetzelfde al is uitgewerkt, de acceptatiecriteria waaraan de invulling voldoet, en welke soort eis het oplevert. Het opdrachtblok blijft staan; de uitwerking komt eronder.
 
 ## Eisen uit dit document
 
-OKx kent drie soorten eisen. **Instellingseisen** zeggen wat de instelling moet kunnen; zij komen uit de inbreng van de koploperinstellingen, de persona's en de leerroute scenario's samen. **Functionele eisen** zeggen wat een component moet doen met welke gegevens; zij komen uit de instellingseisen en de leerroute scenario uitwerking samen. **Technische eisen** zeggen wat er over het koppelvlak gaat; zij komen uit de interactieketens, die zelf uit de eisen voortkomen, en zijn onderdeel van de koppelvlakspecificatie.
+OKx kent drie soorten eisen. **Instellingseisen** zeggen wat de instelling moet kunnen; zij komen uit de inbreng van de koploperinstellingen in de proef (de PoC-inbreng), de persona's en de leerroute scenario's samen. **Functionele eisen** zeggen wat een component moet doen met welke gegevens; zij komen uit de instellingseisen en de leerroute scenario uitwerking samen. **Technische eisen** zeggen wat er over het koppelvlak gaat; zij komen uit de interactieketens, die zelf uit de eisen voortkomen, en zijn onderdeel van de koppelvlakspecificatie.
 
-**Dit document bevat die eisen niet; het levert eraan.** Noteer per hoofdstuk alleen de nummers; de eis zelf wordt elders uitgeschreven.
+**De solutionlaag bouwt op wat hier als eis staat.** De solutionlaag is het deel van OKx dat de koppelvlakken ontwerpt: het team systeem en informatie (OKx SI), samen met de leveranciers. OKx SI neemt de instellingseisen en de functionele eisen over en vertaalt ze met de leveranciers naar technische eisen. Een behoefte bereikt de leveranciers via een uitgeschreven eis in dit pakket.
 
-Niet elk hoofdstuk levert hetzelfde. Een journey brengt een behoefte naar boven en levert user stories. Een procesbeschrijving zegt wat de instelling moet kunnen. Een gegevens- of systeemhoofdstuk zegt wat een component moet doen. Een interactiehoofdstuk zegt wat er over het koppelvlak gaat. Het blok boven elk hoofdstuk noemt welke laag daar hoort, en noteert de nummers; de eis zelf wordt elders uitgeschreven.
+Elk onderdeel levert een eigen soort. De reis van een persona brengt een behoefte naar boven en levert user stories. Een procesbeschrijving zegt wat de instelling moet kunnen. Een gegevens- of systeemonderdeel zegt wat een component moet doen. Een interactie zegt wat er over het koppelvlak gaat. Het opdrachtblok noemt welke soort daar hoort.
 
 | Soort | Komt uit | Zegt wat |
 |---|---|------------------------------------|
-| Instellingseis | de PoC-inbreng, de persona's en de leerroute scenario's samen | een instelling wil kunnen om de scenario's te realiseren |
+| Instellingseis | de PoC-inbreng, de persona's en de leerroute scenario's samen | de instelling moet kunnen om de scenario's te realiseren |
 | Functionele eis | de instellingseisen en de leerroute scenario uitwerking | een component moet doen met welke gegevens |
 | Technische eis | de interactieketens, die zelf uit de eisen voortkomen | er over het koppelvlak gaat en in welke vorm |
 
@@ -49,11 +49,28 @@ Dit document levert **functionele eisen**, samen met de instellingseisen. Zo zie
 | Soort | Voorbeeld |
 |---|------------------------------------------------|
 | User story uit de PoC-inbreng | Als student wil ik bij mijn keuzedeelruimte een geprioriteerde voorkeurslijst opgeven, met als doel dat ik niet zonder keuzedeel kom te zitten wanneer mijn eerste keuze vol is |
-| Instellingseis, eerder | de instelling kent per keuzedeelruimte de voorkeursvolgorde van de student voordat zij plaatst |
-| **Functionele eis, uit dit document** | **het studentkeuzesysteem legt per keuzedeelruimte een geordende lijst voorkeuren vast, met per voorkeur het onderdeel, de periode en de locatie** |
+| Instellingseis, eerder | de instelling kan per keuzedeelruimte de voorkeursvolgorde van de student vastleggen voordat zij plaatst |
+| **Functionele eis, uit dit document** | **het Student Keuze Systeem legt per keuzedeelruimte de `Aanmeldingen` van een student vast in volgorde van voorkeur, elk op een `Keuzedeel aanbod` met zijn onderwijsperiode en optioneel de onderwijslocatie** |
 | Technische eis, verderop | de voorkeurslijst gaat als geordende verzameling over het koppelvlak, met de volgorde expliciet in het bericht en niet afgeleid uit de positie |
 
-Vul in dit document de soort in die boven het hoofdstuk staat, als verwijzing. De uitgeschreven eis volgt in een eigen ronde, in het register waar hij hoort.
+## Kwaliteit van een eis
+
+Een eis is bruikbaar wanneer een leverancier hem kan lezen zonder de instelling te bellen. Wat hier staat is een voorstel voor een sectorafspraak: opgesteld uit de inbreng van afzonderlijke instellingen, vastgelegd als afspraak, en daarna de grond voor de technische specificatie. Schrijf elke eis uit op de plek waar hij ontstaat, en toets hem aan de criteria hieronder.
+
+**Een functionele eis:**
+
+1. is een zin die opent met de applicatiecomponent, in de naam van de [hoofdplaat informatiestromen](https://github.com/Npuls-OKx/meta/blob/dev/project/README.md);
+2. noemt wat de component doet en met welke informatieobjecten, elk met de naam van het objecttype uit de [begrippenlijst](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/begrippen/begrippenlijst.md), tussen backquotes;
+3. kiest het objecttype dat bij het moment past: een `Aanmelding` op aanbod is een wens, een verbintenis bestaat pas wanneer zij is aangegaan;
+4. noemt de instellingseis waaruit hij komt;
+5. beschrijft gedrag; formaat, protocol en veldnamen volgen in de technische eis;
+6. is toetsbaar: er is een invoer te noemen met de uitkomst die de component dan geeft;
+7. draagt een gedrag; een tweede gedrag krijgt een eigen nummer.
+
+| Soort | Zwak | Wat eraan ontbreekt | Sterk |
+|---|--------|------|------------|
+| functionele eis | Het systeem ondersteunt voorkeuren voor keuzedelen | de component, de gegevens en het gedrag ontbreken | Het Student Keuze Systeem legt per keuzedeelruimte de `Aanmeldingen` van een student vast in volgorde van voorkeur, elk op een `Keuzedeel aanbod` met zijn onderwijsperiode en optioneel de onderwijslocatie |
+| functionele eis | Het Student Keuze Systeem stuurt de voorkeuren als JSON-lijst naar het Planningssysteem | legt het formaat vast; dat hoort in de technische eis | Het Student Keuze Systeem levert per voorkeur van een student de `Aanmelding` op het `Keuzedeel aanbod` aan het Planningssysteem, met haar plaats in de volgorde |
 
 ## Business analyse en aggregatie van pakket van eisen
 
@@ -79,25 +96,47 @@ Een hoofdstuk is een interactie, en de business analist bepaalt waar hij begint 
 
 # Werkwijze
 
-Dit document is een herhaling van twee bouwstenen. Bouwsteen A legt een processtap vast: wie handelt, en welk informatie-element daar ontstaat. Bouwsteen B legt een uitwisseling vast: het hele ingevulde informatievoorbeeld dat van de ene applicatiecomponent naar de andere gaat.
+Dit document is een herhaling van twee sjabloononderdelen. Onderdeel A legt een processtap vast: wie handelt, en welk informatie-element daar ontstaat. Onderdeel B legt een uitwisseling vast: het hele ingevulde informatievoorbeeld dat van de ene applicatiecomponent naar de andere gaat, met de functionele eisen die daaruit volgen.
 
-Herhaal A tot er een uitwisseling plaatsvindt, zet dan B neer, en ga verder met A. Stop wanneer het hele leerroute scenario is doorlopen. Het aantal bouwstenen ligt niet vast; de dekking van het scenario bepaalt hoeveel het er zijn.
+Herhaal A tot er een uitwisseling plaatsvindt, zet dan B neer, en ga verder met A. Stop wanneer het hele leerroute scenario is doorlopen. Het aantal sjabloononderdelen ligt open; de dekking van het scenario bepaalt hoeveel het er zijn.
 
-De uitgewerkte vorm staat in [de uitwerking van leerroute 1 met Jochem](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md). Die telt acht fasen en ruim honderd bouwstenen; dat is de maat waar dit document naartoe werkt, niet de vorm die het moet overnemen.
+De opbrengst van dit document is tweeledig: het [Eisenoverzicht](#eisenoverzicht) met de functionele eisen per uitwisseling, en de [Hiaten in het model](#hiaten-in-het-model). OKx SI vertaalt beide met de leveranciers naar technische eisen.
 
-# Bouwsteen A: processtap
+De uitgewerkte vorm staat in [de uitwerking van leerroute 1 met Jochem](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md). Die loopt alle acht fasen door; dat is de diepgang waar dit document naartoe werkt.
 
-Kopieer dit blok voor elke processtap. De nummering volgt het leerroute scenario: F1-01 is de eerste stap van fase 1.
+# Sjabloononderdeel A: processtap
 
-Het gaat hier niet alleen om wat er nieuw ontstaat. Een bouwsteen is pas af wanneer ook de **relaties naar eerder ontstane informatie** erin staan: waaraan hangt het nieuwe element, en wat verwijst ernaar. Zonder die relaties is het een losse doos en zegt de uitwerking niets over het model.
+Kopieer dit sjabloononderdeel voor elke processtap. De nummering volgt het leerroute scenario: F1-01 is de eerste stap van fase 1.
 
-Het voorbeeld hieronder is er een met meerdere relaties tegelijk: het kiesbare onderwijsprogrammaonderdeel ontstaat, en hangt aan de opleidingsspecificatie, de keuzedeelruimte en de leeruitkomsten die in eerdere stappen al bestonden.
+Een onderdeel is af wanneer ook de **relaties naar eerder ontstane informatie** erin staan: waaraan hangt het nieuwe element, en wat verwijst ernaar. Die relaties zijn wat de uitwerking over het model zegt.
+
+In het voorbeeld hieronder draagt het keuzedeel meerdere relaties tegelijk: het ontstaat als eigen programmaspecificatie en hangt aan de keuzedeelruimte en de leeruitkomsten uit eerdere stappen.
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F1-08 - Kiesbaar onderwijsprogrammaonderdeel: keuzedelen en minor](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f1-08---kiesbaar-onderwijsprogrammaonderdeel-keuzedelen-en-minor)
 
-**Acceptatiecriteria** een ArchiMate-plaat of een SVG-render daarvan, met de scope van deze processtap uitgelicht, met daarnaast de tabel hieronder ingevuld, en de plaat toont de actor, de processtap en het informatie-element dat daar ontstaat, elk met de term uit de begrippenlijst, **en de relaties naar de informatie-elementen die in eerdere bouwstenen zijn ontstaan**; wat de begrippenlijst niet kent staat als observatie in het slot
+**Acceptatiecriteria** Dit sjabloononderdeel is af wanneer dit klopt:
 
-**Functionele eisen** *wat een component moet doen met welke gegevens; noteer de nummers uit het register functionele eisen*
+1. er staat een ArchiMate-plaat of een SVG-render daarvan, met de scope van deze processtap uitgelicht;
+2. de plaat toont de actor, de processtap en het informatie-element dat daar ontstaat, elk met de term uit de begrippenlijst;
+3. de plaat toont **de relaties naar de informatie-elementen die in eerdere sjabloononderdelen zijn ontstaan**, met het nummer van dat onderdeel;
+4. de tabel is volledig ingevuld, met een voorbeeldwaarde voor de persona van deze route;
+5. wat de begrippenlijst of het informatiemodel mist staat onder [Hiaten in het model](#hiaten-in-het-model).
+
+**Eisen** *dit hoofdstuk levert geen eis op; het geeft de context waarin de eisen van de andere hoofdstukken te lezen zijn*
+
+**Ingevuld voorbeeld** uit Leerroute 1 scenario uitwerking:
+
+| Veld | Invulling |
+|---|------------------------------------------------|
+| Nummer | F1-08 |
+| Processtap | Keuzedeelprogramma als eigen specificatie vormgeven |
+| Actor | onderwijsontwerper |
+| Applicatiecomponent | Curriculum ontwerptool |
+| Ontstaat | `Keuzedeel`, een bijzondere vorm van de `Opleidingsprogramma specificatie`; in het informatiemodel staat dat als voorstel |
+| Relaties naar eerder ontstane elementen | hangt via de `Student keuze regelset` aan de `Keuzedeelruimte` uit F1-07; draagt eigen `Onderwijseenheid specificaties`, elk met hun `Leeruitkomst` |
+| Voorbeeldwaarde | K0037 Farmaceutische Patientenzorg (480 SBU, verdiepend) |
+
+**Vul in:**
 
 | Veld | Invulling |
 |---|------------------------------------------------|
@@ -106,24 +145,46 @@ Het voorbeeld hieronder is er een met meerdere relaties tegelijk: het kiesbare o
 | Actor | *wie handelt, met de rol uit het scenario* |
 | Applicatiecomponent | *welk systeem daarbij hoort* |
 | Ontstaat | *welk objecttype hier voor het eerst bestaat* |
-| Relaties naar eerder ontstane elementen | *waaraan het hangt en wat ernaar verwijst, met het nummer van de bouwsteen waar dat element ontstond* |
+| Relaties naar eerder ontstane elementen | *waaraan het hangt en wat ernaar verwijst, met het nummer van het sjabloononderdeel waar dat element ontstond* |
 | Voorbeeldwaarde | *de ingevulde waarde voor deze persona* |
 
-![Voorbeeld van bouwsteen A: het kiesbare onderwijsprogrammaonderdeel, met de relaties naar de opleidingsspecificatie en de keuzedeelruimte die eerder zijn ontstaan](<img/leerroute-scenario-uitwerking/f1-08-kiesbaar-onderwijsprogrammaonderdeel-keuzedelen-en-minor.png>)
+![Voorbeeld van sjabloononderdeel A: het kiesbare onderwijsprogrammaonderdeel, met de relaties naar de opleidingsspecificatie en de keuzedeelruimte die eerder zijn ontstaan](<img/leerroute-scenario-uitwerking/f1-08-kiesbaar-onderwijsprogrammaonderdeel-keuzedelen-en-minor.png>)
 
 *Schrijf hier de uitwerking.*
 
-# Bouwsteen B: uitwisseling
+# Sjabloononderdeel B: uitwisseling
 
-Kopieer dit blok voor elke uitwisseling. Hier gaat niet een los gegeven over de lijn maar het hele samenhangende voorbeeld: het objecttype met alles wat eraan hangt.
+Kopieer dit sjabloononderdeel voor elke uitwisseling. Over de lijn gaat het hele samenhangende voorbeeld: het objecttype met alles wat eraan hangt.
 
 Het voorbeeld hieronder is er een met een volle structuur: het verzoek om onderwijsaanbod neemt de specificatiestructuur en de planbare waarden mee, zodat het planningssysteem zonder navraag kan plannen.
 
+Elke uitwisseling levert functionele eisen op: wat de leverende component moet kunnen leveren, en wat de afnemende component ermee moet kunnen doen. Nummer door vanaf het laatste nummer in het leerroute scenario, zodat een nummer een eis blijft aanwijzen.
+
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F2-03 - Verzoek met specificatiestructuur en planbare waarden naar planning](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f2-03---verzoek-met-specificatiestructuur-en-planbare-waarden-naar-planning)
 
-**Acceptatiecriteria** een ArchiMate-plaat of een SVG-render daarvan, met de scope van deze uitwisseling uitgelicht, met daarnaast het volledige ingevulde informatievoorbeeld dat over de lijn gaat, en de plaat toont beide applicatiecomponenten en de richting; het voorbeeld draagt elk objecttype **met zijn relaties**, zodat zichtbaar is wat de ontvanger werkelijk binnenkrijgt en niet alleen welk veld er over de lijn gaat
+**Acceptatiecriteria** Dit sjabloononderdeel is af wanneer dit klopt:
 
-**Functionele eisen** *wat een component moet doen met welke gegevens; noteer de nummers uit het register functionele eisen*
+1. er staat een ArchiMate-plaat of een SVG-render daarvan, met de scope van deze uitwisseling uitgelicht, beide applicatiecomponenten en de richting;
+2. het informatievoorbeeld draagt elk objecttype **met zijn relaties**, zodat zichtbaar is wat de ontvanger binnenkrijgt;
+3. het veld Aanleiding noemt de processtap die de uitwisseling veroorzaakt, met het nummer van dat sjabloononderdeel;
+4. het veld Informatiestroom noemt het nummer uit het leerroute scenario;
+5. elke functionele eis aan de leverende of de afnemende component staat uitgeschreven en genummerd, met de instellingseis waaruit hij komt, en voldoet aan [Kwaliteit van een eis](#kwaliteit-van-een-eis).
+
+**Functionele eisen** *wat een component moet doen met welke gegevens; schrijf elke eis uit met zijn nummer en de instellingseis waaruit hij komt*
+
+**Ingevuld voorbeeld** uit Leerroute 1 scenario uitwerking:
+
+| Veld | Invulling |
+|---|------------------------------------------------|
+| Nummer | F2-03 |
+| Van | Onderwijscatalogus |
+| Naar | Planningssysteem |
+| Aanleiding | het verzoek om onderwijsaanbod uit F2-02, nadat F2-01 de specificatie planbaar heeft gemaakt |
+| Informatievoorbeeld | het `Verzoek tot Aanbod / Intekening op specificatie` Planopgave Apothekersassistent, cohort 2026, met de `Opleiding specificatie` Apothekersassistent, versie 2026.1, haar `Opleidingsprogramma specificatie` BOL voltijd, en per `Onderwijseenheid specificatie` en `Leeronderdeel specificatie` de `Leeruitkomst` en de planbare waarden: Blok B1-K1 met 80 uur begeleide onderwijstijd, een praktijkruimte en een docent farmacie. De gewenste periode gaat mee in de `Nominale Leerroute`, die in het informatiemodel als voorstel staat |
+| Informatiestroom | OC-P&R, de koppeling tussen de Onderwijscatalogus en het Planningssysteem |
+| Functionele eisen | FE-LR1-03: De Onderwijscatalogus stuurt het verzoek om onderwijsaanbod aan het Planningssysteem, met de specificatiestructuur en per eenheid de planbare waarden; komt uit IE-LR1-04 |
+
+**Vul in:**
 
 | Veld | Invulling |
 |---|------------------------------------------------|
@@ -132,29 +193,55 @@ Het voorbeeld hieronder is er een met een volle structuur: het verzoek om onderw
 | Naar | *welke applicatiecomponent neemt af* |
 | Aanleiding | *welke processtap deze uitwisseling veroorzaakt* |
 | Informatievoorbeeld | *het ingevulde voorbeeld, met alle relaties* |
-| Informatiestroom | *het nummer uit het leerroute scenario* |
+| Informatiestroom | *de koppeling op de hoofdplaat informatiestromen, bijvoorbeeld OC-P&R* |
+| Functionele eisen | *FE-LR..-..: Het <component> ..., met de instellingseis waaruit hij komt; een regel per eis* |
 
-![Voorbeeld van bouwsteen B: het verzoek om onderwijsaanbod gaat met de hele specificatiestructuur en de planbare waarden van de onderwijscatalogus naar het planningssysteem](<img/leerroute-scenario-uitwerking/f2-03-verzoek-met-specificatiestructuur-en-planbare-waarden-naar-planning.png>)
+![Voorbeeld van sjabloononderdeel B: het verzoek om onderwijsaanbod gaat met de hele specificatiestructuur en de planbare waarden van de onderwijscatalogus naar het planningssysteem](<img/leerroute-scenario-uitwerking/f2-03-verzoek-met-specificatiestructuur-en-planbare-waarden-naar-planning.png>)
 
 *Schrijf hier de uitwerking.*
 
 # Uitwerking
 
-Herhaal hieronder bouwsteen A en bouwsteen B tot het hele leerroute scenario is doorlopen. Houd de volgorde van het scenario aan, zodat beide documenten naast elkaar te leggen zijn.
+Herhaal hieronder sjabloononderdeel A en sjabloononderdeel B tot het hele leerroute scenario is doorlopen. Houd de volgorde van het scenario aan, zodat beide documenten naast elkaar te leggen zijn.
 
 *Schrijf hier de uitwerking.*
 
 # Hiaten in het model
 
-Welke bouwstenen niet in het informatiemodel pasten, per regel met wat ontbrak. Dit hoofdstuk is de opbrengst van de uitwerking: een voorbeeld dat overal paste heeft niets gemeten. Wat hier staat wordt een functional requirement.
+Welke sjabloononderdelen het informatiemodel niet kon dragen, per regel met wat ontbrak. Dit hoofdstuk is de tweede opbrengst van de uitwerking: een voorbeeld dat overal paste heeft niets gemeten. Volgt er een functionele eis uit een hiaat, schrijf hem dan uit in de laatste kolom en neem hem over in het eisenoverzicht.
 
-| Nummer | Wat ontbrak | Wat er nodig is |
-|---|---|------------------------------------|
-| | | |
-| | | |
-| | | |
+| Nummer | Wat ontbrak | Wat er nodig is | Functionele eis |
+|---|---|---|---|
+| | | | |
+| | | | |
+| | | | |
 
 *Schrijf hier de uitwerking.*
+
+# Eisenoverzicht
+
+Alle functionele eisen uit de uitwisselingen en de hiaten hierboven, bij elkaar. Samen met het eisenoverzicht van het leerroute scenario is dit het pakket van eisen van de route, dat OKx SI overneemt en met de leveranciers naar technische eisen vertaalt.
+
+Het overzicht is af wanneer:
+
+1. elke functionele eis uit de sjabloononderdelen erin staat, met dezelfde zin en hetzelfde nummer;
+2. elke eis de uitwisseling of het hiaat noemt waaruit hij komt, en de instellingseis;
+3. elke uitwisseling minstens een functionele eis heeft;
+4. elke eis voldoet aan [Kwaliteit van een eis](#kwaliteit-van-een-eis).
+
+**Ingevuld voorbeeld** uit Leerroute 1 scenario uitwerking:
+
+| Nummer | Eis | Komt uit sjabloononderdeel | Komt uit instellingseis |
+|---|---|---|---|
+| FE-LR1-03 | De Onderwijscatalogus stuurt het verzoek om onderwijsaanbod aan het Planningssysteem, met de specificatiestructuur en per eenheid de planbare waarden | F2-03 | IE-LR1-04 |
+
+**Vul in:**
+
+| Nummer | Eis | Komt uit sjabloononderdeel | Komt uit instellingseis |
+|---|---|---|---|
+| FE-LR..-.. | | | |
+| FE-LR..-.. | | | |
+| FE-LR..-.. | | | |
 
 # Afwijkingen per instelling
 

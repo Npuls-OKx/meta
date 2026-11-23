@@ -10,9 +10,9 @@
 
 | Onderdeel | Inhoud |
 |---|------------------------------------------------|
-| Wie dit invult | de adviesgroep. Suggestie: de business analisten met Niels, want de keten raakt de koppelvlakken |
+| Wie dit invult | OKx SI, samen met de leveranciers. De adviesgroep levert de instellingseisen en de functionele eisen waarop deze keten bouwt, in het leerroute scenario en de uitwerking |
 | Voorbeeld | [interactieketen onderwijsaanbod](https://github.com/Npuls-OKx/meta/blob/e05b4444a29a09b92cc8afd73bce69af78f1ac12/architecture/docs/specificatie/interactieketen-onderwijsaanbod/README.md), nog in review als pull request 373 |
-| Inleveren | terug naar OKx SI als Word-bestand |
+| Inleveren | blijft bij OKx SI; de adviesgroep leest mee op de functionele eisen die elke interactie verwezenlijkt |
 
 ## Productplaatsing
 
@@ -28,19 +28,19 @@ Het cijfer rechtsboven in een vak is de prioriteit, waarbij lager eerder is; de 
 
 Dit document legt vast welke diensten elkaar in welke volgorde aanroepen om een keten af te maken, zodat een bouwer weet wat hij moet bouwen en wat hij mag verwachten.
 
-Elk hoofdstuk opent met een blok dat zegt wat er wordt verwacht: waar hetzelfde al is uitgewerkt, welk artefact hier hoort en waaraan het voldoet, en wat dit hoofdstuk aan het pakket van eisen bijdraagt. Dat blok blijft staan; het is de opdracht en niet de uitwerking.
+Elk sjabloononderdeel opent met een opdrachtblok: waar hetzelfde al is uitgewerkt, de acceptatiecriteria waaraan de invulling voldoet, en welke soort eis het oplevert. Het opdrachtblok blijft staan; de uitwerking komt eronder.
 
 ## Eisen uit dit document
 
-OKx kent drie soorten eisen. **Instellingseisen** zeggen wat de instelling moet kunnen; zij komen uit de inbreng van de koploperinstellingen, de persona's en de leerroute scenario's samen. **Functionele eisen** zeggen wat een component moet doen met welke gegevens; zij komen uit de instellingseisen en de leerroute scenario uitwerking samen. **Technische eisen** zeggen wat er over het koppelvlak gaat; zij komen uit de interactieketens, die zelf uit de eisen voortkomen, en zijn onderdeel van de koppelvlakspecificatie.
+OKx kent drie soorten eisen. **Instellingseisen** zeggen wat de instelling moet kunnen; zij komen uit de inbreng van de koploperinstellingen in de proef (de PoC-inbreng), de persona's en de leerroute scenario's samen. **Functionele eisen** zeggen wat een component moet doen met welke gegevens; zij komen uit de instellingseisen en de leerroute scenario uitwerking samen. **Technische eisen** zeggen wat er over het koppelvlak gaat; zij komen uit de interactieketens, die zelf uit de eisen voortkomen, en zijn onderdeel van de koppelvlakspecificatie.
 
-**Dit document bevat die eisen niet; het levert eraan.** Noteer per hoofdstuk alleen de nummers; de eis zelf wordt elders uitgeschreven.
+**De solutionlaag bouwt op wat hier als eis staat.** De solutionlaag is het deel van OKx dat de koppelvlakken ontwerpt: het team systeem en informatie (OKx SI), samen met de leveranciers. OKx SI neemt de instellingseisen en de functionele eisen over en vertaalt ze met de leveranciers naar technische eisen. Een behoefte bereikt de leveranciers via een uitgeschreven eis in dit pakket.
 
-Niet elk hoofdstuk levert hetzelfde. Een journey brengt een behoefte naar boven en levert user stories. Een procesbeschrijving zegt wat de instelling moet kunnen. Een gegevens- of systeemhoofdstuk zegt wat een component moet doen. Een interactiehoofdstuk zegt wat er over het koppelvlak gaat. Het blok boven elk hoofdstuk noemt welke laag daar hoort, en noteert de nummers; de eis zelf wordt elders uitgeschreven.
+Elk onderdeel levert een eigen soort. De reis van een persona brengt een behoefte naar boven en levert user stories. Een procesbeschrijving zegt wat de instelling moet kunnen. Een gegevens- of systeemonderdeel zegt wat een component moet doen. Een interactie zegt wat er over het koppelvlak gaat. Het opdrachtblok noemt welke soort daar hoort.
 
 | Soort | Komt uit | Zegt wat |
 |---|---|------------------------------------|
-| Instellingseis | de PoC-inbreng, de persona's en de leerroute scenario's samen | een instelling wil kunnen om de scenario's te realiseren |
+| Instellingseis | de PoC-inbreng, de persona's en de leerroute scenario's samen | de instelling moet kunnen om de scenario's te realiseren |
 | Functionele eis | de instellingseisen en de leerroute scenario uitwerking | een component moet doen met welke gegevens |
 | Technische eis | de interactieketens, die zelf uit de eisen voortkomen | er over het koppelvlak gaat en in welke vorm |
 
@@ -49,11 +49,9 @@ Dit document levert **technische eisen aan interacties**. Zo ziet zo'n eis eruit
 | Soort | Voorbeeld |
 |---|------------------------------------------------|
 | User story uit de PoC-inbreng | Als student wil ik bij mijn keuzedeelruimte een geprioriteerde voorkeurslijst opgeven, met als doel dat ik niet zonder keuzedeel kom te zitten wanneer mijn eerste keuze vol is |
-| Instellingseis, eerder | de instelling kent per keuzedeelruimte de voorkeursvolgorde van de student voordat zij plaatst |
-| Functionele eis, eerder | het studentkeuzesysteem legt per keuzedeelruimte een geordende lijst voorkeuren vast, met per voorkeur het onderdeel, de periode en de locatie |
+| Instellingseis, eerder | de instelling kan per keuzedeelruimte de voorkeursvolgorde van de student vastleggen voordat zij plaatst |
+| Functionele eis, eerder | het Student Keuze Systeem legt per keuzedeelruimte de `Aanmeldingen` van een student vast in volgorde van voorkeur, elk op een `Keuzedeel aanbod` met zijn onderwijsperiode en optioneel de onderwijslocatie |
 | **Technische eis, uit dit document** | **de voorkeurslijst gaat als geordende verzameling over het koppelvlak, met de volgorde expliciet in het bericht en niet afgeleid uit de positie** |
-
-Vul in dit document de soort in die boven het hoofdstuk staat, als verwijzing. De uitgeschreven eis volgt in een eigen ronde, in het register waar hij hoort.
 
 ## Business analyse en aggregatie van pakket van eisen
 
@@ -79,19 +77,26 @@ Een hoofdstuk is een interactie, en de business analist bepaalt waar hij begint 
 
 # Werkwijze
 
-Een interactieketen is een reeks interacties. Dit document zet er een neer als bouwblok, en dat blok herhaalt zich tot de keten af is.
+Een interactieketen is een reeks interacties. Dit document zet er een neer als sjabloononderdeel, en dat onderdeel herhaalt zich tot de keten af is.
 
 **De nummering.** Elke interactie draagt een nummer dat begint met `IS`, voor interactiespecificatie. Daarna de afkorting van de keten en een volgnummer: `IS-OA-01` is de eerste interactie van de keten onderwijsaanbod. Kies de afkorting van uw keten en houd hem door het hele document aan; OKx neemt dat nummer over, dus hernummeren achteraf kost iedereen werk.
 
 **De scope van een interactie** bepaalt de business analist: de kleinst mogelijke eenheid die waarde oplevert voor zowel de student als de instelling. Een aanroep die alleen een technische stap zet is te klein; een hele fase is te groot.
 
-# Bouwblok: een interactie
+# Sjabloononderdeel: een interactie
 
-Kopieer dit blok voor elke interactie in de keten. Houd de volgorde van de keten aan, zodat het document van begin tot eind te lezen is.
+Kopieer dit sjabloononderdeel voor elke interactie in de keten. Houd de volgorde van de keten aan, zodat het document van begin tot eind te lezen is.
 
 **Voorbeeld** [Keten onderwijsaanbod, IS-OA-03 Verzoek om aanbod naar planning](https://github.com/Npuls-OKx/meta/blob/e05b4444a29a09b92cc8afd73bce69af78f1ac12/architecture/docs/specificatie/interactieketen-onderwijsaanbod/README.md#is-oa-03-verzoek-om-aanbod-naar-planning)
 
-**Acceptatiecriteria** een ArchiMate-plaat of een SVG-render daarvan, met de scope van deze interactie uitgelicht, met daarnaast de tabel hieronder ingevuld, en de plaat toont beide componenten, de richting en het bericht; de tabel noemt wat er gebeurt wanneer de aanbieder niet antwoordt, want een keten zonder foutpad is niet te bouwen
+**Acceptatiecriteria** Dit sjabloononderdeel is af wanneer dit klopt:
+
+1. er staat een ArchiMate-plaat of een SVG-render daarvan, met de scope van deze interactie uitgelicht, beide componenten, de richting en het bericht;
+2. de aanbieder en de afnemer dragen elk een eigen naam en versie;
+3. het bericht noemt de informatie in de termen uit de begrippenlijst;
+4. het veld Functionele eisen noemt de nummers van de eisen die deze interactie verwezenlijkt;
+5. het veld Foutpad noemt wat er gebeurt wanneer de aanbieder niet of fout antwoordt, want een keten zonder foutpad is niet te bouwen;
+6. het veld Herhaalbaar noemt wat een tweede dezelfde aanroep doet.
 
 **Technische eisen** *wat er over het koppelvlak gaat en in welke vorm; die liggen in de interactieketen zelf vast*
 
@@ -103,7 +108,8 @@ Kopieer dit blok voor elke interactie in de keten. Houd de volgorde van de keten
 | Afnemer | *welke component hem afneemt, met naam en versie* |
 | Aanleiding | *welke gebeurtenis deze interactie start* |
 | Bericht | *welke informatie meegaat, met de termen uit de begrippenlijst* |
-| Informatiestroom | *het nummer uit het leerroute scenario* |
+| Informatiestroom | *de koppeling op de hoofdplaat informatiestromen, bijvoorbeeld OC-P&R* |
+| Functionele eisen | *de nummers uit het leerroute scenario en de uitwerking, bijvoorbeeld FE-LR1-03* |
 | Antwoord | *wat de afnemer terugkrijgt* |
 | Foutpad | *wat er gebeurt wanneer de aanbieder niet of fout antwoordt* |
 | Herhaalbaar | *wat een tweede dezelfde aanroep doet* |
@@ -112,7 +118,7 @@ Kopieer dit blok voor elke interactie in de keten. Houd de volgorde van de keten
 
 # De keten
 
-Herhaal het bouwblok hierboven voor elke interactie, in de volgorde van de keten. Zet er een plaat van de hele keten bij zodra alle interacties erin staan: een reeks losse blokken laat niet zien waar de keten wacht, splitst of terugkomt.
+Herhaal het sjabloononderdeel hierboven voor elke interactie, in de volgorde van de keten. Zet er een plaat van de hele keten bij zodra alle interacties erin staan: een reeks losse onderdelen laat niet zien waar de keten wacht, splitst of terugkomt.
 
 *Schrijf hier de uitwerking.*
 

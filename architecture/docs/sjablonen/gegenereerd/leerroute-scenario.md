@@ -28,19 +28,19 @@ Het cijfer rechtsboven in een vak is de prioriteit, waarbij lager eerder is; de 
 
 Dit document werkt een Npuls-leerroute uit tot het punt waarop duidelijk is welke informatie waarheen moet, zodat de solutionlaag erop kan bouwen zonder de onderwijskundige keuze over te nemen.
 
-Elk hoofdstuk opent met een blok dat zegt wat er wordt verwacht: waar hetzelfde al is uitgewerkt, welk artefact hier hoort en waaraan het voldoet, en wat dit hoofdstuk aan het pakket van eisen bijdraagt. Dat blok blijft staan; het is de opdracht en niet de uitwerking.
+Elk sjabloononderdeel opent met een opdrachtblok: waar hetzelfde al is uitgewerkt, de acceptatiecriteria waaraan de invulling voldoet, en welke soort eis het oplevert. Het opdrachtblok blijft staan; de uitwerking komt eronder.
 
 ## Eisen uit dit document
 
-OKx kent drie soorten eisen. **Instellingseisen** zeggen wat de instelling moet kunnen; zij komen uit de inbreng van de koploperinstellingen, de persona's en de leerroute scenario's samen. **Functionele eisen** zeggen wat een component moet doen met welke gegevens; zij komen uit de instellingseisen en de leerroute scenario uitwerking samen. **Technische eisen** zeggen wat er over het koppelvlak gaat; zij komen uit de interactieketens, die zelf uit de eisen voortkomen, en zijn onderdeel van de koppelvlakspecificatie.
+OKx kent drie soorten eisen. **Instellingseisen** zeggen wat de instelling moet kunnen; zij komen uit de inbreng van de koploperinstellingen in de proef (de PoC-inbreng), de persona's en de leerroute scenario's samen. **Functionele eisen** zeggen wat een component moet doen met welke gegevens; zij komen uit de instellingseisen en de leerroute scenario uitwerking samen. **Technische eisen** zeggen wat er over het koppelvlak gaat; zij komen uit de interactieketens, die zelf uit de eisen voortkomen, en zijn onderdeel van de koppelvlakspecificatie.
 
-**Dit document bevat die eisen niet; het levert eraan.** Noteer per hoofdstuk alleen de nummers; de eis zelf wordt elders uitgeschreven.
+**De solutionlaag bouwt op wat hier als eis staat.** De solutionlaag is het deel van OKx dat de koppelvlakken ontwerpt: het team systeem en informatie (OKx SI), samen met de leveranciers. OKx SI neemt de instellingseisen en de functionele eisen over en vertaalt ze met de leveranciers naar technische eisen. Een behoefte bereikt de leveranciers via een uitgeschreven eis in dit pakket.
 
-Niet elk hoofdstuk levert hetzelfde. Een journey brengt een behoefte naar boven en levert user stories. Een procesbeschrijving zegt wat de instelling moet kunnen. Een gegevens- of systeemhoofdstuk zegt wat een component moet doen. Een interactiehoofdstuk zegt wat er over het koppelvlak gaat. Het blok boven elk hoofdstuk noemt welke laag daar hoort, en noteert de nummers; de eis zelf wordt elders uitgeschreven.
+Elk onderdeel levert een eigen soort. De reis van een persona brengt een behoefte naar boven en levert user stories. Een procesbeschrijving zegt wat de instelling moet kunnen. Een gegevens- of systeemonderdeel zegt wat een component moet doen. Een interactie zegt wat er over het koppelvlak gaat. Het opdrachtblok noemt welke soort daar hoort.
 
 | Soort | Komt uit | Zegt wat |
 |---|---|------------------------------------|
-| Instellingseis | de PoC-inbreng, de persona's en de leerroute scenario's samen | een instelling wil kunnen om de scenario's te realiseren |
+| Instellingseis | de PoC-inbreng, de persona's en de leerroute scenario's samen | de instelling moet kunnen om de scenario's te realiseren |
 | Functionele eis | de instellingseisen en de leerroute scenario uitwerking | een component moet doen met welke gegevens |
 | Technische eis | de interactieketens, die zelf uit de eisen voortkomen | er over het koppelvlak gaat en in welke vorm |
 
@@ -49,11 +49,39 @@ Dit document levert **instellingseisen** en **functionele eisen**; de technische
 | Soort | Voorbeeld |
 |---|------------------------------------------------|
 | User story uit de PoC-inbreng | Als student wil ik bij mijn keuzedeelruimte een geprioriteerde voorkeurslijst opgeven, met als doel dat ik niet zonder keuzedeel kom te zitten wanneer mijn eerste keuze vol is |
-| **Instellingseis, uit dit document** | **de instelling kent per keuzedeelruimte de voorkeursvolgorde van de student voordat zij plaatst** |
-| Functionele eis, verderop | het studentkeuzesysteem legt per keuzedeelruimte een geordende lijst voorkeuren vast, met per voorkeur het onderdeel, de periode en de locatie |
+| **Instellingseis, uit dit document** | **de instelling kan per keuzedeelruimte de voorkeursvolgorde van de student vastleggen voordat zij plaatst** |
+| Functionele eis, verderop | het Student Keuze Systeem legt per keuzedeelruimte de `Aanmeldingen` van een student vast in volgorde van voorkeur, elk op een `Keuzedeel aanbod` met zijn onderwijsperiode en optioneel de onderwijslocatie |
 | Technische eis, verderop | de voorkeurslijst gaat als geordende verzameling over het koppelvlak, met de volgorde expliciet in het bericht en niet afgeleid uit de positie |
 
-Vul in dit document de soort in die boven het hoofdstuk staat, als verwijzing. De uitgeschreven eis volgt in een eigen ronde, in het register waar hij hoort.
+## Kwaliteit van een eis
+
+Een eis is bruikbaar wanneer een leverancier hem kan lezen zonder de instelling te bellen. Wat hier staat is een voorstel voor een sectorafspraak: opgesteld uit de inbreng van afzonderlijke instellingen, vastgelegd als afspraak, en daarna de grond voor de technische specificatie. Schrijf elke eis uit op de plek waar hij ontstaat, en toets hem aan de criteria hieronder.
+
+**Een instellingseis:**
+
+1. is een zin die opent met `De instelling kan`;
+2. noemt een vermogen van de instelling; het systeem dat het draagt volgt in de functionele eis;
+3. is toetsbaar: er is een situatie te noemen waarin vaststaat of de instelling het kan;
+4. noemt zijn herkomst: de persona met de stap, het scenario of de procesfase;
+5. geldt bij meerdere instellingen; wat bij een instelling speelt staat onder Afwijkingen per instelling;
+6. draagt een vermogen; een tweede vermogen krijgt een eigen nummer.
+
+**Een functionele eis:**
+
+1. is een zin die opent met de applicatiecomponent, in de naam van de [hoofdplaat informatiestromen](https://github.com/Npuls-OKx/meta/blob/dev/project/README.md);
+2. noemt wat de component doet en met welke informatieobjecten, elk met de naam van het objecttype uit de [begrippenlijst](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/begrippen/begrippenlijst.md), tussen backquotes;
+3. kiest het objecttype dat bij het moment past: een `Aanmelding` op aanbod is een wens, een verbintenis bestaat pas wanneer zij is aangegaan;
+4. noemt de instellingseis waaruit hij komt;
+5. beschrijft gedrag; formaat, protocol en veldnamen volgen in de technische eis;
+6. is toetsbaar: er is een invoer te noemen met de uitkomst die de component dan geeft;
+7. draagt een gedrag; een tweede gedrag krijgt een eigen nummer.
+
+| Soort | Zwak | Wat eraan ontbreekt | Sterk |
+|---|--------|------|------------|
+| instellingseis | De instelling wil flexibel omgaan met keuzedelen | er is geen situatie waarin vaststaat of het kan | De instelling kan per keuzedeelruimte de voorkeursvolgorde van de student vastleggen voordat zij plaatst |
+| instellingseis | Het roosterpakket stuurt een melding wanneer een keuzedeel vol zit | noemt een product en een oplossing; het vermogen van de instelling ontbreekt | De instelling kan signaleren dat de keuzedeelruimte van een student oningevuld blijft, op een moment dat de student nog een nieuwe keuze kan maken |
+| functionele eis | Het systeem ondersteunt voorkeuren voor keuzedelen | de component, de gegevens en het gedrag ontbreken | Het Student Keuze Systeem legt per keuzedeelruimte de `Aanmeldingen` van een student vast in volgorde van voorkeur, elk op een `Keuzedeel aanbod` met zijn onderwijsperiode en optioneel de onderwijslocatie |
+| functionele eis | Het Student Keuze Systeem stuurt de voorkeuren als JSON-lijst naar het Planningssysteem | legt het formaat vast; dat hoort in de technische eis | Het Student Keuze Systeem levert per voorkeur van een student de `Aanmelding` op het `Keuzedeel aanbod` aan het Planningssysteem, met haar plaats in de volgorde |
 
 ## Business analyse en aggregatie van pakket van eisen
 
@@ -79,43 +107,63 @@ Een hoofdstuk is een interactie, en de business analist bepaalt waar hij begint 
 
 # Werkwijze
 
-Een leerroute scenario is opgebouwd uit vijf bouwblokken. Het routeprofiel staat er een keer in; de andere vier herhalen zich tot de route gedekt is.
+Een leerroute scenario is opgebouwd uit vijf sjabloononderdelen. Het routeprofiel staat er een keer in; de andere vier herhalen zich tot de route gedekt is.
 
-| Bouwblok | Hoe vaak | Levert |
+| Sjabloononderdeel | Hoe vaak | Levert |
 |---|---|---|
 | Routeprofiel | een keer | context |
-| Reis | per persona | user stories en instellingseisen |
+| Reis | per persona | instellingseisen, uit de user stories van het persona-document |
 | Scenario binnen de route | per scenario | instellingseisen |
 | Procesfase | per fase | instellingseisen |
 | Informatie en systemen | per fase, of een keer voor de route | functionele eisen |
 
-Technische eisen horen hier niet: die volgen later, in de interactieketen. De uitgewerkte vorm staat in [leerroute 1 scenario](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md); neem daar de diepgang van over, niet de hoofdstukindeling. Wat leerroute 1 eigen is, zoals keuzedelen, hoort alleen in een route die het ook kent.
+De opbrengst van dit document is het [Eisenoverzicht](#eisenoverzicht): de instellingseisen en de functionele eisen van deze route, uitgeschreven en genummerd. OKx SI vertaalt dat overzicht met de leveranciers naar technische eisen, in de interactieketen.
+
+De uitgewerkte vorm staat in [leerroute 1 scenario](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md); neem daar de diepgang van over en houd de indeling van dit sjabloon aan. Wat leerroute 1 eigen is, zoals keuzedelen, hoort alleen in een route die het ook kent.
 
 # Notatie van eisen
 
-Elke eis krijgt een nummer en verwijst naar het bouwblok waaruit hij komt. Een eis is een zin die te toetsen is, zonder toelichting; de toelichting staat in het bouwblok zelf.
+Elke eis krijgt een nummer en verwijst naar het sjabloononderdeel waaruit hij komt. Een eis is een zin die te toetsen is; de toelichting staat in het sjabloononderdeel zelf. Waaraan die zin voldoet staat onder [Kwaliteit van een eis](#kwaliteit-van-een-eis).
 
 | Soort | Nummer | Vorm van de zin |
 |---|---|---|
 | Instellingseis | `IE-LR<route>-<volgnummer>`, bijvoorbeeld `IE-LR2-03` | De instelling kan ... |
 | Functionele eis | `FE-LR<route>-<volgnummer>`, bijvoorbeeld `FE-LR2-07` | Het <component> ... |
 
-Een functionele eis noemt de instellingseis waaruit hij komt. Een voorbeeld uit leerroute 1:
+Een instellingseis noemt de persona met de stap, het scenario of de procesfase waaruit hij komt. Een functionele eis noemt de instellingseis waaruit hij komt. Een voorbeeld uit leerroute 1:
 
 | Nummer | Eis | Komt uit |
 |---|---|---|
-| IE-LR1-01 | De instelling kan per keuzedeelruimte de voorkeursvolgorde van de student vastleggen voordat zij plaatst | reis van de student, stap kiezen |
-| FE-LR1-01 | Het studentkeuzesysteem legt per keuzedeelruimte een geordende lijst voorkeuren vast, met per voorkeur het onderdeel, de periode en de locatie | IE-LR1-01, bouwblok informatie en systemen |
+| IE-LR1-01 | De instelling kan per keuzedeelruimte de voorkeursvolgorde van de student vastleggen voordat zij plaatst | reis van Jochem, stap kiezen keuzedelen |
+| FE-LR1-01 | Het Student Keuze Systeem legt per keuzedeelruimte de `Aanmeldingen` van een student vast in volgorde van voorkeur, elk op een `Keuzedeel aanbod` met zijn onderwijsperiode en optioneel de onderwijslocatie | IE-LR1-01, sjabloononderdeel informatie en systemen |
 
-# Bouwblok: routeprofiel
+# Sjabloononderdeel: routeprofiel
 
-Dit blok staat er een keer in, vooraan.
+Dit sjabloononderdeel staat er een keer in, vooraan.
 
 **Voorbeeld** [Leerroute 1 scenario, 3.2.1.1 Leerroute 1 — Regulier](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#3211-leerroute-1--regulier)
 
-**Acceptatiecriteria** het conceptbeeld van de route uit de Npuls-leerroutereeks, met de tabel hieronder ingevuld, en het profiel zegt in een zin wat deze route onderscheidt van leerroute 1, de reguliere en aanbodgedreven route die als vergelijkingspunt dient
+**Acceptatiecriteria** Dit sjabloononderdeel is af wanneer dit klopt:
+
+1. het conceptbeeld van de route uit de Npuls-leerroutereeks staat erbij;
+2. de tabel is volledig ingevuld;
+3. het veld Persona's noemt elke persona van de route, met een link naar het persona-document;
+4. het veld Verschil met leerroute 1 zegt in een zin wat deze route onderscheidt van leerroute 1, de reguliere en aanbodgedreven route die als vergelijkingspunt dient;
+5. het veld Eindbeeld noemt het punt waar dit scenario eindigt, met de reden.
 
 **Eisen** *dit hoofdstuk levert geen eis op; het geeft de context waarin de eisen van de andere hoofdstukken te lezen zijn*
+
+**Ingevuld voorbeeld** uit Leerroute 1 scenario:
+
+| Veld | Invulling |
+|---|------------------------------------------------|
+| Route | leerroute 1, regulier |
+| Persona's | Jochem, student: [persona Jochem](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/persona_jochem.md) |
+| Sturing | aanbodgedreven: de instelling ontwerpt, plant en roostert de route vooraf; alleen de keuzedelen kiest de student |
+| Verschil met leerroute 1 | dit is leerroute 1 zelf, het vergelijkingspunt voor de andere routes |
+| Eindbeeld | het diploma: Jochem heeft zijn examens afgelegd en de opleiding voltooid |
+
+**Vul in:**
 
 | Veld | Invulling |
 |---|------------------------------------------------|
@@ -129,79 +177,147 @@ Dit blok staat er een keer in, vooraan.
 
 *Schrijf hier de uitwerking.*
 
-# Bouwblok: reis
+# Sjabloononderdeel: reis
 
-Kopieer dit blok voor elke persona van de route: de student, en elke rol vanuit de instelling waar de route langs loopt. De stappen van twee reizen dragen dezelfde namen, zodat zij naast elkaar te leggen zijn.
+Kopieer dit sjabloononderdeel voor elke persona van de route: de student, en elke rol vanuit de instelling waar de route langs loopt. De stappen van twee reizen dragen dezelfde namen, zodat zij naast elkaar te leggen zijn.
+
+Neem de user stories uit het persona-document als vertrekpunt: elke story wordt hier een instellingseis, bij de stap waar zij ontstond.
 
 **Voorbeeld** [Leerroute 1 scenario, 3.2.1.1 De student beleving - De Student Journey](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#3211-de-student-beleving---de-student-journey)
 
-**Acceptatiecriteria** een procesplaat in mermaid, BPMN, UML of vergelijkbaar van de reis van een persona, in het kader van de persona's van deze route, met een link naar het persona-document, en de plaat toont de stappen in volgorde, met de terugweg waar die bestaat; de tabel noemt per stap wat deze persona doet, wat hij moet weten en welk systeem hij raakt; elke instellingseis die eruit volgt staat genummerd in de laatste kolom
+**Acceptatiecriteria** Dit sjabloononderdeel is af wanneer dit klopt:
 
-**User stories** *welke stories uit het pakket van eisen dit hoofdstuk naar boven brengt; noteer de nummers, niet de stories zelf*
+1. er staat een procesplaat in mermaid, BPMN, UML of vergelijkbaar van de reis van een persona, met de stappen in volgorde en de terugweg waar die bestaat;
+2. de reis staat in het kader van de persona's van deze route, met een link naar het persona-document; de stapnamen komen uit deze procesplaat en het persona-document neemt ze over;
+3. de tabel noemt per stap wat deze persona doet, wat hij moet weten en welk systeem hij raakt;
+4. elke user story uit het persona-document is hier een instellingseis geworden, of staat met de reden onder Observaties en signaleringen;
+5. elke instellingseis staat uitgeschreven en genummerd in de laatste kolom en voldoet aan [Kwaliteit van een eis](#kwaliteit-van-een-eis).
+
+**Instellingseisen** *wat de instelling moet kunnen; schrijf elke eis uit met zijn nummer, bij de stap, het scenario of de fase waar hij ontstaat*
+
+**Ingevuld voorbeeld** uit Leerroute 1 scenario:
 
 | Stap | Wat de persona doet | Wat hij moet weten | Systeem | Instellingseis |
 |---|---|---|---|---|
-| | | | | *IE-LR..-..* |
+| Kiezen keuzedelen | Jochem stelt een geprioriteerde voorkeurslijst op, met per voorkeur de onderwijsperiode en optioneel de onderwijslocatie | welke keuzedelen in zijn keuzedeelruimte passen, en waar en wanneer zij worden gegeven | Student Keuze Systeem | IE-LR1-01: De instelling kan per keuzedeelruimte de voorkeursvolgorde van de student vastleggen voordat zij plaatst |
+| Kiezen keuzedelen | zijn eerste voorkeur past niet; hij oriënteert zich op een ander keuzedeel of een andere onderwijslocatie | welk aanbod nog in zijn keuzedeelruimte past | Student Keuze Systeem | IE-LR1-02: De instelling kan signaleren dat de keuzedeelruimte van een student oningevuld blijft, op een moment dat de student nog een nieuwe keuze kan maken |
+
+**Vul in:**
+
+| Stap | Wat de persona doet | Wat hij moet weten | Systeem | Instellingseis |
+|---|---|---|---|---|
+| | | | | *IE-LR..-..: De instelling kan ...* |
 | | | | | |
 | | | | | |
 | | | | | |
 
 *Schrijf hier de uitwerking.*
 
-# Bouwblok: scenario binnen de route
+# Sjabloononderdeel: scenario binnen de route
 
-Kopieer dit blok per scenario. Vier scenario's keren in elke route terug: het nominale verloop, incidenteel temporiseren, incidenteel versnellen en incidenteel hybride.
+Kopieer dit sjabloononderdeel per scenario. Vier scenario's keren in elke route terug: het nominale verloop, incidenteel temporiseren, incidenteel versnellen en incidenteel hybride.
 
 *Optioneel: het nominale verloop hoort er altijd in; een incidentele variant of een routespecifiek scenario alleen wanneer de route dat kent. Geldt het niet voor deze route, laat de kop staan met die reden eronder.*
 
 **Voorbeeld** [Leerroute 1 scenario, Scenario's binnen deze leerroute](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#scenarios-binnen-deze-leerroute)
 
-**Acceptatiecriteria** een beschrijving in vier vaste delen, met een procesplaat in mermaid, BPMN, UML of vergelijkbaar wanneer het verloop afwijkt van de reis, in het kader van een persona en het routeprofiel, en het scenario noemt de uitgangssituatie, de aanleiding, het verloop en het eindbeeld; wat alleen in deze route voorkomt staat erbij met de reden
+**Acceptatiecriteria** Dit sjabloononderdeel is af wanneer dit klopt:
 
-**Instellingseisen** *wat de instelling moet kunnen om die stories waar te maken; noteer de nummers uit het register instellingseisen*
+1. het scenario staat in vier vaste delen: de uitgangssituatie, de aanleiding, het verloop en het eindbeeld;
+2. het veld Persona noemt wie het scenario doorloopt, en het scenario past binnen het routeprofiel;
+3. er staat een procesplaat in mermaid, BPMN, UML of vergelijkbaar wanneer het verloop afwijkt van de reis;
+4. wat alleen in deze route voorkomt staat erbij met de reden;
+5. elke instellingseis die dit scenario toevoegt staat uitgeschreven en genummerd; voegt het scenario geen eis toe, dan staat dat er.
+
+**Instellingseisen** *wat de instelling moet kunnen; schrijf elke eis uit met zijn nummer, bij de stap, het scenario of de fase waar hij ontstaat*
+
+**Ingevuld voorbeeld** uit Leerroute 1 scenario:
+
+| Veld | Invulling |
+|---|------------------------------------------------|
+| Scenario | incidenteel temporiseren, incidenteel |
+| Persona | Jochem |
+| Uitgangssituatie | Jochem volgt het programma zoals het is ontworpen en gepland |
+| Aanleiding | hij haalt een toetsmoment niet in een keer |
+| Verloop | Jochem herkanst; de instelling plant het onderdeel opnieuw in; de rest van zijn programma loopt door |
+| Eindbeeld | het onderdeel is opnieuw ingepland en behaald; de rest van zijn programma is ongewijzigd |
+| Instellingseisen | IE-LR1-03: De instelling kan een onderdeel voor een student opnieuw inplannen terwijl de rest van zijn programma doorloopt |
+
+**Vul in:**
 
 | Veld | Invulling |
 |---|------------------------------------------------|
 | Scenario | *naam, en of het nominaal, incidenteel of routespecifiek is* |
+| Persona | *wie dit scenario doorloopt, met een link naar het persona-document* |
 | Uitgangssituatie | *wat er al staat voordat het begint* |
 | Aanleiding | *wat er verandert, en op welk moment* |
 | Verloop | *wie wat doet, in welke volgorde* |
 | Eindbeeld | *wat er klaar is wanneer het scenario eindigt* |
-| Instellingseisen | *IE-LR..-.., een regel per eis* |
+| Instellingseisen | *IE-LR..-..: De instelling kan ..., een regel per eis* |
 
 *Schrijf hier de uitwerking.*
 
-# Bouwblok: procesfase
+# Sjabloononderdeel: procesfase
 
-Kopieer dit blok per fase. Houd de fasenamen van leerroute 1 aan waar de fase hetzelfde is; een eigen fase krijgt een eigen naam met de reden erbij.
+Kopieer dit sjabloononderdeel per fase. Houd de fasenamen van leerroute 1 aan waar de fase hetzelfde is; een eigen fase krijgt een eigen naam met de reden erbij.
 
-**Voorbeeld** [Leerroute 1 scenario, Fase 1 — Kwalificatiekader analyseren en grofmazig ontwerpen](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#fase-1--kwalificatiekader-analyseren-en-grofmazig-ontwerpen)
+**Voorbeeld** [Leerroute 1 scenario, Fase 2 — Publiceren en planbaar maken](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#fase-2--publiceren-en-planbaar-maken)
 
-**Acceptatiecriteria** een procesplaat in mermaid, BPMN, UML of vergelijkbaar van de fase aan de kant van de instelling, naast de reis van de persona's te leggen, met het MORA-hoofdproces erbij, en de plaat toont wie handelt en met welk systeem, met het foutpad erbij; elke stap die de instelling moet kunnen, staat als genummerde instellingseis in de tabel
+**Acceptatiecriteria** Dit sjabloononderdeel is af wanneer dit klopt:
 
-**Instellingseisen** *wat de instelling moet kunnen om die stories waar te maken; noteer de nummers uit het register instellingseisen*
+1. er staat een procesplaat in mermaid, BPMN, UML of vergelijkbaar van de fase aan de kant van de instelling, met wie handelt, met welk systeem, en het foutpad;
+2. de toelichting onder de tabel noemt het MORA-hoofdproces waar de fase onder valt;
+3. de plaat is naast de reis van de persona's te leggen: een stap die een persona raakt draagt daar dezelfde naam;
+4. elke processtap staat in de tabel, met de rol en het systeem;
+5. elke stap die de instelling moet kunnen, draagt een uitgeschreven en genummerde instellingseis die voldoet aan [Kwaliteit van een eis](#kwaliteit-van-een-eis).
 
-| Processtap | Rol | Systeem | Wat de instelling moet kunnen | Instellingseis |
-|---|---|---|---|---|
-| | | | | *IE-LR..-..* |
-| | | | | |
-| | | | | |
+**Instellingseisen** *wat de instelling moet kunnen; schrijf elke eis uit met zijn nummer, bij de stap, het scenario of de fase waar hij ontstaat*
+
+**Ingevuld voorbeeld** uit Leerroute 1 scenario, fase 2 Publiceren en planbaar maken:
+
+| Processtap | Rol | Systeem | Instellingseis |
+|---|---|---|---|
+| Haalbaarheid bepalen binnen de strategische jaarplanning | planner | Planningssysteem | IE-LR1-04: De instelling kan de haalbaarheid van een `Opleiding specificatie` bepalen voordat zij het onderwijsaanbod publiceert |
+
+**Vul in:**
+
+| Processtap | Rol | Systeem | Instellingseis |
+|---|---|---|---|
+| | | | *IE-LR..-..: De instelling kan ...* |
+| | | | |
+| | | | |
 
 *Schrijf hier de uitwerking.*
 
-# Bouwblok: informatie en systemen
+# Sjabloononderdeel: informatie en systemen
 
-Kopieer dit blok per procesfase, of vul het een keer in voor de hele route wanneer de fasen dezelfde informatie raken.
+Kopieer dit sjabloononderdeel per procesfase, of vul het een keer in voor de hele route wanneer de fasen dezelfde informatie raken.
 
 **Voorbeeld** [Leerroute 1 scenario, Betrokken informatie bij proces](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md#betrokken-informatie-bij-proces)
 
-**Acceptatiecriteria** een ArchiMate-plaat of een SVG-render daarvan, met de scope van deze fase uitgelicht op de informatiestromen hoofdplaat, met daarnaast de tabel hieronder ingevuld, en elk informatieobject draagt de term uit de begrippenlijst en heeft precies een bronsysteem; elke functionele eis noemt het component en de instellingseis waaruit hij komt
+**Acceptatiecriteria** Dit sjabloononderdeel is af wanneer dit klopt:
 
-**Functionele eisen** *wat een component moet doen met welke gegevens; noteer de nummers uit het register functionele eisen*
+1. er staat een ArchiMate-plaat of een SVG-render daarvan, met de scope van deze fase uitgelicht op de hoofdplaat informatiestromen;
+2. elk informatieobject draagt de naam van het objecttype uit de begrippenlijst, tussen backquotes, en past bij het moment in het proces: een specificatie, een aanbod, een aanmelding of een verbintenis;
+3. elk informatieobject heeft precies een bronsysteem;
+4. elke functionele eis staat uitgeschreven en genummerd, opent met de component en noemt de instellingseis waaruit hij komt;
+5. elke instellingseis uit de reizen, de scenario's en de procesfasen heeft minstens een functionele eis, hier of in de leerroute scenario uitwerking; volgt hij daar, dan staat dat onder Observaties en signaleringen;
+6. elke functionele eis voldoet aan [Kwaliteit van een eis](#kwaliteit-van-een-eis).
+
+**Functionele eisen** *wat een component moet doen met welke gegevens; schrijf elke eis uit met zijn nummer en de instellingseis waaruit hij komt*
+
+**Ingevuld voorbeeld** uit Leerroute 1 scenario, fase 6 Organiseren van keuzemomenten:
 
 | Informatieobject | Bronsysteem | Wie leest of bewerkt | Functionele eis | Komt uit |
 |---|---|---|---|---|
-| | | | *FE-LR..-..* | *IE-LR..-..* |
+| `Aanmelding` op een `Keuzedeel aanbod`, met haar plaats in de voorkeursvolgorde | Student Keuze Systeem | de student bewerkt | FE-LR1-01: Het Student Keuze Systeem legt per keuzedeelruimte de `Aanmeldingen` van een student vast in volgorde van voorkeur, elk op een `Keuzedeel aanbod` met zijn onderwijsperiode en optioneel de onderwijslocatie | IE-LR1-01 |
+| `Aanmelding` op een `Keuzedeel aanbod`, met haar plaats in de voorkeursvolgorde | Student Keuze Systeem | het Planningssysteem leest | FE-LR1-02: Het Student Keuze Systeem levert per voorkeur van een student de `Aanmelding` op het `Keuzedeel aanbod` aan het Planningssysteem, met haar plaats in de volgorde | IE-LR1-01 |
+
+**Vul in:**
+
+| Informatieobject | Bronsysteem | Wie leest of bewerkt | Functionele eis | Komt uit |
+|---|---|---|---|---|
+| | | | *FE-LR..-..: Het <component> ...* | *IE-LR..-..* |
 | | | | | |
 | | | | | |
 
@@ -209,15 +325,37 @@ Kopieer dit blok per procesfase, of vul het een keer in voor de hele route wanne
 
 # Uitwerking
 
-Zet hieronder eerst het routeprofiel, en herhaal daarna de bouwblokken tot de hele route gedekt is: de reizen, de scenario's, en per fase het proces met zijn informatie en systemen.
+Zet hieronder eerst het routeprofiel, en herhaal daarna de sjabloononderdelen tot de hele route gedekt is: de reizen, de scenario's, en per fase het proces met zijn informatie en systemen.
 
 *Schrijf hier de uitwerking.*
 
 # Eisenoverzicht
 
-Alle eisen uit de bouwblokken hierboven, bij elkaar. Dit overzicht is wat de volgende producten overnemen.
+Alle eisen uit de sjabloononderdelen hierboven, bij elkaar. Samen met het eisenoverzicht van de leerroute scenario uitwerking is dit het pakket van eisen van de route, dat OKx SI overneemt en met de leveranciers naar technische eisen vertaalt.
 
-| Nummer | Eis | Komt uit bouwblok | Komt uit eis of story |
+Het overzicht is af wanneer:
+
+1. elke eis uit de sjabloononderdelen erin staat, met dezelfde zin en hetzelfde nummer;
+2. elke instellingseis de persona met de stap, het scenario of de procesfase noemt waaruit hij komt;
+3. elke functionele eis de instellingseis noemt waaruit hij komt;
+4. elke instellingseis minstens een functionele eis heeft, hier of in de leerroute scenario uitwerking;
+5. elke eis voldoet aan [Kwaliteit van een eis](#kwaliteit-van-een-eis).
+
+**Ingevuld voorbeeld** uit Leerroute 1 scenario:
+
+| Nummer | Eis | Komt uit sjabloononderdeel | Komt uit eis of story |
+|---|---|---|---|
+| IE-LR1-01 | De instelling kan per keuzedeelruimte de voorkeursvolgorde van de student vastleggen voordat zij plaatst | reis van Jochem, stap kiezen keuzedelen | Als student wil ik bij mijn keuzedeelruimte een geprioriteerde voorkeurslijst opgeven, met als doel dat ik niet zonder keuzedeel kom te zitten wanneer mijn eerste keuze vol is |
+| IE-LR1-02 | De instelling kan signaleren dat de keuzedeelruimte van een student oningevuld blijft, op een moment dat de student nog een nieuwe keuze kan maken | reis van Jochem, stap kiezen keuzedelen | dezelfde user story als IE-LR1-01 |
+| IE-LR1-03 | De instelling kan een onderdeel voor een student opnieuw inplannen terwijl de rest van zijn programma doorloopt | scenario incidenteel temporiseren | geen story; volgt uit het scenario |
+| IE-LR1-04 | De instelling kan de haalbaarheid van een `Opleiding specificatie` bepalen voordat zij het onderwijsaanbod publiceert | procesfase 2, Publiceren en planbaar maken | Als planner wil ik de haalbaarheid van een opleiding bepalen voordat het onderwijsaanbod wordt gepubliceerd, met als doel dat studenten zich alleen oriënteren op aanbod dat de instelling kan uitvoeren |
+| FE-LR1-01 | Het Student Keuze Systeem legt per keuzedeelruimte de `Aanmeldingen` van een student vast in volgorde van voorkeur, elk op een `Keuzedeel aanbod` met zijn onderwijsperiode en optioneel de onderwijslocatie | informatie en systemen, fase 6 | IE-LR1-01 |
+| FE-LR1-02 | Het Student Keuze Systeem levert per voorkeur van een student de `Aanmelding` op het `Keuzedeel aanbod` aan het Planningssysteem, met haar plaats in de volgorde | informatie en systemen, fase 6 | IE-LR1-01 |
+| FE-LR1-03 | *volgt in de leerroute scenario uitwerking, bij uitwisseling F2-03* | | IE-LR1-04 |
+
+**Vul in:**
+
+| Nummer | Eis | Komt uit sjabloononderdeel | Komt uit eis of story |
 |---|---|---|---|
 | IE-LR..-01 | | | |
 | IE-LR..-02 | | | |

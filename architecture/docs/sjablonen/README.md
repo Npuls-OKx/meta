@@ -6,10 +6,10 @@ Open het Word-bestand. Elk sjabloon is **afgeleid uit de uitwerking die er al li
 
 | Product | Sjabloon | Afgeleid uit |
 |---|---|---|
-| persona | `OKx sjabloon persona.docx` | twee bouwblokken, met [persona Jochem](../specificatie/leerroute-uitwerking/doc/persona_jochem.md) als voorbeeld |
-| leerroute scenario | `OKx sjabloon leerroute scenario.docx` | vijf bouwblokken, met [leerroute 1 scenario](../specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md) als voorbeeld |
+| persona | `OKx sjabloon persona.docx` | twee sjabloononderdelen, met [persona Jochem](../specificatie/leerroute-uitwerking/doc/persona_jochem.md) als voorbeeld |
+| leerroute scenario | `OKx sjabloon leerroute scenario.docx` | vijf sjabloononderdelen, met [leerroute 1 scenario](../specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md) als voorbeeld |
 | informatiemodel viewpoint | `OKx sjabloon informatiemodel viewpoint.docx` | [informatiemodel OKx](../../model/informatiemodel/informatiemodel.md) |
-| leerroute scenario uitwerking in het informatiemodel | `OKx sjabloon leerroute scenario uitwerking.docx` | twee bouwstenen, met [de uitwerking met Jochem](../../model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md) als voorbeeld |
+| leerroute scenario uitwerking in het informatiemodel | `OKx sjabloon leerroute scenario uitwerking.docx` | twee sjabloononderdelen, met [de uitwerking met Jochem](../../model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md) als voorbeeld |
 | interactieketen | `OKx sjabloon interactieketen.docx` | [keten onderwijsaanbod](https://github.com/Npuls-OKx/meta/blob/e05b4444a29a09b92cc8afd73bce69af78f1ac12/architecture/docs/specificatie/interactieketen-onderwijsaanbod/README.md), nog in review |
 
 ## Opbouw van een sjabloon
@@ -17,7 +17,7 @@ Open het Word-bestand. Elk sjabloon is **afgeleid uit de uitwerking die er al li
 | Pagina | Wat erop staat |
 |---|---|
 | 1 | de omslag: titel, ondertitel, versie, wie het uitgeeft, wie het invult en wanneer |
-| 2 | de inleiding, met de doelstelling van het document, het pakket van eisen en de business analyse |
+| 2 | de inleiding, met de doelstelling van het document, de eisen die het levert, de kwaliteit van een eis en de business analyse |
 | daarna | de inhoudsopgave, en dan de hoofdstukken uit de uitwerking |
 
 De inhoudsopgave is een Word-veld en staat leeg tot hij wordt bijgewerkt; dat doet de lezer met Ctrl+A en F9, en de tekst in het veld zegt dat ook.
@@ -41,79 +41,96 @@ Deze pull request wijzigt de plaat zelf op drie punten:
 
 De presentatie in `presentaties/src/public/platen/` draagt een eigen kopie van de plaat die al afweek van de bron; die is niet meegewijzigd.
 
-## Het blok boven elk hoofdstuk
+## Sjabloononderdeel
 
-Elk hoofdstuk opent met een blok dat zegt wat er wordt verwacht. Dat blok blijft staan: het is de opdracht en niet de uitwerking.
+Vier sjablonen zijn opgebouwd uit **sjabloononderdelen**: een vast stuk met een invultabel dat de invuller kopieert tot het onderwerp gedekt is. De naam voorkomt verwarring met het functionele bouwblok uit de architectuur, de bedrijfsfunctionaliteit of eis: een tweede betekenis voor hetzelfde woord verwart de lezer die beide documenten naast elkaar heeft.
 
-| Regel | Wat erin staat |
+Elk sjabloononderdeel draagt vier dingen, in deze volgorde:
+
+| Deel | Wat erin staat |
 |---|---|
-| Voorbeeld | de plek in de voorbeelduitwerking waar hetzelfde hoofdstuk al is uitgewerkt, als link |
-| Acceptatiecriteria | welk artefact hier hoort, in welke context, en waaraan het voldoet |
-| de laag | wat dit hoofdstuk aan het pakket van eisen bijdraagt: user stories, business, functional of technical requirements, of niets |
+| Voorbeeld | de plek in de voorbeelduitwerking waar hetzelfde al is uitgewerkt, als link |
+| Acceptatiecriteria | een genummerde lijst, een criterium per regel, zodat de invuller en de solutionlaag hetzelfde afvinken |
+| Soort eis | wat dit onderdeel oplevert: user stories, instellingseisen, functionele eisen, of context |
+| Ingevuld voorbeeld, daarna Vul in | dezelfde tabel twee keer: eerst ingevuld met leerroute 1 en Jochem, daarna leeg; bij de interactieketen volgt het ingevulde voorbeeld later |
 
-Een acceptatiecriterium noemt het artefact, zijn context en zijn eis. Niet "een beeld", maar:
+Het opdrachtblok blijft staan: het is de opdracht, en de uitwerking komt eronder. Zo leest een acceptatiecriterium, hier van het sjabloononderdeel `informatie en systemen`:
 
-> een **ArchiMate-plaat of een SVG-render daarvan, met de scope uitgelicht**, van de informatiestromen hoofdplaat, in het kader van de interactieketen die deze route raakt, en per component staat welk doel het dient en welke gegevens het draagt; wat buiten de scope valt is op de plaat zichtbaar gedimd.
+> 1. er staat een ArchiMate-plaat of een SVG-render daarvan, met de scope van deze fase uitgelicht op de hoofdplaat informatiestromen;
+> 2. elk informatieobject draagt de term uit de begrippenlijst;
+> 3. elk informatieobject heeft precies een bronsysteem;
+> 4. elke functionele eis staat uitgeschreven en genummerd, opent met de component en noemt de instellingseis waaruit hij komt;
+> 5. elke instellingseis uit de reizen, de scenario's en de procesfasen heeft minstens een functionele eis, hier of in de leerroute scenario uitwerking.
 
-Of, waar het om een reis gaat:
+Het informatiemodel viewpoint volgt de koppen van zijn bron. Daar leidt de generator de criteria af uit wat de voorbeelduitwerking in dat hoofdstuk levert: een mermaid-diagram vraagt om een procesplaat, een tabel om een ingevulde tabel.
 
-> een **procesplaat in mermaid, BPMN, UML of vergelijkbaar** van de studentreis, in het kader van de persona van deze route, met een link naar het persona-document, en elke stap noemt wat de student doet en wat hij op dat moment moet weten.
+## Kwaliteit van een eis
 
-Waar geen eigen criterium is vastgelegd, leidt de generator er een af uit wat de voorbeelduitwerking in dat hoofdstuk levert: een mermaid-diagram vraagt om een procesplaat, een tabel om een ingevulde tabel.
+De solutionlaag bouwt op wat in een sjabloon als eis staat. Een eis is bruikbaar wanneer een leverancier hem kan lezen zonder de instelling te bellen, en is een voorstel voor een sectorafspraak: opgesteld uit de inbreng van afzonderlijke instellingen, vastgelegd als afspraak, en daarna de grond voor de technische specificatie. Een functionele eis noemt zijn informatieobjecten met het objecttype uit de begrippenlijst, en kiest het objecttype dat bij het moment past: een `Aanmelding` op aanbod is een wens, een verbintenis bestaat pas wanneer zij is aangegaan. Elk sjabloon dat een eis levert, draagt daarom in de inleiding het hoofdstuk **Kwaliteit van een eis**: per soort de criteria, en een zwak naast een sterk voorbeeld.
 
-## Een persona is een portret, en er zijn er meer dan een
+| Soort | Opent met | Zwak | Sterk |
+|---|---|---|---|
+| user story | `Als <persona> wil ik` | Als student wil ik een overzichtelijke app voor mijn keuzedelen | Als student wil ik bij mijn keuzedeelruimte een geprioriteerde voorkeurslijst opgeven, met als doel dat ik niet zonder keuzedeel kom te zitten wanneer mijn eerste keuze vol is |
+| instellingseis | `De instelling kan` | De instelling wil flexibel omgaan met keuzedelen | De instelling kan per keuzedeelruimte de voorkeursvolgorde van de student vastleggen voordat zij plaatst |
+| functionele eis | de applicatiecomponent van de hoofdplaat | Het systeem ondersteunt voorkeuren voor keuzedelen | Het Student Keuze Systeem legt per keuzedeelruimte de `Aanmeldingen` van een student vast in volgorde van voorkeur, elk op een `Keuzedeel aanbod` met zijn onderwijsperiode en optioneel de onderwijslocatie |
 
-Een persona is een portret van een mens in de scope van OKx: wat hij in zijn onderwijs meemaakt, wat hem daarin beweegt, en wat de gang van zaken met hem doet. Geen gemiddelde student, maar een herkenbaar iemand aan wie een ontwerpkeuze te toetsen is.
+De criteria en de voorbeelden staan in `EISSOORTEN` in `tools/scripts/maak-sjabloon-uit-document.py`; welke soorten een sjabloon draagt staat in `eissoorten` in de configuratie.
 
-Drie dingen staan daarom in dat sjabloon voorop. **Een persona hoeft geen student te zijn**: een planner, een examinator of een leerbedrijf is net zo goed een persona wanneer de route langs hem loopt, en een leerroute scenario draagt er dus meestal meerdere. **Het document loopt in tandem met het leerroute scenario**: het procesbeeld daar bepaalt welke stappen de persona doorloopt, en wat de persona meemaakt scherpt dat procesbeeld aan; verschillen de twee, dan is er een nog niet af. En **een gemiddelde bestaat niet**, dus is er niets aan te toetsen.
+## Persona
 
-Het sjabloon draagt daarom twee bouwblokken die zich per persona herhalen:
+Een persona is een portret van een mens in de scope van OKx: wat hij in zijn onderwijs meemaakt, wat hem daarin beweegt, en wat de gang van zaken met hem doet. Een herkenbaar iemand aan wie een ontwerpkeuze te toetsen is.
 
-| Bouwblok | Wat erin staat |
+Drie dingen staan in dat sjabloon voorop. **Een persona is een student of een actor binnen de instelling**: de onderwijsontwerper, de planner, de roostermaker, de studieloopbaanbegeleider, de examinator of het leerbedrijf. Het sjabloon vraagt naast de student minstens een persona vanuit de instelling, en draagt daarvoor een voorbeeld van de planner; de bestaande persona's Jochem, Linda en Larissa zijn alle drie student. **Het document loopt in tandem met het leerroute scenario**: het procesbeeld daar bepaalt welke stappen de persona doorloopt, en wat de persona meemaakt scherpt dat procesbeeld aan. En **elke behoefte wordt een user story**, bij de stap waar zij ontstaat; het leerroute scenario leidt daar de instellingseisen uit af.
+
+Het sjabloon draagt twee sjabloononderdelen die zich per persona herhalen:
+
+| Sjabloononderdeel | Wat erin staat |
 |---|---|
 | **het portret** | naam, rol, situatie, waarom juist deze route, wat hem beweegt, wat het moeilijk maakt, waaraan hij merkt dat het goed gaat |
-| **de reis per processtap** | een rij per stap uit het procesbeeld van het scenario: wat hij doet, wat hij moet weten, wat het met hem doet |
+| **de reis per processtap** | een rij per stap uit het procesbeeld van het scenario: wat hij doet, wat hij moet weten, wat het met hem doet, en de user story die daaruit volgt |
 
-## Het leerroute scenario in vijf bouwblokken
+## Leerroute scenario
 
-Het sjabloon volgde eerst de hoofdstukken van leerroute 1, en droeg daarmee ook wat alleen leerroute 1 eigen is. Het bestaat nu uit de bouwblokken waaruit elk scenario is opgebouwd:
+Het sjabloon bestaat uit de sjabloononderdelen waaruit elk scenario is opgebouwd, los van de hoofdstukindeling van leerroute 1:
 
-| Bouwblok | Hoe vaak | Levert |
+| Sjabloononderdeel | Hoe vaak | Levert |
 |---|---|---|
 | routeprofiel | een keer | context |
-| reis | per persona | user stories en instellingseisen |
+| reis | per persona | instellingseisen, uit de user stories van het persona-document |
 | scenario binnen de route | per scenario | instellingseisen |
 | procesfase | per fase | instellingseisen |
 | informatie en systemen | per fase, of een keer | functionele eisen |
 
-Elk blok draagt zijn acceptatiecriteria en een invultabel met een kolom voor de eis. De notatie ligt vast: `IE-LR<route>-<volgnummer>` voor een instellingseis, `FE-LR<route>-<volgnummer>` voor een functionele eis, en een functionele eis noemt de instellingseis waaruit hij komt. Het sjabloon sluit met een eisenoverzicht. Technische eisen staan er niet in; die volgen later, in de interactieketen.
+Elke eis staat uitgeschreven in de tabel van het onderdeel waar hij ontstaat. De notatie ligt vast: `IE-LR<route>-<volgnummer>` voor een instellingseis, `FE-LR<route>-<volgnummer>` voor een functionele eis, en een functionele eis noemt de instellingseis waaruit hij komt.
 
-## Twee bouwstenen in plaats van honderd hoofdstukken
+Het sjabloon sluit met het **Eisenoverzicht**: alle eisen bij elkaar, met hun herkomst en eigen acceptatiecriteria. Samen met het eisenoverzicht van de uitwerking is dat het pakket dat OKx SI overneemt en met de leveranciers naar technische eisen vertaalt.
 
-De uitwerking is geen hoofdstukkenreeks maar een herhaling van twee blokken.
+## Leerroute scenario uitwerking
 
-| Bouwsteen | Wat erin staat |
+De uitwerking is een herhaling van twee sjabloononderdelen.
+
+| Sjabloononderdeel | Wat erin staat |
 |---|---|
-| **A, processtap** | nummer, processtap, actor, applicatiecomponent, welk objecttype daar ontstaat, **de relaties naar elementen die in eerdere bouwstenen ontstonden**, en de ingevulde voorbeeldwaarde |
-| **B, uitwisseling** | nummer, van welke component naar welke, de aanleiding, en het hele ingevulde informatievoorbeeld met zijn relaties |
+| **A, processtap** | nummer, processtap, actor, applicatiecomponent, welk objecttype daar ontstaat, **de relaties naar elementen die in eerdere onderdelen ontstonden**, en de ingevulde voorbeeldwaarde |
+| **B, uitwisseling** | nummer, van welke component naar welke, de aanleiding, het hele ingevulde informatievoorbeeld met zijn relaties, en **de functionele eisen aan de leverende en de afnemende component** |
 
-Beide blokken dragen een **ingevoegd voorbeeld** uit de uitwerking van Jochem, en bewust een complex geval: bij A het kiesbare onderwijsprogrammaonderdeel, dat aan de opleidingsspecificatie, de keuzedeelruimte en de leeruitkomsten hangt; bij B het verzoek om onderwijsaanbod, dat de hele specificatiestructuur meeneemt naar planning. Een eenvoudig voorbeeld laat niet zien dat de relaties het werk zijn.
+Beide onderdelen dragen een ingevoegd beeld en een ingevulde tabel uit de uitwerking van Jochem, en bewust een complex geval: bij A het keuzedeel als eigen programmaspecificatie (F1-08), bij B het verzoek om onderwijsaanbod dat de hele specificatiestructuur meeneemt naar planning (F2-03).
 
-Herhaal A tot er een uitwisseling plaatsvindt, zet dan B neer, en ga verder met A. Stop wanneer het hele leerroute scenario is doorlopen; het aantal bouwstenen ligt niet vast. Dat sjabloon staat in `opbouw` in de configuratie en wordt dus niet uit de koppen van een bron afgeleid.
+Herhaal A tot er een uitwisseling plaatsvindt, zet dan B neer, en ga verder met A. De functionele eisen nummeren door vanaf het laatste nummer in het leerroute scenario en komen bij elkaar in het **Eisenoverzicht**; wat het informatiemodel niet kon dragen staat onder **Hiaten in het model**, met de functionele eis die eruit volgt. Dat sjabloon staat in `opbouw` in de configuratie.
 
-## De interactieketen is een reeks interacties
+## Interactieketen
 
-Het interactieketen-sjabloon draagt geen hoofdstuk per informatiestroom maar **een bouwblok voor een interactie**, dat zich herhaalt tot de keten af is. Het blok vraagt per interactie om de aanbieder en de afnemer met naam en versie, de aanleiding, het bericht, het antwoord, het foutpad en wat een herhaalde aanroep doet.
+Het interactieketen-sjabloon draagt **een sjabloononderdeel voor een interactie**, dat zich herhaalt tot de keten af is. Het vraagt per interactie om de aanbieder en de afnemer met naam en versie, de aanleiding, het bericht, de functionele eisen die de interactie verwezenlijkt, het antwoord, het foutpad en wat een herhaalde aanroep doet.
 
-De nummering staat als conventie uitgelegd en niet als voorbeeld: `IS` voor interactiespecificatie, dan de afkorting van de keten, dan een volgnummer. `IS-OA-01` is de eerste interactie van de keten onderwijsaanbod.
+De nummering staat als conventie uitgelegd: `IS` voor interactiespecificatie, dan de afkorting van de keten, dan een volgnummer. `IS-OA-01` is de eerste interactie van de keten onderwijsaanbod. Een ingevuld voorbeeld volgt zodra de keten onderwijsaanbod uit pull request 373 op `dev` staat.
 
 ## Scope is een keuze van de business analist
 
 Een hoofdstuk is een interactie, en waar het begint en eindigt bepaalt de business analist. De maat staat in elk sjabloon: de **kleinst mogelijke eenheid die waarde oplevert voor zowel de student als de instelling**, groter dan een enkele interactie en kleiner dan het hele ecosysteem. Een scope die daarboven zit levert een eis die niemand kan bouwen, een scope die daaronder zit levert een eis die niemand mist.
 
-## De eisen staan elders
+## Pakket van eisen
 
-Een sjabloon bevat de eisen niet; het **levert eraan** en noteert per hoofdstuk alleen de nummers. OKx kent drie soorten, en de keuze voor die indeling staat in [eisen in de productafbakening](../../agent-artifacts/requirements-in-de-productafbakening/README.md):
+De sjablonen leveren samen het pakket van eisen waarop de solutionlaag bouwt. De eisen staan **uitgeschreven in het sjabloon**, op de plek waar zij ontstaan en in het eisenoverzicht aan het eind. OKx kent drie soorten, en de keuze voor die indeling staat in [eisen in de productafbakening](../../agent-artifacts/requirements-in-de-productafbakening/README.md):
 
 | Soort | Komt uit | Zegt wat |
 |---|---|---|
@@ -121,34 +138,32 @@ Een sjabloon bevat de eisen niet; het **levert eraan** en noteert per hoofdstuk 
 | **functionele eis** | de instellingseisen en de leerroute scenario uitwerking | een component moet doen met welke gegevens |
 | **technische eis** | de interactieketens, die zelf uit de eisen voortkomen | er over het koppelvlak gaat en in welke vorm |
 
-Niet business requirement maar **instellingseis**: OKx spreekt met publieke onderwijsinstellingen en niet met bedrijven.
+De naam is **instellingseis**: OKx spreekt met publieke onderwijsinstellingen.
 
-Elk sjabloon zegt welke soort het zelf oplevert en toont de hele keten met een voorbeeld, waarbij de eigen regel vet staat. Zo ziet een invuller wat er van hem gevraagd wordt en wat anderen ermee doen:
+```mermaid
+flowchart LR
+    P["persona<br/>user stories"] --> S["leerroute scenario<br/>IE en FE"]
+    S --> U["leerroute scenario uitwerking<br/>FE per uitwisseling"]
+    S --> E["eisenoverzicht"]
+    U --> E
+    E --> T["OKx SI met leveranciers<br/>technische eisen in de interactieketen"]
+```
 
 | Sjabloon | Levert |
 |---|---|
-| persona, leerroute scenario | instellingseisen, samen met de PoC-inbreng |
-| leerroute scenario uitwerking | functionele eisen, samen met de instellingseisen |
-| interactieketen | technische eisen aan interacties |
-| informatiemodel viewpoint | geen eigen eis; het levert de begrippen waarin de andere documenten hun eisen schrijven |
+| persona | behoeften, geschreven als user story |
+| leerroute scenario | instellingseisen en functionele eisen, in het eisenoverzicht |
+| leerroute scenario uitwerking | functionele eisen per uitwisseling, in het eisenoverzicht, en de hiaten in het model |
+| interactieketen | technische eisen aan interacties, met de functionele eisen die elke interactie verwezenlijkt; OKx SI vult dit sjabloon in met de leveranciers |
+| informatiemodel viewpoint | de begrippen waarin de andere documenten hun eisen schrijven |
 
-De registers bestaan nog niet; zij moeten zich materialiseren uit de adviesgroep en de PoC-scholen, en dat loopt via #558. Leerroute 1 koppelen aan die eisen loopt via #557.
+Het register dat de eisen van alle routes bij elkaar brengt loopt via #558. Leerroute 1 koppelen aan die eisen loopt via #557.
 
-## Niet elk hoofdstuk levert een eis
+## Soort eis per onderdeel
 
-Een journey brengt een behoefte naar boven en levert **user stories**. Een procesbeschrijving zegt wat de instelling moet kunnen: **instellingseisen**. Een gegevens- of systeemhoofdstuk zegt wat een component moet doen: **functionele eisen**. Een interactiehoofdstuk zegt wat er over het koppelvlak gaat: **technische eisen**. Een enkel hoofdstuk levert niets en geeft alleen context.
+Een reis van een persona brengt een behoefte naar boven: een **user story**. Een reis, een scenario of een procesfase in het leerroute scenario zegt wat de instelling moet kunnen: **instellingseisen**. Een gegevens- of systeemonderdeel en een uitwisseling zeggen wat een component moet doen: **functionele eisen**. Een interactie zegt wat er over het koppelvlak gaat: **technische eisen**. Het routeprofiel en het informatiemodel viewpoint geven context.
 
-Zo valt het leerroute-scenario uiteen:
-
-| Laag | Hoofdstukken | Welke |
-|---|---|---|
-| user story | 7 | de journeys, de keuzemomenten, de scenario's binnen de route |
-| instellingseis | 5 | de instelling, de procesbeleving, het plan- en roosterproces, de plancyclus |
-| functionele eis | 11 | de informatie, de gegevens, de systemen, de componenten en het informatiemodel |
-| technische eis | 9 | de procesfasen met hun interacties |
-| context | 2 | de route zelf en haar kenmerken |
-
-De verdeling staat in `hoofdstukken` in de configuratie, en een testgeval faalt wanneer elk hoofdstuk user stories zou vragen: dan zegt de indeling niets meer.
+De soort staat in `laag` in de configuratie, per sjabloon of per sjabloononderdeel.
 
 ## Wat niet in elke route hoort
 
@@ -218,7 +233,10 @@ python3 -m unittest tools.tests.test_sjablonen
 `tools/tests/test_sjablonen.py` faalt wanneer:
 
 - een kop een vraag stelt, met een vraagwoord opent, of een eigen nummer draagt naast dat van Word;
-- een hoofdstuk het blok mist, het artefact niet uit de bron komt, of elk hoofdstuk user stories zou vragen;
+- een hoofdstuk het blok mist, het artefact niet uit de bron komt, of de user stories buiten het persona-document staan;
+- de acceptatiecriteria geen genummerde lijst zijn, of een sjabloononderdeel zijn ingevulde voorbeeld mist;
+- het woord bouwblok of bouwsteen in een sjabloon staat;
+- een sjabloon dat een eis levert het hoofdstuk Kwaliteit van een eis mist, of het eisenoverzicht ontbreekt;
 - een acceptatiecriterium geen context noemt, of de optionele hoofdstukken verdwenen zijn;
 - de referentie niet uit het Npuls-sjabloon komt, een stijl mist die pandoc zoekt, de titel door het logo loopt, of `[titel]` in de voettekst blijft staan;
 - een beeld als beschrijving in het document staat, of een genoemd beeld niet bestaat, of een SVG in het skelet staat;

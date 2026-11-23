@@ -28,19 +28,19 @@ Het cijfer rechtsboven in een vak is de prioriteit, waarbij lager eerder is; de 
 
 Dit document legt vast welke objecttypen er zijn, hoe zij samenhangen en voor welke lezer de plaat bedoeld is, zodat een leverancier dezelfde begrippen leest als een onderwijskundige.
 
-Elk hoofdstuk opent met een blok dat zegt wat er wordt verwacht: waar hetzelfde al is uitgewerkt, welk artefact hier hoort en waaraan het voldoet, en wat dit hoofdstuk aan het pakket van eisen bijdraagt. Dat blok blijft staan; het is de opdracht en niet de uitwerking.
+Elk hoofdstuk opent met een opdrachtblok: waar hetzelfde al is uitgewerkt, de acceptatiecriteria waaraan de invulling voldoet, en welke soort eis het oplevert. Het opdrachtblok blijft staan; de uitwerking komt eronder.
 
 ## Eisen uit dit document
 
-OKx kent drie soorten eisen. **Instellingseisen** zeggen wat de instelling moet kunnen; zij komen uit de inbreng van de koploperinstellingen, de persona's en de leerroute scenario's samen. **Functionele eisen** zeggen wat een component moet doen met welke gegevens; zij komen uit de instellingseisen en de leerroute scenario uitwerking samen. **Technische eisen** zeggen wat er over het koppelvlak gaat; zij komen uit de interactieketens, die zelf uit de eisen voortkomen, en zijn onderdeel van de koppelvlakspecificatie.
+OKx kent drie soorten eisen. **Instellingseisen** zeggen wat de instelling moet kunnen; zij komen uit de inbreng van de koploperinstellingen in de proef (de PoC-inbreng), de persona's en de leerroute scenario's samen. **Functionele eisen** zeggen wat een component moet doen met welke gegevens; zij komen uit de instellingseisen en de leerroute scenario uitwerking samen. **Technische eisen** zeggen wat er over het koppelvlak gaat; zij komen uit de interactieketens, die zelf uit de eisen voortkomen, en zijn onderdeel van de koppelvlakspecificatie.
 
-**Dit document bevat die eisen niet; het levert eraan.** Noteer per hoofdstuk alleen de nummers; de eis zelf wordt elders uitgeschreven.
+**De solutionlaag bouwt op wat hier als eis staat.** De solutionlaag is het deel van OKx dat de koppelvlakken ontwerpt: het team systeem en informatie (OKx SI), samen met de leveranciers. OKx SI neemt de instellingseisen en de functionele eisen over en vertaalt ze met de leveranciers naar technische eisen. Een behoefte bereikt de leveranciers via een uitgeschreven eis in dit pakket.
 
-Niet elk hoofdstuk levert hetzelfde. Een journey brengt een behoefte naar boven en levert user stories. Een procesbeschrijving zegt wat de instelling moet kunnen. Een gegevens- of systeemhoofdstuk zegt wat een component moet doen. Een interactiehoofdstuk zegt wat er over het koppelvlak gaat. Het blok boven elk hoofdstuk noemt welke laag daar hoort, en noteert de nummers; de eis zelf wordt elders uitgeschreven.
+Elk onderdeel levert een eigen soort. De reis van een persona brengt een behoefte naar boven en levert user stories. Een procesbeschrijving zegt wat de instelling moet kunnen. Een gegevens- of systeemonderdeel zegt wat een component moet doen. Een interactie zegt wat er over het koppelvlak gaat. Het opdrachtblok noemt welke soort daar hoort.
 
 | Soort | Komt uit | Zegt wat |
 |---|---|------------------------------------|
-| Instellingseis | de PoC-inbreng, de persona's en de leerroute scenario's samen | een instelling wil kunnen om de scenario's te realiseren |
+| Instellingseis | de PoC-inbreng, de persona's en de leerroute scenario's samen | de instelling moet kunnen om de scenario's te realiseren |
 | Functionele eis | de instellingseisen en de leerroute scenario uitwerking | een component moet doen met welke gegevens |
 | Technische eis | de interactieketens, die zelf uit de eisen voortkomen | er over het koppelvlak gaat en in welke vorm |
 
@@ -48,11 +48,9 @@ Dit document levert geen eigen eis; het levert de begrippen waarin de andere doc
 
 | Soort | Voorbeeld |
 |---|------------------------------------------------|
-| Instellingseis, elders | de instelling kent per keuzedeelruimte de voorkeursvolgorde van de student voordat zij plaatst |
-| Functionele eis, elders | het studentkeuzesysteem legt per keuzedeelruimte een geordende lijst voorkeuren vast, met per voorkeur het onderdeel, de periode en de locatie |
+| Instellingseis, elders | de instelling kan per keuzedeelruimte de voorkeursvolgorde van de student vastleggen voordat zij plaatst |
+| Functionele eis, elders | het Student Keuze Systeem legt per keuzedeelruimte de `Aanmeldingen` van een student vast in volgorde van voorkeur, elk op een `Keuzedeel aanbod` met zijn onderwijsperiode en optioneel de onderwijslocatie |
 | **Uit dit document** | **de termen keuzedeelruimte, voorkeur en onderwijslocatie, met hun definitie en kardinaliteit** |
-
-Vul in dit document de soort in die boven het hoofdstuk staat, als verwijzing. De uitgeschreven eis volgt in een eigen ronde, in het register waar hij hoort.
 
 ## Business analyse en aggregatie van pakket van eisen
 
@@ -80,9 +78,12 @@ Een hoofdstuk is een interactie, en de business analist bepaalt waar hij begint 
 
 **Voorbeeld** [Informatiemodel OKx, Informatiemodel OKx](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/informatiemodel.md#informatiemodel-okx)
 
-**Acceptatiecriteria** een beschrijving in lopende tekst, en de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt
+**Acceptatiecriteria** Dit hoofdstuk is af wanneer dit klopt:
 
-**Functionele eisen** *wat een component moet doen met welke gegevens; noteer de nummers uit het register functionele eisen*
+1. er staat een beschrijving in lopende tekst;
+2. de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt.
+
+**Eisen** *dit hoofdstuk levert geen eis op; het geeft de context waarin de eisen van de andere hoofdstukken te lezen zijn*
 
 *Schrijf hier de uitwerking.*
 
@@ -90,9 +91,12 @@ Een hoofdstuk is een interactie, en de business analist bepaalt waar hij begint 
 
 **Voorbeeld** [Informatiemodel OKx, Context](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/informatiemodel.md#context)
 
-**Acceptatiecriteria** een beschrijving in lopende tekst, en de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt
+**Acceptatiecriteria** Dit hoofdstuk is af wanneer dit klopt:
 
-**Functionele eisen** *wat een component moet doen met welke gegevens; noteer de nummers uit het register functionele eisen*
+1. er staat een beschrijving in lopende tekst;
+2. de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt.
+
+**Eisen** *dit hoofdstuk levert geen eis op; het geeft de context waarin de eisen van de andere hoofdstukken te lezen zijn*
 
 *Schrijf hier de uitwerking.*
 
@@ -100,9 +104,12 @@ Een hoofdstuk is een interactie, en de business analist bepaalt waar hij begint 
 
 **Voorbeeld** [Informatiemodel OKx, Inleiding](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/informatiemodel.md#inleiding)
 
-**Acceptatiecriteria** een beschrijving in lopende tekst, en de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt
+**Acceptatiecriteria** Dit hoofdstuk is af wanneer dit klopt:
 
-**Functionele eisen** *wat een component moet doen met welke gegevens; noteer de nummers uit het register functionele eisen*
+1. er staat een beschrijving in lopende tekst;
+2. de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt.
+
+**Eisen** *dit hoofdstuk levert geen eis op; het geeft de context waarin de eisen van de andere hoofdstukken te lezen zijn*
 
 *Schrijf hier de uitwerking.*
 
@@ -110,9 +117,12 @@ Een hoofdstuk is een interactie, en de business analist bepaalt waar hij begint 
 
 **Voorbeeld** [Informatiemodel OKx, Doel](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/informatiemodel.md#doel)
 
-**Acceptatiecriteria** een beschrijving in lopende tekst, en de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt
+**Acceptatiecriteria** Dit hoofdstuk is af wanneer dit klopt:
 
-**Functionele eisen** *wat een component moet doen met welke gegevens; noteer de nummers uit het register functionele eisen*
+1. er staat een beschrijving in lopende tekst;
+2. de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt.
+
+**Eisen** *dit hoofdstuk levert geen eis op; het geeft de context waarin de eisen van de andere hoofdstukken te lezen zijn*
 
 *Schrijf hier de uitwerking.*
 
@@ -120,9 +130,13 @@ Een hoofdstuk is een interactie, en de business analist bepaalt waar hij begint 
 
 **Voorbeeld** [Informatiemodel OKx, Scope](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/informatiemodel.md#scope)
 
-**Acceptatiecriteria** een beeld, een ingevulde tabel, en het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken; elke rij is ingevuld, of doorgehaald met de reden erbij
+**Acceptatiecriteria** Dit hoofdstuk is af wanneer dit klopt:
 
-**Functionele eisen** *wat een component moet doen met welke gegevens; noteer de nummers uit het register functionele eisen*
+1. er staat een beeld, een ingevulde tabel;
+2. het beeld staat in het document zelf, met een regel eronder die zegt waar de lezer naar moet kijken;
+3. elke rij is ingevuld, of doorgehaald met de reden erbij.
+
+**Eisen** *dit hoofdstuk levert geen eis op; het geeft de context waarin de eisen van de andere hoofdstukken te lezen zijn*
 
 | | Niveau | Waar het staat |
 |---|---|---|
@@ -139,9 +153,12 @@ Een hoofdstuk is een interactie, en de business analist bepaalt waar hij begint 
 
 **Voorbeeld** [Informatiemodel OKx, Lezers en detailniveau](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/informatiemodel.md#lezers-en-detailniveau)
 
-**Acceptatiecriteria** een ingevulde tabel, en elke rij is ingevuld, of doorgehaald met de reden erbij
+**Acceptatiecriteria** Dit hoofdstuk is af wanneer dit klopt:
 
-**Functionele eisen** *wat een component moet doen met welke gegevens; noteer de nummers uit het register functionele eisen*
+1. er staat een ingevulde tabel;
+2. elke rij is ingevuld, of doorgehaald met de reden erbij.
+
+**Eisen** *dit hoofdstuk levert geen eis op; het geeft de context waarin de eisen van de andere hoofdstukken te lezen zijn*
 
 | | |
 |---|---|
@@ -154,9 +171,12 @@ Een hoofdstuk is een interactie, en de business analist bepaalt waar hij begint 
 
 **Voorbeeld** [Informatiemodel OKx, Begrippenfamilies](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/informatiemodel.md#begrippenfamilies)
 
-**Acceptatiecriteria** een ingevulde tabel, en elke rij is ingevuld, of doorgehaald met de reden erbij
+**Acceptatiecriteria** Dit hoofdstuk is af wanneer dit klopt:
 
-**Functionele eisen** *wat een component moet doen met welke gegevens; noteer de nummers uit het register functionele eisen*
+1. er staat een ingevulde tabel;
+2. elke rij is ingevuld, of doorgehaald met de reden erbij.
+
+**Eisen** *dit hoofdstuk levert geen eis op; het geeft de context waarin de eisen van de andere hoofdstukken te lezen zijn*
 
 | Begrip | Wat het is | Beantwoordt de vraag |
 |---|---|---|
@@ -174,9 +194,12 @@ Een hoofdstuk is een interactie, en de business analist bepaalt waar hij begint 
 
 **Voorbeeld** [Informatiemodel OKx, Notatie](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/informatiemodel.md#notatie)
 
-**Acceptatiecriteria** een ingevulde tabel, en elke rij is ingevuld, of doorgehaald met de reden erbij
+**Acceptatiecriteria** Dit hoofdstuk is af wanneer dit klopt:
 
-**Functionele eisen** *wat een component moet doen met welke gegevens; noteer de nummers uit het register functionele eisen*
+1. er staat een ingevulde tabel;
+2. elke rij is ingevuld, of doorgehaald met de reden erbij.
+
+**Eisen** *dit hoofdstuk levert geen eis op; het geeft de context waarin de eisen van de andere hoofdstukken te lezen zijn*
 
 | | Relatie | Betekenis in dit model |
 |---|---|---|
@@ -191,9 +214,12 @@ Een hoofdstuk is een interactie, en de business analist bepaalt waar hij begint 
 
 **Voorbeeld** [Informatiemodel OKx, Ontwerpkeuzes](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/informatiemodel.md#ontwerpkeuzes)
 
-**Acceptatiecriteria** een beschrijving in lopende tekst, en de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt
+**Acceptatiecriteria** Dit hoofdstuk is af wanneer dit klopt:
 
-**Functionele eisen** *wat een component moet doen met welke gegevens; noteer de nummers uit het register functionele eisen*
+1. er staat een beschrijving in lopende tekst;
+2. de tekst noemt wie handelt, met welk systeem, en welke informatie van waar naar waar beweegt.
+
+**Eisen** *dit hoofdstuk levert geen eis op; het geeft de context waarin de eisen van de andere hoofdstukken te lezen zijn*
 
 *Schrijf hier de uitwerking.*
 
@@ -201,9 +227,12 @@ Een hoofdstuk is een interactie, en de business analist bepaalt waar hij begint 
 
 **Voorbeeld** [Informatiemodel OKx, Verwante documenten](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/informatiemodel.md#verwante-documenten)
 
-**Acceptatiecriteria** een ingevulde tabel, en elke rij is ingevuld, of doorgehaald met de reden erbij
+**Acceptatiecriteria** Dit hoofdstuk is af wanneer dit klopt:
 
-**Functionele eisen** *wat een component moet doen met welke gegevens; noteer de nummers uit het register functionele eisen*
+1. er staat een ingevulde tabel;
+2. elke rij is ingevuld, of doorgehaald met de reden erbij.
+
+**Eisen** *dit hoofdstuk levert geen eis op; het geeft de context waarin de eisen van de andere hoofdstukken te lezen zijn*
 
 | Document | Verhouding |
 |---|---|

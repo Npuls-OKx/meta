@@ -134,20 +134,116 @@ ARTEFACTEN = {
 # moet kunnen, een gegevens- of systeemhoofdstuk wat een component moet doen,
 # en een interactiehoofdstuk wat er over het koppelvlak gaat.
 LAGEN = {
-    "user story": "**User stories** *welke stories uit het pakket van eisen "
-                  "dit hoofdstuk naar boven brengt; noteer de nummers, niet de "
-                  "stories zelf*",
-    "business": "**Instellingseisen** *wat de instelling moet kunnen om die "
-                "stories waar te maken; noteer de nummers uit het register "
-                "instellingseisen*",
+    "user story": "**User stories** *de behoeften die hier naar boven komen; "
+                  "schrijf elke behoefte uit als user story, bij de stap waar "
+                  "zij ontstaat*",
+    "business": "**Instellingseisen** *wat de instelling moet kunnen; schrijf "
+                "elke eis uit met zijn nummer, bij de stap, het scenario of de "
+                "fase waar hij ontstaat*",
     "functional": "**Functionele eisen** *wat een component moet doen met "
-                  "welke gegevens; noteer de nummers uit het register "
-                  "functionele eisen*",
+                  "welke gegevens; schrijf elke eis uit met zijn nummer en de "
+                  "instellingseis waaruit hij komt*",
     "technical": "**Technische eisen** *wat er over het koppelvlak gaat en in "
                  "welke vorm; die liggen in de interactieketen zelf vast*",
     "context": "**Eisen** *dit hoofdstuk levert geen eis op; het geeft de "
                "context waarin de eisen van de andere hoofdstukken te lezen "
                "zijn*",
+}
+
+# Een eis is pas bruikbaar voor de solutionlaag wanneer een leverancier hem kan
+# lezen zonder de instelling te bellen. Per soort staat hier waaraan hij
+# voldoet, met een zwak en een sterk voorbeeld uit leerroute 1.
+EISSOORTEN = {
+    "user story": {
+        "naam": "Een user story",
+        "criteria": [
+            "heeft de vorm `Als <persona> wil ik <wat> met als doel dat "
+            "<waarde>`",
+            "noemt de stap van de reis waarin de behoefte ontstaat",
+            "noemt wat de persona wil kunnen en waarom; welk systeem dat "
+            "draagt volgt in de eisen",
+            "is herkenbaar bij meerdere instellingen; wat bij een instelling "
+            "speelt staat onder Afwijkingen per instelling",
+        ],
+        "voorbeelden": [
+            ("Als student wil ik een overzichtelijke app voor mijn keuzedelen",
+             "noemt een systeem; de stap en de waarde ontbreken",
+             "Als student wil ik bij mijn keuzedeelruimte een geprioriteerde "
+             "voorkeurslijst opgeven, met als doel dat ik niet zonder "
+             "keuzedeel kom te zitten wanneer mijn eerste keuze vol is"),
+            ("Als instelling willen wij beter kunnen plannen",
+             "noemt een organisatie in plaats van een persona; de stap en "
+             "de waarde ontbreken",
+             "Als planner wil ik de haalbaarheid van een opleiding bepalen "
+             "voordat het onderwijsaanbod wordt gepubliceerd, met als doel "
+             "dat studenten zich alleen oriënteren op aanbod dat de "
+             "instelling kan uitvoeren"),
+        ],
+    },
+    "instellingseis": {
+        "naam": "Een instellingseis",
+        "criteria": [
+            "is een zin die opent met `De instelling kan`",
+            "noemt een vermogen van de instelling; het systeem dat het draagt "
+            "volgt in de functionele eis",
+            "is toetsbaar: er is een situatie te noemen waarin vaststaat of "
+            "de instelling het kan",
+            "noemt zijn herkomst: de persona met de stap, het scenario of de "
+            "procesfase",
+            "geldt bij meerdere instellingen; wat bij een instelling speelt "
+            "staat onder Afwijkingen per instelling",
+            "draagt een vermogen; een tweede vermogen krijgt een eigen nummer",
+        ],
+        "voorbeelden": [
+            ("De instelling wil flexibel omgaan met keuzedelen",
+             "er is geen situatie waarin vaststaat of het kan",
+             "De instelling kan per keuzedeelruimte de voorkeursvolgorde van "
+             "de student vastleggen voordat zij plaatst"),
+            ("Het roosterpakket stuurt een melding wanneer een keuzedeel vol "
+             "zit",
+             "noemt een product en een oplossing; het vermogen van de "
+             "instelling ontbreekt",
+             "De instelling kan signaleren dat de keuzedeelruimte van een "
+             "student oningevuld blijft, op een moment dat de student nog "
+             "een nieuwe keuze kan maken"),
+        ],
+    },
+    "functionele eis": {
+        "naam": "Een functionele eis",
+        "criteria": [
+            "is een zin die opent met de applicatiecomponent, in de naam van "
+            "de [hoofdplaat informatiestromen]"
+            "(https://github.com/Npuls-OKx/meta/blob/dev/project/README.md)",
+            "noemt wat de component doet en met welke informatieobjecten, "
+            "elk met de naam van het objecttype uit de "
+            "[begrippenlijst](https://github.com/Npuls-OKx/meta/blob/"
+            "dev/architecture/docs/specificatie/begrippen/begrippenlijst.md), "
+            "tussen backquotes",
+            "kiest het objecttype dat bij het moment past: een `Aanmelding` "
+            "op aanbod is een wens, een verbintenis bestaat pas wanneer zij "
+            "is aangegaan",
+            "noemt de instellingseis waaruit hij komt",
+            "beschrijft gedrag; formaat, protocol en veldnamen volgen in de "
+            "technische eis",
+            "is toetsbaar: er is een invoer te noemen met de uitkomst die de "
+            "component dan geeft",
+            "draagt een gedrag; een tweede gedrag krijgt een eigen nummer",
+        ],
+        "voorbeelden": [
+            ("Het systeem ondersteunt voorkeuren voor keuzedelen",
+             "de component, de gegevens en het gedrag ontbreken",
+             "Het Student Keuze Systeem legt per keuzedeelruimte de "
+             "`Aanmeldingen` van een student vast in volgorde van voorkeur, "
+             "elk op een `Keuzedeel aanbod` met zijn onderwijsperiode en "
+             "optioneel de onderwijslocatie"),
+            ("Het Student Keuze Systeem stuurt de voorkeuren als JSON-lijst "
+             "naar het Planningssysteem",
+             "legt het formaat vast; dat hoort in de technische eis",
+             "Het Student Keuze Systeem levert per voorkeur van een student "
+             "de `Aanmelding` op het `Keuzedeel aanbod` aan het "
+             "Planningssysteem, met haar plaats in de volgorde"),
+        ],
+    },
 }
 
 
@@ -396,24 +492,24 @@ class Sjabloon:
             "|---|------------------------------------------------|",
             f"| Wie dit invult | {c['wie']} |",
             f"| Voorbeeld | {c['voorbeeld']} |",
-            "| Inleveren | terug naar OKx SI als Word-bestand |",
+            f"| Inleveren | {c.get('inleveren', 'terug naar OKx SI als Word-bestand')} |",
             "",
             *self.afbakening(),
             "## Doelstelling document",
             "",
             c["doel"],
             "",
-            "Elk hoofdstuk opent met een blok dat zegt wat er wordt verwacht: "
-            "waar hetzelfde al is uitgewerkt, welk artefact hier hoort en "
-            "waaraan het voldoet, en wat dit hoofdstuk aan het pakket van "
-            "eisen bijdraagt. Dat blok blijft staan; het is de opdracht en "
-            "niet de uitwerking.",
+            f"Elk {self.eenheid()} opent met een opdrachtblok: waar hetzelfde "
+            "al is uitgewerkt, de acceptatiecriteria waaraan de invulling "
+            "voldoet, en welke soort eis het oplevert. Het opdrachtblok blijft "
+            "staan; de uitwerking komt eronder.",
             "",
             "## Eisen uit dit document",
             "",
             "OKx kent drie soorten eisen. **Instellingseisen** zeggen wat de "
             "instelling moet kunnen; zij komen uit de inbreng van de "
-            "koploperinstellingen, de persona's en de leerroute scenario's "
+            "koploperinstellingen in de proef (de PoC-inbreng), de persona's "
+            "en de leerroute scenario's "
             "samen. **Functionele eisen** zeggen wat een component moet doen "
             "met welke gegevens; zij komen uit de instellingseisen en de "
             "leerroute scenario uitwerking samen. **Technische eisen** zeggen "
@@ -421,22 +517,25 @@ class Sjabloon:
             "interactieketens, die zelf uit de eisen voortkomen, en zijn "
             "onderdeel van de koppelvlakspecificatie.",
             "",
-            "**Dit document bevat die eisen niet; het levert eraan.** Noteer "
-            "per hoofdstuk alleen de nummers; de eis zelf wordt elders "
-            "uitgeschreven.",
+            "**De solutionlaag bouwt op wat hier als eis staat.** De "
+            "solutionlaag is het deel van OKx dat de koppelvlakken ontwerpt: "
+            "het team systeem en informatie (OKx SI), samen met de "
+            "leveranciers. OKx SI neemt de instellingseisen en de functionele "
+            "eisen over en vertaalt ze met de leveranciers naar technische "
+            "eisen. Een behoefte bereikt de leveranciers via een "
+            "uitgeschreven eis in dit pakket.",
             "",
-            "Niet elk hoofdstuk levert hetzelfde. Een journey brengt een "
-            "behoefte naar boven en levert user stories. Een procesbeschrijving "
-            "zegt wat de instelling moet kunnen. Een gegevens- of "
-            "systeemhoofdstuk zegt wat een component moet doen. Een "
-            "interactiehoofdstuk zegt wat er over het koppelvlak gaat. Het blok "
-            "boven elk hoofdstuk noemt welke laag daar hoort, en noteert de "
-            "nummers; de eis zelf wordt elders uitgeschreven.",
+            "Elk onderdeel levert een eigen soort. De reis van een persona "
+            "brengt een behoefte naar boven en levert user stories. Een "
+            "procesbeschrijving zegt wat de instelling moet kunnen. Een "
+            "gegevens- of systeemonderdeel zegt wat een component moet doen. "
+            "Een interactie zegt wat er over het koppelvlak gaat. Het "
+            "opdrachtblok noemt welke soort daar hoort.",
             "",
             "| Soort | Komt uit | Zegt wat |",
             "|---|---|------------------------------------|",
             "| Instellingseis | de PoC-inbreng, de persona's en de leerroute "
-            "scenario's samen | een instelling wil kunnen om de scenario's te "
+            "scenario's samen | de instelling moet kunnen om de scenario's te "
             "realiseren |",
             "| Functionele eis | de instellingseisen en de leerroute scenario "
             "uitwerking | een component moet doen met welke gegevens |",
@@ -450,10 +549,7 @@ class Sjabloon:
             "|---|------------------------------------------------|",
         ] + [f"| {soort} | {voorbeeld} |" for soort, voorbeeld in c["keten"]] + [
             "",
-            "Vul in dit document de soort in die boven het hoofdstuk staat, "
-            "als verwijzing. De uitgeschreven eis volgt in een eigen ronde, in "
-            "het register waar hij hoort.",
-            "",
+            *self.kwaliteit(),
             "## Business analyse en aggregatie van pakket van eisen",
             "",
             c["aggregatie"],
@@ -474,6 +570,40 @@ class Sjabloon:
             PAGINA_EINDE,
             "",
         ]
+
+    def eenheid(self) -> str:
+        return "sjabloononderdeel" if self.cfg.get("opbouw") else "hoofdstuk"
+
+    def kwaliteit(self) -> list[str]:
+        """Waaraan een eis voldoet, voor de soorten die dit sjabloon levert."""
+        soorten = self.cfg.get("eissoorten", [])
+        if not soorten:
+            return []
+        uit = [
+            "## Kwaliteit van een eis",
+            "",
+            "Een eis is bruikbaar wanneer een leverancier hem kan lezen "
+            "zonder de instelling te bellen. Wat hier staat is een voorstel "
+            "voor een sectorafspraak: opgesteld uit de inbreng van "
+            "afzonderlijke instellingen, vastgelegd als afspraak, en daarna "
+            "de grond voor de technische specificatie. Schrijf elke eis uit "
+            "op de plek waar hij ontstaat, en toets hem aan de criteria "
+            "hieronder.",
+            "",
+        ]
+        for soort in soorten:
+            e = EISSOORTEN[soort]
+            uit += [f"**{e['naam']}:**", ""]
+            uit += [f"{i}. {c};" if i < len(e["criteria"]) else f"{i}. {c}."
+                    for i, c in enumerate(e["criteria"], 1)]
+            uit.append("")
+        uit += ["| Soort | Zwak | Wat eraan ontbreekt | Sterk |",
+                "|---|--------|------|------------|"]
+        for soort in soorten:
+            for zwak, reden, sterk in EISSOORTEN[soort]["voorbeelden"]:
+                uit.append(f"| {soort} | {zwak} | {reden} | {sterk} |")
+        uit.append("")
+        return uit
 
     def afbakening(self) -> list[str]:
         """De productafbakening, met het vak van dit product uitgelicht."""
@@ -567,21 +697,25 @@ class Sjabloon:
         if eigen.get("optioneel"):
             blok += [f"*Optioneel: {eigen['optioneel']}. Geldt het niet voor "
                      "deze route, laat de kop staan met die reden eronder.*", ""]
+        criteria = eigen.get("criteria") or (
+            [f"er staat {verwacht}"] + [d.strip() for d in eis.split(";")])
+        eenheid = self.eenheid()
         blok += [
             f"**Voorbeeld** [{naam}, {plek}]({url})",
             "",
-            f"**Acceptatiecriteria** {verwacht}, en {eis}",
-            "",
-            laag,
+            f"**Acceptatiecriteria** Dit {eenheid} is af wanneer dit klopt:",
             "",
         ]
+        blok += [f"{i}. {c};" if i < len(criteria) else f"{i}. {c}."
+                 for i, c in enumerate(criteria, 1)]
+        blok += ["", laag, ""]
         return blok
 
     def beeld(self, alt: str, pad: str) -> None:
         """Zet het beeld in het document, niet een beschrijving ervan."""
         bron = WORTEL / self.bronmap() / pad
         if not bron.exists() and (WORTEL / pad).exists():
-            # Een bouwsteen noemt zijn voorbeeldbeeld vanaf de wortel, want
+            # Een sjabloononderdeel noemt zijn voorbeeldbeeld vanaf de wortel, want
             # dat beeld hoeft niet bij de bron van dit sjabloon te liggen.
             bron = WORTEL / pad
         if not bron.exists():
@@ -605,7 +739,7 @@ class Sjabloon:
             self.uit.append("|" + " |" * kolommen)
         self.uit.append("")
 
-    def bouwstenen(self) -> str:
+    def onderdelen(self) -> str:
         """Een sjabloon dat niet de koppen van een bron volgt.
 
         Sommige producten zijn geen hoofdstukkenreeks maar een herhaling van
@@ -613,7 +747,7 @@ class Sjabloon:
         uit de configuratie en niet uit een bron.
         """
         self.uit = self.aanhef()
-        # De eigen criteria van een bouwsteen staan in zijn eigen regel; het
+        # De eigen criteria van een sjabloononderdeel staan in zijn eigen regel; het
         # verwachtingsblok leest ze uit hoofdstukken.
         self.hoofdstukken = dict(self.hoofdstukken)
         self.hoofdstukken.update(self.cfg["opbouw"])
@@ -624,6 +758,15 @@ class Sjabloon:
             if cfg.get("blok", True):
                 self.uit += self.verwachting(
                     cfg.get("anker", kop), kop, cfg.get("inhoud", []))
+            if cfg.get("voorbeeld_tabel"):
+                self.uit += [f"**Ingevuld voorbeeld** uit "
+                             f"{cfg.get('voorbeeld_uit', self.cfg['voorbeeld_naam'])}:",
+                             "", *cfg["voorbeeld_tabel"], ""]
+                for extra in cfg.get("voorbeeld_extra", []):
+                    self.uit += [f"**Ingevuld voorbeeld** uit {extra['uit']}:",
+                                 "", *extra["tabel"], ""]
+                if cfg.get("tabel"):
+                    self.uit += ["**Vul in:**", ""]
             if cfg.get("tabel"):
                 self.uit += list(cfg["tabel"]) + [""]
             if cfg.get("voorbeeld_beeld"):
@@ -636,7 +779,7 @@ class Sjabloon:
 
     def maak(self) -> str:
         if self.cfg.get("opbouw"):
-            return self.bouwstenen()
+            return self.onderdelen()
         regels = self.brontekst().splitlines()
         self.uit = self.aanhef()
         secties: list[tuple[int, str, list[str]]] = []
