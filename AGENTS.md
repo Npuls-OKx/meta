@@ -104,6 +104,7 @@ Dit vervangt de fork `Npuls-OKx/specification`, die op verzoek van de OEAPI-behe
 | Requirementsboom (opdracht, epics, features, stories) | [Referentiemateriaal/requirementsboom in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/requirementsboom/README.md) |
 | Architectuurbesluiten (ADR's) | [Referentiemateriaal/adr in Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr) |
 | ArchiMate-model (niet aanraken) | [architecture/model/](architecture/model/) |
+| Een JSON-bericht van buiten in beeld: payload, exportbestand, voorbeeldbericht | skill [okx-json-bericht-in-beeld](.agents/skills/okx-json-bericht-in-beeld/SKILL.md), via `tools/scripts/teken-json-structuur.py` |
 | Voorstellen op de hoofdplaat, voor een concept of een sparvraag | [architecture/model/informatiemodel/voorstellen/](architecture/model/informatiemodel/voorstellen/), skill [okx-voorstel-op-de-hoofdplaat](.agents/skills/okx-voorstel-op-de-hoofdplaat/SKILL.md) |
 | Meetingverslagen | [architecture/meetings/](architecture/meetings/) |
 | Specificaties (leerroute-uitwerking, persona's) | [architecture/docs/specificatie/](architecture/docs/specificatie/) |

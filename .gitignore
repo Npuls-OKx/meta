@@ -37,5 +37,9 @@ presentaties/export/*/*
 __pycache__/
 *.pyc
 
+# Bronmateriaal dat nog niet gepubliceerd mag worden: een payload van een leverancier of een
+# instelling blijft hier tot de inbrenger zegt dat het de repository in mag. Alles in deze map
+# blijft lokaal; de plaat die eruit getekend wordt kan wel een commit in.
+_lokaal/
 # Windows-markering bij een gedownload bestand; zegt niets over de inhoud
 *:Zone.Identifier
