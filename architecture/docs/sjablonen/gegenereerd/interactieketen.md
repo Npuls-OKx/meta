@@ -109,7 +109,7 @@ Kopieer dit sjabloononderdeel voor elke interactie in de keten. Houd de volgorde
 | Aanleiding | *welke gebeurtenis deze interactie start* |
 | Bericht | *welke informatie meegaat, met de termen uit de begrippenlijst* |
 | Informatiestroom | *de koppeling op de hoofdplaat informatiestromen, bijvoorbeeld OC-P&R* |
-| Functionele eisen | *de nummers uit het leerroute scenario en de uitwerking, bijvoorbeeld FE-LR1-03* |
+| Functionele eisen | *de nummers uit het leerroute scenario en de uitwerking, bijvoorbeeld FE-LR1-003* |
 | Antwoord | *wat de afnemer terugkrijgt* |
 | Foutpad | *wat er gebeurt wanneer de aanbieder niet of fout antwoordt* |
 | Herhaalbaar | *wat een tweede dezelfde aanroep doet* |

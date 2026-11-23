@@ -62,10 +62,11 @@ Een eis is bruikbaar wanneer een leverancier hem kan lezen zonder de instelling 
 1. is een zin die opent met de applicatiecomponent, in de naam van de [hoofdplaat informatiestromen](https://github.com/Npuls-OKx/meta/blob/dev/project/README.md);
 2. noemt wat de component doet en met welke informatieobjecten, elk met de naam van het objecttype uit de [begrippenlijst](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/begrippen/begrippenlijst.md), tussen backquotes;
 3. kiest het objecttype dat bij het moment past: een `Aanmelding` op aanbod is een wens, een verbintenis bestaat pas wanneer zij is aangegaan;
-4. noemt de instellingseis waaruit hij komt;
-5. beschrijft gedrag; formaat, protocol en veldnamen volgen in de technische eis;
-6. is toetsbaar: er is een invoer te noemen met de uitkomst die de component dan geeft;
-7. draagt een gedrag; een tweede gedrag krijgt een eigen nummer.
+4. draagt een vast nummer `FE-LR<route>-<volgnummer>` uit het nummerregister van de route, het eisenoverzicht van het leerroute scenario;
+5. noemt de instellingseis waaruit hij komt;
+6. beschrijft gedrag; formaat, protocol en veldnamen volgen in de technische eis;
+7. is toetsbaar: er is een invoer te noemen met de uitkomst die de component dan geeft;
+8. draagt een gedrag; een tweede gedrag krijgt een eigen nummer.
 
 | Soort | Zwak | Wat eraan ontbreekt | Sterk |
 |---|--------|------|------------|
@@ -158,7 +159,7 @@ Kopieer dit sjabloononderdeel voor elke uitwisseling. Over de lijn gaat het hele
 
 Het voorbeeld hieronder is er een met een volle structuur: het verzoek om onderwijsaanbod neemt de specificatiestructuur en de planbare waarden mee, zodat het planningssysteem zonder navraag kan plannen.
 
-Elke uitwisseling levert functionele eisen op: wat de leverende component moet kunnen leveren, en wat de afnemende component ermee moet kunnen doen. Nummer door vanaf het laatste nummer in het leerroute scenario, zodat een nummer een eis blijft aanwijzen.
+Elke uitwisseling levert functionele eisen op: wat de leverende component moet kunnen leveren, en wat de afnemende component ermee moet kunnen doen. Haal elk nummer uit het eisenoverzicht van het leerroute scenario: dat is het nummerregister van de route. Zo blijft een nummer vast en uniek, ook wanneer twee documenten eisen toevoegen.
 
 **Voorbeeld** [Leerroute 1 scenario uitwerking, F2-03 - Verzoek met specificatiestructuur en planbare waarden naar planning](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md#f2-03---verzoek-met-specificatiestructuur-en-planbare-waarden-naar-planning)
 
@@ -182,7 +183,7 @@ Elke uitwisseling levert functionele eisen op: wat de leverende component moet k
 | Aanleiding | het verzoek om onderwijsaanbod uit F2-02, nadat F2-01 de specificatie planbaar heeft gemaakt |
 | Informatievoorbeeld | het `Verzoek tot Aanbod / Intekening op specificatie` Planopgave Apothekersassistent, cohort 2026, met de `Opleiding specificatie` Apothekersassistent, versie 2026.1, haar `Opleidingsprogramma specificatie` BOL voltijd, en per `Onderwijseenheid specificatie` en `Leeronderdeel specificatie` de `Leeruitkomst` en de planbare waarden: Blok B1-K1 met 80 uur begeleide onderwijstijd, een praktijkruimte en een docent farmacie. De gewenste periode gaat mee in de `Nominale Leerroute`, die in het informatiemodel als voorstel staat |
 | Informatiestroom | OC-P&R, de koppeling tussen de Onderwijscatalogus en het Planningssysteem |
-| Functionele eisen | FE-LR1-03: De Onderwijscatalogus stuurt het verzoek om onderwijsaanbod aan het Planningssysteem, met de specificatiestructuur en per eenheid de planbare waarden; komt uit IE-LR1-04 |
+| Functionele eisen | FE-LR1-003: De Onderwijscatalogus stuurt het verzoek om onderwijsaanbod aan het Planningssysteem, met de specificatiestructuur en per eenheid de planbare waarden; komt uit IE-LR1-004 |
 
 **Vul in:**
 
@@ -194,7 +195,7 @@ Elke uitwisseling levert functionele eisen op: wat de leverende component moet k
 | Aanleiding | *welke processtap deze uitwisseling veroorzaakt* |
 | Informatievoorbeeld | *het ingevulde voorbeeld, met alle relaties* |
 | Informatiestroom | *de koppeling op de hoofdplaat informatiestromen, bijvoorbeeld OC-P&R* |
-| Functionele eisen | *FE-LR..-..: Het <component> ..., met de instellingseis waaruit hij komt; een regel per eis* |
+| Functionele eisen | *FE-LR..-...: Het <component> ..., met de instellingseis waaruit hij komt; een regel per eis* |
 
 ![Voorbeeld van sjabloononderdeel B: het verzoek om onderwijsaanbod gaat met de hele specificatiestructuur en de planbare waarden van de onderwijscatalogus naar het planningssysteem](<img/leerroute-scenario-uitwerking/f2-03-verzoek-met-specificatiestructuur-en-planbare-waarden-naar-planning.png>)
 
@@ -227,21 +228,22 @@ Het overzicht is af wanneer:
 1. elke functionele eis uit de sjabloononderdelen erin staat, met dezelfde zin en hetzelfde nummer;
 2. elke eis de uitwisseling of het hiaat noemt waaruit hij komt, en de instellingseis;
 3. elke uitwisseling minstens een functionele eis heeft;
-4. elke eis voldoet aan [Kwaliteit van een eis](#kwaliteit-van-een-eis).
+4. elk nummer uit het nummerregister van het leerroute scenario komt en daar ook staat;
+5. elke eis voldoet aan [Kwaliteit van een eis](#kwaliteit-van-een-eis).
 
 **Ingevuld voorbeeld** uit Leerroute 1 scenario uitwerking:
 
-| Nummer | Eis | Komt uit sjabloononderdeel | Komt uit instellingseis |
-|---|---|---|---|
-| FE-LR1-03 | De Onderwijscatalogus stuurt het verzoek om onderwijsaanbod aan het Planningssysteem, met de specificatiestructuur en per eenheid de planbare waarden | F2-03 | IE-LR1-04 |
+| Nummer | Eis | Komt uit sjabloononderdeel | Komt uit instellingseis | Status |
+|---|---|---|---|---|
+| FE-LR1-003 | De Onderwijscatalogus stuurt het verzoek om onderwijsaanbod aan het Planningssysteem, met de specificatiestructuur en per eenheid de planbare waarden | F2-03 | IE-LR1-004 | geldig |
 
 **Vul in:**
 
-| Nummer | Eis | Komt uit sjabloononderdeel | Komt uit instellingseis |
-|---|---|---|---|
-| FE-LR..-.. | | | |
-| FE-LR..-.. | | | |
-| FE-LR..-.. | | | |
+| Nummer | Eis | Komt uit sjabloononderdeel | Komt uit instellingseis | Status |
+|---|---|---|---|---|
+| FE-LR..-... | | |  | |
+| FE-LR..-... | | |  | |
+| FE-LR..-... | | |  | |
 
 # Afwijkingen per instelling
 

@@ -198,6 +198,23 @@ class ElkHoofdstukZegtWatErWordtVerwacht(unittest.TestCase):
                     self.assertIn(f"**{maak.EISSOORTEN[soort]['naam']}:**", t)
                     self.assertIn(f"| {soort} | ", t)
 
+    def test_een_nummer_is_vast_en_uniek(self):
+        """Drie cijfers, een register per route, en een status in het overzicht."""
+        for naam in ("persona", "leerroute-scenario",
+                     "leerroute-scenario-uitwerking"):
+            t = skelet(naam)
+            with self.subTest(naam):
+                self.assertEqual(
+                    re.findall(r"\b(?:US|IE|FE)-LR[\d.]+-\d{1,2}\b", t), [],
+                    "een nummer draagt drie cijfers")
+        s = skelet("leerroute-scenario")
+        self.assertIn("**Een nummer is vast en uniek.**", s)
+        self.assertIn("nummerregister van de route", s)
+        self.assertIn("nummerregister", skelet("leerroute-scenario-uitwerking"))
+        self.assertIn("US-LR<route>-<volgnummer>", skelet("persona"))
+        for naam in ("leerroute-scenario", "leerroute-scenario-uitwerking"):
+            self.assertIn("| Status |", skelet(naam))
+
     def test_de_eisen_staan_uitgeschreven_in_een_overzicht(self):
         """De solutionlaag neemt het eisenoverzicht over, geen losse nummers."""
         for naam in ("leerroute-scenario", "leerroute-scenario-uitwerking"):

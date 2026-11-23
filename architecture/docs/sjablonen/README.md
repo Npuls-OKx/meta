@@ -101,7 +101,9 @@ Het sjabloon bestaat uit de sjabloononderdelen waaruit elk scenario is opgebouwd
 | procesfase | per fase | instellingseisen |
 | informatie en systemen | per fase, of een keer | functionele eisen |
 
-Elke eis staat uitgeschreven in de tabel van het onderdeel waar hij ontstaat. De notatie ligt vast: `IE-LR<route>-<volgnummer>` voor een instellingseis, `FE-LR<route>-<volgnummer>` voor een functionele eis, en een functionele eis noemt de instellingseis waaruit hij komt.
+Elke eis staat uitgeschreven in de tabel van het onderdeel waar hij ontstaat. De notatie ligt vast: `US-LR<route>-<volgnummer>` voor een user story, `IE-LR<route>-<volgnummer>` voor een instellingseis en `FE-LR<route>-<volgnummer>` voor een functionele eis, met drie cijfers, zoals `IE-LR1-001`. Een functionele eis noemt de instellingseis waaruit hij komt.
+
+**Een nummer is vast en uniek.** Het wordt een keer uitgegeven en verandert daarna niet; een nieuwe eis krijgt het eerstvolgende vrije nummer; een vervallen eis houdt zijn nummer met de status vervallen; en het eisenoverzicht van het leerroute scenario is het nummerregister van de route, waar ook de uitwerking haar nummers haalt. De requirementsboom in Public draagt een eigen reeks; die wordt later herzien en neemt deze nummers dan over.
 
 Het sjabloon sluit met het **Eisenoverzicht**: alle eisen bij elkaar, met hun herkomst en eigen acceptatiecriteria. Samen met het eisenoverzicht van de uitwerking is dat het pakket dat OKx SI overneemt en met de leveranciers naar technische eisen vertaalt.
 
@@ -116,7 +118,7 @@ De uitwerking is een herhaling van twee sjabloononderdelen.
 
 Beide onderdelen dragen een ingevoegd beeld en een ingevulde tabel uit de uitwerking van Jochem, en bewust een complex geval: bij A het keuzedeel als eigen programmaspecificatie (F1-08), bij B het verzoek om onderwijsaanbod dat de hele specificatiestructuur meeneemt naar planning (F2-03).
 
-Herhaal A tot er een uitwisseling plaatsvindt, zet dan B neer, en ga verder met A. De functionele eisen nummeren door vanaf het laatste nummer in het leerroute scenario en komen bij elkaar in het **Eisenoverzicht**; wat het informatiemodel niet kon dragen staat onder **Hiaten in het model**, met de functionele eis die eruit volgt. Dat sjabloon staat in `opbouw` in de configuratie.
+Herhaal A tot er een uitwisseling plaatsvindt, zet dan B neer, en ga verder met A. De functionele eisen halen hun nummer uit het nummerregister van het leerroute scenario en komen bij elkaar in het **Eisenoverzicht**; wat het informatiemodel niet kon dragen staat onder **Hiaten in het model**, met de functionele eis die eruit volgt. Dat sjabloon staat in `opbouw` in de configuratie.
 
 ## Interactieketen
 

@@ -60,21 +60,23 @@ Een eis is bruikbaar wanneer een leverancier hem kan lezen zonder de instelling 
 **Een instellingseis:**
 
 1. is een zin die opent met `De instelling kan`;
-2. noemt een vermogen van de instelling; het systeem dat het draagt volgt in de functionele eis;
-3. is toetsbaar: er is een situatie te noemen waarin vaststaat of de instelling het kan;
-4. noemt zijn herkomst: de persona met de stap, het scenario of de procesfase;
-5. geldt bij meerdere instellingen; wat bij een instelling speelt staat onder Afwijkingen per instelling;
-6. draagt een vermogen; een tweede vermogen krijgt een eigen nummer.
+2. draagt een vast nummer `IE-LR<route>-<volgnummer>`, dat een keer wordt uitgegeven en daarna niet verandert;
+3. noemt een vermogen van de instelling; het systeem dat het draagt volgt in de functionele eis;
+4. is toetsbaar: er is een situatie te noemen waarin vaststaat of de instelling het kan;
+5. noemt zijn herkomst: de persona met de stap, het scenario of de procesfase;
+6. geldt bij meerdere instellingen; wat bij een instelling speelt staat onder Afwijkingen per instelling;
+7. draagt een vermogen; een tweede vermogen krijgt een eigen nummer.
 
 **Een functionele eis:**
 
 1. is een zin die opent met de applicatiecomponent, in de naam van de [hoofdplaat informatiestromen](https://github.com/Npuls-OKx/meta/blob/dev/project/README.md);
 2. noemt wat de component doet en met welke informatieobjecten, elk met de naam van het objecttype uit de [begrippenlijst](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/begrippen/begrippenlijst.md), tussen backquotes;
 3. kiest het objecttype dat bij het moment past: een `Aanmelding` op aanbod is een wens, een verbintenis bestaat pas wanneer zij is aangegaan;
-4. noemt de instellingseis waaruit hij komt;
-5. beschrijft gedrag; formaat, protocol en veldnamen volgen in de technische eis;
-6. is toetsbaar: er is een invoer te noemen met de uitkomst die de component dan geeft;
-7. draagt een gedrag; een tweede gedrag krijgt een eigen nummer.
+4. draagt een vast nummer `FE-LR<route>-<volgnummer>` uit het nummerregister van de route, het eisenoverzicht van het leerroute scenario;
+5. noemt de instellingseis waaruit hij komt;
+6. beschrijft gedrag; formaat, protocol en veldnamen volgen in de technische eis;
+7. is toetsbaar: er is een invoer te noemen met de uitkomst die de component dan geeft;
+8. draagt een gedrag; een tweede gedrag krijgt een eigen nummer.
 
 | Soort | Zwak | Wat eraan ontbreekt | Sterk |
 |---|--------|------|------------|
@@ -127,15 +129,23 @@ Elke eis krijgt een nummer en verwijst naar het sjabloononderdeel waaruit hij ko
 
 | Soort | Nummer | Vorm van de zin |
 |---|---|---|
-| Instellingseis | `IE-LR<route>-<volgnummer>`, bijvoorbeeld `IE-LR2-03` | De instelling kan ... |
-| Functionele eis | `FE-LR<route>-<volgnummer>`, bijvoorbeeld `FE-LR2-07` | Het <component> ... |
+| User story, uit het persona-document | `US-LR<route>-<volgnummer>`, bijvoorbeeld `US-LR2-004` | Als <persona> wil ik ... |
+| Instellingseis | `IE-LR<route>-<volgnummer>`, bijvoorbeeld `IE-LR2-003` | De instelling kan ... |
+| Functionele eis | `FE-LR<route>-<volgnummer>`, bijvoorbeeld `FE-LR2-007` | Het <component> ... |
+
+**Een nummer is vast en uniek.** Vier regels houden dat zo:
+
+1. een nummer wordt een keer uitgegeven en verandert daarna niet, ook wanneer de eis naar een ander sjabloononderdeel verhuist of zijn zin wordt aangescherpt;
+2. een nieuwe eis krijgt het eerstvolgende vrije nummer van zijn soort, ook wanneer hij inhoudelijk tussen twee bestaande eisen hoort;
+3. een eis die vervalt houdt zijn nummer en krijgt de status vervallen; dat nummer komt niet terug;
+4. het eisenoverzicht van het leerroute scenario is het nummerregister van de route: ook de leerroute scenario uitwerking haalt daar haar nummers.
 
 Een instellingseis noemt de persona met de stap, het scenario of de procesfase waaruit hij komt. Een functionele eis noemt de instellingseis waaruit hij komt. Een voorbeeld uit leerroute 1:
 
 | Nummer | Eis | Komt uit |
 |---|---|---|
-| IE-LR1-01 | De instelling kan per keuzedeelruimte de voorkeursvolgorde van de student vastleggen voordat zij plaatst | reis van Jochem, stap kiezen keuzedelen |
-| FE-LR1-01 | Het Student Keuze Systeem legt per keuzedeelruimte de `Aanmeldingen` van een student vast in volgorde van voorkeur, elk op een `Keuzedeel aanbod` met zijn onderwijsperiode en optioneel de onderwijslocatie | IE-LR1-01, sjabloononderdeel informatie en systemen |
+| IE-LR1-001 | De instelling kan per keuzedeelruimte de voorkeursvolgorde van de student vastleggen voordat zij plaatst | US-LR1-001, reis van Jochem, stap kiezen keuzedelen |
+| FE-LR1-001 | Het Student Keuze Systeem legt per keuzedeelruimte de `Aanmeldingen` van een student vast in volgorde van voorkeur, elk op een `Keuzedeel aanbod` met zijn onderwijsperiode en optioneel de onderwijslocatie | IE-LR1-001, sjabloononderdeel informatie en systemen |
 
 # Sjabloononderdeel: routeprofiel
 
@@ -199,14 +209,14 @@ Neem de user stories uit het persona-document als vertrekpunt: elke story wordt 
 
 | Stap | Wat de persona doet | Wat hij moet weten | Systeem | Instellingseis |
 |---|---|---|---|---|
-| Kiezen keuzedelen | Jochem stelt een geprioriteerde voorkeurslijst op, met per voorkeur de onderwijsperiode en optioneel de onderwijslocatie | welke keuzedelen in zijn keuzedeelruimte passen, en waar en wanneer zij worden gegeven | Student Keuze Systeem | IE-LR1-01: De instelling kan per keuzedeelruimte de voorkeursvolgorde van de student vastleggen voordat zij plaatst |
-| Kiezen keuzedelen | zijn eerste voorkeur past niet; hij oriënteert zich op een ander keuzedeel of een andere onderwijslocatie | welk aanbod nog in zijn keuzedeelruimte past | Student Keuze Systeem | IE-LR1-02: De instelling kan signaleren dat de keuzedeelruimte van een student oningevuld blijft, op een moment dat de student nog een nieuwe keuze kan maken |
+| Kiezen keuzedelen | Jochem stelt een geprioriteerde voorkeurslijst op, met per voorkeur de onderwijsperiode en optioneel de onderwijslocatie | welke keuzedelen in zijn keuzedeelruimte passen, en waar en wanneer zij worden gegeven | Student Keuze Systeem | IE-LR1-001: De instelling kan per keuzedeelruimte de voorkeursvolgorde van de student vastleggen voordat zij plaatst |
+| Kiezen keuzedelen | zijn eerste voorkeur past niet; hij oriënteert zich op een ander keuzedeel of een andere onderwijslocatie | welk aanbod nog in zijn keuzedeelruimte past | Student Keuze Systeem | IE-LR1-002: De instelling kan signaleren dat de keuzedeelruimte van een student oningevuld blijft, op een moment dat de student nog een nieuwe keuze kan maken |
 
 **Vul in:**
 
 | Stap | Wat de persona doet | Wat hij moet weten | Systeem | Instellingseis |
 |---|---|---|---|---|
-| | | | | *IE-LR..-..: De instelling kan ...* |
+| | | | | *IE-LR..-...: De instelling kan ...* |
 | | | | | |
 | | | | | |
 | | | | | |
@@ -241,7 +251,7 @@ Kopieer dit sjabloononderdeel per scenario. Vier scenario's keren in elke route 
 | Aanleiding | hij haalt een toetsmoment niet in een keer |
 | Verloop | Jochem herkanst; de instelling plant het onderdeel opnieuw in; de rest van zijn programma loopt door |
 | Eindbeeld | het onderdeel is opnieuw ingepland en behaald; de rest van zijn programma is ongewijzigd |
-| Instellingseisen | IE-LR1-03: De instelling kan een onderdeel voor een student opnieuw inplannen terwijl de rest van zijn programma doorloopt |
+| Instellingseisen | IE-LR1-003: De instelling kan een onderdeel voor een student opnieuw inplannen terwijl de rest van zijn programma doorloopt |
 
 **Vul in:**
 
@@ -253,7 +263,7 @@ Kopieer dit sjabloononderdeel per scenario. Vier scenario's keren in elke route 
 | Aanleiding | *wat er verandert, en op welk moment* |
 | Verloop | *wie wat doet, in welke volgorde* |
 | Eindbeeld | *wat er klaar is wanneer het scenario eindigt* |
-| Instellingseisen | *IE-LR..-..: De instelling kan ..., een regel per eis* |
+| Instellingseisen | *IE-LR..-...: De instelling kan ..., een regel per eis* |
 
 *Schrijf hier de uitwerking.*
 
@@ -276,13 +286,13 @@ Kopieer dit sjabloononderdeel per fase. Houd de fasenamen van leerroute 1 aan wa
 
 | Processtap | Rol | Systeem | Instellingseis |
 |---|---|---|---|
-| Haalbaarheid bepalen binnen de strategische jaarplanning | planner | Planningssysteem | IE-LR1-04: De instelling kan de haalbaarheid van een `Opleiding specificatie` bepalen voordat zij het onderwijsaanbod publiceert |
+| Haalbaarheid bepalen binnen de strategische jaarplanning | planner | Planningssysteem | IE-LR1-004: De instelling kan de haalbaarheid van een `Opleiding specificatie` bepalen voordat zij het onderwijsaanbod publiceert |
 
 **Vul in:**
 
 | Processtap | Rol | Systeem | Instellingseis |
 |---|---|---|---|
-| | | | *IE-LR..-..: De instelling kan ...* |
+| | | | *IE-LR..-...: De instelling kan ...* |
 | | | | |
 | | | | |
 
@@ -309,14 +319,14 @@ Kopieer dit sjabloononderdeel per procesfase, of vul het een keer in voor de hel
 
 | Informatieobject | Bronsysteem | Wie leest of bewerkt | Functionele eis | Komt uit |
 |---|---|---|---|---|
-| `Aanmelding` op een `Keuzedeel aanbod`, met haar plaats in de voorkeursvolgorde | Student Keuze Systeem | de student bewerkt | FE-LR1-01: Het Student Keuze Systeem legt per keuzedeelruimte de `Aanmeldingen` van een student vast in volgorde van voorkeur, elk op een `Keuzedeel aanbod` met zijn onderwijsperiode en optioneel de onderwijslocatie | IE-LR1-01 |
-| `Aanmelding` op een `Keuzedeel aanbod`, met haar plaats in de voorkeursvolgorde | Student Keuze Systeem | het Planningssysteem leest | FE-LR1-02: Het Student Keuze Systeem levert per voorkeur van een student de `Aanmelding` op het `Keuzedeel aanbod` aan het Planningssysteem, met haar plaats in de volgorde | IE-LR1-01 |
+| `Aanmelding` op een `Keuzedeel aanbod`, met haar plaats in de voorkeursvolgorde | Student Keuze Systeem | de student bewerkt | FE-LR1-001: Het Student Keuze Systeem legt per keuzedeelruimte de `Aanmeldingen` van een student vast in volgorde van voorkeur, elk op een `Keuzedeel aanbod` met zijn onderwijsperiode en optioneel de onderwijslocatie | IE-LR1-001 |
+| `Aanmelding` op een `Keuzedeel aanbod`, met haar plaats in de voorkeursvolgorde | Student Keuze Systeem | het Planningssysteem leest | FE-LR1-002: Het Student Keuze Systeem levert per voorkeur van een student de `Aanmelding` op het `Keuzedeel aanbod` aan het Planningssysteem, met haar plaats in de volgorde | IE-LR1-001 |
 
 **Vul in:**
 
 | Informatieobject | Bronsysteem | Wie leest of bewerkt | Functionele eis | Komt uit |
 |---|---|---|---|---|
-| | | | *FE-LR..-..: Het <component> ...* | *IE-LR..-..* |
+| | | | *FE-LR..-...: Het <component> ...* | *IE-LR..-...* |
 | | | | | |
 | | | | | |
 
@@ -338,28 +348,29 @@ Het overzicht is af wanneer:
 2. elke instellingseis de persona met de stap, het scenario of de procesfase noemt waaruit hij komt;
 3. elke functionele eis de instellingseis noemt waaruit hij komt;
 4. elke instellingseis minstens een functionele eis heeft, hier of in de leerroute scenario uitwerking;
-5. elke eis voldoet aan [Kwaliteit van een eis](#kwaliteit-van-een-eis).
+5. elk nummer een keer voorkomt, en een vervallen eis met zijn nummer en de status vervallen blijft staan;
+6. elke eis voldoet aan [Kwaliteit van een eis](#kwaliteit-van-een-eis).
 
 **Ingevuld voorbeeld** uit Leerroute 1 scenario:
 
-| Nummer | Eis | Komt uit sjabloononderdeel | Komt uit eis of story |
-|---|---|---|---|
-| IE-LR1-01 | De instelling kan per keuzedeelruimte de voorkeursvolgorde van de student vastleggen voordat zij plaatst | reis van Jochem, stap kiezen keuzedelen | Als student wil ik bij mijn keuzedeelruimte een geprioriteerde voorkeurslijst opgeven, met als doel dat ik niet zonder keuzedeel kom te zitten wanneer mijn eerste keuze vol is |
-| IE-LR1-02 | De instelling kan signaleren dat de keuzedeelruimte van een student oningevuld blijft, op een moment dat de student nog een nieuwe keuze kan maken | reis van Jochem, stap kiezen keuzedelen | dezelfde user story als IE-LR1-01 |
-| IE-LR1-03 | De instelling kan een onderdeel voor een student opnieuw inplannen terwijl de rest van zijn programma doorloopt | scenario incidenteel temporiseren | geen story; volgt uit het scenario |
-| IE-LR1-04 | De instelling kan de haalbaarheid van een `Opleiding specificatie` bepalen voordat zij het onderwijsaanbod publiceert | procesfase 2, Publiceren en planbaar maken | Als planner wil ik de haalbaarheid van een opleiding bepalen voordat het onderwijsaanbod wordt gepubliceerd, met als doel dat studenten zich alleen oriënteren op aanbod dat de instelling kan uitvoeren |
-| FE-LR1-01 | Het Student Keuze Systeem legt per keuzedeelruimte de `Aanmeldingen` van een student vast in volgorde van voorkeur, elk op een `Keuzedeel aanbod` met zijn onderwijsperiode en optioneel de onderwijslocatie | informatie en systemen, fase 6 | IE-LR1-01 |
-| FE-LR1-02 | Het Student Keuze Systeem levert per voorkeur van een student de `Aanmelding` op het `Keuzedeel aanbod` aan het Planningssysteem, met haar plaats in de volgorde | informatie en systemen, fase 6 | IE-LR1-01 |
-| FE-LR1-03 | *volgt in de leerroute scenario uitwerking, bij uitwisseling F2-03* | | IE-LR1-04 |
+| Nummer | Eis | Komt uit sjabloononderdeel | Komt uit eis of story | Status |
+|---|---|---|---|---|
+| IE-LR1-001 | De instelling kan per keuzedeelruimte de voorkeursvolgorde van de student vastleggen voordat zij plaatst | reis van Jochem, stap kiezen keuzedelen | US-LR1-001 | geldig |
+| IE-LR1-002 | De instelling kan signaleren dat de keuzedeelruimte van een student oningevuld blijft, op een moment dat de student nog een nieuwe keuze kan maken | reis van Jochem, stap kiezen keuzedelen | US-LR1-005 | geldig |
+| IE-LR1-003 | De instelling kan een onderdeel voor een student opnieuw inplannen terwijl de rest van zijn programma doorloopt | scenario incidenteel temporiseren | geen story; volgt uit het scenario | geldig |
+| IE-LR1-004 | De instelling kan de haalbaarheid van een `Opleiding specificatie` bepalen voordat zij het onderwijsaanbod publiceert | procesfase 2, Publiceren en planbaar maken | US-LR1-011 | geldig |
+| FE-LR1-001 | Het Student Keuze Systeem legt per keuzedeelruimte de `Aanmeldingen` van een student vast in volgorde van voorkeur, elk op een `Keuzedeel aanbod` met zijn onderwijsperiode en optioneel de onderwijslocatie | informatie en systemen, fase 6 | IE-LR1-001 | geldig |
+| FE-LR1-002 | Het Student Keuze Systeem levert per voorkeur van een student de `Aanmelding` op het `Keuzedeel aanbod` aan het Planningssysteem, met haar plaats in de volgorde | informatie en systemen, fase 6 | IE-LR1-001 | geldig |
+| FE-LR1-003 | *volgt in de leerroute scenario uitwerking, bij uitwisseling F2-03* | | IE-LR1-004 | geldig |
 
 **Vul in:**
 
-| Nummer | Eis | Komt uit sjabloononderdeel | Komt uit eis of story |
-|---|---|---|---|
-| IE-LR..-01 | | | |
-| IE-LR..-02 | | | |
-| FE-LR..-01 | | | |
-| FE-LR..-02 | | | |
+| Nummer | Eis | Komt uit sjabloononderdeel | Komt uit eis of story | Status |
+|---|---|---|---|---|
+| IE-LR..-001 | | |  | |
+| IE-LR..-002 | | |  | |
+| FE-LR..-001 | | |  | |
+| FE-LR..-002 | | |  | |
 
 # Afwijkingen per instelling
 

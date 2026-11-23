@@ -163,6 +163,8 @@ EISSOORTEN = {
         "criteria": [
             "heeft de vorm `Als <persona> wil ik <wat> met als doel dat "
             "<waarde>`",
+            "draagt een vast nummer `US-LR<route>-<volgnummer>`, dat een keer "
+            "wordt uitgegeven en daarna niet verandert",
             "noemt de stap van de reis waarin de behoefte ontstaat",
             "noemt wat de persona wil kunnen en waarom; welk systeem dat "
             "draagt volgt in de eisen",
@@ -188,6 +190,8 @@ EISSOORTEN = {
         "naam": "Een instellingseis",
         "criteria": [
             "is een zin die opent met `De instelling kan`",
+            "draagt een vast nummer `IE-LR<route>-<volgnummer>`, dat een keer "
+            "wordt uitgegeven en daarna niet verandert",
             "noemt een vermogen van de instelling; het systeem dat het draagt "
             "volgt in de functionele eis",
             "is toetsbaar: er is een situatie te noemen waarin vaststaat of "
@@ -226,6 +230,9 @@ EISSOORTEN = {
             "kiest het objecttype dat bij het moment past: een `Aanmelding` "
             "op aanbod is een wens, een verbintenis bestaat pas wanneer zij "
             "is aangegaan",
+            "draagt een vast nummer `FE-LR<route>-<volgnummer>` uit het "
+            "nummerregister van de route, het eisenoverzicht van het "
+            "leerroute scenario",
             "noemt de instellingseis waaruit hij komt",
             "beschrijft gedrag; formaat, protocol en veldnamen volgen in de "
             "technische eis",

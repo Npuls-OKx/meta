@@ -17,7 +17,7 @@
         "niveau": 1,
         "blok": false,
         "ruimte": false,
-        "toelichting": "Dit document draagt een of meer persona's. Herhaal de twee sjabloononderdelen hieronder per persona tot elke mens uit het leerroute scenario een persona heeft.\n\n**Een persona is een student of een actor binnen de instelling.** De onderwijsontwerper, de planner, de roostermaker, de docent, de studieloopbaanbegeleider, de examinator en het leerbedrijf zijn net zo goed een persona wanneer de route langs hen loopt. Beschrijf naast de student minstens een persona vanuit de instelling: de student laat zien wat de route moet opleveren, de medewerker laat zien wat de instelling daarvoor moet kunnen. De bestaande voorbeelden Jochem, Linda en Larissa zijn alle drie student; de persona's vanuit de instelling zijn wat dit document toevoegt.\n\n**Schrijf in tandem met het leerroute scenario.** Het procesbeeld daar bepaalt welke stappen deze persona doorloopt; wat deze persona meemaakt scherpt dat procesbeeld aan. Verschilt de stappenreeks hier van die in het scenario, dan is een van de twee nog niet af.\n\n**Een persona is geen gemiddelde.** Een gemiddelde student bestaat niet en is nergens aan te toetsen. Kies een herkenbaar iemand, met een naam, een situatie en een reden waarom hij deze route loopt.\n\n**Elke behoefte wordt een user story.** Waar de persona iets nodig heeft dat vandaag ontbreekt of misloopt, staat dat als user story bij de stap. Het leerroute scenario leidt daar de instellingseisen uit af; een behoefte die hier ontbreekt, komt daar niet vanzelf boven."
+        "toelichting": "Dit document draagt een of meer persona's. Herhaal de twee sjabloononderdelen hieronder per persona tot elke mens uit het leerroute scenario een persona heeft.\n\n**Een persona is een student of een actor binnen de instelling.** De onderwijsontwerper, de planner, de roostermaker, de docent, de studieloopbaanbegeleider, de examinator en het leerbedrijf zijn net zo goed een persona wanneer de route langs hen loopt. Beschrijf naast de student minstens een persona vanuit de instelling: de student laat zien wat de route moet opleveren, de medewerker laat zien wat de instelling daarvoor moet kunnen. De bestaande voorbeelden Jochem, Linda en Larissa zijn alle drie student; de persona's vanuit de instelling zijn wat dit document toevoegt.\n\n**Schrijf in tandem met het leerroute scenario.** Het procesbeeld daar bepaalt welke stappen deze persona doorloopt; wat deze persona meemaakt scherpt dat procesbeeld aan. Verschilt de stappenreeks hier van die in het scenario, dan is een van de twee nog niet af.\n\n**Een persona is geen gemiddelde.** Een gemiddelde student bestaat niet en is nergens aan te toetsen. Kies een herkenbaar iemand, met een naam, een situatie en een reden waarom hij deze route loopt.\n\n**Elke behoefte wordt een user story.** Waar de persona iets nodig heeft dat vandaag ontbreekt of misloopt, staat dat als user story bij de stap. Het leerroute scenario leidt daar de instellingseisen uit af; een behoefte die hier ontbreekt, komt daar niet vanzelf boven.\n\n**Elke user story draagt een vast nummer:** `US-LR<route>-<volgnummer>`, bijvoorbeeld `US-LR1-001`. Een nummer wordt een keer uitgegeven, verandert daarna niet en komt niet terug wanneer een story vervalt. Nummer door over alle persona's van de route heen."
       },
       "Sjabloononderdeel: het portret": {
         "niveau": 1,
@@ -65,7 +65,7 @@
         "tabel": [
           "| Processtap | Wat hij doet | Wat hij moet weten | Wat het met hem doet | User story |",
           "|---|---|---|---|---|",
-          "| | | | | |",
+          "| | | | | *US-LR..-...: Als <persona> wil ik ...* |",
           "| | | | | |",
           "| | | | | |",
           "| | | | | |"
@@ -74,7 +74,7 @@
           "er staat een tabel met een rij per processtap, met dezelfde stappen in dezelfde volgorde als het procesbeeld in het leerroute scenario",
           "er staat een procesplaat in mermaid, BPMN, UML of vergelijkbaar van de reis",
           "elke rij noemt wat deze persona doet, wat hij op dat moment moet weten en wat het met hem doet",
-          "elke stap waar de persona iets nodig heeft dat vandaag ontbreekt of misloopt, draagt een user story; een stap die soepel loopt draagt in de kolom User story het woord geen",
+          "elke stap waar de persona iets nodig heeft dat vandaag ontbreekt of misloopt, draagt een user story met een vast nummer `US-LR<route>-<volgnummer>`; een stap die soepel loopt draagt in de kolom User story het woord geen",
           "elke user story voldoet aan [Kwaliteit van een eis](#kwaliteit-van-een-eis)",
           "een stap die in het scenario staat en hier ontbreekt, staat onder Observaties en signaleringen"
         ],
@@ -82,7 +82,7 @@
           "| Processtap | Wat hij doet | Wat hij moet weten | Wat het met hem doet | User story |",
           "|---|---|---|---|---|",
           "| Informeren | bekijkt bij de start het geplande leertraject, met de modules, de BPV en de examenplanning | welke modules hij volgt en wat er van hem wordt verwacht | rust: hij overziet zijn opleiding | geen |",
-          "| Kiezen keuzedelen | bekijkt het aanbod van keuzedelen en stelt een voorkeurslijst op, met per voorkeur de onderwijsperiode en optioneel de onderwijslocatie | welke keuzedelen in zijn keuzedeelruimte passen, hoeveel SBU hij nog nodig heeft, en waar en wanneer elk keuzedeel wordt gegeven | onzekerheid: past zijn eerste keuze niet, dan dreigt een lege keuzedeelruimte en studievertraging | Als student wil ik bij mijn keuzedeelruimte een geprioriteerde voorkeurslijst opgeven, met als doel dat ik niet zonder keuzedeel kom te zitten wanneer mijn eerste keuze vol is |"
+          "| Kiezen keuzedelen | bekijkt het aanbod van keuzedelen en stelt een voorkeurslijst op, met per voorkeur de onderwijsperiode en optioneel de onderwijslocatie | welke keuzedelen in zijn keuzedeelruimte passen, hoeveel SBU hij nog nodig heeft, en waar en wanneer elk keuzedeel wordt gegeven | onzekerheid: past zijn eerste keuze niet, dan dreigt een lege keuzedeelruimte en studievertraging | US-LR1-001: Als student wil ik bij mijn keuzedeelruimte een geprioriteerde voorkeurslijst opgeven, met als doel dat ik niet zonder keuzedeel kom te zitten wanneer mijn eerste keuze vol is |"
         ],
         "voorbeeld_uit": "Persona Jochem en Leerroute 1 scenario",
         "voorbeeld_extra": [
@@ -91,7 +91,7 @@
             "tabel": [
               "| Processtap | Wat hij doet | Wat hij moet weten | Wat het met hem doet | User story |",
               "|---|---|---|---|---|",
-              "| Publiceren en planbaar maken | bepaalt of de opleiding haalbaar is binnen de strategische jaarplanning, met de mensen en middelen van alle opleidingen | welke specificaties planbaar zijn, met hun tijdvensters, capaciteit, expertise en faciliteit | een onhaalbaar plan betekent dat er in september geen aanbod is om op te oriënteren | Als planner wil ik de haalbaarheid van een opleiding bepalen voordat het onderwijsaanbod wordt gepubliceerd, met als doel dat studenten zich alleen oriënteren op aanbod dat de instelling kan uitvoeren |"
+              "| Publiceren en planbaar maken | bepaalt of de opleiding haalbaar is binnen de strategische jaarplanning, met de mensen en middelen van alle opleidingen | welke specificaties planbaar zijn, met hun tijdvensters, capaciteit, expertise en faciliteit | een onhaalbaar plan betekent dat er in september geen aanbod is om op te oriënteren | US-LR1-011: Als planner wil ik de haalbaarheid van een opleiding bepalen voordat het onderwijsaanbod wordt gepubliceerd, met als doel dat studenten zich alleen oriënteren op aanbod dat de instelling kan uitvoeren |"
             ]
           }
         ]
@@ -172,7 +172,7 @@
         "niveau": 1,
         "blok": false,
         "ruimte": false,
-        "toelichting": "Elke eis krijgt een nummer en verwijst naar het sjabloononderdeel waaruit hij komt. Een eis is een zin die te toetsen is; de toelichting staat in het sjabloononderdeel zelf. Waaraan die zin voldoet staat onder [Kwaliteit van een eis](#kwaliteit-van-een-eis).\n\n| Soort | Nummer | Vorm van de zin |\n|---|---|---|\n| Instellingseis | `IE-LR<route>-<volgnummer>`, bijvoorbeeld `IE-LR2-03` | De instelling kan ... |\n| Functionele eis | `FE-LR<route>-<volgnummer>`, bijvoorbeeld `FE-LR2-07` | Het <component> ... |\n\nEen instellingseis noemt de persona met de stap, het scenario of de procesfase waaruit hij komt. Een functionele eis noemt de instellingseis waaruit hij komt. Een voorbeeld uit leerroute 1:\n\n| Nummer | Eis | Komt uit |\n|---|---|---|\n| IE-LR1-01 | De instelling kan per keuzedeelruimte de voorkeursvolgorde van de student vastleggen voordat zij plaatst | reis van Jochem, stap kiezen keuzedelen |\n| FE-LR1-01 | Het Student Keuze Systeem legt per keuzedeelruimte de `Aanmeldingen` van een student vast in volgorde van voorkeur, elk op een `Keuzedeel aanbod` met zijn onderwijsperiode en optioneel de onderwijslocatie | IE-LR1-01, sjabloononderdeel informatie en systemen |"
+        "toelichting": "Elke eis krijgt een nummer en verwijst naar het sjabloononderdeel waaruit hij komt. Een eis is een zin die te toetsen is; de toelichting staat in het sjabloononderdeel zelf. Waaraan die zin voldoet staat onder [Kwaliteit van een eis](#kwaliteit-van-een-eis).\n\n| Soort | Nummer | Vorm van de zin |\n|---|---|---|\n| User story, uit het persona-document | `US-LR<route>-<volgnummer>`, bijvoorbeeld `US-LR2-004` | Als <persona> wil ik ... |\n| Instellingseis | `IE-LR<route>-<volgnummer>`, bijvoorbeeld `IE-LR2-003` | De instelling kan ... |\n| Functionele eis | `FE-LR<route>-<volgnummer>`, bijvoorbeeld `FE-LR2-007` | Het <component> ... |\n\n**Een nummer is vast en uniek.** Vier regels houden dat zo:\n\n1. een nummer wordt een keer uitgegeven en verandert daarna niet, ook wanneer de eis naar een ander sjabloononderdeel verhuist of zijn zin wordt aangescherpt;\n2. een nieuwe eis krijgt het eerstvolgende vrije nummer van zijn soort, ook wanneer hij inhoudelijk tussen twee bestaande eisen hoort;\n3. een eis die vervalt houdt zijn nummer en krijgt de status vervallen; dat nummer komt niet terug;\n4. het eisenoverzicht van het leerroute scenario is het nummerregister van de route: ook de leerroute scenario uitwerking haalt daar haar nummers.\n\nEen instellingseis noemt de persona met de stap, het scenario of de procesfase waaruit hij komt. Een functionele eis noemt de instellingseis waaruit hij komt. Een voorbeeld uit leerroute 1:\n\n| Nummer | Eis | Komt uit |\n|---|---|---|\n| IE-LR1-001 | De instelling kan per keuzedeelruimte de voorkeursvolgorde van de student vastleggen voordat zij plaatst | US-LR1-001, reis van Jochem, stap kiezen keuzedelen |\n| FE-LR1-001 | Het Student Keuze Systeem legt per keuzedeelruimte de `Aanmeldingen` van een student vast in volgorde van voorkeur, elk op een `Keuzedeel aanbod` met zijn onderwijsperiode en optioneel de onderwijslocatie | IE-LR1-001, sjabloononderdeel informatie en systemen |"
       },
       "Sjabloononderdeel: routeprofiel": {
         "niveau": 1,
@@ -215,7 +215,7 @@
         "tabel": [
           "| Stap | Wat de persona doet | Wat hij moet weten | Systeem | Instellingseis |",
           "|---|---|---|---|---|",
-          "| | | | | *IE-LR..-..: De instelling kan ...* |",
+          "| | | | | *IE-LR..-...: De instelling kan ...* |",
           "| | | | | |",
           "| | | | | |",
           "| | | | | |"
@@ -230,8 +230,8 @@
         "voorbeeld_tabel": [
           "| Stap | Wat de persona doet | Wat hij moet weten | Systeem | Instellingseis |",
           "|---|---|---|---|---|",
-          "| Kiezen keuzedelen | Jochem stelt een geprioriteerde voorkeurslijst op, met per voorkeur de onderwijsperiode en optioneel de onderwijslocatie | welke keuzedelen in zijn keuzedeelruimte passen, en waar en wanneer zij worden gegeven | Student Keuze Systeem | IE-LR1-01: De instelling kan per keuzedeelruimte de voorkeursvolgorde van de student vastleggen voordat zij plaatst |",
-          "| Kiezen keuzedelen | zijn eerste voorkeur past niet; hij oriënteert zich op een ander keuzedeel of een andere onderwijslocatie | welk aanbod nog in zijn keuzedeelruimte past | Student Keuze Systeem | IE-LR1-02: De instelling kan signaleren dat de keuzedeelruimte van een student oningevuld blijft, op een moment dat de student nog een nieuwe keuze kan maken |"
+          "| Kiezen keuzedelen | Jochem stelt een geprioriteerde voorkeurslijst op, met per voorkeur de onderwijsperiode en optioneel de onderwijslocatie | welke keuzedelen in zijn keuzedeelruimte passen, en waar en wanneer zij worden gegeven | Student Keuze Systeem | IE-LR1-001: De instelling kan per keuzedeelruimte de voorkeursvolgorde van de student vastleggen voordat zij plaatst |",
+          "| Kiezen keuzedelen | zijn eerste voorkeur past niet; hij oriënteert zich op een ander keuzedeel of een andere onderwijslocatie | welk aanbod nog in zijn keuzedeelruimte past | Student Keuze Systeem | IE-LR1-002: De instelling kan signaleren dat de keuzedeelruimte van een student oningevuld blijft, op een moment dat de student nog een nieuwe keuze kan maken |"
         ]
       },
       "Sjabloononderdeel: scenario binnen de route": {
@@ -249,7 +249,7 @@
           "| Aanleiding | *wat er verandert, en op welk moment* |",
           "| Verloop | *wie wat doet, in welke volgorde* |",
           "| Eindbeeld | *wat er klaar is wanneer het scenario eindigt* |",
-          "| Instellingseisen | *IE-LR..-..: De instelling kan ..., een regel per eis* |"
+          "| Instellingseisen | *IE-LR..-...: De instelling kan ..., een regel per eis* |"
         ],
         "criteria": [
           "het scenario staat in vier vaste delen: de uitgangssituatie, de aanleiding, het verloop en het eindbeeld",
@@ -267,7 +267,7 @@
           "| Aanleiding | hij haalt een toetsmoment niet in een keer |",
           "| Verloop | Jochem herkanst; de instelling plant het onderdeel opnieuw in; de rest van zijn programma loopt door |",
           "| Eindbeeld | het onderdeel is opnieuw ingepland en behaald; de rest van zijn programma is ongewijzigd |",
-          "| Instellingseisen | IE-LR1-03: De instelling kan een onderdeel voor een student opnieuw inplannen terwijl de rest van zijn programma doorloopt |"
+          "| Instellingseisen | IE-LR1-003: De instelling kan een onderdeel voor een student opnieuw inplannen terwijl de rest van zijn programma doorloopt |"
         ]
       },
       "Sjabloononderdeel: procesfase": {
@@ -278,7 +278,7 @@
         "tabel": [
           "| Processtap | Rol | Systeem | Instellingseis |",
           "|---|---|---|---|",
-          "| | | | *IE-LR..-..: De instelling kan ...* |",
+          "| | | | *IE-LR..-...: De instelling kan ...* |",
           "| | | | |",
           "| | | | |"
         ],
@@ -292,7 +292,7 @@
         "voorbeeld_tabel": [
           "| Processtap | Rol | Systeem | Instellingseis |",
           "|---|---|---|---|",
-          "| Haalbaarheid bepalen binnen de strategische jaarplanning | planner | Planningssysteem | IE-LR1-04: De instelling kan de haalbaarheid van een `Opleiding specificatie` bepalen voordat zij het onderwijsaanbod publiceert |"
+          "| Haalbaarheid bepalen binnen de strategische jaarplanning | planner | Planningssysteem | IE-LR1-004: De instelling kan de haalbaarheid van een `Opleiding specificatie` bepalen voordat zij het onderwijsaanbod publiceert |"
         ]
       },
       "Sjabloononderdeel: informatie en systemen": {
@@ -303,7 +303,7 @@
         "tabel": [
           "| Informatieobject | Bronsysteem | Wie leest of bewerkt | Functionele eis | Komt uit |",
           "|---|---|---|---|---|",
-          "| | | | *FE-LR..-..: Het <component> ...* | *IE-LR..-..* |",
+          "| | | | *FE-LR..-...: Het <component> ...* | *IE-LR..-...* |",
           "| | | | | |",
           "| | | | | |"
         ],
@@ -319,8 +319,8 @@
         "voorbeeld_tabel": [
           "| Informatieobject | Bronsysteem | Wie leest of bewerkt | Functionele eis | Komt uit |",
           "|---|---|---|---|---|",
-          "| `Aanmelding` op een `Keuzedeel aanbod`, met haar plaats in de voorkeursvolgorde | Student Keuze Systeem | de student bewerkt | FE-LR1-01: Het Student Keuze Systeem legt per keuzedeelruimte de `Aanmeldingen` van een student vast in volgorde van voorkeur, elk op een `Keuzedeel aanbod` met zijn onderwijsperiode en optioneel de onderwijslocatie | IE-LR1-01 |",
-          "| `Aanmelding` op een `Keuzedeel aanbod`, met haar plaats in de voorkeursvolgorde | Student Keuze Systeem | het Planningssysteem leest | FE-LR1-02: Het Student Keuze Systeem levert per voorkeur van een student de `Aanmelding` op het `Keuzedeel aanbod` aan het Planningssysteem, met haar plaats in de volgorde | IE-LR1-01 |"
+          "| `Aanmelding` op een `Keuzedeel aanbod`, met haar plaats in de voorkeursvolgorde | Student Keuze Systeem | de student bewerkt | FE-LR1-001: Het Student Keuze Systeem legt per keuzedeelruimte de `Aanmeldingen` van een student vast in volgorde van voorkeur, elk op een `Keuzedeel aanbod` met zijn onderwijsperiode en optioneel de onderwijslocatie | IE-LR1-001 |",
+          "| `Aanmelding` op een `Keuzedeel aanbod`, met haar plaats in de voorkeursvolgorde | Student Keuze Systeem | het Planningssysteem leest | FE-LR1-002: Het Student Keuze Systeem levert per voorkeur van een student de `Aanmelding` op het `Keuzedeel aanbod` aan het Planningssysteem, met haar plaats in de volgorde | IE-LR1-001 |"
         ]
       },
       "Uitwerking": {
@@ -332,25 +332,25 @@
         "niveau": 1,
         "blok": false,
         "ruimte": false,
-        "toelichting": "Alle eisen uit de sjabloononderdelen hierboven, bij elkaar. Samen met het eisenoverzicht van de leerroute scenario uitwerking is dit het pakket van eisen van de route, dat OKx SI overneemt en met de leveranciers naar technische eisen vertaalt.\n\nHet overzicht is af wanneer:\n\n1. elke eis uit de sjabloononderdelen erin staat, met dezelfde zin en hetzelfde nummer;\n2. elke instellingseis de persona met de stap, het scenario of de procesfase noemt waaruit hij komt;\n3. elke functionele eis de instellingseis noemt waaruit hij komt;\n4. elke instellingseis minstens een functionele eis heeft, hier of in de leerroute scenario uitwerking;\n5. elke eis voldoet aan [Kwaliteit van een eis](#kwaliteit-van-een-eis).",
+        "toelichting": "Alle eisen uit de sjabloononderdelen hierboven, bij elkaar. Samen met het eisenoverzicht van de leerroute scenario uitwerking is dit het pakket van eisen van de route, dat OKx SI overneemt en met de leveranciers naar technische eisen vertaalt.\n\nHet overzicht is af wanneer:\n\n1. elke eis uit de sjabloononderdelen erin staat, met dezelfde zin en hetzelfde nummer;\n2. elke instellingseis de persona met de stap, het scenario of de procesfase noemt waaruit hij komt;\n3. elke functionele eis de instellingseis noemt waaruit hij komt;\n4. elke instellingseis minstens een functionele eis heeft, hier of in de leerroute scenario uitwerking;\n5. elk nummer een keer voorkomt, en een vervallen eis met zijn nummer en de status vervallen blijft staan;\n6. elke eis voldoet aan [Kwaliteit van een eis](#kwaliteit-van-een-eis).",
         "tabel": [
-          "| Nummer | Eis | Komt uit sjabloononderdeel | Komt uit eis of story |",
-          "|---|---|---|---|",
-          "| IE-LR..-01 | | | |",
-          "| IE-LR..-02 | | | |",
-          "| FE-LR..-01 | | | |",
-          "| FE-LR..-02 | | | |"
+          "| Nummer | Eis | Komt uit sjabloononderdeel | Komt uit eis of story | Status |",
+          "|---|---|---|---|---|",
+          "| IE-LR..-001 | | |  | |",
+          "| IE-LR..-002 | | |  | |",
+          "| FE-LR..-001 | | |  | |",
+          "| FE-LR..-002 | | |  | |"
         ],
         "voorbeeld_tabel": [
-          "| Nummer | Eis | Komt uit sjabloononderdeel | Komt uit eis of story |",
-          "|---|---|---|---|",
-          "| IE-LR1-01 | De instelling kan per keuzedeelruimte de voorkeursvolgorde van de student vastleggen voordat zij plaatst | reis van Jochem, stap kiezen keuzedelen | Als student wil ik bij mijn keuzedeelruimte een geprioriteerde voorkeurslijst opgeven, met als doel dat ik niet zonder keuzedeel kom te zitten wanneer mijn eerste keuze vol is |",
-          "| IE-LR1-02 | De instelling kan signaleren dat de keuzedeelruimte van een student oningevuld blijft, op een moment dat de student nog een nieuwe keuze kan maken | reis van Jochem, stap kiezen keuzedelen | dezelfde user story als IE-LR1-01 |",
-          "| IE-LR1-03 | De instelling kan een onderdeel voor een student opnieuw inplannen terwijl de rest van zijn programma doorloopt | scenario incidenteel temporiseren | geen story; volgt uit het scenario |",
-          "| IE-LR1-04 | De instelling kan de haalbaarheid van een `Opleiding specificatie` bepalen voordat zij het onderwijsaanbod publiceert | procesfase 2, Publiceren en planbaar maken | Als planner wil ik de haalbaarheid van een opleiding bepalen voordat het onderwijsaanbod wordt gepubliceerd, met als doel dat studenten zich alleen oriënteren op aanbod dat de instelling kan uitvoeren |",
-          "| FE-LR1-01 | Het Student Keuze Systeem legt per keuzedeelruimte de `Aanmeldingen` van een student vast in volgorde van voorkeur, elk op een `Keuzedeel aanbod` met zijn onderwijsperiode en optioneel de onderwijslocatie | informatie en systemen, fase 6 | IE-LR1-01 |",
-          "| FE-LR1-02 | Het Student Keuze Systeem levert per voorkeur van een student de `Aanmelding` op het `Keuzedeel aanbod` aan het Planningssysteem, met haar plaats in de volgorde | informatie en systemen, fase 6 | IE-LR1-01 |",
-          "| FE-LR1-03 | *volgt in de leerroute scenario uitwerking, bij uitwisseling F2-03* | | IE-LR1-04 |"
+          "| Nummer | Eis | Komt uit sjabloononderdeel | Komt uit eis of story | Status |",
+          "|---|---|---|---|---|",
+          "| IE-LR1-001 | De instelling kan per keuzedeelruimte de voorkeursvolgorde van de student vastleggen voordat zij plaatst | reis van Jochem, stap kiezen keuzedelen | US-LR1-001 | geldig |",
+          "| IE-LR1-002 | De instelling kan signaleren dat de keuzedeelruimte van een student oningevuld blijft, op een moment dat de student nog een nieuwe keuze kan maken | reis van Jochem, stap kiezen keuzedelen | US-LR1-005 | geldig |",
+          "| IE-LR1-003 | De instelling kan een onderdeel voor een student opnieuw inplannen terwijl de rest van zijn programma doorloopt | scenario incidenteel temporiseren | geen story; volgt uit het scenario | geldig |",
+          "| IE-LR1-004 | De instelling kan de haalbaarheid van een `Opleiding specificatie` bepalen voordat zij het onderwijsaanbod publiceert | procesfase 2, Publiceren en planbaar maken | US-LR1-011 | geldig |",
+          "| FE-LR1-001 | Het Student Keuze Systeem legt per keuzedeelruimte de `Aanmeldingen` van een student vast in volgorde van voorkeur, elk op een `Keuzedeel aanbod` met zijn onderwijsperiode en optioneel de onderwijslocatie | informatie en systemen, fase 6 | IE-LR1-001 | geldig |",
+          "| FE-LR1-002 | Het Student Keuze Systeem levert per voorkeur van een student de `Aanmelding` op het `Keuzedeel aanbod` aan het Planningssysteem, met haar plaats in de volgorde | informatie en systemen, fase 6 | IE-LR1-001 | geldig |",
+          "| FE-LR1-003 | *volgt in de leerroute scenario uitwerking, bij uitwisseling F2-03* | | IE-LR1-004 | geldig |"
         ]
       }
     },
@@ -437,7 +437,7 @@
           "![x](y.svg)",
           "| a | b |"
         ],
-        "toelichting": "Kopieer dit sjabloononderdeel voor elke uitwisseling. Over de lijn gaat het hele samenhangende voorbeeld: het objecttype met alles wat eraan hangt.\n\nHet voorbeeld hieronder is er een met een volle structuur: het verzoek om onderwijsaanbod neemt de specificatiestructuur en de planbare waarden mee, zodat het planningssysteem zonder navraag kan plannen.\n\nElke uitwisseling levert functionele eisen op: wat de leverende component moet kunnen leveren, en wat de afnemende component ermee moet kunnen doen. Nummer door vanaf het laatste nummer in het leerroute scenario, zodat een nummer een eis blijft aanwijzen.",
+        "toelichting": "Kopieer dit sjabloononderdeel voor elke uitwisseling. Over de lijn gaat het hele samenhangende voorbeeld: het objecttype met alles wat eraan hangt.\n\nHet voorbeeld hieronder is er een met een volle structuur: het verzoek om onderwijsaanbod neemt de specificatiestructuur en de planbare waarden mee, zodat het planningssysteem zonder navraag kan plannen.\n\nElke uitwisseling levert functionele eisen op: wat de leverende component moet kunnen leveren, en wat de afnemende component ermee moet kunnen doen. Haal elk nummer uit het eisenoverzicht van het leerroute scenario: dat is het nummerregister van de route. Zo blijft een nummer vast en uniek, ook wanneer twee documenten eisen toevoegen.",
         "tabel": [
           "| Veld | Invulling |",
           "|---|------------------------------------------------|",
@@ -447,7 +447,7 @@
           "| Aanleiding | *welke processtap deze uitwisseling veroorzaakt* |",
           "| Informatievoorbeeld | *het ingevulde voorbeeld, met alle relaties* |",
           "| Informatiestroom | *de koppeling op de hoofdplaat informatiestromen, bijvoorbeeld OC-P&R* |",
-          "| Functionele eisen | *FE-LR..-..: Het <component> ..., met de instellingseis waaruit hij komt; een regel per eis* |"
+          "| Functionele eisen | *FE-LR..-...: Het <component> ..., met de instellingseis waaruit hij komt; een regel per eis* |"
         ],
         "voorbeeld_beeld": "architecture/model/informatiemodel/img/regels/f2-03-verzoek-met-specificatiestructuur-en-planbare-waarden-naar-planning.svg",
         "beeld_alt": "Voorbeeld van sjabloononderdeel B: het verzoek om onderwijsaanbod gaat met de hele specificatiestructuur en de planbare waarden van de onderwijscatalogus naar het planningssysteem",
@@ -467,7 +467,7 @@
           "| Aanleiding | het verzoek om onderwijsaanbod uit F2-02, nadat F2-01 de specificatie planbaar heeft gemaakt |",
           "| Informatievoorbeeld | het `Verzoek tot Aanbod / Intekening op specificatie` Planopgave Apothekersassistent, cohort 2026, met de `Opleiding specificatie` Apothekersassistent, versie 2026.1, haar `Opleidingsprogramma specificatie` BOL voltijd, en per `Onderwijseenheid specificatie` en `Leeronderdeel specificatie` de `Leeruitkomst` en de planbare waarden: Blok B1-K1 met 80 uur begeleide onderwijstijd, een praktijkruimte en een docent farmacie. De gewenste periode gaat mee in de `Nominale Leerroute`, die in het informatiemodel als voorstel staat |",
           "| Informatiestroom | OC-P&R, de koppeling tussen de Onderwijscatalogus en het Planningssysteem |",
-          "| Functionele eisen | FE-LR1-03: De Onderwijscatalogus stuurt het verzoek om onderwijsaanbod aan het Planningssysteem, met de specificatiestructuur en per eenheid de planbare waarden; komt uit IE-LR1-04 |"
+          "| Functionele eisen | FE-LR1-003: De Onderwijscatalogus stuurt het verzoek om onderwijsaanbod aan het Planningssysteem, met de specificatiestructuur en per eenheid de planbare waarden; komt uit IE-LR1-004 |"
         ]
       },
       "Uitwerking": {
@@ -491,18 +491,18 @@
         "niveau": 1,
         "blok": false,
         "ruimte": false,
-        "toelichting": "Alle functionele eisen uit de uitwisselingen en de hiaten hierboven, bij elkaar. Samen met het eisenoverzicht van het leerroute scenario is dit het pakket van eisen van de route, dat OKx SI overneemt en met de leveranciers naar technische eisen vertaalt.\n\nHet overzicht is af wanneer:\n\n1. elke functionele eis uit de sjabloononderdelen erin staat, met dezelfde zin en hetzelfde nummer;\n2. elke eis de uitwisseling of het hiaat noemt waaruit hij komt, en de instellingseis;\n3. elke uitwisseling minstens een functionele eis heeft;\n4. elke eis voldoet aan [Kwaliteit van een eis](#kwaliteit-van-een-eis).",
+        "toelichting": "Alle functionele eisen uit de uitwisselingen en de hiaten hierboven, bij elkaar. Samen met het eisenoverzicht van het leerroute scenario is dit het pakket van eisen van de route, dat OKx SI overneemt en met de leveranciers naar technische eisen vertaalt.\n\nHet overzicht is af wanneer:\n\n1. elke functionele eis uit de sjabloononderdelen erin staat, met dezelfde zin en hetzelfde nummer;\n2. elke eis de uitwisseling of het hiaat noemt waaruit hij komt, en de instellingseis;\n3. elke uitwisseling minstens een functionele eis heeft;\n4. elk nummer uit het nummerregister van het leerroute scenario komt en daar ook staat;\n5. elke eis voldoet aan [Kwaliteit van een eis](#kwaliteit-van-een-eis).",
         "voorbeeld_tabel": [
-          "| Nummer | Eis | Komt uit sjabloononderdeel | Komt uit instellingseis |",
-          "|---|---|---|---|",
-          "| FE-LR1-03 | De Onderwijscatalogus stuurt het verzoek om onderwijsaanbod aan het Planningssysteem, met de specificatiestructuur en per eenheid de planbare waarden | F2-03 | IE-LR1-04 |"
+          "| Nummer | Eis | Komt uit sjabloononderdeel | Komt uit instellingseis | Status |",
+          "|---|---|---|---|---|",
+          "| FE-LR1-003 | De Onderwijscatalogus stuurt het verzoek om onderwijsaanbod aan het Planningssysteem, met de specificatiestructuur en per eenheid de planbare waarden | F2-03 | IE-LR1-004 | geldig |"
         ],
         "tabel": [
-          "| Nummer | Eis | Komt uit sjabloononderdeel | Komt uit instellingseis |",
-          "|---|---|---|---|",
-          "| FE-LR..-.. | | | |",
-          "| FE-LR..-.. | | | |",
-          "| FE-LR..-.. | | | |"
+          "| Nummer | Eis | Komt uit sjabloononderdeel | Komt uit instellingseis | Status |",
+          "|---|---|---|---|---|",
+          "| FE-LR..-... | | |  | |",
+          "| FE-LR..-... | | |  | |",
+          "| FE-LR..-... | | |  | |"
         ]
       }
     },
@@ -615,7 +615,7 @@
           "| Aanleiding | *welke gebeurtenis deze interactie start* |",
           "| Bericht | *welke informatie meegaat, met de termen uit de begrippenlijst* |",
           "| Informatiestroom | *de koppeling op de hoofdplaat informatiestromen, bijvoorbeeld OC-P&R* |",
-          "| Functionele eisen | *de nummers uit het leerroute scenario en de uitwerking, bijvoorbeeld FE-LR1-03* |",
+          "| Functionele eisen | *de nummers uit het leerroute scenario en de uitwerking, bijvoorbeeld FE-LR1-003* |",
           "| Antwoord | *wat de afnemer terugkrijgt* |",
           "| Foutpad | *wat er gebeurt wanneer de aanbieder niet of fout antwoordt* |",
           "| Herhaalbaar | *wat een tweede dezelfde aanroep doet* |"

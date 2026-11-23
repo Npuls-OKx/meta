@@ -60,9 +60,10 @@ Een eis is bruikbaar wanneer een leverancier hem kan lezen zonder de instelling 
 **Een user story:**
 
 1. heeft de vorm `Als <persona> wil ik <wat> met als doel dat <waarde>`;
-2. noemt de stap van de reis waarin de behoefte ontstaat;
-3. noemt wat de persona wil kunnen en waarom; welk systeem dat draagt volgt in de eisen;
-4. is herkenbaar bij meerdere instellingen; wat bij een instelling speelt staat onder Afwijkingen per instelling.
+2. draagt een vast nummer `US-LR<route>-<volgnummer>`, dat een keer wordt uitgegeven en daarna niet verandert;
+3. noemt de stap van de reis waarin de behoefte ontstaat;
+4. noemt wat de persona wil kunnen en waarom; welk systeem dat draagt volgt in de eisen;
+5. is herkenbaar bij meerdere instellingen; wat bij een instelling speelt staat onder Afwijkingen per instelling.
 
 | Soort | Zwak | Wat eraan ontbreekt | Sterk |
 |---|--------|------|------------|
@@ -102,6 +103,8 @@ Dit document draagt een of meer persona's. Herhaal de twee sjabloononderdelen hi
 **Een persona is geen gemiddelde.** Een gemiddelde student bestaat niet en is nergens aan te toetsen. Kies een herkenbaar iemand, met een naam, een situatie en een reden waarom hij deze route loopt.
 
 **Elke behoefte wordt een user story.** Waar de persona iets nodig heeft dat vandaag ontbreekt of misloopt, staat dat als user story bij de stap. Het leerroute scenario leidt daar de instellingseisen uit af; een behoefte die hier ontbreekt, komt daar niet vanzelf boven.
+
+**Elke user story draagt een vast nummer:** `US-LR<route>-<volgnummer>`, bijvoorbeeld `US-LR1-001`. Een nummer wordt een keer uitgegeven, verandert daarna niet en komt niet terug wanneer een story vervalt. Nummer door over alle persona's van de route heen.
 
 # Sjabloononderdeel: het portret
 
@@ -161,7 +164,7 @@ De uitgewerkte vorm staat in [persona Jochem](https://github.com/Npuls-OKx/meta/
 1. er staat een tabel met een rij per processtap, met dezelfde stappen in dezelfde volgorde als het procesbeeld in het leerroute scenario;
 2. er staat een procesplaat in mermaid, BPMN, UML of vergelijkbaar van de reis;
 3. elke rij noemt wat deze persona doet, wat hij op dat moment moet weten en wat het met hem doet;
-4. elke stap waar de persona iets nodig heeft dat vandaag ontbreekt of misloopt, draagt een user story; een stap die soepel loopt draagt in de kolom User story het woord geen;
+4. elke stap waar de persona iets nodig heeft dat vandaag ontbreekt of misloopt, draagt een user story met een vast nummer `US-LR<route>-<volgnummer>`; een stap die soepel loopt draagt in de kolom User story het woord geen;
 5. elke user story voldoet aan [Kwaliteit van een eis](#kwaliteit-van-een-eis);
 6. een stap die in het scenario staat en hier ontbreekt, staat onder Observaties en signaleringen.
 
@@ -172,19 +175,19 @@ De uitgewerkte vorm staat in [persona Jochem](https://github.com/Npuls-OKx/meta/
 | Processtap | Wat hij doet | Wat hij moet weten | Wat het met hem doet | User story |
 |---|---|---|---|---|
 | Informeren | bekijkt bij de start het geplande leertraject, met de modules, de BPV en de examenplanning | welke modules hij volgt en wat er van hem wordt verwacht | rust: hij overziet zijn opleiding | geen |
-| Kiezen keuzedelen | bekijkt het aanbod van keuzedelen en stelt een voorkeurslijst op, met per voorkeur de onderwijsperiode en optioneel de onderwijslocatie | welke keuzedelen in zijn keuzedeelruimte passen, hoeveel SBU hij nog nodig heeft, en waar en wanneer elk keuzedeel wordt gegeven | onzekerheid: past zijn eerste keuze niet, dan dreigt een lege keuzedeelruimte en studievertraging | Als student wil ik bij mijn keuzedeelruimte een geprioriteerde voorkeurslijst opgeven, met als doel dat ik niet zonder keuzedeel kom te zitten wanneer mijn eerste keuze vol is |
+| Kiezen keuzedelen | bekijkt het aanbod van keuzedelen en stelt een voorkeurslijst op, met per voorkeur de onderwijsperiode en optioneel de onderwijslocatie | welke keuzedelen in zijn keuzedeelruimte passen, hoeveel SBU hij nog nodig heeft, en waar en wanneer elk keuzedeel wordt gegeven | onzekerheid: past zijn eerste keuze niet, dan dreigt een lege keuzedeelruimte en studievertraging | US-LR1-001: Als student wil ik bij mijn keuzedeelruimte een geprioriteerde voorkeurslijst opgeven, met als doel dat ik niet zonder keuzedeel kom te zitten wanneer mijn eerste keuze vol is |
 
 **Ingevuld voorbeeld** uit Leerroute 1 scenario, fase 2, voor de persona planner:
 
 | Processtap | Wat hij doet | Wat hij moet weten | Wat het met hem doet | User story |
 |---|---|---|---|---|
-| Publiceren en planbaar maken | bepaalt of de opleiding haalbaar is binnen de strategische jaarplanning, met de mensen en middelen van alle opleidingen | welke specificaties planbaar zijn, met hun tijdvensters, capaciteit, expertise en faciliteit | een onhaalbaar plan betekent dat er in september geen aanbod is om op te oriënteren | Als planner wil ik de haalbaarheid van een opleiding bepalen voordat het onderwijsaanbod wordt gepubliceerd, met als doel dat studenten zich alleen oriënteren op aanbod dat de instelling kan uitvoeren |
+| Publiceren en planbaar maken | bepaalt of de opleiding haalbaar is binnen de strategische jaarplanning, met de mensen en middelen van alle opleidingen | welke specificaties planbaar zijn, met hun tijdvensters, capaciteit, expertise en faciliteit | een onhaalbaar plan betekent dat er in september geen aanbod is om op te oriënteren | US-LR1-011: Als planner wil ik de haalbaarheid van een opleiding bepalen voordat het onderwijsaanbod wordt gepubliceerd, met als doel dat studenten zich alleen oriënteren op aanbod dat de instelling kan uitvoeren |
 
 **Vul in:**
 
 | Processtap | Wat hij doet | Wat hij moet weten | Wat het met hem doet | User story |
 |---|---|---|---|---|
-| | | | | |
+| | | | | *US-LR..-...: Als <persona> wil ik ...* |
 | | | | | |
 | | | | | |
 | | | | | |
