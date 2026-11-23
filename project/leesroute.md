@@ -426,7 +426,7 @@ Wie iets wil toevoegen of corrigeren, opent een issue of een pull request; de we
 | Wat | Waar |
 |---|---|
 | Een vraag stellen of meedenken | [Discussions](https://github.com/Npuls-OKx/meta/discussions), of een issue met het label `question` |
-| Een fout melden | Een issue via de sjabloon correctie-documentatie |
+| Een fout melden | Een issue; het sjabloon zegt per kop wat een correctie wel en niet nodig heeft |
 | Meelezen op wat nu loopt | De open pull requests, elk met een review-instructie bovenaan |
 | Zien waar het werk aan toe is | De [milestones](https://github.com/Npuls-OKx/meta/milestones), elk met de vraag die zij beantwoordt |
 | Zelf bijdragen | [`CONTRIBUTING.md`](../CONTRIBUTING.md) voor de werkwijze, [Bijdragen voor beginners](bijdragen-voor-beginners.md) voor de eerste stappen |
