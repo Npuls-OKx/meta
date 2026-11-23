@@ -266,10 +266,9 @@ Kopieer dit sjabloononderdeel per fase. Houd de fasenamen van leerroute 1 aan wa
 **Acceptatiecriteria** Dit sjabloononderdeel is af wanneer dit klopt:
 
 1. er staat een procesplaat in mermaid, BPMN, UML of vergelijkbaar van de fase aan de kant van de instelling, met wie handelt, met welk systeem, en het foutpad;
-2. de toelichting onder de tabel noemt het MORA-hoofdproces waar de fase onder valt;
-3. de plaat is naast de reis van de persona's te leggen: een stap die een persona raakt draagt daar dezelfde naam;
-4. elke processtap staat in de tabel, met de rol en het systeem;
-5. elke stap die de instelling moet kunnen, draagt een uitgeschreven en genummerde instellingseis die voldoet aan [Kwaliteit van een eis](#kwaliteit-van-een-eis).
+2. de plaat is naast de reis van de persona's te leggen: een stap die een persona raakt draagt daar dezelfde naam;
+3. elke processtap staat in de tabel, met de rol en het systeem;
+4. elke stap die de instelling moet kunnen, draagt een uitgeschreven en genummerde instellingseis die voldoet aan [Kwaliteit van een eis](#kwaliteit-van-een-eis).
 
 **Instellingseisen** *wat de instelling moet kunnen; schrijf elke eis uit met zijn nummer, bij de stap, het scenario of de fase waar hij ontstaat*
 

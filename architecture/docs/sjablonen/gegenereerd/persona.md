@@ -95,7 +95,7 @@ Een hoofdstuk is een interactie, en de business analist bepaalt waar hij begint 
 
 Dit document draagt een of meer persona's. Herhaal de twee sjabloononderdelen hieronder per persona tot elke mens uit het leerroute scenario een persona heeft.
 
-**Een persona is een student of een actor binnen de instelling.** De onderwijsontwerper, de planner, de roostermaker, de studieloopbaanbegeleider, de examinator en het leerbedrijf zijn net zo goed een persona wanneer de route langs hen loopt. Beschrijf naast de student minstens een persona vanuit de instelling: de student laat zien wat de route moet opleveren, de medewerker laat zien wat de instelling daarvoor moet kunnen. De bestaande voorbeelden Jochem, Linda en Larissa zijn alle drie student; de persona's vanuit de instelling zijn wat dit document toevoegt.
+**Een persona is een student of een actor binnen de instelling.** De onderwijsontwerper, de planner, de roostermaker, de docent, de studieloopbaanbegeleider, de examinator en het leerbedrijf zijn net zo goed een persona wanneer de route langs hen loopt. Beschrijf naast de student minstens een persona vanuit de instelling: de student laat zien wat de route moet opleveren, de medewerker laat zien wat de instelling daarvoor moet kunnen. De bestaande voorbeelden Jochem, Linda en Larissa zijn alle drie student; de persona's vanuit de instelling zijn wat dit document toevoegt.
 
 **Schrijf in tandem met het leerroute scenario.** Het procesbeeld daar bepaalt welke stappen deze persona doorloopt; wat deze persona meemaakt scherpt dat procesbeeld aan. Verschilt de stappenreeks hier van die in het scenario, dan is een van de twee nog niet af.
 
@@ -137,7 +137,7 @@ Kopieer dit sjabloononderdeel voor elke persona. Begin met wie het is en waarom 
 | Veld | Invulling |
 |---|------------------------------------------------|
 | Naam | *de naam waaronder deze persona in alle documenten terugkomt* |
-| Rol | *student, of een actor binnen de instelling: onderwijsontwerper, planner, roostermaker, studieloopbaanbegeleider, examinator, leerbedrijf* |
+| Rol | *student, of een actor binnen de instelling: onderwijsontwerper, planner, roostermaker, docent, studieloopbaanbegeleider, examinator, leerbedrijf* |
 | Situatie | *voor een student: leeftijd, vooropleiding, opleiding en instroommoment; voor een medewerker: afdeling, taak in de route en de systemen waarmee hij werkt* |
 | Waarom deze route | *wat maakt dat juist deze leerroute bij hem hoort* |
 | Wat hem beweegt | *waar hij het voor doet, en wat hij wil vermijden* |
