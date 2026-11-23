@@ -1,7 +1,7 @@
 {
   "titel": "Hoe ziet onze specificatie eruit?",
   "ondertitel": "De vraag waar het werk van OKx op uitkomt, en waarom de vorm nog niet vaststaat",
-  "versie": "0.1.0",
+  "versie": "0.1.1",
   "breedte": 1240,
   "blokken": [
     {
@@ -28,7 +28,7 @@
               "bron": "80 objecttypen, 226 relaties"
             },
             {
-              "tekst": "OKx modeldoorloop per processtap",
+              "tekst": "Leerroute-uitwerking in het model, per processtap",
               "bron": "leerroute 1, de casus stap voor stap door het model"
             }
           ]
@@ -88,7 +88,7 @@
           "kleur": "#00AF81"
         },
         {
-          "naam": "Modeldoorloop",
+          "naam": "Leerroute-uitwerking",
           "toelichting": "welke objecten bewegen per stap",
           "icoon": "flow",
           "kleur": "#00AF81"
@@ -112,7 +112,7 @@
       "soort": "stappen",
       "stappen": [
         {
-          "naam": "Modeldoorloop",
+          "naam": "Leerroute-uitwerking",
           "toelichting": "de casus in het model, per stap",
           "icoon": "flow",
           "kleur": "#3D68EC"

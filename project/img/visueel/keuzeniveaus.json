@@ -1,7 +1,7 @@
 {
   "titel": "Keuzemogelijkheden, ontleed",
   "ondertitel": "Wat meer keuze betekent, van binnen de eigen opleiding tot over sectoren heen",
-  "versie": "0.1.0",
+  "versie": "0.1.1",
   "breedte": 1240,
   "blokken": [
     {
@@ -80,5 +80,5 @@
       "tekst": "Elke trede hoger betekent meer afspraken met partijen buiten de eigen muren, meer uitwisseling tussen systemen, en meer beschrijflast voor wie het onderwijs ontwerpt. Een instelling kiest zelf welk niveau bij haar past. De tekeningen komen van Npuls, met per leerroute een persona."
     }
   ],
-  "voet": "De tekeningen per leerroute staan voluit in architecture/docs/specificatie/leerroute-uitwerking/img, met de keten van persona, uitwerking, scenario en modeldoorloop erbij."
+  "voet": "De tekeningen per leerroute staan voluit in architecture/docs/specificatie/leerroute-uitwerking/img, met de keten van persona, uitwerking, scenario en de uitwerking in het model erbij."
 }

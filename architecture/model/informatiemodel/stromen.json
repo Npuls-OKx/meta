@@ -1,13 +1,23 @@
 {
-  "view": "OKx hoofdplaat v1.7a (zonder context applicaties)",
+  "view": "OKx hoofdplaat (zonder context applicaties)",
   "model": "architecture/model/model.archimate",
+  "toelichting": "De stromen van de genoemde view, plus de aanvullingen uit stromen-aanvullingen.json. Een stroom met een id dat met 'aanvulling-' begint staat nog niet op de gepubliceerde hoofdplaat; haar herkomst en status zeggen uit welke versie zij komt. Wie de plaat gebruikt om iets te verantwoorden kijkt dus naar de view; wie een voorbeeld leest ziet aan de aanvulling dat die lijn nog in aanbouw is.",
+  "aanvullingen_uit": null,
   "stromen": [
+    {
+      "id": "id-6e1843a92b8941dea4ef85e9f454645b",
+      "van": "EduHub",
+      "naar": "Onderwijscatalogus",
+      "soort": "Flow",
+      "label": "Extern opleidingsprogramma 'aanbod'",
+      "koppeling": "zonder koppelingspecificatie"
+    },
     {
       "id": "id-865f297e8c1f4371aa143aa225fe4b7f",
       "van": "Kernregistratie systeem studenten (KRS)",
       "naar": "Leer management systeem (LMS)",
       "soort": "Flow",
-      "label": "Student, opleidingprogramma verbintenis, relevante groepen",
+      "label": "Student, opleidingsprogramma verbintenis, relevante groepen",
       "koppeling": "zonder koppelingspecificatie"
     },
     {
@@ -23,7 +33,7 @@
       "van": "Kernregistratie systeem studenten (KRS)",
       "naar": "Student Keuze Systeem (SKS)",
       "soort": "Flow",
-      "label": "Student, opleidingprogramma verbintenis, relevante groepen",
+      "label": "Student, opleidingsprogramma verbintenis, relevante groepen",
       "koppeling": "zonder koppelingspecificatie"
     },
     {
@@ -31,7 +41,15 @@
       "van": "Leer management systeem (LMS)",
       "naar": "Student volg systeem (SVS)",
       "soort": "Flow",
-      "label": "Student toetsgelegenheidverbintenis resultaat",
+      "label": "Student toetsgelegenheid verbintenis resultaat",
+      "koppeling": "zonder koppelingspecificatie"
+    },
+    {
+      "id": "id-ec248a00b6234f1688ee3705d46a59f7",
+      "van": "Onderwijscatalogus",
+      "naar": "EduHub",
+      "soort": "Flow",
+      "label": "Ontsluiten aanmeld-/inschrijfbaar opleidingsprogramma aanbod",
       "koppeling": "zonder koppelingspecificatie"
     },
     {
@@ -71,7 +89,7 @@
       "van": "Onderwijscatalogus",
       "naar": "Student Keuze Systeem (SKS)",
       "soort": "Flow",
-      "label": "Onderwijsprogramma aanbod",
+      "label": "Opleidingsprogramma aanbod",
       "koppeling": "zonder koppelingspecificatie"
     },
     {
@@ -95,15 +113,15 @@
       "van": "Planningssysteem",
       "naar": "Onderwijscatalogus",
       "soort": "Flow",
-      "label": "Bevestiging creatie opleidingprogramma aanbod",
+      "label": "Bevestiging creatie opleidingsprogramma aanbod",
       "koppeling": "OC-P&R"
     },
     {
-      "id": "id-6ece22a4621443bfa17e7cb36c0ba113",
+      "id": "id-80d8c8398c2849528300c0ff54ae0709",
       "van": "Planningssysteem",
       "naar": "Onderwijscatalogus",
       "soort": "Flow",
-      "label": "Verzoek tot bijwerken onderwijspecificaties Planning elementen",
+      "label": "Verzoek tot bijwerken onderwijsspecificaties Planning elementen",
       "koppeling": "OC-P&R"
     },
     {
@@ -111,7 +129,7 @@
       "van": "Planningssysteem",
       "naar": "Roostersysteem",
       "soort": "Flow",
-      "label": "Verzoek tot roosteren leergelegenheid Ontsluiten van planninggroepen",
+      "label": "Verzoek tot roosteren leergelegenheid Ontsluiten van planningsgroepen",
       "koppeling": "zonder koppelingspecificatie"
     },
     {
@@ -119,7 +137,7 @@
       "van": "Planningssysteem",
       "naar": "Student Keuze Systeem (SKS)",
       "soort": "Flow",
-      "label": "Onsluiten geplande leergelegenheden (capaciteit)",
+      "label": "Ontsluiten geplande leergelegenheden (capaciteit)",
       "koppeling": "zonder koppelingspecificatie"
     },
     {
@@ -127,7 +145,7 @@
       "van": "Roostersysteem",
       "naar": "Kernregistratie systeem studenten (KRS)",
       "soort": "Flow",
-      "label": "Ontsluiten planninggroepen met studenten",
+      "label": "Ontsluiten planningsgroepen met studenten",
       "koppeling": "zonder koppelingspecificatie"
     },
     {
@@ -143,7 +161,7 @@
       "van": "Roostersysteem",
       "naar": "Student Keuze Systeem (SKS)",
       "soort": "Flow",
-      "label": "Student Opleidingprogramma- en onderwijseenheid verbintenis (+ planninggroep)",
+      "label": "Student Opleidingsprogramma- en onderwijseenheid verbintenis (+ planningsgroep)",
       "koppeling": "zonder koppelingspecificatie"
     },
     {
@@ -151,7 +169,7 @@
       "van": "Student Keuze Systeem (SKS)",
       "naar": "Kernregistratie systeem studenten (KRS)",
       "soort": "Flow",
-      "label": "Student Opleidingprogramma verbintenis (type: keuzedeel/credential)",
+      "label": "Student Opleidingsprogramma verbintenis (type: keuzedeel/credential)",
       "koppeling": "zonder koppelingspecificatie"
     },
     {
@@ -159,7 +177,7 @@
       "van": "Student Keuze Systeem (SKS)",
       "naar": "Leer management systeem (LMS)",
       "soort": "Flow",
-      "label": "Opleidingprogramma-, opleidingseenheid verbintenis, planninggroep",
+      "label": "Opleidingsprogramma-, onderwijseenheid verbintenis, planningsgroep",
       "koppeling": "zonder koppelingspecificatie"
     },
     {
@@ -167,7 +185,7 @@
       "van": "Student Keuze Systeem (SKS)",
       "naar": "Planningssysteem",
       "soort": "Flow",
-      "label": "Intekening student op (nog) ongepland opleidingprogramma-, opleidingseenheid (animo)",
+      "label": "Intekening student op (nog) ongepland opleidingsprogramma-, onderwijseenheid (animo)",
       "koppeling": "zonder koppelingspecificatie"
     },
     {
@@ -175,7 +193,7 @@
       "van": "Student Keuze Systeem (SKS)",
       "naar": "Roostersysteem",
       "soort": "Flow",
-      "label": "Verzoek tot Opleidingprogramma- en onderwijseenheid verbintenis",
+      "label": "Verzoek tot Opleidingsprogramma- en onderwijseenheid verbintenis",
       "koppeling": "zonder koppelingspecificatie"
     },
     {
@@ -183,11 +201,11 @@
       "van": "Student Keuze Systeem (SKS)",
       "naar": "Student volg systeem (SVS)",
       "soort": "Flow",
-      "label": "Student Opleidingprogramma- en onderwijseenheid verbintenis",
+      "label": "Student Opleidingsprogramma- en onderwijseenheid verbintenis",
       "koppeling": "zonder koppelingspecificatie"
     },
     {
-      "id": "id-965bdcd610454fd09fcccdfd0742f5cf",
+      "id": "id-9adeda53478c48c4ad4c05bdbda902d9",
       "van": "Student volg systeem (SVS)",
       "naar": "Student Keuze Systeem (SKS)",
       "soort": "Flow",
@@ -195,11 +213,43 @@
       "koppeling": "zonder koppelingspecificatie"
     },
     {
+      "id": "id-a18ac9501e7142f08e6f0f31928b567d",
+      "van": "Student volg systeem (SVS)",
+      "naar": "Toets- en examenplanning- en inschrijfsysteem",
+      "soort": "Flow",
+      "label": "<OKE>",
+      "koppeling": "zonder koppelingspecificatie"
+    },
+    {
+      "id": "id-1691fb3b04e145a8af87bb1ef191df6a",
+      "van": "Toets- en examen afname systeem",
+      "naar": "Toets- en examenplanning- en inschrijfsysteem",
+      "soort": "Flow",
+      "label": "",
+      "koppeling": "zonder koppelingspecificatie"
+    },
+    {
+      "id": "id-eed62135bc004cabbe798074d14ac533",
+      "van": "Toets- en examenplanning- en inschrijfsysteem",
+      "naar": "Student volg systeem (SVS)",
+      "soort": "Flow",
+      "label": "",
+      "koppeling": "zonder koppelingspecificatie"
+    },
+    {
+      "id": "id-59cfa429b5d54df08dac59bce567479a",
+      "van": "Toets- en examenplanning- en inschrijfsysteem",
+      "naar": "Toets- en examen afname systeem",
+      "soort": "Flow",
+      "label": "",
+      "koppeling": "zonder koppelingspecificatie"
+    },
+    {
       "id": "id-eaed86afaeee476d885121adbf18f0b1",
       "van": "Voorziening Centraal Aanmelden (CAMBO)",
       "naar": "Kernregistratie systeem studenten (KRS)",
       "soort": "Flow",
-      "label": "Persoon(Student) Opleidingprogramma verbintenis",
+      "label": "Persoon(Student) Opleidingsprogramma verbintenis",
       "koppeling": "zonder koppelingspecificatie"
     }
   ]

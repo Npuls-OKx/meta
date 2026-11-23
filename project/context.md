@@ -49,7 +49,7 @@ Die zes use-cases vallen uiteen in vier niveaus van keuze. Npuls heeft ze als ne
 
 ![Keuzemogelijkheden ontleed: vier niveaus van binnen de eigen opleiding tot over sectoren heen, met de leerroutetekeningen van Npuls erbij](img/visueel/keuzeniveaus.svg)
 
-*De negen leerroutetekeningen van Npuls, voluit en op formaat: [de leerroutes met hun keten](../architecture/docs/specificatie/leerroute-uitwerking/img/README.md). Per route staat daar de persona, de uitwerking, de scenario's en de modeldoorloop.*
+*De negen leerroutetekeningen van Npuls, voluit en op formaat: [de leerroutes met hun keten](../architecture/docs/specificatie/leerroute-uitwerking/img/README.md). Per route staat daar de persona, de uitwerking, de scenario's en de uitwerking in het informatiemodel.*
 
 Elk niveau hoger brengt partijen in beeld die buiten de eigen muren staan. Een keuze binnen de eigen opleiding raakt de systemen van een instelling. Een keuze over sectoren heen raakt de systemen van twee instellingen, met twee kwalificatiekaders, twee administraties en twee roosters. Dat vraagt meer afspraken, meer uitwisseling en meer beschrijflast bij wie het onderwijs ontwerpt. Een instelling kiest zelf welk niveau bij haar past; OKx maakt vooraf duidelijk wat die keuze van haar vraagt.
 
@@ -108,7 +108,7 @@ Herkomst: projectplan, met de afbakening uit [ADR 0008](https://github.com/Npuls
 
 De gegevensuitwisseling tussen de referentiecomponenten onderwijscatalogus, kernregistratie, studentvolgsysteem, leermanagementsysteem en planning en roostering, voor mobiliteit binnen de instelling. Dat is de opmaat naar mobiliteit tussen instellingen via de landelijke voorzieningen.
 
-De reguliere leerroute komt eerst, met temporiseren en versnellen erna; de flexibele en modulaire routes volgen als verschil daarop. De [negen leerroutes van Npuls](../architecture/docs/specificatie/leerroute-uitwerking/img/README.md) staan als tekening bij elkaar, met per route de keten van persona, uitwerking, scenario's en modeldoorloop.
+De reguliere leerroute komt eerst, met temporiseren en versnellen erna; de flexibele en modulaire routes volgen als verschil daarop. De [negen leerroutes van Npuls](../architecture/docs/specificatie/leerroute-uitwerking/img/README.md) staan als tekening bij elkaar, met per route de keten van persona, uitwerking, scenario's en de uitwerking in het informatiemodel.
 
 De procesketens onderwijslogistiek, onderwijsontwikkeling en onderwijsuitvoering en begeleiding van [MORA](https://mora.mbodigitaal.nl/index.php/Hoofdpagina) vallen binnen deze scope. Andere procesketens worden geraakt en vragen afstemming. De onderwijskundige keuze van een instelling blijft bij de instelling. Al het overige valt buiten scope.
 
@@ -145,11 +145,11 @@ OKx staat in de specificatiefase. Wat er ligt is genoeg om het gesprek met de se
 
 | | |
 |---|---|
-| Wat er ligt | Het [informatiemodel](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/informatiemodel.md) met de begrippenlijst, de [hoofdplaat informatiestromen](../README.md), een eerste pakket [koppelvlakspecificaties](https://github.com/Npuls-OKx/Public/tree/dev/Koppelvlakspecificaties) in Public, het [kaderscenario van leerroute 1](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md) en de [voorbeelduitwerking daarvan per processtap](../architecture/model/informatiemodel/modeldoorloop-leerroute-1-jochem.md). Daarnaast lopen proefopstellingen met koploperscholen |
+| Wat er ligt | Het [informatiemodel](https://github.com/Npuls-OKx/Public/blob/dev/Informatie-en-gegevensmodellen/informatiemodel.md) met de begrippenlijst, de [hoofdplaat informatiestromen](../README.md), een eerste pakket [koppelvlakspecificaties](https://github.com/Npuls-OKx/Public/tree/dev/Koppelvlakspecificaties) in Public, het [kaderscenario van leerroute 1](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md) en de [voorbeelduitwerking daarvan per processtap](../architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md). Daarnaast lopen proefopstellingen met koploperscholen |
 | Wat nu bepaald wordt | De vorm waarin de oplevering uitkomt: hoe de set wordt opgedeeld, op welk niveau zij wordt uitgegeven, en met welke woorden de lagen worden benoemd. Dat vastzetten wacht op een scherper beeld van wat de keten nodig heeft |
 | Waar het naartoe gaat | Per leerroute een best practice die een instelling voor ongeveer tachtig procent herkent, en daarnaast de capabilities die een voorziening daarvoor moet hebben. De voorbeelduitwerking per processtap verbindt die twee |
 
-Het werk dat daarvoor nu loopt gaat over een vraag: genoeg inzicht krijgen in wat een instelling doet, en een vorm vinden om dat uit te drukken. Die vorm bestaat uit drie lagen, een persona, een leerroutedocument daarop en informatiemodel-modeldoorloop per fase. Leerroute 1 draagt die drie; de volgende leerroutes staan in de milestone [Instellingsreizen per leerroute](https://github.com/Npuls-OKx/meta/milestone/24).
+Het werk dat daarvoor nu loopt gaat over een vraag: genoeg inzicht krijgen in wat een instelling doet, en een vorm vinden om dat uit te drukken. Die vorm bestaat uit drie lagen, een persona, een leerroutedocument daarop en de leerroute-uitwerking in het informatiemodel per fase. Leerroute 1 draagt die drie; de volgende leerroutes staan in de milestone [Instellingsreizen per leerroute](https://github.com/Npuls-OKx/meta/milestone/24).
 
 ## Stip op de horizon
 

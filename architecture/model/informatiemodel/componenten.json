@@ -31,6 +31,11 @@
    ]
   },
   {
+   "naam": "EduHub",
+   "definitie": "",
+   "diensten": []
+  },
+  {
    "naam": "Intake systeem",
    "definitie": "Een systeem voor het plannen, inschrijven, afhandelen, verslagleggen en beoordelen van de intake van studenten. Dit zowel voor initiele aanmeldingen als voor tussentijdse loopbaanadviestrajecten",
    "diensten": [
@@ -205,6 +210,28 @@
     {
      "naam": "Toets of examen afname",
      "definitie": "Het ondersteunen van het afnemen van toetsen of examens - Toewijzing van toetsen aan specifieke kandidaten. De toewijzing ondersteund ook het genereren van individuele vragensets per student voor een een zelfde toets ten behoeve van fraude kans beperking. - Het plaatsen van een toets per student in een voor hem afgeschermde omgeving en het doorsturen van de ingevulde toets en beoordeling naar betrokken medewerkers."
+    }
+   ]
+  },
+  {
+   "naam": "Toets- en examenplanning- en inschrijfsysteem",
+   "definitie": "Systeem voor het inplannen van toetsen en examens, publiceren van de planning, inschrijven door studenten.",
+   "diensten": [
+    {
+     "naam": "Aanmelden voor toets- of examen poging",
+     "definitie": ""
+    },
+    {
+     "naam": "Toets of examen planning en inschrijving",
+     "definitie": "Het maken en aanbieden van een toets- of examenplanning en het afhandelen van inschrijvingen; - Aanmelding voor deelname aan een activiteit - Matchen van deelname verzoeken met beschikbare activiteiten en toewijzen van een moment voor deelname."
+    },
+    {
+     "naam": "Toets- of examen planning",
+     "definitie": ""
+    },
+    {
+     "naam": "Toets- of examen poging aanmelding administreren",
+     "definitie": ""
     }
    ]
   },

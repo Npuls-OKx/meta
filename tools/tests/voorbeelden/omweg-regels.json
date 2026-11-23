@@ -1,0 +1,132 @@
+{
+ "model": {
+  "naam": "Het hbo-kader in de woorden van de sector",
+  "bron": "Landelijk Opleidingsprofiel Hbo-bachelor Technische Natuurkunde 2016, hoofdstuk 2 Gebruikte begrippen"
+ },
+ "fasen": [],
+ "rollen": [],
+ "toestanden": [],
+ "scope_uitzonderingen": [],
+ "koppelingen": [],
+ "thema_toelichting": {},
+ "bevindingen": [],
+ "regels": [
+  {
+   "beeld_id": "C-04",
+   "beeld": "Het hbo-kader in de woorden van de sector",
+   "fase": 0,
+   "stap": "Kwalificatiekader vertalen naar leeruitkomsten",
+   "soort": "ontstaat",
+   "wie": "onderwijsontwerper",
+   "objecttype": "Werkveld",
+   "instantie": "beroepen en functies van de hbo-bachelor TN",
+   "bron": "Landelijk Opleidingsprofiel Hbo-bachelor Technische Natuurkunde 2016, hoofdstuk 2 Gebruikte begrippen",
+   "zin": "Het werkveld stelt kwalificaties aan de ervaren beroepsbeoefenaar; dat is het landelijk opleidingsprofiel. Een opleiding leidt daar haar eigen profiel uit af, met de kwalificaties voor de pas afgestudeerde. Beide bestaan uit competenties, met het niveau als attribuut. Elk van de drie wordt vertaald naar een leeruitkomst, in dezelfde vorm als in het mbo.",
+   "aanname": true
+  },
+  {
+   "beeld_id": "C-04",
+   "beeld": "Het hbo-kader in de woorden van de sector",
+   "fase": 0,
+   "stap": "Kwalificatiekader vertalen naar leeruitkomsten",
+   "soort": "ontstaat",
+   "wie": "onderwijsontwerper",
+   "objecttype": "Landelijk opleidingsprofiel",
+   "instantie": "TN 2016: kwalificaties voor de ervaren beroepsbeoefenaar",
+   "bron": "Landelijk Opleidingsprofiel Hbo-bachelor Technische Natuurkunde 2016, hoofdstuk 2 Gebruikte begrippen",
+   "zin": "",
+   "relatie": {
+    "soort": "Influence",
+    "van": "Werkveld",
+    "naar": "Landelijk opleidingsprofiel",
+    "label": "stelt kwalificaties aan",
+    "nesting": false
+   },
+   "aanname": true
+  },
+  {
+   "beeld_id": "C-04",
+   "beeld": "Het hbo-kader in de woorden van de sector",
+   "fase": 0,
+   "stap": "Kwalificatiekader vertalen naar leeruitkomsten",
+   "soort": "ontstaat",
+   "wie": "onderwijsontwerper",
+   "objecttype": "Competentie",
+   "instantie": "Experimenteren, niveau III",
+   "bron": "Landelijk Opleidingsprofiel Hbo-bachelor Technische Natuurkunde 2016, hoofdstuk 2 Gebruikte begrippen",
+   "zin": "",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Landelijk opleidingsprofiel",
+    "naar": "Competentie",
+    "label": "bestaat uit",
+    "nesting": false
+   },
+   "aanname": true
+  },
+  {
+   "beeld_id": "C-04",
+   "beeld": "Het hbo-kader in de woorden van de sector",
+   "fase": 0,
+   "stap": "Kwalificatiekader vertalen naar leeruitkomsten",
+   "soort": "ontstaat",
+   "wie": "onderwijsontwerper",
+   "objecttype": "Opleidingsprofiel van de opleiding",
+   "instantie": "kwalificaties voor de pas afgestudeerde",
+   "bron": "Landelijk Opleidingsprofiel Hbo-bachelor Technische Natuurkunde 2016, hoofdstuk 2 Gebruikte begrippen",
+   "zin": "",
+   "relatie": {
+    "soort": "Aggregation",
+    "van": "Opleidingsprofiel van de opleiding",
+    "naar": "Competentie",
+    "label": "bestaat uit een selectie van",
+    "nesting": false
+   },
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Landelijk opleidingsprofiel",
+     "naar": "Opleidingsprofiel van de opleiding",
+     "label": "is ijkpunt voor",
+     "nesting": false
+    }
+   ],
+   "aanname": true
+  },
+  {
+   "beeld_id": "C-04",
+   "beeld": "Het hbo-kader in de woorden van de sector",
+   "fase": 0,
+   "stap": "Kwalificatiekader vertalen naar leeruitkomsten",
+   "soort": "ontstaat",
+   "wie": "onderwijsontwerper",
+   "objecttype": "Leeruitkomst",
+   "instantie": "Voert experimenten uit volgens een zelf opgestelde opzet (NLQF 6)",
+   "bron": "Landelijk Opleidingsprofiel Hbo-bachelor Technische Natuurkunde 2016, hoofdstuk 2 Gebruikte begrippen",
+   "zin": "",
+   "relatie": {
+    "soort": "Association",
+    "van": "Opleidingsprofiel van de opleiding",
+    "naar": "Leeruitkomst",
+    "label": "Wordt vertaald naar",
+    "nesting": false
+   },
+   "relaties": [
+    {
+     "soort": "Association",
+     "van": "Landelijk opleidingsprofiel",
+     "naar": "Leeruitkomst",
+     "label": "Wordt vertaald naar",
+     "nesting": false
+    },
+    {
+     "soort": "Association",
+     "van": "Competentie",
+     "naar": "Leeruitkomst",
+     "label": "Wordt vertaald naar",
+     "nesting": false
+    }
+   ]
+  }
+ ]
+}

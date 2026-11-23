@@ -1,7 +1,7 @@
 {
   "titel": "Waar de producten vandaag staan",
   "ondertitel": "De producten van OKx in beide repositories, op 30 oktober 2026",
-  "versie": "0.1.0",
+  "versie": "0.1.1",
   "breedte": 1260,
   "blokken": [
     {
@@ -50,7 +50,7 @@
             "Begrippenlijst",
             "Hoofdplaat informatiestromen",
             "Kaderscenario leerroute 1",
-            "OKx modeldoorloop leerroute 1",
+            "Leerroute-uitwerking in het model, leerroute 1",
             "Release-management",
             "MOKA-templates",
             "OKE-subdomein",

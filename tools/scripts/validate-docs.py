@@ -36,7 +36,8 @@ PERSOONSVORM = re.compile(r"^(dit|dat|deze|die|er|het|zo)\s+(is|zijn|staat|staan
 # De kopcontrole geldt voor de pagina's waar een lezer binnenkomt. De skills, de templates en het
 # oudere materiaal dragen nog zinkoppen; die gaan mee zodra dat materiaal wordt herzien.
 LEZERSPAGINAS = ("README.md", "project/leesroute.md", "project/context.md",
-                 "project/historie.md", "project/status.md", "project/README.md")
+                 "project/historie.md", "project/status.md", "project/README.md",
+                 "project/bijdragen-voor-beginners.md")
 
 
 def kopprobleem(tekst: str) -> str | None:

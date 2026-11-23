@@ -1,0 +1,22 @@
+---
+description: Waar een bestand landt: de hoofdmap leest, bron bewerkt, gegenereerd schrijft
+alwaysApply: true
+---
+
+Een map vertelt een nieuwkomer waar hij moet beginnen. Leg een nieuw bestand daarom op de plek die bij zijn lezer hoort, niet bij zijn maker.
+
+| Plek | Wat er staat |
+|---|---|
+| de hoofdmap | `README.md` als leeswijzer, en de documenten die een mens leest, ook wanneer een script ze schreef |
+| `bron/` | wat een mens bewerkt en wat een script leest: regeltabellen, schemas, selectiebestanden, payloads |
+| `gegenereerd/` | wat een script schrijft, met beelden in `gegenereerd/img/` |
+
+- **Het gaat om de lezer.** Een gegenereerd document dat gelezen wordt staat in de hoofdmap. Een gegenereerd gegeven dat niemand opent staat in `gegenereerd/`.
+- **`gegenereerd` is een waarschuwing.** Wie daar met de hand iets wijzigt verliest het bij de volgende generatieronde. Wijzig de bron of het script, nooit de uitvoer.
+- **Meng bron en uitvoer niet in een map.** Een selectiebestand hoort niet naast het beeld dat eruit volgt; de selectie gaat naar `bron/`, het beeld naar `gegenereerd/img/`.
+- **Scripts verhuizen niet mee.** Zij blijven in `tools/scripts/` en `tools/tests/`. Een script dat bij een document hoort, wordt in dat document met zijn pad genoemd.
+- **Een nieuwe map begint goed.** Maak `bron/` en `gegenereerd/` aan zodra er een tweede soort bestand bijkomt, niet pas wanneer de hoofdmap vol is.
+
+Twee soorten uitzondering, beide met hun reden in `tools/tests/test_mapindeling.py`. Blijvend, wanneer een plek buiten ons om vastligt: `skills-lock.json` en `package.json` horen in de wortel waar hun gereedschap draait, `.github/ISSUE_TEMPLATE/config.yml` eist GitHub daar, een gevendorde skill wordt niet herschikt, en gearchiveerd materiaal blijft zoals het was. Wachtend op werk, met een issuenummer, voor een map die nog opgeruimd moet worden.
+
+Raak bij dit alles nooit een `*.archimate`-bestand aan; zie harde regel 1 in AGENTS.md. Een map eromheen mag wel verhuizen, de inhoud van het bestand niet.
