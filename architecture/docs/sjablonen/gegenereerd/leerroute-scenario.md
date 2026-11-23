@@ -18,7 +18,7 @@
 
 ![De producten rond sjabloon leerroute scenario, met dit product uitgelicht](<img/leerroute-scenario/product-breakdown.png>)
 
-Het uitgelichte vak is het product dat u met dit sjabloon beschrijft.
+Het uitgelichte vak is het product dat u met dit sjabloon beschrijft. De kleine plaat eronder toont de hele productafbakening, met een kader om deze uitsnede.
 
 Het bouwt op een of meer persona's, en gaat vooraf aan de uitwerking en de interactieketen.
 

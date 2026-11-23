@@ -2,15 +2,15 @@
 
 Vijf sjablonen waarmee de adviesgroep een OKx-product zelf kan opschrijven. Zij horen bij een invulverzoek van OKx SI: de solutionlaag kan pas zeggen wat zij nodig heeft wanneer de producten eronder er liggen.
 
-Open het Word-bestand. Elk sjabloon is **afgeleid uit de uitwerking die er al ligt**, dus het draagt elke kop, elke tabel en elk beeld van dat document.
+Open het Word-bestand. Elk sjabloon draagt de naam van zijn product zoals die in de productafbakening staat. Elk sjabloon is **afgeleid uit de uitwerking die er al ligt**, dus het draagt elke kop, elke tabel en elk beeld van dat document.
 
 | Product | Sjabloon | Afgeleid uit |
 |---|---|---|
-| persona | `OKx sjabloon persona.docx` | twee sjabloononderdelen, met [persona Jochem](../specificatie/leerroute-uitwerking/doc/persona_jochem.md) als voorbeeld |
-| leerroute scenario | `OKx sjabloon leerroute scenario.docx` | vijf sjabloononderdelen, met [leerroute 1 scenario](../specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md) als voorbeeld |
-| informatiemodel viewpoint | `OKx sjabloon informatiemodel viewpoint.docx` | [informatiemodel OKx](../../model/informatiemodel/informatiemodel.md) |
-| leerroute scenario uitwerking in het informatiemodel | `OKx sjabloon leerroute scenario uitwerking.docx` | twee sjabloononderdelen, met [de uitwerking met Jochem](../../model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md) als voorbeeld |
-| interactieketen | `OKx sjabloon interactieketen.docx` | [keten onderwijsaanbod](https://github.com/Npuls-OKx/meta/blob/e05b4444a29a09b92cc8afd73bce69af78f1ac12/architecture/docs/specificatie/interactieketen-onderwijsaanbod/README.md), nog in review |
+| persona | `OKx sjabloon Persona's.docx` | twee sjabloononderdelen, met [persona Jochem](../specificatie/leerroute-uitwerking/doc/persona_jochem.md) als voorbeeld |
+| leerroute scenario | `OKx sjabloon Leerroute scenario.docx` | vijf sjabloononderdelen, met [leerroute 1 scenario](../specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md) als voorbeeld |
+| informatiemodel viewpoint | `OKx sjabloon Informatiemodel OKx.docx` | [informatiemodel OKx](../../model/informatiemodel/informatiemodel.md) |
+| leerroute scenario uitwerking in het informatiemodel | `OKx sjabloon Leerroute scenario uitwerking in het informatiemodel.docx` | twee sjabloononderdelen, met [de uitwerking met Jochem](../../model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md) als voorbeeld |
+| interactieketen | `OKx sjabloon Interactieketens.docx` | [keten onderwijsaanbod](https://github.com/Npuls-OKx/meta/blob/e05b4444a29a09b92cc8afd73bce69af78f1ac12/architecture/docs/specificatie/interactieketen-onderwijsaanbod/README.md), nog in review |
 
 ## Opbouw van een sjabloon
 
@@ -26,7 +26,7 @@ De inhoudsopgave is een Word-veld en staat leeg tot hij wordt bijgewerkt; dat do
 
 De basis onder de vijf sjablonen is de [productafbakening](../../product-breakdown/README.md), versie 0.2.0: welke producten OKx maakt, in welke volgorde zij op elkaar bouwen, en wat een eindproduct is.
 
-Elk sjabloon opent met het hoofdstuk **Productplaatsing**: een uitsnede van die plaat met het eigen vak uitgelicht en de buren eromheen zichtbaar, en hoogstens drie regels eronder. Zo ziet een invuller waar zijn document op bouwt en wat erop verder bouwt, zonder de hele plaat te lezen.
+Elk sjabloon opent met het hoofdstuk **Productplaatsing**: een uitsnede van die plaat met het eigen vak uitgelicht en de buren eromheen zichtbaar, en hoogstens drie regels eronder. Onder de uitsnede staat de hele plaat in het klein, met een kader om het stuk waarop is ingezoomd: zo ziet de invuller waar hij zich in het geheel bevindt. Zo ziet een invuller waar zijn document op bouwt en wat erop verder bouwt, zonder de hele plaat te lezen.
 
 **Het vak wordt afgeleid en niet opgemeten.** In de configuratie staat alleen de naam van het vak; de generator zoekt die kop in de SVG en neemt de rechthoek die haar omsluit. Verschuift de plaat, dan klopt de uitlichting nog steeds, en een naam die niet bestaat laat de generator weigeren.
 

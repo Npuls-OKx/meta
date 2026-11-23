@@ -100,6 +100,10 @@ KLEUREN = 64
 # De productafbakening staat in elk sjabloon, met het vak van dit product
 # uitgelicht: de invuller ziet waar zijn document in het geheel past.
 BREAKDOWN = "architecture/product-breakdown/img/product-breakdown-v0.2.0.svg"
+# Onder de uitsnede staat de hele plaat in het klein, met de uitsnede omkaderd.
+KAARTBREEDTE = 330
+LETTER = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
+LETTER_VET = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
 ACCENT = (221, 120, 75)        # Npuls-oranje
 DOFHEID = 0.55                 # hoeveel de omgeving naar wit verschuift
 # De hele plaat is op paginabreedte onleesbaar. Een uitsnede rond het eigen vak
@@ -364,8 +368,56 @@ def uitgelicht(bron: pathlib.Path, doel: pathlib.Path,
         venster = (max(0, vak[0] - MARGE[0]), max(0, vak[1] - MARGE[1]),
                    min(dof.width, vak[2] + MARGE[0]),
                    min(dof.height, vak[3] + MARGE[1]))
-        dof.crop(venster).quantize(colors=128).save(doel, optimize=True)
+        met_kaart(dof, vak, venster, plat).quantize(colors=128).save(doel, optimize=True)
     tussen.unlink()
+
+
+def met_kaart(plaat, vak, venster, helder):
+    """Zet onder de uitsnede de hele plaat in het klein, met de uitsnede omkaderd.
+
+    Een uitsnede alleen zegt niet waar zij in het geheel ligt. De kleine plaat
+    eronder is de kaart: het kader is het stuk waarop is ingezoomd, het
+    gevulde vlak het product van dit sjabloon.
+    """
+    from PIL import Image, ImageDraw, ImageFont
+    uitsnede = plaat.crop(venster)
+    schaal = KAARTBREEDTE / plaat.width
+    kaart = helder.resize((KAARTBREEDTE, round(plaat.height * schaal)),
+                         Image.LANCZOS)
+    t = ImageDraw.Draw(kaart)
+    t.rectangle([round(c * schaal) for c in venster], outline=ACCENT, width=3)
+    t.rectangle([round(c * schaal) for c in vak], fill=ACCENT)
+    t.rectangle([0, 0, kaart.width - 1, kaart.height - 1],
+                outline=(88, 106, 110), width=1)
+    marge = 16
+    doek = Image.new("RGB", (uitsnede.width,
+                             uitsnede.height + kaart.height + 3 * marge),
+                     "white")
+    doek.paste(uitsnede, (0, 0))
+    onder = uitsnede.height + 2 * marge
+    doek.paste(kaart, (marge, onder))
+    t = ImageDraw.Draw(doek)
+    t.line([0, uitsnede.height + marge // 2, doek.width,
+            uitsnede.height + marge // 2], fill=(200, 205, 208), width=1)
+    try:
+        vet = ImageFont.truetype(LETTER_VET, 17)
+        gewoon = ImageFont.truetype(LETTER, 15)
+    except OSError:
+        vet = gewoon = ImageFont.load_default()
+    x = KAARTBREEDTE + 3 * marge
+    t.text((x, onder), "U bent hier", font=vet, fill=(26, 41, 45))
+    regels = [("kader", "de uitsnede hierboven, binnen de hele productafbakening"),
+              ("vlak", "het product dat u met dit sjabloon beschrijft"),
+              (None, "de rest van de plaat staat links in het klein")]
+    y = onder + 34
+    for soort, tekst in regels:
+        if soort == "kader":
+            t.rectangle([x, y + 2, x + 22, y + 16], outline=ACCENT, width=3)
+        elif soort == "vlak":
+            t.rectangle([x, y + 2, x + 22, y + 16], fill=ACCENT)
+        t.text((x + 34, y), tekst, font=gewoon, fill=(26, 41, 45))
+        y += 28
+    return doek
 
 
 def raster(bron: pathlib.Path, doel: pathlib.Path) -> None:
@@ -617,7 +669,8 @@ class Sjabloon:
             f"uitgelicht](<{self.breakdownpad()}>)",
             "",
             "Het uitgelichte vak is het product dat u met dit sjabloon "
-            "beschrijft.",
+            "beschrijft. De kleine plaat eronder toont de hele "
+            "productafbakening, met een kader om deze uitsnede.",
             "",
             f"Het {c['plek']}.",
             "",

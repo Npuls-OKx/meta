@@ -16,9 +16,9 @@
 
 ## Productplaatsing
 
-![De producten rond sjabloon persona, met dit product uitgelicht](<img/persona/product-breakdown.png>)
+![De producten rond sjabloon persona's, met dit product uitgelicht](<img/persona/product-breakdown.png>)
 
-Het uitgelichte vak is het product dat u met dit sjabloon beschrijft.
+Het uitgelichte vak is het product dat u met dit sjabloon beschrijft. De kleine plaat eronder toont de hele productafbakening, met een kader om deze uitsnede.
 
 Het wordt samen geschreven met het [leerroute scenario](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md), waar het procesbeeld de stappen bepaalt.
 

@@ -1,8 +1,8 @@
 {
   "persona": {
-    "titel": "Sjabloon persona",
+    "titel": "Sjabloon Persona's",
     "bron": "architecture/docs/specificatie/leerroute-uitwerking/doc/persona_jochem.md",
-    "bestand": "OKx sjabloon persona.docx",
+    "bestand": "OKx sjabloon Persona's.docx",
     "wat": "een of meer persona's bij een leerroute scenario: een portret van een mens in de scope van OKx, student of medewerker van de instelling, met wat hij meemaakt en wat hem daarin beweegt",
     "wie": "de adviesgroep. Suggestie: de informatiemanagers nemen het voortouw, want zij kennen de instellingspraktijk per stap",
     "voorbeeld": "[persona Jochem](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/persona_jochem.md)",
@@ -128,9 +128,9 @@
     ]
   },
   "leerroute-scenario": {
-    "titel": "Sjabloon leerroute scenario",
+    "titel": "Sjabloon Leerroute scenario",
     "bron": "architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md",
-    "bestand": "OKx sjabloon leerroute scenario.docx",
+    "bestand": "OKx sjabloon Leerroute scenario.docx",
     "wat": "een leerroute scenario: een Npuls-leerroute uitgewerkt in vijf sjabloononderdelen, tot het punt waarop de instellingseisen en de functionele eisen ervan vaststaan",
     "wie": "de adviesgroep. Suggestie: de BOP-adviseurs en de business analisten samen, met de onderwijskundige kant bij de adviesgroep zelf",
     "voorbeeld": "[leerroute 1 scenario](https://github.com/Npuls-OKx/meta/blob/dev/architecture/docs/specificatie/leerroute-uitwerking/doc/leerroute-uitwerking-lr1.md)",
@@ -360,9 +360,9 @@
     ]
   },
   "leerroute-scenario-uitwerking": {
-    "titel": "Sjabloon leerroute scenario uitwerking in het informatiemodel",
+    "titel": "Sjabloon Leerroute scenario uitwerking in het informatiemodel",
     "bron": "architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md",
-    "bestand": "OKx sjabloon leerroute scenario uitwerking.docx",
+    "bestand": "OKx sjabloon Leerroute scenario uitwerking in het informatiemodel.docx",
     "wat": "een leerroute scenario uitwerking in het informatiemodel: het scenario stap voor stap naast het informatiemodel gelegd, als een herhaling van twee sjabloononderdelen tot de hele route gedekt is",
     "wie": "de adviesgroep. Suggestie: de informatiemanagers vullen de regels, de business analisten leggen ze naast het model",
     "voorbeeld": "[de uitwerking van leerroute 1 met Jochem](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md)",
@@ -532,9 +532,9 @@
     ]
   },
   "informatiemodel-viewpoint": {
-    "titel": "Sjabloon informatiemodel viewpoint",
+    "titel": "Sjabloon Informatiemodel OKx",
     "bron": "architecture/model/informatiemodel/informatiemodel.md",
-    "bestand": "OKx sjabloon informatiemodel viewpoint.docx",
+    "bestand": "OKx sjabloon Informatiemodel OKx.docx",
     "wat": "een viewpoint op het informatiemodel: welke objecttypen er zijn, hoe zij samenhangen, en voor welke lezer deze plaat bedoeld is",
     "wie": "de adviesgroep. Suggestie: de business analisten met Niels, want het viewpoint hangt aan het ArchiMate-model",
     "voorbeeld": "[informatiemodel OKx](https://github.com/Npuls-OKx/meta/blob/dev/architecture/model/informatiemodel/informatiemodel.md)",
@@ -571,10 +571,10 @@
     ]
   },
   "interactieketen": {
-    "titel": "Sjabloon interactieketen",
+    "titel": "Sjabloon Interactieketens",
     "bron": "architecture/docs/specificatie/interactieketen-onderwijsaanbod/README.md",
     "bron_ref": "e05b4444a29a09b92cc8afd73bce69af78f1ac12",
-    "bestand": "OKx sjabloon interactieketen.docx",
+    "bestand": "OKx sjabloon Interactieketens.docx",
     "wat": "een interactieketen: welke diensten elkaar in welke volgorde aanroepen om een keten af te maken, en welke afspraken elke dienst nakomt",
     "wie": "OKx SI, samen met de leveranciers. De adviesgroep levert de instellingseisen en de functionele eisen waarop deze keten bouwt, in het leerroute scenario en de uitwerking",
     "voorbeeld": "[interactieketen onderwijsaanbod](https://github.com/Npuls-OKx/meta/blob/e05b4444a29a09b92cc8afd73bce69af78f1ac12/architecture/docs/specificatie/interactieketen-onderwijsaanbod/README.md), nog in review als pull request 373",

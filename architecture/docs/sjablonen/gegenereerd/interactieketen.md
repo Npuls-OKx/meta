@@ -16,9 +16,9 @@
 
 ## Productplaatsing
 
-![De producten rond sjabloon interactieketen, met dit product uitgelicht](<img/interactieketen/product-breakdown.png>)
+![De producten rond sjabloon interactieketens, met dit product uitgelicht](<img/interactieketen/product-breakdown.png>)
 
-Het uitgelichte vak is het product dat u met dit sjabloon beschrijft.
+Het uitgelichte vak is het product dat u met dit sjabloon beschrijft. De kleine plaat eronder toont de hele productafbakening, met een kader om deze uitsnede.
 
 Het volgt op het leerroute scenario en gaat vooraf aan de koppelvlakspecificatie.
 

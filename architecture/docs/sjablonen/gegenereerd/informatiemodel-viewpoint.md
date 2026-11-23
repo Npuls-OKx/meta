@@ -16,9 +16,9 @@
 
 ## Productplaatsing
 
-![De producten rond sjabloon informatiemodel viewpoint, met dit product uitgelicht](<img/informatiemodel-viewpoint/product-breakdown.png>)
+![De producten rond sjabloon informatiemodel okx, met dit product uitgelicht](<img/informatiemodel-viewpoint/product-breakdown.png>)
 
-Het uitgelichte vak is het product dat u met dit sjabloon beschrijft.
+Het uitgelichte vak is het product dat u met dit sjabloon beschrijft. De kleine plaat eronder toont de hele productafbakening, met een kader om deze uitsnede.
 
 Het staat naast alle andere producten en levert de begrippen waarin zij spreken.
 
