@@ -122,7 +122,7 @@ Vier termen, overal gelijk:
 | Objecttype | Element van de informatiemodelplaat (ArchiMate business object), met de plaatnaam letterlijk |
 | Instantie | De waarde voor Jochem: een leesbare naam |
 | Applicatiedienst | De ArchiMate-applicatiedienst op de hoofdplaat en in MORA; alleen context |
-| Koppeling | Een pijl op hoofdplaat v1.7a tussen twee componenten; met de koppeling-ID uit Public waar die er is |
+| Koppeling | Een pijl op de hoofdplaat tussen twee componenten; met de koppeling-ID uit Public waar die er is |
 
 Vier lagen waarin hetzelfde onderwijs steeds concreter wordt. Dit onderscheid draagt het hele document, en
 elk beeld staat in een van deze lagen:
@@ -144,7 +144,7 @@ alle vier de lagen heen:
 
 | Laag | Algemeen | Specialisatie |
 |---|---|---|
-| Specificatie | `Opleidingsprogramma specificatie` | `Keuzedeel`, `Keuzedeelruimte` |
+| Specificatie | `Opleidingsprogramma specificatie` | `Keuzedeel specificatie`, `Keuzedeelruimte` |
 | Aanbod | `Opleidingsprogramma aanbod` | `Keuzedeel aanbod` |
 | Verbintenis | `Opleidingsprogramma aanbod verbintenis` | `Keuzedeel aanbod verbintenis` |
 | Resultaat | `Opleidingsprogramma resultaat` | `Keuzedeel resultaat` |

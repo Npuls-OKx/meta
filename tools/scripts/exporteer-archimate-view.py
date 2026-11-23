@@ -30,8 +30,12 @@ import xml.etree.ElementTree as ET
 XSI = "{http://www.w3.org/2001/XMLSchema-instance}type"
 MODEL = pathlib.Path("architecture/model/model.archimate")
 UIT = pathlib.Path("architecture/model/informatiemodel/stromen.json")
-VIEW = "OKx hoofdplaat v1.7a (zonder context applicaties)"
+VIEW = "OKx hoofdplaat (zonder context applicaties)"
 AANVULLINGEN = pathlib.Path("architecture/model/informatiemodel/stromen-aanvullingen.json")
+# Welke stroom bij welke koppelingspecificatie hoort. Dit stond nergens vastgelegd, en een
+# regeneratie zonder mapping zette daardoor alle stromen op "zonder koppelingspecificatie":
+# de zeven koppeling-ID's verdwenen stil uit stromen.json. Vandaar een standaardpad.
+KOPPELINGEN = pathlib.Path("architecture/model/informatiemodel/bron/koppelingen.json")
 ZONDER = "zonder koppelingspecificatie"
 CONTAINERS = {"ApplicationComponent", "BusinessActor", "BusinessRole", "Node", "Grouping", "Group"}
 
@@ -60,10 +64,15 @@ def views(wortel):
             if el.get(XSI, "").endswith("ArchimateDiagramModel")}
 
 
+def plat(tekst):
+    """Trekt wit samen, zodat een regelafbreking in een naam of expressie geen tekst wordt."""
+    return " ".join((tekst or "").split())
+
+
 def labelexpressie(knoop):
     for feature in knoop.findall("feature"):
         if feature.get("name") == "labelExpression":
-            return " ".join(feature.get("value", "").split())
+            return plat(feature.get("value", ""))
     return ""
 
 
@@ -127,7 +136,10 @@ def stromen(objecten, connecties, relaties, mapping):
         for laatste, doel in doelen(conn, set()):
             naar = componentnaam(objecten, laatste["doel"])
             laatste_rel = relaties.get(laatste["relatie"], rel)
-            label = conn["label"] or laatste["label"] or rel["naam"] or laatste_rel["naam"]
+            # Een naam mag regelafbrekingen dragen: de modelleur breekt een lang label af
+            # zodat het op de lijn past zonder over een ander label te vallen. Voor de
+            # uitvoer is dat opmaak, dus wit wordt samengetrokken net als bij een expressie.
+            label = plat(conn["label"] or laatste["label"] or rel["naam"] or laatste_rel["naam"])
             uit.append({"id": conn["relatie"], "van": van, "naar": naar, "soort": "Flow",
                         "label": label, "koppeling": mapping.get(f"{van} > {naar}", ZONDER)})
     uit.sort(key=lambda s: (s["van"], s["naar"], s["label"], s["id"]))
@@ -187,7 +199,8 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     parser.add_argument("--model", type=pathlib.Path, default=MODEL)
     parser.add_argument("--view", default=VIEW)
-    parser.add_argument("--mapping", type=pathlib.Path, help="JSON: {\"Van > Naar\": \"OC-P&R\", ...}")
+    parser.add_argument("--mapping", type=pathlib.Path, default=KOPPELINGEN,
+                        help="JSON: {\"Van > Naar\": \"OC-P&R\", ...}")
     parser.add_argument("--aanvullingen", type=pathlib.Path, default=AANVULLINGEN,
                         help="stromen die een nieuwere hoofdplaat kent en de view nog niet")
     parser.add_argument("--uit", type=pathlib.Path, default=UIT)

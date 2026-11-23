@@ -25,3 +25,43 @@ Vier relaties zijn herzien in dezelfde ronde:
 De view `OKx informatiemodel` is opnieuw opgezet en draagt daardoor een nieuw id:
 
 - `id-dd5f9cefb94e4727a3a366f25db7bd8b` de oude view, met 81 vakken en 273 verbindingen; de nieuwe draagt er 97 en 404
+
+## Ronde 13 november 2026
+
+De verantwoording staat in pull request [#553](https://github.com/Npuls-OKx/meta/pull/553), met per groep de reden en de meting erbij. Hieronder alleen de ids, want het script leest niets anders uit dit bestand.
+
+Drieendertig elementen in vier groepen: drie stromen uit #393 opnieuw getekend met een nieuw id, vijf views opgeruimd omdat de versie naar de export verhuisde, twee views opnieuw opgezet, een relatie vervangen door PR 391, en tweeentwintig objecten en relaties die volgens het model niet gebruikt werden.
+
+- `id-01169a4550f4491c950c7d18f2ccdad3`
+- `id-191d2f54dbef4e1f8377e54c53c53c5b`
+- `id-223b51dd43fb43f993a1a9a5a9ca5aa1`
+- `id-27120176cd824664ac866d6b5a02031f`
+- `id-3a4c2ab1a1a3441ebf4980b132773497`
+- `id-3cffa1e310244d1caae04d22d1669431`
+- `id-484978f94b064e89bd6f62c4acb35660`
+- `id-4f41b8be8e0a430fb109c3ea65638528`
+- `id-53df0b18fd3d40a3b4b56a3ce8d8bcba`
+- `id-560522d89f0d4f48b01c74189b9e502e`
+- `id-597083de91fb4828a8f4b9cf00b467fd`
+- `id-67b13ef05330492ab7400abb8044a6f0`
+- `id-688164805dd5462c86fb4164f5b28f28`
+- `id-6afd6145090f49359ca10cdf382427ba`
+- `id-73277c8522ca4573aa625ad308445f12`
+- `id-756fd7922f6444bda3efc40b47c0c0d6`
+- `id-76b57ef5740e48de8cb7d1e679d783cb`
+- `id-7d38428481ae4ec1950530397e37e31c`
+- `id-965bdcd610454fd09fcccdfd0742f5cf`
+- `id-9d62e38754e74f9f9bcec451d559288c`
+- `id-b9aba75ae4ee4a7bb52297b181817094`
+- `id-bfd91786e3bc4fea8842438cc0d4b97f`
+- `id-c49e2b71aab34a1193a536adf36bea28`
+- `id-ce02acba3ebb4e959d9d5723c25546fe`
+- `id-ceec4b79167c43bb8b7042775576d0ea`
+- `id-cf0ba8feb4a54605a6c31a3cf4ed0308`
+- `id-cf386efb216448fc9d8643c7d6587c78`
+- `id-d262de8a69ec4b10bcd63f2e5e47052f`
+- `id-dc14c45bf8c94c1ba7b428ca2a2d5de2`
+- `id-f527e61690404f5dba90db56543874b2`
+- `id-f6b2a952c77e4c2d850bae94c5db1582`
+- `id-faa572af06224df69996f8850d39c698`
+- `id-fdc38824408246a89ff9f0c0f9d33556`

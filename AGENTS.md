@@ -113,6 +113,19 @@ Dit vervangt de fork `Npuls-OKx/specification`, die op verzoek van de OEAPI-behe
 | Presentaties (Slidev, Npuls huisstijl) | [presentaties/](presentaties/) |
 | Validatiescripts en testgevallen | [tools/scripts/](tools/scripts/), [tools/tests/](tools/tests/) |
 
+### Een plaat uitbrengen
+
+De viewnamen in het ArchiMate-model dragen **geen** versie. De versie hoort bij de export, want dat is wat [Npuls-OKx/Public](https://github.com/Npuls-OKx/Public/tree/dev/Koppelvlakspecificaties) aanhaalt: daar staat `hoofdplaat v1.7` in de tekst en `informatiestromen_hoofdplaat_v1_7.png` in bestandsnamen, en nergens een viewnaam. Zo neemt een versieophoging ook geen scriptwijziging mee.
+
+De brug tussen beide is [`bron/versiemanifest.json`](architecture/model/bron/versiemanifest.json): per plaat en per uitgebrachte versie het beeld, de modelstaat erachter en hoe hard die verwijzing is. Drie platen staan erin: de hoofdplaat, het informatiemodel en de mapping op OEAPI. De leeswijzer staat in de [README van de versiemappen](architecture/model/informatiestromen%20hoofdplaat%20OKx/README.md).
+
+| | |
+|---|---|
+| Uitbrengen | exporteren met `exporteer-archimate-platen.py`, de export committen, en dan vastleggen met `maak-versiemanifest-plaat.py --plaat <naam> --schrijf --versie <versie>`. In die volgorde, want het manifest vult de commit van de export pas wanneer die bestaat |
+| Terugvinden | `git checkout <model_commit> -- architecture/model/model.archimate`, met Archi gesloten; het commando [`modelversie`](.cursor/commands/modelversie.md) schrijft de stappen uit |
+| Herkomst | een plaat tot en met 1.7 komt uit een handmatige export uit de lokale Archi van de modelleur en is niet uit haar modelstaat te herbouwen; `reproduceerbaar: false` zegt dat. Vanaf 1.7.1 komt elke plaat uit het centraal gecommitte model |
+| Afgedwongen | `tools/tests/test_maak_versiemanifest_plaat.py` faalt bij een versie in een viewnaam, twee views met dezelfde naam, een versie die geen `MAJOR.MINOR.PATCH` is, een afgekorte commithash, een plaat die achterloopt op het model, een uitgebrachte plaat zonder regel in het manifest, of een export die niet bestaat. Het script weigert bovendien dezelfde versie opnieuw vast te leggen zodra de view is gewijzigd: een gewijzigde plaat krijgt een nieuw nummer |
+
 ### Mapindeling
 
 Een map vertelt een nieuwkomer waar hij moet beginnen. Daarom draagt de hoofdmap van een documentmap alleen wat een mens leest, en staat de rest eronder:

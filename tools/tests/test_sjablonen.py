@@ -10,6 +10,7 @@ import importlib
 import json
 import pathlib
 import re
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -548,6 +549,7 @@ class DeVoorpaginaDraagtAlleenDeOmslag(unittest.TestCase):
 
 
 class DeDocxHoortBijHetSkelet(unittest.TestCase):
+    @unittest.skipUnless(shutil.which("pandoc"), "pandoc niet in deze container")
     def test_opnieuw_bouwen_geeft_hetzelfde_document(self):
         with tempfile.TemporaryDirectory() as tmp:
             tmp = pathlib.Path(tmp)

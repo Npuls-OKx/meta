@@ -10,6 +10,7 @@ de mapping naar OEAPI. De prozadocumentatie blijft handwerk.
 Het model wordt alleen gelezen, nooit geschreven.
 """
 
+import argparse
 import json
 import pathlib
 import sys
@@ -29,8 +30,8 @@ KOLOMVOLGORDE = ["Kwalificatiekader MBO", "Onderwijskundigkader instelling", "On
 BUS_GEEL = "#ffffb5"          # het geel van het OKx-referentiekader op de plaat
 
 
-def lees_model():
-    wortel = ET.parse(MODEL).getroot()
+def lees_model(model=None):
+    wortel = ET.parse(model or MODEL).getroot()
     elementen, relaties = {}, {}
     for el in wortel.iter("element"):
         soort = el.get(XSI, "").replace("archimate:", "")
@@ -63,8 +64,13 @@ def leden(knoop, elementen):
     return uit
 
 
-def main():
-    wortel, elementen, relaties = lees_model()
+def main(argv=None):
+    p = argparse.ArgumentParser(description=__doc__.split("\n")[0])
+    # Een eigen modelpad, zodat een testgeval op een kopie kan draaien en nooit het
+    # echte bestand aanraakt; zie tools/tests/test_model_onaangeraakt.py.
+    p.add_argument("--model", type=pathlib.Path, default=MODEL)
+    args = p.parse_args(argv)
+    wortel, elementen, relaties = lees_model(args.model)
 
     v = view(wortel, VIEW_IM)
     kolom_van, buiten, kleur = {}, [], {}

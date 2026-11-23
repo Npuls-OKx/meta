@@ -39,7 +39,7 @@ class Verwijzingen(unittest.TestCase):
         self.assertEqual(uit, "[ADR](../Referentiemateriaal/adr/0026-x.md)")
 
     def test_given_plaat_met_spaties_when_herschreven_then_img_zonder_versie(self):
-        uit, _ = self.herschrijf("![plaat](<OKx informatiemodel v0.2.jpg>)")
+        uit, _ = self.herschrijf("![plaat](<OKx informatiemodel v0.2.0.jpg>)")
         self.assertEqual(uit, "![plaat](img/informatiemodel.jpg)")
 
     def test_given_onbekende_relatieve_link_when_herschreven_then_fout(self):
