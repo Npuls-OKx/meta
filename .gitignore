@@ -36,3 +36,6 @@ presentaties/export/*/*
 # Python
 __pycache__/
 *.pyc
+
+# Windows-markering bij een gedownload bestand; zegt niets over de inhoud
+*:Zone.Identifier
