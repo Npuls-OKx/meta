@@ -145,7 +145,7 @@ Een hoofdstuk is een interactie, en de business analist bepaalt waar hij begint 
 | | | |
 | | | |
 
-![Informatiemodel OKx, versie v0.2 van 14 oktober 2026](<img/informatiemodel-viewpoint/OKx informatiemodel v0.2.jpg>)
+![Informatiemodel OKx, versie 0.3.0 van 17 november 2026](<img/informatiemodel-viewpoint/OKx informatiemodel v0.3.0.jpg>)
 
 *Schrijf hier de uitwerking.*
 
