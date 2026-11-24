@@ -54,7 +54,7 @@ SOORTEN = {"ontstaat", "verandert", "stroomt", "bestaat"}
 # objecten zelf houden hun ArchiMate-geel, zodat het herkenbaar business objects blijven.
 VLAK_EERDER, VLAK_EERDER_L, VLAK_EERDER_T = "#f0f1ef", "#b4b9b3", "#6b726c"
 VLAK_HIER, VLAK_HIER_L = "#ffffff", "#d9531e"
-LEGENDA_HERKOMST = ("verwijst naar het eerder gemaakte object, geen kopie", "processtap volgt op", "rol voert uit")
+LEGENDA_HERKOMST = ("relatie van de plaat: het nieuwe object verwijst naar het eerder gemaakte", "processtap volgt op", "rol voert uit")
 # waar elk object in het laatst getekende beeld staat: (type, instantie) -> (x, y, breedte); de
 # herkomstlijnen lopen daartussen. De laatste tekenronde van een indeling wint, en dat is de getoonde.
 POSITIES = {}
@@ -431,7 +431,11 @@ def _objecten_rijen(x, y, items, uitzonderingen, maxbreedte=STROOM_MAX_BREEDTE):
             rel = rij.pop(0)
             label = rel["relatie"] or STANDAARDLABEL.get(rel["soort"], "hangt aan")
             ander = rel.get("ander", "")
-            rij[0].setdefault("verwijzingen", []).append(f"{ander} {label}".strip() if rel.get("naar_rechts", True) else f"{label} {ander}".strip())
+            tekst = f"{ander} {label}".strip() if rel.get("naar_rechts", True) else f"{label} {ander}".strip()
+            # zoals elke verwijzing: met de waarde van het andere eind, anders blijft "hangt aan" in de lucht hangen
+            if rel.get("ander_instantie"):
+                tekst += f": {rel['ander_instantie']}"
+            rij[0].setdefault("verwijzingen", []).append(tekst)
         svg, w, h = _objecten_rij(x, ry, rij, uitzonderingen, True)
         out += svg
         uit.append((ry, x + w))
@@ -680,8 +684,8 @@ def _legenda_herkomst(x, y):
     """Een strook onderin het beeld met de drie relaties, voor wie de tekst niet leest. Geeft (svg, breedte)."""
     uit, cx = "", x
     tekens = (
-        lambda a: (f'<path d="M{a} {y - 4}H{a + 30}" stroke="#444" stroke-width="1.3"/>'
-                   f'<path d="M{a + 21} {y - 9}L{a + 30} {y - 4}L{a + 21} {y + 1}" fill="none" stroke="#444" stroke-width="1.3"/>'),
+        # de relatielijn zelf draagt de notatie van haar relatie (ruit, open punt of niets); de legenda toont de lijn
+        lambda a: f'<path d="M{a} {y - 4}H{a + 30}" stroke="#444" stroke-width="1.3"/>',
         lambda a: f'<path d="M{a} {y - 4}H{a + 30}" stroke="#444" stroke-width="1.5"/><path d="M{a + 30} {y - 4}l-10 -5v10z" fill="#444"/>',
         lambda a: (f'<circle cx="{a}" cy="{y - 4}" r="3" fill="#444"/><path d="M{a} {y - 4}H{a + 30}" stroke="#444" stroke-width="1.3"/>'
                    f'<path d="M{a + 30} {y - 4}l-8 -4v8z" fill="#444"/>'),
@@ -914,7 +918,8 @@ def groepeer(regels):
                 if rel and not rel.get("nesting"):
                     ander = rel["naar"] if rel["van"] == r["objecttype"] else rel["van"]
                     if ander in in_blok_s:
-                        laatste["objecten"].append({"relatie": rel.get("label") or "", "soort": rel["soort"], "naar_rechts": rel["naar"] == r["objecttype"], "ander": ander})
+                        laatste["objecten"].append({"relatie": rel.get("label") or "", "soort": rel["soort"], "naar_rechts": rel["naar"] == r["objecttype"], "ander": ander,
+                                                    "ander_instantie": rel.get("instantie")})
                     else:
                         item["verwijzing"] = _verwijzing(rel, r["objecttype"])
                 if rel and rel.get("nesting"):

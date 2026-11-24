@@ -163,10 +163,10 @@ Een keuzedeel is daarmee in opbouw bijna hetzelfde als een programma: het erft d
 het eigen heeft komt in het logisch gegevensmodel erbij. Het algemene begrip staat dus al op de plaat, en het
 keuzedeel is de invulling die het mbo eraan geeft.
 
-Drie soorten regels, in de vormtaal van de plaat:
+Soorten regels, in de vormtaal van de plaat:
 
-- **Ontstaat**: een rol (geel, rolicoon) voert een processtap uit (geel, procesicoon) en daaruit ontstaan objecttypen (geel, objecticoon) met Jochems waarde. "Bestaat uit" is nesting; een relatielabel van de plaat staat tussen twee objecten of als verwijzing op een object dat aan een eerdere stap hangt. Een gestippelde rand is een aanname; grijs is een objecttype dat de plaat buiten de uitwisseling zet en dit voorbeeld toch meeneemt.
-- **Bestaat** (grijs vlak "Eerder ontstaan", links): een object dat in een eerder beeld is gemaakt, onder de rol en de processtap van dat beeld. Rechts staat in een wit vlak met een oranje rand ("Ontstaat hier") wat in dit beeld ontstaat. De eerdere processtap triggert de huidige, en lagen die bij elkaar horen staan op dezelfde hoogte. Een lijn van links naar rechts is een verwijzing: het object wordt een keer gemaakt en daarna niet opnieuw of als kopie, maar het nieuwe object verwijst ernaar. Hoe die verwijzing technisch loopt, met een sleutel in het gegevensmodel, valt buiten dit voorbeeld. Onderin elk zulk beeld staat een legenda; onder het beeld staat de herkomst als link.
+- **Ontstaat**: een rol (geel, rolicoon) voert een processtap uit (geel, procesicoon) en daaruit ontstaan objecttypen (geel, objecticoon) met Jochems waarde. "Bestaat uit" is nesting; een relatielabel van de plaat staat tussen twee objecten of als verwijzing op een object dat aan een eerdere stap hangt. Een gestippelde rand is een aanname; grijs is een objecttype dat de plaat buiten de uitwisseling zet en dit voorbeeld toch meeneemt. Een object dat al bestond en verandert, staat er op dezelfde manier, met zijn nieuwe toestand eronder.
+- **Bestaat** (grijs vlak "Eerder ontstaan", links): een object uit een eerder beeld, onder de rol en de processtap van dat beeld. Die processtap zet de huidige in gang (trigger). Rechts, in het witte vlak met oranje rand ("Ontstaat hier"), staat wat in dit beeld ontstaat. Een lijn tussen de vlakken is een relatie van de plaat, in haar leesrichting: het nieuwe object verwijst naar het object dat eenmaal gemaakt is. Onder het beeld staat de herkomst als link.
 - **Stroomt** (blauwe rand): van welk systeem naar welk systeem gaat welk object, met de koppeling-ID of "zonder koppelingspecificatie", en de processtap waarna het gebeurt.
 
 Waar de herkomst loopt: het kwalificatiedossier, de kwalificatie, de kerntaken en de werkprocessen staan in het eerste beeld van fase 1, en het derde beeld vertaalt ze naar leeruitkomsten. Daarna verwijzen specificaties, toets- en examenonderdelen, aanbod, verbintenissen en resultaten naar de leeruitkomst; de plaat kent buiten die route alleen een directe verwijzing vanuit het examenplan en de OER. Een dossiercode in een instantienaam (B1-K1, B1-K1-W1) is daarom een leeshulp die zegt over welk deel van het dossier het gaat, en geen relatie. Op de conceptplaat loopt daarnaast een eigen pad binnen de instelling: de kerntaak wordt daar onderwijskundig vertaald tot een leerdoel.
@@ -225,9 +225,14 @@ def beeldblok(b, kop="###"):
         uit += "**Herkomst:** " + ". ".join(delen) + ".\n\n"
     if b["soort"] == "stroomt" and b.get("van"):
         pijl = b.get("koppeling") or ("geen pijl op de hoofdplaat" if b.get("pijl") == GEEN_PIJL else "zonder koppelingspecificatie")
-        uit += (f"**Interactie:** {b['van']} naar {b['naar']}, {pijl}. Op de "
-                f"[hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd "
-                f"met {b['beeld_id']}.\n\n")
+        if b.get("pijl") == GEEN_PIJL:
+            # de plaat kent de lijn niet: dan staat zij alleen gestippeld in de faseplaat
+            uit += (f"**Interactie:** {b['van']} naar {b['naar']}, {pijl}. In de faseplaat hierboven staat deze "
+                    f"lijn gestippeld met {b['beeld_id']}.\n\n")
+        else:
+            uit += (f"**Interactie:** {b['van']} naar {b['naar']}, {pijl}. Op de "
+                    f"[hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd "
+                    f"met {b['beeld_id']}.\n\n")
     return uit
 
 

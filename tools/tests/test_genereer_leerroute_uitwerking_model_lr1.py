@@ -130,6 +130,14 @@ class GenereerTests(unittest.TestCase):
         self.assertNotIn("`Opleidingaanbod`, ", fase3.split("\n\n")[1] if "\n\n" in fase3 else fase3)
         self.assertEqual(gv.invulblad(r).count("| Opleidingaanbod |"), 1)
 
+    def test_given_flow_without_arrow_when_generated_then_interaction_says_dashed_and_not_marked_on_the_map(self):
+        r = regels()
+        r["regels"][1]["pijl"] = "geen pijl op de hoofdplaat"
+        r["regels"][1]["koppeling"] = None
+        doc = self.bouw(r)
+        self.assertIn("geen pijl op de hoofdplaat. In de faseplaat hierboven staat deze lijn gestippeld met F2-02.", doc)
+        self.assertNotIn("staat deze lijn gemarkeerd met F2-02", doc)
+
     def test_given_source_with_fase_when_linked_then_fase_anchor_and_unknown_source_stays_text(self):
         links = {1: "https://x/#fase-1"}
         self.assertEqual(gv.bronlinks("leerroute-1-regulier.md, Fase 1: iets", links), "[leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 1](https://x/#fase-1): iets")

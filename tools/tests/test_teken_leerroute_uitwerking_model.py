@@ -230,6 +230,15 @@ class TekenTests(unittest.TestCase):
         self.assertIn("Eerder ontstaan", t)
         self.assertIn("Ontstaat hier · F6-01", t)
 
+    def test_given_relation_at_the_start_of_a_next_row_when_drawn_then_reference_names_the_other_end(self):
+        items = [{"type": "Leergelegenheid", "instantie": "Medicatieoverzicht, periode 7", "verwijzingen": []},
+                 {"relatie": "", "soort": "Association", "naar_rechts": True, "ander": "Leergelegenheid",
+                  "ander_instantie": "Medicatieoverzicht, periode 7"},
+                 {"type": "Leergelegenheid verbintenis", "instantie": "Jochem op Medicatieoverzicht", "verwijzingen": []}]
+        svg, *_ = tv._objecten_rijen(0, 0, items, set(), maxbreedte=200)
+        self.assertIn("Leergelegenheid hangt aan: Medicatieoverzicht, periode 7",
+                      teksten(f'<svg xmlns="http://www.w3.org/2000/svg">{svg}</svg>'))
+
     def test_given_state_on_a_created_object_when_drawn_then_state_is_shown(self):
         r = regels()
         r["regels"][0]["toestand"] = "intentie"
