@@ -87,7 +87,7 @@
           "versie": "1.7.1",
           "export": "architecture/model/informatiestromen hoofdplaat OKx/1.7.1/OKx hoofdplaat 1.7.1.png",
           "beeld_bron": "exporteer-archimate-platen.py uit het gecommitte model",
-          "beeld_commit": "16b93d9b05890bbb249f281d50c76809896a13cf",
+          "beeld_commit": "4b1733f2b79ddb9f8305e38c290095e4a22af445",
           "reproduceerbaar": true,
           "view": "OKx hoofdplaat",
           "model_commit": "01c3bb6cce06163464618c693f27b7cf4f827e0e",
