@@ -168,6 +168,16 @@ class GenereerTests(unittest.TestCase):
         self.assertIn("**Stroomt:** Planningssysteem naar Onderwijscatalogus", sectie)
         self.assertIn("**MORA-hoofdproces:** Plannen", sectie)
 
+    def test_given_object_that_only_changes_in_a_fase_when_generated_then_chip_verandert_and_not_ontstaat(self):
+        r = regels()
+        r["regels"].append({"beeld_id": "F3-02", "beeld": "Aanbod bijgewerkt", "fase": 3, "stap": "Aanmelden", "soort": "verandert", "wie": "planner",
+                            "objecttype": "Opleidingaanbod", "instantie": "AA 2026", "toestand": "gepland", "bron": "b"})
+        doc = self.bouw(r)
+        sectie = doc[doc.index("## Fase 3"):doc.index("## Fase 4")]
+        self.assertIn("**Ontstaat:** `Aanmelding`", sectie)
+        self.assertNotIn("`Aanmelding`, `Opleidingaanbod`", sectie)
+        self.assertIn("**Verandert:** `Opleidingaanbod`", sectie)
+
     def vragen_in(self, doc):
         """De vragen zoals het document ze nummert, met hun plek erachter."""
         return re.findall(r"^\d+\. (.+?) \(", doc[doc.index("## Vragen"):], re.M)

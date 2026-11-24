@@ -186,12 +186,16 @@ def fase_sectie(f, blokken, regels_in_fase):
     if f.get("link"):
         kop += f"De fase in detail: [kaderscenario leerroute 1, fase {f['nummer']}]({f['link']}).\n\n"
     mora = f.get("mora_hoofdproces")
-    chips_obj = [norm(r["objecttype"]) for r in regels_in_fase if r["soort"] in ("ontstaat", "verandert") and r.get("plaat", "informatiemodel") == "informatiemodel"]
-    chips_obj = list(dict.fromkeys(chips_obj))
+    # wat ontstaat en wat alleen verandert apart: een object dat in een eerdere fase ontstond, hoort niet bij Ontstaat
+    model = [r for r in regels_in_fase if r.get("plaat", "informatiemodel") == "informatiemodel"]
+    chips_obj = list(dict.fromkeys(norm(r["objecttype"]) for r in model if r["soort"] == "ontstaat"))
+    chips_ver = [c for c in dict.fromkeys(norm(r["objecttype"]) for r in model if r["soort"] == "verandert") if c not in chips_obj]
     chips_str = list(dict.fromkeys(f"{r['van']} naar {r['naar']}" for r in regels_in_fase if r["soort"] == "stroomt"))
     if not regels_in_fase:
         chips_obj = [norm(v) for v in f["verwacht"]]
     regel = "**Ontstaat:** " + (", ".join(f"`{c}`" for c in chips_obj) or "geen nieuwe objecttypen; deze fase raakt bestaande objecttypen")
+    if regels_in_fase and chips_ver:
+        regel += ". **Verandert:** " + ", ".join(f"`{c}`" for c in chips_ver)
     if chips_str:
         regel += ". **Stroomt:** " + "; ".join(chips_str)
     if mora:
