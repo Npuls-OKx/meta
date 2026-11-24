@@ -158,6 +158,25 @@ def volledige_commit(pad):
     return h if len(h) == 40 else None
 
 
+def model_commit_bij(beeld_commit):
+    """De laatste commit die het model raakte, op of voor de commit van de export.
+
+    Niet `volledige_commit(MODELPAD)`: die geeft de commit die het modelbestand ooit
+    toevoegde, en zette elke versie op dezelfde commit uit maart 2026.
+    """
+    if not beeld_commit:
+        return None
+    uit = subprocess.run(["git", "log", "-1", "--format=%H", beeld_commit, "--", MODELPAD],
+                         cwd=WORTEL, capture_output=True, text=True)
+    h = uit.stdout.strip()
+    return h if len(h) == 40 else None
+
+
+def model_gecommit():
+    """Waar als het model in de werkmap gelijk is aan HEAD."""
+    return subprocess.run(["git", "diff", "--quiet", "HEAD", "--", MODELPAD], cwd=WORTEL).returncode == 0
+
+
 def versies_op_schijf(plaat):
     """De uitgebrachte versies van deze plaat, met hun beeld relatief aan de wortel.
 
@@ -278,12 +297,15 @@ def vastleggen(m, naam, versie, model):
     if versie not in op_schijf:
         raise SystemExit(f"geen beeld gevonden voor versie {versie} in {plaat['map']}; "
                          "exporteer de plaat eerst")
+    if not model_gecommit():
+        raise SystemExit("het model heeft wijzigingen die niet gecommit zijn; commit het model eerst")
     v = item(b, versie)
     bron, reproduceerbaar = beeld_bron(plaat, versie)
+    beeld_commit = volledige_commit(op_schijf[versie])
     v.update({"export": op_schijf[versie], "beeld_bron": bron,
               "reproduceerbaar": reproduceerbaar,
-              "beeld_commit": volledige_commit(op_schijf[versie]),
-              "view": plaat["view"], "model_commit": volledige_commit(MODELPAD),
+              "beeld_commit": beeld_commit,
+              "view": plaat["view"], "model_commit": model_commit_bij(beeld_commit),
               "viewhash": nu, "model_herkomst": "vastgelegd bij export"})
     b["huidig"] = versie
     opschonen(b)

@@ -54,6 +54,25 @@ RUN LABEL="$(echo "${ARCHI_VERSIE%.*}" | tr . _)" \
  && ln -s /opt/Archi/Archi /usr/local/bin/archi
 ENV ARCHI_HOME=/opt/Archi
 
+# Selawik, de open vervanger van Segoe UI die Microsoft uitbrengt (SIL Open Font
+# License). Archi tekent een vak zonder eigen lettertype in Segoe UI 9 op Windows;
+# zonder die letter valt de export terug op DejaVu, die breder is en namen midden in
+# een woord afbreekt (#571). fontconfig lost Segoe UI daarom op naar Selawik, en
+# exporteer-archimate-platen.py geeft Archi Segoe UI 9 als standaardletter.
+ARG SELAWIK_VERSIE=1.01
+ARG SELAWIK_SHA256=3f62c51e05e3b5a1e6241cf92a371f0be2ea1183aa87b30718bbd40832a8d423
+RUN curl -fsSL -o /tmp/selawik.zip \
+      "https://github.com/microsoft/Selawik/releases/download/${SELAWIK_VERSIE}/Selawik_Release.zip" \
+ && echo "${SELAWIK_SHA256}  /tmp/selawik.zip" | sha256sum -c - \
+ && mkdir -p /usr/share/fonts/truetype/selawik \
+ && unzip -j -o /tmp/selawik.zip '*.ttf' -d /usr/share/fonts/truetype/selawik \
+ && rm /tmp/selawik.zip \
+ && printf '%s\n' '<?xml version="1.0"?>' '<!DOCTYPE fontconfig SYSTEM "fonts.dtd">' \
+      '<fontconfig>' \
+      '  <alias binding="same"><family>Segoe UI</family><prefer><family>Selawik</family></prefer></alias>' \
+      '</fontconfig>' > /etc/fonts/conf.d/60-segoe-ui-selawik.conf \
+ && fc-cache -f
+
 # Laat mermaid-cli/puppeteer de meegeleverde chromium gebruiken i.p.v. te downloaden.
 ENV PUPPETEER_SKIP_DOWNLOAD=true \
     PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium

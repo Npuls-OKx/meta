@@ -23,7 +23,8 @@ Hieronder de hoofdplaat.
 | 1.6.1 | `1.6.1/hoofdplaat 1.6a.jpg` | handmatig | nagemeten, view `OKx hoofdplaat v1.6a<concept>` |
 | 1.6.2 | `1.6.2/hoofdplaat 1.6b.jpg` | handmatig | nagemeten, view `OKx hoofdplaat v1.6b<concept>` |
 | 1.7.0 | `1.7.0/OKx hoofdplaat 1.7.jpg` | handmatig | nagemeten, view `OKx hoofdplaat v1.7<concept>` |
-| **1.7.1** | `1.7.1/OKx hoofdplaat 1.7.1.png` | `exporteer-archimate-platen.py` uit het gecommitte model | vastgelegd bij export |
+| 1.7.1 | `1.7.1/OKx hoofdplaat 1.7.1.png` | `exporteer-archimate-platen.py` uit het gecommitte model | vastgelegd bij export |
+| **1.7.2** | `1.7.2/OKx hoofdplaat 1.7.2.png` | `exporteer-archimate-platen.py` uit het gecommitte model | vastgelegd bij export |
 
 Versie 1.5 is nooit uitgebracht; die view bestond van 1 tot 26 mei 2026 in het model en is daarna vervangen door 1.6a en 1.6b. Die twee zijn als `1.6.1` en `1.6.2` opgenomen, want een letterversie wordt semver; zij stonden eerder samen in een map `1.6` en daardoor viel `1.6b` buiten het manifest.
 

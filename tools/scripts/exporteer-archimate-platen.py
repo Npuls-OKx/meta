@@ -43,6 +43,12 @@ ET.register_namespace("xsi", "http://www.w3.org/2001/XMLSchema-instance")
 MODEL = pathlib.Path("architecture/model/model.archimate")
 ARCHI = shutil.which("archi") or "/opt/Archi/Archi"
 MARGE = 10  # Archi exporteert een view met 10 px rondom de elementen
+# Een vak zonder eigen lettertype krijgt de standaardletter van Archi. Op Windows is dat
+# Segoe UI 9; op Linux de systeemletter, die breder is en namen midden in een woord
+# afbreekt (#571). Daarom krijgt Archi hier dezelfde standaard als op Windows, en lost
+# fontconfig in de dev-container Segoe UI op naar Selawik, de open vervanger van Microsoft.
+STANDAARDLETTER = "1|Segoe UI|9.0|0|GTK|1|"
+LETTERS_DIE_PASSEN = {"Segoe UI", "Selawik"}
 HOUDERS = {"ApplicationComponent", "BusinessActor", "BusinessRole", "Grouping", "Group", "Node"}
 
 
@@ -187,16 +193,41 @@ def bewerkte_kopie(model, kopie, viewnaam, zonder_pijltekst=False, ruimte=0, hoe
     return factor
 
 
+def opgeloste_letter(naam="Segoe UI"):
+    """De familie waar fontconfig een lettertype naar oplost, of None zonder fc-match."""
+    try:
+        uit = subprocess.run(["fc-match", "-f", "%{family[0]}", naam], capture_output=True, text=True, timeout=30)
+    except FileNotFoundError:
+        return None
+    return uit.stdout.strip() or None
+
+
+def controleer_letter(oplossen=opgeloste_letter):
+    """Stop wanneer Segoe UI niet oplost naar Segoe UI of Selawik: de plaat breekt dan woorden af."""
+    familie = oplossen()
+    if familie not in LETTERS_DIE_PASSEN:
+        sys.exit(f"Segoe UI lost op naar {familie or 'niets'}; de plaat zou namen midden in een woord "
+                 "afbreken. Bouw de dev-container opnieuw, zie .devcontainer/Dockerfile (Selawik, #571)")
+
+
+def archi_opdracht(kopie, rapport, voorkeuren):
+    """De aanroep van Archi, met Segoe UI 9 als standaardletter via een voorkeurenbestand."""
+    voorkeuren.write_text(f"com.archimatetool.editor/defaultViewFont={STANDAARDLETTER}\n", encoding="utf-8")
+    return [ARCHI, "-application", "com.archimatetool.commandline.app", "-consoleLog", "-nosplash",
+            "-pluginCustomization", str(voorkeuren),
+            "--loadModel", str(kopie), "--html.createReport", str(rapport)]
+
+
 def render_rapport(model, werkmap, viewnaam=None, zonder_pijltekst=False, ruimte=0, hoekvast_aan=False):
     """Laat Archi het HTML-rapport maken op een kopie van het model; geeft de map met PNG's."""
+    controleer_letter()
     kopie = werkmap / "model.archimate"
     if viewnaam and (zonder_pijltekst or ruimte or hoekvast_aan):
         bewerkte_kopie(model, kopie, viewnaam, zonder_pijltekst, ruimte, hoekvast_aan)
     else:
         shutil.copy(model, kopie)
     rapport = werkmap / "rapport"
-    opdracht = [ARCHI, "-application", "com.archimatetool.commandline.app", "-consoleLog", "-nosplash",
-                "--loadModel", str(kopie), "--html.createReport", str(rapport)]
+    opdracht = archi_opdracht(kopie, rapport, werkmap / "archi-voorkeuren.ini")
     try:
         uit = subprocess.run(opdracht, capture_output=True, text=True, timeout=600)
     except FileNotFoundError:

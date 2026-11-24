@@ -172,6 +172,16 @@ class DePlaatHoortBijHetModel(unittest.TestCase):
                                  f"maak-versiemanifest-plaat.py --plaat {naam} --schrijf "
                                  f"--versie <hoger dan {huidig}>")
 
+    def test_given_a_version_recorded_at_export_when_rehashed_then_model_commit_carries_the_view(self):
+        """#571: de modelcommit is de modelstaat achter de export, niet de commit die het bestand toevoegde."""
+        mod = laad()
+        for naam, b in manifest()["platen"].items():
+            for v in b["versies"]:
+                if v["model_herkomst"] == "vastgelegd bij export":
+                    with self.subTest(plaat=naam, versie=v["versie"]):
+                        self.assertEqual(v["model_commit"], mod.model_commit_bij(v["beeld_commit"]))
+                        self.assertEqual(mod.viewhash_op_commit(v["model_commit"], v["view"]), v["viewhash"])
+
     def test_given_a_retrofitted_version_when_rehashed_then_it_still_matches(self):
         """De nagemeten hashes moeten reproduceerbaar zijn, anders is de historie waardeloos."""
         mod = laad()

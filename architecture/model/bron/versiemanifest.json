@@ -4,7 +4,7 @@
       "view": "OKx hoofdplaat",
       "map": "architecture/model/informatiestromen hoofdplaat OKx",
       "vorm": "map-per-versie",
-      "huidig": "1.7.1",
+      "huidig": "1.7.2",
       "versies": [
         {
           "versie": "1.1.0",
@@ -87,10 +87,21 @@
           "versie": "1.7.1",
           "export": "architecture/model/informatiestromen hoofdplaat OKx/1.7.1/OKx hoofdplaat 1.7.1.png",
           "beeld_bron": "exporteer-archimate-platen.py uit het gecommitte model",
-          "beeld_commit": "16b93d9b05890bbb249f281d50c76809896a13cf",
+          "beeld_commit": "4b1733f2b79ddb9f8305e38c290095e4a22af445",
           "reproduceerbaar": true,
           "view": "OKx hoofdplaat",
-          "model_commit": "01c3bb6cce06163464618c693f27b7cf4f827e0e",
+          "model_commit": "5424cace840f9e0ec6accaf11dc2e4c76c9c4900",
+          "viewhash": "sha256:b54a11fef4cd8e6070731263cff2bf246c478e4511aab7138572dc817fc5fa33",
+          "model_herkomst": "vastgelegd bij export"
+        },
+        {
+          "versie": "1.7.2",
+          "export": "architecture/model/informatiestromen hoofdplaat OKx/1.7.2/OKx hoofdplaat 1.7.2.png",
+          "beeld_bron": "exporteer-archimate-platen.py uit het gecommitte model",
+          "beeld_commit": "7435a0b83f8cfa309bae44e65618d70f31bdf844",
+          "reproduceerbaar": true,
+          "view": "OKx hoofdplaat",
+          "model_commit": "ba4e448bad13578f96ac4238b8230409c6272fb2",
           "viewhash": "sha256:b54a11fef4cd8e6070731263cff2bf246c478e4511aab7138572dc817fc5fa33",
           "model_herkomst": "vastgelegd bij export"
         }
@@ -128,10 +139,10 @@
           "versie": "0.3.0",
           "export": "architecture/model/informatiemodel/OKx informatiemodel v0.3.0.jpg",
           "beeld_bron": "exporteer-archimate-platen.py uit het gecommitte model",
-          "beeld_commit": null,
+          "beeld_commit": "419abac6175ef41e83dc6f085dd6db05b49db12c",
           "reproduceerbaar": true,
           "view": "OKx informatiemodel",
-          "model_commit": "01c3bb6cce06163464618c693f27b7cf4f827e0e",
+          "model_commit": "16b93d9b05890bbb249f281d50c76809896a13cf",
           "viewhash": "sha256:6ab73d3b321126818821a6e276af177f3982e62b665159a16b3f4d97a28aafeb",
           "model_herkomst": "vastgelegd bij export"
         }
@@ -169,10 +180,10 @@
           "versie": "0.3.0",
           "export": "architecture/model/informatiemodel/OKx informatiemodel en mapping OEAPI v0.3.0.jpg",
           "beeld_bron": "exporteer-archimate-platen.py uit het gecommitte model",
-          "beeld_commit": null,
+          "beeld_commit": "419abac6175ef41e83dc6f085dd6db05b49db12c",
           "reproduceerbaar": true,
           "view": "OKx informatiemodel en mapping OEAPI",
-          "model_commit": "01c3bb6cce06163464618c693f27b7cf4f827e0e",
+          "model_commit": "16b93d9b05890bbb249f281d50c76809896a13cf",
           "viewhash": "sha256:0999c686b2e012a33f4fd8c19c7185280e3a86c61ca1378a448e0c740d1c7ccd",
           "model_herkomst": "vastgelegd bij export"
         }

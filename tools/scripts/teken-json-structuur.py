@@ -29,7 +29,7 @@ import pathlib
 import sys
 
 WORTEL = pathlib.Path(__file__).resolve().parent
-_spec = importlib.util.spec_from_file_location("teken_modeldoorloop", WORTEL / "teken-modeldoorloop.py")
+_spec = importlib.util.spec_from_file_location("teken_leerroute_uitwerking_model", WORTEL / "teken-leerroute-uitwerking-model.py")
 vt = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(vt)
 

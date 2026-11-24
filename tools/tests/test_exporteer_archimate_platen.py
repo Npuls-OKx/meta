@@ -264,3 +264,28 @@ class ArchiIntegratieTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class StandaardletterTests(unittest.TestCase):
+    """#571: een export uit de container breekt geen namen midden in een woord af."""
+
+    def test_given_archi_call_when_built_then_segoe_ui_9_is_default_view_font(self):
+        with tempfile.TemporaryDirectory() as map_:
+            voorkeuren = Path(map_) / "v.ini"
+            opdracht = ep.archi_opdracht(Path(map_) / "m.archimate", Path(map_) / "r", voorkeuren)
+            self.assertIn("-pluginCustomization", opdracht)
+            self.assertEqual(opdracht[opdracht.index("-pluginCustomization") + 1], str(voorkeuren))
+            self.assertIn("com.archimatetool.editor/defaultViewFont=1|Segoe UI|9.0|", voorkeuren.read_text(encoding="utf-8"))
+
+    def test_given_segoe_ui_resolves_to_dejavu_when_checked_then_exit_names_dockerfile(self):
+        with self.assertRaises(SystemExit) as fout:
+            ep.controleer_letter(lambda: "DejaVu Sans")
+        self.assertIn(".devcontainer/Dockerfile", str(fout.exception))
+
+    def test_given_no_fc_match_when_checked_then_exit(self):
+        with self.assertRaises(SystemExit):
+            ep.controleer_letter(lambda: None)
+
+    def test_given_selawik_or_segoe_ui_when_checked_then_passes(self):
+        ep.controleer_letter(lambda: "Selawik")
+        ep.controleer_letter(lambda: "Segoe UI")
