@@ -5141,7 +5141,7 @@
       "soort": "stroomt",
       "van": "Roostersysteem",
       "naar": "Leer management systeem (LMS)",
-      "pijl": "id-865f297e8c1f4371aa143aa225fe4b7f",
+      "pijl": "geen pijl op de hoofdplaat",
       "koppeling": null,
       "objecttype": "Student",
       "instantie": "Jochem, cohort 2026",
@@ -5160,7 +5160,7 @@
       "soort": "stroomt",
       "van": "Roostersysteem",
       "naar": "Leer management systeem (LMS)",
-      "pijl": "id-865f297e8c1f4371aa143aa225fe4b7f",
+      "pijl": "geen pijl op de hoofdplaat",
       "koppeling": null,
       "objecttype": "Opleidingsprogramma aanbod verbintenis",
       "instantie": "Jochem op Regulier BOL 2026",
@@ -5184,7 +5184,7 @@
       "soort": "stroomt",
       "van": "Roostersysteem",
       "naar": "Leer management systeem (LMS)",
-      "pijl": "id-865f297e8c1f4371aa143aa225fe4b7f",
+      "pijl": "geen pijl op de hoofdplaat",
       "koppeling": null,
       "objecttype": "Plaatsingsgroep",
       "instantie": "APO26-1A",
@@ -5203,7 +5203,7 @@
       "soort": "stroomt",
       "van": "Roostersysteem",
       "naar": "Leer management systeem (LMS)",
-      "pijl": "id-865f297e8c1f4371aa143aa225fe4b7f",
+      "pijl": "geen pijl op de hoofdplaat",
       "koppeling": null,
       "objecttype": "Onderwijseenheid aanbod verbintenis",
       "instantie": "Jochem op B1-K1, leerjaar 1",
@@ -5223,7 +5223,7 @@
       "soort": "stroomt",
       "van": "Roostersysteem",
       "naar": "Leer management systeem (LMS)",
-      "pijl": "id-865f297e8c1f4371aa143aa225fe4b7f",
+      "pijl": "geen pijl op de hoofdplaat",
       "koppeling": null,
       "objecttype": "Leergelegenheid verbintenis",
       "instantie": "Jochem op Baliegesprekken 101, periode 1",
@@ -6518,7 +6518,7 @@
           "instantie": "APO26-1A en twee andere plaatsingsgroepen"
         }
       ],
-      "vraag": "Op de plaat is `Planningsgroep` een deel (compositie) van één `Plaatsingsgroep`, en de begrippenlijst noemt haar een opdeling daarvan. Een keuzedeelgroep brengt studenten uit drie plaatsingsgroepen samen, en dat past bij `Lesgroep`. Welk objecttype gaat er naar het rooster?"
+      "vraag": "Op de plaat is `Planningsgroep` een deel (compositie) van één `Plaatsingsgroep`, en de begrippenlijst noemt haar een opdeling daarvan. Een keuzedeelgroep brengt studenten uit drie plaatsingsgroepen samen, en dat past bij `Lesgroep`. Welk objecttype gaat er naar het rooster? Voorstel van de opdrachtgever: de `Planningsgroep` hangt hoger, aan het hele keuzedeel of de onderwijseenheid, en per leergelegenheid ontstaat een `Lesgroep`."
     },
     {
       "beeld_id": "F6-13",

@@ -83,7 +83,7 @@ Alle stromen die dit voorbeeld gebruikt, met de beelden waarin ze voorkomen:
 | Onderwijscatalogus | Student volg systeem (SVS) | OC-SVS | F4-04 |
 | Kernregistratie systeem studenten (KRS) | Planningssysteem | zonder koppelingspecificatie | F4-06, F7-03 |
 | Planningssysteem | Roostersysteem | zonder koppelingspecificatie | F4-07, F6-12, F7-06 |
-| Roostersysteem | Leer management systeem (LMS) | zonder koppelingspecificatie | F4-10, F6-15 |
+| Roostersysteem | Leer management systeem (LMS) | geen pijl op de hoofdplaat | F4-10, F6-15 |
 | Kernregistratie systeem studenten (KRS) | Student volg systeem (SVS) | geen pijl op de hoofdplaat | F4-11, F6-11 |
 | Leer management systeem (LMS) | Student volg systeem (SVS) | zonder koppelingspecificatie | F5-04 |
 | Onderwijscatalogus | Student Keuze Systeem (SKS) | zonder koppelingspecificatie | F6-02 |
@@ -237,7 +237,7 @@ De gemarkeerde lijnen zijn de stromen die deze fase raakt, met het beeld waarin 
 
 ### Variant capaciteitsgestuurd
 
-Het kaderscenario beschrijft vraaggestuurd plannen: de planner vormt groepen nadat de studenten hebben gekozen. Deze variant toont capaciteitsgestuurd plannen, in de instellingspraktijk de meest voorkomende vorm. De planner plant vooraf op inzetbare capaciteit, zoals docenten met de juiste expertise en lokaaltypen, en op een prognose, omdat die capaciteit maar beperkt schaalbaar is. Bij de keuze ligt daardoor al meer vast: de planninggroepen, het maximaal aantal studenten en de periode. Fase 1, 3, 5 en 8 blijven in deze vorm gelijk.
+Het kaderscenario beschrijft vraaggestuurd plannen: de planner vormt groepen nadat de studenten hebben gekozen. Deze variant toont capaciteitsgestuurd plannen, in de instellingspraktijk de meest voorkomende vorm. De planner plant vooraf op inzetbare capaciteit, zoals docenten met de juiste expertise en lokaaltypen, en op een prognose, omdat die capaciteit maar beperkt schaalbaar is. Bij de keuze ligt daardoor al meer vast: de planningsgroepen, het maximaal aantal studenten en de periode. Fase 1, 3, 5 en 8 blijven in deze vorm gelijk.
 
 ![Hoofdplaat met de stromen van fase 2 in de variant capaciteitsgestuurd gemarkeerd](img/hoofdplaat/f2-capaciteitsgestuurd.svg)
 
@@ -365,7 +365,7 @@ De gemarkeerde lijnen zijn de stromen die deze fase raakt, met het beeld waarin 
 
 ![stroomt: Verwachte deelnemers delen en toegang geven](img/regels/f4-10-roostersysteem-stuurt-student-verbintenissen-en-groep-naar-het-lms.svg)
 
-**Interactie:** Roostersysteem naar Leer management systeem (LMS), zonder koppelingspecificatie. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F4-10.
+**Interactie:** Roostersysteem naar Leer management systeem (LMS), geen pijl op de hoofdplaat. In de faseplaat hierboven staat deze lijn gestippeld met F4-10.
 
 ### F4-11 - Kernregistratie stuurt de verbintenissen naar het studentvolgsysteem
 
@@ -577,7 +577,7 @@ De gemarkeerde lijnen zijn de stromen die deze fase raakt, met het beeld waarin 
 
 ### Variant capaciteitsgestuurd
 
-Bij bijsturen blijft de bestaande planninggroep staan: een plek die vrijkomt, gaat binnen de capaciteit terug naar het studentkeuzesysteem.
+Bij bijsturen blijft de bestaande planningsgroep staan: een plek die vrijkomt, gaat binnen de capaciteit terug naar het studentkeuzesysteem.
 
 ![Hoofdplaat met de stromen van fase 7 in de variant capaciteitsgestuurd gemarkeerd](img/hoofdplaat/f7-capaciteitsgestuurd.svg)
 
@@ -779,7 +779,7 @@ De vragen die de regels zelf oproepen, met de regel waar de vraag zichtbaar word
 16. Welk systeem start het keuzemoment van een student? Planning is het enige systeem met een notie van onderwijsperiode, het keuzesysteem beheert de regels, en de SLB'er heeft in de praktijk een evaluatierol. Starten op de plaatsingsgroep houdt het verkeer laag; starten per student levert groepen van één student op. (F6-07, `Keuzedeel aanbod`)
 17. Planning bevestigt de verbintenis direct na de keuze, over een lijn die de hoofdplaat niet kent. De plaat brengt de verbintenis met de planningsgroep na het roosteren terug, van het roostersysteem naar het studentkeuzesysteem (id-7a7e0a17). Welke route klopt, of horen ze allebei? (F6-09, `Keuzedeel aanbod verbintenis`)
 18. De hoofdplaat kent geen lijn van de kernregistratie naar het studentvolgsysteem, wel een van het studentkeuzesysteem naar het studentvolgsysteem (id-3aefce69). Welk systeem meldt de verwachting: de kernregistratie die de inschrijving vastlegt, of het studentkeuzesysteem waar de keuze ontstaat? (F6-11, `Keuzedeel aanbod verbintenis`)
-19. Op de plaat is `Planningsgroep` een deel (compositie) van één `Plaatsingsgroep`, en de begrippenlijst noemt haar een opdeling daarvan. Een keuzedeelgroep brengt studenten uit drie plaatsingsgroepen samen, en dat past bij `Lesgroep`. Welk objecttype gaat er naar het rooster? (F6-12, `Planningsgroep`)
+19. Op de plaat is `Planningsgroep` een deel (compositie) van één `Plaatsingsgroep`, en de begrippenlijst noemt haar een opdeling daarvan. Een keuzedeelgroep brengt studenten uit drie plaatsingsgroepen samen, en dat past bij `Lesgroep`. Welk objecttype gaat er naar het rooster? Voorstel van de opdrachtgever: de `Planningsgroep` hangt hoger, aan het hele keuzedeel of de onderwijseenheid, en per leergelegenheid ontstaat een `Lesgroep`. (F6-12, `Planningsgroep`)
 20. De pijl van het rooster naar het studentkeuzesysteem die hier wordt gebruikt, draagt de geroosterde leergelegenheden zonder verbintenis. De verbintenis gaat op de plaat over een eigen lijn (id-7a7e0a17), op programma en onderwijseenheid. Hoort de verbintenis op de leergelegenheid over een van beide lijnen? (F6-14, `Leergelegenheid verbintenis`)
 21. De hoofdplaat kent geen lijn van het roostersysteem naar het LMS. Wel van het studentkeuzesysteem naar het LMS (id-926ba88e, verbintenis en planningsgroep) en van de kernregistratie naar het LMS (id-865f297e). Welk systeem levert de lesgroep aan het LMS? (F6-15, `Lesgroep`)
 
