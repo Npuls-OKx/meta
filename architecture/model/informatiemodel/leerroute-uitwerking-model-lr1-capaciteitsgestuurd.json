@@ -9,7 +9,7 @@
         "Keuzedeelaanbod plannen op inzetbare capaciteit en prognose",
         "Gepland keuzedeelaanbod terugleveren aan de onderwijscatalogus"
       ],
-      "toelichting": "In de basis stelt de planner het keuzedeelaanbod in de jaarplanning vast op een prognose, met een planningsgroep, en heroverweegt die groep na de keuzes. Deze variant plant capaciteitsgestuurd, in de instellingspraktijk de meest voorkomende vorm: vooraf op inzetbare capaciteit, zoals docenten met de juiste expertise en lokaaltypen, omdat die capaciteit maar beperkt schaalbaar is. Bij de keuze ligt daardoor al meer vast: twee groepen, het maximaal aantal studenten en de periode. Fase 1, 3, 5 en 8 blijven in deze vorm gelijk."
+      "toelichting": "Het basisvoorbeeld plant een groep op de prognose en heroverweegt die na de keuzes; deze variant legt vooraf twee groepen vast op de inzetbare capaciteit, zoals docenten met de juiste expertise en lokaaltypen. De K0037-regels van F2-C01 vervangen in deze vorm die van F2-08. Fase 1, 3, 5 en 8 blijven in deze vorm gelijk."
     },
     {
       "nummer": 4,
@@ -68,9 +68,10 @@
       "nieuwe_instantie": true,
       "relatie": {
         "soort": "Association",
-        "van": "Keuzedeel",
+        "van": "Keuzedeel specificatie",
         "naar": "Keuzedeel aanbod",
-        "instantie": "K0037 Farmaceutische Patientenzorg"
+        "label": "wordt aangeboden als",
+        "instantie": "K0037 Farmaceutische Patientenzorg (480 SBU, aard verdiepend), beroepsspecifiek keuzedeel"
       },
       "zin": "De planner plant het keuzedeel vooraf op inzetbare capaciteit en een prognose van 30 studenten: twee planningsgroepen van maximaal 24, omdat docenten met de juiste expertise en lokaaltypen maar beperkt schaalbaar zijn."
     },
@@ -84,7 +85,7 @@
       "objecttype": "Leergelegenheid",
       "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, planningsgroep KD-A, maximaal 24: lokaaltype balie-simulatie, docentexpertise farmacie",
       "bron": "instellingspraktijk: capaciteitsgestuurd plannen (#402)",
-      "toestand": "gepland",
+      "toestand": "grofmazig gepland",
       "nieuwe_instantie": true,
       "relatie": {
         "soort": "Association",
@@ -103,7 +104,7 @@
       "objecttype": "Leergelegenheid",
       "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, planningsgroep KD-B, maximaal 24: lokaaltype balie-simulatie, docentexpertise farmacie",
       "bron": "instellingspraktijk: capaciteitsgestuurd plannen (#402)",
-      "toestand": "gepland",
+      "toestand": "grofmazig gepland",
       "nieuwe_instantie": true,
       "relatie": {
         "soort": "Association",

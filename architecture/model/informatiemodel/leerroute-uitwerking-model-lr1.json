@@ -561,6 +561,10 @@
     {
       "naam": "vastgesteld",
       "bron": "leerroute-1-regulier.md, stelExamenspecificatieEnInstrumentenVast: Vaststellen examen specificatie, examen materiaal en instrumenten"
+    },
+    {
+      "naam": "bevestigd",
+      "bron": "aanwijzing van de opdrachtgever, 24 november 2026: na de keuzes heroverweegt de planner de planningsgroep uit de jaarplanning; past zij, dan is zij bevestigd"
     }
   ],
   "scope_uitzonderingen": [
@@ -1530,7 +1534,7 @@
         "van": "Student keuze regelset",
         "naar": "Keuzedeelruimte"
       },
-      "vraag": "De plaat kent een `Student keuze regelset` zonder onderverdeling; hier draagt zij twee blokken, een beroepsspecifiek en een generiek. Heeft een regelset eigen keuzeblokken nodig, zoals de keuzebakjes in OEAPI (zie #409 en #331)?"
+      "vraag": "De plaat kent een `Student keuze regelset` zonder onderverdeling; hier draagt zij twee keuzeblokken, een beroepsspecifiek en een generiek. Heeft een regelset eigen keuzeblokken nodig (zie #409 en #331)?"
     },
     {
       "beeld_id": "F1-08",
@@ -1780,7 +1784,7 @@
       "wie": "onderwijsontwerper",
       "soort": "ontstaat",
       "objecttype": "Keuzedeel specificatie",
-      "instantie": "K0037 Farmaceutische Patientenzorg (480 SBU, verdiepend)",
+      "instantie": "K0037 Farmaceutische Patientenzorg (480 SBU, aard verdiepend), beroepsspecifiek keuzedeel",
       "nieuwe_instantie": true,
       "bron": "K0037-farmaceutische-patientenzorg.md (keuzedeel mbo K0037, 480 SBU, aard verdiepend, gevalideerd 26-11-2015)",
       "relatie": {
@@ -3021,7 +3025,7 @@
       "instantie": "Planopgave Apothekersassistent, cohort 2026, met het keuzedeel K0037",
       "aanname": true,
       "bron": "geen bron, keuze van het voorbeeld: op de plaat een objecttype, in het kaderscenario een handeling van OC; sessie OKx-werkverdeling en leerrouteontwerp, 10 november 2026 (Niels van Duin, Niek Derksen, Garik Hakopian): het keuzedeelaanbod wordt bij planning aangevraagd en jaarlijks in de jaarplanning vastgesteld; besluit van de opdrachtgever, 24 november 2026: lijn b",
-      "zin": "De catalogus verzoekt planning om aanbod op basis van de specificatiestructuur uit fase 1; op de plaat hangt die structuur als input aan het verzoek.",
+      "zin": "De planner stelt het verzoek om onderwijsaanbod op, met de opleidingsspecificatie en de keuzedeelspecificatie K0037 als input.",
       "relatie": {
         "soort": "Association",
         "van": "Opleiding specificatie",
@@ -3034,7 +3038,7 @@
           "van": "Keuzedeel specificatie",
           "naar": "Verzoek tot Aanbod / Intekening op specificatie",
           "label": "Input voor",
-          "instantie": "K0037 Farmaceutische Patientenzorg (480 SBU, verdiepend)"
+          "instantie": "K0037 Farmaceutische Patientenzorg (480 SBU, aard verdiepend), beroepsspecifiek keuzedeel"
         }
       ]
     },
@@ -3049,7 +3053,7 @@
       "pijl": "id-1d27ecfa2c0d4fb7b4f7337e93eed033",
       "koppeling": "OC-P&R",
       "objecttype": "Verzoek tot Aanbod / Intekening op specificatie",
-      "instantie": "Planopgave Apothekersassistent, cohort 2026",
+      "instantie": "Planopgave Apothekersassistent, cohort 2026, met het keuzedeel K0037",
       "bron": "leerroute-1-regulier.md, Fase 2: OC verzoekt het Planningssysteem",
       "zin": "Het verzoek gaat met de hele specificatiestructuur naar planning: de opleiding met haar programma, de eenheden en hun leeronderdelen, elk met de leeruitkomst waarnaar zij verwijzen, en per eenheid de planbare waarden uit het onderwijsontwerp (paars): onderwijsvorm, leeromgeving, docentprofiel en studiebelasting. De gewenste periode gaat mee in een eigen laag op de specificatie: de nominale leerroute. De specificatie zelf draagt geen periode, zodat zij herbruikbaar blijft voor een volgend cohort. De conceptplaat kent die laag al onder het onderwijsprogramma; op de informatiemodelplaat staat zij hier als voorstel.",
       "vraag": "Planning krijgt de begeleide onderwijstijd, het ruimtetype en de docentexpertise per specificatieniveau. Op de leeronderdeel- en onderwijseenheidspecificatie staan die waarden hier; op de opleidings- en programmaspecificatie niet. Heeft planning die waarden ook als totaal per opleiding en per programma nodig?"
@@ -3301,7 +3305,7 @@
       "pijl": "id-1d27ecfa2c0d4fb7b4f7337e93eed033",
       "koppeling": "OC-P&R",
       "objecttype": "Keuzedeel specificatie",
-      "instantie": "K0037 Farmaceutische Patientenzorg (480 SBU, verdiepend)",
+      "instantie": "K0037 Farmaceutische Patientenzorg (480 SBU, aard verdiepend), beroepsspecifiek keuzedeel",
       "nieuwe_instantie": true,
       "bron": "sessie OKx-werkverdeling en leerrouteontwerp, 10 november 2026 (Niels van Duin, Niek Derksen, Garik Hakopian); K0037-farmaceutische-patientenzorg.md",
       "relatie": {
@@ -3733,7 +3737,7 @@
           "van": "Keuzedeel specificatie",
           "naar": "Keuzedeel aanbod",
           "label": "wordt aangeboden als",
-          "instantie": "K0037 Farmaceutische Patientenzorg (480 SBU, verdiepend)"
+          "instantie": "K0037 Farmaceutische Patientenzorg (480 SBU, aard verdiepend), beroepsspecifiek keuzedeel"
         },
         {
           "soort": "Association",
@@ -3758,10 +3762,10 @@
         "soort": "Association",
         "van": "Planningsgroep",
         "naar": "Keuzedeel aanbod",
-        "label": "plant",
+        "label": "is gepland op",
         "voorstel": true
       },
-      "vraag": "Hoe volgen de planningsgroepen in de jaarplanning uit de plaatsingsgroepen? Op de plaat is een `Planningsgroep` een deel van een `Plaatsingsgroep`, terwijl plaatsingsgroepen pas in fase 3 ontstaan. De relatie van planningsgroep naar keuzedeelaanbod is een voorstel."
+      "vraag": "Hoe volgen de planningsgroepen in de jaarplanning uit de plaatsingsgroepen? Op de plaat is een `Planningsgroep` een deel van een `Plaatsingsgroep`, terwijl plaatsingsgroepen pas in fase 3 ontstaan. De relatie van `Planningsgroep` naar `Keuzedeel aanbod` is een voorstel."
     },
     {
       "beeld_id": "F2-09",
@@ -3964,22 +3968,28 @@
       "pijl": "id-020f091db6ea4763aad7527a98afaf99",
       "koppeling": "OC-P&R",
       "objecttype": "Keuzedeel aanbod",
-      "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A: gepland op een prognose van 18",
+      "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A",
       "bron": "review Niels van Duin op PR 252: gelegenheden van keuzedelen tonen maakt scherp dat capaciteit los kan staan van de bovenliggende structuur; scenario-1.1-regulier-happyflow.md, blok D (maatvoering uit de review van 29 september 2026); sparsessie met Niels van Duin en Garik Hakopian, 28 oktober 2026: in deze fase staan het lokaaltype en de docentexpertise vast, het lokaal, de persoon en het tijdvenster nog niet; sparsessie met Niels van Duin en Garik Hakopian, 28 oktober 2026: het keuzedeelaanbod stond als los blokje op de plaat. De plaat kent Keuzedeel aanbod als soort van Opleidingsprogramma aanbod; een relatie die zegt onder welk programma-aanbod het wordt aangeboden ontbreekt nog, en die staat in issue 434",
       "relatie": {
         "soort": "Specialization",
         "van": "Keuzedeel aanbod",
         "naar": "Opleidingsprogramma aanbod"
       },
-      "toestand": "grofmazig gepland",
-      "nieuwe_instantie": true,
-      "aanname": true,
+      "toestand": "gepland",
       "relaties": [
         {
           "soort": "Association",
           "van": "Keuzedeel specificatie",
           "naar": "Keuzedeel aanbod",
-          "instantie": "K0037 Farmaceutische Patientenzorg"
+          "label": "wordt aangeboden als",
+          "instantie": "K0037 Farmaceutische Patientenzorg (480 SBU, aard verdiepend), beroepsspecifiek keuzedeel"
+        },
+        {
+          "soort": "Association",
+          "van": "Verzoek tot Aanbod / Intekening op specificatie",
+          "naar": "Keuzedeel aanbod",
+          "label": "Leidt tot",
+          "instantie": "Planopgave Apothekersassistent, cohort 2026, met het keuzedeel K0037"
         }
       ]
     },
@@ -5724,7 +5734,7 @@
       "stap": "Keuzedeel kiesbaar maken in het studentkeuzesysteem",
       "soort": "bestaat",
       "objecttype": "Keuzedeel specificatie",
-      "instantie": "K0037 Farmaceutische Patientenzorg (480 SBU, verdiepend)",
+      "instantie": "K0037 Farmaceutische Patientenzorg (480 SBU, aard verdiepend), beroepsspecifiek keuzedeel",
       "herkomst": "F1-08",
       "bron": "K0037-farmaceutische-patientenzorg.md (keuzedeel mbo K0037, 480 SBU, aard verdiepend, gevalideerd 26-11-2015)",
       "relatie": {
@@ -5792,7 +5802,7 @@
       "soort": "verandert",
       "wie": "planner",
       "objecttype": "Keuzedeel aanbod",
-      "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A",
+      "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A: per laag uitgewerkt, 1 onderwijseenheid en 2 leergelegenheden",
       "bron": "sessie OKx-werkverdeling en leerrouteontwerp, 10 november 2026 (Niels van Duin, Niek Derksen, Garik Hakopian); besluit van de opdrachtgever, 24 november 2026: het keuzedeelaanbod ontstaat in de jaarplanning (F2-08), en wordt in fase 6 per laag uitgewerkt",
       "toestand": "gepland",
       "relatie": {
@@ -5806,10 +5816,10 @@
           "van": "Keuzedeel specificatie",
           "naar": "Keuzedeel aanbod",
           "label": "wordt aangeboden als",
-          "instantie": "K0037 Farmaceutische Patientenzorg (480 SBU, verdiepend)"
+          "instantie": "K0037 Farmaceutische Patientenzorg (480 SBU, aard verdiepend), beroepsspecifiek keuzedeel"
         }
       ],
-      "zin": "Het keuzemoment nadert. De planner werkt het keuzedeelaanbod uit de jaarplanning (F2-08) per laag uit voor periode 7, vanuit de specificatie van fase 1: de onderwijseenheid en per leeronderdeel een leergelegenheid. Het aanbod voegt plaats, tijd en capaciteit toe; wat kiesbaar is, staat op de specificatie. Het aanbod blijft bij planning, en het studentkeuzesysteem haalt het daar op (F6-03)."
+      "zin": "Het keuzemoment nadert. De planner detailleert het keuzedeelaanbod uit de jaarplanning (F2-08) per laag voor periode 7, vanuit de specificatie van fase 1: de onderwijseenheid en per leeronderdeel een leergelegenheid, met lokaaltype en docentexpertise. Het aanbod voegt plaats, tijd en capaciteit toe; wat kiesbaar is, staat op de specificatie. Het aanbod blijft bij planning, en het studentkeuzesysteem haalt het daar op (F6-03)."
     },
     {
       "beeld_id": "F6-01",
@@ -5842,7 +5852,7 @@
           "van": "Onderwijseenheid aanbod",
           "naar": "Onderwijslocatie",
           "label": "wordt gegeven op",
-          "instantie": "Locatie A, Campus Zuid"
+          "instantie": "Campus Zuid (locatie A)"
         }
       ]
     },
@@ -5854,7 +5864,7 @@
       "soort": "ontstaat",
       "wie": "planner",
       "objecttype": "Leergelegenheid",
-      "instantie": "Het medicatieoverzicht opstellen, periode 7",
+      "instantie": "Het medicatieoverzicht opstellen, periode 7: lokaaltype leerapotheek, docentexpertise farmacie met baliepraktijk",
       "bron": "sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen); geen bron, keuze van het voorbeeld",
       "nieuwe_instantie": true,
       "toestand": "grofmazig gepland",
@@ -5877,7 +5887,7 @@
           "van": "Leergelegenheid",
           "naar": "Onderwijslocatie",
           "label": "wordt gegeven op",
-          "instantie": "Locatie A, Campus Zuid"
+          "instantie": "Campus Zuid (locatie A)"
         }
       ]
     },
@@ -5889,7 +5899,7 @@
       "soort": "ontstaat",
       "wie": "planner",
       "objecttype": "Leergelegenheid",
-      "instantie": "Zorg aan specifieke doelgroepen, periode 7",
+      "instantie": "Zorg aan specifieke doelgroepen, periode 7: lokaaltype leerapotheek, docentexpertise farmacie met baliepraktijk",
       "bron": "sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen); geen bron, keuze van het voorbeeld",
       "nieuwe_instantie": true,
       "toestand": "grofmazig gepland",
@@ -5912,7 +5922,7 @@
           "van": "Leergelegenheid",
           "naar": "Onderwijslocatie",
           "label": "wordt gegeven op",
-          "instantie": "Locatie A, Campus Zuid"
+          "instantie": "Campus Zuid (locatie A)"
         }
       ]
     },
@@ -5927,7 +5937,7 @@
       "pijl": "id-5f2568d7b99a49eaa863f539ae362f4d",
       "koppeling": null,
       "objecttype": "Keuzedeel specificatie",
-      "instantie": "K0037 Farmaceutische Patientenzorg (480 SBU, verdiepend)",
+      "instantie": "K0037 Farmaceutische Patientenzorg (480 SBU, aard verdiepend), beroepsspecifiek keuzedeel",
       "bron": "sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen): F6-02 ontsluit de specificatiestructuur met de studentkeuzeregels, niet het aanbod; K0037-farmaceutische-patientenzorg.md (keuzedeel mbo K0037, 480 SBU, aard verdiepend, gevalideerd 26-11-2015)",
       "relatie": {
         "soort": "Specialization",
@@ -6028,6 +6038,26 @@
       ]
     },
     {
+      "beeld_id": "F6-02",
+      "beeld": "Onderwijscatalogus ontsluit specificatie en keuzeregels naar het studentkeuzesysteem",
+      "fase": 6,
+      "stap": "Keuzedeel kiesbaar maken in het studentkeuzesysteem",
+      "soort": "stroomt",
+      "van": "Onderwijscatalogus",
+      "naar": "Student Keuze Systeem (SKS)",
+      "pijl": "id-5f2568d7b99a49eaa863f539ae362f4d",
+      "koppeling": null,
+      "objecttype": "Keuzedeel specificatie",
+      "instantie": "K0262 ARBO, kwaliteitszorg en hulpverlening geschikt voor niveau 3 (240 SBU), generiek keuzedeel",
+      "nieuwe_instantie": true,
+      "bron": "K0262-arbo-kwaliteitszorg-en-hulpverlening-niveau-3.md; sessie 10 november 2026: het kenmerk generiek keuzedeel gaat mee in de uitwisseling",
+      "relatie": {
+        "soort": "Specialization",
+        "van": "Keuzedeel specificatie",
+        "naar": "Opleidingsprogramma specificatie"
+      }
+    },
+    {
       "beeld_id": "F6-03",
       "beeld": "Planningssysteem ontsluit het geplande aanbod naar het studentkeuzesysteem",
       "fase": 6,
@@ -6051,7 +6081,7 @@
           "van": "Keuzedeel specificatie",
           "naar": "Keuzedeel aanbod",
           "label": "wordt aangeboden als",
-          "instantie": "K0037 Farmaceutische Patientenzorg (480 SBU, verdiepend)"
+          "instantie": "K0037 Farmaceutische Patientenzorg (480 SBU, aard verdiepend), beroepsspecifiek keuzedeel"
         }
       ],
       "zin": "Het studentkeuzesysteem vraagt planning welk aanbod er bij de specificatie gepland is, en met hoeveel plaatsen. Dat verandert steeds, dus het haalt het op bij de bron. Is er geen aanbod, dan meldt het studentkeuzesysteem dat aan planning met een `Verzoek tot Aanbod / Intekening op specificatie`.",
@@ -6090,7 +6120,7 @@
           "van": "Onderwijseenheid aanbod",
           "naar": "Onderwijslocatie",
           "label": "wordt gegeven op",
-          "instantie": "Locatie A, Campus Zuid"
+          "instantie": "Campus Zuid (locatie A)"
         }
       ]
     },
@@ -6101,7 +6131,7 @@
       "stap": "Keuzedeel kiezen in het studentkeuzesysteem",
       "soort": "bestaat",
       "objecttype": "Keuzedeel aanbod",
-      "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A",
+      "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A: per laag uitgewerkt, 1 onderwijseenheid en 2 leergelegenheden",
       "herkomst": "F6-01",
       "bron": "sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen)",
       "relatie": {
@@ -6277,18 +6307,17 @@
       "wie": "planner",
       "objecttype": "Planningsgroep",
       "instantie": "K0037 periode 7, locatie A: 18 keuzes, de groep past",
-      "toestand": "fijnmazig gepland",
+      "toestand": "bevestigd",
       "bron": "aanwijzing van de opdrachtgever, 24 november 2026: na de keuzes heroverweegt de planner de groep uit de jaarplanning",
       "relatie": {
         "soort": "Association",
         "van": "Planningsgroep",
         "naar": "Keuzedeel aanbod",
-        "label": "plant",
+        "label": "is gepland op",
         "voorstel": true,
         "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A"
       },
-      "zin": "De planner legt de keuzes naast de planningsgroep uit de jaarplanning (F2-08): 18 keuzes op een prognose van 18, de groep past. Per leergelegenheid liggen nu de onderwijsvorm, het lokaaltype en de docentexpertise vast, vanuit de specificatie. Past het niet, dan stuurt de planner bij: een groep minder of een groep erbij; dat bijsturen hoort bij fase 7. De beelden tonen het voorstel van de opdrachtgever voor vraag 1 in #579, de planningsgroep op het keuzedeel; die vraag blijft open.",
-      "vraag": "Hoe volgen de planningsgroepen uit de plaatsingsgroepen? Op de plaat is een `Planningsgroep` een deel van een `Plaatsingsgroep`; hier hangt zij aan het keuzedeelaanbod, en dat is een voorstel."
+      "zin": "De planner legt de keuzes naast de planningsgroep uit de jaarplanning (F2-08): 18 keuzes op een prognose van 18, de groep past. Fijnmazig plannen voegt de groep en het gebouw toe; het lokaaltype en de docentexpertise lagen al vast bij het detailleren (F6-01). Past het niet, dan stuurt de planner bij: een groep minder of een groep erbij, zoals in fase 7. De beelden tonen een voorstel: de planningsgroep hangt aan het keuzedeel (vraag 1 in #579)."
     },
     {
       "beeld_id": "F6-06",
@@ -6307,7 +6336,7 @@
           "van": "Keuzedeel specificatie",
           "naar": "Keuzedeel aanbod",
           "label": "wordt aangeboden als",
-          "instantie": "K0037 Farmaceutische Patientenzorg (480 SBU, verdiepend)"
+          "instantie": "K0037 Farmaceutische Patientenzorg (480 SBU, aard verdiepend), beroepsspecifiek keuzedeel"
         }
       ]
     },
@@ -6335,7 +6364,7 @@
           "van": "Onderwijseenheid aanbod",
           "naar": "Onderwijslocatie",
           "label": "wordt gegeven op",
-          "instantie": "Campus Zuid, gebouw C"
+          "instantie": "Campus Zuid (locatie A), gebouw C"
         }
       ]
     },
@@ -6348,7 +6377,7 @@
       "wie": "planner",
       "objecttype": "Leergelegenheid",
       "toestand": "fijnmazig gepland",
-      "instantie": "Het medicatieoverzicht opstellen, periode 7: een groep van 18, onderwijsvorm simulatie in de leerapotheek, lokaaltype leerapotheek, docentexpertise farmacie met baliepraktijk",
+      "instantie": "Het medicatieoverzicht opstellen, periode 7: 1 groep van 18, Campus Zuid (locatie A), gebouw C",
       "bron": "aanwijzing van de opdrachtgever, 24 november 2026; leerroute-1-regulier.md, r726 (gedetailleerd planbaar: leergelegenheden met expertise- en faciliteitkoppelingen)",
       "relatie": {
         "soort": "Aggregation",
@@ -6363,13 +6392,6 @@
           "naar": "Leergelegenheid",
           "label": "wordt aangeboden als",
           "instantie": "Het medicatieoverzicht opstellen"
-        },
-        {
-          "soort": "Association",
-          "van": "Leergelegenheid",
-          "naar": "Onderwijslocatie",
-          "label": "wordt gegeven op",
-          "instantie": "Campus Zuid, gebouw C"
         }
       ]
     },
@@ -6392,7 +6414,7 @@
           "van": "Keuzedeel specificatie",
           "naar": "Keuzedeel aanbod",
           "label": "wordt aangeboden als",
-          "instantie": "K0037 Farmaceutische Patientenzorg (480 SBU, verdiepend)"
+          "instantie": "K0037 Farmaceutische Patientenzorg (480 SBU, aard verdiepend), beroepsspecifiek keuzedeel"
         }
       ],
       "zin": "Het geactualiseerde planbare aanbod gaat terug naar de catalogus. Jochems keuzemoment hangt aan de jaaruitzetting van zijn plaatsingsgroep, en kan per groep verschillen omdat dat capaciteitstechnisch beter uitkomt.",
@@ -6431,7 +6453,7 @@
           "van": "Onderwijseenheid aanbod",
           "naar": "Onderwijslocatie",
           "label": "wordt gegeven op",
-          "instantie": "Locatie A, Campus Zuid"
+          "instantie": "Campus Zuid (locatie A), gebouw C"
         }
       ]
     },
@@ -6640,7 +6662,7 @@
       "pijl": "id-08467fe302794db6b935ff685e83efe0",
       "koppeling": null,
       "objecttype": "Leergelegenheid",
-      "instantie": "Het medicatieoverzicht opstellen, periode 7",
+      "instantie": "Het medicatieoverzicht opstellen, periode 7: 1 groep van 18, Campus Zuid (locatie A), gebouw C",
       "bron": "sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen): richting rooster stuurt planning het aanbod op de lager gelegen eenheden door, en daar komt de verbintenis op",
       "relaties": [
         {
@@ -6654,10 +6676,10 @@
           "soort": "Aggregation",
           "van": "Onderwijseenheid aanbod",
           "naar": "Leergelegenheid",
-          "instantie": "D1-K1, periode 7, locatie A: 18 plaatsen"
+          "instantie": "D1-K1, periode 7, locatie A: 1 groep, 18 plaatsen"
         }
       ],
-      "zin": "Planning geeft de leergelegenheden onder K0037 met de planningsgroep aan het roostersysteem. Bij planning lag de keuze op het keuzedeel en de onderwijseenheid; richting rooster gaat het om de laag daaronder. Een vast roostermoment voor generieke keuzedelen zoals K0262 is logica van planning en rooster; in de uitwisseling volstaat het kenmerk generiek keuzedeel (#531). K0037 is beroepsspecifiek en wordt binnen het eigen cluster geroosterd."
+      "zin": "Planning geeft de leergelegenheden onder K0037 met de planningsgroep aan het roostersysteem. Bij planning lag de keuze op het keuzedeel en de onderwijseenheid; richting rooster gaat het om de laag daaronder. Het vaste roostermoment voor generieke keuzedelen zoals K0262 regelen planning en rooster zelf; de uitwisseling draagt het kenmerk generiek keuzedeel. K0037 is beroepsspecifiek en wordt binnen het rooster van de eigen opleiding geroosterd."
     },
     {
       "beeld_id": "F6-12",
@@ -6670,7 +6692,7 @@
       "pijl": "id-08467fe302794db6b935ff685e83efe0",
       "koppeling": null,
       "objecttype": "Leergelegenheid",
-      "instantie": "Zorg aan specifieke doelgroepen, periode 7",
+      "instantie": "Zorg aan specifieke doelgroepen, periode 7: 1 groep van 18, Campus Zuid (locatie A), gebouw C",
       "bron": "sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen): richting rooster stuurt planning het aanbod op de lager gelegen eenheden door, en daar komt de verbintenis op",
       "nieuwe_instantie": true,
       "relaties": [
@@ -6685,7 +6707,7 @@
           "soort": "Aggregation",
           "van": "Onderwijseenheid aanbod",
           "naar": "Leergelegenheid",
-          "instantie": "D1-K1, periode 7, locatie A: 18 plaatsen"
+          "instantie": "D1-K1, periode 7, locatie A: 1 groep, 18 plaatsen"
         }
       ]
     },
@@ -6700,17 +6722,19 @@
       "pijl": "id-08467fe302794db6b935ff685e83efe0",
       "koppeling": null,
       "objecttype": "Planningsgroep",
-      "instantie": "K0037 periode 7, locatie A: 18 studenten",
+      "instantie": "K0037 periode 7, locatie A: 18 keuzes, de groep past",
       "bron": "sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen): richting rooster stuurt planning het aanbod op de lager gelegen eenheden door, en daar komt de verbintenis op",
       "relaties": [
         {
-          "soort": "Composition",
-          "van": "Plaatsingsgroep",
-          "naar": "Planningsgroep",
-          "instantie": "APO26-1A en twee andere plaatsingsgroepen"
+          "soort": "Association",
+          "van": "Planningsgroep",
+          "naar": "Keuzedeel aanbod",
+          "label": "is gepland op",
+          "voorstel": true,
+          "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A"
         }
       ],
-      "vraag": "Op de plaat is `Planningsgroep` een deel (compositie) van één `Plaatsingsgroep`, en de begrippenlijst noemt haar een opdeling daarvan. Een keuzedeelgroep brengt studenten uit drie plaatsingsgroepen samen, en dat past bij `Lesgroep`. Welk objecttype gaat er naar het rooster? Voorstel van de opdrachtgever: de `Planningsgroep` hangt hoger, aan het hele keuzedeel of de onderwijseenheid, en per leergelegenheid ontstaat een `Lesgroep`."
+      "vraag": "Op de plaat is `Planningsgroep` een deel (compositie) van één `Plaatsingsgroep`, en de begrippenlijst noemt haar een opdeling daarvan. Een keuzedeelgroep brengt studenten uit drie plaatsingsgroepen samen, en dat past bij `Lesgroep`. Welk objecttype gaat er naar het rooster? Het voorbeeld hangt de `Planningsgroep` aan het keuzedeel, en per leergelegenheid ontstaat een `Lesgroep` (vraag 1 in #579)."
     },
     {
       "beeld_id": "F6-13",
@@ -6755,7 +6779,7 @@
           "instantie": "Het medicatieoverzicht opstellen"
         }
       ],
-      "zin": "De roosteraar groepeert alle Jochems uit de planningsgroep tot een lesgroep, en roostert de leergelegenheid op een lokaal en een docent: elke donderdag op lokaal C2.14 in vleugel B van gebouw C. De locatie heeft een soort (campus, gebouw, vleugel, lokaal), zoals OEAPI die voorstelt. Jochem krijgt een verbintenis op de leergelegenheid, onder zijn verbintenis op de onderwijseenheid. Dat het donderdag wordt, wist hij bij de keuze nog niet."
+      "zin": "De roosteraar groepeert de 18 studenten uit de planningsgroep, onder wie Jochem, tot een lesgroep, en roostert de lessen van de leergelegenheid op een lokaal en een docent: elke donderdag op lokaal C2.14 in gebouw C. Een locatie heeft een soort (campus, gebouw, lokaal) en hangt in de locatie erboven; de vleugel is een kenmerk van het lokaal, zoals in het voorstel van OEAPI #635. Jochem krijgt een verbintenis op de leergelegenheid, onder zijn verbintenis op de onderwijseenheid. Dat het donderdag wordt, wist hij bij de keuze nog niet."
     },
     {
       "beeld_id": "F6-13",
@@ -6767,7 +6791,7 @@
       "objecttype": "Lesgelegenheid",
       "instantie": "Les 1, donderdag 13:00 tot 16:00, week 1 van periode 7",
       "nieuwe_instantie": true,
-      "bron": "aanwijzing van de opdrachtgever, 24 november 2026; voorstel locatie in OEAPI, open-education-api/specification#635: campus, gebouw, vleugel, lokaal",
+      "bron": "aanwijzing van de opdrachtgever, 24 november 2026; voorstel locatie in OEAPI, open-education-api/specification#635: een soort per locatie (campus, gebouw, lokaal), de vleugel als kenmerk van het lokaal",
       "relatie": {
         "soort": "Aggregation",
         "van": "Leergelegenheid",
@@ -6780,7 +6804,7 @@
           "van": "Lesgelegenheid",
           "naar": "Onderwijslocatie",
           "label": "wordt gegeven op",
-          "instantie": "lokaal C2.14 (leerapotheek), vleugel B, gebouw C, Campus Zuid"
+          "instantie": "lokaal C2.14 (leerapotheek, vleugel B), in gebouw C op Campus Zuid (locatie A)"
         },
         {
           "soort": "Association",
@@ -6810,17 +6834,9 @@
           "label": "vormt",
           "voorstel": true,
           "instantie": "K0037 periode 7, locatie A: 18 keuzes, de groep past"
-        },
-        {
-          "soort": "Association",
-          "van": "Lesgroep",
-          "naar": "Lesgelegenheid",
-          "label": "volgt",
-          "voorstel": true,
-          "instantie": "Les 1, donderdag 13:00 tot 16:00, week 1 van periode 7"
         }
       ],
-      "vraag": "De plaat kent geen relatie van de planningsgroep naar de lesgroep, en geen van de lesgroep of de docent naar de lesgelegenheid. Horen die erbij, of loopt het via de verbintenis?"
+      "vraag": "Hoort er een relatie van `Planningsgroep` naar `Lesgroep`, en van `Medewerker` naar `Lesgelegenheid`, of loopt dat via de verbintenis?"
     },
     {
       "beeld_id": "F6-13",
