@@ -571,6 +571,15 @@ def _types_in_blok(objecten_in_blok):
     return uit
 
 
+def _specialiseert(r):
+    """De generalisatie van het object, uit relatie of relaties: een specialisatie erft de nesting van
+    haar generalisatie, ook als zij met een andere relatie aan de buur hangt (F6-04)."""
+    for x in [r.get("relatie") or {}] + list(r.get("relaties", [])):
+        if x.get("soort") == "Specialization" and x.get("van") == r["objecttype"]:
+            return x["naar"]
+    return None
+
+
 def groepeer(regels):
     """Regels met dezelfde fase, stap en soort worden één blok; ontstaat en verandert samen. Een regel met
     het veld verdieping vormt met zijn gelijken een eigen blok onder dezelfde stap."""
@@ -582,6 +591,8 @@ def groepeer(regels):
             item = {"type": r["objecttype"], "instantie": r["instantie"], "aanname": r.get("aanname", False),
                     "plaat": r.get("plaat", "informatiemodel"), "verwijzingen": [_verwijzing(x, r["objecttype"]) for x in r.get("relaties", [])]}
             _merk_voorstel(item, r)
+            if _specialiseert(r):
+                item["specialiseert"] = _specialiseert(r)
             if r.get("toestand"):
                 item["toestand"] = r["toestand"]
             rel = r.get("relatie")
@@ -596,8 +607,9 @@ def groepeer(regels):
                         item["verwijzing"] = _verwijzing(rel, r["objecttype"])
                 if rel and rel.get("nesting"):
                     def zoek_s(items):
-                        for it in items:
-                            if it.get("type") == rel["van"]:
+                        for it in reversed(items):
+                            # zoals bij ontstaan: een specialisatie erft de nesting van haar generalisatie
+                            if rel["van"] in (it.get("type"), it.get("specialiseert")):
                                 return it
                             g = zoek_s(it.get("kinderen", []))
                             if g is not None:
@@ -652,9 +664,8 @@ def groepeer(regels):
         item = {"type": r["objecttype"], "instantie": r["instantie"], "aanname": r.get("aanname", False),
                 "plaat": r.get("plaat", "informatiemodel"), "verwijzingen": _ver}
         _merk_voorstel(item, r)
-        _rel = r.get("relatie") or {}
-        if _rel.get("soort") == "Specialization" and _rel.get("van") == r["objecttype"]:
-            item["specialiseert"] = _rel["naar"]
+        if _specialiseert(r):
+            item["specialiseert"] = _specialiseert(r)
         if r.get("toestand"):
             # ook een object dat al in een bepaalde rijpheid ontstaat draagt zijn toestand
             item["toestand"] = r["toestand"]

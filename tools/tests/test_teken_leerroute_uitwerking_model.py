@@ -98,6 +98,40 @@ class TekenTests(unittest.TestCase):
         self.assertEqual([k["instantie"] for k in eenheden[1]["kinderen"]], ["D1-K2-W1"])
         self.assertNotIn("kinderen", eenheden[0])
 
+    def test_given_specialization_in_a_flow_when_nested_then_child_lands_in_the_specialization(self):
+        # F6-02: de specificatiestructuur van een keuzedeel stroomt als geheel naar het studentkeuzesysteem
+        stroom = {"beeld_id": "F6-02", "beeld": "Specificatie naar het SKS", "fase": 6, "stap": "Ontsluiten", "soort": "stroomt",
+                  "van": "Onderwijscatalogus", "naar": "Student Keuze Systeem (SKS)", "pijl": "rel-1", "koppeling": None, "bron": "b"}
+        r = {"scope_uitzonderingen": [], "regels": [
+            {**stroom, "objecttype": "Keuzedeel specificatie", "instantie": "K0037",
+             "relatie": {"soort": "Specialization", "van": "Keuzedeel specificatie", "naar": "Opleidingsprogramma specificatie"}},
+            {**stroom, "objecttype": "Onderwijseenheid specificatie", "instantie": "D1-K1",
+             "relatie": {"soort": "Aggregation", "van": "Opleidingsprogramma specificatie", "naar": "Onderwijseenheid specificatie", "nesting": True}},
+            {**stroom, "objecttype": "Leeronderdeel specificatie", "instantie": "Het medicatieoverzicht opstellen",
+             "relatie": {"soort": "Aggregation", "van": "Onderwijseenheid specificatie", "naar": "Leeronderdeel specificatie", "nesting": True}}]}
+        blok = self.blokken(r)[0]
+        self.assertEqual(len(blok["objecten"]), 1)
+        eenheid = blok["objecten"][0]["kinderen"][0]
+        self.assertEqual(eenheid["instantie"], "D1-K1")
+        self.assertEqual([k["instantie"] for k in eenheid["kinderen"]], ["Het medicatieoverzicht opstellen"])
+
+    def test_given_specialization_among_extra_relations_when_nested_then_child_lands_in_the_specialization(self):
+        # F6-04: de verbintenis hangt met 'middels' aan de aanmelding en is daarnaast een specialisatie
+        r = {"scope_uitzonderingen": [], "regels": [
+            {"beeld_id": "F6-04", "beeld": "Jochem kiest", "fase": 6, "stap": "Kiezen", "soort": "ontstaat", "wie": "student",
+             "objecttype": "Aanmelding", "instantie": "Keuze K0037", "bron": "b"},
+            {"beeld_id": "F6-04", "beeld": "Jochem kiest", "fase": 6, "stap": "Kiezen", "soort": "ontstaat", "wie": "student",
+             "objecttype": "Keuzedeel aanbod verbintenis", "instantie": "Jochem op K0037", "bron": "b",
+             "relatie": {"soort": "Association", "van": "Aanmelding", "naar": "Keuzedeel aanbod verbintenis", "label": "middels"},
+             "relaties": [{"soort": "Specialization", "van": "Keuzedeel aanbod verbintenis", "naar": "Opleidingsprogramma aanbod verbintenis"}]},
+            {"beeld_id": "F6-04", "beeld": "Jochem kiest", "fase": 6, "stap": "Kiezen", "soort": "ontstaat", "wie": "student",
+             "objecttype": "Onderwijseenheid aanbod verbintenis", "instantie": "Jochem op D1-K1", "bron": "b",
+             "relatie": {"soort": "Aggregation", "van": "Opleidingsprogramma aanbod verbintenis", "naar": "Onderwijseenheid aanbod verbintenis", "nesting": True}}]}
+        blok = self.blokken(r)[0]
+        verbintenis = next(o for o in blok["objecten"] if o.get("type") == "Keuzedeel aanbod verbintenis")
+        self.assertEqual([k["instantie"] for k in verbintenis.get("kinderen", [])], ["Jochem op D1-K1"])
+        self.assertNotIn("Jochem op D1-K1", [o.get("instantie") for o in blok["objecten"]])
+
     def test_given_state_on_a_created_object_when_drawn_then_state_is_shown(self):
         r = regels()
         r["regels"][0]["toestand"] = "intentie"
