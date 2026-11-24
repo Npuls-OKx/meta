@@ -113,12 +113,16 @@ Hoort bij [de opleiding van Jochem in het informatiemodel](leerroute-uitwerking-
 | 6 | F6-04 | Aanmelding | | | | |
 | 6 | F6-04 | Keuzedeel aanbod verbintenis | | | | |
 | 6 | F6-04 | Onderwijseenheid aanbod verbintenis | | | | |
+| 6 | F6-06 | Planningsgroep | | | | |
 | 6 | F6-06 | Keuzedeel aanbod | | | | |
 | 6 | F6-06 | Onderwijseenheid aanbod | | | | |
+| 6 | F6-06 | Leergelegenheid | | | | |
 | 6 | F6-08 | Inschrijving | | | | |
 | 6 | F6-08 | Keuzedeel aanbod verbintenis | | | | |
 | 6 | F6-08 | Onderwijseenheid aanbod verbintenis | | | | |
 | 6 | F6-13 | Leergelegenheid | | | | |
+| 6 | F6-13 | Lesgelegenheid | | | | |
+| 6 | F6-13 | Lesgroep | | | | |
 | 6 | F6-13 | Leergelegenheid verbintenis | | | | |
 | 7 | F7-01 | Plaatsingsgroep | | | | |
 | 7 | F7-02 | Onderwijseenheid aanbod verbintenis | | | | |

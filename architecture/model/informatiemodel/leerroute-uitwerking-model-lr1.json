@@ -6262,13 +6262,45 @@
       "beeld": "Planner verwerkt de keuzes tot groepen en capaciteit",
       "fase": 6,
       "stap": "Definitieve keuzes verwerken naar groepen en capaciteit",
+      "soort": "bestaat",
+      "objecttype": "Planningsgroep",
+      "instantie": "K0037 periode 7, locatie A: prognose 18 studenten",
+      "herkomst": "F2-08",
+      "bron": "aanwijzing van de opdrachtgever, 24 november 2026"
+    },
+    {
+      "beeld_id": "F6-06",
+      "beeld": "Planner verwerkt de keuzes tot groepen en capaciteit",
+      "fase": 6,
+      "stap": "Definitieve keuzes verwerken naar groepen en capaciteit",
+      "soort": "verandert",
+      "wie": "planner",
+      "objecttype": "Planningsgroep",
+      "instantie": "K0037 periode 7, locatie A: 18 keuzes, de groep past",
+      "toestand": "fijnmazig gepland",
+      "bron": "aanwijzing van de opdrachtgever, 24 november 2026: na de keuzes heroverweegt de planner de groep uit de jaarplanning",
+      "relatie": {
+        "soort": "Association",
+        "van": "Planningsgroep",
+        "naar": "Keuzedeel aanbod",
+        "label": "plant",
+        "voorstel": true,
+        "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A"
+      },
+      "zin": "De planner legt de keuzes naast de planningsgroep uit de jaarplanning (F2-08): 18 keuzes op een prognose van 18, de groep past. Per leergelegenheid liggen nu de onderwijsvorm, het lokaaltype en de docentexpertise vast, vanuit de specificatie. Past het niet, dan stuurt de planner bij: een groep minder of een groep erbij; dat bijsturen hoort bij fase 7. De beelden tonen het voorstel van de opdrachtgever voor vraag 1 in #579, de planningsgroep op het keuzedeel; die vraag blijft open.",
+      "vraag": "Hoe volgen de planningsgroepen uit de plaatsingsgroepen? Op de plaat is een `Planningsgroep` een deel van een `Plaatsingsgroep`; hier hangt zij aan het keuzedeelaanbod, en dat is een voorstel."
+    },
+    {
+      "beeld_id": "F6-06",
+      "beeld": "Planner verwerkt de keuzes tot groepen en capaciteit",
+      "fase": 6,
+      "stap": "Definitieve keuzes verwerken naar groepen en capaciteit",
       "soort": "verandert",
       "wie": "planner",
       "objecttype": "Keuzedeel aanbod",
       "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A: 1 groep, 18 plaatsen",
       "toestand": "fijnmazig gepland",
       "bron": "leerroute-1-regulier.md, Fase 6: de planner verwerkt definitieve keuzes periodiek naar groepen en capaciteit; scenario-1.1-regulier-happyflow.md, blok D (maatvoering uit de review van 29 september 2026)",
-      "zin": "De planner verwerkt de definitieve keuzes periodiek naar groepen en capaciteit, op het keuzedeel en op de onderwijseenheid.",
       "relaties": [
         {
           "soort": "Association",
@@ -6297,6 +6329,47 @@
           "naar": "Onderwijseenheid aanbod",
           "label": "wordt aangeboden als",
           "instantie": "D1-K1 Voert farmaceutische patientenzorg uit"
+        },
+        {
+          "soort": "Association",
+          "van": "Onderwijseenheid aanbod",
+          "naar": "Onderwijslocatie",
+          "label": "wordt gegeven op",
+          "instantie": "Campus Zuid, gebouw C"
+        }
+      ]
+    },
+    {
+      "beeld_id": "F6-06",
+      "beeld": "Planner verwerkt de keuzes tot groepen en capaciteit",
+      "fase": 6,
+      "stap": "Definitieve keuzes verwerken naar groepen en capaciteit",
+      "soort": "verandert",
+      "wie": "planner",
+      "objecttype": "Leergelegenheid",
+      "toestand": "fijnmazig gepland",
+      "instantie": "Het medicatieoverzicht opstellen, periode 7: een groep van 18, onderwijsvorm simulatie in de leerapotheek, lokaaltype leerapotheek, docentexpertise farmacie met baliepraktijk",
+      "bron": "aanwijzing van de opdrachtgever, 24 november 2026; leerroute-1-regulier.md, r726 (gedetailleerd planbaar: leergelegenheden met expertise- en faciliteitkoppelingen)",
+      "relatie": {
+        "soort": "Aggregation",
+        "van": "Onderwijseenheid aanbod",
+        "naar": "Leergelegenheid",
+        "nesting": true
+      },
+      "relaties": [
+        {
+          "soort": "Association",
+          "van": "Leeronderdeel specificatie",
+          "naar": "Leergelegenheid",
+          "label": "wordt aangeboden als",
+          "instantie": "Het medicatieoverzicht opstellen"
+        },
+        {
+          "soort": "Association",
+          "van": "Leergelegenheid",
+          "naar": "Onderwijslocatie",
+          "label": "wordt gegeven op",
+          "instantie": "Campus Zuid, gebouw C"
         }
       ]
     },
@@ -6645,6 +6718,17 @@
       "fase": 6,
       "stap": "Gekozen keuzedeel roosteren en deelnemers delen",
       "soort": "bestaat",
+      "objecttype": "Planningsgroep",
+      "instantie": "K0037 periode 7, locatie A: 18 keuzes, de groep past",
+      "herkomst": "F6-06",
+      "bron": "aanwijzing van de opdrachtgever, 24 november 2026"
+    },
+    {
+      "beeld_id": "F6-13",
+      "beeld": "Roosteraar roostert K0037 voor Jochem",
+      "fase": 6,
+      "stap": "Gekozen keuzedeel roosteren en deelnemers delen",
+      "soort": "bestaat",
       "objecttype": "Onderwijseenheid aanbod verbintenis",
       "instantie": "Jochem op D1-K1, periode 7",
       "herkomst": "F6-08",
@@ -6659,10 +6743,9 @@
       "soort": "verandert",
       "wie": "roosteraar",
       "objecttype": "Leergelegenheid",
-      "instantie": "Het medicatieoverzicht opstellen, periode 7: donderdagmiddag, leerapotheek, docent 4711",
       "toestand": "geroosterd",
+      "instantie": "Het medicatieoverzicht opstellen, periode 7: elke donderdag 13:00 tot 16:00, docent 4711",
       "bron": "sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen); geen bron, keuze van het voorbeeld: dag, lokaal en docent",
-      "zin": "De roosteraar roostert de leergelegenheden van K0037. Jochem krijgt een verbintenis op de leergelegenheid, onder zijn verbintenis op de onderwijseenheid, en komt in een lesgroep. Dat het donderdag wordt, wist hij bij de keuze nog niet: hij koos op het aanbod bij planning.",
       "relaties": [
         {
           "soort": "Association",
@@ -6670,6 +6753,42 @@
           "naar": "Leergelegenheid",
           "label": "wordt aangeboden als",
           "instantie": "Het medicatieoverzicht opstellen"
+        }
+      ],
+      "zin": "De roosteraar groepeert alle Jochems uit de planningsgroep tot een lesgroep, en roostert de leergelegenheid op een lokaal en een docent: elke donderdag op lokaal C2.14 in vleugel B van gebouw C. De locatie heeft een soort (campus, gebouw, vleugel, lokaal), zoals OEAPI die voorstelt. Jochem krijgt een verbintenis op de leergelegenheid, onder zijn verbintenis op de onderwijseenheid. Dat het donderdag wordt, wist hij bij de keuze nog niet."
+    },
+    {
+      "beeld_id": "F6-13",
+      "beeld": "Roosteraar roostert K0037 voor Jochem",
+      "fase": 6,
+      "stap": "Gekozen keuzedeel roosteren en deelnemers delen",
+      "soort": "ontstaat",
+      "wie": "roosteraar",
+      "objecttype": "Lesgelegenheid",
+      "instantie": "Les 1, donderdag 13:00 tot 16:00, week 1 van periode 7",
+      "nieuwe_instantie": true,
+      "bron": "aanwijzing van de opdrachtgever, 24 november 2026; voorstel locatie in OEAPI, open-education-api/specification#635: campus, gebouw, vleugel, lokaal",
+      "relatie": {
+        "soort": "Aggregation",
+        "van": "Leergelegenheid",
+        "naar": "Lesgelegenheid",
+        "nesting": true
+      },
+      "relaties": [
+        {
+          "soort": "Association",
+          "van": "Lesgelegenheid",
+          "naar": "Onderwijslocatie",
+          "label": "wordt gegeven op",
+          "instantie": "lokaal C2.14 (leerapotheek), vleugel B, gebouw C, Campus Zuid"
+        },
+        {
+          "soort": "Association",
+          "van": "Medewerker",
+          "naar": "Lesgelegenheid",
+          "label": "verzorgt",
+          "voorstel": true,
+          "instantie": "docent 4711, farmacie met baliepraktijk"
         }
       ]
     },
@@ -6680,10 +6799,40 @@
       "stap": "Gekozen keuzedeel roosteren en deelnemers delen",
       "soort": "ontstaat",
       "wie": "roosteraar",
+      "objecttype": "Lesgroep",
+      "instantie": "K0037-P7-A: 18 studenten uit drie plaatsingsgroepen",
+      "bron": "aanwijzing van de opdrachtgever, 24 november 2026: de roosteraar groepeert de studenten tot lesgroepen en koppelt ze aan locatie en docent",
+      "relaties": [
+        {
+          "soort": "Association",
+          "van": "Planningsgroep",
+          "naar": "Lesgroep",
+          "label": "vormt",
+          "voorstel": true,
+          "instantie": "K0037 periode 7, locatie A: 18 keuzes, de groep past"
+        },
+        {
+          "soort": "Association",
+          "van": "Lesgroep",
+          "naar": "Lesgelegenheid",
+          "label": "volgt",
+          "voorstel": true,
+          "instantie": "Les 1, donderdag 13:00 tot 16:00, week 1 van periode 7"
+        }
+      ],
+      "vraag": "De plaat kent geen relatie van de planningsgroep naar de lesgroep, en geen van de lesgroep of de docent naar de lesgelegenheid. Horen die erbij, of loopt het via de verbintenis?"
+    },
+    {
+      "beeld_id": "F6-13",
+      "beeld": "Roosteraar roostert K0037 voor Jochem",
+      "fase": 6,
+      "stap": "Gekozen keuzedeel roosteren en deelnemers delen",
+      "soort": "ontstaat",
+      "wie": "roosteraar",
       "objecttype": "Leergelegenheid verbintenis",
       "instantie": "Jochem op Het medicatieoverzicht opstellen, periode 7",
-      "bron": "sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen)",
       "nieuwe_instantie": true,
+      "bron": "sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen); geen bron, keuze van het voorbeeld: dag, lokaal en docent",
       "relatie": {
         "soort": "Association",
         "van": "Leergelegenheid",
