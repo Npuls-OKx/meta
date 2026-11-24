@@ -146,6 +146,27 @@ class HerkomstTests(unittest.TestCase):
         self.assertTrue(any("herkomst hoort bij een bestaat-regel" in x for x in b), b)
 
 
+class RelatieVoorstelTests(unittest.TestCase):
+    """Een relatie die de plaat niet kent, kan als voorstel staan zonder dat het object een voorstel wordt."""
+
+    def regels_met(self, voorstel):
+        r = regels()
+        rel = {"soort": "Association", "van": "Lesgelegenheid", "naar": "Opleidingaanbod", "label": "plant"}
+        if voorstel:
+            rel["voorstel"] = True
+        r["regels"][5]["relaties"] = [rel]
+        return r
+
+    def test_given_relation_not_on_the_plate_marked_as_proposal_when_checked_then_signal_and_no_finding(self):
+        b, w, _ = bevindingen(self.regels_met(True))
+        self.assertEqual(b, [])
+        self.assertTrue(any("(voorstel)" in x and "Lesgelegenheid" in x for x in w), w)
+
+    def test_given_relation_not_on_the_plate_without_proposal_when_checked_then_finding(self):
+        b, _, _ = bevindingen(self.regels_met(False))
+        self.assertTrue(any("staat niet op de plaat" in x for x in b), b)
+
+
 class ControleTests(unittest.TestCase):
     def test_given_valid_table_when_checked_then_no_findings(self):
         b, w, o = bevindingen()

@@ -239,6 +239,16 @@ class TekenTests(unittest.TestCase):
         self.assertIn("Leergelegenheid hangt aan: Medicatieoverzicht, periode 7",
                       teksten(f'<svg xmlns="http://www.w3.org/2000/svg">{svg}</svg>'))
 
+    def test_given_relation_proposal_when_grouped_then_reference_marked_and_object_not_a_proposal(self):
+        r = {"scope_uitzonderingen": [], "regels": [
+            {"beeld_id": "F2-08", "beeld": "Plannen", "fase": 2, "stap": "Plannen", "soort": "ontstaat", "wie": "planner",
+             "objecttype": "Planningsgroep", "instantie": "K0037 periode 7", "bron": "b",
+             "relatie": {"soort": "Association", "van": "Planningsgroep", "naar": "Keuzedeel aanbod", "label": "plant", "voorstel": True}}]}
+        item = self.blokken(r)[0]["objecten"][0]
+        self.assertIn("plant Keuzedeel aanbod (voorstel)", item.get("verwijzing", ""))
+        self.assertFalse(item.get("aanname"))
+        self.assertNotIn(tv.VOORSTEL_MERK, item.get("verwijzingen", []))
+
     def test_given_state_on_a_created_object_when_drawn_then_state_is_shown(self):
         r = regels()
         r["regels"][0]["toestand"] = "intentie"

@@ -130,7 +130,8 @@
             "naar": {"type": "string"},
             "label": {"type": "string"},
             "instantie": {"type": "string", "description": "de instantie aan het andere eind, getoond in de verwijzing als het andere eind buiten het blok staat"},
-            "nesting": {"type": "boolean", "default": false, "description": "het object staat in het beeld binnen het andere eind getekend; alleen op een aggregatie of compositie, en nooit in relaties"}
+            "nesting": {"type": "boolean", "default": false, "description": "het object staat in het beeld binnen het andere eind getekend; alleen op een aggregatie of compositie, en nooit in relaties"},
+            "voorstel": {"type": "boolean", "default": false, "description": "alleen deze relatie staat nog niet op de plaat: de controle geeft een signalering in plaats van een bevinding, en het beeld zet (voorstel) achter de relatie; het object zelf blijft gewoon"}
           },
           "additionalProperties": false
         },
@@ -145,7 +146,8 @@
               "van": {"type": "string"},
               "naar": {"type": "string"},
               "label": {"type": "string"},
-              "instantie": {"type": "string"}
+              "instantie": {"type": "string"},
+              "voorstel": {"type": "boolean", "default": false, "description": "alleen deze relatie staat nog niet op de plaat; zie voorstel bij relatie"}
             },
             "additionalProperties": false
           }

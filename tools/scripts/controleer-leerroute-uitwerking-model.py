@@ -477,9 +477,11 @@ def controleer(regels, model, stromen=None, fasen_filter=None, model_commit=None
         if isinstance(rel, dict) and all(k in rel for k in ("soort", "van", "naar")):
             sleutel = (rel["soort"], norm(rel["van"]), norm(rel["naar"]))
             if sleutel not in plaat_relaties:
-                (waarschuwingen if voorstel else bevindingen).append(
+                # een relatie kan ook op zichzelf een voorstel zijn, terwijl het object op de plaat staat
+                vs = voorstel or bool(rel.get("voorstel"))
+                (waarschuwingen if vs else bevindingen).append(
                     f"{plek}: relatie {rel['soort']} van {rel['van']!r} naar {rel['naar']!r} staat niet op {plaatnaam}"
-                    + (" (voorstel)" if voorstel else ""))
+                    + (" (voorstel)" if vs else ""))
             elif rel.get("label") and plaat_relaties[sleutel] != rel["label"]:
                 bevindingen.append(f"{plek}: relatielabel {rel['label']!r} wijkt af van {plaatnaam} ({plaat_relaties[sleutel]!r})")
             if rel.get("nesting") and rel["soort"] not in NESTING:
@@ -489,9 +491,10 @@ def controleer(regels, model, stromen=None, fasen_filter=None, model_commit=None
                 continue
             sleutel = (x["soort"], norm(x["van"]), norm(x["naar"]))
             if sleutel not in plaat_relaties:
-                (waarschuwingen if voorstel else bevindingen).append(
+                vs = voorstel or bool(x.get("voorstel"))
+                (waarschuwingen if vs else bevindingen).append(
                     f"{plek}: relatie {x['soort']} van {x['van']!r} naar {x['naar']!r} (relaties) staat niet op {plaatnaam}"
-                    + (" (voorstel)" if voorstel else ""))
+                    + (" (voorstel)" if vs else ""))
             elif x.get("label") and plaat_relaties[sleutel] != x["label"]:
                 bevindingen.append(f"{plek}: relatielabel {x['label']!r} (relaties) wijkt af van {plaatnaam} ({plaat_relaties[sleutel]!r})")
             if naam not in (norm(x["van"]), norm(x["naar"])):

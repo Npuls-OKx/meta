@@ -837,12 +837,21 @@ def regel_stroomt(blok, uitzonderingen):
 STANDAARDLABEL = {"Specialization": "is een", "Aggregation": "bevat", "Composition": "bevat"}
 
 
+def _lab(rel):
+    """Het label van een relatie zoals het beeld het toont: met (voorstel) als alleen de relatie een voorstel is."""
+    label = rel.get("label") or ""
+    return f"{label} (voorstel)".strip() if rel.get("voorstel") else label
+
+
 def _verwijzing(rel, objecttype):
     """De tekst van een verwijzing: het label van de plaat (of een standaardlabel) en het andere eind,
-    in leesrichting; met de instantie aan het andere eind als de regel die geeft."""
+    in leesrichting; met de instantie aan het andere eind als de regel die geeft. Een relatie die zelf een
+    voorstel is, draagt (voorstel) achter het andere eind."""
     ander = rel["naar"] if rel["van"] == objecttype else rel["van"]
     label = rel.get("label") or STANDAARDLABEL.get(rel["soort"], "hangt aan")
     tekst = f"{label} {ander}" if rel["van"] == objecttype else f"{ander} {label}"
+    if rel.get("voorstel"):
+        tekst += " (voorstel)"
     return f"{tekst}: {rel['instantie']}" if rel.get("instantie") else tekst
 
 
@@ -891,7 +900,7 @@ def _herkomstlijn(blok, r, x):
     if bron is None:
         return False
     blok["herkomstlijnen"].append({"bron": (bron["type"], bron["instantie"]), "doel": (r["objecttype"], r["instantie"]),
-                                   "soort": x["soort"], "label": x.get("label") or "",
+                                   "soort": x["soort"], "label": _lab(x),
                                    "naar_rechts": x["naar"] == r["objecttype"]})
     return True
 
@@ -918,7 +927,7 @@ def groepeer(regels):
                 if rel and not rel.get("nesting"):
                     ander = rel["naar"] if rel["van"] == r["objecttype"] else rel["van"]
                     if ander in in_blok_s:
-                        laatste["objecten"].append({"relatie": rel.get("label") or "", "soort": rel["soort"], "naar_rechts": rel["naar"] == r["objecttype"], "ander": ander,
+                        laatste["objecten"].append({"relatie": _lab(rel), "soort": rel["soort"], "naar_rechts": rel["naar"] == r["objecttype"], "ander": ander,
                                                     "ander_instantie": rel.get("instantie")})
                     else:
                         item["verwijzing"] = _verwijzing(rel, r["objecttype"])
@@ -997,7 +1006,7 @@ def groepeer(regels):
                 continue
             _ander = x["naar"] if x["van"] == r["objecttype"] else x["van"]
             if _ander in _reeds and _de_moeite(laatste["objecten"] + _omweg, _ander, x.get("label")):
-                _omweg.append({"relatie": x.get("label") or "", "soort": x["soort"],
+                _omweg.append({"relatie": _lab(x), "soort": x["soort"],
                                "naar_rechts": x["naar"] == r["objecttype"], "ander": _ander, "over_afstand": True})
             else:
                 _ver.append(_verwijzing(x, r["objecttype"]))
@@ -1037,10 +1046,10 @@ def groepeer(regels):
             ander = rel["naar"] if rel["van"] == r["objecttype"] else rel["van"]
             if ander in in_blok:
                 # het andere eind staat ernaast in dit blok: relatielijn ertussen; naar_rechts als dit object het doel is
-                laatste["objecten"].append({"relatie": rel.get("label") or "", "soort": rel["soort"], "naar_rechts": rel["naar"] == r["objecttype"], "ander": ander})
+                laatste["objecten"].append({"relatie": _lab(rel), "soort": rel["soort"], "naar_rechts": rel["naar"] == r["objecttype"], "ander": ander})
             elif ander in _types_in_blok(laatste["objecten"]) and _de_moeite(laatste["objecten"], ander, rel.get("label")):
                 # het andere eind staat verder terug in dit blok: een lijn met een omweg in plaats van een verwijzing
-                laatste["objecten"].append({"relatie": rel.get("label") or "", "soort": rel["soort"], "naar_rechts": rel["naar"] == r["objecttype"], "ander": ander, "over_afstand": True})
+                laatste["objecten"].append({"relatie": _lab(rel), "soort": rel["soort"], "naar_rechts": rel["naar"] == r["objecttype"], "ander": ander, "over_afstand": True})
             else:
                 item["verwijzing"] = _verwijzing(rel, r["objecttype"])
         laatste["objecten"].append(item)
