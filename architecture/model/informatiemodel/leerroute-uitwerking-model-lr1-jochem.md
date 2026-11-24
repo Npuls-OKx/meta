@@ -524,7 +524,7 @@ De gemarkeerde lijnen zijn de stromen die deze fase raakt, met het beeld waarin 
 
 ### Variant capaciteitsgestuurd
 
-In deze vorm is de capaciteit vooraf gepland op de meerjarencapaciteitsplanning, in twee groepen (F2-C01). De keuze in F6-04 geldt hier als animo, en de animocheck (F6-C01) toetst die capaciteitsplanning. De keuze valt op de onderwijseenheid, net als in de basis. F6-07 neemt de uitkomst van de animocheck mee, en F6-10 geldt ook hier.
+In deze vorm is de capaciteit vooraf gepland op de meerjarencapaciteitsplanning (F2-C01). De keuze in F6-04 geldt hier als animo, en de animocheck (F6-C01) toetst die capaciteitsplanning. De keuze valt op de onderwijseenheid, net als in de basis. F6-07 neemt de uitkomst van de animocheck mee, en F6-10 geldt ook hier.
 
 Hieraan gaan vooraf: [F6-01](#f6-01---planner-maakt-het-keuzedeelaanbod-per-laag), [F6-02](#f6-02---onderwijscatalogus-ontsluit-specificatie-en-keuzeregels-naar-het-studentkeuzesysteem), [F6-03](#f6-03---planningssysteem-ontsluit-het-geplande-aanbod-naar-het-studentkeuzesysteem), [F6-04](#f6-04---jochem-kiest-keuzedeel-k0037), [F6-05](#f6-05---studentkeuzesysteem-stuurt-jochems-verbintenissen-op-k0037-naar-het-planningssysteem).
 
@@ -785,17 +785,18 @@ De vragen die de regels zelf oproepen, met de regel waar de vraag zichtbaar word
 15. De pijl van de catalogus naar het studentkeuzesysteem heet op de hoofdplaat 'Opleidingsprogramma aanbod', terwijl in de sessie van 17 november besloten is dat over deze lijn de specificatie en de regelset gaan. Hoort het label naar de specificatie? (F6-02, `Keuzedeel specificatie`)
 16. De pijl van planning naar het studentkeuzesysteem noemt 'geplande leergelegenheden', terwijl de student bij planning kiest op programma en onderwijseenheid. Welke laag hoort in het label? (F6-03, `Keuzedeel aanbod`)
 17. Welk systeem start het keuzemoment van een student? Planning is het enige systeem met een notie van onderwijsperiode, het keuzesysteem beheert de regels, en de SLB'er heeft in de praktijk een evaluatierol. Starten op de plaatsingsgroep houdt het verkeer laag; starten per student levert groepen van één student op. (F6-07, `Keuzedeel aanbod`)
-18. Planning bevestigt de verbintenis direct na de keuze, over een lijn die de hoofdplaat niet kent. De plaat brengt de verbintenis met de planningsgroep na het roosteren terug, van het roostersysteem naar het studentkeuzesysteem (id-7a7e0a17). Welke route klopt, of horen ze allebei? (F6-09, `Keuzedeel aanbod verbintenis`)
+18. Planning bevestigt de verbintenis direct na de keuze, over een lijn die de hoofdplaat niet kent. Na het roosteren meldt het roostersysteem haar alsnog over een lijn die de plaat wel kent (F6-15). Is die eerste bevestiging nodig? (F6-09, `Keuzedeel aanbod verbintenis`)
 19. De hoofdplaat kent geen lijn van de kernregistratie naar het studentvolgsysteem, wel een van het studentkeuzesysteem naar het studentvolgsysteem (id-3aefce69). Welk systeem meldt de verwachting: de kernregistratie die de inschrijving vastlegt, of het studentkeuzesysteem waar de keuze ontstaat? (F6-11, `Keuzedeel aanbod verbintenis`)
 20. Op de plaat is `Planningsgroep` een deel (compositie) van één `Plaatsingsgroep`, en de begrippenlijst noemt haar een opdeling daarvan. Een keuzedeelgroep brengt studenten uit drie plaatsingsgroepen samen, en dat past bij `Lesgroep`. Welk objecttype gaat er naar het rooster? Voorstel van de opdrachtgever: de `Planningsgroep` hangt hoger, aan het hele keuzedeel of de onderwijseenheid, en per leergelegenheid ontstaat een `Lesgroep`. (F6-12, `Planningsgroep`)
-21. Het LMS krijgt de lesgroep via het studentkeuzesysteem, langs lijnen die de hoofdplaat kent. Het roostersysteem is de bron van de lesgroep. Is een directe lijn van het roostersysteem naar het LMS beter? (F6-16, `Student`)
+21. De pijlen van F6-15 en F6-16 noemen op de hoofdplaat de planningsgroep; het voorbeeld stuurt de lesgroep. Welke groep gaat erover? Zie ook de vraag bij F6-12. (F6-15, `Lesgroep`)
 
 ### Vragen, vervolg (4 van 4)
 
-22. Gaat maatwerkaanbod voor een specifieke groep achterblijvers terug naar de catalogus? Het voorbeeld publiceert het bijgestuurde aanbod, zodat de catalogus de bron blijft, en bij een maatwerkprogramma voor een handvol studenten is de waarde daarvan de vraag. (F7-05, `Onderwijseenheid aanbod`)
-23. Examinering kent objecten en rollen die de informatiemodelplaat niet draagt: zitting, zittingsrapport en examendossier, en de rollen surveillant, beoordelaar en examenbureaumedewerker. Dit voorbeeld toont ze gestippeld, want OKx heeft ze nodig voor de verantwoording en uitwisseling naar de kernregistratie, en juist die stap behandelt OKE niet. Horen zij als uitbreiding op de plaat? (F8-05, `Examendossier`)
+22. Het LMS krijgt de lesgroep via het studentkeuzesysteem, langs lijnen die de hoofdplaat kent. Het roostersysteem is de bron van de lesgroep. Is een directe lijn van het roostersysteem naar het LMS beter? (F6-16, `Student`)
+23. Gaat maatwerkaanbod voor een specifieke groep achterblijvers terug naar de catalogus? Het voorbeeld publiceert het bijgestuurde aanbod, zodat de catalogus de bron blijft, en bij een maatwerkprogramma voor een handvol studenten is de waarde daarvan de vraag. (F7-05, `Onderwijseenheid aanbod`)
+24. Examinering kent objecten en rollen die de informatiemodelplaat niet draagt: zitting, zittingsrapport en examendossier, en de rollen surveillant, beoordelaar en examenbureaumedewerker. Dit voorbeeld toont ze gestippeld, want OKx heeft ze nodig voor de verantwoording en uitwisseling naar de kernregistratie, en juist die stap behandelt OKE niet. Horen zij als uitbreiding op de plaat? (F8-05, `Examendossier`)
 
-De eerste 7 vragen gaan als ronde mee naar de kerngroep; dat is wat een sessie kan wegen. De overige 16 staan hierboven en wachten op een volgende ronde.
+De eerste 7 vragen gaan als ronde mee naar de kerngroep; dat is wat een sessie kan wegen. De overige 17 staan hierboven en wachten op een volgende ronde.
 
 Vragen over patronen, schema's, de toetslijst en endpoints horen bij de koppelvlakspecificatie en staan hier niet.
 

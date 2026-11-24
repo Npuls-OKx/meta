@@ -6116,7 +6116,7 @@
           "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A"
         }
       ],
-      "zin": "De keuze gaat als verbintenis op het keuzedeel en op de onderwijseenheid naar planning. De hoofdplaat noemt deze lijn ook voor animo op nog ongepland aanbod, omdat zij meer leerroutes draagt; in leerroute 1 gaat het hier om gepland aanbod."
+      "zin": "De keuze gaat als verbintenis op het keuzedeel en op de onderwijseenheid naar planning. De hoofdplaat noemt deze lijn voor animo op nog ongepland aanbod; in leerroute 1 gaat er de keuze op gepland aanbod over."
     },
     {
       "beeld_id": "F6-05",
@@ -6326,7 +6326,7 @@
         }
       ],
       "zin": "Planning bevestigt het studentkeuzesysteem dat Jochem is ingeschreven, met de verbintenis op het keuzedeel en op de onderwijseenheid.",
-      "vraag": "Planning bevestigt de verbintenis direct na de keuze, over een lijn die de hoofdplaat niet kent. De plaat brengt de verbintenis met de planningsgroep na het roosteren terug, van het roostersysteem naar het studentkeuzesysteem (id-7a7e0a17). Welke route klopt, of horen ze allebei?"
+      "vraag": "Planning bevestigt de verbintenis direct na de keuze, over een lijn die de hoofdplaat niet kent. Na het roosteren meldt het roostersysteem haar alsnog over een lijn die de plaat wel kent (F6-15). Is die eerste bevestiging nodig?"
     },
     {
       "beeld_id": "F6-09",
@@ -6689,7 +6689,8 @@
         "naar": "Lesgroep",
         "label": "Groepeert tot",
         "instantie": "Jochem op Het medicatieoverzicht opstellen, periode 7"
-      }
+      },
+      "vraag": "De pijlen van F6-15 en F6-16 noemen op de hoofdplaat de planningsgroep; het voorbeeld stuurt de lesgroep. Welke groep gaat erover? Zie ook de vraag bij F6-12."
     },
     {
       "beeld_id": "F6-16",
