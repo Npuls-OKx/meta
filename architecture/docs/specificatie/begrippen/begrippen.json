@@ -36,7 +36,7 @@
           "uitkomst": "nog niet onderzocht"
         }
       },
-      "definitie": "Het geheel van landelijk vastgestelde eisen waaraan een opleiding moet voldoen. Vastgesteld en beheerd buiten OKx",
+      "definitie": "Het geheel van landelijk vastgestelde eisen waaraan een opleiding moet voldoen, voor het middelbaar en het hoger onderwijs. Vastgesteld en beheerd buiten OKx",
       "vindplaats": "architecture/model/informatiemodel/informatiemodel.md#begrippenfamilies",
       "bron_soort": "okx-document",
       "status": "gedefinieerd",
@@ -277,7 +277,7 @@
       "varianten": []
     },
     {
-      "naam": "Cohort / periode",
+      "naam": "Cohort",
       "niveau": 2,
       "familie": "Buiten de kolommen",
       "in_informatiemodel": true,
@@ -892,7 +892,7 @@
           "uitkomst": "nog niet onderzocht"
         }
       },
-      "definitie": "Een keuzedeelruimte is een oningevuld keuzedeel: onderwijskundig vrijgemaakte ruimte van een bepaalde omvang waarin een student een keuzedeel kiest.",
+      "definitie": "Een keuzedeelruimte is onderwijskundig vrijgemaakte ruimte van een bepaalde omvang waarin een student een keuzedeel kiest",
       "vindplaats": "architecture/model/informatiemodel/informatiemodel.md#ontwerpkeuzes",
       "bron_soort": "okx-document",
       "status": "gedefinieerd",
@@ -2020,6 +2020,39 @@
       }
     },
     {
+      "oeapi": [
+        "Programme"
+      ],
+      "naam": "Nominale Leerroute",
+      "niveau": 2,
+      "familie": "Onderwijsspecificatie",
+      "in_informatiemodel": true,
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "nominale leerroute, leerroute, studieroute, leerpad, studieprogramma, onderwijsprogramma. ROSA kent `Leerroute` als de weg die een onderwijsdeelnemer persoonlijk aflegt, en geen vooraf geordende route. Opgehaald 2026-11-23."
+        },
+        "MORA": {
+          "uitkomst": "tegenhanger",
+          "begrip": "Onderwijs programma",
+          "url": "https://mora.mbodigitaal.nl/index.php/Id-3a7bb8e1-5748-3381-24f6-43c98479fe35",
+          "citaat": "Een planbaar geheel van opleidingsonderdelen, met daarbij aanvullende informatie over hoe deze door de student kunnen worden gevolgd. Het onderwijsprogramma beschrijft één of meerdere standaard leerroutes die model staan voor de persoonlijke leerroute en beschrijft welke keuzevrijheid de student daarin heeft",
+          "verbijzondering": "MORA noemt de standaard leerroute als iets wat het onderwijsprogramma beschrijft, en de nominale leerroute als gegeven van dat programma, zonder eigen definitie. OKx maakt er een eigen objecttype van, zodat de specificatie zelf geen beoogd aanbodmoment draagt. Opgehaald 2026-11-23."
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
+      "definitie": "Een nominale leerroute is de ordening in de tijd van de onderdelen van een onderwijsspecificatiestructuur, voor een bepaalde opleiding, leerroute (BOL/BBL) en een bepaald instroommoment",
+      "vindplaats": "architecture/model/informatiemodel/informatiemodel.md#ontwerpkeuzes",
+      "bron_soort": "okx-document",
+      "status": "gedefinieerd",
+      "herkomst": "verbijzondering van `Onderwijs programma` (MORA)",
+      "varianten": [
+        "nominale leerroute"
+      ]
+    },
+    {
       "naam": "Organisatie-eenheid",
       "niveau": 2,
       "familie": "Buiten de kolommen",
@@ -2125,6 +2158,70 @@
       "herkomst": "nieuw voor OKx",
       "varianten": [
         "plaatsingsgroep"
+      ]
+    },
+    {
+      "oeapi": [
+        "Group"
+      ],
+      "naam": "Planningsgroep",
+      "niveau": 2,
+      "familie": "Onderwijsverbintenis",
+      "in_informatiemodel": true,
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "planningsgroep, plangroep, roostergroep, stamgroep. ROSA 1.1 kent `Stamgroep` als groepstype, een mentor- of studiegroep en geen opdeling voor een roostermoment. Opgehaald 2026-11-23."
+        },
+        "MORA": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "planningsgroep, plangroep, roostergroep, stamgroep. Opgehaald 2026-11-23."
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
+      "definitie": "Een planningsgroep is een opdeling van een plaatsingsgroep voor een roosterbaar moment, wanneer de plaatsingsgroep niet in een keer past binnen de capaciteit van ruimte, begeleiding of middelen",
+      "vindplaats": "architecture/model/informatiemodel/informatiemodel.md#ontwerpkeuzes",
+      "bron_soort": "okx-document",
+      "status": "gedefinieerd",
+      "herkomst": "nieuw voor OKx",
+      "varianten": [
+        "planningsgroep",
+        "planninggroep"
+      ]
+    },
+    {
+      "oeapi": [
+        "Group"
+      ],
+      "naam": "Lesgroep",
+      "niveau": 2,
+      "familie": "Onderwijsverbintenis",
+      "in_informatiemodel": true,
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "tegenhanger",
+          "begrip": "Lesgroep (groepstype, ROSA 1.1)",
+          "url": "https://rosa.wikixl.nl/index.php/Rosa_1.1/doc/attribuutsoort/groep_typen.lesgroep",
+          "citaat": "Groep onderwijsdeelnemers en/of medewerkers, gegroepeerd o.b.v. gemeenschappelijke les.",
+          "verbijzondering": "ROSA kent de lesgroep als waarde van een groepstype. OKx maakt er een objecttype van dat verbintenissen op een leergelegenheid groepeert, en legt vast dat de studenten erin niet dezelfde onderwijsspecificatie hoeven te volgen. Opgehaald 2026-11-23."
+        },
+        "MORA": {
+          "uitkomst": "geen tegenhanger gevonden",
+          "zoekterm": "lesgroep, klas, groep, onderwijsgroep. Opgehaald 2026-11-23."
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
+      "definitie": "Een lesgroep is een groep studenten die op hetzelfde moment leergelegenheden volgen; zij hoeven daarvoor niet dezelfde onderwijsspecificatie te volgen",
+      "vindplaats": "architecture/model/informatiemodel/informatiemodel.md#ontwerpkeuzes",
+      "bron_soort": "okx-document",
+      "status": "gedefinieerd",
+      "herkomst": "verbijzondering van `Lesgroep` (ROSA-KOI)",
+      "varianten": [
+        "lesgroep"
       ]
     },
     {
@@ -2577,6 +2674,87 @@
       "status": "nog te definieren",
       "herkomst": "toegevoegd met het kwalificatiekader van het hoger onderwijs (#318, #320)",
       "varianten": []
+    },
+    {
+      "oeapi": [
+        "Programme"
+      ],
+      "naam": "Keuzedeel specificatie",
+      "niveau": 2,
+      "familie": "Onderwijsspecificatie",
+      "in_informatiemodel": true,
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "nog niet onderzocht"
+        },
+        "MORA": {
+          "uitkomst": "nog niet onderzocht"
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
+      "definitie": null,
+      "vindplaats": null,
+      "bron_soort": null,
+      "status": "nog te definieren",
+      "herkomst": "toegevoegd in de modelronde van november 2026",
+      "varianten": [
+        "keuzedeel specificatie"
+      ]
+    },
+    {
+      "oeapi": [
+        "Programme"
+      ],
+      "naam": "Minor specificatie",
+      "niveau": 2,
+      "familie": "Onderwijsspecificatie",
+      "in_informatiemodel": true,
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "nog niet onderzocht"
+        },
+        "MORA": {
+          "uitkomst": "nog niet onderzocht"
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
+      "definitie": null,
+      "vindplaats": null,
+      "bron_soort": null,
+      "status": "nog te definieren",
+      "herkomst": "toegevoegd in de modelronde van november 2026",
+      "varianten": [
+        "minor specificatie"
+      ]
+    },
+    {
+      "naam": "Kwalificatiestructuur SBB",
+      "niveau": 2,
+      "familie": "Kwalificatiekader",
+      "in_informatiemodel": true,
+      "kaders": {
+        "ROSA-KOI": {
+          "uitkomst": "nog niet onderzocht"
+        },
+        "MORA": {
+          "uitkomst": "nog niet onderzocht"
+        },
+        "HORA": {
+          "uitkomst": "nog niet onderzocht"
+        }
+      },
+      "definitie": null,
+      "vindplaats": null,
+      "bron_soort": null,
+      "status": "nog te definieren",
+      "herkomst": "toegevoegd in de modelronde van november 2026",
+      "varianten": [
+        "kwalificatiestructuur sbb"
+      ]
     }
   ],
   "negeerlijst": [

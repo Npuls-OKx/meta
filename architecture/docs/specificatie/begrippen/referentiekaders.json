@@ -261,6 +261,12 @@
           "naam": "onderwijsresultaat (koi)",
           "url": "https://rosa.wikixl.nl/index.php/Id-e5d21e5384c0482ba4a501571e69927a",
           "definitie": "Vastgelegde en geformaliseerde beoordeling op basis van een of meer leerresultaten."
+        },
+        {
+          "naam": "Lesgroep (groepstype, ROSA 1.1)",
+          "url": "https://rosa.wikixl.nl/index.php/Rosa_1.1/doc/attribuutsoort/groep_typen.lesgroep",
+          "definitie": "Groep onderwijsdeelnemers en/of medewerkers, gegroepeerd o.b.v. gemeenschappelijke les.",
+          "opgehaald": "2026-11-23"
         }
       ]
     },
