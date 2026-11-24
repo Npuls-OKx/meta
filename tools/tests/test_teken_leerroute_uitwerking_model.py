@@ -223,6 +223,27 @@ class TekenTests(unittest.TestCase):
         self.assertEqual(y_van["D1-K1"], y_van["D1-K1, periode 7"])
         self.assertLess(x_van["K0037"], x_van["K0037, periode 7"])
 
+    def test_given_pairs_out_of_order_when_drawn_then_left_column_stacked_inside_its_panel(self):
+        # twee bestaande objecten waarvan de paren rechts in omgekeerde volgorde staan: geen uitlijning,
+        # maar de kolom links blijft onder elkaar en binnen haar vlak
+        r = self.herkomstregels()
+        b = {k: r["regels"][1][k] for k in ("beeld_id", "beeld", "fase", "stap", "bron")}
+        r["regels"].insert(1, {**b, "soort": "bestaat", "objecttype": "Planningsgroep", "instantie": "PG", "herkomst": "F1-08"})
+        r["regels"].insert(0, {"beeld_id": "F1-08", "beeld": "Keuzedeel ontworpen", "fase": 1, "stap": "Keuzedeel vormgeven", "bron": "b",
+                               "soort": "ontstaat", "wie": "planner", "objecttype": "Planningsgroep", "instantie": "PG"})
+        r["regels"][-1]["relaties"] = r["regels"][-1].get("relaties", []) + [
+            {"soort": "Association", "van": "Planningsgroep", "naar": "Onderwijseenheid aanbod", "label": "plant", "voorstel": True, "instantie": "PG"}]
+        blok = [x for x in self.blokken(r) if x.get("beeld_id") == "F6-01"][0]
+        svg = tv.regel_ontstaat(blok, set())
+        root = ET.fromstring(svg)
+        vlak = {x.get("class"): x for x in root.iter(f"{SVG}rect") if x.get("class")}
+        rand = float(vlak["vlak-eerder"].get("x")) + float(vlak["vlak-eerder"].get("width"))
+        links = [x for x in root.iter(f"{SVG}rect") if x.get("fill") == tv.BUS and x.get("rx") == "0"
+                 and float(x.get("x")) < float(vlak["vlak-hier"].get("x"))]
+        self.assertTrue(links)
+        for x in links:
+            self.assertLessEqual(float(x.get("x")) + float(x.get("width")), rand)
+
     def test_given_herkomst_beeld_unknown_when_drawn_then_chip_per_object(self):
         svg = tv.regel_ontstaat(self.herkomstblok(met_herkomstbeeld=False), set())
         t = teksten(svg)

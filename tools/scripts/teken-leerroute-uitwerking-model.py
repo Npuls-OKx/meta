@@ -727,7 +727,8 @@ def _regel_herkomst(blok, uitzonderingen):
         rw = max([_maat(it)[0] for it in blok["objecten"] if "type" in it] + [0])
     else:
         POSITIES.clear()
-        lsvg, bw, bh = objecten(lx, oy, blok["bestaand"], uitzonderingen)
+        # de kolom links staat altijd onder elkaar: zo blijft zij binnen de breedte die het vlak al kreeg
+        lsvg, bw, bh = _objecten_kolom(lx, oy, blok["bestaand"], uitzonderingen, alles_onder=True)
         rsvg, rw, rh = objecten(rx, oy, blok["objecten"], uitzonderingen)
         oh = max(bh, rh)
     rechts_w = max(rkw, rw)
